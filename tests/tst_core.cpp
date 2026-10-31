@@ -53,6 +53,7 @@ class CoreTest : public QObject
     Q_OBJECT
 
 private slots:
+    void gradientHandlesRoundTrip();
     void timeConversion();
     void counterTextCountsInTheTextsFormat();
     void sceneTemplateSuggestionsScoreCountAndShape();
@@ -235,6 +236,31 @@ private slots:
     void applyMulticamSwitchRejectsEdges();
     void sliceClipToTimelineRangeKeepsSourceInSync();
 };
+
+// After Effects' gradient handles (0.29): points → gradient → the same points, for each kind.
+void CoreTest::gradientHandlesRoundTrip()
+{
+    using namespace drift;
+    const auto near = [](const QPointF &a, const QPointF &b) {
+        return std::abs(a.x() - b.x()) < 1e-6 && std::abs(a.y() - b.y()) < 1e-6;
+    };
+    for (TextGradientKind kind : {TextGradientKind::Linear, TextGradientKind::Radial, TextGradientKind::Sweep}) {
+        TextGradient g;
+        g.kind = kind;
+        const QPointF a(0.2, 0.3), b(0.9, 0.65);
+        setGradientFromHandles(g, a, b);
+        QPointF s, e;
+        gradientHandlePoints(g, &s, &e);
+        QVERIFY2(near(s, a), qPrintable(textGradientKindToString(kind)));
+        QVERIFY2(near(e, b), qPrintable(textGradientKindToString(kind)));
+    }
+    // The default linear gradient (top → bottom) reads as the box's top and bottom middles.
+    TextGradient g;
+    QPointF s, e;
+    gradientHandlePoints(g, &s, &e);
+    QVERIFY(near(s, QPointF(0.5, 0.0)));
+    QVERIFY(near(e, QPointF(0.5, 1.0)));
+}
 
 // The animated counter (0.17) counts the first number in the text from `from` to itself, in the
 // text's own format, and lands at 85 % of the clip.

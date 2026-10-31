@@ -857,7 +857,7 @@
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>වර්ණය</translation>
     </message>
     <message>
         <source>Reset colour</source>
@@ -5485,7 +5485,7 @@
     </message>
     <message>
         <source>Stroke width</source>
-        <translation type="unfinished"></translation>
+        <translation>රේඛා ඝනකම</translation>
     </message>
     <message>
         <source>Scale X</source>
@@ -8716,7 +8716,7 @@
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>වර්ණය</translation>
     </message>
     <message>
         <source>Starts at</source>
@@ -12904,7 +12904,7 @@ NEXT TIME</source>
     <name>ClipAnimPresetTile</name>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>කිසිවක් නැත</translation>
     </message>
 </context>
 <context>
@@ -14086,7 +14086,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>වර්ණය</translation>
     </message>
     <message>
         <source>Language…</source>
@@ -15564,6 +15564,93 @@ NEXT TIME</source>
     </message>
 </context>
 <context>
+    <name>FillOptionsDialog</name>
+    <message>
+        <source>Normal</source>
+        <translation>සාමාන්‍ය</translation>
+    </message>
+    <message>
+        <source>Multiply</source>
+        <translation>ගුණ කරන්න</translation>
+    </message>
+    <message>
+        <source>Screen</source>
+        <translation>තිරය</translation>
+    </message>
+    <message>
+        <source>Overlay</source>
+        <translation>අතිච්ඡාදනය</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>එකතු කරන්න</translation>
+    </message>
+    <message>
+        <source>Darken</source>
+        <translation>අඳුරු කරන්න</translation>
+    </message>
+    <message>
+        <source>Lighten</source>
+        <translation>ආලෝකමත් කරන්න</translation>
+    </message>
+    <message>
+        <source>Fill Options</source>
+        <translation>පිරවුම් විකල්ප</translation>
+    </message>
+    <message>
+        <source>Stroke Options</source>
+        <translation>රේඛා විකල්ප</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>කිසිවක් නැත</translation>
+    </message>
+    <message>
+        <source>Solid Color</source>
+        <translation>ඝන වර්ණය</translation>
+    </message>
+    <message>
+        <source>Linear Gradient</source>
+        <translation>රේඛීය ශ්‍රේණිය</translation>
+    </message>
+    <message>
+        <source>Radial Gradient</source>
+        <translation>අරීය ශ්‍රේණිය</translation>
+    </message>
+    <message>
+        <source>Sweep Gradient</source>
+        <translation>භ්‍රමණ ශ්‍රේණිය</translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation>වර්ණය</translation>
+    </message>
+    <message>
+        <source>Angle</source>
+        <translation>කෝණය</translation>
+    </message>
+    <message>
+        <source>Drag its two handles on the video to place it, as in After Effects.</source>
+        <translation>After Effects හි මෙන්, එය තැබීමට වීඩියෝවේ එහි හැසිරවීම් දෙක අදින්න.</translation>
+    </message>
+    <message>
+        <source>Blend mode</source>
+        <translation>මිශ්‍ර කිරීමේ ප්‍රකාරය</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation>පාරාන්ධතාව</translation>
+    </message>
+    <message>
+        <source>Stroke width</source>
+        <translation>රේඛා ඝනකම</translation>
+    </message>
+    <message>
+        <source>Preview</source>
+        <translation>පෙරදසුන</translation>
+    </message>
+</context>
+<context>
     <name>FiltersTab</name>
     <message>
         <source>Trending</source>
@@ -15994,6 +16081,29 @@ NEXT TIME</source>
     <message>
         <source>File</source>
         <translation>ගොනුව</translation>
+    </message>
+</context>
+<context>
+    <name>GradientHandlesOverlay</name>
+    <message>
+        <source>Move gradient</source>
+        <translation>ශ්‍රේණිය ගෙන යන්න</translation>
+    </message>
+    <message>
+        <source>Gradient centre: drag to move it</source>
+        <translation>ශ්‍රේණියේ මධ්‍යය: ගෙන යාමට අදින්න</translation>
+    </message>
+    <message>
+        <source>Gradient start: drag to move it</source>
+        <translation>ශ්‍රේණියේ ආරම්භය: ගෙන යාමට අදින්න</translation>
+    </message>
+    <message>
+        <source>Gradient radius: drag to resize it</source>
+        <translation>ශ්‍රේණියේ අරය: ප්‍රමාණය වෙනස් කිරීමට අදින්න</translation>
+    </message>
+    <message>
+        <source>Gradient end: drag to move it</source>
+        <translation>ශ්‍රේණියේ අවසානය: ගෙන යාමට අදින්න</translation>
     </message>
 </context>
 <context>
@@ -18750,7 +18860,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>වර්ණය</translation>
     </message>
     <message>
         <source>Intensity</source>
@@ -18814,7 +18924,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>පාරාන්ධතාව</translation>
     </message>
     <message>
         <source>Offered as a control of the composition: click to take it out</source>
@@ -18862,7 +18972,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>කිසිවක් නැත</translation>
     </message>
     <message>
         <source>The layer this one follows</source>
@@ -20245,6 +20355,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Polygon</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fill Options: none, solid, linear or radial gradient, blend mode and opacity</source>
+        <translation>පිරවුම් විකල්ප: කිසිවක් නැත, ඝන, රේඛීය හෝ අරීය ශ්‍රේණිය, මිශ්‍ර කිරීමේ ප්‍රකාරය සහ පාරාන්ධතාව</translation>
+    </message>
+    <message>
+        <source>Stroke Options: none, solid, linear or radial gradient, blend mode and opacity</source>
+        <translation>රේඛා විකල්ප: කිසිවක් නැත, ඝන, රේඛීය හෝ අරීය ශ්‍රේණිය, මිශ්‍ර කිරීමේ ප්‍රකාරය සහ පාරාන්ධතාව</translation>
     </message>
     <message>
         <source>Selection</source>
@@ -23418,7 +23536,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>එකතු කරන්න</translation>
     </message>
     <message>
         <source>Add a shape or a group to this layer (After Effects: Add)</source>
@@ -23613,7 +23731,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>වර්ණය</translation>
     </message>
     <message>
         <source>Generate liquid trail</source>
@@ -23692,35 +23810,35 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>පාරාන්ධතාව</translation>
     </message>
     <message>
         <source>Blend mode</source>
-        <translation type="unfinished"></translation>
+        <translation>මිශ්‍ර කිරීමේ ප්‍රකාරය</translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>සාමාන්‍ය</translation>
     </message>
     <message>
         <source>Multiply</source>
-        <translation type="unfinished"></translation>
+        <translation>ගුණ කරන්න</translation>
     </message>
     <message>
         <source>Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>තිරය</translation>
     </message>
     <message>
         <source>Overlay</source>
-        <translation type="unfinished"></translation>
+        <translation>අතිච්ඡාදනය</translation>
     </message>
     <message>
         <source>Darken</source>
-        <translation type="unfinished"></translation>
+        <translation>අඳුරු කරන්න</translation>
     </message>
     <message>
         <source>Lighten</source>
-        <translation type="unfinished"></translation>
+        <translation>ආලෝකමත් කරන්න</translation>
     </message>
     <message>
         <source>Wiggle</source>
@@ -23996,7 +24114,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>එකතු කරන්න</translation>
     </message>
     <message>
         <source>Subtract</source>
@@ -24532,7 +24650,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>එකතු කරන්න</translation>
     </message>
     <message>
         <source>Apply</source>
@@ -24560,7 +24678,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>වර්ණය</translation>
     </message>
 </context>
 <context>
@@ -26970,7 +27088,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>වර්ණය</translation>
     </message>
     <message>
         <source>Holographic shimmer</source>
@@ -27477,7 +27595,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>සාමාන්‍ය</translation>
     </message>
     <message>
         <source>On the line</source>
@@ -28200,7 +28318,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>වර්ණය</translation>
     </message>
     <message>
         <source>Intensity</source>
@@ -29473,7 +29591,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>කිසිවක් නැත</translation>
     </message>
     <message>
         <source>Use as mask stuck to</source>
@@ -30304,7 +30422,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>එකතු කරන්න</translation>
     </message>
     <message>
         <source>Add a shape or a group to this layer</source>
@@ -30332,31 +30450,31 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>සාමාන්‍ය</translation>
     </message>
     <message>
         <source>Multiply</source>
-        <translation type="unfinished"></translation>
+        <translation>ගුණ කරන්න</translation>
     </message>
     <message>
         <source>Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>තිරය</translation>
     </message>
     <message>
         <source>Overlay</source>
-        <translation type="unfinished"></translation>
+        <translation>අතිච්ඡාදනය</translation>
     </message>
     <message>
         <source>Darken</source>
-        <translation type="unfinished"></translation>
+        <translation>අඳුරු කරන්න</translation>
     </message>
     <message>
         <source>Lighten</source>
-        <translation type="unfinished"></translation>
+        <translation>ආලෝකමත් කරන්න</translation>
     </message>
     <message>
         <source>Blend mode</source>
-        <translation type="unfinished"></translation>
+        <translation>මිශ්‍ර කිරීමේ ප්‍රකාරය</translation>
     </message>
     <message>
         <source>Duplicate</source>
@@ -30400,7 +30518,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>වර්ණය</translation>
     </message>
     <message>
         <source>Constrain proportions: on</source>
@@ -30593,7 +30711,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>පාරාන්ධතාව</translation>
     </message>
     <message>
         <source>Volume</source>
@@ -33005,7 +33123,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Preview</source>
-        <translation type="unfinished"></translation>
+        <translation>පෙරදසුන</translation>
     </message>
     <message>
         <source>Properties</source>
@@ -33036,7 +33154,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Preview</source>
-        <translation type="unfinished"></translation>
+        <translation>පෙරදසුන</translation>
     </message>
     <message>
         <source>Properties</source>

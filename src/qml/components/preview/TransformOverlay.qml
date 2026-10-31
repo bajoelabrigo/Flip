@@ -315,6 +315,13 @@ Item {
         onTextEditRequested: (track, clip, selectAll) => root.textEditRequested(track, clip, selectAll)
     }
 
+    // A gradient's two handles on the picked shape or text (0.29, After Effects).
+    GradientHandlesOverlay {
+        anchors.fill: parent
+        z: 956
+        box: root.mode3d ? null : root.selectedBox
+    }
+
     Repeater {
         id: clipRepeater
 

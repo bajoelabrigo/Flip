@@ -15568,6 +15568,93 @@ LA PRÓXIMA</translation>
     </message>
 </context>
 <context>
+    <name>FillOptionsDialog</name>
+    <message>
+        <source>Normal</source>
+        <translation>Normal</translation>
+    </message>
+    <message>
+        <source>Multiply</source>
+        <translation>Multiplicar</translation>
+    </message>
+    <message>
+        <source>Screen</source>
+        <translation>Trama</translation>
+    </message>
+    <message>
+        <source>Overlay</source>
+        <translation>Superponer</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>Sumar</translation>
+    </message>
+    <message>
+        <source>Darken</source>
+        <translation>Oscurecer</translation>
+    </message>
+    <message>
+        <source>Lighten</source>
+        <translation>Aclarar</translation>
+    </message>
+    <message>
+        <source>Fill Options</source>
+        <translation>Opciones de relleno</translation>
+    </message>
+    <message>
+        <source>Stroke Options</source>
+        <translation>Opciones de trazo</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Ninguno</translation>
+    </message>
+    <message>
+        <source>Solid Color</source>
+        <translation>Color sólido</translation>
+    </message>
+    <message>
+        <source>Linear Gradient</source>
+        <translation>Degradado lineal</translation>
+    </message>
+    <message>
+        <source>Radial Gradient</source>
+        <translation>Degradado radial</translation>
+    </message>
+    <message>
+        <source>Sweep Gradient</source>
+        <translation>Degradado en barrido</translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation>Color</translation>
+    </message>
+    <message>
+        <source>Angle</source>
+        <translation>Ángulo</translation>
+    </message>
+    <message>
+        <source>Drag its two handles on the video to place it, as in After Effects.</source>
+        <translation>Arrastra sus dos tiradores en el video para colocarlo, como en After Effects.</translation>
+    </message>
+    <message>
+        <source>Blend mode</source>
+        <translation>Modo de fusión</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation>Opacidad</translation>
+    </message>
+    <message>
+        <source>Stroke width</source>
+        <translation>Grosor del trazo</translation>
+    </message>
+    <message>
+        <source>Preview</source>
+        <translation>Vista previa</translation>
+    </message>
+</context>
+<context>
     <name>FiltersTab</name>
     <message>
         <source>Trending</source>
@@ -15998,6 +16085,29 @@ LA PRÓXIMA</translation>
     <message>
         <source>File</source>
         <translation>Archivo</translation>
+    </message>
+</context>
+<context>
+    <name>GradientHandlesOverlay</name>
+    <message>
+        <source>Move gradient</source>
+        <translation>Mover degradado</translation>
+    </message>
+    <message>
+        <source>Gradient centre: drag to move it</source>
+        <translation>Centro del degradado: arrástralo para moverlo</translation>
+    </message>
+    <message>
+        <source>Gradient start: drag to move it</source>
+        <translation>Inicio del degradado: arrástralo para moverlo</translation>
+    </message>
+    <message>
+        <source>Gradient radius: drag to resize it</source>
+        <translation>Radio del degradado: arrástralo para cambiar su tamaño</translation>
+    </message>
+    <message>
+        <source>Gradient end: drag to move it</source>
+        <translation>Fin del degradado: arrástralo para moverlo</translation>
     </message>
 </context>
 <context>
@@ -20249,6 +20359,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Polygon</source>
         <translation>Polígono</translation>
+    </message>
+    <message>
+        <source>Fill Options: none, solid, linear or radial gradient, blend mode and opacity</source>
+        <translation>Opciones de relleno: ninguno, sólido, degradado lineal o radial, modo de fusión y opacidad</translation>
+    </message>
+    <message>
+        <source>Stroke Options: none, solid, linear or radial gradient, blend mode and opacity</source>
+        <translation>Opciones de trazo: ninguno, sólido, degradado lineal o radial, modo de fusión y opacidad</translation>
     </message>
     <message>
         <source>Selection</source>

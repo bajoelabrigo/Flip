@@ -5585,7 +5585,7 @@
     </message>
     <message>
         <source>Stroke width</source>
-        <translation type="unfinished"></translation>
+        <translation>রেখার পুরুত্ব</translation>
     </message>
     <message>
         <source>Scale X</source>
@@ -12904,7 +12904,7 @@ NEXT TIME</source>
     <name>ClipAnimPresetTile</name>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>কিছু না</translation>
     </message>
 </context>
 <context>
@@ -15564,6 +15564,93 @@ NEXT TIME</source>
     </message>
 </context>
 <context>
+    <name>FillOptionsDialog</name>
+    <message>
+        <source>Normal</source>
+        <translation>সাধারণ</translation>
+    </message>
+    <message>
+        <source>Multiply</source>
+        <translation>গুণ</translation>
+    </message>
+    <message>
+        <source>Screen</source>
+        <translation>স্ক্রিন</translation>
+    </message>
+    <message>
+        <source>Overlay</source>
+        <translation>ওভারলে</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>যোগ</translation>
+    </message>
+    <message>
+        <source>Darken</source>
+        <translation>গাঢ়</translation>
+    </message>
+    <message>
+        <source>Lighten</source>
+        <translation>হালকা</translation>
+    </message>
+    <message>
+        <source>Fill Options</source>
+        <translation>ভরাট বিকল্প</translation>
+    </message>
+    <message>
+        <source>Stroke Options</source>
+        <translation>রেখা বিকল্প</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>কিছু না</translation>
+    </message>
+    <message>
+        <source>Solid Color</source>
+        <translation>একরঙা</translation>
+    </message>
+    <message>
+        <source>Linear Gradient</source>
+        <translation>রৈখিক গ্রেডিয়েন্ট</translation>
+    </message>
+    <message>
+        <source>Radial Gradient</source>
+        <translation>বৃত্তাকার গ্রেডিয়েন্ট</translation>
+    </message>
+    <message>
+        <source>Sweep Gradient</source>
+        <translation>ঘূর্ণি গ্রেডিয়েন্ট</translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation>রং</translation>
+    </message>
+    <message>
+        <source>Angle</source>
+        <translation>কোণ</translation>
+    </message>
+    <message>
+        <source>Drag its two handles on the video to place it, as in After Effects.</source>
+        <translation>After Effects-এর মতো, ভিডিওতে এর দুটি হ্যান্ডেল টেনে এটি বসান।</translation>
+    </message>
+    <message>
+        <source>Blend mode</source>
+        <translation>মিশ্রণ মোড</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation>অস্বচ্ছতা</translation>
+    </message>
+    <message>
+        <source>Stroke width</source>
+        <translation>রেখার পুরুত্ব</translation>
+    </message>
+    <message>
+        <source>Preview</source>
+        <translation>প্রিভিউ</translation>
+    </message>
+</context>
+<context>
     <name>FiltersTab</name>
     <message>
         <source>Trending</source>
@@ -15994,6 +16081,29 @@ NEXT TIME</source>
     <message>
         <source>File</source>
         <translation type="unfinished">ফাইল</translation>
+    </message>
+</context>
+<context>
+    <name>GradientHandlesOverlay</name>
+    <message>
+        <source>Move gradient</source>
+        <translation>গ্রেডিয়েন্ট সরান</translation>
+    </message>
+    <message>
+        <source>Gradient centre: drag to move it</source>
+        <translation>গ্রেডিয়েন্টের কেন্দ্র: সরাতে টানুন</translation>
+    </message>
+    <message>
+        <source>Gradient start: drag to move it</source>
+        <translation>গ্রেডিয়েন্টের শুরু: সরাতে টানুন</translation>
+    </message>
+    <message>
+        <source>Gradient radius: drag to resize it</source>
+        <translation>গ্রেডিয়েন্টের ব্যাসার্ধ: আকার বদলাতে টানুন</translation>
+    </message>
+    <message>
+        <source>Gradient end: drag to move it</source>
+        <translation>গ্রেডিয়েন্টের শেষ: সরাতে টানুন</translation>
     </message>
 </context>
 <context>
@@ -18750,7 +18860,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>রং</translation>
     </message>
     <message>
         <source>Intensity</source>
@@ -18814,7 +18924,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>অস্বচ্ছতা</translation>
     </message>
     <message>
         <source>Offered as a control of the composition: click to take it out</source>
@@ -18862,7 +18972,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>কিছু না</translation>
     </message>
     <message>
         <source>The layer this one follows</source>
@@ -20245,6 +20355,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Polygon</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fill Options: none, solid, linear or radial gradient, blend mode and opacity</source>
+        <translation>ভরাট বিকল্প: কিছু না, একরঙা, রৈখিক বা বৃত্তাকার গ্রেডিয়েন্ট, মিশ্রণ মোড ও অস্বচ্ছতা</translation>
+    </message>
+    <message>
+        <source>Stroke Options: none, solid, linear or radial gradient, blend mode and opacity</source>
+        <translation>রেখা বিকল্প: কিছু না, একরঙা, রৈখিক বা বৃত্তাকার গ্রেডিয়েন্ট, মিশ্রণ মোড ও অস্বচ্ছতা</translation>
     </message>
     <message>
         <source>Selection</source>
@@ -23418,7 +23536,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>যোগ</translation>
     </message>
     <message>
         <source>Add a shape or a group to this layer (After Effects: Add)</source>
@@ -23613,7 +23731,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>রং</translation>
     </message>
     <message>
         <source>Generate liquid trail</source>
@@ -23692,35 +23810,35 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>অস্বচ্ছতা</translation>
     </message>
     <message>
         <source>Blend mode</source>
-        <translation type="unfinished"></translation>
+        <translation>মিশ্রণ মোড</translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>সাধারণ</translation>
     </message>
     <message>
         <source>Multiply</source>
-        <translation type="unfinished"></translation>
+        <translation>গুণ</translation>
     </message>
     <message>
         <source>Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>স্ক্রিন</translation>
     </message>
     <message>
         <source>Overlay</source>
-        <translation type="unfinished"></translation>
+        <translation>ওভারলে</translation>
     </message>
     <message>
         <source>Darken</source>
-        <translation type="unfinished"></translation>
+        <translation>গাঢ়</translation>
     </message>
     <message>
         <source>Lighten</source>
-        <translation type="unfinished"></translation>
+        <translation>হালকা</translation>
     </message>
     <message>
         <source>Wiggle</source>
@@ -23996,7 +24114,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>যোগ</translation>
     </message>
     <message>
         <source>Subtract</source>
@@ -24532,7 +24650,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>যোগ</translation>
     </message>
     <message>
         <source>Apply</source>
@@ -24560,7 +24678,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>রং</translation>
     </message>
 </context>
 <context>
@@ -27513,7 +27631,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>সাধারণ</translation>
     </message>
     <message>
         <source>On the line</source>
@@ -29473,7 +29591,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>কিছু না</translation>
     </message>
     <message>
         <source>Use as mask stuck to</source>
@@ -30304,7 +30422,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>যোগ</translation>
     </message>
     <message>
         <source>Add a shape or a group to this layer</source>
@@ -30332,31 +30450,31 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>সাধারণ</translation>
     </message>
     <message>
         <source>Multiply</source>
-        <translation type="unfinished"></translation>
+        <translation>গুণ</translation>
     </message>
     <message>
         <source>Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>স্ক্রিন</translation>
     </message>
     <message>
         <source>Overlay</source>
-        <translation type="unfinished"></translation>
+        <translation>ওভারলে</translation>
     </message>
     <message>
         <source>Darken</source>
-        <translation type="unfinished"></translation>
+        <translation>গাঢ়</translation>
     </message>
     <message>
         <source>Lighten</source>
-        <translation type="unfinished"></translation>
+        <translation>হালকা</translation>
     </message>
     <message>
         <source>Blend mode</source>
-        <translation type="unfinished"></translation>
+        <translation>মিশ্রণ মোড</translation>
     </message>
     <message>
         <source>Duplicate</source>
@@ -30400,7 +30518,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>রং</translation>
     </message>
     <message>
         <source>Constrain proportions: on</source>
@@ -30593,7 +30711,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>অস্বচ্ছতা</translation>
     </message>
     <message>
         <source>Volume</source>
@@ -33005,7 +33123,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Preview</source>
-        <translation type="unfinished"></translation>
+        <translation>প্রিভিউ</translation>
     </message>
     <message>
         <source>Properties</source>
@@ -33036,7 +33154,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Preview</source>
-        <translation type="unfinished"></translation>
+        <translation>প্রিভিউ</translation>
     </message>
     <message>
         <source>Properties</source>

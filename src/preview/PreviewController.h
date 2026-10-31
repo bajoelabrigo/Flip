@@ -61,6 +61,10 @@ class PreviewController : public QObject
     Q_PROPERTY(QString toolFill READ toolFill WRITE setToolFill NOTIFY toolChanged)
     Q_PROPERTY(QString toolStroke READ toolStroke WRITE setToolStroke NOTIFY toolChanged)
     Q_PROPERTY(double toolStrokeWidth READ toolStrokeWidth WRITE setToolStrokeWidth NOTIFY toolChanged)
+    // Fill / Stroke Options (0.29, After Effects): a layer patch ({paint, opacity, blend}) that new
+    // shapes and the pen take on top of toolFill / toolStroke; {} for a plain solid colour.
+    Q_PROPERTY(QVariantMap toolFillOptions READ toolFillOptions WRITE setToolFillOptions NOTIFY toolChanged)
+    Q_PROPERTY(QVariantMap toolStrokeOptions READ toolStrokeOptions WRITE setToolStrokeOptions NOTIFY toolChanged)
     Q_PROPERTY(bool maskEditMode READ maskEditMode WRITE setMaskEditMode NOTIFY maskEditModeChanged)
     // Whether the preview should be showing mask handles right now. Selecting a mask clip is
     // itself a request to edit it, so the toggle is only needed to keep the handles up while some
@@ -142,6 +146,22 @@ public:
         if (c == m_toolStroke)
             return;
         m_toolStroke = c;
+        emit toolChanged();
+    }
+    QVariantMap toolFillOptions() const { return m_toolFillOptions; }
+    void setToolFillOptions(const QVariantMap &o)
+    {
+        if (o == m_toolFillOptions)
+            return;
+        m_toolFillOptions = o;
+        emit toolChanged();
+    }
+    QVariantMap toolStrokeOptions() const { return m_toolStrokeOptions; }
+    void setToolStrokeOptions(const QVariantMap &o)
+    {
+        if (o == m_toolStrokeOptions)
+            return;
+        m_toolStrokeOptions = o;
         emit toolChanged();
     }
     double toolStrokeWidth() const { return m_toolStrokeWidth; }
@@ -327,6 +347,8 @@ private:
     // "none" leaves that paint off.
     QString m_toolFill = QStringLiteral("#ffff4d6d");
     QString m_toolStroke = QStringLiteral("#ffffffff");
+    QVariantMap m_toolFillOptions;
+    QVariantMap m_toolStrokeOptions;
     double m_toolStrokeWidth = 0.0;
     bool m_maskEditMode = false;
     QString m_activeTool = QStringLiteral("transform");

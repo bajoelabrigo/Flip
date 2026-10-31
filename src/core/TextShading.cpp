@@ -4,6 +4,9 @@
 #include <QHash>
 #include <QJsonArray>
 #include <QRandomGenerator>
+#include <QtMath>
+
+#include <cmath>
 
 namespace drift {
 
@@ -207,6 +210,54 @@ StrokeDash strokeDashFromString(const QString &dash)
     if (dash == QStringLiteral("dashdot") || dash == QStringLiteral("dashDot"))
         return StrokeDash::DashDot;
     return StrokeDash::Solid;
+}
+
+// The renderer maps a local point q to the box's unit square as c + R(a)·(s·(q + (offset, 0) − c)),
+// c = (0.5, 0.5); a linear gradient runs from local (0, 0.5) to (1, 0.5), a radial one is centred
+// on `center` with radius 0.5 (see gradientShaderFor).
+void gradientHandlePoints(const TextGradient &g, QPointF *start, QPointF *end)
+{
+    const double a = qDegreesToRadians(g.angle);
+    const QPointF u(std::cos(a), std::sin(a));
+    const double s = qMax(0.01, g.scale);
+    const QPointF c(0.5, 0.5);
+    if (g.kind == TextGradientKind::Linear) {
+        if (start)
+            *start = c + u * (s * (g.offset - 0.5));
+        if (end)
+            *end = c + u * (s * (g.offset + 0.5));
+        return;
+    }
+    const QPointF q = g.center + QPointF(g.offset, 0.0) - c;
+    const QPointF centre = c + QPointF(u.x() * q.x() - u.y() * q.y(), u.y() * q.x() + u.x() * q.y()) * s;
+    if (start)
+        *start = centre;
+    if (end)
+        *end = centre + u * (s * 0.5);
+}
+
+void setGradientFromHandles(TextGradient &g, const QPointF &start, const QPointF &end)
+{
+    const QPointF d = end - start;
+    const double length = std::hypot(d.x(), d.y());
+    if (length < 1e-6)
+        return;
+    const double a = std::atan2(d.y(), d.x());
+    const QPointF u(std::cos(a), std::sin(a));
+    const QPointF c(0.5, 0.5);
+    g.angle = qRadiansToDegrees(a);
+    if (g.kind == TextGradientKind::Linear) {
+        g.scale = length;
+        const QPointF mid = (start + end) / 2.0 - c;
+        g.offset = (mid.x() * u.x() + mid.y() * u.y()) / length;
+        return;
+    }
+    g.scale = qMax(0.01, 2.0 * length);
+    g.offset = 0.0;
+    const QPointF p = start - c;
+    // R(−a)·p / s, back into the gradient's own frame.
+    const QPointF local(u.x() * p.x() + u.y() * p.y(), -u.y() * p.x() + u.x() * p.y());
+    g.center = c + local / g.scale;
 }
 
 QList<double> strokeDashIntervals(StrokeDash dash)

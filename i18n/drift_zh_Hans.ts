@@ -5468,7 +5468,7 @@
     </message>
     <message>
         <source>Stroke width</source>
-        <translation type="unfinished"></translation>
+        <translation>描边宽度</translation>
     </message>
     <message>
         <source>Scale X</source>
@@ -15513,6 +15513,93 @@ NEXT TIME</source>
     </message>
 </context>
 <context>
+    <name>FillOptionsDialog</name>
+    <message>
+        <source>Normal</source>
+        <translation>正常</translation>
+    </message>
+    <message>
+        <source>Multiply</source>
+        <translation>正片叠底</translation>
+    </message>
+    <message>
+        <source>Screen</source>
+        <translation>滤色</translation>
+    </message>
+    <message>
+        <source>Overlay</source>
+        <translation>叠加</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>相加</translation>
+    </message>
+    <message>
+        <source>Darken</source>
+        <translation>变暗</translation>
+    </message>
+    <message>
+        <source>Lighten</source>
+        <translation>变亮</translation>
+    </message>
+    <message>
+        <source>Fill Options</source>
+        <translation>填充选项</translation>
+    </message>
+    <message>
+        <source>Stroke Options</source>
+        <translation>描边选项</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>无</translation>
+    </message>
+    <message>
+        <source>Solid Color</source>
+        <translation>纯色</translation>
+    </message>
+    <message>
+        <source>Linear Gradient</source>
+        <translation>线性渐变</translation>
+    </message>
+    <message>
+        <source>Radial Gradient</source>
+        <translation>径向渐变</translation>
+    </message>
+    <message>
+        <source>Sweep Gradient</source>
+        <translation>扫描渐变</translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation>颜色</translation>
+    </message>
+    <message>
+        <source>Angle</source>
+        <translation>角度</translation>
+    </message>
+    <message>
+        <source>Drag its two handles on the video to place it, as in After Effects.</source>
+        <translation>像在 After Effects 中一样，拖动视频上的两个手柄来放置它。</translation>
+    </message>
+    <message>
+        <source>Blend mode</source>
+        <translation>混合模式</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation>不透明度</translation>
+    </message>
+    <message>
+        <source>Stroke width</source>
+        <translation>描边宽度</translation>
+    </message>
+    <message>
+        <source>Preview</source>
+        <translation>预览</translation>
+    </message>
+</context>
+<context>
     <name>FiltersTab</name>
     <message>
         <source>Trending</source>
@@ -15941,6 +16028,29 @@ NEXT TIME</source>
     <message>
         <source>File</source>
         <translation>文件</translation>
+    </message>
+</context>
+<context>
+    <name>GradientHandlesOverlay</name>
+    <message>
+        <source>Move gradient</source>
+        <translation>移动渐变</translation>
+    </message>
+    <message>
+        <source>Gradient centre: drag to move it</source>
+        <translation>渐变中心：拖动以移动</translation>
+    </message>
+    <message>
+        <source>Gradient start: drag to move it</source>
+        <translation>渐变起点：拖动以移动</translation>
+    </message>
+    <message>
+        <source>Gradient radius: drag to resize it</source>
+        <translation>渐变半径：拖动以调整大小</translation>
+    </message>
+    <message>
+        <source>Gradient end: drag to move it</source>
+        <translation>渐变终点：拖动以移动</translation>
     </message>
 </context>
 <context>
@@ -18682,7 +18792,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>颜色</translation>
     </message>
     <message>
         <source>Intensity</source>
@@ -18746,7 +18856,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>不透明度</translation>
     </message>
     <message>
         <source>Offered as a control of the composition: click to take it out</source>
@@ -18794,7 +18904,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>无</translation>
     </message>
     <message>
         <source>The layer this one follows</source>
@@ -20171,6 +20281,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Polygon</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fill Options: none, solid, linear or radial gradient, blend mode and opacity</source>
+        <translation>填充选项：无、纯色、线性或径向渐变、混合模式和不透明度</translation>
+    </message>
+    <message>
+        <source>Stroke Options: none, solid, linear or radial gradient, blend mode and opacity</source>
+        <translation>描边选项：无、纯色、线性或径向渐变、混合模式和不透明度</translation>
     </message>
     <message>
         <source>Selection</source>
@@ -23337,7 +23455,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>相加</translation>
     </message>
     <message>
         <source>Add a shape or a group to this layer (After Effects: Add)</source>
@@ -23532,7 +23650,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>颜色</translation>
     </message>
     <message>
         <source>Generate liquid trail</source>
@@ -23611,35 +23729,35 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>不透明度</translation>
     </message>
     <message>
         <source>Blend mode</source>
-        <translation type="unfinished"></translation>
+        <translation>混合模式</translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>正常</translation>
     </message>
     <message>
         <source>Multiply</source>
-        <translation type="unfinished"></translation>
+        <translation>正片叠底</translation>
     </message>
     <message>
         <source>Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>滤色</translation>
     </message>
     <message>
         <source>Overlay</source>
-        <translation type="unfinished"></translation>
+        <translation>叠加</translation>
     </message>
     <message>
         <source>Darken</source>
-        <translation type="unfinished"></translation>
+        <translation>变暗</translation>
     </message>
     <message>
         <source>Lighten</source>
-        <translation type="unfinished"></translation>
+        <translation>变亮</translation>
     </message>
     <message>
         <source>Wiggle</source>
@@ -23915,7 +24033,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>相加</translation>
     </message>
     <message>
         <source>Subtract</source>
@@ -24451,7 +24569,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>相加</translation>
     </message>
     <message>
         <source>Apply</source>
@@ -24479,7 +24597,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>颜色</translation>
     </message>
 </context>
 <context>
@@ -27389,7 +27507,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>正常</translation>
     </message>
     <message>
         <source>On the line</source>
@@ -29385,7 +29503,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>无</translation>
     </message>
     <message>
         <source>Use as mask stuck to</source>
@@ -30213,7 +30331,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>相加</translation>
     </message>
     <message>
         <source>Add a shape or a group to this layer</source>
@@ -30241,31 +30359,31 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>正常</translation>
     </message>
     <message>
         <source>Multiply</source>
-        <translation type="unfinished"></translation>
+        <translation>正片叠底</translation>
     </message>
     <message>
         <source>Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>滤色</translation>
     </message>
     <message>
         <source>Overlay</source>
-        <translation type="unfinished"></translation>
+        <translation>叠加</translation>
     </message>
     <message>
         <source>Darken</source>
-        <translation type="unfinished"></translation>
+        <translation>变暗</translation>
     </message>
     <message>
         <source>Lighten</source>
-        <translation type="unfinished"></translation>
+        <translation>变亮</translation>
     </message>
     <message>
         <source>Blend mode</source>
-        <translation type="unfinished"></translation>
+        <translation>混合模式</translation>
     </message>
     <message>
         <source>Duplicate</source>
@@ -30309,7 +30427,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>颜色</translation>
     </message>
     <message>
         <source>Constrain proportions: on</source>
@@ -30500,7 +30618,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>不透明度</translation>
     </message>
     <message>
         <source>Volume</source>
@@ -32906,7 +33024,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Preview</source>
-        <translation type="unfinished"></translation>
+        <translation>预览</translation>
     </message>
     <message>
         <source>Properties</source>
@@ -32937,7 +33055,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Preview</source>
-        <translation type="unfinished"></translation>
+        <translation>预览</translation>
     </message>
     <message>
         <source>Properties</source>

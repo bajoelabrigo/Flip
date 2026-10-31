@@ -5476,7 +5476,7 @@
     </message>
     <message>
         <source>Stroke width</source>
-        <translation type="unfinished"></translation>
+        <translation>Độ dày viền</translation>
     </message>
     <message>
         <source>Scale X</source>
@@ -15513,6 +15513,93 @@ LẦN SAU</translation>
     </message>
 </context>
 <context>
+    <name>FillOptionsDialog</name>
+    <message>
+        <source>Normal</source>
+        <translation>Bình thường</translation>
+    </message>
+    <message>
+        <source>Multiply</source>
+        <translation>Nhân</translation>
+    </message>
+    <message>
+        <source>Screen</source>
+        <translation>Màn hình</translation>
+    </message>
+    <message>
+        <source>Overlay</source>
+        <translation>Lớp phủ</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>Cộng</translation>
+    </message>
+    <message>
+        <source>Darken</source>
+        <translation>Làm tối</translation>
+    </message>
+    <message>
+        <source>Lighten</source>
+        <translation>Làm sáng</translation>
+    </message>
+    <message>
+        <source>Fill Options</source>
+        <translation>Tùy chọn tô</translation>
+    </message>
+    <message>
+        <source>Stroke Options</source>
+        <translation>Tùy chọn viền</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Không</translation>
+    </message>
+    <message>
+        <source>Solid Color</source>
+        <translation>Màu đặc</translation>
+    </message>
+    <message>
+        <source>Linear Gradient</source>
+        <translation>Chuyển sắc tuyến tính</translation>
+    </message>
+    <message>
+        <source>Radial Gradient</source>
+        <translation>Chuyển sắc tròn</translation>
+    </message>
+    <message>
+        <source>Sweep Gradient</source>
+        <translation>Chuyển sắc quét</translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation>Màu</translation>
+    </message>
+    <message>
+        <source>Angle</source>
+        <translation>Góc</translation>
+    </message>
+    <message>
+        <source>Drag its two handles on the video to place it, as in After Effects.</source>
+        <translation>Kéo hai tay cầm trên video để đặt nó, như trong After Effects.</translation>
+    </message>
+    <message>
+        <source>Blend mode</source>
+        <translation>Chế độ hòa trộn</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation>Độ mờ đục</translation>
+    </message>
+    <message>
+        <source>Stroke width</source>
+        <translation>Độ dày viền</translation>
+    </message>
+    <message>
+        <source>Preview</source>
+        <translation>Xem trước</translation>
+    </message>
+</context>
+<context>
     <name>FiltersTab</name>
     <message>
         <source>Trending</source>
@@ -15941,6 +16028,29 @@ LẦN SAU</translation>
     <message>
         <source>File</source>
         <translation>Tệp</translation>
+    </message>
+</context>
+<context>
+    <name>GradientHandlesOverlay</name>
+    <message>
+        <source>Move gradient</source>
+        <translation>Di chuyển chuyển sắc</translation>
+    </message>
+    <message>
+        <source>Gradient centre: drag to move it</source>
+        <translation>Tâm chuyển sắc: kéo để di chuyển</translation>
+    </message>
+    <message>
+        <source>Gradient start: drag to move it</source>
+        <translation>Đầu chuyển sắc: kéo để di chuyển</translation>
+    </message>
+    <message>
+        <source>Gradient radius: drag to resize it</source>
+        <translation>Bán kính chuyển sắc: kéo để đổi cỡ</translation>
+    </message>
+    <message>
+        <source>Gradient end: drag to move it</source>
+        <translation>Cuối chuyển sắc: kéo để di chuyển</translation>
     </message>
 </context>
 <context>
@@ -18682,7 +18792,7 @@ LẦN SAU</translation>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Màu</translation>
     </message>
     <message>
         <source>Intensity</source>
@@ -18746,7 +18856,7 @@ LẦN SAU</translation>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Độ mờ đục</translation>
     </message>
     <message>
         <source>Offered as a control of the composition: click to take it out</source>
@@ -18794,7 +18904,7 @@ LẦN SAU</translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>Không</translation>
     </message>
     <message>
         <source>The layer this one follows</source>
@@ -20171,6 +20281,14 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Polygon</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fill Options: none, solid, linear or radial gradient, blend mode and opacity</source>
+        <translation>Tùy chọn tô: không, màu đặc, chuyển sắc tuyến tính hoặc tròn, chế độ hòa trộn và độ mờ đục</translation>
+    </message>
+    <message>
+        <source>Stroke Options: none, solid, linear or radial gradient, blend mode and opacity</source>
+        <translation>Tùy chọn viền: không, màu đặc, chuyển sắc tuyến tính hoặc tròn, chế độ hòa trộn và độ mờ đục</translation>
     </message>
     <message>
         <source>Selection</source>
@@ -23337,7 +23455,7 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Cộng</translation>
     </message>
     <message>
         <source>Add a shape or a group to this layer (After Effects: Add)</source>
@@ -23532,7 +23650,7 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Màu</translation>
     </message>
     <message>
         <source>Generate liquid trail</source>
@@ -23611,35 +23729,35 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Độ mờ đục</translation>
     </message>
     <message>
         <source>Blend mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Chế độ hòa trộn</translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>Bình thường</translation>
     </message>
     <message>
         <source>Multiply</source>
-        <translation type="unfinished"></translation>
+        <translation>Nhân</translation>
     </message>
     <message>
         <source>Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Màn hình</translation>
     </message>
     <message>
         <source>Overlay</source>
-        <translation type="unfinished"></translation>
+        <translation>Lớp phủ</translation>
     </message>
     <message>
         <source>Darken</source>
-        <translation type="unfinished"></translation>
+        <translation>Làm tối</translation>
     </message>
     <message>
         <source>Lighten</source>
-        <translation type="unfinished"></translation>
+        <translation>Làm sáng</translation>
     </message>
     <message>
         <source>Wiggle</source>
@@ -23915,7 +24033,7 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Cộng</translation>
     </message>
     <message>
         <source>Subtract</source>
@@ -24451,7 +24569,7 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Cộng</translation>
     </message>
     <message>
         <source>Apply</source>
@@ -24479,7 +24597,7 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Màu</translation>
     </message>
 </context>
 <context>
@@ -27322,7 +27440,7 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>Bình thường</translation>
     </message>
     <message>
         <source>On the line</source>
@@ -29386,7 +29504,7 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>Không</translation>
     </message>
     <message>
         <source>Use as mask stuck to</source>
@@ -30214,7 +30332,7 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Cộng</translation>
     </message>
     <message>
         <source>Add a shape or a group to this layer</source>
@@ -30242,31 +30360,31 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>Bình thường</translation>
     </message>
     <message>
         <source>Multiply</source>
-        <translation type="unfinished"></translation>
+        <translation>Nhân</translation>
     </message>
     <message>
         <source>Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Màn hình</translation>
     </message>
     <message>
         <source>Overlay</source>
-        <translation type="unfinished"></translation>
+        <translation>Lớp phủ</translation>
     </message>
     <message>
         <source>Darken</source>
-        <translation type="unfinished"></translation>
+        <translation>Làm tối</translation>
     </message>
     <message>
         <source>Lighten</source>
-        <translation type="unfinished"></translation>
+        <translation>Làm sáng</translation>
     </message>
     <message>
         <source>Blend mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Chế độ hòa trộn</translation>
     </message>
     <message>
         <source>Duplicate</source>
@@ -30310,7 +30428,7 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Màu</translation>
     </message>
     <message>
         <source>Constrain proportions: on</source>
@@ -30501,7 +30619,7 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Độ mờ đục</translation>
     </message>
     <message>
         <source>Volume</source>
@@ -32907,7 +33025,7 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     </message>
     <message>
         <source>Preview</source>
-        <translation type="unfinished"></translation>
+        <translation>Xem trước</translation>
     </message>
     <message>
         <source>Properties</source>
@@ -32938,7 +33056,7 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     </message>
     <message>
         <source>Preview</source>
-        <translation type="unfinished"></translation>
+        <translation>Xem trước</translation>
     </message>
     <message>
         <source>Properties</source>

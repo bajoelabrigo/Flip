@@ -857,7 +857,7 @@
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Kulay</translation>
     </message>
     <message>
         <source>Reset colour</source>
@@ -5167,7 +5167,7 @@
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Opacity</translation>
     </message>
     <message>
         <source>Show rulers</source>
@@ -5489,7 +5489,7 @@
     </message>
     <message>
         <source>Stroke width</source>
-        <translation type="unfinished"></translation>
+        <translation>Kapal ng stroke</translation>
     </message>
     <message>
         <source>Scale X</source>
@@ -6005,7 +6005,7 @@
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Kulay</translation>
     </message>
     <message>
         <source>Hold</source>
@@ -7980,7 +7980,7 @@
     <name>BlendingInspector</name>
     <message>
         <source>Blend mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Blend mode</translation>
     </message>
     <message>
         <source>How this clip&apos;s colours combine with the tracks beneath it.</source>
@@ -7988,31 +7988,31 @@
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>Normal</translation>
     </message>
     <message>
         <source>Multiply</source>
-        <translation type="unfinished"></translation>
+        <translation>Multiply</translation>
     </message>
     <message>
         <source>Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Screen</translation>
     </message>
     <message>
         <source>Overlay</source>
-        <translation type="unfinished"></translation>
+        <translation>Overlay</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Idagdag</translation>
     </message>
     <message>
         <source>Darken</source>
-        <translation type="unfinished"></translation>
+        <translation>Padilimin</translation>
     </message>
     <message>
         <source>Lighten</source>
-        <translation type="unfinished"></translation>
+        <translation>Paliwanagin</translation>
     </message>
     <message>
         <source>Soft light</source>
@@ -8716,7 +8716,7 @@
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Kulay</translation>
     </message>
     <message>
         <source>Starts at</source>
@@ -9084,7 +9084,7 @@
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Opacity</translation>
     </message>
     <message>
         <source>Eyeshadow</source>
@@ -9400,7 +9400,7 @@
     </message>
     <message>
         <source>Lighten</source>
-        <translation type="unfinished"></translation>
+        <translation>Paliwanagin</translation>
     </message>
     <message>
         <source>Halation</source>
@@ -9424,7 +9424,7 @@
     </message>
     <message>
         <source>Angle</source>
-        <translation type="unfinished"></translation>
+        <translation>Anggulo</translation>
     </message>
     <message>
         <source>Kaleidoscope</source>
@@ -12904,7 +12904,7 @@ NEXT TIME</source>
     <name>ClipAnimPresetTile</name>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>Wala</translation>
     </message>
 </context>
 <context>
@@ -13757,7 +13757,7 @@ NEXT TIME</source>
     <name>DriftAssetCard</name>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Idagdag</translation>
     </message>
     <message numerus="yes">
         <source>%n style(s)</source>
@@ -13920,7 +13920,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Idagdag</translation>
     </message>
     <message>
         <source>Added to Face props</source>
@@ -14086,7 +14086,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Kulay</translation>
     </message>
     <message>
         <source>Language…</source>
@@ -15564,6 +15564,93 @@ NEXT TIME</source>
     </message>
 </context>
 <context>
+    <name>FillOptionsDialog</name>
+    <message>
+        <source>Normal</source>
+        <translation>Normal</translation>
+    </message>
+    <message>
+        <source>Multiply</source>
+        <translation>Multiply</translation>
+    </message>
+    <message>
+        <source>Screen</source>
+        <translation>Screen</translation>
+    </message>
+    <message>
+        <source>Overlay</source>
+        <translation>Overlay</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>Idagdag</translation>
+    </message>
+    <message>
+        <source>Darken</source>
+        <translation>Padilimin</translation>
+    </message>
+    <message>
+        <source>Lighten</source>
+        <translation>Paliwanagin</translation>
+    </message>
+    <message>
+        <source>Fill Options</source>
+        <translation>Mga opsyon ng fill</translation>
+    </message>
+    <message>
+        <source>Stroke Options</source>
+        <translation>Mga opsyon ng stroke</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Wala</translation>
+    </message>
+    <message>
+        <source>Solid Color</source>
+        <translation>Solidong kulay</translation>
+    </message>
+    <message>
+        <source>Linear Gradient</source>
+        <translation>Linear na gradient</translation>
+    </message>
+    <message>
+        <source>Radial Gradient</source>
+        <translation>Radial na gradient</translation>
+    </message>
+    <message>
+        <source>Sweep Gradient</source>
+        <translation>Sweep na gradient</translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation>Kulay</translation>
+    </message>
+    <message>
+        <source>Angle</source>
+        <translation>Anggulo</translation>
+    </message>
+    <message>
+        <source>Drag its two handles on the video to place it, as in After Effects.</source>
+        <translation>I-drag ang dalawang hawakan nito sa video para ilagay ito, gaya sa After Effects.</translation>
+    </message>
+    <message>
+        <source>Blend mode</source>
+        <translation>Blend mode</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation>Opacity</translation>
+    </message>
+    <message>
+        <source>Stroke width</source>
+        <translation>Kapal ng stroke</translation>
+    </message>
+    <message>
+        <source>Preview</source>
+        <translation>Preview</translation>
+    </message>
+</context>
+<context>
     <name>FiltersTab</name>
     <message>
         <source>Trending</source>
@@ -15997,6 +16084,29 @@ NEXT TIME</source>
     </message>
 </context>
 <context>
+    <name>GradientHandlesOverlay</name>
+    <message>
+        <source>Move gradient</source>
+        <translation>Ilipat ang gradient</translation>
+    </message>
+    <message>
+        <source>Gradient centre: drag to move it</source>
+        <translation>Gitna ng gradient: i-drag para ilipat</translation>
+    </message>
+    <message>
+        <source>Gradient start: drag to move it</source>
+        <translation>Simula ng gradient: i-drag para ilipat</translation>
+    </message>
+    <message>
+        <source>Gradient radius: drag to resize it</source>
+        <translation>Radius ng gradient: i-drag para baguhin ang laki</translation>
+    </message>
+    <message>
+        <source>Gradient end: drag to move it</source>
+        <translation>Dulo ng gradient: i-drag para ilipat</translation>
+    </message>
+</context>
+<context>
     <name>GradientStopEditor</name>
     <message>
         <source>Drag to move, tap for colour, hold or right-click to remove</source>
@@ -16032,7 +16142,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Angle</source>
-        <translation type="unfinished"></translation>
+        <translation>Anggulo</translation>
     </message>
     <message>
         <source>Map to</source>
@@ -16205,7 +16315,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Opacity</translation>
     </message>
     <message>
         <source>Show guides</source>
@@ -16398,7 +16508,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Opacity</translation>
     </message>
     <message>
         <source>Volume</source>
@@ -17662,7 +17772,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Idagdag</translation>
     </message>
     <message>
         <source>Subtract</source>
@@ -18358,7 +18468,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Preview</source>
-        <translation type="unfinished"></translation>
+        <translation>Preview</translation>
     </message>
     <message>
         <source>Play the clip and drag the ends to keep only the part you want. Save replaces this item in the media bin.</source>
@@ -18750,7 +18860,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Kulay</translation>
     </message>
     <message>
         <source>Intensity</source>
@@ -18814,7 +18924,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Opacity</translation>
     </message>
     <message>
         <source>Offered as a control of the composition: click to take it out</source>
@@ -18862,7 +18972,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>Wala</translation>
     </message>
     <message>
         <source>The layer this one follows</source>
@@ -19577,7 +19687,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Kulay</translation>
     </message>
     <message>
         <source>Tint</source>
@@ -19629,7 +19739,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Angle</source>
-        <translation type="unfinished"></translation>
+        <translation>Anggulo</translation>
     </message>
     <message>
         <source>Adjust paint effect</source>
@@ -20239,6 +20349,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Polygon</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fill Options: none, solid, linear or radial gradient, blend mode and opacity</source>
+        <translation>Mga opsyon ng fill: wala, solido, linear o radial na gradient, blend mode at opacity</translation>
+    </message>
+    <message>
+        <source>Stroke Options: none, solid, linear or radial gradient, blend mode and opacity</source>
+        <translation>Mga opsyon ng stroke: wala, solido, linear o radial na gradient, blend mode at opacity</translation>
     </message>
     <message>
         <source>Selection</source>
@@ -22527,7 +22645,7 @@ If playback stutters, try another.</source>
     <name>SettingsPane</name>
     <message>
         <source>Preview</source>
-        <translation type="unfinished"></translation>
+        <translation>Preview</translation>
     </message>
     <message>
         <source>Show guides</source>
@@ -23140,31 +23258,31 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>Normal</translation>
     </message>
     <message>
         <source>Multiply</source>
-        <translation type="unfinished"></translation>
+        <translation>Multiply</translation>
     </message>
     <message>
         <source>Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Screen</translation>
     </message>
     <message>
         <source>Overlay</source>
-        <translation type="unfinished"></translation>
+        <translation>Overlay</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Idagdag</translation>
     </message>
     <message>
         <source>Darken</source>
-        <translation type="unfinished"></translation>
+        <translation>Padilimin</translation>
     </message>
     <message>
         <source>Lighten</source>
-        <translation type="unfinished"></translation>
+        <translation>Paliwanagin</translation>
     </message>
     <message>
         <source>Centre</source>
@@ -23224,7 +23342,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Opacity</translation>
     </message>
     <message>
         <source>Blend</source>
@@ -23356,7 +23474,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Kulay</translation>
     </message>
     <message>
         <source>Choose the layer colour</source>
@@ -23388,7 +23506,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Angle</source>
-        <translation type="unfinished"></translation>
+        <translation>Anggulo</translation>
     </message>
     <message>
         <source>Steps</source>
@@ -23411,7 +23529,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Idagdag</translation>
     </message>
     <message>
         <source>Add a shape or a group to this layer (After Effects: Add)</source>
@@ -23606,7 +23724,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Kulay</translation>
     </message>
     <message>
         <source>Generate liquid trail</source>
@@ -23685,35 +23803,35 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Opacity</translation>
     </message>
     <message>
         <source>Blend mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Blend mode</translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>Normal</translation>
     </message>
     <message>
         <source>Multiply</source>
-        <translation type="unfinished"></translation>
+        <translation>Multiply</translation>
     </message>
     <message>
         <source>Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Screen</translation>
     </message>
     <message>
         <source>Overlay</source>
-        <translation type="unfinished"></translation>
+        <translation>Overlay</translation>
     </message>
     <message>
         <source>Darken</source>
-        <translation type="unfinished"></translation>
+        <translation>Padilimin</translation>
     </message>
     <message>
         <source>Lighten</source>
-        <translation type="unfinished"></translation>
+        <translation>Paliwanagin</translation>
     </message>
     <message>
         <source>Wiggle</source>
@@ -23989,7 +24107,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Idagdag</translation>
     </message>
     <message>
         <source>Subtract</source>
@@ -24525,7 +24643,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Idagdag</translation>
     </message>
     <message>
         <source>Apply</source>
@@ -24553,7 +24671,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Kulay</translation>
     </message>
 </context>
 <context>
@@ -26121,7 +26239,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Idagdag</translation>
     </message>
     <message>
         <source>Tip: write a word between asterisks, like *faith*, to highlight it in colour.</source>
@@ -26309,7 +26427,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Idagdag</translation>
     </message>
     <message>
         <source>Slot %1 (from %2): click to choose a photo or video, or drop one here</source>
@@ -26954,7 +27072,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Angle</source>
-        <translation type="unfinished"></translation>
+        <translation>Anggulo</translation>
     </message>
     <message>
         <source>Brightness</source>
@@ -26962,7 +27080,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Kulay</translation>
     </message>
     <message>
         <source>Holographic shimmer</source>
@@ -27045,7 +27163,7 @@ If playback stutters, try another.</source>
     <name>TextInspector</name>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Kulay</translation>
     </message>
     <message>
         <source>Choose the gradient&apos;s first colour</source>
@@ -27469,7 +27587,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>Normal</translation>
     </message>
     <message>
         <source>On the line</source>
@@ -27705,7 +27823,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Opacity</translation>
     </message>
     <message>
         <source>Rounded corners</source>
@@ -27797,7 +27915,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Angle</source>
-        <translation type="unfinished"></translation>
+        <translation>Anggulo</translation>
     </message>
     <message>
         <source>Curve</source>
@@ -28188,11 +28306,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Opacity</translation>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Kulay</translation>
     </message>
     <message>
         <source>Intensity</source>
@@ -28276,7 +28394,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Angle</source>
-        <translation type="unfinished"></translation>
+        <translation>Anggulo</translation>
     </message>
     <message>
         <source>Map to</source>
@@ -28696,7 +28814,7 @@ If playback stutters, try another.</source>
     <name>TextStyle</name>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Opacity</translation>
     </message>
     <message>
         <source>Offset X</source>
@@ -29465,7 +29583,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>Wala</translation>
     </message>
     <message>
         <source>Use as mask stuck to</source>
@@ -30312,7 +30430,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Idagdag</translation>
     </message>
     <message>
         <source>Add a shape or a group to this layer</source>
@@ -30340,31 +30458,31 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>Normal</translation>
     </message>
     <message>
         <source>Multiply</source>
-        <translation type="unfinished"></translation>
+        <translation>Multiply</translation>
     </message>
     <message>
         <source>Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Screen</translation>
     </message>
     <message>
         <source>Overlay</source>
-        <translation type="unfinished"></translation>
+        <translation>Overlay</translation>
     </message>
     <message>
         <source>Darken</source>
-        <translation type="unfinished"></translation>
+        <translation>Padilimin</translation>
     </message>
     <message>
         <source>Lighten</source>
-        <translation type="unfinished"></translation>
+        <translation>Paliwanagin</translation>
     </message>
     <message>
         <source>Blend mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Blend mode</translation>
     </message>
     <message>
         <source>Duplicate</source>
@@ -30408,7 +30526,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Kulay</translation>
     </message>
     <message>
         <source>Constrain proportions: on</source>
@@ -30585,7 +30703,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Opacity</translation>
     </message>
     <message>
         <source>Volume</source>
@@ -30806,7 +30924,7 @@ If playback stutters, try another.</source>
     <name>TransformInspector</name>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Opacity</translation>
     </message>
     <message>
         <source>Width</source>
@@ -30818,7 +30936,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Angle</source>
-        <translation type="unfinished"></translation>
+        <translation>Anggulo</translation>
     </message>
     <message>
         <source>Tilt X</source>
@@ -31997,11 +32115,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Stroke width</source>
-        <translation type="unfinished"></translation>
+        <translation>Kapal ng stroke</translation>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Opacity</translation>
     </message>
     <message>
         <source>Visible</source>
@@ -32052,11 +32170,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Stroke width</source>
-        <translation type="unfinished"></translation>
+        <translation>Kapal ng stroke</translation>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Opacity</translation>
     </message>
     <message>
         <source>Visible</source>
@@ -32669,7 +32787,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Idagdag</translation>
     </message>
     <message>
         <source>Subtract</source>
@@ -32997,7 +33115,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Preview</source>
-        <translation type="unfinished"></translation>
+        <translation>Preview</translation>
     </message>
     <message>
         <source>Properties</source>
@@ -33028,7 +33146,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Preview</source>
-        <translation type="unfinished"></translation>
+        <translation>Preview</translation>
     </message>
     <message>
         <source>Properties</source>

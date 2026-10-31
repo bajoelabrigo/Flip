@@ -1322,6 +1322,7 @@ qt_add_qml_module(drift
         src/qml/components/preview/TransformOverlay.qml
         src/qml/components/preview/MotionPathOverlay.qml
         src/qml/components/preview/PenToolOverlay.qml
+        src/qml/components/preview/GradientHandlesOverlay.qml
         src/qml/components/preview/PreviewToolOverlay.qml
         src/qml/components/preview/PreviewToolbar.qml
         src/qml/components/timeline/PropertyBehaviorDialog.qml
@@ -1490,6 +1491,7 @@ qt_add_qml_module(drift
         src/qml/components/WorkspaceView.qml
         src/qml/components/Workspaces.qml
         src/qml/components/WorkspaceMenu.qml
+        src/qml/components/FillOptionsDialog.qml
         src/qml/components/SolidDialog.qml
         src/qml/components/EmojiPicker.qml
         src/qml/components/ThemedButton.qml

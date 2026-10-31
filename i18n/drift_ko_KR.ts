@@ -5468,7 +5468,7 @@
     </message>
     <message>
         <source>Stroke width</source>
-        <translation type="unfinished"></translation>
+        <translation>선 두께</translation>
     </message>
     <message>
         <source>Scale X</source>
@@ -15513,6 +15513,93 @@ NEXT TIME</source>
     </message>
 </context>
 <context>
+    <name>FillOptionsDialog</name>
+    <message>
+        <source>Normal</source>
+        <translation>표준</translation>
+    </message>
+    <message>
+        <source>Multiply</source>
+        <translation>곱하기</translation>
+    </message>
+    <message>
+        <source>Screen</source>
+        <translation>스크린</translation>
+    </message>
+    <message>
+        <source>Overlay</source>
+        <translation>오버레이</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>더하기</translation>
+    </message>
+    <message>
+        <source>Darken</source>
+        <translation>어둡게 하기</translation>
+    </message>
+    <message>
+        <source>Lighten</source>
+        <translation>밝게 하기</translation>
+    </message>
+    <message>
+        <source>Fill Options</source>
+        <translation>칠 옵션</translation>
+    </message>
+    <message>
+        <source>Stroke Options</source>
+        <translation>선 옵션</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>없음</translation>
+    </message>
+    <message>
+        <source>Solid Color</source>
+        <translation>단색</translation>
+    </message>
+    <message>
+        <source>Linear Gradient</source>
+        <translation>선형 그라디언트</translation>
+    </message>
+    <message>
+        <source>Radial Gradient</source>
+        <translation>방사형 그라디언트</translation>
+    </message>
+    <message>
+        <source>Sweep Gradient</source>
+        <translation>원뿔형 그라디언트</translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation>색상</translation>
+    </message>
+    <message>
+        <source>Angle</source>
+        <translation>각도</translation>
+    </message>
+    <message>
+        <source>Drag its two handles on the video to place it, as in After Effects.</source>
+        <translation>After Effects처럼 영상 위의 두 핸들을 드래그해 위치를 정합니다.</translation>
+    </message>
+    <message>
+        <source>Blend mode</source>
+        <translation>혼합 모드</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation>불투명도</translation>
+    </message>
+    <message>
+        <source>Stroke width</source>
+        <translation>선 두께</translation>
+    </message>
+    <message>
+        <source>Preview</source>
+        <translation>미리 보기</translation>
+    </message>
+</context>
+<context>
     <name>FiltersTab</name>
     <message>
         <source>Trending</source>
@@ -15941,6 +16028,29 @@ NEXT TIME</source>
     <message>
         <source>File</source>
         <translation>파일</translation>
+    </message>
+</context>
+<context>
+    <name>GradientHandlesOverlay</name>
+    <message>
+        <source>Move gradient</source>
+        <translation>그라디언트 이동</translation>
+    </message>
+    <message>
+        <source>Gradient centre: drag to move it</source>
+        <translation>그라디언트 중심: 드래그해 이동</translation>
+    </message>
+    <message>
+        <source>Gradient start: drag to move it</source>
+        <translation>그라디언트 시작: 드래그해 이동</translation>
+    </message>
+    <message>
+        <source>Gradient radius: drag to resize it</source>
+        <translation>그라디언트 반지름: 드래그해 크기 조절</translation>
+    </message>
+    <message>
+        <source>Gradient end: drag to move it</source>
+        <translation>그라디언트 끝: 드래그해 이동</translation>
     </message>
 </context>
 <context>
@@ -18682,7 +18792,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>색상</translation>
     </message>
     <message>
         <source>Intensity</source>
@@ -18746,7 +18856,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>불투명도</translation>
     </message>
     <message>
         <source>Offered as a control of the composition: click to take it out</source>
@@ -18794,7 +18904,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>없음</translation>
     </message>
     <message>
         <source>The layer this one follows</source>
@@ -20171,6 +20281,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Polygon</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fill Options: none, solid, linear or radial gradient, blend mode and opacity</source>
+        <translation>칠 옵션: 없음, 단색, 선형 또는 방사형 그라디언트, 혼합 모드와 불투명도</translation>
+    </message>
+    <message>
+        <source>Stroke Options: none, solid, linear or radial gradient, blend mode and opacity</source>
+        <translation>선 옵션: 없음, 단색, 선형 또는 방사형 그라디언트, 혼합 모드와 불투명도</translation>
     </message>
     <message>
         <source>Selection</source>
@@ -23336,7 +23454,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>더하기</translation>
     </message>
     <message>
         <source>Add a shape or a group to this layer (After Effects: Add)</source>
@@ -23531,7 +23649,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>색상</translation>
     </message>
     <message>
         <source>Generate liquid trail</source>
@@ -23610,35 +23728,35 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>불투명도</translation>
     </message>
     <message>
         <source>Blend mode</source>
-        <translation type="unfinished"></translation>
+        <translation>혼합 모드</translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>표준</translation>
     </message>
     <message>
         <source>Multiply</source>
-        <translation type="unfinished"></translation>
+        <translation>곱하기</translation>
     </message>
     <message>
         <source>Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>스크린</translation>
     </message>
     <message>
         <source>Overlay</source>
-        <translation type="unfinished"></translation>
+        <translation>오버레이</translation>
     </message>
     <message>
         <source>Darken</source>
-        <translation type="unfinished"></translation>
+        <translation>어둡게 하기</translation>
     </message>
     <message>
         <source>Lighten</source>
-        <translation type="unfinished"></translation>
+        <translation>밝게 하기</translation>
     </message>
     <message>
         <source>Wiggle</source>
@@ -23914,7 +24032,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>더하기</translation>
     </message>
     <message>
         <source>Subtract</source>
@@ -24450,7 +24568,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>더하기</translation>
     </message>
     <message>
         <source>Apply</source>
@@ -24478,7 +24596,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>색상</translation>
     </message>
 </context>
 <context>
@@ -27388,7 +27506,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>표준</translation>
     </message>
     <message>
         <source>On the line</source>
@@ -29384,7 +29502,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>없음</translation>
     </message>
     <message>
         <source>Use as mask stuck to</source>
@@ -30212,7 +30330,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>더하기</translation>
     </message>
     <message>
         <source>Add a shape or a group to this layer</source>
@@ -30240,31 +30358,31 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>표준</translation>
     </message>
     <message>
         <source>Multiply</source>
-        <translation type="unfinished"></translation>
+        <translation>곱하기</translation>
     </message>
     <message>
         <source>Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>스크린</translation>
     </message>
     <message>
         <source>Overlay</source>
-        <translation type="unfinished"></translation>
+        <translation>오버레이</translation>
     </message>
     <message>
         <source>Darken</source>
-        <translation type="unfinished"></translation>
+        <translation>어둡게 하기</translation>
     </message>
     <message>
         <source>Lighten</source>
-        <translation type="unfinished"></translation>
+        <translation>밝게 하기</translation>
     </message>
     <message>
         <source>Blend mode</source>
-        <translation type="unfinished"></translation>
+        <translation>혼합 모드</translation>
     </message>
     <message>
         <source>Duplicate</source>
@@ -30308,7 +30426,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>색상</translation>
     </message>
     <message>
         <source>Constrain proportions: on</source>
@@ -30499,7 +30617,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>불투명도</translation>
     </message>
     <message>
         <source>Volume</source>
@@ -32905,7 +33023,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Preview</source>
-        <translation type="unfinished"></translation>
+        <translation>미리 보기</translation>
     </message>
     <message>
         <source>Properties</source>
@@ -32936,7 +33054,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Preview</source>
-        <translation type="unfinished"></translation>
+        <translation>미리 보기</translation>
     </message>
     <message>
         <source>Properties</source>

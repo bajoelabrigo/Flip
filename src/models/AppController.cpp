@@ -11206,6 +11206,24 @@ void paintDrawnShape(drift::ShapeStyle &style, const QString &fill, const QStrin
 
 } // namespace
 
+void AppController::applyToolPaintOptions(drift::ShapeStyle &style) const
+{
+    // Fill / Stroke Options of the tools bar (0.29, After Effects): a gradient, opacity and blend
+    // mode on top of the colour paintDrawnShape gave. Only on a paint that is on ("None" stays off).
+    if (!m_preview)
+        return;
+    const QList<QPair<drift::TextLayerKind, QVariantMap>> options = {
+        {drift::TextLayerKind::Fill, m_preview->toolFillOptions()},
+        {drift::TextLayerKind::Stroke, m_preview->toolStrokeOptions()}};
+    for (const auto &option : options) {
+        if (option.second.isEmpty())
+            continue;
+        drift::TextShadingLayer *layer = drift::firstTextLayerOfKind(style.layers, option.first, true);
+        if (layer)
+            applyTextLayerPatch(layer, option.second);
+    }
+}
+
 void AppController::addDrawnShape(const QString &kind, double x, double y, double w, double h, const QString &fill,
                                   const QString &stroke, double strokeWidth)
 {
@@ -11216,6 +11234,7 @@ void AppController::addDrawnShape(const QString &kind, double x, double y, doubl
         style.kind = drift::ShapeKind::Hexagon;
     }
     paintDrawnShape(style, fill, stroke, strokeWidth);
+    applyToolPaintOptions(style);
     // In Pro, with a shape layer picked and on screen, the shape goes into that layer (0.28, as After Effects).
     if (m_preferences && m_preferences->proMode() && isValidClipIndex(m_selectedTrack, m_selectedClip)) {
         const drift::Clip &picked = m_project.tracks().at(m_selectedTrack).clips.at(m_selectedClip);
@@ -11328,6 +11347,7 @@ void AppController::addPenShape(const QVariantList &points, bool closed)
         strokeWidth = 6.0;
     }
     paintDrawnShape(clip.shapeStyle, contour.closed ? fill : QStringLiteral("none"), stroke, strokeWidth);
+    applyToolPaintOptions(clip.shapeStyle);
     clip.timelineStart = drift::resolveClipStart(m_project, track, -1, start, drift::defaultStillDurationUs(),
                                                  m_snapEnabled, m_playheadUs);
     clip.timelineDuration = drift::defaultStillDurationUs();
@@ -11388,6 +11408,7 @@ QString AppController::beginPenShape(const QString &clipId)
     QString stroke = m_preview ? m_preview->toolStroke() : QStringLiteral("#ffffff");
     double strokeWidth = m_preview ? m_preview->toolStrokeWidth() : 0.0;
     paintDrawnShape(clip.shapeStyle, fill, stroke, strokeWidth);
+    applyToolPaintOptions(clip.shapeStyle);
     drift::Track &track = m_project.tracks()[target];
     clip.timelineStart = drift::resolveClipStart(m_project, track, -1, start, drift::defaultStillDurationUs(),
                                                  m_snapEnabled, m_playheadUs);
@@ -32127,6 +32148,57 @@ void AppController::previewSetStyleLayer(int trackIndex, int clipIndex, const QS
     else
         applyTextStylePatch(clip->textStyle, QVariantMap{{QStringLiteral("layer"), layer}});
     emitPreviewEdit(trackIndex, clipIndex, {QStringLiteral("style.%1.*").arg(layerId)});
+}
+
+QVariantMap AppController::gradientHandles(int trackIndex, int clipIndex) const
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return {};
+    const drift::Clip &clip = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    if (clip.type != drift::ClipType::Shape && clip.type != drift::ClipType::Text)
+        return {};
+    const QList<drift::TextShadingLayer> &layers =
+        clip.type == drift::ClipType::Shape ? shapeStyleOf(clip).layers : clip.textStyle.layers;
+    const drift::TextShadingLayer *picked = nullptr;
+    for (drift::TextLayerKind kind : {drift::TextLayerKind::Fill, drift::TextLayerKind::Stroke}) {
+        for (const drift::TextShadingLayer &layer : layers) {
+            if (layer.enabled && layer.kind == kind && layer.paint.kind == drift::TextPaintKind::Gradient) {
+                picked = &layer;
+                break;
+            }
+        }
+        if (picked)
+            break;
+    }
+    if (!picked)
+        return {};
+    QPointF start, end;
+    drift::gradientHandlePoints(picked->paint.gradient, &start, &end);
+    return {{QStringLiteral("layerId"), picked->id},
+            {QStringLiteral("kind"), drift::textGradientKindToString(picked->paint.gradient.kind)},
+            {QStringLiteral("x0"), start.x()}, {QStringLiteral("y0"), start.y()},
+            {QStringLiteral("x1"), end.x()}, {QStringLiteral("y1"), end.y()}};
+}
+
+void AppController::previewGradientHandles(int trackIndex, int clipIndex, const QString &layerId, double x0,
+                                           double y0, double x1, double y1)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return;
+    const drift::Clip &clip = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    const QList<drift::TextShadingLayer> &layers =
+        clip.type == drift::ClipType::Shape ? shapeStyleOf(clip).layers : clip.textStyle.layers;
+    const drift::TextShadingLayer *layer = drift::findTextLayer(layers, layerId);
+    if (!layer)
+        return;
+    drift::TextGradient g = layer->paint.gradient;
+    drift::setGradientFromHandles(g, QPointF(x0, y0), QPointF(x1, y1));
+    const QVariantMap gradient{{QStringLiteral("angle"), g.angle},
+                               {QStringLiteral("scale"), g.scale},
+                               {QStringLiteral("offset"), g.offset},
+                               {QStringLiteral("center"), QVariantList{g.center.x(), g.center.y()}}};
+    previewSetStyleLayer(trackIndex, clipIndex, layerId,
+                         {{QStringLiteral("paint"), QVariantMap{{QStringLiteral("gradient"), gradient}}}});
 }
 
 QString AppController::addTextLayer(int trackIndex, int clipIndex, const QString &kind, int atIndex,

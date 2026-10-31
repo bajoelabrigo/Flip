@@ -1236,6 +1236,13 @@ public:
     Q_INVOKABLE bool moveStyleLayer(int trackIndex, int clipIndex, const QString &layerId, int toIndex);
     Q_INVOKABLE void setStyleLayer(int trackIndex, int clipIndex, const QString &layerId, const QVariantMap &patch);
     Q_INVOKABLE void previewSetStyleLayer(int trackIndex, int clipIndex, const QString &layerId, const QVariantMap &patch);
+    // After Effects' gradient handles on the canvas (0.29): the first gradient-painted layer (a
+    // fill before a stroke) of a shape or text as {layerId, kind, x0, y0, x1, y1} in fractions of its
+    // box, or {} when nothing is painted with a gradient; and a drag of them, written as angle,
+    // scale, offset and centre (inside the caller's begin/commitPreviewDrag).
+    Q_INVOKABLE QVariantMap gradientHandles(int trackIndex, int clipIndex) const;
+    Q_INVOKABLE void previewGradientHandles(int trackIndex, int clipIndex, const QString &layerId, double x0,
+                                            double y0, double x1, double y1);
     // The text-only spellings, kept for the MCP tools and scripts that use them.
     // `rangeStart`/`rangeEnd` (0.24): con letras sombreadas, la capa va solo a esas letras.
     Q_INVOKABLE QString addTextLayer(int trackIndex, int clipIndex, const QString &kind, int atIndex = -1,
@@ -2991,6 +2998,7 @@ protected:
     drift::Clip *textClipAt(int trackIndex, int clipIndex);
     // A text, subtitle or shape clip: anything that carries a shading stack.
     drift::Clip *styledClipAt(int trackIndex, int clipIndex, bool textOnly = false);
+    void applyToolPaintOptions(drift::ShapeStyle &style) const;
     static void applyTextStylePatch(drift::TextStyle &style, const QVariantMap &patch);
     static QVariantMap textAnimationPresetToMap(const drift::TextAnimationPreset &preset);
     drift::Project m_previewDragBefore;

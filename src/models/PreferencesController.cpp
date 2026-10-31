@@ -332,6 +332,8 @@ QVariantMap PreferencesController::editorDefaultValues()
         {QStringLiteral("toolFill"), QStringLiteral("#ffff4d6d")},
         {QStringLiteral("toolStroke"), QStringLiteral("#ffffffff")},
         {QStringLiteral("toolStrokeWidth"), 0.0},
+        {QStringLiteral("toolFillOptions"), QVariantMap()},
+        {QStringLiteral("toolStrokeOptions"), QVariantMap()},
     };
 }
 

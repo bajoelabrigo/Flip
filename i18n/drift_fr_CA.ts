@@ -5490,7 +5490,7 @@
     </message>
     <message>
         <source>Stroke width</source>
-        <translation type="unfinished"></translation>
+        <translation>Épaisseur du contour</translation>
     </message>
     <message>
         <source>Scale X</source>
@@ -15569,6 +15569,93 @@ PROCHAINE</translation>
     </message>
 </context>
 <context>
+    <name>FillOptionsDialog</name>
+    <message>
+        <source>Normal</source>
+        <translation>Normal</translation>
+    </message>
+    <message>
+        <source>Multiply</source>
+        <translation>Produit</translation>
+    </message>
+    <message>
+        <source>Screen</source>
+        <translation>Superposition claire</translation>
+    </message>
+    <message>
+        <source>Overlay</source>
+        <translation>Incrustation</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>Addition</translation>
+    </message>
+    <message>
+        <source>Darken</source>
+        <translation>Obscurcir</translation>
+    </message>
+    <message>
+        <source>Lighten</source>
+        <translation>Éclaircir</translation>
+    </message>
+    <message>
+        <source>Fill Options</source>
+        <translation>Options de remplissage</translation>
+    </message>
+    <message>
+        <source>Stroke Options</source>
+        <translation>Options de contour</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Aucun</translation>
+    </message>
+    <message>
+        <source>Solid Color</source>
+        <translation>Couleur unie</translation>
+    </message>
+    <message>
+        <source>Linear Gradient</source>
+        <translation>Dégradé linéaire</translation>
+    </message>
+    <message>
+        <source>Radial Gradient</source>
+        <translation>Dégradé radial</translation>
+    </message>
+    <message>
+        <source>Sweep Gradient</source>
+        <translation>Dégradé conique</translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation>Couleur</translation>
+    </message>
+    <message>
+        <source>Angle</source>
+        <translation>Angle</translation>
+    </message>
+    <message>
+        <source>Drag its two handles on the video to place it, as in After Effects.</source>
+        <translation>Faites glisser ses deux poignées sur la vidéo pour le placer, comme dans After Effects.</translation>
+    </message>
+    <message>
+        <source>Blend mode</source>
+        <translation>Mode de fusion</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation>Opacité</translation>
+    </message>
+    <message>
+        <source>Stroke width</source>
+        <translation>Épaisseur du contour</translation>
+    </message>
+    <message>
+        <source>Preview</source>
+        <translation>Aperçu</translation>
+    </message>
+</context>
+<context>
     <name>FiltersTab</name>
     <message>
         <source>Trending</source>
@@ -16000,6 +16087,29 @@ PROCHAINE</translation>
     <message>
         <source>File</source>
         <translation>Fichier</translation>
+    </message>
+</context>
+<context>
+    <name>GradientHandlesOverlay</name>
+    <message>
+        <source>Move gradient</source>
+        <translation>Déplacer le dégradé</translation>
+    </message>
+    <message>
+        <source>Gradient centre: drag to move it</source>
+        <translation>Centre du dégradé : faites glisser pour le déplacer</translation>
+    </message>
+    <message>
+        <source>Gradient start: drag to move it</source>
+        <translation>Début du dégradé : faites glisser pour le déplacer</translation>
+    </message>
+    <message>
+        <source>Gradient radius: drag to resize it</source>
+        <translation>Rayon du dégradé : faites glisser pour le redimensionner</translation>
+    </message>
+    <message>
+        <source>Gradient end: drag to move it</source>
+        <translation>Fin du dégradé : faites glisser pour la déplacer</translation>
     </message>
 </context>
 <context>
@@ -18756,7 +18866,7 @@ PROCHAINE</translation>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Couleur</translation>
     </message>
     <message>
         <source>Intensity</source>
@@ -18820,7 +18930,7 @@ PROCHAINE</translation>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Opacité</translation>
     </message>
     <message>
         <source>Offered as a control of the composition: click to take it out</source>
@@ -18868,7 +18978,7 @@ PROCHAINE</translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>Aucun</translation>
     </message>
     <message>
         <source>The layer this one follows</source>
@@ -20251,6 +20361,14 @@ Si la lecture saccade, essayez une autre option.</translation>
     <message>
         <source>Polygon</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fill Options: none, solid, linear or radial gradient, blend mode and opacity</source>
+        <translation>Options de remplissage : aucun, uni, dégradé linéaire ou radial, mode de fusion et opacité</translation>
+    </message>
+    <message>
+        <source>Stroke Options: none, solid, linear or radial gradient, blend mode and opacity</source>
+        <translation>Options de contour : aucun, uni, dégradé linéaire ou radial, mode de fusion et opacité</translation>
     </message>
     <message>
         <source>Selection</source>
@@ -23424,7 +23542,7 @@ Si la lecture saccade, essayez une autre option.</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Addition</translation>
     </message>
     <message>
         <source>Add a shape or a group to this layer (After Effects: Add)</source>
@@ -23619,7 +23737,7 @@ Si la lecture saccade, essayez une autre option.</translation>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Couleur</translation>
     </message>
     <message>
         <source>Generate liquid trail</source>
@@ -23698,35 +23816,35 @@ Si la lecture saccade, essayez une autre option.</translation>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Opacité</translation>
     </message>
     <message>
         <source>Blend mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Mode de fusion</translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>Normal</translation>
     </message>
     <message>
         <source>Multiply</source>
-        <translation type="unfinished"></translation>
+        <translation>Produit</translation>
     </message>
     <message>
         <source>Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Superposition claire</translation>
     </message>
     <message>
         <source>Overlay</source>
-        <translation type="unfinished"></translation>
+        <translation>Incrustation</translation>
     </message>
     <message>
         <source>Darken</source>
-        <translation type="unfinished"></translation>
+        <translation>Obscurcir</translation>
     </message>
     <message>
         <source>Lighten</source>
-        <translation type="unfinished"></translation>
+        <translation>Éclaircir</translation>
     </message>
     <message>
         <source>Wiggle</source>
@@ -24002,7 +24120,7 @@ Si la lecture saccade, essayez une autre option.</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Addition</translation>
     </message>
     <message>
         <source>Subtract</source>
@@ -24538,7 +24656,7 @@ Si la lecture saccade, essayez une autre option.</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Addition</translation>
     </message>
     <message>
         <source>Apply</source>
@@ -24566,7 +24684,7 @@ Si la lecture saccade, essayez une autre option.</translation>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Couleur</translation>
     </message>
 </context>
 <context>
@@ -27485,7 +27603,7 @@ Si la lecture saccade, essayez une autre option.</translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>Normal</translation>
     </message>
     <message>
         <source>On the line</source>
@@ -29481,7 +29599,7 @@ Si la lecture saccade, essayez une autre option.</translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>Aucun</translation>
     </message>
     <message>
         <source>Use as mask stuck to</source>
@@ -30312,7 +30430,7 @@ Si la lecture saccade, essayez une autre option.</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Addition</translation>
     </message>
     <message>
         <source>Add a shape or a group to this layer</source>
@@ -30340,31 +30458,31 @@ Si la lecture saccade, essayez une autre option.</translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>Normal</translation>
     </message>
     <message>
         <source>Multiply</source>
-        <translation type="unfinished"></translation>
+        <translation>Produit</translation>
     </message>
     <message>
         <source>Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Superposition claire</translation>
     </message>
     <message>
         <source>Overlay</source>
-        <translation type="unfinished"></translation>
+        <translation>Incrustation</translation>
     </message>
     <message>
         <source>Darken</source>
-        <translation type="unfinished"></translation>
+        <translation>Obscurcir</translation>
     </message>
     <message>
         <source>Lighten</source>
-        <translation type="unfinished"></translation>
+        <translation>Éclaircir</translation>
     </message>
     <message>
         <source>Blend mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Mode de fusion</translation>
     </message>
     <message>
         <source>Duplicate</source>
@@ -30408,7 +30526,7 @@ Si la lecture saccade, essayez une autre option.</translation>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Couleur</translation>
     </message>
     <message>
         <source>Constrain proportions: on</source>
@@ -30601,7 +30719,7 @@ Si la lecture saccade, essayez une autre option.</translation>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Opacité</translation>
     </message>
     <message>
         <source>Volume</source>
@@ -33013,7 +33131,7 @@ Si la lecture saccade, essayez une autre option.</translation>
     </message>
     <message>
         <source>Preview</source>
-        <translation type="unfinished"></translation>
+        <translation>Aperçu</translation>
     </message>
     <message>
         <source>Properties</source>
@@ -33044,7 +33162,7 @@ Si la lecture saccade, essayez une autre option.</translation>
     </message>
     <message>
         <source>Preview</source>
-        <translation type="unfinished"></translation>
+        <translation>Aperçu</translation>
     </message>
     <message>
         <source>Properties</source>

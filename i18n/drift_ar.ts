@@ -5541,7 +5541,7 @@
     </message>
     <message>
         <source>Stroke width</source>
-        <translation type="unfinished"></translation>
+        <translation>سُمك الحد</translation>
     </message>
     <message>
         <source>Scale X</source>
@@ -15788,6 +15788,93 @@ NEXT TIME</source>
     </message>
 </context>
 <context>
+    <name>FillOptionsDialog</name>
+    <message>
+        <source>Normal</source>
+        <translation>عادي</translation>
+    </message>
+    <message>
+        <source>Multiply</source>
+        <translation>ضرب</translation>
+    </message>
+    <message>
+        <source>Screen</source>
+        <translation>شاشة</translation>
+    </message>
+    <message>
+        <source>Overlay</source>
+        <translation>تراكب</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>إضافة</translation>
+    </message>
+    <message>
+        <source>Darken</source>
+        <translation>تعتيم</translation>
+    </message>
+    <message>
+        <source>Lighten</source>
+        <translation>تفتيح</translation>
+    </message>
+    <message>
+        <source>Fill Options</source>
+        <translation>خيارات التعبئة</translation>
+    </message>
+    <message>
+        <source>Stroke Options</source>
+        <translation>خيارات الحد</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>بلا</translation>
+    </message>
+    <message>
+        <source>Solid Color</source>
+        <translation>لون خالص</translation>
+    </message>
+    <message>
+        <source>Linear Gradient</source>
+        <translation>تدرج خطي</translation>
+    </message>
+    <message>
+        <source>Radial Gradient</source>
+        <translation>تدرج شعاعي</translation>
+    </message>
+    <message>
+        <source>Sweep Gradient</source>
+        <translation>تدرج دوراني</translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation>اللون</translation>
+    </message>
+    <message>
+        <source>Angle</source>
+        <translation>الزاوية</translation>
+    </message>
+    <message>
+        <source>Drag its two handles on the video to place it, as in After Effects.</source>
+        <translation>اسحب مقبضيه على الفيديو لوضعه، كما في After Effects.</translation>
+    </message>
+    <message>
+        <source>Blend mode</source>
+        <translation>وضع المزج</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation>العتامة</translation>
+    </message>
+    <message>
+        <source>Stroke width</source>
+        <translation>سُمك الحد</translation>
+    </message>
+    <message>
+        <source>Preview</source>
+        <translation>معاينة</translation>
+    </message>
+</context>
+<context>
     <name>FiltersTab</name>
     <message>
         <source>Trending</source>
@@ -16226,6 +16313,29 @@ NEXT TIME</source>
     <message>
         <source>File</source>
         <translation>الملف</translation>
+    </message>
+</context>
+<context>
+    <name>GradientHandlesOverlay</name>
+    <message>
+        <source>Move gradient</source>
+        <translation>نقل التدرج</translation>
+    </message>
+    <message>
+        <source>Gradient centre: drag to move it</source>
+        <translation>مركز التدرج: اسحب لنقله</translation>
+    </message>
+    <message>
+        <source>Gradient start: drag to move it</source>
+        <translation>بداية التدرج: اسحب لنقلها</translation>
+    </message>
+    <message>
+        <source>Gradient radius: drag to resize it</source>
+        <translation>نصف قطر التدرج: اسحب لتغيير حجمه</translation>
+    </message>
+    <message>
+        <source>Gradient end: drag to move it</source>
+        <translation>نهاية التدرج: اسحب لنقلها</translation>
     </message>
 </context>
 <context>
@@ -19042,7 +19152,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>اللون</translation>
     </message>
     <message>
         <source>Intensity</source>
@@ -19106,7 +19216,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>العتامة</translation>
     </message>
     <message>
         <source>Offered as a control of the composition: click to take it out</source>
@@ -19154,7 +19264,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>بلا</translation>
     </message>
     <message>
         <source>The layer this one follows</source>
@@ -20561,6 +20671,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Polygon</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fill Options: none, solid, linear or radial gradient, blend mode and opacity</source>
+        <translation>خيارات التعبئة: بلا، خالص، تدرج خطي أو شعاعي، وضع المزج والعتامة</translation>
+    </message>
+    <message>
+        <source>Stroke Options: none, solid, linear or radial gradient, blend mode and opacity</source>
+        <translation>خيارات الحد: بلا، خالص، تدرج خطي أو شعاعي، وضع المزج والعتامة</translation>
     </message>
     <message>
         <source>Selection</source>
@@ -23762,7 +23880,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>إضافة</translation>
     </message>
     <message>
         <source>Add a shape or a group to this layer (After Effects: Add)</source>
@@ -23957,7 +24075,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>اللون</translation>
     </message>
     <message>
         <source>Generate liquid trail</source>
@@ -24036,35 +24154,35 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>العتامة</translation>
     </message>
     <message>
         <source>Blend mode</source>
-        <translation type="unfinished"></translation>
+        <translation>وضع المزج</translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>عادي</translation>
     </message>
     <message>
         <source>Multiply</source>
-        <translation type="unfinished"></translation>
+        <translation>ضرب</translation>
     </message>
     <message>
         <source>Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>شاشة</translation>
     </message>
     <message>
         <source>Overlay</source>
-        <translation type="unfinished"></translation>
+        <translation>تراكب</translation>
     </message>
     <message>
         <source>Darken</source>
-        <translation type="unfinished"></translation>
+        <translation>تعتيم</translation>
     </message>
     <message>
         <source>Lighten</source>
-        <translation type="unfinished"></translation>
+        <translation>تفتيح</translation>
     </message>
     <message>
         <source>Wiggle</source>
@@ -24340,7 +24458,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>إضافة</translation>
     </message>
     <message>
         <source>Subtract</source>
@@ -24876,7 +24994,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>إضافة</translation>
     </message>
     <message>
         <source>Apply</source>
@@ -24904,7 +25022,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>اللون</translation>
     </message>
 </context>
 <context>
@@ -27845,7 +27963,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>عادي</translation>
     </message>
     <message>
         <source>On the line</source>
@@ -29841,7 +29959,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>بلا</translation>
     </message>
     <message>
         <source>Use as mask stuck to</source>
@@ -30672,7 +30790,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>إضافة</translation>
     </message>
     <message>
         <source>Add a shape or a group to this layer</source>
@@ -30700,31 +30818,31 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>عادي</translation>
     </message>
     <message>
         <source>Multiply</source>
-        <translation type="unfinished"></translation>
+        <translation>ضرب</translation>
     </message>
     <message>
         <source>Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>شاشة</translation>
     </message>
     <message>
         <source>Overlay</source>
-        <translation type="unfinished"></translation>
+        <translation>تراكب</translation>
     </message>
     <message>
         <source>Darken</source>
-        <translation type="unfinished"></translation>
+        <translation>تعتيم</translation>
     </message>
     <message>
         <source>Lighten</source>
-        <translation type="unfinished"></translation>
+        <translation>تفتيح</translation>
     </message>
     <message>
         <source>Blend mode</source>
-        <translation type="unfinished"></translation>
+        <translation>وضع المزج</translation>
     </message>
     <message>
         <source>Duplicate</source>
@@ -30768,7 +30886,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>اللون</translation>
     </message>
     <message>
         <source>Constrain proportions: on</source>
@@ -30981,7 +31099,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>العتامة</translation>
     </message>
     <message>
         <source>Volume</source>
@@ -33417,7 +33535,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Preview</source>
-        <translation type="unfinished"></translation>
+        <translation>معاينة</translation>
     </message>
     <message>
         <source>Properties</source>
@@ -33448,7 +33566,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Preview</source>
-        <translation type="unfinished"></translation>
+        <translation>معاينة</translation>
     </message>
     <message>
         <source>Properties</source>

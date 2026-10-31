@@ -14,6 +14,10 @@ Column {
     property var styleData: ({})
     // "text" or "shape": the keyframe prop prefix the clip's style answers to.
     property string keyPrefix: "text"
+    // Not tied to a clip (Fill / Stroke Options for the shapes still to be drawn, 0.29): every edit
+    // is handed to `edited` instead of written to the selected clip, and there are no keyframes.
+    property bool standalone: false
+    signal edited(var patch)
 
     readonly property var stops: (gradient && gradient.stops) || []
     readonly property var presets: EditorState.textGradientPresets()
@@ -39,10 +43,18 @@ Column {
         return list.map(s => ({ "pos": Number(s.pos), "color": String(s.color) }))
     }
     function commitGradient(patch) {
+        if (root.standalone) {
+            root.edited(patch)
+            return
+        }
         EditorState.setStyleLayer(EditorState.selectedTrack, EditorState.selectedClip, root.layerId,
                                   { "paint": { "gradient": patch } })
     }
     function previewGradient(patch) {
+        if (root.standalone) {
+            root.edited(patch)
+            return
+        }
         EditorState.previewSetStyleLayer(EditorState.selectedTrack, EditorState.selectedClip, root.layerId,
                                          { "paint": { "gradient": patch } })
     }
@@ -186,7 +198,8 @@ Column {
                             moved = true
                             root.dragStops = root.cloneStops(root.stops)
                             root.dragIndex = stopChip.index
-                            EditorState.beginPreviewDrag(qsTr("Move gradient stop"))
+                            if (!root.standalone)
+                                EditorState.beginPreviewDrag(qsTr("Move gradient stop"))
                         }
                         const next = root.cloneStops(root.dragStops)
                         next[stopChip.index].pos = Math.max(0, Math.min(1, sx / stopStrip.width))
@@ -199,7 +212,8 @@ Column {
                         if (moved) {
                             root.previewGradient({ "stops": root.dragStops })
                             root.dragIndex = -1
-                            EditorState.commitPreviewDrag()
+                            if (!root.standalone)
+                                EditorState.commitPreviewDrag()
                             return
                         }
                         if (mouse.button === Qt.LeftButton) {
@@ -211,7 +225,8 @@ Column {
                     onCanceled: {
                         if (moved) {
                             root.dragIndex = -1
-                            EditorState.cancelPreviewDrag()
+                            if (!root.standalone)
+                                EditorState.cancelPreviewDrag()
                         }
                     }
                     onPressAndHold: {
@@ -316,6 +331,7 @@ Column {
         }
 
         PropertyKeyframeRow {
+            visible: !root.standalone
             width: (parent.width - parent.spacing) / 2
             propDef: root.prop("angle", qsTr("Angle"), 0)
             keyframeList: root.keyframes("angle")
@@ -355,6 +371,7 @@ Column {
         }
 
         PropertyKeyframeRow {
+            visible: !root.standalone
             width: (parent.width - parent.spacing) / 2
             propDef: root.prop("offset", qsTr("Offset"), 2)
             keyframeList: root.keyframes("offset")

@@ -42,6 +42,8 @@ Rectangle {
         EditorState.preview.toolFill = d.toolFill
         EditorState.preview.toolStroke = d.toolStroke
         EditorState.preview.toolStrokeWidth = Number(d.toolStrokeWidth)
+        EditorState.preview.toolFillOptions = d.toolFillOptions || {}
+        EditorState.preview.toolStrokeOptions = d.toolStrokeOptions || {}
         if (d.safeZones === true)
             EditorState.preview.safeZones = true
     }
@@ -51,9 +53,149 @@ Rectangle {
             EditorState.preferences.setEditorDefault("toolFill", EditorState.preview.toolFill)
             EditorState.preferences.setEditorDefault("toolStroke", EditorState.preview.toolStroke)
             EditorState.preferences.setEditorDefault("toolStrokeWidth", EditorState.preview.toolStrokeWidth)
+            EditorState.preferences.setEditorDefault("toolFillOptions", EditorState.preview.toolFillOptions)
+            EditorState.preferences.setEditorDefault("toolStrokeOptions", EditorState.preview.toolStrokeOptions)
         }
     }
     color: Theme.panelBackground
+
+    // The paint the swatches show and edit (0.29, as After Effects' tools bar): a picked shape's or
+    // text's own Fill / Stroke layer, else the paint new shapes are drawn with.
+    function pickedLayer(which) {
+        const data = EditorState.selectedClipData
+        if (!data || EditorState.selectedClip < 0 || (data.kind !== "shape" && data.kind !== "text"))
+            return null
+        const style = data.kind === "shape" ? data.shapeStyle : data.textStyle
+        const layers = (style && style.layers) || []
+        for (let i = 0; i < layers.length; ++i) {
+            if (layers[i].kind === which)
+                return layers[i]
+        }
+        return null
+    }
+    function pickedStyled() {
+        const data = EditorState.selectedClipData
+        return !!data && EditorState.selectedClip >= 0 && (data.kind === "shape" || data.kind === "text")
+    }
+    function paintOf(which) {
+        if (root.pickedStyled()) {
+            const layer = root.pickedLayer(which)
+            if (!layer || layer.enabled === false)
+                return { "kind": "none" }
+            return layer.paint || { "kind": "solid" }
+        }
+        const color = which === "fill" ? EditorState.preview.toolFill : EditorState.preview.toolStroke
+        if (color === "none")
+            return { "kind": "none" }
+        const options = (which === "fill" ? EditorState.preview.toolFillOptions
+                                          : EditorState.preview.toolStrokeOptions) || {}
+        return Object.assign({ "kind": "solid", "color": color }, options.paint || {})
+    }
+    function qtColor(hex) {
+        const h = String(hex || "").replace("#", "")
+        if (h.length === 8)
+            return Qt.rgba(parseInt(h.substr(2, 2), 16) / 255, parseInt(h.substr(4, 2), 16) / 255,
+                           parseInt(h.substr(6, 2), 16) / 255, parseInt(h.substr(0, 2), 16) / 255)
+        return String(hex || "white")
+    }
+
+    // Clicking the word opens Fill / Stroke Options, as After Effects.
+    component PaintLabel: ThemedLabel {
+        id: paintLabel
+        property string which: "fill"
+        anchors.verticalCenter: parent.verticalCenter
+        size: "sm"
+        font.underline: labelMouse.containsMouse
+        MouseArea {
+            id: labelMouse
+            anchors.fill: parent
+            hoverEnabled: true
+            cursorShape: Qt.PointingHandCursor
+            onClicked: fillOptions.openFor(paintLabel.which)
+        }
+        ThemedToolTip {
+            visible: labelMouse.containsMouse
+            text: paintLabel.which === "fill"
+                  ? qsTr("Fill Options: none, solid, linear or radial gradient, blend mode and opacity")
+                  : qsTr("Stroke Options: none, solid, linear or radial gradient, blend mode and opacity")
+        }
+    }
+
+    // The swatch: a click picks the colour of a solid paint (a gradient opens its options);
+    // right-click switches the paint off and on.
+    component PaintSwatch: Rectangle {
+        id: swatch
+        property string which: "fill"
+        readonly property var paint: {
+            void EditorState.tracksRevision
+            void EditorState.selectedClipData
+            void EditorState.preview.toolFillOptions
+            void EditorState.preview.toolStrokeOptions
+            return root.paintOf(which)
+        }
+        readonly property bool none: paint.kind === "none"
+        readonly property bool isGradient: paint.kind === "gradient"
+        readonly property var stops: (isGradient && paint.gradient && paint.gradient.stops) || []
+        width: 22
+        height: 16
+        anchors.verticalCenter: parent.verticalCenter
+        radius: 2
+        color: none || which === "stroke" ? "transparent" : root.qtColor(paint.color)
+        border.width: which === "stroke" ? 4 : 1
+        border.color: which === "stroke" && !none && !isGradient ? root.qtColor(paint.color) : Theme.border
+        Rectangle {
+            visible: swatch.isGradient
+            anchors.fill: parent
+            anchors.margins: swatch.which === "stroke" ? 0 : 1
+            radius: 2
+            gradient: Gradient {
+                orientation: Gradient.Horizontal
+                GradientStop { position: 0.0; color: swatch.stops.length > 0 ? root.qtColor(swatch.stops[0].color) : "white" }
+                GradientStop { position: 1.0; color: swatch.stops.length > 0 ? root.qtColor(swatch.stops[swatch.stops.length - 1].color) : "black" }
+            }
+            // A stroke shows the gradient only on its edge.
+            Rectangle {
+                visible: swatch.which === "stroke"
+                anchors.fill: parent
+                anchors.margins: 4
+                color: Theme.panelBackground
+            }
+        }
+        Rectangle {
+            visible: swatch.none
+            anchors.centerIn: parent
+            width: parent.width * 1.1
+            height: 1.5
+            rotation: -35
+            color: "#e04040"
+        }
+        MouseArea {
+            anchors.fill: parent
+            acceptedButtons: Qt.LeftButton | Qt.RightButton
+            cursorShape: Qt.PointingHandCursor
+            onClicked: mouse => {
+                const layer = root.pickedLayer(swatch.which)
+                if (mouse.button === Qt.RightButton) {
+                    if (layer) {
+                        EditorState.setStyleLayer(EditorState.selectedTrack, EditorState.selectedClip, layer.id,
+                                                  { "enabled": layer.enabled === false })
+                    } else if (root.pickedStyled()) {
+                        fillOptions.openFor(swatch.which)
+                    } else if (swatch.which === "fill") {
+                        EditorState.preview.toolFill = EditorState.preview.toolFill === "none" ? "#ffff4d6d" : "none"
+                    } else {
+                        EditorState.preview.toolStroke = EditorState.preview.toolStroke === "none" ? "#ffffffff" : "none"
+                    }
+                    return
+                }
+                // A gradient, or a picked clip with no such layer yet: the options; else the colour.
+                if (swatch.isGradient || (root.pickedStyled() && !layer))
+                    fillOptions.openFor(swatch.which)
+                else
+                    colorDialog.openFor(swatch.which)
+            }
+        }
+    }
 
     component ToolButton: IconButton {
         property string toolId: ""
@@ -155,56 +297,10 @@ Rectangle {
             spacing: Theme.spacingSm
             visible: root.paintOptions
 
-            ThemedLabel { anchors.verticalCenter: parent.verticalCenter; text: qsTr("Fill"); size: "sm" }
-            Rectangle {
-                width: 22
-                height: 16
-                anchors.verticalCenter: parent.verticalCenter
-                radius: 2
-                color: EditorState.preview.toolFill === "none" ? "transparent" : EditorState.preview.toolFill
-                border.width: 1
-                border.color: Theme.border
-                Rectangle {
-                    visible: EditorState.preview.toolFill === "none"
-                    anchors.centerIn: parent
-                    width: parent.width * 1.1
-                    height: 1.5
-                    rotation: -35
-                    color: "#e04040"
-                }
-                MouseArea {
-                    anchors.fill: parent
-                    acceptedButtons: Qt.LeftButton | Qt.RightButton
-                    cursorShape: Qt.PointingHandCursor
-                    onClicked: mouse => {
-                        if (mouse.button === Qt.RightButton)
-                            EditorState.preview.toolFill = EditorState.preview.toolFill === "none" ? "#ffff4d6d" : "none"
-                        else
-                            colorDialog.openFor("fill")
-                    }
-                }
-            }
-            ThemedLabel { anchors.verticalCenter: parent.verticalCenter; text: qsTr("Stroke"); size: "sm" }
-            Rectangle {
-                width: 22
-                height: 16
-                anchors.verticalCenter: parent.verticalCenter
-                radius: 2
-                color: "transparent"
-                border.width: 4
-                border.color: EditorState.preview.toolStroke === "none" ? Theme.border : EditorState.preview.toolStroke
-                MouseArea {
-                    anchors.fill: parent
-                    acceptedButtons: Qt.LeftButton | Qt.RightButton
-                    cursorShape: Qt.PointingHandCursor
-                    onClicked: mouse => {
-                        if (mouse.button === Qt.RightButton)
-                            EditorState.preview.toolStroke = EditorState.preview.toolStroke === "none" ? "#ffffffff" : "none"
-                        else
-                            colorDialog.openFor("stroke")
-                    }
-                }
-            }
+            PaintLabel { which: "fill"; text: qsTr("Fill") }
+            PaintSwatch { which: "fill" }
+            PaintLabel { which: "stroke"; text: qsTr("Stroke") }
+            PaintSwatch { which: "stroke" }
             ThemedNumberField {
                 width: 64
                 anchors.verticalCenter: parent.verticalCenter
@@ -218,17 +314,30 @@ Rectangle {
         }
     }
 
+    FillOptionsDialog {
+        id: fillOptions
+    }
+
     ThemedColorDialog {
         id: colorDialog
         property string target: "fill"
+        property string layerId: ""
         function openFor(which) {
             target = which
-            const c = which === "fill" ? EditorState.preview.toolFill : EditorState.preview.toolStroke
-            selectedColor = c === "none" ? "#ffffff" : c
+            const layer = root.pickedLayer(which)
+            layerId = layer ? layer.id : ""
+            const c = layer ? ((layer.paint && layer.paint.color) || "#ffffffff")
+                            : which === "fill" ? EditorState.preview.toolFill : EditorState.preview.toolStroke
+            selectedColor = c === "none" ? "#ffffff" : root.qtColor(c)
             open()
         }
         onAccepted: {
             const c = String(selectedColor)
+            if (layerId.length > 0) {
+                EditorState.setStyleLayer(EditorState.selectedTrack, EditorState.selectedClip, layerId,
+                                          { "enabled": true, "paint": { "kind": "solid", "color": c } })
+                return
+            }
             if (target === "fill")
                 EditorState.preview.toolFill = c
             else

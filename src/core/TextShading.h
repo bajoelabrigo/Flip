@@ -81,6 +81,13 @@ struct TextGradient
     TextGradientSpace space = TextGradientSpace::Block;
 };
 
+// After Effects' gradient handles (0.29): the gradient as two points in fractions of the box it
+// is mapped onto. Linear: where the first and the last stop sit. Radial / Sweep: the centre and a
+// point at the radius (Radial) or on the start direction (Sweep). Setting them rewrites angle,
+// scale, offset and centre so the renderer (gradientShaderFor) draws exactly through them.
+void gradientHandlePoints(const TextGradient &gradient, QPointF *start, QPointF *end);
+void setGradientFromHandles(TextGradient &gradient, const QPointF &start, const QPointF &end);
+
 struct TextTexture
 {
     QString path;

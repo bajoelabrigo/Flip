@@ -5485,7 +5485,7 @@
     </message>
     <message>
         <source>Stroke width</source>
-        <translation type="unfinished"></translation>
+        <translation>Espessura do contorno</translation>
     </message>
     <message>
         <source>Scale X</source>
@@ -15568,6 +15568,93 @@ PRÓXIMA</translation>
     </message>
 </context>
 <context>
+    <name>FillOptionsDialog</name>
+    <message>
+        <source>Normal</source>
+        <translation>Normal</translation>
+    </message>
+    <message>
+        <source>Multiply</source>
+        <translation>Multiplicar</translation>
+    </message>
+    <message>
+        <source>Screen</source>
+        <translation>Ecrã</translation>
+    </message>
+    <message>
+        <source>Overlay</source>
+        <translation>Sobrepor</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>Adicionar</translation>
+    </message>
+    <message>
+        <source>Darken</source>
+        <translation>Escurecer</translation>
+    </message>
+    <message>
+        <source>Lighten</source>
+        <translation>Aclarar</translation>
+    </message>
+    <message>
+        <source>Fill Options</source>
+        <translation>Opções de preenchimento</translation>
+    </message>
+    <message>
+        <source>Stroke Options</source>
+        <translation>Opções de contorno</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Nenhum</translation>
+    </message>
+    <message>
+        <source>Solid Color</source>
+        <translation>Cor sólida</translation>
+    </message>
+    <message>
+        <source>Linear Gradient</source>
+        <translation>Gradiente linear</translation>
+    </message>
+    <message>
+        <source>Radial Gradient</source>
+        <translation>Gradiente radial</translation>
+    </message>
+    <message>
+        <source>Sweep Gradient</source>
+        <translation>Gradiente angular</translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation>Cor</translation>
+    </message>
+    <message>
+        <source>Angle</source>
+        <translation>Ângulo</translation>
+    </message>
+    <message>
+        <source>Drag its two handles on the video to place it, as in After Effects.</source>
+        <translation>Arraste as duas pegas no vídeo para o posicionar, como no After Effects.</translation>
+    </message>
+    <message>
+        <source>Blend mode</source>
+        <translation>Modo de mistura</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation>Opacidade</translation>
+    </message>
+    <message>
+        <source>Stroke width</source>
+        <translation>Espessura do contorno</translation>
+    </message>
+    <message>
+        <source>Preview</source>
+        <translation>Pré-visualizar</translation>
+    </message>
+</context>
+<context>
     <name>FiltersTab</name>
     <message>
         <source>Trending</source>
@@ -15998,6 +16085,29 @@ PRÓXIMA</translation>
     <message>
         <source>File</source>
         <translation>Ficheiro</translation>
+    </message>
+</context>
+<context>
+    <name>GradientHandlesOverlay</name>
+    <message>
+        <source>Move gradient</source>
+        <translation>Mover gradiente</translation>
+    </message>
+    <message>
+        <source>Gradient centre: drag to move it</source>
+        <translation>Centro do gradiente: arraste para o mover</translation>
+    </message>
+    <message>
+        <source>Gradient start: drag to move it</source>
+        <translation>Início do gradiente: arraste para o mover</translation>
+    </message>
+    <message>
+        <source>Gradient radius: drag to resize it</source>
+        <translation>Raio do gradiente: arraste para o redimensionar</translation>
+    </message>
+    <message>
+        <source>Gradient end: drag to move it</source>
+        <translation>Fim do gradiente: arraste para o mover</translation>
     </message>
 </context>
 <context>
@@ -18754,7 +18864,7 @@ PRÓXIMA</translation>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Cor</translation>
     </message>
     <message>
         <source>Intensity</source>
@@ -18818,7 +18928,7 @@ PRÓXIMA</translation>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Opacidade</translation>
     </message>
     <message>
         <source>Offered as a control of the composition: click to take it out</source>
@@ -18866,7 +18976,7 @@ PRÓXIMA</translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>Nenhum</translation>
     </message>
     <message>
         <source>The layer this one follows</source>
@@ -20249,6 +20359,14 @@ Se a reprodução falhar, experimente outra opção.</translation>
     <message>
         <source>Polygon</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fill Options: none, solid, linear or radial gradient, blend mode and opacity</source>
+        <translation>Opções de preenchimento: nenhum, sólido, gradiente linear ou radial, modo de mistura e opacidade</translation>
+    </message>
+    <message>
+        <source>Stroke Options: none, solid, linear or radial gradient, blend mode and opacity</source>
+        <translation>Opções de contorno: nenhum, sólido, gradiente linear ou radial, modo de mistura e opacidade</translation>
     </message>
     <message>
         <source>Selection</source>
@@ -23422,7 +23540,7 @@ Se a reprodução falhar, experimente outra opção.</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Adicionar</translation>
     </message>
     <message>
         <source>Add a shape or a group to this layer (After Effects: Add)</source>
@@ -23617,7 +23735,7 @@ Se a reprodução falhar, experimente outra opção.</translation>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Cor</translation>
     </message>
     <message>
         <source>Generate liquid trail</source>
@@ -23696,35 +23814,35 @@ Se a reprodução falhar, experimente outra opção.</translation>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Opacidade</translation>
     </message>
     <message>
         <source>Blend mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Modo de mistura</translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>Normal</translation>
     </message>
     <message>
         <source>Multiply</source>
-        <translation type="unfinished"></translation>
+        <translation>Multiplicar</translation>
     </message>
     <message>
         <source>Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Ecrã</translation>
     </message>
     <message>
         <source>Overlay</source>
-        <translation type="unfinished"></translation>
+        <translation>Sobrepor</translation>
     </message>
     <message>
         <source>Darken</source>
-        <translation type="unfinished"></translation>
+        <translation>Escurecer</translation>
     </message>
     <message>
         <source>Lighten</source>
-        <translation type="unfinished"></translation>
+        <translation>Aclarar</translation>
     </message>
     <message>
         <source>Wiggle</source>
@@ -24000,7 +24118,7 @@ Se a reprodução falhar, experimente outra opção.</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Adicionar</translation>
     </message>
     <message>
         <source>Subtract</source>
@@ -24536,7 +24654,7 @@ Se a reprodução falhar, experimente outra opção.</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Adicionar</translation>
     </message>
     <message>
         <source>Apply</source>
@@ -24564,7 +24682,7 @@ Se a reprodução falhar, experimente outra opção.</translation>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Cor</translation>
     </message>
 </context>
 <context>
@@ -27481,7 +27599,7 @@ Se a reprodução falhar, experimente outra opção.</translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>Normal</translation>
     </message>
     <message>
         <source>On the line</source>
@@ -29477,7 +29595,7 @@ Se a reprodução falhar, experimente outra opção.</translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>Nenhum</translation>
     </message>
     <message>
         <source>Use as mask stuck to</source>
@@ -30308,7 +30426,7 @@ Se a reprodução falhar, experimente outra opção.</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Adicionar</translation>
     </message>
     <message>
         <source>Add a shape or a group to this layer</source>
@@ -30336,31 +30454,31 @@ Se a reprodução falhar, experimente outra opção.</translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>Normal</translation>
     </message>
     <message>
         <source>Multiply</source>
-        <translation type="unfinished"></translation>
+        <translation>Multiplicar</translation>
     </message>
     <message>
         <source>Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Ecrã</translation>
     </message>
     <message>
         <source>Overlay</source>
-        <translation type="unfinished"></translation>
+        <translation>Sobrepor</translation>
     </message>
     <message>
         <source>Darken</source>
-        <translation type="unfinished"></translation>
+        <translation>Escurecer</translation>
     </message>
     <message>
         <source>Lighten</source>
-        <translation type="unfinished"></translation>
+        <translation>Aclarar</translation>
     </message>
     <message>
         <source>Blend mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Modo de mistura</translation>
     </message>
     <message>
         <source>Duplicate</source>
@@ -30404,7 +30522,7 @@ Se a reprodução falhar, experimente outra opção.</translation>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Cor</translation>
     </message>
     <message>
         <source>Constrain proportions: on</source>
@@ -30597,7 +30715,7 @@ Se a reprodução falhar, experimente outra opção.</translation>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Opacidade</translation>
     </message>
     <message>
         <source>Volume</source>
@@ -33009,7 +33127,7 @@ Se a reprodução falhar, experimente outra opção.</translation>
     </message>
     <message>
         <source>Preview</source>
-        <translation type="unfinished"></translation>
+        <translation>Pré-visualizar</translation>
     </message>
     <message>
         <source>Properties</source>
@@ -33040,7 +33158,7 @@ Se a reprodução falhar, experimente outra opção.</translation>
     </message>
     <message>
         <source>Preview</source>
-        <translation type="unfinished"></translation>
+        <translation>Pré-visualizar</translation>
     </message>
     <message>
         <source>Properties</source>

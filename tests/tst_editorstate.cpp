@@ -41,6 +41,7 @@
 #include "engine/TextLayout.h"
 #include "engine/ClipReaderPool.h"
 #include "models/AppController.h"
+#include "preview/PreviewController.h"
 #include "engine/EffectTemplateCatalog.h"
 #include "engine/SceneTemplateCatalog.h"
 #include "core/SceneTemplateLayout.h"
@@ -142,6 +143,7 @@ private slots:
     void penDrawsTheShapeLayerLive();
     void curvesPanelAppliesAndReadsCurves();
     void motionToolsReverseMirrorsPickedKeys();
+    void gradientHandlesAndToolPaintOptions();
     void motionToolsTrimBendAndCaps();
     void textClipTakesMasks();
     void motionTrackingKeysTheElementOverItsVideo();
@@ -13140,6 +13142,50 @@ void EditorStateTest::penDrawsTheShapeLayerLive()
     QCOMPARE(style.puckerBloat, 60.0);
     QVERIFY(drift::shapeStyleHash(style) != plain);
     QVERIFY(drift::shapeKeyframeProperties(style).contains(QStringLiteral("puckerBloat")));
+}
+
+void EditorStateTest::gradientHandlesAndToolPaintOptions()
+{
+    // Fill Options (0.29): a gradient chosen for the tools bar paints the next shape drawn.
+    AssetLibrary library;
+    AppController state(&library);
+    QVERIFY(state.preview());
+    const QVariantMap gradient{{QStringLiteral("kind"), QStringLiteral("radial")},
+                               {QStringLiteral("stops"), QVariantList{
+                                    QVariantMap{{QStringLiteral("pos"), 0.0}, {QStringLiteral("color"), QStringLiteral("#ffffffff")}},
+                                    QVariantMap{{QStringLiteral("pos"), 1.0}, {QStringLiteral("color"), QStringLiteral("#ff0000ff")}}}}};
+    state.preview()->setToolFillOptions(QVariantMap{
+        {QStringLiteral("opacity"), 0.5},
+        {QStringLiteral("paint"), QVariantMap{{QStringLiteral("kind"), QStringLiteral("gradient")},
+                                             {QStringLiteral("gradient"), gradient}}}});
+    state.addDrawnShape(QStringLiteral("rectangle"), 100, 100, 200, 200, QStringLiteral("#ffffffff"),
+                        QStringLiteral("none"), 0);
+    const int t = state.selectedTrack();
+    const int c = state.selectedClip();
+    QVERIFY(t >= 0 && c >= 0);
+    const drift::Clip &clip = state.project()->tracks().at(t).clips.at(c);
+    const drift::TextShadingLayer *fill =
+        drift::firstTextLayerOfKind(clip.shapeStyle.layers, drift::TextLayerKind::Fill, true);
+    QVERIFY(fill);
+    QCOMPARE(fill->paint.kind, drift::TextPaintKind::Gradient);
+    QCOMPARE(fill->paint.gradient.kind, drift::TextGradientKind::Radial);
+    QCOMPARE(fill->opacity, 0.5);
+
+    // Its handles read back, and a drag of them is one undo step that lands where it was dropped.
+    QVariantMap h = state.gradientHandles(t, c);
+    QCOMPARE(h.value(QStringLiteral("layerId")).toString(), fill->id);
+    QCOMPARE(h.value(QStringLiteral("kind")).toString(), QStringLiteral("radial"));
+    state.beginPreviewDrag(QStringLiteral("Move gradient"));
+    state.previewGradientHandles(t, c, fill->id, 0.25, 0.3, 0.6, 0.3);
+    state.commitPreviewDrag();
+    h = state.gradientHandles(t, c);
+    QVERIFY(std::abs(h.value(QStringLiteral("x0")).toDouble() - 0.25) < 1e-6);
+    QVERIFY(std::abs(h.value(QStringLiteral("y0")).toDouble() - 0.3) < 1e-6);
+    QVERIFY(std::abs(h.value(QStringLiteral("x1")).toDouble() - 0.6) < 1e-6);
+    QVERIFY(std::abs(h.value(QStringLiteral("y1")).toDouble() - 0.3) < 1e-6);
+    state.undo();
+    h = state.gradientHandles(t, c);
+    QVERIFY(std::abs(h.value(QStringLiteral("x0")).toDouble() - 0.5) < 1e-6);
 }
 
 void EditorStateTest::motionToolsReverseMirrorsPickedKeys()
