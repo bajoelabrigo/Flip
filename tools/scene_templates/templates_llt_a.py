@@ -788,4 +788,68 @@ def joanna():
     return t
 
 
-TEMPLATES = [francois, roger, jamie, charlotte, jason_e, jessica, david, neil, joanna]
+# Hendrick Cluson, measured frame by frame (25 fps from 50.05 s): the red square opens down from its top edge over
+# the logo (its bottom per frame), then tumbles away and lands as a thin upright line right of the logo (its centre,
+# long side, thickness and the long side's angle per frame), which opens to the right into the name's bar. The exit
+# is the entrance backwards (frame f out = frame 154 - f in).
+_HC_DROP = {3: 727, 4: 748, 5: 800, 6: 835, 7: 853, 8: 864, 9: 872, 10: 877, 11: 881, 12: 883, 14: 884}
+_HC_TUMBLE = {15: (380.2, 805.1, 165.8, 164.1, -1.9), 16: (371.2, 819.3, 166.4, 160.4, -9.3),
+              17: (357.9, 858.9, 166.6, 149.5, -28.1), 18: (391.2, 954.7, 166.8, 119.1, -78.4),
+              19: (527.0, 953.8, 165.5, 73.2, -155.5), 20: (554.0, 884.4, 166.2, 48.2, -196.5),
+              21: (540.7, 843.2, 166.1, 33.6, -220.8), 22: (522.3, 821.4, 166.1, 23.7, -236.9),
+              23: (505.4, 810.8, 165.5, 17.3, -248.2), 24: (492.3, 805.8, 164.9, 11.9, -256.2),
+              25: (482.6, 803.5, 164.9, 8.4, -261.8), 26: (476.0, 802.5, 163.7, 5.9, -265.6),
+              27: (471.6, 802.0, 162.1, 4.3, -268.2), 28: (469.5, 802.0, 162.0, 3.0, -270.0)}
+_HC_BAR = {29: 470, 30: 472, 31: 480, 32: 498, 33: 528, 34: 579, 35: 670, 36: 836, 37: 1020, 38: 1144, 39: 1226,
+           40: 1288, 41: 1334, 42: 1370, 43: 1400, 44: 1424, 45: 1444, 46: 1460, 47: 1472, 48: 1483, 49: 1492,
+           50: 1497, 51: 1502, 52: 1505, 53: 1507, 54: 1508}
+
+
+def hendrick():
+    """A red square opens down over the logo, tumbles off it and lands upright as a thin line, which opens to the
+    right into a bar with the name. Out, all of it backwards."""
+    fps, first, last = 25.0, 3, 151
+    D = round((last - first + 1) / fps, 2)
+    t = _kit("hendrick", "Tercio con logo: cuadro que cae y abre la barra", "Logo lower third: tumbling square opens the bar",
+             D, 8539, ["nombre", "barra", "rojo", "logo"], thumb_at=2.6)
+    photo_bg(t, "h-city-01", s1=1.03, label="Tu video")
+    from llt_motion import frames_of
+    us = frames_of(D)
+    fin = lambda u: (lambda i: i if i <= 77 else 154 - i)(first + u * fps)  # noqa: E731  the entrance's frame
+    drop = _table(_HC_DROP, 720.0, 884.0)
+    tumble = _table(_HC_TUMBLE, (382.5, 802.0, 165.0, 165.0, 0.0), (469.5, 802.0, 162.0, 3.0, -270.0))
+    bar_r = _table(_HC_BAR, 469.0, 1508.0)
+    # The square: opening down (to frame 14), tumbling (15-28), gone once it is the bar's line (29 on).
+    sq = Box(300, 720, 165, 165)
+    motion, rot = [], []
+    for u in us:
+        f = fin(u)
+        if f <= 14.5:
+            b = drop(f)
+            motion.append((u, {"sx": 1.0, "sy": (b - 720 + 1) / 165, "dy": (720 + b + 1) / 2 - sq.cy}, "linear"))
+            rot.append((u, 0.0, "linear"))
+        elif f <= 28.99:
+            cx, cy, long, thick, a = tumble(f)
+            motion.append((u, {"sx": long / 165, "sy": thick / 165, "dx": cx - sq.cx, "dy": cy - sq.cy}, "linear"))
+            rot.append((u, a, "linear"))
+        else:
+            motion.append((u, {"sx": 0.0, "sy": 0.0, "dx": 469.5 - sq.cx, "dy": 802 - sq.cy}, "linear"))
+            rot.append((u, -270.0, "linear"))
+    cube = t.solid(t.track("shape", "Cuadro"), RED, 0.0, D, sq, motion, rotation=keys(rot))
+    cube["name"] = "Cuadro"
+    # The logo: inside the square while it opens, then on its own.
+    lg = centered(379.5, 802.0, 150, 150)
+    mark = t.photo(t.track("video", "Logo"), "logo-11", 0.0, D, lg, label="Tu logo", brandRole="logo")
+    mask_track(t, mark, lg, lambda u: (200, 600, 600, drop(fin(u)) + 1 if fin(u) <= 14.5 else 1000), D)
+    bar = Box(468, 720, 1040, 165)
+    rect_track(t, t.track("shape", "Barra"), bar,
+               lambda u: (468, 720, bar_r(fin(u)), 885) if fin(u) > 28.99 else (468, 720, 468, 885), D, RED,
+               name="Barra")
+    name = "HENDRICK CLUSON"
+    nbox, nsize = caps_box(481, 736, 868, name)
+    clip = name_text(t, name, nbox, nsize, D, bold_from="CLUSON", spacing=-5.0, bold_spacing=5.4, word_spacing=8)
+    mask_track(t, clip, nbox, lambda u: (468, 700, bar_r(fin(u)) if fin(u) > 28.99 else 468, 900), D)
+    return t
+
+
+TEMPLATES = [francois, roger, jamie, charlotte, jason_e, jessica, david, neil, joanna, hendrick]
