@@ -63,3 +63,19 @@ situaciones distintas con la build nueva, arreglar lo que falle y añadir las he
   montaje `montar.py <toma>` → `tutorial-<toma>.mp4` (recorta el borde, banda de subtítulos, cortes, ratos quietos
   acelerados con mpdecimate). Francois y Charlie grabadas; Jamie se repite con la build nueva (la primera toma no
   servía por el giro 3D en el centro).
+
+## Los ~10 proyectos de prueba (pedido de Jorge, 2026-10-31)
+
+Con la build nueva, en ventana, material en `pruebas\proyectos-029\material` (copias). Cada uno usa la app como lo
+haría un usuario; lo que falle se arregla y lo que falte se añade. Estado al lado de cada uno.
+
+1. **Reel vertical 9:16**: video de 120 fps, cortes, cámara lenta, texto con animación, música y subtítulos.
+2. **Presentación de fotos**: 4 fotos con transiciones, Ken Burns (claves de escala), música al ritmo.
+3. **Intro de YouTube**: logo en 3D que se levanta desde su borde (anclaje + inclinación), texto con degradado.
+4. **Anuncio de producto**: formas con degradado lineal y radial desde «Opciones de relleno», tiradores, contador.
+5. **Tercio inferior**: barra con claves, entrada clonada e **Invertir** para la salida (Motion Tools).
+6. **Tutorial de pantalla**: zoom y paneo con claves suaves, flecha (pluma), resaltado con máscara.
+7. **Persona recortada**: quitar fondo y texto detrás de la persona.
+8. **Mate de seguimiento**: texto que aparece dentro de una forma que se abre (como Charlie).
+9. **Vlog 16:9**: varias pistas, velocidad, congelar fotograma, ajustes de color y un LUT.
+10. **Exportar**: el mismo proyecto a MP4 1080p, GIF y vertical; guardar, cerrar y abrir de nuevo.
