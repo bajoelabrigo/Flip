@@ -441,6 +441,8 @@ Item {
                                                                 "rotationY": handle.poseRotY,
                                                                 "z": handle.poseZ,
                                                                 "perspective": handle.posePerspective,
+                                                                "anchorFx": handle.anchorFx,
+                                                                "anchorFy": handle.anchorFy,
                                                                 "parentActive": handle.box.parentActive,
                                                                 "parent": handle.box.parent
                                                             }, handle.layoutX, handle.layoutY,

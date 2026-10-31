@@ -91,3 +91,35 @@ probar lo que falló en ventana, grabándolo.
 - (trampa repetida) La primera build con `FillOptionsDialog` no arrancaba: «Cannot override FINAL property» por
   `property int clip` en un `ThemedDialog` (Popup). Renombrado a `editTrack` / `editClip`. Siempre abrir el portable
   y mirar `stderr` antes de seguir.
+
+## Verificación en ventana de la build 41234259093 (portable `pruebas\FlipStudio-0.29-prueba-b`)
+- OK: la app arranca sin errores de QML. «Opciones de relleno» se abre con clic en «Relleno» (con la herramienta de
+  forma elegida), muestra los 5 tipos, el editor de degradado y los preajustes; Aceptar deja la pintura para la forma
+  nueva, y el rectángulo sale con el degradado. Los tiradores aparecen con la herramienta de selección; arrastrar el
+  final gira y acorta el degradado, y Ctrl+Z lo devuelve.
+- **Fallo:** al elegir un preajuste con «Degradado radial» marcado, el tipo pasa a «Degradado lineal» (el preajuste
+  trae su propio `kind`). Debe conservar el tipo elegido en la fila de arriba.
+- OK: «Invertir» (2 claves de opacidad 0→100 pasan a 100→0). Campos de anclaje y rombo de Escala visibles. Valores
+  escritos ya no dejan claves sueltas en X/Y. El giro 3D pivota en el anclaje (borde de arriba fijo).
+- **Fallo (arreglado en código, falta compilar):** el contorno de selección cian giraba desde el centro: 
+  `PreviewController::clipPoseMatrix` no recibía el anclaje (ahora `anchorFx/Fy` desde `TransformOverlay`).
+- OK: la herramienta Texto deja «Texto» seleccionado (escribir lo reemplaza) y el texto va a su propia pista en el
+  cabezal. El primer Guardar pone el nombre del archivo en la píldora («verificacion»).
+- **Fallo menor:** el clip de texto sigue llamándose «Texto» en la línea de tiempo después de escribir «HOLA»
+  (el nombre sale del texto de ejemplo y no se actualiza si el usuario no lo renombró).
+- **Fallo (de la sesión anterior también):** soltar un medio en la vista previa a veces no hace nada si el arrastre
+  es corto (pocos movimientos); hay que pasar despacio por encima. Revisar el `DropArea` de la vista previa.
+- **Fallo (2 de 3 veces, también en zona vacía):** herramienta Texto con clic **encima de otra capa** (la tarjeta roja): el texto se crea, pero lo que se
+  escribe se pierde (queda «Texto»). Sobre una zona vacía sí funciona. Sospecha: el clic llega también a la capa de
+  debajo, que toma el foco del editor en línea.
+- **Fallo:** en «Opciones de relleno», escribir un color en el campo hex y pulsar Enter acepta la ventana **antes**
+  de que el campo guarde el color: la forma sale con el color anterior. `ColorSwatchField` confirma en
+  `editingFinished`; el diálogo debe leer el texto del campo al aceptar (o no aceptar con Enter dentro del campo).
+- **Fallo:** en el selector de color (cuadrito de la barra con una forma elegida), el campo hex no toma el foco con
+  clic; un `Ctrl+A` va a la línea de tiempo y elige todos los clips. Revisar el foco del `ThemedColorDialog`.
+- OK: Jamie grabado con la build nueva (`raw-jamie.mkv`): campos de anclaje, giro 3D desde el borde de arriba
+  (cara blanca) y desde el de abajo (cara roja), Texto avanzado mostrando «Antonio» en las letras elegidas.
+- **A mejorar:** a mitad del giro las dos caras se pintan superpuestas (sin orden por profundidad). Para el prisma
+  hace falta «Ocultar por profundidad» encendido por defecto en capas 3D que se cruzan, o explicarlo en la guía.
+- **Fallo:** al elegir otra composición, los campos de anclaje mostraron un rato los valores de la anterior
+  (856/713 en la cara roja antes de escribir). Revisar el enlace de `anchorSection` al cambiar de clip.

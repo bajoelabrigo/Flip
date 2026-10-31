@@ -675,6 +675,10 @@ QMatrix4x4 PreviewController::clipPoseMatrix(const QVariantMap &box, double x, d
                         box.value(QStringLiteral("canvasHeight")).toDouble());
     if (canvas.isEmpty() || scaleX <= 0.0 || scaleY <= 0.0)
         return {};
+    // The tilt pivots on the anchor (0.29): the box here is the layout one, so the pivot comes from it.
+    drift::ClipPose3d pose = previewBoxPose(box);
+    pose.pivot = drift::clipPivot(box.value(QStringLiteral("anchorFx"), 0.5).toDouble(),
+                                  box.value(QStringLiteral("anchorFy"), 0.5).toDouble(), w, h, rotation);
     QMatrix4x4 m;
     m.scale(float(scaleX), float(scaleY));
     m.translate(float(-x), float(-y));
@@ -683,12 +687,12 @@ QMatrix4x4 PreviewController::clipPoseMatrix(const QVariantMap &box, double x, d
         // Through the camera (or the 3D view), using the same placement the compositor draws
         // with, so the overlay sits exactly on the picture.
         const QTransform parent = previewBoxParent(box);
-        m *= drift::viewClipLocalToCanvas(view, QRectF(x, y, w, h), rotation, previewBoxPose(box),
+        m *= drift::viewClipLocalToCanvas(view, QRectF(x, y, w, h), rotation, pose,
                                           parent, !parent.isIdentity(), canvas);
     } else {
         // A parented box, flat or not, is placed through its transform layers too.
         m *= liftHomography(previewBoxParent(box));
-        m *= drift::clipLocalToCanvas(QRectF(x, y, w, h), rotation, previewBoxPose(box), canvas);
+        m *= drift::clipLocalToCanvas(QRectF(x, y, w, h), rotation, pose, canvas);
     }
     m.scale(float(1.0 / scaleX), float(1.0 / scaleY));
     return m;
