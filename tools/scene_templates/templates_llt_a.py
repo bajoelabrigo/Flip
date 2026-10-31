@@ -1480,5 +1480,72 @@ def brian():
     return t
 
 
+def _scan(path, keys_):
+    """lt_ref/<name>.txt: frame -> {key: tuple | None} for lines "N key (a, b, ...) key None ..."."""
+    import re
+    out = {}
+    for line in (Path(__file__).with_name("lt_ref") / path).read_text(encoding="utf-8").splitlines():
+        line = re.sub(r"np\.int64\((\d+)\)", r"\1", line)
+        m = re.match(r"(\d+) (.*)", line)
+        if not m:
+            continue
+        row = {}
+        for k in keys_:
+            mm = re.search(rf"\b{k} (None|\([^)]*\))", m.group(2))
+            row[k] = eval(mm.group(1)) if mm else None  # noqa: S307 - our own scan
+        out[int(m.group(1))] = row
+    return out
+
+
+def harry():
+    """A red block with the wordmark runs in from the right, pulling a thin underline after it; the role slides in
+    under the line from the left; the block runs on to the left edge, uncovering the name, and shrinks into it. Out,
+    backwards (lt_ref/harry.txt, 25 fps from 106.55 s; out = frame 133 - f)."""
+    fps, first, last = 25.0, 3, 131
+    D = round((last - first + 1) / fps, 2)
+    t = _kit("harry", "Tercio con logo: bloque que corre y destapa", "Logo lower third: running block reveals the name", D,
+             8549, ["nombre", "cargo", "subrayado", "marca"], thumb_at=2.6)
+    photo_bg(t, "h-city-01", s1=1.03, label="Tu video")
+    from llt_motion import frames_of
+    us = frames_of(D)
+    scan = _scan("harry.txt", ("box", "ul", "role"))
+    fin = lambda u: (lambda i: i if i <= 66 else 133 - i)(first + u * fps)  # noqa: E731
+    boxL = _table({f: r["box"][0] for f, r in scan.items() if f <= 26 and r["box"]}, 1158.0, 298.0)
+    boxR = _table({**{f: r["box"][2] + 1 for f, r in scan.items() if f <= 26 and r["box"]}, 27: 298.0}, 1158.0, 298.0)
+    ulR = _table({f: r["ul"][1] + 1 for f, r in scan.items() if f <= 40 and r["ul"]}, 298.0, 1158.0)
+    roleR = _table({f: r["role"][1] for f, r in scan.items() if 9 <= f <= 40 and r["role"]}, 300.0, 1133.0)
+    Y0, Y1 = 703.0, 807.0
+    name = "HARRY SABBATA"
+    nbox, nsize = caps_box(330, 711, 801, name)
+    clip = name_text(t, name, nbox, nsize, D, bold_from="SABBATA", spacing=-4.0, bold_spacing=7.6, word_spacing=6)
+    mask_track(t, clip, nbox, lambda u: (boxL(fin(u)) if fin(u) <= 26 else 0, 600, 3000, 900), D)
+    rect_track(t, t.track("shape", "Línea"), Box(298, 811, 860, 3), lambda u: (298, 811, ulR(fin(u)), 813), D, RED,
+               name="Línea")
+    role = "SPORTS SCIENTIST"
+    rbox, rsize = caps_box(668, 824, 888, role)
+    rclip = name_text(t, role, rbox, rsize, D, name="Cargo", spacing=-2.3, word_spacing=6,
+                      motion=[(u, {"dx": roleR(fin(u)) - 1133}, "linear") for u in us])
+    track = next(tr for tr in t.tracks if rclip in tr.clips)
+    t.mask(track, rclip, "rectangle", x=0.5, y=0.5, w=1.0, h=2.0,
+           keyframes={"x": keys([(u, ((297 + 3000) / 2 - rbox.x - (roleR(fin(u)) - 1133)) / rbox.w, "linear")
+                                 for u in us]),
+                      "w": keys([(u, 2703 / rbox.w, "linear") for u in us])})
+    rect = lambda u: (boxL(fin(u)), Y0, boxR(fin(u)), Y1)  # noqa: E731
+    rect_track(t, t.track("shape", "Bloque"), Box(298, Y0, 860, Y1 - Y0), rect, D, RED, name="Bloque")
+    wm = Box(425, 718, 345, 72)
+    wm_dx = lambda u: min(425.0, boxL(fin(u)) + 8) - 425  # noqa: E731
+    mark = t.photo(t.track("video", "Marca"), "logo-12", 0.0, D, wm, [(u, {"dx": wm_dx(u)}, "linear") for u in us],
+                   label="Tu logo con nombre", brandRole="logo")
+    track = next(tr for tr in t.tracks if mark in tr.clips)
+    mk = {"x": [], "w": []}
+    for u in us:
+        x0, _, x1, _ = rect(u)
+        mk["x"].append((u, ((x0 + x1) / 2 - wm.x - wm_dx(u)) / wm.w, "linear"))
+        mk["w"].append((u, max(0.0, x1 - x0) / wm.w, "linear"))
+    t.mask(track, mark, "rectangle", x=mk["x"][0][1], y=0.5, w=mk["w"][0][1], h=2.0,
+           keyframes={k: keys(v) for k, v in mk.items()})
+    return t
+
+
 TEMPLATES = [francois, roger, jamie, charlotte, jason_e, jessica, david, neil, joanna, hendrick, bevan, janice, charlie,
-             lizzie, patricia, jim, jason_f, lucas, brian]
+             lizzie, patricia, jim, jason_f, lucas, brian, harry]
