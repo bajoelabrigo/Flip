@@ -14,7 +14,8 @@ class Project;
 // start), `wiggle(freq, amount[, seed])`, `Math`, and `thisComp.layer("Name")` /
 // `layer("Name")` with `.transform.position[0|1]`, `.transform.rotation`, `.transform.opacity`,
 // `.transform.scale[0|1]`, `.transform.anchorPoint[0|1]` (also `.x`, `.y`, `.rotation`,
-// `.opacity`, `.width`, `.height` directly). The last statement is the result.
+// `.opacity`, `.width`, `.height` directly), and on a shape layer `.content("Name")` (nested for groups) with
+// `.transform.position/rotation/opacity/scale/anchorPoint/skew` and `.size` (0.28). The last statement is the result.
 void installExpressionEngine();
 
 // Makes `project` the one layer("...") looks into on this thread, at timeline time `timelineUs`

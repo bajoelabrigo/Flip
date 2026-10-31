@@ -191,7 +191,7 @@ mismo que conoce (orden, nombres, cronómetros, atajos).
    exportación es igual a la vista previa). **MCP** `list_shape_parts`, `add_shape_part`, `set_shape_part`,
    `group_shape_part` (docs/MCP.md, prueba `shapePartsThroughMcp`). Prueba `strokeTaperWaveAndRoundness`. Guiones,
    degradados y redondear esquinas ya existían. Además, en el motor: el «barrido» de un texto con caja barría solo las
-   letras y dejaba sin margen derecho la caja (ahora barre la caja entera). Falta: `content("…")` en expresiones.
+   letras y dejaba sin margen derecho la caja (ahora barre la caja entera). **Expresiones:** `layer("Capa").content("Grupo 1").content("Elipse 1").transform.rotation` (y `.size`), prueba en `expressionsRunOnProperties`. **Trampa:** cambiar la firma de una función declarada en un `.h` solo en el `.cpp` compila pero falla al enlazar (`regularPolygonPath`, las máscaras la usan): buscar en los encabezados.
 
 ## Decisiones (Jorge)
 - [x] Nombres (Jorge, 2026-10-30: opción A): columna derecha con nombres claros (Forma, Relleno, **Borde**, **Posición y
