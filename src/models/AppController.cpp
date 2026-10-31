@@ -165,6 +165,8 @@ using drift::mcpdetail::runBeatAnalysis;
 
 namespace {
 
+void retimeKeepingSource(drift::Project &project, int trackIndex, int clipIndex, double speed);
+
 // Packages the user brought themselves (an imported .driftfx, or a folder dropped in by hand) live
 // under <AppData>/<subdir>; signed addons install to their own roots, and the bundled ones sit
 // beside the binary. That location is what the "My effects" chip filters on.
