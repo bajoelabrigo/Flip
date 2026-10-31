@@ -63,8 +63,12 @@ def main():
             # The green-and-charcoal kits (52324162.mp4): a vivid green and the near-black cards.
             green = (c[..., 1] > 180) & (c[..., 0] < 150) & (c[..., 1] - c[..., 0] > 70)
             dark = (c < 60).all(-1)
+            # The yellow-and-white library (36403326.mp4): a vivid yellow and a light grey.
+            yellow = (c[..., 0] > 200) & (c[..., 1] > 170) & (c[..., 2] < 90)
+            grey = (abs(c[..., 0] - c[..., 1]) < 12) & (abs(c[..., 1] - c[..., 2]) < 12) & (c[..., 0] > 120) & (c[..., 0] < 200)
             row[key] = {"warm": runs(warm.mean(axis) > 0.5, off), "white": runs(white.mean(axis) > share, off),
-                        "green": runs(green.mean(axis) > 0.5, off), "dark": runs(dark.mean(axis) > share, off)}
+                        "green": runs(green.mean(axis) > 0.5, off), "dark": runs(dark.mean(axis) > share, off),
+                        "yellow": runs(yellow.mean(axis) > 0.5, off), "grey": runs(grey.mean(axis) > 0.5, off)}
         frames.append(row)
     out = Path(__file__).with_name("lt_ref") / f"{name}.json"
     out.write_text(json.dumps({"start": start, "fps": fps, "frames": frames}, separators=(",", ":")), encoding="utf-8")
