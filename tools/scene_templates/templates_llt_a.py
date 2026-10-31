@@ -945,4 +945,78 @@ def bevan():
     return t
 
 
-TEMPLATES = [francois, roger, jamie, charlotte, jason_e, jessica, david, neil, joanna, hendrick, bevan]
+# Janice Hendrichsen, measured frame by frame (25 fps from 62.4 s): a thin line opens both ways from its middle,
+# then the bar (with the role and the wordmark in it) rises out of it and the name rises faster above; out, the
+# other way round.
+_JH_LINE = {1: (822, 928), 2: (778, 971), 3: (696, 1052), 4: (598, 1152), 5: (530, 1218), 6: (486, 1264),
+            7: (454, 1296), 8: (429, 1320), 9: (410, 1340), 10: (394, 1356), 11: (382, 1368), 12: (372, 1378),
+            13: (363, 1386), 14: (356, 1392), 15: (350, 1400), 16: (346, 1403), 17: (343, 1406), 18: (340, 1409),
+            20: (338, 1411), 21: (337, 1412), 23: (336, 1412), 117: (336, 1412), 118: (337, 1412), 119: (340, 1410),
+            120: (350, 1400), 121: (372, 1376), 122: (421, 1328), 123: (532, 1217), 124: (652, 1098),
+            125: (720, 1029), 126: (764, 984), 127: (794, 954), 128: (816, 932), 129: (875, 875)}
+_JH_BAR = {20: 892, 21: 891, 23: 890, 24: 889, 25: 888, 26: 885, 27: 882, 28: 878, 29: 871, 30: 863, 31: 852,
+           32: 843, 33: 837, 34: 832, 35: 828, 36: 824, 37: 821, 38: 819, 39: 816, 40: 815, 41: 813, 42: 811,
+           44: 810, 45: 809, 46: 808, 47: 807, 49: 806, 51: 805, 53: 804, 96: 804, 97: 804, 98: 806, 99: 809,
+           100: 812, 101: 821, 102: 835, 103: 850, 104: 860, 105: 867, 106: 872, 107: 876, 108: 880, 109: 882,
+           110: 884, 111: 886, 112: 887, 113: 888, 114: 889, 115: 890, 116: 891, 118: 892}
+_JH_NAME = {26: 895, 27: 877, 28: 866, 29: 849, 30: 825, 31: 798, 32: 775, 33: 758, 34: 744, 35: 733, 36: 724,
+            37: 717, 38: 711, 39: 705, 40: 701, 41: 697, 42: 693, 43: 690, 44: 686, 45: 684, 46: 682, 47: 680,
+            48: 679, 49: 677, 50: 676, 51: 674, 53: 673, 54: 672, 57: 671, 95: 671, 96: 672, 97: 674, 98: 677,
+            99: 684, 100: 695, 101: 715, 102: 752, 103: 792, 104: 820, 105: 838, 106: 852, 107: 862, 108: 870,
+            109: 876, 110: 895}
+
+
+def janice():
+    """A thin red line opens both ways from its middle; the bar with the role and the wordmark rises out of it and
+    the name rises faster above it. Out, they sink back into the line and it closes into its middle."""
+    fps, first, last = 25.0, 1, 129
+    D = round((last - first + 1) / fps, 2)
+    t = _kit("janice", "Tercio con logo: barra que sube de una línea", "Logo lower third: bar rising from a line", D,
+             8541, ["nombre", "cargo", "barra", "rojo", "marca"], thumb_at=2.8)
+    photo_bg(t, "h-city-01", s1=1.03, label="Tu video")
+    from llt_motion import frames_of
+    us = frames_of(D)
+    fr = lambda u: first + u * fps  # noqa: E731
+    line = _table(_JH_LINE, (875.0, 875.0), (875.0, 875.0))
+    bar_top = _table(_JH_BAR, 892.0, 892.0)
+    name_top = _table(_JH_NAME, 900.0, 900.0)
+    X0, X1, Y1 = 336.0, 1412.0, 896.0
+    # The line: 4 px tall, opening and closing; under the bar once that rises.
+    rect_track(t, t.track("shape", "Línea"), Box(X0, 880, X1 - X0, 16),
+               lambda u: (line(fr(u))[0], 892, line(fr(u))[1], Y1), D, RED, name="Línea")
+    bar = Box(X0, 804, X1 - X0, Y1 - 804)
+    rect_track(t, t.track("shape", "Barra"), bar, lambda u: (X0, bar_top(fr(u)), X1, Y1), D, RED, name="Barra")
+    clip_below = lambda u: (0, 0, 1920, 892)  # noqa: E731  what rises shows only above the line
+    role = "TECHNICAL SUPPORT"
+    rbox, rsize = caps_box(357, 819, 885, role)
+    motion = [(u, {"dy": bar_top(fr(u)) - 804}, "linear") for u in us]
+    rclip = name_text(t, role, rbox, rsize, D, name="Cargo", spacing=-2.0, word_spacing=6, motion=motion)
+    wm_box = Box(1070, 816, 331, 70)
+    wm = t.photo(t.track("video", "Marca"), "logo-12", 0.0, D, wm_box, motion, label="Tu logo con nombre",
+                 brandRole="logo")
+    for c, b in ((rclip, rbox), (wm, wm_box)):
+        track = next(tr for tr in t.tracks if c in tr.clips)
+        mk = {"y": [], "h": []}
+        for u in us:
+            dy = bar_top(fr(u)) - 804
+            mk["y"].append((u, ((0 + 892) / 2 - b.y - dy) / b.h, "linear"))
+            mk["h"].append((u, 892 / b.h, "linear"))
+        t.mask(track, c, "rectangle", x=0.5, y=mk["y"][0][1], w=4.0, h=mk["h"][0][1],
+               keyframes={k: keys(v) for k, v in mk.items()})
+    name = "JANICE HENDRICHSEN"
+    nbox, nsize = caps_box(363, 671, 786, name)
+    motion = [(u, {"dy": name_top(fr(u)) - 671}, "linear") for u in us]
+    clip = name_text(t, name, nbox, nsize, D, bold_from="HENDRICHSEN", spacing=-4.5, bold_spacing=6.2, word_spacing=6,
+                     motion=motion)
+    track = next(tr for tr in t.tracks if clip in tr.clips)
+    mk = {"y": [], "h": []}
+    for u in us:
+        dy = name_top(fr(u)) - 671
+        mk["y"].append((u, ((0 + 892) / 2 - nbox.y - dy) / nbox.h, "linear"))
+        mk["h"].append((u, 892 / nbox.h, "linear"))
+    t.mask(track, clip, "rectangle", x=0.5, y=mk["y"][0][1], w=4.0, h=mk["h"][0][1],
+           keyframes={k: keys(v) for k, v in mk.items()})
+    return t
+
+
+TEMPLATES = [francois, roger, jamie, charlotte, jason_e, jessica, david, neil, joanna, hendrick, bevan, janice]
