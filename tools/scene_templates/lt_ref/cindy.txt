@@ -1,0 +1,128 @@
+0 logo (np.int64(348), np.int64(746), np.int64(461), np.int64(876)) name None
+1 logo (np.int64(348), np.int64(739), np.int64(468), np.int64(875)) name None
+2 logo (np.int64(349), np.int64(733), np.int64(473), np.int64(875)) name None
+3 logo (np.int64(349), np.int64(728), np.int64(477), np.int64(875)) name None
+4 logo (np.int64(349), np.int64(725), np.int64(481), np.int64(875)) name None
+5 logo (np.int64(350), np.int64(722), np.int64(483), np.int64(875)) name None
+6 logo (np.int64(350), np.int64(720), np.int64(485), np.int64(875)) name None
+7 logo (np.int64(350), np.int64(718), np.int64(487), np.int64(875)) name None
+8 logo (np.int64(350), np.int64(716), np.int64(489), np.int64(875)) name None
+9 logo (np.int64(350), np.int64(715), np.int64(489), np.int64(875)) name None
+10 logo (np.int64(350), np.int64(715), np.int64(490), np.int64(875)) name None
+11 logo (np.int64(350), np.int64(714), np.int64(491), np.int64(875)) name None
+12 logo (np.int64(350), np.int64(714), np.int64(491), np.int64(875)) name None
+13 logo (np.int64(350), np.int64(714), np.int64(491), np.int64(875)) name None
+14 logo (np.int64(351), np.int64(714), np.int64(491), np.int64(875)) name None
+15 logo (np.int64(352), np.int64(714), np.int64(493), np.int64(875)) name None
+16 logo (np.int64(355), np.int64(715), np.int64(495), np.int64(875)) name None
+17 logo (np.int64(360), np.int64(715), np.int64(501), np.int64(875)) name (np.int64(498), np.int64(744), np.int64(519), np.int64(854))
+18 logo (np.int64(370), np.int64(717), np.int64(513), np.int64(875)) name (np.int64(510), np.int64(744), np.int64(599), np.int64(854))
+19 logo (np.int64(400), np.int64(722), np.int64(543), np.int64(876)) name (np.int64(544), np.int64(744), np.int64(665), np.int64(854))
+20 logo (np.int64(412), np.int64(724), np.int64(559), np.int64(876)) name (np.int64(545), np.int64(743), np.int64(719), np.int64(855))
+21 logo (np.int64(414), np.int64(724), np.int64(559), np.int64(876)) name (np.int64(544), np.int64(743), np.int64(765), np.int64(855))
+22 logo (np.int64(414), np.int64(724), np.int64(559), np.int64(876)) name (np.int64(544), np.int64(743), np.int64(805), np.int64(855))
+23 logo (np.int64(414), np.int64(724), np.int64(559), np.int64(876)) name (np.int64(548), np.int64(743), np.int64(839), np.int64(855))
+24 logo (np.int64(413), np.int64(724), np.int64(559), np.int64(876)) name (np.int64(574), np.int64(743), np.int64(870), np.int64(855))
+25 logo (np.int64(413), np.int64(724), np.int64(557), np.int64(876)) name (np.int64(542), np.int64(743), np.int64(897), np.int64(855))
+26 logo (np.int64(412), np.int64(724), np.int64(557), np.int64(876)) name (np.int64(557), np.int64(743), np.int64(921), np.int64(855))
+27 logo (np.int64(410), np.int64(724), np.int64(555), np.int64(876)) name (np.int64(544), np.int64(743), np.int64(942), np.int64(855))
+28 logo (np.int64(409), np.int64(724), np.int64(554), np.int64(876)) name (np.int64(539), np.int64(743), np.int64(962), np.int64(855))
+29 logo (np.int64(407), np.int64(723), np.int64(551), np.int64(876)) name (np.int64(538), np.int64(743), np.int64(980), np.int64(855))
+30 logo (np.int64(405), np.int64(723), np.int64(551), np.int64(876)) name (np.int64(535), np.int64(743), np.int64(996), np.int64(855))
+31 logo (np.int64(404), np.int64(723), np.int64(547), np.int64(876)) name (np.int64(538), np.int64(743), np.int64(1010), np.int64(855))
+32 logo (np.int64(400), np.int64(722), np.int64(543), np.int64(876)) name (np.int64(544), np.int64(743), np.int64(1023), np.int64(855))
+33 logo (np.int64(397), np.int64(722), np.int64(541), np.int64(876)) name (np.int64(528), np.int64(743), np.int64(1035), np.int64(855))
+34 logo (np.int64(394), np.int64(722), np.int64(537), np.int64(876)) name (np.int64(538), np.int64(743), np.int64(1046), np.int64(855))
+35 logo (np.int64(390), np.int64(721), np.int64(533), np.int64(876)) name (np.int64(522), np.int64(743), np.int64(1055), np.int64(855))
+36 logo (np.int64(386), np.int64(721), np.int64(531), np.int64(875)) name (np.int64(531), np.int64(743), np.int64(1064), np.int64(855))
+37 logo (np.int64(382), np.int64(720), np.int64(525), np.int64(875)) name (np.int64(512), np.int64(743), np.int64(1072), np.int64(855))
+38 logo (np.int64(378), np.int64(720), np.int64(521), np.int64(875)) name (np.int64(506), np.int64(743), np.int64(1079), np.int64(855))
+39 logo (np.int64(374), np.int64(719), np.int64(517), np.int64(875)) name (np.int64(505), np.int64(743), np.int64(1086), np.int64(855))
+40 logo (np.int64(371), np.int64(718), np.int64(513), np.int64(875)) name (np.int64(504), np.int64(743), np.int64(1091), np.int64(855))
+41 logo (np.int64(368), np.int64(718), np.int64(511), np.int64(875)) name (np.int64(504), np.int64(743), np.int64(1096), np.int64(855))
+42 logo (np.int64(364), np.int64(718), np.int64(507), np.int64(875)) name (np.int64(507), np.int64(743), np.int64(1101), np.int64(855))
+43 logo (np.int64(362), np.int64(717), np.int64(503), np.int64(875)) name (np.int64(510), np.int64(743), np.int64(1105), np.int64(855))
+44 logo (np.int64(360), np.int64(716), np.int64(501), np.int64(875)) name (np.int64(514), np.int64(743), np.int64(1108), np.int64(855))
+45 logo (np.int64(358), np.int64(716), np.int64(499), np.int64(875)) name (np.int64(516), np.int64(743), np.int64(1111), np.int64(855))
+46 logo (np.int64(356), np.int64(716), np.int64(497), np.int64(875)) name (np.int64(519), np.int64(743), np.int64(1113), np.int64(855))
+47 logo (np.int64(354), np.int64(716), np.int64(495), np.int64(875)) name (np.int64(520), np.int64(743), np.int64(1115), np.int64(855))
+48 logo (np.int64(353), np.int64(715), np.int64(494), np.int64(875)) name (np.int64(522), np.int64(743), np.int64(1116), np.int64(855))
+49 logo (np.int64(352), np.int64(715), np.int64(493), np.int64(875)) name (np.int64(523), np.int64(743), np.int64(1117), np.int64(855))
+50 logo (np.int64(352), np.int64(715), np.int64(493), np.int64(875)) name (np.int64(523), np.int64(743), np.int64(1117), np.int64(855))
+51 logo (np.int64(352), np.int64(715), np.int64(492), np.int64(875)) name (np.int64(524), np.int64(743), np.int64(1118), np.int64(855))
+52 logo (np.int64(351), np.int64(715), np.int64(491), np.int64(875)) name (np.int64(524), np.int64(743), np.int64(1118), np.int64(855))
+53 logo (np.int64(350), np.int64(715), np.int64(491), np.int64(875)) name (np.int64(524), np.int64(743), np.int64(1118), np.int64(855))
+54 logo (np.int64(350), np.int64(715), np.int64(491), np.int64(875)) name (np.int64(524), np.int64(743), np.int64(1118), np.int64(855))
+55 logo (np.int64(350), np.int64(715), np.int64(491), np.int64(875)) name (np.int64(524), np.int64(743), np.int64(1118), np.int64(855))
+56 logo (np.int64(350), np.int64(715), np.int64(491), np.int64(875)) name (np.int64(524), np.int64(743), np.int64(1118), np.int64(855))
+57 logo (np.int64(350), np.int64(714), np.int64(491), np.int64(875)) name (np.int64(524), np.int64(743), np.int64(1117), np.int64(855))
+58 logo (np.int64(350), np.int64(714), np.int64(491), np.int64(875)) name (np.int64(524), np.int64(743), np.int64(1117), np.int64(855))
+59 logo (np.int64(350), np.int64(714), np.int64(491), np.int64(875)) name (np.int64(524), np.int64(743), np.int64(1117), np.int64(855))
+60 logo (np.int64(350), np.int64(714), np.int64(491), np.int64(875)) name (np.int64(524), np.int64(743), np.int64(1117), np.int64(855))
+61 logo (np.int64(350), np.int64(714), np.int64(491), np.int64(875)) name (np.int64(524), np.int64(743), np.int64(1117), np.int64(855))
+62 logo (np.int64(350), np.int64(714), np.int64(491), np.int64(875)) name (np.int64(524), np.int64(743), np.int64(1117), np.int64(855))
+63 logo (np.int64(350), np.int64(714), np.int64(491), np.int64(875)) name (np.int64(524), np.int64(743), np.int64(1117), np.int64(855))
+64 logo (np.int64(350), np.int64(714), np.int64(491), np.int64(875)) name (np.int64(524), np.int64(743), np.int64(1117), np.int64(855))
+65 logo (np.int64(350), np.int64(714), np.int64(491), np.int64(875)) name (np.int64(524), np.int64(743), np.int64(1117), np.int64(855))
+66 logo (np.int64(350), np.int64(714), np.int64(491), np.int64(875)) name (np.int64(524), np.int64(743), np.int64(1117), np.int64(855))
+67 logo (np.int64(350), np.int64(714), np.int64(491), np.int64(875)) name (np.int64(524), np.int64(743), np.int64(1117), np.int64(855))
+68 logo (np.int64(350), np.int64(714), np.int64(491), np.int64(875)) name (np.int64(524), np.int64(743), np.int64(1117), np.int64(855))
+69 logo (np.int64(350), np.int64(714), np.int64(491), np.int64(875)) name (np.int64(524), np.int64(743), np.int64(1117), np.int64(855))
+70 logo (np.int64(350), np.int64(714), np.int64(491), np.int64(875)) name (np.int64(524), np.int64(743), np.int64(1117), np.int64(855))
+71 logo (np.int64(350), np.int64(714), np.int64(491), np.int64(875)) name (np.int64(524), np.int64(743), np.int64(1117), np.int64(855))
+72 logo (np.int64(350), np.int64(714), np.int64(491), np.int64(875)) name (np.int64(524), np.int64(743), np.int64(1117), np.int64(855))
+73 logo (np.int64(350), np.int64(714), np.int64(491), np.int64(875)) name (np.int64(524), np.int64(743), np.int64(1117), np.int64(855))
+74 logo (np.int64(350), np.int64(714), np.int64(491), np.int64(875)) name (np.int64(524), np.int64(743), np.int64(1117), np.int64(855))
+75 logo (np.int64(350), np.int64(714), np.int64(491), np.int64(875)) name (np.int64(524), np.int64(743), np.int64(1117), np.int64(855))
+76 logo (np.int64(350), np.int64(714), np.int64(491), np.int64(875)) name (np.int64(524), np.int64(743), np.int64(1117), np.int64(855))
+77 logo (np.int64(350), np.int64(714), np.int64(491), np.int64(875)) name (np.int64(524), np.int64(743), np.int64(1117), np.int64(855))
+78 logo (np.int64(350), np.int64(714), np.int64(491), np.int64(875)) name (np.int64(524), np.int64(743), np.int64(1117), np.int64(855))
+79 logo (np.int64(350), np.int64(714), np.int64(491), np.int64(875)) name (np.int64(524), np.int64(743), np.int64(1117), np.int64(855))
+80 logo (np.int64(350), np.int64(714), np.int64(491), np.int64(875)) name (np.int64(524), np.int64(743), np.int64(1117), np.int64(855))
+81 logo (np.int64(350), np.int64(714), np.int64(491), np.int64(875)) name (np.int64(524), np.int64(743), np.int64(1117), np.int64(855))
+82 logo (np.int64(350), np.int64(714), np.int64(491), np.int64(875)) name (np.int64(524), np.int64(743), np.int64(1117), np.int64(855))
+83 logo (np.int64(350), np.int64(714), np.int64(491), np.int64(875)) name (np.int64(524), np.int64(743), np.int64(1117), np.int64(855))
+84 logo (np.int64(350), np.int64(714), np.int64(491), np.int64(875)) name (np.int64(524), np.int64(743), np.int64(1117), np.int64(855))
+85 logo (np.int64(350), np.int64(714), np.int64(491), np.int64(875)) name (np.int64(524), np.int64(743), np.int64(1117), np.int64(855))
+86 logo (np.int64(350), np.int64(714), np.int64(491), np.int64(875)) name (np.int64(524), np.int64(743), np.int64(1117), np.int64(855))
+87 logo (np.int64(350), np.int64(714), np.int64(491), np.int64(875)) name (np.int64(524), np.int64(743), np.int64(1117), np.int64(855))
+88 logo (np.int64(350), np.int64(714), np.int64(491), np.int64(875)) name (np.int64(523), np.int64(743), np.int64(1117), np.int64(855))
+89 logo (np.int64(350), np.int64(714), np.int64(491), np.int64(875)) name (np.int64(522), np.int64(743), np.int64(1116), np.int64(855))
+90 logo (np.int64(350), np.int64(714), np.int64(491), np.int64(875)) name (np.int64(520), np.int64(743), np.int64(1115), np.int64(855))
+91 logo (np.int64(350), np.int64(714), np.int64(491), np.int64(875)) name (np.int64(519), np.int64(743), np.int64(1113), np.int64(855))
+92 logo (np.int64(350), np.int64(714), np.int64(491), np.int64(875)) name (np.int64(516), np.int64(743), np.int64(1111), np.int64(855))
+93 logo (np.int64(350), np.int64(714), np.int64(491), np.int64(875)) name (np.int64(514), np.int64(743), np.int64(1108), np.int64(855))
+94 logo (np.int64(350), np.int64(714), np.int64(491), np.int64(875)) name (np.int64(510), np.int64(743), np.int64(1105), np.int64(855))
+95 logo (np.int64(350), np.int64(714), np.int64(491), np.int64(875)) name (np.int64(506), np.int64(743), np.int64(1101), np.int64(855))
+96 logo (np.int64(350), np.int64(714), np.int64(491), np.int64(875)) name (np.int64(502), np.int64(743), np.int64(1096), np.int64(855))
+97 logo (np.int64(350), np.int64(714), np.int64(491), np.int64(875)) name (np.int64(497), np.int64(743), np.int64(1091), np.int64(855))
+98 logo (np.int64(350), np.int64(714), np.int64(491), np.int64(875)) name (np.int64(492), np.int64(743), np.int64(1086), np.int64(855))
+99 logo (np.int64(350), np.int64(714), np.int64(491), np.int64(875)) name (np.int64(487), np.int64(743), np.int64(1079), np.int64(855))
+100 logo (np.int64(350), np.int64(714), np.int64(491), np.int64(875)) name (np.int64(484), np.int64(743), np.int64(1072), np.int64(855))
+101 logo (np.int64(350), np.int64(714), np.int64(491), np.int64(875)) name (np.int64(482), np.int64(743), np.int64(1064), np.int64(855))
+102 logo (np.int64(350), np.int64(714), np.int64(491), np.int64(875)) name (np.int64(480), np.int64(743), np.int64(1055), np.int64(855))
+103 logo (np.int64(350), np.int64(714), np.int64(491), np.int64(875)) name (np.int64(478), np.int64(743), np.int64(1046), np.int64(855))
+104 logo (np.int64(350), np.int64(714), np.int64(491), np.int64(875)) name (np.int64(483), np.int64(743), np.int64(1035), np.int64(855))
+105 logo (np.int64(350), np.int64(714), np.int64(491), np.int64(875)) name (np.int64(490), np.int64(743), np.int64(1023), np.int64(855))
+106 logo (np.int64(350), np.int64(714), np.int64(491), np.int64(875)) name (np.int64(480), np.int64(743), np.int64(1010), np.int64(855))
+107 logo (np.int64(350), np.int64(714), np.int64(491), np.int64(875)) name (np.int64(488), np.int64(743), np.int64(995), np.int64(855))
+108 logo (np.int64(350), np.int64(714), np.int64(491), np.int64(875)) name (np.int64(492), np.int64(743), np.int64(980), np.int64(855))
+109 logo (np.int64(350), np.int64(714), np.int64(491), np.int64(875)) name (np.int64(488), np.int64(743), np.int64(962), np.int64(855))
+110 logo (np.int64(350), np.int64(714), np.int64(491), np.int64(875)) name (np.int64(480), np.int64(743), np.int64(943), np.int64(855))
+111 logo (np.int64(350), np.int64(714), np.int64(491), np.int64(875)) name (np.int64(480), np.int64(743), np.int64(921), np.int64(855))
+112 logo (np.int64(350), np.int64(714), np.int64(491), np.int64(875)) name (np.int64(480), np.int64(743), np.int64(897), np.int64(855))
+113 logo (np.int64(350), np.int64(714), np.int64(491), np.int64(875)) name (np.int64(489), np.int64(743), np.int64(870), np.int64(855))
+114 logo (np.int64(350), np.int64(714), np.int64(491), np.int64(875)) name (np.int64(480), np.int64(743), np.int64(839), np.int64(855))
+115 logo (np.int64(350), np.int64(715), np.int64(491), np.int64(875)) name (np.int64(509), np.int64(743), np.int64(805), np.int64(855))
+116 logo (np.int64(350), np.int64(715), np.int64(489), np.int64(875)) name (np.int64(480), np.int64(743), np.int64(765), np.int64(855))
+117 logo (np.int64(350), np.int64(716), np.int64(489), np.int64(875)) name (np.int64(485), np.int64(743), np.int64(719), np.int64(855))
+118 logo (np.int64(350), np.int64(718), np.int64(489), np.int64(875)) name (np.int64(485), np.int64(743), np.int64(665), np.int64(855))
+119 logo (np.int64(350), np.int64(719), np.int64(487), np.int64(875)) name (np.int64(479), np.int64(744), np.int64(599), np.int64(854))
+120 logo (np.int64(350), np.int64(722), np.int64(485), np.int64(875)) name (np.int64(474), np.int64(744), np.int64(519), np.int64(854))
+121 logo (np.int64(350), np.int64(725), np.int64(481), np.int64(875)) name None
+122 logo (np.int64(349), np.int64(729), np.int64(477), np.int64(875)) name None
+123 logo (np.int64(349), np.int64(733), np.int64(473), np.int64(875)) name None
+124 logo (np.int64(348), np.int64(739), np.int64(467), np.int64(875)) name None
+125 logo (np.int64(348), np.int64(746), np.int64(461), np.int64(875)) name None
+126 logo (np.int64(348), np.int64(756), np.int64(451), np.int64(875)) name None
+127 logo (np.int64(346), np.int64(770), np.int64(437), np.int64(875)) name None

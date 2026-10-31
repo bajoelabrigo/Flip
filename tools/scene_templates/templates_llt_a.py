@@ -1677,5 +1677,59 @@ def gabriel():
     return t
 
 
+def cindy():
+    """The green logo grows from its bottom corner, then rolls right and back as the name slides out from behind it.
+    Out, the name slides back behind the logo and the logo shrinks away. Measured on lt_ref/cindy.txt (25 fps from
+    124.9 s), the logo's first and last frames from 124.3 s and 130.0 s."""
+    fps, first, last = 25.0, -6, 132
+    D = round((last - first + 1) / fps, 2)
+    t = _kit("cindy", "Tercio con logo: logo verde que destapa el nombre", "Logo lower third: green logo reveals the name",
+             D, 8552, ["nombre", "logo", "verde", "simple"], thumb_at=2.6)
+    photo_bg(t, "h-city-01", s1=1.03, label="Tu video")
+    from llt_motion import frames_of
+    us = frames_of(D)
+    scan = _boxes("cindy.txt")
+    extra = {-6: (340, 867, 347, 877), -5: (342, 854, 359, 875), -4: (342, 827, 385, 876), -3: (344, 793, 417, 876),
+             -2: (346, 771, 437, 876), -1: (347, 756, 451, 876), 128: (344, 793, 417, 876), 129: (342, 827, 385, 876),
+             130: (340, 854, 361, 877), 131: (342, 868, 348, 877)}
+    logo = {f: r["logo"] for f, r in scan.items() if r["logo"]}
+    logo.update(extra)
+    fr = lambda u: int(round(first + u * fps))  # noqa: E731
+    LW, LH = 141.0, 161.0
+    lg = Box(350, 714, LW, LH)
+    xs, ys, ws, hs = [], [], [], []
+    for u in us:
+        b = logo.get(fr(u))
+        if b is None:
+            b = (348, 875, 348, 875)
+        x0, y0, x1, y1 = b
+        h = y1 - y0 + 1
+        w = h * LW / LH
+        xs.append((u, x0, "linear")); ys.append((u, y1 + 1 - h, "linear"))
+        ws.append((u, w, "linear")); hs.append((u, h, "linear"))
+    mark = t.photo(t.track("video", "Logo"), "logo-11", 0.0, D, lg, label="Tu logo", brandRole="logo")
+    mark.update(x=keys(xs), y=keys(ys), width=keys(ws), height=keys(hs))
+    right = {f: r["name"][2] for f, r in scan.items() if r["name"]}
+    nr = _table(right, 498.0, 498.0)
+    name = "CINDY SLOAN"
+    nbox, nsize = caps_box(523, 743, 855, name)
+    clip = name_text(t, name, nbox, nsize, D, bold_from="SLOAN", spacing=-4.0, bold_spacing=3, word_spacing=6,
+                     motion=[(u, {"dx": nr(fr(u)) - 1117}, "linear") for u in us])
+    track = next(tr for tr in t.tracks if clip in tr.clips)
+    mk = {"x": [], "w": []}
+    for u in us:
+        b = logo.get(fr(u)) or (348, 875, 348, 875)
+        x0, dx = (b[2] - 15 if 17 <= fr(u) <= 120 else 3000.0), nr(fr(u)) - 1117
+        mk["x"].append((u, ((x0 + 3000) / 2 - nbox.x - dx) / nbox.w, "linear"))
+        mk["w"].append((u, (3000 - x0) / nbox.w, "linear"))
+    t.mask(track, clip, "rectangle", x=mk["x"][0][1], y=0.5, w=mk["w"][0][1], h=2.0,
+           keyframes={k: keys(v) for k, v in mk.items()})
+    # The logo above the name (tracks made later draw on top).
+    logo_track = next(tr for tr in t.tracks if mark in tr.clips)
+    t.tracks.remove(logo_track)
+    t.tracks.append(logo_track)
+    return t
+
+
 TEMPLATES = [francois, roger, jamie, charlotte, jason_e, jessica, david, neil, joanna, hendrick, bevan, janice, charlie,
-             lizzie, patricia, jim, jason_f, lucas, brian, harry, sarah, gabriel]
+             lizzie, patricia, jim, jason_f, lucas, brian, harry, sarah, gabriel, cindy]
