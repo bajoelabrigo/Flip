@@ -6,7 +6,9 @@ logo»), shown with the app's premium flame as the sample (logo-09…14, Jorge: 
 
 from __future__ import annotations
 
-from kit import Box, centered, photo_bg, wide
+import math
+
+from kit import Box, centered, label, photo_bg, wide
 from llt_motion import RED, WHITE, caps_box, duration, edge, mask_track, name_text, rect_track, runs_at
 from lt_motion import Ref
 from scene import keys
@@ -150,4 +152,131 @@ def roger():
     return t
 
 
-TEMPLATES = [francois, roger]
+# --- Jamie: a prism of two faces --------------------------------------------------------------------------------------
+
+_EYE = 2900.0  # the eye's distance that matches the reference (the top face's sliver at rest, the corner's bulge)
+
+
+def _project(y, z):
+    """Screen y of a world point (canvas px, z toward the viewer) seen by the app's 3D camera."""
+    return 540 + (y - 540) * _EYE / (_EYE - z)
+
+
+def _solve(fn, target, lo, hi):
+    """The angle in [lo, hi] (degrees) where fn(angle) == target; fn monotonic there."""
+    a, b = lo, hi
+    fa = fn(a) - target
+    for _ in range(60):
+        m = (a + b) / 2
+        fm = fn(m) - target
+        if (fm > 0) == (fa > 0):
+            a, fa = m, fm
+        else:
+            b = m
+    return (a + b) / 2
+
+
+def _height(clip):
+    h = clip["height"]
+    return h["keyframes"][0]["value"] if isinstance(h, dict) else float(h)
+
+
+def jamie():
+    """A red card with the brand stands up from its bottom edge; then the bar turns over like a prism, top going
+    back, and the white face with the name comes round from below. Out, the prism turns back and the red card falls
+    back from its top edge. Every angle is solved from the measured edges (lt_ref/jamie.json) with the eye at 2900."""
+    r = Ref("jamie", first=3)
+    fps = r.fps
+    H, AY, X0, X1 = 157.0, 792.0, 326.0, 1387.0  # a face's height, the prism's axis (its centre), the bar's ends
+    half = H / 2
+    reds = [f["col"]["warm"] for f in r.frames]
+    whites = [f["col"]["white"] for f in r.frames]
+
+    def turn(phi):  # the prism turned by phi (0: red face front, 90: white face front): the edge between the faces
+        c, s = math.cos(math.radians(phi)), math.sin(math.radians(phi))
+        return _project(AY + half * (c - s), -half + half * (s + c))
+
+    def stand(a):  # the red card tipped back by `a` about its bottom edge (870): its top edge
+        return _project(870 - H * math.cos(math.radians(a)), -H * math.sin(math.radians(a)))
+
+    def hang(b):  # the red card tipped back by `b` about its top edge (709): its bottom edge
+        return _project(709 + H * math.cos(math.radians(b)), -H * math.sin(math.radians(b)))
+
+    poses = []  # per frame from the first: (mode, angle)
+    last = max(i for i in range(len(reds)) if reds[i] or whites[i])
+    for i in range(r.first, last + 2):
+        red = reds[i] if i < len(reds) else []
+        white = whites[i] if i < len(whites) else []
+        if i <= 20:
+            poses.append(("up", _solve(stand, red[0][0] if red else 870, 0, 89.9)))
+        elif i <= 35 or 101 <= i <= 112:
+            if red and white:
+                top_red = red[-1][1] if i <= 35 else white[-1][1]
+                edge_y = (top_red + (white[0][0] if i <= 35 else red[0][0])) / 2
+                poses.append(("prism", _solve(turn, edge_y, 0, 90)))
+            else:
+                poses.append(("prism", 90.0 if i > 30 else 0.0))
+        elif i < 101:
+            poses.append(("prism", 90.0))
+        else:
+            poses.append(("down", _solve(hang, red[-1][1] if red else 709, 0, 89.9)))
+    frames = [k / fps for k in range(len(poses))]
+    D = round(len(poses) / fps + 0.01, 2)
+    t = _kit("jamie", "Tercio con logo: barra que gira como un prisma", "Logo lower third: bar turning like a prism",
+             D, 8532, ["nombre", "3d", "prisma", "marca"], thumb_at=2.4)
+    photo_bg(t, "h-city-01", s1=1.03, label="Tu video")
+
+    def pose(which):
+        """Per frame (centre y, depth, tilt) of face "a" (red) or "b" (white); the white face hides behind the
+        camera while the card stands or falls (it is the prism's underside then)."""
+        out = []
+        for mode, ang in poses:
+            c, s = math.cos(math.radians(ang)), math.sin(math.radians(ang))
+            if mode == "up":
+                out.append((870 - half * c, -half * s, ang) if which == "a" else (AY + half, -half, -90.0))
+            elif mode == "down":
+                out.append((709 + half * c, -half * s, -ang) if which == "a" else (AY + half, -half, -90.0))
+            elif which == "a":
+                out.append((AY - half * s, -half + half * c, ang))
+            else:
+                out.append((AY + half * c, -half + half * s, ang - 90))
+        return out
+
+    def put(clip, which, dy=0.0):
+        """A 3D pose every frame for a clip whose centre sits dy px below its face's centre, in the face's plane."""
+        height = _height(clip)
+        ys, zs, tilts = [], [], []
+        for cy, cz, tilt in pose(which):
+            a = math.radians(tilt)
+            ys.append(cy + dy * math.cos(a) - height / 2)
+            zs.append(cz + dy * math.sin(a))
+            tilts.append(tilt)
+        clip["layer3d"] = True
+        clip["perspective"] = keys([(0, _EYE)])
+        clip["y"] = keys([(u, v, "linear") for u, v in zip(frames, ys)])
+        clip["positionZ"] = keys([(u, v, "linear") for u, v in zip(frames, zs)])
+        clip["rotationX"] = keys([(u, v, "linear") for u, v in zip(frames, tilts)])
+        if which == "b":  # the white face only exists while the prism turns (it is the card's underside otherwise)
+            clip["opacity"] = keys([(u, 1.0 if mode == "prism" else 0.0, "hold") for u, (mode, _) in zip(frames, poses)])
+
+    red = t.solid(t.track("shape", "Cara roja"), RED, 0.0, D, Box(X0, AY - half, X1 - X0, H))
+    red["name"] = "Cara roja"
+    put(red, "a")
+    lg = t.photo(t.track("video", "Logo"), "logo-11", 0.0, D, centered(388, 795.5, 92, 92), label="Tu logo",
+                 brandRole="logo")
+    put(lg, "a", 795.5 - AY)
+    brand = label(t, t.track("text", "Marca"), "flipstudio", 0.0, D, Box(440, 727, 900, 136), "Poppins", 140, WHITE,
+                  weight=600, align="left", name="Marca", line=1.0)
+    put(brand, "a", 795.0 - AY)
+    white = t.solid(t.track("shape", "Cara blanca"), WHITE, 0.0, D, Box(X0, AY - half, X1 - X0, H))
+    white["name"] = "Cara blanca"
+    put(white, "b")
+    name = "JAMIE SAUNDERS"
+    nbox, nsize = caps_box(358, 726, 861, name, weight=400)
+    clip = name_text(t, name, nbox, nsize, D, bold_from="SAUNDERS", weight=400, colour=RED, spacing=-5,
+                     bold_spacing=5.3, word_spacing=3)
+    put(clip, "b", nbox.cy - AY)
+    return t
+
+
+TEMPLATES = [francois, roger, jamie]
