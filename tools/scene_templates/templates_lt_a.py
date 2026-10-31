@@ -14,7 +14,7 @@ WHITE = "#FFFFFF"
 
 
 def _kit(id, es, en, dur, order, tags, **kw):
-    return wide(f"lt-{id}", es, en, "ytkit", dur, order=order, tags=["kit:tercios-degradado", "tercio"] + tags, **kw)
+    return wide(f"lt-{id}", es, en, "ytkit", dur, order=order, tags=["kit:lowerthirds", "tercio"] + tags, **kw)
 
 
 def _pts(samples):

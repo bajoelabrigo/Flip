@@ -888,7 +888,12 @@ PanelFrame {
                         ShapeInspector {
                             width: tabColumn.width
                             expandedLayerIds: inspectorUi.shapeExpandedLayerIds
-                            onExpandedLayerIdsChanged: inspectorUi.shapeExpandedLayerIds = expandedLayerIds
+                            // Deferred, as the text inspector's: written straight back it re-ran its own binding
+                            // («Binding loop detected for property "expandedLayerIds"»).
+                            onExpandedLayerIdsChanged: Qt.callLater(function() {
+                                if (inspectorUi.shapeExpandedLayerIds !== expandedLayerIds)
+                                    inspectorUi.shapeExpandedLayerIds = expandedLayerIds
+                            })
                         }
                     }
                 }

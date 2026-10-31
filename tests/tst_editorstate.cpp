@@ -132,6 +132,7 @@ private slots:
     void addTextClip();
     void firstShapeTakesTheEmptyStartingTrack();
     void shapeLayerCombineSeparateAndFrames();
+    void shapePartDuplicateAndSplitKeepIdsAndKeys();
     void shadedLettersTakeLayersLooksAndBoxAlone();
     void findAndReplaceInTexts();
     void findAndReplaceInSubtitleCues();
@@ -1124,6 +1125,53 @@ void EditorStateTest::shapeLayerCombineSeparateAndFrames()
     QVERIFY(state.separateShapeParts(state.selectedTrack(), state.selectedClip()));
     QCOMPARE(state.project()->tracks().size(), before + 1);
     QCOMPARE(int(clipAt(state.selectedTrack(), state.selectedClip()).shapeStyle.parts.size()), 1);
+}
+
+// Audit of the 0.28 parts: a duplicated group gives every part inside its own id (two children used to share
+// one), and splitting a layer of parts carries each part's keys to the tail from the cut, not from the start.
+void EditorStateTest::shapePartDuplicateAndSplitKeepIdsAndKeys()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    state.addShapeClip(QStringLiteral("rectangle"), 0.0);
+    const int t = state.selectedTrack();
+    const int c = state.selectedClip();
+    const auto clip = [&]() -> const drift::Clip & { return state.project()->tracks().at(t).clips.at(c); };
+    const QString ellipse = state.addShapePart(t, c, QStringLiteral("ellipse"));
+    QVERIFY(!ellipse.isEmpty());
+    const QString group = state.groupShapePart(t, c, ellipse);
+    QVERIFY(!group.isEmpty());
+    state.selectShapePart(t, c, group);
+    QVERIFY(!state.addShapePart(t, c, QStringLiteral("star")).isEmpty()); // into the picked group: two children
+    QVERIFY(!state.duplicateShapePart(t, c, group).isEmpty());
+    QStringList ids;
+    std::vector<const drift::ShapePart *> stack;
+    for (const drift::ShapePart &part : clip().shapeStyle.parts)
+        stack.push_back(&part);
+    while (!stack.empty()) {
+        const drift::ShapePart *part = stack.back();
+        stack.pop_back();
+        ids.append(part->id);
+        for (const drift::ShapePart &child : part->children)
+            stack.push_back(&child);
+    }
+    QCOMPARE(ids.size(), 7); // the first part, the group and its two, the copy and its two
+    QCOMPARE(QSet<QString>(ids.begin(), ids.end()).size(), ids.size());
+
+    // A Position X key at 0 s and at 4 s on the ellipse; split at 2 s: the tail starts from the middle value.
+    state.selectShapePart(t, c, QString());
+    const QString prop = QStringLiteral("part.%1.x").arg(ellipse);
+    state.setClipKeyframe(t, c, prop, 0.0, 0.0);
+    state.setClipKeyframe(t, c, prop, 4.0, 100.0);
+    const drift::ShapePart *before = drift::findShapePart(clip().shapeStyle.parts, ellipse);
+    QVERIFY(before && before->keyframes.contains(QStringLiteral("x")));
+    const double mid = before->keyframes.value(QStringLiteral("x")).evaluateAt(2000000);
+    state.splitClipAt(t, c, 2.0);
+    QCOMPARE(state.project()->tracks().at(t).clips.size(), 2);
+    const drift::Clip &tail = state.project()->tracks().at(t).clips.at(1);
+    const drift::ShapePart *after = drift::findShapePart(tail.shapeStyle.parts, ellipse);
+    QVERIFY(after && after->keyframes.contains(QStringLiteral("x")));
+    QVERIFY(qAbs(after->keyframes.value(QStringLiteral("x")).evaluateAt(0) - mid) < 0.5);
 }
 
 void EditorStateTest::addTextClip()

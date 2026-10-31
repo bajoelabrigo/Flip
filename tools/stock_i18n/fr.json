@@ -26268,6 +26268,116 @@
     "mots"
    ]
   },
+  "template:lt-andy": {
+   "name": "Bandeau titre : barre qui s'ouvre au centre",
+   "tags": [
+    "bandeau titre",
+    "nom",
+    "centré",
+    "dégradé"
+   ]
+  },
+  "template:lt-clara": {
+   "name": "Bandeau titre : nom qui sort de la boîte",
+   "tags": [
+    "bandeau titre",
+    "nom",
+    "dégradé",
+    "boîte",
+    "bande"
+   ]
+  },
+  "template:lt-eliza": {
+   "name": "Bandeau titre : nom en trois styles",
+   "tags": [
+    "bandeau titre",
+    "nom",
+    "contour",
+    "nom de famille"
+   ]
+  },
+  "template:lt-endrue": {
+   "name": "Bandeau titre : boîte à lignes blanches",
+   "tags": [
+    "bandeau titre",
+    "nom",
+    "dégradé",
+    "boîte",
+    "lignes"
+   ]
+  },
+  "template:lt-helen": {
+   "name": "Bandeau titre à droite : deux boîtes",
+   "tags": [
+    "bandeau titre",
+    "nom",
+    "droite",
+    "boîtes"
+   ]
+  },
+  "template:lt-kerry": {
+   "name": "Bandeau titre : barre verticale, nom en contour",
+   "tags": [
+    "bandeau titre",
+    "nom",
+    "contour",
+    "barre verticale"
+   ]
+  },
+  "template:lt-kim": {
+   "name": "Bandeau titre : bande avec fonction, nom dessous",
+   "tags": [
+    "bandeau titre",
+    "nom",
+    "bande",
+    "droite"
+   ]
+  },
+  "template:lt-laura": {
+   "name": "Bandeau titre : nom sur barre dégradée",
+   "tags": [
+    "bandeau titre",
+    "nom",
+    "dégradé",
+    "barre"
+   ]
+  },
+  "template:lt-mari": {
+   "name": "Bandeau titre : nom dans la barre",
+   "tags": [
+    "bandeau titre",
+    "nom",
+    "dégradé",
+    "boîte"
+   ]
+  },
+  "template:lt-morgan": {
+   "name": "Bandeau titre : nom de famille en boîte, prénom au-dessus",
+   "tags": [
+    "bandeau titre",
+    "nom",
+    "nom de famille",
+    "centré"
+   ]
+  },
+  "template:lt-ronald": {
+   "name": "Bandeau titre à droite : écrit à rebours",
+   "tags": [
+    "bandeau titre",
+    "nom",
+    "droite",
+    "écriture"
+   ]
+  },
+  "template:lt-victoria": {
+   "name": "Bandeau titre à droite : ligne dégradée",
+   "tags": [
+    "bandeau titre",
+    "nom",
+    "droite",
+    "ligne"
+   ]
+  },
   "template:me-gradue": {
    "name": "Diplômé·e !",
    "tags": [
@@ -35557,6 +35667,38 @@
     "youtube"
    ]
   },
+  "template:ytk-boton-barra-oscura": {
+   "name": "Barre sombre avec abonnement",
+   "tags": [
+    "youtube",
+    "abonnement",
+    "bouton",
+    "barre",
+    "sombre",
+    "cloche"
+   ]
+  },
+  "template:ytk-boton-canal": {
+   "name": "Chaîne avec bouton s'abonner",
+   "tags": [
+    "youtube",
+    "abonnement",
+    "chaîne",
+    "photo",
+    "cloche"
+   ]
+  },
+  "template:ytk-boton-foto-central": {
+   "name": "Carte avec photo au centre",
+   "tags": [
+    "youtube",
+    "abonnement",
+    "carte",
+    "photo",
+    "centre",
+    "cloche"
+   ]
+  },
   "template:ytk-boton-iconos-grandes": {
    "name": "Grandes icônes : j'aime, abonnement, cloche",
    "tags": [
@@ -35565,6 +35707,16 @@
     "clic",
     "icônes",
     "youtube"
+   ]
+  },
+  "template:ytk-boton-mensajes": {
+   "name": "Messages qui s'écrivent seuls",
+   "tags": [
+    "youtube",
+    "abonnement",
+    "messages",
+    "machine à écrire",
+    "cloche"
    ]
   },
   "template:ytk-boton-pildora": {
@@ -35625,6 +35777,69 @@
     "clic",
     "minimaliste",
     "youtube"
+   ]
+  },
+  "template:ytk-boton-tarjeta-video": {
+   "name": "Carte vidéo avec abonnement",
+   "tags": [
+    "youtube",
+    "abonnement",
+    "carte",
+    "vidéo",
+    "cloche",
+    "clair"
+   ]
+  },
+  "template:ytk-boton-tarjeta-video-oscura": {
+   "name": "Carte vidéo sombre avec j'aime",
+   "tags": [
+    "youtube",
+    "abonnement",
+    "carte",
+    "vidéo",
+    "j'aime",
+    "sombre"
+   ]
+  },
+  "template:ytk-boton-tarjeta-video-vertical": {
+   "name": "Carte vidéo étroite",
+   "tags": [
+    "youtube",
+    "abonnement",
+    "carte",
+    "vidéo",
+    "étroit",
+    "cloche"
+   ]
+  },
+  "template:ytk-botones-fila": {
+   "name": "J'aime, abonnement et cloche",
+   "tags": [
+    "youtube",
+    "boutons",
+    "j'aime",
+    "abonnement",
+    "cloche"
+   ]
+  },
+  "template:ytk-burbuja-suscribete": {
+   "name": "Bulle avec s'abonner",
+   "tags": [
+    "youtube",
+    "abonnement",
+    "bulle",
+    "logo",
+    "corail"
+   ]
+  },
+  "template:ytk-campana-texto": {
+   "name": "Active la cloche",
+   "tags": [
+    "youtube",
+    "cloche",
+    "notifications",
+    "texte",
+    "corail"
    ]
   },
   "template:ytk-cinetico-barras": {
@@ -35775,6 +35990,66 @@
     "rebond",
     "amusant",
     "mots"
+   ]
+  },
+  "template:ytk-cita-barras": {
+   "name": "Citation entre deux barres",
+   "tags": [
+    "youtube",
+    "citation",
+    "phrase",
+    "barres",
+    "centrée"
+   ]
+  },
+  "template:ytk-cita-caja-blanca": {
+   "name": "Citation dans une boîte blanche",
+   "tags": [
+    "youtube",
+    "citation",
+    "phrase",
+    "boîte",
+    "auteur"
+   ]
+  },
+  "template:ytk-cita-coral": {
+   "name": "Citation sur un panneau corail",
+   "tags": [
+    "youtube",
+    "citation",
+    "phrase",
+    "panneau",
+    "corail"
+   ]
+  },
+  "template:ytk-cita-esquinas": {
+   "name": "Citation entre deux coins",
+   "tags": [
+    "youtube",
+    "citation",
+    "phrase",
+    "coins",
+    "lignes"
+   ]
+  },
+  "template:ytk-cita-libre": {
+   "name": "Citation sur la vidéo",
+   "tags": [
+    "youtube",
+    "citation",
+    "phrase",
+    "centrée",
+    "auteur"
+   ]
+  },
+  "template:ytk-cita-marco": {
+   "name": "Citation dans un cadre",
+   "tags": [
+    "youtube",
+    "citation",
+    "phrase",
+    "cadre",
+    "contour"
    ]
   },
   "template:ytk-elemento-barras": {
@@ -36050,6 +36325,146 @@
     "titre"
    ]
   },
+  "template:ytk-fila-tres": {
+   "name": "Rangée de trois boutons",
+   "tags": [
+    "youtube",
+    "abonnement",
+    "j'aime",
+    "cloche",
+    "rangée"
+   ]
+  },
+  "template:ytk-final-circulo": {
+   "name": "Écran de fin avec cercle",
+   "tags": [
+    "youtube",
+    "écran de fin",
+    "cercle",
+    "merci",
+    "deux vidéos"
+   ]
+  },
+  "template:ytk-final-cuna": {
+   "name": "Écran de fin avec coin blanc",
+   "tags": [
+    "youtube",
+    "écran de fin",
+    "coin",
+    "merci",
+    "deux vidéos"
+   ]
+  },
+  "template:ytk-final-curva": {
+   "name": "Écran de fin avec courbe",
+   "tags": [
+    "youtube",
+    "écran de fin",
+    "courbe",
+    "merci",
+    "deux vidéos"
+   ]
+  },
+  "template:ytk-final-diagonal": {
+   "name": "Écran de fin en diagonale",
+   "tags": [
+    "youtube",
+    "écran de fin",
+    "diagonale",
+    "merci",
+    "abonnement"
+   ]
+  },
+  "template:ytk-final-flecha": {
+   "name": "Écran de fin avec flèche",
+   "tags": [
+    "youtube",
+    "écran de fin",
+    "flèche",
+    "abonnement",
+    "vidéo recommandée"
+   ]
+  },
+  "template:ytk-final-mas-videos": {
+   "name": "Écran de fin : plus de vidéos",
+   "tags": [
+    "youtube",
+    "écran de fin",
+    "merci",
+    "plus de vidéos",
+    "réseaux"
+   ]
+  },
+  "template:ytk-final-panel-curvo": {
+   "name": "Écran de fin avec panneau courbé",
+   "tags": [
+    "youtube",
+    "écran de fin",
+    "panneau",
+    "courbe",
+    "merci"
+   ]
+  },
+  "template:ytk-final-tarjeta-vertical": {
+   "name": "Écran de fin : carte verticale",
+   "tags": [
+    "youtube",
+    "écran de fin",
+    "carte",
+    "merci",
+    "abonnement"
+   ]
+  },
+  "template:ytk-final-triangulo": {
+   "name": "Écran de fin avec triangle",
+   "tags": [
+    "youtube",
+    "écran de fin",
+    "triangle",
+    "merci",
+    "vidéo suivante"
+   ]
+  },
+  "template:ytk-fondo-coral-circulos": {
+   "name": "Nom de la chaîne avec cercles",
+   "tags": [
+    "youtube",
+    "fond",
+    "corail",
+    "cercles",
+    "nom"
+   ]
+  },
+  "template:ytk-fondo-coral-cruces": {
+   "name": "Nom de la chaîne avec croix",
+   "tags": [
+    "youtube",
+    "fond",
+    "corail",
+    "croix",
+    "nom"
+   ]
+  },
+  "template:ytk-fondo-coral-manchas": {
+   "name": "Nom de la chaîne avec taches",
+   "tags": [
+    "youtube",
+    "fond",
+    "corail",
+    "taches",
+    "nom"
+   ]
+  },
+  "template:ytk-fondo-coral-triangulos": {
+   "name": "Nom de la chaîne avec triangles",
+   "tags": [
+    "youtube",
+    "fond",
+    "corail",
+    "triangles",
+    "nom"
+   ]
+  },
   "template:ytk-frase-comillas": {
    "name": "Carte citation",
    "tags": [
@@ -36210,6 +36625,217 @@
     "avis"
    ]
   },
+  "template:ytk-gracias-grande": {
+   "name": "Grand merci d'avoir regardé",
+   "tags": [
+    "youtube",
+    "merci",
+    "fin",
+    "grand",
+    "au revoir"
+   ]
+  },
+  "template:ytk-hola-bienvenidos": {
+   "name": "Bonjour et bienvenue sur ma chaîne",
+   "tags": [
+    "youtube",
+    "bonjour",
+    "bienvenue",
+    "salut",
+    "intro",
+    "chaîne"
+   ]
+  },
+  "template:ytk-intro-apilado": {
+   "name": "Ta chaîne YouTube empilée",
+   "tags": [
+    "youtube",
+    "intro",
+    "empilé",
+    "bulles",
+    "chaîne"
+   ]
+  },
+  "template:ytk-intro-blog": {
+   "name": "Blog de voyage",
+   "tags": [
+    "youtube",
+    "intro",
+    "logo",
+    "blog",
+    "voyage"
+   ]
+  },
+  "template:ytk-intro-canal-nombre": {
+   "name": "Logo et nom de la chaîne",
+   "tags": [
+    "youtube",
+    "intro",
+    "logo",
+    "nom",
+    "chaîne"
+   ]
+  },
+  "template:ytk-intro-historia": {
+   "name": "Grande histoire",
+   "tags": [
+    "youtube",
+    "intro",
+    "logo",
+    "chaîne",
+    "histoire"
+   ]
+  },
+  "template:ytk-intro-inclinado": {
+   "name": "Nom de chaîne incliné",
+   "tags": [
+    "youtube",
+    "intro",
+    "incliné",
+    "nom",
+    "corail"
+   ]
+  },
+  "template:ytk-intro-pildora": {
+   "name": "Logo et nom dans une pilule",
+   "tags": [
+    "youtube",
+    "intro",
+    "logo",
+    "pilule",
+    "étincelles"
+   ]
+  },
+  "template:ytk-intro-tu-canal": {
+   "name": "Ta chaîne YouTube",
+   "tags": [
+    "youtube",
+    "intro",
+    "logo",
+    "chaîne",
+    "boîte"
+   ]
+  },
+  "template:ytk-llamada-caja-coral": {
+   "name": "Légende dans une boîte corail",
+   "tags": [
+    "youtube",
+    "légende",
+    "boîte",
+    "corail",
+    "ligne"
+   ]
+  },
+  "template:ytk-llamada-contorno": {
+   "name": "Légende avec trait",
+   "tags": [
+    "youtube",
+    "légende",
+    "ligne",
+    "pointer",
+    "point"
+   ]
+  },
+  "template:ytk-llamada-creativa": {
+   "name": "Légende créative",
+   "tags": [
+    "youtube",
+    "légende",
+    "créative",
+    "blanc",
+    "corail"
+   ]
+  },
+  "template:ytk-llamada-describe": {
+   "name": "Décris ton produit",
+   "tags": [
+    "youtube",
+    "légende",
+    "produit",
+    "description",
+    "cadre"
+   ]
+  },
+  "template:ytk-llamada-etiqueta": {
+   "name": "Légende avec étiquette corail",
+   "tags": [
+    "youtube",
+    "légende",
+    "étiquette",
+    "corail",
+    "ligne"
+   ]
+  },
+  "template:ytk-llamada-marca-precio": {
+   "name": "Légende avec marque et prix",
+   "tags": [
+    "youtube",
+    "légende",
+    "prix",
+    "marque",
+    "produit"
+   ]
+  },
+  "template:ytk-llamada-negra": {
+   "name": "Légende dans une boîte noire",
+   "tags": [
+    "youtube",
+    "légende",
+    "noir",
+    "verticale",
+    "titre"
+   ]
+  },
+  "template:ytk-llamada-parrafo": {
+   "name": "Légende avec paragraphe",
+   "tags": [
+    "youtube",
+    "légende",
+    "paragraphe",
+    "description",
+    "corail"
+   ]
+  },
+  "template:ytk-llamada-titular": {
+   "name": "Titre et description",
+   "tags": [
+    "youtube",
+    "légende",
+    "titre",
+    "noir",
+    "corail"
+   ]
+  },
+  "template:ytk-llamada-vertical": {
+   "name": "Légende avec ligne verticale",
+   "tags": [
+    "youtube",
+    "légende",
+    "verticale",
+    "description",
+    "corail"
+   ]
+  },
+  "template:ytk-me-gusta": {
+   "name": "Like la vidéo",
+   "tags": [
+    "youtube",
+    "j'aime",
+    "like",
+    "pouce",
+    "clic"
+   ]
+  },
+  "template:ytk-nombre-botones": {
+   "name": "Nom et trois boutons",
+   "tags": [
+    "youtube",
+    "abonnement",
+    "nom",
+    "boutons",
+    "chaîne"
+   ]
+  },
   "template:ytk-pantalla-final": {
    "name": "Écran de fin à deux vidéos",
    "tags": [
@@ -36290,6 +36916,17 @@
     "fin"
    ]
   },
+  "template:ytk-pantalla-final-roja": {
+   "name": "Écran de fin corail avec deux vidéos",
+   "tags": [
+    "youtube",
+    "écran de fin",
+    "merci",
+    "vidéo suivante",
+    "réseaux",
+    "abonnement"
+   ]
+  },
   "template:ytk-pantalla-final-sol": {
    "name": "Écran de fin jaune",
    "tags": [
@@ -36320,6 +36957,36 @@
     "vidéo suivante"
    ]
   },
+  "template:ytk-perfil-blanco": {
+   "name": "Profil de chaîne blanc",
+   "tags": [
+    "youtube",
+    "profil",
+    "photo",
+    "blanc",
+    "abonnés"
+   ]
+  },
+  "template:ytk-pila-vertical": {
+   "name": "Boutons en colonne",
+   "tags": [
+    "youtube",
+    "abonnement",
+    "j'aime",
+    "cloche",
+    "colonne"
+   ]
+  },
+  "template:ytk-pildora-iconos": {
+   "name": "Pilule à trois icônes",
+   "tags": [
+    "youtube",
+    "abonnement",
+    "j'aime",
+    "cloche",
+    "pilule"
+   ]
+  },
   "template:ytk-redes-barra": {
    "name": "Barre de réseaux",
    "tags": [
@@ -36328,6 +36995,26 @@
     "barre",
     "pseudo",
     "bandeau"
+   ]
+  },
+  "template:ytk-redes-circulo": {
+   "name": "Réseaux dans un cercle et une pilule",
+   "tags": [
+    "youtube",
+    "réseaux sociaux",
+    "cercle",
+    "pilule",
+    "logos"
+   ]
+  },
+  "template:ytk-redes-circulo-marca": {
+   "name": "Réseaux avec logo dans un cercle",
+   "tags": [
+    "youtube",
+    "réseaux sociaux",
+    "cercle",
+    "suivez-moi",
+    "logos"
    ]
   },
   "template:ytk-redes-circulos": {
@@ -36358,6 +37045,16 @@
     "suivez-moi",
     "cinétique",
     "pseudo"
+   ]
+  },
+  "template:ytk-redes-corchetes": {
+   "name": "Réseaux entre crochets",
+   "tags": [
+    "youtube",
+    "réseaux sociaux",
+    "carte",
+    "crochets",
+    "logos"
    ]
   },
   "template:ytk-redes-cuadricula": {
@@ -36400,6 +37097,16 @@
     "pseudo"
    ]
   },
+  "template:ytk-redes-insignia": {
+   "name": "Réseaux avec badge coloré",
+   "tags": [
+    "youtube",
+    "réseaux sociaux",
+    "badge",
+    "suivez-moi",
+    "logos"
+   ]
+  },
   "template:ytk-redes-lista": {
    "name": "Vos réseaux",
    "tags": [
@@ -36420,6 +37127,17 @@
     "pseudo"
    ]
   },
+  "template:ytk-redes-logos": {
+   "name": "Tes réseaux avec logos",
+   "tags": [
+    "youtube",
+    "réseaux sociaux",
+    "instagram",
+    "facebook",
+    "tiktok",
+    "pseudo"
+   ]
+  },
   "template:ytk-redes-pildoras": {
    "name": "Réseaux en pastilles",
    "tags": [
@@ -36428,6 +37146,26 @@
     "suivez-moi",
     "pseudo",
     "pastilles"
+   ]
+  },
+  "template:ytk-redes-pincel": {
+   "name": "Réseaux sur un coup de pinceau",
+   "tags": [
+    "youtube",
+    "réseaux sociaux",
+    "pinceau",
+    "trait",
+    "logos"
+   ]
+  },
+  "template:ytk-redes-tarjeta": {
+   "name": "Réseaux sur une carte blanche",
+   "tags": [
+    "youtube",
+    "réseaux sociaux",
+    "carte",
+    "suivez-moi",
+    "logos"
    ]
   },
   "template:ytk-redes-tarjetas": {
@@ -36448,6 +37186,25 @@
     "pseudo",
     "bandeau",
     "tiers inférieur"
+   ]
+  },
+  "template:ytk-suscribete-ahora": {
+   "name": "Abonne-toi à ma chaîne !",
+   "tags": [
+    "youtube",
+    "abonnement",
+    "phrase",
+    "lettres"
+   ]
+  },
+  "template:ytk-suscribete-contorno": {
+   "name": "S'abonner dans un cadre",
+   "tags": [
+    "youtube",
+    "abonnement",
+    "cadre",
+    "contour",
+    "logo"
    ]
   },
   "template:ytk-suscribete-pagina-clara": {
@@ -36480,6 +37237,26 @@
     "page vidéo"
    ]
   },
+  "template:ytk-suscribete-texto": {
+   "name": "S'abonner avec le logo",
+   "tags": [
+    "youtube",
+    "abonnement",
+    "texte",
+    "logo",
+    "clic"
+   ]
+  },
+  "template:ytk-tarjeta-lista": {
+   "name": "Carte avec liste",
+   "tags": [
+    "youtube",
+    "abonnement",
+    "liste",
+    "carte",
+    "j'aime"
+   ]
+  },
   "template:ytk-tercio-avatar": {
    "name": "Bandeau avec photo",
    "tags": [
@@ -36488,6 +37265,26 @@
     "bandeau",
     "photo",
     "profil"
+   ]
+  },
+  "template:ytk-tercio-caja-blanca": {
+   "name": "Nom dans une boîte blanche",
+   "tags": [
+    "youtube",
+    "bandeau titre",
+    "nom",
+    "profession",
+    "boîte"
+   ]
+  },
+  "template:ytk-tercio-caja-coral": {
+   "name": "Nom dans une boîte corail",
+   "tags": [
+    "youtube",
+    "bandeau titre",
+    "nom",
+    "profession",
+    "corail"
    ]
   },
   "template:ytk-tercio-claro": {
@@ -36569,6 +37366,16 @@
     "bandeau",
     "invité",
     "étiquette"
+   ]
+  },
+  "template:ytk-tercio-linea": {
+   "name": "Nom avec une ligne",
+   "tags": [
+    "youtube",
+    "bandeau titre",
+    "nom",
+    "profession",
+    "ligne"
    ]
   },
   "template:ytk-tercio-minimal": {
@@ -36802,6 +37609,215 @@
     "énergie"
    ]
   },
+  "template:ytk-titulo-contorno": {
+   "name": "Titre dans des cadres en contour",
+   "tags": [
+    "youtube",
+    "titre",
+    "contour",
+    "cadre"
+   ]
+  },
+  "template:ytk-titulo-contornos": {
+   "name": "Titre dans des boîtes en contour",
+   "tags": [
+    "youtube",
+    "titre",
+    "contour",
+    "boîtes",
+    "blanc"
+   ]
+  },
+  "template:ytk-titulo-cuadro": {
+   "name": "Titre dans un carré",
+   "tags": [
+    "youtube",
+    "titre",
+    "carré",
+    "contour",
+    "minimaliste"
+   ]
+  },
+  "template:ytk-titulo-cuadro-contorno": {
+   "name": "Titre sur un carré en contour",
+   "tags": [
+    "youtube",
+    "titre",
+    "contour",
+    "carré",
+    "moderne"
+   ]
+  },
+  "template:ytk-titulo-cuadro-vertical": {
+   "name": "Question dans un carré blanc",
+   "tags": [
+    "youtube",
+    "titre",
+    "carré",
+    "question",
+    "vertical"
+   ]
+  },
+  "template:ytk-titulo-dos-pesos": {
+   "name": "Titre en deux graisses",
+   "tags": [
+    "youtube",
+    "titre",
+    "typographie",
+    "centré",
+    "simple"
+   ]
+  },
+  "template:ytk-titulo-gracias-apoyo": {
+   "name": "Merci pour ton soutien !",
+   "tags": [
+    "youtube",
+    "merci",
+    "soutien",
+    "boîte"
+   ]
+  },
+  "template:ytk-titulo-inclinado": {
+   "name": "Étiquette inclinée",
+   "tags": [
+    "youtube",
+    "titre",
+    "incliné",
+    "étiquette",
+    "signature"
+   ]
+  },
+  "template:ytk-titulo-linea-vertical": {
+   "name": "Titre avec ligne verticale",
+   "tags": [
+    "youtube",
+    "titre",
+    "ligne",
+    "verticale",
+    "minimaliste"
+   ]
+  },
+  "template:ytk-titulo-marco-cajas": {
+   "name": "Titre en boîtes dans un cadre",
+   "tags": [
+    "youtube",
+    "titre",
+    "boîtes",
+    "cadre",
+    "noir"
+   ]
+  },
+  "template:ytk-titulo-mejor-show": {
+   "name": "La meilleure émission sur YouTube",
+   "tags": [
+    "youtube",
+    "titre",
+    "logo",
+    "émission"
+   ]
+  },
+  "template:ytk-titulo-mejor-video": {
+   "name": "Meilleure vidéo sur YouTube",
+   "tags": [
+    "youtube",
+    "titre",
+    "ligne",
+    "boîte",
+    "meilleure vidéo"
+   ]
+  },
+  "template:ytk-titulo-mixto": {
+   "name": "Titre aux graisses mélangées",
+   "tags": [
+    "youtube",
+    "titre",
+    "typographie",
+    "mélange",
+    "élégant"
+   ]
+  },
+  "template:ytk-titulo-no-olvides": {
+   "name": "N'oublie pas de t'abonner et de liker",
+   "tags": [
+    "youtube",
+    "titre",
+    "boîtes",
+    "abonnement",
+    "j'aime",
+    "centré"
+   ]
+  },
+  "template:ytk-titulo-nuevo-video": {
+   "name": "La nouvelle vidéo est sortie",
+   "tags": [
+    "youtube",
+    "titre",
+    "barre",
+    "nouvelle vidéo",
+    "première"
+   ]
+  },
+  "template:ytk-titulo-numero": {
+   "name": "Titre numéroté",
+   "tags": [
+    "youtube",
+    "titre",
+    "numéro",
+    "pilule",
+    "liste"
+   ]
+  },
+  "template:ytk-titulo-promo": {
+   "name": "Grand titre dans une boîte noire",
+   "tags": [
+    "youtube",
+    "titre",
+    "boîte",
+    "grand",
+    "promo"
+   ]
+  },
+  "template:ytk-titulo-suscribete-ahora": {
+   "name": "Abonne-toi maintenant !",
+   "tags": [
+    "youtube",
+    "titre",
+    "abonnement",
+    "grand",
+    "centré"
+   ]
+  },
+  "template:ytk-titulo-tres-cajas": {
+   "name": "Trois lignes dans des boîtes noires",
+   "tags": [
+    "youtube",
+    "titre",
+    "boîtes",
+    "noir",
+    "question"
+   ]
+  },
+  "template:ytk-titulo-ver-siguiente": {
+   "name": "À regarder ensuite",
+   "tags": [
+    "youtube",
+    "titre",
+    "vidéo suivante",
+    "boîte",
+    "vidéo"
+   ]
+  },
+  "template:ytk-titulos-cajas": {
+   "name": "Titres en boîtes",
+   "tags": [
+    "youtube",
+    "boîtes",
+    "titres",
+    "machine à écrire",
+    "curseur",
+    "sous-titre"
+   ]
+  },
   "template:ytk-transicion-aro-zoom": {
    "name": "Zoom à anneaux",
    "tags": [
@@ -36950,6 +37966,25 @@
     "points",
     "cercles",
     "changement de scène"
+   ]
+  },
+  "template:ytk-video-circulo": {
+   "name": "Vidéo dans un cercle",
+   "tags": [
+    "youtube",
+    "cercle",
+    "corail",
+    "transition",
+    "vidéo"
+   ]
+  },
+  "template:ytk-yt-suscrito": {
+   "name": "Logo YouTube et abonnement",
+   "tags": [
+    "youtube",
+    "abonnement",
+    "logo",
+    "cloche"
    ]
   },
   "template:zoom-3d-parallax": {

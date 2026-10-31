@@ -12674,17 +12674,24 @@ int countShapePartsNamed(const std::vector<drift::ShapePart> &parts, const QStri
     return n;
 }
 
-// A fresh id for a part and everything inside it (a duplicate).
-void reidShapePart(drift::ShapePart &part, drift::ShapeStyle &layer)
+// A fresh id for a part and everything inside it (a duplicate). Each id minted stays marked in the layer until
+// the whole copy has its ids, or two children of a group got the same one (each popped before the next).
+void reidShapePartMarked(drift::ShapePart &part, drift::ShapeStyle &layer, int &marked)
 {
     part.id = drift::mintShapePartId(layer);
-    // Mint against a layer that already holds the new id, so children get their own.
     drift::ShapePart marker;
     marker.id = part.id;
     layer.parts.push_back(marker);
+    ++marked;
     for (drift::ShapePart &child : part.children)
-        reidShapePart(child, layer);
-    layer.parts.pop_back();
+        reidShapePartMarked(child, layer, marked);
+}
+
+void reidShapePart(drift::ShapePart &part, drift::ShapeStyle &layer)
+{
+    int marked = 0;
+    reidShapePartMarked(part, layer, marked);
+    layer.parts.erase(layer.parts.end() - marked, layer.parts.end());
 }
 
 bool shapePartContains(const drift::ShapePart &part, const QString &id)
@@ -12885,7 +12892,23 @@ bool shapeClipCombinable(const drift::Clip &c)
     return c.type == drift::ClipType::Shape && !c.isSolid && still(c.transformX) && still(c.transformY)
            && still(c.transformW) && still(c.transformH) && still(c.rotation) && still(c.opacity)
            && c.effects.isEmpty() && c.mask.shape == drift::MaskShape::None && c.extraMasks.isEmpty()
-           && !c.layer3d;
+           && !c.layer3d && !c.shapeStyle.isAnimated();
+}
+
+// Whether another clip points at one of these (a mask or adjustment lane «applied to» it, or a layer parented to
+// it): combining or separating would delete the id and those links would silently drop.
+bool shapeClipsReferenced(const drift::Project &project, const QSet<QString> &ids)
+{
+    for (const drift::Track &track : project.tracks()) {
+        for (const drift::Clip &c : track.clips) {
+            if (ids.contains(c.id))
+                continue;
+            if ((!c.linkedClipId.isEmpty() && ids.contains(c.linkedClipId))
+                || (!c.parentId.isEmpty() && ids.contains(c.parentId)))
+                return true;
+        }
+    }
+    return false;
 }
 
 // A part id used once: a repeat (from a group brought in) gets the next free "p<n>". Plain recursion, no
@@ -12919,12 +12942,21 @@ bool AppController::combineSelectedShapes()
         setLastMessage(tr("Pick two or more shapes to combine them"), QStringLiteral("warning"));
         return false;
     }
+    QSet<QString> pieceIds;
     for (const auto &p : std::as_const(targets)) {
-        if (!isValidClipIndex(p.first, p.second) || !shapeClipCombinable(m_project.tracks().at(p.first).clips.at(p.second))) {
+        if (!isValidClipIndex(p.first, p.second) || isTrackLocked(p.first)
+            || !shapeClipCombinable(m_project.tracks().at(p.first).clips.at(p.second))) {
             setLastMessage(tr("Only shapes that do not move, with no masks or effects of their own, can be combined"),
                            QStringLiteral("warning"));
             return false;
         }
+        pieceIds.insert(m_project.tracks().at(p.first).clips.at(p.second).id);
+    }
+    if (shapeClipsReferenced(m_project, pieceIds)) {
+        setLastMessage(tr("Another layer is linked to one of these shapes (a mask, an adjustment or a parent): "
+                          "unlink it before combining"),
+                       QStringLiteral("warning"));
+        return false;
     }
     const drift::Project before = m_project;
     // The boxes as drawn at the playhead, and the span of them all.
@@ -13000,8 +13032,23 @@ bool AppController::combineSelectedShapes()
         touched.insert(track.id);
         track.clips.removeAt(targets.at(i).second);
     }
-    const QString hostTrackId = m_project.tracks().at(host.first).id;
-    m_project.tracks()[host.first].clips.append(layerClip);
+    QString hostTrackId = m_project.tracks().at(host.first).id;
+    {
+        // Another clip may sit in the new layer's span on the host track: then on a new track just above.
+        int at = host.first;
+        for (const drift::Clip &other : m_project.tracks().at(host.first).clips) {
+            if (other.timelineStart < layerClip.timelineEnd() && layerClip.timelineStart < other.timelineEnd()) {
+                at = drift::insertTrackAboveForClipType(m_project, host.first, drift::ClipType::Shape);
+                hostTrackId = m_project.tracks().at(at).id;
+                break;
+            }
+        }
+        QList<drift::Clip> &clips = m_project.tracks()[at].clips;
+        int index = 0;
+        while (index < clips.size() && clips.at(index).timelineStart <= layerClip.timelineStart)
+            ++index;
+        clips.insert(index, layerClip);
+    }
     for (int t = m_project.tracks().size() - 1; t >= 0; --t) {
         const drift::Track &track = m_project.tracks().at(t);
         if (track.id != hostTrackId && touched.contains(track.id) && track.clips.isEmpty() && m_project.tracks().size() > 1)
@@ -13012,10 +13059,15 @@ bool AppController::combineSelectedShapes()
         if (m_project.tracks().at(t).id == hostTrackId)
             hostTrack = t;
     }
+    int hostClip = 0;
+    for (int c = 0; c < m_project.tracks().at(hostTrack).clips.size(); ++c) {
+        if (m_project.tracks().at(hostTrack).clips.at(c).id == layerClip.id)
+            hostClip = c;
+    }
     const QString message = tr("%n shapes combined into one layer", "", int(pieces.size()));
     pushProjectEdit(before, message);
     finishEdit(message);
-    selectClip(hostTrack, m_project.tracks().at(hostTrack).clips.size() - 1);
+    selectClip(hostTrack, hostClip);
     setLastMessage(message);
     return true;
 }
@@ -13030,9 +13082,17 @@ bool AppController::separateShapeParts(int trackIndex, int clipIndex)
 {
     if (!isValidClipIndex(trackIndex, clipIndex))
         return false;
+    if (isTrackLocked(trackIndex))
+        return false;
     const drift::Clip original = m_project.tracks().at(trackIndex).clips.at(clipIndex);
     if (original.type != drift::ClipType::Shape || original.shapeStyle.parts.size() < 2) {
         setLastMessage(tr("This shape has only one part"), QStringLiteral("warning"));
+        return false;
+    }
+    if (shapeClipsReferenced(m_project, {original.id})) {
+        setLastMessage(tr("Another layer is linked to this shape (a mask, an adjustment or a parent): "
+                          "unlink it before separating"),
+                       QStringLiteral("warning"));
         return false;
     }
     const drift::Project before = m_project;
@@ -13068,7 +13128,7 @@ bool AppController::separateShapeParts(int trackIndex, int clipIndex)
 
 QString AppController::addShapePart(int trackIndex, int clipIndex, const QString &kind)
 {
-    if (!isValidClipIndex(trackIndex, clipIndex)
+    if (isTrackLocked(trackIndex) || !isValidClipIndex(trackIndex, clipIndex)
         || m_project.tracks().at(trackIndex).clips.at(clipIndex).type != drift::ClipType::Shape)
         return {};
     const drift::Project before = m_project;
@@ -13080,8 +13140,9 @@ QString AppController::addShapePart(int trackIndex, int clipIndex, const QString
         const drift::TimeUs rel = qBound<drift::TimeUs>(0, m_playheadUs - clip.timelineStart, clip.timelineDuration);
         const drift::KeyframeTrack<double> *w = keyframeTrackForProp(clip, QStringLiteral("width"));
         const drift::KeyframeTrack<double> *h = keyframeTrackForProp(clip, QStringLiteral("height"));
-        const double boxW = w && !w->isEmpty() ? w->evaluateAt(rel) : 200.0;
-        const double boxH = h && !h->isEmpty() ? h->evaluateAt(rel) : 200.0;
+        const QRectF drawn = drawnBoxAt(clip);
+        const double boxW = w && !w->isEmpty() ? w->evaluateAt(rel) : drawn.width();
+        const double boxH = h && !h->isEmpty() ? h->evaluateAt(rel) : drawn.height();
         const drift::ShapeCatalogEntry *first = drift::shapeCatalogEntry(drift::shapeKindToString(layer.kind));
         const QString firstName = (first ? first->label : clip.name) + QStringLiteral(" 1");
         layer = drift::shapeWithParts(layer, boxW, boxH, firstName);
@@ -13131,7 +13192,7 @@ QString AppController::addShapePart(int trackIndex, int clipIndex, const QString
 
 void AppController::removeShapePart(int trackIndex, int clipIndex, const QString &partId)
 {
-    if (!isValidClipIndex(trackIndex, clipIndex))
+    if (isTrackLocked(trackIndex) || !isValidClipIndex(trackIndex, clipIndex))
         return;
     const drift::Project before = m_project;
     drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
@@ -13156,7 +13217,7 @@ void AppController::removeShapePart(int trackIndex, int clipIndex, const QString
 
 QString AppController::duplicateShapePart(int trackIndex, int clipIndex, const QString &partId)
 {
-    if (!isValidClipIndex(trackIndex, clipIndex))
+    if (isTrackLocked(trackIndex) || !isValidClipIndex(trackIndex, clipIndex))
         return {};
     const drift::Project before = m_project;
     drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
@@ -13186,7 +13247,7 @@ QString AppController::duplicateShapePart(int trackIndex, int clipIndex, const Q
 void AppController::renameShapePart(int trackIndex, int clipIndex, const QString &partId, const QString &name)
 {
     const QString trimmed = name.trimmed();
-    if (!isValidClipIndex(trackIndex, clipIndex) || trimmed.isEmpty())
+    if (isTrackLocked(trackIndex) || !isValidClipIndex(trackIndex, clipIndex) || trimmed.isEmpty())
         return;
     const drift::Project before = m_project;
     drift::ShapePart *part =
@@ -13200,7 +13261,7 @@ void AppController::renameShapePart(int trackIndex, int clipIndex, const QString
 
 void AppController::setShapePartVisible(int trackIndex, int clipIndex, const QString &partId, bool visible)
 {
-    if (!isValidClipIndex(trackIndex, clipIndex))
+    if (isTrackLocked(trackIndex) || !isValidClipIndex(trackIndex, clipIndex))
         return;
     const drift::Project before = m_project;
     drift::ShapePart *part =
@@ -13215,7 +13276,7 @@ void AppController::setShapePartVisible(int trackIndex, int clipIndex, const QSt
 
 void AppController::setShapePartBlend(int trackIndex, int clipIndex, const QString &partId, const QString &mode)
 {
-    if (!isValidClipIndex(trackIndex, clipIndex))
+    if (isTrackLocked(trackIndex) || !isValidClipIndex(trackIndex, clipIndex))
         return;
     const drift::Project before = m_project;
     drift::ShapePart *part =
@@ -13231,7 +13292,7 @@ void AppController::setShapePartBlend(int trackIndex, int clipIndex, const QStri
 void AppController::moveShapePart(int trackIndex, int clipIndex, const QString &partId, const QString &targetId,
                                   const QString &where)
 {
-    if (!isValidClipIndex(trackIndex, clipIndex) || partId == targetId)
+    if (isTrackLocked(trackIndex) || !isValidClipIndex(trackIndex, clipIndex) || partId == targetId)
         return;
     const drift::Project before = m_project;
     drift::ShapeStyle &layer = m_project.tracks()[trackIndex].clips[clipIndex].shapeStyle;
@@ -13263,7 +13324,7 @@ void AppController::moveShapePart(int trackIndex, int clipIndex, const QString &
 
 QString AppController::groupShapePart(int trackIndex, int clipIndex, const QString &partId)
 {
-    if (!isValidClipIndex(trackIndex, clipIndex))
+    if (isTrackLocked(trackIndex) || !isValidClipIndex(trackIndex, clipIndex))
         return {};
     const drift::Project before = m_project;
     drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
@@ -13287,7 +13348,7 @@ QString AppController::groupShapePart(int trackIndex, int clipIndex, const QStri
 
 void AppController::ungroupShapePart(int trackIndex, int clipIndex, const QString &groupId)
 {
-    if (!isValidClipIndex(trackIndex, clipIndex))
+    if (isTrackLocked(trackIndex) || !isValidClipIndex(trackIndex, clipIndex))
         return;
     const drift::Project before = m_project;
     drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
@@ -13297,7 +13358,14 @@ void AppController::ungroupShapePart(int trackIndex, int clipIndex, const QStrin
         return;
     const drift::ShapePart group = (*siblings)[size_t(index)];
     const drift::ShapePartTransform &g = group.transform;
-    if (qAbs(g.skew) > 1e-6 || !group.keyframes.isEmpty()) {
+    bool childKeyed = false;
+    for (const drift::ShapePart &child : group.children) {
+        for (auto it = child.keyframes.constBegin(); it != child.keyframes.constEnd(); ++it) {
+            if (it.key() != QLatin1String("width") && it.key() != QLatin1String("height") && !it.value().isEmpty())
+                childKeyed = true;
+        }
+    }
+    if (qAbs(g.skew) > 1e-6 || !group.keyframes.isEmpty() || childKeyed) {
         setLastMessage(tr("Set the group's skew to 0 and remove its keyframes before ungrouping."),
                        QStringLiteral("info"));
         return;

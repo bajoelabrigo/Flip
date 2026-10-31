@@ -1225,7 +1225,10 @@ Item {
                                 acceptedButtons: Qt.LeftButton | Qt.RightButton
                                 onClicked: mouse => {
                                     if (mouse.button === Qt.RightButton && headingLine.partId.length > 0) {
-                                        headingLine.pick()
+                                        // The menu keeps its ids: picking here rebuilt this row (the menu with it).
+                                        partLineMenu.track = keyLines.trackIndex
+                                        partLineMenu.clip = keyLine.clip
+                                        partLineMenu.partId = headingLine.partId
                                         partLineMenu.popup(headingLine, mouse.x, mouse.y)
                                         return
                                     }
@@ -1262,17 +1265,24 @@ Item {
                                     iconSize: 11
                                     tooltip: shown ? qsTr("Hide") : qsTr("Show")
                                     onClicked: {
-                                        if (keyLine.clip < 0)
+                                        // Read first: picking the clip or the part rebuilds this row.
+                                        const track = keyLines.trackIndex
+                                        const clip = keyLine.clip
+                                        const partId = headingLine.partId
+                                        const layerOf = keyLine.modelData.layerOf
+                                        const layerId = keyLine.modelData.layerId
+                                        const on = !shown
+                                        if (clip < 0)
                                             return
-                                        if (headingLine.partId.length > 0) {
-                                            EditorState.setShapePartVisible(keyLines.trackIndex, keyLine.clip, headingLine.partId, !shown)
+                                        if (partId.length > 0) {
+                                            EditorState.setShapePartVisible(track, clip, partId, on)
                                             return
                                         }
                                         // A fill or stroke belongs to a part: that part becomes the one edited.
-                                        headingLine.pickClip()
-                                        EditorState.selectShapePart(keyLines.trackIndex, keyLine.clip, keyLine.modelData.layerOf)
-                                        EditorState.setStyleLayer(keyLines.trackIndex, keyLine.clip, keyLine.modelData.layerId,
-                                                                  { "enabled": !shown })
+                                        if (EditorState.selectedTrack !== track || EditorState.selectedClip !== clip)
+                                            EditorState.selectClip(track, clip)
+                                        EditorState.selectShapePart(track, clip, layerOf)
+                                        EditorState.setStyleLayer(track, clip, layerId, { "enabled": on })
                                     }
                                 }
                                 IconGlyph {
@@ -1351,24 +1361,27 @@ Item {
                             }
                             ThemedContextMenu {
                                 id: partLineMenu
+                                property int track: -1
+                                property int clip: -1
+                                property string partId: ""
                                 ThemedMenuItem {
                                     text: qsTr("Duplicate") + "\tCtrl+D"
-                                    onTriggered: EditorState.duplicateShapePart(keyLines.trackIndex, keyLine.clip, headingLine.partId)
+                                    onTriggered: EditorState.duplicateShapePart(partLineMenu.track, partLineMenu.clip, partLineMenu.partId)
                                 }
                                 ThemedMenuItem {
                                     text: qsTr("Group") + "\tCtrl+G"
-                                    onTriggered: EditorState.groupShapePart(keyLines.trackIndex, keyLine.clip, headingLine.partId)
+                                    onTriggered: EditorState.groupShapePart(partLineMenu.track, partLineMenu.clip, partLineMenu.partId)
                                 }
                                 ThemedMenuItem {
                                     visible: keyLine.modelData.isGroup === true
                                     height: visible ? implicitHeight : 0
                                     text: qsTr("Ungroup")
-                                    onTriggered: EditorState.ungroupShapePart(keyLines.trackIndex, keyLine.clip, headingLine.partId)
+                                    onTriggered: EditorState.ungroupShapePart(partLineMenu.track, partLineMenu.clip, partLineMenu.partId)
                                 }
                                 ThemedMenuSeparator { }
                                 ThemedMenuItem {
                                     text: qsTr("Delete")
-                                    onTriggered: EditorState.removeShapePart(keyLines.trackIndex, keyLine.clip, headingLine.partId)
+                                    onTriggered: EditorState.removeShapePart(partLineMenu.track, partLineMenu.clip, partLineMenu.partId)
                                 }
                             }
                         }
@@ -1800,15 +1813,24 @@ Item {
                                     }
                                     tooltip: qsTr("Colour")
                                     onEdited: value => {
+                                        // Read first (selecting the clip rebuilds this row), and the drag always closes.
                                         const c = Qt.color(value)
-                                        if (EditorState.selectedTrack !== keyLines.trackIndex || EditorState.selectedClip !== keyLine.clip)
-                                            EditorState.selectClip(keyLines.trackIndex, keyLine.clip)
-                                        EditorState.beginPreviewDrag(qsTr("Colour"))
+                                        const track = keyLines.trackIndex
+                                        const clip = keyLine.clip
+                                        const ch = channels.slice()
+                                        if (ch.length < 4)
+                                            return
+                                        if (EditorState.selectedTrack !== track || EditorState.selectedClip !== clip)
+                                            EditorState.selectClip(track, clip)
                                         const values = [c.r, c.g, c.b, c.a]
-                                        for (let i = 0; i < 4; ++i)
-                                            EditorState.previewSetPropertyValue(keyLines.trackIndex, keyLine.clip, channels[i],
-                                                                                EditorState.playheadSeconds, values[i])
-                                        EditorState.commitPreviewDrag()
+                                        EditorState.beginPreviewDrag(qsTr("Colour"))
+                                        try {
+                                            for (let i = 0; i < 4; ++i)
+                                                EditorState.previewSetPropertyValue(track, clip, ch[i], EditorState.playheadSeconds,
+                                                                                    values[i])
+                                        } finally {
+                                            EditorState.commitPreviewDrag()
+                                        }
                                     }
                                 }
                                 Repeater {

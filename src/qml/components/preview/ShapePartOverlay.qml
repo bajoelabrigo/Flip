@@ -374,6 +374,12 @@ Item {
                         EditorState.commitPreviewDrag()
                     start = null
                 }
+                // A grip taken away mid-drag (the part let go) closes its drag, or it stayed open and the
+                // next edit joined its undo step.
+                Component.onDestruction: {
+                    if (start)
+                        EditorState.commitPreviewDrag()
+                }
             }
         }
     }

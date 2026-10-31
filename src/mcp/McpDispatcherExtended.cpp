@@ -1800,14 +1800,23 @@ QJsonObject McpDispatcher::applyOneExtended(const QString &tool, const QJsonObje
             m_controller->ungroupShapePart(ref.track, ref.clip, part);
             return ok(QJsonObject{});
         }
-        // set_shape_part
+        // set_shape_part: a value that is not a number is refused (it was written as 0), then everything goes in
+        // one undo step, as the schema says.
+        const QJsonObject values = args.value(QStringLiteral("values")).toObject();
+        QStringList notNumbers;
+        for (auto it = values.constBegin(); it != values.constEnd(); ++it) {
+            if (!it.value().isDouble())
+                notNumbers.append(it.key());
+        }
+        if (!notNumbers.isEmpty())
+            return err("bad_args", QStringLiteral("Not a number: %1").arg(notNumbers.join(QStringLiteral(", "))));
+        m_controller->beginEditSession(QStringLiteral("set_shape_part"));
         if (args.contains(QStringLiteral("name")))
             m_controller->renameShapePart(ref.track, ref.clip, part, argString(args, QStringLiteral("name")));
         if (args.contains(QStringLiteral("visible")))
             m_controller->setShapePartVisible(ref.track, ref.clip, part, args.value(QStringLiteral("visible")).toBool());
         if (args.contains(QStringLiteral("blend")))
             m_controller->setShapePartBlend(ref.track, ref.clip, part, argString(args, QStringLiteral("blend")));
-        const QJsonObject values = args.value(QStringLiteral("values")).toObject();
         if (!values.isEmpty()) {
             m_controller->beginPreviewDrag(QStringLiteral("set_shape_part"));
             for (auto it = values.constBegin(); it != values.constEnd(); ++it)
@@ -1815,6 +1824,7 @@ QJsonObject McpDispatcher::applyOneExtended(const QString &tool, const QJsonObje
                                                       m_controller->playheadSeconds(), it.value().toDouble());
             m_controller->commitPreviewDrag();
         }
+        m_controller->endEditSession(true);
         return ok(QJsonObject{});
     }
 

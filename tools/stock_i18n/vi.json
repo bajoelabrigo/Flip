@@ -25038,6 +25038,128 @@
     "chữ"
    ]
   },
+  "template:lt-andy": {
+   "name": "Thanh tên: dải mở ra từ giữa",
+   "tags": [
+    "thanh tên",
+    "lower third",
+    "tên",
+    "căn giữa",
+    "chuyển màu"
+   ]
+  },
+  "template:lt-clara": {
+   "name": "Thanh tên: tên trồi lên từ hộp",
+   "tags": [
+    "thanh tên",
+    "lower third",
+    "tên",
+    "chuyển màu",
+    "hộp",
+    "dải"
+   ]
+  },
+  "template:lt-eliza": {
+   "name": "Thanh tên: tên với ba kiểu chữ",
+   "tags": [
+    "thanh tên",
+    "lower third",
+    "tên",
+    "viền",
+    "họ"
+   ]
+  },
+  "template:lt-endrue": {
+   "name": "Thanh tên: hộp với đường kẻ trắng",
+   "tags": [
+    "thanh tên",
+    "lower third",
+    "tên",
+    "chuyển màu",
+    "hộp",
+    "đường kẻ"
+   ]
+  },
+  "template:lt-helen": {
+   "name": "Thanh tên bên phải: hai hộp",
+   "tags": [
+    "thanh tên",
+    "lower third",
+    "tên",
+    "bên phải",
+    "hộp"
+   ]
+  },
+  "template:lt-kerry": {
+   "name": "Thanh tên: thanh dọc và tên viền chữ",
+   "tags": [
+    "thanh tên",
+    "lower third",
+    "tên",
+    "viền",
+    "thanh dọc"
+   ]
+  },
+  "template:lt-kim": {
+   "name": "Thanh tên: dải chức danh, tên bên dưới",
+   "tags": [
+    "thanh tên",
+    "lower third",
+    "tên",
+    "dải",
+    "bên phải"
+   ]
+  },
+  "template:lt-laura": {
+   "name": "Thanh tên: tên trên dải chuyển màu",
+   "tags": [
+    "thanh tên",
+    "lower third",
+    "tên",
+    "chuyển màu",
+    "thanh"
+   ]
+  },
+  "template:lt-mari": {
+   "name": "Thanh tên: tên bên trong dải màu",
+   "tags": [
+    "thanh tên",
+    "lower third",
+    "tên",
+    "chuyển màu",
+    "hộp"
+   ]
+  },
+  "template:lt-morgan": {
+   "name": "Thanh tên: họ trong hộp, tên ở trên",
+   "tags": [
+    "thanh tên",
+    "lower third",
+    "tên",
+    "họ",
+    "căn giữa"
+   ]
+  },
+  "template:lt-ronald": {
+   "name": "Thanh tên bên phải: gõ chữ ngược",
+   "tags": [
+    "thanh tên",
+    "lower third",
+    "tên",
+    "bên phải",
+    "gõ chữ"
+   ]
+  },
+  "template:lt-victoria": {
+   "name": "Thanh tên bên phải: đường kẻ chuyển màu",
+   "tags": [
+    "thanh tên",
+    "lower third",
+    "tên",
+    "bên phải",
+    "đường kẻ"
+   ]
+  },
   "template:me-gradue": {
    "name": "Tôi tốt nghiệp rồi!",
    "tags": [
@@ -33742,6 +33864,36 @@
     "youtube"
    ]
   },
+  "template:ytk-boton-barra-oscura": {
+   "name": "Thanh đăng ký tối",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "thanh",
+    "tối",
+    "chuông"
+   ]
+  },
+  "template:ytk-boton-canal": {
+   "name": "Kênh với nút đăng ký",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "kênh",
+    "ảnh",
+    "chuông"
+   ]
+  },
+  "template:ytk-boton-foto-central": {
+   "name": "Thẻ có ảnh ở giữa",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "thẻ",
+    "ảnh",
+    "ở giữa"
+   ]
+  },
   "template:ytk-boton-iconos-grandes": {
    "name": "Biểu tượng lớn: thích, đăng ký, chuông",
    "tags": [
@@ -33750,6 +33902,16 @@
     "nhấp",
     "biểu tượng",
     "youtube"
+   ]
+  },
+  "template:ytk-boton-mensajes": {
+   "name": "Tin nhắn tự gõ",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "tin nhắn",
+    "gõ chữ",
+    "máy đánh chữ"
    ]
   },
   "template:ytk-boton-pildora": {
@@ -33810,6 +33972,68 @@
     "nhấp",
     "tối giản",
     "youtube"
+   ]
+  },
+  "template:ytk-boton-tarjeta-video": {
+   "name": "Thẻ video kèm nút đăng ký",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "nút",
+    "thẻ",
+    "video",
+    "ảnh thu nhỏ"
+   ]
+  },
+  "template:ytk-boton-tarjeta-video-oscura": {
+   "name": "Thẻ video tối kèm lượt thích",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "thẻ",
+    "video",
+    "thích",
+    "tối"
+   ]
+  },
+  "template:ytk-boton-tarjeta-video-vertical": {
+   "name": "Thẻ video hẹp",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "thẻ",
+    "video",
+    "hẹp"
+   ]
+  },
+  "template:ytk-botones-fila": {
+   "name": "Thích, đăng ký và bật chuông",
+   "tags": [
+    "youtube",
+    "nút",
+    "thích",
+    "đăng ký",
+    "chuông"
+   ]
+  },
+  "template:ytk-burbuja-suscribete": {
+   "name": "Bong bóng thoại kèm đăng ký",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "bong bóng",
+    "logo",
+    "san hô"
+   ]
+  },
+  "template:ytk-campana-texto": {
+   "name": "Bật chuông thông báo",
+   "tags": [
+    "youtube",
+    "chuông",
+    "thông báo",
+    "chữ",
+    "san hô"
    ]
   },
   "template:ytk-cinetico-barras": {
@@ -33967,6 +34191,66 @@
     "nảy",
     "vui nhộn",
     "từ ngữ"
+   ]
+  },
+  "template:ytk-cita-barras": {
+   "name": "Trích dẫn giữa các thanh",
+   "tags": [
+    "youtube",
+    "trích dẫn",
+    "câu nói",
+    "thanh",
+    "căn giữa"
+   ]
+  },
+  "template:ytk-cita-caja-blanca": {
+   "name": "Trích dẫn trong hộp trắng",
+   "tags": [
+    "youtube",
+    "trích dẫn",
+    "câu nói",
+    "hộp",
+    "tác giả"
+   ]
+  },
+  "template:ytk-cita-coral": {
+   "name": "Trích dẫn trên bảng san hô",
+   "tags": [
+    "youtube",
+    "trích dẫn",
+    "câu nói",
+    "bảng",
+    "san hô"
+   ]
+  },
+  "template:ytk-cita-esquinas": {
+   "name": "Trích dẫn giữa các góc",
+   "tags": [
+    "youtube",
+    "trích dẫn",
+    "câu nói",
+    "góc",
+    "đường kẻ"
+   ]
+  },
+  "template:ytk-cita-libre": {
+   "name": "Trích dẫn trên video",
+   "tags": [
+    "youtube",
+    "trích dẫn",
+    "câu nói",
+    "căn giữa",
+    "tác giả"
+   ]
+  },
+  "template:ytk-cita-marco": {
+   "name": "Trích dẫn trong khung",
+   "tags": [
+    "youtube",
+    "trích dẫn",
+    "câu nói",
+    "khung",
+    "viền"
    ]
   },
   "template:ytk-elemento-barras": {
@@ -34262,6 +34546,146 @@
     "ảnh"
    ]
   },
+  "template:ytk-fila-tres": {
+   "name": "Hàng ba nút",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "thích",
+    "chuông",
+    "hàng"
+   ]
+  },
+  "template:ytk-final-circulo": {
+   "name": "Màn hình kết thúc có hình tròn",
+   "tags": [
+    "youtube",
+    "màn hình kết thúc",
+    "hình tròn",
+    "cảm ơn",
+    "hai video"
+   ]
+  },
+  "template:ytk-final-cuna": {
+   "name": "Màn hình kết thúc với hình nêm trắng",
+   "tags": [
+    "youtube",
+    "màn hình kết thúc",
+    "hình nêm",
+    "cảm ơn",
+    "hai video"
+   ]
+  },
+  "template:ytk-final-curva": {
+   "name": "Màn hình kết thúc có đường cong",
+   "tags": [
+    "youtube",
+    "màn hình kết thúc",
+    "đường cong",
+    "cảm ơn",
+    "hai video"
+   ]
+  },
+  "template:ytk-final-diagonal": {
+   "name": "Màn hình kết thúc chéo",
+   "tags": [
+    "youtube",
+    "màn hình kết thúc",
+    "đường chéo",
+    "cảm ơn",
+    "đăng ký"
+   ]
+  },
+  "template:ytk-final-flecha": {
+   "name": "Màn hình kết thúc có mũi tên",
+   "tags": [
+    "youtube",
+    "màn hình kết thúc",
+    "mũi tên",
+    "đăng ký",
+    "video đề xuất"
+   ]
+  },
+  "template:ytk-final-mas-videos": {
+   "name": "Màn hình kết thúc: thêm video",
+   "tags": [
+    "youtube",
+    "màn hình kết thúc",
+    "cảm ơn",
+    "thêm video",
+    "mạng xã hội"
+   ]
+  },
+  "template:ytk-final-panel-curvo": {
+   "name": "Màn hình kết thúc có bảng cong",
+   "tags": [
+    "youtube",
+    "màn hình kết thúc",
+    "bảng",
+    "đường cong",
+    "cảm ơn"
+   ]
+  },
+  "template:ytk-final-tarjeta-vertical": {
+   "name": "Màn hình kết thúc: thẻ dọc",
+   "tags": [
+    "youtube",
+    "màn hình kết thúc",
+    "thẻ",
+    "cảm ơn",
+    "đăng ký"
+   ]
+  },
+  "template:ytk-final-triangulo": {
+   "name": "Màn hình kết thúc có tam giác",
+   "tags": [
+    "youtube",
+    "màn hình kết thúc",
+    "tam giác",
+    "cảm ơn",
+    "video tiếp theo"
+   ]
+  },
+  "template:ytk-fondo-coral-circulos": {
+   "name": "Tên kênh với hình tròn",
+   "tags": [
+    "youtube",
+    "nền",
+    "san hô",
+    "hình tròn",
+    "tên"
+   ]
+  },
+  "template:ytk-fondo-coral-cruces": {
+   "name": "Tên kênh với dấu chữ thập",
+   "tags": [
+    "youtube",
+    "nền",
+    "san hô",
+    "chữ thập",
+    "tên"
+   ]
+  },
+  "template:ytk-fondo-coral-manchas": {
+   "name": "Tên kênh với vệt màu",
+   "tags": [
+    "youtube",
+    "nền",
+    "san hô",
+    "vệt màu",
+    "tên"
+   ]
+  },
+  "template:ytk-fondo-coral-triangulos": {
+   "name": "Tên kênh với hình tam giác",
+   "tags": [
+    "youtube",
+    "nền",
+    "san hô",
+    "tam giác",
+    "tên"
+   ]
+  },
   "template:ytk-frase-comillas": {
    "name": "Thẻ trích dẫn",
    "tags": [
@@ -34429,6 +34853,217 @@
     "đánh giá"
    ]
   },
+  "template:ytk-gracias-grande": {
+   "name": "Cảm ơn đã xem! cỡ lớn",
+   "tags": [
+    "youtube",
+    "cảm ơn",
+    "kết thúc",
+    "lớn",
+    "tạm biệt"
+   ]
+  },
+  "template:ytk-hola-bienvenidos": {
+   "name": "Xin chào! Chào mừng đến với kênh của tôi",
+   "tags": [
+    "youtube",
+    "xin chào",
+    "chào mừng",
+    "lời chào",
+    "intro",
+    "kênh"
+   ]
+  },
+  "template:ytk-intro-apilado": {
+   "name": "Kênh YouTube xếp chồng",
+   "tags": [
+    "youtube",
+    "intro",
+    "xếp chồng",
+    "bong bóng",
+    "kênh"
+   ]
+  },
+  "template:ytk-intro-blog": {
+   "name": "Blog du lịch",
+   "tags": [
+    "youtube",
+    "intro",
+    "logo",
+    "blog",
+    "du lịch"
+   ]
+  },
+  "template:ytk-intro-canal-nombre": {
+   "name": "Logo và tên kênh",
+   "tags": [
+    "youtube",
+    "intro",
+    "logo",
+    "tên",
+    "kênh"
+   ]
+  },
+  "template:ytk-intro-historia": {
+   "name": "Câu chuyện lớn",
+   "tags": [
+    "youtube",
+    "intro",
+    "logo",
+    "kênh",
+    "câu chuyện"
+   ]
+  },
+  "template:ytk-intro-inclinado": {
+   "name": "Tên kênh nghiêng",
+   "tags": [
+    "youtube",
+    "intro",
+    "nghiêng",
+    "tên",
+    "san hô"
+   ]
+  },
+  "template:ytk-intro-pildora": {
+   "name": "Logo và tên trong viên nhộng",
+   "tags": [
+    "youtube",
+    "intro",
+    "logo",
+    "viên nhộng",
+    "lấp lánh"
+   ]
+  },
+  "template:ytk-intro-tu-canal": {
+   "name": "Kênh YouTube của bạn",
+   "tags": [
+    "youtube",
+    "intro",
+    "logo",
+    "kênh",
+    "hộp"
+   ]
+  },
+  "template:ytk-llamada-caja-coral": {
+   "name": "Chú thích trong hộp san hô",
+   "tags": [
+    "youtube",
+    "chú thích",
+    "hộp",
+    "san hô",
+    "đường kẻ"
+   ]
+  },
+  "template:ytk-llamada-contorno": {
+   "name": "Chú thích có đường kẻ",
+   "tags": [
+    "youtube",
+    "chú thích",
+    "đường kẻ",
+    "chỉ vào",
+    "điểm"
+   ]
+  },
+  "template:ytk-llamada-creativa": {
+   "name": "Chú thích sáng tạo",
+   "tags": [
+    "youtube",
+    "chú thích",
+    "sáng tạo",
+    "trắng",
+    "san hô"
+   ]
+  },
+  "template:ytk-llamada-describe": {
+   "name": "Mô tả sản phẩm của bạn",
+   "tags": [
+    "youtube",
+    "chú thích",
+    "sản phẩm",
+    "mô tả",
+    "khung"
+   ]
+  },
+  "template:ytk-llamada-etiqueta": {
+   "name": "Chú thích với nhãn san hô",
+   "tags": [
+    "youtube",
+    "chú thích",
+    "nhãn",
+    "san hô",
+    "đường kẻ"
+   ]
+  },
+  "template:ytk-llamada-marca-precio": {
+   "name": "Chú thích với thương hiệu và giá",
+   "tags": [
+    "youtube",
+    "chú thích",
+    "giá",
+    "thương hiệu",
+    "sản phẩm"
+   ]
+  },
+  "template:ytk-llamada-negra": {
+   "name": "Chú thích trong hộp đen",
+   "tags": [
+    "youtube",
+    "chú thích",
+    "đen",
+    "dọc",
+    "tiêu đề chính"
+   ]
+  },
+  "template:ytk-llamada-parrafo": {
+   "name": "Chú thích kèm đoạn văn",
+   "tags": [
+    "youtube",
+    "chú thích",
+    "đoạn văn",
+    "mô tả",
+    "san hô"
+   ]
+  },
+  "template:ytk-llamada-titular": {
+   "name": "Tiêu đề chính và mô tả",
+   "tags": [
+    "youtube",
+    "chú thích",
+    "tiêu đề chính",
+    "đen",
+    "san hô"
+   ]
+  },
+  "template:ytk-llamada-vertical": {
+   "name": "Chú thích với đường kẻ dọc",
+   "tags": [
+    "youtube",
+    "chú thích",
+    "dọc",
+    "mô tả",
+    "san hô"
+   ]
+  },
+  "template:ytk-me-gusta": {
+   "name": "Thích video",
+   "tags": [
+    "youtube",
+    "thích",
+    "like",
+    "ngón cái",
+    "nhấp"
+   ]
+  },
+  "template:ytk-nombre-botones": {
+   "name": "Tên và ba nút",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "tên",
+    "nút",
+    "kênh"
+   ]
+  },
   "template:ytk-pantalla-final": {
    "name": "Màn hình kết thúc hai video",
    "tags": [
@@ -34509,6 +35144,16 @@
     "kết thúc"
    ]
   },
+  "template:ytk-pantalla-final-roja": {
+   "name": "Màn hình kết thúc màu san hô với hai video",
+   "tags": [
+    "youtube",
+    "màn hình kết thúc",
+    "cảm ơn",
+    "video tiếp theo",
+    "mạng xã hội"
+   ]
+  },
   "template:ytk-pantalla-final-sol": {
    "name": "Màn hình kết thúc vàng nắng",
    "tags": [
@@ -34539,6 +35184,36 @@
     "video tiếp theo"
    ]
   },
+  "template:ytk-perfil-blanco": {
+   "name": "Hồ sơ kênh màu trắng",
+   "tags": [
+    "youtube",
+    "hồ sơ",
+    "ảnh",
+    "trắng",
+    "người đăng ký"
+   ]
+  },
+  "template:ytk-pila-vertical": {
+   "name": "Các nút xếp thành cột",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "thích",
+    "chuông",
+    "cột"
+   ]
+  },
+  "template:ytk-pildora-iconos": {
+   "name": "Viên nhộng với ba biểu tượng",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "thích",
+    "chuông",
+    "viên nhộng"
+   ]
+  },
   "template:ytk-redes-barra": {
    "name": "Thanh mạng xã hội",
    "tags": [
@@ -34547,6 +35222,26 @@
     "thanh",
     "tên người dùng",
     "phụ đề tên"
+   ]
+  },
+  "template:ytk-redes-circulo": {
+   "name": "Mạng xã hội trong hình tròn và viên nhộng",
+   "tags": [
+    "youtube",
+    "mạng xã hội",
+    "hình tròn",
+    "viên nhộng",
+    "logo"
+   ]
+  },
+  "template:ytk-redes-circulo-marca": {
+   "name": "Mạng xã hội với logo trong hình tròn",
+   "tags": [
+    "youtube",
+    "mạng xã hội",
+    "hình tròn",
+    "theo dõi tôi",
+    "logo"
    ]
   },
   "template:ytk-redes-circulos": {
@@ -34578,6 +35273,16 @@
     "theo dõi",
     "chữ động",
     "tên người dùng"
+   ]
+  },
+  "template:ytk-redes-corchetes": {
+   "name": "Mạng xã hội giữa dấu ngoặc",
+   "tags": [
+    "youtube",
+    "mạng xã hội",
+    "thẻ",
+    "dấu ngoặc",
+    "logo"
    ]
   },
   "template:ytk-redes-cuadricula": {
@@ -34621,6 +35326,16 @@
     "lớn"
    ]
   },
+  "template:ytk-redes-insignia": {
+   "name": "Mạng xã hội với huy hiệu màu",
+   "tags": [
+    "youtube",
+    "mạng xã hội",
+    "huy hiệu",
+    "theo dõi tôi",
+    "logo"
+   ]
+  },
   "template:ytk-redes-lista": {
    "name": "Tài khoản mạng xã hội",
    "tags": [
@@ -34642,6 +35357,17 @@
     "danh sách"
    ]
   },
+  "template:ytk-redes-logos": {
+   "name": "Mạng xã hội của bạn kèm logo",
+   "tags": [
+    "youtube",
+    "mạng xã hội",
+    "instagram",
+    "facebook",
+    "tiktok",
+    "tên người dùng"
+   ]
+  },
   "template:ytk-redes-pildoras": {
    "name": "Nhãn mạng xã hội",
    "tags": [
@@ -34650,6 +35376,26 @@
     "theo dõi",
     "tên người dùng",
     "viên thuốc"
+   ]
+  },
+  "template:ytk-redes-pincel": {
+   "name": "Mạng xã hội trên nét cọ",
+   "tags": [
+    "youtube",
+    "mạng xã hội",
+    "cọ vẽ",
+    "nét cọ",
+    "logo"
+   ]
+  },
+  "template:ytk-redes-tarjeta": {
+   "name": "Mạng xã hội trên thẻ trắng",
+   "tags": [
+    "youtube",
+    "mạng xã hội",
+    "thẻ",
+    "theo dõi tôi",
+    "logo"
    ]
   },
   "template:ytk-redes-tarjetas": {
@@ -34670,6 +35416,25 @@
     "tên người dùng",
     "thanh tên",
     "phụ đề tên"
+   ]
+  },
+  "template:ytk-suscribete-ahora": {
+   "name": "Đăng ký kênh của tôi ngay!",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "câu chữ",
+    "chữ"
+   ]
+  },
+  "template:ytk-suscribete-contorno": {
+   "name": "Đăng ký trong khung",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "khung",
+    "viền",
+    "logo"
    ]
   },
   "template:ytk-suscribete-pagina-clara": {
@@ -34702,6 +35467,26 @@
     "trang video"
    ]
   },
+  "template:ytk-suscribete-texto": {
+   "name": "Đăng ký kèm logo",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "chữ",
+    "logo",
+    "nhấp"
+   ]
+  },
+  "template:ytk-tarjeta-lista": {
+   "name": "Thẻ có danh sách",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "danh sách",
+    "thẻ",
+    "thích"
+   ]
+  },
   "template:ytk-tercio-avatar": {
    "name": "Thanh tên kèm ảnh đại diện",
    "tags": [
@@ -34710,6 +35495,26 @@
     "thanh tên",
     "ảnh",
     "hồ sơ"
+   ]
+  },
+  "template:ytk-tercio-caja-blanca": {
+   "name": "Tên trong hộp trắng",
+   "tags": [
+    "youtube",
+    "thanh tên",
+    "tên",
+    "nghề nghiệp",
+    "hộp"
+   ]
+  },
+  "template:ytk-tercio-caja-coral": {
+   "name": "Tên trong hộp san hô",
+   "tags": [
+    "youtube",
+    "thanh tên",
+    "tên",
+    "nghề nghiệp",
+    "san hô"
    ]
   },
   "template:ytk-tercio-claro": {
@@ -34791,6 +35596,16 @@
     "thanh tên",
     "khách mời",
     "nhãn"
+   ]
+  },
+  "template:ytk-tercio-linea": {
+   "name": "Tên với đường kẻ",
+   "tags": [
+    "youtube",
+    "thanh tên",
+    "tên",
+    "nghề nghiệp",
+    "đường kẻ"
    ]
   },
   "template:ytk-tercio-minimal": {
@@ -35030,6 +35845,213 @@
     "năng lượng"
    ]
   },
+  "template:ytk-titulo-contorno": {
+   "name": "Tiêu đề trong khung viền",
+   "tags": [
+    "youtube",
+    "tiêu đề",
+    "viền",
+    "khung"
+   ]
+  },
+  "template:ytk-titulo-contornos": {
+   "name": "Tiêu đề trong hộp viền",
+   "tags": [
+    "youtube",
+    "tiêu đề",
+    "viền",
+    "hộp",
+    "trắng"
+   ]
+  },
+  "template:ytk-titulo-cuadro": {
+   "name": "Tiêu đề trong khung vuông",
+   "tags": [
+    "youtube",
+    "tiêu đề",
+    "khung vuông",
+    "viền",
+    "tối giản"
+   ]
+  },
+  "template:ytk-titulo-cuadro-contorno": {
+   "name": "Tiêu đề trên khung vuông viền",
+   "tags": [
+    "youtube",
+    "tiêu đề",
+    "viền",
+    "khung vuông",
+    "hiện đại"
+   ]
+  },
+  "template:ytk-titulo-cuadro-vertical": {
+   "name": "Câu hỏi trong khung vuông trắng",
+   "tags": [
+    "youtube",
+    "tiêu đề",
+    "khung vuông",
+    "câu hỏi",
+    "dọc"
+   ]
+  },
+  "template:ytk-titulo-dos-pesos": {
+   "name": "Tiêu đề hai độ đậm",
+   "tags": [
+    "youtube",
+    "tiêu đề",
+    "kiểu chữ",
+    "căn giữa",
+    "đơn giản"
+   ]
+  },
+  "template:ytk-titulo-gracias-apoyo": {
+   "name": "Cảm ơn bạn đã ủng hộ!",
+   "tags": [
+    "youtube",
+    "cảm ơn",
+    "ủng hộ",
+    "hộp"
+   ]
+  },
+  "template:ytk-titulo-inclinado": {
+   "name": "Nhãn nghiêng",
+   "tags": [
+    "youtube",
+    "tiêu đề",
+    "nghiêng",
+    "nhãn",
+    "chữ ký"
+   ]
+  },
+  "template:ytk-titulo-linea-vertical": {
+   "name": "Tiêu đề với đường kẻ dọc",
+   "tags": [
+    "youtube",
+    "tiêu đề",
+    "đường kẻ",
+    "dọc",
+    "tối giản"
+   ]
+  },
+  "template:ytk-titulo-marco-cajas": {
+   "name": "Tiêu đề trong hộp đặt trong khung",
+   "tags": [
+    "youtube",
+    "tiêu đề",
+    "hộp",
+    "khung",
+    "đen"
+   ]
+  },
+  "template:ytk-titulo-mejor-show": {
+   "name": "Chương trình hay nhất trên YouTube",
+   "tags": [
+    "youtube",
+    "tiêu đề",
+    "logo",
+    "chương trình"
+   ]
+  },
+  "template:ytk-titulo-mejor-video": {
+   "name": "Video hay nhất trên YouTube",
+   "tags": [
+    "youtube",
+    "tiêu đề",
+    "đường kẻ",
+    "hộp",
+    "video hay nhất"
+   ]
+  },
+  "template:ytk-titulo-mixto": {
+   "name": "Tiêu đề phối nhiều độ đậm",
+   "tags": [
+    "youtube",
+    "tiêu đề",
+    "kiểu chữ",
+    "phối hợp",
+    "thanh lịch"
+   ]
+  },
+  "template:ytk-titulo-no-olvides": {
+   "name": "Đừng quên đăng ký và thích",
+   "tags": [
+    "youtube",
+    "tiêu đề",
+    "hộp",
+    "đăng ký",
+    "thích"
+   ]
+  },
+  "template:ytk-titulo-nuevo-video": {
+   "name": "Video mới đã ra mắt",
+   "tags": [
+    "youtube",
+    "tiêu đề",
+    "thanh",
+    "video mới",
+    "ra mắt"
+   ]
+  },
+  "template:ytk-titulo-numero": {
+   "name": "Tiêu đề có số thứ tự",
+   "tags": [
+    "youtube",
+    "tiêu đề",
+    "số",
+    "viên nhộng",
+    "danh sách"
+   ]
+  },
+  "template:ytk-titulo-promo": {
+   "name": "Tiêu đề lớn trong hộp đen",
+   "tags": [
+    "youtube",
+    "tiêu đề",
+    "hộp",
+    "lớn",
+    "quảng cáo"
+   ]
+  },
+  "template:ytk-titulo-suscribete-ahora": {
+   "name": "Đăng ký ngay!",
+   "tags": [
+    "youtube",
+    "tiêu đề",
+    "đăng ký",
+    "lớn",
+    "căn giữa"
+   ]
+  },
+  "template:ytk-titulo-tres-cajas": {
+   "name": "Ba dòng trong hộp đen",
+   "tags": [
+    "youtube",
+    "tiêu đề",
+    "hộp",
+    "đen",
+    "câu hỏi"
+   ]
+  },
+  "template:ytk-titulo-ver-siguiente": {
+   "name": "Xem tiếp",
+   "tags": [
+    "youtube",
+    "tiêu đề",
+    "xem tiếp",
+    "hộp",
+    "video"
+   ]
+  },
+  "template:ytk-titulos-cajas": {
+   "name": "Tiêu đề trong hộp",
+   "tags": [
+    "youtube",
+    "hộp",
+    "tiêu đề",
+    "máy đánh chữ",
+    "con trỏ"
+   ]
+  },
   "template:ytk-transicion-aro-zoom": {
    "name": "Thu phóng vòng",
    "tags": [
@@ -35184,6 +36206,25 @@
     "chấm",
     "vòng tròn",
     "đổi cảnh"
+   ]
+  },
+  "template:ytk-video-circulo": {
+   "name": "Video trong hình tròn",
+   "tags": [
+    "youtube",
+    "hình tròn",
+    "san hô",
+    "chuyển cảnh",
+    "video"
+   ]
+  },
+  "template:ytk-yt-suscrito": {
+   "name": "Logo YouTube và đăng ký",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "logo",
+    "chuông"
    ]
   },
   "template:zoom-3d-parallax": {

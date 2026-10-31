@@ -178,8 +178,12 @@ def mensajes():
              layers=[_hollow(), _stroke(th["ink"], 3.5)],
              motion=[(0, {"s": 0.0}, "back"), (0.35, {})])
         rest = s1 - click
+        # Keys in order also on a short life (under 0.65 s the hold landed after the shrink and the icon
+        # vanished in one frame instead of shrinking away).
+        hold = min(0.4, max(0.14, rest - 0.3))
+        shrink = max(hold + 0.02, rest - 0.25)
         path(t, t.track("shape", "Botones"), colour, click, rest, centered(bx, by, 30, 30), icon, filled=True,
-             motion=[(0, {"s": 0.6}, "out"), (0.12, {"s": 1.35}, "back"), (0.4, {}, "hold"), (rest - 0.25, {}, "in"),
+             motion=[(0, {"s": 0.6}, "out"), (0.12, {"s": 1.35}, "back"), (hold, {}, "hold"), (shrink, {}, "in"),
                      (rest, {"s": 0.0})])
         _ripple(t, bx, by, click, 40)
         stops.append((click, bx + 6, by + 8))

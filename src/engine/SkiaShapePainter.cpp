@@ -580,9 +580,16 @@ private:
             paint.setStrokeCap(skStrokeCap(layer.cap));
             paint.setStrokeMiter(float(layer.miterLimit));
             paint.setPathEffect(strokePathEffectFor(layer, width, m_scale));
-            const SkPath stroked = strokedPathFor(layer, m_path);
+            SkPath stroked = strokedPathFor(layer, m_path);
             if (strokeHasProfile(layer)) {
                 // Taper / Wave: the outline filled; inside or outside keeps one side of a twice-as-wide band.
+                // The dash pattern and Sketch are baked into the path first, or the profiled band drew solid.
+                if (const sk_sp<SkPathEffect> effect = paint.refPathEffect()) {
+                    SkPathBuilder dashed;
+                    SkStrokeRec rec(SkStrokeRec::kHairline_InitStyle);
+                    if (effect->filterPath(&dashed, stroked, &rec))
+                        stroked = dashed.detach();
+                }
                 paint.setStyle(SkPaint::kFill_Style);
                 paint.setPathEffect(nullptr);
                 const bool centred = layer.strokeAlign == StrokeAlign::Center;
@@ -843,7 +850,8 @@ public:
         if (bounds.isEmpty())
             bounds = SkRect::MakeWH(float(width), float(height));
         // Capped so a part flung far away cannot ask for a texture the GPU will not hold.
-        if (!bounds.intersect(SkRect::MakeLTRB(-8192.0f, -8192.0f, float(width) + 8192.0f, float(height) + 8192.0f)))
+        // 4096 a side, as a plain shape's repeater and operators: 8192 let two far parts ask for ~18000 px.
+        if (!bounds.intersect(SkRect::MakeLTRB(-4096.0f, -4096.0f, float(width) + 4096.0f, float(height) + 4096.0f)))
             bounds = SkRect::MakeWH(float(width), float(height));
         m_origin = QPointF(std::floor(bounds.left()), std::floor(bounds.top()));
         m_size = QSize(qMax(1, int(std::ceil(bounds.right() - m_origin.x()))),

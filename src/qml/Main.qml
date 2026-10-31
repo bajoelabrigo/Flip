@@ -1821,6 +1821,28 @@ ApplicationWindow {
     // Escape (clearSelection): CapCut-style — if a timeline cut tool is active,
     // first press returns to Select; only then does Escape clear the selection.
     function dispatchAction(id) {
+        // A shape layer's parts (0.28), as After Effects. These shortcuts are application-wide and reach
+        // here before any Keys handler in the preview or the Contents list, so they are decided here:
+        // Esc with the shape tool lets go of the layer (the next shape gets a layer of its own), Esc with a
+        // part picked goes up a level, Delete and Ctrl+D act on the picked part, never on the whole layer.
+        if (id === "clearSelection" && EditorState.preview.tool === "shape" && EditorState.selectedClip >= 0) {
+            EditorState.clearSelection()
+            return
+        }
+        const pickedPart = EditorState.selectedShapePart
+        if (pickedPart !== "" && (id === "clearSelection" || id === "duplicate" || id === "transformTogether")) {
+            const track = EditorState.selectedTrack
+            const clip = EditorState.selectedClip
+            if (id === "clearSelection") {
+                const crumbs = EditorState.shapePartCrumbs()
+                EditorState.selectShapePart(track, clip, crumbs.length >= 2 ? crumbs[crumbs.length - 2].id : "")
+            } else if (id === "duplicate") {
+                EditorState.duplicateShapePart(track, clip, pickedPart)
+            } else {
+                EditorState.groupShapePart(track, clip, pickedPart)
+            }
+            return
+        }
         // Escape leaves a preview tool first, back to selection as in After Effects.
         if (id === "clearSelection" && EditorState.preview.tool !== "select") {
             EditorState.preview.tool = "select"
@@ -1839,6 +1861,10 @@ ApplicationWindow {
         // Picked keyframes go before the clip they are on, as in After Effects.
         if (id === "delete" && timelinePanel.visible && timelinePanel.deletePickedKeys())
             return
+        if (id === "delete" && EditorState.selectedShapePart !== "") {
+            EditorState.removeShapePart(EditorState.selectedTrack, EditorState.selectedClip, EditorState.selectedShapePart)
+            return
+        }
         if (id === "copy" && timelinePanel.visible) {
             if (timelinePanel.copyPickedKeys())
                 return

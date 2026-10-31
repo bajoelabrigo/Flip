@@ -5,6 +5,8 @@ key a frame), every text sits where the reference has it and moves as it does. O
 
 from __future__ import annotations
 
+import math
+
 from kit import Box, photo_bg, wide
 from lt_motion import (FPS, Ref, caps_box, fit_size, frame_at, last_frame, measured_bar, out_of, outline_layers, text,
                        track_text, typing)
@@ -14,11 +16,12 @@ GREY = "#818181"
 
 
 def _kit(id, es, en, dur, order, tags, **kw):
-    return wide(f"lt-{id}", es, en, "ytkit", dur, order=order, tags=["kit:tercios-degradado", "tercio"] + tags, **kw)
+    return wide(f"lt-{id}", es, en, "ytkit", dur, order=order, tags=["kit:lowerthirds", "tercio"] + tags, **kw)
 
 
 def _dur(r):
-    return round((last_frame(r) - r.first + 2) / FPS, 2)
+    # Rounded up: rounded to the nearest, a clip could end 3 ms past the template's duration.
+    return math.ceil((last_frame(r) - r.first + 2) / FPS * 100) / 100
 
 
 def _runs(r, u, band, kind="white"):

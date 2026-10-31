@@ -25198,6 +25198,128 @@
     "වචන"
    ]
   },
+  "template:lt-andy": {
+   "name": "නම් පටිය: මැදින් විවෘත වන තීරුව",
+   "tags": [
+    "නම් පටිය",
+    "lower third",
+    "නම",
+    "මැදට",
+    "වර්ණ ශ්‍රේණිය"
+   ]
+  },
+  "template:lt-clara": {
+   "name": "නම් පටිය: කොටුවෙන් මතුවන නම",
+   "tags": [
+    "නම් පටිය",
+    "lower third",
+    "නම",
+    "වර්ණ ශ්‍රේණිය",
+    "කොටුව",
+    "පටිය"
+   ]
+  },
+  "template:lt-eliza": {
+   "name": "නම් පටිය: විලාස තුනකින් නම",
+   "tags": [
+    "නම් පටිය",
+    "lower third",
+    "නම",
+    "දාරය",
+    "වාසගම"
+   ]
+  },
+  "template:lt-endrue": {
+   "name": "නම් පටිය: සුදු රේඛා සහිත කොටුව",
+   "tags": [
+    "නම් පටිය",
+    "lower third",
+    "නම",
+    "වර්ණ ශ්‍රේණිය",
+    "කොටුව",
+    "රේඛා"
+   ]
+  },
+  "template:lt-helen": {
+   "name": "දකුණු පස නම් පටිය: කොටු දෙකක්",
+   "tags": [
+    "නම් පටිය",
+    "lower third",
+    "නම",
+    "දකුණ",
+    "කොටු"
+   ]
+  },
+  "template:lt-kerry": {
+   "name": "නම් පටිය: සිරස් තීරුව සහ දාර සහිත නම",
+   "tags": [
+    "නම් පටිය",
+    "lower third",
+    "නම",
+    "දාරය",
+    "සිරස් තීරුව"
+   ]
+  },
+  "template:lt-kim": {
+   "name": "නම් පටිය: තනතුර සහිත පටිය, පහළින් නම",
+   "tags": [
+    "නම් පටිය",
+    "lower third",
+    "නම",
+    "පටිය",
+    "දකුණ"
+   ]
+  },
+  "template:lt-laura": {
+   "name": "නම් පටිය: වර්ණ ශ්‍රේණි තීරුවක් මත නම",
+   "tags": [
+    "නම් පටිය",
+    "lower third",
+    "නම",
+    "වර්ණ ශ්‍රේණිය",
+    "තීරුව"
+   ]
+  },
+  "template:lt-mari": {
+   "name": "නම් පටිය: තීරුව තුළ නම",
+   "tags": [
+    "නම් පටිය",
+    "lower third",
+    "නම",
+    "වර්ණ ශ්‍රේණිය",
+    "කොටුව"
+   ]
+  },
+  "template:lt-morgan": {
+   "name": "නම් පටිය: කොටුවක වාසගම, ඉහළින් නම",
+   "tags": [
+    "නම් පටිය",
+    "lower third",
+    "නම",
+    "වාසගම",
+    "මැදට"
+   ]
+  },
+  "template:lt-ronald": {
+   "name": "දකුණු පස නම් පටිය: පසුපසට ටයිප් වීම",
+   "tags": [
+    "නම් පටිය",
+    "lower third",
+    "නම",
+    "දකුණ",
+    "ටයිප් කිරීම"
+   ]
+  },
+  "template:lt-victoria": {
+   "name": "දකුණු පස නම් පටිය: වර්ණ ශ්‍රේණි රේඛාව",
+   "tags": [
+    "නම් පටිය",
+    "lower third",
+    "නම",
+    "දකුණ",
+    "රේඛාව"
+   ]
+  },
   "template:me-gradue": {
    "name": "මම උපාධිය ගත්තා!",
    "tags": [
@@ -33854,6 +33976,36 @@
     "youtube"
    ]
   },
+  "template:ytk-boton-barra-oscura": {
+   "name": "අඳුරු දායක වීමේ තීරුව",
+   "tags": [
+    "youtube",
+    "දායක වන්න",
+    "තීරුව",
+    "අඳුරු",
+    "සීනුව"
+   ]
+  },
+  "template:ytk-boton-canal": {
+   "name": "දායක වීමේ බොත්තම සහිත නාලිකාව",
+   "tags": [
+    "youtube",
+    "දායක වන්න",
+    "නාලිකාව",
+    "ඡායාරූපය",
+    "සීනුව"
+   ]
+  },
+  "template:ytk-boton-foto-central": {
+   "name": "මැද ඡායාරූපය සහිත කාඩ්පත",
+   "tags": [
+    "youtube",
+    "දායක වන්න",
+    "කාඩ්පත",
+    "ඡායාරූපය",
+    "මැද"
+   ]
+  },
   "template:ytk-boton-iconos-grandes": {
    "name": "විශාල අයිකන: කැමතියි, දායක වන්න, සීනුව",
    "tags": [
@@ -33862,6 +34014,16 @@
     "ක්ලික්",
     "අයිකන",
     "youtube"
+   ]
+  },
+  "template:ytk-boton-mensajes": {
+   "name": "තනිවම ලියැවෙන පණිවිඩ",
+   "tags": [
+    "youtube",
+    "දායක වන්න",
+    "පණිවිඩ",
+    "ටයිප් කිරීම",
+    "යතුරු ලියනය"
    ]
   },
   "template:ytk-boton-pildora": {
@@ -33922,6 +34084,68 @@
     "ක්ලික්",
     "සරල",
     "youtube"
+   ]
+  },
+  "template:ytk-boton-tarjeta-video": {
+   "name": "දායක වීමේ බොත්තම සහිත වීඩියෝ කාඩ්පත",
+   "tags": [
+    "youtube",
+    "දායක වන්න",
+    "බොත්තම",
+    "කාඩ්පත",
+    "වීඩියෝ",
+    "සීනුව"
+   ]
+  },
+  "template:ytk-boton-tarjeta-video-oscura": {
+   "name": "කැමැත්ත සහිත අඳුරු වීඩියෝ කාඩ්පත",
+   "tags": [
+    "youtube",
+    "දායක වන්න",
+    "කාඩ්පත",
+    "වීඩියෝ",
+    "කැමතියි",
+    "අඳුරු"
+   ]
+  },
+  "template:ytk-boton-tarjeta-video-vertical": {
+   "name": "පටු වීඩියෝ කාඩ්පත",
+   "tags": [
+    "youtube",
+    "දායක වන්න",
+    "කාඩ්පත",
+    "වීඩියෝ",
+    "පටු"
+   ]
+  },
+  "template:ytk-botones-fila": {
+   "name": "කැමතියි, දායක වන්න සහ සීනුව",
+   "tags": [
+    "youtube",
+    "බොත්තම්",
+    "කැමතියි",
+    "දායක වන්න",
+    "සීනුව"
+   ]
+  },
+  "template:ytk-burbuja-suscribete": {
+   "name": "දායක වන්න සහිත කතා බුබුළ",
+   "tags": [
+    "youtube",
+    "දායක වන්න",
+    "බුබුළ",
+    "ලාංඡනය",
+    "කොරල්"
+   ]
+  },
+  "template:ytk-campana-texto": {
+   "name": "සීනුව සක්‍රිය කරන්න",
+   "tags": [
+    "youtube",
+    "සීනුව",
+    "දැනුම්දීම්",
+    "පෙළ",
+    "කොරල්"
    ]
   },
   "template:ytk-cinetico-barras": {
@@ -34065,6 +34289,66 @@
     "පැනීම",
     "විනෝදය",
     "වචන"
+   ]
+  },
+  "template:ytk-cita-barras": {
+   "name": "තීරු අතර උපුටනය",
+   "tags": [
+    "youtube",
+    "උපුටනය",
+    "වාක්‍යය",
+    "තීරු",
+    "මැදට"
+   ]
+  },
+  "template:ytk-cita-caja-blanca": {
+   "name": "සුදු කොටුවක උපුටනය",
+   "tags": [
+    "youtube",
+    "උපුටනය",
+    "වාක්‍යය",
+    "කොටුව",
+    "කතුවරයා"
+   ]
+  },
+  "template:ytk-cita-coral": {
+   "name": "කොරල් පැහැ පුවරුවක උපුටනය",
+   "tags": [
+    "youtube",
+    "උපුටනය",
+    "වාක්‍යය",
+    "පුවරුව",
+    "කොරල්"
+   ]
+  },
+  "template:ytk-cita-esquinas": {
+   "name": "කොන් අතර උපුටනය",
+   "tags": [
+    "youtube",
+    "උපුටනය",
+    "වාක්‍යය",
+    "කොන්",
+    "රේඛා"
+   ]
+  },
+  "template:ytk-cita-libre": {
+   "name": "වීඩියෝව මත උපුටනය",
+   "tags": [
+    "youtube",
+    "උපුටනය",
+    "වාක්‍යය",
+    "මැදට",
+    "කතුවරයා"
+   ]
+  },
+  "template:ytk-cita-marco": {
+   "name": "රාමුවක් තුළ උපුටනය",
+   "tags": [
+    "youtube",
+    "උපුටනය",
+    "වාක්‍යය",
+    "රාමුව",
+    "දාරය"
    ]
   },
   "template:ytk-elemento-barras": {
@@ -34325,6 +34609,146 @@
     "මාතෘකාව"
    ]
   },
+  "template:ytk-fila-tres": {
+   "name": "බොත්තම් තුනක පේළියක්",
+   "tags": [
+    "youtube",
+    "දායක වන්න",
+    "කැමතියි",
+    "සීනුව",
+    "පේළිය"
+   ]
+  },
+  "template:ytk-final-circulo": {
+   "name": "රවුමක් සහිත අවසාන තිරය",
+   "tags": [
+    "youtube",
+    "අවසාන තිරය",
+    "රවුම",
+    "ස්තූතියි",
+    "වීඩියෝ දෙකක්"
+   ]
+  },
+  "template:ytk-final-cuna": {
+   "name": "සුදු කූඤ්ඤයක් සහිත අවසාන තිරය",
+   "tags": [
+    "youtube",
+    "අවසාන තිරය",
+    "කූඤ්ඤය",
+    "ස්තූතියි",
+    "වීඩියෝ දෙකක්"
+   ]
+  },
+  "template:ytk-final-curva": {
+   "name": "වක්‍රයක් සහිත අවසාන තිරය",
+   "tags": [
+    "youtube",
+    "අවසාන තිරය",
+    "වක්‍රය",
+    "ස්තූතියි",
+    "වීඩියෝ දෙකක්"
+   ]
+  },
+  "template:ytk-final-diagonal": {
+   "name": "ඇල අවසාන තිරය",
+   "tags": [
+    "youtube",
+    "අවසාන තිරය",
+    "ඇල",
+    "ස්තූතියි",
+    "දායක වන්න"
+   ]
+  },
+  "template:ytk-final-flecha": {
+   "name": "ඊතලයක් සහිත අවසාන තිරය",
+   "tags": [
+    "youtube",
+    "අවසාන තිරය",
+    "ඊතලය",
+    "දායක වන්න",
+    "නිර්දේශිත වීඩියෝව"
+   ]
+  },
+  "template:ytk-final-mas-videos": {
+   "name": "අවසාන තිරය: තවත් වීඩියෝ",
+   "tags": [
+    "youtube",
+    "අවසාන තිරය",
+    "ස්තූතියි",
+    "තවත් වීඩියෝ",
+    "සමාජ මාධ්‍ය"
+   ]
+  },
+  "template:ytk-final-panel-curvo": {
+   "name": "වක්‍ර පුවරුවක් සහිත අවසාන තිරය",
+   "tags": [
+    "youtube",
+    "අවසාන තිරය",
+    "පුවරුව",
+    "වක්‍රය",
+    "ස්තූතියි"
+   ]
+  },
+  "template:ytk-final-tarjeta-vertical": {
+   "name": "අවසාන තිරය: උස කාඩ්පත",
+   "tags": [
+    "youtube",
+    "අවසාන තිරය",
+    "කාඩ්පත",
+    "ස්තූතියි",
+    "දායක වන්න"
+   ]
+  },
+  "template:ytk-final-triangulo": {
+   "name": "ත්‍රිකෝණයක් සහිත අවසාන තිරය",
+   "tags": [
+    "youtube",
+    "අවසාන තිරය",
+    "ත්‍රිකෝණය",
+    "ස්තූතියි",
+    "ඊළඟ වීඩියෝව"
+   ]
+  },
+  "template:ytk-fondo-coral-circulos": {
+   "name": "රවුම් සහිත නාලිකාවේ නම",
+   "tags": [
+    "youtube",
+    "පසුබිම",
+    "කොරල්",
+    "රවුම්",
+    "නම"
+   ]
+  },
+  "template:ytk-fondo-coral-cruces": {
+   "name": "කතිර සහිත නාලිකාවේ නම",
+   "tags": [
+    "youtube",
+    "පසුබිම",
+    "කොරල්",
+    "කතිර",
+    "නම"
+   ]
+  },
+  "template:ytk-fondo-coral-manchas": {
+   "name": "පැල්ලම් සහිත නාලිකාවේ නම",
+   "tags": [
+    "youtube",
+    "පසුබිම",
+    "කොරල්",
+    "පැල්ලම්",
+    "නම"
+   ]
+  },
+  "template:ytk-fondo-coral-triangulos": {
+   "name": "ත්‍රිකෝණ සහිත නාලිකාවේ නම",
+   "tags": [
+    "youtube",
+    "පසුබිම",
+    "කොරල්",
+    "ත්‍රිකෝණ",
+    "නම"
+   ]
+  },
   "template:ytk-frase-comillas": {
    "name": "උපුටන කාඩ්පත",
    "tags": [
@@ -34478,6 +34902,217 @@
     "සමාලෝචනය"
    ]
   },
+  "template:ytk-gracias-grande": {
+   "name": "නැරඹීමට ස්තූතියි! විශාලව",
+   "tags": [
+    "youtube",
+    "ස්තූතියි",
+    "අවසානය",
+    "විශාල",
+    "සමුගැනීම"
+   ]
+  },
+  "template:ytk-hola-bienvenidos": {
+   "name": "ආයුබෝවන්! මගේ නාලිකාවට සාදරයෙන් පිළිගනිමු",
+   "tags": [
+    "youtube",
+    "ආයුබෝවන්",
+    "පිළිගැනීම",
+    "සුබපැතුම",
+    "හැඳින්වීම",
+    "නාලිකාව"
+   ]
+  },
+  "template:ytk-intro-apilado": {
+   "name": "පෙළගැසූ YouTube නාලිකාව",
+   "tags": [
+    "youtube",
+    "හැඳින්වීම",
+    "පෙළගැසූ",
+    "බුබුළු",
+    "නාලිකාව"
+   ]
+  },
+  "template:ytk-intro-blog": {
+   "name": "සංචාර බ්ලොග්",
+   "tags": [
+    "youtube",
+    "හැඳින්වීම",
+    "ලාංඡනය",
+    "බ්ලොග්",
+    "සංචාර"
+   ]
+  },
+  "template:ytk-intro-canal-nombre": {
+   "name": "ලාංඡනය සහ නාලිකාවේ නම",
+   "tags": [
+    "youtube",
+    "හැඳින්වීම",
+    "ලාංඡනය",
+    "නම",
+    "නාලිකාව"
+   ]
+  },
+  "template:ytk-intro-historia": {
+   "name": "මහා කතාව",
+   "tags": [
+    "youtube",
+    "හැඳින්වීම",
+    "ලාංඡනය",
+    "නාලිකාව",
+    "කතාව"
+   ]
+  },
+  "template:ytk-intro-inclinado": {
+   "name": "ඇල නාලිකා නම",
+   "tags": [
+    "youtube",
+    "හැඳින්වීම",
+    "ඇල",
+    "නම",
+    "කොරල්"
+   ]
+  },
+  "template:ytk-intro-pildora": {
+   "name": "කැප්සියුලයක ලාංඡනය සහ නම",
+   "tags": [
+    "youtube",
+    "හැඳින්වීම",
+    "ලාංඡනය",
+    "කැප්සියුල",
+    "දිලිසීම්"
+   ]
+  },
+  "template:ytk-intro-tu-canal": {
+   "name": "ඔබේ YouTube නාලිකාව",
+   "tags": [
+    "youtube",
+    "හැඳින්වීම",
+    "ලාංඡනය",
+    "නාලිකාව",
+    "කොටුව"
+   ]
+  },
+  "template:ytk-llamada-caja-coral": {
+   "name": "කොරල් කොටුවක පෙන්වුම් සටහන",
+   "tags": [
+    "youtube",
+    "පෙන්වුම් සටහන",
+    "කොටුව",
+    "කොරල්",
+    "රේඛාව"
+   ]
+  },
+  "template:ytk-llamada-contorno": {
+   "name": "රේඛාවක් සහිත පෙන්වුම් සටහන",
+   "tags": [
+    "youtube",
+    "පෙන්වුම් සටහන",
+    "රේඛාව",
+    "පෙන්වීම",
+    "ලක්ෂ්‍යය"
+   ]
+  },
+  "template:ytk-llamada-creativa": {
+   "name": "නිර්මාණශීලී පෙන්වුම් සටහන",
+   "tags": [
+    "youtube",
+    "පෙන්වුම් සටහන",
+    "නිර්මාණශීලී",
+    "සුදු",
+    "කොරල්"
+   ]
+  },
+  "template:ytk-llamada-describe": {
+   "name": "ඔබේ නිෂ්පාදනය විස්තර කරන්න",
+   "tags": [
+    "youtube",
+    "පෙන්වුම් සටහන",
+    "නිෂ්පාදනය",
+    "විස්තරය",
+    "රාමුව"
+   ]
+  },
+  "template:ytk-llamada-etiqueta": {
+   "name": "කොරල් ලේබලයක් සහිත පෙන්වුම් සටහන",
+   "tags": [
+    "youtube",
+    "පෙන්වුම් සටහන",
+    "ලේබලය",
+    "කොරල්",
+    "රේඛාව"
+   ]
+  },
+  "template:ytk-llamada-marca-precio": {
+   "name": "සන්නාමය සහ මිල සහිත පෙන්වුම් සටහන",
+   "tags": [
+    "youtube",
+    "පෙන්වුම් සටහන",
+    "මිල",
+    "සන්නාමය",
+    "නිෂ්පාදනය"
+   ]
+  },
+  "template:ytk-llamada-negra": {
+   "name": "කළු කොටුවක පෙන්වුම් සටහන",
+   "tags": [
+    "youtube",
+    "පෙන්වුම් සටහන",
+    "කළු",
+    "සිරස්",
+    "සිරස්තලය"
+   ]
+  },
+  "template:ytk-llamada-parrafo": {
+   "name": "ඡේදයක් සහිත පෙන්වුම් සටහන",
+   "tags": [
+    "youtube",
+    "පෙන්වුම් සටහන",
+    "ඡේදය",
+    "විස්තරය",
+    "කොරල්"
+   ]
+  },
+  "template:ytk-llamada-titular": {
+   "name": "සිරස්තලය සහ විස්තරය",
+   "tags": [
+    "youtube",
+    "පෙන්වුම් සටහන",
+    "සිරස්තලය",
+    "කළු",
+    "කොරල්"
+   ]
+  },
+  "template:ytk-llamada-vertical": {
+   "name": "සිරස් රේඛාවක් සහිත පෙන්වුම් සටහන",
+   "tags": [
+    "youtube",
+    "පෙන්වුම් සටහන",
+    "සිරස්",
+    "විස්තරය",
+    "කොරල්"
+   ]
+  },
+  "template:ytk-me-gusta": {
+   "name": "වීඩියෝවට කැමැත්ත දෙන්න",
+   "tags": [
+    "youtube",
+    "කැමතියි",
+    "like",
+    "මාපටැඟිල්ල",
+    "ක්ලික්"
+   ]
+  },
+  "template:ytk-nombre-botones": {
+   "name": "නම සහ බොත්තම් තුනක්",
+   "tags": [
+    "youtube",
+    "දායක වන්න",
+    "නම",
+    "බොත්තම්",
+    "නාලිකාව"
+   ]
+  },
   "template:ytk-pantalla-final": {
    "name": "වීඩියෝ දෙකක අවසාන තිරය",
    "tags": [
@@ -34550,6 +35185,16 @@
     "අවසානය"
    ]
   },
+  "template:ytk-pantalla-final-roja": {
+   "name": "වීඩියෝ දෙකක් සහිත කොරල් පැහැ අවසාන තිරය",
+   "tags": [
+    "youtube",
+    "අවසාන තිරය",
+    "ස්තූතියි",
+    "ඊළඟ වීඩියෝව",
+    "සමාජ මාධ්‍ය"
+   ]
+  },
   "template:ytk-pantalla-final-sol": {
    "name": "කහ අවසාන තිරය",
    "tags": [
@@ -34577,6 +35222,36 @@
     "ඊළඟ වීඩියෝව"
    ]
   },
+  "template:ytk-perfil-blanco": {
+   "name": "සුදු පැහැ නාලිකා පැතිකඩ",
+   "tags": [
+    "youtube",
+    "පැතිකඩ",
+    "ඡායාරූපය",
+    "සුදු",
+    "දායකයින්"
+   ]
+  },
+  "template:ytk-pila-vertical": {
+   "name": "තීරුවකට පෙළගැසූ බොත්තම්",
+   "tags": [
+    "youtube",
+    "දායක වන්න",
+    "කැමතියි",
+    "සීනුව",
+    "තීරුව"
+   ]
+  },
+  "template:ytk-pildora-iconos": {
+   "name": "අයිකන තුනක් සහිත කැප්සියුලය",
+   "tags": [
+    "youtube",
+    "දායක වන්න",
+    "කැමතියි",
+    "සීනුව",
+    "කැප්සියුල"
+   ]
+  },
   "template:ytk-redes-barra": {
    "name": "සමාජ මාධ්‍ය තීරුව",
    "tags": [
@@ -34584,6 +35259,26 @@
     "තීරුව",
     "පරිශීලක නාමය",
     "ලේබලය"
+   ]
+  },
+  "template:ytk-redes-circulo": {
+   "name": "රවුමක සහ කැප්සියුල හැඩයක සමාජ මාධ්‍ය",
+   "tags": [
+    "youtube",
+    "සමාජ මාධ්‍ය",
+    "රවුම",
+    "කැප්සියුල",
+    "ලාංඡන"
+   ]
+  },
+  "template:ytk-redes-circulo-marca": {
+   "name": "රවුමක ලාංඡනය සහිත සමාජ මාධ්‍ය",
+   "tags": [
+    "youtube",
+    "සමාජ මාධ්‍ය",
+    "රවුම",
+    "මාව අනුගමනය කරන්න",
+    "ලාංඡන"
    ]
   },
   "template:ytk-redes-circulos": {
@@ -34613,6 +35308,16 @@
     "චලන",
     "පරිශීලක නාමය",
     "කොරල්"
+   ]
+  },
+  "template:ytk-redes-corchetes": {
+   "name": "වරහන් අතර සමාජ මාධ්‍ය",
+   "tags": [
+    "youtube",
+    "සමාජ මාධ්‍ය",
+    "කාඩ්පත",
+    "වරහන්",
+    "ලාංඡන"
    ]
   },
   "template:ytk-redes-cuadricula": {
@@ -34652,6 +35357,16 @@
     "විශාල"
    ]
   },
+  "template:ytk-redes-insignia": {
+   "name": "වර්ණ ලාංඡනයක් සහිත සමාජ මාධ්‍ය",
+   "tags": [
+    "youtube",
+    "සමාජ මාධ්‍ය",
+    "ලාංඡනය",
+    "මාව අනුගමනය කරන්න",
+    "ලාංඡන"
+   ]
+  },
   "template:ytk-redes-lista": {
    "name": "ඔබේ සමාජ මාධ්‍ය",
    "tags": [
@@ -34671,6 +35386,17 @@
     "ලැයිස්තුව"
    ]
   },
+  "template:ytk-redes-logos": {
+   "name": "ලාංඡන සහිත ඔබේ සමාජ මාධ්‍ය",
+   "tags": [
+    "youtube",
+    "සමාජ මාධ්‍ය",
+    "instagram",
+    "facebook",
+    "tiktok",
+    "පරිශීලක නාමය"
+   ]
+  },
   "template:ytk-redes-pildoras": {
    "name": "සමාජ මාධ්‍ය කැප්සියුල",
    "tags": [
@@ -34678,6 +35404,26 @@
     "ෆලෝ කරන්න",
     "පරිශීලක නාමය",
     "කැප්සියුල"
+   ]
+  },
+  "template:ytk-redes-pincel": {
+   "name": "පින්සල් පහරක් මත සමාජ මාධ්‍ය",
+   "tags": [
+    "youtube",
+    "සමාජ මාධ්‍ය",
+    "පින්සල",
+    "පින්සල් පහර",
+    "ලාංඡන"
+   ]
+  },
+  "template:ytk-redes-tarjeta": {
+   "name": "සුදු කාඩ්පතක සමාජ මාධ්‍ය",
+   "tags": [
+    "youtube",
+    "සමාජ මාධ්‍ය",
+    "කාඩ්පත",
+    "මාව අනුගමනය කරන්න",
+    "ලාංඡන"
    ]
   },
   "template:ytk-redes-tarjetas": {
@@ -34696,6 +35442,25 @@
     "පරිශීලක නාමය",
     "නාම තීරුව",
     "ලේබලය"
+   ]
+  },
+  "template:ytk-suscribete-ahora": {
+   "name": "දැන්ම මගේ නාලිකාවට දායක වන්න!",
+   "tags": [
+    "youtube",
+    "දායක වන්න",
+    "වාක්‍යය",
+    "අකුරු"
+   ]
+  },
+  "template:ytk-suscribete-contorno": {
+   "name": "රාමුවක් තුළ දායක වන්න",
+   "tags": [
+    "youtube",
+    "දායක වන්න",
+    "රාමුව",
+    "දාරය",
+    "ලාංඡනය"
    ]
   },
   "template:ytk-suscribete-pagina-clara": {
@@ -34728,6 +35493,26 @@
     "වීඩියෝ පිටුව"
    ]
   },
+  "template:ytk-suscribete-texto": {
+   "name": "ලාංඡනය සමඟ දායක වන්න",
+   "tags": [
+    "youtube",
+    "දායක වන්න",
+    "පෙළ",
+    "ලාංඡනය",
+    "ක්ලික්"
+   ]
+  },
+  "template:ytk-tarjeta-lista": {
+   "name": "ලැයිස්තුවක් සහිත කාඩ්පත",
+   "tags": [
+    "youtube",
+    "දායක වන්න",
+    "ලැයිස්තුව",
+    "කාඩ්පත",
+    "කැමතියි"
+   ]
+  },
   "template:ytk-tercio-avatar": {
    "name": "ඡායාරූපය සහිත නාම තීරුව",
    "tags": [
@@ -34735,6 +35520,26 @@
     "නාම තීරුව",
     "ඡායාරූපය",
     "පැතිකඩ"
+   ]
+  },
+  "template:ytk-tercio-caja-blanca": {
+   "name": "සුදු කොටුවක නම",
+   "tags": [
+    "youtube",
+    "නම් පටිය",
+    "නම",
+    "වෘත්තිය",
+    "කොටුව"
+   ]
+  },
+  "template:ytk-tercio-caja-coral": {
+   "name": "කොරල් පැහැ කොටුවක නම",
+   "tags": [
+    "youtube",
+    "නම් පටිය",
+    "නම",
+    "වෘත්තිය",
+    "කොරල්"
    ]
   },
   "template:ytk-tercio-claro": {
@@ -34809,6 +35614,16 @@
     "නාම තීරුව",
     "අමුත්තා",
     "ටැග්"
+   ]
+  },
+  "template:ytk-tercio-linea": {
+   "name": "රේඛාවක් සහිත නම",
+   "tags": [
+    "youtube",
+    "නම් පටිය",
+    "නම",
+    "වෘත්තිය",
+    "රේඛාව"
    ]
   },
   "template:ytk-tercio-minimal": {
@@ -35025,6 +35840,213 @@
     "ශක්තිය"
    ]
   },
+  "template:ytk-titulo-contorno": {
+   "name": "දාර රාමු තුළ මාතෘකාව",
+   "tags": [
+    "youtube",
+    "මාතෘකාව",
+    "දාරය",
+    "රාමුව"
+   ]
+  },
+  "template:ytk-titulo-contornos": {
+   "name": "දාර කොටු තුළ මාතෘකාව",
+   "tags": [
+    "youtube",
+    "මාතෘකාව",
+    "දාරය",
+    "කොටු",
+    "සුදු"
+   ]
+  },
+  "template:ytk-titulo-cuadro": {
+   "name": "චතුරස්‍රයක් තුළ මාතෘකාව",
+   "tags": [
+    "youtube",
+    "මාතෘකාව",
+    "චතුරස්‍රය",
+    "දාරය",
+    "සරල"
+   ]
+  },
+  "template:ytk-titulo-cuadro-contorno": {
+   "name": "දාර චතුරස්‍රයක් මත මාතෘකාව",
+   "tags": [
+    "youtube",
+    "මාතෘකාව",
+    "දාරය",
+    "චතුරස්‍රය",
+    "නවීන"
+   ]
+  },
+  "template:ytk-titulo-cuadro-vertical": {
+   "name": "සුදු චතුරස්‍රයක ප්‍රශ්නය",
+   "tags": [
+    "youtube",
+    "මාතෘකාව",
+    "චතුරස්‍රය",
+    "ප්‍රශ්නය",
+    "සිරස්"
+   ]
+  },
+  "template:ytk-titulo-dos-pesos": {
+   "name": "ඝනකම් දෙකක අකුරු සහිත මාතෘකාව",
+   "tags": [
+    "youtube",
+    "මාතෘකාව",
+    "අකුරු මෝස්තර",
+    "මැදට",
+    "සරල"
+   ]
+  },
+  "template:ytk-titulo-gracias-apoyo": {
+   "name": "ඔබේ සහායට ස්තූතියි!",
+   "tags": [
+    "youtube",
+    "ස්තූතියි",
+    "සහාය",
+    "කොටුව"
+   ]
+  },
+  "template:ytk-titulo-inclinado": {
+   "name": "ඇල ලේබලය",
+   "tags": [
+    "youtube",
+    "මාතෘකාව",
+    "ඇල",
+    "ලේබලය",
+    "අත්සන"
+   ]
+  },
+  "template:ytk-titulo-linea-vertical": {
+   "name": "සිරස් රේඛාවක් සහිත මාතෘකාව",
+   "tags": [
+    "youtube",
+    "මාතෘකාව",
+    "රේඛාව",
+    "සිරස්",
+    "සරල"
+   ]
+  },
+  "template:ytk-titulo-marco-cajas": {
+   "name": "රාමුවක් තුළ කොටු මාතෘකාව",
+   "tags": [
+    "youtube",
+    "මාතෘකාව",
+    "කොටු",
+    "රාමුව",
+    "කළු"
+   ]
+  },
+  "template:ytk-titulo-mejor-show": {
+   "name": "YouTube හි හොඳම සංදර්ශනය",
+   "tags": [
+    "youtube",
+    "මාතෘකාව",
+    "ලාංඡනය",
+    "සංදර්ශනය"
+   ]
+  },
+  "template:ytk-titulo-mejor-video": {
+   "name": "YouTube හි හොඳම වීඩියෝව",
+   "tags": [
+    "youtube",
+    "මාතෘකාව",
+    "රේඛාව",
+    "කොටුව",
+    "හොඳම වීඩියෝව"
+   ]
+  },
+  "template:ytk-titulo-mixto": {
+   "name": "මිශ්‍ර ඝනකම් අකුරු සහිත මාතෘකාව",
+   "tags": [
+    "youtube",
+    "මාතෘකාව",
+    "අකුරු මෝස්තර",
+    "මිශ්‍ර",
+    "අලංකාර"
+   ]
+  },
+  "template:ytk-titulo-no-olvides": {
+   "name": "දායක වීමට සහ කැමැත්ත දීමට අමතක නොකරන්න",
+   "tags": [
+    "youtube",
+    "මාතෘකාව",
+    "කොටු",
+    "දායක වන්න",
+    "කැමතියි"
+   ]
+  },
+  "template:ytk-titulo-nuevo-video": {
+   "name": "අලුත් වීඩියෝව දැන් නිකුත් විය",
+   "tags": [
+    "youtube",
+    "මාතෘකාව",
+    "තීරුව",
+    "අලුත් වීඩියෝව",
+    "මංගල දර්ශනය"
+   ]
+  },
+  "template:ytk-titulo-numero": {
+   "name": "අංකයක් සහිත මාතෘකාව",
+   "tags": [
+    "youtube",
+    "මාතෘකාව",
+    "අංකය",
+    "කැප්සියුල",
+    "ලැයිස්තුව"
+   ]
+  },
+  "template:ytk-titulo-promo": {
+   "name": "කළු කොටුවක විශාල මාතෘකාව",
+   "tags": [
+    "youtube",
+    "මාතෘකාව",
+    "කොටුව",
+    "විශාල",
+    "ප්‍රවර්ධනය"
+   ]
+  },
+  "template:ytk-titulo-suscribete-ahora": {
+   "name": "දැන්ම දායක වන්න!",
+   "tags": [
+    "youtube",
+    "මාතෘකාව",
+    "දායක වන්න",
+    "විශාල",
+    "මැදට"
+   ]
+  },
+  "template:ytk-titulo-tres-cajas": {
+   "name": "කළු කොටු තුළ පේළි තුනක්",
+   "tags": [
+    "youtube",
+    "මාතෘකාව",
+    "කොටු",
+    "කළු",
+    "ප්‍රශ්නය"
+   ]
+  },
+  "template:ytk-titulo-ver-siguiente": {
+   "name": "ඊළඟට නරඹන්න",
+   "tags": [
+    "youtube",
+    "මාතෘකාව",
+    "ඊළඟට නරඹන්න",
+    "කොටුව",
+    "වීඩියෝ"
+   ]
+  },
+  "template:ytk-titulos-cajas": {
+   "name": "කොටු තුළ මාතෘකා",
+   "tags": [
+    "youtube",
+    "කොටු",
+    "මාතෘකා",
+    "යතුරු ලියනය",
+    "කර්සරය"
+   ]
+  },
   "template:ytk-transicion-aro-zoom": {
    "name": "වළලු සූම් සංක්‍රමණය",
    "tags": [
@@ -35160,6 +36182,25 @@
     "තිත්",
     "රවුම්",
     "දර්ශන මාරුව"
+   ]
+  },
+  "template:ytk-video-circulo": {
+   "name": "රවුමක් තුළ වීඩියෝව",
+   "tags": [
+    "youtube",
+    "රවුම",
+    "කොරල්",
+    "සංක්‍රාන්තිය",
+    "වීඩියෝ"
+   ]
+  },
+  "template:ytk-yt-suscrito": {
+   "name": "YouTube ලාංඡනය සහ දායක වන්න",
+   "tags": [
+    "youtube",
+    "දායක වන්න",
+    "ලාංඡනය",
+    "සීනුව"
    ]
   },
   "template:zoom-3d-parallax": {

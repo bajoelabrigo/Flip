@@ -52,8 +52,11 @@ Item {
         "shaft": ["arrow", "double-arrow", "chevron", "cross", "curved-arrow"],
         "bubble": ["speech-bubble", "speech-bubble-rect", "thought-bubble", "callout"]
     })
+    // Guarded: while the inspector is torn down its style reads undefined (TypeErrors in the log).
     function shapeHas(family) {
-        return root.shapeFamilies[family].indexOf(root.shapeStyle.kind) >= 0
+        const s = root.shapeStyle
+        const fam = root.shapeFamilies
+        return !!s && !!fam && fam[family].indexOf(s.kind) >= 0
     }
 
     function setShapeKey(key, value) {
@@ -62,7 +65,7 @@ Item {
         EditorState.setShapeStyle(EditorState.selectedTrack, EditorState.selectedClip, patch)
     }
     function knob(key, label, decimals) {
-        return { "key": "shape." + key, "label": label, "def": Number(root.shapeStyle[key]) || 0, "decimals": decimals }
+        return { "key": "shape." + key, "label": label, "def": Number((root.shapeStyle || {})[key]) || 0, "decimals": decimals }
     }
     // A part's own value (0.28): "part.<id>.<field>", keyframable like any clip property.
     function partKnob(field, label, decimals) {
@@ -739,8 +742,8 @@ Item {
             visible: root.showShapeSections
             width: parent.width
             title: qsTr("Trim paths")
-            expanded: Number(root.shapeStyle.trimStart || 0) > 0 || Number(root.shapeStyle.trimEnd === undefined ? 100 : root.shapeStyle.trimEnd) < 100
-                      || Number(root.shapeStyle.trimOffset || 0) !== 0
+            expanded: Number((root.shapeStyle || {}).trimStart || 0) > 0 || Number((root.shapeStyle || {}).trimEnd === undefined ? 100 : (root.shapeStyle || {}).trimEnd) < 100
+                      || Number((root.shapeStyle || {}).trimOffset || 0) !== 0
 
             Column {
                 width: parent.width
@@ -791,7 +794,7 @@ Item {
             visible: root.showShapeSections
             width: parent.width
             title: qsTr("Repeater")
-            expanded: Number(root.shapeStyle.repeatCopies || 1) > 1
+            expanded: Number((root.shapeStyle || {}).repeatCopies || 1) > 1
 
             Column {
                 width: parent.width
@@ -905,7 +908,7 @@ Item {
             visible: root.showShapeSections
             width: parent.width
             title: qsTr("Wiggle paths")
-            expanded: Number(root.shapeStyle.wiggleSize || 0) > 0
+            expanded: Number((root.shapeStyle || {}).wiggleSize || 0) > 0
 
             Column {
                 width: parent.width
@@ -969,7 +972,7 @@ Item {
             visible: root.showShapeSections && !root.proMode && !root.hasParts
             width: parent.width
             title: qsTr("Shapes in this layer")
-            expanded: Number(root.shapeStyle.mergeMode || 0) > 0
+            expanded: Number((root.shapeStyle || {}).mergeMode || 0) > 0
 
             Column {
                 width: parent.width
@@ -1012,7 +1015,7 @@ Item {
             visible: root.showShapeSections
             width: parent.width
             title: qsTr("Offset, pucker, zig zag and twist")
-            expanded: Number(root.shapeStyle.offsetPath || 0) !== 0 || Number(root.shapeStyle.zigzagSize || 0) > 0
+            expanded: Number((root.shapeStyle || {}).offsetPath || 0) !== 0 || Number((root.shapeStyle || {}).zigzagSize || 0) > 0
                       || Number(root.shapeStyle.twistAngle || 0) !== 0 || Number(root.shapeStyle.puckerBloat || 0) !== 0
 
             Column {

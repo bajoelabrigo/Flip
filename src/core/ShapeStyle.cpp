@@ -990,7 +990,8 @@ quint64 shapePartHash(const ShapePart &part)
     const ShapePartTransform &t = part.transform;
     quint64 h = qHashMulti(7, part.id, part.visible, static_cast<int>(part.blend), part.group, part.width, part.height)
                 ^ qHashMulti(8, t.anchorX, t.anchorY, t.x, t.y, t.scaleX, t.scaleY, t.skew, t.skewAxis, t.rotation,
-                             t.opacity);
+                             t.opacity)
+                ^ qHashMulti(10, t.wigglePosition, t.wiggleRotation, t.wiggleScale, t.wiggleSpeed, t.wiggleSeed);
     if (part.group) {
         for (const ShapePart &child : part.children)
             h = h * 31 + shapePartHash(child);

@@ -91,7 +91,7 @@ def span(t, track, box: Box, lo, hi, dur, t_in, t_out=None, axis="x", layers=Non
             motion.append((tt, {"sy": size / full, "dy": centre}, "linear"))
     clip = t.solid(track, colour, t0, dur, box, motion, layers=layers)
     if name:
-        clip["label"] = name
+        clip["name"] = name  # the layer's name in the editor ("label" was not read)
     return clip
 
 
@@ -273,7 +273,7 @@ def track_span(t, track, box: Box, lo, hi, dur, axis="x", layers=None, colour="#
         motion.append((u, key, "linear"))
     clip = t.solid(track, colour, 0.0, dur, box, motion, layers=layers)
     if name:
-        clip["label"] = name
+        clip["name"] = name  # the layer's name in the editor ("label" was not read)
     return clip
 
 

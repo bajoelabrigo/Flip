@@ -43,7 +43,8 @@ Column {
     readonly property bool sketchy: Number(row.layerData.sketchLength) > 0 || Number(row.layerData.sketchDeviation) > 0
     property bool sketchExpanded: false
     // After Effects' Taper and Wave (0.28): shapes only (text strokes do not draw them).
-    readonly property bool onShape: row.keyPrefix.indexOf("shape") >= 0
+    // Not «onShape»: a property named on + Capital is taken for a signal handler and its binding never updates.
+    readonly property bool isShapeStroke: row.keyPrefix.indexOf("shape") >= 0
     readonly property bool tapered: Number(row.layerData.taperStartLength) > 0 || Number(row.layerData.taperEndLength) > 0
                                     || Number(row.layerData.waveAmount) > 0
     property bool taperExpanded: false
@@ -310,7 +311,7 @@ Column {
         Column {
             width: parent.width - parent.leftPadding - parent.rightPadding
             spacing: Theme.spacingSm
-            visible: row.kind === "stroke" && row.onShape
+            visible: row.kind === "stroke" && row.isShapeStroke
 
             Row {
                 spacing: 4

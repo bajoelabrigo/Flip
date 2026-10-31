@@ -1647,6 +1647,20 @@ void forEachKeyframeTrack(Clip &clip, Fn &&fn)
     for (Mask &extra : clip.extraMasks)
         visitMap(extra.keyframes);
     visitMap(clip.shapeStyle.keyframes);
+    // A layer of parts (0.28): each part's own keys and its shape's, at every depth (walked with a list, not a
+    // recursive lambda).
+    {
+        QList<std::vector<ShapePart> *> levels{&clip.shapeStyle.parts};
+        while (!levels.isEmpty()) {
+            std::vector<ShapePart> *level = levels.takeLast();
+            for (ShapePart &part : *level) {
+                visitMap(part.keyframes);
+                visitMap(part.shape.keyframes);
+                if (!part.children.empty())
+                    levels.append(&part.children);
+            }
+        }
+    }
     visitMap(clip.textStyle.keyframes);
     visitMap(clip.vector.keyframes);
     visitMap(clip.model3d.keyframes);

@@ -21,7 +21,7 @@ CHECK = "M 8 52 L 38 82 L 92 22"
 
 
 def _kit(id, es, en, dur, order, tags, **kw):
-    return wide(f"ytk-{id}", es, en, "ytkit", dur, order=order, tags=["kit:botones-suscripcion", "youtube"] + tags, **kw)
+    return wide(f"ytk-{id}", es, en, "ytkit", dur, order=order, tags=["kit:elementos", "youtube"] + tags, **kw)
 
 
 def _sh(colour):

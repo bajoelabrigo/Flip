@@ -62,7 +62,7 @@ def cita_caja_blanca():
     """A white box opens from the left; the quote in black inside, the author under it; black squares with white
     quote marks pop at the top-left and bottom-right corners."""
     D = 6.0
-    t = _kit("cita-caja-blanca", "Cita en caja blanca", "Quote in a white box", "citas", D, 8370,
+    t = _kit("cita-caja-blanca", "Cita en caja blanca", "Quote in a white box", "frases", D, 8370,
              ["cita", "frase", "caja", "autor"], thumb_at=3.0)
     photo_bg(t, "h-nature-06", s1=1.05, label="Tu video")
     text = "LO SIMPLE BIEN HECHO\nSIEMPRE SE RECUERDA.\nLO COMPLICADO SE OLVIDA."
@@ -84,7 +84,7 @@ def cita_marco():
     """An outlined white frame draws itself round the quote; the open quote mark sits above its top-left corner,
     the closing one below the bottom-right, and the author in a white tag on the bottom edge."""
     D = 6.0
-    t = _kit("cita-marco", "Cita en marco", "Quote in a frame", "citas", D, 8371,
+    t = _kit("cita-marco", "Cita en marco", "Quote in a frame", "frases", D, 8371,
              ["cita", "frase", "marco", "contorno"], thumb_at=3.0)
     photo_bg(t, "h-beach-03", s1=1.05, label="Tu video")
     t.solid(t.track("shape", "Oscurecer"), "#000000", 0.0, D, None, opacity=keys([(0, 0.0), (0.5, 0.25)]))
@@ -107,7 +107,7 @@ def cita_esquinas():
     """Two open corners (top-left and bottom-right) slide in from the sides and frame the quote; small quote marks
     beside them and the author left under the text."""
     D = 6.0
-    t = _kit("cita-esquinas", "Cita entre esquinas", "Quote between corners", "citas", D, 8372,
+    t = _kit("cita-esquinas", "Cita entre esquinas", "Quote between corners", "frases", D, 8372,
              ["cita", "frase", "esquinas", "líneas"], thumb_at=3.0)
     photo_bg(t, "h-beach-04", s1=1.05, label="Tu video")
     t.solid(t.track("shape", "Oscurecer"), "#000000", 0.0, D, None, opacity=keys([(0, 0.0), (0.5, 0.3)]))
@@ -135,7 +135,7 @@ def cita_libre():
     """The quote straight over the video, centred, with a soft shadow; big quote marks at its corners and the
     author in a small white box under it."""
     D = 6.0
-    t = _kit("cita-libre", "Cita sobre el video", "Quote over the video", "citas", D, 8373,
+    t = _kit("cita-libre", "Cita sobre el video", "Quote over the video", "frases", D, 8373,
              ["cita", "frase", "centrada", "autor"], thumb_at=3.0)
     photo_bg(t, "h-nature-02", s1=1.05, label="Tu video")
     text = "EL ESPACIO VACÍO TAMBIÉN HABLA:\nDEJA RESPIRAR TU IDEA."
@@ -155,7 +155,7 @@ def cita_coral():
     """A coral panel slides in over the left of the video with a big white quote mark; the quote and the author on
     it, the video still showing on the right."""
     D = 6.0
-    t = _kit("cita-coral", "Cita en panel coral", "Quote on a coral panel", "citas", D, 8374,
+    t = _kit("cita-coral", "Cita en panel coral", "Quote on a coral panel", "frases", D, 8374,
              ["cita", "frase", "panel", "coral"], thumb_at=3.0)
     photo_bg(t, "h-nature-04", s1=1.05, label="Tu video")
     t.solid(t.track("shape", "Panel"), CORAL, 0.1, D - 0.2, Box(0, 0, 900, 1080),
@@ -173,7 +173,7 @@ def cita_coral():
 def cita_barras():
     """Two white bars meet in the middle and slide apart; the quote grows between them, the author in coral below."""
     D = 6.0
-    t = _kit("cita-barras", "Cita entre barras", "Quote between bars", "citas", D, 8375,
+    t = _kit("cita-barras", "Cita entre barras", "Quote between bars", "frases", D, 8375,
              ["cita", "frase", "barras", "centrada"], thumb_at=3.0)
     photo_bg(t, "h-beach-05", s1=1.05, label="Tu video")
     t.solid(t.track("shape", "Oscurecer"), "#000000", 0.0, D, None, opacity=keys([(0, 0.0), (0.5, 0.3)]))
@@ -241,7 +241,7 @@ def llamada_contorno():
     """A dot on the thing, a line up to an elbow and along; the label over the line, right-aligned, white with a
     shadow (the pack's «outline» call-out)."""
     D = 5.0
-    t = _kit("llamada-contorno", "Llamada con línea", "Call-out line", "llamadas", D, 8380,
+    t = _kit("llamada-contorno", "Llamada con línea", "Call-out line", "elementos", D, 8380,
              ["llamada", "línea", "señalar", "punto"], thumb_at=2.5)
     photo_bg(t, "h-interior-02", s1=1.03, label="Tu video")
     _dot(t, 1060, 500, 0.2, D - 0.4)
@@ -253,7 +253,7 @@ def llamada_contorno():
 def llamada_etiqueta():
     """The line runs up and left from the dot to a coral label, a smaller white one under it."""
     D = 5.0
-    t = _kit("llamada-etiqueta", "Llamada con etiqueta coral", "Call-out with a coral label", "llamadas", D, 8381,
+    t = _kit("llamada-etiqueta", "Llamada con etiqueta coral", "Call-out with a coral label", "elementos", D, 8381,
              ["llamada", "etiqueta", "coral", "línea"], thumb_at=2.5)
     photo_bg(t, "h-food-01", s1=1.03, label="Tu video")
     _dot(t, 840, 680, 0.2, D - 0.4)
@@ -266,7 +266,7 @@ def llamada_etiqueta():
 def llamada_vertical():
     """A coral line drops from the dot; beside it the title in coral and two lines of description in white."""
     D = 5.0
-    t = _kit("llamada-vertical", "Llamada con línea vertical", "Call-out with a vertical line", "llamadas", D, 8382,
+    t = _kit("llamada-vertical", "Llamada con línea vertical", "Call-out with a vertical line", "elementos", D, 8382,
              ["llamada", "vertical", "descripción", "coral"], thumb_at=2.5)
     photo_bg(t, "h-travel-03", s1=1.03, label="Tu video")
     _dot(t, 1120, 900, 0.2, D - 0.4)
@@ -283,7 +283,7 @@ def llamada_marca_precio():
     """The dot on the product, the line up and right to an outlined box with the brand's name, the price in a
     coral tag under it."""
     D = 5.0
-    t = _kit("llamada-marca-precio", "Llamada con marca y precio", "Call-out with brand and price", "llamadas", D, 8383,
+    t = _kit("llamada-marca-precio", "Llamada con marca y precio", "Call-out with brand and price", "elementos", D, 8383,
              ["llamada", "precio", "marca", "producto"], thumb_at=2.5)
     photo_bg(t, "h-food-02", s1=1.03, label="Tu video")
     _dot(t, 1020, 840, 0.2, D - 0.4)
@@ -301,7 +301,7 @@ def llamada_marca_precio():
 def llamada_caja_coral():
     """From the dot the line goes down and right to a coral box with two lines of white text."""
     D = 5.0
-    t = _kit("llamada-caja-coral", "Llamada en caja coral", "Call-out in a coral box", "llamadas", D, 8384,
+    t = _kit("llamada-caja-coral", "Llamada en caja coral", "Call-out in a coral box", "elementos", D, 8384,
              ["llamada", "caja", "coral", "línea"], thumb_at=2.5)
     photo_bg(t, "h-interior-03", s1=1.03, label="Tu video")
     _dot(t, 880, 290, 0.2, D - 0.4)
@@ -314,7 +314,7 @@ def llamada_describe():
     """The dot on the person's hands, the line up and right to an outlined box: a three-line title and a short
     description under it."""
     D = 5.5
-    t = _kit("llamada-describe", "Describe tu producto", "Describe your product", "llamadas", D, 8385,
+    t = _kit("llamada-describe", "Describe tu producto", "Describe your product", "elementos", D, 8385,
              ["llamada", "producto", "descripción", "marco"], thumb_at=2.8)
     photo_bg(t, "h-office-01", s1=1.03, label="Tu video")
     t.solid(t.track("shape", "Oscurecer"), "#000000", 0.0, D, None, opacity=keys([(0, 0.0), (0.4, 0.2)]))
@@ -336,7 +336,7 @@ def llamada_describe():
 def llamada_titular():
     """A coral headline tag and a black one under it, with a short line down to the dot."""
     D = 5.0
-    t = _kit("llamada-titular", "Titular y descripción", "Headline and description", "llamadas", D, 8386,
+    t = _kit("llamada-titular", "Titular y descripción", "Headline and description", "elementos", D, 8386,
              ["llamada", "titular", "negro", "coral"], thumb_at=2.5)
     photo_bg(t, "h-podcast-01", s1=1.03, label="Tu video")
     _dot(t, 1560, 450, 0.2, D - 0.4)
@@ -349,7 +349,7 @@ def llamada_titular():
 def llamada_negra():
     """A small white headline over a black box; a line goes straight down from the box to the dot."""
     D = 5.0
-    t = _kit("llamada-negra", "Llamada en caja negra", "Call-out in a black box", "llamadas", D, 8387,
+    t = _kit("llamada-negra", "Llamada en caja negra", "Call-out in a black box", "elementos", D, 8387,
              ["llamada", "negro", "vertical", "titular"], thumb_at=2.5)
     photo_bg(t, "h-office-03", s1=1.03, label="Tu video")
     _dot(t, 1040, 720, 0.2, D - 0.4)
@@ -363,7 +363,7 @@ def llamada_negra():
 def llamada_creativa():
     """A small coral word on top of a white box with the call-out in black; the line from its corner to the dot."""
     D = 5.0
-    t = _kit("llamada-creativa", "Llamada creativa", "Creative call-out", "llamadas", D, 8388,
+    t = _kit("llamada-creativa", "Llamada creativa", "Creative call-out", "elementos", D, 8388,
              ["llamada", "creativa", "blanco", "coral"], thumb_at=2.5)
     photo_bg(t, "h-interior-05", s1=1.03, label="Tu video")
     _dot(t, 260, 980, 0.2, D - 0.4)
@@ -377,7 +377,7 @@ def llamada_parrafo():
     """The line runs right from the dot to a long rule; the title sits over it and a coral box with a short
     paragraph hangs under it."""
     D = 5.5
-    t = _kit("llamada-parrafo", "Llamada con párrafo", "Call-out with a paragraph", "llamadas", D, 8389,
+    t = _kit("llamada-parrafo", "Llamada con párrafo", "Call-out with a paragraph", "elementos", D, 8389,
              ["llamada", "párrafo", "descripción", "coral"], thumb_at=2.8)
     photo_bg(t, "h-interior-04", s1=1.03, label="Tu video")
     _dot(t, 1160, 860, 0.2, D - 0.4)

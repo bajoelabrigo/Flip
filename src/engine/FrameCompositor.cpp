@@ -791,7 +791,7 @@ QImage decodeClipMediaFrame(const drift::Clip &clip, drift::TimeUs timelineUs, i
     // shook) and the decode is reused; the GPU scales it onto the exact box. Video quantizes its own decode
     // size (ClipReader::decodeSizeFor).
     const bool still = clip.type == drift::ClipType::Image;
-    const auto step = [still](int px) { return still ? qMax(256, (px + 255) / 256 * 256) : px; };
+    const auto step = [still](int px) { return still ? qMax(256, (qMin(px, 65536) + 255) / 256 * 256) : px; };
     const int boundW = step(framed ? qCeil(maxWidth / crop.width()) : maxWidth);
     const int boundH = step(framed ? qCeil(maxHeight / crop.height()) : maxHeight);
     QImage image;

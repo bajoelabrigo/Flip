@@ -24865,6 +24865,118 @@
     "حفلة"
    ]
   },
+  "template:lt-andy": {
+   "name": "شريط الاسم: شريط ينفتح من الوسط",
+   "tags": [
+    "شريط اسم",
+    "اسم",
+    "في الوسط",
+    "تدرج"
+   ]
+  },
+  "template:lt-clara": {
+   "name": "شريط الاسم: اسم يخرج من الصندوق",
+   "tags": [
+    "شريط اسم",
+    "اسم",
+    "تدرج",
+    "صندوق",
+    "شريط"
+   ]
+  },
+  "template:lt-eliza": {
+   "name": "شريط الاسم: الاسم بثلاثة أنماط",
+   "tags": [
+    "شريط اسم",
+    "اسم",
+    "حدود",
+    "اسم العائلة"
+   ]
+  },
+  "template:lt-endrue": {
+   "name": "شريط الاسم: صندوق بخطوط بيضاء",
+   "tags": [
+    "شريط اسم",
+    "اسم",
+    "تدرج",
+    "صندوق",
+    "خطوط"
+   ]
+  },
+  "template:lt-helen": {
+   "name": "شريط الاسم على اليمين: صندوقان",
+   "tags": [
+    "شريط اسم",
+    "اسم",
+    "يمين",
+    "صناديق"
+   ]
+  },
+  "template:lt-kerry": {
+   "name": "شريط الاسم: شريط عمودي واسم محدد",
+   "tags": [
+    "شريط اسم",
+    "اسم",
+    "حدود",
+    "شريط عمودي"
+   ]
+  },
+  "template:lt-kim": {
+   "name": "شريط الاسم: شريط بالمنصب والاسم تحته",
+   "tags": [
+    "شريط اسم",
+    "اسم",
+    "شريط",
+    "منصب",
+    "يمين"
+   ]
+  },
+  "template:lt-laura": {
+   "name": "شريط الاسم: الاسم على شريط متدرج",
+   "tags": [
+    "شريط اسم",
+    "اسم",
+    "تدرج",
+    "شريط"
+   ]
+  },
+  "template:lt-mari": {
+   "name": "شريط الاسم: الاسم داخل الشريط",
+   "tags": [
+    "شريط اسم",
+    "اسم",
+    "تدرج",
+    "صندوق"
+   ]
+  },
+  "template:lt-morgan": {
+   "name": "شريط الاسم: اسم العائلة في صندوق والاسم فوقه",
+   "tags": [
+    "شريط اسم",
+    "اسم",
+    "اسم العائلة",
+    "في الوسط"
+   ]
+  },
+  "template:lt-ronald": {
+   "name": "شريط الاسم على اليمين: كتابة بالعكس",
+   "tags": [
+    "شريط اسم",
+    "اسم",
+    "يمين",
+    "كتابة"
+   ]
+  },
+  "template:lt-victoria": {
+   "name": "شريط الاسم على اليمين: خط متدرج",
+   "tags": [
+    "شريط اسم",
+    "اسم",
+    "يمين",
+    "خط",
+    "تدرج"
+   ]
+  },
   "template:me-gradue": {
    "name": "تخرّجت!",
    "tags": [
@@ -33581,6 +33693,36 @@
     "youtube"
    ]
   },
+  "template:ytk-boton-barra-oscura": {
+   "name": "شريط داكن مع زر الاشتراك",
+   "tags": [
+    "youtube",
+    "اشتراك",
+    "زر",
+    "شريط",
+    "داكن"
+   ]
+  },
+  "template:ytk-boton-canal": {
+   "name": "القناة مع زر الاشتراك",
+   "tags": [
+    "youtube",
+    "اشتراك",
+    "قناة",
+    "صورة",
+    "جرس"
+   ]
+  },
+  "template:ytk-boton-foto-central": {
+   "name": "بطاقة بصورة في المنتصف",
+   "tags": [
+    "youtube",
+    "اشتراك",
+    "بطاقة",
+    "صورة",
+    "منتصف"
+   ]
+  },
   "template:ytk-boton-iconos-grandes": {
    "name": "أيقونات كبيرة: إعجاب واشتراك وجرس",
    "tags": [
@@ -33589,6 +33731,16 @@
     "نقرة",
     "أيقونات",
     "youtube"
+   ]
+  },
+  "template:ytk-boton-mensajes": {
+   "name": "رسائل تُكتب وحدها",
+   "tags": [
+    "youtube",
+    "اشتراك",
+    "رسائل",
+    "كتابة",
+    "إعجاب"
    ]
   },
   "template:ytk-boton-pildora": {
@@ -33649,6 +33801,69 @@
     "نقرة",
     "بسيط",
     "youtube"
+   ]
+  },
+  "template:ytk-boton-tarjeta-video": {
+   "name": "بطاقة فيديو مع زر الاشتراك",
+   "tags": [
+    "youtube",
+    "اشتراك",
+    "زر",
+    "بطاقة",
+    "فيديو",
+    "فاتح"
+   ]
+  },
+  "template:ytk-boton-tarjeta-video-oscura": {
+   "name": "بطاقة فيديو داكنة مع الإعجابات",
+   "tags": [
+    "youtube",
+    "اشتراك",
+    "إعجاب",
+    "بطاقة",
+    "فيديو",
+    "داكن"
+   ]
+  },
+  "template:ytk-boton-tarjeta-video-vertical": {
+   "name": "بطاقة فيديو ضيقة",
+   "tags": [
+    "youtube",
+    "اشتراك",
+    "زر",
+    "بطاقة",
+    "ضيق",
+    "جرس"
+   ]
+  },
+  "template:ytk-botones-fila": {
+   "name": "إعجاب واشتراك وجرس",
+   "tags": [
+    "youtube",
+    "أزرار",
+    "إعجاب",
+    "اشتراك",
+    "جرس"
+   ]
+  },
+  "template:ytk-burbuja-suscribete": {
+   "name": "فقاعة كلام مع الاشتراك",
+   "tags": [
+    "youtube",
+    "اشتراك",
+    "فقاعة",
+    "شعار",
+    "مرجاني"
+   ]
+  },
+  "template:ytk-campana-texto": {
+   "name": "فعّل الجرس",
+   "tags": [
+    "youtube",
+    "جرس",
+    "إشعارات",
+    "نص",
+    "مرجاني"
    ]
   },
   "template:ytk-cinetico-barras": {
@@ -33799,6 +34014,66 @@
     "ارتداد",
     "مرح",
     "كلمات"
+   ]
+  },
+  "template:ytk-cita-barras": {
+   "name": "اقتباس بين شريطين",
+   "tags": [
+    "youtube",
+    "اقتباس",
+    "عبارة",
+    "أشرطة",
+    "في الوسط"
+   ]
+  },
+  "template:ytk-cita-caja-blanca": {
+   "name": "اقتباس في صندوق أبيض",
+   "tags": [
+    "youtube",
+    "اقتباس",
+    "عبارة",
+    "صندوق",
+    "مؤلف"
+   ]
+  },
+  "template:ytk-cita-coral": {
+   "name": "اقتباس على لوحة مرجانية",
+   "tags": [
+    "youtube",
+    "اقتباس",
+    "عبارة",
+    "لوحة",
+    "مرجاني"
+   ]
+  },
+  "template:ytk-cita-esquinas": {
+   "name": "اقتباس بين زوايا",
+   "tags": [
+    "youtube",
+    "اقتباس",
+    "عبارة",
+    "زوايا",
+    "خطوط"
+   ]
+  },
+  "template:ytk-cita-libre": {
+   "name": "اقتباس فوق الفيديو",
+   "tags": [
+    "youtube",
+    "اقتباس",
+    "عبارة",
+    "في الوسط",
+    "مؤلف"
+   ]
+  },
+  "template:ytk-cita-marco": {
+   "name": "اقتباس في إطار",
+   "tags": [
+    "youtube",
+    "اقتباس",
+    "عبارة",
+    "إطار",
+    "حدود"
    ]
   },
   "template:ytk-elemento-barras": {
@@ -34074,6 +34349,146 @@
     "عنوان"
    ]
   },
+  "template:ytk-fila-tres": {
+   "name": "صف من ثلاثة أزرار",
+   "tags": [
+    "youtube",
+    "اشتراك",
+    "إعجاب",
+    "جرس",
+    "صف"
+   ]
+  },
+  "template:ytk-final-circulo": {
+   "name": "شاشة نهاية بدائرة",
+   "tags": [
+    "youtube",
+    "شاشة النهاية",
+    "دائرة",
+    "شكرا",
+    "فيديوهان"
+   ]
+  },
+  "template:ytk-final-cuna": {
+   "name": "شاشة نهاية بإسفين أبيض",
+   "tags": [
+    "youtube",
+    "شاشة النهاية",
+    "إسفين",
+    "شكرا",
+    "فيديوهان"
+   ]
+  },
+  "template:ytk-final-curva": {
+   "name": "شاشة نهاية بمنحنى",
+   "tags": [
+    "youtube",
+    "شاشة النهاية",
+    "منحنى",
+    "شكرا",
+    "فيديوهان"
+   ]
+  },
+  "template:ytk-final-diagonal": {
+   "name": "شاشة نهاية مائلة",
+   "tags": [
+    "youtube",
+    "شاشة النهاية",
+    "قطري",
+    "شكرا",
+    "اشتراك"
+   ]
+  },
+  "template:ytk-final-flecha": {
+   "name": "شاشة نهاية بسهم",
+   "tags": [
+    "youtube",
+    "شاشة النهاية",
+    "سهم",
+    "اشتراك",
+    "فيديو مقترح"
+   ]
+  },
+  "template:ytk-final-mas-videos": {
+   "name": "شاشة النهاية: المزيد من الفيديوهات",
+   "tags": [
+    "youtube",
+    "شاشة النهاية",
+    "شكرا",
+    "فيديوهات أخرى",
+    "تواصل اجتماعي"
+   ]
+  },
+  "template:ytk-final-panel-curvo": {
+   "name": "شاشة نهاية بلوحة منحنية",
+   "tags": [
+    "youtube",
+    "شاشة النهاية",
+    "لوحة",
+    "منحنى",
+    "شكرا"
+   ]
+  },
+  "template:ytk-final-tarjeta-vertical": {
+   "name": "شاشة النهاية: بطاقة طويلة",
+   "tags": [
+    "youtube",
+    "شاشة النهاية",
+    "بطاقة",
+    "شكرا",
+    "اشتراك"
+   ]
+  },
+  "template:ytk-final-triangulo": {
+   "name": "شاشة نهاية بمثلث",
+   "tags": [
+    "youtube",
+    "شاشة النهاية",
+    "مثلث",
+    "شكرا",
+    "الفيديو التالي"
+   ]
+  },
+  "template:ytk-fondo-coral-circulos": {
+   "name": "اسم القناة مع دوائر",
+   "tags": [
+    "youtube",
+    "خلفية",
+    "مرجاني",
+    "دوائر",
+    "اسم"
+   ]
+  },
+  "template:ytk-fondo-coral-cruces": {
+   "name": "اسم القناة مع علامات زائد",
+   "tags": [
+    "youtube",
+    "خلفية",
+    "مرجاني",
+    "صلبان",
+    "اسم"
+   ]
+  },
+  "template:ytk-fondo-coral-manchas": {
+   "name": "اسم القناة مع بقع",
+   "tags": [
+    "youtube",
+    "خلفية",
+    "مرجاني",
+    "بقع",
+    "اسم"
+   ]
+  },
+  "template:ytk-fondo-coral-triangulos": {
+   "name": "اسم القناة مع مثلثات",
+   "tags": [
+    "youtube",
+    "خلفية",
+    "مرجاني",
+    "مثلثات",
+    "اسم"
+   ]
+  },
   "template:ytk-frase-comillas": {
    "name": "بطاقة اقتباس",
    "tags": [
@@ -34234,6 +34649,217 @@
     "رأي"
    ]
   },
+  "template:ytk-gracias-grande": {
+   "name": "شكرًا على المشاهدة! بخط كبير",
+   "tags": [
+    "youtube",
+    "شكرا",
+    "نهاية",
+    "كبير",
+    "وداع"
+   ]
+  },
+  "template:ytk-hola-bienvenidos": {
+   "name": "مرحبًا! أهلًا بكم في قناتي",
+   "tags": [
+    "youtube",
+    "مرحبا",
+    "ترحيب",
+    "تحية",
+    "مقدمة",
+    "قناة"
+   ]
+  },
+  "template:ytk-intro-apilado": {
+   "name": "قناتك على YouTube بشكل متراص",
+   "tags": [
+    "youtube",
+    "مقدمة",
+    "متراص",
+    "فقاعات",
+    "قناة"
+   ]
+  },
+  "template:ytk-intro-blog": {
+   "name": "مدونة سفر",
+   "tags": [
+    "youtube",
+    "مقدمة",
+    "شعار",
+    "مدونة",
+    "سفر"
+   ]
+  },
+  "template:ytk-intro-canal-nombre": {
+   "name": "الشعار واسم القناة",
+   "tags": [
+    "youtube",
+    "مقدمة",
+    "شعار",
+    "اسم",
+    "قناة"
+   ]
+  },
+  "template:ytk-intro-historia": {
+   "name": "قصة كبيرة",
+   "tags": [
+    "youtube",
+    "مقدمة",
+    "شعار",
+    "قناة",
+    "قصة"
+   ]
+  },
+  "template:ytk-intro-inclinado": {
+   "name": "اسم القناة مائلًا",
+   "tags": [
+    "youtube",
+    "مقدمة",
+    "مائل",
+    "اسم",
+    "مرجاني"
+   ]
+  },
+  "template:ytk-intro-pildora": {
+   "name": "الشعار والاسم في كبسولة",
+   "tags": [
+    "youtube",
+    "مقدمة",
+    "شعار",
+    "كبسولة",
+    "لمعان"
+   ]
+  },
+  "template:ytk-intro-tu-canal": {
+   "name": "قناتك على YouTube",
+   "tags": [
+    "youtube",
+    "مقدمة",
+    "شعار",
+    "قناة",
+    "صندوق"
+   ]
+  },
+  "template:ytk-llamada-caja-coral": {
+   "name": "تعليق توضيحي في صندوق مرجاني",
+   "tags": [
+    "youtube",
+    "تعليق توضيحي",
+    "صندوق",
+    "مرجاني",
+    "خط"
+   ]
+  },
+  "template:ytk-llamada-contorno": {
+   "name": "تعليق توضيحي بخط",
+   "tags": [
+    "youtube",
+    "تعليق توضيحي",
+    "خط",
+    "إشارة",
+    "نقطة"
+   ]
+  },
+  "template:ytk-llamada-creativa": {
+   "name": "تعليق توضيحي إبداعي",
+   "tags": [
+    "youtube",
+    "تعليق توضيحي",
+    "إبداعي",
+    "أبيض",
+    "مرجاني"
+   ]
+  },
+  "template:ytk-llamada-describe": {
+   "name": "صِف منتجك",
+   "tags": [
+    "youtube",
+    "تعليق توضيحي",
+    "منتج",
+    "وصف",
+    "إطار"
+   ]
+  },
+  "template:ytk-llamada-etiqueta": {
+   "name": "تعليق توضيحي بملصق مرجاني",
+   "tags": [
+    "youtube",
+    "تعليق توضيحي",
+    "ملصق",
+    "مرجاني",
+    "خط"
+   ]
+  },
+  "template:ytk-llamada-marca-precio": {
+   "name": "تعليق توضيحي بالعلامة التجارية والسعر",
+   "tags": [
+    "youtube",
+    "تعليق توضيحي",
+    "سعر",
+    "علامة تجارية",
+    "منتج"
+   ]
+  },
+  "template:ytk-llamada-negra": {
+   "name": "تعليق توضيحي في صندوق أسود",
+   "tags": [
+    "youtube",
+    "تعليق توضيحي",
+    "أسود",
+    "عمودي",
+    "عنوان رئيسي"
+   ]
+  },
+  "template:ytk-llamada-parrafo": {
+   "name": "تعليق توضيحي بفقرة",
+   "tags": [
+    "youtube",
+    "تعليق توضيحي",
+    "فقرة",
+    "وصف",
+    "مرجاني"
+   ]
+  },
+  "template:ytk-llamada-titular": {
+   "name": "عنوان رئيسي ووصف",
+   "tags": [
+    "youtube",
+    "تعليق توضيحي",
+    "عنوان رئيسي",
+    "أسود",
+    "مرجاني"
+   ]
+  },
+  "template:ytk-llamada-vertical": {
+   "name": "تعليق توضيحي بخط عمودي",
+   "tags": [
+    "youtube",
+    "تعليق توضيحي",
+    "عمودي",
+    "وصف",
+    "مرجاني"
+   ]
+  },
+  "template:ytk-me-gusta": {
+   "name": "اضغط إعجاب",
+   "tags": [
+    "youtube",
+    "إعجاب",
+    "لايك",
+    "إبهام",
+    "نقرة"
+   ]
+  },
+  "template:ytk-nombre-botones": {
+   "name": "الاسم وثلاثة أزرار",
+   "tags": [
+    "youtube",
+    "اشتراك",
+    "اسم",
+    "أزرار",
+    "قناة"
+   ]
+  },
   "template:ytk-pantalla-final": {
    "name": "شاشة نهاية بفيديوهين",
    "tags": [
@@ -34314,6 +34940,16 @@
     "ختام"
    ]
   },
+  "template:ytk-pantalla-final-roja": {
+   "name": "شاشة نهاية مرجانية بفيديوهين",
+   "tags": [
+    "youtube",
+    "شاشة النهاية",
+    "شكرا",
+    "الفيديو التالي",
+    "اشتراك"
+   ]
+  },
   "template:ytk-pantalla-final-sol": {
    "name": "شاشة نهاية صفراء",
    "tags": [
@@ -34344,6 +34980,36 @@
     "الفيديو التالي"
    ]
   },
+  "template:ytk-perfil-blanco": {
+   "name": "ملف القناة باللون الأبيض",
+   "tags": [
+    "youtube",
+    "ملف شخصي",
+    "صورة",
+    "أبيض",
+    "مشتركون"
+   ]
+  },
+  "template:ytk-pila-vertical": {
+   "name": "أزرار في عمود",
+   "tags": [
+    "youtube",
+    "اشتراك",
+    "إعجاب",
+    "جرس",
+    "عمود"
+   ]
+  },
+  "template:ytk-pildora-iconos": {
+   "name": "كبسولة بثلاث أيقونات",
+   "tags": [
+    "youtube",
+    "اشتراك",
+    "إعجاب",
+    "جرس",
+    "كبسولة"
+   ]
+  },
   "template:ytk-redes-barra": {
    "name": "شريط الحسابات",
    "tags": [
@@ -34352,6 +35018,26 @@
     "شريط",
     "اسم المستخدم",
     "لافتة"
+   ]
+  },
+  "template:ytk-redes-circulo": {
+   "name": "حسابات التواصل في دائرة وكبسولة",
+   "tags": [
+    "youtube",
+    "تواصل اجتماعي",
+    "دائرة",
+    "كبسولة",
+    "شعارات"
+   ]
+  },
+  "template:ytk-redes-circulo-marca": {
+   "name": "حسابات التواصل مع شعار في دائرة",
+   "tags": [
+    "youtube",
+    "تواصل اجتماعي",
+    "دائرة",
+    "تابعني",
+    "شعارات"
    ]
   },
   "template:ytk-redes-circulos": {
@@ -34382,6 +35068,16 @@
     "تابعني",
     "حركي",
     "اسم المستخدم"
+   ]
+  },
+  "template:ytk-redes-corchetes": {
+   "name": "حسابات التواصل بين قوسين",
+   "tags": [
+    "youtube",
+    "تواصل اجتماعي",
+    "بطاقة",
+    "أقواس",
+    "شعارات"
    ]
   },
   "template:ytk-redes-cuadricula": {
@@ -34424,6 +35120,16 @@
     "اسم المستخدم"
    ]
   },
+  "template:ytk-redes-insignia": {
+   "name": "حسابات التواصل مع شارة ملونة",
+   "tags": [
+    "youtube",
+    "تواصل اجتماعي",
+    "شارة",
+    "تابعني",
+    "شعارات"
+   ]
+  },
   "template:ytk-redes-lista": {
    "name": "حساباتك",
    "tags": [
@@ -34444,6 +35150,16 @@
     "اسم المستخدم"
    ]
   },
+  "template:ytk-redes-logos": {
+   "name": "حساباتك على مواقع التواصل مع الشعارات",
+   "tags": [
+    "youtube",
+    "تواصل اجتماعي",
+    "instagram",
+    "tiktok",
+    "شعارات"
+   ]
+  },
   "template:ytk-redes-pildoras": {
    "name": "حسابات في كبسولات",
    "tags": [
@@ -34452,6 +35168,26 @@
     "تابعني",
     "اسم المستخدم",
     "كبسولات"
+   ]
+  },
+  "template:ytk-redes-pincel": {
+   "name": "حسابات التواصل على ضربة فرشاة",
+   "tags": [
+    "youtube",
+    "تواصل اجتماعي",
+    "فرشاة",
+    "ضربة",
+    "شعارات"
+   ]
+  },
+  "template:ytk-redes-tarjeta": {
+   "name": "حسابات التواصل على بطاقة بيضاء",
+   "tags": [
+    "youtube",
+    "تواصل اجتماعي",
+    "بطاقة",
+    "تابعني",
+    "شعارات"
    ]
   },
   "template:ytk-redes-tarjetas": {
@@ -34472,6 +35208,25 @@
     "اسم المستخدم",
     "شريط",
     "الثلث السفلي"
+   ]
+  },
+  "template:ytk-suscribete-ahora": {
+   "name": "اشترك في قناتي الآن!",
+   "tags": [
+    "youtube",
+    "اشتراك",
+    "عبارة",
+    "كتابة"
+   ]
+  },
+  "template:ytk-suscribete-contorno": {
+   "name": "الاشتراك داخل إطار",
+   "tags": [
+    "youtube",
+    "اشتراك",
+    "إطار",
+    "حدود",
+    "شعار"
    ]
   },
   "template:ytk-suscribete-pagina-clara": {
@@ -34504,6 +35259,26 @@
     "صفحة الفيديو"
    ]
   },
+  "template:ytk-suscribete-texto": {
+   "name": "الاشتراك مع الشعار",
+   "tags": [
+    "youtube",
+    "اشتراك",
+    "نص",
+    "شعار",
+    "نقرة"
+   ]
+  },
+  "template:ytk-tarjeta-lista": {
+   "name": "بطاقة بقائمة",
+   "tags": [
+    "youtube",
+    "اشتراك",
+    "قائمة",
+    "بطاقة",
+    "إعجاب"
+   ]
+  },
   "template:ytk-tercio-avatar": {
    "name": "شريط اسم بصورة",
    "tags": [
@@ -34512,6 +35287,26 @@
     "شريط",
     "صورة",
     "ملف شخصي"
+   ]
+  },
+  "template:ytk-tercio-caja-blanca": {
+   "name": "الاسم في صندوق أبيض",
+   "tags": [
+    "youtube",
+    "شريط اسم",
+    "اسم",
+    "مهنة",
+    "صندوق"
+   ]
+  },
+  "template:ytk-tercio-caja-coral": {
+   "name": "الاسم في صندوق مرجاني",
+   "tags": [
+    "youtube",
+    "شريط اسم",
+    "اسم",
+    "مهنة",
+    "مرجاني"
    ]
   },
   "template:ytk-tercio-claro": {
@@ -34593,6 +35388,16 @@
     "شريط",
     "ضيف",
     "وسم"
+   ]
+  },
+  "template:ytk-tercio-linea": {
+   "name": "الاسم مع خط",
+   "tags": [
+    "youtube",
+    "شريط اسم",
+    "اسم",
+    "مهنة",
+    "خط"
    ]
   },
   "template:ytk-tercio-minimal": {
@@ -34826,6 +35631,213 @@
     "طاقة"
    ]
   },
+  "template:ytk-titulo-contorno": {
+   "name": "عنوان في إطارات محددة",
+   "tags": [
+    "youtube",
+    "عنوان",
+    "حدود",
+    "إطار"
+   ]
+  },
+  "template:ytk-titulo-contornos": {
+   "name": "عنوان في صناديق محددة",
+   "tags": [
+    "youtube",
+    "عنوان",
+    "حدود",
+    "صناديق",
+    "أبيض"
+   ]
+  },
+  "template:ytk-titulo-cuadro": {
+   "name": "عنوان داخل مربع",
+   "tags": [
+    "youtube",
+    "عنوان",
+    "مربع",
+    "إطار",
+    "بسيط"
+   ]
+  },
+  "template:ytk-titulo-cuadro-contorno": {
+   "name": "عنوان فوق مربع محدد",
+   "tags": [
+    "youtube",
+    "عنوان",
+    "حدود",
+    "مربع",
+    "عصري"
+   ]
+  },
+  "template:ytk-titulo-cuadro-vertical": {
+   "name": "سؤال في مربع أبيض",
+   "tags": [
+    "youtube",
+    "عنوان",
+    "مربع",
+    "سؤال",
+    "عمودي"
+   ]
+  },
+  "template:ytk-titulo-dos-pesos": {
+   "name": "عنوان بوزنين للخط",
+   "tags": [
+    "youtube",
+    "عنوان",
+    "طباعة",
+    "في الوسط",
+    "بسيط"
+   ]
+  },
+  "template:ytk-titulo-gracias-apoyo": {
+   "name": "شكرًا على دعمك!",
+   "tags": [
+    "youtube",
+    "شكرا",
+    "دعم",
+    "صندوق"
+   ]
+  },
+  "template:ytk-titulo-inclinado": {
+   "name": "ملصق مائل",
+   "tags": [
+    "youtube",
+    "عنوان",
+    "مائل",
+    "ملصق",
+    "توقيع"
+   ]
+  },
+  "template:ytk-titulo-linea-vertical": {
+   "name": "عنوان مع خط عمودي",
+   "tags": [
+    "youtube",
+    "عنوان",
+    "خط",
+    "عمودي",
+    "بسيط"
+   ]
+  },
+  "template:ytk-titulo-marco-cajas": {
+   "name": "عنوان في صناديق داخل إطار",
+   "tags": [
+    "youtube",
+    "عنوان",
+    "صناديق",
+    "إطار",
+    "أسود"
+   ]
+  },
+  "template:ytk-titulo-mejor-show": {
+   "name": "أفضل برنامج على YouTube",
+   "tags": [
+    "youtube",
+    "عنوان",
+    "شعار",
+    "برنامج"
+   ]
+  },
+  "template:ytk-titulo-mejor-video": {
+   "name": "أفضل فيديو على YouTube",
+   "tags": [
+    "youtube",
+    "عنوان",
+    "خط",
+    "صندوق",
+    "أفضل فيديو"
+   ]
+  },
+  "template:ytk-titulo-mixto": {
+   "name": "عنوان بأوزان خط مختلطة",
+   "tags": [
+    "youtube",
+    "عنوان",
+    "طباعة",
+    "مزج",
+    "أنيق"
+   ]
+  },
+  "template:ytk-titulo-no-olvides": {
+   "name": "لا تنسَ الاشتراك والإعجاب",
+   "tags": [
+    "youtube",
+    "عنوان",
+    "صناديق",
+    "اشتراك",
+    "إعجاب"
+   ]
+  },
+  "template:ytk-titulo-nuevo-video": {
+   "name": "الفيديو الجديد نزل",
+   "tags": [
+    "youtube",
+    "عنوان",
+    "شريط",
+    "فيديو جديد",
+    "عرض أول"
+   ]
+  },
+  "template:ytk-titulo-numero": {
+   "name": "عنوان مع رقم",
+   "tags": [
+    "youtube",
+    "عنوان",
+    "رقم",
+    "كبسولة",
+    "قائمة"
+   ]
+  },
+  "template:ytk-titulo-promo": {
+   "name": "عنوان كبير في صندوق أسود",
+   "tags": [
+    "youtube",
+    "عنوان",
+    "صندوق",
+    "كبير",
+    "ترويج"
+   ]
+  },
+  "template:ytk-titulo-suscribete-ahora": {
+   "name": "اشترك الآن!",
+   "tags": [
+    "youtube",
+    "عنوان",
+    "اشتراك",
+    "كبير",
+    "في الوسط"
+   ]
+  },
+  "template:ytk-titulo-tres-cajas": {
+   "name": "ثلاثة أسطر في صناديق سوداء",
+   "tags": [
+    "youtube",
+    "عنوان",
+    "صناديق",
+    "أسود",
+    "سؤال"
+   ]
+  },
+  "template:ytk-titulo-ver-siguiente": {
+   "name": "شاهد التالي",
+   "tags": [
+    "youtube",
+    "عنوان",
+    "شاهد التالي",
+    "صندوق",
+    "فيديو"
+   ]
+  },
+  "template:ytk-titulos-cajas": {
+   "name": "عناوين في صناديق",
+   "tags": [
+    "youtube",
+    "صناديق",
+    "عناوين",
+    "آلة كاتبة",
+    "عنوان فرعي"
+   ]
+  },
   "template:ytk-transicion-aro-zoom": {
    "name": "تكبير بالحلقات",
    "tags": [
@@ -34974,6 +35986,25 @@
     "نقاط",
     "دوائر",
     "تغيير المشهد"
+   ]
+  },
+  "template:ytk-video-circulo": {
+   "name": "فيديو داخل دائرة",
+   "tags": [
+    "youtube",
+    "دائرة",
+    "مرجاني",
+    "انتقال",
+    "فيديو"
+   ]
+  },
+  "template:ytk-yt-suscrito": {
+   "name": "شعار YouTube والاشتراك",
+   "tags": [
+    "youtube",
+    "اشتراك",
+    "شعار",
+    "جرس"
    ]
   },
   "template:zoom-3d-parallax": {

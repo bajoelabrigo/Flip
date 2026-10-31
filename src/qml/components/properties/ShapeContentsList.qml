@@ -303,6 +303,9 @@ Column {
                 anchors.leftMargin: 6 + 16 * ((partRow.rowData.depth || 0) + 1) + 48
                 enabled: !partRow.renaming
                 acceptedButtons: Qt.LeftButton | Qt.RightButton
+                // The inspector scrolls: without this a reordering drag was taken over by the scroll and left
+                // its drop line (and the part to move) behind for the next drag.
+                preventStealing: true
                 property real pressY: 0
                 onPressed: mouse => {
                     pressY = mouse.y
@@ -334,6 +337,10 @@ Column {
                     if (list.dragId.length > 0 && list.dropTargetId.length > 0)
                         EditorState.moveShapePart(list.trackIndex, list.clipIndex, list.dragId, list.dropTargetId,
                                                   list.dropWhere)
+                    list.dragId = ""
+                    list.dropTargetId = ""
+                }
+                onCanceled: {
                     list.dragId = ""
                     list.dropTargetId = ""
                 }
