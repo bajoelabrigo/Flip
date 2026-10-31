@@ -436,4 +436,97 @@ def jason_e():
     return t
 
 
-TEMPLATES = [francois, roger, jamie, charlotte, jason_e]
+# Jessica Branson, measured frame by frame (25 fps from 30.8 s). The logo shows through a slanted slot whose edges
+# (on row 862) run right and back; the name slides out from behind the slot's right edge, overshoots and settles;
+# the role rises from behind a line; out, the slot closes to the right and a gentler slanted edge sweeps the texts.
+_JB_SLOPE, _JB_SLOPE_OUT = 0.65, 0.17  # the edges' lean: px right per px up
+_JB_L = {3: 359.0, 4: 372.0, 5: 406.0, 6: 434.0, 7: 455.0, 8: 471.0, 9: 483.0, 10: 492.0, 11: 500.0, 12: 505.0,
+         13: 509.0, 14: 512.0, 15: 513.0, 16: 513.0, 17: 512.0, 18: 510.0, 19: 506.0, 20: 500.0, 21: 493.0, 22: 484.0,
+         23: 471.0, 24: 454.0, 25: 432.0, 26: 400.0, 27: 360.0, 28: 300.0, 97: 300.0, 98: 382.0, 99: 418.0,
+         100: 466.0, 101: 529.0, 102: 600.0}
+_JB_R = {3: 379.0, 4: 422.0, 5: 464.0, 6: 500.0, 7: 529.0, 8: 543.0, 10: 535.0, 13: 495.0}
+_JB_NAME_DX = {4: -900.0, 5: -658.0, 6: -381.0, 7: -92.0, 8: 54.0, 9: 141.0, 10: 199.0, 11: 205.0, 12: 210.0,
+               14: 216.0, 16: 218.0, 18: 215.0, 20: 208.0, 22: 199.0, 23: 190.0, 24: 164.0, 25: 121.0, 26: 93.0,
+               27: 73.0, 28: 58.0, 29: 46.0, 30: 36.0, 31: 28.0, 32: 22.0, 33: 17.0, 34: 13.0, 40: 3.0, 45: 0.0}
+_JB_ROLE_DY = {20: 100.0, 21: 89.0, 22: 81.0, 23: 68.0, 24: 50.0, 25: 38.0, 26: 29.0, 27: 23.0, 28: 18.0, 29: 14.0,
+               30: 11.0, 31: 9.0, 32: 7.0, 33: 5.0, 34: 4.0, 38: 1.0, 42: 0.0}
+_JB_OUT = {98: 590.0, 99: 691.0, 100: 716.0, 101: 742.0, 102: 820.0, 103: 923.0, 104: 1059.0, 105: 1194.0,
+           106: 1330.0, 107: 1500.0}  # the texts' sweeping edge on row 767
+
+
+def _slant_mask(t, clip, box, frames, edges, slope, row, dur, dx=None, op=None):
+    """A mask on `clip` (laid out in `box`; moved by dx(u) px) showing what lies between two lines leaning `slope`
+    px right per px up: edges(u) = (left, right) where they cross screen row `row`. A rectangle turned by the lean."""
+    lean = math.degrees(math.atan(slope))
+    c = math.cos(math.radians(lean))
+    mk = {"x": [], "y": [], "w": [], "h": []}
+    for u in frames:
+        left, right = edges(u)
+        shift = dx(u) if dx else 0.0
+        width = max(0.0, right - left) * c
+        mk["x"].append((u, ((left + right) / 2 - box.x - shift) / box.w, "linear"))
+        mk["y"].append((u, (row - box.y) / box.h, "linear"))
+        mk["w"].append((u, width / box.w, "linear"))
+        mk["h"].append((u, 4000.0 / box.h, "linear"))
+    track = next(tr for tr in t.tracks if clip in tr.clips)
+    extra = {"op": op} if op else {}
+    t.mask(track, clip, "rectangle", x=mk["x"][0][1], y=mk["y"][0][1], w=mk["w"][0][1], h=mk["h"][0][1],
+           rotation=lean, keyframes={k: keys(v) for k, v in mk.items()}, **extra)
+
+
+def jessica():
+    """The logo slides into view through a slanted slot that narrows to a sliver and then opens on the whole logo;
+    the name slides out from behind the slot's edge, overshoots and settles; the role rises under it. Out, the slot
+    closes and a slanted edge sweeps the name and the role away to the right."""
+    fps, first, last = 25.0, 3, 106
+    D = round((last - first + 2) / fps, 2)
+    t = _kit("jessica", "Tercio con logo: ranura inclinada", "Logo lower third: slanted slot", D, 8535,
+             ["nombre", "cargo", "logo", "diagonal"], thumb_at=2.6)
+    photo_bg(t, "h-city-01", s1=1.03, label="Tu video")
+    from llt_motion import frames_of
+    us = frames_of(D)
+    fr = lambda u: first + u * fps  # noqa: E731
+    L = _table(_JB_L, 600.0, 600.0)
+    R = _table(_JB_R, 359.0, 495.0)
+    out = _table(_JB_OUT, 590.0, 1500.0)
+    name_dx = _table(_JB_NAME_DX, -900.0, 0.0)
+    role_dy = _table(_JB_ROLE_DY, 100.0, 0.0)
+    lg = centered(448.5, 808.0, 225.0, 225.0)
+    mark = t.photo(t.track("video", "Logo"), "logo-09", 0.0, D, lg, label="Tu logo", brandRole="logo")
+    _slant_mask(t, mark, lg, us, lambda u: (L(fr(u)), max(R(fr(u)), 600.0) if fr(u) > 8 else R(fr(u))), _JB_SLOPE,
+                862.0, D)
+    # The texts show right of the slot's right edge (lean 0.65) on the way in and of the sweeping edge (lean 0.17)
+    # on the way out: one slanted window each, its left edge the one that matters.
+    name = "JESSICA BRANSON"
+    nbox, nsize = caps_box(599, 705, 802, name)
+    motion = [(u, {"dx": name_dx(fr(u))}, "linear") for u in us]
+    clip = name_text(t, name, nbox, nsize, D, bold_from="BRANSON", spacing=-4.0, bold_spacing=3, word_spacing=6,
+                     motion=motion)
+
+    # Two slanted masks, both the whole time: right of the slot's edge (steep) and right of the sweeping edge
+    # (gentle, still until frame 98) — what shows is right of both.
+    _slant_mask(t, clip, nbox, us, lambda u: (R(fr(u)) + _JB_SLOPE * (862.0 - 753.0), 3000.0), _JB_SLOPE, 753.0, D,
+                dx=lambda u: name_dx(fr(u)))
+    _slant_mask(t, clip, nbox, us, lambda u: (out(fr(u)), 3000.0), _JB_SLOPE_OUT, 767.0, D,
+                dx=lambda u: name_dx(fr(u)), op="intersect")
+    role = "DIRECTOR"
+    rbox, rsize = caps_box(581, 830, 897, role)
+    motion = [(u, {"dy": role_dy(fr(u))}, "linear") for u in us]
+    rclip = name_text(t, role, rbox, rsize, D, bold_from="DIRECTOR", name="Cargo", spacing=-1.0, bold_spacing=3.3,
+                      motion=motion)
+    track = next(tr for tr in t.tracks if rclip in tr.clips)
+    mk = {"x": [], "y": [], "w": [], "h": []}
+    for u in us:
+        f, dy = fr(u), role_dy(fr(u))
+        x0 = out(f) - _JB_SLOPE_OUT * (890 - 767) if f >= 90 else 0.0
+        y0, y1 = 600.0, 920.0
+        mk["x"].append((u, ((x0 + 3000) / 2 - rbox.x) / rbox.w, "linear"))
+        mk["y"].append((u, ((y0 + y1) / 2 - rbox.y - dy) / rbox.h, "linear"))
+        mk["w"].append((u, (3000 - x0) / rbox.w, "linear"))
+        mk["h"].append((u, (y1 - y0) / rbox.h, "linear"))
+    t.mask(track, rclip, "rectangle", x=mk["x"][0][1], y=mk["y"][0][1], w=mk["w"][0][1], h=mk["h"][0][1],
+           keyframes={k: keys(v) for k, v in mk.items()})
+    return t
+
+
+TEMPLATES = [francois, roger, jamie, charlotte, jason_e, jessica]
