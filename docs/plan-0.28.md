@@ -186,8 +186,7 @@ mismo que conoce (orden, nombres, cronómetros, atajos).
    estrella quieta); arrastrar una parte elegida (clic + doble clic) la mueve sin mover la capa. Arreglado después:
    la fila Ondas/Largo de onda/Fase se encimaba (tres columnas no cabían: ahora dos y Fase debajo), y
    `set_shape_style` por MCP ignoraba cap, join, miterLimit, taper*, wave* y la redondez (faltaban en el esquema;
-   prueba en `shapePartsThroughMcp`). Los desplegables Extremos/Esquinas no se abren con clics simulados con la
-   ventana de fondo (limitación de la prueba).
+   prueba en `shapePartsThroughMcp`). Extremos y Esquinas los probó Jorge en ventana (2026-10-30): «todo funciona».
    Hecho: **Afinar y ondular** en el borde de las formas (`TextShadingLayer`:
    taperStart/EndLength, taperStart/EndWidth, taperEase, waveAmount/Length/Phase, todos animables; se dibuja como
    contorno de ancho variable, `profiledStroke` en `SkiaShapePainter`), **límite de inglete**, y en el inspector
