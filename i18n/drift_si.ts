@@ -5254,6 +5254,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Another layer is linked to one of these shapes (a mask, an adjustment or a parent): unlink it before combining</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Shape</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5266,6 +5270,10 @@
     </message>
     <message>
         <source>This shape has only one part</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Another layer is linked to this shape (a mask, an adjustment or a parent): unlink it before separating</source>
         <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">

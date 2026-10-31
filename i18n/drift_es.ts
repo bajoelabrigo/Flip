@@ -5254,6 +5254,10 @@
         <translation>Solo se pueden combinar formas que no se mueven y que no tienen máscaras ni efectos propios</translation>
     </message>
     <message>
+        <source>Another layer is linked to one of these shapes (a mask, an adjustment or a parent): unlink it before combining</source>
+        <translation>Otra capa está enlazada a una de estas formas (una máscara, un ajuste o un padre): desenlázala antes de combinar</translation>
+    </message>
+    <message>
         <source>Shape</source>
         <translation>Forma</translation>
     </message>
@@ -5267,6 +5271,10 @@
     <message>
         <source>This shape has only one part</source>
         <translation>Esta forma tiene una sola parte</translation>
+    </message>
+    <message>
+        <source>Another layer is linked to this shape (a mask, an adjustment or a parent): unlink it before separating</source>
+        <translation>Otra capa está enlazada a esta forma (una máscara, un ajuste o un padre): desenlázala antes de separar</translation>
     </message>
     <message numerus="yes">
         <source>Separated into %n layers</source>
