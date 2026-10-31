@@ -21298,12 +21298,12 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Fotograma clave siguiente</translation>
     </message>
     <message>
-        <source>Edit %1</source>
-        <translation>Editar %1</translation>
+        <source>Drag to change, click to type</source>
+        <translation>Arrastra para cambiarlo, clic para escribirlo</translation>
     </message>
     <message>
-        <source>Click to type an exact %1</source>
-        <translation>Haz clic para escribir un valor exacto de %1</translation>
+        <source>Edit %1</source>
+        <translation>Editar %1</translation>
     </message>
 </context>
 <context>
@@ -29418,6 +29418,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
 </context>
 <context>
     <name>ThemedNumberField</name>
+    <message>
+        <source>Change value</source>
+        <translation>Cambiar valor</translation>
+    </message>
     <message>
         <source>Allowed range: %1 – %2%3</source>
         <translation>Rango permitido: %1 – %2%3</translation>

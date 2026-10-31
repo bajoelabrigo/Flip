@@ -214,3 +214,19 @@ Fallos nuevos, ya corregidos en el código (para la próxima build):
 - Visto de paso: soltar un medio debajo de las pistas crea la pista **debajo** de todo (detrás del video principal);
   arrastrar la cabecera para subirla funciona. Al borrar clips de la pista principal queda el hueco (en CapCut se
   cierra solo): anotado, sin tocar.
+
+## Valores arrastrables como After Effects en toda la app (pedido de Jorge, 2026-10-31)
+«Ponle manejadores a los controles… que cuando se pone el mouse encima al arrastrar aumente o disminuya la cantidad»,
+«en todas las herramientas de la app incluyendo la barra de arriba».
+- `components/ScrubArea.qml`: sobre un número el puntero es ↔; arrastrar a los lados cambia el valor en vivo
+  (Mayús ×10, Ctrl ×0,1), un clic sin arrastrar deja escribir, la rueda sigue desplazando el panel.
+- `ThemedNumberField` (101 usos: Transformar › anclaje, General, Formas, Texto, Preferencias, el grosor del trazo de la
+  barra de arriba…): un arrastre = un paso de deshacer (su propia sesión de edición, salvo que un diálogo ya tenga
+  una: `EditorState.editSessionOpen()`).
+- `PropertyKeyframeRow` (Posición, Escala, Rotación, Opacidad, recortes, máscaras…): el campo y la lectura de los
+  deslizadores se arrastran como el deslizador (`beginPreviewDrag` / `previewSetClipKeyframe` / `commitPreviewDrag`:
+  clave si la propiedad está animada, si no el valor).
+- Ajuste (Exposición, Brillo…): el número sobre el deslizador; el «desde» del contador de Texto pasó a campo numérico.
+- La línea de tiempo ya lo tenía (`timeline/ScrubValue.qml`, 0.25): mismo comportamiento y mismo texto de ayuda.
+- **Probar en ventana** con la build siguiente: arrastrar Posición X, Escala, Opacidad, anclaje, grosor de la barra de
+  arriba, Exposición; Ctrl+Z deshace cada arrastre de una vez.

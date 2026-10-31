@@ -187,6 +187,29 @@ Column {
         EditorState.commitPreviewDrag()
     }
 
+    // After Effects' scrubby value (0.29): a drag on the number writes like the slider does, one undo step.
+    function beginScrub() {
+        root.editing = true
+        root.liveValue = root.currentValue
+        EditorState.showKeyframeGraphProperty(root.propDef.key)
+        EditorState.beginPreviewDrag(qsTr("Edit %1").arg(root.propDef.label))
+    }
+    function scrubTo(v) {
+        root.liveValue = v
+        if (!root.useSlider)
+            valueField.text = root.formatValue(v)
+        EditorState.previewSetClipKeyframe(EditorState.selectedTrack, EditorState.selectedClip, root.propDef.key,
+                                           EditorState.playheadSeconds, v)
+    }
+    function endScrub() {
+        EditorState.commitPreviewDrag()
+        root.editing = false
+        root.syncEditors()
+    }
+    readonly property real scrubStep: root.useSlider && root.sliderTo > root.sliderFrom
+                                      ? (root.sliderTo - root.sliderFrom) / 200
+                                      : Math.pow(10, -(Number(root.propDef.decimals) || 0))
+
     function setInterpolation(mode) {
         EditorState.showKeyframeGraphProperty(root.propDef.key)
         EditorState.setKeyframeInterpolation(
@@ -451,6 +474,20 @@ Column {
                 verticalAlignment: TextInput.AlignVCenter
                 text: root.formatValue(root.currentValue)
                 rightPadding: root.unit.length > 0 || root.percent ? 22 : 8
+
+                ScrubArea {
+                    anchors.fill: parent
+                    visible: !valueField.activeFocus && valueField.enabled
+                    value: root.currentValue
+                    stepPerPixel: root.scrubStep
+                    onStarted: root.beginScrub()
+                    onScrubbed: v => root.scrubTo(v)
+                    onFinished: root.endScrub()
+                    onClickedWithoutDrag: {
+                        valueField.forceActiveFocus()
+                        valueField.selectAll()
+                    }
+                }
                 onEditingFinished: {
                     const v = root.parseInput(text)
                     root.editing = false
@@ -565,18 +602,23 @@ Column {
                     font.pixelSize: Theme.fontSizeSm
                 }
 
-                MouseArea {
+                ScrubArea {
                     id: readoutArea
                     anchors.fill: parent
-                    hoverEnabled: true
-                    cursorShape: Qt.PointingHandCursor
-                    onClicked: valuePopup.openEditor()
+                    value: root.currentValue
+                    stepPerPixel: root.scrubStep
+                    from: Math.min(root.sliderFrom, root.sliderTo)
+                    to: Math.max(root.sliderFrom, root.sliderTo)
+                    onStarted: root.beginScrub()
+                    onScrubbed: v => root.scrubTo(v)
+                    onFinished: root.endScrub()
+                    onClickedWithoutDrag: valuePopup.openEditor()
                     onWheel: (wheel) => { wheel.accepted = false }
                 }
 
                 ThemedToolTip {
-                    text: qsTr("Click to type an exact %1").arg(root.propDef.label.toLowerCase())
-                    visible: readoutArea.containsMouse && !valuePopup.opened
+                    text: qsTr("Drag to change, click to type")
+                    visible: readoutArea.containsMouse && !readoutArea.scrubbing && !valuePopup.opened
                 }
 
                 Popup {

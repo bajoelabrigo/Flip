@@ -1534,17 +1534,12 @@ Item {
                         font.family: Theme.fontFamily
                         font.pixelSize: Theme.fontSizeXs
                     }
-                    ThemedTextField {
+                    ThemedNumberField {
                         visible: !!root.textStyle.counter
                         width: 90
                         anchors.verticalCenter: parent.verticalCenter
-                        text: String(root.textStyle.counterFrom || 0)
-                        inputMethodHints: Qt.ImhFormattedNumbersOnly
-                        onEditingFinished: {
-                            const v = Number(text.replace(",", "."))
-                            if (!isNaN(v))
-                                root.setTextStyleKey("counterFrom", v)
-                        }
+                        value: Number(root.textStyle.counterFrom || 0)
+                        onEdited: v => root.setTextStyleKey("counterFrom", v)
                     }
                 }
 

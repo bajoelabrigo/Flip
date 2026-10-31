@@ -21288,11 +21288,11 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Edit %1</source>
-        <translation type="unfinished"></translation>
+        <source>Drag to change, click to type</source>
+        <translation>I-drag para baguhin, i-click para i-type</translation>
     </message>
     <message>
-        <source>Click to type an exact %1</source>
+        <source>Edit %1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -22413,7 +22413,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Drag to change, click to type</source>
-        <translation type="unfinished"></translation>
+        <translation>I-drag para baguhin, i-click para i-type</translation>
     </message>
 </context>
 <context>
@@ -29406,6 +29406,10 @@ If playback stutters, try another.</source>
 </context>
 <context>
     <name>ThemedNumberField</name>
+    <message>
+        <source>Change value</source>
+        <translation>Baguhin ang value</translation>
+    </message>
     <message>
         <source>Allowed range: %1 – %2%3</source>
         <translation type="unfinished"></translation>

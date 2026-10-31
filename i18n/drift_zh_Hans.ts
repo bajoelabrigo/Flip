@@ -21219,12 +21219,12 @@ If playback stutters, try another.</source>
         <translation>下一个关键帧</translation>
     </message>
     <message>
-        <source>Edit %1</source>
-        <translation>编辑%1</translation>
+        <source>Drag to change, click to type</source>
+        <translation>拖动以更改，单击以输入</translation>
     </message>
     <message>
-        <source>Click to type an exact %1</source>
-        <translation>点击输入精确的%1</translation>
+        <source>Edit %1</source>
+        <translation>编辑%1</translation>
     </message>
 </context>
 <context>
@@ -22339,7 +22339,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Drag to change, click to type</source>
-        <translation type="unfinished"></translation>
+        <translation>拖动以更改，单击以输入</translation>
     </message>
 </context>
 <context>
@@ -29326,6 +29326,10 @@ If playback stutters, try another.</source>
 </context>
 <context>
     <name>ThemedNumberField</name>
+    <message>
+        <source>Change value</source>
+        <translation>更改数值</translation>
+    </message>
     <message>
         <source>Allowed range: %1 – %2%3</source>
         <translation>允许范围：%1 – %2%3</translation>

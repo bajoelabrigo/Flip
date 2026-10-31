@@ -21377,12 +21377,12 @@ If playback stutters, try another.</source>
         <translation>Следующий ключевой кадр</translation>
     </message>
     <message>
-        <source>Edit %1</source>
-        <translation>Изменить %1</translation>
+        <source>Drag to change, click to type</source>
+        <translation>Перетащите, чтобы изменить, щёлкните, чтобы ввести</translation>
     </message>
     <message>
-        <source>Click to type an exact %1</source>
-        <translation>Нажмите, чтобы точно задать %1</translation>
+        <source>Edit %1</source>
+        <translation>Изменить %1</translation>
     </message>
 </context>
 <context>
@@ -22509,7 +22509,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Drag to change, click to type</source>
-        <translation type="unfinished"></translation>
+        <translation>Перетащите, чтобы изменить, щёлкните, чтобы ввести</translation>
     </message>
 </context>
 <context>
@@ -29509,6 +29509,10 @@ If playback stutters, try another.</source>
 </context>
 <context>
     <name>ThemedNumberField</name>
+    <message>
+        <source>Change value</source>
+        <translation>Изменить значение</translation>
+    </message>
     <message>
         <source>Allowed range: %1 – %2%3</source>
         <translation>Допустимый диапазон: %1 – %2%3</translation>

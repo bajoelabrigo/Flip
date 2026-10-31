@@ -1230,6 +1230,8 @@ public:
     // never begun does nothing.
     Q_INVOKABLE void beginEditSession(const QString &label);
     Q_INVOKABLE void endEditSession(bool keep);
+    // Whether a session is open (0.29): a scrubbed number field opens its own only when no dialog has one.
+    Q_INVOKABLE bool editSessionOpen() const { return m_editSessionOpen; }
     // The shading stack of a text, subtitle or shape clip: layers[0] is drawn first. Each call
     // is one undo step; the preview variants coalesce into one through begin/commitPreviewDrag.
     Q_INVOKABLE QString addStyleLayer(int trackIndex, int clipIndex, const QString &kind, int atIndex = -1);

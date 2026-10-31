@@ -21294,12 +21294,12 @@ If playback stutters, try another.</source>
         <translation>මීළඟ කීෆ්‍රේමය</translation>
     </message>
     <message>
-        <source>Edit %1</source>
-        <translation>%1 සංස්කරණය කරන්න</translation>
+        <source>Drag to change, click to type</source>
+        <translation>වෙනස් කිරීමට අදින්න, ටයිප් කිරීමට ක්ලික් කරන්න</translation>
     </message>
     <message>
-        <source>Click to type an exact %1</source>
-        <translation>නිශ්චිත %1ක් ඇතුළත් කිරීමට ක්ලික් කරන්න</translation>
+        <source>Edit %1</source>
+        <translation>%1 සංස්කරණය කරන්න</translation>
     </message>
 </context>
 <context>
@@ -22420,7 +22420,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Drag to change, click to type</source>
-        <translation type="unfinished"></translation>
+        <translation>වෙනස් කිරීමට අදින්න, ටයිප් කිරීමට ක්ලික් කරන්න</translation>
     </message>
 </context>
 <context>
@@ -29414,6 +29414,10 @@ If playback stutters, try another.</source>
 </context>
 <context>
     <name>ThemedNumberField</name>
+    <message>
+        <source>Change value</source>
+        <translation>අගය වෙනස් කරන්න</translation>
+    </message>
     <message>
         <source>Allowed range: %1 – %2%3</source>
         <translation>අවසර ලත් පරාසය: %1 – %2%3</translation>

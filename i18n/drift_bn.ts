@@ -21294,12 +21294,12 @@ If playback stutters, try another.</source>
         <translation type="unfinished">পরবর্তী কীফ্রেম</translation>
     </message>
     <message>
-        <source>Edit %1</source>
-        <translation type="unfinished">সম্পাদনা %1</translation>
+        <source>Drag to change, click to type</source>
+        <translation>পরিবর্তন করতে টানুন, লিখতে ক্লিক করুন</translation>
     </message>
     <message>
-        <source>Click to type an exact %1</source>
-        <translation type="unfinished">সঠিক %1 টাইপ করতে ক্লিক করুন</translation>
+        <source>Edit %1</source>
+        <translation type="unfinished">সম্পাদনা %1</translation>
     </message>
 </context>
 <context>
@@ -22420,7 +22420,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Drag to change, click to type</source>
-        <translation type="unfinished"></translation>
+        <translation>পরিবর্তন করতে টানুন, লিখতে ক্লিক করুন</translation>
     </message>
 </context>
 <context>
@@ -29414,6 +29414,10 @@ If playback stutters, try another.</source>
 </context>
 <context>
     <name>ThemedNumberField</name>
+    <message>
+        <source>Change value</source>
+        <translation>মান পরিবর্তন</translation>
+    </message>
     <message>
         <source>Allowed range: %1 – %2%3</source>
         <translation type="unfinished">অনুমোদিত পরিসীমা: %1 – %2%3</translation>

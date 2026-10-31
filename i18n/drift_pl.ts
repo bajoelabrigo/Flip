@@ -21377,12 +21377,12 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
         <translation>Następna klatka kluczowa</translation>
     </message>
     <message>
-        <source>Edit %1</source>
-        <translation>Edytuj %1</translation>
+        <source>Drag to change, click to type</source>
+        <translation>Przeciągnij, aby zmienić, kliknij, aby wpisać</translation>
     </message>
     <message>
-        <source>Click to type an exact %1</source>
-        <translation>Kliknij, aby wpisać dokładne %1</translation>
+        <source>Edit %1</source>
+        <translation>Edytuj %1</translation>
     </message>
 </context>
 <context>
@@ -22509,7 +22509,7 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     </message>
     <message>
         <source>Drag to change, click to type</source>
-        <translation type="unfinished"></translation>
+        <translation>Przeciągnij, aby zmienić, kliknij, aby wpisać</translation>
     </message>
 </context>
 <context>
@@ -29509,6 +29509,10 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
 </context>
 <context>
     <name>ThemedNumberField</name>
+    <message>
+        <source>Change value</source>
+        <translation>Zmień wartość</translation>
+    </message>
     <message>
         <source>Allowed range: %1 – %2%3</source>
         <translation>Dozwolony zakres: %1 – %2%3</translation>

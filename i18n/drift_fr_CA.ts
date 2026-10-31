@@ -21300,12 +21300,12 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Image clé suivante</translation>
     </message>
     <message>
-        <source>Edit %1</source>
-        <translation>Modifier %1</translation>
+        <source>Drag to change, click to type</source>
+        <translation>Glissez pour modifier, cliquez pour saisir</translation>
     </message>
     <message>
-        <source>Click to type an exact %1</source>
-        <translation>Cliquez pour saisir une valeur exacte de %1</translation>
+        <source>Edit %1</source>
+        <translation>Modifier %1</translation>
     </message>
 </context>
 <context>
@@ -22426,7 +22426,7 @@ Si la lecture saccade, essayez une autre option.</translation>
     </message>
     <message>
         <source>Drag to change, click to type</source>
-        <translation type="unfinished"></translation>
+        <translation>Glissez pour modifier, cliquez pour saisir</translation>
     </message>
 </context>
 <context>
@@ -29422,6 +29422,10 @@ Si la lecture saccade, essayez une autre option.</translation>
 </context>
 <context>
     <name>ThemedNumberField</name>
+    <message>
+        <source>Change value</source>
+        <translation>Modifier la valeur</translation>
+    </message>
     <message>
         <source>Allowed range: %1 – %2%3</source>
         <translation>Plage autorisée : %1 – %2%3</translation>

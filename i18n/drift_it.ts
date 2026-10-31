@@ -21298,12 +21298,12 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
         <translation>Fotogramma chiave successivo</translation>
     </message>
     <message>
-        <source>Edit %1</source>
-        <translation>Modifica %1</translation>
+        <source>Drag to change, click to type</source>
+        <translation>Trascina per modificare, clic per digitare</translation>
     </message>
     <message>
-        <source>Click to type an exact %1</source>
-        <translation>Fai clic per digitare un valore esatto per %1</translation>
+        <source>Edit %1</source>
+        <translation>Modifica %1</translation>
     </message>
 </context>
 <context>
@@ -22424,7 +22424,7 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     </message>
     <message>
         <source>Drag to change, click to type</source>
-        <translation type="unfinished"></translation>
+        <translation>Trascina per modificare, clic per digitare</translation>
     </message>
 </context>
 <context>
@@ -29418,6 +29418,10 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
 </context>
 <context>
     <name>ThemedNumberField</name>
+    <message>
+        <source>Change value</source>
+        <translation>Modifica valore</translation>
+    </message>
     <message>
         <source>Allowed range: %1 – %2%3</source>
         <translation>Intervallo consentito: %1 – %2%3</translation>

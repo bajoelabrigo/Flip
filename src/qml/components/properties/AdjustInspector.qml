@@ -139,6 +139,26 @@ Item {
                     ps.host.setManyOrAdd(ps.effectId, qsTr("Adjust %1").arg(ps.label), ({ [ps.key]: v }))
                     focus = false
                 }
+                // Dragged sideways like After Effects' values (0.29); a click types.
+                ScrubArea {
+                    anchors.fill: parent
+                    anchors.margins: -3
+                    visible: !typed.activeFocus
+                    value: ps.current
+                    from: ps.from
+                    to: ps.to
+                    stepPerPixel: (ps.to - ps.from) / 200
+                    onStarted: ps.host.beginEdit(ps.effectId, qsTr("Adjust %1").arg(ps.label))
+                    onScrubbed: v => {
+                        slider.value = v
+                        ps.host.preview(ps.key, v)
+                    }
+                    onFinished: ps.host.endEdit()
+                    onClickedWithoutDrag: {
+                        typed.forceActiveFocus()
+                        typed.selectAll()
+                    }
+                }
             }
         }
         ThemedSlider {

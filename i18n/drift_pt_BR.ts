@@ -21298,12 +21298,12 @@ Se a reprodução travar, tente outra opção.</translation>
         <translation>Próximo quadro-chave</translation>
     </message>
     <message>
-        <source>Edit %1</source>
-        <translation>Editar %1</translation>
+        <source>Drag to change, click to type</source>
+        <translation>Arraste para mudar, clique para digitar</translation>
     </message>
     <message>
-        <source>Click to type an exact %1</source>
-        <translation>Clique para digitar um valor exato de %1</translation>
+        <source>Edit %1</source>
+        <translation>Editar %1</translation>
     </message>
 </context>
 <context>
@@ -22424,7 +22424,7 @@ Se a reprodução travar, tente outra opção.</translation>
     </message>
     <message>
         <source>Drag to change, click to type</source>
-        <translation type="unfinished"></translation>
+        <translation>Arraste para mudar, clique para digitar</translation>
     </message>
 </context>
 <context>
@@ -29418,6 +29418,10 @@ Se a reprodução travar, tente outra opção.</translation>
 </context>
 <context>
     <name>ThemedNumberField</name>
+    <message>
+        <source>Change value</source>
+        <translation>Alterar valor</translation>
+    </message>
     <message>
         <source>Allowed range: %1 – %2%3</source>
         <translation>Intervalo permitido: %1 – %2%3</translation>

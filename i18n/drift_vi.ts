@@ -21219,12 +21219,12 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Keyframe kế tiếp</translation>
     </message>
     <message>
-        <source>Edit %1</source>
-        <translation>Chỉnh sửa %1</translation>
+        <source>Drag to change, click to type</source>
+        <translation>Kéo để thay đổi, bấm để nhập</translation>
     </message>
     <message>
-        <source>Click to type an exact %1</source>
-        <translation>Nhấp để gõ chính xác %1</translation>
+        <source>Edit %1</source>
+        <translation>Chỉnh sửa %1</translation>
     </message>
 </context>
 <context>
@@ -22339,7 +22339,7 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     </message>
     <message>
         <source>Drag to change, click to type</source>
-        <translation type="unfinished"></translation>
+        <translation>Kéo để thay đổi, bấm để nhập</translation>
     </message>
 </context>
 <context>
@@ -29327,6 +29327,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
 </context>
 <context>
     <name>ThemedNumberField</name>
+    <message>
+        <source>Change value</source>
+        <translation>Đổi giá trị</translation>
+    </message>
     <message>
         <source>Allowed range: %1 – %2%3</source>
         <translation>Phạm vi được phép: %1 – %2%3</translation>

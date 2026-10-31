@@ -21614,12 +21614,12 @@ If playback stutters, try another.</source>
         <translation>الإطار المفتاحي التالي</translation>
     </message>
     <message>
-        <source>Edit %1</source>
-        <translation>تعديل %1</translation>
+        <source>Drag to change, click to type</source>
+        <translation>اسحب للتغيير، وانقر للكتابة</translation>
     </message>
     <message>
-        <source>Click to type an exact %1</source>
-        <translation>انقر لكتابة %1 بدقة</translation>
+        <source>Edit %1</source>
+        <translation>تعديل %1</translation>
     </message>
 </context>
 <context>
@@ -22764,7 +22764,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Drag to change, click to type</source>
-        <translation type="unfinished"></translation>
+        <translation>اسحب للتغيير، وانقر للكتابة</translation>
     </message>
 </context>
 <context>
@@ -29782,6 +29782,10 @@ If playback stutters, try another.</source>
 </context>
 <context>
     <name>ThemedNumberField</name>
+    <message>
+        <source>Change value</source>
+        <translation>تغيير القيمة</translation>
+    </message>
     <message>
         <source>Allowed range: %1 – %2%3</source>
         <translation>النطاق المسموح به: %1 – %2%3</translation>

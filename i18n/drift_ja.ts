@@ -21219,12 +21219,12 @@ If playback stutters, try another.</source>
         <translation>次のキーフレーム</translation>
     </message>
     <message>
-        <source>Edit %1</source>
-        <translation>%1 を編集</translation>
+        <source>Drag to change, click to type</source>
+        <translation>ドラッグで変更、クリックで入力</translation>
     </message>
     <message>
-        <source>Click to type an exact %1</source>
-        <translation>クリックして正確な %1 を入力</translation>
+        <source>Edit %1</source>
+        <translation>%1 を編集</translation>
     </message>
 </context>
 <context>
@@ -22339,7 +22339,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Drag to change, click to type</source>
-        <translation type="unfinished"></translation>
+        <translation>ドラッグで変更、クリックで入力</translation>
     </message>
 </context>
 <context>
@@ -29327,6 +29327,10 @@ If playback stutters, try another.</source>
 </context>
 <context>
     <name>ThemedNumberField</name>
+    <message>
+        <source>Change value</source>
+        <translation>値を変更</translation>
+    </message>
     <message>
         <source>Allowed range: %1 – %2%3</source>
         <translation>許容範囲 : %1 – %2%3</translation>

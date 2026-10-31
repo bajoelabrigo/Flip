@@ -21219,12 +21219,12 @@ If playback stutters, try another.</source>
         <translation>다음 키프레임</translation>
     </message>
     <message>
-        <source>Edit %1</source>
-        <translation>%1 편집</translation>
+        <source>Drag to change, click to type</source>
+        <translation>드래그하여 변경, 클릭하여 입력</translation>
     </message>
     <message>
-        <source>Click to type an exact %1</source>
-        <translation>클릭하여 정확한 %1 입력</translation>
+        <source>Edit %1</source>
+        <translation>%1 편집</translation>
     </message>
 </context>
 <context>
@@ -22338,7 +22338,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Drag to change, click to type</source>
-        <translation type="unfinished"></translation>
+        <translation>드래그하여 변경, 클릭하여 입력</translation>
     </message>
 </context>
 <context>
@@ -29325,6 +29325,10 @@ If playback stutters, try another.</source>
 </context>
 <context>
     <name>ThemedNumberField</name>
+    <message>
+        <source>Change value</source>
+        <translation>값 변경</translation>
+    </message>
     <message>
         <source>Allowed range: %1 – %2%3</source>
         <translation>허용 범위: %1 – %2%3</translation>
