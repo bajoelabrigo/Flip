@@ -852,4 +852,97 @@ def hendrick():
     return t
 
 
-TEMPLATES = [francois, roger, jamie, charlotte, jason_e, jessica, david, neil, joanna, hendrick]
+# Bevan Peterson, measured frame by frame (25 fps from 56.2 s; the exit is the entrance backwards, frame 152 - f).
+_BP_LOGO = {0: 0.0, 1: 0.14, 2: 0.34, 5: 0.35, 6: 1.0, 8: 1.0, 9: 1.28, 10: 1.53, 12: 1.55, 13: 0.69, 15: 0.69,
+            16: 0.83, 17: 1.0}  # the logo's scale about its bottom centre
+_BP_TRIM = {12: (70.0, 70.0), 13: (70.0, 110.0), 14: (10.0, 165.0), 15: (0.0, 231.0), 16: (0.0, 347.2),
+            17: (0.0, 527.0)}  # px along the outline: right side up, left side down, bottom, the line
+_BP_LINE = {17: 481, 18: 595, 19: 695, 20: 783, 21: 863, 22: 931, 23: 991, 24: 1047, 25: 1095, 26: 1137, 27: 1175,
+            28: 1208, 29: 1238, 30: 1264, 31: 1287, 32: 1307, 33: 1325, 34: 1342, 35: 1354, 36: 1365, 37: 1374,
+            38: 1380, 39: 1385, 40: 1389, 41: 1391, 42: 1392}
+_BP_NAME_TOP = {33: 840, 34: 811, 35: 790, 36: 766, 37: 748, 38: 735, 39: 726, 40: 719, 41: 713, 42: 708, 43: 704,
+                44: 701, 45: 698, 46: 696, 47: 694, 48: 693, 49: 692, 51: 690}
+_BP_ROLE_BOTTOM = {34: 815, 35: 831, 36: 849, 37: 862, 38: 871, 39: 878, 40: 883, 41: 887, 42: 890, 43: 893, 44: 895,
+                   45: 897, 46: 899, 47: 900, 48: 901, 49: 902, 50: 903, 51: 904, 53: 905}
+
+
+def bevan():
+    """The logo pops up and bounces; a thin triangle draws itself round it from the middle of its right side, its
+    bottom running on into a long line to the right; the name rises from behind the line and the role drops from
+    it. Out, everything backwards."""
+    fps, first, last = 25.0, 1, 151
+    D = round((last - first + 1) / fps, 2)
+    t = _kit("bevan", "Tercio con logo: triángulo que se dibuja", "Logo lower third: self-drawing triangle", D, 8540,
+             ["nombre", "cargo", "línea", "triángulo", "logo"], thumb_at=2.6)
+    photo_bg(t, "h-city-01", s1=1.03, label="Tu video")
+    from llt_motion import frames_of
+    from scene import shape_style, stroke
+    us = frames_of(D)
+    fin = lambda u: (lambda i: i if i <= 76 else 152 - i)(first + u * fps)  # noqa: E731
+    apex, base, half, x_end = (387.5, 670.6), 821.0, 86.8, 1392.0
+    side = 2 * half
+    total = 3 * side + (x_end - (apex[0] + half))
+    # The outline as one open path in a box from the triangle's left to the line's end: bottom-right corner, up to
+    # the apex, down to the bottom-left, back along the bottom and on to the line's end.
+    bx0, by0 = apex[0] - half, apex[1]
+    bw, bh = x_end - bx0, base - by0
+    P = lambda x, y: f"{(x - bx0) / bw * 100:.3f} {(y - by0) / bh * 100:.3f}"  # noqa: E731
+    path = (f"M {P(apex[0] + half, base)} L {P(*apex)} L {P(apex[0] - half, base)} L {P(apex[0] + half, base)} "
+            f"L {P(x_end, base)}")
+    trim = _table(_BP_TRIM, (70.0, 70.0), None)
+    line = _table(_BP_LINE, 474.3, 1392.0)
+
+    def ends(f):
+        if f < 12:
+            return 0.0, 0.0
+        if f <= 17:
+            return trim(f)
+        return 0.0, 3 * side + (line(f) - (apex[0] + half))
+    s = stroke(2.6, RED)
+    style = shape_style("custom", [s], customPath=path, customEvenOdd=False)
+    style["keyframes"] = {"trimStart": keys([(u, ends(fin(u))[0] / total * 100, "linear") for u in us]),
+                          "trimEnd": keys([(u, ends(fin(u))[1] / total * 100, "linear") for u in us])}
+    from scene import layout
+    box = Box(bx0, by0, bw, bh)
+    tri = t._clip("shape", 0.0, D, shapeStyle=style, **layout(box, None))
+    tri["name"] = "Triángulo"
+    t.track("shape", "Triángulo").clips.append(tri)
+    # The logo, scaled about its bottom centre.
+    sc = _table(_BP_LOGO, 0.0, 1.0)
+    lg = Box(382.5 - 40, 808 - 80, 80, 80)
+    motion = [(u, {"s": sc(fin(u)), "dy": 40 - 40 * sc(fin(u))}, "linear") for u in us]
+    t.photo(t.track("video", "Logo"), "logo-09", 0.0, D, lg, motion, label="Tu logo", brandRole="logo")
+    # The name rises from behind the line; the role drops from it.
+    top = _table(_BP_NAME_TOP, 900.0, 690.0)
+    bottom = _table(_BP_ROLE_BOTTOM, 800.0, 905.0)
+    name = "BEVAN PETERSON"
+    nbox, nsize = caps_box(506, 690, 809, name)
+    motion = [(u, {"dy": top(fin(u)) - 690}, "linear") for u in us]
+    clip = name_text(t, name, nbox, nsize, D, bold_from="PETERSON", spacing=-4.5, bold_spacing=9.3, word_spacing=8,
+                     motion=motion)
+    track = next(tr for tr in t.tracks if clip in tr.clips)
+    mk = {"y": [], "h": []}
+    for u in us:
+        dy = top(fin(u)) - 690
+        y0, y1 = 500.0, 819.0
+        mk["y"].append((u, ((y0 + y1) / 2 - nbox.y - dy) / nbox.h, "linear"))
+        mk["h"].append((u, (y1 - y0) / nbox.h, "linear"))
+    t.mask(track, clip, "rectangle", x=0.5, y=mk["y"][0][1], w=2.0, h=mk["h"][0][1],
+           keyframes={k: keys(v) for k, v in mk.items()})
+    role = "CHIEF OF SYSTEMS"
+    rbox, rsize = caps_box(844, 834, 905, role)
+    motion = [(u, {"dy": bottom(fin(u)) - 905}, "linear") for u in us]
+    rclip = name_text(t, role, rbox, rsize, D, name="Cargo", spacing=-2.6, word_spacing=6, motion=motion)
+    track = next(tr for tr in t.tracks if rclip in tr.clips)
+    mk = {"y": [], "h": []}
+    for u in us:
+        dy = bottom(fin(u)) - 905
+        y0, y1 = 823.0, 1080.0
+        mk["y"].append((u, ((y0 + y1) / 2 - rbox.y - dy) / rbox.h, "linear"))
+        mk["h"].append((u, (y1 - y0) / rbox.h, "linear"))
+    t.mask(track, rclip, "rectangle", x=0.5, y=mk["y"][0][1], w=2.0, h=mk["h"][0][1],
+           keyframes={k: keys(v) for k, v in mk.items()})
+    return t
+
+
+TEMPLATES = [francois, roger, jamie, charlotte, jason_e, jessica, david, neil, joanna, hendrick, bevan]
