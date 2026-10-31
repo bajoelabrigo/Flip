@@ -168,12 +168,12 @@ void ProjectFileController::sweepExtractionDirs()
     collectJsonStrings(recovery, &liveFiles);
     for (const drift::MediaAsset &asset : m_app->m_project.assets())
         liveFiles.insert(asset.path);
-#ifdef Q_OS_ANDROID
+    // The unsaved session's dir holds its freeze frames: kept on every platform (0.29: it was kept only on
+    // Android, so on Windows «Restore» after a crash found the freeze frame gone).
     const QString recoveryId = recovery.value(QStringLiteral("id")).toString();
     if (!recoveryId.isEmpty())
         live.insert(recoveryId);
     live.insert(m_app->m_project.id());
-#endif
 
     QDir root(QDir(base).filePath(QStringLiteral("projects")));
     if (root.exists()) {

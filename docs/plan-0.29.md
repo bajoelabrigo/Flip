@@ -230,3 +230,17 @@ Fallos nuevos, ya corregidos en el código (para la próxima build):
 - La línea de tiempo ya lo tenía (`timeline/ScrubValue.qml`, 0.25): mismo comportamiento y mismo texto de ayuda.
 - **Probar en ventana** con la build siguiente: arrastrar Posición X, Escala, Opacidad, anclaje, grosor de la barra de
   arriba, Exposición; Ctrl+Z deshace cada arrastre de una vez.
+
+## Prueba en ventana de la build 9131671 (2026-10-31, grabada: `pruebas\tutorial-llt\manejadores-0.29.mp4`)
+- ✓ Valores arrastrables: Posición X (fila con deslizador), anclaje X (campo, 1 px por píxel), grosor del trazo en la
+  barra de arriba (6 → 27), Tamaño de la flecha (de 0,1 en 0,1). Ctrl+Z deshace cada arrastre de una vez.
+- **Arreglado después:** en las filas con deslizador el paso salía del rango (≈40 px por píxel en Posición); ahora es
+  1 unidad por píxel (0,01 en porcentajes), como After Effects (`PropertyKeyframeRow.scrubStep`).
+- ✓ Puntas de flecha: Forma › Trazo › Flecha al final › Triángulo y su tamaño, se ven en la vista previa.
+- ✓ «Recortar personas» abre «Personas (automático)» y «Recortar un sujeto» abre «Cualquier elemento».
+- ✓ «Cambiar nombre del clip»: se escribe directo. ✓ Un 0 en el anclaje se guarda. ✓ Con un texto elegido y el
+  Rectángulo, Opciones de relleno es el de la herramienta (la forma sale con el degradado, el texto no cambia).
+- **Fallo nuevo, arreglado:** al recuperar el trabajo sin guardar faltaba el «Fotograma congelado»: la limpieza del
+  arranque borraba la carpeta del proyecto sin guardar (donde van los congelados) salvo en Android
+  (`ProjectFileController`, el id de la recuperación ahora se conserva en todas las plataformas).
+- Pendiente de ver con la build siguiente: el paso nuevo del arrastre en las filas y la recuperación con un congelado.
