@@ -110,7 +110,7 @@ Item {
         pick(hit ? hit.id : "")
     }
 
-    function escape() {
+    function goUp() {
         const f = parts.focusFrame
         if (!f)
             return false

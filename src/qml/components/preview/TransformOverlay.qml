@@ -511,7 +511,7 @@ Item {
                 // Esc goes up a level out of a shape layer's parts (0.28), as After Effects; at the layer, in
                 // Pro, it lets go of the shape, so the next one drawn gets a layer of its own.
                 if (event.key === Qt.Key_Escape) {
-                    if (partOverlay.escape()) {
+                    if (partOverlay.goUp()) {
                         event.accepted = true
                         return
                     }
