@@ -2121,6 +2121,8 @@ QVariantMap shapeStyleToMap(const drift::ShapeStyle &s, drift::TimeUs timelineSt
         {QStringLiteral("cornerRadius"), s.cornerRadius},
         {QStringLiteral("points"), s.points},
         {QStringLiteral("innerRatio"), s.innerRatio},
+        {QStringLiteral("outerRoundness"), s.outerRoundness},
+        {QStringLiteral("innerRoundness"), s.innerRoundness},
         {QStringLiteral("headSize"), s.headSize},
         {QStringLiteral("thickness"), s.thickness},
         {QStringLiteral("tailX"), s.tailX},
@@ -20501,6 +20503,10 @@ static void applyShapeStylePatch(drift::ShapeStyle &s, const QVariantMap &m)
         s.points = qBound(3, m.value(QStringLiteral("points")).toInt(), 60);
     if (m.contains(QStringLiteral("innerRatio")))
         s.innerRatio = qBound(0.05, m.value(QStringLiteral("innerRatio")).toDouble(), 0.95);
+    if (m.contains(QStringLiteral("outerRoundness")))
+        s.outerRoundness = qBound(0.0, m.value(QStringLiteral("outerRoundness")).toDouble(), 100.0);
+    if (m.contains(QStringLiteral("innerRoundness")))
+        s.innerRoundness = qBound(0.0, m.value(QStringLiteral("innerRoundness")).toDouble(), 100.0);
     if (m.contains(QStringLiteral("headSize")))
         s.headSize = qBound(0.05, m.value(QStringLiteral("headSize")).toDouble(), 0.9);
     if (m.contains(QStringLiteral("thickness")))
@@ -27889,6 +27895,8 @@ struct ShapeContentRowsBuilder
         if (kind == drift::ShapeKind::Star || kind == drift::ShapeKind::Burst) {
             line(base + QStringLiteral("shape.points"), AppController::tr("Points"), depth + 2, path);
             line(base + QStringLiteral("shape.innerRatio"), AppController::tr("Inner radius"), depth + 2, path);
+            line(base + QStringLiteral("shape.outerRoundness"), AppController::tr("Outer roundness"), depth + 2, path);
+            line(base + QStringLiteral("shape.innerRoundness"), AppController::tr("Inner roundness"), depth + 2, path);
         } else if (kind != drift::ShapeKind::Ellipse) {
             line(base + QStringLiteral("shape.cornerRadius"), AppController::tr("Roundness"), depth + 2, path);
         }

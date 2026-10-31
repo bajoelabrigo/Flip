@@ -5473,6 +5473,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Outer roundness</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Inner roundness</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Roundness</source>
         <translation type="unfinished"></translation>
     </message>
@@ -23327,6 +23335,86 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
         <translation>Przytnij koniec</translation>
     </message>
     <message>
+        <source>Taper and wave</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Taper thins the stroke towards its start and end; Wave makes its width rise and fall along the path.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Taper start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Taper end</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start width</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>End width</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Taper ease</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wave</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wavelength</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Phase</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Line ends</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Round</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Square</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>How the open ends of the stroke finish (After Effects&apos; Line Cap)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Corners</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sharp</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bevelled</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>How the stroke turns a corner (After Effects&apos; Line Join)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Miter limit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Sketchy</source>
         <translation>Szkicowy</translation>
     </message>
@@ -23704,6 +23792,22 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Wiggle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The part jitters on its own, as After Effects&apos; Wiggle Transform. Leave the amounts at 0 to keep it still.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Position</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Seed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Skew and anchor point</source>
         <translation type="unfinished"></translation>
     </message>
@@ -23766,6 +23870,14 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     <message>
         <source>Inner radius</source>
         <translation>Wewnętrzny promień</translation>
+    </message>
+    <message>
+        <source>Outer roundness</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Inner roundness</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Head size</source>
@@ -24152,6 +24264,14 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     <message>
         <source>Inner radius</source>
         <translation>Wewnętrzny promień</translation>
+    </message>
+    <message>
+        <source>Outer roundness</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Inner roundness</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Head size</source>
@@ -28691,6 +28811,42 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     </message>
     <message>
         <source>Trim offset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Miter limit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Taper: start length</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Taper: end length</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Taper: start width</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Taper: end width</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Taper: ease</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wave: amount</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wave: wavelength</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wave: phase</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

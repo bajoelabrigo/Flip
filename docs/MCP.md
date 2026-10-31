@@ -557,6 +557,14 @@ Every text op fails `type_mismatch` on a clip that is not a text or subtitle cli
 
 ### Shapes
 
+**Parts (0.28, After Effects' Contents):** a shape layer can hold several parts, each its own figure with its own
+fills, strokes and «Transform: group». `list_shape_parts({clip})` lists them (top first, groups before their parts,
+with their corners as fractions of the layer's box); `add_shape_part({clip, kind})` adds a `rectangle`, `ellipse`,
+`star`, `polygon` or `group`; `set_shape_part({clip, part, name, visible, blend, values})` renames, hides, sets the
+blend and writes numbers at the playhead (`x`, `y`, `scaleX`, `scaleY`, `rotation`, `opacity`, `width`, `height`,
+`wigglePosition`…); `group_shape_part({clip, part, group})` groups or ungroups. Keys: `set_keyframe` with
+`part.<id>.<field>` or `part.<id>.shape.<key>` (the part's own fill colour, stroke, points…).
+
 `list_shapes` → `add_shape({shape, at, track})` → `set_shape_style({clip, style})`. The 29 catalog
 ids (`list_shapes` rows carry `kind` and the default box `aspect`): basic `rectangle`,
 `rounded-rectangle`, `square`, `circle` (an `ellipse` with a square box), `ellipse`, `triangle`,

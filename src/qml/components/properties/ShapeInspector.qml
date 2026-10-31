@@ -46,6 +46,8 @@ Item {
     // not always the same word ("circle" is an ellipse), so match on the stored kind.
     readonly property var shapeFamilies: ({
         "star": ["star", "burst"],
+        // After Effects' roundness (0.28): stars and the regular polygons.
+        "round": ["star", "burst", "pentagon", "hexagon", "octagon"],
         "arrow": ["arrow", "double-arrow", "block-arrow", "chevron", "banner"],
         "shaft": ["arrow", "double-arrow", "chevron", "cross", "curved-arrow"],
         "bubble": ["speech-bubble", "speech-bubble-rect", "thought-bubble", "callout"]
@@ -266,6 +268,75 @@ Item {
                     onActivated: index => EditorState.setShapePartBlend(EditorState.selectedTrack, EditorState.selectedClip,
                                                                        root.part.id, modes[index])
                 }
+                // After Effects' Wiggle Transform (0.28): the part jitters on its own; nothing moves while the
+                // amounts are 0.
+                CollapsibleSection {
+                    width: parent.width
+                    expanded: false
+                    title: qsTr("Wiggle")
+                    Column {
+                        width: parent.width
+                        spacing: Theme.spacingMd
+                        ThemedLabel {
+                            width: parent.width
+                            wrapMode: Text.WordWrap
+                            text: qsTr("The part jitters on its own, as After Effects' Wiggle Transform. Leave the amounts at 0 to keep it still.")
+                            color: Theme.mutedForeground
+                            font.pixelSize: Theme.fontSizeXs
+                        }
+                        PropertyKeyframeRow {
+                            width: parent.width
+                            propDef: root.partKnob("wigglePosition", qsTr("Position"), 0)
+                            keyframeList: root.partKeyframes("wigglePosition")
+                            useSlider: true
+                            sliderFrom: 0
+                            sliderTo: 200
+                            unit: "px"
+                        }
+                        Row {
+                            width: parent.width
+                            spacing: 8
+                            PropertyKeyframeRow {
+                                width: (parent.width - parent.spacing) / 2
+                                propDef: root.partKnob("wiggleRotation", qsTr("Rotation"), 0)
+                                keyframeList: root.partKeyframes("wiggleRotation")
+                                useSlider: true
+                                sliderFrom: 0
+                                sliderTo: 90
+                                unit: "°"
+                            }
+                            PropertyKeyframeRow {
+                                width: (parent.width - parent.spacing) / 2
+                                propDef: root.partKnob("wiggleScale", qsTr("Scale"), 0)
+                                keyframeList: root.partKeyframes("wiggleScale")
+                                useSlider: true
+                                sliderFrom: 0
+                                sliderTo: 50
+                                unit: "%"
+                            }
+                        }
+                        Row {
+                            width: parent.width
+                            spacing: 8
+                            PropertyKeyframeRow {
+                                width: (parent.width - parent.spacing) / 2
+                                propDef: root.partKnob("wiggleSpeed", qsTr("Wiggles per second"), 1)
+                                keyframeList: root.partKeyframes("wiggleSpeed")
+                                useSlider: true
+                                sliderFrom: 0
+                                sliderTo: 10
+                            }
+                            PropertyKeyframeRow {
+                                width: (parent.width - parent.spacing) / 2
+                                propDef: root.partKnob("wiggleSeed", qsTr("Seed"), 0)
+                                keyframeList: root.partKeyframes("wiggleSeed")
+                                useSlider: true
+                                sliderFrom: 0
+                                sliderTo: 100
+                            }
+                        }
+                    }
+                }
                 CollapsibleSection {
                     width: parent.width
                     expanded: false
@@ -465,6 +536,33 @@ Item {
                         sliderFrom: 0.05
                         sliderTo: 0.95
                         percent: true
+                    }
+                }
+
+                // Rounded corners as After Effects' Outer / Inner Roundness: at 100 % a polygon is a circle.
+                Row {
+                    width: parent.width
+                    spacing: 8
+                    visible: root.shapeHas("round")
+
+                    PropertyKeyframeRow {
+                        width: root.shapeHas("star") ? (parent.width - parent.spacing) / 2 : parent.width
+                        propDef: root.knob("outerRoundness", qsTr("Outer roundness"), 0)
+                        keyframeList: root.knobKeyframes("outerRoundness")
+                        useSlider: true
+                        sliderFrom: 0
+                        sliderTo: 100
+                        unit: "%"
+                    }
+                    PropertyKeyframeRow {
+                        visible: root.shapeHas("star")
+                        width: (parent.width - parent.spacing) / 2
+                        propDef: root.knob("innerRoundness", qsTr("Inner roundness"), 0)
+                        keyframeList: root.knobKeyframes("innerRoundness")
+                        useSlider: true
+                        sliderFrom: 0
+                        sliderTo: 100
+                        unit: "%"
                     }
                 }
 

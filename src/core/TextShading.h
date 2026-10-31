@@ -125,6 +125,19 @@ struct TextShadingLayer
     double dashOffset = 0.0;   // dash phase in stroke widths (keyframable → marching ants)
     StrokeCap cap = StrokeCap::Round;
     StrokeJoin join = StrokeJoin::Round;
+    double miterLimit = 4.0;   // After Effects' Miter Limit: how far a sharp corner may reach, in widths
+    // After Effects' Taper (0.28): the stroke thins at its start and end. Lengths are % of the path, widths the %
+    // left at the tip; the ease rounds the thinning (0 straight, 100 smooth).
+    double taperStartLength = 0.0;
+    double taperEndLength = 0.0;
+    double taperStartWidth = 0.0;
+    double taperEndWidth = 0.0;
+    double taperEase = 0.0;
+    // After Effects' Wave (0.28): the width rises and falls along the path. Amount in % of the width, wavelength in
+    // px at pixelSize, phase in degrees (keyframe it to make the wave travel).
+    double waveAmount = 0.0;
+    double waveLength = 40.0;
+    double wavePhase = 0.0;
     bool knockout = false;     // a fill that punches through the layers beneath (hollow text)
     double trimStart = 0.0;    // stroke write-on
     double trimEnd = 1.0;

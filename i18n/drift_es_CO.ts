@@ -5464,6 +5464,14 @@
         <translation>Radio interior</translation>
     </message>
     <message>
+        <source>Outer roundness</source>
+        <translation>Redondez exterior</translation>
+    </message>
+    <message>
+        <source>Inner roundness</source>
+        <translation>Redondez interior</translation>
+    </message>
+    <message>
         <source>Roundness</source>
         <translation>Redondez</translation>
     </message>
@@ -23238,6 +23246,86 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Recortar final</translation>
     </message>
     <message>
+        <source>Taper and wave</source>
+        <translation>Afinar y ondular</translation>
+    </message>
+    <message>
+        <source>Taper thins the stroke towards its start and end; Wave makes its width rise and fall along the path.</source>
+        <translation>Afinar adelgaza el borde hacia su inicio y su final (Taper en After Effects); Ondular hace que su ancho suba y baje a lo largo del trazado (Wave).</translation>
+    </message>
+    <message>
+        <source>Taper start</source>
+        <translation>Afinar al inicio</translation>
+    </message>
+    <message>
+        <source>Taper end</source>
+        <translation>Afinar al final</translation>
+    </message>
+    <message>
+        <source>Start width</source>
+        <translation>Ancho al inicio</translation>
+    </message>
+    <message>
+        <source>End width</source>
+        <translation>Ancho al final</translation>
+    </message>
+    <message>
+        <source>Taper ease</source>
+        <translation>Suavidad del afinado</translation>
+    </message>
+    <message>
+        <source>Wave</source>
+        <translation>Ondas</translation>
+    </message>
+    <message>
+        <source>Wavelength</source>
+        <translation>Largo de onda</translation>
+    </message>
+    <message>
+        <source>Phase</source>
+        <translation>Fase</translation>
+    </message>
+    <message>
+        <source>Line ends</source>
+        <translation>Extremos</translation>
+    </message>
+    <message>
+        <source>Flat</source>
+        <translation>Planos</translation>
+    </message>
+    <message>
+        <source>Round</source>
+        <translation>Redondeados</translation>
+    </message>
+    <message>
+        <source>Square</source>
+        <translation>Cuadrados</translation>
+    </message>
+    <message>
+        <source>How the open ends of the stroke finish (After Effects&apos; Line Cap)</source>
+        <translation>Cómo terminan los extremos abiertos del borde (Extremo de línea en After Effects)</translation>
+    </message>
+    <message>
+        <source>Corners</source>
+        <translation>Esquinas</translation>
+    </message>
+    <message>
+        <source>Sharp</source>
+        <translation>En punta</translation>
+    </message>
+    <message>
+        <source>Bevelled</source>
+        <translation>Biseladas</translation>
+    </message>
+    <message>
+        <source>How the stroke turns a corner (After Effects&apos; Line Join)</source>
+        <translation>Cómo dobla el borde en una esquina (Unión de línea en After Effects)</translation>
+    </message>
+    <message>
+        <source>Miter limit</source>
+        <translation>Límite de inglete</translation>
+    </message>
+    <message>
         <source>Sketchy</source>
         <translation>Boceto</translation>
     </message>
@@ -23615,6 +23703,22 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Aclarar</translation>
     </message>
     <message>
+        <source>Wiggle</source>
+        <translation>Transformación ondulada</translation>
+    </message>
+    <message>
+        <source>The part jitters on its own, as After Effects&apos; Wiggle Transform. Leave the amounts at 0 to keep it still.</source>
+        <translation>La parte tiembla sola, como la Transformación ondulada de After Effects. Con las cantidades en 0 se queda quieta.</translation>
+    </message>
+    <message>
+        <source>Position</source>
+        <translation>Posición</translation>
+    </message>
+    <message>
+        <source>Seed</source>
+        <translation>Semilla</translation>
+    </message>
+    <message>
         <source>Skew and anchor point</source>
         <translation>Inclinación y punto de anclaje</translation>
     </message>
@@ -23677,6 +23781,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Inner radius</source>
         <translation>Radio interior</translation>
+    </message>
+    <message>
+        <source>Outer roundness</source>
+        <translation>Redondez exterior</translation>
+    </message>
+    <message>
+        <source>Inner roundness</source>
+        <translation>Redondez interior</translation>
     </message>
     <message>
         <source>Head size</source>
@@ -23824,7 +23936,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Wiggles per second</source>
-        <translation type="unfinished"></translation>
+        <translation>Temblores por segundo</translation>
     </message>
     <message>
         <source>Random seed</source>
@@ -24063,6 +24175,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Inner radius</source>
         <translation>Radio interior</translation>
+    </message>
+    <message>
+        <source>Outer roundness</source>
+        <translation>Redondez exterior</translation>
+    </message>
+    <message>
+        <source>Inner roundness</source>
+        <translation>Redondez interior</translation>
     </message>
     <message>
         <source>Head size</source>
@@ -28597,6 +28717,42 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Trim offset</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Miter limit</source>
+        <translation>Límite de inglete</translation>
+    </message>
+    <message>
+        <source>Taper: start length</source>
+        <translation>Afinar: largo al inicio</translation>
+    </message>
+    <message>
+        <source>Taper: end length</source>
+        <translation>Afinar: largo al final</translation>
+    </message>
+    <message>
+        <source>Taper: start width</source>
+        <translation>Afinar: ancho al inicio</translation>
+    </message>
+    <message>
+        <source>Taper: end width</source>
+        <translation>Afinar: ancho al final</translation>
+    </message>
+    <message>
+        <source>Taper: ease</source>
+        <translation>Afinar: suavidad</translation>
+    </message>
+    <message>
+        <source>Wave: amount</source>
+        <translation>Ondular: cantidad</translation>
+    </message>
+    <message>
+        <source>Wave: wavelength</source>
+        <translation>Ondular: largo de onda</translation>
+    </message>
+    <message>
+        <source>Wave: phase</source>
+        <translation>Ondular: fase</translation>
     </message>
     <message>
         <source>Dash offset</source>

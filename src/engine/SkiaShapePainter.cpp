@@ -15,6 +15,7 @@
 #include "include/core/SkStrokeRec.h"
 #include "include/effects/SkCornerPathEffect.h"
 #include "include/core/SkPathMeasure.h"
+#include "include/core/SkContourMeasure.h"
 #include "include/effects/SkTrimPathEffect.h"
 #include "include/pathops/SkPathOps.h"
 
@@ -400,6 +401,72 @@ double repeaterReach(const ShapeStyle &style, double w, double h, double scale)
     return reach;
 }
 
+// After Effects' Taper and Wave (0.28): the stroke drawn as a filled outline whose width follows a profile along
+// the path (thinner towards a tapered end, rising and falling with the wave). Each contour is walked in short steps
+// and offset both ways along its normal; an open one becomes one band, a closed one a ring.
+bool strokeHasProfile(const TextShadingLayer &layer)
+{
+    return layer.taperStartLength > 0.0 || layer.taperEndLength > 0.0 || layer.waveAmount > 0.0;
+}
+
+SkPath profiledStroke(const SkPath &path, double width, const TextShadingLayer &layer, double scale)
+{
+    SkPathBuilder out;
+    out.setFillType(SkPathFillType::kEvenOdd);
+    SkContourMeasureIter iter(path, false, 1.0f);
+    const double ease = qBound(0.0, layer.taperEase / 100.0, 1.0);
+    const auto shape = [ease](double t) {
+        // 0..1 → 0..1, straight, or rounded off towards the full width with the ease.
+        t = qBound(0.0, t, 1.0);
+        const double smooth = 1.0 - (1.0 - t) * (1.0 - t);
+        return t + (smooth - t) * ease;
+    };
+    while (sk_sp<SkContourMeasure> cm = iter.next()) {
+        const double len = cm->length();
+        if (len <= 0.0)
+            continue;
+        const double ts = layer.taperStartLength / 100.0, te = layer.taperEndLength / 100.0;
+        const double ws = layer.taperStartWidth / 100.0, we = layer.taperEndWidth / 100.0;
+        const double wave = qBound(0.0, layer.waveAmount / 100.0, 1.0);
+        const double waveLen = qMax(1.0, layer.waveLength * scale);
+        const double phase = qDegreesToRadians(layer.wavePhase);
+        const int steps = qBound(8, int(std::ceil(len / 1.5)), 6000);
+        std::vector<SkPoint> left, right;
+        left.reserve(size_t(steps) + 1);
+        right.reserve(size_t(steps) + 1);
+        for (int i = 0; i <= steps; ++i) {
+            const double d = len * i / steps;
+            const double f = d / len;
+            double k = 1.0;
+            if (ts > 0.0 && f < ts)
+                k = qMin(k, ws + (1.0 - ws) * shape(f / ts));
+            if (te > 0.0 && f > 1.0 - te)
+                k = qMin(k, we + (1.0 - we) * shape((1.0 - f) / te));
+            if (wave > 0.0)
+                k *= 1.0 - wave * 0.5 * (1.0 - std::cos(2.0 * M_PI * d / waveLen + phase));
+            const double half = width * k / 2.0;
+            SkPoint p;
+            SkVector tan;
+            if (!cm->getPosTan(float(d), &p, &tan))
+                continue;
+            const SkVector n{-tan.y(), tan.x()};
+            left.push_back({p.x() + n.x() * float(half), p.y() + n.y() * float(half)});
+            right.push_back({p.x() - n.x() * float(half), p.y() - n.y() * float(half)});
+        }
+        if (left.size() < 2)
+            continue;
+        if (cm->isClosed()) {
+            out.addPolygon({left.data(), left.size()}, true);
+            out.addPolygon({right.data(), right.size()}, true);
+        } else {
+            std::vector<SkPoint> band(left);
+            band.insert(band.end(), right.rbegin(), right.rend());
+            out.addPolygon({band.data(), band.size()}, true);
+        }
+    }
+    return out.detach();
+}
+
 class ShapePainter final : public VectorPainter
 {
 public:
@@ -511,8 +578,26 @@ private:
             paint.setStyle(SkPaint::kStroke_Style);
             paint.setStrokeJoin(skStrokeJoin(layer.join));
             paint.setStrokeCap(skStrokeCap(layer.cap));
+            paint.setStrokeMiter(float(layer.miterLimit));
             paint.setPathEffect(strokePathEffectFor(layer, width, m_scale));
             const SkPath stroked = strokedPathFor(layer, m_path);
+            if (strokeHasProfile(layer)) {
+                // Taper / Wave: the outline filled; inside or outside keeps one side of a twice-as-wide band.
+                paint.setStyle(SkPaint::kFill_Style);
+                paint.setPathEffect(nullptr);
+                const bool centred = layer.strokeAlign == StrokeAlign::Center;
+                const SkPath band = profiledStroke(stroked, centred ? width : width * 2.0, layer, m_scale);
+                if (centred) {
+                    canvas.drawPath(band, paint);
+                    break;
+                }
+                canvas.save();
+                canvas.clipPath(m_path, layer.strokeAlign == StrokeAlign::Inside ? SkClipOp::kIntersect : SkClipOp::kDifference,
+                                true);
+                canvas.drawPath(band, paint);
+                canvas.restore();
+                break;
+            }
             if (layer.strokeAlign == StrokeAlign::Center) {
                 paint.setStrokeWidth(float(width));
                 canvas.drawPath(stroked, paint);
@@ -640,6 +725,32 @@ SkMatrix partMatrix(const ShapePartTransform &t)
     return m;
 }
 
+// After Effects' Wiggle Transform (0.28): smooth pseudo-noise (a few sines at odd ratios, their phases from the
+// seed) in -1..1 per channel, the same for the same seed and time, so preview and export agree.
+double wiggleNoise(double t, double seed, int channel)
+{
+    const double s = seed * 12.9898 + channel * 78.233;
+    const double p1 = std::fmod(std::sin(s) * 43758.5453, 1.0) * 6.2832;
+    const double p2 = std::fmod(std::sin(s + 1.7) * 24634.6345, 1.0) * 6.2832;
+    const double p3 = std::fmod(std::sin(s + 3.1) * 11891.2117, 1.0) * 6.2832;
+    return (std::sin(t * 1.0 + p1) * 0.55 + std::sin(t * 2.31 + p2) * 0.30 + std::sin(t * 4.73 + p3) * 0.15);
+}
+
+ShapePartTransform wiggledTransform(const ShapePartTransform &t, double timeSec)
+{
+    if (!t.wiggles())
+        return t;
+    ShapePartTransform w = t;
+    const double phase = timeSec * qMax(0.0, t.wiggleSpeed) * 2.0 * M_PI / 2.31;
+    w.x += t.wigglePosition * wiggleNoise(phase, t.wiggleSeed, 0);
+    w.y += t.wigglePosition * wiggleNoise(phase, t.wiggleSeed, 1);
+    w.rotation += t.wiggleRotation * wiggleNoise(phase, t.wiggleSeed, 2);
+    const double k = 1.0 + t.wiggleScale / 100.0 * wiggleNoise(phase, t.wiggleSeed, 3);
+    w.scaleX *= k;
+    w.scaleY *= k;
+    return w;
+}
+
 // One part, placed: a shape part's own painter and where its image lands, or a group's children.
 struct PartNode
 {
@@ -662,7 +773,7 @@ void buildPartNodes(const std::vector<ShapePart> &parts, const SkMatrix &parent,
         node.alpha = float(qBound(0.0, part.transform.opacity / 100.0, 1.0));
         node.blend = toSkBlendMode(part.blend);
         SkMatrix m = parent;
-        m.preConcat(partMatrix(part.transform));
+        m.preConcat(partMatrix(wiggledTransform(part.transform, timeSec)));
         if (part.group) {
             buildPartNodes(part.children, m, timeSec, node.children, bounds);
             if (node.children.empty())

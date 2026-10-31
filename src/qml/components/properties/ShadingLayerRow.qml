@@ -42,6 +42,16 @@ Column {
     readonly property var dashLabels: [qsTr("Solid"), qsTr("Dashed"), qsTr("Dotted"), qsTr("Dash-dot")]
     readonly property bool sketchy: Number(row.layerData.sketchLength) > 0 || Number(row.layerData.sketchDeviation) > 0
     property bool sketchExpanded: false
+    // After Effects' Taper and Wave (0.28): shapes only (text strokes do not draw them).
+    readonly property bool onShape: row.keyPrefix.indexOf("shape") >= 0
+    readonly property bool tapered: Number(row.layerData.taperStartLength) > 0 || Number(row.layerData.taperEndLength) > 0
+                                    || Number(row.layerData.waveAmount) > 0
+    property bool taperExpanded: false
+    function propWithDefault(field, label, decimals, fallback) {
+        const v = row.layerData[field]
+        return { "key": row.keyPrefix + ".layer." + row.layerId + "." + field, "label": label,
+                 "def": v !== undefined ? Number(v) : fallback, "decimals": decimals }
+    }
 
     width: parent ? parent.width : 200
     spacing: 6
@@ -292,6 +302,186 @@ Column {
                 sliderFrom: 0
                 sliderTo: 1
                 percent: true
+            }
+        }
+
+        // Taper (thinner towards the ends) and Wave (the width rising and falling), as After Effects' stroke; and
+        // the miter limit for sharp corners. Folded until used.
+        Column {
+            width: parent.width - parent.leftPadding - parent.rightPadding
+            spacing: Theme.spacingSm
+            visible: row.kind === "stroke" && row.onShape
+
+            Row {
+                spacing: 4
+                IconButton {
+                    glyph: row.taperExpanded || row.tapered ? Theme.icons.chevronDown : Theme.icons.chevronRight
+                    variant: "ghost"
+                    buttonSize: 20
+                    iconSize: 11
+                    anchors.verticalCenter: parent.verticalCenter
+                    onClicked: row.taperExpanded = !row.taperExpanded
+                }
+                Text {
+                    text: qsTr("Taper and wave")
+                    anchors.verticalCenter: parent.verticalCenter
+                    color: row.tapered ? Theme.panelForeground : Theme.mutedForeground
+                    font.pixelSize: Theme.fontSizeXs
+                    font.family: Theme.fontFamily
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: row.taperExpanded = !row.taperExpanded
+                    }
+                }
+            }
+
+            Column {
+                width: parent.width
+                spacing: Theme.spacingMd
+                visible: row.taperExpanded || row.tapered
+
+                Text {
+                    width: parent.width
+                    wrapMode: Text.WordWrap
+                    text: qsTr("Taper thins the stroke towards its start and end; Wave makes its width rise and fall along the path.")
+                    color: Theme.mutedForeground
+                    font.pixelSize: Theme.fontSizeXs
+                    font.family: Theme.fontFamily
+                }
+                Row {
+                    width: parent.width
+                    spacing: 8
+                    PropertyKeyframeRow {
+                        width: (parent.width - parent.spacing) / 2
+                        propDef: row.propWithDefault("taperStartLength", qsTr("Taper start"), 0, 0)
+                        keyframeList: row.keyframes("taperStartLength")
+                        useSlider: true
+                        sliderFrom: 0
+                        sliderTo: 100
+                        unit: "%"
+                    }
+                    PropertyKeyframeRow {
+                        width: (parent.width - parent.spacing) / 2
+                        propDef: row.propWithDefault("taperEndLength", qsTr("Taper end"), 0, 0)
+                        keyframeList: row.keyframes("taperEndLength")
+                        useSlider: true
+                        sliderFrom: 0
+                        sliderTo: 100
+                        unit: "%"
+                    }
+                }
+                Row {
+                    width: parent.width
+                    spacing: 8
+                    PropertyKeyframeRow {
+                        width: (parent.width - parent.spacing) / 2
+                        propDef: row.propWithDefault("taperStartWidth", qsTr("Start width"), 0, 0)
+                        keyframeList: row.keyframes("taperStartWidth")
+                        useSlider: true
+                        sliderFrom: 0
+                        sliderTo: 100
+                        unit: "%"
+                    }
+                    PropertyKeyframeRow {
+                        width: (parent.width - parent.spacing) / 2
+                        propDef: row.propWithDefault("taperEndWidth", qsTr("End width"), 0, 0)
+                        keyframeList: row.keyframes("taperEndWidth")
+                        useSlider: true
+                        sliderFrom: 0
+                        sliderTo: 100
+                        unit: "%"
+                    }
+                }
+                PropertyKeyframeRow {
+                        width: parent.width
+                        propDef: row.propWithDefault("taperEase", qsTr("Taper ease"), 0, 0)
+                        keyframeList: []
+                        useSlider: true
+                        sliderFrom: 0
+                        sliderTo: 100
+                        unit: "%"
+                    }
+                Row {
+                    width: parent.width
+                    spacing: 8
+                    PropertyKeyframeRow {
+                        width: (parent.width - parent.spacing * 2) / 3
+                        propDef: row.propWithDefault("waveAmount", qsTr("Wave"), 0, 0)
+                        keyframeList: row.keyframes("waveAmount")
+                        useSlider: true
+                        sliderFrom: 0
+                        sliderTo: 100
+                        unit: "%"
+                    }
+                    PropertyKeyframeRow {
+                        width: (parent.width - parent.spacing * 2) / 3
+                        propDef: row.propWithDefault("waveLength", qsTr("Wavelength"), 0, 40)
+                        keyframeList: row.keyframes("waveLength")
+                        useSlider: true
+                        sliderFrom: 4
+                        sliderTo: 400
+                        unit: "px"
+                    }
+                    PropertyKeyframeRow {
+                        width: (parent.width - parent.spacing * 2) / 3
+                        propDef: row.propWithDefault("wavePhase", qsTr("Phase"), 0, 0)
+                        keyframeList: row.keyframes("wavePhase")
+                        useSlider: true
+                        sliderFrom: 0
+                        sliderTo: 360
+                        unit: "°"
+                    }
+                }
+                // After Effects' Line Cap and Line Join.
+                Row {
+                    width: parent.width
+                    spacing: 8
+                    Column {
+                        width: (parent.width - parent.spacing) / 2
+                        spacing: 4
+                        Text {
+                            text: qsTr("Line ends")
+                            color: Theme.mutedForeground
+                            font.pixelSize: Theme.fontSizeXs
+                            font.family: Theme.fontFamily
+                        }
+                        ThemedComboBox {
+                            readonly property var values: ["butt", "round", "square"]
+                            width: parent.width
+                            model: [qsTr("Flat"), qsTr("Round"), qsTr("Square")]
+                            tooltip: qsTr("How the open ends of the stroke finish (After Effects' Line Cap)")
+                            currentIndex: Math.max(0, values.indexOf(row.layerData.cap || "round"))
+                            onActivated: row.setLayer({ "cap": values[currentIndex] })
+                        }
+                    }
+                    Column {
+                        width: (parent.width - parent.spacing) / 2
+                        spacing: 4
+                        Text {
+                            text: qsTr("Corners")
+                            color: Theme.mutedForeground
+                            font.pixelSize: Theme.fontSizeXs
+                            font.family: Theme.fontFamily
+                        }
+                        ThemedComboBox {
+                            readonly property var values: ["miter", "round", "bevel"]
+                            width: parent.width
+                            model: [qsTr("Sharp"), qsTr("Round"), qsTr("Bevelled")]
+                            tooltip: qsTr("How the stroke turns a corner (After Effects' Line Join)")
+                            currentIndex: Math.max(0, values.indexOf(row.layerData.join || "round"))
+                            onActivated: row.setLayer({ "join": values[currentIndex] })
+                        }
+                    }
+                }
+                PropertyKeyframeRow {
+                    width: parent.width
+                    visible: (row.layerData.join || "round") === "miter"
+                    propDef: row.propWithDefault("miterLimit", qsTr("Miter limit"), 1, 4)
+                    keyframeList: []
+                    useSlider: true
+                    sliderFrom: 1
+                    sliderTo: 20
+                }
             }
         }
 

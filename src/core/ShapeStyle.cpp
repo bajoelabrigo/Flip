@@ -551,6 +551,8 @@ struct KnobField
 constexpr KnobField kKnobs[] = {
     {"cornerRadius", QT_TRANSLATE_NOOP("ShapeStyle", "Corner radius"), &ShapeStyle::cornerRadius, 0.0, 2000.0},
     {"innerRatio", QT_TRANSLATE_NOOP("ShapeStyle", "Inner radius"), &ShapeStyle::innerRatio, 0.05, 0.95},
+    {"outerRoundness", QT_TRANSLATE_NOOP("ShapeStyle", "Outer roundness"), &ShapeStyle::outerRoundness, 0.0, 100.0},
+    {"innerRoundness", QT_TRANSLATE_NOOP("ShapeStyle", "Inner roundness"), &ShapeStyle::innerRoundness, 0.0, 100.0},
     {"headSize", QT_TRANSLATE_NOOP("ShapeStyle", "Head size"), &ShapeStyle::headSize, 0.05, 0.9},
     {"thickness", QT_TRANSLATE_NOOP("ShapeStyle", "Thickness"), &ShapeStyle::thickness, 0.05, 1.0},
     {"tailX", QT_TRANSLATE_NOOP("ShapeStyle", "Tail position"), &ShapeStyle::tailX, 0.08, 0.92},
@@ -757,7 +759,7 @@ quint64 shapeStyleHash(const ShapeStyle &style)
 {
     return qHashMulti(0, static_cast<int>(style.kind), textLayersHash(style.layers), style.cornerRadius, style.points,
                       style.innerRatio, style.headSize, style.thickness, style.tailX, style.tailSize,
-                      style.customPath, style.customEvenOdd)
+                      style.customPath, style.customEvenOdd, style.outerRoundness, style.innerRoundness)
            ^ qHashMulti(1, style.trimStart, style.trimEnd, style.trimOffset, style.trimSegments, style.trimReverse, style.repeatCopies, style.repeatOffset,
                         style.repeatX, style.repeatY, style.repeatScale, style.repeatRotation,
                         style.repeatStartOpacity, style.repeatEndOpacity)
@@ -910,6 +912,8 @@ ShapeStyle shapeStyleFromJson(const QJsonObject &o)
     s.cornerRadius = o.value(QStringLiteral("cornerRadius")).toDouble(s.cornerRadius);
     s.points = o.value(QStringLiteral("points")).toInt(s.points);
     s.innerRatio = o.value(QStringLiteral("innerRatio")).toDouble(s.innerRatio);
+    s.outerRoundness = qBound(0.0, o.value(QStringLiteral("outerRoundness")).toDouble(0.0), 100.0);
+    s.innerRoundness = qBound(0.0, o.value(QStringLiteral("innerRoundness")).toDouble(0.0), 100.0);
     s.headSize = o.value(QStringLiteral("headSize")).toDouble(s.headSize);
     s.thickness = o.value(QStringLiteral("thickness")).toDouble(s.thickness);
     s.tailX = o.value(QStringLiteral("tailX")).toDouble(s.tailX);
@@ -965,6 +969,11 @@ constexpr PartField kPartFields[] = {
     {"skewAxis", &ShapePartTransform::skewAxis, -36000.0, 36000.0},
     {"rotation", &ShapePartTransform::rotation, -360000.0, 360000.0},
     {"opacity", &ShapePartTransform::opacity, 0.0, 100.0},
+    {"wigglePosition", &ShapePartTransform::wigglePosition, 0.0, 10000.0},
+    {"wiggleRotation", &ShapePartTransform::wiggleRotation, 0.0, 3600.0},
+    {"wiggleScale", &ShapePartTransform::wiggleScale, 0.0, 1000.0},
+    {"wiggleSpeed", &ShapePartTransform::wiggleSpeed, 0.0, 100.0},
+    {"wiggleSeed", &ShapePartTransform::wiggleSeed, 0.0, 100000.0},
 };
 
 const PartField *partFieldFor(const QString &key)
@@ -1024,6 +1033,9 @@ QJsonObject partTransformToJson(const ShapePartTransform &t)
 
 bool ShapePart::isAnimated() const
 {
+    // A wiggle moves it every frame (Wiggle Transform, 0.28).
+    if (transform.wiggles() && transform.wiggleSpeed > 0.0)
+        return true;
     for (auto it = keyframes.constBegin(); it != keyframes.constEnd(); ++it) {
         if (!it->isEmpty() && it->enabled())
             return true;

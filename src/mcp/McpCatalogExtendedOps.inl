@@ -386,6 +386,41 @@
                         {QStringLiteral("at"), numberProp(QStringLiteral("Start seconds (default: playhead)"))},
                         {QStringLiteral("track"), integerProp(QStringLiteral("Optional destination track; omitted picks or creates one"))}},
                        {QStringLiteral("shape")}) },
+        // After Effects' Contents (0.28): the parts inside one shape layer.
+        { "list_shape_parts", "shapes", "List a shape layer's parts",
+          "The parts inside a shape layer (After Effects' Contents), top first, groups before their parts: "
+          "[{id, name, parent, group, visible, x, y, scaleX, scaleY, rotation, pts}] where pts are the part's "
+          "corners as fractions of the layer's box. Empty for a plain shape. Animate a part with set_keyframe "
+          "part.<id>.<field> (x, y, scaleX, scaleY, rotation, opacity, anchorX, anchorY, skew, skewAxis, width, "
+          "height, wigglePosition, wiggleRotation, wiggleScale, wiggleSpeed, wiggleSeed) or "
+          "part.<id>.shape.<key> for its own shape (fill colour, stroke, points…).",
+          objectSchema({{QStringLiteral("clip"), stringProp(QStringLiteral("Shape clip UUID"))}},
+                       {QStringLiteral("clip")}) },
+        { "add_shape_part", "shapes", "Add a part to a shape layer",
+          "Add a rectangle, ellipse, star, polygon or empty group to a shape layer (a plain shape becomes a layer "
+          "of parts, what it drew kept as part 1). It goes into the picked group, or on top. Returns {id}.",
+          objectSchema({{QStringLiteral("clip"), stringProp(QStringLiteral("Shape clip UUID"))},
+                        {QStringLiteral("kind"), stringProp(QStringLiteral("rectangle | ellipse | star | polygon | group"))}},
+                       {QStringLiteral("clip"), QStringLiteral("kind")}) },
+        { "set_shape_part", "shapes", "Change a part of a shape layer",
+          "Rename, show or hide, set the blend mode of a part, and set any of its numbers at the playhead (a key "
+          "when that number is animated): values = {x, y, scaleX, scaleY, rotation, opacity, width, height, ...}. "
+          "One undo step.",
+          objectSchema({{QStringLiteral("clip"), stringProp(QStringLiteral("Shape clip UUID"))},
+                        {QStringLiteral("part"), stringProp(QStringLiteral("Part id from list_shape_parts"))},
+                        {QStringLiteral("name"), stringProp(QStringLiteral("New name"))},
+                        {QStringLiteral("visible"), boolProp(QStringLiteral("Show or hide"))},
+                        {QStringLiteral("blend"), stringProp(QStringLiteral("normal | multiply | screen | overlay | add | darken | lighten"))},
+                        {QStringLiteral("values"), QJsonObject{{QStringLiteral("type"), QStringLiteral("object")},
+                                                               {QStringLiteral("description"), QStringLiteral("field → number")}}}},
+                       {QStringLiteral("clip"), QStringLiteral("part")}) },
+        { "group_shape_part", "shapes", "Group or ungroup a part",
+          "group:true wraps the part in a new group (returns {id} of the group); group:false ungroups a group, "
+          "its parts keeping where they show.",
+          objectSchema({{QStringLiteral("clip"), stringProp(QStringLiteral("Shape clip UUID"))},
+                        {QStringLiteral("part"), stringProp(QStringLiteral("Part or group id"))},
+                        {QStringLiteral("group"), boolProp(QStringLiteral("true groups, false ungroups"))}},
+                       {QStringLiteral("clip"), QStringLiteral("part"), QStringLiteral("group")}) },
         { "add_sticker", "shapes", "Place a sticker",
           "Add a sticker clip, creating a track when needed. Returns {id, track, index}.",
           objectSchema({{QStringLiteral("sticker"), stringProp(QStringLiteral("Sticker id from list_stickers"))},

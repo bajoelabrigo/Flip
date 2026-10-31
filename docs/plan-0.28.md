@@ -179,8 +179,19 @@ mismo que conoce (orden, nombres, cronómetros, atajos).
    como siempre y al terminarlo pasa a esa capa como «Trazado N» donde se dibujó (`m_penTargetLayerId`,
    `moveShapeClipIntoLayer`, en el mismo paso de deshacer); el primer Esc con la pluma suelta la capa, el segundo deja
    la pluma. Una capa de partes ya no se trata como trazado libre (`shapePathState`).
-5. [ ] Borde completo (Taper, Wave, guiones, inglete), degradados, Redondear esquinas, Transformación ondulada,
+5. [~] Borde completo (Taper, Wave, guiones, inglete), degradados, Redondear esquinas, Transformación ondulada,
    estrella con redondez; MCP, expresiones `content("…")`, traducciones, notas.
+   Hecho (falta compilar y probar en ventana): **Afinar y ondular** en el borde de las formas (`TextShadingLayer`:
+   taperStart/EndLength, taperStart/EndWidth, taperEase, waveAmount/Length/Phase, todos animables; se dibuja como
+   contorno de ancho variable, `profiledStroke` en `SkiaShapePainter`), **límite de inglete**, y en el inspector
+   (`ShadingLayerRow`, solo formas) «Afinar y ondular» con **Extremos** (planos/redondeados/cuadrados) y **Esquinas** (en
+   punta/redondeadas/biseladas), que no tenían control. **Redondez exterior/interior** en estrellas y polígonos
+   regulares (`radialPath`: a 100 % un polígono es un círculo; animables; filas en Contenido). **Transformación
+   ondulada** de una parte (posición, rotación, escala, temblores por segundo, semilla; ruido suave determinista, así la
+   exportación es igual a la vista previa). **MCP** `list_shape_parts`, `add_shape_part`, `set_shape_part`,
+   `group_shape_part` (docs/MCP.md, prueba `shapePartsThroughMcp`). Prueba `strokeTaperWaveAndRoundness`. Guiones,
+   degradados y redondear esquinas ya existían. Además, en el motor: el «barrido» de un texto con caja barría solo las
+   letras y dejaba sin margen derecho la caja (ahora barre la caja entera). Falta: `content("…")` en expresiones.
 
 ## Decisiones (Jorge)
 - [x] Nombres (Jorge, 2026-10-30: opción A): columna derecha con nombres claros (Forma, Relleno, **Borde**, **Posición y

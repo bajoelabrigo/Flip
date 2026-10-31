@@ -59,6 +59,7 @@ class McpTest : public QObject
     Q_OBJECT
 
 private slots:
+    void shapePartsThroughMcp();
     void catalogListsToolboxes();
     void sceneToolboxExposesSchemas();
     void sceneOpsRequireAnalysisFirst();
@@ -6671,6 +6672,43 @@ void McpTest::userShapesDrawAndMask()
 
     QVERIFY(state.removeUserShape(QStringLiteral("user-shape:heart-test")));
     QVERIFY(!drift::shapeCatalogEntry(QStringLiteral("user-shape:heart-test")));
+}
+
+// 0.28: a shape layer's parts over MCP — add one, list them, rename and move it at the playhead.
+void McpTest::shapePartsThroughMcp()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    drift::mcp::McpDispatcher dispatcher(&state);
+    const QJsonObject shape = dispatcher.applyOne(QStringLiteral("add_shape"), {{QStringLiteral("shape"), QStringLiteral("rectangle")}, {QStringLiteral("at"), 0.0}});
+    const QString id = shape.value(QStringLiteral("id")).toString();
+    QVERIFY(!id.isEmpty());
+    QJsonObject r = dispatcher.applyOne(QStringLiteral("add_shape_part"), {{QStringLiteral("clip"), id}, {QStringLiteral("kind"), QStringLiteral("ellipse")}});
+    QVERIFY2(r.value(QStringLiteral("ok")).toBool(), qPrintable(QJsonDocument(r).toJson(QJsonDocument::Compact)));
+    const QString part = r.value(QStringLiteral("id")).toString();
+    QVERIFY(!part.isEmpty());
+    r = dispatcher.applyOne(QStringLiteral("add_shape_part"), {{QStringLiteral("clip"), id}, {QStringLiteral("kind"), QStringLiteral("blob")}});
+    QCOMPARE(r.value(QStringLiteral("error")).toString(), QStringLiteral("bad_args"));
+    r = dispatcher.applyOne(QStringLiteral("list_shape_parts"), {{QStringLiteral("clip"), id}});
+    QCOMPARE(r.value(QStringLiteral("parts")).toArray().size(), 2);
+    r = dispatcher.applyOne(QStringLiteral("set_shape_part"),
+                            {{QStringLiteral("clip"), id}, {QStringLiteral("part"), part}, {QStringLiteral("name"), QStringLiteral("Sol")},
+                             {QStringLiteral("values"), QJsonObject{{QStringLiteral("x"), 50.0}, {QStringLiteral("rotation"), 30.0}}}});
+    QVERIFY2(r.value(QStringLiteral("ok")).toBool(), qPrintable(QJsonDocument(r).toJson(QJsonDocument::Compact)));
+    bool seen = false;
+    for (const QJsonValue &v : dispatcher.applyOne(QStringLiteral("list_shape_parts"), {{QStringLiteral("clip"), id}})
+                                  .value(QStringLiteral("parts")).toArray()) {
+        const QJsonObject o = v.toObject();
+        if (o.value(QStringLiteral("id")).toString() != part)
+            continue;
+        seen = true;
+        QCOMPARE(o.value(QStringLiteral("name")).toString(), QStringLiteral("Sol"));
+        QCOMPARE(o.value(QStringLiteral("x")).toDouble(), 50.0);
+        QCOMPARE(o.value(QStringLiteral("rotation")).toDouble(), 30.0);
+    }
+    QVERIFY(seen);
+    r = dispatcher.applyOne(QStringLiteral("set_shape_part"), {{QStringLiteral("clip"), id}, {QStringLiteral("part"), QStringLiteral("nope")}});
+    QCOMPARE(r.value(QStringLiteral("error")).toString(), QStringLiteral("not_found"));
 }
 
 QTEST_MAIN(McpTest)

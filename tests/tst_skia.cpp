@@ -298,6 +298,7 @@ private slots:
     void shapeWithOnePartDrawsTheSame_data();
     void shapeWithOnePartDrawsTheSame();
     void shapeLandsOnItsFractionalBox();
+    void strokeTaperWaveAndRoundness();
     void shapePartsStackMoveAndGroup();
     void shapePartsSaveAndAnimate();
     void shapeRepeaterDrawsCopies();
@@ -686,6 +687,54 @@ ShapePart rectPart(const QString &id, const QColor &colour, double w, double h, 
 // templates in Stock and every saved project look exactly as before once a part is added.
 // A shape whose box grows by fractions of a pixel (a pop, a zoom) lands centred on it every frame: the image is
 // drawn at whole pixels but placed on the box as it is (Jorge, 2026-10-30: logos and pictures shook).
+// 0.28 stage 5: After Effects' Taper and Wave thin the stroke (less of it painted than the plain one), they survive
+// saving and loading, and a rounded star's outline differs from the sharp one.
+void SkiaTest::strokeTaperWaveAndRoundness()
+{
+    const auto greenPixels = [](const QImage &img) {
+        int n = 0;
+        for (int y = 0; y < img.height(); ++y)
+            for (int x = 0; x < img.width(); ++x) {
+                const QColor c = img.pixelColor(x, y);
+                n += (c.green() > 128 && c.red() < 100 && c.alpha() > 128) ? 1 : 0;
+            }
+        return n;
+    };
+    ShapeStyle plain;
+    plain.kind = ShapeKind::Ellipse;
+    plain.layers = {strokeLayer(24.0, QColor(0, 255, 0))};
+    plain.layers[0].strokeAlign = StrokeAlign::Center;
+    const int full = greenPixels(placed(skia::makeShapePainter(plain, 300, 300, 1.0), 500, 500, 100));
+    QVERIFY(full > 1000);
+
+    ShapeStyle tapered = plain;
+    tapered.layers[0].taperStartLength = 50.0;
+    tapered.layers[0].taperEndLength = 50.0;
+    const int thin = greenPixels(placed(skia::makeShapePainter(tapered, 300, 300, 1.0), 500, 500, 100));
+    QVERIFY2(thin < full * 0.8 && thin > full * 0.2, qPrintable(QStringLiteral("%1 vs %2").arg(thin).arg(full)));
+
+    ShapeStyle waved = plain;
+    waved.layers[0].waveAmount = 80.0;
+    waved.layers[0].waveLength = 30.0;
+    const int wavy = greenPixels(placed(skia::makeShapePainter(waved, 300, 300, 1.0), 500, 500, 100));
+    QVERIFY2(wavy < full * 0.9, qPrintable(QStringLiteral("%1 vs %2").arg(wavy).arg(full)));
+
+    // Saved and read back.
+    const ShapeStyle back = shapeStyleFromJson(shapeStyleToJson(tapered));
+    QCOMPARE(back.layers.at(0).taperStartLength, 50.0);
+    QCOMPARE(back.layers.at(0).taperEndLength, 50.0);
+
+    // A star with rounded points draws differently from the sharp one.
+    ShapeStyle star;
+    star.kind = ShapeKind::Star;
+    star.layers = {solidFillLayer(QColor(0, 255, 0))};
+    const int sharp = greenPixels(placed(skia::makeShapePainter(star, 300, 300, 1.0), 500, 500, 100));
+    star.outerRoundness = 100.0;
+    const int round = greenPixels(placed(skia::makeShapePainter(star, 300, 300, 1.0), 500, 500, 100));
+    QVERIFY2(qAbs(round - sharp) > sharp / 50, qPrintable(QStringLiteral("%1 vs %2").arg(round).arg(sharp)));
+    QCOMPARE(shapeStyleFromJson(shapeStyleToJson(star)).outerRoundness, 100.0);
+}
+
 void SkiaTest::shapeLandsOnItsFractionalBox()
 {
     ShapeStyle style;

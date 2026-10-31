@@ -1766,6 +1766,58 @@ QJsonObject McpDispatcher::applyOneExtended(const QString &tool, const QJsonObje
         return replyMintedClips(m_controller, before);
     }
 
+    // --- After Effects' Contents (0.28): parts inside one shape layer ---
+    if (tool == QLatin1String("list_shape_parts") || tool == QLatin1String("add_shape_part")
+        || tool == QLatin1String("set_shape_part") || tool == QLatin1String("group_shape_part")) {
+        const ClipRef ref = resolveClip(args);
+        if (!ref.valid())
+            return clipRefError(args);
+        if (tool == QLatin1String("list_shape_parts"))
+            return ok(QJsonObject{{QStringLiteral("parts"),
+                        QJsonArray::fromVariantList(m_controller->shapePartFrames(ref.track, ref.clip))}});
+        if (tool == QLatin1String("add_shape_part")) {
+            const QString kind = argString(args, QStringLiteral("kind"));
+            static const QStringList kinds{QStringLiteral("rectangle"), QStringLiteral("ellipse"), QStringLiteral("star"),
+                                           QStringLiteral("polygon"), QStringLiteral("group")};
+            if (!kinds.contains(kind))
+                return err("bad_args", QStringLiteral("kind must be rectangle, ellipse, star, polygon or group"));
+            const QString id = m_controller->addShapePart(ref.track, ref.clip, kind);
+            if (id.isEmpty())
+                return err("bad_args", QStringLiteral("Not a shape clip"));
+            return ok(QJsonObject{{QStringLiteral("id"), id}});
+        }
+        const QString part = argString(args, QStringLiteral("part"));
+        bool found = false;
+        for (const QVariant &v : m_controller->shapePartFrames(ref.track, ref.clip))
+            found = found || v.toMap().value(QStringLiteral("id")).toString() == part;
+        if (!found)
+            return err("not_found", QStringLiteral("No part %1 in this shape layer (list_shape_parts)").arg(part));
+        if (tool == QLatin1String("group_shape_part")) {
+            if (!args.contains(QStringLiteral("group")))
+                return err("bad_args", QStringLiteral("group required"));
+            if (args.value(QStringLiteral("group")).toBool())
+                return ok(QJsonObject{{QStringLiteral("id"), m_controller->groupShapePart(ref.track, ref.clip, part)}});
+            m_controller->ungroupShapePart(ref.track, ref.clip, part);
+            return ok(QJsonObject{});
+        }
+        // set_shape_part
+        if (args.contains(QStringLiteral("name")))
+            m_controller->renameShapePart(ref.track, ref.clip, part, argString(args, QStringLiteral("name")));
+        if (args.contains(QStringLiteral("visible")))
+            m_controller->setShapePartVisible(ref.track, ref.clip, part, args.value(QStringLiteral("visible")).toBool());
+        if (args.contains(QStringLiteral("blend")))
+            m_controller->setShapePartBlend(ref.track, ref.clip, part, argString(args, QStringLiteral("blend")));
+        const QJsonObject values = args.value(QStringLiteral("values")).toObject();
+        if (!values.isEmpty()) {
+            m_controller->beginPreviewDrag(QStringLiteral("set_shape_part"));
+            for (auto it = values.constBegin(); it != values.constEnd(); ++it)
+                m_controller->previewSetPropertyValue(ref.track, ref.clip, QStringLiteral("part.%1.%2").arg(part, it.key()),
+                                                      m_controller->playheadSeconds(), it.value().toDouble());
+            m_controller->commitPreviewDrag();
+        }
+        return ok(QJsonObject{});
+    }
+
     if (tool == QLatin1String("add_sticker")) {
         const QString stickerId = argString(args, QStringLiteral("sticker"));
         if (stickerId.isEmpty())

@@ -77,6 +77,10 @@ struct ShapeStyle
     double cornerRadius = 0.0; // project px — native on the rect family, a corner path effect elsewhere
     int points = 5;            // star / burst spikes
     double innerRatio = 0.5;   // star / burst inner radius, fraction of outer
+    // After Effects' Outer / Inner Roundness (0.28), % : a star's or polygon's corners become curves; 100 % turns
+    // a polygon into a circle.
+    double outerRoundness = 0.0;
+    double innerRoundness = 0.0;
     double headSize = 0.4;     // arrows / chevron / banner: head length, fraction of width
     double thickness = 0.4;    // arrows / chevron / cross: shaft, fraction of height
     double tailX = 0.25;       // bubbles: tail anchor along the bottom edge, 0..1
@@ -183,6 +187,14 @@ struct ShapePartTransform
     double skewAxis = 0.0;
     double rotation = 0.0;
     double opacity = 100.0;
+    // After Effects' Wiggle Transform (0.28): the part jitters on its own, by up to these amounts (position in
+    // px, rotation in degrees, scale in %), wigglesPerSecond times a second, the same way for the same seed.
+    double wigglePosition = 0.0;
+    double wiggleRotation = 0.0;
+    double wiggleScale = 0.0;
+    double wiggleSpeed = 2.0;
+    double wiggleSeed = 0.0;
+    bool wiggles() const { return wigglePosition > 0.0 || wiggleRotation > 0.0 || wiggleScale > 0.0; }
 };
 
 struct ShapePart
