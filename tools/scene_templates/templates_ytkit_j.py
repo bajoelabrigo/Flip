@@ -39,10 +39,12 @@ def _hollow():
 
 
 def yt_icon(t, cx, cy, w, t0, dur, motion=None, colour=YT_RED, play=WHITE):
-    """The YouTube icon as its guidelines draw it: the red shape with the white play triangle."""
+    """The YouTube icon as its guidelines draw it: the red shape with the white play triangle. The triangle is
+    the official outline's own hole, with a square of its colour hidden behind: drawn as a separate small shape
+    it wobbled against the red one as it grew (Jorge, 2026-10-30: «solo tiembla el logo de YouTube»)."""
     box = centered(cx, cy, w, w)
     m = motion if motion is not None else _life(dur)
-    path(t, t.track("shape", "Logo de YouTube"), play, t0, dur, box, YT_PLAY, filled=True, motion=m)
+    t.solid(t.track("shape", "Logo de YouTube"), play, t0, dur, centered(cx, cy, w * 0.44, w * 0.44), m)
     path(t, t.track("shape", "Logo de YouTube"), colour, t0, dur, box, LOGOS["youtube"], filled=True, motion=m)
 
 
