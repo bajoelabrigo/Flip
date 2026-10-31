@@ -163,8 +163,8 @@ def pill():
     photo_bg(t, "h-office-01", s1=1.03, label="Tu video")
     p = Piece(t, D, -99, 58)
     # The tab first: it hangs behind the pill.
-    drop = curve([(40, -62), (50, -45), (52, -37), (54, -25), (56, -17), (58, -13), (60, -9), (62, -8), (66, 0)])
-    p.shape("Pestaña", GREEN, (273, 840, 704, 922), lambda fr: (273, 840 + drop(fr), 704, 922 + drop(fr)) if fr >= 40
+    drop = curve([(46, -72), (52, -40), (54, -25), (56, -17), (58, -13), (60, -9), (62, -8), (66, 0)])
+    p.shape("Pestaña", GREEN, (273, 840, 704, 922), lambda fr: (273, 840 + drop(fr), 704, 922 + drop(fr)) if fr >= 46
             else (488, 860, 488, 860), 16)
     p.text("motion designer", 488, 893, 245, 600, DARK, "Cargo", align="center", opacity=_ramp(56, 66))
     seed = curve([(0, 0), (2, 35), (4, 66), (6, 90), (8, 106), (10, 116), (12, 120), (16, 118)])
@@ -188,10 +188,10 @@ def pill():
     p.shape("Aro", DARK, (865, 787, 893, 815), lambda fr: (879 - badge(fr) / 4, 801 - badge(fr) / 4,
                                                           879 + badge(fr) / 4, 801 + badge(fr) / 4), 0,
             kind="ellipse", layers=stroke(DARK, 2.5))
-    ring = curve([(30, 0), (40, 31), (44, 30)])
+    ring = curve([(30, 0), (40, 35), (44, 34)])
     p.shape("Anillo", GREEN, (849, 771, 909, 831), lambda fr: (879 - ring(fr), 801 - ring(fr), 879 + ring(fr),
                                                               801 + ring(fr)), 0, kind="ellipse",
-            layers=stroke(GREEN, 2.5))
+            layers=stroke(GREEN, 2.0))
     # The name: shown from the right edge leftwards (frames 34-44), flickering at 38 and 42.
     flick = curve([(34, 1), (37, 1), (38, 0.25), (39, 1), (41, 1), (42, 0.25), (43, 1)])
     p.text("Murad Guliyev", 256, 801, 357, 700, WHITE, "Nombre", opacity=flick,
@@ -240,7 +240,7 @@ def big_name():
     tab = curve([(44, 760), (50, 718), (52, 704), (54, 694), (56, 690), (60, 685)])
     p.shape("Pestaña", GREEN, (1110, 685, 1623, 760), lambda fr: (1110, tab(fr), 1623, tab(fr) + 75) if fr >= 44
             else (1366, 760, 1366, 760), 16)
-    p.text("motion designer", 1366, 713, 295, 600, DARK, "Cargo", align="center", opacity=_ramp(54, 62),
+    p.text("motion designer", 1366, 713, 295, 600, DARK, "Cargo", align="center", opacity=_ramp(46, 52),
            reveal=lambda fr: (1110, 600, 1623, 744))
     p.shape("Barra", DARK, (1019, 744, 1715, 878), lambda fr: (1019, rise(fr), 1715, bottom(fr) + 9), 6)
     p.shape("Línea", DEEP, (1019, 869, 1715, 878), lambda fr: (1019, bottom(fr), 1715, bottom(fr) + 9) if k(fr) > 0.05
