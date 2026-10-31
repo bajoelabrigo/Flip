@@ -753,4 +753,39 @@ def neil():
     return t
 
 
-TEMPLATES = [francois, roger, jamie, charlotte, jason_e, jessica, david, neil]
+def joanna():
+    """A white bar opens to the left from its right end, uncovering the red name; a red tab with a slanted edge grows
+    out of the bar's left end with the logo in it. The exit is the entrance backwards, as measured."""
+    r = Ref("joanna", first=4)
+    D = duration(r)
+    t = _kit("joanna", "Tercio con logo: barra blanca y pestaña inclinada", "Logo lower third: white bar, slanted tab", D,
+             8538, ["nombre", "barra", "blanco", "logo"], thumb_at=2.4)
+    photo_bg(t, "h-city-01", s1=1.03, label="Tu video")
+    from llt_motion import frames_of
+    us = frames_of(D)
+    X1, Y0, Y1 = 1459.0, 712.0, 870.0
+    L = r.curve(lambda f: min([a for a, b in f["w"]["white"] + f["w"]["warm"]], default=None), before=X1, after=X1)
+    tip = r.curve(Ref.edge("r2", "warm"), before=300.0, after=300.0, offset=1)  # the slanted edge on row 864
+    has_tab = lambda u: bool(runs_at(r, u, "r1", "warm"))  # noqa: E731
+    bar = Box(300, Y0, X1 - 300, Y1 - Y0)
+    rect_track(t, t.track("shape", "Barra"), bar, lambda u: (L(u), Y0, X1, Y1), D, WHITE, name="Barra")
+    name = "JOANNA FILBURN"
+    nbox, nsize = caps_box(540, 723, 849, name)
+    clip = name_text(t, name, nbox, nsize, D, bold_from=name, colour=RED, bold_spacing=0.2, word_spacing=4)
+    mask_track(t, clip, nbox, lambda u: (L(u), 600, X1, 950), D)
+    # The tab: red from the bar's left end to a line leaning 0.32 px right per px up, through tip(u) on row 864.
+    slope = 0.322
+    tab_box = Box(300, Y0, 260, Y1 - Y0)
+    edges = lambda u: ((L(u), tip(u)) if has_tab(u) else (L(u), L(u)))  # noqa: E731
+    tab = t.solid(t.track("shape", "Pestaña"), RED, 0.0, D, tab_box)
+    tab["name"] = "Pestaña"
+    mask_track(t, tab, tab_box, lambda u: (edges(u)[0], Y0, 3000, Y1), D)
+    _slant_mask(t, tab, tab_box, us, lambda u: (-3000.0, edges(u)[1]), slope, 864.0, D, op="intersect")
+    lg = centered(388.5, 789.5, 140, 140)
+    mark = t.photo(t.track("video", "Logo"), "logo-11", 0.0, D, lg, label="Tu logo", brandRole="logo")
+    mask_track(t, mark, lg, lambda u: (edges(u)[0], Y0, 3000, Y1), D)
+    _slant_mask(t, mark, lg, us, lambda u: (-3000.0, edges(u)[1]), slope, 864.0, D, op="intersect")
+    return t
+
+
+TEMPLATES = [francois, roger, jamie, charlotte, jason_e, jessica, david, neil, joanna]
