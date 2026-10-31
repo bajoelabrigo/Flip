@@ -1019,4 +1019,63 @@ def janice():
     return t
 
 
-TEMPLATES = [francois, roger, jamie, charlotte, jason_e, jessica, david, neil, joanna, hendrick, bevan, janice]
+# Charlie Platinsky, measured frame by frame (25 fps from 67.9 s; out = in backwards, frame 142 - f): two thin white
+# lines run in from opposite sides, then part, and the logo and the name rise between them.
+_CP_TOP_R = {0: 311, 1: 325, 2: 356, 3: 417, 4: 542, 5: 787, 6: 996, 7: 1119, 8: 1201, 9: 1259, 10: 1304, 11: 1337,
+             12: 1363, 13: 1383, 14: 1399, 15: 1410, 16: 1419, 17: 1424, 18: 1429}
+_CP_BOT_L = {0: 1426, 1: 1412, 2: 1381, 3: 1320, 4: 1195, 5: 950, 6: 741, 7: 618, 8: 536, 9: 478, 10: 434, 11: 400,
+             12: 373, 13: 354, 14: 338, 15: 326, 16: 318, 17: 313, 18: 310, 19: 308}
+_CP_TOP_Y = {20: 771, 21: 770, 22: 769, 23: 767, 24: 763, 25: 756, 26: 743, 27: 729, 28: 720, 29: 714, 30: 709,
+             31: 705, 32: 703, 33: 700, 34: 698, 35: 697, 36: 696, 37: 695, 38: 694, 39: 693, 41: 692}
+_CP_BOT_Y = {20: 790, 21: 791, 22: 792, 23: 795, 24: 799, 25: 806, 26: 820, 27: 835, 28: 845, 29: 852, 30: 857,
+             31: 861, 32: 864, 33: 867, 34: 868, 35: 870, 36: 872, 37: 873, 39: 874, 40: 875}
+_CP_NAME = {26: 800, 27: 785, 28: 772, 29: 763, 30: 757, 31: 752, 32: 748, 33: 745, 34: 742, 35: 740, 36: 739,
+            37: 737, 38: 736, 39: 735, 40: 734, 44: 733}
+
+
+def charlie():
+    """Two thin white lines run in from opposite sides and meet; they part, and the logo and the name rise between
+    them. Out, everything backwards."""
+    fps, first, last = 25.0, 4, 142
+    D = round((last - first) / fps, 2)
+    t = _kit("charlie", "Tercio con logo: dos líneas que se abren", "Logo lower third: two lines parting", D, 8542,
+             ["nombre", "líneas", "blanco", "logo"], thumb_at=2.4)
+    photo_bg(t, "h-city-01", s1=1.03, label="Tu video")
+    from llt_motion import frames_of
+    us = frames_of(D)
+    fin = lambda u: (lambda i: i - 4 if i <= 71 else 138 - i)(first + u * fps)  # noqa: E731  the entrance frame
+    X0, X1 = 308.0, 1430.0
+    top_r = _table(_CP_TOP_R, 308.0, 1429.0)
+    bot_l = _table(_CP_BOT_L, 1430.0, 308.0)
+    top_y = _table(_CP_TOP_Y, 771.0, 692.0)
+    bot_y = _table(_CP_BOT_Y, 790.0, 875.0)
+    name_top = _table(_CP_NAME, 830.0, 733.0)
+    area = Box(X0, 680, X1 - X0, 210)
+    rect_track(t, t.track("shape", "Línea arriba"), area,
+               lambda u: (X0, top_y(fin(u)), top_r(fin(u)) + 1, top_y(fin(u)) + 4) if fin(u) >= 0 else (X0, 771, X0, 771),
+               D, WHITE, name="Línea arriba")
+    rect_track(t, t.track("shape", "Línea abajo"), area,
+               lambda u: (bot_l(fin(u)), bot_y(fin(u)), X1, bot_y(fin(u)) + 4) if fin(u) >= 0 else (X1, 790, X1, 790),
+               D, WHITE, name="Línea abajo")
+    between = lambda u: (X0, top_y(fin(u)) + 4, X1, bot_y(fin(u)))  # noqa: E731
+    dy = lambda u: name_top(fin(u)) - 733  # noqa: E731
+    lg = Box(343, 715, 124, 142)
+    motion = [(u, {"dy": dy(u)}, "linear") for u in us]
+    mark = t.photo(t.track("video", "Logo"), "logo-09", 0.0, D, lg, motion, label="Tu logo", brandRole="logo")
+    name = "CHARLIE PLATINSKY"
+    nbox, nsize = caps_box(519, 734, 839, name)
+    clip = name_text(t, name, nbox, nsize, D, bold_from="PLATINSKY", spacing=-3.0, bold_spacing=5.5, word_spacing=6,
+                     motion=motion)
+    for c, b in ((mark, lg), (clip, nbox)):
+        track = next(tr for tr in t.tracks if c in tr.clips)
+        mk = {"y": [], "h": []}
+        for u in us:
+            x0, y0, x1, y1 = between(u)
+            mk["y"].append((u, ((y0 + y1) / 2 - b.y - dy(u)) / b.h, "linear"))
+            mk["h"].append((u, max(0.0, y1 - y0) / b.h, "linear"))
+        t.mask(track, c, "rectangle", x=0.5, y=mk["y"][0][1], w=4.0, h=mk["h"][0][1],
+               keyframes={k: keys(v) for k, v in mk.items()})
+    return t
+
+
+TEMPLATES = [francois, roger, jamie, charlotte, jason_e, jessica, david, neil, joanna, hendrick, bevan, janice, charlie]
