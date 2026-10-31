@@ -5246,6 +5246,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Pick two or more keys of a property to reverse them</source>
+        <translation>اختر مفتاحين أو أكثر لخاصية لعكسها</translation>
+    </message>
+    <message>
         <source>Point light %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -19342,6 +19346,14 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Reverse</source>
+        <translation>عكس</translation>
+    </message>
+    <message>
+        <source>Plays the picked keys backwards in their own span (a cloned entrance becomes the exit)</source>
+        <translation>يشغّل المفاتيح المختارة بالعكس ضمن مداها (يصبح الدخول المنسوخ هو الخروج)</translation>
+    </message>
+    <message>
         <source>Bounce: %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -31221,6 +31233,10 @@ If playback stutters, try another.</source>
         <translation>المنظور</translation>
     </message>
     <message>
+        <source>Scale keyframe</source>
+        <translation>مفتاح المقياس</translation>
+    </message>
+    <message>
         <source>Also moved by %1</source>
         <translation>يتحرك أيضًا بواسطة %1</translation>
     </message>
@@ -31271,6 +31287,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Scale width and height together</source>
         <translation>تغيير العرض والارتفاع معًا</translation>
+    </message>
+    <message>
+        <source>Add a keyframe for Scale at the playhead</source>
+        <translation>إضافة مفتاح للمقياس عند رأس التشغيل</translation>
     </message>
     <message>
         <source>Scale clip</source>
@@ -31879,7 +31899,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Reverse</source>
-        <translation type="unfinished"></translation>
+        <translation>عكس</translation>
     </message>
     <message>
         <source>Reverse path direction: the trim runs round the other way</source>

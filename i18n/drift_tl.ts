@@ -5202,6 +5202,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Pick two or more keys of a property to reverse them</source>
+        <translation>Pumili ng dalawa o higit pang key ng isang property para baligtarin ang mga ito</translation>
+    </message>
+    <message>
         <source>Point light %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -19046,6 +19050,14 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Reverse</source>
+        <translation>Baligtarin</translation>
+    </message>
+    <message>
+        <source>Plays the picked keys backwards in their own span (a cloned entrance becomes the exit)</source>
+        <translation>Pinapatugtog nang pabaligtad ang mga napiling key sa sarili nilang saklaw (nagiging labas ang kinopyang pasok)</translation>
+    </message>
+    <message>
         <source>Bounce: %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -21785,7 +21797,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Reverse</source>
-        <translation type="unfinished"></translation>
+        <translation>Baligtarin</translation>
     </message>
     <message>
         <source>Flip Studio will render a reversed copy of this clip so it plays back smoothly. You can keep editing while it runs.</source>
@@ -24912,7 +24924,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Reverse</source>
-        <translation type="unfinished"></translation>
+        <translation>Baligtarin</translation>
     </message>
     <message>
         <source>Not rendered — playback may stutter</source>
@@ -29983,7 +29995,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Reverse</source>
-        <translation type="unfinished"></translation>
+        <translation>Baligtarin</translation>
     </message>
     <message>
         <source>Rotate 90°</source>
@@ -30825,6 +30837,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Scale keyframe</source>
+        <translation>Key ng scale</translation>
+    </message>
+    <message>
         <source>Also moved by %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -30875,6 +30891,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Scale width and height together</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add a keyframe for Scale at the playhead</source>
+        <translation>Magdagdag ng key ng Scale sa playhead</translation>
     </message>
     <message>
         <source>Scale clip</source>
@@ -31467,7 +31487,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Reverse</source>
-        <translation type="unfinished"></translation>
+        <translation>Baligtarin</translation>
     </message>
     <message>
         <source>Reverse path direction: the trim runs round the other way</source>

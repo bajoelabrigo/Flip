@@ -5183,6 +5183,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Pick two or more keys of a property to reverse them</source>
+        <translation>请选择某个属性的两个或更多关键帧以将其反转</translation>
+    </message>
+    <message>
         <source>Point light %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -18977,6 +18981,14 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Reverse</source>
+        <translation>反转</translation>
+    </message>
+    <message>
+        <source>Plays the picked keys backwards in their own span (a cloned entrance becomes the exit)</source>
+        <translation>在所选关键帧自身的区间内倒放（克隆的入场即成为出场）</translation>
+    </message>
+    <message>
         <source>Bounce: %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -30740,6 +30752,10 @@ If playback stutters, try another.</source>
         <translation>透视</translation>
     </message>
     <message>
+        <source>Scale keyframe</source>
+        <translation>缩放关键帧</translation>
+    </message>
+    <message>
         <source>Also moved by %1</source>
         <translation>同时被 %1 移动</translation>
     </message>
@@ -30790,6 +30806,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Scale width and height together</source>
         <translation>同时缩放宽度和高度</translation>
+    </message>
+    <message>
+        <source>Add a keyframe for Scale at the playhead</source>
+        <translation>在播放头处添加缩放关键帧</translation>
     </message>
     <message>
         <source>Scale clip</source>
@@ -31378,7 +31398,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Reverse</source>
-        <translation type="unfinished"></translation>
+        <translation>反转</translation>
     </message>
     <message>
         <source>Reverse path direction: the trim runs round the other way</source>

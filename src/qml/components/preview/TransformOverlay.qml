@@ -18,8 +18,9 @@ Item {
     // grab, so refreshes are suppressed until the drag ends.
     property bool interacting: false
 
-    // A text clip was double-clicked: the panel opens its inline editor.
-    signal textEditRequested(int track, int clip)
+    // A text clip was double-clicked, or the Text tool just made one (selectAll: its placeholder
+    // words are picked, so typing replaces them): the panel opens its inline editor.
+    signal textEditRequested(int track, int clip, bool selectAll)
 
     // In 3D mode the scene camera, as a gizmo box at its eye (see previewCameraBox).
     property var cameraBox: null
@@ -311,7 +312,7 @@ Item {
         anchors.fill: parent
         z: 955
         box: root.mode3d ? null : root.selectedBox
-        onTextEditRequested: (track, clip) => root.textEditRequested(track, clip)
+        onTextEditRequested: (track, clip, selectAll) => root.textEditRequested(track, clip, selectAll)
     }
 
     Repeater {
@@ -598,7 +599,7 @@ Item {
                     EditorState.selectClip(handle.box.track, handle.box.clip)
                     handle.forceActiveFocus()
                     if (tapCount === 2 && handle.isText && !root.mode3d)
-                        root.textEditRequested(handle.box.track, handle.box.clip)
+                        root.textEditRequested(handle.box.track, handle.box.clip, false)
                     // A shape layer's parts: double-click goes in, a click beside the picked part picks
                     // its neighbour or goes back to the layer.
                     if (partOverlay.active && wasSelected) {

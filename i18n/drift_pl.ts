@@ -5213,6 +5213,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Pick two or more keys of a property to reverse them</source>
+        <translation>Wybierz co najmniej dwa klucze właściwości, aby je odwrócić</translation>
+    </message>
+    <message>
         <source>Point light %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -19123,6 +19127,14 @@ ZOBACZENIA</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Reverse</source>
+        <translation>Odwróć</translation>
+    </message>
+    <message>
+        <source>Plays the picked keys backwards in their own span (a cloned entrance becomes the exit)</source>
+        <translation>Odtwarza wybrane klucze wstecz w ich własnym zakresie (sklonowane wejście staje się wyjściem)</translation>
+    </message>
+    <message>
         <source>Bounce: %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -30933,6 +30945,10 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
         <translation>Perspektywa</translation>
     </message>
     <message>
+        <source>Scale keyframe</source>
+        <translation>Klucz skali</translation>
+    </message>
+    <message>
         <source>Also moved by %1</source>
         <translation>Również przesuwane przez %1</translation>
     </message>
@@ -30983,6 +30999,10 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     <message>
         <source>Scale width and height together</source>
         <translation>Skaluj szerokość i wysokość razem</translation>
+    </message>
+    <message>
+        <source>Add a keyframe for Scale at the playhead</source>
+        <translation>Dodaj klucz skali w miejscu głowicy</translation>
     </message>
     <message>
         <source>Scale clip</source>
@@ -31579,7 +31599,7 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     </message>
     <message>
         <source>Reverse</source>
-        <translation type="unfinished"></translation>
+        <translation>Odwróć</translation>
     </message>
     <message>
         <source>Reverse path direction: the trim runs round the other way</source>

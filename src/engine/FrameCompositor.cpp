@@ -1660,6 +1660,11 @@ GpuLayer buildGpuLayer(const drift::Project &project, const drift::Clip &clip,
             * renderScale;
         layer.pose3d.rotationX += turnX;
         layer.pose3d.rotationY += turnY;
+        // The tilt pivots on the anchor point, as the spin does (0.29).
+        if (!clip.anchorX.isEmpty() || !clip.anchorY.isEmpty())
+            layer.pose3d.pivot = drift::clipPivot(transformValue(clip.anchorX, clipTimeUs, 0.5),
+                                                  transformValue(clip.anchorY, clipTimeUs, 0.5),
+                                                  destRect.width(), destRect.height(), rotation);
     }
     layer.flipH = clip.flipH;
     layer.flipV = clip.flipV;

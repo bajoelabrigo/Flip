@@ -10,6 +10,17 @@ namespace {
 
 constexpr float kNearFraction = float(kClipNearFraction);
 
+// The X/Y tilt about the anchor (pose.pivot), then the in-plane spin about the centre: the spin's
+// share of the anchor is already the rect's own move (Clip::anchorShift).
+void tilt(QMatrix4x4 &m, const ClipPose3d &pose, double rotation)
+{
+    m.translate(float(pose.pivot.x()), float(pose.pivot.y()));
+    m.rotate(float(pose.rotationX), 1.f, 0.f, 0.f);
+    m.rotate(float(pose.rotationY), 0.f, 1.f, 0.f);
+    m.translate(float(-pose.pivot.x()), float(-pose.pivot.y()));
+    m.rotate(float(rotation), 0.f, 0.f, 1.f);
+}
+
 // Rect centre → canvas, in pixel space relative to the canvas centre, then the perspective divide
 // about that centre. Rotations are intrinsic, X then Y then the in-plane spin (the same order as
 // model clips): the spin turns the clip within its tilted plane.
@@ -32,9 +43,7 @@ QMatrix4x4 placeCentre(const QRectF &rect, double rotation, const ClipPose3d &po
     QMatrix4x4 m = projection;
     m.translate(float(centre.x() - canvas.width() * 0.5), float(centre.y() - canvas.height() * 0.5),
                 float(pose.positionZ));
-    m.rotate(float(pose.rotationX), 1.f, 0.f, 0.f);
-    m.rotate(float(pose.rotationY), 0.f, 1.f, 0.f);
-    m.rotate(float(rotation), 0.f, 0.f, 1.f);
+    tilt(m, pose, rotation);
     return m;
 }
 
@@ -59,9 +68,7 @@ QMatrix4x4 clipQuadToWorld(const QRectF &rect, double rotation, bool flipH, bool
     QMatrix4x4 m;
     m.translate(float(centre.x() - canvas.width() * 0.5), float(centre.y() - canvas.height() * 0.5),
                 float(pose.positionZ));
-    m.rotate(float(pose.rotationX), 1.f, 0.f, 0.f);
-    m.rotate(float(pose.rotationY), 0.f, 1.f, 0.f);
-    m.rotate(float(rotation), 0.f, 0.f, 1.f);
+    tilt(m, pose, rotation);
     m.scale(float(rect.width() * 0.5), float(rect.height() * 0.5));
     m.scale(flipH ? -1.f : 1.f, flipV ? -1.f : 1.f);
     return m;
@@ -86,9 +93,7 @@ QMatrix4x4 clipLocalToWorld(const QRectF &rect, double rotation, const ClipPose3
     QMatrix4x4 m;
     m.translate(float(centre.x() - canvas.width() * 0.5), float(centre.y() - canvas.height() * 0.5),
                 float(pose.positionZ));
-    m.rotate(float(pose.rotationX), 1.f, 0.f, 0.f);
-    m.rotate(float(pose.rotationY), 0.f, 1.f, 0.f);
-    m.rotate(float(rotation), 0.f, 0.f, 1.f);
+    tilt(m, pose, rotation);
     m.translate(float(-rect.width() * 0.5), float(-rect.height() * 0.5));
     return m;
 }

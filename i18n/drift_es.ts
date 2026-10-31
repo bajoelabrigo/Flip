@@ -5198,6 +5198,10 @@
         <translation>Comportamiento cambiado</translation>
     </message>
     <message>
+        <source>Pick two or more keys of a property to reverse them</source>
+        <translation>Elige dos o más claves de una propiedad para invertirlas</translation>
+    </message>
+    <message>
         <source>Point light %1</source>
         <translation>Luz puntual %1</translation>
     </message>
@@ -19050,6 +19054,14 @@ LA PRÓXIMA</translation>
         <translation>Copia las claves elegidas en el cabezal</translation>
     </message>
     <message>
+        <source>Reverse</source>
+        <translation>Invertir</translation>
+    </message>
+    <message>
+        <source>Plays the picked keys backwards in their own span (a cloned entrance becomes the exit)</source>
+        <translation>Reproduce al revés las claves elegidas en su propio tramo (una entrada clonada se vuelve la salida)</translation>
+    </message>
+    <message>
         <source>Bounce: %1</source>
         <translation>Rebote: %1</translation>
     </message>
@@ -30837,6 +30849,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Perspectiva</translation>
     </message>
     <message>
+        <source>Scale keyframe</source>
+        <translation>Clave de escala</translation>
+    </message>
+    <message>
         <source>Also moved by %1</source>
         <translation>También movido por %1</translation>
     </message>
@@ -30887,6 +30903,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Scale width and height together</source>
         <translation>Escalar anchura y altura conjuntamente</translation>
+    </message>
+    <message>
+        <source>Add a keyframe for Scale at the playhead</source>
+        <translation>Añadir una clave de Escala en el cabezal</translation>
     </message>
     <message>
         <source>Scale clip</source>

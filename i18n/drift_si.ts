@@ -5198,6 +5198,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Pick two or more keys of a property to reverse them</source>
+        <translation>ඒවා ප්‍රතිලෝම කිරීමට ගුණාංගයක යතුරු දෙකක් හෝ වැඩි ගණනක් තෝරන්න</translation>
+    </message>
+    <message>
         <source>Point light %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -19046,6 +19050,14 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Reverse</source>
+        <translation>ප්‍රතිලෝම කරන්න</translation>
+    </message>
+    <message>
+        <source>Plays the picked keys backwards in their own span (a cloned entrance becomes the exit)</source>
+        <translation>තෝරාගත් යතුරු ඒවායේම පරාසය තුළ පසුපසට වාදනය කරයි (පිටපත් කළ ඇතුළුවීම පිටවීම බවට පත් වේ)</translation>
+    </message>
+    <message>
         <source>Bounce: %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -30833,6 +30845,10 @@ If playback stutters, try another.</source>
         <translation>පර්යාලෝකය</translation>
     </message>
     <message>
+        <source>Scale keyframe</source>
+        <translation>පරිමාණ යතුර</translation>
+    </message>
+    <message>
         <source>Also moved by %1</source>
         <translation>%1 මඟින්ද ගෙනයනු ලබයි</translation>
     </message>
@@ -30883,6 +30899,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Scale width and height together</source>
         <translation>පළල සහ උස එකට පරිමාණය කරන්න</translation>
+    </message>
+    <message>
+        <source>Add a keyframe for Scale at the playhead</source>
+        <translation>වාදන හිසෙහි පරිමාණ යතුරක් එක් කරන්න</translation>
     </message>
     <message>
         <source>Scale clip</source>
@@ -31475,7 +31495,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Reverse</source>
-        <translation type="unfinished"></translation>
+        <translation>ප්‍රතිලෝම කරන්න</translation>
     </message>
     <message>
         <source>Reverse path direction: the trim runs round the other way</source>

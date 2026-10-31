@@ -11,7 +11,7 @@ Item {
 
     // The selected clip's box from TransformOverlay (canvas px, with its on-screen quad), or null.
     property var box: null
-    signal textEditRequested(int track, int clip)
+    signal textEditRequested(int track, int clip, bool selectAll)
 
     readonly property string tool: EditorState.preview.tool
     readonly property int canvasW: { void EditorState.tracksRevision; return Math.max(1, EditorState.projectFile.projectWidth()) }
@@ -295,7 +295,7 @@ Item {
             if (made && made.track !== undefined) {
                 // As After Effects: after placing one text, back to selection while you type.
                 EditorState.preview.tool = "select"
-                root.textEditRequested(made.track, made.clip)
+                root.textEditRequested(made.track, made.clip, true)
             }
         }
     }

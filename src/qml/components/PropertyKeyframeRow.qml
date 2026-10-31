@@ -172,6 +172,21 @@ Column {
             EditorState.playheadSeconds, v)
     }
 
+    // A typed number follows the slider's rule, as After Effects: a key at the playhead while the
+    // property is animated (or Auto keyframes is on); otherwise it is just the value. Only the
+    // diamond (commitValue) always makes a key — typing used to, and the stray key at the
+    // playhead then joined the animation added later.
+    function typeValue(v) {
+        if (isNaN(v))
+            return
+        EditorState.showKeyframeGraphProperty(root.propDef.key)
+        EditorState.beginPreviewDrag(qsTr("Edit %1").arg(root.propDef.label))
+        EditorState.previewSetClipKeyframe(
+            EditorState.selectedTrack, EditorState.selectedClip, root.propDef.key,
+            EditorState.playheadSeconds, v)
+        EditorState.commitPreviewDrag()
+    }
+
     function setInterpolation(mode) {
         EditorState.showKeyframeGraphProperty(root.propDef.key)
         EditorState.setKeyframeInterpolation(
@@ -440,7 +455,7 @@ Column {
                     const v = root.parseInput(text)
                     root.editing = false
                     if (!isNaN(v))
-                        root.commitValue(v)
+                        root.typeValue(v)
                     text = root.formatValue(root.currentValue)
                 }
                 onActiveFocusChanged: {
@@ -577,7 +592,7 @@ Column {
                     dim: false
                     closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
 
-                    // Escape and clicking away discard; only Enter writes a key.
+                    // Escape and clicking away discard; only Enter writes the value.
                     function openEditor() {
                         editField.text = root.formatValue(root.currentValue)
                         open()
@@ -588,7 +603,7 @@ Column {
                     function apply() {
                         const v = root.parseInput(editField.text)
                         if (!isNaN(v))
-                            root.commitValue(Math.max(root.inputFrom,
+                            root.typeValue(Math.max(root.inputFrom,
                                                       Math.min(root.inputTo, v)))
                         close()
                     }

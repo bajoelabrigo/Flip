@@ -141,6 +141,7 @@ private slots:
     void morphAndLiquidTools();
     void penDrawsTheShapeLayerLive();
     void curvesPanelAppliesAndReadsCurves();
+    void motionToolsReverseMirrorsPickedKeys();
     void motionToolsTrimBendAndCaps();
     void textClipTakesMasks();
     void motionTrackingKeysTheElementOverItsVideo();
@@ -13139,6 +13140,37 @@ void EditorStateTest::penDrawsTheShapeLayerLive()
     QCOMPARE(style.puckerBloat, 60.0);
     QVERIFY(drift::shapeStyleHash(style) != plain);
     QVERIFY(drift::shapeKeyframeProperties(style).contains(QStringLiteral("puckerBloat")));
+}
+
+void EditorStateTest::motionToolsReverseMirrorsPickedKeys()
+{
+    // Motion Tools › Reverse (0.29, After Effects' Time-Reverse Keyframes): the picked keys trade
+    // places end for end within their span, and a Hold moves with its stretch.
+    AssetLibrary library;
+    AppController state(&library);
+    state.addDrawnShape(QStringLiteral("rectangle"), 100, 100, 200, 200, QStringLiteral("#ff0000"),
+                        QStringLiteral("none"), 0);
+    const int t = state.selectedTrack();
+    const int c = state.selectedClip();
+    const double start = drift::usToSeconds(state.project()->tracks().at(t).clips.at(c).timelineStart);
+    state.setClipKeyframe(t, c, QStringLiteral("opacity"), start + 0.0, 0.0);
+    state.setClipKeyframe(t, c, QStringLiteral("opacity"), start + 0.5, 0.25);
+    state.setClipKeyframe(t, c, QStringLiteral("opacity"), start + 2.0, 1.0);
+    state.setKeyframeHold(t, c, QStringLiteral("opacity"), start + 0.0, true);
+    QVariantList keys;
+    for (double s : {0.0, 0.5, 2.0})
+        keys.append(QVariantMap{{QStringLiteral("clip"), c}, {QStringLiteral("prop"), QStringLiteral("opacity")},
+                                {QStringLiteral("seconds"), start + s}});
+    state.setPickedKeyframes(QVariantMap{{QStringLiteral("track"), t}, {QStringLiteral("keys"), keys}});
+    QVERIFY(state.reversePickedKeyframes());
+    const auto values = state.project()->tracks().at(t).clips.at(c).opacity.keyframes();
+    QCOMPARE(values.size(), 3);
+    QCOMPARE(values.value(0).value, 1.0);
+    QCOMPARE(values.value(drift::secondsToUs(1.5)).value, 0.25);
+    QCOMPARE(values.value(drift::secondsToUs(2.0)).value, 0.0);
+    // The held stretch was 0 → 0.5 s; reversed it is 1.5 → 2 s, held from its new first key.
+    QVERIFY(!values.value(0).hold);
+    QVERIFY(values.value(drift::secondsToUs(1.5)).hold);
 }
 
 void EditorStateTest::curvesPanelAppliesAndReadsCurves()

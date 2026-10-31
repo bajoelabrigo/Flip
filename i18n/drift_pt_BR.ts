@@ -5198,6 +5198,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Pick two or more keys of a property to reverse them</source>
+        <translation>Escolha duas ou mais chaves de uma propriedade para invertê-las</translation>
+    </message>
+    <message>
         <source>Point light %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -19050,6 +19054,14 @@ PRÓXIMA</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Reverse</source>
+        <translation>Inverter</translation>
+    </message>
+    <message>
+        <source>Plays the picked keys backwards in their own span (a cloned entrance becomes the exit)</source>
+        <translation>Toca ao contrário as chaves escolhidas no próprio trecho (uma entrada clonada vira a saída)</translation>
+    </message>
+    <message>
         <source>Bounce: %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -30837,6 +30849,10 @@ Se a reprodução travar, tente outra opção.</translation>
         <translation>Perspectiva</translation>
     </message>
     <message>
+        <source>Scale keyframe</source>
+        <translation>Chave de escala</translation>
+    </message>
+    <message>
         <source>Also moved by %1</source>
         <translation>Também movido por %1</translation>
     </message>
@@ -30887,6 +30903,10 @@ Se a reprodução travar, tente outra opção.</translation>
     <message>
         <source>Scale width and height together</source>
         <translation>Escalar largura e altura juntas</translation>
+    </message>
+    <message>
+        <source>Add a keyframe for Scale at the playhead</source>
+        <translation>Adicionar uma chave de Escala no cursor</translation>
     </message>
     <message>
         <source>Scale clip</source>
@@ -31479,7 +31499,7 @@ Se a reprodução travar, tente outra opção.</translation>
     </message>
     <message>
         <source>Reverse</source>
-        <translation type="unfinished"></translation>
+        <translation>Inverter</translation>
     </message>
     <message>
         <source>Reverse path direction: the trim runs round the other way</source>

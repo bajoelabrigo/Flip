@@ -9307,14 +9307,33 @@ void AppController::addTextClip(const QString &text, double atSeconds, const QSt
     const drift::Project before = m_project;
     const bool requestedFits = requestedTrack >= 0 && requestedTrack < m_project.tracks().size()
                                && m_project.tracks().at(requestedTrack).allowsClipType(drift::ClipType::Text);
-    const int trackIndex = requestedFits
-        ? requestedTrack
-        : drift::ensureTrackForClipType(m_project, drift::ClipType::Text, true);
+    const drift::TimeUs startSeconds = atSeconds < 0.0 ? m_playheadUs : drift::secondsToUs(atSeconds);
+    // At the playhead (the Text tool, Titles, Stock) the text is a new layer right there, on a text
+    // track free at that moment or a new one on top of everything, as After Effects and CapCut — the
+    // first text track pushed it past its clips instead, to the end of the work (0.29).
+    const auto textTrackFreeAtPlayhead = [this, startSeconds]() {
+        const drift::TimeUs end = startSeconds + drift::defaultTextDurationUs();
+        const QList<drift::Track> &tracks = m_project.tracks();
+        for (int i = 0; i < tracks.size(); ++i) {
+            const drift::Track &t = tracks.at(i);
+            if (t.isAdjustmentLane() || t.locked || !t.allowsClipType(drift::ClipType::Text)
+                || t.type != drift::trackTypeForClipType(drift::ClipType::Text))
+                continue;
+            const bool busy = std::any_of(t.clips.cbegin(), t.clips.cend(), [&](const drift::Clip &c) {
+                return startSeconds < c.timelineEnd() && c.timelineStart < end;
+            });
+            if (!busy)
+                return i;
+        }
+        return drift::insertTrackAtTopForClipType(m_project, drift::ClipType::Text);
+    };
+    const int trackIndex = requestedFits ? requestedTrack
+        : atSeconds < 0.0 ? textTrackFreeAtPlayhead()
+                          : drift::ensureTrackForClipType(m_project, drift::ClipType::Text, true);
     if (trackIndex < 0)
         return;
 
     drift::Track &track = m_project.tracks()[trackIndex];
-    const drift::TimeUs startSeconds = atSeconds < 0.0 ? m_playheadUs : drift::secondsToUs(atSeconds);
     const drift::TimeUs start = drift::resolveClipStart(m_project, track, -1, startSeconds,
                                                         drift::defaultTextDurationUs(), m_snapEnabled, m_playheadUs);
 
@@ -12041,6 +12060,72 @@ bool AppController::clonePickedKeyframes()
     if (copyKeyframes(track, keys) <= 0)
         return false;
     return pasteKeyframes(track, clip);
+}
+
+bool AppController::reversePickedKeyframes()
+{
+    // After Effects' Time-Reverse Keyframes (0.29): per property, the picked keys swap places
+    // end for end within their span, so a clone of an entrance plays as its exit. Each stretch
+    // keeps its curve, mirrored: a key's tangents trade sides, and a Hold moves to the key that
+    // now starts the stretch.
+    const int track = m_pickedKeyframes.value(QStringLiteral("track")).toInt();
+    const QVariantList keys = m_pickedKeyframes.value(QStringLiteral("keys")).toList();
+    QMap<QPair<int, QString>, QList<double>> groups;
+    for (const QVariant &entry : keys) {
+        const QVariantMap k = entry.toMap();
+        groups[{k.value(QStringLiteral("clip")).toInt(), k.value(QStringLiteral("prop")).toString()}].append(
+            k.value(QStringLiteral("seconds")).toDouble());
+    }
+    const drift::Project before = m_project;
+    int reversed = 0;
+    for (auto it = groups.constBegin(); it != groups.constEnd(); ++it) {
+        int t = track;
+        int c = it.key().first;
+        const QString &prop = it.key().second;
+        redirectToKeyframeHost(&t, &c, prop);
+        if (!isValidClipIndex(t, c))
+            continue;
+        drift::Clip &clip = m_project.tracks()[t].clips[c];
+        drift::KeyframeTrack<double> *kt = keyframeTrackForProp(clip, prop, false);
+        if (!kt)
+            continue;
+        QList<drift::TimeUs> times;
+        for (double s : it.value()) {
+            const drift::TimeUs rel = qMax<drift::TimeUs>(0, drift::secondsToUs(s) - clip.timelineStart);
+            const drift::TimeUs nearest = kt->nearestKeyframe(rel, kKeyframeToleranceUs);
+            if (nearest >= 0 && !times.contains(nearest))
+                times.append(nearest);
+        }
+        if (times.size() < 2)
+            continue;
+        std::sort(times.begin(), times.end());
+        QList<drift::Keyframe<double>> old;
+        for (drift::TimeUs time : std::as_const(times))
+            old.append(kt->keyframes().value(time));
+        for (drift::TimeUs time : std::as_const(times))
+            kt->removeKeyframe(time);
+        const drift::TimeUs span = times.first() + times.last();
+        for (int i = 0; i < old.size(); ++i) {
+            drift::Keyframe<double> key = old.at(i);
+            key.inDx = -old.at(i).outDx;
+            key.inDy = old.at(i).outDy;
+            key.outDx = -old.at(i).inDx;
+            key.outDy = old.at(i).inDy;
+            // The stretch after this key was, before, the one before it.
+            key.hold = i > 0 ? old.at(i - 1).hold : old.last().hold;
+            kt->setKeyframe(span - times.at(i), key);
+        }
+        ++reversed;
+    }
+    if (reversed == 0) {
+        setLastMessage(tr("Pick two or more keys of a property to reverse them"), QStringLiteral("warning"));
+        return false;
+    }
+    m_pickedKeyframes.clear();
+    emit pickedKeyframesChanged();
+    pushProjectEdit(before, tr("Keyframes reversed"));
+    finishEdit(tr("Keyframes reversed"));
+    return true;
 }
 
 void AppController::sequenceSelectedClips(int offsetFrames, int step, bool reverse)

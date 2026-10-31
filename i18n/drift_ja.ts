@@ -5183,6 +5183,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Pick two or more keys of a property to reverse them</source>
+        <translation>反転するには、プロパティのキーを2つ以上選んでください</translation>
+    </message>
+    <message>
         <source>Point light %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -18977,6 +18981,14 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Reverse</source>
+        <translation>反転</translation>
+    </message>
+    <message>
+        <source>Plays the picked keys backwards in their own span (a cloned entrance becomes the exit)</source>
+        <translation>選んだキーをその範囲内で逆再生します（複製した登場が退場になります）</translation>
+    </message>
+    <message>
         <source>Bounce: %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -30741,6 +30753,10 @@ If playback stutters, try another.</source>
         <translation>パースペクティブ</translation>
     </message>
     <message>
+        <source>Scale keyframe</source>
+        <translation>スケールのキー</translation>
+    </message>
+    <message>
         <source>Also moved by %1</source>
         <translation>%1 によっても移動されます</translation>
     </message>
@@ -30791,6 +30807,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Scale width and height together</source>
         <translation>幅と高さを同時に拡大縮小</translation>
+    </message>
+    <message>
+        <source>Add a keyframe for Scale at the playhead</source>
+        <translation>再生ヘッドにスケールのキーを追加</translation>
     </message>
     <message>
         <source>Scale clip</source>
@@ -31379,7 +31399,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Reverse</source>
-        <translation type="unfinished"></translation>
+        <translation>反転</translation>
     </message>
     <message>
         <source>Reverse path direction: the trim runs round the other way</source>

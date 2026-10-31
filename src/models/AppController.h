@@ -852,6 +852,8 @@ public:
     Q_INVOKABLE QString readTextFile(const QUrl &fileUrl) const;
     Q_INVOKABLE bool writeTextFile(const QUrl &fileUrl, const QString &text) const;
     Q_INVOKABLE bool clonePickedKeyframes();
+    // After Effects' Time-Reverse Keyframes: the picked keys of each property end for end.
+    Q_INVOKABLE bool reversePickedKeyframes();
     Q_INVOKABLE void sequenceSelectedClips(int offsetFrames, int step, bool reverse);
     Q_INVOKABLE void addNullForSelection();
     // `outline` (Motion Tools › Trim, 0.26): a text's letters become a stroke in its colour with no

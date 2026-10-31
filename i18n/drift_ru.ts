@@ -5213,6 +5213,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Pick two or more keys of a property to reverse them</source>
+        <translation>Выберите два или больше ключа свойства, чтобы развернуть их</translation>
+    </message>
+    <message>
         <source>Point light %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -19123,6 +19127,14 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Reverse</source>
+        <translation>Развернуть</translation>
+    </message>
+    <message>
+        <source>Plays the picked keys backwards in their own span (a cloned entrance becomes the exit)</source>
+        <translation>Проигрывает выбранные ключи задом наперёд в их же отрезке (клонированный вход становится выходом)</translation>
+    </message>
+    <message>
         <source>Bounce: %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -30933,6 +30945,10 @@ If playback stutters, try another.</source>
         <translation>Перспектива</translation>
     </message>
     <message>
+        <source>Scale keyframe</source>
+        <translation>Ключ масштаба</translation>
+    </message>
+    <message>
         <source>Also moved by %1</source>
         <translation>Также перемещается слоем %1</translation>
     </message>
@@ -30983,6 +30999,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Scale width and height together</source>
         <translation>Изменять ширину и высоту вместе</translation>
+    </message>
+    <message>
+        <source>Add a keyframe for Scale at the playhead</source>
+        <translation>Добавить ключ масштаба на указателе</translation>
     </message>
     <message>
         <source>Scale clip</source>
@@ -31579,7 +31599,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Reverse</source>
-        <translation type="unfinished"></translation>
+        <translation>Развернуть</translation>
     </message>
     <message>
         <source>Reverse path direction: the trim runs round the other way</source>

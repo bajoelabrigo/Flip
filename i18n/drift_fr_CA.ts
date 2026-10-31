@@ -5203,6 +5203,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Pick two or more keys of a property to reverse them</source>
+        <translation>Choisissez au moins deux clés d&apos;une propriété pour les inverser</translation>
+    </message>
+    <message>
         <source>Point light %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -19052,6 +19056,14 @@ PROCHAINE</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Reverse</source>
+        <translation>Inverser</translation>
+    </message>
+    <message>
+        <source>Plays the picked keys backwards in their own span (a cloned entrance becomes the exit)</source>
+        <translation>Joue à rebours les clés choisies dans leur propre intervalle (une entrée clonée devient la sortie)</translation>
+    </message>
+    <message>
         <source>Bounce: %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -30841,6 +30853,10 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Perspective</translation>
     </message>
     <message>
+        <source>Scale keyframe</source>
+        <translation>Clé d&apos;échelle</translation>
+    </message>
+    <message>
         <source>Also moved by %1</source>
         <translation>Également déplacé par %1</translation>
     </message>
@@ -30891,6 +30907,10 @@ Si la lecture saccade, essayez une autre option.</translation>
     <message>
         <source>Scale width and height together</source>
         <translation>Mettre à l&apos;échelle la largeur et la hauteur ensemble</translation>
+    </message>
+    <message>
+        <source>Add a keyframe for Scale at the playhead</source>
+        <translation>Ajouter une clé d&apos;échelle à la tête de lecture</translation>
     </message>
     <message>
         <source>Scale clip</source>
@@ -31483,7 +31503,7 @@ Si la lecture saccade, essayez une autre option.</translation>
     </message>
     <message>
         <source>Reverse</source>
-        <translation type="unfinished"></translation>
+        <translation>Inverser</translation>
     </message>
     <message>
         <source>Reverse path direction: the trim runs round the other way</source>

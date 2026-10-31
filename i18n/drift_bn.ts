@@ -5298,6 +5298,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Pick two or more keys of a property to reverse them</source>
+        <translation>উল্টাতে একটি বৈশিষ্ট্যের দুই বা তার বেশি কী বেছে নিন</translation>
+    </message>
+    <message>
         <source>Point light %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -19046,6 +19050,14 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Reverse</source>
+        <translation>উল্টান</translation>
+    </message>
+    <message>
+        <source>Plays the picked keys backwards in their own span (a cloned entrance becomes the exit)</source>
+        <translation>বেছে নেওয়া কীগুলো তাদের নিজস্ব অংশে উল্টো চালায় (ক্লোন করা প্রবেশ প্রস্থান হয়ে যায়)</translation>
+    </message>
+    <message>
         <source>Bounce: %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -30833,6 +30845,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished">দৃষ্টিকোণ</translation>
     </message>
     <message>
+        <source>Scale keyframe</source>
+        <translation>স্কেলের কী</translation>
+    </message>
+    <message>
         <source>Also moved by %1</source>
         <translation type="unfinished">এছাড়াও %1 দ্বারা সরানো হয়েছে</translation>
     </message>
@@ -30883,6 +30899,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Scale width and height together</source>
         <translation type="unfinished">স্কেল প্রস্থ এবং উচ্চতা একসাথে</translation>
+    </message>
+    <message>
+        <source>Add a keyframe for Scale at the playhead</source>
+        <translation>প্লেহেডে স্কেলের একটি কী যোগ করুন</translation>
     </message>
     <message>
         <source>Scale clip</source>
@@ -31475,7 +31495,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Reverse</source>
-        <translation type="unfinished"></translation>
+        <translation>উল্টান</translation>
     </message>
     <message>
         <source>Reverse path direction: the trim runs round the other way</source>

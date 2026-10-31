@@ -5191,6 +5191,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Pick two or more keys of a property to reverse them</source>
+        <translation>Chọn hai khóa trở lên của một thuộc tính để đảo ngược</translation>
+    </message>
+    <message>
         <source>Point light %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -18977,6 +18981,14 @@ LẦN SAU</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Reverse</source>
+        <translation>Đảo ngược</translation>
+    </message>
+    <message>
+        <source>Plays the picked keys backwards in their own span (a cloned entrance becomes the exit)</source>
+        <translation>Phát ngược các khóa đã chọn trong chính khoảng của chúng (phần vào được nhân bản thành phần ra)</translation>
+    </message>
+    <message>
         <source>Bounce: %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -30745,6 +30757,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Phối cảnh</translation>
     </message>
     <message>
+        <source>Scale keyframe</source>
+        <translation>Khóa tỉ lệ</translation>
+    </message>
+    <message>
         <source>Also moved by %1</source>
         <translation>Cũng được di chuyển bởi %1</translation>
     </message>
@@ -30795,6 +30811,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Scale width and height together</source>
         <translation>Chỉnh sửa chiều rộng và chiều cao riêng biệt</translation>
+    </message>
+    <message>
+        <source>Add a keyframe for Scale at the playhead</source>
+        <translation>Thêm khóa Tỉ lệ tại đầu phát</translation>
     </message>
     <message>
         <source>Scale clip</source>
@@ -31379,7 +31399,7 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     </message>
     <message>
         <source>Reverse</source>
-        <translation type="unfinished"></translation>
+        <translation>Đảo ngược</translation>
     </message>
     <message>
         <source>Reverse path direction: the trim runs round the other way</source>

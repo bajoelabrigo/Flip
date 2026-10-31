@@ -312,6 +312,14 @@ Item {
                     enabledTool: root.pickedCount > 0
                     onActivated: EditorState.clonePickedKeyframes()
                 }
+                ToolButton {
+                    width: parent.width
+                    label: qsTr("Reverse")
+                    glyph: "swap"
+                    tip: qsTr("Plays the picked keys backwards in their own span (a cloned entrance becomes the exit)")
+                    enabledTool: root.pickedCount > 1
+                    onActivated: EditorState.reversePickedKeyframes()
+                }
             }
         }
 

@@ -30,6 +30,12 @@ drift::ClipPose3d previewBoxPose(const QVariantMap &box)
     pose.positionZ = box.value(QStringLiteral("z")).toDouble();
     pose.perspective =
         box.value(QStringLiteral("perspective"), drift::kDefaultClipPerspective).toDouble();
+    // The tilt pivots on the anchor, as the renderer draws it (0.29).
+    pose.pivot = drift::clipPivot(box.value(QStringLiteral("anchorFx"), 0.5).toDouble(),
+                                  box.value(QStringLiteral("anchorFy"), 0.5).toDouble(),
+                                  box.value(QStringLiteral("width")).toDouble(),
+                                  box.value(QStringLiteral("height")).toDouble(),
+                                  box.value(QStringLiteral("rotation")).toDouble());
     return pose;
 }
 

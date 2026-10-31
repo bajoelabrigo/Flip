@@ -88,6 +88,20 @@ Item {
         }
     }
 
+    function keyScaleAtPlayhead() {
+        const at = EditorState.inspectorPlayheadSeconds
+        const values = {
+            "x": transformAt("x", 0),
+            "y": transformAt("y", 0),
+            "width": transformAt("width", canvasW),
+            "height": transformAt("height", canvasH)
+        }
+        EditorState.beginEditSession(qsTr("Scale keyframe"))
+        for (const key in values)
+            EditorState.setClipKeyframe(EditorState.selectedTrack, EditorState.selectedClip, key, at, values[key])
+        EditorState.endEditSession(true)
+    }
+
     function applyScale(scale) {
         const s = scaleDragStart
         if (!s || s.scale <= 0)
@@ -259,11 +273,23 @@ Item {
                 width: parent.width
                 spacing: 8
 
+                // The joined Scale keys as After Effects' does: Position and Size together at the
+                // playhead, so the clip grows from its centre (0.29: the row had no diamond).
+                IconButton {
+                    id: scaleKeyButton
+                    anchors.verticalCenter: parent.verticalCenter
+                    buttonSize: 24
+                    iconSize: 16
+                    glyph: Theme.icons.diamondPlus
+                    tooltip: qsTr("Add a keyframe for Scale at the playhead")
+                    onClicked: root.keyScaleAtPlayhead()
+                }
+
                 ThemedSlider {
                     id: scaleSlider
                     lockWhilePlaying: true
                     label: qsTr("Scale")
-                    width: parent.width - scaleReadout.width - parent.spacing
+                    width: parent.width - scaleReadout.width - scaleKeyButton.width - 2 * parent.spacing
                     anchors.verticalCenter: parent.verticalCenter
                     from: 0.05
                     to: 4

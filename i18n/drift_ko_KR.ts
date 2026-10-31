@@ -5183,6 +5183,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Pick two or more keys of a property to reverse them</source>
+        <translation>반전하려면 속성의 키를 두 개 이상 선택하세요</translation>
+    </message>
+    <message>
         <source>Point light %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -18977,6 +18981,14 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Reverse</source>
+        <translation>반전</translation>
+    </message>
+    <message>
+        <source>Plays the picked keys backwards in their own span (a cloned entrance becomes the exit)</source>
+        <translation>선택한 키를 그 구간 안에서 거꾸로 재생합니다(복제한 등장이 퇴장이 됩니다)</translation>
+    </message>
+    <message>
         <source>Bounce: %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -30739,6 +30751,10 @@ If playback stutters, try another.</source>
         <translation>원근</translation>
     </message>
     <message>
+        <source>Scale keyframe</source>
+        <translation>배율 키</translation>
+    </message>
+    <message>
         <source>Also moved by %1</source>
         <translation>또한 %1에서 이동됨</translation>
     </message>
@@ -30789,6 +30805,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Scale width and height together</source>
         <translation>너비와 높이를 함께 크기 조정</translation>
+    </message>
+    <message>
+        <source>Add a keyframe for Scale at the playhead</source>
+        <translation>재생 헤드에 배율 키 추가</translation>
     </message>
     <message>
         <source>Scale clip</source>
@@ -31377,7 +31397,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Reverse</source>
-        <translation type="unfinished"></translation>
+        <translation>반전</translation>
     </message>
     <message>
         <source>Reverse path direction: the trim runs round the other way</source>
