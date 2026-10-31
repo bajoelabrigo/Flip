@@ -529,4 +529,77 @@ def jessica():
     return t
 
 
-TEMPLATES = [francois, roger, jamie, charlotte, jason_e, jessica]
+# David Bergman, measured frame by frame (25 fps from 35.12 s): the ring's centre x and outer diameter (its top
+# edge stays on row 711 the whole time), and on the way out its diameter and the name's slide into it.
+_DB_CX = {1: 871.0, 2: 911.0, 3: 968.5, 4: 1044.0, 5: 1131.0, 6: 1222.5, 7: 1307.0, 8: 1375.5, 9: 1428.5, 10: 1460.5,
+          11: 1468.5, 12: 1444.5, 13: 1376.0, 14: 1228.5, 15: 984.0, 16: 796.5, 17: 681.0, 18: 604.0, 19: 549.5,
+          20: 509.5, 21: 479.5, 22: 456.5, 23: 440.0, 24: 428.5, 25: 421.0, 26: 417.0, 27: 415.5}
+_DB_D = {1: 20.0, 2: 40.0, 3: 69.0, 4: 104.0, 5: 148.0, 6: 193.0, 7: 234.0, 8: 268.0, 9: 293.0, 10: 311.0, 11: 321.0,
+         12: 325.0, 13: 318.0, 14: 303.0, 15: 278.0, 16: 257.0, 17: 244.0, 18: 236.0, 19: 231.0, 20: 227.0, 21: 223.0,
+         22: 221.0, 23: 218.0, 24: 217.0, 25: 216.0, 27: 215.0, 100: 215.0, 101: 213.0, 102: 212.0, 103: 209.0,
+         104: 206.0, 105: 204.0, 106: 200.0, 107: 196.0, 108: 190.0, 109: 182.0, 110: 174.0, 111: 163.0, 112: 149.0,
+         113: 127.0, 114: 95.0, 115: 56.0, 116: 30.0, 117: 15.0, 118: 0.0}
+_DB_NAME_DX = {97: 0.0, 98: -9.0, 99: -23.0, 100: -45.0, 101: -80.0, 102: -135.0, 103: -226.0, 104: -383.0,
+               105: -602.0, 106: -800.0, 107: -1000.0}
+
+
+def david():
+    """A small red ring with the logo grows at the top of the name's place and rolls right, then rolls back left,
+    shrinking, and the name shows from behind its right edge as it passes. Out, the name slides left into the ring
+    and the ring shrinks to nothing."""
+    fps, first, last = 25.0, 1, 117
+    D = round((last - first + 2) / fps, 2)
+    t = _kit("david", "Tercio con logo: anillo que rueda", "Logo lower third: rolling ring", D, 8536,
+             ["nombre", "anillo", "logo", "círculo"], thumb_at=2.4)
+    photo_bg(t, "h-city-01", s1=1.03, label="Tu video")
+    from llt_motion import frames_of
+    us = frames_of(D)
+    fr = lambda u: first + u * fps  # noqa: E731
+    cx = _table(_DB_CX, 871.0, 415.5)
+    dia = _table(_DB_D, 0.0, 0.0)
+    name_dx = _table(_DB_NAME_DX, 0.0, -1000.0)
+    REST, TOP = 215.0, 711.0
+    # Rolling: the ring turns by the way it travels over its radius (clockwise going right); at rest the logo is
+    # upright, so the turn is counted back from the end.
+    spin, total = [], 0.0
+    prev = None
+    for u in us:
+        f = fr(u)
+        x, d = cx(f), max(dia(f), 1.0)
+        if prev is not None:
+            total += math.degrees((x - prev) / (d / 2))
+        spin.append(total)
+        prev = x
+    spin = [a - spin[-1] for a in spin]
+    ring = centered(415.5, TOP + REST / 2, REST, REST)
+    motion = [(u, {"s": dia(fr(u)) / REST, "dx": cx(fr(u)) - ring.cx, "dy": dia(fr(u)) / 2 - REST / 2}, "linear")
+              for u in us]
+    disc = t.solid(t.track("shape", "Anillo"), RED, 0.0, D, ring, motion, kind="ellipse")
+    disc["name"] = "Anillo"
+    track = next(tr for tr in t.tracks if disc in tr.clips)
+    t.mask(track, disc, "ellipse", x=0.5, y=0.5, w=0.56, h=0.56, invert=True)  # the hole: it scales with the ring
+    lg = centered(415.5, TOP + REST / 2, 108.0, 108.0)
+    mark = t.photo(t.track("video", "Logo"), "logo-09", 0.0, D, lg, motion, label="Tu logo", brandRole="logo",
+                   rotation=keys([(u, a, "linear") for u, a in zip(us, spin)]))
+    mark["name"] = "Logo"
+    name = "DAVID BERGMAN"
+    nbox, nsize = caps_box(562, 764, 879, name)
+    motion = [(u, {"dx": name_dx(fr(u))}, "linear") for u in us]
+    clip = name_text(t, name, nbox, nsize, D, bold_from="BERGMAN", spacing=-5.0, bold_spacing=4, word_spacing=6,
+                     motion=motion)
+    track = next(tr for tr in t.tracks if clip in tr.clips)
+    mk = {"x": [], "y": [], "w": [], "h": []}
+    for u in us:  # the name shows right of the ring's right edge (less 15 px)
+        f = fr(u)
+        left = cx(f) + dia(f) / 2 - 15 if dia(f) > 0 and f >= 12 else 3000.0  # hidden until the ring comes back
+        dx = name_dx(f)
+        mk["x"].append((u, ((left + 3000) / 2 - nbox.x - dx) / nbox.w, "linear"))
+        mk["y"].append((u, 0.5, "linear"))
+        mk["w"].append((u, max(0.0, 3000 - left) / nbox.w, "linear"))
+        mk["h"].append((u, 2.0, "linear"))
+    t.mask(track, clip, "rectangle", x=mk["x"][0][1], y=0.5, w=mk["w"][0][1], h=2.0,
+           keyframes={k: keys(v) for k, v in mk.items()})
+    return t
+
+
+TEMPLATES = [francois, roger, jamie, charlotte, jason_e, jessica, david]
