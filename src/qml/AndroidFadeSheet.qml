@@ -105,6 +105,7 @@ AndroidBottomSheet {
                     valueFormatter: root.formatSeconds
                     Binding on value {
                         when: !fadeSlider.pressed
+                        restoreMode: Binding.RestoreNone
                         value: fadeRow.current
                     }
                     onPressedChanged: {

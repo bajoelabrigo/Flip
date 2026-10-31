@@ -1033,6 +1033,7 @@ Item {
             }
             Binding on value {
                 when: !rowSlider.pressed
+                restoreMode: Binding.RestoreNone
                 value: sliderRow.value
             }
             onMoved: {
@@ -2891,6 +2892,7 @@ Item {
                             HoverHandler { id: accentPhaseHover }
                             Binding on value {
                                 when: !accentPhaseField.activeFocus
+                                restoreMode: Binding.RestoreNone
                                 value: Number(root.textStyle.accent.phase) || 0
                             }
                             onEdited: v => root.setTextGroupKey("accent", "phase", Math.round(v))
@@ -3034,6 +3036,7 @@ Item {
                                             step: 1
                                             Binding on value {
                                                 when: !accentPillPaddingField.activeFocus
+                                                restoreMode: Binding.RestoreNone
                                                 value: Number(root.textStyle.accent.highlight.padding) || 0
                                             }
                                             onEdited: v => root.setTextAccentHighlightKey("padding", v)
@@ -3058,6 +3061,7 @@ Item {
                                             step: 1
                                             Binding on value {
                                                 when: !accentPillRadiusField.activeFocus
+                                                restoreMode: Binding.RestoreNone
                                                 value: Number(root.textStyle.accent.highlight.radius) || 0
                                             }
                                             onEdited: v => root.setTextAccentHighlightKey("radius", v)
@@ -3516,6 +3520,7 @@ Item {
                         valueFormatter: function (v) { return Number(v).toFixed(2) + " s" }
                         Binding on value {
                             when: !durationSlider.pressed
+                            restoreMode: Binding.RestoreNone
                             value: root.animSlot === "loop"
                                    ? (Number(root.slotData.period) || 1)
                                    : (Number(root.slotData.duration) || 0)
@@ -3596,6 +3601,7 @@ Item {
                             enabled: (root.slotData.unit || "block") !== "block"
                             Binding on value {
                                 when: !staggerField.activeFocus
+                                restoreMode: Binding.RestoreNone
                                 value: Math.round((Number(root.slotData.stagger) || 0) * 1000)
                             }
                             onEdited: v => root.setSlot({ "stagger": v / 1000 })

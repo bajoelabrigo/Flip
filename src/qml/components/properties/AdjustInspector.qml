@@ -149,6 +149,7 @@ Item {
             to: ps.to
             Binding on value {
                 when: !slider.pressed
+                restoreMode: Binding.RestoreNone
                 value: ps.current
             }
             onMoved: ps.host.preview(ps.key, value)

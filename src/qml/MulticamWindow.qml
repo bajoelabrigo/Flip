@@ -367,6 +367,7 @@ ToolWindow {
                     // fighting the drag — the same arrangement the preview panel's scrub uses.
                     Binding on value {
                         when: !scrubSlider.pressed
+                        restoreMode: Binding.RestoreNone
                         value: root.currentSeconds
                     }
                 }

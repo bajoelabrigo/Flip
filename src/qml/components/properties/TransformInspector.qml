@@ -296,6 +296,7 @@ Item {
                     valueFormatter: function (v) { return Math.round(v * 100) + "%" }
                     Binding on value {
                         when: !scaleSlider.pressed
+                        restoreMode: Binding.RestoreNone
                         value: root.scaleAtPlayhead
                     }
                     onPressedChanged: {
@@ -377,6 +378,9 @@ Item {
                         // field then kept showing the last clip's anchor when another was picked (0.29).
                         Binding on value {
                             when: !anchorXField.activeFocus
+                            // Keep the shown value while typing: restoring dropped it to 0, so a typed 0 was
+                            // "no change" and never applied.
+                            restoreMode: Binding.RestoreNone
                             value: Math.round(anchorSection.fx * anchorSection.boxW)
                         }
                         onEdited: v => anchorSection.setPx(v, anchorSection.fy * anchorSection.boxH)
@@ -391,6 +395,9 @@ Item {
                         // field then kept showing the last clip's anchor when another was picked (0.29).
                         Binding on value {
                             when: !anchorYField.activeFocus
+                            // Keep the shown value while typing: restoring dropped it to 0, so a typed 0 was
+                            // "no change" and never applied.
+                            restoreMode: Binding.RestoreNone
                             value: Math.round(anchorSection.fy * anchorSection.boxH)
                         }
                         onEdited: v => anchorSection.setPx(anchorSection.fx * anchorSection.boxW, v)

@@ -339,6 +339,7 @@ Item {
                         to: trParamRow.paramData.max
                         Binding on value {
                             when: !trParamSlider.pressed
+                            restoreMode: Binding.RestoreNone
                             value: trParamRow.paramData.value
                         }
                         onMoved: EditorState.previewSetTransitionParam(

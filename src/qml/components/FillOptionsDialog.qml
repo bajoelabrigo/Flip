@@ -66,13 +66,13 @@ ThemedDialog {
             root.kind = "solid"
     }
 
-    function openFor(which) {
+    function openFor(which, toolOnly) {
         root.target = which
         const data = EditorState.selectedClipData
         const style = data ? (data.kind === "shape" ? data.shapeStyle : data.kind === "text" ? data.textStyle : null)
                            : null
         root.layerId = ""
-        if (style && EditorState.selectedClip >= 0) {
+        if (style && EditorState.selectedClip >= 0 && !toolOnly) {
             root.mode = "layer"
             root.editTrack = EditorState.selectedTrack
             root.editClip = EditorState.selectedClip

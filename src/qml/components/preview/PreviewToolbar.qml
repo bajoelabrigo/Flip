@@ -63,7 +63,7 @@ Rectangle {
     // text's own Fill / Stroke layer, else the paint new shapes are drawn with.
     function pickedLayer(which) {
         const data = EditorState.selectedClipData
-        if (!data || EditorState.selectedClip < 0 || (data.kind !== "shape" && data.kind !== "text"))
+        if (!root.pickedStyled())
             return null
         const style = data.kind === "shape" ? data.shapeStyle : data.textStyle
         const layers = (style && style.layers) || []
@@ -73,9 +73,12 @@ Rectangle {
         }
         return null
     }
+    // The paint edits the picked clip when it is a shape, or a text while no drawing tool is on; with
+    // the shape or pen tool and a text picked, it is the tool's paint, as in After Effects.
     function pickedStyled() {
         const data = EditorState.selectedClipData
-        return !!data && EditorState.selectedClip >= 0 && (data.kind === "shape" || data.kind === "text")
+        return !!data && EditorState.selectedClip >= 0
+               && (data.kind === "shape" || (data.kind === "text" && !root.paintOptions))
     }
     function paintOf(which) {
         if (root.pickedStyled()) {
@@ -111,7 +114,7 @@ Rectangle {
             anchors.fill: parent
             hoverEnabled: true
             cursorShape: Qt.PointingHandCursor
-            onClicked: fillOptions.openFor(paintLabel.which)
+            onClicked: fillOptions.openFor(paintLabel.which, !root.pickedStyled())
         }
         ThemedToolTip {
             visible: labelMouse.containsMouse
@@ -180,7 +183,7 @@ Rectangle {
                         EditorState.setStyleLayer(EditorState.selectedTrack, EditorState.selectedClip, layer.id,
                                                   { "enabled": layer.enabled === false })
                     } else if (root.pickedStyled()) {
-                        fillOptions.openFor(swatch.which)
+                        fillOptions.openFor(swatch.which, !root.pickedStyled())
                     } else if (swatch.which === "fill") {
                         EditorState.preview.toolFill = EditorState.preview.toolFill === "none" ? "#ffff4d6d" : "none"
                     } else {
@@ -190,7 +193,7 @@ Rectangle {
                 }
                 // A gradient, or a picked clip with no such layer yet: the options; else the colour.
                 if (swatch.isGradient || (root.pickedStyled() && !layer))
-                    fillOptions.openFor(swatch.which)
+                    fillOptions.openFor(swatch.which, !root.pickedStyled())
                 else
                     colorDialog.openFor(swatch.which)
             }

@@ -175,3 +175,27 @@ el mate de Charlie.
 - Velocidad: se conserva siempre el material; a 0,5× el clip dura el doble y los clips de detrás se corren
   (`retimeKeepingSource`). Pruebas `slowingAClipKeepsItsMaterial` y `addClipsFromAssetsPutsPhotosOnTheVideoTrack`.
 - Contorno de selección 3D girando en el anclaje (`clipPoseMatrix`).
+
+## Reprueba en ventana de la build c523066 (2026-10-31, grabada: `pruebas\tutorial-llt\reprueba-0.29.mp4`)
+Portable `pruebas\FlipStudio-0.29-prueba-c`, arranca sin errores de QML.
+- ✓ Esc en el editor de texto conserva lo escrito y el clip toma ese nombre (texto en su propia pista).
+- ✓ Ctrl+A dentro de un campo selecciona su texto (no los clips).
+- ✓ Opciones de relleno: un preajuste deja el tipo (Radial).
+- ✓ Campos del anclaje cambian con el clip elegido (225, 345 → 192, 52).
+- ✓ Arrastrar dos medios elegidos: caen seguidos en la pista de video (5,00 s + 68,22 s + el otro).
+- ✓ Velocidad 0,5×: 136,45 s, recorte 0–68,22 intacto, el clip siguiente se corre.
+- ✓ «Congelar fotograma en la posición actual» en el menú del clip.
+- ✓ Capa 3D con anclaje X 0: inclina sobre el borde izquierdo y el contorno de selección sigue a la forma.
+- Sin probar: que Descargas no se abra sola (pide bajar algo de Stock con la cuenta).
+
+Fallos nuevos, ya corregidos en el código (para la próxima build):
+- Con la herramienta Rectángulo/Pluma y un **texto** elegido, Opciones de relleno pintaba el texto y la forma nueva salía
+  con el color de siempre. Ahora, como After Effects, con herramienta de dibujo y un texto elegido el relleno es el de la
+  herramienta (`PreviewToolbar.pickedStyled`, `FillOptionsDialog.openFor(which, toolOnly)`).
+- «Cambiar nombre del clip»: el campo no tomaba el teclado al abrir (ThemedDialog lo da al botón Aceptar en su
+  `onOpened`); `NameDialog` lo toma después con `Qt.callLater` y selecciona el nombre.
+- **Escribir 0 en un campo con `Binding on value { when: !activeFocus }` no se guardaba**: al tomar el foco el Binding
+  devolvía el valor al de por defecto (0), y 0 contaba como «sin cambio». Lo mismo al presionar un deslizador
+  (`when: !pressed`). `restoreMode: Binding.RestoreNone` en los 38 casos (19 archivos).
+  **Trampa:** todo `Binding` con `when` sobre un campo o deslizador lleva `restoreMode: Binding.RestoreNone`.
+- Menor, sin arreglar: el triple clic no selecciona el número en un campo numérico (clic + Ctrl+A sí).

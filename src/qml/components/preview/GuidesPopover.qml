@@ -61,6 +61,7 @@ Popup {
         unit: "%"
         Binding on value {
             when: !field.activeFocus
+            restoreMode: Binding.RestoreNone
             value: field.fraction * 100
         }
         onEdited: v => field.committed(v / 100)
@@ -175,6 +176,7 @@ Popup {
                 to: 100
                 Binding on value {
                     when: !aspectW.activeFocus
+                    restoreMode: Binding.RestoreNone
                     value: row.item.aspectW
                 }
                 onEdited: v => row.set("aspectW", v)
@@ -191,6 +193,7 @@ Popup {
                 to: 100
                 Binding on value {
                     when: !aspectH.activeFocus
+                    restoreMode: Binding.RestoreNone
                     value: row.item.aspectH
                 }
                 onEdited: v => row.set("aspectH", v)
@@ -215,6 +218,7 @@ Popup {
                 valueFormatter: v => Math.round(v * 100) + "%"
                 Binding on value {
                     when: !opacitySlider.pressed
+                    restoreMode: Binding.RestoreNone
                     value: row.item.opacity
                 }
                 onMoved: row.set("opacity", value)

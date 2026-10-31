@@ -506,6 +506,7 @@ Column {
                         valueFormatter: function (v) { return Math.round(v) + " ms" }
                         Binding on value {
                             when: !staggerSlider.pressed
+                            restoreMode: Binding.RestoreNone
                             value: Number(card.sel ? card.sel.staggerUs : 0) / 1000
                         }
                         onMoved: root.setSelectorKey(card.index, "staggerUs", Math.round(value) * 1000, pressed)
@@ -556,6 +557,7 @@ Column {
                         valueFormatter: function (v) { return Number(v).toFixed(2) + " s" }
                         Binding on value {
                             when: !unitDurationSlider.pressed
+                            restoreMode: Binding.RestoreNone
                             value: Number(card.sel ? card.sel.durationUs : 0) / 1000000
                         }
                         onMoved: root.setSelectorKey(card.index, "durationUs", Math.round(value * 1000000), pressed)
@@ -606,6 +608,7 @@ Column {
                         valueFormatter: function (v) { return Number(v).toFixed(2) + " Hz" }
                         Binding on value {
                             when: !speedSlider.pressed
+                            restoreMode: Binding.RestoreNone
                             value: card.sel && card.sel.frequencyHz !== undefined ? Number(card.sel.frequencyHz) : 1.1
                         }
                         onMoved: root.setSelectorKey(card.index, "frequencyHz", value, pressed)
@@ -630,6 +633,7 @@ Column {
                         valueFormatter: function (v) { return Math.round(v) + "°" }
                         Binding on value {
                             when: !phaseSlider.pressed
+                            restoreMode: Binding.RestoreNone
                             value: card.sel && card.sel.spatialPhaseDeg !== undefined ? Number(card.sel.spatialPhaseDeg) : 34.4
                         }
                         onMoved: root.setSelectorKey(card.index, "spatialPhaseDeg", value, pressed)
@@ -703,6 +707,7 @@ Column {
                             valueFormatter: function (v) { return root.formatted(v, propRow.range.step, propRow.range.unit) }
                             Binding on value {
                                 when: !propSlider.pressed
+                                restoreMode: Binding.RestoreNone
                                 value: Number(propRow.current)
                             }
                             onMoved: root.setProp(card.index, propRow.modelData, value, pressed)

@@ -291,6 +291,7 @@ Item {
                 // playback drive the handle without fighting the drag.
                 Binding on value {
                     when: !scrubSlider.pressed
+                    restoreMode: Binding.RestoreNone
                     value: root.currentSeconds
                 }
             }

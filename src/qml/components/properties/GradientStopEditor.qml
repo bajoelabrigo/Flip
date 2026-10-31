@@ -409,6 +409,7 @@ Column {
                 unit: "/s"
                 Binding on value {
                     when: !speedField.activeFocus
+                    restoreMode: Binding.RestoreNone
                     value: Number(root.gradient.offsetSpeed) || 0
                 }
                 onEdited: v => root.commitGradient({ "offsetSpeed": v })

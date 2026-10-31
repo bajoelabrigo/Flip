@@ -20,9 +20,14 @@ ThemedDialog {
         root.title = dialogTitle
         nameField.text = initialName
         open()
+    }
+
+    // The field takes the keyboard once the dialog is up (ThemedDialog's own onOpened gives it to the accept button first), with
+    // the name selected so typing replaces it.
+    onOpened: Qt.callLater(() => {
         nameField.forceActiveFocus()
         nameField.selectAll()
-    }
+    })
 
     onAccepted: {
         const name = nameField.text.trim()

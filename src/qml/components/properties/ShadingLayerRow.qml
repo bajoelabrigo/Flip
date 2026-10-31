@@ -562,6 +562,7 @@ Column {
                         to: 9999
                         Binding on value {
                             when: !sketchSeedField.activeFocus
+                            restoreMode: Binding.RestoreNone
                             value: Number(row.layerData.sketchSeed) || 0
                         }
                         onEdited: v => row.setLayer({ "sketchSeed": Math.round(v) })
@@ -673,6 +674,7 @@ Column {
                     unit: "°"
                     Binding on value {
                         when: !extrudeAngleField.activeFocus
+                        restoreMode: Binding.RestoreNone
                         value: Number(row.layerData.extrudeAngle) || 0
                     }
                     onEdited: v => row.setLayer({ "extrudeAngle": v })
@@ -702,6 +704,7 @@ Column {
                 to: 64
                 Binding on value {
                     when: !extrudeStepsField.activeFocus
+                    restoreMode: Binding.RestoreNone
                     value: Number(row.layerData.extrudeSteps) || 8
                 }
                 onEdited: v => row.setLayer({ "extrudeSteps": Math.round(v) })
@@ -733,6 +736,7 @@ Column {
                 stepSize: 0.01
                 Binding on value {
                     when: !darkenSlider.pressed
+                    restoreMode: Binding.RestoreNone
                     value: Number(row.layerData.extrudeDarken) || 0
                 }
                 onMoved: {

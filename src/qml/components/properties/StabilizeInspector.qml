@@ -113,6 +113,7 @@ Item {
                 valueFormatter: function (v) { return String(Math.round(v)) }
                 Binding on value {
                     when: !stabilizeSmoothingSlider.pressed
+                    restoreMode: Binding.RestoreNone
                     value: (root.clipData && root.clipData.stabilizeSmoothing !== undefined)
                            ? root.clipData.stabilizeSmoothing : 15
                 }
