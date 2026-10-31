@@ -287,17 +287,17 @@ def redes_tarjeta():
     photo_bg(t, "h-city-02", s1=1.04, label="Tu video")
 
     def draw(i, net, handle, a, dur):
-        card = Box(120, 900, 460, 92)
+        card = Box(120, 892, 460, 100)
         _wipe_box(t, card.x, card.y, card.w, card.h, WHITE, a, dur, name="Tarjeta")
         t.solid(t.track("shape", "Borde"), CORAL, a, dur, Box(card.x, card.y, 12, card.h),
                 [(0, {"sy": 0.0}, "out"), (0.3, {}, "hold"), (dur - 0.25, {}, "in"), (dur, {"sy": 0.0})])
         if net == "youtube":
-            yt_icon(t, card.x + 62, card.y + 46, 56, a + 0.2, dur - 0.35)
+            yt_icon(t, card.x + 62, card.y + 50, 56, a + 0.2, dur - 0.35)
         else:
-            logo(t, net, card.x + 62, card.y + 46, 48, a + 0.2, dur - 0.35, colour=INK)
+            logo(t, net, card.x + 62, card.y + 50, 48, a + 0.2, dur - 0.35, colour=INK)
         _line_text(t, handle, Box(card.x + 104, card.y + 10, 340, 46), 34, a + 0.3, dur - 0.45, colour=INK, anim="fade",
                    ad=0.25, name=f"Usuario {i + 1}", shadowed=False)
-        _line_text(t, "SÍGUEME", Box(card.x + 106, card.y + 54, 200, 28), 20, a + 0.4, dur - 0.55, colour=CORAL,
+        _line_text(t, "SÍGUEME", Box(card.x + 106, card.y + 52, 240, 34), 26, a + 0.4, dur - 0.55, colour=CORAL,
                    anim="fade", ad=0.25, name=f"Sígueme {i + 1}", shadowed=False, spacing=3)
     _cycle(t, D, draw)
     return t
