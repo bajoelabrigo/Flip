@@ -1225,10 +1225,10 @@ Item {
                                 acceptedButtons: Qt.LeftButton | Qt.RightButton
                                 onClicked: mouse => {
                                     if (mouse.button === Qt.RightButton && headingLine.partId.length > 0) {
-                                        // The menu keeps its ids: picking here rebuilt this row (the menu with it).
-                                        partLineMenu.track = keyLines.trackIndex
-                                        partLineMenu.clip = keyLine.clip
-                                        partLineMenu.partId = headingLine.partId
+                                        // The menu keeps its ids (not «clip»: a Popup's clip is FINAL and the app did not start): picking here rebuilt this row (the menu with it).
+                                        partLineMenu.menuTrack = keyLines.trackIndex
+                                        partLineMenu.menuClip = keyLine.clip
+                                        partLineMenu.menuPartId = headingLine.partId
                                         partLineMenu.popup(headingLine, mouse.x, mouse.y)
                                         return
                                     }
@@ -1361,27 +1361,27 @@ Item {
                             }
                             ThemedContextMenu {
                                 id: partLineMenu
-                                property int track: -1
-                                property int clip: -1
-                                property string partId: ""
+                                property int menuTrack: -1
+                                property int menuClip: -1
+                                property string menuPartId: ""
                                 ThemedMenuItem {
                                     text: qsTr("Duplicate") + "\tCtrl+D"
-                                    onTriggered: EditorState.duplicateShapePart(partLineMenu.track, partLineMenu.clip, partLineMenu.partId)
+                                    onTriggered: EditorState.duplicateShapePart(partLineMenu.menuTrack, partLineMenu.menuClip, partLineMenu.menuPartId)
                                 }
                                 ThemedMenuItem {
                                     text: qsTr("Group") + "\tCtrl+G"
-                                    onTriggered: EditorState.groupShapePart(partLineMenu.track, partLineMenu.clip, partLineMenu.partId)
+                                    onTriggered: EditorState.groupShapePart(partLineMenu.menuTrack, partLineMenu.menuClip, partLineMenu.menuPartId)
                                 }
                                 ThemedMenuItem {
                                     visible: keyLine.modelData.isGroup === true
                                     height: visible ? implicitHeight : 0
                                     text: qsTr("Ungroup")
-                                    onTriggered: EditorState.ungroupShapePart(partLineMenu.track, partLineMenu.clip, partLineMenu.partId)
+                                    onTriggered: EditorState.ungroupShapePart(partLineMenu.menuTrack, partLineMenu.menuClip, partLineMenu.menuPartId)
                                 }
                                 ThemedMenuSeparator { }
                                 ThemedMenuItem {
                                     text: qsTr("Delete")
-                                    onTriggered: EditorState.removeShapePart(partLineMenu.track, partLineMenu.clip, partLineMenu.partId)
+                                    onTriggered: EditorState.removeShapePart(partLineMenu.menuTrack, partLineMenu.menuClip, partLineMenu.menuPartId)
                                 }
                             }
                         }
