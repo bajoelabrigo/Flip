@@ -31031,6 +31031,14 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
         <translation>Scala clip</translation>
     </message>
     <message>
+        <source>Anchor point (px)</source>
+        <translation>Punto di ancoraggio (px)</translation>
+    </message>
+    <message>
+        <source>Anchor in the centre</source>
+        <translation>Ancoraggio al centro</translation>
+    </message>
+    <message>
         <source>Opacity &amp; rotation</source>
         <translation>Opacità e rotazione</translation>
     </message>

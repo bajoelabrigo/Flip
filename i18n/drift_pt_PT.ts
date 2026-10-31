@@ -31031,6 +31031,14 @@ Se a reprodução falhar, experimente outra opção.</translation>
         <translation>Escalar clipe</translation>
     </message>
     <message>
+        <source>Anchor point (px)</source>
+        <translation>Ponto de ancoragem (px)</translation>
+    </message>
+    <message>
+        <source>Anchor in the centre</source>
+        <translation>Ancoragem no centro</translation>
+    </message>
+    <message>
         <source>Opacity &amp; rotation</source>
         <translation>Opacidade &amp; rotação</translation>
     </message>

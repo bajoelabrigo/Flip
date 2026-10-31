@@ -31035,6 +31035,14 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Mettre le clip à l&apos;échelle</translation>
     </message>
     <message>
+        <source>Anchor point (px)</source>
+        <translation>Point d&apos;ancrage (px)</translation>
+    </message>
+    <message>
+        <source>Anchor in the centre</source>
+        <translation>Ancrage au centre</translation>
+    </message>
+    <message>
         <source>Opacity &amp; rotation</source>
         <translation>Opacité &amp; rotation</translation>
     </message>

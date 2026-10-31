@@ -31127,6 +31127,14 @@ If playback stutters, try another.</source>
         <translation>Масштабировать клип</translation>
     </message>
     <message>
+        <source>Anchor point (px)</source>
+        <translation>Опорная точка (px)</translation>
+    </message>
+    <message>
+        <source>Anchor in the centre</source>
+        <translation>Опорная точка в центре</translation>
+    </message>
+    <message>
         <source>Opacity &amp; rotation</source>
         <translation>Непрозрачность и поворот</translation>
     </message>

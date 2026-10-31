@@ -31415,6 +31415,14 @@ If playback stutters, try another.</source>
         <translation>تغيير حجم المقطع</translation>
     </message>
     <message>
+        <source>Anchor point (px)</source>
+        <translation>نقطة الارتكاز (px)</translation>
+    </message>
+    <message>
+        <source>Anchor in the centre</source>
+        <translation>الارتكاز في المنتصف</translation>
+    </message>
+    <message>
         <source>Opacity &amp; rotation</source>
         <translation>العتامة والدوران</translation>
     </message>

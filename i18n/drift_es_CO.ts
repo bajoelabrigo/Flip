@@ -31031,6 +31031,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Escalar clip</translation>
     </message>
     <message>
+        <source>Anchor point (px)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Anchor in the centre</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Opacity &amp; rotation</source>
         <translation>Opacidad y rotación</translation>
     </message>

@@ -30933,6 +30933,14 @@ If playback stutters, try another.</source>
         <translation>클립 크기 조정</translation>
     </message>
     <message>
+        <source>Anchor point (px)</source>
+        <translation>기준점 (px)</translation>
+    </message>
+    <message>
+        <source>Anchor in the centre</source>
+        <translation>기준점을 가운데로</translation>
+    </message>
+    <message>
         <source>Opacity &amp; rotation</source>
         <translation>불투명도 및 회전</translation>
     </message>

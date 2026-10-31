@@ -31127,6 +31127,14 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
         <translation>Skaluj klip</translation>
     </message>
     <message>
+        <source>Anchor point (px)</source>
+        <translation>Punkt zakotwiczenia (px)</translation>
+    </message>
+    <message>
+        <source>Anchor in the centre</source>
+        <translation>Zakotwiczenie na środku</translation>
+    </message>
+    <message>
         <source>Opacity &amp; rotation</source>
         <translation>Krycie i obrót</translation>
     </message>

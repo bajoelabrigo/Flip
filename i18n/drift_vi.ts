@@ -30939,6 +30939,14 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Tỷ lệ clip</translation>
     </message>
     <message>
+        <source>Anchor point (px)</source>
+        <translation>Điểm neo (px)</translation>
+    </message>
+    <message>
+        <source>Anchor in the centre</source>
+        <translation>Neo ở giữa</translation>
+    </message>
+    <message>
         <source>Opacity &amp; rotation</source>
         <translation>Độ mờ &amp; xoay</translation>
     </message>

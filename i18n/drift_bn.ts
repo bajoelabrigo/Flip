@@ -31027,6 +31027,14 @@ If playback stutters, try another.</source>
         <translation type="unfinished">স্কেল ক্লিপ</translation>
     </message>
     <message>
+        <source>Anchor point (px)</source>
+        <translation>নোঙর বিন্দু (px)</translation>
+    </message>
+    <message>
+        <source>Anchor in the centre</source>
+        <translation>মাঝখানে নোঙর</translation>
+    </message>
+    <message>
         <source>Opacity &amp; rotation</source>
         <translation type="unfinished">অস্বচ্ছতা এবং ঘূর্ণন</translation>
     </message>

@@ -31027,6 +31027,14 @@ If playback stutters, try another.</source>
         <translation>ක්ලිපය පරිමාණය කරන්න</translation>
     </message>
     <message>
+        <source>Anchor point (px)</source>
+        <translation>නැංගුරම් ලක්ෂ්‍යය (px)</translation>
+    </message>
+    <message>
+        <source>Anchor in the centre</source>
+        <translation>මැද නැංගුරම</translation>
+    </message>
+    <message>
         <source>Opacity &amp; rotation</source>
         <translation>පාරාන්ධතාව සහ භ්‍රමණය</translation>
     </message>

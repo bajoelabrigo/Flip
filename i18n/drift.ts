@@ -31019,6 +31019,14 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Anchor point (px)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Anchor in the centre</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Opacity &amp; rotation</source>
         <translation type="unfinished"></translation>
     </message>

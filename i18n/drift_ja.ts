@@ -30935,6 +30935,14 @@ If playback stutters, try another.</source>
         <translation>クリップを拡大縮小</translation>
     </message>
     <message>
+        <source>Anchor point (px)</source>
+        <translation>アンカーポイント (px)</translation>
+    </message>
+    <message>
+        <source>Anchor in the centre</source>
+        <translation>アンカーを中央に</translation>
+    </message>
+    <message>
         <source>Opacity &amp; rotation</source>
         <translation>不透明度 / 回転</translation>
     </message>

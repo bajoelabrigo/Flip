@@ -30934,6 +30934,14 @@ If playback stutters, try another.</source>
         <translation>缩放片段</translation>
     </message>
     <message>
+        <source>Anchor point (px)</source>
+        <translation>锚点 (px)</translation>
+    </message>
+    <message>
+        <source>Anchor in the centre</source>
+        <translation>锚点居中</translation>
+    </message>
+    <message>
         <source>Opacity &amp; rotation</source>
         <translation>不透明度和旋转</translation>
     </message>
