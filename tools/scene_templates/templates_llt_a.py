@@ -1235,5 +1235,67 @@ def patricia():
     return t
 
 
+# Jim Reeves, measured frame by frame (25 fps from 84.3 s): the logo's box every frame (it grows from a dot, slides
+# left; out it slides right, swells and comes back shrinking to a dot), and the name's right end coming in. The name
+# shows only right of the logo.
+_JR_LOGO = {0: (472, 916, 476, 919), 1: (474, 905, 486, 919), 2: (474, 894, 495, 919), 3: (476, 884, 505, 918),
+            4: (476, 876, 512, 918), 5: (476, 869, 519, 918), 6: (477, 864, 523, 917), 7: (478, 860, 527, 917),
+            8: (478, 857, 531, 917), 9: (480, 843, 543, 916), 10: (494, 694, 682, 908), 11: (498, 662, 711, 906),
+            12: (498, 658, 714, 906), 13: (496, 657, 713, 906), 14: (492, 658, 708, 906), 15: (484, 662, 697, 906),
+            16: (464, 671, 671, 907), 17: (392, 704, 571, 908), 18: (357, 721, 523, 909), 19: (344, 727, 503, 910),
+            20: (336, 731, 491, 910), 21: (330, 733, 485, 910), 22: (326, 735, 480, 910), 23: (324, 736, 477, 910),
+            24: (324, 736, 475, 910), 98: (324, 736, 475, 910), 99: (325, 736, 477, 910), 100: (332, 736, 483, 910),
+            101: (344, 736, 497, 910), 102: (368, 736, 519, 910), 103: (406, 736, 559, 910), 104: (475, 736, 629, 911),
+            105: (604, 736, 757, 911), 106: (760, 736, 913, 911), 107: (866, 736, 1021, 911),
+            108: (938, 736, 1091, 911), 109: (988, 736, 1141, 911), 110: (1028, 736, 1180, 911),
+            111: (1058, 736, 1211, 911), 112: (1082, 736, 1235, 911), 113: (1102, 736, 1255, 911),
+            114: (1078, 724, 1240, 910), 115: (1030, 705, 1209, 909), 116: (988, 688, 1181, 907),
+            117: (956, 674, 1161, 907), 118: (939, 665, 1151, 907), 119: (937, 662, 1151, 907),
+            120: (939, 664, 1151, 907), 121: (928, 670, 1137, 907), 122: (898, 683, 1095, 907),
+            123: (821, 715, 991, 909), 124: (664, 780, 781, 913), 125: (546, 830, 621, 915), 126: (479, 858, 530, 917),
+            127: (434, 877, 470, 918), 128: (402, 890, 427, 919), 129: (380, 900, 396, 919), 130: (362, 908, 373, 919),
+            131: (350, 913, 355, 919), 132: (340, 917, 343, 919), 133: (340, 919, 340, 919)}
+_JR_NAME_R = {15: 600, 16: 835, 17: 906, 18: 949, 19: 978, 20: 997, 21: 1011, 22: 1020, 23: 1026, 24: 1029, 25: 1031}
+
+
+def jim():
+    """The logo grows from a dot and slides left, the name coming out from behind it; out, the logo slides right over
+    the name, swells and shrinks back to a dot."""
+    fps, first, last = 25.0, 0, 133
+    D = round((last - first + 1) / fps, 2)
+    t = _kit("jim", "Tercio con logo: logo que destapa el nombre", "Logo lower third: logo uncovering the name", D, 8545,
+             ["nombre", "logo", "simple"], thumb_at=2.4)
+    photo_bg(t, "h-city-01", s1=1.03, label="Tu video")
+    from llt_motion import frames_of
+    us = frames_of(D)
+    fr = lambda u: first + u * fps  # noqa: E731
+    logo = _table(_JR_LOGO, (472, 916, 476, 919), (340, 919, 340, 919))
+    name_r = _table(_JR_NAME_R, 600.0, 1031.0)
+    name = "JIM REEVES"
+    nbox, nsize = caps_box(520, 767, 876, name)
+    clip = name_text(t, name, nbox, nsize, D, bold_from="REEVES", spacing=-2.5, bold_spacing=6, word_spacing=6,
+                     motion=[(u, {"dx": name_r(fr(u)) - 1031}, "linear") for u in us])
+    track = next(tr for tr in t.tracks if clip in tr.clips)
+    mk = {"x": [], "w": []}
+    for u in us:
+        x0 = logo(fr(u))[2] - 8 if 15 <= fr(u) <= 108 else 3000.0
+        dx = name_r(fr(u)) - 1031
+        mk["x"].append((u, ((x0 + 3000) / 2 - nbox.x - dx) / nbox.w, "linear"))
+        mk["w"].append((u, max(0.0, 3000 - x0) / nbox.w, "linear"))
+    t.mask(track, clip, "rectangle", x=mk["x"][0][1], y=0.5, w=mk["w"][0][1], h=2.0,
+           keyframes={k: keys(v) for k, v in mk.items()})
+    # The logo on top, its square slot fitted to the measured box (the mark keeps its shape).
+    lg = centered(399.5, 823, 174, 174)
+    mark = t.photo(t.track("video", "Logo"), "logo-09", 0.0, D, lg, label="Tu logo", brandRole="logo")
+    xs, ys, ss = [], [], []
+    for u in us:
+        x0, y0, x1, y1 = logo(fr(u))
+        s = max(x1 - x0, y1 - y0) * 174 / 174
+        xs.append((u, (x0 + x1) / 2 - s / 2, "linear")); ys.append((u, (y0 + y1) / 2 - s / 2, "linear"))
+        ss.append((u, s, "linear"))
+    mark["x"], mark["y"], mark["width"], mark["height"] = keys(xs), keys(ys), keys(ss), keys(ss)
+    return t
+
+
 TEMPLATES = [francois, roger, jamie, charlotte, jason_e, jessica, david, neil, joanna, hendrick, bevan, janice, charlie,
-             lizzie, patricia]
+             lizzie, patricia, jim]
