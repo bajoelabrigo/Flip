@@ -5599,6 +5599,26 @@
         <translation>ブックマークを更新しました</translation>
     </message>
     <message>
+        <source>There is no video after this clip to fit it to</source>
+        <translation>このクリップの後に合わせる動画がありません</translation>
+    </message>
+    <message>
+        <source>The clip already ends with the video</source>
+        <translation>クリップはすでに動画と同時に終わります</translation>
+    </message>
+    <message>
+        <source>Fit to video length</source>
+        <translation>動画の長さに合わせる</translation>
+    </message>
+    <message>
+        <source>The file is shorter than the video: the clip ends where the file does</source>
+        <translation>ファイルが動画より短いため、クリップはファイルの終わりで終わります</translation>
+    </message>
+    <message>
+        <source>The clip now ends with the video</source>
+        <translation>クリップが動画と同時に終わるようになりました</translation>
+    </message>
+    <message>
         <source>No video at the current time</source>
         <translation>現在の時間にビデオがありません</translation>
     </message>
@@ -29457,6 +29477,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Crop…</source>
         <translation>切り抜き…</translation>
+    </message>
+    <message>
+        <source>Fit to video length</source>
+        <translation>動画の長さに合わせる</translation>
     </message>
     <message>
         <source>Freeze frame at current time</source>

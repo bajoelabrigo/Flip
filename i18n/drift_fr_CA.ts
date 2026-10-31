@@ -5623,6 +5623,26 @@
         <translation>Repère mis à jour</translation>
     </message>
     <message>
+        <source>There is no video after this clip to fit it to</source>
+        <translation>Aucune vidéo après ce clip pour l&apos;ajuster</translation>
+    </message>
+    <message>
+        <source>The clip already ends with the video</source>
+        <translation>Le clip se termine déjà avec la vidéo</translation>
+    </message>
+    <message>
+        <source>Fit to video length</source>
+        <translation>Ajuster à la durée de la vidéo</translation>
+    </message>
+    <message>
+        <source>The file is shorter than the video: the clip ends where the file does</source>
+        <translation>Le fichier est plus court que la vidéo : le clip se termine à la fin du fichier</translation>
+    </message>
+    <message>
+        <source>The clip now ends with the video</source>
+        <translation>Le clip se termine maintenant avec la vidéo</translation>
+    </message>
+    <message>
         <source>No video at the current time</source>
         <translation>Pas de vidéo à cette heure</translation>
     </message>
@@ -29552,6 +29572,10 @@ Si la lecture saccade, essayez une autre option.</translation>
     <message>
         <source>Crop…</source>
         <translation>Recadrer…</translation>
+    </message>
+    <message>
+        <source>Fit to video length</source>
+        <translation>Ajuster à la durée de la vidéo</translation>
     </message>
     <message>
         <source>Freeze frame at current time</source>

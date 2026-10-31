@@ -29350,9 +29350,16 @@ void AppController::freezeFrameAtPlayhead()
     for (int t = 0; t < still->tracks().size(); ++t) {
         drift::Track &track = still->tracks()[t];
         track.transitions.clear();
+        const bool lane = track.isAdjustmentLane();
         for (int c = track.clips.size() - 1; c >= 0; --c) {
-            if (track.clips.at(c).id != clipId)
-                track.clips.removeAt(c);
+            const drift::Clip &k = track.clips.at(c);
+            if (k.id == clipId)
+                continue;
+            // Its pinned masks (the background removal's cut-out) and effects are baked into the still, since the
+            // freeze clip has none of its own (0.29: a frozen cut-out showed its whole background).
+            if (lane && k.linkedClipId == clipId)
+                continue;
+            track.clips.removeAt(c);
         }
     }
     const std::shared_ptr<const drift::Project> snapshot = still;
@@ -29361,7 +29368,11 @@ void AppController::freezeFrameAtPlayhead()
         FrameCompositor compositor;
         compositor.setProject(snapshot.get());
 
-        const QImage frame = compositor.compositeAt(playheadUs);
+        // Transparent where the clip shows nothing (outside a cut-out, around a smaller picture), so the still
+        // looks over the tracks below as the clip did.
+        FrameCompositor::RenderOptions options;
+        options.transparentBackground = true;
+        const QImage frame = compositor.compositeAt(playheadUs, options);
         const bool ok = !frame.isNull() && frame.save(outPath, "PNG");
         const QString thumb =
             ok ? MediaThumbnail::generate(outPath, drift::mediaKindToString(drift::MediaKind::Image))

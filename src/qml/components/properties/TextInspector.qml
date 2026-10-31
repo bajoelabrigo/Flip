@@ -368,8 +368,12 @@ Item {
 
     // El tramo que cubre el cursor (o el comienzo de la selección): sus valores, para enseñarlos.
     readonly property var runUnderCursor: {
+        // Refreshed after every edit, as the window's own runs are (the runs are not in textStyle).
+        void EditorState.tracksRevision
+        void root.clipDataRevision
         void root.textStyle
         void root.runSelectionStart
+        void root.runSelectionEnd
         if (!root.canStyleRuns)
             return ({})
         const runs = EditorState.textRuns(EditorState.selectedTrack, EditorState.selectedClip)
@@ -1079,12 +1083,15 @@ Item {
             text: qsTr("Open Advanced text…")
             glyph: Theme.icons.type
             variant: "primary"
-            onClicked: {
+            // Takes no focus on press, and opens on the next turn of the event loop: the inline text editor's commit
+            // landed inside its click and it opened only at the 2nd or 3rd (0.29).
+            focusPolicy: Qt.TabFocus
+            onClicked: Qt.callLater(function () {
                 advancedTextLoader.active = true
                 if (advancedTextLoader.item)
                     advancedTextLoader.item.openFor(EditorState.selectedTrack, EditorState.selectedClip,
                                                     (root.clipData && root.clipData.id) ? root.clipData.id : "")
-            }
+            })
         }
 
         // CapCut's text pages as a segmented strip: Básico, Burbuja, Efectos and Animación.
@@ -1198,8 +1205,10 @@ Item {
                     // sombreado y el efecto se va a todo el texto (probado en ventana, 0.24).
                     persistentSelection: true
                     // Las letras sombreadas aquí son las que reciben los estilos (0.24).
-                    onSelectionStartChanged: root.runSelectionStart = selectionStart
-                    onSelectionEndChanged: root.runSelectionEnd = selectionEnd
+                    // Inside Texto avanzado the letters picked are the window's: writing them here cut that binding,
+                    // and «Fuente» went back to the whole text's font (0.29).
+                    onSelectionStartChanged: if (!root.inAdvanced) root.runSelectionStart = selectionStart
+                    onSelectionEndChanged: if (!root.inAdvanced) root.runSelectionEnd = selectionEnd
                     // No se limpia en onCursorPositionChanged: al empezar el arrastre la selección
                     // está colapsada y borraba el comienzo, así que el sombreado nunca llegaba
                     // (con la selección vacía hasRunSelection ya es falso por sí solo).

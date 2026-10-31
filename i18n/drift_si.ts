@@ -5618,6 +5618,26 @@
         <translation>පොත් සලකුණ යාවත්කාලීන විය</translation>
     </message>
     <message>
+        <source>There is no video after this clip to fit it to</source>
+        <translation>මෙම ක්ලිපයෙන් පසු ගැළපීමට වීඩියෝවක් නැත</translation>
+    </message>
+    <message>
+        <source>The clip already ends with the video</source>
+        <translation>ක්ලිපය දැනටමත් වීඩියෝව සමඟ අවසන් වේ</translation>
+    </message>
+    <message>
+        <source>Fit to video length</source>
+        <translation>වීඩියෝවේ දිගට ගළපන්න</translation>
+    </message>
+    <message>
+        <source>The file is shorter than the video: the clip ends where the file does</source>
+        <translation>ගොනුව වීඩියෝවට වඩා කෙටියි: ගොනුව අවසන් වන තැන ක්ලිපය අවසන් වේ</translation>
+    </message>
+    <message>
+        <source>The clip now ends with the video</source>
+        <translation>දැන් ක්ලිපය වීඩියෝව සමඟ අවසන් වේ</translation>
+    </message>
+    <message>
         <source>No video at the current time</source>
         <translation>වත්මන් වේලාවේ වීඩියෝවක් නැත</translation>
     </message>
@@ -29544,6 +29564,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Crop…</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fit to video length</source>
+        <translation>වීඩියෝවේ දිගට ගළපන්න</translation>
     </message>
     <message>
         <source>Freeze frame at current time</source>

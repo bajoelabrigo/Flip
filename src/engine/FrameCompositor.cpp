@@ -1649,7 +1649,21 @@ GpuLayer buildGpuLayer(const drift::Project &project, const drift::Clip &clip,
     // Depth sorting needs a pose to sort by, and the dest-reading blend modes copy the canvas
     // aside before they draw, which a depth test cannot see through. Enforced here as well as in
     // the setter, so an imported or hand-edited project cannot ask for something undrawable.
-    layer.depthOcclude = clip.depthOcclude && clip.layer3d
+    // Two or more 3D layers on screen at once are sorted by depth on their own (0.29: the faces of a turning prism
+    // drew in track order, the back one over the front). Only opaque ones: the depth test drops pixels under half
+    // alpha, so a fading layer keeps track order rather than vanishing.
+    const auto active3d = [&project, timelineUs]() {
+        int n = 0;
+        for (const drift::Track &t : project.tracks()) {
+            if (t.hidden || t.isAdjustmentLane())
+                continue;
+            for (const drift::Clip &c : t.clips)
+                n += (c.layer3d && c.containsTime(timelineUs)) ? 1 : 0;
+        }
+        return n;
+    };
+    const bool autoDepth = clip.layer3d && opacity >= 0.999 && active3d() >= 2;
+    layer.depthOcclude = (clip.depthOcclude || autoDepth) && clip.layer3d
                          && clip.blendMode == drift::BlendMode::Normal;
     if (clip.type != drift::ClipType::Model3d) {
         layer.pose3d.rotationX = transformValue(clip.rotationX, clipTimeUs, 0.0);

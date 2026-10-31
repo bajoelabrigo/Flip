@@ -5618,6 +5618,26 @@
         <translation>Marcador atualizado</translation>
     </message>
     <message>
+        <source>There is no video after this clip to fit it to</source>
+        <translation>Não há vídeo depois deste clipe para ajustá-lo</translation>
+    </message>
+    <message>
+        <source>The clip already ends with the video</source>
+        <translation>O clipe já termina com o vídeo</translation>
+    </message>
+    <message>
+        <source>Fit to video length</source>
+        <translation>Ajustar à duração do vídeo</translation>
+    </message>
+    <message>
+        <source>The file is shorter than the video: the clip ends where the file does</source>
+        <translation>O arquivo é mais curto que o vídeo: o clipe termina onde o arquivo termina</translation>
+    </message>
+    <message>
+        <source>The clip now ends with the video</source>
+        <translation>Agora o clipe termina com o vídeo</translation>
+    </message>
+    <message>
         <source>No video at the current time</source>
         <translation>Nenhum vídeo no tempo atual</translation>
     </message>
@@ -29548,6 +29568,10 @@ Se a reprodução travar, tente outra opção.</translation>
     <message>
         <source>Crop…</source>
         <translation>Cortar…</translation>
+    </message>
+    <message>
+        <source>Fit to video length</source>
+        <translation>Ajustar à duração do vídeo</translation>
     </message>
     <message>
         <source>Freeze frame at current time</source>

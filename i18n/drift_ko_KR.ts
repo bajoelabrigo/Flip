@@ -5599,6 +5599,26 @@
         <translation>책갈피가 업데이트됨</translation>
     </message>
     <message>
+        <source>There is no video after this clip to fit it to</source>
+        <translation>이 클립 뒤에 맞출 동영상이 없습니다</translation>
+    </message>
+    <message>
+        <source>The clip already ends with the video</source>
+        <translation>클립이 이미 동영상과 함께 끝납니다</translation>
+    </message>
+    <message>
+        <source>Fit to video length</source>
+        <translation>동영상 길이에 맞추기</translation>
+    </message>
+    <message>
+        <source>The file is shorter than the video: the clip ends where the file does</source>
+        <translation>파일이 동영상보다 짧아 클립이 파일 끝에서 끝납니다</translation>
+    </message>
+    <message>
+        <source>The clip now ends with the video</source>
+        <translation>이제 클립이 동영상과 함께 끝납니다</translation>
+    </message>
+    <message>
         <source>No video at the current time</source>
         <translation>현재 시점에 동영상이 없습니다</translation>
     </message>
@@ -29455,6 +29475,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Crop…</source>
         <translation>자르기…</translation>
+    </message>
+    <message>
+        <source>Fit to video length</source>
+        <translation>동영상 길이에 맞추기</translation>
     </message>
     <message>
         <source>Freeze frame at current time</source>

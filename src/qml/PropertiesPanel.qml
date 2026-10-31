@@ -554,6 +554,9 @@ PanelFrame {
                             variant: "ghost"
                             tooltip: modelData.label
                             active: root.activeTab === index
+                            // On press (0.29): a commit of the field that had the focus can refresh the panel before
+                            // the release, and the click was lost.
+                            onPressed: root.activeTab = index
                             onClicked: root.activeTab = index
 
                             Accessible.role: Accessible.PageTab
@@ -577,7 +580,7 @@ PanelFrame {
                             MouseArea {
                                 anchors.fill: parent
                                 cursorShape: Qt.PointingHandCursor
-                                onClicked: root.activeTab = index
+                                onPressed: root.activeTab = index
                             }
                         }
 

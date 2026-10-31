@@ -5599,6 +5599,26 @@
         <translation>已更新书签</translation>
     </message>
     <message>
+        <source>There is no video after this clip to fit it to</source>
+        <translation>此片段之后没有可适配的视频</translation>
+    </message>
+    <message>
+        <source>The clip already ends with the video</source>
+        <translation>片段已与视频同时结束</translation>
+    </message>
+    <message>
+        <source>Fit to video length</source>
+        <translation>适配视频时长</translation>
+    </message>
+    <message>
+        <source>The file is shorter than the video: the clip ends where the file does</source>
+        <translation>文件比视频短：片段在文件结束处结束</translation>
+    </message>
+    <message>
+        <source>The clip now ends with the video</source>
+        <translation>片段现已与视频同时结束</translation>
+    </message>
+    <message>
         <source>No video at the current time</source>
         <translation>当前时间没有视频</translation>
     </message>
@@ -29456,6 +29476,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Crop…</source>
         <translation>裁剪…</translation>
+    </message>
+    <message>
+        <source>Fit to video length</source>
+        <translation>适配视频时长</translation>
     </message>
     <message>
         <source>Freeze frame at current time</source>

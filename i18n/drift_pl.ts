@@ -5637,6 +5637,26 @@
         <translation>Zaktualizowano zakładkę</translation>
     </message>
     <message>
+        <source>There is no video after this clip to fit it to</source>
+        <translation>Po tym klipie nie ma wideo, do którego można go dopasować</translation>
+    </message>
+    <message>
+        <source>The clip already ends with the video</source>
+        <translation>Klip już kończy się razem z wideo</translation>
+    </message>
+    <message>
+        <source>Fit to video length</source>
+        <translation>Dopasuj do długości wideo</translation>
+    </message>
+    <message>
+        <source>The file is shorter than the video: the clip ends where the file does</source>
+        <translation>Plik jest krótszy niż wideo: klip kończy się tam, gdzie plik</translation>
+    </message>
+    <message>
+        <source>The clip now ends with the video</source>
+        <translation>Teraz klip kończy się razem z wideo</translation>
+    </message>
+    <message>
         <source>No video at the current time</source>
         <translation>Brak wideo w bieżącym czasie</translation>
     </message>
@@ -29639,6 +29659,10 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     <message>
         <source>Crop…</source>
         <translation>Kadruj…</translation>
+    </message>
+    <message>
+        <source>Fit to video length</source>
+        <translation>Dopasuj do długości wideo</translation>
     </message>
     <message>
         <source>Freeze frame at current time</source>

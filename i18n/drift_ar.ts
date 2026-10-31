@@ -5682,6 +5682,26 @@
         <translation>تم تحديث الإشارة المرجعية</translation>
     </message>
     <message>
+        <source>There is no video after this clip to fit it to</source>
+        <translation>لا يوجد فيديو بعد هذا المقطع لمطابقته</translation>
+    </message>
+    <message>
+        <source>The clip already ends with the video</source>
+        <translation>المقطع ينتهي بالفعل مع الفيديو</translation>
+    </message>
+    <message>
+        <source>Fit to video length</source>
+        <translation>مطابقة مدة الفيديو</translation>
+    </message>
+    <message>
+        <source>The file is shorter than the video: the clip ends where the file does</source>
+        <translation>الملف أقصر من الفيديو: ينتهي المقطع حيث ينتهي الملف</translation>
+    </message>
+    <message>
+        <source>The clip now ends with the video</source>
+        <translation>الآن ينتهي المقطع مع الفيديو</translation>
+    </message>
+    <message>
         <source>No video at the current time</source>
         <translation>لا يوجد فيديو في الوقت الحالي</translation>
     </message>
@@ -29912,6 +29932,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Crop…</source>
         <translation>قص…</translation>
+    </message>
+    <message>
+        <source>Fit to video length</source>
+        <translation>مطابقة مدة الفيديو</translation>
     </message>
     <message>
         <source>Freeze frame at current time</source>

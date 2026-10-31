@@ -330,9 +330,14 @@ Item {
         onSelectionEndChanged: root.markDirty()
         onPreeditTextChanged: root.markDirty()
 
+        // Committed after the press that took the focus, not inside it: the commit's edit refreshed the inspector
+        // mid-press and the click that moved the focus (a tab, «Abrir Texto avanzado…») was lost (0.29).
         onActiveFocusChanged: {
             if (!activeFocus && root.active && !root._starting)
-                root.commit()
+                Qt.callLater(function () {
+                    if (root.active && !proxy.activeFocus)
+                        root.commit()
+                })
         }
 
         Keys.onPressed: event => root.handleKey(event)

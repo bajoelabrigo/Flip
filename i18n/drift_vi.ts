@@ -5607,6 +5607,26 @@
         <translation>Đã cập nhật dấu trang</translation>
     </message>
     <message>
+        <source>There is no video after this clip to fit it to</source>
+        <translation>Không có video nào sau clip này để khớp</translation>
+    </message>
+    <message>
+        <source>The clip already ends with the video</source>
+        <translation>Clip đã kết thúc cùng video</translation>
+    </message>
+    <message>
+        <source>Fit to video length</source>
+        <translation>Khớp với độ dài video</translation>
+    </message>
+    <message>
+        <source>The file is shorter than the video: the clip ends where the file does</source>
+        <translation>Tệp ngắn hơn video: clip kết thúc ở cuối tệp</translation>
+    </message>
+    <message>
+        <source>The clip now ends with the video</source>
+        <translation>Giờ clip kết thúc cùng video</translation>
+    </message>
+    <message>
         <source>No video at the current time</source>
         <translation>Không có video ở điểm hiện tại</translation>
     </message>
@@ -29457,6 +29477,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Crop…</source>
         <translation>Cắt khung…</translation>
+    </message>
+    <message>
+        <source>Fit to video length</source>
+        <translation>Khớp với độ dài video</translation>
     </message>
     <message>
         <source>Freeze frame at current time</source>

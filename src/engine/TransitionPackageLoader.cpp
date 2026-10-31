@@ -99,6 +99,12 @@ TransitionPresetEntry TransitionPackageLoader::loadPackage(const QString &packag
                 (size.isValid() && size.height() > 0) ? qMax(1, size.width() / size.height()) : 1;
         }
     }
+    // No strip: its thumbnail as a one-frame strip, so the card has a picture (0.29: some showed none).
+    if (entry.previewStripPath.isEmpty()) {
+        entry.previewStripPath = GpuPackageParse::resolvePackageAsset(packageDir, QStringLiteral("thumbnail.png"));
+        if (!entry.previewStripPath.isEmpty())
+            entry.previewFrames = 1;
+    }
 
     QString error;
     if (!GpuPackageParse::parseParameters(root.value(QStringLiteral("parameters")).toArray(),

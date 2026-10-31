@@ -5622,6 +5622,26 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>There is no video after this clip to fit it to</source>
+        <translation>Walang video pagkatapos ng clip na ito na maitutugma</translation>
+    </message>
+    <message>
+        <source>The clip already ends with the video</source>
+        <translation>Natatapos na ang clip kasabay ng video</translation>
+    </message>
+    <message>
+        <source>Fit to video length</source>
+        <translation>Itugma sa haba ng video</translation>
+    </message>
+    <message>
+        <source>The file is shorter than the video: the clip ends where the file does</source>
+        <translation>Mas maikli ang file kaysa sa video: natatapos ang clip kung saan natatapos ang file</translation>
+    </message>
+    <message>
+        <source>The clip now ends with the video</source>
+        <translation>Natatapos na ngayon ang clip kasabay ng video</translation>
+    </message>
+    <message>
         <source>No video at the current time</source>
         <translation type="unfinished"></translation>
     </message>
@@ -29536,6 +29556,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Crop…</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fit to video length</source>
+        <translation>Itugma sa haba ng video</translation>
     </message>
     <message>
         <source>Freeze frame at current time</source>

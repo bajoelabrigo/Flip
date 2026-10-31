@@ -5637,6 +5637,26 @@
         <translation>Закладка обновлена</translation>
     </message>
     <message>
+        <source>There is no video after this clip to fit it to</source>
+        <translation>После этого клипа нет видео, под которое его подогнать</translation>
+    </message>
+    <message>
+        <source>The clip already ends with the video</source>
+        <translation>Клип уже заканчивается вместе с видео</translation>
+    </message>
+    <message>
+        <source>Fit to video length</source>
+        <translation>Подогнать под длину видео</translation>
+    </message>
+    <message>
+        <source>The file is shorter than the video: the clip ends where the file does</source>
+        <translation>Файл короче видео: клип заканчивается там, где кончается файл</translation>
+    </message>
+    <message>
+        <source>The clip now ends with the video</source>
+        <translation>Теперь клип заканчивается вместе с видео</translation>
+    </message>
+    <message>
         <source>No video at the current time</source>
         <translation>В текущей точке нет видео</translation>
     </message>
@@ -29639,6 +29659,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Crop…</source>
         <translation>Кадрировать…</translation>
+    </message>
+    <message>
+        <source>Fit to video length</source>
+        <translation>Подогнать под длину видео</translation>
     </message>
     <message>
         <source>Freeze frame at current time</source>

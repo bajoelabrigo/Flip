@@ -5718,6 +5718,26 @@
         <translation type="unfinished">বুকমার্ক আপডেট করা হয়েছে</translation>
     </message>
     <message>
+        <source>There is no video after this clip to fit it to</source>
+        <translation>এই ক্লিপের পরে মেলানোর মতো কোনো ভিডিও নেই</translation>
+    </message>
+    <message>
+        <source>The clip already ends with the video</source>
+        <translation>ক্লিপটি ইতিমধ্যে ভিডিওর সাথে শেষ হয়</translation>
+    </message>
+    <message>
+        <source>Fit to video length</source>
+        <translation>ভিডিওর দৈর্ঘ্যে মেলান</translation>
+    </message>
+    <message>
+        <source>The file is shorter than the video: the clip ends where the file does</source>
+        <translation>ফাইলটি ভিডিওর চেয়ে ছোট: ফাইল যেখানে শেষ, ক্লিপও সেখানে শেষ</translation>
+    </message>
+    <message>
+        <source>The clip now ends with the video</source>
+        <translation>এখন ক্লিপটি ভিডিওর সাথে শেষ হয়</translation>
+    </message>
+    <message>
         <source>No video at the current time</source>
         <translation type="unfinished">বর্তমান সময়ে কোনো ভিডিও নেই</translation>
     </message>
@@ -29544,6 +29564,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Crop…</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fit to video length</source>
+        <translation>ভিডিওর দৈর্ঘ্যে মেলান</translation>
     </message>
     <message>
         <source>Freeze frame at current time</source>

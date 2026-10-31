@@ -268,3 +268,28 @@ Fallos nuevos, ya corregidos en el código (para la próxima build):
 - Pasar el proyecto a 9:16 deja el video principal con su tamaño (franja negra); CapCut lo ajusta al cuadro nuevo.
 - Las filas de claves de la línea de tiempo no muestran la Inclinación 3D (X/Y).
 - Soltar un medio sobre la regla o arriba de las pistas no hace nada.
+
+## Tanda «todo saneado» (pedido de Jorge, 2026-10-31: corregir todos los fallos y probarlos)
+Arreglado en el código (causas halladas con tres búsquedas en paralelo):
+- **Primer clic perdido** (pestañas del panel, «Abrir Texto avanzado…»): el editor de texto en línea confirmaba dentro
+  de la pulsación que le quitaba el foco y el panel se refrescaba a mitad del clic. Ahora confirma después
+  (`Qt.callLater`), las pestañas cambian al presionar y el botón de Texto avanzado no toma el foco.
+- **Texto avanzado › «Fuente»** volvía a la del texto entero: el campo oculto del inspector cortaba el enlace de la
+  selección; ahora solo escribe la selección fuera de la ventana, y `runUnderCursor` se refresca tras cada edición.
+- **Soltar en la vista previa** solo funcionaba despacio: el área era solo el lienzo y vivía dentro de la herramienta
+  de transformar. Ahora es toda la vista, siempre, y lleva el punto al lienzo.
+- **Soltar sobre la regla** no hacía nada; **debajo de las pistas** creaba la pista bajo la principal. Ahora regla
+  = pista nueva arriba; debajo = encima de las pistas de video (el sonido, abajo).
+- **Primer clip en la pista principal** quedaba en 0,15 s; música soltada cerca del inicio en 0,18 s: el clip ahora
+  usa el mismo imán que el contorno, y la pista principal vacía (o un primer clip a menos de 0,5 s) empieza en 0.
+- **Capas nuevas** (formas, sólidos, nulos, pluma, luces) nacían bajo el texto: ahora arriba de todo
+  (`topFreeTrackForClipType`).
+- **Congelar un clip sin fondo** salía con el fondo: la captura conserva sus máscaras enlazadas y es transparente.
+- **3D:** dos o más capas 3D opacas a la vez se ordenan por profundidad solas; empates por orden de pista
+  (`GL_LEQUAL`).
+- **Miniaturas grises** de Stock: reintentos, la vista previa como respaldo y un ícono; transiciones sin tira usan su
+  miniatura.
+- «Ajustar a la duración del video» en el menú de un clip de audio (`fitClipToVideoLength`, prueba).
+- Filas de Inclinación X/Y siempre visibles en capas 3D; pasar a 9:16 ajusta el video que llenaba el cuadro;
+  Video y GIF con su propia velocidad; «Recorte cancelado» ya no es un error fijo; editor web: degradado lineal
+  por su centro (rama `web/v0221-texto` `b71fd`, sin desplegar).

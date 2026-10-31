@@ -5618,6 +5618,26 @@
         <translation>Segnalibro aggiornato</translation>
     </message>
     <message>
+        <source>There is no video after this clip to fit it to</source>
+        <translation>Nessun video dopo questa clip a cui adattarla</translation>
+    </message>
+    <message>
+        <source>The clip already ends with the video</source>
+        <translation>La clip finisce già con il video</translation>
+    </message>
+    <message>
+        <source>Fit to video length</source>
+        <translation>Adatta alla durata del video</translation>
+    </message>
+    <message>
+        <source>The file is shorter than the video: the clip ends where the file does</source>
+        <translation>Il file è più corto del video: la clip finisce dove finisce il file</translation>
+    </message>
+    <message>
+        <source>The clip now ends with the video</source>
+        <translation>Ora la clip finisce con il video</translation>
+    </message>
+    <message>
         <source>No video at the current time</source>
         <translation>Nessun video alla posizione corrente</translation>
     </message>
@@ -29548,6 +29568,10 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     <message>
         <source>Crop…</source>
         <translation>Ritaglia…</translation>
+    </message>
+    <message>
+        <source>Fit to video length</source>
+        <translation>Adatta alla durata del video</translation>
     </message>
     <message>
         <source>Freeze frame at current time</source>

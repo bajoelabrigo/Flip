@@ -88,10 +88,24 @@ Rectangle {
         visible: thumb.status === Image.Loading
     }
 
+    // A load that fails is tried twice more, then the still preview if it is a picture, then an icon: never a blank
+    // grey card for good (0.29: Transiciones › Tendencias and some Filtros stayed grey).
+    property int retries: 0
+    readonly property bool previewIsPicture: /\.(png|jpe?g|webp)(\?|$)/i.test(previewSource)
+    readonly property string shownThumb: thumbSource.length === 0 ? ""
+        : retries < 3 ? thumbSource + (retries > 0 ? (thumbSource.indexOf("?") >= 0 ? "&" : "?") + "r=" + retries : "")
+        : previewIsPicture ? previewSource : ""
+    Timer {
+        id: retryTimer
+        interval: 700 * (root.retries + 1)
+        onTriggered: root.retries++
+    }
+
     Image {
         id: thumb
         anchors.fill: parent
-        source: root.thumbSource
+        source: root.shownThumb
+        onStatusChanged: if (status === Image.Error && root.retries < 3) retryTimer.start()
         fillMode: Image.PreserveAspectCrop
         asynchronous: true
         cache: true
@@ -99,6 +113,14 @@ Rectangle {
         sourceSize.width: Math.max(1, Math.round(parent.width))
         opacity: status === Image.Ready ? 1 : 0
         Behavior on opacity { NumberAnimation { duration: Theme.durationBase; easing.type: Theme.easing } }
+    }
+
+    IconGlyph {
+        anchors.centerIn: parent
+        visible: thumb.status === Image.Error && root.retries >= 3 && !root.isAudio
+        glyph: Theme.icons.image
+        iconSize: 22
+        iconColor: Theme.mutedForeground
     }
 
     // One player at a time: only the hovered tile creates one.
