@@ -79,3 +79,9 @@ haría un usuario; lo que falle se arregla y lo que falte se añade. Estado al l
 8. **Mate de seguimiento**: texto que aparece dentro de una forma que se abre (como Charlie).
 9. **Vlog 16:9**: varias pistas, velocidad, congelar fotograma, ajustes de color y un LUT.
 10. **Exportar**: el mismo proyecto a MP4 1080p, GIF y vertical; guardar, cerrar y abrir de nuevo.
+
+**Cómo se trabaja (Jorge):** si un proyecto se traba por una herramienta que falta o un fallo, se anota aquí abajo todo
+lo que hace falta, se deja y se sigue con el siguiente. Al final se arregla todo, se compila una vez y se vuelve a
+probar lo que falló en ventana, grabándolo.
+
+### Trabado en… (se llena durante las pruebas)
