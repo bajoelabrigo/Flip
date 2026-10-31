@@ -1018,6 +1018,22 @@ Item {
                 color: Theme.panelForeground
                 font.family: Theme.monoFontFamily
                 font.pixelSize: Theme.fontSizeXs
+
+                // Dragged sideways like After Effects' values (0.29): one shown unit a pixel.
+                ScrubArea {
+                    anchors.fill: parent
+                    anchors.margins: -3
+                    value: rowSlider.value
+                    from: sliderRow.from
+                    to: sliderRow.to
+                    stepPerPixel: Math.pow(10, -sliderRow.decimals) / (sliderRow.displayScale || 1)
+                    onStarted: sliderRow.dragStarted()
+                    onScrubbed: v => {
+                        rowSlider.value = v
+                        sliderRow.moved(v)
+                    }
+                    onFinished: sliderRow.committed(rowSlider.value)
+                }
             }
         }
 

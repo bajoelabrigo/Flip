@@ -507,6 +507,10 @@ void ProjectFileController::writeProjectBundle(const QUrl &url, const std::optio
     if (adopt) {
         request.projectId = adopt->id;
         request.title = adopt->name;
+        // The document inside carries them too: opening the file reads the name from it (0.29: a project saved
+        // as prueba10.flip came back as «Proyecto sin título»).
+        request.document.insert(QStringLiteral("id"), adopt->id);
+        request.document.insert(QStringLiteral("projectName"), adopt->name);
     }
 
 #ifdef Q_OS_ANDROID

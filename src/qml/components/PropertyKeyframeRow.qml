@@ -208,7 +208,11 @@ Column {
     }
     // As After Effects: one unit a pixel (1 px, 1°), one per cent for a percentage. The slider's range made a
     // position fly (≈40 px a pixel).
-    readonly property real scrubStep: root.percent ? 0.01 : Math.pow(10, -(Number(root.propDef.decimals) || 0))
+    // Small ranges (opacity, trims: 0..1) move by 0.01; degrees, pixels and the rest by 1 whatever their decimals
+    // (0.1° a pixel made a tilt crawl).
+    readonly property real scrubStep: root.percent
+                                      || (root.useSlider && Math.abs(root.sliderTo - root.sliderFrom) <= 2)
+                                      || (!root.useSlider && (Number(root.propDef.decimals) || 0) >= 2) ? 0.01 : 1
 
     function setInterpolation(mode) {
         EditorState.showKeyframeGraphProperty(root.propDef.key)

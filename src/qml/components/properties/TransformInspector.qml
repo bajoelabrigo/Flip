@@ -319,6 +319,22 @@ Item {
                     color: Theme.panelForeground
                     font.family: Theme.monoFontFamily
                     font.pixelSize: Theme.fontSizeSm
+
+                    // Dragged sideways like After Effects' values (0.29): one per cent a pixel.
+                    ScrubArea {
+                        anchors.fill: parent
+                        anchors.margins: -3
+                        value: root.scaleAtPlayhead
+                        from: scaleSlider.from
+                        to: scaleSlider.to
+                        stepPerPixel: 0.01
+                        onStarted: {
+                            root.beginScaleDrag()
+                            EditorState.beginPreviewDrag(qsTr("Scale clip"))
+                        }
+                        onScrubbed: v => root.applyScale(v)
+                        onFinished: EditorState.commitPreviewDrag()
+                    }
                 }
             }
 

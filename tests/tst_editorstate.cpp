@@ -217,6 +217,7 @@ private slots:
     void addClipsFromAssetsPlacesThemSequentially();
     void addClipsFromAssetsPutsPhotosOnTheVideoTrack();
     void slowingAClipKeepsItsMaterial();
+    void typedValueOnAnAnimatedPropertyAddsAKey();
     void moveTrackReordersAndRemapsSelection();
     void addTrackInsertsEmptyTrackByType();
     void renameTrackAndUndo();
@@ -4400,6 +4401,40 @@ void EditorStateTest::moveAssetsToFolderIsOneUndoStep()
     state.undo();
     QCOMPARE(library.assetAt(0).value(QStringLiteral("folderId")).toString(), QString());
     QCOMPARE(library.assetAt(1).value(QStringLiteral("folderId")).toString(), QString());
+}
+
+void EditorStateTest::typedValueOnAnAnimatedPropertyAddsAKey()
+{
+    // 0.29, as After Effects: with the stopwatch on, a value typed (or dragged) in the inspector at another time is a
+    // new key there; it used to rewrite the only key, and the animation was lost.
+    AssetLibrary library;
+    AppController state(&library);
+    drift::MediaAsset video;
+    video.id = QStringLiteral("video-k");
+    video.name = QStringLiteral("video-k.mp4");
+    video.path = QStringLiteral("/tmp/video-k.mp4");
+    video.kind = drift::MediaKind::Video;
+    video.durationUs = drift::secondsToUs(4.0);
+    state.project()->assets().insert(video.id, video);
+    state.project()->assetOrder().append(video.id);
+    library.syncToProject();
+    state.setPlayheadSeconds(0.0);
+    state.addClipsFromAssets({video.id});
+    int t = -1;
+    for (int i = 0; i < state.project()->tracks().size(); ++i) {
+        if (state.project()->tracks().at(i).clips.size() == 1)
+            t = i;
+    }
+    QVERIFY(t >= 0);
+    state.setClipKeyframe(t, 0, QStringLiteral("opacity"), 0.0, 0.0);
+    state.setPlayheadSeconds(1.0);
+    state.beginPreviewDrag(QStringLiteral("Edit opacity"));
+    state.previewSetClipKeyframe(t, 0, QStringLiteral("opacity"), 1.0, 1.0);
+    state.commitPreviewDrag();
+    const drift::Clip &clip = state.project()->tracks().at(t).clips.at(0);
+    QCOMPARE(clip.opacity.keyframes().size(), 2);
+    QCOMPARE(clip.opacity.evaluateAt(0), 0.0);
+    QCOMPARE(clip.opacity.evaluateAt(drift::secondsToUs(1.0)), 1.0);
 }
 
 void EditorStateTest::slowingAClipKeepsItsMaterial()

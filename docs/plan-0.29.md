@@ -244,3 +244,27 @@ Fallos nuevos, ya corregidos en el código (para la próxima build):
   arranque borraba la carpeta del proyecto sin guardar (donde van los congelados) salvo en Android
   (`ProjectFileController`, el id de la recuperación ahora se conserva en todas las plataformas).
 - Pendiente de ver con la build siguiente: el paso nuevo del arrastre en las filas y la recuperación con un congelado.
+
+## Pruebas 3, 4, 8 y 10 + verificación (build 4e6b00f, grabada: `pruebas\tutorial-llt\pruebas-3-4-8-10.mp4`)
+- ✓ Recuperar con un congelado: el archivo sobrevive al cierre forzado y la app lo encuentra (los dos que faltaban
+  los borró una copia 0.28 abierta por error, con la limpieza vieja).
+- ✓ Arrastre de Posición X 1 px por píxel (349 → 395).
+- **3 (intro con logo 3D):** trabada. Con la Inclinación X animada, escribir 0 a 1 s reescribía la única clave
+  (`previewSetClipKeyframe` solo creaba clave con «Fotogramas clave automáticos»). Arreglado: con el cronómetro puesto
+  siempre es clave en el cabezal (prueba `typedValueOnAnAnimatedPropertyAddsAKey`). Además: el arrastre de grados iba
+  de 0,1 en 0,1 (ahora 1° por píxel; 0,01 solo en rangos de 0 a 2) y la lectura de Escala no se arrastraba (ahora sí,
+  y las filas de deslizador de Texto también).
+- ✓ **4 (anuncio):** degradado radial dorado con el tirador del radio, contador $0 → $99.
+- ✓ **8 (mate):** Mate alfa con la forma encima; la forma de mate se oculta y el precio solo se ve dentro.
+- ✓ **10:** GIF 1280×720 15 fps 8,3 s; vertical MP4 720×1280 30 fps; guardar, cerrar y abrir con todo en su sitio.
+  **Fallo, arreglado:** el nombre volvía como «Proyecto sin título» (el documento interno seguía con «Untitled
+  Project»; ahora el primer Guardar y Guardar como escriben `projectName` e `id` también en el documento).
+
+### Fallos vistos en esta tanda (por arreglar)
+- Congelar un clip con el fondo quitado: el congelado sale con el fondo (la máscara no cubre su tramo).
+- Una forma nueva nace en una pista debajo del texto (en AE una capa nueva va arriba de todo).
+- El primer clip soltado en la pista principal queda en 0,15 s, no en 0.
+- Exportar video después de un GIF hereda sus 15 fps.
+- Pasar el proyecto a 9:16 deja el video principal con su tamaño (franja negra); CapCut lo ajusta al cuadro nuevo.
+- Las filas de claves de la línea de tiempo no muestran la Inclinación 3D (X/Y).
+- Soltar un medio sobre la regla o arriba de las pistas no hace nada.

@@ -15850,7 +15850,11 @@ void AppController::previewSetClipRotation(int trackIndex, int clipIndex, double
 void AppController::previewSetClipKeyframe(int trackIndex, int clipIndex, const QString &prop,
                                            double atSeconds, double value)
 {
-    previewWriteClipValue(trackIndex, clipIndex, prop, atSeconds, value, false, m_autoKeyEnabled);
+    // A property with its stopwatch on takes the value as a key at the playhead, as After Effects (0.29: typing or
+    // dragging a value at 1 s rewrote the only key at 0 s and the animation was lost); otherwise a key only with
+    // Auto keyframes.
+    const bool animated = clipAnimatedProperties(trackIndex, clipIndex).contains(prop);
+    previewWriteClipValue(trackIndex, clipIndex, prop, atSeconds, value, false, m_autoKeyEnabled || animated);
 }
 
 void AppController::previewSetPropertyValue(int trackIndex, int clipIndex, const QString &prop,
