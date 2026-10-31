@@ -107,12 +107,17 @@ def andy():
     measured_bar(t, r, "bar", box)
     name = "ANDY SCOTT"
     size = fit_size(name, 881, 900)
-    ty = {"animators": [
-        {"selectors": [{"driver": "stagger", "domain": "chars", "staggerUs": 70000, "durationUs": 0, "order": "forward",
-                        "ease": "linear"}], "props": {"opacity": 0}, "collapseHidden": True},
-        {"selectors": [{"driver": "stagger", "domain": "chars", "staggerUs": 70000, "durationUs": 180000,
-                        "order": "forward", "ease": "easeOut"}], "props": {"position": {"x": 0, "y": 80, "unit": "px"}}}],
-        "delayUs": 870000}
+    # Measured: the frame each letter starts to show (A N D Y S C O T T), slow first and then faster; later
+    # letters (a longer name) keep one a frame. A range selector sweeps over them like After Effects' Range
+    # Selector, so each letter rises from under the bar while it fades in, as in the reference.
+    starts = [0, 5, 8, 10, 11, 12, 13, 14, 15] + [16 + k for k in range(40)]
+    span_s = 1.0 + starts[-1] / FPS
+    key = lambda f: round(f / FPS / span_s * 1_000_000)  # noqa: E731
+    sweep = {"value": 0.0, "curve": {"keyframes": [{"timeUs": key(f), "value": float(i)} for i, f in enumerate(starts)]}}
+    ty = {"animators": [{"selectors": [{"driver": "curves", "domain": "character", "units": "index", "shape": "square",
+                                        "start": sweep, "end": 1000000000, "smoothness": 100}],
+                         "props": {"position": {"x": 0, "y": 60, "unit": "px"}, "opacity": 0}, "collapseHidden": True}],
+          "durationUs": round(span_s * 1_000_000), "delayUs": 870000}
     # The name stays whole until the bar closes over it (frame 166): it leaves with the bar's mask, not by itself.
     end = (166 - r.first) / FPS
 
@@ -125,8 +130,8 @@ def andy():
     rsize = fit_size(role, 608, 800)
 
     def role_dy(f):
-        rs = [a for a, b in f["sub"]["white"] if a >= 869]
-        return rs[0] - 886 if rs else None
+        rs = [b for a, b in f["sub"]["white"] if a >= 869]
+        return rs[-1] - 913 if rs else None
     track_text(t, role, caps_box(box.x, 899.5, rsize, box.w), rsize, lambda u: (0.0, _measured(r, role_dy, -60.0)(u)), D,
                mask=lambda u: Box(400, 869, 1200, 200), align="center", weight=800, name="Cargo")
     return t
@@ -203,15 +208,15 @@ def morgan():
     nsize = fit_size("MORGAN", 580, 800)
 
     def name_dy(f):
-        rs = [b for a, b in f["morgan"]["white"] if b <= 832]
-        return rs[-1] - 815 if rs else None
+        rs = [a for a, b in f["morgan"]["white"] if b <= 832 and b - a > 4]
+        return rs[-1] - 744 if rs else None
     track_text(t, "MORGAN", caps_box(box.x, 779.5, nsize, box.w), nsize, lambda u: (0.0, _measured(r, name_dy, 90.0)(u)),
                D, mask=lambda u: Box(500, 600, 1000, 233), align="center", weight=800, name="Nombre")
     rsize = fit_size("ASSISTANT BUYER", 500, 800)
 
     def role_dy(f):
-        rs = [a for a, b in f["sub"]["white"] if a >= 944]
-        return rs[0] - 958 if rs else None
+        rs = [b for a, b in f["sub"]["white"] if a >= 944]
+        return rs[-1] - 985 if rs else None
     track_text(t, "ASSISTANT BUYER", caps_box(box.x, 971.5, rsize, box.w), rsize,
                lambda u: (0.0, _measured(r, role_dy, -60.0)(u)), D, mask=lambda u: Box(500, 943, 1000, 120),
                align="center", weight=800, name="Cargo")

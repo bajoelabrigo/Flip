@@ -121,8 +121,11 @@ def clara():
     track_span(t, t.track("shape", "Caja"), box, gtop, gbot, D, axis="y", layers=gradient_fill(), name="Caja")
     name, role = "CLARA BUILD", "UI DEVELOPER"
     nsize, rsize = fit_size(name, 856, 900), fit_size(role, 375, 800)
-    ndy = r.curve(run_where("title", lo=740, hi=862, side="min", pick="first"), before="extrapolate",
-                  after="extrapolate", offset=-786)
+    # The name's own run (tall), never the box's white lines (7 px) it passes.
+    def name_top(f):
+        rs = [x for x in f["title"]["white"] if x[1] - x[0] > 20]
+        return rs[0][0] if rs else None
+    ndy = r.curve(name_top, before="extrapolate", after="extrapolate", offset=-786)
     above = lambda u: Box(box.x, 600, box.w, max(0.0, gbot(u) + y0 - 600))  # noqa: E731
     track_text(t, name, caps_box(box.x, 816, nsize, box.w), nsize, lambda u: (0.0, ndy(u)), D, mask=above,
                align="center", name="Nombre")
