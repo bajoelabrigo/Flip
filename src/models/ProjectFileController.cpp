@@ -357,7 +357,8 @@ void ProjectFileController::setProjectSetup(int width, int height, int fps)
 
     const drift::Project before = m_app->m_project;
     if (m_app->m_project.width() != width || m_app->m_project.height() != height)
-        drift::rebaseClipLayout(m_app->m_project, m_app->m_project.width(), m_app->m_project.height(), width, height, 0.0, 0.0);
+        drift::rebaseClipLayout(m_app->m_project, m_app->m_project.width(), m_app->m_project.height(), width, height, 0.0, 0.0,
+                                /*fitFullFrame=*/true);
     m_app->m_project.setResolution(width, height);
     const bool fpsChanged = m_app->m_project.fps() != fps;
     m_app->m_project.setFps(fps);

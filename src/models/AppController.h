@@ -2117,6 +2117,9 @@ public:
     Q_INVOKABLE void clearWorkArea();
     Q_INVOKABLE void toggleLoopWorkArea();
     Q_INVOKABLE void freezeFrameAtPlayhead();
+    // CapCut's «Fit to video length» (0.29): the clip (music, usually) ends where the last picture ends, trimmed
+    // or lengthened as far as its file allows. Returns false when there is nothing to fit to.
+    Q_INVOKABLE bool fitClipToVideoLength(int trackIndex, int clipIndex);
     // AI transition (RIFE) from this clip into the one right after it; see AiTransition notes in the .cpp.
     Q_INVOKABLE bool aiTransitionAvailable() const;
     Q_INVOKABLE void addAiTransitionAfter(int trackIndex, int clipIndex);

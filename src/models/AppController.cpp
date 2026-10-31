@@ -7316,10 +7316,26 @@ void AppController::addClipFromAssetOnNewTrackAt(int assetIndex, int insertIndex
     // duration.
     const drift::TimeUs placementDuration = trimmedClipDurationUs(asset, duration);
     // Lands where it was dropped, pushing the rest of the track when the gap is too short.
-    const drift::TimeUs start = landMakingRoom(
-        m_project, trackIndex,
-        drift::snapTime(m_project, drift::secondsToUs(atSeconds), m_snapEnabled, m_playheadUs),
-        placementDuration);
+    // The landing outline snaps with the zoom's threshold and the extra targets; the clip snaps the same way, so it
+    // lands where the outline showed (0.29: the outline said 0, the clip went to 0.15 s).
+    drift::TimeUs wanted = drift::snapTime(m_project, drift::secondsToUs(atSeconds), m_snapEnabled, m_playheadUs,
+                                           extraSnapTargetsCached(), {}, m_snapThresholdUs);
+    // CapCut: an empty main (bottom) video track starts at 0, and a first clip dropped near the start of an empty
+    // track (music, usually) starts there too.
+    if (track.clips.isEmpty()) {
+        int mainTrack = -1;
+        for (int i = m_project.tracks().size() - 1; i >= 0; --i) {
+            const drift::Track &t = m_project.tracks().at(i);
+            if (t.type == drift::TrackType::Video && !t.isAdjustmentLane()) {
+                mainTrack = i;
+                break;
+            }
+        }
+        const bool picture = clipType == drift::ClipType::Video || clipType == drift::ClipType::Image;
+        if ((picture && trackIndex == mainTrack) || wanted < drift::secondsToUs(0.5))
+            wanted = 0;
+    }
+    const drift::TimeUs start = landMakingRoom(m_project, trackIndex, wanted, placementDuration);
 
     drift::Clip clip;
     clip.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
@@ -7373,10 +7389,26 @@ void AppController::addClipFromAssetAt(int assetIndex, int trackIndex, double at
     // duration.
     const drift::TimeUs placementDuration = trimmedClipDurationUs(asset, duration);
     // Lands where it was dropped, pushing the rest of the track when the gap is too short.
-    const drift::TimeUs start = landMakingRoom(
-        m_project, trackIndex,
-        drift::snapTime(m_project, drift::secondsToUs(atSeconds), m_snapEnabled, m_playheadUs),
-        placementDuration);
+    // The landing outline snaps with the zoom's threshold and the extra targets; the clip snaps the same way, so it
+    // lands where the outline showed (0.29: the outline said 0, the clip went to 0.15 s).
+    drift::TimeUs wanted = drift::snapTime(m_project, drift::secondsToUs(atSeconds), m_snapEnabled, m_playheadUs,
+                                           extraSnapTargetsCached(), {}, m_snapThresholdUs);
+    // CapCut: an empty main (bottom) video track starts at 0, and a first clip dropped near the start of an empty
+    // track (music, usually) starts there too.
+    if (track.clips.isEmpty()) {
+        int mainTrack = -1;
+        for (int i = m_project.tracks().size() - 1; i >= 0; --i) {
+            const drift::Track &t = m_project.tracks().at(i);
+            if (t.type == drift::TrackType::Video && !t.isAdjustmentLane()) {
+                mainTrack = i;
+                break;
+            }
+        }
+        const bool picture = clipType == drift::ClipType::Video || clipType == drift::ClipType::Image;
+        if ((picture && trackIndex == mainTrack) || wanted < drift::secondsToUs(0.5))
+            wanted = 0;
+    }
+    const drift::TimeUs start = landMakingRoom(m_project, trackIndex, wanted, placementDuration);
 
     drift::Clip clip;
     clip.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
@@ -10947,8 +10979,8 @@ void AppController::addShapeClipAt(const QString &shapeId, int trackIndex, doubl
     int target = trackIndex;
     if (target < 0 || target >= m_project.tracks().size()
         || !m_project.tracks().at(target).allowsClipType(drift::ClipType::Shape)) {
-        target = drift::ensureFreeTrackForClipType(m_project, drift::ClipType::Shape, wantStart,
-                                                   drift::defaultStillDurationUs(), true);
+        target = drift::topFreeTrackForClipType(m_project, drift::ClipType::Shape, wantStart,
+                                                   drift::defaultStillDurationUs());
     }
     if (target < 0)
         return;
@@ -10984,8 +11016,8 @@ void AppController::addSolidClip(const QString &colorName, const QString &name, 
     const QColor color = QColor::isValidColorName(colorName) ? QColor(colorName) : QColor(40, 40, 46);
     const drift::Project before = m_project;
     const drift::TimeUs start = m_playheadUs;
-    const int target = drift::ensureFreeTrackForClipType(m_project, drift::ClipType::Shape, start,
-                                                         drift::defaultStillDurationUs(), true);
+    const int target = drift::topFreeTrackForClipType(m_project, drift::ClipType::Shape, start,
+                                                         drift::defaultStillDurationUs());
     if (target < 0)
         return;
     drift::Track &track = m_project.tracks()[target];
@@ -11111,7 +11143,7 @@ void AppController::addNullObject()
     const drift::TimeUs start = 0;
     const drift::TimeUs duration =
         m_project.durationUs() > 0 ? m_project.durationUs() : drift::defaultStillDurationUs();
-    const int target = drift::ensureFreeTrackForClipType(m_project, drift::ClipType::Shape, start, duration, true);
+    const int target = drift::topFreeTrackForClipType(m_project, drift::ClipType::Shape, start, duration);
     if (target < 0)
         return;
     drift::Track &track = m_project.tracks()[target];
@@ -11265,8 +11297,8 @@ void AppController::addDrawnShape(const QString &kind, double x, double y, doubl
     }
     const drift::Project before = m_project;
     const drift::TimeUs start = m_playheadUs;
-    const int target = drift::ensureFreeTrackForClipType(m_project, drift::ClipType::Shape, start,
-                                                         drift::defaultStillDurationUs(), true);
+    const int target = drift::topFreeTrackForClipType(m_project, drift::ClipType::Shape, start,
+                                                         drift::defaultStillDurationUs());
     if (target < 0)
         return;
     drift::Track &track = m_project.tracks()[target];
@@ -11345,8 +11377,8 @@ void AppController::addPenShape(const QVariantList &points, bool closed)
 
     const drift::Project before = m_project;
     const drift::TimeUs start = m_playheadUs;
-    const int target = drift::ensureFreeTrackForClipType(m_project, drift::ClipType::Shape, start,
-                                                         drift::defaultStillDurationUs(), true);
+    const int target = drift::topFreeTrackForClipType(m_project, drift::ClipType::Shape, start,
+                                                         drift::defaultStillDurationUs());
     if (target < 0)
         return;
     drift::Track &track = m_project.tracks()[target];
@@ -11411,8 +11443,8 @@ QString AppController::beginPenShape(const QString &clipId)
     const double W = m_project.width();
     const double H = m_project.height();
     const drift::TimeUs start = m_playheadUs;
-    const int target = drift::ensureFreeTrackForClipType(m_project, drift::ClipType::Shape, start,
-                                                         drift::defaultStillDurationUs(), true);
+    const int target = drift::topFreeTrackForClipType(m_project, drift::ClipType::Shape, start,
+                                                         drift::defaultStillDurationUs());
     if (target < 0) {
         endEditSession(false);
         return {};
@@ -12227,7 +12259,7 @@ void AppController::addLight(int kind)
     const drift::TimeUs start = 0;
     const drift::TimeUs duration =
         m_project.durationUs() > 0 ? m_project.durationUs() : drift::defaultStillDurationUs();
-    const int target = drift::ensureFreeTrackForClipType(m_project, drift::ClipType::Shape, start, duration, true);
+    const int target = drift::topFreeTrackForClipType(m_project, drift::ClipType::Shape, start, duration);
     if (target < 0)
         return;
     drift::Track &track = m_project.tracks()[target];
@@ -28551,6 +28583,29 @@ QVariantList AppController::trackKeyframeRows(int trackIndex) const
             });
         }
     }
+    // A 3D layer shows its tilts even before they have keys, as After Effects lists X and Y Rotation (0.29: a key
+    // could only be started from the inspector, and the line appeared only once it existed).
+    for (const QString &prop : {QStringLiteral("rotationX"), QStringLiteral("rotationY")}) {
+        if (m_keyframeRowsAnimatedOnly || !m_keyframeRowsOnlyGroup.isEmpty())
+            break;
+        for (int c = 0; c < clipCount; ++c) {
+            const drift::Clip &clip = track.clips.at(c);
+            if (!clip.layer3d)
+                continue;
+            const QString label = animatedPropertyLabel(trackIndex, c, prop);
+            if (clipsByLabel.contains(label))
+                break;
+            order.append(label);
+            clipsByLabel[label].append(QVariantMap{
+                {QStringLiteral("clip"), c},
+                {QStringLiteral("prop"), prop},
+                {QStringLiteral("start"), drift::usToSeconds(clip.timelineStart)},
+                {QStringLiteral("duration"), drift::usToSeconds(clip.timelineDuration)},
+                {QStringLiteral("keys"), QVariantList()},
+            });
+            break;
+        }
+    }
     for (const QString &label : std::as_const(order)) {
         const QVariantList clips = clipsByLabel.value(label);
         rows.append(QVariantMap{
@@ -29196,6 +29251,48 @@ QString AppController::newFreezeFramePath(const QString &projectId)
 // 3 seconds, and the rest of the clip and everything after it on its tracks (its linked
 // audio included) moves right by that much. The selected video clip if the playhead is on it,
 // otherwise the bottom (main) video track's clip under the playhead.
+bool AppController::fitClipToVideoLength(int trackIndex, int clipIndex)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return false;
+    // Where the pictures end: the last clip on any track that is not audio.
+    drift::TimeUs videoEnd = 0;
+    for (const drift::Track &t : m_project.tracks()) {
+        if (t.type == drift::TrackType::Audio)
+            continue;
+        for (const drift::Clip &c : t.clips)
+            videoEnd = qMax(videoEnd, c.timelineEnd());
+    }
+    const drift::Clip &current = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    if (videoEnd <= current.timelineStart) {
+        setLastMessage(tr("There is no video after this clip to fit it to"), QStringLiteral("warning"));
+        return false;
+    }
+    const drift::Project before = m_project;
+    drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
+    const double speed = clip.speed > 0.0 ? clip.speed : 1.0;
+    drift::TimeUs wanted = videoEnd - clip.timelineStart;
+    // Longer only as far as the file goes (its source past srcIn, at the clip's speed).
+    const auto asset = m_project.assets().constFind(clip.assetId);
+    if (asset != m_project.assets().constEnd() && asset->durationUs > 0) {
+        const drift::TimeUs room = drift::TimeUs((asset->durationUs - clip.srcIn) / speed);
+        wanted = qMin(wanted, room);
+    }
+    if (wanted <= 0 || wanted == clip.timelineDuration) {
+        setLastMessage(tr("The clip already ends with the video"), QStringLiteral("info"));
+        return false;
+    }
+    clip.timelineDuration = wanted;
+    clip.srcOut = clip.srcIn + drift::TimeUs(wanted * speed);
+    pushProjectEdit(before, tr("Fit to video length"));
+    finishEdit(tr("Fit to video length"));
+    setLastMessage(wanted < videoEnd - clip.timelineStart
+                       ? tr("The file is shorter than the video: the clip ends where the file does")
+                       : tr("The clip now ends with the video"),
+                   QStringLiteral("success"));
+    return true;
+}
+
 void AppController::freezeFrameAtPlayhead()
 {
     if (!m_assetLibrary)

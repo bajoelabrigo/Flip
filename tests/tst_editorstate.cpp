@@ -218,6 +218,7 @@ private slots:
     void addClipsFromAssetsPutsPhotosOnTheVideoTrack();
     void slowingAClipKeepsItsMaterial();
     void typedValueOnAnAnimatedPropertyAddsAKey();
+    void fitClipToVideoLengthTrimsTheMusic();
     void moveTrackReordersAndRemapsSelection();
     void addTrackInsertsEmptyTrackByType();
     void renameTrackAndUndo();
@@ -4401,6 +4402,45 @@ void EditorStateTest::moveAssetsToFolderIsOneUndoStep()
     state.undo();
     QCOMPARE(library.assetAt(0).value(QStringLiteral("folderId")).toString(), QString());
     QCOMPARE(library.assetAt(1).value(QStringLiteral("folderId")).toString(), QString());
+}
+
+void EditorStateTest::fitClipToVideoLengthTrimsTheMusic()
+{
+    // 0.29, CapCut's «Fit to video length»: a 10 s song under a 4 s video ends with the video.
+    AssetLibrary library;
+    AppController state(&library);
+    drift::MediaAsset video;
+    video.id = QStringLiteral("video-f");
+    video.name = QStringLiteral("video-f.mp4");
+    video.path = QStringLiteral("/tmp/video-f.mp4");
+    video.kind = drift::MediaKind::Video;
+    video.durationUs = drift::secondsToUs(4.0);
+    drift::MediaAsset song;
+    song.id = QStringLiteral("song-f");
+    song.name = QStringLiteral("song-f.mp3");
+    song.path = QStringLiteral("/tmp/song-f.mp3");
+    song.kind = drift::MediaKind::Audio;
+    song.durationUs = drift::secondsToUs(10.0);
+    for (const drift::MediaAsset &a : {video, song}) {
+        state.project()->assets().insert(a.id, a);
+        state.project()->assetOrder().append(a.id);
+    }
+    library.syncToProject();
+    state.setPlayheadSeconds(0.0);
+    state.addClipsFromAssets({video.id});
+    state.setPlayheadSeconds(0.0);
+    state.addClipsFromAssets({song.id});
+    int at = -1;
+    for (int i = 0; i < state.project()->tracks().size(); ++i) {
+        const drift::Track &t = state.project()->tracks().at(i);
+        if (t.type == drift::TrackType::Audio && !t.clips.isEmpty() && t.clips.first().assetId == song.id)
+            at = i;
+    }
+    QVERIFY(at >= 0);
+    QVERIFY(state.fitClipToVideoLength(at, 0));
+    const drift::Clip &music = state.project()->tracks().at(at).clips.at(0);
+    QCOMPARE(music.timelineEnd(), drift::secondsToUs(4.0));
+    QCOMPARE(music.srcOut - music.srcIn, drift::secondsToUs(4.0));
 }
 
 void EditorStateTest::typedValueOnAnAnimatedPropertyAddsAKey()

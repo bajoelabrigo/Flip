@@ -143,6 +143,55 @@ PanelFrame {
             onDoubleClicked: panelViewport.resetView ? panelViewport.resetView() : undefined
         }
 
+        // Assets dragged from the browsers land here as overlays at the playhead, or onto the clip under the pointer.
+        // One drop target over the whole viewport, always there whatever the tool (0.29: it was the canvas rect only,
+        // inside the transform tool, so a quick drag whose last move fell on the gutter or the rulers was lost).
+        PreviewDropOverlay {
+            id: previewDrop
+            x: panelViewport.x + panelViewport.canvas.x
+            y: panelViewport.y + panelViewport.canvas.y
+            width: panelViewport.canvas.width
+            height: panelViewport.canvas.height
+            z: 5
+            enabled: !root.mode3d
+        }
+        DropArea {
+            anchors.fill: parent
+            z: 6
+            enabled: !root.mode3d
+            keys: AssetDrag.allKeys()
+
+            function kindOf(drop) {
+                return AssetDrag.kindFromKeys(drop.keys)
+            }
+            function payloadOf(drop, kind) {
+                if (kind === "media" && EditorState.draggingAssetIndex >= 0)
+                    return EditorState.draggingAssetIndex
+                return AssetDrag.payloadFromDrop(drop, kind)
+            }
+            // Into the canvas: a release on the gutter still lands on its nearest edge.
+            function local(drop) {
+                return Qt.point(Math.max(0, Math.min(previewDrop.width, drop.x - previewDrop.x)),
+                                Math.max(0, Math.min(previewDrop.height, drop.y - previewDrop.y)))
+            }
+            function track(drop) {
+                const kind = kindOf(drop)
+                const p = local(drop)
+                previewDrop.hover(kind, payloadOf(drop, kind), p.x, p.y)
+                // Every move answers «copy», so the last one before the release never refuses the drop.
+                drop.accept(Qt.CopyAction)
+            }
+            onEntered: (drop) => track(drop)
+            onPositionChanged: (drop) => track(drop)
+            onExited: previewDrop.clear()
+            onDropped: (drop) => {
+                drop.accept(Qt.CopyAction)
+                const kind = kindOf(drop)
+                const p = local(drop)
+                previewDrop.drop(kind, payloadOf(drop, kind), AssetDrag.labelFromDrop(drop, kind), p.x, p.y)
+            }
+        }
+
         PreviewOsd {
             id: osd
             anchors.fill: parent
@@ -292,49 +341,6 @@ PanelFrame {
                 width: panelViewport.canvas.width
                 height: panelViewport.canvas.height
                 visible: EditorState.preview.handlesVisible && !root.mode3d
-            }
-
-            // Assets dragged from the browsers land here as overlays at the playhead, or onto the
-            // clip under the pointer. Above the transform handles so a drag passing over a
-            // selected clip still reaches it.
-            PreviewDropOverlay {
-                id: previewDrop
-                x: panelViewport.canvas.x
-                y: panelViewport.canvas.y
-                width: panelViewport.canvas.width
-                height: panelViewport.canvas.height
-                enabled: EditorState.projectFile.projectWidth() > 0 && !root.mode3d
-
-                DropArea {
-                    anchors.fill: parent
-                    enabled: previewDrop.enabled
-                    keys: AssetDrag.allKeys()
-
-                    function kindOf(drop) {
-                        return AssetDrag.kindFromKeys(drop.keys)
-                    }
-                    function payloadOf(drop, kind) {
-                        if (kind === "media" && EditorState.draggingAssetIndex >= 0)
-                            return EditorState.draggingAssetIndex
-                        return AssetDrag.payloadFromDrop(drop, kind)
-                    }
-
-                    onEntered: (drop) => {
-                        const kind = kindOf(drop)
-                        previewDrop.hover(kind, payloadOf(drop, kind), drop.x, drop.y)
-                    }
-                    onPositionChanged: (drop) => {
-                        const kind = kindOf(drop)
-                        previewDrop.hover(kind, payloadOf(drop, kind), drop.x, drop.y)
-                    }
-                    onExited: previewDrop.clear()
-                    onDropped: (drop) => {
-                        drop.accept(Qt.CopyAction)
-                        const kind = kindOf(drop)
-                        previewDrop.drop(kind, payloadOf(drop, kind), AssetDrag.labelFromDrop(drop, kind),
-                                         drop.x, drop.y)
-                    }
-                }
             }
         }
     }

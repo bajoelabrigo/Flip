@@ -1146,6 +1146,31 @@ int ensureFreeTrackForClipType(Project &project, ClipType type, TimeUs startUs, 
     return insertTrackAboveForClipType(project, firstMatch, type);
 }
 
+// After Effects (0.29): a new layer goes on top of everything. The topmost row is reused only when it already takes
+// the type and is free at that time; otherwise a track opens at the very top. Before, a shape went to the first
+// free graphics track wherever it was, under a text added later.
+int topFreeTrackForClipType(Project &project, ClipType type, TimeUs startUs, TimeUs durationUs)
+{
+    const QList<Track> &tracks = project.tracks();
+    for (int i = 0; i < tracks.size(); ++i) {
+        if (tracks[i].isAdjustmentLane())
+            continue;
+        const Track &top = tracks[i];
+        if (top.type == trackTypeForClipType(type) && top.allowsClipType(type) && !top.locked) {
+            bool free = true;
+            for (const Clip &c : top.clips)
+                free = free && (startUs >= c.timelineEnd() || c.timelineStart >= startUs + durationUs);
+            if (free)
+                return i;
+        }
+        break;
+    }
+    // A new project's only track, empty and unnamed, is still taken over (ensureFreeTrackForClipType's rule).
+    if (tracks.size() == 1 && tracks[0].clips.isEmpty() && tracks[0].name.isEmpty())
+        return ensureFreeTrackForClipType(project, type, startUs, durationUs, true);
+    return insertTrackAtTopForClipType(project, type);
+}
+
 int insertTrackAtTopForClipType(Project &project, ClipType type)
 {
     project.tracks().prepend(Track{.type = trackTypeForClipType(type)});
@@ -1800,8 +1825,32 @@ bool clipBoxIsCanvasReferenced(const Clip &clip)
            || (clip.type == ClipType::Adjustment && clip.adjustmentKind == AdjustmentKind::Transform);
 }
 
+namespace {
+
+// A clip whose box is still exactly the frame (not animated, at 0,0 and the frame's size, or never set).
+bool fitsWholeFrame(const Clip &clip, int width, int height)
+{
+    const auto still = [](const KeyframeTrack<double> &t, double implicitValue, double *out) {
+        if (t.isEmpty()) {
+            *out = implicitValue;
+            return true;
+        }
+        if (t.keyframes().size() != 1 || t.stopwatch())
+            return false;
+        *out = t.keyframes().first().value;
+        return true;
+    };
+    double x = 0, y = 0, w = 0, h = 0;
+    if (!still(clip.transformX, 0.0, &x) || !still(clip.transformY, 0.0, &y) || !still(clip.transformW, width, &w)
+        || !still(clip.transformH, height, &h))
+        return false;
+    return qAbs(x) < 1.0 && qAbs(y) < 1.0 && qAbs(w - width) < 1.0 && qAbs(h - height) < 1.0;
+}
+
+} // namespace
+
 void rebaseClipLayout(Project &project, int oldWidth, int oldHeight, int newWidth, int newHeight,
-                      double originX, double originY)
+                      double originX, double originY, bool fitFullFrame)
 {
     project.forEachTrackList([&](QList<Track> &tracks) {
         for (Track &track : tracks) {
@@ -1812,6 +1861,22 @@ void rebaseClipLayout(Project &project, int oldWidth, int oldHeight, int newWidt
                     continue;
                 if (clipBoxIsCanvasReferenced(clip)) {
                     rebaseCanvasBox(clip, oldWidth, oldHeight, newWidth, newHeight, originX, originY);
+                    continue;
+                }
+                // A picture that filled the old frame fits the new one, centred, as CapCut does on a change of
+                // shape (0.29: a 16:9 video turned 9:16 kept its size and left the rest black).
+                if (fitFullFrame && fitsWholeFrame(clip, oldWidth, oldHeight) && (clip.type == ClipType::Video
+                                                                  || clip.type == ClipType::Image)) {
+                    const double k = qMin(double(newWidth) / oldWidth, double(newHeight) / oldHeight);
+                    const double w = oldWidth * k, h = oldHeight * k;
+                    clip.transformX = {};
+                    clip.transformY = {};
+                    clip.transformW = {};
+                    clip.transformH = {};
+                    clip.transformX.setKeyframe(0, (newWidth - w) / 2.0);
+                    clip.transformY.setKeyframe(0, (newHeight - h) / 2.0);
+                    clip.transformW.setKeyframe(0, w);
+                    clip.transformH.setKeyframe(0, h);
                     continue;
                 }
                 bakeIfImplicit(clip.transformW, oldWidth);

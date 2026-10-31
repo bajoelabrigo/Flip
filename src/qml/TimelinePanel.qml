@@ -823,7 +823,8 @@ PanelFrame {
 
     function dropTargetAtYForKind(mediaKind, y) {
         const count = tracks.length
-        if (count === 0)
+        // Over the ruler or the strip above the first track: a new track on top (0.29).
+        if (count === 0 || y < 0)
             return { "newTrack": true, "insertIndex": 0 }
 
         var cursor = 0
@@ -850,7 +851,19 @@ PanelFrame {
             }
             cursor = rowEnd + Theme.trackGap
         }
-        return { "newTrack": true, "insertIndex": count }
+        return { "newTrack": true, "insertIndex": belowTracksInsertIndex(mediaKind) }
+    }
+
+    // Under every row: sound stays at the bottom; a picture goes on top of the video tracks, not under the main one
+    // where nothing shows it (0.29). Lanes follow their parent, so the first video/audio row's index is safe.
+    function belowTracksInsertIndex(mediaKind) {
+        if (EditorState.trackTypeForKind(mediaKind) === "audio")
+            return tracks.length
+        for (var i = 0; i < tracks.length; i++) {
+            if (!tracks[i].isAdjustmentLane && (tracks[i].type === "video" || tracks[i].type === "audio"))
+                return i
+        }
+        return tracks.length
     }
 
     // Y of the boundary a new track would be inserted at, in track-column
@@ -878,17 +891,31 @@ PanelFrame {
         return dropTargetAtYForKind(mediaKind, dropY)
     }
 
+    // The bottom video track: CapCut's main track.
+    function mainVideoTrackIndex() {
+        for (var i = tracks.length - 1; i >= 0; i--) {
+            if (tracks[i].type === "video" && !tracks[i].isAdjustmentLane)
+                return i
+        }
+        return -1
+    }
+
     function updateDropPreviewForKind(mediaKind, duration, dropX, dropY) {
         const desired = Math.max(0, dropX / pxPerSecond)
         const target = resolveDropTarget(mediaKind, dropY)
 
         if (!target.newTrack) {
             dropCreatesNewTrack = false
-            showLandingPreview(target.track, desired, duration)
+            // The same rule as the C++ drop (0.29): an empty main video track, or a first clip near 0, starts at 0.
+            const t = tracks[target.track]
+            const empty = t && t.clips && t.clips.length === 0
+            const picture = mediaKind === "video" || mediaKind === "image"
+            const atZero = empty && ((picture && mainVideoTrackIndex() === target.track) || desired < 0.5)
+            showLandingPreview(target.track, atZero ? 0 : desired, duration)
             return
         }
 
-        const snapped = snapClipStart(desired, duration)
+        const snapped = snapClipStart(desired < 0.5 ? 0 : desired, duration)
         dropCreatesNewTrack = true
         dropNewTrackIndex = target.insertIndex
         dropTrackIndex = -1
@@ -983,7 +1010,7 @@ PanelFrame {
         return ""
     }
 
-    function updateUrlDropPreview(drop) {
+    function updateUrlDropPreview(drop, y) {
         // A drag that cannot say what it carries yet — some platforms only hand the payload over
         // on release — is previewed as video rather than not previewed at all. The drop itself
         // re-reads the urls and places by what they really are.
@@ -994,7 +1021,7 @@ PanelFrame {
             clearLandingPreview()
             return
         }
-        updateDropPreviewForKind(kind, urlDropPreviewDuration, drop.x, drop.y)
+        updateDropPreviewForKind(kind, urlDropPreviewDuration, drop.x, y === undefined ? drop.y : y)
     }
 
     function clearUrlDropState() {
@@ -2726,13 +2753,20 @@ PanelFrame {
                         // the per-track DropAreas, which accept nothing but a
                         // compatible track and never a new-track boundary.
                         x: 0
-                        y: Theme.timelineRulerHeight + Theme.timelineBookmarkRowHeight
+                        // From the very top, the ruler and the bookmark strip included (0.29: a drop
+                        // there did nothing; now it is a new track on top, as After Effects).
+                        y: 0
                         width: parent.width
                         // Extends past the last track to the bottom of the
                         // content area: dropping in that empty space is how a
                         // track gets appended below the existing ones.
-                        height: Math.max(root.totalTracksHeightCached,
-                                         flick.contentHeight - flick.headerHeight)
+                        height: flick.headerHeight + Math.max(root.totalTracksHeightCached,
+                                                              flick.contentHeight - flick.headerHeight)
+
+                        // Track-column y of a drop, or -1 over the pinned ruler / bookmark strip.
+                        function columnY(drop) {
+                            return drop.y < flick.contentY + flick.headerHeight ? -1 : drop.y - flick.headerHeight
+                        }
                         z: 250
                         // "text/uri-list" is a drag from outside the app — the file manager,
                         // usually. It carries files that have not been imported yet, where
@@ -2760,12 +2794,12 @@ PanelFrame {
 
                         function updateAssetDrag(drop) {
                             if (isFileDrag(drop)) {
-                                root.updateUrlDropPreview(drop)
+                                root.updateUrlDropPreview(drop, columnY(drop))
                                 return
                             }
                             const kind = placeableKind(drop)
                             if (kind.length > 0) {
-                                root.dropRouter.hover(kind, AssetDrag.payloadFromDrop(drop, kind), drop.x, drop.y)
+                                root.dropRouter.hover(kind, AssetDrag.payloadFromDrop(drop, kind), drop.x, columnY(drop))
                                 return
                             }
                             const assetIndex = assetIndexFromDrop(drop)
@@ -2773,7 +2807,7 @@ PanelFrame {
                                 root.clearLandingPreview()
                                 return
                             }
-                            root.updateAssetDropPreview(assetIndex, drop.x, drop.y)
+                            root.updateAssetDropPreview(assetIndex, drop.x, columnY(drop))
                         }
 
                         onEntered: (drop) => updateAssetDrag(drop)
@@ -2788,18 +2822,18 @@ PanelFrame {
                                 // Not cleared first, unlike the branch below: performUrlDrop
                                 // keeps the outline on screen at the frozen spot for as long as
                                 // the import it starts is still running.
-                                root.performUrlDrop(drop.hasUrls ? drop.urls : [], drop.x, drop.y)
+                                root.performUrlDrop(drop.hasUrls ? drop.urls : [], drop.x, columnY(drop))
                                 return
                             }
                             const kind = placeableKind(drop)
                             if (kind.length > 0) {
                                 root.dropRouter.drop(kind, AssetDrag.payloadFromDrop(drop, kind),
-                                                     AssetDrag.labelFromDrop(drop, kind), drop.x, drop.y)
+                                                     AssetDrag.labelFromDrop(drop, kind), drop.x, columnY(drop))
                                 return
                             }
                             const assetIndex = assetIndexFromDrop(drop)
                             root.clearLandingPreview()
-                            root.performAssetDrop(assetIndex, drop.x, drop.y, drop)
+                            root.performAssetDrop(assetIndex, drop.x, columnY(drop), drop)
                         }
                     }
 

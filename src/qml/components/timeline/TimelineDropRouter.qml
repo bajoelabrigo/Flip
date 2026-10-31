@@ -24,7 +24,8 @@ QtObject {
             return { "track": panel.trackIndexAtY(columnY), "newTrackIndex": -1 }
 
         const tracks = panel.tracks
-        if (tracks.length === 0)
+        // Over the ruler or the strip above the first track: a new track on top (0.29).
+        if (tracks.length === 0 || columnY < 0)
             return { "track": -1, "newTrackIndex": 0 }
         var cursor = 0
         for (var i = 0; i < tracks.length; i++) {
@@ -44,7 +45,8 @@ QtObject {
             }
             cursor = rowEnd + Theme.trackGap
         }
-        return { "track": -1, "newTrackIndex": tracks.length }
+        // Under every row a graphic goes on top of the video tracks (0.29), where it shows.
+        return { "track": -1, "newTrackIndex": panel.belowTracksInsertIndex("image") }
     }
 
     function planAt(kind, payload, contentX, columnY) {

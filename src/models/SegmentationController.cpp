@@ -526,7 +526,10 @@ void SegmentationController::segmentClip(int trackIndex, int clipIndex, const QV
                     m_segmentStatus = ok ? tr("Done") : message;
                     emit statusChanged();
                     if (!ok) {
-                        m_app->setLastMessage(message, QStringLiteral("error"));
+                        // A cancel is the user's own choice, not an error: it goes away by itself (0.29: the
+                        // red «Cutout cancelled» stayed on screen until closed by hand).
+                        const bool cancelled = message == tr("Cutout cancelled");
+                        m_app->setLastMessage(message, cancelled ? QStringLiteral("info") : QStringLiteral("error"));
                         emit finished(false, message);
                         return;
                     }

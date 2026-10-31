@@ -546,6 +546,12 @@ Item {
                          && typeof clipItem.Window.window.openCrop === "function"
                 onTriggered: clipItem.Window.window.openCrop(clipItem.trackIndex, clipItem.clipIndex)
             }
+            // CapCut's «Fit to video length» (0.29): the music ends where the video does, in one click.
+            ThemedMenuItem {
+                text: qsTr("Fit to video length")
+                visible: clipItem.clipData.kind === "audio"
+                onTriggered: EditorState.fitClipToVideoLength(clipItem.trackIndex, clipItem.clipIndex)
+            }
             // Also in the clip's menu (0.29, as CapCut), not only as the snowflake on the toolbar.
             ThemedMenuItem {
                 text: qsTr("Freeze frame at current time")
