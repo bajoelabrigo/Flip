@@ -7,9 +7,11 @@ end screen with next/previous video. Order 8300-8399.
 
 from __future__ import annotations
 
+import os
+
 from kit import Box, centered, circle_photo, fill, keys, label, no_stroke, outline, photo_bg, pill, rrect, shadow, tanim, wide
 from templates_ytkit_a import OUT, _stroke, path
-from templates_ytkit_g import BUBBLE, HEART, PLAY
+from brand_logos import LOGOS
 
 CORAL = "#FF4F64"
 CORAL_DARK = "#E63E53"
@@ -39,23 +41,21 @@ def hola_bienvenidos():
     t = _kit("hola-bienvenidos", "¡Hola! y bienvenidos a mi canal", "Hello! and welcome to my channel", "frases",
              D, 8300, ["hola", "bienvenida", "saludo", "intro", "canal"], thumb_at=3.6)
     photo_bg(t, "h-city-05", s1=1.04, label="Tu video")
-    big = Box(360, 170, 1200, 300)
     land = 1.55
-    # The big word: pops in, holds, then drops into the tag and fades as the small one takes its place.
-    s_end = 66 / 250
-    label(t, t.track("text", "Hola grande"), "¡HOLA!", 0.25, land + 0.1 - 0.25, big, FONT, 250, WHITE, weight=900,
-          anim_in=tanim("pop", duration=0.35),
-          motion=[(0, {}, "hold"), (land - 0.25 - 0.3, {}, "inout"),
-                  (land - 0.25, {"dy": 470 - (big.y + big.h / 2), "s": s_end})],
-          opacity=keys([(0, 1.0, "hold"), (land - 0.35, 1.0), (land - 0.15, 0.0)]),
-          layers=[shadow("#000000", 0, 6, 20, 0.35), fill(WHITE)], name="Hola (grande)", editable=False)
-    tag = centered(960, 470, 560, 96)
     out_at = D - 0.5
-    t.solid(t.track("shape", "Etiqueta"), CORAL, land - 0.2, out_at - land + 0.2 + 0.3, tag,
-            [(0, {"sx": 0.0}, "out"), (0.35, {}, "hold"), (out_at - land + 0.2, {}, "in"),
-             (out_at - land + 0.5, {"sx": 0.0})])
-    label(t, t.track("text", "Textos"), "¡HOLA!", land - 0.05, out_at - land + 0.15, tag, FONT, 66, WHITE, weight=900,
-          anim_in=tanim("fade", duration=0.2), anim_out=OUT(0.2), name="Hola")
+    tag = centered(960, 470, 560, 96)
+    # The tag first (its track under the word): it stretches out from the middle as the word lands on it.
+    t.solid(t.track("shape", "Etiqueta"), CORAL, land - 0.15, out_at - land + 0.15 + 0.3, tag,
+            [(0, {"sx": 0.0}, "out"), (0.35, {}, "hold"), (out_at - land + 0.15, {}, "in"),
+             (out_at - land + 0.45, {"sx": 0.0})])
+    # One word: huge and high up, then down onto the tag at its size (the letters redrawn at each size, so they
+    # stay sharp and whole), and it stays there.
+    hola = label(t, t.track("text", "Hola"), "¡HOLA!", 0.25, out_at - 0.25, centered(960, 470, 1500, 330), FONT, 250,
+                 WHITE, weight=900, anim_in=tanim("pop", duration=0.35), anim_out=OUT(0.2),
+                 motion=[(0, {"dy": -150}, "hold"), (land - 0.25 - 0.4, {"dy": -150}, "inout"), (land - 0.25, {})],
+                 layers=[shadow("#000000", 0, 6, 20, 0.35), fill(WHITE)], name="Hola")
+    hola["textStyle"]["keyframes"] = {"pixelSize": keys([(0, 250, "hold"), (land - 0.25 - 0.4, 250, "inout"),
+                                                          (land - 0.25, 66)])}
     for i, (text, name) in enumerate([("Y BIENVENIDOS A", "Línea 1"), ("MI CANAL", "Línea 2")]):
         a = land + 0.25 + i * 0.45
         label(t, t.track("text", "Textos"), text, a, out_at - a, Box(360, 530 + i * 82, 1200, 86), FONT, 66, WHITE,
@@ -66,22 +66,38 @@ def hola_bienvenidos():
 
 # --- 2. Títulos en cajas --------------------------------------------------------------------------------------------
 
+# Montserrat ExtraBold, from flip-addons next to this repo: measures a line so the cursor lands after it.
+MONTSERRAT_800 = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", "flip-addons", "build",
+                              "src", "fonts", "montserrat", "Montserrat-ExtraBold.ttf")
+
+
+def _text_width(text, size):
+    """The line's width in px at this size, measured with the font itself."""
+    try:
+        from PIL import ImageFont
+        return ImageFont.truetype(MONTSERRAT_800, size).getlength(text)
+    except Exception:
+        return len(text) * size * 0.68
+
+
 def _box_line(t, text, x, y, size, colour, box_colour, at, until, cursor=CORAL, name="Línea", align="left"):
-    """One line in its own box, revealed left to right with a block cursor riding the edge; it wipes out the same."""
-    w_est = max(60, len(text) * size * 0.66 + size * 0.5)
+    """One line in its own box, opened left to right as the pack does; then a coral block cursor blinks just after
+    the last letter (never over them). It closes the same way."""
     box = Box(x, y, 1500, size * 1.45)
-    reveal = min(0.9, 0.05 * len(text) + 0.2)
+    reveal = min(0.8, 0.035 * len(text) + 0.2)
+    pad_x = size * 0.22
     c = label(t, t.track("text", "Títulos"), text, at, until - at, box, FONT, size, colour, weight=800, align=align,
-              anim_in=tanim("wipe", duration=reveal, angle=0, softness=0.0), anim_out=tanim("wipe", duration=0.35,
-                                                                                              angle=180, softness=0.0),
-              box_bg=(box_colour, 1.0), box_pad=size * 0.22, name=name)
+              anim_in=tanim("wipe", duration=reveal, angle=0, softness=0.0),
+              anim_out=tanim("wipe", duration=0.35, angle=180, softness=0.0),
+              box_bg=(box_colour, 1.0), box_pad=pad_x, name=name)
     c["textStyle"]["boxStyle"] = "line"
-    c["textStyle"]["boxPaddingX"] = size * 0.22
+    c["textStyle"]["boxPaddingX"] = pad_x
     c["textStyle"]["boxPaddingY"] = size * 0.06
-    # The cursor: a block the height of the line that runs along as it is revealed, then goes.
-    t.solid(t.track("shape", "Cursor"), cursor, at, reveal + 0.15, Box(x - size * 0.25, y + size * 0.12, size * 0.32, size * 1.2),
-            [(0, {}, "linear"), (reveal, {"dx": w_est}, "hold"), (reveal + 0.15, {"dx": w_est})],
-            opacity=keys([(0, 1.0, "hold"), (reveal, 1.0), (reveal + 0.15, 0.0)]))
+    # The cursor: just past the box's right edge, blinking twice once the line is open.
+    end_x = x + _text_width(text, size) + pad_x + size * 0.12
+    dur = 1.0
+    t.solid(t.track("shape", "Cursor"), cursor, at + reveal, dur, Box(end_x, y + size * 0.16, size * 0.3, size * 1.13),
+            opacity=keys([(0, 1.0, "hold"), (0.25, 0.0, "hold"), (0.5, 1.0, "hold"), (0.75, 0.0, "hold"), (dur, 0.0)]))
 
 
 def titulos_cajas():
@@ -144,7 +160,9 @@ def pantalla_final_coral():
     label(t, t.track("text", "Textos"), "¡GRACIAS\nPOR VER!", 0.9, D - 1.3, Box(1000, 150, 820, 250), FONT, 96, WHITE,
           weight=900, align="left", line=1.0, anim_in=tanim("typewriter", duration=0.8), anim_out=OUT(0.3),
           name="Gracias")
-    socials = [(PLAY, "@tucanal", "Usuario 1"), (BUBBLE, "@tuperfil", "Usuario 2"), (HEART, "@tunombre", "Usuario 3")]
+    # The platforms' official glyphs, in white beside the user's handles (their brand guidelines).
+    socials = [(LOGOS["instagram"], "@tuusuario", "Usuario 1"), (LOGOS["facebook"], "/tupagina", "Usuario 2"),
+               (LOGOS["x"], "@tuusuario", "Usuario 3")]
     for i, (icon, handle, name) in enumerate(socials):
         a = 1.6 + i * 0.18
         y = 470 + i * 92
