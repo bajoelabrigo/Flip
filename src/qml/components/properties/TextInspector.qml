@@ -54,11 +54,20 @@ Item {
 
     // The selected family's real weight ladder — never an invented one. Single-weight display faces
     // (Anton, Bebas Neue, Pacifico...) expose exactly one entry and no italic.
+    // What the Font list, Bold and the weight box show: the picked letters' own font and bold when
+    // they have one (0.29: after giving «BERG» Antonio, the list went on saying the block's Oswald).
+    readonly property string shownFontFamily: root.hasRunSelection && root.runUnderCursor
+                                              && root.runUnderCursor.fontEnabled === true
+                                              && root.runUnderCursor.fontFamily
+                                              ? root.runUnderCursor.fontFamily : (root.textStyle.fontFamily || "")
+    readonly property real shownFontWeight: root.hasRunSelection && root.runUnderCursor
+                                            && root.runUnderCursor.boldEnabled === true
+                                            ? (root.runUnderCursor.bold ? 700 : 400) : Number(root.textStyle.fontWeight)
     readonly property var fontFamilyInfo: {
         void clipDataRevision
         const catalog = EditorState.fontCatalog()
         for (let i = 0; i < catalog.length; ++i) {
-            if (catalog[i].family === root.textStyle.fontFamily)
+            if (catalog[i].family === root.shownFontFamily)
                 return catalog[i]
         }
         return null
@@ -1401,7 +1410,7 @@ Item {
 
                 FontPicker {
                     width: parent.width
-                    family: root.textStyle.fontFamily
+                    family: root.shownFontFamily
                     onFamilyPicked: family => root.setTextStyleKey("fontFamily", family)
                 }
 
@@ -1431,7 +1440,7 @@ Item {
                     ThemedToggleButton {
                         width: 34
                         text: "B"
-                        checked: Number(root.textStyle.fontWeight) >= 600
+                        checked: root.shownFontWeight >= 600
                         tooltip: qsTr("Bold")
                         onClicked: root.setTextStyleKey("fontWeight", root.boldToggleWeight())
                     }
@@ -1462,7 +1471,7 @@ Item {
                         id: fontWeightBox
                         width: Math.max(80, parent.width - 74 - 34 * 4 - parent.spacing * 5) // B, U, S, I
                         model: root.availableWeights.map(w => root.weightLabels[w] || String(w))
-                        currentIndex: Math.max(0, root.availableWeights.indexOf(root.textStyle.fontWeight))
+                        currentIndex: Math.max(0, root.availableWeights.indexOf(root.shownFontWeight))
                         onActivated: root.setTextStyleKey("fontWeight", root.availableWeights[currentIndex])
                     }
                 }

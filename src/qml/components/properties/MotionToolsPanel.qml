@@ -315,7 +315,7 @@ Item {
                 ToolButton {
                     width: parent.width
                     label: qsTr("Reverse")
-                    glyph: "swap"
+                    glyph: "arrow-right-left"
                     tip: qsTr("Plays the picked keys backwards in their own span (a cloned entrance becomes the exit)")
                     enabledTool: root.pickedCount > 1
                     onActivated: EditorState.reversePickedKeyframes()

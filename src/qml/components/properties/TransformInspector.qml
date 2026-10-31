@@ -342,6 +342,58 @@ Item {
                 unit: "px"
             }
 
+            // The anchor point in px of the layer's box (0.29): the turn and the 3D tilt pivot there;
+            // changing it keeps the layer where it is, as the Anchor tool and the timeline row do.
+            Column {
+                id: anchorSection
+                width: parent.width
+                spacing: Theme.spacingXs
+                readonly property real boxW: { void root.clipDataRevision; void root.liveRevision; return root.transformAt("width", root.canvasW) }
+                readonly property real boxH: { void root.clipDataRevision; void root.liveRevision; return root.transformAt("height", root.canvasH) }
+                readonly property real fx: { void root.clipDataRevision; void root.liveRevision; return root.transformAt("anchorX", 0.5) }
+                readonly property real fy: { void root.clipDataRevision; void root.liveRevision; return root.transformAt("anchorY", 0.5) }
+                function setPx(x, y) {
+                    EditorState.setAnchorKeepingPlace(EditorState.selectedTrack, EditorState.selectedClip,
+                                                      boxW > 0 ? x / boxW : 0.5, boxH > 0 ? y / boxH : 0.5)
+                }
+
+                Text {
+                    text: qsTr("Anchor point (px)")
+                    color: Theme.mutedForeground
+                    font.family: Theme.fontFamily
+                    font.pixelSize: Theme.fontSizeXs
+                    font.weight: Font.Medium
+                }
+                Row {
+                    width: parent.width
+                    spacing: Theme.spacingSm
+                    ThemedNumberField {
+                        width: (parent.width - centreAnchorButton.width - 2 * parent.spacing) / 2
+                        from: -100000
+                        to: 100000
+                        unit: "px"
+                        value: Math.round(anchorSection.fx * anchorSection.boxW)
+                        onEdited: v => anchorSection.setPx(v, anchorSection.fy * anchorSection.boxH)
+                    }
+                    ThemedNumberField {
+                        width: (parent.width - centreAnchorButton.width - 2 * parent.spacing) / 2
+                        from: -100000
+                        to: 100000
+                        unit: "px"
+                        value: Math.round(anchorSection.fy * anchorSection.boxH)
+                        onEdited: v => anchorSection.setPx(anchorSection.fx * anchorSection.boxW, v)
+                    }
+                    IconButton {
+                        id: centreAnchorButton
+                        buttonSize: 28
+                        iconSize: 14
+                        glyph: "locate-fixed"
+                        tooltip: qsTr("Anchor in the centre")
+                        onClicked: anchorSection.setPx(anchorSection.boxW / 2, anchorSection.boxH / 2)
+                    }
+                }
+            }
+
             Text {
                 text: qsTr("Opacity & rotation")
                 color: Theme.mutedForeground

@@ -39,6 +39,12 @@ situaciones distintas con la build nueva, arreglar lo que falle y añadir las he
   / `previewGradientHandles`), en un solo paso de deshacer. Pruebas `gradientHandlesRoundTrip` y
   `gradientHandlesAndToolPaintOptions`.
 
+- **Arreglos sueltos (sin compilar todavía, para la siguiente build):** el primer «Guardar» de un proyecto sin
+  título le pone el nombre del archivo (`ProjectFileController::saveProject`); Texto avanzado y el panel muestran la
+  fuente y la negrita de las letras elegidas (`shownFontFamily` / `shownFontWeight`); campos de **Punto de anclaje
+  (px)** en Transformar con botón de centrar; el gizmo 3D pone sus ejes en el anclaje (`ClipGizmo::originOf`);
+  iconos de Invertir y de centrar con archivos que existen. Lo de «la forma nace con claves» era el valor escrito.
+
 ## Pendiente (visto en la grabación, sin arreglar todavía)
 
 - **El primer clic se pierde** a veces: pestañas laterales del inspector (Texto, Transformar…) tras editar un texto en

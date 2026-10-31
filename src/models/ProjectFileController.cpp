@@ -442,6 +442,17 @@ void ProjectFileController::rememberEmbeddedSources(const QList<drift::bundle::M
 
 void ProjectFileController::saveProject(const QUrl &url)
 {
+    // The first save of an untitled project names it after its file, as Save As does (0.29: the header
+    // went on saying «Proyecto sin título» after saving it as francois.flip).
+    if (m_app->m_project.name() == QLatin1String("Untitled Project")) {
+        ProjectIdentity same;
+        same.id = m_app->m_project.id();
+        same.name = projectNameForUrl(url);
+        if (!same.name.isEmpty()) {
+            writeProjectBundle(url, same);
+            return;
+        }
+    }
     writeProjectBundle(url, std::nullopt);
 }
 
