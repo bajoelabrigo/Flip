@@ -12807,12 +12807,47 @@ void AppController::addDrawnShapeToLayer(int trackIndex, int clipIndex, const dr
         const QString firstName = (first ? first->label : clip.name) + QStringLiteral(" 1");
         layer = drift::shapeWithParts(layer, box.width(), box.height(), firstName);
     }
+    // A still, unturned layer grows its box to take in what was drawn outside it, its parts kept where they are
+    // on screen: the box is what a click picks the layer by, so a part outside it could not be clicked.
+    QRectF box2 = box;
+    const auto single = [](const drift::KeyframeTrack<double> &k) { return k.keyframes().size() <= 1; };
+    if (qAbs(layerRotation) < 1e-6 && single(clip.transformX) && single(clip.transformY) && single(clip.transformW)
+        && single(clip.transformH)) {
+        const QRectF grown = box.united(QRectF(x, y, w, h));
+        if (grown != box) {
+            const double perPxX = qMax(1.0, layer.partsRefWidth) / qMax(1.0, box.width());
+            const double perPxY = qMax(1.0, layer.partsRefHeight) / qMax(1.0, box.height());
+            const QPointF shift = grown.center() - box.center();
+            for (drift::ShapePart &p : layer.parts) {
+                p.transform.x -= shift.x() * perPxX;
+                p.transform.y -= shift.y() * perPxY;
+                for (auto it = p.keyframes.begin(); it != p.keyframes.end(); ++it) {
+                    if (it.key() == QLatin1String("x") || it.key() == QLatin1String("y")) {
+                        const double d = it.key() == QLatin1String("x") ? shift.x() * perPxX : shift.y() * perPxY;
+                        drift::KeyframeTrack<double> moved = it.value();
+                        for (auto k = it->keyframes().constBegin(); k != it->keyframes().constEnd(); ++k) {
+                            drift::Keyframe<double> key = k.value();
+                            key.value -= d;
+                            moved.setKeyframe(k.key(), key);
+                        }
+                        it.value() = moved;
+                    }
+                }
+            }
+            layer.partsRefWidth = grown.width() * perPxX;
+            layer.partsRefHeight = grown.height() * perPxY;
+            const QPointF shiftAnchor = clip.anchorShift(rel, grown.width(), grown.height(), 0.0);
+            setClipLayoutPixels(clip, grown.x() - shiftAnchor.x(), grown.y() - shiftAnchor.y(), grown.width(),
+                                grown.height());
+            box2 = grown;
+        }
+    }
     const double refW = qMax(1.0, layer.partsRefWidth);
     const double refH = qMax(1.0, layer.partsRefHeight);
-    const double bw = qMax(1.0, box.width());
-    const double bh = qMax(1.0, box.height());
+    const double bw = qMax(1.0, box2.width());
+    const double bh = qMax(1.0, box2.height());
     // The drawn centre in the box's own unturned frame, then in reference units.
-    const QPointF centre = QTransform().rotate(-layerRotation).map(QPointF(x + w / 2.0, y + h / 2.0) - box.center());
+    const QPointF centre = QTransform().rotate(-layerRotation).map(QPointF(x + w / 2.0, y + h / 2.0) - box2.center());
 
     drift::ShapePart part;
     part.id = drift::mintShapePartId(layer);
@@ -12983,6 +13018,10 @@ bool AppController::combineSelectedShapes()
     return true;
 }
 
+namespace {
+void fitShapeLayerBox(drift::Clip &clip, const QRectF &box); // below, by the preview's frames
+} // namespace
+
 // «Separate into layers» (0.28): each part at the top of a layer of parts goes to a layer of its own, on a
 // track just above, looking the same (the same box, only that part in it).
 bool AppController::separateShapeParts(int trackIndex, int clipIndex)
@@ -13004,6 +13043,7 @@ bool AppController::separateShapeParts(int trackIndex, int clipIndex)
         piece.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
         piece.name = it->name;
         piece.shapeStyle.parts = {*it};
+        fitShapeLayerBox(piece, drawnBoxAt(original));
         const int at = drift::insertTrackAboveForClipType(m_project, trackIndex, drift::ClipType::Shape);
         m_project.tracks()[at].clips.append(piece);
     }
@@ -28045,6 +28085,48 @@ struct ShapePartFramesBuilder
         return all;
     }
 };
+
+// A still, unturned layer of parts with its box fitted to its parts (their boxes, in reference units), the parts
+// kept where they are on screen: what «Separate into layers» leaves, so each layer is picked where it shows.
+void fitShapeLayerBox(drift::Clip &clip, const QRectF &box)
+{
+    const auto single = [](const drift::KeyframeTrack<double> &k) { return k.keyframes().size() <= 1; };
+    if (!clip.shapeStyle.hasParts() || !single(clip.transformX) || !single(clip.transformY)
+        || !single(clip.transformW) || !single(clip.transformH) || !single(clip.rotation)
+        || (!clip.rotation.isEmpty() && qAbs(clip.rotation.evaluateAt(0)) > 1e-6))
+        return;
+    for (const drift::ShapePart &p : clip.shapeStyle.parts) {
+        if (p.isAnimated())
+            return;
+    }
+    ShapePartFramesBuilder b;
+    const QList<QPointF> pts = b.add(clip.shapeStyle.parts, QTransform(), QString(), 0);
+    if (pts.isEmpty())
+        return;
+    QRectF r(pts.first(), QSizeF());
+    for (const QPointF &p : pts)
+        r = r.united(QRectF(p, QSizeF(0.0001, 0.0001)));
+    if (r.width() < 1.0 || r.height() < 1.0)
+        return;
+    const double ppx = qMax(1.0, clip.shapeStyle.partsRefWidth) / qMax(1.0, box.width());
+    const double ppy = qMax(1.0, clip.shapeStyle.partsRefHeight) / qMax(1.0, box.height());
+    for (drift::ShapePart &p : clip.shapeStyle.parts) {
+        p.transform.x -= r.center().x();
+        p.transform.y -= r.center().y();
+    }
+    clip.shapeStyle.partsRefWidth = r.width();
+    clip.shapeStyle.partsRefHeight = r.height();
+    const QRectF fitted(box.center().x() + r.left() / ppx, box.center().y() + r.top() / ppy, r.width() / ppx,
+                        r.height() / ppy);
+    clip.transformX = {};
+    clip.transformY = {};
+    clip.transformW = {};
+    clip.transformH = {};
+    clip.transformX.setKeyframe(0, fitted.x());
+    clip.transformY.setKeyframe(0, fitted.y());
+    clip.transformW.setKeyframe(0, fitted.width());
+    clip.transformH.setKeyframe(0, fitted.height());
+}
 
 } // namespace
 

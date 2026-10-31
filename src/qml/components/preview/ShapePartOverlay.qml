@@ -212,7 +212,22 @@ Item {
     // Drag inside the picked part: moves it (its own Position). Presses elsewhere go through to the layer.
     MouseArea {
         id: moveArea
-        anchors.fill: parent
+        // Over the picked part's own box (it can lie outside the layer's box), a little larger.
+        readonly property rect span: {
+            const f = parts.focusFrame
+            if (!f)
+                return Qt.rect(0, 0, 0, 0)
+            let x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9
+            for (let i = 0; i < 4; ++i) {
+                const c = parts.corner(f, i)
+                x0 = Math.min(x0, c.x); y0 = Math.min(y0, c.y); x1 = Math.max(x1, c.x); y1 = Math.max(y1, c.y)
+            }
+            return Qt.rect(x0 - 8, y0 - 8, x1 - x0 + 16, y1 - y0 + 16)
+        }
+        x: span.x
+        y: span.y
+        width: span.width
+        height: span.height
         enabled: parts.focusFrame !== null
         cursorShape: containsPress ? Qt.SizeAllCursor : Qt.ArrowCursor
         property var start: null

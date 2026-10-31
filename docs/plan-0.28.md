@@ -155,8 +155,14 @@ mismo que conoce (orden, nombres, cronómetros, atajos).
    Los encabezados se dibujan encima de la fila de valor en `TrackHeaderColumn` (capa `headingLine`). Las claves
    `part.*` ya no salen repetidas entre «otras propiedades animadas». «Color» de cada relleno/trazo: una fila que une
    sus cuatro canales (como Posición une X e Y), con un cuadrito que abre el selector y escribe los cuatro en un paso.
-4. [~] Vista previa: entrar con doble clic, migas de pan, tiradores de la parte, dibujar dentro, combinar/separar.
-   Hecho (falta compilar y probar en ventana): `ShapePartOverlay.qml` dentro de la caja de la capa elegida (Pro, 2D):
+4. [x] Vista previa: entrar con doble clic, migas de pan, tiradores de la parte, dibujar dentro, combinar/separar.
+   **Probado en ventana (build 41149757033):** doble clic entra (migas «Capa de forma › Grupo 1»), dibujar con la capa
+   elegida añade «Rectángulo 2» con su aviso, esquina escala desde el anclaje, el redondo gira, Separar (2 capas iguales)
+   y Combinar (una capa, se ve igual), proyecto nuevo sin «Video 1». Arreglado después (siguiente build): la capa crece
+   para abarcar lo dibujado fuera de su caja (si no, un clic ahí la soltaba), Separar ajusta la caja de cada capa a su
+   parte, la zona para arrastrar sigue a la parte, las migas siguen a la selección; y en el motor, formas y fotos ya no
+   tiemblan al crecer (caja exacta; fotos decodificadas en pasos de 256 px).
+   Hecho: `ShapePartOverlay.qml` dentro de la caja de la capa elegida (Pro, 2D):
    contorno de la parte elegida, sus tiradores (arrastrar dentro = mover; esquinas = escalar por sus ejes, Mayús igual en
    los dos; el redondo = girar, Mayús de 15 en 15°) y la parte bajo el puntero punteada. Doble clic entra (la capa →
    sus partes; un grupo → las suyas), clic al lado elige la vecina o vuelve a la capa, **Esc** sube un nivel (y en la

@@ -1847,11 +1847,12 @@ Item {
                                             // The chain between the two Scale values has none.
                                             toDisplay: modelData.toDisplay || ((v) => v)
                                             fromDisplay: modelData.fromDisplay || ((d) => d)
-                                            displayMin: modelData.min
-                                            displayMax: modelData.max
-                                            step: modelData.step
-                                            decimals: modelData.decimals
-                                            suffix: modelData.suffix
+                                            // The chain's entry has no numbers: defaults, so nothing undefined is assigned.
+                                            displayMin: modelData.min ?? -1e9
+                                            displayMax: modelData.max ?? 1e9
+                                            step: modelData.step ?? 1
+                                            decimals: modelData.decimals ?? 0
+                                            suffix: modelData.suffix ?? ""
                                             write: modelData.write || null
                                             onBegun: if (modelData.begin) modelData.begin()
                                         }

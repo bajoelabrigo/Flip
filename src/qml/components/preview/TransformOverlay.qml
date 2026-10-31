@@ -255,6 +255,8 @@ Item {
         readonly property var steps: {
             void EditorState.selectedShapePart
             void EditorState.tracksRevision
+            void EditorState.selectedTrack
+            void EditorState.selectedClip
             return EditorState.preferences.proMode && !root.mode3d ? EditorState.shapePartCrumbs() : []
         }
         visible: steps.length > 1 && !EditorState.playing
