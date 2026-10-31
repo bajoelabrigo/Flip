@@ -110,6 +110,34 @@ El paquete declara `runFullTrust`. Partner Center pide justificarlo:
 
 > editor de video, editar videos, video editor, reels, shorts, transiciones, subtítulos
 
+**Notas para la Store (0.28.0)**. La 0.27.0 no se subió: estas cubren la 0.27 y la 0.28 (lo nuevo desde la 0.26.0). 1086/1500 caracteres en español, 1010 en inglés.
+
+> Novedades de la 0.28.0 (incluye la 0.27)
+>
+> - Formas como After Effects: una capa de forma con varias partes y grupos, cada una con su relleno, borde y transformación. Se editan en la columna derecha, en la línea de tiempo o con doble clic en la vista previa.
+> - Dibuja dentro de una capa con la herramienta de formas o la pluma; combina varias formas en una capa o sepáralas.
+> - Bordes que se afinan y ondulan, estrellas y polígonos redondeados y transformación ondulada por parte.
+> - Aprende con un ejemplo: seis proyectos listos en el inicio, cada uno con una guía de tres pasos.
+> - Modo Simple o Pro: Simple esconde las herramientas avanzadas; Pro lo muestra todo.
+> - Exporta sin cuenta hasta 1080p, con destinos para TikTok/Reels, YouTube y WhatsApp.
+> - Nombres claros bajo los íconos, un menú de clic derecho más corto y Dividir que corta solo el clip elegido.
+> - Stock › Kit de YouTube: aperturas, títulos, citas, botones de suscripción, tercios inferiores y pantallas finales, todo editable.
+> - Arreglos: formas y fotos que ya no tiemblan, audio, máscaras animadas, deshacer y voz con IA.
+
+En inglés:
+
+> What's new in 0.28.0 (includes 0.27)
+>
+> - Shapes like After Effects: one shape layer with several parts and groups, each with its own fill, stroke and transform. Edit them in the right column, on the timeline, or by double-clicking in the preview.
+> - Draw inside a layer with the shape tool or the pen; combine several shapes into one layer or separate them.
+> - Tapered and wavy strokes, rounded stars and polygons, and a wiggle transform for each part.
+> - Learn with an example: six ready projects on the start screen, each with a three-step guide.
+> - Simple or Pro mode: Simple hides the advanced tools; Pro shows everything.
+> - Export without an account up to 1080p, with presets for TikTok/Reels, YouTube and WhatsApp.
+> - Clear names under the icons, a shorter right-click menu, and Split cuts only the selected clip.
+> - Stock › YouTube Kit: openers, titles, quotes, subscribe buttons, lower thirds and end screens, all editable.
+> - Fixes: shapes and photos no longer shake, audio, animated masks, undo and AI voice.
+
 **Notas para la Store (0.27.0)**. Lo nuevo desde la 0.26.0.
 
 > Novedades de la 0.27.0
