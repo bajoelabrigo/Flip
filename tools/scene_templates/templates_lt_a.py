@@ -96,9 +96,15 @@ def endrue():
     inside = lambda u: Box(box.x, 760, box.w, max(0.0, grad(u) + y0 - 760))  # noqa: E731
     name, role = "ENDRUE SCOTT", "PUBLIC RELATIONS SPECIALIST"
     nsize, rsize = fit_size(name, 994, 900), fit_size(role, 821, 800)
-    ndy = r.curve(run_where("title", lo=764, hi=860), before="extrapolate", after="extrapolate", offset=-847)
+    # The clean points of the measurement (frames since the line shows; the raw runs mix in pieces of other
+    # letters and made the text jitter — Jorge: «animación robótica»): a fast drop, then a long soft settle.
+    def settle(points):
+        f = curve([(fr / 30.0, v, "out") for fr, v in points])
+        last = points[-1][0] / 30.0
+        return lambda u: f(min(u, D - u) if u > last else u)  # the exit is the entrance backwards
+    ndy = settle([(9, -87.0), (13, -24.0), (15, -15.0), (19, -7.0), (25, -2.0), (33, 0.0)])
+    rdy = settle([(15, -160.0), (17, -40.0), (19, -12.0), (23, -4.0), (28, -1.0), (36, 0.0)])
     track_text(t, name, caps_box(214, 813.5, nsize), nsize, lambda u: (0.0, ndy(u)), D, mask=inside, name="Nombre")
-    rdy = r.curve(run_where("title", lo=850, hi=905), before="extrapolate", after="extrapolate", offset=-885)
     track_text(t, role, caps_box(216, 879.5, rsize), rsize, lambda u: (0.0, rdy(u)), D, mask=inside, weight=800,
                name="Cargo")
     return t
