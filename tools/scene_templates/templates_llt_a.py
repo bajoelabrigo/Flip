@@ -1297,5 +1297,63 @@ def jim():
     return t
 
 
+# Jason Fletcher, measured frame by frame (25 fps from 89.85 s; out = in backwards, frame 129 - f): a red tab with the
+# wordmark grows up and left from the bar's bottom-right corner, then climbs, and the white name bar rises under it
+# and opens to the left.
+_JF_TOP = {2: 880, 3: 876, 4: 867, 5: 853, 6: 838, 7: 829, 8: 824, 9: 819, 10: 815, 11: 813, 12: 811, 13: 808,
+           14: 805, 15: 801, 16: 793, 17: 777, 18: 749, 19: 721, 20: 703, 21: 692, 22: 684, 23: 677, 24: 673, 25: 669,
+           26: 666, 27: 664, 28: 662, 29: 661, 30: 660, 31: 659}
+_JF_LEFT = {2: 1176, 3: 1152, 4: 1112, 5: 1039, 6: 964, 7: 917, 8: 886, 9: 862, 10: 844, 11: 831, 12: 820, 13: 810,
+            14: 803, 15: 797, 16: 792, 17: 789, 18: 786, 19: 784, 20: 782}
+_JF_BAR_L = {16: 1197, 17: 1000, 18: 860, 19: 700, 20: 575, 21: 520, 22: 498, 23: 432, 24: 400, 25: 369, 26: 358,
+             27: 336, 28: 326, 29: 317, 30: 311, 31: 307, 32: 305}
+
+
+def jason_f():
+    """A red tab with the wordmark grows out of a corner and climbs; the white bar with the red name rises under it
+    and opens to the left. Out, backwards."""
+    fps, first, last = 25.0, 2, 127
+    D = round((last - first + 1) / fps, 2)
+    t = _kit("jason-f", "Tercio con logo: pestaña que sube y barra blanca", "Logo lower third: rising tab, white bar", D,
+             8546, ["nombre", "barra", "blanco", "marca"], thumb_at=2.4)
+    photo_bg(t, "h-city-01", s1=1.03, label="Tu video")
+    from llt_motion import frames_of
+    us = frames_of(D)
+    fin = lambda u: (lambda i: i if i <= 64 else 129 - i)(first + u * fps)  # noqa: E731
+    top = _table(_JF_TOP, 882.0, 659.0)
+    left = _table(_JF_LEFT, 1197.0, 782.0)
+    bar_l = _table(_JF_BAR_L, 1197.0, 305.0)
+    R, B = 1197.0, 883.0
+    tab_bottom = lambda f: B if f <= 14 else top(f) + 80  # noqa: E731
+    bar_top = lambda f: B if f < 15 else tab_bottom(f) + 2  # noqa: E731
+    bar = Box(305, 740, R - 305, B - 740)
+    rect_track(t, t.track("shape", "Barra"), bar, lambda u: (bar_l(fin(u)), bar_top(fin(u)), R, B), D, WHITE,
+               name="Barra")
+    name = "JASON FLETCHER"
+    nbox, nsize = caps_box(324, 754, 875, name)
+    clip = name_text(t, name, nbox, nsize, D, bold_from="FLETCHER", colour=RED, spacing=-1.0, bold_spacing=6.5,
+                     word_spacing=6)
+    mask_track(t, clip, nbox, lambda u: (bar_l(fin(u)), bar_top(fin(u)), R, B), D)
+    tab = Box(782, 659, R - 782, 80)
+    tab_rect = lambda u: (left(fin(u)), top(fin(u)), R, tab_bottom(fin(u)))  # noqa: E731
+    rect_track(t, t.track("shape", "Pestaña"), Box(782, 640, R - 782, 250), tab_rect, D, RED, name="Pestaña")
+    wm = Box(810, 668, 366, 66)
+    motion = [(u, {"dx": left(fin(u)) - 782, "dy": top(fin(u)) - 659}, "linear") for u in us]
+    mark = t.photo(t.track("video", "Marca"), "logo-12", 0.0, D, wm, motion, label="Tu logo con nombre",
+                   brandRole="logo")
+    track = next(tr for tr in t.tracks if mark in tr.clips)
+    mk = {"x": [], "y": [], "w": [], "h": []}
+    for u in us:
+        x0, y0, x1, y1 = tab_rect(u)
+        dx, dy = left(fin(u)) - 782, top(fin(u)) - 659
+        mk["x"].append((u, ((x0 + x1) / 2 - wm.x - dx) / wm.w, "linear"))
+        mk["y"].append((u, ((y0 + y1) / 2 - wm.y - dy) / wm.h, "linear"))
+        mk["w"].append((u, max(0.0, x1 - x0) / wm.w, "linear"))
+        mk["h"].append((u, max(0.0, y1 - y0) / wm.h, "linear"))
+    t.mask(track, mark, "rectangle", x=mk["x"][0][1], y=mk["y"][0][1], w=mk["w"][0][1], h=mk["h"][0][1],
+           keyframes={k: keys(v) for k, v in mk.items()})
+    return t
+
+
 TEMPLATES = [francois, roger, jamie, charlotte, jason_e, jessica, david, neil, joanna, hendrick, bevan, janice, charlie,
-             lizzie, patricia, jim]
+             lizzie, patricia, jim, jason_f]
