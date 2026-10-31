@@ -200,7 +200,7 @@ QPainterPath curvedArrowPath(const QRectF &bounds, const ShapeStyle &style)
 
 } // namespace
 
-QPainterPath regularPolygonPath(const QRectF &bounds, int sides, double rotationDeg, double roundness = 0.0)
+QPainterPath regularPolygonPath(const QRectF &bounds, int sides, double rotationDeg, double roundness)
 {
     if (roundness > 1e-6) {
         const int count = qMax(3, sides);
