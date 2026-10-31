@@ -1731,5 +1731,76 @@ def cindy():
     return t
 
 
+# Caryn Bertrand, measured frame by frame (25 fps from 130.3 s; out = frame 139 - f): the red square's box while it
+# grows, and the white face's right end while the prism turns about the edge it shares with the red face (x 437).
+_CB_SQ = {5: 9, 6: 18, 7: 32, 8: 59, 9: 88, 10: 107, 11: 121, 12: 131, 13: 138, 14: 144, 15: 149, 16: 153,
+          17: 155, 18: 158, 19: 161, 20: 162, 21: 164, 22: 165, 25: 166}
+_CB_WR = {26: 437, 27: 562, 28: 604, 29: 722, 30: 1010, 31: 1170, 32: 1231, 33: 1259, 34: 1274, 35: 1282, 36: 1286,
+          37: 1289, 38: 1290, 39: 1291}
+
+
+def caryn():
+    """A red square with the logo grows from a dot; then the bar turns like a box about its corner, the white face with
+    the red name coming round from the right as the red face swings away. Out, backwards."""
+    fps, first, last = 25.0, 5, 134
+    D = round((last - first + 1) / fps, 2)
+    t = _kit("caryn", "Tercio con logo: caja que gira", "Logo lower third: turning box", D, 8553,
+             ["nombre", "3d", "caja", "logo"], thumb_at=2.8)
+    photo_bg(t, "h-city-01", s1=1.03, label="Tu video")
+    from llt_motion import frames_of
+    us = frames_of(D)
+    fin = lambda u: (lambda i: i if i <= 69 else 139 - i)(first + u * fps)  # noqa: E731
+    EX, CY, SIDE, LEN = 437.0, 795.0, 166.0, 852.0
+    sq = _table(_CB_SQ, 0.0, 166.0)
+    wr = _table(_CB_WR, 437.0, 1291.0)
+
+    def px(x, z):
+        return 960 + (x - 960) * _EYE / (_EYE - z)
+
+    def phi(f):
+        if f <= 26:
+            return 0.0
+        target = wr(f)
+        return _solve(lambda a: px(EX + LEN * math.sin(math.radians(a)), -LEN * math.cos(math.radians(a))), target,
+                      0, 90)
+    ang = {u: phi(fin(u)) for u in us}
+
+    def place(clip, which, s, w, h, grow=None):
+        """3D keys: a clip `w` wide centred `s` px from the shared edge along its face."""
+        xs, zs, ry, ws, hs, ys = [], [], [], [], [], []
+        for u in us:
+            a = math.radians(ang[u])
+            if which == "white":
+                cx, cz, r = EX + s * math.sin(a), -s * math.cos(a), 90 - ang[u]
+            else:
+                cx, cz, r = EX - s * math.cos(a), -s * math.sin(a), -ang[u]
+            k = grow(u) if grow else 1.0
+            xs.append((u, cx - w * k / 2, "linear")); zs.append((u, cz, "linear")); ry.append((u, r, "linear"))
+            ws.append((u, w * k, "linear")); hs.append((u, h * k, "linear")); ys.append((u, CY - h * k / 2, "linear"))
+        clip["layer3d"] = True
+        clip["perspective"] = keys([(0, _EYE)])
+        clip.update(x=keys(xs), y=keys(ys), width=keys(ws), height=keys(hs), positionZ=keys(zs), rotationY=keys(ry))
+        clip["opacity"] = keys([(u, 0.0 if (which == "white" and ang[u] < 0.5) or (which == "red" and ang[u] > 89.5)
+                                 else 1.0, "hold") for u in us])
+    grow = lambda u: sq(fin(u)) / SIDE  # noqa: E731
+    red = t.solid(t.track("shape", "Cara roja"), RED, 0.0, D, Box(EX - SIDE, CY - SIDE / 2, SIDE, SIDE))
+    red["name"] = "Cara roja"
+    place(red, "red", SIDE / 2, SIDE, SIDE, grow)
+    mark = t.photo(t.track("video", "Logo"), "logo-11", 0.0, D, centered(352.5, CY, 100, 100), label="Tu logo",
+                   brandRole="logo")
+    place(mark, "red", SIDE / 2, 100.0, 100.0, grow)
+    white = t.solid(t.track("shape", "Cara blanca"), WHITE, 0.0, D, Box(EX, CY - SIDE / 2, LEN, SIDE))
+    white["name"] = "Cara blanca"
+    place(white, "white", LEN / 2, LEN, SIDE)
+    name = "CARYN BERTRAND"
+    nbox, nsize = caps_box(464, 745, 851, name)
+    clip = name_text(t, name, nbox, nsize, D, bold_from="BERTRAND", colour=RED, spacing=-4.0, bold_spacing=7.5,
+                     word_spacing=6)
+    place(clip, "white", nbox.cx - EX, nbox.w, nbox.h)
+    clip["y"] = keys([(0, nbox.y)])
+    clip["height"] = keys([(0, nbox.h)])
+    return t
+
+
 TEMPLATES = [francois, roger, jamie, charlotte, jason_e, jessica, david, neil, joanna, hendrick, bevan, janice, charlie,
-             lizzie, patricia, jim, jason_f, lucas, brian, harry, sarah, gabriel, cindy]
+             lizzie, patricia, jim, jason_f, lucas, brian, harry, sarah, gabriel, cindy, caryn]
