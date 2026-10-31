@@ -51,8 +51,8 @@ def intro_historia():
     yt_icon(t, x0 + 70, 520, 140, 0.3, end - 0.3)
     txt(t, "GRAN HISTORIA", Box(x0 + 170, 460, w + 20, 120), size, 0.7, end - 0.8, align="left", anim="wipe", ad=0.6,
         weight=900, name="Título", layers=_shade())
-    _line_text(t, "CANAL", Box(x0 + 174 + 30 * 0.4, 585, 400, 48), 30, 1.2, end - 1.3, anim="wipe", ad=0.3, name="Etiqueta",
-               box_bg=(CORAL, 1.0), pad=30 * 0.4, spacing=3)
+    _line_text(t, "CANAL", Box(x0 + 174 + 36 * 0.4, 590, 400, 58), 36, 1.2, end - 1.3, anim="wipe", ad=0.3, name="Etiqueta",
+               box_bg=(CORAL, 1.0), pad=36 * 0.4, spacing=3)
     return t
 
 
@@ -122,7 +122,7 @@ def ver_siguiente():
     photo_bg(t, "h-desk-02", s1=1.04, label="Tu video")
     end = D - 0.3
     sub = "Cómo hacer un buen video"
-    w = max(_text_width("VER SIGUIENTE", 44), _text_width(sub, 30) * 0.85) + 2 * 44 * 0.6 + 14
+    w = max(_text_width("VER SIGUIENTE", 44), _text_width(sub, 30)) + 2 * 44 * 0.6 + 40
     box = Box(110, 820, w, 150)
     _wipe_box(t, box.x, box.y, box.w, box.h, WHITE, 0.3, end - 0.3)
     t.solid(t.track("shape", "Barra"), CORAL, 0.5, end - 0.6, Box(box.x, box.y, 12, box.h),
