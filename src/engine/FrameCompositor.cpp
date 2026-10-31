@@ -786,8 +786,14 @@ QImage decodeClipMediaFrame(const drift::Clip &clip, drift::TimeUs timelineUs, i
 
     const QRectF crop = clip.sourceFrame;
     const bool framed = crop != QRectF(0, 0, 1, 1);
-    const int boundW = framed ? qCeil(maxWidth / crop.width()) : maxWidth;
-    const int boundH = framed ? qCeil(maxHeight / crop.height()) : maxHeight;
+    // A still in steps of 256 px: one that grows a little each frame (a slow zoom, a pop) keeps the same
+    // decoded picture, so its crop does not jump by a rounded pixel every frame (Jorge, 2026-10-30: pictures
+    // shook) and the decode is reused; the GPU scales it onto the exact box. Video quantizes its own decode
+    // size (ClipReader::decodeSizeFor).
+    const bool still = clip.type == drift::ClipType::Image;
+    const auto step = [still](int px) { return still ? qMax(256, (px + 255) / 256 * 256) : px; };
+    const int boundW = step(framed ? qCeil(maxWidth / crop.width()) : maxWidth);
+    const int boundH = step(framed ? qCeil(maxHeight / crop.height()) : maxHeight);
     QImage image;
     if (clip.type == drift::ClipType::Image) {
         image = decodedStillImage(clip.path, boundW, boundH);

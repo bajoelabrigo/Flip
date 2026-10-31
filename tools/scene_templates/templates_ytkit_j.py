@@ -77,10 +77,10 @@ def canal_nombre():
     yt_icon(t, 700, 520, 150, 0.3, end - 0.3, motion=slide)
     txt(t, "TuCanal", Box(800, 450, 700, 120), 96, 1.2, end - 1.2, align="left", anim="wipe", ad=0.6,
         name="Nombre del canal", layers=shade())
-    tag = Box(808, 575, 210, 40)
-    t.solid(t.track("shape", "Etiqueta"), CORAL, 1.6, end - 1.6, tag, _life(end - 1.6, fin=0.3), radius=6,
+    tag = Box(808, 580, 290, 54)
+    t.solid(t.track("shape", "Etiqueta"), CORAL, 1.6, end - 1.6, tag, _life(end - 1.6, fin=0.3), radius=8,
             kind="rounded-rectangle")
-    txt(t, "SUSCRÍBETE", tag, 22, 1.7, end - 1.8, weight=800, spacing=1, name="Etiqueta")
+    txt(t, "SUSCRÍBETE", tag, 30, 1.7, end - 1.8, weight=800, spacing=1, name="Etiqueta")
     return t
 
 
@@ -236,9 +236,9 @@ def fondo_circulos():
             [(0, {"sy": 0.0}, "out"), (0.35, {}, "hold"), (end - 1.05, {}, "in"), (end - 0.7, {"sy": 0.0})])
     txt(t, "NombreDelCanal", Box(820, 470, 800, 110), 80, 0.9, end - 0.9, weight=800, align="left", anim="wipe", ad=0.6,
         name="Nombre del canal")
-    p = Box(825, 585, 190, 36)
+    p = Box(825, 596, 320, 64)
     pill(t, t.track("shape", "Botón"), INK, 1.4, end - 1.4, p, _life(end - 1.4, fin=0.3))
-    txt(t, "SUSCRÍBETE", p, 18, 1.5, end - 1.5, weight=800, spacing=1, name="Botón")
+    txt(t, "SUSCRÍBETE", p, 32, 1.5, end - 1.5, weight=800, spacing=1, name="Botón")
     return t
 
 

@@ -297,6 +297,7 @@ private slots:
     void shapeTrimPathsDrawsPartOfTheOutline();
     void shapeWithOnePartDrawsTheSame_data();
     void shapeWithOnePartDrawsTheSame();
+    void shapeLandsOnItsFractionalBox();
     void shapePartsStackMoveAndGroup();
     void shapePartsSaveAndAnimate();
     void shapeRepeaterDrawsCopies();
@@ -683,6 +684,28 @@ ShapePart rectPart(const QString &id, const QColor &colour, double w, double h, 
 
 // Contents (0.28): a plain shape turned into a layer with one part draws the same pixels, so the
 // templates in Stock and every saved project look exactly as before once a part is added.
+// A shape whose box grows by fractions of a pixel (a pop, a zoom) lands centred on it every frame: the image is
+// drawn at whole pixels but placed on the box as it is (Jorge, 2026-10-30: logos and pictures shook).
+void SkiaTest::shapeLandsOnItsFractionalBox()
+{
+    ShapeStyle style;
+    style.kind = ShapeKind::Ellipse;
+    style.layers = {strokeLayer(6.0, QColor(0, 255, 0)), solidFillLayer(Qt::white)};
+    ShapeStyle parts = shapeWithParts(style, 100.0, 100.0, QStringLiteral("Elipse 1"));
+    for (const ShapeStyle &s : {style, parts}) {
+        for (double side : {100.0, 100.3, 100.5, 100.7, 151.49, 151.51}) {
+            skia::ShapePaintRequest request;
+            request.style = s;
+            request.layoutRect = QRectF(400.0 - side / 2.0, 300.0 - side / 2.0, side, side);
+            const skia::ShapePainterResult painted = skia::makeShapePainter(request);
+            QVERIFY(painted.painter);
+            QVERIFY2(qAbs(painted.rect.center().x() - 400.0) < 1e-6 && qAbs(painted.rect.center().y() - 300.0) < 1e-6,
+                     qPrintable(QStringLiteral("side %1: centre %2, %3").arg(side).arg(painted.rect.center().x())
+                                    .arg(painted.rect.center().y())));
+        }
+    }
+}
+
 void SkiaTest::shapeWithOnePartDrawsTheSame_data()
 {
     QTest::addColumn<QString>("variant");

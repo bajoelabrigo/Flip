@@ -765,17 +765,23 @@ ShapePainterResult makeShapePainter(const ShapePaintRequest &request)
     ShapePainterResult result;
     const int w = qMax(1, qRound(request.layoutRect.width()));
     const int h = qMax(1, qRound(request.layoutRect.height()));
+    // The image is drawn at whole pixels, but it lands on the layout box as it is (fractions and all): a shape
+    // that grows or shrinks (a pop, a zoom) stays centred instead of shaking by the rounding of its size each
+    // frame (Jorge, 2026-10-30: «logos y fotos tiemblan»). The stretch is under half a pixel.
+    const double sx = request.layoutRect.width() > 0.0 ? request.layoutRect.width() / w : 1.0;
+    const double sy = request.layoutRect.height() > 0.0 ? request.layoutRect.height() / h : 1.0;
     if (request.style.hasParts()) {
         auto painter = std::make_shared<ContentsPainter>(request.style, w, h, request.renderScale, request.timeSec);
-        result.rect = QRectF(request.layoutRect.x() + painter->origin().x(), request.layoutRect.y() + painter->origin().y(),
-                             painter->size().width(), painter->size().height());
+        result.rect = QRectF(request.layoutRect.x() + painter->origin().x() * sx,
+                             request.layoutRect.y() + painter->origin().y() * sy, painter->size().width() * sx,
+                             painter->size().height() * sy);
         result.painter = std::move(painter);
         return result;
     }
     const double bleed = painterBleed(request.style, w, h, request.renderScale);
     auto painter = std::make_shared<ShapePainter>(request.style, w, h, request.renderScale, request.timeSec, bleed);
-    result.rect = QRectF(request.layoutRect.x() - bleed, request.layoutRect.y() - bleed, painter->size().width(),
-                         painter->size().height());
+    result.rect = QRectF(request.layoutRect.x() - bleed * sx, request.layoutRect.y() - bleed * sy,
+                         painter->size().width() * sx, painter->size().height() * sy);
     result.painter = std::move(painter);
     return result;
 }
