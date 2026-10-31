@@ -198,6 +198,7 @@ class Ref:
         import json
         data = json.loads((Path(__file__).with_name("lt_ref") / f"{name}.json").read_text(encoding="utf-8"))
         self.frames = data["frames"]
+        self.fps = float(data.get("fps", 30))  # the measurement's own rate (the second video is 25 fps)
         if first is None:
             first = next(i for i, f in enumerate(self.frames)
                          if any(b["warm"] or b["white"] for b in f.values()))
@@ -209,7 +210,7 @@ class Ref:
         for i in range(max(self.first, lo), min(len(self.frames) - 1, hi) + 1):
             v = fn(self.frames[i])
             if v is not None:
-                out.append(((i - self.first) / FPS, float(v)))
+                out.append(((i - self.first) / self.fps, float(v)))
         return out
 
     def curve(self, fn, before=None, after=None, offset=0.0, frames=None):
@@ -315,7 +316,7 @@ def run_where(band, kind="white", lo=None, hi=None, side="max", pick="last"):
 
 def frame_at(ref: "Ref", u: float) -> dict | None:
     """The measured frame shown u seconds after the clip start (None past the measurement)."""
-    i = ref.first + int(round(u * FPS))
+    i = ref.first + int(round(u * ref.fps))
     return ref.frames[i] if 0 <= i < len(ref.frames) else None
 
 
@@ -328,7 +329,7 @@ def measured_bar(t, ref, band, box, axis="x", white_on=True, name="Barra", clip_
     under the gradient (every warm run, first to last). Whatever white shows past the gradient is the leading block
     or a thin line, exactly where the reference has it."""
     origin = box.x if axis == "x" else box.y
-    dur = (last_frame(ref) - ref.first + 2) / FPS
+    dur = (last_frame(ref) - ref.first + 2) / ref.fps
 
     def extent(kind):
         def lo(u):

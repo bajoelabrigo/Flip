@@ -2,7 +2,10 @@
 (orange-red) and of white columns, or for a vertical band the runs of rows. Saves lt_ref/<name>.json, which the
 templates read (lt_motion.Ref), so a bar or a text moves exactly as in the reference.
 
-    py lt_measure.py <video> <name> <start> <seconds> band=x0,y0,x1,y1[,v] ...
+    py lt_measure.py <video> <name> <start> <seconds> [fps=25] band=x0,y0,x1,y1[,v] ...
+
+fps=N keeps the video's own frame rate (no frames repeated or dropped); a smaller video is scaled to 1920×1080
+first, so the bands are always in 1080p pixels.
 """
 
 from __future__ import annotations
@@ -33,13 +36,16 @@ def runs(mask, offset, minlen=2):
 
 def main():
     video, name, start, seconds = sys.argv[1], sys.argv[2], float(sys.argv[3]), float(sys.argv[4])
-    bands = {}
+    bands, fps = {}, 30
     for arg in sys.argv[5:]:
         key, spec = arg.split("=")
+        if key == "fps":
+            fps = int(spec)
+            continue
         parts = spec.split(",")
         bands[key] = ([int(v) for v in parts[:4]], len(parts) > 4 and parts[4] == "v",
                       float(parts[5]) if len(parts) > 5 else 0.3)
-    p = subprocess.Popen(["ffmpeg", "-v", "error", "-ss", str(start), "-i", video, "-t", str(seconds), "-vf", "fps=30",
+    p = subprocess.Popen(["ffmpeg", "-v", "error", "-ss", str(start), "-i", video, "-t", str(seconds), "-vf", f"scale={W}:{H}:flags=bicubic,fps={fps}",
                           "-f", "rawvideo", "-pix_fmt", "rgb24", "-"], stdout=subprocess.PIPE)
     frames = []
     while True:
@@ -57,7 +63,7 @@ def main():
             row[key] = {"warm": runs(warm.mean(axis) > 0.5, off), "white": runs(white.mean(axis) > share, off)}
         frames.append(row)
     out = Path(__file__).with_name("lt_ref") / f"{name}.json"
-    out.write_text(json.dumps({"start": start, "fps": 30, "frames": frames}, separators=(",", ":")), encoding="utf-8")
+    out.write_text(json.dumps({"start": start, "fps": fps, "frames": frames}, separators=(",", ":")), encoding="utf-8")
     print(f"{out.name}: {len(frames)} frames")
 
 

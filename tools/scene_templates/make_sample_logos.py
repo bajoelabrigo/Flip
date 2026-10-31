@@ -34,6 +34,48 @@ def mountain(d, c):
     d.polygon([(330 * S, 220 * S), (375 * S, 295 * S), (330 * S, 270 * S), (290 * S, 290 * S)], fill=(255, 255, 255, 255))
 
 
+FLAME_SVG = Path(__file__).resolve().parents[2] / "resources" / "icons" / "flame.svg"
+
+
+def flame(colour: str, px: int) -> Image.Image:
+    """The app's premium flame (resources/icons/flame.svg, the trending badge) drawn `px` tall in `colour`, cropped
+    to its ink."""
+    from PySide6.QtCore import QByteArray
+    from PySide6.QtGui import QGuiApplication, QImage, QPainter
+    from PySide6.QtSvg import QSvgRenderer
+
+    app = QGuiApplication.instance() or QGuiApplication(["x", "-platform", "offscreen"])  # noqa: F841
+    svg = FLAME_SVG.read_text(encoding="utf-8").replace("currentColor", colour)
+    side = px * 24 // 18
+    img = QImage(side, side, QImage.Format_RGBA8888)
+    img.fill(0)
+    painter = QPainter(img)
+    painter.setRenderHint(QPainter.Antialiasing)
+    QSvgRenderer(QByteArray(svg.encode())).render(painter)
+    painter.end()
+    im = Image.frombuffer("RGBA", (side, side), bytes(img.constBits()), "raw", "RGBA", 0, 1).copy()
+    return im.crop(im.getbbox())
+
+
+def mark(i: int) -> Image.Image:
+    """The flame as a logo (Jorge, 2026-10-31: «el logo es el del fuego de los usuarios premium»): 9 red, 10 white,
+    11 green, 14 orange, square and tight; 12 white and 13 red with the name beside it."""
+    colour = {9: "#FB3B3A", 10: "#FFFFFF", 11: "#70AC1B", 12: "#FFFFFF", 13: "#FB3B3A", 14: "#F97316"}[i]
+    if i in (12, 13):
+        f = flame(colour, 200)
+        im = Image.new("RGBA", (1200 * S // 4, 300), (0, 0, 0, 0))
+        im.paste(f, (10, (300 - f.height) // 2), f)
+        d = ImageDraw.Draw(im)
+        fo = ImageFont.truetype(str(next(FONTS.rglob("Poppins-SemiBold.ttf"))), 190)
+        d.text((10 + f.width + 30, 150), "flipstudio", font=fo, fill=colour, anchor="lm")
+        return im.crop(im.getbbox())
+    f = flame(colour, 760)
+    side = max(f.size)
+    sq = Image.new("RGBA", (side, side), (0, 0, 0, 0))
+    sq.paste(f, ((side - f.width) // 2, (side - f.height) // 2), f)
+    return sq.resize((800, 800), Image.LANCZOS)
+
+
 def logo(i: int) -> Image.Image:
     im = Image.new("RGBA", (800 * S, 800 * S), (0, 0, 0, 0))
     d = ImageDraw.Draw(im)
@@ -79,9 +121,9 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", type=Path, default=OUT)
     args = ap.parse_args()
-    for i in range(1, 9):
-        logo(i).save(args.out / f"logo-{i:02d}.png")
-    print("8 logos ->", args.out)
+    for i in range(1, 15):
+        (logo(i) if i <= 8 else mark(i)).save(args.out / f"logo-{i:02d}.png")
+    print("14 logos ->", args.out)
     return 0
 
 

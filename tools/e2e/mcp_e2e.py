@@ -37,8 +37,11 @@ def env_with_models(stage):
     env["DRIFT_INTERP_MODEL_DIR"] = os.path.join(stage, "transiciones.ia", "models", "interp", "rife")
     env["DRIFT_TEXTEMBED_MODEL_DIR"] = os.path.join(stage, "texto.ia", "models", "textembed", "minilm")
     # Fonts staged by flip-addons (a family not yet published shows in renders before it reaches the users).
-    if os.path.isdir(os.path.join(stage, "fonts.extra", "fonts")):
-        env.setdefault("DRIFT_FONTS_DIR", os.path.join(stage, "fonts.extra", "fonts"))
+    # Both packs: an installed fonts.basic would otherwise win over the staged one (a weight added there unseen).
+    roots = [os.path.join(stage, pack, "fonts") for pack in ("fonts.basic", "fonts.extra")]
+    roots = [r for r in roots if os.path.isdir(r)]
+    if roots:
+        env.setdefault("DRIFT_FONTS_DIR", os.pathsep.join(roots))
     # Test runs must not count as installs in the statistics of api.getflipstudio.com.
     env.setdefault("FLIP_NO_STATS", "1")
     return env
