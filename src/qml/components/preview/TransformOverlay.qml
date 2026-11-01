@@ -322,6 +322,16 @@ Item {
         box: root.mode3d ? null : root.selectedBox
     }
 
+    // The overlay box of a clip, to hand a drag to the layer on top (0.29).
+    function handleFor(track, clip) {
+        for (let i = 0; i < clipRepeater.count; ++i) {
+            const it = clipRepeater.itemAt(i)
+            if (it && it.box && it.box.track === track && it.box.clip === clip)
+                return it
+        }
+        return null
+    }
+
     Repeater {
         id: clipRepeater
 
@@ -577,16 +587,6 @@ Item {
 
             // The layer drawn on top under the pointer (0.29, as CapCut and After Effects): it can be grabbed and
             // dragged straight away, without a click to pick it first.
-            // The selected one too: a layer over it under the pointer is the one that moves.
-            readonly property bool topUnderPointer: {
-                if (!hover.hovered || root.mode3d)
-                    return false
-                const p = root.mapFromItem(null, hover.point.scenePosition.x, hover.point.scenePosition.y)
-                const hit = EditorState.preview.clipAtCanvasPoint(p.x / handle.sx, p.y / handle.sy)
-                if (!hit || hit.track === undefined)
-                    return handle.selected
-                return hit.track === handle.box.track && hit.clip === handle.box.clip
-            }
 
             // A shape layer's parts (0.28 stage 4): the picked part's outline and grips, in Pro.
             ShapePartOverlay {
@@ -696,13 +696,12 @@ Item {
             DragHandler {
                 id: bodyDrag
                 target: null
-                // The selected clip moves, and so does the layer drawn on top under the pointer (0.29, as
-                // CapCut and After Effects: grab and drag, it becomes the selection). Any box merely under the
-                // pointer used to move the wrong clip, so it is the top one only.
-                // Off while a grip is held too: a handler on the parent item can
-                // otherwise take the grab from the grip once the drag threshold
-                // is passed, turning a resize into a move.
-                enabled: bodyDrag.active || ((hover.hovered ? handle.topUnderPointer : handle.selected) && !handle.resizing && !root.mode3d)
+                // A drag moves the layer drawn on top where it was pressed (0.29, as CapCut and After Effects: grab
+                // and drag, it becomes the selection), whichever box takes the grab: the selected box sits above
+                // the rest, so it hands the drag on (it used to move the selected full-frame solid under a lower
+                // third). Off while a grip is held: a handler on the parent item can otherwise take the grab from
+                // the grip once the drag threshold is passed, turning a resize into a move.
+                enabled: bodyDrag.active || (!handle.resizing && !root.mode3d)
                 cursorShape: Qt.SizeAllCursor
 
                 // Press point in canvas px. The box rides the cursor as it moves, so the
@@ -710,12 +709,11 @@ Item {
                 property real pressPx: 0
                 property real pressPy: 0
                 property var startBox: null
+                // The box that moves: this one, or the one on top at the press point.
+                property var mover: handle
 
                 onActiveChanged: {
                     if (active) {
-                        root.interacting = true
-                        if (handle.isTransform)
-                            root.movingLayerTrack = handle.box.track
                         // From the press point (0.29): the grabbed point stays under the pointer from
                         // the first move, as After Effects. Taken at activation, a quick drag (or one
                         // that arrives in a single move) lost everything up to the threshold and the
@@ -724,24 +722,43 @@ Item {
                                                    bodyDrag.centroid.scenePressPosition.y)
                         bodyDrag.pressPx = p.x / handle.sx
                         bodyDrag.pressPy = p.y / handle.sy
-                        handle.dragStartX = handle.box.x
-                        handle.dragStartY = handle.box.y
-                        handle.dragStartW = handle.layoutW
-                        handle.dragStartH = handle.layoutH
-                        bodyDrag.startBox = handle.grabBox()
-                        handle.liveX = handle.dragStartX
-                        handle.liveY = handle.dragStartY
-                        EditorState.selectClip(handle.box.track, handle.box.clip)
-                        handle.forceActiveFocus()
+                        const top = handle.isTransform ? null
+                                  : EditorState.preview.clipAtCanvasPoint(bodyDrag.pressPx, bodyDrag.pressPy)
+                        let m = handle
+                        if (top && top.track !== undefined
+                                && (top.track !== handle.box.track || top.clip !== handle.box.clip))
+                            m = root.handleFor(top.track, top.clip) || handle
+                        // A box the press is not even on (it only overlaps another's edge) stays put.
+                        if (m === handle && !handle.selected && !top) {
+                            bodyDrag.mover = null
+                            return
+                        }
+                        bodyDrag.mover = m
+                        root.interacting = true
+                        if (m.isTransform)
+                            root.movingLayerTrack = m.box.track
+                        m.dragStartX = m.box.x
+                        m.dragStartY = m.box.y
+                        m.dragStartW = m.layoutW
+                        m.dragStartH = m.layoutH
+                        bodyDrag.startBox = m.grabBox()
+                        m.liveX = m.dragStartX
+                        m.liveY = m.dragStartY
+                        EditorState.selectClip(m.box.track, m.box.clip)
+                        m.forceActiveFocus()
                         EditorState.beginPreviewDrag()
-                    } else {
-                        handle.liveX = -1e12
-                        handle.liveY = -1e12
+                    } else if (bodyDrag.mover) {
+                        bodyDrag.mover.liveX = -1e12
+                        bodyDrag.mover.liveY = -1e12
+                        bodyDrag.mover = handle
                         root.endInteraction()
+                    } else {
+                        bodyDrag.mover = handle
                     }
                 }
                 onCentroidChanged: {
-                    if (!active)
+                    const m = bodyDrag.mover
+                    if (!active || !m)
                         return
                     const p = root.mapFromItem(null, bodyDrag.centroid.scenePosition.x,
                                                bodyDrag.centroid.scenePosition.y)
@@ -750,23 +767,17 @@ Item {
                     // landed flush against a canvas edge or dead-centre by feel. Ctrl passes
                     // straight through (Alt is the window drag on most Linux desktops, so it is
                     // not usable here).
-                    const snap = handle.canSnap && !(bodyDrag.centroid.modifiers & Qt.ControlModifier)
+                    const snap = m.canSnap && !(bodyDrag.centroid.modifiers & Qt.ControlModifier)
                     const moved = EditorState.preview.snapMove(bodyDrag.startBox, bodyDrag.pressPx, bodyDrag.pressPy,
-                                                              p.x / handle.sx, p.y / handle.sy,
-                                                              root.snapTolPx / handle.sx, snap)
+                                                              p.x / m.sx, p.y / m.sy,
+                                                              root.snapTolPx / m.sx, snap)
                     // Seen edge-on, the plane has no point under the pointer: hold still.
                     if (!moved.valid)
                         return
-                    const xPx = moved.x
-                    const yPx = moved.y
-                    handle.publishGuides(moved.guideX, moved.guideY)
-                    handle.liveX = xPx
-                    handle.liveY = yPx
-                    EditorState.previewSetClipPosition(
-                        handle.box.track,
-                        handle.box.clip,
-                        xPx,
-                        yPx)
+                    m.publishGuides(moved.guideX, moved.guideY)
+                    m.liveX = moved.x
+                    m.liveY = moved.y
+                    EditorState.previewSetClipPosition(m.box.track, m.box.clip, moved.x, moved.y)
                 }
             }
 

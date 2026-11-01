@@ -570,3 +570,8 @@ Programa `pruebas\mcp029\run029.py`: una sesión sin ventana por proyecto, guard
 - **Fallo encontrado:** un toque en el lienzo lo recibían todas las cajas bajo el puntero y ganaba el sólido del fondo
   (un tercio sobre un sólido no se podía elegir ni editar con doble clic). Ahora solo responde la capa de arriba, y el
   arrastre también mueve la capa de arriba bajo el puntero aunque haya otra elegida (`8a1b3`, `70c66`, `5496f`).
+- Prueba en ventana (build f48f20f): los acentos del diálogo bajan de línea; un clic sobre el tercio elige el texto
+  aunque esté elegido el sólido de fondo; doble clic edita y la etiqueta se encoge con «Bo». **Fallo:** con el sólido
+  elegido, arrastrar el nombre movía el sólido (la decisión dependía del «pasar por encima», que no llega a las cajas
+  de abajo). Ahora la caja que toma el arrastre lo entrega a la capa de arriba en el punto donde se apretó
+  (`TransformOverlay.handleFor`, `bodyDrag.mover`).
