@@ -9001,6 +9001,16 @@ void AppController::duplicateSelectedClip()
     // Sharing the original's linkId would pair the copy with the original's partners.
     copy.linkId.clear();
     copy.linkLoose = false;
+    // In Pro, After Effects' Ctrl+D (0.29): the copy at the same moment, on a layer right above the
+    // original, so it can be offset or recoloured in place. The simple editor keeps CapCut's: next in line.
+    if (m_preferences && m_preferences->proMode() && !track.isAdjustmentLane()) {
+        const int above = drift::insertTrackAboveForClipType(m_project, m_selectedTrack, original.type);
+        m_project.tracks()[above].clips.append(copy);
+        pushProjectEdit(before, tr("Clip duplicated"));
+        finishEdit(tr("Clip duplicated"));
+        selectClip(above, m_project.tracks().at(above).clips.size() - 1);
+        return;
+    }
     copy.timelineStart = drift::resolveClipStart(
         m_project, track, -1, original.timelineEnd(), original.timelineDuration, m_snapEnabled, m_playheadUs);
 

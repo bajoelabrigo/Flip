@@ -418,13 +418,41 @@ Item {
                         }
                         onEdited: v => anchorSection.setPx(anchorSection.fx * anchorSection.boxW, v)
                     }
-                    IconButton {
+                    // The 3×3 grid of Motion Tools here too (0.29): a corner or an edge in one click, so a
+                    // label can grow from its left edge without typing its width.
+                    Grid {
                         id: centreAnchorButton
-                        buttonSize: 28
-                        iconSize: 14
-                        glyph: "locate-fixed"
-                        tooltip: qsTr("Anchor in the centre")
-                        onClicked: anchorSection.setPx(anchorSection.boxW / 2, anchorSection.boxH / 2)
+                        columns: 3
+                        spacing: 2
+                        width: 30
+                        height: 30
+                        Repeater {
+                            model: 9
+                            Rectangle {
+                                id: cell
+                                required property int index
+                                readonly property real cx: (index % 3) / 2
+                                readonly property real cy: Math.floor(index / 3) / 2
+                                readonly property bool current: Math.abs(anchorSection.fx - cx) < 0.01
+                                                                && Math.abs(anchorSection.fy - cy) < 0.01
+                                width: 8.6
+                                height: 8.6
+                                radius: 2
+                                color: current ? Theme.primary : cellMouse.containsMouse ? Theme.mutedForeground : Theme.panelBorder
+                                MouseArea {
+                                    id: cellMouse
+                                    anchors.fill: parent
+                                    hoverEnabled: true
+                                    cursorShape: Qt.PointingHandCursor
+                                    onClicked: anchorSection.setPx(cell.cx * anchorSection.boxW, cell.cy * anchorSection.boxH)
+                                }
+                                ThemedToolTip {
+                                    visible: cellMouse.containsMouse
+                                    text: cell.index === 4 ? qsTr("Anchor in the centre")
+                                                           : qsTr("Anchor point here (the layer stays where it is)")
+                                }
+                            }
+                        }
                     }
                 }
             }
