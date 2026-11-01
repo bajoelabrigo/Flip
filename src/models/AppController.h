@@ -678,6 +678,9 @@ public:
     // name empty = «Solid»; a size of 0 = the frame's; centred on the frame.
     Q_INVOKABLE void addSolidClip(const QString &colorName = QString(), const QString &name = QString(),
                                   double width = 0, double height = 0);
+    // A solid the size of the frame from 0 to the end of the work (5 s on an empty one), at the bottom of
+    // the stack as a background (0.29: the first step of every motion piece).
+    Q_INVOKABLE void addFrameSolid(const QString &colorName);
     // After Effects' Solid Settings on a solid already placed: {name, color, width, height}, empty
     // for any other clip; and the change, as one undo step.
     Q_INVOKABLE QVariantMap solidSettings(int trackIndex, int clipIndex) const;

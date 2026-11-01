@@ -321,6 +321,48 @@ PanelFrame {
             font.family: Theme.fontFamily
             font.pixelSize: Theme.fontSizeXs
         }
+
+        // The project's own look with nothing picked (0.29): its background colour and a solid the size of
+        // the frame, which every motion piece starts with (a rectangle drawn by hand and set to 0,0 / 100 %).
+        Rectangle {
+            width: parent.width
+            height: 1
+            color: Theme.panelBorder
+        }
+        Text {
+            width: parent.width
+            text: qsTr("Project")
+            color: Theme.panelForeground
+            font.family: Theme.fontFamily
+            font.pixelSize: Theme.fontSizeSm
+            font.weight: Font.Medium
+        }
+        Row {
+            width: parent.width
+            spacing: Theme.spacingSm
+            visible: EditorState.projectFile.background && EditorState.projectFile.background.kind === "color"
+            Text {
+                width: parent.width - bgSwatch.width - parent.spacing
+                anchors.verticalCenter: parent.verticalCenter
+                text: qsTr("Background colour")
+                color: Theme.mutedForeground
+                font.family: Theme.fontFamily
+                font.pixelSize: Theme.fontSizeXs
+                elide: Text.ElideRight
+            }
+            ColorSwatchField {
+                id: bgSwatch
+                hex: EditorState.projectFile.background ? (EditorState.projectFile.background.color || "#ff000000") : "#ff000000"
+                tooltip: qsTr("Background colour of the project: what shows where no layer covers the frame")
+                onEdited: value => EditorState.projectFile.setBackground({ kind: "color", color: value })
+            }
+        }
+        ThemedButton {
+            width: parent.width
+            text: qsTr("Solid the size of the frame")
+            tooltip: qsTr("A layer of one colour over the whole frame, for the length of the work (the toolbar's fill colour)")
+            onClicked: EditorState.addFrameSolid(EditorState.preview.toolFill)
+        }
     }
 
     Item {

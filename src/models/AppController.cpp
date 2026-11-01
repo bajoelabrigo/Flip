@@ -11015,6 +11015,37 @@ void AppController::addSolidClip(const QString &colorName, const QString &name, 
     selectClip(target, newClipIndex);
 }
 
+void AppController::addFrameSolid(const QString &colorName)
+{
+    const QString colour = QColor::isValidColorName(colorName) ? colorName : QStringLiteral("#2b3440");
+    const drift::TimeUs length = std::max(m_project.durationUs(), drift::defaultStillDurationUs());
+    const drift::Project before = m_project;
+    // A new track under everything, so it is a background and never pushes a clip aside.
+    const int target = drift::insertTrackAtTopForClipType(m_project, drift::ClipType::Shape);
+    if (target < 0)
+        return;
+    drift::Track track = m_project.tracks().takeAt(target);
+    m_project.tracks().append(track);
+    const int bottom = m_project.tracks().size() - 1;
+    drift::Clip clip;
+    clip.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
+    clip.type = drift::ClipType::Shape;
+    clip.name = tr("Background");
+    clip.isSolid = true;
+    clip.shapeStyle.kind = drift::ShapeKind::Rectangle;
+    clip.shapeStyle.layers = {drift::solidFillLayer(QColor(colour))};
+    clip.timelineStart = 0;
+    clip.timelineDuration = length;
+    clip.srcIn = 0;
+    clip.srcOut = length;
+    setClipLayoutPixels(clip, 0, 0, m_project.width(), m_project.height());
+    clip.assetId = addSolidAsset(clip.name, QColor(colour), m_project.width(), m_project.height());
+    m_project.tracks()[bottom].clips.append(clip);
+    pushProjectEdit(before, tr("Solid added"));
+    finishEdit(tr("Solid added"));
+    selectClip(bottom, m_project.tracks().at(bottom).clips.size() - 1);
+}
+
 QString AppController::addSolidAsset(const QString &name, const QColor &color, int width, int height)
 {
     // The «Solids» folder at the bin root, made the first time (After Effects' Solids folder).
