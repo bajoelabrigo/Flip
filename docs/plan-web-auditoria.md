@@ -21,11 +21,11 @@ Despliegue: `deploy/deploy.sh` (antes, `git log origin/<rama desplegada> ^HEAD` 
 ## Estado
 - [x] Auditoría del código (revisores en paralelo por zona) → lista de fallos y de cosas por ordenar.
 - [x] Arreglos de la auditoría.
-- [ ] 15 proyectos en modo celular.
+- [x] 15 proyectos en modo celular (2026-11-01, ver abajo).
 - [x] 15 proyectos en navegador de escritorio (2026-11-01, ver abajo).
-- [ ] Guía (`getflipstudio.com/guia.html`): el editor en línea no recibe novedades; lo nuevo, en la app.
-- [ ] App de escritorio: el mismo aviso donde aparece «Editar en línea».
-- [ ] Desplegar el editor web y la web.
+- [x] Guía (`getflipstudio.com/guia.html`): el editor en línea no recibe novedades; lo nuevo, en la app (desplegada).
+- [x] App de escritorio: el mismo aviso donde aparece «Editar en línea» (rama `flip/aviso-web`, va en la próxima versión).
+- [x] Desplegar el editor web (`web/auditoria`) y la web (2026-11-01).
 
 ## Auditoría (2026-11-01, cuatro revisores; ~54 hallazgos)
 Núcleo (A): 1 archivos creados por la app sin sus bytes (voz, IA, mejorar, ruido) → `keep: true` [x]; 2 «Guardar copia
@@ -73,3 +73,19 @@ Arreglado en `web/auditoria` por estas pruebas:
 Visto y dejado como está (decisiones de Jorge o normal): Tendencias, Stock y animaciones de texto piden sesión;
 el proyecto toma los fps del primer clip (119,88 con un clip de 120 fps); los archivos subidos con el `<input>` en
 Chrome no se reabren (la app usa el selector del sistema); cambiar la velocidad con «Cerrar huecos» apagado deja hueco.
+
+## 15 proyectos en modo celular (2026-11-01, Chrome emulando 375×812 táctil)
+1 video + foto + título → MP4; 2 Velocidad › Normal 2×; 3 dividir y borrar en la pista principal; 4 audio del
+teléfono en el cabezal, sus «Animaciones» (fundidos); 5 Recortar 1:1; 6 Máscara círculo; 7 Filtros › Looks blanco y
+negro → MP4 (gris, esquinas negras, con sonido); 8 transición tocando el corte + fuegos artificiales animados; 9 atrás
+de Android (cierra la hoja, luego la selección, sigue en el editor); 10 horizontal 812×375; 11 plantilla de efectos
+«Cinta retro»; 12 escribir el texto; 13 GIF de 60 s con «Compartir»; 14 ⋯ de Inicio: cambiar nombre; 15 Ajustar ›
+Brillo → MP4 con el nombre del proyecto. Reabrir tras recargar: los archivos del celular siguen ahí.
+
+Arreglado por estas pruebas:
+- «Agregar videos o fotos»: una foto elegida con un video quedaba encima al 0:00; ahora va detrás en la pista principal.
+- La velocidad deja pegado el clip siguiente (2× dejaba un hueco negro; más lento lo tapaba). También en el escritorio.
+- Borrar en la pista principal del celular cierra el hueco (no tiene «Cerrar huecos»).
+- Un sticker o una forma ya no ofrecen «Volumen».
+- El menú ⋯ del editor se salía de la pantalla; las opciones largas de los selectores («Normal (archivo más
+  pequeño)») se cortaban; el contador «00:01 / 00:10» se partía en dos líneas.

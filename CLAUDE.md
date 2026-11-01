@@ -75,6 +75,18 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
   herramientas, subirlo.
 
 
+### Editor web congelado: auditoría y 30 proyectos de prueba (2026-11-01) — **detalle en `docs/plan-web-auditoria.md`**
+- Jorge: el editor web ya no recibe novedades (todo lo nuevo va a la app de escritorio); solo se arregla lo que no
+  funciona. **No añadir avisos ni funciones nuevas en la web.** Portada de la web (3 botones, aviso) y guía, desplegadas.
+- `flipstudio-app` rama `web/auditoria` (une todo lo anterior) **desplegada** el 2026-11-01: arreglos de la auditoría y
+  de 15 proyectos en navegador + 15 en celular (stickers animados que colgaban la exportación, MP4 fragmentado a 0:00,
+  miniaturas, velocidad que dejaba hueco, pista principal del celular, ProRes sin aviso…).
+- App de escritorio: rama `flip/aviso-web` (tooltip de «Editar en línea» en Inicio), **sin compilar**: va en la próxima.
+- **Trampas:** en pruebas con chrome-devtools, `upload_file` a un `<input>` revelado salta el selector del sistema y
+  esos archivos no se reabren en Chrome (es normal; en el celular sí, van con el proyecto); tocar código con el
+  servidor de Vite abierto recarga la página y se pierden los archivos subidos así; lottie-web con datos en línea ya
+  está cargado al volver de `loadAnimation` (no esperar solo `DOMLoaded`) y con `container` dibuja en su propio lienzo.
+
 ### 0.28.0 PUBLICADA (2026-10-31) — formas como After Effects — **detalle en `docs/plan-0.28.md`**
 - PR #48 (`flip/v0.28` → `main`), tag `v0.28.0`, release (run 41168622684); copia en `versiones\FlipStudio-0.28.0`
   (hashes comprobados); novedades en la web (`flipstudio-web` desplegado). MSIX: `msstore.yml` run 41168647394 →
