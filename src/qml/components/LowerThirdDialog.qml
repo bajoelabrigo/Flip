@@ -86,40 +86,47 @@ ThemedDialog {
             }
         }
 
-        // Two more accents, optional: the label comes in after them in a colour wipe.
-        Row {
+        // Two more accents, optional: the label comes in after them in a colour wipe. Each switch keeps its swatch,
+        // and the pair goes to the next line when it does not fit (the third one ran into the dialog's margin).
+        Flow {
             width: parent.width
-            spacing: Theme.spacingSm
-            ThemedSwitch {
-                anchors.verticalCenter: parent.verticalCenter
-                text: qsTr("Second accent")
-                checked: root.useAccent2
-                onToggled: {
-                    root.useAccent2 = checked
-                    if (!checked)
-                        root.useAccent3 = false
+            spacing: Theme.spacingLg
+            Row {
+                spacing: Theme.spacingSm
+                ThemedSwitch {
+                    anchors.verticalCenter: parent.verticalCenter
+                    text: qsTr("Second accent")
+                    checked: root.useAccent2
+                    onToggled: {
+                        root.useAccent2 = checked
+                        if (!checked)
+                            root.useAccent3 = false
+                    }
+                }
+                ColorSwatchField {
+                    anchors.verticalCenter: parent.verticalCenter
+                    visible: root.useAccent2
+                    showHex: false
+                    hex: root.accent2Color
+                    onEdited: value => root.accent2Color = value
                 }
             }
-            ColorSwatchField {
-                anchors.verticalCenter: parent.verticalCenter
+            Row {
                 visible: root.useAccent2
-                showHex: false
-                hex: root.accent2Color
-                onEdited: value => root.accent2Color = value
-            }
-            ThemedSwitch {
-                anchors.verticalCenter: parent.verticalCenter
-                visible: root.useAccent2
-                text: qsTr("Third accent")
-                checked: root.useAccent3
-                onToggled: root.useAccent3 = checked
-            }
-            ColorSwatchField {
-                anchors.verticalCenter: parent.verticalCenter
-                visible: root.useAccent2 && root.useAccent3
-                showHex: false
-                hex: root.accent3Color
-                onEdited: value => root.accent3Color = value
+                spacing: Theme.spacingSm
+                ThemedSwitch {
+                    anchors.verticalCenter: parent.verticalCenter
+                    text: qsTr("Third accent")
+                    checked: root.useAccent3
+                    onToggled: root.useAccent3 = checked
+                }
+                ColorSwatchField {
+                    anchors.verticalCenter: parent.verticalCenter
+                    visible: root.useAccent3
+                    showHex: false
+                    hex: root.accent3Color
+                    onEdited: value => root.accent3Color = value
+                }
             }
         }
 
