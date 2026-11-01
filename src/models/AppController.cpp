@@ -5038,12 +5038,6 @@ QVariantMap AppController::clipToMap(const drift::Clip &clip, const drift::Clip 
         {QStringLiteral("thumbnailPath"), clip.thumbnailPath},
         {QStringLiteral("filmstripPath"), clip.filmstripPath},
         {QStringLiteral("textContent"), clip.textContent},
-        {QStringLiteral("scaleRefW"), clip.scaleRefW},
-        {QStringLiteral("fitTextId"), clip.fitTextId},
-        {QStringLiteral("fitPadX"), clip.fitPadX},
-        {QStringLiteral("fitPadY"), clip.fitPadY},
-        {QStringLiteral("insideBelow"), clip.matteKeepsSource && !clip.matteClipId.isEmpty()},
-        {QStringLiteral("scaleRefH"), clip.scaleRefH},
         {QStringLiteral("textStyle"), textStyleToMap(clip.textStyle, clip.timelineStart)},
         {QStringLiteral("subtitleCues"), subtitleCuesToMap(clip.subtitleCues)},
         {QStringLiteral("shapeStyle"), shapeStyleToMap(clip.shapeStyle, clip.timelineStart)},
@@ -5145,6 +5139,18 @@ QVariantMap AppController::clipToMap(const drift::Clip &clip, const drift::Clip 
         {QStringLiteral("audioEffects"), audioEffects},
         {QStringLiteral("keyframes"), keyframesToMap(clip)},
     };
+    // The lower-third and scale fields only when set (0.29), so a clip's row stays short.
+    if (clip.scaleRefW > 0.0) {
+        map.insert(QStringLiteral("scaleRefW"), clip.scaleRefW);
+        map.insert(QStringLiteral("scaleRefH"), clip.scaleRefH);
+    }
+    if (!clip.fitTextId.isEmpty()) {
+        map.insert(QStringLiteral("fitTextId"), clip.fitTextId);
+        map.insert(QStringLiteral("fitPadX"), clip.fitPadX);
+        map.insert(QStringLiteral("fitPadY"), clip.fitPadY);
+    }
+    if (clip.matteKeepsSource && !clip.matteClipId.isEmpty())
+        map.insert(QStringLiteral("insideBelow"), true);
     // Corner pin, only once it has been used (keeps the agents' inspect rows short).
     if (clip.cornerPinEnabled || clip.cornerPin != QList<QPointF>(4)) {
         QVariantList points;
