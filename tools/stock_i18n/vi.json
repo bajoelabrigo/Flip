@@ -25038,6 +25038,388 @@
     "chữ"
    ]
   },
+  "template:llt-bevan": {
+   "name": "Thanh tên có logo: tam giác tự vẽ",
+   "tags": [
+    "thanh tên",
+    "logo",
+    "tên",
+    "chức danh",
+    "đường kẻ",
+    "tam giác"
+   ]
+  },
+  "template:llt-brian": {
+   "name": "Thanh tên có logo: xuất hiện kiểu glitch",
+   "tags": [
+    "thanh tên",
+    "logo",
+    "tên",
+    "glitch"
+   ]
+  },
+  "template:llt-caryn": {
+   "name": "Thanh tên có logo: hộp xoay",
+   "tags": [
+    "thanh tên",
+    "logo",
+    "tên",
+    "3d",
+    "hộp"
+   ]
+  },
+  "template:llt-charlie": {
+   "name": "Thanh tên có logo: hai đường kẻ tách ra",
+   "tags": [
+    "thanh tên",
+    "logo",
+    "tên",
+    "các đường kẻ",
+    "trắng"
+   ]
+  },
+  "template:llt-charlotte": {
+   "name": "Thanh tên có logo: tên khoét rỗng trên dải",
+   "tags": [
+    "thanh tên",
+    "logo",
+    "tên",
+    "dải",
+    "đỏ",
+    "khoét rỗng"
+   ]
+  },
+  "template:llt-cindy": {
+   "name": "Thanh tên có logo: logo xanh lá để lộ tên",
+   "tags": [
+    "thanh tên",
+    "logo",
+    "tên",
+    "xanh lá",
+    "đơn giản"
+   ]
+  },
+  "template:llt-david": {
+   "name": "Thanh tên có logo: vòng tròn lăn",
+   "tags": [
+    "thanh tên",
+    "logo",
+    "tên",
+    "vòng",
+    "hình tròn"
+   ]
+  },
+  "template:llt-francois": {
+   "name": "Thanh tên có logo: tên trên dải đỏ",
+   "tags": [
+    "thanh tên",
+    "logo",
+    "tên",
+    "dải",
+    "đỏ"
+   ]
+  },
+  "template:llt-gabriel": {
+   "name": "Thanh tên có logo: dải đỏ chuyển sang trắng",
+   "tags": [
+    "thanh tên",
+    "logo",
+    "tên",
+    "dải",
+    "đỏ",
+    "trắng"
+   ]
+  },
+  "template:llt-harry": {
+   "name": "Thanh tên có logo: khối chạy để lộ tên",
+   "tags": [
+    "thanh tên",
+    "logo",
+    "tên",
+    "chức danh",
+    "gạch chân",
+    "thương hiệu"
+   ]
+  },
+  "template:llt-hendrick": {
+   "name": "Thanh tên có logo: ô vuông lộn nhào mở dải",
+   "tags": [
+    "thanh tên",
+    "logo",
+    "tên",
+    "dải",
+    "đỏ"
+   ]
+  },
+  "template:llt-jamie": {
+   "name": "Thanh tên có logo: dải xoay như lăng kính",
+   "tags": [
+    "thanh tên",
+    "logo",
+    "tên",
+    "3d",
+    "lăng kính",
+    "thương hiệu"
+   ]
+  },
+  "template:llt-janice": {
+   "name": "Thanh tên có logo: dải nhô lên từ đường kẻ",
+   "tags": [
+    "thanh tên",
+    "logo",
+    "tên",
+    "chức danh",
+    "dải",
+    "đỏ"
+   ]
+  },
+  "template:llt-jason-e": {
+   "name": "Thanh tên có logo: logo lăn để lộ tên",
+   "tags": [
+    "thanh tên",
+    "logo",
+    "tên",
+    "gạch chân"
+   ]
+  },
+  "template:llt-jason-f": {
+   "name": "Thanh tên có logo: thẻ nhô lên, dải trắng",
+   "tags": [
+    "thanh tên",
+    "logo",
+    "tên",
+    "dải",
+    "trắng",
+    "thương hiệu"
+   ]
+  },
+  "template:llt-jessica": {
+   "name": "Thanh tên có logo: khe nghiêng",
+   "tags": [
+    "thanh tên",
+    "logo",
+    "tên",
+    "chức danh",
+    "chéo"
+   ]
+  },
+  "template:llt-jim": {
+   "name": "Thanh tên có logo: logo để lộ tên",
+   "tags": [
+    "thanh tên",
+    "logo",
+    "tên",
+    "đơn giản"
+   ]
+  },
+  "template:llt-joanna": {
+   "name": "Thanh tên có logo: dải trắng và thẻ nghiêng",
+   "tags": [
+    "thanh tên",
+    "logo",
+    "tên",
+    "dải",
+    "trắng"
+   ]
+  },
+  "template:llt-lizzie": {
+   "name": "Thanh tên có logo: đường kẻ quét ngang",
+   "tags": [
+    "thanh tên",
+    "logo",
+    "tên",
+    "chức danh",
+    "đường kẻ"
+   ]
+  },
+  "template:llt-lucas": {
+   "name": "Thanh tên có logo: khối chạy mở dải",
+   "tags": [
+    "thanh tên",
+    "logo",
+    "tên",
+    "dải",
+    "trắng",
+    "đỏ"
+   ]
+  },
+  "template:llt-neil": {
+   "name": "Thanh tên có logo: khối lập phương xoay",
+   "tags": [
+    "thanh tên",
+    "logo",
+    "tên",
+    "3d",
+    "khối lập phương"
+   ]
+  },
+  "template:llt-patricia": {
+   "name": "Thanh tên có logo: logo lật, tên trượt vào",
+   "tags": [
+    "thanh tên",
+    "logo",
+    "tên",
+    "chức danh",
+    "gạch chân",
+    "3d"
+   ]
+  },
+  "template:llt-roger": {
+   "name": "Thanh tên có logo: ô vuông xoay và hộp thương hiệu",
+   "tags": [
+    "thanh tên",
+    "logo",
+    "tên",
+    "dải",
+    "đỏ",
+    "thương hiệu"
+   ]
+  },
+  "template:llt-sarah": {
+   "name": "Thanh tên có logo: vòng tròn và hai đường kẻ",
+   "tags": [
+    "thanh tên",
+    "logo",
+    "tên",
+    "chức danh",
+    "các đường kẻ",
+    "vòng"
+   ]
+  },
+  "template:llt2-barra-etiqueta": {
+   "name": "Thanh tên có logo: dải tối và nhãn xanh lá",
+   "tags": [
+    "thanh tên",
+    "logo",
+    "tên",
+    "dải",
+    "xanh lá"
+   ]
+  },
+  "template:llt2-nombre-grande": {
+   "name": "Thanh tên có logo: tên lớn và thanh tiến trình",
+   "tags": [
+    "thanh tên",
+    "logo",
+    "tên",
+    "dải",
+    "xanh lá",
+    "tiến trình"
+   ]
+  },
+  "template:llt2-pastilla": {
+   "name": "Thanh tên có logo: viên thuốc tối và thẻ xanh lá",
+   "tags": [
+    "thanh tên",
+    "logo",
+    "tên",
+    "viên thuốc",
+    "xanh lá"
+   ]
+  },
+  "template:llt2-tarjeta": {
+   "name": "Thanh tên có logo: thẻ tối và nhãn trắng",
+   "tags": [
+    "thanh tên",
+    "logo",
+    "tên",
+    "thẻ",
+    "xanh lá",
+    "web"
+   ]
+  },
+  "template:llt3-alta": {
+   "name": "Thanh tên tối giản: nhãn cao kèm chức danh",
+   "tags": [
+    "thanh tên",
+    "tối giản",
+    "tên",
+    "vàng",
+    "trắng"
+   ]
+  },
+  "template:llt3-amarillo": {
+   "name": "Thanh tên tối giản: nhãn vàng",
+   "tags": [
+    "thanh tên",
+    "tối giản",
+    "tên",
+    "vàng"
+   ]
+  },
+  "template:llt3-barra-dentro": {
+   "name": "Thanh tên tối giản: dải chức danh bên trong",
+   "tags": [
+    "thanh tên",
+    "tối giản",
+    "tên",
+    "vàng",
+    "trắng",
+    "xám"
+   ]
+  },
+  "template:llt3-barra-gris": {
+   "name": "Thanh tên tối giản: chức danh trên dải xám",
+   "tags": [
+    "thanh tên",
+    "tối giản",
+    "tên",
+    "trắng",
+    "xám"
+   ]
+  },
+  "template:llt3-barra-inclinada": {
+   "name": "Thanh tên tối giản: chức danh trên dải vàng nghiêng",
+   "tags": [
+    "thanh tên",
+    "tối giản",
+    "tên",
+    "vàng",
+    "trắng"
+   ]
+  },
+  "template:llt3-cargo-amarillo": {
+   "name": "Thanh tên tối giản: nhãn trắng, chức danh vàng",
+   "tags": [
+    "thanh tên",
+    "tối giản",
+    "tên",
+    "vàng",
+    "trắng"
+   ]
+  },
+  "template:llt3-inclinada": {
+   "name": "Thanh tên tối giản: nhãn nghiêng",
+   "tags": [
+    "thanh tên",
+    "tối giản",
+    "tên",
+    "vàng",
+    "trắng",
+    "nghiêng"
+   ]
+  },
+  "template:llt3-inclinada-gris": {
+   "name": "Thanh tên tối giản: nhãn xám nghiêng",
+   "tags": [
+    "thanh tên",
+    "tối giản",
+    "tên",
+    "xám",
+    "nghiêng"
+   ]
+  },
+  "template:llt3-invitado": {
+   "name": "Thanh tên tối giản: nhãn trắng với «khách mời đặc biệt»",
+   "tags": [
+    "thanh tên",
+    "tối giản",
+    "tên",
+    "vàng",
+    "trắng",
+    "khách mời"
+   ]
+  },
   "template:lt-andy": {
    "name": "Thanh tên: dải mở ra từ giữa",
    "tags": [

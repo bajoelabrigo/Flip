@@ -26268,6 +26268,388 @@
     "mots"
    ]
   },
+  "template:llt-bevan": {
+   "name": "Bandeau titre avec logo : triangle qui se dessine",
+   "tags": [
+    "bandeau titre",
+    "logo",
+    "nom",
+    "fonction",
+    "ligne",
+    "triangle"
+   ]
+  },
+  "template:llt-brian": {
+   "name": "Bandeau titre avec logo : entrée glitch",
+   "tags": [
+    "bandeau titre",
+    "logo",
+    "nom",
+    "glitch"
+   ]
+  },
+  "template:llt-caryn": {
+   "name": "Bandeau titre avec logo : boîte qui tourne",
+   "tags": [
+    "bandeau titre",
+    "logo",
+    "nom",
+    "3d",
+    "boîte"
+   ]
+  },
+  "template:llt-charlie": {
+   "name": "Bandeau titre avec logo : deux lignes qui s'écartent",
+   "tags": [
+    "bandeau titre",
+    "logo",
+    "nom",
+    "lignes",
+    "blanc"
+   ]
+  },
+  "template:llt-charlotte": {
+   "name": "Bandeau titre avec logo : nom ajouré dans la barre",
+   "tags": [
+    "bandeau titre",
+    "logo",
+    "nom",
+    "barre",
+    "rouge",
+    "ajouré"
+   ]
+  },
+  "template:llt-cindy": {
+   "name": "Bandeau titre avec logo : logo vert qui dévoile le nom",
+   "tags": [
+    "bandeau titre",
+    "logo",
+    "nom",
+    "vert",
+    "simple"
+   ]
+  },
+  "template:llt-david": {
+   "name": "Bandeau titre avec logo : anneau qui roule",
+   "tags": [
+    "bandeau titre",
+    "logo",
+    "nom",
+    "anneau",
+    "cercle"
+   ]
+  },
+  "template:llt-francois": {
+   "name": "Bandeau titre avec logo : nom sur une barre rouge",
+   "tags": [
+    "bandeau titre",
+    "logo",
+    "nom",
+    "barre",
+    "rouge"
+   ]
+  },
+  "template:llt-gabriel": {
+   "name": "Bandeau titre avec logo : barre rouge qui devient blanche",
+   "tags": [
+    "bandeau titre",
+    "logo",
+    "nom",
+    "barre",
+    "rouge",
+    "blanc"
+   ]
+  },
+  "template:llt-harry": {
+   "name": "Bandeau titre avec logo : bloc qui file et dévoile le nom",
+   "tags": [
+    "bandeau titre",
+    "logo",
+    "nom",
+    "fonction",
+    "soulignement",
+    "marque"
+   ]
+  },
+  "template:llt-hendrick": {
+   "name": "Bandeau titre avec logo : carré qui bascule et ouvre la barre",
+   "tags": [
+    "bandeau titre",
+    "logo",
+    "nom",
+    "barre",
+    "rouge"
+   ]
+  },
+  "template:llt-jamie": {
+   "name": "Bandeau titre avec logo : barre qui tourne comme un prisme",
+   "tags": [
+    "bandeau titre",
+    "logo",
+    "nom",
+    "3d",
+    "prisme",
+    "marque"
+   ]
+  },
+  "template:llt-janice": {
+   "name": "Bandeau titre avec logo : barre qui monte d'une ligne",
+   "tags": [
+    "bandeau titre",
+    "logo",
+    "nom",
+    "fonction",
+    "barre",
+    "rouge"
+   ]
+  },
+  "template:llt-jason-e": {
+   "name": "Bandeau titre avec logo : logo qui roule et dévoile le nom",
+   "tags": [
+    "bandeau titre",
+    "logo",
+    "nom",
+    "soulignement"
+   ]
+  },
+  "template:llt-jason-f": {
+   "name": "Bandeau titre avec logo : onglet qui monte, barre blanche",
+   "tags": [
+    "bandeau titre",
+    "logo",
+    "nom",
+    "barre",
+    "blanc",
+    "marque"
+   ]
+  },
+  "template:llt-jessica": {
+   "name": "Bandeau titre avec logo : fente inclinée",
+   "tags": [
+    "bandeau titre",
+    "logo",
+    "nom",
+    "fonction",
+    "diagonale"
+   ]
+  },
+  "template:llt-jim": {
+   "name": "Bandeau titre avec logo : logo qui découvre le nom",
+   "tags": [
+    "bandeau titre",
+    "logo",
+    "nom",
+    "simple"
+   ]
+  },
+  "template:llt-joanna": {
+   "name": "Bandeau titre avec logo : barre blanche, onglet incliné",
+   "tags": [
+    "bandeau titre",
+    "logo",
+    "nom",
+    "barre",
+    "blanc"
+   ]
+  },
+  "template:llt-lizzie": {
+   "name": "Bandeau titre avec logo : ligne qui balaie",
+   "tags": [
+    "bandeau titre",
+    "logo",
+    "nom",
+    "fonction",
+    "ligne"
+   ]
+  },
+  "template:llt-lucas": {
+   "name": "Bandeau titre avec logo : bloc qui file et ouvre la barre",
+   "tags": [
+    "bandeau titre",
+    "logo",
+    "nom",
+    "barre",
+    "blanc",
+    "rouge"
+   ]
+  },
+  "template:llt-neil": {
+   "name": "Bandeau titre avec logo : cube qui tourne",
+   "tags": [
+    "bandeau titre",
+    "logo",
+    "nom",
+    "3d",
+    "cube"
+   ]
+  },
+  "template:llt-patricia": {
+   "name": "Bandeau titre avec logo : logo qui pivote, nom qui glisse",
+   "tags": [
+    "bandeau titre",
+    "logo",
+    "nom",
+    "fonction",
+    "soulignement",
+    "3d"
+   ]
+  },
+  "template:llt-roger": {
+   "name": "Bandeau titre avec logo : carré qui tourne et encadré de marque",
+   "tags": [
+    "bandeau titre",
+    "logo",
+    "nom",
+    "barre",
+    "rouge",
+    "marque"
+   ]
+  },
+  "template:llt-sarah": {
+   "name": "Bandeau titre avec logo : anneau et deux lignes",
+   "tags": [
+    "bandeau titre",
+    "logo",
+    "nom",
+    "fonction",
+    "lignes",
+    "anneau"
+   ]
+  },
+  "template:llt2-barra-etiqueta": {
+   "name": "Bandeau titre avec logo : barre sombre et étiquette verte",
+   "tags": [
+    "bandeau titre",
+    "logo",
+    "nom",
+    "barre",
+    "vert"
+   ]
+  },
+  "template:llt2-nombre-grande": {
+   "name": "Bandeau titre avec logo : grand nom et barre de progression",
+   "tags": [
+    "bandeau titre",
+    "logo",
+    "nom",
+    "barre",
+    "vert",
+    "progression"
+   ]
+  },
+  "template:llt2-pastilla": {
+   "name": "Bandeau titre avec logo : pastille sombre et onglet vert",
+   "tags": [
+    "bandeau titre",
+    "logo",
+    "nom",
+    "pastille",
+    "vert"
+   ]
+  },
+  "template:llt2-tarjeta": {
+   "name": "Bandeau titre avec logo : carte sombre et étiquette blanche",
+   "tags": [
+    "bandeau titre",
+    "logo",
+    "nom",
+    "carte",
+    "vert",
+    "web"
+   ]
+  },
+  "template:llt3-alta": {
+   "name": "Bandeau titre épuré : haute étiquette avec fonction",
+   "tags": [
+    "bandeau titre",
+    "épuré",
+    "nom",
+    "jaune",
+    "blanc"
+   ]
+  },
+  "template:llt3-amarillo": {
+   "name": "Bandeau titre épuré : étiquette jaune",
+   "tags": [
+    "bandeau titre",
+    "épuré",
+    "nom",
+    "jaune"
+   ]
+  },
+  "template:llt3-barra-dentro": {
+   "name": "Bandeau titre épuré : barre de fonction intégrée",
+   "tags": [
+    "bandeau titre",
+    "épuré",
+    "nom",
+    "jaune",
+    "blanc",
+    "gris"
+   ]
+  },
+  "template:llt3-barra-gris": {
+   "name": "Bandeau titre épuré : fonction sur une barre grise",
+   "tags": [
+    "bandeau titre",
+    "épuré",
+    "nom",
+    "blanc",
+    "gris"
+   ]
+  },
+  "template:llt3-barra-inclinada": {
+   "name": "Bandeau titre épuré : fonction sur une barre jaune inclinée",
+   "tags": [
+    "bandeau titre",
+    "épuré",
+    "nom",
+    "jaune",
+    "blanc"
+   ]
+  },
+  "template:llt3-cargo-amarillo": {
+   "name": "Bandeau titre épuré : étiquette blanche, fonction en jaune",
+   "tags": [
+    "bandeau titre",
+    "épuré",
+    "nom",
+    "jaune",
+    "blanc"
+   ]
+  },
+  "template:llt3-inclinada": {
+   "name": "Bandeau titre épuré : étiquette inclinée",
+   "tags": [
+    "bandeau titre",
+    "épuré",
+    "nom",
+    "jaune",
+    "blanc",
+    "incliné"
+   ]
+  },
+  "template:llt3-inclinada-gris": {
+   "name": "Bandeau titre épuré : étiquette grise inclinée",
+   "tags": [
+    "bandeau titre",
+    "épuré",
+    "nom",
+    "gris",
+    "incliné"
+   ]
+  },
+  "template:llt3-invitado": {
+   "name": "Bandeau titre épuré : étiquette blanche avec « invité spécial »",
+   "tags": [
+    "bandeau titre",
+    "épuré",
+    "nom",
+    "jaune",
+    "blanc",
+    "invité"
+   ]
+  },
   "template:lt-andy": {
    "name": "Bandeau titre : barre qui s'ouvre au centre",
    "tags": [

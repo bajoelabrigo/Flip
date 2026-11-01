@@ -25535,6 +25535,388 @@
     "palavras"
    ]
   },
+  "template:llt-bevan": {
+   "name": "Terço inferior com logo: triângulo que se desenha",
+   "tags": [
+    "terço inferior",
+    "logo",
+    "nome",
+    "cargo",
+    "linha",
+    "triângulo"
+   ]
+  },
+  "template:llt-brian": {
+   "name": "Terço inferior com logo: entrada com glitch",
+   "tags": [
+    "terço inferior",
+    "logo",
+    "nome",
+    "glitch"
+   ]
+  },
+  "template:llt-caryn": {
+   "name": "Terço inferior com logo: caixa girando",
+   "tags": [
+    "terço inferior",
+    "logo",
+    "nome",
+    "3d",
+    "caixa"
+   ]
+  },
+  "template:llt-charlie": {
+   "name": "Terço inferior com logo: duas linhas se abrindo",
+   "tags": [
+    "terço inferior",
+    "logo",
+    "nome",
+    "linhas",
+    "branco"
+   ]
+  },
+  "template:llt-charlotte": {
+   "name": "Terço inferior com logo: nome vazado na barra",
+   "tags": [
+    "terço inferior",
+    "logo",
+    "nome",
+    "barra",
+    "vermelho",
+    "vazado"
+   ]
+  },
+  "template:llt-cindy": {
+   "name": "Terço inferior com logo: logo verde revela o nome",
+   "tags": [
+    "terço inferior",
+    "logo",
+    "nome",
+    "verde",
+    "simples"
+   ]
+  },
+  "template:llt-david": {
+   "name": "Terço inferior com logo: anel rolando",
+   "tags": [
+    "terço inferior",
+    "logo",
+    "nome",
+    "anel",
+    "círculo"
+   ]
+  },
+  "template:llt-francois": {
+   "name": "Terço inferior com logo: nome sobre barra vermelha",
+   "tags": [
+    "terço inferior",
+    "logo",
+    "nome",
+    "barra",
+    "vermelho"
+   ]
+  },
+  "template:llt-gabriel": {
+   "name": "Terço inferior com logo: barra vermelha que fica branca",
+   "tags": [
+    "terço inferior",
+    "logo",
+    "nome",
+    "barra",
+    "vermelho",
+    "branco"
+   ]
+  },
+  "template:llt-harry": {
+   "name": "Terço inferior com logo: bloco correndo revela o nome",
+   "tags": [
+    "terço inferior",
+    "logo",
+    "nome",
+    "cargo",
+    "sublinhado",
+    "marca"
+   ]
+  },
+  "template:llt-hendrick": {
+   "name": "Terço inferior com logo: quadrado caindo abre a barra",
+   "tags": [
+    "terço inferior",
+    "logo",
+    "nome",
+    "barra",
+    "vermelho"
+   ]
+  },
+  "template:llt-jamie": {
+   "name": "Terço inferior com logo: barra que gira como um prisma",
+   "tags": [
+    "terço inferior",
+    "logo",
+    "nome",
+    "3d",
+    "prisma",
+    "marca"
+   ]
+  },
+  "template:llt-janice": {
+   "name": "Terço inferior com logo: barra subindo de uma linha",
+   "tags": [
+    "terço inferior",
+    "logo",
+    "nome",
+    "cargo",
+    "barra",
+    "vermelho"
+   ]
+  },
+  "template:llt-jason-e": {
+   "name": "Terço inferior com logo: logo rolando revela o nome",
+   "tags": [
+    "terço inferior",
+    "logo",
+    "nome",
+    "sublinhado"
+   ]
+  },
+  "template:llt-jason-f": {
+   "name": "Terço inferior com logo: aba subindo e barra branca",
+   "tags": [
+    "terço inferior",
+    "logo",
+    "nome",
+    "barra",
+    "branco",
+    "marca"
+   ]
+  },
+  "template:llt-jessica": {
+   "name": "Terço inferior com logo: fenda inclinada",
+   "tags": [
+    "terço inferior",
+    "logo",
+    "nome",
+    "cargo",
+    "diagonal"
+   ]
+  },
+  "template:llt-jim": {
+   "name": "Terço inferior com logo: logo revelando o nome",
+   "tags": [
+    "terço inferior",
+    "logo",
+    "nome",
+    "simples"
+   ]
+  },
+  "template:llt-joanna": {
+   "name": "Terço inferior com logo: barra branca e aba inclinada",
+   "tags": [
+    "terço inferior",
+    "logo",
+    "nome",
+    "barra",
+    "branco"
+   ]
+  },
+  "template:llt-lizzie": {
+   "name": "Terço inferior com logo: linha que varre",
+   "tags": [
+    "terço inferior",
+    "logo",
+    "nome",
+    "cargo",
+    "linha"
+   ]
+  },
+  "template:llt-lucas": {
+   "name": "Terço inferior com logo: bloco correndo abre a barra",
+   "tags": [
+    "terço inferior",
+    "logo",
+    "nome",
+    "barra",
+    "branco",
+    "vermelho"
+   ]
+  },
+  "template:llt-neil": {
+   "name": "Terço inferior com logo: cubo girando",
+   "tags": [
+    "terço inferior",
+    "logo",
+    "nome",
+    "3d",
+    "cubo"
+   ]
+  },
+  "template:llt-patricia": {
+   "name": "Terço inferior com logo: logo girando e nome deslizando",
+   "tags": [
+    "terço inferior",
+    "logo",
+    "nome",
+    "cargo",
+    "sublinhado",
+    "3d"
+   ]
+  },
+  "template:llt-roger": {
+   "name": "Terço inferior com logo: quadrado girando e caixa da marca",
+   "tags": [
+    "terço inferior",
+    "logo",
+    "nome",
+    "barra",
+    "vermelho",
+    "marca"
+   ]
+  },
+  "template:llt-sarah": {
+   "name": "Terço inferior com logo: anel e duas linhas",
+   "tags": [
+    "terço inferior",
+    "logo",
+    "nome",
+    "cargo",
+    "linhas",
+    "anel"
+   ]
+  },
+  "template:llt2-barra-etiqueta": {
+   "name": "Terço inferior com logo: barra escura e etiqueta verde",
+   "tags": [
+    "terço inferior",
+    "logo",
+    "nome",
+    "barra",
+    "verde"
+   ]
+  },
+  "template:llt2-nombre-grande": {
+   "name": "Terço inferior com logo: nome grande e linha de progresso",
+   "tags": [
+    "terço inferior",
+    "logo",
+    "nome",
+    "barra",
+    "verde",
+    "progresso"
+   ]
+  },
+  "template:llt2-pastilla": {
+   "name": "Terço inferior com logo: pílula escura e aba verde",
+   "tags": [
+    "terço inferior",
+    "logo",
+    "nome",
+    "pílula",
+    "verde"
+   ]
+  },
+  "template:llt2-tarjeta": {
+   "name": "Terço inferior com logo: cartão escuro e etiqueta branca",
+   "tags": [
+    "terço inferior",
+    "logo",
+    "nome",
+    "cartão",
+    "verde",
+    "site"
+   ]
+  },
+  "template:llt3-alta": {
+   "name": "Terço inferior limpo: etiqueta alta com cargo",
+   "tags": [
+    "terço inferior",
+    "limpo",
+    "nome",
+    "amarelo",
+    "branco"
+   ]
+  },
+  "template:llt3-amarillo": {
+   "name": "Terço inferior limpo: etiqueta amarela",
+   "tags": [
+    "terço inferior",
+    "limpo",
+    "nome",
+    "amarelo"
+   ]
+  },
+  "template:llt3-barra-dentro": {
+   "name": "Terço inferior limpo: barra de cargo por dentro",
+   "tags": [
+    "terço inferior",
+    "limpo",
+    "nome",
+    "amarelo",
+    "branco",
+    "cinza"
+   ]
+  },
+  "template:llt3-barra-gris": {
+   "name": "Terço inferior limpo: cargo em barra cinza",
+   "tags": [
+    "terço inferior",
+    "limpo",
+    "nome",
+    "branco",
+    "cinza"
+   ]
+  },
+  "template:llt3-barra-inclinada": {
+   "name": "Terço inferior limpo: cargo em barra amarela inclinada",
+   "tags": [
+    "terço inferior",
+    "limpo",
+    "nome",
+    "amarelo",
+    "branco"
+   ]
+  },
+  "template:llt3-cargo-amarillo": {
+   "name": "Terço inferior limpo: etiqueta branca e cargo amarelo",
+   "tags": [
+    "terço inferior",
+    "limpo",
+    "nome",
+    "amarelo",
+    "branco"
+   ]
+  },
+  "template:llt3-inclinada": {
+   "name": "Terço inferior limpo: etiqueta inclinada",
+   "tags": [
+    "terço inferior",
+    "limpo",
+    "nome",
+    "amarelo",
+    "branco",
+    "inclinado"
+   ]
+  },
+  "template:llt3-inclinada-gris": {
+   "name": "Terço inferior limpo: etiqueta cinza inclinada",
+   "tags": [
+    "terço inferior",
+    "limpo",
+    "nome",
+    "cinza",
+    "inclinado"
+   ]
+  },
+  "template:llt3-invitado": {
+   "name": "Terço inferior limpo: etiqueta branca com «convidado especial»",
+   "tags": [
+    "terço inferior",
+    "limpo",
+    "nome",
+    "amarelo",
+    "branco",
+    "convidado"
+   ]
+  },
   "template:lt-andy": {
    "name": "Terço inferior: barra que abre do centro",
    "tags": [

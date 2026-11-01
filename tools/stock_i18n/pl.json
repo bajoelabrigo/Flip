@@ -25578,6 +25578,388 @@
     "słowa"
    ]
   },
+  "template:llt-bevan": {
+   "name": "Belka z logo: rysujący się trójkąt",
+   "tags": [
+    "belka",
+    "logo",
+    "imię",
+    "stanowisko",
+    "linia",
+    "trójkąt"
+   ]
+  },
+  "template:llt-brian": {
+   "name": "Belka z logo: wejście z efektem glitch",
+   "tags": [
+    "belka",
+    "logo",
+    "imię",
+    "glitch"
+   ]
+  },
+  "template:llt-caryn": {
+   "name": "Belka z logo: obracające się pudełko",
+   "tags": [
+    "belka",
+    "logo",
+    "imię",
+    "3d",
+    "pudełko"
+   ]
+  },
+  "template:llt-charlie": {
+   "name": "Belka z logo: rozchodzące się dwie linie",
+   "tags": [
+    "belka",
+    "logo",
+    "imię",
+    "linie",
+    "biały"
+   ]
+  },
+  "template:llt-charlotte": {
+   "name": "Belka z logo: imię wycięte w pasku",
+   "tags": [
+    "belka",
+    "logo",
+    "imię",
+    "pasek",
+    "czerwony",
+    "wycięcie"
+   ]
+  },
+  "template:llt-cindy": {
+   "name": "Belka z logo: zielone logo odsłania imię",
+   "tags": [
+    "belka",
+    "logo",
+    "imię",
+    "zielony",
+    "prosty"
+   ]
+  },
+  "template:llt-david": {
+   "name": "Belka z logo: toczący się pierścień",
+   "tags": [
+    "belka",
+    "logo",
+    "imię",
+    "pierścień",
+    "koło"
+   ]
+  },
+  "template:llt-francois": {
+   "name": "Belka z logo: imię nad czerwonym paskiem",
+   "tags": [
+    "belka",
+    "logo",
+    "imię",
+    "pasek",
+    "czerwony"
+   ]
+  },
+  "template:llt-gabriel": {
+   "name": "Belka z logo: czerwony pasek zmienia się w biały",
+   "tags": [
+    "belka",
+    "logo",
+    "imię",
+    "pasek",
+    "czerwony",
+    "biały"
+   ]
+  },
+  "template:llt-harry": {
+   "name": "Belka z logo: przesuwający się blok odsłania imię",
+   "tags": [
+    "belka",
+    "logo",
+    "imię",
+    "stanowisko",
+    "podkreślenie",
+    "marka"
+   ]
+  },
+  "template:llt-hendrick": {
+   "name": "Belka z logo: spadający kwadrat otwiera pasek",
+   "tags": [
+    "belka",
+    "logo",
+    "imię",
+    "pasek",
+    "czerwony"
+   ]
+  },
+  "template:llt-jamie": {
+   "name": "Belka z logo: pasek obracający się jak pryzmat",
+   "tags": [
+    "belka",
+    "logo",
+    "imię",
+    "3d",
+    "pryzmat",
+    "marka"
+   ]
+  },
+  "template:llt-janice": {
+   "name": "Belka z logo: pasek wyrastający z linii",
+   "tags": [
+    "belka",
+    "logo",
+    "imię",
+    "stanowisko",
+    "pasek",
+    "czerwony"
+   ]
+  },
+  "template:llt-jason-e": {
+   "name": "Belka z logo: toczące się logo odsłania imię",
+   "tags": [
+    "belka",
+    "logo",
+    "imię",
+    "podkreślenie"
+   ]
+  },
+  "template:llt-jason-f": {
+   "name": "Belka z logo: wysuwająca się zakładka i biały pasek",
+   "tags": [
+    "belka",
+    "logo",
+    "imię",
+    "pasek",
+    "biały",
+    "marka"
+   ]
+  },
+  "template:llt-jessica": {
+   "name": "Belka z logo: pochylona szczelina",
+   "tags": [
+    "belka",
+    "logo",
+    "imię",
+    "stanowisko",
+    "ukos"
+   ]
+  },
+  "template:llt-jim": {
+   "name": "Belka z logo: logo odsłania imię",
+   "tags": [
+    "belka",
+    "logo",
+    "imię",
+    "prosty"
+   ]
+  },
+  "template:llt-joanna": {
+   "name": "Belka z logo: biały pasek i pochylona zakładka",
+   "tags": [
+    "belka",
+    "logo",
+    "imię",
+    "pasek",
+    "biały"
+   ]
+  },
+  "template:llt-lizzie": {
+   "name": "Belka z logo: przesuwająca się linia",
+   "tags": [
+    "belka",
+    "logo",
+    "imię",
+    "stanowisko",
+    "linia"
+   ]
+  },
+  "template:llt-lucas": {
+   "name": "Belka z logo: przesuwający się blok otwiera pasek",
+   "tags": [
+    "belka",
+    "logo",
+    "imię",
+    "pasek",
+    "biały",
+    "czerwony"
+   ]
+  },
+  "template:llt-neil": {
+   "name": "Belka z logo: obracający się sześcian",
+   "tags": [
+    "belka",
+    "logo",
+    "imię",
+    "3d",
+    "sześcian"
+   ]
+  },
+  "template:llt-patricia": {
+   "name": "Belka z logo: obracające się logo i wjeżdżające imię",
+   "tags": [
+    "belka",
+    "logo",
+    "imię",
+    "stanowisko",
+    "podkreślenie",
+    "3d"
+   ]
+  },
+  "template:llt-roger": {
+   "name": "Belka z logo: obracający się kwadrat i ramka z marką",
+   "tags": [
+    "belka",
+    "logo",
+    "imię",
+    "pasek",
+    "czerwony",
+    "marka"
+   ]
+  },
+  "template:llt-sarah": {
+   "name": "Belka z logo: pierścień i dwie linie",
+   "tags": [
+    "belka",
+    "logo",
+    "imię",
+    "stanowisko",
+    "linie",
+    "pierścień"
+   ]
+  },
+  "template:llt2-barra-etiqueta": {
+   "name": "Belka z logo: ciemny pasek i zielona etykieta",
+   "tags": [
+    "belka",
+    "logo",
+    "imię",
+    "pasek",
+    "zielony"
+   ]
+  },
+  "template:llt2-nombre-grande": {
+   "name": "Belka z logo: duże imię i linia postępu",
+   "tags": [
+    "belka",
+    "logo",
+    "imię",
+    "pasek",
+    "zielony",
+    "postęp"
+   ]
+  },
+  "template:llt2-pastilla": {
+   "name": "Belka z logo: ciemna pigułka i zielona zakładka",
+   "tags": [
+    "belka",
+    "logo",
+    "imię",
+    "pigułka",
+    "zielony"
+   ]
+  },
+  "template:llt2-tarjeta": {
+   "name": "Belka z logo: ciemna karta i biała etykieta",
+   "tags": [
+    "belka",
+    "logo",
+    "imię",
+    "karta",
+    "zielony",
+    "strona www"
+   ]
+  },
+  "template:llt3-alta": {
+   "name": "Prosta belka: wysoka etykieta ze stanowiskiem",
+   "tags": [
+    "belka",
+    "minimalistyczny",
+    "imię",
+    "żółty",
+    "biały"
+   ]
+  },
+  "template:llt3-amarillo": {
+   "name": "Prosta belka: żółta etykieta",
+   "tags": [
+    "belka",
+    "minimalistyczny",
+    "imię",
+    "żółty"
+   ]
+  },
+  "template:llt3-barra-dentro": {
+   "name": "Prosta belka: pasek ze stanowiskiem w środku",
+   "tags": [
+    "belka",
+    "minimalistyczny",
+    "imię",
+    "żółty",
+    "biały",
+    "szary"
+   ]
+  },
+  "template:llt3-barra-gris": {
+   "name": "Prosta belka: stanowisko na szarym pasku",
+   "tags": [
+    "belka",
+    "minimalistyczny",
+    "imię",
+    "biały",
+    "szary"
+   ]
+  },
+  "template:llt3-barra-inclinada": {
+   "name": "Prosta belka: stanowisko na pochylonym żółtym pasku",
+   "tags": [
+    "belka",
+    "minimalistyczny",
+    "imię",
+    "żółty",
+    "biały"
+   ]
+  },
+  "template:llt3-cargo-amarillo": {
+   "name": "Prosta belka: biała etykieta i żółte stanowisko",
+   "tags": [
+    "belka",
+    "minimalistyczny",
+    "imię",
+    "żółty",
+    "biały"
+   ]
+  },
+  "template:llt3-inclinada": {
+   "name": "Prosta belka: pochylona etykieta",
+   "tags": [
+    "belka",
+    "minimalistyczny",
+    "imię",
+    "żółty",
+    "biały",
+    "pochylony"
+   ]
+  },
+  "template:llt3-inclinada-gris": {
+   "name": "Prosta belka: pochylona szara etykieta",
+   "tags": [
+    "belka",
+    "minimalistyczny",
+    "imię",
+    "szary",
+    "pochylony"
+   ]
+  },
+  "template:llt3-invitado": {
+   "name": "Prosta belka: biała etykieta z napisem „gość”",
+   "tags": [
+    "belka",
+    "minimalistyczny",
+    "imię",
+    "żółty",
+    "biały",
+    "gość"
+   ]
+  },
   "template:lt-andy": {
    "name": "Belka: pasek otwierający się od środka",
    "tags": [

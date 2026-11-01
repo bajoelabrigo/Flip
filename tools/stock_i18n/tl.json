@@ -25456,6 +25456,388 @@
     "salita"
    ]
   },
+  "template:llt-bevan": {
+   "name": "Lower third na may logo: tatsulok na kusang gumuguhit",
+   "tags": [
+    "lower third",
+    "logo",
+    "pangalan",
+    "posisyon",
+    "guhit",
+    "tatsulok"
+   ]
+  },
+  "template:llt-brian": {
+   "name": "Lower third na may logo: pasok na may glitch",
+   "tags": [
+    "lower third",
+    "logo",
+    "pangalan",
+    "glitch"
+   ]
+  },
+  "template:llt-caryn": {
+   "name": "Lower third na may logo: umiikot na kahon",
+   "tags": [
+    "lower third",
+    "logo",
+    "pangalan",
+    "3d",
+    "kahon"
+   ]
+  },
+  "template:llt-charlie": {
+   "name": "Lower third na may logo: dalawang guhit na naghihiwalay",
+   "tags": [
+    "lower third",
+    "logo",
+    "pangalan",
+    "mga guhit",
+    "puti"
+   ]
+  },
+  "template:llt-charlotte": {
+   "name": "Lower third na may logo: pangalang inukit sa bar",
+   "tags": [
+    "lower third",
+    "logo",
+    "pangalan",
+    "bar",
+    "pula",
+    "inukit"
+   ]
+  },
+  "template:llt-cindy": {
+   "name": "Lower third na may logo: berdeng logo na naglalantad ng pangalan",
+   "tags": [
+    "lower third",
+    "logo",
+    "pangalan",
+    "berde",
+    "simple"
+   ]
+  },
+  "template:llt-david": {
+   "name": "Lower third na may logo: gumugulong na singsing",
+   "tags": [
+    "lower third",
+    "logo",
+    "pangalan",
+    "singsing",
+    "bilog"
+   ]
+  },
+  "template:llt-francois": {
+   "name": "Lower third na may logo: pangalan sa ibabaw ng pulang bar",
+   "tags": [
+    "lower third",
+    "logo",
+    "pangalan",
+    "bar",
+    "pula"
+   ]
+  },
+  "template:llt-gabriel": {
+   "name": "Lower third na may logo: pulang bar na pumuputi",
+   "tags": [
+    "lower third",
+    "logo",
+    "pangalan",
+    "bar",
+    "pula",
+    "puti"
+   ]
+  },
+  "template:llt-harry": {
+   "name": "Lower third na may logo: tumatakbong bloke na naglalantad ng pangalan",
+   "tags": [
+    "lower third",
+    "logo",
+    "pangalan",
+    "posisyon",
+    "salungguhit",
+    "brand"
+   ]
+  },
+  "template:llt-hendrick": {
+   "name": "Lower third na may logo: bumabagsak na parisukat na nagbubukas ng bar",
+   "tags": [
+    "lower third",
+    "logo",
+    "pangalan",
+    "bar",
+    "pula"
+   ]
+  },
+  "template:llt-jamie": {
+   "name": "Lower third na may logo: bar na umiikot na parang prisma",
+   "tags": [
+    "lower third",
+    "logo",
+    "pangalan",
+    "3d",
+    "prisma",
+    "brand"
+   ]
+  },
+  "template:llt-janice": {
+   "name": "Lower third na may logo: bar na umaangat mula sa guhit",
+   "tags": [
+    "lower third",
+    "logo",
+    "pangalan",
+    "posisyon",
+    "bar",
+    "pula"
+   ]
+  },
+  "template:llt-jason-e": {
+   "name": "Lower third na may logo: gumugulong na logo na naglalantad ng pangalan",
+   "tags": [
+    "lower third",
+    "logo",
+    "pangalan",
+    "salungguhit"
+   ]
+  },
+  "template:llt-jason-f": {
+   "name": "Lower third na may logo: umaangat na tab, puting bar",
+   "tags": [
+    "lower third",
+    "logo",
+    "pangalan",
+    "bar",
+    "puti",
+    "brand"
+   ]
+  },
+  "template:llt-jessica": {
+   "name": "Lower third na may logo: pahilig na puwang",
+   "tags": [
+    "lower third",
+    "logo",
+    "pangalan",
+    "posisyon",
+    "pahilis"
+   ]
+  },
+  "template:llt-jim": {
+   "name": "Lower third na may logo: logo na naglalantad ng pangalan",
+   "tags": [
+    "lower third",
+    "logo",
+    "pangalan",
+    "simple"
+   ]
+  },
+  "template:llt-joanna": {
+   "name": "Lower third na may logo: puting bar at pahilig na tab",
+   "tags": [
+    "lower third",
+    "logo",
+    "pangalan",
+    "bar",
+    "puti"
+   ]
+  },
+  "template:llt-lizzie": {
+   "name": "Lower third na may logo: guhit na dumadaan",
+   "tags": [
+    "lower third",
+    "logo",
+    "pangalan",
+    "posisyon",
+    "guhit"
+   ]
+  },
+  "template:llt-lucas": {
+   "name": "Lower third na may logo: tumatakbong bloke na nagbubukas ng bar",
+   "tags": [
+    "lower third",
+    "logo",
+    "pangalan",
+    "bar",
+    "puti",
+    "pula"
+   ]
+  },
+  "template:llt-neil": {
+   "name": "Lower third na may logo: umiikot na kubo",
+   "tags": [
+    "lower third",
+    "logo",
+    "pangalan",
+    "3d",
+    "kubo"
+   ]
+  },
+  "template:llt-patricia": {
+   "name": "Lower third na may logo: umiikot na logo, dumudulas na pangalan",
+   "tags": [
+    "lower third",
+    "logo",
+    "pangalan",
+    "posisyon",
+    "salungguhit",
+    "3d"
+   ]
+  },
+  "template:llt-roger": {
+   "name": "Lower third na may logo: umiikot na parisukat at kahon ng brand",
+   "tags": [
+    "lower third",
+    "logo",
+    "pangalan",
+    "bar",
+    "pula",
+    "brand"
+   ]
+  },
+  "template:llt-sarah": {
+   "name": "Lower third na may logo: singsing at dalawang guhit",
+   "tags": [
+    "lower third",
+    "logo",
+    "pangalan",
+    "posisyon",
+    "mga guhit",
+    "singsing"
+   ]
+  },
+  "template:llt2-barra-etiqueta": {
+   "name": "Lower third na may logo: madilim na bar at berdeng tatak",
+   "tags": [
+    "lower third",
+    "logo",
+    "pangalan",
+    "bar",
+    "berde"
+   ]
+  },
+  "template:llt2-nombre-grande": {
+   "name": "Lower third na may logo: malaking pangalan at guhit ng progreso",
+   "tags": [
+    "lower third",
+    "logo",
+    "pangalan",
+    "bar",
+    "berde",
+    "progreso"
+   ]
+  },
+  "template:llt2-pastilla": {
+   "name": "Lower third na may logo: madilim na pill at berdeng tab",
+   "tags": [
+    "lower third",
+    "logo",
+    "pangalan",
+    "pill",
+    "berde"
+   ]
+  },
+  "template:llt2-tarjeta": {
+   "name": "Lower third na may logo: madilim na kard at puting tatak",
+   "tags": [
+    "lower third",
+    "logo",
+    "pangalan",
+    "kard",
+    "berde",
+    "web"
+   ]
+  },
+  "template:llt3-alta": {
+   "name": "Malinis na lower third: mataas na tatak na may posisyon",
+   "tags": [
+    "lower third",
+    "malinis",
+    "pangalan",
+    "dilaw",
+    "puti"
+   ]
+  },
+  "template:llt3-amarillo": {
+   "name": "Malinis na lower third: dilaw na tatak",
+   "tags": [
+    "lower third",
+    "malinis",
+    "pangalan",
+    "dilaw"
+   ]
+  },
+  "template:llt3-barra-dentro": {
+   "name": "Malinis na lower third: bar ng posisyon sa loob",
+   "tags": [
+    "lower third",
+    "malinis",
+    "pangalan",
+    "dilaw",
+    "puti",
+    "kulay-abo"
+   ]
+  },
+  "template:llt3-barra-gris": {
+   "name": "Malinis na lower third: posisyon sa kulay-abong bar",
+   "tags": [
+    "lower third",
+    "malinis",
+    "pangalan",
+    "puti",
+    "kulay-abo"
+   ]
+  },
+  "template:llt3-barra-inclinada": {
+   "name": "Malinis na lower third: posisyon sa pahilig na dilaw na bar",
+   "tags": [
+    "lower third",
+    "malinis",
+    "pangalan",
+    "dilaw",
+    "puti"
+   ]
+  },
+  "template:llt3-cargo-amarillo": {
+   "name": "Malinis na lower third: puting tatak, dilaw na posisyon",
+   "tags": [
+    "lower third",
+    "malinis",
+    "pangalan",
+    "dilaw",
+    "puti"
+   ]
+  },
+  "template:llt3-inclinada": {
+   "name": "Malinis na lower third: pahilig na tatak",
+   "tags": [
+    "lower third",
+    "malinis",
+    "pangalan",
+    "dilaw",
+    "puti",
+    "pahilig"
+   ]
+  },
+  "template:llt3-inclinada-gris": {
+   "name": "Malinis na lower third: pahilig na kulay-abong tatak",
+   "tags": [
+    "lower third",
+    "malinis",
+    "pangalan",
+    "kulay-abo",
+    "pahilig"
+   ]
+  },
+  "template:llt3-invitado": {
+   "name": "Malinis na lower third: puting tatak na may «espesyal na panauhin»",
+   "tags": [
+    "lower third",
+    "malinis",
+    "pangalan",
+    "dilaw",
+    "puti",
+    "panauhin"
+   ]
+  },
   "template:lt-andy": {
    "name": "Lower third: bar na bumubukas mula sa gitna",
    "tags": [
