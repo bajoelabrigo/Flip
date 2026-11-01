@@ -33018,11 +33018,22 @@ void AppController::morphLayers(double seconds, int trails, double arc, double s
             keyAll(target, QStringLiteral("opacity"), opacity);
         }
         const double side = ids.size() % 2 == 0 ? -1.0 : 1.0;
-        keyBox(target, {{t1, goal.cx, goal.cy, goal.w * 1.18, goal.h * 1.18, I::Ease},
-                        {t1 + settle / 2, goal.cx, goal.cy, goal.w * 0.96, goal.h * 0.96, I::Ease},
-                        {t1 + settle, goal.cx, goal.cy, goal.w, goal.h, I::Ease}});
-        keyAll(target, QStringLiteral("rotation"),
-               {{t1, goal.rotation + spin * 0.12 * side, I::Ease}, {t1 + settle, goal.rotation, I::Ease}});
+        // On screen all along, it waits at rest for the others (a key at the playhead holding its own
+        // pose), and the hit is the bounce: without it the bounce's first key held it big and turned the
+        // whole flight.
+        QList<std::tuple<drift::TimeUs, double, double, double, double, drift::Interpolation>> boxKeys;
+        QList<std::tuple<drift::TimeUs, double, drift::Interpolation>> turnKeys;
+        if (targetVisible && t0 >= target.timelineStart && t0 < t1) {
+            boxKeys.append({t0, goal.cx, goal.cy, goal.w, goal.h, I::Hold});
+            turnKeys.append({t0, goal.rotation, I::Hold});
+        }
+        boxKeys.append({t1, goal.cx, goal.cy, goal.w * 1.18, goal.h * 1.18, I::Ease});
+        boxKeys.append({t1 + settle / 2, goal.cx, goal.cy, goal.w * 0.96, goal.h * 0.96, I::Ease});
+        boxKeys.append({t1 + settle, goal.cx, goal.cy, goal.w, goal.h, I::Ease});
+        turnKeys.append({t1, goal.rotation + spin * 0.12 * side, I::Ease});
+        turnKeys.append({t1 + settle, goal.rotation, I::Ease});
+        keyBox(target, boxKeys);
+        keyAll(target, QStringLiteral("rotation"), turnKeys);
     }
     m_project.ensureTrackIds();
     pushProjectEdit(before, tr("Morph"));
