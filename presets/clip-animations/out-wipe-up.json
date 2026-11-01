@@ -1,0 +1,1 @@
+{"format":1,"id":"out-wipe-up","label":"Wipe up","category":"basic","slots":["out"],"order":12,"duration":0.6,"keys":{},"effects":[{"id":"ae.linear_wipe","params":{"completion":[[0,0,"easeIn"],[1,100,"easeInOut"]],"angle":-90.0}}]}

@@ -55,7 +55,23 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 
 ---
 
-## Estado (actualizado 2026-10-30)
+## Estado (actualizado 2026-10-31)
+
+### 0.28.0 PUBLICADA (2026-10-31) — formas como After Effects — **detalle en `docs/plan-0.28.md`**
+- PR #48 (`flip/v0.28` → `main`), tag `v0.28.0`, release (run 41168622684); copia en `versiones\FlipStudio-0.28.0`
+  (hashes comprobados); novedades en la web (`flipstudio-web` desplegado). MSIX: `msstore.yml` run 41168647394 →
+  `tienda\FlipStudio-Store\paquete-0.28.0`. Notas de la Store: «Notas para la Store (0.28.0)» (cubren 0.27 + 0.28).
+- **Falta (Jorge):** subir el MSIX con esas notas y TXT `version` = 0.28.0.
+- **Stock subido (2026-10-31):** 104 piezas nuevas del Kit de YouTube (tanda h, pack 6, sección nueva «Lower Thirds»
+  con los 12 tercios de 10834571.mp4), 1494 plantillas en vivo, 13 idiomas. Servidor `flipstudio-api` rama
+  `stock-ytkit` desplegado (sección `lowerthirds`). Extra «Más fuentes» 1.1.0 (Anybody Expanded) publicado.
+- Auditoría antes de publicar (commit e76b0 y siguientes): Supr/Esc/Ctrl+D/Ctrl+G sobre la parte elegida (los atajos
+  de la app llegaban antes y Supr borraba la capa entera), ids al duplicar grupos, claves de partes al cortar, candado.
+- **Trampa nueva:** en un `Menu`/`Popup` de QML no se puede declarar `property int clip` («Cannot override FINAL
+  property»: la app no arranca y qmlcachegen no lo ve). Siempre abrir el portable en ventana tras tocar QML.
+- **Trampa nueva:** los atajos de la app (`Shortcut` con `Qt.ApplicationShortcut`) llegan antes que cualquier
+  `Keys.onPressed`; lo que deba ganarles va en `Main.qml` `dispatchAction` o con `Keys.onShortcutOverride`.
+
 
 ### 0.26.0 PUBLICADA (2026-10-30) — herramientas de After Effects — **detalle en `docs/plan-0.26.md`**
 - PR #45 (`flip/v0.26.0` → `main`), tag `v0.26.0`, release (run 41017667559); copia en `versiones\FlipStudio-0.26.0`

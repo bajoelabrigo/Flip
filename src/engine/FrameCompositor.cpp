@@ -1126,8 +1126,11 @@ void applyEffectPadding(GpuLayer &layer, double renderScale)
         for (const QString &key : def->paddingParams)
             room += qAbs(params.value(key).toDouble());
         const double side = qMax(layer.rect.width(), layer.rect.height()) / qMax(1e-6, renderScale);
+        // Never more than the layer's own length: a bend past 90° curls back inside that reach.
+        double percentRoom = 0.0;
         for (const QString &key : def->paddingPercentParams)
-            room += qAbs(params.value(key).toDouble()) / 100.0 * def->paddingPercentFactor * side;
+            percentRoom += qAbs(params.value(key).toDouble()) / 100.0 * def->paddingPercentFactor * side;
+        room += qMin(percentRoom, side);
         pad = qMax(pad, room);
     }
     if (pad <= 0.0)
@@ -1649,7 +1652,21 @@ GpuLayer buildGpuLayer(const drift::Project &project, const drift::Clip &clip,
     // Depth sorting needs a pose to sort by, and the dest-reading blend modes copy the canvas
     // aside before they draw, which a depth test cannot see through. Enforced here as well as in
     // the setter, so an imported or hand-edited project cannot ask for something undrawable.
-    layer.depthOcclude = clip.depthOcclude && clip.layer3d
+    // Two or more 3D layers on screen at once are sorted by depth on their own (0.29: the faces of a turning prism
+    // drew in track order, the back one over the front). Only opaque ones: the depth test drops pixels under half
+    // alpha, so a fading layer keeps track order rather than vanishing.
+    const auto active3d = [&project, timelineUs]() {
+        int n = 0;
+        for (const drift::Track &t : project.tracks()) {
+            if (t.hidden || t.isAdjustmentLane())
+                continue;
+            for (const drift::Clip &c : t.clips)
+                n += (c.layer3d && c.containsTime(timelineUs)) ? 1 : 0;
+        }
+        return n;
+    };
+    const bool autoDepth = clip.layer3d && opacity >= 0.999 && active3d() >= 2;
+    layer.depthOcclude = (clip.depthOcclude || autoDepth) && clip.layer3d
                          && clip.blendMode == drift::BlendMode::Normal;
     if (clip.type != drift::ClipType::Model3d) {
         layer.pose3d.rotationX = transformValue(clip.rotationX, clipTimeUs, 0.0);
@@ -1660,6 +1677,11 @@ GpuLayer buildGpuLayer(const drift::Project &project, const drift::Clip &clip,
             * renderScale;
         layer.pose3d.rotationX += turnX;
         layer.pose3d.rotationY += turnY;
+        // The tilt pivots on the anchor point, as the spin does (0.29).
+        if (!clip.anchorX.isEmpty() || !clip.anchorY.isEmpty())
+            layer.pose3d.pivot = drift::clipPivot(transformValue(clip.anchorX, clipTimeUs, 0.5),
+                                                  transformValue(clip.anchorY, clipTimeUs, 0.5),
+                                                  destRect.width(), destRect.height(), rotation);
     }
     layer.flipH = clip.flipH;
     layer.flipV = clip.flipV;
@@ -1941,13 +1963,17 @@ GpuScene buildGpuScene(const drift::Project &project, drift::TimeUs timelineUs, 
     // Who uses whom as a matte now. A pair that uses each other (A by B and B by A) is ignored on
     // both sides: each would hide as the other's matte and the two vanished.
     QHash<QString, QString> matteOf;
+    QSet<QString> keptShown; // mattes a host keeps on screen (matteKeepsSource)
     for (const drift::Track &track : tracks) {
         if (track.hidden)
             continue;
         for (const drift::Clip &clip : track.clips) {
             if (clip.matteMode != drift::Clip::TrackMatte::None && !clip.matteClipId.isEmpty()
-                && clip.matteClipId != clip.id && clip.containsTime(timelineUs) && !clip.disabled)
+                && clip.matteClipId != clip.id && clip.containsTime(timelineUs) && !clip.disabled) {
                 matteOf.insert(clip.id, clip.matteClipId);
+                if (clip.matteKeepsSource)
+                    keptShown.insert(clip.matteClipId);
+            }
         }
     }
     const auto matteIsMutual = [&matteOf](const drift::Clip &host) {
@@ -1955,7 +1981,7 @@ GpuScene buildGpuScene(const drift::Project &project, drift::TimeUs timelineUs, 
     };
     QSet<QString> matteSources;
     for (auto it = matteOf.cbegin(); it != matteOf.cend(); ++it) {
-        if (matteOf.value(it.value()) != it.key())
+        if (matteOf.value(it.value()) != it.key() && !keptShown.contains(it.value()))
             matteSources.insert(it.value());
     }
     // The matte clip as it would draw on the canvas; null when it is not on screen now.

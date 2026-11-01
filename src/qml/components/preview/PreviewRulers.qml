@@ -128,7 +128,10 @@ Item {
         acceptedButtons: Qt.LeftButton
         preventStealing: true
         onPressed: (mouse) => {
-            const hit = root.guideAt(mouse.x, mouse.y)
+            // A guide on the frame is grabbed only with the Selection tool (0.29), as After Effects: with the Text,
+            // Shape or Pen tool a click on a guide line went to the guide and drew nothing.
+            const selecting = !EditorState.preview || EditorState.preview.tool === "select"
+            const hit = selecting ? root.guideAt(mouse.x, mouse.y) : null
             const top = root.inTopRuler(mouse.x, mouse.y)
             const left = root.inLeftRuler(mouse.x, mouse.y)
             if (!hit && !top && !left) {

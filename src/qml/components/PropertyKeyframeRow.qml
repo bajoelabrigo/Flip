@@ -140,8 +140,11 @@ Column {
     // a binding depends on what it actually read, so a row with no keys never re-evaluates for
     // playback at all.
     function valueAtPlayhead() {
+        // No keys: the layer's own value, not the row's default (0.29: the diamond on Position Y keyed 0 and
+        // threw the layer to the top of the frame). Still independent of the playhead, so no re-evaluation.
         if (!liveSynced && (!keyframeList || keyframeList.length === 0))
-            return propDef.def
+            return EditorState.propertyValueAt(EditorState.selectedTrack, EditorState.selectedClip,
+                                               propDef.key, 0, propDef.def)
         return EditorState.propertyValueAt(EditorState.selectedTrack, EditorState.selectedClip,
                                            propDef.key, EditorState.inspectorPlayheadSeconds,
                                            propDef.def)
@@ -171,6 +174,48 @@ Column {
             EditorState.selectedTrack, EditorState.selectedClip, root.propDef.key,
             EditorState.playheadSeconds, v)
     }
+
+    // A typed number follows the slider's rule, as After Effects: a key at the playhead while the
+    // property is animated (or Auto keyframes is on); otherwise it is just the value. Only the
+    // diamond (commitValue) always makes a key — typing used to, and the stray key at the
+    // playhead then joined the animation added later.
+    function typeValue(v) {
+        if (isNaN(v))
+            return
+        EditorState.showKeyframeGraphProperty(root.propDef.key)
+        EditorState.beginPreviewDrag(qsTr("Edit %1").arg(root.propDef.label))
+        EditorState.previewSetClipKeyframe(
+            EditorState.selectedTrack, EditorState.selectedClip, root.propDef.key,
+            EditorState.playheadSeconds, v)
+        EditorState.commitPreviewDrag()
+    }
+
+    // After Effects' scrubby value (0.29): a drag on the number writes like the slider does, one undo step.
+    function beginScrub() {
+        root.editing = true
+        root.liveValue = root.currentValue
+        EditorState.showKeyframeGraphProperty(root.propDef.key)
+        EditorState.beginPreviewDrag(qsTr("Edit %1").arg(root.propDef.label))
+    }
+    function scrubTo(v) {
+        root.liveValue = v
+        if (!root.useSlider)
+            valueField.text = root.formatValue(v)
+        EditorState.previewSetClipKeyframe(EditorState.selectedTrack, EditorState.selectedClip, root.propDef.key,
+                                           EditorState.playheadSeconds, v)
+    }
+    function endScrub() {
+        EditorState.commitPreviewDrag()
+        root.editing = false
+        root.syncEditors()
+    }
+    // As After Effects: one unit a pixel (1 px, 1°), one per cent for a percentage. The slider's range made a
+    // position fly (≈40 px a pixel).
+    // Small ranges (opacity, trims: 0..1) move by 0.01; degrees, pixels and the rest by 1 whatever their decimals
+    // (0.1° a pixel made a tilt crawl).
+    readonly property real scrubStep: root.percent
+                                      || (root.useSlider && Math.abs(root.sliderTo - root.sliderFrom) <= 2)
+                                      || (!root.useSlider && (Number(root.propDef.decimals) || 0) >= 2) ? 0.01 : 1
 
     function setInterpolation(mode) {
         EditorState.showKeyframeGraphProperty(root.propDef.key)
@@ -436,11 +481,25 @@ Column {
                 verticalAlignment: TextInput.AlignVCenter
                 text: root.formatValue(root.currentValue)
                 rightPadding: root.unit.length > 0 || root.percent ? 22 : 8
+
+                ScrubArea {
+                    anchors.fill: parent
+                    visible: !valueField.activeFocus && valueField.enabled
+                    value: root.currentValue
+                    stepPerPixel: root.scrubStep
+                    onStarted: root.beginScrub()
+                    onScrubbed: v => root.scrubTo(v)
+                    onFinished: root.endScrub()
+                    onClickedWithoutDrag: {
+                        valueField.forceActiveFocus()
+                        valueField.selectAll()
+                    }
+                }
                 onEditingFinished: {
                     const v = root.parseInput(text)
                     root.editing = false
                     if (!isNaN(v))
-                        root.commitValue(v)
+                        root.typeValue(v)
                     text = root.formatValue(root.currentValue)
                 }
                 onActiveFocusChanged: {
@@ -550,18 +609,23 @@ Column {
                     font.pixelSize: Theme.fontSizeSm
                 }
 
-                MouseArea {
+                ScrubArea {
                     id: readoutArea
                     anchors.fill: parent
-                    hoverEnabled: true
-                    cursorShape: Qt.PointingHandCursor
-                    onClicked: valuePopup.openEditor()
+                    value: root.currentValue
+                    stepPerPixel: root.scrubStep
+                    from: Math.min(root.sliderFrom, root.sliderTo)
+                    to: Math.max(root.sliderFrom, root.sliderTo)
+                    onStarted: root.beginScrub()
+                    onScrubbed: v => root.scrubTo(v)
+                    onFinished: root.endScrub()
+                    onClickedWithoutDrag: valuePopup.openEditor()
                     onWheel: (wheel) => { wheel.accepted = false }
                 }
 
                 ThemedToolTip {
-                    text: qsTr("Click to type an exact %1").arg(root.propDef.label.toLowerCase())
-                    visible: readoutArea.containsMouse && !valuePopup.opened
+                    text: qsTr("Drag to change, click to type")
+                    visible: readoutArea.containsMouse && !readoutArea.scrubbing && !valuePopup.opened
                 }
 
                 Popup {
@@ -575,9 +639,11 @@ Column {
                     padding: Theme.spacingLg
                     modal: false
                     dim: false
-                    closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
+                    // A press on the readout itself does not close it (0.29): a double-click, the usual way to
+                    // type a value, opened it and shut it again at once.
+                    closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
 
-                    // Escape and clicking away discard; only Enter writes a key.
+                    // Escape and clicking away discard; only Enter writes the value.
                     function openEditor() {
                         editField.text = root.formatValue(root.currentValue)
                         open()
@@ -588,7 +654,7 @@ Column {
                     function apply() {
                         const v = root.parseInput(editField.text)
                         if (!isNaN(v))
-                            root.commitValue(Math.max(root.inputFrom,
+                            root.typeValue(Math.max(root.inputFrom,
                                                       Math.min(root.inputTo, v)))
                         close()
                     }

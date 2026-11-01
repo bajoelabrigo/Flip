@@ -23,6 +23,80 @@ namespace drift::skia {
 
 namespace {
 
+// Arrowheads (0.29, as Illustrator and CapCut): a head on the start and/or end of each open contour of `path`
+// (already trimmed, so the head rides the write-on), pointing along the path there and drawn with `base`, the
+// stroke's paint. Returns the line to stroke, shortened under a filled head so its cap does not poke through the
+// tip. Closed contours have no ends and pass through.
+SkPath drawArrowHeads(SkCanvas &canvas, const TextShadingLayer &layer, const SkPath &path, double width,
+                      const SkPaint &base)
+{
+    const double length = qMax(1.0, width * layer.arrowSize); // the head's length
+    SkPathBuilder line;
+    SkPathBuilder filled;
+    SkPathBuilder open;
+    std::vector<SkPoint> dots;
+    SkPathMeasure measure(path, false);
+    do {
+        const double total = measure.getLength();
+        if (total <= 0.0)
+            continue;
+        if (measure.isClosed()) {
+            measure.getSegment(0.0f, float(total), &line, true);
+            continue;
+        }
+        // One head at distance `at`; returns how much of the line it covers.
+        const auto head = [&](double at, int style, bool atEnd) -> double {
+            SkPoint tip;
+            SkVector tan;
+            if (style == 0 || !measure.getPosTan(float(at), &tip, &tan))
+                return 0.0;
+            const SkVector d = atEnd ? tan : SkVector{-tan.x(), -tan.y()}; // pointing out of the line
+            const SkVector n{-d.y(), d.x()};
+            const double reach = qMin(length, total * 0.5);
+            const double halfWidth = reach * 0.45 + width * 0.5;
+            const SkPoint back{float(tip.x() - d.x() * reach), float(tip.y() - d.y() * reach)};
+            const SkPoint left{float(back.x() + n.x() * halfWidth), float(back.y() + n.y() * halfWidth)};
+            const SkPoint right{float(back.x() - n.x() * halfWidth), float(back.y() - n.y() * halfWidth)};
+            if (style == 1) {
+                filled.moveTo(tip);
+                filled.lineTo(left);
+                filled.lineTo(right);
+                filled.close();
+                return reach * 0.7;
+            }
+            if (style == 2) {
+                open.moveTo(left);
+                open.lineTo(tip);
+                open.lineTo(right);
+                return width * 0.5;
+            }
+            dots.push_back(tip);
+            return 0.0;
+        };
+        const double from = qMin(total * 0.5, head(0.0, layer.arrowStart, false));
+        const double to = qMax(from, total - head(total, layer.arrowEnd, true));
+        if (to > from)
+            measure.getSegment(float(from), float(to), &line, true);
+    } while (measure.nextContour());
+
+    SkPaint fill(base);
+    fill.setStyle(SkPaint::kFill_Style);
+    fill.setPathEffect(nullptr);
+    canvas.drawPath(filled.detach(), fill);
+    for (const SkPoint &p : dots)
+        canvas.drawCircle(p, float(qMax(width, length * 0.35)), fill);
+    SkPaint chevron(base);
+    chevron.setStyle(SkPaint::kStroke_Style);
+    chevron.setPathEffect(nullptr);
+    chevron.setStrokeWidth(float(width));
+    chevron.setStrokeCap(SkPaint::kRound_Cap);
+    chevron.setStrokeJoin(SkPaint::kRound_Join);
+    canvas.drawPath(open.detach(), chevron);
+    SkPath result = line.detach();
+    result.setFillType(path.getFillType());
+    return result;
+}
+
 // The rect family rounds its own corners in shapePath(); every other kind gets the same radius
 // as a corner path effect over its polygon. An ellipse has no corners to round.
 bool nativeCornerKind(ShapeKind kind)
@@ -581,6 +655,8 @@ private:
             paint.setStrokeMiter(float(layer.miterLimit));
             paint.setPathEffect(strokePathEffectFor(layer, width, m_scale));
             SkPath stroked = strokedPathFor(layer, m_path);
+            if (layer.arrowStart != 0 || layer.arrowEnd != 0)
+                stroked = drawArrowHeads(canvas, layer, stroked, width, paint);
             if (strokeHasProfile(layer)) {
                 // Taper / Wave: the outline filled; inside or outside keeps one side of a twice-as-wide band.
                 // The dash pattern and Sketch are baked into the path first, or the profiled band drew solid.
@@ -676,6 +752,9 @@ double shapeBleedFor(const ShapeStyle &style)
         switch (layer.kind) {
         case TextLayerKind::Stroke:
             reach += layer.width * strokeReachFactor(layer.strokeAlign);
+            // An arrowhead reaches out sideways about half its length, and a dot as far.
+            if (layer.arrowStart != 0 || layer.arrowEnd != 0)
+                reach = qMax(reach, layer.width * (0.5 + 0.45 * layer.arrowSize) + layer.width);
             break;
         case TextLayerKind::Extrude:
             reach += layer.width;

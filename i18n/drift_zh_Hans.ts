@@ -2760,6 +2760,26 @@
         <translation>贝塞尔</translation>
     </message>
     <message>
+        <source>Animation</source>
+        <translation>动画</translation>
+    </message>
+    <message>
+        <source>Stagger</source>
+        <translation>错开</translation>
+    </message>
+    <message>
+        <source> fr</source>
+        <translation> 帧</translation>
+    </message>
+    <message>
+        <source>Stagger the picked layers</source>
+        <translation>错开所选图层</translation>
+    </message>
+    <message>
+        <source>Each one starts that many frames after the one picked before it; they all end together</source>
+        <translation>每个图层比之前选择的图层晚这么多帧开始；全部同时结束</translation>
+    </message>
+    <message>
         <source>Not available</source>
         <translation>不可用</translation>
     </message>
@@ -3477,6 +3497,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Background</source>
+        <translation>背景</translation>
+    </message>
+    <message>
         <source>Solid settings</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3507,6 +3531,22 @@
     <message>
         <source>Keyframes stretched</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No keys to curve: pick keyframes on the timeline, or select a layer that has some</source>
+        <translation>没有可应用曲线的关键帧：在时间线上选择关键帧，或选择带关键帧的图层</translation>
+    </message>
+    <message numerus="yes">
+        <source>Curve applied to %n key(s)</source>
+        <translation>
+            <numerusform>已对 %n 个关键帧应用曲线</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n property(ies)</source>
+        <translation>
+            <numerusform>%n 个属性</numerusform>
+        </translation>
     </message>
     <message>
         <source>Easy ease</source>
@@ -4203,6 +4243,10 @@
     <message>
         <source>Text</source>
         <translation>文本</translation>
+    </message>
+    <message>
+        <source>“%1” added to “%2” · to draw a separate layer, press Esc first; to split them, right-click › Separate into layers</source>
+        <translation>“%1”已加入“%2” · 要画在单独的图层上，请先按 Esc；要分开它们，右键 › 分离为图层</translation>
     </message>
     <message>
         <source>Add mask</source>
@@ -5183,6 +5227,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Pick two or more keys of a property to reverse them</source>
+        <translation>请选择某个属性的两个或更多关键帧以将其反转</translation>
+    </message>
+    <message>
         <source>Point light %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5224,10 +5272,6 @@
     </message>
     <message>
         <source>Path</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>“%1” added to “%2” · to draw a separate layer, press Esc first</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5383,6 +5427,132 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Select a text to split into letters</source>
+        <translation>选择要拆分为字母的文字</translation>
+    </message>
+    <message>
+        <source>This text has a single letter</source>
+        <translation>此文字只有一个字</translation>
+    </message>
+    <message>
+        <source>Split into letters</source>
+        <translation>拆分为字母</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n letter layer(s)</source>
+        <translation>
+            <numerusform>%n 个字母图层</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Pick three layers or more to space them evenly</source>
+        <translation>请选择三个或更多图层以均匀分布</translation>
+    </message>
+    <message>
+        <source>Align</source>
+        <translation>对齐</translation>
+    </message>
+    <message>
+        <source>Select two layers or more (Ctrl+click, in the order they should come in)</source>
+        <translation>请选择两个或更多图层（Ctrl+点击，按入场顺序）</translation>
+    </message>
+    <message>
+        <source>Stagger layers</source>
+        <translation>错开图层</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n layer(s) staggered</source>
+        <translation>
+            <numerusform>已错开 %n 个图层</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Show inside the layer below</source>
+        <translation>在下方图层内显示</translation>
+    </message>
+    <message>
+        <source>Shown whole again</source>
+        <translation>已重新完整显示</translation>
+    </message>
+    <message>
+        <source>There is no layer under this one to show it inside</source>
+        <translation>此图层下方没有可在其中显示的图层</translation>
+    </message>
+    <message>
+        <source>Shown only inside “%1”</source>
+        <translation>仅在“%1”内显示</translation>
+    </message>
+    <message>
+        <source>Your name</source>
+        <translation>你的名字</translation>
+    </message>
+    <message>
+        <source>Lower third</source>
+        <translation>字幕条</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>标签</translation>
+    </message>
+    <message>
+        <source>Role bar</source>
+        <translation>职务条</translation>
+    </message>
+    <message>
+        <source>Line</source>
+        <translation>线条</translation>
+    </message>
+    <message>
+        <source>Lower third added: every piece is a layer you can edit</source>
+        <translation>已添加字幕条：每个部分都是可编辑的图层</translation>
+    </message>
+    <message>
+        <source>Select the label (a shape) for the two-colour wipe</source>
+        <translation>请选择用于双色擦除的标签（形状）</translation>
+    </message>
+    <message>
+        <source>Two-colour wipe</source>
+        <translation>双色擦除</translation>
+    </message>
+    <message>
+        <source>%1 accent</source>
+        <translation>%1 强调色</translation>
+    </message>
+    <message>
+        <source>%1 accent %2</source>
+        <translation>%1 强调色 %2</translation>
+    </message>
+    <message>
+        <source>Select a text to put a label under it</source>
+        <translation>请选择一个文本以在其下方添加标签</translation>
+    </message>
+    <message>
+        <source>Label · %1</source>
+        <translation>标签 · %1</translation>
+    </message>
+    <message>
+        <source>Label for the text</source>
+        <translation>文本标签</translation>
+    </message>
+    <message>
+        <source>Fit to text</source>
+        <translation>适应文本</translation>
+    </message>
+    <message>
+        <source>Scale</source>
+        <translation>缩放</translation>
+    </message>
+    <message>
+        <source>No keyframes there</source>
+        <translation>那里没有关键帧</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n keyframe(s) removed</source>
+        <translation>
+            <numerusform>已删除 %n 个关键帧</numerusform>
+        </translation>
+    </message>
+    <message>
         <source>Retouch</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5464,7 +5634,7 @@
     </message>
     <message>
         <source>Stroke width</source>
-        <translation type="unfinished"></translation>
+        <translation>描边宽度</translation>
     </message>
     <message>
         <source>Scale X</source>
@@ -5593,6 +5763,26 @@
     <message>
         <source>Bookmark updated</source>
         <translation>已更新书签</translation>
+    </message>
+    <message>
+        <source>There is no video after this clip to fit it to</source>
+        <translation>此片段之后没有可适配的视频</translation>
+    </message>
+    <message>
+        <source>The clip already ends with the video</source>
+        <translation>片段已与视频同时结束</translation>
+    </message>
+    <message>
+        <source>Fit to video length</source>
+        <translation>适配视频时长</translation>
+    </message>
+    <message>
+        <source>The file is shorter than the video: the clip ends where the file does</source>
+        <translation>文件比视频短：片段在文件结束处结束</translation>
+    </message>
+    <message>
+        <source>The clip now ends with the video</source>
+        <translation>片段现已与视频同时结束</translation>
     </message>
     <message>
         <source>No video at the current time</source>
@@ -5799,6 +5989,10 @@
     <message>
         <source>%1 band %2</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 splash</source>
+        <translation>%1 飞溅</translation>
     </message>
     <message>
         <source>drops</source>
@@ -6774,6 +6968,10 @@
     <message>
         <source>Tools</source>
         <translation>工具</translation>
+    </message>
+    <message>
+        <source>Lower third…</source>
+        <translation>字幕条…</translation>
     </message>
     <message>
         <source>Split</source>
@@ -7890,6 +8088,10 @@
     <message>
         <source>Ring</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bend the picked layers together (one joint)</source>
+        <translation>将所选图层一起弯曲（一个关节）</translation>
     </message>
     <message>
         <source>Frames</source>
@@ -10694,6 +10896,30 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Axis offset (%)</source>
+        <translation>轴偏移（%）</translation>
+    </message>
+    <message>
+        <source>Extra room (px)</source>
+        <translation>额外边距（px）</translation>
+    </message>
+    <message>
+        <source>Linear Wipe</source>
+        <translation>线性擦除</translation>
+    </message>
+    <message>
+        <source>Completion (%)</source>
+        <translation>完成度（%）</translation>
+    </message>
+    <message>
+        <source>Angle (°)</source>
+        <translation>角度（°）</translation>
+    </message>
+    <message>
+        <source>Feather (px)</source>
+        <translation>羽化（px）</translation>
+    </message>
+    <message>
         <source>Liquid</source>
         <translation type="unfinished"></translation>
     </message>
@@ -12040,6 +12266,26 @@ NEXT TIME</source>
     <message>
         <source>Blown away like sand</source>
         <translation>如沙飘散</translation>
+    </message>
+    <message>
+        <source>Wipe down</source>
+        <translation>向下擦除</translation>
+    </message>
+    <message>
+        <source>Wipe from left</source>
+        <translation>从左擦除</translation>
+    </message>
+    <message>
+        <source>Wipe from right</source>
+        <translation>从右擦除</translation>
+    </message>
+    <message>
+        <source>Slanted wipe</source>
+        <translation>斜向擦除</translation>
+    </message>
+    <message>
+        <source>Wipe up</source>
+        <translation>向上擦除</translation>
     </message>
     <message>
         <source>Attention</source>
@@ -15509,6 +15755,93 @@ NEXT TIME</source>
     </message>
 </context>
 <context>
+    <name>FillOptionsDialog</name>
+    <message>
+        <source>Normal</source>
+        <translation>正常</translation>
+    </message>
+    <message>
+        <source>Multiply</source>
+        <translation>正片叠底</translation>
+    </message>
+    <message>
+        <source>Screen</source>
+        <translation>滤色</translation>
+    </message>
+    <message>
+        <source>Overlay</source>
+        <translation>叠加</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>相加</translation>
+    </message>
+    <message>
+        <source>Darken</source>
+        <translation>变暗</translation>
+    </message>
+    <message>
+        <source>Lighten</source>
+        <translation>变亮</translation>
+    </message>
+    <message>
+        <source>Fill Options</source>
+        <translation>填充选项</translation>
+    </message>
+    <message>
+        <source>Stroke Options</source>
+        <translation>描边选项</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>无</translation>
+    </message>
+    <message>
+        <source>Solid Color</source>
+        <translation>纯色</translation>
+    </message>
+    <message>
+        <source>Linear Gradient</source>
+        <translation>线性渐变</translation>
+    </message>
+    <message>
+        <source>Radial Gradient</source>
+        <translation>径向渐变</translation>
+    </message>
+    <message>
+        <source>Sweep Gradient</source>
+        <translation>扫描渐变</translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation>颜色</translation>
+    </message>
+    <message>
+        <source>Angle</source>
+        <translation>角度</translation>
+    </message>
+    <message>
+        <source>Drag its two handles on the video to place it, as in After Effects.</source>
+        <translation>像在 After Effects 中一样，拖动视频上的两个手柄来放置它。</translation>
+    </message>
+    <message>
+        <source>Blend mode</source>
+        <translation>混合模式</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation>不透明度</translation>
+    </message>
+    <message>
+        <source>Stroke width</source>
+        <translation>描边宽度</translation>
+    </message>
+    <message>
+        <source>Preview</source>
+        <translation>预览</translation>
+    </message>
+</context>
+<context>
     <name>FiltersTab</name>
     <message>
         <source>Trending</source>
@@ -15937,6 +16270,29 @@ NEXT TIME</source>
     <message>
         <source>File</source>
         <translation>文件</translation>
+    </message>
+</context>
+<context>
+    <name>GradientHandlesOverlay</name>
+    <message>
+        <source>Move gradient</source>
+        <translation>移动渐变</translation>
+    </message>
+    <message>
+        <source>Gradient centre: drag to move it</source>
+        <translation>渐变中心：拖动以移动</translation>
+    </message>
+    <message>
+        <source>Gradient start: drag to move it</source>
+        <translation>渐变起点：拖动以移动</translation>
+    </message>
+    <message>
+        <source>Gradient radius: drag to resize it</source>
+        <translation>渐变半径：拖动以调整大小</translation>
+    </message>
+    <message>
+        <source>Gradient end: drag to move it</source>
+        <translation>渐变终点：拖动以移动</translation>
     </message>
 </context>
 <context>
@@ -16763,6 +17119,133 @@ NEXT TIME</source>
     <message>
         <source>720p</source>
         <translation>720p</translation>
+    </message>
+</context>
+<context>
+    <name>LowerThirdDialog</name>
+    <message>
+        <source>Lower third</source>
+        <translation>字幕条</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>添加</translation>
+    </message>
+    <message>
+        <source>Left</source>
+        <translation>左对齐</translation>
+    </message>
+    <message>
+        <source>Centre</source>
+        <translation>居中</translation>
+    </message>
+    <message>
+        <source>Right</source>
+        <translation>右对齐</translation>
+    </message>
+    <message>
+        <source>Automatic</source>
+        <translation>自动</translation>
+    </message>
+    <message>
+        <source>Wipe</source>
+        <translation>擦除</translation>
+    </message>
+    <message>
+        <source>Slide</source>
+        <translation>滑动</translation>
+    </message>
+    <message>
+        <source>Pop</source>
+        <translation>弹出</translation>
+    </message>
+    <message>
+        <source>Zoom</source>
+        <translation>缩放</translation>
+    </message>
+    <message>
+        <source>Fade</source>
+        <translation>淡化</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>无</translation>
+    </message>
+    <message>
+        <source>Clean</source>
+        <translation>简洁</translation>
+    </message>
+    <message>
+        <source>With a line</source>
+        <translation>带线条</translation>
+    </message>
+    <message>
+        <source>Slanted</source>
+        <translation>倾斜</translation>
+    </message>
+    <message>
+        <source>Two colours</source>
+        <translation>双色</translation>
+    </message>
+    <message>
+        <source>Role on a bar</source>
+        <translation>职务在条上</translation>
+    </message>
+    <message>
+        <source>Style</source>
+        <translation>样式</translation>
+    </message>
+    <message>
+        <source>Second accent</source>
+        <translation>第二强调色</translation>
+    </message>
+    <message>
+        <source>Third accent</source>
+        <translation>第三强调色</translation>
+    </message>
+    <message>
+        <source>Entrance</source>
+        <translation>入场</translation>
+    </message>
+    <message>
+        <source>Exit</source>
+        <translation>出场</translation>
+    </message>
+    <message>
+        <source>Alignment</source>
+        <translation>对齐</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>姓名</translation>
+    </message>
+    <message>
+        <source>Your name</source>
+        <translation>你的名字</translation>
+    </message>
+    <message>
+        <source>Role (optional)</source>
+        <translation>职务（可选）</translation>
+    </message>
+    <message>
+        <source>Presenter, guest, city…</source>
+        <translation>主持人、嘉宾、城市…</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>标签</translation>
+    </message>
+    <message>
+        <source>Accent</source>
+        <translation>强调色</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation>文本</translation>
+    </message>
+    <message>
+        <source>On screen</source>
+        <translation>屏幕显示</translation>
     </message>
 </context>
 <context>
@@ -18678,7 +19161,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>颜色</translation>
     </message>
     <message>
         <source>Intensity</source>
@@ -18742,7 +19225,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>不透明度</translation>
     </message>
     <message>
         <source>Offered as a control of the composition: click to take it out</source>
@@ -18790,7 +19273,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>无</translation>
     </message>
     <message>
         <source>The layer this one follows</source>
@@ -18975,6 +19458,14 @@ NEXT TIME</source>
     <message>
         <source>Copies the picked keys to the playhead</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reverse</source>
+        <translation>反转</translation>
+    </message>
+    <message>
+        <source>Plays the picked keys backwards in their own span (a cloned entrance becomes the exit)</source>
+        <translation>在所选关键帧自身的区间内倒放（克隆的入场即成为出场）</translation>
     </message>
     <message>
         <source>Bounce: %1</source>
@@ -20161,6 +20652,18 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Line</source>
+        <translation>直线</translation>
+    </message>
+    <message>
+        <source>Fill Options: none, solid, linear or radial gradient, blend mode and opacity</source>
+        <translation>填充选项：无、纯色、线性或径向渐变、混合模式和不透明度</translation>
+    </message>
+    <message>
+        <source>Stroke Options: none, solid, linear or radial gradient, blend mode and opacity</source>
+        <translation>描边选项：无、纯色、线性或径向渐变、混合模式和不透明度</translation>
+    </message>
+    <message>
         <source>Selection</source>
         <translation type="unfinished"></translation>
     </message>
@@ -20187,6 +20690,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Shape: drag on the preview (Shift for a square or circle)</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ellipse: drag on the preview (Shift for a circle)</source>
+        <translation>椭圆：在预览上拖动（按 Shift 为正圆）</translation>
+    </message>
+    <message>
+        <source>Line: drag on the preview (Shift for 0°, 45° or 90°); it takes the stroke colour and width</source>
+        <translation>直线：在预览上拖动（按 Shift 为 0°、45° 或 90°）；使用描边的颜色和粗细</translation>
     </message>
     <message>
         <source>Pen: click for corners, drag for curves</source>
@@ -20907,6 +21418,38 @@ If playback stutters, try another.</source>
         <translation>点击时间线上的片段以编辑其属性</translation>
     </message>
     <message>
+        <source>Project</source>
+        <translation>项目</translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation>颜色</translation>
+    </message>
+    <message>
+        <source>Transparent (alpha)</source>
+        <translation>透明（Alpha）</translation>
+    </message>
+    <message>
+        <source>No background: export it as ProRes 4444 or VP9 with alpha (WebM) to keep the transparency</source>
+        <translation>无背景：以 ProRes 4444 或带 Alpha 的 VP9（WebM）导出即可保留透明</translation>
+    </message>
+    <message>
+        <source>Background colour</source>
+        <translation>背景颜色</translation>
+    </message>
+    <message>
+        <source>Background colour of the project: what shows where no layer covers the frame</source>
+        <translation>项目背景颜色：没有图层覆盖画面时看到的颜色</translation>
+    </message>
+    <message>
+        <source>Solid the size of the frame</source>
+        <translation>画面大小的纯色</translation>
+    </message>
+    <message>
+        <source>A layer of one colour over the whole frame, for the length of the work (the background colour above)</source>
+        <translation>覆盖整个画面、贯穿整个作品的单色图层（使用上方的背景色）</translation>
+    </message>
+    <message>
         <source>This clip uses Pro tools.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -21089,12 +21632,12 @@ If playback stutters, try another.</source>
         <translation>下一个关键帧</translation>
     </message>
     <message>
-        <source>Edit %1</source>
-        <translation>编辑%1</translation>
+        <source>Drag to change, click to type</source>
+        <translation>拖动以更改，单击以输入</translation>
     </message>
     <message>
-        <source>Click to type an exact %1</source>
-        <translation>点击输入精确的%1</translation>
+        <source>Edit %1</source>
+        <translation>编辑%1</translation>
     </message>
 </context>
 <context>
@@ -22209,7 +22752,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Drag to change, click to type</source>
-        <translation type="unfinished"></translation>
+        <translation>拖动以更改，单击以输入</translation>
     </message>
 </context>
 <context>
@@ -23165,6 +23708,38 @@ If playback stutters, try another.</source>
         <translation>虚线偏移</translation>
     </message>
     <message>
+        <source>Arrow at start</source>
+        <translation>起点箭头</translation>
+    </message>
+    <message>
+        <source>Arrow at end</source>
+        <translation>终点箭头</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>无</translation>
+    </message>
+    <message>
+        <source>Triangle</source>
+        <translation>三角形</translation>
+    </message>
+    <message>
+        <source>Open</source>
+        <translation>开放</translation>
+    </message>
+    <message>
+        <source>Dot</source>
+        <translation>圆点</translation>
+    </message>
+    <message>
+        <source>A head on this end of an open path, such as a line drawn with the pen</source>
+        <translation>在开放路径（如用钢笔画的线）的这一端加上箭头</translation>
+    </message>
+    <message>
+        <source>Arrow size</source>
+        <translation>箭头大小</translation>
+    </message>
+    <message>
         <source>Trim start</source>
         <translation>修剪起点</translation>
     </message>
@@ -23325,7 +23900,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>相加</translation>
     </message>
     <message>
         <source>Add a shape or a group to this layer (After Effects: Add)</source>
@@ -23439,6 +24014,26 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Reaction timing</source>
+        <translation>反应时机</translation>
+    </message>
+    <message>
+        <source> fr</source>
+        <translation> 帧</translation>
+    </message>
+    <message>
+        <source>Reaction strength</source>
+        <translation>反应强度</translation>
+    </message>
+    <message>
+        <source>Last layer visible from the start</source>
+        <translation>最后一个图层从一开始就可见</translation>
+    </message>
+    <message>
+        <source>Liquid splash at the hit</source>
+        <translation>撞击时液体飞溅</translation>
+    </message>
+    <message>
         <source>Morph it</source>
         <translation type="unfinished"></translation>
     </message>
@@ -23519,8 +24114,12 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Draw the line behind the stream</source>
+        <translation>在流体后面画出线条</translation>
+    </message>
+    <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>颜色</translation>
     </message>
     <message>
         <source>Generate liquid trail</source>
@@ -23599,35 +24198,35 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>不透明度</translation>
     </message>
     <message>
         <source>Blend mode</source>
-        <translation type="unfinished"></translation>
+        <translation>混合模式</translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>正常</translation>
     </message>
     <message>
         <source>Multiply</source>
-        <translation type="unfinished"></translation>
+        <translation>正片叠底</translation>
     </message>
     <message>
         <source>Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>滤色</translation>
     </message>
     <message>
         <source>Overlay</source>
-        <translation type="unfinished"></translation>
+        <translation>叠加</translation>
     </message>
     <message>
         <source>Darken</source>
-        <translation type="unfinished"></translation>
+        <translation>变暗</translation>
     </message>
     <message>
         <source>Lighten</source>
-        <translation type="unfinished"></translation>
+        <translation>变亮</translation>
     </message>
     <message>
         <source>Wiggle</source>
@@ -23694,12 +24293,76 @@ If playback stutters, try another.</source>
         <translation>没有图层。添加填充即可开始。</translation>
     </message>
     <message>
+        <source>Fit to a text</source>
+        <translation>适应某个文本</translation>
+    </message>
+    <message>
+        <source>The shape takes the text&apos;s size plus the margin, and grows when the words change: a label for a name.</source>
+        <translation>形状采用文本大小加上边距，文字改变时会变大：用于名字的标签。</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>无</translation>
+    </message>
+    <message>
+        <source>Margin across</source>
+        <translation>左右边距</translation>
+    </message>
+    <message>
+        <source>up and down</source>
+        <translation>上下</translation>
+    </message>
+    <message>
+        <source>Two-colour wipe</source>
+        <translation>双色擦除</translation>
+    </message>
+    <message>
+        <source>From the playhead the accent colour sweeps in first and this shape follows it, ending on top: the entrance of a lower third.</source>
+        <translation>从播放头开始，强调色先擦入，此形状随后跟上并停留在上方：字幕条的入场。</translation>
+    </message>
+    <message>
+        <source>Accent</source>
+        <translation>强调色</translation>
+    </message>
+    <message>
+        <source> fr</source>
+        <translation> 帧</translation>
+    </message>
+    <message>
+        <source>Second colour</source>
+        <translation>第二种颜色</translation>
+    </message>
+    <message>
+        <source>Third colour</source>
+        <translation>第三种颜色</translation>
+    </message>
+    <message>
+        <source>Exit too</source>
+        <translation>同时退出</translation>
+    </message>
+    <message>
+        <source>At the end of the layer the colours sweep out the way they came, the shape first</source>
+        <translation>图层结束时，颜色沿进入的方向扫出，形状先退出</translation>
+    </message>
+    <message>
+        <source>Slanted edge</source>
+        <translation>倾斜边</translation>
+    </message>
+    <message>
+        <source>Apply two-colour wipe</source>
+        <translation>应用双色擦除</translation>
+    </message>
+    <message>
         <source>Geometry</source>
         <translation>几何</translation>
     </message>
     <message>
         <source>Corner radius</source>
         <translation>圆角半径</translation>
+    </message>
+    <message>
+        <source>Slant</source>
+        <translation>倾斜度</translation>
     </message>
     <message>
         <source>Points</source>
@@ -23903,7 +24566,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>相加</translation>
     </message>
     <message>
         <source>Subtract</source>
@@ -24098,6 +24761,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Corner radius</source>
         <translation>圆角半径</translation>
+    </message>
+    <message>
+        <source>Slant</source>
+        <translation>倾斜度</translation>
     </message>
     <message>
         <source>Inner radius</source>
@@ -24439,7 +25106,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>相加</translation>
     </message>
     <message>
         <source>Apply</source>
@@ -24467,7 +25134,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>颜色</translation>
     </message>
 </context>
 <context>
@@ -24892,14 +25559,6 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Oomph</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>How far it travels, jumps and turns</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Timing</source>
         <translation type="unfinished"></translation>
     </message>
@@ -24928,6 +25587,14 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Apply letter by letter</source>
+        <translation>逐字应用</translation>
+    </message>
+    <message>
+        <source>Splits the text into one layer per letter and applies it to each, the stagger apart</source>
+        <translation>把文字拆成每个字一个图层，并按错开间隔分别应用</translation>
+    </message>
+    <message>
         <source>Applies to every selected layer. The keys stay editable on the timeline.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -24938,6 +25605,14 @@ If playback stutters, try another.</source>
     <message>
         <source>How hard it squashes, stretches and bends</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Travel</source>
+        <translation>行程</translation>
+    </message>
+    <message>
+        <source>Distance: how far it travels, jumps and turns (200 % jumps twice as far)</source>
+        <translation>距离：移动、跳跃和旋转的幅度（200 % 跳两倍远）</translation>
     </message>
     <message>
         <source>Speed</source>
@@ -27148,10 +27823,6 @@ If playback stutters, try another.</source>
         <translation>斜体</translation>
     </message>
     <message>
-        <source>%1 has no italic face</source>
-        <translation>%1 没有斜体字形</translation>
-    </message>
-    <message>
         <source>Adjust text look</source>
         <translation>调整文字外观</translation>
     </message>
@@ -27377,7 +28048,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>正常</translation>
     </message>
     <message>
         <source>On the line</source>
@@ -27422,6 +28093,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Strikethrough</source>
         <translation>删除线</translation>
+    </message>
+    <message>
+        <source>Italic (slanted: %1 has no italic face)</source>
+        <translation>斜体（倾斜：%1 没有斜体）</translation>
     </message>
     <message>
         <source>Case</source>
@@ -29165,6 +29840,10 @@ If playback stutters, try another.</source>
 <context>
     <name>ThemedNumberField</name>
     <message>
+        <source>Change value</source>
+        <translation>更改数值</translation>
+    </message>
+    <message>
         <source>Allowed range: %1 – %2%3</source>
         <translation>允许范围：%1 – %2%3</translation>
     </message>
@@ -29292,6 +29971,46 @@ If playback stutters, try another.</source>
         <translation>裁剪…</translation>
     </message>
     <message>
+        <source>Fit to video length</source>
+        <translation>适配视频时长</translation>
+    </message>
+    <message>
+        <source>Make a label for this text</source>
+        <translation>为此文本制作标签</translation>
+    </message>
+    <message>
+        <source>Show whole again</source>
+        <translation>重新完整显示</translation>
+    </message>
+    <message>
+        <source>Show only inside the layer below</source>
+        <translation>仅在下方图层内显示</translation>
+    </message>
+    <message>
+        <source>Split into letters</source>
+        <translation>拆分为字母</translation>
+    </message>
+    <message>
+        <source>Delete keyframes</source>
+        <translation>删除关键帧</translation>
+    </message>
+    <message>
+        <source>After the playhead (all rows)</source>
+        <translation>播放头之后（所有行）</translation>
+    </message>
+    <message>
+        <source>Before the playhead (all rows)</source>
+        <translation>播放头之前（所有行）</translation>
+    </message>
+    <message>
+        <source>All of this clip</source>
+        <translation>此片段的全部</translation>
+    </message>
+    <message>
+        <source>Freeze frame at current time</source>
+        <translation>在当前时间定格画面</translation>
+    </message>
+    <message>
         <source>Enhance video…</source>
         <translation>视频增强…</translation>
     </message>
@@ -29373,7 +30092,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>无</translation>
     </message>
     <message>
         <source>Use as mask stuck to</source>
@@ -30201,7 +30920,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>相加</translation>
     </message>
     <message>
         <source>Add a shape or a group to this layer</source>
@@ -30229,31 +30948,31 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>正常</translation>
     </message>
     <message>
         <source>Multiply</source>
-        <translation type="unfinished"></translation>
+        <translation>正片叠底</translation>
     </message>
     <message>
         <source>Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>滤色</translation>
     </message>
     <message>
         <source>Overlay</source>
-        <translation type="unfinished"></translation>
+        <translation>叠加</translation>
     </message>
     <message>
         <source>Darken</source>
-        <translation type="unfinished"></translation>
+        <translation>变暗</translation>
     </message>
     <message>
         <source>Lighten</source>
-        <translation type="unfinished"></translation>
+        <translation>变亮</translation>
     </message>
     <message>
         <source>Blend mode</source>
-        <translation type="unfinished"></translation>
+        <translation>混合模式</translation>
     </message>
     <message>
         <source>Duplicate</source>
@@ -30297,7 +31016,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>颜色</translation>
     </message>
     <message>
         <source>Constrain proportions: on</source>
@@ -30488,7 +31207,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>不透明度</translation>
     </message>
     <message>
         <source>Volume</source>
@@ -30740,6 +31459,50 @@ If playback stutters, try another.</source>
         <translation>透视</translation>
     </message>
     <message>
+        <source>Scale keyframe</source>
+        <translation>缩放关键帧</translation>
+    </message>
+    <message>
+        <source>Align</source>
+        <translation>对齐</translation>
+    </message>
+    <message>
+        <source>Align left edges</source>
+        <translation>左边缘对齐</translation>
+    </message>
+    <message>
+        <source>Align centres across</source>
+        <translation>水平居中对齐</translation>
+    </message>
+    <message>
+        <source>Align right edges</source>
+        <translation>右边缘对齐</translation>
+    </message>
+    <message>
+        <source>Align top edges</source>
+        <translation>顶边缘对齐</translation>
+    </message>
+    <message>
+        <source>Align centres up and down</source>
+        <translation>垂直居中对齐</translation>
+    </message>
+    <message>
+        <source>Align bottom edges</source>
+        <translation>底边缘对齐</translation>
+    </message>
+    <message>
+        <source>Space evenly across (three or more)</source>
+        <translation>水平均匀分布（三个或更多）</translation>
+    </message>
+    <message>
+        <source>Space evenly up and down (three or more)</source>
+        <translation>垂直均匀分布（三个或更多）</translation>
+    </message>
+    <message>
+        <source>with the frame</source>
+        <translation>相对于画面</translation>
+    </message>
+    <message>
         <source>Also moved by %1</source>
         <translation>同时被 %1 移动</translation>
     </message>
@@ -30792,8 +31555,44 @@ If playback stutters, try another.</source>
         <translation>同时缩放宽度和高度</translation>
     </message>
     <message>
+        <source>Add a keyframe for Scale at the playhead</source>
+        <translation>在播放头处添加缩放关键帧</translation>
+    </message>
+    <message>
         <source>Scale clip</source>
         <translation>缩放片段</translation>
+    </message>
+    <message>
+        <source>Add a keyframe for Scale X and Y at the playhead</source>
+        <translation>在播放头处添加缩放 X 和 Y 关键帧</translation>
+    </message>
+    <message>
+        <source>Scale X</source>
+        <translation>缩放 X</translation>
+    </message>
+    <message>
+        <source>Scale Y</source>
+        <translation>缩放 Y</translation>
+    </message>
+    <message>
+        <source>This size is 100 %</source>
+        <translation>将此大小设为 100 %</translation>
+    </message>
+    <message>
+        <source>Scale X and Y count from the box as it is now</source>
+        <translation>缩放 X 和 Y 从框的当前大小开始计算</translation>
+    </message>
+    <message>
+        <source>Anchor point (px)</source>
+        <translation>锚点 (px)</translation>
+    </message>
+    <message>
+        <source>Anchor in the centre</source>
+        <translation>锚点居中</translation>
+    </message>
+    <message>
+        <source>Anchor point here (the layer stays where it is)</source>
+        <translation>锚点设在这里（图层保持原位）</translation>
     </message>
     <message>
         <source>Opacity &amp; rotation</source>
@@ -31378,7 +32177,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Reverse</source>
-        <translation type="unfinished"></translation>
+        <translation>反转</translation>
     </message>
     <message>
         <source>Reverse path direction: the trim runs round the other way</source>
@@ -32886,7 +33685,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Preview</source>
-        <translation type="unfinished"></translation>
+        <translation>预览</translation>
     </message>
     <message>
         <source>Properties</source>
@@ -32917,7 +33716,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Preview</source>
-        <translation type="unfinished"></translation>
+        <translation>预览</translation>
     </message>
     <message>
         <source>Properties</source>

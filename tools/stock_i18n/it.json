@@ -26375,6 +26375,388 @@
     "parole"
    ]
   },
+  "template:llt-bevan": {
+   "name": "Sottopancia con logo: triangolo che si disegna",
+   "tags": [
+    "sottopancia",
+    "logo",
+    "nome",
+    "ruolo",
+    "linea",
+    "triangolo"
+   ]
+  },
+  "template:llt-brian": {
+   "name": "Sottopancia con logo: entrata glitch",
+   "tags": [
+    "sottopancia",
+    "logo",
+    "nome",
+    "glitch"
+   ]
+  },
+  "template:llt-caryn": {
+   "name": "Sottopancia con logo: scatola che ruota",
+   "tags": [
+    "sottopancia",
+    "logo",
+    "nome",
+    "3d",
+    "scatola"
+   ]
+  },
+  "template:llt-charlie": {
+   "name": "Sottopancia con logo: due linee che si aprono",
+   "tags": [
+    "sottopancia",
+    "logo",
+    "nome",
+    "linee",
+    "bianco"
+   ]
+  },
+  "template:llt-charlotte": {
+   "name": "Sottopancia con logo: nome traforato nella barra",
+   "tags": [
+    "sottopancia",
+    "logo",
+    "nome",
+    "barra",
+    "rosso",
+    "traforato"
+   ]
+  },
+  "template:llt-cindy": {
+   "name": "Sottopancia con logo: logo verde che svela il nome",
+   "tags": [
+    "sottopancia",
+    "logo",
+    "nome",
+    "verde",
+    "semplice"
+   ]
+  },
+  "template:llt-david": {
+   "name": "Sottopancia con logo: anello che rotola",
+   "tags": [
+    "sottopancia",
+    "logo",
+    "nome",
+    "anello",
+    "cerchio"
+   ]
+  },
+  "template:llt-francois": {
+   "name": "Sottopancia con logo: nome su una barra rossa",
+   "tags": [
+    "sottopancia",
+    "logo",
+    "nome",
+    "barra",
+    "rosso"
+   ]
+  },
+  "template:llt-gabriel": {
+   "name": "Sottopancia con logo: barra rossa che diventa bianca",
+   "tags": [
+    "sottopancia",
+    "logo",
+    "nome",
+    "barra",
+    "rosso",
+    "bianco"
+   ]
+  },
+  "template:llt-harry": {
+   "name": "Sottopancia con logo: blocco che corre e svela il nome",
+   "tags": [
+    "sottopancia",
+    "logo",
+    "nome",
+    "ruolo",
+    "sottolineato",
+    "marchio"
+   ]
+  },
+  "template:llt-hendrick": {
+   "name": "Sottopancia con logo: quadrato che cade e apre la barra",
+   "tags": [
+    "sottopancia",
+    "logo",
+    "nome",
+    "barra",
+    "rosso"
+   ]
+  },
+  "template:llt-jamie": {
+   "name": "Sottopancia con logo: barra che ruota come un prisma",
+   "tags": [
+    "sottopancia",
+    "logo",
+    "nome",
+    "3d",
+    "prisma",
+    "marchio"
+   ]
+  },
+  "template:llt-janice": {
+   "name": "Sottopancia con logo: barra che sale da una linea",
+   "tags": [
+    "sottopancia",
+    "logo",
+    "nome",
+    "ruolo",
+    "barra",
+    "rosso"
+   ]
+  },
+  "template:llt-jason-e": {
+   "name": "Sottopancia con logo: logo che rotola e svela il nome",
+   "tags": [
+    "sottopancia",
+    "logo",
+    "nome",
+    "sottolineato"
+   ]
+  },
+  "template:llt-jason-f": {
+   "name": "Sottopancia con logo: linguetta che sale e barra bianca",
+   "tags": [
+    "sottopancia",
+    "logo",
+    "nome",
+    "barra",
+    "bianco",
+    "marchio"
+   ]
+  },
+  "template:llt-jessica": {
+   "name": "Sottopancia con logo: fessura inclinata",
+   "tags": [
+    "sottopancia",
+    "logo",
+    "nome",
+    "ruolo",
+    "diagonale"
+   ]
+  },
+  "template:llt-jim": {
+   "name": "Sottopancia con logo: logo che scopre il nome",
+   "tags": [
+    "sottopancia",
+    "logo",
+    "nome",
+    "semplice"
+   ]
+  },
+  "template:llt-joanna": {
+   "name": "Sottopancia con logo: barra bianca e linguetta inclinata",
+   "tags": [
+    "sottopancia",
+    "logo",
+    "nome",
+    "barra",
+    "bianco"
+   ]
+  },
+  "template:llt-lizzie": {
+   "name": "Sottopancia con logo: linea che scorre",
+   "tags": [
+    "sottopancia",
+    "logo",
+    "nome",
+    "ruolo",
+    "linea"
+   ]
+  },
+  "template:llt-lucas": {
+   "name": "Sottopancia con logo: blocco che corre e apre la barra",
+   "tags": [
+    "sottopancia",
+    "logo",
+    "nome",
+    "barra",
+    "bianco",
+    "rosso"
+   ]
+  },
+  "template:llt-neil": {
+   "name": "Sottopancia con logo: cubo che ruota",
+   "tags": [
+    "sottopancia",
+    "logo",
+    "nome",
+    "3d",
+    "cubo"
+   ]
+  },
+  "template:llt-patricia": {
+   "name": "Sottopancia con logo: logo che gira e nome che scorre",
+   "tags": [
+    "sottopancia",
+    "logo",
+    "nome",
+    "ruolo",
+    "sottolineato",
+    "3d"
+   ]
+  },
+  "template:llt-roger": {
+   "name": "Sottopancia con logo: quadrato che ruota e riquadro col marchio",
+   "tags": [
+    "sottopancia",
+    "logo",
+    "nome",
+    "barra",
+    "rosso",
+    "marchio"
+   ]
+  },
+  "template:llt-sarah": {
+   "name": "Sottopancia con logo: anello e due linee",
+   "tags": [
+    "sottopancia",
+    "logo",
+    "nome",
+    "ruolo",
+    "linee",
+    "anello"
+   ]
+  },
+  "template:llt2-barra-etiqueta": {
+   "name": "Sottopancia con logo: barra scura ed etichetta verde",
+   "tags": [
+    "sottopancia",
+    "logo",
+    "nome",
+    "barra",
+    "verde"
+   ]
+  },
+  "template:llt2-nombre-grande": {
+   "name": "Sottopancia con logo: nome grande e barra di avanzamento",
+   "tags": [
+    "sottopancia",
+    "logo",
+    "nome",
+    "barra",
+    "verde",
+    "progresso"
+   ]
+  },
+  "template:llt2-pastilla": {
+   "name": "Sottopancia con logo: pillola scura e linguetta verde",
+   "tags": [
+    "sottopancia",
+    "logo",
+    "nome",
+    "pillola",
+    "verde"
+   ]
+  },
+  "template:llt2-tarjeta": {
+   "name": "Sottopancia con logo: scheda scura e targhetta bianca",
+   "tags": [
+    "sottopancia",
+    "logo",
+    "nome",
+    "scheda",
+    "verde",
+    "web"
+   ]
+  },
+  "template:llt3-alta": {
+   "name": "Sottopancia pulito: etichetta alta con ruolo",
+   "tags": [
+    "sottopancia",
+    "pulito",
+    "nome",
+    "giallo",
+    "bianco"
+   ]
+  },
+  "template:llt3-amarillo": {
+   "name": "Sottopancia pulito: etichetta gialla",
+   "tags": [
+    "sottopancia",
+    "pulito",
+    "nome",
+    "giallo"
+   ]
+  },
+  "template:llt3-barra-dentro": {
+   "name": "Sottopancia pulito: barra del ruolo interna",
+   "tags": [
+    "sottopancia",
+    "pulito",
+    "nome",
+    "giallo",
+    "bianco",
+    "grigio"
+   ]
+  },
+  "template:llt3-barra-gris": {
+   "name": "Sottopancia pulito: ruolo su barra grigia",
+   "tags": [
+    "sottopancia",
+    "pulito",
+    "nome",
+    "bianco",
+    "grigio"
+   ]
+  },
+  "template:llt3-barra-inclinada": {
+   "name": "Sottopancia pulito: ruolo su barra gialla inclinata",
+   "tags": [
+    "sottopancia",
+    "pulito",
+    "nome",
+    "giallo",
+    "bianco"
+   ]
+  },
+  "template:llt3-cargo-amarillo": {
+   "name": "Sottopancia pulito: etichetta bianca e ruolo giallo",
+   "tags": [
+    "sottopancia",
+    "pulito",
+    "nome",
+    "giallo",
+    "bianco"
+   ]
+  },
+  "template:llt3-inclinada": {
+   "name": "Sottopancia pulito: etichetta inclinata",
+   "tags": [
+    "sottopancia",
+    "pulito",
+    "nome",
+    "giallo",
+    "bianco",
+    "inclinato"
+   ]
+  },
+  "template:llt3-inclinada-gris": {
+   "name": "Sottopancia pulito: etichetta grigia inclinata",
+   "tags": [
+    "sottopancia",
+    "pulito",
+    "nome",
+    "grigio",
+    "inclinato"
+   ]
+  },
+  "template:llt3-invitado": {
+   "name": "Sottopancia pulito: etichetta bianca con «ospite speciale»",
+   "tags": [
+    "sottopancia",
+    "pulito",
+    "nome",
+    "giallo",
+    "bianco",
+    "ospite"
+   ]
+  },
   "template:lt-andy": {
    "name": "Sottopancia: barra che si apre dal centro",
    "tags": [

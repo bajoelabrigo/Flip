@@ -2764,6 +2764,26 @@
         <translation>Bézier</translation>
     </message>
     <message>
+        <source>Animation</source>
+        <translation>Animation</translation>
+    </message>
+    <message>
+        <source>Stagger</source>
+        <translation>Décaler</translation>
+    </message>
+    <message>
+        <source> fr</source>
+        <translation> im.</translation>
+    </message>
+    <message>
+        <source>Stagger the picked layers</source>
+        <translation>Décaler les calques choisis</translation>
+    </message>
+    <message>
+        <source>Each one starts that many frames after the one picked before it; they all end together</source>
+        <translation>Chacun commence ce nombre d&apos;images après celui choisi avant lui; tous finissent ensemble</translation>
+    </message>
+    <message>
         <source>Not available</source>
         <translation>Non disponible</translation>
     </message>
@@ -3488,6 +3508,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Background</source>
+        <translation>Arrière-plan</translation>
+    </message>
+    <message>
         <source>Solid settings</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3518,6 +3542,24 @@
     <message>
         <source>Keyframes stretched</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No keys to curve: pick keyframes on the timeline, or select a layer that has some</source>
+        <translation>Aucune image clé à courber : choisissez des images clés dans la ligne de temps ou un calque qui en a</translation>
+    </message>
+    <message numerus="yes">
+        <source>Curve applied to %n key(s)</source>
+        <translation>
+            <numerusform>Courbe appliquée à %n image clé</numerusform>
+            <numerusform>Courbe appliquée à %n images clés</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n property(ies)</source>
+        <translation>
+            <numerusform>%n propriété</numerusform>
+            <numerusform>%n propriétés</numerusform>
+        </translation>
     </message>
     <message>
         <source>Easy ease</source>
@@ -4216,6 +4258,10 @@
     <message>
         <source>Text</source>
         <translation>Texte</translation>
+    </message>
+    <message>
+        <source>“%1” added to “%2” · to draw a separate layer, press Esc first; to split them, right-click › Separate into layers</source>
+        <translation>« %1 » ajouté à « %2 » · pour dessiner sur un calque à part, appuyez d’abord sur Échap; pour les séparer, clic droit › Séparer en calques</translation>
     </message>
     <message>
         <source>Add mask</source>
@@ -5203,6 +5249,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Pick two or more keys of a property to reverse them</source>
+        <translation>Choisissez au moins deux clés d&apos;une propriété pour les inverser</translation>
+    </message>
+    <message>
         <source>Point light %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5244,10 +5294,6 @@
     </message>
     <message>
         <source>Path</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>“%1” added to “%2” · to draw a separate layer, press Esc first</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5405,6 +5451,135 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Select a text to split into letters</source>
+        <translation>Sélectionnez un texte à diviser en lettres</translation>
+    </message>
+    <message>
+        <source>This text has a single letter</source>
+        <translation>Ce texte n’a qu’une seule lettre</translation>
+    </message>
+    <message>
+        <source>Split into letters</source>
+        <translation>Diviser en lettres</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n letter layer(s)</source>
+        <translation>
+            <numerusform>%n calque de lettre</numerusform>
+            <numerusform>%n calques de lettres</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Pick three layers or more to space them evenly</source>
+        <translation>Choisissez trois calques ou plus pour les répartir également</translation>
+    </message>
+    <message>
+        <source>Align</source>
+        <translation>Aligner</translation>
+    </message>
+    <message>
+        <source>Select two layers or more (Ctrl+click, in the order they should come in)</source>
+        <translation>Sélectionnez deux calques ou plus (Ctrl+clic, dans l&apos;ordre où ils doivent entrer)</translation>
+    </message>
+    <message>
+        <source>Stagger layers</source>
+        <translation>Décaler les calques</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n layer(s) staggered</source>
+        <translation>
+            <numerusform>%n calque décalé</numerusform>
+            <numerusform>%n calques décalés</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Show inside the layer below</source>
+        <translation>Afficher dans le calque du dessous</translation>
+    </message>
+    <message>
+        <source>Shown whole again</source>
+        <translation>Affiché en entier de nouveau</translation>
+    </message>
+    <message>
+        <source>There is no layer under this one to show it inside</source>
+        <translation>Il n&apos;y a aucun calque sous celui-ci pour l&apos;afficher dedans</translation>
+    </message>
+    <message>
+        <source>Shown only inside “%1”</source>
+        <translation>Affiché seulement dans « %1 »</translation>
+    </message>
+    <message>
+        <source>Your name</source>
+        <translation>Votre nom</translation>
+    </message>
+    <message>
+        <source>Lower third</source>
+        <translation>Tiers inférieur</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>Étiquette</translation>
+    </message>
+    <message>
+        <source>Role bar</source>
+        <translation>Barre de fonction</translation>
+    </message>
+    <message>
+        <source>Line</source>
+        <translation>Ligne</translation>
+    </message>
+    <message>
+        <source>Lower third added: every piece is a layer you can edit</source>
+        <translation>Tiers inférieur ajouté : chaque élément est un calque modifiable</translation>
+    </message>
+    <message>
+        <source>Select the label (a shape) for the two-colour wipe</source>
+        <translation>Sélectionnez l&apos;étiquette (une forme) pour le balayage bicolore</translation>
+    </message>
+    <message>
+        <source>Two-colour wipe</source>
+        <translation>Balayage bicolore</translation>
+    </message>
+    <message>
+        <source>%1 accent</source>
+        <translation>%1 accent</translation>
+    </message>
+    <message>
+        <source>%1 accent %2</source>
+        <translation>%1 accent %2</translation>
+    </message>
+    <message>
+        <source>Select a text to put a label under it</source>
+        <translation>Sélectionnez un texte pour placer une étiquette dessous</translation>
+    </message>
+    <message>
+        <source>Label · %1</source>
+        <translation>Étiquette · %1</translation>
+    </message>
+    <message>
+        <source>Label for the text</source>
+        <translation>Étiquette pour le texte</translation>
+    </message>
+    <message>
+        <source>Fit to text</source>
+        <translation>Ajuster au texte</translation>
+    </message>
+    <message>
+        <source>Scale</source>
+        <translation>Échelle</translation>
+    </message>
+    <message>
+        <source>No keyframes there</source>
+        <translation>Aucune image clé à cet endroit</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n keyframe(s) removed</source>
+        <translation>
+            <numerusform>%n image clé supprimée</numerusform>
+            <numerusform>%n images clés supprimées</numerusform>
+        </translation>
+    </message>
+    <message>
         <source>Retouch</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5486,7 +5661,7 @@
     </message>
     <message>
         <source>Stroke width</source>
-        <translation type="unfinished"></translation>
+        <translation>Épaisseur du contour</translation>
     </message>
     <message>
         <source>Scale X</source>
@@ -5617,6 +5792,26 @@
     <message>
         <source>Bookmark updated</source>
         <translation>Repère mis à jour</translation>
+    </message>
+    <message>
+        <source>There is no video after this clip to fit it to</source>
+        <translation>Aucune vidéo après ce clip pour l&apos;ajuster</translation>
+    </message>
+    <message>
+        <source>The clip already ends with the video</source>
+        <translation>Le clip se termine déjà avec la vidéo</translation>
+    </message>
+    <message>
+        <source>Fit to video length</source>
+        <translation>Ajuster à la durée de la vidéo</translation>
+    </message>
+    <message>
+        <source>The file is shorter than the video: the clip ends where the file does</source>
+        <translation>Le fichier est plus court que la vidéo : le clip se termine à la fin du fichier</translation>
+    </message>
+    <message>
+        <source>The clip now ends with the video</source>
+        <translation>Le clip se termine maintenant avec la vidéo</translation>
     </message>
     <message>
         <source>No video at the current time</source>
@@ -5824,6 +6019,10 @@
     <message>
         <source>%1 band %2</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 splash</source>
+        <translation>%1 éclaboussure</translation>
     </message>
     <message>
         <source>drops</source>
@@ -6813,6 +7012,10 @@
     <message>
         <source>Tools</source>
         <translation>Outils</translation>
+    </message>
+    <message>
+        <source>Lower third…</source>
+        <translation>Tiers inférieur…</translation>
     </message>
     <message>
         <source>Split</source>
@@ -7936,6 +8139,10 @@
     <message>
         <source>Ring</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bend the picked layers together (one joint)</source>
+        <translation>Plier ensemble les calques choisis (une seule articulation)</translation>
     </message>
     <message>
         <source>Frames</source>
@@ -10740,6 +10947,30 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Axis offset (%)</source>
+        <translation>Décalage de l’axe (%)</translation>
+    </message>
+    <message>
+        <source>Extra room (px)</source>
+        <translation>Marge supplémentaire (px)</translation>
+    </message>
+    <message>
+        <source>Linear Wipe</source>
+        <translation>Balayage linéaire</translation>
+    </message>
+    <message>
+        <source>Completion (%)</source>
+        <translation>Achèvement (%)</translation>
+    </message>
+    <message>
+        <source>Angle (°)</source>
+        <translation>Angle (°)</translation>
+    </message>
+    <message>
+        <source>Feather (px)</source>
+        <translation>Adoucissement (px)</translation>
+    </message>
+    <message>
         <source>Liquid</source>
         <translation type="unfinished"></translation>
     </message>
@@ -12086,6 +12317,26 @@ PROCHAINE</translation>
     <message>
         <source>Blown away like sand</source>
         <translation>Soufflé comme du sable</translation>
+    </message>
+    <message>
+        <source>Wipe down</source>
+        <translation>Balayage vers le bas</translation>
+    </message>
+    <message>
+        <source>Wipe from left</source>
+        <translation>Balayage depuis la gauche</translation>
+    </message>
+    <message>
+        <source>Wipe from right</source>
+        <translation>Balayage depuis la droite</translation>
+    </message>
+    <message>
+        <source>Slanted wipe</source>
+        <translation>Balayage incliné</translation>
+    </message>
+    <message>
+        <source>Wipe up</source>
+        <translation>Balayage vers le haut</translation>
     </message>
     <message>
         <source>Attention</source>
@@ -15565,6 +15816,93 @@ PROCHAINE</translation>
     </message>
 </context>
 <context>
+    <name>FillOptionsDialog</name>
+    <message>
+        <source>Normal</source>
+        <translation>Normal</translation>
+    </message>
+    <message>
+        <source>Multiply</source>
+        <translation>Produit</translation>
+    </message>
+    <message>
+        <source>Screen</source>
+        <translation>Superposition claire</translation>
+    </message>
+    <message>
+        <source>Overlay</source>
+        <translation>Incrustation</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>Addition</translation>
+    </message>
+    <message>
+        <source>Darken</source>
+        <translation>Obscurcir</translation>
+    </message>
+    <message>
+        <source>Lighten</source>
+        <translation>Éclaircir</translation>
+    </message>
+    <message>
+        <source>Fill Options</source>
+        <translation>Options de remplissage</translation>
+    </message>
+    <message>
+        <source>Stroke Options</source>
+        <translation>Options de contour</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Aucun</translation>
+    </message>
+    <message>
+        <source>Solid Color</source>
+        <translation>Couleur unie</translation>
+    </message>
+    <message>
+        <source>Linear Gradient</source>
+        <translation>Dégradé linéaire</translation>
+    </message>
+    <message>
+        <source>Radial Gradient</source>
+        <translation>Dégradé radial</translation>
+    </message>
+    <message>
+        <source>Sweep Gradient</source>
+        <translation>Dégradé conique</translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation>Couleur</translation>
+    </message>
+    <message>
+        <source>Angle</source>
+        <translation>Angle</translation>
+    </message>
+    <message>
+        <source>Drag its two handles on the video to place it, as in After Effects.</source>
+        <translation>Faites glisser ses deux poignées sur la vidéo pour le placer, comme dans After Effects.</translation>
+    </message>
+    <message>
+        <source>Blend mode</source>
+        <translation>Mode de fusion</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation>Opacité</translation>
+    </message>
+    <message>
+        <source>Stroke width</source>
+        <translation>Épaisseur du contour</translation>
+    </message>
+    <message>
+        <source>Preview</source>
+        <translation>Aperçu</translation>
+    </message>
+</context>
+<context>
     <name>FiltersTab</name>
     <message>
         <source>Trending</source>
@@ -15996,6 +16334,29 @@ PROCHAINE</translation>
     <message>
         <source>File</source>
         <translation>Fichier</translation>
+    </message>
+</context>
+<context>
+    <name>GradientHandlesOverlay</name>
+    <message>
+        <source>Move gradient</source>
+        <translation>Déplacer le dégradé</translation>
+    </message>
+    <message>
+        <source>Gradient centre: drag to move it</source>
+        <translation>Centre du dégradé : faites glisser pour le déplacer</translation>
+    </message>
+    <message>
+        <source>Gradient start: drag to move it</source>
+        <translation>Début du dégradé : faites glisser pour le déplacer</translation>
+    </message>
+    <message>
+        <source>Gradient radius: drag to resize it</source>
+        <translation>Rayon du dégradé : faites glisser pour le redimensionner</translation>
+    </message>
+    <message>
+        <source>Gradient end: drag to move it</source>
+        <translation>Fin du dégradé : faites glisser pour la déplacer</translation>
     </message>
 </context>
 <context>
@@ -16823,6 +17184,133 @@ PROCHAINE</translation>
     <message>
         <source>720p</source>
         <translation>720p</translation>
+    </message>
+</context>
+<context>
+    <name>LowerThirdDialog</name>
+    <message>
+        <source>Lower third</source>
+        <translation>Tiers inférieur</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>Ajouter</translation>
+    </message>
+    <message>
+        <source>Left</source>
+        <translation>Gauche</translation>
+    </message>
+    <message>
+        <source>Centre</source>
+        <translation>Centre</translation>
+    </message>
+    <message>
+        <source>Right</source>
+        <translation>Droite</translation>
+    </message>
+    <message>
+        <source>Automatic</source>
+        <translation>Automatique</translation>
+    </message>
+    <message>
+        <source>Wipe</source>
+        <translation>Balayage</translation>
+    </message>
+    <message>
+        <source>Slide</source>
+        <translation>Glisser</translation>
+    </message>
+    <message>
+        <source>Pop</source>
+        <translation>Apparition</translation>
+    </message>
+    <message>
+        <source>Zoom</source>
+        <translation>Zoom</translation>
+    </message>
+    <message>
+        <source>Fade</source>
+        <translation>Fondu</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Aucune</translation>
+    </message>
+    <message>
+        <source>Clean</source>
+        <translation>Épuré</translation>
+    </message>
+    <message>
+        <source>With a line</source>
+        <translation>Avec ligne</translation>
+    </message>
+    <message>
+        <source>Slanted</source>
+        <translation>Incliné</translation>
+    </message>
+    <message>
+        <source>Two colours</source>
+        <translation>Deux couleurs</translation>
+    </message>
+    <message>
+        <source>Role on a bar</source>
+        <translation>Fonction sur barre</translation>
+    </message>
+    <message>
+        <source>Style</source>
+        <translation>Style</translation>
+    </message>
+    <message>
+        <source>Second accent</source>
+        <translation>Deuxième accent</translation>
+    </message>
+    <message>
+        <source>Third accent</source>
+        <translation>Troisième accent</translation>
+    </message>
+    <message>
+        <source>Entrance</source>
+        <translation>Entrée</translation>
+    </message>
+    <message>
+        <source>Exit</source>
+        <translation>Sortie</translation>
+    </message>
+    <message>
+        <source>Alignment</source>
+        <translation>Alignement</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Nom</translation>
+    </message>
+    <message>
+        <source>Your name</source>
+        <translation>Votre nom</translation>
+    </message>
+    <message>
+        <source>Role (optional)</source>
+        <translation>Fonction (facultatif)</translation>
+    </message>
+    <message>
+        <source>Presenter, guest, city…</source>
+        <translation>Animateur, invité, ville…</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>Étiquette</translation>
+    </message>
+    <message>
+        <source>Accent</source>
+        <translation>Accent</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation>Texte</translation>
+    </message>
+    <message>
+        <source>On screen</source>
+        <translation>À l&apos;écran</translation>
     </message>
 </context>
 <context>
@@ -18752,7 +19240,7 @@ PROCHAINE</translation>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Couleur</translation>
     </message>
     <message>
         <source>Intensity</source>
@@ -18816,7 +19304,7 @@ PROCHAINE</translation>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Opacité</translation>
     </message>
     <message>
         <source>Offered as a control of the composition: click to take it out</source>
@@ -18864,7 +19352,7 @@ PROCHAINE</translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>Aucun</translation>
     </message>
     <message>
         <source>The layer this one follows</source>
@@ -19050,6 +19538,14 @@ PROCHAINE</translation>
     <message>
         <source>Copies the picked keys to the playhead</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reverse</source>
+        <translation>Inverser</translation>
+    </message>
+    <message>
+        <source>Plays the picked keys backwards in their own span (a cloned entrance becomes the exit)</source>
+        <translation>Joue à rebours les clés choisies dans leur propre intervalle (une entrée clonée devient la sortie)</translation>
     </message>
     <message>
         <source>Bounce: %1</source>
@@ -20241,6 +20737,18 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Line</source>
+        <translation>Ligne</translation>
+    </message>
+    <message>
+        <source>Fill Options: none, solid, linear or radial gradient, blend mode and opacity</source>
+        <translation>Options de remplissage : aucun, uni, dégradé linéaire ou radial, mode de fusion et opacité</translation>
+    </message>
+    <message>
+        <source>Stroke Options: none, solid, linear or radial gradient, blend mode and opacity</source>
+        <translation>Options de contour : aucun, uni, dégradé linéaire ou radial, mode de fusion et opacité</translation>
+    </message>
+    <message>
         <source>Selection</source>
         <translation type="unfinished"></translation>
     </message>
@@ -20267,6 +20775,14 @@ Si la lecture saccade, essayez une autre option.</translation>
     <message>
         <source>Shape: drag on the preview (Shift for a square or circle)</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ellipse: drag on the preview (Shift for a circle)</source>
+        <translation>Ellipse : faites glisser dans l’aperçu (Maj pour un cercle)</translation>
+    </message>
+    <message>
+        <source>Line: drag on the preview (Shift for 0°, 45° or 90°); it takes the stroke colour and width</source>
+        <translation>Ligne : faites glisser dans l’aperçu (Maj pour 0°, 45° ou 90°); elle prend la couleur et l’épaisseur du contour</translation>
     </message>
     <message>
         <source>Pen: click for corners, drag for curves</source>
@@ -20988,6 +21504,38 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Cliquez sur un clip dans la timeline pour modifier ses propriétés</translation>
     </message>
     <message>
+        <source>Project</source>
+        <translation>Projet</translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation>Couleur</translation>
+    </message>
+    <message>
+        <source>Transparent (alpha)</source>
+        <translation>Transparent (alpha)</translation>
+    </message>
+    <message>
+        <source>No background: export it as ProRes 4444 or VP9 with alpha (WebM) to keep the transparency</source>
+        <translation>Sans arrière-plan : exportez en ProRes 4444 ou en VP9 avec alpha (WebM) pour garder la transparence</translation>
+    </message>
+    <message>
+        <source>Background colour</source>
+        <translation>Couleur d’arrière-plan</translation>
+    </message>
+    <message>
+        <source>Background colour of the project: what shows where no layer covers the frame</source>
+        <translation>Couleur d’arrière-plan du projet : ce qu’on voit là où aucun calque ne couvre l’image</translation>
+    </message>
+    <message>
+        <source>Solid the size of the frame</source>
+        <translation>Solide de la taille de l’image</translation>
+    </message>
+    <message>
+        <source>A layer of one colour over the whole frame, for the length of the work (the background colour above)</source>
+        <translation>Un calque d’une seule couleur sur toute l’image, pendant tout le projet (la couleur d’arrière-plan ci-dessus)</translation>
+    </message>
+    <message>
         <source>This clip uses Pro tools.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -21170,12 +21718,12 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Image clé suivante</translation>
     </message>
     <message>
-        <source>Edit %1</source>
-        <translation>Modifier %1</translation>
+        <source>Drag to change, click to type</source>
+        <translation>Glissez pour modifier, cliquez pour saisir</translation>
     </message>
     <message>
-        <source>Click to type an exact %1</source>
-        <translation>Cliquez pour saisir une valeur exacte de %1</translation>
+        <source>Edit %1</source>
+        <translation>Modifier %1</translation>
     </message>
 </context>
 <context>
@@ -22296,7 +22844,7 @@ Si la lecture saccade, essayez une autre option.</translation>
     </message>
     <message>
         <source>Drag to change, click to type</source>
-        <translation type="unfinished"></translation>
+        <translation>Glissez pour modifier, cliquez pour saisir</translation>
     </message>
 </context>
 <context>
@@ -23252,6 +23800,38 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Décalage des tirets</translation>
     </message>
     <message>
+        <source>Arrow at start</source>
+        <translation>Flèche au début</translation>
+    </message>
+    <message>
+        <source>Arrow at end</source>
+        <translation>Flèche à la fin</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Aucune</translation>
+    </message>
+    <message>
+        <source>Triangle</source>
+        <translation>Triangle</translation>
+    </message>
+    <message>
+        <source>Open</source>
+        <translation>Ouverte</translation>
+    </message>
+    <message>
+        <source>Dot</source>
+        <translation>Point</translation>
+    </message>
+    <message>
+        <source>A head on this end of an open path, such as a line drawn with the pen</source>
+        <translation>Une pointe à cette extrémité d&apos;un tracé ouvert, comme une ligne tracée à la plume</translation>
+    </message>
+    <message>
+        <source>Arrow size</source>
+        <translation>Taille de la flèche</translation>
+    </message>
+    <message>
         <source>Trim start</source>
         <translation>Rogner le début</translation>
     </message>
@@ -23412,7 +23992,7 @@ Si la lecture saccade, essayez une autre option.</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Addition</translation>
     </message>
     <message>
         <source>Add a shape or a group to this layer (After Effects: Add)</source>
@@ -23526,6 +24106,26 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Reaction timing</source>
+        <translation>Moment de la réaction</translation>
+    </message>
+    <message>
+        <source> fr</source>
+        <translation> im.</translation>
+    </message>
+    <message>
+        <source>Reaction strength</source>
+        <translation>Intensité de la réaction</translation>
+    </message>
+    <message>
+        <source>Last layer visible from the start</source>
+        <translation>Le dernier calque est visible dès le début</translation>
+    </message>
+    <message>
+        <source>Liquid splash at the hit</source>
+        <translation>Éclaboussure liquide à l’impact</translation>
+    </message>
+    <message>
         <source>Morph it</source>
         <translation type="unfinished"></translation>
     </message>
@@ -23606,8 +24206,12 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Draw the line behind the stream</source>
+        <translation>Dessiner la ligne derrière le jet</translation>
+    </message>
+    <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Couleur</translation>
     </message>
     <message>
         <source>Generate liquid trail</source>
@@ -23686,35 +24290,35 @@ Si la lecture saccade, essayez une autre option.</translation>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Opacité</translation>
     </message>
     <message>
         <source>Blend mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Mode de fusion</translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>Normal</translation>
     </message>
     <message>
         <source>Multiply</source>
-        <translation type="unfinished"></translation>
+        <translation>Produit</translation>
     </message>
     <message>
         <source>Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Superposition claire</translation>
     </message>
     <message>
         <source>Overlay</source>
-        <translation type="unfinished"></translation>
+        <translation>Incrustation</translation>
     </message>
     <message>
         <source>Darken</source>
-        <translation type="unfinished"></translation>
+        <translation>Obscurcir</translation>
     </message>
     <message>
         <source>Lighten</source>
-        <translation type="unfinished"></translation>
+        <translation>Éclaircir</translation>
     </message>
     <message>
         <source>Wiggle</source>
@@ -23781,12 +24385,76 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Aucun calque. Ajoutez un remplissage pour commencer.</translation>
     </message>
     <message>
+        <source>Fit to a text</source>
+        <translation>Ajuster à un texte</translation>
+    </message>
+    <message>
+        <source>The shape takes the text&apos;s size plus the margin, and grows when the words change: a label for a name.</source>
+        <translation>La forme prend la taille du texte plus la marge et grandit quand les mots changent : une étiquette pour un nom.</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Aucun</translation>
+    </message>
+    <message>
+        <source>Margin across</source>
+        <translation>Marge sur les côtés</translation>
+    </message>
+    <message>
+        <source>up and down</source>
+        <translation>en haut et en bas</translation>
+    </message>
+    <message>
+        <source>Two-colour wipe</source>
+        <translation>Balayage bicolore</translation>
+    </message>
+    <message>
+        <source>From the playhead the accent colour sweeps in first and this shape follows it, ending on top: the entrance of a lower third.</source>
+        <translation>À partir de la tête de lecture, la couleur d&apos;accent entre d&apos;abord en balayant, puis cette forme la suit et finit par-dessus : l&apos;entrée d&apos;un tiers inférieur.</translation>
+    </message>
+    <message>
+        <source>Accent</source>
+        <translation>Accent</translation>
+    </message>
+    <message>
+        <source> fr</source>
+        <translation> im.</translation>
+    </message>
+    <message>
+        <source>Second colour</source>
+        <translation>Deuxième couleur</translation>
+    </message>
+    <message>
+        <source>Third colour</source>
+        <translation>Troisième couleur</translation>
+    </message>
+    <message>
+        <source>Exit too</source>
+        <translation>Sortie aussi</translation>
+    </message>
+    <message>
+        <source>At the end of the layer the colours sweep out the way they came, the shape first</source>
+        <translation>À la fin du calque, les couleurs repartent par où elles sont venues, la forme d’abord</translation>
+    </message>
+    <message>
+        <source>Slanted edge</source>
+        <translation>Bord incliné</translation>
+    </message>
+    <message>
+        <source>Apply two-colour wipe</source>
+        <translation>Appliquer le balayage bicolore</translation>
+    </message>
+    <message>
         <source>Geometry</source>
         <translation>Géométrie</translation>
     </message>
     <message>
         <source>Corner radius</source>
         <translation>Rayon des coins</translation>
+    </message>
+    <message>
+        <source>Slant</source>
+        <translation>Inclinaison</translation>
     </message>
     <message>
         <source>Points</source>
@@ -23990,7 +24658,7 @@ Si la lecture saccade, essayez une autre option.</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Addition</translation>
     </message>
     <message>
         <source>Subtract</source>
@@ -24185,6 +24853,10 @@ Si la lecture saccade, essayez une autre option.</translation>
     <message>
         <source>Corner radius</source>
         <translation>Rayon des coins</translation>
+    </message>
+    <message>
+        <source>Slant</source>
+        <translation>Inclinaison</translation>
     </message>
     <message>
         <source>Inner radius</source>
@@ -24526,7 +25198,7 @@ Si la lecture saccade, essayez une autre option.</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Addition</translation>
     </message>
     <message>
         <source>Apply</source>
@@ -24554,7 +25226,7 @@ Si la lecture saccade, essayez une autre option.</translation>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Couleur</translation>
     </message>
 </context>
 <context>
@@ -24979,14 +25651,6 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Oomph</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>How far it travels, jumps and turns</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Timing</source>
         <translation type="unfinished"></translation>
     </message>
@@ -25015,6 +25679,14 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Apply letter by letter</source>
+        <translation>Appliquer lettre par lettre</translation>
+    </message>
+    <message>
+        <source>Splits the text into one layer per letter and applies it to each, the stagger apart</source>
+        <translation>Divise le texte en un calque par lettre et l’applique à chacune, décalées par l’échelonnement</translation>
+    </message>
+    <message>
         <source>Applies to every selected layer. The keys stay editable on the timeline.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -25025,6 +25697,14 @@ Si la lecture saccade, essayez une autre option.</translation>
     <message>
         <source>How hard it squashes, stretches and bends</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Travel</source>
+        <translation>Trajet</translation>
+    </message>
+    <message>
+        <source>Distance: how far it travels, jumps and turns (200 % jumps twice as far)</source>
+        <translation>Distance : jusqu’où il se déplace, saute et tourne (200 % saute deux fois plus loin)</translation>
     </message>
     <message>
         <source>Speed</source>
@@ -27244,10 +27924,6 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Italique</translation>
     </message>
     <message>
-        <source>%1 has no italic face</source>
-        <translation>%1 n&apos;a pas de forme italique</translation>
-    </message>
-    <message>
         <source>Adjust text look</source>
         <translation>Ajuster le style texte</translation>
     </message>
@@ -27473,7 +28149,7 @@ Si la lecture saccade, essayez une autre option.</translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>Normal</translation>
     </message>
     <message>
         <source>On the line</source>
@@ -27518,6 +28194,10 @@ Si la lecture saccade, essayez une autre option.</translation>
     <message>
         <source>Strikethrough</source>
         <translation>Barré</translation>
+    </message>
+    <message>
+        <source>Italic (slanted: %1 has no italic face)</source>
+        <translation>Italique (penché : %1 n’a pas d’italique)</translation>
     </message>
     <message>
         <source>Case</source>
@@ -29261,6 +29941,10 @@ Si la lecture saccade, essayez une autre option.</translation>
 <context>
     <name>ThemedNumberField</name>
     <message>
+        <source>Change value</source>
+        <translation>Modifier la valeur</translation>
+    </message>
+    <message>
         <source>Allowed range: %1 – %2%3</source>
         <translation>Plage autorisée : %1 – %2%3</translation>
     </message>
@@ -29388,6 +30072,46 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Recadrer…</translation>
     </message>
     <message>
+        <source>Fit to video length</source>
+        <translation>Ajuster à la durée de la vidéo</translation>
+    </message>
+    <message>
+        <source>Make a label for this text</source>
+        <translation>Créer une étiquette pour ce texte</translation>
+    </message>
+    <message>
+        <source>Show whole again</source>
+        <translation>L&apos;afficher en entier de nouveau</translation>
+    </message>
+    <message>
+        <source>Show only inside the layer below</source>
+        <translation>Afficher seulement dans le calque du dessous</translation>
+    </message>
+    <message>
+        <source>Split into letters</source>
+        <translation>Diviser en lettres</translation>
+    </message>
+    <message>
+        <source>Delete keyframes</source>
+        <translation>Supprimer les images clés</translation>
+    </message>
+    <message>
+        <source>After the playhead (all rows)</source>
+        <translation>Après la tête de lecture (toutes les lignes)</translation>
+    </message>
+    <message>
+        <source>Before the playhead (all rows)</source>
+        <translation>Avant la tête de lecture (toutes les lignes)</translation>
+    </message>
+    <message>
+        <source>All of this clip</source>
+        <translation>Toutes celles de ce clip</translation>
+    </message>
+    <message>
+        <source>Freeze frame at current time</source>
+        <translation>Geler l&apos;image à l&apos;instant actuel</translation>
+    </message>
+    <message>
         <source>Enhance video…</source>
         <translation>Améliorer la vidéo…</translation>
     </message>
@@ -29469,7 +30193,7 @@ Si la lecture saccade, essayez une autre option.</translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>Aucun</translation>
     </message>
     <message>
         <source>Use as mask stuck to</source>
@@ -30300,7 +31024,7 @@ Si la lecture saccade, essayez une autre option.</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Addition</translation>
     </message>
     <message>
         <source>Add a shape or a group to this layer</source>
@@ -30328,31 +31052,31 @@ Si la lecture saccade, essayez une autre option.</translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>Normal</translation>
     </message>
     <message>
         <source>Multiply</source>
-        <translation type="unfinished"></translation>
+        <translation>Produit</translation>
     </message>
     <message>
         <source>Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Superposition claire</translation>
     </message>
     <message>
         <source>Overlay</source>
-        <translation type="unfinished"></translation>
+        <translation>Incrustation</translation>
     </message>
     <message>
         <source>Darken</source>
-        <translation type="unfinished"></translation>
+        <translation>Obscurcir</translation>
     </message>
     <message>
         <source>Lighten</source>
-        <translation type="unfinished"></translation>
+        <translation>Éclaircir</translation>
     </message>
     <message>
         <source>Blend mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Mode de fusion</translation>
     </message>
     <message>
         <source>Duplicate</source>
@@ -30396,7 +31120,7 @@ Si la lecture saccade, essayez une autre option.</translation>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Couleur</translation>
     </message>
     <message>
         <source>Constrain proportions: on</source>
@@ -30589,7 +31313,7 @@ Si la lecture saccade, essayez une autre option.</translation>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Opacité</translation>
     </message>
     <message>
         <source>Volume</source>
@@ -30841,6 +31565,50 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Perspective</translation>
     </message>
     <message>
+        <source>Scale keyframe</source>
+        <translation>Clé d&apos;échelle</translation>
+    </message>
+    <message>
+        <source>Align</source>
+        <translation>Aligner</translation>
+    </message>
+    <message>
+        <source>Align left edges</source>
+        <translation>Aligner les bords gauches</translation>
+    </message>
+    <message>
+        <source>Align centres across</source>
+        <translation>Aligner les centres horizontalement</translation>
+    </message>
+    <message>
+        <source>Align right edges</source>
+        <translation>Aligner les bords droits</translation>
+    </message>
+    <message>
+        <source>Align top edges</source>
+        <translation>Aligner les bords supérieurs</translation>
+    </message>
+    <message>
+        <source>Align centres up and down</source>
+        <translation>Aligner les centres verticalement</translation>
+    </message>
+    <message>
+        <source>Align bottom edges</source>
+        <translation>Aligner les bords inférieurs</translation>
+    </message>
+    <message>
+        <source>Space evenly across (three or more)</source>
+        <translation>Répartir également à l&apos;horizontale (trois ou plus)</translation>
+    </message>
+    <message>
+        <source>Space evenly up and down (three or more)</source>
+        <translation>Répartir également à la verticale (trois ou plus)</translation>
+    </message>
+    <message>
+        <source>with the frame</source>
+        <translation>avec le cadre</translation>
+    </message>
+    <message>
         <source>Also moved by %1</source>
         <translation>Également déplacé par %1</translation>
     </message>
@@ -30893,8 +31661,44 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Mettre à l&apos;échelle la largeur et la hauteur ensemble</translation>
     </message>
     <message>
+        <source>Add a keyframe for Scale at the playhead</source>
+        <translation>Ajouter une clé d&apos;échelle à la tête de lecture</translation>
+    </message>
+    <message>
         <source>Scale clip</source>
         <translation>Mettre le clip à l&apos;échelle</translation>
+    </message>
+    <message>
+        <source>Add a keyframe for Scale X and Y at the playhead</source>
+        <translation>Ajouter une image clé d&apos;Échelle X et Y à la tête de lecture</translation>
+    </message>
+    <message>
+        <source>Scale X</source>
+        <translation>Échelle X</translation>
+    </message>
+    <message>
+        <source>Scale Y</source>
+        <translation>Échelle Y</translation>
+    </message>
+    <message>
+        <source>This size is 100 %</source>
+        <translation>Cette taille vaut 100 %</translation>
+    </message>
+    <message>
+        <source>Scale X and Y count from the box as it is now</source>
+        <translation>L&apos;échelle X et Y compte à partir de la taille actuelle de la boîte</translation>
+    </message>
+    <message>
+        <source>Anchor point (px)</source>
+        <translation>Point d&apos;ancrage (px)</translation>
+    </message>
+    <message>
+        <source>Anchor in the centre</source>
+        <translation>Ancrage au centre</translation>
+    </message>
+    <message>
+        <source>Anchor point here (the layer stays where it is)</source>
+        <translation>Point d’ancrage ici (le calque reste en place)</translation>
     </message>
     <message>
         <source>Opacity &amp; rotation</source>
@@ -31483,7 +32287,7 @@ Si la lecture saccade, essayez une autre option.</translation>
     </message>
     <message>
         <source>Reverse</source>
-        <translation type="unfinished"></translation>
+        <translation>Inverser</translation>
     </message>
     <message>
         <source>Reverse path direction: the trim runs round the other way</source>
@@ -32993,7 +33797,7 @@ Si la lecture saccade, essayez une autre option.</translation>
     </message>
     <message>
         <source>Preview</source>
-        <translation type="unfinished"></translation>
+        <translation>Aperçu</translation>
     </message>
     <message>
         <source>Properties</source>
@@ -33024,7 +33828,7 @@ Si la lecture saccade, essayez une autre option.</translation>
     </message>
     <message>
         <source>Preview</source>
-        <translation type="unfinished"></translation>
+        <translation>Aperçu</translation>
     </message>
     <message>
         <source>Properties</source>

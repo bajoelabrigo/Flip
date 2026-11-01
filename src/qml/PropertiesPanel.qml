@@ -59,6 +59,8 @@ PanelFrame {
     }
 
     property int activeTab: 1 // General; 0 is the scene template tab, shown only for one
+    onActiveTabChanged: if (EditorState.traceUi())
+                            console.warn("[tab]", activeTab, root.tabs[activeTab] ? root.tabs[activeTab].id : "", new Error().stack)
     property string lastSelectionKey: ""
     readonly property string currentTabId: tabs[activeTab].id
     readonly property bool keyframesTab: !!tabs[activeTab].keyframes
@@ -321,6 +323,68 @@ PanelFrame {
             font.family: Theme.fontFamily
             font.pixelSize: Theme.fontSizeXs
         }
+
+        // The project's own look with nothing picked (0.29): its background colour and a solid the size of
+        // the frame, which every motion piece starts with (a rectangle drawn by hand and set to 0,0 / 100 %).
+        Rectangle {
+            width: parent.width
+            height: 1
+            color: Theme.panelBorder
+        }
+        Text {
+            width: parent.width
+            text: qsTr("Project")
+            color: Theme.panelForeground
+            font.family: Theme.fontFamily
+            font.pixelSize: Theme.fontSizeSm
+            font.weight: Font.Medium
+        }
+        // Colour or transparent (0.29, Jorge): an alpha background for a title or lower third exported over video.
+        Row {
+            width: parent.width
+            spacing: Theme.spacingSm
+            ThemedChip {
+                text: qsTr("Colour")
+                selected: !!EditorState.projectFile.background && EditorState.projectFile.background.kind === "color"
+                onClicked: EditorState.projectFile.setBackground({ kind: "color" })
+            }
+            ThemedChip {
+                text: qsTr("Transparent (alpha)")
+                tooltip: qsTr("No background: export it as ProRes 4444 or VP9 with alpha (WebM) to keep the transparency")
+                selected: !!EditorState.projectFile.background && EditorState.projectFile.background.kind === "transparent"
+                onClicked: EditorState.projectFile.setBackground({ kind: "transparent" })
+            }
+        }
+        Row {
+            width: parent.width
+            spacing: Theme.spacingSm
+            visible: EditorState.projectFile.background && EditorState.projectFile.background.kind === "color"
+            Text {
+                width: parent.width - bgSwatch.width - parent.spacing
+                anchors.verticalCenter: parent.verticalCenter
+                text: qsTr("Background colour")
+                color: Theme.mutedForeground
+                font.family: Theme.fontFamily
+                font.pixelSize: Theme.fontSizeXs
+                elide: Text.ElideRight
+            }
+            ColorSwatchField {
+                id: bgSwatch
+                hex: EditorState.projectFile.background ? (EditorState.projectFile.background.color || "#ff000000") : "#ff000000"
+                tooltip: qsTr("Background colour of the project: what shows where no layer covers the frame")
+                onEdited: value => EditorState.projectFile.setBackground({ kind: "color", color: value })
+            }
+        }
+        ThemedButton {
+            width: parent.width
+            text: qsTr("Solid the size of the frame")
+            tooltip: qsTr("A layer of one colour over the whole frame, for the length of the work (the background colour above)")
+            // The colour just above it (the project's background), not the toolbar's fill (0.29).
+            onClicked: {
+                const bg = EditorState.projectFile.background
+                EditorState.addFrameSolid(bg && bg.kind === "color" && bg.color ? bg.color : EditorState.preview.toolFill)
+            }
+        }
     }
 
     Item {
@@ -554,6 +618,9 @@ PanelFrame {
                             variant: "ghost"
                             tooltip: modelData.label
                             active: root.activeTab === index
+                            // On press (0.29): a commit of the field that had the focus can refresh the panel before
+                            // the release, and the click was lost.
+                            onPressed: root.activeTab = index
                             onClicked: root.activeTab = index
 
                             Accessible.role: Accessible.PageTab
@@ -577,7 +644,7 @@ PanelFrame {
                             MouseArea {
                                 anchors.fill: parent
                                 cursorShape: Qt.PointingHandCursor
-                                onClicked: root.activeTab = index
+                                onPressed: root.activeTab = index
                             }
                         }
 

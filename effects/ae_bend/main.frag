@@ -2,6 +2,7 @@
 in vec2 v_texCoord; out vec4 fragColor;
 uniform sampler2D u_currentTexture; uniform vec2 u_resolution;
 uniform float bend; uniform float start; uniform float end; uniform float vertical;
+uniform float axis;
 uniform float u_padX; uniform float u_padY;
 
 // Bend (0.26) as a joint, the way Bendio bends a layer: along its length (x, or y with `vertical`)
@@ -19,10 +20,11 @@ void main() {
         q = q.yx;
 
     float L = size.x;
-    float mid = size.y * 0.5;
-    float half = size.y * 0.5;
-    float s0 = clamp(min(start, end), 0.0, 100.0) / 100.0 * L;
-    float s1 = clamp(max(start, end), 0.0, 100.0) / 100.0 * L;
+    // `axis` (0.29): where the joint's axis runs, as % of the height from the middle, and Start/End past
+    // 0..100: a layer on top of another (a title on a band) bends round the band's joint, not its own.
+    float mid = size.y * 0.5 + axis / 100.0 * size.y;
+    float s0 = clamp(min(start, end), -10000.0, 10000.0) / 100.0 * L;
+    float s1 = clamp(max(start, end), -10000.0, 10000.0) / 100.0 * L;
     float theta = radians(bend);
     // A bend the other way is the same one mirrored across the axis.
     float flip = theta < 0.0 ? -1.0 : 1.0;
@@ -32,6 +34,9 @@ void main() {
         src = q;
     } else {
         float qd = (q.y - mid) * flip; // offset from the axis, + on the outside of the bend
+        // The layer's own thickness either side of the axis, in that mirrored space.
+        float lo = flip > 0.0 ? -mid : mid - size.y;
+        float hi = flip > 0.0 ? size.y - mid : mid;
         float R = (s1 - s0) / a;
         vec2 c = vec2(s0, -R);         // the arc's centre, axis at y = 0
         vec2 qq = vec2(q.x, qd);
@@ -41,7 +46,7 @@ void main() {
         vec2 n = vec2(sin(a), cos(a));
         float u = dot(qq - e, t);
         float d = dot(qq - e, n);
-        if (u >= 0.0 && s1 + u <= L && abs(d) <= half) {
+        if (u >= 0.0 && s1 + u <= L && d >= lo && d <= hi) {
             src = vec2(s1 + u, d);
         } else {
             vec2 v = qq - c;
@@ -50,9 +55,9 @@ void main() {
             if (ang < 0.0)
                 ang += 6.28318530718;
             float dd = r - R;
-            if (ang >= 0.0 && ang <= a && abs(dd) <= half) {
+            if (ang >= 0.0 && ang <= a && dd >= lo && dd <= hi) {
                 src = vec2(s0 + ang * R, dd);
-            } else if (q.x <= s0 && abs(qd) <= half) {
+            } else if (q.x <= s0 && qd >= lo && qd <= hi) {
                 src = vec2(q.x, qd);
             }
         }

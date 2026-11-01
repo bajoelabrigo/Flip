@@ -3,6 +3,23 @@
 Flip Studio es un fork de Drift. Esta sección lista lo que Flip Studio cambia respecto a Drift; debajo sigue el
 registro heredado de Drift.
 
+## 0.29.0 — Tercios inferiores fáciles y animación a mano como After Effects
+
+- Tercios: generador `LowerThirdDialog.qml` / `createLowerThird`, etiqueta ajustada al texto (`Clip::fitTextId`,
+  `fitLabelsToTexts`, `makeLabelForText`), «Mostrar solo dentro» (`showInsideLayerBelow`, mate `keepSource`), barrido
+  de hasta tres colores (`twoColourWipe`, efecto `ae.linear_wipe`), inclinación (`ShapeStyle` `skew`), alinear y
+  repartir (`alignSelected`), escalonar (`staggerSelectedClips`). MCP `create_lower_third`, `make_text_label`,
+  `show_inside_below`, `colour_wipe`, `stagger_clips`, `scale_about_anchor`.
+- Animación: Escala X/Y en % desde el anclaje (`setClipScaledSize`, `Clip::scaleRefW/H`), cuadrícula del anclaje,
+  giro 3D sobre el anclaje (`ClipPose3d::pivot`), clave suelta estática fuera de las filas (`static`), rombo que
+  enciende el cronómetro, borrar claves en un tramo (`removeClipKeysInRange`), Invertir, presets de Barrido,
+  dividir en letras (`splitTextIntoLetters`), Morph con reacción y salpicadura (`morphLayers`), Doblar juntas
+  (`applyBend` `together`), Chorro líquido que revela su trazo.
+- Interfaz: Elipse y Línea, Relleno/Trazo de After Effects (`FillOptionsDialog.qml`, `GradientHandlesOverlay.qml`),
+  color de fondo y alfa del proyecto, sólido del cuadro (`addFrameSolid`), cursiva sintética, texto nuevo legible,
+  Ctrl+D en Pro encima. Arreglos: fondo de los diálogos que se comía el primer clic (`ThemedDialog` `exit: null`),
+  hex sin «#», guías solo con Selección.
+
 ## 0.28.0 — Formas como After Effects
 
 - Capas de forma con partes y grupos (`ShapeStyle::parts`, `ShapePart`, `SkiaShapePainter` `ContentsPainter`): lista

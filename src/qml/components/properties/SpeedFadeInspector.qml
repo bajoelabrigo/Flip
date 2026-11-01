@@ -104,6 +104,7 @@ Item {
             stepSize: 0.05
             Binding on value {
                 when: !speedSlider.pressed
+                restoreMode: Binding.RestoreNone
                 value: root.clipData.speed || 1.0
             }
             onMoved: EditorState.previewSetClipSpeed(

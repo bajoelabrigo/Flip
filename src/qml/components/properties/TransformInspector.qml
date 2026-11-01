@@ -72,6 +72,13 @@ Item {
 
     property var scaleDragStart: null
 
+    // The keys a row shows: a lone static key (the clip's own value, `static`) is no keys, so the row is not
+    // "animated" and the diamond, not typing, starts the animation (0.29).
+    function keysOf(key) {
+        const entry = clipData.keyframes && clipData.keyframes[key]
+        return entry && entry.points && !entry["static"] ? entry.points : []
+    }
+
     function transformAt(key, def) {
         return EditorState.propertyValueAt(EditorState.selectedTrack, EditorState.selectedClip,
                                            key, EditorState.inspectorPlayheadSeconds, def)
@@ -86,6 +93,20 @@ Item {
             "scale": scaleAtPlayhead,
             "pixelSize": (clipData.textStyle && clipData.textStyle.pixelSize) || 64
         }
+    }
+
+    function keyScaleAtPlayhead() {
+        const at = EditorState.inspectorPlayheadSeconds
+        const values = {
+            "x": transformAt("x", 0),
+            "y": transformAt("y", 0),
+            "width": transformAt("width", canvasW),
+            "height": transformAt("height", canvasH)
+        }
+        EditorState.beginEditSession(qsTr("Scale keyframe"))
+        for (const key in values)
+            EditorState.setClipKeyframe(EditorState.selectedTrack, EditorState.selectedClip, key, at, values[key])
+        EditorState.endEditSession(true)
     }
 
     function applyScale(scale) {
@@ -135,6 +156,42 @@ Item {
                 visible: root.isTransformLayer
                 width: parent.width
                 clipData: root.clipData
+            }
+
+            // After Effects' Align panel (0.29, lower thirds): one layer lines up with the frame, several with
+            // each other; three or more can be spaced evenly.
+            Row {
+                width: parent.width
+                spacing: 2
+                readonly property bool many: (EditorState.selection || []).length > 1
+                Text {
+                    width: 74
+                    anchors.verticalCenter: parent.verticalCenter
+                    text: qsTr("Align")
+                    color: Theme.mutedForeground
+                    font.family: Theme.fontFamily
+                    font.pixelSize: Theme.fontSizeXs
+                }
+                Repeater {
+                    model: [
+                        { mode: "left", glyph: "align-start-vertical", tip: qsTr("Align left edges") },
+                        { mode: "hcenter", glyph: "align-center-vertical", tip: qsTr("Align centres across") },
+                        { mode: "right", glyph: "align-end-vertical", tip: qsTr("Align right edges") },
+                        { mode: "top", glyph: "align-start-horizontal", tip: qsTr("Align top edges") },
+                        { mode: "vcenter", glyph: "align-center-horizontal", tip: qsTr("Align centres up and down") },
+                        { mode: "bottom", glyph: "align-end-horizontal", tip: qsTr("Align bottom edges") },
+                        { mode: "distH", glyph: "align-horizontal-distribute-center", tip: qsTr("Space evenly across (three or more)") },
+                        { mode: "distV", glyph: "align-vertical-distribute-center", tip: qsTr("Space evenly up and down (three or more)") }
+                    ]
+                    IconButton {
+                        required property var modelData
+                        buttonSize: 30
+                        iconSize: 16
+                        glyph: modelData.glyph
+                        tooltip: modelData.tip + (parent.many ? "" : " · " + qsTr("with the frame"))
+                        onClicked: EditorState.alignSelected(modelData.mode)
+                    }
+                }
             }
 
             Row {
@@ -208,7 +265,7 @@ Item {
             PropertyKeyframeRow {
                 width: parent.width
                 propDef: root.propX
-                keyframeList: (root.clipData.keyframes && root.clipData.keyframes.x && root.clipData.keyframes.x.points) || []
+                keyframeList: root.keysOf("x")
                 linkedPropKey: root.positionLinked ? "y" : ""
                 useSlider: true
                 sliderFrom: -root.canvasW
@@ -218,7 +275,7 @@ Item {
             PropertyKeyframeRow {
                 width: parent.width
                 propDef: root.propY
-                keyframeList: (root.clipData.keyframes && root.clipData.keyframes.y && root.clipData.keyframes.y.points) || []
+                keyframeList: root.keysOf("y")
                 linkedPropKey: root.positionLinked ? "x" : ""
                 useSlider: true
                 sliderFrom: -root.canvasH
@@ -250,7 +307,14 @@ Item {
                     active: root.sizeLinked
                     tooltip: root.sizeLinked ? qsTr("Edit width and height separately")
                                              : qsTr("Scale width and height together")
-                    onClicked: root.sizeLinked = !root.sizeLinked
+                    onClicked: {
+                        root.sizeLinked = !root.sizeLinked
+                        // The box as it is now is 100 % of Scale X / Y, the first time they are split.
+                        if (!root.sizeLinked && !(root.clipData.scaleRefW > 0))
+                            EditorState.setClipScaleReference(EditorState.selectedTrack, EditorState.selectedClip,
+                                                              root.transformAt("width", root.canvasW),
+                                                              root.transformAt("height", root.canvasH))
+                    }
                 }
             }
 
@@ -259,17 +323,30 @@ Item {
                 width: parent.width
                 spacing: 8
 
+                // The joined Scale keys as After Effects' does: Position and Size together at the
+                // playhead, so the clip grows from its centre (0.29: the row had no diamond).
+                IconButton {
+                    id: scaleKeyButton
+                    anchors.verticalCenter: parent.verticalCenter
+                    buttonSize: 24
+                    iconSize: 16
+                    glyph: Theme.icons.diamondPlus
+                    tooltip: qsTr("Add a keyframe for Scale at the playhead")
+                    onClicked: root.keyScaleAtPlayhead()
+                }
+
                 ThemedSlider {
                     id: scaleSlider
                     lockWhilePlaying: true
                     label: qsTr("Scale")
-                    width: parent.width - scaleReadout.width - parent.spacing
+                    width: parent.width - scaleReadout.width - scaleKeyButton.width - 2 * parent.spacing
                     anchors.verticalCenter: parent.verticalCenter
                     from: 0.05
                     to: 4
                     valueFormatter: function (v) { return Math.round(v * 100) + "%" }
                     Binding on value {
                         when: !scaleSlider.pressed
+                        restoreMode: Binding.RestoreNone
                         value: root.scaleAtPlayhead
                     }
                     onPressedChanged: {
@@ -292,6 +369,100 @@ Item {
                     color: Theme.panelForeground
                     font.family: Theme.monoFontFamily
                     font.pixelSize: Theme.fontSizeSm
+
+                    // Dragged sideways like After Effects' values (0.29): one per cent a pixel.
+                    ScrubArea {
+                        anchors.fill: parent
+                        anchors.margins: -3
+                        value: root.scaleAtPlayhead
+                        from: scaleSlider.from
+                        to: scaleSlider.to
+                        stepPerPixel: 0.01
+                        onStarted: {
+                            root.beginScaleDrag()
+                            EditorState.beginPreviewDrag(qsTr("Scale clip"))
+                        }
+                        onScrubbed: v => root.applyScale(v)
+                        onFinished: EditorState.commitPreviewDrag()
+                    }
+                }
+            }
+
+            // Scale X / Y in % as After Effects (0.29, Jorge): squash and stretch read as 120 % / 80 %, not pixels.
+            // 100 % is the box when the scale was split (or «This size is 100 %»); the keys are Width / Height's.
+            Column {
+                id: scalePercent
+                visible: !root.sizeLinked
+                width: parent.width
+                spacing: Theme.spacingXs
+                // Without a reference yet (the scale was split on another layer: the switch is remembered), 100 % is
+                // the layer's own size at its start, not the frame (a new shape read 11 % / 19 %).
+                readonly property real refW: root.clipData.scaleRefW > 0 ? root.clipData.scaleRefW
+                    : EditorState.propertyValueAt(EditorState.selectedTrack, EditorState.selectedClip, "width", 0, root.canvasW)
+                readonly property real refH: root.clipData.scaleRefH > 0 ? root.clipData.scaleRefH
+                    : EditorState.propertyValueAt(EditorState.selectedTrack, EditorState.selectedClip, "height", 0, root.canvasH)
+                readonly property real w: { void root.clipDataRevision; void root.liveRevision; return root.transformAt("width", root.canvasW) }
+                readonly property real h: { void root.clipDataRevision; void root.liveRevision; return root.transformAt("height", root.canvasH) }
+                function setSize(key, value) {
+                    // The size the percentages count from is kept on the first edit, so it does not move with the keys.
+                    const fromW = refW, fromH = refH
+                    if (!(root.clipData.scaleRefW > 0))
+                        EditorState.setClipScaleReference(EditorState.selectedTrack, EditorState.selectedClip, fromW, fromH)
+                    // About the anchor point, as After Effects: the position follows (it used to grow from the corner).
+                    EditorState.setClipScaledSize(EditorState.selectedTrack, EditorState.selectedClip, key,
+                                                  EditorState.inspectorPlayheadSeconds, Math.max(1, value))
+                }
+                Row {
+                    width: parent.width
+                    spacing: Theme.spacingSm
+                    IconButton {
+                        anchors.verticalCenter: parent.verticalCenter
+                        buttonSize: 28
+                        iconSize: 14
+                        glyph: Theme.icons.diamondPlus
+                        tooltip: qsTr("Add a keyframe for Scale X and Y at the playhead")
+                        onClicked: {
+                            const at = EditorState.inspectorPlayheadSeconds
+                            EditorState.beginEditSession(qsTr("Scale keyframe"))
+                            EditorState.setClipKeyframe(EditorState.selectedTrack, EditorState.selectedClip, "width", at, scalePercent.w)
+                            EditorState.setClipKeyframe(EditorState.selectedTrack, EditorState.selectedClip, "height", at, scalePercent.h)
+                            EditorState.endEditSession(true)
+                        }
+                    }
+                    ThemedLabel { anchors.verticalCenter: parent.verticalCenter; text: qsTr("Scale X"); size: "sm" }
+                    ThemedNumberField {
+                        id: scaleXField
+                        width: (parent.width - 28 - 2 * 60 - 5 * parent.spacing) / 2
+                        from: 0
+                        to: 10000
+                        unit: "%"
+                        Binding on value {
+                            when: !scaleXField.activeFocus
+                            restoreMode: Binding.RestoreNone
+                            value: Math.round(scalePercent.w / scalePercent.refW * 1000) / 10
+                        }
+                        onEdited: v => scalePercent.setSize("width", v / 100 * scalePercent.refW)
+                    }
+                    ThemedLabel { anchors.verticalCenter: parent.verticalCenter; text: qsTr("Scale Y"); size: "sm" }
+                    ThemedNumberField {
+                        id: scaleYField
+                        width: (parent.width - 28 - 2 * 60 - 5 * parent.spacing) / 2
+                        from: 0
+                        to: 10000
+                        unit: "%"
+                        Binding on value {
+                            when: !scaleYField.activeFocus
+                            restoreMode: Binding.RestoreNone
+                            value: Math.round(scalePercent.h / scalePercent.refH * 1000) / 10
+                        }
+                        onEdited: v => scalePercent.setSize("height", v / 100 * scalePercent.refH)
+                    }
+                }
+                ThemedButton {
+                    text: qsTr("This size is 100 %")
+                    tooltip: qsTr("Scale X and Y count from the box as it is now")
+                    onClicked: EditorState.setClipScaleReference(EditorState.selectedTrack, EditorState.selectedClip,
+                                                                 scalePercent.w, scalePercent.h)
                 }
             }
 
@@ -299,7 +470,7 @@ Item {
                 visible: !root.sizeLinked
                 width: parent.width
                 propDef: root.propWidth
-                keyframeList: (root.clipData.keyframes && root.clipData.keyframes.width && root.clipData.keyframes.width.points) || []
+                keyframeList: root.keysOf("width")
                 useSlider: true
                 sliderFrom: 1
                 sliderTo: Math.max(root.canvasW * 2, 2)
@@ -309,11 +480,109 @@ Item {
                 visible: !root.sizeLinked
                 width: parent.width
                 propDef: root.propHeight
-                keyframeList: (root.clipData.keyframes && root.clipData.keyframes.height && root.clipData.keyframes.height.points) || []
+                keyframeList: root.keysOf("height")
                 useSlider: true
                 sliderFrom: 1
                 sliderTo: Math.max(root.canvasH * 2, 2)
                 unit: "px"
+            }
+
+            // The anchor point in px of the layer's box (0.29): the turn and the 3D tilt pivot there;
+            // changing it keeps the layer where it is, as the Anchor tool and the timeline row do.
+            Column {
+                id: anchorSection
+                width: parent.width
+                spacing: Theme.spacingXs
+                readonly property real boxW: { void root.clipDataRevision; void root.liveRevision; return root.transformAt("width", root.canvasW) }
+                readonly property real boxH: { void root.clipDataRevision; void root.liveRevision; return root.transformAt("height", root.canvasH) }
+                readonly property real fx: { void root.clipDataRevision; void root.liveRevision; return root.transformAt("anchorX", 0.5) }
+                readonly property real fy: { void root.clipDataRevision; void root.liveRevision; return root.transformAt("anchorY", 0.5) }
+                function setPx(x, y) {
+                    EditorState.setAnchorKeepingPlace(EditorState.selectedTrack, EditorState.selectedClip,
+                                                      boxW > 0 ? x / boxW : 0.5, boxH > 0 ? y / boxH : 0.5)
+                }
+
+                Text {
+                    text: qsTr("Anchor point (px)")
+                    color: Theme.mutedForeground
+                    font.family: Theme.fontFamily
+                    font.pixelSize: Theme.fontSizeXs
+                    font.weight: Font.Medium
+                }
+                Row {
+                    width: parent.width
+                    spacing: Theme.spacingSm
+                    ThemedNumberField {
+                        width: (parent.width - centreAnchorButton.width - 2 * parent.spacing) / 2
+                        from: -100000
+                        to: 100000
+                        unit: "px"
+                        id: anchorXField
+                        // A Binding, not a plain value: typing into the field breaks a plain binding, and the
+                        // field then kept showing the last clip's anchor when another was picked (0.29).
+                        Binding on value {
+                            when: !anchorXField.activeFocus
+                            // Keep the shown value while typing: restoring dropped it to 0, so a typed 0 was
+                            // "no change" and never applied.
+                            restoreMode: Binding.RestoreNone
+                            value: Math.round(anchorSection.fx * anchorSection.boxW)
+                        }
+                        onEdited: v => anchorSection.setPx(v, anchorSection.fy * anchorSection.boxH)
+                    }
+                    ThemedNumberField {
+                        width: (parent.width - centreAnchorButton.width - 2 * parent.spacing) / 2
+                        from: -100000
+                        to: 100000
+                        unit: "px"
+                        id: anchorYField
+                        // A Binding, not a plain value: typing into the field breaks a plain binding, and the
+                        // field then kept showing the last clip's anchor when another was picked (0.29).
+                        Binding on value {
+                            when: !anchorYField.activeFocus
+                            // Keep the shown value while typing: restoring dropped it to 0, so a typed 0 was
+                            // "no change" and never applied.
+                            restoreMode: Binding.RestoreNone
+                            value: Math.round(anchorSection.fy * anchorSection.boxH)
+                        }
+                        onEdited: v => anchorSection.setPx(anchorSection.fx * anchorSection.boxW, v)
+                    }
+                    // The 3×3 grid of Motion Tools here too (0.29): a corner or an edge in one click, so a
+                    // label can grow from its left edge without typing its width.
+                    Grid {
+                        id: centreAnchorButton
+                        columns: 3
+                        spacing: 3
+                        width: 54
+                        height: 54
+                        Repeater {
+                            model: 9
+                            Rectangle {
+                                id: cell
+                                required property int index
+                                readonly property real cx: (index % 3) / 2
+                                readonly property real cy: Math.floor(index / 3) / 2
+                                readonly property bool current: Math.abs(anchorSection.fx - cx) < 0.01
+                                                                && Math.abs(anchorSection.fy - cy) < 0.01
+                                width: 16
+                                height: 16
+                                radius: 3
+                                color: current ? Theme.primary : cellMouse.containsMouse ? Theme.mutedForeground : Theme.panelBorder
+                                MouseArea {
+                                    id: cellMouse
+                                    anchors.fill: parent
+                                    hoverEnabled: true
+                                    cursorShape: Qt.PointingHandCursor
+                                    onClicked: anchorSection.setPx(cell.cx * anchorSection.boxW, cell.cy * anchorSection.boxH)
+                                }
+                                ThemedToolTip {
+                                    visible: cellMouse.containsMouse
+                                    text: cell.index === 4 ? qsTr("Anchor in the centre")
+                                                           : qsTr("Anchor point here (the layer stays where it is)")
+                                }
+                            }
+                        }
+                    }
+                }
             }
 
             Text {
@@ -327,7 +596,7 @@ Item {
             PropertyKeyframeRow {
                 width: parent.width
                 propDef: root.propOpacity
-                keyframeList: (root.clipData.keyframes && root.clipData.keyframes.opacity && root.clipData.keyframes.opacity.points) || []
+                keyframeList: root.keysOf("opacity")
                 useSlider: true
                 sliderFrom: 0
                 sliderTo: 1
@@ -337,7 +606,7 @@ Item {
             PropertyKeyframeRow {
                 width: parent.width
                 propDef: root.propRotation
-                keyframeList: (root.clipData.keyframes && root.clipData.keyframes.rotation && root.clipData.keyframes.rotation.points) || []
+                keyframeList: root.keysOf("rotation")
                 useSlider: true
                 sliderFrom: -180
                 sliderTo: 180
@@ -468,7 +737,7 @@ Item {
                 visible: !!root.clipData.layer3d
                 width: parent.width
                 propDef: root.propRotationX
-                keyframeList: (root.clipData.keyframes && root.clipData.keyframes.rotationX && root.clipData.keyframes.rotationX.points) || []
+                keyframeList: root.keysOf("rotationX")
                 useSlider: true
                 sliderFrom: -180
                 sliderTo: 180
@@ -478,7 +747,7 @@ Item {
                 visible: !!root.clipData.layer3d
                 width: parent.width
                 propDef: root.propRotationY
-                keyframeList: (root.clipData.keyframes && root.clipData.keyframes.rotationY && root.clipData.keyframes.rotationY.points) || []
+                keyframeList: root.keysOf("rotationY")
                 useSlider: true
                 sliderFrom: -180
                 sliderTo: 180
@@ -488,7 +757,7 @@ Item {
                 visible: !!root.clipData.layer3d
                 width: parent.width
                 propDef: root.propZ
-                keyframeList: (root.clipData.keyframes && root.clipData.keyframes.z && root.clipData.keyframes.z.points) || []
+                keyframeList: root.keysOf("z")
                 useSlider: true
                 sliderFrom: -4000
                 sliderTo: 1500
@@ -498,7 +767,7 @@ Item {
                 visible: !!root.clipData.layer3d
                 width: parent.width
                 propDef: root.propPerspective
-                keyframeList: (root.clipData.keyframes && root.clipData.keyframes.perspective && root.clipData.keyframes.perspective.points) || []
+                keyframeList: root.keysOf("perspective")
                 useSlider: true
                 sliderFrom: 200
                 sliderTo: 8000

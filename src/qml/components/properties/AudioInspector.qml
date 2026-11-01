@@ -139,6 +139,7 @@ Item {
                     stepSize: 0.1
                     Binding on value {
                         when: !fadeSlider.pressed
+                        restoreMode: Binding.RestoreNone
                         value: fadeRow.seconds
                     }
                     onPressedChanged: {

@@ -248,6 +248,9 @@ int ensureFreeTrackForClipType(Project &project, ClipType type, TimeUs startUs, 
 
 // Always prepends a fresh track (multiple tracks of the same type are allowed).
 int insertTrackAtTopForClipType(Project &project, ClipType type);
+// A new layer on top of everything (After Effects): the topmost track if it takes the type and is free, else a new
+// track at the top.
+int topFreeTrackForClipType(Project &project, ClipType type, TimeUs startUs, TimeUs durationUs);
 
 // Inserts a fresh track directly above `trackIndex` (index 0 is the topmost track), pushing that
 // track and everything below it down one. Returns the new track's index.
@@ -308,7 +311,7 @@ QString assignSplitLinkIds(Clip &head, Clip &tail);
 // simply clipped away by the compositor. Every timeline is rebased, and boxes that show a whole
 // canvas (clipBoxIsCanvasReferenced) scale with it instead, so nested content holds still too.
 void rebaseClipLayout(Project &project, int oldWidth, int oldHeight, int newWidth, int newHeight,
-                      double originX, double originY);
+                      double originX, double originY, bool fitFullFrame = false);
 
 // True for boxes whose natural size is the canvas itself: composites and transform layers.
 bool clipBoxIsCanvasReferenced(const Clip &clip);

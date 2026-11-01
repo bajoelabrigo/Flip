@@ -1458,7 +1458,9 @@ void drawLayerOnCanvas(GlRuntime &rt, QOpenGLExtraFunctions *gl, GlTarget &canva
                                 && blend == drift::BlendMode::Normal;
         if (depthWrite) {
             gl->glEnable(GL_DEPTH_TEST);
-            gl->glDepthFunc(GL_LESS);
+            // Ties keep track order: a later (higher) layer at the same depth draws over (0.29: flat 3D layers at
+            // Z 0 swapped places).
+            gl->glDepthFunc(GL_LEQUAL);
             gl->glDepthMask(GL_TRUE);
         }
 

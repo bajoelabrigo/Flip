@@ -102,6 +102,7 @@ Column {
                 }
                 Binding on value {
                     when: !scalarSlider.pressed
+                    restoreMode: Binding.RestoreNone
                     value: Number(slotRow.current)
                 }
                 onMoved: {
@@ -127,6 +128,7 @@ Column {
                 unit: slotRow.spec.unit || ""
                 Binding on value {
                     when: !scalarField.activeFocus
+                    restoreMode: Binding.RestoreNone
                     value: Number(slotRow.current) || 0
                 }
                 onEdited: v => root.changed(slotRow.spec.id, v)
@@ -158,6 +160,7 @@ Column {
                     step: 1
                     Binding on value {
                         when: !vecX.activeFocus
+                        restoreMode: Binding.RestoreNone
                         value: slotRow.current !== undefined ? Number(slotRow.current[0]) : 0
                     }
                     onEdited: v => root.changed(slotRow.spec.id, [v, vecY.value])
@@ -169,6 +172,7 @@ Column {
                     step: 1
                     Binding on value {
                         when: !vecY.activeFocus
+                        restoreMode: Binding.RestoreNone
                         value: slotRow.current !== undefined ? Number(slotRow.current[1]) : 0
                     }
                     onEdited: v => root.changed(slotRow.spec.id, [vecX.value, v])

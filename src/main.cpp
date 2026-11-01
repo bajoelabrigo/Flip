@@ -59,6 +59,9 @@
 #include <QStringList>
 #include <QQmlEngine>
 #include <QQuickWindow>
+#include <QQuickItem>
+#include <QMouseEvent>
+#include <QPointer>
 #include <QSurfaceFormat>
 #include <QtQml/qqml.h>
 #include <QFile>
@@ -181,6 +184,76 @@ public:
         cache->setMaximumCacheSize(256LL * 1024 * 1024);
         manager->setCache(cache);
         return manager;
+    }
+};
+
+// FLIP_TRACE_CLICKS=1 (0.29): every press and release on a window, with the item stack under the
+// pointer, the item that had the keyboard and the one the release goes to. To find who swallows a
+// click (the first click in the inspector was lost after the selection changed) on a real build.
+class ClickTracer : public QObject
+{
+public:
+    using QObject::QObject;
+
+protected:
+    static QString describe(const QObject *o)
+    {
+        if (!o)
+            return QStringLiteral("-");
+        QString name = QString::fromLatin1(o->metaObject()->className());
+        if (!o->objectName().isEmpty())
+            name += QLatin1Char('#') + o->objectName();
+        return name;
+    }
+    static QString stackAt(QQuickItem *root, QPointF scenePos)
+    {
+        QStringList chain;
+        QQuickItem *item = root;
+        while (item && chain.size() < 40) {
+            chain.append(describe(item));
+            QQuickItem *next = nullptr;
+            const QList<QQuickItem *> kids = item->childItems();
+            for (int i = kids.size() - 1; i >= 0; --i) {
+                QQuickItem *k = kids.at(i);
+                if (!k->isVisible() || k->opacity() <= 0.0)
+                    continue;
+                if (k->contains(k->mapFromScene(scenePos))) {
+                    next = k;
+                    break;
+                }
+            }
+            item = next;
+        }
+        return chain.join(QStringLiteral(" > "));
+    }
+    bool eventFilter(QObject *watched, QEvent *event) override
+    {
+        const QEvent::Type t = event->type();
+        if (t != QEvent::MouseButtonPress && t != QEvent::MouseButtonRelease)
+            return false;
+        auto *window = qobject_cast<QQuickWindow *>(watched);
+        if (!window)
+            return false;
+        auto *mouse = static_cast<QMouseEvent *>(event);
+        const QPointF pos = mouse->scenePosition();
+        if (t == QEvent::MouseButtonPress) {
+            qInfo().noquote() << "[click] press" << pos << "focus:" << describe(window->activeFocusItem())
+                              << "\n  under:" << stackAt(window->contentItem(), pos);
+            // Who took it, once the press has been delivered.
+            QPointer<QQuickWindow> w(window);
+            QTimer::singleShot(0, window, [w, pos] {
+                if (!w)
+                    return;
+                qInfo().noquote() << "[click]   after press: grabber"
+                                  << describe(w->mouseGrabberItem()) << "focus:" << describe(w->activeFocusItem());
+            });
+        } else {
+            QStringList chain;
+            for (QQuickItem *i = window->mouseGrabberItem(); i && chain.size() < 10; i = i->parentItem())
+                chain.append(describe(i));
+            qInfo().noquote() << "[click] release" << pos << "grabber:" << chain.join(QStringLiteral(" < "));
+        }
+        return false;
     }
 };
 
@@ -713,6 +786,8 @@ int main(int argc, char *argv[])
     qmlRegisterSingletonInstance("Drift", 1, 0, "PointerDevices", &pointerDevices);
 
     app.installEventFilter(new FileOpenFilter(&editorState, &marketClient, &app));
+    if (qEnvironmentVariableIsSet("FLIP_TRACE_CLICKS"))
+        app.installEventFilter(new ClickTracer(&app));
     {
         // Hoisted deliberately: QCoreApplication::arguments() rebuilds and returns a QStringList
         // BY VALUE on every call, so `const QString &arg = app.arguments().at(i)` bound a

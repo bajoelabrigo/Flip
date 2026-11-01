@@ -14,6 +14,7 @@ Column {
     property real start: 30
     property real end: 70
     property int frames: 20
+    property bool together: true
 
     spacing: Theme.spacingMd
 
@@ -95,10 +96,18 @@ Column {
                 text: modelData.label
                 onClicked: {
                     root.degrees = modelData.deg
-                    EditorState.applyBend("set", root.degrees, root.vertical, root.start, root.end, root.frames)
+                    EditorState.applyBend("set", root.degrees, root.vertical, root.start, root.end, root.frames, root.together)
                 }
             }
         }
+    }
+
+    // A title on a band folds with it (0.29): one joint, the longest layer's, for every picked layer.
+    ThemedSwitch {
+        width: parent.width
+        text: qsTr("Bend the picked layers together (one joint)")
+        checked: root.together
+        onToggled: root.together = checked
     }
 
     Row {
@@ -119,25 +128,25 @@ Column {
             width: (root.width - 3 * Theme.spacingSm) / 4
             text: qsTr("Bend")
             tooltip: qsTr("Bend it this much (a key at the playhead if the bend is animated)")
-            onClicked: EditorState.applyBend("set", root.degrees, root.vertical, root.start, root.end, root.frames)
+            onClicked: EditorState.applyBend("set", root.degrees, root.vertical, root.start, root.end, root.frames, root.together)
         }
         ThemedButton {
             width: (root.width - 3 * Theme.spacingSm) / 4
             text: qsTr("Unbend in")
             tooltip: qsTr("Starts bent and straightens out from the playhead")
-            onClicked: EditorState.applyBend("in", root.degrees, root.vertical, root.start, root.end, root.frames)
+            onClicked: EditorState.applyBend("in", root.degrees, root.vertical, root.start, root.end, root.frames, root.together)
         }
         ThemedButton {
             width: (root.width - 3 * Theme.spacingSm) / 4
             text: qsTr("Bend out")
             tooltip: qsTr("Bends away at the end of the clip")
-            onClicked: EditorState.applyBend("out", root.degrees, root.vertical, root.start, root.end, root.frames)
+            onClicked: EditorState.applyBend("out", root.degrees, root.vertical, root.start, root.end, root.frames, root.together)
         }
         ThemedButton {
             width: (root.width - 3 * Theme.spacingSm) / 4
             text: qsTr("Remove")
             variant: "ghost"
-            onClicked: EditorState.applyBend("remove", 0, root.vertical, root.start, root.end, root.frames)
+            onClicked: EditorState.applyBend("remove", 0, root.vertical, root.start, root.end, root.frames, root.together)
         }
     }
 }

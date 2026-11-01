@@ -168,12 +168,12 @@ void ProjectFileController::sweepExtractionDirs()
     collectJsonStrings(recovery, &liveFiles);
     for (const drift::MediaAsset &asset : m_app->m_project.assets())
         liveFiles.insert(asset.path);
-#ifdef Q_OS_ANDROID
+    // The unsaved session's dir holds its freeze frames: kept on every platform (0.29: it was kept only on
+    // Android, so on Windows «Restore» after a crash found the freeze frame gone).
     const QString recoveryId = recovery.value(QStringLiteral("id")).toString();
     if (!recoveryId.isEmpty())
         live.insert(recoveryId);
     live.insert(m_app->m_project.id());
-#endif
 
     QDir root(QDir(base).filePath(QStringLiteral("projects")));
     if (root.exists()) {
@@ -357,7 +357,8 @@ void ProjectFileController::setProjectSetup(int width, int height, int fps)
 
     const drift::Project before = m_app->m_project;
     if (m_app->m_project.width() != width || m_app->m_project.height() != height)
-        drift::rebaseClipLayout(m_app->m_project, m_app->m_project.width(), m_app->m_project.height(), width, height, 0.0, 0.0);
+        drift::rebaseClipLayout(m_app->m_project, m_app->m_project.width(), m_app->m_project.height(), width, height, 0.0, 0.0,
+                                /*fitFullFrame=*/true);
     m_app->m_project.setResolution(width, height);
     const bool fpsChanged = m_app->m_project.fps() != fps;
     m_app->m_project.setFps(fps);
@@ -442,6 +443,17 @@ void ProjectFileController::rememberEmbeddedSources(const QList<drift::bundle::M
 
 void ProjectFileController::saveProject(const QUrl &url)
 {
+    // The first save of an untitled project names it after its file, as Save As does (0.29: the header
+    // went on saying «Proyecto sin título» after saving it as francois.flip).
+    if (m_app->m_project.name() == QLatin1String("Untitled Project")) {
+        ProjectIdentity same;
+        same.id = m_app->m_project.id();
+        same.name = projectNameForUrl(url);
+        if (!same.name.isEmpty()) {
+            writeProjectBundle(url, same);
+            return;
+        }
+    }
     writeProjectBundle(url, std::nullopt);
 }
 
@@ -496,6 +508,10 @@ void ProjectFileController::writeProjectBundle(const QUrl &url, const std::optio
     if (adopt) {
         request.projectId = adopt->id;
         request.title = adopt->name;
+        // The document inside carries them too: opening the file reads the name from it (0.29: a project saved
+        // as prueba10.flip came back as «Proyecto sin título»).
+        request.document.insert(QStringLiteral("id"), adopt->id);
+        request.document.insert(QStringLiteral("projectName"), adopt->name);
     }
 
 #ifdef Q_OS_ANDROID

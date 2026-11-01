@@ -643,7 +643,11 @@ Item {
             Drag.dragType: Drag.Automatic
             Drag.supportedActions: Qt.CopyAction
             Drag.keys: ["text/plain"]
-            Drag.mimeData: { "text/plain": assetIndex.toString() }
+            // The other picked media ride along (0.29): dropped, they follow the first one on its track.
+            Drag.mimeData: ({ "text/plain": assetIndex.toString(),
+                              "application/x-drift-assets": root.selectedAssetIds.indexOf(assetId) >= 0
+                                                            && root.selectedAssetIds.length > 1
+                                                            ? JSON.stringify(root.selectedAssetIds) : "" })
             // Default hotspot is (0,0) at the card top-left; Wayland
             // compositors (notably Mutter) then deliver drop Y far from
             // the grab point. Center on the thumbnail like effect cards.
@@ -1378,7 +1382,11 @@ Item {
             Drag.dragType: Drag.Automatic
             Drag.supportedActions: Qt.CopyAction
             Drag.keys: ["text/plain"]
-            Drag.mimeData: { "text/plain": assetIndex.toString() }
+            // The other picked media ride along (0.29): dropped, they follow the first one on its track.
+            Drag.mimeData: ({ "text/plain": assetIndex.toString(),
+                              "application/x-drift-assets": root.selectedAssetIds.indexOf(assetId) >= 0
+                                                            && root.selectedAssetIds.length > 1
+                                                            ? JSON.stringify(root.selectedAssetIds) : "" })
             Drag.hotSpot.x: width / 2
             Drag.hotSpot.y: height / 2
 

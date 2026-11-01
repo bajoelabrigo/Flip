@@ -75,11 +75,18 @@ struct TextGradient
     double offset = 0.0;       // shift along the axis in box widths (keyframable → moving gradient)
     double offsetSpeed = 0.0;  // box widths per second, added from clip time
     double scale = 1.0;        // axis length multiplier
-    QPointF center{0.5, 0.5};  // radial / sweep centre, fraction of the space box
+    QPointF center{0.5, 0.5};  // radial / sweep centre, or the point a linear axis runs through, fraction of the box
     bool repeat = false;       // tile instead of clamp
     bool oklab = false;        // interpolate in OKLab
     TextGradientSpace space = TextGradientSpace::Block;
 };
+
+// After Effects' gradient handles (0.29): the gradient as two points in fractions of the box it
+// is mapped onto. Linear: where the first and the last stop sit. Radial / Sweep: the centre and a
+// point at the radius (Radial) or on the start direction (Sweep). Setting them rewrites angle,
+// scale, offset and centre so the renderer (gradientShaderFor) draws exactly through them.
+void gradientHandlePoints(const TextGradient &gradient, QPointF *start, QPointF *end);
+void setGradientFromHandles(TextGradient &gradient, const QPointF &start, const QPointF &end);
 
 struct TextTexture
 {
@@ -144,6 +151,11 @@ struct TextShadingLayer
     int trimSegments = 1;      // Equal-in / Equal-out (0.26): the trim in this many equal stretches
     double trimOffset = 0.0;   // degrees (360 = once round), as a shape's Trim Paths offset (0.26)
     bool trimReverse = false;  // Reverse Path Direction (0.26): the trim runs the other way round
+    // Arrowheads (0.29, as Illustrator and CapCut): on the ends of an open path, following the trim. 0 none,
+    // 1 a filled triangle, 2 an open chevron, 3 a round dot; the size is the head's length in stroke widths.
+    int arrowStart = 0;
+    int arrowEnd = 0;
+    double arrowSize = 3.0;
     double sketchLength = 0.0;    // SkDiscretePathEffect segment length, px; 0 = off
     double sketchDeviation = 0.0; // px
     int sketchSeed = 0;

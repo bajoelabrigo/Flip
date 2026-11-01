@@ -570,7 +570,9 @@ public:
     // track (creating one if needed, exactly like addClipFromAsset), placed back to back in
     // the given order starting at the playhead — not all stacked on top of each other at the
     // same start time. One undo step for the whole batch.
-    Q_INVOKABLE void addClipsFromAssets(const QStringList &assetIds);
+    // `trackIndex` / `atSeconds` (0.29, several media dragged at once): every clip on that track from that
+    // time, one after another; left out, each kind's own track from the playhead.
+    Q_INVOKABLE void addClipsFromAssets(const QStringList &assetIds, int trackIndex = -1, double atSeconds = -1.0);
     Q_INVOKABLE void addClipFromAssetAt(int assetIndex, int trackIndex, double atSeconds);
     Q_INVOKABLE void addClipFromAssetOnNewTrack(int assetIndex, double atSeconds);
     // Same, but the new track goes at insertIndex rather than always on top, so
@@ -676,6 +678,9 @@ public:
     // name empty = «Solid»; a size of 0 = the frame's; centred on the frame.
     Q_INVOKABLE void addSolidClip(const QString &colorName = QString(), const QString &name = QString(),
                                   double width = 0, double height = 0);
+    // A solid the size of the frame from 0 to the end of the work (5 s on an empty one), at the bottom of
+    // the stack as a background (0.29: the first step of every motion piece).
+    Q_INVOKABLE void addFrameSolid(const QString &colorName);
     // After Effects' Solid Settings on a solid already placed: {name, color, width, height}, empty
     // for any other clip; and the change, as one undo step.
     Q_INVOKABLE QVariantMap solidSettings(int trackIndex, int clipIndex) const;
@@ -715,7 +720,8 @@ public:
                                    const QString &fill, const QString &stroke, double strokeWidth);
     // The Text tool (0.26): a new text centred where the preview was clicked (canvas px); the
     // caller then opens it for typing. Returns {track, clip}, empty when it could not be added.
-    Q_INVOKABLE QVariantMap addTextAtPoint(double x, double y);
+    // `backdrop`: the colour under the click (the preview sampled there), so the new words read on it.
+    Q_INVOKABLE QVariantMap addTextAtPoint(double x, double y, const QColor &backdrop = QColor());
     // The selected custom shape's outline at the playhead, for the preview to edit:
     // {editable, animated, keyHere, contours: [{closed, points: [{x, y, ix, iy, ox, oy}]}]} with
     // coordinates as fractions of the shape's box (0..1). editable is false for any other clip.
@@ -852,6 +858,8 @@ public:
     Q_INVOKABLE QString readTextFile(const QUrl &fileUrl) const;
     Q_INVOKABLE bool writeTextFile(const QUrl &fileUrl, const QString &text) const;
     Q_INVOKABLE bool clonePickedKeyframes();
+    // After Effects' Time-Reverse Keyframes: the picked keys of each property end for end.
+    Q_INVOKABLE bool reversePickedKeyframes();
     Q_INVOKABLE void sequenceSelectedClips(int offsetFrames, int step, bool reverse);
     Q_INVOKABLE void addNullForSelection();
     // `outline` (Motion Tools › Trim, 0.26): a text's letters become a stroke in its colour with no
@@ -1226,6 +1234,8 @@ public:
     // never begun does nothing.
     Q_INVOKABLE void beginEditSession(const QString &label);
     Q_INVOKABLE void endEditSession(bool keep);
+    // Whether a session is open (0.29): a scrubbed number field opens its own only when no dialog has one.
+    Q_INVOKABLE bool editSessionOpen() const { return m_editSessionOpen; }
     // The shading stack of a text, subtitle or shape clip: layers[0] is drawn first. Each call
     // is one undo step; the preview variants coalesce into one through begin/commitPreviewDrag.
     Q_INVOKABLE QString addStyleLayer(int trackIndex, int clipIndex, const QString &kind, int atIndex = -1);
@@ -1234,6 +1244,13 @@ public:
     Q_INVOKABLE bool moveStyleLayer(int trackIndex, int clipIndex, const QString &layerId, int toIndex);
     Q_INVOKABLE void setStyleLayer(int trackIndex, int clipIndex, const QString &layerId, const QVariantMap &patch);
     Q_INVOKABLE void previewSetStyleLayer(int trackIndex, int clipIndex, const QString &layerId, const QVariantMap &patch);
+    // After Effects' gradient handles on the canvas (0.29): the first gradient-painted layer (a
+    // fill before a stroke) of a shape or text as {layerId, kind, x0, y0, x1, y1} in fractions of its
+    // box, or {} when nothing is painted with a gradient; and a drag of them, written as angle,
+    // scale, offset and centre (inside the caller's begin/commitPreviewDrag).
+    Q_INVOKABLE QVariantMap gradientHandles(int trackIndex, int clipIndex) const;
+    Q_INVOKABLE void previewGradientHandles(int trackIndex, int clipIndex, const QString &layerId, double x0,
+                                            double y0, double x1, double y1);
     // The text-only spellings, kept for the MCP tools and scripts that use them.
     // `rangeStart`/`rangeEnd` (0.24): con letras sombreadas, la capa va solo a esas letras.
     Q_INVOKABLE QString addTextLayer(int trackIndex, int clipIndex, const QString &kind, int atIndex = -1,
@@ -1271,7 +1288,15 @@ public:
     // later, fainter; `slices` > 1 cuts each flying layer into that many bands (Super Morphings'
     // Slicer) that fly apart a little and turn on their own; `arc` bends the flight (0 = straight),
     // `spin` turns it (degrees).
-    Q_INVOKABLE void morphLayers(double seconds, int trails, double arc, double spin, int slices = 1);
+    // `targetVisible` (0.29, Jorge): the target is on screen the whole time and the others fly into it,
+    // instead of appearing at the cut.
+    // The target's reaction (0.29, Jorge): `reactFrames` moves its bounce earlier (< 0, anticipation) or later
+    // (> 0) than the hit; `reactAmount` scales it (100 = the usual 18 % pop, 0 = none, 200 = twice).
+    // `splash` (0.29, Jorge): at the hit, drops of liquid burst out of the target, frame by frame and melted
+    // like the Liquid line's stream, in its colour.
+    Q_INVOKABLE void morphLayers(double seconds, int trails, double arc, double spin, int slices = 1,
+                                 bool targetVisible = false, int reactFrames = 0, double reactAmount = 100.0,
+                                 bool splash = false);
     // Liquid trail (Super Liquids): the primary selected layer moves; any other selected shape
     // layers are the elements it throws (copies of them, picked at random; with none, round
     // drops). Wherever it moves faster than `threshold` px/s, `perFrame` elements a frame come off it
@@ -1286,8 +1311,10 @@ public:
     // Liquid line: the selected shape's outline becomes a stream of liquid running along it from the
     // playhead over `seconds`: `length` of the path long (0..1), `width` px at its thickest, its edges
     // torn by `roughness` (0..1) and changing every frame.
+    // `reveal` (0.29): the line itself is drawn on behind the stream's head (its Trim end keyed), instead of
+    // being there whole from the first frame.
     Q_INVOKABLE void generateLiquidLine(double seconds, double width, double length, double roughness,
-                                        const QString &color);
+                                        const QString &color, bool reveal = true);
     // Motion Tools › Trim (0.26, as the Trim-Pack script): Trim Paths animations on the selected
     // shapes (and the strokes of selected texts, every letter at once), `frames` long from the
     // playhead. Modes: "in" (draws on), "out" (draws off), "inout" (in from the playhead, out at the
@@ -1302,8 +1329,10 @@ public:
     // with `vertical`) by `degrees`. "set" bends it (a key at the playhead when the bend is already
     // animated), "in" unbends it from `degrees` to straight over `frames` from the playhead, "out"
     // bends it to `degrees` over the last `frames`, "remove" takes the effect off. One undo step.
+    // `together` (0.29): with several layers picked, all bend round one joint, the one of the longest (a
+    // title on a band bends with the band, instead of each round its own middle).
     Q_INVOKABLE void applyBend(const QString &mode, double degrees, bool vertical, double start, double end,
-                               int frames);
+                               int frames, bool together = true);
     Q_INVOKABLE void applyTrimPack(const QString &mode, int frames, double offsetRange, int copies, bool reverse,
                                    bool animateOffset);
     Q_INVOKABLE QVariantMap strokeCapsState() const;
@@ -1691,7 +1720,54 @@ public:
     Q_INVOKABLE void setKeyframesEasing(int trackIndex, const QVariantList &keys, const QString &mode);
     Q_INVOKABLE void setKeyframesCurve(int trackIndex, const QVariantList &keys, double x1, double y1,
                                        double x2, double y2);
+    // After Effects' «Create shapes/layers from text» as the Squash & Stretch tutorial's Split into characters
+    // (0.29): one text layer per letter, each where it was, styled as it was (its runs kept), on tracks above
+    // in reading order; the original goes. The letters come back selected, ready for a staggered animation.
+    // Returns how many letters.
+    Q_INVOKABLE int splitTextIntoLetters(int trackIndex, int clipIndex);
+    // FLIP_TRACE_CLICKS is set: the panels log what moves them (0.29, hunting the lost first click).
+    // Transform's Scale X / Y (0.29): the box that counts as 100 %. Not an undo step: it only changes how
+    // the size is shown.
+    Q_INVOKABLE void setClipScaleReference(int trackIndex, int clipIndex, double width, double height);
+    // Scale X or Y (prop "width" / "height") at `atSeconds` about the anchor point, as After Effects: the box's
+    // position follows so the anchor stays where it is (0.29: the box shrank towards its top-left corner).
+    Q_INVOKABLE void setClipScaledSize(int trackIndex, int clipIndex, const QString &prop, double atSeconds,
+                                       double value);
+    // Lower thirds (0.29): the clip shows only inside the layer right under it at that moment (its label), which
+    // stays on screen; again on a clip that already does, it turns it off. Returns whether it is now inside one.
+    Q_INVOKABLE bool showInsideLayerBelow(int trackIndex, int clipIndex);
+    // Lower thirds (0.29): the picked layers start `frames` apart in the order they were picked (the first
+    // stays), each keeping its end, so their entrances run in a cascade, as After Effects' Sequence Layers.
+    // Pictures and audio keep their length (they move). One undo step; returns how many moved.
+    Q_INVOKABLE int staggerSelectedClips(int frames);
+    // After Effects' Align panel (0.29, lower thirds): "left", "hcenter", "right", "top", "vcenter", "bottom" line the
+    // picked layers' boxes up with each other (one layer: with the frame); "distH" / "distV" space three or more
+    // evenly between the outer two. The whole movement shifts (every key), so an animation keeps its shape.
+    Q_INVOKABLE void alignSelected(const QString &mode);
+    // Lower thirds (0.29): a label under the text, its box plus a margin, tied to it (it grows with the words), in
+    // the toolbar's fill colour. Returns the label's id.
+    Q_INVOKABLE QString makeLabelForText(int trackIndex, int clipIndex);
+    // Ties a shape to a text (empty id: frees it) with that margin, or changes the margin.
+    Q_INVOKABLE void setShapeFitText(int trackIndex, int clipIndex, const QString &textId, double padX, double padY);
+    // The text layers a label can fit: [{id, name}].
+    Q_INVOKABLE QVariantList textLayerOptions() const;
+    // Lower thirds (0.29): a copy of the picked shape in `accentColor` goes under it; from the playhead the accent
+    // sweeps in from the left over `frames`, and the shape follows it in, a little later, ending on top in its own
+    // colour (Linear Wipe keys on both). `angle` 0 = from the left; 14 leans like a slanted label. One undo step.
+    Q_INVOKABLE void twoColourWipe(const QString &accentColor, int frames, double angle = 0.0,
+                                   const QString &accent2 = QString(), const QString &accent3 = QString(),
+                                   bool withExit = false);
+    // Lower-third maker (0.29, Jorge): editable layers at the playhead, built with the lower-third tools. Keys of
+    // `o`: style ("clean", "line", "slanted", "twoColour", "roleBar"), name, role, labelColor, accentColor,
+    // textColor, roleColor, seconds (on screen, default 5). The label fits the name (and grows with it), the
+    // name and role show only inside their labels, everything comes in in a cascade. One undo step.
+    Q_INVOKABLE void createLowerThird(const QVariantMap &o);
+    Q_INVOKABLE bool traceUi() const { return qEnvironmentVariableIsSet("FLIP_TRACE_CLICKS"); }
     Q_INVOKABLE void removeKeyframes(int trackIndex, const QVariantList &keys);
+    // Every key of every animated property of a clip between two timeline times (0.29: a jump wrote six
+    // rows and they had to be cleared one by one). `toSeconds` < 0 = to the end. One undo step; returns
+    // how many went.
+    Q_INVOKABLE int removeClipKeysInRange(int trackIndex, int clipIndex, double fromSeconds, double toSeconds);
     // Copy and paste of picked keys (0.22.1, After Effects' Ctrl+C / Ctrl+V on keys): the keys
     // ({clip, prop, seconds}) with their values and curves, by their time after the first one;
     // pasted on a clip's same properties starting at the playhead. Returns how many were copied.
@@ -2104,6 +2180,9 @@ public:
     Q_INVOKABLE void clearWorkArea();
     Q_INVOKABLE void toggleLoopWorkArea();
     Q_INVOKABLE void freezeFrameAtPlayhead();
+    // CapCut's «Fit to video length» (0.29): the clip (music, usually) ends where the last picture ends, trimmed
+    // or lengthened as far as its file allows. Returns false when there is nothing to fit to.
+    Q_INVOKABLE bool fitClipToVideoLength(int trackIndex, int clipIndex);
     // AI transition (RIFE) from this clip into the one right after it; see AiTransition notes in the .cpp.
     Q_INVOKABLE bool aiTransitionAvailable() const;
     Q_INVOKABLE void addAiTransitionAfter(int trackIndex, int clipIndex);
@@ -2699,6 +2778,7 @@ protected:
     // is no longer able to hold them.
     void normalizeAdjustmentLanes(drift::Project &project) const;
     void clampStoredTransitionDurations(drift::Project &project) const;
+    void fitLabelsToTexts(drift::Project &project) const;
 
     // Selection survives a track-list reshuffle by id rather than index arithmetic: a move now
     // drags a track's lanes with it, so the destination index no longer says where things landed.
@@ -2989,6 +3069,7 @@ protected:
     drift::Clip *textClipAt(int trackIndex, int clipIndex);
     // A text, subtitle or shape clip: anything that carries a shading stack.
     drift::Clip *styledClipAt(int trackIndex, int clipIndex, bool textOnly = false);
+    void applyToolPaintOptions(drift::ShapeStyle &style) const;
     static void applyTextStylePatch(drift::TextStyle &style, const QVariantMap &patch);
     static QVariantMap textAnimationPresetToMap(const drift::TextAnimationPreset &preset);
     drift::Project m_previewDragBefore;

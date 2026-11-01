@@ -18,6 +18,10 @@ Column {
     property real morphArc: 0.25
     property real morphSpin: 90
     property int morphSlices: 1
+    property bool morphTargetVisible: false
+    property int morphReactFrames: 0
+    property real morphReactAmount: 100
+    property bool morphSplash: false
     property int liquidPerFrame: 4
     property int liquidSkip: 2
     property real liquidThreshold: 150
@@ -37,6 +41,7 @@ Column {
     property real lineLength: 0.35
     property real lineRough: 0.6
     property string liquidColor: ""
+    property bool lineReveal: true
     readonly property var colors: ["", "#1f7bff", "#ff9a1f", "#ff3b6b", "#2ee6a8", "#9b5cff", "#ffffff", "#ffd23f"]
 
     spacing: Theme.spacingMd
@@ -101,12 +106,31 @@ Column {
         Knob { label: qsTr("Spin"); from: -360; to: 360; step: 5; decimals: 0; value: root.morphSpin; unit: "°"; onMoved: v => root.morphSpin = v }
         Knob { label: qsTr("Trails"); from: 0; to: 8; step: 1; decimals: 0; value: root.morphTrails; onMoved: v => root.morphTrails = Math.round(v) }
         Knob { label: qsTr("Slicer"); from: 1; to: 8; step: 1; decimals: 0; value: root.morphSlices; onMoved: v => root.morphSlices = Math.round(v) }
+        // Both endings (0.29, Jorge): the last layer appears at the cut, or is there all along and the
+        // others fly into it.
+        // The target's reaction (0.29, Jorge): earlier or later than the hit, and how hard.
+        Knob { label: qsTr("Reaction timing"); from: -15; to: 15; step: 1; decimals: 0; value: root.morphReactFrames; unit: qsTr(" fr"); onMoved: v => root.morphReactFrames = Math.round(v) }
+        Knob { label: qsTr("Reaction strength"); from: 0; to: 300; step: 5; decimals: 0; value: root.morphReactAmount; unit: " %"; onMoved: v => root.morphReactAmount = v }
+        ThemedSwitch {
+            width: parent.width
+            text: qsTr("Last layer visible from the start")
+            checked: root.morphTargetVisible
+            onToggled: root.morphTargetVisible = checked
+        }
+        // A burst of liquid where they hit (0.29, Jorge), like the Liquid line's stream.
+        ThemedSwitch {
+            width: parent.width
+            text: qsTr("Liquid splash at the hit")
+            checked: root.morphSplash
+            onToggled: root.morphSplash = checked
+        }
         ThemedButton {
             width: parent.width
             variant: "primary"
             text: qsTr("Morph it")
             onClicked: EditorState.morphLayers(root.morphSeconds, root.morphTrails, root.morphArc, root.morphSpin,
-                                               root.morphSlices)
+                                               root.morphSlices, root.morphTargetVisible, root.morphReactFrames,
+                                               root.morphReactAmount, root.morphSplash)
         }
     }
 
@@ -164,6 +188,12 @@ Column {
         Knob { label: qsTr("Thickness"); from: 4; to: 200; step: 1; decimals: 0; value: root.lineWidth; unit: " px"; onMoved: v => root.lineWidth = v }
         Knob { label: qsTr("Length"); from: 0.05; to: 1; step: 0.05; value: root.lineLength; onMoved: v => root.lineLength = v }
         Knob { label: qsTr("Roughness"); from: 0; to: 1; step: 0.05; value: root.lineRough; onMoved: v => root.lineRough = v }
+        ThemedSwitch {
+            width: parent.width
+            text: qsTr("Draw the line behind the stream")
+            checked: root.lineReveal
+            onToggled: root.lineReveal = checked
+        }
     }
 
     // The liquid's colour (the first: the layer's own, when it is a shape).
@@ -213,7 +243,7 @@ Column {
                 })
             else
                 EditorState.generateLiquidLine(root.lineSeconds, root.lineWidth, root.lineLength, root.lineRough,
-                                               root.liquidColor)
+                                               root.liquidColor, root.lineReveal)
         }
     }
 }

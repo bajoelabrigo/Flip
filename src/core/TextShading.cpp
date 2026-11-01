@@ -4,6 +4,9 @@
 #include <QHash>
 #include <QJsonArray>
 #include <QRandomGenerator>
+#include <QtMath>
+
+#include <cmath>
 
 namespace drift {
 
@@ -209,6 +212,53 @@ StrokeDash strokeDashFromString(const QString &dash)
     return StrokeDash::Solid;
 }
 
+// The renderer maps a local point q to the box's unit square as c + R(a)·(s·(q + (offset, 0) − c)),
+// c = (0.5, 0.5); a linear gradient runs from local (cx − 0.5, cy) to (cx + 0.5, cy), a radial one is centred
+// on `center` with radius 0.5 (see gradientShaderFor).
+void gradientHandlePoints(const TextGradient &g, QPointF *start, QPointF *end)
+{
+    const double a = qDegreesToRadians(g.angle);
+    const QPointF u(std::cos(a), std::sin(a));
+    const double s = qMax(0.01, g.scale);
+    const QPointF c(0.5, 0.5);
+    const auto turn = [&](const QPointF &q) {
+        return c + QPointF(u.x() * q.x() - u.y() * q.y(), u.y() * q.x() + u.x() * q.y()) * s;
+    };
+    if (g.kind == TextGradientKind::Linear) {
+        // The axis runs through `center` from local (cx − 0.5, cy) to (cx + 0.5, cy).
+        if (start)
+            *start = turn(QPointF(g.center.x() - 1.0 + g.offset, g.center.y() - 0.5));
+        if (end)
+            *end = turn(QPointF(g.center.x() + g.offset, g.center.y() - 0.5));
+        return;
+    }
+    const QPointF q = g.center + QPointF(g.offset, 0.0) - c;
+    const QPointF centre = c + QPointF(u.x() * q.x() - u.y() * q.y(), u.y() * q.x() + u.x() * q.y()) * s;
+    if (start)
+        *start = centre;
+    if (end)
+        *end = centre + u * (s * 0.5);
+}
+
+void setGradientFromHandles(TextGradient &g, const QPointF &start, const QPointF &end)
+{
+    const QPointF d = end - start;
+    const double length = std::hypot(d.x(), d.y());
+    if (length < 1e-6)
+        return;
+    const double a = std::atan2(d.y(), d.x());
+    const QPointF u(std::cos(a), std::sin(a));
+    const QPointF c(0.5, 0.5);
+    g.angle = qRadiansToDegrees(a);
+    g.scale = qMax(0.01, g.kind == TextGradientKind::Linear ? length : 2.0 * length);
+    g.offset = 0.0;
+    const QPointF p = start - c;
+    // R(−a)·p / s, back into the gradient's own frame.
+    const QPointF local = QPointF(u.x() * p.x() + u.y() * p.y(), -u.y() * p.x() + u.x() * p.y()) / g.scale;
+    // The start is local (cx − 0.5, cy) for a linear gradient, the centre itself otherwise.
+    g.center = c + local + (g.kind == TextGradientKind::Linear ? QPointF(0.5, 0.0) : QPointF());
+}
+
 QList<double> strokeDashIntervals(StrokeDash dash)
 {
     // Qt's pen patterns, so a migrated shape stroke keeps its look.
@@ -401,7 +451,7 @@ quint64 textLayersHash(const QList<TextShadingLayer> &layers)
                        l.sketchDeviation, l.sketchSeed, l.extrudeSteps, l.extrudeAngle, l.extrudeDarken,
                        static_cast<int>(l.scope));
         h = qHashMulti(h, l.miterLimit, l.taperStartLength, l.taperEndLength, l.taperStartWidth, l.taperEndWidth,
-                       l.taperEase, l.waveAmount, l.waveLength, l.wavePhase);
+                       l.taperEase, l.waveAmount, l.waveLength, l.wavePhase, l.arrowStart, l.arrowEnd, l.arrowSize);
     }
     return h;
 }
@@ -569,6 +619,12 @@ QJsonObject textShadingLayerToJson(const TextShadingLayer &l)
             o.insert(QStringLiteral("waveLength"), l.waveLength);
             o.insert(QStringLiteral("wavePhase"), l.wavePhase);
         }
+        // Arrowheads (0.29), only when set.
+        if (l.arrowStart != 0 || l.arrowEnd != 0) {
+            o.insert(QStringLiteral("arrowStart"), l.arrowStart);
+            o.insert(QStringLiteral("arrowEnd"), l.arrowEnd);
+            o.insert(QStringLiteral("arrowSize"), l.arrowSize);
+        }
     }
     if (l.sketchLength > 0.0 || l.sketchDeviation > 0.0) {
         o.insert(QStringLiteral("sketchLength"), l.sketchLength);
@@ -626,6 +682,9 @@ TextShadingLayer textShadingLayerFromJson(const QJsonObject &o)
     l.waveAmount = qBound(0.0, o.value(QStringLiteral("waveAmount")).toDouble(0.0), 100.0);
     l.waveLength = qMax(1.0, o.value(QStringLiteral("waveLength")).toDouble(40.0));
     l.wavePhase = o.value(QStringLiteral("wavePhase")).toDouble(0.0);
+    l.arrowStart = qBound(0, o.value(QStringLiteral("arrowStart")).toInt(0), 3);
+    l.arrowEnd = qBound(0, o.value(QStringLiteral("arrowEnd")).toInt(0), 3);
+    l.arrowSize = qBound(1.0, o.value(QStringLiteral("arrowSize")).toDouble(3.0), 20.0);
     l.sketchLength = o.value(QStringLiteral("sketchLength")).toDouble(0.0);
     l.sketchDeviation = o.value(QStringLiteral("sketchDeviation")).toDouble(0.0);
     l.sketchSeed = o.value(QStringLiteral("sketchSeed")).toInt(0);

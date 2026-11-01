@@ -2766,6 +2766,26 @@
         <translation>Кривая Безье</translation>
     </message>
     <message>
+        <source>Animation</source>
+        <translation>Анимация</translation>
+    </message>
+    <message>
+        <source>Stagger</source>
+        <translation>Каскад</translation>
+    </message>
+    <message>
+        <source> fr</source>
+        <translation> кадр.</translation>
+    </message>
+    <message>
+        <source>Stagger the picked layers</source>
+        <translation>Сдвинуть выбранные слои каскадом</translation>
+    </message>
+    <message>
+        <source>Each one starts that many frames after the one picked before it; they all end together</source>
+        <translation>Каждый начинается на столько кадров позже предыдущего выбранного; все заканчиваются вместе</translation>
+    </message>
+    <message>
         <source>Not available</source>
         <translation>Недоступно</translation>
     </message>
@@ -3489,6 +3509,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Background</source>
+        <translation>Фон</translation>
+    </message>
+    <message>
         <source>Solid settings</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3519,6 +3543,26 @@
     <message>
         <source>Keyframes stretched</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No keys to curve: pick keyframes on the timeline, or select a layer that has some</source>
+        <translation>Нет ключей для кривой: выберите ключевые кадры на шкале времени или слой, у которого они есть</translation>
+    </message>
+    <message numerus="yes">
+        <source>Curve applied to %n key(s)</source>
+        <translation>
+            <numerusform>Кривая применена, ключей: %n</numerusform>
+            <numerusform>Кривая применена, ключей: %n</numerusform>
+            <numerusform>Кривая применена, ключей: %n</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n property(ies)</source>
+        <translation>
+            <numerusform>свойств: %n</numerusform>
+            <numerusform>свойств: %n</numerusform>
+            <numerusform>свойств: %n</numerusform>
+        </translation>
     </message>
     <message>
         <source>Easy ease</source>
@@ -4219,6 +4263,10 @@
     <message>
         <source>Text</source>
         <translation>Текст</translation>
+    </message>
+    <message>
+        <source>“%1” added to “%2” · to draw a separate layer, press Esc first; to split them, right-click › Separate into layers</source>
+        <translation>«%1» добавлен в «%2» · чтобы рисовать на отдельном слое, сначала нажмите Esc; чтобы разделить их, правый щелчок › Разделить на слои</translation>
     </message>
     <message>
         <source>Add mask</source>
@@ -5213,6 +5261,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Pick two or more keys of a property to reverse them</source>
+        <translation>Выберите два или больше ключа свойства, чтобы развернуть их</translation>
+    </message>
+    <message>
         <source>Point light %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5254,10 +5306,6 @@
     </message>
     <message>
         <source>Path</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>“%1” added to “%2” · to draw a separate layer, press Esc first</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5417,6 +5465,138 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Select a text to split into letters</source>
+        <translation>Выберите текст, чтобы разбить его на буквы</translation>
+    </message>
+    <message>
+        <source>This text has a single letter</source>
+        <translation>В этом тексте одна буква</translation>
+    </message>
+    <message>
+        <source>Split into letters</source>
+        <translation>Разбить на буквы</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n letter layer(s)</source>
+        <translation>
+            <numerusform>Слоёв с буквами: %n</numerusform>
+            <numerusform>Слоёв с буквами: %n</numerusform>
+            <numerusform>Слоёв с буквами: %n</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Pick three layers or more to space them evenly</source>
+        <translation>Выберите три слоя или больше, чтобы распределить их равномерно</translation>
+    </message>
+    <message>
+        <source>Align</source>
+        <translation>Выровнять</translation>
+    </message>
+    <message>
+        <source>Select two layers or more (Ctrl+click, in the order they should come in)</source>
+        <translation>Выберите два слоя или больше (Ctrl+щелчок, в порядке появления)</translation>
+    </message>
+    <message>
+        <source>Stagger layers</source>
+        <translation>Сдвинуть слои каскадом</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n layer(s) staggered</source>
+        <translation>
+            <numerusform>%n слой сдвинут</numerusform>
+            <numerusform>%n слоя сдвинуты</numerusform>
+            <numerusform>%n слоёв сдвинуто</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Show inside the layer below</source>
+        <translation>Показать внутри нижнего слоя</translation>
+    </message>
+    <message>
+        <source>Shown whole again</source>
+        <translation>Снова виден целиком</translation>
+    </message>
+    <message>
+        <source>There is no layer under this one to show it inside</source>
+        <translation>Под этим слоем нет слоя, внутри которого его можно показать</translation>
+    </message>
+    <message>
+        <source>Shown only inside “%1”</source>
+        <translation>Виден только внутри «%1»</translation>
+    </message>
+    <message>
+        <source>Your name</source>
+        <translation>Ваше имя</translation>
+    </message>
+    <message>
+        <source>Lower third</source>
+        <translation>Нижняя плашка</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>Метка</translation>
+    </message>
+    <message>
+        <source>Role bar</source>
+        <translation>Полоса должности</translation>
+    </message>
+    <message>
+        <source>Line</source>
+        <translation>Линия</translation>
+    </message>
+    <message>
+        <source>Lower third added: every piece is a layer you can edit</source>
+        <translation>Нижняя плашка добавлена: каждая часть — слой, который можно изменить</translation>
+    </message>
+    <message>
+        <source>Select the label (a shape) for the two-colour wipe</source>
+        <translation>Выберите метку (фигуру) для двухцветной шторки</translation>
+    </message>
+    <message>
+        <source>Two-colour wipe</source>
+        <translation>Двухцветная шторка</translation>
+    </message>
+    <message>
+        <source>%1 accent</source>
+        <translation>%1 акцент</translation>
+    </message>
+    <message>
+        <source>%1 accent %2</source>
+        <translation>%1 акцент %2</translation>
+    </message>
+    <message>
+        <source>Select a text to put a label under it</source>
+        <translation>Выберите текст, чтобы поставить под ним метку</translation>
+    </message>
+    <message>
+        <source>Label · %1</source>
+        <translation>Метка · %1</translation>
+    </message>
+    <message>
+        <source>Label for the text</source>
+        <translation>Метка для текста</translation>
+    </message>
+    <message>
+        <source>Fit to text</source>
+        <translation>Подогнать под текст</translation>
+    </message>
+    <message>
+        <source>Scale</source>
+        <translation>Масштаб</translation>
+    </message>
+    <message>
+        <source>No keyframes there</source>
+        <translation>Там нет ключевых кадров</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n keyframe(s) removed</source>
+        <translation>
+            <numerusform>Удалено ключевых кадров: %n</numerusform>
+            <numerusform>Удалено ключевых кадров: %n</numerusform>
+            <numerusform>Удалено ключевых кадров: %n</numerusform>
+        </translation>
+    </message>
+    <message>
         <source>Retouch</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5498,7 +5678,7 @@
     </message>
     <message>
         <source>Stroke width</source>
-        <translation type="unfinished"></translation>
+        <translation>Толщина обводки</translation>
     </message>
     <message>
         <source>Scale X</source>
@@ -5631,6 +5811,26 @@
     <message>
         <source>Bookmark updated</source>
         <translation>Закладка обновлена</translation>
+    </message>
+    <message>
+        <source>There is no video after this clip to fit it to</source>
+        <translation>После этого клипа нет видео, под которое его подогнать</translation>
+    </message>
+    <message>
+        <source>The clip already ends with the video</source>
+        <translation>Клип уже заканчивается вместе с видео</translation>
+    </message>
+    <message>
+        <source>Fit to video length</source>
+        <translation>Подогнать под длину видео</translation>
+    </message>
+    <message>
+        <source>The file is shorter than the video: the clip ends where the file does</source>
+        <translation>Файл короче видео: клип заканчивается там, где кончается файл</translation>
+    </message>
+    <message>
+        <source>The clip now ends with the video</source>
+        <translation>Теперь клип заканчивается вместе с видео</translation>
     </message>
     <message>
         <source>No video at the current time</source>
@@ -5839,6 +6039,10 @@
     <message>
         <source>%1 band %2</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 splash</source>
+        <translation>%1 брызги</translation>
     </message>
     <message>
         <source>drops</source>
@@ -6850,6 +7054,10 @@
     <message>
         <source>Tools</source>
         <translation>Инструменты</translation>
+    </message>
+    <message>
+        <source>Lower third…</source>
+        <translation>Нижняя плашка…</translation>
     </message>
     <message>
         <source>Split</source>
@@ -7980,6 +8188,10 @@
     <message>
         <source>Ring</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bend the picked layers together (one joint)</source>
+        <translation>Сгибать выбранные слои вместе (один сустав)</translation>
     </message>
     <message>
         <source>Frames</source>
@@ -10784,6 +10996,30 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Axis offset (%)</source>
+        <translation>Смещение оси (%)</translation>
+    </message>
+    <message>
+        <source>Extra room (px)</source>
+        <translation>Дополнительный запас (px)</translation>
+    </message>
+    <message>
+        <source>Linear Wipe</source>
+        <translation>Линейное вытеснение</translation>
+    </message>
+    <message>
+        <source>Completion (%)</source>
+        <translation>Завершение (%)</translation>
+    </message>
+    <message>
+        <source>Angle (°)</source>
+        <translation>Угол (°)</translation>
+    </message>
+    <message>
+        <source>Feather (px)</source>
+        <translation>Растушёвка (px)</translation>
+    </message>
+    <message>
         <source>Liquid</source>
         <translation type="unfinished"></translation>
     </message>
@@ -12130,6 +12366,26 @@ NEXT TIME</source>
     <message>
         <source>Blown away like sand</source>
         <translation>Развеянные как песок</translation>
+    </message>
+    <message>
+        <source>Wipe down</source>
+        <translation>Вытеснение вниз</translation>
+    </message>
+    <message>
+        <source>Wipe from left</source>
+        <translation>Вытеснение слева</translation>
+    </message>
+    <message>
+        <source>Wipe from right</source>
+        <translation>Вытеснение справа</translation>
+    </message>
+    <message>
+        <source>Slanted wipe</source>
+        <translation>Наклонное вытеснение</translation>
+    </message>
+    <message>
+        <source>Wipe up</source>
+        <translation>Вытеснение вверх</translation>
     </message>
     <message>
         <source>Attention</source>
@@ -15619,6 +15875,93 @@ NEXT TIME</source>
     </message>
 </context>
 <context>
+    <name>FillOptionsDialog</name>
+    <message>
+        <source>Normal</source>
+        <translation>Обычный</translation>
+    </message>
+    <message>
+        <source>Multiply</source>
+        <translation>Умножение</translation>
+    </message>
+    <message>
+        <source>Screen</source>
+        <translation>Экран</translation>
+    </message>
+    <message>
+        <source>Overlay</source>
+        <translation>Перекрытие</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>Сложение</translation>
+    </message>
+    <message>
+        <source>Darken</source>
+        <translation>Затемнение</translation>
+    </message>
+    <message>
+        <source>Lighten</source>
+        <translation>Осветление</translation>
+    </message>
+    <message>
+        <source>Fill Options</source>
+        <translation>Параметры заливки</translation>
+    </message>
+    <message>
+        <source>Stroke Options</source>
+        <translation>Параметры обводки</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Нет</translation>
+    </message>
+    <message>
+        <source>Solid Color</source>
+        <translation>Сплошной цвет</translation>
+    </message>
+    <message>
+        <source>Linear Gradient</source>
+        <translation>Линейный градиент</translation>
+    </message>
+    <message>
+        <source>Radial Gradient</source>
+        <translation>Радиальный градиент</translation>
+    </message>
+    <message>
+        <source>Sweep Gradient</source>
+        <translation>Угловой градиент</translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation>Цвет</translation>
+    </message>
+    <message>
+        <source>Angle</source>
+        <translation>Угол</translation>
+    </message>
+    <message>
+        <source>Drag its two handles on the video to place it, as in After Effects.</source>
+        <translation>Перетащите две его ручки на видео, чтобы расположить его, как в After Effects.</translation>
+    </message>
+    <message>
+        <source>Blend mode</source>
+        <translation>Режим наложения</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation>Непрозрачность</translation>
+    </message>
+    <message>
+        <source>Stroke width</source>
+        <translation>Толщина обводки</translation>
+    </message>
+    <message>
+        <source>Preview</source>
+        <translation>Просмотр</translation>
+    </message>
+</context>
+<context>
     <name>FiltersTab</name>
     <message>
         <source>Trending</source>
@@ -16051,6 +16394,29 @@ NEXT TIME</source>
     <message>
         <source>File</source>
         <translation>Файл</translation>
+    </message>
+</context>
+<context>
+    <name>GradientHandlesOverlay</name>
+    <message>
+        <source>Move gradient</source>
+        <translation>Переместить градиент</translation>
+    </message>
+    <message>
+        <source>Gradient centre: drag to move it</source>
+        <translation>Центр градиента: перетащите, чтобы переместить</translation>
+    </message>
+    <message>
+        <source>Gradient start: drag to move it</source>
+        <translation>Начало градиента: перетащите, чтобы переместить</translation>
+    </message>
+    <message>
+        <source>Gradient radius: drag to resize it</source>
+        <translation>Радиус градиента: перетащите, чтобы изменить размер</translation>
+    </message>
+    <message>
+        <source>Gradient end: drag to move it</source>
+        <translation>Конец градиента: перетащите, чтобы переместить</translation>
     </message>
 </context>
 <context>
@@ -16879,6 +17245,133 @@ NEXT TIME</source>
     <message>
         <source>720p</source>
         <translation>720p</translation>
+    </message>
+</context>
+<context>
+    <name>LowerThirdDialog</name>
+    <message>
+        <source>Lower third</source>
+        <translation>Нижняя плашка</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>Добавить</translation>
+    </message>
+    <message>
+        <source>Left</source>
+        <translation>Слева</translation>
+    </message>
+    <message>
+        <source>Centre</source>
+        <translation>По центру</translation>
+    </message>
+    <message>
+        <source>Right</source>
+        <translation>Справа</translation>
+    </message>
+    <message>
+        <source>Automatic</source>
+        <translation>Автоматически</translation>
+    </message>
+    <message>
+        <source>Wipe</source>
+        <translation>Шторка</translation>
+    </message>
+    <message>
+        <source>Slide</source>
+        <translation>Сдвиг</translation>
+    </message>
+    <message>
+        <source>Pop</source>
+        <translation>Появление</translation>
+    </message>
+    <message>
+        <source>Zoom</source>
+        <translation>Масштаб</translation>
+    </message>
+    <message>
+        <source>Fade</source>
+        <translation>Затухание</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Нет</translation>
+    </message>
+    <message>
+        <source>Clean</source>
+        <translation>Простой</translation>
+    </message>
+    <message>
+        <source>With a line</source>
+        <translation>С линией</translation>
+    </message>
+    <message>
+        <source>Slanted</source>
+        <translation>Наклонный</translation>
+    </message>
+    <message>
+        <source>Two colours</source>
+        <translation>Два цвета</translation>
+    </message>
+    <message>
+        <source>Role on a bar</source>
+        <translation>Должность на полосе</translation>
+    </message>
+    <message>
+        <source>Style</source>
+        <translation>Стиль</translation>
+    </message>
+    <message>
+        <source>Second accent</source>
+        <translation>Второй акцент</translation>
+    </message>
+    <message>
+        <source>Third accent</source>
+        <translation>Третий акцент</translation>
+    </message>
+    <message>
+        <source>Entrance</source>
+        <translation>Вход</translation>
+    </message>
+    <message>
+        <source>Exit</source>
+        <translation>Выход</translation>
+    </message>
+    <message>
+        <source>Alignment</source>
+        <translation>Выравнивание</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Имя</translation>
+    </message>
+    <message>
+        <source>Your name</source>
+        <translation>Ваше имя</translation>
+    </message>
+    <message>
+        <source>Role (optional)</source>
+        <translation>Должность (необязательно)</translation>
+    </message>
+    <message>
+        <source>Presenter, guest, city…</source>
+        <translation>Ведущий, гость, город…</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>Метка</translation>
+    </message>
+    <message>
+        <source>Accent</source>
+        <translation>Акцент</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation>Текст</translation>
+    </message>
+    <message>
+        <source>On screen</source>
+        <translation>На экране</translation>
     </message>
 </context>
 <context>
@@ -18822,7 +19315,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Цвет</translation>
     </message>
     <message>
         <source>Intensity</source>
@@ -18886,7 +19379,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Непрозрачность</translation>
     </message>
     <message>
         <source>Offered as a control of the composition: click to take it out</source>
@@ -18934,7 +19427,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>Нет</translation>
     </message>
     <message>
         <source>The layer this one follows</source>
@@ -19121,6 +19614,14 @@ NEXT TIME</source>
     <message>
         <source>Copies the picked keys to the playhead</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reverse</source>
+        <translation>Развернуть</translation>
+    </message>
+    <message>
+        <source>Plays the picked keys backwards in their own span (a cloned entrance becomes the exit)</source>
+        <translation>Проигрывает выбранные ключи задом наперёд в их же отрезке (клонированный вход становится выходом)</translation>
     </message>
     <message>
         <source>Bounce: %1</source>
@@ -20317,6 +20818,18 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Line</source>
+        <translation>Линия</translation>
+    </message>
+    <message>
+        <source>Fill Options: none, solid, linear or radial gradient, blend mode and opacity</source>
+        <translation>Параметры заливки: нет, сплошной, линейный или радиальный градиент, режим наложения и непрозрачность</translation>
+    </message>
+    <message>
+        <source>Stroke Options: none, solid, linear or radial gradient, blend mode and opacity</source>
+        <translation>Параметры обводки: нет, сплошной, линейный или радиальный градиент, режим наложения и непрозрачность</translation>
+    </message>
+    <message>
         <source>Selection</source>
         <translation type="unfinished"></translation>
     </message>
@@ -20343,6 +20856,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Shape: drag on the preview (Shift for a square or circle)</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ellipse: drag on the preview (Shift for a circle)</source>
+        <translation>Эллипс: тяните в превью (Shift — круг)</translation>
+    </message>
+    <message>
+        <source>Line: drag on the preview (Shift for 0°, 45° or 90°); it takes the stroke colour and width</source>
+        <translation>Линия: тяните в превью (Shift — 0°, 45° или 90°); берёт цвет и толщину обводки</translation>
     </message>
     <message>
         <source>Pen: click for corners, drag for curves</source>
@@ -21065,6 +21586,38 @@ If playback stutters, try another.</source>
         <translation>Нажмите на клип на таймлайне, чтобы изменить его свойства</translation>
     </message>
     <message>
+        <source>Project</source>
+        <translation>Проект</translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation>Цвет</translation>
+    </message>
+    <message>
+        <source>Transparent (alpha)</source>
+        <translation>Прозрачный (альфа)</translation>
+    </message>
+    <message>
+        <source>No background: export it as ProRes 4444 or VP9 with alpha (WebM) to keep the transparency</source>
+        <translation>Без фона: экспортируйте в ProRes 4444 или VP9 с альфа-каналом (WebM), чтобы сохранить прозрачность</translation>
+    </message>
+    <message>
+        <source>Background colour</source>
+        <translation>Цвет фона</translation>
+    </message>
+    <message>
+        <source>Background colour of the project: what shows where no layer covers the frame</source>
+        <translation>Цвет фона проекта: то, что видно там, где кадр не закрыт слоями</translation>
+    </message>
+    <message>
+        <source>Solid the size of the frame</source>
+        <translation>Заливка размером с кадр</translation>
+    </message>
+    <message>
+        <source>A layer of one colour over the whole frame, for the length of the work (the background colour above)</source>
+        <translation>Слой одного цвета на весь кадр на всю длину работы (цвет фона выше)</translation>
+    </message>
+    <message>
         <source>This clip uses Pro tools.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -21247,12 +21800,12 @@ If playback stutters, try another.</source>
         <translation>Следующий ключевой кадр</translation>
     </message>
     <message>
-        <source>Edit %1</source>
-        <translation>Изменить %1</translation>
+        <source>Drag to change, click to type</source>
+        <translation>Перетащите, чтобы изменить, щёлкните, чтобы ввести</translation>
     </message>
     <message>
-        <source>Click to type an exact %1</source>
-        <translation>Нажмите, чтобы точно задать %1</translation>
+        <source>Edit %1</source>
+        <translation>Изменить %1</translation>
     </message>
 </context>
 <context>
@@ -22379,7 +22932,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Drag to change, click to type</source>
-        <translation type="unfinished"></translation>
+        <translation>Перетащите, чтобы изменить, щёлкните, чтобы ввести</translation>
     </message>
 </context>
 <context>
@@ -23335,6 +23888,38 @@ If playback stutters, try another.</source>
         <translation>Смещение штриха</translation>
     </message>
     <message>
+        <source>Arrow at start</source>
+        <translation>Стрелка в начале</translation>
+    </message>
+    <message>
+        <source>Arrow at end</source>
+        <translation>Стрелка в конце</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Нет</translation>
+    </message>
+    <message>
+        <source>Triangle</source>
+        <translation>Треугольник</translation>
+    </message>
+    <message>
+        <source>Open</source>
+        <translation>Открытая</translation>
+    </message>
+    <message>
+        <source>Dot</source>
+        <translation>Точка</translation>
+    </message>
+    <message>
+        <source>A head on this end of an open path, such as a line drawn with the pen</source>
+        <translation>Наконечник на этом конце открытого контура, например линии, нарисованной пером</translation>
+    </message>
+    <message>
+        <source>Arrow size</source>
+        <translation>Размер стрелки</translation>
+    </message>
+    <message>
         <source>Trim start</source>
         <translation>Обрезать начало</translation>
     </message>
@@ -23495,7 +24080,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Сложение</translation>
     </message>
     <message>
         <source>Add a shape or a group to this layer (After Effects: Add)</source>
@@ -23609,6 +24194,26 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Reaction timing</source>
+        <translation>Момент реакции</translation>
+    </message>
+    <message>
+        <source> fr</source>
+        <translation> кадр.</translation>
+    </message>
+    <message>
+        <source>Reaction strength</source>
+        <translation>Сила реакции</translation>
+    </message>
+    <message>
+        <source>Last layer visible from the start</source>
+        <translation>Последний слой виден с начала</translation>
+    </message>
+    <message>
+        <source>Liquid splash at the hit</source>
+        <translation>Жидкие брызги при ударе</translation>
+    </message>
+    <message>
         <source>Morph it</source>
         <translation type="unfinished"></translation>
     </message>
@@ -23689,8 +24294,12 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Draw the line behind the stream</source>
+        <translation>Рисовать линию за струёй</translation>
+    </message>
+    <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Цвет</translation>
     </message>
     <message>
         <source>Generate liquid trail</source>
@@ -23769,35 +24378,35 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Непрозрачность</translation>
     </message>
     <message>
         <source>Blend mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Режим наложения</translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>Обычный</translation>
     </message>
     <message>
         <source>Multiply</source>
-        <translation type="unfinished"></translation>
+        <translation>Умножение</translation>
     </message>
     <message>
         <source>Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Экран</translation>
     </message>
     <message>
         <source>Overlay</source>
-        <translation type="unfinished"></translation>
+        <translation>Перекрытие</translation>
     </message>
     <message>
         <source>Darken</source>
-        <translation type="unfinished"></translation>
+        <translation>Затемнение</translation>
     </message>
     <message>
         <source>Lighten</source>
-        <translation type="unfinished"></translation>
+        <translation>Осветление</translation>
     </message>
     <message>
         <source>Wiggle</source>
@@ -23864,12 +24473,76 @@ If playback stutters, try another.</source>
         <translation>Слоёв нет. Для начала добавьте заливку.</translation>
     </message>
     <message>
+        <source>Fit to a text</source>
+        <translation>По размеру текста</translation>
+    </message>
+    <message>
+        <source>The shape takes the text&apos;s size plus the margin, and grows when the words change: a label for a name.</source>
+        <translation>Фигура принимает размер текста плюс отступ и растёт, когда меняются слова: метка для имени.</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Нет</translation>
+    </message>
+    <message>
+        <source>Margin across</source>
+        <translation>Отступ по бокам</translation>
+    </message>
+    <message>
+        <source>up and down</source>
+        <translation>сверху и снизу</translation>
+    </message>
+    <message>
+        <source>Two-colour wipe</source>
+        <translation>Двухцветная шторка</translation>
+    </message>
+    <message>
+        <source>From the playhead the accent colour sweeps in first and this shape follows it, ending on top: the entrance of a lower third.</source>
+        <translation>От указателя воспроизведения сначала шторкой входит акцентный цвет, а за ним эта фигура, которая остаётся сверху: появление нижней плашки.</translation>
+    </message>
+    <message>
+        <source>Accent</source>
+        <translation>Акцент</translation>
+    </message>
+    <message>
+        <source> fr</source>
+        <translation> кадр.</translation>
+    </message>
+    <message>
+        <source>Second colour</source>
+        <translation>Второй цвет</translation>
+    </message>
+    <message>
+        <source>Third colour</source>
+        <translation>Третий цвет</translation>
+    </message>
+    <message>
+        <source>Exit too</source>
+        <translation>И выход</translation>
+    </message>
+    <message>
+        <source>At the end of the layer the colours sweep out the way they came, the shape first</source>
+        <translation>В конце слоя цвета уходят так же, как пришли, сначала фигура</translation>
+    </message>
+    <message>
+        <source>Slanted edge</source>
+        <translation>Наклонный край</translation>
+    </message>
+    <message>
+        <source>Apply two-colour wipe</source>
+        <translation>Применить двухцветную шторку</translation>
+    </message>
+    <message>
         <source>Geometry</source>
         <translation>Геометрия</translation>
     </message>
     <message>
         <source>Corner radius</source>
         <translation>Радиус углов</translation>
+    </message>
+    <message>
+        <source>Slant</source>
+        <translation>Наклон</translation>
     </message>
     <message>
         <source>Points</source>
@@ -24073,7 +24746,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Сложение</translation>
     </message>
     <message>
         <source>Subtract</source>
@@ -24268,6 +24941,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Corner radius</source>
         <translation>Радиус углов</translation>
+    </message>
+    <message>
+        <source>Slant</source>
+        <translation>Наклон</translation>
     </message>
     <message>
         <source>Inner radius</source>
@@ -24609,7 +25286,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Сложение</translation>
     </message>
     <message>
         <source>Apply</source>
@@ -24637,7 +25314,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Цвет</translation>
     </message>
 </context>
 <context>
@@ -25062,14 +25739,6 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Oomph</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>How far it travels, jumps and turns</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Timing</source>
         <translation type="unfinished"></translation>
     </message>
@@ -25098,6 +25767,14 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Apply letter by letter</source>
+        <translation>Применить по буквам</translation>
+    </message>
+    <message>
+        <source>Splits the text into one layer per letter and applies it to each, the stagger apart</source>
+        <translation>Разбивает текст на слой для каждой буквы и применяет к каждой со сдвигом</translation>
+    </message>
+    <message>
         <source>Applies to every selected layer. The keys stay editable on the timeline.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -25108,6 +25785,14 @@ If playback stutters, try another.</source>
     <message>
         <source>How hard it squashes, stretches and bends</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Travel</source>
+        <translation>Размах</translation>
+    </message>
+    <message>
+        <source>Distance: how far it travels, jumps and turns (200 % jumps twice as far)</source>
+        <translation>Расстояние: насколько далеко движется, прыгает и поворачивается (200 % — вдвое дальше)</translation>
     </message>
     <message>
         <source>Speed</source>
@@ -27331,10 +28016,6 @@ If playback stutters, try another.</source>
         <translation>Курсив</translation>
     </message>
     <message>
-        <source>%1 has no italic face</source>
-        <translation>У шрифта %1 нет курсивного начертания</translation>
-    </message>
-    <message>
         <source>Adjust text look</source>
         <translation>Настроить оформление текста</translation>
     </message>
@@ -27560,7 +28241,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>Обычный</translation>
     </message>
     <message>
         <source>On the line</source>
@@ -27605,6 +28286,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Strikethrough</source>
         <translation>Зачёркнутый</translation>
+    </message>
+    <message>
+        <source>Italic (slanted: %1 has no italic face)</source>
+        <translation>Курсив (наклон: у %1 нет курсива)</translation>
     </message>
     <message>
         <source>Case</source>
@@ -29348,6 +30033,10 @@ If playback stutters, try another.</source>
 <context>
     <name>ThemedNumberField</name>
     <message>
+        <source>Change value</source>
+        <translation>Изменить значение</translation>
+    </message>
+    <message>
         <source>Allowed range: %1 – %2%3</source>
         <translation>Допустимый диапазон: %1 – %2%3</translation>
     </message>
@@ -29475,6 +30164,46 @@ If playback stutters, try another.</source>
         <translation>Кадрировать…</translation>
     </message>
     <message>
+        <source>Fit to video length</source>
+        <translation>Подогнать под длину видео</translation>
+    </message>
+    <message>
+        <source>Make a label for this text</source>
+        <translation>Сделать метку для этого текста</translation>
+    </message>
+    <message>
+        <source>Show whole again</source>
+        <translation>Снова показать целиком</translation>
+    </message>
+    <message>
+        <source>Show only inside the layer below</source>
+        <translation>Показывать только внутри нижнего слоя</translation>
+    </message>
+    <message>
+        <source>Split into letters</source>
+        <translation>Разбить на буквы</translation>
+    </message>
+    <message>
+        <source>Delete keyframes</source>
+        <translation>Удалить ключевые кадры</translation>
+    </message>
+    <message>
+        <source>After the playhead (all rows)</source>
+        <translation>После указателя (все строки)</translation>
+    </message>
+    <message>
+        <source>Before the playhead (all rows)</source>
+        <translation>До указателя (все строки)</translation>
+    </message>
+    <message>
+        <source>All of this clip</source>
+        <translation>Все в этом клипе</translation>
+    </message>
+    <message>
+        <source>Freeze frame at current time</source>
+        <translation>Создать стоп-кадр в текущей точке</translation>
+    </message>
+    <message>
         <source>Enhance video…</source>
         <translation>Улучшить видео…</translation>
     </message>
@@ -29556,7 +30285,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>Нет</translation>
     </message>
     <message>
         <source>Use as mask stuck to</source>
@@ -30390,7 +31119,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Сложение</translation>
     </message>
     <message>
         <source>Add a shape or a group to this layer</source>
@@ -30418,31 +31147,31 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>Обычный</translation>
     </message>
     <message>
         <source>Multiply</source>
-        <translation type="unfinished"></translation>
+        <translation>Умножение</translation>
     </message>
     <message>
         <source>Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Экран</translation>
     </message>
     <message>
         <source>Overlay</source>
-        <translation type="unfinished"></translation>
+        <translation>Перекрытие</translation>
     </message>
     <message>
         <source>Darken</source>
-        <translation type="unfinished"></translation>
+        <translation>Затемнение</translation>
     </message>
     <message>
         <source>Lighten</source>
-        <translation type="unfinished"></translation>
+        <translation>Осветление</translation>
     </message>
     <message>
         <source>Blend mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Режим наложения</translation>
     </message>
     <message>
         <source>Duplicate</source>
@@ -30486,7 +31215,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Цвет</translation>
     </message>
     <message>
         <source>Constrain proportions: on</source>
@@ -30681,7 +31410,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Непрозрачность</translation>
     </message>
     <message>
         <source>Volume</source>
@@ -30933,6 +31662,50 @@ If playback stutters, try another.</source>
         <translation>Перспектива</translation>
     </message>
     <message>
+        <source>Scale keyframe</source>
+        <translation>Ключ масштаба</translation>
+    </message>
+    <message>
+        <source>Align</source>
+        <translation>Выровнять</translation>
+    </message>
+    <message>
+        <source>Align left edges</source>
+        <translation>Выровнять по левому краю</translation>
+    </message>
+    <message>
+        <source>Align centres across</source>
+        <translation>Выровнять центры по горизонтали</translation>
+    </message>
+    <message>
+        <source>Align right edges</source>
+        <translation>Выровнять по правому краю</translation>
+    </message>
+    <message>
+        <source>Align top edges</source>
+        <translation>Выровнять по верхнему краю</translation>
+    </message>
+    <message>
+        <source>Align centres up and down</source>
+        <translation>Выровнять центры по вертикали</translation>
+    </message>
+    <message>
+        <source>Align bottom edges</source>
+        <translation>Выровнять по нижнему краю</translation>
+    </message>
+    <message>
+        <source>Space evenly across (three or more)</source>
+        <translation>Распределить по горизонтали (три или больше)</translation>
+    </message>
+    <message>
+        <source>Space evenly up and down (three or more)</source>
+        <translation>Распределить по вертикали (три или больше)</translation>
+    </message>
+    <message>
+        <source>with the frame</source>
+        <translation>относительно кадра</translation>
+    </message>
+    <message>
         <source>Also moved by %1</source>
         <translation>Также перемещается слоем %1</translation>
     </message>
@@ -30985,8 +31758,44 @@ If playback stutters, try another.</source>
         <translation>Изменять ширину и высоту вместе</translation>
     </message>
     <message>
+        <source>Add a keyframe for Scale at the playhead</source>
+        <translation>Добавить ключ масштаба на указателе</translation>
+    </message>
+    <message>
         <source>Scale clip</source>
         <translation>Масштабировать клип</translation>
+    </message>
+    <message>
+        <source>Add a keyframe for Scale X and Y at the playhead</source>
+        <translation>Добавить ключевой кадр масштаба X и Y на указателе</translation>
+    </message>
+    <message>
+        <source>Scale X</source>
+        <translation>Масштаб X</translation>
+    </message>
+    <message>
+        <source>Scale Y</source>
+        <translation>Масштаб Y</translation>
+    </message>
+    <message>
+        <source>This size is 100 %</source>
+        <translation>Этот размер — 100 %</translation>
+    </message>
+    <message>
+        <source>Scale X and Y count from the box as it is now</source>
+        <translation>Масштаб X и Y отсчитывается от текущего размера рамки</translation>
+    </message>
+    <message>
+        <source>Anchor point (px)</source>
+        <translation>Опорная точка (px)</translation>
+    </message>
+    <message>
+        <source>Anchor in the centre</source>
+        <translation>Опорная точка в центре</translation>
+    </message>
+    <message>
+        <source>Anchor point here (the layer stays where it is)</source>
+        <translation>Опорная точка здесь (слой остаётся на месте)</translation>
     </message>
     <message>
         <source>Opacity &amp; rotation</source>
@@ -31579,7 +32388,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Reverse</source>
-        <translation type="unfinished"></translation>
+        <translation>Развернуть</translation>
     </message>
     <message>
         <source>Reverse path direction: the trim runs round the other way</source>
@@ -33091,7 +33900,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Preview</source>
-        <translation type="unfinished"></translation>
+        <translation>Просмотр</translation>
     </message>
     <message>
         <source>Properties</source>
@@ -33122,7 +33931,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Preview</source>
-        <translation type="unfinished"></translation>
+        <translation>Просмотр</translation>
     </message>
     <message>
         <source>Properties</source>

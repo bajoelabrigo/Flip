@@ -5,6 +5,8 @@
 #include <QRectF>
 #include <QSizeF>
 
+#include <cmath>
+
 namespace drift {
 
 // A clip's 3D pose on top of its 2D layout. All lengths are in the same pixels as the layout
@@ -16,6 +18,11 @@ struct ClipPose3d
     double rotationY = 0.0; // degrees; + swings the right edge away from the viewer
     double positionZ = 0.0; // px; + toward the viewer
     double perspective = 2000.0;
+    // The anchor point relative to the rect centre (px), already turned by the in-plane spin: the
+    // X/Y tilt pivots there, as After Effects (before 0.29 it always pivoted on the centre, so a
+    // card with its anchor on an edge swung about its middle). The spin's own share of the anchor
+    // is still Clip::anchorShift's move of the rect.
+    QPointF pivot;
 
     bool isActive() const
     {
@@ -24,6 +31,18 @@ struct ClipPose3d
 };
 
 inline constexpr double kDefaultClipPerspective = 2000.0;
+
+// ClipPose3d::pivot for an anchor at (fx, fy) of a w × h box (fractions, 0.5 the centre) turned
+// `rotationDeg` in its plane.
+inline QPointF clipPivot(double fx, double fy, double w, double h, double rotationDeg)
+{
+    const double ax = (fx - 0.5) * w;
+    const double ay = (fy - 0.5) * h;
+    if (ax == 0.0 && ay == 0.0)
+        return {};
+    const double r = rotationDeg * 3.14159265358979323846 / 180.0;
+    return {std::cos(r) * ax - std::sin(r) * ay, std::sin(r) * ax + std::cos(r) * ay};
+}
 
 // Nearest the eye a point may get, as a fraction of the perspective distance.
 inline constexpr double kClipNearFraction = 0.02;

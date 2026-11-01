@@ -332,6 +332,15 @@ QJsonObject clipToJson(const Clip &clip)
         {QStringLiteral("effects"), effectsToJson(clip.effects)},
         {QStringLiteral("audioEffects"), effectsToJson(clip.audioEffects)},
     };
+    if (!clip.fitTextId.isEmpty())
+        json.insert(QStringLiteral("fitText"), QJsonObject{{QStringLiteral("id"), clip.fitTextId},
+                                                           {QStringLiteral("padX"), clip.fitPadX},
+                                                           {QStringLiteral("padY"), clip.fitPadY},
+                                                           {QStringLiteral("bar"), clip.fitBarWidth}});
+    if (clip.scaleRefW > 0.0 && clip.scaleRefH > 0.0) {
+        json.insert(QStringLiteral("scaleRefW"), clip.scaleRefW);
+        json.insert(QStringLiteral("scaleRefH"), clip.scaleRefH);
+    }
     // Saved only when set, so a project without them reads back byte for byte.
     if (!clip.timeRemap.isEmpty())
         json.insert(QStringLiteral("timeRemap"), keyframesToJson(clip.timeRemap));
@@ -355,8 +364,11 @@ QJsonObject clipToJson(const Clip &clip)
         json.insert(QStringLiteral("motionBlur"), true);
     if (clip.matteMode != Clip::TrackMatte::None && !clip.matteClipId.isEmpty()) {
         static const char *const modes[] = {"none", "alpha", "alphaInverted", "luma", "lumaInverted"};
-        json.insert(QStringLiteral("matte"), QJsonObject{{QStringLiteral("clip"), clip.matteClipId},
-                                                         {QStringLiteral("mode"), QLatin1String(modes[int(clip.matteMode)])}});
+        QJsonObject matte{{QStringLiteral("clip"), clip.matteClipId},
+                          {QStringLiteral("mode"), QLatin1String(modes[int(clip.matteMode)])}};
+        if (clip.matteKeepsSource)
+            matte.insert(QStringLiteral("keepSource"), true);
+        json.insert(QStringLiteral("matte"), matte);
     }
     if (!clip.parentId.isEmpty()) {
         const QTransform &r = clip.parentRest;
@@ -468,6 +480,15 @@ Clip clipFromJsonV2(const QJsonObject &object, int canvasW = 1920, int canvasH =
     clip.linkLoose = object.value(QStringLiteral("linkLoose")).toBool(false);
     clip.suppressEmbeddedAudio = object.value(QStringLiteral("suppressEmbeddedAudio")).toBool(false);
     clip.isSolid = object.value(QStringLiteral("solid")).toBool(false);
+    {
+        const QJsonObject fit = object.value(QStringLiteral("fitText")).toObject();
+        clip.fitTextId = fit.value(QStringLiteral("id")).toString();
+        clip.fitPadX = fit.value(QStringLiteral("padX")).toDouble(32.0);
+        clip.fitPadY = fit.value(QStringLiteral("padY")).toDouble(16.0);
+        clip.fitBarWidth = fit.value(QStringLiteral("bar")).toDouble(0.0);
+    }
+    clip.scaleRefW = object.value(QStringLiteral("scaleRefW")).toDouble(0.0);
+    clip.scaleRefH = object.value(QStringLiteral("scaleRefH")).toDouble(0.0);
     if (object.contains(QStringLiteral("timeRemap")))
         clip.timeRemap = keyframesFromJson(object.value(QStringLiteral("timeRemap")).toObject());
     clip.autoOrient = object.value(QStringLiteral("autoOrient")).toBool(false);
@@ -495,6 +516,7 @@ Clip clipFromJsonV2(const QJsonObject &object, int canvasW = 1920, int canvasH =
                          : mode == QLatin1String("luma")          ? Clip::TrackMatte::Luma
                          : mode == QLatin1String("lumaInverted")  ? Clip::TrackMatte::LumaInverted
                                                                   : Clip::TrackMatte::None;
+        clip.matteKeepsSource = matte.value(QStringLiteral("keepSource")).toBool(false);
         if (clip.matteClipId.isEmpty())
             clip.matteMode = Clip::TrackMatte::None;
     }

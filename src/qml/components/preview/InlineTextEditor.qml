@@ -234,7 +234,9 @@ Item {
         const composing = proxy.preeditText !== ""
         switch (event.key) {
         case Qt.Key_Escape:
-            root.cancel()
+            // Esc leaves the text keeping what was typed, as After Effects and CapCut (0.29: it threw
+            // the words away, and a text made with the Text tool came back as «Texto»). Ctrl+Z undoes.
+            root.commit()
             event.accepted = true
             break
         case Qt.Key_Return:
@@ -328,9 +330,14 @@ Item {
         onSelectionEndChanged: root.markDirty()
         onPreeditTextChanged: root.markDirty()
 
+        // Committed after the press that took the focus, not inside it: the commit's edit refreshed the inspector
+        // mid-press and the click that moved the focus (a tab, «Abrir Texto avanzado…») was lost (0.29).
         onActiveFocusChanged: {
             if (!activeFocus && root.active && !root._starting)
-                root.commit()
+                Qt.callLater(function () {
+                    if (root.active && !proxy.activeFocus)
+                        root.commit()
+                })
         }
 
         Keys.onPressed: event => root.handleKey(event)

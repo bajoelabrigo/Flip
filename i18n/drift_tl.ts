@@ -857,7 +857,7 @@
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Kulay</translation>
     </message>
     <message>
         <source>Reset colour</source>
@@ -2440,7 +2440,7 @@
     </message>
     <message>
         <source>Open</source>
-        <translation type="unfinished"></translation>
+        <translation>Bukas</translation>
     </message>
     <message>
         <source>Open a project from this device</source>
@@ -2761,6 +2761,26 @@
     <message>
         <source>Bezier</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Animation</source>
+        <translation>Animasyon</translation>
+    </message>
+    <message>
+        <source>Stagger</source>
+        <translation>Isunod-sunod</translation>
+    </message>
+    <message>
+        <source> fr</source>
+        <translation> fr</translation>
+    </message>
+    <message>
+        <source>Stagger the picked layers</source>
+        <translation>Isunod-sunod ang mga napiling layer</translation>
+    </message>
+    <message>
+        <source>Each one starts that many frames after the one picked before it; they all end together</source>
+        <translation>Bawat isa ay nagsisimula nang ganoong dami ng frame pagkatapos ng naunang napili; sabay-sabay silang natatapos</translation>
     </message>
     <message>
         <source>Not available</source>
@@ -3483,6 +3503,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Background</source>
+        <translation>Background</translation>
+    </message>
+    <message>
         <source>Solid settings</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3513,6 +3537,24 @@
     <message>
         <source>Keyframes stretched</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No keys to curve: pick keyframes on the timeline, or select a layer that has some</source>
+        <translation>Walang key na lalagyan ng curve: pumili ng mga keyframe sa timeline, o ng layer na mayroon nito</translation>
+    </message>
+    <message numerus="yes">
+        <source>Curve applied to %n key(s)</source>
+        <translation>
+            <numerusform>Nailapat ang curve sa %n key</numerusform>
+            <numerusform>Nailapat ang curve sa %n key</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n property(ies)</source>
+        <translation>
+            <numerusform>%n property</numerusform>
+            <numerusform>%n property</numerusform>
+        </translation>
     </message>
     <message>
         <source>Easy ease</source>
@@ -4211,6 +4253,10 @@
     <message>
         <source>Text</source>
         <translation type="unfinished">Teksto</translation>
+    </message>
+    <message>
+        <source>“%1” added to “%2” · to draw a separate layer, press Esc first; to split them, right-click › Separate into layers</source>
+        <translation>Idinagdag ang “%1” sa “%2” · para gumuhit sa hiwalay na layer, pindutin muna ang Esc; para paghiwalayin, right-click › Paghiwalayin sa mga layer</translation>
     </message>
     <message>
         <source>Add mask</source>
@@ -5167,7 +5213,7 @@
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Opacity</translation>
     </message>
     <message>
         <source>Show rulers</source>
@@ -5200,6 +5246,10 @@
     <message>
         <source>Behavior changed</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pick two or more keys of a property to reverse them</source>
+        <translation>Pumili ng dalawa o higit pang key ng isang property para baligtarin ang mga ito</translation>
     </message>
     <message>
         <source>Point light %1</source>
@@ -5243,10 +5293,6 @@
     </message>
     <message>
         <source>Path</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>“%1” added to “%2” · to draw a separate layer, press Esc first</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5404,6 +5450,135 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Select a text to split into letters</source>
+        <translation>Pumili ng text na hahatiin sa mga letra</translation>
+    </message>
+    <message>
+        <source>This text has a single letter</source>
+        <translation>Iisa lang ang letra ng text na ito</translation>
+    </message>
+    <message>
+        <source>Split into letters</source>
+        <translation>Hatiin sa mga letra</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n letter layer(s)</source>
+        <translation>
+            <numerusform>%n layer ng letra</numerusform>
+            <numerusform>%n layer ng letra</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Pick three layers or more to space them evenly</source>
+        <translation>Pumili ng tatlo o higit pang layer para pantay-pantay silang ikalat</translation>
+    </message>
+    <message>
+        <source>Align</source>
+        <translation>I-align</translation>
+    </message>
+    <message>
+        <source>Select two layers or more (Ctrl+click, in the order they should come in)</source>
+        <translation>Pumili ng dalawa o higit pang layer (Ctrl+click, sa pagkakasunod na dapat silang pumasok)</translation>
+    </message>
+    <message>
+        <source>Stagger layers</source>
+        <translation>Isunod-sunod ang mga layer</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n layer(s) staggered</source>
+        <translation>
+            <numerusform>%n layer ang isinunod-sunod</numerusform>
+            <numerusform>%n layer ang isinunod-sunod</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Show inside the layer below</source>
+        <translation>Ipakita sa loob ng layer sa ibaba</translation>
+    </message>
+    <message>
+        <source>Shown whole again</source>
+        <translation>Buo na ulit na nakikita</translation>
+    </message>
+    <message>
+        <source>There is no layer under this one to show it inside</source>
+        <translation>Walang layer sa ilalim nito na mapagpapakitaan nito</translation>
+    </message>
+    <message>
+        <source>Shown only inside “%1”</source>
+        <translation>Nakikita lang sa loob ng «%1»</translation>
+    </message>
+    <message>
+        <source>Your name</source>
+        <translation>Ang pangalan mo</translation>
+    </message>
+    <message>
+        <source>Lower third</source>
+        <translation>Lower third</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>Label</translation>
+    </message>
+    <message>
+        <source>Role bar</source>
+        <translation>Bar ng posisyon</translation>
+    </message>
+    <message>
+        <source>Line</source>
+        <translation>Linya</translation>
+    </message>
+    <message>
+        <source>Lower third added: every piece is a layer you can edit</source>
+        <translation>Naidagdag ang lower third: bawat bahagi ay layer na puwede mong i-edit</translation>
+    </message>
+    <message>
+        <source>Select the label (a shape) for the two-colour wipe</source>
+        <translation>Piliin ang label (isang hugis) para sa wipe na dalawang kulay</translation>
+    </message>
+    <message>
+        <source>Two-colour wipe</source>
+        <translation>Wipe na dalawang kulay</translation>
+    </message>
+    <message>
+        <source>%1 accent</source>
+        <translation>%1 accent</translation>
+    </message>
+    <message>
+        <source>%1 accent %2</source>
+        <translation>%1 accent %2</translation>
+    </message>
+    <message>
+        <source>Select a text to put a label under it</source>
+        <translation>Pumili ng text para lagyan ng label sa ilalim nito</translation>
+    </message>
+    <message>
+        <source>Label · %1</source>
+        <translation>Label · %1</translation>
+    </message>
+    <message>
+        <source>Label for the text</source>
+        <translation>Label para sa text</translation>
+    </message>
+    <message>
+        <source>Fit to text</source>
+        <translation>Itugma sa text</translation>
+    </message>
+    <message>
+        <source>Scale</source>
+        <translation>Laki</translation>
+    </message>
+    <message>
+        <source>No keyframes there</source>
+        <translation>Walang keyframe doon</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n keyframe(s) removed</source>
+        <translation>
+            <numerusform>%n keyframe ang natanggal</numerusform>
+            <numerusform>%n keyframe ang natanggal</numerusform>
+        </translation>
+    </message>
+    <message>
         <source>Retouch</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5485,7 +5660,7 @@
     </message>
     <message>
         <source>Stroke width</source>
-        <translation type="unfinished"></translation>
+        <translation>Kapal ng stroke</translation>
     </message>
     <message>
         <source>Scale X</source>
@@ -5616,6 +5791,26 @@
     <message>
         <source>Bookmark updated</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>There is no video after this clip to fit it to</source>
+        <translation>Walang video pagkatapos ng clip na ito na maitutugma</translation>
+    </message>
+    <message>
+        <source>The clip already ends with the video</source>
+        <translation>Natatapos na ang clip kasabay ng video</translation>
+    </message>
+    <message>
+        <source>Fit to video length</source>
+        <translation>Itugma sa haba ng video</translation>
+    </message>
+    <message>
+        <source>The file is shorter than the video: the clip ends where the file does</source>
+        <translation>Mas maikli ang file kaysa sa video: natatapos ang clip kung saan natatapos ang file</translation>
+    </message>
+    <message>
+        <source>The clip now ends with the video</source>
+        <translation>Natatapos na ngayon ang clip kasabay ng video</translation>
     </message>
     <message>
         <source>No video at the current time</source>
@@ -5825,6 +6020,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>%1 splash</source>
+        <translation>%1 talsik</translation>
+    </message>
+    <message>
         <source>drops</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6001,7 +6200,7 @@
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Kulay</translation>
     </message>
     <message>
         <source>Hold</source>
@@ -6812,6 +7011,10 @@
     <message>
         <source>Tools</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lower third…</source>
+        <translation>Lower third…</translation>
     </message>
     <message>
         <source>Split</source>
@@ -7937,6 +8140,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Bend the picked layers together (one joint)</source>
+        <translation>Baluktutin nang sabay ang mga napiling layer (iisang dugtungan)</translation>
+    </message>
+    <message>
         <source>Frames</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7976,7 +8183,7 @@
     <name>BlendingInspector</name>
     <message>
         <source>Blend mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Blend mode</translation>
     </message>
     <message>
         <source>How this clip&apos;s colours combine with the tracks beneath it.</source>
@@ -7984,31 +8191,31 @@
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>Normal</translation>
     </message>
     <message>
         <source>Multiply</source>
-        <translation type="unfinished"></translation>
+        <translation>Multiply</translation>
     </message>
     <message>
         <source>Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Screen</translation>
     </message>
     <message>
         <source>Overlay</source>
-        <translation type="unfinished"></translation>
+        <translation>Overlay</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Idagdag</translation>
     </message>
     <message>
         <source>Darken</source>
-        <translation type="unfinished"></translation>
+        <translation>Padilimin</translation>
     </message>
     <message>
         <source>Lighten</source>
-        <translation type="unfinished"></translation>
+        <translation>Paliwanagin</translation>
     </message>
     <message>
         <source>Soft light</source>
@@ -8712,7 +8919,7 @@
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Kulay</translation>
     </message>
     <message>
         <source>Starts at</source>
@@ -9080,7 +9287,7 @@
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Opacity</translation>
     </message>
     <message>
         <source>Eyeshadow</source>
@@ -9396,7 +9603,7 @@
     </message>
     <message>
         <source>Lighten</source>
-        <translation type="unfinished"></translation>
+        <translation>Paliwanagin</translation>
     </message>
     <message>
         <source>Halation</source>
@@ -9420,7 +9627,7 @@
     </message>
     <message>
         <source>Angle</source>
-        <translation type="unfinished"></translation>
+        <translation>Anggulo</translation>
     </message>
     <message>
         <source>Kaleidoscope</source>
@@ -10737,6 +10944,30 @@
     <message>
         <source>End (%)</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Axis offset (%)</source>
+        <translation>Usog ng axis (%)</translation>
+    </message>
+    <message>
+        <source>Extra room (px)</source>
+        <translation>Dagdag na espasyo (px)</translation>
+    </message>
+    <message>
+        <source>Linear Wipe</source>
+        <translation>Linear Wipe</translation>
+    </message>
+    <message>
+        <source>Completion (%)</source>
+        <translation>Pagkumpleto (%)</translation>
+    </message>
+    <message>
+        <source>Angle (°)</source>
+        <translation>Anggulo (°)</translation>
+    </message>
+    <message>
+        <source>Feather (px)</source>
+        <translation>Feather (px)</translation>
     </message>
     <message>
         <source>Liquid</source>
@@ -12083,6 +12314,26 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Wipe down</source>
+        <translation>Wipe pababa</translation>
+    </message>
+    <message>
+        <source>Wipe from left</source>
+        <translation>Wipe mula kaliwa</translation>
+    </message>
+    <message>
+        <source>Wipe from right</source>
+        <translation>Wipe mula kanan</translation>
+    </message>
+    <message>
+        <source>Slanted wipe</source>
+        <translation>Pahilis na wipe</translation>
+    </message>
+    <message>
+        <source>Wipe up</source>
+        <translation>Wipe pataas</translation>
+    </message>
+    <message>
         <source>Attention</source>
         <translation type="unfinished"></translation>
     </message>
@@ -12900,7 +13151,7 @@ NEXT TIME</source>
     <name>ClipAnimPresetTile</name>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>Wala</translation>
     </message>
 </context>
 <context>
@@ -13753,7 +14004,7 @@ NEXT TIME</source>
     <name>DriftAssetCard</name>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Idagdag</translation>
     </message>
     <message numerus="yes">
         <source>%n style(s)</source>
@@ -13916,7 +14167,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Idagdag</translation>
     </message>
     <message>
         <source>Added to Face props</source>
@@ -14082,7 +14333,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Kulay</translation>
     </message>
     <message>
         <source>Language…</source>
@@ -15560,6 +15811,93 @@ NEXT TIME</source>
     </message>
 </context>
 <context>
+    <name>FillOptionsDialog</name>
+    <message>
+        <source>Normal</source>
+        <translation>Normal</translation>
+    </message>
+    <message>
+        <source>Multiply</source>
+        <translation>Multiply</translation>
+    </message>
+    <message>
+        <source>Screen</source>
+        <translation>Screen</translation>
+    </message>
+    <message>
+        <source>Overlay</source>
+        <translation>Overlay</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>Idagdag</translation>
+    </message>
+    <message>
+        <source>Darken</source>
+        <translation>Padilimin</translation>
+    </message>
+    <message>
+        <source>Lighten</source>
+        <translation>Paliwanagin</translation>
+    </message>
+    <message>
+        <source>Fill Options</source>
+        <translation>Mga opsyon ng fill</translation>
+    </message>
+    <message>
+        <source>Stroke Options</source>
+        <translation>Mga opsyon ng stroke</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Wala</translation>
+    </message>
+    <message>
+        <source>Solid Color</source>
+        <translation>Solidong kulay</translation>
+    </message>
+    <message>
+        <source>Linear Gradient</source>
+        <translation>Linear na gradient</translation>
+    </message>
+    <message>
+        <source>Radial Gradient</source>
+        <translation>Radial na gradient</translation>
+    </message>
+    <message>
+        <source>Sweep Gradient</source>
+        <translation>Sweep na gradient</translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation>Kulay</translation>
+    </message>
+    <message>
+        <source>Angle</source>
+        <translation>Anggulo</translation>
+    </message>
+    <message>
+        <source>Drag its two handles on the video to place it, as in After Effects.</source>
+        <translation>I-drag ang dalawang hawakan nito sa video para ilagay ito, gaya sa After Effects.</translation>
+    </message>
+    <message>
+        <source>Blend mode</source>
+        <translation>Blend mode</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation>Opacity</translation>
+    </message>
+    <message>
+        <source>Stroke width</source>
+        <translation>Kapal ng stroke</translation>
+    </message>
+    <message>
+        <source>Preview</source>
+        <translation>Preview</translation>
+    </message>
+</context>
+<context>
     <name>FiltersTab</name>
     <message>
         <source>Trending</source>
@@ -15993,6 +16331,29 @@ NEXT TIME</source>
     </message>
 </context>
 <context>
+    <name>GradientHandlesOverlay</name>
+    <message>
+        <source>Move gradient</source>
+        <translation>Ilipat ang gradient</translation>
+    </message>
+    <message>
+        <source>Gradient centre: drag to move it</source>
+        <translation>Gitna ng gradient: i-drag para ilipat</translation>
+    </message>
+    <message>
+        <source>Gradient start: drag to move it</source>
+        <translation>Simula ng gradient: i-drag para ilipat</translation>
+    </message>
+    <message>
+        <source>Gradient radius: drag to resize it</source>
+        <translation>Radius ng gradient: i-drag para baguhin ang laki</translation>
+    </message>
+    <message>
+        <source>Gradient end: drag to move it</source>
+        <translation>Dulo ng gradient: i-drag para ilipat</translation>
+    </message>
+</context>
+<context>
     <name>GradientStopEditor</name>
     <message>
         <source>Drag to move, tap for colour, hold or right-click to remove</source>
@@ -16028,7 +16389,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Angle</source>
-        <translation type="unfinished"></translation>
+        <translation>Anggulo</translation>
     </message>
     <message>
         <source>Map to</source>
@@ -16201,7 +16562,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Opacity</translation>
     </message>
     <message>
         <source>Show guides</source>
@@ -16394,7 +16755,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Opacity</translation>
     </message>
     <message>
         <source>Volume</source>
@@ -16817,6 +17178,133 @@ NEXT TIME</source>
     <message>
         <source>720p</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>LowerThirdDialog</name>
+    <message>
+        <source>Lower third</source>
+        <translation>Lower third</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>Idagdag</translation>
+    </message>
+    <message>
+        <source>Left</source>
+        <translation>Kaliwa</translation>
+    </message>
+    <message>
+        <source>Centre</source>
+        <translation>Gitna</translation>
+    </message>
+    <message>
+        <source>Right</source>
+        <translation>Kanan</translation>
+    </message>
+    <message>
+        <source>Automatic</source>
+        <translation>Awtomatiko</translation>
+    </message>
+    <message>
+        <source>Wipe</source>
+        <translation>Wipe</translation>
+    </message>
+    <message>
+        <source>Slide</source>
+        <translation>Dulas</translation>
+    </message>
+    <message>
+        <source>Pop</source>
+        <translation>Sulpot</translation>
+    </message>
+    <message>
+        <source>Zoom</source>
+        <translation>Zoom</translation>
+    </message>
+    <message>
+        <source>Fade</source>
+        <translation>Paglaho</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Wala</translation>
+    </message>
+    <message>
+        <source>Clean</source>
+        <translation>Malinis</translation>
+    </message>
+    <message>
+        <source>With a line</source>
+        <translation>May linya</translation>
+    </message>
+    <message>
+        <source>Slanted</source>
+        <translation>Nakahilig</translation>
+    </message>
+    <message>
+        <source>Two colours</source>
+        <translation>Dalawang kulay</translation>
+    </message>
+    <message>
+        <source>Role on a bar</source>
+        <translation>Posisyon sa bar</translation>
+    </message>
+    <message>
+        <source>Style</source>
+        <translation>Estilo</translation>
+    </message>
+    <message>
+        <source>Second accent</source>
+        <translation>Ikalawang accent</translation>
+    </message>
+    <message>
+        <source>Third accent</source>
+        <translation>Ikatlong accent</translation>
+    </message>
+    <message>
+        <source>Entrance</source>
+        <translation>Pasok</translation>
+    </message>
+    <message>
+        <source>Exit</source>
+        <translation>Labas</translation>
+    </message>
+    <message>
+        <source>Alignment</source>
+        <translation>Pagkakahanay</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Pangalan</translation>
+    </message>
+    <message>
+        <source>Your name</source>
+        <translation>Ang pangalan mo</translation>
+    </message>
+    <message>
+        <source>Role (optional)</source>
+        <translation>Posisyon (opsyonal)</translation>
+    </message>
+    <message>
+        <source>Presenter, guest, city…</source>
+        <translation>Host, bisita, lungsod…</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>Label</translation>
+    </message>
+    <message>
+        <source>Accent</source>
+        <translation>Accent</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation>Text</translation>
+    </message>
+    <message>
+        <source>On screen</source>
+        <translation>Sa screen</translation>
     </message>
 </context>
 <context>
@@ -17658,7 +18146,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Idagdag</translation>
     </message>
     <message>
         <source>Subtract</source>
@@ -18086,7 +18574,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Open</source>
-        <translation type="unfinished"></translation>
+        <translation>Bukas</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -18354,7 +18842,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Preview</source>
-        <translation type="unfinished"></translation>
+        <translation>Preview</translation>
     </message>
     <message>
         <source>Play the clip and drag the ends to keep only the part you want. Save replaces this item in the media bin.</source>
@@ -18746,7 +19234,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Kulay</translation>
     </message>
     <message>
         <source>Intensity</source>
@@ -18810,7 +19298,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Opacity</translation>
     </message>
     <message>
         <source>Offered as a control of the composition: click to take it out</source>
@@ -18858,7 +19346,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>Wala</translation>
     </message>
     <message>
         <source>The layer this one follows</source>
@@ -19044,6 +19532,14 @@ NEXT TIME</source>
     <message>
         <source>Copies the picked keys to the playhead</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reverse</source>
+        <translation>Baligtarin</translation>
+    </message>
+    <message>
+        <source>Plays the picked keys backwards in their own span (a cloned entrance becomes the exit)</source>
+        <translation>Pinapatugtog nang pabaligtad ang mga napiling key sa sarili nilang saklaw (nagiging labas ang kinopyang pasok)</translation>
     </message>
     <message>
         <source>Bounce: %1</source>
@@ -19565,7 +20061,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Kulay</translation>
     </message>
     <message>
         <source>Tint</source>
@@ -19617,7 +20113,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Angle</source>
-        <translation type="unfinished"></translation>
+        <translation>Anggulo</translation>
     </message>
     <message>
         <source>Adjust paint effect</source>
@@ -20229,6 +20725,18 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Line</source>
+        <translation>Linya</translation>
+    </message>
+    <message>
+        <source>Fill Options: none, solid, linear or radial gradient, blend mode and opacity</source>
+        <translation>Mga opsyon ng fill: wala, solido, linear o radial na gradient, blend mode at opacity</translation>
+    </message>
+    <message>
+        <source>Stroke Options: none, solid, linear or radial gradient, blend mode and opacity</source>
+        <translation>Mga opsyon ng stroke: wala, solido, linear o radial na gradient, blend mode at opacity</translation>
+    </message>
+    <message>
         <source>Selection</source>
         <translation type="unfinished"></translation>
     </message>
@@ -20255,6 +20763,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Shape: drag on the preview (Shift for a square or circle)</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ellipse: drag on the preview (Shift for a circle)</source>
+        <translation>Ellipse: i-drag sa preview (Shift para sa bilog)</translation>
+    </message>
+    <message>
+        <source>Line: drag on the preview (Shift for 0°, 45° or 90°); it takes the stroke colour and width</source>
+        <translation>Linya: i-drag sa preview (Shift para sa 0°, 45° o 90°); ginagamit ang kulay at kapal ng stroke</translation>
     </message>
     <message>
         <source>Pen: click for corners, drag for curves</source>
@@ -20976,6 +21492,38 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Project</source>
+        <translation>Proyekto</translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation>Kulay</translation>
+    </message>
+    <message>
+        <source>Transparent (alpha)</source>
+        <translation>Transparent (alpha)</translation>
+    </message>
+    <message>
+        <source>No background: export it as ProRes 4444 or VP9 with alpha (WebM) to keep the transparency</source>
+        <translation>Walang background: i-export bilang ProRes 4444 o VP9 na may alpha (WebM) para manatili ang transparency</translation>
+    </message>
+    <message>
+        <source>Background colour</source>
+        <translation>Kulay ng background</translation>
+    </message>
+    <message>
+        <source>Background colour of the project: what shows where no layer covers the frame</source>
+        <translation>Kulay ng background ng proyekto: ang nakikita kung saan walang layer na tumatakip sa frame</translation>
+    </message>
+    <message>
+        <source>Solid the size of the frame</source>
+        <translation>Solid na kasinlaki ng frame</translation>
+    </message>
+    <message>
+        <source>A layer of one colour over the whole frame, for the length of the work (the background colour above)</source>
+        <translation>Isang layer na iisang kulay sa buong frame, sa buong haba ng gawa (ang kulay ng background sa itaas)</translation>
+    </message>
+    <message>
         <source>This clip uses Pro tools.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -21158,11 +21706,11 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Edit %1</source>
-        <translation type="unfinished"></translation>
+        <source>Drag to change, click to type</source>
+        <translation>I-drag para baguhin, i-click para i-type</translation>
     </message>
     <message>
-        <source>Click to type an exact %1</source>
+        <source>Edit %1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -21785,7 +22333,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Reverse</source>
-        <translation type="unfinished"></translation>
+        <translation>Baligtarin</translation>
     </message>
     <message>
         <source>Flip Studio will render a reversed copy of this clip so it plays back smoothly. You can keep editing while it runs.</source>
@@ -22283,7 +22831,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Drag to change, click to type</source>
-        <translation type="unfinished"></translation>
+        <translation>I-drag para baguhin, i-click para i-type</translation>
     </message>
 </context>
 <context>
@@ -22515,7 +23063,7 @@ If playback stutters, try another.</source>
     <name>SettingsPane</name>
     <message>
         <source>Preview</source>
-        <translation type="unfinished"></translation>
+        <translation>Preview</translation>
     </message>
     <message>
         <source>Show guides</source>
@@ -23128,31 +23676,31 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>Normal</translation>
     </message>
     <message>
         <source>Multiply</source>
-        <translation type="unfinished"></translation>
+        <translation>Multiply</translation>
     </message>
     <message>
         <source>Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Screen</translation>
     </message>
     <message>
         <source>Overlay</source>
-        <translation type="unfinished"></translation>
+        <translation>Overlay</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Idagdag</translation>
     </message>
     <message>
         <source>Darken</source>
-        <translation type="unfinished"></translation>
+        <translation>Padilimin</translation>
     </message>
     <message>
         <source>Lighten</source>
-        <translation type="unfinished"></translation>
+        <translation>Paliwanagin</translation>
     </message>
     <message>
         <source>Centre</source>
@@ -23212,7 +23760,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Opacity</translation>
     </message>
     <message>
         <source>Blend</source>
@@ -23237,6 +23785,38 @@ If playback stutters, try another.</source>
     <message>
         <source>Dash offset</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Arrow at start</source>
+        <translation>Arrow sa simula</translation>
+    </message>
+    <message>
+        <source>Arrow at end</source>
+        <translation>Arrow sa dulo</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Wala</translation>
+    </message>
+    <message>
+        <source>Triangle</source>
+        <translation>Tatsulok</translation>
+    </message>
+    <message>
+        <source>Open</source>
+        <translation>Bukas</translation>
+    </message>
+    <message>
+        <source>Dot</source>
+        <translation>Tuldok</translation>
+    </message>
+    <message>
+        <source>A head on this end of an open path, such as a line drawn with the pen</source>
+        <translation>Isang ulo sa dulong ito ng bukas na path, gaya ng linyang iginuhit gamit ang pen</translation>
+    </message>
+    <message>
+        <source>Arrow size</source>
+        <translation>Laki ng arrow</translation>
     </message>
     <message>
         <source>Trim start</source>
@@ -23344,7 +23924,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Kulay</translation>
     </message>
     <message>
         <source>Choose the layer colour</source>
@@ -23376,7 +23956,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Angle</source>
-        <translation type="unfinished"></translation>
+        <translation>Anggulo</translation>
     </message>
     <message>
         <source>Steps</source>
@@ -23399,7 +23979,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Idagdag</translation>
     </message>
     <message>
         <source>Add a shape or a group to this layer (After Effects: Add)</source>
@@ -23513,6 +24093,26 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Reaction timing</source>
+        <translation>Tiyempo ng reaksiyon</translation>
+    </message>
+    <message>
+        <source> fr</source>
+        <translation> fr</translation>
+    </message>
+    <message>
+        <source>Reaction strength</source>
+        <translation>Lakas ng reaksiyon</translation>
+    </message>
+    <message>
+        <source>Last layer visible from the start</source>
+        <translation>Nakikita ang huling layer mula sa simula</translation>
+    </message>
+    <message>
+        <source>Liquid splash at the hit</source>
+        <translation>Talsik ng likido sa pagtama</translation>
+    </message>
+    <message>
         <source>Morph it</source>
         <translation type="unfinished"></translation>
     </message>
@@ -23593,8 +24193,12 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Draw the line behind the stream</source>
+        <translation>Iguhit ang linya sa likod ng daloy</translation>
+    </message>
+    <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Kulay</translation>
     </message>
     <message>
         <source>Generate liquid trail</source>
@@ -23673,35 +24277,35 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Opacity</translation>
     </message>
     <message>
         <source>Blend mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Blend mode</translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>Normal</translation>
     </message>
     <message>
         <source>Multiply</source>
-        <translation type="unfinished"></translation>
+        <translation>Multiply</translation>
     </message>
     <message>
         <source>Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Screen</translation>
     </message>
     <message>
         <source>Overlay</source>
-        <translation type="unfinished"></translation>
+        <translation>Overlay</translation>
     </message>
     <message>
         <source>Darken</source>
-        <translation type="unfinished"></translation>
+        <translation>Padilimin</translation>
     </message>
     <message>
         <source>Lighten</source>
-        <translation type="unfinished"></translation>
+        <translation>Paliwanagin</translation>
     </message>
     <message>
         <source>Wiggle</source>
@@ -23768,12 +24372,76 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Fit to a text</source>
+        <translation>Itugma sa isang text</translation>
+    </message>
+    <message>
+        <source>The shape takes the text&apos;s size plus the margin, and grows when the words change: a label for a name.</source>
+        <translation>Kinukuha ng hugis ang laki ng text at ang margin, at lumalaki kapag nagbago ang mga salita: label para sa isang pangalan.</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Wala</translation>
+    </message>
+    <message>
+        <source>Margin across</source>
+        <translation>Margin sa gilid</translation>
+    </message>
+    <message>
+        <source>up and down</source>
+        <translation>itaas at ibaba</translation>
+    </message>
+    <message>
+        <source>Two-colour wipe</source>
+        <translation>Wipe na dalawang kulay</translation>
+    </message>
+    <message>
+        <source>From the playhead the accent colour sweeps in first and this shape follows it, ending on top: the entrance of a lower third.</source>
+        <translation>Mula sa playhead, unang papasok na nagwa-wipe ang accent na kulay at susunod ang hugis na ito, na mananatili sa ibabaw: ang pagpasok ng lower third.</translation>
+    </message>
+    <message>
+        <source>Accent</source>
+        <translation>Accent</translation>
+    </message>
+    <message>
+        <source> fr</source>
+        <translation> fr</translation>
+    </message>
+    <message>
+        <source>Second colour</source>
+        <translation>Ikalawang kulay</translation>
+    </message>
+    <message>
+        <source>Third colour</source>
+        <translation>Ikatlong kulay</translation>
+    </message>
+    <message>
+        <source>Exit too</source>
+        <translation>Pati paglabas</translation>
+    </message>
+    <message>
+        <source>At the end of the layer the colours sweep out the way they came, the shape first</source>
+        <translation>Sa dulo ng layer, lumalabas ang mga kulay kung saan sila pumasok, una ang hugis</translation>
+    </message>
+    <message>
+        <source>Slanted edge</source>
+        <translation>Nakahilig na gilid</translation>
+    </message>
+    <message>
+        <source>Apply two-colour wipe</source>
+        <translation>Ilapat ang wipe na dalawang kulay</translation>
+    </message>
+    <message>
         <source>Geometry</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Corner radius</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Slant</source>
+        <translation>Hilig</translation>
     </message>
     <message>
         <source>Points</source>
@@ -23977,7 +24645,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Idagdag</translation>
     </message>
     <message>
         <source>Subtract</source>
@@ -24059,7 +24727,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Triangle</source>
-        <translation type="unfinished"></translation>
+        <translation>Tatsulok</translation>
     </message>
     <message>
         <source>Right triangle</source>
@@ -24172,6 +24840,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Corner radius</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Slant</source>
+        <translation>Hilig</translation>
     </message>
     <message>
         <source>Inner radius</source>
@@ -24513,7 +25185,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Idagdag</translation>
     </message>
     <message>
         <source>Apply</source>
@@ -24541,7 +25213,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Kulay</translation>
     </message>
 </context>
 <context>
@@ -24912,7 +25584,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Reverse</source>
-        <translation type="unfinished"></translation>
+        <translation>Baligtarin</translation>
     </message>
     <message>
         <source>Not rendered — playback may stutter</source>
@@ -24966,14 +25638,6 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Oomph</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>How far it travels, jumps and turns</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Timing</source>
         <translation type="unfinished"></translation>
     </message>
@@ -25002,6 +25666,14 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Apply letter by letter</source>
+        <translation>Ilapat letra por letra</translation>
+    </message>
+    <message>
+        <source>Splits the text into one layer per letter and applies it to each, the stagger apart</source>
+        <translation>Hinahati ang text sa isang layer bawat letra at inilalapat sa bawat isa, may pagitan ayon sa stagger</translation>
+    </message>
+    <message>
         <source>Applies to every selected layer. The keys stay editable on the timeline.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -25012,6 +25684,14 @@ If playback stutters, try another.</source>
     <message>
         <source>How hard it squashes, stretches and bends</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Travel</source>
+        <translation>Layo</translation>
+    </message>
+    <message>
+        <source>Distance: how far it travels, jumps and turns (200 % jumps twice as far)</source>
+        <translation>Layo: gaano kalayo ito gumagalaw, tumatalon at umiikot (200 % ay dalawang beses na mas malayo)</translation>
     </message>
     <message>
         <source>Speed</source>
@@ -26109,7 +26789,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Idagdag</translation>
     </message>
     <message>
         <source>Tip: write a word between asterisks, like *faith*, to highlight it in colour.</source>
@@ -26297,7 +26977,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Idagdag</translation>
     </message>
     <message>
         <source>Slot %1 (from %2): click to choose a photo or video, or drop one here</source>
@@ -26942,7 +27622,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Angle</source>
-        <translation type="unfinished"></translation>
+        <translation>Anggulo</translation>
     </message>
     <message>
         <source>Brightness</source>
@@ -26950,7 +27630,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Kulay</translation>
     </message>
     <message>
         <source>Holographic shimmer</source>
@@ -27033,7 +27713,7 @@ If playback stutters, try another.</source>
     <name>TextInspector</name>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Kulay</translation>
     </message>
     <message>
         <source>Choose the gradient&apos;s first colour</source>
@@ -27225,10 +27905,6 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Italic</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>%1 has no italic face</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -27457,7 +28133,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>Normal</translation>
     </message>
     <message>
         <source>On the line</source>
@@ -27502,6 +28178,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Strikethrough</source>
         <translation>Strikethrough</translation>
+    </message>
+    <message>
+        <source>Italic (slanted: %1 has no italic face)</source>
+        <translation>Italic (nakahilig: walang italic ang %1)</translation>
     </message>
     <message>
         <source>Case</source>
@@ -27693,7 +28373,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Opacity</translation>
     </message>
     <message>
         <source>Rounded corners</source>
@@ -27785,7 +28465,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Angle</source>
-        <translation type="unfinished"></translation>
+        <translation>Anggulo</translation>
     </message>
     <message>
         <source>Curve</source>
@@ -28176,11 +28856,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Opacity</translation>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Kulay</translation>
     </message>
     <message>
         <source>Intensity</source>
@@ -28264,7 +28944,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Angle</source>
-        <translation type="unfinished"></translation>
+        <translation>Anggulo</translation>
     </message>
     <message>
         <source>Map to</source>
@@ -28684,7 +29364,7 @@ If playback stutters, try another.</source>
     <name>TextStyle</name>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Opacity</translation>
     </message>
     <message>
         <source>Offset X</source>
@@ -29245,6 +29925,10 @@ If playback stutters, try another.</source>
 <context>
     <name>ThemedNumberField</name>
     <message>
+        <source>Change value</source>
+        <translation>Baguhin ang value</translation>
+    </message>
+    <message>
         <source>Allowed range: %1 – %2%3</source>
         <translation type="unfinished"></translation>
     </message>
@@ -29372,6 +30056,46 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Fit to video length</source>
+        <translation>Itugma sa haba ng video</translation>
+    </message>
+    <message>
+        <source>Make a label for this text</source>
+        <translation>Gumawa ng label para sa text na ito</translation>
+    </message>
+    <message>
+        <source>Show whole again</source>
+        <translation>Ipakita ulit nang buo</translation>
+    </message>
+    <message>
+        <source>Show only inside the layer below</source>
+        <translation>Ipakita lang sa loob ng layer sa ibaba</translation>
+    </message>
+    <message>
+        <source>Split into letters</source>
+        <translation>Hatiin sa mga letra</translation>
+    </message>
+    <message>
+        <source>Delete keyframes</source>
+        <translation>Burahin ang mga keyframe</translation>
+    </message>
+    <message>
+        <source>After the playhead (all rows)</source>
+        <translation>Pagkatapos ng playhead (lahat ng hanay)</translation>
+    </message>
+    <message>
+        <source>Before the playhead (all rows)</source>
+        <translation>Bago ang playhead (lahat ng hanay)</translation>
+    </message>
+    <message>
+        <source>All of this clip</source>
+        <translation>Lahat sa clip na ito</translation>
+    </message>
+    <message>
+        <source>Freeze frame at current time</source>
+        <translation>I-freeze ang frame sa kasalukuyang oras</translation>
+    </message>
+    <message>
         <source>Enhance video…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -29453,7 +30177,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>Wala</translation>
     </message>
     <message>
         <source>Use as mask stuck to</source>
@@ -29983,7 +30707,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Reverse</source>
-        <translation type="unfinished"></translation>
+        <translation>Baligtarin</translation>
     </message>
     <message>
         <source>Rotate 90°</source>
@@ -30300,7 +31024,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Idagdag</translation>
     </message>
     <message>
         <source>Add a shape or a group to this layer</source>
@@ -30328,31 +31052,31 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>Normal</translation>
     </message>
     <message>
         <source>Multiply</source>
-        <translation type="unfinished"></translation>
+        <translation>Multiply</translation>
     </message>
     <message>
         <source>Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Screen</translation>
     </message>
     <message>
         <source>Overlay</source>
-        <translation type="unfinished"></translation>
+        <translation>Overlay</translation>
     </message>
     <message>
         <source>Darken</source>
-        <translation type="unfinished"></translation>
+        <translation>Padilimin</translation>
     </message>
     <message>
         <source>Lighten</source>
-        <translation type="unfinished"></translation>
+        <translation>Paliwanagin</translation>
     </message>
     <message>
         <source>Blend mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Blend mode</translation>
     </message>
     <message>
         <source>Duplicate</source>
@@ -30396,7 +31120,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>Kulay</translation>
     </message>
     <message>
         <source>Constrain proportions: on</source>
@@ -30573,7 +31297,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Opacity</translation>
     </message>
     <message>
         <source>Volume</source>
@@ -30794,7 +31518,7 @@ If playback stutters, try another.</source>
     <name>TransformInspector</name>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Opacity</translation>
     </message>
     <message>
         <source>Width</source>
@@ -30806,7 +31530,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Angle</source>
-        <translation type="unfinished"></translation>
+        <translation>Anggulo</translation>
     </message>
     <message>
         <source>Tilt X</source>
@@ -30823,6 +31547,50 @@ If playback stutters, try another.</source>
     <message>
         <source>Perspective</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale keyframe</source>
+        <translation>Key ng scale</translation>
+    </message>
+    <message>
+        <source>Align</source>
+        <translation>I-align</translation>
+    </message>
+    <message>
+        <source>Align left edges</source>
+        <translation>I-align ang kaliwang gilid</translation>
+    </message>
+    <message>
+        <source>Align centres across</source>
+        <translation>I-align ang mga gitna nang pahalang</translation>
+    </message>
+    <message>
+        <source>Align right edges</source>
+        <translation>I-align ang kanang gilid</translation>
+    </message>
+    <message>
+        <source>Align top edges</source>
+        <translation>I-align ang itaas na gilid</translation>
+    </message>
+    <message>
+        <source>Align centres up and down</source>
+        <translation>I-align ang mga gitna nang patayo</translation>
+    </message>
+    <message>
+        <source>Align bottom edges</source>
+        <translation>I-align ang ibabang gilid</translation>
+    </message>
+    <message>
+        <source>Space evenly across (three or more)</source>
+        <translation>Ikalat nang pantay nang pahalang (tatlo o higit pa)</translation>
+    </message>
+    <message>
+        <source>Space evenly up and down (three or more)</source>
+        <translation>Ikalat nang pantay nang patayo (tatlo o higit pa)</translation>
+    </message>
+    <message>
+        <source>with the frame</source>
+        <translation>kasama ang frame</translation>
     </message>
     <message>
         <source>Also moved by %1</source>
@@ -30877,8 +31645,44 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Add a keyframe for Scale at the playhead</source>
+        <translation>Magdagdag ng key ng Scale sa playhead</translation>
+    </message>
+    <message>
         <source>Scale clip</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add a keyframe for Scale X and Y at the playhead</source>
+        <translation>Magdagdag ng keyframe para sa Scale X at Y sa playhead</translation>
+    </message>
+    <message>
+        <source>Scale X</source>
+        <translation>Scale X</translation>
+    </message>
+    <message>
+        <source>Scale Y</source>
+        <translation>Scale Y</translation>
+    </message>
+    <message>
+        <source>This size is 100 %</source>
+        <translation>Ang laking ito ay 100 %</translation>
+    </message>
+    <message>
+        <source>Scale X and Y count from the box as it is now</source>
+        <translation>Binibilang ang Scale X at Y mula sa kasalukuyang laki ng kahon</translation>
+    </message>
+    <message>
+        <source>Anchor point (px)</source>
+        <translation>Anchor point (px)</translation>
+    </message>
+    <message>
+        <source>Anchor in the centre</source>
+        <translation>Anchor sa gitna</translation>
+    </message>
+    <message>
+        <source>Anchor point here (the layer stays where it is)</source>
+        <translation>Anchor point dito (nananatili ang layer kung nasaan ito)</translation>
     </message>
     <message>
         <source>Opacity &amp; rotation</source>
@@ -31467,7 +32271,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Reverse</source>
-        <translation type="unfinished"></translation>
+        <translation>Baligtarin</translation>
     </message>
     <message>
         <source>Reverse path direction: the trim runs round the other way</source>
@@ -31977,11 +32781,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Stroke width</source>
-        <translation type="unfinished"></translation>
+        <translation>Kapal ng stroke</translation>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Opacity</translation>
     </message>
     <message>
         <source>Visible</source>
@@ -32032,11 +32836,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Stroke width</source>
-        <translation type="unfinished"></translation>
+        <translation>Kapal ng stroke</translation>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Opacity</translation>
     </message>
     <message>
         <source>Visible</source>
@@ -32649,7 +33453,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Idagdag</translation>
     </message>
     <message>
         <source>Subtract</source>
@@ -32977,7 +33781,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Preview</source>
-        <translation type="unfinished"></translation>
+        <translation>Preview</translation>
     </message>
     <message>
         <source>Properties</source>
@@ -33008,7 +33812,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Preview</source>
-        <translation type="unfinished"></translation>
+        <translation>Preview</translation>
     </message>
     <message>
         <source>Properties</source>

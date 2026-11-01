@@ -66,8 +66,9 @@ Column {
         model: [
             { key: "intensity", label: qsTr("Squash & Stretch"), from: 0, to: 150, value: 100,
               tip: qsTr("How hard it squashes, stretches and bends") },
-            { key: "scale", label: qsTr("Oomph"), from: 0, to: 200, value: 100,
-              tip: qsTr("How far it travels, jumps and turns") },
+            // «Oomph» said nothing (0.29): a jump's distance was there, under a name nobody found.
+            { key: "scale", label: qsTr("Travel"), from: 0, to: 400, value: 100,
+              tip: qsTr("Distance: how far it travels, jumps and turns (200 % jumps twice as far)") },
             { key: "speed", label: qsTr("Speed"), from: 25, to: 300, value: 100,
               tip: qsTr("Faster makes it shorter, slower makes it longer") }
         ]
@@ -173,6 +174,23 @@ Column {
                                                               options.speed,
                                                               timingBox.currentIndex === 1 ? "end" : "start",
                                                               Math.round(staggerField.value))
+            }
+            // Letter by letter (0.29, Jorge), as the tutorial's Split into characters: the text becomes one
+            // layer per letter and the animation runs through them with the stagger.
+            ThemedButton {
+                width: parent.width
+                visible: !!EditorState.selectedClipData && EditorState.selectedClipData.kind === "text"
+                         && (EditorState.selectedClipData.textContent || "").trim().length > 1
+                text: qsTr("Apply letter by letter")
+                tooltip: qsTr("Splits the text into one layer per letter and applies it to each, the stagger apart")
+                onClicked: {
+                    const n = EditorState.splitTextIntoLetters(EditorState.selectedTrack, EditorState.selectedClip)
+                    if (n > 1)
+                        EditorState.applySquashToSelection(root.picked, options.intensity, options.scale,
+                                                           options.speed,
+                                                           timingBox.currentIndex === 1 ? "end" : "start",
+                                                           Math.max(1, Math.round(staggerField.value)))
+                }
             }
             ThemedLabel {
                 width: parent.width

@@ -233,6 +233,19 @@ ThemedDialog {
                + String(frac).padStart(2, "0")
     }
 
+    // The video's own frame rate, kept while the GIF tab uses its 15 fps (0.29: a video exported after a GIF came
+    // out at 15 fps).
+    property var _videoRate: ({ "id": "project", "num": 0, "den": 1 })
+    function rememberVideoRate() {
+        if (exportMode !== "gif")
+            _videoRate = { "id": frameRateId, "num": fpsNum, "den": fpsDen }
+    }
+    function restoreVideoRate() {
+        frameRateId = _videoRate.id
+        fpsNum = _videoRate.num
+        fpsDen = _videoRate.den
+    }
+
     function applyGifDefaults() {
         if (!(fpsNum > 0) || frameRateId === "project") {
             fpsNum = 15
@@ -282,6 +295,9 @@ ThemedDialog {
         fpsNum = restoredNum
         fpsDen = restoredDen
         frameRateId = frameRateIdFor(restoredNum, restoredDen)
+        // A remembered GIF rate is the GIF's; the video tab starts from the project's.
+        _videoRate = exportMode === "gif" ? { "id": "project", "num": 0, "den": 1 }
+                                          : { "id": frameRateId, "num": fpsNum, "den": fpsDen }
         if (exportMode === "gif")
             applyGifDefaults()
 
@@ -467,6 +483,8 @@ ThemedDialog {
                     onClicked: {
                         if (root.exportMode === "video")
                             return
+                        if (root.exportMode === "gif")
+                            root.restoreVideoRate()
                         root.exportMode = "video"
                         root.advancedOpen = false
                         root.syncComboIndices()
@@ -493,6 +511,7 @@ ThemedDialog {
                     onClicked: {
                         if (root.exportMode === "gif")
                             return
+                        root.rememberVideoRate()
                         root.exportMode = "gif"
                         root.advancedOpen = false
                         root.applyGifDefaults()

@@ -430,11 +430,11 @@ Item {
 
                     onActiveChanged: {
                         if (active) {
-                            // Taken at activation rather than at the press, so the drag threshold
-                            // is not replayed as a jump.
+                            // From the press point (0.29), as the layers: taken at activation a quick
+                            // drag lost its first stretch.
                             const p = clipFrame.mapFromItem(null,
-                                                            bodyDrag.centroid.scenePosition.x,
-                                                            bodyDrag.centroid.scenePosition.y)
+                                                            bodyDrag.centroid.scenePressPosition.x,
+                                                            bodyDrag.centroid.scenePressPosition.y)
                             bodyDrag.pressPx = p.x
                             bodyDrag.pressPy = p.y
                             maskBox.dragStartX = maskBox.mx

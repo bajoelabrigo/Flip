@@ -22,6 +22,37 @@ ThemedTextField {
 
     signal edited(real value)
 
+    // After Effects' scrubby numbers (0.29, Jorge: «a todo ponle manejadores»): over the field the pointer is ↔ and
+    // dragging sideways changes the value live (Shift ×10, Ctrl ×0.1); a click without a drag types. A drag is one
+    // undo step: its own edit session unless a dialog already holds one.
+    property bool scrubbable: true
+    property real scrubStep: decimals > 0 ? Math.max(step * 0.1, Math.pow(10, -decimals)) : step
+    property bool _scrubSession: false
+
+    ScrubArea {
+        anchors.fill: parent
+        visible: root.scrubbable && root.enabled && !root.readOnly && !root.activeFocus
+        value: root.value
+        stepPerPixel: root.scrubStep
+        from: root.from
+        to: root.to
+        onStarted: {
+            root._scrubSession = typeof EditorState !== "undefined" && !EditorState.editSessionOpen()
+            if (root._scrubSession)
+                EditorState.beginEditSession(qsTr("Change value"))
+        }
+        onScrubbed: v => root.applyValue(root.decimals > 0 ? Number(v.toFixed(root.decimals)) : Math.round(v))
+        onFinished: {
+            if (root._scrubSession)
+                EditorState.endEditSession(true)
+            root._scrubSession = false
+        }
+        onClickedWithoutDrag: {
+            root.forceActiveFocus()
+            root.selectAll()
+        }
+    }
+
     inputMethodHints: Qt.ImhFormattedNumbersOnly
 
     readonly property bool _bounded: from > -1e9 || to < 1e9

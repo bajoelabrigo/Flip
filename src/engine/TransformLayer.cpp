@@ -80,6 +80,9 @@ QTransform transformLayerMatrix(const Clip &clip, TimeUs timelineUs, const QSize
         pose.rotationY = valueAt(clip.rotationY, relative, 0.0);
         pose.positionZ = valueAt(clip.positionZ, relative, 0.0) * renderScale;
         pose.perspective = valueAt(clip.perspective, relative, kDefaultClipPerspective) * renderScale;
+        if (!clip.anchorX.isEmpty() || !clip.anchorY.isEmpty())
+            pose.pivot = clipPivot(valueAt(clip.anchorX, relative, 0.5), valueAt(clip.anchorY, relative, 0.5),
+                                   box.width(), box.height(), rotation);
     }
     if (!pose.isActive()) {
         QTransform t;

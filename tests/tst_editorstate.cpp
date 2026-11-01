@@ -41,6 +41,7 @@
 #include "engine/TextLayout.h"
 #include "engine/ClipReaderPool.h"
 #include "models/AppController.h"
+#include "preview/PreviewController.h"
 #include "engine/EffectTemplateCatalog.h"
 #include "engine/SceneTemplateCatalog.h"
 #include "core/SceneTemplateLayout.h"
@@ -141,6 +142,8 @@ private slots:
     void morphAndLiquidTools();
     void penDrawsTheShapeLayerLive();
     void curvesPanelAppliesAndReadsCurves();
+    void motionToolsReverseMirrorsPickedKeys();
+    void gradientHandlesAndToolPaintOptions();
     void motionToolsTrimBendAndCaps();
     void textClipTakesMasks();
     void motionTrackingKeysTheElementOverItsVideo();
@@ -212,6 +215,15 @@ private slots:
     void removeAssetsAndClipsRemovesReferencesAndUndoesAtomically();
     void moveAssetsToFolderIsOneUndoStep();
     void addClipsFromAssetsPlacesThemSequentially();
+    void addClipsFromAssetsPutsPhotosOnTheVideoTrack();
+    void slowingAClipKeepsItsMaterial();
+    void typedValueOnAnAnimatedPropertyAddsAKey();
+    void fitClipToVideoLengthTrimsTheMusic();
+    void splitTextIntoLettersMakesOneLayerEach();
+    void removeClipKeysInRangeClearsEveryRow();
+    void frameSolidCoversTheWholeWork();
+    void colourWipeTakesUpToThreeAccents();
+    void scaledSizeKeepsTheAnchorInPlace();
     void moveTrackReordersAndRemapsSelection();
     void addTrackInsertsEmptyTrackByType();
     void renameTrackAndUndo();
@@ -4395,6 +4407,374 @@ void EditorStateTest::moveAssetsToFolderIsOneUndoStep()
     state.undo();
     QCOMPARE(library.assetAt(0).value(QStringLiteral("folderId")).toString(), QString());
     QCOMPARE(library.assetAt(1).value(QStringLiteral("folderId")).toString(), QString());
+}
+
+void EditorStateTest::fitClipToVideoLengthTrimsTheMusic()
+{
+    // 0.29, CapCut's «Fit to video length»: a 10 s song under a 4 s video ends with the video.
+    AssetLibrary library;
+    AppController state(&library);
+    drift::MediaAsset video;
+    video.id = QStringLiteral("video-f");
+    video.name = QStringLiteral("video-f.mp4");
+    video.path = QStringLiteral("/tmp/video-f.mp4");
+    video.kind = drift::MediaKind::Video;
+    video.durationUs = drift::secondsToUs(4.0);
+    drift::MediaAsset song;
+    song.id = QStringLiteral("song-f");
+    song.name = QStringLiteral("song-f.mp3");
+    song.path = QStringLiteral("/tmp/song-f.mp3");
+    song.kind = drift::MediaKind::Audio;
+    song.durationUs = drift::secondsToUs(10.0);
+    for (const drift::MediaAsset &a : {video, song}) {
+        state.project()->assets().insert(a.id, a);
+        state.project()->assetOrder().append(a.id);
+    }
+    library.syncToProject();
+    state.setPlayheadSeconds(0.0);
+    state.addClipsFromAssets({video.id});
+    state.setPlayheadSeconds(0.0);
+    state.addClipsFromAssets({song.id});
+    int at = -1;
+    for (int i = 0; i < state.project()->tracks().size(); ++i) {
+        const drift::Track &t = state.project()->tracks().at(i);
+        if (t.type == drift::TrackType::Audio && !t.clips.isEmpty() && t.clips.first().assetId == song.id)
+            at = i;
+    }
+    QVERIFY(at >= 0);
+    QVERIFY(state.fitClipToVideoLength(at, 0));
+    const drift::Clip &music = state.project()->tracks().at(at).clips.at(0);
+    QCOMPARE(music.timelineEnd(), drift::secondsToUs(4.0));
+    QCOMPARE(music.srcOut - music.srcIn, drift::secondsToUs(4.0));
+}
+
+void EditorStateTest::splitTextIntoLettersMakesOneLayerEach()
+{
+    // 0.29, the Squash & Stretch tutorial's Split into characters: one layer per letter, in reading order,
+    // left to right where the words were, the space left out, and all of them picked.
+    AssetLibrary library;
+    AppController state(&library);
+    state.addTextClip(QStringLiteral("AB C"), 0.0);
+    const int t = state.selectedTrack();
+    const int c = state.selectedClip();
+    QVERIFY(t >= 0 && c >= 0);
+    QCOMPARE(state.splitTextIntoLetters(t, c), 3);
+    QStringList letters;
+    QList<double> xs;
+    for (const drift::Track &track : state.project()->tracks()) {
+        for (const drift::Clip &clip : track.clips) {
+            if (clip.type != drift::ClipType::Text)
+                continue;
+            letters.append(clip.textContent);
+            xs.append(clip.transformX.evaluateAt(0) + clip.transformW.evaluateAt(0) / 2.0);
+        }
+    }
+    QCOMPARE(letters, QStringList({QStringLiteral("A"), QStringLiteral("B"), QStringLiteral("C")}));
+    QVERIFY(xs.at(0) < xs.at(1) && xs.at(1) < xs.at(2));
+    QCOMPARE(state.selectionCount(), 3);
+    state.undo();
+    int texts = 0;
+    for (const drift::Track &track : state.project()->tracks())
+        texts += int(std::count_if(track.clips.cbegin(), track.clips.cend(),
+                                   [](const drift::Clip &k) { return k.type == drift::ClipType::Text; }));
+    QCOMPARE(texts, 1);
+}
+
+void EditorStateTest::removeClipKeysInRangeClearsEveryRow()
+{
+    // 0.29: a jump writes keys on several rows; «After the playhead (all rows)» clears them in one step.
+    AssetLibrary library;
+    AppController state(&library);
+    state.addSolidClip(QStringLiteral("#ff336699"), QStringLiteral("Box"), 200, 200);
+    const int t = state.selectedTrack();
+    const int c = state.selectedClip();
+    state.setClipKeyframe(t, c, QStringLiteral("x"), 0.0, 0.0);
+    state.setClipKeyframe(t, c, QStringLiteral("x"), 3.0, 500.0);
+    state.setClipKeyframe(t, c, QStringLiteral("opacity"), 1.0, 1.0);
+    state.setClipKeyframe(t, c, QStringLiteral("opacity"), 4.0, 0.0);
+    // x is keyed with its linked y, so the 3 s key is on two rows plus opacity's 4 s one.
+    QVERIFY(state.removeClipKeysInRange(t, c, 2.0, -1) >= 2);
+    for (const QString &prop : state.clipAnimatedProperties(t, c)) {
+        for (const QVariant &k : state.clipKeyframes(t, c, prop))
+            QVERIFY(k.toMap().value(QStringLiteral("seconds")).toDouble() < 2.0);
+    }
+    QCOMPARE(state.clipKeyframes(t, c, QStringLiteral("x")).size(), 1);
+    QCOMPARE(state.clipKeyframes(t, c, QStringLiteral("opacity")).size(), 1);
+    state.undo();
+    QCOMPARE(state.clipKeyframes(t, c, QStringLiteral("x")).size(), 2);
+}
+
+void EditorStateTest::frameSolidCoversTheWholeWork()
+{
+    // 0.29: the background of a motion piece in one click, under everything, from 0 to the end.
+    AssetLibrary library;
+    AppController state(&library);
+    state.addTextClip(QStringLiteral("Title"), 2.0);
+    state.addFrameSolid(QStringLiteral("#ff2b3440"));
+    const drift::Track &bottom = state.project()->tracks().last();
+    QCOMPARE(bottom.clips.size(), 1);
+    const drift::Clip &solid = bottom.clips.first();
+    QVERIFY(solid.isSolid);
+    QCOMPARE(solid.timelineStart, drift::TimeUs(0));
+    QCOMPARE(solid.timelineEnd(), state.project()->durationUs());
+    QCOMPARE(solid.transformW.evaluateAt(0), double(state.project()->width()));
+}
+
+void EditorStateTest::colourWipeTakesUpToThreeAccents()
+{
+    // 0.29 (Jorge): the wipe of a label can sweep in up to three colours before the label, the first one deepest.
+    AssetLibrary library;
+    AppController state(&library);
+    state.addShapeClip(QStringLiteral("rectangle"), 0.0);
+    state.twoColourWipe(QStringLiteral("#ffd400"), 12, 0.0, QStringLiteral("#2a9df4"), QStringLiteral("#ffffff"));
+    QMap<QString, int> trackOf;
+    int accents = 0;
+    const auto &tracks = state.project()->tracks();
+    for (int t = 0; t < tracks.size(); ++t) {
+        for (const drift::Clip &clip : tracks.at(t).clips) {
+            if (clip.type != drift::ClipType::Shape || !clip.name.contains(QStringLiteral(" accent ")))
+                continue;
+            ++accents;
+            for (const drift::TextShadingLayer &layer : clip.shapeStyle.layers) {
+                if (layer.kind == drift::TextLayerKind::Fill)
+                    trackOf.insert(layer.paint.color.name(), t);
+            }
+        }
+    }
+    QCOMPARE(accents, 3);
+    const int first = trackOf.value(QStringLiteral("#ffd400"), -1);
+    const int second = trackOf.value(QStringLiteral("#2a9df4"), -1);
+    const int third = trackOf.value(QStringLiteral("#ffffff"), -1);
+    QVERIFY(first >= 0 && second >= 0 && third >= 0);
+    // Tracks run top to bottom: the label above the third, the first accent deepest.
+    QVERIFY(state.selectedTrack() < third);
+    QVERIFY(third < second);
+    QVERIFY(second < first);
+
+    // The lower-third maker gives every piece an entrance and an exit (Jorge, 0.29).
+    AppController maker(&library);
+    maker.createLowerThird({{QStringLiteral("style"), QStringLiteral("line")},
+                            {QStringLiteral("name"), QStringLiteral("Ana")},
+                            {QStringLiteral("role"), QStringLiteral("Chef")}});
+    int pieces = 0;
+    for (const drift::Track &track : maker.project()->tracks()) {
+        for (const drift::Clip &clip : track.clips) {
+            ++pieces;
+            QVERIFY2(clip.animIn.presetId.startsWith(QStringLiteral("in-")), qPrintable(clip.name));
+            QVERIFY2(clip.animOut.presetId.startsWith(QStringLiteral("out-")), qPrintable(clip.name));
+        }
+    }
+    QVERIFY(pieces >= 3);
+
+    // The entrance and the exit picked in the maker.
+    AppController picked(&library);
+    picked.createLowerThird({{QStringLiteral("style"), QStringLiteral("clean")},
+                             {QStringLiteral("name"), QStringLiteral("Bo")},
+                             {QStringLiteral("entrance"), QStringLiteral("fade")},
+                             {QStringLiteral("exit"), QStringLiteral("none")}});
+    for (const drift::Track &track : picked.project()->tracks()) {
+        for (const drift::Clip &clip : track.clips) {
+            QCOMPARE(clip.animIn.kind, drift::ClipAnimKind::Fade);
+            QCOMPARE(clip.animOut.kind, drift::ClipAnimKind::None);
+        }
+    }
+
+    // Two more accents, optional: any style's label comes in after them.
+    AppController accented(&library);
+    accented.createLowerThird({{QStringLiteral("style"), QStringLiteral("line")},
+                              {QStringLiteral("name"), QStringLiteral("Bo")},
+                              {QStringLiteral("accent2Color"), QStringLiteral("#2a9df4")},
+                              {QStringLiteral("accent3Color"), QStringLiteral("#e63946")}});
+    int accentLayers = 0;
+    for (const drift::Track &track : accented.project()->tracks()) {
+        for (const drift::Clip &clip : track.clips) {
+            if (clip.type == drift::ClipType::Shape && clip.name.contains(QStringLiteral(" accent ")))
+                ++accentLayers;
+        }
+    }
+    QCOMPARE(accentLayers, 3);
+
+    // The line beside the name follows the label when the name changes (Jorge: it kept the old height).
+    AppController lined(&library);
+    lined.createLowerThird({{QStringLiteral("style"), QStringLiteral("line")},
+                            {QStringLiteral("name"), QStringLiteral("Ana María Gómez")},
+                            {QStringLiteral("role"), QStringLiteral("Diseñadora")}});
+    const auto heights = [&lined](double *labelH, double *lineH, int *nameTrack) {
+        const auto &tracks = lined.project()->tracks();
+        for (int t = 0; t < tracks.size(); ++t) {
+            for (const drift::Clip &clip : tracks.at(t).clips) {
+                if (clip.type == drift::ClipType::Text)
+                    *nameTrack = t;
+                else if (clip.fitBarWidth != 0.0)
+                    *lineH = clip.transformH.evaluateAt(0);
+                else if (!clip.fitTextId.isEmpty())
+                    *labelH = clip.transformH.evaluateAt(0);
+            }
+        }
+    };
+    double labelH = 0, lineH = 0;
+    int nameTrack = -1;
+    heights(&labelH, &lineH, &nameTrack);
+    QVERIFY(labelH > 0);
+    QCOMPARE(lineH, labelH);
+    lined.setClipTextContent(nameTrack, 0, QStringLiteral("Bo"));
+    double labelH2 = 0, lineH2 = 0;
+    heights(&labelH2, &lineH2, &nameTrack);
+    QVERIFY(labelH2 < labelH);
+    QCOMPARE(lineH2, labelH2);
+
+    // Right-aligned: the text keeps right, the block sits on the right and the bar goes on the right of the label.
+    AppController right(&library);
+    right.createLowerThird({{QStringLiteral("style"), QStringLiteral("line")},
+                            {QStringLiteral("name"), QStringLiteral("Ana")},
+                            {QStringLiteral("align"), QStringLiteral("right")}});
+    double labelX = -1, labelR = -1, barX = -1;
+    for (const drift::Track &track : right.project()->tracks()) {
+        for (const drift::Clip &clip : track.clips) {
+            if (clip.type == drift::ClipType::Text) {
+                QCOMPARE(clip.textStyle.align, drift::TextAlign::Right);
+            } else if (clip.fitBarWidth != 0.0) {
+                barX = clip.transformX.evaluateAt(0);
+            } else if (!clip.fitTextId.isEmpty()) {
+                labelX = clip.transformX.evaluateAt(0);
+                labelR = labelX + clip.transformW.evaluateAt(0);
+            }
+        }
+    }
+    QVERIFY(labelX > right.project()->width() / 2);
+    QVERIFY(barX >= labelR);
+}
+
+void EditorStateTest::scaledSizeKeepsTheAnchorInPlace()
+{
+    // 0.29: Scale X / Y grow and shrink about the anchor (the centre), still or animated; the box used to keep its
+    // top-left corner, so a squash moved the ball.
+    AssetLibrary library;
+    AppController state(&library);
+    state.addShapeClip(QStringLiteral("circle"), 0.0);
+    const int t = state.selectedTrack();
+    const int c = state.selectedClip();
+    const auto centreX = [&](double seconds) {
+        return state.propertyValueAt(t, c, QStringLiteral("x"), seconds, 0.0)
+               + state.propertyValueAt(t, c, QStringLiteral("width"), seconds, 0.0) / 2.0;
+    };
+    const double centre = centreX(0.0);
+    const double w = state.propertyValueAt(t, c, QStringLiteral("width"), 0.0, 0.0);
+    state.setClipScaledSize(t, c, QStringLiteral("width"), 0.0, w / 2.0);
+    QCOMPARE(state.propertyValueAt(t, c, QStringLiteral("width"), 0.0, 0.0), w / 2.0);
+    QVERIFY(qAbs(centreX(0.0) - centre) < 0.01);
+    // Animated: a key at the start, then a wider one later; both keep the centre.
+    state.setClipKeyframe(t, c, QStringLiteral("width"), 0.0, w / 2.0);
+    state.setClipScaledSize(t, c, QStringLiteral("width"), 0.5, w * 1.5);
+    QCOMPARE(state.propertyValueAt(t, c, QStringLiteral("width"), 0.5, 0.0), w * 1.5);
+    QVERIFY(qAbs(centreX(0.0) - centre) < 0.01);
+    QVERIFY(qAbs(centreX(0.5) - centre) < 0.01);
+}
+
+void EditorStateTest::typedValueOnAnAnimatedPropertyAddsAKey()
+{
+    // 0.29, as After Effects: with the stopwatch on, a value typed (or dragged) in the inspector at another time is a
+    // new key there; it used to rewrite the only key, and the animation was lost.
+    AssetLibrary library;
+    AppController state(&library);
+    drift::MediaAsset video;
+    video.id = QStringLiteral("video-k");
+    video.name = QStringLiteral("video-k.mp4");
+    video.path = QStringLiteral("/tmp/video-k.mp4");
+    video.kind = drift::MediaKind::Video;
+    video.durationUs = drift::secondsToUs(4.0);
+    state.project()->assets().insert(video.id, video);
+    state.project()->assetOrder().append(video.id);
+    library.syncToProject();
+    state.setPlayheadSeconds(0.0);
+    state.addClipsFromAssets({video.id});
+    int t = -1;
+    for (int i = 0; i < state.project()->tracks().size(); ++i) {
+        if (state.project()->tracks().at(i).clips.size() == 1)
+            t = i;
+    }
+    QVERIFY(t >= 0);
+    state.setClipKeyframe(t, 0, QStringLiteral("opacity"), 0.0, 0.0);
+    state.setPlayheadSeconds(1.0);
+    state.beginPreviewDrag(QStringLiteral("Edit opacity"));
+    state.previewSetClipKeyframe(t, 0, QStringLiteral("opacity"), 1.0, 1.0);
+    state.commitPreviewDrag();
+    const drift::Clip &clip = state.project()->tracks().at(t).clips.at(0);
+    QCOMPARE(clip.opacity.keyframes().size(), 2);
+    QCOMPARE(clip.opacity.evaluateAt(0), 0.0);
+    QCOMPARE(clip.opacity.evaluateAt(drift::secondsToUs(1.0)), 1.0);
+}
+
+void EditorStateTest::slowingAClipKeepsItsMaterial()
+{
+    // 0.29, as CapCut: 0.5× keeps the clip's material and plays it twice as long, pushing the next
+    // clip along; it used to keep the length and drop the second half of the material.
+    AssetLibrary library;
+    AppController state(&library);
+    state.setPlayheadSeconds(0.0);
+    QStringList ids;
+    for (int i = 0; i < 2; ++i) {
+        drift::MediaAsset video;
+        video.id = QStringLiteral("video-%1").arg(i);
+        video.name = QStringLiteral("video-%1.mp4").arg(i);
+        video.path = QStringLiteral("/tmp/video-%1.mp4").arg(i);
+        video.kind = drift::MediaKind::Video;
+        video.durationUs = drift::secondsToUs(4.0);
+        state.project()->assets().insert(video.id, video);
+        state.project()->assetOrder().append(video.id);
+        ids << video.id;
+    }
+    library.syncToProject();
+    state.addClipsFromAssets(ids);
+    int t = -1;
+    for (int i = 0; i < state.project()->tracks().size(); ++i) {
+        if (state.project()->tracks().at(i).clips.size() == 2)
+            t = i;
+    }
+    QVERIFY(t >= 0);
+    const drift::TimeUs srcIn = state.project()->tracks().at(t).clips.at(0).srcIn;
+    const drift::TimeUs srcOut = state.project()->tracks().at(t).clips.at(0).srcOut;
+    QVERIFY(state.setClipSpeed(t, 0, 0.5));
+    const drift::Track &track = state.project()->tracks().at(t);
+    QCOMPARE(track.clips.at(0).srcIn, srcIn);
+    QCOMPARE(track.clips.at(0).srcOut, srcOut);
+    QCOMPARE(track.clips.at(0).timelineDuration, drift::secondsToUs(8.0));
+    QVERIFY(track.clips.at(1).timelineStart >= track.clips.at(0).timelineEnd());
+}
+
+void EditorStateTest::addClipsFromAssetsPutsPhotosOnTheVideoTrack()
+{
+    // 0.29: «Add 3 items to the timeline» with photos made a new graphics track from 0; they go on the
+    // video track after what is there, as dragging one does.
+    AssetLibrary library;
+    AppController state(&library);
+    state.setPlayheadSeconds(0.0);
+    QStringList ids;
+    for (int i = 0; i < 3; ++i) {
+        drift::MediaAsset photo;
+        photo.id = QStringLiteral("photo-%1").arg(i);
+        photo.name = QStringLiteral("photo-%1.jpg").arg(i);
+        photo.path = QStringLiteral("/tmp/photo-%1.jpg").arg(i);
+        photo.kind = drift::MediaKind::Image;
+        state.project()->assets().insert(photo.id, photo);
+        state.project()->assetOrder().append(photo.id);
+        ids << photo.id;
+    }
+    library.syncToProject();
+    state.addClipsFromAssets({ids.first()});
+    const int tracksBefore = state.project()->tracks().size();
+    state.addClipsFromAssets({ids.at(1), ids.at(2)});
+    QCOMPARE(state.project()->tracks().size(), tracksBefore);
+    int photoTrack = -1;
+    for (int i = 0; i < state.project()->tracks().size(); ++i) {
+        if (state.project()->tracks().at(i).clips.size() == 3)
+            photoTrack = i;
+    }
+    QVERIFY(photoTrack >= 0);
+    const drift::Track &track = state.project()->tracks().at(photoTrack);
+    QCOMPARE(track.type, drift::TrackType::Video);
+    QCOMPARE(track.clips[1].timelineStart, track.clips[0].timelineEnd());
+    QCOMPARE(track.clips[2].timelineStart, track.clips[1].timelineEnd());
 }
 
 void EditorStateTest::addClipsFromAssetsPlacesThemSequentially()
@@ -13139,6 +13519,81 @@ void EditorStateTest::penDrawsTheShapeLayerLive()
     QCOMPARE(style.puckerBloat, 60.0);
     QVERIFY(drift::shapeStyleHash(style) != plain);
     QVERIFY(drift::shapeKeyframeProperties(style).contains(QStringLiteral("puckerBloat")));
+}
+
+void EditorStateTest::gradientHandlesAndToolPaintOptions()
+{
+    // Fill Options (0.29): a gradient chosen for the tools bar paints the next shape drawn.
+    AssetLibrary library;
+    AppController state(&library);
+    QVERIFY(state.preview());
+    const QVariantMap gradient{{QStringLiteral("kind"), QStringLiteral("radial")},
+                               {QStringLiteral("stops"), QVariantList{
+                                    QVariantMap{{QStringLiteral("pos"), 0.0}, {QStringLiteral("color"), QStringLiteral("#ffffffff")}},
+                                    QVariantMap{{QStringLiteral("pos"), 1.0}, {QStringLiteral("color"), QStringLiteral("#ff0000ff")}}}}};
+    state.preview()->setToolFillOptions(QVariantMap{
+        {QStringLiteral("opacity"), 0.5},
+        {QStringLiteral("paint"), QVariantMap{{QStringLiteral("kind"), QStringLiteral("gradient")},
+                                             {QStringLiteral("gradient"), gradient}}}});
+    state.addDrawnShape(QStringLiteral("rectangle"), 100, 100, 200, 200, QStringLiteral("#ffffffff"),
+                        QStringLiteral("none"), 0);
+    const int t = state.selectedTrack();
+    const int c = state.selectedClip();
+    QVERIFY(t >= 0 && c >= 0);
+    const drift::Clip &clip = state.project()->tracks().at(t).clips.at(c);
+    const drift::TextShadingLayer *fill =
+        drift::firstTextLayerOfKind(clip.shapeStyle.layers, drift::TextLayerKind::Fill, true);
+    QVERIFY(fill);
+    QCOMPARE(fill->paint.kind, drift::TextPaintKind::Gradient);
+    QCOMPARE(fill->paint.gradient.kind, drift::TextGradientKind::Radial);
+    QCOMPARE(fill->opacity, 0.5);
+
+    // Its handles read back, and a drag of them is one undo step that lands where it was dropped.
+    QVariantMap h = state.gradientHandles(t, c);
+    QCOMPARE(h.value(QStringLiteral("layerId")).toString(), fill->id);
+    QCOMPARE(h.value(QStringLiteral("kind")).toString(), QStringLiteral("radial"));
+    state.beginPreviewDrag(QStringLiteral("Move gradient"));
+    state.previewGradientHandles(t, c, fill->id, 0.25, 0.3, 0.6, 0.3);
+    state.commitPreviewDrag();
+    h = state.gradientHandles(t, c);
+    QVERIFY(std::abs(h.value(QStringLiteral("x0")).toDouble() - 0.25) < 1e-6);
+    QVERIFY(std::abs(h.value(QStringLiteral("y0")).toDouble() - 0.3) < 1e-6);
+    QVERIFY(std::abs(h.value(QStringLiteral("x1")).toDouble() - 0.6) < 1e-6);
+    QVERIFY(std::abs(h.value(QStringLiteral("y1")).toDouble() - 0.3) < 1e-6);
+    state.undo();
+    h = state.gradientHandles(t, c);
+    QVERIFY(std::abs(h.value(QStringLiteral("x0")).toDouble() - 0.5) < 1e-6);
+}
+
+void EditorStateTest::motionToolsReverseMirrorsPickedKeys()
+{
+    // Motion Tools › Reverse (0.29, After Effects' Time-Reverse Keyframes): the picked keys trade
+    // places end for end within their span, and a Hold moves with its stretch.
+    AssetLibrary library;
+    AppController state(&library);
+    state.addDrawnShape(QStringLiteral("rectangle"), 100, 100, 200, 200, QStringLiteral("#ff0000"),
+                        QStringLiteral("none"), 0);
+    const int t = state.selectedTrack();
+    const int c = state.selectedClip();
+    const double start = drift::usToSeconds(state.project()->tracks().at(t).clips.at(c).timelineStart);
+    state.setClipKeyframe(t, c, QStringLiteral("opacity"), start + 0.0, 0.0);
+    state.setClipKeyframe(t, c, QStringLiteral("opacity"), start + 0.5, 0.25);
+    state.setClipKeyframe(t, c, QStringLiteral("opacity"), start + 2.0, 1.0);
+    state.setKeyframeHold(t, c, QStringLiteral("opacity"), start + 0.0, true);
+    QVariantList keys;
+    for (double s : {0.0, 0.5, 2.0})
+        keys.append(QVariantMap{{QStringLiteral("clip"), c}, {QStringLiteral("prop"), QStringLiteral("opacity")},
+                                {QStringLiteral("seconds"), start + s}});
+    state.setPickedKeyframes(QVariantMap{{QStringLiteral("track"), t}, {QStringLiteral("keys"), keys}});
+    QVERIFY(state.reversePickedKeyframes());
+    const auto values = state.project()->tracks().at(t).clips.at(c).opacity.keyframes();
+    QCOMPARE(values.size(), 3);
+    QCOMPARE(values.value(0).value, 1.0);
+    QCOMPARE(values.value(drift::secondsToUs(1.5)).value, 0.25);
+    QCOMPARE(values.value(drift::secondsToUs(2.0)).value, 0.0);
+    // The held stretch was 0 → 0.5 s; reversed it is 1.5 → 2 s, held from its new first key.
+    QVERIFY(!values.value(0).hold);
+    QVERIFY(values.value(drift::secondsToUs(1.5)).hold);
 }
 
 void EditorStateTest::curvesPanelAppliesAndReadsCurves()

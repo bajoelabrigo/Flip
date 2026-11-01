@@ -33,7 +33,7 @@ Row {
         anchors.verticalCenter: parent.verticalCenter
         color: root.hex
         border.width: swatchMouse.containsMouse ? Theme.borderWidthFocus : Theme.borderWidth
-        border.color: swatchMouse.containsMouse ? Theme.primary : Theme.panelBorder
+        border.color: swatchMouse.containsMouse ? Theme.primary : Theme.mutedForeground
 
         Behavior on border.color {
             ColorAnimation { duration: Theme.durationFast; easing.type: Theme.easing }
@@ -68,17 +68,31 @@ Row {
         font.family: Theme.monoFontFamily
         font.pixelSize: Theme.fontSizeSm
         // Rejects malformed input instead of silently applying a typo.
-        readonly property bool validHex: /^#([0-9a-fA-F]{6}|[0-9a-fA-F]{8})$/.test(text)
+        // The "#" is optional: "1E5BFF" is taken as "#1E5BFF".
+        // Any number of «#» in front (a triple-click selects the digits only, and typing «#…» left «##…»).
+        readonly property bool validHex: /^#*([0-9a-fA-F]{6}|[0-9a-fA-F]{8})$/.test(text.trim())
         errorText: validHex || text.length === 0 ? "" : qsTr("Enter a color like #FF0000")
-        onEditingFinished: if (validHex) root.edited(text)
+        // Typed and not yet confirmed: only then is a new colour from the project kept off the field.
+        property bool dirty: false
+        onTextEdited: dirty = true
+        onActiveFocusChanged: if (!activeFocus) { dirty = false; text = root.hex }
+        onEditingFinished: {
+            dirty = false
+            if (!validHex)
+                return
+            const value = "#" + text.trim().replace(/^#+/, "")
+            text = value
+            root.edited(value)
+        }
     }
 
     // The field is only rebound when it is not being typed into, so a project signal cannot wipe
     // a half-entered value.
     Connections {
         target: root
+        // Kept focused after Return, the field still showed the last clip's colour on another one (0.29).
         function onHexChanged() {
-            if (!hexField.activeFocus)
+            if (!hexField.activeFocus || !hexField.dirty)
                 hexField.text = root.hex
         }
     }

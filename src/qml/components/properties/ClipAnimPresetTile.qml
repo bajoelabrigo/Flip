@@ -138,6 +138,21 @@ Column {
                 radius: width / 2
                 color: "#fff3c4"
             }
+            // A Linear Wipe's hidden side (0.29): the card's background over it, cut along the wipe's edge.
+            Rectangle {
+                id: wipeCover
+                readonly property real a: (tile.pose.wipeAngle || 0) * Math.PI / 180
+                readonly property real half: 0.5 * (Math.abs(Math.cos(a)) * scene.width + Math.abs(Math.sin(a)) * scene.height)
+                readonly property real edge: -half + 2 * half * (1 - Math.max(0, Math.min(100, tile.pose.wipe || 0)) / 100)
+                readonly property real big: (scene.width + scene.height) * 2
+                visible: (tile.pose.wipe || 0) > 0.5
+                width: big
+                height: big
+                color: "#0d0f12"
+                rotation: tile.pose.wipeAngle || 0
+                x: scene.width / 2 + Math.cos(a) * (edge + big / 2) - big / 2
+                y: scene.height / 2 + Math.sin(a) * (edge + big / 2) - big / 2
+            }
             Rectangle {
                 x: -parent.width * 0.1
                 y: parent.height * 0.42

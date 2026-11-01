@@ -186,6 +186,7 @@ Column {
                     unit: "x"
                     Binding on value {
                         when: !textureScaleField.activeFocus
+                        restoreMode: Binding.RestoreNone
                         value: root.texture.scale !== undefined ? Number(root.texture.scale) : 1
                     }
                     onEdited: v => root.setPaint({ "texture": { "scale": v } })
@@ -212,6 +213,7 @@ Column {
                 unit: "°"
                 Binding on value {
                     when: !textureAngleField.activeFocus
+                    restoreMode: Binding.RestoreNone
                     value: Number(root.texture.angle) || 0
                 }
                 onEdited: v => root.setPaint({ "texture": { "angle": v } })

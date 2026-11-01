@@ -497,6 +497,165 @@ Item {
             }
         }
 
+        // ----- Fit to a text (0.29, lower thirds) ----------------------------
+        CollapsibleSection {
+            visible: root.showShapeSections && !root.editingPart
+            width: parent.width
+            title: qsTr("Fit to a text")
+
+            Column {
+                width: parent.width
+                spacing: Theme.spacingSm
+                readonly property var options: { void EditorState.tracksRevision; return EditorState.textLayerOptions() }
+                readonly property string current: root.clipData.fitTextId || ""
+                ThemedLabel {
+                    width: parent.width
+                    wrapMode: Text.WordWrap
+                    size: "sm"
+                    opacity: 0.8
+                    text: qsTr("The shape takes the text's size plus the margin, and grows when the words change: a label for a name.")
+                }
+                ThemedComboBox {
+                    width: parent.width
+                    model: [qsTr("None")].concat(parent.options.map(o => o.name))
+                    currentIndex: Math.max(0, parent.options.findIndex(o => o.id === parent.current) + 1)
+                    onActivated: index => EditorState.setShapeFitText(EditorState.selectedTrack, EditorState.selectedClip,
+                                                                      index > 0 ? parent.options[index - 1].id : "",
+                                                                      root.clipData.fitPadX || 32, root.clipData.fitPadY || 16)
+                }
+                Row {
+                    visible: parent.current.length > 0
+                    width: parent.width
+                    spacing: Theme.spacingSm
+                    ThemedLabel { anchors.verticalCenter: parent.verticalCenter; text: qsTr("Margin across"); size: "sm" }
+                    ThemedNumberField {
+                        width: 70
+                        from: 0
+                        to: 2000
+                        unit: "px"
+                        value: root.clipData.fitPadX || 0
+                        onEdited: v => EditorState.setShapeFitText(EditorState.selectedTrack, EditorState.selectedClip,
+                                                                   root.clipData.fitTextId, v, root.clipData.fitPadY || 0)
+                    }
+                    ThemedLabel { anchors.verticalCenter: parent.verticalCenter; text: qsTr("up and down"); size: "sm" }
+                    ThemedNumberField {
+                        width: 70
+                        from: 0
+                        to: 2000
+                        unit: "px"
+                        value: root.clipData.fitPadY || 0
+                        onEdited: v => EditorState.setShapeFitText(EditorState.selectedTrack, EditorState.selectedClip,
+                                                                   root.clipData.fitTextId, root.clipData.fitPadX || 0, v)
+                    }
+                }
+            }
+        }
+
+        // ----- Two-colour wipe (0.29, lower thirds) ------------------------
+        CollapsibleSection {
+            id: twoWipe
+            visible: root.showShapeSections && !root.editingPart
+            width: parent.width
+            title: qsTr("Two-colour wipe")
+            property string accent: "#fff5c518"
+            property int frames: 14
+            property bool slanted: false
+            property bool useSecond: false
+            property bool withExit: true
+            property bool useThird: false
+            property string accent2: "#ff2a9df4"
+            property string accent3: "#ffffffff"
+
+            Column {
+                width: parent.width
+                spacing: Theme.spacingSm
+                ThemedLabel {
+                    width: parent.width
+                    wrapMode: Text.WordWrap
+                    size: "sm"
+                    opacity: 0.8
+                    text: qsTr("From the playhead the accent colour sweeps in first and this shape follows it, ending on top: the entrance of a lower third.")
+                }
+                Row {
+                    width: parent.width
+                    spacing: Theme.spacingSm
+                    ThemedLabel { anchors.verticalCenter: parent.verticalCenter; text: qsTr("Accent"); size: "sm" }
+                    ColorSwatchField {
+                        hex: twoWipe.accent
+                        onEdited: value => twoWipe.accent = value
+                    }
+                    ThemedNumberField {
+                        width: 70
+                        from: 2
+                        to: 240
+                        unit: qsTr(" fr")
+                        value: twoWipe.frames
+                        onEdited: v => twoWipe.frames = Math.round(v)
+                    }
+                }
+                // Two more colours, optional (Jorge, 0.29): they sweep in after the first one.
+                Row {
+                    width: parent.width
+                    spacing: Theme.spacingSm
+                    ThemedSwitch {
+                        anchors.verticalCenter: parent.verticalCenter
+                        text: qsTr("Second colour")
+                        checked: twoWipe.useSecond
+                        onToggled: {
+                            twoWipe.useSecond = checked
+                            if (!checked)
+                                twoWipe.useThird = false
+                        }
+                    }
+                    ColorSwatchField {
+                        anchors.verticalCenter: parent.verticalCenter
+                        visible: twoWipe.useSecond
+                        hex: twoWipe.accent2
+                        onEdited: value => twoWipe.accent2 = value
+                    }
+                }
+                Row {
+                    width: parent.width
+                    spacing: Theme.spacingSm
+                    visible: twoWipe.useSecond
+                    ThemedSwitch {
+                        anchors.verticalCenter: parent.verticalCenter
+                        text: qsTr("Third colour")
+                        checked: twoWipe.useThird
+                        onToggled: twoWipe.useThird = checked
+                    }
+                    ColorSwatchField {
+                        anchors.verticalCenter: parent.verticalCenter
+                        visible: twoWipe.useThird
+                        hex: twoWipe.accent3
+                        onEdited: value => twoWipe.accent3 = value
+                    }
+                }
+                ThemedSwitch {
+                    width: parent.width
+                    text: qsTr("Exit too")
+                    tooltip: qsTr("At the end of the layer the colours sweep out the way they came, the shape first")
+                    checked: twoWipe.withExit
+                    onToggled: twoWipe.withExit = checked
+                }
+                ThemedSwitch {
+                    width: parent.width
+                    text: qsTr("Slanted edge")
+                    checked: twoWipe.slanted
+                    onToggled: twoWipe.slanted = checked
+                }
+                ThemedButton {
+                    width: parent.width
+                    variant: "primary"
+                    text: qsTr("Apply two-colour wipe")
+                    onClicked: EditorState.twoColourWipe(twoWipe.accent, twoWipe.frames, twoWipe.slanted ? 14 : 0,
+                                                         twoWipe.useSecond ? twoWipe.accent2 : "",
+                                                         twoWipe.useSecond && twoWipe.useThird ? twoWipe.accent3 : "",
+                                                         twoWipe.withExit)
+                }
+            }
+        }
+
         // ----- Geometry ---------------------------------------------------
         CollapsibleSection {
             visible: root.showShapeSections
@@ -516,6 +675,17 @@ Item {
                     sliderFrom: 0
                     sliderTo: 400
                     unit: "px"
+                }
+                // Lower thirds (0.29): a slanted label in one value, no pen needed.
+                PropertyKeyframeRow {
+                    width: parent.width
+                    visible: root.shapeStyle.kind === "rectangle" || root.shapeStyle.kind === "square"
+                    propDef: root.knob("skew", qsTr("Slant"), 1)
+                    keyframeList: root.knobKeyframes("skew")
+                    useSlider: true
+                    sliderFrom: -45
+                    sliderTo: 45
+                    unit: "°"
                 }
 
                 Row {

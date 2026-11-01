@@ -54,11 +54,20 @@ Item {
 
     // The selected family's real weight ladder — never an invented one. Single-weight display faces
     // (Anton, Bebas Neue, Pacifico...) expose exactly one entry and no italic.
+    // What the Font list, Bold and the weight box show: the picked letters' own font and bold when
+    // they have one (0.29: after giving «BERG» Antonio, the list went on saying the block's Oswald).
+    readonly property string shownFontFamily: root.hasRunSelection && root.runUnderCursor
+                                              && root.runUnderCursor.fontEnabled === true
+                                              && root.runUnderCursor.fontFamily
+                                              ? root.runUnderCursor.fontFamily : (root.textStyle.fontFamily || "")
+    readonly property real shownFontWeight: root.hasRunSelection && root.runUnderCursor
+                                            && root.runUnderCursor.boldEnabled === true
+                                            ? (root.runUnderCursor.bold ? 700 : 400) : Number(root.textStyle.fontWeight)
     readonly property var fontFamilyInfo: {
         void clipDataRevision
         const catalog = EditorState.fontCatalog()
         for (let i = 0; i < catalog.length; ++i) {
-            if (catalog[i].family === root.textStyle.fontFamily)
+            if (catalog[i].family === root.shownFontFamily)
                 return catalog[i]
         }
         return null
@@ -359,8 +368,12 @@ Item {
 
     // El tramo que cubre el cursor (o el comienzo de la selección): sus valores, para enseñarlos.
     readonly property var runUnderCursor: {
+        // Refreshed after every edit, as the window's own runs are (the runs are not in textStyle).
+        void EditorState.tracksRevision
+        void root.clipDataRevision
         void root.textStyle
         void root.runSelectionStart
+        void root.runSelectionEnd
         if (!root.canStyleRuns)
             return ({})
         const runs = EditorState.textRuns(EditorState.selectedTrack, EditorState.selectedClip)
@@ -1009,6 +1022,22 @@ Item {
                 color: Theme.panelForeground
                 font.family: Theme.monoFontFamily
                 font.pixelSize: Theme.fontSizeXs
+
+                // Dragged sideways like After Effects' values (0.29): one shown unit a pixel.
+                ScrubArea {
+                    anchors.fill: parent
+                    anchors.margins: -3
+                    value: rowSlider.value
+                    from: sliderRow.from
+                    to: sliderRow.to
+                    stepPerPixel: Math.pow(10, -sliderRow.decimals) / (sliderRow.displayScale || 1)
+                    onStarted: sliderRow.dragStarted()
+                    onScrubbed: v => {
+                        rowSlider.value = v
+                        sliderRow.moved(v)
+                    }
+                    onFinished: sliderRow.committed(rowSlider.value)
+                }
             }
         }
 
@@ -1024,6 +1053,7 @@ Item {
             }
             Binding on value {
                 when: !rowSlider.pressed
+                restoreMode: Binding.RestoreNone
                 value: sliderRow.value
             }
             onMoved: {
@@ -1053,12 +1083,15 @@ Item {
             text: qsTr("Open Advanced text…")
             glyph: Theme.icons.type
             variant: "primary"
-            onClicked: {
+            // Takes no focus on press, and opens on the next turn of the event loop: the inline text editor's commit
+            // landed inside its click and it opened only at the 2nd or 3rd (0.29).
+            focusPolicy: Qt.TabFocus
+            onClicked: Qt.callLater(function () {
                 advancedTextLoader.active = true
                 if (advancedTextLoader.item)
                     advancedTextLoader.item.openFor(EditorState.selectedTrack, EditorState.selectedClip,
                                                     (root.clipData && root.clipData.id) ? root.clipData.id : "")
-            }
+            })
         }
 
         // CapCut's text pages as a segmented strip: Básico, Burbuja, Efectos and Animación.
@@ -1172,8 +1205,10 @@ Item {
                     // sombreado y el efecto se va a todo el texto (probado en ventana, 0.24).
                     persistentSelection: true
                     // Las letras sombreadas aquí son las que reciben los estilos (0.24).
-                    onSelectionStartChanged: root.runSelectionStart = selectionStart
-                    onSelectionEndChanged: root.runSelectionEnd = selectionEnd
+                    // Inside Texto avanzado the letters picked are the window's: writing them here cut that binding,
+                    // and «Fuente» went back to the whole text's font (0.29).
+                    onSelectionStartChanged: if (!root.inAdvanced) root.runSelectionStart = selectionStart
+                    onSelectionEndChanged: if (!root.inAdvanced) root.runSelectionEnd = selectionEnd
                     // No se limpia en onCursorPositionChanged: al empezar el arrastre la selección
                     // está colapsada y borraba el comienzo, así que el sombreado nunca llegaba
                     // (con la selección vacía hasRunSelection ya es falso por sí solo).
@@ -1401,7 +1436,7 @@ Item {
 
                 FontPicker {
                     width: parent.width
-                    family: root.textStyle.fontFamily
+                    family: root.shownFontFamily
                     onFamilyPicked: family => root.setTextStyleKey("fontFamily", family)
                 }
 
@@ -1431,7 +1466,7 @@ Item {
                     ThemedToggleButton {
                         width: 34
                         text: "B"
-                        checked: Number(root.textStyle.fontWeight) >= 600
+                        checked: root.shownFontWeight >= 600
                         tooltip: qsTr("Bold")
                         onClicked: root.setTextStyleKey("fontWeight", root.boldToggleWeight())
                     }
@@ -1453,16 +1488,16 @@ Item {
                         width: 34
                         text: "I"
                         checked: root.textStyle.italic === true
-                        enabled: root.familyHasItalic
+                        // A family with no italic face gets a slanted upright one (0.29).
                         tooltip: root.familyHasItalic ? qsTr("Italic")
-                                                      : qsTr("%1 has no italic face").arg(root.textStyle.fontFamily)
+                                                      : qsTr("Italic (slanted: %1 has no italic face)").arg(root.textStyle.fontFamily)
                         onClicked: root.setTextStyleKey("italic", !root.textStyle.italic)
                     }
                     ThemedComboBox {
                         id: fontWeightBox
                         width: Math.max(80, parent.width - 74 - 34 * 4 - parent.spacing * 5) // B, U, S, I
                         model: root.availableWeights.map(w => root.weightLabels[w] || String(w))
-                        currentIndex: Math.max(0, root.availableWeights.indexOf(root.textStyle.fontWeight))
+                        currentIndex: Math.max(0, root.availableWeights.indexOf(root.shownFontWeight))
                         onActivated: root.setTextStyleKey("fontWeight", root.availableWeights[currentIndex])
                     }
                 }
@@ -1524,17 +1559,12 @@ Item {
                         font.family: Theme.fontFamily
                         font.pixelSize: Theme.fontSizeXs
                     }
-                    ThemedTextField {
+                    ThemedNumberField {
                         visible: !!root.textStyle.counter
                         width: 90
                         anchors.verticalCenter: parent.verticalCenter
-                        text: String(root.textStyle.counterFrom || 0)
-                        inputMethodHints: Qt.ImhFormattedNumbersOnly
-                        onEditingFinished: {
-                            const v = Number(text.replace(",", "."))
-                            if (!isNaN(v))
-                                root.setTextStyleKey("counterFrom", v)
-                        }
+                        value: Number(root.textStyle.counterFrom || 0)
+                        onEdited: v => root.setTextStyleKey("counterFrom", v)
                     }
                 }
 
@@ -2882,6 +2912,7 @@ Item {
                             HoverHandler { id: accentPhaseHover }
                             Binding on value {
                                 when: !accentPhaseField.activeFocus
+                                restoreMode: Binding.RestoreNone
                                 value: Number(root.textStyle.accent.phase) || 0
                             }
                             onEdited: v => root.setTextGroupKey("accent", "phase", Math.round(v))
@@ -3025,6 +3056,7 @@ Item {
                                             step: 1
                                             Binding on value {
                                                 when: !accentPillPaddingField.activeFocus
+                                                restoreMode: Binding.RestoreNone
                                                 value: Number(root.textStyle.accent.highlight.padding) || 0
                                             }
                                             onEdited: v => root.setTextAccentHighlightKey("padding", v)
@@ -3049,6 +3081,7 @@ Item {
                                             step: 1
                                             Binding on value {
                                                 when: !accentPillRadiusField.activeFocus
+                                                restoreMode: Binding.RestoreNone
                                                 value: Number(root.textStyle.accent.highlight.radius) || 0
                                             }
                                             onEdited: v => root.setTextAccentHighlightKey("radius", v)
@@ -3507,6 +3540,7 @@ Item {
                         valueFormatter: function (v) { return Number(v).toFixed(2) + " s" }
                         Binding on value {
                             when: !durationSlider.pressed
+                            restoreMode: Binding.RestoreNone
                             value: root.animSlot === "loop"
                                    ? (Number(root.slotData.period) || 1)
                                    : (Number(root.slotData.duration) || 0)
@@ -3587,6 +3621,7 @@ Item {
                             enabled: (root.slotData.unit || "block") !== "block"
                             Binding on value {
                                 when: !staggerField.activeFocus
+                                restoreMode: Binding.RestoreNone
                                 value: Math.round((Number(root.slotData.stagger) || 0) * 1000)
                             }
                             onEdited: v => root.setSlot({ "stagger": v / 1000 })

@@ -6,10 +6,13 @@
   "order": 945,
   "description": "Bends the layer like a joint, as Bendio and the Bend Layers script do: from Start to End along its length it curves by the angle; before Start it stays put, after End it carries on straight, turned. Across or along the height. Motion Tools › Bend applies and animates it.",
   "padding": {
+    "params": [
+      "reach"
+    ],
     "percentParams": [
       "bend"
     ],
-    "percentFactor": 0.25,
+    "percentFactor": 5,
     "extra": 8
   },
   "parameters": [
@@ -42,6 +45,22 @@
       "displayName": "Along the height",
       "type": "bool",
       "defaultValue": false
+    },
+    {
+      "identifier": "axis",
+      "displayName": "Axis offset (%)",
+      "type": "float",
+      "minValue": -1000,
+      "maxValue": 1000,
+      "defaultValue": 0
+    },
+    {
+      "identifier": "reach",
+      "displayName": "Extra room (px)",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 4000,
+      "defaultValue": 0
     }
   ],
   "pipeline": {

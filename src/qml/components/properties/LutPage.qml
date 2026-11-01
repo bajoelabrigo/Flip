@@ -175,6 +175,7 @@ Column {
                 to: 1
                 Binding on value {
                     when: !intensitySlider.pressed
+                    restoreMode: Binding.RestoreNone
                     value: intensityRow.current
                 }
                 onMoved: lutPage.host.preview("intensity", value)

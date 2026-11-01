@@ -24,7 +24,9 @@ ToolWindow {
     title: qsTr("Cut out subject")
     color: Theme.appBackground
 
-    function openFor(track, clip, startSeconds, durationSeconds, sessionAlreadyStarted) {
+    // backend: "rvm" (Cut out people) or "sam2" (Cut out a subject) when the button says which; an
+    // empty one keeps the remembered choice.
+    function openFor(track, clip, startSeconds, durationSeconds, sessionAlreadyStarted, backend) {
         root.trackIndex = track
         root.clipIndex = clip
         root.clipStartSeconds = startSeconds
@@ -32,6 +34,11 @@ ToolWindow {
         frameSlider.value = 0
         if (!sessionAlreadyStarted)
             EditorState.segmentation.beginSession(track, clip, startSeconds)
+        if (backend && EditorState.segmentation.backends().indexOf(backend) >= 0
+                && EditorState.segmentation.backend !== backend) {
+            EditorState.segmentation.setBackend(backend, qualityBox.currentValue || "")
+            backendBox.currentIndex = backendBox.indexOfValue(backend)
+        }
         root.show()
         root.raise()
         root.requestActivate()

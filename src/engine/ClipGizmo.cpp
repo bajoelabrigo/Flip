@@ -120,7 +120,8 @@ Space spaceFor(const Pose &pose, double scale, const View &view = {})
 
 QVector3D originOf(const Pose &pose)
 {
-    const QPointF c = pose.rect.center();
+    // At the anchor point, which the tilt pivots on (0.29), as After Effects draws its axes.
+    const QPointF c = pose.rect.center() + pose.pose3d.pivot;
     return QVector3D(float(c.x() - pose.canvas.width() * 0.5),
                      float(c.y() - pose.canvas.height() * 0.5), float(pose.pose3d.positionZ));
 }
@@ -501,8 +502,9 @@ DragResult drag(const Pose &start, Tool tool, Orientation orientation, const QSt
             moved -= a * float(back);
         }
         const QSizeF size = start.rect.size();
-        result.pose.rect = QRectF(moved.x() + start.canvas.width() * 0.5 - size.width() * 0.5,
-                                  moved.y() + start.canvas.height() * 0.5 - size.height() * 0.5,
+        // The origin sits on the anchor (originOf): the box's centre is the pivot away from it.
+        result.pose.rect = QRectF(moved.x() - start.pose3d.pivot.x() + start.canvas.width() * 0.5 - size.width() * 0.5,
+                                  moved.y() - start.pose3d.pivot.y() + start.canvas.height() * 0.5 - size.height() * 0.5,
                                   size.width(), size.height());
         result.pose.pose3d.positionZ = moved.z();
         return result;

@@ -6,7 +6,7 @@ set(CMAKE_OSX_DEPLOYMENT_TARGET "12.0" CACHE STRING "Oldest macOS release Drift 
 
 # C is enabled for JUCE only: its modules compile a handful of C sources (zlib, flac, oggvorbis)
 # and its CMake refuses to configure without it.
-project(Drift VERSION 0.28.0 LANGUAGES CXX C)
+project(Drift VERSION 0.29.0 LANGUAGES CXX C)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -1322,6 +1322,7 @@ qt_add_qml_module(drift
         src/qml/components/preview/TransformOverlay.qml
         src/qml/components/preview/MotionPathOverlay.qml
         src/qml/components/preview/PenToolOverlay.qml
+        src/qml/components/preview/GradientHandlesOverlay.qml
         src/qml/components/preview/PreviewToolOverlay.qml
         src/qml/components/preview/PreviewToolbar.qml
         src/qml/components/timeline/PropertyBehaviorDialog.qml
@@ -1476,6 +1477,7 @@ qt_add_qml_module(drift
         src/qml/components/properties/TemplateFillPanel.qml
         src/qml/components/ThemedSlider.qml
         src/qml/components/ThemedTextField.qml
+        src/qml/components/ScrubArea.qml
         src/qml/components/ThemedNumberField.qml
         src/qml/components/ThemedTextArea.qml
         src/qml/components/SubtitleEditor.qml
@@ -1490,7 +1492,9 @@ qt_add_qml_module(drift
         src/qml/components/WorkspaceView.qml
         src/qml/components/Workspaces.qml
         src/qml/components/WorkspaceMenu.qml
+        src/qml/components/FillOptionsDialog.qml
         src/qml/components/SolidDialog.qml
+        src/qml/components/LowerThirdDialog.qml
         src/qml/components/EmojiPicker.qml
         src/qml/components/ThemedButton.qml
         src/qml/components/ThemedChip.qml

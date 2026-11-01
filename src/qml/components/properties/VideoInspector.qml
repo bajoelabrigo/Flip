@@ -235,7 +235,7 @@ Item {
                     const d = EditorState.selectedClipData
                     root.Window.window.openSegmentation(EditorState.selectedTrack,
                                                         EditorState.selectedClip,
-                                                        d.start || 0, d.duration || 0)
+                                                        d.start || 0, d.duration || 0, "rvm")
                 }
             }
 
@@ -282,7 +282,7 @@ Item {
                     const d = EditorState.selectedClipData
                     root.Window.window.openSegmentation(EditorState.selectedTrack,
                                                         EditorState.selectedClip,
-                                                        d.start || 0, d.duration || 0)
+                                                        d.start || 0, d.duration || 0, "sam2")
                 }
             }
 

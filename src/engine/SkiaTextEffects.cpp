@@ -215,7 +215,10 @@ sk_sp<SkShader> gradientShaderFor(const TextGradient &g, const QRectF &box, doub
 
     switch (g.kind) {
     case TextGradientKind::Linear: {
-        const SkPoint pts[2] = {SkPoint::Make(0.0f, 0.5f), SkPoint::Make(1.0f, 0.5f)};
+        // Through `center` (0.29, the gradient handles place the axis anywhere): the default (0.5, 0.5)
+        // is the axis every gradient had before, through the middle of the box.
+        const float cx = float(g.center.x()), cy = float(g.center.y());
+        const SkPoint pts[2] = {SkPoint::Make(cx - 0.5f, cy), SkPoint::Make(cx + 0.5f, cy)};
         return SkShaders::LinearGradient(pts, grad, &local);
     }
     case TextGradientKind::Radial:

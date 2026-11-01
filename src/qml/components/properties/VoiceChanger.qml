@@ -298,6 +298,7 @@ Item {
                     to: 1
                     Binding on value {
                         when: !intensitySlider.pressed
+                        restoreMode: Binding.RestoreNone
                         value: root.intensity
                     }
                     onPressedChanged: {

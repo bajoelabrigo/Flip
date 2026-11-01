@@ -2763,6 +2763,26 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Animation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stagger</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> fr</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stagger the picked layers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Each one starts that many frames after the one picked before it; they all end together</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Not available</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3483,6 +3503,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Background</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Solid settings</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3513,6 +3537,24 @@
     <message>
         <source>Keyframes stretched</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No keys to curve: pick keyframes on the timeline, or select a layer that has some</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>Curve applied to %n key(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n property(ies)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
     </message>
     <message>
         <source>Easy ease</source>
@@ -4210,6 +4252,10 @@
     </message>
     <message>
         <source>Text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” added to “%2” · to draw a separate layer, press Esc first; to split them, right-click › Separate into layers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5198,6 +5244,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Pick two or more keys of a property to reverse them</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Point light %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5239,10 +5289,6 @@
     </message>
     <message>
         <source>Path</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>“%1” added to “%2” · to draw a separate layer, press Esc first</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5398,6 +5444,135 @@
     <message>
         <source>Pick media to make a composition from (compositions cannot go inside one)</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a text to split into letters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This text has a single letter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Split into letters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n letter layer(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Pick three layers or more to space them evenly</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Align</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select two layers or more (Ctrl+click, in the order they should come in)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stagger layers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n layer(s) staggered</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Show inside the layer below</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shown whole again</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>There is no layer under this one to show it inside</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shown only inside “%1”</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Your name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lower third</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Role bar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Line</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lower third added: every piece is a layer you can edit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select the label (a shape) for the two-colour wipe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Two-colour wipe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 accent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 accent %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a text to put a label under it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Label · %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Label for the text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fit to text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No keyframes there</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n keyframe(s) removed</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
     </message>
     <message>
         <source>Retouch</source>
@@ -5614,6 +5789,26 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>There is no video after this clip to fit it to</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The clip already ends with the video</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fit to video length</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The file is shorter than the video: the clip ends where the file does</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The clip now ends with the video</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>No video at the current time</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5818,6 +6013,10 @@
     </message>
     <message>
         <source>%1 band %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 splash</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6811,6 +7010,10 @@
     </message>
     <message>
         <source>Tools</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lower third…</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7934,6 +8137,10 @@
     </message>
     <message>
         <source>Ring</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bend the picked layers together (one joint)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -10739,6 +10946,30 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Axis offset (%)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Extra room (px)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Linear Wipe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Completion (%)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Angle (°)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Feather (px)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Liquid</source>
         <translation type="unfinished"></translation>
     </message>
@@ -12080,6 +12311,26 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Blown away like sand</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wipe down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wipe from left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wipe from right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Slanted wipe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wipe up</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -15560,6 +15811,93 @@ NEXT TIME</source>
     </message>
 </context>
 <context>
+    <name>FillOptionsDialog</name>
+    <message>
+        <source>Normal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Multiply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Screen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Overlay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Darken</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lighten</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fill Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stroke Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Solid Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Linear Gradient</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Radial Gradient</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sweep Gradient</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Angle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Drag its two handles on the video to place it, as in After Effects.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Blend mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stroke width</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Preview</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>FiltersTab</name>
     <message>
         <source>Trending</source>
@@ -15989,6 +16327,29 @@ NEXT TIME</source>
     </message>
     <message>
         <source>File</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>GradientHandlesOverlay</name>
+    <message>
+        <source>Move gradient</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Gradient centre: drag to move it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Gradient start: drag to move it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Gradient radius: drag to resize it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Gradient end: drag to move it</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -16816,6 +17177,133 @@ NEXT TIME</source>
     </message>
     <message>
         <source>720p</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>LowerThirdDialog</name>
+    <message>
+        <source>Lower third</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Centre</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wipe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Slide</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Zoom</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fade</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clean</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>With a line</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Slanted</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Two colours</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Role on a bar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Second accent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Third accent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Entrance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Exit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Alignment</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Your name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Role (optional)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Presenter, guest, city…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Accent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>On screen</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -19046,6 +19534,14 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Reverse</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Plays the picked keys backwards in their own span (a cloned entrance becomes the exit)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Bounce: %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -20229,6 +20725,18 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Line</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fill Options: none, solid, linear or radial gradient, blend mode and opacity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stroke Options: none, solid, linear or radial gradient, blend mode and opacity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Selection</source>
         <translation type="unfinished"></translation>
     </message>
@@ -20254,6 +20762,14 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Shape: drag on the preview (Shift for a square or circle)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ellipse: drag on the preview (Shift for a circle)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Line: drag on the preview (Shift for 0°, 45° or 90°); it takes the stroke colour and width</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -20976,6 +21492,38 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Project</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Transparent (alpha)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No background: export it as ProRes 4444 or VP9 with alpha (WebM) to keep the transparency</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Background colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Background colour of the project: what shows where no layer covers the frame</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Solid the size of the frame</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A layer of one colour over the whole frame, for the length of the work (the background colour above)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>This clip uses Pro tools.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -21158,11 +21706,11 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Edit %1</source>
+        <source>Drag to change, click to type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Click to type an exact %1</source>
+        <source>Edit %1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -23239,6 +23787,38 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Arrow at start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Arrow at end</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Triangle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A head on this end of an open path, such as a line drawn with the pen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Arrow size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Trim start</source>
         <translation type="unfinished"></translation>
     </message>
@@ -23513,6 +24093,26 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Reaction timing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> fr</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reaction strength</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Last layer visible from the start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Liquid splash at the hit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Morph it</source>
         <translation type="unfinished"></translation>
     </message>
@@ -23590,6 +24190,10 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Roughness</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Draw the line behind the stream</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -23768,11 +24372,75 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Fit to a text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The shape takes the text&apos;s size plus the margin, and grows when the words change: a label for a name.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Margin across</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>up and down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Two-colour wipe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>From the playhead the accent colour sweeps in first and this shape follows it, ending on top: the entrance of a lower third.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Accent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> fr</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Second colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Third colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Exit too</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>At the end of the layer the colours sweep out the way they came, the shape first</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Slanted edge</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply two-colour wipe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Geometry</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Corner radius</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Slant</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -24171,6 +24839,10 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Corner radius</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Slant</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -24966,14 +25638,6 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Oomph</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>How far it travels, jumps and turns</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Timing</source>
         <translation type="unfinished"></translation>
     </message>
@@ -25002,6 +25666,14 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Apply letter by letter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Splits the text into one layer per letter and applies it to each, the stagger apart</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Applies to every selected layer. The keys stay editable on the timeline.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -25011,6 +25683,14 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>How hard it squashes, stretches and bends</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Travel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Distance: how far it travels, jumps and turns (200 % jumps twice as far)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -27228,10 +27908,6 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>%1 has no italic face</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Adjust text look</source>
         <translation type="unfinished"></translation>
     </message>
@@ -27501,6 +28177,10 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Strikethrough</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Italic (slanted: %1 has no italic face)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -29245,6 +29925,10 @@ If playback stutters, try another.</source>
 <context>
     <name>ThemedNumberField</name>
     <message>
+        <source>Change value</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Allowed range: %1 – %2%3</source>
         <translation type="unfinished"></translation>
     </message>
@@ -29369,6 +30053,46 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Crop…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fit to video length</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Make a label for this text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show whole again</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show only inside the layer below</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Split into letters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>After the playhead (all rows)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Before the playhead (all rows)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>All of this clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Freeze frame at current time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -30825,6 +31549,50 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Scale keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Align</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Align left edges</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Align centres across</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Align right edges</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Align top edges</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Align centres up and down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Align bottom edges</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Space evenly across (three or more)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Space evenly up and down (three or more)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>with the frame</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Also moved by %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -30877,7 +31645,43 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Add a keyframe for Scale at the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Scale clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add a keyframe for Scale X and Y at the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale X</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale Y</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This size is 100 %</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale X and Y count from the box as it is now</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Anchor point (px)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Anchor in the centre</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Anchor point here (the layer stays where it is)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

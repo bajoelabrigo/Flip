@@ -75,6 +75,9 @@ struct ShapeStyle
 
     // Geometry knobs. Each is read by a subset of kinds only; see ShapePath.cpp.
     double cornerRadius = 0.0; // project px — native on the rect family, a corner path effect elsewhere
+    // Rectangle only (0.29, lower thirds): the sides lean this many degrees (+ to the right at the top), a
+    // parallelogram that stays inside the box.
+    double skew = 0.0;
     int points = 5;            // star / burst spikes
     double innerRatio = 0.5;   // star / burst inner radius, fraction of outer
     // After Effects' Outer / Inner Roundness (0.28), % : a star's or polygon's corners become curves; 100 % turns

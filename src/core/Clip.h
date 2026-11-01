@@ -127,6 +127,19 @@ struct Clip
     bool suppressEmbeddedAudio = false;
     // An After Effects Solid (0.25): a shape made by «Solid…», which keeps its Solid settings.
     bool isSolid = false;
+    // The size that is 100 % in Transform's Scale X / Scale Y (0.29, as After Effects' layer scale): the box when
+    // the scale was first split, or set again with «This size is 100 %». 0 = not set.
+    double scaleRefW = 0.0;
+    double scaleRefH = 0.0;
+    // A label that fits a text (0.29, lower thirds): this shape is that text's box plus a margin, and follows it
+    // when the words change. Empty = free.
+    QString fitTextId;
+    double fitPadX = 32.0;
+    double fitPadY = 16.0;
+    // A bar beside the text instead of a label around it (0.29, a lower third's line): this wide, its left edge
+    // fitPadX before the text, as tall as the label (fitPadY above and below); negative = on the right, mirrored.
+    // 0 = a label.
+    double fitBarWidth = 0.0;
     // After Effects' Null Object (0.26): a shape that draws nothing, only its frame while selected,
     // there to be a parent the other layers follow.
     bool nullObject = false;
@@ -163,6 +176,9 @@ struct Clip
     enum class TrackMatte { None, Alpha, AlphaInverted, Luma, LumaInverted };
     TrackMatte matteMode = TrackMatte::None;
     QString matteClipId;
+    // The matte clip stays on screen too (0.29, lower thirds): a name shown only inside its label, and the
+    // label still drawn. After Effects needs a copy of the label for that.
+    bool matteKeepsSource = false;
     // 0-based index among the audio streams in `path` (for multi-track video/audio files from OBS, etc.)
     int audioStreamIndex = 0;
     // Stereo balance: -1 hard left, 0 centre, +1 hard right. A balance law rather than a

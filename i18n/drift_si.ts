@@ -857,7 +857,7 @@
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>වර්ණය</translation>
     </message>
     <message>
         <source>Reset colour</source>
@@ -2763,6 +2763,26 @@
         <translation>බෙසියර් (Bezier)</translation>
     </message>
     <message>
+        <source>Animation</source>
+        <translation>සජීවිකරණය</translation>
+    </message>
+    <message>
+        <source>Stagger</source>
+        <translation>පියවරෙන් පියවර</translation>
+    </message>
+    <message>
+        <source> fr</source>
+        <translation> රා.</translation>
+    </message>
+    <message>
+        <source>Stagger the picked layers</source>
+        <translation>තෝරාගත් ස්ථර පියවරෙන් පියවර ආරම්භ කරන්න</translation>
+    </message>
+    <message>
+        <source>Each one starts that many frames after the one picked before it; they all end together</source>
+        <translation>සෑම එකක්ම ඊට පෙර තෝරාගත් එකට වඩා එම රාමු ගණනකට පසුව ආරම්භ වේ; සියල්ල එකවර අවසන් වේ</translation>
+    </message>
+    <message>
         <source>Not available</source>
         <translation>ලබාගත නොහැක</translation>
     </message>
@@ -3483,6 +3503,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Background</source>
+        <translation>පසුබිම</translation>
+    </message>
+    <message>
         <source>Solid settings</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3513,6 +3537,24 @@
     <message>
         <source>Keyframes stretched</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No keys to curve: pick keyframes on the timeline, or select a layer that has some</source>
+        <translation>වක්‍රය යෙදීමට යතුරු නැත: කාලරේඛාවේ ප්‍රධාන රාමු තෝරන්න, නැතහොත් ඒවා ඇති ස්තරයක් තෝරන්න</translation>
+    </message>
+    <message numerus="yes">
+        <source>Curve applied to %n key(s)</source>
+        <translation>
+            <numerusform>යතුරු %n කට වක්‍රය යෙදුණි</numerusform>
+            <numerusform>යතුරු %n කට වක්‍රය යෙදුණි</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n property(ies)</source>
+        <translation>
+            <numerusform>ගුණාංග %n</numerusform>
+            <numerusform>ගුණාංග %n</numerusform>
+        </translation>
     </message>
     <message>
         <source>Easy ease</source>
@@ -4211,6 +4253,10 @@
     <message>
         <source>Text</source>
         <translation type="unfinished">පෙළ</translation>
+    </message>
+    <message>
+        <source>“%1” added to “%2” · to draw a separate layer, press Esc first; to split them, right-click › Separate into layers</source>
+        <translation>“%1” “%2” වෙත එක් කෙරිණි · වෙනම ස්තරයක ඇඳීමට පළමුව Esc ඔබන්න; ඒවා වෙන් කිරීමට දකුණු-ක්ලික් › ස්තරවලට වෙන් කරන්න</translation>
     </message>
     <message>
         <source>Add mask</source>
@@ -5198,6 +5244,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Pick two or more keys of a property to reverse them</source>
+        <translation>ඒවා ප්‍රතිලෝම කිරීමට ගුණාංගයක යතුරු දෙකක් හෝ වැඩි ගණනක් තෝරන්න</translation>
+    </message>
+    <message>
         <source>Point light %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5239,10 +5289,6 @@
     </message>
     <message>
         <source>Path</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>“%1” added to “%2” · to draw a separate layer, press Esc first</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5400,6 +5446,135 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Select a text to split into letters</source>
+        <translation>අකුරුවලට බෙදීමට පෙළක් තෝරන්න</translation>
+    </message>
+    <message>
+        <source>This text has a single letter</source>
+        <translation>මෙම පෙළෙහි ඇත්තේ එක් අකුරක් පමණි</translation>
+    </message>
+    <message>
+        <source>Split into letters</source>
+        <translation>අකුරුවලට බෙදන්න</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n letter layer(s)</source>
+        <translation>
+            <numerusform>අකුරු ස්තර %n</numerusform>
+            <numerusform>අකුරු ස්තර %n</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Pick three layers or more to space them evenly</source>
+        <translation>සමානව බෙදීමට ස්ථර තුනක් හෝ වැඩි ගණනක් තෝරන්න</translation>
+    </message>
+    <message>
+        <source>Align</source>
+        <translation>පෙළගස්වන්න</translation>
+    </message>
+    <message>
+        <source>Select two layers or more (Ctrl+click, in the order they should come in)</source>
+        <translation>ස්ථර දෙකක් හෝ වැඩි ගණනක් තෝරන්න (Ctrl+ක්ලික්, ඇතුළු විය යුතු පිළිවෙළට)</translation>
+    </message>
+    <message>
+        <source>Stagger layers</source>
+        <translation>ස්ථර පියවරෙන් පියවර කරන්න</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n layer(s) staggered</source>
+        <translation>
+            <numerusform>ස්ථර %n ක් පියවරෙන් පියවර කරන ලදී</numerusform>
+            <numerusform>ස්ථර %n ක් පියවරෙන් පියවර කරන ලදී</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Show inside the layer below</source>
+        <translation>පහළ ස්ථරය තුළ පෙන්වන්න</translation>
+    </message>
+    <message>
+        <source>Shown whole again</source>
+        <translation>නැවත සම්පූර්ණයෙන් පෙනේ</translation>
+    </message>
+    <message>
+        <source>There is no layer under this one to show it inside</source>
+        <translation>මෙය තුළ පෙන්වීමට මෙයට යටින් ස්ථරයක් නැත</translation>
+    </message>
+    <message>
+        <source>Shown only inside “%1”</source>
+        <translation>«%1» තුළ පමණක් පෙනේ</translation>
+    </message>
+    <message>
+        <source>Your name</source>
+        <translation>ඔබේ නම</translation>
+    </message>
+    <message>
+        <source>Lower third</source>
+        <translation>පහළ නාම තීරුව</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>ලේබලය</translation>
+    </message>
+    <message>
+        <source>Role bar</source>
+        <translation>තනතුරු තීරුව</translation>
+    </message>
+    <message>
+        <source>Line</source>
+        <translation>රේඛාව</translation>
+    </message>
+    <message>
+        <source>Lower third added: every piece is a layer you can edit</source>
+        <translation>පහළ නාම තීරුව එක් කළා: සෑම කොටසක්ම ඔබට සංස්කරණය කළ හැකි ස්ථරයකි</translation>
+    </message>
+    <message>
+        <source>Select the label (a shape) for the two-colour wipe</source>
+        <translation>වර්ණ දෙකේ වයිප් සඳහා ලේබලය (හැඩයක්) තෝරන්න</translation>
+    </message>
+    <message>
+        <source>Two-colour wipe</source>
+        <translation>වර්ණ දෙකේ වයිප්</translation>
+    </message>
+    <message>
+        <source>%1 accent</source>
+        <translation>%1 අවධාරණ</translation>
+    </message>
+    <message>
+        <source>%1 accent %2</source>
+        <translation>%1 උච්චාරණ %2</translation>
+    </message>
+    <message>
+        <source>Select a text to put a label under it</source>
+        <translation>යටින් ලේබලයක් තැබීමට පෙළක් තෝරන්න</translation>
+    </message>
+    <message>
+        <source>Label · %1</source>
+        <translation>ලේබලය · %1</translation>
+    </message>
+    <message>
+        <source>Label for the text</source>
+        <translation>පෙළ සඳහා ලේබලය</translation>
+    </message>
+    <message>
+        <source>Fit to text</source>
+        <translation>පෙළට ගැළපෙන්න</translation>
+    </message>
+    <message>
+        <source>Scale</source>
+        <translation>පරිමාණය</translation>
+    </message>
+    <message>
+        <source>No keyframes there</source>
+        <translation>එතැන ප්‍රධාන රාමු නැත</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n keyframe(s) removed</source>
+        <translation>
+            <numerusform>ප්‍රධාන රාමු %n ක් මකා දැමිණි</numerusform>
+            <numerusform>ප්‍රධාන රාමු %n ක් මකා දැමිණි</numerusform>
+        </translation>
+    </message>
+    <message>
         <source>Retouch</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5481,7 +5656,7 @@
     </message>
     <message>
         <source>Stroke width</source>
-        <translation type="unfinished"></translation>
+        <translation>රේඛා ඝනකම</translation>
     </message>
     <message>
         <source>Scale X</source>
@@ -5612,6 +5787,26 @@
     <message>
         <source>Bookmark updated</source>
         <translation>පොත් සලකුණ යාවත්කාලීන විය</translation>
+    </message>
+    <message>
+        <source>There is no video after this clip to fit it to</source>
+        <translation>මෙම ක්ලිපයෙන් පසු ගැළපීමට වීඩියෝවක් නැත</translation>
+    </message>
+    <message>
+        <source>The clip already ends with the video</source>
+        <translation>ක්ලිපය දැනටමත් වීඩියෝව සමඟ අවසන් වේ</translation>
+    </message>
+    <message>
+        <source>Fit to video length</source>
+        <translation>වීඩියෝවේ දිගට ගළපන්න</translation>
+    </message>
+    <message>
+        <source>The file is shorter than the video: the clip ends where the file does</source>
+        <translation>ගොනුව වීඩියෝවට වඩා කෙටියි: ගොනුව අවසන් වන තැන ක්ලිපය අවසන් වේ</translation>
+    </message>
+    <message>
+        <source>The clip now ends with the video</source>
+        <translation>දැන් ක්ලිපය වීඩියෝව සමඟ අවසන් වේ</translation>
     </message>
     <message>
         <source>No video at the current time</source>
@@ -5819,6 +6014,10 @@
     <message>
         <source>%1 band %2</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 splash</source>
+        <translation>%1 විසිරීම</translation>
     </message>
     <message>
         <source>drops</source>
@@ -6812,6 +7011,10 @@
     <message>
         <source>Tools</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lower third…</source>
+        <translation>පහළ නාම තීරුව…</translation>
     </message>
     <message>
         <source>Split</source>
@@ -7937,6 +8140,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Bend the picked layers together (one joint)</source>
+        <translation>තෝරාගත් ස්තර එකට නවන්න (එක් සන්ධියක්)</translation>
+    </message>
+    <message>
         <source>Frames</source>
         <translation type="unfinished"></translation>
     </message>
@@ -8712,7 +8919,7 @@
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>වර්ණය</translation>
     </message>
     <message>
         <source>Starts at</source>
@@ -10739,6 +10946,30 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Axis offset (%)</source>
+        <translation>අක්ෂ විතැන (%)</translation>
+    </message>
+    <message>
+        <source>Extra room (px)</source>
+        <translation>අමතර ඉඩ (px)</translation>
+    </message>
+    <message>
+        <source>Linear Wipe</source>
+        <translation>රේඛීය අතුගෑම</translation>
+    </message>
+    <message>
+        <source>Completion (%)</source>
+        <translation>සම්පූර්ණ වීම (%)</translation>
+    </message>
+    <message>
+        <source>Angle (°)</source>
+        <translation>කෝණය (°)</translation>
+    </message>
+    <message>
+        <source>Feather (px)</source>
+        <translation>මෘදු කිරීම (px)</translation>
+    </message>
+    <message>
         <source>Liquid</source>
         <translation type="unfinished"></translation>
     </message>
@@ -12083,6 +12314,26 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Wipe down</source>
+        <translation>පහළට අතුගෑම</translation>
+    </message>
+    <message>
+        <source>Wipe from left</source>
+        <translation>වමේ සිට අතුගෑම</translation>
+    </message>
+    <message>
+        <source>Wipe from right</source>
+        <translation>දකුණේ සිට අතුගෑම</translation>
+    </message>
+    <message>
+        <source>Slanted wipe</source>
+        <translation>ඇල අතුගෑම</translation>
+    </message>
+    <message>
+        <source>Wipe up</source>
+        <translation>ඉහළට අතුගෑම</translation>
+    </message>
+    <message>
         <source>Attention</source>
         <translation type="unfinished"></translation>
     </message>
@@ -12900,7 +13151,7 @@ NEXT TIME</source>
     <name>ClipAnimPresetTile</name>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>කිසිවක් නැත</translation>
     </message>
 </context>
 <context>
@@ -14082,7 +14333,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>වර්ණය</translation>
     </message>
     <message>
         <source>Language…</source>
@@ -15560,6 +15811,93 @@ NEXT TIME</source>
     </message>
 </context>
 <context>
+    <name>FillOptionsDialog</name>
+    <message>
+        <source>Normal</source>
+        <translation>සාමාන්‍ය</translation>
+    </message>
+    <message>
+        <source>Multiply</source>
+        <translation>ගුණ කරන්න</translation>
+    </message>
+    <message>
+        <source>Screen</source>
+        <translation>තිරය</translation>
+    </message>
+    <message>
+        <source>Overlay</source>
+        <translation>අතිච්ඡාදනය</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>එකතු කරන්න</translation>
+    </message>
+    <message>
+        <source>Darken</source>
+        <translation>අඳුරු කරන්න</translation>
+    </message>
+    <message>
+        <source>Lighten</source>
+        <translation>ආලෝකමත් කරන්න</translation>
+    </message>
+    <message>
+        <source>Fill Options</source>
+        <translation>පිරවුම් විකල්ප</translation>
+    </message>
+    <message>
+        <source>Stroke Options</source>
+        <translation>රේඛා විකල්ප</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>කිසිවක් නැත</translation>
+    </message>
+    <message>
+        <source>Solid Color</source>
+        <translation>ඝන වර්ණය</translation>
+    </message>
+    <message>
+        <source>Linear Gradient</source>
+        <translation>රේඛීය ශ්‍රේණිය</translation>
+    </message>
+    <message>
+        <source>Radial Gradient</source>
+        <translation>අරීය ශ්‍රේණිය</translation>
+    </message>
+    <message>
+        <source>Sweep Gradient</source>
+        <translation>භ්‍රමණ ශ්‍රේණිය</translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation>වර්ණය</translation>
+    </message>
+    <message>
+        <source>Angle</source>
+        <translation>කෝණය</translation>
+    </message>
+    <message>
+        <source>Drag its two handles on the video to place it, as in After Effects.</source>
+        <translation>After Effects හි මෙන්, එය තැබීමට වීඩියෝවේ එහි හැසිරවීම් දෙක අදින්න.</translation>
+    </message>
+    <message>
+        <source>Blend mode</source>
+        <translation>මිශ්‍ර කිරීමේ ප්‍රකාරය</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation>පාරාන්ධතාව</translation>
+    </message>
+    <message>
+        <source>Stroke width</source>
+        <translation>රේඛා ඝනකම</translation>
+    </message>
+    <message>
+        <source>Preview</source>
+        <translation>පෙරදසුන</translation>
+    </message>
+</context>
+<context>
     <name>FiltersTab</name>
     <message>
         <source>Trending</source>
@@ -15990,6 +16328,29 @@ NEXT TIME</source>
     <message>
         <source>File</source>
         <translation>ගොනුව</translation>
+    </message>
+</context>
+<context>
+    <name>GradientHandlesOverlay</name>
+    <message>
+        <source>Move gradient</source>
+        <translation>ශ්‍රේණිය ගෙන යන්න</translation>
+    </message>
+    <message>
+        <source>Gradient centre: drag to move it</source>
+        <translation>ශ්‍රේණියේ මධ්‍යය: ගෙන යාමට අදින්න</translation>
+    </message>
+    <message>
+        <source>Gradient start: drag to move it</source>
+        <translation>ශ්‍රේණියේ ආරම්භය: ගෙන යාමට අදින්න</translation>
+    </message>
+    <message>
+        <source>Gradient radius: drag to resize it</source>
+        <translation>ශ්‍රේණියේ අරය: ප්‍රමාණය වෙනස් කිරීමට අදින්න</translation>
+    </message>
+    <message>
+        <source>Gradient end: drag to move it</source>
+        <translation>ශ්‍රේණියේ අවසානය: ගෙන යාමට අදින්න</translation>
     </message>
 </context>
 <context>
@@ -16817,6 +17178,133 @@ NEXT TIME</source>
     <message>
         <source>720p</source>
         <translation>720p</translation>
+    </message>
+</context>
+<context>
+    <name>LowerThirdDialog</name>
+    <message>
+        <source>Lower third</source>
+        <translation>පහළ නාම තීරුව</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>එක් කරන්න</translation>
+    </message>
+    <message>
+        <source>Left</source>
+        <translation>වමට</translation>
+    </message>
+    <message>
+        <source>Centre</source>
+        <translation>මැදට</translation>
+    </message>
+    <message>
+        <source>Right</source>
+        <translation>දකුණට</translation>
+    </message>
+    <message>
+        <source>Automatic</source>
+        <translation>ස්වයංක්‍රීය</translation>
+    </message>
+    <message>
+        <source>Wipe</source>
+        <translation>වයිප්</translation>
+    </message>
+    <message>
+        <source>Slide</source>
+        <translation>ලිස්සීම</translation>
+    </message>
+    <message>
+        <source>Pop</source>
+        <translation>පොප්</translation>
+    </message>
+    <message>
+        <source>Zoom</source>
+        <translation>සූම්</translation>
+    </message>
+    <message>
+        <source>Fade</source>
+        <translation>මැකී යාම</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>කිසිවක් නැත</translation>
+    </message>
+    <message>
+        <source>Clean</source>
+        <translation>පිරිසිදු</translation>
+    </message>
+    <message>
+        <source>With a line</source>
+        <translation>රේඛාවක් සමඟ</translation>
+    </message>
+    <message>
+        <source>Slanted</source>
+        <translation>ඇල</translation>
+    </message>
+    <message>
+        <source>Two colours</source>
+        <translation>වර්ණ දෙකක්</translation>
+    </message>
+    <message>
+        <source>Role on a bar</source>
+        <translation>තීරුවක තනතුර</translation>
+    </message>
+    <message>
+        <source>Style</source>
+        <translation>විලාසය</translation>
+    </message>
+    <message>
+        <source>Second accent</source>
+        <translation>දෙවන උච්චාරණය</translation>
+    </message>
+    <message>
+        <source>Third accent</source>
+        <translation>තෙවන උච්චාරණය</translation>
+    </message>
+    <message>
+        <source>Entrance</source>
+        <translation>ඇතුළුවීම</translation>
+    </message>
+    <message>
+        <source>Exit</source>
+        <translation>පිටවීම</translation>
+    </message>
+    <message>
+        <source>Alignment</source>
+        <translation>පෙළගැස්ම</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>නම</translation>
+    </message>
+    <message>
+        <source>Your name</source>
+        <translation>ඔබේ නම</translation>
+    </message>
+    <message>
+        <source>Role (optional)</source>
+        <translation>තනතුර (විකල්ප)</translation>
+    </message>
+    <message>
+        <source>Presenter, guest, city…</source>
+        <translation>ඉදිරිපත් කරන්නා, අමුත්තා, නගරය…</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>ලේබලය</translation>
+    </message>
+    <message>
+        <source>Accent</source>
+        <translation>අවධාරණ වර්ණය</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation>පෙළ</translation>
+    </message>
+    <message>
+        <source>On screen</source>
+        <translation>තිරය මත</translation>
     </message>
 </context>
 <context>
@@ -18746,7 +19234,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>වර්ණය</translation>
     </message>
     <message>
         <source>Intensity</source>
@@ -18810,7 +19298,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>පාරාන්ධතාව</translation>
     </message>
     <message>
         <source>Offered as a control of the composition: click to take it out</source>
@@ -18858,7 +19346,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>කිසිවක් නැත</translation>
     </message>
     <message>
         <source>The layer this one follows</source>
@@ -19044,6 +19532,14 @@ NEXT TIME</source>
     <message>
         <source>Copies the picked keys to the playhead</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reverse</source>
+        <translation>ප්‍රතිලෝම කරන්න</translation>
+    </message>
+    <message>
+        <source>Plays the picked keys backwards in their own span (a cloned entrance becomes the exit)</source>
+        <translation>තෝරාගත් යතුරු ඒවායේම පරාසය තුළ පසුපසට වාදනය කරයි (පිටපත් කළ ඇතුළුවීම පිටවීම බවට පත් වේ)</translation>
     </message>
     <message>
         <source>Bounce: %1</source>
@@ -20235,6 +20731,18 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Line</source>
+        <translation>රේඛාව</translation>
+    </message>
+    <message>
+        <source>Fill Options: none, solid, linear or radial gradient, blend mode and opacity</source>
+        <translation>පිරවුම් විකල්ප: කිසිවක් නැත, ඝන, රේඛීය හෝ අරීය ශ්‍රේණිය, මිශ්‍ර කිරීමේ ප්‍රකාරය සහ පාරාන්ධතාව</translation>
+    </message>
+    <message>
+        <source>Stroke Options: none, solid, linear or radial gradient, blend mode and opacity</source>
+        <translation>රේඛා විකල්ප: කිසිවක් නැත, ඝන, රේඛීය හෝ අරීය ශ්‍රේණිය, මිශ්‍ර කිරීමේ ප්‍රකාරය සහ පාරාන්ධතාව</translation>
+    </message>
+    <message>
         <source>Selection</source>
         <translation type="unfinished"></translation>
     </message>
@@ -20261,6 +20769,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Shape: drag on the preview (Shift for a square or circle)</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ellipse: drag on the preview (Shift for a circle)</source>
+        <translation>ඉලිප්සය: පෙරදසුනේ අදින්න (කවයක් සඳහා Shift)</translation>
+    </message>
+    <message>
+        <source>Line: drag on the preview (Shift for 0°, 45° or 90°); it takes the stroke colour and width</source>
+        <translation>රේඛාව: පෙරදසුනේ අදින්න (0°, 45° හෝ 90° සඳහා Shift); ඉරේ වර්ණය සහ ඝනකම ගනී</translation>
     </message>
     <message>
         <source>Pen: click for corners, drag for curves</source>
@@ -20982,6 +21498,38 @@ If playback stutters, try another.</source>
         <translation>ක්ලිපයක ගුණාංග සංස්කරණය කිරීමට කාලරේඛාවේ ඇති ක්ලිපයක් මත ක්ලික් කරන්න</translation>
     </message>
     <message>
+        <source>Project</source>
+        <translation>ව්‍යාපෘතිය</translation>
+    </message>
+    <message>
+        <source>Colour</source>
+        <translation>වර්ණය</translation>
+    </message>
+    <message>
+        <source>Transparent (alpha)</source>
+        <translation>විනිවිද (ඇල්ෆා)</translation>
+    </message>
+    <message>
+        <source>No background: export it as ProRes 4444 or VP9 with alpha (WebM) to keep the transparency</source>
+        <translation>පසුබිමක් නැත: විනිවිදභාවය රැකීමට ProRes 4444 හෝ ඇල්ෆා සහිත VP9 (WebM) ලෙස අපනයනය කරන්න</translation>
+    </message>
+    <message>
+        <source>Background colour</source>
+        <translation>පසුබිම් වර්ණය</translation>
+    </message>
+    <message>
+        <source>Background colour of the project: what shows where no layer covers the frame</source>
+        <translation>ව්‍යාපෘතියේ පසුබිම් වර්ණය: කිසිදු ස්තරයක් රාමුව නොවසන තැන පෙනෙන දේ</translation>
+    </message>
+    <message>
+        <source>Solid the size of the frame</source>
+        <translation>රාමුවේ ප්‍රමාණයේ ඝන වර්ණය</translation>
+    </message>
+    <message>
+        <source>A layer of one colour over the whole frame, for the length of the work (the background colour above)</source>
+        <translation>සම්පූර්ණ රාමුව පුරා එක් වර්ණයක ස්තරයක්, කාර්යයේ මුළු දිගටම (ඉහත පසුබිම් වර්ණය)</translation>
+    </message>
+    <message>
         <source>This clip uses Pro tools.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -21164,12 +21712,12 @@ If playback stutters, try another.</source>
         <translation>මීළඟ කීෆ්‍රේමය</translation>
     </message>
     <message>
-        <source>Edit %1</source>
-        <translation>%1 සංස්කරණය කරන්න</translation>
+        <source>Drag to change, click to type</source>
+        <translation>වෙනස් කිරීමට අදින්න, ටයිප් කිරීමට ක්ලික් කරන්න</translation>
     </message>
     <message>
-        <source>Click to type an exact %1</source>
-        <translation>නිශ්චිත %1ක් ඇතුළත් කිරීමට ක්ලික් කරන්න</translation>
+        <source>Edit %1</source>
+        <translation>%1 සංස්කරණය කරන්න</translation>
     </message>
 </context>
 <context>
@@ -22290,7 +22838,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Drag to change, click to type</source>
-        <translation type="unfinished"></translation>
+        <translation>වෙනස් කිරීමට අදින්න, ටයිප් කිරීමට ක්ලික් කරන්න</translation>
     </message>
 </context>
 <context>
@@ -23246,6 +23794,38 @@ If playback stutters, try another.</source>
         <translation>Dash විස්ථාපනය</translation>
     </message>
     <message>
+        <source>Arrow at start</source>
+        <translation>ආරම්භයේ ඊතලය</translation>
+    </message>
+    <message>
+        <source>Arrow at end</source>
+        <translation>අවසානයේ ඊතලය</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>කිසිවක් නැත</translation>
+    </message>
+    <message>
+        <source>Triangle</source>
+        <translation>ත්‍රිකෝණය</translation>
+    </message>
+    <message>
+        <source>Open</source>
+        <translation>විවෘත</translation>
+    </message>
+    <message>
+        <source>Dot</source>
+        <translation>තිත</translation>
+    </message>
+    <message>
+        <source>A head on this end of an open path, such as a line drawn with the pen</source>
+        <translation>පෑනෙන් ඇඳි රේඛාවක් වැනි විවෘත මාර්ගයක මෙම කෙළවරේ ඊතල හිසක්</translation>
+    </message>
+    <message>
+        <source>Arrow size</source>
+        <translation>ඊතලයේ ප්‍රමාණය</translation>
+    </message>
+    <message>
         <source>Trim start</source>
         <translation>ආරම්භය කප්පාදු කරන්න</translation>
     </message>
@@ -23406,7 +23986,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>එකතු කරන්න</translation>
     </message>
     <message>
         <source>Add a shape or a group to this layer (After Effects: Add)</source>
@@ -23520,6 +24100,26 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Reaction timing</source>
+        <translation>ප්‍රතික්‍රියා මොහොත</translation>
+    </message>
+    <message>
+        <source> fr</source>
+        <translation> රා</translation>
+    </message>
+    <message>
+        <source>Reaction strength</source>
+        <translation>ප්‍රතික්‍රියා තීව්‍රතාව</translation>
+    </message>
+    <message>
+        <source>Last layer visible from the start</source>
+        <translation>අවසාන ස්තරය මුල සිටම පෙනේ</translation>
+    </message>
+    <message>
+        <source>Liquid splash at the hit</source>
+        <translation>ගැටීමේදී දියර විසිරීම</translation>
+    </message>
+    <message>
         <source>Morph it</source>
         <translation type="unfinished"></translation>
     </message>
@@ -23600,8 +24200,12 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Draw the line behind the stream</source>
+        <translation>ප්‍රවාහය පිටුපසින් රේඛාව අඳින්න</translation>
+    </message>
+    <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>වර්ණය</translation>
     </message>
     <message>
         <source>Generate liquid trail</source>
@@ -23680,35 +24284,35 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>පාරාන්ධතාව</translation>
     </message>
     <message>
         <source>Blend mode</source>
-        <translation type="unfinished"></translation>
+        <translation>මිශ්‍ර කිරීමේ ප්‍රකාරය</translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>සාමාන්‍ය</translation>
     </message>
     <message>
         <source>Multiply</source>
-        <translation type="unfinished"></translation>
+        <translation>ගුණ කරන්න</translation>
     </message>
     <message>
         <source>Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>තිරය</translation>
     </message>
     <message>
         <source>Overlay</source>
-        <translation type="unfinished"></translation>
+        <translation>අතිච්ඡාදනය</translation>
     </message>
     <message>
         <source>Darken</source>
-        <translation type="unfinished"></translation>
+        <translation>අඳුරු කරන්න</translation>
     </message>
     <message>
         <source>Lighten</source>
-        <translation type="unfinished"></translation>
+        <translation>ආලෝකමත් කරන්න</translation>
     </message>
     <message>
         <source>Wiggle</source>
@@ -23775,12 +24379,76 @@ If playback stutters, try another.</source>
         <translation>ස්තර නැත. ආරම්භ කිරීමට පිරවුමක් (fill) එක් කරන්න.</translation>
     </message>
     <message>
+        <source>Fit to a text</source>
+        <translation>පෙළකට ගැළපෙන්න</translation>
+    </message>
+    <message>
+        <source>The shape takes the text&apos;s size plus the margin, and grows when the words change: a label for a name.</source>
+        <translation>හැඩය පෙළේ ප්‍රමාණය සහ මායිම ගන්නා අතර වචන වෙනස් වන විට විශාල වේ: නමක් සඳහා ලේබලයක්.</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>කිසිවක් නැත</translation>
+    </message>
+    <message>
+        <source>Margin across</source>
+        <translation>දෙපස මායිම</translation>
+    </message>
+    <message>
+        <source>up and down</source>
+        <translation>ඉහළ සහ පහළ</translation>
+    </message>
+    <message>
+        <source>Two-colour wipe</source>
+        <translation>වර්ණ දෙකේ වයිප්</translation>
+    </message>
+    <message>
+        <source>From the playhead the accent colour sweeps in first and this shape follows it, ending on top: the entrance of a lower third.</source>
+        <translation>ධාවන හිසේ සිට, අවධාරණ වර්ණය මුලින්ම ඇතුළු වන අතර මෙම හැඩය එය අනුගමනය කර ඉහළින් රැඳේ: පහළ නාම තීරුවක ඇතුළුවීම.</translation>
+    </message>
+    <message>
+        <source>Accent</source>
+        <translation>අවධාරණ වර්ණය</translation>
+    </message>
+    <message>
+        <source> fr</source>
+        <translation> රා.</translation>
+    </message>
+    <message>
+        <source>Second colour</source>
+        <translation>දෙවන වර්ණය</translation>
+    </message>
+    <message>
+        <source>Third colour</source>
+        <translation>තෙවන වර්ණය</translation>
+    </message>
+    <message>
+        <source>Exit too</source>
+        <translation>පිටවීමත්</translation>
+    </message>
+    <message>
+        <source>At the end of the layer the colours sweep out the way they came, the shape first</source>
+        <translation>ස්තරයේ අවසානයේ වර්ණ ආ ආකාරයටම පිටව යයි, මුලින්ම හැඩය</translation>
+    </message>
+    <message>
+        <source>Slanted edge</source>
+        <translation>ඇල දාරය</translation>
+    </message>
+    <message>
+        <source>Apply two-colour wipe</source>
+        <translation>වර්ණ දෙකේ වයිප් යොදන්න</translation>
+    </message>
+    <message>
         <source>Geometry</source>
         <translation>ජ්‍යාමිතිය (Geometry)</translation>
     </message>
     <message>
         <source>Corner radius</source>
         <translation>මුල්ලේ අරය (Corner radius)</translation>
+    </message>
+    <message>
+        <source>Slant</source>
+        <translation>ඇලවීම</translation>
     </message>
     <message>
         <source>Points</source>
@@ -23984,7 +24652,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>එකතු කරන්න</translation>
     </message>
     <message>
         <source>Subtract</source>
@@ -24179,6 +24847,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Corner radius</source>
         <translation>මුල්ලේ අරය</translation>
+    </message>
+    <message>
+        <source>Slant</source>
+        <translation>ඇලවීම</translation>
     </message>
     <message>
         <source>Inner radius</source>
@@ -24520,7 +25192,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>එකතු කරන්න</translation>
     </message>
     <message>
         <source>Apply</source>
@@ -24548,7 +25220,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>වර්ණය</translation>
     </message>
 </context>
 <context>
@@ -24973,14 +25645,6 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Oomph</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>How far it travels, jumps and turns</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Timing</source>
         <translation type="unfinished"></translation>
     </message>
@@ -25009,6 +25673,14 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Apply letter by letter</source>
+        <translation>අකුරෙන් අකුර යොදන්න</translation>
+    </message>
+    <message>
+        <source>Splits the text into one layer per letter and applies it to each, the stagger apart</source>
+        <translation>පෙළ අකුරකට එක් ස්තරය බැගින් බෙදා, පියවර පරතරයෙන් එකිනෙකට යොදයි</translation>
+    </message>
+    <message>
         <source>Applies to every selected layer. The keys stay editable on the timeline.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -25019,6 +25691,14 @@ If playback stutters, try another.</source>
     <message>
         <source>How hard it squashes, stretches and bends</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Travel</source>
+        <translation>ගමන් දුර</translation>
+    </message>
+    <message>
+        <source>Distance: how far it travels, jumps and turns (200 % jumps twice as far)</source>
+        <translation>දුර: කොපමණ දුර චලනය වේද, පනීද, කැරකේද (200 % දෙගුණයක් දුර පනී)</translation>
     </message>
     <message>
         <source>Speed</source>
@@ -26958,7 +27638,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>වර්ණය</translation>
     </message>
     <message>
         <source>Holographic shimmer</source>
@@ -27236,10 +27916,6 @@ If playback stutters, try another.</source>
         <translation>ඇල අකුරු (Italic)</translation>
     </message>
     <message>
-        <source>%1 has no italic face</source>
-        <translation>%1 හි ඇල අකුරු මුහුණතක් නැත</translation>
-    </message>
-    <message>
         <source>Adjust text look</source>
         <translation>පෙළ පෙනුම සකසන්න</translation>
     </message>
@@ -27465,7 +28141,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>සාමාන්‍ය</translation>
     </message>
     <message>
         <source>On the line</source>
@@ -27510,6 +28186,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Strikethrough</source>
         <translation>ඉරි ඇඳීම</translation>
+    </message>
+    <message>
+        <source>Italic (slanted: %1 has no italic face)</source>
+        <translation>ඇල අකුරු (ඇල කළ: %1 ට ඇල අකුරු නැත)</translation>
     </message>
     <message>
         <source>Case</source>
@@ -28188,7 +28868,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>වර්ණය</translation>
     </message>
     <message>
         <source>Intensity</source>
@@ -29253,6 +29933,10 @@ If playback stutters, try another.</source>
 <context>
     <name>ThemedNumberField</name>
     <message>
+        <source>Change value</source>
+        <translation>අගය වෙනස් කරන්න</translation>
+    </message>
+    <message>
         <source>Allowed range: %1 – %2%3</source>
         <translation>අවසර ලත් පරාසය: %1 – %2%3</translation>
     </message>
@@ -29380,6 +30064,46 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Fit to video length</source>
+        <translation>වීඩියෝවේ දිගට ගළපන්න</translation>
+    </message>
+    <message>
+        <source>Make a label for this text</source>
+        <translation>මෙම පෙළ සඳහා ලේබලයක් සාදන්න</translation>
+    </message>
+    <message>
+        <source>Show whole again</source>
+        <translation>නැවත සම්පූර්ණයෙන් පෙන්වන්න</translation>
+    </message>
+    <message>
+        <source>Show only inside the layer below</source>
+        <translation>පහළ ස්ථරය තුළ පමණක් පෙන්වන්න</translation>
+    </message>
+    <message>
+        <source>Split into letters</source>
+        <translation>අකුරුවලට බෙදන්න</translation>
+    </message>
+    <message>
+        <source>Delete keyframes</source>
+        <translation>ප්‍රධාන රාමු මකන්න</translation>
+    </message>
+    <message>
+        <source>After the playhead (all rows)</source>
+        <translation>ධාවන හිසට පසු (සියලු පේළි)</translation>
+    </message>
+    <message>
+        <source>Before the playhead (all rows)</source>
+        <translation>ධාවන හිසට පෙර (සියලු පේළි)</translation>
+    </message>
+    <message>
+        <source>All of this clip</source>
+        <translation>මෙම ක්ලිපයේ සියල්ල</translation>
+    </message>
+    <message>
+        <source>Freeze frame at current time</source>
+        <translation>වත්මන් වේලාවේ නිශ්චල රාමුවක් සකසන්න</translation>
+    </message>
+    <message>
         <source>Enhance video…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -29461,7 +30185,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>කිසිවක් නැත</translation>
     </message>
     <message>
         <source>Use as mask stuck to</source>
@@ -30292,7 +31016,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>එකතු කරන්න</translation>
     </message>
     <message>
         <source>Add a shape or a group to this layer</source>
@@ -30320,31 +31044,31 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>සාමාන්‍ය</translation>
     </message>
     <message>
         <source>Multiply</source>
-        <translation type="unfinished"></translation>
+        <translation>ගුණ කරන්න</translation>
     </message>
     <message>
         <source>Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>තිරය</translation>
     </message>
     <message>
         <source>Overlay</source>
-        <translation type="unfinished"></translation>
+        <translation>අතිච්ඡාදනය</translation>
     </message>
     <message>
         <source>Darken</source>
-        <translation type="unfinished"></translation>
+        <translation>අඳුරු කරන්න</translation>
     </message>
     <message>
         <source>Lighten</source>
-        <translation type="unfinished"></translation>
+        <translation>ආලෝකමත් කරන්න</translation>
     </message>
     <message>
         <source>Blend mode</source>
-        <translation type="unfinished"></translation>
+        <translation>මිශ්‍ර කිරීමේ ප්‍රකාරය</translation>
     </message>
     <message>
         <source>Duplicate</source>
@@ -30388,7 +31112,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Colour</source>
-        <translation type="unfinished"></translation>
+        <translation>වර්ණය</translation>
     </message>
     <message>
         <source>Constrain proportions: on</source>
@@ -30581,7 +31305,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"></translation>
+        <translation>පාරාන්ධතාව</translation>
     </message>
     <message>
         <source>Volume</source>
@@ -30833,6 +31557,50 @@ If playback stutters, try another.</source>
         <translation>පර්යාලෝකය</translation>
     </message>
     <message>
+        <source>Scale keyframe</source>
+        <translation>පරිමාණ යතුර</translation>
+    </message>
+    <message>
+        <source>Align</source>
+        <translation>පෙළගස්වන්න</translation>
+    </message>
+    <message>
+        <source>Align left edges</source>
+        <translation>වම් දාර පෙළගස්වන්න</translation>
+    </message>
+    <message>
+        <source>Align centres across</source>
+        <translation>මධ්‍ය තිරස්ව පෙළගස්වන්න</translation>
+    </message>
+    <message>
+        <source>Align right edges</source>
+        <translation>දකුණු දාර පෙළගස්වන්න</translation>
+    </message>
+    <message>
+        <source>Align top edges</source>
+        <translation>ඉහළ දාර පෙළගස්වන්න</translation>
+    </message>
+    <message>
+        <source>Align centres up and down</source>
+        <translation>මධ්‍ය සිරස්ව පෙළගස්වන්න</translation>
+    </message>
+    <message>
+        <source>Align bottom edges</source>
+        <translation>පහළ දාර පෙළගස්වන්න</translation>
+    </message>
+    <message>
+        <source>Space evenly across (three or more)</source>
+        <translation>තිරස්ව සමානව බෙදන්න (තුනක් හෝ වැඩි)</translation>
+    </message>
+    <message>
+        <source>Space evenly up and down (three or more)</source>
+        <translation>සිරස්ව සමානව බෙදන්න (තුනක් හෝ වැඩි)</translation>
+    </message>
+    <message>
+        <source>with the frame</source>
+        <translation>රාමුව සමඟ</translation>
+    </message>
+    <message>
         <source>Also moved by %1</source>
         <translation>%1 මඟින්ද ගෙනයනු ලබයි</translation>
     </message>
@@ -30885,8 +31653,44 @@ If playback stutters, try another.</source>
         <translation>පළල සහ උස එකට පරිමාණය කරන්න</translation>
     </message>
     <message>
+        <source>Add a keyframe for Scale at the playhead</source>
+        <translation>වාදන හිසෙහි පරිමාණ යතුරක් එක් කරන්න</translation>
+    </message>
+    <message>
         <source>Scale clip</source>
         <translation>ක්ලිපය පරිමාණය කරන්න</translation>
+    </message>
+    <message>
+        <source>Add a keyframe for Scale X and Y at the playhead</source>
+        <translation>ධාවන හිසේදී පරිමාණ X සහ Y සඳහා යතුරු රාමුවක් එක් කරන්න</translation>
+    </message>
+    <message>
+        <source>Scale X</source>
+        <translation>පරිමාණ X</translation>
+    </message>
+    <message>
+        <source>Scale Y</source>
+        <translation>පරිමාණ Y</translation>
+    </message>
+    <message>
+        <source>This size is 100 %</source>
+        <translation>මෙම ප්‍රමාණය 100 % වේ</translation>
+    </message>
+    <message>
+        <source>Scale X and Y count from the box as it is now</source>
+        <translation>පරිමාණ X සහ Y කොටුවේ වත්මන් ප්‍රමාණයෙන් ගණන් කෙරේ</translation>
+    </message>
+    <message>
+        <source>Anchor point (px)</source>
+        <translation>නැංගුරම් ලක්ෂ්‍යය (px)</translation>
+    </message>
+    <message>
+        <source>Anchor in the centre</source>
+        <translation>මැද නැංගුරම</translation>
+    </message>
+    <message>
+        <source>Anchor point here (the layer stays where it is)</source>
+        <translation>නැංගුරම් ලක්ෂ්‍යය මෙතැන (ස්තරය තිබූ තැනම රැඳේ)</translation>
     </message>
     <message>
         <source>Opacity &amp; rotation</source>
@@ -31475,7 +32279,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Reverse</source>
-        <translation type="unfinished"></translation>
+        <translation>ප්‍රතිලෝම කරන්න</translation>
     </message>
     <message>
         <source>Reverse path direction: the trim runs round the other way</source>
@@ -32985,7 +33789,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Preview</source>
-        <translation type="unfinished"></translation>
+        <translation>පෙරදසුන</translation>
     </message>
     <message>
         <source>Properties</source>
@@ -33016,7 +33820,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Preview</source>
-        <translation type="unfinished"></translation>
+        <translation>පෙරදසුන</translation>
     </message>
     <message>
         <source>Properties</source>

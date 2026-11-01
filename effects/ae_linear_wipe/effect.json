@@ -1,0 +1,51 @@
+{
+  "id": "ae.linear_wipe",
+  "displayName": "Linear Wipe",
+  "category": "squash",
+  "backend": "gpu",
+  "order": 946,
+  "description": "Hides the layer behind a straight edge, as After Effects' Linear Wipe: Completion 0 shows it all, 100 hides it all; the Angle turns the edge (0 = it is uncovered from the left), Feather softens it. The Wipe in and Wipe out animations key it.",
+  "parameters": [
+    {
+      "identifier": "completion",
+      "displayName": "Completion (%)",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 100,
+      "defaultValue": 0
+    },
+    {
+      "identifier": "angle",
+      "displayName": "Angle (°)",
+      "type": "float",
+      "minValue": -360,
+      "maxValue": 360,
+      "defaultValue": 0
+    },
+    {
+      "identifier": "feather",
+      "displayName": "Feather (px)",
+      "type": "float",
+      "minValue": 0,
+      "maxValue": 1000,
+      "defaultValue": 0
+    }
+  ],
+  "pipeline": {
+    "intermediateBuffers": [],
+    "passes": [
+      {
+        "passIndex": 0,
+        "fragmentShader": "main.frag",
+        "inputs": [
+          {
+            "type": "source_texture"
+          }
+        ],
+        "output": {
+          "type": "canvas"
+        }
+      }
+    ]
+  }
+}
