@@ -330,6 +330,7 @@ QJsonObject shapeStyleSchema()
                   {QStringLiteral("none"), QStringLiteral("solid"), QStringLiteral("dash"),
                    QStringLiteral("dot"), QStringLiteral("dashdot")})},
         {QStringLiteral("cornerRadius"), numberProp(QStringLiteral("Corner px: native on the rect family, rounds the corners of any other kind"), 0, 2000)},
+        {QStringLiteral("skew"), numberProp(QStringLiteral("Slant, degrees: rectangle, square (a parallelogram)"), -75, 75)},
         {QStringLiteral("points"), integerProp(QStringLiteral("Point count: star, burst"), 3, 60)},
         {QStringLiteral("innerRatio"), numberProp(QStringLiteral("Inner radius: star, burst"), 0.05, 0.95)},
         {QStringLiteral("headSize"), numberProp(QStringLiteral("Head size: arrow, double-arrow, block-arrow, chevron; banner notch"), 0.05, 0.9)},

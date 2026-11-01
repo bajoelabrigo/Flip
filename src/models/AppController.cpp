@@ -20870,7 +20870,7 @@ static void applyShapeStylePatch(drift::ShapeStyle &s, const QVariantMap &m)
         s.tailX = qBound(0.08, m.value(QStringLiteral("tailX")).toDouble(), 0.92);
     if (m.contains(QStringLiteral("tailSize")))
         s.tailSize = qBound(0.05, m.value(QStringLiteral("tailSize")).toDouble(), 0.5);
-    for (const char *key : {"trimStart", "trimEnd", "trimOffset", "repeatCopies", "repeatOffset", "repeatX",
+    for (const char *key : {"skew", "trimStart", "trimEnd", "trimOffset", "repeatCopies", "repeatOffset", "repeatX",
                             "repeatY", "repeatScale", "repeatRotation", "repeatStartOpacity", "repeatEndOpacity",
                             "wiggleSize", "wiggleDetail", "wiggleSpeed", "wiggleSeed", "mergeMode", "offsetPath",
                             "zigzagSize", "zigzagRidges", "zigzagSmooth", "twistAngle", "puckerBloat"}) {
