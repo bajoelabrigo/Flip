@@ -1055,6 +1055,58 @@ QJsonObject McpDispatcher::applyOneExtended(const QString &tool, const QJsonObje
                                      {QStringLiteral("matteId"), info.value(QStringLiteral("matteId")).toString()}}));
     }
 
+    if (tool == QLatin1String("create_lower_third")) {
+        m_controller->createLowerThird(args.toVariantMap());
+        return ok(QJsonObject{{QStringLiteral("track"), m_controller->selectedTrack()},
+                              {QStringLiteral("clip"), m_controller->selectedClip()}});
+    }
+
+    if (tool == QLatin1String("make_text_label")) {
+        const ClipRef ref = resolveClip(args);
+        if (!ref.valid())
+            return clipRefError(args);
+        const QString id = m_controller->makeLabelForText(ref.track, ref.clip);
+        return ok(QJsonObject{{QStringLiteral("id"), id},
+                              {QStringLiteral("track"), m_controller->selectedTrack()},
+                              {QStringLiteral("clip"), m_controller->selectedClip()}});
+    }
+
+    if (tool == QLatin1String("show_inside_below")) {
+        const ClipRef ref = resolveClip(args);
+        if (!ref.valid())
+            return clipRefError(args);
+        return ok(clipFeedback(ref, {{QStringLiteral("inside"), m_controller->showInsideLayerBelow(ref.track, ref.clip)}}));
+    }
+
+    if (tool == QLatin1String("colour_wipe")) {
+        const ClipRef ref = resolveClip(args);
+        if (!ref.valid())
+            return clipRefError(args);
+        m_controller->selectClip(ref.track, ref.clip);
+        m_controller->twoColourWipe(args.value(QStringLiteral("accent")).toString(),
+                                    args.value(QStringLiteral("frames")).toInt(14),
+                                    args.value(QStringLiteral("angle")).toDouble(0.0),
+                                    args.value(QStringLiteral("accent2")).toString(),
+                                    args.value(QStringLiteral("accent3")).toString());
+        return ok(QJsonObject{{QStringLiteral("track"), m_controller->selectedTrack()},
+                              {QStringLiteral("clip"), m_controller->selectedClip()}});
+    }
+
+    if (tool == QLatin1String("stagger_clips")) {
+        return ok(QJsonObject{{QStringLiteral("staggered"),
+                               m_controller->staggerSelectedClips(args.value(QStringLiteral("frames")).toInt(4))}});
+    }
+
+    if (tool == QLatin1String("scale_about_anchor")) {
+        const ClipRef ref = resolveClip(args);
+        if (!ref.valid())
+            return clipRefError(args);
+        m_controller->setClipScaledSize(ref.track, ref.clip, args.value(QStringLiteral("prop")).toString(),
+                                        args.value(QStringLiteral("seconds")).toDouble(0.0),
+                                        args.value(QStringLiteral("value")).toDouble());
+        return ok(clipFeedback(ref, {}));
+    }
+
     if (tool == QLatin1String("set_motion_blur")) {
         const ClipRef ref = resolveClip(args);
         if (!ref.valid())
