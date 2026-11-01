@@ -579,3 +579,6 @@ Programa `pruebas\mcp029\run029.py`: una sesión sin ventana por proyecto, guard
   barra lo siguen) y el fondo se queda; los tiradores de tamaño siguen funcionando (`lt17-arrastre`).
 
 ## Publicada (2026-11-01)
+- **Jorge (2026-11-01), antes de publicar:** etiqueta hecha a mano + barrido de dos colores, y el texto no seguía al
+  barrido (quedaba siempre visible encima). Ahora el barrido pone el texto de la etiqueta «solo dentro» de ella si aún
+  no tiene mate. La etiqueta `v0.29.0` se retiró antes de publicar el release y se vuelve a poner con esto.

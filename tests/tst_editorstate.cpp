@@ -4551,6 +4551,24 @@ void EditorStateTest::colourWipeTakesUpToThreeAccents()
     QVERIFY(third < second);
     QVERIFY(second < first);
 
+    // A label made for a text: the wipe puts the text inside it, so the words come in with the label (Jorge).
+    AppController byHand(&library);
+    byHand.addTextClip(QStringLiteral("Texto"), 0.0);
+    const int tt = byHand.selectedTrack();
+    const int tc = byHand.selectedClip();
+    const QString textId = byHand.project()->tracks().at(tt).clips.at(tc).id;
+    const QString labelId = byHand.makeLabelForText(tt, tc);
+    QVERIFY(!labelId.isEmpty());
+    byHand.twoColourWipe(QStringLiteral("#ffd400"), 12, 0.0);
+    bool inside = false;
+    for (const drift::Track &track : byHand.project()->tracks()) {
+        for (const drift::Clip &clip : track.clips) {
+            if (clip.id == textId)
+                inside = clip.matteClipId == labelId && clip.matteKeepsSource;
+        }
+    }
+    QVERIFY(inside);
+
     // The lower-third maker gives every piece an entrance and an exit (Jorge, 0.29).
     AppController maker(&library);
     maker.createLowerThird({{QStringLiteral("style"), QStringLiteral("line")},
