@@ -17247,6 +17247,14 @@ LA PROSSIMA</translation>
         <translation>Stile</translation>
     </message>
     <message>
+        <source>Second accent</source>
+        <translation>Secondo accento</translation>
+    </message>
+    <message>
+        <source>Third accent</source>
+        <translation>Terzo accento</translation>
+    </message>
+    <message>
         <source>Entrance</source>
         <translation>Entrata</translation>
     </message>

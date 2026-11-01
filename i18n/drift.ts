@@ -17243,6 +17243,14 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Second accent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Third accent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Entrance</source>
         <translation type="unfinished"></translation>
     </message>

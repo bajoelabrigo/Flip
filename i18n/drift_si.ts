@@ -17243,6 +17243,14 @@ NEXT TIME</source>
         <translation>විලාසය</translation>
     </message>
     <message>
+        <source>Second accent</source>
+        <translation>දෙවන උච්චාරණය</translation>
+    </message>
+    <message>
+        <source>Third accent</source>
+        <translation>තෙවන උච්චාරණය</translation>
+    </message>
+    <message>
         <source>Entrance</source>
         <translation>ඇතුළුවීම</translation>
     </message>

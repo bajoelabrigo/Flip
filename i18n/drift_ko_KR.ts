@@ -17184,6 +17184,14 @@ NEXT TIME</source>
         <translation>스타일</translation>
     </message>
     <message>
+        <source>Second accent</source>
+        <translation>두 번째 강조색</translation>
+    </message>
+    <message>
+        <source>Third accent</source>
+        <translation>세 번째 강조색</translation>
+    </message>
+    <message>
         <source>Entrance</source>
         <translation>등장</translation>
     </message>

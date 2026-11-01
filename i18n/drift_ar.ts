@@ -17499,6 +17499,14 @@ NEXT TIME</source>
         <translation>النمط</translation>
     </message>
     <message>
+        <source>Second accent</source>
+        <translation>لون مميز ثانٍ</translation>
+    </message>
+    <message>
+        <source>Third accent</source>
+        <translation>لون مميز ثالث</translation>
+    </message>
+    <message>
         <source>Entrance</source>
         <translation>الدخول</translation>
     </message>

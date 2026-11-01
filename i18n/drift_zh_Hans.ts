@@ -17184,6 +17184,14 @@ NEXT TIME</source>
         <translation>样式</translation>
     </message>
     <message>
+        <source>Second accent</source>
+        <translation>第二强调色</translation>
+    </message>
+    <message>
+        <source>Third accent</source>
+        <translation>第三强调色</translation>
+    </message>
+    <message>
         <source>Entrance</source>
         <translation>入场</translation>
     </message>

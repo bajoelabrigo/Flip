@@ -17243,6 +17243,14 @@ NEXT TIME</source>
         <translation>স্টাইল</translation>
     </message>
     <message>
+        <source>Second accent</source>
+        <translation>দ্বিতীয় অ্যাকসেন্ট</translation>
+    </message>
+    <message>
+        <source>Third accent</source>
+        <translation>তৃতীয় অ্যাকসেন্ট</translation>
+    </message>
+    <message>
         <source>Entrance</source>
         <translation>প্রবেশ</translation>
     </message>

@@ -17249,6 +17249,14 @@ PROCHAINE</translation>
         <translation>Style</translation>
     </message>
     <message>
+        <source>Second accent</source>
+        <translation>Deuxième accent</translation>
+    </message>
+    <message>
+        <source>Third accent</source>
+        <translation>Troisième accent</translation>
+    </message>
+    <message>
         <source>Entrance</source>
         <translation>Entrée</translation>
     </message>

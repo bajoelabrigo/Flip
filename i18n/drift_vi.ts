@@ -17184,6 +17184,14 @@ LẦN SAU</translation>
         <translation>Kiểu</translation>
     </message>
     <message>
+        <source>Second accent</source>
+        <translation>Màu nhấn thứ hai</translation>
+    </message>
+    <message>
+        <source>Third accent</source>
+        <translation>Màu nhấn thứ ba</translation>
+    </message>
+    <message>
         <source>Entrance</source>
         <translation>Vào</translation>
     </message>

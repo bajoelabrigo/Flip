@@ -17247,6 +17247,14 @@ PRÓXIMA</translation>
         <translation>Estilo</translation>
     </message>
     <message>
+        <source>Second accent</source>
+        <translation>Segundo destaque</translation>
+    </message>
+    <message>
+        <source>Third accent</source>
+        <translation>Terceiro destaque</translation>
+    </message>
+    <message>
         <source>Entrance</source>
         <translation>Entrada</translation>
     </message>

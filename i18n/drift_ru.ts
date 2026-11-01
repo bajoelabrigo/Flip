@@ -17310,6 +17310,14 @@ NEXT TIME</source>
         <translation>Стиль</translation>
     </message>
     <message>
+        <source>Second accent</source>
+        <translation>Второй акцент</translation>
+    </message>
+    <message>
+        <source>Third accent</source>
+        <translation>Третий акцент</translation>
+    </message>
+    <message>
         <source>Entrance</source>
         <translation>Вход</translation>
     </message>

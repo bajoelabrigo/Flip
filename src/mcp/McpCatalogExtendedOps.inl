@@ -252,6 +252,8 @@
                         {QStringLiteral("accentColor"), stringProp(QStringLiteral("Accent colour"))},
                         {QStringLiteral("textColor"), stringProp(QStringLiteral("Text colour"))},
                         {QStringLiteral("seconds"), numberProp(QStringLiteral("Seconds on screen"))},
+                        {QStringLiteral("accent2Color"), stringProp(QStringLiteral("Optional second accent"))},
+                        {QStringLiteral("accent3Color"), stringProp(QStringLiteral("Optional third accent"))},
                         {QStringLiteral("entrance"), stringProp(QStringLiteral("auto|wipe|slide|pop|zoom|fade|none"))},
                         {QStringLiteral("exit"), stringProp(QStringLiteral("Same choices as entrance"))}},
                        {QStringLiteral("name")}) },

@@ -17243,6 +17243,14 @@ NEXT TIME</source>
         <translation>Estilo</translation>
     </message>
     <message>
+        <source>Second accent</source>
+        <translation>Ikalawang accent</translation>
+    </message>
+    <message>
+        <source>Third accent</source>
+        <translation>Ikatlong accent</translation>
+    </message>
+    <message>
         <source>Entrance</source>
         <translation>Pasok</translation>
     </message>

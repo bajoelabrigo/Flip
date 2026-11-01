@@ -23414,10 +23414,18 @@ void AppController::createLowerThird(const QVariantMap &o)
     int lt = -1;
     int lc = -1;
     const bool colourIn = entranceChoice == QLatin1String("auto") || entranceChoice == QLatin1String("wipe");
-    if (style == QLatin1String("twoColour") && colourIn && findClipById(m_project, label.id, &lt, &lc)) {
+    // Two more accents, optional (Jorge, 0.29): with them any style's label comes in with the colour wipe.
+    const auto extraAccent = [&](const char *key) {
+        const QString v = o.value(QLatin1String(key)).toString();
+        return QColor::isValidColorName(v) ? QColor(v).name() : QString();
+    };
+    const QString accent2 = extraAccent("accent2Color");
+    const QString accent3 = accent2.isEmpty() ? QString() : extraAccent("accent3Color");
+    const bool colourWipe = style == QLatin1String("twoColour") || !accent2.isEmpty();
+    if (colourWipe && colourIn && findClipById(m_project, label.id, &lt, &lc)) {
         const bool colourOut = exitChoice == QLatin1String("auto") || exitChoice == QLatin1String("wipe");
         selectClip(lt, lc);
-        twoColourWipe(accentColour.name(), 14, 0.0, QString(), QString(), colourOut);
+        twoColourWipe(accentColour.name(), 14, slanted ? 14.0 : 0.0, accent2, accent3, colourOut);
         if (!colourOut) {
             // Another exit: the label and its accent (the copy that fits the same text) leave together.
             QStringList ids;

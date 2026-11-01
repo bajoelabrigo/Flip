@@ -17310,6 +17310,14 @@ ZOBACZENIA</translation>
         <translation>Styl</translation>
     </message>
     <message>
+        <source>Second accent</source>
+        <translation>Drugi akcent</translation>
+    </message>
+    <message>
+        <source>Third accent</source>
+        <translation>Trzeci akcent</translation>
+    </message>
+    <message>
         <source>Entrance</source>
         <translation>Wejście</translation>
     </message>

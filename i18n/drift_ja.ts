@@ -17184,6 +17184,14 @@ NEXT TIME</source>
         <translation>スタイル</translation>
     </message>
     <message>
+        <source>Second accent</source>
+        <translation>2 つ目のアクセント</translation>
+    </message>
+    <message>
+        <source>Third accent</source>
+        <translation>3 つ目のアクセント</translation>
+    </message>
+    <message>
         <source>Entrance</source>
         <translation>登場</translation>
     </message>

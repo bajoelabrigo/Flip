@@ -16,6 +16,10 @@ ThemedDialog {
     property string labelColor: "#ffffffff"
     property string accentColor: "#fff5c518"
     property string textColor: "#ff1a1a1a"
+    property bool useAccent2: false
+    property bool useAccent3: false
+    property string accent2Color: "#ff2a9df4"
+    property string accent3Color: "#ffe63946"
     property string motionIn: "auto"
     property string motionOut: "auto"
     // How it comes in and goes out (Jorge, 0.29): Automatic is each style's own motion.
@@ -49,6 +53,8 @@ ThemedDialog {
         "labelColor": root.labelColor,
         "accentColor": root.accentColor,
         "textColor": root.textColor,
+        "accent2Color": root.useAccent2 ? root.accent2Color : "",
+        "accent3Color": root.useAccent2 && root.useAccent3 ? root.accent3Color : "",
         "entrance": root.motionIn,
         "exit": root.motionOut,
         "seconds": secondsField.value
@@ -70,6 +76,43 @@ ThemedDialog {
                     selected: root.style === modelData.id
                     onClicked: root.style = modelData.id
                 }
+            }
+        }
+
+        // Two more accents, optional: the label comes in after them in a colour wipe.
+        Row {
+            width: parent.width
+            spacing: Theme.spacingSm
+            ThemedSwitch {
+                anchors.verticalCenter: parent.verticalCenter
+                text: qsTr("Second accent")
+                checked: root.useAccent2
+                onToggled: {
+                    root.useAccent2 = checked
+                    if (!checked)
+                        root.useAccent3 = false
+                }
+            }
+            ColorSwatchField {
+                anchors.verticalCenter: parent.verticalCenter
+                visible: root.useAccent2
+                showHex: false
+                hex: root.accent2Color
+                onEdited: value => root.accent2Color = value
+            }
+            ThemedSwitch {
+                anchors.verticalCenter: parent.verticalCenter
+                visible: root.useAccent2
+                text: qsTr("Third accent")
+                checked: root.useAccent3
+                onToggled: root.useAccent3 = checked
+            }
+            ColorSwatchField {
+                anchors.verticalCenter: parent.verticalCenter
+                visible: root.useAccent2 && root.useAccent3
+                showHex: false
+                hex: root.accent3Color
+                onEdited: value => root.accent3Color = value
             }
         }
 

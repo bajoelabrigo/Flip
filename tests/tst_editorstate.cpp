@@ -4578,6 +4578,21 @@ void EditorStateTest::colourWipeTakesUpToThreeAccents()
             QCOMPARE(clip.animOut.kind, drift::ClipAnimKind::None);
         }
     }
+
+    // Two more accents, optional: any style's label comes in after them.
+    AppController accents(&library);
+    accents.createLowerThird({{QStringLiteral("style"), QStringLiteral("line")},
+                              {QStringLiteral("name"), QStringLiteral("Bo")},
+                              {QStringLiteral("accent2Color"), QStringLiteral("#2a9df4")},
+                              {QStringLiteral("accent3Color"), QStringLiteral("#e63946")}});
+    int accentLayers = 0;
+    for (const drift::Track &track : accents.project()->tracks()) {
+        for (const drift::Clip &clip : track.clips) {
+            if (clip.type == drift::ClipType::Shape && clip.name.contains(QStringLiteral(" accent ")))
+                ++accentLayers;
+        }
+    }
+    QCOMPARE(accentLayers, 3);
 }
 
 void EditorStateTest::scaledSizeKeepsTheAnchorInPlace()
