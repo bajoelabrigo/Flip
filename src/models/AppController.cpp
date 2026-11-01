@@ -11889,8 +11889,13 @@ void AppController::applyCurveToPicked(const QVariantList &a, const QVariantList
     const QVariantMap target = curveTargetKeys();
     const int track = target.value(QStringLiteral("track")).toInt();
     const QVariantList keys = target.value(QStringLiteral("keys")).toList();
-    if (keys.isEmpty() || a.size() != 4)
+    if (a.size() != 4)
         return;
+    if (keys.isEmpty()) {
+        setLastMessage(tr("No keys to curve: pick keyframes on the timeline, or select a layer that has some"),
+                       QStringLiteral("warning"));
+        return;
+    }
     const bool fourKey = b.size() == 4;
     // The picked keys of each property in time order: every stretch they start takes a (or a, b
     // in turn).
@@ -11919,8 +11924,13 @@ void AppController::applyCurveToPicked(const QVariantList &a, const QVariantList
         setKeyframesCurve(track, withA, a.at(0).toDouble(), a.at(1).toDouble(), a.at(2).toDouble(), a.at(3).toDouble());
     if (!withB.isEmpty())
         setKeyframesCurve(track, withB, b.at(0).toDouble(), b.at(1).toDouble(), b.at(2).toDouble(), b.at(3).toDouble());
-    if (own)
+    if (own) {
         endEditSession(true);
+        // Say where it went (0.29: with no keys picked it was not clear what the curve had touched).
+        setLastMessage(tr("Curve applied to %n key(s)", "", int(keys.size())) + QStringLiteral(" · ")
+                           + tr("%n property(ies)", "", int(groups.size())),
+                       QStringLiteral("info"));
+    }
 }
 
 QString AppController::readTextFile(const QUrl &fileUrl) const

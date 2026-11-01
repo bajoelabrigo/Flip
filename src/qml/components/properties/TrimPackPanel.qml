@@ -1,5 +1,6 @@
 import QtQuick
 import QtQuick.Controls.Basic
+import QtCore
 import Drift
 import ".."
 
@@ -16,6 +17,16 @@ Column {
     property int copies: 4
     property bool reverse: false
     property bool animateOffset: false
+
+    // Kept between uses and sessions (0.29: back to 20 frames every time the panel opened).
+    Settings {
+        category: "trimPack"
+        property alias frames: root.frames
+        property alias offsetRange: root.offsetRange
+        property alias copies: root.copies
+        property alias reverse: root.reverse
+        property alias animateOffset: root.animateOffset
+    }
 
     function run(mode) {
         EditorState.applyTrimPack(mode, root.frames, root.offsetRange, root.copies, root.reverse, root.animateOffset)
