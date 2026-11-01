@@ -34988,7 +34988,18 @@ QVariantMap AppController::clipAnimationPreviewSample(const QString &presetId, d
     // A unit box: offsets come back as fractions of the card, blur in px of a 1080 frame.
     if (preset)
         drift::applyClipAnimationPreset(*preset, progress, 1.0, 1.0, 1080.0, &s);
-    return {{QStringLiteral("dx"), s.dx},
+    // A Linear Wipe (0.29) shows on the card as its edge: how much is hidden and at what angle.
+    double wipe = 0.0;
+    double wipeAngle = 0.0;
+    for (const drift::ClipAnimSampleEffect &e : std::as_const(s.effects)) {
+        if (e.effectId == QLatin1String("ae.linear_wipe")) {
+            wipe = e.params.value(QStringLiteral("completion"), 0.0);
+            wipeAngle = e.params.value(QStringLiteral("angle"), 0.0);
+        }
+    }
+    return {{QStringLiteral("wipe"), wipe},
+            {QStringLiteral("wipeAngle"), wipeAngle},
+            {QStringLiteral("dx"), s.dx},
             {QStringLiteral("dy"), s.dy},
             {QStringLiteral("scaleX"), s.scale * s.scaleX},
             {QStringLiteral("scaleY"), s.scale * s.scaleY},
