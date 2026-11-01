@@ -259,9 +259,12 @@ ThemedDialog {
             }
         }
 
-        // Solid: its colour.
+        // Solid: its colour. Kept (greyed) for None too (0.29): the dialog shrank and «Accept» jumped away from
+        // under the pointer.
         Column {
-            visible: root.kind === "solid"
+            visible: root.kind === "solid" || root.kind === "none"
+            enabled: root.kind === "solid"
+            opacity: enabled ? 1 : 0.4
             width: parent.width
             spacing: Theme.spacingXs
             ThemedLabel { text: qsTr("Colour") }
