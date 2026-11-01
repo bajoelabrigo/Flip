@@ -140,8 +140,11 @@ Column {
     // a binding depends on what it actually read, so a row with no keys never re-evaluates for
     // playback at all.
     function valueAtPlayhead() {
+        // No keys: the layer's own value, not the row's default (0.29: the diamond on Position Y keyed 0 and
+        // threw the layer to the top of the frame). Still independent of the playhead, so no re-evaluation.
         if (!liveSynced && (!keyframeList || keyframeList.length === 0))
-            return propDef.def
+            return EditorState.propertyValueAt(EditorState.selectedTrack, EditorState.selectedClip,
+                                               propDef.key, 0, propDef.def)
         return EditorState.propertyValueAt(EditorState.selectedTrack, EditorState.selectedClip,
                                            propDef.key, EditorState.inspectorPlayheadSeconds,
                                            propDef.def)
