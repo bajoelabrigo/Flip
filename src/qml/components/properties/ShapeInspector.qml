@@ -497,6 +497,60 @@ Item {
             }
         }
 
+        // ----- Fit to a text (0.29, lower thirds) ----------------------------
+        CollapsibleSection {
+            visible: root.showShapeSections && !root.editingPart
+            width: parent.width
+            title: qsTr("Fit to a text")
+
+            Column {
+                width: parent.width
+                spacing: Theme.spacingSm
+                readonly property var options: { void EditorState.tracksRevision; return EditorState.textLayerOptions() }
+                readonly property string current: root.clipData.fitTextId || ""
+                ThemedLabel {
+                    width: parent.width
+                    wrapMode: Text.WordWrap
+                    size: "sm"
+                    opacity: 0.8
+                    text: qsTr("The shape takes the text's size plus the margin, and grows when the words change: a label for a name.")
+                }
+                ThemedComboBox {
+                    width: parent.width
+                    model: [qsTr("None")].concat(parent.options.map(o => o.name))
+                    currentIndex: Math.max(0, parent.options.findIndex(o => o.id === parent.current) + 1)
+                    onActivated: index => EditorState.setShapeFitText(EditorState.selectedTrack, EditorState.selectedClip,
+                                                                      index > 0 ? parent.options[index - 1].id : "",
+                                                                      root.clipData.fitPadX || 32, root.clipData.fitPadY || 16)
+                }
+                Row {
+                    visible: parent.current.length > 0
+                    width: parent.width
+                    spacing: Theme.spacingSm
+                    ThemedLabel { anchors.verticalCenter: parent.verticalCenter; text: qsTr("Margin across"); size: "sm" }
+                    ThemedNumberField {
+                        width: 70
+                        from: 0
+                        to: 2000
+                        unit: "px"
+                        value: root.clipData.fitPadX || 0
+                        onEdited: v => EditorState.setShapeFitText(EditorState.selectedTrack, EditorState.selectedClip,
+                                                                   root.clipData.fitTextId, v, root.clipData.fitPadY || 0)
+                    }
+                    ThemedLabel { anchors.verticalCenter: parent.verticalCenter; text: qsTr("up and down"); size: "sm" }
+                    ThemedNumberField {
+                        width: 70
+                        from: 0
+                        to: 2000
+                        unit: "px"
+                        value: root.clipData.fitPadY || 0
+                        onEdited: v => EditorState.setShapeFitText(EditorState.selectedTrack, EditorState.selectedClip,
+                                                                   root.clipData.fitTextId, root.clipData.fitPadX || 0, v)
+                    }
+                }
+            }
+        }
+
         // ----- Geometry ---------------------------------------------------
         CollapsibleSection {
             visible: root.showShapeSections

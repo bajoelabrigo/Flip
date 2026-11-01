@@ -131,6 +131,11 @@ struct Clip
     // the scale was first split, or set again with «This size is 100 %». 0 = not set.
     double scaleRefW = 0.0;
     double scaleRefH = 0.0;
+    // A label that fits a text (0.29, lower thirds): this shape is that text's box plus a margin, and follows it
+    // when the words change. Empty = free.
+    QString fitTextId;
+    double fitPadX = 32.0;
+    double fitPadY = 16.0;
     // After Effects' Null Object (0.26): a shape that draws nothing, only its frame while selected,
     // there to be a parent the other layers follow.
     bool nullObject = false;

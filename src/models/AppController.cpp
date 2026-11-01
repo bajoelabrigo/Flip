@@ -5039,6 +5039,9 @@ QVariantMap AppController::clipToMap(const drift::Clip &clip, const drift::Clip 
         {QStringLiteral("filmstripPath"), clip.filmstripPath},
         {QStringLiteral("textContent"), clip.textContent},
         {QStringLiteral("scaleRefW"), clip.scaleRefW},
+        {QStringLiteral("fitTextId"), clip.fitTextId},
+        {QStringLiteral("fitPadX"), clip.fitPadX},
+        {QStringLiteral("fitPadY"), clip.fitPadY},
         {QStringLiteral("insideBelow"), clip.matteKeepsSource && !clip.matteClipId.isEmpty()},
         {QStringLiteral("scaleRefH"), clip.scaleRefH},
         {QStringLiteral("textStyle"), textStyleToMap(clip.textStyle, clip.timelineStart)},
@@ -14507,7 +14510,41 @@ void AppController::normalizeProjectStructure(const drift::Project *before)
     drift::normalizeCameraLayers(m_project.tracks());
     m_project.ensureTrackIds();
     clampStoredTransitionDurations(m_project);
+    fitLabelsToTexts(m_project);
     restoreSelectionByTrackId(selection);
+}
+
+// Lower thirds (0.29): every label tied to a text takes the text's box plus its margin, so a longer name grows
+// it. A label whose own box is animated is left alone (its keys would fight the fit).
+void AppController::fitLabelsToTexts(drift::Project &project) const
+{
+    QHash<QString, QRectF> textBoxes;
+    for (const drift::Track &track : project.tracks()) {
+        for (const drift::Clip &clip : track.clips) {
+            if (clip.type != drift::ClipType::Text)
+                continue;
+            const auto first = [](const drift::KeyframeTrack<double> &kt, double fallback) {
+                return kt.isEmpty() ? fallback : kt.keyframes().first().value;
+            };
+            textBoxes.insert(clip.id, QRectF(first(clip.transformX, 0.0), first(clip.transformY, 0.0),
+                                             first(clip.transformW, project.width()),
+                                             first(clip.transformH, project.height())));
+        }
+    }
+    if (textBoxes.isEmpty())
+        return;
+    for (drift::Track &track : project.tracks()) {
+        for (drift::Clip &clip : track.clips) {
+            if (clip.fitTextId.isEmpty() || clip.type != drift::ClipType::Shape || !textBoxes.contains(clip.fitTextId))
+                continue;
+            if (clip.transformX.keyframes().size() > 1 || clip.transformY.keyframes().size() > 1
+                || clip.transformW.keyframes().size() > 1 || clip.transformH.keyframes().size() > 1)
+                continue;
+            const QRectF t = textBoxes.value(clip.fitTextId);
+            setClipLayoutPixels(clip, t.x() - clip.fitPadX, t.y() - clip.fitPadY, t.width() + 2.0 * clip.fitPadX,
+                                t.height() + 2.0 * clip.fitPadY);
+        }
+    }
 }
 
 // Projects saved before overlap stopped minting crossfades can carry a transition whose stored
@@ -23158,6 +23195,70 @@ bool AppController::showInsideLayerBelow(int trackIndex, int clipIndex)
     finishEdit(tr("Show inside the layer below"));
     setLastMessage(tr("Shown only inside “%1”").arg(belowName), QStringLiteral("info"));
     return true;
+}
+
+QString AppController::makeLabelForText(int trackIndex, int clipIndex)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex)
+        || m_project.tracks().at(trackIndex).clips.at(clipIndex).type != drift::ClipType::Text) {
+        setLastMessage(tr("Select a text to put a label under it"), QStringLiteral("warning"));
+        return {};
+    }
+    const drift::Clip text = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    const drift::Project before = m_project;
+    // On a track right under the text's, for the same time.
+    const int target = qMin(int(m_project.tracks().size()), trackIndex + 1);
+    m_project.tracks().insert(target, drift::Track{.type = drift::trackTypeForClipType(drift::ClipType::Shape)});
+    drift::Clip label;
+    label.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
+    label.type = drift::ClipType::Shape;
+    label.name = tr("Label · %1").arg(text.name.left(24));
+    label.shapeStyle.kind = drift::ShapeKind::Rectangle;
+    QString fill = m_preview ? m_preview->toolFill() : QString();
+    if (!QColor::isValidColorName(fill))
+        fill = QStringLiteral("#ffffff");
+    paintDrawnShape(label.shapeStyle, fill, QStringLiteral("none"), 0.0);
+    label.timelineStart = text.timelineStart;
+    label.timelineDuration = text.timelineDuration;
+    label.srcIn = 0;
+    label.srcOut = text.timelineDuration;
+    label.fitTextId = text.id;
+    setClipLayoutPixels(label, 0, 0, 10, 10);
+    m_project.tracks()[target].clips.append(label);
+    pushProjectEdit(before, tr("Label for the text"));
+    finishEdit(tr("Label for the text"));
+    int t = -1;
+    int c = -1;
+    if (findClipById(m_project, label.id, &t, &c))
+        selectClip(t, c);
+    return label.id;
+}
+
+void AppController::setShapeFitText(int trackIndex, int clipIndex, const QString &textId, double padX, double padY)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return;
+    const drift::Project before = m_project;
+    drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
+    if (clip.type != drift::ClipType::Shape)
+        return;
+    clip.fitTextId = textId;
+    clip.fitPadX = qBound(0.0, padX, 2000.0);
+    clip.fitPadY = qBound(0.0, padY, 2000.0);
+    pushProjectEdit(before, tr("Fit to text"));
+    finishEdit(tr("Fit to text"));
+}
+
+QVariantList AppController::textLayerOptions() const
+{
+    QVariantList out;
+    for (const drift::Track &track : m_project.tracks()) {
+        for (const drift::Clip &clip : track.clips) {
+            if (clip.type == drift::ClipType::Text)
+                out.append(QVariantMap{{QStringLiteral("id"), clip.id}, {QStringLiteral("name"), clip.name}});
+        }
+    }
+    return out;
 }
 
 void AppController::setClipScaleReference(int trackIndex, int clipIndex, double width, double height)

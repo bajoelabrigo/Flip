@@ -552,6 +552,12 @@ Item {
                 visible: clipItem.clipData.kind === "audio"
                 onTriggered: EditorState.fitClipToVideoLength(clipItem.trackIndex, clipItem.clipIndex)
             }
+            // Lower thirds (0.29): a label that fits the words and grows with them.
+            ThemedMenuItem {
+                text: qsTr("Make a label for this text")
+                visible: clipItem.clipData.kind === "text"
+                onTriggered: EditorState.makeLabelForText(clipItem.trackIndex, clipItem.clipIndex)
+            }
             // Lower thirds (0.29): the name only inside its label, the label still drawn.
             ThemedMenuItem {
                 text: clipItem.clipData.insideBelow ? qsTr("Show whole again")

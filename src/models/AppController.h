@@ -1740,6 +1740,13 @@ public:
     // picked layers' boxes up with each other (one layer: with the frame); "distH" / "distV" space three or more
     // evenly between the outer two. The whole movement shifts (every key), so an animation keeps its shape.
     Q_INVOKABLE void alignSelected(const QString &mode);
+    // Lower thirds (0.29): a label under the text, its box plus a margin, tied to it (it grows with the words), in
+    // the toolbar's fill colour. Returns the label's id.
+    Q_INVOKABLE QString makeLabelForText(int trackIndex, int clipIndex);
+    // Ties a shape to a text (empty id: frees it) with that margin, or changes the margin.
+    Q_INVOKABLE void setShapeFitText(int trackIndex, int clipIndex, const QString &textId, double padX, double padY);
+    // The text layers a label can fit: [{id, name}].
+    Q_INVOKABLE QVariantList textLayerOptions() const;
     Q_INVOKABLE bool traceUi() const { return qEnvironmentVariableIsSet("FLIP_TRACE_CLICKS"); }
     Q_INVOKABLE void removeKeyframes(int trackIndex, const QVariantList &keys);
     // Every key of every animated property of a clip between two timeline times (0.29: a jump wrote six
@@ -2756,6 +2763,7 @@ protected:
     // is no longer able to hold them.
     void normalizeAdjustmentLanes(drift::Project &project) const;
     void clampStoredTransitionDurations(drift::Project &project) const;
+    void fitLabelsToTexts(drift::Project &project) const;
 
     // Selection survives a track-list reshuffle by id rather than index arithmetic: a move now
     // drags a track's lanes with it, so the destination index no longer says where things landed.

@@ -332,6 +332,10 @@ QJsonObject clipToJson(const Clip &clip)
         {QStringLiteral("effects"), effectsToJson(clip.effects)},
         {QStringLiteral("audioEffects"), effectsToJson(clip.audioEffects)},
     };
+    if (!clip.fitTextId.isEmpty())
+        json.insert(QStringLiteral("fitText"), QJsonObject{{QStringLiteral("id"), clip.fitTextId},
+                                                           {QStringLiteral("padX"), clip.fitPadX},
+                                                           {QStringLiteral("padY"), clip.fitPadY}});
     if (clip.scaleRefW > 0.0 && clip.scaleRefH > 0.0) {
         json.insert(QStringLiteral("scaleRefW"), clip.scaleRefW);
         json.insert(QStringLiteral("scaleRefH"), clip.scaleRefH);
@@ -475,6 +479,12 @@ Clip clipFromJsonV2(const QJsonObject &object, int canvasW = 1920, int canvasH =
     clip.linkLoose = object.value(QStringLiteral("linkLoose")).toBool(false);
     clip.suppressEmbeddedAudio = object.value(QStringLiteral("suppressEmbeddedAudio")).toBool(false);
     clip.isSolid = object.value(QStringLiteral("solid")).toBool(false);
+    {
+        const QJsonObject fit = object.value(QStringLiteral("fitText")).toObject();
+        clip.fitTextId = fit.value(QStringLiteral("id")).toString();
+        clip.fitPadX = fit.value(QStringLiteral("padX")).toDouble(32.0);
+        clip.fitPadY = fit.value(QStringLiteral("padY")).toDouble(16.0);
+    }
     clip.scaleRefW = object.value(QStringLiteral("scaleRefW")).toDouble(0.0);
     clip.scaleRefH = object.value(QStringLiteral("scaleRefH")).toDouble(0.0);
     if (object.contains(QStringLiteral("timeRemap")))
