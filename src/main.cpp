@@ -238,8 +238,7 @@ protected:
         const QPointF pos = mouse->scenePosition();
         if (t == QEvent::MouseButtonPress) {
             qInfo().noquote() << "[click] press" << pos << "focus:" << describe(window->activeFocusItem())
-                              << "
-  under:" << stackAt(window->contentItem(), pos);
+                              << "\n  under:" << stackAt(window->contentItem(), pos);
             // Who took it, once the press has been delivered.
             QPointer<QQuickWindow> w(window);
             QTimer::singleShot(0, window, [w, pos] {
