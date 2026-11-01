@@ -1288,7 +1288,10 @@ public:
     // later, fainter; `slices` > 1 cuts each flying layer into that many bands (Super Morphings'
     // Slicer) that fly apart a little and turn on their own; `arc` bends the flight (0 = straight),
     // `spin` turns it (degrees).
-    Q_INVOKABLE void morphLayers(double seconds, int trails, double arc, double spin, int slices = 1);
+    // `targetVisible` (0.29, Jorge): the target is on screen the whole time and the others fly into it,
+    // instead of appearing at the cut.
+    Q_INVOKABLE void morphLayers(double seconds, int trails, double arc, double spin, int slices = 1,
+                                 bool targetVisible = false);
     // Liquid trail (Super Liquids): the primary selected layer moves; any other selected shape
     // layers are the elements it throws (copies of them, picked at random; with none, round
     // drops). Wherever it moves faster than `threshold` px/s, `perFrame` elements a frame come off it
@@ -1303,8 +1306,10 @@ public:
     // Liquid line: the selected shape's outline becomes a stream of liquid running along it from the
     // playhead over `seconds`: `length` of the path long (0..1), `width` px at its thickest, its edges
     // torn by `roughness` (0..1) and changing every frame.
+    // `reveal` (0.29): the line itself is drawn on behind the stream's head (its Trim end keyed), instead of
+    // being there whole from the first frame.
     Q_INVOKABLE void generateLiquidLine(double seconds, double width, double length, double roughness,
-                                        const QString &color);
+                                        const QString &color, bool reveal = true);
     // Motion Tools › Trim (0.26, as the Trim-Pack script): Trim Paths animations on the selected
     // shapes (and the strokes of selected texts, every letter at once), `frames` long from the
     // playhead. Modes: "in" (draws on), "out" (draws off), "inout" (in from the playhead, out at the

@@ -32611,7 +32611,7 @@ QString ellipseContour(double cx, double cy, double a, double b, double angle, d
 
 } // namespace
 
-void AppController::morphLayers(double seconds, int trails, double arc, double spin, int slices)
+void AppController::morphLayers(double seconds, int trails, double arc, double spin, int slices, bool targetVisible)
 {
     QStringList ids;
     for (const QPair<int, int> &ref : std::as_const(m_selection)) {
@@ -32838,11 +32838,23 @@ void AppController::morphLayers(double seconds, int trails, double arc, double s
         const drift::TimeUs settle = drift::secondsToUs(0.32);
         if (stillKind(target) && target.timelineEnd() < t1 + settle)
             target.timelineDuration = t1 + settle - target.timelineStart;
-        QList<std::tuple<drift::TimeUs, double, drift::Interpolation>> opacity;
-        if (target.timelineStart < t1)
-            opacity.append({target.timelineStart, 0.0, I::Hold});
-        opacity.append({t1, goal.opacity, I::Hold});
-        keyAll(target, QStringLiteral("opacity"), opacity);
+        if (targetVisible) {
+            // On screen all along: it starts where the others fly to, so no opacity keys (a hidden
+            // stretch left by an earlier morph is cleared).
+            if (drift::KeyframeTrack<double> *kt = keyframeTrackForProp(target, QStringLiteral("opacity"), false)) {
+                const drift::TimeUs to = t1 - target.timelineStart;
+                for (const drift::TimeUs k : kt->keyframes().keys()) {
+                    if (k <= to && kt->keyframes().value(k).value <= 0.0)
+                        kt->removeKeyframe(k);
+                }
+            }
+        } else {
+            QList<std::tuple<drift::TimeUs, double, drift::Interpolation>> opacity;
+            if (target.timelineStart < t1)
+                opacity.append({target.timelineStart, 0.0, I::Hold});
+            opacity.append({t1, goal.opacity, I::Hold});
+            keyAll(target, QStringLiteral("opacity"), opacity);
+        }
         const double side = ids.size() % 2 == 0 ? -1.0 : 1.0;
         keyBox(target, {{t1, goal.cx, goal.cy, goal.w * 1.18, goal.h * 1.18, I::Ease},
                         {t1 + settle / 2, goal.cx, goal.cy, goal.w * 0.96, goal.h * 0.96, I::Ease},
@@ -33077,7 +33089,7 @@ void AppController::generateLiquidTrail(const QVariantMap &options)
 }
 
 void AppController::generateLiquidLine(double seconds, double width, double length, double roughness,
-                                       const QString &color)
+                                       const QString &color, bool reveal)
 {
     if (!isValidClipIndex(m_selectedTrack, m_selectedClip)
         || m_project.tracks().at(m_selectedTrack).clips.at(m_selectedClip).type != drift::ClipType::Shape) {
@@ -33169,6 +33181,24 @@ void AppController::generateLiquidLine(double seconds, double width, double leng
 
     beginEditSession(tr("Liquid line"));
     const drift::Project before = m_project;
+    if (reveal) {
+        // The line grows behind the head: its Trim end follows the head frame by frame, from nothing at the
+        // playhead to whole when the stream has run off its end.
+        drift::Clip &line = m_project.tracks()[m_selectedTrack].clips[m_selectedClip];
+        if (drift::KeyframeTrack<double> *trim = keyframeTrackForProp(line, QStringLiteral("shape.trimEnd"), true)) {
+            const drift::TimeUs base = m_playheadUs - line.timelineStart;
+            for (const drift::TimeUs k : trim->keyframes().keys())
+                trim->removeKeyframe(k);
+            for (int f = 0; f <= frames; ++f) {
+                const double p = double(f) / frames;
+                const double eased = p < 0.5 ? 4 * p * p * p : 1 - std::pow(-2 * p + 2, 3) / 2;
+                const drift::TimeUs at = qMax<drift::TimeUs>(0, base + drift::secondsToUs(double(f) / fps));
+                trim->setKeyframe(at, qMin(1.0, eased * (1.0 + len)) * 100.0);
+                trim->setEasing(at, drift::Interpolation::Linear);
+            }
+            trim->setStopwatch(true);
+        }
+    }
     drift::Clip clip;
     clip.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
     clip.type = drift::ClipType::Shape;
