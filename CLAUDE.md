@@ -55,7 +55,25 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 
 ---
 
-## Estado (actualizado 2026-10-31)
+## Estado (actualizado 2026-11-01)
+
+### 0.29.0 PUBLICADA (2026-11-01) — tercios inferiores fáciles y animación a mano como AE — **detalle en `docs/plan-0.29.md`**
+- PRs #49 y #50 (`flip/v0.29-tutorial` → `main`), tag `v0.29.0`, release (run 41288201475); copia en `versiones\FlipStudio-0.29.0`;
+  MSIX `msstore.yml` run 41294173565 → `tienda\FlipStudio-Store\paquete-0.29.0`. Notas de la Store: «Notas para la Store
+  (0.29.0, combinadas)» (la 0.28.0 no se subió; cubren 0.27 + 0.28 + 0.29). Novedades en la web.
+- **Falta (Jorge):** subir el MSIX con esas notas y TXT `version` = 0.29.0.
+- **Stock (2026-11-01):** 37 tercios `llt-*`, `llt2-*`, `llt3-*` con `minAppVersion` 0.29.0, en 13 idiomas (1531 en vivo);
+  antes, extras `fonts.basic` 1.1.0 y `fonts.extra` 1.2.0. Subido con `publish.py` + `publish_delta.py` + `apply_delta.sh`.
+- Pruebas: 17 proyectos en `pruebas\proyectos-029c` (con el mouse y por MCP con `pruebas\mcp029un029.py`).
+- **Trampa nueva:** en el lienzo, cada caja bajo el puntero recibía el toque y ganaba la de abajo (un sólido de cuadro
+  completo se tragaba los clics del tercio). Ahora solo responde la capa de arriba (`clipAtCanvasPoint`) y el arrastre
+  lo toma la caja de arriba en z y lo entrega a la de arriba en el punto (`TransformOverlay.handleFor`).
+- **Trampa nueva:** en un `Popup`/diálogo no se puede llamar `exit` (ni `enter`) a una propiedad: son sus transiciones.
+- **Trampa nueva:** el arrastre que decide con un `HoverHandler` no sirve para cajas tapadas por la elegida (z 900):
+  el «hover» no les llega. Decidir en el momento de apretar.
+- **Trampa nueva:** el catálogo MCP tiene un presupuesto de tamaño (`catalogOpsIncludeWhen`, ahora < 21700): al añadir
+  herramientas, subirlo.
+
 
 ### 0.28.0 PUBLICADA (2026-10-31) — formas como After Effects — **detalle en `docs/plan-0.28.md`**
 - PR #48 (`flip/v0.28` → `main`), tag `v0.28.0`, release (run 41168622684); copia en `versiones\FlipStudio-0.28.0`
