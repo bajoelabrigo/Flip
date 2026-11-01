@@ -23197,6 +23197,160 @@ bool AppController::showInsideLayerBelow(int trackIndex, int clipIndex)
     return true;
 }
 
+void AppController::createLowerThird(const QVariantMap &o)
+{
+    const QString style = o.value(QStringLiteral("style"), QStringLiteral("line")).toString();
+    const QString name = o.value(QStringLiteral("name")).toString().trimmed().isEmpty()
+                             ? tr("Your name") : o.value(QStringLiteral("name")).toString().trimmed();
+    const QString role = o.value(QStringLiteral("role")).toString().trimmed();
+    const auto colour = [&](const char *key, const char *fallback) {
+        const QString v = o.value(QLatin1String(key)).toString();
+        return QColor::isValidColorName(v) ? QColor(v) : QColor(QLatin1String(fallback));
+    };
+    const QColor labelColour = colour("labelColor", "#ffffff");
+    const QColor accentColour = colour("accentColor", "#f5c518");
+    const QColor textColour = colour("textColor", "#1a1a1a");
+    const QColor roleColour = colour("roleColor", style == QLatin1String("roleBar") ? "#1a1a1a" : "#555555");
+    const double W = m_project.width();
+    const double H = m_project.height();
+    const double u = H / 1080.0; // sizes are designed at 1080 lines
+    const drift::TimeUs start = m_playheadUs;
+    const drift::TimeUs length = drift::secondsToUs(qBound(1.0, o.value(QStringLiteral("seconds"), 5.0).toDouble(), 60.0));
+    const int fps = qMax(1, m_project.fps());
+    const auto frames = [&](int n) { return drift::secondsToUs(double(n) / fps); };
+    const bool slanted = style == QLatin1String("slanted");
+
+    beginEditSession(tr("Lower third"));
+    const drift::Project before = m_project;
+
+    const auto newClip = [&](drift::ClipType type, const QString &clipName, drift::TimeUs delay) {
+        drift::Clip clip;
+        clip.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
+        clip.type = type;
+        clip.name = clipName;
+        clip.timelineStart = start + delay;
+        clip.timelineDuration = length - delay;
+        clip.srcIn = 0;
+        clip.srcOut = clip.timelineDuration;
+        return clip;
+    };
+    const auto makeText = [&](const QString &words, double px, int weight, const QColor &c, double x, double y,
+                              drift::TimeUs delay) {
+        drift::Clip clip = newClip(drift::ClipType::Text, words.left(32), delay);
+        clip.textContent = words;
+        clip.textStyle.pixelSize = px;
+        clip.textStyle.fontWeight = weight;
+        drift::setSolidFill(clip.textStyle, c);
+        applyDefaultVisualLayout(clip, m_project.width(), m_project.height());
+        clip.textAutoFit = true;
+        placeFittedTextBox(clip, m_project.width(), m_project.height());
+        const double w = clip.transformW.isEmpty() ? W : clip.transformW.evaluateAt(0);
+        const double h = clip.transformH.isEmpty() ? H : clip.transformH.evaluateAt(0);
+        setClipLayoutPixels(clip, x, y, w, h);
+        return clip;
+    };
+    const auto makeRect = [&](const QString &clipName, const QColor &c, double x, double y, double w, double h,
+                              drift::TimeUs delay) {
+        drift::Clip clip = newClip(drift::ClipType::Shape, clipName, delay);
+        clip.shapeStyle.kind = drift::ShapeKind::Rectangle;
+        paintDrawnShape(clip.shapeStyle, c.name(QColor::HexArgb), QStringLiteral("none"), 0.0);
+        if (slanted)
+            clip.shapeStyle.skew = 14.0;
+        setClipLayoutPixels(clip, x, y, w, h);
+        return clip;
+    };
+
+    const double left = W * 0.1;
+    const double nameY = H * 0.72;
+    const double namePx = std::round(64.0 * u);
+    const double rolePx = std::round(34.0 * u);
+    const drift::Clip nameClip = makeText(name, namePx, 700, textColour, left + 30.0 * u, nameY, frames(6));
+    const double nameH = nameClip.transformH.evaluateAt(0);
+    const bool hasRole = !role.isEmpty();
+    drift::Clip roleClip;
+    if (hasRole)
+        roleClip = makeText(role, rolePx, 500, roleColour, left + 30.0 * u, nameY + nameH + 22.0 * u, frames(12));
+    // The label under the name, tied to it; for the role bar, a second label under the role.
+    drift::Clip label = makeRect(tr("Label"), labelColour, 0, 0, 10, 10, 0);
+    label.fitTextId = nameClip.id;
+    label.fitPadX = 30.0 * u;
+    label.fitPadY = 14.0 * u;
+    const bool roleBar = hasRole && style == QLatin1String("roleBar");
+    drift::Clip roleLabel;
+    if (roleBar) {
+        roleLabel = makeRect(tr("Role bar"), accentColour, 0, 0, 10, 10, frames(8));
+        roleLabel.fitTextId = roleClip.id;
+        roleLabel.fitPadX = 30.0 * u;
+        roleLabel.fitPadY = 8.0 * u;
+    }
+    const bool hasLine = style == QLatin1String("line") || slanted;
+    drift::Clip line;
+    if (hasLine) {
+        const double top = nameY - 14.0 * u;
+        const double bottom = hasRole ? nameY + nameH + 22.0 * u + rolePx * 1.4 : nameY + nameH + 14.0 * u;
+        line = makeRect(tr("Line"), accentColour, left - 14.0 * u, top, 10.0 * u, bottom - top, 0);
+    }
+
+    // Top to bottom: role, name, role bar, label, line.
+    QList<drift::Clip> stack;
+    if (hasRole)
+        stack << roleClip;
+    stack << nameClip;
+    if (roleBar)
+        stack << roleLabel;
+    stack << label;
+    if (hasLine)
+        stack << line;
+    for (int i = stack.size() - 1; i >= 0; --i) {
+        const int t = drift::insertTrackAtTopForClipType(m_project, stack.at(i).type);
+        m_project.tracks()[t].clips.append(stack.at(i));
+    }
+    fitLabelsToTexts(m_project);
+    // Name and role only inside their labels, which stay drawn: the texts rise into them.
+    const auto inside = [&](const QString &textId, const QString &labelId) {
+        int t = -1;
+        int c = -1;
+        if (!findClipById(m_project, textId, &t, &c))
+            return;
+        drift::Clip &clip = m_project.tracks()[t].clips[c];
+        clip.matteClipId = labelId;
+        clip.matteMode = drift::Clip::TrackMatte::Alpha;
+        clip.matteKeepsSource = true;
+    };
+    inside(nameClip.id, label.id);
+    if (roleBar)
+        inside(roleClip.id, roleLabel.id);
+    m_project.ensureTrackIds();
+    pushProjectEdit(before, tr("Lower third"));
+
+    const auto entrance = [&](const QString &id, const QString &preset) {
+        int t = -1;
+        int c = -1;
+        if (findClipById(m_project, id, &t, &c))
+            setClipAnimation(t, c, QStringLiteral("in"), QVariantMap{{QStringLiteral("preset"), preset}});
+    };
+    entrance(nameClip.id, QStringLiteral("in-slide-up"));
+    if (hasRole)
+        entrance(roleClip.id, roleBar ? QStringLiteral("in-slide-up") : QStringLiteral("in-wipe-left"));
+    if (hasLine)
+        entrance(line.id, QStringLiteral("in-wipe-up"));
+    if (roleBar)
+        entrance(roleLabel.id, QStringLiteral("in-wipe-left"));
+    int lt = -1;
+    int lc = -1;
+    if (style == QLatin1String("twoColour") && findClipById(m_project, label.id, &lt, &lc)) {
+        selectClip(lt, lc);
+        twoColourWipe(accentColour.name(), 14, 0.0);
+    } else {
+        entrance(label.id, slanted ? QStringLiteral("in-wipe-slant") : QStringLiteral("in-wipe-left"));
+    }
+    finishEdit(tr("Lower third"));
+    endEditSession(true);
+    if (findClipById(m_project, nameClip.id, &lt, &lc))
+        selectClip(lt, lc);
+    setLastMessage(tr("Lower third added: every piece is a layer you can edit"), QStringLiteral("info"));
+}
+
 void AppController::twoColourWipe(const QString &accentColor, int frames, double angle)
 {
     if (!isValidClipIndex(m_selectedTrack, m_selectedClip)
@@ -23208,7 +23362,10 @@ void AppController::twoColourWipe(const QString &accentColor, int frames, double
     const int fps = qMax(1, m_project.fps());
     const drift::TimeUs span = drift::secondsToUs(double(qMax(2, frames)) / fps);
     const drift::TimeUs lag = span * 45 / 100;
-    beginEditSession(tr("Two-colour wipe"));
+    // Inside the lower-third maker's own session it joins that one (a second begin would close it).
+    const bool ownSession = !m_editSessionOpen;
+    if (ownSession)
+        beginEditSession(tr("Two-colour wipe"));
     const drift::Project before = m_project;
     const drift::Clip base = m_project.tracks().at(m_selectedTrack).clips.at(m_selectedClip);
     drift::Clip under = base;
@@ -23264,7 +23421,8 @@ void AppController::twoColourWipe(const QString &accentColor, int frames, double
     wipe(under.id, from);
     wipe(base.id, from + lag);
     finishEdit(tr("Two-colour wipe"));
-    endEditSession(true);
+    if (ownSession)
+        endEditSession(true);
     int t = -1;
     int c = -1;
     if (findClipById(m_project, base.id, &t, &c))

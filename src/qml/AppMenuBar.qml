@@ -272,6 +272,10 @@ Row {
         }
     }
 
+    LowerThirdDialog {
+        id: lowerThirdDialog
+    }
+
     // --- Tools --------------------------------------------------------------------------------
     MenuButton {
         text: qsTr("Tools")
@@ -284,6 +288,13 @@ Row {
             readonly property bool compositeSelected: EditorState.selectedClipData
                                                       && EditorState.selectedClipData.kind === "composite"
 
+            // Lower-third maker (0.29, Jorge).
+            ThemedMenuItem {
+                text: qsTr("Lower third…")
+                enabled: root.editing
+                onTriggered: lowerThirdDialog.openFresh()
+            }
+            ThemedMenuSeparator {}
             ThemedMenuItem {
                 text: qsTr("Split")
                 shortcutText: root.keys("split")

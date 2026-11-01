@@ -1494,6 +1494,7 @@ qt_add_qml_module(drift
         src/qml/components/WorkspaceMenu.qml
         src/qml/components/FillOptionsDialog.qml
         src/qml/components/SolidDialog.qml
+        src/qml/components/LowerThirdDialog.qml
         src/qml/components/EmojiPicker.qml
         src/qml/components/ThemedButton.qml
         src/qml/components/ThemedChip.qml

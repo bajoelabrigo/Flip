@@ -1751,6 +1751,11 @@ public:
     // sweeps in from the left over `frames`, and the shape follows it in, a little later, ending on top in its own
     // colour (Linear Wipe keys on both). `angle` 0 = from the left; -14 leans like a slanted label. One undo step.
     Q_INVOKABLE void twoColourWipe(const QString &accentColor, int frames, double angle = 0.0);
+    // Lower-third maker (0.29, Jorge): editable layers at the playhead, built with the lower-third tools. Keys of
+    // `o`: style ("clean", "line", "slanted", "twoColour", "roleBar"), name, role, labelColor, accentColor,
+    // textColor, roleColor, seconds (on screen, default 5). The label fits the name (and grows with it), the
+    // name and role show only inside their labels, everything comes in in a cascade. One undo step.
+    Q_INVOKABLE void createLowerThird(const QVariantMap &o);
     Q_INVOKABLE bool traceUi() const { return qEnvironmentVariableIsSet("FLIP_TRACE_CLICKS"); }
     Q_INVOKABLE void removeKeyframes(int trackIndex, const QVariantList &keys);
     // Every key of every animated property of a clip between two timeline times (0.29: a jump wrote six
