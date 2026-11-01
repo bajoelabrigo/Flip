@@ -17132,6 +17132,18 @@ NEXT TIME</source>
         <translation>추가</translation>
     </message>
     <message>
+        <source>Left</source>
+        <translation>왼쪽</translation>
+    </message>
+    <message>
+        <source>Centre</source>
+        <translation>가운데</translation>
+    </message>
+    <message>
+        <source>Right</source>
+        <translation>오른쪽</translation>
+    </message>
+    <message>
         <source>Automatic</source>
         <translation>자동</translation>
     </message>
@@ -17198,6 +17210,10 @@ NEXT TIME</source>
     <message>
         <source>Exit</source>
         <translation>퇴장</translation>
+    </message>
+    <message>
+        <source>Alignment</source>
+        <translation>정렬</translation>
     </message>
     <message>
         <source>Name</source>

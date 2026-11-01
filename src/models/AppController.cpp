@@ -14559,6 +14559,14 @@ void AppController::fitLabelsToTexts(drift::Project &project) const
                 || clip.transformW.keyframes().size() > 1 || clip.transformH.keyframes().size() > 1)
                 continue;
             const QRectF t = textBoxes.value(clip.fitTextId);
+            if (clip.fitBarWidth != 0.0) {
+                // A bar beside the text: it keeps its width and follows the label's height; a negative width puts
+                // it on the right, mirrored.
+                const double w = std::abs(clip.fitBarWidth);
+                const double x = clip.fitBarWidth > 0.0 ? t.x() - clip.fitPadX : t.right() + clip.fitPadX - w;
+                setClipLayoutPixels(clip, x, t.y() - clip.fitPadY, w, t.height() + 2.0 * clip.fitPadY);
+                continue;
+            }
             setClipLayoutPixels(clip, t.x() - clip.fitPadX, t.y() - clip.fitPadY, t.width() + 2.0 * clip.fitPadX,
                                 t.height() + 2.0 * clip.fitPadY);
         }
@@ -23315,6 +23323,24 @@ void AppController::createLowerThird(const QVariantMap &o)
     drift::Clip roleClip;
     if (roleBar)
         roleClip = makeText(role, rolePx, 500, roleColour, left + 30.0 * u, nameY + nameH + 22.0 * u, frames(12));
+    // Left, centre or right (Jorge, 0.29): the lines inside the text and the whole lower third on the frame.
+    const QString align = o.value(QStringLiteral("align"), QStringLiteral("left")).toString();
+    const drift::TextAlign textAlign = align == QLatin1String("center") ? drift::TextAlign::Center
+                                       : align == QLatin1String("right") ? drift::TextAlign::Right
+                                                                         : drift::TextAlign::Left;
+    const auto place = [&](drift::Clip &clip) {
+        clip.textStyle.align = textAlign;
+        const double w = clip.transformW.evaluateAt(0);
+        const double y = clip.transformY.evaluateAt(0);
+        const double h = clip.transformH.evaluateAt(0);
+        const double x = textAlign == drift::TextAlign::Center ? (W - w) / 2.0
+                         : textAlign == drift::TextAlign::Right ? W - left - 30.0 * u - w
+                                                                : left + 30.0 * u;
+        setClipLayoutPixels(clip, x, y, w, h);
+    };
+    place(nameClip);
+    if (roleBar)
+        place(roleClip);
     // The label under the name, tied to it; for the role bar, a second label under the role.
     drift::Clip label = makeRect(tr("Label"), labelColour, 0, 0, 10, 10, 0);
     label.fitTextId = nameClip.id;
@@ -23333,6 +23359,14 @@ void AppController::createLowerThird(const QVariantMap &o)
         const double top = nameY - 14.0 * u;
         const double bottom = roleBar ? nameY + nameH + 22.0 * u + rolePx * 1.4 : nameY + nameH + 14.0 * u;
         line = makeRect(tr("Line"), accentColour, left - 14.0 * u, top, 10.0 * u, bottom - top, 0);
+        // Tied to the name like the label (Jorge, 0.29: shrinking the name left the bar at its old height).
+        if (!roleBar) {
+            line.fitTextId = nameClip.id;
+            line.fitPadX = 30.0 * u + 14.0 * u;
+            line.fitPadY = 14.0 * u;
+            // Right-aligned, the bar goes on the right (a negative width).
+            line.fitBarWidth = textAlign == drift::TextAlign::Right ? -10.0 * u : 10.0 * u;
+        }
     }
 
     // Top to bottom: role, name, role bar, label, line.
@@ -23431,7 +23465,8 @@ void AppController::createLowerThird(const QVariantMap &o)
             QStringList ids;
             for (const drift::Track &track : m_project.tracks()) {
                 for (const drift::Clip &clip : track.clips) {
-                    if (clip.id == label.id || (!label.fitTextId.isEmpty() && clip.fitTextId == label.fitTextId))
+                    if (clip.id == label.id || (!label.fitTextId.isEmpty() && clip.fitTextId == label.fitTextId
+                                                && clip.fitBarWidth == 0.0))
                         ids.append(clip.id);
                 }
             }

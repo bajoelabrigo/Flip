@@ -17447,6 +17447,18 @@ NEXT TIME</source>
         <translation>إضافة</translation>
     </message>
     <message>
+        <source>Left</source>
+        <translation>يسار</translation>
+    </message>
+    <message>
+        <source>Centre</source>
+        <translation>وسط</translation>
+    </message>
+    <message>
+        <source>Right</source>
+        <translation>يمين</translation>
+    </message>
+    <message>
         <source>Automatic</source>
         <translation>تلقائي</translation>
     </message>
@@ -17513,6 +17525,10 @@ NEXT TIME</source>
     <message>
         <source>Exit</source>
         <translation>الخروج</translation>
+    </message>
+    <message>
+        <source>Alignment</source>
+        <translation>المحاذاة</translation>
     </message>
     <message>
         <source>Name</source>

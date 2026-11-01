@@ -17191,6 +17191,18 @@ NEXT TIME</source>
         <translation>যোগ করুন</translation>
     </message>
     <message>
+        <source>Left</source>
+        <translation>বাঁয়ে</translation>
+    </message>
+    <message>
+        <source>Centre</source>
+        <translation>মাঝে</translation>
+    </message>
+    <message>
+        <source>Right</source>
+        <translation>ডানে</translation>
+    </message>
+    <message>
         <source>Automatic</source>
         <translation>স্বয়ংক্রিয়</translation>
     </message>
@@ -17257,6 +17269,10 @@ NEXT TIME</source>
     <message>
         <source>Exit</source>
         <translation>প্রস্থান</translation>
+    </message>
+    <message>
+        <source>Alignment</source>
+        <translation>সারিবদ্ধতা</translation>
     </message>
     <message>
         <source>Name</source>

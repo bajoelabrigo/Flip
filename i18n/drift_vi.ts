@@ -17132,6 +17132,18 @@ LẦN SAU</translation>
         <translation>Thêm</translation>
     </message>
     <message>
+        <source>Left</source>
+        <translation>Trái</translation>
+    </message>
+    <message>
+        <source>Centre</source>
+        <translation>Giữa</translation>
+    </message>
+    <message>
+        <source>Right</source>
+        <translation>Phải</translation>
+    </message>
+    <message>
         <source>Automatic</source>
         <translation>Tự động</translation>
     </message>
@@ -17198,6 +17210,10 @@ LẦN SAU</translation>
     <message>
         <source>Exit</source>
         <translation>Ra</translation>
+    </message>
+    <message>
+        <source>Alignment</source>
+        <translation>Căn lề</translation>
     </message>
     <message>
         <source>Name</source>

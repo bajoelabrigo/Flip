@@ -17197,6 +17197,18 @@ PROCHAINE</translation>
         <translation>Ajouter</translation>
     </message>
     <message>
+        <source>Left</source>
+        <translation>Gauche</translation>
+    </message>
+    <message>
+        <source>Centre</source>
+        <translation>Centre</translation>
+    </message>
+    <message>
+        <source>Right</source>
+        <translation>Droite</translation>
+    </message>
+    <message>
         <source>Automatic</source>
         <translation>Automatique</translation>
     </message>
@@ -17263,6 +17275,10 @@ PROCHAINE</translation>
     <message>
         <source>Exit</source>
         <translation>Sortie</translation>
+    </message>
+    <message>
+        <source>Alignment</source>
+        <translation>Alignement</translation>
     </message>
     <message>
         <source>Name</source>

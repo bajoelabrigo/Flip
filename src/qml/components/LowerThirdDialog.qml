@@ -20,6 +20,12 @@ ThemedDialog {
     property bool useAccent3: false
     property string accent2Color: "#ff2a9df4"
     property string accent3Color: "#ffe63946"
+    property string textAlign: "left"
+    readonly property var aligns: [
+        { "id": "left", "label": qsTr("Left") },
+        { "id": "center", "label": qsTr("Centre") },
+        { "id": "right", "label": qsTr("Right") }
+    ]
     property string motionIn: "auto"
     property string motionOut: "auto"
     // How it comes in and goes out (Jorge, 0.29): Automatic is each style's own motion.
@@ -55,6 +61,7 @@ ThemedDialog {
         "textColor": root.textColor,
         "accent2Color": root.useAccent2 ? root.accent2Color : "",
         "accent3Color": root.useAccent2 && root.useAccent3 ? root.accent3Color : "",
+        "align": root.textAlign,
         "entrance": root.motionIn,
         "exit": root.motionOut,
         "seconds": secondsField.value
@@ -141,6 +148,21 @@ ThemedDialog {
                     text: modelData.label
                     selected: root.motionOut === modelData.id
                     onClicked: root.motionOut = modelData.id
+                }
+            }
+        }
+
+        ThemedLabel { text: qsTr("Alignment") }
+        Flow {
+            width: parent.width
+            spacing: Theme.spacingSm
+            Repeater {
+                model: root.aligns
+                ThemedChip {
+                    required property var modelData
+                    text: modelData.label
+                    selected: root.textAlign === modelData.id
+                    onClicked: root.textAlign = modelData.id
                 }
             }
         }

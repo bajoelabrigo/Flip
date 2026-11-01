@@ -17191,6 +17191,18 @@ NEXT TIME</source>
         <translation>Idagdag</translation>
     </message>
     <message>
+        <source>Left</source>
+        <translation>Kaliwa</translation>
+    </message>
+    <message>
+        <source>Centre</source>
+        <translation>Gitna</translation>
+    </message>
+    <message>
+        <source>Right</source>
+        <translation>Kanan</translation>
+    </message>
+    <message>
         <source>Automatic</source>
         <translation>Awtomatiko</translation>
     </message>
@@ -17257,6 +17269,10 @@ NEXT TIME</source>
     <message>
         <source>Exit</source>
         <translation>Labas</translation>
+    </message>
+    <message>
+        <source>Alignment</source>
+        <translation>Pagkakahanay</translation>
     </message>
     <message>
         <source>Name</source>

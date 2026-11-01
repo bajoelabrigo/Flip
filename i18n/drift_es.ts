@@ -17195,6 +17195,18 @@ LA PRÓXIMA</translation>
         <translation>Añadir</translation>
     </message>
     <message>
+        <source>Left</source>
+        <translation>Izquierda</translation>
+    </message>
+    <message>
+        <source>Centre</source>
+        <translation>Centro</translation>
+    </message>
+    <message>
+        <source>Right</source>
+        <translation>Derecha</translation>
+    </message>
+    <message>
         <source>Automatic</source>
         <translation>Automática</translation>
     </message>
@@ -17261,6 +17273,10 @@ LA PRÓXIMA</translation>
     <message>
         <source>Exit</source>
         <translation>Salida</translation>
+    </message>
+    <message>
+        <source>Alignment</source>
+        <translation>Alineación</translation>
     </message>
     <message>
         <source>Name</source>

@@ -560,3 +560,7 @@ Programa `pruebas\mcp029\run029.py`: una sesión sin ventana por proyecto, guard
   Trampa evitada: en un diálogo no se puede llamar `exit` a una propiedad (es la transición del Popup).
 - **Dos acentos más, opcionales, en el generador de tercios** (Jorge, 2026-11-01): «Segundo acento» y «Tercer acento»;
   con ellos la etiqueta de cualquier estilo entra con el barrido de colores en cascada (`accent2Color`, `accent3Color`).
+- **Jorge (2026-11-01), fallo:** al achicar el nombre la barra amarilla («Con línea») se quedaba con el alto viejo.
+  Ahora la barra está atada al texto como la etiqueta (`Clip::fitBarWidth`, guardado en `fitText.bar`).
+- **Alineación en el generador** (Jorge): Izquierda, Centro, Derecha: las líneas del texto y el tercio entero en el
+  cuadro; a la derecha la barra va al lado derecho de la etiqueta (`fitBarWidth` negativo).

@@ -17258,6 +17258,18 @@ NEXT TIME</source>
         <translation>Добавить</translation>
     </message>
     <message>
+        <source>Left</source>
+        <translation>Слева</translation>
+    </message>
+    <message>
+        <source>Centre</source>
+        <translation>По центру</translation>
+    </message>
+    <message>
+        <source>Right</source>
+        <translation>Справа</translation>
+    </message>
+    <message>
         <source>Automatic</source>
         <translation>Автоматически</translation>
     </message>
@@ -17324,6 +17336,10 @@ NEXT TIME</source>
     <message>
         <source>Exit</source>
         <translation>Выход</translation>
+    </message>
+    <message>
+        <source>Alignment</source>
+        <translation>Выравнивание</translation>
     </message>
     <message>
         <source>Name</source>

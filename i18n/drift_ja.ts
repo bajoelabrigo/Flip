@@ -17132,6 +17132,18 @@ NEXT TIME</source>
         <translation>追加</translation>
     </message>
     <message>
+        <source>Left</source>
+        <translation>左</translation>
+    </message>
+    <message>
+        <source>Centre</source>
+        <translation>中央</translation>
+    </message>
+    <message>
+        <source>Right</source>
+        <translation>右</translation>
+    </message>
+    <message>
         <source>Automatic</source>
         <translation>自動</translation>
     </message>
@@ -17198,6 +17210,10 @@ NEXT TIME</source>
     <message>
         <source>Exit</source>
         <translation>退場</translation>
+    </message>
+    <message>
+        <source>Alignment</source>
+        <translation>配置</translation>
     </message>
     <message>
         <source>Name</source>

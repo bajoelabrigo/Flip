@@ -17258,6 +17258,18 @@ ZOBACZENIA</translation>
         <translation>Dodaj</translation>
     </message>
     <message>
+        <source>Left</source>
+        <translation>Do lewej</translation>
+    </message>
+    <message>
+        <source>Centre</source>
+        <translation>Do środka</translation>
+    </message>
+    <message>
+        <source>Right</source>
+        <translation>Do prawej</translation>
+    </message>
+    <message>
         <source>Automatic</source>
         <translation>Automatyczna</translation>
     </message>
@@ -17324,6 +17336,10 @@ ZOBACZENIA</translation>
     <message>
         <source>Exit</source>
         <translation>Wyjście</translation>
+    </message>
+    <message>
+        <source>Alignment</source>
+        <translation>Wyrównanie</translation>
     </message>
     <message>
         <source>Name</source>

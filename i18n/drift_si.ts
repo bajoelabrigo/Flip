@@ -17191,6 +17191,18 @@ NEXT TIME</source>
         <translation>එක් කරන්න</translation>
     </message>
     <message>
+        <source>Left</source>
+        <translation>වමට</translation>
+    </message>
+    <message>
+        <source>Centre</source>
+        <translation>මැදට</translation>
+    </message>
+    <message>
+        <source>Right</source>
+        <translation>දකුණට</translation>
+    </message>
+    <message>
         <source>Automatic</source>
         <translation>ස්වයංක්‍රීය</translation>
     </message>
@@ -17257,6 +17269,10 @@ NEXT TIME</source>
     <message>
         <source>Exit</source>
         <translation>පිටවීම</translation>
+    </message>
+    <message>
+        <source>Alignment</source>
+        <translation>පෙළගැස්ම</translation>
     </message>
     <message>
         <source>Name</source>

@@ -136,6 +136,10 @@ struct Clip
     QString fitTextId;
     double fitPadX = 32.0;
     double fitPadY = 16.0;
+    // A bar beside the text instead of a label around it (0.29, a lower third's line): this wide, its left edge
+    // fitPadX before the text, as tall as the label (fitPadY above and below); negative = on the right, mirrored.
+    // 0 = a label.
+    double fitBarWidth = 0.0;
     // After Effects' Null Object (0.26): a shape that draws nothing, only its frame while selected,
     // there to be a parent the other layers follow.
     bool nullObject = false;

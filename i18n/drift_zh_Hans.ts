@@ -17132,6 +17132,18 @@ NEXT TIME</source>
         <translation>添加</translation>
     </message>
     <message>
+        <source>Left</source>
+        <translation>左对齐</translation>
+    </message>
+    <message>
+        <source>Centre</source>
+        <translation>居中</translation>
+    </message>
+    <message>
+        <source>Right</source>
+        <translation>右对齐</translation>
+    </message>
+    <message>
         <source>Automatic</source>
         <translation>自动</translation>
     </message>
@@ -17198,6 +17210,10 @@ NEXT TIME</source>
     <message>
         <source>Exit</source>
         <translation>出场</translation>
+    </message>
+    <message>
+        <source>Alignment</source>
+        <translation>对齐</translation>
     </message>
     <message>
         <source>Name</source>

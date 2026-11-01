@@ -4580,19 +4580,69 @@ void EditorStateTest::colourWipeTakesUpToThreeAccents()
     }
 
     // Two more accents, optional: any style's label comes in after them.
-    AppController accents(&library);
-    accents.createLowerThird({{QStringLiteral("style"), QStringLiteral("line")},
+    AppController accented(&library);
+    accented.createLowerThird({{QStringLiteral("style"), QStringLiteral("line")},
                               {QStringLiteral("name"), QStringLiteral("Bo")},
                               {QStringLiteral("accent2Color"), QStringLiteral("#2a9df4")},
                               {QStringLiteral("accent3Color"), QStringLiteral("#e63946")}});
     int accentLayers = 0;
-    for (const drift::Track &track : accents.project()->tracks()) {
+    for (const drift::Track &track : accented.project()->tracks()) {
         for (const drift::Clip &clip : track.clips) {
             if (clip.type == drift::ClipType::Shape && clip.name.contains(QStringLiteral(" accent ")))
                 ++accentLayers;
         }
     }
     QCOMPARE(accentLayers, 3);
+
+    // The line beside the name follows the label when the name changes (Jorge: it kept the old height).
+    AppController lined(&library);
+    lined.createLowerThird({{QStringLiteral("style"), QStringLiteral("line")},
+                            {QStringLiteral("name"), QStringLiteral("Ana María Gómez")},
+                            {QStringLiteral("role"), QStringLiteral("Diseñadora")}});
+    const auto heights = [&lined](double *labelH, double *lineH, int *nameTrack) {
+        const auto &tracks = lined.project()->tracks();
+        for (int t = 0; t < tracks.size(); ++t) {
+            for (const drift::Clip &clip : tracks.at(t).clips) {
+                if (clip.type == drift::ClipType::Text)
+                    *nameTrack = t;
+                else if (clip.fitBarWidth != 0.0)
+                    *lineH = clip.transformH.evaluateAt(0);
+                else if (!clip.fitTextId.isEmpty())
+                    *labelH = clip.transformH.evaluateAt(0);
+            }
+        }
+    };
+    double labelH = 0, lineH = 0;
+    int nameTrack = -1;
+    heights(&labelH, &lineH, &nameTrack);
+    QVERIFY(labelH > 0);
+    QCOMPARE(lineH, labelH);
+    lined.setClipTextContent(nameTrack, 0, QStringLiteral("Bo"));
+    double labelH2 = 0, lineH2 = 0;
+    heights(&labelH2, &lineH2, &nameTrack);
+    QVERIFY(labelH2 < labelH);
+    QCOMPARE(lineH2, labelH2);
+
+    // Right-aligned: the text keeps right, the block sits on the right and the bar goes on the right of the label.
+    AppController right(&library);
+    right.createLowerThird({{QStringLiteral("style"), QStringLiteral("line")},
+                            {QStringLiteral("name"), QStringLiteral("Ana")},
+                            {QStringLiteral("align"), QStringLiteral("right")}});
+    double labelX = -1, labelR = -1, barX = -1;
+    for (const drift::Track &track : right.project()->tracks()) {
+        for (const drift::Clip &clip : track.clips) {
+            if (clip.type == drift::ClipType::Text) {
+                QCOMPARE(clip.textStyle.align, drift::TextAlign::Right);
+            } else if (clip.fitBarWidth != 0.0) {
+                barX = clip.transformX.evaluateAt(0);
+            } else if (!clip.fitTextId.isEmpty()) {
+                labelX = clip.transformX.evaluateAt(0);
+                labelR = labelX + clip.transformW.evaluateAt(0);
+            }
+        }
+    }
+    QVERIFY(labelX > right.project()->width() / 2);
+    QVERIFY(barX >= labelR);
 }
 
 void EditorStateTest::scaledSizeKeepsTheAnchorInPlace()
