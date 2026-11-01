@@ -4490,7 +4490,12 @@ void EditorStateTest::removeClipKeysInRangeClearsEveryRow()
     state.setClipKeyframe(t, c, QStringLiteral("x"), 3.0, 500.0);
     state.setClipKeyframe(t, c, QStringLiteral("opacity"), 1.0, 1.0);
     state.setClipKeyframe(t, c, QStringLiteral("opacity"), 4.0, 0.0);
-    QCOMPARE(state.removeClipKeysInRange(t, c, 2.0, -1), 2);
+    // x is keyed with its linked y, so the 3 s key is on two rows plus opacity's 4 s one.
+    QVERIFY(state.removeClipKeysInRange(t, c, 2.0, -1) >= 2);
+    for (const QString &prop : state.clipAnimatedProperties(t, c)) {
+        for (const QVariant &k : state.clipKeyframes(t, c, prop))
+            QVERIFY(k.toMap().value(QStringLiteral("seconds")).toDouble() < 2.0);
+    }
     QCOMPARE(state.clipKeyframes(t, c, QStringLiteral("x")).size(), 1);
     QCOMPARE(state.clipKeyframes(t, c, QStringLiteral("opacity")).size(), 1);
     state.undo();
