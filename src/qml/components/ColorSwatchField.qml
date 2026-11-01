@@ -69,7 +69,8 @@ Row {
         font.pixelSize: Theme.fontSizeSm
         // Rejects malformed input instead of silently applying a typo.
         // The "#" is optional: "1E5BFF" is taken as "#1E5BFF".
-        readonly property bool validHex: /^#?([0-9a-fA-F]{6}|[0-9a-fA-F]{8})$/.test(text.trim())
+        // Any number of «#» in front (a triple-click selects the digits only, and typing «#…» left «##…»).
+        readonly property bool validHex: /^#*([0-9a-fA-F]{6}|[0-9a-fA-F]{8})$/.test(text.trim())
         errorText: validHex || text.length === 0 ? "" : qsTr("Enter a color like #FF0000")
         // Typed and not yet confirmed: only then is a new colour from the project kept off the field.
         property bool dirty: false
@@ -79,8 +80,7 @@ Row {
             dirty = false
             if (!validHex)
                 return
-            const t = text.trim()
-            const value = t.startsWith("#") ? t : "#" + t
+            const value = "#" + text.trim().replace(/^#+/, "")
             text = value
             root.edited(value)
         }

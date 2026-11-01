@@ -636,7 +636,9 @@ Column {
                     padding: Theme.spacingLg
                     modal: false
                     dim: false
-                    closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
+                    // A press on the readout itself does not close it (0.29): a double-click, the usual way to
+                    // type a value, opened it and shut it again at once.
+                    closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
 
                     // Escape and clicking away discard; only Enter writes the value.
                     function openEditor() {
