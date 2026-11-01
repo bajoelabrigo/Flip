@@ -22970,6 +22970,97 @@ int AppController::splitTextIntoLetters(int trackIndex, int clipIndex)
     return int(ids.size());
 }
 
+void AppController::alignSelected(const QString &mode)
+{
+    QList<QPair<int, int>> picked = m_selection;
+    if (picked.isEmpty() && isValidClipIndex(m_selectedTrack, m_selectedClip))
+        picked.append({m_selectedTrack, m_selectedClip});
+    struct Item { QString id; QRectF box; };
+    QList<Item> items;
+    const double at = drift::usToSeconds(m_playheadUs);
+    for (const QPair<int, int> &ref : std::as_const(picked)) {
+        if (!isValidClipIndex(ref.first, ref.second))
+            continue;
+        const drift::Clip &clip = m_project.tracks().at(ref.first).clips.at(ref.second);
+        if (clip.type == drift::ClipType::Audio || clip.type == drift::ClipType::Adjustment)
+            continue;
+        const double x = propertyValueAt(ref.first, ref.second, QStringLiteral("x"), at, 0.0);
+        const double y = propertyValueAt(ref.first, ref.second, QStringLiteral("y"), at, 0.0);
+        const double w = propertyValueAt(ref.first, ref.second, QStringLiteral("width"), at, m_project.width());
+        const double h = propertyValueAt(ref.first, ref.second, QStringLiteral("height"), at, m_project.height());
+        items.append({clip.id, QRectF(x, y, w, h)});
+    }
+    if (items.isEmpty())
+        return;
+    const bool distribute = mode.startsWith(QLatin1String("dist"));
+    if (distribute && items.size() < 3) {
+        setLastMessage(tr("Pick three layers or more to space them evenly"), QStringLiteral("warning"));
+        return;
+    }
+    QRectF frame = items.size() == 1 ? QRectF(0, 0, m_project.width(), m_project.height()) : QRectF();
+    if (items.size() > 1) {
+        for (const Item &i : std::as_const(items))
+            frame = frame.isNull() ? i.box : frame.united(i.box);
+    }
+    QHash<QString, QPointF> shift;
+    if (distribute) {
+        const bool h = mode == QLatin1String("distH");
+        QList<Item> sorted = items;
+        std::sort(sorted.begin(), sorted.end(), [h](const Item &a, const Item &b) {
+            return h ? a.box.center().x() < b.box.center().x() : a.box.center().y() < b.box.center().y();
+        });
+        const double first = h ? sorted.first().box.center().x() : sorted.first().box.center().y();
+        const double last = h ? sorted.last().box.center().x() : sorted.last().box.center().y();
+        for (int n = 1; n + 1 < sorted.size(); ++n) {
+            const double want = first + (last - first) * n / (sorted.size() - 1);
+            const double now = h ? sorted.at(n).box.center().x() : sorted.at(n).box.center().y();
+            shift.insert(sorted.at(n).id, h ? QPointF(want - now, 0) : QPointF(0, want - now));
+        }
+    } else {
+        for (const Item &i : std::as_const(items)) {
+            const QRectF b = i.box;
+            QPointF d;
+            if (mode == QLatin1String("left")) d.setX(frame.left() - b.left());
+            else if (mode == QLatin1String("hcenter")) d.setX(frame.center().x() - b.center().x());
+            else if (mode == QLatin1String("right")) d.setX(frame.right() - b.right());
+            else if (mode == QLatin1String("top")) d.setY(frame.top() - b.top());
+            else if (mode == QLatin1String("vcenter")) d.setY(frame.center().y() - b.center().y());
+            else if (mode == QLatin1String("bottom")) d.setY(frame.bottom() - b.bottom());
+            shift.insert(i.id, d);
+        }
+    }
+    const drift::Project before = m_project;
+    bool changed = false;
+    for (auto it = shift.cbegin(); it != shift.cend(); ++it) {
+        if (qAbs(it->x()) < 0.01 && qAbs(it->y()) < 0.01)
+            continue;
+        int t = -1;
+        int c = -1;
+        if (!findClipById(m_project, it.key(), &t, &c))
+            continue;
+        drift::Clip &clip = m_project.tracks()[t].clips[c];
+        const auto move = [](drift::KeyframeTrack<double> &kt, double delta) {
+            if (kt.isEmpty()) {
+                kt.setKeyframe(0, delta);
+                return;
+            }
+            const QMap<drift::TimeUs, drift::Keyframe<double>> keys = kt.keyframes();
+            for (auto k = keys.cbegin(); k != keys.cend(); ++k) {
+                drift::Keyframe<double> key = k.value();
+                key.value += delta;
+                kt.setKeyframe(k.key(), key);
+            }
+        };
+        move(clip.transformX, it->x());
+        move(clip.transformY, it->y());
+        changed = true;
+    }
+    if (!changed)
+        return;
+    pushProjectEdit(before, tr("Align"));
+    finishEdit(tr("Align"));
+}
+
 int AppController::staggerSelectedClips(int frames)
 {
     QList<QPair<int, int>> picked = m_selection;

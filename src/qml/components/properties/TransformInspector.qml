@@ -151,6 +151,42 @@ Item {
                 clipData: root.clipData
             }
 
+            // After Effects' Align panel (0.29, lower thirds): one layer lines up with the frame, several with
+            // each other; three or more can be spaced evenly.
+            Row {
+                width: parent.width
+                spacing: 2
+                readonly property bool many: (EditorState.selection || []).length > 1
+                Text {
+                    width: 74
+                    anchors.verticalCenter: parent.verticalCenter
+                    text: qsTr("Align")
+                    color: Theme.mutedForeground
+                    font.family: Theme.fontFamily
+                    font.pixelSize: Theme.fontSizeXs
+                }
+                Repeater {
+                    model: [
+                        { mode: "left", glyph: "align-start-vertical", tip: qsTr("Align left edges") },
+                        { mode: "hcenter", glyph: "align-center-vertical", tip: qsTr("Align centres across") },
+                        { mode: "right", glyph: "align-end-vertical", tip: qsTr("Align right edges") },
+                        { mode: "top", glyph: "align-start-horizontal", tip: qsTr("Align top edges") },
+                        { mode: "vcenter", glyph: "align-center-horizontal", tip: qsTr("Align centres up and down") },
+                        { mode: "bottom", glyph: "align-end-horizontal", tip: qsTr("Align bottom edges") },
+                        { mode: "distH", glyph: "align-horizontal-distribute-center", tip: qsTr("Space evenly across (three or more)") },
+                        { mode: "distV", glyph: "align-vertical-distribute-center", tip: qsTr("Space evenly up and down (three or more)") }
+                    ]
+                    IconButton {
+                        required property var modelData
+                        buttonSize: 30
+                        iconSize: 16
+                        glyph: modelData.glyph
+                        tooltip: modelData.tip + (parent.many ? "" : " · " + qsTr("with the frame"))
+                        onClicked: EditorState.alignSelected(modelData.mode)
+                    }
+                }
+            }
+
             Row {
                 visible: root.transformParents.length > 0 && !root.isTransformLayer
                 width: parent.width

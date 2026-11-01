@@ -1736,6 +1736,10 @@ public:
     // stays), each keeping its end, so their entrances run in a cascade, as After Effects' Sequence Layers.
     // Pictures and audio keep their length (they move). One undo step; returns how many moved.
     Q_INVOKABLE int staggerSelectedClips(int frames);
+    // After Effects' Align panel (0.29, lower thirds): "left", "hcenter", "right", "top", "vcenter", "bottom" line the
+    // picked layers' boxes up with each other (one layer: with the frame); "distH" / "distV" space three or more
+    // evenly between the outer two. The whole movement shifts (every key), so an animation keeps its shape.
+    Q_INVOKABLE void alignSelected(const QString &mode);
     Q_INVOKABLE bool traceUi() const { return qEnvironmentVariableIsSet("FLIP_TRACE_CLICKS"); }
     Q_INVOKABLE void removeKeyframes(int trackIndex, const QVariantList &keys);
     // Every key of every animated property of a clip between two timeline times (0.29: a jump wrote six
