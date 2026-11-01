@@ -577,12 +577,15 @@ Item {
 
             // The layer drawn on top under the pointer (0.29, as CapCut and After Effects): it can be grabbed and
             // dragged straight away, without a click to pick it first.
+            // The selected one too: a layer over it under the pointer is the one that moves.
             readonly property bool topUnderPointer: {
-                if (!hover.hovered || handle.selected || root.mode3d)
+                if (!hover.hovered || root.mode3d)
                     return false
                 const p = root.mapFromItem(null, hover.point.scenePosition.x, hover.point.scenePosition.y)
                 const hit = EditorState.preview.clipAtCanvasPoint(p.x / handle.sx, p.y / handle.sy)
-                return !!hit && hit.track === handle.box.track && hit.clip === handle.box.clip
+                if (!hit || hit.track === undefined)
+                    return handle.selected
+                return hit.track === handle.box.track && hit.clip === handle.box.clip
             }
 
             // A shape layer's parts (0.28 stage 4): the picked part's outline and grips, in Pro.
@@ -699,7 +702,7 @@ Item {
                 // Off while a grip is held too: a handler on the parent item can
                 // otherwise take the grab from the grip once the drag threshold
                 // is passed, turning a resize into a move.
-                enabled: (handle.selected || handle.topUnderPointer) && !handle.resizing && !root.mode3d
+                enabled: (hover.hovered ? handle.topUnderPointer : handle.selected) && !handle.resizing && !root.mode3d
                 cursorShape: Qt.SizeAllCursor
 
                 // Press point in canvas px. The box rides the cursor as it moves, so the
