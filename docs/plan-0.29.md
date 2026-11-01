@@ -485,3 +485,21 @@ A4 Aparecer de golpe. A5 Latido. Cada una se compara a ojo con la del panel de S
 Además (de la prueba): Escala X/Y en % [x]; valores de los deslizadores escribibles; «##» en el campo de color;
 miniaturas de Barrido; el diálogo de relleno que cambia de tamaño; rectángulo empezado fuera del cuadro;
 clic en la pestaña Texto tras escribir.
+
+### Segunda tanda (portable prueba-i, build a9d78d9), con el mouse
+- [p] F1: el primer clic después de un diálogo ya no se pierde (dibujar justo tras «Aceptar» funciona).
+- [p] Diálogo de relleno: «Ninguno» deja la fila de color en gris, el tamaño no cambia.
+- [p] Morph con destino visible + salpicadura: la reacción y las gotas llegan en el impacto (`p04b-morph`).
+- [p] L1 etiqueta ajustada al texto, crece con un nombre más largo; L2 nombre solo dentro de la etiqueta; L4 barrido de
+  dos colores (`lt02-manual`); L5 inclinación; L3 escalonar + barrido inclinado en las dos capas (`lt03-inclinado`);
+  L6 alinear y repartir (`lt04-alinear`).
+- Fallos encontrados y arreglados (para la build siguiente):
+  - **Generador de tercios:** las entradas iban al slot «in» (es «animIn»): nada se animaba; el cargo quedaba fuera de
+    la etiqueta → ahora es la segunda línea del nombre (más chica, en su color) y la etiqueta envuelve las dos.
+  - **Guías:** con Texto/Forma/Pluma, un clic sobre una guía la agarraba y no dibujaba nada → solo con Selección.
+  - **Barrido inclinado:** el borde se inclinaba al revés que la etiqueta (−14° → 14°).
+  - **Rombo de clave:** sin claves, la fila tomaba el valor por defecto (0) y la clave salía en 0 (la pelota saltaba
+    arriba); y la clave suelta en el inicio no encendía el cronómetro, así que lo escrito después no hacía claves.
+  - La ventana tarda en redibujarse con clics simulados (el clic llega; el panel se ve tarde). Con el mouse real no
+    pasa; se deja anotado.
+- [p] A1 «Caer» a mano con claves de Y y Escala X/Y en % (`a1-caer`).
