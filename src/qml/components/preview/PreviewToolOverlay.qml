@@ -214,7 +214,11 @@ Item {
     }
 
     MouseArea {
+        id: area
         anchors.fill: parent
+        // A shape can be started a little outside the frame (0.29: a drag begun right on its edge drew nothing),
+        // as After Effects draws from the pasteboard. Coordinates below are the overlay's (area.x/y added).
+        anchors.margins: root.tool === "shape" ? -32 : 0
         // The preview drags the selected clip from further up; these drags are ours.
         preventStealing: true
         hoverEnabled: true
@@ -224,32 +228,32 @@ Item {
 
         onPressed: mouse => {
             if (root.puppetReady) {
-                const hit = root.puppetPinAt(mouse.x, mouse.y)
+                const hit = root.puppetPinAt((mouse.x + area.x), (mouse.y + area.y))
                 if (hit >= 0) {
                     root.puppetDrag = hit
-                    root.puppetLive = Qt.point(mouse.x, mouse.y)
+                    root.puppetLive = Qt.point((mouse.x + area.x), (mouse.y + area.y))
                 } else {
-                    const f = root.overlayToBox(mouse.x, mouse.y)
+                    const f = root.overlayToBox((mouse.x + area.x), (mouse.y + area.y))
                     if (f.x >= 0 && f.y >= 0 && f.x <= 1 && f.y <= 1)
                         EditorState.addPuppetPin(root.box.track, root.box.clip, f.x, f.y)
                 }
                 return
             }
             if (root.tool === "shape" || root.tool === "roi") {
-                root.dragFrom = Qt.point(mouse.x, mouse.y)
-                root.dragTo = Qt.point(mouse.x, mouse.y)
-                root.dragRect = Qt.rect(mouse.x, mouse.y, 0, 0)
+                root.dragFrom = Qt.point((mouse.x + area.x), (mouse.y + area.y))
+                root.dragTo = Qt.point((mouse.x + area.x), (mouse.y + area.y))
+                root.dragRect = Qt.rect((mouse.x + area.x), (mouse.y + area.y), 0, 0)
                 root.dragging = true
             } else if (root.tool === "anchor") {
-                root.anchorLive = Qt.point(mouse.x, mouse.y)
+                root.anchorLive = Qt.point((mouse.x + area.x), (mouse.y + area.y))
             } else if (root.sketchReady) {
                 // The clip being sketched, kept: once the playhead runs past its end `box` is null.
                 root.sketchTrack = root.box.track
                 root.sketchClip = root.box.clip
-                root.sketchPointer = Qt.point(mouse.x, mouse.y)
+                root.sketchPointer = Qt.point((mouse.x + area.x), (mouse.y + area.y))
                 root.sketchStart = EditorState.playheadSeconds
                 root.sketchClock = Date.now()
-                root.sketch = [{ t: root.sketchStart, x: mouse.x / root.sx, y: mouse.y / root.sy }]
+                root.sketch = [{ t: root.sketchStart, x: (mouse.x + area.x) / root.sx, y: (mouse.y + area.y) / root.sy }]
                 sketchTimer.start()
             }
         }
@@ -257,22 +261,22 @@ Item {
             if (!pressed)
                 return
             if (root.puppetDrag >= 0) {
-                root.puppetLive = Qt.point(mouse.x, mouse.y)
+                root.puppetLive = Qt.point((mouse.x + area.x), (mouse.y + area.y))
                 return
             }
             if (root.lineTool && root.dragging)
-                root.dragTo = root.linePoint(root.dragFrom, Qt.point(mouse.x, mouse.y), mouse.modifiers & Qt.ShiftModifier)
+                root.dragTo = root.linePoint(root.dragFrom, Qt.point((mouse.x + area.x), (mouse.y + area.y)), mouse.modifiers & Qt.ShiftModifier)
             else if ((root.tool === "shape" || root.tool === "roi") && root.dragging)
-                root.dragRect = root.shapeRect(root.dragFrom, Qt.point(mouse.x, mouse.y),
+                root.dragRect = root.shapeRect(root.dragFrom, Qt.point((mouse.x + area.x), (mouse.y + area.y)),
                                                mouse.modifiers & Qt.ShiftModifier, mouse.modifiers & Qt.AltModifier)
             else if (root.tool === "anchor")
-                root.anchorLive = Qt.point(mouse.x, mouse.y)
+                root.anchorLive = Qt.point((mouse.x + area.x), (mouse.y + area.y))
             else if (root.tool === "sketch")
-                root.sketchPointer = Qt.point(mouse.x, mouse.y)
+                root.sketchPointer = Qt.point((mouse.x + area.x), (mouse.y + area.y))
         }
         onReleased: mouse => {
             if (root.puppetDrag >= 0) {
-                const f = root.overlayToBox(mouse.x, mouse.y)
+                const f = root.overlayToBox((mouse.x + area.x), (mouse.y + area.y))
                 const pin = root.puppetDrag
                 root.puppetDrag = -1
                 EditorState.movePuppetPin(root.box.track, root.box.clip, pin, f.x, f.y)
@@ -314,7 +318,7 @@ Item {
                     EditorState.applyMotionSketch(root.sketchTrack, root.sketchClip, root.sketch, 2.0)
                 root.sketch = []
             } else if (root.tool === "anchor" && root.anchorReady && root.box) {
-                const f = root.overlayToBox(mouse.x, mouse.y)
+                const f = root.overlayToBox((mouse.x + area.x), (mouse.y + area.y))
                 root.anchorLive = Qt.point(-1, -1)
                 EditorState.setAnchorKeepingPlace(root.box.track, root.box.clip, f.x, f.y)
             }
@@ -332,8 +336,8 @@ Item {
             if (root.tool !== "text")
                 return
             // The colour under the click picks dark or light words (0.29: white words on a white label).
-            const px = mouse.x
-            const py = mouse.y
+            const px = (mouse.x + area.x)
+            const py = (mouse.y + area.y)
             const place = function (backdrop) {
                 const made = EditorState.addTextAtPoint(px / root.sx, py / root.sy, backdrop)
                 if (made && made.track !== undefined) {
