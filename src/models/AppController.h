@@ -1747,6 +1747,10 @@ public:
     Q_INVOKABLE void setShapeFitText(int trackIndex, int clipIndex, const QString &textId, double padX, double padY);
     // The text layers a label can fit: [{id, name}].
     Q_INVOKABLE QVariantList textLayerOptions() const;
+    // Lower thirds (0.29): a copy of the picked shape in `accentColor` goes under it; from the playhead the accent
+    // sweeps in from the left over `frames`, and the shape follows it in, a little later, ending on top in its own
+    // colour (Linear Wipe keys on both). `angle` 0 = from the left; -14 leans like a slanted label. One undo step.
+    Q_INVOKABLE void twoColourWipe(const QString &accentColor, int frames, double angle = 0.0);
     Q_INVOKABLE bool traceUi() const { return qEnvironmentVariableIsSet("FLIP_TRACE_CLICKS"); }
     Q_INVOKABLE void removeKeyframes(int trackIndex, const QVariantList &keys);
     // Every key of every animated property of a clip between two timeline times (0.29: a jump wrote six

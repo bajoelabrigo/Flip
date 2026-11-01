@@ -551,6 +551,58 @@ Item {
             }
         }
 
+        // ----- Two-colour wipe (0.29, lower thirds) ------------------------
+        CollapsibleSection {
+            id: twoWipe
+            visible: root.showShapeSections && !root.editingPart
+            width: parent.width
+            title: qsTr("Two-colour wipe")
+            property string accent: "#fff5c518"
+            property int frames: 14
+            property bool slanted: false
+
+            Column {
+                width: parent.width
+                spacing: Theme.spacingSm
+                ThemedLabel {
+                    width: parent.width
+                    wrapMode: Text.WordWrap
+                    size: "sm"
+                    opacity: 0.8
+                    text: qsTr("From the playhead the accent colour sweeps in first and this shape follows it, ending on top: the entrance of a lower third.")
+                }
+                Row {
+                    width: parent.width
+                    spacing: Theme.spacingSm
+                    ThemedLabel { anchors.verticalCenter: parent.verticalCenter; text: qsTr("Accent"); size: "sm" }
+                    ColorSwatchField {
+                        hex: twoWipe.accent
+                        onEdited: value => twoWipe.accent = value
+                    }
+                    ThemedNumberField {
+                        width: 70
+                        from: 2
+                        to: 240
+                        unit: qsTr(" fr")
+                        value: twoWipe.frames
+                        onEdited: v => twoWipe.frames = Math.round(v)
+                    }
+                }
+                ThemedSwitch {
+                    width: parent.width
+                    text: qsTr("Slanted edge")
+                    checked: twoWipe.slanted
+                    onToggled: twoWipe.slanted = checked
+                }
+                ThemedButton {
+                    width: parent.width
+                    variant: "primary"
+                    text: qsTr("Apply two-colour wipe")
+                    onClicked: EditorState.twoColourWipe(twoWipe.accent, twoWipe.frames, twoWipe.slanted ? -14 : 0)
+                }
+            }
+        }
+
         // ----- Geometry ---------------------------------------------------
         CollapsibleSection {
             visible: root.showShapeSections

@@ -23197,6 +23197,80 @@ bool AppController::showInsideLayerBelow(int trackIndex, int clipIndex)
     return true;
 }
 
+void AppController::twoColourWipe(const QString &accentColor, int frames, double angle)
+{
+    if (!isValidClipIndex(m_selectedTrack, m_selectedClip)
+        || m_project.tracks().at(m_selectedTrack).clips.at(m_selectedClip).type != drift::ClipType::Shape) {
+        setLastMessage(tr("Select the label (a shape) for the two-colour wipe"), QStringLiteral("warning"));
+        return;
+    }
+    const QColor accent = QColor::isValidColorName(accentColor) ? QColor(accentColor) : QColor(QStringLiteral("#f5c518"));
+    const int fps = qMax(1, m_project.fps());
+    const drift::TimeUs span = drift::secondsToUs(double(qMax(2, frames)) / fps);
+    const drift::TimeUs lag = span * 45 / 100;
+    beginEditSession(tr("Two-colour wipe"));
+    const drift::Project before = m_project;
+    const drift::Clip base = m_project.tracks().at(m_selectedTrack).clips.at(m_selectedClip);
+    drift::Clip under = base;
+    under.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
+    under.name = tr("%1 accent").arg(base.name);
+    under.linkId.clear();
+    under.fitTextId = base.fitTextId;
+    for (drift::TextShadingLayer &layer : under.shapeStyle.layers) {
+        if (layer.kind == drift::TextLayerKind::Fill) {
+            layer.paint.kind = drift::TextPaintKind::Solid;
+            layer.paint.color = accent;
+        }
+    }
+    const int below = qMin(int(m_project.tracks().size()), m_selectedTrack + 1);
+    m_project.tracks().insert(below, drift::Track{.type = drift::TrackType::Shape});
+    m_project.tracks()[below].clips.append(under);
+    pushProjectEdit(before, tr("Two-colour wipe"));
+    // A Linear Wipe on each, keyed from hidden to shown.
+    const drift::TimeUs from = m_playheadUs;
+    const auto wipe = [&](const QString &id, drift::TimeUs start) {
+        int t = -1;
+        int c = -1;
+        if (!findClipById(m_project, id, &t, &c))
+            return;
+        m_addEffectKeepsSelection = true;
+        addEffect(t, c, QStringLiteral("ae.linear_wipe"));
+        m_addEffectKeepsSelection = false;
+        if (!findClipById(m_project, id, &t, &c))
+            return;
+        const drift::ClipRef host = effectHostRef(t, c, drift::AdjustmentKind::VideoEffects, false);
+        if (host.trackIndex < 0)
+            return;
+        const drift::Project beforeKeys = m_project;
+        const drift::Clip &clip = m_project.tracks().at(t).clips.at(c);
+        drift::Clip &hostClip = m_project.tracks()[host.trackIndex].clips[host.clipIndex];
+        for (int i = hostClip.effects.size() - 1; i >= 0; --i) {
+            drift::Effect &e = hostClip.effects[i];
+            if (e.catalogId != QLatin1String("ae.linear_wipe"))
+                continue;
+            e.parameters.insert(QStringLiteral("angle"), angle);
+            drift::KeyframeTrack<double> &kt = e.paramKeyframes[QStringLiteral("completion")];
+            const drift::TimeUs base0 = clip.timelineStart - hostClip.timelineStart;
+            const drift::TimeUs a = base0 + qMax<drift::TimeUs>(0, start - clip.timelineStart);
+            kt.setKeyframe(a, 100.0);
+            kt.setEasing(a, drift::Interpolation::Ease);
+            kt.setKeyframe(a + span, 0.0);
+            kt.setEasing(a + span, drift::Interpolation::Ease);
+            kt.setStopwatch(true);
+            break;
+        }
+        pushProjectEdit(beforeKeys, tr("Two-colour wipe"));
+    };
+    wipe(under.id, from);
+    wipe(base.id, from + lag);
+    finishEdit(tr("Two-colour wipe"));
+    endEditSession(true);
+    int t = -1;
+    int c = -1;
+    if (findClipById(m_project, base.id, &t, &c))
+        selectClip(t, c);
+}
+
 QString AppController::makeLabelForText(int trackIndex, int clipIndex)
 {
     if (!isValidClipIndex(trackIndex, clipIndex)
