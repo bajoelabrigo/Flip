@@ -68,9 +68,17 @@ Row {
         font.family: Theme.monoFontFamily
         font.pixelSize: Theme.fontSizeSm
         // Rejects malformed input instead of silently applying a typo.
-        readonly property bool validHex: /^#([0-9a-fA-F]{6}|[0-9a-fA-F]{8})$/.test(text)
+        // The "#" is optional: "1E5BFF" is taken as "#1E5BFF".
+        readonly property bool validHex: /^#?([0-9a-fA-F]{6}|[0-9a-fA-F]{8})$/.test(text.trim())
         errorText: validHex || text.length === 0 ? "" : qsTr("Enter a color like #FF0000")
-        onEditingFinished: if (validHex) root.edited(text)
+        onEditingFinished: {
+            if (!validHex)
+                return
+            const t = text.trim()
+            const value = t.startsWith("#") ? t : "#" + t
+            text = value
+            root.edited(value)
+        }
     }
 
     // The field is only rebound when it is not being typed into, so a project signal cannot wipe

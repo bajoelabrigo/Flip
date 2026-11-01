@@ -388,3 +388,39 @@ anota aquí y se corrige todo al final.
   (no nace de cero) y deforma el borde inclinado (la punta queda redondeada en 0,2 s).
 - **P10, duda:** con cuatro capas elegidas, «Escalonar» decía 3 copias (no tomó la primera elegida, o el campo no
   sigue la selección).
+
+## Correcciones y herramientas tras los 20 proyectos (Jorge, 2026-10-31: «no dejes nada pendiente»)
+Después: una build, 10 proyectos de prueba en ventana y **5 animaciones de Squash & Stretch hechas a mano con
+fotogramas clave** (desde cero, con las herramientas de la app). Estado: [ ] pendiente, [x] hecho, [p] probado.
+
+Fallos
+- [ ] F1 Primer clic perdido en el panel derecho (pestañas, tarjetas, campos, Aplicar).
+- [ ] F2 Arrastrar un texto en el lienzo casi no lo mueve.
+- [ ] F3 Tras Esc el editor de texto en línea sigue con el teclado (el título pasó a «0»).
+- [ ] F4 Doblar recorta la forma doblada (sin margen).
+- [ ] F5 Chorro líquido: revelar el trazo, respetar el color elegido, durar lo que dura el trazado.
+- [ ] F6 Squash › Aparecer de golpe: visible y estirada en el fotograma 0; punta redondeada en formas inclinadas.
+- [ ] F7 «Escalonar» no cuenta bien las capas elegidas.
+- [ ] F8 Texto nuevo legible (color con contraste y tamaño proporcional al cuadro).
+- [ ] F9 Rectángulo que empieza en el borde del lienzo o muy fino: se crea (o avisa).
+- [ ] F10 Recorte recuerda «Fotogramas».
+- [x] F11 Color hex sin «#» (ColorSwatchField).
+- [ ] F12 Curvas dice a cuántas claves se aplicó.
+- [ ] F13 Con Selección, la barra muestra Relleno/Trazo de la forma elegida.
+
+Herramientas
+- [ ] T1 Entrada/salida «Barrido» (revelar desde un lado, borde recto o inclinado).
+- [ ] T2 Cuadrícula 3×3 del anclaje en Transformar de cualquier capa.
+- [ ] T3 Dividir texto en letras (una capa por letra, en su sitio).
+- [ ] T4 Morph: «Queda la última forma».
+- [ ] T5 Separar las partes de una capa de forma en capas.
+- [ ] T6 Herramientas Elipse y Línea en la barra.
+- [ ] T7 Ctrl+D en Pro: duplicado en el mismo momento, en una pista encima.
+- [ ] T8 Cursiva sintética si la fuente no la trae.
+- [ ] T9 Borrar claves de todas las filas: después del cabezal / en un tramo.
+- [ ] T10 Distancia en «Salto hacia adelante».
+- [ ] T11 Doblar también las capas hijas.
+- [ ] T12 Color de fondo del proyecto.
+- [ ] T13 Sólido del tamaño del cuadro en un clic.
+- [ ] T14 Animaciones: filtro «Sin cuenta» / las libres primero.
+- [ ] T15 Squash & Stretch letra por letra (con T3 + escalonar).
