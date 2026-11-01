@@ -188,8 +188,13 @@ Dialog {
     Overlay.modal: Rectangle {
         color: Qt.rgba(0, 0, 0, 0.5)
 
+        // Only while the dialog is fully open (0.29, found with FLIP_TRACE_CLICKS): the dimmer outlives the
+        // dialog through its exit (seconds when the window is idle), and this area, invisible by then, took
+        // every click on the window: the first click after closing any dialog was lost. While it is open,
+        // the modal overlay already keeps the clicks off what is behind.
         MouseArea {
             anchors.fill: parent
+            enabled: root.opened
             acceptedButtons: Qt.AllButtons
             hoverEnabled: true
             preventStealing: true
