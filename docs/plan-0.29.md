@@ -473,3 +473,15 @@ A4 Aparecer de golpe. A5 Latido. Cada una se compara a ojo con la del panel de S
   escrito (`validHex` iba un paso atrás).
 - Pendiente de ver con la build nueva: el clic perdido en la pestaña Texto justo tras escribir un texto (registro
   `[tab]` con la pila).
+
+### Herramientas para tercios inferiores (Jorge, 2026-11-01: «dale a los 7»)
+- [ ] L1 Etiqueta que se ajusta al texto (forma vinculada a un texto + margen; crece al cambiar el nombre).
+- [ ] L2 «Mostrar solo dentro de la capa de abajo» en un clic (mate de la etiqueta).
+- [ ] L3 Escalonar las animaciones de entrada/salida entre las capas elegidas.
+- [ ] L4 Barrido de dos colores (acento delante, etiqueta detrás).
+- [ ] L5 Rectángulo con inclinación.
+- [ ] L6 Alinear y distribuir.
+- [ ] L7 Generador «Tercio inferior» (estilo + nombre + cargo → capas animadas y editables).
+Además (de la prueba): Escala X/Y en % [x]; valores de los deslizadores escribibles; «##» en el campo de color;
+miniaturas de Barrido; el diálogo de relleno que cambia de tamaño; rectángulo empezado fuera del cuadro;
+clic en la pestaña Texto tras escribir.
