@@ -613,6 +613,14 @@ Item {
                             EditorState.selectClip(hit.track, hit.clip)
                             return
                         }
+                    } else {
+                        // Every box under the pointer sees the tap; only the layer drawn on top takes it (0.29:
+                        // a tap on a lower third over a full-frame solid picked the solid).
+                        const q = root.mapFromItem(null, eventPoint.scenePosition.x, eventPoint.scenePosition.y)
+                        const top = EditorState.preview.clipAtCanvasPoint(q.x / handle.sx, q.y / handle.sy)
+                        if (top && top.track !== undefined
+                                && (top.track !== handle.box.track || top.clip !== handle.box.clip))
+                            return
                     }
                     const wasSelected = handle.selected
                     EditorState.selectClip(handle.box.track, handle.box.clip)
