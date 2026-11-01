@@ -575,3 +575,7 @@ Programa `pruebas\mcp029\run029.py`: una sesión sin ventana por proyecto, guard
   elegido, arrastrar el nombre movía el sólido (la decisión dependía del «pasar por encima», que no llega a las cajas
   de abajo). Ahora la caja que toma el arrastre lo entrega a la capa de arriba en el punto donde se apretó
   (`TransformOverlay.handleFor`, `bodyDrag.mover`).
+- [p] Build c5a2966 en ventana: con el sólido de fondo elegido, arrastrar el nombre mueve el nombre (la etiqueta y la
+  barra lo siguen) y el fondo se queda; los tiradores de tamaño siguen funcionando (`lt17-arrastre`).
+
+## Publicada (2026-11-01)
