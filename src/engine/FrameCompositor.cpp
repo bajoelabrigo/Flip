@@ -1963,13 +1963,17 @@ GpuScene buildGpuScene(const drift::Project &project, drift::TimeUs timelineUs, 
     // Who uses whom as a matte now. A pair that uses each other (A by B and B by A) is ignored on
     // both sides: each would hide as the other's matte and the two vanished.
     QHash<QString, QString> matteOf;
+    QSet<QString> keptShown; // mattes a host keeps on screen (matteKeepsSource)
     for (const drift::Track &track : tracks) {
         if (track.hidden)
             continue;
         for (const drift::Clip &clip : track.clips) {
             if (clip.matteMode != drift::Clip::TrackMatte::None && !clip.matteClipId.isEmpty()
-                && clip.matteClipId != clip.id && clip.containsTime(timelineUs) && !clip.disabled)
+                && clip.matteClipId != clip.id && clip.containsTime(timelineUs) && !clip.disabled) {
                 matteOf.insert(clip.id, clip.matteClipId);
+                if (clip.matteKeepsSource)
+                    keptShown.insert(clip.matteClipId);
+            }
         }
     }
     const auto matteIsMutual = [&matteOf](const drift::Clip &host) {
@@ -1977,7 +1981,7 @@ GpuScene buildGpuScene(const drift::Project &project, drift::TimeUs timelineUs, 
     };
     QSet<QString> matteSources;
     for (auto it = matteOf.cbegin(); it != matteOf.cend(); ++it) {
-        if (matteOf.value(it.value()) != it.key())
+        if (matteOf.value(it.value()) != it.key() && !keptShown.contains(it.value()))
             matteSources.insert(it.value());
     }
     // The matte clip as it would draw on the canvas; null when it is not on screen now.

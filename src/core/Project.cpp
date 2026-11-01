@@ -359,8 +359,11 @@ QJsonObject clipToJson(const Clip &clip)
         json.insert(QStringLiteral("motionBlur"), true);
     if (clip.matteMode != Clip::TrackMatte::None && !clip.matteClipId.isEmpty()) {
         static const char *const modes[] = {"none", "alpha", "alphaInverted", "luma", "lumaInverted"};
-        json.insert(QStringLiteral("matte"), QJsonObject{{QStringLiteral("clip"), clip.matteClipId},
-                                                         {QStringLiteral("mode"), QLatin1String(modes[int(clip.matteMode)])}});
+        QJsonObject matte{{QStringLiteral("clip"), clip.matteClipId},
+                          {QStringLiteral("mode"), QLatin1String(modes[int(clip.matteMode)])}};
+        if (clip.matteKeepsSource)
+            matte.insert(QStringLiteral("keepSource"), true);
+        json.insert(QStringLiteral("matte"), matte);
     }
     if (!clip.parentId.isEmpty()) {
         const QTransform &r = clip.parentRest;
@@ -501,6 +504,7 @@ Clip clipFromJsonV2(const QJsonObject &object, int canvasW = 1920, int canvasH =
                          : mode == QLatin1String("luma")          ? Clip::TrackMatte::Luma
                          : mode == QLatin1String("lumaInverted")  ? Clip::TrackMatte::LumaInverted
                                                                   : Clip::TrackMatte::None;
+        clip.matteKeepsSource = matte.value(QStringLiteral("keepSource")).toBool(false);
         if (clip.matteClipId.isEmpty())
             clip.matteMode = Clip::TrackMatte::None;
     }

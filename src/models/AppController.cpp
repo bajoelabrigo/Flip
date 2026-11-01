@@ -5039,6 +5039,7 @@ QVariantMap AppController::clipToMap(const drift::Clip &clip, const drift::Clip 
         {QStringLiteral("filmstripPath"), clip.filmstripPath},
         {QStringLiteral("textContent"), clip.textContent},
         {QStringLiteral("scaleRefW"), clip.scaleRefW},
+        {QStringLiteral("insideBelow"), clip.matteKeepsSource && !clip.matteClipId.isEmpty()},
         {QStringLiteral("scaleRefH"), clip.scaleRefH},
         {QStringLiteral("textStyle"), textStyleToMap(clip.textStyle, clip.timelineStart)},
         {QStringLiteral("subtitleCues"), subtitleCuesToMap(clip.subtitleCues)},
@@ -22967,6 +22968,51 @@ int AppController::splitTextIntoLetters(int trackIndex, int clipIndex)
     }
     setLastMessage(tr("%n letter layer(s)", "", int(ids.size())), QStringLiteral("info"));
     return int(ids.size());
+}
+
+bool AppController::showInsideLayerBelow(int trackIndex, int clipIndex)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return false;
+    const drift::Project before = m_project;
+    drift::Clip &host = m_project.tracks()[trackIndex].clips[clipIndex];
+    if (host.matteKeepsSource && !host.matteClipId.isEmpty()) {
+        host.matteKeepsSource = false;
+        host.matteClipId.clear();
+        host.matteMode = drift::Clip::TrackMatte::None;
+        pushProjectEdit(before, tr("Show inside the layer below"));
+        finishEdit(tr("Show inside the layer below"));
+        setLastMessage(tr("Shown whole again"), QStringLiteral("info"));
+        return false;
+    }
+    // The first picture on a track below that is on screen with it (at the playhead, or at its start).
+    const drift::TimeUs at = host.containsTime(m_playheadUs) ? m_playheadUs : host.timelineStart;
+    QString below;
+    QString belowName;
+    for (int t = trackIndex + 1; t < m_project.tracks().size() && below.isEmpty(); ++t) {
+        const drift::Track &track = m_project.tracks().at(t);
+        if (track.type == drift::TrackType::Audio || track.isAdjustmentLane() || track.hidden)
+            continue;
+        for (const drift::Clip &c : track.clips) {
+            if (c.containsTime(at) && !c.disabled && c.type != drift::ClipType::Adjustment
+                && c.type != drift::ClipType::Audio && c.id != host.id) {
+                below = c.id;
+                belowName = c.name;
+                break;
+            }
+        }
+    }
+    if (below.isEmpty()) {
+        setLastMessage(tr("There is no layer under this one to show it inside"), QStringLiteral("warning"));
+        return false;
+    }
+    host.matteClipId = below;
+    host.matteMode = drift::Clip::TrackMatte::Alpha;
+    host.matteKeepsSource = true;
+    pushProjectEdit(before, tr("Show inside the layer below"));
+    finishEdit(tr("Show inside the layer below"));
+    setLastMessage(tr("Shown only inside “%1”").arg(belowName), QStringLiteral("info"));
+    return true;
 }
 
 void AppController::setClipScaleReference(int trackIndex, int clipIndex, double width, double height)

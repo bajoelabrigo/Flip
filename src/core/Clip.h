@@ -167,6 +167,9 @@ struct Clip
     enum class TrackMatte { None, Alpha, AlphaInverted, Luma, LumaInverted };
     TrackMatte matteMode = TrackMatte::None;
     QString matteClipId;
+    // The matte clip stays on screen too (0.29, lower thirds): a name shown only inside its label, and the
+    // label still drawn. After Effects needs a copy of the label for that.
+    bool matteKeepsSource = false;
     // 0-based index among the audio streams in `path` (for multi-track video/audio files from OBS, etc.)
     int audioStreamIndex = 0;
     // Stereo balance: -1 hard left, 0 centre, +1 hard right. A balance law rather than a

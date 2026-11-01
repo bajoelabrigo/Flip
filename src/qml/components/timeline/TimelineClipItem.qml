@@ -552,6 +552,13 @@ Item {
                 visible: clipItem.clipData.kind === "audio"
                 onTriggered: EditorState.fitClipToVideoLength(clipItem.trackIndex, clipItem.clipIndex)
             }
+            // Lower thirds (0.29): the name only inside its label, the label still drawn.
+            ThemedMenuItem {
+                text: clipItem.clipData.insideBelow ? qsTr("Show whole again")
+                                                     : qsTr("Show only inside the layer below")
+                visible: clipItem.clipData.kind !== "audio" && clipItem.clipData.kind !== "adjustment"
+                onTriggered: EditorState.showInsideLayerBelow(clipItem.trackIndex, clipItem.clipIndex)
+            }
             // After Effects' Split into characters (0.29): one layer per letter, for letter-by-letter animation.
             ThemedMenuItem {
                 text: qsTr("Split into letters")
