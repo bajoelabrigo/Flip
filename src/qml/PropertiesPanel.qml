@@ -339,6 +339,22 @@ PanelFrame {
             font.pixelSize: Theme.fontSizeSm
             font.weight: Font.Medium
         }
+        // Colour or transparent (0.29, Jorge): an alpha background for a title or lower third exported over video.
+        Row {
+            width: parent.width
+            spacing: Theme.spacingSm
+            ThemedChip {
+                text: qsTr("Colour")
+                selected: !!EditorState.projectFile.background && EditorState.projectFile.background.kind === "color"
+                onClicked: EditorState.projectFile.setBackground({ kind: "color" })
+            }
+            ThemedChip {
+                text: qsTr("Transparent (alpha)")
+                tooltip: qsTr("No background: export it as ProRes 4444 or VP9 with alpha (WebM) to keep the transparency")
+                selected: !!EditorState.projectFile.background && EditorState.projectFile.background.kind === "transparent"
+                onClicked: EditorState.projectFile.setBackground({ kind: "transparent" })
+            }
+        }
         Row {
             width: parent.width
             spacing: Theme.spacingSm
