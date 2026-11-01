@@ -431,3 +431,24 @@ de elementos bajo el puntero, el foco y quién se queda la pulsación; con eso s
 Prueba final (Jorge, 2026-10-31): **15 proyectos** en ventana (no 10) + las 5 animaciones de Squash a mano con
 fotogramas clave; cada proyecto guardado en `pruebas\proyectos-029c\`. El inicio de sesión de las animaciones con
 llama se queda como está (Jorge: «es un pequeño esfuerzo que el usuario va a hacer una sola vez»).
+
+### Los 15 proyectos de la prueba final (con el mouse, como un usuario; portable `pruebas\FlipStudio-0.29-prueba-g`)
+1. Banda roja que se dobla al entrar con su título doblándose junto (Doblar juntas, sin recorte) — F4, T11.
+2. Tercio inferior con Barrido desde la izquierda, línea con la herramienta Línea, sólido de fondo y color de fondo — T1, T6, T12, T13.
+3. Título que salta letra por letra (Dividir en letras + Squash «Aplicar letra por letra») — T3, T15.
+4. Tres formas que se funden en un logo visible desde el principio (Morph) — T4.
+5. Chorro líquido que dibuja una firma — F5.
+6. Logo que se dibuja con Recorte (Fotogramas recordados) y Curvas con aviso — F10, F12.
+7. Pelota que salta lejos (Recorrido 250 %) y se borran las claves sobrantes con «Después del cabezal» — T9, T10.
+8. Cita en cursiva sobre fondo claro (texto nuevo legible, cursiva sintética) — F8, T8.
+9. Composición con Elipse, Línea, barra fina y un rectángulo empezado fuera del cuadro; relleno desde la barra con Selección — T6, F9, F13.
+10. Logo de dos piezas separado en capas y animado por partes — T5.
+11. Tercio inclinado (Laureen) con Barrido inclinado — T1.
+12. Duplicados en Pro (Ctrl+D encima) para un eco de texto — T7.
+13. Anclaje en la esquina con la cuadrícula 3×3 y una barra que crece desde la izquierda — T2.
+14. Intro con fondo sólido, título con animación de llama (con la sesión de Jorge) y Barrido de salida.
+15. Arrastrar capas, textos y máscaras con el mouse por el lienzo, en varios proyectos — F2.
+
+### Las 5 animaciones de Squash & Stretch hechas a mano (fotogramas clave, desde cero)
+A1 Caer (cae, se aplasta al tocar el suelo, rebota y se asienta). A2 Entrar rebotando. A3 Salto hacia adelante.
+A4 Aparecer de golpe. A5 Latido. Cada una se compara a ojo con la del panel de Squash & Stretch.
