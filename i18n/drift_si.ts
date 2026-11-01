@@ -21434,6 +21434,18 @@ If playback stutters, try another.</source>
         <translation>ව්‍යාපෘතිය</translation>
     </message>
     <message>
+        <source>Colour</source>
+        <translation>වර්ණය</translation>
+    </message>
+    <message>
+        <source>Transparent (alpha)</source>
+        <translation>විනිවිද (ඇල්ෆා)</translation>
+    </message>
+    <message>
+        <source>No background: export it as ProRes 4444 or VP9 with alpha (WebM) to keep the transparency</source>
+        <translation>පසුබිමක් නැත: විනිවිදභාවය රැකීමට ProRes 4444 හෝ ඇල්ෆා සහිත VP9 (WebM) ලෙස අපනයනය කරන්න</translation>
+    </message>
+    <message>
         <source>Background colour</source>
         <translation>පසුබිම් වර්ණය</translation>
     </message>

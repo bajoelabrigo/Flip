@@ -21774,6 +21774,18 @@ If playback stutters, try another.</source>
         <translation>المشروع</translation>
     </message>
     <message>
+        <source>Colour</source>
+        <translation>لون</translation>
+    </message>
+    <message>
+        <source>Transparent (alpha)</source>
+        <translation>شفاف (ألفا)</translation>
+    </message>
+    <message>
+        <source>No background: export it as ProRes 4444 or VP9 with alpha (WebM) to keep the transparency</source>
+        <translation>بلا خلفية: صدّره بصيغة ProRes 4444 أو VP9 مع ألفا (WebM) للحفاظ على الشفافية</translation>
+    </message>
+    <message>
         <source>Background colour</source>
         <translation>لون الخلفية</translation>
     </message>

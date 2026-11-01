@@ -21522,6 +21522,18 @@ If playback stutters, try another.</source>
         <translation>Проект</translation>
     </message>
     <message>
+        <source>Colour</source>
+        <translation>Цвет</translation>
+    </message>
+    <message>
+        <source>Transparent (alpha)</source>
+        <translation>Прозрачный (альфа)</translation>
+    </message>
+    <message>
+        <source>No background: export it as ProRes 4444 or VP9 with alpha (WebM) to keep the transparency</source>
+        <translation>Без фона: экспортируйте в ProRes 4444 или VP9 с альфа-каналом (WebM), чтобы сохранить прозрачность</translation>
+    </message>
+    <message>
         <source>Background colour</source>
         <translation>Цвет фона</translation>
     </message>

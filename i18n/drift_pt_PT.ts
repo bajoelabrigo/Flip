@@ -21438,6 +21438,18 @@ Se a reprodução falhar, experimente outra opção.</translation>
         <translation>Projeto</translation>
     </message>
     <message>
+        <source>Colour</source>
+        <translation>Cor</translation>
+    </message>
+    <message>
+        <source>Transparent (alpha)</source>
+        <translation>Transparente (alfa)</translation>
+    </message>
+    <message>
+        <source>No background: export it as ProRes 4444 or VP9 with alpha (WebM) to keep the transparency</source>
+        <translation>Sem fundo: exporte em ProRes 4444 ou VP9 com alfa (WebM) para manter a transparência</translation>
+    </message>
+    <message>
         <source>Background colour</source>
         <translation>Cor de fundo</translation>
     </message>

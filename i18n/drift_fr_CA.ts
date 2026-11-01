@@ -21440,6 +21440,18 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Projet</translation>
     </message>
     <message>
+        <source>Colour</source>
+        <translation>Couleur</translation>
+    </message>
+    <message>
+        <source>Transparent (alpha)</source>
+        <translation>Transparent (alpha)</translation>
+    </message>
+    <message>
+        <source>No background: export it as ProRes 4444 or VP9 with alpha (WebM) to keep the transparency</source>
+        <translation>Sans arrière-plan : exportez en ProRes 4444 ou en VP9 avec alpha (WebM) pour garder la transparence</translation>
+    </message>
+    <message>
         <source>Background colour</source>
         <translation>Couleur d’arrière-plan</translation>
     </message>

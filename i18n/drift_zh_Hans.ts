@@ -21354,6 +21354,18 @@ If playback stutters, try another.</source>
         <translation>项目</translation>
     </message>
     <message>
+        <source>Colour</source>
+        <translation>颜色</translation>
+    </message>
+    <message>
+        <source>Transparent (alpha)</source>
+        <translation>透明（Alpha）</translation>
+    </message>
+    <message>
+        <source>No background: export it as ProRes 4444 or VP9 with alpha (WebM) to keep the transparency</source>
+        <translation>无背景：以 ProRes 4444 或带 Alpha 的 VP9（WebM）导出即可保留透明</translation>
+    </message>
+    <message>
         <source>Background colour</source>
         <translation>背景颜色</translation>
     </message>

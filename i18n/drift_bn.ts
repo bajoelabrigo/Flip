@@ -21434,6 +21434,18 @@ If playback stutters, try another.</source>
         <translation>প্রজেক্ট</translation>
     </message>
     <message>
+        <source>Colour</source>
+        <translation>রং</translation>
+    </message>
+    <message>
+        <source>Transparent (alpha)</source>
+        <translation>স্বচ্ছ (আলফা)</translation>
+    </message>
+    <message>
+        <source>No background: export it as ProRes 4444 or VP9 with alpha (WebM) to keep the transparency</source>
+        <translation>কোনো পটভূমি নেই: স্বচ্ছতা রাখতে ProRes 4444 বা আলফা সহ VP9 (WebM) হিসেবে রপ্তানি করুন</translation>
+    </message>
+    <message>
         <source>Background colour</source>
         <translation>পটভূমির রং</translation>
     </message>

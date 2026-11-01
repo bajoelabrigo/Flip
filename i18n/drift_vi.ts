@@ -21354,6 +21354,18 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Dự án</translation>
     </message>
     <message>
+        <source>Colour</source>
+        <translation>Màu</translation>
+    </message>
+    <message>
+        <source>Transparent (alpha)</source>
+        <translation>Trong suốt (alpha)</translation>
+    </message>
+    <message>
+        <source>No background: export it as ProRes 4444 or VP9 with alpha (WebM) to keep the transparency</source>
+        <translation>Không có nền: xuất bằng ProRes 4444 hoặc VP9 có alpha (WebM) để giữ độ trong suốt</translation>
+    </message>
+    <message>
         <source>Background colour</source>
         <translation>Màu nền</translation>
     </message>

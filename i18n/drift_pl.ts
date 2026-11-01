@@ -21522,6 +21522,18 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
         <translation>Projekt</translation>
     </message>
     <message>
+        <source>Colour</source>
+        <translation>Kolor</translation>
+    </message>
+    <message>
+        <source>Transparent (alpha)</source>
+        <translation>Przezroczyste (alfa)</translation>
+    </message>
+    <message>
+        <source>No background: export it as ProRes 4444 or VP9 with alpha (WebM) to keep the transparency</source>
+        <translation>Bez tła: wyeksportuj jako ProRes 4444 lub VP9 z alfą (WebM), aby zachować przezroczystość</translation>
+    </message>
+    <message>
         <source>Background colour</source>
         <translation>Kolor tła</translation>
     </message>

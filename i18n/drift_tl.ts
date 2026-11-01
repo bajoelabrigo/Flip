@@ -21428,6 +21428,18 @@ If playback stutters, try another.</source>
         <translation>Proyekto</translation>
     </message>
     <message>
+        <source>Colour</source>
+        <translation>Kulay</translation>
+    </message>
+    <message>
+        <source>Transparent (alpha)</source>
+        <translation>Transparent (alpha)</translation>
+    </message>
+    <message>
+        <source>No background: export it as ProRes 4444 or VP9 with alpha (WebM) to keep the transparency</source>
+        <translation>Walang background: i-export bilang ProRes 4444 o VP9 na may alpha (WebM) para manatili ang transparency</translation>
+    </message>
+    <message>
         <source>Background colour</source>
         <translation>Kulay ng background</translation>
     </message>
