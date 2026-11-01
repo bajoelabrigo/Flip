@@ -21554,8 +21554,8 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
         <translation>Wypełnienie wielkości kadru</translation>
     </message>
     <message>
-        <source>A layer of one colour over the whole frame, for the length of the work (the toolbar&apos;s fill colour)</source>
-        <translation>Warstwa jednego koloru na cały kadr, przez całą długość pracy (kolor wypełnienia z paska)</translation>
+        <source>A layer of one colour over the whole frame, for the length of the work (the background colour above)</source>
+        <translation>Warstwa jednego koloru na całą klatkę, przez cały projekt (kolor tła powyżej)</translation>
     </message>
     <message>
         <source>This clip uses Pro tools.</source>

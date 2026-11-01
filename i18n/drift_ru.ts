@@ -21554,8 +21554,8 @@ If playback stutters, try another.</source>
         <translation>Заливка размером с кадр</translation>
     </message>
     <message>
-        <source>A layer of one colour over the whole frame, for the length of the work (the toolbar&apos;s fill colour)</source>
-        <translation>Слой одного цвета на весь кадр на всю длину работы (цвет заливки на панели)</translation>
+        <source>A layer of one colour over the whole frame, for the length of the work (the background colour above)</source>
+        <translation>Слой одного цвета на весь кадр на всю длину работы (цвет фона выше)</translation>
     </message>
     <message>
         <source>This clip uses Pro tools.</source>

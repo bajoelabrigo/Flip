@@ -21470,8 +21470,8 @@ Se a reprodução travar, tente outra opção.</translation>
         <translation>Sólido do tamanho do quadro</translation>
     </message>
     <message>
-        <source>A layer of one colour over the whole frame, for the length of the work (the toolbar&apos;s fill colour)</source>
-        <translation>Uma camada de uma só cor sobre todo o quadro, durante todo o trabalho (a cor de preenchimento da barra)</translation>
+        <source>A layer of one colour over the whole frame, for the length of the work (the background colour above)</source>
+        <translation>Uma camada de uma só cor sobre todo o quadro, durante todo o trabalho (a cor de fundo acima)</translation>
     </message>
     <message>
         <source>This clip uses Pro tools.</source>

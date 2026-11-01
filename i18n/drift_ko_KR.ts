@@ -21386,8 +21386,8 @@ If playback stutters, try another.</source>
         <translation>화면 크기 단색</translation>
     </message>
     <message>
-        <source>A layer of one colour over the whole frame, for the length of the work (the toolbar&apos;s fill colour)</source>
-        <translation>화면 전체를 덮는 단색 레이어, 작업 전체 길이 (바의 채우기 색)</translation>
+        <source>A layer of one colour over the whole frame, for the length of the work (the background colour above)</source>
+        <translation>작업 전체 길이 동안 화면 전체를 덮는 단색 레이어(위의 배경색)</translation>
     </message>
     <message>
         <source>This clip uses Pro tools.</source>

@@ -21386,8 +21386,8 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Khối màu bằng khung hình</translation>
     </message>
     <message>
-        <source>A layer of one colour over the whole frame, for the length of the work (the toolbar&apos;s fill colour)</source>
-        <translation>Một lớp một màu phủ toàn khung hình, suốt độ dài tác phẩm (màu tô của thanh công cụ)</translation>
+        <source>A layer of one colour over the whole frame, for the length of the work (the background colour above)</source>
+        <translation>Một lớp một màu phủ toàn khung hình, suốt độ dài dự án (màu nền ở trên)</translation>
     </message>
     <message>
         <source>This clip uses Pro tools.</source>

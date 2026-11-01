@@ -21460,8 +21460,8 @@ If playback stutters, try another.</source>
         <translation>Solid na kasinlaki ng frame</translation>
     </message>
     <message>
-        <source>A layer of one colour over the whole frame, for the length of the work (the toolbar&apos;s fill colour)</source>
-        <translation>Isang layer na iisang kulay sa buong frame, sa buong haba ng gawa (ang fill color ng toolbar)</translation>
+        <source>A layer of one colour over the whole frame, for the length of the work (the background colour above)</source>
+        <translation>Isang layer na iisang kulay sa buong frame, sa buong haba ng gawa (ang kulay ng background sa itaas)</translation>
     </message>
     <message>
         <source>This clip uses Pro tools.</source>

@@ -21386,8 +21386,8 @@ If playback stutters, try another.</source>
         <translation>画面サイズの平面</translation>
     </message>
     <message>
-        <source>A layer of one colour over the whole frame, for the length of the work (the toolbar&apos;s fill colour)</source>
-        <translation>画面全体を覆う単色のレイヤー（作品の長さ分、バーの塗りの色）</translation>
+        <source>A layer of one colour over the whole frame, for the length of the work (the background colour above)</source>
+        <translation>フレーム全体を覆う単色のレイヤー（作品の長さ分、上の背景色）</translation>
     </message>
     <message>
         <source>This clip uses Pro tools.</source>

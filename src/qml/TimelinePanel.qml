@@ -3116,8 +3116,19 @@ PanelFrame {
                             drag.threshold: 0
                             drag.minimumX: 0
                             drag.maximumX: flick.contentWidth - Theme.playheadLineWidth
-                            onPressed: root.beginPlayheadSeek()
-                            onReleased: {
+                            property real pressX: 0
+                            onPressed: mouse => {
+                                pressX = mouse.x
+                                root.beginPlayheadSeek()
+                            }
+                            onReleased: mouse => {
+                                // A plain click on the wide grab beside the head seeks there, as anywhere else on the
+                                // ruler (0.29: a click a few px off the head grabbed it and did not move it).
+                                if (Math.abs(mouse.x - pressX) < 3) {
+                                    const at = playhead.x + playheadDragArea.x + mouse.x
+                                    if (Math.abs(at - playhead.x) > 2)
+                                        playhead.x = Math.max(0, at)
+                                }
                                 playhead.finishSeek()
                                 root.endPlayheadSeek()
                             }

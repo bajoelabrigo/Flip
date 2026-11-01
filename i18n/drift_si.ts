@@ -21466,8 +21466,8 @@ If playback stutters, try another.</source>
         <translation>රාමුවේ ප්‍රමාණයේ ඝන වර්ණය</translation>
     </message>
     <message>
-        <source>A layer of one colour over the whole frame, for the length of the work (the toolbar&apos;s fill colour)</source>
-        <translation>මුළු රාමුවම වසන එක් වර්ණයක ස්තරයක්, මුළු කාර්යයේ දිග පුරා (තීරුවේ පිරවුම් වර්ණය)</translation>
+        <source>A layer of one colour over the whole frame, for the length of the work (the background colour above)</source>
+        <translation>සම්පූර්ණ රාමුව පුරා එක් වර්ණයක ස්තරයක්, කාර්යයේ මුළු දිගටම (ඉහත පසුබිම් වර්ණය)</translation>
     </message>
     <message>
         <source>This clip uses Pro tools.</source>

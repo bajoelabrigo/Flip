@@ -378,8 +378,12 @@ PanelFrame {
         ThemedButton {
             width: parent.width
             text: qsTr("Solid the size of the frame")
-            tooltip: qsTr("A layer of one colour over the whole frame, for the length of the work (the toolbar's fill colour)")
-            onClicked: EditorState.addFrameSolid(EditorState.preview.toolFill)
+            tooltip: qsTr("A layer of one colour over the whole frame, for the length of the work (the background colour above)")
+            // The colour just above it (the project's background), not the toolbar's fill (0.29).
+            onClicked: {
+                const bg = EditorState.projectFile.background
+                EditorState.addFrameSolid(bg && bg.kind === "color" && bg.color ? bg.color : EditorState.preview.toolFill)
+            }
         }
     }
 

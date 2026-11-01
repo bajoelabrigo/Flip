@@ -21470,8 +21470,8 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
         <translation>Solido grande quanto il fotogramma</translation>
     </message>
     <message>
-        <source>A layer of one colour over the whole frame, for the length of the work (the toolbar&apos;s fill colour)</source>
-        <translation>Un livello di un solo colore su tutto il fotogramma, per tutta la durata (il colore di riempimento della barra)</translation>
+        <source>A layer of one colour over the whole frame, for the length of the work (the background colour above)</source>
+        <translation>Un livello di un solo colore su tutto il fotogramma, per tutta la durata (il colore di sfondo qui sopra)</translation>
     </message>
     <message>
         <source>This clip uses Pro tools.</source>

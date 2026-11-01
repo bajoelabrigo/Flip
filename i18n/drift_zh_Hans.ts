@@ -21386,8 +21386,8 @@ If playback stutters, try another.</source>
         <translation>画面大小的纯色</translation>
     </message>
     <message>
-        <source>A layer of one colour over the whole frame, for the length of the work (the toolbar&apos;s fill colour)</source>
-        <translation>覆盖整个画面的单色图层，持续整个作品（工具栏的填充颜色）</translation>
+        <source>A layer of one colour over the whole frame, for the length of the work (the background colour above)</source>
+        <translation>覆盖整个画面、贯穿整个作品的单色图层（使用上方的背景色）</translation>
     </message>
     <message>
         <source>This clip uses Pro tools.</source>

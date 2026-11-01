@@ -21466,7 +21466,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>A layer of one colour over the whole frame, for the length of the work (the toolbar&apos;s fill colour)</source>
+        <source>A layer of one colour over the whole frame, for the length of the work (the background colour above)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

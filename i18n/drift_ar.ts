@@ -21806,8 +21806,8 @@ If playback stutters, try another.</source>
         <translation>لون ثابت بحجم الإطار</translation>
     </message>
     <message>
-        <source>A layer of one colour over the whole frame, for the length of the work (the toolbar&apos;s fill colour)</source>
-        <translation>طبقة بلون واحد تغطي الإطار كله طوال العمل (لون التعبئة في الشريط)</translation>
+        <source>A layer of one colour over the whole frame, for the length of the work (the background colour above)</source>
+        <translation>طبقة بلون واحد تغطي الإطار كله طوال العمل (لون الخلفية أعلاه)</translation>
     </message>
     <message>
         <source>This clip uses Pro tools.</source>

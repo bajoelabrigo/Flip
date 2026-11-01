@@ -21472,8 +21472,8 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Solide de la taille de l’image</translation>
     </message>
     <message>
-        <source>A layer of one colour over the whole frame, for the length of the work (the toolbar&apos;s fill colour)</source>
-        <translation>Un calque d’une seule couleur sur toute l’image, pour toute la durée (la couleur de remplissage de la barre)</translation>
+        <source>A layer of one colour over the whole frame, for the length of the work (the background colour above)</source>
+        <translation>Un calque d’une seule couleur sur toute l’image, pendant tout le projet (la couleur d’arrière-plan ci-dessus)</translation>
     </message>
     <message>
         <source>This clip uses Pro tools.</source>

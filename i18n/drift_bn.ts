@@ -21466,8 +21466,8 @@ If playback stutters, try another.</source>
         <translation>ফ্রেমের মাপের সলিড</translation>
     </message>
     <message>
-        <source>A layer of one colour over the whole frame, for the length of the work (the toolbar&apos;s fill colour)</source>
-        <translation>পুরো ফ্রেম জুড়ে এক রঙের লেয়ার, পুরো কাজের দৈর্ঘ্যে (বারের ফিল রং)</translation>
+        <source>A layer of one colour over the whole frame, for the length of the work (the background colour above)</source>
+        <translation>পুরো ফ্রেম জুড়ে এক রঙের একটি স্তর, পুরো কাজের দৈর্ঘ্যে (উপরের পটভূমির রং)</translation>
     </message>
     <message>
         <source>This clip uses Pro tools.</source>
