@@ -19,10 +19,10 @@ Despliegue: `deploy/deploy.sh` (antes, `git log origin/<rama desplegada> ^HEAD` 
   batería en marcha y además Vitest corre las copias de `.claude/worktrees`); `oxlint`: avisos de hooks en App.tsx.
 
 ## Estado
-- [ ] Auditoría del código (revisores en paralelo por zona) → lista de fallos y de cosas por ordenar.
-- [ ] Arreglos de la auditoría.
+- [x] Auditoría del código (revisores en paralelo por zona) → lista de fallos y de cosas por ordenar.
+- [x] Arreglos de la auditoría.
 - [ ] 15 proyectos en modo celular.
-- [ ] 15 proyectos en navegador de escritorio.
+- [x] 15 proyectos en navegador de escritorio (2026-11-01, ver abajo).
 - [ ] Guía (`getflipstudio.com/guia.html`): el editor en línea no recibe novedades; lo nuevo, en la app.
 - [ ] App de escritorio: el mismo aviso donde aparece «Editar en línea».
 - [ ] Desplegar el editor web y la web.
@@ -48,3 +48,28 @@ Paneles y exportar (D): **no se puede exportar con una forma o un sticker Lottie
 colores de texto rompen deshacer; cuadros negros en huecos de menos de un cuadro; exportar sin sonido sin aviso; fuentes
 de escritorio sin cargar al exportar; controles que cambian de inspector sin avisar; Lottie .json invisible; error de
 importación sin motivo; GIF que corre rápido; enlace de escala que pasa al otro clip; flechas que llenan el deshacer.
+
+## 15 proyectos en el navegador de escritorio (2026-11-01, Chrome 1440×900 y 1920)
+1 fotos + música + «+» en secuencia; 2 transición + título + GIF (600 cuadros × 0,10 s = 60 s); 3 forma + sticker
+animado → MP4; 4 cortar + 2× + LUT + título + música recortada con W → MP4 con sonido; 5 MP4 fragmentado de 120 fps
+a 0,5× con máscara de corazón → 60 fps; 6 superposición en otra pista, escala 40 %, claves de posición, fusión Trama;
+7 separar audio, volumen −6 dB, fundidos 2/3 s → WAV; 8 deshacer/rehacer ×4, Inicio y reabrir; 9 plantilla de
+efectos «Caída del ritmo» → MP4; 10 transiciones Reloj/Fundido/Barrido + efecto «Líneas de TV»; 11 composición
+(agrupar, entrar, 2×, salir); 12 textos con burbuja y neón; 13 ProRes .mov + video sin sonido; 14 congelar, espejo,
+girar 90°; 15 duplicar, marcador, «Guardar copia para compartir» (.flip de 12 MB).
+
+Arreglado en `web/auditoria` por estas pruebas:
+- **Stickers animados**: no se veían ni en la vista previa ni al exportar, y exportar con uno se colgaba sin poder
+  cancelar (`render/lottie.ts`: `DOMLoaded` ya había pasado; con `container` lottie dibujaba en un lienzo 0×0). Los
+  4 Lottie de la web estaban mal hechos: cambiados por los nuestros (`Flip/tools/animations`). Tarjetas con un cuadro
+  del medio. Al terminar con «mantener» quedaba vacío: se queda en el último cuadro.
+- **Miniaturas** de clips con pocos cuadros clave (stock: uno cada 10 s) repetían una imagen: se sacan del reproductor.
+- **MP4 fragmentado** (cámaras, grabadoras) entraba con 0:00: duración del reproductor y fps de las muestras.
+- **Regla**: ya no quita la selección del clip (poner claves: mover cabezal → cambiar valor); sí suelta un corte
+  elegido, para que la transición vaya al corte del cabezal.
+- **Aviso al añadir** un medio: dice dónde quedó de verdad.
+- **Video que el navegador no puede mostrar** (ProRes): aviso con qué hacer (15 idiomas).
+
+Visto y dejado como está (decisiones de Jorge o normal): Tendencias, Stock y animaciones de texto piden sesión;
+el proyecto toma los fps del primer clip (119,88 con un clip de 120 fps); los archivos subidos con el `<input>` en
+Chrome no se reabren (la app usa el selector del sistema); cambiar la velocidad con «Cerrar huecos» apagado deja hueco.
