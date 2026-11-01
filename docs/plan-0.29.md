@@ -397,30 +397,33 @@ Fallos
 - [ ] F1 Primer clic perdido en el panel derecho (pestañas, tarjetas, campos, Aplicar).
 - [ ] F2 Arrastrar un texto en el lienzo casi no lo mueve.
 - [ ] F3 Tras Esc el editor de texto en línea sigue con el teclado (el título pasó a «0»).
-- [ ] F4 Doblar recorta la forma doblada (sin margen).
-- [ ] F5 Chorro líquido: revelar el trazo, respetar el color elegido, durar lo que dura el trazado.
-- [ ] F6 Squash › Aparecer de golpe: visible y estirada en el fotograma 0; punta redondeada en formas inclinadas.
-- [ ] F7 «Escalonar» no cuenta bien las capas elegidas.
-- [ ] F8 Texto nuevo legible (color con contraste y tamaño proporcional al cuadro).
-- [ ] F9 Rectángulo que empieza en el borde del lienzo o muy fino: se crea (o avisa).
-- [ ] F10 Recorte recuerda «Fotogramas».
+- [x] F4 Doblar recorta la forma doblada (sin margen).
+- [x] F5 Chorro líquido: revelar el trazo, respetar el color elegido, durar lo que dura el trazado.
+- [x] F6 (no era fallo: la etiqueta no estaba elegida; el Ctrl+clic se perdió = F1) Squash › Aparecer de golpe: visible y estirada en el fotograma 0; punta redondeada en formas inclinadas.
+- [x] F7 (= F1: un Ctrl+clic perdido) «Escalonar» no cuenta bien las capas elegidas.
+- [x] F8 Texto nuevo legible (color con contraste y tamaño proporcional al cuadro).
+- [x] F9 Rectángulo que empieza en el borde del lienzo o muy fino: se crea (o avisa).
+- [x] F10 Recorte recuerda «Fotogramas».
 - [x] F11 Color hex sin «#» (ColorSwatchField).
-- [ ] F12 Curvas dice a cuántas claves se aplicó.
-- [ ] F13 Con Selección, la barra muestra Relleno/Trazo de la forma elegida.
+- [x] F12 Curvas dice a cuántas claves se aplicó.
+- [x] F13 Con Selección, la barra muestra Relleno/Trazo de la forma elegida.
 
 Herramientas
-- [ ] T1 Entrada/salida «Barrido» (revelar desde un lado, borde recto o inclinado).
-- [ ] T2 Cuadrícula 3×3 del anclaje en Transformar de cualquier capa.
-- [ ] T3 Dividir texto en letras (una capa por letra, en su sitio).
-- [ ] T4 Morph: «Queda la última forma».
-- [ ] T5 Separar las partes de una capa de forma en capas.
-- [ ] T6 Herramientas Elipse y Línea en la barra.
-- [ ] T7 Ctrl+D en Pro: duplicado en el mismo momento, en una pista encima.
-- [ ] T8 Cursiva sintética si la fuente no la trae.
-- [ ] T9 Borrar claves de todas las filas: después del cabezal / en un tramo.
-- [ ] T10 Distancia en «Salto hacia adelante».
-- [ ] T11 Doblar también las capas hijas.
-- [ ] T12 Color de fondo del proyecto.
-- [ ] T13 Sólido del tamaño del cuadro en un clic.
-- [ ] T14 Animaciones: filtro «Sin cuenta» / las libres primero.
-- [ ] T15 Squash & Stretch letra por letra (con T3 + escalonar).
+- [x] T1 Entrada/salida «Barrido» (revelar desde un lado, borde recto o inclinado).
+- [x] T2 Cuadrícula 3×3 del anclaje en Transformar de cualquier capa.
+- [x] T3 Dividir texto en letras (una capa por letra, en su sitio).
+- [x] T4 Morph: «Queda la última forma».
+- [x] T5 (ya existía: clic derecho › Separar en capas; el aviso ahora lo dice) Separar las partes de una capa de forma en capas.
+- [x] T6 Herramientas Elipse y Línea en la barra.
+- [x] T7 Ctrl+D en Pro: duplicado en el mismo momento, en una pista encima.
+- [x] T8 Cursiva sintética si la fuente no la trae.
+- [x] T9 Borrar claves de todas las filas: después del cabezal / en un tramo.
+- [x] T10 («Oomph» pasa a «Recorrido», hasta 400 %) Distancia en «Salto hacia adelante».
+- [x] T11 Doblar también las capas hijas.
+- [x] T12 Color de fondo del proyecto.
+- [x] T13 Sólido del tamaño del cuadro en un clic.
+- [x] T14 (sin cambio: por decisión de Jorge todas las animaciones incluidas llevan llama y piden cuenta) Animaciones: filtro «Sin cuenta» / las libres primero.
+- [x] T15 Squash & Stretch letra por letra (con T3 + escalonar).
+
+F1–F3 esperan la build: se añadió `FLIP_TRACE_CLICKS=1` (main.cpp) que escribe en stderr cada pulsación con la pila
+de elementos bajo el puntero, el foco y quién se queda la pulsación; con eso se busca la causa en ventana.
