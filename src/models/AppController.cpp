@@ -23270,18 +23270,40 @@ void AppController::createLowerThird(const QVariantMap &o)
     const double nameY = H * 0.72;
     const double namePx = std::round(64.0 * u);
     const double rolePx = std::round(34.0 * u);
-    const drift::Clip nameClip = makeText(name, namePx, 700, textColour, left + 30.0 * u, nameY, frames(6));
-    const double nameH = nameClip.transformH.evaluateAt(0);
     const bool hasRole = !role.isEmpty();
+    const bool roleBar = hasRole && style == QLatin1String("roleBar");
+    // Without a bar of its own the role is the name's second line, smaller and in its colour, so the one label
+    // holds both and grows with either.
+    const bool roleInName = hasRole && !roleBar;
+    drift::Clip nameClip = makeText(roleInName ? name + QLatin1Char('
+') + role : name, namePx, 700, textColour,
+                                    left + 30.0 * u, nameY, frames(6));
+    if (roleInName) {
+        drift::TextRun run;
+        run.start = int(name.size()) + 1;
+        run.end = int(nameClip.textContent.size());
+        run.sizeEnabled = true;
+        run.sizeScale = rolePx / namePx;
+        run.colorEnabled = true;
+        run.color = roleColour;
+        run.boldEnabled = true;
+        run.bold = false;
+        nameClip.textStyle.runs.append(run);
+        placeFittedTextBox(nameClip, m_project.width(), m_project.height());
+        const double w = nameClip.transformW.evaluateAt(0);
+        const double h = nameClip.transformH.evaluateAt(0);
+        setClipLayoutPixels(nameClip, left + 30.0 * u, nameY, w, h);
+        nameClip.name = name.left(32);
+    }
+    const double nameH = nameClip.transformH.evaluateAt(0);
     drift::Clip roleClip;
-    if (hasRole)
+    if (roleBar)
         roleClip = makeText(role, rolePx, 500, roleColour, left + 30.0 * u, nameY + nameH + 22.0 * u, frames(12));
     // The label under the name, tied to it; for the role bar, a second label under the role.
     drift::Clip label = makeRect(tr("Label"), labelColour, 0, 0, 10, 10, 0);
     label.fitTextId = nameClip.id;
     label.fitPadX = 30.0 * u;
     label.fitPadY = 14.0 * u;
-    const bool roleBar = hasRole && style == QLatin1String("roleBar");
     drift::Clip roleLabel;
     if (roleBar) {
         roleLabel = makeRect(tr("Role bar"), accentColour, 0, 0, 10, 10, frames(8));
@@ -23293,13 +23315,13 @@ void AppController::createLowerThird(const QVariantMap &o)
     drift::Clip line;
     if (hasLine) {
         const double top = nameY - 14.0 * u;
-        const double bottom = hasRole ? nameY + nameH + 22.0 * u + rolePx * 1.4 : nameY + nameH + 14.0 * u;
+        const double bottom = roleBar ? nameY + nameH + 22.0 * u + rolePx * 1.4 : nameY + nameH + 14.0 * u;
         line = makeRect(tr("Line"), accentColour, left - 14.0 * u, top, 10.0 * u, bottom - top, 0);
     }
 
     // Top to bottom: role, name, role bar, label, line.
     QList<drift::Clip> stack;
-    if (hasRole)
+    if (roleBar)
         stack << roleClip;
     stack << nameClip;
     if (roleBar)
@@ -23333,11 +23355,11 @@ void AppController::createLowerThird(const QVariantMap &o)
         int t = -1;
         int c = -1;
         if (findClipById(m_project, id, &t, &c))
-            setClipAnimation(t, c, QStringLiteral("in"), QVariantMap{{QStringLiteral("preset"), preset}});
+            setClipAnimation(t, c, QStringLiteral("animIn"), QVariantMap{{QStringLiteral("preset"), preset}});
     };
     entrance(nameClip.id, QStringLiteral("in-slide-up"));
-    if (hasRole)
-        entrance(roleClip.id, roleBar ? QStringLiteral("in-slide-up") : QStringLiteral("in-wipe-left"));
+    if (roleBar)
+        entrance(roleClip.id, QStringLiteral("in-slide-up"));
     if (hasLine)
         entrance(line.id, QStringLiteral("in-wipe-up"));
     if (roleBar)
