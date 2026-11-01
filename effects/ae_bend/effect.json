@@ -12,7 +12,7 @@
     "percentParams": [
       "bend"
     ],
-    "percentFactor": 0.7,
+    "percentFactor": 5,
     "extra": 8
   },
   "parameters": [
