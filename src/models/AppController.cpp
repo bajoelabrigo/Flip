@@ -11802,12 +11802,10 @@ QVariantMap AppController::curveTargetKeys() const
         return m_pickedKeyframes;
     if (!isValidClipIndex(m_selectedTrack, m_selectedClip))
         return {};
-    static const QStringList props{QStringLiteral("x"), QStringLiteral("y"), QStringLiteral("width"),
-                                   QStringLiteral("height"), QStringLiteral("rotation"), QStringLiteral("opacity"),
-                                   QStringLiteral("anchorX"), QStringLiteral("anchorY"), QStringLiteral("rotationX"),
-                                   QStringLiteral("rotationY"), QStringLiteral("z")};
+    // Every animated row (0.29): a Trim end, a text or an effect parameter too, not only the transform (Curvas
+    // did nothing on a logo drawn with Trim, and said nothing).
     QVariantList keys;
-    for (const QString &prop : props) {
+    for (const QString &prop : clipAnimatedProperties(m_selectedTrack, m_selectedClip)) {
         const QVariantList list = clipKeyframes(m_selectedTrack, m_selectedClip, prop);
         if (list.size() < 2)
             continue;

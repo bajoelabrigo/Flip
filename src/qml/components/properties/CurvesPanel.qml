@@ -77,8 +77,6 @@ Item {
     }
     // As EasyCurve: a preset chosen or a handle let go goes straight onto the keys.
     function apply() {
-        if (root.targetCount === 0)
-            return
         const c = root.curves()
         EditorState.applyCurveToPicked(c.a, c.b)
     }
