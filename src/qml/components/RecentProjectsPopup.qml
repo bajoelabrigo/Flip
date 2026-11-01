@@ -274,24 +274,8 @@ Popup {
         }
     }
 
-    exit: Transition {
-        ParallelAnimation {
-            NumberAnimation {
-                property: "opacity"
-                from: 1.0
-                to: 0.0
-                duration: Theme.durationFast
-                easing.type: Theme.easing
-            }
-            NumberAnimation {
-                property: "scale"
-                from: 1.0
-                to: 0.96
-                duration: Theme.durationFast
-                easing.type: Theme.easing
-            }
-        }
-    }
+    // Closes at once (0.29): a stalled exit kept this modal popup blocking the window's clicks.
+    exit: null
 
     contentItem: Column {
         spacing: Theme.spacingXs
