@@ -23927,6 +23927,18 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Reaction timing</source>
+        <translation>Момент реакции</translation>
+    </message>
+    <message>
+        <source> fr</source>
+        <translation> кадр.</translation>
+    </message>
+    <message>
+        <source>Reaction strength</source>
+        <translation>Сила реакции</translation>
+    </message>
+    <message>
         <source>Last layer visible from the start</source>
         <translation>Последний слой виден с начала</translation>
     </message>

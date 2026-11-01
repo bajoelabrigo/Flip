@@ -23749,6 +23749,18 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Reaction timing</source>
+        <translation>反应时机</translation>
+    </message>
+    <message>
+        <source> fr</source>
+        <translation> 帧</translation>
+    </message>
+    <message>
+        <source>Reaction strength</source>
+        <translation>反应强度</translation>
+    </message>
+    <message>
         <source>Last layer visible from the start</source>
         <translation>最后一个图层从一开始就可见</translation>
     </message>

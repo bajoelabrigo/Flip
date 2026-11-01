@@ -23749,6 +23749,18 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Reaction timing</source>
+        <translation>Thời điểm phản ứng</translation>
+    </message>
+    <message>
+        <source> fr</source>
+        <translation> kh</translation>
+    </message>
+    <message>
+        <source>Reaction strength</source>
+        <translation>Độ mạnh phản ứng</translation>
+    </message>
+    <message>
         <source>Last layer visible from the start</source>
         <translation>Lớp cuối hiện ngay từ đầu</translation>
     </message>

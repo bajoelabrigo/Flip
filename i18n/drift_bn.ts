@@ -23834,6 +23834,18 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Reaction timing</source>
+        <translation>প্রতিক্রিয়ার সময়</translation>
+    </message>
+    <message>
+        <source> fr</source>
+        <translation> ফ্রে</translation>
+    </message>
+    <message>
+        <source>Reaction strength</source>
+        <translation>প্রতিক্রিয়ার তীব্রতা</translation>
+    </message>
+    <message>
         <source>Last layer visible from the start</source>
         <translation>শেষ লেয়ারটি শুরু থেকেই দেখা যাবে</translation>
     </message>

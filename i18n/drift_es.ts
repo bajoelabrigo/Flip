@@ -23838,6 +23838,18 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Slicer</translation>
     </message>
     <message>
+        <source>Reaction timing</source>
+        <translation>Momento de la reacción</translation>
+    </message>
+    <message>
+        <source> fr</source>
+        <translation> fot.</translation>
+    </message>
+    <message>
+        <source>Reaction strength</source>
+        <translation>Intensidad de la reacción</translation>
+    </message>
+    <message>
         <source>Last layer visible from the start</source>
         <translation>La última capa se ve desde el principio</translation>
     </message>

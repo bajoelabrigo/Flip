@@ -23840,6 +23840,18 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Reaction timing</source>
+        <translation>Moment de la réaction</translation>
+    </message>
+    <message>
+        <source> fr</source>
+        <translation> im.</translation>
+    </message>
+    <message>
+        <source>Reaction strength</source>
+        <translation>Intensité de la réaction</translation>
+    </message>
+    <message>
         <source>Last layer visible from the start</source>
         <translation>Le dernier calque est visible dès le début</translation>
     </message>

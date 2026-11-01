@@ -23834,6 +23834,18 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Reaction timing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> fr</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reaction strength</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Last layer visible from the start</source>
         <translation type="unfinished"></translation>
     </message>

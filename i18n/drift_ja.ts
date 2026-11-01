@@ -23749,6 +23749,18 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Reaction timing</source>
+        <translation>反応のタイミング</translation>
+    </message>
+    <message>
+        <source> fr</source>
+        <translation> フレーム</translation>
+    </message>
+    <message>
+        <source>Reaction strength</source>
+        <translation>反応の強さ</translation>
+    </message>
+    <message>
         <source>Last layer visible from the start</source>
         <translation>最後のレイヤーを最初から表示</translation>
     </message>

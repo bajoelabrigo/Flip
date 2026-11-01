@@ -23838,6 +23838,18 @@ Se a reprodução falhar, experimente outra opção.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Reaction timing</source>
+        <translation>Momento da reação</translation>
+    </message>
+    <message>
+        <source> fr</source>
+        <translation> fot.</translation>
+    </message>
+    <message>
+        <source>Reaction strength</source>
+        <translation>Intensidade da reação</translation>
+    </message>
+    <message>
         <source>Last layer visible from the start</source>
         <translation>A última camada vê-se desde o início</translation>
     </message>

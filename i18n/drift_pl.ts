@@ -23927,6 +23927,18 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Reaction timing</source>
+        <translation>Moment reakcji</translation>
+    </message>
+    <message>
+        <source> fr</source>
+        <translation> kl.</translation>
+    </message>
+    <message>
+        <source>Reaction strength</source>
+        <translation>Siła reakcji</translation>
+    </message>
+    <message>
         <source>Last layer visible from the start</source>
         <translation>Ostatnia warstwa widoczna od początku</translation>
     </message>

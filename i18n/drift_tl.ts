@@ -23827,6 +23827,18 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Reaction timing</source>
+        <translation>Tiyempo ng reaksiyon</translation>
+    </message>
+    <message>
+        <source> fr</source>
+        <translation> fr</translation>
+    </message>
+    <message>
+        <source>Reaction strength</source>
+        <translation>Lakas ng reaksiyon</translation>
+    </message>
+    <message>
         <source>Last layer visible from the start</source>
         <translation>Nakikita ang huling layer mula sa simula</translation>
     </message>

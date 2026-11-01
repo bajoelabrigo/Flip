@@ -23834,6 +23834,18 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Reaction timing</source>
+        <translation>ප්‍රතික්‍රියා මොහොත</translation>
+    </message>
+    <message>
+        <source> fr</source>
+        <translation> රා</translation>
+    </message>
+    <message>
+        <source>Reaction strength</source>
+        <translation>ප්‍රතික්‍රියා තීව්‍රතාව</translation>
+    </message>
+    <message>
         <source>Last layer visible from the start</source>
         <translation>අවසාන ස්තරය මුල සිටම පෙනේ</translation>
     </message>

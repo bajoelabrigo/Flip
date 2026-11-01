@@ -23748,6 +23748,18 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Reaction timing</source>
+        <translation>반응 타이밍</translation>
+    </message>
+    <message>
+        <source> fr</source>
+        <translation> 프레임</translation>
+    </message>
+    <message>
+        <source>Reaction strength</source>
+        <translation>반응 강도</translation>
+    </message>
+    <message>
         <source>Last layer visible from the start</source>
         <translation>마지막 레이어를 처음부터 표시</translation>
     </message>
