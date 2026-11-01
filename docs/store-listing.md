@@ -110,6 +110,62 @@ El paquete declara `runFullTrust`. Partner Center pide justificarlo:
 
 > editor de video, editar videos, video editor, reels, shorts, transiciones, subtítulos
 
+**Notas para la Store (0.29.0, combinadas)**. Si la 0.28.0 no se subió (al 2026-11-01 no se había subido): estas cubren la 0.27, la 0.28 y la 0.29. 1111/1500 caracteres en español, 1043 en inglés.
+
+> Novedades de la 0.29.0 (incluye la 0.27 y la 0.28)
+>
+> - Tercios inferiores en un minuto: Herramientas › Tercio inferior. Eliges un estilo, escribes el nombre y aparecen las capas animadas, todas editables.
+> - Etiqueta que se ajusta al texto, nombre visible solo dentro de ella y barrido de hasta tres colores.
+> - Anima a mano como en After Effects: Escala X e Y en % desde el anclaje, cuadrícula del anclaje y borrar claves en un tramo.
+> - Formas como After Effects: una capa con varias partes y grupos, bordes que se afinan y ondulan.
+> - Divide un texto en letras, Morph con salpicadura y Doblar que mueve también las capas de encima.
+> - Herramientas Elipse y Línea, relleno y trazo con degradados, cursiva, y fondo de color o transparente.
+> - Aprende con seis ejemplos listos en el inicio, y modo Simple o Pro.
+> - Exporta sin cuenta hasta 1080p, con destinos para TikTok/Reels, YouTube y WhatsApp.
+> - Stock › Kit de YouTube: aperturas, títulos, botones de suscripción, pantallas finales y 37 tercios inferiores nuevos.
+> - Arreglos: formas que ya no tiemblan, el primer clic tras un diálogo, audio, deshacer y voz con IA.
+
+En inglés:
+
+> What's new in 0.29.0 (includes 0.27 and 0.28)
+>
+> - Lower thirds in a minute: Tools › Lower third. Pick a style, type the name and the animated layers appear, all editable.
+> - A label that fits the text, the name shown only inside it, and a wipe with up to three colours.
+> - Animate by hand like After Effects: Scale X and Y in % about the anchor, an anchor grid and deleting keys in a range.
+> - Shapes like After Effects: one layer with several parts and groups, tapered and wavy strokes.
+> - Split a text into letters, Morph with a splash, and Bend that also moves the layers above.
+> - Ellipse and Line tools, fill and stroke with gradients, italics, and a coloured or transparent background.
+> - Learn with six ready examples on the start screen, and Simple or Pro mode.
+> - Export without an account up to 1080p, with presets for TikTok/Reels, YouTube and WhatsApp.
+> - Stock › YouTube Kit: openers, titles, subscribe buttons, end screens and 37 new lower thirds.
+> - Fixes: shapes no longer shake, the first click after a dialog, audio, undo and AI voice.
+
+**Notas para la Store (0.29.0)**. Lo nuevo desde la 0.28.0 (si la 0.28.0 ya se subió). 939/1500 caracteres en español, 896 en inglés.
+
+> Novedades de la 0.29.0
+>
+> - Tercios inferiores en un minuto: Herramientas › Tercio inferior. Eliges un estilo, escribes el nombre y el cargo, y aparecen las capas animadas, todas editables.
+> - Etiqueta que se ajusta al texto y crece o se encoge con el nombre; el nombre se ve solo dentro de su etiqueta.
+> - Barrido de hasta tres colores, rectángulos inclinados, alinear y repartir capas, y escalonar entradas.
+> - Anima a mano como en After Effects: Escala X e Y en % desde el anclaje, cuadrícula del anclaje, borrar claves en un tramo y entradas de barrido.
+> - Divide un texto en letras, Morph con reacción al impacto y salpicadura, y Doblar que mueve también las capas de encima.
+> - Herramientas Elipse y Línea, relleno y trazo con degradados, cursiva, y fondo de color o transparente.
+> - Stock › Kit de YouTube: 37 tercios inferiores nuevos, con logo y limpios.
+> - Arreglos: el primer clic tras un diálogo, colores sin «#» y guías que estorbaban.
+
+En inglés:
+
+> What's new in 0.29.0
+>
+> - Lower thirds in a minute: Tools › Lower third. Pick a style, type the name and the role, and the animated layers appear, all editable.
+> - A label that fits the text and grows or shrinks with the name; the name shows only inside its label.
+> - A wipe with up to three colours, slanted rectangles, align and distribute layers, and staggered entrances.
+> - Animate by hand like After Effects: Scale X and Y in % about the anchor, an anchor grid, delete keys in a range and wipe entrances.
+> - Split a text into letters, Morph with an impact reaction and a liquid splash, and Bend that also moves the layers above.
+> - Ellipse and Line tools, fill and stroke with gradients, italics, and a coloured or transparent background.
+> - Stock › YouTube Kit: 37 new lower thirds, with a logo and clean.
+> - Fixes: the first click after a dialog, colours without «#» and guides that got in the way.
+
 **Notas para la Store (0.28.0)**. La 0.27.0 no se subió: estas cubren la 0.27 y la 0.28 (lo nuevo desde la 0.26.0). 1086/1500 caracteres en español, 1010 en inglés.
 
 > Novedades de la 0.28.0 (incluye la 0.27)
