@@ -552,8 +552,8 @@ Item {
                         id: centreAnchorButton
                         columns: 3
                         spacing: 3
-                        width: 42
-                        height: 42
+                        width: 54
+                        height: 54
                         Repeater {
                             model: 9
                             Rectangle {
@@ -563,9 +563,9 @@ Item {
                                 readonly property real cy: Math.floor(index / 3) / 2
                                 readonly property bool current: Math.abs(anchorSection.fx - cx) < 0.01
                                                                 && Math.abs(anchorSection.fy - cy) < 0.01
-                                width: 12
-                                height: 12
-                                radius: 2
+                                width: 16
+                                height: 16
+                                radius: 3
                                 color: current ? Theme.primary : cellMouse.containsMouse ? Theme.mutedForeground : Theme.panelBorder
                                 MouseArea {
                                     id: cellMouse

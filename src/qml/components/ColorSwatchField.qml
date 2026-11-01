@@ -33,7 +33,7 @@ Row {
         anchors.verticalCenter: parent.verticalCenter
         color: root.hex
         border.width: swatchMouse.containsMouse ? Theme.borderWidthFocus : Theme.borderWidth
-        border.color: swatchMouse.containsMouse ? Theme.primary : Theme.panelBorder
+        border.color: swatchMouse.containsMouse ? Theme.primary : Theme.mutedForeground
 
         Behavior on border.color {
             ColorAnimation { duration: Theme.durationFast; easing.type: Theme.easing }

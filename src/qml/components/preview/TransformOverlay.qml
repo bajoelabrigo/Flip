@@ -575,6 +575,16 @@ Item {
                 id: hover
             }
 
+            // The layer drawn on top under the pointer (0.29, as CapCut and After Effects): it can be grabbed and
+            // dragged straight away, without a click to pick it first.
+            readonly property bool topUnderPointer: {
+                if (!hover.hovered || handle.selected || root.mode3d)
+                    return false
+                const p = root.mapFromItem(null, hover.point.scenePosition.x, hover.point.scenePosition.y)
+                const hit = EditorState.preview.clipAtCanvasPoint(p.x / handle.sx, p.y / handle.sy)
+                return !!hit && hit.track === handle.box.track && hit.clip === handle.box.clip
+            }
+
             // A shape layer's parts (0.28 stage 4): the picked part's outline and grips, in Pro.
             ShapePartOverlay {
                 id: partOverlay
@@ -675,13 +685,13 @@ Item {
             DragHandler {
                 id: bodyDrag
                 target: null
-                // Only the clip selected on the timeline moves: dragging a box
-                // that merely happens to be under the pointer used to shift the
-                // wrong clip, so an unselected box is tap-to-select only.
+                // The selected clip moves, and so does the layer drawn on top under the pointer (0.29, as
+                // CapCut and After Effects: grab and drag, it becomes the selection). Any box merely under the
+                // pointer used to move the wrong clip, so it is the top one only.
                 // Off while a grip is held too: a handler on the parent item can
                 // otherwise take the grab from the grip once the drag threshold
                 // is passed, turning a resize into a move.
-                enabled: handle.selected && !handle.resizing && !root.mode3d
+                enabled: (handle.selected || handle.topUnderPointer) && !handle.resizing && !root.mode3d
                 cursorShape: Qt.SizeAllCursor
 
                 // Press point in canvas px. The box rides the cursor as it moves, so the
