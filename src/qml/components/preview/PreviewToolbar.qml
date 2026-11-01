@@ -316,24 +316,34 @@ Rectangle {
 
         Item { Layout.fillWidth: true }
 
-        // The tool's options, as AE's right side of the Tools panel.
+        // The tool's options, as AE's right side of the Tools panel; with the Selection tool, the picked
+        // shape's own fill, stroke and width (0.29), as AE shows them with any tool.
         Row {
             Layout.alignment: Qt.AlignVCenter
             spacing: Theme.spacingSm
-            visible: root.paintOptions
+            visible: root.paintOptions || (root.tool === "select" && root.pickedStyled()
+                                           && EditorState.selectedClipData.kind === "shape")
 
             PaintLabel { which: "fill"; text: qsTr("Fill") }
             PaintSwatch { which: "fill" }
             PaintLabel { which: "stroke"; text: qsTr("Stroke") }
             PaintSwatch { which: "stroke" }
             ThemedNumberField {
+                id: strokeWidthField
+                readonly property var pickedStroke: { void EditorState.selectedClipData; return root.pickedLayer("stroke") }
                 width: 64
                 anchors.verticalCenter: parent.verticalCenter
                 from: 0
                 to: 200
                 unit: "px"
-                value: EditorState.preview.toolStrokeWidth
-                onEdited: v => EditorState.preview.toolStrokeWidth = v
+                value: pickedStroke ? (pickedStroke.width || 0) : EditorState.preview.toolStrokeWidth
+                onEdited: v => {
+                    if (pickedStroke)
+                        EditorState.setStyleLayer(EditorState.selectedTrack, EditorState.selectedClip, pickedStroke.id,
+                                                  { "enabled": v > 0, "width": v })
+                    else
+                        EditorState.preview.toolStrokeWidth = v
+                }
             }
             ThemedLabel { anchors.verticalCenter: parent.verticalCenter; text: "px"; size: "sm"; opacity: 0.7 }
         }

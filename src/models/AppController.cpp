@@ -13066,7 +13066,9 @@ void AppController::addDrawnShapeToLayer(int trackIndex, int clipIndex, const dr
     emit selectedShapePartChanged();
     emit selectedClipDataChanged();
     // Said out loud: a newcomer expects a new layer. Esc (nothing picked) draws a layer of its own.
-    setLastMessage(tr("“%1” added to “%2” · to draw a separate layer, press Esc first").arg(part.name, layerName));
+    // Says how to undo it too (0.29: the label and its stripe ended in one layer and could not be animated apart).
+    setLastMessage(tr("“%1” added to “%2” · to draw a separate layer, press Esc first; to split them, right-click › Separate into layers")
+                       .arg(part.name, layerName));
 }
 
 namespace {
