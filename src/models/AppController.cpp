@@ -23527,6 +23527,20 @@ void AppController::twoColourWipe(const QString &accentColor, int frames, double
         m_project.tracks()[below].clips.append(under);
         accentIds.append(under.id);
     }
+    // The label's own text shows only inside it, so the words come in with the wipe (Jorge, 0.29: made by hand,
+    // the text stayed on screen while the label swept in). A text already cut by another matte is left alone.
+    if (!base.fitTextId.isEmpty()) {
+        int tt = -1;
+        int tc = -1;
+        if (findClipById(m_project, base.fitTextId, &tt, &tc)) {
+            drift::Clip &text = m_project.tracks()[tt].clips[tc];
+            if (text.matteClipId.isEmpty()) {
+                text.matteClipId = base.id;
+                text.matteMode = drift::Clip::TrackMatte::Alpha;
+                text.matteKeepsSource = true;
+            }
+        }
+    }
     pushProjectEdit(before, tr("Two-colour wipe"));
     // A Linear Wipe on each, keyed from hidden to shown.
     const drift::TimeUs from = m_playheadUs;
