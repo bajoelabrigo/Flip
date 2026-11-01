@@ -21,6 +21,7 @@ Column {
     property bool morphTargetVisible: false
     property int morphReactFrames: 0
     property real morphReactAmount: 100
+    property bool morphSplash: false
     property int liquidPerFrame: 4
     property int liquidSkip: 2
     property real liquidThreshold: 150
@@ -116,13 +117,20 @@ Column {
             checked: root.morphTargetVisible
             onToggled: root.morphTargetVisible = checked
         }
+        // A burst of liquid where they hit (0.29, Jorge), like the Liquid line's stream.
+        ThemedSwitch {
+            width: parent.width
+            text: qsTr("Liquid splash at the hit")
+            checked: root.morphSplash
+            onToggled: root.morphSplash = checked
+        }
         ThemedButton {
             width: parent.width
             variant: "primary"
             text: qsTr("Morph it")
             onClicked: EditorState.morphLayers(root.morphSeconds, root.morphTrails, root.morphArc, root.morphSpin,
                                                root.morphSlices, root.morphTargetVisible, root.morphReactFrames,
-                                               root.morphReactAmount)
+                                               root.morphReactAmount, root.morphSplash)
         }
     }
 

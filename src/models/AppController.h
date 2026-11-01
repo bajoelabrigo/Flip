@@ -1292,8 +1292,11 @@ public:
     // instead of appearing at the cut.
     // The target's reaction (0.29, Jorge): `reactFrames` moves its bounce earlier (< 0, anticipation) or later
     // (> 0) than the hit; `reactAmount` scales it (100 = the usual 18 % pop, 0 = none, 200 = twice).
+    // `splash` (0.29, Jorge): at the hit, drops of liquid burst out of the target, frame by frame and melted
+    // like the Liquid line's stream, in its colour.
     Q_INVOKABLE void morphLayers(double seconds, int trails, double arc, double spin, int slices = 1,
-                                 bool targetVisible = false, int reactFrames = 0, double reactAmount = 100.0);
+                                 bool targetVisible = false, int reactFrames = 0, double reactAmount = 100.0,
+                                 bool splash = false);
     // Liquid trail (Super Liquids): the primary selected layer moves; any other selected shape
     // layers are the elements it throws (copies of them, picked at random; with none, round
     // drops). Wherever it moves faster than `threshold` px/s, `perFrame` elements a frame come off it

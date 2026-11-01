@@ -32774,7 +32774,7 @@ QString ellipseContour(double cx, double cy, double a, double b, double angle, d
 } // namespace
 
 void AppController::morphLayers(double seconds, int trails, double arc, double spin, int slices, bool targetVisible,
-                                int reactFrames, double reactAmount)
+                                int reactFrames, double reactAmount, bool splash)
 {
     QStringList ids;
     for (const QPair<int, int> &ref : std::as_const(m_selection)) {
@@ -32994,6 +32994,7 @@ void AppController::morphLayers(double seconds, int trails, double arc, double s
         }
     }
     // The target: hidden until the cut, then arriving a little big and turned, settling with a bounce.
+    QString splashId;
     int tt = -1;
     int tc = -1;
     if (findClipById(m_project, targetId, &tt, &tc)) {
@@ -33039,10 +33040,83 @@ void AppController::morphLayers(double seconds, int trails, double arc, double s
         turnKeys.append({hit + settle, goal.rotation, I::Ease});
         keyBox(target, boxKeys);
         keyAll(target, QStringLiteral("rotation"), turnKeys);
+
+        if (splash) {
+            // A burst of liquid at the hit (Jorge): drops thrown out round the target, slowing, falling a little
+            // and shrinking away, drawn frame by frame as one shape layer and melted with the Liquid effect, as
+            // the Liquid line's stream.
+            const double W = m_project.width();
+            const double H = m_project.height();
+            const double size = std::max(goal.w, goal.h);
+            const int count = 16;
+            const double life = 0.7;
+            const int splashFrames = qMax(2, int(std::ceil(life * fps)));
+            QRandomGenerator rng(quint32(qHash(targetId)) ^ 0x5b1a);
+            struct Drop { double angle, speed, radius; };
+            QList<Drop> drops;
+            for (int n = 0; n < count; ++n) {
+                drops.append({(n + rng.generateDouble() * 0.8) / count * 2.0 * M_PI,
+                              size * (0.9 + rng.generateDouble() * 1.4) * (0.6 + 0.4 * qMin(2.0, qMax(0.2, reactAmount / 100.0))),
+                              size * (0.035 + rng.generateDouble() * 0.05)});
+            }
+            QStringList frames;
+            QList<drift::TimeUs> times;
+            for (int f = 0; f <= splashFrames; ++f) {
+                const double t = double(f) / fps;
+                const double u = qMin(1.0, t / life);
+                QStringList circles;
+                for (const Drop &d : std::as_const(drops)) {
+                    const double travel = d.speed * (t - t * t / (2.0 * life)); // slowing to a stop at the end
+                    const double x = goal.cx + std::cos(d.angle) * (goal.w / 2.0 * 0.8 + travel);
+                    const double y = goal.cy + std::sin(d.angle) * (goal.h / 2.0 * 0.8 + travel) + size * 0.35 * u * u;
+                    const double r = d.radius * (1.0 - u) * (f == 0 ? 0.6 : 1.0);
+                    if (r > 0.5)
+                        circles.append(ellipseContour(x, y, r, r * (1.0 + 0.25 * std::sin(f * 1.7 + d.angle)), d.angle, W, H));
+                }
+                frames.append(circles.isEmpty() ? ellipseContour(-50.0, -50.0, 0.01, 0.01, 0.0, W, H)
+                                                : circles.join(QLatin1Char(' ')));
+                times.append(drift::secondsToUs(t));
+            }
+            drift::Clip drop;
+            drop.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
+            drop.type = drift::ClipType::Shape;
+            drop.name = tr("%1 splash").arg(target.name);
+            drop.shapeStyle.kind = drift::ShapeKind::Custom;
+            drop.shapeStyle.customPath = frames.first();
+            const QColor colour = target.type == drift::ClipType::Shape ? target.shapeStyle.primaryColor()
+                                  : target.type == drift::ClipType::Text ? target.textStyle.primaryColor()
+                                                                         : QColor(Qt::white);
+            paintDrawnShape(drop.shapeStyle, colour.name(), QStringLiteral("none"), 0.0);
+            drift::KeyframeTrack<double> &path = drop.shapeStyle.keyframes[QLatin1String(drift::kShapePathKey)];
+            for (int k = 0; k < frames.size(); ++k) {
+                drop.shapeStyle.pathShapes.append(frames.at(k));
+                path.setKeyframe(times.at(k), double(k));
+                path.setEasing(times.at(k), drift::Interpolation::Hold);
+            }
+            path.setStopwatch(true);
+            drop.timelineStart = hit;
+            drop.timelineDuration = drift::secondsToUs(double(splashFrames + 1) / fps);
+            drop.srcIn = 0;
+            drop.srcOut = drop.timelineDuration;
+            setClipLayoutPixels(drop, 0.0, 0.0, W, H);
+            // Behind the target, so it seems to come out from under it.
+            const int under = qMin(int(m_project.tracks().size()), tt + 1);
+            m_project.tracks().insert(under, drift::Track{.type = drift::TrackType::Shape});
+            m_project.tracks()[under].clips.append(drop);
+            splashId = drop.id;
+        }
     }
     m_project.ensureTrackIds();
     pushProjectEdit(before, tr("Morph"));
     finishEdit(tr("Morph"));
+    // The splash melts like the Liquid line (its own undo step after the morph's).
+    int st = -1;
+    int sc = -1;
+    if (!splashId.isEmpty() && findClipById(m_project, splashId, &st, &sc)) {
+        m_addEffectKeepsSelection = true;
+        addEffect(st, sc, QStringLiteral("liquid.gooey"));
+        m_addEffectKeepsSelection = false;
+    }
 }
 
 void AppController::generateLiquidTrail(const QVariantMap &options)
