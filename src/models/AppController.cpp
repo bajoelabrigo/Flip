@@ -22178,6 +22178,10 @@ void AppController::setClipKeyframe(int trackIndex, int clipIndex, const QString
     } else if (!writeClipPropValue(clip, prop, rel, value, m_autoKeyEnabled, /*force=*/true)) {
         return;
     }
+    // A key set on purpose turns the stopwatch on (0.29): a lone key at the clip's start was read as the static
+    // value, so the next values typed at other frames rewrote it instead of adding keys.
+    if (drift::KeyframeTrack<double> *kt = keyframeTrackForProp(clip, prop, false))
+        kt->setStopwatch(true);
 
     if (m_positionLinked && (prop == QLatin1String("x") || prop == QLatin1String("y"))) {
         const QString otherProp = (prop == QLatin1String("x")) ? QStringLiteral("y") : QStringLiteral("x");
@@ -22187,6 +22191,7 @@ void AppController::setClipKeyframe(int trackIndex, int clipIndex, const QString
             if (otherNearest < 0) {
                 const double otherVal = otherKt->evaluateAt(rel);
                 writeClipPropValue(clip, otherProp, rel, otherVal, m_autoKeyEnabled, /*force=*/true);
+                otherKt->setStopwatch(true);
                 drift::KeyframeTrack<double> *srcKt = keyframeTrackForProp(clip, prop, false);
                 if (srcKt)
                     otherKt->setEasing(rel, srcKt->easingAt(rel));
