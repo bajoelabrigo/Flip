@@ -528,3 +528,16 @@ clic en la pestaña Texto tras escribir.
 - MCP para probar sin mouse: `create_lower_third`, `make_text_label`, `show_inside_below`, `colour_wipe`,
   `stagger_clips`, `scale_about_anchor`.
 - Extras publicados (2026-11-01): `fonts.basic` 1.1.0 y `fonts.extra` 1.2.0 (paquetes primero, después el índice).
+
+### Prueba final sin mouse (Jorge, 2026-11-01: «ya no necesitas usar el mouse»), build 01f98d0, por MCP
+Programa `pruebas\mcp029\run029.py`: una sesión sin ventana por proyecto, guardado en `proyectos-029c` con su hoja.
+- [p] lt06–lt10: el generador en sus 5 estilos (Limpio, Con línea, Inclinado, Dos colores, Cargo en barra), con entrada
+  y salida (comprobadas de 3,6 a 5 s en lt07, lt09 y lt11).
+- [p] lt11: texto + etiqueta ajustada + solo dentro + barrido de **tres colores** (entra amarillo, azul, blanco; sale al
+  revés). lt12: la etiqueta crece de 164 a 1116 px al cambiar «Bo» por un nombre largo. lt13: fondo transparente.
+  lt14: dos tercios seguidos. lt15: etiqueta a mano con barrido inclinado.
+- [p] A4 «Aparecer de golpe» y A5 «Latido» con `scale_about_anchor`: crecen y se aplastan desde el centro.
+- [p] P11 Laureen (la inclinación por MCP faltaba: `set_shape_style` no conocía `skew`; arreglado en `24d6d`) y P14
+  intro con barrido de entrada y salida. A2/A3 se hicieron con el mouse (`a2-rebote`, `a3-salto`).
+- Stock publicado (2026-11-01): 37 tercios (`llt-*`, `llt2-*`, `llt3-*`) con `minAppVersion` 0.29.0, en 13 idiomas;
+  1531 plantillas en vivo, zips comprobados por hash.
