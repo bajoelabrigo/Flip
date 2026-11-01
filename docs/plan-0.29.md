@@ -452,3 +452,24 @@ llama se queda como está (Jorge: «es un pequeño esfuerzo que el usuario va a 
 ### Las 5 animaciones de Squash & Stretch hechas a mano (fotogramas clave, desde cero)
 A1 Caer (cae, se aplasta al tocar el suelo, rebota y se asienta). A2 Entrar rebotando. A3 Salto hacia adelante.
 A4 Aparecer de golpe. A5 Latido. Cada una se compara a ojo con la del panel de Squash & Stretch.
+
+### Prueba final, primera tanda (portable prueba-g, build f368180; FLIP_TRACE_CLICKS + QT_LOGGING_RULES=default.info=true)
+- [p] P1 banda + título doblándose juntos (T11), sólido de fondo (T13), color de fondo sin «#» (T12, F11), arrastre de
+  texto con el mouse (F2), texto nuevo grande (F8), barra con Selección (F13). **Jorge vio la punta cortada** a ~35°:
+  el margen de Doblar subía con el ángulo y se quedaba corto → ahora reserva el largo entero (`percentFactor` 5).
+- [p] P2 tercio con Barrido (T1) y herramienta Línea (T6). Fallos nuevos: **el botón de Rectángulo se quedaba en Línea**
+  tras pulsar Línea (arreglado: vuelve a Rectángulo); **texto nuevo blanco sobre etiqueta blanca** (capturaba la capa
+  transparente: ahora la ventana entera); las tarjetas de Barrido no muestran el barrido en su miniatura (pendiente
+  menor); el campo de color del texto con triple clic deja «##» (pendiente menor).
+- [p] P3 «SALTA» letra por letra (T3, T15): bien; la ventana tarda ~2 s en refrescar tras dividir.
+- [p] P4 Morph con destino visible (T4). **Jorge: el círculo reacciona antes de que lleguen** (la clave del golpe valía
+  desde el principio) → ahora espera quieto; y **pidió controlar la reacción**: «Momento de la reacción» (−15…+15 fot.)
+  e «Intensidad de la reacción» (0–300 %).
+- [p] P5 firma con Chorro líquido (F5): dibuja la línea detrás del chorro y respeta el color.
+- **F1, causa encontrada:** el fondo oscuro de los diálogos (`ThemedDialog` `Overlay.modal`) tenía un MouseArea que
+  aceptaba todo; la animación de salida se trababa segundos y ese fondo invisible quedaba encima comiéndose clics,
+  incluso los del diálogo siguiente. Arreglo: sin animación de salida (`exit: null`, también en NewTrackMenu y
+  RecentProjectsPopup) y el MouseArea solo con el diálogo abierto. Además el selector de color no aplicaba el hex
+  escrito (`validHex` iba un paso atrás).
+- Pendiente de ver con la build nueva: el clic perdido en la pestaña Texto justo tras escribir un texto (registro
+  `[tab]` con la pila).
