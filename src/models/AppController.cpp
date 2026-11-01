@@ -23280,8 +23280,7 @@ void AppController::createLowerThird(const QVariantMap &o)
     // Without a bar of its own the role is the name's second line, smaller and in its colour, so the one label
     // holds both and grows with either.
     const bool roleInName = hasRole && !roleBar;
-    drift::Clip nameClip = makeText(roleInName ? name + QLatin1Char('
-') + role : name, namePx, 700, textColour,
+    drift::Clip nameClip = makeText(roleInName ? name + QLatin1Char('\n') + role : name, namePx, 700, textColour,
                                     left + 30.0 * u, nameY, frames(6));
     if (roleInName) {
         drift::TextRun run;
