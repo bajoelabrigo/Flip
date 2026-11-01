@@ -564,3 +564,9 @@ Programa `pruebas\mcp029\run029.py`: una sesión sin ventana por proyecto, guard
   Ahora la barra está atada al texto como la etiqueta (`Clip::fitBarWidth`, guardado en `fitText.bar`).
 - **Alineación en el generador** (Jorge): Izquierda, Centro, Derecha: las líneas del texto y el tercio entero en el
   cuadro; a la derecha la barra va al lado derecho de la etiqueta (`fitBarWidth` negativo).
+- Prueba en ventana (build 8173b9f): diálogo de tercios con Segundo acento, Entrada, Salida y Alineación; el cuadrito
+  del Texto ya se ve; Derecha pone el tercio y la barra a la derecha; el sólido toma el color de fondo; el clic al lado
+  del cabezal lo mueve (si hay una clave cerca, el imán lo lleva a ella); cuadrícula del anclaje más grande.
+- **Fallo encontrado:** un toque en el lienzo lo recibían todas las cajas bajo el puntero y ganaba el sólido del fondo
+  (un tercio sobre un sólido no se podía elegir ni editar con doble clic). Ahora solo responde la capa de arriba, y el
+  arrastre también mueve la capa de arriba bajo el puntero aunque haya otra elegida (`8a1b3`, `70c66`, `5496f`).
