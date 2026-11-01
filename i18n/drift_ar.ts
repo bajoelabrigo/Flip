@@ -5612,6 +5612,10 @@
         <translation>%1 تمييز</translation>
     </message>
     <message>
+        <source>%1 accent %2</source>
+        <translation>%1 لون مميز %2</translation>
+    </message>
+    <message>
         <source>Select a text to put a label under it</source>
         <translation>حدّد نصًا لوضع لافتة تحته</translation>
     </message>
@@ -24709,6 +24713,14 @@ If playback stutters, try another.</source>
     <message>
         <source> fr</source>
         <translation> إط.</translation>
+    </message>
+    <message>
+        <source>Second colour</source>
+        <translation>اللون الثاني</translation>
+    </message>
+    <message>
+        <source>Third colour</source>
+        <translation>اللون الثالث</translation>
     </message>
     <message>
         <source>Slanted edge</source>

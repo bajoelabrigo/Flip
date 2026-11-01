@@ -23395,7 +23395,8 @@ void AppController::createLowerThird(const QVariantMap &o)
     setLastMessage(tr("Lower third added: every piece is a layer you can edit"), QStringLiteral("info"));
 }
 
-void AppController::twoColourWipe(const QString &accentColor, int frames, double angle)
+void AppController::twoColourWipe(const QString &accentColor, int frames, double angle, const QString &accent2,
+                                  const QString &accent3)
 {
     if (!isValidClipIndex(m_selectedTrack, m_selectedClip)
         || m_project.tracks().at(m_selectedTrack).clips.at(m_selectedClip).type != drift::ClipType::Shape) {
@@ -23412,20 +23413,32 @@ void AppController::twoColourWipe(const QString &accentColor, int frames, double
         beginEditSession(tr("Two-colour wipe"));
     const drift::Project before = m_project;
     const drift::Clip base = m_project.tracks().at(m_selectedTrack).clips.at(m_selectedClip);
-    drift::Clip under = base;
-    under.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
-    under.name = tr("%1 accent").arg(base.name);
-    under.linkId.clear();
-    under.fitTextId = base.fitTextId;
-    for (drift::TextShadingLayer &layer : under.shapeStyle.layers) {
-        if (layer.kind == drift::TextLayerKind::Fill) {
-            layer.paint.kind = drift::TextPaintKind::Solid;
-            layer.paint.color = accent;
-        }
+    // Up to three accent colours (Jorge, 0.29): they sweep in one after the other, the first one deepest, and the
+    // shape comes last on top.
+    QList<QColor> accents{accent};
+    for (const QString &extra : {accent2, accent3}) {
+        if (QColor::isValidColorName(extra))
+            accents.append(QColor(extra));
     }
+    QStringList accentIds;
     const int below = qMin(int(m_project.tracks().size()), m_selectedTrack + 1);
-    m_project.tracks().insert(below, drift::Track{.type = drift::TrackType::Shape});
-    m_project.tracks()[below].clips.append(under);
+    for (int i = 0; i < accents.size(); ++i) {
+        drift::Clip under = base;
+        under.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
+        under.name = accents.size() > 1 ? tr("%1 accent %2").arg(base.name).arg(i + 1) : tr("%1 accent").arg(base.name);
+        under.linkId.clear();
+        under.fitTextId = base.fitTextId;
+        for (drift::TextShadingLayer &layer : under.shapeStyle.layers) {
+            if (layer.kind == drift::TextLayerKind::Fill) {
+                layer.paint.kind = drift::TextPaintKind::Solid;
+                layer.paint.color = accents.at(i);
+            }
+        }
+        // Each new accent goes right under the shape, so the first one ends up deepest.
+        m_project.tracks().insert(below, drift::Track{.type = drift::TrackType::Shape});
+        m_project.tracks()[below].clips.append(under);
+        accentIds.append(under.id);
+    }
     pushProjectEdit(before, tr("Two-colour wipe"));
     // A Linear Wipe on each, keyed from hidden to shown.
     const drift::TimeUs from = m_playheadUs;
@@ -23462,8 +23475,9 @@ void AppController::twoColourWipe(const QString &accentColor, int frames, double
         }
         pushProjectEdit(beforeKeys, tr("Two-colour wipe"));
     };
-    wipe(under.id, from);
-    wipe(base.id, from + lag);
+    for (int i = 0; i < accentIds.size(); ++i)
+        wipe(accentIds.at(i), from + lag * i);
+    wipe(base.id, from + lag * accentIds.size());
     finishEdit(tr("Two-colour wipe"));
     if (ownSession)
         endEditSession(true);

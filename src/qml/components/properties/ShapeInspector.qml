@@ -560,6 +560,10 @@ Item {
             property string accent: "#fff5c518"
             property int frames: 14
             property bool slanted: false
+            property bool useSecond: false
+            property bool useThird: false
+            property string accent2: "#ff2a9df4"
+            property string accent3: "#ffffffff"
 
             Column {
                 width: parent.width
@@ -588,6 +592,44 @@ Item {
                         onEdited: v => twoWipe.frames = Math.round(v)
                     }
                 }
+                // Two more colours, optional (Jorge, 0.29): they sweep in after the first one.
+                Row {
+                    width: parent.width
+                    spacing: Theme.spacingSm
+                    ThemedSwitch {
+                        anchors.verticalCenter: parent.verticalCenter
+                        text: qsTr("Second colour")
+                        checked: twoWipe.useSecond
+                        onToggled: {
+                            twoWipe.useSecond = checked
+                            if (!checked)
+                                twoWipe.useThird = false
+                        }
+                    }
+                    ColorSwatchField {
+                        anchors.verticalCenter: parent.verticalCenter
+                        visible: twoWipe.useSecond
+                        hex: twoWipe.accent2
+                        onEdited: value => twoWipe.accent2 = value
+                    }
+                }
+                Row {
+                    width: parent.width
+                    spacing: Theme.spacingSm
+                    visible: twoWipe.useSecond
+                    ThemedSwitch {
+                        anchors.verticalCenter: parent.verticalCenter
+                        text: qsTr("Third colour")
+                        checked: twoWipe.useThird
+                        onToggled: twoWipe.useThird = checked
+                    }
+                    ColorSwatchField {
+                        anchors.verticalCenter: parent.verticalCenter
+                        visible: twoWipe.useThird
+                        hex: twoWipe.accent3
+                        onEdited: value => twoWipe.accent3 = value
+                    }
+                }
                 ThemedSwitch {
                     width: parent.width
                     text: qsTr("Slanted edge")
@@ -598,7 +640,9 @@ Item {
                     width: parent.width
                     variant: "primary"
                     text: qsTr("Apply two-colour wipe")
-                    onClicked: EditorState.twoColourWipe(twoWipe.accent, twoWipe.frames, twoWipe.slanted ? 14 : 0)
+                    onClicked: EditorState.twoColourWipe(twoWipe.accent, twoWipe.frames, twoWipe.slanted ? 14 : 0,
+                                                         twoWipe.useSecond ? twoWipe.accent2 : "",
+                                                         twoWipe.useSecond && twoWipe.useThird ? twoWipe.accent3 : "")
                 }
             }
         }

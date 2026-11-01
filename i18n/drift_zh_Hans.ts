@@ -5519,6 +5519,10 @@
         <translation>%1 强调色</translation>
     </message>
     <message>
+        <source>%1 accent %2</source>
+        <translation>%1 强调色 %2</translation>
+    </message>
+    <message>
         <source>Select a text to put a label under it</source>
         <translation>请选择一个文本以在其下方添加标签</translation>
     </message>
@@ -24259,6 +24263,14 @@ If playback stutters, try another.</source>
     <message>
         <source> fr</source>
         <translation> 帧</translation>
+    </message>
+    <message>
+        <source>Second colour</source>
+        <translation>第二种颜色</translation>
+    </message>
+    <message>
+        <source>Third colour</source>
+        <translation>第三种颜色</translation>
     </message>
     <message>
         <source>Slanted edge</source>

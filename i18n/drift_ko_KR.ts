@@ -5519,6 +5519,10 @@
         <translation>%1 강조</translation>
     </message>
     <message>
+        <source>%1 accent %2</source>
+        <translation>%1 강조 %2</translation>
+    </message>
+    <message>
         <source>Select a text to put a label under it</source>
         <translation>아래에 라벨을 붙일 텍스트를 선택하세요</translation>
     </message>
@@ -24258,6 +24262,14 @@ If playback stutters, try another.</source>
     <message>
         <source> fr</source>
         <translation> 프레임</translation>
+    </message>
+    <message>
+        <source>Second colour</source>
+        <translation>두 번째 색</translation>
+    </message>
+    <message>
+        <source>Third colour</source>
+        <translation>세 번째 색</translation>
     </message>
     <message>
         <source>Slanted edge</source>

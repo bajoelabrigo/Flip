@@ -5540,6 +5540,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>%1 accent %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Select a text to put a label under it</source>
         <translation type="unfinished"></translation>
     </message>
@@ -24337,6 +24341,14 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source> fr</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Second colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Third colour</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

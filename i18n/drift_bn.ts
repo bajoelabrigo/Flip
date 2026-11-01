@@ -5640,6 +5640,10 @@
         <translation>%1 অ্যাকসেন্ট</translation>
     </message>
     <message>
+        <source>%1 accent %2</source>
+        <translation>%1 অ্যাকসেন্ট %2</translation>
+    </message>
+    <message>
         <source>Select a text to put a label under it</source>
         <translation>নিচে লেবেল বসাতে একটি টেক্সট নির্বাচন করুন</translation>
     </message>
@@ -24345,6 +24349,14 @@ If playback stutters, try another.</source>
     <message>
         <source> fr</source>
         <translation> ফ্রে.</translation>
+    </message>
+    <message>
+        <source>Second colour</source>
+        <translation>দ্বিতীয় রং</translation>
+    </message>
+    <message>
+        <source>Third colour</source>
+        <translation>তৃতীয় রং</translation>
     </message>
     <message>
         <source>Slanted edge</source>

@@ -5561,6 +5561,10 @@
         <translation>%1 akcent</translation>
     </message>
     <message>
+        <source>%1 accent %2</source>
+        <translation>%1 akcent %2</translation>
+    </message>
+    <message>
         <source>Select a text to put a label under it</source>
         <translation>Zaznacz tekst, aby umieścić pod nim etykietę</translation>
     </message>
@@ -24439,6 +24443,14 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     <message>
         <source> fr</source>
         <translation> kl.</translation>
+    </message>
+    <message>
+        <source>Second colour</source>
+        <translation>Drugi kolor</translation>
+    </message>
+    <message>
+        <source>Third colour</source>
+        <translation>Trzeci kolor</translation>
     </message>
     <message>
         <source>Slanted edge</source>

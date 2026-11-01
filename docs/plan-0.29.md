@@ -503,3 +503,21 @@ clic en la pestaña Texto tras escribir.
   - La ventana tarda en redibujarse con clics simulados (el clic llega; el panel se ve tarde). Con el mouse real no
     pasa; se deja anotado.
 - [p] A1 «Caer» a mano con claves de Y y Escala X/Y en % (`a1-caer`).
+
+### Tercera tanda (portable prueba-j, build d035002), con el mouse
+- [p] L1 la etiqueta crece con «Ana María Gómez» y se encoge con «Bo»; L2 + L4 animado como el ejemplo (`lt05-demo`).
+- [p] Fondo del proyecto transparente (alfa): textos traducidos a los 15 idiomas (`6f748`).
+- [p] A2 «Entrar rebotando» (`a2-rebote`): X −150 → 900 → 800 → 855 → 835 y Escala X/Y estirada en el viaje
+  (125/80, 130/78) y aplastada al frenar (75/125 → 110/92 → 96/104 → 100).
+- [p] A3 «Salto hacia adelante» (`a3-salto`): anticipación, arco con la Y en «Suave», aterrizaje aplastado.
+- Fallos encontrados:
+  - **Filas que parecían animadas sin estarlo** (arreglado, `d6e4b`): toda capa guarda su posición/tamaño como una
+    clave suelta en el inicio; la fila la mostraba como animada (rombo azul, flechas), pero lo escrito en otro
+    momento solo cambiaba el valor, y pulsar el rombo en el inicio **borraba** esa clave. Ahora esa clave se marca
+    `static` y la fila se ve sin claves: el rombo empieza la animación, como en After Effects.
+  - **Escala X/Y de una forma nueva salía en 11 % / 19 %** (la medía contra el lienzo, porque el interruptor de
+    escala separada se recuerda entre capas). Arreglado (`b667f`): sin referencia, el 100 % es su propio tamaño.
+  - Clic en la regla justo sobre el cabezal no lo mueve (agarra el cabezal): en las pruebas, usar la tecla Inicio.
+- **Barrido de colores con hasta 3 colores** (Jorge, 2026-11-01): «Segundo color» y «Tercer color» opcionales en
+  Forma › Barrido de dos colores; entran en cascada (el primero más al fondo) y la etiqueta llega al final encima.
+  Prueba `colourWipeTakesUpToThreeAccents`.

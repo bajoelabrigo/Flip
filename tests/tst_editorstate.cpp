@@ -222,6 +222,7 @@ private slots:
     void splitTextIntoLettersMakesOneLayerEach();
     void removeClipKeysInRangeClearsEveryRow();
     void frameSolidCoversTheWholeWork();
+    void colourWipeTakesUpToThreeAccents();
     void moveTrackReordersAndRemapsSelection();
     void addTrackInsertsEmptyTrackByType();
     void renameTrackAndUndo();
@@ -4516,6 +4517,38 @@ void EditorStateTest::frameSolidCoversTheWholeWork()
     QCOMPARE(solid.timelineStart, drift::TimeUs(0));
     QCOMPARE(solid.timelineEnd(), state.project()->durationUs());
     QCOMPARE(solid.transformW.evaluateAt(0), double(state.project()->width()));
+}
+
+void EditorStateTest::colourWipeTakesUpToThreeAccents()
+{
+    // 0.29 (Jorge): the wipe of a label can sweep in up to three colours before the label, the first one deepest.
+    AssetLibrary library;
+    AppController state(&library);
+    state.addShapeClip(QStringLiteral("rectangle"), 0.0);
+    state.twoColourWipe(QStringLiteral("#ffd400"), 12, 0.0, QStringLiteral("#2a9df4"), QStringLiteral("#ffffff"));
+    QMap<QString, int> trackOf;
+    int accents = 0;
+    const auto &tracks = state.project()->tracks();
+    for (int t = 0; t < tracks.size(); ++t) {
+        for (const drift::Clip &clip : tracks.at(t).clips) {
+            if (clip.type != drift::ClipType::Shape || !clip.name.contains(QStringLiteral(" accent ")))
+                continue;
+            ++accents;
+            for (const drift::TextShadingLayer &layer : clip.shapeStyle.layers) {
+                if (layer.kind == drift::TextLayerKind::Fill)
+                    trackOf.insert(layer.paint.color.name(), t);
+            }
+        }
+    }
+    QCOMPARE(accents, 3);
+    const int first = trackOf.value(QStringLiteral("#ffd400"), -1);
+    const int second = trackOf.value(QStringLiteral("#2a9df4"), -1);
+    const int third = trackOf.value(QStringLiteral("#ffffff"), -1);
+    QVERIFY(first >= 0 && second >= 0 && third >= 0);
+    // Tracks run top to bottom: the label above the third, the first accent deepest.
+    QVERIFY(state.selectedTrack() < third);
+    QVERIFY(third < second);
+    QVERIFY(second < first);
 }
 
 void EditorStateTest::typedValueOnAnAnimatedPropertyAddsAKey()

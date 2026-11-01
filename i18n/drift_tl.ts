@@ -5544,6 +5544,10 @@
         <translation>%1 accent</translation>
     </message>
     <message>
+        <source>%1 accent %2</source>
+        <translation>%1 accent %2</translation>
+    </message>
+    <message>
         <source>Select a text to put a label under it</source>
         <translation>Pumili ng text para lagyan ng label sa ilalim nito</translation>
     </message>
@@ -24338,6 +24342,14 @@ If playback stutters, try another.</source>
     <message>
         <source> fr</source>
         <translation> fr</translation>
+    </message>
+    <message>
+        <source>Second colour</source>
+        <translation>Ikalawang kulay</translation>
+    </message>
+    <message>
+        <source>Third colour</source>
+        <translation>Ikatlong kulay</translation>
     </message>
     <message>
         <source>Slanted edge</source>

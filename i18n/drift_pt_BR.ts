@@ -5540,6 +5540,10 @@
         <translation>%1 destaque</translation>
     </message>
     <message>
+        <source>%1 accent %2</source>
+        <translation>%1 destaque %2</translation>
+    </message>
+    <message>
         <source>Select a text to put a label under it</source>
         <translation>Selecione um texto para pôr uma etiqueta embaixo dele</translation>
     </message>
@@ -24349,6 +24353,14 @@ Se a reprodução travar, tente outra opção.</translation>
     <message>
         <source> fr</source>
         <translation> qd.</translation>
+    </message>
+    <message>
+        <source>Second colour</source>
+        <translation>Segunda cor</translation>
+    </message>
+    <message>
+        <source>Third colour</source>
+        <translation>Terceira cor</translation>
     </message>
     <message>
         <source>Slanted edge</source>

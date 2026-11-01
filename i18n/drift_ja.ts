@@ -5519,6 +5519,10 @@
         <translation>%1 アクセント</translation>
     </message>
     <message>
+        <source>%1 accent %2</source>
+        <translation>%1 アクセント %2</translation>
+    </message>
+    <message>
         <source>Select a text to put a label under it</source>
         <translation>下にラベルを付けるテキストを選択してください</translation>
     </message>
@@ -24259,6 +24263,14 @@ If playback stutters, try another.</source>
     <message>
         <source> fr</source>
         <translation> フレーム</translation>
+    </message>
+    <message>
+        <source>Second colour</source>
+        <translation>2 色目</translation>
+    </message>
+    <message>
+        <source>Third colour</source>
+        <translation>3 色目</translation>
     </message>
     <message>
         <source>Slanted edge</source>

@@ -5545,6 +5545,10 @@
         <translation>%1 accent</translation>
     </message>
     <message>
+        <source>%1 accent %2</source>
+        <translation>%1 accent %2</translation>
+    </message>
+    <message>
         <source>Select a text to put a label under it</source>
         <translation>Sélectionnez un texte pour placer une étiquette dessous</translation>
     </message>
@@ -24351,6 +24355,14 @@ Si la lecture saccade, essayez une autre option.</translation>
     <message>
         <source> fr</source>
         <translation> im.</translation>
+    </message>
+    <message>
+        <source>Second colour</source>
+        <translation>Deuxième couleur</translation>
+    </message>
+    <message>
+        <source>Third colour</source>
+        <translation>Troisième couleur</translation>
     </message>
     <message>
         <source>Slanted edge</source>

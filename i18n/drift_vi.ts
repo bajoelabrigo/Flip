@@ -5527,6 +5527,10 @@
         <translation>%1 nhấn</translation>
     </message>
     <message>
+        <source>%1 accent %2</source>
+        <translation>%1 nhấn %2</translation>
+    </message>
+    <message>
         <source>Select a text to put a label under it</source>
         <translation>Chọn một văn bản để đặt nhãn bên dưới</translation>
     </message>
@@ -24259,6 +24263,14 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source> fr</source>
         <translation> kh.</translation>
+    </message>
+    <message>
+        <source>Second colour</source>
+        <translation>Màu thứ hai</translation>
+    </message>
+    <message>
+        <source>Third colour</source>
+        <translation>Màu thứ ba</translation>
     </message>
     <message>
         <source>Slanted edge</source>

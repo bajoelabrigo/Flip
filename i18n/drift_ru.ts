@@ -5561,6 +5561,10 @@
         <translation>%1 акцент</translation>
     </message>
     <message>
+        <source>%1 accent %2</source>
+        <translation>%1 акцент %2</translation>
+    </message>
+    <message>
         <source>Select a text to put a label under it</source>
         <translation>Выберите текст, чтобы поставить под ним метку</translation>
     </message>
@@ -24439,6 +24443,14 @@ If playback stutters, try another.</source>
     <message>
         <source> fr</source>
         <translation> кадр.</translation>
+    </message>
+    <message>
+        <source>Second colour</source>
+        <translation>Второй цвет</translation>
+    </message>
+    <message>
+        <source>Third colour</source>
+        <translation>Третий цвет</translation>
     </message>
     <message>
         <source>Slanted edge</source>

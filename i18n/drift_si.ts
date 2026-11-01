@@ -5540,6 +5540,10 @@
         <translation>%1 අවධාරණ</translation>
     </message>
     <message>
+        <source>%1 accent %2</source>
+        <translation>%1 උච්චාරණ %2</translation>
+    </message>
+    <message>
         <source>Select a text to put a label under it</source>
         <translation>යටින් ලේබලයක් තැබීමට පෙළක් තෝරන්න</translation>
     </message>
@@ -24345,6 +24349,14 @@ If playback stutters, try another.</source>
     <message>
         <source> fr</source>
         <translation> රා.</translation>
+    </message>
+    <message>
+        <source>Second colour</source>
+        <translation>දෙවන වර්ණය</translation>
+    </message>
+    <message>
+        <source>Third colour</source>
+        <translation>තෙවන වර්ණය</translation>
     </message>
     <message>
         <source>Slanted edge</source>
