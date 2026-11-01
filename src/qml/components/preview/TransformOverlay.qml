@@ -695,10 +695,12 @@ Item {
                         root.interacting = true
                         if (handle.isTransform)
                             root.movingLayerTrack = handle.box.track
-                        // Taken at activation rather than at the press, so the drag
-                        // threshold is not replayed as a jump.
-                        const p = root.mapFromItem(null, bodyDrag.centroid.scenePosition.x,
-                                                   bodyDrag.centroid.scenePosition.y)
+                        // From the press point (0.29): the grabbed point stays under the pointer from
+                        // the first move, as After Effects. Taken at activation, a quick drag (or one
+                        // that arrives in a single move) lost everything up to the threshold and the
+                        // layer hardly moved.
+                        const p = root.mapFromItem(null, bodyDrag.centroid.scenePressPosition.x,
+                                                   bodyDrag.centroid.scenePressPosition.y)
                         bodyDrag.pressPx = p.x / handle.sx
                         bodyDrag.pressPy = p.y / handle.sy
                         handle.dragStartX = handle.box.x
