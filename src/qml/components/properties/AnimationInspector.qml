@@ -116,9 +116,20 @@ Item {
     height: column.height
     implicitHeight: column.height
 
+    // On every picked layer (0.29, lower thirds): a label, its line and its name take the same entrance at once;
+    // «Stagger» then cascades them.
     function setAnim(which, patch) {
-        EditorState.setClipAnimation(EditorState.selectedTrack, EditorState.selectedClip, which, patch)
+        const picked = EditorState.selection || []
+        if (picked.length < 2) {
+            EditorState.setClipAnimation(EditorState.selectedTrack, EditorState.selectedClip, which, patch)
+            return
+        }
+        EditorState.beginEditSession(qsTr("Animation"))
+        for (const s of picked)
+            EditorState.setClipAnimation(s.track, s.clip, which, patch)
+        EditorState.endEditSession(true)
     }
+    property int staggerFrames: 4
 
     function styleIndexFor(anim) {
         const id = (anim && anim.curve) ? anim.curve : (root.clipData.fadeCurve || "smooth")
@@ -160,6 +171,28 @@ Item {
         id: column
         width: root.width
         spacing: Theme.spacingXl
+
+        // Lower thirds (0.29): the picked layers start a few frames apart, so their entrances cascade.
+        Row {
+            visible: (EditorState.selection || []).length > 1
+            width: parent.width
+            spacing: Theme.spacingSm
+            ThemedLabel { anchors.verticalCenter: parent.verticalCenter; text: qsTr("Stagger"); size: "sm" }
+            ThemedNumberField {
+                width: 70
+                from: 0
+                to: 120
+                unit: qsTr(" fr")
+                value: root.staggerFrames
+                onEdited: v => root.staggerFrames = Math.round(v)
+            }
+            ThemedButton {
+                width: parent.width - 70 - 70 - 2 * parent.spacing
+                text: qsTr("Stagger the picked layers")
+                tooltip: qsTr("Each one starts that many frames after the one picked before it; they all end together")
+                onClicked: EditorState.staggerSelectedClips(root.staggerFrames)
+            }
+        }
 
         EmptyState {
             visible: !root.supportsFade

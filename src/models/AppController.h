@@ -1732,6 +1732,10 @@ public:
     // Lower thirds (0.29): the clip shows only inside the layer right under it at that moment (its label), which
     // stays on screen; again on a clip that already does, it turns it off. Returns whether it is now inside one.
     Q_INVOKABLE bool showInsideLayerBelow(int trackIndex, int clipIndex);
+    // Lower thirds (0.29): the picked layers start `frames` apart in the order they were picked (the first
+    // stays), each keeping its end, so their entrances run in a cascade, as After Effects' Sequence Layers.
+    // Pictures and audio keep their length (they move). One undo step; returns how many moved.
+    Q_INVOKABLE int staggerSelectedClips(int frames);
     Q_INVOKABLE bool traceUi() const { return qEnvironmentVariableIsSet("FLIP_TRACE_CLICKS"); }
     Q_INVOKABLE void removeKeyframes(int trackIndex, const QVariantList &keys);
     // Every key of every animated property of a clip between two timeline times (0.29: a jump wrote six

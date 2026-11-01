@@ -22970,6 +22970,60 @@ int AppController::splitTextIntoLetters(int trackIndex, int clipIndex)
     return int(ids.size());
 }
 
+int AppController::staggerSelectedClips(int frames)
+{
+    QList<QPair<int, int>> picked = m_selection;
+    if (picked.size() < 2) {
+        setLastMessage(tr("Select two layers or more (Ctrl+click, in the order they should come in)"),
+                       QStringLiteral("warning"));
+        return 0;
+    }
+    QStringList ids;
+    for (const QPair<int, int> &ref : std::as_const(picked)) {
+        if (isValidClipIndex(ref.first, ref.second))
+            ids.append(m_project.tracks().at(ref.first).clips.at(ref.second).id);
+    }
+    const int fps = qMax(1, m_project.fps());
+    const drift::TimeUs step = drift::secondsToUs(double(qMax(0, frames)) / fps);
+    const drift::Project before = m_project;
+    drift::TimeUs first = -1;
+    int moved = 0;
+    for (int i = 0; i < ids.size(); ++i) {
+        int t = -1;
+        int c = -1;
+        if (!findClipById(m_project, ids.at(i), &t, &c))
+            continue;
+        drift::Clip &clip = m_project.tracks()[t].clips[c];
+        if (first < 0) {
+            first = clip.timelineStart;
+            continue;
+        }
+        const drift::TimeUs start = first + step * i;
+        const bool still = clip.type == drift::ClipType::Shape || clip.type == drift::ClipType::Text
+                           || clip.type == drift::ClipType::Image;
+        if (still) {
+            const drift::TimeUs end = clip.timelineEnd();
+            if (end - start < drift::secondsToUs(1.0 / fps))
+                continue;
+            // Its keys and its entrance ride with its start, as After Effects' Sequence Layers moves them.
+            clip.timelineStart = start;
+            clip.timelineDuration = end - start;
+            clip.srcOut = clip.srcIn + clip.timelineDuration;
+        } else {
+            clip.timelineStart = start;
+        }
+        ++moved;
+    }
+    if (moved == 0) {
+        m_project = before;
+        return 0;
+    }
+    pushProjectEdit(before, tr("Stagger layers"));
+    finishEdit(tr("Stagger layers"));
+    setLastMessage(tr("%n layer(s) staggered", "", moved), QStringLiteral("info"));
+    return moved;
+}
+
 bool AppController::showInsideLayerBelow(int trackIndex, int clipIndex)
 {
     if (!isValidClipIndex(trackIndex, clipIndex))
