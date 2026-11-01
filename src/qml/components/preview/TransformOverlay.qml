@@ -702,7 +702,7 @@ Item {
                 // Off while a grip is held too: a handler on the parent item can
                 // otherwise take the grab from the grip once the drag threshold
                 // is passed, turning a resize into a move.
-                enabled: (hover.hovered ? handle.topUnderPointer : handle.selected) && !handle.resizing && !root.mode3d
+                enabled: bodyDrag.active || ((hover.hovered ? handle.topUnderPointer : handle.selected) && !handle.resizing && !root.mode3d)
                 cursorShape: Qt.SizeAllCursor
 
                 // Press point in canvas px. The box rides the cursor as it moves, so the
