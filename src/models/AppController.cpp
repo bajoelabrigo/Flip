@@ -32773,7 +32773,8 @@ QString ellipseContour(double cx, double cy, double a, double b, double angle, d
 
 } // namespace
 
-void AppController::morphLayers(double seconds, int trails, double arc, double spin, int slices, bool targetVisible)
+void AppController::morphLayers(double seconds, int trails, double arc, double spin, int slices, bool targetVisible,
+                                int reactFrames, double reactAmount)
 {
     QStringList ids;
     for (const QPair<int, int> &ref : std::as_const(m_selection)) {
@@ -32998,8 +32999,9 @@ void AppController::morphLayers(double seconds, int trails, double arc, double s
     if (findClipById(m_project, targetId, &tt, &tc)) {
         drift::Clip &target = m_project.tracks()[tt].clips[tc];
         const drift::TimeUs settle = drift::secondsToUs(0.32);
-        if (stillKind(target) && target.timelineEnd() < t1 + settle)
-            target.timelineDuration = t1 + settle - target.timelineStart;
+        const drift::TimeUs lastKey = t1 + settle + frame * qMax(0, qBound(-30, reactFrames, 30));
+        if (stillKind(target) && target.timelineEnd() < lastKey)
+            target.timelineDuration = lastKey - target.timelineStart;
         if (targetVisible) {
             // On screen all along: it starts where the others fly to, so no opacity keys (a hidden
             // stretch left by an earlier morph is cleared).
@@ -33023,15 +33025,18 @@ void AppController::morphLayers(double seconds, int trails, double arc, double s
         // whole flight.
         QList<std::tuple<drift::TimeUs, double, double, double, double, drift::Interpolation>> boxKeys;
         QList<std::tuple<drift::TimeUs, double, drift::Interpolation>> turnKeys;
-        if (targetVisible && t0 >= target.timelineStart && t0 < t1) {
+        // When it reacts and how hard (Jorge): before the hit (anticipation), on it, or after.
+        const double k = qBound(0.0, reactAmount, 300.0) / 100.0;
+        const drift::TimeUs hit = qMax(t0 + frame, t1 + frame * qBound(-30, reactFrames, 30));
+        if (targetVisible && t0 >= target.timelineStart && t0 < hit) {
             boxKeys.append({t0, goal.cx, goal.cy, goal.w, goal.h, I::Hold});
             turnKeys.append({t0, goal.rotation, I::Hold});
         }
-        boxKeys.append({t1, goal.cx, goal.cy, goal.w * 1.18, goal.h * 1.18, I::Ease});
-        boxKeys.append({t1 + settle / 2, goal.cx, goal.cy, goal.w * 0.96, goal.h * 0.96, I::Ease});
-        boxKeys.append({t1 + settle, goal.cx, goal.cy, goal.w, goal.h, I::Ease});
-        turnKeys.append({t1, goal.rotation + spin * 0.12 * side, I::Ease});
-        turnKeys.append({t1 + settle, goal.rotation, I::Ease});
+        boxKeys.append({hit, goal.cx, goal.cy, goal.w * (1.0 + 0.18 * k), goal.h * (1.0 + 0.18 * k), I::Ease});
+        boxKeys.append({hit + settle / 2, goal.cx, goal.cy, goal.w * (1.0 - 0.04 * k), goal.h * (1.0 - 0.04 * k), I::Ease});
+        boxKeys.append({hit + settle, goal.cx, goal.cy, goal.w, goal.h, I::Ease});
+        turnKeys.append({hit, goal.rotation + spin * 0.12 * side * k, I::Ease});
+        turnKeys.append({hit + settle, goal.rotation, I::Ease});
         keyBox(target, boxKeys);
         keyAll(target, QStringLiteral("rotation"), turnKeys);
     }

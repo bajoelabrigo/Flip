@@ -19,6 +19,8 @@ Column {
     property real morphSpin: 90
     property int morphSlices: 1
     property bool morphTargetVisible: false
+    property int morphReactFrames: 0
+    property real morphReactAmount: 100
     property int liquidPerFrame: 4
     property int liquidSkip: 2
     property real liquidThreshold: 150
@@ -105,6 +107,9 @@ Column {
         Knob { label: qsTr("Slicer"); from: 1; to: 8; step: 1; decimals: 0; value: root.morphSlices; onMoved: v => root.morphSlices = Math.round(v) }
         // Both endings (0.29, Jorge): the last layer appears at the cut, or is there all along and the
         // others fly into it.
+        // The target's reaction (0.29, Jorge): earlier or later than the hit, and how hard.
+        Knob { label: qsTr("Reaction timing"); from: -15; to: 15; step: 1; decimals: 0; value: root.morphReactFrames; unit: qsTr(" fr"); onMoved: v => root.morphReactFrames = Math.round(v) }
+        Knob { label: qsTr("Reaction strength"); from: 0; to: 300; step: 5; decimals: 0; value: root.morphReactAmount; unit: " %"; onMoved: v => root.morphReactAmount = v }
         ThemedSwitch {
             width: parent.width
             text: qsTr("Last layer visible from the start")
@@ -116,7 +121,8 @@ Column {
             variant: "primary"
             text: qsTr("Morph it")
             onClicked: EditorState.morphLayers(root.morphSeconds, root.morphTrails, root.morphArc, root.morphSpin,
-                                               root.morphSlices, root.morphTargetVisible)
+                                               root.morphSlices, root.morphTargetVisible, root.morphReactFrames,
+                                               root.morphReactAmount)
         }
     }
 
