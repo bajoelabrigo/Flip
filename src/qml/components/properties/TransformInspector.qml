@@ -395,11 +395,19 @@ Item {
                 visible: !root.sizeLinked
                 width: parent.width
                 spacing: Theme.spacingXs
-                readonly property real refW: root.clipData.scaleRefW > 0 ? root.clipData.scaleRefW : root.canvasW
-                readonly property real refH: root.clipData.scaleRefH > 0 ? root.clipData.scaleRefH : root.canvasH
+                // Without a reference yet (the scale was split on another layer: the switch is remembered), 100 % is
+                // the layer's own size at its start, not the frame (a new shape read 11 % / 19 %).
+                readonly property real refW: root.clipData.scaleRefW > 0 ? root.clipData.scaleRefW
+                    : EditorState.propertyValueAt(EditorState.selectedTrack, EditorState.selectedClip, "width", 0, root.canvasW)
+                readonly property real refH: root.clipData.scaleRefH > 0 ? root.clipData.scaleRefH
+                    : EditorState.propertyValueAt(EditorState.selectedTrack, EditorState.selectedClip, "height", 0, root.canvasH)
                 readonly property real w: { void root.clipDataRevision; void root.liveRevision; return root.transformAt("width", root.canvasW) }
                 readonly property real h: { void root.clipDataRevision; void root.liveRevision; return root.transformAt("height", root.canvasH) }
                 function setSize(key, value) {
+                    // The size the percentages count from is kept on the first edit, so it does not move with the keys.
+                    const fromW = refW, fromH = refH
+                    if (!(root.clipData.scaleRefW > 0))
+                        EditorState.setClipScaleReference(EditorState.selectedTrack, EditorState.selectedClip, fromW, fromH)
                     EditorState.beginPreviewDrag(qsTr("Scale"))
                     EditorState.previewSetClipKeyframe(EditorState.selectedTrack, EditorState.selectedClip, key,
                                                        EditorState.inspectorPlayheadSeconds, Math.max(1, value))
