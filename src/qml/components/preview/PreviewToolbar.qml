@@ -20,7 +20,7 @@ Rectangle {
     ]
     readonly property var currentShape: {
         for (const k of shapeKinds) {
-            if (k.id === EditorState.preview.shapeToolKind)
+            if (k.id === EditorState.preview.shapeToolKind && k.id !== "ellipse" && k.id !== "line")
                 return k
         }
         return shapeKinds[0]
@@ -245,12 +245,22 @@ Rectangle {
             label: qsTr("Shape: drag on the preview (Shift for a square or circle)") + " · " + root.currentShape.label
             glyph: root.currentShape.glyph
             onClicked: {
+                // Ellipse and Line have buttons of their own (0.29): coming from them, this one is the
+                // rectangle again (it kept the line, and a drag meant for a label drew a line).
+                const k = EditorState.preview.shapeToolKind
+                if (k === "ellipse" || k === "line") {
+                    EditorState.preview.shapeToolKind = "rectangle"
+                    root.pick("shape")
+                    return
+                }
                 // A second click on the active tool, as AE's long press, offers the other shapes.
                 if (root.tool === "shape")
                     shapeMenu.popup(shapeButton, 0, shapeButton.height)
                 else
                     root.pick("shape")
             }
+            active: root.tool === "shape" && EditorState.preview.shapeToolKind !== "ellipse"
+                    && EditorState.preview.shapeToolKind !== "line"
             ThemedContextMenu {
                 id: shapeMenu
                 Instantiator {

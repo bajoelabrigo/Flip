@@ -346,9 +346,12 @@ Item {
                     root.textEditRequested(made.track, made.clip, true)
                 }
             }
-            const target = root.parent
+            // The whole window, as the eyedropper does: this overlay and its parent are transparent over
+            // the preview, so grabbing them read nothing and the words always came out white.
+            const target = root.Window.contentItem
+            const at = target ? root.mapToItem(target, px, py) : Qt.point(0, 0)
             const grabbed = target && target.grabToImage(function (result) {
-                place(AppController.imagePixel(result.image, Math.floor(px + root.x), Math.floor(py + root.y)))
+                place(AppController.imagePixel(result.image, Math.floor(at.x), Math.floor(at.y)))
             }, Qt.size(Math.round(target.width), Math.round(target.height)))
             if (!grabbed)
                 place(Qt.rgba(0, 0, 0, 0))
