@@ -427,3 +427,7 @@ Herramientas
 
 F1–F3 esperan la build: se añadió `FLIP_TRACE_CLICKS=1` (main.cpp) que escribe en stderr cada pulsación con la pila
 de elementos bajo el puntero, el foco y quién se queda la pulsación; con eso se busca la causa en ventana.
+
+Prueba final (Jorge, 2026-10-31): **15 proyectos** en ventana (no 10) + las 5 animaciones de Squash a mano con
+fotogramas clave; cada proyecto guardado en `pruebas\proyectos-029c\`. El inicio de sesión de las animaciones con
+llama se queda como está (Jorge: «es un pequeño esfuerzo que el usuario va a hacer una sola vez»).
