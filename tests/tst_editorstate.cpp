@@ -219,6 +219,9 @@ private slots:
     void slowingAClipKeepsItsMaterial();
     void typedValueOnAnAnimatedPropertyAddsAKey();
     void fitClipToVideoLengthTrimsTheMusic();
+    void splitTextIntoLettersMakesOneLayerEach();
+    void removeClipKeysInRangeClearsEveryRow();
+    void frameSolidCoversTheWholeWork();
     void moveTrackReordersAndRemapsSelection();
     void addTrackInsertsEmptyTrackByType();
     void renameTrackAndUndo();
@@ -4441,6 +4444,73 @@ void EditorStateTest::fitClipToVideoLengthTrimsTheMusic()
     const drift::Clip &music = state.project()->tracks().at(at).clips.at(0);
     QCOMPARE(music.timelineEnd(), drift::secondsToUs(4.0));
     QCOMPARE(music.srcOut - music.srcIn, drift::secondsToUs(4.0));
+}
+
+void EditorStateTest::splitTextIntoLettersMakesOneLayerEach()
+{
+    // 0.29, the Squash & Stretch tutorial's Split into characters: one layer per letter, in reading order,
+    // left to right where the words were, the space left out, and all of them picked.
+    AssetLibrary library;
+    AppController state(&library);
+    state.addTextClip(QStringLiteral("AB C"), 0.0);
+    const int t = state.selectedTrack();
+    const int c = state.selectedClip();
+    QVERIFY(t >= 0 && c >= 0);
+    QCOMPARE(state.splitTextIntoLetters(t, c), 3);
+    QStringList letters;
+    QList<double> xs;
+    for (const drift::Track &track : state.project()->tracks()) {
+        for (const drift::Clip &clip : track.clips) {
+            if (clip.type != drift::ClipType::Text)
+                continue;
+            letters.append(clip.textContent);
+            xs.append(clip.transformX.evaluateAt(0) + clip.transformW.evaluateAt(0) / 2.0);
+        }
+    }
+    QCOMPARE(letters, QStringList({QStringLiteral("A"), QStringLiteral("B"), QStringLiteral("C")}));
+    QVERIFY(xs.at(0) < xs.at(1) && xs.at(1) < xs.at(2));
+    QCOMPARE(state.selectionCount(), 3);
+    state.undo();
+    int texts = 0;
+    for (const drift::Track &track : state.project()->tracks())
+        texts += int(std::count_if(track.clips.cbegin(), track.clips.cend(),
+                                   [](const drift::Clip &k) { return k.type == drift::ClipType::Text; }));
+    QCOMPARE(texts, 1);
+}
+
+void EditorStateTest::removeClipKeysInRangeClearsEveryRow()
+{
+    // 0.29: a jump writes keys on several rows; «After the playhead (all rows)» clears them in one step.
+    AssetLibrary library;
+    AppController state(&library);
+    state.addSolidClip(QStringLiteral("#ff336699"), QStringLiteral("Box"), 200, 200);
+    const int t = state.selectedTrack();
+    const int c = state.selectedClip();
+    state.setClipKeyframe(t, c, QStringLiteral("x"), 0.0, 0.0);
+    state.setClipKeyframe(t, c, QStringLiteral("x"), 3.0, 500.0);
+    state.setClipKeyframe(t, c, QStringLiteral("opacity"), 1.0, 1.0);
+    state.setClipKeyframe(t, c, QStringLiteral("opacity"), 4.0, 0.0);
+    QCOMPARE(state.removeClipKeysInRange(t, c, 2.0, -1), 2);
+    QCOMPARE(state.clipKeyframes(t, c, QStringLiteral("x")).size(), 1);
+    QCOMPARE(state.clipKeyframes(t, c, QStringLiteral("opacity")).size(), 1);
+    state.undo();
+    QCOMPARE(state.clipKeyframes(t, c, QStringLiteral("x")).size(), 2);
+}
+
+void EditorStateTest::frameSolidCoversTheWholeWork()
+{
+    // 0.29: the background of a motion piece in one click, under everything, from 0 to the end.
+    AssetLibrary library;
+    AppController state(&library);
+    state.addTextClip(QStringLiteral("Title"), 2.0);
+    state.addFrameSolid(QStringLiteral("#ff2b3440"));
+    const drift::Track &bottom = state.project()->tracks().last();
+    QCOMPARE(bottom.clips.size(), 1);
+    const drift::Clip &solid = bottom.clips.first();
+    QVERIFY(solid.isSolid);
+    QCOMPARE(solid.timelineStart, drift::TimeUs(0));
+    QCOMPARE(solid.timelineEnd(), state.project()->durationUs());
+    QCOMPARE(solid.transformW.evaluateAt(0), double(state.project()->width()));
 }
 
 void EditorStateTest::typedValueOnAnAnimatedPropertyAddsAKey()
