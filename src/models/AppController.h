@@ -1324,8 +1324,10 @@ public:
     // with `vertical`) by `degrees`. "set" bends it (a key at the playhead when the bend is already
     // animated), "in" unbends it from `degrees` to straight over `frames` from the playhead, "out"
     // bends it to `degrees` over the last `frames`, "remove" takes the effect off. One undo step.
+    // `together` (0.29): with several layers picked, all bend round one joint, the one of the longest (a
+    // title on a band bends with the band, instead of each round its own middle).
     Q_INVOKABLE void applyBend(const QString &mode, double degrees, bool vertical, double start, double end,
-                               int frames);
+                               int frames, bool together = true);
     Q_INVOKABLE void applyTrimPack(const QString &mode, int frames, double offsetRange, int copies, bool reverse,
                                    bool animateOffset);
     Q_INVOKABLE QVariantMap strokeCapsState() const;

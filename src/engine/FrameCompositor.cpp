@@ -1126,8 +1126,11 @@ void applyEffectPadding(GpuLayer &layer, double renderScale)
         for (const QString &key : def->paddingParams)
             room += qAbs(params.value(key).toDouble());
         const double side = qMax(layer.rect.width(), layer.rect.height()) / qMax(1e-6, renderScale);
+        // Never more than the layer's own length: a bend past 90° curls back inside that reach.
+        double percentRoom = 0.0;
         for (const QString &key : def->paddingPercentParams)
-            room += qAbs(params.value(key).toDouble()) / 100.0 * def->paddingPercentFactor * side;
+            percentRoom += qAbs(params.value(key).toDouble()) / 100.0 * def->paddingPercentFactor * side;
+        room += qMin(percentRoom, side);
         pad = qMax(pad, room);
     }
     if (pad <= 0.0)

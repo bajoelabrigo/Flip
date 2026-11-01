@@ -33838,7 +33838,7 @@ void AppController::applyTrimPack(const QString &mode, int frames, double offset
 }
 
 void AppController::applyBend(const QString &mode, double degrees, bool vertical, double start, double end,
-                               int frames)
+                               int frames, bool together)
 {
     QList<QPair<int, int>> targets = m_selection;
     if (targets.isEmpty() && isValidClipIndex(m_selectedTrack, m_selectedClip))
@@ -33869,6 +33869,54 @@ void AppController::applyBend(const QString &mode, double degrees, bool vertical
         }
         return -1;
     };
+
+    // One joint for all (0.29): each layer's Start/End and axis are the longest layer's joint seen from its
+    // own box, so the title on a band folds with it.
+    struct Joint { double start, end, axis, reach; };
+    QHash<QString, Joint> joints;
+    if (together && ids.size() > 1) {
+        const double at = drift::usToSeconds(m_playheadUs);
+        struct Box { double x, y, w, h; };
+        const auto boxOf = [&](const QString &id) {
+            int t = -1;
+            int c = -1;
+            Box b{0, 0, double(m_project.width()), double(m_project.height())};
+            if (!findClipById(m_project, id, &t, &c))
+                return b;
+            b.x = propertyValueAt(t, c, QStringLiteral("x"), at, 0.0);
+            b.y = propertyValueAt(t, c, QStringLiteral("y"), at, 0.0);
+            b.w = qMax(1.0, propertyValueAt(t, c, QStringLiteral("width"), at, m_project.width()));
+            b.h = qMax(1.0, propertyValueAt(t, c, QStringLiteral("height"), at, m_project.height()));
+            if (vertical) {
+                std::swap(b.x, b.y);
+                std::swap(b.w, b.h);
+            }
+            return b;
+        };
+        QString refId = ids.first();
+        double longest = -1.0;
+        for (const QString &id : std::as_const(ids)) {
+            const Box b = boxOf(id);
+            if (b.w > longest) {
+                longest = b.w;
+                refId = id;
+            }
+        }
+        const Box ref = boxOf(refId);
+        const double a = ref.x + qBound(0.0, start, 100.0) / 100.0 * ref.w;
+        const double b = ref.x + qBound(0.0, end, 100.0) / 100.0 * ref.w;
+        const double axisAt = ref.y + ref.h / 2.0;
+        for (const QString &id : std::as_const(ids)) {
+            const Box box = boxOf(id);
+            if (id == refId) {
+                joints.insert(id, {qBound(0.0, start, 100.0), qBound(0.0, end, 100.0), 0.0, 0.0});
+                continue;
+            }
+            const double axis = (axisAt - (box.y + box.h / 2.0)) / box.h * 100.0;
+            joints.insert(id, {(a - box.x) / box.w * 100.0, (b - box.x) / box.w * 100.0, vertical ? -axis : axis,
+                               ref.w + qAbs(axisAt - (box.y + box.h / 2.0))});
+        }
+    }
 
     beginEditSession(tr("Bend"));
     const int fps = qMax(1, m_project.fps());
@@ -33904,8 +33952,18 @@ void AppController::applyBend(const QString &mode, double degrees, bool vertical
         drift::Effect &effect = hostClip.effects[fx];
         effect.parameters.insert(QStringLiteral("vertical"), vertical);
         effect.parameters.remove(QStringLiteral("pivot"));
-        effect.parameters.insert(QStringLiteral("start"), qBound(0.0, start, 100.0));
-        effect.parameters.insert(QStringLiteral("end"), qBound(0.0, end, 100.0));
+        if (joints.contains(id)) {
+            const Joint j = joints.value(id);
+            effect.parameters.insert(QStringLiteral("start"), j.start);
+            effect.parameters.insert(QStringLiteral("end"), j.end);
+            effect.parameters.insert(QStringLiteral("axis"), j.axis);
+            effect.parameters.insert(QStringLiteral("reach"), j.reach);
+        } else {
+            effect.parameters.insert(QStringLiteral("start"), qBound(0.0, start, 100.0));
+            effect.parameters.insert(QStringLiteral("end"), qBound(0.0, end, 100.0));
+            effect.parameters.insert(QStringLiteral("axis"), 0.0);
+            effect.parameters.insert(QStringLiteral("reach"), 0.0);
+        }
         drift::KeyframeTrack<double> &kt = effect.paramKeyframes[QStringLiteral("bend")];
         const drift::TimeUs length = clip.timelineDuration;
         const drift::TimeUs base = clip.timelineStart - hostClip.timelineStart;
