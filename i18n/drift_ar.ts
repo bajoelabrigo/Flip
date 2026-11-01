@@ -4328,12 +4328,42 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Background</source>
+        <translation>الخلفية</translation>
+    </message>
+    <message>
         <source>Keyframes reversed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Keyframes stretched</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No keys to curve: pick keyframes on the timeline, or select a layer that has some</source>
+        <translation>لا توجد مفاتيح لتطبيق المنحنى: اختر إطارات رئيسية على المخطط الزمني أو طبقة تحتوي عليها</translation>
+    </message>
+    <message numerus="yes">
+        <source>Curve applied to %n key(s)</source>
+        <translation>
+            <numerusform>تم تطبيق المنحنى، المفاتيح: %n</numerusform>
+            <numerusform>تم تطبيق المنحنى، المفاتيح: %n</numerusform>
+            <numerusform>تم تطبيق المنحنى، المفاتيح: %n</numerusform>
+            <numerusform>تم تطبيق المنحنى، المفاتيح: %n</numerusform>
+            <numerusform>تم تطبيق المنحنى، المفاتيح: %n</numerusform>
+            <numerusform>تم تطبيق المنحنى، المفاتيح: %n</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n property(ies)</source>
+        <translation>
+            <numerusform>الخصائص: %n</numerusform>
+            <numerusform>الخصائص: %n</numerusform>
+            <numerusform>الخصائص: %n</numerusform>
+            <numerusform>الخصائص: %n</numerusform>
+            <numerusform>الخصائص: %n</numerusform>
+            <numerusform>الخصائص: %n</numerusform>
+        </translation>
     </message>
     <message>
         <source>Easy ease</source>
@@ -4366,6 +4396,10 @@
     <message>
         <source>Centred in the frame</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” added to “%2” · to draw a separate layer, press Esc first; to split them, right-click › Separate into layers</source>
+        <translation>أُضيف «%1» إلى «%2» · للرسم على طبقة مستقلة اضغط Esc أولًا؛ ولفصلها انقر بالزر الأيمن › فصل إلى طبقات</translation>
     </message>
     <message>
         <source>Motion blur</source>
@@ -5294,10 +5328,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>“%1” added to “%2” · to draw a separate layer, press Esc first</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Pick two or more shapes to combine them</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5458,6 +5488,44 @@
     <message>
         <source>Pick media to make a composition from (compositions cannot go inside one)</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a text to split into letters</source>
+        <translation>اختر نصًا لتقسيمه إلى أحرف</translation>
+    </message>
+    <message>
+        <source>This text has a single letter</source>
+        <translation>هذا النص فيه حرف واحد</translation>
+    </message>
+    <message>
+        <source>Split into letters</source>
+        <translation>تقسيم إلى أحرف</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n letter layer(s)</source>
+        <translation>
+            <numerusform>طبقات الأحرف: %n</numerusform>
+            <numerusform>طبقات الأحرف: %n</numerusform>
+            <numerusform>طبقات الأحرف: %n</numerusform>
+            <numerusform>طبقات الأحرف: %n</numerusform>
+            <numerusform>طبقات الأحرف: %n</numerusform>
+            <numerusform>طبقات الأحرف: %n</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>No keyframes there</source>
+        <translation>لا توجد إطارات رئيسية هناك</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n keyframe(s) removed</source>
+        <translation>
+            <numerusform>الإطارات الرئيسية المحذوفة: %n</numerusform>
+            <numerusform>الإطارات الرئيسية المحذوفة: %n</numerusform>
+            <numerusform>الإطارات الرئيسية المحذوفة: %n</numerusform>
+            <numerusform>الإطارات الرئيسية المحذوفة: %n</numerusform>
+            <numerusform>الإطارات الرئيسية المحذوفة: %n</numerusform>
+            <numerusform>الإطارات الرئيسية المحذوفة: %n</numerusform>
+        </translation>
     </message>
     <message>
         <source>Retouch</source>
@@ -8139,6 +8207,10 @@
     <message>
         <source>Ring</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bend the picked layers together (one joint)</source>
+        <translation>ثني الطبقات المختارة معًا (مفصل واحد)</translation>
     </message>
     <message>
         <source>Frames</source>
@@ -10943,6 +11015,30 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Axis offset (%)</source>
+        <translation>إزاحة المحور (%)</translation>
+    </message>
+    <message>
+        <source>Extra room (px)</source>
+        <translation>هامش إضافي (px)</translation>
+    </message>
+    <message>
+        <source>Linear Wipe</source>
+        <translation>مسح خطي</translation>
+    </message>
+    <message>
+        <source>Completion (%)</source>
+        <translation>الاكتمال (%)</translation>
+    </message>
+    <message>
+        <source>Angle (°)</source>
+        <translation>الزاوية (°)</translation>
+    </message>
+    <message>
+        <source>Feather (px)</source>
+        <translation>التنعيم (px)</translation>
+    </message>
+    <message>
         <source>Liquid</source>
         <translation type="unfinished"></translation>
     </message>
@@ -12289,6 +12385,26 @@ NEXT TIME</source>
     <message>
         <source>Blown away like sand</source>
         <translation>تذروه الريح كالرمل</translation>
+    </message>
+    <message>
+        <source>Wipe down</source>
+        <translation>مسح إلى الأسفل</translation>
+    </message>
+    <message>
+        <source>Wipe from left</source>
+        <translation>مسح من اليسار</translation>
+    </message>
+    <message>
+        <source>Wipe from right</source>
+        <translation>مسح من اليمين</translation>
+    </message>
+    <message>
+        <source>Slanted wipe</source>
+        <translation>مسح مائل</translation>
+    </message>
+    <message>
+        <source>Wipe up</source>
+        <translation>مسح إلى الأعلى</translation>
     </message>
     <message>
         <source>Attention</source>
@@ -20693,6 +20809,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Line</source>
+        <translation>خط</translation>
+    </message>
+    <message>
         <source>Fill Options: none, solid, linear or radial gradient, blend mode and opacity</source>
         <translation>خيارات التعبئة: بلا، خالص، تدرج خطي أو شعاعي، وضع المزج والعتامة</translation>
     </message>
@@ -20727,6 +20847,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Shape: drag on the preview (Shift for a square or circle)</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ellipse: drag on the preview (Shift for a circle)</source>
+        <translation>قطع ناقص: اسحب على المعاينة (Shift لدائرة)</translation>
+    </message>
+    <message>
+        <source>Line: drag on the preview (Shift for 0°, 45° or 90°); it takes the stroke colour and width</source>
+        <translation>خط: اسحب على المعاينة (Shift لزاوية 0° أو 45° أو 90°)؛ يأخذ لون الحد وسُمكه</translation>
     </message>
     <message>
         <source>Pen: click for corners, drag for curves</source>
@@ -21450,6 +21578,26 @@ If playback stutters, try another.</source>
     <message>
         <source>Click a clip on the timeline to edit its properties</source>
         <translation>انقر على مقطع في المخطط الزمني لتعديل خصائصه</translation>
+    </message>
+    <message>
+        <source>Project</source>
+        <translation>المشروع</translation>
+    </message>
+    <message>
+        <source>Background colour</source>
+        <translation>لون الخلفية</translation>
+    </message>
+    <message>
+        <source>Background colour of the project: what shows where no layer covers the frame</source>
+        <translation>لون خلفية المشروع: ما يظهر حيث لا تغطي أي طبقة الإطار</translation>
+    </message>
+    <message>
+        <source>Solid the size of the frame</source>
+        <translation>لون ثابت بحجم الإطار</translation>
+    </message>
+    <message>
+        <source>A layer of one colour over the whole frame, for the length of the work (the toolbar&apos;s fill colour)</source>
+        <translation>طبقة بلون واحد تغطي الإطار كله طوال العمل (لون التعبئة في الشريط)</translation>
     </message>
     <message>
         <source>This clip uses Pro tools.</source>
@@ -24046,6 +24194,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Last layer visible from the start</source>
+        <translation>الطبقة الأخيرة ظاهرة من البداية</translation>
+    </message>
+    <message>
         <source>Morph it</source>
         <translation type="unfinished"></translation>
     </message>
@@ -24124,6 +24276,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Roughness</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Draw the line behind the stream</source>
+        <translation>رسم الخط خلف التدفق</translation>
     </message>
     <message>
         <source>Colour</source>
@@ -25499,14 +25655,6 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Oomph</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>How far it travels, jumps and turns</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Timing</source>
         <translation type="unfinished"></translation>
     </message>
@@ -25535,6 +25683,14 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Apply letter by letter</source>
+        <translation>تطبيق حرفًا حرفًا</translation>
+    </message>
+    <message>
+        <source>Splits the text into one layer per letter and applies it to each, the stagger apart</source>
+        <translation>يقسم النص إلى طبقة لكل حرف ويطبقه على كل منها بفاصل التدرج</translation>
+    </message>
+    <message>
         <source>Applies to every selected layer. The keys stay editable on the timeline.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -25545,6 +25701,14 @@ If playback stutters, try another.</source>
     <message>
         <source>How hard it squashes, stretches and bends</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Travel</source>
+        <translation>المسافة المقطوعة</translation>
+    </message>
+    <message>
+        <source>Distance: how far it travels, jumps and turns (200 % jumps twice as far)</source>
+        <translation>المسافة: مدى الحركة والقفز والدوران (200 % يقفز ضعف المسافة)</translation>
     </message>
     <message>
         <source>Speed</source>
@@ -27786,10 +27950,6 @@ If playback stutters, try another.</source>
         <translation>مائل</translation>
     </message>
     <message>
-        <source>%1 has no italic face</source>
-        <translation>%1 لا يحتوي على نمط مائل</translation>
-    </message>
-    <message>
         <source>Adjust text look</source>
         <translation>ضبط مظهر النص</translation>
     </message>
@@ -28060,6 +28220,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Strikethrough</source>
         <translation>يتوسطه خط</translation>
+    </message>
+    <message>
+        <source>Italic (slanted: %1 has no italic face)</source>
+        <translation>مائل (إمالة: لا يوجد خط مائل في %1)</translation>
     </message>
     <message>
         <source>Case</source>
@@ -29938,6 +30102,26 @@ If playback stutters, try another.</source>
         <translation>مطابقة مدة الفيديو</translation>
     </message>
     <message>
+        <source>Split into letters</source>
+        <translation>تقسيم إلى أحرف</translation>
+    </message>
+    <message>
+        <source>Delete keyframes</source>
+        <translation>حذف الإطارات الرئيسية</translation>
+    </message>
+    <message>
+        <source>After the playhead (all rows)</source>
+        <translation>بعد مؤشر التشغيل (كل الصفوف)</translation>
+    </message>
+    <message>
+        <source>Before the playhead (all rows)</source>
+        <translation>قبل مؤشر التشغيل (كل الصفوف)</translation>
+    </message>
+    <message>
+        <source>All of this clip</source>
+        <translation>كلها في هذا المقطع</translation>
+    </message>
+    <message>
         <source>Freeze frame at current time</source>
         <translation>تجميد الإطار عند الوقت الحالي</translation>
     </message>
@@ -31485,6 +31669,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Anchor in the centre</source>
         <translation>الارتكاز في المنتصف</translation>
+    </message>
+    <message>
+        <source>Anchor point here (the layer stays where it is)</source>
+        <translation>نقطة الارتكاز هنا (تبقى الطبقة مكانها)</translation>
     </message>
     <message>
         <source>Opacity &amp; rotation</source>

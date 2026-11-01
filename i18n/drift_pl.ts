@@ -3489,6 +3489,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Background</source>
+        <translation>Tło</translation>
+    </message>
+    <message>
         <source>Solid settings</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3519,6 +3523,26 @@
     <message>
         <source>Keyframes stretched</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No keys to curve: pick keyframes on the timeline, or select a layer that has some</source>
+        <translation>Brak kluczy do krzywej: wybierz klatki kluczowe na osi czasu albo warstwę, która je ma</translation>
+    </message>
+    <message numerus="yes">
+        <source>Curve applied to %n key(s)</source>
+        <translation>
+            <numerusform>Krzywa zastosowana, klucze: %n</numerusform>
+            <numerusform>Krzywa zastosowana, klucze: %n</numerusform>
+            <numerusform>Krzywa zastosowana, klucze: %n</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n property(ies)</source>
+        <translation>
+            <numerusform>właściwości: %n</numerusform>
+            <numerusform>właściwości: %n</numerusform>
+            <numerusform>właściwości: %n</numerusform>
+        </translation>
     </message>
     <message>
         <source>Easy ease</source>
@@ -4219,6 +4243,10 @@
     <message>
         <source>Text</source>
         <translation>Tekst</translation>
+    </message>
+    <message>
+        <source>“%1” added to “%2” · to draw a separate layer, press Esc first; to split them, right-click › Separate into layers</source>
+        <translation>„%1” dodano do „%2” · aby rysować na osobnej warstwie, najpierw naciśnij Esc; aby je rozdzielić, prawy przycisk › Rozdziel na warstwy</translation>
     </message>
     <message>
         <source>Add mask</source>
@@ -5261,10 +5289,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>“%1” added to “%2” · to draw a separate layer, press Esc first</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Pick two or more shapes to combine them</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5419,6 +5443,38 @@
     <message>
         <source>Pick media to make a composition from (compositions cannot go inside one)</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a text to split into letters</source>
+        <translation>Zaznacz tekst, aby podzielić go na litery</translation>
+    </message>
+    <message>
+        <source>This text has a single letter</source>
+        <translation>Ten tekst ma jedną literę</translation>
+    </message>
+    <message>
+        <source>Split into letters</source>
+        <translation>Podziel na litery</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n letter layer(s)</source>
+        <translation>
+            <numerusform>Warstwy liter: %n</numerusform>
+            <numerusform>Warstwy liter: %n</numerusform>
+            <numerusform>Warstwy liter: %n</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>No keyframes there</source>
+        <translation>Brak tam klatek kluczowych</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n keyframe(s) removed</source>
+        <translation>
+            <numerusform>Usunięte klatki kluczowe: %n</numerusform>
+            <numerusform>Usunięte klatki kluczowe: %n</numerusform>
+            <numerusform>Usunięte klatki kluczowe: %n</numerusform>
+        </translation>
     </message>
     <message>
         <source>Retouch</source>
@@ -8004,6 +8060,10 @@
     <message>
         <source>Ring</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bend the picked layers together (one joint)</source>
+        <translation>Zginaj wybrane warstwy razem (jeden przegub)</translation>
     </message>
     <message>
         <source>Frames</source>
@@ -10808,6 +10868,30 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Axis offset (%)</source>
+        <translation>Przesunięcie osi (%)</translation>
+    </message>
+    <message>
+        <source>Extra room (px)</source>
+        <translation>Dodatkowy margines (px)</translation>
+    </message>
+    <message>
+        <source>Linear Wipe</source>
+        <translation>Wymazywanie liniowe</translation>
+    </message>
+    <message>
+        <source>Completion (%)</source>
+        <translation>Ukończenie (%)</translation>
+    </message>
+    <message>
+        <source>Angle (°)</source>
+        <translation>Kąt (°)</translation>
+    </message>
+    <message>
+        <source>Feather (px)</source>
+        <translation>Wtapianie (px)</translation>
+    </message>
+    <message>
         <source>Liquid</source>
         <translation type="unfinished"></translation>
     </message>
@@ -12154,6 +12238,26 @@ ZOBACZENIA</translation>
     <message>
         <source>Blown away like sand</source>
         <translation>Rozwiane jak piasek</translation>
+    </message>
+    <message>
+        <source>Wipe down</source>
+        <translation>Wymazywanie w dół</translation>
+    </message>
+    <message>
+        <source>Wipe from left</source>
+        <translation>Wymazywanie od lewej</translation>
+    </message>
+    <message>
+        <source>Wipe from right</source>
+        <translation>Wymazywanie od prawej</translation>
+    </message>
+    <message>
+        <source>Slanted wipe</source>
+        <translation>Wymazywanie ukośne</translation>
+    </message>
+    <message>
+        <source>Wipe up</source>
+        <translation>Wymazywanie w górę</translation>
     </message>
     <message>
         <source>Attention</source>
@@ -20459,6 +20563,10 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Line</source>
+        <translation>Linia</translation>
+    </message>
+    <message>
         <source>Fill Options: none, solid, linear or radial gradient, blend mode and opacity</source>
         <translation>Opcje wypełnienia: brak, jednolity, gradient liniowy lub radialny, tryb mieszania i krycie</translation>
     </message>
@@ -20493,6 +20601,14 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     <message>
         <source>Shape: drag on the preview (Shift for a square or circle)</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ellipse: drag on the preview (Shift for a circle)</source>
+        <translation>Elipsa: przeciągnij w podglądzie (Shift — koło)</translation>
+    </message>
+    <message>
+        <source>Line: drag on the preview (Shift for 0°, 45° or 90°); it takes the stroke colour and width</source>
+        <translation>Linia: przeciągnij w podglądzie (Shift — 0°, 45° lub 90°); bierze kolor i grubość obrysu</translation>
     </message>
     <message>
         <source>Pen: click for corners, drag for curves</source>
@@ -21213,6 +21329,26 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     <message>
         <source>Click a clip on the timeline to edit its properties</source>
         <translation>Kliknij klip na osi czasu, aby edytować jego właściwości</translation>
+    </message>
+    <message>
+        <source>Project</source>
+        <translation>Projekt</translation>
+    </message>
+    <message>
+        <source>Background colour</source>
+        <translation>Kolor tła</translation>
+    </message>
+    <message>
+        <source>Background colour of the project: what shows where no layer covers the frame</source>
+        <translation>Kolor tła projektu: to, co widać tam, gdzie żadna warstwa nie zakrywa kadru</translation>
+    </message>
+    <message>
+        <source>Solid the size of the frame</source>
+        <translation>Wypełnienie wielkości kadru</translation>
+    </message>
+    <message>
+        <source>A layer of one colour over the whole frame, for the length of the work (the toolbar&apos;s fill colour)</source>
+        <translation>Warstwa jednego koloru na cały kadr, przez całą długość pracy (kolor wypełnienia z paska)</translation>
     </message>
     <message>
         <source>This clip uses Pro tools.</source>
@@ -23791,6 +23927,10 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Last layer visible from the start</source>
+        <translation>Ostatnia warstwa widoczna od początku</translation>
+    </message>
+    <message>
         <source>Morph it</source>
         <translation type="unfinished"></translation>
     </message>
@@ -23869,6 +24009,10 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     <message>
         <source>Roughness</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Draw the line behind the stream</source>
+        <translation>Rysuj linię za strumieniem</translation>
     </message>
     <message>
         <source>Colour</source>
@@ -25244,14 +25388,6 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Oomph</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>How far it travels, jumps and turns</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Timing</source>
         <translation type="unfinished"></translation>
     </message>
@@ -25280,6 +25416,14 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Apply letter by letter</source>
+        <translation>Zastosuj litera po literze</translation>
+    </message>
+    <message>
+        <source>Splits the text into one layer per letter and applies it to each, the stagger apart</source>
+        <translation>Dzieli tekst na warstwę na każdą literę i stosuje do każdej, z przesunięciem</translation>
+    </message>
+    <message>
         <source>Applies to every selected layer. The keys stay editable on the timeline.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -25290,6 +25434,14 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     <message>
         <source>How hard it squashes, stretches and bends</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Travel</source>
+        <translation>Zasięg</translation>
+    </message>
+    <message>
+        <source>Distance: how far it travels, jumps and turns (200 % jumps twice as far)</source>
+        <translation>Odległość: jak daleko się przesuwa, skacze i obraca (200 % skacze dwa razy dalej)</translation>
     </message>
     <message>
         <source>Speed</source>
@@ -27513,10 +27665,6 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
         <translation>Kursywa</translation>
     </message>
     <message>
-        <source>%1 has no italic face</source>
-        <translation>%1 nie ma wersji kursywy</translation>
-    </message>
-    <message>
         <source>Adjust text look</source>
         <translation>Dostosuj wygląd tekstu</translation>
     </message>
@@ -27787,6 +27935,10 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     <message>
         <source>Strikethrough</source>
         <translation>Przekreślenie</translation>
+    </message>
+    <message>
+        <source>Italic (slanted: %1 has no italic face)</source>
+        <translation>Kursywa (pochylona: %1 nie ma kursywy)</translation>
     </message>
     <message>
         <source>Case</source>
@@ -29665,6 +29817,26 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
         <translation>Dopasuj do długości wideo</translation>
     </message>
     <message>
+        <source>Split into letters</source>
+        <translation>Podziel na litery</translation>
+    </message>
+    <message>
+        <source>Delete keyframes</source>
+        <translation>Usuń klatki kluczowe</translation>
+    </message>
+    <message>
+        <source>After the playhead (all rows)</source>
+        <translation>Po wskaźniku (wszystkie wiersze)</translation>
+    </message>
+    <message>
+        <source>Before the playhead (all rows)</source>
+        <translation>Przed wskaźnikiem (wszystkie wiersze)</translation>
+    </message>
+    <message>
+        <source>All of this clip</source>
+        <translation>Wszystkie z tego klipu</translation>
+    </message>
+    <message>
         <source>Freeze frame at current time</source>
         <translation>Zatrzymaj klatkę w bieżącym czasie</translation>
     </message>
@@ -31197,6 +31369,10 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     <message>
         <source>Anchor in the centre</source>
         <translation>Zakotwiczenie na środku</translation>
+    </message>
+    <message>
+        <source>Anchor point here (the layer stays where it is)</source>
+        <translation>Punkt zakotwiczenia tutaj (warstwa zostaje na miejscu)</translation>
     </message>
     <message>
         <source>Opacity &amp; rotation</source>

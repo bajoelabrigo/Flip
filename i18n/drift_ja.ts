@@ -3477,6 +3477,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Background</source>
+        <translation>背景</translation>
+    </message>
+    <message>
         <source>Solid settings</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3507,6 +3511,22 @@
     <message>
         <source>Keyframes stretched</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No keys to curve: pick keyframes on the timeline, or select a layer that has some</source>
+        <translation>カーブを付けるキーがありません：タイムラインでキーフレームを選ぶか、キーのあるレイヤーを選んでください</translation>
+    </message>
+    <message numerus="yes">
+        <source>Curve applied to %n key(s)</source>
+        <translation>
+            <numerusform>%n 個のキーにカーブを適用しました</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n property(ies)</source>
+        <translation>
+            <numerusform>%n 個のプロパティ</numerusform>
+        </translation>
     </message>
     <message>
         <source>Easy ease</source>
@@ -4203,6 +4223,10 @@
     <message>
         <source>Text</source>
         <translation>テキスト</translation>
+    </message>
+    <message>
+        <source>“%1” added to “%2” · to draw a separate layer, press Esc first; to split them, right-click › Separate into layers</source>
+        <translation>「%1」を「%2」に追加しました · 別のレイヤーに描くには先に Esc、分けるには右クリック › レイヤーに分割</translation>
     </message>
     <message>
         <source>Add mask</source>
@@ -5231,10 +5255,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>“%1” added to “%2” · to draw a separate layer, press Esc first</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Pick two or more shapes to combine them</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5385,6 +5405,34 @@
     <message>
         <source>Pick media to make a composition from (compositions cannot go inside one)</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a text to split into letters</source>
+        <translation>文字に分割するテキストを選んでください</translation>
+    </message>
+    <message>
+        <source>This text has a single letter</source>
+        <translation>このテキストは 1 文字だけです</translation>
+    </message>
+    <message>
+        <source>Split into letters</source>
+        <translation>文字に分割</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n letter layer(s)</source>
+        <translation>
+            <numerusform>文字レイヤー %n 個</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>No keyframes there</source>
+        <translation>そこにはキーフレームがありません</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n keyframe(s) removed</source>
+        <translation>
+            <numerusform>%n 個のキーフレームを削除しました</numerusform>
+        </translation>
     </message>
     <message>
         <source>Retouch</source>
@@ -7914,6 +7962,10 @@
     <message>
         <source>Ring</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bend the picked layers together (one joint)</source>
+        <translation>選んだレイヤーを一緒に曲げる（関節は 1 つ）</translation>
     </message>
     <message>
         <source>Frames</source>
@@ -10718,6 +10770,30 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Axis offset (%)</source>
+        <translation>軸のずれ（%）</translation>
+    </message>
+    <message>
+        <source>Extra room (px)</source>
+        <translation>追加の余白（px）</translation>
+    </message>
+    <message>
+        <source>Linear Wipe</source>
+        <translation>リニアワイプ</translation>
+    </message>
+    <message>
+        <source>Completion (%)</source>
+        <translation>変換終了（%）</translation>
+    </message>
+    <message>
+        <source>Angle (°)</source>
+        <translation>角度（°）</translation>
+    </message>
+    <message>
+        <source>Feather (px)</source>
+        <translation>ぼかし（px）</translation>
+    </message>
+    <message>
         <source>Liquid</source>
         <translation type="unfinished"></translation>
     </message>
@@ -12064,6 +12140,26 @@ NEXT TIME</source>
     <message>
         <source>Blown away like sand</source>
         <translation>砂のように飛ぶ</translation>
+    </message>
+    <message>
+        <source>Wipe down</source>
+        <translation>下へワイプ</translation>
+    </message>
+    <message>
+        <source>Wipe from left</source>
+        <translation>左からワイプ</translation>
+    </message>
+    <message>
+        <source>Wipe from right</source>
+        <translation>右からワイプ</translation>
+    </message>
+    <message>
+        <source>Slanted wipe</source>
+        <translation>斜めワイプ</translation>
+    </message>
+    <message>
+        <source>Wipe up</source>
+        <translation>上へワイプ</translation>
     </message>
     <message>
         <source>Attention</source>
@@ -20303,6 +20399,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Line</source>
+        <translation>線</translation>
+    </message>
+    <message>
         <source>Fill Options: none, solid, linear or radial gradient, blend mode and opacity</source>
         <translation>塗りオプション：なし、単色、線形または円形グラデーション、描画モードと不透明度</translation>
     </message>
@@ -20337,6 +20437,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Shape: drag on the preview (Shift for a square or circle)</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ellipse: drag on the preview (Shift for a circle)</source>
+        <translation>楕円：プレビュー上でドラッグ（Shift で円）</translation>
+    </message>
+    <message>
+        <source>Line: drag on the preview (Shift for 0°, 45° or 90°); it takes the stroke colour and width</source>
+        <translation>線：プレビュー上でドラッグ（Shift で 0°・45°・90°）。線の色と太さを使います</translation>
     </message>
     <message>
         <source>Pen: click for corners, drag for curves</source>
@@ -21055,6 +21163,26 @@ If playback stutters, try another.</source>
     <message>
         <source>Click a clip on the timeline to edit its properties</source>
         <translation>タイムライン上のクリップをクリックしてプロパティを編集</translation>
+    </message>
+    <message>
+        <source>Project</source>
+        <translation>プロジェクト</translation>
+    </message>
+    <message>
+        <source>Background colour</source>
+        <translation>背景色</translation>
+    </message>
+    <message>
+        <source>Background colour of the project: what shows where no layer covers the frame</source>
+        <translation>プロジェクトの背景色：どのレイヤーも覆っていない部分に見える色</translation>
+    </message>
+    <message>
+        <source>Solid the size of the frame</source>
+        <translation>画面サイズの平面</translation>
+    </message>
+    <message>
+        <source>A layer of one colour over the whole frame, for the length of the work (the toolbar&apos;s fill colour)</source>
+        <translation>画面全体を覆う単色のレイヤー（作品の長さ分、バーの塗りの色）</translation>
     </message>
     <message>
         <source>This clip uses Pro tools.</source>
@@ -23621,6 +23749,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Last layer visible from the start</source>
+        <translation>最後のレイヤーを最初から表示</translation>
+    </message>
+    <message>
         <source>Morph it</source>
         <translation type="unfinished"></translation>
     </message>
@@ -23699,6 +23831,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Roughness</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Draw the line behind the stream</source>
+        <translation>流れの後ろに線を描く</translation>
     </message>
     <message>
         <source>Colour</source>
@@ -25074,14 +25210,6 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Oomph</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>How far it travels, jumps and turns</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Timing</source>
         <translation type="unfinished"></translation>
     </message>
@@ -25110,6 +25238,14 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Apply letter by letter</source>
+        <translation>1 文字ずつ適用</translation>
+    </message>
+    <message>
+        <source>Splits the text into one layer per letter and applies it to each, the stagger apart</source>
+        <translation>テキストを 1 文字 1 レイヤーに分け、ずらしながらそれぞれに適用します</translation>
+    </message>
+    <message>
         <source>Applies to every selected layer. The keys stay editable on the timeline.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -25120,6 +25256,14 @@ If playback stutters, try another.</source>
     <message>
         <source>How hard it squashes, stretches and bends</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Travel</source>
+        <translation>移動量</translation>
+    </message>
+    <message>
+        <source>Distance: how far it travels, jumps and turns (200 % jumps twice as far)</source>
+        <translation>距離：移動・ジャンプ・回転の大きさ（200 % で 2 倍遠くへ）</translation>
     </message>
     <message>
         <source>Speed</source>
@@ -27331,10 +27475,6 @@ If playback stutters, try another.</source>
         <translation>斜体</translation>
     </message>
     <message>
-        <source>%1 has no italic face</source>
-        <translation>%1 には斜体がありません</translation>
-    </message>
-    <message>
         <source>Adjust text look</source>
         <translation>テキストルックを調整</translation>
     </message>
@@ -27605,6 +27745,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Strikethrough</source>
         <translation>取り消し線</translation>
+    </message>
+    <message>
+        <source>Italic (slanted: %1 has no italic face)</source>
+        <translation>斜体（傾斜：%1 には斜体がありません）</translation>
     </message>
     <message>
         <source>Case</source>
@@ -29483,6 +29627,26 @@ If playback stutters, try another.</source>
         <translation>動画の長さに合わせる</translation>
     </message>
     <message>
+        <source>Split into letters</source>
+        <translation>文字に分割</translation>
+    </message>
+    <message>
+        <source>Delete keyframes</source>
+        <translation>キーフレームを削除</translation>
+    </message>
+    <message>
+        <source>After the playhead (all rows)</source>
+        <translation>再生ヘッドより後（全行）</translation>
+    </message>
+    <message>
+        <source>Before the playhead (all rows)</source>
+        <translation>再生ヘッドより前（全行）</translation>
+    </message>
+    <message>
+        <source>All of this clip</source>
+        <translation>このクリップのすべて</translation>
+    </message>
+    <message>
         <source>Freeze frame at current time</source>
         <translation>現在の時間でフリーズフレーム</translation>
     </message>
@@ -31005,6 +31169,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Anchor in the centre</source>
         <translation>アンカーを中央に</translation>
+    </message>
+    <message>
+        <source>Anchor point here (the layer stays where it is)</source>
+        <translation>ここをアンカーポイントに（レイヤーはそのまま）</translation>
     </message>
     <message>
         <source>Opacity &amp; rotation</source>

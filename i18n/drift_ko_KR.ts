@@ -3477,6 +3477,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Background</source>
+        <translation>배경</translation>
+    </message>
+    <message>
         <source>Solid settings</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3507,6 +3511,22 @@
     <message>
         <source>Keyframes stretched</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No keys to curve: pick keyframes on the timeline, or select a layer that has some</source>
+        <translation>커브를 적용할 키가 없습니다: 타임라인에서 키프레임을 고르거나 키가 있는 레이어를 선택하세요</translation>
+    </message>
+    <message numerus="yes">
+        <source>Curve applied to %n key(s)</source>
+        <translation>
+            <numerusform>키 %n개에 커브 적용됨</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n property(ies)</source>
+        <translation>
+            <numerusform>속성 %n개</numerusform>
+        </translation>
     </message>
     <message>
         <source>Easy ease</source>
@@ -4203,6 +4223,10 @@
     <message>
         <source>Text</source>
         <translation>텍스트</translation>
+    </message>
+    <message>
+        <source>“%1” added to “%2” · to draw a separate layer, press Esc first; to split them, right-click › Separate into layers</source>
+        <translation>“%1”을(를) “%2”에 추가함 · 별도 레이어에 그리려면 먼저 Esc, 나누려면 오른쪽 클릭 › 레이어로 분리</translation>
     </message>
     <message>
         <source>Add mask</source>
@@ -5231,10 +5255,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>“%1” added to “%2” · to draw a separate layer, press Esc first</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Pick two or more shapes to combine them</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5385,6 +5405,34 @@
     <message>
         <source>Pick media to make a composition from (compositions cannot go inside one)</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a text to split into letters</source>
+        <translation>글자로 나눌 텍스트를 선택하세요</translation>
+    </message>
+    <message>
+        <source>This text has a single letter</source>
+        <translation>이 텍스트는 글자가 하나뿐입니다</translation>
+    </message>
+    <message>
+        <source>Split into letters</source>
+        <translation>글자로 나누기</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n letter layer(s)</source>
+        <translation>
+            <numerusform>글자 레이어 %n개</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>No keyframes there</source>
+        <translation>그곳에는 키프레임이 없습니다</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n keyframe(s) removed</source>
+        <translation>
+            <numerusform>키프레임 %n개 삭제됨</numerusform>
+        </translation>
     </message>
     <message>
         <source>Retouch</source>
@@ -7914,6 +7962,10 @@
     <message>
         <source>Ring</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bend the picked layers together (one joint)</source>
+        <translation>선택한 레이어를 함께 구부리기 (관절 하나)</translation>
     </message>
     <message>
         <source>Frames</source>
@@ -10718,6 +10770,30 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Axis offset (%)</source>
+        <translation>축 오프셋 (%)</translation>
+    </message>
+    <message>
+        <source>Extra room (px)</source>
+        <translation>추가 여백 (px)</translation>
+    </message>
+    <message>
+        <source>Linear Wipe</source>
+        <translation>선형 닦아내기</translation>
+    </message>
+    <message>
+        <source>Completion (%)</source>
+        <translation>완료 (%)</translation>
+    </message>
+    <message>
+        <source>Angle (°)</source>
+        <translation>각도 (°)</translation>
+    </message>
+    <message>
+        <source>Feather (px)</source>
+        <translation>페더 (px)</translation>
+    </message>
+    <message>
         <source>Liquid</source>
         <translation type="unfinished"></translation>
     </message>
@@ -12064,6 +12140,26 @@ NEXT TIME</source>
     <message>
         <source>Blown away like sand</source>
         <translation>모래처럼 날아가기</translation>
+    </message>
+    <message>
+        <source>Wipe down</source>
+        <translation>아래로 닦아내기</translation>
+    </message>
+    <message>
+        <source>Wipe from left</source>
+        <translation>왼쪽에서 닦아내기</translation>
+    </message>
+    <message>
+        <source>Wipe from right</source>
+        <translation>오른쪽에서 닦아내기</translation>
+    </message>
+    <message>
+        <source>Slanted wipe</source>
+        <translation>기울어진 닦아내기</translation>
+    </message>
+    <message>
+        <source>Wipe up</source>
+        <translation>위로 닦아내기</translation>
     </message>
     <message>
         <source>Attention</source>
@@ -20303,6 +20399,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Line</source>
+        <translation>선</translation>
+    </message>
+    <message>
         <source>Fill Options: none, solid, linear or radial gradient, blend mode and opacity</source>
         <translation>칠 옵션: 없음, 단색, 선형 또는 방사형 그라디언트, 혼합 모드와 불투명도</translation>
     </message>
@@ -20337,6 +20437,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Shape: drag on the preview (Shift for a square or circle)</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ellipse: drag on the preview (Shift for a circle)</source>
+        <translation>타원: 미리보기에서 드래그 (Shift는 원)</translation>
+    </message>
+    <message>
+        <source>Line: drag on the preview (Shift for 0°, 45° or 90°); it takes the stroke colour and width</source>
+        <translation>선: 미리보기에서 드래그 (Shift는 0°, 45°, 90°); 선의 색과 두께를 사용합니다</translation>
     </message>
     <message>
         <source>Pen: click for corners, drag for curves</source>
@@ -21055,6 +21163,26 @@ If playback stutters, try another.</source>
     <message>
         <source>Click a clip on the timeline to edit its properties</source>
         <translation>타임라인에서 클립을 클릭하여 속성을 편집하세요</translation>
+    </message>
+    <message>
+        <source>Project</source>
+        <translation>프로젝트</translation>
+    </message>
+    <message>
+        <source>Background colour</source>
+        <translation>배경색</translation>
+    </message>
+    <message>
+        <source>Background colour of the project: what shows where no layer covers the frame</source>
+        <translation>프로젝트 배경색: 레이어가 덮지 않은 곳에 보이는 색</translation>
+    </message>
+    <message>
+        <source>Solid the size of the frame</source>
+        <translation>화면 크기 단색</translation>
+    </message>
+    <message>
+        <source>A layer of one colour over the whole frame, for the length of the work (the toolbar&apos;s fill colour)</source>
+        <translation>화면 전체를 덮는 단색 레이어, 작업 전체 길이 (바의 채우기 색)</translation>
     </message>
     <message>
         <source>This clip uses Pro tools.</source>
@@ -23620,6 +23748,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Last layer visible from the start</source>
+        <translation>마지막 레이어를 처음부터 표시</translation>
+    </message>
+    <message>
         <source>Morph it</source>
         <translation type="unfinished"></translation>
     </message>
@@ -23698,6 +23830,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Roughness</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Draw the line behind the stream</source>
+        <translation>흐름 뒤로 선 그리기</translation>
     </message>
     <message>
         <source>Colour</source>
@@ -25073,14 +25209,6 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Oomph</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>How far it travels, jumps and turns</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Timing</source>
         <translation type="unfinished"></translation>
     </message>
@@ -25109,6 +25237,14 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Apply letter by letter</source>
+        <translation>한 글자씩 적용</translation>
+    </message>
+    <message>
+        <source>Splits the text into one layer per letter and applies it to each, the stagger apart</source>
+        <translation>텍스트를 글자마다 레이어로 나누고 간격을 두어 각각에 적용합니다</translation>
+    </message>
+    <message>
         <source>Applies to every selected layer. The keys stay editable on the timeline.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -25119,6 +25255,14 @@ If playback stutters, try another.</source>
     <message>
         <source>How hard it squashes, stretches and bends</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Travel</source>
+        <translation>이동 거리</translation>
+    </message>
+    <message>
+        <source>Distance: how far it travels, jumps and turns (200 % jumps twice as far)</source>
+        <translation>거리: 이동·점프·회전의 크기 (200 %는 두 배 멀리)</translation>
     </message>
     <message>
         <source>Speed</source>
@@ -27329,10 +27473,6 @@ If playback stutters, try another.</source>
         <translation>기울임꼴</translation>
     </message>
     <message>
-        <source>%1 has no italic face</source>
-        <translation>%1에는 기울임꼴 스타일이 없습니다</translation>
-    </message>
-    <message>
         <source>Adjust text look</source>
         <translation>텍스트 룩 조정</translation>
     </message>
@@ -27603,6 +27743,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Strikethrough</source>
         <translation>취소선</translation>
+    </message>
+    <message>
+        <source>Italic (slanted: %1 has no italic face)</source>
+        <translation>기울임꼴 (기울임: %1에는 기울임꼴이 없음)</translation>
     </message>
     <message>
         <source>Case</source>
@@ -29481,6 +29625,26 @@ If playback stutters, try another.</source>
         <translation>동영상 길이에 맞추기</translation>
     </message>
     <message>
+        <source>Split into letters</source>
+        <translation>글자로 나누기</translation>
+    </message>
+    <message>
+        <source>Delete keyframes</source>
+        <translation>키프레임 삭제</translation>
+    </message>
+    <message>
+        <source>After the playhead (all rows)</source>
+        <translation>재생 헤드 뒤 (모든 행)</translation>
+    </message>
+    <message>
+        <source>Before the playhead (all rows)</source>
+        <translation>재생 헤드 앞 (모든 행)</translation>
+    </message>
+    <message>
+        <source>All of this clip</source>
+        <translation>이 클립의 모두</translation>
+    </message>
+    <message>
         <source>Freeze frame at current time</source>
         <translation>현재 시점에서 정지 화면 만들기</translation>
     </message>
@@ -31003,6 +31167,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Anchor in the centre</source>
         <translation>기준점을 가운데로</translation>
+    </message>
+    <message>
+        <source>Anchor point here (the layer stays where it is)</source>
+        <translation>여기를 기준점으로 (레이어는 그대로)</translation>
     </message>
     <message>
         <source>Opacity &amp; rotation</source>

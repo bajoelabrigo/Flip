@@ -3483,6 +3483,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Background</source>
+        <translation>Background</translation>
+    </message>
+    <message>
         <source>Solid settings</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3513,6 +3517,24 @@
     <message>
         <source>Keyframes stretched</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No keys to curve: pick keyframes on the timeline, or select a layer that has some</source>
+        <translation>Walang key na lalagyan ng curve: pumili ng mga keyframe sa timeline, o ng layer na mayroon nito</translation>
+    </message>
+    <message numerus="yes">
+        <source>Curve applied to %n key(s)</source>
+        <translation>
+            <numerusform>Nailapat ang curve sa %n key</numerusform>
+            <numerusform>Nailapat ang curve sa %n key</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n property(ies)</source>
+        <translation>
+            <numerusform>%n property</numerusform>
+            <numerusform>%n property</numerusform>
+        </translation>
     </message>
     <message>
         <source>Easy ease</source>
@@ -4211,6 +4233,10 @@
     <message>
         <source>Text</source>
         <translation type="unfinished">Teksto</translation>
+    </message>
+    <message>
+        <source>“%1” added to “%2” · to draw a separate layer, press Esc first; to split them, right-click › Separate into layers</source>
+        <translation>Idinagdag ang “%1” sa “%2” · para gumuhit sa hiwalay na layer, pindutin muna ang Esc; para paghiwalayin, right-click › Paghiwalayin sa mga layer</translation>
     </message>
     <message>
         <source>Add mask</source>
@@ -5250,10 +5276,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>“%1” added to “%2” · to draw a separate layer, press Esc first</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Pick two or more shapes to combine them</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5406,6 +5428,36 @@
     <message>
         <source>Pick media to make a composition from (compositions cannot go inside one)</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a text to split into letters</source>
+        <translation>Pumili ng text na hahatiin sa mga letra</translation>
+    </message>
+    <message>
+        <source>This text has a single letter</source>
+        <translation>Iisa lang ang letra ng text na ito</translation>
+    </message>
+    <message>
+        <source>Split into letters</source>
+        <translation>Hatiin sa mga letra</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n letter layer(s)</source>
+        <translation>
+            <numerusform>%n layer ng letra</numerusform>
+            <numerusform>%n layer ng letra</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>No keyframes there</source>
+        <translation>Walang keyframe doon</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n keyframe(s) removed</source>
+        <translation>
+            <numerusform>%n keyframe ang natanggal</numerusform>
+            <numerusform>%n keyframe ang natanggal</numerusform>
+        </translation>
     </message>
     <message>
         <source>Retouch</source>
@@ -7959,6 +8011,10 @@
     <message>
         <source>Ring</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bend the picked layers together (one joint)</source>
+        <translation>Baluktutin nang sabay ang mga napiling layer (iisang dugtungan)</translation>
     </message>
     <message>
         <source>Frames</source>
@@ -10763,6 +10819,30 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Axis offset (%)</source>
+        <translation>Usog ng axis (%)</translation>
+    </message>
+    <message>
+        <source>Extra room (px)</source>
+        <translation>Dagdag na espasyo (px)</translation>
+    </message>
+    <message>
+        <source>Linear Wipe</source>
+        <translation>Linear Wipe</translation>
+    </message>
+    <message>
+        <source>Completion (%)</source>
+        <translation>Pagkumpleto (%)</translation>
+    </message>
+    <message>
+        <source>Angle (°)</source>
+        <translation>Anggulo (°)</translation>
+    </message>
+    <message>
+        <source>Feather (px)</source>
+        <translation>Feather (px)</translation>
+    </message>
+    <message>
         <source>Liquid</source>
         <translation type="unfinished"></translation>
     </message>
@@ -12105,6 +12185,26 @@ NEXT TIME</source>
     <message>
         <source>Blown away like sand</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wipe down</source>
+        <translation>Wipe pababa</translation>
+    </message>
+    <message>
+        <source>Wipe from left</source>
+        <translation>Wipe mula kaliwa</translation>
+    </message>
+    <message>
+        <source>Wipe from right</source>
+        <translation>Wipe mula kanan</translation>
+    </message>
+    <message>
+        <source>Slanted wipe</source>
+        <translation>Pahilis na wipe</translation>
+    </message>
+    <message>
+        <source>Wipe up</source>
+        <translation>Wipe pataas</translation>
     </message>
     <message>
         <source>Attention</source>
@@ -20371,6 +20471,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Line</source>
+        <translation>Linya</translation>
+    </message>
+    <message>
         <source>Fill Options: none, solid, linear or radial gradient, blend mode and opacity</source>
         <translation>Mga opsyon ng fill: wala, solido, linear o radial na gradient, blend mode at opacity</translation>
     </message>
@@ -20405,6 +20509,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Shape: drag on the preview (Shift for a square or circle)</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ellipse: drag on the preview (Shift for a circle)</source>
+        <translation>Ellipse: i-drag sa preview (Shift para sa bilog)</translation>
+    </message>
+    <message>
+        <source>Line: drag on the preview (Shift for 0°, 45° or 90°); it takes the stroke colour and width</source>
+        <translation>Linya: i-drag sa preview (Shift para sa 0°, 45° o 90°); ginagamit ang kulay at kapal ng stroke</translation>
     </message>
     <message>
         <source>Pen: click for corners, drag for curves</source>
@@ -21124,6 +21236,26 @@ If playback stutters, try another.</source>
     <message>
         <source>Click a clip on the timeline to edit its properties</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Project</source>
+        <translation>Proyekto</translation>
+    </message>
+    <message>
+        <source>Background colour</source>
+        <translation>Kulay ng background</translation>
+    </message>
+    <message>
+        <source>Background colour of the project: what shows where no layer covers the frame</source>
+        <translation>Kulay ng background ng proyekto: ang nakikita kung saan walang layer na tumatakip sa frame</translation>
+    </message>
+    <message>
+        <source>Solid the size of the frame</source>
+        <translation>Solid na kasinlaki ng frame</translation>
+    </message>
+    <message>
+        <source>A layer of one colour over the whole frame, for the length of the work (the toolbar&apos;s fill colour)</source>
+        <translation>Isang layer na iisang kulay sa buong frame, sa buong haba ng gawa (ang fill color ng toolbar)</translation>
     </message>
     <message>
         <source>This clip uses Pro tools.</source>
@@ -23695,6 +23827,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Last layer visible from the start</source>
+        <translation>Nakikita ang huling layer mula sa simula</translation>
+    </message>
+    <message>
         <source>Morph it</source>
         <translation type="unfinished"></translation>
     </message>
@@ -23773,6 +23909,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Roughness</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Draw the line behind the stream</source>
+        <translation>Iguhit ang linya sa likod ng daloy</translation>
     </message>
     <message>
         <source>Colour</source>
@@ -25148,14 +25288,6 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Oomph</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>How far it travels, jumps and turns</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Timing</source>
         <translation type="unfinished"></translation>
     </message>
@@ -25184,6 +25316,14 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Apply letter by letter</source>
+        <translation>Ilapat letra por letra</translation>
+    </message>
+    <message>
+        <source>Splits the text into one layer per letter and applies it to each, the stagger apart</source>
+        <translation>Hinahati ang text sa isang layer bawat letra at inilalapat sa bawat isa, may pagitan ayon sa stagger</translation>
+    </message>
+    <message>
         <source>Applies to every selected layer. The keys stay editable on the timeline.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -25194,6 +25334,14 @@ If playback stutters, try another.</source>
     <message>
         <source>How hard it squashes, stretches and bends</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Travel</source>
+        <translation>Layo</translation>
+    </message>
+    <message>
+        <source>Distance: how far it travels, jumps and turns (200 % jumps twice as far)</source>
+        <translation>Layo: gaano kalayo ito gumagalaw, tumatalon at umiikot (200 % ay dalawang beses na mas malayo)</translation>
     </message>
     <message>
         <source>Speed</source>
@@ -27410,10 +27558,6 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>%1 has no italic face</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Adjust text look</source>
         <translation type="unfinished"></translation>
     </message>
@@ -27684,6 +27828,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Strikethrough</source>
         <translation>Strikethrough</translation>
+    </message>
+    <message>
+        <source>Italic (slanted: %1 has no italic face)</source>
+        <translation>Italic (nakahilig: walang italic ang %1)</translation>
     </message>
     <message>
         <source>Case</source>
@@ -29562,6 +29710,26 @@ If playback stutters, try another.</source>
         <translation>Itugma sa haba ng video</translation>
     </message>
     <message>
+        <source>Split into letters</source>
+        <translation>Hatiin sa mga letra</translation>
+    </message>
+    <message>
+        <source>Delete keyframes</source>
+        <translation>Burahin ang mga keyframe</translation>
+    </message>
+    <message>
+        <source>After the playhead (all rows)</source>
+        <translation>Pagkatapos ng playhead (lahat ng hanay)</translation>
+    </message>
+    <message>
+        <source>Before the playhead (all rows)</source>
+        <translation>Bago ang playhead (lahat ng hanay)</translation>
+    </message>
+    <message>
+        <source>All of this clip</source>
+        <translation>Lahat sa clip na ito</translation>
+    </message>
+    <message>
         <source>Freeze frame at current time</source>
         <translation>I-freeze ang frame sa kasalukuyang oras</translation>
     </message>
@@ -31089,6 +31257,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Anchor in the centre</source>
         <translation>Anchor sa gitna</translation>
+    </message>
+    <message>
+        <source>Anchor point here (the layer stays where it is)</source>
+        <translation>Anchor point dito (nananatili ang layer kung nasaan ito)</translation>
     </message>
     <message>
         <source>Opacity &amp; rotation</source>

@@ -3483,6 +3483,10 @@
         <translation>Sólido agregado</translation>
     </message>
     <message>
+        <source>Background</source>
+        <translation>Fondo</translation>
+    </message>
+    <message>
         <source>Solid settings</source>
         <translation>Ajustes del sólido</translation>
     </message>
@@ -3513,6 +3517,24 @@
     <message>
         <source>Keyframes stretched</source>
         <translation>Fotogramas clave estirados</translation>
+    </message>
+    <message>
+        <source>No keys to curve: pick keyframes on the timeline, or select a layer that has some</source>
+        <translation>No hay claves a las que poner la curva: elige fotogramas clave en la línea de tiempo o una capa que los tenga</translation>
+    </message>
+    <message numerus="yes">
+        <source>Curve applied to %n key(s)</source>
+        <translation>
+            <numerusform>Curva aplicada a %n clave</numerusform>
+            <numerusform>Curva aplicada a %n claves</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n property(ies)</source>
+        <translation>
+            <numerusform>%n propiedad</numerusform>
+            <numerusform>%n propiedades</numerusform>
+        </translation>
     </message>
     <message>
         <source>Easy ease</source>
@@ -4211,6 +4233,10 @@
     <message>
         <source>Text</source>
         <translation>Texto</translation>
+    </message>
+    <message>
+        <source>“%1” added to “%2” · to draw a separate layer, press Esc first; to split them, right-click › Separate into layers</source>
+        <translation>«%1» se añadió a «%2» · para dibujar en una capa aparte, pulsa Esc antes; para separarlas, clic derecho › Separar en capas</translation>
     </message>
     <message>
         <source>Add mask</source>
@@ -5246,10 +5272,6 @@
         <translation>Trazado</translation>
     </message>
     <message>
-        <source>“%1” added to “%2” · to draw a separate layer, press Esc first</source>
-        <translation>«%1» se añadió a «%2» · para dibujar en una capa aparte, pulsa Esc antes</translation>
-    </message>
-    <message>
         <source>Pick two or more shapes to combine them</source>
         <translation>Elige dos o más formas para combinarlas</translation>
     </message>
@@ -5402,6 +5424,36 @@
     <message>
         <source>Pick media to make a composition from (compositions cannot go inside one)</source>
         <translation>Elige material para hacer una composición (una composición no puede ir dentro de otra)</translation>
+    </message>
+    <message>
+        <source>Select a text to split into letters</source>
+        <translation>Elige un texto para dividirlo en letras</translation>
+    </message>
+    <message>
+        <source>This text has a single letter</source>
+        <translation>Este texto tiene una sola letra</translation>
+    </message>
+    <message>
+        <source>Split into letters</source>
+        <translation>Dividir en letras</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n letter layer(s)</source>
+        <translation>
+            <numerusform>%n capa de letra</numerusform>
+            <numerusform>%n capas de letras</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>No keyframes there</source>
+        <translation>No hay fotogramas clave ahí</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n keyframe(s) removed</source>
+        <translation>
+            <numerusform>%n fotograma clave borrado</numerusform>
+            <numerusform>%n fotogramas clave borrados</numerusform>
+        </translation>
     </message>
     <message>
         <source>Retouch</source>
@@ -7959,6 +8011,10 @@
     <message>
         <source>Ring</source>
         <translation>Anillo</translation>
+    </message>
+    <message>
+        <source>Bend the picked layers together (one joint)</source>
+        <translation>Doblar juntas las capas elegidas (una sola articulación)</translation>
     </message>
     <message>
         <source>Frames</source>
@@ -10763,6 +10819,30 @@
         <translation>Fin (%)</translation>
     </message>
     <message>
+        <source>Axis offset (%)</source>
+        <translation>Desplazamiento del eje (%)</translation>
+    </message>
+    <message>
+        <source>Extra room (px)</source>
+        <translation>Margen extra (px)</translation>
+    </message>
+    <message>
+        <source>Linear Wipe</source>
+        <translation>Barrido lineal</translation>
+    </message>
+    <message>
+        <source>Completion (%)</source>
+        <translation>Completado (%)</translation>
+    </message>
+    <message>
+        <source>Angle (°)</source>
+        <translation>Ángulo (°)</translation>
+    </message>
+    <message>
+        <source>Feather (px)</source>
+        <translation>Difuminado (px)</translation>
+    </message>
+    <message>
         <source>Liquid</source>
         <translation>Líquido</translation>
     </message>
@@ -12109,6 +12189,26 @@ LA PRÓXIMA</translation>
     <message>
         <source>Blown away like sand</source>
         <translation>Arena al viento</translation>
+    </message>
+    <message>
+        <source>Wipe down</source>
+        <translation>Barrido hacia abajo</translation>
+    </message>
+    <message>
+        <source>Wipe from left</source>
+        <translation>Barrido desde la izquierda</translation>
+    </message>
+    <message>
+        <source>Wipe from right</source>
+        <translation>Barrido desde la derecha</translation>
+    </message>
+    <message>
+        <source>Slanted wipe</source>
+        <translation>Barrido inclinado</translation>
+    </message>
+    <message>
+        <source>Wipe up</source>
+        <translation>Barrido hacia arriba</translation>
     </message>
     <message>
         <source>Attention</source>
@@ -20381,6 +20481,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Polígono</translation>
     </message>
     <message>
+        <source>Line</source>
+        <translation>Línea</translation>
+    </message>
+    <message>
         <source>Fill Options: none, solid, linear or radial gradient, blend mode and opacity</source>
         <translation>Opciones de relleno: ninguno, sólido, degradado lineal o radial, modo de fusión y opacidad</translation>
     </message>
@@ -20415,6 +20519,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Shape: drag on the preview (Shift for a square or circle)</source>
         <translation>Forma: arrastra en la vista previa (Mayús para un cuadrado o un círculo)</translation>
+    </message>
+    <message>
+        <source>Ellipse: drag on the preview (Shift for a circle)</source>
+        <translation>Elipse: arrastra en la vista previa (Mayús para un círculo)</translation>
+    </message>
+    <message>
+        <source>Line: drag on the preview (Shift for 0°, 45° or 90°); it takes the stroke colour and width</source>
+        <translation>Línea: arrastra en la vista previa (Mayús para 0°, 45° o 90°); toma el color y el grosor del trazo</translation>
     </message>
     <message>
         <source>Pen: click for corners, drag for curves</source>
@@ -21134,6 +21246,26 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Click a clip on the timeline to edit its properties</source>
         <translation>Haz clic en un clip en la línea de tiempo para editar sus propiedades</translation>
+    </message>
+    <message>
+        <source>Project</source>
+        <translation>Proyecto</translation>
+    </message>
+    <message>
+        <source>Background colour</source>
+        <translation>Color de fondo</translation>
+    </message>
+    <message>
+        <source>Background colour of the project: what shows where no layer covers the frame</source>
+        <translation>Color de fondo del proyecto: lo que se ve donde ninguna capa cubre el cuadro</translation>
+    </message>
+    <message>
+        <source>Solid the size of the frame</source>
+        <translation>Sólido del tamaño del cuadro</translation>
+    </message>
+    <message>
+        <source>A layer of one colour over the whole frame, for the length of the work (the toolbar&apos;s fill colour)</source>
+        <translation>Una capa de un solo color sobre todo el cuadro, durante todo el trabajo (el color de relleno de la barra)</translation>
     </message>
     <message>
         <source>This clip uses Pro tools.</source>
@@ -23706,6 +23838,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Slicer</translation>
     </message>
     <message>
+        <source>Last layer visible from the start</source>
+        <translation>La última capa se ve desde el principio</translation>
+    </message>
+    <message>
         <source>Morph it</source>
         <translation>Transformar</translation>
     </message>
@@ -23784,6 +23920,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Roughness</source>
         <translation>Rugosidad</translation>
+    </message>
+    <message>
+        <source>Draw the line behind the stream</source>
+        <translation>Dibujar la línea detrás del chorro</translation>
     </message>
     <message>
         <source>Colour</source>
@@ -25159,14 +25299,6 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Squash &amp; Stretch</translation>
     </message>
     <message>
-        <source>Oomph</source>
-        <translation>Impulso</translation>
-    </message>
-    <message>
-        <source>How far it travels, jumps and turns</source>
-        <translation>Cuánto se desplaza, salta y gira</translation>
-    </message>
-    <message>
         <source>Timing</source>
         <translation>Tiempo</translation>
     </message>
@@ -25195,6 +25327,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Aplicar</translation>
     </message>
     <message>
+        <source>Apply letter by letter</source>
+        <translation>Aplicar letra por letra</translation>
+    </message>
+    <message>
+        <source>Splits the text into one layer per letter and applies it to each, the stagger apart</source>
+        <translation>Divide el texto en una capa por letra y la aplica a cada una, separadas por el escalonado</translation>
+    </message>
+    <message>
         <source>Applies to every selected layer. The keys stay editable on the timeline.</source>
         <translation>Se aplica a cada capa elegida. Las claves se pueden editar en la línea de tiempo.</translation>
     </message>
@@ -25205,6 +25345,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>How hard it squashes, stretches and bends</source>
         <translation>Cuánto se aplasta, se estira y se dobla</translation>
+    </message>
+    <message>
+        <source>Travel</source>
+        <translation>Recorrido</translation>
+    </message>
+    <message>
+        <source>Distance: how far it travels, jumps and turns (200 % jumps twice as far)</source>
+        <translation>Distancia: cuánto se mueve, salta y gira (200 % salta el doble de lejos)</translation>
     </message>
     <message>
         <source>Speed</source>
@@ -27422,10 +27570,6 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Cursiva</translation>
     </message>
     <message>
-        <source>%1 has no italic face</source>
-        <translation>%1 no tiene variante en cursiva</translation>
-    </message>
-    <message>
         <source>Adjust text look</source>
         <translation>Ajustar aspecto del texto</translation>
     </message>
@@ -27696,6 +27840,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Strikethrough</source>
         <translation>Tachado</translation>
+    </message>
+    <message>
+        <source>Italic (slanted: %1 has no italic face)</source>
+        <translation>Cursiva (inclinada: %1 no tiene cursiva)</translation>
     </message>
     <message>
         <source>Case</source>
@@ -29574,6 +29722,26 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Ajustar a la duración del video</translation>
     </message>
     <message>
+        <source>Split into letters</source>
+        <translation>Dividir en letras</translation>
+    </message>
+    <message>
+        <source>Delete keyframes</source>
+        <translation>Borrar fotogramas clave</translation>
+    </message>
+    <message>
+        <source>After the playhead (all rows)</source>
+        <translation>Después del cabezal (todas las filas)</translation>
+    </message>
+    <message>
+        <source>Before the playhead (all rows)</source>
+        <translation>Antes del cabezal (todas las filas)</translation>
+    </message>
+    <message>
+        <source>All of this clip</source>
+        <translation>Todos los de este clip</translation>
+    </message>
+    <message>
         <source>Freeze frame at current time</source>
         <translation>Congelar fotograma en la posición actual</translation>
     </message>
@@ -31101,6 +31269,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Anchor in the centre</source>
         <translation>Anclaje en el centro</translation>
+    </message>
+    <message>
+        <source>Anchor point here (the layer stays where it is)</source>
+        <translation>Punto de anclaje aquí (la capa se queda donde está)</translation>
     </message>
     <message>
         <source>Opacity &amp; rotation</source>

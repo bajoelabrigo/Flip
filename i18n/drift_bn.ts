@@ -3491,6 +3491,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Background</source>
+        <translation>পটভূমি</translation>
+    </message>
+    <message>
         <source>Solid settings</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3521,6 +3525,24 @@
     <message>
         <source>Keyframes stretched</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No keys to curve: pick keyframes on the timeline, or select a layer that has some</source>
+        <translation>কার্ভ দেওয়ার মতো কোনো কি নেই: টাইমলাইনে কি-ফ্রেম বাছুন, বা কি-ফ্রেম আছে এমন লেয়ার বাছুন</translation>
+    </message>
+    <message numerus="yes">
+        <source>Curve applied to %n key(s)</source>
+        <translation>
+            <numerusform>%n টি কি-তে কার্ভ প্রয়োগ হয়েছে</numerusform>
+            <numerusform>%n টি কি-তে কার্ভ প্রয়োগ হয়েছে</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n property(ies)</source>
+        <translation>
+            <numerusform>%n টি প্রপার্টি</numerusform>
+            <numerusform>%n টি প্রপার্টি</numerusform>
+        </translation>
     </message>
     <message>
         <source>Easy ease</source>
@@ -4268,6 +4290,10 @@
     <message>
         <source>Move anchor point</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>“%1” added to “%2” · to draw a separate layer, press Esc first; to split them, right-click › Separate into layers</source>
+        <translation>“%1” “%2”-এ যোগ হয়েছে · আলাদা লেয়ারে আঁকতে আগে Esc চাপুন; আলাদা করতে ডান-ক্লিক › লেয়ারে আলাদা করুন</translation>
     </message>
     <message>
         <source>Remove animation</source>
@@ -5346,10 +5372,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>“%1” added to “%2” · to draw a separate layer, press Esc first</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Pick two or more shapes to combine them</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5502,6 +5524,36 @@
     <message>
         <source>Pick media to make a composition from (compositions cannot go inside one)</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a text to split into letters</source>
+        <translation>অক্ষরে ভাগ করার জন্য একটি টেক্সট বাছুন</translation>
+    </message>
+    <message>
+        <source>This text has a single letter</source>
+        <translation>এই টেক্সটে একটিই অক্ষর</translation>
+    </message>
+    <message>
+        <source>Split into letters</source>
+        <translation>অক্ষরে ভাগ করুন</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n letter layer(s)</source>
+        <translation>
+            <numerusform>%n টি অক্ষর লেয়ার</numerusform>
+            <numerusform>%n টি অক্ষর লেয়ার</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>No keyframes there</source>
+        <translation>সেখানে কোনো কি-ফ্রেম নেই</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n keyframe(s) removed</source>
+        <translation>
+            <numerusform>%n টি কি-ফ্রেম মোছা হয়েছে</numerusform>
+            <numerusform>%n টি কি-ফ্রেম মোছা হয়েছে</numerusform>
+        </translation>
     </message>
     <message>
         <source>Retouch</source>
@@ -7959,6 +8011,10 @@
     <message>
         <source>Ring</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bend the picked layers together (one joint)</source>
+        <translation>বাছাই করা লেয়ারগুলো একসাথে বাঁকান (একটি জোড়)</translation>
     </message>
     <message>
         <source>Frames</source>
@@ -10763,6 +10819,30 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Axis offset (%)</source>
+        <translation>অক্ষের সরণ (%)</translation>
+    </message>
+    <message>
+        <source>Extra room (px)</source>
+        <translation>অতিরিক্ত জায়গা (px)</translation>
+    </message>
+    <message>
+        <source>Linear Wipe</source>
+        <translation>লিনিয়ার ওয়াইপ</translation>
+    </message>
+    <message>
+        <source>Completion (%)</source>
+        <translation>সম্পূর্ণতা (%)</translation>
+    </message>
+    <message>
+        <source>Angle (°)</source>
+        <translation>কোণ (°)</translation>
+    </message>
+    <message>
+        <source>Feather (px)</source>
+        <translation>ফেদার (px)</translation>
+    </message>
+    <message>
         <source>Liquid</source>
         <translation type="unfinished"></translation>
     </message>
@@ -12105,6 +12185,26 @@ NEXT TIME</source>
     <message>
         <source>Blown away like sand</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wipe down</source>
+        <translation>নিচের দিকে ওয়াইপ</translation>
+    </message>
+    <message>
+        <source>Wipe from left</source>
+        <translation>বাম থেকে ওয়াইপ</translation>
+    </message>
+    <message>
+        <source>Wipe from right</source>
+        <translation>ডান থেকে ওয়াইপ</translation>
+    </message>
+    <message>
+        <source>Slanted wipe</source>
+        <translation>তির্যক ওয়াইপ</translation>
+    </message>
+    <message>
+        <source>Wipe up</source>
+        <translation>উপরের দিকে ওয়াইপ</translation>
     </message>
     <message>
         <source>Attention</source>
@@ -20377,6 +20477,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Line</source>
+        <translation>রেখা</translation>
+    </message>
+    <message>
         <source>Fill Options: none, solid, linear or radial gradient, blend mode and opacity</source>
         <translation>ভরাট বিকল্প: কিছু না, একরঙা, রৈখিক বা বৃত্তাকার গ্রেডিয়েন্ট, মিশ্রণ মোড ও অস্বচ্ছতা</translation>
     </message>
@@ -20411,6 +20515,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Shape: drag on the preview (Shift for a square or circle)</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ellipse: drag on the preview (Shift for a circle)</source>
+        <translation>উপবৃত্ত: প্রিভিউতে টানুন (বৃত্তের জন্য Shift)</translation>
+    </message>
+    <message>
+        <source>Line: drag on the preview (Shift for 0°, 45° or 90°); it takes the stroke colour and width</source>
+        <translation>রেখা: প্রিভিউতে টানুন (0°, 45° বা 90°-এর জন্য Shift); স্ট্রোকের রং ও পুরুত্ব নেয়</translation>
     </message>
     <message>
         <source>Pen: click for corners, drag for curves</source>
@@ -21130,6 +21242,26 @@ If playback stutters, try another.</source>
     <message>
         <source>Click a clip on the timeline to edit its properties</source>
         <translation type="unfinished">এর বৈশিষ্ট্যগুলি সম্পাদনা করতে টাইমলাইনে একটি ক্লিপ ক্লিক করুন।</translation>
+    </message>
+    <message>
+        <source>Project</source>
+        <translation>প্রজেক্ট</translation>
+    </message>
+    <message>
+        <source>Background colour</source>
+        <translation>পটভূমির রং</translation>
+    </message>
+    <message>
+        <source>Background colour of the project: what shows where no layer covers the frame</source>
+        <translation>প্রজেক্টের পটভূমির রং: যেখানে কোনো লেয়ার ফ্রেম ঢাকে না সেখানে যা দেখা যায়</translation>
+    </message>
+    <message>
+        <source>Solid the size of the frame</source>
+        <translation>ফ্রেমের মাপের সলিড</translation>
+    </message>
+    <message>
+        <source>A layer of one colour over the whole frame, for the length of the work (the toolbar&apos;s fill colour)</source>
+        <translation>পুরো ফ্রেম জুড়ে এক রঙের লেয়ার, পুরো কাজের দৈর্ঘ্যে (বারের ফিল রং)</translation>
     </message>
     <message>
         <source>This clip uses Pro tools.</source>
@@ -23702,6 +23834,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Last layer visible from the start</source>
+        <translation>শেষ লেয়ারটি শুরু থেকেই দেখা যাবে</translation>
+    </message>
+    <message>
         <source>Morph it</source>
         <translation type="unfinished"></translation>
     </message>
@@ -23780,6 +23916,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Roughness</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Draw the line behind the stream</source>
+        <translation>প্রবাহের পেছনে রেখা আঁকুন</translation>
     </message>
     <message>
         <source>Colour</source>
@@ -25155,14 +25295,6 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Oomph</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>How far it travels, jumps and turns</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Timing</source>
         <translation type="unfinished"></translation>
     </message>
@@ -25191,6 +25323,14 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Apply letter by letter</source>
+        <translation>অক্ষর ধরে ধরে প্রয়োগ করুন</translation>
+    </message>
+    <message>
+        <source>Splits the text into one layer per letter and applies it to each, the stagger apart</source>
+        <translation>টেক্সটকে প্রতি অক্ষরে একটি লেয়ারে ভাগ করে প্রতিটিতে স্ট্যাগার দূরত্বে প্রয়োগ করে</translation>
+    </message>
+    <message>
         <source>Applies to every selected layer. The keys stay editable on the timeline.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -25201,6 +25341,14 @@ If playback stutters, try another.</source>
     <message>
         <source>How hard it squashes, stretches and bends</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Travel</source>
+        <translation>দূরত্ব</translation>
+    </message>
+    <message>
+        <source>Distance: how far it travels, jumps and turns (200 % jumps twice as far)</source>
+        <translation>দূরত্ব: কতদূর সরে, লাফায় ও ঘোরে (200 % দ্বিগুণ দূরে লাফায়)</translation>
     </message>
     <message>
         <source>Speed</source>
@@ -27418,10 +27566,6 @@ If playback stutters, try another.</source>
         <translation type="unfinished">তির্যক</translation>
     </message>
     <message>
-        <source>%1 has no italic face</source>
-        <translation type="unfinished">%1 এর কোন তির্যক মুখ নেই</translation>
-    </message>
-    <message>
         <source>Adjust text look</source>
         <translation type="unfinished">টেক্সটের চেহারা সামঞ্জস্য করুন</translation>
     </message>
@@ -27728,6 +27872,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Strikethrough</source>
         <translation>স্ট্রাইকথ্রু</translation>
+    </message>
+    <message>
+        <source>Italic (slanted: %1 has no italic face)</source>
+        <translation>ইটালিক (হেলানো: %1-এ ইটালিক নেই)</translation>
     </message>
     <message>
         <source>Case</source>
@@ -29570,6 +29718,26 @@ If playback stutters, try another.</source>
         <translation>ভিডিওর দৈর্ঘ্যে মেলান</translation>
     </message>
     <message>
+        <source>Split into letters</source>
+        <translation>অক্ষরে ভাগ করুন</translation>
+    </message>
+    <message>
+        <source>Delete keyframes</source>
+        <translation>কি-ফ্রেম মুছুন</translation>
+    </message>
+    <message>
+        <source>After the playhead (all rows)</source>
+        <translation>প্লেহেডের পরে (সব সারি)</translation>
+    </message>
+    <message>
+        <source>Before the playhead (all rows)</source>
+        <translation>প্লেহেডের আগে (সব সারি)</translation>
+    </message>
+    <message>
+        <source>All of this clip</source>
+        <translation>এই ক্লিপের সবগুলো</translation>
+    </message>
+    <message>
         <source>Freeze frame at current time</source>
         <translation>বর্তমান সময়ের ফ্রেম স্থির করুন</translation>
     </message>
@@ -31097,6 +31265,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Anchor in the centre</source>
         <translation>মাঝখানে নোঙর</translation>
+    </message>
+    <message>
+        <source>Anchor point here (the layer stays where it is)</source>
+        <translation>অ্যাঙ্কর পয়েন্ট এখানে (লেয়ার যেখানে আছে সেখানেই থাকে)</translation>
     </message>
     <message>
         <source>Opacity &amp; rotation</source>

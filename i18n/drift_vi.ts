@@ -3477,6 +3477,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Background</source>
+        <translation>Nền</translation>
+    </message>
+    <message>
         <source>Solid settings</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3507,6 +3511,22 @@
     <message>
         <source>Keyframes stretched</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No keys to curve: pick keyframes on the timeline, or select a layer that has some</source>
+        <translation>Không có khung hình chính để áp đường cong: chọn khung hình chính trên dòng thời gian hoặc một lớp có chúng</translation>
+    </message>
+    <message numerus="yes">
+        <source>Curve applied to %n key(s)</source>
+        <translation>
+            <numerusform>Đã áp đường cong cho %n khung hình chính</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n property(ies)</source>
+        <translation>
+            <numerusform>%n thuộc tính</numerusform>
+        </translation>
     </message>
     <message>
         <source>Easy ease</source>
@@ -4211,6 +4231,10 @@
     <message>
         <source>Text</source>
         <translation>Văn bản</translation>
+    </message>
+    <message>
+        <source>“%1” added to “%2” · to draw a separate layer, press Esc first; to split them, right-click › Separate into layers</source>
+        <translation>Đã thêm “%1” vào “%2” · để vẽ trên lớp riêng, nhấn Esc trước; để tách chúng, nhấp phải › Tách thành các lớp</translation>
     </message>
     <message>
         <source>Add mask</source>
@@ -5239,10 +5263,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>“%1” added to “%2” · to draw a separate layer, press Esc first</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Pick two or more shapes to combine them</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5393,6 +5413,34 @@
     <message>
         <source>Pick media to make a composition from (compositions cannot go inside one)</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a text to split into letters</source>
+        <translation>Chọn một văn bản để tách thành chữ cái</translation>
+    </message>
+    <message>
+        <source>This text has a single letter</source>
+        <translation>Văn bản này chỉ có một chữ</translation>
+    </message>
+    <message>
+        <source>Split into letters</source>
+        <translation>Tách thành chữ cái</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n letter layer(s)</source>
+        <translation>
+            <numerusform>%n lớp chữ cái</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>No keyframes there</source>
+        <translation>Không có khung hình chính ở đó</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n keyframe(s) removed</source>
+        <translation>
+            <numerusform>Đã xóa %n khung hình chính</numerusform>
+        </translation>
     </message>
     <message>
         <source>Retouch</source>
@@ -7914,6 +7962,10 @@
     <message>
         <source>Ring</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bend the picked layers together (one joint)</source>
+        <translation>Uốn các lớp đã chọn cùng nhau (một khớp)</translation>
     </message>
     <message>
         <source>Frames</source>
@@ -10718,6 +10770,30 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Axis offset (%)</source>
+        <translation>Lệch trục (%)</translation>
+    </message>
+    <message>
+        <source>Extra room (px)</source>
+        <translation>Lề thêm (px)</translation>
+    </message>
+    <message>
+        <source>Linear Wipe</source>
+        <translation>Quét tuyến tính</translation>
+    </message>
+    <message>
+        <source>Completion (%)</source>
+        <translation>Hoàn thành (%)</translation>
+    </message>
+    <message>
+        <source>Angle (°)</source>
+        <translation>Góc (°)</translation>
+    </message>
+    <message>
+        <source>Feather (px)</source>
+        <translation>Làm mềm (px)</translation>
+    </message>
+    <message>
         <source>Liquid</source>
         <translation type="unfinished"></translation>
     </message>
@@ -12064,6 +12140,26 @@ LẦN SAU</translation>
     <message>
         <source>Blown away like sand</source>
         <translation>Bay đi như cát</translation>
+    </message>
+    <message>
+        <source>Wipe down</source>
+        <translation>Quét xuống</translation>
+    </message>
+    <message>
+        <source>Wipe from left</source>
+        <translation>Quét từ trái</translation>
+    </message>
+    <message>
+        <source>Wipe from right</source>
+        <translation>Quét từ phải</translation>
+    </message>
+    <message>
+        <source>Slanted wipe</source>
+        <translation>Quét nghiêng</translation>
+    </message>
+    <message>
+        <source>Wipe up</source>
+        <translation>Quét lên</translation>
     </message>
     <message>
         <source>Attention</source>
@@ -20303,6 +20399,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Line</source>
+        <translation>Đường thẳng</translation>
+    </message>
+    <message>
         <source>Fill Options: none, solid, linear or radial gradient, blend mode and opacity</source>
         <translation>Tùy chọn tô: không, màu đặc, chuyển sắc tuyến tính hoặc tròn, chế độ hòa trộn và độ mờ đục</translation>
     </message>
@@ -20337,6 +20437,14 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Shape: drag on the preview (Shift for a square or circle)</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ellipse: drag on the preview (Shift for a circle)</source>
+        <translation>Elip: kéo trên bản xem trước (Shift để vẽ hình tròn)</translation>
+    </message>
+    <message>
+        <source>Line: drag on the preview (Shift for 0°, 45° or 90°); it takes the stroke colour and width</source>
+        <translation>Đường thẳng: kéo trên bản xem trước (Shift cho 0°, 45° hoặc 90°); dùng màu và độ dày của nét</translation>
     </message>
     <message>
         <source>Pen: click for corners, drag for curves</source>
@@ -21055,6 +21163,26 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Click a clip on the timeline to edit its properties</source>
         <translation>Nhấp vào một clip trên dòng thời gian để chỉnh sửa thuộc tính của nó</translation>
+    </message>
+    <message>
+        <source>Project</source>
+        <translation>Dự án</translation>
+    </message>
+    <message>
+        <source>Background colour</source>
+        <translation>Màu nền</translation>
+    </message>
+    <message>
+        <source>Background colour of the project: what shows where no layer covers the frame</source>
+        <translation>Màu nền của dự án: phần nhìn thấy nơi không có lớp nào che khung hình</translation>
+    </message>
+    <message>
+        <source>Solid the size of the frame</source>
+        <translation>Khối màu bằng khung hình</translation>
+    </message>
+    <message>
+        <source>A layer of one colour over the whole frame, for the length of the work (the toolbar&apos;s fill colour)</source>
+        <translation>Một lớp một màu phủ toàn khung hình, suốt độ dài tác phẩm (màu tô của thanh công cụ)</translation>
     </message>
     <message>
         <source>This clip uses Pro tools.</source>
@@ -23621,6 +23749,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Last layer visible from the start</source>
+        <translation>Lớp cuối hiện ngay từ đầu</translation>
+    </message>
+    <message>
         <source>Morph it</source>
         <translation type="unfinished"></translation>
     </message>
@@ -23699,6 +23831,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Roughness</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Draw the line behind the stream</source>
+        <translation>Vẽ đường phía sau dòng chảy</translation>
     </message>
     <message>
         <source>Colour</source>
@@ -25074,14 +25210,6 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Oomph</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>How far it travels, jumps and turns</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Timing</source>
         <translation type="unfinished"></translation>
     </message>
@@ -25110,6 +25238,14 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Apply letter by letter</source>
+        <translation>Áp dụng từng chữ</translation>
+    </message>
+    <message>
+        <source>Splits the text into one layer per letter and applies it to each, the stagger apart</source>
+        <translation>Tách văn bản thành mỗi chữ một lớp và áp dụng cho từng chữ, cách nhau theo độ so le</translation>
+    </message>
+    <message>
         <source>Applies to every selected layer. The keys stay editable on the timeline.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -25120,6 +25256,14 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>How hard it squashes, stretches and bends</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Travel</source>
+        <translation>Quãng đường</translation>
+    </message>
+    <message>
+        <source>Distance: how far it travels, jumps and turns (200 % jumps twice as far)</source>
+        <translation>Khoảng cách: di chuyển, nhảy và xoay xa đến đâu (200 % nhảy xa gấp đôi)</translation>
     </message>
     <message>
         <source>Speed</source>
@@ -27239,10 +27383,6 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Chữ nghiêng</translation>
     </message>
     <message>
-        <source>%1 has no italic face</source>
-        <translation>%1 không có kiểu chữ nghiêng</translation>
-    </message>
-    <message>
         <source>Align left</source>
         <translation>Căn trái</translation>
     </message>
@@ -27537,6 +27677,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Strikethrough</source>
         <translation>Gạch ngang</translation>
+    </message>
+    <message>
+        <source>Italic (slanted: %1 has no italic face)</source>
+        <translation>In nghiêng (nghiêng: %1 không có kiểu nghiêng)</translation>
     </message>
     <message>
         <source>Case</source>
@@ -29483,6 +29627,26 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Khớp với độ dài video</translation>
     </message>
     <message>
+        <source>Split into letters</source>
+        <translation>Tách thành chữ cái</translation>
+    </message>
+    <message>
+        <source>Delete keyframes</source>
+        <translation>Xóa khung hình chính</translation>
+    </message>
+    <message>
+        <source>After the playhead (all rows)</source>
+        <translation>Sau đầu phát (mọi hàng)</translation>
+    </message>
+    <message>
+        <source>Before the playhead (all rows)</source>
+        <translation>Trước đầu phát (mọi hàng)</translation>
+    </message>
+    <message>
+        <source>All of this clip</source>
+        <translation>Tất cả của clip này</translation>
+    </message>
+    <message>
         <source>Freeze frame at current time</source>
         <translation>Đóng băng khung hình ở điểm hiện tại</translation>
     </message>
@@ -31009,6 +31173,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Anchor in the centre</source>
         <translation>Neo ở giữa</translation>
+    </message>
+    <message>
+        <source>Anchor point here (the layer stays where it is)</source>
+        <translation>Điểm neo ở đây (lớp giữ nguyên vị trí)</translation>
     </message>
     <message>
         <source>Opacity &amp; rotation</source>

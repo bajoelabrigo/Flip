@@ -3483,6 +3483,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Background</source>
+        <translation>පසුබිම</translation>
+    </message>
+    <message>
         <source>Solid settings</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3513,6 +3517,24 @@
     <message>
         <source>Keyframes stretched</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No keys to curve: pick keyframes on the timeline, or select a layer that has some</source>
+        <translation>වක්‍රය යෙදීමට යතුරු නැත: කාලරේඛාවේ ප්‍රධාන රාමු තෝරන්න, නැතහොත් ඒවා ඇති ස්තරයක් තෝරන්න</translation>
+    </message>
+    <message numerus="yes">
+        <source>Curve applied to %n key(s)</source>
+        <translation>
+            <numerusform>යතුරු %n කට වක්‍රය යෙදුණි</numerusform>
+            <numerusform>යතුරු %n කට වක්‍රය යෙදුණි</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n property(ies)</source>
+        <translation>
+            <numerusform>ගුණාංග %n</numerusform>
+            <numerusform>ගුණාංග %n</numerusform>
+        </translation>
     </message>
     <message>
         <source>Easy ease</source>
@@ -4211,6 +4233,10 @@
     <message>
         <source>Text</source>
         <translation type="unfinished">පෙළ</translation>
+    </message>
+    <message>
+        <source>“%1” added to “%2” · to draw a separate layer, press Esc first; to split them, right-click › Separate into layers</source>
+        <translation>“%1” “%2” වෙත එක් කෙරිණි · වෙනම ස්තරයක ඇඳීමට පළමුව Esc ඔබන්න; ඒවා වෙන් කිරීමට දකුණු-ක්ලික් › ස්තරවලට වෙන් කරන්න</translation>
     </message>
     <message>
         <source>Add mask</source>
@@ -5246,10 +5272,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>“%1” added to “%2” · to draw a separate layer, press Esc first</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Pick two or more shapes to combine them</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5402,6 +5424,36 @@
     <message>
         <source>Pick media to make a composition from (compositions cannot go inside one)</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a text to split into letters</source>
+        <translation>අකුරුවලට බෙදීමට පෙළක් තෝරන්න</translation>
+    </message>
+    <message>
+        <source>This text has a single letter</source>
+        <translation>මෙම පෙළෙහි ඇත්තේ එක් අකුරක් පමණි</translation>
+    </message>
+    <message>
+        <source>Split into letters</source>
+        <translation>අකුරුවලට බෙදන්න</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n letter layer(s)</source>
+        <translation>
+            <numerusform>අකුරු ස්තර %n</numerusform>
+            <numerusform>අකුරු ස්තර %n</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>No keyframes there</source>
+        <translation>එතැන ප්‍රධාන රාමු නැත</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n keyframe(s) removed</source>
+        <translation>
+            <numerusform>ප්‍රධාන රාමු %n ක් මකා දැමිණි</numerusform>
+            <numerusform>ප්‍රධාන රාමු %n ක් මකා දැමිණි</numerusform>
+        </translation>
     </message>
     <message>
         <source>Retouch</source>
@@ -7959,6 +8011,10 @@
     <message>
         <source>Ring</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bend the picked layers together (one joint)</source>
+        <translation>තෝරාගත් ස්තර එකට නවන්න (එක් සන්ධියක්)</translation>
     </message>
     <message>
         <source>Frames</source>
@@ -10763,6 +10819,30 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Axis offset (%)</source>
+        <translation>අක්ෂ විතැන (%)</translation>
+    </message>
+    <message>
+        <source>Extra room (px)</source>
+        <translation>අමතර ඉඩ (px)</translation>
+    </message>
+    <message>
+        <source>Linear Wipe</source>
+        <translation>රේඛීය අතුගෑම</translation>
+    </message>
+    <message>
+        <source>Completion (%)</source>
+        <translation>සම්පූර්ණ වීම (%)</translation>
+    </message>
+    <message>
+        <source>Angle (°)</source>
+        <translation>කෝණය (°)</translation>
+    </message>
+    <message>
+        <source>Feather (px)</source>
+        <translation>මෘදු කිරීම (px)</translation>
+    </message>
+    <message>
         <source>Liquid</source>
         <translation type="unfinished"></translation>
     </message>
@@ -12105,6 +12185,26 @@ NEXT TIME</source>
     <message>
         <source>Blown away like sand</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wipe down</source>
+        <translation>පහළට අතුගෑම</translation>
+    </message>
+    <message>
+        <source>Wipe from left</source>
+        <translation>වමේ සිට අතුගෑම</translation>
+    </message>
+    <message>
+        <source>Wipe from right</source>
+        <translation>දකුණේ සිට අතුගෑම</translation>
+    </message>
+    <message>
+        <source>Slanted wipe</source>
+        <translation>ඇල අතුගෑම</translation>
+    </message>
+    <message>
+        <source>Wipe up</source>
+        <translation>ඉහළට අතුගෑම</translation>
     </message>
     <message>
         <source>Attention</source>
@@ -20377,6 +20477,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Line</source>
+        <translation>රේඛාව</translation>
+    </message>
+    <message>
         <source>Fill Options: none, solid, linear or radial gradient, blend mode and opacity</source>
         <translation>පිරවුම් විකල්ප: කිසිවක් නැත, ඝන, රේඛීය හෝ අරීය ශ්‍රේණිය, මිශ්‍ර කිරීමේ ප්‍රකාරය සහ පාරාන්ධතාව</translation>
     </message>
@@ -20411,6 +20515,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Shape: drag on the preview (Shift for a square or circle)</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ellipse: drag on the preview (Shift for a circle)</source>
+        <translation>ඉලිප්සය: පෙරදසුනේ අදින්න (කවයක් සඳහා Shift)</translation>
+    </message>
+    <message>
+        <source>Line: drag on the preview (Shift for 0°, 45° or 90°); it takes the stroke colour and width</source>
+        <translation>රේඛාව: පෙරදසුනේ අදින්න (0°, 45° හෝ 90° සඳහා Shift); ඉරේ වර්ණය සහ ඝනකම ගනී</translation>
     </message>
     <message>
         <source>Pen: click for corners, drag for curves</source>
@@ -21130,6 +21242,26 @@ If playback stutters, try another.</source>
     <message>
         <source>Click a clip on the timeline to edit its properties</source>
         <translation>ක්ලිපයක ගුණාංග සංස්කරණය කිරීමට කාලරේඛාවේ ඇති ක්ලිපයක් මත ක්ලික් කරන්න</translation>
+    </message>
+    <message>
+        <source>Project</source>
+        <translation>ව්‍යාපෘතිය</translation>
+    </message>
+    <message>
+        <source>Background colour</source>
+        <translation>පසුබිම් වර්ණය</translation>
+    </message>
+    <message>
+        <source>Background colour of the project: what shows where no layer covers the frame</source>
+        <translation>ව්‍යාපෘතියේ පසුබිම් වර්ණය: කිසිදු ස්තරයක් රාමුව නොවසන තැන පෙනෙන දේ</translation>
+    </message>
+    <message>
+        <source>Solid the size of the frame</source>
+        <translation>රාමුවේ ප්‍රමාණයේ ඝන වර්ණය</translation>
+    </message>
+    <message>
+        <source>A layer of one colour over the whole frame, for the length of the work (the toolbar&apos;s fill colour)</source>
+        <translation>මුළු රාමුවම වසන එක් වර්ණයක ස්තරයක්, මුළු කාර්යයේ දිග පුරා (තීරුවේ පිරවුම් වර්ණය)</translation>
     </message>
     <message>
         <source>This clip uses Pro tools.</source>
@@ -23702,6 +23834,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Last layer visible from the start</source>
+        <translation>අවසාන ස්තරය මුල සිටම පෙනේ</translation>
+    </message>
+    <message>
         <source>Morph it</source>
         <translation type="unfinished"></translation>
     </message>
@@ -23780,6 +23916,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Roughness</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Draw the line behind the stream</source>
+        <translation>ප්‍රවාහය පිටුපසින් රේඛාව අඳින්න</translation>
     </message>
     <message>
         <source>Colour</source>
@@ -25155,14 +25295,6 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Oomph</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>How far it travels, jumps and turns</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Timing</source>
         <translation type="unfinished"></translation>
     </message>
@@ -25191,6 +25323,14 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Apply letter by letter</source>
+        <translation>අකුරෙන් අකුර යොදන්න</translation>
+    </message>
+    <message>
+        <source>Splits the text into one layer per letter and applies it to each, the stagger apart</source>
+        <translation>පෙළ අකුරකට එක් ස්තරය බැගින් බෙදා, පියවර පරතරයෙන් එකිනෙකට යොදයි</translation>
+    </message>
+    <message>
         <source>Applies to every selected layer. The keys stay editable on the timeline.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -25201,6 +25341,14 @@ If playback stutters, try another.</source>
     <message>
         <source>How hard it squashes, stretches and bends</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Travel</source>
+        <translation>ගමන් දුර</translation>
+    </message>
+    <message>
+        <source>Distance: how far it travels, jumps and turns (200 % jumps twice as far)</source>
+        <translation>දුර: කොපමණ දුර චලනය වේද, පනීද, කැරකේද (200 % දෙගුණයක් දුර පනී)</translation>
     </message>
     <message>
         <source>Speed</source>
@@ -27418,10 +27566,6 @@ If playback stutters, try another.</source>
         <translation>ඇල අකුරු (Italic)</translation>
     </message>
     <message>
-        <source>%1 has no italic face</source>
-        <translation>%1 හි ඇල අකුරු මුහුණතක් නැත</translation>
-    </message>
-    <message>
         <source>Adjust text look</source>
         <translation>පෙළ පෙනුම සකසන්න</translation>
     </message>
@@ -27692,6 +27836,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Strikethrough</source>
         <translation>ඉරි ඇඳීම</translation>
+    </message>
+    <message>
+        <source>Italic (slanted: %1 has no italic face)</source>
+        <translation>ඇල අකුරු (ඇල කළ: %1 ට ඇල අකුරු නැත)</translation>
     </message>
     <message>
         <source>Case</source>
@@ -29570,6 +29718,26 @@ If playback stutters, try another.</source>
         <translation>වීඩියෝවේ දිගට ගළපන්න</translation>
     </message>
     <message>
+        <source>Split into letters</source>
+        <translation>අකුරුවලට බෙදන්න</translation>
+    </message>
+    <message>
+        <source>Delete keyframes</source>
+        <translation>ප්‍රධාන රාමු මකන්න</translation>
+    </message>
+    <message>
+        <source>After the playhead (all rows)</source>
+        <translation>ධාවන හිසට පසු (සියලු පේළි)</translation>
+    </message>
+    <message>
+        <source>Before the playhead (all rows)</source>
+        <translation>ධාවන හිසට පෙර (සියලු පේළි)</translation>
+    </message>
+    <message>
+        <source>All of this clip</source>
+        <translation>මෙම ක්ලිපයේ සියල්ල</translation>
+    </message>
+    <message>
         <source>Freeze frame at current time</source>
         <translation>වත්මන් වේලාවේ නිශ්චල රාමුවක් සකසන්න</translation>
     </message>
@@ -31097,6 +31265,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Anchor in the centre</source>
         <translation>මැද නැංගුරම</translation>
+    </message>
+    <message>
+        <source>Anchor point here (the layer stays where it is)</source>
+        <translation>නැංගුරම් ලක්ෂ්‍යය මෙතැන (ස්තරය තිබූ තැනම රැඳේ)</translation>
     </message>
     <message>
         <source>Opacity &amp; rotation</source>
