@@ -75,7 +75,7 @@ IN: list[P] = [
     P("wipe-down", "Wipe down", "Barrido hacia abajo", "basic", {},
       [fx("ae.linear_wipe", completion=[k(0, 100, "easeOut"), k(1, 0)], angle=90.0)], duration=0.6),
     P("wipe-slant", "Slanted wipe", "Barrido inclinado", "basic", {},
-      [fx("ae.linear_wipe", completion=[k(0, 100, "easeOut"), k(1, 0)], angle=-14.0, feather=2.0)], duration=0.6),
+      [fx("ae.linear_wipe", completion=[k(0, 100, "easeOut"), k(1, 0)], angle=14.0, feather=2.0)], duration=0.6),
 
     # slide
     P("push-left", "Push from right", "Empujar desde la derecha", "slide", {"x": [k(0, 1, "easeOut"), k(1, 0)]}, trending=True),

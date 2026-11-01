@@ -598,7 +598,7 @@ Item {
                     width: parent.width
                     variant: "primary"
                     text: qsTr("Apply two-colour wipe")
-                    onClicked: EditorState.twoColourWipe(twoWipe.accent, twoWipe.frames, twoWipe.slanted ? -14 : 0)
+                    onClicked: EditorState.twoColourWipe(twoWipe.accent, twoWipe.frames, twoWipe.slanted ? 14 : 0)
                 }
             }
         }

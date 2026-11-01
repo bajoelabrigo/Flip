@@ -1749,7 +1749,7 @@ public:
     Q_INVOKABLE QVariantList textLayerOptions() const;
     // Lower thirds (0.29): a copy of the picked shape in `accentColor` goes under it; from the playhead the accent
     // sweeps in from the left over `frames`, and the shape follows it in, a little later, ending on top in its own
-    // colour (Linear Wipe keys on both). `angle` 0 = from the left; -14 leans like a slanted label. One undo step.
+    // colour (Linear Wipe keys on both). `angle` 0 = from the left; 14 leans like a slanted label. One undo step.
     Q_INVOKABLE void twoColourWipe(const QString &accentColor, int frames, double angle = 0.0);
     // Lower-third maker (0.29, Jorge): editable layers at the playhead, built with the lower-third tools. Keys of
     // `o`: style ("clean", "line", "slanted", "twoColour", "roleBar"), name, role, labelColor, accentColor,
