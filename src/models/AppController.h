@@ -1726,6 +1726,9 @@ public:
     // Returns how many letters.
     Q_INVOKABLE int splitTextIntoLetters(int trackIndex, int clipIndex);
     // FLIP_TRACE_CLICKS is set: the panels log what moves them (0.29, hunting the lost first click).
+    // Transform's Scale X / Y (0.29): the box that counts as 100 %. Not an undo step: it only changes how
+    // the size is shown.
+    Q_INVOKABLE void setClipScaleReference(int trackIndex, int clipIndex, double width, double height);
     Q_INVOKABLE bool traceUi() const { return qEnvironmentVariableIsSet("FLIP_TRACE_CLICKS"); }
     Q_INVOKABLE void removeKeyframes(int trackIndex, const QVariantList &keys);
     // Every key of every animated property of a clip between two timeline times (0.29: a jump wrote six

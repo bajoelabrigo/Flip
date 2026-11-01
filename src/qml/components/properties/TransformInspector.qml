@@ -264,7 +264,14 @@ Item {
                     active: root.sizeLinked
                     tooltip: root.sizeLinked ? qsTr("Edit width and height separately")
                                              : qsTr("Scale width and height together")
-                    onClicked: root.sizeLinked = !root.sizeLinked
+                    onClicked: {
+                        root.sizeLinked = !root.sizeLinked
+                        // The box as it is now is 100 % of Scale X / Y, the first time they are split.
+                        if (!root.sizeLinked && !(root.clipData.scaleRefW > 0))
+                            EditorState.setClipScaleReference(EditorState.selectedTrack, EditorState.selectedClip,
+                                                              root.transformAt("width", root.canvasW),
+                                                              root.transformAt("height", root.canvasH))
+                    }
                 }
             }
 
@@ -335,6 +342,77 @@ Item {
                         onScrubbed: v => root.applyScale(v)
                         onFinished: EditorState.commitPreviewDrag()
                     }
+                }
+            }
+
+            // Scale X / Y in % as After Effects (0.29, Jorge): squash and stretch read as 120 % / 80 %, not pixels.
+            // 100 % is the box when the scale was split (or «This size is 100 %»); the keys are Width / Height's.
+            Column {
+                id: scalePercent
+                visible: !root.sizeLinked
+                width: parent.width
+                spacing: Theme.spacingXs
+                readonly property real refW: root.clipData.scaleRefW > 0 ? root.clipData.scaleRefW : root.canvasW
+                readonly property real refH: root.clipData.scaleRefH > 0 ? root.clipData.scaleRefH : root.canvasH
+                readonly property real w: { void root.clipDataRevision; void root.liveRevision; return root.transformAt("width", root.canvasW) }
+                readonly property real h: { void root.clipDataRevision; void root.liveRevision; return root.transformAt("height", root.canvasH) }
+                function setSize(key, value) {
+                    EditorState.beginPreviewDrag(qsTr("Scale"))
+                    EditorState.previewSetClipKeyframe(EditorState.selectedTrack, EditorState.selectedClip, key,
+                                                       EditorState.inspectorPlayheadSeconds, Math.max(1, value))
+                    EditorState.commitPreviewDrag()
+                }
+                Row {
+                    width: parent.width
+                    spacing: Theme.spacingSm
+                    IconButton {
+                        anchors.verticalCenter: parent.verticalCenter
+                        buttonSize: 28
+                        iconSize: 14
+                        glyph: Theme.icons.diamondPlus
+                        tooltip: qsTr("Add a keyframe for Scale X and Y at the playhead")
+                        onClicked: {
+                            const at = EditorState.inspectorPlayheadSeconds
+                            EditorState.beginEditSession(qsTr("Scale keyframe"))
+                            EditorState.setClipKeyframe(EditorState.selectedTrack, EditorState.selectedClip, "width", at, scalePercent.w)
+                            EditorState.setClipKeyframe(EditorState.selectedTrack, EditorState.selectedClip, "height", at, scalePercent.h)
+                            EditorState.endEditSession(true)
+                        }
+                    }
+                    ThemedLabel { anchors.verticalCenter: parent.verticalCenter; text: qsTr("Scale X"); size: "sm" }
+                    ThemedNumberField {
+                        id: scaleXField
+                        width: (parent.width - 28 - 2 * 60 - 5 * parent.spacing) / 2
+                        from: 0
+                        to: 10000
+                        unit: "%"
+                        Binding on value {
+                            when: !scaleXField.activeFocus
+                            restoreMode: Binding.RestoreNone
+                            value: Math.round(scalePercent.w / scalePercent.refW * 1000) / 10
+                        }
+                        onEdited: v => scalePercent.setSize("width", v / 100 * scalePercent.refW)
+                    }
+                    ThemedLabel { anchors.verticalCenter: parent.verticalCenter; text: qsTr("Scale Y"); size: "sm" }
+                    ThemedNumberField {
+                        id: scaleYField
+                        width: (parent.width - 28 - 2 * 60 - 5 * parent.spacing) / 2
+                        from: 0
+                        to: 10000
+                        unit: "%"
+                        Binding on value {
+                            when: !scaleYField.activeFocus
+                            restoreMode: Binding.RestoreNone
+                            value: Math.round(scalePercent.h / scalePercent.refH * 1000) / 10
+                        }
+                        onEdited: v => scalePercent.setSize("height", v / 100 * scalePercent.refH)
+                    }
+                }
+                ThemedButton {
+                    text: qsTr("This size is 100 %")
+                    tooltip: qsTr("Scale X and Y count from the box as it is now")
+                    onClicked: EditorState.setClipScaleReference(EditorState.selectedTrack, EditorState.selectedClip,
+                                                                 scalePercent.w, scalePercent.h)
                 }
             }
 

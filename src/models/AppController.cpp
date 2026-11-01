@@ -5038,6 +5038,8 @@ QVariantMap AppController::clipToMap(const drift::Clip &clip, const drift::Clip 
         {QStringLiteral("thumbnailPath"), clip.thumbnailPath},
         {QStringLiteral("filmstripPath"), clip.filmstripPath},
         {QStringLiteral("textContent"), clip.textContent},
+        {QStringLiteral("scaleRefW"), clip.scaleRefW},
+        {QStringLiteral("scaleRefH"), clip.scaleRefH},
         {QStringLiteral("textStyle"), textStyleToMap(clip.textStyle, clip.timelineStart)},
         {QStringLiteral("subtitleCues"), subtitleCuesToMap(clip.subtitleCues)},
         {QStringLiteral("shapeStyle"), shapeStyleToMap(clip.shapeStyle, clip.timelineStart)},
@@ -22965,6 +22967,16 @@ int AppController::splitTextIntoLetters(int trackIndex, int clipIndex)
     }
     setLastMessage(tr("%n letter layer(s)", "", int(ids.size())), QStringLiteral("info"));
     return int(ids.size());
+}
+
+void AppController::setClipScaleReference(int trackIndex, int clipIndex, double width, double height)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex) || width <= 0.0 || height <= 0.0)
+        return;
+    drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
+    clip.scaleRefW = width;
+    clip.scaleRefH = height;
+    finishEdit(QString());
 }
 
 int AppController::removeClipKeysInRange(int trackIndex, int clipIndex, double fromSeconds, double toSeconds)

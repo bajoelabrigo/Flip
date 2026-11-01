@@ -332,6 +332,10 @@ QJsonObject clipToJson(const Clip &clip)
         {QStringLiteral("effects"), effectsToJson(clip.effects)},
         {QStringLiteral("audioEffects"), effectsToJson(clip.audioEffects)},
     };
+    if (clip.scaleRefW > 0.0 && clip.scaleRefH > 0.0) {
+        json.insert(QStringLiteral("scaleRefW"), clip.scaleRefW);
+        json.insert(QStringLiteral("scaleRefH"), clip.scaleRefH);
+    }
     // Saved only when set, so a project without them reads back byte for byte.
     if (!clip.timeRemap.isEmpty())
         json.insert(QStringLiteral("timeRemap"), keyframesToJson(clip.timeRemap));
@@ -468,6 +472,8 @@ Clip clipFromJsonV2(const QJsonObject &object, int canvasW = 1920, int canvasH =
     clip.linkLoose = object.value(QStringLiteral("linkLoose")).toBool(false);
     clip.suppressEmbeddedAudio = object.value(QStringLiteral("suppressEmbeddedAudio")).toBool(false);
     clip.isSolid = object.value(QStringLiteral("solid")).toBool(false);
+    clip.scaleRefW = object.value(QStringLiteral("scaleRefW")).toDouble(0.0);
+    clip.scaleRefH = object.value(QStringLiteral("scaleRefH")).toDouble(0.0);
     if (object.contains(QStringLiteral("timeRemap")))
         clip.timeRemap = keyframesFromJson(object.value(QStringLiteral("timeRemap")).toObject());
     clip.autoOrient = object.value(QStringLiteral("autoOrient")).toBool(false);
