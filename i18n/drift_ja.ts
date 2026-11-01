@@ -2760,6 +2760,26 @@
         <translation>ベジェ</translation>
     </message>
     <message>
+        <source>Animation</source>
+        <translation>アニメーション</translation>
+    </message>
+    <message>
+        <source>Stagger</source>
+        <translation>ずらし</translation>
+    </message>
+    <message>
+        <source> fr</source>
+        <translation> フレーム</translation>
+    </message>
+    <message>
+        <source>Stagger the picked layers</source>
+        <translation>選んだレイヤーをずらす</translation>
+    </message>
+    <message>
+        <source>Each one starts that many frames after the one picked before it; they all end together</source>
+        <translation>前に選んだレイヤーからそのフレーム数だけ遅れて始まり、すべて同時に終わります</translation>
+    </message>
+    <message>
         <source>Not available</source>
         <translation>利用できません</translation>
     </message>
@@ -5425,6 +5445,96 @@
         </translation>
     </message>
     <message>
+        <source>Pick three layers or more to space them evenly</source>
+        <translation>均等に配置するには 3 つ以上のレイヤーを選んでください</translation>
+    </message>
+    <message>
+        <source>Align</source>
+        <translation>整列</translation>
+    </message>
+    <message>
+        <source>Select two layers or more (Ctrl+click, in the order they should come in)</source>
+        <translation>2 つ以上のレイヤーを選択してください（Ctrl+クリック、登場させる順に）</translation>
+    </message>
+    <message>
+        <source>Stagger layers</source>
+        <translation>レイヤーをずらす</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n layer(s) staggered</source>
+        <translation>
+            <numerusform>%n 個のレイヤーをずらしました</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Show inside the layer below</source>
+        <translation>下のレイヤーの中に表示</translation>
+    </message>
+    <message>
+        <source>Shown whole again</source>
+        <translation>再び全体を表示しました</translation>
+    </message>
+    <message>
+        <source>There is no layer under this one to show it inside</source>
+        <translation>このレイヤーの下に、中に表示できるレイヤーがありません</translation>
+    </message>
+    <message>
+        <source>Shown only inside “%1”</source>
+        <translation>「%1」の中だけに表示</translation>
+    </message>
+    <message>
+        <source>Your name</source>
+        <translation>あなたの名前</translation>
+    </message>
+    <message>
+        <source>Lower third</source>
+        <translation>ローワーサード</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>ラベル</translation>
+    </message>
+    <message>
+        <source>Role bar</source>
+        <translation>肩書きバー</translation>
+    </message>
+    <message>
+        <source>Line</source>
+        <translation>ライン</translation>
+    </message>
+    <message>
+        <source>Lower third added: every piece is a layer you can edit</source>
+        <translation>ローワーサードを追加しました：各パーツは編集できるレイヤーです</translation>
+    </message>
+    <message>
+        <source>Select the label (a shape) for the two-colour wipe</source>
+        <translation>2 色ワイプ用のラベル（シェイプ）を選択してください</translation>
+    </message>
+    <message>
+        <source>Two-colour wipe</source>
+        <translation>2 色ワイプ</translation>
+    </message>
+    <message>
+        <source>%1 accent</source>
+        <translation>%1 アクセント</translation>
+    </message>
+    <message>
+        <source>Select a text to put a label under it</source>
+        <translation>下にラベルを付けるテキストを選択してください</translation>
+    </message>
+    <message>
+        <source>Label · %1</source>
+        <translation>ラベル · %1</translation>
+    </message>
+    <message>
+        <source>Label for the text</source>
+        <translation>テキスト用ラベル</translation>
+    </message>
+    <message>
+        <source>Fit to text</source>
+        <translation>テキストに合わせる</translation>
+    </message>
+    <message>
         <source>No keyframes there</source>
         <translation>そこにはキーフレームがありません</translation>
     </message>
@@ -6850,6 +6960,10 @@
     <message>
         <source>Tools</source>
         <translation>ツール</translation>
+    </message>
+    <message>
+        <source>Lower third…</source>
+        <translation>ローワーサード…</translation>
     </message>
     <message>
         <source>Split</source>
@@ -17000,6 +17114,73 @@ NEXT TIME</source>
     </message>
 </context>
 <context>
+    <name>LowerThirdDialog</name>
+    <message>
+        <source>Lower third</source>
+        <translation>ローワーサード</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>追加</translation>
+    </message>
+    <message>
+        <source>Clean</source>
+        <translation>シンプル</translation>
+    </message>
+    <message>
+        <source>With a line</source>
+        <translation>ライン付き</translation>
+    </message>
+    <message>
+        <source>Slanted</source>
+        <translation>斜め</translation>
+    </message>
+    <message>
+        <source>Two colours</source>
+        <translation>2 色</translation>
+    </message>
+    <message>
+        <source>Role on a bar</source>
+        <translation>肩書きをバーに</translation>
+    </message>
+    <message>
+        <source>Style</source>
+        <translation>スタイル</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>名前</translation>
+    </message>
+    <message>
+        <source>Your name</source>
+        <translation>あなたの名前</translation>
+    </message>
+    <message>
+        <source>Role (optional)</source>
+        <translation>肩書き（任意）</translation>
+    </message>
+    <message>
+        <source>Presenter, guest, city…</source>
+        <translation>司会者、ゲスト、都市…</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>ラベル</translation>
+    </message>
+    <message>
+        <source>Accent</source>
+        <translation>アクセント</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation>テキスト</translation>
+    </message>
+    <message>
+        <source>On screen</source>
+        <translation>画面上</translation>
+    </message>
+</context>
+<context>
     <name>Lut</name>
     <message>
         <source>Cinematic</source>
@@ -24032,12 +24213,60 @@ If playback stutters, try another.</source>
         <translation>レイヤーがありません。塗りを追加して開始してください。</translation>
     </message>
     <message>
+        <source>Fit to a text</source>
+        <translation>テキストに合わせる</translation>
+    </message>
+    <message>
+        <source>The shape takes the text&apos;s size plus the margin, and grows when the words change: a label for a name.</source>
+        <translation>シェイプはテキストのサイズに余白を加えた大きさになり、文字が変わると大きくなります：名前用のラベルです。</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>なし</translation>
+    </message>
+    <message>
+        <source>Margin across</source>
+        <translation>左右の余白</translation>
+    </message>
+    <message>
+        <source>up and down</source>
+        <translation>上下</translation>
+    </message>
+    <message>
+        <source>Two-colour wipe</source>
+        <translation>2 色ワイプ</translation>
+    </message>
+    <message>
+        <source>From the playhead the accent colour sweeps in first and this shape follows it, ending on top: the entrance of a lower third.</source>
+        <translation>再生ヘッドから、まずアクセントカラーがワイプで入り、このシェイプがそれに続いて上に残ります：ローワーサードの登場です。</translation>
+    </message>
+    <message>
+        <source>Accent</source>
+        <translation>アクセント</translation>
+    </message>
+    <message>
+        <source> fr</source>
+        <translation> フレーム</translation>
+    </message>
+    <message>
+        <source>Slanted edge</source>
+        <translation>斜めの辺</translation>
+    </message>
+    <message>
+        <source>Apply two-colour wipe</source>
+        <translation>2 色ワイプを適用</translation>
+    </message>
+    <message>
         <source>Geometry</source>
         <translation>ジオメトリ</translation>
     </message>
     <message>
         <source>Corner radius</source>
         <translation>角の丸み</translation>
+    </message>
+    <message>
+        <source>Slant</source>
+        <translation>傾き</translation>
     </message>
     <message>
         <source>Points</source>
@@ -24436,6 +24665,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Corner radius</source>
         <translation>角の丸み</translation>
+    </message>
+    <message>
+        <source>Slant</source>
+        <translation>傾き</translation>
     </message>
     <message>
         <source>Inner radius</source>
@@ -29647,6 +29880,18 @@ If playback stutters, try another.</source>
         <translation>動画の長さに合わせる</translation>
     </message>
     <message>
+        <source>Make a label for this text</source>
+        <translation>このテキストのラベルを作成</translation>
+    </message>
+    <message>
+        <source>Show whole again</source>
+        <translation>再び全体を表示</translation>
+    </message>
+    <message>
+        <source>Show only inside the layer below</source>
+        <translation>下のレイヤーの中だけに表示</translation>
+    </message>
+    <message>
         <source>Split into letters</source>
         <translation>文字に分割</translation>
     </message>
@@ -31123,6 +31368,46 @@ If playback stutters, try another.</source>
         <translation>スケールのキー</translation>
     </message>
     <message>
+        <source>Align</source>
+        <translation>整列</translation>
+    </message>
+    <message>
+        <source>Align left edges</source>
+        <translation>左端を揃える</translation>
+    </message>
+    <message>
+        <source>Align centres across</source>
+        <translation>水平方向の中央を揃える</translation>
+    </message>
+    <message>
+        <source>Align right edges</source>
+        <translation>右端を揃える</translation>
+    </message>
+    <message>
+        <source>Align top edges</source>
+        <translation>上端を揃える</translation>
+    </message>
+    <message>
+        <source>Align centres up and down</source>
+        <translation>垂直方向の中央を揃える</translation>
+    </message>
+    <message>
+        <source>Align bottom edges</source>
+        <translation>下端を揃える</translation>
+    </message>
+    <message>
+        <source>Space evenly across (three or more)</source>
+        <translation>水平方向に均等配置（3 つ以上）</translation>
+    </message>
+    <message>
+        <source>Space evenly up and down (three or more)</source>
+        <translation>垂直方向に均等配置（3 つ以上）</translation>
+    </message>
+    <message>
+        <source>with the frame</source>
+        <translation>フレーム基準</translation>
+    </message>
+    <message>
         <source>Also moved by %1</source>
         <translation>%1 によっても移動されます</translation>
     </message>
@@ -31181,6 +31466,26 @@ If playback stutters, try another.</source>
     <message>
         <source>Scale clip</source>
         <translation>クリップを拡大縮小</translation>
+    </message>
+    <message>
+        <source>Add a keyframe for Scale X and Y at the playhead</source>
+        <translation>再生ヘッドにスケール X と Y のキーフレームを追加</translation>
+    </message>
+    <message>
+        <source>Scale X</source>
+        <translation>スケール X</translation>
+    </message>
+    <message>
+        <source>Scale Y</source>
+        <translation>スケール Y</translation>
+    </message>
+    <message>
+        <source>This size is 100 %</source>
+        <translation>このサイズを 100 % とする</translation>
+    </message>
+    <message>
+        <source>Scale X and Y count from the box as it is now</source>
+        <translation>スケール X と Y は現在のボックスのサイズから数えます</translation>
     </message>
     <message>
         <source>Anchor point (px)</source>

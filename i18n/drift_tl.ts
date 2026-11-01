@@ -2763,6 +2763,26 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Animation</source>
+        <translation>Animasyon</translation>
+    </message>
+    <message>
+        <source>Stagger</source>
+        <translation>Isunod-sunod</translation>
+    </message>
+    <message>
+        <source> fr</source>
+        <translation> fr</translation>
+    </message>
+    <message>
+        <source>Stagger the picked layers</source>
+        <translation>Isunod-sunod ang mga napiling layer</translation>
+    </message>
+    <message>
+        <source>Each one starts that many frames after the one picked before it; they all end together</source>
+        <translation>Bawat isa ay nagsisimula nang ganoong dami ng frame pagkatapos ng naunang napili; sabay-sabay silang natatapos</translation>
+    </message>
+    <message>
         <source>Not available</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5449,6 +5469,97 @@
         </translation>
     </message>
     <message>
+        <source>Pick three layers or more to space them evenly</source>
+        <translation>Pumili ng tatlo o higit pang layer para pantay-pantay silang ikalat</translation>
+    </message>
+    <message>
+        <source>Align</source>
+        <translation>I-align</translation>
+    </message>
+    <message>
+        <source>Select two layers or more (Ctrl+click, in the order they should come in)</source>
+        <translation>Pumili ng dalawa o higit pang layer (Ctrl+click, sa pagkakasunod na dapat silang pumasok)</translation>
+    </message>
+    <message>
+        <source>Stagger layers</source>
+        <translation>Isunod-sunod ang mga layer</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n layer(s) staggered</source>
+        <translation>
+            <numerusform>%n layer ang isinunod-sunod</numerusform>
+            <numerusform>%n layer ang isinunod-sunod</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Show inside the layer below</source>
+        <translation>Ipakita sa loob ng layer sa ibaba</translation>
+    </message>
+    <message>
+        <source>Shown whole again</source>
+        <translation>Buo na ulit na nakikita</translation>
+    </message>
+    <message>
+        <source>There is no layer under this one to show it inside</source>
+        <translation>Walang layer sa ilalim nito na mapagpapakitaan nito</translation>
+    </message>
+    <message>
+        <source>Shown only inside “%1”</source>
+        <translation>Nakikita lang sa loob ng «%1»</translation>
+    </message>
+    <message>
+        <source>Your name</source>
+        <translation>Ang pangalan mo</translation>
+    </message>
+    <message>
+        <source>Lower third</source>
+        <translation>Lower third</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>Label</translation>
+    </message>
+    <message>
+        <source>Role bar</source>
+        <translation>Bar ng posisyon</translation>
+    </message>
+    <message>
+        <source>Line</source>
+        <translation>Linya</translation>
+    </message>
+    <message>
+        <source>Lower third added: every piece is a layer you can edit</source>
+        <translation>Naidagdag ang lower third: bawat bahagi ay layer na puwede mong i-edit</translation>
+    </message>
+    <message>
+        <source>Select the label (a shape) for the two-colour wipe</source>
+        <translation>Piliin ang label (isang hugis) para sa wipe na dalawang kulay</translation>
+    </message>
+    <message>
+        <source>Two-colour wipe</source>
+        <translation>Wipe na dalawang kulay</translation>
+    </message>
+    <message>
+        <source>%1 accent</source>
+        <translation>%1 accent</translation>
+    </message>
+    <message>
+        <source>Select a text to put a label under it</source>
+        <translation>Pumili ng text para lagyan ng label sa ilalim nito</translation>
+    </message>
+    <message>
+        <source>Label · %1</source>
+        <translation>Label · %1</translation>
+    </message>
+    <message>
+        <source>Label for the text</source>
+        <translation>Label para sa text</translation>
+    </message>
+    <message>
+        <source>Fit to text</source>
+        <translation>Itugma sa text</translation>
+    </message>
+    <message>
         <source>No keyframes there</source>
         <translation>Walang keyframe doon</translation>
     </message>
@@ -6892,6 +7003,10 @@
     <message>
         <source>Tools</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lower third…</source>
+        <translation>Lower third…</translation>
     </message>
     <message>
         <source>Split</source>
@@ -17058,6 +17173,73 @@ NEXT TIME</source>
     </message>
 </context>
 <context>
+    <name>LowerThirdDialog</name>
+    <message>
+        <source>Lower third</source>
+        <translation>Lower third</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>Idagdag</translation>
+    </message>
+    <message>
+        <source>Clean</source>
+        <translation>Malinis</translation>
+    </message>
+    <message>
+        <source>With a line</source>
+        <translation>May linya</translation>
+    </message>
+    <message>
+        <source>Slanted</source>
+        <translation>Nakahilig</translation>
+    </message>
+    <message>
+        <source>Two colours</source>
+        <translation>Dalawang kulay</translation>
+    </message>
+    <message>
+        <source>Role on a bar</source>
+        <translation>Posisyon sa bar</translation>
+    </message>
+    <message>
+        <source>Style</source>
+        <translation>Estilo</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Pangalan</translation>
+    </message>
+    <message>
+        <source>Your name</source>
+        <translation>Ang pangalan mo</translation>
+    </message>
+    <message>
+        <source>Role (optional)</source>
+        <translation>Posisyon (opsyonal)</translation>
+    </message>
+    <message>
+        <source>Presenter, guest, city…</source>
+        <translation>Host, bisita, lungsod…</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>Label</translation>
+    </message>
+    <message>
+        <source>Accent</source>
+        <translation>Accent</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation>Text</translation>
+    </message>
+    <message>
+        <source>On screen</source>
+        <translation>Sa screen</translation>
+    </message>
+</context>
+<context>
     <name>Lut</name>
     <message>
         <source>Cinematic</source>
@@ -24110,12 +24292,60 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Fit to a text</source>
+        <translation>Itugma sa isang text</translation>
+    </message>
+    <message>
+        <source>The shape takes the text&apos;s size plus the margin, and grows when the words change: a label for a name.</source>
+        <translation>Kinukuha ng hugis ang laki ng text at ang margin, at lumalaki kapag nagbago ang mga salita: label para sa isang pangalan.</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Wala</translation>
+    </message>
+    <message>
+        <source>Margin across</source>
+        <translation>Margin sa gilid</translation>
+    </message>
+    <message>
+        <source>up and down</source>
+        <translation>itaas at ibaba</translation>
+    </message>
+    <message>
+        <source>Two-colour wipe</source>
+        <translation>Wipe na dalawang kulay</translation>
+    </message>
+    <message>
+        <source>From the playhead the accent colour sweeps in first and this shape follows it, ending on top: the entrance of a lower third.</source>
+        <translation>Mula sa playhead, unang papasok na nagwa-wipe ang accent na kulay at susunod ang hugis na ito, na mananatili sa ibabaw: ang pagpasok ng lower third.</translation>
+    </message>
+    <message>
+        <source>Accent</source>
+        <translation>Accent</translation>
+    </message>
+    <message>
+        <source> fr</source>
+        <translation> fr</translation>
+    </message>
+    <message>
+        <source>Slanted edge</source>
+        <translation>Nakahilig na gilid</translation>
+    </message>
+    <message>
+        <source>Apply two-colour wipe</source>
+        <translation>Ilapat ang wipe na dalawang kulay</translation>
+    </message>
+    <message>
         <source>Geometry</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Corner radius</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Slant</source>
+        <translation>Hilig</translation>
     </message>
     <message>
         <source>Points</source>
@@ -24514,6 +24744,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Corner radius</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Slant</source>
+        <translation>Hilig</translation>
     </message>
     <message>
         <source>Inner radius</source>
@@ -29730,6 +29964,18 @@ If playback stutters, try another.</source>
         <translation>Itugma sa haba ng video</translation>
     </message>
     <message>
+        <source>Make a label for this text</source>
+        <translation>Gumawa ng label para sa text na ito</translation>
+    </message>
+    <message>
+        <source>Show whole again</source>
+        <translation>Ipakita ulit nang buo</translation>
+    </message>
+    <message>
+        <source>Show only inside the layer below</source>
+        <translation>Ipakita lang sa loob ng layer sa ibaba</translation>
+    </message>
+    <message>
         <source>Split into letters</source>
         <translation>Hatiin sa mga letra</translation>
     </message>
@@ -31211,6 +31457,46 @@ If playback stutters, try another.</source>
         <translation>Key ng scale</translation>
     </message>
     <message>
+        <source>Align</source>
+        <translation>I-align</translation>
+    </message>
+    <message>
+        <source>Align left edges</source>
+        <translation>I-align ang kaliwang gilid</translation>
+    </message>
+    <message>
+        <source>Align centres across</source>
+        <translation>I-align ang mga gitna nang pahalang</translation>
+    </message>
+    <message>
+        <source>Align right edges</source>
+        <translation>I-align ang kanang gilid</translation>
+    </message>
+    <message>
+        <source>Align top edges</source>
+        <translation>I-align ang itaas na gilid</translation>
+    </message>
+    <message>
+        <source>Align centres up and down</source>
+        <translation>I-align ang mga gitna nang patayo</translation>
+    </message>
+    <message>
+        <source>Align bottom edges</source>
+        <translation>I-align ang ibabang gilid</translation>
+    </message>
+    <message>
+        <source>Space evenly across (three or more)</source>
+        <translation>Ikalat nang pantay nang pahalang (tatlo o higit pa)</translation>
+    </message>
+    <message>
+        <source>Space evenly up and down (three or more)</source>
+        <translation>Ikalat nang pantay nang patayo (tatlo o higit pa)</translation>
+    </message>
+    <message>
+        <source>with the frame</source>
+        <translation>kasama ang frame</translation>
+    </message>
+    <message>
         <source>Also moved by %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -31269,6 +31555,26 @@ If playback stutters, try another.</source>
     <message>
         <source>Scale clip</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add a keyframe for Scale X and Y at the playhead</source>
+        <translation>Magdagdag ng keyframe para sa Scale X at Y sa playhead</translation>
+    </message>
+    <message>
+        <source>Scale X</source>
+        <translation>Scale X</translation>
+    </message>
+    <message>
+        <source>Scale Y</source>
+        <translation>Scale Y</translation>
+    </message>
+    <message>
+        <source>This size is 100 %</source>
+        <translation>Ang laking ito ay 100 %</translation>
+    </message>
+    <message>
+        <source>Scale X and Y count from the box as it is now</source>
+        <translation>Binibilang ang Scale X at Y mula sa kasalukuyang laki ng kahon</translation>
     </message>
     <message>
         <source>Anchor point (px)</source>

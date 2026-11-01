@@ -2763,6 +2763,26 @@
         <translation>Bézier</translation>
     </message>
     <message>
+        <source>Animation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stagger</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> fr</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stagger the picked layers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Each one starts that many frames after the one picked before it; they all end together</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Not available</source>
         <translation>No disponible</translation>
     </message>
@@ -5453,6 +5473,97 @@
         </translation>
     </message>
     <message>
+        <source>Pick three layers or more to space them evenly</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Align</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select two layers or more (Ctrl+click, in the order they should come in)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stagger layers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n layer(s) staggered</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Show inside the layer below</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shown whole again</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>There is no layer under this one to show it inside</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shown only inside “%1”</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Your name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lower third</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Role bar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Line</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lower third added: every piece is a layer you can edit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select the label (a shape) for the two-colour wipe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Two-colour wipe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 accent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a text to put a label under it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Label · %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Label for the text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fit to text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>No keyframes there</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6891,6 +7002,10 @@
     </message>
     <message>
         <source>Tools</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lower third…</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -17058,6 +17173,73 @@ NEXT TIME</source>
     </message>
 </context>
 <context>
+    <name>LowerThirdDialog</name>
+    <message>
+        <source>Lower third</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Clean</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>With a line</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Slanted</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Two colours</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Role on a bar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Your name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Role (optional)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Presenter, guest, city…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Accent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>On screen</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Lut</name>
     <message>
         <source>Cinematic</source>
@@ -24117,12 +24299,60 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>No hay capas. Añade un relleno para empezar.</translation>
     </message>
     <message>
+        <source>Fit to a text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The shape takes the text&apos;s size plus the margin, and grows when the words change: a label for a name.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Margin across</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>up and down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Two-colour wipe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>From the playhead the accent colour sweeps in first and this shape follows it, ending on top: the entrance of a lower third.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Accent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> fr</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Slanted edge</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply two-colour wipe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Geometry</source>
         <translation>Geometría</translation>
     </message>
     <message>
         <source>Corner radius</source>
         <translation>Radio de esquinas</translation>
+    </message>
+    <message>
+        <source>Slant</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Points</source>
@@ -24521,6 +24751,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Corner radius</source>
         <translation>Radio de esquinas</translation>
+    </message>
+    <message>
+        <source>Slant</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Inner radius</source>
@@ -29738,6 +29972,18 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Make a label for this text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show whole again</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show only inside the layer below</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Split into letters</source>
         <translation type="unfinished"></translation>
     </message>
@@ -31223,6 +31469,46 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Align</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Align left edges</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Align centres across</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Align right edges</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Align top edges</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Align centres up and down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Align bottom edges</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Space evenly across (three or more)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Space evenly up and down (three or more)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>with the frame</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Also moved by %1</source>
         <translation>También movido por %1</translation>
     </message>
@@ -31281,6 +31567,26 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Scale clip</source>
         <translation>Escalar clip</translation>
+    </message>
+    <message>
+        <source>Add a keyframe for Scale X and Y at the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale X</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale Y</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This size is 100 %</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale X and Y count from the box as it is now</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Anchor point (px)</source>

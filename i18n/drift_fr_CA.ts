@@ -2764,6 +2764,26 @@
         <translation>Bézier</translation>
     </message>
     <message>
+        <source>Animation</source>
+        <translation>Animation</translation>
+    </message>
+    <message>
+        <source>Stagger</source>
+        <translation>Décaler</translation>
+    </message>
+    <message>
+        <source> fr</source>
+        <translation> im.</translation>
+    </message>
+    <message>
+        <source>Stagger the picked layers</source>
+        <translation>Décaler les calques choisis</translation>
+    </message>
+    <message>
+        <source>Each one starts that many frames after the one picked before it; they all end together</source>
+        <translation>Chacun commence ce nombre d&apos;images après celui choisi avant lui; tous finissent ensemble</translation>
+    </message>
+    <message>
         <source>Not available</source>
         <translation>Non disponible</translation>
     </message>
@@ -5450,6 +5470,97 @@
         </translation>
     </message>
     <message>
+        <source>Pick three layers or more to space them evenly</source>
+        <translation>Choisissez trois calques ou plus pour les répartir également</translation>
+    </message>
+    <message>
+        <source>Align</source>
+        <translation>Aligner</translation>
+    </message>
+    <message>
+        <source>Select two layers or more (Ctrl+click, in the order they should come in)</source>
+        <translation>Sélectionnez deux calques ou plus (Ctrl+clic, dans l&apos;ordre où ils doivent entrer)</translation>
+    </message>
+    <message>
+        <source>Stagger layers</source>
+        <translation>Décaler les calques</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n layer(s) staggered</source>
+        <translation>
+            <numerusform>%n calque décalé</numerusform>
+            <numerusform>%n calques décalés</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Show inside the layer below</source>
+        <translation>Afficher dans le calque du dessous</translation>
+    </message>
+    <message>
+        <source>Shown whole again</source>
+        <translation>Affiché en entier de nouveau</translation>
+    </message>
+    <message>
+        <source>There is no layer under this one to show it inside</source>
+        <translation>Il n&apos;y a aucun calque sous celui-ci pour l&apos;afficher dedans</translation>
+    </message>
+    <message>
+        <source>Shown only inside “%1”</source>
+        <translation>Affiché seulement dans « %1 »</translation>
+    </message>
+    <message>
+        <source>Your name</source>
+        <translation>Votre nom</translation>
+    </message>
+    <message>
+        <source>Lower third</source>
+        <translation>Tiers inférieur</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>Étiquette</translation>
+    </message>
+    <message>
+        <source>Role bar</source>
+        <translation>Barre de fonction</translation>
+    </message>
+    <message>
+        <source>Line</source>
+        <translation>Ligne</translation>
+    </message>
+    <message>
+        <source>Lower third added: every piece is a layer you can edit</source>
+        <translation>Tiers inférieur ajouté : chaque élément est un calque modifiable</translation>
+    </message>
+    <message>
+        <source>Select the label (a shape) for the two-colour wipe</source>
+        <translation>Sélectionnez l&apos;étiquette (une forme) pour le balayage bicolore</translation>
+    </message>
+    <message>
+        <source>Two-colour wipe</source>
+        <translation>Balayage bicolore</translation>
+    </message>
+    <message>
+        <source>%1 accent</source>
+        <translation>%1 accent</translation>
+    </message>
+    <message>
+        <source>Select a text to put a label under it</source>
+        <translation>Sélectionnez un texte pour placer une étiquette dessous</translation>
+    </message>
+    <message>
+        <source>Label · %1</source>
+        <translation>Étiquette · %1</translation>
+    </message>
+    <message>
+        <source>Label for the text</source>
+        <translation>Étiquette pour le texte</translation>
+    </message>
+    <message>
+        <source>Fit to text</source>
+        <translation>Ajuster au texte</translation>
+    </message>
+    <message>
         <source>No keyframes there</source>
         <translation>Aucune image clé à cet endroit</translation>
     </message>
@@ -6893,6 +7004,10 @@
     <message>
         <source>Tools</source>
         <translation>Outils</translation>
+    </message>
+    <message>
+        <source>Lower third…</source>
+        <translation>Tiers inférieur…</translation>
     </message>
     <message>
         <source>Split</source>
@@ -17064,6 +17179,73 @@ PROCHAINE</translation>
     </message>
 </context>
 <context>
+    <name>LowerThirdDialog</name>
+    <message>
+        <source>Lower third</source>
+        <translation>Tiers inférieur</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>Ajouter</translation>
+    </message>
+    <message>
+        <source>Clean</source>
+        <translation>Épuré</translation>
+    </message>
+    <message>
+        <source>With a line</source>
+        <translation>Avec ligne</translation>
+    </message>
+    <message>
+        <source>Slanted</source>
+        <translation>Incliné</translation>
+    </message>
+    <message>
+        <source>Two colours</source>
+        <translation>Deux couleurs</translation>
+    </message>
+    <message>
+        <source>Role on a bar</source>
+        <translation>Fonction sur barre</translation>
+    </message>
+    <message>
+        <source>Style</source>
+        <translation>Style</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Nom</translation>
+    </message>
+    <message>
+        <source>Your name</source>
+        <translation>Votre nom</translation>
+    </message>
+    <message>
+        <source>Role (optional)</source>
+        <translation>Fonction (facultatif)</translation>
+    </message>
+    <message>
+        <source>Presenter, guest, city…</source>
+        <translation>Animateur, invité, ville…</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>Étiquette</translation>
+    </message>
+    <message>
+        <source>Accent</source>
+        <translation>Accent</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation>Texte</translation>
+    </message>
+    <message>
+        <source>On screen</source>
+        <translation>À l&apos;écran</translation>
+    </message>
+</context>
+<context>
     <name>Lut</name>
     <message>
         <source>Cinematic</source>
@@ -24123,12 +24305,60 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Aucun calque. Ajoutez un remplissage pour commencer.</translation>
     </message>
     <message>
+        <source>Fit to a text</source>
+        <translation>Ajuster à un texte</translation>
+    </message>
+    <message>
+        <source>The shape takes the text&apos;s size plus the margin, and grows when the words change: a label for a name.</source>
+        <translation>La forme prend la taille du texte plus la marge et grandit quand les mots changent : une étiquette pour un nom.</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Aucun</translation>
+    </message>
+    <message>
+        <source>Margin across</source>
+        <translation>Marge sur les côtés</translation>
+    </message>
+    <message>
+        <source>up and down</source>
+        <translation>en haut et en bas</translation>
+    </message>
+    <message>
+        <source>Two-colour wipe</source>
+        <translation>Balayage bicolore</translation>
+    </message>
+    <message>
+        <source>From the playhead the accent colour sweeps in first and this shape follows it, ending on top: the entrance of a lower third.</source>
+        <translation>À partir de la tête de lecture, la couleur d&apos;accent entre d&apos;abord en balayant, puis cette forme la suit et finit par-dessus : l&apos;entrée d&apos;un tiers inférieur.</translation>
+    </message>
+    <message>
+        <source>Accent</source>
+        <translation>Accent</translation>
+    </message>
+    <message>
+        <source> fr</source>
+        <translation> im.</translation>
+    </message>
+    <message>
+        <source>Slanted edge</source>
+        <translation>Bord incliné</translation>
+    </message>
+    <message>
+        <source>Apply two-colour wipe</source>
+        <translation>Appliquer le balayage bicolore</translation>
+    </message>
+    <message>
         <source>Geometry</source>
         <translation>Géométrie</translation>
     </message>
     <message>
         <source>Corner radius</source>
         <translation>Rayon des coins</translation>
+    </message>
+    <message>
+        <source>Slant</source>
+        <translation>Inclinaison</translation>
     </message>
     <message>
         <source>Points</source>
@@ -24527,6 +24757,10 @@ Si la lecture saccade, essayez une autre option.</translation>
     <message>
         <source>Corner radius</source>
         <translation>Rayon des coins</translation>
+    </message>
+    <message>
+        <source>Slant</source>
+        <translation>Inclinaison</translation>
     </message>
     <message>
         <source>Inner radius</source>
@@ -29746,6 +29980,18 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Ajuster à la durée de la vidéo</translation>
     </message>
     <message>
+        <source>Make a label for this text</source>
+        <translation>Créer une étiquette pour ce texte</translation>
+    </message>
+    <message>
+        <source>Show whole again</source>
+        <translation>L&apos;afficher en entier de nouveau</translation>
+    </message>
+    <message>
+        <source>Show only inside the layer below</source>
+        <translation>Afficher seulement dans le calque du dessous</translation>
+    </message>
+    <message>
         <source>Split into letters</source>
         <translation>Diviser en lettres</translation>
     </message>
@@ -31227,6 +31473,46 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Clé d&apos;échelle</translation>
     </message>
     <message>
+        <source>Align</source>
+        <translation>Aligner</translation>
+    </message>
+    <message>
+        <source>Align left edges</source>
+        <translation>Aligner les bords gauches</translation>
+    </message>
+    <message>
+        <source>Align centres across</source>
+        <translation>Aligner les centres horizontalement</translation>
+    </message>
+    <message>
+        <source>Align right edges</source>
+        <translation>Aligner les bords droits</translation>
+    </message>
+    <message>
+        <source>Align top edges</source>
+        <translation>Aligner les bords supérieurs</translation>
+    </message>
+    <message>
+        <source>Align centres up and down</source>
+        <translation>Aligner les centres verticalement</translation>
+    </message>
+    <message>
+        <source>Align bottom edges</source>
+        <translation>Aligner les bords inférieurs</translation>
+    </message>
+    <message>
+        <source>Space evenly across (three or more)</source>
+        <translation>Répartir également à l&apos;horizontale (trois ou plus)</translation>
+    </message>
+    <message>
+        <source>Space evenly up and down (three or more)</source>
+        <translation>Répartir également à la verticale (trois ou plus)</translation>
+    </message>
+    <message>
+        <source>with the frame</source>
+        <translation>avec le cadre</translation>
+    </message>
+    <message>
         <source>Also moved by %1</source>
         <translation>Également déplacé par %1</translation>
     </message>
@@ -31285,6 +31571,26 @@ Si la lecture saccade, essayez une autre option.</translation>
     <message>
         <source>Scale clip</source>
         <translation>Mettre le clip à l&apos;échelle</translation>
+    </message>
+    <message>
+        <source>Add a keyframe for Scale X and Y at the playhead</source>
+        <translation>Ajouter une image clé d&apos;Échelle X et Y à la tête de lecture</translation>
+    </message>
+    <message>
+        <source>Scale X</source>
+        <translation>Échelle X</translation>
+    </message>
+    <message>
+        <source>Scale Y</source>
+        <translation>Échelle Y</translation>
+    </message>
+    <message>
+        <source>This size is 100 %</source>
+        <translation>Cette taille vaut 100 %</translation>
+    </message>
+    <message>
+        <source>Scale X and Y count from the box as it is now</source>
+        <translation>L&apos;échelle X et Y compte à partir de la taille actuelle de la boîte</translation>
     </message>
     <message>
         <source>Anchor point (px)</source>

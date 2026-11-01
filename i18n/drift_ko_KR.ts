@@ -2760,6 +2760,26 @@
         <translation>베지어</translation>
     </message>
     <message>
+        <source>Animation</source>
+        <translation>애니메이션</translation>
+    </message>
+    <message>
+        <source>Stagger</source>
+        <translation>시차</translation>
+    </message>
+    <message>
+        <source> fr</source>
+        <translation> 프레임</translation>
+    </message>
+    <message>
+        <source>Stagger the picked layers</source>
+        <translation>선택한 레이어에 시차 주기</translation>
+    </message>
+    <message>
+        <source>Each one starts that many frames after the one picked before it; they all end together</source>
+        <translation>각 레이어는 앞에서 선택한 레이어보다 그 프레임 수만큼 늦게 시작하고, 모두 함께 끝납니다</translation>
+    </message>
+    <message>
         <source>Not available</source>
         <translation>사용할 수 없음</translation>
     </message>
@@ -5425,6 +5445,96 @@
         </translation>
     </message>
     <message>
+        <source>Pick three layers or more to space them evenly</source>
+        <translation>균등하게 배치하려면 레이어를 3개 이상 선택하세요</translation>
+    </message>
+    <message>
+        <source>Align</source>
+        <translation>정렬</translation>
+    </message>
+    <message>
+        <source>Select two layers or more (Ctrl+click, in the order they should come in)</source>
+        <translation>레이어를 2개 이상 선택하세요(Ctrl+클릭, 등장할 순서대로)</translation>
+    </message>
+    <message>
+        <source>Stagger layers</source>
+        <translation>레이어 시차 주기</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n layer(s) staggered</source>
+        <translation>
+            <numerusform>레이어 %n개에 시차 적용됨</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Show inside the layer below</source>
+        <translation>아래 레이어 안에 표시</translation>
+    </message>
+    <message>
+        <source>Shown whole again</source>
+        <translation>다시 전체가 표시됨</translation>
+    </message>
+    <message>
+        <source>There is no layer under this one to show it inside</source>
+        <translation>이 레이어 아래에 안에 표시할 레이어가 없습니다</translation>
+    </message>
+    <message>
+        <source>Shown only inside “%1”</source>
+        <translation>&apos;%1&apos; 안에만 표시됨</translation>
+    </message>
+    <message>
+        <source>Your name</source>
+        <translation>내 이름</translation>
+    </message>
+    <message>
+        <source>Lower third</source>
+        <translation>로어 서드</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>라벨</translation>
+    </message>
+    <message>
+        <source>Role bar</source>
+        <translation>직함 바</translation>
+    </message>
+    <message>
+        <source>Line</source>
+        <translation>선</translation>
+    </message>
+    <message>
+        <source>Lower third added: every piece is a layer you can edit</source>
+        <translation>로어 서드 추가됨: 각 요소는 편집할 수 있는 레이어입니다</translation>
+    </message>
+    <message>
+        <source>Select the label (a shape) for the two-colour wipe</source>
+        <translation>2색 와이프에 쓸 라벨(도형)을 선택하세요</translation>
+    </message>
+    <message>
+        <source>Two-colour wipe</source>
+        <translation>2색 와이프</translation>
+    </message>
+    <message>
+        <source>%1 accent</source>
+        <translation>%1 강조</translation>
+    </message>
+    <message>
+        <source>Select a text to put a label under it</source>
+        <translation>아래에 라벨을 붙일 텍스트를 선택하세요</translation>
+    </message>
+    <message>
+        <source>Label · %1</source>
+        <translation>라벨 · %1</translation>
+    </message>
+    <message>
+        <source>Label for the text</source>
+        <translation>텍스트용 라벨</translation>
+    </message>
+    <message>
+        <source>Fit to text</source>
+        <translation>텍스트에 맞추기</translation>
+    </message>
+    <message>
         <source>No keyframes there</source>
         <translation>그곳에는 키프레임이 없습니다</translation>
     </message>
@@ -6850,6 +6960,10 @@
     <message>
         <source>Tools</source>
         <translation>도구</translation>
+    </message>
+    <message>
+        <source>Lower third…</source>
+        <translation>로어 서드…</translation>
     </message>
     <message>
         <source>Split</source>
@@ -17000,6 +17114,73 @@ NEXT TIME</source>
     </message>
 </context>
 <context>
+    <name>LowerThirdDialog</name>
+    <message>
+        <source>Lower third</source>
+        <translation>로어 서드</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>추가</translation>
+    </message>
+    <message>
+        <source>Clean</source>
+        <translation>깔끔</translation>
+    </message>
+    <message>
+        <source>With a line</source>
+        <translation>선 포함</translation>
+    </message>
+    <message>
+        <source>Slanted</source>
+        <translation>기울임</translation>
+    </message>
+    <message>
+        <source>Two colours</source>
+        <translation>2색</translation>
+    </message>
+    <message>
+        <source>Role on a bar</source>
+        <translation>바에 직함</translation>
+    </message>
+    <message>
+        <source>Style</source>
+        <translation>스타일</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>이름</translation>
+    </message>
+    <message>
+        <source>Your name</source>
+        <translation>내 이름</translation>
+    </message>
+    <message>
+        <source>Role (optional)</source>
+        <translation>직함(선택)</translation>
+    </message>
+    <message>
+        <source>Presenter, guest, city…</source>
+        <translation>진행자, 게스트, 도시…</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>라벨</translation>
+    </message>
+    <message>
+        <source>Accent</source>
+        <translation>강조색</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation>텍스트</translation>
+    </message>
+    <message>
+        <source>On screen</source>
+        <translation>화면 표시</translation>
+    </message>
+</context>
+<context>
     <name>Lut</name>
     <message>
         <source>Cinematic</source>
@@ -24031,12 +24212,60 @@ If playback stutters, try another.</source>
         <translation>레이어가 없습니다. 시작하려면 채우기를 추가하세요.</translation>
     </message>
     <message>
+        <source>Fit to a text</source>
+        <translation>텍스트에 맞추기</translation>
+    </message>
+    <message>
+        <source>The shape takes the text&apos;s size plus the margin, and grows when the words change: a label for a name.</source>
+        <translation>도형이 텍스트 크기에 여백을 더한 크기가 되고, 글자가 바뀌면 커집니다: 이름용 라벨입니다.</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>없음</translation>
+    </message>
+    <message>
+        <source>Margin across</source>
+        <translation>좌우 여백</translation>
+    </message>
+    <message>
+        <source>up and down</source>
+        <translation>상하</translation>
+    </message>
+    <message>
+        <source>Two-colour wipe</source>
+        <translation>2색 와이프</translation>
+    </message>
+    <message>
+        <source>From the playhead the accent colour sweeps in first and this shape follows it, ending on top: the entrance of a lower third.</source>
+        <translation>재생 헤드부터 강조색이 먼저 와이프로 들어오고 이 도형이 뒤따라 위에 남습니다: 로어 서드의 등장입니다.</translation>
+    </message>
+    <message>
+        <source>Accent</source>
+        <translation>강조색</translation>
+    </message>
+    <message>
+        <source> fr</source>
+        <translation> 프레임</translation>
+    </message>
+    <message>
+        <source>Slanted edge</source>
+        <translation>기울어진 가장자리</translation>
+    </message>
+    <message>
+        <source>Apply two-colour wipe</source>
+        <translation>2색 와이프 적용</translation>
+    </message>
+    <message>
         <source>Geometry</source>
         <translation>기하</translation>
     </message>
     <message>
         <source>Corner radius</source>
         <translation>모서리 반경</translation>
+    </message>
+    <message>
+        <source>Slant</source>
+        <translation>기울기</translation>
     </message>
     <message>
         <source>Points</source>
@@ -24435,6 +24664,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Corner radius</source>
         <translation>모서리 반경</translation>
+    </message>
+    <message>
+        <source>Slant</source>
+        <translation>기울기</translation>
     </message>
     <message>
         <source>Inner radius</source>
@@ -29645,6 +29878,18 @@ If playback stutters, try another.</source>
         <translation>동영상 길이에 맞추기</translation>
     </message>
     <message>
+        <source>Make a label for this text</source>
+        <translation>이 텍스트용 라벨 만들기</translation>
+    </message>
+    <message>
+        <source>Show whole again</source>
+        <translation>다시 전체 표시</translation>
+    </message>
+    <message>
+        <source>Show only inside the layer below</source>
+        <translation>아래 레이어 안에만 표시</translation>
+    </message>
+    <message>
         <source>Split into letters</source>
         <translation>글자로 나누기</translation>
     </message>
@@ -31121,6 +31366,46 @@ If playback stutters, try another.</source>
         <translation>배율 키</translation>
     </message>
     <message>
+        <source>Align</source>
+        <translation>정렬</translation>
+    </message>
+    <message>
+        <source>Align left edges</source>
+        <translation>왼쪽 가장자리 정렬</translation>
+    </message>
+    <message>
+        <source>Align centres across</source>
+        <translation>가로 중앙 정렬</translation>
+    </message>
+    <message>
+        <source>Align right edges</source>
+        <translation>오른쪽 가장자리 정렬</translation>
+    </message>
+    <message>
+        <source>Align top edges</source>
+        <translation>위쪽 가장자리 정렬</translation>
+    </message>
+    <message>
+        <source>Align centres up and down</source>
+        <translation>세로 중앙 정렬</translation>
+    </message>
+    <message>
+        <source>Align bottom edges</source>
+        <translation>아래쪽 가장자리 정렬</translation>
+    </message>
+    <message>
+        <source>Space evenly across (three or more)</source>
+        <translation>가로로 균등 배치(3개 이상)</translation>
+    </message>
+    <message>
+        <source>Space evenly up and down (three or more)</source>
+        <translation>세로로 균등 배치(3개 이상)</translation>
+    </message>
+    <message>
+        <source>with the frame</source>
+        <translation>프레임 기준</translation>
+    </message>
+    <message>
         <source>Also moved by %1</source>
         <translation>또한 %1에서 이동됨</translation>
     </message>
@@ -31179,6 +31464,26 @@ If playback stutters, try another.</source>
     <message>
         <source>Scale clip</source>
         <translation>클립 크기 조정</translation>
+    </message>
+    <message>
+        <source>Add a keyframe for Scale X and Y at the playhead</source>
+        <translation>재생 헤드에 비율 X 및 Y 키프레임 추가</translation>
+    </message>
+    <message>
+        <source>Scale X</source>
+        <translation>비율 X</translation>
+    </message>
+    <message>
+        <source>Scale Y</source>
+        <translation>비율 Y</translation>
+    </message>
+    <message>
+        <source>This size is 100 %</source>
+        <translation>이 크기를 100 %로</translation>
+    </message>
+    <message>
+        <source>Scale X and Y count from the box as it is now</source>
+        <translation>비율 X와 Y는 지금 상자 크기를 기준으로 합니다</translation>
     </message>
     <message>
         <source>Anchor point (px)</source>

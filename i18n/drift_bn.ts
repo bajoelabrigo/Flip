@@ -2763,6 +2763,26 @@
         <translation type="unfinished">বেজিয়ার</translation>
     </message>
     <message>
+        <source>Animation</source>
+        <translation>অ্যানিমেশন</translation>
+    </message>
+    <message>
+        <source>Stagger</source>
+        <translation>ধাপে ধাপে</translation>
+    </message>
+    <message>
+        <source> fr</source>
+        <translation> ফ্রে.</translation>
+    </message>
+    <message>
+        <source>Stagger the picked layers</source>
+        <translation>বাছাই করা লেয়ারগুলো ধাপে ধাপে সাজান</translation>
+    </message>
+    <message>
+        <source>Each one starts that many frames after the one picked before it; they all end together</source>
+        <translation>প্রতিটি তার আগে বাছাই করা লেয়ারের চেয়ে ততগুলো ফ্রেম পরে শুরু হয়; সবগুলো একসাথে শেষ হয়</translation>
+    </message>
+    <message>
         <source>Not available</source>
         <translation>পাওয়া যাচ্ছে না</translation>
     </message>
@@ -5545,6 +5565,97 @@
         </translation>
     </message>
     <message>
+        <source>Pick three layers or more to space them evenly</source>
+        <translation>সমানভাবে ছড়াতে তিন বা তার বেশি লেয়ার বাছুন</translation>
+    </message>
+    <message>
+        <source>Align</source>
+        <translation>সারিবদ্ধ করুন</translation>
+    </message>
+    <message>
+        <source>Select two layers or more (Ctrl+click, in the order they should come in)</source>
+        <translation>দুই বা তার বেশি লেয়ার নির্বাচন করুন (Ctrl+ক্লিক, যে ক্রমে আসবে সেই ক্রমে)</translation>
+    </message>
+    <message>
+        <source>Stagger layers</source>
+        <translation>লেয়ার ধাপে ধাপে সাজান</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n layer(s) staggered</source>
+        <translation>
+            <numerusform>%n টি লেয়ার ধাপে সাজানো হয়েছে</numerusform>
+            <numerusform>%n টি লেয়ার ধাপে সাজানো হয়েছে</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Show inside the layer below</source>
+        <translation>নিচের লেয়ারের ভেতরে দেখান</translation>
+    </message>
+    <message>
+        <source>Shown whole again</source>
+        <translation>আবার পুরোটা দেখা যাচ্ছে</translation>
+    </message>
+    <message>
+        <source>There is no layer under this one to show it inside</source>
+        <translation>এটিকে ভেতরে দেখানোর জন্য এর নিচে কোনো লেয়ার নেই</translation>
+    </message>
+    <message>
+        <source>Shown only inside “%1”</source>
+        <translation>শুধু «%1»-এর ভেতরে দেখা যাচ্ছে</translation>
+    </message>
+    <message>
+        <source>Your name</source>
+        <translation>আপনার নাম</translation>
+    </message>
+    <message>
+        <source>Lower third</source>
+        <translation>লোয়ার থার্ড</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>লেবেল</translation>
+    </message>
+    <message>
+        <source>Role bar</source>
+        <translation>পদবির বার</translation>
+    </message>
+    <message>
+        <source>Line</source>
+        <translation>রেখা</translation>
+    </message>
+    <message>
+        <source>Lower third added: every piece is a layer you can edit</source>
+        <translation>লোয়ার থার্ড যোগ হয়েছে: প্রতিটি অংশ একটি লেয়ার যা আপনি সম্পাদনা করতে পারেন</translation>
+    </message>
+    <message>
+        <source>Select the label (a shape) for the two-colour wipe</source>
+        <translation>দুই রঙের ওয়াইপের জন্য লেবেল (একটি আকৃতি) নির্বাচন করুন</translation>
+    </message>
+    <message>
+        <source>Two-colour wipe</source>
+        <translation>দুই রঙের ওয়াইপ</translation>
+    </message>
+    <message>
+        <source>%1 accent</source>
+        <translation>%1 অ্যাকসেন্ট</translation>
+    </message>
+    <message>
+        <source>Select a text to put a label under it</source>
+        <translation>নিচে লেবেল বসাতে একটি টেক্সট নির্বাচন করুন</translation>
+    </message>
+    <message>
+        <source>Label · %1</source>
+        <translation>লেবেল · %1</translation>
+    </message>
+    <message>
+        <source>Label for the text</source>
+        <translation>টেক্সটের জন্য লেবেল</translation>
+    </message>
+    <message>
+        <source>Fit to text</source>
+        <translation>টেক্সটের মাপে মেলান</translation>
+    </message>
+    <message>
         <source>No keyframes there</source>
         <translation>সেখানে কোনো কি-ফ্রেম নেই</translation>
     </message>
@@ -6892,6 +7003,10 @@
     <message>
         <source>Tools</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lower third…</source>
+        <translation>লোয়ার থার্ড…</translation>
     </message>
     <message>
         <source>Split</source>
@@ -17058,6 +17173,73 @@ NEXT TIME</source>
     </message>
 </context>
 <context>
+    <name>LowerThirdDialog</name>
+    <message>
+        <source>Lower third</source>
+        <translation>লোয়ার থার্ড</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>যোগ করুন</translation>
+    </message>
+    <message>
+        <source>Clean</source>
+        <translation>পরিচ্ছন্ন</translation>
+    </message>
+    <message>
+        <source>With a line</source>
+        <translation>রেখাসহ</translation>
+    </message>
+    <message>
+        <source>Slanted</source>
+        <translation>হেলানো</translation>
+    </message>
+    <message>
+        <source>Two colours</source>
+        <translation>দুই রঙ</translation>
+    </message>
+    <message>
+        <source>Role on a bar</source>
+        <translation>বারে পদবি</translation>
+    </message>
+    <message>
+        <source>Style</source>
+        <translation>স্টাইল</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>নাম</translation>
+    </message>
+    <message>
+        <source>Your name</source>
+        <translation>আপনার নাম</translation>
+    </message>
+    <message>
+        <source>Role (optional)</source>
+        <translation>পদবি (ঐচ্ছিক)</translation>
+    </message>
+    <message>
+        <source>Presenter, guest, city…</source>
+        <translation>উপস্থাপক, অতিথি, শহর…</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>লেবেল</translation>
+    </message>
+    <message>
+        <source>Accent</source>
+        <translation>অ্যাকসেন্ট</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation>টেক্সট</translation>
+    </message>
+    <message>
+        <source>On screen</source>
+        <translation>স্ক্রিনে</translation>
+    </message>
+</context>
+<context>
     <name>Lut</name>
     <message>
         <source>Cinematic</source>
@@ -24117,12 +24299,60 @@ If playback stutters, try another.</source>
         <translation type="unfinished">কোন স্তর নেই। শুরু করতে একটি পূরণ যোগ করুন.</translation>
     </message>
     <message>
+        <source>Fit to a text</source>
+        <translation>একটি টেক্সটের মাপে মেলান</translation>
+    </message>
+    <message>
+        <source>The shape takes the text&apos;s size plus the margin, and grows when the words change: a label for a name.</source>
+        <translation>আকৃতিটি টেক্সটের মাপ আর মার্জিন নেয় এবং শব্দ বদলালে বড় হয়: নামের জন্য একটি লেবেল।</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>কিছুই না</translation>
+    </message>
+    <message>
+        <source>Margin across</source>
+        <translation>দুই পাশের মার্জিন</translation>
+    </message>
+    <message>
+        <source>up and down</source>
+        <translation>উপরে ও নিচে</translation>
+    </message>
+    <message>
+        <source>Two-colour wipe</source>
+        <translation>দুই রঙের ওয়াইপ</translation>
+    </message>
+    <message>
+        <source>From the playhead the accent colour sweeps in first and this shape follows it, ending on top: the entrance of a lower third.</source>
+        <translation>প্লেহেড থেকে প্রথমে অ্যাকসেন্ট রঙ ওয়াইপ করে ঢোকে আর এই আকৃতি তার পিছু নিয়ে ওপরে থাকে: লোয়ার থার্ডের প্রবেশ।</translation>
+    </message>
+    <message>
+        <source>Accent</source>
+        <translation>অ্যাকসেন্ট</translation>
+    </message>
+    <message>
+        <source> fr</source>
+        <translation> ফ্রে.</translation>
+    </message>
+    <message>
+        <source>Slanted edge</source>
+        <translation>হেলানো কিনারা</translation>
+    </message>
+    <message>
+        <source>Apply two-colour wipe</source>
+        <translation>দুই রঙের ওয়াইপ প্রয়োগ করুন</translation>
+    </message>
+    <message>
         <source>Geometry</source>
         <translation type="unfinished">জ্যামিতি</translation>
     </message>
     <message>
         <source>Corner radius</source>
         <translation type="unfinished">কোণার ব্যাসার্ধ</translation>
+    </message>
+    <message>
+        <source>Slant</source>
+        <translation>ঢাল</translation>
     </message>
     <message>
         <source>Points</source>
@@ -24521,6 +24751,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Corner radius</source>
         <translation type="unfinished">কোণার ব্যাসার্ধ</translation>
+    </message>
+    <message>
+        <source>Slant</source>
+        <translation>ঢাল</translation>
     </message>
     <message>
         <source>Inner radius</source>
@@ -29738,6 +29972,18 @@ If playback stutters, try another.</source>
         <translation>ভিডিওর দৈর্ঘ্যে মেলান</translation>
     </message>
     <message>
+        <source>Make a label for this text</source>
+        <translation>এই টেক্সটের জন্য একটি লেবেল বানান</translation>
+    </message>
+    <message>
+        <source>Show whole again</source>
+        <translation>আবার পুরোটা দেখান</translation>
+    </message>
+    <message>
+        <source>Show only inside the layer below</source>
+        <translation>শুধু নিচের লেয়ারের ভেতরে দেখান</translation>
+    </message>
+    <message>
         <source>Split into letters</source>
         <translation>অক্ষরে ভাগ করুন</translation>
     </message>
@@ -31219,6 +31465,46 @@ If playback stutters, try another.</source>
         <translation>স্কেলের কী</translation>
     </message>
     <message>
+        <source>Align</source>
+        <translation>সারিবদ্ধ করুন</translation>
+    </message>
+    <message>
+        <source>Align left edges</source>
+        <translation>বাম কিনারা সারিবদ্ধ করুন</translation>
+    </message>
+    <message>
+        <source>Align centres across</source>
+        <translation>অনুভূমিকভাবে কেন্দ্র সারিবদ্ধ করুন</translation>
+    </message>
+    <message>
+        <source>Align right edges</source>
+        <translation>ডান কিনারা সারিবদ্ধ করুন</translation>
+    </message>
+    <message>
+        <source>Align top edges</source>
+        <translation>উপরের কিনারা সারিবদ্ধ করুন</translation>
+    </message>
+    <message>
+        <source>Align centres up and down</source>
+        <translation>উল্লম্বভাবে কেন্দ্র সারিবদ্ধ করুন</translation>
+    </message>
+    <message>
+        <source>Align bottom edges</source>
+        <translation>নিচের কিনারা সারিবদ্ধ করুন</translation>
+    </message>
+    <message>
+        <source>Space evenly across (three or more)</source>
+        <translation>অনুভূমিকভাবে সমান দূরত্বে রাখুন (তিন বা বেশি)</translation>
+    </message>
+    <message>
+        <source>Space evenly up and down (three or more)</source>
+        <translation>উল্লম্বভাবে সমান দূরত্বে রাখুন (তিন বা বেশি)</translation>
+    </message>
+    <message>
+        <source>with the frame</source>
+        <translation>ফ্রেমের সাথে</translation>
+    </message>
+    <message>
         <source>Also moved by %1</source>
         <translation type="unfinished">এছাড়াও %1 দ্বারা সরানো হয়েছে</translation>
     </message>
@@ -31277,6 +31563,26 @@ If playback stutters, try another.</source>
     <message>
         <source>Scale clip</source>
         <translation type="unfinished">স্কেল ক্লিপ</translation>
+    </message>
+    <message>
+        <source>Add a keyframe for Scale X and Y at the playhead</source>
+        <translation>প্লেহেডে স্কেল X ও Y-এর কীফ্রেম যোগ করুন</translation>
+    </message>
+    <message>
+        <source>Scale X</source>
+        <translation>স্কেল X</translation>
+    </message>
+    <message>
+        <source>Scale Y</source>
+        <translation>স্কেল Y</translation>
+    </message>
+    <message>
+        <source>This size is 100 %</source>
+        <translation>এই মাপটি 100 %</translation>
+    </message>
+    <message>
+        <source>Scale X and Y count from the box as it is now</source>
+        <translation>স্কেল X ও Y বক্সের বর্তমান মাপ থেকে গোনা হয়</translation>
     </message>
     <message>
         <source>Anchor point (px)</source>

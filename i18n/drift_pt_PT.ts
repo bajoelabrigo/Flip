@@ -2763,6 +2763,26 @@
         <translation>Bézier</translation>
     </message>
     <message>
+        <source>Animation</source>
+        <translation>Animação</translation>
+    </message>
+    <message>
+        <source>Stagger</source>
+        <translation>Escalonar</translation>
+    </message>
+    <message>
+        <source> fr</source>
+        <translation> fot.</translation>
+    </message>
+    <message>
+        <source>Stagger the picked layers</source>
+        <translation>Escalonar as camadas escolhidas</translation>
+    </message>
+    <message>
+        <source>Each one starts that many frames after the one picked before it; they all end together</source>
+        <translation>Cada uma começa essa quantidade de fotogramas depois da escolhida antes dela; todas terminam juntas</translation>
+    </message>
+    <message>
         <source>Not available</source>
         <translation>Não disponível</translation>
     </message>
@@ -5445,6 +5465,97 @@
         </translation>
     </message>
     <message>
+        <source>Pick three layers or more to space them evenly</source>
+        <translation>Escolha três camadas ou mais para as distribuir por igual</translation>
+    </message>
+    <message>
+        <source>Align</source>
+        <translation>Alinhar</translation>
+    </message>
+    <message>
+        <source>Select two layers or more (Ctrl+click, in the order they should come in)</source>
+        <translation>Selecione duas camadas ou mais (Ctrl+clique, pela ordem em que devem entrar)</translation>
+    </message>
+    <message>
+        <source>Stagger layers</source>
+        <translation>Escalonar camadas</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n layer(s) staggered</source>
+        <translation>
+            <numerusform>%n camada escalonada</numerusform>
+            <numerusform>%n camadas escalonadas</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Show inside the layer below</source>
+        <translation>Mostrar dentro da camada de baixo</translation>
+    </message>
+    <message>
+        <source>Shown whole again</source>
+        <translation>Visível inteira outra vez</translation>
+    </message>
+    <message>
+        <source>There is no layer under this one to show it inside</source>
+        <translation>Não há nenhuma camada por baixo desta para a mostrar dentro</translation>
+    </message>
+    <message>
+        <source>Shown only inside “%1”</source>
+        <translation>Visível só dentro de «%1»</translation>
+    </message>
+    <message>
+        <source>Your name</source>
+        <translation>O seu nome</translation>
+    </message>
+    <message>
+        <source>Lower third</source>
+        <translation>Terço inferior</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>Etiqueta</translation>
+    </message>
+    <message>
+        <source>Role bar</source>
+        <translation>Barra do cargo</translation>
+    </message>
+    <message>
+        <source>Line</source>
+        <translation>Linha</translation>
+    </message>
+    <message>
+        <source>Lower third added: every piece is a layer you can edit</source>
+        <translation>Terço inferior adicionado: cada peça é uma camada que pode editar</translation>
+    </message>
+    <message>
+        <source>Select the label (a shape) for the two-colour wipe</source>
+        <translation>Selecione a etiqueta (uma forma) para o varrimento de duas cores</translation>
+    </message>
+    <message>
+        <source>Two-colour wipe</source>
+        <translation>Varrimento de duas cores</translation>
+    </message>
+    <message>
+        <source>%1 accent</source>
+        <translation>%1 destaque</translation>
+    </message>
+    <message>
+        <source>Select a text to put a label under it</source>
+        <translation>Selecione um texto para lhe pôr uma etiqueta por baixo</translation>
+    </message>
+    <message>
+        <source>Label · %1</source>
+        <translation>Etiqueta · %1</translation>
+    </message>
+    <message>
+        <source>Label for the text</source>
+        <translation>Etiqueta para o texto</translation>
+    </message>
+    <message>
+        <source>Fit to text</source>
+        <translation>Ajustar ao texto</translation>
+    </message>
+    <message>
         <source>No keyframes there</source>
         <translation>Não há fotogramas-chave aí</translation>
     </message>
@@ -6892,6 +7003,10 @@
     <message>
         <source>Tools</source>
         <translation>Ferramentas</translation>
+    </message>
+    <message>
+        <source>Lower third…</source>
+        <translation>Terço inferior…</translation>
     </message>
     <message>
         <source>Split</source>
@@ -17062,6 +17177,73 @@ PRÓXIMA</translation>
     </message>
 </context>
 <context>
+    <name>LowerThirdDialog</name>
+    <message>
+        <source>Lower third</source>
+        <translation>Terço inferior</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>Adicionar</translation>
+    </message>
+    <message>
+        <source>Clean</source>
+        <translation>Limpo</translation>
+    </message>
+    <message>
+        <source>With a line</source>
+        <translation>Com linha</translation>
+    </message>
+    <message>
+        <source>Slanted</source>
+        <translation>Inclinado</translation>
+    </message>
+    <message>
+        <source>Two colours</source>
+        <translation>Duas cores</translation>
+    </message>
+    <message>
+        <source>Role on a bar</source>
+        <translation>Cargo em barra</translation>
+    </message>
+    <message>
+        <source>Style</source>
+        <translation>Estilo</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Nome</translation>
+    </message>
+    <message>
+        <source>Your name</source>
+        <translation>O seu nome</translation>
+    </message>
+    <message>
+        <source>Role (optional)</source>
+        <translation>Cargo (opcional)</translation>
+    </message>
+    <message>
+        <source>Presenter, guest, city…</source>
+        <translation>Apresentador, convidado, cidade…</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>Etiqueta</translation>
+    </message>
+    <message>
+        <source>Accent</source>
+        <translation>Destaque</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation>Texto</translation>
+    </message>
+    <message>
+        <source>On screen</source>
+        <translation>No ecrã</translation>
+    </message>
+</context>
+<context>
     <name>Lut</name>
     <message>
         <source>Cinematic</source>
@@ -24121,12 +24303,60 @@ Se a reprodução falhar, experimente outra opção.</translation>
         <translation>Nenhuma camada. Adicione um preenchimento para começar.</translation>
     </message>
     <message>
+        <source>Fit to a text</source>
+        <translation>Ajustar a um texto</translation>
+    </message>
+    <message>
+        <source>The shape takes the text&apos;s size plus the margin, and grows when the words change: a label for a name.</source>
+        <translation>A forma assume o tamanho do texto mais a margem e cresce quando as palavras mudam: uma etiqueta para um nome.</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Nenhum</translation>
+    </message>
+    <message>
+        <source>Margin across</source>
+        <translation>Margem nos lados</translation>
+    </message>
+    <message>
+        <source>up and down</source>
+        <translation>em cima e em baixo</translation>
+    </message>
+    <message>
+        <source>Two-colour wipe</source>
+        <translation>Varrimento de duas cores</translation>
+    </message>
+    <message>
+        <source>From the playhead the accent colour sweeps in first and this shape follows it, ending on top: the entrance of a lower third.</source>
+        <translation>A partir da cabeça de leitura, a cor de destaque entra a varrer primeiro e esta forma segue-a, ficando por cima: a entrada de um terço inferior.</translation>
+    </message>
+    <message>
+        <source>Accent</source>
+        <translation>Destaque</translation>
+    </message>
+    <message>
+        <source> fr</source>
+        <translation> fot.</translation>
+    </message>
+    <message>
+        <source>Slanted edge</source>
+        <translation>Margem inclinada</translation>
+    </message>
+    <message>
+        <source>Apply two-colour wipe</source>
+        <translation>Aplicar varrimento de duas cores</translation>
+    </message>
+    <message>
         <source>Geometry</source>
         <translation>Geometria</translation>
     </message>
     <message>
         <source>Corner radius</source>
         <translation>Raio dos cantos</translation>
+    </message>
+    <message>
+        <source>Slant</source>
+        <translation>Inclinação</translation>
     </message>
     <message>
         <source>Points</source>
@@ -24525,6 +24755,10 @@ Se a reprodução falhar, experimente outra opção.</translation>
     <message>
         <source>Corner radius</source>
         <translation>Raio dos cantos</translation>
+    </message>
+    <message>
+        <source>Slant</source>
+        <translation>Inclinação</translation>
     </message>
     <message>
         <source>Inner radius</source>
@@ -29742,6 +29976,18 @@ Se a reprodução falhar, experimente outra opção.</translation>
         <translation>Ajustar à duração do vídeo</translation>
     </message>
     <message>
+        <source>Make a label for this text</source>
+        <translation>Criar uma etiqueta para este texto</translation>
+    </message>
+    <message>
+        <source>Show whole again</source>
+        <translation>Mostrar inteira outra vez</translation>
+    </message>
+    <message>
+        <source>Show only inside the layer below</source>
+        <translation>Mostrar só dentro da camada de baixo</translation>
+    </message>
+    <message>
         <source>Split into letters</source>
         <translation>Dividir em letras</translation>
     </message>
@@ -31223,6 +31469,46 @@ Se a reprodução falhar, experimente outra opção.</translation>
         <translation>Chave de escala</translation>
     </message>
     <message>
+        <source>Align</source>
+        <translation>Alinhar</translation>
+    </message>
+    <message>
+        <source>Align left edges</source>
+        <translation>Alinhar margens esquerdas</translation>
+    </message>
+    <message>
+        <source>Align centres across</source>
+        <translation>Alinhar centros na horizontal</translation>
+    </message>
+    <message>
+        <source>Align right edges</source>
+        <translation>Alinhar margens direitas</translation>
+    </message>
+    <message>
+        <source>Align top edges</source>
+        <translation>Alinhar margens superiores</translation>
+    </message>
+    <message>
+        <source>Align centres up and down</source>
+        <translation>Alinhar centros na vertical</translation>
+    </message>
+    <message>
+        <source>Align bottom edges</source>
+        <translation>Alinhar margens inferiores</translation>
+    </message>
+    <message>
+        <source>Space evenly across (three or more)</source>
+        <translation>Distribuir por igual na horizontal (três ou mais)</translation>
+    </message>
+    <message>
+        <source>Space evenly up and down (three or more)</source>
+        <translation>Distribuir por igual na vertical (três ou mais)</translation>
+    </message>
+    <message>
+        <source>with the frame</source>
+        <translation>com o enquadramento</translation>
+    </message>
+    <message>
         <source>Also moved by %1</source>
         <translation>Também movido por %1</translation>
     </message>
@@ -31281,6 +31567,26 @@ Se a reprodução falhar, experimente outra opção.</translation>
     <message>
         <source>Scale clip</source>
         <translation>Escalar clipe</translation>
+    </message>
+    <message>
+        <source>Add a keyframe for Scale X and Y at the playhead</source>
+        <translation>Adicionar um fotograma-chave de Escala X e Y na cabeça de leitura</translation>
+    </message>
+    <message>
+        <source>Scale X</source>
+        <translation>Escala X</translation>
+    </message>
+    <message>
+        <source>Scale Y</source>
+        <translation>Escala Y</translation>
+    </message>
+    <message>
+        <source>This size is 100 %</source>
+        <translation>Este tamanho é 100 %</translation>
+    </message>
+    <message>
+        <source>Scale X and Y count from the box as it is now</source>
+        <translation>Escala X e Y contam a partir do tamanho atual da caixa</translation>
     </message>
     <message>
         <source>Anchor point (px)</source>

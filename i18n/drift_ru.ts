@@ -2766,6 +2766,26 @@
         <translation>Кривая Безье</translation>
     </message>
     <message>
+        <source>Animation</source>
+        <translation>Анимация</translation>
+    </message>
+    <message>
+        <source>Stagger</source>
+        <translation>Каскад</translation>
+    </message>
+    <message>
+        <source> fr</source>
+        <translation> кадр.</translation>
+    </message>
+    <message>
+        <source>Stagger the picked layers</source>
+        <translation>Сдвинуть выбранные слои каскадом</translation>
+    </message>
+    <message>
+        <source>Each one starts that many frames after the one picked before it; they all end together</source>
+        <translation>Каждый начинается на столько кадров позже предыдущего выбранного; все заканчиваются вместе</translation>
+    </message>
+    <message>
         <source>Not available</source>
         <translation>Недоступно</translation>
     </message>
@@ -5465,6 +5485,98 @@
         </translation>
     </message>
     <message>
+        <source>Pick three layers or more to space them evenly</source>
+        <translation>Выберите три слоя или больше, чтобы распределить их равномерно</translation>
+    </message>
+    <message>
+        <source>Align</source>
+        <translation>Выровнять</translation>
+    </message>
+    <message>
+        <source>Select two layers or more (Ctrl+click, in the order they should come in)</source>
+        <translation>Выберите два слоя или больше (Ctrl+щелчок, в порядке появления)</translation>
+    </message>
+    <message>
+        <source>Stagger layers</source>
+        <translation>Сдвинуть слои каскадом</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n layer(s) staggered</source>
+        <translation>
+            <numerusform>%n слой сдвинут</numerusform>
+            <numerusform>%n слоя сдвинуты</numerusform>
+            <numerusform>%n слоёв сдвинуто</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Show inside the layer below</source>
+        <translation>Показать внутри нижнего слоя</translation>
+    </message>
+    <message>
+        <source>Shown whole again</source>
+        <translation>Снова виден целиком</translation>
+    </message>
+    <message>
+        <source>There is no layer under this one to show it inside</source>
+        <translation>Под этим слоем нет слоя, внутри которого его можно показать</translation>
+    </message>
+    <message>
+        <source>Shown only inside “%1”</source>
+        <translation>Виден только внутри «%1»</translation>
+    </message>
+    <message>
+        <source>Your name</source>
+        <translation>Ваше имя</translation>
+    </message>
+    <message>
+        <source>Lower third</source>
+        <translation>Нижняя плашка</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>Метка</translation>
+    </message>
+    <message>
+        <source>Role bar</source>
+        <translation>Полоса должности</translation>
+    </message>
+    <message>
+        <source>Line</source>
+        <translation>Линия</translation>
+    </message>
+    <message>
+        <source>Lower third added: every piece is a layer you can edit</source>
+        <translation>Нижняя плашка добавлена: каждая часть — слой, который можно изменить</translation>
+    </message>
+    <message>
+        <source>Select the label (a shape) for the two-colour wipe</source>
+        <translation>Выберите метку (фигуру) для двухцветной шторки</translation>
+    </message>
+    <message>
+        <source>Two-colour wipe</source>
+        <translation>Двухцветная шторка</translation>
+    </message>
+    <message>
+        <source>%1 accent</source>
+        <translation>%1 акцент</translation>
+    </message>
+    <message>
+        <source>Select a text to put a label under it</source>
+        <translation>Выберите текст, чтобы поставить под ним метку</translation>
+    </message>
+    <message>
+        <source>Label · %1</source>
+        <translation>Метка · %1</translation>
+    </message>
+    <message>
+        <source>Label for the text</source>
+        <translation>Метка для текста</translation>
+    </message>
+    <message>
+        <source>Fit to text</source>
+        <translation>Подогнать под текст</translation>
+    </message>
+    <message>
         <source>No keyframes there</source>
         <translation>Там нет ключевых кадров</translation>
     </message>
@@ -6934,6 +7046,10 @@
     <message>
         <source>Tools</source>
         <translation>Инструменты</translation>
+    </message>
+    <message>
+        <source>Lower third…</source>
+        <translation>Нижняя плашка…</translation>
     </message>
     <message>
         <source>Split</source>
@@ -17124,6 +17240,73 @@ NEXT TIME</source>
     </message>
 </context>
 <context>
+    <name>LowerThirdDialog</name>
+    <message>
+        <source>Lower third</source>
+        <translation>Нижняя плашка</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>Добавить</translation>
+    </message>
+    <message>
+        <source>Clean</source>
+        <translation>Простой</translation>
+    </message>
+    <message>
+        <source>With a line</source>
+        <translation>С линией</translation>
+    </message>
+    <message>
+        <source>Slanted</source>
+        <translation>Наклонный</translation>
+    </message>
+    <message>
+        <source>Two colours</source>
+        <translation>Два цвета</translation>
+    </message>
+    <message>
+        <source>Role on a bar</source>
+        <translation>Должность на полосе</translation>
+    </message>
+    <message>
+        <source>Style</source>
+        <translation>Стиль</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Имя</translation>
+    </message>
+    <message>
+        <source>Your name</source>
+        <translation>Ваше имя</translation>
+    </message>
+    <message>
+        <source>Role (optional)</source>
+        <translation>Должность (необязательно)</translation>
+    </message>
+    <message>
+        <source>Presenter, guest, city…</source>
+        <translation>Ведущий, гость, город…</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>Метка</translation>
+    </message>
+    <message>
+        <source>Accent</source>
+        <translation>Акцент</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation>Текст</translation>
+    </message>
+    <message>
+        <source>On screen</source>
+        <translation>На экране</translation>
+    </message>
+</context>
+<context>
     <name>Lut</name>
     <message>
         <source>Cinematic</source>
@@ -24210,12 +24393,60 @@ If playback stutters, try another.</source>
         <translation>Слоёв нет. Для начала добавьте заливку.</translation>
     </message>
     <message>
+        <source>Fit to a text</source>
+        <translation>По размеру текста</translation>
+    </message>
+    <message>
+        <source>The shape takes the text&apos;s size plus the margin, and grows when the words change: a label for a name.</source>
+        <translation>Фигура принимает размер текста плюс отступ и растёт, когда меняются слова: метка для имени.</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Нет</translation>
+    </message>
+    <message>
+        <source>Margin across</source>
+        <translation>Отступ по бокам</translation>
+    </message>
+    <message>
+        <source>up and down</source>
+        <translation>сверху и снизу</translation>
+    </message>
+    <message>
+        <source>Two-colour wipe</source>
+        <translation>Двухцветная шторка</translation>
+    </message>
+    <message>
+        <source>From the playhead the accent colour sweeps in first and this shape follows it, ending on top: the entrance of a lower third.</source>
+        <translation>От указателя воспроизведения сначала шторкой входит акцентный цвет, а за ним эта фигура, которая остаётся сверху: появление нижней плашки.</translation>
+    </message>
+    <message>
+        <source>Accent</source>
+        <translation>Акцент</translation>
+    </message>
+    <message>
+        <source> fr</source>
+        <translation> кадр.</translation>
+    </message>
+    <message>
+        <source>Slanted edge</source>
+        <translation>Наклонный край</translation>
+    </message>
+    <message>
+        <source>Apply two-colour wipe</source>
+        <translation>Применить двухцветную шторку</translation>
+    </message>
+    <message>
         <source>Geometry</source>
         <translation>Геометрия</translation>
     </message>
     <message>
         <source>Corner radius</source>
         <translation>Радиус углов</translation>
+    </message>
+    <message>
+        <source>Slant</source>
+        <translation>Наклон</translation>
     </message>
     <message>
         <source>Points</source>
@@ -24614,6 +24845,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Corner radius</source>
         <translation>Радиус углов</translation>
+    </message>
+    <message>
+        <source>Slant</source>
+        <translation>Наклон</translation>
     </message>
     <message>
         <source>Inner radius</source>
@@ -29837,6 +30072,18 @@ If playback stutters, try another.</source>
         <translation>Подогнать под длину видео</translation>
     </message>
     <message>
+        <source>Make a label for this text</source>
+        <translation>Сделать метку для этого текста</translation>
+    </message>
+    <message>
+        <source>Show whole again</source>
+        <translation>Снова показать целиком</translation>
+    </message>
+    <message>
+        <source>Show only inside the layer below</source>
+        <translation>Показывать только внутри нижнего слоя</translation>
+    </message>
+    <message>
         <source>Split into letters</source>
         <translation>Разбить на буквы</translation>
     </message>
@@ -31323,6 +31570,46 @@ If playback stutters, try another.</source>
         <translation>Ключ масштаба</translation>
     </message>
     <message>
+        <source>Align</source>
+        <translation>Выровнять</translation>
+    </message>
+    <message>
+        <source>Align left edges</source>
+        <translation>Выровнять по левому краю</translation>
+    </message>
+    <message>
+        <source>Align centres across</source>
+        <translation>Выровнять центры по горизонтали</translation>
+    </message>
+    <message>
+        <source>Align right edges</source>
+        <translation>Выровнять по правому краю</translation>
+    </message>
+    <message>
+        <source>Align top edges</source>
+        <translation>Выровнять по верхнему краю</translation>
+    </message>
+    <message>
+        <source>Align centres up and down</source>
+        <translation>Выровнять центры по вертикали</translation>
+    </message>
+    <message>
+        <source>Align bottom edges</source>
+        <translation>Выровнять по нижнему краю</translation>
+    </message>
+    <message>
+        <source>Space evenly across (three or more)</source>
+        <translation>Распределить по горизонтали (три или больше)</translation>
+    </message>
+    <message>
+        <source>Space evenly up and down (three or more)</source>
+        <translation>Распределить по вертикали (три или больше)</translation>
+    </message>
+    <message>
+        <source>with the frame</source>
+        <translation>относительно кадра</translation>
+    </message>
+    <message>
         <source>Also moved by %1</source>
         <translation>Также перемещается слоем %1</translation>
     </message>
@@ -31381,6 +31668,26 @@ If playback stutters, try another.</source>
     <message>
         <source>Scale clip</source>
         <translation>Масштабировать клип</translation>
+    </message>
+    <message>
+        <source>Add a keyframe for Scale X and Y at the playhead</source>
+        <translation>Добавить ключевой кадр масштаба X и Y на указателе</translation>
+    </message>
+    <message>
+        <source>Scale X</source>
+        <translation>Масштаб X</translation>
+    </message>
+    <message>
+        <source>Scale Y</source>
+        <translation>Масштаб Y</translation>
+    </message>
+    <message>
+        <source>This size is 100 %</source>
+        <translation>Этот размер — 100 %</translation>
+    </message>
+    <message>
+        <source>Scale X and Y count from the box as it is now</source>
+        <translation>Масштаб X и Y отсчитывается от текущего размера рамки</translation>
     </message>
     <message>
         <source>Anchor point (px)</source>

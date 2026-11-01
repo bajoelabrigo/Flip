@@ -2763,6 +2763,26 @@
         <translation>බෙසියර් (Bezier)</translation>
     </message>
     <message>
+        <source>Animation</source>
+        <translation>සජීවිකරණය</translation>
+    </message>
+    <message>
+        <source>Stagger</source>
+        <translation>පියවරෙන් පියවර</translation>
+    </message>
+    <message>
+        <source> fr</source>
+        <translation> රා.</translation>
+    </message>
+    <message>
+        <source>Stagger the picked layers</source>
+        <translation>තෝරාගත් ස්ථර පියවරෙන් පියවර ආරම්භ කරන්න</translation>
+    </message>
+    <message>
+        <source>Each one starts that many frames after the one picked before it; they all end together</source>
+        <translation>සෑම එකක්ම ඊට පෙර තෝරාගත් එකට වඩා එම රාමු ගණනකට පසුව ආරම්භ වේ; සියල්ල එකවර අවසන් වේ</translation>
+    </message>
+    <message>
         <source>Not available</source>
         <translation>ලබාගත නොහැක</translation>
     </message>
@@ -5445,6 +5465,97 @@
         </translation>
     </message>
     <message>
+        <source>Pick three layers or more to space them evenly</source>
+        <translation>සමානව බෙදීමට ස්ථර තුනක් හෝ වැඩි ගණනක් තෝරන්න</translation>
+    </message>
+    <message>
+        <source>Align</source>
+        <translation>පෙළගස්වන්න</translation>
+    </message>
+    <message>
+        <source>Select two layers or more (Ctrl+click, in the order they should come in)</source>
+        <translation>ස්ථර දෙකක් හෝ වැඩි ගණනක් තෝරන්න (Ctrl+ක්ලික්, ඇතුළු විය යුතු පිළිවෙළට)</translation>
+    </message>
+    <message>
+        <source>Stagger layers</source>
+        <translation>ස්ථර පියවරෙන් පියවර කරන්න</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n layer(s) staggered</source>
+        <translation>
+            <numerusform>ස්ථර %n ක් පියවරෙන් පියවර කරන ලදී</numerusform>
+            <numerusform>ස්ථර %n ක් පියවරෙන් පියවර කරන ලදී</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Show inside the layer below</source>
+        <translation>පහළ ස්ථරය තුළ පෙන්වන්න</translation>
+    </message>
+    <message>
+        <source>Shown whole again</source>
+        <translation>නැවත සම්පූර්ණයෙන් පෙනේ</translation>
+    </message>
+    <message>
+        <source>There is no layer under this one to show it inside</source>
+        <translation>මෙය තුළ පෙන්වීමට මෙයට යටින් ස්ථරයක් නැත</translation>
+    </message>
+    <message>
+        <source>Shown only inside “%1”</source>
+        <translation>«%1» තුළ පමණක් පෙනේ</translation>
+    </message>
+    <message>
+        <source>Your name</source>
+        <translation>ඔබේ නම</translation>
+    </message>
+    <message>
+        <source>Lower third</source>
+        <translation>පහළ නාම තීරුව</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>ලේබලය</translation>
+    </message>
+    <message>
+        <source>Role bar</source>
+        <translation>තනතුරු තීරුව</translation>
+    </message>
+    <message>
+        <source>Line</source>
+        <translation>රේඛාව</translation>
+    </message>
+    <message>
+        <source>Lower third added: every piece is a layer you can edit</source>
+        <translation>පහළ නාම තීරුව එක් කළා: සෑම කොටසක්ම ඔබට සංස්කරණය කළ හැකි ස්ථරයකි</translation>
+    </message>
+    <message>
+        <source>Select the label (a shape) for the two-colour wipe</source>
+        <translation>වර්ණ දෙකේ වයිප් සඳහා ලේබලය (හැඩයක්) තෝරන්න</translation>
+    </message>
+    <message>
+        <source>Two-colour wipe</source>
+        <translation>වර්ණ දෙකේ වයිප්</translation>
+    </message>
+    <message>
+        <source>%1 accent</source>
+        <translation>%1 අවධාරණ</translation>
+    </message>
+    <message>
+        <source>Select a text to put a label under it</source>
+        <translation>යටින් ලේබලයක් තැබීමට පෙළක් තෝරන්න</translation>
+    </message>
+    <message>
+        <source>Label · %1</source>
+        <translation>ලේබලය · %1</translation>
+    </message>
+    <message>
+        <source>Label for the text</source>
+        <translation>පෙළ සඳහා ලේබලය</translation>
+    </message>
+    <message>
+        <source>Fit to text</source>
+        <translation>පෙළට ගැළපෙන්න</translation>
+    </message>
+    <message>
         <source>No keyframes there</source>
         <translation>එතැන ප්‍රධාන රාමු නැත</translation>
     </message>
@@ -6892,6 +7003,10 @@
     <message>
         <source>Tools</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lower third…</source>
+        <translation>පහළ නාම තීරුව…</translation>
     </message>
     <message>
         <source>Split</source>
@@ -17058,6 +17173,73 @@ NEXT TIME</source>
     </message>
 </context>
 <context>
+    <name>LowerThirdDialog</name>
+    <message>
+        <source>Lower third</source>
+        <translation>පහළ නාම තීරුව</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>එක් කරන්න</translation>
+    </message>
+    <message>
+        <source>Clean</source>
+        <translation>පිරිසිදු</translation>
+    </message>
+    <message>
+        <source>With a line</source>
+        <translation>රේඛාවක් සමඟ</translation>
+    </message>
+    <message>
+        <source>Slanted</source>
+        <translation>ඇල</translation>
+    </message>
+    <message>
+        <source>Two colours</source>
+        <translation>වර්ණ දෙකක්</translation>
+    </message>
+    <message>
+        <source>Role on a bar</source>
+        <translation>තීරුවක තනතුර</translation>
+    </message>
+    <message>
+        <source>Style</source>
+        <translation>විලාසය</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>නම</translation>
+    </message>
+    <message>
+        <source>Your name</source>
+        <translation>ඔබේ නම</translation>
+    </message>
+    <message>
+        <source>Role (optional)</source>
+        <translation>තනතුර (විකල්ප)</translation>
+    </message>
+    <message>
+        <source>Presenter, guest, city…</source>
+        <translation>ඉදිරිපත් කරන්නා, අමුත්තා, නගරය…</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>ලේබලය</translation>
+    </message>
+    <message>
+        <source>Accent</source>
+        <translation>අවධාරණ වර්ණය</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation>පෙළ</translation>
+    </message>
+    <message>
+        <source>On screen</source>
+        <translation>තිරය මත</translation>
+    </message>
+</context>
+<context>
     <name>Lut</name>
     <message>
         <source>Cinematic</source>
@@ -24117,12 +24299,60 @@ If playback stutters, try another.</source>
         <translation>ස්තර නැත. ආරම්භ කිරීමට පිරවුමක් (fill) එක් කරන්න.</translation>
     </message>
     <message>
+        <source>Fit to a text</source>
+        <translation>පෙළකට ගැළපෙන්න</translation>
+    </message>
+    <message>
+        <source>The shape takes the text&apos;s size plus the margin, and grows when the words change: a label for a name.</source>
+        <translation>හැඩය පෙළේ ප්‍රමාණය සහ මායිම ගන්නා අතර වචන වෙනස් වන විට විශාල වේ: නමක් සඳහා ලේබලයක්.</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>කිසිවක් නැත</translation>
+    </message>
+    <message>
+        <source>Margin across</source>
+        <translation>දෙපස මායිම</translation>
+    </message>
+    <message>
+        <source>up and down</source>
+        <translation>ඉහළ සහ පහළ</translation>
+    </message>
+    <message>
+        <source>Two-colour wipe</source>
+        <translation>වර්ණ දෙකේ වයිප්</translation>
+    </message>
+    <message>
+        <source>From the playhead the accent colour sweeps in first and this shape follows it, ending on top: the entrance of a lower third.</source>
+        <translation>ධාවන හිසේ සිට, අවධාරණ වර්ණය මුලින්ම ඇතුළු වන අතර මෙම හැඩය එය අනුගමනය කර ඉහළින් රැඳේ: පහළ නාම තීරුවක ඇතුළුවීම.</translation>
+    </message>
+    <message>
+        <source>Accent</source>
+        <translation>අවධාරණ වර්ණය</translation>
+    </message>
+    <message>
+        <source> fr</source>
+        <translation> රා.</translation>
+    </message>
+    <message>
+        <source>Slanted edge</source>
+        <translation>ඇල දාරය</translation>
+    </message>
+    <message>
+        <source>Apply two-colour wipe</source>
+        <translation>වර්ණ දෙකේ වයිප් යොදන්න</translation>
+    </message>
+    <message>
         <source>Geometry</source>
         <translation>ජ්‍යාමිතිය (Geometry)</translation>
     </message>
     <message>
         <source>Corner radius</source>
         <translation>මුල්ලේ අරය (Corner radius)</translation>
+    </message>
+    <message>
+        <source>Slant</source>
+        <translation>ඇලවීම</translation>
     </message>
     <message>
         <source>Points</source>
@@ -24521,6 +24751,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Corner radius</source>
         <translation>මුල්ලේ අරය</translation>
+    </message>
+    <message>
+        <source>Slant</source>
+        <translation>ඇලවීම</translation>
     </message>
     <message>
         <source>Inner radius</source>
@@ -29738,6 +29972,18 @@ If playback stutters, try another.</source>
         <translation>වීඩියෝවේ දිගට ගළපන්න</translation>
     </message>
     <message>
+        <source>Make a label for this text</source>
+        <translation>මෙම පෙළ සඳහා ලේබලයක් සාදන්න</translation>
+    </message>
+    <message>
+        <source>Show whole again</source>
+        <translation>නැවත සම්පූර්ණයෙන් පෙන්වන්න</translation>
+    </message>
+    <message>
+        <source>Show only inside the layer below</source>
+        <translation>පහළ ස්ථරය තුළ පමණක් පෙන්වන්න</translation>
+    </message>
+    <message>
         <source>Split into letters</source>
         <translation>අකුරුවලට බෙදන්න</translation>
     </message>
@@ -31219,6 +31465,46 @@ If playback stutters, try another.</source>
         <translation>පරිමාණ යතුර</translation>
     </message>
     <message>
+        <source>Align</source>
+        <translation>පෙළගස්වන්න</translation>
+    </message>
+    <message>
+        <source>Align left edges</source>
+        <translation>වම් දාර පෙළගස්වන්න</translation>
+    </message>
+    <message>
+        <source>Align centres across</source>
+        <translation>මධ්‍ය තිරස්ව පෙළගස්වන්න</translation>
+    </message>
+    <message>
+        <source>Align right edges</source>
+        <translation>දකුණු දාර පෙළගස්වන්න</translation>
+    </message>
+    <message>
+        <source>Align top edges</source>
+        <translation>ඉහළ දාර පෙළගස්වන්න</translation>
+    </message>
+    <message>
+        <source>Align centres up and down</source>
+        <translation>මධ්‍ය සිරස්ව පෙළගස්වන්න</translation>
+    </message>
+    <message>
+        <source>Align bottom edges</source>
+        <translation>පහළ දාර පෙළගස්වන්න</translation>
+    </message>
+    <message>
+        <source>Space evenly across (three or more)</source>
+        <translation>තිරස්ව සමානව බෙදන්න (තුනක් හෝ වැඩි)</translation>
+    </message>
+    <message>
+        <source>Space evenly up and down (three or more)</source>
+        <translation>සිරස්ව සමානව බෙදන්න (තුනක් හෝ වැඩි)</translation>
+    </message>
+    <message>
+        <source>with the frame</source>
+        <translation>රාමුව සමඟ</translation>
+    </message>
+    <message>
         <source>Also moved by %1</source>
         <translation>%1 මඟින්ද ගෙනයනු ලබයි</translation>
     </message>
@@ -31277,6 +31563,26 @@ If playback stutters, try another.</source>
     <message>
         <source>Scale clip</source>
         <translation>ක්ලිපය පරිමාණය කරන්න</translation>
+    </message>
+    <message>
+        <source>Add a keyframe for Scale X and Y at the playhead</source>
+        <translation>ධාවන හිසේදී පරිමාණ X සහ Y සඳහා යතුරු රාමුවක් එක් කරන්න</translation>
+    </message>
+    <message>
+        <source>Scale X</source>
+        <translation>පරිමාණ X</translation>
+    </message>
+    <message>
+        <source>Scale Y</source>
+        <translation>පරිමාණ Y</translation>
+    </message>
+    <message>
+        <source>This size is 100 %</source>
+        <translation>මෙම ප්‍රමාණය 100 % වේ</translation>
+    </message>
+    <message>
+        <source>Scale X and Y count from the box as it is now</source>
+        <translation>පරිමාණ X සහ Y කොටුවේ වත්මන් ප්‍රමාණයෙන් ගණන් කෙරේ</translation>
     </message>
     <message>
         <source>Anchor point (px)</source>

@@ -2775,6 +2775,26 @@
         <translation>بيزييه</translation>
     </message>
     <message>
+        <source>Animation</source>
+        <translation>الرسوم المتحركة</translation>
+    </message>
+    <message>
+        <source>Stagger</source>
+        <translation>تتابع</translation>
+    </message>
+    <message>
+        <source> fr</source>
+        <translation> إط.</translation>
+    </message>
+    <message>
+        <source>Stagger the picked layers</source>
+        <translation>تتابع الطبقات المختارة</translation>
+    </message>
+    <message>
+        <source>Each one starts that many frames after the one picked before it; they all end together</source>
+        <translation>تبدأ كل طبقة بعد المختارة قبلها بهذا العدد من الإطارات؛ وتنتهي جميعها معًا</translation>
+    </message>
+    <message>
         <source>Not available</source>
         <translation>غير متوفر</translation>
     </message>
@@ -5513,6 +5533,101 @@
         </translation>
     </message>
     <message>
+        <source>Pick three layers or more to space them evenly</source>
+        <translation>اختر ثلاث طبقات أو أكثر لتوزيعها بالتساوي</translation>
+    </message>
+    <message>
+        <source>Align</source>
+        <translation>محاذاة</translation>
+    </message>
+    <message>
+        <source>Select two layers or more (Ctrl+click, in the order they should come in)</source>
+        <translation>حدّد طبقتين أو أكثر (Ctrl+نقر، بالترتيب الذي يجب أن تدخل به)</translation>
+    </message>
+    <message>
+        <source>Stagger layers</source>
+        <translation>تتابع الطبقات</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n layer(s) staggered</source>
+        <translation>
+            <numerusform>%n طبقة متتابعة</numerusform>
+            <numerusform>%n طبقة متتابعة</numerusform>
+            <numerusform>%n طبقتان متتابعتان</numerusform>
+            <numerusform>%n طبقات متتابعة</numerusform>
+            <numerusform>%n طبقة متتابعة</numerusform>
+            <numerusform>%n طبقة متتابعة</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Show inside the layer below</source>
+        <translation>إظهار داخل الطبقة السفلية</translation>
+    </message>
+    <message>
+        <source>Shown whole again</source>
+        <translation>أصبحت ظاهرة بالكامل مرة أخرى</translation>
+    </message>
+    <message>
+        <source>There is no layer under this one to show it inside</source>
+        <translation>لا توجد طبقة تحت هذه لإظهارها داخلها</translation>
+    </message>
+    <message>
+        <source>Shown only inside “%1”</source>
+        <translation>ظاهرة فقط داخل «%1»</translation>
+    </message>
+    <message>
+        <source>Your name</source>
+        <translation>اسمك</translation>
+    </message>
+    <message>
+        <source>Lower third</source>
+        <translation>الشريط السفلي</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>لافتة</translation>
+    </message>
+    <message>
+        <source>Role bar</source>
+        <translation>شريط المنصب</translation>
+    </message>
+    <message>
+        <source>Line</source>
+        <translation>خط</translation>
+    </message>
+    <message>
+        <source>Lower third added: every piece is a layer you can edit</source>
+        <translation>تمت إضافة الشريط السفلي: كل جزء طبقة يمكنك تعديلها</translation>
+    </message>
+    <message>
+        <source>Select the label (a shape) for the two-colour wipe</source>
+        <translation>حدّد اللافتة (شكل) للمسح بلونين</translation>
+    </message>
+    <message>
+        <source>Two-colour wipe</source>
+        <translation>مسح بلونين</translation>
+    </message>
+    <message>
+        <source>%1 accent</source>
+        <translation>%1 تمييز</translation>
+    </message>
+    <message>
+        <source>Select a text to put a label under it</source>
+        <translation>حدّد نصًا لوضع لافتة تحته</translation>
+    </message>
+    <message>
+        <source>Label · %1</source>
+        <translation>لافتة · %1</translation>
+    </message>
+    <message>
+        <source>Label for the text</source>
+        <translation>لافتة للنص</translation>
+    </message>
+    <message>
+        <source>Fit to text</source>
+        <translation>ملاءمة للنص</translation>
+    </message>
+    <message>
         <source>No keyframes there</source>
         <translation>لا توجد إطارات رئيسية هناك</translation>
     </message>
@@ -7060,6 +7175,10 @@
     <message>
         <source>Tools</source>
         <translation>أدوات</translation>
+    </message>
+    <message>
+        <source>Lower third…</source>
+        <translation>الشريط السفلي…</translation>
     </message>
     <message>
         <source>Split</source>
@@ -17310,6 +17429,73 @@ NEXT TIME</source>
     </message>
 </context>
 <context>
+    <name>LowerThirdDialog</name>
+    <message>
+        <source>Lower third</source>
+        <translation>الشريط السفلي</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>إضافة</translation>
+    </message>
+    <message>
+        <source>Clean</source>
+        <translation>بسيط</translation>
+    </message>
+    <message>
+        <source>With a line</source>
+        <translation>مع خط</translation>
+    </message>
+    <message>
+        <source>Slanted</source>
+        <translation>مائل</translation>
+    </message>
+    <message>
+        <source>Two colours</source>
+        <translation>لونان</translation>
+    </message>
+    <message>
+        <source>Role on a bar</source>
+        <translation>المنصب على شريط</translation>
+    </message>
+    <message>
+        <source>Style</source>
+        <translation>النمط</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>الاسم</translation>
+    </message>
+    <message>
+        <source>Your name</source>
+        <translation>اسمك</translation>
+    </message>
+    <message>
+        <source>Role (optional)</source>
+        <translation>المنصب (اختياري)</translation>
+    </message>
+    <message>
+        <source>Presenter, guest, city…</source>
+        <translation>مقدّم، ضيف، مدينة…</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>لافتة</translation>
+    </message>
+    <message>
+        <source>Accent</source>
+        <translation>لون التمييز</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation>النص</translation>
+    </message>
+    <message>
+        <source>On screen</source>
+        <translation>على الشاشة</translation>
+    </message>
+</context>
+<context>
     <name>Lut</name>
     <message>
         <source>Cinematic</source>
@@ -24477,12 +24663,60 @@ If playback stutters, try another.</source>
         <translation>لا توجد طبقات. أضف تعبئة للبدء.</translation>
     </message>
     <message>
+        <source>Fit to a text</source>
+        <translation>ملاءمة لنص</translation>
+    </message>
+    <message>
+        <source>The shape takes the text&apos;s size plus the margin, and grows when the words change: a label for a name.</source>
+        <translation>يأخذ الشكل حجم النص مع الهامش ويكبر عند تغيّر الكلمات: لافتة لاسم.</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>بلا</translation>
+    </message>
+    <message>
+        <source>Margin across</source>
+        <translation>الهامش الجانبي</translation>
+    </message>
+    <message>
+        <source>up and down</source>
+        <translation>أعلى وأسفل</translation>
+    </message>
+    <message>
+        <source>Two-colour wipe</source>
+        <translation>مسح بلونين</translation>
+    </message>
+    <message>
+        <source>From the playhead the accent colour sweeps in first and this shape follows it, ending on top: the entrance of a lower third.</source>
+        <translation>من رأس التشغيل، يدخل لون التمييز ماسحًا أولًا ثم يتبعه هذا الشكل ويبقى فوقه: دخول الشريط السفلي.</translation>
+    </message>
+    <message>
+        <source>Accent</source>
+        <translation>لون التمييز</translation>
+    </message>
+    <message>
+        <source> fr</source>
+        <translation> إط.</translation>
+    </message>
+    <message>
+        <source>Slanted edge</source>
+        <translation>حافة مائلة</translation>
+    </message>
+    <message>
+        <source>Apply two-colour wipe</source>
+        <translation>تطبيق المسح بلونين</translation>
+    </message>
+    <message>
         <source>Geometry</source>
         <translation>الهندسة</translation>
     </message>
     <message>
         <source>Corner radius</source>
         <translation>نصف قطر الزاوية</translation>
+    </message>
+    <message>
+        <source>Slant</source>
+        <translation>الميل</translation>
     </message>
     <message>
         <source>Points</source>
@@ -24881,6 +25115,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Corner radius</source>
         <translation>نصف قطر الزاوية</translation>
+    </message>
+    <message>
+        <source>Slant</source>
+        <translation>الميل</translation>
     </message>
     <message>
         <source>Inner radius</source>
@@ -30122,6 +30360,18 @@ If playback stutters, try another.</source>
         <translation>مطابقة مدة الفيديو</translation>
     </message>
     <message>
+        <source>Make a label for this text</source>
+        <translation>إنشاء لافتة لهذا النص</translation>
+    </message>
+    <message>
+        <source>Show whole again</source>
+        <translation>إظهارها كاملة مرة أخرى</translation>
+    </message>
+    <message>
+        <source>Show only inside the layer below</source>
+        <translation>الإظهار فقط داخل الطبقة السفلية</translation>
+    </message>
+    <message>
         <source>Split into letters</source>
         <translation>تقسيم إلى أحرف</translation>
     </message>
@@ -31623,6 +31873,46 @@ If playback stutters, try another.</source>
         <translation>مفتاح المقياس</translation>
     </message>
     <message>
+        <source>Align</source>
+        <translation>محاذاة</translation>
+    </message>
+    <message>
+        <source>Align left edges</source>
+        <translation>محاذاة الحواف اليسرى</translation>
+    </message>
+    <message>
+        <source>Align centres across</source>
+        <translation>محاذاة المراكز أفقيًا</translation>
+    </message>
+    <message>
+        <source>Align right edges</source>
+        <translation>محاذاة الحواف اليمنى</translation>
+    </message>
+    <message>
+        <source>Align top edges</source>
+        <translation>محاذاة الحواف العلوية</translation>
+    </message>
+    <message>
+        <source>Align centres up and down</source>
+        <translation>محاذاة المراكز عموديًا</translation>
+    </message>
+    <message>
+        <source>Align bottom edges</source>
+        <translation>محاذاة الحواف السفلية</translation>
+    </message>
+    <message>
+        <source>Space evenly across (three or more)</source>
+        <translation>توزيع بالتساوي أفقيًا (ثلاث أو أكثر)</translation>
+    </message>
+    <message>
+        <source>Space evenly up and down (three or more)</source>
+        <translation>توزيع بالتساوي عموديًا (ثلاث أو أكثر)</translation>
+    </message>
+    <message>
+        <source>with the frame</source>
+        <translation>بالنسبة للإطار</translation>
+    </message>
+    <message>
         <source>Also moved by %1</source>
         <translation>يتحرك أيضًا بواسطة %1</translation>
     </message>
@@ -31681,6 +31971,26 @@ If playback stutters, try another.</source>
     <message>
         <source>Scale clip</source>
         <translation>تغيير حجم المقطع</translation>
+    </message>
+    <message>
+        <source>Add a keyframe for Scale X and Y at the playhead</source>
+        <translation>إضافة إطار رئيسي للمقياس X وY عند رأس التشغيل</translation>
+    </message>
+    <message>
+        <source>Scale X</source>
+        <translation>المقياس X</translation>
+    </message>
+    <message>
+        <source>Scale Y</source>
+        <translation>المقياس Y</translation>
+    </message>
+    <message>
+        <source>This size is 100 %</source>
+        <translation>هذا الحجم هو 100 %</translation>
+    </message>
+    <message>
+        <source>Scale X and Y count from the box as it is now</source>
+        <translation>يُحسب المقياس X وY من حجم المربع الحالي</translation>
     </message>
     <message>
         <source>Anchor point (px)</source>

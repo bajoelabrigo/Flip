@@ -2760,6 +2760,26 @@
         <translation>贝塞尔</translation>
     </message>
     <message>
+        <source>Animation</source>
+        <translation>动画</translation>
+    </message>
+    <message>
+        <source>Stagger</source>
+        <translation>错开</translation>
+    </message>
+    <message>
+        <source> fr</source>
+        <translation> 帧</translation>
+    </message>
+    <message>
+        <source>Stagger the picked layers</source>
+        <translation>错开所选图层</translation>
+    </message>
+    <message>
+        <source>Each one starts that many frames after the one picked before it; they all end together</source>
+        <translation>每个图层比之前选择的图层晚这么多帧开始；全部同时结束</translation>
+    </message>
+    <message>
         <source>Not available</source>
         <translation>不可用</translation>
     </message>
@@ -5425,6 +5445,96 @@
         </translation>
     </message>
     <message>
+        <source>Pick three layers or more to space them evenly</source>
+        <translation>请选择三个或更多图层以均匀分布</translation>
+    </message>
+    <message>
+        <source>Align</source>
+        <translation>对齐</translation>
+    </message>
+    <message>
+        <source>Select two layers or more (Ctrl+click, in the order they should come in)</source>
+        <translation>请选择两个或更多图层（Ctrl+点击，按入场顺序）</translation>
+    </message>
+    <message>
+        <source>Stagger layers</source>
+        <translation>错开图层</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n layer(s) staggered</source>
+        <translation>
+            <numerusform>已错开 %n 个图层</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Show inside the layer below</source>
+        <translation>在下方图层内显示</translation>
+    </message>
+    <message>
+        <source>Shown whole again</source>
+        <translation>已重新完整显示</translation>
+    </message>
+    <message>
+        <source>There is no layer under this one to show it inside</source>
+        <translation>此图层下方没有可在其中显示的图层</translation>
+    </message>
+    <message>
+        <source>Shown only inside “%1”</source>
+        <translation>仅在“%1”内显示</translation>
+    </message>
+    <message>
+        <source>Your name</source>
+        <translation>你的名字</translation>
+    </message>
+    <message>
+        <source>Lower third</source>
+        <translation>字幕条</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>标签</translation>
+    </message>
+    <message>
+        <source>Role bar</source>
+        <translation>职务条</translation>
+    </message>
+    <message>
+        <source>Line</source>
+        <translation>线条</translation>
+    </message>
+    <message>
+        <source>Lower third added: every piece is a layer you can edit</source>
+        <translation>已添加字幕条：每个部分都是可编辑的图层</translation>
+    </message>
+    <message>
+        <source>Select the label (a shape) for the two-colour wipe</source>
+        <translation>请选择用于双色擦除的标签（形状）</translation>
+    </message>
+    <message>
+        <source>Two-colour wipe</source>
+        <translation>双色擦除</translation>
+    </message>
+    <message>
+        <source>%1 accent</source>
+        <translation>%1 强调色</translation>
+    </message>
+    <message>
+        <source>Select a text to put a label under it</source>
+        <translation>请选择一个文本以在其下方添加标签</translation>
+    </message>
+    <message>
+        <source>Label · %1</source>
+        <translation>标签 · %1</translation>
+    </message>
+    <message>
+        <source>Label for the text</source>
+        <translation>文本标签</translation>
+    </message>
+    <message>
+        <source>Fit to text</source>
+        <translation>适应文本</translation>
+    </message>
+    <message>
         <source>No keyframes there</source>
         <translation>那里没有关键帧</translation>
     </message>
@@ -6850,6 +6960,10 @@
     <message>
         <source>Tools</source>
         <translation>工具</translation>
+    </message>
+    <message>
+        <source>Lower third…</source>
+        <translation>字幕条…</translation>
     </message>
     <message>
         <source>Split</source>
@@ -17000,6 +17114,73 @@ NEXT TIME</source>
     </message>
 </context>
 <context>
+    <name>LowerThirdDialog</name>
+    <message>
+        <source>Lower third</source>
+        <translation>字幕条</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>添加</translation>
+    </message>
+    <message>
+        <source>Clean</source>
+        <translation>简洁</translation>
+    </message>
+    <message>
+        <source>With a line</source>
+        <translation>带线条</translation>
+    </message>
+    <message>
+        <source>Slanted</source>
+        <translation>倾斜</translation>
+    </message>
+    <message>
+        <source>Two colours</source>
+        <translation>双色</translation>
+    </message>
+    <message>
+        <source>Role on a bar</source>
+        <translation>职务在条上</translation>
+    </message>
+    <message>
+        <source>Style</source>
+        <translation>样式</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>姓名</translation>
+    </message>
+    <message>
+        <source>Your name</source>
+        <translation>你的名字</translation>
+    </message>
+    <message>
+        <source>Role (optional)</source>
+        <translation>职务（可选）</translation>
+    </message>
+    <message>
+        <source>Presenter, guest, city…</source>
+        <translation>主持人、嘉宾、城市…</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>标签</translation>
+    </message>
+    <message>
+        <source>Accent</source>
+        <translation>强调色</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation>文本</translation>
+    </message>
+    <message>
+        <source>On screen</source>
+        <translation>屏幕显示</translation>
+    </message>
+</context>
+<context>
     <name>Lut</name>
     <message>
         <source>Cinematic</source>
@@ -24032,12 +24213,60 @@ If playback stutters, try another.</source>
         <translation>没有图层。添加填充即可开始。</translation>
     </message>
     <message>
+        <source>Fit to a text</source>
+        <translation>适应某个文本</translation>
+    </message>
+    <message>
+        <source>The shape takes the text&apos;s size plus the margin, and grows when the words change: a label for a name.</source>
+        <translation>形状采用文本大小加上边距，文字改变时会变大：用于名字的标签。</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>无</translation>
+    </message>
+    <message>
+        <source>Margin across</source>
+        <translation>左右边距</translation>
+    </message>
+    <message>
+        <source>up and down</source>
+        <translation>上下</translation>
+    </message>
+    <message>
+        <source>Two-colour wipe</source>
+        <translation>双色擦除</translation>
+    </message>
+    <message>
+        <source>From the playhead the accent colour sweeps in first and this shape follows it, ending on top: the entrance of a lower third.</source>
+        <translation>从播放头开始，强调色先擦入，此形状随后跟上并停留在上方：字幕条的入场。</translation>
+    </message>
+    <message>
+        <source>Accent</source>
+        <translation>强调色</translation>
+    </message>
+    <message>
+        <source> fr</source>
+        <translation> 帧</translation>
+    </message>
+    <message>
+        <source>Slanted edge</source>
+        <translation>倾斜边</translation>
+    </message>
+    <message>
+        <source>Apply two-colour wipe</source>
+        <translation>应用双色擦除</translation>
+    </message>
+    <message>
         <source>Geometry</source>
         <translation>几何</translation>
     </message>
     <message>
         <source>Corner radius</source>
         <translation>圆角半径</translation>
+    </message>
+    <message>
+        <source>Slant</source>
+        <translation>倾斜度</translation>
     </message>
     <message>
         <source>Points</source>
@@ -24436,6 +24665,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Corner radius</source>
         <translation>圆角半径</translation>
+    </message>
+    <message>
+        <source>Slant</source>
+        <translation>倾斜度</translation>
     </message>
     <message>
         <source>Inner radius</source>
@@ -29646,6 +29879,18 @@ If playback stutters, try another.</source>
         <translation>适配视频时长</translation>
     </message>
     <message>
+        <source>Make a label for this text</source>
+        <translation>为此文本制作标签</translation>
+    </message>
+    <message>
+        <source>Show whole again</source>
+        <translation>重新完整显示</translation>
+    </message>
+    <message>
+        <source>Show only inside the layer below</source>
+        <translation>仅在下方图层内显示</translation>
+    </message>
+    <message>
         <source>Split into letters</source>
         <translation>拆分为字母</translation>
     </message>
@@ -31122,6 +31367,46 @@ If playback stutters, try another.</source>
         <translation>缩放关键帧</translation>
     </message>
     <message>
+        <source>Align</source>
+        <translation>对齐</translation>
+    </message>
+    <message>
+        <source>Align left edges</source>
+        <translation>左边缘对齐</translation>
+    </message>
+    <message>
+        <source>Align centres across</source>
+        <translation>水平居中对齐</translation>
+    </message>
+    <message>
+        <source>Align right edges</source>
+        <translation>右边缘对齐</translation>
+    </message>
+    <message>
+        <source>Align top edges</source>
+        <translation>顶边缘对齐</translation>
+    </message>
+    <message>
+        <source>Align centres up and down</source>
+        <translation>垂直居中对齐</translation>
+    </message>
+    <message>
+        <source>Align bottom edges</source>
+        <translation>底边缘对齐</translation>
+    </message>
+    <message>
+        <source>Space evenly across (three or more)</source>
+        <translation>水平均匀分布（三个或更多）</translation>
+    </message>
+    <message>
+        <source>Space evenly up and down (three or more)</source>
+        <translation>垂直均匀分布（三个或更多）</translation>
+    </message>
+    <message>
+        <source>with the frame</source>
+        <translation>相对于画面</translation>
+    </message>
+    <message>
         <source>Also moved by %1</source>
         <translation>同时被 %1 移动</translation>
     </message>
@@ -31180,6 +31465,26 @@ If playback stutters, try another.</source>
     <message>
         <source>Scale clip</source>
         <translation>缩放片段</translation>
+    </message>
+    <message>
+        <source>Add a keyframe for Scale X and Y at the playhead</source>
+        <translation>在播放头处添加缩放 X 和 Y 关键帧</translation>
+    </message>
+    <message>
+        <source>Scale X</source>
+        <translation>缩放 X</translation>
+    </message>
+    <message>
+        <source>Scale Y</source>
+        <translation>缩放 Y</translation>
+    </message>
+    <message>
+        <source>This size is 100 %</source>
+        <translation>将此大小设为 100 %</translation>
+    </message>
+    <message>
+        <source>Scale X and Y count from the box as it is now</source>
+        <translation>缩放 X 和 Y 从框的当前大小开始计算</translation>
     </message>
     <message>
         <source>Anchor point (px)</source>

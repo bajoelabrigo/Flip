@@ -2760,6 +2760,26 @@
         <translation>Bezier</translation>
     </message>
     <message>
+        <source>Animation</source>
+        <translation>Hoạt ảnh</translation>
+    </message>
+    <message>
+        <source>Stagger</source>
+        <translation>So le</translation>
+    </message>
+    <message>
+        <source> fr</source>
+        <translation> kh.</translation>
+    </message>
+    <message>
+        <source>Stagger the picked layers</source>
+        <translation>So le các lớp đã chọn</translation>
+    </message>
+    <message>
+        <source>Each one starts that many frames after the one picked before it; they all end together</source>
+        <translation>Mỗi lớp bắt đầu sau lớp được chọn trước nó chừng ấy khung hình; tất cả kết thúc cùng lúc</translation>
+    </message>
+    <message>
         <source>Not available</source>
         <translation>Không khả dụng</translation>
     </message>
@@ -5433,6 +5453,96 @@
         </translation>
     </message>
     <message>
+        <source>Pick three layers or more to space them evenly</source>
+        <translation>Chọn từ ba lớp trở lên để phân bố đều</translation>
+    </message>
+    <message>
+        <source>Align</source>
+        <translation>Căn chỉnh</translation>
+    </message>
+    <message>
+        <source>Select two layers or more (Ctrl+click, in the order they should come in)</source>
+        <translation>Chọn từ hai lớp trở lên (Ctrl+nhấp, theo thứ tự xuất hiện)</translation>
+    </message>
+    <message>
+        <source>Stagger layers</source>
+        <translation>So le các lớp</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n layer(s) staggered</source>
+        <translation>
+            <numerusform>Đã so le %n lớp</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Show inside the layer below</source>
+        <translation>Hiện bên trong lớp bên dưới</translation>
+    </message>
+    <message>
+        <source>Shown whole again</source>
+        <translation>Đã hiện lại toàn bộ</translation>
+    </message>
+    <message>
+        <source>There is no layer under this one to show it inside</source>
+        <translation>Không có lớp nào bên dưới lớp này để hiện bên trong</translation>
+    </message>
+    <message>
+        <source>Shown only inside “%1”</source>
+        <translation>Chỉ hiện bên trong «%1»</translation>
+    </message>
+    <message>
+        <source>Your name</source>
+        <translation>Tên của bạn</translation>
+    </message>
+    <message>
+        <source>Lower third</source>
+        <translation>Thanh tiêu đề dưới</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>Nhãn</translation>
+    </message>
+    <message>
+        <source>Role bar</source>
+        <translation>Thanh chức danh</translation>
+    </message>
+    <message>
+        <source>Line</source>
+        <translation>Đường kẻ</translation>
+    </message>
+    <message>
+        <source>Lower third added: every piece is a layer you can edit</source>
+        <translation>Đã thêm thanh tiêu đề dưới: mỗi phần là một lớp bạn có thể chỉnh sửa</translation>
+    </message>
+    <message>
+        <source>Select the label (a shape) for the two-colour wipe</source>
+        <translation>Chọn nhãn (một hình) cho hiệu ứng quét hai màu</translation>
+    </message>
+    <message>
+        <source>Two-colour wipe</source>
+        <translation>Quét hai màu</translation>
+    </message>
+    <message>
+        <source>%1 accent</source>
+        <translation>%1 nhấn</translation>
+    </message>
+    <message>
+        <source>Select a text to put a label under it</source>
+        <translation>Chọn một văn bản để đặt nhãn bên dưới</translation>
+    </message>
+    <message>
+        <source>Label · %1</source>
+        <translation>Nhãn · %1</translation>
+    </message>
+    <message>
+        <source>Label for the text</source>
+        <translation>Nhãn cho văn bản</translation>
+    </message>
+    <message>
+        <source>Fit to text</source>
+        <translation>Vừa với văn bản</translation>
+    </message>
+    <message>
         <source>No keyframes there</source>
         <translation>Không có khung hình chính ở đó</translation>
     </message>
@@ -6850,6 +6960,10 @@
     <message>
         <source>Tools</source>
         <translation>Công cụ</translation>
+    </message>
+    <message>
+        <source>Lower third…</source>
+        <translation>Thanh tiêu đề dưới…</translation>
     </message>
     <message>
         <source>Split</source>
@@ -17000,6 +17114,73 @@ LẦN SAU</translation>
     </message>
 </context>
 <context>
+    <name>LowerThirdDialog</name>
+    <message>
+        <source>Lower third</source>
+        <translation>Thanh tiêu đề dưới</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>Thêm</translation>
+    </message>
+    <message>
+        <source>Clean</source>
+        <translation>Gọn gàng</translation>
+    </message>
+    <message>
+        <source>With a line</source>
+        <translation>Có đường kẻ</translation>
+    </message>
+    <message>
+        <source>Slanted</source>
+        <translation>Nghiêng</translation>
+    </message>
+    <message>
+        <source>Two colours</source>
+        <translation>Hai màu</translation>
+    </message>
+    <message>
+        <source>Role on a bar</source>
+        <translation>Chức danh trên thanh</translation>
+    </message>
+    <message>
+        <source>Style</source>
+        <translation>Kiểu</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Tên</translation>
+    </message>
+    <message>
+        <source>Your name</source>
+        <translation>Tên của bạn</translation>
+    </message>
+    <message>
+        <source>Role (optional)</source>
+        <translation>Chức danh (tùy chọn)</translation>
+    </message>
+    <message>
+        <source>Presenter, guest, city…</source>
+        <translation>Người dẫn, khách mời, thành phố…</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>Nhãn</translation>
+    </message>
+    <message>
+        <source>Accent</source>
+        <translation>Màu nhấn</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation>Văn bản</translation>
+    </message>
+    <message>
+        <source>On screen</source>
+        <translation>Trên màn hình</translation>
+    </message>
+</context>
+<context>
     <name>Lut</name>
     <message>
         <source>Cinematic</source>
@@ -24032,12 +24213,60 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Chưa có lớp nào. Thêm một lớp tô để bắt đầu.</translation>
     </message>
     <message>
+        <source>Fit to a text</source>
+        <translation>Vừa với một văn bản</translation>
+    </message>
+    <message>
+        <source>The shape takes the text&apos;s size plus the margin, and grows when the words change: a label for a name.</source>
+        <translation>Hình lấy kích thước của văn bản cộng lề và lớn lên khi chữ thay đổi: một nhãn cho tên.</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Không có</translation>
+    </message>
+    <message>
+        <source>Margin across</source>
+        <translation>Lề hai bên</translation>
+    </message>
+    <message>
+        <source>up and down</source>
+        <translation>trên và dưới</translation>
+    </message>
+    <message>
+        <source>Two-colour wipe</source>
+        <translation>Quét hai màu</translation>
+    </message>
+    <message>
+        <source>From the playhead the accent colour sweeps in first and this shape follows it, ending on top: the entrance of a lower third.</source>
+        <translation>Từ đầu phát, màu nhấn quét vào trước và hình này theo sau, nằm ở trên: phần xuất hiện của thanh tiêu đề dưới.</translation>
+    </message>
+    <message>
+        <source>Accent</source>
+        <translation>Màu nhấn</translation>
+    </message>
+    <message>
+        <source> fr</source>
+        <translation> kh.</translation>
+    </message>
+    <message>
+        <source>Slanted edge</source>
+        <translation>Cạnh nghiêng</translation>
+    </message>
+    <message>
+        <source>Apply two-colour wipe</source>
+        <translation>Áp dụng quét hai màu</translation>
+    </message>
+    <message>
         <source>Geometry</source>
         <translation>Hình học</translation>
     </message>
     <message>
         <source>Corner radius</source>
         <translation>Bán kính góc</translation>
+    </message>
+    <message>
+        <source>Slant</source>
+        <translation>Độ nghiêng</translation>
     </message>
     <message>
         <source>Points</source>
@@ -24436,6 +24665,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Corner radius</source>
         <translation>Bán kính góc</translation>
+    </message>
+    <message>
+        <source>Slant</source>
+        <translation>Độ nghiêng</translation>
     </message>
     <message>
         <source>Inner radius</source>
@@ -29647,6 +29880,18 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Khớp với độ dài video</translation>
     </message>
     <message>
+        <source>Make a label for this text</source>
+        <translation>Tạo nhãn cho văn bản này</translation>
+    </message>
+    <message>
+        <source>Show whole again</source>
+        <translation>Hiện lại toàn bộ</translation>
+    </message>
+    <message>
+        <source>Show only inside the layer below</source>
+        <translation>Chỉ hiện bên trong lớp bên dưới</translation>
+    </message>
+    <message>
         <source>Split into letters</source>
         <translation>Tách thành chữ cái</translation>
     </message>
@@ -31127,6 +31372,46 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Khóa tỉ lệ</translation>
     </message>
     <message>
+        <source>Align</source>
+        <translation>Căn chỉnh</translation>
+    </message>
+    <message>
+        <source>Align left edges</source>
+        <translation>Căn cạnh trái</translation>
+    </message>
+    <message>
+        <source>Align centres across</source>
+        <translation>Căn giữa theo chiều ngang</translation>
+    </message>
+    <message>
+        <source>Align right edges</source>
+        <translation>Căn cạnh phải</translation>
+    </message>
+    <message>
+        <source>Align top edges</source>
+        <translation>Căn cạnh trên</translation>
+    </message>
+    <message>
+        <source>Align centres up and down</source>
+        <translation>Căn giữa theo chiều dọc</translation>
+    </message>
+    <message>
+        <source>Align bottom edges</source>
+        <translation>Căn cạnh dưới</translation>
+    </message>
+    <message>
+        <source>Space evenly across (three or more)</source>
+        <translation>Phân bố đều theo chiều ngang (từ ba trở lên)</translation>
+    </message>
+    <message>
+        <source>Space evenly up and down (three or more)</source>
+        <translation>Phân bố đều theo chiều dọc (từ ba trở lên)</translation>
+    </message>
+    <message>
+        <source>with the frame</source>
+        <translation>theo khung hình</translation>
+    </message>
+    <message>
         <source>Also moved by %1</source>
         <translation>Cũng được di chuyển bởi %1</translation>
     </message>
@@ -31185,6 +31470,26 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Scale clip</source>
         <translation>Tỷ lệ clip</translation>
+    </message>
+    <message>
+        <source>Add a keyframe for Scale X and Y at the playhead</source>
+        <translation>Thêm khung hình chính cho Tỷ lệ X và Y tại đầu phát</translation>
+    </message>
+    <message>
+        <source>Scale X</source>
+        <translation>Tỷ lệ X</translation>
+    </message>
+    <message>
+        <source>Scale Y</source>
+        <translation>Tỷ lệ Y</translation>
+    </message>
+    <message>
+        <source>This size is 100 %</source>
+        <translation>Kích thước này là 100 %</translation>
+    </message>
+    <message>
+        <source>Scale X and Y count from the box as it is now</source>
+        <translation>Tỷ lệ X và Y tính từ kích thước hiện tại của khung</translation>
     </message>
     <message>
         <source>Anchor point (px)</source>
