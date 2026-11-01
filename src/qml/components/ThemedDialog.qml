@@ -144,24 +144,10 @@ Dialog {
         }
     }
 
-    exit: Transition {
-        ParallelAnimation {
-            NumberAnimation {
-                property: "opacity"
-                from: 1.0
-                to: 0.0
-                duration: Theme.durationFast
-                easing.type: Theme.easing
-            }
-            NumberAnimation {
-                property: "scale"
-                from: 1.0
-                to: 0.96
-                duration: Theme.durationFast
-                easing.type: Theme.easing
-            }
-        }
-    }
+    // No exit animation (0.29, found with FLIP_TRACE_CLICKS): it could stall for seconds with the window
+    // idle, and until it ended the closed dialog's dimmer stayed on top and took every click, even those
+    // on the next dialog (its «None», «Accept»…). A dialog closes at once.
+    exit: null
 
     background: Rectangle {
         color: Theme.panelBackground
