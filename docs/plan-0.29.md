@@ -541,3 +541,17 @@ Programa `pruebas\mcp029\run029.py`: una sesión sin ventana por proyecto, guard
   intro con barrido de entrada y salida. A2/A3 se hicieron con el mouse (`a2-rebote`, `a3-salto`).
 - Stock publicado (2026-11-01): 37 tercios (`llt-*`, `llt2-*`, `llt3-*`) con `minAppVersion` 0.29.0, en 13 idiomas;
   1531 plantillas en vivo, zips comprobados por hash.
+
+### Últimas pruebas en ventana (build 24d6d0f, con el mouse, 2026-11-01)
+- [p] Generador de tercios (Dos colores) con entrada y salida en la vista previa (`lt16-ventana`).
+- [p] Forma › Barrido: «Segundo color», «Tercer color» y «Salida también»; barrido de tres colores aplicado desde la
+  ventana sobre una etiqueta hecha con «Hacer una etiqueta para este texto» (`p15-arrastrar`).
+- [p] F3: texto con la herramienta Texto, Esc, Selección, «Comienza en» = 0,5: el texto sigue intacto.
+- [p] F2: un texto recién creado se arrastra entero al primer intento.
+- [p] P15: arrastrar textos, un rectángulo y una máscara de círculo sobre una foto (`p15-arrastrar`).
+- [p] Guías: con la herramienta Texto, un clic sobre una guía crea el texto (no agarra la guía).
+- [p] Dividir en letras + Motion Tools › Secuencia (solo en Pro; en Simple está Animación › Escalonar). Jorge: «funciona».
+- Arreglado tras esta tanda (`8e401`, `b5b94`): arrastrar una capa **sin elegirla antes** (la de arriba bajo el
+  puntero, como CapCut y After Effects; antes solo se elegía); un clic junto al cabezal lo mueve ahí; el sólido toma el
+  color de fondo de arriba; los cuadritos de color tienen borde gris (el del Texto no se veía en el diálogo de tercios);
+  cuadrícula del anclaje de 54 px.
