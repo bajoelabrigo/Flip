@@ -215,10 +215,12 @@ ThemedDialog {
                 errorText: validHex || text.length === 0 ? "" : qsTr("Enter a color like #FF0000")
                 inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase
                 Accessible.name: qsTr("Hex colour")
+                // Checked here on the text as it is now (0.29): `validHex` could still hold the previous
+                // text's answer, so «1» loaded as «#1» and threw; what was typed never reached the colour.
                 onTextEdited: {
-                    if (!validHex)
-                        return
                     const t = text.trim()
+                    if (!/^#?([0-9a-fA-F]{6}|[0-9a-fA-F]{8})$/.test(t))
+                        return
                     root._load(Qt.color(t.startsWith("#") ? t : "#" + t))
                 }
                 onEditingFinished: text = root._hex(root.selectedColor)
