@@ -5921,6 +5921,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>%1 splash</source>
+        <translation>%1 rozprysk</translation>
+    </message>
+    <message>
         <source>drops</source>
         <translation type="unfinished"></translation>
     </message>
@@ -23941,6 +23945,10 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     <message>
         <source>Last layer visible from the start</source>
         <translation>Ostatnia warstwa widoczna od początku</translation>
+    </message>
+    <message>
+        <source>Liquid splash at the hit</source>
+        <translation>Płynny rozprysk przy uderzeniu</translation>
     </message>
     <message>
         <source>Morph it</source>

@@ -5981,6 +5981,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>%1 splash</source>
+        <translation>رذاذ %1</translation>
+    </message>
+    <message>
         <source>drops</source>
         <translation type="unfinished"></translation>
     </message>
@@ -24208,6 +24212,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Last layer visible from the start</source>
         <translation>الطبقة الأخيرة ظاهرة من البداية</translation>
+    </message>
+    <message>
+        <source>Liquid splash at the hit</source>
+        <translation>رذاذ سائل عند الاصطدام</translation>
     </message>
     <message>
         <source>Morph it</source>

@@ -5873,6 +5873,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>%1 splash</source>
+        <translation>%1 しぶき</translation>
+    </message>
+    <message>
         <source>drops</source>
         <translation type="unfinished"></translation>
     </message>
@@ -23763,6 +23767,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Last layer visible from the start</source>
         <translation>最後のレイヤーを最初から表示</translation>
+    </message>
+    <message>
+        <source>Liquid splash at the hit</source>
+        <translation>衝突時の液体しぶき</translation>
     </message>
     <message>
         <source>Morph it</source>

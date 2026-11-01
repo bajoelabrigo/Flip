@@ -5921,6 +5921,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>%1 splash</source>
+        <translation>%1 брызги</translation>
+    </message>
+    <message>
         <source>drops</source>
         <translation type="unfinished"></translation>
     </message>
@@ -23941,6 +23945,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Last layer visible from the start</source>
         <translation>Последний слой виден с начала</translation>
+    </message>
+    <message>
+        <source>Liquid splash at the hit</source>
+        <translation>Жидкие брызги при ударе</translation>
     </message>
     <message>
         <source>Morph it</source>

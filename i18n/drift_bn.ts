@@ -5997,6 +5997,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>%1 splash</source>
+        <translation>%1 ছিটা</translation>
+    </message>
+    <message>
         <source>drops</source>
         <translation type="unfinished"></translation>
     </message>
@@ -23848,6 +23852,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Last layer visible from the start</source>
         <translation>শেষ লেয়ারটি শুরু থেকেই দেখা যাবে</translation>
+    </message>
+    <message>
+        <source>Liquid splash at the hit</source>
+        <translation>আঘাতে তরল ছিটা</translation>
     </message>
     <message>
         <source>Morph it</source>

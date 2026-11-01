@@ -5897,6 +5897,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>%1 splash</source>
+        <translation>%1 salpico</translation>
+    </message>
+    <message>
         <source>drops</source>
         <translation type="unfinished"></translation>
     </message>
@@ -23852,6 +23856,10 @@ Se a reprodução falhar, experimente outra opção.</translation>
     <message>
         <source>Last layer visible from the start</source>
         <translation>A última camada vê-se desde o início</translation>
+    </message>
+    <message>
+        <source>Liquid splash at the hit</source>
+        <translation>Salpico líquido no impacto</translation>
     </message>
     <message>
         <source>Morph it</source>

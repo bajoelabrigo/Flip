@@ -5881,6 +5881,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>%1 splash</source>
+        <translation>%1 bắn tung</translation>
+    </message>
+    <message>
         <source>drops</source>
         <translation type="unfinished"></translation>
     </message>
@@ -23763,6 +23767,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Last layer visible from the start</source>
         <translation>Lớp cuối hiện ngay từ đầu</translation>
+    </message>
+    <message>
+        <source>Liquid splash at the hit</source>
+        <translation>Bắn tung chất lỏng khi va chạm</translation>
     </message>
     <message>
         <source>Morph it</source>

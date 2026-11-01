@@ -5902,6 +5902,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>%1 splash</source>
+        <translation>%1 éclaboussure</translation>
+    </message>
+    <message>
         <source>drops</source>
         <translation type="unfinished"></translation>
     </message>
@@ -23854,6 +23858,10 @@ Si la lecture saccade, essayez une autre option.</translation>
     <message>
         <source>Last layer visible from the start</source>
         <translation>Le dernier calque est visible dès le début</translation>
+    </message>
+    <message>
+        <source>Liquid splash at the hit</source>
+        <translation>Éclaboussure liquide à l’impact</translation>
     </message>
     <message>
         <source>Morph it</source>

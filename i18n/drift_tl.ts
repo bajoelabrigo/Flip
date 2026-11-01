@@ -5901,6 +5901,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>%1 splash</source>
+        <translation>%1 talsik</translation>
+    </message>
+    <message>
         <source>drops</source>
         <translation type="unfinished"></translation>
     </message>
@@ -23841,6 +23845,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Last layer visible from the start</source>
         <translation>Nakikita ang huling layer mula sa simula</translation>
+    </message>
+    <message>
+        <source>Liquid splash at the hit</source>
+        <translation>Talsik ng likido sa pagtama</translation>
     </message>
     <message>
         <source>Morph it</source>

@@ -5873,6 +5873,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>%1 splash</source>
+        <translation>%1 飞溅</translation>
+    </message>
+    <message>
         <source>drops</source>
         <translation type="unfinished"></translation>
     </message>
@@ -23763,6 +23767,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Last layer visible from the start</source>
         <translation>最后一个图层从一开始就可见</translation>
+    </message>
+    <message>
+        <source>Liquid splash at the hit</source>
+        <translation>撞击时液体飞溅</translation>
     </message>
     <message>
         <source>Morph it</source>

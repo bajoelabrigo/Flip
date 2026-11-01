@@ -5897,6 +5897,10 @@
         <translation>%1 franja %2</translation>
     </message>
     <message>
+        <source>%1 splash</source>
+        <translation>%1 salpicadura</translation>
+    </message>
+    <message>
         <source>drops</source>
         <translation>gotas</translation>
     </message>
@@ -23852,6 +23856,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Last layer visible from the start</source>
         <translation>La última capa se ve desde el principio</translation>
+    </message>
+    <message>
+        <source>Liquid splash at the hit</source>
+        <translation>Salpicadura líquida al impacto</translation>
     </message>
     <message>
         <source>Morph it</source>

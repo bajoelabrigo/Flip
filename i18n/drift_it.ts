@@ -5897,6 +5897,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>%1 splash</source>
+        <translation>%1 schizzo</translation>
+    </message>
+    <message>
         <source>drops</source>
         <translation type="unfinished"></translation>
     </message>
@@ -23852,6 +23856,10 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     <message>
         <source>Last layer visible from the start</source>
         <translation>L’ultimo livello è visibile dall’inizio</translation>
+    </message>
+    <message>
+        <source>Liquid splash at the hit</source>
+        <translation>Schizzo liquido all’impatto</translation>
     </message>
     <message>
         <source>Morph it</source>
