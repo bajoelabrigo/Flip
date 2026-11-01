@@ -22845,6 +22845,34 @@ void AppController::removeKeyframes(int trackIndex, const QVariantList &keys)
     finishEdit(tr("Keyframe removed"));
 }
 
+int AppController::removeClipKeysInRange(int trackIndex, int clipIndex, double fromSeconds, double toSeconds)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return 0;
+    const double to = toSeconds < 0.0 ? std::numeric_limits<double>::max() : toSeconds;
+    const double eps = 1e-6;
+    QVariantList keys;
+    for (const QString &prop : clipAnimatedProperties(trackIndex, clipIndex)) {
+        for (const QVariant &v : clipKeyframes(trackIndex, clipIndex, prop)) {
+            const double at = v.toMap().value(QStringLiteral("seconds")).toDouble();
+            if (at >= fromSeconds - eps && at <= to + eps)
+                keys.append(QVariantMap{{QStringLiteral("clip"), clipIndex}, {QStringLiteral("prop"), prop},
+                                        {QStringLiteral("seconds"), at}});
+        }
+    }
+    if (keys.isEmpty()) {
+        setLastMessage(tr("No keyframes there"), QStringLiteral("info"));
+        return 0;
+    }
+    // The pair of a linked position is in the list already: no extra drop for it.
+    const bool linked = m_positionLinked;
+    m_positionLinked = false;
+    removeKeyframes(trackIndex, keys);
+    m_positionLinked = linked;
+    setLastMessage(tr("%n keyframe(s) removed", "", int(keys.size())), QStringLiteral("info"));
+    return int(keys.size());
+}
+
 int AppController::copyKeyframes(int trackIndex, const QVariantList &keys)
 {
     QList<CopiedKey> copied;

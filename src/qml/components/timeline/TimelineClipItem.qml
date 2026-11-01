@@ -552,6 +552,25 @@ Item {
                 visible: clipItem.clipData.kind === "audio"
                 onTriggered: EditorState.fitClipToVideoLength(clipItem.trackIndex, clipItem.clipIndex)
             }
+            // Every row's keys at once (0.29): a Squash jump writes six rows; picking them key by key was the
+            // only way to clear them.
+            ThemedContextMenu {
+                title: qsTr("Delete keyframes")
+                ThemedMenuItem {
+                    text: qsTr("After the playhead (all rows)")
+                    onTriggered: EditorState.removeClipKeysInRange(clipItem.trackIndex, clipItem.clipIndex,
+                                                                   EditorState.playheadSeconds, -1)
+                }
+                ThemedMenuItem {
+                    text: qsTr("Before the playhead (all rows)")
+                    onTriggered: EditorState.removeClipKeysInRange(clipItem.trackIndex, clipItem.clipIndex,
+                                                                   0, EditorState.playheadSeconds)
+                }
+                ThemedMenuItem {
+                    text: qsTr("All of this clip")
+                    onTriggered: EditorState.removeClipKeysInRange(clipItem.trackIndex, clipItem.clipIndex, 0, -1)
+                }
+            }
             // Also in the clip's menu (0.29, as CapCut), not only as the snowflake on the toolbar.
             ThemedMenuItem {
                 text: qsTr("Freeze frame at current time")

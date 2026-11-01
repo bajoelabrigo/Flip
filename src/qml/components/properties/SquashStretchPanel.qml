@@ -66,8 +66,9 @@ Column {
         model: [
             { key: "intensity", label: qsTr("Squash & Stretch"), from: 0, to: 150, value: 100,
               tip: qsTr("How hard it squashes, stretches and bends") },
-            { key: "scale", label: qsTr("Oomph"), from: 0, to: 200, value: 100,
-              tip: qsTr("How far it travels, jumps and turns") },
+            // «Oomph» said nothing (0.29): a jump's distance was there, under a name nobody found.
+            { key: "scale", label: qsTr("Travel"), from: 0, to: 400, value: 100,
+              tip: qsTr("Distance: how far it travels, jumps and turns (200 % jumps twice as far)") },
             { key: "speed", label: qsTr("Speed"), from: 25, to: 300, value: 100,
               tip: qsTr("Faster makes it shorter, slower makes it longer") }
         ]

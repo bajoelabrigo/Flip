@@ -1714,6 +1714,10 @@ public:
     Q_INVOKABLE void setKeyframesCurve(int trackIndex, const QVariantList &keys, double x1, double y1,
                                        double x2, double y2);
     Q_INVOKABLE void removeKeyframes(int trackIndex, const QVariantList &keys);
+    // Every key of every animated property of a clip between two timeline times (0.29: a jump wrote six
+    // rows and they had to be cleared one by one). `toSeconds` < 0 = to the end. One undo step; returns
+    // how many went.
+    Q_INVOKABLE int removeClipKeysInRange(int trackIndex, int clipIndex, double fromSeconds, double toSeconds);
     // Copy and paste of picked keys (0.22.1, After Effects' Ctrl+C / Ctrl+V on keys): the keys
     // ({clip, prop, seconds}) with their values and curves, by their time after the first one;
     // pasted on a clip's same properties starting at the playhead. Returns how many were copied.
