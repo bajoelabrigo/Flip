@@ -717,7 +717,8 @@ public:
                                    const QString &fill, const QString &stroke, double strokeWidth);
     // The Text tool (0.26): a new text centred where the preview was clicked (canvas px); the
     // caller then opens it for typing. Returns {track, clip}, empty when it could not be added.
-    Q_INVOKABLE QVariantMap addTextAtPoint(double x, double y);
+    // `backdrop`: the colour under the click (the preview sampled there), so the new words read on it.
+    Q_INVOKABLE QVariantMap addTextAtPoint(double x, double y, const QColor &backdrop = QColor());
     // The selected custom shape's outline at the playhead, for the preview to edit:
     // {editable, animated, keyHere, contours: [{closed, points: [{x, y, ix, iy, ox, oy}]}]} with
     // coordinates as fractions of the shape's box (0..1). editable is false for any other clip.

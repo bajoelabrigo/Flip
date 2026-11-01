@@ -75,7 +75,20 @@ Item {
     // ----- Shape: the box being dragged out, in overlay px ------------------------------------
     property point dragFrom: Qt.point(0, 0)
     property rect dragRect: Qt.rect(0, 0, 0, 0)
+    property point dragTo: Qt.point(0, 0)
     property bool dragging: false
+    readonly property bool lineTool: tool === "shape" && EditorState.preview.shapeToolKind === "line"
+
+    // The Line tool: Shift keeps it at 0°, 45° or 90°, as AE's pen with Shift.
+    function linePoint(from, to, shift) {
+        if (!shift)
+            return to
+        const dx = to.x - from.x
+        const dy = to.y - from.y
+        const a = Math.round(Math.atan2(dy, dx) / (Math.PI / 4)) * (Math.PI / 4)
+        const len = Math.sqrt(dx * dx + dy * dy)
+        return Qt.point(from.x + Math.cos(a) * len, from.y + Math.sin(a) * len)
+    }
 
     function shapeRect(from, to, shift, alt) {
         let dx = to.x - from.x
@@ -91,7 +104,19 @@ Item {
     }
 
     Rectangle {
-        visible: root.dragging && (root.tool === "shape" || root.tool === "roi")
+        visible: root.dragging && root.lineTool
+        x: root.dragFrom.x
+        y: root.dragFrom.y - height / 2
+        width: Math.sqrt(Math.pow(root.dragTo.x - root.dragFrom.x, 2) + Math.pow(root.dragTo.y - root.dragFrom.y, 2))
+        height: Math.max(2, EditorState.preview.toolStrokeWidth * root.sx)
+        transformOrigin: Item.Left
+        rotation: Math.atan2(root.dragTo.y - root.dragFrom.y, root.dragTo.x - root.dragFrom.x) * 180 / Math.PI
+        color: Theme.primary
+        opacity: 0.8
+    }
+
+    Rectangle {
+        visible: root.dragging && !root.lineTool && (root.tool === "shape" || root.tool === "roi")
         x: root.dragRect.x
         y: root.dragRect.y
         width: root.dragRect.width
@@ -212,6 +237,7 @@ Item {
             }
             if (root.tool === "shape" || root.tool === "roi") {
                 root.dragFrom = Qt.point(mouse.x, mouse.y)
+                root.dragTo = Qt.point(mouse.x, mouse.y)
                 root.dragRect = Qt.rect(mouse.x, mouse.y, 0, 0)
                 root.dragging = true
             } else if (root.tool === "anchor") {
@@ -234,7 +260,9 @@ Item {
                 root.puppetLive = Qt.point(mouse.x, mouse.y)
                 return
             }
-            if ((root.tool === "shape" || root.tool === "roi") && root.dragging)
+            if (root.lineTool && root.dragging)
+                root.dragTo = root.linePoint(root.dragFrom, Qt.point(mouse.x, mouse.y), mouse.modifiers & Qt.ShiftModifier)
+            else if ((root.tool === "shape" || root.tool === "roi") && root.dragging)
                 root.dragRect = root.shapeRect(root.dragFrom, Qt.point(mouse.x, mouse.y),
                                                mouse.modifiers & Qt.ShiftModifier, mouse.modifiers & Qt.AltModifier)
             else if (root.tool === "anchor")
@@ -259,11 +287,23 @@ Item {
                 EditorState.preview.tool = "select"
                 return
             }
-            if (root.tool === "shape" && root.dragging) {
+            if (root.lineTool && root.dragging) {
                 root.dragging = false
-                const r = root.dragRect
-                if (r.width < 4 || r.height < 4)
+                const a = root.dragFrom
+                const b = root.dragTo
+                if (Math.abs(b.x - a.x) < 3 && Math.abs(b.y - a.y) < 3)
                     return
+                EditorState.addPenShape([{ x: a.x / root.sx, y: a.y / root.sy }, { x: b.x / root.sx, y: b.y / root.sy }], false)
+                root.forceActiveFocus()
+            } else if (root.tool === "shape" && root.dragging) {
+                root.dragging = false
+                const r = Qt.rect(root.dragRect.x, root.dragRect.y, root.dragRect.width, root.dragRect.height)
+                // A thin bar (a rule, a line under a title) is a real shape too (0.29: under 4 px it was dropped
+                // without a word); only a click with no drag is ignored.
+                if (r.width < 3 && r.height < 3)
+                    return
+                r.width = Math.max(r.width, 1)
+                r.height = Math.max(r.height, 1)
                 EditorState.addDrawnShape(EditorState.preview.shapeToolKind, r.x / root.sx, r.y / root.sy,
                                           r.width / root.sx, r.height / root.sy, EditorState.preview.toolFill,
                                           EditorState.preview.toolStroke, EditorState.preview.toolStrokeWidth)
@@ -291,12 +331,23 @@ Item {
         onClicked: mouse => {
             if (root.tool !== "text")
                 return
-            const made = EditorState.addTextAtPoint(mouse.x / root.sx, mouse.y / root.sy)
-            if (made && made.track !== undefined) {
-                // As After Effects: after placing one text, back to selection while you type.
-                EditorState.preview.tool = "select"
-                root.textEditRequested(made.track, made.clip, true)
+            // The colour under the click picks dark or light words (0.29: white words on a white label).
+            const px = mouse.x
+            const py = mouse.y
+            const place = function (backdrop) {
+                const made = EditorState.addTextAtPoint(px / root.sx, py / root.sy, backdrop)
+                if (made && made.track !== undefined) {
+                    // As After Effects: after placing one text, back to selection while you type.
+                    EditorState.preview.tool = "select"
+                    root.textEditRequested(made.track, made.clip, true)
+                }
             }
+            const target = root.parent
+            const grabbed = target && target.grabToImage(function (result) {
+                place(AppController.imagePixel(result.image, Math.floor(px + root.x), Math.floor(py + root.y)))
+            }, Qt.size(Math.round(target.width), Math.round(target.height)))
+            if (!grabbed)
+                place(Qt.rgba(0, 0, 0, 0))
         }
     }
 }

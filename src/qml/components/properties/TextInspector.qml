@@ -1488,9 +1488,9 @@ Item {
                         width: 34
                         text: "I"
                         checked: root.textStyle.italic === true
-                        enabled: root.familyHasItalic
+                        // A family with no italic face gets a slanted upright one (0.29).
                         tooltip: root.familyHasItalic ? qsTr("Italic")
-                                                      : qsTr("%1 has no italic face").arg(root.textStyle.fontFamily)
+                                                      : qsTr("Italic (slanted: %1 has no italic face)").arg(root.textStyle.fontFamily)
                         onClicked: root.setTextStyleKey("italic", !root.textStyle.italic)
                     }
                     ThemedComboBox {

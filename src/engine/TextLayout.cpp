@@ -521,6 +521,11 @@ TextLayoutResult layoutStyledText(const QString &text, const drift::TextStyle &s
         run.font.setHinting(SkFontHinting::kNone);
         run.font.setSubpixel(true);
         run.font.setLinearMetrics(true);
+        // A family with no italic face (Inter, Anton…) leans its upright one, as a word processor's
+        // synthetic italic (0.29: the I button was off for most fonts).
+        if (style.italic && run.font.getTypeface()
+            && run.font.getTypeface()->fontStyle().slant() == SkFontStyle::kUpright_Slant)
+            run.font.setSkewX(-0.21f);
         run.originX = info->origin.fX;
         run.advanceX = info->advanceX;
         run.glyphs.assign(info->glyphs, info->glyphs + info->count);

@@ -15,7 +15,8 @@ Rectangle {
         { id: "rectangle", label: qsTr("Rectangle"), glyph: Theme.icons.square },
         { id: "ellipse", label: qsTr("Ellipse"), glyph: "circle" },
         { id: "star", label: qsTr("Star"), glyph: "star" },
-        { id: "polygon", label: qsTr("Polygon"), glyph: "hexagon" }
+        { id: "polygon", label: qsTr("Polygon"), glyph: "hexagon" },
+        { id: "line", label: qsTr("Line"), glyph: "slash" }
     ]
     readonly property var currentShape: {
         for (const k of shapeKinds) {
@@ -266,6 +267,27 @@ Rectangle {
                     onObjectAdded: (index, object) => shapeMenu.insertItem(index, object)
                     onObjectRemoved: (index, object) => shapeMenu.removeItem(object)
                 }
+            }
+        }
+        // Ellipse and Line one click away (0.29), not only behind the shape button's second click.
+        IconButton {
+            Layout.alignment: Qt.AlignVCenter
+            glyph: "circle"
+            active: root.tool === "shape" && EditorState.preview.shapeToolKind === "ellipse"
+            tooltip: qsTr("Ellipse: drag on the preview (Shift for a circle)")
+            onClicked: {
+                EditorState.preview.shapeToolKind = "ellipse"
+                root.pick("shape")
+            }
+        }
+        IconButton {
+            Layout.alignment: Qt.AlignVCenter
+            glyph: "slash"
+            active: root.tool === "shape" && EditorState.preview.shapeToolKind === "line"
+            tooltip: qsTr("Line: drag on the preview (Shift for 0°, 45° or 90°); it takes the stroke colour and width")
+            onClicked: {
+                EditorState.preview.shapeToolKind = "line"
+                root.pick("shape")
             }
         }
         ToolButton { toolId: "pen"; shortcutId: "previewPenTool"; label: qsTr("Pen: click for corners, drag for curves"); glyph: Theme.icons.pencil }

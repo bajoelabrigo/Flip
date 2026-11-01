@@ -11290,7 +11290,7 @@ void AppController::addDrawnShape(const QString &kind, double x, double y, doubl
     selectClip(target, newClipIndex);
 }
 
-QVariantMap AppController::addTextAtPoint(double x, double y)
+QVariantMap AppController::addTextAtPoint(double x, double y, const QColor &backdrop)
 {
     const int clipsBefore = [this] {
         int n = 0;
@@ -11315,6 +11315,15 @@ QVariantMap AppController::addTextAtPoint(double x, double y)
     // was not in the undo history and a redo brought the text back centred.
     const drift::Project beforeMove = m_project;
     drift::Clip &clip = m_project.tracks()[m_selectedTrack].clips[m_selectedClip];
+    // Readable from the first letter (0.29): a size in proportion to the frame, and dark words on a light
+    // backdrop. A white 64 px text on a white label or a paper background could not be seen at all.
+    if (clip.textStyle.packId.isEmpty()) {
+        clip.textStyle.pixelSize = std::max(24.0, std::round(m_project.height() * 0.083));
+        const bool light = backdrop.isValid() && backdrop.alpha() > 0
+                           && (0.2126 * backdrop.redF() + 0.7152 * backdrop.greenF() + 0.0722 * backdrop.blueF()) > 0.6;
+        drift::setSolidFill(clip.textStyle, light ? QColor(0x1a, 0x1a, 0x1a) : QColor(Qt::white));
+        placeFittedTextBox(clip, m_project.width(), m_project.height());
+    }
     const double w = clip.transformW.isEmpty() ? m_project.width() : clip.transformW.evaluateAt(0);
     const double h = clip.transformH.isEmpty() ? m_project.height() : clip.transformH.evaluateAt(0);
     clip.transformX = {};
