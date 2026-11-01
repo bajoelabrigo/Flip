@@ -1,0 +1,1 @@
+{"format":1,"id":"out-wipe-slant","label":"Slanted wipe","category":"basic","slots":["out"],"order":14,"duration":0.6,"keys":{},"effects":[{"id":"ae.linear_wipe","params":{"completion":[[0,0,"easeIn"],[1,100,"easeInOut"]],"angle":-14.0,"feather":2.0}}]}

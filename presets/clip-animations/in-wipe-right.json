@@ -1,0 +1,1 @@
+{"format":1,"id":"in-wipe-right","label":"Wipe from right","category":"basic","slots":["in"],"order":11,"duration":0.6,"keys":{},"effects":[{"id":"ae.linear_wipe","params":{"completion":[[0,100,"easeOut"],[1,0,"easeInOut"]],"angle":180.0}}]}

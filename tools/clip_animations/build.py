@@ -64,6 +64,18 @@ IN: list[P] = [
     P("spin-cw", "Spin clockwise", "Girar a la derecha", "basic", {"rotation": [k(0, -90, "easeOut"), k(1, 0)], "opacity": appear()}),
     P("spin-ccw", "Spin anticlockwise", "Girar a la izquierda", "basic", {"rotation": [k(0, 90, "easeOut"), k(1, 0)], "opacity": appear()}),
     P("bounce", "Bounce", "Rebote", "basic", {"y": [k(0, 0.35, "bounce"), k(1, 0)], "opacity": appear(0.25)}, duration=0.8),
+    # Wipes (0.29): After Effects' Linear Wipe keyed from hidden to shown, the usual entrance of a lower
+    # third; the slanted one follows a label leaning 14°.
+    P("wipe-left", "Wipe from left", "Barrido desde la izquierda", "basic", {},
+      [fx("ae.linear_wipe", completion=[k(0, 100, "easeOut"), k(1, 0)], angle=0.0)], duration=0.6),
+    P("wipe-right", "Wipe from right", "Barrido desde la derecha", "basic", {},
+      [fx("ae.linear_wipe", completion=[k(0, 100, "easeOut"), k(1, 0)], angle=180.0)], duration=0.6),
+    P("wipe-up", "Wipe up", "Barrido hacia arriba", "basic", {},
+      [fx("ae.linear_wipe", completion=[k(0, 100, "easeOut"), k(1, 0)], angle=-90.0)], duration=0.6),
+    P("wipe-down", "Wipe down", "Barrido hacia abajo", "basic", {},
+      [fx("ae.linear_wipe", completion=[k(0, 100, "easeOut"), k(1, 0)], angle=90.0)], duration=0.6),
+    P("wipe-slant", "Slanted wipe", "Barrido inclinado", "basic", {},
+      [fx("ae.linear_wipe", completion=[k(0, 100, "easeOut"), k(1, 0)], angle=-14.0, feather=2.0)], duration=0.6),
 
     # slide
     P("push-left", "Push from right", "Empujar desde la derecha", "slide", {"x": [k(0, 1, "easeOut"), k(1, 0)]}, trending=True),
