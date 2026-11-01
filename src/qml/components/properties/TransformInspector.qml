@@ -408,10 +408,9 @@ Item {
                     const fromW = refW, fromH = refH
                     if (!(root.clipData.scaleRefW > 0))
                         EditorState.setClipScaleReference(EditorState.selectedTrack, EditorState.selectedClip, fromW, fromH)
-                    EditorState.beginPreviewDrag(qsTr("Scale"))
-                    EditorState.previewSetClipKeyframe(EditorState.selectedTrack, EditorState.selectedClip, key,
-                                                       EditorState.inspectorPlayheadSeconds, Math.max(1, value))
-                    EditorState.commitPreviewDrag()
+                    // About the anchor point, as After Effects: the position follows (it used to grow from the corner).
+                    EditorState.setClipScaledSize(EditorState.selectedTrack, EditorState.selectedClip, key,
+                                                  EditorState.inspectorPlayheadSeconds, Math.max(1, value))
                 }
                 Row {
                     width: parent.width

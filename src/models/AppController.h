@@ -1729,6 +1729,10 @@ public:
     // Transform's Scale X / Y (0.29): the box that counts as 100 %. Not an undo step: it only changes how
     // the size is shown.
     Q_INVOKABLE void setClipScaleReference(int trackIndex, int clipIndex, double width, double height);
+    // Scale X or Y (prop "width" / "height") at `atSeconds` about the anchor point, as After Effects: the box's
+    // position follows so the anchor stays where it is (0.29: the box shrank towards its top-left corner).
+    Q_INVOKABLE void setClipScaledSize(int trackIndex, int clipIndex, const QString &prop, double atSeconds,
+                                       double value);
     // Lower thirds (0.29): the clip shows only inside the layer right under it at that moment (its label), which
     // stays on screen; again on a clip that already does, it turns it off. Returns whether it is now inside one.
     Q_INVOKABLE bool showInsideLayerBelow(int trackIndex, int clipIndex);

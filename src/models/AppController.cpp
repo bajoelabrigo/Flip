@@ -23561,6 +23561,64 @@ void AppController::setClipScaleReference(int trackIndex, int clipIndex, double 
     finishEdit(QString());
 }
 
+void AppController::setClipScaledSize(int trackIndex, int clipIndex, const QString &prop, double atSeconds,
+                                      double value)
+{
+    const bool horizontal = prop == QLatin1String("width");
+    if (!isValidClipIndex(trackIndex, clipIndex) || (!horizontal && prop != QLatin1String("height")))
+        return;
+    const drift::Project before = m_project;
+    drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
+    drift::KeyframeTrack<double> &size = horizontal ? clip.transformW : clip.transformH;
+    drift::KeyframeTrack<double> &pos = horizontal ? clip.transformX : clip.transformY;
+    const drift::KeyframeTrack<double> &anchor = horizontal ? clip.anchorX : clip.anchorY;
+    const double canvas = horizontal ? m_project.width() : m_project.height();
+    const drift::TimeUs rel =
+        qBound<drift::TimeUs>(0, drift::secondsToUs(atSeconds) - clip.timelineStart, clip.timelineDuration);
+    const auto valueAt = [](const drift::KeyframeTrack<double> &t, drift::TimeUs at, double def) {
+        return t.isEmpty() ? def : t.evaluateAt(at);
+    };
+    // Where the anchor sits on the canvas at a time, before the edit.
+    const drift::KeyframeTrack<double> oldSize = size;
+    const drift::KeyframeTrack<double> oldPos = pos;
+    const auto anchorAt = [&](drift::TimeUs at) {
+        return valueAt(oldPos, at, 0.0) + valueAt(anchor, at, 0.5) * valueAt(oldSize, at, canvas);
+    };
+    const bool sizeAnimated = clipAnimatedProperties(trackIndex, clipIndex).contains(prop);
+    const double v = qMax(1.0, value);
+    writeKeyframeValue(size, rel, v, m_autoKeyEnabled || sizeAnimated, false);
+    const bool keyed = size.stopwatch() || size.keyframes().size() > 1;
+    if (!keyed) {
+        // A plain value: the whole position moves by the same amount, keys and all.
+        const double d = valueAt(anchor, rel, 0.5) * (valueAt(oldSize, rel, canvas) - v);
+        if (pos.isEmpty()) {
+            pos.setKeyframe(0, d);
+        } else {
+            const QList<drift::TimeUs> times = pos.keyframes().keys();
+            for (const drift::TimeUs k : times) {
+                drift::Keyframe<double> key = pos.keyframes().value(k);
+                key.value += d;
+                pos.setKeyframe(k, key);
+            }
+        }
+    } else {
+        // Animated: at every size key the position keeps the anchor where it was, so the box grows and shrinks
+        // about it. Values elsewhere on the path are left alone.
+        const QList<drift::TimeUs> times = size.keyframes().keys();
+        const bool posAnimated = pos.stopwatch() || pos.keyframes().size() > 1;
+        for (const drift::TimeUs k : times) {
+            const double place = anchorAt(k) - valueAt(anchor, k, 0.5) * size.evaluateAt(k);
+            if (!posAnimated || k == rel || pos.keyframes().contains(k))
+                writeKeyframeValue(pos, k, place, true, true);
+        }
+        // A position that was still now has its keys at the size keys; a moving one only gains the edited one.
+        if (!posAnimated)
+            pos.setStopwatch(true);
+    }
+    pushProjectEdit(before, tr("Scale"));
+    finishEdit(tr("Scale"));
+}
+
 int AppController::removeClipKeysInRange(int trackIndex, int clipIndex, double fromSeconds, double toSeconds)
 {
     if (!isValidClipIndex(trackIndex, clipIndex))

@@ -223,6 +223,7 @@ private slots:
     void removeClipKeysInRangeClearsEveryRow();
     void frameSolidCoversTheWholeWork();
     void colourWipeTakesUpToThreeAccents();
+    void scaledSizeKeepsTheAnchorInPlace();
     void moveTrackReordersAndRemapsSelection();
     void addTrackInsertsEmptyTrackByType();
     void renameTrackAndUndo();
@@ -4549,6 +4550,32 @@ void EditorStateTest::colourWipeTakesUpToThreeAccents()
     QVERIFY(state.selectedTrack() < third);
     QVERIFY(third < second);
     QVERIFY(second < first);
+}
+
+void EditorStateTest::scaledSizeKeepsTheAnchorInPlace()
+{
+    // 0.29: Scale X / Y grow and shrink about the anchor (the centre), still or animated; the box used to keep its
+    // top-left corner, so a squash moved the ball.
+    AssetLibrary library;
+    AppController state(&library);
+    state.addShapeClip(QStringLiteral("circle"), 0.0);
+    const int t = state.selectedTrack();
+    const int c = state.selectedClip();
+    const auto centreX = [&](double seconds) {
+        return state.propertyValueAt(t, c, QStringLiteral("x"), seconds, 0.0)
+               + state.propertyValueAt(t, c, QStringLiteral("width"), seconds, 0.0) / 2.0;
+    };
+    const double centre = centreX(0.0);
+    const double w = state.propertyValueAt(t, c, QStringLiteral("width"), 0.0, 0.0);
+    state.setClipScaledSize(t, c, QStringLiteral("width"), 0.0, w / 2.0);
+    QCOMPARE(state.propertyValueAt(t, c, QStringLiteral("width"), 0.0, 0.0), w / 2.0);
+    QVERIFY(qAbs(centreX(0.0) - centre) < 0.01);
+    // Animated: a key at the start, then a wider one later; both keep the centre.
+    state.setClipKeyframe(t, c, QStringLiteral("width"), 0.0, w / 2.0);
+    state.setClipScaledSize(t, c, QStringLiteral("width"), 0.5, w * 1.5);
+    QCOMPARE(state.propertyValueAt(t, c, QStringLiteral("width"), 0.5, 0.0), w * 1.5);
+    QVERIFY(qAbs(centreX(0.0) - centre) < 0.01);
+    QVERIFY(qAbs(centreX(0.5) - centre) < 0.01);
 }
 
 void EditorStateTest::typedValueOnAnAnimatedPropertyAddsAKey()
