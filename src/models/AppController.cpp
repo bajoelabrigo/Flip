@@ -3655,8 +3655,20 @@ QVariantMap audioEffectToMap(const drift::Effect &effect, int effectIndex, drift
     };
 }
 
+// A lone key at the clip's start without the stopwatch is how a static value is stored (every clip gets one for
+// x/y/w/h): the inspector shows it as no keys (`static`, 0.29: the rows looked animated — blue diamond, arrows — but a value
+// typed at another time only changed the value, as clipAnimatedProperties reads it static).
+static QVariantMap transformKeysToMap(const drift::KeyframeTrack<double> &track, drift::TimeUs timelineStart)
+{
+    QVariantMap map = keyframeTrackToMap(track, timelineStart);
+    if (track.keyframes().size() == 1 && track.keyframes().firstKey() == 0 && !track.stopwatch())
+        map.insert(QStringLiteral("static"), true);
+    return map;
+}
+
 QVariantMap keyframesToMap(const drift::Clip &clip)
 {
+    const auto keyframeTrackToMap = transformKeysToMap;
     return {
         {QStringLiteral("opacity"), keyframeTrackToMap(clip.opacity, clip.timelineStart)},
         {QStringLiteral("x"), keyframeTrackToMap(clip.transformX, clip.timelineStart)},

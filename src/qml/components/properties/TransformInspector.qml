@@ -72,6 +72,13 @@ Item {
 
     property var scaleDragStart: null
 
+    // The keys a row shows: a lone static key (the clip's own value, `static`) is no keys, so the row is not
+    // "animated" and the diamond, not typing, starts the animation (0.29).
+    function keysOf(key) {
+        const entry = clipData.keyframes && clipData.keyframes[key]
+        return entry && entry.points && !entry["static"] ? entry.points : []
+    }
+
     function transformAt(key, def) {
         return EditorState.propertyValueAt(EditorState.selectedTrack, EditorState.selectedClip,
                                            key, EditorState.inspectorPlayheadSeconds, def)
@@ -258,7 +265,7 @@ Item {
             PropertyKeyframeRow {
                 width: parent.width
                 propDef: root.propX
-                keyframeList: (root.clipData.keyframes && root.clipData.keyframes.x && root.clipData.keyframes.x.points) || []
+                keyframeList: root.keysOf("x")
                 linkedPropKey: root.positionLinked ? "y" : ""
                 useSlider: true
                 sliderFrom: -root.canvasW
@@ -268,7 +275,7 @@ Item {
             PropertyKeyframeRow {
                 width: parent.width
                 propDef: root.propY
-                keyframeList: (root.clipData.keyframes && root.clipData.keyframes.y && root.clipData.keyframes.y.points) || []
+                keyframeList: root.keysOf("y")
                 linkedPropKey: root.positionLinked ? "x" : ""
                 useSlider: true
                 sliderFrom: -root.canvasH
@@ -456,7 +463,7 @@ Item {
                 visible: !root.sizeLinked
                 width: parent.width
                 propDef: root.propWidth
-                keyframeList: (root.clipData.keyframes && root.clipData.keyframes.width && root.clipData.keyframes.width.points) || []
+                keyframeList: root.keysOf("width")
                 useSlider: true
                 sliderFrom: 1
                 sliderTo: Math.max(root.canvasW * 2, 2)
@@ -466,7 +473,7 @@ Item {
                 visible: !root.sizeLinked
                 width: parent.width
                 propDef: root.propHeight
-                keyframeList: (root.clipData.keyframes && root.clipData.keyframes.height && root.clipData.keyframes.height.points) || []
+                keyframeList: root.keysOf("height")
                 useSlider: true
                 sliderFrom: 1
                 sliderTo: Math.max(root.canvasH * 2, 2)
@@ -582,7 +589,7 @@ Item {
             PropertyKeyframeRow {
                 width: parent.width
                 propDef: root.propOpacity
-                keyframeList: (root.clipData.keyframes && root.clipData.keyframes.opacity && root.clipData.keyframes.opacity.points) || []
+                keyframeList: root.keysOf("opacity")
                 useSlider: true
                 sliderFrom: 0
                 sliderTo: 1
@@ -592,7 +599,7 @@ Item {
             PropertyKeyframeRow {
                 width: parent.width
                 propDef: root.propRotation
-                keyframeList: (root.clipData.keyframes && root.clipData.keyframes.rotation && root.clipData.keyframes.rotation.points) || []
+                keyframeList: root.keysOf("rotation")
                 useSlider: true
                 sliderFrom: -180
                 sliderTo: 180
@@ -723,7 +730,7 @@ Item {
                 visible: !!root.clipData.layer3d
                 width: parent.width
                 propDef: root.propRotationX
-                keyframeList: (root.clipData.keyframes && root.clipData.keyframes.rotationX && root.clipData.keyframes.rotationX.points) || []
+                keyframeList: root.keysOf("rotationX")
                 useSlider: true
                 sliderFrom: -180
                 sliderTo: 180
@@ -733,7 +740,7 @@ Item {
                 visible: !!root.clipData.layer3d
                 width: parent.width
                 propDef: root.propRotationY
-                keyframeList: (root.clipData.keyframes && root.clipData.keyframes.rotationY && root.clipData.keyframes.rotationY.points) || []
+                keyframeList: root.keysOf("rotationY")
                 useSlider: true
                 sliderFrom: -180
                 sliderTo: 180
@@ -743,7 +750,7 @@ Item {
                 visible: !!root.clipData.layer3d
                 width: parent.width
                 propDef: root.propZ
-                keyframeList: (root.clipData.keyframes && root.clipData.keyframes.z && root.clipData.keyframes.z.points) || []
+                keyframeList: root.keysOf("z")
                 useSlider: true
                 sliderFrom: -4000
                 sliderTo: 1500
@@ -753,7 +760,7 @@ Item {
                 visible: !!root.clipData.layer3d
                 width: parent.width
                 propDef: root.propPerspective
-                keyframeList: (root.clipData.keyframes && root.clipData.keyframes.perspective && root.clipData.keyframes.perspective.points) || []
+                keyframeList: root.keysOf("perspective")
                 useSlider: true
                 sliderFrom: 200
                 sliderTo: 8000
