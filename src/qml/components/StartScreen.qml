@@ -38,6 +38,7 @@ Rectangle {
         id: navItem
         property string glyph
         property string label
+        property string tip
         property bool current: false
         signal activated()
         width: parent ? parent.width : 0
@@ -70,6 +71,10 @@ Rectangle {
             hoverEnabled: true
             cursorShape: Qt.PointingHandCursor
             onClicked: navItem.activated()
+        }
+        ThemedToolTip {
+            visible: navItem.tip !== "" && navMouse.containsMouse
+            text: navItem.tip
         }
     }
 
@@ -219,6 +224,8 @@ Rectangle {
                 NavItem {
                     glyph: Theme.icons.monitor
                     label: qsTr("Edit online")
+                    // The web editor is frozen (Jorge, 2026-11-01): new things come only to this app.
+                    tip: qsTr("A simpler version in the browser: it doesn't have every tool of this app and gets no new ones. Everything new comes to this app.")
                     onActivated: Qt.openUrlExternally("https://getflipstudio.com/editor/")
                 }
             }

@@ -26007,6 +26007,10 @@ Se a reprodução travar, tente outra opção.</translation>
         <translation>Legendas a partir da voz, no seu computador, sem internet</translation>
     </message>
     <message>
+        <source>A simpler version in the browser: it doesn&apos;t have every tool of this app and gets no new ones. Everything new comes to this app.</source>
+        <translation>Uma versão mais simples no navegador: não tem todas as ferramentas deste app e não recebe novidades. Tudo o que é novo chega a este app.</translation>
+    </message>
+    <message>
         <source>Click to sign in</source>
         <translation>Clique para fazer login</translation>
     </message>

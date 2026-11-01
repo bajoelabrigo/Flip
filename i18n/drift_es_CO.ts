@@ -26003,6 +26003,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>A simpler version in the browser: it doesn&apos;t have every tool of this app and gets no new ones. Everything new comes to this app.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Click to sign in</source>
         <translation type="unfinished"></translation>
     </message>

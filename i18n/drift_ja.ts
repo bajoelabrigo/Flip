@@ -25917,6 +25917,10 @@ If playback stutters, try another.</source>
         <translation>音声から字幕を作成。コンピューター上で、インターネット不要</translation>
     </message>
     <message>
+        <source>A simpler version in the browser: it doesn&apos;t have every tool of this app and gets no new ones. Everything new comes to this app.</source>
+        <translation>ブラウザー用の簡易版です。このアプリのすべてのツールはなく、新機能も追加されません。新しい機能はすべてこのアプリに追加されます。</translation>
+    </message>
+    <message>
         <source>Click to sign in</source>
         <translation>クリックしてサインイン</translation>
     </message>

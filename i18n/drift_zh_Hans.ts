@@ -25916,6 +25916,10 @@ If playback stutters, try another.</source>
         <translation>根据语音生成字幕，在你的电脑上完成，无需联网</translation>
     </message>
     <message>
+        <source>A simpler version in the browser: it doesn&apos;t have every tool of this app and gets no new ones. Everything new comes to this app.</source>
+        <translation>浏览器中的简化版：没有本应用的全部工具，也不再更新。所有新功能都只在本应用中提供。</translation>
+    </message>
+    <message>
         <source>Click to sign in</source>
         <translation>点击登录</translation>
     </message>

@@ -25917,6 +25917,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Phụ đề từ giọng nói, ngay trên máy tính, không cần internet</translation>
     </message>
     <message>
+        <source>A simpler version in the browser: it doesn&apos;t have every tool of this app and gets no new ones. Everything new comes to this app.</source>
+        <translation>Phiên bản đơn giản hơn trên trình duyệt: không có đủ công cụ của ứng dụng này và không nhận tính năng mới. Mọi thứ mới đều có trên ứng dụng này.</translation>
+    </message>
+    <message>
         <source>Click to sign in</source>
         <translation>Nhấp để đăng nhập</translation>
     </message>

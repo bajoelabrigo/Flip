@@ -26009,6 +26009,10 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Sous-titres à partir de la voix, sur votre ordinateur, sans Internet</translation>
     </message>
     <message>
+        <source>A simpler version in the browser: it doesn&apos;t have every tool of this app and gets no new ones. Everything new comes to this app.</source>
+        <translation>Une version plus simple dans le navigateur : elle n’a pas tous les outils de cette app et ne reçoit plus de nouveautés. Tout ce qui est nouveau arrive dans cette app.</translation>
+    </message>
+    <message>
         <source>Click to sign in</source>
         <translation>Cliquez pour vous connecter</translation>
     </message>

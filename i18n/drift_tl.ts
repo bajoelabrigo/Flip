@@ -25995,6 +25995,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>A simpler version in the browser: it doesn&apos;t have every tool of this app and gets no new ones. Everything new comes to this app.</source>
+        <translation>Mas simpleng bersyon sa browser: wala rito ang lahat ng tool ng app na ito at hindi na ito nakakatanggap ng bago. Lahat ng bago ay dumarating sa app na ito.</translation>
+    </message>
+    <message>
         <source>Click to sign in</source>
         <translation type="unfinished"></translation>
     </message>

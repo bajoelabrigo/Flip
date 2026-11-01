@@ -26007,6 +26007,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Subtítulos desde la voz, en tu computadora, sin internet</translation>
     </message>
     <message>
+        <source>A simpler version in the browser: it doesn&apos;t have every tool of this app and gets no new ones. Everything new comes to this app.</source>
+        <translation>Una versión más sencilla en el navegador: no tiene todas las herramientas de esta app y no recibe novedades. Todo lo nuevo llega a esta app.</translation>
+    </message>
+    <message>
         <source>Click to sign in</source>
         <translation>Haz clic para iniciar sesión</translation>
     </message>

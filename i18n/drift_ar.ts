@@ -26367,6 +26367,10 @@ If playback stutters, try another.</source>
         <translation>ترجمة من الصوت، على جهازك، بدون إنترنت</translation>
     </message>
     <message>
+        <source>A simpler version in the browser: it doesn&apos;t have every tool of this app and gets no new ones. Everything new comes to this app.</source>
+        <translation>نسخة أبسط في المتصفح: لا تضم كل أدوات هذا التطبيق ولا تتلقى ميزات جديدة. كل جديد يصل إلى هذا التطبيق.</translation>
+    </message>
+    <message>
         <source>Click to sign in</source>
         <translation>انقر لتسجيل الدخول</translation>
     </message>

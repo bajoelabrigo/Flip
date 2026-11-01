@@ -26097,6 +26097,10 @@ If playback stutters, try another.</source>
         <translation>Субтитры по голосу, на вашем компьютере, без интернета</translation>
     </message>
     <message>
+        <source>A simpler version in the browser: it doesn&apos;t have every tool of this app and gets no new ones. Everything new comes to this app.</source>
+        <translation>Упрощённая версия в браузере: в ней нет всех инструментов этого приложения и не появляются новинки. Всё новое выходит в этом приложении.</translation>
+    </message>
+    <message>
         <source>Click to sign in</source>
         <translation>Нажмите, чтобы войти</translation>
     </message>

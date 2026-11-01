@@ -26097,6 +26097,10 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
         <translation>Napisy z głosu, na Twoim komputerze, bez internetu</translation>
     </message>
     <message>
+        <source>A simpler version in the browser: it doesn&apos;t have every tool of this app and gets no new ones. Everything new comes to this app.</source>
+        <translation>Prostsza wersja w przeglądarce: nie ma wszystkich narzędzi tej aplikacji i nie dostaje nowości. Wszystko, co nowe, trafia do tej aplikacji.</translation>
+    </message>
+    <message>
         <source>Click to sign in</source>
         <translation>Kliknij, aby się zalogować</translation>
     </message>

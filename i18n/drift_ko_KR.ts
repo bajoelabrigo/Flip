@@ -25915,6 +25915,10 @@ If playback stutters, try another.</source>
         <translation>음성으로 자막 만들기, 내 컴퓨터에서 인터넷 없이</translation>
     </message>
     <message>
+        <source>A simpler version in the browser: it doesn&apos;t have every tool of this app and gets no new ones. Everything new comes to this app.</source>
+        <translation>브라우저용 간단한 버전: 이 앱의 모든 도구가 있지는 않으며 새 기능도 추가되지 않습니다. 새로운 기능은 모두 이 앱에 추가됩니다.</translation>
+    </message>
+    <message>
         <source>Click to sign in</source>
         <translation>클릭하여 로그인</translation>
     </message>
