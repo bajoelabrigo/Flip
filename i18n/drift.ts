@@ -17191,6 +17191,34 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Automatic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wipe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Slide</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Zoom</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fade</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Clean</source>
         <translation type="unfinished"></translation>
     </message>
@@ -17212,6 +17240,14 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Entrance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Exit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

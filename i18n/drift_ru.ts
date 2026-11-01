@@ -17258,6 +17258,34 @@ NEXT TIME</source>
         <translation>Добавить</translation>
     </message>
     <message>
+        <source>Automatic</source>
+        <translation>Автоматически</translation>
+    </message>
+    <message>
+        <source>Wipe</source>
+        <translation>Шторка</translation>
+    </message>
+    <message>
+        <source>Slide</source>
+        <translation>Сдвиг</translation>
+    </message>
+    <message>
+        <source>Pop</source>
+        <translation>Появление</translation>
+    </message>
+    <message>
+        <source>Zoom</source>
+        <translation>Масштаб</translation>
+    </message>
+    <message>
+        <source>Fade</source>
+        <translation>Затухание</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Нет</translation>
+    </message>
+    <message>
         <source>Clean</source>
         <translation>Простой</translation>
     </message>
@@ -17280,6 +17308,14 @@ NEXT TIME</source>
     <message>
         <source>Style</source>
         <translation>Стиль</translation>
+    </message>
+    <message>
+        <source>Entrance</source>
+        <translation>Вход</translation>
+    </message>
+    <message>
+        <source>Exit</source>
+        <translation>Выход</translation>
     </message>
     <message>
         <source>Name</source>

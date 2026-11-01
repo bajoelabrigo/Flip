@@ -17191,6 +17191,34 @@ NEXT TIME</source>
         <translation>එක් කරන්න</translation>
     </message>
     <message>
+        <source>Automatic</source>
+        <translation>ස්වයංක්‍රීය</translation>
+    </message>
+    <message>
+        <source>Wipe</source>
+        <translation>වයිප්</translation>
+    </message>
+    <message>
+        <source>Slide</source>
+        <translation>ලිස්සීම</translation>
+    </message>
+    <message>
+        <source>Pop</source>
+        <translation>පොප්</translation>
+    </message>
+    <message>
+        <source>Zoom</source>
+        <translation>සූම්</translation>
+    </message>
+    <message>
+        <source>Fade</source>
+        <translation>මැකී යාම</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>කිසිවක් නැත</translation>
+    </message>
+    <message>
         <source>Clean</source>
         <translation>පිරිසිදු</translation>
     </message>
@@ -17213,6 +17241,14 @@ NEXT TIME</source>
     <message>
         <source>Style</source>
         <translation>විලාසය</translation>
+    </message>
+    <message>
+        <source>Entrance</source>
+        <translation>ඇතුළුවීම</translation>
+    </message>
+    <message>
+        <source>Exit</source>
+        <translation>පිටවීම</translation>
     </message>
     <message>
         <source>Name</source>

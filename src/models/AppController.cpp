@@ -23369,14 +23369,39 @@ void AppController::createLowerThird(const QVariantMap &o)
 
     // Every piece comes in and goes out (Jorge, 0.29: «entrada y salida, igual que el barrido»); the exit is the
     // same motion going back.
+    // The entrance and the exit can be picked in the maker (Jorge, 0.29): «auto» is each piece's own motion; the
+    // others are the same for every piece (a wipe keeps a line's upward wipe and a slanted label's slant).
+    const QString entranceChoice = o.value(QStringLiteral("entrance"), QStringLiteral("auto")).toString();
+    const QString exitChoice = o.value(QStringLiteral("exit"), QStringLiteral("auto")).toString();
+    const auto patchFor = [](const QString &choice, const QString &own, const QString &prefix) -> QVariantMap {
+        QString motion = own;
+        if (choice == QLatin1String("none"))
+            return {{QStringLiteral("preset"), QString()}, {QStringLiteral("kind"), QStringLiteral("none")}};
+        if (choice == QLatin1String("fade"))
+            return {{QStringLiteral("kind"), QStringLiteral("fade")}, {QStringLiteral("duration"), 0.5}};
+        if (choice == QLatin1String("wipe"))
+            motion = own.startsWith(QLatin1String("wipe")) ? own : QStringLiteral("wipe-left");
+        else if (choice == QLatin1String("slide"))
+            motion = QStringLiteral("slide-up");
+        else if (choice == QLatin1String("pop"))
+            motion = QStringLiteral("pop");
+        else if (choice == QLatin1String("zoom"))
+            motion = QStringLiteral("zoom-in");
+        return {{QStringLiteral("preset"), prefix + motion}};
+    };
+    const auto animateOut = [&](const QString &id, const QString &motion) {
+        int t = -1;
+        int c = -1;
+        if (findClipById(m_project, id, &t, &c))
+            setClipAnimation(t, c, QStringLiteral("animOut"), patchFor(exitChoice, motion, QStringLiteral("out-")));
+    };
     const auto animate = [&](const QString &id, const QString &motion) {
         int t = -1;
         int c = -1;
         if (!findClipById(m_project, id, &t, &c))
             return;
-        setClipAnimation(t, c, QStringLiteral("animIn"), QVariantMap{{QStringLiteral("preset"), QStringLiteral("in-") + motion}});
-        if (findClipById(m_project, id, &t, &c))
-            setClipAnimation(t, c, QStringLiteral("animOut"), QVariantMap{{QStringLiteral("preset"), QStringLiteral("out-") + motion}});
+        setClipAnimation(t, c, QStringLiteral("animIn"), patchFor(entranceChoice, motion, QStringLiteral("in-")));
+        animateOut(id, motion);
     };
     const auto entrance = animate;
     entrance(nameClip.id, QStringLiteral("slide-up"));
@@ -23388,9 +23413,23 @@ void AppController::createLowerThird(const QVariantMap &o)
         entrance(roleLabel.id, QStringLiteral("wipe-left"));
     int lt = -1;
     int lc = -1;
-    if (style == QLatin1String("twoColour") && findClipById(m_project, label.id, &lt, &lc)) {
+    const bool colourIn = entranceChoice == QLatin1String("auto") || entranceChoice == QLatin1String("wipe");
+    if (style == QLatin1String("twoColour") && colourIn && findClipById(m_project, label.id, &lt, &lc)) {
+        const bool colourOut = exitChoice == QLatin1String("auto") || exitChoice == QLatin1String("wipe");
         selectClip(lt, lc);
-        twoColourWipe(accentColour.name(), 14, 0.0, QString(), QString(), true);
+        twoColourWipe(accentColour.name(), 14, 0.0, QString(), QString(), colourOut);
+        if (!colourOut) {
+            // Another exit: the label and its accent (the copy that fits the same text) leave together.
+            QStringList ids;
+            for (const drift::Track &track : m_project.tracks()) {
+                for (const drift::Clip &clip : track.clips) {
+                    if (clip.id == label.id || (!label.fitTextId.isEmpty() && clip.fitTextId == label.fitTextId))
+                        ids.append(clip.id);
+                }
+            }
+            for (const QString &id : std::as_const(ids))
+                animateOut(id, QStringLiteral("wipe-left"));
+        }
     } else {
         entrance(label.id, slanted ? QStringLiteral("wipe-slant") : QStringLiteral("wipe-left"));
     }

@@ -4565,6 +4565,19 @@ void EditorStateTest::colourWipeTakesUpToThreeAccents()
         }
     }
     QVERIFY(pieces >= 3);
+
+    // The entrance and the exit picked in the maker.
+    AppController picked(&library);
+    picked.createLowerThird({{QStringLiteral("style"), QStringLiteral("clean")},
+                             {QStringLiteral("name"), QStringLiteral("Bo")},
+                             {QStringLiteral("entrance"), QStringLiteral("fade")},
+                             {QStringLiteral("exit"), QStringLiteral("none")}});
+    for (const drift::Track &track : picked.project()->tracks()) {
+        for (const drift::Clip &clip : track.clips) {
+            QCOMPARE(clip.animIn.kind, drift::ClipAnimKind::Fade);
+            QCOMPARE(clip.animOut.kind, drift::ClipAnimKind::None);
+        }
+    }
 }
 
 void EditorStateTest::scaledSizeKeepsTheAnchorInPlace()

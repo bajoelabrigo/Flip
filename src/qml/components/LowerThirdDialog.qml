@@ -16,6 +16,18 @@ ThemedDialog {
     property string labelColor: "#ffffffff"
     property string accentColor: "#fff5c518"
     property string textColor: "#ff1a1a1a"
+    property string motionIn: "auto"
+    property string motionOut: "auto"
+    // How it comes in and goes out (Jorge, 0.29): Automatic is each style's own motion.
+    readonly property var motions: [
+        { "id": "auto", "label": qsTr("Automatic") },
+        { "id": "wipe", "label": qsTr("Wipe") },
+        { "id": "slide", "label": qsTr("Slide") },
+        { "id": "pop", "label": qsTr("Pop") },
+        { "id": "zoom", "label": qsTr("Zoom") },
+        { "id": "fade", "label": qsTr("Fade") },
+        { "id": "none", "label": qsTr("None") }
+    ]
     readonly property var styles: [
         { "id": "clean", "label": qsTr("Clean") },
         { "id": "line", "label": qsTr("With a line") },
@@ -37,6 +49,8 @@ ThemedDialog {
         "labelColor": root.labelColor,
         "accentColor": root.accentColor,
         "textColor": root.textColor,
+        "entrance": root.motionIn,
+        "exit": root.motionOut,
         "seconds": secondsField.value
     })
 
@@ -55,6 +69,35 @@ ThemedDialog {
                     text: modelData.label
                     selected: root.style === modelData.id
                     onClicked: root.style = modelData.id
+                }
+            }
+        }
+
+        ThemedLabel { text: qsTr("Entrance") }
+        Flow {
+            width: parent.width
+            spacing: Theme.spacingSm
+            Repeater {
+                model: root.motions
+                ThemedChip {
+                    required property var modelData
+                    text: modelData.label
+                    selected: root.motionIn === modelData.id
+                    onClicked: root.motionIn = modelData.id
+                }
+            }
+        }
+        ThemedLabel { text: qsTr("Exit") }
+        Flow {
+            width: parent.width
+            spacing: Theme.spacingSm
+            Repeater {
+                model: root.motions
+                ThemedChip {
+                    required property var modelData
+                    text: modelData.label
+                    selected: root.motionOut === modelData.id
+                    onClicked: root.motionOut = modelData.id
                 }
             }
         }

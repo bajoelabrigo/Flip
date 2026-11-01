@@ -555,3 +555,6 @@ Programa `pruebas\mcp029\run029.py`: una sesión sin ventana por proyecto, guard
   puntero, como CapCut y After Effects; antes solo se elegía); un clic junto al cabezal lo mueve ahí; el sólido toma el
   color de fondo de arriba; los cuadritos de color tienen borde gris (el del Texto no se veía en el diálogo de tercios);
   cuadrícula del anclaje de 54 px.
+- **Entrada y salida a elegir en el generador de tercios** (Jorge, 2026-11-01): Automática (la de cada estilo),
+  Barrido, Deslizar, Aparecer, Zoom, Desvanecer o Ninguna, para la entrada y para la salida (`entrance` / `exit`).
+  Trampa evitada: en un diálogo no se puede llamar `exit` a una propiedad (es la transición del Popup).

@@ -17132,6 +17132,34 @@ LẦN SAU</translation>
         <translation>Thêm</translation>
     </message>
     <message>
+        <source>Automatic</source>
+        <translation>Tự động</translation>
+    </message>
+    <message>
+        <source>Wipe</source>
+        <translation>Quét</translation>
+    </message>
+    <message>
+        <source>Slide</source>
+        <translation>Trượt</translation>
+    </message>
+    <message>
+        <source>Pop</source>
+        <translation>Bật lên</translation>
+    </message>
+    <message>
+        <source>Zoom</source>
+        <translation>Thu phóng</translation>
+    </message>
+    <message>
+        <source>Fade</source>
+        <translation>Mờ dần</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Không</translation>
+    </message>
+    <message>
         <source>Clean</source>
         <translation>Gọn gàng</translation>
     </message>
@@ -17154,6 +17182,14 @@ LẦN SAU</translation>
     <message>
         <source>Style</source>
         <translation>Kiểu</translation>
+    </message>
+    <message>
+        <source>Entrance</source>
+        <translation>Vào</translation>
+    </message>
+    <message>
+        <source>Exit</source>
+        <translation>Ra</translation>
     </message>
     <message>
         <source>Name</source>

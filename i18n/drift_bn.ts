@@ -17191,6 +17191,34 @@ NEXT TIME</source>
         <translation>যোগ করুন</translation>
     </message>
     <message>
+        <source>Automatic</source>
+        <translation>স্বয়ংক্রিয়</translation>
+    </message>
+    <message>
+        <source>Wipe</source>
+        <translation>ওয়াইপ</translation>
+    </message>
+    <message>
+        <source>Slide</source>
+        <translation>স্লাইড</translation>
+    </message>
+    <message>
+        <source>Pop</source>
+        <translation>পপ</translation>
+    </message>
+    <message>
+        <source>Zoom</source>
+        <translation>জুম</translation>
+    </message>
+    <message>
+        <source>Fade</source>
+        <translation>ফেড</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>কিছু না</translation>
+    </message>
+    <message>
         <source>Clean</source>
         <translation>পরিচ্ছন্ন</translation>
     </message>
@@ -17213,6 +17241,14 @@ NEXT TIME</source>
     <message>
         <source>Style</source>
         <translation>স্টাইল</translation>
+    </message>
+    <message>
+        <source>Entrance</source>
+        <translation>প্রবেশ</translation>
+    </message>
+    <message>
+        <source>Exit</source>
+        <translation>প্রস্থান</translation>
     </message>
     <message>
         <source>Name</source>

@@ -17191,6 +17191,34 @@ NEXT TIME</source>
         <translation>Idagdag</translation>
     </message>
     <message>
+        <source>Automatic</source>
+        <translation>Awtomatiko</translation>
+    </message>
+    <message>
+        <source>Wipe</source>
+        <translation>Wipe</translation>
+    </message>
+    <message>
+        <source>Slide</source>
+        <translation>Dulas</translation>
+    </message>
+    <message>
+        <source>Pop</source>
+        <translation>Sulpot</translation>
+    </message>
+    <message>
+        <source>Zoom</source>
+        <translation>Zoom</translation>
+    </message>
+    <message>
+        <source>Fade</source>
+        <translation>Paglaho</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Wala</translation>
+    </message>
+    <message>
         <source>Clean</source>
         <translation>Malinis</translation>
     </message>
@@ -17213,6 +17241,14 @@ NEXT TIME</source>
     <message>
         <source>Style</source>
         <translation>Estilo</translation>
+    </message>
+    <message>
+        <source>Entrance</source>
+        <translation>Pasok</translation>
+    </message>
+    <message>
+        <source>Exit</source>
+        <translation>Labas</translation>
     </message>
     <message>
         <source>Name</source>

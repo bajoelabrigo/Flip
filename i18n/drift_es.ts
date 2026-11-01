@@ -17195,6 +17195,34 @@ LA PRÓXIMA</translation>
         <translation>Añadir</translation>
     </message>
     <message>
+        <source>Automatic</source>
+        <translation>Automática</translation>
+    </message>
+    <message>
+        <source>Wipe</source>
+        <translation>Barrido</translation>
+    </message>
+    <message>
+        <source>Slide</source>
+        <translation>Deslizar</translation>
+    </message>
+    <message>
+        <source>Pop</source>
+        <translation>Aparecer</translation>
+    </message>
+    <message>
+        <source>Zoom</source>
+        <translation>Zoom</translation>
+    </message>
+    <message>
+        <source>Fade</source>
+        <translation>Desvanecer</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Ninguna</translation>
+    </message>
+    <message>
         <source>Clean</source>
         <translation>Limpio</translation>
     </message>
@@ -17217,6 +17245,14 @@ LA PRÓXIMA</translation>
     <message>
         <source>Style</source>
         <translation>Estilo</translation>
+    </message>
+    <message>
+        <source>Entrance</source>
+        <translation>Entrada</translation>
+    </message>
+    <message>
+        <source>Exit</source>
+        <translation>Salida</translation>
     </message>
     <message>
         <source>Name</source>

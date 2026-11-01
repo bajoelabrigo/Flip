@@ -251,7 +251,9 @@
                         {QStringLiteral("labelColor"), stringProp(QStringLiteral("Label colour"))},
                         {QStringLiteral("accentColor"), stringProp(QStringLiteral("Accent colour"))},
                         {QStringLiteral("textColor"), stringProp(QStringLiteral("Text colour"))},
-                        {QStringLiteral("seconds"), numberProp(QStringLiteral("Seconds on screen"))}},
+                        {QStringLiteral("seconds"), numberProp(QStringLiteral("Seconds on screen"))},
+                        {QStringLiteral("entrance"), stringProp(QStringLiteral("auto|wipe|slide|pop|zoom|fade|none"))},
+                        {QStringLiteral("exit"), stringProp(QStringLiteral("Same choices as entrance"))}},
                        {QStringLiteral("name")}) },
         { "make_text_label", "canvas", "A label under a text that fits it",
           "A rectangle on the track under the text, sized to the words plus a margin; it grows and shrinks "

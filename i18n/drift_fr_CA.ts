@@ -17197,6 +17197,34 @@ PROCHAINE</translation>
         <translation>Ajouter</translation>
     </message>
     <message>
+        <source>Automatic</source>
+        <translation>Automatique</translation>
+    </message>
+    <message>
+        <source>Wipe</source>
+        <translation>Balayage</translation>
+    </message>
+    <message>
+        <source>Slide</source>
+        <translation>Glisser</translation>
+    </message>
+    <message>
+        <source>Pop</source>
+        <translation>Apparition</translation>
+    </message>
+    <message>
+        <source>Zoom</source>
+        <translation>Zoom</translation>
+    </message>
+    <message>
+        <source>Fade</source>
+        <translation>Fondu</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Aucune</translation>
+    </message>
+    <message>
         <source>Clean</source>
         <translation>Épuré</translation>
     </message>
@@ -17219,6 +17247,14 @@ PROCHAINE</translation>
     <message>
         <source>Style</source>
         <translation>Style</translation>
+    </message>
+    <message>
+        <source>Entrance</source>
+        <translation>Entrée</translation>
+    </message>
+    <message>
+        <source>Exit</source>
+        <translation>Sortie</translation>
     </message>
     <message>
         <source>Name</source>

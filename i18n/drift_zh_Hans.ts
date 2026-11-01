@@ -17132,6 +17132,34 @@ NEXT TIME</source>
         <translation>添加</translation>
     </message>
     <message>
+        <source>Automatic</source>
+        <translation>自动</translation>
+    </message>
+    <message>
+        <source>Wipe</source>
+        <translation>擦除</translation>
+    </message>
+    <message>
+        <source>Slide</source>
+        <translation>滑动</translation>
+    </message>
+    <message>
+        <source>Pop</source>
+        <translation>弹出</translation>
+    </message>
+    <message>
+        <source>Zoom</source>
+        <translation>缩放</translation>
+    </message>
+    <message>
+        <source>Fade</source>
+        <translation>淡化</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>无</translation>
+    </message>
+    <message>
         <source>Clean</source>
         <translation>简洁</translation>
     </message>
@@ -17154,6 +17182,14 @@ NEXT TIME</source>
     <message>
         <source>Style</source>
         <translation>样式</translation>
+    </message>
+    <message>
+        <source>Entrance</source>
+        <translation>入场</translation>
+    </message>
+    <message>
+        <source>Exit</source>
+        <translation>出场</translation>
     </message>
     <message>
         <source>Name</source>

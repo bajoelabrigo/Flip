@@ -17447,6 +17447,34 @@ NEXT TIME</source>
         <translation>إضافة</translation>
     </message>
     <message>
+        <source>Automatic</source>
+        <translation>تلقائي</translation>
+    </message>
+    <message>
+        <source>Wipe</source>
+        <translation>مسح</translation>
+    </message>
+    <message>
+        <source>Slide</source>
+        <translation>انزلاق</translation>
+    </message>
+    <message>
+        <source>Pop</source>
+        <translation>ظهور</translation>
+    </message>
+    <message>
+        <source>Zoom</source>
+        <translation>تكبير</translation>
+    </message>
+    <message>
+        <source>Fade</source>
+        <translation>تلاشٍ</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>بلا</translation>
+    </message>
+    <message>
         <source>Clean</source>
         <translation>بسيط</translation>
     </message>
@@ -17469,6 +17497,14 @@ NEXT TIME</source>
     <message>
         <source>Style</source>
         <translation>النمط</translation>
+    </message>
+    <message>
+        <source>Entrance</source>
+        <translation>الدخول</translation>
+    </message>
+    <message>
+        <source>Exit</source>
+        <translation>الخروج</translation>
     </message>
     <message>
         <source>Name</source>

@@ -17132,6 +17132,34 @@ NEXT TIME</source>
         <translation>추가</translation>
     </message>
     <message>
+        <source>Automatic</source>
+        <translation>자동</translation>
+    </message>
+    <message>
+        <source>Wipe</source>
+        <translation>와이프</translation>
+    </message>
+    <message>
+        <source>Slide</source>
+        <translation>슬라이드</translation>
+    </message>
+    <message>
+        <source>Pop</source>
+        <translation>팝</translation>
+    </message>
+    <message>
+        <source>Zoom</source>
+        <translation>줌</translation>
+    </message>
+    <message>
+        <source>Fade</source>
+        <translation>페이드</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>없음</translation>
+    </message>
+    <message>
         <source>Clean</source>
         <translation>깔끔</translation>
     </message>
@@ -17154,6 +17182,14 @@ NEXT TIME</source>
     <message>
         <source>Style</source>
         <translation>스타일</translation>
+    </message>
+    <message>
+        <source>Entrance</source>
+        <translation>등장</translation>
+    </message>
+    <message>
+        <source>Exit</source>
+        <translation>퇴장</translation>
     </message>
     <message>
         <source>Name</source>

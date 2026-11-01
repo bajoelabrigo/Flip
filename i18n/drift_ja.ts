@@ -17132,6 +17132,34 @@ NEXT TIME</source>
         <translation>追加</translation>
     </message>
     <message>
+        <source>Automatic</source>
+        <translation>自動</translation>
+    </message>
+    <message>
+        <source>Wipe</source>
+        <translation>ワイプ</translation>
+    </message>
+    <message>
+        <source>Slide</source>
+        <translation>スライド</translation>
+    </message>
+    <message>
+        <source>Pop</source>
+        <translation>ポップ</translation>
+    </message>
+    <message>
+        <source>Zoom</source>
+        <translation>ズーム</translation>
+    </message>
+    <message>
+        <source>Fade</source>
+        <translation>フェード</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>なし</translation>
+    </message>
+    <message>
         <source>Clean</source>
         <translation>シンプル</translation>
     </message>
@@ -17154,6 +17182,14 @@ NEXT TIME</source>
     <message>
         <source>Style</source>
         <translation>スタイル</translation>
+    </message>
+    <message>
+        <source>Entrance</source>
+        <translation>登場</translation>
+    </message>
+    <message>
+        <source>Exit</source>
+        <translation>退場</translation>
     </message>
     <message>
         <source>Name</source>
