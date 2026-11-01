@@ -175,6 +175,23 @@ Column {
                                                               timingBox.currentIndex === 1 ? "end" : "start",
                                                               Math.round(staggerField.value))
             }
+            // Letter by letter (0.29, Jorge), as the tutorial's Split into characters: the text becomes one
+            // layer per letter and the animation runs through them with the stagger.
+            ThemedButton {
+                width: parent.width
+                visible: !!EditorState.selectedClipData && EditorState.selectedClipData.kind === "text"
+                         && (EditorState.selectedClipData.textContent || "").trim().length > 1
+                text: qsTr("Apply letter by letter")
+                tooltip: qsTr("Splits the text into one layer per letter and applies it to each, the stagger apart")
+                onClicked: {
+                    const n = EditorState.splitTextIntoLetters(EditorState.selectedTrack, EditorState.selectedClip)
+                    if (n > 1)
+                        EditorState.applySquashToSelection(root.picked, options.intensity, options.scale,
+                                                           options.speed,
+                                                           timingBox.currentIndex === 1 ? "end" : "start",
+                                                           Math.max(1, Math.round(staggerField.value)))
+                }
+            }
             ThemedLabel {
                 width: parent.width
                 wrapMode: Text.WordWrap

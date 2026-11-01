@@ -1715,6 +1715,11 @@ public:
     Q_INVOKABLE void setKeyframesEasing(int trackIndex, const QVariantList &keys, const QString &mode);
     Q_INVOKABLE void setKeyframesCurve(int trackIndex, const QVariantList &keys, double x1, double y1,
                                        double x2, double y2);
+    // After Effects' «Create shapes/layers from text» as the Squash & Stretch tutorial's Split into characters
+    // (0.29): one text layer per letter, each where it was, styled as it was (its runs kept), on tracks above
+    // in reading order; the original goes. The letters come back selected, ready for a staggered animation.
+    // Returns how many letters.
+    Q_INVOKABLE int splitTextIntoLetters(int trackIndex, int clipIndex);
     Q_INVOKABLE void removeKeyframes(int trackIndex, const QVariantList &keys);
     // Every key of every animated property of a clip between two timeline times (0.29: a jump wrote six
     // rows and they had to be cleared one by one). `toSeconds` < 0 = to the end. One undo step; returns

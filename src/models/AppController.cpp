@@ -22845,6 +22845,128 @@ void AppController::removeKeyframes(int trackIndex, const QVariantList &keys)
     finishEdit(tr("Keyframe removed"));
 }
 
+int AppController::splitTextIntoLetters(int trackIndex, int clipIndex)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return 0;
+    const drift::Clip original = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    if (original.type != drift::ClipType::Text || original.textContent.trimmed().isEmpty()) {
+        setLastMessage(tr("Select a text to split into letters"), QStringLiteral("warning"));
+        return 0;
+    }
+    // Laid out at project scale, at a moment inside the clip (its own animation's rest pose is not needed:
+    // the boxes come from the layout, not the animated frame).
+    const drift::TimeUs at = qBound(original.timelineStart, m_playheadUs, original.timelineEnd() - 1);
+    const FrameCompositor::TextEditGeometry geometry = FrameCompositor::textEditGeometry(
+        original, original.textContent, at, m_project.width(), m_project.height(), 1.0);
+    if (!geometry.set)
+        return 0;
+    const QPointF centre = geometry.layoutRect.center();
+    QTransform toCanvas;
+    toCanvas.translate(centre.x(), centre.y());
+    toCanvas.rotate(geometry.rotation);
+    toCanvas.translate(-centre.x(), -centre.y());
+    toCanvas.translate(geometry.layoutRect.x(), geometry.layoutRect.y());
+    const QList<int> &stops = drift::text::caretStops(*geometry.set);
+    const double origX = original.transformX.isEmpty() ? 0.0 : original.transformX.evaluateAt(at - original.timelineStart);
+    const double origY = original.transformY.isEmpty() ? 0.0 : original.transformY.evaluateAt(at - original.timelineStart);
+    const double origW = original.transformW.isEmpty() ? m_project.width() : original.transformW.evaluateAt(at - original.timelineStart);
+    const double origH = original.transformH.isEmpty() ? m_project.height() : original.transformH.evaluateAt(at - original.timelineStart);
+    const QPointF origCentre(origX + origW / 2.0, origY + origH / 2.0);
+
+    struct Letter { QString text; int from; int to; QPointF centre; };
+    QList<Letter> letters;
+    for (int i = 0; i + 1 < stops.size(); ++i) {
+        const int from = stops.at(i);
+        const int to = stops.at(i + 1);
+        const QString piece = original.textContent.mid(from, to - from);
+        if (piece.trimmed().isEmpty())
+            continue;
+        const QList<QRectF> rects = drift::text::selectionRects(*geometry.set, from, to);
+        if (rects.isEmpty())
+            continue;
+        letters.append({piece, from, to, toCanvas.map(rects.first().center())});
+    }
+    if (letters.size() < 2) {
+        setLastMessage(tr("This text has a single letter"), QStringLiteral("info"));
+        return 0;
+    }
+
+    const drift::Project before = m_project;
+    m_project.tracks()[trackIndex].clips.removeAt(clipIndex);
+    QStringList ids;
+    // Inserted above the original's track, last letter first, so the first letter ends up on top.
+    for (int n = letters.size() - 1; n >= 0; --n) {
+        const Letter &letter = letters.at(n);
+        drift::Clip clip = original;
+        clip.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
+        clip.linkId.clear();
+        clip.name = QStringLiteral("%1 · %2").arg(original.name.left(24), letter.text);
+        clip.textContent = letter.text;
+        clip.textStyle.runs.clear();
+        for (drift::TextRun run : original.textStyle.runs) {
+            const int a = qMax(run.start, letter.from);
+            const int b = qMin(run.end, letter.to);
+            if (a >= b)
+                continue;
+            run.start = a - letter.from;
+            run.end = b - letter.from;
+            clip.textStyle.runs.append(run);
+        }
+        clip.textAutoFit = true;
+        placeFittedTextBox(clip, m_project.width(), m_project.height());
+        const double w = clip.transformW.isEmpty() ? m_project.width() : clip.transformW.evaluateAt(0);
+        const double h = clip.transformH.isEmpty() ? m_project.height() : clip.transformH.evaluateAt(0);
+        // The letter's own place, and the original's movement kept on top of it.
+        const QPointF shift = letter.centre - origCentre;
+        const auto moveTrack = [](drift::KeyframeTrack<double> &kt, double base, double delta) {
+            if (kt.keyframes().size() <= 1) {
+                kt = {};
+                kt.setKeyframe(0, base);
+                return;
+            }
+            const QMap<drift::TimeUs, drift::Keyframe<double>> keys = kt.keyframes();
+            for (auto it = keys.cbegin(); it != keys.cend(); ++it) {
+                drift::Keyframe<double> key = it.value();
+                key.value += delta;
+                kt.setKeyframe(it.key(), key);
+            }
+        };
+        moveTrack(clip.transformX, letter.centre.x() - w / 2.0, shift.x() + (origW - w) / 2.0);
+        moveTrack(clip.transformY, letter.centre.y() - h / 2.0, shift.y() + (origH - h) / 2.0);
+        const int track = drift::insertTrackAboveForClipType(m_project, trackIndex, drift::ClipType::Text);
+        m_project.tracks()[track].clips.append(clip);
+        ids.prepend(clip.id);
+    }
+    // The original's track is left empty: it goes too.
+    for (int t = 0; t < m_project.tracks().size(); ++t) {
+        const drift::Track &tr0 = m_project.tracks().at(t);
+        if (tr0.clips.isEmpty() && !tr0.isAdjustmentLane() && !tr0.id.isEmpty()
+            && tr0.id == before.tracks().at(trackIndex).id) {
+            m_project.tracks().removeAt(t);
+            break;
+        }
+    }
+    m_project.ensureTrackIds();
+    pushProjectEdit(before, tr("Split into letters"));
+    finishEdit(tr("Split into letters"));
+    // All the letters picked, in reading order, ready for Squash & Stretch with a stagger.
+    bool first = true;
+    for (const QString &id : std::as_const(ids)) {
+        int t = -1;
+        int c = -1;
+        if (!findClipById(m_project, id, &t, &c))
+            continue;
+        if (first)
+            selectClip(t, c);
+        else
+            addToSelection(t, c);
+        first = false;
+    }
+    setLastMessage(tr("%n letter layer(s)", "", int(ids.size())), QStringLiteral("info"));
+    return int(ids.size());
+}
+
 int AppController::removeClipKeysInRange(int trackIndex, int clipIndex, double fromSeconds, double toSeconds)
 {
     if (!isValidClipIndex(trackIndex, clipIndex))

@@ -552,6 +552,12 @@ Item {
                 visible: clipItem.clipData.kind === "audio"
                 onTriggered: EditorState.fitClipToVideoLength(clipItem.trackIndex, clipItem.clipIndex)
             }
+            // After Effects' Split into characters (0.29): one layer per letter, for letter-by-letter animation.
+            ThemedMenuItem {
+                text: qsTr("Split into letters")
+                visible: clipItem.clipData.kind === "text"
+                onTriggered: EditorState.splitTextIntoLetters(clipItem.trackIndex, clipItem.clipIndex)
+            }
             // Every row's keys at once (0.29): a Squash jump writes six rows; picking them key by key was the
             // only way to clear them.
             ThemedContextMenu {
