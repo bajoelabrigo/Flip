@@ -2131,7 +2131,7 @@ QVariantMap shapeStyleToMap(const drift::ShapeStyle &s, drift::TimeUs timelineSt
         {QStringLiteral("tailSize"), s.tailSize},
     };
     // The shape operators (0.26): Trim Paths, Repeater, Wiggle Paths.
-    for (const char *key : {"trimStart", "trimEnd", "trimOffset", "repeatCopies", "repeatOffset", "repeatX",
+    for (const char *key : {"skew", "trimStart", "trimEnd", "trimOffset", "repeatCopies", "repeatOffset", "repeatX",
                             "repeatY", "repeatScale", "repeatRotation", "repeatStartOpacity", "repeatEndOpacity",
                             "wiggleSize", "wiggleDetail", "wiggleSpeed", "wiggleSeed", "mergeMode", "offsetPath",
                             "zigzagSize", "zigzagRidges", "zigzagSmooth", "twistAngle", "puckerBloat"}) {

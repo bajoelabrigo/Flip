@@ -550,6 +550,7 @@ struct KnobField
 // points is an int and handled apart from the doubles.
 constexpr KnobField kKnobs[] = {
     {"cornerRadius", QT_TRANSLATE_NOOP("ShapeStyle", "Corner radius"), &ShapeStyle::cornerRadius, 0.0, 2000.0},
+    {"skew", QT_TRANSLATE_NOOP("ShapeStyle", "Slant"), &ShapeStyle::skew, -75.0, 75.0},
     {"innerRatio", QT_TRANSLATE_NOOP("ShapeStyle", "Inner radius"), &ShapeStyle::innerRatio, 0.05, 0.95},
     {"outerRoundness", QT_TRANSLATE_NOOP("ShapeStyle", "Outer roundness"), &ShapeStyle::outerRoundness, 0.0, 100.0},
     {"innerRoundness", QT_TRANSLATE_NOOP("ShapeStyle", "Inner roundness"), &ShapeStyle::innerRoundness, 0.0, 100.0},
@@ -759,7 +760,7 @@ quint64 shapeStyleHash(const ShapeStyle &style)
 {
     return qHashMulti(0, static_cast<int>(style.kind), textLayersHash(style.layers), style.cornerRadius, style.points,
                       style.innerRatio, style.headSize, style.thickness, style.tailX, style.tailSize,
-                      style.customPath, style.customEvenOdd, style.outerRoundness, style.innerRoundness)
+                      style.customPath, style.customEvenOdd, style.outerRoundness, style.innerRoundness, style.skew)
            ^ qHashMulti(1, style.trimStart, style.trimEnd, style.trimOffset, style.trimSegments, style.trimReverse, style.repeatCopies, style.repeatOffset,
                         style.repeatX, style.repeatY, style.repeatScale, style.repeatRotation,
                         style.repeatStartOpacity, style.repeatEndOpacity)

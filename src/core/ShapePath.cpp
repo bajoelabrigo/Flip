@@ -438,7 +438,25 @@ QPainterPath shapePath(const ShapeStyle &style, const QRectF &bounds)
     case ShapeKind::Rectangle:
     case ShapeKind::Square: {
         QPainterPath path;
-        path.addRect(bounds);
+        // Slanted (0.29): a parallelogram inside the box, the top edge shifted the way it leans.
+        const double lean = std::abs(style.skew) > 0.01
+                                ? qBound(-bounds.width(), bounds.height() * std::tan(qDegreesToRadians(style.skew)),
+                                         bounds.width())
+                                : 0.0;
+        if (lean == 0.0) {
+            path.addRect(bounds);
+            return path;
+        }
+        const double d = std::abs(lean);
+        QPolygonF poly;
+        if (lean > 0)
+            poly << QPointF(bounds.left() + d, bounds.top()) << bounds.topRight()
+                 << QPointF(bounds.right() - d, bounds.bottom()) << bounds.bottomLeft();
+        else
+            poly << bounds.topLeft() << QPointF(bounds.right() - d, bounds.top())
+                 << bounds.bottomRight() << QPointF(bounds.left() + d, bounds.bottom());
+        path.addPolygon(poly);
+        path.closeSubpath();
         return path;
     }
     case ShapeKind::RoundedRectangle: {

@@ -517,6 +517,17 @@ Item {
                     sliderTo: 400
                     unit: "px"
                 }
+                // Lower thirds (0.29): a slanted label in one value, no pen needed.
+                PropertyKeyframeRow {
+                    width: parent.width
+                    visible: root.shapeStyle.kind === "rectangle" || root.shapeStyle.kind === "square"
+                    propDef: root.knob("skew", qsTr("Slant"), 1)
+                    keyframeList: root.knobKeyframes("skew")
+                    useSlider: true
+                    sliderFrom: -45
+                    sliderTo: 45
+                    unit: "°"
+                }
 
                 Row {
                     width: parent.width
