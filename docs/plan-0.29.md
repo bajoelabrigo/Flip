@@ -361,3 +361,30 @@ anota aquí y se corrige todo al final.
   diminuto. Un texto nuevo debería usar un color legible y un tamaño proporcional al cuadro.
 - **P7, falta:** todas las animaciones de Texto › Animación › Entrada que se ven primero llevan la llama (piden
   sesión); sin sesión no hay ninguna gratis a mano. Mostrar primero las libres o un filtro «Sin cuenta».
+- **P8, bien:** Doblar › «Enderezar al entrar» dobla la banda 90° y la endereza en 0,6 s, limpio.
+- **P8, falta:** el título encima de la banda no se dobla con ella; haría falta «Doblar también las capas hijas» o
+  emparentar y que el doblez afecte al grupo (en AE se precompone).
+- **P8, fallo:** arrastrar un texto recién creado con la herramienta Selección apenas lo mueve (unos px) en el primer
+  arrastre; el segundo sí. Mismo síntoma que el primer clic perdido.
+- **Jorge (2026-10-31), P8, fallo:** la banda roja **se corta al doblarse** (la parte doblada se sale del recuadro de
+  la capa y se recorta). El dibujo doblado tiene que tener margen (bleed) para toda la curva.
+- **P9, fallo:** con un rectángulo recién dibujado, el cuadro de Relleno de la barra **cambia ese rectángulo** (con
+  «Vista previa»), no el color de la herramienta para el siguiente. Para dibujar otro de otro color hay que
+  deseleccionar antes o recolorear después. En AE el relleno de la barra con la herramienta activa es el del próximo.
+- **P9, sorpresa:** un segundo rectángulo dibujado con la capa de forma elegida entra **en la misma capa** (aviso
+  «pulsa Esc antes»): es como AE, pero entonces no se puede animar la etiqueta y la línea por separado con las
+  herramientas de capa. Bien que avise; falta un botón «Separar en capas» (AE: Create Shapes from… / Split).
+- **P9, fallo:** arrastrar un texto en el lienzo con Selección no lo mueve (dos intentos, unos px); hubo que escribir
+  la posición en Transformar.
+- **P9, falta:** Animación › Entrada del clip no tiene **barrido/revelar** (de izquierda a derecha, con un borde): es la
+  entrada típica de un tercio inferior. Tampoco hay a mano la cuadrícula 3×3 del anclaje en Transformar de una forma
+  (solo «Anclaje en el centro»), así que la escala X desde la izquierda no se puede armar rápido.
+- **P9, bien:** Squash & Stretch › «Entrar por la izquierda» escalonado entre las tres capas: entra en orden y limpio.
+- **P9, falta:** un texto nuevo sobre una etiqueta blanca sale blanco (toma el relleno de la barra): invisible.
+- **P10, bien:** la pluma hace una etiqueta inclinada y una línea inclinada limpias (clic, clic, cerrar en el primero).
+- **P10, falta:** no hay **cursiva** en Texto › Básico (solo B, U, S y el peso); Inter no trae Italic y no hay
+  cursiva sintética. Un tercio inclinado la pide.
+- **P10, fallo:** Squash & Stretch › «Aparecer de golpe» deja la etiqueta **visible y estirada en el fotograma 0**
+  (no nace de cero) y deforma el borde inclinado (la punta queda redondeada en 0,2 s).
+- **P10, duda:** con cuatro capas elegidas, «Escalonar» decía 3 copias (no tomó la primera elegida, o el campo no
+  sigue la selección).
