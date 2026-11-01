@@ -248,7 +248,10 @@ protected:
                                   << describe(w->mouseGrabberItem()) << "focus:" << describe(w->activeFocusItem());
             });
         } else {
-            qInfo().noquote() << "[click] release" << pos << "grabber:" << describe(window->mouseGrabberItem());
+            QStringList chain;
+            for (QQuickItem *i = window->mouseGrabberItem(); i && chain.size() < 10; i = i->parentItem())
+                chain.append(describe(i));
+            qInfo().noquote() << "[click] release" << pos << "grabber:" << chain.join(QStringLiteral(" < "));
         }
         return false;
     }

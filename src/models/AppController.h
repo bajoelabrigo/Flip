@@ -1720,6 +1720,8 @@ public:
     // in reading order; the original goes. The letters come back selected, ready for a staggered animation.
     // Returns how many letters.
     Q_INVOKABLE int splitTextIntoLetters(int trackIndex, int clipIndex);
+    // FLIP_TRACE_CLICKS is set: the panels log what moves them (0.29, hunting the lost first click).
+    Q_INVOKABLE bool traceUi() const { return qEnvironmentVariableIsSet("FLIP_TRACE_CLICKS"); }
     Q_INVOKABLE void removeKeyframes(int trackIndex, const QVariantList &keys);
     // Every key of every animated property of a clip between two timeline times (0.29: a jump wrote six
     // rows and they had to be cleared one by one). `toSeconds` < 0 = to the end. One undo step; returns

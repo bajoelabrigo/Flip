@@ -59,6 +59,8 @@ PanelFrame {
     }
 
     property int activeTab: 1 // General; 0 is the scene template tab, shown only for one
+    onActiveTabChanged: if (EditorState.traceUi())
+                            console.warn("[tab]", activeTab, root.tabs[activeTab] ? root.tabs[activeTab].id : "", new Error().stack)
     property string lastSelectionKey: ""
     readonly property string currentTabId: tabs[activeTab].id
     readonly property bool keyframesTab: !!tabs[activeTab].keyframes
