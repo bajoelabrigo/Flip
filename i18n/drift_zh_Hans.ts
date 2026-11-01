@@ -5539,6 +5539,10 @@
         <translation>适应文本</translation>
     </message>
     <message>
+        <source>Scale</source>
+        <translation>缩放</translation>
+    </message>
+    <message>
         <source>No keyframes there</source>
         <translation>那里没有关键帧</translation>
     </message>
@@ -24271,6 +24275,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Third colour</source>
         <translation>第三种颜色</translation>
+    </message>
+    <message>
+        <source>Exit too</source>
+        <translation>同时退出</translation>
+    </message>
+    <message>
+        <source>At the end of the layer the colours sweep out the way they came, the shape first</source>
+        <translation>图层结束时，颜色沿进入的方向扫出，形状先退出</translation>
     </message>
     <message>
         <source>Slanted edge</source>

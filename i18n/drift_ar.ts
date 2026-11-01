@@ -5632,6 +5632,10 @@
         <translation>ملاءمة للنص</translation>
     </message>
     <message>
+        <source>Scale</source>
+        <translation>الحجم</translation>
+    </message>
+    <message>
         <source>No keyframes there</source>
         <translation>لا توجد إطارات رئيسية هناك</translation>
     </message>
@@ -24721,6 +24725,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Third colour</source>
         <translation>اللون الثالث</translation>
+    </message>
+    <message>
+        <source>Exit too</source>
+        <translation>الخروج أيضًا</translation>
+    </message>
+    <message>
+        <source>At the end of the layer the colours sweep out the way they came, the shape first</source>
+        <translation>في نهاية الطبقة تخرج الألوان من حيث دخلت، والشكل أولًا</translation>
     </message>
     <message>
         <source>Slanted edge</source>

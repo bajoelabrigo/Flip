@@ -5565,6 +5565,10 @@
         <translation>Ajuster au texte</translation>
     </message>
     <message>
+        <source>Scale</source>
+        <translation>Échelle</translation>
+    </message>
+    <message>
         <source>No keyframes there</source>
         <translation>Aucune image clé à cet endroit</translation>
     </message>
@@ -24363,6 +24367,14 @@ Si la lecture saccade, essayez une autre option.</translation>
     <message>
         <source>Third colour</source>
         <translation>Troisième couleur</translation>
+    </message>
+    <message>
+        <source>Exit too</source>
+        <translation>Sortie aussi</translation>
+    </message>
+    <message>
+        <source>At the end of the layer the colours sweep out the way they came, the shape first</source>
+        <translation>À la fin du calque, les couleurs repartent par où elles sont venues, la forme d’abord</translation>
     </message>
     <message>
         <source>Slanted edge</source>

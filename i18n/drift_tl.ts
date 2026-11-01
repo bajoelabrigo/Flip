@@ -5564,6 +5564,10 @@
         <translation>Itugma sa text</translation>
     </message>
     <message>
+        <source>Scale</source>
+        <translation>Laki</translation>
+    </message>
+    <message>
         <source>No keyframes there</source>
         <translation>Walang keyframe doon</translation>
     </message>
@@ -24350,6 +24354,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Third colour</source>
         <translation>Ikatlong kulay</translation>
+    </message>
+    <message>
+        <source>Exit too</source>
+        <translation>Pati paglabas</translation>
+    </message>
+    <message>
+        <source>At the end of the layer the colours sweep out the way they came, the shape first</source>
+        <translation>Sa dulo ng layer, lumalabas ang mga kulay kung saan sila pumasok, una ang hugis</translation>
     </message>
     <message>
         <source>Slanted edge</source>

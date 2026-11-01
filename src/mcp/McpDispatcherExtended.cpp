@@ -1087,7 +1087,8 @@ QJsonObject McpDispatcher::applyOneExtended(const QString &tool, const QJsonObje
                                     args.value(QStringLiteral("frames")).toInt(14),
                                     args.value(QStringLiteral("angle")).toDouble(0.0),
                                     args.value(QStringLiteral("accent2")).toString(),
-                                    args.value(QStringLiteral("accent3")).toString());
+                                    args.value(QStringLiteral("accent3")).toString(),
+                                    args.value(QStringLiteral("exit")).toBool(true));
         return ok(QJsonObject{{QStringLiteral("track"), m_controller->selectedTrack()},
                               {QStringLiteral("clip"), m_controller->selectedClip()}});
     }

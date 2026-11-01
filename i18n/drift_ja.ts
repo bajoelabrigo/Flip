@@ -5539,6 +5539,10 @@
         <translation>テキストに合わせる</translation>
     </message>
     <message>
+        <source>Scale</source>
+        <translation>スケール</translation>
+    </message>
+    <message>
         <source>No keyframes there</source>
         <translation>そこにはキーフレームがありません</translation>
     </message>
@@ -24271,6 +24275,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Third colour</source>
         <translation>3 色目</translation>
+    </message>
+    <message>
+        <source>Exit too</source>
+        <translation>退場も</translation>
+    </message>
+    <message>
+        <source>At the end of the layer the colours sweep out the way they came, the shape first</source>
+        <translation>レイヤーの終わりに、色は入ってきた方向へ抜けていきます（シェイプが先）</translation>
     </message>
     <message>
         <source>Slanted edge</source>

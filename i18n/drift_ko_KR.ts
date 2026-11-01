@@ -5539,6 +5539,10 @@
         <translation>텍스트에 맞추기</translation>
     </message>
     <message>
+        <source>Scale</source>
+        <translation>크기</translation>
+    </message>
+    <message>
         <source>No keyframes there</source>
         <translation>그곳에는 키프레임이 없습니다</translation>
     </message>
@@ -24270,6 +24274,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Third colour</source>
         <translation>세 번째 색</translation>
+    </message>
+    <message>
+        <source>Exit too</source>
+        <translation>퇴장도</translation>
+    </message>
+    <message>
+        <source>At the end of the layer the colours sweep out the way they came, the shape first</source>
+        <translation>레이어 끝에서 색이 들어온 방향으로 빠져나갑니다(도형 먼저)</translation>
     </message>
     <message>
         <source>Slanted edge</source>

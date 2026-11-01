@@ -5660,6 +5660,10 @@
         <translation>টেক্সটের মাপে মেলান</translation>
     </message>
     <message>
+        <source>Scale</source>
+        <translation>স্কেল</translation>
+    </message>
+    <message>
         <source>No keyframes there</source>
         <translation>সেখানে কোনো কি-ফ্রেম নেই</translation>
     </message>
@@ -24357,6 +24361,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Third colour</source>
         <translation>তৃতীয় রং</translation>
+    </message>
+    <message>
+        <source>Exit too</source>
+        <translation>প্রস্থানও</translation>
+    </message>
+    <message>
+        <source>At the end of the layer the colours sweep out the way they came, the shape first</source>
+        <translation>স্তরের শেষে রংগুলো যেভাবে এসেছিল সেভাবে বেরিয়ে যায়, আগে আকারটি</translation>
     </message>
     <message>
         <source>Slanted edge</source>

@@ -561,6 +561,7 @@ Item {
             property int frames: 14
             property bool slanted: false
             property bool useSecond: false
+            property bool withExit: true
             property bool useThird: false
             property string accent2: "#ff2a9df4"
             property string accent3: "#ffffffff"
@@ -632,6 +633,13 @@ Item {
                 }
                 ThemedSwitch {
                     width: parent.width
+                    text: qsTr("Exit too")
+                    tooltip: qsTr("At the end of the layer the colours sweep out the way they came, the shape first")
+                    checked: twoWipe.withExit
+                    onToggled: twoWipe.withExit = checked
+                }
+                ThemedSwitch {
+                    width: parent.width
                     text: qsTr("Slanted edge")
                     checked: twoWipe.slanted
                     onToggled: twoWipe.slanted = checked
@@ -642,7 +650,8 @@ Item {
                     text: qsTr("Apply two-colour wipe")
                     onClicked: EditorState.twoColourWipe(twoWipe.accent, twoWipe.frames, twoWipe.slanted ? 14 : 0,
                                                          twoWipe.useSecond ? twoWipe.accent2 : "",
-                                                         twoWipe.useSecond && twoWipe.useThird ? twoWipe.accent3 : "")
+                                                         twoWipe.useSecond && twoWipe.useThird ? twoWipe.accent3 : "",
+                                                         twoWipe.withExit)
                 }
             }
         }

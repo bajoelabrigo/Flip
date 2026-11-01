@@ -521,3 +521,10 @@ clic en la pestaña Texto tras escribir.
 - **Barrido de colores con hasta 3 colores** (Jorge, 2026-11-01): «Segundo color» y «Tercer color» opcionales en
   Forma › Barrido de dos colores; entran en cascada (el primero más al fondo) y la etiqueta llega al final encima.
   Prueba `colourWipeTakesUpToThreeAccents`.
+- **Tercios con entrada y salida** (Jorge, 2026-11-01: «igual que la herramienta de barrido»): el generador pone a
+  cada pieza su entrada (`in-…`) y la misma salida de vuelta (`out-…`); el barrido de colores sale al final de la capa
+  en orden inverso (la etiqueta primero, el primer acento al final), con «Salida también» (activado por defecto).
+- **Escala X/Y desde el anclaje** (`setClipScaledSize`): antes encogía hacia la esquina de arriba a la izquierda.
+- MCP para probar sin mouse: `create_lower_third`, `make_text_label`, `show_inside_below`, `colour_wipe`,
+  `stagger_clips`, `scale_about_anchor`.
+- Extras publicados (2026-11-01): `fonts.basic` 1.1.0 y `fonts.extra` 1.2.0 (paquetes primero, después el índice).

@@ -5581,6 +5581,10 @@
         <translation>Dopasuj do tekstu</translation>
     </message>
     <message>
+        <source>Scale</source>
+        <translation>Skala</translation>
+    </message>
+    <message>
         <source>No keyframes there</source>
         <translation>Brak tam klatek kluczowych</translation>
     </message>
@@ -24451,6 +24455,14 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     <message>
         <source>Third colour</source>
         <translation>Trzeci kolor</translation>
+    </message>
+    <message>
+        <source>Exit too</source>
+        <translation>Także wyjście</translation>
+    </message>
+    <message>
+        <source>At the end of the layer the colours sweep out the way they came, the shape first</source>
+        <translation>Na końcu warstwy kolory wychodzą tak, jak weszły, najpierw kształt</translation>
     </message>
     <message>
         <source>Slanted edge</source>

@@ -5547,6 +5547,10 @@
         <translation>Vừa với văn bản</translation>
     </message>
     <message>
+        <source>Scale</source>
+        <translation>Tỉ lệ</translation>
+    </message>
+    <message>
         <source>No keyframes there</source>
         <translation>Không có khung hình chính ở đó</translation>
     </message>
@@ -24271,6 +24275,14 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Third colour</source>
         <translation>Màu thứ ba</translation>
+    </message>
+    <message>
+        <source>Exit too</source>
+        <translation>Cả lúc ra</translation>
+    </message>
+    <message>
+        <source>At the end of the layer the colours sweep out the way they came, the shape first</source>
+        <translation>Cuối lớp, các màu rút ra theo đường đã vào, hình trước</translation>
     </message>
     <message>
         <source>Slanted edge</source>

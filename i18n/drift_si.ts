@@ -5560,6 +5560,10 @@
         <translation>පෙළට ගැළපෙන්න</translation>
     </message>
     <message>
+        <source>Scale</source>
+        <translation>පරිමාණය</translation>
+    </message>
+    <message>
         <source>No keyframes there</source>
         <translation>එතැන ප්‍රධාන රාමු නැත</translation>
     </message>
@@ -24357,6 +24361,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Third colour</source>
         <translation>තෙවන වර්ණය</translation>
+    </message>
+    <message>
+        <source>Exit too</source>
+        <translation>පිටවීමත්</translation>
+    </message>
+    <message>
+        <source>At the end of the layer the colours sweep out the way they came, the shape first</source>
+        <translation>ස්තරයේ අවසානයේ වර්ණ ආ ආකාරයටම පිටව යයි, මුලින්ම හැඩය</translation>
     </message>
     <message>
         <source>Slanted edge</source>

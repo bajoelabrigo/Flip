@@ -23367,26 +23367,32 @@ void AppController::createLowerThird(const QVariantMap &o)
     m_project.ensureTrackIds();
     pushProjectEdit(before, tr("Lower third"));
 
-    const auto entrance = [&](const QString &id, const QString &preset) {
+    // Every piece comes in and goes out (Jorge, 0.29: «entrada y salida, igual que el barrido»); the exit is the
+    // same motion going back.
+    const auto animate = [&](const QString &id, const QString &motion) {
         int t = -1;
         int c = -1;
+        if (!findClipById(m_project, id, &t, &c))
+            return;
+        setClipAnimation(t, c, QStringLiteral("animIn"), QVariantMap{{QStringLiteral("preset"), QStringLiteral("in-") + motion}});
         if (findClipById(m_project, id, &t, &c))
-            setClipAnimation(t, c, QStringLiteral("animIn"), QVariantMap{{QStringLiteral("preset"), preset}});
+            setClipAnimation(t, c, QStringLiteral("animOut"), QVariantMap{{QStringLiteral("preset"), QStringLiteral("out-") + motion}});
     };
-    entrance(nameClip.id, QStringLiteral("in-slide-up"));
+    const auto entrance = animate;
+    entrance(nameClip.id, QStringLiteral("slide-up"));
     if (roleBar)
-        entrance(roleClip.id, QStringLiteral("in-slide-up"));
+        entrance(roleClip.id, QStringLiteral("slide-up"));
     if (hasLine)
-        entrance(line.id, QStringLiteral("in-wipe-up"));
+        entrance(line.id, QStringLiteral("wipe-up"));
     if (roleBar)
-        entrance(roleLabel.id, QStringLiteral("in-wipe-left"));
+        entrance(roleLabel.id, QStringLiteral("wipe-left"));
     int lt = -1;
     int lc = -1;
     if (style == QLatin1String("twoColour") && findClipById(m_project, label.id, &lt, &lc)) {
         selectClip(lt, lc);
-        twoColourWipe(accentColour.name(), 14, 0.0);
+        twoColourWipe(accentColour.name(), 14, 0.0, QString(), QString(), true);
     } else {
-        entrance(label.id, slanted ? QStringLiteral("in-wipe-slant") : QStringLiteral("in-wipe-left"));
+        entrance(label.id, slanted ? QStringLiteral("wipe-slant") : QStringLiteral("wipe-left"));
     }
     finishEdit(tr("Lower third"));
     endEditSession(true);
@@ -23396,7 +23402,7 @@ void AppController::createLowerThird(const QVariantMap &o)
 }
 
 void AppController::twoColourWipe(const QString &accentColor, int frames, double angle, const QString &accent2,
-                                  const QString &accent3)
+                                  const QString &accent3, bool withExit)
 {
     if (!isValidClipIndex(m_selectedTrack, m_selectedClip)
         || m_project.tracks().at(m_selectedTrack).clips.at(m_selectedClip).type != drift::ClipType::Shape) {
@@ -23442,6 +23448,7 @@ void AppController::twoColourWipe(const QString &accentColor, int frames, double
     pushProjectEdit(before, tr("Two-colour wipe"));
     // A Linear Wipe on each, keyed from hidden to shown.
     const drift::TimeUs from = m_playheadUs;
+    drift::TimeUs outLag = 0;
     const auto wipe = [&](const QString &id, drift::TimeUs start) {
         int t = -1;
         int c = -1;
@@ -23470,13 +23477,30 @@ void AppController::twoColourWipe(const QString &accentColor, int frames, double
             kt.setEasing(a, drift::Interpolation::Ease);
             kt.setKeyframe(a + span, 0.0);
             kt.setEasing(a + span, drift::Interpolation::Ease);
+            // The exit: the same sweep going back, the shape first and the deepest accent last, ending with the
+            // clip (only when the clip is long enough to hold both).
+            if (withExit) {
+                const drift::TimeUs clipEnd = base0 + clip.timelineDuration;
+                const drift::TimeUs outEnd = clipEnd - outLag;
+                const drift::TimeUs outStart = outEnd - span;
+                if (outStart > a + span) {
+                    kt.setKeyframe(outStart, 0.0);
+                    kt.setEasing(outStart, drift::Interpolation::Ease);
+                    kt.setKeyframe(outEnd, 100.0);
+                    kt.setEasing(outEnd, drift::Interpolation::Ease);
+                }
+            }
             kt.setStopwatch(true);
             break;
         }
         pushProjectEdit(beforeKeys, tr("Two-colour wipe"));
     };
-    for (int i = 0; i < accentIds.size(); ++i)
+    // Out in the opposite order: the shape leaves first, the first accent (deepest) last, at the clip's end.
+    for (int i = 0; i < accentIds.size(); ++i) {
+        outLag = lag * i;
         wipe(accentIds.at(i), from + lag * i);
+    }
+    outLag = lag * accentIds.size();
     wipe(base.id, from + lag * accentIds.size());
     finishEdit(tr("Two-colour wipe"));
     if (ownSession)

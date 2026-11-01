@@ -5560,6 +5560,10 @@
         <translation>Ajustar al texto</translation>
     </message>
     <message>
+        <source>Scale</source>
+        <translation>Escala</translation>
+    </message>
+    <message>
         <source>No keyframes there</source>
         <translation>No hay fotogramas clave ahí</translation>
     </message>
@@ -24361,6 +24365,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Third colour</source>
         <translation>Tercer color</translation>
+    </message>
+    <message>
+        <source>Exit too</source>
+        <translation>Salida también</translation>
+    </message>
+    <message>
+        <source>At the end of the layer the colours sweep out the way they came, the shape first</source>
+        <translation>Al final de la capa los colores salen por donde entraron, primero la forma</translation>
     </message>
     <message>
         <source>Slanted edge</source>

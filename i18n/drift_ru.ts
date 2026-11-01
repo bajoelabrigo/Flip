@@ -5581,6 +5581,10 @@
         <translation>Подогнать под текст</translation>
     </message>
     <message>
+        <source>Scale</source>
+        <translation>Масштаб</translation>
+    </message>
+    <message>
         <source>No keyframes there</source>
         <translation>Там нет ключевых кадров</translation>
     </message>
@@ -24451,6 +24455,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Third colour</source>
         <translation>Третий цвет</translation>
+    </message>
+    <message>
+        <source>Exit too</source>
+        <translation>И выход</translation>
+    </message>
+    <message>
+        <source>At the end of the layer the colours sweep out the way they came, the shape first</source>
+        <translation>В конце слоя цвета уходят так же, как пришли, сначала фигура</translation>
     </message>
     <message>
         <source>Slanted edge</source>

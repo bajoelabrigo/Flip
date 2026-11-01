@@ -5568,6 +5568,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Scale</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>No keyframes there</source>
         <translation type="unfinished"></translation>
     </message>
@@ -24356,6 +24360,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Third colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Exit too</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>At the end of the layer the colours sweep out the way they came, the shape first</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

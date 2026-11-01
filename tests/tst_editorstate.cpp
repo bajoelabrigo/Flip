@@ -4550,6 +4550,21 @@ void EditorStateTest::colourWipeTakesUpToThreeAccents()
     QVERIFY(state.selectedTrack() < third);
     QVERIFY(third < second);
     QVERIFY(second < first);
+
+    // The lower-third maker gives every piece an entrance and an exit (Jorge, 0.29).
+    AppController maker(&library);
+    maker.createLowerThird({{QStringLiteral("style"), QStringLiteral("line")},
+                            {QStringLiteral("name"), QStringLiteral("Ana")},
+                            {QStringLiteral("role"), QStringLiteral("Chef")}});
+    int pieces = 0;
+    for (const drift::Track &track : maker.project()->tracks()) {
+        for (const drift::Clip &clip : track.clips) {
+            ++pieces;
+            QVERIFY2(clip.animIn.presetId.startsWith(QStringLiteral("in-")), qPrintable(clip.name));
+            QVERIFY2(clip.animOut.presetId.startsWith(QStringLiteral("out-")), qPrintable(clip.name));
+        }
+    }
+    QVERIFY(pieces >= 3);
 }
 
 void EditorStateTest::scaledSizeKeepsTheAnchorInPlace()
