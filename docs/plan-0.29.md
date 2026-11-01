@@ -310,3 +310,54 @@ anota aquí y se corrige todo al final.
 10. Tercio inferior inclinado hecho a mano: Laureen Marlene (llt3-inclinada).
 
 ### Notas durante los proyectos
+- **P1, fallo:** en el selector de color (cuadrito del relleno), escribir un hex no se guarda: `ThemedColorDialog.qml:222`
+  da «"#" is not a valid color name» con el texto a medio escribir. Hay que aceptar solo un hex completo.
+- **P1, fallo:** dibujar un rectángulo empezando justo en el borde del lienzo no crea nada (hay que empezar dentro).
+- **P1, falta:** no hay un «Sólido del tamaño del cuadro» rápido desde la barra (hubo que dibujar y ajustar 0,0 y 100 %).
+- **P1, fallo grave:** texto nuevo con la herramienta Texto, Esc, herramienta Selección, pestaña General, clic en «Comienza
+  en», Ctrl+A y «0»: el **contenido del texto** pasó a ser «0» (el editor en línea seguía con el teclado). Ctrl+Z lo
+  devuelve. Sospecha: con el commit diferido (`Qt.callLater`) el proxy oculto conserva el foco tras Esc.
+- **P1, falta:** un texto creado con la herramienta empieza en el cabezal; para un título que dura todo el video hay
+  que moverlo a mano (en AE la capa nace en el cabezal también: aceptable, pero falta «Comienza en» fácil).
+- **P1, falta:** con la herramienta Selección, la barra de arriba no muestra Relleno/Trazo de la forma elegida
+  (en AE sí, con cualquier herramienta).
+- **P1, falta:** «Salto hacia adelante» tiene una distancia fija (~520 px) sin control; tres saltos encadenados se salen
+  del cuadro. Hace falta «Distancia» (o que el salto vaya hasta una clave final, como «Start/End of behavior» del
+  tutorial de Squash & Stretch).
+- **P1, falta:** borrar las claves de un tramo de tiempo en todas las filas de una capa a la vez (el salto escribe
+  posición, ancho, inclinación, estirar…): un recuadro que abarque todas las filas, o «Borrar claves después del
+  cabezal».
+- **P2, falta:** Squash & Stretch por letras, como «Split into characters» del tutorial (Text Animation Made Easy):
+  hoy se aplica a la capa entera o escalonado entre capas. Hace falta «Dividir texto en letras» (una capa por
+  letra, como AE) o que el aplastamiento se aplique por carácter dentro del texto.
+- **P2, falta:** color de fondo del proyecto (en Propiedades o en Tamaño y formato): hoy hay que dibujar un rectángulo.
+- **P2, fallo grave (sigue en bc31c67):** el primer clic se pierde en el panel derecho **cada vez** que cambia la
+  selección o la página: pestaña lateral «Texto», páginas Básico/Animación de Texto, tarjetas de Texto › Animación,
+  campo de color. El arreglo (`onPressed` en la barra lateral, commit diferido) no basta: hay que reproducirlo con
+  un registro (`onCanceled` / `onPressed`) y hallar quién se queda la pulsación. Consecuencia peligrosa: Ctrl+A con
+  un campo que no recibió el clic elige **todos los clips**.
+- **P2, falta (cuenta):** las animaciones de letras con llama piden iniciar sesión; en el portable de prueba no hay
+  sesión. No es un fallo (decisión de Jorge), pero los proyectos de prueba no pueden usar Texto › Animación.
+- **P3, falta:** Ctrl+D duplica el clip **a continuación** en la misma pista; en After Effects duplica la capa en el
+  mismo momento, en una pista encima. Al menos en Pro debería hacer lo de AE.
+- **P3, fallo:** un rectángulo muy fino (arrastre de 2 px) no se crea y no avisa; para una línea hace falta grosor
+  mínimo o la herramienta Línea.
+- **P3, falta:** herramienta Elipse visible en la barra (hubo que dibujar un rectángulo y cambiarlo a Elipse en Forma).
+- **P4, falta:** Motion Tools › Recorte no recuerda «Fotogramas» entre usos (vuelve a 20).
+- **P4, duda:** Curvas › «Salida suave» con la capa elegida no dice a qué claves se aplicó (sin aviso ni claves
+  resaltadas); conviene un aviso «Curva aplicada a N claves» o usar las claves elegidas.
+- **Jorge (2026-10-31), pedido:** en Morph, opción para que **la última forma quede visible** al terminar (hoy
+  desaparece): dos modos, «Desaparece al final» y «Queda la última forma».
+- **Jorge (2026-10-31), pedido:** Squash & Stretch que anime **letra por letra** un texto (confirma la falta del P2).
+- **P7, fallo:** en Opciones de trazo, escribir el color sin «#» (`1E5BFF`) da error; debería aceptar el hex sin «#».
+- **P7, falta:** Chorro líquido no **dibuja el trazado**: el trazo se ve entero desde el fotograma 0 y el chorro solo
+  pasa por encima. Hace falta la opción «Revelar el trazo» (que el trazo crezca detrás del chorro, como un Recorte).
+- **P7, fallo:** el chorro salió turquesa aunque el color elegido era el azul (la muestra azul quedaba marcada).
+- **P7, fallo:** el clip «Líquido» dura ~1 s y el trazado 2 s; al crear un texto en 1,6 s el resto queda corto.
+  El clip del chorro debería durar lo que dura el trazado.
+- **P7, fallo grave:** texto nuevo con la herramienta Texto, escribir «Fluye» y Esc: el texto queda **vacío** (sin
+  contenido en el lienzo). Al editarlo de nuevo sí guarda. Mismo origen que el fallo del P1 (commit diferido).
+- **P7, falta:** el texto nuevo toma el color del relleno de la barra (aquí el papel claro) y 24 px: sale invisible y
+  diminuto. Un texto nuevo debería usar un color legible y un tamaño proporcional al cuadro.
+- **P7, falta:** todas las animaciones de Texto › Animación › Entrada que se ven primero llevan la llama (piden
+  sesión); sin sesión no hay ninguna gratis a mano. Mostrar primero las libres o un filtro «Sin cuenta».
