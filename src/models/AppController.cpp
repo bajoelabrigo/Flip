@@ -9613,6 +9613,69 @@ bool AppController::importSubtitleFileIntoClip(int trackIndex, int clipIndex, co
     return true;
 }
 
+bool AppController::projectHasSubtitles() const
+{
+    for (const drift::Track &track : m_project.tracks()) {
+        for (const drift::Clip &clip : track.clips) {
+            if (clip.type == drift::ClipType::Subtitle && !clip.subtitleCues.isEmpty())
+                return true;
+        }
+    }
+    return false;
+}
+
+QList<QList<drift::SubtitleCue>> AppController::subtitleSidecarCues(const drift::Project &project,
+                                                                    drift::TimeUs rangeStart,
+                                                                    drift::TimeUs rangeEnd) const
+{
+    QList<QList<drift::SubtitleCue>> out;
+    // Bottom track first: the original captions are under a translation added above them.
+    for (int t = project.tracks().size() - 1; t >= 0; --t) {
+        const drift::Track &track = project.tracks().at(t);
+        if (track.hidden)
+            continue;
+        QList<drift::SubtitleCue> cues;
+        for (const drift::Clip &clip : track.clips) {
+            if (clip.type != drift::ClipType::Subtitle)
+                continue;
+            for (drift::SubtitleCue cue : clip.subtitleCues) {
+                // The clip's own times on the timeline, trimmed to what the clip shows.
+                if (cue.endUs <= clip.srcIn || cue.startUs >= clip.srcOut)
+                    continue;
+                cue.startUs = clip.timelineStart + qMax(cue.startUs, clip.srcIn) - clip.srcIn;
+                cue.endUs = clip.timelineStart + qMin(cue.endUs, clip.srcOut) - clip.srcIn;
+                if (rangeEnd > rangeStart) { // only the work area is exported
+                    if (cue.endUs <= rangeStart || cue.startUs >= rangeEnd)
+                        continue;
+                    cue.startUs = qMax(cue.startUs, rangeStart) - rangeStart;
+                    cue.endUs = qMin(cue.endUs, rangeEnd) - rangeStart;
+                }
+                cue.text = drift::textWithoutWordMarks(cue.text);
+                cue.wordEndsUs.clear();
+                if (cue.endUs > cue.startUs && !cue.text.trimmed().isEmpty())
+                    cues.append(cue);
+            }
+        }
+        if (!cues.isEmpty()) {
+            drift::sortSubtitleCues(cues);
+            out.append(cues);
+        }
+    }
+    return out;
+}
+
+void AppController::writeSubtitleSidecars(const QString &videoPath, const QList<QList<drift::SubtitleCue>> &tracks)
+{
+    const QFileInfo info(videoPath);
+    const QString base = info.absolutePath() + QLatin1Char('/') + info.completeBaseName();
+    for (int i = 0; i < tracks.size(); ++i) {
+        const QString path = i == 0 ? base + QStringLiteral(".srt") : base + QStringLiteral(".%1.srt").arg(i + 1);
+        QString error;
+        if (!drift::writeSubtitleFile(path, tracks.at(i), &error, m_project.width(), m_project.height()))
+            qWarning() << "[export] could not write" << path << error;
+    }
+}
+
 bool AppController::exportSubtitleFile(int trackIndex, int clipIndex, const QUrl &url, bool timelineTimes)
 {
     if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
@@ -32725,7 +32788,15 @@ void AppController::exportWithSettings(const QUrl &outputUrl, const QVariantMap 
 
     const bool disposable = writeTargetIsDisposable(outputUrl);
 
-    (void)QtConcurrent::run([this, snapshot, exportSettings, outputPath, outputUrl, disposable]() {
+    // «Also save the captions (.srt)»: one file per subtitle track, in the exported video's times,
+    // written next to it once the video is done (players pick «video.srt» up on their own).
+    QList<QList<drift::SubtitleCue>> sidecars;
+    if (settings.value(QStringLiteral("subtitleSidecar")).toBool() && !exportSettings.audioOnly
+        && !exportSettings.gifExport)
+        sidecars = subtitleSidecarCues(snapshot, settings.value(QStringLiteral("startUs"), 0).toLongLong(),
+                                       settings.value(QStringLiteral("endUs"), 0).toLongLong());
+
+    (void)QtConcurrent::run([this, snapshot, exportSettings, outputPath, outputUrl, disposable, sidecars]() {
         // Spans the encode *and* the copy into the user's document. Exporter::run takes its own
         // hold, but that one ends when run() returns — and the commit below is the phase that
         // would otherwise lose a multi-minute render to a screen that idled out mid-copy. The
@@ -32766,7 +32837,9 @@ void AppController::exportWithSettings(const QUrl &outputUrl, const QVariantMap 
 
         QMetaObject::invokeMethod(
             this,
-            [this, ok, error, outputUrl]() {
+            [this, ok, error, outputUrl, sidecars]() {
+                if (ok && outputUrl.isLocalFile())
+                    writeSubtitleSidecars(outputUrl.toLocalFile(), sidecars);
                 m_exportInProgress = false;
                 m_exportProgress = ok ? 1.0 : 0.0;
 #ifdef Q_OS_ANDROID

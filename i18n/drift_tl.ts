@@ -15226,6 +15226,14 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Also save the captions (.srt)</source>
+        <translation>I-save din ang mga caption (.srt)</translation>
+    </message>
+    <message>
+        <source>A subtitle file next to the video, with the same name: players and YouTube can turn the captions on and off</source>
+        <translation>Isang subtitle file sa tabi ng video, pareho ang pangalan: maaaring i-on at i-off ng mga player at YouTube ang mga caption</translation>
+    </message>
+    <message>
         <source>Saves what you see in the preview. Pick a size — the picture shape stays the same.</source>
         <translation type="unfinished"></translation>
     </message>

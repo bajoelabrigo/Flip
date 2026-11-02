@@ -15170,6 +15170,14 @@ LẦN SAU</translation>
         <translation>Chỉ mã hóa phạm vi Vào/Ra được đánh dấu thay vì toàn bộ dòng thời gian</translation>
     </message>
     <message>
+        <source>Also save the captions (.srt)</source>
+        <translation>Lưu cả phụ đề (.srt)</translation>
+    </message>
+    <message>
+        <source>A subtitle file next to the video, with the same name: players and YouTube can turn the captions on and off</source>
+        <translation>Một tệp phụ đề cạnh video, cùng tên: trình phát và YouTube có thể bật tắt phụ đề</translation>
+    </message>
+    <message>
         <source>Saves what you see in the preview. Pick a size — the picture shape stays the same.</source>
         <translation>Lưu những gì bạn nhìn thấy trong bản xem trước. Chọn kích thước - hình dạng ảnh vẫn giữ nguyên.</translation>
     </message>

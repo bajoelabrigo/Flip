@@ -15170,6 +15170,14 @@ NEXT TIME</source>
         <translation>전체 타임라인 대신 표시된 시작/끝 범위만 인코딩</translation>
     </message>
     <message>
+        <source>Also save the captions (.srt)</source>
+        <translation>자막도 저장(.srt)</translation>
+    </message>
+    <message>
+        <source>A subtitle file next to the video, with the same name: players and YouTube can turn the captions on and off</source>
+        <translation>영상 옆에 같은 이름의 자막 파일: 플레이어와 YouTube에서 자막을 켜고 끌 수 있습니다</translation>
+    </message>
+    <message>
         <source>Saves what you see in the preview. Pick a size — the picture shape stays the same.</source>
         <translation>미리보기에서 보이는 내용을 저장합니다. 크기를 선택해도 화면 비율은 그대로 유지됩니다.</translation>
     </message>

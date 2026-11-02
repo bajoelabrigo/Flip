@@ -15290,6 +15290,14 @@ NEXT TIME</source>
         <translation>Кодировать только отмеченный диапазон начала и конца вместо всего таймлайна</translation>
     </message>
     <message>
+        <source>Also save the captions (.srt)</source>
+        <translation>Сохранить и субтитры (.srt)</translation>
+    </message>
+    <message>
+        <source>A subtitle file next to the video, with the same name: players and YouTube can turn the captions on and off</source>
+        <translation>Файл субтитров рядом с видео, с тем же именем: плееры и YouTube смогут включать и выключать их</translation>
+    </message>
+    <message>
         <source>Saves what you see in the preview. Pick a size — the picture shape stays the same.</source>
         <translation>Сохраняет изображение из предпросмотра. Выберите размер — соотношение сторон сохранится.</translation>
     </message>

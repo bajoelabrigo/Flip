@@ -15470,6 +15470,14 @@ NEXT TIME</source>
         <translation>ترميز نطاق البداية/النهاية المحدد فقط بدلاً من المخطط الزمني الكامل</translation>
     </message>
     <message>
+        <source>Also save the captions (.srt)</source>
+        <translation>حفظ الترجمات أيضًا (.srt)</translation>
+    </message>
+    <message>
+        <source>A subtitle file next to the video, with the same name: players and YouTube can turn the captions on and off</source>
+        <translation>ملف ترجمة بجوار الفيديو بالاسم نفسه: يمكن للمشغلات ويوتيوب تشغيل الترجمة وإيقافها</translation>
+    </message>
+    <message>
         <source>Saves what you see in the preview. Pick a size — the picture shape stays the same.</source>
         <translation>يحفظ ما تراه في المعاينة. اختر حجمًا — يبقى شكل الصورة كما هو.</translation>
     </message>

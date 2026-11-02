@@ -15170,6 +15170,14 @@ NEXT TIME</source>
         <translation>只编码标记的入点/出点范围，而不是整个时间线</translation>
     </message>
     <message>
+        <source>Also save the captions (.srt)</source>
+        <translation>同时保存字幕（.srt）</translation>
+    </message>
+    <message>
+        <source>A subtitle file next to the video, with the same name: players and YouTube can turn the captions on and off</source>
+        <translation>在视频旁保存同名字幕文件：播放器和 YouTube 可以开关字幕</translation>
+    </message>
+    <message>
         <source>Saves what you see in the preview. Pick a size — the picture shape stays the same.</source>
         <translation>保存预览中看到的画面。选择尺寸 — 画面比例保持不变。</translation>
     </message>

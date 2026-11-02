@@ -15170,6 +15170,14 @@ NEXT TIME</source>
         <translation>タイムライン全体ではなく、マークされたイン/アウト範囲のみをエンコード</translation>
     </message>
     <message>
+        <source>Also save the captions (.srt)</source>
+        <translation>字幕も保存（.srt）</translation>
+    </message>
+    <message>
+        <source>A subtitle file next to the video, with the same name: players and YouTube can turn the captions on and off</source>
+        <translation>動画と同じ名前の字幕ファイルを横に保存：プレーヤーや YouTube で字幕のオン・オフができます</translation>
+    </message>
+    <message>
         <source>Saves what you see in the preview. Pick a size — the picture shape stays the same.</source>
         <translation>プレビューで見えているものを保存します。サイズを選択します — 画像の形状は変わりません。</translation>
     </message>

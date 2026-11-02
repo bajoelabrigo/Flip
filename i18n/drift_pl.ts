@@ -15290,6 +15290,14 @@ ZOBACZENIA</translation>
         <translation>Koduj tylko oznaczony zakres Wejście/Wyjście zamiast całej osi czasu</translation>
     </message>
     <message>
+        <source>Also save the captions (.srt)</source>
+        <translation>Zapisz też napisy (.srt)</translation>
+    </message>
+    <message>
+        <source>A subtitle file next to the video, with the same name: players and YouTube can turn the captions on and off</source>
+        <translation>Plik napisów obok wideo, o tej samej nazwie: odtwarzacze i YouTube mogą je włączać i wyłączać</translation>
+    </message>
+    <message>
         <source>Saves what you see in the preview. Pick a size — the picture shape stays the same.</source>
         <translation>Zapisuje to, co widzisz w podglądzie. Wybierz rozmiar — kształt obrazu pozostaje ten sam.</translation>
     </message>

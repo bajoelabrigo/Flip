@@ -15230,6 +15230,14 @@ LA PROSSIMA</translation>
         <translation>Codifica solo l&apos;intervallo In/Out contrassegnato anziché l&apos;intera timeline</translation>
     </message>
     <message>
+        <source>Also save the captions (.srt)</source>
+        <translation>Salva anche i sottotitoli (.srt)</translation>
+    </message>
+    <message>
+        <source>A subtitle file next to the video, with the same name: players and YouTube can turn the captions on and off</source>
+        <translation>Un file di sottotitoli accanto al video, con lo stesso nome: i lettori e YouTube possono attivarli e disattivarli</translation>
+    </message>
+    <message>
         <source>Saves what you see in the preview. Pick a size — the picture shape stays the same.</source>
         <translation>Salva ciò che vedi nell&apos;anteprima. Scegli una dimensione: la proporzione dell&apos;immagine rimane la stessa.</translation>
     </message>

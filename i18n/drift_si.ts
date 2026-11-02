@@ -15226,6 +15226,14 @@ NEXT TIME</source>
         <translation>සම්පූර්ණ කාලරේඛාව වෙනුවට සලකුණු කළ In/Out පරාසය පමණක් Encode කරන්න</translation>
     </message>
     <message>
+        <source>Also save the captions (.srt)</source>
+        <translation>උපසිරැසිද සුරකින්න (.srt)</translation>
+    </message>
+    <message>
+        <source>A subtitle file next to the video, with the same name: players and YouTube can turn the captions on and off</source>
+        <translation>වීඩියෝව අසල එකම නමින් උපසිරැසි ගොනුවක්: ධාවක සහ YouTube හට ඒවා සක්‍රිය/අක්‍රිය කළ හැක</translation>
+    </message>
+    <message>
         <source>Saves what you see in the preview. Pick a size — the picture shape stays the same.</source>
         <translation>පෙරදසුනේ ඔබ දකින දේ සුරකියි. ප්‍රමාණයක් තෝරන්න — පින්තූරයේ හැඩය නොවෙනස්ව පවතී.</translation>
     </message>

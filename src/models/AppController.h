@@ -618,6 +618,8 @@ public:
     Q_INVOKABLE bool importSubtitleFileIntoClip(int trackIndex, int clipIndex, const QUrl &url);
     // Export a subtitle clip's cues as SRT, WebVTT or ASS (by extension). Timestamps are clip-local unless timelineTimes,
     // which offsets them by the clip's start so they line up with the exported video.
+    // True when the timeline has captions: the export dialog then offers to save them as .srt too.
+    Q_INVOKABLE bool projectHasSubtitles() const;
     Q_INVOKABLE bool exportSubtitleFile(int trackIndex, int clipIndex, const QUrl &url,
                                         bool timelineTimes = false);
     // maxWordsPerCue caps words per caption; 0 keeps the recommended (character-width) packing.
@@ -2687,6 +2689,11 @@ protected:
     void finishNormalize(const QString &clipId, double lufs, double targetLufs);
     bool m_normalizing = false;
     int subtitleLineWidth() const; // letters per generated caption, by the frame's shape
+    // The captions of each visible subtitle track in the exported video's times (bottom track first),
+    // and writing them next to the video as «name.srt», «name.2.srt»…
+    QList<QList<drift::SubtitleCue>> subtitleSidecarCues(const drift::Project &project, drift::TimeUs rangeStart,
+                                                         drift::TimeUs rangeEnd) const;
+    void writeSubtitleSidecars(const QString &videoPath, const QList<QList<drift::SubtitleCue>> &tracks);
     void finalizeGeneratedSubtitles(drift::TimeUs timelineStart, drift::TimeUs timelineDuration,
                                     const QList<drift::SubtitleCue> &cues, bool translated = false);
     // Defaulted severity so the existing call sites, which report ordinary status,

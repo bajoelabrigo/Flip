@@ -1,3 +1,4 @@
+import QtCore
 import QtQuick
 import QtQuick.Controls.Basic
 import QtQuick.Layouts
@@ -22,6 +23,13 @@ ThemedDialog {
     property int audioBitrateKbps: 192
     property bool advancedOpen: false
     property bool exportWorkAreaOnly: false
+
+    // «Also save the captions (.srt)», remembered; offered only when the timeline has captions.
+    Settings {
+        id: exportPrefs
+        category: "export"
+        property bool subtitleSidecar: true
+    }
 
     // Export frame rate. fpsNum 0 means "follow the project fps". Rational so the
     // NTSC rates (30000/1001 and friends) survive the round-trip.
@@ -397,7 +405,8 @@ ThemedDialog {
             "audioBitrateKbps": audioBitrateKbps,
             "audioOnly": isAudioOnly,
             "gifExport": isGifExport,
-            "exportWorkAreaOnly": exportWorkAreaOnly && EditorState.workAreaActive
+            "exportWorkAreaOnly": exportWorkAreaOnly && EditorState.workAreaActive,
+            "subtitleSidecar": exportPrefs.subtitleSidecar && !isAudioOnly && !isGifExport
         }
         if (s.exportWorkAreaOnly) {
             s.startUs = Math.round(EditorState.workAreaInSeconds * 1000000)
@@ -529,6 +538,15 @@ ThemedDialog {
                 checked: root.exportWorkAreaOnly
                 tooltip: qsTr("Encode only the marked In/Out range instead of the full timeline")
                 onToggled: root.exportWorkAreaOnly = checked
+            }
+
+            ThemedCheckBox {
+                width: parent.width
+                visible: root.exportMode === "video" && root.visible && EditorState.projectHasSubtitles()
+                text: qsTr("Also save the captions (.srt)")
+                checked: exportPrefs.subtitleSidecar
+                tooltip: qsTr("A subtitle file next to the video, with the same name: players and YouTube can turn the captions on and off")
+                onToggled: exportPrefs.subtitleSidecar = checked
             }
 
             // ---- Video mode ----

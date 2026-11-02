@@ -15226,6 +15226,14 @@ NEXT TIME</source>
         <translation>Codificar únicamente el rango de Entrada/Salida marcado en lugar de toda la línea de tiempo</translation>
     </message>
     <message>
+        <source>Also save the captions (.srt)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A subtitle file next to the video, with the same name: players and YouTube can turn the captions on and off</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Saves what you see in the preview. Pick a size — the picture shape stays the same.</source>
         <translation>Guarda lo que ves en la vista previa. Elige un tamaño: la forma de la imagen se mantiene.</translation>
     </message>

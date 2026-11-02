@@ -15226,6 +15226,14 @@ NEXT TIME</source>
         <translation type="unfinished">সম্পূর্ণ টাইমলাইনের পরিবর্তে শুধুমাত্র চিহ্নিত ইন/আউট রেঞ্জ এনকোড করুন</translation>
     </message>
     <message>
+        <source>Also save the captions (.srt)</source>
+        <translation>ক্যাপশনও সংরক্ষণ করুন (.srt)</translation>
+    </message>
+    <message>
+        <source>A subtitle file next to the video, with the same name: players and YouTube can turn the captions on and off</source>
+        <translation>ভিডিওর পাশে একই নামে একটি সাবটাইটেল ফাইল: প্লেয়ার ও YouTube ক্যাপশন চালু-বন্ধ করতে পারে</translation>
+    </message>
+    <message>
         <source>Saves what you see in the preview. Pick a size — the picture shape stays the same.</source>
         <translation type="unfinished">আপনি প্রিভিউতে যা দেখছেন তা সংরক্ষণ করে। একটি আকার চয়ন করুন - ছবির আকৃতি একই থাকে.</translation>
     </message>
