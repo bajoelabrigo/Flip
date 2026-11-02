@@ -50,10 +50,10 @@ Lo que tienen CapCut, Premiere y Descript:
 - [ ] Editar el video borrando texto (como Descript).
 - [ ] Revisar los silencios uno por uno antes de quitarlos.
 - [ ] Colores y nombres por hablante (el motor ya distingue voces).
-- [ ] Reglas de lectura con aviso (letras por segundo, muy cortos, muy largos).
+- [x] Reglas de lectura con aviso (letras por segundo, muy cortos, muy largos).
 - [x] Mover todos los subtítulos a la vez (adelantar o atrasar).
-- [ ] Subtítulos dentro del MP4 (activables) y un `.srt` al lado del video al exportar.
-- [ ] ASS con el estilo real del proyecto.
+- [~] Subtítulos dentro del MP4 (activables) y un `.srt` al lado del video al exportar.
+- [x] ASS con el estilo real del proyecto.
 - [ ] Palabras difíciles antes de transcribir (nombres, marcas, términos).
 
 Para redes (estilo CapCut):
@@ -82,3 +82,8 @@ Para redes (estilo CapCut):
   - la galería de estilos de Subtítulos cambia también los subtítulos elegidos («Estilo de los subtítulos elegidos»).
   - un solo lugar para crear subtítulos: el panel de audio lleva solo «Crear subtítulos…», que abre Subtítulos.
   - «Limpiar» y «Emojis» muestran primero los cambios (antes tachado, después) con Aplicar / Cancelar.
+  - reglas de lectura: «Muy corto para leer» (< 0,7 s), «Mucho tiempo en pantalla» (> 7 s), «Muy rápido para leer»
+    (> 20 letras por segundo), en naranja junto al tiempo de cada línea.
+  - exportar: «Guardar también los subtítulos (.srt)» junto al video (una por pista; zona de trabajo incluida).
+    Falta: subtítulos dentro del MP4 (pista activable).
+  - ASS exportado con fuente, tamaño, negrita, colores, contorno o caja del clip (probado compilando `SrtIO.cpp`).
