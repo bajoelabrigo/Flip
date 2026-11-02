@@ -22,8 +22,8 @@ Cómo seguir: marcar cada punto al terminarlo con el commit; probar en ventana a
   tampoco actualizan `wordEndsUs` (`finalizeGeneratedSubtitles`).
 - [x] 2. Mensajes en inglés: «Transcribing…», «Detecting language…», «Finishing up…», «Finding speech…», «Timing
   words…» y los nombres de los idiomas (`QLocale::languageToString`).
-- [ ] 3. El idioma se detecta solo con los primeros 30 s (`WhisperTranscriber.cpp`).
-- [ ] 4. Sin el extra de sincronía, la IA puede inventar texto en los silencios (falta detectar voz).
+- [x] 3. El idioma se detecta solo con los primeros 30 s (`WhisperTranscriber.cpp`).
+- [x] 4. Sin el extra de sincronía, la IA puede inventar texto en los silencios (falta detectar voz).
 - [x] 5. Importar un SRT lo pone en el cabezal: si no está en 0, queda desfasado.
 - [x] 6. El SRT exportado sale desfasado si el clip no empieza en 0 (la opción por defecto es la equivocada).
 - [x] 7. Generar dos veces sobre el mismo tramo encima dos clips de subtítulos.
@@ -35,7 +35,7 @@ Cómo seguir: marcar cada punto al terminarlo con el commit; probar en ventana a
 ## Mejorar (más fácil de usar)
 - [x] Recordar las últimas opciones (idioma, largo, traducción).
 - [ ] Unificar los 3 lugares desde donde se crean subtítulos (el del panel de audio no tiene estilos ni limpieza).
-- [ ] Cambiar el estilo de subtítulos ya hechos desde la misma galería.
+- [x] Cambiar el estilo de subtítulos ya hechos desde la misma galería.
 - [x] Botones ◀ ▶ de un fotograma y atajos «inicio aquí» / «fin aquí» en vez de escribir los tiempos.
 - [ ] Vista previa antes de aplicar «Limpiar» y «Emojis».
 - [x] Quitar el aviso de «tiempos repartidos» cuando el extra de sincronía está instalado.
@@ -77,3 +77,6 @@ Para redes (estilo CapCut):
     salían 3 o 4 líneas. La caja ya parte en líneas sola; falta ver en ventana si conviene un máximo de 2 líneas.
   - editor: inicio y fin en su propia fila con ◀ ▶ de un fotograma y «al cabezal»; Dividir en el cabezal (con los
     tiempos por palabra), Unir con el siguiente, Eliminar en una fila; «Mover todos» ±0,1 s. Atajos de teclado: pendiente.
+  - idioma: votan hasta tres tramos de 30 s con sonido repartidos por el video (antes solo los primeros 30 s).
+  - sin «Sincronía de palabras»: se descartan los subtítulos sobre silencio (texto fantasma de Whisper).
+  - la galería de estilos de Subtítulos cambia también los subtítulos elegidos («Estilo de los subtítulos elegidos»).
