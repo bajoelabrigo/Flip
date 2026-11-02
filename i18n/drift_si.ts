@@ -7795,18 +7795,6 @@
         <translation>ශබ්ද මට්ටම</translation>
     </message>
     <message>
-        <source>Recommended caption length</source>
-        <translation>නිර්දේශිත උපසිරැසි දිග</translation>
-    </message>
-    <message>
-        <source>1 word per caption</source>
-        <translation>උපසිරැසියකට වචන 1ක්</translation>
-    </message>
-    <message>
-        <source>%1 words per caption</source>
-        <translation>උපසිරැසියකට වචන %1ක්</translation>
-    </message>
-    <message>
         <source>Basic</source>
         <translation type="unfinished">මූලික</translation>
     </message>
@@ -7871,6 +7859,14 @@
         <translation>Pan</translation>
     </message>
     <message>
+        <source>Create captions…</source>
+        <translation>උපසිරැසි සාදන්න…</translation>
+    </message>
+    <message>
+        <source>Open Subtitles to create captions from this clip&apos;s speech</source>
+        <translation>මෙම ක්ලිපයේ කථනයෙන් උපසිරැසි සෑදීමට උපසිරැසි විවෘත කරයි</translation>
+    </message>
+    <message>
         <source>C</source>
         <translation>C</translation>
     </message>
@@ -7909,30 +7905,6 @@
     <message>
         <source>Install AI engine first</source>
         <translation>පළමුව AI එන්ජිම ස්ථාපනය කරන්න</translation>
-    </message>
-    <message>
-        <source>Auto subtitles</source>
-        <translation>ස්වයංක්‍රීය උපසිරැසි</translation>
-    </message>
-    <message>
-        <source>Shorter captions are timed by splitting each phrase evenly, so they can drift slightly out of sync with the speech.</source>
-        <translation>කෙටි උපසිරැසි කාලගත කරනුයේ එක් එක් වාක්‍ය ඛණ්ඩය සමානව බෙදීමෙනි, එබැවින් ඒවා කථනය සමඟ තරමක් නොගැලපී පැවතිය හැක.</translation>
-    </message>
-    <message>
-        <source>Creating captions… %1%</source>
-        <translation>උපසිරැසි සාදමින්… %1%</translation>
-    </message>
-    <message>
-        <source>Create captions from speech</source>
-        <translation>කථනයෙන් උපසිරැසි සාදන්න</translation>
-    </message>
-    <message>
-        <source>Several selected clips become one caption clip</source>
-        <translation>තෝරාගත් ක්ලිප් කිහිපය එක් උපසිරැසි ක්ලිපයක් බවට පත්වේ</translation>
-    </message>
-    <message>
-        <source>Download speech recognition (about 670 MB)</source>
-        <translation>කථන හඳුනාගැනීම බාගන්න (මෙගාබයිට් 670ක් පමණ)</translation>
     </message>
 </context>
 <context>

@@ -7745,18 +7745,6 @@
         <translation>볼륨</translation>
     </message>
     <message>
-        <source>Recommended caption length</source>
-        <translation>권장 캡션 길이</translation>
-    </message>
-    <message>
-        <source>1 word per caption</source>
-        <translation>캡션당 1단어</translation>
-    </message>
-    <message>
-        <source>%1 words per caption</source>
-        <translation>캡션당 %1단어</translation>
-    </message>
-    <message>
         <source>Basic</source>
         <translation>기본</translation>
     </message>
@@ -7821,6 +7809,14 @@
         <translation>패닝</translation>
     </message>
     <message>
+        <source>Create captions…</source>
+        <translation>자막 만들기…</translation>
+    </message>
+    <message>
+        <source>Open Subtitles to create captions from this clip&apos;s speech</source>
+        <translation>이 클립의 음성으로 자막을 만들도록 자막 패널을 엽니다</translation>
+    </message>
+    <message>
         <source>C</source>
         <translation>C</translation>
     </message>
@@ -7859,30 +7855,6 @@
     <message>
         <source>Install AI engine first</source>
         <translation>먼저 AI 엔진을 설치하세요</translation>
-    </message>
-    <message>
-        <source>Auto subtitles</source>
-        <translation>자동 자막</translation>
-    </message>
-    <message>
-        <source>Shorter captions are timed by splitting each phrase evenly, so they can drift slightly out of sync with the speech.</source>
-        <translation>짧은 캡션은 각 구문을 동일한 간격으로 나누어 타이밍을 맞추므로 음성과 약간 어긋날 수 있습니다.</translation>
-    </message>
-    <message>
-        <source>Creating captions… %1%</source>
-        <translation>캡션 생성 중… %1%</translation>
-    </message>
-    <message>
-        <source>Create captions from speech</source>
-        <translation>음성으로 캡션 만들기</translation>
-    </message>
-    <message>
-        <source>Several selected clips become one caption clip</source>
-        <translation>선택한 여러 클립을 하나의 캡션 클립으로 결합</translation>
-    </message>
-    <message>
-        <source>Download speech recognition (about 670 MB)</source>
-        <translation>음성 인식 다운로드(약 670MB)</translation>
     </message>
 </context>
 <context>

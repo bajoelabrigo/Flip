@@ -7745,18 +7745,6 @@
         <translation>音量</translation>
     </message>
     <message>
-        <source>Recommended caption length</source>
-        <translation>建议字幕长度</translation>
-    </message>
-    <message>
-        <source>1 word per caption</source>
-        <translation>每条字幕 1 个词</translation>
-    </message>
-    <message>
-        <source>%1 words per caption</source>
-        <translation>每条字幕 %1 个词</translation>
-    </message>
-    <message>
         <source>Basic</source>
         <translation>基础</translation>
     </message>
@@ -7821,6 +7809,14 @@
         <translation>声像</translation>
     </message>
     <message>
+        <source>Create captions…</source>
+        <translation>创建字幕…</translation>
+    </message>
+    <message>
+        <source>Open Subtitles to create captions from this clip&apos;s speech</source>
+        <translation>打开“字幕”，根据此片段的语音创建字幕</translation>
+    </message>
+    <message>
         <source>C</source>
         <translation>中</translation>
     </message>
@@ -7859,30 +7855,6 @@
     <message>
         <source>Install AI engine first</source>
         <translation>请先安装 AI 引擎</translation>
-    </message>
-    <message>
-        <source>Auto subtitles</source>
-        <translation>自动字幕</translation>
-    </message>
-    <message>
-        <source>Shorter captions are timed by splitting each phrase evenly, so they can drift slightly out of sync with the speech.</source>
-        <translation>较短的字幕通过平均拆分每个短语来计时，因此可能与语音略有不同步。</translation>
-    </message>
-    <message>
-        <source>Creating captions… %1%</source>
-        <translation>正在生成字幕… %1%</translation>
-    </message>
-    <message>
-        <source>Create captions from speech</source>
-        <translation>从语音生成字幕</translation>
-    </message>
-    <message>
-        <source>Several selected clips become one caption clip</source>
-        <translation>多个所选片段将合并为一个字幕片段</translation>
-    </message>
-    <message>
-        <source>Download speech recognition (about 670 MB)</source>
-        <translation>下载语音识别（约 670 MB）</translation>
     </message>
 </context>
 <context>

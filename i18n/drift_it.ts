@@ -7795,18 +7795,6 @@
         <translation>Volume</translation>
     </message>
     <message>
-        <source>Recommended caption length</source>
-        <translation>Lunghezza didascalia consigliata</translation>
-    </message>
-    <message>
-        <source>1 word per caption</source>
-        <translation>1 parola per didascalia</translation>
-    </message>
-    <message>
-        <source>%1 words per caption</source>
-        <translation>%1 parole per didascalia</translation>
-    </message>
-    <message>
         <source>Basic</source>
         <translation>Base</translation>
     </message>
@@ -7871,6 +7859,14 @@
         <translation>Panoramica</translation>
     </message>
     <message>
+        <source>Create captions…</source>
+        <translation>Crea sottotitoli…</translation>
+    </message>
+    <message>
+        <source>Open Subtitles to create captions from this clip&apos;s speech</source>
+        <translation>Apre Sottotitoli per creare i sottotitoli dal parlato di questa clip</translation>
+    </message>
+    <message>
         <source>C</source>
         <translation>C</translation>
     </message>
@@ -7909,30 +7905,6 @@
     <message>
         <source>Install AI engine first</source>
         <translation>Installa prima il motore IA</translation>
-    </message>
-    <message>
-        <source>Auto subtitles</source>
-        <translation>Sottotitoli automatici</translation>
-    </message>
-    <message>
-        <source>Shorter captions are timed by splitting each phrase evenly, so they can drift slightly out of sync with the speech.</source>
-        <translation>I sottotitoli più brevi vengono sincronizzati dividendo ciascuna frase in modo uniforme, pertanto potrebbero desincronizzarsi leggermente rispetto al parlato.</translation>
-    </message>
-    <message>
-        <source>Creating captions… %1%</source>
-        <translation>Creazione sottotitoli in corso… %1%</translation>
-    </message>
-    <message>
-        <source>Create captions from speech</source>
-        <translation>Crea sottotitoli dal parlato</translation>
-    </message>
-    <message>
-        <source>Several selected clips become one caption clip</source>
-        <translation>Più clip selezionate diventano un&apos;unica clip sottotitoli</translation>
-    </message>
-    <message>
-        <source>Download speech recognition (about 670 MB)</source>
-        <translation>Scarica riconoscimento vocale (circa 670 MB)</translation>
     </message>
 </context>
 <context>

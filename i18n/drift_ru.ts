@@ -7845,18 +7845,6 @@
         <translation>Громкость</translation>
     </message>
     <message>
-        <source>Recommended caption length</source>
-        <translation>Рекомендуемая длина субтитра</translation>
-    </message>
-    <message>
-        <source>1 word per caption</source>
-        <translation>1 слово на субтитр</translation>
-    </message>
-    <message>
-        <source>%1 words per caption</source>
-        <translation>Слов в субтитре: %1</translation>
-    </message>
-    <message>
         <source>Basic</source>
         <translation>Основное</translation>
     </message>
@@ -7921,6 +7909,14 @@
         <translation>Панорама</translation>
     </message>
     <message>
+        <source>Create captions…</source>
+        <translation>Создать субтитры…</translation>
+    </message>
+    <message>
+        <source>Open Subtitles to create captions from this clip&apos;s speech</source>
+        <translation>Открывает «Субтитры», чтобы создать субтитры из речи этого клипа</translation>
+    </message>
+    <message>
         <source>C</source>
         <translation>Ц</translation>
     </message>
@@ -7959,30 +7955,6 @@
     <message>
         <source>Install AI engine first</source>
         <translation>Сначала установите движок ИИ</translation>
-    </message>
-    <message>
-        <source>Auto subtitles</source>
-        <translation>Автоматические субтитры</translation>
-    </message>
-    <message>
-        <source>Shorter captions are timed by splitting each phrase evenly, so they can drift slightly out of sync with the speech.</source>
-        <translation>Короткие субтитры создаются равномерным делением каждой фразы по времени, поэтому могут немного расходиться с речью.</translation>
-    </message>
-    <message>
-        <source>Creating captions… %1%</source>
-        <translation>Создание субтитров… %1%</translation>
-    </message>
-    <message>
-        <source>Create captions from speech</source>
-        <translation>Создать субтитры из речи</translation>
-    </message>
-    <message>
-        <source>Several selected clips become one caption clip</source>
-        <translation>Несколько выбранных клипов станут одним клипом субтитров</translation>
-    </message>
-    <message>
-        <source>Download speech recognition (about 670 MB)</source>
-        <translation>Скачать распознавание речи (около 670 МБ)</translation>
     </message>
 </context>
 <context>

@@ -7795,18 +7795,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Recommended caption length</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>1 word per caption</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>%1 words per caption</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Basic</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7871,6 +7859,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Create captions…</source>
+        <translation>Gumawa ng caption…</translation>
+    </message>
+    <message>
+        <source>Open Subtitles to create captions from this clip&apos;s speech</source>
+        <translation>Binubuksan ang Subtitles para gumawa ng caption mula sa pananalita sa clip na ito</translation>
+    </message>
+    <message>
         <source>C</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7908,30 +7904,6 @@
     </message>
     <message>
         <source>Install AI engine first</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Auto subtitles</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Shorter captions are timed by splitting each phrase evenly, so they can drift slightly out of sync with the speech.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Creating captions… %1%</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Create captions from speech</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Several selected clips become one caption clip</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Download speech recognition (about 670 MB)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

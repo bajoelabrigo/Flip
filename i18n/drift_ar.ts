@@ -7995,18 +7995,6 @@
         <translation>مستوى الصوت</translation>
     </message>
     <message>
-        <source>Recommended caption length</source>
-        <translation>طول التسمية التوضيحية الموصى به</translation>
-    </message>
-    <message>
-        <source>1 word per caption</source>
-        <translation>كلمة واحدة لكل تسمية توضيحية</translation>
-    </message>
-    <message>
-        <source>%1 words per caption</source>
-        <translation>%1 كلمة لكل تسمية توضيحية</translation>
-    </message>
-    <message>
         <source>Basic</source>
         <translation>أساسي</translation>
     </message>
@@ -8071,6 +8059,14 @@
         <translation>التوزيع الصوتي</translation>
     </message>
     <message>
+        <source>Create captions…</source>
+        <translation>إنشاء ترجمات…</translation>
+    </message>
+    <message>
+        <source>Open Subtitles to create captions from this clip&apos;s speech</source>
+        <translation>يفتح «الترجمات» لإنشاء ترجمات من كلام هذا المقطع</translation>
+    </message>
+    <message>
         <source>C</source>
         <translation>C</translation>
     </message>
@@ -8109,30 +8105,6 @@
     <message>
         <source>Install AI engine first</source>
         <translation>تثبيت محرك الذكاء الاصطناعي أولاً</translation>
-    </message>
-    <message>
-        <source>Auto subtitles</source>
-        <translation>ترجمة تلقائية</translation>
-    </message>
-    <message>
-        <source>Shorter captions are timed by splitting each phrase evenly, so they can drift slightly out of sync with the speech.</source>
-        <translation>يتم ضبط توقيت التسميات التوضيحية الأقصر عبر تقسيم كل عبارة بالتساوي، لذا قد تخرج قليلًا عن التزامن مع الكلام.</translation>
-    </message>
-    <message>
-        <source>Creating captions… %1%</source>
-        <translation>جارٍ إنشاء التسميات التوضيحية… %1%</translation>
-    </message>
-    <message>
-        <source>Create captions from speech</source>
-        <translation>إنشاء تسميات توضيحية من الكلام</translation>
-    </message>
-    <message>
-        <source>Several selected clips become one caption clip</source>
-        <translation>تتحول عدة مقاطع محددة إلى مقطع تسميات توضيحية واحد</translation>
-    </message>
-    <message>
-        <source>Download speech recognition (about 670 MB)</source>
-        <translation>تنزيل التعرف على الكلام (حوالي 670 MB)</translation>
     </message>
 </context>
 <context>

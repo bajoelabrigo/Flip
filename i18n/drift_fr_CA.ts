@@ -7796,18 +7796,6 @@
         <translation>Volume</translation>
     </message>
     <message>
-        <source>Recommended caption length</source>
-        <translation>Longueur de sous-titres recommandée</translation>
-    </message>
-    <message>
-        <source>1 word per caption</source>
-        <translation>1 mot par sous-titre</translation>
-    </message>
-    <message>
-        <source>%1 words per caption</source>
-        <translation>%1 mots par sous-titre</translation>
-    </message>
-    <message>
         <source>Basic</source>
         <translation>De base</translation>
     </message>
@@ -7872,6 +7860,14 @@
         <translation>Panoramique</translation>
     </message>
     <message>
+        <source>Create captions…</source>
+        <translation>Créer des sous-titres…</translation>
+    </message>
+    <message>
+        <source>Open Subtitles to create captions from this clip&apos;s speech</source>
+        <translation>Ouvre Sous-titres pour créer des sous-titres à partir de la voix de ce clip</translation>
+    </message>
+    <message>
         <source>C</source>
         <translation>C</translation>
     </message>
@@ -7910,30 +7906,6 @@
     <message>
         <source>Install AI engine first</source>
         <translation>Installez d&apos;abord le moteur IA</translation>
-    </message>
-    <message>
-        <source>Auto subtitles</source>
-        <translation>Sous-titres automatiques</translation>
-    </message>
-    <message>
-        <source>Shorter captions are timed by splitting each phrase evenly, so they can drift slightly out of sync with the speech.</source>
-        <translation>Les sous-titres plus courts sont synchronisés en répartissant chaque phrase uniformément, ce qui peut les faire légèrement décaler par rapport à la parole.</translation>
-    </message>
-    <message>
-        <source>Creating captions… %1%</source>
-        <translation>Création des sous-titres… %1%</translation>
-    </message>
-    <message>
-        <source>Create captions from speech</source>
-        <translation>Créer des sous-titres à partir du discours</translation>
-    </message>
-    <message>
-        <source>Several selected clips become one caption clip</source>
-        <translation>Plusieurs clips sélectionnés deviennent un seul clip de sous-titres</translation>
-    </message>
-    <message>
-        <source>Download speech recognition (about 670 MB)</source>
-        <translation>Télécharger la reconnaissance vocale (environ 670 Mo)</translation>
     </message>
 </context>
 <context>

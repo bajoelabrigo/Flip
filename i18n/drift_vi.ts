@@ -7745,18 +7745,6 @@
         <translation>Âm lượng</translation>
     </message>
     <message>
-        <source>Recommended caption length</source>
-        <translation>Độ dài phụ đề được đề xuất</translation>
-    </message>
-    <message>
-        <source>1 word per caption</source>
-        <translation>1 từ cho mỗi phụ đề</translation>
-    </message>
-    <message>
-        <source>%1 words per caption</source>
-        <translation>%1 từ cho mỗi phụ đề</translation>
-    </message>
-    <message>
         <source>Basic</source>
         <translation>Cơ bản</translation>
     </message>
@@ -7821,6 +7809,14 @@
         <translation>Xoay</translation>
     </message>
     <message>
+        <source>Create captions…</source>
+        <translation>Tạo phụ đề…</translation>
+    </message>
+    <message>
+        <source>Open Subtitles to create captions from this clip&apos;s speech</source>
+        <translation>Mở Phụ đề để tạo phụ đề từ lời nói trong clip này</translation>
+    </message>
+    <message>
         <source>C</source>
         <translation>C</translation>
     </message>
@@ -7859,30 +7855,6 @@
     <message>
         <source>Install AI engine first</source>
         <translation>Cài đặt công cụ AI trước</translation>
-    </message>
-    <message>
-        <source>Auto subtitles</source>
-        <translation>Phụ đề tự động</translation>
-    </message>
-    <message>
-        <source>Shorter captions are timed by splitting each phrase evenly, so they can drift slightly out of sync with the speech.</source>
-        <translation>Phụ đề ngắn hơn được tính thời gian bằng cách chia đều từng cụm từ, do đó chúng có thể hơi không đồng bộ với âm thanh.</translation>
-    </message>
-    <message>
-        <source>Creating captions… %1%</source>
-        <translation>Đang tạo phụ đề… %1%</translation>
-    </message>
-    <message>
-        <source>Create captions from speech</source>
-        <translation>Tạo phụ đề từ lời nói</translation>
-    </message>
-    <message>
-        <source>Several selected clips become one caption clip</source>
-        <translation>Một số clip được chọn sẽ trở thành một clip phụ đề</translation>
-    </message>
-    <message>
-        <source>Download speech recognition (about 670 MB)</source>
-        <translation>Tải xuống gói nhận dạng giọng nói (khoảng 670 MB)</translation>
     </message>
 </context>
 <context>

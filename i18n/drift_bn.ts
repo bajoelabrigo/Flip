@@ -7795,18 +7795,6 @@
         <translation type="unfinished">আয়তন</translation>
     </message>
     <message>
-        <source>Recommended caption length</source>
-        <translation type="unfinished">প্রস্তাবিত ক্যাপশন দৈর্ঘ্য</translation>
-    </message>
-    <message>
-        <source>1 word per caption</source>
-        <translation>প্রতি ক্যাপশনে ১টি শব্দ</translation>
-    </message>
-    <message>
-        <source>%1 words per caption</source>
-        <translation>প্রতি ক্যাপশনে %1টি শব্দ</translation>
-    </message>
-    <message>
         <source>Basic</source>
         <translation type="unfinished">মৌলিক</translation>
     </message>
@@ -7871,6 +7859,14 @@
         <translation type="unfinished">প্যান</translation>
     </message>
     <message>
+        <source>Create captions…</source>
+        <translation>ক্যাপশন তৈরি করুন…</translation>
+    </message>
+    <message>
+        <source>Open Subtitles to create captions from this clip&apos;s speech</source>
+        <translation>এই ক্লিপের কথা থেকে ক্যাপশন তৈরি করতে সাবটাইটেল খোলে</translation>
+    </message>
+    <message>
         <source>C</source>
         <translation type="unfinished">সে</translation>
     </message>
@@ -7909,30 +7905,6 @@
     <message>
         <source>Install AI engine first</source>
         <translation type="unfinished">প্রথমে AI ইঞ্জিন ইনস্টল করুন</translation>
-    </message>
-    <message>
-        <source>Auto subtitles</source>
-        <translation type="unfinished">স্বয়ংক্রিয় সাবটাইটেল</translation>
-    </message>
-    <message>
-        <source>Shorter captions are timed by splitting each phrase evenly, so they can drift slightly out of sync with the speech.</source>
-        <translation type="unfinished">ছোট ক্যাপশন প্রতিটি শব্দগুচ্ছকে সমানভাবে বিভক্ত করে টাইম করা হয়, যাতে সেগুলি বক্তৃতার সাথে সিঙ্কের বাইরে চলে যেতে পারে.</translation>
-    </message>
-    <message>
-        <source>Creating captions… %1%</source>
-        <translation type="unfinished">ক্যাপশন তৈরি করা হচ্ছে... %1%</translation>
-    </message>
-    <message>
-        <source>Create captions from speech</source>
-        <translation type="unfinished">বক্তৃতা থেকে ক্যাপশন তৈরি করুন</translation>
-    </message>
-    <message>
-        <source>Several selected clips become one caption clip</source>
-        <translation type="unfinished">বেশ কয়েকটি নির্বাচিত ক্লিপ একটি ক্যাপশন ক্লিপ হয়ে যায়</translation>
-    </message>
-    <message>
-        <source>Download speech recognition (about 670 MB)</source>
-        <translation type="unfinished">স্পিচ রিকগনিশন ডাউনলোড করুন (প্রায় 670 এমবি)</translation>
     </message>
 </context>
 <context>

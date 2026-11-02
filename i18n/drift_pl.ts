@@ -7845,18 +7845,6 @@
         <translation>Głośność</translation>
     </message>
     <message>
-        <source>Recommended caption length</source>
-        <translation>Zalecana długość napisu</translation>
-    </message>
-    <message>
-        <source>1 word per caption</source>
-        <translation>1 słowo na napis</translation>
-    </message>
-    <message>
-        <source>%1 words per caption</source>
-        <translation>%1 słów na napis</translation>
-    </message>
-    <message>
         <source>Basic</source>
         <translation>Podstawowe</translation>
     </message>
@@ -7921,6 +7909,14 @@
         <translation>Panorama</translation>
     </message>
     <message>
+        <source>Create captions…</source>
+        <translation>Utwórz napisy…</translation>
+    </message>
+    <message>
+        <source>Open Subtitles to create captions from this clip&apos;s speech</source>
+        <translation>Otwiera Napisy, aby utworzyć napisy z mowy w tym klipie</translation>
+    </message>
+    <message>
         <source>C</source>
         <translation>C</translation>
     </message>
@@ -7959,30 +7955,6 @@
     <message>
         <source>Install AI engine first</source>
         <translation>Najpierw zainstaluj silnik AI</translation>
-    </message>
-    <message>
-        <source>Auto subtitles</source>
-        <translation>Automatyczne napisy</translation>
-    </message>
-    <message>
-        <source>Shorter captions are timed by splitting each phrase evenly, so they can drift slightly out of sync with the speech.</source>
-        <translation>Krótsze napisy są synchronizowane przez równy podział każdej frazy, więc mogą lekko wyjść z synchronizacji z mową.</translation>
-    </message>
-    <message>
-        <source>Creating captions… %1%</source>
-        <translation>Tworzenie napisów… %1%</translation>
-    </message>
-    <message>
-        <source>Create captions from speech</source>
-        <translation>Utwórz napisy z mowy</translation>
-    </message>
-    <message>
-        <source>Several selected clips become one caption clip</source>
-        <translation>Kilka wybranych klipów staje się jednym klipem napisów</translation>
-    </message>
-    <message>
-        <source>Download speech recognition (about 670 MB)</source>
-        <translation>Pobierz rozpoznawanie mowy (ok. 670 MB)</translation>
     </message>
 </context>
 <context>

@@ -7795,18 +7795,6 @@
         <translation>Volume</translation>
     </message>
     <message>
-        <source>Recommended caption length</source>
-        <translation>Tamanho recomendado da legenda</translation>
-    </message>
-    <message>
-        <source>1 word per caption</source>
-        <translation>1 palavra por legenda</translation>
-    </message>
-    <message>
-        <source>%1 words per caption</source>
-        <translation>%1 palavras por legenda</translation>
-    </message>
-    <message>
         <source>Basic</source>
         <translation>Básico</translation>
     </message>
@@ -7871,6 +7859,14 @@
         <translation>Panorâmica</translation>
     </message>
     <message>
+        <source>Create captions…</source>
+        <translation>Criar legendas…</translation>
+    </message>
+    <message>
+        <source>Open Subtitles to create captions from this clip&apos;s speech</source>
+        <translation>Abre Legendas para criar legendas com a fala deste clip</translation>
+    </message>
+    <message>
         <source>C</source>
         <translation>C</translation>
     </message>
@@ -7909,30 +7905,6 @@
     <message>
         <source>Install AI engine first</source>
         <translation>Instale o mecanismo de IA primeiro</translation>
-    </message>
-    <message>
-        <source>Auto subtitles</source>
-        <translation>Legendas automáticas</translation>
-    </message>
-    <message>
-        <source>Shorter captions are timed by splitting each phrase evenly, so they can drift slightly out of sync with the speech.</source>
-        <translation>O tempo das legendas mais curtas é definido dividindo cada frase em partes iguais, então elas podem ficar um pouco fora de sincronia com a fala.</translation>
-    </message>
-    <message>
-        <source>Creating captions… %1%</source>
-        <translation>Criando legendas… %1%</translation>
-    </message>
-    <message>
-        <source>Create captions from speech</source>
-        <translation>Criar legendas a partir da fala</translation>
-    </message>
-    <message>
-        <source>Several selected clips become one caption clip</source>
-        <translation>Vários clipes selecionados se tornam um clipe de legenda</translation>
-    </message>
-    <message>
-        <source>Download speech recognition (about 670 MB)</source>
-        <translation>Transferir reconhecimento de fala (cerca de 670 MB)</translation>
     </message>
 </context>
 <context>
