@@ -26785,6 +26785,18 @@ If playback stutters, try another.</source>
         <translation>Эмодзи</translation>
     </message>
     <message>
+        <source>Too short to read</source>
+        <translation>Слишком коротко для чтения</translation>
+    </message>
+    <message>
+        <source>On screen too long</source>
+        <translation>Слишком долго на экране</translation>
+    </message>
+    <message>
+        <source>Too fast to read</source>
+        <translation>Слишком быстро для чтения</translation>
+    </message>
+    <message>
         <source>Move all captions</source>
         <translation>Сдвинуть все</translation>
     </message>

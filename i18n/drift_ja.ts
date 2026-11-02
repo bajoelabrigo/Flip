@@ -26597,6 +26597,18 @@ If playback stutters, try another.</source>
         <translation>絵文字</translation>
     </message>
     <message>
+        <source>Too short to read</source>
+        <translation>短すぎて読めません</translation>
+    </message>
+    <message>
+        <source>On screen too long</source>
+        <translation>表示時間が長すぎます</translation>
+    </message>
+    <message>
+        <source>Too fast to read</source>
+        <translation>速すぎて読めません</translation>
+    </message>
+    <message>
         <source>Move all captions</source>
         <translation>すべて移動</translation>
     </message>

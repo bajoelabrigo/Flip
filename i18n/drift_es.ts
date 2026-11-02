@@ -26691,6 +26691,18 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Emojis</translation>
     </message>
     <message>
+        <source>Too short to read</source>
+        <translation>Muy corto para leer</translation>
+    </message>
+    <message>
+        <source>On screen too long</source>
+        <translation>Mucho tiempo en pantalla</translation>
+    </message>
+    <message>
+        <source>Too fast to read</source>
+        <translation>Muy rápido para leer</translation>
+    </message>
+    <message>
         <source>Move all captions</source>
         <translation>Mover todos</translation>
     </message>

@@ -26785,6 +26785,18 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
         <translation>Emoji</translation>
     </message>
     <message>
+        <source>Too short to read</source>
+        <translation>Za krótko, by przeczytać</translation>
+    </message>
+    <message>
+        <source>On screen too long</source>
+        <translation>Za długo na ekranie</translation>
+    </message>
+    <message>
+        <source>Too fast to read</source>
+        <translation>Za szybko, by przeczytać</translation>
+    </message>
+    <message>
         <source>Move all captions</source>
         <translation>Przesuń wszystkie</translation>
     </message>

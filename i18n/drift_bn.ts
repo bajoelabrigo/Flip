@@ -26695,6 +26695,18 @@ If playback stutters, try another.</source>
         <translation>যে ক্যাপশন বদলাবে: %1</translation>
     </message>
     <message>
+        <source>Too short to read</source>
+        <translation>পড়ার জন্য খুব ছোট</translation>
+    </message>
+    <message>
+        <source>On screen too long</source>
+        <translation>পর্দায় অনেকক্ষণ</translation>
+    </message>
+    <message>
+        <source>Too fast to read</source>
+        <translation>পড়ার জন্য খুব দ্রুত</translation>
+    </message>
+    <message>
         <source>+ %1 more</source>
         <translation>+ আরও %1</translation>
     </message>

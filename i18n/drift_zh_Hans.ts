@@ -26596,6 +26596,18 @@ If playback stutters, try another.</source>
         <translation>表情</translation>
     </message>
     <message>
+        <source>Too short to read</source>
+        <translation>太短，来不及读</translation>
+    </message>
+    <message>
+        <source>On screen too long</source>
+        <translation>显示时间过长</translation>
+    </message>
+    <message>
+        <source>Too fast to read</source>
+        <translation>太快，来不及读</translation>
+    </message>
+    <message>
         <source>Move all captions</source>
         <translation>全部移动</translation>
     </message>

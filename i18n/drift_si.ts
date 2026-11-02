@@ -26687,6 +26687,18 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Too short to read</source>
+        <translation>කියවීමට ඉතා කෙටියි</translation>
+    </message>
+    <message>
+        <source>On screen too long</source>
+        <translation>තිරයේ ඉතා දිගු වේලාවක්</translation>
+    </message>
+    <message>
+        <source>Too fast to read</source>
+        <translation>කියවීමට ඉතා වේගවත්</translation>
+    </message>
+    <message>
         <source>Move all captions</source>
         <translation>සියල්ල ගෙන යන්න</translation>
     </message>

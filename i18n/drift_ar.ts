@@ -27067,6 +27067,18 @@ If playback stutters, try another.</source>
         <translation>الرموز التعبيرية</translation>
     </message>
     <message>
+        <source>Too short to read</source>
+        <translation>قصير جدًا للقراءة</translation>
+    </message>
+    <message>
+        <source>On screen too long</source>
+        <translation>يبقى على الشاشة طويلًا</translation>
+    </message>
+    <message>
+        <source>Too fast to read</source>
+        <translation>سريع جدًا للقراءة</translation>
+    </message>
+    <message>
         <source>Move all captions</source>
         <translation>نقل الكل</translation>
     </message>

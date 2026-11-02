@@ -84,6 +84,24 @@ Item {
         root.changesKind = ""
     }
 
+    // Reading rules (as Premiere's caption checks): a caption shown too briefly, too long, or with
+    // more letters than a viewer reads in its time (about 20 per second). Empty when it reads well.
+    function readingIssue(cue) {
+        if (!cue)
+            return ""
+        const length = cue.end - cue.start
+        const letters = String(cue.text || "").replace(/\*/g, "").trim().length
+        if (letters === 0)
+            return ""
+        if (length < 0.7)
+            return qsTr("Too short to read")
+        if (length > 7)
+            return qsTr("On screen too long")
+        if (letters / length > 20)
+            return qsTr("Too fast to read")
+        return ""
+    }
+
     function replaceCues(newCues) {
         EditorState.setSubtitleCues(trackIndex, clipIndex, newCues)
     }
@@ -875,14 +893,26 @@ Item {
                     width: parent.width - 24 - deleteButton.width
                     spacing: 2
 
-                    Text {
-                        text: root.formatCueTime(cueDelegate.modelData.start) + "  →  "
-                              + root.formatCueTime(cueDelegate.modelData.end)
-                        color: Theme.mutedForeground
-                        font.family: Theme.monoFontFamily
-                        font.pixelSize: Theme.fontSizeXs
-                        opacity: (cueDelegate.isActive || cueDelegate.isSelected) ? 0.95 : (rowHover.containsMouse ? 0.85 : 0.65)
-                        Behavior on opacity { NumberAnimation { duration: 150 } }
+                    Row {
+                        spacing: 8
+                        Text {
+                            text: root.formatCueTime(cueDelegate.modelData.start) + "  →  "
+                                  + root.formatCueTime(cueDelegate.modelData.end)
+                            color: Theme.mutedForeground
+                            font.family: Theme.monoFontFamily
+                            font.pixelSize: Theme.fontSizeXs
+                            opacity: (cueDelegate.isActive || cueDelegate.isSelected) ? 0.95 : (rowHover.containsMouse ? 0.85 : 0.65)
+                            Behavior on opacity { NumberAnimation { duration: 150 } }
+                        }
+                        // A quiet word when the caption does not read well (see readingIssue).
+                        Text {
+                            readonly property string issue: root.readingIssue(cueDelegate.modelData)
+                            visible: issue.length > 0
+                            text: "• " + issue
+                            color: Theme.warning
+                            font.family: Theme.fontFamily
+                            font.pixelSize: Theme.fontSizeXs
+                        }
                     }
 
                     Text {

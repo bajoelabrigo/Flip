@@ -26597,6 +26597,18 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Emoji</translation>
     </message>
     <message>
+        <source>Too short to read</source>
+        <translation>Quá ngắn để đọc</translation>
+    </message>
+    <message>
+        <source>On screen too long</source>
+        <translation>Hiện quá lâu</translation>
+    </message>
+    <message>
+        <source>Too fast to read</source>
+        <translation>Quá nhanh để đọc</translation>
+    </message>
+    <message>
         <source>Move all captions</source>
         <translation>Dời tất cả</translation>
     </message>

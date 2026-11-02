@@ -26693,6 +26693,18 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Émojis</translation>
     </message>
     <message>
+        <source>Too short to read</source>
+        <translation>Trop court pour être lu</translation>
+    </message>
+    <message>
+        <source>On screen too long</source>
+        <translation>Trop longtemps à l’écran</translation>
+    </message>
+    <message>
+        <source>Too fast to read</source>
+        <translation>Trop rapide à lire</translation>
+    </message>
+    <message>
         <source>Move all captions</source>
         <translation>Tout déplacer</translation>
     </message>

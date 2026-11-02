@@ -26595,6 +26595,18 @@ If playback stutters, try another.</source>
         <translation>이모지</translation>
     </message>
     <message>
+        <source>Too short to read</source>
+        <translation>읽기에 너무 짧음</translation>
+    </message>
+    <message>
+        <source>On screen too long</source>
+        <translation>화면에 너무 오래 표시됨</translation>
+    </message>
+    <message>
+        <source>Too fast to read</source>
+        <translation>읽기에 너무 빠름</translation>
+    </message>
+    <message>
         <source>Move all captions</source>
         <translation>모두 이동</translation>
     </message>

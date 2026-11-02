@@ -26687,6 +26687,18 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Emojis</translation>
     </message>
     <message>
+        <source>Too short to read</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>On screen too long</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Too fast to read</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Move all captions</source>
         <translation type="unfinished"></translation>
     </message>
