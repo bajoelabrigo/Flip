@@ -17,29 +17,29 @@ Cómo seguir: marcar cada punto al terminarlo con el commit; probar en ventana a
 - Archivos: SRT, VTT, ASS (`core/SrtIO.*`). Voz en off desde los subtítulos; quitar silencios.
 
 ## Corregir
-- [ ] 1. El karaoke se desincroniza: editar o mover un subtítulo borra el tiempo de cada palabra de todo el clip
+- [x] 1. El karaoke se desincroniza: editar o mover un subtítulo borra el tiempo de cada palabra de todo el clip
   (`SubtitleEditor.qml` `cloneCues`, `SubtitleCueLane.qml`); «quitar muletillas», el diccionario y los emojis
   tampoco actualizan `wordEndsUs` (`finalizeGeneratedSubtitles`).
-- [ ] 2. Mensajes en inglés: «Transcribing…», «Detecting language…», «Finishing up…», «Finding speech…», «Timing
+- [x] 2. Mensajes en inglés: «Transcribing…», «Detecting language…», «Finishing up…», «Finding speech…», «Timing
   words…» y los nombres de los idiomas (`QLocale::languageToString`).
 - [ ] 3. El idioma se detecta solo con los primeros 30 s (`WhisperTranscriber.cpp`).
 - [ ] 4. Sin el extra de sincronía, la IA puede inventar texto en los silencios (falta detectar voz).
-- [ ] 5. Importar un SRT lo pone en el cabezal: si no está en 0, queda desfasado.
-- [ ] 6. El SRT exportado sale desfasado si el clip no empieza en 0 (la opción por defecto es la equivocada).
-- [ ] 7. Generar dos veces sobre el mismo tramo encima dos clips de subtítulos.
+- [x] 5. Importar un SRT lo pone en el cabezal: si no está en 0, queda desfasado.
+- [x] 6. El SRT exportado sale desfasado si el clip no empieza en 0 (la opción por defecto es la equivocada).
+- [x] 7. Generar dos veces sobre el mismo tramo encima dos clips de subtítulos.
 - [ ] 8. Una sola línea de 42 letras, también en vertical; no permite dos líneas (`packSubtitleCues`).
-- [ ] 9. El candado de la pista no protege los subtítulos (`setSubtitleCues`, `importSubtitleFileIntoClip`).
+- [x] 9. El candado de la pista no protege los subtítulos (`setSubtitleCues`, `importSubtitleFileIntoClip`).
 - [ ] 10. Curvas de velocidad y clips en reversa: subtítulos mal sincronizados.
 - [ ] 11. Chino, japonés y tailandés: se sincronizan mal (separan palabras por espacios).
 
 ## Mejorar (más fácil de usar)
-- [ ] Recordar las últimas opciones (idioma, largo, traducción).
+- [x] Recordar las últimas opciones (idioma, largo, traducción).
 - [ ] Unificar los 3 lugares desde donde se crean subtítulos (el del panel de audio no tiene estilos ni limpieza).
 - [ ] Cambiar el estilo de subtítulos ya hechos desde la misma galería.
 - [ ] Botones ◀ ▶ de un fotograma y atajos «inicio aquí» / «fin aquí» en vez de escribir los tiempos.
 - [ ] Vista previa antes de aplicar «Limpiar» y «Emojis».
-- [ ] Quitar el aviso de «tiempos repartidos» cuando el extra de sincronía está instalado.
-- [ ] Quitar el título repetido «Añadir subtítulos automáticos».
+- [x] Quitar el aviso de «tiempos repartidos» cuando el extra de sincronía está instalado.
+- [x] Quitar el título repetido «Añadir subtítulos automáticos».
 - [ ] Aspecto moderno y minimalista en todo el panel (ver la regla de arriba).
 
 ## Agregar
@@ -64,4 +64,11 @@ Para redes (estilo CapCut):
 - [ ] Elegir la transcripción en la nube (ElevenLabs) desde el panel de subtítulos.
 
 ## Hecho
-(se va llenando)
+- 2026-11-01, rama `flip/subtitulos` (sin compilar ni probar en ventana todavía; se prueba todo junto con la build):
+  - `7ff3e` karaoke: los tiempos por palabra viajan con cada subtítulo (editor y carril), un subtítulo movido
+    entero corre los suyos; limpiar, diccionario y buscar/reemplazar los reacomodan (`realignWordEnds`, con pruebas
+    en `tst_core` y probado aparte compilando `SubtitleCue.cpp`).
+  - `48045` mensajes de progreso traducidos (15 idiomas) y cada idioma con su propio nombre («Español», «Deutsch»).
+  - `7e3f0` un SRT importado empieza en 0:00 en una pista libre; exportar usa por defecto los tiempos del video.
+  - candado: no deja cambiar ni importar subtítulos en una pista bloqueada; generar otra vez va a otra pista.
+  - panel: recuerda idioma y largo, sin el título repetido, sin el aviso cuando está «Sincronía de palabras».
