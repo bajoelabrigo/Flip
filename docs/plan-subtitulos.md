@@ -27,7 +27,7 @@ Cómo seguir: marcar cada punto al terminarlo con el commit; probar en ventana a
 - [x] 5. Importar un SRT lo pone en el cabezal: si no está en 0, queda desfasado.
 - [x] 6. El SRT exportado sale desfasado si el clip no empieza en 0 (la opción por defecto es la equivocada).
 - [x] 7. Generar dos veces sobre el mismo tramo encima dos clips de subtítulos.
-- [ ] 8. Una sola línea de 42 letras, también en vertical; no permite dos líneas (`packSubtitleCues`).
+- [~] 8. Una sola línea de 42 letras, también en vertical; no permite dos líneas (`packSubtitleCues`).
 - [x] 9. El candado de la pista no protege los subtítulos (`setSubtitleCues`, `importSubtitleFileIntoClip`).
 - [ ] 10. Curvas de velocidad y clips en reversa: subtítulos mal sincronizados.
 - [ ] 11. Chino, japonés y tailandés: se sincronizan mal (separan palabras por espacios).
@@ -36,7 +36,7 @@ Cómo seguir: marcar cada punto al terminarlo con el commit; probar en ventana a
 - [x] Recordar las últimas opciones (idioma, largo, traducción).
 - [ ] Unificar los 3 lugares desde donde se crean subtítulos (el del panel de audio no tiene estilos ni limpieza).
 - [ ] Cambiar el estilo de subtítulos ya hechos desde la misma galería.
-- [ ] Botones ◀ ▶ de un fotograma y atajos «inicio aquí» / «fin aquí» en vez de escribir los tiempos.
+- [x] Botones ◀ ▶ de un fotograma y atajos «inicio aquí» / «fin aquí» en vez de escribir los tiempos.
 - [ ] Vista previa antes de aplicar «Limpiar» y «Emojis».
 - [x] Quitar el aviso de «tiempos repartidos» cuando el extra de sincronía está instalado.
 - [x] Quitar el título repetido «Añadir subtítulos automáticos».
@@ -44,14 +44,14 @@ Cómo seguir: marcar cada punto al terminarlo con el commit; probar en ventana a
 
 ## Agregar
 Lo que tienen CapCut, Premiere y Descript:
-- [ ] Dividir y unir subtítulos sueltos; «dividir en el cabezal».
+- [x] Dividir y unir subtítulos sueltos; «dividir en el cabezal».
 - [ ] Estilo y posición por subtítulo (no solo por clip).
 - [ ] Traducir a muchos idiomas y subtítulos bilingües.
 - [ ] Editar el video borrando texto (como Descript).
 - [ ] Revisar los silencios uno por uno antes de quitarlos.
 - [ ] Colores y nombres por hablante (el motor ya distingue voces).
 - [ ] Reglas de lectura con aviso (letras por segundo, muy cortos, muy largos).
-- [ ] Mover todos los subtítulos a la vez (adelantar o atrasar).
+- [x] Mover todos los subtítulos a la vez (adelantar o atrasar).
 - [ ] Subtítulos dentro del MP4 (activables) y un `.srt` al lado del video al exportar.
 - [ ] ASS con el estilo real del proyecto.
 - [ ] Palabras difíciles antes de transcribir (nombres, marcas, términos).
@@ -72,3 +72,8 @@ Para redes (estilo CapCut):
   - `7e3f0` un SRT importado empieza en 0:00 en una pista libre; exportar usa por defecto los tiempos del video.
   - candado: no deja cambiar ni importar subtítulos en una pista bloqueada; generar otra vez va a otra pista.
   - panel: recuerda idioma y largo, sin el título repetido, sin el aviso cuando está «Sincronía de palabras».
+- Segunda ronda (rama `flip/subtitulos`, sin compilar todavía):
+  - largo de cada subtítulo según la forma del video (vertical 26 letras, cuadrado 32, horizontal 42): en vertical
+    salían 3 o 4 líneas. La caja ya parte en líneas sola; falta ver en ventana si conviene un máximo de 2 líneas.
+  - editor: inicio y fin en su propia fila con ◀ ▶ de un fotograma y «al cabezal»; Dividir en el cabezal (con los
+    tiempos por palabra), Unir con el siguiente, Eliminar en una fila; «Mover todos» ±0,1 s. Atajos de teclado: pendiente.
