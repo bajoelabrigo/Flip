@@ -9711,8 +9711,24 @@ bool AppController::exportSubtitleFile(int trackIndex, int clipIndex, const QUrl
         }
     }
 
+    // An .ass file keeps the captions' look (font, size, colours, outline or box).
+    const drift::TextStyle &look = clip.textStyle;
+    drift::AssStyleHint hint;
+    hint.fontFamily = look.fontFamily;
+    hint.pixelSize = look.pixelSize;
+    hint.bold = look.fontWeight >= 600;
+    hint.italic = look.italic;
+    hint.primary = look.primaryColor();
+    if (const drift::TextShadingLayer *stroke =
+            drift::firstTextLayerOfKind(look.layers, drift::TextLayerKind::Stroke, true)) {
+        hint.outline = stroke->paint.color;
+        hint.outlineWidth = stroke->width;
+    }
+    hint.box = look.boxEnabled;
+    hint.boxColor = look.boxColor;
+
     QString error;
-    if (!drift::writeSubtitleFile(path, cues, &error, m_project.width(), m_project.height())) {
+    if (!drift::writeSubtitleFile(path, cues, &error, m_project.width(), m_project.height(), &hint)) {
         setLastMessage(error.isEmpty() ? tr("Could not write subtitle file") : error, QStringLiteral("error"));
         return false;
     }
