@@ -34,10 +34,10 @@ Cómo seguir: marcar cada punto al terminarlo con el commit; probar en ventana a
 
 ## Mejorar (más fácil de usar)
 - [x] Recordar las últimas opciones (idioma, largo, traducción).
-- [ ] Unificar los 3 lugares desde donde se crean subtítulos (el del panel de audio no tiene estilos ni limpieza).
+- [x] Unificar los 3 lugares desde donde se crean subtítulos (el del panel de audio no tiene estilos ni limpieza).
 - [x] Cambiar el estilo de subtítulos ya hechos desde la misma galería.
 - [x] Botones ◀ ▶ de un fotograma y atajos «inicio aquí» / «fin aquí» en vez de escribir los tiempos.
-- [ ] Vista previa antes de aplicar «Limpiar» y «Emojis».
+- [x] Vista previa antes de aplicar «Limpiar» y «Emojis».
 - [x] Quitar el aviso de «tiempos repartidos» cuando el extra de sincronía está instalado.
 - [x] Quitar el título repetido «Añadir subtítulos automáticos».
 - [ ] Aspecto moderno y minimalista en todo el panel (ver la regla de arriba).
@@ -80,3 +80,5 @@ Para redes (estilo CapCut):
   - idioma: votan hasta tres tramos de 30 s con sonido repartidos por el video (antes solo los primeros 30 s).
   - sin «Sincronía de palabras»: se descartan los subtítulos sobre silencio (texto fantasma de Whisper).
   - la galería de estilos de Subtítulos cambia también los subtítulos elegidos («Estilo de los subtítulos elegidos»).
+  - un solo lugar para crear subtítulos: el panel de audio lleva solo «Crear subtítulos…», que abre Subtítulos.
+  - «Limpiar» y «Emojis» muestran primero los cambios (antes tachado, después) con Aplicar / Cancelar.
