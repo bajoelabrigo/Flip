@@ -9571,6 +9571,10 @@ bool AppController::importSubtitleFileIntoClip(int trackIndex, int clipIndex, co
 {
     if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
         return false;
+    if (isTrackLocked(trackIndex)) {
+        setLastMessage(tr("This track is locked. Unlock it with the padlock in its header."), QStringLiteral("warning"));
+        return false;
+    }
 
     drift::Track &track = m_project.tracks()[trackIndex];
     if (clipIndex < 0 || clipIndex >= track.clips.size())
@@ -10828,7 +10832,10 @@ void AppController::finalizeGeneratedSubtitles(drift::TimeUs timelineStart,
     const drift::Project before = m_project;
     const int trackIndex = translated
                                ? drift::insertTrackAtTopForClipType(m_project, drift::ClipType::Subtitle)
-                               : drift::ensureTrackForClipType(m_project, drift::ClipType::Subtitle, true);
+                               // A track free over the whole range: generating again stacks a new
+                               // clip above instead of on top of the first one.
+                               : drift::ensureFreeTrackForClipType(m_project, drift::ClipType::Subtitle,
+                                                                   timelineStart, timelineDuration, true);
     qWarning() << "[subtitles] finalize: trackIndex" << trackIndex << "cues" << cues.size()
                << "start" << timelineStart << "dur" << timelineDuration;
     if (trackIndex < 0)
@@ -16788,6 +16795,10 @@ void AppController::setSubtitleCues(int trackIndex, int clipIndex, const QVarian
 {
     if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
         return;
+    if (isTrackLocked(trackIndex)) {
+        setLastMessage(tr("This track is locked. Unlock it with the padlock in its header."), QStringLiteral("warning"));
+        return;
+    }
 
     drift::Track &track = m_project.tracks()[trackIndex];
     if (clipIndex < 0 || clipIndex >= track.clips.size())
@@ -17164,6 +17175,10 @@ void AppController::previewSetSubtitleCues(int trackIndex, int clipIndex, const 
 {
     if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
         return;
+    if (isTrackLocked(trackIndex)) {
+        setLastMessage(tr("This track is locked. Unlock it with the padlock in its header."), QStringLiteral("warning"));
+        return;
+    }
 
     drift::Track &track = m_project.tracks()[trackIndex];
     if (clipIndex < 0 || clipIndex >= track.clips.size())
