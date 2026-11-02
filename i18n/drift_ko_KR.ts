@@ -26837,6 +26837,10 @@ If playback stutters, try another.</source>
         <translation>먼저 타임라인에서 동영상 또는 오디오 클립을 선택하세요.</translation>
     </message>
     <message>
+        <source>Style of the selected captions</source>
+        <translation>선택한 자막의 스타일</translation>
+    </message>
+    <message>
         <source>Shorter captions are timed by splitting each phrase evenly, so they can drift slightly out of sync with the speech.</source>
         <translation>짧은 캡션은 각 구문을 동일한 간격으로 나누어 타이밍을 맞추므로 음성과 약간 어긋날 수 있습니다.</translation>
     </message>

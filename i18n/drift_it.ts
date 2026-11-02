@@ -26933,6 +26933,10 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
         <translation>Seleziona prima una clip video o audio sulla timeline.</translation>
     </message>
     <message>
+        <source>Style of the selected captions</source>
+        <translation>Stile dei sottotitoli selezionati</translation>
+    </message>
+    <message>
         <source>Shorter captions are timed by splitting each phrase evenly, so they can drift slightly out of sync with the speech.</source>
         <translation>I sottotitoli più brevi vengono sincronizzati dividendo ciascuna frase in modo uniforme, pertanto potrebbero desincronizzarsi leggermente rispetto al parlato.</translation>
     </message>

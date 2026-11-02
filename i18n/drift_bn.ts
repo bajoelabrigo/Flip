@@ -26933,6 +26933,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished">প্রথমে টাইমলাইনে একটি ভিডিও বা অডিও ক্লিপ নির্বাচন করুন.</translation>
     </message>
     <message>
+        <source>Style of the selected captions</source>
+        <translation>নির্বাচিত ক্যাপশনের স্টাইল</translation>
+    </message>
+    <message>
         <source>Caption style</source>
         <translation type="unfinished"></translation>
     </message>

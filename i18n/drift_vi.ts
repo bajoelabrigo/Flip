@@ -26839,6 +26839,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Trước tiên, hãy chọn một đoạn video hoặc âm thanh trên dòng thời gian.</translation>
     </message>
     <message>
+        <source>Style of the selected captions</source>
+        <translation>Kiểu của phụ đề đã chọn</translation>
+    </message>
+    <message>
         <source>Shorter captions are timed by splitting each phrase evenly, so they can drift slightly out of sync with the speech.</source>
         <translation>Phụ đề ngắn hơn được tính thời gian bằng cách chia đều từng cụm từ, do đó chúng có thể hơi không đồng bộ với âm thanh.</translation>
     </message>

@@ -27027,6 +27027,10 @@ If playback stutters, try another.</source>
         <translation>Сначала выберите видео- или аудиоклип на таймлайне.</translation>
     </message>
     <message>
+        <source>Style of the selected captions</source>
+        <translation>Стиль выбранных субтитров</translation>
+    </message>
+    <message>
         <source>Shorter captions are timed by splitting each phrase evenly, so they can drift slightly out of sync with the speech.</source>
         <translation>Короткие субтитры создаются равномерным разделением фраз по времени, поэтому могут немного расходиться с речью.</translation>
     </message>

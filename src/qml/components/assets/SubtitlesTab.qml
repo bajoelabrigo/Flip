@@ -128,9 +128,11 @@ Item {
 
             // The look captions are created with, remembered for next time.
             Text {
-                visible: root.whisperReady
+                visible: root.whisperReady || root.captionClipKind === "subtitle"
                 width: subtitleColumn.contentWidth
-                text: qsTr("Caption style")
+                // With captions picked, the gallery restyles them too (it took another panel).
+                text: root.captionClipKind === "subtitle" ? qsTr("Style of the selected captions")
+                                                          : qsTr("Caption style")
                 color: Theme.mutedForeground
                 font.family: Theme.fontFamily
                 font.pixelSize: Theme.fontSizeXs
@@ -138,7 +140,7 @@ Item {
 
             Grid {
                 id: captionStyleGrid
-                visible: root.whisperReady
+                visible: root.whisperReady || root.captionClipKind === "subtitle"
                 width: subtitleColumn.contentWidth
                 columns: 2
                 columnSpacing: Theme.spacingSm
@@ -177,6 +179,10 @@ Item {
                                 onClicked: {
                                     root.captionStyle = styleCard.modelData.id
                                     EditorState.setSubtitleStylePreset(styleCard.modelData.id)
+                                    if (root.captionClipKind === "subtitle")
+                                        EditorState.applyTextPreset(EditorState.selectedTrack,
+                                                                    EditorState.selectedClip,
+                                                                    styleCard.modelData.id)
                                 }
                             }
 

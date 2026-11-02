@@ -26929,6 +26929,10 @@ If playback stutters, try another.</source>
         <translation>පළමුව කාලරේඛාවේ වීඩියෝ හෝ ශ්‍රව්‍ය ක්ලිපයක් තෝරන්න.</translation>
     </message>
     <message>
+        <source>Style of the selected captions</source>
+        <translation>තෝරාගත් උපසිරැසිවල විලාසය</translation>
+    </message>
+    <message>
         <source>Shorter captions are timed by splitting each phrase evenly, so they can drift slightly out of sync with the speech.</source>
         <translation>කෙටි උපසිරැසි කාලගත කරනුයේ එක් එක් වාක්‍ය ඛණ්ඩය සමානව බෙදීමෙනි, එබැවින් ඒවා කථනය සමඟ තරමක් නොගැලපී පැවතිය හැක.</translation>
     </message>

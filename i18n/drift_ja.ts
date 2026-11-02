@@ -26839,6 +26839,10 @@ If playback stutters, try another.</source>
         <translation>まずタイムライン上のビデオまたはオーディオクリップを選択してください。</translation>
     </message>
     <message>
+        <source>Style of the selected captions</source>
+        <translation>選択した字幕のスタイル</translation>
+    </message>
+    <message>
         <source>Shorter captions are timed by splitting each phrase evenly, so they can drift slightly out of sync with the speech.</source>
         <translation>短いキャプションは各フレーズを均等に分割してタイミングを取るため、音声とわずかにずれることがあります。</translation>
     </message>

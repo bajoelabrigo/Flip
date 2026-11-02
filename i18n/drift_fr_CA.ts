@@ -26935,6 +26935,10 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Sélectionnez d&apos;abord un clip vidéo ou audio sur la timeline.</translation>
     </message>
     <message>
+        <source>Style of the selected captions</source>
+        <translation>Style des sous-titres sélectionnés</translation>
+    </message>
+    <message>
         <source>Shorter captions are timed by splitting each phrase evenly, so they can drift slightly out of sync with the speech.</source>
         <translation>Les légendes plus courtes sont synchronisées en divisant chaque phrase de façon égale, ce qui peut les faire décaler légèrement par rapport au discours.</translation>
     </message>

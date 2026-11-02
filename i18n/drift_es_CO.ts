@@ -26929,6 +26929,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Selecciona primero un clip de video o audio en la línea de tiempo.</translation>
     </message>
     <message>
+        <source>Style of the selected captions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Shorter captions are timed by splitting each phrase evenly, so they can drift slightly out of sync with the speech.</source>
         <translation>Los subtítulos más cortos se sincronizan dividiendo cada frase equitativamente, por lo que pueden desincronizarse ligeramente de la voz.</translation>
     </message>

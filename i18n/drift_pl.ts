@@ -27027,6 +27027,10 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
         <translation>Najpierw wybierz klip wideo lub audio na osi czasu.</translation>
     </message>
     <message>
+        <source>Style of the selected captions</source>
+        <translation>Styl zaznaczonych napisów</translation>
+    </message>
+    <message>
         <source>Shorter captions are timed by splitting each phrase evenly, so they can drift slightly out of sync with the speech.</source>
         <translation>Krótsze napisy są synchronizowane przez równy podział każdej frazy, więc mogą lekko wyjść z synchronizacji z mową.</translation>
     </message>
