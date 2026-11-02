@@ -17185,6 +17185,17 @@ PRÓXIMA</translation>
     </message>
 </context>
 <context>
+    <name>LocalTranscription</name>
+    <message>
+        <source>Finding speech…</source>
+        <translation>Procurando a fala…</translation>
+    </message>
+    <message>
+        <source>Timing words…</source>
+        <translation>Sincronizando as palavras…</translation>
+    </message>
+</context>
+<context>
     <name>LowerThirdDialog</name>
     <message>
         <source>Lower third</source>
@@ -33771,6 +33782,21 @@ Se a reprodução travar, tente outra opção.</translation>
     <message>
         <source>Close</source>
         <translation>Fechar</translation>
+    </message>
+</context>
+<context>
+    <name>WhisperTranscriber</name>
+    <message>
+        <source>Transcribing %1–%2 of %3…</source>
+        <translation>Transcrevendo %1–%2 de %3…</translation>
+    </message>
+    <message>
+        <source>Detecting language…</source>
+        <translation>Detectando o idioma…</translation>
+    </message>
+    <message>
+        <source>Finishing up…</source>
+        <translation>Finalizando…</translation>
     </message>
 </context>
 <context>

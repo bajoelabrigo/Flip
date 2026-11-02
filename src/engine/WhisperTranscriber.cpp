@@ -14,6 +14,7 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QCoreApplication>
 #include <QLocale>
 #include <QRegularExpression>
 #include <QThread>
@@ -127,13 +128,20 @@ QString languageDisplayName(const QString &code)
 {
     // Whisper uses a few non-ISO aliases.
     if (code == QLatin1String("jw"))
-        return QStringLiteral("Javanese");
+        return QStringLiteral("Basa Jawa");
     if (code == QLatin1String("haw"))
-        return QStringLiteral("Hawaiian");
+        return QStringLiteral("ʻŌlelo Hawaiʻi");
 
     const QLocale::Language lang = QLocale::codeToLanguage(code);
-    if (lang != QLocale::AnyLanguage)
-        return QLocale::languageToString(lang);
+    // Each language in its own name («Español», «Deutsch», «日本語»), as language pickers do: the
+    // English names showed in every interface language.
+    if (lang != QLocale::AnyLanguage) {
+        QString name = QLocale(lang).nativeLanguageName();
+        if (name.isEmpty())
+            return QLocale::languageToString(lang);
+        name[0] = name.at(0).toUpper();
+        return name;
+    }
     return code;
 }
 
@@ -898,7 +906,7 @@ WhisperResult WhisperTranscriber::transcribeSegments(
         const double windowStartSec = static_cast<double>(cursor) / kSampleRate;
         const double windowEndSec = std::min(totalSeconds, windowStartSec + 30.0);
         const QString windowStatus =
-            QStringLiteral("Transcribing %1–%2 of %3…")
+            QCoreApplication::translate("WhisperTranscriber", "Transcribing %1–%2 of %3…")
                 .arg(formatClock(windowStartSec), formatClock(windowEndSec),
                      formatClock(totalSeconds));
         if (!report(static_cast<double>(cursor) / total, windowStatus)) {
@@ -912,7 +920,7 @@ WhisperResult WhisperTranscriber::transcribeSegments(
 
         // Language detection on the first window only (skipped when a language is forced).
         if (!forceLanguage && cursor == 0) {
-            if (!report(0.0, QStringLiteral("Detecting language…"))) {
+            if (!report(0.0, QCoreApplication::translate("WhisperTranscriber", "Detecting language…"))) {
                 result.cancelled = true;
                 return result;
             }
@@ -1006,7 +1014,7 @@ WhisperResult WhisperTranscriber::transcribeSegments(
     }
 
     if (progress)
-        progress(1.0, QStringLiteral("Finishing up…"));
+        progress(1.0, QCoreApplication::translate("WhisperTranscriber", "Finishing up…"));
     sortSubtitleCues(result.cues);
     result.language = d->languageByCode.key(languageToken);
     result.ok = true;

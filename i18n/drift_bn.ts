@@ -17181,6 +17181,17 @@ NEXT TIME</source>
     </message>
 </context>
 <context>
+    <name>LocalTranscription</name>
+    <message>
+        <source>Finding speech…</source>
+        <translation>কথা খোঁজা হচ্ছে…</translation>
+    </message>
+    <message>
+        <source>Timing words…</source>
+        <translation>শব্দের সময় মেলানো হচ্ছে…</translation>
+    </message>
+</context>
+<context>
     <name>LowerThirdDialog</name>
     <message>
         <source>Lower third</source>
@@ -33767,6 +33778,21 @@ If playback stutters, try another.</source>
     <message>
         <source>Close</source>
         <translation type="unfinished">বন্ধ করুন</translation>
+    </message>
+</context>
+<context>
+    <name>WhisperTranscriber</name>
+    <message>
+        <source>Transcribing %1–%2 of %3…</source>
+        <translation>%3-এর %1–%2 লেখা হচ্ছে…</translation>
+    </message>
+    <message>
+        <source>Detecting language…</source>
+        <translation>ভাষা শনাক্ত করা হচ্ছে…</translation>
+    </message>
+    <message>
+        <source>Finishing up…</source>
+        <translation>শেষ করা হচ্ছে…</translation>
     </message>
 </context>
 <context>

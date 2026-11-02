@@ -6,6 +6,7 @@
 #include "SpeechAudio.h"
 #include "WhisperTranscriber.h"
 
+#include <QCoreApplication>
 #include <QDebug>
 #include <QFile>
 #include <QRegularExpression>
@@ -84,7 +85,7 @@ LocalTranscribeResult transcribeLocal(const std::vector<float> &pcmIn, TimeUs of
     QList<VadRange> speech;
     const bool haveVad = options.vad && SileroVad::modelPresent() && SileroVad::instance().available();
     if (haveVad) {
-        if (!report(0.0, QStringLiteral("Finding speech…"))) {
+        if (!report(0.0, QCoreApplication::translate("LocalTranscription", "Finding speech…"))) {
             result.cancelled = true;
             return result;
         }
@@ -185,7 +186,7 @@ LocalTranscribeResult transcribeLocal(const std::vector<float> &pcmIn, TimeUs of
             }
         }
         if (!report(0.65 + (options.diarize ? 0.3 : 0.35) * (static_cast<double>(j + 1) / segments.size()),
-                    QStringLiteral("Timing words…"))) {
+                    QCoreApplication::translate("LocalTranscription", "Timing words…"))) {
             result.cancelled = true;
             return result;
         }

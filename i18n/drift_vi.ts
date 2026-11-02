@@ -17122,6 +17122,17 @@ LẦN SAU</translation>
     </message>
 </context>
 <context>
+    <name>LocalTranscription</name>
+    <message>
+        <source>Finding speech…</source>
+        <translation>Đang tìm giọng nói…</translation>
+    </message>
+    <message>
+        <source>Timing words…</source>
+        <translation>Đang căn thời gian từng từ…</translation>
+    </message>
+</context>
+<context>
     <name>LowerThirdDialog</name>
     <message>
         <source>Lower third</source>
@@ -33664,6 +33675,21 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Close</source>
         <translation>Đóng</translation>
+    </message>
+</context>
+<context>
+    <name>WhisperTranscriber</name>
+    <message>
+        <source>Transcribing %1–%2 of %3…</source>
+        <translation>Đang chép lời %1–%2 / %3…</translation>
+    </message>
+    <message>
+        <source>Detecting language…</source>
+        <translation>Đang nhận diện ngôn ngữ…</translation>
+    </message>
+    <message>
+        <source>Finishing up…</source>
+        <translation>Đang hoàn tất…</translation>
     </message>
 </context>
 <context>

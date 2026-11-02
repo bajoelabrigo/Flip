@@ -17181,6 +17181,17 @@ NEXT TIME</source>
     </message>
 </context>
 <context>
+    <name>LocalTranscription</name>
+    <message>
+        <source>Finding speech…</source>
+        <translation>Hinahanap ang pananalita…</translation>
+    </message>
+    <message>
+        <source>Timing words…</source>
+        <translation>Inaayos ang tiyempo ng mga salita…</translation>
+    </message>
+</context>
+<context>
     <name>LowerThirdDialog</name>
     <message>
         <source>Lower third</source>
@@ -33759,6 +33770,21 @@ If playback stutters, try another.</source>
     <message>
         <source>Close</source>
         <translation>Isara</translation>
+    </message>
+</context>
+<context>
+    <name>WhisperTranscriber</name>
+    <message>
+        <source>Transcribing %1–%2 of %3…</source>
+        <translation>Isinusulat ang %1–%2 ng %3…</translation>
+    </message>
+    <message>
+        <source>Detecting language…</source>
+        <translation>Tinutukoy ang wika…</translation>
+    </message>
+    <message>
+        <source>Finishing up…</source>
+        <translation>Tinatapos…</translation>
     </message>
 </context>
 <context>

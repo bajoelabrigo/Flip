@@ -17122,6 +17122,17 @@ NEXT TIME</source>
     </message>
 </context>
 <context>
+    <name>LocalTranscription</name>
+    <message>
+        <source>Finding speech…</source>
+        <translation>음성을 찾는 중…</translation>
+    </message>
+    <message>
+        <source>Timing words…</source>
+        <translation>단어 타이밍을 맞추는 중…</translation>
+    </message>
+</context>
+<context>
     <name>LowerThirdDialog</name>
     <message>
         <source>Lower third</source>
@@ -33662,6 +33673,21 @@ If playback stutters, try another.</source>
     <message>
         <source>Close</source>
         <translation>닫기</translation>
+    </message>
+</context>
+<context>
+    <name>WhisperTranscriber</name>
+    <message>
+        <source>Transcribing %1–%2 of %3…</source>
+        <translation>%3 중 %1–%2 받아쓰는 중…</translation>
+    </message>
+    <message>
+        <source>Detecting language…</source>
+        <translation>언어를 감지하는 중…</translation>
+    </message>
+    <message>
+        <source>Finishing up…</source>
+        <translation>마무리하는 중…</translation>
     </message>
 </context>
 <context>

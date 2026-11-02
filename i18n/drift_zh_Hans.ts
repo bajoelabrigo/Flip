@@ -17122,6 +17122,17 @@ NEXT TIME</source>
     </message>
 </context>
 <context>
+    <name>LocalTranscription</name>
+    <message>
+        <source>Finding speech…</source>
+        <translation>正在查找语音…</translation>
+    </message>
+    <message>
+        <source>Timing words…</source>
+        <translation>正在对齐每个字词…</translation>
+    </message>
+</context>
+<context>
     <name>LowerThirdDialog</name>
     <message>
         <source>Lower third</source>
@@ -33663,6 +33674,21 @@ If playback stutters, try another.</source>
     <message>
         <source>Close</source>
         <translation>关闭</translation>
+    </message>
+</context>
+<context>
+    <name>WhisperTranscriber</name>
+    <message>
+        <source>Transcribing %1–%2 of %3…</source>
+        <translation>正在转写 %1–%2（共 %3）…</translation>
+    </message>
+    <message>
+        <source>Detecting language…</source>
+        <translation>正在检测语言…</translation>
+    </message>
+    <message>
+        <source>Finishing up…</source>
+        <translation>正在收尾…</translation>
     </message>
 </context>
 <context>

@@ -17248,6 +17248,17 @@ NEXT TIME</source>
     </message>
 </context>
 <context>
+    <name>LocalTranscription</name>
+    <message>
+        <source>Finding speech…</source>
+        <translation>Поиск речи…</translation>
+    </message>
+    <message>
+        <source>Timing words…</source>
+        <translation>Синхронизация слов…</translation>
+    </message>
+</context>
+<context>
     <name>LowerThirdDialog</name>
     <message>
         <source>Lower third</source>
@@ -33878,6 +33889,21 @@ If playback stutters, try another.</source>
     <message>
         <source>Close</source>
         <translation>Закрыть</translation>
+    </message>
+</context>
+<context>
+    <name>WhisperTranscriber</name>
+    <message>
+        <source>Transcribing %1–%2 of %3…</source>
+        <translation>Распознавание %1–%2 из %3…</translation>
+    </message>
+    <message>
+        <source>Detecting language…</source>
+        <translation>Определение языка…</translation>
+    </message>
+    <message>
+        <source>Finishing up…</source>
+        <translation>Завершение…</translation>
     </message>
 </context>
 <context>

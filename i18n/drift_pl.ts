@@ -17248,6 +17248,17 @@ ZOBACZENIA</translation>
     </message>
 </context>
 <context>
+    <name>LocalTranscription</name>
+    <message>
+        <source>Finding speech…</source>
+        <translation>Wyszukiwanie mowy…</translation>
+    </message>
+    <message>
+        <source>Timing words…</source>
+        <translation>Synchronizowanie słów…</translation>
+    </message>
+</context>
+<context>
     <name>LowerThirdDialog</name>
     <message>
         <source>Lower third</source>
@@ -33878,6 +33889,21 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     <message>
         <source>Close</source>
         <translation>Zamknij</translation>
+    </message>
+</context>
+<context>
+    <name>WhisperTranscriber</name>
+    <message>
+        <source>Transcribing %1–%2 of %3…</source>
+        <translation>Transkrypcja %1–%2 z %3…</translation>
+    </message>
+    <message>
+        <source>Detecting language…</source>
+        <translation>Wykrywanie języka…</translation>
+    </message>
+    <message>
+        <source>Finishing up…</source>
+        <translation>Kończenie…</translation>
     </message>
 </context>
 <context>

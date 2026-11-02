@@ -17187,6 +17187,17 @@ PROCHAINE</translation>
     </message>
 </context>
 <context>
+    <name>LocalTranscription</name>
+    <message>
+        <source>Finding speech…</source>
+        <translation>Recherche de la voix…</translation>
+    </message>
+    <message>
+        <source>Timing words…</source>
+        <translation>Synchronisation des mots…</translation>
+    </message>
+</context>
+<context>
     <name>LowerThirdDialog</name>
     <message>
         <source>Lower third</source>
@@ -33775,6 +33786,21 @@ Si la lecture saccade, essayez une autre option.</translation>
     <message>
         <source>Close</source>
         <translation>Fermer</translation>
+    </message>
+</context>
+<context>
+    <name>WhisperTranscriber</name>
+    <message>
+        <source>Transcribing %1–%2 of %3…</source>
+        <translation>Transcription de %1–%2 sur %3…</translation>
+    </message>
+    <message>
+        <source>Detecting language…</source>
+        <translation>Détection de la langue…</translation>
+    </message>
+    <message>
+        <source>Finishing up…</source>
+        <translation>Finalisation…</translation>
     </message>
 </context>
 <context>

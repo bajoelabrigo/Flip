@@ -17181,6 +17181,17 @@ NEXT TIME</source>
     </message>
 </context>
 <context>
+    <name>LocalTranscription</name>
+    <message>
+        <source>Finding speech…</source>
+        <translation>කථනය සොයමින්…</translation>
+    </message>
+    <message>
+        <source>Timing words…</source>
+        <translation>වචන කාලගත කරමින්…</translation>
+    </message>
+</context>
+<context>
     <name>LowerThirdDialog</name>
     <message>
         <source>Lower third</source>
@@ -33767,6 +33778,21 @@ If playback stutters, try another.</source>
     <message>
         <source>Close</source>
         <translation>වසන්න</translation>
+    </message>
+</context>
+<context>
+    <name>WhisperTranscriber</name>
+    <message>
+        <source>Transcribing %1–%2 of %3…</source>
+        <translation>%3 න් %1–%2 පිටපත් කරමින්…</translation>
+    </message>
+    <message>
+        <source>Detecting language…</source>
+        <translation>භාෂාව හඳුනාගනිමින්…</translation>
+    </message>
+    <message>
+        <source>Finishing up…</source>
+        <translation>අවසන් කරමින්…</translation>
     </message>
 </context>
 <context>
