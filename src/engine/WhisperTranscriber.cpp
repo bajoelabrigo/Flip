@@ -900,6 +900,74 @@ WhisperResult WhisperTranscriber::transcribeSegments(
         languageToken = it.value();
     }
 
+    // Language detection (skipped when a language is forced). Up to three 30 s windows with sound,
+    // spread over the file, vote with their probabilities: the first window alone got a whole
+    // video wrong when it opened with music or another language.
+    if (!forceLanguage) {
+        if (!report(0.0, QCoreApplication::translate("WhisperTranscriber", "Detecting language…"))) {
+            result.cancelled = true;
+            return result;
+        }
+        const int window = 30 * kSampleRate;
+        std::vector<int> starts;
+        for (const int candidate : {0, total / 3, (2 * total) / 3}) {
+            const int at = std::max(0, std::min(candidate, total - window));
+            if (std::find(starts.begin(), starts.end(), at) != starts.end())
+                continue;
+            const int count = std::min(window, total - at);
+            double energy = 0.0;
+            for (int i = 0; i < count; ++i)
+                energy += double(pcm[size_t(at + i)]) * pcm[size_t(at + i)];
+            if (count > 0 && std::sqrt(energy / count) > 0.005) // not near silence
+                starts.push_back(at);
+        }
+        if (starts.empty())
+            starts.push_back(0);
+        std::vector<double> votes(d->languageTokenIds.size(), 0.0);
+        for (const int at : starts) {
+            const std::vector<float> detectMel = d->logMel(pcm.data() + at, total - at);
+            Ort::Value detectHidden = d->runEncoder(detectMel);
+            std::vector<int64_t> ids{kSotToken};
+            const int64_t idShape[2] = {1, 1};
+            Ort::Value idTensor =
+                Ort::Value::CreateTensor<int64_t>(ort::cpuMemory(), ids.data(), ids.size(), idShape, 2);
+            Ort::Value encView = floatView(detectHidden, ort::cpuMemory());
+            std::vector<Ort::Value> ins;
+            ins.push_back(std::move(idTensor));
+            ins.push_back(std::move(encView));
+            std::vector<const char *> inN{d->decInNames[0].c_str(), d->decInNames[1].c_str()};
+            std::vector<const char *> outN;
+            for (const auto &n : d->decOutNames)
+                outN.push_back(n.c_str());
+            auto outs = d->decoder->Run(Ort::RunOptions{nullptr}, inN.data(), ins.data(), ins.size(),
+                                        outN.data(), outN.size());
+            const float *logits = outs[0].GetTensorMutableData<float>();
+            // Softmax over the language tokens only, so every window counts the same.
+            float top = -1e30f;
+            for (const int lang : d->languageTokenIds) {
+                if (lang >= 0 && lang < kVocab)
+                    top = std::max(top, logits[lang]);
+            }
+            double sum = 0.0;
+            for (const int lang : d->languageTokenIds) {
+                if (lang >= 0 && lang < kVocab)
+                    sum += std::exp(double(logits[lang] - top));
+            }
+            for (size_t k = 0; k < d->languageTokenIds.size() && sum > 0.0; ++k) {
+                const int lang = d->languageTokenIds[k];
+                if (lang >= 0 && lang < kVocab)
+                    votes[k] += std::exp(double(logits[lang] - top)) / sum;
+            }
+        }
+        double best = -1.0;
+        for (size_t k = 0; k < votes.size(); ++k) {
+            if (votes[k] > best) {
+                best = votes[k];
+                languageToken = d->languageTokenIds[k];
+            }
+        }
+    }
+
     int cursor = 0;
 
     while (cursor < total) {
@@ -917,40 +985,6 @@ WhisperResult WhisperTranscriber::transcribeSegments(
         const std::vector<float> mel = d->logMel(pcm.data() + cursor, total - cursor);
 
         Ort::Value encHidden = d->runEncoder(mel);
-
-        // Language detection on the first window only (skipped when a language is forced).
-        if (!forceLanguage && cursor == 0) {
-            if (!report(0.0, QCoreApplication::translate("WhisperTranscriber", "Detecting language…"))) {
-                result.cancelled = true;
-                return result;
-            }
-            std::vector<int64_t> ids{kSotToken};
-            const int64_t idShape[2] = {1, 1};
-            Ort::Value idTensor =
-                Ort::Value::CreateTensor<int64_t>(ort::cpuMemory(), ids.data(), ids.size(), idShape, 2);
-            Ort::Value encView = floatView(encHidden, ort::cpuMemory());
-            std::vector<Ort::Value> ins;
-            ins.push_back(std::move(idTensor));
-            ins.push_back(std::move(encView));
-            std::vector<const char *> inN{d->decInNames[0].c_str(), d->decInNames[1].c_str()};
-            std::vector<const char *> outN;
-            for (const auto &n : d->decOutNames)
-                outN.push_back(n.c_str());
-            auto outs = d->decoder->Run(Ort::RunOptions{nullptr}, inN.data(), ins.data(), ins.size(),
-                                        outN.data(), outN.size());
-            const float *logits = outs[0].GetTensorMutableData<float>();
-            float best = -1e30f;
-            for (const int lang : d->languageTokenIds) {
-                if (lang >= 0 && lang < kVocab && logits[lang] > best) {
-                    best = logits[lang];
-                    languageToken = lang;
-                }
-            }
-            if (!report(0.0, windowStatus)) {
-                result.cancelled = true;
-                return result;
-            }
-        }
 
         // Prompt: <|sot|> <lang> <|transcribe|> or <|translate|>  (timestamps enabled).
         std::vector<int64_t> prompt{kSotToken, languageToken,
