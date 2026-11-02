@@ -27047,6 +27047,10 @@ If playback stutters, try another.</source>
         <translation>Стиль выбранных субтитров</translation>
     </message>
     <message>
+        <source>Hide swear words (m*****)</source>
+        <translation>Скрывать ругательства (б***)</translation>
+    </message>
+    <message>
         <source>Shorter captions are timed by splitting each phrase evenly, so they can drift slightly out of sync with the speech.</source>
         <translation>Короткие субтитры создаются равномерным разделением фраз по времени, поэтому могут немного расходиться с речью.</translation>
     </message>

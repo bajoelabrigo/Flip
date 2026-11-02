@@ -1333,6 +1333,11 @@ void CoreTest::subtitleCuePacking()
              (QList<drift::TimeUs>{400, 1200}));
     QVERIFY(drift::realignWordEnds(QStringLiteral("dos palabras"), {500}, QStringLiteral("dos")).isEmpty());
 
+    // Swear words keep their first letter and their length; harmless look-alikes stay.
+    QCOMPARE(drift::maskProfanity(QStringLiteral("Qué mierda, coño")), QStringLiteral("Qué m*****, c***"));
+    QCOMPARE(drift::maskProfanity(QStringLiteral("put the output on")), QStringLiteral("put the output on"));
+    QCOMPARE(drift::maskProfanity(QStringLiteral("¡Fuck!")), QStringLiteral("¡F***!"));
+
     // *Marked* words, inside punctuation too, and the Keywords rule.
     QVERIFY(drift::isMarkedWord(QStringLiteral("*fiel*")));
     QVERIFY(drift::isMarkedWord(QStringLiteral("¡*Amén*!")));

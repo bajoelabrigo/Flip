@@ -26949,6 +26949,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Hide swear words (m*****)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Shorter captions are timed by splitting each phrase evenly, so they can drift slightly out of sync with the speech.</source>
         <translation>Los subtítulos más cortos se sincronizan dividiendo cada frase equitativamente, por lo que pueden desincronizarse ligeramente de la voz.</translation>
     </message>

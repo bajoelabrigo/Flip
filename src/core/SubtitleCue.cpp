@@ -414,6 +414,58 @@ QList<SubtitleCue> cleanSubtitleCues(const QList<SubtitleCue> &cues)
     return out;
 }
 
+QString maskProfanity(const QString &text)
+{
+    // Stems: a word that starts with one is masked ("put" also takes "puta", "putos").
+    static const QStringList kStems = {
+        QStringLiteral("mierd"), QStringLiteral("put"), QStringLiteral("puñet"), QStringLiteral("cabron"),
+        QStringLiteral("carajo"), QStringLiteral("coño"), QStringLiteral("joder"), QStringLiteral("jodid"),
+        QStringLiteral("pendej"), QStringLiteral("verga"), QStringLiteral("chinga"), QStringLiteral("cojon"),
+        QStringLiteral("gilipoll"), QStringLiteral("culer"), QStringLiteral("huevon"),
+        QStringLiteral("marica"), QStringLiteral("malparid"), QStringLiteral("hijueput"), QStringLiteral("csm"),
+        QStringLiteral("fuck"), QStringLiteral("shit"), QStringLiteral("bitch"), QStringLiteral("asshole"),
+        QStringLiteral("bastard"), QStringLiteral("dick"), QStringLiteral("pussy"), QStringLiteral("cunt"),
+        QStringLiteral("motherfuck"), QStringLiteral("bullshit"), QStringLiteral("damn"),
+    };
+    // Words that start like one but are not swearing.
+    static const QStringList kInnocent = {
+        QStringLiteral("put"), QStringLiteral("puts"), QStringLiteral("putt"), QStringLiteral("putting"), QStringLiteral("output"),
+        QStringLiteral("dickens"), QStringLiteral("putin"), QStringLiteral("damnation"),
+    };
+    QString out;
+    QString word;
+    auto flush = [&]() {
+        if (word.isEmpty())
+            return;
+        // Matched as written («coño») and without accents («cabrón» → «cabron»).
+        const QString lower = word.toLower();
+        const QString key = word.normalized(QString::NormalizationForm_D)
+                                .remove(QRegularExpression(QStringLiteral("[\\x{0300}-\\x{036f}]")))
+                                .toLower();
+        bool bad = false;
+        if (!kInnocent.contains(key)) {
+            for (const QString &stem : kStems) {
+                if (lower.startsWith(stem) || key.startsWith(stem)) {
+                    bad = true;
+                    break;
+                }
+            }
+        }
+        out += bad ? word.left(1) + QString(word.size() - 1, QLatin1Char('*')) : word;
+        word.clear();
+    };
+    for (const QChar c : text) {
+        if (c.isLetter()) {
+            word += c;
+        } else {
+            flush();
+            out += c;
+        }
+    }
+    flush();
+    return out;
+}
+
 QString captionWithEmoji(const QString &text)
 {
     // (stem, emoji): a stem matches the start of an accent-free, lower-case word; a stem ending

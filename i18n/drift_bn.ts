@@ -26969,6 +26969,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Hide swear words (m*****)</source>
+        <translation>গালি লুকান (গ***)</translation>
+    </message>
+    <message>
         <source>Shorter captions are timed by splitting each phrase evenly, so they can drift slightly out of sync with the speech.</source>
         <translation type="unfinished">ছোট ক্যাপশন প্রতিটি শব্দগুচ্ছকে সমানভাবে বিভক্ত করে টাইম করা হয়, যাতে সেগুলি বক্তৃতার সাথে সিঙ্কের বাইরে চলে যেতে পারে.</translation>
     </message>

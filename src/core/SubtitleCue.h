@@ -57,6 +57,11 @@ QList<SubtitleCue> packSubtitleCues(const QList<SubtitleCue> &cues, int maxLineW
 QString cleanSubtitleText(const QString &text, bool capitalize = true);
 QList<SubtitleCue> cleanSubtitleCues(const QList<SubtitleCue> &cues);
 
+// Swear words hidden behind their first letter («mierda» → «m*****», «fuck» → «f***»): Spanish
+// and English, whole words, accents and case aside. The word count stays, so the karaoke's timings
+// still fit.
+QString maskProfanity(const QString &text);
+
 // The caption with one emoji added at its end for the first keyword it mentions ("fuego" 🔥,
 // "Dios" 🙏, "fiesta" 🎉 …; Spanish and English). Unchanged when nothing matches or when it
 // already has an emoji.

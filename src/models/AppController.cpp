@@ -10971,6 +10971,7 @@ void AppController::finalizeGeneratedSubtitles(drift::TimeUs timelineStart,
     QList<drift::SubtitleCue> cleaned = subtitleCleanupEnabled() ? drift::cleanSubtitleCues(cues) : cues;
     const QList<QPair<QString, QString>> dictionary = subtitleDictionaryPairs();
     const bool emojis = subtitleEmojisEnabled();
+    const bool masked = subtitleProfanityFilter();
     for (drift::SubtitleCue &cue : cleaned) {
         // The dictionary may change how many words there are: the timings follow (karaoke).
         const QString fixed = drift::applySubtitleReplacements(cue.text, dictionary);
@@ -10978,6 +10979,8 @@ void AppController::finalizeGeneratedSubtitles(drift::TimeUs timelineStart,
             cue.wordEndsUs = drift::realignWordEnds(cue.text, cue.wordEndsUs, fixed);
             cue.text = fixed;
         }
+        if (masked)
+            cue.text = drift::maskProfanity(cue.text); // same words, so the timings still fit
         if (emojis)
             cue.text = drift::captionWithEmoji(cue.text);
     }
@@ -17259,6 +17262,16 @@ bool AppController::subtitleCleanupEnabled() const
 void AppController::setSubtitleCleanupEnabled(bool enabled)
 {
     QSettings().setValue(QStringLiteral("subtitles/cleanup"), enabled);
+}
+
+bool AppController::subtitleProfanityFilter() const
+{
+    return QSettings().value(QStringLiteral("subtitles/profanity"), false).toBool();
+}
+
+void AppController::setSubtitleProfanityFilter(bool enabled)
+{
+    QSettings().setValue(QStringLiteral("subtitles/profanity"), enabled);
 }
 
 bool AppController::subtitleEmojisEnabled() const

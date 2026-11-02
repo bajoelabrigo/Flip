@@ -26858,6 +26858,10 @@ If playback stutters, try another.</source>
         <translation>所选字幕的样式</translation>
     </message>
     <message>
+        <source>Hide swear words (m*****)</source>
+        <translation>隐藏脏话（f***）</translation>
+    </message>
+    <message>
         <source>Shorter captions are timed by splitting each phrase evenly, so they can drift slightly out of sync with the speech.</source>
         <translation>较短的字幕是将每个短语平均拆分来定时的，因此可能与语音略有不同步。</translation>
     </message>

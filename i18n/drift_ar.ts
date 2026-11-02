@@ -27329,6 +27329,10 @@ If playback stutters, try another.</source>
         <translation>نمط الترجمات المحددة</translation>
     </message>
     <message>
+        <source>Hide swear words (m*****)</source>
+        <translation>إخفاء الشتائم (ش****)</translation>
+    </message>
+    <message>
         <source>Shorter captions are timed by splitting each phrase evenly, so they can drift slightly out of sync with the speech.</source>
         <translation>يتم توقيت التسميات التوضيحية الأقصر عن طريق تقسيم كل عبارة بالتساوي، لذا قد تبتعد قليلاً عن التزامن مع الكلام.</translation>
     </message>

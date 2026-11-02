@@ -243,6 +243,14 @@ Item {
                 onToggled: EditorState.setSubtitleEmojisEnabled(checked)
             }
 
+            ThemedCheckBox {
+                visible: root.whisperReady
+                width: subtitleColumn.contentWidth
+                text: qsTr("Hide swear words (m*****)")
+                checked: EditorState.subtitleProfanityFilter()
+                onToggled: EditorState.setSubtitleProfanityFilter(checked)
+            }
+
             Text {
                 // With Word sync the times are measured, not split: nothing to warn about.
                 visible: root.whisperReady && !root.alignReady && captionWordsBox.currentValue > 0

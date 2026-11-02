@@ -1209,6 +1209,9 @@ public:
     // Emojis for keywords at the end of captions: an option for new captions, and an action.
     Q_INVOKABLE bool subtitleEmojisEnabled() const;
     Q_INVOKABLE void setSubtitleEmojisEnabled(bool enabled);
+    // New captions with swear words hidden behind their first letter (off by default).
+    Q_INVOKABLE bool subtitleProfanityFilter() const;
+    Q_INVOKABLE void setSubtitleProfanityFilter(bool enabled);
     Q_INVOKABLE void addEmojisToSubtitles(int trackIndex, int clipIndex);
     Q_INVOKABLE void previewSetSubtitleCues(int trackIndex, int clipIndex, const QVariantList &cues);
     Q_INVOKABLE double subtitleLocalPlayheadSeconds(int trackIndex, int clipIndex) const;

@@ -26953,6 +26953,10 @@ Se a reprodução travar, tente outra opção.</translation>
         <translation>Estilo das legendas selecionadas</translation>
     </message>
     <message>
+        <source>Hide swear words (m*****)</source>
+        <translation>Ocultar palavrões (m****)</translation>
+    </message>
+    <message>
         <source>Shorter captions are timed by splitting each phrase evenly, so they can drift slightly out of sync with the speech.</source>
         <translation>Legendas mais curtas têm o tempo definido dividindo cada frase em partes iguais, então podem ficar levemente fora de sincronia com a fala.</translation>
     </message>

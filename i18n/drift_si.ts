@@ -26949,6 +26949,10 @@ If playback stutters, try another.</source>
         <translation>තෝරාගත් උපසිරැසිවල විලාසය</translation>
     </message>
     <message>
+        <source>Hide swear words (m*****)</source>
+        <translation>අසභ්‍ය වචන සඟවන්න (f***)</translation>
+    </message>
+    <message>
         <source>Shorter captions are timed by splitting each phrase evenly, so they can drift slightly out of sync with the speech.</source>
         <translation>කෙටි උපසිරැසි කාලගත කරනුයේ එක් එක් වාක්‍ය ඛණ්ඩය සමානව බෙදීමෙනි, එබැවින් ඒවා කථනය සමඟ තරමක් නොගැලපී පැවතිය හැක.</translation>
     </message>

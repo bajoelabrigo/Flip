@@ -26955,6 +26955,10 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Style des sous-titres sélectionnés</translation>
     </message>
     <message>
+        <source>Hide swear words (m*****)</source>
+        <translation>Masquer les jurons (m****)</translation>
+    </message>
+    <message>
         <source>Shorter captions are timed by splitting each phrase evenly, so they can drift slightly out of sync with the speech.</source>
         <translation>Les légendes plus courtes sont synchronisées en divisant chaque phrase de façon égale, ce qui peut les faire décaler légèrement par rapport au discours.</translation>
     </message>
