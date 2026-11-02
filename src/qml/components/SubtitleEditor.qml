@@ -375,6 +375,9 @@ Item {
         ThemedCheckBox {
             id: timelineTimesBox
             width: parent.width
+            // On by default: the file then matches the exported video even when this clip does not
+            // start at 0:00 (off, it came out of sync).
+            checked: true
             text: qsTr("Timestamps from the start of the video")
             tooltip: qsTr("Offset the exported captions by this clip's start so they match the exported video")
         }

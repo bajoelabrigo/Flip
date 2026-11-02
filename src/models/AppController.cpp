@@ -9535,16 +9535,15 @@ bool AppController::importSubtitleFile(const QUrl &url, double atSeconds)
 
     const drift::TimeUs duration = subtitleClipDurationForCues(cues);
     const drift::Project before = m_project;
+    // A subtitle file's times are the video's: it starts at 0:00 (at the playhead it came in out of
+    // sync), on a track free there so nothing pushes it along. Dropped somewhere, it starts there.
+    const drift::TimeUs start = atSeconds < 0.0 ? 0 : drift::secondsToUs(atSeconds);
     const int trackIndex =
-        drift::ensureTrackForClipType(m_project, drift::ClipType::Subtitle, true);
+        drift::ensureFreeTrackForClipType(m_project, drift::ClipType::Subtitle, start, duration, true);
     if (trackIndex < 0)
         return false;
 
     drift::Track &track = m_project.tracks()[trackIndex];
-    const drift::TimeUs startSeconds = atSeconds < 0.0 ? m_playheadUs : drift::secondsToUs(atSeconds);
-    const drift::TimeUs start =
-        drift::resolveClipStart(m_project, track, -1, startSeconds, duration, m_snapEnabled,
-                                m_playheadUs);
 
     drift::Clip clip;
     clip.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
