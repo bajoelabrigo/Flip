@@ -10021,6 +10021,21 @@ bool AppController::generateSubtitlesForSources(QList<SubtitleSource> sources, c
             }
         } else {
             res = whisper.transcribe(mono, onProgress, languageCode, wordsPerCue, translate, lineWidth);
+            // Without the voice detection of «Word sync», Whisper may write text over silence
+            // («Gracias por ver», «Subtítulos por…»): a caption whose audio is near silence goes.
+            QList<drift::SubtitleCue> heard;
+            for (const drift::SubtitleCue &cue : std::as_const(res.cues)) {
+                const auto first = static_cast<size_t>(std::max<int64_t>(0, (cue.startUs * rate) / drift::kUsPerSecond));
+                const auto last = std::min(mono.size(), static_cast<size_t>((cue.endUs * rate) / drift::kUsPerSecond));
+                double energy = 0.0;
+                for (size_t i = first; i < last; ++i)
+                    energy += double(mono[i]) * mono[i];
+                const double rms = last > first ? std::sqrt(energy / double(last - first)) : 0.0;
+                if (rms >= 0.004)
+                    heard.append(cue);
+            }
+            if (!heard.isEmpty())
+                res.cues = heard;
         }
 
         qWarning() << "[subtitles] transcribe done. ok:" << res.ok << "cancelled:" << res.cancelled
