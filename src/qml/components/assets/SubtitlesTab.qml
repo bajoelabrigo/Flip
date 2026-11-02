@@ -1,3 +1,4 @@
+import QtCore
 import QtQuick
 import QtQuick.Controls.Basic
 import QtQuick.Window
@@ -14,6 +15,14 @@ Item {
     // the thing you came for is behind it. Auto-caption deliberately does not
     // emit it: its progress and cancel button live in this sheet.
     signal added()
+
+    // The last language and caption length, kept for next time (they went back to the first entry).
+    Settings {
+        id: captionPrefs
+        category: "subtitles"
+        property string language: ""
+        property int words: 0
+    }
 
     Flickable {
         anchors.fill: parent
@@ -81,14 +90,6 @@ Item {
             // selected clip, so it stays disabled until a video or audio clip is picked.
             Text {
                 width: subtitleColumn.contentWidth
-                text: qsTr("Add auto caption")
-                color: Theme.foreground
-                font.family: Theme.fontFamily
-                font.pixelSize: Theme.fontSizeSm
-            }
-
-            Text {
-                width: subtitleColumn.contentWidth
                 wrapMode: Text.WordWrap
                 text: root.captionTargetReady
                       ? qsTr("Creates captions from the speech in the selected clip.")
@@ -109,7 +110,8 @@ Item {
                 textRole: "label"
                 valueRole: "code"
                 model: EditorState.whisperLanguages()
-                Component.onCompleted: currentIndex = 0
+                Component.onCompleted: currentIndex = Math.max(0, indexOfValue(captionPrefs.language))
+                onActivated: captionPrefs.language = currentValue !== undefined ? currentValue : ""
             }
 
             ThemedComboBox {
@@ -120,7 +122,8 @@ Item {
                 textRole: "label"
                 valueRole: "words"
                 model: root.captionLengthOptions
-                Component.onCompleted: currentIndex = 0
+                Component.onCompleted: currentIndex = Math.max(0, indexOfValue(captionPrefs.words))
+                onActivated: captionPrefs.words = currentValue
             }
 
             // The look captions are created with, remembered for next time.
@@ -235,7 +238,8 @@ Item {
             }
 
             Text {
-                visible: root.whisperReady && captionWordsBox.currentValue > 0
+                // With Word sync the times are measured, not split: nothing to warn about.
+                visible: root.whisperReady && !root.alignReady && captionWordsBox.currentValue > 0
                 width: subtitleColumn.contentWidth
                 wrapMode: Text.WordWrap
                 text: qsTr("Shorter captions are timed by splitting each phrase evenly, so they can drift slightly out of sync with the speech.")
