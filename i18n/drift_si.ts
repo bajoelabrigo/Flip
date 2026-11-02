@@ -199,7 +199,7 @@
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>යොදන්න</translation>
     </message>
     <message>
         <source>Save in My presets</source>
@@ -13471,7 +13471,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>යොදන්න</translation>
     </message>
     <message>
         <source>Save</source>
@@ -16881,7 +16881,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>යොදන්න</translation>
     </message>
     <message>
         <source>50% packs the picked keys into half the time, 200% spreads them over twice. The first one stays where it is. Alt + dragging the first or last key does the same by hand.</source>
@@ -16944,7 +16944,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>යොදන්න</translation>
     </message>
     <message>
         <source>Speed in units per second. Influence is how far the handle reaches towards the next key: more is a softer ease.</source>
@@ -21561,7 +21561,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>යොදන්න</translation>
     </message>
     <message>
         <source>What After Effects does with expressions, without writing code. They add up: the loop, then the constant speed, then the wiggle.</source>
@@ -25179,7 +25179,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>යොදන්න</translation>
     </message>
     <message>
         <source>Solid</source>
@@ -25653,7 +25653,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>යොදන්න</translation>
     </message>
     <message>
         <source>Apply letter by letter</source>
@@ -26623,6 +26623,14 @@ If playback stutters, try another.</source>
         <translation>නිර්යාත කළ වීඩියෝවට ගැළපෙන පරිදි නිර්යාත උපසිරැසි මෙම ක්ලිපයේ ආරම්භක වේලාවෙන් විස්ථාපනය කරන්න</translation>
     </message>
     <message>
+        <source>Captions that will change: %1</source>
+        <translation>වෙනස් වන උපසිරැසි: %1</translation>
+    </message>
+    <message>
+        <source>+ %1 more</source>
+        <translation>+ තවත් %1</translation>
+    </message>
+    <message>
         <source>(empty)</source>
         <translation>(හිස්)</translation>
     </message>
@@ -26733,6 +26741,22 @@ If playback stutters, try another.</source>
     <message>
         <source>Fix a word in every caption at once</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Nothing to change in these captions.</source>
+        <translation>මෙම උපසිරැසිවල වෙනස් කිරීමට කිසිවක් නැත.</translation>
+    </message>
+    <message>
+        <source>(removed)</source>
+        <translation>(ඉවත් කෙරේ)</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>අවලංගු කරන්න</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>යොදන්න</translation>
     </message>
     <message>
         <source>Find (e.g. jesus)</source>

@@ -13527,7 +13527,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>Применить</translation>
     </message>
     <message>
         <source>Save</source>
@@ -16948,7 +16948,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>Применить</translation>
     </message>
     <message>
         <source>50% packs the picked keys into half the time, 200% spreads them over twice. The first one stays where it is. Alt + dragging the first or last key does the same by hand.</source>
@@ -17011,7 +17011,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>Применить</translation>
     </message>
     <message>
         <source>Speed in units per second. Influence is how far the handle reaches towards the next key: more is a softer ease.</source>
@@ -21649,7 +21649,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>Применить</translation>
     </message>
     <message>
         <source>What After Effects does with expressions, without writing code. They add up: the loop, then the constant speed, then the wiggle.</source>
@@ -25273,7 +25273,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>Применить</translation>
     </message>
     <message>
         <source>Solid</source>
@@ -25747,7 +25747,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>Применить</translation>
     </message>
     <message>
         <source>Apply letter by letter</source>
@@ -26721,6 +26721,14 @@ If playback stutters, try another.</source>
         <translation>Сдвинуть временные метки экспортируемых субтитров на начало этого клипа, чтобы они совпадали с экспортированным видео</translation>
     </message>
     <message>
+        <source>Captions that will change: %1</source>
+        <translation>Изменятся субтитры: %1</translation>
+    </message>
+    <message>
+        <source>+ %1 more</source>
+        <translation>+ ещё %1</translation>
+    </message>
+    <message>
         <source>(empty)</source>
         <translation>(пусто)</translation>
     </message>
@@ -26831,6 +26839,22 @@ If playback stutters, try another.</source>
     <message>
         <source>Fix a word in every caption at once</source>
         <translation>Исправить слово во всех субтитрах сразу</translation>
+    </message>
+    <message>
+        <source>Nothing to change in these captions.</source>
+        <translation>В этих субтитрах нечего менять.</translation>
+    </message>
+    <message>
+        <source>(removed)</source>
+        <translation>(удалено)</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Отмена</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>Применить</translation>
     </message>
     <message>
         <source>Find (e.g. jesus)</source>

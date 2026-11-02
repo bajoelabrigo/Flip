@@ -26627,6 +26627,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Desplaza los subtítulos exportados según el inicio de este clip para que coincidan con el video exportado</translation>
     </message>
     <message>
+        <source>Captions that will change: %1</source>
+        <translation>Subtítulos que cambian: %1</translation>
+    </message>
+    <message>
+        <source>+ %1 more</source>
+        <translation>+ %1 más</translation>
+    </message>
+    <message>
         <source>(empty)</source>
         <translation>(vacío)</translation>
     </message>
@@ -26737,6 +26745,22 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Fix a word in every caption at once</source>
         <translation>Corrige una palabra en todos los subtítulos a la vez</translation>
+    </message>
+    <message>
+        <source>Nothing to change in these captions.</source>
+        <translation>No hay nada que cambiar en estos subtítulos.</translation>
+    </message>
+    <message>
+        <source>(removed)</source>
+        <translation>(se quita)</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Cancelar</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>Aplicar</translation>
     </message>
     <message>
         <source>Find (e.g. jesus)</source>

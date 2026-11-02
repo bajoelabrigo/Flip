@@ -13423,7 +13423,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>적용</translation>
     </message>
     <message>
         <source>Save</source>
@@ -16822,7 +16822,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>적용</translation>
     </message>
     <message>
         <source>50% packs the picked keys into half the time, 200% spreads them over twice. The first one stays where it is. Alt + dragging the first or last key does the same by hand.</source>
@@ -16885,7 +16885,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>적용</translation>
     </message>
     <message>
         <source>Speed in units per second. Influence is how far the handle reaches towards the next key: more is a softer ease.</source>
@@ -21481,7 +21481,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>적용</translation>
     </message>
     <message>
         <source>What After Effects does with expressions, without writing code. They add up: the loop, then the constant speed, then the wiggle.</source>
@@ -25092,7 +25092,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>적용</translation>
     </message>
     <message>
         <source>Solid</source>
@@ -25566,7 +25566,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>적용</translation>
     </message>
     <message>
         <source>Apply letter by letter</source>
@@ -26531,6 +26531,14 @@ If playback stutters, try another.</source>
         <translation>이 클립의 시작 위치만큼 내보낸 캡션에 오프셋을 적용하여 내보낸 동영상과 맞춥니다</translation>
     </message>
     <message>
+        <source>Captions that will change: %1</source>
+        <translation>바뀌는 자막: %1</translation>
+    </message>
+    <message>
+        <source>+ %1 more</source>
+        <translation>+ %1개 더</translation>
+    </message>
+    <message>
         <source>(empty)</source>
         <translation>(비어 있음)</translation>
     </message>
@@ -26641,6 +26649,22 @@ If playback stutters, try another.</source>
     <message>
         <source>Fix a word in every caption at once</source>
         <translation>모든 자막에서 한 단어를 한 번에 수정</translation>
+    </message>
+    <message>
+        <source>Nothing to change in these captions.</source>
+        <translation>이 자막에는 바꿀 것이 없습니다.</translation>
+    </message>
+    <message>
+        <source>(removed)</source>
+        <translation>(삭제됨)</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>취소</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>적용</translation>
     </message>
     <message>
         <source>Find (e.g. jesus)</source>

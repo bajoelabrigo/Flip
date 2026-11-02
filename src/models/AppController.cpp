@@ -16886,6 +16886,41 @@ int AppController::replaceInSubtitles(int trackIndex, int clipIndex, const QStri
     return changed;
 }
 
+QVariantList AppController::subtitleChangesPreview(int trackIndex, int clipIndex, const QString &kind) const
+{
+    // What «Clean up» or «Emojis» would change, caption by caption ({before, after}), shown before
+    // anything is applied.
+    QVariantList out;
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return out;
+    const drift::Clip &clip = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    if (clip.type != drift::ClipType::Subtitle)
+        return out;
+    if (kind == QLatin1String("emojis")) {
+        for (const drift::SubtitleCue &cue : clip.subtitleCues) {
+            const QString next = drift::captionWithEmoji(cue.text);
+            if (next != cue.text)
+                out.append(QVariantMap{{QStringLiteral("before"), cue.text}, {QStringLiteral("after"), next}});
+        }
+        return out;
+    }
+    const QList<QPair<QString, QString>> dictionary = subtitleDictionaryPairs();
+    // Cleaning drops empty captions, so the cues are matched by their times.
+    const QList<drift::SubtitleCue> cleaned = drift::cleanSubtitleCues(clip.subtitleCues);
+    for (const drift::SubtitleCue &cue : clip.subtitleCues) {
+        QString after;
+        for (const drift::SubtitleCue &c : cleaned) {
+            if (c.startUs == cue.startUs && c.endUs == cue.endUs) {
+                after = drift::applySubtitleReplacements(c.text, dictionary);
+                break;
+            }
+        }
+        if (after != cue.text)
+            out.append(QVariantMap{{QStringLiteral("before"), cue.text}, {QStringLiteral("after"), after}});
+    }
+    return out;
+}
+
 void AppController::cleanUpSubtitles(int trackIndex, int clipIndex)
 {
     if (!isValidClipIndex(trackIndex, clipIndex))

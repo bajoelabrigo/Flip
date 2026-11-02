@@ -13423,7 +13423,7 @@ LẦN SAU</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>Áp dụng</translation>
     </message>
     <message>
         <source>Save</source>
@@ -16822,7 +16822,7 @@ LẦN SAU</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>Áp dụng</translation>
     </message>
     <message>
         <source>50% packs the picked keys into half the time, 200% spreads them over twice. The first one stays where it is. Alt + dragging the first or last key does the same by hand.</source>
@@ -16885,7 +16885,7 @@ LẦN SAU</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>Áp dụng</translation>
     </message>
     <message>
         <source>Speed in units per second. Influence is how far the handle reaches towards the next key: more is a softer ease.</source>
@@ -21481,7 +21481,7 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>Áp dụng</translation>
     </message>
     <message>
         <source>What After Effects does with expressions, without writing code. They add up: the loop, then the constant speed, then the wiggle.</source>
@@ -25093,7 +25093,7 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>Áp dụng</translation>
     </message>
     <message>
         <source>Solid</source>
@@ -25567,7 +25567,7 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>Áp dụng</translation>
     </message>
     <message>
         <source>Apply letter by letter</source>
@@ -26533,6 +26533,14 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Điều chỉnh vị trí phụ đề xuất ra sao cho khớp với vị trí bắt đầu của đoạn video này</translation>
     </message>
     <message>
+        <source>Captions that will change: %1</source>
+        <translation>Số phụ đề sẽ đổi: %1</translation>
+    </message>
+    <message>
+        <source>+ %1 more</source>
+        <translation>+ %1 nữa</translation>
+    </message>
+    <message>
         <source>(empty)</source>
         <translation>(rỗng)</translation>
     </message>
@@ -26643,6 +26651,22 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Fix a word in every caption at once</source>
         <translation>Sửa một từ trong mọi phụ đề cùng lúc</translation>
+    </message>
+    <message>
+        <source>Nothing to change in these captions.</source>
+        <translation>Không có gì để thay đổi trong các phụ đề này.</translation>
+    </message>
+    <message>
+        <source>(removed)</source>
+        <translation>(bị xóa)</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Hủy</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>Áp dụng</translation>
     </message>
     <message>
         <source>Find (e.g. jesus)</source>

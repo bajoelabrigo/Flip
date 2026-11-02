@@ -13475,7 +13475,7 @@ LA PROSSIMA</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>Applica</translation>
     </message>
     <message>
         <source>Save</source>
@@ -16885,7 +16885,7 @@ LA PROSSIMA</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>Applica</translation>
     </message>
     <message>
         <source>50% packs the picked keys into half the time, 200% spreads them over twice. The first one stays where it is. Alt + dragging the first or last key does the same by hand.</source>
@@ -16948,7 +16948,7 @@ LA PROSSIMA</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>Applica</translation>
     </message>
     <message>
         <source>Speed in units per second. Influence is how far the handle reaches towards the next key: more is a softer ease.</source>
@@ -21565,7 +21565,7 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>Applica</translation>
     </message>
     <message>
         <source>What After Effects does with expressions, without writing code. They add up: the loop, then the constant speed, then the wiggle.</source>
@@ -25183,7 +25183,7 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>Applica</translation>
     </message>
     <message>
         <source>Solid</source>
@@ -25657,7 +25657,7 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>Applica</translation>
     </message>
     <message>
         <source>Apply letter by letter</source>
@@ -26627,6 +26627,14 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
         <translation>Sfalsa i sottotitoli esportati in base all&apos;inizio di questa clip in modo che corrispondano al video esportato</translation>
     </message>
     <message>
+        <source>Captions that will change: %1</source>
+        <translation>Sottotitoli che cambiano: %1</translation>
+    </message>
+    <message>
+        <source>+ %1 more</source>
+        <translation>+ altri %1</translation>
+    </message>
+    <message>
         <source>(empty)</source>
         <translation>(vuoto)</translation>
     </message>
@@ -26737,6 +26745,22 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     <message>
         <source>Fix a word in every caption at once</source>
         <translation>Correggi una parola in tutti i sottotitoli in una volta</translation>
+    </message>
+    <message>
+        <source>Nothing to change in these captions.</source>
+        <translation>Niente da cambiare in questi sottotitoli.</translation>
+    </message>
+    <message>
+        <source>(removed)</source>
+        <translation>(rimosso)</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Annulla</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>Applica</translation>
     </message>
     <message>
         <source>Find (e.g. jesus)</source>

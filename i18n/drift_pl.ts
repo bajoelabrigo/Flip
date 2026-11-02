@@ -13527,7 +13527,7 @@ ZOBACZENIA</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>Zastosuj</translation>
     </message>
     <message>
         <source>Save</source>
@@ -16948,7 +16948,7 @@ ZOBACZENIA</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>Zastosuj</translation>
     </message>
     <message>
         <source>50% packs the picked keys into half the time, 200% spreads them over twice. The first one stays where it is. Alt + dragging the first or last key does the same by hand.</source>
@@ -17011,7 +17011,7 @@ ZOBACZENIA</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>Zastosuj</translation>
     </message>
     <message>
         <source>Speed in units per second. Influence is how far the handle reaches towards the next key: more is a softer ease.</source>
@@ -21649,7 +21649,7 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>Zastosuj</translation>
     </message>
     <message>
         <source>What After Effects does with expressions, without writing code. They add up: the loop, then the constant speed, then the wiggle.</source>
@@ -25273,7 +25273,7 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>Zastosuj</translation>
     </message>
     <message>
         <source>Solid</source>
@@ -25747,7 +25747,7 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>Zastosuj</translation>
     </message>
     <message>
         <source>Apply letter by letter</source>
@@ -26721,6 +26721,14 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
         <translation>Przesuń wyeksportowane napisy o początek tego klipu, aby pasowały do wyeksportowanego wideo</translation>
     </message>
     <message>
+        <source>Captions that will change: %1</source>
+        <translation>Napisy do zmiany: %1</translation>
+    </message>
+    <message>
+        <source>+ %1 more</source>
+        <translation>+ %1 więcej</translation>
+    </message>
+    <message>
         <source>(empty)</source>
         <translation>(puste)</translation>
     </message>
@@ -26831,6 +26839,22 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     <message>
         <source>Fix a word in every caption at once</source>
         <translation>Popraw słowo we wszystkich napisach naraz</translation>
+    </message>
+    <message>
+        <source>Nothing to change in these captions.</source>
+        <translation>Nie ma nic do zmiany w tych napisach.</translation>
+    </message>
+    <message>
+        <source>(removed)</source>
+        <translation>(usunięty)</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Anuluj</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>Zastosuj</translation>
     </message>
     <message>
         <source>Find (e.g. jesus)</source>

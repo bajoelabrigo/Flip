@@ -69,6 +69,21 @@ Item {
         return parseFloat(t)
     }
 
+    // «Clean up» and «Emojis» show what they would change first, applied only on «Apply».
+    property string changesKind: ""
+    property var changesList: []
+    function showChanges(kind) {
+        root.changesList = EditorState.subtitleChangesPreview(root.trackIndex, root.clipIndex, kind)
+        root.changesKind = kind
+    }
+    function applyChanges() {
+        if (root.changesKind === "emojis")
+            EditorState.addEmojisToSubtitles(root.trackIndex, root.clipIndex)
+        else if (root.changesKind === "cleanup")
+            EditorState.cleanUpSubtitles(root.trackIndex, root.clipIndex)
+        root.changesKind = ""
+    }
+
     function replaceCues(newCues) {
         EditorState.setSubtitleCues(trackIndex, clipIndex, newCues)
     }
@@ -343,6 +358,7 @@ Item {
     // Reset the editing selection only when a different clip is selected — not on every
     // cue edit (selectedClipData hands back a fresh object each time).
     function resetSelectionForClip() {
+        root.changesKind = "" // a preview belongs to the clip it was made for
         Qt.callLater(function () {
             // loadEditor explicitly: a new clip whose active cue lands on the same index
             // leaves selectedCueIndex unchanged, so nothing else would refresh the fields.
@@ -510,7 +526,7 @@ Item {
                 glyph: Theme.icons.smile
                 tooltip: qsTr("Add an emoji at the end of captions that mention a keyword (fuego 🔥, fiesta 🎉)")
                 enabled: root.cues.length > 0
-                onClicked: EditorState.addEmojisToSubtitles(root.trackIndex, root.clipIndex)
+                onClicked: root.showChanges("emojis")
             }
 
             ThemedButton {
@@ -520,7 +536,7 @@ Item {
                 glyph: Theme.icons.wand
                 tooltip: qsTr("Remove hesitations (eh, mmm), capitalize each caption and apply your dictionary")
                 enabled: root.cues.length > 0
-                onClicked: EditorState.cleanUpSubtitles(root.trackIndex, root.clipIndex)
+                onClicked: root.showChanges("cleanup")
             }
 
             ThemedButton {
@@ -531,6 +547,90 @@ Item {
                 tooltip: qsTr("Fix a word in every caption at once")
                 enabled: root.cues.length > 0
                 onClicked: root.replaceOpen = !root.replaceOpen
+            }
+        }
+
+        // The preview: a few «before → after» lines, then Apply or Cancel.
+        Rectangle {
+            id: changesCard
+            visible: root.changesKind !== ""
+            width: parent.width
+            height: visible ? changesColumn.implicitHeight + 16 : 0
+            radius: Theme.radiusMd
+            color: Theme.panelAccent
+            border.width: 1
+            border.color: Theme.panelBorder
+
+            Column {
+                id: changesColumn
+                x: 8
+                y: 8
+                width: parent.width - 16
+                spacing: 6
+
+                Text {
+                    width: parent.width
+                    wrapMode: Text.WordWrap
+                    text: root.changesList.length === 0
+                          ? qsTr("Nothing to change in these captions.")
+                          : qsTr("Captions that will change: %1").arg(root.changesList.length)
+                    color: Theme.panelForeground
+                    font.family: Theme.fontFamily
+                    font.pixelSize: Theme.fontSizeXs
+                    font.weight: Font.Medium
+                }
+
+                Repeater {
+                    model: root.changesList.slice(0, 5)
+                    delegate: Column {
+                        required property var modelData
+                        width: changesColumn.width
+                        spacing: 1
+                        Text {
+                            width: parent.width
+                            text: modelData.before
+                            elide: Text.ElideRight
+                            font.strikeout: true
+                            color: Theme.mutedForeground
+                            font.family: Theme.fontFamily
+                            font.pixelSize: Theme.fontSizeXs
+                        }
+                        Text {
+                            width: parent.width
+                            text: modelData.after.length ? modelData.after : qsTr("(removed)")
+                            elide: Text.ElideRight
+                            color: Theme.panelForeground
+                            font.family: Theme.fontFamily
+                            font.pixelSize: Theme.fontSizeXs
+                        }
+                    }
+                }
+
+                Text {
+                    visible: root.changesList.length > 5
+                    text: qsTr("+ %1 more").arg(root.changesList.length - 5)
+                    color: Theme.mutedForeground
+                    font.family: Theme.fontFamily
+                    font.pixelSize: Theme.fontSizeXs
+                }
+
+                Row {
+                    width: parent.width
+                    spacing: 6
+                    ThemedButton {
+                        width: (parent.width - parent.spacing) / 2
+                        text: qsTr("Cancel")
+                        variant: "ghost"
+                        onClicked: root.changesKind = ""
+                    }
+                    ThemedButton {
+                        width: (parent.width - parent.spacing) / 2
+                        text: qsTr("Apply")
+                        variant: "primary"
+                        enabled: root.changesList.length > 0
+                        onClicked: root.applyChanges()
+                    }
+                }
             }
         }
 

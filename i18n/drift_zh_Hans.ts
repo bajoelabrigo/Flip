@@ -13423,7 +13423,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>应用</translation>
     </message>
     <message>
         <source>Save</source>
@@ -16822,7 +16822,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>应用</translation>
     </message>
     <message>
         <source>50% packs the picked keys into half the time, 200% spreads them over twice. The first one stays where it is. Alt + dragging the first or last key does the same by hand.</source>
@@ -16885,7 +16885,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>应用</translation>
     </message>
     <message>
         <source>Speed in units per second. Influence is how far the handle reaches towards the next key: more is a softer ease.</source>
@@ -21481,7 +21481,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>应用</translation>
     </message>
     <message>
         <source>What After Effects does with expressions, without writing code. They add up: the loop, then the constant speed, then the wiggle.</source>
@@ -25093,7 +25093,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>应用</translation>
     </message>
     <message>
         <source>Solid</source>
@@ -25567,7 +25567,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>应用</translation>
     </message>
     <message>
         <source>Apply letter by letter</source>
@@ -26532,6 +26532,14 @@ If playback stutters, try another.</source>
         <translation>按此片段的起点偏移导出的字幕，使其与导出的视频对齐</translation>
     </message>
     <message>
+        <source>Captions that will change: %1</source>
+        <translation>将更改的字幕：%1</translation>
+    </message>
+    <message>
+        <source>+ %1 more</source>
+        <translation>+ 另外 %1 条</translation>
+    </message>
+    <message>
         <source>(empty)</source>
         <translation>（空）</translation>
     </message>
@@ -26642,6 +26650,22 @@ If playback stutters, try another.</source>
     <message>
         <source>Fix a word in every caption at once</source>
         <translation>一次性修正所有字幕中的某个词</translation>
+    </message>
+    <message>
+        <source>Nothing to change in these captions.</source>
+        <translation>这些字幕没有需要更改的内容。</translation>
+    </message>
+    <message>
+        <source>(removed)</source>
+        <translation>（删除）</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>应用</translation>
     </message>
     <message>
         <source>Find (e.g. jesus)</source>

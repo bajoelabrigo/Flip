@@ -26615,6 +26615,14 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Captions that will change: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>+ %1 more</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>(empty)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26724,6 +26732,22 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Fix a word in every caption at once</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Nothing to change in these captions.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>(removed)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

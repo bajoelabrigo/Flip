@@ -1191,6 +1191,8 @@ public:
                                    const QVariantList &only = {});
     // Hesitations out, first letters up, dictionary applied — what new captions get.
     Q_INVOKABLE void cleanUpSubtitles(int trackIndex, int clipIndex);
+    // What «Clean up» (kind "cleanup") or «Emojis» (kind "emojis") would change: [{before, after}].
+    Q_INVOKABLE QVariantList subtitleChangesPreview(int trackIndex, int clipIndex, const QString &kind) const;
     // The user's corrections ([{find, replace}]), applied to every generated caption.
     Q_INVOKABLE QVariantList subtitleDictionary() const;
     Q_INVOKABLE void setSubtitleDictionary(const QVariantList &entries);
