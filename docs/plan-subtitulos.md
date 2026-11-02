@@ -59,7 +59,7 @@ Lo que tienen CapCut, Premiere y Descript:
 Para redes (estilo CapCut):
 - [ ] Palabras clave resaltadas por la IA (color o tamaño) y emojis animados de Stock.
 - [ ] Más plantillas de subtítulos virales en Stock (palabra por palabra, rebote, caja que sigue la palabra).
-- [ ] Filtro de groserías (*** o pitido).
+- [~] Filtro de groserías (*** o pitido). Hecho: casilla «Ocultar groserías (m*****)» al crear (es/en); falta el pitido.
 - [ ] Revisión de ortografía.
 - [ ] Elegir la transcripción en la nube (ElevenLabs) desde el panel de subtítulos.
 
