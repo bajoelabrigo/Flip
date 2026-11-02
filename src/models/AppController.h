@@ -2684,6 +2684,7 @@ protected:
                                      int maxWordsPerCue);
     void finishNormalize(const QString &clipId, double lufs, double targetLufs);
     bool m_normalizing = false;
+    int subtitleLineWidth() const; // letters per generated caption, by the frame's shape
     void finalizeGeneratedSubtitles(drift::TimeUs timelineStart, drift::TimeUs timelineDuration,
                                     const QList<drift::SubtitleCue> &cues, bool translated = false);
     // Defaulted severity so the existing call sites, which report ordinary status,

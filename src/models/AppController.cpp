@@ -9793,7 +9793,7 @@ std::optional<QList<drift::SubtitleCue>> AppController::cuesFromStoredTranscript
         const drift::TimeUs offset = source.timelineStart - rangeStart;
         const double speed = source.speed > 0 ? source.speed : 1.0;
         for (const drift::SubtitleCue &cue :
-             drift::cuesFromTranscript(*t, source.srcIn, source.srcOut, 42, 1, qMax(0, maxWordsPerCue))) {
+             drift::cuesFromTranscript(*t, source.srcIn, source.srcOut, subtitleLineWidth(), 1, qMax(0, maxWordsPerCue))) {
             const double a = drift::usToSeconds(cue.startUs - source.srcIn);
             const double b = drift::usToSeconds(cue.endUs - source.srcIn);
             const double span = drift::usToSeconds(source.srcOut - source.srcIn);
@@ -9880,9 +9880,10 @@ bool AppController::generateSubtitlesForSources(QList<SubtitleSource> sources, c
     const drift::TimeUs rangeDuration = rangeEnd - rangeStart;
     const QString languageCode = language.trimmed().toLower();
     const int wordsPerCue = std::max(0, maxWordsPerCue);
+    const int lineWidth = subtitleLineWidth();
     const bool translate = m_subtitleTranslateNext;
 
-    (void)QtConcurrent::run([this, sources, rangeStart, rangeDuration, languageCode, wordsPerCue, translate]() {
+    (void)QtConcurrent::run([this, sources, rangeStart, rangeDuration, languageCode, wordsPerCue, lineWidth, translate]() {
         auto setProgress = [this](double fraction, const QString &status) {
             QMetaObject::invokeMethod(
                 this,
@@ -10015,11 +10016,11 @@ bool AppController::generateSubtitlesForSources(QList<SubtitleSource> sources, c
             res.error = local.error;
             if (local.transcript) {
                 res.language = local.transcript->language;
-                res.cues = drift::cuesFromTranscript(*local.transcript, 0, sampleToUsTotal(mono.size()), 42, 1,
+                res.cues = drift::cuesFromTranscript(*local.transcript, 0, sampleToUsTotal(mono.size()), lineWidth, 1,
                                                      wordsPerCue);
             }
         } else {
-            res = whisper.transcribe(mono, onProgress, languageCode, wordsPerCue, translate);
+            res = whisper.transcribe(mono, onProgress, languageCode, wordsPerCue, translate, lineWidth);
         }
 
         qWarning() << "[subtitles] transcribe done. ok:" << res.ok << "cancelled:" << res.cancelled
@@ -10824,6 +10825,21 @@ void storeSubtitleDictionary(const QList<QPair<QString, QString>> &pairs)
 }
 
 } // namespace
+
+int AppController::subtitleLineWidth() const
+{
+    // Letters per caption, by the frame's shape: the caption box of a vertical video is narrow
+    // (TikTok, Reels, Shorts), and 42 letters there wrapped into three or four lines.
+    const int w = m_project.width();
+    const int h = m_project.height();
+    if (w <= 0 || h <= 0)
+        return 42;
+    if (h > w * 1.2)
+        return 26;
+    if (h > w * 0.9)
+        return 32;
+    return 42;
+}
 
 void AppController::finalizeGeneratedSubtitles(drift::TimeUs timelineStart,
                                                drift::TimeUs timelineDuration,
