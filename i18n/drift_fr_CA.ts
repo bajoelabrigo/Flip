@@ -24075,7 +24075,7 @@ Si la lecture saccade, essayez une autre option.</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Supprimer</translation>
     </message>
 </context>
 <context>
@@ -26697,10 +26697,6 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Définir la fin à l&apos;heure actuelle</translation>
     </message>
     <message>
-        <source>Delete caption</source>
-        <translation>Supprimer le sous-titre</translation>
-    </message>
-    <message>
         <source>At %1</source>
         <translation>À %1</translation>
     </message>
@@ -26715,6 +26711,18 @@ Si la lecture saccade, essayez une autre option.</translation>
     <message>
         <source>Emojis</source>
         <translation>Émojis</translation>
+    </message>
+    <message>
+        <source>Move all captions</source>
+        <translation>Tout déplacer</translation>
+    </message>
+    <message>
+        <source>All captions 0.1 s earlier</source>
+        <translation>Tous 0,1 s plus tôt</translation>
+    </message>
+    <message>
+        <source>All captions 0.1 s later</source>
+        <translation>Tous 0,1 s plus tard</translation>
     </message>
     <message>
         <source>Replace these captions from an SRT, WebVTT or ASS file</source>
@@ -26823,6 +26831,38 @@ Si la lecture saccade, essayez une autre option.</translation>
     <message>
         <source>Tip: write a word between asterisks, like *faith*, to highlight it in colour.</source>
         <translation>Astuce : écrivez un mot entre astérisques, comme *foi*, pour le mettre en couleur.</translation>
+    </message>
+    <message>
+        <source>One frame earlier</source>
+        <translation>Une image plus tôt</translation>
+    </message>
+    <message>
+        <source>One frame later</source>
+        <translation>Une image plus tard</translation>
+    </message>
+    <message>
+        <source>Split</source>
+        <translation>Diviser</translation>
+    </message>
+    <message>
+        <source>Split this caption at the playhead</source>
+        <translation>Diviser ce sous-titre à la tête de lecture</translation>
+    </message>
+    <message>
+        <source>Join</source>
+        <translation>Joindre</translation>
+    </message>
+    <message>
+        <source>Join this caption with the next one</source>
+        <translation>Joindre ce sous-titre au suivant</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete this caption</source>
+        <translation>Supprimer ce sous-titre</translation>
     </message>
 </context>
 <context>

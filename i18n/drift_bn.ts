@@ -24069,7 +24069,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>মুছুন</translation>
     </message>
 </context>
 <context>
@@ -26643,6 +26643,18 @@ If playback stutters, try another.</source>
         <translation>একটি SRT, WebVTT বা ASS ফাইল থেকে এই ক্যাপশনগুলো বদলে দিন</translation>
     </message>
     <message>
+        <source>Move all captions</source>
+        <translation>সব সরান</translation>
+    </message>
+    <message>
+        <source>All captions 0.1 s earlier</source>
+        <translation>সব ০.১ সে. আগে</translation>
+    </message>
+    <message>
+        <source>All captions 0.1 s later</source>
+        <translation>সব ০.১ সে. পরে</translation>
+    </message>
+    <message>
         <source>Subtitle files (*.srt *.vtt *.ass *.ssa)</source>
         <translation>সাবটাইটেল ফাইল (*.srt *.vtt *.ass *.ssa)</translation>
     </message>
@@ -26803,8 +26815,36 @@ If playback stutters, try another.</source>
         <translation type="unfinished">বর্তমান সময়ে শেষ সেট করুন</translation>
     </message>
     <message>
-        <source>Delete caption</source>
-        <translation type="unfinished">ক্যাপশন মুছুন</translation>
+        <source>One frame earlier</source>
+        <translation>এক ফ্রেম আগে</translation>
+    </message>
+    <message>
+        <source>One frame later</source>
+        <translation>এক ফ্রেম পরে</translation>
+    </message>
+    <message>
+        <source>Split</source>
+        <translation>ভাগ করুন</translation>
+    </message>
+    <message>
+        <source>Split this caption at the playhead</source>
+        <translation>প্লেহেডে এই ক্যাপশনটি ভাগ করুন</translation>
+    </message>
+    <message>
+        <source>Join</source>
+        <translation>জুড়ুন</translation>
+    </message>
+    <message>
+        <source>Join this caption with the next one</source>
+        <translation>এই ক্যাপশনটি পরেরটির সঙ্গে জুড়ুন</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete this caption</source>
+        <translation>এই ক্যাপশনটি মুছুন</translation>
     </message>
     <message>
         <source>At %1</source>

@@ -24069,7 +24069,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>මකන්න</translation>
     </message>
 </context>
 <context>
@@ -26691,10 +26691,6 @@ If playback stutters, try another.</source>
         <translation>වත්මන් වේලාව අවසානය ලෙස සකසන්න</translation>
     </message>
     <message>
-        <source>Delete caption</source>
-        <translation>උපසිරැසිය මකන්න</translation>
-    </message>
-    <message>
         <source>At %1</source>
         <translation>%1 හිදී</translation>
     </message>
@@ -26709,6 +26705,18 @@ If playback stutters, try another.</source>
     <message>
         <source>Emojis</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move all captions</source>
+        <translation>සියල්ල ගෙන යන්න</translation>
+    </message>
+    <message>
+        <source>All captions 0.1 s earlier</source>
+        <translation>සියල්ල තත්. 0.1ක් කලින්</translation>
+    </message>
+    <message>
+        <source>All captions 0.1 s later</source>
+        <translation>සියල්ල තත්. 0.1ක් පසුව</translation>
     </message>
     <message>
         <source>Replace these captions from an SRT, WebVTT or ASS file</source>
@@ -26817,6 +26825,38 @@ If playback stutters, try another.</source>
     <message>
         <source>Tip: write a word between asterisks, like *faith*, to highlight it in colour.</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>One frame earlier</source>
+        <translation>එක් රාමුවක් කලින්</translation>
+    </message>
+    <message>
+        <source>One frame later</source>
+        <translation>එක් රාමුවක් පසුව</translation>
+    </message>
+    <message>
+        <source>Split</source>
+        <translation>බෙදන්න</translation>
+    </message>
+    <message>
+        <source>Split this caption at the playhead</source>
+        <translation>මෙම උපසිරැසිය ධාවන ලක්ෂයේදී බෙදන්න</translation>
+    </message>
+    <message>
+        <source>Join</source>
+        <translation>එක් කරන්න</translation>
+    </message>
+    <message>
+        <source>Join this caption with the next one</source>
+        <translation>මෙම උපසිරැසිය ඊළඟ එක සමඟ එක් කරන්න</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete this caption</source>
+        <translation>මෙම උපසිරැසිය මකන්න</translation>
     </message>
 </context>
 <context>

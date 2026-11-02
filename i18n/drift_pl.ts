@@ -24163,7 +24163,7 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Usuń</translation>
     </message>
 </context>
 <context>
@@ -26789,10 +26789,6 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
         <translation>Ustaw koniec na bieżący czas</translation>
     </message>
     <message>
-        <source>Delete caption</source>
-        <translation>Usuń napis</translation>
-    </message>
-    <message>
         <source>At %1</source>
         <translation>O %1</translation>
     </message>
@@ -26807,6 +26803,18 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     <message>
         <source>Emojis</source>
         <translation>Emoji</translation>
+    </message>
+    <message>
+        <source>Move all captions</source>
+        <translation>Przesuń wszystkie</translation>
+    </message>
+    <message>
+        <source>All captions 0.1 s earlier</source>
+        <translation>Wszystkie 0,1 s wcześniej</translation>
+    </message>
+    <message>
+        <source>All captions 0.1 s later</source>
+        <translation>Wszystkie 0,1 s później</translation>
     </message>
     <message>
         <source>Replace these captions from an SRT, WebVTT or ASS file</source>
@@ -26915,6 +26923,38 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     <message>
         <source>Tip: write a word between asterisks, like *faith*, to highlight it in colour.</source>
         <translation>Wskazówka: wpisz słowo między gwiazdkami, np. *wiara*, aby wyróżnić je kolorem.</translation>
+    </message>
+    <message>
+        <source>One frame earlier</source>
+        <translation>Klatkę wcześniej</translation>
+    </message>
+    <message>
+        <source>One frame later</source>
+        <translation>Klatkę później</translation>
+    </message>
+    <message>
+        <source>Split</source>
+        <translation>Podziel</translation>
+    </message>
+    <message>
+        <source>Split this caption at the playhead</source>
+        <translation>Podziel ten napis w miejscu głowicy</translation>
+    </message>
+    <message>
+        <source>Join</source>
+        <translation>Połącz</translation>
+    </message>
+    <message>
+        <source>Join this caption with the next one</source>
+        <translation>Połącz ten napis z następnym</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete this caption</source>
+        <translation>Usuń ten napis</translation>
     </message>
 </context>
 <context>

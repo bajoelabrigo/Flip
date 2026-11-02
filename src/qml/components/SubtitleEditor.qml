@@ -157,6 +157,97 @@ Item {
         root.updateCue(index, patch)
     }
 
+    // One frame of the project: what the arrows move a cue's start or end by.
+    readonly property double frameSeconds: {
+        const fps = EditorState.projectFile.projectFps()
+        return fps > 0 ? 1 / fps : 1 / 30
+    }
+
+    function nudgeCueEdge(index, edge, direction) {
+        if (index < 0 || index >= root.cues.length)
+            return
+        const cue = root.cues[index]
+        const minLength = root.frameSeconds
+        let v = cue[edge] + direction * root.frameSeconds
+        if (edge === "start")
+            v = Math.max(0, Math.min(v, cue.end - minLength))
+        else
+            v = Math.max(cue.start + minLength, root.clipDuration > 0 ? Math.min(v, root.clipDuration) : v)
+        const patch = {}
+        patch[edge] = v
+        root.updateCue(index, patch)
+    }
+
+    // Every caption earlier or later at once (an .srt out of sync, a video trimmed at the start),
+    // with its word timings, never before the clip's start or past its end.
+    function shiftAllCues(delta) {
+        const list = cloneCues()
+        if (!list.length)
+            return
+        if (delta < 0)
+            delta = Math.max(delta, -list[0].start)
+        if (delta > 0 && root.clipDuration > 0)
+            delta = Math.min(delta, root.clipDuration - list[list.length - 1].end)
+        if (Math.abs(delta) < 1e-6)
+            return
+        for (let i = 0; i < list.length; i++) {
+            list[i].start += delta
+            list[i].end += delta
+            list[i].wordEnds = list[i].wordEnds.map(e => e + delta)
+        }
+        replaceCues(list)
+    }
+
+    // The caption under the playhead in two (CapCut's Split): the words said before it stay, the
+    // rest start a caption there. With word timings the cut falls between the right words.
+    readonly property bool canSplitCue: {
+        const i = root.selectedCueIndex
+        if (i < 0 || i >= root.cues.length)
+            return false
+        const t = root.localPlayhead
+        return t > root.cues[i].start + 0.05 && t < root.cues[i].end - 0.05
+    }
+    function splitCueAtPlayhead() {
+        const index = root.selectedCueIndex
+        if (!root.canSplitCue)
+            return
+        const t = root.localPlayhead
+        const list = cloneCues()
+        const cue = list[index]
+        const words = String(cue.text).trim().split(/\s+/).filter(w => w.length)
+        const timed = cue.wordEnds.length === words.length && words.length > 0
+        let k = 0
+        if (timed) {
+            while (k < words.length && cue.wordEnds[k] <= t)
+                ++k
+        } else {
+            k = Math.round(words.length * (t - cue.start) / (cue.end - cue.start))
+        }
+        if (words.length > 1)
+            k = Math.max(1, Math.min(words.length - 1, k))
+        const first = { start: cue.start, end: t, text: words.slice(0, k).join(" "),
+                        wordEnds: timed ? cue.wordEnds.slice(0, k) : [] }
+        const second = { start: t, end: cue.end, text: words.slice(k).join(" "),
+                         wordEnds: timed ? cue.wordEnds.slice(k) : [] }
+        list.splice(index, 1, first, second)
+        replaceCues(list)
+        EditorState.selectedSubtitleCue = index + 1
+    }
+
+    // The caption and the next one become one (their words and timings kept).
+    function joinWithNext(index) {
+        if (index < 0 || index + 1 >= root.cues.length)
+            return
+        const list = cloneCues()
+        const a = list[index]
+        const b = list[index + 1]
+        const joined = { start: a.start, end: b.end, text: (a.text + " " + b.text).trim(),
+                         wordEnds: a.wordEnds.concat(b.wordEnds) }
+        list.splice(index, 2, joined)
+        replaceCues(list)
+        EditorState.selectedSubtitleCue = index
+    }
+
     // Add a new cue at the playhead, chaining it to its neighbours: the preceding cue's
     // end is trimmed back to the new start if it would otherwise overlap (never extended),
     // and the new cue runs until the next cue's start (or a default length when there is
@@ -225,10 +316,6 @@ Item {
         const cue = currentCue()
         if (!cueText.activeFocus)
             cueText.text = cue ? cue.text : ""
-        if (!startField.activeFocus)
-            startField.text = cue ? formatCueTime(cue.start) : ""
-        if (!endField.activeFocus)
-            endField.text = cue ? formatCueTime(cue.end) : ""
     }
 
     // A different cue was picked: its values replace the fields outright. Clicking a row does
@@ -237,8 +324,6 @@ Item {
     function loadEditor() {
         const cue = currentCue()
         cueText.text = cue ? cue.text : ""
-        startField.text = cue ? formatCueTime(cue.start) : ""
-        endField.text = cue ? formatCueTime(cue.end) : ""
     }
 
     // While playing, the edited cue tracks the playhead — but not while the text box is being
@@ -324,6 +409,38 @@ Item {
             font.family: Theme.fontFamily
             font.pixelSize: Theme.fontSizeXs
             opacity: 0.8
+        }
+
+        // Every caption earlier or later at once: for a file out of sync with the voice.
+        Row {
+            id: shiftRow
+            width: parent.width
+            spacing: 4
+            visible: root.cues.length > 0
+
+            Text {
+                width: shiftRow.width - shiftBack.width * 2 - shiftRow.spacing * 2
+                height: shiftBack.height
+                verticalAlignment: Text.AlignVCenter
+                text: qsTr("Move all captions")
+                color: Theme.mutedForeground
+                font.family: Theme.fontFamily
+                font.pixelSize: Theme.fontSizeXs
+                elide: Text.ElideRight
+            }
+            IconButton {
+                id: shiftBack
+                glyph: Theme.icons.chevronLeft
+                variant: "ghost"
+                tooltip: qsTr("All captions 0.1 s earlier")
+                onClicked: root.shiftAllCues(-0.1)
+            }
+            IconButton {
+                glyph: Theme.icons.chevronRight
+                variant: "ghost"
+                tooltip: qsTr("All captions 0.1 s later")
+                onClicked: root.shiftAllCues(0.1)
+            }
         }
 
         Row {
@@ -858,84 +975,105 @@ Item {
                         }
                     }
 
-                    Row {
-                        width: parent.width
-                        spacing: 8
-
-                        // Start
-                        Column {
-                            width: (parent.width - parent.spacing) / 2
+                    // Start and end, each on its own line: the arrows move it a frame, the last button
+                    // puts it at the playhead. Typing the time still works.
+                    Repeater {
+                        model: [{ edge: "start", label: qsTr("Start"), glyph: Theme.icons.setStart,
+                                  tip: qsTr("Set start to current time") },
+                                { edge: "end", label: qsTr("End"), glyph: Theme.icons.setEnd,
+                                  tip: qsTr("Set end to current time") }]
+                        delegate: Row {
+                            id: edgeRow
+                            required property var modelData
+                            width: parent.width
                             spacing: 4
+
                             Text {
-                                text: qsTr("Start")
+                                width: 44
+                                height: edgeField.height
+                                verticalAlignment: Text.AlignVCenter
+                                text: edgeRow.modelData.label
                                 color: Theme.mutedForeground
                                 font.family: Theme.fontFamily
                                 font.pixelSize: Theme.fontSizeXs
+                                elide: Text.ElideRight
                             }
-                            Row {
-                                width: parent.width
-                                spacing: 4
-                                ThemedTextField {
-                                    id: startField
-                                    width: parent.width - startPh.width - parent.spacing
-                                    onEditingFinished: {
-                                        const v = root.parseCueTime(text)
-                                        if (!isNaN(v) && root.selectedCueIndex >= 0)
-                                            root.updateCue(root.selectedCueIndex, { start: v })
+                            IconButton {
+                                id: edgeBack
+                                glyph: Theme.icons.chevronLeft
+                                variant: "ghost"
+                                enabled: root.selectedCueIndex >= 0
+                                tooltip: qsTr("One frame earlier")
+                                onClicked: root.nudgeCueEdge(root.selectedCueIndex, edgeRow.modelData.edge, -1)
+                            }
+                            ThemedTextField {
+                                id: edgeField
+                                width: edgeRow.width - 44 - edgeBack.width * 3 - edgeRow.spacing * 4
+                                horizontalAlignment: Text.AlignHCenter
+                                text: {
+                                    void root.cues
+                                    const cue = root.selectedCue
+                                    return cue ? root.formatCueTime(cue[edgeRow.modelData.edge]) : ""
+                                }
+                                onEditingFinished: {
+                                    const v = root.parseCueTime(text)
+                                    if (!isNaN(v) && root.selectedCueIndex >= 0) {
+                                        const patch = {}
+                                        patch[edgeRow.modelData.edge] = v
+                                        root.updateCue(root.selectedCueIndex, patch)
                                     }
                                 }
-                                IconButton {
-                                    id: startPh
-                                    glyph: Theme.icons.setStart
-                                    variant: "ghost"
-                                    enabled: root.localPlayhead >= 0
-                                    tooltip: qsTr("Set start to current time")
-                                    onClicked: root.setCueEdgeToPlayhead(root.selectedCueIndex, "start")
-                                }
                             }
-                        }
-
-                        // End
-                        Column {
-                            width: (parent.width - parent.spacing) / 2
-                            spacing: 4
-                            Text {
-                                text: qsTr("End")
-                                color: Theme.mutedForeground
-                                font.family: Theme.fontFamily
-                                font.pixelSize: Theme.fontSizeXs
+                            IconButton {
+                                glyph: Theme.icons.chevronRight
+                                variant: "ghost"
+                                enabled: root.selectedCueIndex >= 0
+                                tooltip: qsTr("One frame later")
+                                onClicked: root.nudgeCueEdge(root.selectedCueIndex, edgeRow.modelData.edge, 1)
                             }
-                            Row {
-                                width: parent.width
-                                spacing: 4
-                                ThemedTextField {
-                                    id: endField
-                                    width: parent.width - endPh.width - parent.spacing
-                                    onEditingFinished: {
-                                        const v = root.parseCueTime(text)
-                                        if (!isNaN(v) && root.selectedCueIndex >= 0)
-                                            root.updateCue(root.selectedCueIndex, { end: v })
-                                    }
-                                }
-                                IconButton {
-                                    id: endPh
-                                    glyph: Theme.icons.setEnd
-                                    variant: "ghost"
-                                    enabled: root.localPlayhead >= 0
-                                    tooltip: qsTr("Set end to current time")
-                                    onClicked: root.setCueEdgeToPlayhead(root.selectedCueIndex, "end")
-                                }
+                            IconButton {
+                                glyph: edgeRow.modelData.glyph
+                                variant: "ghost"
+                                enabled: root.localPlayhead >= 0 && root.selectedCueIndex >= 0
+                                tooltip: edgeRow.modelData.tip
+                                onClicked: root.setCueEdgeToPlayhead(root.selectedCueIndex, edgeRow.modelData.edge)
                             }
                         }
                     }
 
-                    ThemedButton {
-                        text: qsTr("Delete caption")
-                        variant: "destructive"
-                        glyph: Theme.icons.trash
-                        onClicked: {
-                            if (root.selectedCueIndex >= 0)
-                                root.removeCue(root.selectedCueIndex)
+                    // What can be done to this caption, in one quiet row.
+                    Row {
+                        id: cueActions
+                        width: parent.width
+                        spacing: 6
+                        readonly property real third: (width - spacing * 2) / 3
+
+                        ThemedButton {
+                            width: cueActions.third
+                            text: qsTr("Split")
+                            variant: "ghost"
+                            glyph: Theme.icons.scissors
+                            enabled: root.canSplitCue
+                            tooltip: qsTr("Split this caption at the playhead")
+                            onClicked: root.splitCueAtPlayhead()
+                        }
+                        ThemedButton {
+                            width: cueActions.third
+                            text: qsTr("Join")
+                            variant: "ghost"
+                            glyph: Theme.icons.link
+                            enabled: root.selectedCueIndex >= 0 && root.selectedCueIndex + 1 < root.cues.length
+                            tooltip: qsTr("Join this caption with the next one")
+                            onClicked: root.joinWithNext(root.selectedCueIndex)
+                        }
+                        ThemedButton {
+                            width: cueActions.third
+                            text: qsTr("Delete")
+                            variant: "ghost"
+                            glyph: Theme.icons.trash
+                            enabled: root.selectedCueIndex >= 0
+                            tooltip: qsTr("Delete this caption")
+                            onClicked: root.removeCue(root.selectedCueIndex)
                         }
                     }
 

@@ -24433,7 +24433,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>حذف</translation>
     </message>
 </context>
 <context>
@@ -27071,10 +27071,6 @@ If playback stutters, try another.</source>
         <translation>تعيين النهاية إلى الوقت الحالي</translation>
     </message>
     <message>
-        <source>Delete caption</source>
-        <translation>حذف التسمية التوضيحية</translation>
-    </message>
-    <message>
         <source>At %1</source>
         <translation>عند %1</translation>
     </message>
@@ -27089,6 +27085,18 @@ If playback stutters, try another.</source>
     <message>
         <source>Emojis</source>
         <translation>الرموز التعبيرية</translation>
+    </message>
+    <message>
+        <source>Move all captions</source>
+        <translation>نقل الكل</translation>
+    </message>
+    <message>
+        <source>All captions 0.1 s earlier</source>
+        <translation>الكل أبكر بـ 0.1 ث</translation>
+    </message>
+    <message>
+        <source>All captions 0.1 s later</source>
+        <translation>الكل أبطأ بـ 0.1 ث</translation>
     </message>
     <message>
         <source>Replace these captions from an SRT, WebVTT or ASS file</source>
@@ -27197,6 +27205,38 @@ If playback stutters, try another.</source>
     <message>
         <source>Tip: write a word between asterisks, like *faith*, to highlight it in colour.</source>
         <translation>نصيحة: اكتب كلمة بين نجمتين، مثل *إيمان*، لإبرازها بلون.</translation>
+    </message>
+    <message>
+        <source>One frame earlier</source>
+        <translation>إطار واحد قبل</translation>
+    </message>
+    <message>
+        <source>One frame later</source>
+        <translation>إطار واحد بعد</translation>
+    </message>
+    <message>
+        <source>Split</source>
+        <translation>تقسيم</translation>
+    </message>
+    <message>
+        <source>Split this caption at the playhead</source>
+        <translation>تقسيم هذه الترجمة عند مؤشر التشغيل</translation>
+    </message>
+    <message>
+        <source>Join</source>
+        <translation>دمج</translation>
+    </message>
+    <message>
+        <source>Join this caption with the next one</source>
+        <translation>دمج هذه الترجمة مع التالية</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete this caption</source>
+        <translation>حذف هذه الترجمة</translation>
     </message>
 </context>
 <context>

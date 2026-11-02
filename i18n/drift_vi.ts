@@ -23983,7 +23983,7 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Xóa</translation>
     </message>
 </context>
 <context>
@@ -26601,10 +26601,6 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Đặt thời gian kết thúc là thời gian hiện tại</translation>
     </message>
     <message>
-        <source>Delete caption</source>
-        <translation>Xóa phụ đề</translation>
-    </message>
-    <message>
         <source>At %1</source>
         <translation>Tại %1</translation>
     </message>
@@ -26619,6 +26615,18 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Emojis</source>
         <translation>Emoji</translation>
+    </message>
+    <message>
+        <source>Move all captions</source>
+        <translation>Dời tất cả</translation>
+    </message>
+    <message>
+        <source>All captions 0.1 s earlier</source>
+        <translation>Tất cả sớm 0,1 giây</translation>
+    </message>
+    <message>
+        <source>All captions 0.1 s later</source>
+        <translation>Tất cả trễ 0,1 giây</translation>
     </message>
     <message>
         <source>Replace these captions from an SRT, WebVTT or ASS file</source>
@@ -26727,6 +26735,38 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Tip: write a word between asterisks, like *faith*, to highlight it in colour.</source>
         <translation>Mẹo: viết một từ giữa hai dấu sao, như *niềm tin*, để tô màu nổi bật.</translation>
+    </message>
+    <message>
+        <source>One frame earlier</source>
+        <translation>Sớm một khung hình</translation>
+    </message>
+    <message>
+        <source>One frame later</source>
+        <translation>Trễ một khung hình</translation>
+    </message>
+    <message>
+        <source>Split</source>
+        <translation>Tách</translation>
+    </message>
+    <message>
+        <source>Split this caption at the playhead</source>
+        <translation>Tách phụ đề này tại đầu phát</translation>
+    </message>
+    <message>
+        <source>Join</source>
+        <translation>Nối</translation>
+    </message>
+    <message>
+        <source>Join this caption with the next one</source>
+        <translation>Nối phụ đề này với phụ đề sau</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete this caption</source>
+        <translation>Xóa phụ đề này</translation>
     </message>
 </context>
 <context>

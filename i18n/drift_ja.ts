@@ -23983,7 +23983,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>削除</translation>
     </message>
 </context>
 <context>
@@ -26601,10 +26601,6 @@ If playback stutters, try another.</source>
         <translation>終了を現在の時間に設定</translation>
     </message>
     <message>
-        <source>Delete caption</source>
-        <translation>キャプションを削除</translation>
-    </message>
-    <message>
         <source>At %1</source>
         <translation>%1 に</translation>
     </message>
@@ -26619,6 +26615,18 @@ If playback stutters, try another.</source>
     <message>
         <source>Emojis</source>
         <translation>絵文字</translation>
+    </message>
+    <message>
+        <source>Move all captions</source>
+        <translation>すべて移動</translation>
+    </message>
+    <message>
+        <source>All captions 0.1 s earlier</source>
+        <translation>すべて0.1秒早く</translation>
+    </message>
+    <message>
+        <source>All captions 0.1 s later</source>
+        <translation>すべて0.1秒遅く</translation>
     </message>
     <message>
         <source>Replace these captions from an SRT, WebVTT or ASS file</source>
@@ -26727,6 +26735,38 @@ If playback stutters, try another.</source>
     <message>
         <source>Tip: write a word between asterisks, like *faith*, to highlight it in colour.</source>
         <translation>ヒント: *faith* のように単語をアスタリスクで囲むと、色でハイライトされます。</translation>
+    </message>
+    <message>
+        <source>One frame earlier</source>
+        <translation>1フレーム前</translation>
+    </message>
+    <message>
+        <source>One frame later</source>
+        <translation>1フレーム後</translation>
+    </message>
+    <message>
+        <source>Split</source>
+        <translation>分割</translation>
+    </message>
+    <message>
+        <source>Split this caption at the playhead</source>
+        <translation>再生ヘッドでこの字幕を分割</translation>
+    </message>
+    <message>
+        <source>Join</source>
+        <translation>結合</translation>
+    </message>
+    <message>
+        <source>Join this caption with the next one</source>
+        <translation>この字幕を次と結合</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete this caption</source>
+        <translation>この字幕を削除</translation>
     </message>
 </context>
 <context>

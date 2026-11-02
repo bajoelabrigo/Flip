@@ -26691,10 +26691,6 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Establecer final en la posición actual</translation>
     </message>
     <message>
-        <source>Delete caption</source>
-        <translation>Eliminar subtítulo</translation>
-    </message>
-    <message>
         <source>At %1</source>
         <translation>En %1</translation>
     </message>
@@ -26709,6 +26705,18 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Emojis</source>
         <translation>Emojis</translation>
+    </message>
+    <message>
+        <source>Move all captions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>All captions 0.1 s earlier</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>All captions 0.1 s later</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Replace these captions from an SRT, WebVTT or ASS file</source>
@@ -26817,6 +26825,38 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Tip: write a word between asterisks, like *faith*, to highlight it in colour.</source>
         <translation>Consejo: escribe una palabra entre asteriscos, como *fe*, para resaltarla en color.</translation>
+    </message>
+    <message>
+        <source>One frame earlier</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>One frame later</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Split</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Split this caption at the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Join</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Join this caption with the next one</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete this caption</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

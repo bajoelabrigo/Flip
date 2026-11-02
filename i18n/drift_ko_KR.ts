@@ -23982,7 +23982,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>삭제</translation>
     </message>
 </context>
 <context>
@@ -26599,10 +26599,6 @@ If playback stutters, try another.</source>
         <translation>끝을 현재 시점으로 설정</translation>
     </message>
     <message>
-        <source>Delete caption</source>
-        <translation>캡션 삭제</translation>
-    </message>
-    <message>
         <source>At %1</source>
         <translation>%1에서</translation>
     </message>
@@ -26617,6 +26613,18 @@ If playback stutters, try another.</source>
     <message>
         <source>Emojis</source>
         <translation>이모지</translation>
+    </message>
+    <message>
+        <source>Move all captions</source>
+        <translation>모두 이동</translation>
+    </message>
+    <message>
+        <source>All captions 0.1 s earlier</source>
+        <translation>모두 0.1초 앞으로</translation>
+    </message>
+    <message>
+        <source>All captions 0.1 s later</source>
+        <translation>모두 0.1초 뒤로</translation>
     </message>
     <message>
         <source>Replace these captions from an SRT, WebVTT or ASS file</source>
@@ -26725,6 +26733,38 @@ If playback stutters, try another.</source>
     <message>
         <source>Tip: write a word between asterisks, like *faith*, to highlight it in colour.</source>
         <translation>팁: *믿음*처럼 단어를 별표 사이에 쓰면 색으로 강조됩니다.</translation>
+    </message>
+    <message>
+        <source>One frame earlier</source>
+        <translation>한 프레임 앞</translation>
+    </message>
+    <message>
+        <source>One frame later</source>
+        <translation>한 프레임 뒤</translation>
+    </message>
+    <message>
+        <source>Split</source>
+        <translation>분할</translation>
+    </message>
+    <message>
+        <source>Split this caption at the playhead</source>
+        <translation>재생 헤드에서 이 자막 분할</translation>
+    </message>
+    <message>
+        <source>Join</source>
+        <translation>합치기</translation>
+    </message>
+    <message>
+        <source>Join this caption with the next one</source>
+        <translation>이 자막을 다음 자막과 합치기</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete this caption</source>
+        <translation>이 자막 삭제</translation>
     </message>
 </context>
 <context>

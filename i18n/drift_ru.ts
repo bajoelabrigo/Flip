@@ -24163,7 +24163,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Удалить</translation>
     </message>
 </context>
 <context>
@@ -26789,10 +26789,6 @@ If playback stutters, try another.</source>
         <translation>Установить конец на текущее время</translation>
     </message>
     <message>
-        <source>Delete caption</source>
-        <translation>Удалить запись субтитров</translation>
-    </message>
-    <message>
         <source>At %1</source>
         <translation>В %1</translation>
     </message>
@@ -26807,6 +26803,18 @@ If playback stutters, try another.</source>
     <message>
         <source>Emojis</source>
         <translation>Эмодзи</translation>
+    </message>
+    <message>
+        <source>Move all captions</source>
+        <translation>Сдвинуть все</translation>
+    </message>
+    <message>
+        <source>All captions 0.1 s earlier</source>
+        <translation>Все на 0,1 с раньше</translation>
+    </message>
+    <message>
+        <source>All captions 0.1 s later</source>
+        <translation>Все на 0,1 с позже</translation>
     </message>
     <message>
         <source>Replace these captions from an SRT, WebVTT or ASS file</source>
@@ -26915,6 +26923,38 @@ If playback stutters, try another.</source>
     <message>
         <source>Tip: write a word between asterisks, like *faith*, to highlight it in colour.</source>
         <translation>Совет: возьмите слово в звёздочки, например *вера*, чтобы выделить его цветом.</translation>
+    </message>
+    <message>
+        <source>One frame earlier</source>
+        <translation>На кадр раньше</translation>
+    </message>
+    <message>
+        <source>One frame later</source>
+        <translation>На кадр позже</translation>
+    </message>
+    <message>
+        <source>Split</source>
+        <translation>Разделить</translation>
+    </message>
+    <message>
+        <source>Split this caption at the playhead</source>
+        <translation>Разделить этот субтитр по указателю</translation>
+    </message>
+    <message>
+        <source>Join</source>
+        <translation>Объединить</translation>
+    </message>
+    <message>
+        <source>Join this caption with the next one</source>
+        <translation>Объединить этот субтитр со следующим</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete this caption</source>
+        <translation>Удалить этот субтитр</translation>
     </message>
 </context>
 <context>

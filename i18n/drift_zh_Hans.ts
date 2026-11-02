@@ -23983,7 +23983,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>删除</translation>
     </message>
 </context>
 <context>
@@ -26600,10 +26600,6 @@ If playback stutters, try another.</source>
         <translation>将结束设为当前时间</translation>
     </message>
     <message>
-        <source>Delete caption</source>
-        <translation>删除字幕</translation>
-    </message>
-    <message>
         <source>At %1</source>
         <translation>位于 %1</translation>
     </message>
@@ -26618,6 +26614,18 @@ If playback stutters, try another.</source>
     <message>
         <source>Emojis</source>
         <translation>表情</translation>
+    </message>
+    <message>
+        <source>Move all captions</source>
+        <translation>全部移动</translation>
+    </message>
+    <message>
+        <source>All captions 0.1 s earlier</source>
+        <translation>全部提前 0.1 秒</translation>
+    </message>
+    <message>
+        <source>All captions 0.1 s later</source>
+        <translation>全部延后 0.1 秒</translation>
     </message>
     <message>
         <source>Replace these captions from an SRT, WebVTT or ASS file</source>
@@ -26726,6 +26734,38 @@ If playback stutters, try another.</source>
     <message>
         <source>Tip: write a word between asterisks, like *faith*, to highlight it in colour.</source>
         <translation>提示：将词语放在星号之间（如 *信心*），即可用颜色突出显示。</translation>
+    </message>
+    <message>
+        <source>One frame earlier</source>
+        <translation>提前一帧</translation>
+    </message>
+    <message>
+        <source>One frame later</source>
+        <translation>延后一帧</translation>
+    </message>
+    <message>
+        <source>Split</source>
+        <translation>拆分</translation>
+    </message>
+    <message>
+        <source>Split this caption at the playhead</source>
+        <translation>在播放头处拆分此字幕</translation>
+    </message>
+    <message>
+        <source>Join</source>
+        <translation>合并</translation>
+    </message>
+    <message>
+        <source>Join this caption with the next one</source>
+        <translation>将此字幕与下一条合并</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete this caption</source>
+        <translation>删除此字幕</translation>
     </message>
 </context>
 <context>
