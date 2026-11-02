@@ -10856,7 +10856,12 @@ void AppController::finalizeGeneratedSubtitles(drift::TimeUs timelineStart,
     const QList<QPair<QString, QString>> dictionary = subtitleDictionaryPairs();
     const bool emojis = subtitleEmojisEnabled();
     for (drift::SubtitleCue &cue : cleaned) {
-        cue.text = drift::applySubtitleReplacements(cue.text, dictionary);
+        // The dictionary may change how many words there are: the timings follow (karaoke).
+        const QString fixed = drift::applySubtitleReplacements(cue.text, dictionary);
+        if (fixed != cue.text) {
+            cue.wordEndsUs = drift::realignWordEnds(cue.text, cue.wordEndsUs, fixed);
+            cue.text = fixed;
+        }
         if (emojis)
             cue.text = drift::captionWithEmoji(cue.text);
     }
@@ -16826,6 +16831,7 @@ int AppController::replaceInSubtitles(int trackIndex, int clipIndex, const QStri
     for (drift::SubtitleCue &cue : clip.subtitleCues) {
         const QString next = drift::applySubtitleReplacements(cue.text, pair);
         if (next != cue.text) {
+            cue.wordEndsUs = drift::realignWordEnds(cue.text, cue.wordEndsUs, next); // karaoke
             cue.text = next;
             ++changed;
         }
@@ -16848,8 +16854,13 @@ void AppController::cleanUpSubtitles(int trackIndex, int clipIndex)
         return;
     QList<drift::SubtitleCue> cues = drift::cleanSubtitleCues(clip.subtitleCues);
     const QList<QPair<QString, QString>> dictionary = subtitleDictionaryPairs();
-    for (drift::SubtitleCue &cue : cues)
-        cue.text = drift::applySubtitleReplacements(cue.text, dictionary);
+    for (drift::SubtitleCue &cue : cues) {
+        const QString fixed = drift::applySubtitleReplacements(cue.text, dictionary);
+        if (fixed != cue.text) {
+            cue.wordEndsUs = drift::realignWordEnds(cue.text, cue.wordEndsUs, fixed); // karaoke
+            cue.text = fixed;
+        }
+    }
     bool same = cues.size() == clip.subtitleCues.size();
     for (int i = 0; same && i < cues.size(); ++i)
         same = cues.at(i).text == clip.subtitleCues.at(i).text;
@@ -16912,12 +16923,6 @@ QList<QPair<int, int>> textFindMatches(const QString &text, const QRegularExpres
 QString textFindKey(int track, int clip, int cue, int start)
 {
     return QStringLiteral("%1:%2:%3:%4").arg(track).arg(clip).arg(cue).arg(start);
-}
-
-int subtitleWordCount(const QString &text)
-{
-    static const QRegularExpression space(QStringLiteral("\\s+"));
-    return int(text.split(space, Qt::SkipEmptyParts).size());
 }
 
 } // namespace
@@ -17040,14 +17045,11 @@ int AppController::replaceInTexts(const QString &needle, const QString &replacem
                 for (int i = 0; i < clip.subtitleCues.size(); ++i) {
                     drift::SubtitleCue &cue = clip.subtitleCues[i];
                     QString text = cue.text;
-                    const int wordsBefore = subtitleWordCount(text);
                     if (replaceIn(t, c, i, text, nullptr) == 0)
                         continue;
+                    // The word timings follow the words (karaoke): kept ones keep theirs.
+                    cue.wordEndsUs = drift::realignWordEnds(cue.text, cue.wordEndsUs, text);
                     cue.text = text;
-                    // Word timings that no longer match the words would light the wrong one;
-                    // with the same number of words they still fit (a word fixed in place).
-                    if (subtitleWordCount(text) != wordsBefore)
-                        cue.wordEndsUs.clear();
                 }
             }
         }

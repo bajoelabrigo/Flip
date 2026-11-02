@@ -76,14 +76,26 @@ Item {
     function cloneCues() {
         const next = []
         for (let i = 0; i < cues.length; i++)
-            next.push({ start: cues[i].start, end: cues[i].end, text: cues[i].text })
+            next.push({ start: cues[i].start, end: cues[i].end, text: cues[i].text,
+                        wordEnds: (cues[i].wordEnds || []).slice() })
         return next
     }
 
+    function wordCount(text) {
+        const t = String(text).trim()
+        return t.length ? t.split(/\s+/).length : 0
+    }
+
+    // Each cue keeps its word timings (the karaoke follows the voice); a text whose words no
+    // longer match them loses its own, and only its own.
     function updateCue(index, patch) {
         const next = cloneCues()
-        if (index >= 0 && index < next.length)
-            Object.assign(next[index], patch)
+        if (index >= 0 && index < next.length) {
+            const before = next[index]
+            if (patch.text !== undefined && wordCount(patch.text) !== wordCount(before.text))
+                patch.wordEnds = []
+            Object.assign(before, patch)
+        }
         replaceCues(next)
     }
 
@@ -121,7 +133,7 @@ Item {
             cur.end = mid
         }
 
-        list.splice(index + 1, 0, { start: newStart, end: newEnd, text: "" })
+        list.splice(index + 1, 0, { start: newStart, end: newEnd, text: "", wordEnds: [] })
         replaceCues(list)
         EditorState.selectedSubtitleCue = index + 1
     }
@@ -185,7 +197,7 @@ Item {
         if (newEnd <= t)
             newEnd = t + 0.5
 
-        list.push({ start: t, end: newEnd, text: "" })
+        list.push({ start: t, end: newEnd, text: "", wordEnds: [] })
         list.sort(function (a, b) { return a.start - b.start })
         replaceCues(list)
 

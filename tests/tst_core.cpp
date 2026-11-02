@@ -1315,6 +1315,24 @@ void CoreTest::subtitleCuePacking()
     QCOMPARE(sentence.at(1).text, QStringLiteral("bendiga grandemente."));
     QCOMPARE(sentence.at(2).text, QStringLiteral("En este tutorial"));
 
+    // The karaoke's word timings survive the cleanup and the dictionary: a dropped hesitation
+    // takes its own timing with it, a replaced word takes the one it replaced.
+    drift::SubtitleCue timed{0, 4000, QStringLiteral("eh este es el camino")};
+    timed.wordEndsUs = {500, 1000, 1500, 2000, 3000};
+    const QList<drift::SubtitleCue> cleanTimed = drift::cleanSubtitleCues({timed});
+    QCOMPARE(cleanTimed.first().text, QStringLiteral("Este es el camino"));
+    QCOMPARE(cleanTimed.first().wordEndsUs, (QList<drift::TimeUs>{1000, 1500, 2000, 3000}));
+    QCOMPARE(drift::realignWordEnds(QStringLiteral("hola Jhon Smit"), {500, 1000, 1500},
+                                    QStringLiteral("hola John Smith")),
+             (QList<drift::TimeUs>{500, 1000, 1500}));
+    QCOMPARE(drift::realignWordEnds(QStringLiteral("vamos a la iglesia"), {500, 800, 1000, 2000},
+                                    QStringLiteral("vamos a la casa de Dios")),
+             (QList<drift::TimeUs>{500, 800, 1000, 2000, 2000, 2000}));
+    QCOMPARE(drift::realignWordEnds(QStringLiteral("muy muy bien"), {400, 800, 1200},
+                                    QStringLiteral("muy bien")),
+             (QList<drift::TimeUs>{400, 1200}));
+    QVERIFY(drift::realignWordEnds(QStringLiteral("dos palabras"), {500}, QStringLiteral("dos")).isEmpty());
+
     // *Marked* words, inside punctuation too, and the Keywords rule.
     QVERIFY(drift::isMarkedWord(QStringLiteral("*fiel*")));
     QVERIFY(drift::isMarkedWord(QStringLiteral("¡*Amén*!")));

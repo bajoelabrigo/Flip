@@ -62,6 +62,11 @@ QList<SubtitleCue> cleanSubtitleCues(const QList<SubtitleCue> &cues);
 // already has an emoji.
 QString captionWithEmoji(const QString &text);
 
+// The word timings of `oldText` carried over to `newText` (the same caption after a word was
+// removed, replaced or added): kept words keep theirs, a new word takes the end of what it replaced.
+// Empty when `oldEnds` does not match `oldText`.
+QList<TimeUs> realignWordEnds(const QString &oldText, const QList<TimeUs> &oldEnds, const QString &newText);
+
 // Whole-word, case-insensitive replacements (find -> replace), applied in order: the user's
 // subtitle dictionary and Find & replace.
 QString applySubtitleReplacements(const QString &text, const QList<QPair<QString, QString>> &pairs);

@@ -280,6 +280,64 @@ bool isHesitation(const QString &word)
 
 } // namespace
 
+namespace {
+QString wordKey(const QString &word)
+{
+    QString key;
+    for (const QChar c : word) {
+        if (c.isLetterOrNumber())
+            key.append(c.toLower());
+    }
+    return key;
+}
+} // namespace
+
+QList<TimeUs> realignWordEnds(const QString &oldText, const QList<TimeUs> &oldEnds, const QString &newText)
+{
+    const QStringList a = oldText.split(QLatin1Char(' '), Qt::SkipEmptyParts);
+    const QStringList b = newText.split(QLatin1Char(' '), Qt::SkipEmptyParts);
+    if (oldEnds.size() != a.size() || a.isEmpty() || b.isEmpty())
+        return {};
+    // Longest common run of words (by letters, case and punctuation aside): a kept word keeps its
+    // timing; a new word takes the end of the old words it replaced, or of the word before it.
+    const int n = a.size();
+    const int m = b.size();
+    QList<QList<int>> lcs(n + 1, QList<int>(m + 1, 0));
+    for (int i = n - 1; i >= 0; --i) {
+        for (int j = m - 1; j >= 0; --j)
+            lcs[i][j] = wordKey(a.at(i)) == wordKey(b.at(j)) ? lcs[i + 1][j + 1] + 1 : qMax(lcs[i + 1][j], lcs[i][j + 1]);
+    }
+    QList<TimeUs> out;
+    int i = 0;
+    int j = 0;
+    TimeUs last = -1; // the end of the last old word passed
+    while (j < m) {
+        if (i < n && wordKey(a.at(i)) == wordKey(b.at(j))) {
+            last = oldEnds.at(i);
+            out.append(last);
+            ++i;
+            ++j;
+        } else if (i < n && lcs[i + 1][j + 1] == lcs[i][j]) {
+            // One word for another (a name fixed): it takes the replaced word's timing.
+            last = oldEnds.at(i);
+            out.append(last);
+            ++i;
+            ++j;
+        } else if (i < n && lcs[i + 1][j] >= lcs[i][j + 1]) {
+            last = oldEnds.at(i); // an old word gone (or being replaced)
+            ++i;
+        } else {
+            // A new word: it ends where the old words it replaced did, else with the next old one.
+            out.append(last >= 0 ? last : oldEnds.at(qMin(i, n - 1)));
+            ++j;
+        }
+    }
+    // Never going back in time.
+    for (int k = 1; k < out.size(); ++k)
+        out[k] = qMax(out.at(k), out.at(k - 1));
+    return out;
+}
+
 QString cleanSubtitleText(const QString &text, bool capitalize)
 {
     const QStringList words = text.split(QLatin1Char(' '), Qt::SkipEmptyParts);
@@ -333,7 +391,23 @@ QList<SubtitleCue> cleanSubtitleCues(const QList<SubtitleCue> &cues)
             sentenceStart = last == QLatin1Char('.') || last == QLatin1Char('?') || last == QLatin1Char('!')
                             || last == QChar(0x2026);
         }
+        // The aligned word timings lose the hesitations' too, so the karaoke keeps following the
+        // voice (left as they were, there were more timings than words and it fell back to an even
+        // spread).
+        const QStringList words = cue.text.split(QLatin1Char(' '), Qt::SkipEmptyParts);
+        QList<TimeUs> ends;
+        if (cue.wordEndsUs.size() == words.size()) {
+            for (int i = 0; i < words.size(); ++i) {
+                if (!isHesitation(words.at(i)))
+                    ends.append(cue.wordEndsUs.at(i));
+            }
+        }
+        const QString before = cue.text;
         cue.text = cleanSubtitleText(cue.text, sentenceStart);
+        if (!ends.isEmpty() && cue.text.split(QLatin1Char(' '), Qt::SkipEmptyParts).size() == ends.size())
+            cue.wordEndsUs = ends;
+        else if (cue.text != before)
+            cue.wordEndsUs = realignWordEnds(before, cue.wordEndsUs, cue.text);
         if (!cue.text.isEmpty())
             out.append(cue);
     }

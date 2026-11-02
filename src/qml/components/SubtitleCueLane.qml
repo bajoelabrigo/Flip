@@ -62,7 +62,7 @@ Item {
     function refreshDisplay() {
         const s = []
         for (let i = 0; i < cues.length; i++)
-            s.push({ start: cues[i].start, end: cues[i].end, text: cues[i].text })
+            s.push({ start: cues[i].start, end: cues[i].end, text: cues[i].text, wordEnds: cues[i].wordEnds || [] })
         displayCues = s
     }
     onCuesChanged: if (!anyDragging) refreshDisplay()
@@ -141,10 +141,17 @@ Item {
         const b = baseCues()
         const list = []
         for (let i = 0; i < b.length; i++) {
-            if (i === index)
-                list.push({ start: newStart, end: newEnd, text: b[i].text })
-            else
-                list.push({ start: b[i].start, end: b[i].end, text: b[i].text })
+            // The word timings go with the cue: moved whole, they move with it; trimmed, they stay
+            // with the voice (dropped here, they took the karaoke of every cue with them).
+            const ends = b[i].wordEnds || []
+            if (i === index) {
+                const delta = newStart - b[i].start
+                const moved = Math.abs((newEnd - b[i].end) - delta) < 1e-6
+                list.push({ start: newStart, end: newEnd, text: b[i].text,
+                            wordEnds: moved ? ends.map(e => e + delta) : ends })
+            } else {
+                list.push({ start: b[i].start, end: b[i].end, text: b[i].text, wordEnds: ends })
+            }
         }
         EditorState.previewSetSubtitleCues(EditorState.selectedTrack, EditorState.selectedClip, list)
     }
