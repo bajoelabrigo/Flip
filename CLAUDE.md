@@ -61,7 +61,7 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 - PRs #49 y #50 (`flip/v0.29-tutorial` → `main`), tag `v0.29.0`, release (run 41288201475); copia en `versiones\FlipStudio-0.29.0`;
   MSIX `msstore.yml` run 41294173565 → `tienda\FlipStudio-Store\paquete-0.29.0`. Notas de la Store: «Notas para la Store
   (0.29.0, combinadas)» (la 0.28.0 no se subió; cubren 0.27 + 0.28 + 0.29). Novedades en la web.
-- **Falta (Jorge):** subir el MSIX con esas notas y TXT `version` = 0.29.0.
+- **Jorge subió el MSIX de la 0.29.0 a la Store (2026-11-01).** Falta: cuando la aprueben, TXT `version` = 0.29.0.
 - **Stock (2026-11-01):** 37 tercios `llt-*`, `llt2-*`, `llt3-*` con `minAppVersion` 0.29.0, en 13 idiomas (1531 en vivo);
   antes, extras `fonts.basic` 1.1.0 y `fonts.extra` 1.2.0. Subido con `publish.py` + `publish_delta.py` + `apply_delta.sh`.
 - Pruebas: 17 proyectos en `pruebas\proyectos-029c` (con el mouse y por MCP con `pruebas\mcp029un029.py`).
