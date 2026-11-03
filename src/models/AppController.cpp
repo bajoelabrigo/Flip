@@ -9899,6 +9899,7 @@ std::optional<QList<drift::SubtitleCue>> AppController::cuesFromStoredTranscript
             if (m.startUs > m.endUs)
                 std::swap(m.startUs, m.endUs); // reversed
             m.text = cue.text;
+            m.speaker = cue.speaker; // who says it (it was dropped here, so voices never got their colour)
             // The words' timings too, so the karaoke follows the voice (they were dropped here).
             if (!source.reverse) {
                 for (const drift::TimeUs end : cue.wordEndsUs)
@@ -10234,6 +10235,7 @@ bool AppController::generateSubtitlesForSources(QList<SubtitleSource> sources, c
                 m.startUs = s;
                 m.endUs = e;
                 m.text = cue.text;
+                m.speaker = cue.speaker; // who says it, for the voices' colours
                 // The aligned words' ends, mapped the same way, so karaoke follows the voice.
                 if (!source.reverse) {
                     for (const drift::TimeUs end : cue.wordEndsUs)
