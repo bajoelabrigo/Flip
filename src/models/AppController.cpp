@@ -3484,6 +3484,9 @@ bool writeClipPropValue(drift::Clip &clip, const QString &prop, drift::TimeUs re
     if (!parseEffectProp(prop, &effectIndex, &paramKey)) {
         drift::KeyframeTrack<double> *kt = transformTrackForProp(clip, prop);
         const qsizetype keysBefore = kt ? kt->keyframes().size() : 0;
+        // The size before its first key: where the box grows from around the anchor.
+        const double sizeBefore = kt && !kt->isEmpty() ? kt->evaluateAt(relative) : 0.0;
+        const bool keyedBefore = kt && (kt->stopwatch() || kt->keyframes().size() >= 2);
         if (!kt || !writeKeyframeValue(*kt, relative, value, autoKey, force))
             return false;
         // A 3D value written to a flat clip would do nothing, so writing one makes it a 3D layer.
@@ -3498,6 +3501,16 @@ bool writeClipPropValue(drift::Clip &clip, const QString &prop, drift::TimeUs re
             && clip.anchorX.isEmpty() && clip.anchorY.isEmpty()) {
             clip.anchorX.setKeyframe(0, 0.5);
             clip.anchorY.setKeyframe(0, 0.5);
+        }
+        // The size's stopwatch (0.30): from now on it grows around the anchor from the size it had,
+        // even before a second key.
+        if ((kt == &clip.transformW || kt == &clip.transformH) && !keyedBefore && kt->stopwatch()
+            && sizeBefore > 0.0) {
+            (kt == &clip.transformW ? clip.sizePivotW : clip.sizePivotH) = sizeBefore;
+            if (clip.anchorX.isEmpty() && clip.anchorY.isEmpty()) {
+                clip.anchorX.setKeyframe(0, 0.5);
+                clip.anchorY.setKeyframe(0, 0.5);
+            }
         }
         return true;
     }
@@ -7614,6 +7627,14 @@ AppController::GeneratedAudioImport AppController::importGeneratedAudio(
         asset->generator = generator;
         projectFile()->setDirty(true);
     }
+    // A voice made from a script is named by its words (as in CapCut), not by its file
+    // («tts-chatterbox-hola-a-todos-376a613a.flac»).
+    const QString spoken = generator.value(QStringLiteral("text")).toString().simplified();
+    if (!spoken.isEmpty()) {
+        constexpr int kNameLetters = 40;
+        const QString words = spoken.size() > kNameLetters ? spoken.left(kNameLetters).trimmed() + QStringLiteral("…") : spoken;
+        m_assetLibrary->setAssetName(m_assetLibrary->indexOfId(assetId), tr("Voice: %1").arg(words));
+    }
     result.ok = true;
     result.assetId = assetId;
     if (const drift::MediaAsset *asset = m_project.asset(assetId))
@@ -7662,6 +7683,9 @@ bool AppController::swapClipAudio(const QString &clipId, const QString &assetId)
         return false;
     const drift::Project before = m_project;
     drift::Clip &clip = m_project.tracks()[loc.first].clips[loc.second];
+    // A clip still called as its old voice takes the new one's name.
+    if (const drift::MediaAsset *old = before.asset(clip.assetId); old && clip.name == old->name)
+        clip.name = asset->name;
     clip.assetId = assetId;
     clip.srcIn = 0;
     clip.srcOut = asset->durationUs;
@@ -24903,9 +24927,22 @@ void AppController::setClipScaledSize(int trackIndex, int clipIndex, const QStri
     };
     const bool sizeAnimated = clipAnimatedProperties(trackIndex, clipIndex).contains(prop);
     const double v = qMax(1.0, value);
+    const bool keyedBefore = size.stopwatch() || size.keyframes().size() > 1;
+    const double sizeBefore = valueAt(oldSize, rel, canvas);
     writeKeyframeValue(size, rel, v, m_autoKeyEnabled || sizeAnimated, false);
     const bool keyed = size.stopwatch() || size.keyframes().size() > 1;
-    if (!keyed) {
+    double &pivot = horizontal ? clip.sizePivotW : clip.sizePivotH;
+    // Its stopwatch (0.30): it grows around the anchor from the size it had, drawn so by itself.
+    if (keyed && !keyedBefore) {
+        pivot = sizeBefore;
+        if (clip.anchorX.isEmpty() && clip.anchorY.isEmpty()) {
+            clip.anchorX.setKeyframe(0, 0.5);
+            clip.anchorY.setKeyframe(0, 0.5);
+        }
+    }
+    if (keyed && pivot > 0.0) {
+        // Nothing to make up for: the renderer grows it around the anchor.
+    } else if (!keyed) {
         // A plain value: the whole position moves by the same amount, keys and all.
         const double d = valueAt(anchor, rel, 0.5) * (valueAt(oldSize, rel, canvas) - v);
         if (pos.isEmpty()) {

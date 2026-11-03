@@ -33115,6 +33115,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Đang đổi tốc độ và cao độ…</translation>
     </message>
     <message>
+        <source>Replace voice</source>
+        <translation>Thay giọng nói</translation>
+    </message>
+    <message>
         <source>Could not replace the voice</source>
         <translation>Không thể thay giọng</translation>
     </message>

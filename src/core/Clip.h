@@ -359,6 +359,12 @@ struct Clip
     // (a 130 % read 100 %) and the anchor's numbers stay put. 0 = not known yet.
     double restW = 0.0;
     double restH = 0.0;
+    // The size the box had when its size got its stopwatch (0.30): the stored X/Y place the box at
+    // it, and any keyed size grows around the anchor from there, even with one key (the stopwatch
+    // and a typed 130 at the same moment left one key, the 130, and the box grew from its corner).
+    // 0 = from before: the first of two keys or more, as it was.
+    double sizePivotW = 0.0;
+    double sizePivotH = 0.0;
 
     // The turn Auto-Orient adds at clip time `relative`, in degrees (0 when off or still).
     double autoOrientDegrees(TimeUs relative) const
@@ -398,16 +404,19 @@ struct Clip
         const double fx = anchorX.isEmpty() ? 0.5 : anchorX.evaluateAt(relative);
         const double fy = anchorY.isEmpty() ? 0.5 : anchorY.evaluateAt(relative);
         // w, h may be scaled for the canvas: the size change is taken as a ratio of the stored one.
-        const auto sizeShift = [relative](const KeyframeTrack<double> &track, double drawn, double fraction) {
-            if (track.keyframes().size() < 2)
+        const auto sizeShift = [relative](const KeyframeTrack<double> &track, double drawn, double fraction,
+                                          double pivot) {
+            // With a pivot: while the size is keyed (its stopwatch on, even with one key).
+            const bool keyed = track.keyframes().size() >= 2 || (track.stopwatch() && !track.isEmpty());
+            if (!keyed || (pivot <= 0.0 && track.keyframes().size() < 2))
                 return 0.0;
             const double now = track.evaluateAt(relative);
-            const double rest = track.keyframes().first().value;
+            const double rest = pivot > 0.0 ? pivot : track.keyframes().first().value;
             if (std::abs(now) < 1e-9)
                 return 0.0;
             return fraction * (drawn * rest / now - drawn);
         };
-        QPointF shift(sizeShift(transformW, w, fx), sizeShift(transformH, h, fy));
+        QPointF shift(sizeShift(transformW, w, fx, sizePivotW), sizeShift(transformH, h, fy, sizePivotH));
         const double ax = (fx - 0.5) * w;
         const double ay = (fy - 0.5) * h;
         if ((ax == 0.0 && ay == 0.0) || rotationDeg == 0.0)

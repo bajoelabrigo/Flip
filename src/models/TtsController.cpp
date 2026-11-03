@@ -340,6 +340,57 @@ std::vector<float> TtsController::retuned(const std::vector<float> &pcm, double 
     return out;
 }
 
+double TtsController::gapAfter(const Line &line, double speed)
+{
+    // A typed pause is a length of its own; the breaths between sentences follow the speed.
+    return qFuzzyCompare(line.pauseAfter, kSentenceGap) || qFuzzyCompare(line.pauseAfter, kParagraphGap)
+               ? line.pauseAfter / qBound(0.5, speed, 2.0)
+               : line.pauseAfter;
+}
+
+QList<drift::SubtitleCue> TtsController::takeCues(const QList<Line> &lines, double speed, int lineWidth)
+{
+    // The script's own words at the times each sentence is said: no listening needed (it heard
+    // «Hoy vamos» as «Toy vamos»). A long sentence is split at words into lines of about
+    // lineWidth letters, each timed by its share of the letters.
+    QList<drift::SubtitleCue> cues;
+    double at = 0.0;
+    for (int i = 0; i < lines.size(); ++i) {
+        const Line &line = lines.at(i);
+        const QString text = line.text.simplified();
+        if (line.seconds > 0.0 && !text.isEmpty()) {
+            QStringList pieces;
+            QString current;
+            for (const QString &word : text.split(QLatin1Char(' '), Qt::SkipEmptyParts)) {
+                if (!current.isEmpty() && current.size() + 1 + word.size() > qMax(8, lineWidth)) {
+                    pieces << current;
+                    current.clear();
+                }
+                current = current.isEmpty() ? word : current + QLatin1Char(' ') + word;
+            }
+            if (!current.isEmpty())
+                pieces << current;
+            qsizetype letters = 0;
+            for (const QString &piece : std::as_const(pieces))
+                letters += piece.size();
+            double start = at;
+            for (const QString &piece : std::as_const(pieces)) {
+                const double length = line.seconds * double(piece.size()) / double(qMax<qsizetype>(1, letters));
+                drift::SubtitleCue cue;
+                cue.startUs = drift::secondsToUs(start);
+                cue.endUs = drift::secondsToUs(start + length);
+                cue.text = piece;
+                cues.append(cue);
+                start += length;
+            }
+        }
+        at += line.seconds;
+        if (i + 1 < lines.size())
+            at += gapAfter(line, speed);
+    }
+    return cues;
+}
+
 TtsController::TakeFiles TtsController::writeTake(const QList<Line> &lines, double speed, double pitch,
                                                   const QString &script)
 {
@@ -357,10 +408,7 @@ TtsController::TakeFiles TtsController::writeTake(const QList<Line> &lines, doub
         files.linePaths.append(spoken.empty() ? QString() : path);
         files.lineSeconds.append(double(spoken.size()) / rate);
         whole.insert(whole.end(), spoken.begin(), spoken.end());
-        // A typed pause is a length of its own; the breaths between sentences follow the speed.
-        const double gap = qFuzzyCompare(line.pauseAfter, kSentenceGap) || qFuzzyCompare(line.pauseAfter, kParagraphGap)
-                               ? line.pauseAfter / qBound(0.5, speed, 2.0)
-                               : line.pauseAfter;
+        const double gap = gapAfter(line, speed);
         if (i + 1 < lines.size())
             whole.insert(whole.end(), static_cast<size_t>(gap * rate), 0.0f);
     }
@@ -470,11 +518,15 @@ void TtsController::generate(const QString &text, const QString &voiceId, const 
     if (lines->isEmpty())
         return;
     lines->last().pauseAfter = 0.0;
+    // «Generate again» with the same script is another reading (the first one stays the usual).
+    m_scriptTries = script == m_lastTriedScript ? m_scriptTries + 1 : 0;
+    m_lastTriedScript = script;
+    const unsigned variant = m_scriptTries == 0 ? 0u : unsigned(m_scriptTries) * 104729u;
     auto files = std::make_shared<TakeFiles>();
     const QPointer<TtsController> self(this);
     startTakeJob(
         tr("Queued"),
-        [this, lines, files, voiceId, lang, exaggeration, speed, pitch, script](JobContext &ctx) {
+        [this, lines, files, voiceId, lang, exaggeration, speed, pitch, script, variant](JobContext &ctx) {
             QString err;
             ctx.progress(0.0, tr("Loading voice model…"));
             if (!ensureLoaded(&err))
@@ -501,7 +553,7 @@ void TtsController::generate(const QString &text, const QString &voiceId, const 
                                      tr("Speaking sentence %1 of %2…").arg(i + 1).arg(count));
                         return !ctx.cancelled();
                     },
-                    &err);
+                    &err, variant == 0 ? 0u : variant + unsigned(i));
                 if (ctx.cancelled())
                     return;
                 if (pcm.empty())
@@ -551,13 +603,15 @@ void TtsController::regenerateSentence(int index, const QString &voiceId, const 
             Line &line = (*lines)[index];
             const auto own = line.voiceId.isEmpty() ? std::optional<drift::VoiceConditioning>()
                                                     : m_voices->conditioning(line.voiceId, &err);
+            // Another reading each time: the same words with variant 0 come back the same.
+            line.redo += 1;
             std::vector<float> pcm = m_engine.synthesize(
                 line.text, lang, own ? *own : *voice, static_cast<float>(exaggeration),
                 [&ctx, index](double p) {
                     ctx.progress(0.05 + 0.9 * p, tr("Speaking sentence %1 again…").arg(index + 1));
                     return !ctx.cancelled();
                 },
-                &err);
+                &err, unsigned(line.redo) * 7919u + unsigned(index) + 1u);
             if (ctx.cancelled())
                 return;
             if (pcm.empty())
@@ -620,6 +674,26 @@ void TtsController::insertTake(bool captions)
     QString clipId;
     const QPair<int, int> old = m_replaceClipId.isEmpty() ? qMakePair(-1, -1)
                                                           : m_app->m_mcpController->locateClip(m_replaceClipId);
+    if (old.first >= 0 && captions) {
+        // The old voice's captions go with it (they stacked a second subtitle track): those made
+        // for it cover exactly its stretch.
+        const drift::Clip &voice = m_app->m_project.tracks().at(old.first).clips.at(old.second);
+        const drift::TimeUs start = voice.timelineStart;
+        const drift::TimeUs length = voice.timelineDuration;
+        const drift::Project before = m_app->m_project;
+        bool removed = false;
+        for (drift::Track &track : m_app->m_project.tracks()) {
+            if (track.type != drift::TrackType::Subtitle)
+                continue;
+            removed = track.clips.removeIf([start, length](const drift::Clip &c) {
+                          return c.type == drift::ClipType::Subtitle && c.timelineStart == start
+                                 && c.timelineDuration == length;
+                      }) > 0
+                      || removed;
+        }
+        if (removed)
+            m_app->pushProjectEdit(before, tr("Replace voice"));
+    }
     if (old.first >= 0) {
         const AppController::GeneratedAudioImport imported =
             m_app->importGeneratedAudio(m_takePath, generator, false, 0.0, -1);
@@ -640,6 +714,8 @@ void TtsController::insertTake(bool captions)
         clipId = imported.clipId;
     }
     const QString lang = m_takeLang;
+    const QList<drift::SubtitleCue> scriptCues = captions ? takeCues(m_lines, m_takeSpeed, m_app->subtitleLineWidth())
+                                                          : QList<drift::SubtitleCue>();
     // The take is the project's now: only the sentence files go.
     clearTakeFiles(true);
     m_lines.clear();
@@ -652,8 +728,12 @@ void TtsController::insertTake(bool captions)
     emit finished(true, m_status);
     if (captions && !clipId.isEmpty()) {
         const QPair<int, int> at = m_app->m_mcpController->locateClip(clipId);
-        if (at.first >= 0)
+        if (at.first >= 0 && !scriptCues.isEmpty()) {
+            const drift::Clip &voice = m_app->m_project.tracks().at(at.first).clips.at(at.second);
+            m_app->finalizeGeneratedSubtitles(voice.timelineStart, voice.timelineDuration, scriptCues);
+        } else if (at.first >= 0) {
             m_app->generateSubtitlesForClip(at.first, at.second, lang);
+        }
     }
 }
 

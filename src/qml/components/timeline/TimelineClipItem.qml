@@ -1372,10 +1372,12 @@ Item {
     }
 
     // The spiral: drag it onto another clip and this one follows it; dropped on nothing, it
-    // unlinks. Only on the selected clip, as AE draws it on the layer you are working on.
+    // unlinks. On every layer in Pro, as After Effects' Parent column (0.30: only the selected clip
+    // had it and it was not found, tests #11); faint on the others until the pointer is on it.
     Item {
         id: pickWhip
-        visible: clipItem.selected && !clipItem.touchMode && clipItem.trackType !== "audio"
+        visible: (clipItem.selected || EditorState.preferences.proMode) && !clipItem.touchMode
+                 && clipItem.trackType !== "audio"
                  && clipItem.clipData.kind !== "adjustment" && clipItem.width > 40 && clipItem.height >= 20
         width: 16
         height: 16
@@ -1410,7 +1412,8 @@ Item {
             anchors.centerIn: parent
             glyph: "pick-whip"
             iconSize: 14
-            iconColor: whipArea.containsMouse || whipArea.pressed ? Theme.primary : Qt.rgba(1, 1, 1, 0.85)
+            iconColor: whipArea.containsMouse || whipArea.pressed ? Theme.primary
+                       : Qt.rgba(1, 1, 1, clipItem.selected || clipItem.parentName.length > 0 ? 0.85 : 0.4)
         }
         MouseArea {
             id: whipArea

@@ -33640,6 +33640,10 @@ If playback stutters, try another.</source>
         <translation>جارٍ تغيير السرعة وطبقة الصوت…</translation>
     </message>
     <message>
+        <source>Replace voice</source>
+        <translation>استبدال الصوت</translation>
+    </message>
+    <message>
         <source>Could not replace the voice</source>
         <translation>تعذّر استبدال الصوت</translation>
     </message>

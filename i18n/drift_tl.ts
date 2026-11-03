@@ -33208,6 +33208,10 @@ If playback stutters, try another.</source>
         <translation>Binabago ang bilis at tono…</translation>
     </message>
     <message>
+        <source>Replace voice</source>
+        <translation>Palitan ang boses</translation>
+    </message>
+    <message>
         <source>Could not replace the voice</source>
         <translation>Hindi mapalitan ang boses</translation>
     </message>

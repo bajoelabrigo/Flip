@@ -67,6 +67,13 @@ Item {
             return 1
         const w = transformAt("width", canvasW)
         const h = transformAt("height", canvasH)
+        // A text's or a shape's 100 % is its own size, as the timeline's Scale line reads it (0.30:
+        // a new title read «Scale 10 %», tests #10); anything else, the frame.
+        if (clipKind === "text" || clipKind === "shape") {
+            const nat = EditorState.clipNaturalSize(EditorState.selectedTrack, EditorState.selectedClip)
+            if (nat && nat.w > 0 && nat.h > 0)
+                return Math.max(w / nat.w, h / nat.h)
+        }
         return Math.max(w / canvasW, h / canvasH)
     }
 

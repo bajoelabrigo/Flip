@@ -1,5 +1,6 @@
 #pragma once
 
+#include "core/SubtitleCue.h"
 #include "engine/ChatterboxTts.h"
 
 #include <QObject>
@@ -148,11 +149,15 @@ private:
         std::shared_ptr<const std::vector<float>> pcm;
         QString path;
         double seconds = 0.0;
+        int redo = 0; // times this sentence was said again (each is another reading)
     };
+    static double gapAfter(const Line &line, double speed);
+    static QList<drift::SubtitleCue> takeCues(const QList<Line> &lines, double speed, int lineWidth);
     struct TakeFiles
     {
         QString path;
         double seconds = 0.0;
+        int redo = 0; // times this sentence was said again (each is another reading)
         QStringList linePaths;
         QList<double> lineSeconds;
         QString error;
@@ -168,6 +173,8 @@ private:
     QString m_takePath;
     double m_takeSeconds = 0.0;
     QString m_takeScript;
+    QString m_lastTriedScript; // the script generated last, and how many times in a row
+    int m_scriptTries = 0;
     QString m_takeVoice;
     QString m_takeLang;
     double m_takeExaggeration = 0.5;

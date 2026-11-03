@@ -33325,6 +33325,10 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
         <translation>Zmiana prędkości i wysokości…</translation>
     </message>
     <message>
+        <source>Replace voice</source>
+        <translation>Zastąp głos</translation>
+    </message>
+    <message>
         <source>Could not replace the voice</source>
         <translation>Nie udało się zastąpić głosu</translation>
     </message>

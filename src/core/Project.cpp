@@ -364,6 +364,10 @@ QJsonObject clipToJson(const Clip &clip)
         json.insert(QStringLiteral("restW"), clip.restW);
         json.insert(QStringLiteral("restH"), clip.restH);
     }
+    if (clip.sizePivotW > 0.0)
+        json.insert(QStringLiteral("sizePivotW"), clip.sizePivotW);
+    if (clip.sizePivotH > 0.0)
+        json.insert(QStringLiteral("sizePivotH"), clip.sizePivotH);
     if (clip.nullObject)
         json.insert(QStringLiteral("nullObject"), true);
     if (clip.light.kind != 0) {
@@ -522,6 +526,8 @@ Clip clipFromJsonV2(const QJsonObject &object, int canvasW = 1920, int canvasH =
     clip.positionSeparated = object.value(QStringLiteral("positionSeparated")).toBool(false);
     clip.restW = object.value(QStringLiteral("restW")).toDouble(0.0);
     clip.restH = object.value(QStringLiteral("restH")).toDouble(0.0);
+    clip.sizePivotW = object.value(QStringLiteral("sizePivotW")).toDouble(0.0);
+    clip.sizePivotH = object.value(QStringLiteral("sizePivotH")).toDouble(0.0);
     clip.nullObject = object.value(QStringLiteral("nullObject")).toBool(false);
     if (object.contains(QStringLiteral("light"))) {
         const QJsonObject l = object.value(QStringLiteral("light")).toObject();

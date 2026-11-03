@@ -33325,6 +33325,10 @@ If playback stutters, try another.</source>
         <translation>Изменение скорости и высоты тона…</translation>
     </message>
     <message>
+        <source>Replace voice</source>
+        <translation>Заменить голос</translation>
+    </message>
+    <message>
         <source>Could not replace the voice</source>
         <translation>Не удалось заменить голос</translation>
     </message>

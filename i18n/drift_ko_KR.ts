@@ -33113,6 +33113,10 @@ If playback stutters, try another.</source>
         <translation>속도와 피치 바꾸는 중…</translation>
     </message>
     <message>
+        <source>Replace voice</source>
+        <translation>음성 바꾸기</translation>
+    </message>
+    <message>
         <source>Could not replace the voice</source>
         <translation>음성을 바꿀 수 없습니다</translation>
     </message>

@@ -33114,6 +33114,10 @@ If playback stutters, try another.</source>
         <translation>正在调整速度和音调…</translation>
     </message>
     <message>
+        <source>Replace voice</source>
+        <translation>替换配音</translation>
+    </message>
+    <message>
         <source>Could not replace the voice</source>
         <translation>无法替换配音</translation>
     </message>

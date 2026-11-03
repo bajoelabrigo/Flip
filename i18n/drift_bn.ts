@@ -33216,6 +33216,10 @@ If playback stutters, try another.</source>
         <translation>গতি ও পিচ বদলানো হচ্ছে…</translation>
     </message>
     <message>
+        <source>Replace voice</source>
+        <translation>কণ্ঠ বদলান</translation>
+    </message>
+    <message>
         <source>Could not replace the voice</source>
         <translation>ভয়েস বদলানো যায়নি</translation>
     </message>

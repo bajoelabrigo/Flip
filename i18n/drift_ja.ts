@@ -33115,6 +33115,10 @@ If playback stutters, try another.</source>
         <translation>速度とピッチを変更中…</translation>
     </message>
     <message>
+        <source>Replace voice</source>
+        <translation>音声を置き換え</translation>
+    </message>
+    <message>
         <source>Could not replace the voice</source>
         <translation>音声を置き換えられませんでした</translation>
     </message>

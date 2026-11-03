@@ -33216,6 +33216,10 @@ If playback stutters, try another.</source>
         <translation>වේගය සහ තාරතාව වෙනස් කරමින්…</translation>
     </message>
     <message>
+        <source>Replace voice</source>
+        <translation>හඬ ප්‍රතිස්ථාපනය</translation>
+    </message>
+    <message>
         <source>Could not replace the voice</source>
         <translation>හඬ ප්‍රතිස්ථාපනය කළ නොහැකි විය</translation>
     </message>

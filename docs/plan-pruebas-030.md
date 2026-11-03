@@ -148,3 +148,30 @@ Material: video de B-roll con voz (`voz.wav` sobre el video de la gente).
   SUB3 sin sesión: exportar `account` antes, borrarla, «Continuar sin cuenta», restaurar al final con la exportada.
 - Probar también la voz (docs/plan-voz.md): tomas, frases, [pausa 1s], velocidad/tono, diálogo, editar guion, leer título,
   diseño nuevo, menú cruzado Subtítulos/Voz.
+
+## Ronda 2 (2026-11-03, compilación 41690321814, portable `pruebas\FlipStudio-0.30-r2`)
+Compilación: la primera (41685086924) falló porque las pruebas compilan `TtsController.cpp` sin SoundTouch (`4e888`), la
+segunda por dos `onClosing` en `TextEditWindow.qml` (qmlcachegen; ahora se revisan todos los QML cambiados en local con
+`qmlcachegen --only-bytecode --resource-path /x/<archivo>`). La tercera (41690321814) salió bien.
+
+| # | Proyecto | Qué pasó | Estado |
+|---|---|---|---|
+| — | AE1 | Bien: 1 (formas centradas), 3 (una fila «Posición X Y» al animar), 4 (rueda sobre las filas), 5 (el ancho dice 130), 14 (UU), 15 (Aplicar al primer clic), 18 (menú sin «✓ Separar»), separar/unir | ok |
+| 2 | AE1 | Sigue: el primer clic tras pasar a Pro no elige el clip | revisar |
+| 6 | AE1 | Sigue: Tab desde el ancho iba a la cadena (sin campo), el foco se perdía y lo tecleado iba a la app (Ctrl+A eligió todo) | arreglado (salta la cadena) |
+| 7 | AE1 | Sigue: con el cronómetro y 130 escrito en el mismo instante queda una sola clave y la forma crecía desde su esquina (X 960 → 1038). Ahora el tamaño guarda su punto de partida al poner el cronómetro (`Clip::sizePivotW/H`) y crece alrededor del anclaje; prueba `keyedSizeGrowsAroundAnchorFromItsPivot` | arreglado |
+| 11 | AE1 | El látigo de emparentar ahora está en todas las capas en Pro (tenue hasta pasar el puntero) | arreglado |
+| 13 | AE1 | Sigue: «[» con teclado español llega como Ctrl+Alt+[ (AltGr). Filtro `AltGrShortcutFilter` en `main.cpp` (fuera de campos de texto) | arreglado |
+| 16 | AE1 | La herramienta de pruebas no mantiene Ctrl/Alt con la rueda (tampoco hace zoom en la línea de tiempo): **lo prueba Jorge con su mouse** | Jorge |
+| 19 | AE1 | Elástico se aplica (≈ en la fila) pero el gráfico sigue sin dibujar el resultado del comportamiento | mejora |
+| 10 | AE2 | Sigue en el inspector Transformar («Escala 10 %» de un texto nuevo): ahora cuenta desde el tamaño propio | arreglado |
+| — | AE2 | Bien: 12 (Alt+Mayús+P con el juego After Effects pone claves de Posición y muestra solo esa fila) | ok |
+| 32 | Voz | La primera frase se cortaba en la coma («Hola a todos, bienvenidos al canal.» → «Hola a todos», Jorge lo oyó). Reintenta con otra redacción y otras lecturas si la frase sale muy corta (< 22 letras por segundo) | arreglado |
+| 33 | Voz | ↻ (rehacer frase) y «Generar de nuevo» daban el mismo audio (la voz elige siempre lo más probable): ahora cada vez es otra lectura (`variant`) | arreglado |
+| 34 | Voz | Los subtítulos de una voz se sacaban escuchándola («¡Toy vamos…») en vez del guion: ahora salen del guion con los tiempos de cada frase | arreglado |
+| 35 | Voz | Reemplazar la voz dejaba sus subtítulos viejos (dos pistas de subtítulos): ahora se cambian | arreglado |
+| 36 | Voz | El clip y el medio se llamaban «tts-chatterbox-…flac»: ahora «Voz: Hola a todos, bienvenidos…» | arreglado |
+| 37 | Voz | Opciones: los tres deslizadores no decían qué eran (Velocidad, Tono, Expresividad) ni su valor | arreglado |
+| — | Voz | Bien: Voz y Subtítulos juntos en Audio, diseño nuevo, «Cargando el modelo…», progreso por frase con Cancelar, [pausa 1s] (1,18 s de silencio), velocidad 1,25×, Editar guion desde Audio (aviso de reemplazo), Reemplazar, diálogo Ana/Luis (una voz por persona, sin decir los nombres) | ok |
+| 38 | Voz | Solo hay una voz («Predeterminada»): un diálogo suena igual para todos. Es el punto 1 de `docs/plan-voz.md` (paquete de voces) | pendiente |
+| — | — | Sin probar todavía: Curvas con varias capas, pegar en las cinco barras, exportar la zona de trabajo, Ctrl en un tirador del trayecto; subtítulos: pitido, quitar silencios, estilo por subtítulo, .srt, karaoke, exportar con subtítulos, SUB3 sin sesión con la traducción en el equipo; voz: leer un título, importar guion, guardar la voz, bajar la música | — |

@@ -33224,6 +33224,10 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Changement de la vitesse et de la hauteur…</translation>
     </message>
     <message>
+        <source>Replace voice</source>
+        <translation>Remplacer la voix</translation>
+    </message>
+    <message>
         <source>Could not replace the voice</source>
         <translation>Impossible de remplacer la voix</translation>
     </message>

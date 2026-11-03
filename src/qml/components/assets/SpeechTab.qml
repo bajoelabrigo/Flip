@@ -553,6 +553,28 @@ Item {
                     width: parent.width
                     spacing: Theme.spacingSm
 
+                    Item {
+                        width: parent.width
+                        height: Theme.fontSizeSm + 6
+
+                        Text {
+                            anchors.left: parent.left
+                            anchors.verticalCenter: parent.verticalCenter
+                            text: qsTr("Speed")
+                            color: Theme.foreground
+                            font.family: Theme.fontFamily
+                            font.pixelSize: Theme.fontSizeSm
+                        }
+                        Text {
+                            anchors.right: parent.right
+                            anchors.verticalCenter: parent.verticalCenter
+                            text: qsTr("%1×").arg(Number(speedSlider.value).toFixed(2))
+                            color: Theme.mutedForeground
+                            font.family: Theme.fontFamily
+                            font.pixelSize: Theme.fontSizeSm
+                        }
+                    }
+
                     ThemedSlider {
                         id: speedSlider
                         width: parent.width
@@ -566,6 +588,28 @@ Item {
                         onMoved: retuneTimer.restart()
                     }
 
+                    Item {
+                        width: parent.width
+                        height: Theme.fontSizeSm + 6
+
+                        Text {
+                            anchors.left: parent.left
+                            anchors.verticalCenter: parent.verticalCenter
+                            text: qsTr("Pitch")
+                            color: Theme.foreground
+                            font.family: Theme.fontFamily
+                            font.pixelSize: Theme.fontSizeSm
+                        }
+                        Text {
+                            anchors.right: parent.right
+                            anchors.verticalCenter: parent.verticalCenter
+                            text: qsTr("%1×").arg(Number(pitchSlider.value).toFixed(2))
+                            color: Theme.mutedForeground
+                            font.family: Theme.fontFamily
+                            font.pixelSize: Theme.fontSizeSm
+                        }
+                    }
+
                     ThemedSlider {
                         id: pitchSlider
                         width: parent.width
@@ -577,6 +621,28 @@ Item {
                         valueFormatter: v => qsTr("%1×").arg(Number(v).toFixed(2))
                         enabled: !EditorState.tts.running
                         onMoved: retuneTimer.restart()
+                    }
+
+                    Item {
+                        width: parent.width
+                        height: Theme.fontSizeSm + 6
+
+                        Text {
+                            anchors.left: parent.left
+                            anchors.verticalCenter: parent.verticalCenter
+                            text: qsTr("Expressiveness")
+                            color: Theme.foreground
+                            font.family: Theme.fontFamily
+                            font.pixelSize: Theme.fontSizeSm
+                        }
+                        Text {
+                            anchors.right: parent.right
+                            anchors.verticalCenter: parent.verticalCenter
+                            text: Number(exaggerationSlider.value).toFixed(2)
+                            color: Theme.mutedForeground
+                            font.family: Theme.fontFamily
+                            font.pixelSize: Theme.fontSizeSm
+                        }
                     }
 
                     ThemedSlider {

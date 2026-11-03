@@ -1936,7 +1936,13 @@ Item {
                                             id: hotScrub
                                             visible: !modelData.link
                                             onTabbed: (back) => {
-                                                const next = hotRow.index + (back ? -1 : 1)
+                                                // The Scale chain between width and height is no value:
+                                                // Tab goes past it (it lost the focus and the keys
+                                                // typed next went to the app, tests #6).
+                                                const values = keyLine.hotValues || []
+                                                let next = hotRow.index + (back ? -1 : 1)
+                                                while (next >= 0 && next < values.length && values[next] && values[next].link)
+                                                    next += back ? -1 : 1
                                                 root.pendingHotEdit = { "track": keyLines.trackIndex,
                                                                         "props": keyLine.props.join(","),
                                                                         "index": next }

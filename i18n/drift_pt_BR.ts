@@ -33220,6 +33220,10 @@ Se a reprodução travar, tente outra opção.</translation>
         <translation>Mudando velocidade e tom…</translation>
     </message>
     <message>
+        <source>Replace voice</source>
+        <translation>Substituir a voz</translation>
+    </message>
+    <message>
         <source>Could not replace the voice</source>
         <translation>Não foi possível substituir a voz</translation>
     </message>

@@ -239,6 +239,7 @@ private slots:
     void sliceClipToTimelineRangeKeepsSourceInSync();
     void animatedSizeGrowsAroundTheAnchor();
     void joinedPositionKeepsPathAndTimingApart();
+    void keyedSizeGrowsAroundAnchorFromItsPivot();
 };
 
 // After Effects' gradient handles (0.29): points → gradient → the same points, for each kind.
@@ -7795,6 +7796,32 @@ void CoreTest::sceneTemplateBrandKitFollowsRolesAndFallsBack()
 // After Effects' Position as one property (0.30): an even speed along each stretch, the path's
 // own handles bend it without changing the timing, an ease slows the ends of the same path, and
 // the distances come back after saving.
+void CoreTest::keyedSizeGrowsAroundAnchorFromItsPivot()
+{
+    // The stopwatch put on a 200 px width and 260 typed at the same moment: one key, and the box
+    // still grows around its centre from the 200 it had (0.30, tests #7).
+    drift::Clip clip;
+    clip.transformW.setKeyframe(1000000, 260.0);
+    clip.transformW.setStopwatch(true);
+    clip.anchorX.setKeyframe(0, 0.5);
+    clip.anchorY.setKeyframe(0, 0.5);
+    clip.sizePivotW = 200.0;
+    QCOMPARE(clip.anchorShift(1000000, 260.0, 100.0, 0.0).x(), -30.0);
+    // Without its stopwatch the size is a plain value again: no shift.
+    clip.transformW.setStopwatch(false);
+    clip.transformW.removeKeyframe(1000000);
+    clip.transformW.setKeyframe(0, 260.0);
+    QCOMPARE(clip.anchorShift(0, 260.0, 100.0, 0.0).x(), 0.0);
+    // Old projects (no pivot): one key does not shift, the first of two is the rest size.
+    drift::Clip old;
+    old.anchorX.setKeyframe(0, 0.5);
+    old.transformW.setKeyframe(0, 200.0);
+    old.transformW.setStopwatch(true);
+    QCOMPARE(old.anchorShift(0, 200.0, 100.0, 0.0).x(), 0.0);
+    old.transformW.setKeyframe(1000000, 300.0);
+    QCOMPARE(old.anchorShift(1000000, 300.0, 100.0, 0.0).x(), -50.0);
+}
+
 void CoreTest::joinedPositionKeepsPathAndTimingApart()
 {
     using namespace drift;

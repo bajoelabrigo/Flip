@@ -1072,10 +1072,14 @@ QVariantList PreviewController::clipsAtPlayhead() const
                 {QStringLiteral("width"), w},
                 {QStringLiteral("height"), h},
                 // An animated size grows around the anchor (0.30): the size it pivots from, or 0.
-                {QStringLiteral("restW"), !clip.anchorX.isEmpty() && clip.transformW.keyframes().size() >= 2
-                                              ? clip.transformW.keyframes().first().value : 0.0},
-                {QStringLiteral("restH"), !clip.anchorY.isEmpty() && clip.transformH.keyframes().size() >= 2
-                                              ? clip.transformH.keyframes().first().value : 0.0},
+                {QStringLiteral("restW"), clip.anchorX.isEmpty() ? 0.0
+                                          : clip.sizePivotW > 0.0 && clip.transformW.stopwatch() && !clip.transformW.isEmpty() ? clip.sizePivotW
+                                          : clip.transformW.keyframes().size() >= 2 ? clip.transformW.keyframes().first().value
+                                                                                     : 0.0},
+                {QStringLiteral("restH"), clip.anchorY.isEmpty() ? 0.0
+                                          : clip.sizePivotH > 0.0 && clip.transformH.stopwatch() && !clip.transformH.isEmpty() ? clip.sizePivotH
+                                          : clip.transformH.keyframes().size() >= 2 ? clip.transformH.keyframes().first().value
+                                                                                     : 0.0},
                 {QStringLiteral("rotation"), rotation},
                 {QStringLiteral("layer3d"), clip.layer3d},
                 {QStringLiteral("rotationX"), clipTransformValue(clip.rotationX, relative, 0.0)},

@@ -33208,6 +33208,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Replace voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Could not replace the voice</source>
         <translation type="unfinished"></translation>
     </message>
