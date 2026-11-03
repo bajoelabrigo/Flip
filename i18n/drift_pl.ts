@@ -5465,6 +5465,34 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Sign in with Google to translate captions</source>
+        <translation>Zaloguj się przez Google, aby tłumaczyć napisy</translation>
+    </message>
+    <message>
+        <source>Translating the captions…</source>
+        <translation>Tłumaczenie napisów…</translation>
+    </message>
+    <message>
+        <source>Could not translate the captions (no answer from the server)</source>
+        <translation>Nie udało się przetłumaczyć napisów (serwer nie odpowiedział)</translation>
+    </message>
+    <message>
+        <source>The captions changed while they were being translated; try again</source>
+        <translation>Napisy zmieniły się podczas tłumaczenia; spróbuj ponownie</translation>
+    </message>
+    <message>
+        <source>Captions (%1)</source>
+        <translation>Napisy (%1)</translation>
+    </message>
+    <message>
+        <source>Translate captions</source>
+        <translation>Tłumacz napisy</translation>
+    </message>
+    <message>
+        <source>Captions translated into %1</source>
+        <translation>Napisy przetłumaczone na: %1</translation>
+    </message>
+    <message>
         <source>Edit speaker</source>
         <translation>Edytuj mówcę</translation>
     </message>
@@ -26828,6 +26856,14 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
         <translation>%1 napisów</translation>
     </message>
     <message>
+        <source>Translate</source>
+        <translation>Tłumacz</translation>
+    </message>
+    <message>
+        <source>The captions in another language, as a second line above (bilingual)</source>
+        <translation>Napisy w innym języku jako druga linia powyżej (dwujęzyczne)</translation>
+    </message>
+    <message>
         <source>Import</source>
         <translation>Importuj</translation>
     </message>
@@ -26858,6 +26894,14 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     <message>
         <source>Offset the exported captions by this clip&apos;s start so they match the exported video</source>
         <translation>Przesuń wyeksportowane napisy o początek tego klipu, aby pasowały do wyeksportowanego wideo</translation>
+    </message>
+    <message>
+        <source>Sign in with Google to translate captions.</source>
+        <translation>Zaloguj się przez Google, aby tłumaczyć napisy.</translation>
+    </message>
+    <message>
+        <source>Translating…</source>
+        <translation>Tłumaczenie…</translation>
     </message>
     <message>
         <source>Captions that will change: %1</source>

@@ -5450,6 +5450,34 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Sign in with Google to translate captions</source>
+        <translation>Mag-sign in gamit ang Google para isalin ang mga caption</translation>
+    </message>
+    <message>
+        <source>Translating the captions…</source>
+        <translation>Isinasalin ang mga caption…</translation>
+    </message>
+    <message>
+        <source>Could not translate the captions (no answer from the server)</source>
+        <translation>Hindi maisalin ang mga caption (walang sagot ang server)</translation>
+    </message>
+    <message>
+        <source>The captions changed while they were being translated; try again</source>
+        <translation>Nagbago ang mga caption habang isinasalin; subukang muli</translation>
+    </message>
+    <message>
+        <source>Captions (%1)</source>
+        <translation>Mga caption (%1)</translation>
+    </message>
+    <message>
+        <source>Translate captions</source>
+        <translation>Isalin ang mga caption</translation>
+    </message>
+    <message>
+        <source>Captions translated into %1</source>
+        <translation>Naisalin ang mga caption sa %1</translation>
+    </message>
+    <message>
         <source>Edit speaker</source>
         <translation>I-edit ang tagapagsalita</translation>
     </message>
@@ -26722,6 +26750,14 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Translate</source>
+        <translation>Isalin</translation>
+    </message>
+    <message>
+        <source>The captions in another language, as a second line above (bilingual)</source>
+        <translation>Ang mga caption sa ibang wika, bilang ikalawang linya sa itaas (bilingual)</translation>
+    </message>
+    <message>
         <source>Import</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26752,6 +26788,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Offset the exported captions by this clip&apos;s start so they match the exported video</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign in with Google to translate captions.</source>
+        <translation>Mag-sign in gamit ang Google para isalin ang mga caption.</translation>
+    </message>
+    <message>
+        <source>Translating…</source>
+        <translation>Isinasalin…</translation>
     </message>
     <message>
         <source>Captions that will change: %1</source>

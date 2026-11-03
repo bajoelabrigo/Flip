@@ -5435,6 +5435,34 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Sign in with Google to translate captions</source>
+        <translation>Đăng nhập bằng Google để dịch phụ đề</translation>
+    </message>
+    <message>
+        <source>Translating the captions…</source>
+        <translation>Đang dịch phụ đề…</translation>
+    </message>
+    <message>
+        <source>Could not translate the captions (no answer from the server)</source>
+        <translation>Không thể dịch phụ đề (máy chủ không phản hồi)</translation>
+    </message>
+    <message>
+        <source>The captions changed while they were being translated; try again</source>
+        <translation>Phụ đề đã thay đổi trong lúc dịch; hãy thử lại</translation>
+    </message>
+    <message>
+        <source>Captions (%1)</source>
+        <translation>Phụ đề (%1)</translation>
+    </message>
+    <message>
+        <source>Translate captions</source>
+        <translation>Dịch phụ đề</translation>
+    </message>
+    <message>
+        <source>Captions translated into %1</source>
+        <translation>Đã dịch phụ đề sang %1</translation>
+    </message>
+    <message>
         <source>Edit speaker</source>
         <translation>Sửa người nói</translation>
     </message>
@@ -26640,6 +26668,14 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>%1 phụ đề</translation>
     </message>
     <message>
+        <source>Translate</source>
+        <translation>Dịch</translation>
+    </message>
+    <message>
+        <source>The captions in another language, as a second line above (bilingual)</source>
+        <translation>Phụ đề bằng ngôn ngữ khác, làm dòng thứ hai phía trên (song ngữ)</translation>
+    </message>
+    <message>
         <source>Import</source>
         <translation>Nhập</translation>
     </message>
@@ -26670,6 +26706,14 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Offset the exported captions by this clip&apos;s start so they match the exported video</source>
         <translation>Điều chỉnh vị trí phụ đề xuất ra sao cho khớp với vị trí bắt đầu của đoạn video này</translation>
+    </message>
+    <message>
+        <source>Sign in with Google to translate captions.</source>
+        <translation>Đăng nhập bằng Google để dịch phụ đề.</translation>
+    </message>
+    <message>
+        <source>Translating…</source>
+        <translation>Đang dịch…</translation>
     </message>
     <message>
         <source>Captions that will change: %1</source>

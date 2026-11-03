@@ -5446,6 +5446,34 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Sign in with Google to translate captions</source>
+        <translation>උපසිරැසි පරිවර්තනයට Google සමඟ පුරනය වන්න</translation>
+    </message>
+    <message>
+        <source>Translating the captions…</source>
+        <translation>උපසිරැසි පරිවර්තනය කරමින්…</translation>
+    </message>
+    <message>
+        <source>Could not translate the captions (no answer from the server)</source>
+        <translation>උපසිරැසි පරිවර්තනය කළ නොහැකි විය (සේවාදායකය ප්‍රතිචාර නොදැක්වීය)</translation>
+    </message>
+    <message>
+        <source>The captions changed while they were being translated; try again</source>
+        <translation>පරිවර්තනය අතරතුර උපසිරැසි වෙනස් විය; නැවත උත්සාහ කරන්න</translation>
+    </message>
+    <message>
+        <source>Captions (%1)</source>
+        <translation>උපසිරැසි (%1)</translation>
+    </message>
+    <message>
+        <source>Translate captions</source>
+        <translation>උපසිරැසි පරිවර්තනය</translation>
+    </message>
+    <message>
+        <source>Captions translated into %1</source>
+        <translation>උපසිරැසි %1 ට පරිවර්තනය කළා</translation>
+    </message>
+    <message>
         <source>Edit speaker</source>
         <translation>කථිකයා සංස්කරණය</translation>
     </message>
@@ -26730,6 +26758,14 @@ If playback stutters, try another.</source>
         <translation>උපසිරැසි %1</translation>
     </message>
     <message>
+        <source>Translate</source>
+        <translation>පරිවර්තනය</translation>
+    </message>
+    <message>
+        <source>The captions in another language, as a second line above (bilingual)</source>
+        <translation>වෙනත් භාෂාවකින් උපසිරැසි, ඉහළින් දෙවන පේළිය ලෙස (ද්විභාෂා)</translation>
+    </message>
+    <message>
         <source>Import</source>
         <translation>ආයාත කරන්න</translation>
     </message>
@@ -26760,6 +26796,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Offset the exported captions by this clip&apos;s start so they match the exported video</source>
         <translation>නිර්යාත කළ වීඩියෝවට ගැළපෙන පරිදි නිර්යාත උපසිරැසි මෙම ක්ලිපයේ ආරම්භක වේලාවෙන් විස්ථාපනය කරන්න</translation>
+    </message>
+    <message>
+        <source>Sign in with Google to translate captions.</source>
+        <translation>උපසිරැසි පරිවර්තනයට Google සමඟ පුරනය වන්න.</translation>
+    </message>
+    <message>
+        <source>Translating…</source>
+        <translation>පරිවර්තනය කරමින්…</translation>
     </message>
     <message>
         <source>Captions that will change: %1</source>

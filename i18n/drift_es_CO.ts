@@ -5454,6 +5454,34 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Sign in with Google to translate captions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Translating the captions…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not translate the captions (no answer from the server)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The captions changed while they were being translated; try again</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Captions (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Translate captions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Captions translated into %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Edit speaker</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26730,6 +26758,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>%1 subtítulos</translation>
     </message>
     <message>
+        <source>Translate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The captions in another language, as a second line above (bilingual)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Import</source>
         <translation>Importar</translation>
     </message>
@@ -26760,6 +26796,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Offset the exported captions by this clip&apos;s start so they match the exported video</source>
         <translation>Desplaza los subtítulos exportados según el inicio de este clip para que coincidan con el video exportado</translation>
+    </message>
+    <message>
+        <source>Sign in with Google to translate captions.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Translating…</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Captions that will change: %1</source>

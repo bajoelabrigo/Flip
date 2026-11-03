@@ -100,6 +100,7 @@
 #include "models/CloudProviders.h"
 #include "engine/WhisperTranscriber.h"
 #include "engine/SpellCheck.h"
+#include "models/AccountController.h"
 #include "engine/SpeakerDiarizer.h"
 #include "engine/AudioFileWriter.h"
 #include "McpDetail.h"
@@ -17429,6 +17430,100 @@ QString AppController::subtitleKeytermsText() const
 void AppController::setSubtitleKeytermsText(const QString &text)
 {
     QSettings().setValue(QStringLiteral("subtitles/keyterms"), text);
+}
+
+QVariantList AppController::subtitleTranslationLanguages() const
+{
+    // What DeepL translates into, named in their own language.
+    static const char *kCodes[] = {"es", "en", "pt-BR", "pt-PT", "fr", "it", "de", "nl", "pl", "ru", "uk",
+                                   "tr", "ar", "ja", "ko", "zh", "id", "sv", "da", "nb", "fi", "cs", "ro",
+                                   "hu", "el", "bg", "sk", "sl", "lt", "lv", "et"};
+    QVariantList out;
+    for (const char *code : kCodes) {
+        const QString c = QString::fromLatin1(code);
+        const QLocale locale(QString(c).replace(QLatin1Char('-'), QLatin1Char('_')));
+        QString label = locale.nativeLanguageName();
+        if (c == QLatin1String("pt-BR") || c == QLatin1String("pt-PT"))
+            label += QStringLiteral(" (%1)").arg(locale.nativeTerritoryName());
+        if (!label.isEmpty())
+            label[0] = label[0].toUpper();
+        out.append(QVariantMap{{QStringLiteral("code"), c}, {QStringLiteral("label"), label}});
+    }
+    return out;
+}
+
+void AppController::translateSubtitles(int trackIndex, int clipIndex, const QString &language)
+{
+    if (m_subtitleTranslating || !isValidClipIndex(trackIndex, clipIndex))
+        return;
+    const drift::Clip source = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    if (source.type != drift::ClipType::Subtitle || source.subtitleCues.isEmpty())
+        return;
+    AccountController *account = m_marketClient ? m_marketClient->account() : nullptr;
+    if (!account || !account->signedIn()) {
+        setLastMessage(tr("Sign in with Google to translate captions"), QStringLiteral("warning"));
+        return;
+    }
+    // The *marks* of key words would come back moved or lost: the translation goes without them.
+    QJsonArray texts;
+    for (const drift::SubtitleCue &cue : source.subtitleCues)
+        texts.append(QString(cue.text).remove(QLatin1Char('*')));
+    const QString sourceLanguage = QSettings().value(QStringLiteral("subtitles/language")).toString();
+    QJsonObject body{{QStringLiteral("texts"), texts}, {QStringLiteral("target"), language}};
+    if (!sourceLanguage.isEmpty())
+        body.insert(QStringLiteral("source"), sourceLanguage);
+
+    m_subtitleTranslating = true;
+    emit subtitleTranslatingChanged();
+    setLastMessage(tr("Translating the captions…"));
+    const QString sourceId = source.id;
+    QString label = language;
+    for (const QVariant &v : subtitleTranslationLanguages()) {
+        if (v.toMap().value(QStringLiteral("code")).toString() == language)
+            label = v.toMap().value(QStringLiteral("label")).toString();
+    }
+    account->postAuthorized(QStringLiteral("/v1/translate"), QJsonDocument(body).toJson(QJsonDocument::Compact),
+                            [this, sourceId, label](int status, const QByteArray &payload) {
+        m_subtitleTranslating = false;
+        emit subtitleTranslatingChanged();
+        const QJsonObject answer = QJsonDocument::fromJson(payload).object();
+        if (status != 200) {
+            const QString detail = answer.value(QStringLiteral("error")).toString();
+            setLastMessage(detail.isEmpty() ? tr("Could not translate the captions (no answer from the server)") : detail,
+                           QStringLiteral("error"));
+            return;
+        }
+        const QJsonArray translations = answer.value(QStringLiteral("translations")).toArray();
+        const QPair<int, int> loc = m_mcpController->locateClip(sourceId);
+        if (loc.first < 0)
+            return;
+        const drift::Clip original = m_project.tracks().at(loc.first).clips.at(loc.second);
+        if (translations.size() != original.subtitleCues.size()) {
+            setLastMessage(tr("The captions changed while they were being translated; try again"), QStringLiteral("warning"));
+            return;
+        }
+        // The translation as its own caption clip right above the original, a little higher and smaller.
+        const drift::Project before = m_project;
+        const int track = drift::insertTrackAtTopForClipType(m_project, drift::ClipType::Subtitle);
+        if (track < 0)
+            return;
+        drift::Clip clip = original;
+        clip.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
+        clip.name = tr("Captions (%1)").arg(label);
+        clip.subtitleSpeakers = original.subtitleSpeakers;
+        for (int i = 0; i < clip.subtitleCues.size(); ++i) {
+            drift::SubtitleCue &cue = clip.subtitleCues[i];
+            cue.text = translations.at(i).toString();
+            cue.wordEndsUs.clear(); // other words: the karaoke falls back to even timing
+        }
+        clip.transformY.setKeyframe(0, clip.transformY.evaluateAt(0) - m_project.height() * 0.11);
+        clip.textStyle.pixelSize = qMax(12.0, clip.textStyle.pixelSize * 0.85);
+        m_project.tracks()[track].clips.append(clip);
+        pushProjectEdit(before, tr("Translate captions"));
+        finishEdit(tr("Translate captions"));
+        selectClip(track, m_project.tracks().at(track).clips.size() - 1);
+        setLastMessage(tr("Captions translated into %1").arg(label), QStringLiteral("success"));
+    });
 }
 
 bool AppController::subtitleSpeakersEnabled() const

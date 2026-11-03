@@ -5546,6 +5546,34 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Sign in with Google to translate captions</source>
+        <translation>ক্যাপশন অনুবাদ করতে Google দিয়ে সাইন ইন করুন</translation>
+    </message>
+    <message>
+        <source>Translating the captions…</source>
+        <translation>ক্যাপশন অনুবাদ করা হচ্ছে…</translation>
+    </message>
+    <message>
+        <source>Could not translate the captions (no answer from the server)</source>
+        <translation>ক্যাপশন অনুবাদ করা যায়নি (সার্ভার সাড়া দেয়নি)</translation>
+    </message>
+    <message>
+        <source>The captions changed while they were being translated; try again</source>
+        <translation>অনুবাদের সময় ক্যাপশন বদলে গেছে; আবার চেষ্টা করুন</translation>
+    </message>
+    <message>
+        <source>Captions (%1)</source>
+        <translation>ক্যাপশন (%1)</translation>
+    </message>
+    <message>
+        <source>Translate captions</source>
+        <translation>ক্যাপশন অনুবাদ</translation>
+    </message>
+    <message>
+        <source>Captions translated into %1</source>
+        <translation>ক্যাপশন %1-এ অনুবাদ হয়েছে</translation>
+    </message>
+    <message>
         <source>Edit speaker</source>
         <translation>বক্তা সম্পাদনা</translation>
     </message>
@@ -26904,6 +26932,22 @@ If playback stutters, try another.</source>
     <message>
         <source>Close</source>
         <translation>বন্ধ</translation>
+    </message>
+    <message>
+        <source>Translate</source>
+        <translation>অনুবাদ</translation>
+    </message>
+    <message>
+        <source>The captions in another language, as a second line above (bilingual)</source>
+        <translation>অন্য ভাষায় ক্যাপশন, উপরে দ্বিতীয় লাইন হিসেবে (দ্বিভাষিক)</translation>
+    </message>
+    <message>
+        <source>Sign in with Google to translate captions.</source>
+        <translation>ক্যাপশন অনুবাদ করতে Google দিয়ে সাইন ইন করুন।</translation>
+    </message>
+    <message>
+        <source>Translating…</source>
+        <translation>অনুবাদ হচ্ছে…</translation>
     </message>
     <message>
         <source>Ignore</source>

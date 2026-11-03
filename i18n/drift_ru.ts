@@ -5465,6 +5465,34 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Sign in with Google to translate captions</source>
+        <translation>Войдите через Google, чтобы переводить субтитры</translation>
+    </message>
+    <message>
+        <source>Translating the captions…</source>
+        <translation>Перевод субтитров…</translation>
+    </message>
+    <message>
+        <source>Could not translate the captions (no answer from the server)</source>
+        <translation>Не удалось перевести субтитры (сервер не ответил)</translation>
+    </message>
+    <message>
+        <source>The captions changed while they were being translated; try again</source>
+        <translation>Субтитры изменились во время перевода; попробуйте ещё раз</translation>
+    </message>
+    <message>
+        <source>Captions (%1)</source>
+        <translation>Субтитры (%1)</translation>
+    </message>
+    <message>
+        <source>Translate captions</source>
+        <translation>Перевести субтитры</translation>
+    </message>
+    <message>
+        <source>Captions translated into %1</source>
+        <translation>Субтитры переведены: %1</translation>
+    </message>
+    <message>
         <source>Edit speaker</source>
         <translation>Изменить говорящего</translation>
     </message>
@@ -26828,6 +26856,14 @@ If playback stutters, try another.</source>
         <translation>Записей субтитров: %1</translation>
     </message>
     <message>
+        <source>Translate</source>
+        <translation>Перевести</translation>
+    </message>
+    <message>
+        <source>The captions in another language, as a second line above (bilingual)</source>
+        <translation>Субтитры на другом языке второй строкой сверху (двуязычные)</translation>
+    </message>
+    <message>
         <source>Import</source>
         <translation>Импорт</translation>
     </message>
@@ -26858,6 +26894,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Offset the exported captions by this clip&apos;s start so they match the exported video</source>
         <translation>Сдвинуть временные метки экспортируемых субтитров на начало этого клипа, чтобы они совпадали с экспортированным видео</translation>
+    </message>
+    <message>
+        <source>Sign in with Google to translate captions.</source>
+        <translation>Войдите через Google, чтобы переводить субтитры.</translation>
+    </message>
+    <message>
+        <source>Translating…</source>
+        <translation>Перевод…</translation>
     </message>
     <message>
         <source>Captions that will change: %1</source>

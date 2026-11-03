@@ -5427,6 +5427,34 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Sign in with Google to translate captions</source>
+        <translation>字幕を翻訳するには Google でログインしてください</translation>
+    </message>
+    <message>
+        <source>Translating the captions…</source>
+        <translation>字幕を翻訳しています…</translation>
+    </message>
+    <message>
+        <source>Could not translate the captions (no answer from the server)</source>
+        <translation>字幕を翻訳できませんでした（サーバーが応答しません）</translation>
+    </message>
+    <message>
+        <source>The captions changed while they were being translated; try again</source>
+        <translation>翻訳中に字幕が変更されました。もう一度お試しください</translation>
+    </message>
+    <message>
+        <source>Captions (%1)</source>
+        <translation>字幕（%1）</translation>
+    </message>
+    <message>
+        <source>Translate captions</source>
+        <translation>字幕を翻訳</translation>
+    </message>
+    <message>
+        <source>Captions translated into %1</source>
+        <translation>字幕を%1に翻訳しました</translation>
+    </message>
+    <message>
         <source>Edit speaker</source>
         <translation>話者を編集</translation>
     </message>
@@ -26640,6 +26668,14 @@ If playback stutters, try another.</source>
         <translation>%1 キャプション</translation>
     </message>
     <message>
+        <source>Translate</source>
+        <translation>翻訳</translation>
+    </message>
+    <message>
+        <source>The captions in another language, as a second line above (bilingual)</source>
+        <translation>別の言語の字幕を上の2行目に（バイリンガル）</translation>
+    </message>
+    <message>
         <source>Import</source>
         <translation>インポート</translation>
     </message>
@@ -26670,6 +26706,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Offset the exported captions by this clip&apos;s start so they match the exported video</source>
         <translation>エクスポートするキャプションをこのクリップの開始位置でオフセットし、エクスポートしたビデオと一致させます</translation>
+    </message>
+    <message>
+        <source>Sign in with Google to translate captions.</source>
+        <translation>字幕を翻訳するには Google でログインしてください。</translation>
+    </message>
+    <message>
+        <source>Translating…</source>
+        <translation>翻訳中…</translation>
     </message>
     <message>
         <source>Captions that will change: %1</source>

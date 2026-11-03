@@ -1245,6 +1245,12 @@ public:
     Q_INVOKABLE bool subtitleSpeakersAvailable() const;
     Q_INVOKABLE void setSubtitleSpeaker(int trackIndex, int clipIndex, int speaker, const QString &name,
                                         const QColor &color);
+    // Captions translated into another language with DeepL on our server (needs the account), as a
+    // second caption clip above the original: bilingual videos. The languages: [{code, label}].
+    Q_INVOKABLE QVariantList subtitleTranslationLanguages() const;
+    Q_INVOKABLE void translateSubtitles(int trackIndex, int clipIndex, const QString &language);
+    Q_PROPERTY(bool subtitleTranslating READ subtitleTranslating NOTIFY subtitleTranslatingChanged)
+    bool subtitleTranslating() const { return m_subtitleTranslating; }
     Q_INVOKABLE bool subtitleTwoLines() const;
     Q_INVOKABLE void setSubtitleTwoLines(bool enabled);
     Q_INVOKABLE bool subtitleProfanityFilter() const;
@@ -2482,6 +2488,7 @@ signals:
     void subtitleGenerationFinished(bool ok, const QString &message);
     // cutSilencesAndFillers(review = true) has the clip's word timings: show the pauses to pick from.
     void silenceReviewReady(int trackIndex, int clipIndex);
+    void subtitleTranslatingChanged();
     // editClipByText has the clip's words: open the text editor.
     void textEditReady(int trackIndex, int clipIndex);
     void reverseRenderingChanged();
@@ -2744,6 +2751,7 @@ protected:
     void applySilenceCut(const QString &clipId, double minPause, bool removeFillers, bool review = false,
                          bool textEdit = false);
     bool m_textEditNext = false; // the next cutSilencesAndFillers opens the text editor instead
+    bool m_subtitleTranslating = false;
     // The spoken stretches «Remove silences» keeps (source time), and how many filler words it drops.
     QList<drift::TimeRangeUs> speechKeepRanges(const drift::Clip &clip, double minPause, bool removeFillers,
                                                int *fillers) const;

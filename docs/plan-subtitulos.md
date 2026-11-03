@@ -46,7 +46,7 @@ Cómo seguir: marcar cada punto al terminarlo con el commit; probar en ventana a
 Lo que tienen CapCut, Premiere y Descript:
 - [x] Dividir y unir subtítulos sueltos; «dividir en el cabezal».
 - [x] Estilo y posición por subtítulo (no solo por clip).
-- [ ] Traducir a muchos idiomas y subtítulos bilingües.
+- [~] Traducir a muchos idiomas y subtítulos bilingües.
 - [x] Editar el video borrando texto (como Descript).
 - [x] Revisar los silencios uno por uno antes de quitarlos.
 - [~] Colores y nombres por hablante (el motor ya distingue voces).
@@ -163,3 +163,11 @@ tiempo copiaba solo texto y tiempos (arreglado en `99500`). También arreglado d
 «Editar con el texto» no corrían las otras pistas (ahora los subtítulos y los clips que siguen se adelantan, en el
 mismo deshacer; un clip que cruza el corte, como la pista del pitido, queda igual), el botón del lugar elegido se veía
 poco y el aviso «Pitido en 1 palabras». Falta verlos en la build siguiente.
+  - traducción (Jorge eligió DeepL en el servidor, 2026-11-03): `flipstudio-api` rama `traduccion` **desplegada**,
+    `POST /v1/translate` con cuenta (30 000 caracteres por cuenta al mes, 950 000 en total; el plan gratis de DeepL da
+    1 000 000), clave solo en el `.env` del servidor (`DEEPL_API_KEY`, también en `secretoslipstudio-api.env`). En la
+    app, botón «Traducir» en el editor: elige el idioma (31) y crea un segundo clip de subtítulos arriba, más chico
+    (bilingüe), sin las *marcas*. **Siguiente (pedido de Jorge):** un modelo de traducción en la computadora como respaldo
+    cuando se acabe el cupo de DeepL, sin internet o sin sesión.
+  - trampa: `deploy.ps1` corrido desde Git Bash usaba el `tar` de Git (toma «C:\…» por un servidor) y subía el
+    paquete viejo sin avisar; ahora usa el tar de Windows y se corta si el paquete no se armó.

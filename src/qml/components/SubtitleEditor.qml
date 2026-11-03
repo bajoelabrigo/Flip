@@ -1,3 +1,4 @@
+import QtCore
 import QtQuick
 import QtQuick.Controls.Basic
 import QtQuick.Window
@@ -537,6 +538,17 @@ Item {
                 onClicked: root.showChanges("emojis")
             }
 
+            // Into another language (DeepL on our server): a second caption clip above, bilingual.
+            ThemedButton {
+                width: toolGrid.cell
+                text: qsTr("Translate")
+                variant: root.translateOpen ? "primary" : "secondary"
+                glyph: Theme.icons.languages
+                tooltip: qsTr("The captions in another language, as a second line above (bilingual)")
+                enabled: root.cues.length > 0
+                onClicked: root.translateOpen = !root.translateOpen
+            }
+
             // CapCut's animated emojis over the captions that mention one (an extra of Stickers).
             ThemedButton {
                 visible: root.animatedEmojis
@@ -756,6 +768,64 @@ Item {
                 checked: true
                 text: qsTr("Timestamps from the start of the video")
                 tooltip: qsTr("Offset the exported captions by this clip's start so they match the exported video")
+            }
+        }
+
+        // Translate: the language, then the translated captions land above the originals.
+        Rectangle {
+            visible: root.translateOpen
+            width: parent.width
+            height: visible ? translateColumn.implicitHeight + 16 : 0
+            radius: Theme.radiusMd
+            color: Theme.panelAccent
+            border.width: 1
+            border.color: Theme.panelBorder
+
+            Column {
+                id: translateColumn
+                x: 8
+                y: 8
+                width: parent.width - 16
+                spacing: 6
+
+                ThemedComboBox {
+                    id: translateLanguageBox
+                    width: parent.width
+                    textRole: "label"
+                    valueRole: "code"
+                    model: EditorState.subtitleTranslationLanguages()
+                    Component.onCompleted: currentIndex = Math.max(0, indexOfValue(translatePrefs.translateTo))
+                    onActivated: translatePrefs.translateTo = currentValue
+                }
+
+                Text {
+                    visible: !Account.signedIn
+                    width: parent.width
+                    wrapMode: Text.WordWrap
+                    text: qsTr("Sign in with Google to translate captions.")
+                    color: Theme.mutedForeground
+                    font.family: Theme.fontFamily
+                    font.pixelSize: Theme.fontSizeXs
+                }
+
+                Row {
+                    width: parent.width
+                    spacing: 6
+                    ThemedButton {
+                        width: (parent.width - parent.spacing) / 2
+                        text: qsTr("Close")
+                        variant: "ghost"
+                        onClicked: root.translateOpen = false
+                    }
+                    ThemedButton {
+                        width: (parent.width - parent.spacing) / 2
+                        text: EditorState.subtitleTranslating ? qsTr("Translating…") : qsTr("Translate")
+                        variant: "primary"
+                        enabled: Account.signedIn && !EditorState.subtitleTranslating
+                        onClicked: EditorState.translateSubtitles(root.trackIndex, root.clipIndex,
+                                                                  translateLanguageBox.currentValue)
+                    }
+                }
             }
         }
 
@@ -994,6 +1064,12 @@ Item {
 
     property bool replaceOpen: false
     property bool moreOpen: false
+    property bool translateOpen: false
+    Settings {
+        id: translatePrefs
+        category: "subtitles"
+        property string translateTo: "en"
+    }
     readonly property bool animatedEmojis: EditorState.animatedEmojisAvailable()
     readonly property var cueStyleChoices: EditorState.subtitleStyleChoices()
     readonly property var speakers: (clip && clip.subtitleSpeakers) ? clip.subtitleSpeakers : []

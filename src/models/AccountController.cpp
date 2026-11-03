@@ -396,6 +396,30 @@ void AccountController::applySession(const QByteArray &payload)
     emit needsWelcomeChanged();
 }
 
+void AccountController::postAuthorized(const QString &path, const QByteArray &body,
+                                       const std::function<void(int, const QByteArray &)> &done)
+{
+    const auto send = [this, path, body, done](bool retried, auto &&self) -> void {
+        QNetworkReply *reply = postJson(path, body, true);
+        connect(reply, &QNetworkReply::finished, this, [this, reply, retried, self, done]() {
+            reply->deleteLater();
+            const int status = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
+            const QByteArray payload = reply->readAll();
+            if (status == 401 && !retried && signedIn()) {
+                refresh([self, done](bool ok) {
+                    if (ok)
+                        self(true, self);
+                    else
+                        done(401, {});
+                });
+                return;
+            }
+            done(status, payload);
+        });
+    };
+    send(false, send);
+}
+
 void AccountController::refresh(const std::function<void(bool)> &then)
 {
     if (then)

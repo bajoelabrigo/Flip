@@ -5451,6 +5451,34 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Sign in with Google to translate captions</source>
+        <translation>Connectez-vous avec Google pour traduire les sous-titres</translation>
+    </message>
+    <message>
+        <source>Translating the captions…</source>
+        <translation>Traduction des sous-titres…</translation>
+    </message>
+    <message>
+        <source>Could not translate the captions (no answer from the server)</source>
+        <translation>Impossible de traduire les sous-titres (le serveur n’a pas répondu)</translation>
+    </message>
+    <message>
+        <source>The captions changed while they were being translated; try again</source>
+        <translation>Les sous-titres ont changé pendant la traduction; réessayez</translation>
+    </message>
+    <message>
+        <source>Captions (%1)</source>
+        <translation>Sous-titres (%1)</translation>
+    </message>
+    <message>
+        <source>Translate captions</source>
+        <translation>Traduire les sous-titres</translation>
+    </message>
+    <message>
+        <source>Captions translated into %1</source>
+        <translation>Sous-titres traduits en %1</translation>
+    </message>
+    <message>
         <source>Edit speaker</source>
         <translation>Modifier le locuteur</translation>
     </message>
@@ -26736,6 +26764,14 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>%1 sous-titres</translation>
     </message>
     <message>
+        <source>Translate</source>
+        <translation>Traduire</translation>
+    </message>
+    <message>
+        <source>The captions in another language, as a second line above (bilingual)</source>
+        <translation>Les sous-titres dans une autre langue, en deuxième ligne au-dessus (bilingue)</translation>
+    </message>
+    <message>
         <source>Import</source>
         <translation>Importer</translation>
     </message>
@@ -26766,6 +26802,14 @@ Si la lecture saccade, essayez une autre option.</translation>
     <message>
         <source>Offset the exported captions by this clip&apos;s start so they match the exported video</source>
         <translation>Décaler les sous-titres exportés du début de ce clip pour qu&apos;ils correspondent à la vidéo exportée</translation>
+    </message>
+    <message>
+        <source>Sign in with Google to translate captions.</source>
+        <translation>Connectez-vous avec Google pour traduire les sous-titres.</translation>
+    </message>
+    <message>
+        <source>Translating…</source>
+        <translation>Traduction…</translation>
     </message>
     <message>
         <source>Captions that will change: %1</source>

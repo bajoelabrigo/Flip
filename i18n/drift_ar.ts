@@ -5510,6 +5510,34 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Sign in with Google to translate captions</source>
+        <translation>سجّل الدخول باستخدام Google لترجمة الترجمات</translation>
+    </message>
+    <message>
+        <source>Translating the captions…</source>
+        <translation>جارٍ ترجمة الترجمات…</translation>
+    </message>
+    <message>
+        <source>Could not translate the captions (no answer from the server)</source>
+        <translation>تعذّرت ترجمة الترجمات (لم يرد الخادم)</translation>
+    </message>
+    <message>
+        <source>The captions changed while they were being translated; try again</source>
+        <translation>تغيّرت الترجمات أثناء ترجمتها؛ حاول مرة أخرى</translation>
+    </message>
+    <message>
+        <source>Captions (%1)</source>
+        <translation>ترجمات (%1)</translation>
+    </message>
+    <message>
+        <source>Translate captions</source>
+        <translation>ترجمة الترجمات</translation>
+    </message>
+    <message>
+        <source>Captions translated into %1</source>
+        <translation>تُرجمت الترجمات إلى %1</translation>
+    </message>
+    <message>
         <source>Edit speaker</source>
         <translation>تعديل المتحدث</translation>
     </message>
@@ -27110,6 +27138,14 @@ If playback stutters, try another.</source>
         <translation>%1 تسمية توضيحية</translation>
     </message>
     <message>
+        <source>Translate</source>
+        <translation>ترجمة</translation>
+    </message>
+    <message>
+        <source>The captions in another language, as a second line above (bilingual)</source>
+        <translation>الترجمات بلغة أخرى كسطر ثانٍ في الأعلى (ثنائية اللغة)</translation>
+    </message>
+    <message>
         <source>Import</source>
         <translation>استيراد</translation>
     </message>
@@ -27140,6 +27176,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Offset the exported captions by this clip&apos;s start so they match the exported video</source>
         <translation>إزاحة التسميات التوضيحية المصدّرة بمقدار بداية هذا المقطع لتتطابق مع الفيديو المصدَّر</translation>
+    </message>
+    <message>
+        <source>Sign in with Google to translate captions.</source>
+        <translation>سجّل الدخول باستخدام Google لترجمة الترجمات.</translation>
+    </message>
+    <message>
+        <source>Translating…</source>
+        <translation>جارٍ الترجمة…</translation>
     </message>
     <message>
         <source>Captions that will change: %1</source>

@@ -5427,6 +5427,34 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Sign in with Google to translate captions</source>
+        <translation>자막을 번역하려면 Google로 로그인하세요</translation>
+    </message>
+    <message>
+        <source>Translating the captions…</source>
+        <translation>자막 번역 중…</translation>
+    </message>
+    <message>
+        <source>Could not translate the captions (no answer from the server)</source>
+        <translation>자막을 번역할 수 없습니다 (서버 응답 없음)</translation>
+    </message>
+    <message>
+        <source>The captions changed while they were being translated; try again</source>
+        <translation>번역하는 동안 자막이 바뀌었습니다. 다시 시도하세요</translation>
+    </message>
+    <message>
+        <source>Captions (%1)</source>
+        <translation>자막 (%1)</translation>
+    </message>
+    <message>
+        <source>Translate captions</source>
+        <translation>자막 번역</translation>
+    </message>
+    <message>
+        <source>Captions translated into %1</source>
+        <translation>자막을 %1(으)로 번역했습니다</translation>
+    </message>
+    <message>
         <source>Edit speaker</source>
         <translation>화자 편집</translation>
     </message>
@@ -26638,6 +26666,14 @@ If playback stutters, try another.</source>
         <translation>캡션 %1개</translation>
     </message>
     <message>
+        <source>Translate</source>
+        <translation>번역</translation>
+    </message>
+    <message>
+        <source>The captions in another language, as a second line above (bilingual)</source>
+        <translation>다른 언어의 자막을 위쪽 두 번째 줄로 (2개 국어)</translation>
+    </message>
+    <message>
         <source>Import</source>
         <translation>가져오기</translation>
     </message>
@@ -26668,6 +26704,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Offset the exported captions by this clip&apos;s start so they match the exported video</source>
         <translation>이 클립의 시작 위치만큼 내보낸 캡션에 오프셋을 적용하여 내보낸 동영상과 맞춥니다</translation>
+    </message>
+    <message>
+        <source>Sign in with Google to translate captions.</source>
+        <translation>자막을 번역하려면 Google로 로그인하세요.</translation>
+    </message>
+    <message>
+        <source>Translating…</source>
+        <translation>번역 중…</translation>
     </message>
     <message>
         <source>Captions that will change: %1</source>

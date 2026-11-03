@@ -5446,6 +5446,34 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Sign in with Google to translate captions</source>
+        <translation>Entre com o Google para traduzir legendas</translation>
+    </message>
+    <message>
+        <source>Translating the captions…</source>
+        <translation>Traduzindo as legendas…</translation>
+    </message>
+    <message>
+        <source>Could not translate the captions (no answer from the server)</source>
+        <translation>Não foi possível traduzir as legendas (o servidor não respondeu)</translation>
+    </message>
+    <message>
+        <source>The captions changed while they were being translated; try again</source>
+        <translation>As legendas mudaram durante a tradução; tente de novo</translation>
+    </message>
+    <message>
+        <source>Captions (%1)</source>
+        <translation>Legendas (%1)</translation>
+    </message>
+    <message>
+        <source>Translate captions</source>
+        <translation>Traduzir legendas</translation>
+    </message>
+    <message>
+        <source>Captions translated into %1</source>
+        <translation>Legendas traduzidas para %1</translation>
+    </message>
+    <message>
         <source>Edit speaker</source>
         <translation>Editar falante</translation>
     </message>
@@ -26734,6 +26762,14 @@ Se a reprodução travar, tente outra opção.</translation>
         <translation>%1 legendas</translation>
     </message>
     <message>
+        <source>Translate</source>
+        <translation>Traduzir</translation>
+    </message>
+    <message>
+        <source>The captions in another language, as a second line above (bilingual)</source>
+        <translation>As legendas em outro idioma, como segunda linha acima (bilíngue)</translation>
+    </message>
+    <message>
         <source>Import</source>
         <translation>Importar</translation>
     </message>
@@ -26764,6 +26800,14 @@ Se a reprodução travar, tente outra opção.</translation>
     <message>
         <source>Offset the exported captions by this clip&apos;s start so they match the exported video</source>
         <translation>Deslocar as legendas exportadas pelo início deste clipe para que correspondam ao vídeo exportado</translation>
+    </message>
+    <message>
+        <source>Sign in with Google to translate captions.</source>
+        <translation>Entre com o Google para traduzir legendas.</translation>
+    </message>
+    <message>
+        <source>Translating…</source>
+        <translation>Traduzindo…</translation>
     </message>
     <message>
         <source>Captions that will change: %1</source>

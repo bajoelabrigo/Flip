@@ -5427,6 +5427,34 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Sign in with Google to translate captions</source>
+        <translation>使用 Google 登录以翻译字幕</translation>
+    </message>
+    <message>
+        <source>Translating the captions…</source>
+        <translation>正在翻译字幕…</translation>
+    </message>
+    <message>
+        <source>Could not translate the captions (no answer from the server)</source>
+        <translation>无法翻译字幕（服务器没有响应）</translation>
+    </message>
+    <message>
+        <source>The captions changed while they were being translated; try again</source>
+        <translation>翻译期间字幕已更改，请重试</translation>
+    </message>
+    <message>
+        <source>Captions (%1)</source>
+        <translation>字幕（%1）</translation>
+    </message>
+    <message>
+        <source>Translate captions</source>
+        <translation>翻译字幕</translation>
+    </message>
+    <message>
+        <source>Captions translated into %1</source>
+        <translation>字幕已翻译为%1</translation>
+    </message>
+    <message>
         <source>Edit speaker</source>
         <translation>编辑说话人</translation>
     </message>
@@ -26639,6 +26667,14 @@ If playback stutters, try another.</source>
         <translation>%1 条字幕</translation>
     </message>
     <message>
+        <source>Translate</source>
+        <translation>翻译</translation>
+    </message>
+    <message>
+        <source>The captions in another language, as a second line above (bilingual)</source>
+        <translation>另一种语言的字幕，作为上方的第二行（双语）</translation>
+    </message>
+    <message>
         <source>Import</source>
         <translation>导入</translation>
     </message>
@@ -26669,6 +26705,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Offset the exported captions by this clip&apos;s start so they match the exported video</source>
         <translation>按此片段的起点偏移导出的字幕，使其与导出的视频对齐</translation>
+    </message>
+    <message>
+        <source>Sign in with Google to translate captions.</source>
+        <translation>使用 Google 登录以翻译字幕。</translation>
+    </message>
+    <message>
+        <source>Translating…</source>
+        <translation>翻译中…</translation>
     </message>
     <message>
         <source>Captions that will change: %1</source>

@@ -76,6 +76,11 @@ public:
     // Gets a fresh access token. `then(ok)` runs once; concurrent calls share one request.
     void refresh(const std::function<void(bool)> &then = {});
 
+    // A JSON POST to the account API with the session; a 401 refreshes the token once and tries
+    // again. `done(status, body)` runs once (status 0 = no answer).
+    void postAuthorized(const QString &path, const QByteArray &body,
+                        const std::function<void(int, const QByteArray &)> &done);
+
     // Pure helpers, public for the tests.
     static QString makeCodeVerifier();
     static QString codeChallenge(const QString &verifier);
