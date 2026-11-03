@@ -9858,7 +9858,7 @@ bool AppController::generateSubtitlesForRange(int trackIndex, double startSec, d
 AppController::SubtitleSource AppController::subtitleSourceFromClip(const drift::Clip &clip)
 {
     return {clip.path,           clip.srcIn,           clip.srcOut, clip.timelineStart,
-            clip.timelineDuration, clip.effectiveSpeed(), clip.reverse, clip.assetId};
+            clip.timelineDuration, clip.effectiveSpeed(), clip.reverse, clip.assetId, clip};
 }
 
 std::optional<QList<drift::SubtitleCue>> AppController::cuesFromStoredTranscripts(
@@ -9869,19 +9869,24 @@ std::optional<QList<drift::SubtitleCue>> AppController::cuesFromStoredTranscript
         const drift::TranscriptPtr t = m_project.transcript(source.assetId);
         if (!t || !t->source.matches(source.path))
             return std::nullopt;
-        const drift::TimeUs offset = source.timelineStart - rangeStart;
-        const double speed = source.speed > 0 ? source.speed : 1.0;
+        // Source time → timeline through the clip's own mapping (speed curves and reverse too).
+        const auto toTimeline = [&](drift::TimeUs sourceUs) -> drift::TimeUs {
+            const drift::TimeUs at = source.clip.timelineStart + source.clip.sourceUsToClipLocalUs(sourceUs);
+            return qBound(source.timelineStart, at, source.timelineStart + source.timelineDuration) - rangeStart;
+        };
         for (const drift::SubtitleCue &cue :
              drift::cuesFromTranscript(*t, source.srcIn, source.srcOut, subtitleLineWidth(), 1, qMax(0, maxWordsPerCue))) {
-            const double a = drift::usToSeconds(cue.startUs - source.srcIn);
-            const double b = drift::usToSeconds(cue.endUs - source.srcIn);
-            const double span = drift::usToSeconds(source.srcOut - source.srcIn);
-            const double tlStart = source.reverse ? (span - b) / speed : a / speed;
-            const double tlEnd = source.reverse ? (span - a) / speed : b / speed;
             drift::SubtitleCue m;
-            m.startUs = offset + qBound<drift::TimeUs>(0, drift::secondsToUs(tlStart), source.timelineDuration);
-            m.endUs = offset + qBound<drift::TimeUs>(0, drift::secondsToUs(tlEnd), source.timelineDuration);
+            m.startUs = toTimeline(cue.startUs);
+            m.endUs = toTimeline(cue.endUs);
+            if (m.startUs > m.endUs)
+                std::swap(m.startUs, m.endUs); // reversed
             m.text = cue.text;
+            // The words' timings too, so the karaoke follows the voice (they were dropped here).
+            if (!source.reverse) {
+                for (const drift::TimeUs end : cue.wordEndsUs)
+                    m.wordEndsUs.append(toTimeline(end));
+            }
             if (m.endUs > m.startUs)
                 mapped.append(m);
         }
@@ -10185,16 +10190,19 @@ bool AppController::generateSubtitlesForSources(QList<SubtitleSource> sources, c
             const SubtitleSource &source = sources.at(static_cast<qsizetype>(spanIndex));
             const drift::TimeUs spanStartUs = sampleToUs(span.sampleStart);
             const drift::TimeUs spanLengthUs = sampleToUs(span.sampleEnd) - spanStartUs;
-            const double spanSec = drift::usToSeconds(source.srcOut - source.srcIn);
             const double srcStart = drift::usToSeconds(qBound<drift::TimeUs>(0, cue.startUs - spanStartUs, spanLengthUs));
             const double srcEnd = drift::usToSeconds(qBound<drift::TimeUs>(0, cue.endUs - spanStartUs, spanLengthUs));
-            const double tlStart = source.reverse ? (spanSec - srcEnd) / source.speed : srcStart / source.speed;
-            const double tlEnd = source.reverse ? (spanSec - srcStart) / source.speed : srcEnd / source.speed;
-            const drift::TimeUs offset = source.timelineStart - rangeStart;
-            const drift::TimeUs s =
-                offset + qBound<drift::TimeUs>(0, drift::secondsToUs(tlStart), source.timelineDuration);
-            const drift::TimeUs e =
-                offset + qBound<drift::TimeUs>(0, drift::secondsToUs(tlEnd), source.timelineDuration);
+            // Through the clip's own mapping, so a speed curve or a reversed clip still lines up
+            // (a constant speed alone missed both).
+            const auto toTimeline = [&](double srcSec) -> drift::TimeUs {
+                const drift::TimeUs sourceUs = source.srcIn + drift::secondsToUs(srcSec);
+                const drift::TimeUs at = source.clip.timelineStart + source.clip.sourceUsToClipLocalUs(sourceUs);
+                return qBound(source.timelineStart, at, source.timelineStart + source.timelineDuration) - rangeStart;
+            };
+            drift::TimeUs s = toTimeline(srcStart);
+            drift::TimeUs e = toTimeline(srcEnd);
+            if (s > e)
+                std::swap(s, e); // reversed
             if (e > s) {
                 drift::SubtitleCue m;
                 m.startUs = s;
@@ -10202,11 +10210,9 @@ bool AppController::generateSubtitlesForSources(QList<SubtitleSource> sources, c
                 m.text = cue.text;
                 // The aligned words' ends, mapped the same way, so karaoke follows the voice.
                 if (!source.reverse) {
-                    for (const drift::TimeUs end : cue.wordEndsUs) {
-                        const double src = drift::usToSeconds(qBound<drift::TimeUs>(0, end - spanStartUs, spanLengthUs));
-                        m.wordEndsUs.append(offset + qBound<drift::TimeUs>(0, drift::secondsToUs(src / source.speed),
-                                                                           source.timelineDuration));
-                    }
+                    for (const drift::TimeUs end : cue.wordEndsUs)
+                        m.wordEndsUs.append(toTimeline(
+                            drift::usToSeconds(qBound<drift::TimeUs>(0, end - spanStartUs, spanLengthUs))));
                 }
                 mapped.append(m);
             }

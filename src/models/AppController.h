@@ -2682,6 +2682,8 @@ protected:
         double speed = 1.0;
         bool reverse = false;
         QString assetId;
+        // The clip itself: its own source → timeline mapping (speed curves and reverse included).
+        drift::Clip clip;
     };
     static SubtitleSource subtitleSourceFromClip(const drift::Clip &clip);
     // Captions straight from stored transcripts, when every source has a current one. Empty
