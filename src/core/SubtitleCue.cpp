@@ -1,6 +1,7 @@
 #include "SubtitleCue.h"
 
 #include <QCoreApplication>
+#include <QLibrary>
 #include <QRegularExpression>
 #include <QSet>
 
@@ -27,6 +28,53 @@ struct TimedWord
 
 // Split "Hello world. How are you?" into ["Hello", " world.", " How", " are", " you?"] so
 // joining reproduces the original spacing/punctuation.
+// Thai is written without spaces between words. Windows 10 and later ship ICU (icu.dll), whose
+// dictionary word breaker finds them; without it a Thai run stays one unit, as before.
+QStringList splitThaiWords(const QString &token)
+{
+    using Open = void *(*)(int, const char *, const char16_t *, int32_t, int *);
+    using Step = int32_t (*)(void *);
+    using Close = void (*)(void *);
+    static Open open = nullptr;
+    static Step first = nullptr;
+    static Step next = nullptr;
+    static Close close = nullptr;
+    static const bool loaded = [] {
+#ifdef Q_OS_WIN
+        QLibrary icu(QStringLiteral("icu"));
+        if (!icu.load())
+            return false;
+        open = reinterpret_cast<Open>(icu.resolve("ubrk_open"));
+        first = reinterpret_cast<Step>(icu.resolve("ubrk_first"));
+        next = reinterpret_cast<Step>(icu.resolve("ubrk_next"));
+        close = reinterpret_cast<Close>(icu.resolve("ubrk_close"));
+        return open && first && next && close;
+#else
+        return false;
+#endif
+    }();
+    if (!loaded)
+        return {token};
+    int status = 0;
+    void *breaker = open(1 /* UBRK_WORD */, "th", reinterpret_cast<const char16_t *>(token.utf16()),
+                         int32_t(token.size()), &status);
+    if (!breaker || status > 0)
+        return {token};
+    QStringList words;
+    int32_t from = first(breaker);
+    for (int32_t to = next(breaker); to != -1; to = next(breaker)) {
+        const QString piece = token.mid(from, to - from);
+        // Spaces and punctuation stay with the word before them, as the other tokens do.
+        if (!words.isEmpty() && (piece.trimmed().isEmpty() || !piece.at(0).isLetterOrNumber()))
+            words.last() += piece;
+        else
+            words.append(piece);
+        from = to;
+    }
+    close(breaker);
+    return words.isEmpty() ? QStringList{token} : words;
+}
+
 QStringList tokenizeWords(const QString &text)
 {
     // Chinese and Japanese write without spaces: each ideograph or kana is its own unit, so a
@@ -35,8 +83,18 @@ QStringList tokenizeWords(const QString &text)
         R"((\s*(?:[\p{Han}\p{Hiragana}\p{Katakana}]|[^\s\p{Han}\p{Hiragana}\p{Katakana}]+)))"));
     QStringList tokens;
     auto it = re.globalMatch(text);
-    while (it.hasNext())
-        tokens.append(it.next().captured(1));
+    static const QRegularExpression thai(QStringLiteral(R"(\p{Thai})"));
+    while (it.hasNext()) {
+        const QString token = it.next().captured(1);
+        if (token.contains(thai)) {
+            const QString lead = token.left(token.size() - token.trimmed().size()); // the space before
+            QStringList words = splitThaiWords(token.trimmed());
+            words.first().prepend(lead);
+            tokens.append(words);
+        } else {
+            tokens.append(token);
+        }
+    }
     return tokens;
 }
 
@@ -183,6 +241,8 @@ int displayWidth(const QString &word)
 {
     int width = 0;
     for (const QChar c : word) {
+        if (c.category() == QChar::Mark_NonSpacing)
+            continue; // Thai vowel and tone marks sit on the letter: no width of their own
         const QChar::Script script = c.script();
         width += (script == QChar::Script_Han || script == QChar::Script_Hiragana
                   || script == QChar::Script_Katakana) ? 2 : 1;

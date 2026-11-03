@@ -30,7 +30,7 @@ Cómo seguir: marcar cada punto al terminarlo con el commit; probar en ventana a
 - [x] 8. Una sola línea de 42 letras, también en vertical; no permite dos líneas (`packSubtitleCues`).
 - [x] 9. El candado de la pista no protege los subtítulos (`setSubtitleCues`, `importSubtitleFileIntoClip`).
 - [x] 10. Curvas de velocidad y clips en reversa: subtítulos mal sincronizados.
-- [~] 11. Chino, japonés y tailandés: se sincronizan mal (separan palabras por espacios).
+- [x] 11. Chino, japonés y tailandés: se sincronizan mal (separan palabras por espacios).
 
 ## Mejorar (más fácil de usar)
 - [x] Recordar las últimas opciones (idioma, largo, traducción).
@@ -147,3 +147,5 @@ ventanas de herramientas.
   - palabras difíciles en el equipo: el campo de Opciones vale también sin la nube; van como «prompt» inicial de
     Whisper (`<|startofprev|>` + las palabras), codificadas con el vocabulario por coincidencia más larga
     (`WhisperTokenizer::encodeApprox`; los modelos no traen los merges). Probado aparte: codifica y vuelve exacto.
+  - tailandés: las palabras se separan con el diccionario de ICU que trae Windows 10/11 (`icu.dll`, cargado con
+    QLibrary; sin él queda como antes) y las marcas de vocal y tono no cuentan como ancho. Probado aparte.
