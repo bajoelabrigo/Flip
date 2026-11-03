@@ -539,6 +539,30 @@ Item {
                 EditorState.preferences.curveEditorVisible = true
             }
         }
+        // After Effects' spatial interpolation and roving keys (0.30), for Position.
+        ThemedMenuSeparator {
+            visible: root.menuProp === "x" || root.menuProp === "y"
+        }
+        ThemedMenuItem {
+            visible: root.menuProp === "x" || root.menuProp === "y"
+            height: visible ? implicitHeight : 0
+            text: qsTr("Curved path (auto Bezier)")
+            onTriggered: EditorState.setPositionPath(root.track, root.menuClip, "auto",
+                                                     root.keys.filter((k) => k.prop === "x" || k.prop === "y").map((k) => k.seconds))
+        }
+        ThemedMenuItem {
+            visible: root.menuProp === "x" || root.menuProp === "y"
+            height: visible ? implicitHeight : 0
+            text: qsTr("Straight path")
+            onTriggered: EditorState.setPositionPath(root.track, root.menuClip, "linear",
+                                                     root.keys.filter((k) => k.prop === "x" || k.prop === "y").map((k) => k.seconds))
+        }
+        ThemedMenuItem {
+            visible: root.menuProp === "x" || root.menuProp === "y"
+            height: visible ? implicitHeight : 0
+            text: qsTr("Roving (one speed along the path)")
+            onTriggered: EditorState.roveKeyframes(root.track, root.menuClip)
+        }
         ThemedMenuItem {
             // After Effects' Time-Reverse Keyframes (0.26).
             text: qsTr("Reverse keyframes")

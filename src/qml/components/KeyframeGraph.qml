@@ -13,6 +13,33 @@ import "timeline"
 Item {
     id: root
 
+    // One side of the transform box (0.30), below.
+    component BoxSide: MouseArea {
+        property string side: "left"
+        property Item box: null
+        property point origin
+        property real startSpan: 1
+        preventStealing: true
+        hoverEnabled: true
+        cursorShape: side === "left" || side === "right" ? Qt.SizeHorCursor : Qt.SizeVerCursor
+        onPressed: (mouse) => {
+            origin = mapToItem(null, mouse.x, mouse.y)
+            startSpan = side === "left" || side === "right"
+                ? Math.max(1, box.width - 16) : Math.max(1, box.height - 16)
+            box.begin()
+        }
+        onPositionChanged: (mouse) => {
+            if (!pressed)
+                return
+            const p = mapToItem(null, mouse.x, mouse.y)
+            const d = side === "right" ? p.x - origin.x : side === "left" ? origin.x - p.x
+                    : side === "top" ? origin.y - p.y : p.y - origin.y
+            box.apply(side, Math.max(0.02, (startSpan + d) / startSpan))
+        }
+        onReleased: EditorState.commitPreviewDrag()
+        onCanceled: EditorState.commitPreviewDrag()
+    }
+
     property real pxPerSecond: 50
     property real contentX: 0
     // The canvases below cover the viewport plus a chunk either side, parked on a chunk boundary,
@@ -248,8 +275,58 @@ Item {
                                   { clip: root.clipIndex, prop: prop, seconds: seconds })
     }
     property var frozenSeries: []
+    // After Effects' Graph Editor (0.30). The graph type: "value", "speed" or "auto" (AE's auto-select:
+    // the speed graph for a Position with its dimensions joined, the value graph for the rest).
+    property string graphType: "value"
     // After Effects' Speed Graph (0.25): the focused curve's speed instead of its values.
-    property bool speedGraph: false
+    readonly property bool speedGraph: graphType === "speed"
+        || (graphType === "auto" && EditorState.positionLinked && (focusedProp === "x" || focusedProp === "y"))
+    // The part of each curve's range on show, as fractions of it (0..1 is all of it): Ctrl+wheel zooms
+    // it, the wheel moves it, «Fit» and «Zoom to selection» set it. Speed has its own axis.
+    property real viewLo: 0
+    property real viewHi: 1
+    // Over all the tracks instead of under its own (AE's Graph Editor in place of the layer bars).
+    property bool fullView: false
+    signal fullViewToggleRequested()
+    // Time is the timeline's: these ask it to zoom (around a time) or to scroll, or to fit a range.
+    signal timeZoomRequested(real factor, real anchorSeconds)
+    signal timeScrollRequested(real pixels)
+    signal timeFitRequested(real startSeconds, real endSeconds)
+    // Only the curve being shaped, or the others faint behind it too (AE's Show Selected Properties).
+    property bool othersShown: true
+    function setView(lo, hi) {
+        const span = Math.max(0.0005, hi - lo)
+        root.viewLo = lo
+        root.viewHi = lo + span
+    }
+    function fitView() {
+        root.setView(0, 1)
+        root.timeFitRequested(root.clipStart, root.clipStart + root.clipDuration)
+    }
+    // The picked keys of the focused curve, their values and handles in view, and their times.
+    function zoomToPicked() {
+        if (!root.tools || root.focusedIndex < 0 || root.focusedIndex >= root.series.length)
+            return
+        const entry = root.series[root.focusedIndex]
+        const span = Math.max(1e-6, entry.valueMax - entry.valueMin)
+        let lo = Infinity, hi = -Infinity, t0 = Infinity, t1 = -Infinity
+        for (const p of entry.points) {
+            if (!root.tools.isPicked(root.trackIndex, { clip: root.clipIndex, prop: entry.prop, seconds: p.seconds }))
+                continue
+            for (const v of [p.value, p.value + (p.inDy || 0), p.value + (p.outDy || 0)]) {
+                lo = Math.min(lo, (v - entry.valueMin) / span)
+                hi = Math.max(hi, (v - entry.valueMin) / span)
+            }
+            t0 = Math.min(t0, p.seconds)
+            t1 = Math.max(t1, p.seconds)
+        }
+        if (!isFinite(lo))
+            return
+        const pad = Math.max(0.02, (hi - lo) * 0.12)
+        root.setView(lo - pad, hi + pad)
+        if (t1 > t0)
+            root.timeFitRequested(t0 - (t1 - t0) * 0.1, t1 + (t1 - t0) * 0.1)
+    }
     // Its fastest moment, in the property's units per second (the axis top while on).
     property real speedPeak: 0
 
@@ -270,8 +347,10 @@ Item {
             return [0, 0.5, 1].map((f) => ({ "y": h - 4 - f * (h - 8), "label": fmt(top * f) + "/s" }))
         }
         const entry = root.series[root.focusedIndex]
-        const lo = entry.valueMin
-        const hi = entry.valueMax
+        void root.viewLo
+        void root.viewHi
+        const lo = root.valueForY(h, entry)
+        const hi = root.valueForY(0, entry)
         const out = []
         const n = h >= 140 ? 4 : 2
         const shown = root.displayOffset(entry.prop)
@@ -618,12 +697,13 @@ Item {
     }
     function yForValue(v, entry) {
         const span = Math.max(1e-6, entry.valueMax - entry.valueMin)
-        return graph.height - ((v - entry.valueMin) / span) * graph.height
+        const t = ((v - entry.valueMin) / span - root.viewLo) / Math.max(1e-6, root.viewHi - root.viewLo)
+        return graph.height - t * graph.height
     }
     function valueForY(y, entry) {
         const span = Math.max(1e-6, entry.valueMax - entry.valueMin)
         const t = (graph.height - y) / Math.max(1, graph.height)
-        return entry.valueMin + t * span
+        return entry.valueMin + (root.viewLo + t * (root.viewHi - root.viewLo)) * span
     }
     // Speed Graph (0.30, After Effects): the keys and their handles sit on the speed curve; a
     // handle's height is the speed on that side of its key, its reach the influence. The axis keeps
@@ -777,10 +857,55 @@ Item {
                         variant: "text"
                         buttonSize: 20
                         iconSize: 14
-                        active: root.speedGraph
-                        tooltip: root.speedGraph ? qsTr("Value graph")
-                                                 : qsTr("Speed graph")
-                        onClicked: root.speedGraph = !root.speedGraph
+                        active: root.graphType !== "value"
+                        tooltip: root.graphType === "value" ? qsTr("Graph type: value. Click: speed graph")
+                               : root.graphType === "speed" ? qsTr("Graph type: speed. Click: automatic")
+                               : qsTr("Graph type: automatic (speed for a joined Position, value for the rest). Click: value graph")
+                        onClicked: root.graphType = root.graphType === "value" ? "speed"
+                                                  : root.graphType === "speed" ? "auto" : "value"
+                    }
+                    // After Effects' Fit All and Zoom to Selection (0.30).
+                    IconButton {
+                        anchors.verticalCenter: parent.verticalCenter
+                        glyph: "square-dashed"
+                        variant: "text"
+                        buttonSize: 20
+                        iconSize: 13
+                        tooltip: qsTr("Fit the whole curve in view (Ctrl+wheel zooms the values, Alt+wheel the time)")
+                        onClicked: root.fitView()
+                    }
+                    IconButton {
+                        anchors.verticalCenter: parent.verticalCenter
+                        visible: !!root.tools && root.tools.keys.length > 0
+                        glyph: "zoom-in"
+                        variant: "text"
+                        buttonSize: 20
+                        iconSize: 13
+                        tooltip: qsTr("Zoom to the picked keyframes")
+                        onClicked: root.zoomToPicked()
+                    }
+                    IconButton {
+                        anchors.verticalCenter: parent.verticalCenter
+                        glyph: Theme.icons.layers
+                        variant: "text"
+                        buttonSize: 20
+                        iconSize: 13
+                        active: !root.othersShown
+                        tooltip: root.othersShown ? qsTr("Show only the curve being edited")
+                                                  : qsTr("Show the other properties' curves too")
+                        onClicked: root.othersShown = !root.othersShown
+                    }
+                    IconButton {
+                        anchors.verticalCenter: parent.verticalCenter
+                        visible: root.inline
+                        glyph: root.fullView ? Theme.icons.minimize : "panel-top"
+                        variant: "text"
+                        buttonSize: 20
+                        iconSize: 13
+                        active: root.fullView
+                        tooltip: root.fullView ? qsTr("Graph under its layer again")
+                                               : qsTr("Graph over the whole timeline, as After Effects' Graph Editor")
+                        onClicked: root.fullViewToggleRequested()
                     }
                     // Separate dimensions: X and Y of Position keyed apart, or together.
                     IconButton {
@@ -962,6 +1087,38 @@ Item {
                     anchors.bottom: parent.bottom
                     anchors.topMargin: 6
                     anchors.bottomMargin: 6
+
+                    // The wheel in the graph (0.30, After Effects' Graph Editor): Ctrl zooms the values
+                    // around the pointer, Alt zooms time around it, Shift scrolls time; the plain wheel
+                    // moves the values when the graph has the whole timeline, and scrolls it otherwise.
+                    WheelHandler {
+                        target: null
+                        acceptedModifiers: Qt.NoModifier | Qt.ControlModifier | Qt.AltModifier | Qt.ShiftModifier
+                        onWheel: (event) => {
+                            const d = event.angleDelta.y !== 0 ? event.angleDelta.y : event.angleDelta.x
+                            if (d === 0)
+                                return
+                            const steps = d / 120
+                            const mods = event.modifiers
+                            if (mods & Qt.ControlModifier) {
+                                const f = 1 - (graph.height - event.point.position.y) / Math.max(1, graph.height)
+                                const at = root.viewLo + (1 - f) * (root.viewHi - root.viewLo)
+                                const k = Math.pow(0.85, steps)
+                                root.setView(at - (at - root.viewLo) * k, at + (root.viewHi - at) * k)
+                            } else if (mods & Qt.AltModifier) {
+                                root.timeZoomRequested(Math.pow(1.2, steps), root.secondsForX(event.point.position.x))
+                            } else if (mods & Qt.ShiftModifier) {
+                                root.timeScrollRequested(-steps * 80)
+                            } else if (root.fullView) {
+                                const move = (root.viewHi - root.viewLo) * 0.1 * steps
+                                root.setView(root.viewLo + move, root.viewHi + move)
+                            } else {
+                                event.accepted = false
+                                return
+                            }
+                            event.accepted = true
+                        }
+                    }
 
                     // Selected clip's time span — sits under the same region as the clip.
                     Rectangle {
@@ -1156,6 +1313,9 @@ Item {
                             const spanX1 = root.xForSeconds(root.clipStart + root.clipDuration)
 
                             for (let s = 0; s < root.series.length; ++s) {
+                                // «Only the curve being edited» (0.30) leaves the others out.
+                                if (!root.othersShown && !root.isFocused(s))
+                                    continue
                                 const entry = root.series[s]
                                 const isLinkedPartner = EditorState.positionLinked
                                     && ((root.dragProp === "x" && entry.prop === "y") || (root.dragProp === "y" && entry.prop === "x"))
@@ -1345,6 +1505,9 @@ Item {
                             function onDragTangentInDyChanged() { curveCanvas.requestPaint() }
                             function onDragTangentInDxChanged() { curveCanvas.requestPaint() }
                             function onFocusedPropChanged() { curveCanvas.requestPaint() }
+                            function onViewLoChanged() { curveCanvas.requestPaint() }
+                            function onViewHiChanged() { curveCanvas.requestPaint() }
+                            function onOthersShownChanged() { curveCanvas.requestPaint() }
                             function onLaneHeightChanged() { curveCanvas.requestPaint() }
                         }
                     }
@@ -1672,6 +1835,89 @@ Item {
                                 }
                             }
                         }
+                    }
+
+                    // After Effects' transform box (0.30): two or more keys picked on the curve being shaped get
+                    // a box; its left and right sides stretch them in time and its top and bottom scale their
+                    // values, each from the side across. One undo step per drag.
+                    Item {
+                        id: transformBox
+                        readonly property var picked: {
+                            void root.series
+                            if (!root.tools || !root.curveEditing || root.speedGraph
+                                    || root.focusedIndex < 0 || root.focusedIndex >= root.series.length)
+                                return []
+                            void root.tools.keys
+                            const entry = root.series[root.focusedIndex]
+                            return entry.points.filter((p) => root.tools.isPicked(
+                                root.trackIndex, { clip: root.clipIndex, prop: entry.prop, seconds: p.seconds }))
+                        }
+                        readonly property var entry: root.focusedIndex >= 0 && root.focusedIndex < root.series.length
+                                                     ? root.series[root.focusedIndex] : null
+                        visible: picked.length >= 2 && !!entry
+                        z: 5
+                        readonly property real t0: picked.length ? Math.min(...picked.map((p) => p.seconds)) : 0
+                        readonly property real t1: picked.length ? Math.max(...picked.map((p) => p.seconds)) : 0
+                        readonly property real v0: picked.length ? Math.min(...picked.map((p) => p.value)) : 0
+                        readonly property real v1: picked.length ? Math.max(...picked.map((p) => p.value)) : 0
+                        x: root.xForSeconds(t0) - 8
+                        width: root.xForSeconds(t1) - root.xForSeconds(t0) + 16
+                        y: entry ? root.yForValue(v1, entry) - 8 : 0
+                        height: entry ? root.yForValue(v0, entry) - root.yForValue(v1, entry) + 16 : 0
+
+                        Rectangle {
+                            anchors.fill: parent
+                            color: "transparent"
+                            border.width: 1
+                            border.color: Theme.primary
+                            opacity: 0.8
+                        }
+
+                        // Where each picked key started, and where it is now in the drag.
+                        property var base: []
+                        property var now: []
+                        function begin() {
+                            const e = transformBox.entry
+                            transformBox.base = transformBox.picked.map((p) => ({ "seconds": p.seconds, "value": p.value }))
+                            transformBox.now = transformBox.base.map((b) => b.seconds)
+                            EditorState.beginPreviewDrag(qsTr("Transform keyframes"))
+                        }
+                        // side: "left", "right", "top", "bottom"; k the stretch (1 = as it was).
+                        function apply(side, k) {
+                            const e = transformBox.entry
+                            if (!e)
+                                return
+                            const b = transformBox.base
+                            const tLo = Math.min(...b.map((x) => x.seconds)), tHi = Math.max(...b.map((x) => x.seconds))
+                            const vLo = Math.min(...b.map((x) => x.value)), vHi = Math.max(...b.map((x) => x.value))
+                            const order = b.map((x, i) => i)
+                            const timed = side === "left" || side === "right"
+                            const pivotT = side === "left" ? tHi : tLo
+                            const pivotV = side === "top" ? vLo : vHi
+                            // Keys move away from (or toward) the pivot: the far ones first when growing, so
+                            // none lands on one that has not moved yet.
+                            order.sort((i, j) => {
+                                const di = Math.abs(timed ? b[i].seconds - pivotT : 0)
+                                const dj = Math.abs(timed ? b[j].seconds - pivotT : 0)
+                                return k >= 1 ? dj - di : di - dj
+                            })
+                            const refs = []
+                            for (const i of order) {
+                                const to = timed ? EditorState.snapKeyTime(pivotT + (b[i].seconds - pivotT) * k) : b[i].seconds
+                                const value = timed ? b[i].value : pivotV + (b[i].value - pivotV) * k
+                                EditorState.previewMoveClipKeyframe(root.trackIndex, root.clipIndex, e.prop,
+                                                                    transformBox.now[i], to, value)
+                                transformBox.now[i] = to
+                            }
+                            for (let i = 0; i < b.length; ++i)
+                                refs.push({ clip: root.clipIndex, prop: e.prop, seconds: transformBox.now[i] })
+                            root.tools.pick(root.trackIndex, refs)
+                        }
+
+                        BoxSide { box: transformBox; side: "left"; x: -3; width: 8; height: parent.height }
+                        BoxSide { box: transformBox; side: "right"; x: parent.width - 5; width: 8; height: parent.height }
+                        BoxSide { box: transformBox; side: "top"; y: -3; height: 8; width: parent.width; x: 0 }
+                        BoxSide { box: transformBox; side: "bottom"; y: parent.height - 5; height: 8; width: parent.width; x: 0 }
                     }
 
                     // Tangent grips for the focused curve, above the keys so they stay

@@ -370,6 +370,7 @@ private slots:
     void trackFitAnswersForAKindMatchTheAssetForms();
     void provisionalKindReadsTheExtensionAlone();
     void importFileNameStaysStorable();
+    void positionPathAndRovingKeys();
 };
 
 // A file dragged in from the file manager has no bin row yet, so the timeline's drop preview
@@ -13927,6 +13928,47 @@ void EditorStateTest::shapeAsFixedOrStuckMask()
     state.undo();
     QCOMPARE(state.project()->tracks().size(), tracksBefore);
     QCOMPARE(clip(textId)->matteClipId, shapeId);
+}
+
+// After Effects' spatial interpolation and roving keys (0.30): a curved path through three Position keys
+// gives the middle key smooth tangents; roving moves it in time so the speed along the path is even.
+void EditorStateTest::positionPathAndRovingKeys()
+{
+    AssetLibrary library;
+    AppController state(&library);
+
+    drift::Clip clip;
+    clip.id = QStringLiteral("clip-path");
+    clip.type = drift::ClipType::Shape;
+    clip.timelineStart = 0;
+    clip.timelineDuration = drift::secondsToUs(4.0);
+    clip.srcOut = drift::secondsToUs(4.0);
+    // 100 px in the first second, 900 px in the next three: roving puts the middle key at 0.4 s.
+    clip.transformX.setKeyframe(0, 0.0);
+    clip.transformX.setKeyframe(drift::secondsToUs(1.0), 100.0);
+    clip.transformX.setKeyframe(drift::secondsToUs(4.0), 1000.0);
+    clip.transformY.setKeyframe(0, 0.0);
+    clip.transformY.setKeyframe(drift::secondsToUs(1.0), 0.0);
+    clip.transformY.setKeyframe(drift::secondsToUs(4.0), 0.0);
+
+    drift::Track track{.type = drift::TrackType::Shape};
+    track.clips.append(clip);
+    state.project()->tracks().clear();
+    state.project()->tracks().append(track);
+
+    state.setPositionPath(0, 0, QStringLiteral("auto"), {});
+    const drift::Keyframe<double> mid = state.project()->tracks().at(0).clips.at(0).transformX.keyframes().value(
+        drift::secondsToUs(1.0));
+    // The slope through the middle key is the one between its neighbours: 1000 px over 4 s.
+    QVERIFY(std::abs(mid.outDy / mid.outDx - 1000.0 / drift::secondsToUs(4.0)) < 1e-9);
+    QVERIFY(std::abs(mid.inDy / mid.inDx - 1000.0 / drift::secondsToUs(4.0)) < 1e-9);
+
+    state.setPositionPath(0, 0, QStringLiteral("linear"), {});
+    state.roveKeyframes(0, 0);
+    const QList<drift::TimeUs> times = state.project()->tracks().at(0).clips.at(0).transformX.keyframes().keys();
+    QCOMPARE(times.size(), 3);
+    QVERIFY(std::abs(drift::usToSeconds(times.at(1)) - 0.4) < 0.01);
+    QCOMPARE(times.last(), drift::secondsToUs(4.0));
 }
 
 QTEST_MAIN(EditorStateTest)

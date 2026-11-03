@@ -32566,6 +32566,152 @@ void AppController::setShortcutPreset(const QString &preset)
     emit shortcutsChanged();
 }
 
+namespace {
+// The times where Position has a key, on either axis.
+QList<drift::TimeUs> positionKeyTimes(const drift::Clip &clip)
+{
+    QList<drift::TimeUs> times = clip.transformX.keyframes().keys();
+    for (const drift::TimeUs t : clip.transformY.keyframes().keys()) {
+        if (!times.contains(t))
+            times.append(t);
+    }
+    std::sort(times.begin(), times.end());
+    return times;
+}
+} // namespace
+
+void AppController::setPositionPath(int trackIndex, int clipIndex, const QString &kind, const QVariantList &seconds)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return;
+    const drift::Project before = m_project;
+    drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
+    const QList<drift::TimeUs> times = positionKeyTimes(clip);
+    if (times.size() < 2)
+        return;
+    QSet<drift::TimeUs> wanted;
+    for (const QVariant &v : seconds)
+        wanted.insert(drift::secondsToUs(v.toDouble()) - clip.timelineStart);
+    const auto isWanted = [&](drift::TimeUs t) {
+        if (wanted.isEmpty())
+            return true;
+        for (const drift::TimeUs w : wanted) {
+            if (std::abs(w - t) <= kKeyframeToleranceUs)
+                return true;
+        }
+        return false;
+    };
+    // Both axes get a key at every Position time, so the path has one set of points.
+    for (const drift::TimeUs t : times) {
+        if (!clip.transformX.keyframes().contains(t))
+            clip.transformX.setKeyframe(t, clip.transformX.evaluateAt(t));
+        if (!clip.transformY.keyframes().contains(t))
+            clip.transformY.setKeyframe(t, clip.transformY.evaluateAt(t));
+    }
+    const bool smooth = kind == QLatin1String("auto");
+    for (drift::KeyframeTrack<double> *track : {&clip.transformX, &clip.transformY}) {
+        for (int i = 0; i < times.size(); ++i) {
+            if (!isWanted(times.at(i)))
+                continue;
+            drift::Keyframe<double> key = track->keyframes().value(times.at(i));
+            key.hold = false;
+            key.corner = false;
+            if (!smooth) {
+                key.inDx = key.inDy = key.outDx = key.outDy = 0.0;
+            } else {
+                // Catmull-Rom: the slope through a key is the one between its neighbours; the
+                // ends have only one, so their outer side stays straight.
+                const int a = qMax(0, i - 1);
+                const int b = qMin(times.size() - 1, i + 1);
+                const double dt = double(times.at(b) - times.at(a));
+                const double slope = dt > 0 ? (track->keyframes().value(times.at(b)).value
+                                               - track->keyframes().value(times.at(a)).value) / dt : 0.0;
+                if (i > 0) {
+                    key.inDx = -double(times.at(i) - times.at(i - 1)) / 3.0;
+                    key.inDy = slope * key.inDx;
+                } else {
+                    key.inDx = key.inDy = 0.0;
+                }
+                if (i + 1 < times.size()) {
+                    key.outDx = double(times.at(i + 1) - times.at(i)) / 3.0;
+                    key.outDy = slope * key.outDx;
+                } else {
+                    key.outDx = key.outDy = 0.0;
+                }
+            }
+            track->setKeyframe(times.at(i), key);
+        }
+        track->setStopwatch(true);
+    }
+    pushProjectEdit(before, smooth ? tr("Curved path") : tr("Straight path"));
+    finishEdit(smooth ? tr("Curved path") : tr("Straight path"));
+}
+
+void AppController::roveKeyframes(int trackIndex, int clipIndex)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return;
+    const drift::Clip &now = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    const QList<drift::TimeUs> times = positionKeyTimes(now);
+    if (times.size() < 3) {
+        setLastMessage(tr("Roving needs at least three Position keyframes"), QStringLiteral("warning"));
+        return;
+    }
+    // How far along the path each key is, measured on what plays.
+    QList<double> along{0.0};
+    double total = 0.0;
+    for (int i = 0; i + 1 < times.size(); ++i) {
+        const int steps = 64;
+        double px = now.transformX.evaluateAt(times.at(i));
+        double py = now.transformY.evaluateAt(times.at(i));
+        for (int k = 1; k <= steps; ++k) {
+            const drift::TimeUs t = times.at(i) + (times.at(i + 1) - times.at(i)) * k / steps;
+            const double x = now.transformX.evaluateAt(t);
+            const double y = now.transformY.evaluateAt(t);
+            total += std::hypot(x - px, y - py);
+            px = x;
+            py = y;
+        }
+        along.append(total);
+    }
+    if (total <= 1e-6)
+        return;
+    const drift::Project before = m_project;
+    drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
+    const drift::TimeUs first = times.first();
+    const drift::TimeUs span = times.last() - first;
+    QList<drift::TimeUs> moved;
+    for (int i = 0; i < times.size(); ++i)
+        moved.append(i == 0 || i == times.size() - 1 ? times.at(i)
+                                                     : first + drift::TimeUs(double(span) * along.at(i) / total));
+    for (drift::KeyframeTrack<double> *track : {&clip.transformX, &clip.transformY}) {
+        QList<QPair<drift::TimeUs, drift::Keyframe<double>>> keys;
+        for (int i = 0; i < times.size(); ++i) {
+            if (!track->keyframes().contains(times.at(i)))
+                continue;
+            drift::Keyframe<double> key = track->keyframes().value(times.at(i));
+            // The handles keep their share of the segments they reach into.
+            if (i > 0) {
+                const double k = double(moved.at(i) - moved.at(i - 1)) / qMax(1.0, double(times.at(i) - times.at(i - 1)));
+                key.inDx *= k;
+                key.inDy *= k;
+            }
+            if (i + 1 < times.size()) {
+                const double k = double(moved.at(i + 1) - moved.at(i)) / qMax(1.0, double(times.at(i + 1) - times.at(i)));
+                key.outDx *= k;
+                key.outDy *= k;
+            }
+            keys.append({moved.at(i), key});
+        }
+        for (const drift::TimeUs t : times)
+            track->removeKeyframe(t);
+        for (const auto &k : keys)
+            track->setKeyframe(k.first, k.second);
+    }
+    pushProjectEdit(before, tr("Roving keyframes"));
+    finishEdit(tr("Roving keyframes"));
+}
+
 bool AppController::takeAeShortcutsOffer()
 {
     QSettings settings;

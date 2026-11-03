@@ -13,6 +13,7 @@ PanelFrame {
     component WorkAreaGrip: MouseArea {
         // "in", "out" or "both"
         property string edge: "both"
+        property real pps: 1
         property real pressX: 0
         property real startIn: 0
         property real startOut: 0
@@ -28,7 +29,7 @@ PanelFrame {
         onPositionChanged: (mouse) => {
             if (!pressed)
                 return
-            const d = (mapToItem(null, mouse.x, mouse.y).x - pressX) / root.pxPerSecond
+            const d = (mapToItem(null, mouse.x, mouse.y).x - pressX) / pps
             if (edge === "in")
                 EditorState.previewSetWorkArea(Math.min(startIn + d, startOut - 0.001), startOut)
             else if (edge === "out")
@@ -709,7 +710,10 @@ PanelFrame {
             EditorState.setTrackKeyframesExpanded(EditorState.selectedTrack, true)
     }
     readonly property int curveEditorTrack: curveEditorShown ? curveGraph.item.trackIndex : -1
-    readonly property real curveEditorHeight: curveEditorShown ? curveGraph.item.height : 0
+    // Over all the tracks (0.30, After Effects' Graph Editor in place of the bars): the track makes
+    // no room under itself then.
+    property bool graphFullView: false
+    readonly property real curveEditorHeight: curveEditorShown && !graphFullView ? curveGraph.item.height : 0
 
 
     // How tall a track's open keyframe lines are (the room the curve editor fills, 0.25).
@@ -1985,18 +1989,21 @@ PanelFrame {
                             z: 1
 
                             WorkAreaGrip {
+                                pps: root.pxPerSecond
                                 edge: "both"
                                 anchors.fill: parent
                                 anchors.leftMargin: 6
                                 anchors.rightMargin: 6
                             }
                             WorkAreaGrip {
+                                pps: root.pxPerSecond
                                 edge: "in"
                                 width: 8
                                 x: -2
                                 height: parent.height
                             }
                             WorkAreaGrip {
+                                pps: root.pxPerSecond
                                 edge: "out"
                                 width: 8
                                 x: parent.width - 6
@@ -3401,14 +3408,30 @@ PanelFrame {
                     // Opt-in from the toolbar (or a key's «Edit curve…»), open until closed.
                     active: EditorState.preferences.curveEditorVisible
                     // Under the clips and the unfolded rows of its track.
-                    y: root.curveEditorTrack >= 0
+                    y: root.graphFullView ? 0
+                       : root.curveEditorTrack >= 0
                        ? root.trackRowTop(root.curveEditorTrack) + root.trackHeight(root.curveEditorTrack)
                          - root.curveEditorHeight - flick.contentY
                        : 0
                     sourceComponent: Component {
                         KeyframeGraph {
-                            // Fills the room of the track's lines, or more when dragged taller.
-                            height: hasContent ? Math.max(laneHeight, root.keyframeLinesHeight(trackIndex)) : 0
+                            // Fills the room of the track's lines, or more when dragged taller; the whole
+                            // tracks area in the full view.
+                            height: !hasContent ? 0
+                                    : root.graphFullView ? curveOverlay.height
+                                    : Math.max(laneHeight, root.keyframeLinesHeight(trackIndex))
+                            fullView: root.graphFullView
+                            onFullViewToggleRequested: root.graphFullView = !root.graphFullView
+                            onTimeZoomRequested: (factor, anchorSeconds) => root.setZoomAround(
+                                root.zoom * factor, anchorSeconds, anchorSeconds * root.pxPerSecond - flick.contentX)
+                            onTimeScrollRequested: (pixels) => flick.contentX = Math.max(0, Math.min(
+                                Math.max(0, flick.contentWidth - flick.width), flick.contentX + pixels))
+                            onTimeFitRequested: (startSeconds, endSeconds) => {
+                                const span = Math.max(1 / 30, endSeconds - startSeconds)
+                                const usable = Math.max(1, flick.width - root.timelineEndPadPx)
+                                root.setZoomAround(usable / (span * Theme.pixelsPerSecondBase), startSeconds, 0)
+                                flick.contentX = Math.max(0, startSeconds * root.pxPerSecond)
+                            }
                             pxPerSecond: root.pxPerSecond
                             labelsWidth: 0
                             keyframesTab: true

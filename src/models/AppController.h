@@ -2288,6 +2288,13 @@ public:
     // Restores every default binding. Backspace clears a binding and persists the
     // empty string, so without this there was no route back from having cleared one.
     Q_INVOKABLE void resetShortcuts();
+    // Position's path (0.30, After Effects' spatial interpolation), on the keys at `seconds` (timeline
+    // seconds; empty = all): "auto" gives X and Y smooth tangents through each key (AE's Auto Bezier
+    // path, a Catmull-Rom spline), "linear" straight lines between keys. One undo step.
+    Q_INVOKABLE void setPositionPath(int trackIndex, int clipIndex, const QString &kind, const QVariantList &seconds);
+    // After Effects' roving keys (0.30): the inner Position keys are moved in time so the layer goes
+    // along its path at one speed from the first key to the last. One undo step.
+    Q_INVOKABLE void roveKeyframes(int trackIndex, int clipIndex);
     // The set of default shortcuts (0.30): "flip" or "afterEffects". Changing it keeps the bindings
     // the user chose; the rest follow the new set.
     Q_INVOKABLE QString shortcutPreset() const;
