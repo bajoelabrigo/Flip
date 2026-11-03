@@ -54,14 +54,14 @@ Lo que tienen CapCut, Premiere y Descript:
 - [x] Mover todos los subtítulos a la vez (adelantar o atrasar).
 - [~] Subtítulos dentro del MP4 (activables) y un `.srt` al lado del video al exportar.
 - [x] ASS con el estilo real del proyecto.
-- [ ] Palabras difíciles antes de transcribir (nombres, marcas, términos).
+- [~] Palabras difíciles antes de transcribir (nombres, marcas, términos). Hecho en la nube (keyterms de ElevenLabs); en el equipo falta (Whisper no tiene «prompt» en nuestro tokenizador).
 
 Para redes (estilo CapCut):
 - [ ] Palabras clave resaltadas por la IA (color o tamaño) y emojis animados de Stock.
 - [ ] Más plantillas de subtítulos virales en Stock (palabra por palabra, rebote, caja que sigue la palabra).
 - [~] Filtro de groserías (*** o pitido). Hecho: casilla «Ocultar groserías (m*****)» al crear (es/en); falta el pitido.
 - [ ] Revisión de ortografía.
-- [ ] Elegir la transcripción en la nube (ElevenLabs) desde el panel de subtítulos.
+- [x] Elegir la transcripción en la nube (ElevenLabs) desde el panel de subtítulos.
 
 ## Hecho
 - 2026-11-01, rama `flip/subtitulos` (sin compilar ni probar en ventana todavía; se prueba todo junto con la build):
@@ -87,3 +87,7 @@ Para redes (estilo CapCut):
   - exportar: «Guardar también los subtítulos (.srt)» junto al video (una por pista; zona de trabajo incluida).
     Falta: subtítulos dentro del MP4 (pista activable).
   - ASS exportado con fuente, tamaño, negrita, colores, contorno o caja del clip (probado compilando `SrtIO.cpp`).
+  - «En tu equipo / En la nube» en Subtítulos (sale si Ajustes › Nube tiene clave y permiso de ElevenLabs) y el campo
+    «Palabras difíciles» (se mandan como keyterms). La nube no necesita el modelo local.
+  - CI run 41385748714: compiló; solo falló `findAndReplaceInSubtitleCues` (esperaba borrar los tiempos; ahora se
+    reacomodan): prueba actualizada.
