@@ -300,7 +300,15 @@ Dialog {
                 visible: root.showAccept
                 text: root.acceptText
                 variant: root.acceptVariant
-                onClicked: root.accept()
+                // Not taking the focus: the press used to go to leaving the field being typed in,
+                // and «Apply» needed a second click (keyframe velocity, test #15). The dialogs
+                // commit their fields in onAccepted, and the focus is taken here on the click.
+                focusPolicy: Qt.NoFocus
+                onClicked: {
+                    // The field being typed in commits on losing the focus, before accepting.
+                    acceptButton.forceActiveFocus()
+                    root.accept()
+                }
             }
         }
     }

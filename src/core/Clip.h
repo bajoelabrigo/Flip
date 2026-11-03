@@ -354,6 +354,11 @@ struct Clip
     // separate, as they were made.
     bool positionJoined = false;
     bool positionSeparated = false;
+    // A shape's or a text's own size, Scale's 100 % (0.30, After Effects' layer size): kept from the
+    // size it had before it was ever scaled, so keying Scale no longer makes the new size the 100 %
+    // (a 130 % read 100 %) and the anchor's numbers stay put. 0 = not known yet.
+    double restW = 0.0;
+    double restH = 0.0;
 
     // The turn Auto-Orient adds at clip time `relative`, in degrees (0 when off or still).
     double autoOrientDegrees(TimeUs relative) const

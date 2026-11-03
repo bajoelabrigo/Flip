@@ -5246,6 +5246,26 @@
         <translation>레이어 끝점으로</translation>
     </message>
     <message>
+        <source>Add a Position keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add a Scale keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add a Rotation keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add an Opacity keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add an Anchor point keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Trim the layer&apos;s in point to the playhead</source>
         <translation>재생 헤드에서 레이어 시작 자르기</translation>
     </message>
@@ -17493,6 +17513,10 @@ NEXT TIME</source>
         <source>Timing words…</source>
         <translation>단어 타이밍을 맞추는 중…</translation>
     </message>
+    <message>
+        <source>Telling speakers apart…</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>LowerThirdDialog</name>
@@ -21954,7 +21978,7 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>value, time, wiggle(freq, amount), Math, and thisComp.layer(&quot;Name&quot;).transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. The last line is the result.</source>
+        <source>value, time, index, thisLayer, wiggle(freq, amount), linear / ease / easeIn / easeOut(t, tMin, tMax, a, b), clamp, valueAtTime(t), velocity, speed, Math, and thisComp.layer(&quot;Name&quot;).transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. The last line is the result.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -27068,10 +27092,6 @@ If playback stutters, try another.</source>
         <translation>이 클립의 시작 위치만큼 내보낸 캡션에 오프셋을 적용하여 내보낸 동영상과 맞춥니다</translation>
     </message>
     <message>
-        <source>Sign in with Google to translate captions.</source>
-        <translation>자막을 번역하려면 Google로 로그인하세요.</translation>
-    </message>
-    <message>
         <source>Translating…</source>
         <translation>번역 중…</translation>
     </message>
@@ -27286,6 +27306,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Close</source>
         <translation>닫기</translation>
+    </message>
+    <message>
+        <source>Without an account they are translated on this computer (a little slower).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign in with Google to translate captions, or install the Offline translation extra</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ignore</source>
@@ -28273,6 +28301,14 @@ If playback stutters, try another.</source>
     <message>
         <source>No words found in this clip.</source>
         <translation>이 클립에서 단어를 찾지 못했습니다.</translation>
+    </message>
+    <message>
+        <source>Listening to the clip to write down what is said… %1%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The first time takes a while; then it opens at once.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 words · %2 s</source>

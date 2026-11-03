@@ -365,7 +365,7 @@ ThemedDialog {
             size: "sm"
             color: error.length > 0 ? "#e5484d" : Theme.mutedForeground
             text: error.length > 0 ? error
-                                   : qsTr("value, time, wiggle(freq, amount), Math, and thisComp.layer(\"Name\").transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. The last line is the result.")
+                                   : qsTr("value, time, index, thisLayer, wiggle(freq, amount), linear / ease / easeIn / easeOut(t, tMin, tMax, a, b), clamp, valueAtTime(t), velocity, speed, Math, and thisComp.layer(\"Name\").transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. The last line is the result.")
         }
     }
 }

@@ -304,9 +304,24 @@ Item {
         root.viewLo = lo
         root.viewHi = lo + span
     }
+    // The curves in view, as After Effects' «Fit all graphs»: their values, and in time the stretch
+    // from the first key to the last (with a little air), not the whole clip (0.30: keys in the first
+    // second of a 17 s clip stayed squeezed at its left, test #21).
     function fitView() {
         root.setView(0, 1)
-        root.timeFitRequested(root.clipStart, root.clipStart + root.clipDuration)
+        let t0 = Infinity, t1 = -Infinity
+        for (const entry of root.series) {
+            for (const p of entry.points) {
+                t0 = Math.min(t0, p.seconds)
+                t1 = Math.max(t1, p.seconds)
+            }
+        }
+        if (!(t1 > t0)) {
+            root.timeFitRequested(root.clipStart, root.clipStart + root.clipDuration)
+            return
+        }
+        const air = (t1 - t0) * 0.08
+        root.timeFitRequested(Math.max(root.clipStart, t0 - air), Math.min(root.clipStart + root.clipDuration, t1 + air))
     }
     // The picked keys of the focused curve, their values and handles in view, and their times.
     function zoomToPicked() {
@@ -1162,7 +1177,9 @@ Item {
                     // moves the values when the graph has the whole timeline, and scrolls it otherwise.
                     WheelHandler {
                         target: null
-                        acceptedModifiers: Qt.NoModifier | Qt.ControlModifier | Qt.AltModifier | Qt.ShiftModifier
+                        // Any modifier (the handler sorts them out below): a set of flags here means all
+                        // of them pressed at once, so plain, Ctrl and Alt wheels never reached it (#16).
+                        acceptedModifiers: Qt.KeyboardModifierMask
                         onWheel: (event) => {
                             const d = event.angleDelta.y !== 0 ? event.angleDelta.y : event.angleDelta.x
                             if (d === 0)

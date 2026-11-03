@@ -1243,6 +1243,12 @@ void AppController::syncJoinedPositions(const drift::Project *before)
     }
     for (drift::Track &track : m_project.tracks()) {
         for (drift::Clip &clip : track.clips) {
+            // A shape's or a text's own size (Scale 100 %), the first time it is seen with a size.
+            if ((clip.type == drift::ClipType::Shape || clip.type == drift::ClipType::Text) && clip.restW <= 0.0
+                && !clip.transformW.isEmpty() && !clip.transformH.isEmpty()) {
+                clip.restW = qMax(1.0, clip.transformW.keyframes().first().value);
+                clip.restH = qMax(1.0, clip.transformH.keyframes().first().value);
+            }
             if (!clip.positionJoined && !clip.positionSeparated && before && stillBefore.contains(clip.id)
                 && drift::positionAnimated(clip))
                 drift::joinPosition(clip);
@@ -4089,7 +4095,8 @@ void applyDefaultVisualLayout(drift::Clip &clip, int canvasW, int canvasH, doubl
             w = canvasW * 0.6;
             h = w / aspect;
         }
-        setClipLayoutPixels(clip, 0, 0, w, h);
+        // Centred, as a new shape layer in After Effects (0.30: it landed in the top-left corner).
+        setClipLayoutPixels(clip, (canvasW - w) / 2.0, (canvasH - h) / 2.0, w, h);
         return;
     }
     if (clip.type == drift::ClipType::Text) {
@@ -5050,6 +5057,12 @@ QHash<QString, QString> defaultShortcuts()
         {QStringLiteral("stepForwardPage"), QStringLiteral("PgDown")},
         {QStringLiteral("goToLayerIn"), QString()},
         {QStringLiteral("goToLayerOut"), QString()},
+        // After Effects' Alt+Shift+P/S/R/T/A (a key on that property at the playhead): the AE set's.
+        {QStringLiteral("keyPosition"), QString()},
+        {QStringLiteral("keyScale"), QString()},
+        {QStringLiteral("keyRotation"), QString()},
+        {QStringLiteral("keyOpacity"), QString()},
+        {QStringLiteral("keyAnchor"), QString()},
     };
 }
 
@@ -5083,6 +5096,11 @@ const QHash<QString, QString> &afterEffectsShortcutChanges()
         {QStringLiteral("markOut"), QStringLiteral("N")},
         {QStringLiteral("goToLayerIn"), QStringLiteral("I")},
         {QStringLiteral("goToLayerOut"), QStringLiteral("O")},
+        {QStringLiteral("keyPosition"), QStringLiteral("Alt+Shift+P")},
+        {QStringLiteral("keyScale"), QStringLiteral("Alt+Shift+S")},
+        {QStringLiteral("keyRotation"), QStringLiteral("Alt+Shift+R")},
+        {QStringLiteral("keyOpacity"), QStringLiteral("Alt+Shift+T")},
+        {QStringLiteral("keyAnchor"), QStringLiteral("Alt+Shift+A")},
     };
     return changes;
 }
@@ -6006,6 +6024,11 @@ QVariantList AppController::actions() const
         action(QStringLiteral("goToOut"), tr("Go to work area out")),
         action(QStringLiteral("goToLayerIn"), tr("Go to the layer's in point")),
         action(QStringLiteral("goToLayerOut"), tr("Go to the layer's out point")),
+        action(QStringLiteral("keyPosition"), tr("Add a Position keyframe")),
+        action(QStringLiteral("keyScale"), tr("Add a Scale keyframe")),
+        action(QStringLiteral("keyRotation"), tr("Add a Rotation keyframe")),
+        action(QStringLiteral("keyOpacity"), tr("Add an Opacity keyframe")),
+        action(QStringLiteral("keyAnchor"), tr("Add an Anchor point keyframe")),
         action(QStringLiteral("trimInToPlayhead"), tr("Trim the layer's in point to the playhead")),
         action(QStringLiteral("trimOutToPlayhead"), tr("Trim the layer's out point to the playhead")),
         action(QStringLiteral("moveInToPlayhead"), tr("Move the layer so it starts at the playhead")),
@@ -12131,6 +12154,41 @@ void AppController::setShapePathPoints(int trackIndex, int clipIndex, const QVar
     finishEdit(tr("Path edited"));
 }
 
+void AppController::keyGroupAtPlayhead(const QString &group)
+{
+    // After Effects' Alt+Shift+P/S/R/T/A: a key on that property of every selected layer, with the
+    // value it has now, and its line shown.
+    static const QHash<QString, QStringList> props = {
+        {QStringLiteral("position"), {QStringLiteral("x"), QStringLiteral("y")}},
+        {QStringLiteral("scale"), {QStringLiteral("width"), QStringLiteral("height")}},
+        {QStringLiteral("rotation"), {QStringLiteral("rotation")}},
+        {QStringLiteral("opacity"), {QStringLiteral("opacity")}},
+        {QStringLiteral("anchor"), {QStringLiteral("anchorX"), QStringLiteral("anchorY")}},
+    };
+    const QStringList list = props.value(group);
+    if (list.isEmpty())
+        return;
+    QList<QPair<int, int>> targets;
+    for (const QVariant &v : selection()) {
+        const QVariantMap p = v.toMap();
+        targets.append({p.value(QStringLiteral("track")).toInt(), p.value(QStringLiteral("clip")).toInt()});
+    }
+    if (targets.isEmpty() && isValidClipIndex(m_selectedTrack, m_selectedClip))
+        targets.append({m_selectedTrack, m_selectedClip});
+    if (targets.isEmpty())
+        return;
+    const double at = playheadSeconds();
+    beginEditSession(tr("Add keyframe"));
+    for (const auto &t : std::as_const(targets)) {
+        if (!isValidClipIndex(t.first, t.second))
+            continue;
+        for (const QString &prop : list)
+            setClipKeyframe(t.first, t.second, prop, at, propertyValueAt(t.first, t.second, prop, at, propertyBaseValue(t.first, t.second, prop, 0.0)));
+    }
+    endEditSession(true);
+    showOnlyKeyframeGroup(group);
+}
+
 void AppController::showOnlyKeyframeGroup(const QString &group)
 {
     QSet<int> tracks;
@@ -16534,9 +16592,14 @@ QVariantMap AppController::clipNaturalSize(int trackIndex, int clipIndex)
     if (!isValidClipIndex(trackIndex, clipIndex))
         return {};
     const drift::Clip &source = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    // Its own size, once known (0.30): stays the 100 % however Scale is keyed afterwards.
+    if (source.restW > 0.0 && source.restH > 0.0)
+        return {{QStringLiteral("w"), source.restW}, {QStringLiteral("h"), source.restH}};
     // A drawn shape's 100 % is the box it was drawn with (its first size), as a shape layer in
     // After Effects; the canvas made a drawn ball read 6.8 % × 12.2 % (bounce exercise #6).
-    if (source.type == drift::ClipType::Shape && !source.transformW.isEmpty() && !source.transformH.isEmpty()) {
+    // A text's, its box (the canvas made a new title read 10 %).
+    if ((source.type == drift::ClipType::Shape || source.type == drift::ClipType::Text)
+        && !source.transformW.isEmpty() && !source.transformH.isEmpty()) {
         return {{QStringLiteral("w"), qMax(1.0, source.transformW.keyframes().first().value)},
                 {QStringLiteral("h"), qMax(1.0, source.transformH.keyframes().first().value)}};
     }
@@ -17768,6 +17831,11 @@ void AppController::translateSubtitles(int trackIndex, int clipIndex, const QStr
     });
 }
 
+bool AppController::offlineTranslationAvailable() const
+{
+    return drift::TextTranslator::modelPresent();
+}
+
 void AppController::translateSubtitlesOffline(const QString &sourceId, const QStringList &texts, const QString &source,
                                               const QString &target, const QString &label)
 {
@@ -18989,7 +19057,9 @@ void AppController::applyTextPreset(int trackIndex, int clipIndex, const QString
 
     const drift::Project before = m_project;
     int rangeStart = -1, rangeEnd = -1;
-    if (textStyleRangeFor(trackIndex, clipIndex, &rangeStart, &rangeEnd)) {
+    // A caption style is the whole subtitle clip's (0.30: with a caption open in the editor it went
+    // to some letters only, without its box, and the captions looked the same).
+    if (clip.type != drift::ClipType::Subtitle && textStyleRangeFor(trackIndex, clipIndex, &rangeStart, &rangeEnd)) {
         // Shaded letters (0.24): the template's stack (and font) go to them only.
         writeTextRangeStyle(clip, rangeStart, rangeEnd, drift::textStyleWithPresetLook(clip.textStyle, *preset));
         pushProjectEdit(before, tr("Apply text preset"));
@@ -28065,6 +28135,21 @@ QString AppController::cutSilencesAndFillers(int trackIndex, int clipIndex, doub
         return started.value(QStringLiteral("detail")).toString(code);
     }
     const QString jobId = jobs.first().toObject().value(QStringLiteral("job_id")).toString();
+    if (textEdit) {
+        m_textEditJobId = jobId;
+        static bool hooked = false;
+        if (!hooked) {
+            hooked = true;
+            connect(m_jobs, &JobRegistry::jobChanged, this, [this](const QString &id) {
+                if (id.isEmpty() || id != m_textEditJobId)
+                    return;
+                const QJsonObject job = m_jobs->job(id);
+                emit textEditProgress(job.value(QStringLiteral("progress")).toDouble(),
+                                      job.value(QStringLiteral("status")).toString());
+            });
+        }
+        emit textEditListening(trackIndex, clipIndex);
+    }
     m_pendingSilenceCuts.insert(jobId, QVariantMap{{QStringLiteral("clip"), clip.id},
                                                    {QStringLiteral("minPause"), minPause},
                                                    {QStringLiteral("fillers"), removeFillers},
@@ -28078,8 +28163,12 @@ QString AppController::cutSilencesAndFillers(int trackIndex, int clipIndex, doub
                 return;
             const QVariantMap pending = it.value();
             m_pendingSilenceCuts.remove(id);
+            if (id == m_textEditJobId)
+                m_textEditJobId.clear();
             if (!ok) {
                 setLastMessage(tr("Could not analyse the speech in this clip"), QStringLiteral("error"));
+                if (pending.value(QStringLiteral("text")).toBool())
+                    emit textEditFailed(tr("Could not analyse the speech in this clip"));
                 return;
             }
             // The transcript is stored by the job's own completion handler; run after it.
@@ -28095,6 +28184,12 @@ QString AppController::cutSilencesAndFillers(int trackIndex, int clipIndex, doub
     setLastMessage(textEdit ? tr("Listening to the clip to write down what is said…")
                             : tr("Listening to the clip to find silences…"));
     return {};
+}
+
+void AppController::cancelTextEditListening()
+{
+    if (!m_textEditJobId.isEmpty())
+        m_jobs->cancel(m_textEditJobId);
 }
 
 void AppController::applySilenceCut(const QString &clipId, double minPause, bool removeFillers, bool review,
@@ -30255,7 +30350,19 @@ bool AppController::lineModified(int trackIndex, int clipIndex, const QStringLis
         else if (prop == QLatin1String("anchorX") || prop == QLatin1String("anchorY"))
             fallback = 0.5;
         const double a = now && !now->isEmpty() ? now->evaluateAt(0) : fallback;
-        const double b = home && !home->isEmpty() ? home->evaluateAt(0) : fallback;
+        double b = home && !home->isEmpty() ? home->evaluateAt(0) : fallback;
+        // A shape's, a null's or a text's home is its own size, centred (0.30: UU listed an
+        // untouched null's Position and Scale, test #14); Reset fills the canvas only for media.
+        if ((clip.type == drift::ClipType::Shape || clip.type == drift::ClipType::Text) && clip.restW > 0.0) {
+            if (prop == QLatin1String("width"))
+                b = clip.restW;
+            else if (prop == QLatin1String("height"))
+                b = clip.restH;
+            else if (prop == QLatin1String("x"))
+                b = (m_project.width() - clip.restW) / 2.0;
+            else if (prop == QLatin1String("y"))
+                b = (m_project.height() - clip.restH) / 2.0;
+        }
         if (std::abs(a - b) > 1e-3 * qMax(1.0, std::abs(b)))
             return true;
     }
@@ -30907,7 +31014,16 @@ QVariantList AppController::trackKeyframeRows(int trackIndex) const
                 continue;
             // Separate Dimensions (0.26): X Position and Y Position, each a property of its own
             // with its own stopwatch and keys, in place of the joined Position line.
-            const bool separated = groupId == QLatin1String("position") && m_dimensionsSeparated;
+            // Each clip's own choice decides (0.30): joined Position is one line, Separate Dimensions
+            // two; with neither on the track, the old preference.
+            bool anyJoined = false;
+            bool anySeparated = false;
+            for (int c = 0; c < clipCount; ++c) {
+                anyJoined = anyJoined || track.clips.at(c).positionJoined;
+                anySeparated = anySeparated || track.clips.at(c).positionSeparated;
+            }
+            const bool separated = groupId == QLatin1String("position")
+                                   && (anyJoined ? false : (anySeparated || m_dimensionsSeparated));
             const bool expanded = !separated && group.props.size() > 1
                 && m_keyframeGroupsExpanded.contains(track.id + QLatin1Char('|') + groupId);
             if (!separated) {
@@ -32844,6 +32960,11 @@ void AppController::setPositionPath(int trackIndex, int clipIndex, const QString
     finishEdit(smooth ? tr("Curved path") : tr("Straight path"));
 }
 
+bool AppController::positionSeparated(int trackIndex, int clipIndex) const
+{
+    return isValidClipIndex(trackIndex, clipIndex) && m_project.tracks().at(trackIndex).clips.at(clipIndex).positionSeparated;
+}
+
 bool AppController::positionJoined(int trackIndex, int clipIndex) const
 {
     return isValidClipIndex(trackIndex, clipIndex) && m_project.tracks().at(trackIndex).clips.at(clipIndex).positionJoined;
@@ -32851,7 +32972,11 @@ bool AppController::positionJoined(int trackIndex, int clipIndex) const
 
 void AppController::setPositionJoined(int trackIndex, int clipIndex, bool joined)
 {
-    if (!isValidClipIndex(trackIndex, clipIndex) || positionJoined(trackIndex, clipIndex) == joined)
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return;
+    // Separating a clip that never moved still counts: it stays separate when it starts to.
+    if (positionJoined(trackIndex, clipIndex) == joined
+        && (joined || positionSeparated(trackIndex, clipIndex)))
         return;
     const drift::Project before = m_project;
     drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
@@ -33267,6 +33392,8 @@ void AppController::triggerAction(const QString &actionId)
              || actionId == QStringLiteral("moveInToPlayhead") || actionId == QStringLiteral("moveOutToPlayhead")
              || actionId == QStringLiteral("goToLayerIn") || actionId == QStringLiteral("goToLayerOut"))
         layerEditAtPlayhead(actionId);
+    else if (actionId.startsWith(QLatin1String("key")) && actionId.size() > 3 && actionId.at(3).isUpper())
+        keyGroupAtPlayhead(actionId.mid(3).toLower());
     else if (actionId == QStringLiteral("goToStart"))
         setPlayheadUs(0);
     else if (actionId == QStringLiteral("deleteLeft"))

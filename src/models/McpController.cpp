@@ -3844,7 +3844,7 @@ QJsonObject McpController::diarize(const QString &assetId, const QJsonObject &op
             *turns = diarizer.diarize(
                 pcm, params,
                 [&ctx](double f) {
-                    ctx.progress(0.1 + 0.9 * f, QStringLiteral("Telling speakers apart…"));
+                    ctx.progress(0.1 + 0.9 * f, QCoreApplication::translate("LocalTranscription", "Telling speakers apart…"));
                     return !ctx.cancelled();
                 },
                 &cancelled);

@@ -798,11 +798,16 @@ Item {
                     onActivated: translatePrefs.translateTo = currentValue
                 }
 
+                // Without an account the captions are translated on this computer, when its model is
+                // installed (0.30): the button only waits for an account when there is none of both.
+                readonly property bool offline: EditorState.offlineTranslationAvailable()
                 Text {
                     visible: !Account.signedIn
                     width: parent.width
                     wrapMode: Text.WordWrap
-                    text: qsTr("Sign in with Google to translate captions.")
+                    text: translateColumn.offline
+                          ? qsTr("Without an account they are translated on this computer (a little slower).")
+                          : qsTr("Sign in with Google to translate captions, or install the Offline translation extra")
                     color: Theme.mutedForeground
                     font.family: Theme.fontFamily
                     font.pixelSize: Theme.fontSizeXs
@@ -821,7 +826,7 @@ Item {
                         width: (parent.width - parent.spacing) / 2
                         text: EditorState.subtitleTranslating ? qsTr("Translating…") : qsTr("Translate")
                         variant: "primary"
-                        enabled: Account.signedIn && !EditorState.subtitleTranslating
+                        enabled: (Account.signedIn || translateColumn.offline) && !EditorState.subtitleTranslating
                         onClicked: EditorState.translateSubtitles(root.trackIndex, root.clipIndex,
                                                                   translateLanguageBox.currentValue)
                     }

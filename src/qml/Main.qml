@@ -1129,6 +1129,10 @@ ApplicationWindow {
         function onTextEditReady(track, clip) {
             textEditWindowLoader.ensure().openFor(track, clip)
         }
+        // Open at once while the clip is listened to (it shows the progress itself from then on).
+        function onTextEditListening(track, clip) {
+            textEditWindowLoader.ensure().openListening(track, clip)
+        }
     }
 
     LazyLoader {

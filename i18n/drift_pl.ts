@@ -5280,6 +5280,26 @@
         <translation>Przejdź na koniec warstwy</translation>
     </message>
     <message>
+        <source>Add a Position keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add a Scale keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add a Rotation keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add an Opacity keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add an Anchor point keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Trim the layer&apos;s in point to the playhead</source>
         <translation>Przytnij początek warstwy do głowicy</translation>
     </message>
@@ -17619,6 +17639,10 @@ ZOBACZENIA</translation>
         <source>Timing words…</source>
         <translation>Synchronizowanie słów…</translation>
     </message>
+    <message>
+        <source>Telling speakers apart…</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>LowerThirdDialog</name>
@@ -22122,7 +22146,7 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>value, time, wiggle(freq, amount), Math, and thisComp.layer(&quot;Name&quot;).transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. The last line is the result.</source>
+        <source>value, time, index, thisLayer, wiggle(freq, amount), linear / ease / easeIn / easeOut(t, tMin, tMax, a, b), clamp, valueAtTime(t), velocity, speed, Math, and thisComp.layer(&quot;Name&quot;).transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. The last line is the result.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -27258,10 +27282,6 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
         <translation>Przesuń wyeksportowane napisy o początek tego klipu, aby pasowały do wyeksportowanego wideo</translation>
     </message>
     <message>
-        <source>Sign in with Google to translate captions.</source>
-        <translation>Zaloguj się przez Google, aby tłumaczyć napisy.</translation>
-    </message>
-    <message>
         <source>Translating…</source>
         <translation>Tłumaczenie…</translation>
     </message>
@@ -27476,6 +27496,14 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     <message>
         <source>Close</source>
         <translation>Zamknij</translation>
+    </message>
+    <message>
+        <source>Without an account they are translated on this computer (a little slower).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign in with Google to translate captions, or install the Offline translation extra</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ignore</source>
@@ -28467,6 +28495,14 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     <message>
         <source>No words found in this clip.</source>
         <translation>W tym klipie nie znaleziono słów.</translation>
+    </message>
+    <message>
+        <source>Listening to the clip to write down what is said… %1%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The first time takes a while; then it opens at once.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 words · %2 s</source>

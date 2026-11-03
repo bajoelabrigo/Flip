@@ -5263,6 +5263,26 @@
         <translation>Ir al final de la capa</translation>
     </message>
     <message>
+        <source>Add a Position keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add a Scale keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add a Rotation keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add an Opacity keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add an Anchor point keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Trim the layer&apos;s in point to the playhead</source>
         <translation>Recortar el inicio de la capa en el cabezal</translation>
     </message>
@@ -17556,6 +17576,10 @@ LA PRÓXIMA</translation>
         <source>Timing words…</source>
         <translation>Sincronizando las palabras…</translation>
     </message>
+    <message>
+        <source>Telling speakers apart…</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>LowerThirdDialog</name>
@@ -22038,8 +22062,8 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Expresión guardada como «%1»</translation>
     </message>
     <message>
-        <source>value, time, wiggle(freq, amount), Math, and thisComp.layer(&quot;Name&quot;).transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. The last line is the result.</source>
-        <translation>value, time, wiggle(frecuencia, cantidad), Math y thisComp.layer(&quot;Nombre&quot;).transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. La última línea es el resultado.</translation>
+        <source>value, time, index, thisLayer, wiggle(freq, amount), linear / ease / easeIn / easeOut(t, tMin, tMax, a, b), clamp, valueAtTime(t), velocity, speed, Math, and thisComp.layer(&quot;Name&quot;).transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. The last line is the result.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -27164,10 +27188,6 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Desplaza los subtítulos exportados según el inicio de este clip para que coincidan con el video exportado</translation>
     </message>
     <message>
-        <source>Sign in with Google to translate captions.</source>
-        <translation>Inicia sesión con Google para traducir subtítulos.</translation>
-    </message>
-    <message>
         <source>Translating…</source>
         <translation>Traduciendo…</translation>
     </message>
@@ -27382,6 +27402,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Close</source>
         <translation>Cerrar</translation>
+    </message>
+    <message>
+        <source>Without an account they are translated on this computer (a little slower).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign in with Google to translate captions, or install the Offline translation extra</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ignore</source>
@@ -28371,6 +28399,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>No words found in this clip.</source>
         <translation>No se encontraron palabras en este clip.</translation>
+    </message>
+    <message>
+        <source>Listening to the clip to write down what is said… %1%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The first time takes a while; then it opens at once.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 words · %2 s</source>

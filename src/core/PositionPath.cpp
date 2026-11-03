@@ -179,9 +179,10 @@ void joinPosition(Clip &clip)
     for (KeyframeTrack<double> *track : {&clip.transformX, &clip.transformY}) {
         for (const TimeUs t : track->keyframes().keys()) {
             Keyframe<double> *key = track->keyframeRef(t);
+            // A key that was joined before keeps its path handles (a straight corner stays one:
+            // separating and joining again rounded every bounce, test #8); a new one starts as
+            // Auto Bezier (the default of spatialAuto).
             key->spatial = true;
-            key->spatialAuto = true;
-            key->spIn = key->spOut = 0.0;
             timingFromValue(*key);
         }
     }
@@ -210,9 +211,9 @@ void separatePosition(Clip &clip)
             key->outDy = toNext > 0 ? key->spOut : 0.0;
             if (qFuzzyIsNull(key->inDy) && qFuzzyIsNull(key->outDy))
                 key->inDx = key->outDx = 0.0;
+            // The path handles are kept (unused while separate) for joining again.
             key->spatial = false;
-            key->spatialAuto = true;
-            key->spIn = key->spOut = key->pathDistance = 0.0;
+            key->pathDistance = 0.0;
             key->pathArc.fill(0.0f);
         }
     }

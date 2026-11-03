@@ -5246,6 +5246,26 @@
         <translation>转到图层出点</translation>
     </message>
     <message>
+        <source>Add a Position keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add a Scale keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add a Rotation keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add an Opacity keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add an Anchor point keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Trim the layer&apos;s in point to the playhead</source>
         <translation>在播放头处修剪图层入点</translation>
     </message>
@@ -17493,6 +17513,10 @@ NEXT TIME</source>
         <source>Timing words…</source>
         <translation>正在对齐每个字词…</translation>
     </message>
+    <message>
+        <source>Telling speakers apart…</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>LowerThirdDialog</name>
@@ -21954,7 +21978,7 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>value, time, wiggle(freq, amount), Math, and thisComp.layer(&quot;Name&quot;).transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. The last line is the result.</source>
+        <source>value, time, index, thisLayer, wiggle(freq, amount), linear / ease / easeIn / easeOut(t, tMin, tMax, a, b), clamp, valueAtTime(t), velocity, speed, Math, and thisComp.layer(&quot;Name&quot;).transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. The last line is the result.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -27069,10 +27093,6 @@ If playback stutters, try another.</source>
         <translation>按此片段的起点偏移导出的字幕，使其与导出的视频对齐</translation>
     </message>
     <message>
-        <source>Sign in with Google to translate captions.</source>
-        <translation>使用 Google 登录以翻译字幕。</translation>
-    </message>
-    <message>
         <source>Translating…</source>
         <translation>翻译中…</translation>
     </message>
@@ -27287,6 +27307,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Close</source>
         <translation>关闭</translation>
+    </message>
+    <message>
+        <source>Without an account they are translated on this computer (a little slower).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign in with Google to translate captions, or install the Offline translation extra</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ignore</source>
@@ -28274,6 +28302,14 @@ If playback stutters, try another.</source>
     <message>
         <source>No words found in this clip.</source>
         <translation>此片段中没有找到词语。</translation>
+    </message>
+    <message>
+        <source>Listening to the clip to write down what is said… %1%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The first time takes a while; then it opens at once.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 words · %2 s</source>

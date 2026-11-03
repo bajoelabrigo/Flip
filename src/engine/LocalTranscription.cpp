@@ -252,7 +252,7 @@ LocalTranscribeResult transcribeLocal(const std::vector<float> &pcmIn, TimeUs of
         params.numSpeakers = options.numSpeakers;
         bool cancelled = false;
         const QList<DiarizeSegment> turns = diarizer.diarize(
-            pcmIn, params, [&](double f) { return report(0.95 + 0.05 * f, QStringLiteral("Telling speakers apart…")); },
+            pcmIn, params, [&](double f) { return report(0.95 + 0.05 * f, QCoreApplication::translate("LocalTranscription", "Telling speakers apart…")); },
             &cancelled);
         if (cancelled) {
             result.cancelled = true;

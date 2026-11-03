@@ -1494,6 +1494,10 @@ Item {
                             // Position keys to make up for it.
                             EditorState.previewSetPropertyValue(track, clip, "width", at, w)
                             EditorState.previewSetPropertyValue(track, clip, "height", at, h)
+                            // A text's letters grow with it, as a scaled text layer (its box alone
+                            // grew and the words stayed the same size).
+                            if (st.text)
+                                EditorState.previewSetPropertyValue(track, clip, "text.pixelSize", at, Math.max(1, Math.round(st.px * k)))
                         }
                         // Position reads where the anchor point is, as in After Effects (0.30): the
                         // stored value is the box's corner, so the line adds the anchor's place in
@@ -1506,6 +1510,16 @@ Item {
                         // The layer's own size on one axis: the size it grows from when the size is
                         // animated (the first key), else the size it has. The anchor is measured in it,
                         // so scaling does not change the anchor's numbers (bounce exercise #17).
+                        // The layer's own size (Scale 100 %) once known, for the anchor's numbers: in
+                        // After Effects they are the layer's pixels, which scaling does not change
+                        // (scaling a ball made its anchor read 337 for 259: bounce test #7).
+                        function layerSide(sizeProp) {
+                            const nat = keyLine.naturalSize
+                            const c = EditorState.clipAt(keyLines.trackIndex, keyLine.clip) || {}
+                            if ((c.kind === "shape" || c.kind === "text") && nat && nat.w > 0 && nat.h > 0)
+                                return sizeProp === "width" ? nat.w : nat.h
+                            return keyLine.restSide(sizeProp)
+                        }
                         function restSide(sizeProp) {
                             const keys = EditorState.clipAnimatedProperties(keyLines.trackIndex, keyLine.clip).indexOf(sizeProp) >= 0
                                          ? (EditorState.clipKeyframes(keyLines.trackIndex, keyLine.clip, sizeProp) || []) : []
@@ -1534,8 +1548,8 @@ Item {
                                 return [keyLine.positionValue("x", "X"), keyLine.positionValue("y", "Y")]
                             if (group === "anchor") {
                                 // In the box's own pixels, as After Effects; stored as fractions.
-                                const w = Math.max(1, keyLine.restSide("width"))
-                                const h = Math.max(1, keyLine.restSide("height"))
+                                const w = Math.max(1, keyLine.layerSide("width"))
+                                const h = Math.max(1, keyLine.layerSide("height"))
                                 return [{ "prop": "anchorX", "tag": "X", "toDisplay": (f) => f * w, "fromDisplay": (d) => d / w,
                                           "min": -1e6, "max": 1e6, "step": 1, "decimals": 0, "suffix": "" },
                                         { "prop": "anchorY", "tag": "Y", "toDisplay": (f) => f * h, "fromDisplay": (d) => d / h,
@@ -1575,7 +1589,7 @@ Item {
                             if (prop === "width" || prop === "height")
                                 return [plain(prop, "", 1, 0, "")]
                             if (prop === "anchorX" || prop === "anchorY") {
-                                const side = Math.max(1, keyLine.restSide(prop === "anchorX" ? "width" : "height"))
+                                const side = Math.max(1, keyLine.layerSide(prop === "anchorX" ? "width" : "height"))
                                 return [{ "prop": prop, "tag": "", "toDisplay": (f) => f * side, "fromDisplay": (d) => d / side,
                                           "min": -1e6, "max": 1e6, "step": 1, "decimals": 0, "suffix": "" }]
                             }
@@ -2065,8 +2079,19 @@ Item {
                                 visible: keyLine.modelData.group === "position"
                                 height: visible ? implicitHeight : 0
                                 text: qsTr("Separate dimensions")
-                                icon.name: EditorState.positionLinked ? "" : Theme.icons.check
-                                onTriggered: EditorState.positionLinked = !EditorState.positionLinked
+                                // The clip's own choice (0.30): checked when its X and Y are apart.
+                                readonly property bool separated: {
+                                    void EditorState.tracksRevision
+                                    return keyLine.clip >= 0
+                                           && (EditorState.positionSeparated(keyLines.trackIndex, keyLine.clip)
+                                               || (!EditorState.positionJoined(keyLines.trackIndex, keyLine.clip)
+                                                   && !EditorState.positionLinked))
+                                }
+                                icon.name: separated ? Theme.icons.check : ""
+                                onTriggered: {
+                                    if (keyLine.clip >= 0)
+                                        EditorState.setPositionJoined(keyLines.trackIndex, keyLine.clip, separated)
+                                }
                             }
                             ThemedMenuSeparator {}
                             ThemedMenuItem {

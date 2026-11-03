@@ -828,6 +828,8 @@ public:
     // Runs `fn` once per track the picked keys are on, each time with that track's keys as the
     // pick, in one undo step; false (and nothing run) when they are all on one track.
     bool eachPickedTrack(const QString &label, const std::function<void()> &fn);
+    // A key on a property group ("position", "scale"…) of the selected layers at the playhead.
+    void keyGroupAtPlayhead(const QString &group);
     void setPickedKeyframes(const QVariantMap &picked)
     {
         if (picked == m_pickedKeyframes)
@@ -1255,6 +1257,10 @@ public:
     // second caption clip above the original: bilingual videos. The languages: [{code, label}].
     Q_INVOKABLE QVariantList subtitleTranslationLanguages() const;
     Q_INVOKABLE void translateSubtitles(int trackIndex, int clipIndex, const QString &language);
+    // Stops the listening «Edit with the text» started.
+    Q_INVOKABLE void cancelTextEditListening();
+    // The Offline translation extra is installed: captions can be translated without an account.
+    Q_INVOKABLE bool offlineTranslationAvailable() const;
     // The captions translated on this computer (0.30): no account, no internet, or DeepL's month spent.
     void translateSubtitlesOffline(const QString &sourceId, const QStringList &texts, const QString &source,
                                    const QString &target, const QString &label);
@@ -2304,6 +2310,7 @@ public:
     Q_INVOKABLE void setPositionPath(int trackIndex, int clipIndex, const QString &kind, const QVariantList &seconds);
     // After Effects' Position as one property (0.30, core/PositionPath) and Separate Dimensions.
     Q_INVOKABLE bool positionJoined(int trackIndex, int clipIndex) const;
+    Q_INVOKABLE bool positionSeparated(int trackIndex, int clipIndex) const;
     Q_INVOKABLE void setPositionJoined(int trackIndex, int clipIndex, bool joined);
     // A joined Position key's handles on the motion path, px from the key; they stop following
     // the neighbours (Auto Bezier) once set.
@@ -2530,6 +2537,11 @@ signals:
     void subtitleTranslatingChanged();
     // editClipByText has the clip's words: open the text editor.
     void textEditReady(int trackIndex, int clipIndex);
+    // «Edit with the text» while the clip is first listened to (0.30, Jorge: it took half a minute
+    // with no sign of life): the window opens at once and shows how far it has got.
+    void textEditListening(int trackIndex, int clipIndex);
+    void textEditProgress(double fraction, const QString &status);
+    void textEditFailed(const QString &message);
     void reverseRenderingChanged();
     void reverseRenderProgressChanged();
     void reverseRenderStatusChanged();
@@ -3128,6 +3140,7 @@ protected:
     QString m_penTargetLayerId;
     // Set while Squash & Stretch or Bend add their effect, so the selection stays on the clip.
     bool m_addEffectKeepsSelection = false;    QVariantMap m_pickedKeyframes;
+    QString m_textEditJobId; // the transcription «Edit with the text» waits on
     QString m_keyframeRowsOnlyGroup;
     int m_selectionRevision = 0;
     int m_timelineTrimCursorSide = 0;

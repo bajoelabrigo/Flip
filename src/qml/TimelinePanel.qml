@@ -1588,6 +1588,19 @@ PanelFrame {
                 TrackHeaderColumn {
                     id: trackLabelsArea
                     keyframeTools: keyTools
+                    // The wheel over the names and lines scrolls the tracks up and down, as over the
+                    // clips (0.30: a short panel left Scale's line out of reach, test #4).
+                    WheelHandler {
+                        target: null
+                        acceptedModifiers: Qt.KeyboardModifierMask
+                        onWheel: (event) => {
+                            if (event.modifiers & (Qt.ControlModifier | Qt.ShiftModifier | Qt.AltModifier))
+                                return
+                            const dy = event.angleDelta.y
+                            if (dy !== 0 && flick.contentHeight > flick.height)
+                                root.panTimelineBy(0, dy)
+                        }
+                    }
                     width: parent.width
                     // Clamped: went negative at small panel heights, which spilled
                     // the absolutely-positioned label rows out of the column.
@@ -3419,7 +3432,9 @@ PanelFrame {
                             // tracks area in the full view.
                             height: !hasContent ? 0
                                     : root.graphFullView ? curveOverlay.height
-                                    : Math.max(laneHeight, root.keyframeLinesHeight(trackIndex))
+                                    // Room to work in even under a single line (0.30: one Scale line
+                                    // left the graph about 50 px tall, test #22).
+                                    : Math.max(160, laneHeight, root.keyframeLinesHeight(trackIndex))
                             fullView: root.graphFullView
                             onFullViewToggleRequested: root.graphFullView = !root.graphFullView
                             onTimeZoomRequested: (factor, anchorSeconds) => root.setZoomAround(

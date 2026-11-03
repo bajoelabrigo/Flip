@@ -392,8 +392,11 @@ Item {
                             anchors.rightMargin: 6
                             verticalAlignment: Text.AlignVCenter
                             elide: Text.ElideRight
+                            // One line in the block: a two-line caption's break let the first line run
+                            // past the block's end (eliding works on single lines only).
+                            clip: true
                             text: (block.modelData.text && block.modelData.text.length)
-                                  ? block.modelData.text : qsTr("(empty)")
+                                  ? block.modelData.text.replace(/\s*\n\s*/g, " ") : qsTr("(empty)")
                             color: Theme.onMedia
                             font.family: Theme.fontFamily
                             font.pixelSize: Theme.fontSizeXs

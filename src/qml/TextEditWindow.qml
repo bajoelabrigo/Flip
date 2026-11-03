@@ -15,6 +15,11 @@ ToolWindow {
     property var words: []
     property var struck: [] // one bool per word
     property int lastClicked: -1
+    // The clip is being listened to first: the window is open, with how far it has got.
+    property bool listening: false
+    property real listenProgress: 0
+    property string listenStatus: ""
+    property string failure: ""
 
     readonly property int struckCount: struck.filter(s => s).length
     readonly property double struckSeconds: {
@@ -33,7 +38,41 @@ ToolWindow {
     title: qsTr("Edit by text")
     color: Theme.appBackground
 
+    function openListening(track, clip) {
+        root.trackIndex = track
+        root.clipIndex = clip
+        root.words = []
+        root.struck = []
+        root.listening = true
+        root.listenProgress = 0
+        root.listenStatus = ""
+        root.failure = ""
+        root.show()
+        root.raise()
+        root.requestActivate()
+    }
+
+    Connections {
+        target: EditorState
+        function onTextEditProgress(fraction, status) {
+            root.listenProgress = fraction
+            if (status.length > 0)
+                root.listenStatus = status
+        }
+        function onTextEditFailed(message) {
+            root.listening = false
+            root.failure = message
+        }
+    }
+    onClosing: {
+        if (root.listening)
+            EditorState.cancelTextEditListening()
+        root.listening = false
+    }
+
     function openFor(track, clip) {
+        root.listening = false
+        root.failure = ""
         root.trackIndex = track
         root.clipIndex = clip
         root.words = EditorState.clipTranscriptWords(track, clip)
@@ -158,12 +197,39 @@ ToolWindow {
 
         ThemedLabel {
             anchors.centerIn: parent
-            visible: root.words.length === 0
+            visible: root.words.length === 0 && !root.listening
             width: parent.width
             horizontalAlignment: Text.AlignHCenter
             wrapMode: Text.WordWrap
             size: "sm"
-            text: qsTr("No words found in this clip.")
+            text: root.failure.length > 0 ? root.failure : qsTr("No words found in this clip.")
+        }
+
+        Column {
+            anchors.centerIn: parent
+            visible: root.listening
+            width: Math.min(parent.width - 40, 360)
+            spacing: Theme.spacingMd
+            ThemedLabel {
+                width: parent.width
+                horizontalAlignment: Text.AlignHCenter
+                wrapMode: Text.WordWrap
+                text: qsTr("Listening to the clip to write down what is said… %1%")
+                          .arg(Math.round(root.listenProgress * 100))
+            }
+            ThemedProgressBar {
+                width: parent.width
+                value: root.listenProgress
+            }
+            ThemedLabel {
+                width: parent.width
+                horizontalAlignment: Text.AlignHCenter
+                wrapMode: Text.WordWrap
+                size: "sm"
+                tone: "muted"
+                text: root.listenStatus.length > 0 ? root.listenStatus
+                                                   : qsTr("The first time takes a while; then it opens at once.")
+            }
         }
     }
 
