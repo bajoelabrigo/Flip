@@ -27,7 +27,7 @@ Cómo seguir: marcar cada punto al terminarlo con el commit; probar en ventana a
 - [x] 5. Importar un SRT lo pone en el cabezal: si no está en 0, queda desfasado.
 - [x] 6. El SRT exportado sale desfasado si el clip no empieza en 0 (la opción por defecto es la equivocada).
 - [x] 7. Generar dos veces sobre el mismo tramo encima dos clips de subtítulos.
-- [~] 8. Una sola línea de 42 letras, también en vertical; no permite dos líneas (`packSubtitleCues`).
+- [x] 8. Una sola línea de 42 letras, también en vertical; no permite dos líneas (`packSubtitleCues`).
 - [x] 9. El candado de la pista no protege los subtítulos (`setSubtitleCues`, `importSubtitleFileIntoClip`).
 - [x] 10. Curvas de velocidad y clips en reversa: subtítulos mal sincronizados.
 - [~] 11. Chino, japonés y tailandés: se sincronizan mal (separan palabras por espacios).
@@ -96,3 +96,5 @@ Para redes (estilo CapCut):
   - chino y japonés: cada ideograma o kana es una unidad y cuenta doble de ancho, así se parten en subtítulos del
     largo justo (probado compilando `SubtitleCue.cpp`). El tailandés queda igual (sus palabras no se pueden partir
     por letra) y el alineador de palabras no tiene modelos para estos idiomas.
+  - casilla «Dos líneas por subtítulo» al crear (se recuerda): el empaquetado ya admitía dos líneas pero al final
+    cambiaba el salto por un espacio, así que nunca salían (probado compilando `SubtitleCue.cpp`).

@@ -26977,6 +26977,10 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
         <translation>Stile dei sottotitoli selezionati</translation>
     </message>
     <message>
+        <source>Two lines per caption</source>
+        <translation>Due righe per sottotitolo</translation>
+    </message>
+    <message>
         <source>Hide swear words (m*****)</source>
         <translation>Nascondi le parolacce (c****)</translation>
     </message>

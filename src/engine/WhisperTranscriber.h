@@ -50,11 +50,12 @@ public:
     // languageCode: ISO-ish Whisper code ("en", "si", …). Empty = auto-detect from audio.
     // maxWordsPerCue: cap on words per subtitle cue; 0 leaves the default packing alone.
     // translateToEnglish: Whisper's translate task — the speech, in any language, written in
-    // English (the only target the model has). maxLineWidth: letters per caption (by the frame's shape).
+    // English (the only target the model has). maxLineWidth: letters per caption line (by the frame's
+    // shape); maxLineCount: lines per caption.
     WhisperResult transcribe(const std::vector<float> &pcm,
                              const std::function<bool(double, const QString &)> &progress,
                              const QString &languageCode = QString(), int maxWordsPerCue = 0,
-                             bool translateToEnglish = false, int maxLineWidth = 42);
+                             bool translateToEnglish = false, int maxLineWidth = 42, int maxLineCount = 1);
 
     // Whisper's own timestamped segments, unpacked: what word alignment starts from.
     WhisperResult transcribeSegments(const std::vector<float> &pcm,

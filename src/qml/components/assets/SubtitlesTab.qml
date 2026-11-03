@@ -285,6 +285,14 @@ Item {
             ThemedCheckBox {
                 visible: root.captionEngineReady
                 width: subtitleColumn.contentWidth
+                text: qsTr("Two lines per caption")
+                checked: EditorState.subtitleTwoLines()
+                onToggled: EditorState.setSubtitleTwoLines(checked)
+            }
+
+            ThemedCheckBox {
+                visible: root.captionEngineReady
+                width: subtitleColumn.contentWidth
                 text: qsTr("Hide swear words (m*****)")
                 checked: EditorState.subtitleProfanityFilter()
                 onToggled: EditorState.setSubtitleProfanityFilter(checked)

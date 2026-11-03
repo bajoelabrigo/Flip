@@ -26883,6 +26883,10 @@ If playback stutters, try another.</source>
         <translation>選択した字幕のスタイル</translation>
     </message>
     <message>
+        <source>Two lines per caption</source>
+        <translation>字幕ごとに2行</translation>
+    </message>
+    <message>
         <source>Hide swear words (m*****)</source>
         <translation>汚い言葉を隠す（f***）</translation>
     </message>

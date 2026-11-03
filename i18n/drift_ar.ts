@@ -27353,6 +27353,10 @@ If playback stutters, try another.</source>
         <translation>نمط الترجمات المحددة</translation>
     </message>
     <message>
+        <source>Two lines per caption</source>
+        <translation>سطران لكل ترجمة</translation>
+    </message>
+    <message>
         <source>Hide swear words (m*****)</source>
         <translation>إخفاء الشتائم (ش****)</translation>
     </message>

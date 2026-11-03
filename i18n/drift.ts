@@ -26965,6 +26965,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Two lines per caption</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Hide swear words (m*****)</source>
         <translation type="unfinished"></translation>
     </message>

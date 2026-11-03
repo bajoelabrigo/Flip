@@ -1218,6 +1218,8 @@ public:
     Q_INVOKABLE QString subtitleKeytermsText() const;
     Q_INVOKABLE void setSubtitleKeytermsText(const QString &text);
     QStringList subtitleKeyterms() const;
+    Q_INVOKABLE bool subtitleTwoLines() const;
+    Q_INVOKABLE void setSubtitleTwoLines(bool enabled);
     Q_INVOKABLE bool subtitleProfanityFilter() const;
     Q_INVOKABLE void setSubtitleProfanityFilter(bool enabled);
     Q_INVOKABLE void addEmojisToSubtitles(int trackIndex, int clipIndex);
@@ -2702,6 +2704,7 @@ protected:
     void finishNormalize(const QString &clipId, double lufs, double targetLufs);
     bool m_normalizing = false;
     int subtitleLineWidth() const; // letters per generated caption, by the frame's shape
+    int subtitleLineCount() const { return subtitleTwoLines() ? 2 : 1; }
     // The captions of each visible subtitle track in the exported video's times (bottom track first),
     // and writing them next to the video as «name.srt», «name.2.srt»…
     QList<QList<drift::SubtitleCue>> subtitleSidecarCues(const drift::Project &project, drift::TimeUs rangeStart,

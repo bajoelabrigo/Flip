@@ -26883,6 +26883,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Kiểu của phụ đề đã chọn</translation>
     </message>
     <message>
+        <source>Two lines per caption</source>
+        <translation>Hai dòng mỗi phụ đề</translation>
+    </message>
+    <message>
         <source>Hide swear words (m*****)</source>
         <translation>Ẩn từ tục tĩu (đ**)</translation>
     </message>

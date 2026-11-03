@@ -9875,7 +9875,7 @@ std::optional<QList<drift::SubtitleCue>> AppController::cuesFromStoredTranscript
             return qBound(source.timelineStart, at, source.timelineStart + source.timelineDuration) - rangeStart;
         };
         for (const drift::SubtitleCue &cue :
-             drift::cuesFromTranscript(*t, source.srcIn, source.srcOut, subtitleLineWidth(), 1, qMax(0, maxWordsPerCue))) {
+             drift::cuesFromTranscript(*t, source.srcIn, source.srcOut, subtitleLineWidth(), subtitleLineCount(), qMax(0, maxWordsPerCue))) {
             drift::SubtitleCue m;
             m.startUs = toTimeline(cue.startUs);
             m.endUs = toTimeline(cue.endUs);
@@ -9965,6 +9965,7 @@ bool AppController::generateSubtitlesForSources(QList<SubtitleSource> sources, c
     const QString languageCode = language.trimmed().toLower();
     const int wordsPerCue = std::max(0, maxWordsPerCue);
     const int lineWidth = subtitleLineWidth();
+    const int lineCount = subtitleLineCount();
     // «In the cloud (ElevenLabs)»: only with a key and the user's consent (Settings › Cloud).
     const QString elevenLabs = QString::fromLatin1(CloudProviders::kElevenLabs);
     const bool cloud = subtitleCloudEngine() && subtitleCloudReady() && !translate;
@@ -10120,7 +10121,7 @@ bool AppController::generateSubtitlesForSources(QList<SubtitleSource> sources, c
             res.error = cloudError.message;
             if (res.ok) {
                 res.language = transcript->language;
-                res.cues = drift::cuesFromTranscript(*transcript, 0, sampleToUsTotal(mono.size()), lineWidth, 1,
+                res.cues = drift::cuesFromTranscript(*transcript, 0, sampleToUsTotal(mono.size()), lineWidth, lineCount,
                                                      wordsPerCue);
             }
         } else if (!translate && !drift::CtcAligner::installedLanguages().isEmpty()) {
@@ -10134,11 +10135,11 @@ bool AppController::generateSubtitlesForSources(QList<SubtitleSource> sources, c
             res.error = local.error;
             if (local.transcript) {
                 res.language = local.transcript->language;
-                res.cues = drift::cuesFromTranscript(*local.transcript, 0, sampleToUsTotal(mono.size()), lineWidth, 1,
+                res.cues = drift::cuesFromTranscript(*local.transcript, 0, sampleToUsTotal(mono.size()), lineWidth, lineCount,
                                                      wordsPerCue);
             }
         } else {
-            res = whisper.transcribe(mono, onProgress, languageCode, wordsPerCue, translate, lineWidth);
+            res = whisper.transcribe(mono, onProgress, languageCode, wordsPerCue, translate, lineWidth, lineCount);
             // Without the voice detection of «Word sync», Whisper may write text over silence
             // («Gracias por ver», «Subtítulos por…»): a caption whose audio is near silence goes.
             QList<drift::SubtitleCue> heard;
@@ -17338,6 +17339,16 @@ QString AppController::subtitleKeytermsText() const
 void AppController::setSubtitleKeytermsText(const QString &text)
 {
     QSettings().setValue(QStringLiteral("subtitles/keyterms"), text);
+}
+
+bool AppController::subtitleTwoLines() const
+{
+    return QSettings().value(QStringLiteral("subtitles/twoLines"), false).toBool();
+}
+
+void AppController::setSubtitleTwoLines(bool enabled)
+{
+    QSettings().setValue(QStringLiteral("subtitles/twoLines"), enabled);
 }
 
 bool AppController::subtitleProfanityFilter() const

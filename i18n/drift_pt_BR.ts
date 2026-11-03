@@ -26977,6 +26977,10 @@ Se a reprodução travar, tente outra opção.</translation>
         <translation>Estilo das legendas selecionadas</translation>
     </message>
     <message>
+        <source>Two lines per caption</source>
+        <translation>Duas linhas por legenda</translation>
+    </message>
+    <message>
         <source>Hide swear words (m*****)</source>
         <translation>Ocultar palavrões (m****)</translation>
     </message>

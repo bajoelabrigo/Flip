@@ -26882,6 +26882,10 @@ If playback stutters, try another.</source>
         <translation>所选字幕的样式</translation>
     </message>
     <message>
+        <source>Two lines per caption</source>
+        <translation>每条字幕两行</translation>
+    </message>
+    <message>
         <source>Hide swear words (m*****)</source>
         <translation>隐藏脏话（f***）</translation>
     </message>

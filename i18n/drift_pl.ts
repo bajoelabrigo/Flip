@@ -27071,6 +27071,10 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
         <translation>Styl zaznaczonych napisów</translation>
     </message>
     <message>
+        <source>Two lines per caption</source>
+        <translation>Dwie linie na napis</translation>
+    </message>
+    <message>
         <source>Hide swear words (m*****)</source>
         <translation>Ukryj przekleństwa (k****)</translation>
     </message>

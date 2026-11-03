@@ -26993,6 +26993,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Two lines per caption</source>
+        <translation>প্রতি ক্যাপশনে দুই লাইন</translation>
+    </message>
+    <message>
         <source>Hide swear words (m*****)</source>
         <translation>গালি লুকান (গ***)</translation>
     </message>

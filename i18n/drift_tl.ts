@@ -26965,6 +26965,10 @@ If playback stutters, try another.</source>
         <translation>Estilo ng mga napiling caption</translation>
     </message>
     <message>
+        <source>Two lines per caption</source>
+        <translation>Dalawang linya bawat caption</translation>
+    </message>
+    <message>
         <source>Hide swear words (m*****)</source>
         <translation>Itago ang mura (p****)</translation>
     </message>

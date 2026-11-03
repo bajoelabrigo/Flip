@@ -26979,6 +26979,10 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Style des sous-titres sélectionnés</translation>
     </message>
     <message>
+        <source>Two lines per caption</source>
+        <translation>Deux lignes par sous-titre</translation>
+    </message>
+    <message>
         <source>Hide swear words (m*****)</source>
         <translation>Masquer les jurons (m****)</translation>
     </message>

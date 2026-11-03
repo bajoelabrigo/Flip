@@ -26973,6 +26973,10 @@ If playback stutters, try another.</source>
         <translation>තෝරාගත් උපසිරැසිවල විලාසය</translation>
     </message>
     <message>
+        <source>Two lines per caption</source>
+        <translation>උපසිරැසියකට පේළි දෙකක්</translation>
+    </message>
+    <message>
         <source>Hide swear words (m*****)</source>
         <translation>අසභ්‍ය වචන සඟවන්න (f***)</translation>
     </message>

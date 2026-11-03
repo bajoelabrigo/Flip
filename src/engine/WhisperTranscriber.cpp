@@ -839,13 +839,14 @@ QVariantList WhisperTranscriber::supportedLanguages()
 
 WhisperResult WhisperTranscriber::transcribe(
     const std::vector<float> &pcm, const std::function<bool(double, const QString &)> &progress,
-    const QString &languageCode, int maxWordsPerCue, bool translateToEnglish, int maxLineWidth)
+    const QString &languageCode, int maxWordsPerCue, bool translateToEnglish, int maxLineWidth, int maxLineCount)
 {
     WhisperResult result = transcribeSegments(pcm, progress, languageCode, translateToEnglish);
     if (result.ok) {
         // Pack into short display lines like openai-whisper's VTT writer
-        // (word_timestamps + max_line_width, max_line_count=1), optionally capped shorter still.
-        result.cues = packSubtitleCues(result.cues, maxLineWidth > 0 ? maxLineWidth : 42, 1, maxWordsPerCue);
+        // (word_timestamps + max_line_width, max_line_count), optionally capped shorter still.
+        result.cues = packSubtitleCues(result.cues, maxLineWidth > 0 ? maxLineWidth : 42, qMax(1, maxLineCount),
+                                       maxWordsPerCue);
     }
     return result;
 }

@@ -27071,6 +27071,10 @@ If playback stutters, try another.</source>
         <translation>Стиль выбранных субтитров</translation>
     </message>
     <message>
+        <source>Two lines per caption</source>
+        <translation>Две строки в субтитре</translation>
+    </message>
+    <message>
         <source>Hide swear words (m*****)</source>
         <translation>Скрывать ругательства (б***)</translation>
     </message>

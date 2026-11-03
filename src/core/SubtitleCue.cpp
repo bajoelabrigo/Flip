@@ -222,7 +222,7 @@ QList<SubtitleCue> packSubtitleCues(const QList<SubtitleCue> &cues, int maxLineW
         QString text;
         for (const TimedWord &w : subtitle)
             text += w.word;
-        cue.text = text.trimmed().replace(QLatin1Char('\n'), QLatin1Char(' '));
+        cue.text = text.trimmed(); // the line breaks are the ones packing put in
         for (const TimedWord &w : subtitle) {
             if (!w.word.trimmed().isEmpty())
                 cue.wordEndsUs.append(w.endUs);
@@ -236,6 +236,9 @@ QList<SubtitleCue> packSubtitleCues(const QList<SubtitleCue> &cues, int maxLineW
     };
 
     for (TimedWord timing : words) {
+        // A break inside a word's text is not ours: only the packing below splits lines (a second
+        // line used to be flattened back into one, so two-line captions never came out).
+        timing.word.replace(QLatin1Char('\n'), QLatin1Char(' '));
         const bool longPause = timing.startUs - lastStart > kLongPauseUs;
         const bool hasRoom = lineLen + displayWidth(timing.word) <= maxLineWidth;
         const bool wordCapHit = maxWordsPerCue > 0 && wordCount >= maxWordsPerCue;
