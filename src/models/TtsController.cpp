@@ -127,6 +127,13 @@ QVariantList TtsController::languageOptions() const
         // Each language in its own name (español, français…), as the language chooser shows them:
         // languageToString is English only, so a Spanish interface listed "Spanish".
         QString label = QLocale(code).nativeLanguageName();
+        // One Spanish, one Portuguese, one English for the model: not «español de España» (0.30).
+        if (code == QLatin1String("es"))
+            label = QStringLiteral("Español");
+        else if (code == QLatin1String("pt"))
+            label = QStringLiteral("Português");
+        else if (code == QLatin1String("en"))
+            label = QStringLiteral("English");
         if (label.isEmpty())
             label = QLocale::languageToString(QLocale(code).language());
         if (!label.isEmpty())

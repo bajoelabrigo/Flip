@@ -56,12 +56,13 @@ Column {
         { "id": "mature", "label": qsTr("Mature") }
     ]
 
-    readonly property var shown: {
+    // Every voice the chip lets through; folded, the gallery shows a few of them.
+    readonly property var matching: {
         void root.revision
         void favoritesWatch.tick
         const all = EditorState.voices.allVoices()
         const f = root.filter
-        const keep = all.filter(v => {
+        return all.filter(v => {
             if (f === "all")
                 return true
             if (f === "favorites")
@@ -72,17 +73,14 @@ Column {
                 return v.gender === f
             return v.style === f
         })
-        // The chosen one first when folded, so it is always in sight.
-        if (!root.open) {
-            const current = keep.filter(v => v.id === root.currentId)
-            const rest = keep.filter(v => v.id !== root.currentId)
-            return current.concat(rest).slice(0, root.foldedCount)
-        }
-        return keep
     }
-    readonly property int total: {
-        void root.revision
-        return EditorState.voices.allVoices().length
+    // Folded, the chosen one first, so it is always in sight; the panel's Generate stays near.
+    readonly property var shown: {
+        if (root.open)
+            return root.matching
+        const current = root.matching.filter(v => v.id === root.currentId)
+        const rest = root.matching.filter(v => v.id !== root.currentId)
+        return current.concat(rest).slice(0, root.foldedCount)
     }
 
     QtObject {
@@ -106,7 +104,7 @@ Column {
                 variant: "outline"
                 onClicked: {
                     root.filter = modelData.id
-                    root.open = modelData.id !== "all"
+                    root.open = false
                 }
             }
         }
@@ -234,10 +232,10 @@ Column {
     }
 
     ThemedButton {
-        visible: root.filter === "all" && root.total > root.foldedCount
+        visible: root.matching.length > root.foldedCount
         width: parent.width
         variant: "ghost"
-        text: root.open ? qsTr("Show fewer") : qsTr("See all voices (%1)").arg(root.total)
+        text: root.open ? qsTr("Show fewer") : qsTr("See all voices (%1)").arg(root.matching.length)
         onClicked: root.open = !root.open
     }
 }
