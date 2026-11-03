@@ -9967,16 +9967,16 @@ bool AppController::generateSubtitlesForSources(QList<SubtitleSource> sources, c
     const int wordsPerCue = std::max(0, maxWordsPerCue);
     const int lineWidth = subtitleLineWidth();
     const int lineCount = subtitleLineCount();
+    const bool translate = m_subtitleTranslateNext;
     // «In the cloud (ElevenLabs)»: only with a key and the user's consent (Settings › Cloud).
     const QString elevenLabs = QString::fromLatin1(CloudProviders::kElevenLabs);
     const bool cloud = subtitleCloudEngine() && subtitleCloudReady() && !translate;
     const QString cloudKey = cloud ? m_cloud->apiKey(elevenLabs) : QString();
     const QString cloudModel = cloud ? m_cloud->setting(elevenLabs, QStringLiteral("stt_model")) : QString();
     const QStringList keyterms = subtitleKeyterms();
-    const bool translate = m_subtitleTranslateNext;
 
-    (void)QtConcurrent::run([this, sources, rangeStart, rangeDuration, languageCode, wordsPerCue, lineWidth, translate,
-                             cloud, cloudKey, cloudModel, keyterms]() {
+    (void)QtConcurrent::run([this, sources, rangeStart, rangeDuration, languageCode, wordsPerCue, lineWidth, lineCount,
+                             translate, cloud, cloudKey, cloudModel, keyterms]() {
         auto setProgress = [this](double fraction, const QString &status) {
             QMetaObject::invokeMethod(
                 this,
