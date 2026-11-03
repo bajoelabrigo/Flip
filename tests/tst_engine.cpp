@@ -12006,7 +12006,14 @@ void EngineTest::expressionsRunOnProperties()
     QCOMPARE(track.evaluateAt(drift::secondsToUs(1.0)), 15.0);
     b.expression = QStringLiteral("velocity");
     track.setBehavior(b);
-    QVERIFY(std::abs(track.evaluateAt(drift::secondsToUs(0.5)) - 10.0) < 1e-6);
+    {
+        // The keys' own rate of change at 0.5 s, whatever curve they have.
+        const double h = 1.0 / 240.0;
+        const double expected = (track.evaluateKeys(drift::secondsToUs(0.5 + h))
+                                 - track.evaluateKeys(drift::secondsToUs(0.5 - h))) / (2 * h);
+        QVERIFY(expected > 0.0);
+        QVERIFY(std::abs(track.evaluateAt(drift::secondsToUs(0.5)) - expected) < 1e-3);
+    }
     // Broken code keeps the value and says why.
     b.expression = QStringLiteral("this is not js");
     track.setBehavior(b);
