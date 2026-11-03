@@ -28,7 +28,10 @@ struct TimedWord
 // joining reproduces the original spacing/punctuation.
 QStringList tokenizeWords(const QString &text)
 {
-    static const QRegularExpression re(QStringLiteral(R"((\s*\S+))"));
+    // Chinese and Japanese write without spaces: each ideograph or kana is its own unit, so a
+    // caption can break between them (a whole sentence was one «word» and never wrapped).
+    static const QRegularExpression re(QStringLiteral(
+        R"((\s*(?:[\p{Han}\p{Hiragana}\p{Katakana}]|[^\s\p{Han}\p{Hiragana}\p{Katakana}]+)))"));
     QStringList tokens;
     auto it = re.globalMatch(text);
     while (it.hasNext())
@@ -173,6 +176,20 @@ void sortSubtitleCues(QList<SubtitleCue> &cues)
     });
 }
 
+namespace {
+// Letters a word takes on a line: an ideograph or kana is as wide as two Latin letters.
+int displayWidth(const QString &word)
+{
+    int width = 0;
+    for (const QChar c : word) {
+        const QChar::Script script = c.script();
+        width += (script == QChar::Script_Han || script == QChar::Script_Hiragana
+                  || script == QChar::Script_Katakana) ? 2 : 1;
+    }
+    return width;
+}
+} // namespace
+
 QList<SubtitleCue> packSubtitleCues(const QList<SubtitleCue> &cues, int maxLineWidth,
                                     int maxLineCount, int maxWordsPerCue)
 {
@@ -220,11 +237,11 @@ QList<SubtitleCue> packSubtitleCues(const QList<SubtitleCue> &cues, int maxLineW
 
     for (TimedWord timing : words) {
         const bool longPause = timing.startUs - lastStart > kLongPauseUs;
-        const bool hasRoom = lineLen + timing.word.size() <= maxLineWidth;
+        const bool hasRoom = lineLen + displayWidth(timing.word) <= maxLineWidth;
         const bool wordCapHit = maxWordsPerCue > 0 && wordCount >= maxWordsPerCue;
 
         if (lineLen > 0 && hasRoom && !longPause && !wordCapHit) {
-            lineLen += timing.word.size();
+            lineLen += displayWidth(timing.word);
             subtitle.append(timing);
             ++wordCount;
         } else {
@@ -235,7 +252,7 @@ QList<SubtitleCue> packSubtitleCues(const QList<SubtitleCue> &cues, int maxLineW
                 ++lineCount;
                 timing.word = QLatin1Char('\n') + timing.word;
             }
-            lineLen = timing.word.trimmed().size();
+            lineLen = displayWidth(timing.word.trimmed());
             subtitle.append(timing);
             ++wordCount;
         }
