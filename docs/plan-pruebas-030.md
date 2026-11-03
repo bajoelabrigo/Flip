@@ -175,3 +175,13 @@ segunda por dos `onClosing` en `TextEditWindow.qml` (qmlcachegen; ahora se revis
 | — | Voz | Bien: Voz y Subtítulos juntos en Audio, diseño nuevo, «Cargando el modelo…», progreso por frase con Cancelar, [pausa 1s] (1,18 s de silencio), velocidad 1,25×, Editar guion desde Audio (aviso de reemplazo), Reemplazar, diálogo Ana/Luis (una voz por persona, sin decir los nombres) | ok |
 | 38 | Voz | Solo hay una voz («Predeterminada»): un diálogo suena igual para todos. Es el punto 1 de `docs/plan-voz.md` (paquete de voces) | pendiente |
 | — | — | Sin probar todavía: Curvas con varias capas, pegar en las cinco barras, exportar la zona de trabajo, Ctrl en un tirador del trayecto; subtítulos: pitido, quitar silencios, estilo por subtítulo, .srt, karaoke, exportar con subtítulos, SUB3 sin sesión con la traducción en el equipo; voz: leer un título, importar guion, guardar la voz, bajar la música | — |
+
+### Ronda 2b (compilación 41706768086, portable `pruebas\FlipStudio-0.30-r3`, con el mouse de Jorge)
+- 7 bien: con el cronómetro y 130 la elipse crece alrededor de su centro. 11: el látigo está en todas las capas pero
+  casi no se veía (ahora más opaco y más grande).
+- 6 seguía: la fila se reconstruye dos veces al confirmar y la primera, destruida al instante, se llevaba la edición
+  pendiente («root is not defined», «format is not a function»). Ahora se da por hecha solo cuando una fila viva abrió el campo.
+- 13: el teclado de Jorge es Español (Latinoamérica): «[» va con Mayús, no con AltGr. El filtro ahora mira el carácter
+  escrito (Mayús y AltGr no cuentan; Alt sí, para Alt+[).
+- 2 explicado: el primer paso a Pro abre «¿Usar los atajos de After Effects?», que se cierra con el clic de afuera; las
+  pruebas restauran el registro y la pregunta vuelve cada vez. No es un fallo.

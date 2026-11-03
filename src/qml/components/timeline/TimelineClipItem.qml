@@ -1411,9 +1411,9 @@ Item {
         IconGlyph {
             anchors.centerIn: parent
             glyph: "pick-whip"
-            iconSize: 14
+            iconSize: 16
             iconColor: whipArea.containsMouse || whipArea.pressed ? Theme.primary
-                       : Qt.rgba(1, 1, 1, clipItem.selected || clipItem.parentName.length > 0 ? 0.85 : 0.4)
+                       : Qt.rgba(1, 1, 1, clipItem.selected || clipItem.parentName.length > 0 ? 0.95 : 0.7)
         }
         MouseArea {
             id: whipArea

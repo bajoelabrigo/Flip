@@ -31,6 +31,15 @@ Cómo seguir: marcar cada punto con su commit; probar en ventana antes de public
 ## Agregar
 - [ ] 1. Muchas voces listas (nombre, tipo, muestra): Kokoro (Apache 2.0, ~50 voces, rápido; el editor web ya lo usa)
       para narraciones largas, Chatterbox para clonar y voces con emoción.
+      **Jorge (2026-11-03): «quiero que compita con CapCut».** Hoy hay una sola voz («Predeterminada»). Plan:
+      - Unas 40 voces propias, como el catálogo de CapCut: Narradores, Mujeres, Hombres, Jóvenes, Graves, Animadas y
+        Personajes (robot, ardilla, monstruo, anciano… con el modificador de voz sobre una base). Cada una con nombre,
+        muestra (▷ ya existe), favorito y buscador; las 40 hablan los 21 idiomas de Chatterbox.
+      - Nada de voces de personas reales ni de copiar las de CapCut: la base son las voces sintéticas de Kokoro
+        (Apache 2.0). Se genera con Kokoro una referencia de ~15 s por voz y se guarda su «huella» de Chatterbox
+        (la condición ya calculada, archivos chicos): un extra «Voces» (paquete primero, índice después).
+      - Antes de hacer las 40: prototipo con 4 (dos mujeres, dos hombres) diciendo el mismo guion en español, para que
+        Jorge las escuche (el acento de una referencia en inglés puede pasar al español: comprobarlo).
 - [ ] 2. Velocidad y tono (0,5×–2×), después de generar, para cualquier motor.
 - [ ] 3. Escuchar antes de insertar y regenerar.
 - [ ] 4. Editar el guion y regenerar (el texto ya se guarda en el medio: `MediaAsset` línea 116).

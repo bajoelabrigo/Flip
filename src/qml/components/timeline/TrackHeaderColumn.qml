@@ -1899,8 +1899,8 @@ Item {
                                     function editValue(index) {
                                         const row = hotRepeater.itemAt(index)
                                         if (row && row.scrub && row.scrub.visible) {
-                                            root.pendingHotEdit = null
                                             row.scrub.startEditing()
+                                            root.pendingHotEdit = null
                                         } else if (index >= 0 && index < hotRepeater.count) {
                                             hotRepeater.editValue(index + 1)
                                         }
@@ -1946,15 +1946,28 @@ Item {
                                                 root.pendingHotEdit = { "track": keyLines.trackIndex,
                                                                         "props": keyLine.props.join(","),
                                                                         "index": next }
-                                                // Unless the rebuilt line already opened it.
-                                                Qt.callLater(() => { if (root.pendingHotEdit) hotRepeater.editValue(next) })
+                                                // Unless the rebuilt line already opened it (this row may be gone by then).
+                                                Qt.callLater(() => {
+                                                    try {
+                                                        if (root.pendingHotEdit)
+                                                            hotRepeater.editValue(next)
+                                                    } catch (e) {
+                                                    }
+                                                })
                                             }
                                             Component.onCompleted: {
                                                 const p = root.pendingHotEdit
                                                 if (p && p.track === keyLines.trackIndex && p.index === hotRow.index
                                                         && p.props === keyLine.props.join(",") && !hotRow.modelData.link) {
-                                                    root.pendingHotEdit = null
-                                                    Qt.callLater(hotScrub.startEditing)
+                                                    // The commit rebuilds the lines more than once: the edit is done only
+                                                    // when a row still standing opened it (a row made and destroyed at
+                                                    // once took it and nothing opened, tests #6).
+                                                    Qt.callLater(() => {
+                                                        if (root.pendingHotEdit !== p)
+                                                            return
+                                                        hotScrub.startEditing()
+                                                        root.pendingHotEdit = null
+                                                    })
                                                 }
                                             }
                                             trackIndex: keyLines.trackIndex

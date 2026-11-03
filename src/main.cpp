@@ -286,10 +286,11 @@ private:
     MarketClient *m_market = nullptr;
 };
 
-// After Effects' [ and ] (move the layer so it starts or ends at the playhead) on keyboards that type
-// them with AltGr, as the Spanish ones (0.30, tests #13): Windows sends AltGr as Ctrl+Alt, so the
-// key arrived as Ctrl+Alt+[ and no shortcut matched. A key that produced "[" or "]" with Ctrl+Alt
-// held runs the action bound to the plain key, as a shortcut would. Text fields keep it («[pausa 1s]»).
+// After Effects' [ and ] (move the layer so it starts or ends at the playhead) and Alt+[ / Alt+] on
+// keyboards that type them with Shift or AltGr (0.30, tests #13: Latin American Spanish has [ on
+// Shift, Spain's on AltGr, which Windows sends as Ctrl+Alt), so the key arrived as Shift+[ or
+// Ctrl+Alt+[ and no shortcut matched. A key that produced "[" or "]" runs the action bound to it,
+// with Alt when Alt was held on its own, as a shortcut would. Text fields keep it («[pausa 1s]»).
 class AltGrShortcutFilter : public QObject
 {
 public:
@@ -308,16 +309,21 @@ protected:
         const auto *key = static_cast<QKeyEvent *>(event);
         const Qt::KeyboardModifiers altGr = Qt::ControlModifier | Qt::AltModifier;
         const QString text = key->text();
-        if ((key->modifiers() & altGr) != altGr || (text != QLatin1String("[") && text != QLatin1String("]"))
-            || key->isAutoRepeat())
+        if ((text != QLatin1String("[") && text != QLatin1String("]")) || key->isAutoRepeat())
             return QObject::eventFilter(watched, event);
+        Qt::KeyboardModifiers mods = key->modifiers() & ~(Qt::ShiftModifier | Qt::KeypadModifier);
+        if ((mods & altGr) == altGr)
+            mods &= ~altGr;
+        if (mods != Qt::NoModifier && mods != Qt::AltModifier)
+            return QObject::eventFilter(watched, event);
+        const QString chord = mods == Qt::AltModifier ? QStringLiteral("Alt+") + text : text;
         if (QObject *focus = QGuiApplication::focusObject();
             focus && (focus->inherits("QQuickTextInput") || focus->inherits("QQuickTextEdit")))
             return QObject::eventFilter(watched, event);
         QString action;
         for (const QVariant &v : m_controller->actions()) {
             const QVariantMap map = v.toMap();
-            if (map.value(QStringLiteral("shortcut")).toString() == text)
+            if (map.value(QStringLiteral("shortcut")).toString() == chord)
                 action = map.value(QStringLiteral("id")).toString();
         }
         if (action.isEmpty() || m_engine->rootObjects().isEmpty())
