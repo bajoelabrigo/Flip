@@ -5419,6 +5419,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>No key words to highlight in these subtitles</source>
+        <translation>这些字幕中没有可高亮的关键词</translation>
+    </message>
+    <message>
+        <source>Highlight key words</source>
+        <translation>高亮关键词</translation>
+    </message>
+    <message>
+        <source>Key words highlighted in %1 captions</source>
+        <translation>已在 %1 条字幕中高亮关键词</translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26703,6 +26715,14 @@ If playback stutters, try another.</source>
         <translation>在提到关键词的字幕末尾添加表情（fuego 🔥、fiesta 🎉）</translation>
     </message>
     <message>
+        <source>Key words</source>
+        <translation>关键词</translation>
+    </message>
+    <message>
+        <source>Highlight the key word of each caption in colour (a number, a name, what matters)</source>
+        <translation>用颜色突出每条字幕的关键词（数字、名字、要点）</translation>
+    </message>
+    <message>
         <source>Clean up</source>
         <translation>清理</translation>
     </message>
@@ -26991,6 +27011,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Options</source>
         <translation>选项</translation>
+    </message>
+    <message>
+        <source>Highlight key words in colour</source>
+        <translation>用颜色高亮关键词</translation>
     </message>
     <message>
         <source>Show fewer</source>

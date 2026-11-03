@@ -1338,6 +1338,14 @@ void CoreTest::subtitleCuePacking()
     QCOMPARE(drift::maskProfanity(QStringLiteral("put the output on")), QStringLiteral("put the output on"));
     QCOMPARE(drift::maskProfanity(QStringLiteral("¡Fuck!")), QStringLiteral("¡F***!"));
 
+    // The key word of a caption: a number first, else the longest word that is not a filler word.
+    QCOMPARE(drift::highlightCaptionKeyword(QStringLiteral("Gana 100 % de descuento hoy")),
+             QStringLiteral("Gana *100 %* de descuento hoy"));
+    QCOMPARE(drift::highlightCaptionKeyword(QStringLiteral("Hola a todos, bienvenidos al canal.")),
+             QStringLiteral("Hola a todos, *bienvenidos* al canal."));
+    QCOMPARE(drift::highlightCaptionKeyword(QStringLiteral("Esto es *mío* ya")), QStringLiteral("Esto es *mío* ya"));
+    QCOMPARE(drift::highlightCaptionKeyword(QStringLiteral("Hola")), QStringLiteral("Hola"));
+
     // *Marked* words, inside punctuation too, and the Keywords rule.
     QVERIFY(drift::isMarkedWord(QStringLiteral("*fiel*")));
     QVERIFY(drift::isMarkedWord(QStringLiteral("¡*Amén*!")));

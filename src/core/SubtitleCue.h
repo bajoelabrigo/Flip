@@ -67,6 +67,12 @@ QString maskProfanity(const QString &text);
 // already has an emoji.
 QString captionWithEmoji(const QString &text);
 
+// The caption with its key word marked *like this* (the colour highlight captions already draw), as
+// CapCut's «keywords»: a number or amount first, else the longest word that is not a filler word
+// (Spanish, English, Portuguese, French, Italian). Unchanged when it already has a mark or has fewer
+// than three words. The word count stays, so the karaoke's timings still fit.
+QString highlightCaptionKeyword(const QString &text);
+
 // The word timings of `oldText` carried over to `newText` (the same caption after a word was
 // removed, replaced or added): kept words keep theirs, a new word takes the end of what it replaced.
 // Empty when `oldEnds` does not match `oldText`.

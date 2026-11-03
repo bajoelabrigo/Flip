@@ -5442,6 +5442,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>No key words to highlight in these subtitles</source>
+        <translation>Walang keyword na iha-highlight sa mga caption na ito</translation>
+    </message>
+    <message>
+        <source>Highlight key words</source>
+        <translation>I-highlight ang mga keyword</translation>
+    </message>
+    <message>
+        <source>Key words highlighted in %1 captions</source>
+        <translation>Na-highlight ang mga keyword sa %1 caption</translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26786,6 +26798,14 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Key words</source>
+        <translation>Mga keyword</translation>
+    </message>
+    <message>
+        <source>Highlight the key word of each caption in colour (a number, a name, what matters)</source>
+        <translation>Iha-highlight sa kulay ang keyword ng bawat caption (isang numero, pangalan, ang mahalaga)</translation>
+    </message>
+    <message>
         <source>Clean up</source>
         <translation type="unfinished"></translation>
     </message>
@@ -27074,6 +27094,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Options</source>
         <translation>Mga opsyon</translation>
+    </message>
+    <message>
+        <source>Highlight key words in colour</source>
+        <translation>I-highlight sa kulay ang mga keyword</translation>
     </message>
     <message>
         <source>Show fewer</source>

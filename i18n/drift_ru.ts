@@ -5457,6 +5457,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>No key words to highlight in these subtitles</source>
+        <translation>В этих субтитрах нет ключевых слов для выделения</translation>
+    </message>
+    <message>
+        <source>Highlight key words</source>
+        <translation>Выделить ключевые слова</translation>
+    </message>
+    <message>
+        <source>Key words highlighted in %1 captions</source>
+        <translation>Ключевые слова выделены в субтитрах: %1</translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26892,6 +26904,14 @@ If playback stutters, try another.</source>
         <translation>Добавить эмодзи в конец субтитров с ключевым словом (огонь 🔥, праздник 🎉)</translation>
     </message>
     <message>
+        <source>Key words</source>
+        <translation>Ключевые слова</translation>
+    </message>
+    <message>
+        <source>Highlight the key word of each caption in colour (a number, a name, what matters)</source>
+        <translation>Выделяет цветом ключевое слово каждого субтитра (число, имя, главное)</translation>
+    </message>
+    <message>
         <source>Clean up</source>
         <translation>Очистить</translation>
     </message>
@@ -27180,6 +27200,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Options</source>
         <translation>Параметры</translation>
+    </message>
+    <message>
+        <source>Highlight key words in colour</source>
+        <translation>Выделять ключевые слова цветом</translation>
     </message>
     <message>
         <source>Show fewer</source>

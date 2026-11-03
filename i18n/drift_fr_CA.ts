@@ -5443,6 +5443,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>No key words to highlight in these subtitles</source>
+        <translation>Aucun mot clé à mettre en évidence dans ces sous-titres</translation>
+    </message>
+    <message>
+        <source>Highlight key words</source>
+        <translation>Mettre en évidence les mots clés</translation>
+    </message>
+    <message>
+        <source>Key words highlighted in %1 captions</source>
+        <translation>Mots clés mis en évidence dans %1 sous-titres</translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26800,6 +26812,14 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Ajouter un émoji à la fin des sous-titres qui mentionnent un mot-clé (fuego 🔥, fiesta 🎉)</translation>
     </message>
     <message>
+        <source>Key words</source>
+        <translation>Mots clés</translation>
+    </message>
+    <message>
+        <source>Highlight the key word of each caption in colour (a number, a name, what matters)</source>
+        <translation>Met en couleur le mot clé de chaque sous-titre (un nombre, un nom, l’essentiel)</translation>
+    </message>
+    <message>
         <source>Clean up</source>
         <translation>Nettoyer</translation>
     </message>
@@ -27088,6 +27108,10 @@ Si la lecture saccade, essayez une autre option.</translation>
     <message>
         <source>Options</source>
         <translation>Options</translation>
+    </message>
+    <message>
+        <source>Highlight key words in colour</source>
+        <translation>Mettre les mots clés en couleur</translation>
     </message>
     <message>
         <source>Show fewer</source>

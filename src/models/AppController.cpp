@@ -11018,6 +11018,7 @@ void AppController::finalizeGeneratedSubtitles(drift::TimeUs timelineStart,
     });
     const QList<QPair<QString, QString>> dictionary = subtitleDictionaryPairs();
     const bool emojis = subtitleEmojisEnabled();
+    const bool keywords = subtitleKeywordsEnabled();
     const bool masked = subtitleProfanityFilter();
     for (drift::SubtitleCue &cue : cleaned) {
         // The dictionary may change how many words there are: the timings follow (karaoke).
@@ -11028,6 +11029,8 @@ void AppController::finalizeGeneratedSubtitles(drift::TimeUs timelineStart,
         }
         if (masked)
             cue.text = drift::maskProfanity(cue.text); // same words, so the timings still fit
+        if (keywords)
+            cue.text = drift::highlightCaptionKeyword(cue.text); // same words: the timings fit
         if (emojis)
             cue.text = drift::captionWithEmoji(cue.text);
     }
@@ -17063,9 +17066,10 @@ QVariantList AppController::subtitleChangesPreview(int trackIndex, int clipIndex
     const drift::Clip &clip = m_project.tracks().at(trackIndex).clips.at(clipIndex);
     if (clip.type != drift::ClipType::Subtitle)
         return out;
-    if (kind == QLatin1String("emojis")) {
+    if (kind == QLatin1String("emojis") || kind == QLatin1String("keywords")) {
+        const bool emoji = kind == QLatin1String("emojis");
         for (const drift::SubtitleCue &cue : clip.subtitleCues) {
-            const QString next = drift::captionWithEmoji(cue.text);
+            const QString next = emoji ? drift::captionWithEmoji(cue.text) : drift::highlightCaptionKeyword(cue.text);
             if (next != cue.text)
                 out.append(QVariantMap{{QStringLiteral("before"), cue.text}, {QStringLiteral("after"), next}});
         }
@@ -17413,6 +17417,41 @@ bool AppController::subtitleEmojisEnabled() const
 void AppController::setSubtitleEmojisEnabled(bool enabled)
 {
     QSettings().setValue(QStringLiteral("subtitles/emojis"), enabled);
+}
+
+bool AppController::subtitleKeywordsEnabled() const
+{
+    return QSettings().value(QStringLiteral("subtitles/keywords"), false).toBool();
+}
+
+void AppController::setSubtitleKeywordsEnabled(bool enabled)
+{
+    QSettings().setValue(QStringLiteral("subtitles/keywords"), enabled);
+}
+
+void AppController::highlightSubtitleKeywords(int trackIndex, int clipIndex)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex) || isTrackLocked(trackIndex))
+        return;
+    drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
+    if (clip.type != drift::ClipType::Subtitle)
+        return;
+    const drift::Project before = m_project;
+    int marked = 0;
+    for (drift::SubtitleCue &cue : clip.subtitleCues) {
+        const QString next = drift::highlightCaptionKeyword(cue.text);
+        if (next != cue.text) {
+            cue.text = next; // the same words, so the karaoke's timings still fit
+            ++marked;
+        }
+    }
+    if (marked == 0) {
+        setLastMessage(tr("No key words to highlight in these subtitles"), QStringLiteral("info"));
+        return;
+    }
+    pushProjectEdit(before, tr("Highlight key words"));
+    finishEdit(tr("Highlight key words"));
+    setLastMessage(tr("Key words highlighted in %1 captions").arg(marked), QStringLiteral("success"));
 }
 
 void AppController::addEmojisToSubtitles(int trackIndex, int clipIndex)

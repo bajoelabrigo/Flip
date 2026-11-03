@@ -5438,6 +5438,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>No key words to highlight in these subtitles</source>
+        <translation>Não há palavras-chave para destacar nestas legendas</translation>
+    </message>
+    <message>
+        <source>Highlight key words</source>
+        <translation>Destacar palavras-chave</translation>
+    </message>
+    <message>
+        <source>Key words highlighted in %1 captions</source>
+        <translation>Palavras-chave destacadas em %1 legendas</translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26798,6 +26810,14 @@ Se a reprodução falhar, experimente outra opção.</translation>
         <translation>Adiciona um emoji no fim das legendas que mencionam uma palavra-chave (fuego 🔥, fiesta 🎉)</translation>
     </message>
     <message>
+        <source>Key words</source>
+        <translation>Palavras-chave</translation>
+    </message>
+    <message>
+        <source>Highlight the key word of each caption in colour (a number, a name, what matters)</source>
+        <translation>Destaca a cor a palavra-chave de cada legenda (um número, um nome, o que importa)</translation>
+    </message>
+    <message>
         <source>Clean up</source>
         <translation>Limpar</translation>
     </message>
@@ -27086,6 +27106,10 @@ Se a reprodução falhar, experimente outra opção.</translation>
     <message>
         <source>Options</source>
         <translation>Opções</translation>
+    </message>
+    <message>
+        <source>Highlight key words in colour</source>
+        <translation>Destacar palavras-chave a cor</translation>
     </message>
     <message>
         <source>Show fewer</source>

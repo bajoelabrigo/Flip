@@ -5538,6 +5538,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>No key words to highlight in these subtitles</source>
+        <translation>এই ক্যাপশনগুলোতে হাইলাইট করার মতো মূল শব্দ নেই</translation>
+    </message>
+    <message>
+        <source>Highlight key words</source>
+        <translation>মূল শব্দ হাইলাইট করুন</translation>
+    </message>
+    <message>
+        <source>Key words highlighted in %1 captions</source>
+        <translation>%1টি ক্যাপশনে মূল শব্দ হাইলাইট করা হয়েছে</translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26762,6 +26774,14 @@ If playback stutters, try another.</source>
         <translation>পড়ার জন্য খুব দ্রুত</translation>
     </message>
     <message>
+        <source>Key words</source>
+        <translation>মূল শব্দ</translation>
+    </message>
+    <message>
+        <source>Highlight the key word of each caption in colour (a number, a name, what matters)</source>
+        <translation>প্রতিটি ক্যাপশনের মূল শব্দ রঙে হাইলাইট করে (একটি সংখ্যা, একটি নাম, যা গুরুত্বপূর্ণ)</translation>
+    </message>
+    <message>
         <source>Spelling</source>
         <translation>বানান</translation>
     </message>
@@ -27110,6 +27130,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Options</source>
         <translation>বিকল্প</translation>
+    </message>
+    <message>
+        <source>Highlight key words in colour</source>
+        <translation>মূল শব্দ রঙে হাইলাইট করুন</translation>
     </message>
     <message>
         <source>Show fewer</source>

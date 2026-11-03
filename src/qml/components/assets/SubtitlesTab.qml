@@ -218,6 +218,13 @@ Item {
 
                 ThemedCheckBox {
                     width: parent.width
+                    text: qsTr("Highlight key words in colour")
+                    checked: EditorState.subtitleKeywordsEnabled()
+                    onToggled: EditorState.setSubtitleKeywordsEnabled(checked)
+                }
+
+                ThemedCheckBox {
+                    width: parent.width
                     text: qsTr("Add emojis for keywords (fuego 🔥, Dios 🙏)")
                     checked: EditorState.subtitleEmojisEnabled()
                     onToggled: EditorState.setSubtitleEmojisEnabled(checked)

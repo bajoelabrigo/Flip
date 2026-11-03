@@ -5427,6 +5427,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>No key words to highlight in these subtitles</source>
+        <translation>Không có từ khóa nào để làm nổi bật trong các phụ đề này</translation>
+    </message>
+    <message>
+        <source>Highlight key words</source>
+        <translation>Làm nổi bật từ khóa</translation>
+    </message>
+    <message>
+        <source>Key words highlighted in %1 captions</source>
+        <translation>Đã làm nổi bật từ khóa trong %1 phụ đề</translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26704,6 +26716,14 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Thêm emoji vào cuối các phụ đề có nhắc đến từ khóa (fuego 🔥, fiesta 🎉)</translation>
     </message>
     <message>
+        <source>Key words</source>
+        <translation>Từ khóa</translation>
+    </message>
+    <message>
+        <source>Highlight the key word of each caption in colour (a number, a name, what matters)</source>
+        <translation>Tô màu từ khóa của mỗi phụ đề (một con số, một cái tên, điều quan trọng)</translation>
+    </message>
+    <message>
         <source>Clean up</source>
         <translation>Dọn dẹp</translation>
     </message>
@@ -26992,6 +27012,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Options</source>
         <translation>Tùy chọn</translation>
+    </message>
+    <message>
+        <source>Highlight key words in colour</source>
+        <translation>Tô màu từ khóa</translation>
     </message>
     <message>
         <source>Show fewer</source>

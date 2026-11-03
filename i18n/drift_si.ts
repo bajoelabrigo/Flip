@@ -5438,6 +5438,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>No key words to highlight in these subtitles</source>
+        <translation>මෙම උපසිරැසිවල ඉස්මතු කිරීමට මූල පද නැත</translation>
+    </message>
+    <message>
+        <source>Highlight key words</source>
+        <translation>මූල පද ඉස්මතු කරන්න</translation>
+    </message>
+    <message>
+        <source>Key words highlighted in %1 captions</source>
+        <translation>උපසිරැසි %1 ක මූල පද ඉස්මතු කළා</translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26794,6 +26806,14 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Key words</source>
+        <translation>මූල පද</translation>
+    </message>
+    <message>
+        <source>Highlight the key word of each caption in colour (a number, a name, what matters)</source>
+        <translation>එක් එක් උපසිරැසියේ මූල පදය වර්ණයෙන් ඉස්මතු කරයි (අංකයක්, නමක්, වැදගත් දේ)</translation>
+    </message>
+    <message>
         <source>Clean up</source>
         <translation type="unfinished"></translation>
     </message>
@@ -27082,6 +27102,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Options</source>
         <translation>විකල්ප</translation>
+    </message>
+    <message>
+        <source>Highlight key words in colour</source>
+        <translation>මූල පද වර්ණයෙන් ඉස්මතු කරන්න</translation>
     </message>
     <message>
         <source>Show fewer</source>

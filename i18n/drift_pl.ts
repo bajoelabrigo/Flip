@@ -5457,6 +5457,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>No key words to highlight in these subtitles</source>
+        <translation>Brak słów kluczowych do wyróżnienia w tych napisach</translation>
+    </message>
+    <message>
+        <source>Highlight key words</source>
+        <translation>Wyróżnij słowa kluczowe</translation>
+    </message>
+    <message>
+        <source>Key words highlighted in %1 captions</source>
+        <translation>Wyróżniono słowa kluczowe w %1 napisach</translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26892,6 +26904,14 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
         <translation>Dodaj emoji na końcu napisów, które zawierają słowo kluczowe (ogień 🔥, impreza 🎉)</translation>
     </message>
     <message>
+        <source>Key words</source>
+        <translation>Słowa kluczowe</translation>
+    </message>
+    <message>
+        <source>Highlight the key word of each caption in colour (a number, a name, what matters)</source>
+        <translation>Wyróżnia kolorem słowo kluczowe każdego napisu (liczbę, nazwę, to, co ważne)</translation>
+    </message>
+    <message>
         <source>Clean up</source>
         <translation>Wyczyść</translation>
     </message>
@@ -27180,6 +27200,10 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     <message>
         <source>Options</source>
         <translation>Opcje</translation>
+    </message>
+    <message>
+        <source>Highlight key words in colour</source>
+        <translation>Wyróżniaj słowa kluczowe kolorem</translation>
     </message>
     <message>
         <source>Show fewer</source>

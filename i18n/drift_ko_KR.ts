@@ -5419,6 +5419,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>No key words to highlight in these subtitles</source>
+        <translation>이 자막에는 강조할 키워드가 없습니다</translation>
+    </message>
+    <message>
+        <source>Highlight key words</source>
+        <translation>키워드 강조</translation>
+    </message>
+    <message>
+        <source>Key words highlighted in %1 captions</source>
+        <translation>자막 %1개에서 키워드를 강조했습니다</translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26702,6 +26714,14 @@ If playback stutters, try another.</source>
         <translation>키워드가 들어간 자막 끝에 이모지 추가(불 🔥, 파티 🎉)</translation>
     </message>
     <message>
+        <source>Key words</source>
+        <translation>키워드</translation>
+    </message>
+    <message>
+        <source>Highlight the key word of each caption in colour (a number, a name, what matters)</source>
+        <translation>각 자막의 키워드(숫자, 이름, 중요한 말)를 색으로 강조합니다</translation>
+    </message>
+    <message>
         <source>Clean up</source>
         <translation>정리</translation>
     </message>
@@ -26990,6 +27010,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Options</source>
         <translation>옵션</translation>
+    </message>
+    <message>
+        <source>Highlight key words in colour</source>
+        <translation>키워드를 색으로 강조</translation>
     </message>
     <message>
         <source>Show fewer</source>

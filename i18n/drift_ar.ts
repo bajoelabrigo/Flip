@@ -5502,6 +5502,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>No key words to highlight in these subtitles</source>
+        <translation>لا توجد كلمات مفتاحية لإبرازها في هذه الترجمات</translation>
+    </message>
+    <message>
+        <source>Highlight key words</source>
+        <translation>إبراز الكلمات المفتاحية</translation>
+    </message>
+    <message>
+        <source>Key words highlighted in %1 captions</source>
+        <translation>تم إبراز الكلمات المفتاحية في %1 ترجمة</translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -27174,6 +27186,14 @@ If playback stutters, try another.</source>
         <translation>إضافة رمز تعبيري في نهاية أسطر الترجمة التي تذكر كلمة مفتاحية (fuego 🔥، fiesta 🎉)</translation>
     </message>
     <message>
+        <source>Key words</source>
+        <translation>كلمات مفتاحية</translation>
+    </message>
+    <message>
+        <source>Highlight the key word of each caption in colour (a number, a name, what matters)</source>
+        <translation>يبرز بلون الكلمة المفتاحية في كل ترجمة (رقم، اسم، ما يهم)</translation>
+    </message>
+    <message>
         <source>Clean up</source>
         <translation>تنظيف</translation>
     </message>
@@ -27462,6 +27482,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Options</source>
         <translation>خيارات</translation>
+    </message>
+    <message>
+        <source>Highlight key words in colour</source>
+        <translation>إبراز الكلمات المفتاحية بلون</translation>
     </message>
     <message>
         <source>Show fewer</source>

@@ -5438,6 +5438,18 @@
         <translation>Máscara fija en la pantalla</translation>
     </message>
     <message>
+        <source>No key words to highlight in these subtitles</source>
+        <translation>No hay palabras clave que resaltar en estos subtítulos</translation>
+    </message>
+    <message>
+        <source>Highlight key words</source>
+        <translation>Resaltar palabras clave</translation>
+    </message>
+    <message>
+        <source>Key words highlighted in %1 captions</source>
+        <translation>Palabras clave resaltadas en %1 subtítulos</translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation>Preparando…</translation>
     </message>
@@ -26798,6 +26810,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Agrega un emoji al final de los subtítulos que mencionan una palabra clave (fuego 🔥, fiesta 🎉)</translation>
     </message>
     <message>
+        <source>Key words</source>
+        <translation>Palabras clave</translation>
+    </message>
+    <message>
+        <source>Highlight the key word of each caption in colour (a number, a name, what matters)</source>
+        <translation>Resalta en color la palabra clave de cada subtítulo (un número, un nombre, lo importante)</translation>
+    </message>
+    <message>
         <source>Clean up</source>
         <translation>Limpiar</translation>
     </message>
@@ -27086,6 +27106,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Options</source>
         <translation>Opciones</translation>
+    </message>
+    <message>
+        <source>Highlight key words in colour</source>
+        <translation>Resaltar palabras clave en color</translation>
     </message>
     <message>
         <source>Show fewer</source>

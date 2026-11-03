@@ -5438,6 +5438,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>No key words to highlight in these subtitles</source>
+        <translation>Nessuna parola chiave da evidenziare in questi sottotitoli</translation>
+    </message>
+    <message>
+        <source>Highlight key words</source>
+        <translation>Evidenzia parole chiave</translation>
+    </message>
+    <message>
+        <source>Key words highlighted in %1 captions</source>
+        <translation>Parole chiave evidenziate in %1 sottotitoli</translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26798,6 +26810,14 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
         <translation>Aggiungi un&apos;emoji alla fine dei sottotitoli che contengono una parola chiave (fuego 🔥, fiesta 🎉)</translation>
     </message>
     <message>
+        <source>Key words</source>
+        <translation>Parole chiave</translation>
+    </message>
+    <message>
+        <source>Highlight the key word of each caption in colour (a number, a name, what matters)</source>
+        <translation>Evidenzia a colori la parola chiave di ogni sottotitolo (un numero, un nome, ciò che conta)</translation>
+    </message>
+    <message>
         <source>Clean up</source>
         <translation>Pulisci</translation>
     </message>
@@ -27086,6 +27106,10 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     <message>
         <source>Options</source>
         <translation>Opzioni</translation>
+    </message>
+    <message>
+        <source>Highlight key words in colour</source>
+        <translation>Evidenzia le parole chiave a colori</translation>
     </message>
     <message>
         <source>Show fewer</source>

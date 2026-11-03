@@ -2,6 +2,7 @@
 
 #include <QCoreApplication>
 #include <QRegularExpression>
+#include <QSet>
 
 #include <algorithm>
 #include <cmath>
@@ -620,6 +621,80 @@ QString captionWithEmoji(const QString &text)
             return text.trimmed() + QLatin1Char(' ') + emoji;
     }
     return text;
+}
+
+QString highlightCaptionKeyword(const QString &text)
+{
+    // Words that carry no meaning of their own, accent-free and lower-case.
+    static const QSet<QString> kFiller = [] {
+        QSet<QString> set;
+        for (const char *w : {
+                 // es
+                 "el", "la", "los", "las", "un", "una", "unos", "unas", "de", "del", "al", "a", "en", "y", "o",
+                 "que", "con", "por", "para", "como", "pero", "mas", "muy", "ya", "se", "su", "sus", "mi", "mis",
+                 "tu", "tus", "lo", "le", "les", "me", "te", "nos", "es", "son", "fue", "era", "esta", "estan",
+                 "este", "esto", "estos", "estas", "ese", "esa", "eso", "esos", "esas", "aqui", "alli", "asi",
+                 "tambien", "porque", "cuando", "donde", "hay", "ser", "estar", "tener", "tiene", "tengo",
+                 "hacer", "hace", "vamos", "voy", "va", "van", "hoy", "ahora", "entonces", "despues", "antes",
+                 "todo", "todos", "toda", "todas", "algo", "nada", "cada", "otro", "otra", "otros", "sobre",
+                 "entre", "hasta", "desde", "sin", "solo", "bien", "mucho", "mucha", "muchos", "poco", "puede",
+                 "pueden", "hola", "bueno", "pues", "primero", "luego", "listo", "simple", "forma", "manera",
+                 // en
+                 "the", "an", "and", "or", "of", "to", "in", "on", "at", "for", "with", "is", "are", "was",
+                 "were", "be", "been", "it", "this", "that", "these", "those", "you", "we", "they", "he",
+                 "she", "his", "her", "our", "your", "their", "my", "me", "us", "them", "so", "but", "if",
+                 "then", "just", "very", "really", "here", "there", "what", "when", "where", "which", "who",
+                 "how", "about", "from", "into", "have", "has", "had", "will", "would", "can", "could",
+                 "going", "gonna", "get", "got", "now", "today", "all", "some", "any", "more", "much", "also",
+                 // pt
+                 "os", "as", "um", "uma", "do", "da", "dos", "das", "no", "na", "nos", "nas", "em", "e", "com",
+                 "nao", "sim", "voce", "isso", "isto", "aquilo", "aqui", "tambem", "muito", "agora",
+                 // fr
+                 "le", "les", "des", "du", "et", "ou", "est", "sont", "avec", "pour", "dans", "sur", "pas",
+                 "vous", "nous", "ils", "elle", "cette", "ces", "tres", "aussi", "mais", "donc",
+                 // it
+                 "il", "lo", "gli", "di", "che", "con", "per", "non", "sono", "questo", "questa", "molto",
+                 "anche", "ma", "perche"}) {
+            set.insert(QString::fromLatin1(w));
+        }
+        return set;
+    }();
+    if (text.contains(QLatin1Char('*')))
+        return text;
+    static const QRegularExpression kWord(QStringLiteral(R"(([$€£]?\d[\d.,]*\s?%?|[\p{L}\p{M}][\p{L}\p{M}'’-]*))"));
+    struct Candidate { int start; int length; int score; };
+    QList<Candidate> words;
+    for (auto it = kWord.globalMatch(text); it.hasNext();) {
+        const QRegularExpressionMatch m = it.next();
+        const QString w = m.captured(0).trimmed();
+        int score = 0;
+        if (w.front().isDigit() || w.front() == QLatin1Char('$') || w.front() == QChar(0x20AC)
+            || w.front() == QChar(0x00A3)) {
+            score = 1000; // «100 %», «$5», «3»: the number is what a viewer keeps
+        } else {
+            QString key;
+            for (const QChar c : w.normalized(QString::NormalizationForm_KD)) {
+                if (c.category() != QChar::Mark_NonSpacing)
+                    key.append(c.toLower());
+            }
+            if (!kFiller.contains(key) && w.size() >= 4)
+                score = int(w.size());
+        }
+        words.append({int(m.capturedStart(0)), int(w.size()), score});
+    }
+    if (words.size() < 3)
+        return text;
+    const Candidate *best = nullptr;
+    for (const Candidate &c : std::as_const(words)) {
+        if (c.score > 0 && (!best || c.score > best->score))
+            best = &c;
+    }
+    if (!best)
+        return text;
+    QString out = text;
+    out.insert(best->start + best->length, QLatin1Char('*'));
+    out.insert(best->start, QLatin1Char('*'));
+    return out;
 }
 
 QString applySubtitleReplacements(const QString &text, const QList<QPair<QString, QString>> &pairs)

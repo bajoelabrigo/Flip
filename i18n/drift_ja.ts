@@ -5419,6 +5419,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>No key words to highlight in these subtitles</source>
+        <translation>これらの字幕に強調するキーワードはありません</translation>
+    </message>
+    <message>
+        <source>Highlight key words</source>
+        <translation>キーワードを強調</translation>
+    </message>
+    <message>
+        <source>Key words highlighted in %1 captions</source>
+        <translation>%1 件の字幕でキーワードを強調しました</translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26704,6 +26716,14 @@ If playback stutters, try another.</source>
         <translation>キーワードを含む字幕の末尾に絵文字を追加します（fuego 🔥、fiesta 🎉）</translation>
     </message>
     <message>
+        <source>Key words</source>
+        <translation>キーワード</translation>
+    </message>
+    <message>
+        <source>Highlight the key word of each caption in colour (a number, a name, what matters)</source>
+        <translation>各字幕のキーワード（数字、名前、大事な語）を色で強調します</translation>
+    </message>
+    <message>
         <source>Clean up</source>
         <translation>クリーンアップ</translation>
     </message>
@@ -26992,6 +27012,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Options</source>
         <translation>オプション</translation>
+    </message>
+    <message>
+        <source>Highlight key words in colour</source>
+        <translation>キーワードを色で強調</translation>
     </message>
     <message>
         <source>Show fewer</source>

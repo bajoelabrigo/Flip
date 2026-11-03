@@ -1215,6 +1215,10 @@ public:
     // Emojis for keywords at the end of captions: an option for new captions, and an action.
     Q_INVOKABLE bool subtitleEmojisEnabled() const;
     Q_INVOKABLE void setSubtitleEmojisEnabled(bool enabled);
+    // Key words marked in colour (*like this*) when captions are made, and on captions already made.
+    Q_INVOKABLE bool subtitleKeywordsEnabled() const;
+    Q_INVOKABLE void setSubtitleKeywordsEnabled(bool enabled);
+    Q_INVOKABLE void highlightSubtitleKeywords(int trackIndex, int clipIndex);
     // New captions with swear words hidden behind their first letter (off by default).
     // Captions made «in the cloud» (ElevenLabs Scribe) instead of on this computer: offered once
     // Settings › Cloud has a key and the user's consent. Hard words (names, brands) help it.

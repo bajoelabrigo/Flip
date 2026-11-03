@@ -80,6 +80,8 @@ Item {
     function applyChanges() {
         if (root.changesKind === "emojis")
             EditorState.addEmojisToSubtitles(root.trackIndex, root.clipIndex)
+        else if (root.changesKind === "keywords")
+            EditorState.highlightSubtitleKeywords(root.trackIndex, root.clipIndex)
         else if (root.changesKind === "cleanup")
             EditorState.cleanUpSubtitles(root.trackIndex, root.clipIndex)
         root.changesKind = ""
@@ -527,6 +529,16 @@ Item {
                 tooltip: qsTr("Add an emoji at the end of captions that mention a keyword (fuego 🔥, fiesta 🎉)")
                 enabled: root.cues.length > 0
                 onClicked: root.showChanges("emojis")
+            }
+
+            ThemedButton {
+                width: toolGrid.cell
+                text: qsTr("Key words")
+                variant: "secondary"
+                glyph: Theme.icons.sparkles
+                tooltip: qsTr("Highlight the key word of each caption in colour (a number, a name, what matters)")
+                enabled: root.cues.length > 0
+                onClicked: root.showChanges("keywords")
             }
 
             ThemedButton {
