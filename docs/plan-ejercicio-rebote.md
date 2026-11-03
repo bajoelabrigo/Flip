@@ -164,3 +164,33 @@ fotograma clave en números, itinerantes e interpolación espacial, y emparentar
 - **Atajos:** juego de atajos a elegir en Preferencias › Atajos: «Flip» (los de hoy) o «After Effects» (J/K claves,
   P/S/R/T/A propiedades, U/UU, RePág/AvPág, [ ] y Alt+[ ]). El modo Pro propone el de AE la primera vez. Nadie pierde
   sus atajos propios.
+
+### Qué hay hoy y qué falta (revisión del código, 2026-11-03)
+- **Zona de trabajo (parcial):** `Project::workAreaInUs/OutUs`, I/O/Mayús+I/Mayús+O/Alt+X; se dibuja (TimelinePanel
+  ~1937–1994) pero **no se arrastra**; sin bucle la reproducción la ignora; RAM y exportar sí la respetan.
+  Falta: arrastrar los bordes y la barra (como la barra de zona de trabajo de AE), B/N en el juego AE, y reproducir
+  dentro de ella.
+- **[ ] y Alt+[ ] (no hay):** acciones nuevas con `trimClipLeft/Right` y `moveClip`; `shortcutChord` no sabe nombrar
+  `[`, `]`, `=`, `-` ni el teclado numérico (hay que sumarlos para poder grabarlos).
+- **Atajos (un solo juego):** `defaultShortcuts` (AC ~4902), grupo `shortcuts` con `schemaVersion`; F9 y compañía
+  fijos en `KeyframeKeyTools.qml`. Falta: juegos «Flip» / «After Effects» y UU. U hoy abre todas las pistas.
+- **Velocidad del fotograma clave (existe):** `KeyframeVelocityDialog.qml` + `setKeyVelocity`; solo la clave del menú.
+  Falta: aplicarlo a todas las elegidas, y la velocidad espacial de Posición.
+- **Itinerantes / interpolación espacial (no hay):** `Interpolation` = Linear/Hold/Ease; el trayecto es una polilínea
+  muestreada (MotionPathOverlay) y sus tiradores son los temporales de X e Y. Va con Posición unida.
+- **Posición:** `transformX/Y` separados (esquina), `positionLinked` une las ediciones. Falta la propiedad unida con
+  tangentes espaciales propias y velocidad a lo largo del trayecto.
+- **Cuentas en los valores (no hay):** `parseFloat` en ScrubValue y ThemedNumberField.
+- **Varias capas (no hay):** la elección de claves es de una pista; pegar y poner clave van a un solo clip.
+- **Editor de gráficos (parcial):** Loader en TimelinePanel ~3326 bajo la pista elegida, una sola capa, tiempo y zoom
+  de la línea de tiempo, rango de valores automático. Falta: varias capas, ajustar/acercar a lo elegido, rueda en
+  valores, recuadro que escala.
+- **Expresiones (existen con límites):** QJSEngine con `value`, `time`, `wiggle`, `loopOut/loopIn` (como
+  comportamiento), `thisComp.layer(nombre)`. Faltan `index`, `thisLayer`, `valueAtTime`, `velocity`,
+  `linear()/ease()`, `clamp`, arreglos. Nulo y emparentar existen.
+
+### Orden de trabajo
+1. Cuentas en los valores. 2. Juego de atajos AE (+ `[`, `]` en `shortcutChord`, J/K, P/S/R/T/A, U/UU, RePág/AvPág,
+B/N). 3. [ ] y Alt+[ ]. 4. Zona de trabajo arrastrable y reproducción dentro de ella. 5. Velocidad del fotograma
+clave para todas las elegidas. 6. Claves en varias capas (poner, copiar, pegar). 7. Expresiones que faltan.
+8. Editor de gráficos grande. 9. Posición unida con trayecto curvo e itinerantes.
