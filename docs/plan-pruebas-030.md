@@ -92,3 +92,32 @@ Material: video de B-roll con voz (`voz.wav` sobre el video de la gente).
 
 | # | Proyecto | Qué pasó | Estado |
 |---|---|---|---|
+| 1 | AE1 | La herramienta `add_shape` (MCP) pone la forma en la esquina de arriba a la izquierda, no centrada como dice su descripción | pendiente |
+| 2 | AE1 | Tras pasar a Pro, el primer clic sobre un clip no lo eligió (el segundo sí) | revisar |
+| 3 | AE1 | Con Posición unida la línea de tiempo sigue mostrando dos filas (Posición X / Posición Y); en AE es una fila «Posición» con los dos valores | pendiente |
+| 4 | AE1 | La rueda sobre las filas no las desplaza cuando el panel de la línea de tiempo es bajo (Escala quedaba fuera); hubo que agrandar el panel | pendiente |
+| 5 | AE1 | Escala: al escribir 130 en el ancho con el cronómetro recién puesto, la pelota se ensancha pero la fila sigue diciendo 100,0 / 100,0 % (el primer tamaño con clave pasa a ser el 100 %) | pendiente |
+| 6 | AE1 | Escala: Tab desde el ancho no pasa al alto (el 75 no se aplicó) | pendiente |
+| 7 | AE1 | Al escalar cambian los números de Punto de anclaje (259 → 337) y de Posición X; en AE el anclaje no cambia con la escala | pendiente |
+| 8 | AE1 | Separar dimensiones y volver a unir pierde las esquinas («Trayecto recto») de los golpes: todo vuelve a Bezier automático | pendiente |
+| — | AE1 | Bien: Posición se une sola, trayecto con tiradores propios, doblarlo no cambia el ritmo, F9 frena sin mover el camino, gráfico de velocidad «Pos» con velocidad pareja por tramo, influencia, Trayecto recto (esquinas), Itinerante, deshacer/rehacer | ok |
+| 9 | AE2 | Con un clip elegido, el clic sobre otro clip no cambia la elección (seguía el nulo); hace falta Esc antes. Pasa sobre todo tras usar sus filas o emparentar (mismo que el 2) | pendiente |
+| 10 | AE2 | Un texto recién creado dice «Escala 10 %» en Transformar | pendiente |
+| 11 | AE2 | Emparentar solo está en clic derecho › Avanzado › «Seguir a (primario)»: en AE es una columna visible (con el látigo) en la línea de tiempo | pendiente |
+| 12 | AE2 | Juego «After Effects»: Alt+Mayús+T (y P/S/R) no ponen clave de esa propiedad como en AE | pendiente |
+| 13 | AE2 | [ , ] , Alt+[ , Alt+] no hicieron nada (teclado español: «[» va con AltGr; revisar qué tecla llega y aceptar la de la distribución) | revisar |
+| 14 | AE2 | UU muestra Posición y Escala 100/100 del nulo como modificadas aunque no se tocaron | pendiente |
+| — | AE2 | Bien: emparentar al nulo y girar con él, T muestra solo Opacidad (de las capas elegidas), Inicio, K/J entre claves, B/N zona de trabajo y la reproducción se para al final, copiar y pegar claves en dos capas («×2»), recuadro sobre dos pistas + F9 en las dos, arrastrar claves de dos pistas juntas, deshacer/rehacer | ok |
+| 15 | AE3 | Velocidad del fotograma clave: con el cursor aún en el último campo, el primer clic en «Aplicar» solo confirma el campo; hace falta un segundo clic | pendiente |
+| 16 | AE3 | Gráfico: Ctrl+rueda y Alt+rueda no acercaron valores ni tiempo (la rueda sola sí movió el tiempo). Revisar con el mouse de Jorge: puede ser que la herramienta de pruebas no mande el modificador con la rueda | revisar |
+| — | AE3 | Sin probar: Ctrl sobre un tirador del trayecto (la herramienta no deja mantener Ctrl durante el arrastre) | — |
+| — | AE3 | Bien: cuentas en los valores (resultado 860 de «(1920-200)/2»), trayecto en S de 4 claves, Auto-Orient, velocidad de varias claves en px/s del trayecto (el camino no cambia), gráfico a pantalla completa, «Ver toda la curva», recuadro de transformación que estira en el tiempo, deshacer | ok |
+| 17 | AE4 | Comportamiento › Expresión: la ayuda solo nombra value, time, wiggle, Math y thisComp.layer; faltan index, thisLayer, linear, ease, easeIn/Out, clamp, valueAtTime, velocity, speed | pendiente |
+| 18 | AE4 | El menú de la fila de Posición muestra «✓ Separar dimensiones» marcado aun antes de animar (y al animar se une sola): el estado que muestra confunde | pendiente |
+| 19 | AE4 | El gráfico dibuja solo las claves: no muestra el resultado del comportamiento (Rebote, expresión, bucle); AE dibuja el valor final | mejora |
+| — | AE4 | Bien: expresión con index y linear (la barra baja index×100 y 300 más en 2 s), punto verde de expresión válida, marca «≈» en la fila, «+800» relativo en un valor animado, Motion Tools › Rebote aplicado | ok |
+| — | AE4 | Sin probar todavía: Curvas con claves de varias capas, Elástico, pegar en las cinco barras | — |
+| 20 | AE5 | Escala de un texto: al escribir 150 la fila queda en «30,2 / 14,3 %» (ancho y alto distintos aunque unidos) y el texto no se ve más grande; la escala de los textos está rota (ver 10) | pendiente |
+| 21 | AE5 | «Ver toda la curva» ajusta al largo del clip (17 s) y no a donde están las claves (en el primer segundo) | pendiente |
+| 22 | AE5 | El gráfico bajo la pista del video sale muy bajo (unos 50 px): sin pantalla completa no se puede trabajar | pendiente |
+| — | AE5 | Bien: S muestra solo Escala (también con dos capas), curvas de dos capas (la otra punteada con su etiqueta), clic en la clave de la otra capa pasa a editarla, Ctrl+clic suma claves de las dos capas y F9 las suaviza a la vez | ok |
