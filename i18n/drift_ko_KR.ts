@@ -15984,7 +15984,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>닫기</translation>
     </message>
     <message>
         <source>Replace</source>
@@ -26724,6 +26724,38 @@ If playback stutters, try another.</source>
     <message>
         <source>Fix a word in every caption at once</source>
         <translation>모든 자막에서 한 단어를 한 번에 수정</translation>
+    </message>
+    <message>
+        <source>Spelling</source>
+        <translation>맞춤법</translation>
+    </message>
+    <message>
+        <source>Check the spelling of every caption, one word at a time</source>
+        <translation>모든 자막의 맞춤법을 한 단어씩 검사합니다</translation>
+    </message>
+    <message>
+        <source>Words to check: %1</source>
+        <translation>확인할 단어: %1</translation>
+    </message>
+    <message>
+        <source>No spelling mistakes found.</source>
+        <translation>맞춤법 오류가 없습니다.</translation>
+    </message>
+    <message>
+        <source>Remove repeated word</source>
+        <translation>반복된 단어 제거</translation>
+    </message>
+    <message>
+        <source>No suggestions: fix it in the text box.</source>
+        <translation>제안이 없습니다. 텍스트 상자에서 고치세요.</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>닫기</translation>
+    </message>
+    <message>
+        <source>Ignore</source>
+        <translation>무시</translation>
     </message>
     <message>
         <source>Nothing to change in these captions.</source>

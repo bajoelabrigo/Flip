@@ -16108,7 +16108,7 @@ ZOBACZENIA</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Zamknij</translation>
     </message>
     <message>
         <source>Replace</source>
@@ -26914,6 +26914,38 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     <message>
         <source>Fix a word in every caption at once</source>
         <translation>Popraw słowo we wszystkich napisach naraz</translation>
+    </message>
+    <message>
+        <source>Spelling</source>
+        <translation>Pisownia</translation>
+    </message>
+    <message>
+        <source>Check the spelling of every caption, one word at a time</source>
+        <translation>Sprawdza pisownię wszystkich napisów, słowo po słowie</translation>
+    </message>
+    <message>
+        <source>Words to check: %1</source>
+        <translation>Słowa do sprawdzenia: %1</translation>
+    </message>
+    <message>
+        <source>No spelling mistakes found.</source>
+        <translation>Nie znaleziono błędów pisowni.</translation>
+    </message>
+    <message>
+        <source>Remove repeated word</source>
+        <translation>Usuń powtórzone słowo</translation>
+    </message>
+    <message>
+        <source>No suggestions: fix it in the text box.</source>
+        <translation>Brak podpowiedzi: popraw w polu tekstowym.</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>Zamknij</translation>
+    </message>
+    <message>
+        <source>Ignore</source>
+        <translation>Ignoruj</translation>
     </message>
     <message>
         <source>Nothing to change in these captions.</source>

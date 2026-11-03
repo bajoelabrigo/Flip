@@ -15984,7 +15984,7 @@ LẦN SAU</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Đóng</translation>
     </message>
     <message>
         <source>Replace</source>
@@ -26726,6 +26726,38 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Fix a word in every caption at once</source>
         <translation>Sửa một từ trong mọi phụ đề cùng lúc</translation>
+    </message>
+    <message>
+        <source>Spelling</source>
+        <translation>Chính tả</translation>
+    </message>
+    <message>
+        <source>Check the spelling of every caption, one word at a time</source>
+        <translation>Kiểm tra chính tả mọi phụ đề, từng từ một</translation>
+    </message>
+    <message>
+        <source>Words to check: %1</source>
+        <translation>Từ cần kiểm tra: %1</translation>
+    </message>
+    <message>
+        <source>No spelling mistakes found.</source>
+        <translation>Không tìm thấy lỗi chính tả.</translation>
+    </message>
+    <message>
+        <source>Remove repeated word</source>
+        <translation>Xóa từ lặp lại</translation>
+    </message>
+    <message>
+        <source>No suggestions: fix it in the text box.</source>
+        <translation>Không có gợi ý: hãy sửa trong ô văn bản.</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>Đóng</translation>
+    </message>
+    <message>
+        <source>Ignore</source>
+        <translation>Bỏ qua</translation>
     </message>
     <message>
         <source>Nothing to change in these captions.</source>

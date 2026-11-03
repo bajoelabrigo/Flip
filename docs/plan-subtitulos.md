@@ -60,7 +60,7 @@ Para redes (estilo CapCut):
 - [ ] Palabras clave resaltadas por la IA (color o tamaño) y emojis animados de Stock.
 - [ ] Más plantillas de subtítulos virales en Stock (palabra por palabra, rebote, caja que sigue la palabra).
 - [~] Filtro de groserías (*** o pitido). Hecho: casilla «Ocultar groserías (m*****)» al crear (es/en); falta el pitido.
-- [ ] Revisión de ortografía.
+- [x] Revisión de ortografía.
 - [x] Elegir la transcripción en la nube (ElevenLabs) desde el panel de subtítulos.
 
 ## Hecho
@@ -101,3 +101,7 @@ Para redes (estilo CapCut):
   - «Quitar silencios» (barra de la línea de tiempo) abre una ventana con cada pausa y muletilla: casilla para
     conservarla, clic para oírla en el cabezal, pausas de más de 0,4/0,6/1/1,5 s y muletillas sí/no, y «Quitar» en un
     solo deshacer (`SilenceReviewWindow.qml`, `silencePieces`, `removeSilencePieces`). Por MCP sigue cortando directo.
+  - botón «Ortografía» en el editor (las herramientas quedan en una cuadrícula de 2×2): el corrector de Windows
+    (`engine/SpellCheck`, `ISpellChecker`) muestra una palabra a la vez con sus sugerencias, «Ignorar» y «Quitar la
+    palabra repetida» (conserva el tiempo de la palabra). Solo sale si Windows tiene el diccionario del idioma (el de
+    los últimos subtítulos creados, o el de la app). En macOS y Linux todavía no hay. Probado compilando aparte.

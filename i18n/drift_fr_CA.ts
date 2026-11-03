@@ -16047,7 +16047,7 @@ PROCHAINE</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Fermer</translation>
     </message>
     <message>
         <source>Replace</source>
@@ -26822,6 +26822,38 @@ Si la lecture saccade, essayez une autre option.</translation>
     <message>
         <source>Fix a word in every caption at once</source>
         <translation>Corriger un mot dans tous les sous-titres à la fois</translation>
+    </message>
+    <message>
+        <source>Spelling</source>
+        <translation>Orthographe</translation>
+    </message>
+    <message>
+        <source>Check the spelling of every caption, one word at a time</source>
+        <translation>Vérifie l’orthographe de tous les sous-titres, un mot à la fois</translation>
+    </message>
+    <message>
+        <source>Words to check: %1</source>
+        <translation>Mots à vérifier : %1</translation>
+    </message>
+    <message>
+        <source>No spelling mistakes found.</source>
+        <translation>Aucune faute d’orthographe trouvée.</translation>
+    </message>
+    <message>
+        <source>Remove repeated word</source>
+        <translation>Supprimer le mot répété</translation>
+    </message>
+    <message>
+        <source>No suggestions: fix it in the text box.</source>
+        <translation>Aucune suggestion : corrigez-le dans la zone de texte.</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>Fermer</translation>
+    </message>
+    <message>
+        <source>Ignore</source>
+        <translation>Ignorer</translation>
     </message>
     <message>
         <source>Nothing to change in these captions.</source>

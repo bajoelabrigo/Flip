@@ -16108,7 +16108,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Закрыть</translation>
     </message>
     <message>
         <source>Replace</source>
@@ -26914,6 +26914,38 @@ If playback stutters, try another.</source>
     <message>
         <source>Fix a word in every caption at once</source>
         <translation>Исправить слово во всех субтитрах сразу</translation>
+    </message>
+    <message>
+        <source>Spelling</source>
+        <translation>Орфография</translation>
+    </message>
+    <message>
+        <source>Check the spelling of every caption, one word at a time</source>
+        <translation>Проверяет орфографию всех субтитров по одному слову</translation>
+    </message>
+    <message>
+        <source>Words to check: %1</source>
+        <translation>Слов на проверку: %1</translation>
+    </message>
+    <message>
+        <source>No spelling mistakes found.</source>
+        <translation>Орфографических ошибок не найдено.</translation>
+    </message>
+    <message>
+        <source>Remove repeated word</source>
+        <translation>Убрать повторённое слово</translation>
+    </message>
+    <message>
+        <source>No suggestions: fix it in the text box.</source>
+        <translation>Нет вариантов: исправьте в поле текста.</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>Закрыть</translation>
+    </message>
+    <message>
+        <source>Ignore</source>
+        <translation>Пропустить</translation>
     </message>
     <message>
         <source>Nothing to change in these captions.</source>

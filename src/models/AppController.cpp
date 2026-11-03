@@ -99,6 +99,7 @@
 #include "models/JobRegistry.h"
 #include "models/CloudProviders.h"
 #include "engine/WhisperTranscriber.h"
+#include "engine/SpellCheck.h"
 #include "McpDetail.h"
 
 #include <QBuffer>
@@ -17007,6 +17008,44 @@ int AppController::replaceInSubtitles(int trackIndex, int clipIndex, const QStri
     pushProjectEdit(before, tr("Replace in subtitles"));
     finishEdit(tr("Replaced in %n caption(s)", nullptr, changed));
     return changed;
+}
+
+namespace {
+QString subtitleSpellLanguage(const QString &language)
+{
+    if (!language.isEmpty())
+        return language;
+    const QString remembered = QSettings().value(QStringLiteral("subtitles/language")).toString();
+    return remembered.isEmpty() ? QLocale().name() : remembered;
+}
+} // namespace
+
+bool AppController::subtitleSpellCheckAvailable(const QString &language) const
+{
+    return drift::spell::available(subtitleSpellLanguage(language));
+}
+
+QVariantList AppController::subtitleSpellingIssues(int trackIndex, int clipIndex, const QString &language) const
+{
+    QVariantList out;
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return out;
+    const drift::Clip &clip = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    if (clip.type != drift::ClipType::Subtitle)
+        return out;
+    QStringList texts;
+    for (const drift::SubtitleCue &cue : clip.subtitleCues)
+        texts.append(cue.text);
+    for (const drift::spell::Issue &issue : drift::spell::check(texts, subtitleSpellLanguage(language))) {
+        out.append(QVariantMap{
+            {QStringLiteral("cue"), issue.text},
+            {QStringLiteral("start"), issue.start},
+            {QStringLiteral("length"), issue.length},
+            {QStringLiteral("word"), issue.word},
+            {QStringLiteral("suggestions"), issue.suggestions},
+        });
+    }
+    return out;
 }
 
 QVariantList AppController::subtitleChangesPreview(int trackIndex, int clipIndex, const QString &kind) const

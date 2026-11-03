@@ -15984,7 +15984,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>閉じる</translation>
     </message>
     <message>
         <source>Replace</source>
@@ -26726,6 +26726,38 @@ If playback stutters, try another.</source>
     <message>
         <source>Fix a word in every caption at once</source>
         <translation>すべての字幕の単語を一度に修正します</translation>
+    </message>
+    <message>
+        <source>Spelling</source>
+        <translation>スペル</translation>
+    </message>
+    <message>
+        <source>Check the spelling of every caption, one word at a time</source>
+        <translation>すべての字幕のスペルを1語ずつチェックします</translation>
+    </message>
+    <message>
+        <source>Words to check: %1</source>
+        <translation>確認する語: %1</translation>
+    </message>
+    <message>
+        <source>No spelling mistakes found.</source>
+        <translation>スペルの誤りは見つかりませんでした。</translation>
+    </message>
+    <message>
+        <source>Remove repeated word</source>
+        <translation>重複した語を削除</translation>
+    </message>
+    <message>
+        <source>No suggestions: fix it in the text box.</source>
+        <translation>候補がありません。テキストボックスで修正してください。</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>閉じる</translation>
+    </message>
+    <message>
+        <source>Ignore</source>
+        <translation>無視</translation>
     </message>
     <message>
         <source>Nothing to change in these captions.</source>

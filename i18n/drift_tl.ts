@@ -16042,7 +16042,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Isara</translation>
     </message>
     <message>
         <source>Replace</source>
@@ -26808,6 +26808,38 @@ If playback stutters, try another.</source>
     <message>
         <source>Fix a word in every caption at once</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spelling</source>
+        <translation>Baybay</translation>
+    </message>
+    <message>
+        <source>Check the spelling of every caption, one word at a time</source>
+        <translation>Sinusuri ang baybay ng bawat caption, isa-isang salita</translation>
+    </message>
+    <message>
+        <source>Words to check: %1</source>
+        <translation>Mga salitang susuriin: %1</translation>
+    </message>
+    <message>
+        <source>No spelling mistakes found.</source>
+        <translation>Walang nakitang mali sa baybay.</translation>
+    </message>
+    <message>
+        <source>Remove repeated word</source>
+        <translation>Alisin ang naulit na salita</translation>
+    </message>
+    <message>
+        <source>No suggestions: fix it in the text box.</source>
+        <translation>Walang mungkahi: ayusin ito sa text box.</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>Isara</translation>
+    </message>
+    <message>
+        <source>Ignore</source>
+        <translation>Huwag pansinin</translation>
     </message>
     <message>
         <source>Nothing to change in these captions.</source>

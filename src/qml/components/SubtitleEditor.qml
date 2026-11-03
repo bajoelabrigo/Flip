@@ -85,6 +85,59 @@ Item {
         root.changesKind = ""
     }
 
+    // Spelling, one flagged word at a time (the system's spell checker): a suggestion fixes it in its
+    // caption, «Ignore» skips that word for the rest of the check.
+    readonly property bool spellAvailable: EditorState.subtitleSpellCheckAvailable()
+    property bool spellOpen: false
+    property var spellIssues: []
+    property var spellIgnored: ({})
+    readonly property var spellIssue: spellIssues.length > 0 ? spellIssues[0] : null
+    function checkSpelling() {
+        root.spellIssues = EditorState.subtitleSpellingIssues(root.trackIndex, root.clipIndex)
+            .filter(i => !root.spellIgnored[i.word.toLowerCase()])
+        root.spellOpen = true
+        if (root.spellIssue)
+            EditorState.selectedSubtitleCue = root.spellIssue.cue
+    }
+    function fixSpelling(suggestion) {
+        const issue = root.spellIssue
+        const cue = issue ? root.cues[issue.cue] : null
+        if (!cue || String(cue.text).substr(issue.start, issue.length) !== issue.word) {
+            root.checkSpelling()
+            return
+        }
+        let before = cue.text.slice(0, issue.start)
+        const after = cue.text.slice(issue.start + issue.length)
+        const patch = {}
+        if (suggestion === "") {
+            // A repeated word: it goes with its space, and the first of the pair takes its timing.
+            before = before.replace(/\s+$/, "")
+            const ends = (cue.wordEnds || []).slice()
+            const k = root.wordCount(before)
+            if (ends.length === root.wordCount(cue.text) && k > 0) {
+                ends.splice(k - 1, 1)
+                patch.wordEnds = ends
+            }
+        }
+        patch.text = before + suggestion + after
+        root.updateCue(issue.cue, patch)
+        Qt.callLater(root.checkSpelling)
+    }
+    function ignoreSpelling() {
+        const issue = root.spellIssue
+        if (!issue)
+            return
+        const ignored = Object.assign({}, root.spellIgnored)
+        ignored[issue.word.toLowerCase()] = true
+        root.spellIgnored = ignored
+        root.spellIssues = root.spellIssues.filter(i => !ignored[i.word.toLowerCase()])
+        if (root.spellIssue)
+            EditorState.selectedSubtitleCue = root.spellIssue.cue
+    }
+    function escapeHtml(t) {
+        return String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+    }
+
     // Reading rules (as Premiere's caption checks): a caption shown too briefly, too long, or with
     // more letters than a viewer reads in its time (about 20 per second). Empty when it reads well.
     function readingIssue(cue) {
@@ -126,7 +179,8 @@ Item {
         const next = cloneCues()
         if (index >= 0 && index < next.length) {
             const before = next[index]
-            if (patch.text !== undefined && wordCount(patch.text) !== wordCount(before.text))
+            if (patch.text !== undefined && patch.wordEnds === undefined
+                    && wordCount(patch.text) !== wordCount(before.text))
                 patch.wordEnds = []
             Object.assign(before, patch)
         }
@@ -378,6 +432,9 @@ Item {
     // cue edit (selectedClipData hands back a fresh object each time).
     function resetSelectionForClip() {
         root.changesKind = "" // a preview belongs to the clip it was made for
+        root.spellOpen = false
+        root.spellIssues = []
+        root.spellIgnored = ({})
         Qt.callLater(function () {
             // loadEditor explicitly: a new clip whose active cue lands on the same index
             // leaves selectedCueIndex unchanged, so nothing else would refresh the fields.
@@ -550,12 +607,15 @@ Item {
             tooltip: qsTr("Offset the exported captions by this clip's start so they match the exported video")
         }
 
-        Row {
+        Grid {
+            id: toolGrid
             width: parent.width
+            columns: 2
             spacing: 6
+            readonly property real cell: (width - spacing) / 2
 
             ThemedButton {
-                width: (parent.width - parent.spacing * 2) / 3
+                width: toolGrid.cell
                 text: qsTr("Emojis")
                 variant: "secondary"
                 glyph: Theme.icons.smile
@@ -565,7 +625,7 @@ Item {
             }
 
             ThemedButton {
-                width: (parent.width - parent.spacing * 2) / 3
+                width: toolGrid.cell
                 text: qsTr("Clean up")
                 variant: "secondary"
                 glyph: Theme.icons.wand
@@ -575,13 +635,123 @@ Item {
             }
 
             ThemedButton {
-                width: (parent.width - parent.spacing * 2) / 3
+                width: toolGrid.cell
                 text: qsTr("Find & replace")
                 variant: root.replaceOpen ? "primary" : "secondary"
                 glyph: Theme.icons.search
                 tooltip: qsTr("Fix a word in every caption at once")
                 enabled: root.cues.length > 0
                 onClicked: root.replaceOpen = !root.replaceOpen
+            }
+
+            ThemedButton {
+                visible: root.spellAvailable
+                width: toolGrid.cell
+                text: qsTr("Spelling")
+                variant: root.spellOpen ? "primary" : "secondary"
+                glyph: Theme.icons.check
+                tooltip: qsTr("Check the spelling of every caption, one word at a time")
+                enabled: root.cues.length > 0
+                onClicked: {
+                    if (root.spellOpen) {
+                        root.spellOpen = false
+                    } else {
+                        root.spellIgnored = ({})
+                        root.checkSpelling()
+                    }
+                }
+            }
+        }
+
+        // Spelling: the flagged word in its caption, the suggestions to fix it, or Ignore.
+        Rectangle {
+            visible: root.spellOpen
+            width: parent.width
+            height: visible ? spellColumn.implicitHeight + 16 : 0
+            radius: Theme.radiusMd
+            color: Theme.panelAccent
+            border.width: 1
+            border.color: Theme.panelBorder
+
+            Column {
+                id: spellColumn
+                x: 8
+                y: 8
+                width: parent.width - 16
+                spacing: 6
+
+                Text {
+                    width: parent.width
+                    wrapMode: Text.WordWrap
+                    text: root.spellIssue ? qsTr("Words to check: %1").arg(root.spellIssues.length)
+                                          : qsTr("No spelling mistakes found.")
+                    color: Theme.panelForeground
+                    font.family: Theme.fontFamily
+                    font.pixelSize: Theme.fontSizeXs
+                    font.weight: Font.Medium
+                }
+
+                Text {
+                    visible: root.spellIssue !== null
+                    width: parent.width
+                    wrapMode: Text.WordWrap
+                    textFormat: Text.StyledText
+                    text: {
+                        const issue = root.spellIssue
+                        const cue = issue ? root.cues[issue.cue] : null
+                        if (!cue)
+                            return ""
+                        const t = String(cue.text)
+                        return root.escapeHtml(t.slice(0, issue.start))
+                            + "<u><b>" + root.escapeHtml(issue.word) + "</b></u>"
+                            + root.escapeHtml(t.slice(issue.start + issue.length))
+                    }
+                    color: Theme.panelForeground
+                    font.family: Theme.fontFamily
+                    font.pixelSize: Theme.fontSizeSm
+                }
+
+                Flow {
+                    visible: root.spellIssue !== null
+                    width: parent.width
+                    spacing: 6
+                    Repeater {
+                        model: root.spellIssue ? root.spellIssue.suggestions : []
+                        ThemedButton {
+                            required property var modelData
+                            text: modelData === "" ? qsTr("Remove repeated word") : modelData
+                            variant: "secondary"
+                            onClicked: root.fixSpelling(modelData)
+                        }
+                    }
+                    Text {
+                        visible: root.spellIssue !== null && root.spellIssue.suggestions.length === 0
+                        height: 28
+                        verticalAlignment: Text.AlignVCenter
+                        text: qsTr("No suggestions: fix it in the text box.")
+                        color: Theme.mutedForeground
+                        font.family: Theme.fontFamily
+                        font.pixelSize: Theme.fontSizeXs
+                    }
+                }
+
+                Row {
+                    width: parent.width
+                    spacing: 6
+                    ThemedButton {
+                        width: (parent.width - parent.spacing) / 2
+                        text: qsTr("Close")
+                        variant: "ghost"
+                        onClicked: root.spellOpen = false
+                    }
+                    ThemedButton {
+                        width: (parent.width - parent.spacing) / 2
+                        visible: root.spellIssue !== null
+                        text: qsTr("Ignore")
+                        variant: "secondary"
+                        onClicked: root.ignoreSpelling()
+                    }
+                }
             }
         }
 

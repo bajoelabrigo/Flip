@@ -16042,7 +16042,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>বন্ধ</translation>
     </message>
     <message>
         <source>Replace</source>
@@ -26768,6 +26768,38 @@ If playback stutters, try another.</source>
     <message>
         <source>Too fast to read</source>
         <translation>পড়ার জন্য খুব দ্রুত</translation>
+    </message>
+    <message>
+        <source>Spelling</source>
+        <translation>বানান</translation>
+    </message>
+    <message>
+        <source>Check the spelling of every caption, one word at a time</source>
+        <translation>প্রতিটি ক্যাপশনের বানান একটি একটি শব্দ করে যাচাই করে</translation>
+    </message>
+    <message>
+        <source>Words to check: %1</source>
+        <translation>যাচাই করার শব্দ: %1</translation>
+    </message>
+    <message>
+        <source>No spelling mistakes found.</source>
+        <translation>কোনো বানান ভুল পাওয়া যায়নি।</translation>
+    </message>
+    <message>
+        <source>Remove repeated word</source>
+        <translation>পুনরাবৃত্ত শব্দটি সরান</translation>
+    </message>
+    <message>
+        <source>No suggestions: fix it in the text box.</source>
+        <translation>কোনো পরামর্শ নেই: টেক্সট বক্সে ঠিক করুন।</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>বন্ধ</translation>
+    </message>
+    <message>
+        <source>Ignore</source>
+        <translation>উপেক্ষা</translation>
     </message>
     <message>
         <source>+ %1 more</source>

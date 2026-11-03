@@ -26822,6 +26822,38 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Corrige una palabra en todos los subtítulos a la vez</translation>
     </message>
     <message>
+        <source>Spelling</source>
+        <translation>Ortografía</translation>
+    </message>
+    <message>
+        <source>Check the spelling of every caption, one word at a time</source>
+        <translation>Revisa la ortografía de todos los subtítulos, palabra por palabra</translation>
+    </message>
+    <message>
+        <source>Words to check: %1</source>
+        <translation>Palabras por revisar: %1</translation>
+    </message>
+    <message>
+        <source>No spelling mistakes found.</source>
+        <translation>No se encontraron faltas de ortografía.</translation>
+    </message>
+    <message>
+        <source>Remove repeated word</source>
+        <translation>Quitar la palabra repetida</translation>
+    </message>
+    <message>
+        <source>No suggestions: fix it in the text box.</source>
+        <translation>Sin sugerencias: corrígela en el cuadro de texto.</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>Cerrar</translation>
+    </message>
+    <message>
+        <source>Ignore</source>
+        <translation>Ignorar</translation>
+    </message>
+    <message>
         <source>Nothing to change in these captions.</source>
         <translation>No hay nada que cambiar en estos subtítulos.</translation>
     </message>

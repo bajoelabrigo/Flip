@@ -15984,7 +15984,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>关闭</translation>
     </message>
     <message>
         <source>Replace</source>
@@ -26725,6 +26725,38 @@ If playback stutters, try another.</source>
     <message>
         <source>Fix a word in every caption at once</source>
         <translation>一次性修正所有字幕中的某个词</translation>
+    </message>
+    <message>
+        <source>Spelling</source>
+        <translation>拼写</translation>
+    </message>
+    <message>
+        <source>Check the spelling of every caption, one word at a time</source>
+        <translation>逐词检查所有字幕的拼写</translation>
+    </message>
+    <message>
+        <source>Words to check: %1</source>
+        <translation>待检查的词：%1</translation>
+    </message>
+    <message>
+        <source>No spelling mistakes found.</source>
+        <translation>未发现拼写错误。</translation>
+    </message>
+    <message>
+        <source>Remove repeated word</source>
+        <translation>删除重复的词</translation>
+    </message>
+    <message>
+        <source>No suggestions: fix it in the text box.</source>
+        <translation>没有建议：请在文本框中修改。</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>关闭</translation>
+    </message>
+    <message>
+        <source>Ignore</source>
+        <translation>忽略</translation>
     </message>
     <message>
         <source>Nothing to change in these captions.</source>

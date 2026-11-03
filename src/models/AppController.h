@@ -1196,6 +1196,11 @@ public:
     Q_INVOKABLE void cleanUpSubtitles(int trackIndex, int clipIndex);
     // What «Clean up» (kind "cleanup") or «Emojis» (kind "emojis") would change: [{before, after}].
     Q_INVOKABLE QVariantList subtitleChangesPreview(int trackIndex, int clipIndex, const QString &kind) const;
+    // Spelling, with the system's spell checker (Windows; none elsewhere yet): the words it flags in
+    // a subtitle clip, [{cue, start, length, word, suggestions}]. language "" = the one the captions
+    // were last made in, else the app's.
+    Q_INVOKABLE bool subtitleSpellCheckAvailable(const QString &language = {}) const;
+    Q_INVOKABLE QVariantList subtitleSpellingIssues(int trackIndex, int clipIndex, const QString &language = {}) const;
     // The user's corrections ([{find, replace}]), applied to every generated caption.
     Q_INVOKABLE QVariantList subtitleDictionary() const;
     Q_INVOKABLE void setSubtitleDictionary(const QVariantList &entries);

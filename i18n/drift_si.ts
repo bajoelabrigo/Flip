@@ -16042,7 +16042,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>වසන්න</translation>
     </message>
     <message>
         <source>Replace</source>
@@ -26816,6 +26816,38 @@ If playback stutters, try another.</source>
     <message>
         <source>Fix a word in every caption at once</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spelling</source>
+        <translation>අක්ෂර වින්‍යාසය</translation>
+    </message>
+    <message>
+        <source>Check the spelling of every caption, one word at a time</source>
+        <translation>සියලු උපසිරැසිවල අක්ෂර වින්‍යාසය වචනයෙන් වචනය පරීක්ෂා කරයි</translation>
+    </message>
+    <message>
+        <source>Words to check: %1</source>
+        <translation>පරීක්ෂා කළ යුතු වචන: %1</translation>
+    </message>
+    <message>
+        <source>No spelling mistakes found.</source>
+        <translation>අක්ෂර වින්‍යාස දෝෂ හමු නොවීය.</translation>
+    </message>
+    <message>
+        <source>Remove repeated word</source>
+        <translation>නැවත ආ වචනය ඉවත් කරන්න</translation>
+    </message>
+    <message>
+        <source>No suggestions: fix it in the text box.</source>
+        <translation>යෝජනා නැත: පෙළ කොටුවේ නිවැරදි කරන්න.</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>වසන්න</translation>
+    </message>
+    <message>
+        <source>Ignore</source>
+        <translation>නොසලකන්න</translation>
     </message>
     <message>
         <source>Nothing to change in these captions.</source>

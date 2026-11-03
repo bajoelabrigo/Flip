@@ -16046,7 +16046,7 @@ PRÓXIMA</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Fechar</translation>
     </message>
     <message>
         <source>Replace</source>
@@ -26820,6 +26820,38 @@ Se a reprodução travar, tente outra opção.</translation>
     <message>
         <source>Fix a word in every caption at once</source>
         <translation>Corrija uma palavra em todas as legendas de uma vez</translation>
+    </message>
+    <message>
+        <source>Spelling</source>
+        <translation>Ortografia</translation>
+    </message>
+    <message>
+        <source>Check the spelling of every caption, one word at a time</source>
+        <translation>Verifica a ortografia de todas as legendas, uma palavra por vez</translation>
+    </message>
+    <message>
+        <source>Words to check: %1</source>
+        <translation>Palavras para revisar: %1</translation>
+    </message>
+    <message>
+        <source>No spelling mistakes found.</source>
+        <translation>Nenhum erro de ortografia encontrado.</translation>
+    </message>
+    <message>
+        <source>Remove repeated word</source>
+        <translation>Remover a palavra repetida</translation>
+    </message>
+    <message>
+        <source>No suggestions: fix it in the text box.</source>
+        <translation>Sem sugestões: corrija na caixa de texto.</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>Fechar</translation>
+    </message>
+    <message>
+        <source>Ignore</source>
+        <translation>Ignorar</translation>
     </message>
     <message>
         <source>Nothing to change in these captions.</source>

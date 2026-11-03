@@ -16046,7 +16046,7 @@ LA PROSSIMA</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Chiudi</translation>
     </message>
     <message>
         <source>Replace</source>
@@ -26820,6 +26820,38 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     <message>
         <source>Fix a word in every caption at once</source>
         <translation>Correggi una parola in tutti i sottotitoli in una volta</translation>
+    </message>
+    <message>
+        <source>Spelling</source>
+        <translation>Ortografia</translation>
+    </message>
+    <message>
+        <source>Check the spelling of every caption, one word at a time</source>
+        <translation>Controlla l’ortografia di tutti i sottotitoli, una parola alla volta</translation>
+    </message>
+    <message>
+        <source>Words to check: %1</source>
+        <translation>Parole da controllare: %1</translation>
+    </message>
+    <message>
+        <source>No spelling mistakes found.</source>
+        <translation>Nessun errore di ortografia trovato.</translation>
+    </message>
+    <message>
+        <source>Remove repeated word</source>
+        <translation>Rimuovi la parola ripetuta</translation>
+    </message>
+    <message>
+        <source>No suggestions: fix it in the text box.</source>
+        <translation>Nessun suggerimento: correggila nella casella di testo.</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>Chiudi</translation>
+    </message>
+    <message>
+        <source>Ignore</source>
+        <translation>Ignora</translation>
     </message>
     <message>
         <source>Nothing to change in these captions.</source>

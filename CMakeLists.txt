@@ -746,6 +746,8 @@ add_library(driftengine STATIC
     src/engine/WhisperTokenizer.cpp
     src/engine/WhisperTranscriber.h
     src/engine/WhisperTranscriber.cpp
+    src/engine/SpellCheck.h
+    src/engine/SpellCheck.cpp
     src/engine/ChatterboxTokenizer.h
     src/engine/ChatterboxTokenizer.cpp
     src/engine/ChatterboxTts.h
@@ -875,7 +877,7 @@ if(WIN32)
         src/engine/D3d11GlInterop.h
         src/engine/D3d11GlInterop.cpp
     )
-    target_link_libraries(driftengine PRIVATE d3d11 dxgi d3dcompiler opengl32)
+    target_link_libraries(driftengine PRIVATE d3d11 dxgi d3dcompiler opengl32 ole32)
 endif()
 target_compile_definitions(driftengine PRIVATE DRIFT_VERSION="${DRIFT_VERSION_STRING}")
 
