@@ -5454,6 +5454,26 @@
         <translation>Na-highlight ang mga keyword sa %1 caption</translation>
     </message>
     <message>
+        <source>Install «Animated emojis» from Extras first</source>
+        <translation>I-install muna ang «Animated emojis» mula sa Extras</translation>
+    </message>
+    <message>
+        <source>Emoji: %1</source>
+        <translation>Emoji: %1</translation>
+    </message>
+    <message>
+        <source>No captions with an emoji word (fuego, Dios, fiesta…)</source>
+        <translation>Walang caption na may salitang may emoji (apoy, Diyos, party…)</translation>
+    </message>
+    <message>
+        <source>Animated emojis</source>
+        <translation>Animated emojis</translation>
+    </message>
+    <message>
+        <source>Animated emojis on %1 captions</source>
+        <translation>Animated emojis sa %1 caption</translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -9675,7 +9695,7 @@
     </message>
     <message>
         <source>Animated</source>
-        <translation type="unfinished"></translation>
+        <translation>Animated</translation>
     </message>
     <message>
         <source>Ripple / Water</source>
@@ -26796,6 +26816,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Add an emoji at the end of captions that mention a keyword (fuego 🔥, fiesta 🎉)</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Animated</source>
+        <translation>Animated</translation>
+    </message>
+    <message>
+        <source>An animated emoji above each caption that mentions one (fuego, Dios, fiesta…)</source>
+        <translation>Isang animated emoji sa itaas ng bawat caption na bumabanggit nito (apoy, Diyos, party…)</translation>
     </message>
     <message>
         <source>Key words</source>

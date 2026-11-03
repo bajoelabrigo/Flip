@@ -531,6 +531,18 @@ Item {
                 onClicked: root.showChanges("emojis")
             }
 
+            // CapCut's animated emojis over the captions that mention one (an extra of Stickers).
+            ThemedButton {
+                visible: root.animatedEmojis
+                width: toolGrid.cell
+                text: qsTr("Animated")
+                variant: "secondary"
+                glyph: Theme.icons.smile
+                tooltip: qsTr("An animated emoji above each caption that mentions one (fuego, Dios, fiesta…)")
+                enabled: root.cues.length > 0
+                onClicked: EditorState.addAnimatedEmojisToSubtitles(root.trackIndex, root.clipIndex)
+            }
+
             ThemedButton {
                 width: toolGrid.cell
                 text: qsTr("Key words")
@@ -918,6 +930,7 @@ Item {
 
     property bool replaceOpen: false
     property bool moreOpen: false
+    readonly property bool animatedEmojis: EditorState.animatedEmojisAvailable()
 
     ThemedDialog {
         id: dictionaryDialog

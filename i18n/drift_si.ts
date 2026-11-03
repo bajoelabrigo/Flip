@@ -5450,6 +5450,26 @@
         <translation>උපසිරැසි %1 ක මූල පද ඉස්මතු කළා</translation>
     </message>
     <message>
+        <source>Install «Animated emojis» from Extras first</source>
+        <translation>පළමුව අමතර වලින් «සජීවී ඉමෝජි» ස්ථාපනය කරන්න</translation>
+    </message>
+    <message>
+        <source>Emoji: %1</source>
+        <translation>ඉමෝජි: %1</translation>
+    </message>
+    <message>
+        <source>No captions with an emoji word (fuego, Dios, fiesta…)</source>
+        <translation>ඉමෝජි වචනයක් ඇති උපසිරැසි නැත (ගින්න, දෙවියන්, සාදය…)</translation>
+    </message>
+    <message>
+        <source>Animated emojis</source>
+        <translation>සජීවී ඉමෝජි</translation>
+    </message>
+    <message>
+        <source>Animated emojis on %1 captions</source>
+        <translation>උපසිරැසි %1 ක සජීවී ඉමෝජි</translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -9675,7 +9695,7 @@
     </message>
     <message>
         <source>Animated</source>
-        <translation type="unfinished"></translation>
+        <translation>සජීවී</translation>
     </message>
     <message>
         <source>Ripple / Water</source>
@@ -26804,6 +26824,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Add an emoji at the end of captions that mention a keyword (fuego 🔥, fiesta 🎉)</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Animated</source>
+        <translation>සජීවී</translation>
+    </message>
+    <message>
+        <source>An animated emoji above each caption that mentions one (fuego, Dios, fiesta…)</source>
+        <translation>ඉමෝජියක් සඳහන් කරන එක් එක් උපසිරැසියට ඉහළින් සජීවී ඉමෝජියක් (ගින්න, දෙවියන්, සාදය…)</translation>
     </message>
     <message>
         <source>Key words</source>

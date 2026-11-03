@@ -5514,6 +5514,26 @@
         <translation>تم إبراز الكلمات المفتاحية في %1 ترجمة</translation>
     </message>
     <message>
+        <source>Install «Animated emojis» from Extras first</source>
+        <translation>ثبّت «الرموز التعبيرية المتحركة» من الإضافات أولًا</translation>
+    </message>
+    <message>
+        <source>Emoji: %1</source>
+        <translation>رمز تعبيري: %1</translation>
+    </message>
+    <message>
+        <source>No captions with an emoji word (fuego, Dios, fiesta…)</source>
+        <translation>لا توجد ترجمة بكلمة لها رمز تعبيري (نار، الله، حفلة…)</translation>
+    </message>
+    <message>
+        <source>Animated emojis</source>
+        <translation>رموز تعبيرية متحركة</translation>
+    </message>
+    <message>
+        <source>Animated emojis on %1 captions</source>
+        <translation>رموز تعبيرية متحركة في %1 ترجمة</translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -27184,6 +27204,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Add an emoji at the end of captions that mention a keyword (fuego 🔥, fiesta 🎉)</source>
         <translation>إضافة رمز تعبيري في نهاية أسطر الترجمة التي تذكر كلمة مفتاحية (fuego 🔥، fiesta 🎉)</translation>
+    </message>
+    <message>
+        <source>Animated</source>
+        <translation>متحركة</translation>
+    </message>
+    <message>
+        <source>An animated emoji above each caption that mentions one (fuego, Dios, fiesta…)</source>
+        <translation>رمز تعبيري متحرك فوق كل ترجمة تذكر واحدًا (نار، الله، حفلة…)</translation>
     </message>
     <message>
         <source>Key words</source>

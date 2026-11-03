@@ -5458,6 +5458,26 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Install «Animated emojis» from Extras first</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Emoji: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No captions with an emoji word (fuego, Dios, fiesta…)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Animated emojis</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Animated emojis on %1 captions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26804,6 +26824,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Add an emoji at the end of captions that mention a keyword (fuego 🔥, fiesta 🎉)</source>
         <translation>Agrega un emoji al final de los subtítulos que mencionan una palabra clave (fuego 🔥, fiesta 🎉)</translation>
+    </message>
+    <message>
+        <source>Animated</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>An animated emoji above each caption that mentions one (fuego, Dios, fiesta…)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Key words</source>

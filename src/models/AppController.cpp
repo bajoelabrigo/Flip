@@ -17454,6 +17454,128 @@ void AppController::highlightSubtitleKeywords(int trackIndex, int clipIndex)
     setLastMessage(tr("Key words highlighted in %1 captions").arg(marked), QStringLiteral("success"));
 }
 
+namespace {
+// The emoji a caption shows or calls for, mapped to the sticker of the «Animated emojis» extra.
+QString animatedEmojiFor(const QString &caption)
+{
+    static const QList<QPair<QString, QString>> kMap = {
+        {QStringLiteral("🙏"), QStringLiteral("folded-hands")}, {QStringLiteral("🔥"), QStringLiteral("fire")},
+        {QStringLiteral("❤"), QStringLiteral("red-heart")}, {QStringLiteral("🎉"), QStringLiteral("party-popper")},
+        {QStringLiteral("😂"), QStringLiteral("face-with-tears-of-joy")}, {QStringLiteral("✨"), QStringLiteral("sparkles")},
+        {QStringLiteral("💡"), QStringLiteral("light-bulb")}, {QStringLiteral("🏆"), QStringLiteral("trophy")},
+        {QStringLiteral("💰"), QStringLiteral("money-bag")}, {QStringLiteral("💲"), QStringLiteral("money-bag")},
+        {QStringLiteral("🎁"), QStringLiteral("wrapped-gift")}, {QStringLiteral("🙌"), QStringLiteral("raising-hands")},
+        {QStringLiteral("🕊"), QStringLiteral("dove")}, {QStringLiteral("✝"), QStringLiteral("latin-cross")},
+        {QStringLiteral("📖"), QStringLiteral("open-book")}, {QStringLiteral("🤯"), QStringLiteral("exploding-head")},
+        {QStringLiteral("😮"), QStringLiteral("face-with-open-mouth")}, {QStringLiteral("😢"), QStringLiteral("loudly-crying-face")},
+        {QStringLiteral("💪"), QStringLiteral("flexed-biceps")}, {QStringLiteral("🎵"), QStringLiteral("musical-notes")},
+        {QStringLiteral("🎶"), QStringLiteral("musical-notes")}, {QStringLiteral("🎤"), QStringLiteral("musical-notes")},
+        {QStringLiteral("☀"), QStringLiteral("sun")}, {QStringLiteral("🎂"), QStringLiteral("birthday-cake")},
+        {QStringLiteral("👀"), QStringLiteral("eyes")}, {QStringLiteral("😊"), QStringLiteral("smiling-face-with-heart-eyes")},
+        {QStringLiteral("😄"), QStringLiteral("star-struck")}, {QStringLiteral("😱"), QStringLiteral("face-with-open-mouth")},
+        {QStringLiteral("💯"), QStringLiteral("hundred-points")}, {QStringLiteral("⭐"), QStringLiteral("glowing-star")},
+        {QStringLiteral("🚀"), QStringLiteral("rocket")}, {QStringLiteral("👍"), QStringLiteral("thumbs-up")},
+        {QStringLiteral("👏"), QStringLiteral("clapping-hands")}, {QStringLiteral("👋"), QStringLiteral("waving-hand")},
+        {QStringLiteral("🤔"), QStringLiteral("thinking-face")}, {QStringLiteral("😎"), QStringLiteral("smiling-face-with-sunglasses")},
+        {QStringLiteral("👑"), QStringLiteral("crown")}, {QStringLiteral("📣"), QStringLiteral("megaphone")},
+        {QStringLiteral("⚠"), QStringLiteral("warning")}, {QStringLiteral("✅"), QStringLiteral("check-mark-button")},
+        {QStringLiteral("❌"), QStringLiteral("cross-mark")}, {QStringLiteral("❓"), QStringLiteral("red-question-mark")},
+        {QStringLiteral("❗"), QStringLiteral("red-exclamation-mark")}, {QStringLiteral("🎈"), QStringLiteral("balloon")},
+        {QStringLiteral("🕯"), QStringLiteral("candle")}, {QStringLiteral("🔔"), QStringLiteral("bell")},
+        {QStringLiteral("😇"), QStringLiteral("smiling-face-with-halo")}, {QStringLiteral("🤗"), QStringLiteral("hugging-face")},
+    };
+    // The caption's own emoji first; else the one «Emojis» would add for its words.
+    for (const QString &text : {caption, drift::captionWithEmoji(caption)}) {
+        for (const auto &[emoji, sticker] : kMap) {
+            if (text.contains(emoji))
+                return QStringLiteral("emojis-animados/") + sticker;
+        }
+    }
+    return {};
+}
+} // namespace
+
+bool AppController::animatedEmojisAvailable() const
+{
+    for (const QVariant &item : builtinStickers()) {
+        if (item.toMap().value(QStringLiteral("id")).toString().startsWith(QLatin1String("emojis-animados/")))
+            return true;
+    }
+    return false;
+}
+
+int AppController::addAnimatedEmojisToSubtitles(int trackIndex, int clipIndex)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return 0;
+    const drift::Clip subtitles = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    if (subtitles.type != drift::ClipType::Subtitle)
+        return 0;
+    QHash<QString, QString> paths; // sticker id → Lottie file
+    for (const QVariant &item : builtinStickers()) {
+        const QVariantMap sticker = item.toMap();
+        const QString id = sticker.value(QStringLiteral("id")).toString();
+        if (id.startsWith(QLatin1String("emojis-animados/")))
+            paths.insert(id, sticker.value(QStringLiteral("path")).toString());
+    }
+    if (paths.isEmpty()) {
+        setLastMessage(tr("Install «Animated emojis» from Extras first"), QStringLiteral("warning"));
+        return -1;
+    }
+
+    // Above the captions, centred: a fifth of the canvas's shorter side.
+    const double side = qMin(m_project.width(), m_project.height()) / 5.0;
+    const double captionTop = subtitles.transformY.evaluateAt(0);
+    const double y = qMax(0.0, captionTop - side - side * 0.1);
+    const double x = (m_project.width() - side) / 2.0;
+
+    const drift::Project before = m_project;
+    const int target = drift::ensureFreeTrackForClipType(m_project, drift::ClipType::Vector, subtitles.timelineStart,
+                                                         subtitles.timelineDuration, true);
+    if (target < 0)
+        return 0;
+    QHash<QString, drift::VectorSource> loaded;
+    int placed = 0;
+    for (const drift::SubtitleCue &cue : subtitles.subtitleCues) {
+        const QString id = animatedEmojiFor(cue.text);
+        if (id.isEmpty() || !paths.contains(id) || cue.endUs <= cue.startUs)
+            continue;
+        if (!loaded.contains(id)) {
+            drift::VectorSource vector;
+            QString error = resolveVectorInput(paths.value(id), QString(), &vector);
+            if (!error.isEmpty() || !drift::vec::probeVectorSource(vector, &error))
+                continue;
+            loaded.insert(id, vector);
+        }
+        drift::Clip clip;
+        clip.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
+        clip.type = drift::ClipType::Vector;
+        clip.vector = loaded.value(id);
+        clip.name = tr("Emoji: %1").arg(id.section(QLatin1Char('/'), 1));
+        clip.timelineStart = subtitles.timelineStart + cue.startUs;
+        clip.timelineDuration = qMax(drift::kMinClipDurationUs, cue.endUs - cue.startUs);
+        clip.srcIn = 0;
+        clip.srcOut = clip.timelineDuration;
+        applyVectorOptions(clip, {{QStringLiteral("loop"), QStringLiteral("loop")}});
+        clip.thumbnailPath = MediaThumbnail::generateVector(clip.vector);
+        clip.filmstripPath = clip.thumbnailPath;
+        setClipLayoutPixels(clip, x, y, side, side);
+        m_project.tracks()[target].clips.append(clip);
+        ++placed;
+    }
+    if (placed == 0) {
+        m_project = before;
+        setLastMessage(tr("No captions with an emoji word (fuego, Dios, fiesta…)"), QStringLiteral("info"));
+        return 0;
+    }
+    std::sort(m_project.tracks()[target].clips.begin(), m_project.tracks()[target].clips.end(),
+              [](const drift::Clip &a, const drift::Clip &b) { return a.timelineStart < b.timelineStart; });
+    pushProjectEdit(before, tr("Animated emojis"));
+    finishEdit(tr("Animated emojis"));
+    setLastMessage(tr("Animated emojis on %1 captions").arg(placed), QStringLiteral("success"));
+    return placed;
+}
+
 void AppController::addEmojisToSubtitles(int trackIndex, int clipIndex)
 {
     if (!isValidClipIndex(trackIndex, clipIndex) || isTrackLocked(trackIndex))

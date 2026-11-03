@@ -5439,6 +5439,26 @@
         <translation>Đã làm nổi bật từ khóa trong %1 phụ đề</translation>
     </message>
     <message>
+        <source>Install «Animated emojis» from Extras first</source>
+        <translation>Hãy cài «Emoji động» từ Tiện ích trước</translation>
+    </message>
+    <message>
+        <source>Emoji: %1</source>
+        <translation>Emoji: %1</translation>
+    </message>
+    <message>
+        <source>No captions with an emoji word (fuego, Dios, fiesta…)</source>
+        <translation>Không có phụ đề nào có từ ứng với emoji (lửa, Chúa, tiệc…)</translation>
+    </message>
+    <message>
+        <source>Animated emojis</source>
+        <translation>Emoji động</translation>
+    </message>
+    <message>
+        <source>Animated emojis on %1 captions</source>
+        <translation>Emoji động trên %1 phụ đề</translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26714,6 +26734,14 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Add an emoji at the end of captions that mention a keyword (fuego 🔥, fiesta 🎉)</source>
         <translation>Thêm emoji vào cuối các phụ đề có nhắc đến từ khóa (fuego 🔥, fiesta 🎉)</translation>
+    </message>
+    <message>
+        <source>Animated</source>
+        <translation>Động</translation>
+    </message>
+    <message>
+        <source>An animated emoji above each caption that mentions one (fuego, Dios, fiesta…)</source>
+        <translation>Một emoji động phía trên mỗi phụ đề có nhắc tới nó (lửa, Chúa, tiệc…)</translation>
     </message>
     <message>
         <source>Key words</source>

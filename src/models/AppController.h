@@ -1219,6 +1219,11 @@ public:
     Q_INVOKABLE bool subtitleKeywordsEnabled() const;
     Q_INVOKABLE void setSubtitleKeywordsEnabled(bool enabled);
     Q_INVOKABLE void highlightSubtitleKeywords(int trackIndex, int clipIndex);
+    // CapCut's animated emojis: each caption that has (or calls for) an emoji gets the animated one
+    // from the «Animated emojis» extra above it, for the caption's time. One undo step; returns how
+    // many were placed (-1 when the extra is not installed).
+    Q_INVOKABLE int addAnimatedEmojisToSubtitles(int trackIndex, int clipIndex);
+    Q_INVOKABLE bool animatedEmojisAvailable() const;
     // New captions with swear words hidden behind their first letter (off by default).
     // Captions made «in the cloud» (ElevenLabs Scribe) instead of on this computer: offered once
     // Settings › Cloud has a key and the user's consent. Hard words (names, brands) help it.

@@ -5550,6 +5550,26 @@
         <translation>%1টি ক্যাপশনে মূল শব্দ হাইলাইট করা হয়েছে</translation>
     </message>
     <message>
+        <source>Install «Animated emojis» from Extras first</source>
+        <translation>আগে এক্সট্রা থেকে «অ্যানিমেটেড ইমোজি» ইনস্টল করুন</translation>
+    </message>
+    <message>
+        <source>Emoji: %1</source>
+        <translation>ইমোজি: %1</translation>
+    </message>
+    <message>
+        <source>No captions with an emoji word (fuego, Dios, fiesta…)</source>
+        <translation>কোনো ক্যাপশনে ইমোজির শব্দ নেই (আগুন, ঈশ্বর, উৎসব…)</translation>
+    </message>
+    <message>
+        <source>Animated emojis</source>
+        <translation>অ্যানিমেটেড ইমোজি</translation>
+    </message>
+    <message>
+        <source>Animated emojis on %1 captions</source>
+        <translation>%1টি ক্যাপশনে অ্যানিমেটেড ইমোজি</translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -9675,7 +9695,7 @@
     </message>
     <message>
         <source>Animated</source>
-        <translation type="unfinished"></translation>
+        <translation>অ্যানিমেটেড</translation>
     </message>
     <message>
         <source>Ripple / Water</source>
@@ -26772,6 +26792,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Too fast to read</source>
         <translation>পড়ার জন্য খুব দ্রুত</translation>
+    </message>
+    <message>
+        <source>Animated</source>
+        <translation>অ্যানিমেটেড</translation>
+    </message>
+    <message>
+        <source>An animated emoji above each caption that mentions one (fuego, Dios, fiesta…)</source>
+        <translation>যে ক্যাপশনে ইমোজির কথা আছে তার উপরে একটি অ্যানিমেটেড ইমোজি (আগুন, ঈশ্বর, উৎসব…)</translation>
     </message>
     <message>
         <source>Key words</source>

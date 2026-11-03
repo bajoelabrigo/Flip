@@ -5450,6 +5450,26 @@
         <translation>Palabras clave resaltadas en %1 subtítulos</translation>
     </message>
     <message>
+        <source>Install «Animated emojis» from Extras first</source>
+        <translation>Primero instala «Emojis animados» desde Extras</translation>
+    </message>
+    <message>
+        <source>Emoji: %1</source>
+        <translation>Emoji: %1</translation>
+    </message>
+    <message>
+        <source>No captions with an emoji word (fuego, Dios, fiesta…)</source>
+        <translation>Ningún subtítulo tiene una palabra con emoji (fuego, Dios, fiesta…)</translation>
+    </message>
+    <message>
+        <source>Animated emojis</source>
+        <translation>Emojis animados</translation>
+    </message>
+    <message>
+        <source>Animated emojis on %1 captions</source>
+        <translation>Emojis animados en %1 subtítulos</translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation>Preparando…</translation>
     </message>
@@ -26808,6 +26828,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Add an emoji at the end of captions that mention a keyword (fuego 🔥, fiesta 🎉)</source>
         <translation>Agrega un emoji al final de los subtítulos que mencionan una palabra clave (fuego 🔥, fiesta 🎉)</translation>
+    </message>
+    <message>
+        <source>Animated</source>
+        <translation>Animados</translation>
+    </message>
+    <message>
+        <source>An animated emoji above each caption that mentions one (fuego, Dios, fiesta…)</source>
+        <translation>Un emoji animado encima de cada subtítulo que menciona uno (fuego, Dios, fiesta…)</translation>
     </message>
     <message>
         <source>Key words</source>

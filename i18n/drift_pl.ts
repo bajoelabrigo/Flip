@@ -5469,6 +5469,26 @@
         <translation>Wyróżniono słowa kluczowe w %1 napisach</translation>
     </message>
     <message>
+        <source>Install «Animated emojis» from Extras first</source>
+        <translation>Najpierw zainstaluj „Animowane emoji” z Dodatków</translation>
+    </message>
+    <message>
+        <source>Emoji: %1</source>
+        <translation>Emoji: %1</translation>
+    </message>
+    <message>
+        <source>No captions with an emoji word (fuego, Dios, fiesta…)</source>
+        <translation>Żaden napis nie ma słowa z emoji (ogień, Bóg, impreza…)</translation>
+    </message>
+    <message>
+        <source>Animated emojis</source>
+        <translation>Animowane emoji</translation>
+    </message>
+    <message>
+        <source>Animated emojis on %1 captions</source>
+        <translation>Animowane emoji w %1 napisach</translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26902,6 +26922,14 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     <message>
         <source>Add an emoji at the end of captions that mention a keyword (fuego 🔥, fiesta 🎉)</source>
         <translation>Dodaj emoji na końcu napisów, które zawierają słowo kluczowe (ogień 🔥, impreza 🎉)</translation>
+    </message>
+    <message>
+        <source>Animated</source>
+        <translation>Animowane</translation>
+    </message>
+    <message>
+        <source>An animated emoji above each caption that mentions one (fuego, Dios, fiesta…)</source>
+        <translation>Animowane emoji nad każdym napisem, który o nim wspomina (ogień, Bóg, impreza…)</translation>
     </message>
     <message>
         <source>Key words</source>

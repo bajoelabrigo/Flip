@@ -5431,6 +5431,26 @@
         <translation>%1 件の字幕でキーワードを強調しました</translation>
     </message>
     <message>
+        <source>Install «Animated emojis» from Extras first</source>
+        <translation>先に「アニメ絵文字」を追加機能からインストールしてください</translation>
+    </message>
+    <message>
+        <source>Emoji: %1</source>
+        <translation>絵文字: %1</translation>
+    </message>
+    <message>
+        <source>No captions with an emoji word (fuego, Dios, fiesta…)</source>
+        <translation>絵文字になる言葉を含む字幕がありません（火、神、パーティー…）</translation>
+    </message>
+    <message>
+        <source>Animated emojis</source>
+        <translation>アニメ絵文字</translation>
+    </message>
+    <message>
+        <source>Animated emojis on %1 captions</source>
+        <translation>%1 件の字幕にアニメ絵文字</translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26714,6 +26734,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Add an emoji at the end of captions that mention a keyword (fuego 🔥, fiesta 🎉)</source>
         <translation>キーワードを含む字幕の末尾に絵文字を追加します（fuego 🔥、fiesta 🎉）</translation>
+    </message>
+    <message>
+        <source>Animated</source>
+        <translation>アニメ</translation>
+    </message>
+    <message>
+        <source>An animated emoji above each caption that mentions one (fuego, Dios, fiesta…)</source>
+        <translation>絵文字になる言葉を含む字幕の上にアニメ絵文字を置きます（火、神、パーティー…）</translation>
     </message>
     <message>
         <source>Key words</source>

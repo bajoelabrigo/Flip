@@ -5431,6 +5431,26 @@
         <translation>已在 %1 条字幕中高亮关键词</translation>
     </message>
     <message>
+        <source>Install «Animated emojis» from Extras first</source>
+        <translation>请先在扩展中安装“动态表情”</translation>
+    </message>
+    <message>
+        <source>Emoji: %1</source>
+        <translation>表情：%1</translation>
+    </message>
+    <message>
+        <source>No captions with an emoji word (fuego, Dios, fiesta…)</source>
+        <translation>没有包含表情词的字幕（火、上帝、派对…）</translation>
+    </message>
+    <message>
+        <source>Animated emojis</source>
+        <translation>动态表情</translation>
+    </message>
+    <message>
+        <source>Animated emojis on %1 captions</source>
+        <translation>已在 %1 条字幕上添加动态表情</translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26713,6 +26733,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Add an emoji at the end of captions that mention a keyword (fuego 🔥, fiesta 🎉)</source>
         <translation>在提到关键词的字幕末尾添加表情（fuego 🔥、fiesta 🎉）</translation>
+    </message>
+    <message>
+        <source>Animated</source>
+        <translation>动态</translation>
+    </message>
+    <message>
+        <source>An animated emoji above each caption that mentions one (fuego, Dios, fiesta…)</source>
+        <translation>在提到表情词的每条字幕上方放一个动态表情（火、上帝、派对…）</translation>
     </message>
     <message>
         <source>Key words</source>

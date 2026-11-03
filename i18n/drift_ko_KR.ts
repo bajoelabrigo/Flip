@@ -5431,6 +5431,26 @@
         <translation>자막 %1개에서 키워드를 강조했습니다</translation>
     </message>
     <message>
+        <source>Install «Animated emojis» from Extras first</source>
+        <translation>먼저 추가 기능에서 «움직이는 이모지»를 설치하세요</translation>
+    </message>
+    <message>
+        <source>Emoji: %1</source>
+        <translation>이모지: %1</translation>
+    </message>
+    <message>
+        <source>No captions with an emoji word (fuego, Dios, fiesta…)</source>
+        <translation>이모지 단어가 있는 자막이 없습니다 (불, 하나님, 파티…)</translation>
+    </message>
+    <message>
+        <source>Animated emojis</source>
+        <translation>움직이는 이모지</translation>
+    </message>
+    <message>
+        <source>Animated emojis on %1 captions</source>
+        <translation>자막 %1개에 움직이는 이모지</translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26712,6 +26732,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Add an emoji at the end of captions that mention a keyword (fuego 🔥, fiesta 🎉)</source>
         <translation>키워드가 들어간 자막 끝에 이모지 추가(불 🔥, 파티 🎉)</translation>
+    </message>
+    <message>
+        <source>Animated</source>
+        <translation>애니메이션</translation>
+    </message>
+    <message>
+        <source>An animated emoji above each caption that mentions one (fuego, Dios, fiesta…)</source>
+        <translation>이모지를 언급하는 자막 위에 움직이는 이모지를 놓습니다 (불, 하나님, 파티…)</translation>
     </message>
     <message>
         <source>Key words</source>

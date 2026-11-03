@@ -5450,6 +5450,26 @@
         <translation>Palavras-chave destacadas em %1 legendas</translation>
     </message>
     <message>
+        <source>Install «Animated emojis» from Extras first</source>
+        <translation>Instale primeiro «Emojis animados» em Extras</translation>
+    </message>
+    <message>
+        <source>Emoji: %1</source>
+        <translation>Emoji: %1</translation>
+    </message>
+    <message>
+        <source>No captions with an emoji word (fuego, Dios, fiesta…)</source>
+        <translation>Nenhuma legenda com palavra de emoji (fogo, Deus, festa…)</translation>
+    </message>
+    <message>
+        <source>Animated emojis</source>
+        <translation>Emojis animados</translation>
+    </message>
+    <message>
+        <source>Animated emojis on %1 captions</source>
+        <translation>Emojis animados em %1 legendas</translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26808,6 +26828,14 @@ Se a reprodução travar, tente outra opção.</translation>
     <message>
         <source>Add an emoji at the end of captions that mention a keyword (fuego 🔥, fiesta 🎉)</source>
         <translation>Adiciona um emoji ao final das legendas que mencionam uma palavra-chave (fogo 🔥, festa 🎉)</translation>
+    </message>
+    <message>
+        <source>Animated</source>
+        <translation>Animados</translation>
+    </message>
+    <message>
+        <source>An animated emoji above each caption that mentions one (fuego, Dios, fiesta…)</source>
+        <translation>Um emoji animado acima de cada legenda que menciona um (fogo, Deus, festa…)</translation>
     </message>
     <message>
         <source>Key words</source>

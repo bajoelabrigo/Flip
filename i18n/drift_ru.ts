@@ -5469,6 +5469,26 @@
         <translation>Ключевые слова выделены в субтитрах: %1</translation>
     </message>
     <message>
+        <source>Install «Animated emojis» from Extras first</source>
+        <translation>Сначала установите «Анимированные эмодзи» из Дополнений</translation>
+    </message>
+    <message>
+        <source>Emoji: %1</source>
+        <translation>Эмодзи: %1</translation>
+    </message>
+    <message>
+        <source>No captions with an emoji word (fuego, Dios, fiesta…)</source>
+        <translation>Нет субтитров со словом для эмодзи (огонь, Бог, праздник…)</translation>
+    </message>
+    <message>
+        <source>Animated emojis</source>
+        <translation>Анимированные эмодзи</translation>
+    </message>
+    <message>
+        <source>Animated emojis on %1 captions</source>
+        <translation>Анимированные эмодзи в субтитрах: %1</translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26902,6 +26922,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Add an emoji at the end of captions that mention a keyword (fuego 🔥, fiesta 🎉)</source>
         <translation>Добавить эмодзи в конец субтитров с ключевым словом (огонь 🔥, праздник 🎉)</translation>
+    </message>
+    <message>
+        <source>Animated</source>
+        <translation>Анимация</translation>
+    </message>
+    <message>
+        <source>An animated emoji above each caption that mentions one (fuego, Dios, fiesta…)</source>
+        <translation>Анимированный эмодзи над каждым субтитром, где он упоминается (огонь, Бог, праздник…)</translation>
     </message>
     <message>
         <source>Key words</source>

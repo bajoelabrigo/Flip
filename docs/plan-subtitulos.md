@@ -57,7 +57,7 @@ Lo que tienen CapCut, Premiere y Descript:
 - [~] Palabras difíciles antes de transcribir (nombres, marcas, términos). Hecho en la nube (keyterms de ElevenLabs); en el equipo falta (Whisper no tiene «prompt» en nuestro tokenizador).
 
 Para redes (estilo CapCut):
-- [~] Palabras clave resaltadas por la IA (color o tamaño) y emojis animados de Stock.
+- [x] Palabras clave resaltadas por la IA (color o tamaño) y emojis animados de Stock.
 - [ ] Más plantillas de subtítulos virales en Stock (palabra por palabra, rebote, caja que sigue la palabra).
 - [~] Filtro de groserías (*** o pitido). Hecho: casilla «Ocultar groserías (m*****)» al crear (es/en); falta el pitido.
 - [x] Revisión de ortografía.
@@ -126,3 +126,6 @@ ventanas de herramientas.
     larga que no sea de relleno (es, en, pt, fr, it; `highlightCaptionKeyword`, con prueba en `tst_core`). Casilla al
     crear («Resaltar palabras clave en color») y botón «Palabras clave» en el editor con vista previa. Faltan los emojis
     animados de Stock.
+  - emojis animados: botón «Animados» en el editor (sale si está el extra «Emojis animados»): cada subtítulo que tiene o
+    pide un emoji (fuego 🔥, Dios 🙏…) recibe el emoji animado encima, con su tiempo, en una pista propia y un solo
+    deshacer (`addAnimatedEmojisToSubtitles`).
