@@ -35,6 +35,12 @@ Medida fotograma a fotograma (bbox de los píxeles de la bola):
 Fondo, piso y bola se crean con el **panel izquierdo** (Formas, Títulos…) y colores aproximados; la animación, solo
 con la línea de tiempo y el mouse.
 
+## Ronda 2 en adelante: la bola da dos saltos más y sale de la escena (Jorge, 2026-11-03)
+Después del rebote de la referencia, la bola da **dos saltos hacia un lado y sale del cuadro**, para probar lo que un
+usuario de AE hace al repetir movimiento: **copiar y pegar fotogramas clave** (los del salto y los del aplastamiento),
+moverlos en bloque, animar Posición X a la vez que Y (trayecto en arco), ajustar las curvas de cada salto y seguir el
+gráfico de velocidad a lo largo de varios golpes. Jorge avisa que hay más problemas por encontrar ahí.
+
 ## Lista de problemas (se llena durante el ejercicio)
 Ronda 1 (2026-11-03, build 71005, con el mouse):
 1. El trazo de las formas sale blanco de 20 px y el selector de color del trazo no tiene «sin trazo» (en AE sí); hay
