@@ -193,3 +193,16 @@ segunda por dos `onClosing` en `TextEditWindow.qml` (qmlcachegen; ahora se revis
 - 6 bien (Jorge): 130 en el ancho, Tab salta al alto.
 - Pendiente para Jorge con su teclado cuando haga falta: lo que pide Tab, Enter o Ctrl (la herramienta de pruebas sin
   mouse no los manda).
+
+### Subtítulos, ronda 2 (portable r4, sin mouse; Jorge probó los estilos con el suyo)
+- Bien: Subtítulos y Voz juntos en Títulos y en Audio; 27 (texto de cada bloque en una línea dentro de su caja); 11
+  subtítulos con avisos de lectura; Traducir a English (pista arriba con su estilo, sin encimarse).
+- 29: el primer clic en un estilo solo movía la tarjeta al frente: la lista se rehacía y lo que seguía al clic no corría.
+  Ahora se aplica primero y se resalta al final; y un estilo de subtítulos se aplica entero (con su animación).
+- 28: las tarjetas de estilos pequeños («Subtítulo», «Leyenda») tienen un mínimo de letra (1/5 de la tarjeta).
+- 39 (nuevo): Ortografía revisaba los subtítulos en inglés con el diccionario español («Hello» → «Ello»): ahora el idioma
+  sale de las palabras comunes del propio texto.
+- 25: los subtítulos hechos con el reconocimiento local o la nube guardan su transcripción en el clip (un solo clip), así
+  «Editar con el texto» y «Quitar silencios» abren sin volver a escuchar.
+- 24: tras traducir no se vio subtítulo en 0:11 durante la reproducción; después sí. Revisar otra vez.
+- La herramienta de pruebas no llega a la tarjeta de estilo (la estrella sí): Jorge la probó con su mouse.

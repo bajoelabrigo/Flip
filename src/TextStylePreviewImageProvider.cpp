@@ -35,6 +35,17 @@ constexpr int kDefaultHeight = 108;
 constexpr double kTileReferenceHeight = 150.0;
 constexpr int kTilePixelSize = 58;
 
+// A style drawn smaller than this share of its card is enlarged to it: a small caption style
+// («Subtitle», «Caption») came out about 4 px tall on a 136 px card (0.30, tests #28).
+constexpr double kMinTextShareOfCard = 0.2;
+
+double readableScale(double scale, double pixelSize, int cardHeight)
+{
+    if (pixelSize <= 0.0 || cardHeight <= 0)
+        return scale;
+    return qMax(scale, kMinTextShareOfCard * cardHeight / pixelSize);
+}
+
 QMutex g_cardMutex;
 QCache<QString, QImage> g_cardCache(96);
 
@@ -152,7 +163,9 @@ QImage TextStylePreviewImageProvider::requestImage(const QString &rawId, QSize *
         for (int i = 0; i < frames; ++i) {
             const drift::TimeUs t = drift::secondsToUs(frames > 1 ? kWindowS * i / (frames - 1) : 0.0);
             const int word = karaoke ? drift::activeWordIndexAt(sample, 0, drift::secondsToUs(kWindowS), t) : -1;
-            const QImage frame = renderTextCard(clip, sample, QSize(frameW, frameH), frameW / kReferenceWidth, t, word);
+            const QImage frame = renderTextCard(clip, sample, QSize(frameW, frameH),
+                                                readableScale(frameW / kReferenceWidth, clip.textStyle.pixelSize, frameH),
+                                                t, word);
             p.drawImage((i % columns) * frameW, (i / columns) * frameH, frame);
         }
         p.end();
@@ -179,7 +192,9 @@ QImage TextStylePreviewImageProvider::requestImage(const QString &rawId, QSize *
     const QString sample = preset->sampleText.isEmpty() ? kFallbackSample : preset->sampleText;
     // A karaoke pack accents nothing at all without a playhead, so the card borrows the second word.
     const int activeWord = preset->style.accent.rule == drift::WordAccentRule::Karaoke ? 1 : -1;
-    const QImage card = renderTextCard(clip, sample, QSize(width, height), width / kReferenceWidth, -1, activeWord);
+    const QImage card = renderTextCard(clip, sample, QSize(width, height),
+                                       readableScale(width / kReferenceWidth, clip.textStyle.pixelSize, height), -1,
+                                       activeWord);
     if (size)
         *size = card.size();
     return card;

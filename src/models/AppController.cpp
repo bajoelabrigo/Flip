@@ -10357,6 +10357,8 @@ bool AppController::generateSubtitlesForSources(QList<SubtitleSource> sources, c
         // it was said (wav2vec2 forced alignment), so captions start and end on the words and
         // karaoke follows the voice. Without one, Whisper's segments are split by length.
         drift::WhisperResult res;
+        // The words with their times, when this run timed them (local pipeline or the cloud).
+        std::shared_ptr<drift::Transcript> heard;
         const auto onProgress = [this, setProgress](double fraction, const QString &status) {
             // Map 0–1 into the remaining 15%–95% of the overall bar.
             setProgress(0.15 + 0.80 * fraction, status);
@@ -10388,6 +10390,7 @@ bool AppController::generateSubtitlesForSources(QList<SubtitleSource> sources, c
                 res.language = transcript->language;
                 res.cues = drift::cuesFromTranscript(*transcript, 0, sampleToUsTotal(mono.size()), lineWidth, lineCount,
                                                      wordsPerCue);
+                heard = transcript;
             }
         } else if (!translate && (speakers || !drift::CtcAligner::installedLanguages().isEmpty())) {
             drift::LocalTranscribeOptions options;
@@ -10402,6 +10405,7 @@ bool AppController::generateSubtitlesForSources(QList<SubtitleSource> sources, c
                 res.language = local.transcript->language;
                 res.cues = drift::cuesFromTranscript(*local.transcript, 0, sampleToUsTotal(mono.size()), lineWidth, lineCount,
                                                      wordsPerCue);
+                heard = local.transcript;
             }
         } else {
             res = whisper.transcribe(mono, onProgress, languageCode, wordsPerCue, translate, lineWidth, lineCount);
@@ -10435,6 +10439,30 @@ bool AppController::generateSubtitlesForSources(QList<SubtitleSource> sources, c
         }
 
         setProgress(0.96, tr("Building caption track…"));
+
+        // Kept as the clip's transcript, in its file's times (0.30, tests #25): «Edit with the text»
+        // and «Remove silences» use it at once instead of listening to the clip again. One clip
+        // only: with several the words would have to be split back by file.
+        if (heard && sources.size() == 1 && !sources.first().assetId.isEmpty()) {
+            auto kept = std::make_shared<drift::Transcript>(*heard);
+            const drift::TimeUs offset = sources.first().srcIn;
+            for (drift::TranscriptWord &word : kept->words) {
+                word.startUs += offset;
+                word.endUs += offset;
+            }
+            kept->source = drift::SourceFingerprint::of(sources.first().path);
+            const QString assetId = sources.first().assetId;
+            QMetaObject::invokeMethod(
+                this,
+                [this, assetId, kept]() {
+                    const drift::MediaAsset *asset = m_project.asset(assetId);
+                    if (!asset || !kept->source.matches(asset->path) || m_project.transcript(assetId))
+                        return;
+                    m_project.setTranscript(assetId, kept);
+                    projectFile()->setDirty(true);
+                },
+                Qt::QueuedConnection);
+        }
 
         auto sampleToUs = [rate](size_t sample) {
             return static_cast<drift::TimeUs>((static_cast<int64_t>(sample) * drift::kUsPerSecond) / rate);
@@ -17402,12 +17430,54 @@ int AppController::replaceInSubtitles(int trackIndex, int clipIndex, const QStri
 }
 
 namespace {
-QString subtitleSpellLanguage(const QString &language)
+// The language a clip's captions are written in, from their commonest words (0.30, tests #39: the
+// English line made by Translate was checked with the Spanish dictionary, «Hello» → «Ello»).
+// Empty when the words do not tell.
+QString captionsLanguage(const QStringList &texts)
+{
+    static const QList<QPair<QString, QStringList>> kWords = {
+        {QStringLiteral("en"), {"the", "and", "you", "to", "is", "of", "it", "that", "we", "i", "this", "for", "with", "are", "what"}},
+        {QStringLiteral("es"), {"el", "la", "que", "de", "y", "en", "los", "es", "un", "una", "por", "con", "para", "lo", "se"}},
+        {QStringLiteral("pt"), {"o", "a", "que", "de", "e", "do", "da", "em", "um", "uma", "para", "com", "os", "mas", "voce"}},
+        {QStringLiteral("fr"), {"le", "la", "les", "de", "et", "est", "un", "une", "je", "vous", "que", "pour", "pas", "des", "dans"}},
+        {QStringLiteral("it"), {"il", "la", "che", "di", "e", "ma", "un", "una", "per", "non", "sono", "con", "del", "della", "lo"}},
+        {QStringLiteral("de"), {"der", "die", "und", "das", "ist", "ich", "nicht", "ein", "eine", "zu", "mit", "sie", "es", "den", "wir"}},
+    };
+    QHash<QString, int> counts;
+    static const QRegularExpression split(QStringLiteral("[^\\p{L}]+"));
+    for (const QString &text : texts) {
+        for (const QString &word : text.toLower().split(split, Qt::SkipEmptyParts))
+            counts[word] += 1;
+    }
+    QString best;
+    int bestScore = 0;
+    int second = 0;
+    for (const auto &lang : kWords) {
+        int score = 0;
+        for (const QString &w : lang.second)
+            score += counts.value(w);
+        if (score > bestScore) {
+            second = bestScore;
+            bestScore = score;
+            best = lang.first;
+        } else if (score > second) {
+            second = score;
+        }
+    }
+    return bestScore >= 3 && bestScore > second * 3 / 2 ? best : QString();
+}
+
+QString subtitleSpellLanguage(const QString &language, const QStringList &texts = {})
 {
     if (!language.isEmpty())
         return language;
     const QString remembered = QSettings().value(QStringLiteral("subtitles/language")).toString();
-    return remembered.isEmpty() ? QLocale().name() : remembered;
+    const QString fallback = remembered.isEmpty() ? QLocale().name() : remembered;
+    const QString written = captionsLanguage(texts);
+    // The dictionary of the language they are written in, keeping the region when it is that one.
+    if (written.isEmpty() || fallback.startsWith(written))
+        return fallback;
+    return written;
 }
 } // namespace
 
@@ -17427,7 +17497,7 @@ QVariantList AppController::subtitleSpellingIssues(int trackIndex, int clipIndex
     QStringList texts;
     for (const drift::SubtitleCue &cue : clip.subtitleCues)
         texts.append(cue.text);
-    for (const drift::spell::Issue &issue : drift::spell::check(texts, subtitleSpellLanguage(language))) {
+    for (const drift::spell::Issue &issue : drift::spell::check(texts, subtitleSpellLanguage(language, texts))) {
         out.append(QVariantMap{
             {QStringLiteral("cue"), issue.text},
             {QStringLiteral("start"), issue.start},
@@ -19090,9 +19160,14 @@ void AppController::applyTextPreset(int trackIndex, int clipIndex, const QString
         finishEdit(tr("Text preset applied"));
         return;
     }
-    // The template brings the look; the text keeps its motion, keyframes and counter.
+    // The template brings the look; the text keeps its motion, keyframes and counter. A caption
+    // style is all of it, its words' motion and colours included, as when the captions were made
+    // (0.30, tests #29: the old style's animation stayed and the captions looked the same).
     QStringList dropped;
-    clip.textStyle = drift::textStyleWithPresetLook(clip.textStyle, *preset, &dropped);
+    if (clip.type == drift::ClipType::Subtitle)
+        clip.textStyle = *preset;
+    else
+        clip.textStyle = drift::textStyleWithPresetLook(clip.textStyle, *preset, &dropped);
     clip.textStyle.packId = presetId;
     pushProjectEdit(before, tr("Apply text preset"));
     finishEdit(tr("Text preset applied"));

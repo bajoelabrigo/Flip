@@ -362,12 +362,14 @@ Item {
                                 hoverEnabled: true
                                 cursorShape: Qt.PointingHandCursor
                                 onClicked: {
-                                    root.captionStyle = styleCard.modelData.id
-                                    EditorState.setSubtitleStylePreset(styleCard.modelData.id)
+                                    // The style first, the highlight last: the one in use moves to the
+                                    // front, which rebuilds this card, and what came after it never ran
+                                    // (0.30, tests #29: the first click only moved the card).
+                                    const id = styleCard.modelData.id
+                                    EditorState.setSubtitleStylePreset(id)
                                     if (root.captionClipKind === "subtitle")
-                                        EditorState.applyTextPreset(EditorState.selectedTrack,
-                                                                    EditorState.selectedClip,
-                                                                    styleCard.modelData.id)
+                                        EditorState.applyTextPreset(EditorState.selectedTrack, EditorState.selectedClip, id)
+                                    root.captionStyle = id
                                 }
                             }
 
