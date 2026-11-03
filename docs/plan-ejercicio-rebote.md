@@ -136,3 +136,23 @@ Problemas nuevos:
 - 14: el aviso del valor no vuelve hasta que el puntero sale.
 - 22: el gráfico muestra y deja elegir (clic o recuadro) solo las claves de la curva enfocada; se cambia de curva con
   el nombre de la fila o los botones de arriba.
+
+## Ronda 3: guion (Jorge, 2026-11-03: «quiero que la línea de tiempo funcione como after effects»)
+Desde cero, con el mouse, lo mismo de la ronda 2 pero dejando la bola en el piso los fotogramas que la referencia
+(13–15 y 43–45, con «Salto» o dos claves iguales). Además, lo que todavía no se probó:
+1. Ver los arreglos 10b, 14–22 (Tab al alto, aviso, plurales, pegadas elegidas, anclaje, «Editar curva…», escala
+   del gráfico, gráfico de velocidad con tiradores, recuadro solo de la curva enfocada).
+2. Zona de trabajo: barras de inicio y fin (B/N en AE); que la vista previa y la exportación la respeten.
+3. Atajos de AE: RePág/AvPág (fotograma), J/K, P/S/R/T/A, U y UU, Alt+[ / Alt+], [ / ], Ctrl+D, Ctrl+Mayús+D.
+4. Dos capas a la vez: elegir dos y poner, copiar y pegar claves en las dos.
+5. «Velocidad del fotograma clave…»: escribir velocidad e influencia en números.
+6. Interpolación espacial y temporal (menú de la clave), claves itinerantes.
+7. Valores con cuentas: «+50», «*2».
+8. Emparentar a un nulo y una expresión sencilla (wiggle o loopOut) dentro de la animación.
+
+Lo grande que ya se sabe que falta (se hace en una tanda, después de esta ronda):
+- **Editor de gráficos como el de AE:** ocupa toda la zona de las barras, muestra las propiedades elegidas de varias
+  capas, con «ajustar a la vista», «acercar a lo elegido», elegir el tipo de gráfico, acercar y mover con la rueda y el
+  recuadro que escala claves en bloque.
+- **Posición unida (X e Y en una propiedad)** con trayecto curvo por defecto (bezier automático espacial), y separar
+  dimensiones como opción.
