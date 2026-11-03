@@ -353,13 +353,13 @@ std::vector<float> ChatterboxTts::Impl::generateChunk(
                 // Another reading: one of the 50 likeliest tokens at temperature 0.8.
                 constexpr int kTopK = 50;
                 constexpr float kTemperature = 0.8f;
-                std::vector<int64_t> order(size_t(vocabSize));
+                std::vector<int64_t> order(static_cast<size_t>(vocabSize));
                 for (int64_t k = 0; k < vocabSize; ++k)
                     order[size_t(k)] = k;
                 const int top = int(std::min<int64_t>(kTopK, vocabSize));
                 std::partial_sort(order.begin(), order.begin() + top, order.end(),
                                   [&scores](int64_t a, int64_t b) { return scores[size_t(a)] > scores[size_t(b)]; });
-                std::vector<double> weights(size_t(top));
+                std::vector<double> weights(static_cast<size_t>(top));
                 const float best = scores[size_t(order[0])];
                 for (int k = 0; k < top; ++k)
                     weights[size_t(k)] = std::exp(double(scores[size_t(order[size_t(k)])] - best) / kTemperature);
