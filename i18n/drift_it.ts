@@ -5264,23 +5264,23 @@
     </message>
     <message>
         <source>Add a Position keyframe</source>
-        <translation type="unfinished"></translation>
+        <translation>Aggiungi un fotogramma chiave di Posizione</translation>
     </message>
     <message>
         <source>Add a Scale keyframe</source>
-        <translation type="unfinished"></translation>
+        <translation>Aggiungi un fotogramma chiave di Scala</translation>
     </message>
     <message>
         <source>Add a Rotation keyframe</source>
-        <translation type="unfinished"></translation>
+        <translation>Aggiungi un fotogramma chiave di Rotazione</translation>
     </message>
     <message>
         <source>Add an Opacity keyframe</source>
-        <translation type="unfinished"></translation>
+        <translation>Aggiungi un fotogramma chiave di Opacità</translation>
     </message>
     <message>
         <source>Add an Anchor point keyframe</source>
-        <translation type="unfinished"></translation>
+        <translation>Aggiungi un fotogramma chiave di Punto di ancoraggio</translation>
     </message>
     <message>
         <source>Trim the layer&apos;s in point to the playhead</source>
@@ -17578,7 +17578,7 @@ LA PROSSIMA</translation>
     </message>
     <message>
         <source>Telling speakers apart…</source>
-        <translation type="unfinished"></translation>
+        <translation>Distinzione dei parlanti…</translation>
     </message>
 </context>
 <context>
@@ -22063,7 +22063,7 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     </message>
     <message>
         <source>value, time, index, thisLayer, wiggle(freq, amount), linear / ease / easeIn / easeOut(t, tMin, tMax, a, b), clamp, valueAtTime(t), velocity, speed, Math, and thisComp.layer(&quot;Name&quot;).transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. The last line is the result.</source>
-        <translation type="unfinished"></translation>
+        <translation>value, time, index, thisLayer, wiggle(freq, amount), linear / ease / easeIn / easeOut(t, tMin, tMax, a, b), clamp, valueAtTime(t), velocity, speed, Math, e thisComp.layer(&quot;Name&quot;).transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. L’ultima riga è il risultato.</translation>
     </message>
 </context>
 <context>
@@ -27405,11 +27405,11 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     </message>
     <message>
         <source>Without an account they are translated on this computer (a little slower).</source>
-        <translation type="unfinished"></translation>
+        <translation>Senza account vengono tradotti su questo computer (un po’ più lentamente).</translation>
     </message>
     <message>
         <source>Sign in with Google to translate captions, or install the Offline translation extra</source>
-        <translation type="unfinished"></translation>
+        <translation>Accedi con Google per tradurre i sottotitoli, oppure installa l’extra Traduzione offline</translation>
     </message>
     <message>
         <source>Ignore</source>
@@ -28402,11 +28402,11 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     </message>
     <message>
         <source>Listening to the clip to write down what is said… %1%</source>
-        <translation type="unfinished"></translation>
+        <translation>Ascolto della clip per trascrivere ciò che viene detto… %1%</translation>
     </message>
     <message>
         <source>The first time takes a while; then it opens at once.</source>
-        <translation type="unfinished"></translation>
+        <translation>La prima volta richiede un po’ di tempo; poi si apre subito.</translation>
     </message>
     <message>
         <source>%1 words · %2 s</source>

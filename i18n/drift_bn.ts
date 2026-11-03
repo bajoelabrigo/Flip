@@ -5364,23 +5364,23 @@
     </message>
     <message>
         <source>Add a Position keyframe</source>
-        <translation type="unfinished"></translation>
+        <translation>একটি অবস্থান কীফ্রেম যোগ করুন</translation>
     </message>
     <message>
         <source>Add a Scale keyframe</source>
-        <translation type="unfinished"></translation>
+        <translation>একটি স্কেল কীফ্রেম যোগ করুন</translation>
     </message>
     <message>
         <source>Add a Rotation keyframe</source>
-        <translation type="unfinished"></translation>
+        <translation>একটি ঘূর্ণন কীফ্রেম যোগ করুন</translation>
     </message>
     <message>
         <source>Add an Opacity keyframe</source>
-        <translation type="unfinished"></translation>
+        <translation>একটি অস্বচ্ছতা কীফ্রেম যোগ করুন</translation>
     </message>
     <message>
         <source>Add an Anchor point keyframe</source>
-        <translation type="unfinished"></translation>
+        <translation>একটি অ্যাঙ্কর পয়েন্ট কীফ্রেম যোগ করুন</translation>
     </message>
     <message>
         <source>Trim the layer&apos;s in point to the playhead</source>
@@ -17574,7 +17574,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Telling speakers apart…</source>
-        <translation type="unfinished"></translation>
+        <translation>বক্তাদের আলাদা করা হচ্ছে…</translation>
     </message>
 </context>
 <context>
@@ -22059,7 +22059,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>value, time, index, thisLayer, wiggle(freq, amount), linear / ease / easeIn / easeOut(t, tMin, tMax, a, b), clamp, valueAtTime(t), velocity, speed, Math, and thisComp.layer(&quot;Name&quot;).transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. The last line is the result.</source>
-        <translation type="unfinished"></translation>
+        <translation>value, time, index, thisLayer, wiggle(freq, amount), linear / ease / easeIn / easeOut(t, tMin, tMax, a, b), clamp, valueAtTime(t), velocity, speed, Math, এবং thisComp.layer(&quot;Name&quot;).transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. শেষ লাইনটিই ফলাফল।</translation>
     </message>
 </context>
 <context>
@@ -27301,11 +27301,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Without an account they are translated on this computer (a little slower).</source>
-        <translation type="unfinished"></translation>
+        <translation>অ্যাকাউন্ট ছাড়া এগুলি এই কম্পিউটারে অনুবাদ হয় (একটু ধীরে)।</translation>
     </message>
     <message>
         <source>Sign in with Google to translate captions, or install the Offline translation extra</source>
-        <translation type="unfinished"></translation>
+        <translation>ক্যাপশন অনুবাদ করতে Google দিয়ে সাইন ইন করুন, অথবা অফলাইন অনুবাদ এক্সট্রা ইনস্টল করুন</translation>
     </message>
     <message>
         <source>Words to check: %1</source>
@@ -28398,11 +28398,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Listening to the clip to write down what is said… %1%</source>
-        <translation type="unfinished"></translation>
+        <translation>যা বলা হচ্ছে তা লিখতে ক্লিপটি শোনা হচ্ছে… %1%</translation>
     </message>
     <message>
         <source>The first time takes a while; then it opens at once.</source>
-        <translation type="unfinished"></translation>
+        <translation>প্রথমবার একটু সময় লাগে; তারপর সঙ্গে সঙ্গে খোলে।</translation>
     </message>
     <message>
         <source>%1 words · %2 s</source>

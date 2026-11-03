@@ -5269,23 +5269,23 @@
     </message>
     <message>
         <source>Add a Position keyframe</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajouter une image clé de position</translation>
     </message>
     <message>
         <source>Add a Scale keyframe</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajouter une image clé d’échelle</translation>
     </message>
     <message>
         <source>Add a Rotation keyframe</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajouter une image clé de rotation</translation>
     </message>
     <message>
         <source>Add an Opacity keyframe</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajouter une image clé d’opacité</translation>
     </message>
     <message>
         <source>Add an Anchor point keyframe</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajouter une image clé de point d’ancrage</translation>
     </message>
     <message>
         <source>Trim the layer&apos;s in point to the playhead</source>
@@ -17580,7 +17580,7 @@ PROCHAINE</translation>
     </message>
     <message>
         <source>Telling speakers apart…</source>
-        <translation type="unfinished"></translation>
+        <translation>Distinction des interlocuteurs…</translation>
     </message>
 </context>
 <context>
@@ -22065,7 +22065,7 @@ Si la lecture saccade, essayez une autre option.</translation>
     </message>
     <message>
         <source>value, time, index, thisLayer, wiggle(freq, amount), linear / ease / easeIn / easeOut(t, tMin, tMax, a, b), clamp, valueAtTime(t), velocity, speed, Math, and thisComp.layer(&quot;Name&quot;).transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. The last line is the result.</source>
-        <translation type="unfinished"></translation>
+        <translation>value, time, index, thisLayer, wiggle(freq, amount), linear / ease / easeIn / easeOut(t, tMin, tMax, a, b), clamp, valueAtTime(t), velocity, speed, Math, et thisComp.layer(&quot;Name&quot;).transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. La dernière ligne est le résultat.</translation>
     </message>
 </context>
 <context>
@@ -27407,11 +27407,11 @@ Si la lecture saccade, essayez une autre option.</translation>
     </message>
     <message>
         <source>Without an account they are translated on this computer (a little slower).</source>
-        <translation type="unfinished"></translation>
+        <translation>Sans compte, ils sont traduits sur cet ordinateur (un peu plus lentement).</translation>
     </message>
     <message>
         <source>Sign in with Google to translate captions, or install the Offline translation extra</source>
-        <translation type="unfinished"></translation>
+        <translation>Connectez-vous avec Google pour traduire les sous-titres, ou installez l’extra Traduction hors ligne</translation>
     </message>
     <message>
         <source>Ignore</source>
@@ -28406,11 +28406,11 @@ Si la lecture saccade, essayez une autre option.</translation>
     </message>
     <message>
         <source>Listening to the clip to write down what is said… %1%</source>
-        <translation type="unfinished"></translation>
+        <translation>Écoute du clip pour transcrire ce qui est dit… %1%</translation>
     </message>
     <message>
         <source>The first time takes a while; then it opens at once.</source>
-        <translation type="unfinished"></translation>
+        <translation>La première fois prend un moment; ensuite, ça s’ouvre aussitôt.</translation>
     </message>
     <message>
         <source>%1 words · %2 s</source>

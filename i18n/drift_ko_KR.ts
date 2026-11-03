@@ -5247,23 +5247,23 @@
     </message>
     <message>
         <source>Add a Position keyframe</source>
-        <translation type="unfinished"></translation>
+        <translation>위치 키프레임 추가</translation>
     </message>
     <message>
         <source>Add a Scale keyframe</source>
-        <translation type="unfinished"></translation>
+        <translation>크기 키프레임 추가</translation>
     </message>
     <message>
         <source>Add a Rotation keyframe</source>
-        <translation type="unfinished"></translation>
+        <translation>회전 키프레임 추가</translation>
     </message>
     <message>
         <source>Add an Opacity keyframe</source>
-        <translation type="unfinished"></translation>
+        <translation>불투명도 키프레임 추가</translation>
     </message>
     <message>
         <source>Add an Anchor point keyframe</source>
-        <translation type="unfinished"></translation>
+        <translation>기준점 키프레임 추가</translation>
     </message>
     <message>
         <source>Trim the layer&apos;s in point to the playhead</source>
@@ -17515,7 +17515,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Telling speakers apart…</source>
-        <translation type="unfinished"></translation>
+        <translation>화자를 구분하는 중…</translation>
     </message>
 </context>
 <context>
@@ -21979,7 +21979,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>value, time, index, thisLayer, wiggle(freq, amount), linear / ease / easeIn / easeOut(t, tMin, tMax, a, b), clamp, valueAtTime(t), velocity, speed, Math, and thisComp.layer(&quot;Name&quot;).transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. The last line is the result.</source>
-        <translation type="unfinished"></translation>
+        <translation>value, time, index, thisLayer, wiggle(freq, amount), linear / ease / easeIn / easeOut(t, tMin, tMax, a, b), clamp, valueAtTime(t), velocity, speed, Math, 및 thisComp.layer(&quot;Name&quot;).transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. 마지막 줄이 결과입니다.</translation>
     </message>
 </context>
 <context>
@@ -27309,11 +27309,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Without an account they are translated on this computer (a little slower).</source>
-        <translation type="unfinished"></translation>
+        <translation>계정이 없으면 이 컴퓨터에서 번역됩니다(조금 더 느림).</translation>
     </message>
     <message>
         <source>Sign in with Google to translate captions, or install the Offline translation extra</source>
-        <translation type="unfinished"></translation>
+        <translation>자막을 번역하려면 Google로 로그인하거나 오프라인 번역 추가 기능을 설치하세요</translation>
     </message>
     <message>
         <source>Ignore</source>
@@ -28304,11 +28304,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Listening to the clip to write down what is said… %1%</source>
-        <translation type="unfinished"></translation>
+        <translation>말한 내용을 받아 적기 위해 클립을 듣는 중… %1%</translation>
     </message>
     <message>
         <source>The first time takes a while; then it opens at once.</source>
-        <translation type="unfinished"></translation>
+        <translation>처음에는 시간이 조금 걸리지만, 그다음부터는 바로 열립니다.</translation>
     </message>
     <message>
         <source>%1 words · %2 s</source>

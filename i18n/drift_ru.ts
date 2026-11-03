@@ -5281,23 +5281,23 @@
     </message>
     <message>
         <source>Add a Position keyframe</source>
-        <translation type="unfinished"></translation>
+        <translation>Добавить ключевой кадр положения</translation>
     </message>
     <message>
         <source>Add a Scale keyframe</source>
-        <translation type="unfinished"></translation>
+        <translation>Добавить ключевой кадр масштаба</translation>
     </message>
     <message>
         <source>Add a Rotation keyframe</source>
-        <translation type="unfinished"></translation>
+        <translation>Добавить ключевой кадр поворота</translation>
     </message>
     <message>
         <source>Add an Opacity keyframe</source>
-        <translation type="unfinished"></translation>
+        <translation>Добавить ключевой кадр непрозрачности</translation>
     </message>
     <message>
         <source>Add an Anchor point keyframe</source>
-        <translation type="unfinished"></translation>
+        <translation>Добавить ключевой кадр опорной точки</translation>
     </message>
     <message>
         <source>Trim the layer&apos;s in point to the playhead</source>
@@ -17641,7 +17641,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Telling speakers apart…</source>
-        <translation type="unfinished"></translation>
+        <translation>Различаем говорящих…</translation>
     </message>
 </context>
 <context>
@@ -22147,7 +22147,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>value, time, index, thisLayer, wiggle(freq, amount), linear / ease / easeIn / easeOut(t, tMin, tMax, a, b), clamp, valueAtTime(t), velocity, speed, Math, and thisComp.layer(&quot;Name&quot;).transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. The last line is the result.</source>
-        <translation type="unfinished"></translation>
+        <translation>value, time, index, thisLayer, wiggle(freq, amount), linear / ease / easeIn / easeOut(t, tMin, tMax, a, b), clamp, valueAtTime(t), velocity, speed, Math, и thisComp.layer(&quot;Name&quot;).transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. Последняя строка — результат.</translation>
     </message>
 </context>
 <context>
@@ -27499,11 +27499,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Without an account they are translated on this computer (a little slower).</source>
-        <translation type="unfinished"></translation>
+        <translation>Без учётной записи они переводятся на этом компьютере (чуть медленнее).</translation>
     </message>
     <message>
         <source>Sign in with Google to translate captions, or install the Offline translation extra</source>
-        <translation type="unfinished"></translation>
+        <translation>Войдите через Google, чтобы переводить субтитры, или установите дополнение «Офлайн-перевод»</translation>
     </message>
     <message>
         <source>Ignore</source>
@@ -28498,11 +28498,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Listening to the clip to write down what is said… %1%</source>
-        <translation type="unfinished"></translation>
+        <translation>Прослушиваем клип, чтобы записать сказанное… %1%</translation>
     </message>
     <message>
         <source>The first time takes a while; then it opens at once.</source>
-        <translation type="unfinished"></translation>
+        <translation>В первый раз это занимает некоторое время; потом открывается сразу.</translation>
     </message>
     <message>
         <source>%1 words · %2 s</source>

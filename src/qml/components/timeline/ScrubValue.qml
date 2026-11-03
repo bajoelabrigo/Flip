@@ -65,8 +65,9 @@ Item {
             EditorState.previewSetPropertyValue(root.trackIndex, root.clipIndex, root.prop,
                                                 EditorState.playheadSeconds, stored)
     }
-    function begin() {
-        if (EditorState.selectedTrack !== root.trackIndex || EditorState.selectedClip !== root.clipIndex)
+    function begin(keepSelection) {
+        if (!keepSelection
+                && (EditorState.selectedTrack !== root.trackIndex || EditorState.selectedClip !== root.clipIndex))
             EditorState.selectClip(root.trackIndex, root.clipIndex)
         EditorState.beginPreviewDrag(root.undoLabel)
         root.begun()
@@ -164,14 +165,20 @@ Item {
         font.pixelSize: Theme.fontSizeTiny
         selectByMouse: true
         inputMethodHints: Qt.ImhFormattedNumbersOnly
-        function finish(commit) {
+        // `focusLost`: the click went elsewhere (another clip): the value is kept, but the selection
+        // stays where the click put it (0.30: a field left typing re-selected its own clip, so
+        // clicking another clip seemed to do nothing until Esc, tests #2 and #9).
+        function finish(commit, focusLost) {
             if (!root.editing)
                 return
             root.editing = false
+            // Untouched: nothing to write.
+            if (text === root.format(root.shown).replace(root.suffix, ""))
+                return
             // Sums too, as After Effects: "+50" adds to the value shown, "*2" doubles it, "100+20" is 120.
             const d = ValueMath.evaluate(text, root.shown)
             if (commit && !isNaN(d)) {
-                root.begin()
+                root.begin(!!focusLost)
                 root.apply(d)
                 EditorState.commitPreviewDrag()
             }
@@ -191,7 +198,7 @@ Item {
             root.tabbed(true)
             finish(true)
         }
-        onActiveFocusChanged: if (!activeFocus) finish(true)
+        onActiveFocusChanged: if (!activeFocus) finish(true, true)
     }
 
     ThemedToolTip {

@@ -5268,23 +5268,23 @@
     </message>
     <message>
         <source>Add a Position keyframe</source>
-        <translation type="unfinished"></translation>
+        <translation>Magdagdag ng keyframe ng Posisyon</translation>
     </message>
     <message>
         <source>Add a Scale keyframe</source>
-        <translation type="unfinished"></translation>
+        <translation>Magdagdag ng keyframe ng Scale</translation>
     </message>
     <message>
         <source>Add a Rotation keyframe</source>
-        <translation type="unfinished"></translation>
+        <translation>Magdagdag ng keyframe ng Pag-ikot</translation>
     </message>
     <message>
         <source>Add an Opacity keyframe</source>
-        <translation type="unfinished"></translation>
+        <translation>Magdagdag ng keyframe ng Opacity</translation>
     </message>
     <message>
         <source>Add an Anchor point keyframe</source>
-        <translation type="unfinished"></translation>
+        <translation>Magdagdag ng keyframe ng Anchor point</translation>
     </message>
     <message>
         <source>Trim the layer&apos;s in point to the playhead</source>
@@ -17574,7 +17574,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Telling speakers apart…</source>
-        <translation type="unfinished"></translation>
+        <translation>Pinaghihiwalay ang mga nagsasalita…</translation>
     </message>
 </context>
 <context>
@@ -22053,7 +22053,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>value, time, index, thisLayer, wiggle(freq, amount), linear / ease / easeIn / easeOut(t, tMin, tMax, a, b), clamp, valueAtTime(t), velocity, speed, Math, and thisComp.layer(&quot;Name&quot;).transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. The last line is the result.</source>
-        <translation type="unfinished"></translation>
+        <translation>value, time, index, thisLayer, wiggle(freq, amount), linear / ease / easeIn / easeOut(t, tMin, tMax, a, b), clamp, valueAtTime(t), velocity, speed, Math, at thisComp.layer(&quot;Name&quot;).transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. Ang huling linya ang resulta.</translation>
     </message>
 </context>
 <context>
@@ -27393,11 +27393,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Without an account they are translated on this computer (a little slower).</source>
-        <translation type="unfinished"></translation>
+        <translation>Kapag walang account, isinasalin ang mga ito sa computer na ito (medyo mas mabagal).</translation>
     </message>
     <message>
         <source>Sign in with Google to translate captions, or install the Offline translation extra</source>
-        <translation type="unfinished"></translation>
+        <translation>Mag-sign in gamit ang Google para isalin ang mga caption, o i-install ang extra na Offline na pagsasalin</translation>
     </message>
     <message>
         <source>Ignore</source>
@@ -28390,11 +28390,11 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Listening to the clip to write down what is said… %1%</source>
-        <translation type="unfinished"></translation>
+        <translation>Pinapakinggan ang clip para isulat ang sinasabi… %1%</translation>
     </message>
     <message>
         <source>The first time takes a while; then it opens at once.</source>
-        <translation type="unfinished"></translation>
+        <translation>Medyo matagal ang unang beses; pagkatapos ay agad na itong bubukas.</translation>
     </message>
     <message>
         <source>%1 words · %2 s</source>
