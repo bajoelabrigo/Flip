@@ -1543,7 +1543,7 @@ Item {
                                 text: modelData.label
                                 enabled: root.selectedCue !== null
                                 variant: root.selectedCue && (root.selectedCue.place || "") === modelData.id
-                                         ? "secondary" : "ghost"
+                                         ? "primary" : "ghost"
                                 tooltip: qsTr("Where this caption sits on screen")
                                 onClicked: root.updateCue(root.selectedCueIndex, { place: modelData.id })
                             }

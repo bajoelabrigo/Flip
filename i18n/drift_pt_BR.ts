@@ -4259,6 +4259,10 @@
         <translation>“%1” foi adicionado a “%2” · para desenhar em outra camada, pressione Esc antes; para separá-los, clique direito › Separar em camadas</translation>
     </message>
     <message>
+        <source>Words bleeped: %1</source>
+        <translation>Palavras com bipe: %1</translation>
+    </message>
+    <message>
         <source>Add mask</source>
         <translation>Adicionar máscara</translation>
     </message>
@@ -5490,10 +5494,6 @@
         <translation>Bipar palavrões</translation>
     </message>
     <message>
-        <source>Bleeped %1 words</source>
-        <translation>Bipe em %1 palavras</translation>
-    </message>
-    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5649,6 +5649,18 @@
     <message>
         <source>Listening to the clip to write down what is said…</source>
         <translation>Ouvindo o clipe para escrever o que é dito…</translation>
+    </message>
+    <message>
+        <source>Move the other tracks</source>
+        <translation>Mover as outras faixas</translation>
+    </message>
+    <message>
+        <source>Edit by text</source>
+        <translation>Editar pelo texto</translation>
+    </message>
+    <message>
+        <source>Remove silences</source>
+        <translation>Remover silêncios</translation>
     </message>
     <message>
         <source>Cut %1 s from the video</source>

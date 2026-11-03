@@ -4249,6 +4249,10 @@
         <translation>“%1”을(를) “%2”에 추가함 · 별도 레이어에 그리려면 먼저 Esc, 나누려면 오른쪽 클릭 › 레이어로 분리</translation>
     </message>
     <message>
+        <source>Words bleeped: %1</source>
+        <translation>삐 소리 단어: %1</translation>
+    </message>
+    <message>
         <source>Add mask</source>
         <translation>마스크 추가</translation>
     </message>
@@ -5471,10 +5475,6 @@
         <translation>욕설에 삐 소리</translation>
     </message>
     <message>
-        <source>Bleeped %1 words</source>
-        <translation>%1개 단어에 삐 소리</translation>
-    </message>
-    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5627,6 +5627,18 @@
     <message>
         <source>Listening to the clip to write down what is said…</source>
         <translation>말한 내용을 받아 적기 위해 클립을 듣는 중…</translation>
+    </message>
+    <message>
+        <source>Move the other tracks</source>
+        <translation>다른 트랙 이동</translation>
+    </message>
+    <message>
+        <source>Edit by text</source>
+        <translation>텍스트로 편집</translation>
+    </message>
+    <message>
+        <source>Remove silences</source>
+        <translation>무음 제거</translation>
     </message>
     <message>
         <source>Cut %1 s from the video</source>

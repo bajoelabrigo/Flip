@@ -4264,6 +4264,10 @@
         <translation>« %1 » ajouté à « %2 » · pour dessiner sur un calque à part, appuyez d’abord sur Échap; pour les séparer, clic droit › Séparer en calques</translation>
     </message>
     <message>
+        <source>Words bleeped: %1</source>
+        <translation>Mots bipés : %1</translation>
+    </message>
+    <message>
         <source>Add mask</source>
         <translation>Ajouter un masque</translation>
     </message>
@@ -5495,10 +5499,6 @@
         <translation>Biper les jurons</translation>
     </message>
     <message>
-        <source>Bleeped %1 words</source>
-        <translation>Bip sur %1 mots</translation>
-    </message>
-    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5654,6 +5654,18 @@
     <message>
         <source>Listening to the clip to write down what is said…</source>
         <translation>Écoute du clip pour écrire ce qui est dit…</translation>
+    </message>
+    <message>
+        <source>Move the other tracks</source>
+        <translation>Déplacer les autres pistes</translation>
+    </message>
+    <message>
+        <source>Edit by text</source>
+        <translation>Monter par le texte</translation>
+    </message>
+    <message>
+        <source>Remove silences</source>
+        <translation>Supprimer les silences</translation>
     </message>
     <message>
         <source>Cut %1 s from the video</source>

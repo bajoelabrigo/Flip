@@ -17776,7 +17776,7 @@ int AppController::bleepSubtitleSwearWords(int trackIndex, int clipIndex)
         addClipsFromAssets(assets, -1, drift::usToSeconds(subtitles.timelineStart));
     }
     m_mcpController->endBatch(tr("Bleep swear words"), true);
-    setLastMessage(tr("Bleeped %1 words").arg(ranges.size()), QStringLiteral("success"));
+    setLastMessage(tr("Words bleeped: %1").arg(ranges.size()), QStringLiteral("success"));
     return int(ranges.size());
 }
 
@@ -27702,6 +27702,57 @@ QList<drift::TimeRangeUs> AppController::speechKeepRanges(const drift::Clip &cli
     return ranges;
 }
 
+void AppController::rippleOtherTracks(int cutTrack, QList<drift::TimeRangeUs> gone)
+{
+    if (gone.isEmpty())
+        return;
+    // Latest first, so each cut's times are still the ones from before the cut.
+    std::sort(gone.begin(), gone.end(), [](const drift::TimeRangeUs &a, const drift::TimeRangeUs &b) {
+        return a.startUs > b.startUs;
+    });
+    const drift::Project before = m_project;
+    bool changed = false;
+    for (int t = 0; t < m_project.tracks().size(); ++t) {
+        if (t == cutTrack || isTrackLocked(t))
+            continue;
+        for (drift::Clip &clip : m_project.tracks()[t].clips) {
+            for (const drift::TimeRangeUs &g : std::as_const(gone)) {
+                const drift::TimeUs length = g.length();
+                if (clip.timelineStart >= g.endUs) {
+                    clip.timelineStart -= length; // wholly after: moves up
+                    changed = true;
+                    continue;
+                }
+                if (clip.type != drift::ClipType::Subtitle || clip.timelineEnd() <= g.startUs)
+                    continue;
+                // A caption clip across the cut: captions in it go, the later ones move up.
+                const drift::TimeUs a = qMax<drift::TimeUs>(0, g.startUs - clip.timelineStart);
+                const drift::TimeUs b = qMin(clip.timelineDuration, g.endUs - clip.timelineStart);
+                const drift::TimeUs inside = b - a;
+                if (inside <= 0)
+                    continue;
+                QList<drift::SubtitleCue> kept;
+                for (drift::SubtitleCue cue : std::as_const(clip.subtitleCues)) {
+                    const auto mapTime = [&](drift::TimeUs u) { return u <= a ? u : (u >= b ? u - inside : a); };
+                    cue.startUs = mapTime(cue.startUs);
+                    cue.endUs = mapTime(cue.endUs);
+                    for (drift::TimeUs &end : cue.wordEndsUs)
+                        end = mapTime(end);
+                    if (cue.endUs - cue.startUs >= 100'000)
+                        kept.append(cue);
+                }
+                clip.subtitleCues = kept;
+                clip.timelineDuration -= inside;
+                clip.srcOut = clip.srcIn + clip.timelineDuration;
+                changed = true;
+            }
+        }
+    }
+    if (!changed)
+        return;
+    pushProjectEdit(before, tr("Move the other tracks"));
+}
+
 void AppController::cutToKeepRanges(int trackIndex, int clipIndex, const QList<drift::TimeRangeUs> &keep, int fillers)
 {
     QJsonArray ranges;
@@ -27709,13 +27760,38 @@ void AppController::cutToKeepRanges(int trackIndex, int clipIndex, const QList<d
         ranges.append(QJsonObject{{QStringLiteral("start"), drift::usToSeconds(r.startUs)},
                                   {QStringLiteral("end"), drift::usToSeconds(r.endUs)}});
     }
-    const double before = drift::usToSeconds(m_project.tracks().at(trackIndex).clips.at(clipIndex).timelineDuration);
+    const drift::Clip cut = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    const double before = drift::usToSeconds(cut.timelineDuration);
+    // What goes, on the timeline: the gaps between the kept stretches (and before the first, after the last).
+    QList<drift::TimeRangeUs> gone;
+    {
+        drift::TimeUs at = cut.srcIn;
+        const auto addGone = [&](drift::TimeUs a, drift::TimeUs b) {
+            if (b <= a)
+                return;
+            drift::TimeUs ta = cut.timelineStart + cut.sourceUsToClipLocalUs(a);
+            drift::TimeUs tb = cut.timelineStart + cut.sourceUsToClipLocalUs(b);
+            if (ta > tb)
+                std::swap(ta, tb);
+            if (tb > ta)
+                gone.append({ta, tb});
+        };
+        for (const drift::TimeRangeUs &r : keep) {
+            addGone(at, r.startUs);
+            at = qMax(at, r.endUs);
+        }
+        addGone(at, cut.srcOut);
+    }
+    m_mcpController->beginBatch();
     const QJsonObject result = m_mcpController->keepRanges(trackIndex, clipIndex, ranges, 0.0, 0.03, true);
     if (!result.value(QStringLiteral("ok")).toBool(true) && result.contains(QStringLiteral("error"))) {
+        m_mcpController->endBatch(QString(), false);
         setLastMessage(result.value(QStringLiteral("detail")).toString(tr("Could not cut this clip")),
                        QStringLiteral("error"));
         return;
     }
+    rippleOtherTracks(trackIndex, gone);
+    m_mcpController->endBatch(fillers < 0 ? tr("Edit by text") : tr("Remove silences"), true);
     const double after = result.value(QStringLiteral("duration")).toDouble(before);
     if (fillers < 0) {
         setLastMessage(tr("Cut %1 s from the video").arg(QString::number(qMax(0.0, before - after), 'f', 1)),

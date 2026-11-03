@@ -4259,6 +4259,10 @@
         <translation>«%1» se añadió a «%2» · para dibujar en una capa aparte, pulsa Esc antes; para separarlas, clic derecho › Separar en capas</translation>
     </message>
     <message>
+        <source>Words bleeped: %1</source>
+        <translation>Palabras con pitido: %1</translation>
+    </message>
+    <message>
         <source>Add mask</source>
         <translation>Añadir máscara</translation>
     </message>
@@ -5490,10 +5494,6 @@
         <translation>Pitido en groserías</translation>
     </message>
     <message>
-        <source>Bleeped %1 words</source>
-        <translation>Pitido en %1 palabras</translation>
-    </message>
-    <message>
         <source>Getting ready…</source>
         <translation>Preparando…</translation>
     </message>
@@ -5649,6 +5649,18 @@
     <message>
         <source>Listening to the clip to write down what is said…</source>
         <translation>Escuchando el clip para escribir lo que se dice…</translation>
+    </message>
+    <message>
+        <source>Move the other tracks</source>
+        <translation>Mover las otras pistas</translation>
+    </message>
+    <message>
+        <source>Edit by text</source>
+        <translation>Editar con el texto</translation>
+    </message>
+    <message>
+        <source>Remove silences</source>
+        <translation>Quitar silencios</translation>
     </message>
     <message>
         <source>Cut %1 s from the video</source>

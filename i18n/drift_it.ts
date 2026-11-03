@@ -4259,6 +4259,10 @@
         <translation>“%1” aggiunto a “%2” · per disegnare su un livello a parte, premi prima Esc; per separarli, clic destro › Separa in livelli</translation>
     </message>
     <message>
+        <source>Words bleeped: %1</source>
+        <translation>Parole con bip: %1</translation>
+    </message>
+    <message>
         <source>Add mask</source>
         <translation>Aggiungi maschera</translation>
     </message>
@@ -5490,10 +5494,6 @@
         <translation>Bip sulle parolacce</translation>
     </message>
     <message>
-        <source>Bleeped %1 words</source>
-        <translation>Bip su %1 parole</translation>
-    </message>
-    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5649,6 +5649,18 @@
     <message>
         <source>Listening to the clip to write down what is said…</source>
         <translation>Ascolto del clip per scrivere ciò che si dice…</translation>
+    </message>
+    <message>
+        <source>Move the other tracks</source>
+        <translation>Sposta le altre tracce</translation>
+    </message>
+    <message>
+        <source>Edit by text</source>
+        <translation>Modifica con il testo</translation>
+    </message>
+    <message>
+        <source>Remove silences</source>
+        <translation>Rimuovi silenzi</translation>
     </message>
     <message>
         <source>Cut %1 s from the video</source>

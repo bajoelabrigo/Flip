@@ -4320,6 +4320,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Words bleeped: %1</source>
+        <translation>বিপ দেওয়া শব্দ: %1</translation>
+    </message>
+    <message>
         <source>Mask added</source>
         <translation type="unfinished">মাস্ক যোগ করা হয়েছে</translation>
     </message>
@@ -5590,10 +5594,6 @@
         <translation>গালিতে বিপ</translation>
     </message>
     <message>
-        <source>Bleeped %1 words</source>
-        <translation>%1টি শব্দে বিপ</translation>
-    </message>
-    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5749,6 +5749,18 @@
     <message>
         <source>Listening to the clip to write down what is said…</source>
         <translation>যা বলা হচ্ছে লিখতে ক্লিপ শোনা হচ্ছে…</translation>
+    </message>
+    <message>
+        <source>Move the other tracks</source>
+        <translation>অন্য ট্র্যাক সরান</translation>
+    </message>
+    <message>
+        <source>Edit by text</source>
+        <translation>লেখা দিয়ে সম্পাদনা</translation>
+    </message>
+    <message>
+        <source>Remove silences</source>
+        <translation>নীরবতা সরান</translation>
     </message>
     <message>
         <source>Cut %1 s from the video</source>

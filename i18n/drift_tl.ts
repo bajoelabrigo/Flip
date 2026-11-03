@@ -4259,6 +4259,10 @@
         <translation>Idinagdag ang “%1” sa “%2” · para gumuhit sa hiwalay na layer, pindutin muna ang Esc; para paghiwalayin, right-click › Paghiwalayin sa mga layer</translation>
     </message>
     <message>
+        <source>Words bleeped: %1</source>
+        <translation>Mga salitang na-bleep: %1</translation>
+    </message>
+    <message>
         <source>Add mask</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5494,10 +5498,6 @@
         <translation>I-bleep ang mga mura</translation>
     </message>
     <message>
-        <source>Bleeped %1 words</source>
-        <translation>Na-bleep ang %1 salita</translation>
-    </message>
-    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5653,6 +5653,18 @@
     <message>
         <source>Listening to the clip to write down what is said…</source>
         <translation>Pinakikinggan ang clip para isulat ang sinasabi…</translation>
+    </message>
+    <message>
+        <source>Move the other tracks</source>
+        <translation>Ilipat ang ibang track</translation>
+    </message>
+    <message>
+        <source>Edit by text</source>
+        <translation>I-edit gamit ang teksto</translation>
+    </message>
+    <message>
+        <source>Remove silences</source>
+        <translation>Alisin ang mga katahimikan</translation>
     </message>
     <message>
         <source>Cut %1 s from the video</source>

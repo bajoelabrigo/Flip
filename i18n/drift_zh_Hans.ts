@@ -4249,6 +4249,10 @@
         <translation>“%1”已加入“%2” · 要画在单独的图层上，请先按 Esc；要分开它们，右键 › 分离为图层</translation>
     </message>
     <message>
+        <source>Words bleeped: %1</source>
+        <translation>已加哔声的词：%1</translation>
+    </message>
+    <message>
         <source>Add mask</source>
         <translation>添加蒙版</translation>
     </message>
@@ -5471,10 +5475,6 @@
         <translation>脏话哔声</translation>
     </message>
     <message>
-        <source>Bleeped %1 words</source>
-        <translation>已为 %1 个词加上哔声</translation>
-    </message>
-    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5627,6 +5627,18 @@
     <message>
         <source>Listening to the clip to write down what is said…</source>
         <translation>正在聆听片段以记下所说的内容…</translation>
+    </message>
+    <message>
+        <source>Move the other tracks</source>
+        <translation>移动其他轨道</translation>
+    </message>
+    <message>
+        <source>Edit by text</source>
+        <translation>按文字剪辑</translation>
+    </message>
+    <message>
+        <source>Remove silences</source>
+        <translation>删除静音</translation>
     </message>
     <message>
         <source>Cut %1 s from the video</source>

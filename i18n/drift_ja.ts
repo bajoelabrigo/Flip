@@ -4249,6 +4249,10 @@
         <translation>「%1」を「%2」に追加しました · 別のレイヤーに描くには先に Esc、分けるには右クリック › レイヤーに分割</translation>
     </message>
     <message>
+        <source>Words bleeped: %1</source>
+        <translation>ピー音を入れた語: %1</translation>
+    </message>
+    <message>
         <source>Add mask</source>
         <translation>マスクを追加</translation>
     </message>
@@ -5471,10 +5475,6 @@
         <translation>暴言にピー音</translation>
     </message>
     <message>
-        <source>Bleeped %1 words</source>
-        <translation>%1 語にピー音</translation>
-    </message>
-    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5627,6 +5627,18 @@
     <message>
         <source>Listening to the clip to write down what is said…</source>
         <translation>話している内容を書き出すためにクリップを聞いています…</translation>
+    </message>
+    <message>
+        <source>Move the other tracks</source>
+        <translation>ほかのトラックを移動</translation>
+    </message>
+    <message>
+        <source>Edit by text</source>
+        <translation>テキストで編集</translation>
+    </message>
+    <message>
+        <source>Remove silences</source>
+        <translation>無音を削除</translation>
     </message>
     <message>
         <source>Cut %1 s from the video</source>

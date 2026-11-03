@@ -2749,6 +2749,9 @@ protected:
                                                int *fillers) const;
     // fillers < 0: words struck out in the text editor (the message says so instead of pauses).
     void cutToKeepRanges(int trackIndex, int clipIndex, const QList<drift::TimeRangeUs> &keep, int fillers);
+    // After a cut that closed up its own track, the other tracks follow: captions in the cut go, the
+    // later ones move up, and clips that start after a cut move up by it (timeline time, before the cut).
+    void rippleOtherTracks(int cutTrack, QList<drift::TimeRangeUs> gone);
     bool m_subtitleTranslateNext = false; // the next generation run translates to English
     bool generateSubtitlesForSources(QList<SubtitleSource> sources, const QString &language,
                                      int maxWordsPerCue);

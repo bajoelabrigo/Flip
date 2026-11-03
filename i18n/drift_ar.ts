@@ -4470,6 +4470,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Words bleeped: %1</source>
+        <translation>كلمات بصفير: %1</translation>
+    </message>
+    <message>
         <source>Camera clip added</source>
         <translation>تمت إضافة مقطع الكاميرا</translation>
     </message>
@@ -5554,10 +5558,6 @@
         <translation>صفير على الشتائم</translation>
     </message>
     <message>
-        <source>Bleeped %1 words</source>
-        <translation>صفير على %1 كلمة</translation>
-    </message>
-    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5725,6 +5725,18 @@
     <message>
         <source>Listening to the clip to write down what is said…</source>
         <translation>جارٍ الاستماع إلى المقطع لكتابة ما يُقال…</translation>
+    </message>
+    <message>
+        <source>Move the other tracks</source>
+        <translation>تحريك المسارات الأخرى</translation>
+    </message>
+    <message>
+        <source>Edit by text</source>
+        <translation>التحرير بالنص</translation>
+    </message>
+    <message>
+        <source>Remove silences</source>
+        <translation>إزالة الصمت</translation>
     </message>
     <message>
         <source>Cut %1 s from the video</source>

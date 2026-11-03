@@ -4259,6 +4259,10 @@
         <translation>“%1” “%2” වෙත එක් කෙරිණි · වෙනම ස්තරයක ඇඳීමට පළමුව Esc ඔබන්න; ඒවා වෙන් කිරීමට දකුණු-ක්ලික් › ස්තරවලට වෙන් කරන්න</translation>
     </message>
     <message>
+        <source>Words bleeped: %1</source>
+        <translation>බීප් කළ වචන: %1</translation>
+    </message>
+    <message>
         <source>Add mask</source>
         <translation>ආවරණයක් (Mask) එක් කරන්න</translation>
     </message>
@@ -5490,10 +5494,6 @@
         <translation>කුණුහරුපවලට බීප්</translation>
     </message>
     <message>
-        <source>Bleeped %1 words</source>
-        <translation>වචන %1 කට බීප්</translation>
-    </message>
-    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5649,6 +5649,18 @@
     <message>
         <source>Listening to the clip to write down what is said…</source>
         <translation>කියන දේ ලිවීමට ක්ලිපයට සවන් දෙමින්…</translation>
+    </message>
+    <message>
+        <source>Move the other tracks</source>
+        <translation>අනෙක් පථ ගෙන යන්න</translation>
+    </message>
+    <message>
+        <source>Edit by text</source>
+        <translation>පෙළෙන් සංස්කරණය</translation>
+    </message>
+    <message>
+        <source>Remove silences</source>
+        <translation>නිහඬතා ඉවත් කරන්න</translation>
     </message>
     <message>
         <source>Cut %1 s from the video</source>

@@ -4269,6 +4269,10 @@
         <translation>„%1” dodano do „%2” · aby rysować na osobnej warstwie, najpierw naciśnij Esc; aby je rozdzielić, prawy przycisk › Rozdziel na warstwy</translation>
     </message>
     <message>
+        <source>Words bleeped: %1</source>
+        <translation>Wypikane słowa: %1</translation>
+    </message>
+    <message>
         <source>Add mask</source>
         <translation>Dodaj maskę</translation>
     </message>
@@ -5509,10 +5513,6 @@
         <translation>Wypikaj przekleństwa</translation>
     </message>
     <message>
-        <source>Bleeped %1 words</source>
-        <translation>Wypikano słowa: %1</translation>
-    </message>
-    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5671,6 +5671,18 @@
     <message>
         <source>Listening to the clip to write down what is said…</source>
         <translation>Słucham klipu, aby zapisać, co jest mówione…</translation>
+    </message>
+    <message>
+        <source>Move the other tracks</source>
+        <translation>Przesuń pozostałe ścieżki</translation>
+    </message>
+    <message>
+        <source>Edit by text</source>
+        <translation>Edytuj tekstem</translation>
+    </message>
+    <message>
+        <source>Remove silences</source>
+        <translation>Usuń ciszę</translation>
     </message>
     <message>
         <source>Cut %1 s from the video</source>

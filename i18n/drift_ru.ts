@@ -4269,6 +4269,10 @@
         <translation>«%1» добавлен в «%2» · чтобы рисовать на отдельном слое, сначала нажмите Esc; чтобы разделить их, правый щелчок › Разделить на слои</translation>
     </message>
     <message>
+        <source>Words bleeped: %1</source>
+        <translation>Запикано слов: %1</translation>
+    </message>
+    <message>
         <source>Add mask</source>
         <translation>Добавить маску</translation>
     </message>
@@ -5509,10 +5513,6 @@
         <translation>Запикать ругательства</translation>
     </message>
     <message>
-        <source>Bleeped %1 words</source>
-        <translation>Запикано слов: %1</translation>
-    </message>
-    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5671,6 +5671,18 @@
     <message>
         <source>Listening to the clip to write down what is said…</source>
         <translation>Прослушиваю клип, чтобы записать сказанное…</translation>
+    </message>
+    <message>
+        <source>Move the other tracks</source>
+        <translation>Сдвинуть другие дорожки</translation>
+    </message>
+    <message>
+        <source>Edit by text</source>
+        <translation>Монтаж по тексту</translation>
+    </message>
+    <message>
+        <source>Remove silences</source>
+        <translation>Убрать паузы</translation>
     </message>
     <message>
         <source>Cut %1 s from the video</source>

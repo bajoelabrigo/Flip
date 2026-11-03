@@ -4259,6 +4259,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Words bleeped: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Add mask</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5490,10 +5494,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Bleeped %1 words</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5648,6 +5648,18 @@
     </message>
     <message>
         <source>Listening to the clip to write down what is said…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move the other tracks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit by text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove silences</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

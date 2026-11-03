@@ -153,3 +153,13 @@ ventanas de herramientas.
     `subtitulos`, que la galería de subtítulos ya lista): Rebote, Caja roja, Caja amarilla (la caja sigue la palabra),
     Gigante, Neón azul, Máquina de escribir, Podcast, Palabras clave (colorea las *marcadas*), Sombra dura, Degradado,
     Sello, Elegante. Paquete hecho en `flip-addons/dist`, **sin publicar** hasta verlos en ventana.
+
+### Prueba en ventana 2 (2026-11-03, build 71005, `pruebas\subtitulos-030\entrevista.drift`, dos voces)
+Visto funcionando: panel minimalista y Opciones, palabras clave al crear, Pitido (tono en la grosería), Animados (fuego
+sobre «puro fuego»), estilo y lugar por subtítulo (Arriba, «Fondo de frase»), Editar con el texto (tachar y Cortar) y
+los 12 estilos virales (cargados desde `flip-addons/build/stage` con `DRIFT_TEXT_STYLES_DIR`). El detector de voces
+funciona solo (MCP `diarize`: S1/S2 bien), pero los subtítulos salían sin hablante: el paso al tiempo de la línea de
+tiempo copiaba solo texto y tiempos (arreglado en `99500`). También arreglado después: los cortes de silencios y de
+«Editar con el texto» no corrían las otras pistas (ahora los subtítulos y los clips que siguen se adelantan, en el
+mismo deshacer; un clip que cruza el corte, como la pista del pitido, queda igual), el botón del lugar elegido se veía
+poco y el aviso «Pitido en 1 palabras». Falta verlos en la build siguiente.

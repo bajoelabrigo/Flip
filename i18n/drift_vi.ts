@@ -4257,6 +4257,10 @@
         <translation>Đã thêm “%1” vào “%2” · để vẽ trên lớp riêng, nhấn Esc trước; để tách chúng, nhấp phải › Tách thành các lớp</translation>
     </message>
     <message>
+        <source>Words bleeped: %1</source>
+        <translation>Từ đã bíp: %1</translation>
+    </message>
+    <message>
         <source>Add mask</source>
         <translation>Thêm mặt nạ</translation>
     </message>
@@ -5479,10 +5483,6 @@
         <translation>Bíp từ tục</translation>
     </message>
     <message>
-        <source>Bleeped %1 words</source>
-        <translation>Đã bíp %1 từ</translation>
-    </message>
-    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5635,6 +5635,18 @@
     <message>
         <source>Listening to the clip to write down what is said…</source>
         <translation>Đang nghe clip để ghi lại lời nói…</translation>
+    </message>
+    <message>
+        <source>Move the other tracks</source>
+        <translation>Di chuyển các kênh khác</translation>
+    </message>
+    <message>
+        <source>Edit by text</source>
+        <translation>Sửa bằng văn bản</translation>
+    </message>
+    <message>
+        <source>Remove silences</source>
+        <translation>Xóa khoảng lặng</translation>
     </message>
     <message>
         <source>Cut %1 s from the video</source>
