@@ -100,6 +100,7 @@
 #include "models/CloudProviders.h"
 #include "engine/WhisperTranscriber.h"
 #include "engine/SpellCheck.h"
+#include "engine/SpeakerDiarizer.h"
 #include "engine/AudioFileWriter.h"
 #include "McpDetail.h"
 
@@ -2091,6 +2092,7 @@ QVariantList subtitleCuesToMap(const QList<drift::SubtitleCue> &cues)
             {QStringLiteral("wordEnds"), ends},
             {QStringLiteral("style"), cue.styleId},
             {QStringLiteral("place"), cue.place},
+            {QStringLiteral("speaker"), cue.speaker},
         });
     }
     return out;
@@ -2111,6 +2113,7 @@ QList<drift::SubtitleCue> subtitleCuesFromMap(const QVariantList &list)
             cue.wordEndsUs.append(drift::secondsToUs(end.toDouble()));
         cue.styleId = map.value(QStringLiteral("style")).toString();
         cue.place = map.value(QStringLiteral("place")).toString();
+        cue.speaker = map.value(QStringLiteral("speaker"), -1).toInt();
         cues.append(cue);
     }
     drift::sortSubtitleCues(cues);
@@ -5059,6 +5062,13 @@ QVariantMap AppController::clipToMap(const drift::Clip &clip, const drift::Clip 
         {QStringLiteral("textContent"), clip.textContent},
         {QStringLiteral("textStyle"), textStyleToMap(clip.textStyle, clip.timelineStart)},
         {QStringLiteral("subtitleCues"), subtitleCuesToMap(clip.subtitleCues)},
+        {QStringLiteral("subtitleSpeakers"), [&clip] {
+             QVariantList speakers;
+             for (const drift::SubtitleSpeaker &speaker : clip.subtitleSpeakers)
+                 speakers.append(QVariantMap{{QStringLiteral("name"), speaker.name},
+                                             {QStringLiteral("color"), speaker.color}});
+             return speakers;
+         }()},
         {QStringLiteral("shapeStyle"), shapeStyleToMap(clip.shapeStyle, clip.timelineStart)},
         {QStringLiteral("blendMode"), drift::blendModeToString(clip.blendMode)},
         {QStringLiteral("speed"), clip.speed},
@@ -9980,9 +9990,10 @@ bool AppController::generateSubtitlesForSources(QList<SubtitleSource> sources, c
     const QString cloudKey = cloud ? m_cloud->apiKey(elevenLabs) : QString();
     const QString cloudModel = cloud ? m_cloud->setting(elevenLabs, QStringLiteral("stt_model")) : QString();
     const QStringList keyterms = subtitleKeyterms();
+    const bool speakers = subtitleSpeakersEnabled() && subtitleSpeakersAvailable();
 
     (void)QtConcurrent::run([this, sources, rangeStart, rangeDuration, languageCode, wordsPerCue, lineWidth, lineCount,
-                             translate, cloud, cloudKey, cloudModel, keyterms]() {
+                             translate, cloud, cloudKey, cloudModel, keyterms, speakers]() {
         auto setProgress = [this](double fraction, const QString &status) {
             QMetaObject::invokeMethod(
                 this,
@@ -10115,7 +10126,7 @@ bool AppController::generateSubtitlesForSources(QList<SubtitleSource> sources, c
             setProgress(0.2, tr("Sending the audio to ElevenLabs…"));
             drift::cloud::CloudError cloudError;
             const auto transcript = drift::cloud::elevenlabs::speechToText(
-                cloudKey, cloudModel, flac, languageCode, false, 0, keyterms,
+                cloudKey, cloudModel, flac, languageCode, speakers, 0, keyterms,
                 [this] { return m_subtitleGenCancel.loadRelaxed() != 0; },
                 [this, setProgress](double f) {
                     setProgress(0.2 + 0.7 * f, f < 1.0 ? tr("Sending the audio to ElevenLabs…")
@@ -10131,11 +10142,11 @@ bool AppController::generateSubtitlesForSources(QList<SubtitleSource> sources, c
                 res.cues = drift::cuesFromTranscript(*transcript, 0, sampleToUsTotal(mono.size()), lineWidth, lineCount,
                                                      wordsPerCue);
             }
-        } else if (!translate && !drift::CtcAligner::installedLanguages().isEmpty()) {
+        } else if (!translate && (speakers || !drift::CtcAligner::installedLanguages().isEmpty())) {
             drift::LocalTranscribeOptions options;
             options.language = languageCode;
-            options.align = true;
-            options.diarize = false;
+            options.align = !drift::CtcAligner::installedLanguages().isEmpty();
+            options.diarize = speakers;
             const drift::LocalTranscribeResult local = drift::transcribeLocal(mono, 0, options, onProgress);
             res.cancelled = local.cancelled;
             res.ok = local.transcript != nullptr;
@@ -11043,6 +11054,22 @@ void AppController::finalizeGeneratedSubtitles(drift::TimeUs timelineStart,
     if (cleaned.isEmpty())
         cleaned = cues;
     clip.subtitleCues = cleaned;
+    // Two voices or more: each its colour and a name the editor lets change («Speaker 1»…).
+    {
+        static const QList<QColor> kVoiceColours = {QColor(255, 255, 255), QColor(255, 214, 64),
+                                                     QColor(96, 205, 255), QColor(255, 128, 171),
+                                                     QColor(140, 230, 120), QColor(255, 160, 80)};
+        int count = 0;
+        for (const drift::SubtitleCue &cue : std::as_const(clip.subtitleCues))
+            count = qMax(count, cue.speaker + 1);
+        if (count >= 2) {
+            for (int i = 0; i < count; ++i)
+                clip.subtitleSpeakers.append({tr("Speaker %1").arg(i + 1), kVoiceColours.at(i % kVoiceColours.size())});
+        } else {
+            for (drift::SubtitleCue &cue : clip.subtitleCues)
+                cue.speaker = -1; // one voice: nothing to tell apart
+        }
+    }
     if (!translated)
         clip.name = drift::subtitleClipName(cleaned);
 
@@ -17393,6 +17420,40 @@ QString AppController::subtitleKeytermsText() const
 void AppController::setSubtitleKeytermsText(const QString &text)
 {
     QSettings().setValue(QStringLiteral("subtitles/keyterms"), text);
+}
+
+bool AppController::subtitleSpeakersEnabled() const
+{
+    return QSettings().value(QStringLiteral("subtitles/speakers"), false).toBool();
+}
+
+void AppController::setSubtitleSpeakersEnabled(bool enabled)
+{
+    QSettings().setValue(QStringLiteral("subtitles/speakers"), enabled);
+}
+
+bool AppController::subtitleSpeakersAvailable() const
+{
+    // The cloud tells voices apart on its own; on this computer it takes the speaker-labels extra.
+    return drift::SpeakerDiarizer::modelPresent() || (subtitleCloudEngine() && subtitleCloudReady());
+}
+
+void AppController::setSubtitleSpeaker(int trackIndex, int clipIndex, int speaker, const QString &name,
+                                       const QColor &color)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex) || isTrackLocked(trackIndex))
+        return;
+    drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
+    if (clip.type != drift::ClipType::Subtitle || speaker < 0 || speaker >= clip.subtitleSpeakers.size())
+        return;
+    const drift::Project before = m_project;
+    drift::SubtitleSpeaker &entry = clip.subtitleSpeakers[speaker];
+    if (!name.trimmed().isEmpty())
+        entry.name = name.trimmed();
+    if (color.isValid())
+        entry.color = color;
+    pushProjectEdit(before, tr("Edit speaker"));
+    finishEdit(tr("Edit speaker"));
 }
 
 bool AppController::subtitleTwoLines() const

@@ -5253,6 +5253,10 @@
         <translation>ElevenLabs распознаёт речь…</translation>
     </message>
     <message>
+        <source>Speaker %1</source>
+        <translation>Говорящий %1</translation>
+    </message>
+    <message>
         <source>Solids</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5455,6 +5459,10 @@
     <message>
         <source>Mask fixed on screen</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit speaker</source>
+        <translation>Изменить говорящего</translation>
     </message>
     <message>
         <source>No key words to highlight in these subtitles</source>
@@ -27008,6 +27016,10 @@ If playback stutters, try another.</source>
         <translation>Проверяет орфографию всех субтитров по одному слову</translation>
     </message>
     <message>
+        <source>Speakers</source>
+        <translation>Говорящие</translation>
+    </message>
+    <message>
         <source>File and timing</source>
         <translation>Файл и время</translation>
     </message>
@@ -27272,6 +27284,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Options</source>
         <translation>Параметры</translation>
+    </message>
+    <message>
+        <source>Tell the speakers apart (a colour for each)</source>
+        <translation>Различать говорящих (у каждого свой цвет)</translation>
     </message>
     <message>
         <source>Highlight key words in colour</source>

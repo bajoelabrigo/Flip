@@ -49,7 +49,7 @@ Lo que tienen CapCut, Premiere y Descript:
 - [ ] Traducir a muchos idiomas y subtítulos bilingües.
 - [ ] Editar el video borrando texto (como Descript).
 - [x] Revisar los silencios uno por uno antes de quitarlos.
-- [ ] Colores y nombres por hablante (el motor ya distingue voces).
+- [~] Colores y nombres por hablante (el motor ya distingue voces).
 - [x] Reglas de lectura con aviso (letras por segundo, muy cortos, muy largos).
 - [x] Mover todos los subtítulos a la vez (adelantar o atrasar).
 - [~] Subtítulos dentro del MP4 (activables) y un `.srt` al lado del video al exportar.
@@ -136,3 +136,8 @@ ventanas de herramientas.
     `place` («top», «middle», vacío = donde lo pone el clip), en el proyecto y en el editor (desplegable «Estilo» y
     «Como el clip / Arriba / Centro» bajo Dividir/Unir); el compositor los usa al dibujar esa línea. Dividir, unir,
     mover y el carril los conservan.
+  - hablantes (app): casilla «Distinguir a los hablantes» en Opciones (sale con el extra de hablantes o con la nube);
+    cada cambio de voz empieza un subtítulo (`cuesFromTranscript`, prueba en `tst_core`), cada subtítulo guarda su
+    `speaker` y el clip `subtitleSpeakers` (nombre y color); el compositor pinta cada línea con su color y el editor
+    lista los hablantes (clic en el círculo = otro color, nombre editable) y muestra el nombre en cada línea.
+    **Falta publicar el extra** (`diarize-model`, receta `speaker-diarization.json` de Drift) con id `hablantes`.

@@ -5336,6 +5336,10 @@
         <translation>ElevenLabs লিখছে…</translation>
     </message>
     <message>
+        <source>Speaker %1</source>
+        <translation>বক্তা %1</translation>
+    </message>
+    <message>
         <source>Solids</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5536,6 +5540,10 @@
     <message>
         <source>Mask fixed on screen</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit speaker</source>
+        <translation>বক্তা সম্পাদনা</translation>
     </message>
     <message>
         <source>No key words to highlight in these subtitles</source>
@@ -26842,6 +26850,10 @@ If playback stutters, try another.</source>
         <translation>প্রতিটি ক্যাপশনের বানান একটি একটি শব্দ করে যাচাই করে</translation>
     </message>
     <message>
+        <source>Speakers</source>
+        <translation>বক্তারা</translation>
+    </message>
+    <message>
         <source>File and timing</source>
         <translation>ফাইল ও সময়</translation>
     </message>
@@ -27202,6 +27214,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Options</source>
         <translation>বিকল্প</translation>
+    </message>
+    <message>
+        <source>Tell the speakers apart (a colour for each)</source>
+        <translation>বক্তাদের আলাদা করুন (প্রত্যেকের একটি রঙ)</translation>
     </message>
     <message>
         <source>Highlight key words in colour</source>

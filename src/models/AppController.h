@@ -1238,6 +1238,13 @@ public:
     Q_INVOKABLE QString subtitleKeytermsText() const;
     Q_INVOKABLE void setSubtitleKeytermsText(const QString &text);
     QStringList subtitleKeyterms() const;
+    // «Tell the speakers apart» when creating captions (needs the speaker-labels extra): each voice
+    // gets its lines in a colour and a name that can be changed.
+    Q_INVOKABLE bool subtitleSpeakersEnabled() const;
+    Q_INVOKABLE void setSubtitleSpeakersEnabled(bool enabled);
+    Q_INVOKABLE bool subtitleSpeakersAvailable() const;
+    Q_INVOKABLE void setSubtitleSpeaker(int trackIndex, int clipIndex, int speaker, const QString &name,
+                                        const QColor &color);
     Q_INVOKABLE bool subtitleTwoLines() const;
     Q_INVOKABLE void setSubtitleTwoLines(bool enabled);
     Q_INVOKABLE bool subtitleProfanityFilter() const;

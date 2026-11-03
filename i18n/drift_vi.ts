@@ -5227,6 +5227,10 @@
         <translation>ElevenLabs đang chép lời…</translation>
     </message>
     <message>
+        <source>Speaker %1</source>
+        <translation>Người nói %1</translation>
+    </message>
+    <message>
         <source>Solids</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5425,6 +5429,10 @@
     <message>
         <source>Mask fixed on screen</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit speaker</source>
+        <translation>Sửa người nói</translation>
     </message>
     <message>
         <source>No key words to highlight in these subtitles</source>
@@ -26820,6 +26828,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Kiểm tra chính tả mọi phụ đề, từng từ một</translation>
     </message>
     <message>
+        <source>Speakers</source>
+        <translation>Người nói</translation>
+    </message>
+    <message>
         <source>File and timing</source>
         <translation>Tệp và thời gian</translation>
     </message>
@@ -27084,6 +27096,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Options</source>
         <translation>Tùy chọn</translation>
+    </message>
+    <message>
+        <source>Tell the speakers apart (a colour for each)</source>
+        <translation>Phân biệt người nói (mỗi người một màu)</translation>
     </message>
     <message>
         <source>Highlight key words in colour</source>

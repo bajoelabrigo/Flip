@@ -5236,6 +5236,10 @@
         <translation>ElevenLabs sta trascrivendo…</translation>
     </message>
     <message>
+        <source>Speaker %1</source>
+        <translation>Voce %1</translation>
+    </message>
+    <message>
         <source>Solids</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5436,6 +5440,10 @@
     <message>
         <source>Mask fixed on screen</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit speaker</source>
+        <translation>Modifica voce</translation>
     </message>
     <message>
         <source>No key words to highlight in these subtitles</source>
@@ -26914,6 +26922,10 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
         <translation>Controlla l’ortografia di tutti i sottotitoli, una parola alla volta</translation>
     </message>
     <message>
+        <source>Speakers</source>
+        <translation>Voci</translation>
+    </message>
+    <message>
         <source>File and timing</source>
         <translation>File e tempi</translation>
     </message>
@@ -27178,6 +27190,10 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     <message>
         <source>Options</source>
         <translation>Opzioni</translation>
+    </message>
+    <message>
+        <source>Tell the speakers apart (a colour for each)</source>
+        <translation>Distingui chi parla (un colore per ciascuno)</translation>
     </message>
     <message>
         <source>Highlight key words in colour</source>

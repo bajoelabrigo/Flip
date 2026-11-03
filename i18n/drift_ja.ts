@@ -5219,6 +5219,10 @@
         <translation>ElevenLabs が文字起こし中…</translation>
     </message>
     <message>
+        <source>Speaker %1</source>
+        <translation>話者 %1</translation>
+    </message>
+    <message>
         <source>Solids</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5417,6 +5421,10 @@
     <message>
         <source>Mask fixed on screen</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit speaker</source>
+        <translation>話者を編集</translation>
     </message>
     <message>
         <source>No key words to highlight in these subtitles</source>
@@ -26820,6 +26828,10 @@ If playback stutters, try another.</source>
         <translation>すべての字幕のスペルを1語ずつチェックします</translation>
     </message>
     <message>
+        <source>Speakers</source>
+        <translation>話者</translation>
+    </message>
+    <message>
         <source>File and timing</source>
         <translation>ファイルとタイミング</translation>
     </message>
@@ -27084,6 +27096,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Options</source>
         <translation>オプション</translation>
+    </message>
+    <message>
+        <source>Tell the speakers apart (a colour for each)</source>
+        <translation>話者を区別する（話者ごとに色分け）</translation>
     </message>
     <message>
         <source>Highlight key words in colour</source>

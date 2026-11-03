@@ -5219,6 +5219,10 @@
         <translation>ElevenLabs 正在转写…</translation>
     </message>
     <message>
+        <source>Speaker %1</source>
+        <translation>说话人 %1</translation>
+    </message>
+    <message>
         <source>Solids</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5417,6 +5421,10 @@
     <message>
         <source>Mask fixed on screen</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit speaker</source>
+        <translation>编辑说话人</translation>
     </message>
     <message>
         <source>No key words to highlight in these subtitles</source>
@@ -26819,6 +26827,10 @@ If playback stutters, try another.</source>
         <translation>逐词检查所有字幕的拼写</translation>
     </message>
     <message>
+        <source>Speakers</source>
+        <translation>说话人</translation>
+    </message>
+    <message>
         <source>File and timing</source>
         <translation>文件与时间</translation>
     </message>
@@ -27083,6 +27095,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Options</source>
         <translation>选项</translation>
+    </message>
+    <message>
+        <source>Tell the speakers apart (a colour for each)</source>
+        <translation>区分说话人（每人一种颜色）</translation>
     </message>
     <message>
         <source>Highlight key words in colour</source>

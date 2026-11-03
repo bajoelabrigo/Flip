@@ -1554,6 +1554,13 @@ GpuLayer buildGpuLayer(const drift::Project &project, const drift::Clip &clip,
         std::optional<drift::TextStyle> ownStyle;
         if (!cue->styleId.isEmpty())
             ownStyle = drift::textStyleForPresetId(cue->styleId);
+        // Each voice in its colour, when the speakers were told apart.
+        if (cue->speaker >= 0 && cue->speaker < clip.subtitleSpeakers.size()
+            && clip.subtitleSpeakers.at(cue->speaker).color.isValid()) {
+            if (!ownStyle)
+                ownStyle = textClip->textStyle;
+            ownStyle->setPrimaryColor(clip.subtitleSpeakers.at(cue->speaker).color);
+        }
         QRectF cueRect = layoutRect;
         const double canvasH = projectHeight * renderScale;
         if (cue->place == QLatin1String("top"))

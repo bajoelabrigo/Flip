@@ -5236,6 +5236,10 @@
         <translation>ElevenLabs පිටපත් කරමින්…</translation>
     </message>
     <message>
+        <source>Speaker %1</source>
+        <translation>කථිකයා %1</translation>
+    </message>
+    <message>
         <source>Solids</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5436,6 +5440,10 @@
     <message>
         <source>Mask fixed on screen</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit speaker</source>
+        <translation>කථිකයා සංස්කරණය</translation>
     </message>
     <message>
         <source>No key words to highlight in these subtitles</source>
@@ -26910,6 +26918,10 @@ If playback stutters, try another.</source>
         <translation>සියලු උපසිරැසිවල අක්ෂර වින්‍යාසය වචනයෙන් වචනය පරීක්ෂා කරයි</translation>
     </message>
     <message>
+        <source>Speakers</source>
+        <translation>කථිකයන්</translation>
+    </message>
+    <message>
         <source>File and timing</source>
         <translation>ගොනුව සහ කාලය</translation>
     </message>
@@ -27174,6 +27186,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Options</source>
         <translation>විකල්ප</translation>
+    </message>
+    <message>
+        <source>Tell the speakers apart (a colour for each)</source>
+        <translation>කථිකයන් වෙන් කරන්න (එක් එක් අයට වර්ණයක්)</translation>
     </message>
     <message>
         <source>Highlight key words in colour</source>

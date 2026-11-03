@@ -241,6 +241,8 @@ QJsonArray subtitleCuesToJson(const QList<SubtitleCue> &cues)
             object.insert(QStringLiteral("styleId"), cue.styleId);
         if (!cue.place.isEmpty())
             object.insert(QStringLiteral("place"), cue.place);
+        if (cue.speaker >= 0)
+            object.insert(QStringLiteral("speaker"), cue.speaker);
         array.append(object);
     }
     return array;
@@ -259,6 +261,7 @@ QList<SubtitleCue> subtitleCuesFromJson(const QJsonArray &array)
             cue.wordEndsUs.append(static_cast<TimeUs>(end.toDouble()));
         cue.styleId = object.value(QStringLiteral("styleId")).toString();
         cue.place = object.value(QStringLiteral("place")).toString();
+        cue.speaker = object.value(QStringLiteral("speaker")).toInt(-1);
         cues.append(cue);
     }
     sortSubtitleCues(cues);
@@ -433,6 +436,14 @@ QJsonObject clipToJson(const Clip &clip)
         json.insert(QStringLiteral("motionTrack"), motionTrackToJson(*clip.motionTrack));
     if (clip.textAutoFit)
         json.insert(QStringLiteral("textAutoFit"), true);
+    if (!clip.subtitleSpeakers.isEmpty()) {
+        QJsonArray speakers;
+        for (const SubtitleSpeaker &speaker : clip.subtitleSpeakers) {
+            speakers.append(QJsonObject{{QStringLiteral("name"), speaker.name},
+                                        {QStringLiteral("color"), speaker.color.name(QColor::HexArgb)}});
+        }
+        json.insert(QStringLiteral("subtitleSpeakers"), speakers);
+    }
     if (clip.cornerPinEnabled || clip.cornerPin != QList<QPointF>(4)) {
         QJsonArray pin;
         for (const QPointF &corner : clip.cornerPin)
@@ -556,6 +567,11 @@ Clip clipFromJsonV2(const QJsonObject &object, int canvasW = 1920, int canvasH =
     clip.textAutoFit = object.value(QStringLiteral("textAutoFit")).toBool(false);
     clip.textStyle = textStyleFromJson(object.value(QStringLiteral("textStyle")).toObject());
     clip.subtitleCues = subtitleCuesFromJson(object.value(QStringLiteral("subtitleCues")).toArray());
+    for (const QJsonValue &v : object.value(QStringLiteral("subtitleSpeakers")).toArray()) {
+        const QJsonObject o = v.toObject();
+        clip.subtitleSpeakers.append({o.value(QStringLiteral("name")).toString(),
+                                      QColor(o.value(QStringLiteral("color")).toString())});
+    }
     clip.shapeStyle = shapeStyleFromJson(object.value(QStringLiteral("shapeStyle")).toObject());
     clip.vector = VectorSource::fromJson(object.value(QStringLiteral("vector")).toObject());
     clip.model3d = Model3dSource::fromJson(object.value(QStringLiteral("model3d")).toObject());

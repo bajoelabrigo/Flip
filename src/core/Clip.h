@@ -200,6 +200,7 @@ struct Clip
     // Saved only when true.
     bool textAutoFit = false;
     QList<SubtitleCue> subtitleCues; // only meaningful when type == Subtitle
+    QList<SubtitleSpeaker> subtitleSpeakers; // the voices those cues name (cue.speaker), if told apart
     ShapeStyle shapeStyle; // only meaningful when type == Shape
     VectorSource vector;   // only meaningful when type == Vector
     Model3dSource model3d; // only meaningful when type == Model3d

@@ -5236,6 +5236,10 @@
         <translation>A ElevenLabs está a transcrever…</translation>
     </message>
     <message>
+        <source>Speaker %1</source>
+        <translation>Orador %1</translation>
+    </message>
+    <message>
         <source>Solids</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5436,6 +5440,10 @@
     <message>
         <source>Mask fixed on screen</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit speaker</source>
+        <translation>Editar orador</translation>
     </message>
     <message>
         <source>No key words to highlight in these subtitles</source>
@@ -26914,6 +26922,10 @@ Se a reprodução falhar, experimente outra opção.</translation>
         <translation>Verifica a ortografia de todas as legendas, uma palavra de cada vez</translation>
     </message>
     <message>
+        <source>Speakers</source>
+        <translation>Oradores</translation>
+    </message>
+    <message>
         <source>File and timing</source>
         <translation>Ficheiro e tempos</translation>
     </message>
@@ -27178,6 +27190,10 @@ Se a reprodução falhar, experimente outra opção.</translation>
     <message>
         <source>Options</source>
         <translation>Opções</translation>
+    </message>
+    <message>
+        <source>Tell the speakers apart (a colour for each)</source>
+        <translation>Distinguir quem fala (uma cor para cada um)</translation>
     </message>
     <message>
         <source>Highlight key words in colour</source>

@@ -7148,6 +7148,13 @@ void CoreTest::transcriptCuesUseMeasuredTimings()
     QCOMPARE(cues[0].endUs, drift::secondsToUs(0.8));
     QCOMPARE(cues[4].text, QStringLiteral("speaker,"));
     QCOMPARE(cues[4].startUs, drift::secondsToUs(3.3));
+
+    // A new voice starts a caption of its own, and each caption knows who says it.
+    const auto packed = drift::cuesFromTranscript(*t, 0, drift::secondsToUs(10), 42, 1, 0);
+    QVERIFY(packed.size() >= 2);
+    QCOMPARE(packed.first().speaker, 0);
+    QCOMPARE(packed.last().speaker, 1);
+    QCOMPARE(packed.last().text, QStringLiteral("Next speaker, here"));
 }
 
 void CoreTest::transcriptSavedWithAssetNotHashed()

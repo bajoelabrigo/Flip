@@ -2,6 +2,7 @@
 
 #include "Time.h"
 
+#include <QColor>
 #include <QList>
 #include <QPair>
 #include <QString>
@@ -21,6 +22,15 @@ struct SubtitleCue
     // clip's style), and where it sits ("" = where the clip puts it, "top", "middle").
     QString styleId;
     QString place;
+    // Who says it (index into the clip's subtitleSpeakers), -1 = nobody in particular.
+    int speaker = -1;
+};
+
+// A voice in a subtitle clip: its name and the colour its lines are drawn in.
+struct SubtitleSpeaker
+{
+    QString name;
+    QColor color;
 };
 
 // Moves a cue and its word timings by `delta`.

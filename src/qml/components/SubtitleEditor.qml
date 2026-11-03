@@ -167,7 +167,8 @@ Item {
         for (let i = 0; i < cues.length; i++)
             next.push({ start: cues[i].start, end: cues[i].end, text: cues[i].text,
                         wordEnds: (cues[i].wordEnds || []).slice(),
-                        style: cues[i].style || "", place: cues[i].place || "" })
+                        style: cues[i].style || "", place: cues[i].place || "",
+                        speaker: cues[i].speaker !== undefined ? cues[i].speaker : -1 })
         return next
     }
 
@@ -286,6 +287,7 @@ Item {
             if (stop - start < 0.05)
                 continue // pushed off the clip entirely
             next.push({ start: start, end: stop, text: cue.text, style: cue.style, place: cue.place,
+                        speaker: cue.speaker,
                         wordEnds: cue.wordEnds.map(e => Math.max(start, Math.min(stop, e + delta))) })
         }
         if (next.length)
@@ -322,9 +324,11 @@ Item {
         // Each word with the space or line break after it, so a two-line caption keeps its break.
         const pieces = String(cue.text).trim().match(/\S+\s*/g) || []
         const first = { start: cue.start, end: t, text: pieces.slice(0, k).join("").trim(),
-                        wordEnds: timed ? cue.wordEnds.slice(0, k) : [], style: cue.style, place: cue.place }
+                        wordEnds: timed ? cue.wordEnds.slice(0, k) : [], style: cue.style, place: cue.place,
+                        speaker: cue.speaker }
         const second = { start: t, end: cue.end, text: pieces.slice(k).join("").trim(),
-                         wordEnds: timed ? cue.wordEnds.slice(k) : [], style: cue.style, place: cue.place }
+                         wordEnds: timed ? cue.wordEnds.slice(k) : [], style: cue.style, place: cue.place,
+                         speaker: cue.speaker }
         list.splice(index, 1, first, second)
         replaceCues(list)
         EditorState.selectedSubtitleCue = index + 1
@@ -338,7 +342,8 @@ Item {
         const a = list[index]
         const b = list[index + 1]
         const joined = { start: a.start, end: b.end, text: (a.text + " " + b.text).trim(),
-                         wordEnds: a.wordEnds.concat(b.wordEnds), style: a.style, place: a.place }
+                         wordEnds: a.wordEnds.concat(b.wordEnds), style: a.style, place: a.place,
+                         speaker: a.speaker }
         list.splice(index, 2, joined)
         replaceCues(list)
         EditorState.selectedSubtitleCue = index
@@ -599,6 +604,53 @@ Item {
                     } else {
                         root.spellIgnored = ({})
                         root.checkSpelling()
+                    }
+                }
+            }
+        }
+
+        // The voices told apart: a colour (click for the next one) and a name for each.
+        Column {
+            visible: root.speakers.length > 0
+            width: parent.width
+            spacing: 4
+
+            Text {
+                text: qsTr("Speakers")
+                color: Theme.mutedForeground
+                font.family: Theme.fontFamily
+                font.pixelSize: Theme.fontSizeXs
+            }
+
+            Repeater {
+                model: root.speakers
+                Row {
+                    id: speakerRow
+                    required property var modelData
+                    required property int index
+                    width: parent.width
+                    spacing: 6
+
+                    Rectangle {
+                        width: 22
+                        height: 22
+                        radius: 11
+                        anchors.verticalCenter: parent.verticalCenter
+                        color: speakerRow.modelData.color
+                        border.width: 1
+                        border.color: Theme.panelBorder
+                        MouseArea {
+                            anchors.fill: parent
+                            cursorShape: Qt.PointingHandCursor
+                            onClicked: EditorState.setSubtitleSpeaker(root.trackIndex, root.clipIndex, speakerRow.index,
+                                                                      "", root.nextVoiceColour(speakerRow.modelData.color))
+                        }
+                    }
+                    ThemedTextField {
+                        width: speakerRow.width - 22 - speakerRow.spacing
+                        text: speakerRow.modelData.name
+                        onEditingFinished: EditorState.setSubtitleSpeaker(root.trackIndex, root.clipIndex,
+                                                                          speakerRow.index, text, "")
                     }
                 }
             }
@@ -944,6 +996,17 @@ Item {
     property bool moreOpen: false
     readonly property bool animatedEmojis: EditorState.animatedEmojisAvailable()
     readonly property var cueStyleChoices: EditorState.subtitleStyleChoices()
+    readonly property var speakers: (clip && clip.subtitleSpeakers) ? clip.subtitleSpeakers : []
+    function speakerOf(cue) {
+        const i = cue && cue.speaker !== undefined ? cue.speaker : -1
+        return i >= 0 && i < root.speakers.length ? root.speakers[i] : null
+    }
+    readonly property var voiceColours: ["#ffffff", "#ffd640", "#60cdff", "#ff80ab", "#8ce678", "#ffa050"]
+    function nextVoiceColour(current) {
+        const now = String(current).toLowerCase()
+        let i = root.voiceColours.findIndex(c => now.indexOf(c.substring(1)) >= 0)
+        return root.voiceColours[(i + 1) % root.voiceColours.length]
+    }
 
     ThemedDialog {
         id: dictionaryDialog
@@ -1129,6 +1192,16 @@ Item {
 
                     Row {
                         spacing: 8
+                        // Who says it, in that voice's colour.
+                        Text {
+                            readonly property var who: root.speakerOf(cueDelegate.modelData)
+                            visible: who !== null
+                            text: who ? who.name : ""
+                            color: who ? who.color : Theme.mutedForeground
+                            font.family: Theme.fontFamily
+                            font.pixelSize: Theme.fontSizeXs
+                            font.weight: Font.Medium
+                        }
                         Text {
                             text: root.formatCueTime(cueDelegate.modelData.start) + "  →  "
                                   + root.formatCueTime(cueDelegate.modelData.end)

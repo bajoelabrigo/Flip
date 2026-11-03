@@ -202,6 +202,15 @@ Item {
                     font.pixelSize: Theme.fontSizeXs
                 }
 
+                // Each voice in its colour, with a name (needs the speaker-labels extra on this computer).
+                ThemedCheckBox {
+                    visible: EditorState.subtitleSpeakersAvailable()
+                    width: parent.width
+                    text: qsTr("Tell the speakers apart (a colour for each)")
+                    checked: EditorState.subtitleSpeakersEnabled()
+                    onToggled: EditorState.setSubtitleSpeakersEnabled(checked)
+                }
+
                 ThemedCheckBox {
                     width: parent.width
                     text: qsTr("Two lines per caption")

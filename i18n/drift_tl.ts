@@ -5240,6 +5240,10 @@
         <translation>Nagta-transcribe ang ElevenLabs…</translation>
     </message>
     <message>
+        <source>Speaker %1</source>
+        <translation>Tagapagsalita %1</translation>
+    </message>
+    <message>
         <source>Solids</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5440,6 +5444,10 @@
     <message>
         <source>Mask fixed on screen</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit speaker</source>
+        <translation>I-edit ang tagapagsalita</translation>
     </message>
     <message>
         <source>No key words to highlight in these subtitles</source>
@@ -26902,6 +26910,10 @@ If playback stutters, try another.</source>
         <translation>Sinusuri ang baybay ng bawat caption, isa-isang salita</translation>
     </message>
     <message>
+        <source>Speakers</source>
+        <translation>Mga tagapagsalita</translation>
+    </message>
+    <message>
         <source>File and timing</source>
         <translation>File at tiyempo</translation>
     </message>
@@ -27166,6 +27178,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Options</source>
         <translation>Mga opsyon</translation>
+    </message>
+    <message>
+        <source>Tell the speakers apart (a colour for each)</source>
+        <translation>Paghiwalayin ang mga nagsasalita (isang kulay bawat isa)</translation>
     </message>
     <message>
         <source>Highlight key words in colour</source>

@@ -5219,6 +5219,10 @@
         <translation>ElevenLabs가 받아쓰는 중…</translation>
     </message>
     <message>
+        <source>Speaker %1</source>
+        <translation>화자 %1</translation>
+    </message>
+    <message>
         <source>Solids</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5417,6 +5421,10 @@
     <message>
         <source>Mask fixed on screen</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit speaker</source>
+        <translation>화자 편집</translation>
     </message>
     <message>
         <source>No key words to highlight in these subtitles</source>
@@ -26818,6 +26826,10 @@ If playback stutters, try another.</source>
         <translation>모든 자막의 맞춤법을 한 단어씩 검사합니다</translation>
     </message>
     <message>
+        <source>Speakers</source>
+        <translation>화자</translation>
+    </message>
+    <message>
         <source>File and timing</source>
         <translation>파일 및 타이밍</translation>
     </message>
@@ -27082,6 +27094,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Options</source>
         <translation>옵션</translation>
+    </message>
+    <message>
+        <source>Tell the speakers apart (a colour for each)</source>
+        <translation>화자 구분하기 (화자마다 색 하나)</translation>
     </message>
     <message>
         <source>Highlight key words in colour</source>

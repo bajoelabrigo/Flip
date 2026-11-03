@@ -5244,6 +5244,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Speaker %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Solids</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5443,6 +5447,10 @@
     </message>
     <message>
         <source>Mask fixed on screen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit speaker</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -26910,6 +26918,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Speakers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>File and timing</source>
         <translation type="unfinished"></translation>
     </message>
@@ -27173,6 +27185,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tell the speakers apart (a colour for each)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
