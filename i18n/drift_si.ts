@@ -142,8 +142,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Voices</source>
-        <translation type="unfinished"></translation>
+        <source>Voice changer</source>
+        <translation>හඬ වෙනස් කරනය</translation>
     </message>
     <message>
         <source>Retouch</source>
@@ -4381,7 +4381,7 @@
     </message>
     <message>
         <source>Voice changer</source>
-        <translation type="unfinished"></translation>
+        <translation>හඬ වෙනස් කරනය</translation>
     </message>
     <message>
         <source>Voice: %1</source>
@@ -5289,6 +5289,14 @@
     <message>
         <source>Ruler guides</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Replace voice</source>
+        <translation>හඬ ප්‍රතිස්ථාපනය</translation>
+    </message>
+    <message>
+        <source>Voice replaced</source>
+        <translation>හඬ ප්‍රතිස්ථාපනය කළා</translation>
     </message>
     <message>
         <source>Trim layer</source>
@@ -8027,7 +8035,7 @@
     </message>
     <message>
         <source>Voice changer</source>
-        <translation type="unfinished"></translation>
+        <translation>හඬ වෙනස් කරනය</translation>
     </message>
     <message>
         <source>Fade in</source>
@@ -8036,6 +8044,46 @@
     <message>
         <source>Fade out</source>
         <translation type="unfinished">Fade out (ක්‍රමිකව මැකී යාම)</translation>
+    </message>
+    <message>
+        <source>Voice from text</source>
+        <translation>පෙළෙන් හඬ</translation>
+    </message>
+    <message>
+        <source>Edit script…</source>
+        <translation>පිටපත සංස්කරණය…</translation>
+    </message>
+    <message>
+        <source>Change the text or the voice and speak it again, in place of this audio</source>
+        <translation>පෙළ හෝ හඬ වෙනස් කර, මෙම ශ්‍රව්‍යය වෙනුවට නැවත කියවන්න</translation>
+    </message>
+    <message>
+        <source>Lower the music under this voice</source>
+        <translation>මෙම හඬ යටතේ සංගීතය අඩු කරන්න</translation>
+    </message>
+    <message>
+        <source>Save the voice as a file…</source>
+        <translation>හඬ ගොනුවක් ලෙස සුරකින්න…</translation>
+    </message>
+    <message>
+        <source>Save the voice</source>
+        <translation>හඬ සුරකින්න</translation>
+    </message>
+    <message>
+        <source>FLAC audio (*.flac)</source>
+        <translation>FLAC ශ්‍රව්‍ය (*.flac)</translation>
+    </message>
+    <message>
+        <source>voice</source>
+        <translation>හඬ</translation>
+    </message>
+    <message>
+        <source>Voice saved</source>
+        <translation>හඬ සුරැකුණා</translation>
+    </message>
+    <message>
+        <source>Could not save the voice</source>
+        <translation>හඬ සුරැකිය නොහැකි විය</translation>
     </message>
     <message>
         <source>Normalize loudness</source>
@@ -8639,7 +8687,7 @@
     </message>
     <message>
         <source>Pitch</source>
-        <translation type="unfinished"></translation>
+        <translation>තාරතාව</translation>
     </message>
     <message>
         <source>Yaw</source>
@@ -10686,7 +10734,7 @@
     </message>
     <message>
         <source>Pitch</source>
-        <translation type="unfinished"></translation>
+        <translation>තාරතාව</translation>
     </message>
     <message>
         <source>Deep Voice</source>
@@ -13341,6 +13389,37 @@ NEXT TIME</source>
     <message>
         <source>Add %1 keyframe at the playhead</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ChatterboxTts</name>
+    <message>
+        <source>The voice model is not installed. Install the AI voice extra in Extras.</source>
+        <translation>හඬ ආකෘතිය ස්ථාපනය කර නැත. අමතර අංග තුළ AI හඬ අමතරය ස්ථාපනය කරන්න.</translation>
+    </message>
+    <message>
+        <source>Failed to load text-to-speech model: %1</source>
+        <translation>පෙළ-සිට-කථන ආකෘතිය පූරණය කිරීම අසාර්ථකයි: %1</translation>
+    </message>
+    <message>
+        <source>Speech generation failed: %1</source>
+        <translation>කථනය සෑදීම අසාර්ථකයි: %1</translation>
+    </message>
+    <message>
+        <source>The reference voice has no audio.</source>
+        <translation>යොමු හඬෙහි ශ්‍රව්‍යයක් නැත.</translation>
+    </message>
+    <message>
+        <source>Voice encoding failed: %1</source>
+        <translation>හඬ කේතනය අසාර්ථකයි: %1</translation>
+    </message>
+    <message>
+        <source>Unsupported language: %1</source>
+        <translation>සහාය නොදක්වන භාෂාව: %1</translation>
+    </message>
+    <message>
+        <source>Invalid voice conditioning.</source>
+        <translation>වලංගු නොවන හඬ සැකසුම.</translation>
     </message>
 </context>
 <context>
@@ -17267,7 +17346,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>වේගය</translation>
     </message>
     <message>
         <source>Influence</source>
@@ -22305,7 +22384,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Could not save the voice</source>
-        <translation type="unfinished"></translation>
+        <translation>හඬ සුරැකිය නොහැකි විය</translation>
     </message>
 </context>
 <context>
@@ -23659,14 +23738,6 @@ If playback stutters, try another.</source>
         <translation>Cloud සේවා සපයන්නන්</translation>
     </message>
     <message>
-        <source>Transcription (Scribe), voiceover, sound effects</source>
-        <translation>පෙළපෙරළිය (Scribe), හඬ කැවීම්, ශබ්ද ප්‍රයෝග</translation>
-    </message>
-    <message>
-        <source>Voiceover</source>
-        <translation>හඬ කැවීම (Voiceover)</translation>
-    </message>
-    <message>
         <source>No key</source>
         <translation>යතුරක් නැත</translation>
     </message>
@@ -23867,6 +23938,14 @@ If playback stutters, try another.</source>
         <translation>යතුරු Flip Studio හි සැකසීම් තුළ සංකේතනය නොකර ගබඩා කෙරේ. පද්ධති පරිසරයේ ඇති ELEVENLABS_API_KEY සහ FISH_API_KEY ප්‍රමුඛත්වය ගනී. භාවිතය ඔබගේම ගිණුමට අය කෙරේ.</translation>
     </message>
     <message>
+        <source>Transcription (Scribe); voiceover and sound effects through AI agents</source>
+        <translation>පිටපත් කිරීම (Scribe); AI නියෝජිතයන් හරහා හඬ කථනය සහ ශබ්ද ප්‍රයෝග</translation>
+    </message>
+    <message>
+        <source>Voiceover through AI agents</source>
+        <translation>AI නියෝජිතයන් හරහා හඬ කථනය</translation>
+    </message>
+    <message>
         <source>Needed before Flip Studio or a connected agent can transcribe or generate audio with this service</source>
         <translation>මෙම සේවාව සමඟ Flip Studio හෝ සම්බන්ධිත agent හට පෙළපෙරළි කිරීමට හෝ ශ්‍රව්‍ය ජනනය කිරීමට පෙර අවශ්‍ය වේ</translation>
     </message>
@@ -23919,7 +23998,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add to the timeline</source>
-        <translation type="unfinished"></translation>
+        <translation>කාලරේඛාවට එක් කරන්න</translation>
     </message>
 </context>
 <context>
@@ -25643,19 +25722,15 @@ If playback stutters, try another.</source>
     <name>SpeechTab</name>
     <message>
         <source>Voice saved</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Turn a script into speech with a built-in or cloned voice. It is generated on this device and added at the playhead.</source>
-        <translation type="unfinished"></translation>
+        <translation>හඬ සුරැකුණා</translation>
     </message>
     <message>
         <source>Speech generation runs on this device and needs the voice model.</source>
-        <translation type="unfinished"></translation>
+        <translation>කථනය සෑදීම මෙම උපාංගයේ ක්‍රියාත්මක වන අතර හඬ ආකෘතිය අවශ්‍ය වේ.</translation>
     </message>
     <message>
         <source>Download voice model</source>
-        <translation type="unfinished"></translation>
+        <translation>හඬ ආකෘතිය බාගන්න</translation>
     </message>
     <message>
         <source>Install AI engine first</source>
@@ -25666,20 +25741,8 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Type what the voice should say</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>%1 characters, about %2 s</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Speech longer than 30 seconds often ends in gibberish or silence. Split the script into shorter parts.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Voice</source>
-        <translation>කටහඬ</translation>
     </message>
     <message>
         <source>Stop</source>
@@ -25731,11 +25794,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Learning the voice…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Language</source>
-        <translation>භාෂාව</translation>
+        <translation>හඬ ඉගෙන ගනිමින්…</translation>
     </message>
     <message>
         <source>Expressiveness</source>
@@ -25747,10 +25806,6 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Generate speech</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Generate speech and add it at the playhead</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -25794,6 +25849,102 @@ If playback stutters, try another.</source>
         <translation>සියලු ගොනු (*)</translation>
     </message>
     <message>
+        <source>Voice from your text</source>
+        <translation>ඔබේ පෙළෙන් හඬ</translation>
+    </message>
+    <message>
+        <source>Editing the script of a voice on the timeline: the new take replaces its audio.</source>
+        <translation>කාලරේඛාවේ හඬක පිටපත සංස්කරණය කරමින්: නව ටේක් එක එහි ශ්‍රව්‍යය ප්‍රතිස්ථාපනය කරයි.</translation>
+    </message>
+    <message>
+        <source>Type or paste the script. [pause 1s] adds a silence.</source>
+        <translation>පිටපත ටයිප් කරන්න හෝ අලවන්න. [pause 1s] නිහඬතාවක් එක් කරයි.</translation>
+    </message>
+    <message>
+        <source>Import script…</source>
+        <translation>පිටපත ආයාත කරන්න…</translation>
+    </message>
+    <message>
+        <source>A .txt, .md or Word (.docx) file</source>
+        <translation>.txt, .md හෝ Word (.docx) ගොනුවක්</translation>
+    </message>
+    <message>
+        <source>Import a script</source>
+        <translation>පිටපතක් ආයාත කරන්න</translation>
+    </message>
+    <message>
+        <source>Scripts (*.txt *.md *.docx)</source>
+        <translation>පිටපත් (*.txt *.md *.docx)</translation>
+    </message>
+    <message>
+        <source>That file has no text that can be read</source>
+        <translation>එම ගොනුවේ කියවිය හැකි පෙළක් නැත</translation>
+    </message>
+    <message>
+        <source>A dialogue: a voice for each person</source>
+        <translation>සංවාදයක්: එක් එක් පුද්ගලයාට හඬක්</translation>
+    </message>
+    <message>
+        <source>Generate again</source>
+        <translation>නැවත සාදන්න</translation>
+    </message>
+    <message>
+        <source>Speak the script; you hear it before it goes on the timeline</source>
+        <translation>පිටපත කියවන්න; කාලරේඛාවට යාමට පෙර ඔබට එය ඇසේ</translation>
+    </message>
+    <message>
+        <source>Listen to the whole take</source>
+        <translation>සම්පූර්ණ ටේක් එකට සවන් දෙන්න</translation>
+    </message>
+    <message>
+        <source>Take: %1 s</source>
+        <translation>ටේක්: තත් %1</translation>
+    </message>
+    <message>
+        <source>Listen to this sentence</source>
+        <translation>මෙම වාක්‍යයට සවන් දෙන්න</translation>
+    </message>
+    <message>
+        <source>Speak this sentence again</source>
+        <translation>මෙම වාක්‍යය නැවත කියවන්න</translation>
+    </message>
+    <message>
+        <source>Also create its captions</source>
+        <translation>එහි උපසිරැසිද සාදන්න</translation>
+    </message>
+    <message>
+        <source>Replace the voice on the timeline</source>
+        <translation>කාලරේඛාවේ හඬ ප්‍රතිස්ථාපනය කරන්න</translation>
+    </message>
+    <message>
+        <source>Add to the timeline</source>
+        <translation>කාලරේඛාවට එක් කරන්න</translation>
+    </message>
+    <message>
+        <source>Discard</source>
+        <translation>ඉවතලන්න</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation>විකල්ප</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>වේගය</translation>
+    </message>
+    <message>
+        <source>%1×</source>
+        <translation>%1×</translation>
+    </message>
+    <message>
+        <source>Pitch</source>
+        <translation>තාරතාව</translation>
+    </message>
+    <message>
+        <source>Stop preparing the voice</source>
+        <translation>හඬ සූදානම් කිරීම නවත්වන්න</translation>
+    </message>
+    <message>
         <source>Name</source>
         <translation>නම</translation>
     </message>
@@ -25814,8 +25965,8 @@ If playback stutters, try another.</source>
         <translation>තත් %1</translation>
     </message>
     <message>
-        <source>Record 5 to 20 seconds in a quiet room. Read this aloud in your natural voice:</source>
-        <translation type="unfinished"></translation>
+        <source>Record 3 to 20 seconds in a quiet room (it stops by itself at 20). Read this aloud in your natural voice:</source>
+        <translation>නිහඬ කාමරයක තත්පර 3 සිට 20 දක්වා පටිගත කරන්න (20 දී එය ඉබේ නවතී). ඔබේ ස්වාභාවික හඬින් මෙය හඬ නගා කියවන්න:</translation>
     </message>
     <message>
         <source>The quick brown fox jumps over the lazy dog, while a gentle breeze moves through the quiet garden and the evening light fades slowly.</source>
@@ -25828,6 +25979,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Start recording</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>20 s: done, save the voice</source>
+        <translation>තත් 20: හරි, හඬ සුරකින්න</translation>
     </message>
     <message>
         <source>I have the right to use this person&apos;s voice</source>
@@ -26067,7 +26222,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>වේගය</translation>
     </message>
     <message>
         <source>Faster makes it shorter, slower makes it longer</source>
@@ -28790,6 +28945,14 @@ If playback stutters, try another.</source>
     <message>
         <source>These letters go back to the style of the whole text</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Read aloud…</source>
+        <translation>හඬ නගා කියවන්න…</translation>
+    </message>
+    <message>
+        <source>Turn this text into a voice that starts with it</source>
+        <translation>මෙම පෙළ එය සමඟ ආරම්භ වන හඬක් බවට පත් කරන්න</translation>
     </message>
     <message>
         <source>Bold</source>
@@ -32966,7 +33129,11 @@ If playback stutters, try another.</source>
     <name>TtsController</name>
     <message>
         <source>Loading voice model…</source>
-        <translation type="unfinished"></translation>
+        <translation>හඬ ආකෘතිය පූරණය කරමින්…</translation>
+    </message>
+    <message>
+        <source>No speech was produced</source>
+        <translation>කථනයක් නිපදවූයේ නැත</translation>
     </message>
     <message>
         <source>Install the voice model first</source>
@@ -32981,16 +33148,59 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Generating speech…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Cancelled</source>
         <translation>අවලංගු කෙරිණි</translation>
     </message>
     <message>
+        <source>Speaking sentence %1 of %2…</source>
+        <translation>වාක්‍ය %1 / %2 කියවමින්…</translation>
+    </message>
+    <message>
+        <source>Sentence %1 could not be spoken: %2</source>
+        <translation>වාක්‍ය %1 කියවිය නොහැකි විය: %2</translation>
+    </message>
+    <message>
+        <source>Putting the take together…</source>
+        <translation>ටේක් එක එකතු කරමින්…</translation>
+    </message>
+    <message>
+        <source>Listen to it, then add it to the timeline</source>
+        <translation>එයට සවන් දී, පසුව කාලරේඛාවට එක් කරන්න</translation>
+    </message>
+    <message>
+        <source>Speaking sentence %1 again…</source>
+        <translation>වාක්‍ය %1 නැවත කියවමින්…</translation>
+    </message>
+    <message>
+        <source>Sentence %1 spoken again</source>
+        <translation>වාක්‍ය %1 නැවත කියෙව්වා</translation>
+    </message>
+    <message>
+        <source>Changing speed and pitch…</source>
+        <translation>වේගය සහ තාරතාව වෙනස් කරමින්…</translation>
+    </message>
+    <message>
+        <source>Could not replace the voice</source>
+        <translation>හඬ ප්‍රතිස්ථාපනය කළ නොහැකි විය</translation>
+    </message>
+    <message>
         <source>Speech added to the timeline</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Voice replaced on the timeline</source>
+        <translation>කාලරේඛාවේ හඬ ප්‍රතිස්ථාපනය කළා</translation>
+    </message>
+    <message numerus="yes">
+        <source>The music goes down under the voice (%n clip(s))</source>
+        <translation>
+            <numerusform>හඬ යටතේ සංගීතය අඩු වේ (ක්ලිප් %n)</numerusform>
+            <numerusform>හඬ යටතේ සංගීතය අඩු වේ (ක්ලිප් %n)</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>There is no music under this voice</source>
+        <translation>මෙම හඬ යටතේ සංගීතයක් නැත</translation>
     </message>
     <message>
         <source>Select a subtitle clip first</source>
@@ -32999,6 +33209,10 @@ If playback stutters, try another.</source>
     <message>
         <source>This subtitle clip has no text to speak</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speaking line %1 of %2…</source>
+        <translation>පේළිය %1 / %2 කියවමින්…</translation>
     </message>
     <message>
         <source>Generate voiceover</source>
@@ -33020,6 +33234,13 @@ If playback stutters, try another.</source>
         <translation type="unfinished">
             <numerusform></numerusform>
             <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>; %n could not be added</source>
+        <translation>
+            <numerusform>; %n එක් කළ නොහැකි විය</numerusform>
+            <numerusform>; %n එක් කළ නොහැකි විය</numerusform>
         </translation>
     </message>
 </context>
@@ -34287,6 +34508,18 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Reading the recording…</source>
+        <translation>පටිගත කිරීම කියවමින්…</translation>
+    </message>
+    <message>
+        <source>Loading voice model…</source>
+        <translation>හඬ ආකෘතිය පූරණය කරමින්…</translation>
+    </message>
+    <message>
+        <source>Learning the voice…</source>
+        <translation>හඬ ඉගෙන ගනිමින්…</translation>
+    </message>
+    <message>
         <source>Could not prepare the voice</source>
         <translation type="unfinished"></translation>
     </message>
@@ -34301,6 +34534,18 @@ If playback stutters, try another.</source>
     <message>
         <source>The recording is too short: record at least %1 seconds</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unknown voice</source>
+        <translation>නොදන්නා හඬ</translation>
+    </message>
+    <message>
+        <source>The reference recording for this voice is missing</source>
+        <translation>මෙම හඬෙහි යොමු පටිගත කිරීම නැත</translation>
+    </message>
+    <message>
+        <source>Could not read the reference recording</source>
+        <translation>යොමු පටිගත කිරීම කියවිය නොහැකි විය</translation>
     </message>
 </context>
 <context>
@@ -34355,6 +34600,18 @@ If playback stutters, try another.</source>
     <message>
         <source>Generate voiceover</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speech generation runs on this device and needs the voice model.</source>
+        <translation>කථනය සෑදීම මෙම උපාංගයේ ක්‍රියාත්මක වන අතර හඬ ආකෘතිය අවශ්‍ය වේ.</translation>
+    </message>
+    <message>
+        <source>Download voice model</source>
+        <translation>හඬ ආකෘතිය බාගන්න</translation>
+    </message>
+    <message>
+        <source>Install AI engine first</source>
+        <translation>පළමුව AI එන්ජිම ස්ථාපනය කරන්න</translation>
     </message>
     <message>
         <source>Voice</source>

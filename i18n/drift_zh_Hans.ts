@@ -142,8 +142,8 @@
         <translation>字幕样式</translation>
     </message>
     <message>
-        <source>Voices</source>
-        <translation>声音</translation>
+        <source>Voice changer</source>
+        <translation>变声器</translation>
     </message>
     <message>
         <source>Retouch</source>
@@ -5274,6 +5274,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Replace voice</source>
+        <translation>替换配音</translation>
+    </message>
+    <message>
+        <source>Voice replaced</source>
+        <translation>已替换配音</translation>
+    </message>
+    <message>
         <source>Trim layer</source>
         <translation>修剪图层</translation>
     </message>
@@ -7986,6 +7994,46 @@
     <message>
         <source>Fade out</source>
         <translation>淡出</translation>
+    </message>
+    <message>
+        <source>Voice from text</source>
+        <translation>文字转语音</translation>
+    </message>
+    <message>
+        <source>Edit script…</source>
+        <translation>编辑脚本…</translation>
+    </message>
+    <message>
+        <source>Change the text or the voice and speak it again, in place of this audio</source>
+        <translation>更改文字或声音并重新朗读，替换此音频</translation>
+    </message>
+    <message>
+        <source>Lower the music under this voice</source>
+        <translation>降低此配音下的音乐</translation>
+    </message>
+    <message>
+        <source>Save the voice as a file…</source>
+        <translation>将配音另存为文件…</translation>
+    </message>
+    <message>
+        <source>Save the voice</source>
+        <translation>保存配音</translation>
+    </message>
+    <message>
+        <source>FLAC audio (*.flac)</source>
+        <translation>FLAC 音频 (*.flac)</translation>
+    </message>
+    <message>
+        <source>voice</source>
+        <translation>配音</translation>
+    </message>
+    <message>
+        <source>Voice saved</source>
+        <translation>配音已保存</translation>
+    </message>
+    <message>
+        <source>Could not save the voice</source>
+        <translation>无法保存配音</translation>
     </message>
     <message>
         <source>Normalize loudness</source>
@@ -13298,6 +13346,37 @@ NEXT TIME</source>
     </message>
 </context>
 <context>
+    <name>ChatterboxTts</name>
+    <message>
+        <source>The voice model is not installed. Install the AI voice extra in Extras.</source>
+        <translation>未安装语音模型。请在“扩展”中安装 AI 语音扩展。</translation>
+    </message>
+    <message>
+        <source>Failed to load text-to-speech model: %1</source>
+        <translation>无法加载文字转语音模型：%1</translation>
+    </message>
+    <message>
+        <source>Speech generation failed: %1</source>
+        <translation>语音生成失败：%1</translation>
+    </message>
+    <message>
+        <source>The reference voice has no audio.</source>
+        <translation>参考声音没有音频。</translation>
+    </message>
+    <message>
+        <source>Voice encoding failed: %1</source>
+        <translation>声音编码失败：%1</translation>
+    </message>
+    <message>
+        <source>Unsupported language: %1</source>
+        <translation>不支持的语言：%1</translation>
+    </message>
+    <message>
+        <source>Invalid voice conditioning.</source>
+        <translation>声音条件无效。</translation>
+    </message>
+</context>
+<context>
     <name>ChipScroller</name>
     <message>
         <source>Previous</source>
@@ -17208,7 +17287,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>速度</translation>
     </message>
     <message>
         <source>Influence</source>
@@ -23573,14 +23652,6 @@ If playback stutters, try another.</source>
         <translation>云服务提供商</translation>
     </message>
     <message>
-        <source>Transcription (Scribe), voiceover, sound effects</source>
-        <translation>转录 (Scribe)、旁白、音效</translation>
-    </message>
-    <message>
-        <source>Voiceover</source>
-        <translation>旁白</translation>
-    </message>
-    <message>
         <source>No key</source>
         <translation>无密钥</translation>
     </message>
@@ -23779,6 +23850,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Keys are stored unencrypted in Flip Studio&apos;s settings. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
         <translation>密钥以未加密形式保存在 Flip Studio 的设置中。环境变量中的 ELEVENLABS_API_KEY 和 FISH_API_KEY 优先。使用费用计入你自己的账户。</translation>
+    </message>
+    <message>
+        <source>Transcription (Scribe); voiceover and sound effects through AI agents</source>
+        <translation>转录 (Scribe)；通过 AI 代理进行配音和音效</translation>
+    </message>
+    <message>
+        <source>Voiceover through AI agents</source>
+        <translation>通过 AI 代理进行配音</translation>
     </message>
     <message>
         <source>Needed before Flip Studio or a connected agent can transcribe or generate audio with this service</source>
@@ -25560,10 +25639,6 @@ If playback stutters, try another.</source>
         <translation>已保存语音</translation>
     </message>
     <message>
-        <source>Turn a script into speech with a built-in or cloned voice. It is generated on this device and added at the playhead.</source>
-        <translation>使用内置或克隆的语音将脚本转为语音。在此设备上生成并添加到播放头位置。</translation>
-    </message>
-    <message>
         <source>Speech generation runs on this device and needs the voice model.</source>
         <translation>语音在此设备上生成，需要语音模型。</translation>
     </message>
@@ -25580,20 +25655,8 @@ If playback stutters, try another.</source>
         <translation>生成语音需要此项</translation>
     </message>
     <message>
-        <source>Type what the voice should say</source>
-        <translation>输入要朗读的内容</translation>
-    </message>
-    <message>
         <source>%1 characters, about %2 s</source>
         <translation>%1 个字符，约 %2 秒</translation>
-    </message>
-    <message>
-        <source>Speech longer than 30 seconds often ends in gibberish or silence. Split the script into shorter parts.</source>
-        <translation>超过 30 秒的语音常常以含糊不清或静音结尾。请将脚本拆分为较短的部分。</translation>
-    </message>
-    <message>
-        <source>Voice</source>
-        <translation>语音</translation>
     </message>
     <message>
         <source>Stop</source>
@@ -25648,10 +25711,6 @@ If playback stutters, try another.</source>
         <translation>正在学习语音…</translation>
     </message>
     <message>
-        <source>Language</source>
-        <translation>语言</translation>
-    </message>
-    <message>
         <source>Expressiveness</source>
         <translation>表现力</translation>
     </message>
@@ -25662,10 +25721,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Generate speech</source>
         <translation>生成语音</translation>
-    </message>
-    <message>
-        <source>Generate speech and add it at the playhead</source>
-        <translation>生成语音并添加到播放头位置</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -25708,6 +25763,102 @@ If playback stutters, try another.</source>
         <translation>所有文件 (*)</translation>
     </message>
     <message>
+        <source>Voice from your text</source>
+        <translation>用你的文字生成语音</translation>
+    </message>
+    <message>
+        <source>Editing the script of a voice on the timeline: the new take replaces its audio.</source>
+        <translation>正在编辑时间线上配音的脚本：新的录制将替换其音频。</translation>
+    </message>
+    <message>
+        <source>Type or paste the script. [pause 1s] adds a silence.</source>
+        <translation>输入或粘贴脚本。[pause 1s] 会插入一段静音。</translation>
+    </message>
+    <message>
+        <source>Import script…</source>
+        <translation>导入脚本…</translation>
+    </message>
+    <message>
+        <source>A .txt, .md or Word (.docx) file</source>
+        <translation>.txt、.md 或 Word (.docx) 文件</translation>
+    </message>
+    <message>
+        <source>Import a script</source>
+        <translation>导入脚本</translation>
+    </message>
+    <message>
+        <source>Scripts (*.txt *.md *.docx)</source>
+        <translation>脚本 (*.txt *.md *.docx)</translation>
+    </message>
+    <message>
+        <source>That file has no text that can be read</source>
+        <translation>该文件没有可读取的文字</translation>
+    </message>
+    <message>
+        <source>A dialogue: a voice for each person</source>
+        <translation>对话：每个人一种声音</translation>
+    </message>
+    <message>
+        <source>Generate again</source>
+        <translation>重新生成</translation>
+    </message>
+    <message>
+        <source>Speak the script; you hear it before it goes on the timeline</source>
+        <translation>朗读脚本；放到时间线之前你可以先听</translation>
+    </message>
+    <message>
+        <source>Listen to the whole take</source>
+        <translation>试听整段录制</translation>
+    </message>
+    <message>
+        <source>Take: %1 s</source>
+        <translation>录制：%1 秒</translation>
+    </message>
+    <message>
+        <source>Listen to this sentence</source>
+        <translation>试听这句</translation>
+    </message>
+    <message>
+        <source>Speak this sentence again</source>
+        <translation>重新朗读这句</translation>
+    </message>
+    <message>
+        <source>Also create its captions</source>
+        <translation>同时生成字幕</translation>
+    </message>
+    <message>
+        <source>Replace the voice on the timeline</source>
+        <translation>替换时间线上的配音</translation>
+    </message>
+    <message>
+        <source>Add to the timeline</source>
+        <translation>添加到时间线</translation>
+    </message>
+    <message>
+        <source>Discard</source>
+        <translation>放弃</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation>选项</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>速度</translation>
+    </message>
+    <message>
+        <source>%1×</source>
+        <translation>%1×</translation>
+    </message>
+    <message>
+        <source>Pitch</source>
+        <translation>音调</translation>
+    </message>
+    <message>
+        <source>Stop preparing the voice</source>
+        <translation>停止准备声音</translation>
+    </message>
+    <message>
         <source>Name</source>
         <translation>名称</translation>
     </message>
@@ -25728,8 +25879,8 @@ If playback stutters, try another.</source>
         <translation>%1 秒</translation>
     </message>
     <message>
-        <source>Record 5 to 20 seconds in a quiet room. Read this aloud in your natural voice:</source>
-        <translation>请在安静的环境中录制 5 到 20 秒。用自然的声音朗读以下内容：</translation>
+        <source>Record 3 to 20 seconds in a quiet room (it stops by itself at 20). Read this aloud in your natural voice:</source>
+        <translation>在安静的房间里录制 3 到 20 秒（到 20 秒会自动停止）。用你自然的声音大声朗读：</translation>
     </message>
     <message>
         <source>The quick brown fox jumps over the lazy dog, while a gentle breeze moves through the quiet garden and the evening light fades slowly.</source>
@@ -25742,6 +25893,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Start recording</source>
         <translation>开始录制</translation>
+    </message>
+    <message>
+        <source>20 s: done, save the voice</source>
+        <translation>20 秒：完成，保存声音</translation>
     </message>
     <message>
         <source>I have the right to use this person&apos;s voice</source>
@@ -25981,7 +26136,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>速度</translation>
     </message>
     <message>
         <source>Faster makes it shorter, slower makes it longer</source>
@@ -28697,6 +28852,14 @@ If playback stutters, try another.</source>
     <message>
         <source>These letters go back to the style of the whole text</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Read aloud…</source>
+        <translation>朗读…</translation>
+    </message>
+    <message>
+        <source>Turn this text into a voice that starts with it</source>
+        <translation>将此文字转为与其同时开始的配音</translation>
     </message>
     <message>
         <source>Bold</source>
@@ -32864,7 +33027,11 @@ If playback stutters, try another.</source>
     <name>TtsController</name>
     <message>
         <source>Loading voice model…</source>
-        <translation type="unfinished"></translation>
+        <translation>正在加载语音模型…</translation>
+    </message>
+    <message>
+        <source>No speech was produced</source>
+        <translation>未生成任何语音</translation>
     </message>
     <message>
         <source>Install the voice model first</source>
@@ -32879,16 +33046,58 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Generating speech…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Cancelled</source>
         <translation>已取消</translation>
     </message>
     <message>
+        <source>Speaking sentence %1 of %2…</source>
+        <translation>正在朗读第 %1/%2 句…</translation>
+    </message>
+    <message>
+        <source>Sentence %1 could not be spoken: %2</source>
+        <translation>第 %1 句无法朗读：%2</translation>
+    </message>
+    <message>
+        <source>Putting the take together…</source>
+        <translation>正在合成录制…</translation>
+    </message>
+    <message>
+        <source>Listen to it, then add it to the timeline</source>
+        <translation>先试听，再添加到时间线</translation>
+    </message>
+    <message>
+        <source>Speaking sentence %1 again…</source>
+        <translation>正在重新朗读第 %1 句…</translation>
+    </message>
+    <message>
+        <source>Sentence %1 spoken again</source>
+        <translation>第 %1 句已重新朗读</translation>
+    </message>
+    <message>
+        <source>Changing speed and pitch…</source>
+        <translation>正在调整速度和音调…</translation>
+    </message>
+    <message>
+        <source>Could not replace the voice</source>
+        <translation>无法替换配音</translation>
+    </message>
+    <message>
         <source>Speech added to the timeline</source>
         <translation>语音已添加到时间线</translation>
+    </message>
+    <message>
+        <source>Voice replaced on the timeline</source>
+        <translation>已替换时间线上的配音</translation>
+    </message>
+    <message numerus="yes">
+        <source>The music goes down under the voice (%n clip(s))</source>
+        <translation>
+            <numerusform>音乐在配音下方降低（%n 个片段）</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>There is no music under this voice</source>
+        <translation>此配音下方没有音乐</translation>
     </message>
     <message>
         <source>Select a subtitle clip first</source>
@@ -32897,6 +33106,10 @@ If playback stutters, try another.</source>
     <message>
         <source>This subtitle clip has no text to speak</source>
         <translation>此字幕片段没有可朗读的文本</translation>
+    </message>
+    <message>
+        <source>Speaking line %1 of %2…</source>
+        <translation>正在朗读第 %1/%2 行…</translation>
     </message>
     <message>
         <source>Generate voiceover</source>
@@ -32916,6 +33129,12 @@ If playback stutters, try another.</source>
         <source>; %n ran longer than their captions</source>
         <translation>
             <numerusform>；%n 句比其字幕更长</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>; %n could not be added</source>
+        <translation>
+            <numerusform>；%n 个无法添加</numerusform>
         </translation>
     </message>
 </context>
@@ -34183,6 +34402,18 @@ If playback stutters, try another.</source>
         <translation>声音需要名称和一段录音</translation>
     </message>
     <message>
+        <source>Reading the recording…</source>
+        <translation>正在读取录音…</translation>
+    </message>
+    <message>
+        <source>Loading voice model…</source>
+        <translation>正在加载语音模型…</translation>
+    </message>
+    <message>
+        <source>Learning the voice…</source>
+        <translation>正在学习声音…</translation>
+    </message>
+    <message>
         <source>Could not prepare the voice</source>
         <translation>无法准备声音</translation>
     </message>
@@ -34197,6 +34428,18 @@ If playback stutters, try another.</source>
     <message>
         <source>The recording is too short: record at least %1 seconds</source>
         <translation>录音太短：请至少录制 %1 秒</translation>
+    </message>
+    <message>
+        <source>Unknown voice</source>
+        <translation>未知声音</translation>
+    </message>
+    <message>
+        <source>The reference recording for this voice is missing</source>
+        <translation>缺少此声音的参考录音</translation>
+    </message>
+    <message>
+        <source>Could not read the reference recording</source>
+        <translation>无法读取参考录音</translation>
     </message>
 </context>
 <context>
@@ -34251,6 +34494,18 @@ If playback stutters, try another.</source>
     <message>
         <source>Generate voiceover</source>
         <translation>生成配音</translation>
+    </message>
+    <message>
+        <source>Speech generation runs on this device and needs the voice model.</source>
+        <translation>语音生成在此设备上运行，需要语音模型。</translation>
+    </message>
+    <message>
+        <source>Download voice model</source>
+        <translation>下载语音模型</translation>
+    </message>
+    <message>
+        <source>Install AI engine first</source>
+        <translation>请先安装 AI 引擎</translation>
     </message>
     <message>
         <source>Voice</source>

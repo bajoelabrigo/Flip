@@ -142,8 +142,8 @@
         <translation>字幕スタイル</translation>
     </message>
     <message>
-        <source>Voices</source>
-        <translation>音声</translation>
+        <source>Voice changer</source>
+        <translation>ボイスチェンジャー</translation>
     </message>
     <message>
         <source>Retouch</source>
@@ -5274,6 +5274,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Replace voice</source>
+        <translation>音声を置き換え</translation>
+    </message>
+    <message>
+        <source>Voice replaced</source>
+        <translation>音声を置き換えました</translation>
+    </message>
+    <message>
         <source>Trim layer</source>
         <translation>レイヤーをトリミング</translation>
     </message>
@@ -7986,6 +7994,46 @@
     <message>
         <source>Fade out</source>
         <translation>フェードアウト</translation>
+    </message>
+    <message>
+        <source>Voice from text</source>
+        <translation>テキストから音声</translation>
+    </message>
+    <message>
+        <source>Edit script…</source>
+        <translation>台本を編集…</translation>
+    </message>
+    <message>
+        <source>Change the text or the voice and speak it again, in place of this audio</source>
+        <translation>テキストや声を変えて、この音声の代わりにもう一度読み上げます</translation>
+    </message>
+    <message>
+        <source>Lower the music under this voice</source>
+        <translation>この音声の下の音楽を下げる</translation>
+    </message>
+    <message>
+        <source>Save the voice as a file…</source>
+        <translation>音声をファイルとして保存…</translation>
+    </message>
+    <message>
+        <source>Save the voice</source>
+        <translation>音声を保存</translation>
+    </message>
+    <message>
+        <source>FLAC audio (*.flac)</source>
+        <translation>FLAC オーディオ (*.flac)</translation>
+    </message>
+    <message>
+        <source>voice</source>
+        <translation>音声</translation>
+    </message>
+    <message>
+        <source>Voice saved</source>
+        <translation>音声を保存しました</translation>
+    </message>
+    <message>
+        <source>Could not save the voice</source>
+        <translation>音声を保存できませんでした</translation>
     </message>
     <message>
         <source>Normalize loudness</source>
@@ -13298,6 +13346,37 @@ NEXT TIME</source>
     </message>
 </context>
 <context>
+    <name>ChatterboxTts</name>
+    <message>
+        <source>The voice model is not installed. Install the AI voice extra in Extras.</source>
+        <translation>音声モデルがインストールされていません。エクストラで AI 音声をインストールしてください。</translation>
+    </message>
+    <message>
+        <source>Failed to load text-to-speech model: %1</source>
+        <translation>音声合成モデルを読み込めませんでした: %1</translation>
+    </message>
+    <message>
+        <source>Speech generation failed: %1</source>
+        <translation>音声の生成に失敗しました: %1</translation>
+    </message>
+    <message>
+        <source>The reference voice has no audio.</source>
+        <translation>参照音声に音がありません。</translation>
+    </message>
+    <message>
+        <source>Voice encoding failed: %1</source>
+        <translation>音声のエンコードに失敗しました: %1</translation>
+    </message>
+    <message>
+        <source>Unsupported language: %1</source>
+        <translation>サポートされていない言語: %1</translation>
+    </message>
+    <message>
+        <source>Invalid voice conditioning.</source>
+        <translation>音声の条件付けが無効です。</translation>
+    </message>
+</context>
+<context>
     <name>ChipScroller</name>
     <message>
         <source>Previous</source>
@@ -17208,7 +17287,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>速度</translation>
     </message>
     <message>
         <source>Influence</source>
@@ -23573,14 +23652,6 @@ If playback stutters, try another.</source>
         <translation>クラウドプロバイダー</translation>
     </message>
     <message>
-        <source>Transcription (Scribe), voiceover, sound effects</source>
-        <translation>文字起こし (Scribe)、ボイスオーバー、効果音</translation>
-    </message>
-    <message>
-        <source>Voiceover</source>
-        <translation>ボイスオーバー</translation>
-    </message>
-    <message>
         <source>No key</source>
         <translation>キーなし</translation>
     </message>
@@ -23779,6 +23850,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Keys are stored unencrypted in Flip Studio&apos;s settings. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
         <translation>キーは暗号化されずに Flip Studio の設定に保存されます。環境変数の ELEVENLABS_API_KEY および FISH_API_KEY が優先されます。利用料金はお客様のアカウントに請求されます。</translation>
+    </message>
+    <message>
+        <source>Transcription (Scribe); voiceover and sound effects through AI agents</source>
+        <translation>文字起こし (Scribe)、AI エージェントによるナレーションと効果音</translation>
+    </message>
+    <message>
+        <source>Voiceover through AI agents</source>
+        <translation>AI エージェントによるナレーション</translation>
     </message>
     <message>
         <source>Needed before Flip Studio or a connected agent can transcribe or generate audio with this service</source>
@@ -25560,10 +25639,6 @@ If playback stutters, try another.</source>
         <translation>ボイスを保存しました</translation>
     </message>
     <message>
-        <source>Turn a script into speech with a built-in or cloned voice. It is generated on this device and added at the playhead.</source>
-        <translation>内蔵ボイスまたはクローンしたボイスで台本を音声に変換します。このデバイス上で生成され、再生ヘッド位置に追加されます。</translation>
-    </message>
-    <message>
         <source>Speech generation runs on this device and needs the voice model.</source>
         <translation>音声の生成はこのデバイス上で行われ、音声モデルが必要です。</translation>
     </message>
@@ -25580,20 +25655,8 @@ If playback stutters, try another.</source>
         <translation>音声の生成に必要です</translation>
     </message>
     <message>
-        <source>Type what the voice should say</source>
-        <translation>ボイスに話させる内容を入力</translation>
-    </message>
-    <message>
         <source>%1 characters, about %2 s</source>
         <translation>%1 文字、約 %2 秒</translation>
-    </message>
-    <message>
-        <source>Speech longer than 30 seconds often ends in gibberish or silence. Split the script into shorter parts.</source>
-        <translation>30 秒を超える音声は、意味不明な音や無音で終わることがよくあります。台本を短く分けてください。</translation>
-    </message>
-    <message>
-        <source>Voice</source>
-        <translation>ボイス</translation>
     </message>
     <message>
         <source>Stop</source>
@@ -25648,10 +25711,6 @@ If playback stutters, try another.</source>
         <translation>ボイスを学習しています…</translation>
     </message>
     <message>
-        <source>Language</source>
-        <translation>言語</translation>
-    </message>
-    <message>
         <source>Expressiveness</source>
         <translation>表現力</translation>
     </message>
@@ -25662,10 +25721,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Generate speech</source>
         <translation>音声を生成</translation>
-    </message>
-    <message>
-        <source>Generate speech and add it at the playhead</source>
-        <translation>音声を生成して再生ヘッド位置に追加</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -25708,6 +25763,102 @@ If playback stutters, try another.</source>
         <translation>すべてのファイル (*)</translation>
     </message>
     <message>
+        <source>Voice from your text</source>
+        <translation>あなたのテキストから音声</translation>
+    </message>
+    <message>
+        <source>Editing the script of a voice on the timeline: the new take replaces its audio.</source>
+        <translation>タイムライン上の音声の台本を編集中: 新しいテイクがその音声を置き換えます。</translation>
+    </message>
+    <message>
+        <source>Type or paste the script. [pause 1s] adds a silence.</source>
+        <translation>台本を入力または貼り付けます。[pause 1s] で無音を入れます。</translation>
+    </message>
+    <message>
+        <source>Import script…</source>
+        <translation>台本を読み込む…</translation>
+    </message>
+    <message>
+        <source>A .txt, .md or Word (.docx) file</source>
+        <translation>.txt、.md、または Word (.docx) ファイル</translation>
+    </message>
+    <message>
+        <source>Import a script</source>
+        <translation>台本を読み込む</translation>
+    </message>
+    <message>
+        <source>Scripts (*.txt *.md *.docx)</source>
+        <translation>台本 (*.txt *.md *.docx)</translation>
+    </message>
+    <message>
+        <source>That file has no text that can be read</source>
+        <translation>このファイルには読み取れるテキストがありません</translation>
+    </message>
+    <message>
+        <source>A dialogue: a voice for each person</source>
+        <translation>対話: 人ごとに別の声</translation>
+    </message>
+    <message>
+        <source>Generate again</source>
+        <translation>もう一度生成</translation>
+    </message>
+    <message>
+        <source>Speak the script; you hear it before it goes on the timeline</source>
+        <translation>台本を読み上げます。タイムラインに置く前に聞けます</translation>
+    </message>
+    <message>
+        <source>Listen to the whole take</source>
+        <translation>テイク全体を聞く</translation>
+    </message>
+    <message>
+        <source>Take: %1 s</source>
+        <translation>テイク: %1 秒</translation>
+    </message>
+    <message>
+        <source>Listen to this sentence</source>
+        <translation>この文を聞く</translation>
+    </message>
+    <message>
+        <source>Speak this sentence again</source>
+        <translation>この文をもう一度読み上げる</translation>
+    </message>
+    <message>
+        <source>Also create its captions</source>
+        <translation>字幕も作成する</translation>
+    </message>
+    <message>
+        <source>Replace the voice on the timeline</source>
+        <translation>タイムラインの音声を置き換える</translation>
+    </message>
+    <message>
+        <source>Add to the timeline</source>
+        <translation>タイムラインに追加</translation>
+    </message>
+    <message>
+        <source>Discard</source>
+        <translation>破棄</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation>オプション</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>速度</translation>
+    </message>
+    <message>
+        <source>%1×</source>
+        <translation>%1×</translation>
+    </message>
+    <message>
+        <source>Pitch</source>
+        <translation>ピッチ</translation>
+    </message>
+    <message>
+        <source>Stop preparing the voice</source>
+        <translation>音声の準備を中止</translation>
+    </message>
+    <message>
         <source>Name</source>
         <translation>名前</translation>
     </message>
@@ -25728,8 +25879,8 @@ If playback stutters, try another.</source>
         <translation>%1 秒</translation>
     </message>
     <message>
-        <source>Record 5 to 20 seconds in a quiet room. Read this aloud in your natural voice:</source>
-        <translation>静かな場所で 5〜20 秒録音してください。次の文を自然な声で読み上げてください:</translation>
+        <source>Record 3 to 20 seconds in a quiet room (it stops by itself at 20). Read this aloud in your natural voice:</source>
+        <translation>静かな部屋で 3〜20 秒録音してください (20 秒で自動停止)。いつもの声でこれを読み上げてください:</translation>
     </message>
     <message>
         <source>The quick brown fox jumps over the lazy dog, while a gentle breeze moves through the quiet garden and the evening light fades slowly.</source>
@@ -25742,6 +25893,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Start recording</source>
         <translation>録音を開始</translation>
+    </message>
+    <message>
+        <source>20 s: done, save the voice</source>
+        <translation>20 秒: 完了、音声を保存</translation>
     </message>
     <message>
         <source>I have the right to use this person&apos;s voice</source>
@@ -25981,7 +26136,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>速度</translation>
     </message>
     <message>
         <source>Faster makes it shorter, slower makes it longer</source>
@@ -28698,6 +28853,14 @@ If playback stutters, try another.</source>
     <message>
         <source>These letters go back to the style of the whole text</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Read aloud…</source>
+        <translation>読み上げ…</translation>
+    </message>
+    <message>
+        <source>Turn this text into a voice that starts with it</source>
+        <translation>このテキストを、それと同時に始まる音声にする</translation>
     </message>
     <message>
         <source>Bold</source>
@@ -32865,7 +33028,11 @@ If playback stutters, try another.</source>
     <name>TtsController</name>
     <message>
         <source>Loading voice model…</source>
-        <translation type="unfinished"></translation>
+        <translation>音声モデルを読み込み中…</translation>
+    </message>
+    <message>
+        <source>No speech was produced</source>
+        <translation>音声が生成されませんでした</translation>
     </message>
     <message>
         <source>Install the voice model first</source>
@@ -32880,16 +33047,58 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Generating speech…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Cancelled</source>
         <translation>キャンセルされました</translation>
     </message>
     <message>
+        <source>Speaking sentence %1 of %2…</source>
+        <translation>文 %1/%2 を読み上げ中…</translation>
+    </message>
+    <message>
+        <source>Sentence %1 could not be spoken: %2</source>
+        <translation>文 %1 を読み上げられませんでした: %2</translation>
+    </message>
+    <message>
+        <source>Putting the take together…</source>
+        <translation>テイクをまとめています…</translation>
+    </message>
+    <message>
+        <source>Listen to it, then add it to the timeline</source>
+        <translation>聞いてから、タイムラインに追加してください</translation>
+    </message>
+    <message>
+        <source>Speaking sentence %1 again…</source>
+        <translation>文 %1 をもう一度読み上げ中…</translation>
+    </message>
+    <message>
+        <source>Sentence %1 spoken again</source>
+        <translation>文 %1 を読み上げ直しました</translation>
+    </message>
+    <message>
+        <source>Changing speed and pitch…</source>
+        <translation>速度とピッチを変更中…</translation>
+    </message>
+    <message>
+        <source>Could not replace the voice</source>
+        <translation>音声を置き換えられませんでした</translation>
+    </message>
+    <message>
         <source>Speech added to the timeline</source>
         <translation>音声をタイムラインに追加しました</translation>
+    </message>
+    <message>
+        <source>Voice replaced on the timeline</source>
+        <translation>タイムラインの音声を置き換えました</translation>
+    </message>
+    <message numerus="yes">
+        <source>The music goes down under the voice (%n clip(s))</source>
+        <translation>
+            <numerusform>音声の下で音楽が下がります (%n 個のクリップ)</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>There is no music under this voice</source>
+        <translation>この音声の下に音楽はありません</translation>
     </message>
     <message>
         <source>Select a subtitle clip first</source>
@@ -32898,6 +33107,10 @@ If playback stutters, try another.</source>
     <message>
         <source>This subtitle clip has no text to speak</source>
         <translation>この字幕クリップには読み上げるテキストがありません</translation>
+    </message>
+    <message>
+        <source>Speaking line %1 of %2…</source>
+        <translation>行 %1/%2 を読み上げ中…</translation>
     </message>
     <message>
         <source>Generate voiceover</source>
@@ -32917,6 +33130,12 @@ If playback stutters, try another.</source>
         <source>; %n ran longer than their captions</source>
         <translation>
             <numerusform>、%n 行が字幕より長くなりました</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>; %n could not be added</source>
+        <translation>
+            <numerusform>; %n 個を追加できませんでした</numerusform>
         </translation>
     </message>
 </context>
@@ -34184,6 +34403,18 @@ If playback stutters, try another.</source>
         <translation>ボイスには名前と録音が必要です</translation>
     </message>
     <message>
+        <source>Reading the recording…</source>
+        <translation>録音を読み込み中…</translation>
+    </message>
+    <message>
+        <source>Loading voice model…</source>
+        <translation>音声モデルを読み込み中…</translation>
+    </message>
+    <message>
+        <source>Learning the voice…</source>
+        <translation>声を学習中…</translation>
+    </message>
+    <message>
         <source>Could not prepare the voice</source>
         <translation>ボイスを準備できませんでした</translation>
     </message>
@@ -34198,6 +34429,18 @@ If playback stutters, try another.</source>
     <message>
         <source>The recording is too short: record at least %1 seconds</source>
         <translation>録音が短すぎます。%1 秒以上録音してください</translation>
+    </message>
+    <message>
+        <source>Unknown voice</source>
+        <translation>不明な声</translation>
+    </message>
+    <message>
+        <source>The reference recording for this voice is missing</source>
+        <translation>この声の参照録音が見つかりません</translation>
+    </message>
+    <message>
+        <source>Could not read the reference recording</source>
+        <translation>参照録音を読み込めませんでした</translation>
     </message>
 </context>
 <context>
@@ -34252,6 +34495,18 @@ If playback stutters, try another.</source>
     <message>
         <source>Generate voiceover</source>
         <translation>ナレーションを生成</translation>
+    </message>
+    <message>
+        <source>Speech generation runs on this device and needs the voice model.</source>
+        <translation>音声の生成はこのデバイス上で行われ、音声モデルが必要です。</translation>
+    </message>
+    <message>
+        <source>Download voice model</source>
+        <translation>音声モデルをダウンロード</translation>
+    </message>
+    <message>
+        <source>Install AI engine first</source>
+        <translation>先に AI エンジンをインストールしてください</translation>
     </message>
     <message>
         <source>Voice</source>

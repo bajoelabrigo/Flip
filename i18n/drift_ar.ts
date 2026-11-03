@@ -142,8 +142,8 @@
         <translation>أنماط الترجمة</translation>
     </message>
     <message>
-        <source>Voices</source>
-        <translation>الأصوات</translation>
+        <source>Voice changer</source>
+        <translation>مغيّر الصوت</translation>
     </message>
     <message>
         <source>Retouch</source>
@@ -5347,6 +5347,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Replace voice</source>
+        <translation>استبدال الصوت</translation>
+    </message>
+    <message>
+        <source>Voice replaced</source>
+        <translation>تم استبدال الصوت</translation>
+    </message>
+    <message>
         <source>Trim layer</source>
         <translation>قصّ الطبقة</translation>
     </message>
@@ -8236,6 +8244,46 @@
     <message>
         <source>Fade out</source>
         <translation>اختفاء تدريجي</translation>
+    </message>
+    <message>
+        <source>Voice from text</source>
+        <translation>صوت من نص</translation>
+    </message>
+    <message>
+        <source>Edit script…</source>
+        <translation>تعديل النص…</translation>
+    </message>
+    <message>
+        <source>Change the text or the voice and speak it again, in place of this audio</source>
+        <translation>غيّر النص أو الصوت وانطقه من جديد بدلًا من هذا الصوت</translation>
+    </message>
+    <message>
+        <source>Lower the music under this voice</source>
+        <translation>خفض الموسيقى تحت هذا الصوت</translation>
+    </message>
+    <message>
+        <source>Save the voice as a file…</source>
+        <translation>حفظ الصوت كملف…</translation>
+    </message>
+    <message>
+        <source>Save the voice</source>
+        <translation>حفظ الصوت</translation>
+    </message>
+    <message>
+        <source>FLAC audio (*.flac)</source>
+        <translation>صوت FLAC (*.flac)</translation>
+    </message>
+    <message>
+        <source>voice</source>
+        <translation>صوت</translation>
+    </message>
+    <message>
+        <source>Voice saved</source>
+        <translation>تم حفظ الصوت</translation>
+    </message>
+    <message>
+        <source>Could not save the voice</source>
+        <translation>تعذّر حفظ الصوت</translation>
     </message>
     <message>
         <source>Normalize loudness</source>
@@ -13548,6 +13596,37 @@ NEXT TIME</source>
     </message>
 </context>
 <context>
+    <name>ChatterboxTts</name>
+    <message>
+        <source>The voice model is not installed. Install the AI voice extra in Extras.</source>
+        <translation>نموذج الصوت غير مثبّت. ثبّت إضافة الصوت بالذكاء الاصطناعي من الإضافات.</translation>
+    </message>
+    <message>
+        <source>Failed to load text-to-speech model: %1</source>
+        <translation>فشل تحميل نموذج تحويل النص إلى كلام: %1</translation>
+    </message>
+    <message>
+        <source>Speech generation failed: %1</source>
+        <translation>فشل توليد الكلام: %1</translation>
+    </message>
+    <message>
+        <source>The reference voice has no audio.</source>
+        <translation>الصوت المرجعي لا يحتوي على صوت.</translation>
+    </message>
+    <message>
+        <source>Voice encoding failed: %1</source>
+        <translation>فشل ترميز الصوت: %1</translation>
+    </message>
+    <message>
+        <source>Unsupported language: %1</source>
+        <translation>لغة غير مدعومة: %1</translation>
+    </message>
+    <message>
+        <source>Invalid voice conditioning.</source>
+        <translation>تكييف صوت غير صالح.</translation>
+    </message>
+</context>
+<context>
     <name>ChipScroller</name>
     <message>
         <source>Previous</source>
@@ -17523,7 +17602,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>السرعة</translation>
     </message>
     <message>
         <source>Influence</source>
@@ -24023,14 +24102,6 @@ If playback stutters, try another.</source>
         <translation>موفرو الخدمات السحابية</translation>
     </message>
     <message>
-        <source>Transcription (Scribe), voiceover, sound effects</source>
-        <translation>تفريغ صوتي (Scribe)، تعليق صوتي، تأثيرات صوتية</translation>
-    </message>
-    <message>
-        <source>Voiceover</source>
-        <translation>تعليق صوتي</translation>
-    </message>
-    <message>
         <source>No key</source>
         <translation>لا يوجد مفتاح</translation>
     </message>
@@ -24229,6 +24300,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Keys are stored unencrypted in Flip Studio&apos;s settings. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
         <translation>تُخزن المفاتيح دون تشفير في إعدادات Flip Studio. وتكون الأولوية لـ ELEVENLABS_API_KEY و FISH_API_KEY في البيئة. وتتم فوترة الاستخدام على حسابك الخاص.</translation>
+    </message>
+    <message>
+        <source>Transcription (Scribe); voiceover and sound effects through AI agents</source>
+        <translation>النسخ (Scribe)؛ التعليق الصوتي والمؤثرات الصوتية عبر وكلاء الذكاء الاصطناعي</translation>
+    </message>
+    <message>
+        <source>Voiceover through AI agents</source>
+        <translation>التعليق الصوتي عبر وكلاء الذكاء الاصطناعي</translation>
     </message>
     <message>
         <source>Needed before Flip Studio or a connected agent can transcribe or generate audio with this service</source>
@@ -26010,10 +26089,6 @@ If playback stutters, try another.</source>
         <translation>تم حفظ الصوت</translation>
     </message>
     <message>
-        <source>Turn a script into speech with a built-in or cloned voice. It is generated on this device and added at the playhead.</source>
-        <translation>حوّل نصًا مكتوبًا إلى كلام بصوت مدمج أو مستنسخ. يُولَّد على هذا الجهاز ويُضاف عند مؤشر التشغيل.</translation>
-    </message>
-    <message>
         <source>Speech generation runs on this device and needs the voice model.</source>
         <translation>يعمل توليد الكلام على هذا الجهاز ويحتاج إلى نموذج الصوت.</translation>
     </message>
@@ -26030,20 +26105,8 @@ If playback stutters, try another.</source>
         <translation>مطلوب لتوليد الكلام</translation>
     </message>
     <message>
-        <source>Type what the voice should say</source>
-        <translation>اكتب ما يجب أن يقوله الصوت</translation>
-    </message>
-    <message>
         <source>%1 characters, about %2 s</source>
         <translation>%1 حرف، نحو %2 ث</translation>
-    </message>
-    <message>
-        <source>Speech longer than 30 seconds often ends in gibberish or silence. Split the script into shorter parts.</source>
-        <translation>الكلام الأطول من 30 ثانية ينتهي غالبًا بكلام غير مفهوم أو صمت. قسّم النص إلى أجزاء أقصر.</translation>
-    </message>
-    <message>
-        <source>Voice</source>
-        <translation>الصوت البشري</translation>
     </message>
     <message>
         <source>Stop</source>
@@ -26098,10 +26161,6 @@ If playback stutters, try another.</source>
         <translation>جارٍ تعلّم الصوت…</translation>
     </message>
     <message>
-        <source>Language</source>
-        <translation>اللغة</translation>
-    </message>
-    <message>
         <source>Expressiveness</source>
         <translation>التعبيرية</translation>
     </message>
@@ -26112,10 +26171,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Generate speech</source>
         <translation>توليد الكلام</translation>
-    </message>
-    <message>
-        <source>Generate speech and add it at the playhead</source>
-        <translation>توليد الكلام وإضافته عند مؤشر التشغيل</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -26158,6 +26213,102 @@ If playback stutters, try another.</source>
         <translation>جميع الملفات (*)</translation>
     </message>
     <message>
+        <source>Voice from your text</source>
+        <translation>صوت من نصك</translation>
+    </message>
+    <message>
+        <source>Editing the script of a voice on the timeline: the new take replaces its audio.</source>
+        <translation>تعديل نص صوت على المخطط الزمني: اللقطة الجديدة تستبدل صوته.</translation>
+    </message>
+    <message>
+        <source>Type or paste the script. [pause 1s] adds a silence.</source>
+        <translation>اكتب النص أو الصقه. [pause 1s] يضيف صمتًا.</translation>
+    </message>
+    <message>
+        <source>Import script…</source>
+        <translation>استيراد نص…</translation>
+    </message>
+    <message>
+        <source>A .txt, .md or Word (.docx) file</source>
+        <translation>ملف ‎.txt أو ‎.md أو Word (‎.docx)</translation>
+    </message>
+    <message>
+        <source>Import a script</source>
+        <translation>استيراد نص</translation>
+    </message>
+    <message>
+        <source>Scripts (*.txt *.md *.docx)</source>
+        <translation>نصوص (*.txt *.md *.docx)</translation>
+    </message>
+    <message>
+        <source>That file has no text that can be read</source>
+        <translation>لا يحتوي هذا الملف على نص يمكن قراءته</translation>
+    </message>
+    <message>
+        <source>A dialogue: a voice for each person</source>
+        <translation>حوار: صوت لكل شخص</translation>
+    </message>
+    <message>
+        <source>Generate again</source>
+        <translation>توليد مرة أخرى</translation>
+    </message>
+    <message>
+        <source>Speak the script; you hear it before it goes on the timeline</source>
+        <translation>انطق النص؛ تسمعه قبل أن يُضاف إلى المخطط الزمني</translation>
+    </message>
+    <message>
+        <source>Listen to the whole take</source>
+        <translation>الاستماع إلى اللقطة كاملة</translation>
+    </message>
+    <message>
+        <source>Take: %1 s</source>
+        <translation>اللقطة: %1 ث</translation>
+    </message>
+    <message>
+        <source>Listen to this sentence</source>
+        <translation>الاستماع إلى هذه الجملة</translation>
+    </message>
+    <message>
+        <source>Speak this sentence again</source>
+        <translation>نطق هذه الجملة مرة أخرى</translation>
+    </message>
+    <message>
+        <source>Also create its captions</source>
+        <translation>إنشاء الترجمة أيضًا</translation>
+    </message>
+    <message>
+        <source>Replace the voice on the timeline</source>
+        <translation>استبدال الصوت على المخطط الزمني</translation>
+    </message>
+    <message>
+        <source>Add to the timeline</source>
+        <translation>إضافة إلى المخطط الزمني</translation>
+    </message>
+    <message>
+        <source>Discard</source>
+        <translation>تجاهل</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation>خيارات</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>السرعة</translation>
+    </message>
+    <message>
+        <source>%1×</source>
+        <translation>%1×</translation>
+    </message>
+    <message>
+        <source>Pitch</source>
+        <translation>طبقة الصوت</translation>
+    </message>
+    <message>
+        <source>Stop preparing the voice</source>
+        <translation>إيقاف تحضير الصوت</translation>
+    </message>
+    <message>
         <source>Name</source>
         <translation>الاسم</translation>
     </message>
@@ -26178,8 +26329,8 @@ If playback stutters, try another.</source>
         <translation>%1 s</translation>
     </message>
     <message>
-        <source>Record 5 to 20 seconds in a quiet room. Read this aloud in your natural voice:</source>
-        <translation>سجّل من 5 إلى 20 ثانية في غرفة هادئة. اقرأ هذا بصوت عالٍ بصوتك الطبيعي:</translation>
+        <source>Record 3 to 20 seconds in a quiet room (it stops by itself at 20). Read this aloud in your natural voice:</source>
+        <translation>سجّل من 3 إلى 20 ثانية في مكان هادئ (يتوقف تلقائيًا عند 20). اقرأ هذا بصوت عالٍ بصوتك الطبيعي:</translation>
     </message>
     <message>
         <source>The quick brown fox jumps over the lazy dog, while a gentle breeze moves through the quiet garden and the evening light fades slowly.</source>
@@ -26192,6 +26343,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Start recording</source>
         <translation>بدء التسجيل</translation>
+    </message>
+    <message>
+        <source>20 s: done, save the voice</source>
+        <translation>20 ث: تم، احفظ الصوت</translation>
     </message>
     <message>
         <source>I have the right to use this person&apos;s voice</source>
@@ -26431,7 +26586,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>السرعة</translation>
     </message>
     <message>
         <source>Faster makes it shorter, slower makes it longer</source>
@@ -29178,6 +29333,14 @@ If playback stutters, try another.</source>
     <message>
         <source>These letters go back to the style of the whole text</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Read aloud…</source>
+        <translation>قراءة بصوت عالٍ…</translation>
+    </message>
+    <message>
+        <source>Turn this text into a voice that starts with it</source>
+        <translation>حوّل هذا النص إلى صوت يبدأ معه</translation>
     </message>
     <message>
         <source>Bold</source>
@@ -33390,7 +33553,11 @@ If playback stutters, try another.</source>
     <name>TtsController</name>
     <message>
         <source>Loading voice model…</source>
-        <translation type="unfinished"></translation>
+        <translation>جارٍ تحميل نموذج الصوت…</translation>
+    </message>
+    <message>
+        <source>No speech was produced</source>
+        <translation>لم يُنتج أي كلام</translation>
     </message>
     <message>
         <source>Install the voice model first</source>
@@ -33405,16 +33572,63 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Generating speech…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Cancelled</source>
         <translation>تم الإلغاء</translation>
     </message>
     <message>
+        <source>Speaking sentence %1 of %2…</source>
+        <translation>جارٍ نطق الجملة %1 من %2…</translation>
+    </message>
+    <message>
+        <source>Sentence %1 could not be spoken: %2</source>
+        <translation>تعذّر نطق الجملة %1: %2</translation>
+    </message>
+    <message>
+        <source>Putting the take together…</source>
+        <translation>جارٍ تجميع اللقطة…</translation>
+    </message>
+    <message>
+        <source>Listen to it, then add it to the timeline</source>
+        <translation>استمع إليها ثم أضفها إلى المخطط الزمني</translation>
+    </message>
+    <message>
+        <source>Speaking sentence %1 again…</source>
+        <translation>جارٍ نطق الجملة %1 مرة أخرى…</translation>
+    </message>
+    <message>
+        <source>Sentence %1 spoken again</source>
+        <translation>تم نطق الجملة %1 مرة أخرى</translation>
+    </message>
+    <message>
+        <source>Changing speed and pitch…</source>
+        <translation>جارٍ تغيير السرعة وطبقة الصوت…</translation>
+    </message>
+    <message>
+        <source>Could not replace the voice</source>
+        <translation>تعذّر استبدال الصوت</translation>
+    </message>
+    <message>
         <source>Speech added to the timeline</source>
         <translation>تمت إضافة الكلام إلى المخطط الزمني</translation>
+    </message>
+    <message>
+        <source>Voice replaced on the timeline</source>
+        <translation>تم استبدال الصوت على المخطط الزمني</translation>
+    </message>
+    <message numerus="yes">
+        <source>The music goes down under the voice (%n clip(s))</source>
+        <translation>
+            <numerusform>تنخفض الموسيقى تحت الصوت (%n مقطع)</numerusform>
+            <numerusform>تنخفض الموسيقى تحت الصوت (%n مقطع)</numerusform>
+            <numerusform>تنخفض الموسيقى تحت الصوت (%n مقطعان)</numerusform>
+            <numerusform>تنخفض الموسيقى تحت الصوت (%n مقاطع)</numerusform>
+            <numerusform>تنخفض الموسيقى تحت الصوت (%n مقطعًا)</numerusform>
+            <numerusform>تنخفض الموسيقى تحت الصوت (%n مقطع)</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>There is no music under this voice</source>
+        <translation>لا توجد موسيقى تحت هذا الصوت</translation>
     </message>
     <message>
         <source>Select a subtitle clip first</source>
@@ -33423,6 +33637,10 @@ If playback stutters, try another.</source>
     <message>
         <source>This subtitle clip has no text to speak</source>
         <translation>مقطع الترجمة هذا لا يحتوي على نص للنطق</translation>
+    </message>
+    <message>
+        <source>Speaking line %1 of %2…</source>
+        <translation>جارٍ نطق السطر %1 من %2…</translation>
     </message>
     <message>
         <source>Generate voiceover</source>
@@ -33452,6 +33670,17 @@ If playback stutters, try another.</source>
             <numerusform>؛ %n منها استغرقت أطول من أسطر ترجمتها</numerusform>
             <numerusform>؛ %n منها استغرقت أطول من أسطر ترجمتها</numerusform>
             <numerusform>؛ %n منها استغرقت أطول من أسطر ترجمتها</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>; %n could not be added</source>
+        <translation>
+            <numerusform>؛ تعذّرت إضافة %n</numerusform>
+            <numerusform>؛ تعذّرت إضافة %n</numerusform>
+            <numerusform>؛ تعذّرت إضافة %n</numerusform>
+            <numerusform>؛ تعذّرت إضافة %n</numerusform>
+            <numerusform>؛ تعذّرت إضافة %n</numerusform>
+            <numerusform>؛ تعذّرت إضافة %n</numerusform>
         </translation>
     </message>
 </context>
@@ -34719,6 +34948,18 @@ If playback stutters, try another.</source>
         <translation>يحتاج الصوت إلى اسم وتسجيل</translation>
     </message>
     <message>
+        <source>Reading the recording…</source>
+        <translation>جارٍ قراءة التسجيل…</translation>
+    </message>
+    <message>
+        <source>Loading voice model…</source>
+        <translation>جارٍ تحميل نموذج الصوت…</translation>
+    </message>
+    <message>
+        <source>Learning the voice…</source>
+        <translation>جارٍ تعلّم الصوت…</translation>
+    </message>
+    <message>
         <source>Could not prepare the voice</source>
         <translation>تعذّر تحضير الصوت</translation>
     </message>
@@ -34733,6 +34974,18 @@ If playback stutters, try another.</source>
     <message>
         <source>The recording is too short: record at least %1 seconds</source>
         <translation>التسجيل قصير جدًا: سجّل %1 ثانية على الأقل</translation>
+    </message>
+    <message>
+        <source>Unknown voice</source>
+        <translation>صوت غير معروف</translation>
+    </message>
+    <message>
+        <source>The reference recording for this voice is missing</source>
+        <translation>التسجيل المرجعي لهذا الصوت مفقود</translation>
+    </message>
+    <message>
+        <source>Could not read the reference recording</source>
+        <translation>تعذّرت قراءة التسجيل المرجعي</translation>
     </message>
 </context>
 <context>
@@ -34787,6 +35040,18 @@ If playback stutters, try another.</source>
     <message>
         <source>Generate voiceover</source>
         <translation>توليد تعليق صوتي</translation>
+    </message>
+    <message>
+        <source>Speech generation runs on this device and needs the voice model.</source>
+        <translation>يعمل توليد الكلام على هذا الجهاز ويحتاج إلى نموذج الصوت.</translation>
+    </message>
+    <message>
+        <source>Download voice model</source>
+        <translation>تنزيل نموذج الصوت</translation>
+    </message>
+    <message>
+        <source>Install AI engine first</source>
+        <translation>ثبّت محرك الذكاء الاصطناعي أولًا</translation>
     </message>
     <message>
         <source>Voice</source>

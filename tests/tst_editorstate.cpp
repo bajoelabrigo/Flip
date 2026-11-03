@@ -41,6 +41,7 @@
 #include "engine/TextLayout.h"
 #include "engine/ClipReaderPool.h"
 #include "models/AppController.h"
+#include "models/TtsController.h"
 #include "preview/PreviewController.h"
 #include "engine/EffectTemplateCatalog.h"
 #include "engine/SceneTemplateCatalog.h"
@@ -372,6 +373,7 @@ private slots:
     void importFileNameStaysStorable();
     void positionPathAndRovingKeys();
     void joinedPositionAndKeysOfSeveralTracks();
+    void speechScriptSplitsIntoSentencesAndPauses();
 };
 
 // A file dragged in from the file manager has no bin row yet, so the timeline's drop preview
@@ -14024,6 +14026,24 @@ void EditorStateTest::joinedPositionAndKeysOfSeveralTracks()
     state.undo();
     QVERIFY(qFuzzyIsNull(state.project()->tracks().at(0).clips.at(0).transformX.keyframes().first().outDx));
     QVERIFY(qFuzzyIsNull(state.project()->tracks().at(1).clips.at(0).opacity.keyframes().first().outDx));
+}
+
+// Text to speech (0.30): the script is spoken sentence by sentence; [pausa 1s] is a silence of its
+// own, a blank line a longer breath, and the last sentence has nothing after it.
+void EditorStateTest::speechScriptSplitsIntoSentencesAndPauses()
+{
+    const auto parts = TtsController::splitScript(
+        QStringLiteral("Hola a todos. Bienvenidos al canal! [pausa 1,5s] Hoy vemos algo nuevo.\n\nEmpecemos [pause] ya"));
+    QCOMPARE(parts.size(), 5);
+    QCOMPARE(parts.at(0).first, QStringLiteral("Hola a todos."));
+    QCOMPARE(parts.at(1).first, QStringLiteral("Bienvenidos al canal!"));
+    QCOMPARE(parts.at(1).second, 1.5);
+    QCOMPARE(parts.at(2).first, QStringLiteral("Hoy vemos algo nuevo."));
+    QVERIFY(parts.at(2).second > parts.at(0).second); // the blank line
+    QCOMPARE(parts.at(3).first, QStringLiteral("Empecemos"));
+    QCOMPARE(parts.at(3).second, 0.5);
+    QCOMPARE(parts.at(4).first, QStringLiteral("ya"));
+    QCOMPARE(parts.at(4).second, 0.0);
 }
 
 QTEST_MAIN(EditorStateTest)

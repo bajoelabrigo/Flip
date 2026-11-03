@@ -142,8 +142,8 @@
         <translation>Стили субтитров</translation>
     </message>
     <message>
-        <source>Voices</source>
-        <translation>Голоса</translation>
+        <source>Voice changer</source>
+        <translation>Изменение голоса</translation>
     </message>
     <message>
         <source>Retouch</source>
@@ -5308,6 +5308,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Replace voice</source>
+        <translation>Заменить голос</translation>
+    </message>
+    <message>
+        <source>Voice replaced</source>
+        <translation>Голос заменён</translation>
+    </message>
+    <message>
         <source>Trim layer</source>
         <translation>Обрезать слой</translation>
     </message>
@@ -8086,6 +8094,46 @@
     <message>
         <source>Fade out</source>
         <translation>Затухание</translation>
+    </message>
+    <message>
+        <source>Voice from text</source>
+        <translation>Голос из текста</translation>
+    </message>
+    <message>
+        <source>Edit script…</source>
+        <translation>Изменить сценарий…</translation>
+    </message>
+    <message>
+        <source>Change the text or the voice and speak it again, in place of this audio</source>
+        <translation>Измените текст или голос и озвучьте заново вместо этого аудио</translation>
+    </message>
+    <message>
+        <source>Lower the music under this voice</source>
+        <translation>Приглушить музыку под этим голосом</translation>
+    </message>
+    <message>
+        <source>Save the voice as a file…</source>
+        <translation>Сохранить голос в файл…</translation>
+    </message>
+    <message>
+        <source>Save the voice</source>
+        <translation>Сохранить голос</translation>
+    </message>
+    <message>
+        <source>FLAC audio (*.flac)</source>
+        <translation>Аудио FLAC (*.flac)</translation>
+    </message>
+    <message>
+        <source>voice</source>
+        <translation>голос</translation>
+    </message>
+    <message>
+        <source>Voice saved</source>
+        <translation>Голос сохранён</translation>
+    </message>
+    <message>
+        <source>Could not save the voice</source>
+        <translation>Не удалось сохранить голос</translation>
     </message>
     <message>
         <source>Normalize loudness</source>
@@ -13398,6 +13446,37 @@ NEXT TIME</source>
     </message>
 </context>
 <context>
+    <name>ChatterboxTts</name>
+    <message>
+        <source>The voice model is not installed. Install the AI voice extra in Extras.</source>
+        <translation>Модель голоса не установлена. Установите дополнение «ИИ-голос» в разделе «Дополнения».</translation>
+    </message>
+    <message>
+        <source>Failed to load text-to-speech model: %1</source>
+        <translation>Не удалось загрузить модель синтеза речи: %1</translation>
+    </message>
+    <message>
+        <source>Speech generation failed: %1</source>
+        <translation>Ошибка генерации речи: %1</translation>
+    </message>
+    <message>
+        <source>The reference voice has no audio.</source>
+        <translation>В эталонном голосе нет звука.</translation>
+    </message>
+    <message>
+        <source>Voice encoding failed: %1</source>
+        <translation>Ошибка кодирования голоса: %1</translation>
+    </message>
+    <message>
+        <source>Unsupported language: %1</source>
+        <translation>Неподдерживаемый язык: %1</translation>
+    </message>
+    <message>
+        <source>Invalid voice conditioning.</source>
+        <translation>Недопустимые параметры голоса.</translation>
+    </message>
+</context>
+<context>
     <name>ChipScroller</name>
     <message>
         <source>Previous</source>
@@ -17334,7 +17413,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>Скорость</translation>
     </message>
     <message>
         <source>Influence</source>
@@ -23753,14 +23832,6 @@ If playback stutters, try another.</source>
         <translation>Облачные сервисы</translation>
     </message>
     <message>
-        <source>Transcription (Scribe), voiceover, sound effects</source>
-        <translation>Расшифровка речи (Scribe), озвучка, звуковые эффекты</translation>
-    </message>
-    <message>
-        <source>Voiceover</source>
-        <translation>Озвучка</translation>
-    </message>
-    <message>
         <source>No key</source>
         <translation>Нет ключа</translation>
     </message>
@@ -23959,6 +24030,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Keys are stored unencrypted in Flip Studio&apos;s settings. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
         <translation>Ключи хранятся без шифрования в настройках Flip Studio. Переменные окружения ELEVENLABS_API_KEY и FISH_API_KEY имеют приоритет. Использование оплачивается с вашего аккаунта.</translation>
+    </message>
+    <message>
+        <source>Transcription (Scribe); voiceover and sound effects through AI agents</source>
+        <translation>Транскрипция (Scribe); озвучка и звуковые эффекты через ИИ-агентов</translation>
+    </message>
+    <message>
+        <source>Voiceover through AI agents</source>
+        <translation>Озвучка через ИИ-агентов</translation>
     </message>
     <message>
         <source>Needed before Flip Studio or a connected agent can transcribe or generate audio with this service</source>
@@ -25740,10 +25819,6 @@ If playback stutters, try another.</source>
         <translation>Голос сохранён</translation>
     </message>
     <message>
-        <source>Turn a script into speech with a built-in or cloned voice. It is generated on this device and added at the playhead.</source>
-        <translation>Превратите сценарий в речь встроенным или клонированным голосом. Речь создаётся на этом устройстве и добавляется на позицию указателя.</translation>
-    </message>
-    <message>
         <source>Speech generation runs on this device and needs the voice model.</source>
         <translation>Синтез речи выполняется на этом устройстве и требует голосовой модели.</translation>
     </message>
@@ -25760,20 +25835,8 @@ If playback stutters, try another.</source>
         <translation>Нужна для синтеза речи</translation>
     </message>
     <message>
-        <source>Type what the voice should say</source>
-        <translation>Введите, что должен сказать голос</translation>
-    </message>
-    <message>
         <source>%1 characters, about %2 s</source>
         <translation>Символов: %1, около %2 с</translation>
-    </message>
-    <message>
-        <source>Speech longer than 30 seconds often ends in gibberish or silence. Split the script into shorter parts.</source>
-        <translation>Речь длиннее 30 секунд часто заканчивается бессмыслицей или тишиной. Разбейте сценарий на части покороче.</translation>
-    </message>
-    <message>
-        <source>Voice</source>
-        <translation>Голос</translation>
     </message>
     <message>
         <source>Stop</source>
@@ -25828,10 +25891,6 @@ If playback stutters, try another.</source>
         <translation>Изучение голоса…</translation>
     </message>
     <message>
-        <source>Language</source>
-        <translation>Язык</translation>
-    </message>
-    <message>
         <source>Expressiveness</source>
         <translation>Выразительность</translation>
     </message>
@@ -25842,10 +25901,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Generate speech</source>
         <translation>Создать речь</translation>
-    </message>
-    <message>
-        <source>Generate speech and add it at the playhead</source>
-        <translation>Создать речь и добавить на позицию указателя</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -25888,6 +25943,102 @@ If playback stutters, try another.</source>
         <translation>Все файлы (*)</translation>
     </message>
     <message>
+        <source>Voice from your text</source>
+        <translation>Голос из вашего текста</translation>
+    </message>
+    <message>
+        <source>Editing the script of a voice on the timeline: the new take replaces its audio.</source>
+        <translation>Вы редактируете сценарий голоса на таймлайне: новый дубль заменит его аудио.</translation>
+    </message>
+    <message>
+        <source>Type or paste the script. [pause 1s] adds a silence.</source>
+        <translation>Введите или вставьте сценарий. [pause 1s] добавляет паузу.</translation>
+    </message>
+    <message>
+        <source>Import script…</source>
+        <translation>Импорт сценария…</translation>
+    </message>
+    <message>
+        <source>A .txt, .md or Word (.docx) file</source>
+        <translation>Файл .txt, .md или Word (.docx)</translation>
+    </message>
+    <message>
+        <source>Import a script</source>
+        <translation>Импортировать сценарий</translation>
+    </message>
+    <message>
+        <source>Scripts (*.txt *.md *.docx)</source>
+        <translation>Сценарии (*.txt *.md *.docx)</translation>
+    </message>
+    <message>
+        <source>That file has no text that can be read</source>
+        <translation>В этом файле нет текста, который можно прочитать</translation>
+    </message>
+    <message>
+        <source>A dialogue: a voice for each person</source>
+        <translation>Диалог: свой голос для каждого человека</translation>
+    </message>
+    <message>
+        <source>Generate again</source>
+        <translation>Сгенерировать снова</translation>
+    </message>
+    <message>
+        <source>Speak the script; you hear it before it goes on the timeline</source>
+        <translation>Озвучить сценарий; вы услышите его до того, как он попадёт на таймлайн</translation>
+    </message>
+    <message>
+        <source>Listen to the whole take</source>
+        <translation>Прослушать весь дубль</translation>
+    </message>
+    <message>
+        <source>Take: %1 s</source>
+        <translation>Дубль: %1 с</translation>
+    </message>
+    <message>
+        <source>Listen to this sentence</source>
+        <translation>Прослушать эту фразу</translation>
+    </message>
+    <message>
+        <source>Speak this sentence again</source>
+        <translation>Озвучить эту фразу заново</translation>
+    </message>
+    <message>
+        <source>Also create its captions</source>
+        <translation>Также создать субтитры</translation>
+    </message>
+    <message>
+        <source>Replace the voice on the timeline</source>
+        <translation>Заменить голос на таймлайне</translation>
+    </message>
+    <message>
+        <source>Add to the timeline</source>
+        <translation>Добавить на таймлайн</translation>
+    </message>
+    <message>
+        <source>Discard</source>
+        <translation>Отменить</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation>Параметры</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>Скорость</translation>
+    </message>
+    <message>
+        <source>%1×</source>
+        <translation>%1×</translation>
+    </message>
+    <message>
+        <source>Pitch</source>
+        <translation>Высота тона</translation>
+    </message>
+    <message>
+        <source>Stop preparing the voice</source>
+        <translation>Прекратить подготовку голоса</translation>
+    </message>
+    <message>
         <source>Name</source>
         <translation>Название</translation>
     </message>
@@ -25908,8 +26059,8 @@ If playback stutters, try another.</source>
         <translation>%1 с</translation>
     </message>
     <message>
-        <source>Record 5 to 20 seconds in a quiet room. Read this aloud in your natural voice:</source>
-        <translation>Запишите от 5 до 20 секунд в тихом помещении. Прочитайте вслух своим обычным голосом:</translation>
+        <source>Record 3 to 20 seconds in a quiet room (it stops by itself at 20). Read this aloud in your natural voice:</source>
+        <translation>Запишите от 3 до 20 секунд в тихой комнате (запись остановится сама на 20). Прочитайте вслух своим обычным голосом:</translation>
     </message>
     <message>
         <source>The quick brown fox jumps over the lazy dog, while a gentle breeze moves through the quiet garden and the evening light fades slowly.</source>
@@ -25922,6 +26073,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Start recording</source>
         <translation>Начать запись</translation>
+    </message>
+    <message>
+        <source>20 s: done, save the voice</source>
+        <translation>20 с: готово, сохранить голос</translation>
     </message>
     <message>
         <source>I have the right to use this person&apos;s voice</source>
@@ -26161,7 +26316,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>Скорость</translation>
     </message>
     <message>
         <source>Faster makes it shorter, slower makes it longer</source>
@@ -28890,6 +29045,14 @@ If playback stutters, try another.</source>
     <message>
         <source>These letters go back to the style of the whole text</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Read aloud…</source>
+        <translation>Прочитать вслух…</translation>
+    </message>
+    <message>
+        <source>Turn this text into a voice that starts with it</source>
+        <translation>Превратить этот текст в голос, который начинается вместе с ним</translation>
     </message>
     <message>
         <source>Bold</source>
@@ -33075,7 +33238,11 @@ If playback stutters, try another.</source>
     <name>TtsController</name>
     <message>
         <source>Loading voice model…</source>
-        <translation type="unfinished"></translation>
+        <translation>Загрузка модели голоса…</translation>
+    </message>
+    <message>
+        <source>No speech was produced</source>
+        <translation>Речь не была создана</translation>
     </message>
     <message>
         <source>Install the voice model first</source>
@@ -33090,16 +33257,60 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Generating speech…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Cancelled</source>
         <translation>Отменено</translation>
     </message>
     <message>
+        <source>Speaking sentence %1 of %2…</source>
+        <translation>Озвучивание фразы %1 из %2…</translation>
+    </message>
+    <message>
+        <source>Sentence %1 could not be spoken: %2</source>
+        <translation>Не удалось озвучить фразу %1: %2</translation>
+    </message>
+    <message>
+        <source>Putting the take together…</source>
+        <translation>Сборка дубля…</translation>
+    </message>
+    <message>
+        <source>Listen to it, then add it to the timeline</source>
+        <translation>Прослушайте, затем добавьте на таймлайн</translation>
+    </message>
+    <message>
+        <source>Speaking sentence %1 again…</source>
+        <translation>Повторное озвучивание фразы %1…</translation>
+    </message>
+    <message>
+        <source>Sentence %1 spoken again</source>
+        <translation>Фраза %1 озвучена заново</translation>
+    </message>
+    <message>
+        <source>Changing speed and pitch…</source>
+        <translation>Изменение скорости и высоты тона…</translation>
+    </message>
+    <message>
+        <source>Could not replace the voice</source>
+        <translation>Не удалось заменить голос</translation>
+    </message>
+    <message>
         <source>Speech added to the timeline</source>
         <translation>Речь добавлена на таймлайн</translation>
+    </message>
+    <message>
+        <source>Voice replaced on the timeline</source>
+        <translation>Голос заменён на таймлайне</translation>
+    </message>
+    <message numerus="yes">
+        <source>The music goes down under the voice (%n clip(s))</source>
+        <translation>
+            <numerusform>Музыка приглушается под голосом (%n клип)</numerusform>
+            <numerusform>Музыка приглушается под голосом (%n клипа)</numerusform>
+            <numerusform>Музыка приглушается под голосом (%n клипов)</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>There is no music under this voice</source>
+        <translation>Под этим голосом нет музыки</translation>
     </message>
     <message>
         <source>Select a subtitle clip first</source>
@@ -33108,6 +33319,10 @@ If playback stutters, try another.</source>
     <message>
         <source>This subtitle clip has no text to speak</source>
         <translation>В этом клипе субтитров нет текста для озвучки</translation>
+    </message>
+    <message>
+        <source>Speaking line %1 of %2…</source>
+        <translation>Озвучивание строки %1 из %2…</translation>
     </message>
     <message>
         <source>Generate voiceover</source>
@@ -33131,6 +33346,14 @@ If playback stutters, try another.</source>
             <numerusform>; %n длилась дольше своего субтитра</numerusform>
             <numerusform>; %n длились дольше своих субтитров</numerusform>
             <numerusform>; %n длились дольше своих субтитров</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>; %n could not be added</source>
+        <translation>
+            <numerusform>; %n не удалось добавить</numerusform>
+            <numerusform>; %n не удалось добавить</numerusform>
+            <numerusform>; %n не удалось добавить</numerusform>
         </translation>
     </message>
 </context>
@@ -34398,6 +34621,18 @@ If playback stutters, try another.</source>
         <translation>Для голоса нужны имя и запись</translation>
     </message>
     <message>
+        <source>Reading the recording…</source>
+        <translation>Чтение записи…</translation>
+    </message>
+    <message>
+        <source>Loading voice model…</source>
+        <translation>Загрузка модели голоса…</translation>
+    </message>
+    <message>
+        <source>Learning the voice…</source>
+        <translation>Изучение голоса…</translation>
+    </message>
+    <message>
         <source>Could not prepare the voice</source>
         <translation>Не удалось подготовить голос</translation>
     </message>
@@ -34412,6 +34647,18 @@ If playback stutters, try another.</source>
     <message>
         <source>The recording is too short: record at least %1 seconds</source>
         <translation>Запись слишком короткая: запишите не менее %1 с</translation>
+    </message>
+    <message>
+        <source>Unknown voice</source>
+        <translation>Неизвестный голос</translation>
+    </message>
+    <message>
+        <source>The reference recording for this voice is missing</source>
+        <translation>Отсутствует эталонная запись для этого голоса</translation>
+    </message>
+    <message>
+        <source>Could not read the reference recording</source>
+        <translation>Не удалось прочитать эталонную запись</translation>
     </message>
 </context>
 <context>
@@ -34466,6 +34713,18 @@ If playback stutters, try another.</source>
     <message>
         <source>Generate voiceover</source>
         <translation>Создать озвучку</translation>
+    </message>
+    <message>
+        <source>Speech generation runs on this device and needs the voice model.</source>
+        <translation>Генерация речи выполняется на этом устройстве и требует модель голоса.</translation>
+    </message>
+    <message>
+        <source>Download voice model</source>
+        <translation>Скачать модель голоса</translation>
+    </message>
+    <message>
+        <source>Install AI engine first</source>
+        <translation>Сначала установите ИИ-движок</translation>
     </message>
     <message>
         <source>Voice</source>

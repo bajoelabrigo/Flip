@@ -142,8 +142,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Voices</source>
-        <translation type="unfinished"></translation>
+        <source>Voice changer</source>
+        <translation>Pambago ng boses</translation>
     </message>
     <message>
         <source>Retouch</source>
@@ -4381,7 +4381,7 @@
     </message>
     <message>
         <source>Voice changer</source>
-        <translation type="unfinished"></translation>
+        <translation>Pambago ng boses</translation>
     </message>
     <message>
         <source>Voice: %1</source>
@@ -5293,6 +5293,14 @@
     <message>
         <source>Ruler guides</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Replace voice</source>
+        <translation>Palitan ang boses</translation>
+    </message>
+    <message>
+        <source>Voice replaced</source>
+        <translation>Napalitan ang boses</translation>
     </message>
     <message>
         <source>Trim layer</source>
@@ -8027,7 +8035,7 @@
     </message>
     <message>
         <source>Voice changer</source>
-        <translation type="unfinished"></translation>
+        <translation>Pambago ng boses</translation>
     </message>
     <message>
         <source>Fade in</source>
@@ -8036,6 +8044,46 @@
     <message>
         <source>Fade out</source>
         <translation type="unfinished">Unti-unting paglaho</translation>
+    </message>
+    <message>
+        <source>Voice from text</source>
+        <translation>Boses mula sa teksto</translation>
+    </message>
+    <message>
+        <source>Edit script…</source>
+        <translation>I-edit ang script…</translation>
+    </message>
+    <message>
+        <source>Change the text or the voice and speak it again, in place of this audio</source>
+        <translation>Baguhin ang teksto o boses at ipabigkas muli, kapalit ng audio na ito</translation>
+    </message>
+    <message>
+        <source>Lower the music under this voice</source>
+        <translation>Hinaan ang musika sa ilalim ng boses na ito</translation>
+    </message>
+    <message>
+        <source>Save the voice as a file…</source>
+        <translation>I-save ang boses bilang file…</translation>
+    </message>
+    <message>
+        <source>Save the voice</source>
+        <translation>I-save ang boses</translation>
+    </message>
+    <message>
+        <source>FLAC audio (*.flac)</source>
+        <translation>FLAC audio (*.flac)</translation>
+    </message>
+    <message>
+        <source>voice</source>
+        <translation>boses</translation>
+    </message>
+    <message>
+        <source>Voice saved</source>
+        <translation>Na-save ang boses</translation>
+    </message>
+    <message>
+        <source>Could not save the voice</source>
+        <translation>Hindi ma-save ang boses</translation>
     </message>
     <message>
         <source>Normalize loudness</source>
@@ -8139,7 +8187,7 @@
     </message>
     <message>
         <source>Install AI engine first</source>
-        <translation type="unfinished"></translation>
+        <translation>I-install muna ang AI engine</translation>
     </message>
 </context>
 <context>
@@ -8639,7 +8687,7 @@
     </message>
     <message>
         <source>Pitch</source>
-        <translation type="unfinished"></translation>
+        <translation>Tono</translation>
     </message>
     <message>
         <source>Yaw</source>
@@ -10686,7 +10734,7 @@
     </message>
     <message>
         <source>Pitch</source>
-        <translation type="unfinished"></translation>
+        <translation>Tono</translation>
     </message>
     <message>
         <source>Deep Voice</source>
@@ -13344,6 +13392,37 @@ NEXT TIME</source>
     </message>
 </context>
 <context>
+    <name>ChatterboxTts</name>
+    <message>
+        <source>The voice model is not installed. Install the AI voice extra in Extras.</source>
+        <translation>Hindi naka-install ang voice model. I-install ang AI voice extra sa Extras.</translation>
+    </message>
+    <message>
+        <source>Failed to load text-to-speech model: %1</source>
+        <translation>Hindi ma-load ang text-to-speech model: %1</translation>
+    </message>
+    <message>
+        <source>Speech generation failed: %1</source>
+        <translation>Nabigo ang paggawa ng boses: %1</translation>
+    </message>
+    <message>
+        <source>The reference voice has no audio.</source>
+        <translation>Walang audio ang reference na boses.</translation>
+    </message>
+    <message>
+        <source>Voice encoding failed: %1</source>
+        <translation>Nabigo ang pag-encode ng boses: %1</translation>
+    </message>
+    <message>
+        <source>Unsupported language: %1</source>
+        <translation>Hindi suportadong wika: %1</translation>
+    </message>
+    <message>
+        <source>Invalid voice conditioning.</source>
+        <translation>Di-wastong voice conditioning.</translation>
+    </message>
+</context>
+<context>
     <name>ChipScroller</name>
     <message>
         <source>Previous</source>
@@ -15109,7 +15188,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Install AI engine first</source>
-        <translation type="unfinished"></translation>
+        <translation>I-install muna ang AI engine</translation>
     </message>
     <message>
         <source>Depth</source>
@@ -17267,7 +17346,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>Bilis</translation>
     </message>
     <message>
         <source>Influence</source>
@@ -18555,7 +18634,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Install AI engine first</source>
-        <translation type="unfinished"></translation>
+        <translation>I-install muna ang AI engine</translation>
     </message>
     <message>
         <source>Add click-to-pick cutout (about 190 MB)</source>
@@ -22299,7 +22378,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Could not save the voice</source>
-        <translation type="unfinished"></translation>
+        <translation>Hindi ma-save ang boses</translation>
     </message>
 </context>
 <context>
@@ -22580,7 +22659,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Install AI engine first</source>
-        <translation type="unfinished"></translation>
+        <translation>I-install muna ang AI engine</translation>
     </message>
     <message>
         <source>Get models (openmodeldb.info)</source>
@@ -23652,14 +23731,6 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Transcription (Scribe), voiceover, sound effects</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Voiceover</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>No key</source>
         <translation type="unfinished"></translation>
     </message>
@@ -23860,6 +23931,14 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Transcription (Scribe); voiceover and sound effects through AI agents</source>
+        <translation>Transcription (Scribe); voiceover at sound effects sa pamamagitan ng mga AI agent</translation>
+    </message>
+    <message>
+        <source>Voiceover through AI agents</source>
+        <translation>Voiceover sa pamamagitan ng mga AI agent</translation>
+    </message>
+    <message>
         <source>Needed before Flip Studio or a connected agent can transcribe or generate audio with this service</source>
         <translation type="unfinished"></translation>
     </message>
@@ -23912,7 +23991,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add to the timeline</source>
-        <translation type="unfinished"></translation>
+        <translation>Idagdag sa timeline</translation>
     </message>
 </context>
 <context>
@@ -25636,42 +25715,26 @@ If playback stutters, try another.</source>
     <name>SpeechTab</name>
     <message>
         <source>Voice saved</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Turn a script into speech with a built-in or cloned voice. It is generated on this device and added at the playhead.</source>
-        <translation type="unfinished"></translation>
+        <translation>Na-save ang boses</translation>
     </message>
     <message>
         <source>Speech generation runs on this device and needs the voice model.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tumatakbo sa device na ito ang paggawa ng boses at kailangan nito ang voice model.</translation>
     </message>
     <message>
         <source>Download voice model</source>
-        <translation type="unfinished"></translation>
+        <translation>I-download ang voice model</translation>
     </message>
     <message>
         <source>Install AI engine first</source>
-        <translation type="unfinished"></translation>
+        <translation>I-install muna ang AI engine</translation>
     </message>
     <message>
         <source>Needed to generate speech</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Type what the voice should say</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>%1 characters, about %2 s</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Speech longer than 30 seconds often ends in gibberish or silence. Split the script into shorter parts.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Voice</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -25724,11 +25787,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Learning the voice…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Language</source>
-        <translation type="unfinished"></translation>
+        <translation>Pinag-aaralan ang boses…</translation>
     </message>
     <message>
         <source>Expressiveness</source>
@@ -25740,10 +25799,6 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Generate speech</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Generate speech and add it at the playhead</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -25787,6 +25842,102 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Voice from your text</source>
+        <translation>Boses mula sa iyong teksto</translation>
+    </message>
+    <message>
+        <source>Editing the script of a voice on the timeline: the new take replaces its audio.</source>
+        <translation>Ine-edit ang script ng isang boses sa timeline: papalitan ng bagong take ang audio nito.</translation>
+    </message>
+    <message>
+        <source>Type or paste the script. [pause 1s] adds a silence.</source>
+        <translation>I-type o i-paste ang script. Nagdadagdag ng katahimikan ang [pause 1s].</translation>
+    </message>
+    <message>
+        <source>Import script…</source>
+        <translation>Mag-import ng script…</translation>
+    </message>
+    <message>
+        <source>A .txt, .md or Word (.docx) file</source>
+        <translation>Isang .txt, .md o Word (.docx) na file</translation>
+    </message>
+    <message>
+        <source>Import a script</source>
+        <translation>Mag-import ng script</translation>
+    </message>
+    <message>
+        <source>Scripts (*.txt *.md *.docx)</source>
+        <translation>Mga script (*.txt *.md *.docx)</translation>
+    </message>
+    <message>
+        <source>That file has no text that can be read</source>
+        <translation>Walang mababasang teksto ang file na iyon</translation>
+    </message>
+    <message>
+        <source>A dialogue: a voice for each person</source>
+        <translation>Isang dayalogo: isang boses para sa bawat tao</translation>
+    </message>
+    <message>
+        <source>Generate again</source>
+        <translation>Gumawa ulit</translation>
+    </message>
+    <message>
+        <source>Speak the script; you hear it before it goes on the timeline</source>
+        <translation>Ipabigkas ang script; maririnig mo ito bago ilagay sa timeline</translation>
+    </message>
+    <message>
+        <source>Listen to the whole take</source>
+        <translation>Pakinggan ang buong take</translation>
+    </message>
+    <message>
+        <source>Take: %1 s</source>
+        <translation>Take: %1 s</translation>
+    </message>
+    <message>
+        <source>Listen to this sentence</source>
+        <translation>Pakinggan ang pangungusap na ito</translation>
+    </message>
+    <message>
+        <source>Speak this sentence again</source>
+        <translation>Ipabigkas muli ang pangungusap na ito</translation>
+    </message>
+    <message>
+        <source>Also create its captions</source>
+        <translation>Gumawa rin ng captions nito</translation>
+    </message>
+    <message>
+        <source>Replace the voice on the timeline</source>
+        <translation>Palitan ang boses sa timeline</translation>
+    </message>
+    <message>
+        <source>Add to the timeline</source>
+        <translation>Idagdag sa timeline</translation>
+    </message>
+    <message>
+        <source>Discard</source>
+        <translation>Itapon</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation>Mga opsyon</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>Bilis</translation>
+    </message>
+    <message>
+        <source>%1×</source>
+        <translation>%1×</translation>
+    </message>
+    <message>
+        <source>Pitch</source>
+        <translation>Tono</translation>
+    </message>
+    <message>
+        <source>Stop preparing the voice</source>
+        <translation>Itigil ang paghahanda ng boses</translation>
+    </message>
+    <message>
         <source>Name</source>
         <translation type="unfinished"></translation>
     </message>
@@ -25807,8 +25958,8 @@ If playback stutters, try another.</source>
         <translation>%1 s</translation>
     </message>
     <message>
-        <source>Record 5 to 20 seconds in a quiet room. Read this aloud in your natural voice:</source>
-        <translation type="unfinished"></translation>
+        <source>Record 3 to 20 seconds in a quiet room (it stops by itself at 20). Read this aloud in your natural voice:</source>
+        <translation>Mag-record ng 3 hanggang 20 segundo sa tahimik na kuwarto (kusa itong titigil sa 20). Basahin ito nang malakas gamit ang natural mong boses:</translation>
     </message>
     <message>
         <source>The quick brown fox jumps over the lazy dog, while a gentle breeze moves through the quiet garden and the evening light fades slowly.</source>
@@ -25821,6 +25972,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Start recording</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>20 s: done, save the voice</source>
+        <translation>20 s: tapos na, i-save ang boses</translation>
     </message>
     <message>
         <source>I have the right to use this person&apos;s voice</source>
@@ -26060,7 +26215,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>Bilis</translation>
     </message>
     <message>
         <source>Faster makes it shorter, slower makes it longer</source>
@@ -27448,7 +27603,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Install AI engine first</source>
-        <translation type="unfinished"></translation>
+        <translation>I-install muna ang AI engine</translation>
     </message>
     <message>
         <source>Needed for auto captions from speech</source>
@@ -28782,6 +28937,14 @@ If playback stutters, try another.</source>
     <message>
         <source>These letters go back to the style of the whole text</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Read aloud…</source>
+        <translation>Basahin nang malakas…</translation>
+    </message>
+    <message>
+        <source>Turn this text into a voice that starts with it</source>
+        <translation>Gawing boses ang tekstong ito na nagsisimula kasabay nito</translation>
     </message>
     <message>
         <source>Bold</source>
@@ -32958,7 +33121,11 @@ If playback stutters, try another.</source>
     <name>TtsController</name>
     <message>
         <source>Loading voice model…</source>
-        <translation type="unfinished"></translation>
+        <translation>Nilo-load ang voice model…</translation>
+    </message>
+    <message>
+        <source>No speech was produced</source>
+        <translation>Walang nagawang boses</translation>
     </message>
     <message>
         <source>Install the voice model first</source>
@@ -32973,16 +33140,59 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Generating speech…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Cancelled</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Speaking sentence %1 of %2…</source>
+        <translation>Binibigkas ang pangungusap %1 ng %2…</translation>
+    </message>
+    <message>
+        <source>Sentence %1 could not be spoken: %2</source>
+        <translation>Hindi mabigkas ang pangungusap %1: %2</translation>
+    </message>
+    <message>
+        <source>Putting the take together…</source>
+        <translation>Pinagsasama ang take…</translation>
+    </message>
+    <message>
+        <source>Listen to it, then add it to the timeline</source>
+        <translation>Pakinggan ito, saka idagdag sa timeline</translation>
+    </message>
+    <message>
+        <source>Speaking sentence %1 again…</source>
+        <translation>Binibigkas muli ang pangungusap %1…</translation>
+    </message>
+    <message>
+        <source>Sentence %1 spoken again</source>
+        <translation>Nabigkas muli ang pangungusap %1</translation>
+    </message>
+    <message>
+        <source>Changing speed and pitch…</source>
+        <translation>Binabago ang bilis at tono…</translation>
+    </message>
+    <message>
+        <source>Could not replace the voice</source>
+        <translation>Hindi mapalitan ang boses</translation>
+    </message>
+    <message>
         <source>Speech added to the timeline</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Voice replaced on the timeline</source>
+        <translation>Napalitan ang boses sa timeline</translation>
+    </message>
+    <message numerus="yes">
+        <source>The music goes down under the voice (%n clip(s))</source>
+        <translation>
+            <numerusform>Humihina ang musika sa ilalim ng boses (%n clip)</numerusform>
+            <numerusform>Humihina ang musika sa ilalim ng boses (%n na clip)</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>There is no music under this voice</source>
+        <translation>Walang musika sa ilalim ng boses na ito</translation>
     </message>
     <message>
         <source>Select a subtitle clip first</source>
@@ -32991,6 +33201,10 @@ If playback stutters, try another.</source>
     <message>
         <source>This subtitle clip has no text to speak</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speaking line %1 of %2…</source>
+        <translation>Binibigkas ang linya %1 ng %2…</translation>
     </message>
     <message>
         <source>Generate voiceover</source>
@@ -33012,6 +33226,13 @@ If playback stutters, try another.</source>
         <translation type="unfinished">
             <numerusform></numerusform>
             <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>; %n could not be added</source>
+        <translation>
+            <numerusform>; hindi maidagdag ang %n</numerusform>
+            <numerusform>; hindi maidagdag ang %n</numerusform>
         </translation>
     </message>
 </context>
@@ -34279,6 +34500,18 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Reading the recording…</source>
+        <translation>Binabasa ang recording…</translation>
+    </message>
+    <message>
+        <source>Loading voice model…</source>
+        <translation>Nilo-load ang voice model…</translation>
+    </message>
+    <message>
+        <source>Learning the voice…</source>
+        <translation>Pinag-aaralan ang boses…</translation>
+    </message>
+    <message>
         <source>Could not prepare the voice</source>
         <translation type="unfinished"></translation>
     </message>
@@ -34293,6 +34526,18 @@ If playback stutters, try another.</source>
     <message>
         <source>The recording is too short: record at least %1 seconds</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unknown voice</source>
+        <translation>Hindi kilalang boses</translation>
+    </message>
+    <message>
+        <source>The reference recording for this voice is missing</source>
+        <translation>Nawawala ang reference recording ng boses na ito</translation>
+    </message>
+    <message>
+        <source>Could not read the reference recording</source>
+        <translation>Hindi mabasa ang reference recording</translation>
     </message>
 </context>
 <context>
@@ -34347,6 +34592,18 @@ If playback stutters, try another.</source>
     <message>
         <source>Generate voiceover</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speech generation runs on this device and needs the voice model.</source>
+        <translation>Tumatakbo sa device na ito ang paggawa ng boses at kailangan nito ang voice model.</translation>
+    </message>
+    <message>
+        <source>Download voice model</source>
+        <translation>I-download ang voice model</translation>
+    </message>
+    <message>
+        <source>Install AI engine first</source>
+        <translation>I-install muna ang AI engine</translation>
     </message>
     <message>
         <source>Voice</source>

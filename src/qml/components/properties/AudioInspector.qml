@@ -143,6 +143,67 @@ Item {
             }
         }
 
+        // ----- A voice the app spoke: its script, to change and speak again (0.30) -----
+        Column {
+            readonly property string script: {
+                void EditorState.tracksRevision
+                return root.hasSelection ? EditorState.tts.clipScript(EditorState.selectedTrack, EditorState.selectedClip) : ""
+            }
+            width: parent.width
+            spacing: Theme.spacingXs
+            visible: script.length > 0
+
+            Text {
+                width: parent.width
+                text: qsTr("Voice from text")
+                color: Theme.mutedForeground
+                font.family: Theme.fontFamily
+                font.pixelSize: Theme.fontSizeXs
+            }
+            Text {
+                width: parent.width
+                wrapMode: Text.WordWrap
+                maximumLineCount: 2
+                elide: Text.ElideRight
+                text: "“" + parent.script + "”"
+                color: Theme.panelForeground
+                opacity: 0.8
+                font.family: Theme.fontFamily
+                font.pixelSize: Theme.fontSizeXs
+            }
+            ThemedButton {
+                width: parent.width
+                text: qsTr("Edit script…")
+                glyph: Theme.icons.pencil
+                enabled: !EditorState.tts.running
+                tooltip: qsTr("Change the text or the voice and speak it again, in place of this audio")
+                onClicked: EditorState.tts.editClipScript(EditorState.selectedTrack, EditorState.selectedClip)
+            }
+            ThemedButton {
+                width: parent.width
+                text: qsTr("Lower the music under this voice")
+                glyph: Theme.icons.music
+                variant: "secondary"
+                onClicked: EditorState.tts.duckMusicUnder(EditorState.selectedTrack, EditorState.selectedClip)
+            }
+            ThemedButton {
+                width: parent.width
+                text: qsTr("Save the voice as a file…")
+                glyph: Theme.icons.download
+                variant: "ghost"
+                onClicked: {
+                    const url = FileDialogs.saveFile(qsTr("Save the voice"), [qsTr("FLAC audio (*.flac)")],
+                                                     qsTr("voice"), "flac")
+                    if (url == "")
+                        return
+                    if (EditorState.tts.saveClipVoice(EditorState.selectedTrack, EditorState.selectedClip, url))
+                        AppController.setLastMessage(qsTr("Voice saved"), "success")
+                    else
+                        AppController.setLastMessage(qsTr("Could not save the voice"), "error")
+                }
+            }
+        }
+
         // ----- Normalize loudness -----------------------------------------
         Column {
             width: parent.width

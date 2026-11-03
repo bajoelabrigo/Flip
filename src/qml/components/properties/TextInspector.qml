@@ -1421,6 +1421,18 @@ Item {
                 onClicked: voiceoverDialog.openFor(EditorState.selectedTrack, EditorState.selectedClip)
             }
 
+            // CapCut's «Text to speech» on a title (0.30): its words in the Voz tab, and the voice
+            // starts with the text when it is added.
+            ThemedButton {
+                visible: root.clipKind === "text" && root.hasTextStyle
+                width: parent.width
+                variant: "secondary"
+                glyph: Theme.icons.audioLines
+                text: qsTr("Read aloud…")
+                tooltip: qsTr("Turn this text into a voice that starts with it")
+                onClicked: EditorState.tts.speakTextClip(EditorState.selectedTrack, EditorState.selectedClip)
+            }
+
             // Font, size, weight, case, colour, spacing and alignment: CapCut's Básico head.
             Column {
                 width: parent.width

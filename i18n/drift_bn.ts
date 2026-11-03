@@ -142,8 +142,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Voices</source>
-        <translation type="unfinished"></translation>
+        <source>Voice changer</source>
+        <translation>ভয়েস চেঞ্জার</translation>
     </message>
     <message>
         <source>Retouch</source>
@@ -4481,7 +4481,7 @@
     </message>
     <message>
         <source>Voice changer</source>
-        <translation type="unfinished"></translation>
+        <translation>ভয়েস চেঞ্জার</translation>
     </message>
     <message>
         <source>Voice: %1</source>
@@ -5389,6 +5389,14 @@
     <message>
         <source>Ruler guides</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Replace voice</source>
+        <translation>ভয়েস বদলান</translation>
+    </message>
+    <message>
+        <source>Voice replaced</source>
+        <translation>ভয়েস বদলানো হয়েছে</translation>
     </message>
     <message>
         <source>Trim layer</source>
@@ -8027,7 +8035,7 @@
     </message>
     <message>
         <source>Voice changer</source>
-        <translation type="unfinished"></translation>
+        <translation>ভয়েস চেঞ্জার</translation>
     </message>
     <message>
         <source>Fade in</source>
@@ -8036,6 +8044,46 @@
     <message>
         <source>Fade out</source>
         <translation type="unfinished">ফেড আউট</translation>
+    </message>
+    <message>
+        <source>Voice from text</source>
+        <translation>টেক্সট থেকে ভয়েস</translation>
+    </message>
+    <message>
+        <source>Edit script…</source>
+        <translation>স্ক্রিপ্ট সম্পাদনা…</translation>
+    </message>
+    <message>
+        <source>Change the text or the voice and speak it again, in place of this audio</source>
+        <translation>টেক্সট বা ভয়েস বদলে আবার বলান, এই অডিওর জায়গায়</translation>
+    </message>
+    <message>
+        <source>Lower the music under this voice</source>
+        <translation>এই ভয়েসের নিচে মিউজিক কমান</translation>
+    </message>
+    <message>
+        <source>Save the voice as a file…</source>
+        <translation>ভয়েস ফাইল হিসেবে সংরক্ষণ…</translation>
+    </message>
+    <message>
+        <source>Save the voice</source>
+        <translation>ভয়েস সংরক্ষণ</translation>
+    </message>
+    <message>
+        <source>FLAC audio (*.flac)</source>
+        <translation>FLAC অডিও (*.flac)</translation>
+    </message>
+    <message>
+        <source>voice</source>
+        <translation>ভয়েস</translation>
+    </message>
+    <message>
+        <source>Voice saved</source>
+        <translation>ভয়েস সংরক্ষিত হয়েছে</translation>
+    </message>
+    <message>
+        <source>Could not save the voice</source>
+        <translation>ভয়েস সংরক্ষণ করা যায়নি</translation>
     </message>
     <message>
         <source>Normalize loudness</source>
@@ -13344,6 +13392,37 @@ NEXT TIME</source>
     </message>
 </context>
 <context>
+    <name>ChatterboxTts</name>
+    <message>
+        <source>The voice model is not installed. Install the AI voice extra in Extras.</source>
+        <translation>ভয়েস মডেল ইনস্টল করা নেই। এক্সট্রাস থেকে AI ভয়েস এক্সট্রা ইনস্টল করুন।</translation>
+    </message>
+    <message>
+        <source>Failed to load text-to-speech model: %1</source>
+        <translation>টেক্সট-টু-স্পিচ মডেল লোড করা যায়নি: %1</translation>
+    </message>
+    <message>
+        <source>Speech generation failed: %1</source>
+        <translation>স্পিচ তৈরি ব্যর্থ হয়েছে: %1</translation>
+    </message>
+    <message>
+        <source>The reference voice has no audio.</source>
+        <translation>রেফারেন্স ভয়েসে কোনো অডিও নেই।</translation>
+    </message>
+    <message>
+        <source>Voice encoding failed: %1</source>
+        <translation>ভয়েস এনকোডিং ব্যর্থ হয়েছে: %1</translation>
+    </message>
+    <message>
+        <source>Unsupported language: %1</source>
+        <translation>অসমর্থিত ভাষা: %1</translation>
+    </message>
+    <message>
+        <source>Invalid voice conditioning.</source>
+        <translation>অবৈধ ভয়েস কন্ডিশনিং।</translation>
+    </message>
+</context>
+<context>
     <name>ChipScroller</name>
     <message>
         <source>Previous</source>
@@ -17267,7 +17346,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>গতি</translation>
     </message>
     <message>
         <source>Influence</source>
@@ -22305,7 +22384,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Could not save the voice</source>
-        <translation type="unfinished"></translation>
+        <translation>ভয়েস সংরক্ষণ করা যায়নি</translation>
     </message>
 </context>
 <context>
@@ -23499,6 +23578,14 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Transcription (Scribe); voiceover and sound effects through AI agents</source>
+        <translation>ট্রান্সক্রিপশন (Scribe); AI এজেন্টের মাধ্যমে ভয়েসওভার ও সাউন্ড ইফেক্ট</translation>
+    </message>
+    <message>
+        <source>Voiceover through AI agents</source>
+        <translation>AI এজেন্টের মাধ্যমে ভয়েসওভার</translation>
+    </message>
+    <message>
         <source>Needed before Flip Studio or a connected agent can transcribe or generate audio with this service</source>
         <translation type="unfinished"></translation>
     </message>
@@ -23817,14 +23904,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Cloud providers</source>
         <translation type="unfinished">ক্লাউড প্রদানকারী</translation>
-    </message>
-    <message>
-        <source>Transcription (Scribe), voiceover, sound effects</source>
-        <translation type="unfinished">ট্রান্সক্রিপশন (স্ক্রাইব), ভয়েসওভার, সাউন্ড এফেক্ট</translation>
-    </message>
-    <message>
-        <source>Voiceover</source>
-        <translation type="unfinished">ভয়েসওভার</translation>
     </message>
     <message>
         <source>No key</source>
@@ -25643,19 +25722,15 @@ If playback stutters, try another.</source>
     <name>SpeechTab</name>
     <message>
         <source>Voice saved</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Turn a script into speech with a built-in or cloned voice. It is generated on this device and added at the playhead.</source>
-        <translation type="unfinished"></translation>
+        <translation>ভয়েস সংরক্ষিত হয়েছে</translation>
     </message>
     <message>
         <source>Speech generation runs on this device and needs the voice model.</source>
-        <translation type="unfinished"></translation>
+        <translation>স্পিচ তৈরি এই ডিভাইসেই চলে এবং এর জন্য ভয়েস মডেল দরকার।</translation>
     </message>
     <message>
         <source>Download voice model</source>
-        <translation type="unfinished"></translation>
+        <translation>ভয়েস মডেল ডাউনলোড করুন</translation>
     </message>
     <message>
         <source>Install AI engine first</source>
@@ -25666,20 +25741,8 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Type what the voice should say</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>%1 characters, about %2 s</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Speech longer than 30 seconds often ends in gibberish or silence. Split the script into shorter parts.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Voice</source>
-        <translation type="unfinished">ভয়েস</translation>
     </message>
     <message>
         <source>Stop</source>
@@ -25731,11 +25794,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Learning the voice…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Language</source>
-        <translation type="unfinished">ভাষা</translation>
+        <translation>ভয়েস শেখা হচ্ছে…</translation>
     </message>
     <message>
         <source>Expressiveness</source>
@@ -25747,10 +25806,6 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Generate speech</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Generate speech and add it at the playhead</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -25794,6 +25849,102 @@ If playback stutters, try another.</source>
         <translation type="unfinished">সব ফাইল (*)</translation>
     </message>
     <message>
+        <source>Voice from your text</source>
+        <translation>আপনার টেক্সট থেকে ভয়েস</translation>
+    </message>
+    <message>
+        <source>Editing the script of a voice on the timeline: the new take replaces its audio.</source>
+        <translation>টাইমলাইনের একটি ভয়েসের স্ক্রিপ্ট সম্পাদনা: নতুন টেক তার অডিও বদলে দেবে।</translation>
+    </message>
+    <message>
+        <source>Type or paste the script. [pause 1s] adds a silence.</source>
+        <translation>স্ক্রিপ্ট লিখুন বা পেস্ট করুন। [pause 1s] একটি নীরবতা যোগ করে।</translation>
+    </message>
+    <message>
+        <source>Import script…</source>
+        <translation>স্ক্রিপ্ট ইমপোর্ট…</translation>
+    </message>
+    <message>
+        <source>A .txt, .md or Word (.docx) file</source>
+        <translation>একটি .txt, .md বা Word (.docx) ফাইল</translation>
+    </message>
+    <message>
+        <source>Import a script</source>
+        <translation>একটি স্ক্রিপ্ট ইমপোর্ট করুন</translation>
+    </message>
+    <message>
+        <source>Scripts (*.txt *.md *.docx)</source>
+        <translation>স্ক্রিপ্ট (*.txt *.md *.docx)</translation>
+    </message>
+    <message>
+        <source>That file has no text that can be read</source>
+        <translation>এই ফাইলে পড়ার মতো কোনো টেক্সট নেই</translation>
+    </message>
+    <message>
+        <source>A dialogue: a voice for each person</source>
+        <translation>একটি সংলাপ: প্রত্যেক ব্যক্তির জন্য একটি ভয়েস</translation>
+    </message>
+    <message>
+        <source>Generate again</source>
+        <translation>আবার তৈরি করুন</translation>
+    </message>
+    <message>
+        <source>Speak the script; you hear it before it goes on the timeline</source>
+        <translation>স্ক্রিপ্টটি বলান; টাইমলাইনে যাওয়ার আগে আপনি শুনবেন</translation>
+    </message>
+    <message>
+        <source>Listen to the whole take</source>
+        <translation>পুরো টেক শুনুন</translation>
+    </message>
+    <message>
+        <source>Take: %1 s</source>
+        <translation>টেক: %1 সে</translation>
+    </message>
+    <message>
+        <source>Listen to this sentence</source>
+        <translation>এই বাক্যটি শুনুন</translation>
+    </message>
+    <message>
+        <source>Speak this sentence again</source>
+        <translation>এই বাক্যটি আবার বলান</translation>
+    </message>
+    <message>
+        <source>Also create its captions</source>
+        <translation>এর ক্যাপশনও তৈরি করুন</translation>
+    </message>
+    <message>
+        <source>Replace the voice on the timeline</source>
+        <translation>টাইমলাইনে ভয়েস বদলান</translation>
+    </message>
+    <message>
+        <source>Add to the timeline</source>
+        <translation>টাইমলাইনে যোগ করুন</translation>
+    </message>
+    <message>
+        <source>Discard</source>
+        <translation>বাতিল</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation>বিকল্প</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>গতি</translation>
+    </message>
+    <message>
+        <source>%1×</source>
+        <translation>%1×</translation>
+    </message>
+    <message>
+        <source>Pitch</source>
+        <translation>পিচ</translation>
+    </message>
+    <message>
+        <source>Stop preparing the voice</source>
+        <translation>ভয়েস প্রস্তুত করা বন্ধ করুন</translation>
+    </message>
+    <message>
         <source>Name</source>
         <translation type="unfinished">নাম</translation>
     </message>
@@ -25814,8 +25965,8 @@ If playback stutters, try another.</source>
         <translation type="unfinished">%1 সেকেন্ড</translation>
     </message>
     <message>
-        <source>Record 5 to 20 seconds in a quiet room. Read this aloud in your natural voice:</source>
-        <translation type="unfinished"></translation>
+        <source>Record 3 to 20 seconds in a quiet room (it stops by itself at 20). Read this aloud in your natural voice:</source>
+        <translation>একটি শান্ত ঘরে ৩ থেকে ২০ সেকেন্ড রেকর্ড করুন (২০-এ নিজেই থেমে যাবে)। আপনার স্বাভাবিক কণ্ঠে এটি জোরে পড়ুন:</translation>
     </message>
     <message>
         <source>The quick brown fox jumps over the lazy dog, while a gentle breeze moves through the quiet garden and the evening light fades slowly.</source>
@@ -25828,6 +25979,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Start recording</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>20 s: done, save the voice</source>
+        <translation>২০ সে: হয়ে গেছে, ভয়েস সংরক্ষণ করুন</translation>
     </message>
     <message>
         <source>I have the right to use this person&apos;s voice</source>
@@ -26067,7 +26222,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>গতি</translation>
     </message>
     <message>
         <source>Faster makes it shorter, slower makes it longer</source>
@@ -28826,6 +28981,14 @@ If playback stutters, try another.</source>
     <message>
         <source>These letters go back to the style of the whole text</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Read aloud…</source>
+        <translation>জোরে পড়ুন…</translation>
+    </message>
+    <message>
+        <source>Turn this text into a voice that starts with it</source>
+        <translation>এই টেক্সটকে এমন ভয়েসে বদলান যা এর সাথে শুরু হয়</translation>
     </message>
     <message>
         <source>Bold</source>
@@ -32966,7 +33129,11 @@ If playback stutters, try another.</source>
     <name>TtsController</name>
     <message>
         <source>Loading voice model…</source>
-        <translation type="unfinished"></translation>
+        <translation>ভয়েস মডেল লোড হচ্ছে…</translation>
+    </message>
+    <message>
+        <source>No speech was produced</source>
+        <translation>কোনো স্পিচ তৈরি হয়নি</translation>
     </message>
     <message>
         <source>Install the voice model first</source>
@@ -32981,16 +33148,59 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Generating speech…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Cancelled</source>
         <translation type="unfinished">বাতিল করা হয়েছে</translation>
     </message>
     <message>
+        <source>Speaking sentence %1 of %2…</source>
+        <translation>বাক্য %1/%2 বলা হচ্ছে…</translation>
+    </message>
+    <message>
+        <source>Sentence %1 could not be spoken: %2</source>
+        <translation>বাক্য %1 বলা যায়নি: %2</translation>
+    </message>
+    <message>
+        <source>Putting the take together…</source>
+        <translation>টেক জোড়া লাগানো হচ্ছে…</translation>
+    </message>
+    <message>
+        <source>Listen to it, then add it to the timeline</source>
+        <translation>শুনুন, তারপর টাইমলাইনে যোগ করুন</translation>
+    </message>
+    <message>
+        <source>Speaking sentence %1 again…</source>
+        <translation>বাক্য %1 আবার বলা হচ্ছে…</translation>
+    </message>
+    <message>
+        <source>Sentence %1 spoken again</source>
+        <translation>বাক্য %1 আবার বলা হয়েছে</translation>
+    </message>
+    <message>
+        <source>Changing speed and pitch…</source>
+        <translation>গতি ও পিচ বদলানো হচ্ছে…</translation>
+    </message>
+    <message>
+        <source>Could not replace the voice</source>
+        <translation>ভয়েস বদলানো যায়নি</translation>
+    </message>
+    <message>
         <source>Speech added to the timeline</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Voice replaced on the timeline</source>
+        <translation>টাইমলাইনে ভয়েস বদলানো হয়েছে</translation>
+    </message>
+    <message numerus="yes">
+        <source>The music goes down under the voice (%n clip(s))</source>
+        <translation>
+            <numerusform>ভয়েসের নিচে মিউজিক কমে যায় (%n ক্লিপ)</numerusform>
+            <numerusform>ভয়েসের নিচে মিউজিক কমে যায় (%n ক্লিপ)</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>There is no music under this voice</source>
+        <translation>এই ভয়েসের নিচে কোনো মিউজিক নেই</translation>
     </message>
     <message>
         <source>Select a subtitle clip first</source>
@@ -32999,6 +33209,10 @@ If playback stutters, try another.</source>
     <message>
         <source>This subtitle clip has no text to speak</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speaking line %1 of %2…</source>
+        <translation>লাইন %1/%2 বলা হচ্ছে…</translation>
     </message>
     <message>
         <source>Generate voiceover</source>
@@ -33020,6 +33234,13 @@ If playback stutters, try another.</source>
         <translation type="unfinished">
             <numerusform></numerusform>
             <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>; %n could not be added</source>
+        <translation>
+            <numerusform>; %n যোগ করা যায়নি</numerusform>
+            <numerusform>; %n যোগ করা যায়নি</numerusform>
         </translation>
     </message>
 </context>
@@ -34287,6 +34508,18 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Reading the recording…</source>
+        <translation>রেকর্ডিং পড়া হচ্ছে…</translation>
+    </message>
+    <message>
+        <source>Loading voice model…</source>
+        <translation>ভয়েস মডেল লোড হচ্ছে…</translation>
+    </message>
+    <message>
+        <source>Learning the voice…</source>
+        <translation>ভয়েস শেখা হচ্ছে…</translation>
+    </message>
+    <message>
         <source>Could not prepare the voice</source>
         <translation type="unfinished"></translation>
     </message>
@@ -34301,6 +34534,18 @@ If playback stutters, try another.</source>
     <message>
         <source>The recording is too short: record at least %1 seconds</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unknown voice</source>
+        <translation>অজানা ভয়েস</translation>
+    </message>
+    <message>
+        <source>The reference recording for this voice is missing</source>
+        <translation>এই ভয়েসের রেফারেন্স রেকর্ডিং পাওয়া যাচ্ছে না</translation>
+    </message>
+    <message>
+        <source>Could not read the reference recording</source>
+        <translation>রেফারেন্স রেকর্ডিং পড়া যায়নি</translation>
     </message>
 </context>
 <context>
@@ -34355,6 +34600,18 @@ If playback stutters, try another.</source>
     <message>
         <source>Generate voiceover</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speech generation runs on this device and needs the voice model.</source>
+        <translation>স্পিচ তৈরি এই ডিভাইসেই চলে এবং এর জন্য ভয়েস মডেল দরকার।</translation>
+    </message>
+    <message>
+        <source>Download voice model</source>
+        <translation>ভয়েস মডেল ডাউনলোড করুন</translation>
+    </message>
+    <message>
+        <source>Install AI engine first</source>
+        <translation>আগে AI ইঞ্জিন ইনস্টল করুন</translation>
     </message>
     <message>
         <source>Voice</source>

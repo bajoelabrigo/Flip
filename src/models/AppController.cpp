@@ -7631,6 +7631,23 @@ AppController::GeneratedAudioImport AppController::importGeneratedAudio(
     return result;
 }
 
+bool AppController::swapClipAudio(const QString &clipId, const QString &assetId)
+{
+    const QPair<int, int> loc = m_mcpController->locateClip(clipId);
+    const drift::MediaAsset *asset = m_project.asset(assetId);
+    if (loc.first < 0 || !asset || asset->durationUs <= 0)
+        return false;
+    const drift::Project before = m_project;
+    drift::Clip &clip = m_project.tracks()[loc.first].clips[loc.second];
+    clip.assetId = assetId;
+    clip.srcIn = 0;
+    clip.srcOut = asset->durationUs;
+    clip.timelineDuration = drift::TimeUs(double(asset->durationUs) / qMax(0.01, clip.speed));
+    pushProjectEdit(before, tr("Replace voice"));
+    finishEdit(tr("Voice replaced"));
+    return true;
+}
+
 int AppController::placeGeneratedAudioOnNewTracks(const QList<GeneratedAudioPlacement> &items,
                                                   const QString &undoText)
 {

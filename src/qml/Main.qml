@@ -1176,6 +1176,11 @@ ApplicationWindow {
     function showAssetsTab(tabId) {
         assetsPanel.showTab(tabId)
     }
+    // «Edit script…» on a voice the app spoke: the Voz tab, with its script (0.30).
+    Connections {
+        target: EditorState.tts
+        function onEditRequested(settings) { assetsPanel.showTab("speech") }
+    }
 
     // File › Import Media… in the menu bar: the Media tab, then the file picker.
     function importMediaFiles() {

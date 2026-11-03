@@ -142,7 +142,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Voices</source>
+        <source>Voice changer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5291,6 +5291,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Replace voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Voice replaced</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Trim layer</source>
         <translation type="unfinished"></translation>
     </message>
@@ -8035,6 +8043,46 @@
     </message>
     <message>
         <source>Fade out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Voice from text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit script…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change the text or the voice and speak it again, in place of this audio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lower the music under this voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save the voice as a file…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save the voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>FLAC audio (*.flac)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Voice saved</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not save the voice</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -13340,6 +13388,37 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Add %1 keyframe at the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ChatterboxTts</name>
+    <message>
+        <source>The voice model is not installed. Install the AI voice extra in Extras.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to load text-to-speech model: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speech generation failed: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The reference voice has no audio.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Voice encoding failed: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unsupported language: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Invalid voice conditioning.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -23652,14 +23731,6 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Transcription (Scribe), voiceover, sound effects</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Voiceover</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>No key</source>
         <translation type="unfinished"></translation>
     </message>
@@ -23857,6 +23928,14 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Keys are stored unencrypted in Flip Studio&apos;s settings. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Transcription (Scribe); voiceover and sound effects through AI agents</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Voiceover through AI agents</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -25639,10 +25718,6 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Turn a script into speech with a built-in or cloned voice. It is generated on this device and added at the playhead.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Speech generation runs on this device and needs the voice model.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -25659,19 +25734,7 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Type what the voice should say</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>%1 characters, about %2 s</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Speech longer than 30 seconds often ends in gibberish or silence. Split the script into shorter parts.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Voice</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -25727,10 +25790,6 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Language</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Expressiveness</source>
         <translation type="unfinished"></translation>
     </message>
@@ -25740,10 +25799,6 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Generate speech</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Generate speech and add it at the playhead</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -25787,6 +25842,102 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Voice from your text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Editing the script of a voice on the timeline: the new take replaces its audio.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Type or paste the script. [pause 1s] adds a silence.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import script…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A .txt, .md or Word (.docx) file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import a script</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scripts (*.txt *.md *.docx)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>That file has no text that can be read</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A dialogue: a voice for each person</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Generate again</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speak the script; you hear it before it goes on the timeline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Listen to the whole take</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Take: %1 s</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Listen to this sentence</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speak this sentence again</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Also create its captions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Replace the voice on the timeline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add to the timeline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Discard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1×</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pitch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stop preparing the voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Name</source>
         <translation type="unfinished"></translation>
     </message>
@@ -25807,7 +25958,7 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Record 5 to 20 seconds in a quiet room. Read this aloud in your natural voice:</source>
+        <source>Record 3 to 20 seconds in a quiet room (it stops by itself at 20). Read this aloud in your natural voice:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -25820,6 +25971,10 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Start recording</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>20 s: done, save the voice</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -28781,6 +28936,14 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>These letters go back to the style of the whole text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Read aloud…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Turn this text into a voice that starts with it</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -32961,6 +33124,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>No speech was produced</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Install the voice model first</source>
         <translation type="unfinished"></translation>
     </message>
@@ -32973,15 +33140,58 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Generating speech…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Cancelled</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Speaking sentence %1 of %2…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sentence %1 could not be spoken: %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Putting the take together…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Listen to it, then add it to the timeline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speaking sentence %1 again…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sentence %1 spoken again</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Changing speed and pitch…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not replace the voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Speech added to the timeline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Voice replaced on the timeline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>The music goes down under the voice (%n clip(s))</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>There is no music under this voice</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -32990,6 +33200,10 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>This subtitle clip has no text to speak</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speaking line %1 of %2…</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -33009,6 +33223,13 @@ If playback stutters, try another.</source>
     </message>
     <message numerus="yes">
         <source>; %n ran longer than their captions</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>; %n could not be added</source>
         <translation type="unfinished">
             <numerusform></numerusform>
             <numerusform></numerusform>
@@ -34279,6 +34500,18 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Reading the recording…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Loading voice model…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Learning the voice…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Could not prepare the voice</source>
         <translation type="unfinished"></translation>
     </message>
@@ -34292,6 +34525,18 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>The recording is too short: record at least %1 seconds</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unknown voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The reference recording for this voice is missing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not read the reference recording</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -34346,6 +34591,18 @@ If playback stutters, try another.</source>
     <name>VoiceoverDialog</name>
     <message>
         <source>Generate voiceover</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speech generation runs on this device and needs the voice model.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Download voice model</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install AI engine first</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

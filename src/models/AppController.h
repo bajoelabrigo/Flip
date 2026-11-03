@@ -550,6 +550,9 @@ public:
     // how many clips were placed.
     int placeGeneratedAudioOnNewTracks(const QList<GeneratedAudioPlacement> &items,
                                        const QString &undoText);
+    // The clip plays another asset from its start, as long as that one lasts (the voice's script
+    // edited and spoken again, 0.30): same place, track, volume and effects; one undo step.
+    bool swapClipAudio(const QString &clipId, const QString &assetId);
 
     void setAddonManager(AddonManager *manager);
     // Also hears Stock's templates: installed ones reload the Templates tab, "Use" places them.

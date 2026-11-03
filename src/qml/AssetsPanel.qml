@@ -766,8 +766,10 @@ PanelFrame {
     readonly property var categories: [
         { id: "media", label: qsTr("Media"), icon: Theme.icons.film, tabs: ["media", "scenes"] },
         { id: "market", label: qsTr("Stock"), icon: Theme.icons.store, tabs: ["market"] },
-        { id: "audio", label: qsTr("Audio"), icon: Theme.icons.music, tabs: ["music", "sfx", "speech", "sounds"] },
-        { id: "titles", label: qsTr("Titles"), icon: Theme.icons.type, tabs: ["text", "subtitles"] },
+        // Text to speech and Subtitles are two sides of one job (Jorge, 0.30): each also shows in the
+        // other's category, as well as in its own.
+        { id: "audio", label: qsTr("Audio"), icon: Theme.icons.music, tabs: ["music", "sfx", "speech", "subtitles", "sounds"] },
+        { id: "titles", label: qsTr("Titles"), icon: Theme.icons.type, tabs: ["text", "subtitles", "speech"] },
         { id: "transitions", label: qsTr("Transitions"), icon: Theme.icons.chevronsRight, tabs: ["transitions"] },
         { id: "effects", label: qsTr("Effects"), icon: Theme.icons.wand, tabs: ["effects"] },
         { id: "filters", label: qsTr("Filters"), icon: Theme.icons.blend, tabs: ["filters", "colorfx"] },
@@ -886,7 +888,12 @@ PanelFrame {
         return null
     }
 
-    readonly property var currentCategory: categoryOfTab(currentTabId)
+    // A tab in two categories (Subtitles, Speech) keeps the one it was opened from.
+    property string stickyCategoryId: ""
+    readonly property var currentCategory: {
+        const sticky = root.categories.find(c => c.id === root.stickyCategoryId)
+        return sticky && sticky.tabs.indexOf(currentTabId) >= 0 ? sticky : categoryOfTab(currentTabId)
+    }
     readonly property var sideTabs: currentCategory ? currentCategory.tabs : [currentTabId]
     // El árbol se ve siempre que no sea el panel en hoja (celular/Android): hasta una categoría de
     // una sola pestaña enseña sus subcategorías, como Filmora.
@@ -903,6 +910,7 @@ PanelFrame {
         if (!category)
             return
         const last = root.lastTabInCategory[categoryId]
+        root.stickyCategoryId = categoryId
         root.showTab(last && category.tabs.indexOf(last) >= 0 ? last : category.tabs[0])
     }
 

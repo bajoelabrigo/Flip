@@ -142,8 +142,8 @@
         <translation>자막 스타일</translation>
     </message>
     <message>
-        <source>Voices</source>
-        <translation>음성</translation>
+        <source>Voice changer</source>
+        <translation>음성 변조</translation>
     </message>
     <message>
         <source>Retouch</source>
@@ -5274,6 +5274,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Replace voice</source>
+        <translation>음성 바꾸기</translation>
+    </message>
+    <message>
+        <source>Voice replaced</source>
+        <translation>음성을 바꿨습니다</translation>
+    </message>
+    <message>
         <source>Trim layer</source>
         <translation>레이어 자르기</translation>
     </message>
@@ -7986,6 +7994,46 @@
     <message>
         <source>Fade out</source>
         <translation>페이드 아웃</translation>
+    </message>
+    <message>
+        <source>Voice from text</source>
+        <translation>텍스트로 음성 만들기</translation>
+    </message>
+    <message>
+        <source>Edit script…</source>
+        <translation>대본 편집…</translation>
+    </message>
+    <message>
+        <source>Change the text or the voice and speak it again, in place of this audio</source>
+        <translation>텍스트나 음성을 바꿔 이 오디오 대신 다시 읽게 합니다</translation>
+    </message>
+    <message>
+        <source>Lower the music under this voice</source>
+        <translation>이 음성 아래 음악 줄이기</translation>
+    </message>
+    <message>
+        <source>Save the voice as a file…</source>
+        <translation>음성을 파일로 저장…</translation>
+    </message>
+    <message>
+        <source>Save the voice</source>
+        <translation>음성 저장</translation>
+    </message>
+    <message>
+        <source>FLAC audio (*.flac)</source>
+        <translation>FLAC 오디오 (*.flac)</translation>
+    </message>
+    <message>
+        <source>voice</source>
+        <translation>음성</translation>
+    </message>
+    <message>
+        <source>Voice saved</source>
+        <translation>음성을 저장했습니다</translation>
+    </message>
+    <message>
+        <source>Could not save the voice</source>
+        <translation>음성을 저장할 수 없습니다</translation>
     </message>
     <message>
         <source>Normalize loudness</source>
@@ -13298,6 +13346,37 @@ NEXT TIME</source>
     </message>
 </context>
 <context>
+    <name>ChatterboxTts</name>
+    <message>
+        <source>The voice model is not installed. Install the AI voice extra in Extras.</source>
+        <translation>음성 모델이 설치되어 있지 않습니다. 추가 기능에서 AI 음성을 설치하세요.</translation>
+    </message>
+    <message>
+        <source>Failed to load text-to-speech model: %1</source>
+        <translation>텍스트 음성 변환 모델을 불러오지 못했습니다: %1</translation>
+    </message>
+    <message>
+        <source>Speech generation failed: %1</source>
+        <translation>음성 생성 실패: %1</translation>
+    </message>
+    <message>
+        <source>The reference voice has no audio.</source>
+        <translation>참조 음성에 오디오가 없습니다.</translation>
+    </message>
+    <message>
+        <source>Voice encoding failed: %1</source>
+        <translation>음성 인코딩 실패: %1</translation>
+    </message>
+    <message>
+        <source>Unsupported language: %1</source>
+        <translation>지원하지 않는 언어: %1</translation>
+    </message>
+    <message>
+        <source>Invalid voice conditioning.</source>
+        <translation>잘못된 음성 조건입니다.</translation>
+    </message>
+</context>
+<context>
     <name>ChipScroller</name>
     <message>
         <source>Previous</source>
@@ -17208,7 +17287,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>속도</translation>
     </message>
     <message>
         <source>Influence</source>
@@ -23572,14 +23651,6 @@ If playback stutters, try another.</source>
         <translation>클라우드 제공업체</translation>
     </message>
     <message>
-        <source>Transcription (Scribe), voiceover, sound effects</source>
-        <translation>전사(Scribe), 보이스오버, 효과음</translation>
-    </message>
-    <message>
-        <source>Voiceover</source>
-        <translation>보이스오버</translation>
-    </message>
-    <message>
         <source>No key</source>
         <translation>키 없음</translation>
     </message>
@@ -23778,6 +23849,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Keys are stored unencrypted in Flip Studio&apos;s settings. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
         <translation>키는 Flip Studio 설정에 암호화되지 않은 상태로 저장됩니다. 환경 변수의 ELEVENLABS_API_KEY 및 FISH_API_KEY가 우선 적용됩니다. 사용 요금은 본인 계정에 청구됩니다.</translation>
+    </message>
+    <message>
+        <source>Transcription (Scribe); voiceover and sound effects through AI agents</source>
+        <translation>전사 (Scribe); AI 에이전트를 통한 내레이션과 효과음</translation>
+    </message>
+    <message>
+        <source>Voiceover through AI agents</source>
+        <translation>AI 에이전트를 통한 내레이션</translation>
     </message>
     <message>
         <source>Needed before Flip Studio or a connected agent can transcribe or generate audio with this service</source>
@@ -25559,10 +25638,6 @@ If playback stutters, try another.</source>
         <translation>음성 저장됨</translation>
     </message>
     <message>
-        <source>Turn a script into speech with a built-in or cloned voice. It is generated on this device and added at the playhead.</source>
-        <translation>기본 제공 음성이나 복제한 음성으로 대본을 음성으로 바꿉니다. 이 기기에서 생성되어 재생 헤드 위치에 추가됩니다.</translation>
-    </message>
-    <message>
         <source>Speech generation runs on this device and needs the voice model.</source>
         <translation>음성 생성은 이 기기에서 실행되며 음성 모델이 필요합니다.</translation>
     </message>
@@ -25579,20 +25654,8 @@ If playback stutters, try another.</source>
         <translation>음성 생성에 필요</translation>
     </message>
     <message>
-        <source>Type what the voice should say</source>
-        <translation>음성이 말할 내용을 입력하세요</translation>
-    </message>
-    <message>
         <source>%1 characters, about %2 s</source>
         <translation>%1자, 약 %2초</translation>
-    </message>
-    <message>
-        <source>Speech longer than 30 seconds often ends in gibberish or silence. Split the script into shorter parts.</source>
-        <translation>30초가 넘는 음성은 알아들을 수 없는 소리나 무음으로 끝나는 경우가 많습니다. 대본을 더 짧게 나누세요.</translation>
-    </message>
-    <message>
-        <source>Voice</source>
-        <translation>음성</translation>
     </message>
     <message>
         <source>Stop</source>
@@ -25647,10 +25710,6 @@ If playback stutters, try another.</source>
         <translation>음성 학습 중…</translation>
     </message>
     <message>
-        <source>Language</source>
-        <translation>언어</translation>
-    </message>
-    <message>
         <source>Expressiveness</source>
         <translation>표현력</translation>
     </message>
@@ -25661,10 +25720,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Generate speech</source>
         <translation>음성 생성</translation>
-    </message>
-    <message>
-        <source>Generate speech and add it at the playhead</source>
-        <translation>음성을 생성해 재생 헤드 위치에 추가</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -25707,6 +25762,102 @@ If playback stutters, try another.</source>
         <translation>모든 파일(*)</translation>
     </message>
     <message>
+        <source>Voice from your text</source>
+        <translation>내 텍스트로 음성 만들기</translation>
+    </message>
+    <message>
+        <source>Editing the script of a voice on the timeline: the new take replaces its audio.</source>
+        <translation>타임라인에 있는 음성의 대본 편집 중: 새 테이크가 그 오디오를 대체합니다.</translation>
+    </message>
+    <message>
+        <source>Type or paste the script. [pause 1s] adds a silence.</source>
+        <translation>대본을 입력하거나 붙여 넣으세요. [pause 1s]는 무음을 넣습니다.</translation>
+    </message>
+    <message>
+        <source>Import script…</source>
+        <translation>대본 가져오기…</translation>
+    </message>
+    <message>
+        <source>A .txt, .md or Word (.docx) file</source>
+        <translation>.txt, .md 또는 Word (.docx) 파일</translation>
+    </message>
+    <message>
+        <source>Import a script</source>
+        <translation>대본 가져오기</translation>
+    </message>
+    <message>
+        <source>Scripts (*.txt *.md *.docx)</source>
+        <translation>대본 (*.txt *.md *.docx)</translation>
+    </message>
+    <message>
+        <source>That file has no text that can be read</source>
+        <translation>이 파일에는 읽을 수 있는 텍스트가 없습니다</translation>
+    </message>
+    <message>
+        <source>A dialogue: a voice for each person</source>
+        <translation>대화: 사람마다 다른 음성</translation>
+    </message>
+    <message>
+        <source>Generate again</source>
+        <translation>다시 생성</translation>
+    </message>
+    <message>
+        <source>Speak the script; you hear it before it goes on the timeline</source>
+        <translation>대본을 읽어 줍니다. 타임라인에 넣기 전에 들어 볼 수 있습니다</translation>
+    </message>
+    <message>
+        <source>Listen to the whole take</source>
+        <translation>테이크 전체 듣기</translation>
+    </message>
+    <message>
+        <source>Take: %1 s</source>
+        <translation>테이크: %1초</translation>
+    </message>
+    <message>
+        <source>Listen to this sentence</source>
+        <translation>이 문장 듣기</translation>
+    </message>
+    <message>
+        <source>Speak this sentence again</source>
+        <translation>이 문장 다시 읽기</translation>
+    </message>
+    <message>
+        <source>Also create its captions</source>
+        <translation>자막도 만들기</translation>
+    </message>
+    <message>
+        <source>Replace the voice on the timeline</source>
+        <translation>타임라인의 음성 바꾸기</translation>
+    </message>
+    <message>
+        <source>Add to the timeline</source>
+        <translation>타임라인에 추가</translation>
+    </message>
+    <message>
+        <source>Discard</source>
+        <translation>버리기</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation>옵션</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>속도</translation>
+    </message>
+    <message>
+        <source>%1×</source>
+        <translation>%1×</translation>
+    </message>
+    <message>
+        <source>Pitch</source>
+        <translation>피치</translation>
+    </message>
+    <message>
+        <source>Stop preparing the voice</source>
+        <translation>음성 준비 중지</translation>
+    </message>
+    <message>
         <source>Name</source>
         <translation>이름</translation>
     </message>
@@ -25727,8 +25878,8 @@ If playback stutters, try another.</source>
         <translation>%1초</translation>
     </message>
     <message>
-        <source>Record 5 to 20 seconds in a quiet room. Read this aloud in your natural voice:</source>
-        <translation>조용한 곳에서 5~20초 동안 녹음하세요. 평소 목소리로 다음 문장을 소리 내어 읽으세요:</translation>
+        <source>Record 3 to 20 seconds in a quiet room (it stops by itself at 20). Read this aloud in your natural voice:</source>
+        <translation>조용한 방에서 3~20초 녹음하세요 (20초에 자동으로 멈춥니다). 평소 목소리로 이것을 소리 내어 읽으세요:</translation>
     </message>
     <message>
         <source>The quick brown fox jumps over the lazy dog, while a gentle breeze moves through the quiet garden and the evening light fades slowly.</source>
@@ -25741,6 +25892,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Start recording</source>
         <translation>녹음 시작</translation>
+    </message>
+    <message>
+        <source>20 s: done, save the voice</source>
+        <translation>20초: 완료, 음성 저장</translation>
     </message>
     <message>
         <source>I have the right to use this person&apos;s voice</source>
@@ -25980,7 +26135,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>속도</translation>
     </message>
     <message>
         <source>Faster makes it shorter, slower makes it longer</source>
@@ -28696,6 +28851,14 @@ If playback stutters, try another.</source>
     <message>
         <source>These letters go back to the style of the whole text</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Read aloud…</source>
+        <translation>소리 내어 읽기…</translation>
+    </message>
+    <message>
+        <source>Turn this text into a voice that starts with it</source>
+        <translation>이 텍스트를 함께 시작하는 음성으로 바꾸기</translation>
     </message>
     <message>
         <source>Bold</source>
@@ -32863,7 +33026,11 @@ If playback stutters, try another.</source>
     <name>TtsController</name>
     <message>
         <source>Loading voice model…</source>
-        <translation type="unfinished"></translation>
+        <translation>음성 모델 불러오는 중…</translation>
+    </message>
+    <message>
+        <source>No speech was produced</source>
+        <translation>생성된 음성이 없습니다</translation>
     </message>
     <message>
         <source>Install the voice model first</source>
@@ -32878,16 +33045,58 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Generating speech…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Cancelled</source>
         <translation>취소됨</translation>
     </message>
     <message>
+        <source>Speaking sentence %1 of %2…</source>
+        <translation>문장 %1/%2 읽는 중…</translation>
+    </message>
+    <message>
+        <source>Sentence %1 could not be spoken: %2</source>
+        <translation>문장 %1을(를) 읽지 못했습니다: %2</translation>
+    </message>
+    <message>
+        <source>Putting the take together…</source>
+        <translation>테이크 합치는 중…</translation>
+    </message>
+    <message>
+        <source>Listen to it, then add it to the timeline</source>
+        <translation>들어 본 다음 타임라인에 추가하세요</translation>
+    </message>
+    <message>
+        <source>Speaking sentence %1 again…</source>
+        <translation>문장 %1 다시 읽는 중…</translation>
+    </message>
+    <message>
+        <source>Sentence %1 spoken again</source>
+        <translation>문장 %1을(를) 다시 읽었습니다</translation>
+    </message>
+    <message>
+        <source>Changing speed and pitch…</source>
+        <translation>속도와 피치 바꾸는 중…</translation>
+    </message>
+    <message>
+        <source>Could not replace the voice</source>
+        <translation>음성을 바꿀 수 없습니다</translation>
+    </message>
+    <message>
         <source>Speech added to the timeline</source>
         <translation>음성이 타임라인에 추가되었습니다</translation>
+    </message>
+    <message>
+        <source>Voice replaced on the timeline</source>
+        <translation>타임라인의 음성을 바꿨습니다</translation>
+    </message>
+    <message numerus="yes">
+        <source>The music goes down under the voice (%n clip(s))</source>
+        <translation>
+            <numerusform>음성 아래에서 음악이 줄어듭니다 (클립 %n개)</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>There is no music under this voice</source>
+        <translation>이 음성 아래에 음악이 없습니다</translation>
     </message>
     <message>
         <source>Select a subtitle clip first</source>
@@ -32896,6 +33105,10 @@ If playback stutters, try another.</source>
     <message>
         <source>This subtitle clip has no text to speak</source>
         <translation>이 자막 클립에는 읽을 텍스트가 없습니다</translation>
+    </message>
+    <message>
+        <source>Speaking line %1 of %2…</source>
+        <translation>줄 %1/%2 읽는 중…</translation>
     </message>
     <message>
         <source>Generate voiceover</source>
@@ -32915,6 +33128,12 @@ If playback stutters, try another.</source>
         <source>; %n ran longer than their captions</source>
         <translation>
             <numerusform>; %n개가 자막보다 길어졌습니다</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>; %n could not be added</source>
+        <translation>
+            <numerusform>; %n개를 추가하지 못했습니다</numerusform>
         </translation>
     </message>
 </context>
@@ -34182,6 +34401,18 @@ If playback stutters, try another.</source>
         <translation>음성에는 이름과 녹음이 필요합니다</translation>
     </message>
     <message>
+        <source>Reading the recording…</source>
+        <translation>녹음 읽는 중…</translation>
+    </message>
+    <message>
+        <source>Loading voice model…</source>
+        <translation>음성 모델 불러오는 중…</translation>
+    </message>
+    <message>
+        <source>Learning the voice…</source>
+        <translation>목소리 학습 중…</translation>
+    </message>
+    <message>
         <source>Could not prepare the voice</source>
         <translation>음성을 준비할 수 없습니다</translation>
     </message>
@@ -34196,6 +34427,18 @@ If playback stutters, try another.</source>
     <message>
         <source>The recording is too short: record at least %1 seconds</source>
         <translation>녹음이 너무 짧습니다: %1초 이상 녹음하세요</translation>
+    </message>
+    <message>
+        <source>Unknown voice</source>
+        <translation>알 수 없는 음성</translation>
+    </message>
+    <message>
+        <source>The reference recording for this voice is missing</source>
+        <translation>이 음성의 참조 녹음이 없습니다</translation>
+    </message>
+    <message>
+        <source>Could not read the reference recording</source>
+        <translation>참조 녹음을 읽을 수 없습니다</translation>
     </message>
 </context>
 <context>
@@ -34250,6 +34493,18 @@ If playback stutters, try another.</source>
     <message>
         <source>Generate voiceover</source>
         <translation>내레이션 생성</translation>
+    </message>
+    <message>
+        <source>Speech generation runs on this device and needs the voice model.</source>
+        <translation>음성 생성은 이 기기에서 실행되며 음성 모델이 필요합니다.</translation>
+    </message>
+    <message>
+        <source>Download voice model</source>
+        <translation>음성 모델 다운로드</translation>
+    </message>
+    <message>
+        <source>Install AI engine first</source>
+        <translation>먼저 AI 엔진을 설치하세요</translation>
     </message>
     <message>
         <source>Voice</source>

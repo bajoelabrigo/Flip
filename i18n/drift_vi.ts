@@ -142,8 +142,8 @@
         <translation>Kiểu phụ đề</translation>
     </message>
     <message>
-        <source>Voices</source>
-        <translation>Giọng nói</translation>
+        <source>Voice changer</source>
+        <translation>Bộ đổi giọng</translation>
     </message>
     <message>
         <source>Retouch</source>
@@ -5282,6 +5282,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Replace voice</source>
+        <translation>Thay giọng</translation>
+    </message>
+    <message>
+        <source>Voice replaced</source>
+        <translation>Đã thay giọng</translation>
+    </message>
+    <message>
         <source>Trim layer</source>
         <translation>Cắt lớp</translation>
     </message>
@@ -7986,6 +7994,46 @@
     <message>
         <source>Fade out</source>
         <translation>Mờ dần</translation>
+    </message>
+    <message>
+        <source>Voice from text</source>
+        <translation>Giọng từ văn bản</translation>
+    </message>
+    <message>
+        <source>Edit script…</source>
+        <translation>Sửa kịch bản…</translation>
+    </message>
+    <message>
+        <source>Change the text or the voice and speak it again, in place of this audio</source>
+        <translation>Đổi văn bản hoặc giọng rồi đọc lại, thay cho âm thanh này</translation>
+    </message>
+    <message>
+        <source>Lower the music under this voice</source>
+        <translation>Giảm nhạc dưới giọng này</translation>
+    </message>
+    <message>
+        <source>Save the voice as a file…</source>
+        <translation>Lưu giọng thành tệp…</translation>
+    </message>
+    <message>
+        <source>Save the voice</source>
+        <translation>Lưu giọng</translation>
+    </message>
+    <message>
+        <source>FLAC audio (*.flac)</source>
+        <translation>Âm thanh FLAC (*.flac)</translation>
+    </message>
+    <message>
+        <source>voice</source>
+        <translation>giọng</translation>
+    </message>
+    <message>
+        <source>Voice saved</source>
+        <translation>Đã lưu giọng</translation>
+    </message>
+    <message>
+        <source>Could not save the voice</source>
+        <translation>Không thể lưu giọng</translation>
     </message>
     <message>
         <source>Normalize loudness</source>
@@ -13298,6 +13346,37 @@ LẦN SAU</translation>
     </message>
 </context>
 <context>
+    <name>ChatterboxTts</name>
+    <message>
+        <source>The voice model is not installed. Install the AI voice extra in Extras.</source>
+        <translation>Chưa cài mô hình giọng. Hãy cài tiện ích Giọng AI trong Tiện ích bổ sung.</translation>
+    </message>
+    <message>
+        <source>Failed to load text-to-speech model: %1</source>
+        <translation>Không tải được mô hình chuyển văn bản thành giọng nói: %1</translation>
+    </message>
+    <message>
+        <source>Speech generation failed: %1</source>
+        <translation>Tạo giọng nói thất bại: %1</translation>
+    </message>
+    <message>
+        <source>The reference voice has no audio.</source>
+        <translation>Giọng tham chiếu không có âm thanh.</translation>
+    </message>
+    <message>
+        <source>Voice encoding failed: %1</source>
+        <translation>Mã hóa giọng thất bại: %1</translation>
+    </message>
+    <message>
+        <source>Unsupported language: %1</source>
+        <translation>Ngôn ngữ không được hỗ trợ: %1</translation>
+    </message>
+    <message>
+        <source>Invalid voice conditioning.</source>
+        <translation>Điều kiện giọng không hợp lệ.</translation>
+    </message>
+</context>
+<context>
     <name>ChipScroller</name>
     <message>
         <source>Previous</source>
@@ -17208,7 +17287,7 @@ LẦN SAU</translation>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>Tốc độ</translation>
     </message>
     <message>
         <source>Influence</source>
@@ -23573,14 +23652,6 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Nhà cung cấp đám mây</translation>
     </message>
     <message>
-        <source>Transcription (Scribe), voiceover, sound effects</source>
-        <translation>Phiên âm (Scribe), lồng tiếng, hiệu ứng âm thanh</translation>
-    </message>
-    <message>
-        <source>Voiceover</source>
-        <translation>Lồng tiếng</translation>
-    </message>
-    <message>
         <source>No key</source>
         <translation>Không có khóa</translation>
     </message>
@@ -23779,6 +23850,14 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Keys are stored unencrypted in Flip Studio&apos;s settings. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
         <translation>Khóa được lưu trữ không được mã hóa trong cài đặt của Flip Studio. ELEVENLABS_API_KEY và FISH_API_KEY trong môi trường được ưu tiên. Việc sử dụng được tính phí vào tài khoản của riêng bạn.</translation>
+    </message>
+    <message>
+        <source>Transcription (Scribe); voiceover and sound effects through AI agents</source>
+        <translation>Phiên âm (Scribe); lồng tiếng và hiệu ứng âm thanh qua các tác tử AI</translation>
+    </message>
+    <message>
+        <source>Voiceover through AI agents</source>
+        <translation>Lồng tiếng qua các tác tử AI</translation>
     </message>
     <message>
         <source>Needed before Flip Studio or a connected agent can transcribe or generate audio with this service</source>
@@ -25560,10 +25639,6 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Đã lưu giọng nói</translation>
     </message>
     <message>
-        <source>Turn a script into speech with a built-in or cloned voice. It is generated on this device and added at the playhead.</source>
-        <translation>Biến kịch bản thành giọng nói bằng giọng có sẵn hoặc giọng nhân bản. Giọng được tạo trên thiết bị này và thêm vào tại đầu phát.</translation>
-    </message>
-    <message>
         <source>Speech generation runs on this device and needs the voice model.</source>
         <translation>Việc tạo giọng nói chạy trên thiết bị này và cần mô hình giọng nói.</translation>
     </message>
@@ -25580,20 +25655,8 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Cần để tạo giọng nói</translation>
     </message>
     <message>
-        <source>Type what the voice should say</source>
-        <translation>Nhập nội dung giọng nói sẽ đọc</translation>
-    </message>
-    <message>
         <source>%1 characters, about %2 s</source>
         <translation>%1 ký tự, khoảng %2 giây</translation>
-    </message>
-    <message>
-        <source>Speech longer than 30 seconds often ends in gibberish or silence. Split the script into shorter parts.</source>
-        <translation>Giọng nói dài hơn 30 giây thường kết thúc bằng âm vô nghĩa hoặc im lặng. Hãy chia kịch bản thành các phần ngắn hơn.</translation>
-    </message>
-    <message>
-        <source>Voice</source>
-        <translation>Giọng nói</translation>
     </message>
     <message>
         <source>Stop</source>
@@ -25648,10 +25711,6 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Đang học giọng…</translation>
     </message>
     <message>
-        <source>Language</source>
-        <translation>Ngôn ngữ</translation>
-    </message>
-    <message>
         <source>Expressiveness</source>
         <translation>Độ biểu cảm</translation>
     </message>
@@ -25662,10 +25721,6 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Generate speech</source>
         <translation>Tạo giọng nói</translation>
-    </message>
-    <message>
-        <source>Generate speech and add it at the playhead</source>
-        <translation>Tạo giọng nói và thêm vào tại đầu phát</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -25708,6 +25763,102 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Tất cả tệp (*)</translation>
     </message>
     <message>
+        <source>Voice from your text</source>
+        <translation>Giọng từ văn bản của bạn</translation>
+    </message>
+    <message>
+        <source>Editing the script of a voice on the timeline: the new take replaces its audio.</source>
+        <translation>Đang sửa kịch bản của một giọng trên dòng thời gian: bản thu mới sẽ thay âm thanh của nó.</translation>
+    </message>
+    <message>
+        <source>Type or paste the script. [pause 1s] adds a silence.</source>
+        <translation>Nhập hoặc dán kịch bản. [pause 1s] thêm một khoảng lặng.</translation>
+    </message>
+    <message>
+        <source>Import script…</source>
+        <translation>Nhập kịch bản…</translation>
+    </message>
+    <message>
+        <source>A .txt, .md or Word (.docx) file</source>
+        <translation>Tệp .txt, .md hoặc Word (.docx)</translation>
+    </message>
+    <message>
+        <source>Import a script</source>
+        <translation>Nhập một kịch bản</translation>
+    </message>
+    <message>
+        <source>Scripts (*.txt *.md *.docx)</source>
+        <translation>Kịch bản (*.txt *.md *.docx)</translation>
+    </message>
+    <message>
+        <source>That file has no text that can be read</source>
+        <translation>Tệp đó không có văn bản đọc được</translation>
+    </message>
+    <message>
+        <source>A dialogue: a voice for each person</source>
+        <translation>Hội thoại: mỗi người một giọng</translation>
+    </message>
+    <message>
+        <source>Generate again</source>
+        <translation>Tạo lại</translation>
+    </message>
+    <message>
+        <source>Speak the script; you hear it before it goes on the timeline</source>
+        <translation>Đọc kịch bản; bạn nghe trước khi đưa vào dòng thời gian</translation>
+    </message>
+    <message>
+        <source>Listen to the whole take</source>
+        <translation>Nghe cả bản thu</translation>
+    </message>
+    <message>
+        <source>Take: %1 s</source>
+        <translation>Bản thu: %1 giây</translation>
+    </message>
+    <message>
+        <source>Listen to this sentence</source>
+        <translation>Nghe câu này</translation>
+    </message>
+    <message>
+        <source>Speak this sentence again</source>
+        <translation>Đọc lại câu này</translation>
+    </message>
+    <message>
+        <source>Also create its captions</source>
+        <translation>Tạo cả phụ đề</translation>
+    </message>
+    <message>
+        <source>Replace the voice on the timeline</source>
+        <translation>Thay giọng trên dòng thời gian</translation>
+    </message>
+    <message>
+        <source>Add to the timeline</source>
+        <translation>Thêm vào dòng thời gian</translation>
+    </message>
+    <message>
+        <source>Discard</source>
+        <translation>Bỏ</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation>Tùy chọn</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>Tốc độ</translation>
+    </message>
+    <message>
+        <source>%1×</source>
+        <translation>%1×</translation>
+    </message>
+    <message>
+        <source>Pitch</source>
+        <translation>Cao độ</translation>
+    </message>
+    <message>
+        <source>Stop preparing the voice</source>
+        <translation>Dừng chuẩn bị giọng</translation>
+    </message>
+    <message>
         <source>Name</source>
         <translation>Tên</translation>
     </message>
@@ -25728,8 +25879,8 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>%1 s</translation>
     </message>
     <message>
-        <source>Record 5 to 20 seconds in a quiet room. Read this aloud in your natural voice:</source>
-        <translation>Ghi âm từ 5 đến 20 giây ở nơi yên tĩnh. Đọc to đoạn này bằng giọng tự nhiên của bạn:</translation>
+        <source>Record 3 to 20 seconds in a quiet room (it stops by itself at 20). Read this aloud in your natural voice:</source>
+        <translation>Ghi âm 3 đến 20 giây trong phòng yên tĩnh (tự dừng ở giây 20). Đọc to đoạn này bằng giọng tự nhiên của bạn:</translation>
     </message>
     <message>
         <source>The quick brown fox jumps over the lazy dog, while a gentle breeze moves through the quiet garden and the evening light fades slowly.</source>
@@ -25742,6 +25893,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Start recording</source>
         <translation>Bắt đầu ghi âm</translation>
+    </message>
+    <message>
+        <source>20 s: done, save the voice</source>
+        <translation>20 giây: xong, lưu giọng</translation>
     </message>
     <message>
         <source>I have the right to use this person&apos;s voice</source>
@@ -25981,7 +26136,7 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>Tốc độ</translation>
     </message>
     <message>
         <source>Faster makes it shorter, slower makes it longer</source>
@@ -28630,6 +28785,14 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>These letters go back to the style of the whole text</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Read aloud…</source>
+        <translation>Đọc to…</translation>
+    </message>
+    <message>
+        <source>Turn this text into a voice that starts with it</source>
+        <translation>Biến văn bản này thành giọng bắt đầu cùng nó</translation>
     </message>
     <message>
         <source>Bold</source>
@@ -32865,7 +33028,11 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <name>TtsController</name>
     <message>
         <source>Loading voice model…</source>
-        <translation type="unfinished"></translation>
+        <translation>Đang tải mô hình giọng…</translation>
+    </message>
+    <message>
+        <source>No speech was produced</source>
+        <translation>Không tạo được giọng nói nào</translation>
     </message>
     <message>
         <source>Install the voice model first</source>
@@ -32880,16 +33047,58 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Generating speech…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Cancelled</source>
         <translation>Đã hủy bỏ</translation>
     </message>
     <message>
+        <source>Speaking sentence %1 of %2…</source>
+        <translation>Đang đọc câu %1/%2…</translation>
+    </message>
+    <message>
+        <source>Sentence %1 could not be spoken: %2</source>
+        <translation>Không đọc được câu %1: %2</translation>
+    </message>
+    <message>
+        <source>Putting the take together…</source>
+        <translation>Đang ghép bản thu…</translation>
+    </message>
+    <message>
+        <source>Listen to it, then add it to the timeline</source>
+        <translation>Hãy nghe, rồi thêm vào dòng thời gian</translation>
+    </message>
+    <message>
+        <source>Speaking sentence %1 again…</source>
+        <translation>Đang đọc lại câu %1…</translation>
+    </message>
+    <message>
+        <source>Sentence %1 spoken again</source>
+        <translation>Đã đọc lại câu %1</translation>
+    </message>
+    <message>
+        <source>Changing speed and pitch…</source>
+        <translation>Đang đổi tốc độ và cao độ…</translation>
+    </message>
+    <message>
+        <source>Could not replace the voice</source>
+        <translation>Không thể thay giọng</translation>
+    </message>
+    <message>
         <source>Speech added to the timeline</source>
         <translation>Đã thêm giọng nói vào dòng thời gian</translation>
+    </message>
+    <message>
+        <source>Voice replaced on the timeline</source>
+        <translation>Đã thay giọng trên dòng thời gian</translation>
+    </message>
+    <message numerus="yes">
+        <source>The music goes down under the voice (%n clip(s))</source>
+        <translation>
+            <numerusform>Nhạc giảm xuống dưới giọng (%n clip)</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>There is no music under this voice</source>
+        <translation>Không có nhạc dưới giọng này</translation>
     </message>
     <message>
         <source>Select a subtitle clip first</source>
@@ -32898,6 +33107,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>This subtitle clip has no text to speak</source>
         <translation>Clip phụ đề này không có văn bản để đọc</translation>
+    </message>
+    <message>
+        <source>Speaking line %1 of %2…</source>
+        <translation>Đang đọc dòng %1/%2…</translation>
     </message>
     <message>
         <source>Generate voiceover</source>
@@ -32917,6 +33130,12 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <source>; %n ran longer than their captions</source>
         <translation>
             <numerusform>; %n câu dài hơn phụ đề của chúng</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>; %n could not be added</source>
+        <translation>
+            <numerusform>; %n không thêm được</numerusform>
         </translation>
     </message>
 </context>
@@ -34184,6 +34403,18 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Giọng cần có tên và bản ghi âm</translation>
     </message>
     <message>
+        <source>Reading the recording…</source>
+        <translation>Đang đọc bản ghi âm…</translation>
+    </message>
+    <message>
+        <source>Loading voice model…</source>
+        <translation>Đang tải mô hình giọng…</translation>
+    </message>
+    <message>
+        <source>Learning the voice…</source>
+        <translation>Đang học giọng…</translation>
+    </message>
+    <message>
         <source>Could not prepare the voice</source>
         <translation>Không thể chuẩn bị giọng</translation>
     </message>
@@ -34198,6 +34429,18 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>The recording is too short: record at least %1 seconds</source>
         <translation>Bản ghi âm quá ngắn: hãy ghi ít nhất %1 giây</translation>
+    </message>
+    <message>
+        <source>Unknown voice</source>
+        <translation>Giọng không xác định</translation>
+    </message>
+    <message>
+        <source>The reference recording for this voice is missing</source>
+        <translation>Thiếu bản ghi tham chiếu của giọng này</translation>
+    </message>
+    <message>
+        <source>Could not read the reference recording</source>
+        <translation>Không đọc được bản ghi tham chiếu</translation>
     </message>
 </context>
 <context>
@@ -34252,6 +34495,18 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Generate voiceover</source>
         <translation>Tạo lời thuyết minh</translation>
+    </message>
+    <message>
+        <source>Speech generation runs on this device and needs the voice model.</source>
+        <translation>Việc tạo giọng nói chạy trên thiết bị này và cần mô hình giọng.</translation>
+    </message>
+    <message>
+        <source>Download voice model</source>
+        <translation>Tải mô hình giọng</translation>
+    </message>
+    <message>
+        <source>Install AI engine first</source>
+        <translation>Hãy cài công cụ AI trước</translation>
     </message>
     <message>
         <source>Voice</source>

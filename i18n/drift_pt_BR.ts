@@ -142,8 +142,8 @@
         <translation>Estilos de legenda</translation>
     </message>
     <message>
-        <source>Voices</source>
-        <translation>Vozes</translation>
+        <source>Voice changer</source>
+        <translation>Modificador de voz</translation>
     </message>
     <message>
         <source>Retouch</source>
@@ -5291,6 +5291,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Replace voice</source>
+        <translation>Substituir voz</translation>
+    </message>
+    <message>
+        <source>Voice replaced</source>
+        <translation>Voz substituída</translation>
+    </message>
+    <message>
         <source>Trim layer</source>
         <translation>Aparar camada</translation>
     </message>
@@ -8036,6 +8044,46 @@
     <message>
         <source>Fade out</source>
         <translation>Fade de saída</translation>
+    </message>
+    <message>
+        <source>Voice from text</source>
+        <translation>Voz a partir de texto</translation>
+    </message>
+    <message>
+        <source>Edit script…</source>
+        <translation>Editar roteiro…</translation>
+    </message>
+    <message>
+        <source>Change the text or the voice and speak it again, in place of this audio</source>
+        <translation>Mude o texto ou a voz e fale de novo, no lugar deste áudio</translation>
+    </message>
+    <message>
+        <source>Lower the music under this voice</source>
+        <translation>Abaixar a música sob esta voz</translation>
+    </message>
+    <message>
+        <source>Save the voice as a file…</source>
+        <translation>Salvar a voz como arquivo…</translation>
+    </message>
+    <message>
+        <source>Save the voice</source>
+        <translation>Salvar a voz</translation>
+    </message>
+    <message>
+        <source>FLAC audio (*.flac)</source>
+        <translation>Áudio FLAC (*.flac)</translation>
+    </message>
+    <message>
+        <source>voice</source>
+        <translation>voz</translation>
+    </message>
+    <message>
+        <source>Voice saved</source>
+        <translation>Voz salva</translation>
+    </message>
+    <message>
+        <source>Could not save the voice</source>
+        <translation>Não foi possível salvar a voz</translation>
     </message>
     <message>
         <source>Normalize loudness</source>
@@ -13348,6 +13396,37 @@ PRÓXIMA</translation>
     </message>
 </context>
 <context>
+    <name>ChatterboxTts</name>
+    <message>
+        <source>The voice model is not installed. Install the AI voice extra in Extras.</source>
+        <translation>O modelo de voz não está instalado. Instale o extra de voz com IA em Extras.</translation>
+    </message>
+    <message>
+        <source>Failed to load text-to-speech model: %1</source>
+        <translation>Falha ao carregar o modelo de texto para fala: %1</translation>
+    </message>
+    <message>
+        <source>Speech generation failed: %1</source>
+        <translation>Falha ao gerar a fala: %1</translation>
+    </message>
+    <message>
+        <source>The reference voice has no audio.</source>
+        <translation>A voz de referência não tem áudio.</translation>
+    </message>
+    <message>
+        <source>Voice encoding failed: %1</source>
+        <translation>Falha ao codificar a voz: %1</translation>
+    </message>
+    <message>
+        <source>Unsupported language: %1</source>
+        <translation>Idioma não suportado: %1</translation>
+    </message>
+    <message>
+        <source>Invalid voice conditioning.</source>
+        <translation>Condicionamento de voz inválido.</translation>
+    </message>
+</context>
+<context>
     <name>ChipScroller</name>
     <message>
         <source>Previous</source>
@@ -17271,7 +17350,7 @@ PRÓXIMA</translation>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>Velocidade</translation>
     </message>
     <message>
         <source>Influence</source>
@@ -23663,14 +23742,6 @@ Se a reprodução travar, tente outra opção.</translation>
         <translation>Provedores de nuvem</translation>
     </message>
     <message>
-        <source>Transcription (Scribe), voiceover, sound effects</source>
-        <translation>Transcrição (Scribe), locução, efeitos sonoros</translation>
-    </message>
-    <message>
-        <source>Voiceover</source>
-        <translation>Locução</translation>
-    </message>
-    <message>
         <source>No key</source>
         <translation>Nenhuma chave</translation>
     </message>
@@ -23869,6 +23940,14 @@ Se a reprodução travar, tente outra opção.</translation>
     <message>
         <source>Keys are stored unencrypted in Flip Studio&apos;s settings. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
         <translation>As chaves são armazenadas sem criptografia nas configurações do Flip Studio. ELEVENLABS_API_KEY e FISH_API_KEY no ambiente têm precedência. O uso é cobrado na sua própria conta.</translation>
+    </message>
+    <message>
+        <source>Transcription (Scribe); voiceover and sound effects through AI agents</source>
+        <translation>Transcrição (Scribe); narração e efeitos sonoros por agentes de IA</translation>
+    </message>
+    <message>
+        <source>Voiceover through AI agents</source>
+        <translation>Narração por agentes de IA</translation>
     </message>
     <message>
         <source>Needed before Flip Studio or a connected agent can transcribe or generate audio with this service</source>
@@ -25650,10 +25729,6 @@ Se a reprodução travar, tente outra opção.</translation>
         <translation>Voz salva</translation>
     </message>
     <message>
-        <source>Turn a script into speech with a built-in or cloned voice. It is generated on this device and added at the playhead.</source>
-        <translation>Transforme um roteiro em fala com uma voz incluída ou clonada. Ela é gerada neste dispositivo e adicionada no cursor de reprodução.</translation>
-    </message>
-    <message>
         <source>Speech generation runs on this device and needs the voice model.</source>
         <translation>A geração de fala é feita neste dispositivo e precisa do modelo de voz.</translation>
     </message>
@@ -25670,20 +25745,8 @@ Se a reprodução travar, tente outra opção.</translation>
         <translation>Necessário para gerar fala</translation>
     </message>
     <message>
-        <source>Type what the voice should say</source>
-        <translation>Digite o que a voz deve dizer</translation>
-    </message>
-    <message>
         <source>%1 characters, about %2 s</source>
         <translation>%1 caracteres, cerca de %2 s</translation>
-    </message>
-    <message>
-        <source>Speech longer than 30 seconds often ends in gibberish or silence. Split the script into shorter parts.</source>
-        <translation>Falas com mais de 30 segundos costumam terminar em sons sem sentido ou silêncio. Divida o roteiro em partes menores.</translation>
-    </message>
-    <message>
-        <source>Voice</source>
-        <translation>Voz</translation>
     </message>
     <message>
         <source>Stop</source>
@@ -25738,10 +25801,6 @@ Se a reprodução travar, tente outra opção.</translation>
         <translation>Aprendendo a voz…</translation>
     </message>
     <message>
-        <source>Language</source>
-        <translation>Idioma</translation>
-    </message>
-    <message>
         <source>Expressiveness</source>
         <translation>Expressividade</translation>
     </message>
@@ -25752,10 +25811,6 @@ Se a reprodução travar, tente outra opção.</translation>
     <message>
         <source>Generate speech</source>
         <translation>Gerar fala</translation>
-    </message>
-    <message>
-        <source>Generate speech and add it at the playhead</source>
-        <translation>Gerar a fala e adicioná-la no cursor de reprodução</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -25798,6 +25853,102 @@ Se a reprodução travar, tente outra opção.</translation>
         <translation>Todos os arquivos (*)</translation>
     </message>
     <message>
+        <source>Voice from your text</source>
+        <translation>Voz a partir do seu texto</translation>
+    </message>
+    <message>
+        <source>Editing the script of a voice on the timeline: the new take replaces its audio.</source>
+        <translation>Editando o roteiro de uma voz da linha do tempo: a nova tomada substitui o áudio dela.</translation>
+    </message>
+    <message>
+        <source>Type or paste the script. [pause 1s] adds a silence.</source>
+        <translation>Digite ou cole o roteiro. [pausa 1s] adiciona um silêncio.</translation>
+    </message>
+    <message>
+        <source>Import script…</source>
+        <translation>Importar roteiro…</translation>
+    </message>
+    <message>
+        <source>A .txt, .md or Word (.docx) file</source>
+        <translation>Um arquivo .txt, .md ou do Word (.docx)</translation>
+    </message>
+    <message>
+        <source>Import a script</source>
+        <translation>Importar um roteiro</translation>
+    </message>
+    <message>
+        <source>Scripts (*.txt *.md *.docx)</source>
+        <translation>Roteiros (*.txt *.md *.docx)</translation>
+    </message>
+    <message>
+        <source>That file has no text that can be read</source>
+        <translation>Esse arquivo não tem texto que possa ser lido</translation>
+    </message>
+    <message>
+        <source>A dialogue: a voice for each person</source>
+        <translation>Um diálogo: uma voz para cada pessoa</translation>
+    </message>
+    <message>
+        <source>Generate again</source>
+        <translation>Gerar de novo</translation>
+    </message>
+    <message>
+        <source>Speak the script; you hear it before it goes on the timeline</source>
+        <translation>Fala o roteiro; você ouve antes de ir para a linha do tempo</translation>
+    </message>
+    <message>
+        <source>Listen to the whole take</source>
+        <translation>Ouvir a tomada inteira</translation>
+    </message>
+    <message>
+        <source>Take: %1 s</source>
+        <translation>Tomada: %1 s</translation>
+    </message>
+    <message>
+        <source>Listen to this sentence</source>
+        <translation>Ouvir esta frase</translation>
+    </message>
+    <message>
+        <source>Speak this sentence again</source>
+        <translation>Falar esta frase de novo</translation>
+    </message>
+    <message>
+        <source>Also create its captions</source>
+        <translation>Criar também as legendas</translation>
+    </message>
+    <message>
+        <source>Replace the voice on the timeline</source>
+        <translation>Substituir a voz na linha do tempo</translation>
+    </message>
+    <message>
+        <source>Add to the timeline</source>
+        <translation>Adicionar à linha do tempo</translation>
+    </message>
+    <message>
+        <source>Discard</source>
+        <translation>Descartar</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation>Opções</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>Velocidade</translation>
+    </message>
+    <message>
+        <source>%1×</source>
+        <translation>%1×</translation>
+    </message>
+    <message>
+        <source>Pitch</source>
+        <translation>Tom</translation>
+    </message>
+    <message>
+        <source>Stop preparing the voice</source>
+        <translation>Parar de preparar a voz</translation>
+    </message>
+    <message>
         <source>Name</source>
         <translation>Nome</translation>
     </message>
@@ -25818,8 +25969,8 @@ Se a reprodução travar, tente outra opção.</translation>
         <translation>%1 s</translation>
     </message>
     <message>
-        <source>Record 5 to 20 seconds in a quiet room. Read this aloud in your natural voice:</source>
-        <translation>Grave de 5 a 20 segundos em um lugar silencioso. Leia isto em voz alta com sua voz natural:</translation>
+        <source>Record 3 to 20 seconds in a quiet room (it stops by itself at 20). Read this aloud in your natural voice:</source>
+        <translation>Grave de 3 a 20 segundos num lugar silencioso (para sozinho aos 20). Leia isto em voz alta com sua voz natural:</translation>
     </message>
     <message>
         <source>The quick brown fox jumps over the lazy dog, while a gentle breeze moves through the quiet garden and the evening light fades slowly.</source>
@@ -25832,6 +25983,10 @@ Se a reprodução travar, tente outra opção.</translation>
     <message>
         <source>Start recording</source>
         <translation>Começar a gravar</translation>
+    </message>
+    <message>
+        <source>20 s: done, save the voice</source>
+        <translation>20 s: pronto, salve a voz</translation>
     </message>
     <message>
         <source>I have the right to use this person&apos;s voice</source>
@@ -26071,7 +26226,7 @@ Se a reprodução travar, tente outra opção.</translation>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>Velocidade</translation>
     </message>
     <message>
         <source>Faster makes it shorter, slower makes it longer</source>
@@ -28794,6 +28949,14 @@ Se a reprodução travar, tente outra opção.</translation>
     <message>
         <source>These letters go back to the style of the whole text</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Read aloud…</source>
+        <translation>Ler em voz alta…</translation>
+    </message>
+    <message>
+        <source>Turn this text into a voice that starts with it</source>
+        <translation>Transforme este texto numa voz que começa com ele</translation>
     </message>
     <message>
         <source>Bold</source>
@@ -32970,7 +33133,11 @@ Se a reprodução travar, tente outra opção.</translation>
     <name>TtsController</name>
     <message>
         <source>Loading voice model…</source>
-        <translation type="unfinished"></translation>
+        <translation>Carregando o modelo de voz…</translation>
+    </message>
+    <message>
+        <source>No speech was produced</source>
+        <translation>Nenhuma fala foi gerada</translation>
     </message>
     <message>
         <source>Install the voice model first</source>
@@ -32985,16 +33152,59 @@ Se a reprodução travar, tente outra opção.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Generating speech…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Cancelled</source>
         <translation>Cancelado</translation>
     </message>
     <message>
+        <source>Speaking sentence %1 of %2…</source>
+        <translation>Falando a frase %1 de %2…</translation>
+    </message>
+    <message>
+        <source>Sentence %1 could not be spoken: %2</source>
+        <translation>Não foi possível falar a frase %1: %2</translation>
+    </message>
+    <message>
+        <source>Putting the take together…</source>
+        <translation>Juntando a tomada…</translation>
+    </message>
+    <message>
+        <source>Listen to it, then add it to the timeline</source>
+        <translation>Ouça e depois adicione à linha do tempo</translation>
+    </message>
+    <message>
+        <source>Speaking sentence %1 again…</source>
+        <translation>Falando a frase %1 de novo…</translation>
+    </message>
+    <message>
+        <source>Sentence %1 spoken again</source>
+        <translation>Frase %1 falada de novo</translation>
+    </message>
+    <message>
+        <source>Changing speed and pitch…</source>
+        <translation>Mudando velocidade e tom…</translation>
+    </message>
+    <message>
+        <source>Could not replace the voice</source>
+        <translation>Não foi possível substituir a voz</translation>
+    </message>
+    <message>
         <source>Speech added to the timeline</source>
         <translation>Fala adicionada à linha do tempo</translation>
+    </message>
+    <message>
+        <source>Voice replaced on the timeline</source>
+        <translation>Voz substituída na linha do tempo</translation>
+    </message>
+    <message numerus="yes">
+        <source>The music goes down under the voice (%n clip(s))</source>
+        <translation>
+            <numerusform>A música abaixa sob a voz (%n clipe)</numerusform>
+            <numerusform>A música abaixa sob a voz (%n clipes)</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>There is no music under this voice</source>
+        <translation>Não há música sob esta voz</translation>
     </message>
     <message>
         <source>Select a subtitle clip first</source>
@@ -33003,6 +33213,10 @@ Se a reprodução travar, tente outra opção.</translation>
     <message>
         <source>This subtitle clip has no text to speak</source>
         <translation>Este clipe de legendas não tem texto para falar</translation>
+    </message>
+    <message>
+        <source>Speaking line %1 of %2…</source>
+        <translation>Falando a linha %1 de %2…</translation>
     </message>
     <message>
         <source>Generate voiceover</source>
@@ -33024,6 +33238,13 @@ Se a reprodução travar, tente outra opção.</translation>
         <translation>
             <numerusform>; %n ficou mais longa que a legenda</numerusform>
             <numerusform>; %n ficaram mais longas que as legendas</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>; %n could not be added</source>
+        <translation>
+            <numerusform>; %n não pôde ser adicionado</numerusform>
+            <numerusform>; %n não puderam ser adicionados</numerusform>
         </translation>
     </message>
 </context>
@@ -34291,6 +34512,18 @@ Se a reprodução travar, tente outra opção.</translation>
         <translation>Uma voz precisa de um nome e de uma gravação</translation>
     </message>
     <message>
+        <source>Reading the recording…</source>
+        <translation>Lendo a gravação…</translation>
+    </message>
+    <message>
+        <source>Loading voice model…</source>
+        <translation>Carregando o modelo de voz…</translation>
+    </message>
+    <message>
+        <source>Learning the voice…</source>
+        <translation>Aprendendo a voz…</translation>
+    </message>
+    <message>
         <source>Could not prepare the voice</source>
         <translation>Não foi possível preparar a voz</translation>
     </message>
@@ -34305,6 +34538,18 @@ Se a reprodução travar, tente outra opção.</translation>
     <message>
         <source>The recording is too short: record at least %1 seconds</source>
         <translation>A gravação é curta demais: grave pelo menos %1 segundos</translation>
+    </message>
+    <message>
+        <source>Unknown voice</source>
+        <translation>Voz desconhecida</translation>
+    </message>
+    <message>
+        <source>The reference recording for this voice is missing</source>
+        <translation>Falta a gravação de referência desta voz</translation>
+    </message>
+    <message>
+        <source>Could not read the reference recording</source>
+        <translation>Não foi possível ler a gravação de referência</translation>
     </message>
 </context>
 <context>
@@ -34359,6 +34604,18 @@ Se a reprodução travar, tente outra opção.</translation>
     <message>
         <source>Generate voiceover</source>
         <translation>Gerar narração</translation>
+    </message>
+    <message>
+        <source>Speech generation runs on this device and needs the voice model.</source>
+        <translation>A geração de fala roda neste dispositivo e precisa do modelo de voz.</translation>
+    </message>
+    <message>
+        <source>Download voice model</source>
+        <translation>Baixar modelo de voz</translation>
+    </message>
+    <message>
+        <source>Install AI engine first</source>
+        <translation>Instale primeiro o motor de IA</translation>
     </message>
     <message>
         <source>Voice</source>
