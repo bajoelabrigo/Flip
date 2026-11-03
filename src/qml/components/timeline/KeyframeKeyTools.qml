@@ -67,26 +67,39 @@ Item {
     // picked, so a drag moves them all), Ctrl adds or takes it away, Shift picks the run on that
     // property between the last key picked and this one. `siblings` are the keys of its property
     // on that clip, for the run.
+    // `ref` is one key, or every axis key of a joined diamond (Scale's width and height, Position's
+    // X and Y): Ctrl and Shift take them all, or a copy carried only the first (bounce exercise #18).
     function press(trackIndex, ref, modifiers, siblings) {
+        const refs = Array.isArray(ref) ? ref : [ref]
+        const first = refs[0]
         const ctrl = modifiers & Qt.ControlModifier
         const shift = modifiers & Qt.ShiftModifier
         const mine = trackIndex === root.track ? root.keys : []
         if (ctrl) {
-            pick(trackIndex, isPicked(trackIndex, ref)
-                 ? mine.filter((k) => !sameKey(k, ref))
-                 : mine.concat([ref]))
+            pick(trackIndex, isPicked(trackIndex, first)
+                 ? mine.filter((k) => !refs.some((r) => sameKey(k, r)))
+                 : mine.concat(refs.filter((r) => !mine.some((k) => sameKey(k, r)))))
         } else if (shift && root.runFrom && trackIndex === root.track
-                   && root.runFrom.clip === ref.clip && root.runFrom.prop === ref.prop) {
-            const lo = Math.min(root.runFrom.seconds, ref.seconds) - 1e-4
-            const hi = Math.max(root.runFrom.seconds, ref.seconds) + 1e-4
-            pick(trackIndex, (siblings || [])
-                 .filter((k) => k.seconds >= lo && k.seconds <= hi)
-                 .map((k) => ({ clip: ref.clip, prop: ref.prop, seconds: k.seconds })))
-        } else if (!isPicked(trackIndex, ref)) {
-            pick(trackIndex, [ref])
+                   && root.runFrom.clip === first.clip && root.runFrom.prop === first.prop) {
+            const lo = Math.min(root.runFrom.seconds, first.seconds) - 1e-4
+            const hi = Math.max(root.runFrom.seconds, first.seconds) + 1e-4
+            const out = []
+            for (const k of (siblings || [])) {
+                if (k.seconds < lo || k.seconds > hi)
+                    continue
+                if (k.refs && k.refs.length > 0) {
+                    for (const r of k.refs)
+                        out.push({ clip: first.clip, prop: r.prop, seconds: r.seconds })
+                } else {
+                    out.push({ clip: first.clip, prop: first.prop, seconds: k.seconds })
+                }
+            }
+            pick(trackIndex, out)
+        } else if (!isPicked(trackIndex, first)) {
+            pick(trackIndex, refs)
         }
         if (!shift)
-            root.runFrom = ref
+            root.runFrom = first
     }
 
     // How a key arrives and leaves, from its handles: none is straight, a flat one eased, any
@@ -314,7 +327,14 @@ Item {
         if (!root.keysCopiedLast || !EditorState.hasCopiedKeyframes()
                 || EditorState.selectedTrack < 0 || EditorState.selectedClip < 0)
             return false
-        return EditorState.pasteKeyframes(EditorState.selectedTrack, EditorState.selectedClip)
+        if (!EditorState.pasteKeyframes(EditorState.selectedTrack, EditorState.selectedClip))
+            return false
+        // The pasted keys are the picked ones now (0.30, as After Effects): the next nudge, ease or
+        // copy works on them, not on the keys they were copied from.
+        const pasted = EditorState.lastPastedKeyframes()
+        if (pasted.length > 0)
+            root.pick(EditorState.selectedTrack, pasted)
+        return true
     }
 
     // Ctrl+A while keys are picked: every key of the clip they are on (the selected one), on all
@@ -498,6 +518,9 @@ Item {
             onTriggered: {
                 EditorState.selectClip(root.track, root.menuClip)
                 EditorState.playheadSeconds = root.menuSeconds
+                // The curve of the key's own property (0.30: a Position Y key opened Position X's).
+                root.focusProp = ""
+                root.focusProp = root.menuProp
                 EditorState.preferences.curveEditorVisible = true
             }
         }

@@ -4317,8 +4317,8 @@
     <message numerus="yes">
         <source>Copied %n keyframe(s)</source>
         <translation>
-            <numerusform>%n fotogramma/i chiave copiato/i</numerusform>
-            <numerusform>%n fotogramma/i chiave copiato/i</numerusform>
+            <numerusform>%n fotogramma chiave copiato</numerusform>
+            <numerusform>%n fotogrammi chiave copiati</numerusform>
         </translation>
     </message>
     <message>
@@ -4332,8 +4332,8 @@
     <message numerus="yes">
         <source>Pasted %n keyframe(s)</source>
         <translation>
-            <numerusform>%n fotogramma/i chiave incollato/i</numerusform>
-            <numerusform>%n fotogramma/i chiave incollato/i</numerusform>
+            <numerusform>%n fotogramma chiave incollato</numerusform>
+            <numerusform>%n fotogrammi chiave incollati</numerusform>
         </translation>
     </message>
     <message>

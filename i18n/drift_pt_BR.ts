@@ -4317,8 +4317,8 @@
     <message numerus="yes">
         <source>Copied %n keyframe(s)</source>
         <translation>
-            <numerusform>%n quadro(s)-chave copiado(s)</numerusform>
-            <numerusform>%n quadro(s)-chave copiado(s)</numerusform>
+            <numerusform>%n quadro-chave copiado</numerusform>
+            <numerusform>%n quadros-chave copiados</numerusform>
         </translation>
     </message>
     <message>
@@ -4332,8 +4332,8 @@
     <message numerus="yes">
         <source>Pasted %n keyframe(s)</source>
         <translation>
-            <numerusform>%n quadro(s)-chave colado(s)</numerusform>
-            <numerusform>%n quadro(s)-chave colado(s)</numerusform>
+            <numerusform>%n quadro-chave colado</numerusform>
+            <numerusform>%n quadros-chave colados</numerusform>
         </translation>
     </message>
     <message>

@@ -118,3 +118,21 @@ Problemas nuevos:
 20. (menor) La escala de valores del gráfico pone 842 arriba cuando las claves llegan a 890.
 21. En el gráfico de velocidad las claves y los tiradores siguen donde están en el de valores; en AE se dibujan sobre la
     curva de velocidad y se arrastran ahí (alto = velocidad, ancho = influencia).
+22. (Jorge) En el gráfico de valores, un recuadro sobre las claves de Posición elige también las de Escala, aunque
+    casi no se ven. En AE solo se ven y se eligen las de la curva que se edita.
+
+### Arreglos tras la ronda 2
+- 18: Ctrl y Mayús sobre un rombo unido (Escala, Posición) toman todas sus claves; el clic simple marca desde dónde
+  corre Mayús.
+- 15: plurales bien escritos (es, pt-BR, pt-PT, fr-CA, it).
+- 16: tras pegar quedan elegidas las claves pegadas (`lastPastedKeyframes`).
+- 10b: Tab abre el valor siguiente aunque la fila se rehaga al confirmar (`pendingHotEdit` en la columna).
+- 17: el anclaje se mide en el tamaño propio de la capa (el de reposo si el tamaño está animado).
+- 19: «Editar curva…» abre la curva de la propiedad de esa clave.
+- 20: la escala del gráfico de Posición suma el ancla, como las filas.
+- 21: en el gráfico de velocidad las claves y los tiradores van sobre la curva de velocidad; un tirador se arrastra en
+  alto (velocidad) y en ancho (influencia), con la escala congelada mientras dura el arrastre; una clave solo se mueve
+  en el tiempo.
+- 14: el aviso del valor no vuelve hasta que el puntero sale.
+- 22: el gráfico muestra y deja elegir (clic o recuadro) solo las claves de la curva enfocada; se cambia de curva con
+  el nombre de la fila o los botones de arriba.

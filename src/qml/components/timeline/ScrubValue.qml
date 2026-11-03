@@ -94,7 +94,12 @@ Item {
         cursorShape: Qt.SizeHorCursor
         property real pressX: 0
         property real startShown: 0
+        // Once used, the hint stays away until the pointer leaves: it sat over the line's name while
+        // the value was typed and the frames stepped (bounce exercise #14).
+        property bool hintUsed: false
+        onExited: hintUsed = false
         onPressed: (mouse) => {
+            hintUsed = true
             pressX = mapToItem(null, mouse.x, mouse.y).x
             startShown = root.shown
             root.liveShown = startShown
@@ -179,7 +184,7 @@ Item {
     }
 
     ThemedToolTip {
-        visible: scrub.containsMouse && !root.dragging && !root.editing
+        visible: scrub.containsMouse && !scrub.hintUsed && !root.dragging && !root.editing
         text: qsTr("Drag to change, click to type")
     }
 }

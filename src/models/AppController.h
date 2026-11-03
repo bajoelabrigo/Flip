@@ -1824,6 +1824,9 @@ public:
     Q_INVOKABLE int copyKeyframes(int trackIndex, const QVariantList &keys);
     Q_INVOKABLE bool pasteKeyframes(int trackIndex, int clipIndex);
     Q_INVOKABLE bool hasCopiedKeyframes() const { return !m_keyClipboard.isEmpty(); }
+    // The keys the last paste made ({clip, prop, seconds}, on the track pasted to), so they are the
+    // ones picked afterwards, as After Effects leaves them.
+    Q_INVOKABLE QVariantList lastPastedKeyframes() const { return m_lastPastedKeys; }
     // A drag of the picked keys (each {clip, prop, seconds} where it started), inside a preview
     // drag: the keys that sit fromDelta seconds off their start move to toDelta off it, all
     // together, keeping their shape. The caller keeps them between their unpicked neighbours.
@@ -3218,6 +3221,7 @@ protected:
     drift::TimeUs m_keyClipboardFirstUs = 0;
     drift::TimeUs m_keyClipboardLastUs = 0;
     int m_keyClipboardTimes = 0;
+    QVariantList m_lastPastedKeys;
 
     // Whole-file peaks, for the dialogs that show a complete clip at once (Denoise, Speed
     // Curve). The timeline uses m_waveformBlocks instead — see waveformPeaksRange.

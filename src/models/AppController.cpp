@@ -24648,6 +24648,7 @@ bool AppController::pasteKeyframes(int trackIndex, int clipIndex)
     const drift::Project before = m_project;
     int pasted = 0;
     QStringList missing;
+    QVariantList pastedKeys;
     // Pasted (or cloned) back onto the very keys they came from, the copies go after them, one
     // step on (the keys' own spacing), so the animation carries on (As After Effects users expect:
     // Jorge, 0.26; on top they changed nothing). Elsewhere they land at the playhead.
@@ -24682,12 +24683,17 @@ bool AppController::pasteKeyframes(int trackIndex, int clipIndex)
         const drift::TimeUs at = qMax<drift::TimeUs>(0, pasteAtUs - clip.timelineStart) + copied.afterFirstUs;
         kt->setKeyframe(at, copied.key);
         ++pasted;
+        if (t == trackIndex) {
+            pastedKeys.append(QVariantMap{{QStringLiteral("clip"), c}, {QStringLiteral("prop"), copied.prop},
+                                          {QStringLiteral("seconds"), drift::usToSeconds(clip.timelineStart + at)}});
+        }
     }
     if (pasted == 0) {
         m_project = before;
         setLastMessage(tr("This clip has none of the copied keyframes' properties"), QStringLiteral("warning"));
         return false;
     }
+    m_lastPastedKeys = pastedKeys;
     pushProjectEdit(before, tr("Paste keyframes"));
     finishEdit(tr("Paste keyframes"));
     if (pasteAtUs != m_playheadUs) {

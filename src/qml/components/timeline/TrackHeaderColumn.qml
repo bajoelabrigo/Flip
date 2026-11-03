@@ -179,6 +179,9 @@ Item {
     property var keyframeTools: null
     // Scale's chain (0.25): its two values move together while on, as After Effects' default.
     property bool scaleLinked: true
+    // Tab on a line's value (0.30): the value to open next, {track, props, index}. The commit
+    // rebuilds the lines, so the new delegate opens it when it is made.
+    property var pendingHotEdit: null
 
     function trackHeight(index) {
         // Reading `tracks` is what gives callers' bindings a dependency to re-evaluate on —
@@ -1497,12 +1500,17 @@ Item {
                         // the box (in the size it grows from when the size is animated).
                         function positionOffset(prop) {
                             const horizontal = prop === "x"
-                            const sizeProp = horizontal ? "width" : "height"
                             const f = valueOf(horizontal ? "anchorX" : "anchorY")
+                            return (isNaN(f) ? 0.5 : f) * keyLine.restSide(horizontal ? "width" : "height")
+                        }
+                        // The layer's own size on one axis: the size it grows from when the size is
+                        // animated (the first key), else the size it has. The anchor is measured in it,
+                        // so scaling does not change the anchor's numbers (bounce exercise #17).
+                        function restSide(sizeProp) {
                             const keys = EditorState.clipAnimatedProperties(keyLines.trackIndex, keyLine.clip).indexOf(sizeProp) >= 0
                                          ? (EditorState.clipKeyframes(keyLines.trackIndex, keyLine.clip, sizeProp) || []) : []
                             const side = keys.length >= 2 ? keys[0].value : valueOf(sizeProp)
-                            return (isNaN(f) ? 0.5 : f) * (isNaN(side) ? 0 : side)
+                            return isNaN(side) ? 0 : side
                         }
                         function positionValue(prop, tag) {
                             const off = keyLine.positionOffset(prop)
@@ -1526,8 +1534,8 @@ Item {
                                 return [keyLine.positionValue("x", "X"), keyLine.positionValue("y", "Y")]
                             if (group === "anchor") {
                                 // In the box's own pixels, as After Effects; stored as fractions.
-                                const w = Math.max(1, valueOf("width"))
-                                const h = Math.max(1, valueOf("height"))
+                                const w = Math.max(1, keyLine.restSide("width"))
+                                const h = Math.max(1, keyLine.restSide("height"))
                                 return [{ "prop": "anchorX", "tag": "X", "toDisplay": (f) => f * w, "fromDisplay": (d) => d / w,
                                           "min": -1e6, "max": 1e6, "step": 1, "decimals": 0, "suffix": "" },
                                         { "prop": "anchorY", "tag": "Y", "toDisplay": (f) => f * h, "fromDisplay": (d) => d / h,
@@ -1567,7 +1575,7 @@ Item {
                             if (prop === "width" || prop === "height")
                                 return [plain(prop, "", 1, 0, "")]
                             if (prop === "anchorX" || prop === "anchorY") {
-                                const side = Math.max(1, valueOf(prop === "anchorX" ? "width" : "height"))
+                                const side = Math.max(1, keyLine.restSide(prop === "anchorX" ? "width" : "height"))
                                 return [{ "prop": prop, "tag": "", "toDisplay": (f) => f * side, "fromDisplay": (d) => d / side,
                                           "min": -1e6, "max": 1e6, "step": 1, "decimals": 0, "suffix": "" }]
                             }
@@ -1858,10 +1866,12 @@ Item {
                                     // rebuilds the delegates, so the next one is looked up afterwards.
                                     function editValue(index) {
                                         const row = hotRepeater.itemAt(index)
-                                        if (row && row.scrub && row.scrub.visible)
+                                        if (row && row.scrub && row.scrub.visible) {
+                                            root.pendingHotEdit = null
                                             row.scrub.startEditing()
-                                        else if (index >= 0 && index < hotRepeater.count)
+                                        } else if (index >= 0 && index < hotRepeater.count) {
                                             hotRepeater.editValue(index + 1)
+                                        }
                                     }
                                     delegate: Row {
                                         id: hotRow
@@ -1895,7 +1905,19 @@ Item {
                                             visible: !modelData.link
                                             onTabbed: (back) => {
                                                 const next = hotRow.index + (back ? -1 : 1)
-                                                Qt.callLater(() => hotRepeater.editValue(next))
+                                                root.pendingHotEdit = { "track": keyLines.trackIndex,
+                                                                        "props": keyLine.props.join(","),
+                                                                        "index": next }
+                                                // Unless the rebuilt line already opened it.
+                                                Qt.callLater(() => { if (root.pendingHotEdit) hotRepeater.editValue(next) })
+                                            }
+                                            Component.onCompleted: {
+                                                const p = root.pendingHotEdit
+                                                if (p && p.track === keyLines.trackIndex && p.index === hotRow.index
+                                                        && p.props === keyLine.props.join(",") && !hotRow.modelData.link) {
+                                                    root.pendingHotEdit = null
+                                                    Qt.callLater(hotScrub.startEditing)
+                                                }
                                             }
                                             trackIndex: keyLines.trackIndex
                                             clipIndex: keyLine.clip

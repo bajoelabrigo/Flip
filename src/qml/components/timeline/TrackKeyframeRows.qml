@@ -371,9 +371,11 @@ Item {
                                     if (keyItem.refList.length > 1 && !ctrl && !shift) {
                                         if (!keyItem.isPicked)
                                             root.tools.pick(root.trackIndex, keyItem.refList)
+                                        // Shift+click on another runs from here.
+                                        root.tools.runFrom = keyItem.ref
                                     }
                                     else
-                                        root.tools.press(root.trackIndex, keyItem.ref, mouse.modifiers,
+                                        root.tools.press(root.trackIndex, keyItem.refList, mouse.modifiers,
                                                          span.modelData.keys)
                                     // Only a plain press drags (as the clip strip's keys).
                                     keyItem.dragArmed = !ctrl && !shift
