@@ -11011,6 +11011,11 @@ void AppController::finalizeGeneratedSubtitles(drift::TimeUs timelineStart,
         clip.name = tr("English subtitles");
     }
     QList<drift::SubtitleCue> cleaned = subtitleCleanupEnabled() ? drift::cleanSubtitleCues(cues) : cues;
+    // A caption with no letter or digit (a lone «.» that Whisper writes over the silence at the end)
+    // is no caption.
+    cleaned.removeIf([](const drift::SubtitleCue &cue) {
+        return std::none_of(cue.text.cbegin(), cue.text.cend(), [](QChar c) { return c.isLetterOrNumber(); });
+    });
     const QList<QPair<QString, QString>> dictionary = subtitleDictionaryPairs();
     const bool emojis = subtitleEmojisEnabled();
     const bool masked = subtitleProfanityFilter();

@@ -108,3 +108,13 @@ Para redes (estilo CapCut):
   - subtítulos dentro del video: la misma casilla de Exportar («Incluir los subtítulos (dentro del video y en .srt)»)
     los mete como pista que el reproductor activa o desactiva (`mov_text` en MP4/MOV, WebVTT en WebM, SubRip en MKV;
     `Exporter.cpp` `openSubtitleTrack`). Falta comprobarlo con ffprobe en el portable.
+
+### Prueba en ventana (2026-11-02, build 4ca73, `pruebas\subtitulos-030`)
+Video vertical de 23 s con voz de Windows (Helena) y pausas. Visto funcionando: Quitar silencios (ventana con 4
+pausas, desmarcar, 0,4–1,5 s, escuchar mueve el cabezal y para al final, Quitar en 5 tramos y deshacer en un paso),
+dos líneas por subtítulo con karaoke, Ortografía («click» → «clic», karaoke conservado), tecla I, Limpiar con su
+tarjeta, Dividir, Unir, Mover todos (izquierda), botón «Crear subtítulos…» de Audio, y exportar: el MP4 lleva una pista
+`mov_text` con los subtítulos (ffprobe) y el `.srt` al lado coincide. Arreglado después (falta verlo en la build
+siguiente): un subtítulo «.» que Whisper escribía en el silencio del final; Dividir perdía el salto de línea; Mover todos
+a la derecha no hacía nada si un subtítulo llegaba al final del clip. `shot.ps1`/`click.ps1` aceptan `-Title` para las
+ventanas de herramientas.

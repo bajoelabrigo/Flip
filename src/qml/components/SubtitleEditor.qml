@@ -267,23 +267,26 @@ Item {
     }
 
     // Every caption earlier or later at once (an .srt out of sync, a video trimmed at the start),
-    // with its word timings, never before the clip's start or past its end.
+    // with its word timings. What would go before the clip's start or past its end is trimmed there
+    // (a caption reaching the end used to stop the whole move, so the button did nothing).
     function shiftAllCues(delta) {
         const list = cloneCues()
-        if (!list.length)
+        if (!list.length || Math.abs(delta) < 1e-6)
             return
-        if (delta < 0)
-            delta = Math.max(delta, -list[0].start)
-        if (delta > 0 && root.clipDuration > 0)
-            delta = Math.min(delta, root.clipDuration - list[list.length - 1].end)
-        if (Math.abs(delta) < 1e-6)
-            return
+        const end = root.clipDuration > 0 ? root.clipDuration : Infinity
+        const clampTime = t => Math.max(0, Math.min(end, t))
+        const next = []
         for (let i = 0; i < list.length; i++) {
-            list[i].start += delta
-            list[i].end += delta
-            list[i].wordEnds = list[i].wordEnds.map(e => e + delta)
+            const cue = list[i]
+            const start = clampTime(cue.start + delta)
+            const stop = clampTime(cue.end + delta)
+            if (stop - start < 0.05)
+                continue // pushed off the clip entirely
+            next.push({ start: start, end: stop, text: cue.text,
+                        wordEnds: cue.wordEnds.map(e => Math.max(start, Math.min(stop, e + delta))) })
         }
-        replaceCues(list)
+        if (next.length)
+            replaceCues(next)
     }
 
     // The caption under the playhead in two (CapCut's Split): the words said before it stay, the
@@ -313,9 +316,11 @@ Item {
         }
         if (words.length > 1)
             k = Math.max(1, Math.min(words.length - 1, k))
-        const first = { start: cue.start, end: t, text: words.slice(0, k).join(" "),
+        // Each word with the space or line break after it, so a two-line caption keeps its break.
+        const pieces = String(cue.text).trim().match(/\S+\s*/g) || []
+        const first = { start: cue.start, end: t, text: pieces.slice(0, k).join("").trim(),
                         wordEnds: timed ? cue.wordEnds.slice(0, k) : [] }
-        const second = { start: t, end: cue.end, text: words.slice(k).join(" "),
+        const second = { start: t, end: cue.end, text: pieces.slice(k).join("").trim(),
                          wordEnds: timed ? cue.wordEnds.slice(k) : [] }
         list.splice(index, 1, first, second)
         replaceCues(list)
