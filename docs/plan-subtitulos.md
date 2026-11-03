@@ -29,7 +29,7 @@ Cómo seguir: marcar cada punto al terminarlo con el commit; probar en ventana a
 - [x] 7. Generar dos veces sobre el mismo tramo encima dos clips de subtítulos.
 - [~] 8. Una sola línea de 42 letras, también en vertical; no permite dos líneas (`packSubtitleCues`).
 - [x] 9. El candado de la pista no protege los subtítulos (`setSubtitleCues`, `importSubtitleFileIntoClip`).
-- [ ] 10. Curvas de velocidad y clips en reversa: subtítulos mal sincronizados.
+- [x] 10. Curvas de velocidad y clips en reversa: subtítulos mal sincronizados.
 - [ ] 11. Chino, japonés y tailandés: se sincronizan mal (separan palabras por espacios).
 
 ## Mejorar (más fácil de usar)
@@ -91,3 +91,5 @@ Para redes (estilo CapCut):
     «Palabras difíciles» (se mandan como keyterms). La nube no necesita el modelo local.
   - CI run 41385748714: compiló; solo falló `findAndReplaceInSubtitleCues` (esperaba borrar los tiempos; ahora se
     reacomodan): prueba actualizada.
+  - curvas de velocidad y clips en reversa: los subtítulos se ubican con el mapeo del propio clip
+    (`sourceUsToClipLocalUs`); los que salen de una transcripción guardada ya traen los tiempos por palabra.
