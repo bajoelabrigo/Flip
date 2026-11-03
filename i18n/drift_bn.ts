@@ -1115,6 +1115,29 @@
     </message>
 </context>
 <context>
+    <name>AeShortcutsDialog</name>
+    <message>
+        <source>Use After Effects&apos; shortcuts?</source>
+        <translation>After Effects-এর শর্টকাট ব্যবহার করবেন?</translation>
+    </message>
+    <message>
+        <source>Use After Effects&apos;</source>
+        <translation>After Effects-এর গুলো ব্যবহার করুন</translation>
+    </message>
+    <message>
+        <source>Keep Flip&apos;s</source>
+        <translation>Flip-এর গুলো রাখুন</translation>
+    </message>
+    <message>
+        <source>J and K go to the previous and next keyframe, P, S, R, T and A show one property, U and UU what is animated or changed, B and N set the work area, I and O go to the layer&apos;s ends, [ ] and Alt+[ ] move and trim the layer at the playhead.</source>
+        <translation>J ও K আগের ও পরের কীফ্রেমে যায়, P, S, R, T ও A একটি প্রপার্টি দেখায়, U ও UU অ্যানিমেটেড বা বদলানো জিনিস, B ও N ওয়ার্ক এরিয়া ঠিক করে, I ও O লেয়ারের দুই প্রান্তে যায়, [ ] ও Alt+[ ] প্লেহেডে লেয়ার সরায় ও ছাঁটে।</translation>
+    </message>
+    <message>
+        <source>You can switch any time in Preferences › Shortcuts. Shortcuts you changed yourself stay as they are.</source>
+        <translation>পছন্দ › শর্টকাট থেকে যেকোনো সময় বদলাতে পারবেন। আপনি নিজে যেসব শর্টকাট বদলেছেন সেগুলো একই থাকবে।</translation>
+    </message>
+</context>
+<context>
     <name>AgentAccessControls</name>
     <message>
         <source>Let Cursor or Claude edit this project for you — add clips, change the timeline, and check how it looks. Only programs on this device. Off by default each time you open Flip Studio, unless you turn on “Start agent on startup” below; turn it off here when you finish. The key stays the same between sessions, so a setup you pasted once keeps working.</source>
@@ -5316,8 +5339,40 @@
         <translation type="unfinished">অস্বচ্ছতা</translation>
     </message>
     <message>
+        <source>Step back one frame (Page Up)</source>
+        <translation>এক ফ্রেম পিছনে (Page Up)</translation>
+    </message>
+    <message>
+        <source>Step forward one frame (Page Down)</source>
+        <translation>এক ফ্রেম সামনে (Page Down)</translation>
+    </message>
+    <message>
         <source>Show rulers</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Go to the layer&apos;s in point</source>
+        <translation>লেয়ারের শুরুতে যান</translation>
+    </message>
+    <message>
+        <source>Go to the layer&apos;s out point</source>
+        <translation>লেয়ারের শেষে যান</translation>
+    </message>
+    <message>
+        <source>Trim the layer&apos;s in point to the playhead</source>
+        <translation>প্লেহেডে লেয়ারের শুরু ছাঁটুন</translation>
+    </message>
+    <message>
+        <source>Trim the layer&apos;s out point to the playhead</source>
+        <translation>প্লেহেডে লেয়ারের শেষ ছাঁটুন</translation>
+    </message>
+    <message>
+        <source>Move the layer so it starts at the playhead</source>
+        <translation>লেয়ার সরান যাতে প্লেহেডে শুরু হয়</translation>
+    </message>
+    <message>
+        <source>Move the layer so it ends at the playhead</source>
+        <translation>লেয়ার সরান যাতে প্লেহেডে শেষ হয়</translation>
     </message>
     <message>
         <source>RAM preview (render to memory and play)</source>
@@ -5330,6 +5385,18 @@
     <message>
         <source>Ruler guides</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trim layer</source>
+        <translation>লেয়ার ছাঁটুন</translation>
+    </message>
+    <message>
+        <source>Move layer</source>
+        <translation>লেয়ার সরান</translation>
+    </message>
+    <message>
+        <source>Put the playhead inside the layer to trim it there</source>
+        <translation>সেখানে ছাঁটতে প্লেহেড লেয়ারের ভিতরে রাখুন</translation>
     </message>
     <message>
         <source>Sending the audio to ElevenLabs…</source>
@@ -17012,6 +17079,10 @@ NEXT TIME</source>
         <translation>কীফ্রেমগুলো সরান</translation>
     </message>
     <message>
+        <source>Paste keyframes</source>
+        <translation>কীফ্রেম পেস্ট করুন</translation>
+    </message>
+    <message>
         <source>Apply</source>
         <translation>প্রয়োগ করুন</translation>
     </message>
@@ -25224,6 +25295,26 @@ If playback stutters, try another.</source>
         <translation>শর্টকাট খুঁজুন</translation>
     </message>
     <message>
+        <source>Shortcut set</source>
+        <translation>শর্টকাট সেট</translation>
+    </message>
+    <message>
+        <source>Flip</source>
+        <translation>Flip</translation>
+    </message>
+    <message>
+        <source>Flip&apos;s own shortcuts</source>
+        <translation>Flip-এর নিজস্ব শর্টকাট</translation>
+    </message>
+    <message>
+        <source>After Effects</source>
+        <translation>After Effects</translation>
+    </message>
+    <message>
+        <source>As in After Effects: J/K go between keyframes, P/S/R/T/A show one property, U/UU, B/N the work area, I/O the layer&apos;s ends, [ ] and Alt+[ ] move and trim the layer at the playhead</source>
+        <translation>After Effects-এর মতো: J/K কীফ্রেমের মধ্যে যায়, P/S/R/T/A একটি প্রপার্টি দেখায়, U/UU, B/N ওয়ার্ক এরিয়া, I/O লেয়ারের প্রান্ত, [ ] ও Alt+[ ] প্লেহেডে লেয়ার সরায় ও ছাঁটে</translation>
+    </message>
+    <message>
         <source>Click a shortcut, then press the keys. Esc cancels, Backspace clears.</source>
         <translation>শর্টকাটে ক্লিক করে কী চাপুন। Esc বাতিল করে, Backspace মুছে দেয়.</translation>
     </message>
@@ -30663,6 +30754,18 @@ If playback stutters, try another.</source>
 </context>
 <context>
     <name>TimelinePanel</name>
+    <message>
+        <source>Move work area</source>
+        <translation>ওয়ার্ক এরিয়া সরান</translation>
+    </message>
+    <message>
+        <source>Work area: drag to move it</source>
+        <translation>ওয়ার্ক এরিয়া: সরাতে টানুন</translation>
+    </message>
+    <message>
+        <source>Work area: drag to change where it starts or ends</source>
+        <translation>ওয়ার্ক এরিয়া: শুরু বা শেষ বদলাতে টানুন</translation>
+    </message>
     <message>
         <source>Proxy</source>
         <translation>প্রক্সি</translation>

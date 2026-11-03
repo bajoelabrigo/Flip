@@ -1119,6 +1119,29 @@
     </message>
 </context>
 <context>
+    <name>AeShortcutsDialog</name>
+    <message>
+        <source>Use After Effects&apos; shortcuts?</source>
+        <translation>هل تستخدم اختصارات After Effects؟</translation>
+    </message>
+    <message>
+        <source>Use After Effects&apos;</source>
+        <translation>استخدم اختصارات After Effects</translation>
+    </message>
+    <message>
+        <source>Keep Flip&apos;s</source>
+        <translation>أبقِ اختصارات Flip</translation>
+    </message>
+    <message>
+        <source>J and K go to the previous and next keyframe, P, S, R, T and A show one property, U and UU what is animated or changed, B and N set the work area, I and O go to the layer&apos;s ends, [ ] and Alt+[ ] move and trim the layer at the playhead.</source>
+        <translation>J وK للانتقال إلى الإطار المفتاحي السابق والتالي، وP وS وR وT وA لإظهار خاصية واحدة، وU وUU لما هو متحرك أو معدّل، وB وN لتحديد منطقة العمل، وI وO للانتقال إلى طرفي الطبقة، و[ ] وAlt+[ ] لتحريك الطبقة وقصّها عند المؤشر.</translation>
+    </message>
+    <message>
+        <source>You can switch any time in Preferences › Shortcuts. Shortcuts you changed yourself stay as they are.</source>
+        <translation>يمكنك التبديل في أي وقت من التفضيلات › الاختصارات. الاختصارات التي غيّرتها بنفسك تبقى كما هي.</translation>
+    </message>
+</context>
+<context>
     <name>AgentAccessControls</name>
     <message>
         <source>Allow for this session</source>
@@ -5272,8 +5295,40 @@
         <translation>العتامة</translation>
     </message>
     <message>
+        <source>Step back one frame (Page Up)</source>
+        <translation>الرجوع إطارًا (Page Up)</translation>
+    </message>
+    <message>
+        <source>Step forward one frame (Page Down)</source>
+        <translation>التقدم إطارًا (Page Down)</translation>
+    </message>
+    <message>
         <source>Show rulers</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Go to the layer&apos;s in point</source>
+        <translation>الانتقال إلى بداية الطبقة</translation>
+    </message>
+    <message>
+        <source>Go to the layer&apos;s out point</source>
+        <translation>الانتقال إلى نهاية الطبقة</translation>
+    </message>
+    <message>
+        <source>Trim the layer&apos;s in point to the playhead</source>
+        <translation>قصّ بداية الطبقة عند المؤشر</translation>
+    </message>
+    <message>
+        <source>Trim the layer&apos;s out point to the playhead</source>
+        <translation>قصّ نهاية الطبقة عند المؤشر</translation>
+    </message>
+    <message>
+        <source>Move the layer so it starts at the playhead</source>
+        <translation>تحريك الطبقة لتبدأ عند المؤشر</translation>
+    </message>
+    <message>
+        <source>Move the layer so it ends at the playhead</source>
+        <translation>تحريك الطبقة لتنتهي عند المؤشر</translation>
     </message>
     <message>
         <source>RAM preview (render to memory and play)</source>
@@ -5286,6 +5341,18 @@
     <message>
         <source>Ruler guides</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trim layer</source>
+        <translation>قصّ الطبقة</translation>
+    </message>
+    <message>
+        <source>Move layer</source>
+        <translation>تحريك الطبقة</translation>
+    </message>
+    <message>
+        <source>Put the playhead inside the layer to trim it there</source>
+        <translation>ضع المؤشر داخل الطبقة لقصّها هناك</translation>
     </message>
     <message>
         <source>Sending the audio to ElevenLabs…</source>
@@ -17268,6 +17335,10 @@ NEXT TIME</source>
         <translation>تحريك الإطارات المفتاحية</translation>
     </message>
     <message>
+        <source>Paste keyframes</source>
+        <translation>لصق الإطارات المفتاحية</translation>
+    </message>
+    <message>
         <source>Apply</source>
         <translation>تطبيق</translation>
     </message>
@@ -25588,6 +25659,26 @@ If playback stutters, try another.</source>
         <translation>البحث في الاختصارات</translation>
     </message>
     <message>
+        <source>Shortcut set</source>
+        <translation>مجموعة الاختصارات</translation>
+    </message>
+    <message>
+        <source>Flip</source>
+        <translation>Flip</translation>
+    </message>
+    <message>
+        <source>Flip&apos;s own shortcuts</source>
+        <translation>اختصارات Flip الخاصة</translation>
+    </message>
+    <message>
+        <source>After Effects</source>
+        <translation>After Effects</translation>
+    </message>
+    <message>
+        <source>As in After Effects: J/K go between keyframes, P/S/R/T/A show one property, U/UU, B/N the work area, I/O the layer&apos;s ends, [ ] and Alt+[ ] move and trim the layer at the playhead</source>
+        <translation>كما في After Effects: J/K بين الإطارات المفتاحية، P/S/R/T/A خاصية واحدة، U/UU، B/N منطقة العمل، I/O طرفا الطبقة، [ ] وAlt+[ ] لتحريك الطبقة وقصّها عند المؤشر</translation>
+    </message>
+    <message>
         <source>Click a shortcut, then press the keys. Esc cancels, Backspace clears.</source>
         <translation>انقر على اختصار، ثم اضغط على المفاتيح. Esc للإلغاء، وBackspace للمسح.</translation>
     </message>
@@ -31051,6 +31142,18 @@ If playback stutters, try another.</source>
 </context>
 <context>
     <name>TimelinePanel</name>
+    <message>
+        <source>Move work area</source>
+        <translation>تحريك منطقة العمل</translation>
+    </message>
+    <message>
+        <source>Work area: drag to move it</source>
+        <translation>منطقة العمل: اسحب لتحريكها</translation>
+    </message>
+    <message>
+        <source>Work area: drag to change where it starts or ends</source>
+        <translation>منطقة العمل: اسحب لتغيير بدايتها أو نهايتها</translation>
+    </message>
     <message>
         <source>Proxy</source>
         <translation>ملف وكيل</translation>

@@ -1114,6 +1114,29 @@
     </message>
 </context>
 <context>
+    <name>AeShortcutsDialog</name>
+    <message>
+        <source>Use After Effects&apos; shortcuts?</source>
+        <translation>Dùng phím tắt của After Effects?</translation>
+    </message>
+    <message>
+        <source>Use After Effects&apos;</source>
+        <translation>Dùng của After Effects</translation>
+    </message>
+    <message>
+        <source>Keep Flip&apos;s</source>
+        <translation>Giữ của Flip</translation>
+    </message>
+    <message>
+        <source>J and K go to the previous and next keyframe, P, S, R, T and A show one property, U and UU what is animated or changed, B and N set the work area, I and O go to the layer&apos;s ends, [ ] and Alt+[ ] move and trim the layer at the playhead.</source>
+        <translation>J và K tới khung hình chính trước và sau, P, S, R, T và A chỉ hiện một thuộc tính, U và UU những gì có hoạt ảnh hoặc đã thay đổi, B và N đặt vùng làm việc, I và O tới hai đầu lớp, [ ] và Alt+[ ] di chuyển và cắt lớp tại đầu phát.</translation>
+    </message>
+    <message>
+        <source>You can switch any time in Preferences › Shortcuts. Shortcuts you changed yourself stay as they are.</source>
+        <translation>Bạn có thể đổi bất cứ lúc nào trong Tùy chọn › Phím tắt. Những phím tắt bạn tự đổi vẫn giữ nguyên.</translation>
+    </message>
+</context>
+<context>
     <name>AgentAccessControls</name>
     <message>
         <source>Allow for this session</source>
@@ -5207,8 +5230,40 @@
         <translation>Độ mờ đục</translation>
     </message>
     <message>
+        <source>Step back one frame (Page Up)</source>
+        <translation>Lùi một khung hình (Page Up)</translation>
+    </message>
+    <message>
+        <source>Step forward one frame (Page Down)</source>
+        <translation>Tiến một khung hình (Page Down)</translation>
+    </message>
+    <message>
         <source>Show rulers</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Go to the layer&apos;s in point</source>
+        <translation>Tới điểm đầu của lớp</translation>
+    </message>
+    <message>
+        <source>Go to the layer&apos;s out point</source>
+        <translation>Tới điểm cuối của lớp</translation>
+    </message>
+    <message>
+        <source>Trim the layer&apos;s in point to the playhead</source>
+        <translation>Cắt điểm đầu của lớp tại đầu phát</translation>
+    </message>
+    <message>
+        <source>Trim the layer&apos;s out point to the playhead</source>
+        <translation>Cắt điểm cuối của lớp tại đầu phát</translation>
+    </message>
+    <message>
+        <source>Move the layer so it starts at the playhead</source>
+        <translation>Di chuyển lớp để bắt đầu tại đầu phát</translation>
+    </message>
+    <message>
+        <source>Move the layer so it ends at the playhead</source>
+        <translation>Di chuyển lớp để kết thúc tại đầu phát</translation>
     </message>
     <message>
         <source>RAM preview (render to memory and play)</source>
@@ -5221,6 +5276,18 @@
     <message>
         <source>Ruler guides</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trim layer</source>
+        <translation>Cắt lớp</translation>
+    </message>
+    <message>
+        <source>Move layer</source>
+        <translation>Di chuyển lớp</translation>
+    </message>
+    <message>
+        <source>Put the playhead inside the layer to trim it there</source>
+        <translation>Đặt đầu phát bên trong lớp để cắt tại đó</translation>
     </message>
     <message>
         <source>Sending the audio to ElevenLabs…</source>
@@ -16953,6 +17020,10 @@ LẦN SAU</translation>
         <translation>Di chuyển các keyframe</translation>
     </message>
     <message>
+        <source>Paste keyframes</source>
+        <translation>Dán khung hình chính</translation>
+    </message>
+    <message>
         <source>Apply</source>
         <translation>Áp dụng</translation>
     </message>
@@ -25138,6 +25209,26 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Tìm phím tắt</translation>
     </message>
     <message>
+        <source>Shortcut set</source>
+        <translation>Bộ phím tắt</translation>
+    </message>
+    <message>
+        <source>Flip</source>
+        <translation>Flip</translation>
+    </message>
+    <message>
+        <source>Flip&apos;s own shortcuts</source>
+        <translation>Phím tắt riêng của Flip</translation>
+    </message>
+    <message>
+        <source>After Effects</source>
+        <translation>After Effects</translation>
+    </message>
+    <message>
+        <source>As in After Effects: J/K go between keyframes, P/S/R/T/A show one property, U/UU, B/N the work area, I/O the layer&apos;s ends, [ ] and Alt+[ ] move and trim the layer at the playhead</source>
+        <translation>Như After Effects: J/K giữa các khung hình chính, P/S/R/T/A một thuộc tính, U/UU, B/N vùng làm việc, I/O hai đầu lớp, [ ] và Alt+[ ] di chuyển và cắt lớp tại đầu phát</translation>
+    </message>
+    <message>
         <source>Click a shortcut, then press the keys. Esc cancels, Backspace clears.</source>
         <translation>Nhấp chuột vào phím tắt, sau đó nhấn các phím tương ứng. Phím Esc để hủy, phím Backspace để xóa.</translation>
     </message>
@@ -30571,6 +30662,18 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
 </context>
 <context>
     <name>TimelinePanel</name>
+    <message>
+        <source>Move work area</source>
+        <translation>Di chuyển vùng làm việc</translation>
+    </message>
+    <message>
+        <source>Work area: drag to move it</source>
+        <translation>Vùng làm việc: kéo để di chuyển</translation>
+    </message>
+    <message>
+        <source>Work area: drag to change where it starts or ends</source>
+        <translation>Vùng làm việc: kéo để đổi điểm bắt đầu hoặc kết thúc</translation>
+    </message>
     <message>
         <source>Proxy</source>
         <translation>Proxy</translation>

@@ -1116,6 +1116,29 @@
     </message>
 </context>
 <context>
+    <name>AeShortcutsDialog</name>
+    <message>
+        <source>Use After Effects&apos; shortcuts?</source>
+        <translation>Utiliser les raccourcis d’After Effects?</translation>
+    </message>
+    <message>
+        <source>Use After Effects&apos;</source>
+        <translation>Utiliser ceux d’After Effects</translation>
+    </message>
+    <message>
+        <source>Keep Flip&apos;s</source>
+        <translation>Garder ceux de Flip</translation>
+    </message>
+    <message>
+        <source>J and K go to the previous and next keyframe, P, S, R, T and A show one property, U and UU what is animated or changed, B and N set the work area, I and O go to the layer&apos;s ends, [ ] and Alt+[ ] move and trim the layer at the playhead.</source>
+        <translation>J et K vont à l’image clé précédente et suivante, P, S, R, T et A affichent une seule propriété, U et UU ce qui est animé ou modifié, B et N placent la zone de travail, I et O vont aux extrémités du calque, [ ] et Alt+[ ] déplacent et rognent le calque à la tête de lecture.</translation>
+    </message>
+    <message>
+        <source>You can switch any time in Preferences › Shortcuts. Shortcuts you changed yourself stay as they are.</source>
+        <translation>Vous pouvez changer en tout temps dans Préférences › Raccourcis. Les raccourcis que vous avez modifiés restent tels quels.</translation>
+    </message>
+</context>
+<context>
     <name>AgentAccessControls</name>
     <message>
         <source>Allow for this session</source>
@@ -5221,8 +5244,40 @@
         <translation>Opacité</translation>
     </message>
     <message>
+        <source>Step back one frame (Page Up)</source>
+        <translation>Reculer d’une image (Page préc.)</translation>
+    </message>
+    <message>
+        <source>Step forward one frame (Page Down)</source>
+        <translation>Avancer d’une image (Page suiv.)</translation>
+    </message>
+    <message>
         <source>Show rulers</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Go to the layer&apos;s in point</source>
+        <translation>Aller au début du calque</translation>
+    </message>
+    <message>
+        <source>Go to the layer&apos;s out point</source>
+        <translation>Aller à la fin du calque</translation>
+    </message>
+    <message>
+        <source>Trim the layer&apos;s in point to the playhead</source>
+        <translation>Rogner le début du calque à la tête de lecture</translation>
+    </message>
+    <message>
+        <source>Trim the layer&apos;s out point to the playhead</source>
+        <translation>Rogner la fin du calque à la tête de lecture</translation>
+    </message>
+    <message>
+        <source>Move the layer so it starts at the playhead</source>
+        <translation>Déplacer le calque pour qu’il commence à la tête de lecture</translation>
+    </message>
+    <message>
+        <source>Move the layer so it ends at the playhead</source>
+        <translation>Déplacer le calque pour qu’il finisse à la tête de lecture</translation>
     </message>
     <message>
         <source>RAM preview (render to memory and play)</source>
@@ -5235,6 +5290,18 @@
     <message>
         <source>Ruler guides</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trim layer</source>
+        <translation>Rogner le calque</translation>
+    </message>
+    <message>
+        <source>Move layer</source>
+        <translation>Déplacer le calque</translation>
+    </message>
+    <message>
+        <source>Put the playhead inside the layer to trim it there</source>
+        <translation>Placez la tête de lecture dans le calque pour le rogner là</translation>
     </message>
     <message>
         <source>Sending the audio to ElevenLabs…</source>
@@ -17018,6 +17085,10 @@ PROCHAINE</translation>
         <translation>Déplacer les images clés</translation>
     </message>
     <message>
+        <source>Paste keyframes</source>
+        <translation>Coller les images clés</translation>
+    </message>
+    <message>
         <source>Apply</source>
         <translation>Appliquer</translation>
     </message>
@@ -25230,6 +25301,26 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Rechercher les raccourcis</translation>
     </message>
     <message>
+        <source>Shortcut set</source>
+        <translation>Jeu de raccourcis</translation>
+    </message>
+    <message>
+        <source>Flip</source>
+        <translation>Flip</translation>
+    </message>
+    <message>
+        <source>Flip&apos;s own shortcuts</source>
+        <translation>Les raccourcis de Flip</translation>
+    </message>
+    <message>
+        <source>After Effects</source>
+        <translation>After Effects</translation>
+    </message>
+    <message>
+        <source>As in After Effects: J/K go between keyframes, P/S/R/T/A show one property, U/UU, B/N the work area, I/O the layer&apos;s ends, [ ] and Alt+[ ] move and trim the layer at the playhead</source>
+        <translation>Comme dans After Effects : J/K passent d’une image clé à l’autre, P/S/R/T/A affichent une propriété, U/UU, B/N la zone de travail, I/O les extrémités du calque, [ ] et Alt+[ ] déplacent et rognent le calque à la tête de lecture</translation>
+    </message>
+    <message>
         <source>Click a shortcut, then press the keys. Esc cancels, Backspace clears.</source>
         <translation>Cliquez sur un raccourci, puis appuyez sur les touches. Esc annule, Backspace efface.</translation>
     </message>
@@ -30671,6 +30762,18 @@ Si la lecture saccade, essayez une autre option.</translation>
 </context>
 <context>
     <name>TimelinePanel</name>
+    <message>
+        <source>Move work area</source>
+        <translation>Déplacer la zone de travail</translation>
+    </message>
+    <message>
+        <source>Work area: drag to move it</source>
+        <translation>Zone de travail : glissez pour la déplacer</translation>
+    </message>
+    <message>
+        <source>Work area: drag to change where it starts or ends</source>
+        <translation>Zone de travail : glissez pour changer son début ou sa fin</translation>
+    </message>
     <message>
         <source>Proxy</source>
         <translation>Proxy</translation>

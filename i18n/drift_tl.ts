@@ -1115,6 +1115,29 @@
     </message>
 </context>
 <context>
+    <name>AeShortcutsDialog</name>
+    <message>
+        <source>Use After Effects&apos; shortcuts?</source>
+        <translation>Gamitin ang mga shortcut ng After Effects?</translation>
+    </message>
+    <message>
+        <source>Use After Effects&apos;</source>
+        <translation>Gamitin ang sa After Effects</translation>
+    </message>
+    <message>
+        <source>Keep Flip&apos;s</source>
+        <translation>Panatilihin ang sa Flip</translation>
+    </message>
+    <message>
+        <source>J and K go to the previous and next keyframe, P, S, R, T and A show one property, U and UU what is animated or changed, B and N set the work area, I and O go to the layer&apos;s ends, [ ] and Alt+[ ] move and trim the layer at the playhead.</source>
+        <translation>Pumupunta ang J at K sa nakaraan at susunod na keyframe, ipinapakita ng P, S, R, T at A ang iisang property, ng U at UU ang naka-animate o binago, itinatakda ng B at N ang work area, pumupunta ang I at O sa mga dulo ng layer, ginagalaw at pinuputol ng [ ] at Alt+[ ] ang layer sa playhead.</translation>
+    </message>
+    <message>
+        <source>You can switch any time in Preferences › Shortcuts. Shortcuts you changed yourself stay as they are.</source>
+        <translation>Mapapalitan mo ito kahit kailan sa Preferences › Mga shortcut. Mananatili ang mga shortcut na ikaw mismo ang nagbago.</translation>
+    </message>
+</context>
+<context>
     <name>AgentAccessControls</name>
     <message>
         <source>Allow for this session</source>
@@ -5220,8 +5243,40 @@
         <translation>Opacity</translation>
     </message>
     <message>
+        <source>Step back one frame (Page Up)</source>
+        <translation>Isang frame pabalik (Page Up)</translation>
+    </message>
+    <message>
+        <source>Step forward one frame (Page Down)</source>
+        <translation>Isang frame pasulong (Page Down)</translation>
+    </message>
+    <message>
         <source>Show rulers</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Go to the layer&apos;s in point</source>
+        <translation>Pumunta sa simula ng layer</translation>
+    </message>
+    <message>
+        <source>Go to the layer&apos;s out point</source>
+        <translation>Pumunta sa dulo ng layer</translation>
+    </message>
+    <message>
+        <source>Trim the layer&apos;s in point to the playhead</source>
+        <translation>Putulin ang simula ng layer sa playhead</translation>
+    </message>
+    <message>
+        <source>Trim the layer&apos;s out point to the playhead</source>
+        <translation>Putulin ang dulo ng layer sa playhead</translation>
+    </message>
+    <message>
+        <source>Move the layer so it starts at the playhead</source>
+        <translation>Ilipat ang layer para magsimula sa playhead</translation>
+    </message>
+    <message>
+        <source>Move the layer so it ends at the playhead</source>
+        <translation>Ilipat ang layer para matapos sa playhead</translation>
     </message>
     <message>
         <source>RAM preview (render to memory and play)</source>
@@ -5234,6 +5289,18 @@
     <message>
         <source>Ruler guides</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trim layer</source>
+        <translation>Putulin ang layer</translation>
+    </message>
+    <message>
+        <source>Move layer</source>
+        <translation>Ilipat ang layer</translation>
+    </message>
+    <message>
+        <source>Put the playhead inside the layer to trim it there</source>
+        <translation>Ilagay ang playhead sa loob ng layer para putulin ito roon</translation>
     </message>
     <message>
         <source>Sending the audio to ElevenLabs…</source>
@@ -17012,6 +17079,10 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Paste keyframes</source>
+        <translation>I-paste ang mga keyframe</translation>
+    </message>
+    <message>
         <source>Apply</source>
         <translation>Ilapat</translation>
     </message>
@@ -25217,6 +25288,26 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Shortcut set</source>
+        <translation>Set ng shortcut</translation>
+    </message>
+    <message>
+        <source>Flip</source>
+        <translation>Flip</translation>
+    </message>
+    <message>
+        <source>Flip&apos;s own shortcuts</source>
+        <translation>Sariling mga shortcut ng Flip</translation>
+    </message>
+    <message>
+        <source>After Effects</source>
+        <translation>After Effects</translation>
+    </message>
+    <message>
+        <source>As in After Effects: J/K go between keyframes, P/S/R/T/A show one property, U/UU, B/N the work area, I/O the layer&apos;s ends, [ ] and Alt+[ ] move and trim the layer at the playhead</source>
+        <translation>Tulad sa After Effects: J/K sa pagitan ng mga keyframe, P/S/R/T/A isang property, U/UU, B/N ang work area, I/O ang mga dulo ng layer, [ ] at Alt+[ ] gumagalaw at pumuputol sa layer sa playhead</translation>
+    </message>
+    <message>
         <source>Click a shortcut, then press the keys. Esc cancels, Backspace clears.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -30655,6 +30746,18 @@ If playback stutters, try another.</source>
 </context>
 <context>
     <name>TimelinePanel</name>
+    <message>
+        <source>Move work area</source>
+        <translation>Ilipat ang work area</translation>
+    </message>
+    <message>
+        <source>Work area: drag to move it</source>
+        <translation>Work area: i-drag para ilipat</translation>
+    </message>
+    <message>
+        <source>Work area: drag to change where it starts or ends</source>
+        <translation>Work area: i-drag para baguhin kung saan nagsisimula o natatapos</translation>
+    </message>
     <message>
         <source>Proxy</source>
         <translation type="unfinished"></translation>

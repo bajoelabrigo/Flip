@@ -1115,6 +1115,29 @@
     </message>
 </context>
 <context>
+    <name>AeShortcutsDialog</name>
+    <message>
+        <source>Use After Effects&apos; shortcuts?</source>
+        <translation>After Effects කෙටිමං භාවිත කරන්නද?</translation>
+    </message>
+    <message>
+        <source>Use After Effects&apos;</source>
+        <translation>After Effects ඒවා භාවිත කරන්න</translation>
+    </message>
+    <message>
+        <source>Keep Flip&apos;s</source>
+        <translation>Flip ඒවා තබා ගන්න</translation>
+    </message>
+    <message>
+        <source>J and K go to the previous and next keyframe, P, S, R, T and A show one property, U and UU what is animated or changed, B and N set the work area, I and O go to the layer&apos;s ends, [ ] and Alt+[ ] move and trim the layer at the playhead.</source>
+        <translation>J සහ K පෙර සහ ඊළඟ කී රාමුවට යයි, P, S, R, T සහ A එක් ගුණාංගයක් පෙන්වයි, U සහ UU සජීවිකරණය හෝ වෙනස් කළ දේ, B සහ N වැඩ ප්‍රදේශය සකසයි, I සහ O ස්තරයේ කෙළවරට යයි, [ ] සහ Alt+[ ] ධාවන හිසෙහි ස්තරය ගෙන යයි සහ කපයි.</translation>
+    </message>
+    <message>
+        <source>You can switch any time in Preferences › Shortcuts. Shortcuts you changed yourself stay as they are.</source>
+        <translation>මනාපයන් › කෙටිමං හි ඕනෑම විටෙක මාරු කළ හැක. ඔබ විසින් වෙනස් කළ කෙටිමං එලෙසම පවතී.</translation>
+    </message>
+</context>
+<context>
     <name>AgentAccessControls</name>
     <message>
         <source>Allow for this session</source>
@@ -5216,8 +5239,40 @@
         <translation type="unfinished">පාරාන්ධතාව</translation>
     </message>
     <message>
+        <source>Step back one frame (Page Up)</source>
+        <translation>රාමුවක් පසුපසට (Page Up)</translation>
+    </message>
+    <message>
+        <source>Step forward one frame (Page Down)</source>
+        <translation>රාමුවක් ඉදිරියට (Page Down)</translation>
+    </message>
+    <message>
         <source>Show rulers</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Go to the layer&apos;s in point</source>
+        <translation>ස්තරයේ ආරම්භයට යන්න</translation>
+    </message>
+    <message>
+        <source>Go to the layer&apos;s out point</source>
+        <translation>ස්තරයේ අවසානයට යන්න</translation>
+    </message>
+    <message>
+        <source>Trim the layer&apos;s in point to the playhead</source>
+        <translation>ධාවන හිසෙහි ස්තරයේ ආරම්භය කපන්න</translation>
+    </message>
+    <message>
+        <source>Trim the layer&apos;s out point to the playhead</source>
+        <translation>ධාවන හිසෙහි ස්තරයේ අවසානය කපන්න</translation>
+    </message>
+    <message>
+        <source>Move the layer so it starts at the playhead</source>
+        <translation>ධාවන හිසෙන් ආරම්භ වන සේ ස්තරය ගෙන යන්න</translation>
+    </message>
+    <message>
+        <source>Move the layer so it ends at the playhead</source>
+        <translation>ධාවන හිසෙන් අවසන් වන සේ ස්තරය ගෙන යන්න</translation>
     </message>
     <message>
         <source>RAM preview (render to memory and play)</source>
@@ -5230,6 +5285,18 @@
     <message>
         <source>Ruler guides</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trim layer</source>
+        <translation>ස්තරය කපන්න</translation>
+    </message>
+    <message>
+        <source>Move layer</source>
+        <translation>ස්තරය ගෙන යන්න</translation>
+    </message>
+    <message>
+        <source>Put the playhead inside the layer to trim it there</source>
+        <translation>එතැනින් කැපීමට ධාවන හිස ස්තරය තුළ තබන්න</translation>
     </message>
     <message>
         <source>Sending the audio to ElevenLabs…</source>
@@ -17012,6 +17079,10 @@ NEXT TIME</source>
         <translation>කීෆ්‍රේම ගෙනයන්න</translation>
     </message>
     <message>
+        <source>Paste keyframes</source>
+        <translation>කී රාමු අලවන්න</translation>
+    </message>
+    <message>
         <source>Apply</source>
         <translation>යොදන්න</translation>
     </message>
@@ -25224,6 +25295,26 @@ If playback stutters, try another.</source>
         <translation>කෙටිමං සොයන්න</translation>
     </message>
     <message>
+        <source>Shortcut set</source>
+        <translation>කෙටිමං කට්ටලය</translation>
+    </message>
+    <message>
+        <source>Flip</source>
+        <translation>Flip</translation>
+    </message>
+    <message>
+        <source>Flip&apos;s own shortcuts</source>
+        <translation>Flip හි කෙටිමං</translation>
+    </message>
+    <message>
+        <source>After Effects</source>
+        <translation>After Effects</translation>
+    </message>
+    <message>
+        <source>As in After Effects: J/K go between keyframes, P/S/R/T/A show one property, U/UU, B/N the work area, I/O the layer&apos;s ends, [ ] and Alt+[ ] move and trim the layer at the playhead</source>
+        <translation>After Effects මෙන්: J/K කී රාමු අතර, P/S/R/T/A එක් ගුණාංගයක්, U/UU, B/N වැඩ ප්‍රදේශය, I/O ස්තරයේ කෙළවර, [ ] සහ Alt+[ ] ධාවන හිසෙහි ස්තරය ගෙන යාම සහ කැපීම</translation>
+    </message>
+    <message>
         <source>Click a shortcut, then press the keys. Esc cancels, Backspace clears.</source>
         <translation>කෙටිමඟක් ක්ලික් කර, පසුව යතුරු ඔබන්න. Esc මඟින් අවලංගු වන අතර, Backspace මඟින් හිස් කෙරේ.</translation>
     </message>
@@ -30663,6 +30754,18 @@ If playback stutters, try another.</source>
 </context>
 <context>
     <name>TimelinePanel</name>
+    <message>
+        <source>Move work area</source>
+        <translation>වැඩ ප්‍රදේශය ගෙන යන්න</translation>
+    </message>
+    <message>
+        <source>Work area: drag to move it</source>
+        <translation>වැඩ ප්‍රදේශය: ගෙන යාමට අදින්න</translation>
+    </message>
+    <message>
+        <source>Work area: drag to change where it starts or ends</source>
+        <translation>වැඩ ප්‍රදේශය: ආරම්භය හෝ අවසානය වෙනස් කිරීමට අදින්න</translation>
+    </message>
     <message>
         <source>Proxy</source>
         <translation>ප්‍රොක්සි</translation>

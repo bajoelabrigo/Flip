@@ -1114,6 +1114,29 @@
     </message>
 </context>
 <context>
+    <name>AeShortcutsDialog</name>
+    <message>
+        <source>Use After Effects&apos; shortcuts?</source>
+        <translation>After Effects のショートカットを使いますか?</translation>
+    </message>
+    <message>
+        <source>Use After Effects&apos;</source>
+        <translation>After Effects のものを使う</translation>
+    </message>
+    <message>
+        <source>Keep Flip&apos;s</source>
+        <translation>Flip のままにする</translation>
+    </message>
+    <message>
+        <source>J and K go to the previous and next keyframe, P, S, R, T and A show one property, U and UU what is animated or changed, B and N set the work area, I and O go to the layer&apos;s ends, [ ] and Alt+[ ] move and trim the layer at the playhead.</source>
+        <translation>J と K で前後のキーフレームへ、P・S・R・T・A でプロパティを 1 つ表示、U と UU でアニメーションや変更のある項目、B と N でワークエリアを設定、I と O でレイヤーの端へ、[ ] と Alt+[ ] で再生ヘッドの位置にレイヤーを移動・トリミングします。</translation>
+    </message>
+    <message>
+        <source>You can switch any time in Preferences › Shortcuts. Shortcuts you changed yourself stay as they are.</source>
+        <translation>環境設定 › ショートカットでいつでも切り替えられます。自分で変更したショートカットはそのままです。</translation>
+    </message>
+</context>
+<context>
     <name>AgentAccessControls</name>
     <message>
         <source>Allow for this session</source>
@@ -5199,8 +5222,40 @@
         <translation>不透明度</translation>
     </message>
     <message>
+        <source>Step back one frame (Page Up)</source>
+        <translation>1 フレーム戻る (Page Up)</translation>
+    </message>
+    <message>
+        <source>Step forward one frame (Page Down)</source>
+        <translation>1 フレーム進む (Page Down)</translation>
+    </message>
+    <message>
         <source>Show rulers</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Go to the layer&apos;s in point</source>
+        <translation>レイヤーのインポイントへ</translation>
+    </message>
+    <message>
+        <source>Go to the layer&apos;s out point</source>
+        <translation>レイヤーのアウトポイントへ</translation>
+    </message>
+    <message>
+        <source>Trim the layer&apos;s in point to the playhead</source>
+        <translation>レイヤーのインポイントを再生ヘッドでトリミング</translation>
+    </message>
+    <message>
+        <source>Trim the layer&apos;s out point to the playhead</source>
+        <translation>レイヤーのアウトポイントを再生ヘッドでトリミング</translation>
+    </message>
+    <message>
+        <source>Move the layer so it starts at the playhead</source>
+        <translation>再生ヘッドから始まるようにレイヤーを移動</translation>
+    </message>
+    <message>
+        <source>Move the layer so it ends at the playhead</source>
+        <translation>再生ヘッドで終わるようにレイヤーを移動</translation>
     </message>
     <message>
         <source>RAM preview (render to memory and play)</source>
@@ -5213,6 +5268,18 @@
     <message>
         <source>Ruler guides</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trim layer</source>
+        <translation>レイヤーをトリミング</translation>
+    </message>
+    <message>
+        <source>Move layer</source>
+        <translation>レイヤーを移動</translation>
+    </message>
+    <message>
+        <source>Put the playhead inside the layer to trim it there</source>
+        <translation>トリミングするには再生ヘッドをレイヤー内に置いてください</translation>
     </message>
     <message>
         <source>Sending the audio to ElevenLabs…</source>
@@ -16953,6 +17020,10 @@ NEXT TIME</source>
         <translation>キーフレームを移動</translation>
     </message>
     <message>
+        <source>Paste keyframes</source>
+        <translation>キーフレームを貼り付け</translation>
+    </message>
+    <message>
         <source>Apply</source>
         <translation>適用</translation>
     </message>
@@ -25138,6 +25209,26 @@ If playback stutters, try another.</source>
         <translation>ショートカットを検索</translation>
     </message>
     <message>
+        <source>Shortcut set</source>
+        <translation>ショートカットセット</translation>
+    </message>
+    <message>
+        <source>Flip</source>
+        <translation>Flip</translation>
+    </message>
+    <message>
+        <source>Flip&apos;s own shortcuts</source>
+        <translation>Flip 独自のショートカット</translation>
+    </message>
+    <message>
+        <source>After Effects</source>
+        <translation>After Effects</translation>
+    </message>
+    <message>
+        <source>As in After Effects: J/K go between keyframes, P/S/R/T/A show one property, U/UU, B/N the work area, I/O the layer&apos;s ends, [ ] and Alt+[ ] move and trim the layer at the playhead</source>
+        <translation>After Effects と同じ: J/K でキーフレーム間を移動、P/S/R/T/A でプロパティを 1 つ表示、U/UU、B/N でワークエリア、I/O でレイヤーの端、[ ] と Alt+[ ] で再生ヘッドの位置にレイヤーを移動・トリミング</translation>
+    </message>
+    <message>
         <source>Click a shortcut, then press the keys. Esc cancels, Backspace clears.</source>
         <translation>ショートカットをクリックし、キーを押します。Esc でキャンセル、Backspace でクリアします。</translation>
     </message>
@@ -30571,6 +30662,18 @@ If playback stutters, try another.</source>
 </context>
 <context>
     <name>TimelinePanel</name>
+    <message>
+        <source>Move work area</source>
+        <translation>ワークエリアを移動</translation>
+    </message>
+    <message>
+        <source>Work area: drag to move it</source>
+        <translation>ワークエリア: ドラッグして移動</translation>
+    </message>
+    <message>
+        <source>Work area: drag to change where it starts or ends</source>
+        <translation>ワークエリア: ドラッグして開始や終了を変更</translation>
+    </message>
     <message>
         <source>Proxy</source>
         <translation>プロキシ</translation>

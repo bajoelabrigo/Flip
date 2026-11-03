@@ -1115,6 +1115,29 @@
     </message>
 </context>
 <context>
+    <name>AeShortcutsDialog</name>
+    <message>
+        <source>Use After Effects&apos; shortcuts?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use After Effects&apos;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keep Flip&apos;s</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>J and K go to the previous and next keyframe, P, S, R, T and A show one property, U and UU what is animated or changed, B and N set the work area, I and O go to the layer&apos;s ends, [ ] and Alt+[ ] move and trim the layer at the playhead.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You can switch any time in Preferences › Shortcuts. Shortcuts you changed yourself stay as they are.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>AgentAccessControls</name>
     <message>
         <source>Allow for this session</source>
@@ -5216,7 +5239,39 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Step back one frame (Page Up)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Step forward one frame (Page Down)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Show rulers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Go to the layer&apos;s in point</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Go to the layer&apos;s out point</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trim the layer&apos;s in point to the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trim the layer&apos;s out point to the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move the layer so it starts at the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move the layer so it ends at the playhead</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5229,6 +5284,18 @@
     </message>
     <message>
         <source>Ruler guides</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trim layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Put the playhead inside the layer to trim it there</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -17012,6 +17079,10 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Paste keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Apply</source>
         <translation type="unfinished"></translation>
     </message>
@@ -25217,6 +25288,26 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Shortcut set</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flip&apos;s own shortcuts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>After Effects</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>As in After Effects: J/K go between keyframes, P/S/R/T/A show one property, U/UU, B/N the work area, I/O the layer&apos;s ends, [ ] and Alt+[ ] move and trim the layer at the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Click a shortcut, then press the keys. Esc cancels, Backspace clears.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -30655,6 +30746,18 @@ If playback stutters, try another.</source>
 </context>
 <context>
     <name>TimelinePanel</name>
+    <message>
+        <source>Move work area</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Work area: drag to move it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Work area: drag to change where it starts or ends</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
         <source>Proxy</source>
         <translation type="unfinished"></translation>

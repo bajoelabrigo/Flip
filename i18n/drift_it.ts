@@ -1115,6 +1115,29 @@
     </message>
 </context>
 <context>
+    <name>AeShortcutsDialog</name>
+    <message>
+        <source>Use After Effects&apos; shortcuts?</source>
+        <translation>Usare le scorciatoie di After Effects?</translation>
+    </message>
+    <message>
+        <source>Use After Effects&apos;</source>
+        <translation>Usa quelle di After Effects</translation>
+    </message>
+    <message>
+        <source>Keep Flip&apos;s</source>
+        <translation>Tieni quelle di Flip</translation>
+    </message>
+    <message>
+        <source>J and K go to the previous and next keyframe, P, S, R, T and A show one property, U and UU what is animated or changed, B and N set the work area, I and O go to the layer&apos;s ends, [ ] and Alt+[ ] move and trim the layer at the playhead.</source>
+        <translation>J e K vanno al fotogramma chiave precedente e successivo, P, S, R, T e A mostrano una sola proprietà, U e UU ciò che è animato o modificato, B e N impostano l’area di lavoro, I e O vanno agli estremi del livello, [ ] e Alt+[ ] spostano e tagliano il livello all’indicatore.</translation>
+    </message>
+    <message>
+        <source>You can switch any time in Preferences › Shortcuts. Shortcuts you changed yourself stay as they are.</source>
+        <translation>Puoi cambiarle quando vuoi in Preferenze › Scorciatoie. Le scorciatoie che hai cambiato tu restano come sono.</translation>
+    </message>
+</context>
+<context>
     <name>AgentAccessControls</name>
     <message>
         <source>Allow for this session</source>
@@ -5216,8 +5239,40 @@
         <translation>Opacità</translation>
     </message>
     <message>
+        <source>Step back one frame (Page Up)</source>
+        <translation>Indietro di un fotogramma (Pag su)</translation>
+    </message>
+    <message>
+        <source>Step forward one frame (Page Down)</source>
+        <translation>Avanti di un fotogramma (Pag giù)</translation>
+    </message>
+    <message>
         <source>Show rulers</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Go to the layer&apos;s in point</source>
+        <translation>Vai all’inizio del livello</translation>
+    </message>
+    <message>
+        <source>Go to the layer&apos;s out point</source>
+        <translation>Vai alla fine del livello</translation>
+    </message>
+    <message>
+        <source>Trim the layer&apos;s in point to the playhead</source>
+        <translation>Taglia l’inizio del livello all’indicatore</translation>
+    </message>
+    <message>
+        <source>Trim the layer&apos;s out point to the playhead</source>
+        <translation>Taglia la fine del livello all’indicatore</translation>
+    </message>
+    <message>
+        <source>Move the layer so it starts at the playhead</source>
+        <translation>Sposta il livello perché inizi all’indicatore</translation>
+    </message>
+    <message>
+        <source>Move the layer so it ends at the playhead</source>
+        <translation>Sposta il livello perché finisca all’indicatore</translation>
     </message>
     <message>
         <source>RAM preview (render to memory and play)</source>
@@ -5230,6 +5285,18 @@
     <message>
         <source>Ruler guides</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trim layer</source>
+        <translation>Taglia livello</translation>
+    </message>
+    <message>
+        <source>Move layer</source>
+        <translation>Sposta livello</translation>
+    </message>
+    <message>
+        <source>Put the playhead inside the layer to trim it there</source>
+        <translation>Porta l’indicatore dentro il livello per tagliarlo lì</translation>
     </message>
     <message>
         <source>Sending the audio to ElevenLabs…</source>
@@ -17016,6 +17083,10 @@ LA PROSSIMA</translation>
         <translation>Sposta fotogrammi chiave</translation>
     </message>
     <message>
+        <source>Paste keyframes</source>
+        <translation>Incolla fotogrammi chiave</translation>
+    </message>
+    <message>
         <source>Apply</source>
         <translation>Applica</translation>
     </message>
@@ -25228,6 +25299,26 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
         <translation>Cerca scorciatoie</translation>
     </message>
     <message>
+        <source>Shortcut set</source>
+        <translation>Set di scorciatoie</translation>
+    </message>
+    <message>
+        <source>Flip</source>
+        <translation>Flip</translation>
+    </message>
+    <message>
+        <source>Flip&apos;s own shortcuts</source>
+        <translation>Le scorciatoie di Flip</translation>
+    </message>
+    <message>
+        <source>After Effects</source>
+        <translation>After Effects</translation>
+    </message>
+    <message>
+        <source>As in After Effects: J/K go between keyframes, P/S/R/T/A show one property, U/UU, B/N the work area, I/O the layer&apos;s ends, [ ] and Alt+[ ] move and trim the layer at the playhead</source>
+        <translation>Come in After Effects: J/K passano tra i fotogrammi chiave, P/S/R/T/A mostrano una proprietà, U/UU, B/N l’area di lavoro, I/O gli estremi del livello, [ ] e Alt+[ ] spostano e tagliano il livello all’indicatore</translation>
+    </message>
+    <message>
         <source>Click a shortcut, then press the keys. Esc cancels, Backspace clears.</source>
         <translation>Fai clic su una scorciatoia, quindi premi i tasti. Esc annulla, Backspace cancella.</translation>
     </message>
@@ -30667,6 +30758,18 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
 </context>
 <context>
     <name>TimelinePanel</name>
+    <message>
+        <source>Move work area</source>
+        <translation>Sposta l’area di lavoro</translation>
+    </message>
+    <message>
+        <source>Work area: drag to move it</source>
+        <translation>Area di lavoro: trascina per spostarla</translation>
+    </message>
+    <message>
+        <source>Work area: drag to change where it starts or ends</source>
+        <translation>Area di lavoro: trascina per cambiare dove inizia o finisce</translation>
+    </message>
     <message>
         <source>Proxy</source>
         <translation>Proxy</translation>

@@ -1115,6 +1115,29 @@
     </message>
 </context>
 <context>
+    <name>AeShortcutsDialog</name>
+    <message>
+        <source>Use After Effects&apos; shortcuts?</source>
+        <translation>Usar os atalhos do After Effects?</translation>
+    </message>
+    <message>
+        <source>Use After Effects&apos;</source>
+        <translation>Usar os do After Effects</translation>
+    </message>
+    <message>
+        <source>Keep Flip&apos;s</source>
+        <translation>Manter os do Flip</translation>
+    </message>
+    <message>
+        <source>J and K go to the previous and next keyframe, P, S, R, T and A show one property, U and UU what is animated or changed, B and N set the work area, I and O go to the layer&apos;s ends, [ ] and Alt+[ ] move and trim the layer at the playhead.</source>
+        <translation>J e K vão para a keyframe anterior e a seguinte, P, S, R, T e A mostram uma só propriedade, U e UU o que está animado ou alterado, B e N marcam a área de trabalho, I e O vão para as pontas da camada, [ ] e Alt+[ ] movem e aparam a camada na cabeça de leitura.</translation>
+    </message>
+    <message>
+        <source>You can switch any time in Preferences › Shortcuts. Shortcuts you changed yourself stay as they are.</source>
+        <translation>Pode trocar quando quiser em Preferências › Atalhos. Os atalhos que alterou mantêm-se.</translation>
+    </message>
+</context>
+<context>
     <name>AgentAccessControls</name>
     <message>
         <source>Allow for this session</source>
@@ -5216,8 +5239,40 @@
         <translation>Opacidade</translation>
     </message>
     <message>
+        <source>Step back one frame (Page Up)</source>
+        <translation>Recuar uma imagem (Page Up)</translation>
+    </message>
+    <message>
+        <source>Step forward one frame (Page Down)</source>
+        <translation>Avançar uma imagem (Page Down)</translation>
+    </message>
+    <message>
         <source>Show rulers</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Go to the layer&apos;s in point</source>
+        <translation>Ir para o início da camada</translation>
+    </message>
+    <message>
+        <source>Go to the layer&apos;s out point</source>
+        <translation>Ir para o fim da camada</translation>
+    </message>
+    <message>
+        <source>Trim the layer&apos;s in point to the playhead</source>
+        <translation>Aparar o início da camada na cabeça de leitura</translation>
+    </message>
+    <message>
+        <source>Trim the layer&apos;s out point to the playhead</source>
+        <translation>Aparar o fim da camada na cabeça de leitura</translation>
+    </message>
+    <message>
+        <source>Move the layer so it starts at the playhead</source>
+        <translation>Mover a camada para começar na cabeça de leitura</translation>
+    </message>
+    <message>
+        <source>Move the layer so it ends at the playhead</source>
+        <translation>Mover a camada para terminar na cabeça de leitura</translation>
     </message>
     <message>
         <source>RAM preview (render to memory and play)</source>
@@ -5230,6 +5285,18 @@
     <message>
         <source>Ruler guides</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trim layer</source>
+        <translation>Aparar camada</translation>
+    </message>
+    <message>
+        <source>Move layer</source>
+        <translation>Mover camada</translation>
+    </message>
+    <message>
+        <source>Put the playhead inside the layer to trim it there</source>
+        <translation>Ponha a cabeça de leitura dentro da camada para a aparar aí</translation>
     </message>
     <message>
         <source>Sending the audio to ElevenLabs…</source>
@@ -17016,6 +17083,10 @@ PRÓXIMA</translation>
         <translation>Mover quadros-chave</translation>
     </message>
     <message>
+        <source>Paste keyframes</source>
+        <translation>Colar keyframes</translation>
+    </message>
+    <message>
         <source>Apply</source>
         <translation>Aplicar</translation>
     </message>
@@ -25228,6 +25299,26 @@ Se a reprodução falhar, experimente outra opção.</translation>
         <translation>Buscar atalhos</translation>
     </message>
     <message>
+        <source>Shortcut set</source>
+        <translation>Conjunto de atalhos</translation>
+    </message>
+    <message>
+        <source>Flip</source>
+        <translation>Flip</translation>
+    </message>
+    <message>
+        <source>Flip&apos;s own shortcuts</source>
+        <translation>Os atalhos do Flip</translation>
+    </message>
+    <message>
+        <source>After Effects</source>
+        <translation>After Effects</translation>
+    </message>
+    <message>
+        <source>As in After Effects: J/K go between keyframes, P/S/R/T/A show one property, U/UU, B/N the work area, I/O the layer&apos;s ends, [ ] and Alt+[ ] move and trim the layer at the playhead</source>
+        <translation>Como no After Effects: J/K passam entre keyframes, P/S/R/T/A mostram uma propriedade, U/UU, B/N a área de trabalho, I/O as pontas da camada, [ ] e Alt+[ ] movem e aparam a camada na cabeça de leitura</translation>
+    </message>
+    <message>
         <source>Click a shortcut, then press the keys. Esc cancels, Backspace clears.</source>
         <translation>Clique em um atalho e pressione as teclas. Esc cancela, Backspace limpa.</translation>
     </message>
@@ -30667,6 +30758,18 @@ Se a reprodução falhar, experimente outra opção.</translation>
 </context>
 <context>
     <name>TimelinePanel</name>
+    <message>
+        <source>Move work area</source>
+        <translation>Mover a área de trabalho</translation>
+    </message>
+    <message>
+        <source>Work area: drag to move it</source>
+        <translation>Área de trabalho: arraste para a mover</translation>
+    </message>
+    <message>
+        <source>Work area: drag to change where it starts or ends</source>
+        <translation>Área de trabalho: arraste para mudar onde começa ou acaba</translation>
+    </message>
     <message>
         <source>Proxy</source>
         <translation>Proxy</translation>

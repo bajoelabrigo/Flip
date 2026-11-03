@@ -1115,6 +1115,29 @@
     </message>
 </context>
 <context>
+    <name>AeShortcutsDialog</name>
+    <message>
+        <source>Use After Effects&apos; shortcuts?</source>
+        <translation>¿Usar los atajos de After Effects?</translation>
+    </message>
+    <message>
+        <source>Use After Effects&apos;</source>
+        <translation>Usar los de After Effects</translation>
+    </message>
+    <message>
+        <source>Keep Flip&apos;s</source>
+        <translation>Seguir con los de Flip</translation>
+    </message>
+    <message>
+        <source>J and K go to the previous and next keyframe, P, S, R, T and A show one property, U and UU what is animated or changed, B and N set the work area, I and O go to the layer&apos;s ends, [ ] and Alt+[ ] move and trim the layer at the playhead.</source>
+        <translation>J y K van a la clave anterior y a la siguiente, P, S, R, T y A muestran una sola propiedad, U y UU lo animado o lo modificado, B y N marcan la zona de trabajo, I y O van a los extremos de la capa, [ ] y Alt+[ ] mueven y recortan la capa en el cabezal.</translation>
+    </message>
+    <message>
+        <source>You can switch any time in Preferences › Shortcuts. Shortcuts you changed yourself stay as they are.</source>
+        <translation>Puedes cambiarlo cuando quieras en Preferencias › Atajos. Los atajos que cambiaste tú siguen igual.</translation>
+    </message>
+</context>
+<context>
     <name>AgentAccessControls</name>
     <message>
         <source>Allow for this session</source>
@@ -5216,8 +5239,40 @@
         <translation>Opacidad</translation>
     </message>
     <message>
+        <source>Step back one frame (Page Up)</source>
+        <translation>Retroceder un fotograma (RePág)</translation>
+    </message>
+    <message>
+        <source>Step forward one frame (Page Down)</source>
+        <translation>Avanzar un fotograma (AvPág)</translation>
+    </message>
+    <message>
         <source>Show rulers</source>
         <translation>Mostrar reglas</translation>
+    </message>
+    <message>
+        <source>Go to the layer&apos;s in point</source>
+        <translation>Ir al inicio de la capa</translation>
+    </message>
+    <message>
+        <source>Go to the layer&apos;s out point</source>
+        <translation>Ir al final de la capa</translation>
+    </message>
+    <message>
+        <source>Trim the layer&apos;s in point to the playhead</source>
+        <translation>Recortar el inicio de la capa en el cabezal</translation>
+    </message>
+    <message>
+        <source>Trim the layer&apos;s out point to the playhead</source>
+        <translation>Recortar el final de la capa en el cabezal</translation>
+    </message>
+    <message>
+        <source>Move the layer so it starts at the playhead</source>
+        <translation>Mover la capa para que empiece en el cabezal</translation>
+    </message>
+    <message>
+        <source>Move the layer so it ends at the playhead</source>
+        <translation>Mover la capa para que termine en el cabezal</translation>
     </message>
     <message>
         <source>RAM preview (render to memory and play)</source>
@@ -5230,6 +5285,18 @@
     <message>
         <source>Ruler guides</source>
         <translation>Guías de las reglas</translation>
+    </message>
+    <message>
+        <source>Trim layer</source>
+        <translation>Recortar capa</translation>
+    </message>
+    <message>
+        <source>Move layer</source>
+        <translation>Mover capa</translation>
+    </message>
+    <message>
+        <source>Put the playhead inside the layer to trim it there</source>
+        <translation>Pon el cabezal dentro de la capa para recortarla ahí</translation>
     </message>
     <message>
         <source>Sending the audio to ElevenLabs…</source>
@@ -17016,6 +17083,10 @@ LA PRÓXIMA</translation>
         <translation>Mover fotogramas clave</translation>
     </message>
     <message>
+        <source>Paste keyframes</source>
+        <translation>Pegar fotogramas clave</translation>
+    </message>
+    <message>
         <source>Apply</source>
         <translation>Aplicar</translation>
     </message>
@@ -25228,6 +25299,26 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Buscar atajos</translation>
     </message>
     <message>
+        <source>Shortcut set</source>
+        <translation>Juego de atajos</translation>
+    </message>
+    <message>
+        <source>Flip</source>
+        <translation>Flip</translation>
+    </message>
+    <message>
+        <source>Flip&apos;s own shortcuts</source>
+        <translation>Los atajos propios de Flip</translation>
+    </message>
+    <message>
+        <source>After Effects</source>
+        <translation>After Effects</translation>
+    </message>
+    <message>
+        <source>As in After Effects: J/K go between keyframes, P/S/R/T/A show one property, U/UU, B/N the work area, I/O the layer&apos;s ends, [ ] and Alt+[ ] move and trim the layer at the playhead</source>
+        <translation>Como en After Effects: J/K van entre claves, P/S/R/T/A muestran una propiedad, U/UU, B/N la zona de trabajo, I/O los extremos de la capa, [ ] y Alt+[ ] mueven y recortan la capa en el cabezal</translation>
+    </message>
+    <message>
         <source>Click a shortcut, then press the keys. Esc cancels, Backspace clears.</source>
         <translation>Haz clic en un atajo y pulsa las teclas. Esc cancela, Retroceso borra.</translation>
     </message>
@@ -30667,6 +30758,18 @@ Si la reproducción se corta, prueba con otra opción.</translation>
 </context>
 <context>
     <name>TimelinePanel</name>
+    <message>
+        <source>Move work area</source>
+        <translation>Mover la zona de trabajo</translation>
+    </message>
+    <message>
+        <source>Work area: drag to move it</source>
+        <translation>Zona de trabajo: arrastra para moverla</translation>
+    </message>
+    <message>
+        <source>Work area: drag to change where it starts or ends</source>
+        <translation>Zona de trabajo: arrastra para cambiar dónde empieza o termina</translation>
+    </message>
     <message>
         <source>Proxy</source>
         <translation>Proxy</translation>

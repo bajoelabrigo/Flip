@@ -1116,6 +1116,29 @@
     </message>
 </context>
 <context>
+    <name>AeShortcutsDialog</name>
+    <message>
+        <source>Use After Effects&apos; shortcuts?</source>
+        <translation>Używać skrótów z After Effects?</translation>
+    </message>
+    <message>
+        <source>Use After Effects&apos;</source>
+        <translation>Użyj skrótów After Effects</translation>
+    </message>
+    <message>
+        <source>Keep Flip&apos;s</source>
+        <translation>Zostaw skróty Flip</translation>
+    </message>
+    <message>
+        <source>J and K go to the previous and next keyframe, P, S, R, T and A show one property, U and UU what is animated or changed, B and N set the work area, I and O go to the layer&apos;s ends, [ ] and Alt+[ ] move and trim the layer at the playhead.</source>
+        <translation>J i K przechodzą do poprzedniej i następnej klatki kluczowej, P, S, R, T i A pokazują jedną właściwość, U i UU to, co animowane lub zmienione, B i N ustawiają obszar roboczy, I i O przechodzą do końców warstwy, [ ] i Alt+[ ] przesuwają i przycinają warstwę przy głowicy.</translation>
+    </message>
+    <message>
+        <source>You can switch any time in Preferences › Shortcuts. Shortcuts you changed yourself stay as they are.</source>
+        <translation>Możesz to zmienić w każdej chwili w Preferencje › Skróty. Skróty zmienione przez Ciebie zostają bez zmian.</translation>
+    </message>
+</context>
+<context>
     <name>AgentAccessControls</name>
     <message>
         <source>Allow for this session</source>
@@ -5233,8 +5256,40 @@
         <translation>Krycie</translation>
     </message>
     <message>
+        <source>Step back one frame (Page Up)</source>
+        <translation>Cofnij o klatkę (Page Up)</translation>
+    </message>
+    <message>
+        <source>Step forward one frame (Page Down)</source>
+        <translation>Do przodu o klatkę (Page Down)</translation>
+    </message>
+    <message>
         <source>Show rulers</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Go to the layer&apos;s in point</source>
+        <translation>Przejdź na początek warstwy</translation>
+    </message>
+    <message>
+        <source>Go to the layer&apos;s out point</source>
+        <translation>Przejdź na koniec warstwy</translation>
+    </message>
+    <message>
+        <source>Trim the layer&apos;s in point to the playhead</source>
+        <translation>Przytnij początek warstwy do głowicy</translation>
+    </message>
+    <message>
+        <source>Trim the layer&apos;s out point to the playhead</source>
+        <translation>Przytnij koniec warstwy do głowicy</translation>
+    </message>
+    <message>
+        <source>Move the layer so it starts at the playhead</source>
+        <translation>Przesuń warstwę, by zaczynała się przy głowicy</translation>
+    </message>
+    <message>
+        <source>Move the layer so it ends at the playhead</source>
+        <translation>Przesuń warstwę, by kończyła się przy głowicy</translation>
     </message>
     <message>
         <source>RAM preview (render to memory and play)</source>
@@ -5247,6 +5302,18 @@
     <message>
         <source>Ruler guides</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trim layer</source>
+        <translation>Przytnij warstwę</translation>
+    </message>
+    <message>
+        <source>Move layer</source>
+        <translation>Przesuń warstwę</translation>
+    </message>
+    <message>
+        <source>Put the playhead inside the layer to trim it there</source>
+        <translation>Ustaw głowicę wewnątrz warstwy, aby ją tam przyciąć</translation>
     </message>
     <message>
         <source>Sending the audio to ElevenLabs…</source>
@@ -17079,6 +17146,10 @@ ZOBACZENIA</translation>
         <translation>Przenieś klatki kluczowe</translation>
     </message>
     <message>
+        <source>Paste keyframes</source>
+        <translation>Wklej klatki kluczowe</translation>
+    </message>
+    <message>
         <source>Apply</source>
         <translation>Zastosuj</translation>
     </message>
@@ -25318,6 +25389,26 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
         <translation>Szukaj skrótów</translation>
     </message>
     <message>
+        <source>Shortcut set</source>
+        <translation>Zestaw skrótów</translation>
+    </message>
+    <message>
+        <source>Flip</source>
+        <translation>Flip</translation>
+    </message>
+    <message>
+        <source>Flip&apos;s own shortcuts</source>
+        <translation>Własne skróty Flip</translation>
+    </message>
+    <message>
+        <source>After Effects</source>
+        <translation>After Effects</translation>
+    </message>
+    <message>
+        <source>As in After Effects: J/K go between keyframes, P/S/R/T/A show one property, U/UU, B/N the work area, I/O the layer&apos;s ends, [ ] and Alt+[ ] move and trim the layer at the playhead</source>
+        <translation>Jak w After Effects: J/K przechodzą między klatkami kluczowymi, P/S/R/T/A pokazują jedną właściwość, U/UU, B/N obszar roboczy, I/O końce warstwy, [ ] i Alt+[ ] przesuwają i przycinają warstwę przy głowicy</translation>
+    </message>
+    <message>
         <source>Click a shortcut, then press the keys. Esc cancels, Backspace clears.</source>
         <translation>Kliknij skrót, a następnie naciśnij klawisze. Esc anuluje, Backspace czyści.</translation>
     </message>
@@ -30763,6 +30854,18 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
 </context>
 <context>
     <name>TimelinePanel</name>
+    <message>
+        <source>Move work area</source>
+        <translation>Przesuń obszar roboczy</translation>
+    </message>
+    <message>
+        <source>Work area: drag to move it</source>
+        <translation>Obszar roboczy: przeciągnij, aby go przesunąć</translation>
+    </message>
+    <message>
+        <source>Work area: drag to change where it starts or ends</source>
+        <translation>Obszar roboczy: przeciągnij, aby zmienić początek lub koniec</translation>
+    </message>
     <message>
         <source>Proxy</source>
         <translation>Proxy</translation>

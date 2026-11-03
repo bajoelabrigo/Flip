@@ -1114,6 +1114,29 @@
     </message>
 </context>
 <context>
+    <name>AeShortcutsDialog</name>
+    <message>
+        <source>Use After Effects&apos; shortcuts?</source>
+        <translation>After Effects 단축키를 사용할까요?</translation>
+    </message>
+    <message>
+        <source>Use After Effects&apos;</source>
+        <translation>After Effects 단축키 사용</translation>
+    </message>
+    <message>
+        <source>Keep Flip&apos;s</source>
+        <translation>Flip 단축키 유지</translation>
+    </message>
+    <message>
+        <source>J and K go to the previous and next keyframe, P, S, R, T and A show one property, U and UU what is animated or changed, B and N set the work area, I and O go to the layer&apos;s ends, [ ] and Alt+[ ] move and trim the layer at the playhead.</source>
+        <translation>J와 K는 이전·다음 키프레임으로, P, S, R, T, A는 속성 하나만 표시, U와 UU는 애니메이션되거나 바뀐 것, B와 N은 작업 영역 지정, I와 O는 레이어 양 끝으로, [ ]와 Alt+[ ]는 재생 헤드에서 레이어를 옮기고 자릅니다.</translation>
+    </message>
+    <message>
+        <source>You can switch any time in Preferences › Shortcuts. Shortcuts you changed yourself stay as they are.</source>
+        <translation>환경설정 › 단축키에서 언제든 바꿀 수 있습니다. 직접 바꾼 단축키는 그대로 유지됩니다.</translation>
+    </message>
+</context>
+<context>
     <name>AgentAccessControls</name>
     <message>
         <source>Allow for this session</source>
@@ -5199,8 +5222,40 @@
         <translation>불투명도</translation>
     </message>
     <message>
+        <source>Step back one frame (Page Up)</source>
+        <translation>한 프레임 뒤로 (Page Up)</translation>
+    </message>
+    <message>
+        <source>Step forward one frame (Page Down)</source>
+        <translation>한 프레임 앞으로 (Page Down)</translation>
+    </message>
+    <message>
         <source>Show rulers</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Go to the layer&apos;s in point</source>
+        <translation>레이어 시작점으로</translation>
+    </message>
+    <message>
+        <source>Go to the layer&apos;s out point</source>
+        <translation>레이어 끝점으로</translation>
+    </message>
+    <message>
+        <source>Trim the layer&apos;s in point to the playhead</source>
+        <translation>재생 헤드에서 레이어 시작 자르기</translation>
+    </message>
+    <message>
+        <source>Trim the layer&apos;s out point to the playhead</source>
+        <translation>재생 헤드에서 레이어 끝 자르기</translation>
+    </message>
+    <message>
+        <source>Move the layer so it starts at the playhead</source>
+        <translation>재생 헤드에서 시작하도록 레이어 이동</translation>
+    </message>
+    <message>
+        <source>Move the layer so it ends at the playhead</source>
+        <translation>재생 헤드에서 끝나도록 레이어 이동</translation>
     </message>
     <message>
         <source>RAM preview (render to memory and play)</source>
@@ -5213,6 +5268,18 @@
     <message>
         <source>Ruler guides</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trim layer</source>
+        <translation>레이어 자르기</translation>
+    </message>
+    <message>
+        <source>Move layer</source>
+        <translation>레이어 이동</translation>
+    </message>
+    <message>
+        <source>Put the playhead inside the layer to trim it there</source>
+        <translation>그곳에서 자르려면 재생 헤드를 레이어 안에 두세요</translation>
     </message>
     <message>
         <source>Sending the audio to ElevenLabs…</source>
@@ -16953,6 +17020,10 @@ NEXT TIME</source>
         <translation>키프레임 이동</translation>
     </message>
     <message>
+        <source>Paste keyframes</source>
+        <translation>키프레임 붙여넣기</translation>
+    </message>
+    <message>
         <source>Apply</source>
         <translation>적용</translation>
     </message>
@@ -25137,6 +25208,26 @@ If playback stutters, try another.</source>
         <translation>단축키 검색</translation>
     </message>
     <message>
+        <source>Shortcut set</source>
+        <translation>단축키 세트</translation>
+    </message>
+    <message>
+        <source>Flip</source>
+        <translation>Flip</translation>
+    </message>
+    <message>
+        <source>Flip&apos;s own shortcuts</source>
+        <translation>Flip 고유 단축키</translation>
+    </message>
+    <message>
+        <source>After Effects</source>
+        <translation>After Effects</translation>
+    </message>
+    <message>
+        <source>As in After Effects: J/K go between keyframes, P/S/R/T/A show one property, U/UU, B/N the work area, I/O the layer&apos;s ends, [ ] and Alt+[ ] move and trim the layer at the playhead</source>
+        <translation>After Effects처럼: J/K 키프레임 사이 이동, P/S/R/T/A 속성 하나, U/UU, B/N 작업 영역, I/O 레이어 양 끝, [ ]와 Alt+[ ]로 재생 헤드에서 레이어 이동·자르기</translation>
+    </message>
+    <message>
         <source>Click a shortcut, then press the keys. Esc cancels, Backspace clears.</source>
         <translation>단축키를 클릭한 다음 키를 누르세요. Esc는 취소하고 Backspace는 지웁니다.</translation>
     </message>
@@ -30569,6 +30660,18 @@ If playback stutters, try another.</source>
 </context>
 <context>
     <name>TimelinePanel</name>
+    <message>
+        <source>Move work area</source>
+        <translation>작업 영역 이동</translation>
+    </message>
+    <message>
+        <source>Work area: drag to move it</source>
+        <translation>작업 영역: 끌어서 이동</translation>
+    </message>
+    <message>
+        <source>Work area: drag to change where it starts or ends</source>
+        <translation>작업 영역: 끌어서 시작이나 끝 바꾸기</translation>
+    </message>
     <message>
         <source>Proxy</source>
         <translation>프록시</translation>

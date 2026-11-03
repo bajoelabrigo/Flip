@@ -1114,6 +1114,29 @@
     </message>
 </context>
 <context>
+    <name>AeShortcutsDialog</name>
+    <message>
+        <source>Use After Effects&apos; shortcuts?</source>
+        <translation>使用 After Effects 的快捷键?</translation>
+    </message>
+    <message>
+        <source>Use After Effects&apos;</source>
+        <translation>使用 After Effects 的</translation>
+    </message>
+    <message>
+        <source>Keep Flip&apos;s</source>
+        <translation>保留 Flip 的</translation>
+    </message>
+    <message>
+        <source>J and K go to the previous and next keyframe, P, S, R, T and A show one property, U and UU what is animated or changed, B and N set the work area, I and O go to the layer&apos;s ends, [ ] and Alt+[ ] move and trim the layer at the playhead.</source>
+        <translation>J 和 K 跳到上一个和下一个关键帧,P、S、R、T 和 A 只显示一个属性,U 和 UU 显示有动画或已改动的属性,B 和 N 设置工作区,I 和 O 跳到图层两端,[ ] 和 Alt+[ ] 在播放头处移动和修剪图层。</translation>
+    </message>
+    <message>
+        <source>You can switch any time in Preferences › Shortcuts. Shortcuts you changed yourself stay as they are.</source>
+        <translation>可随时在“偏好设置 › 快捷键”中切换。你自己改过的快捷键保持不变。</translation>
+    </message>
+</context>
+<context>
     <name>AgentAccessControls</name>
     <message>
         <source>Allow for this session</source>
@@ -5199,8 +5222,40 @@
         <translation>不透明度</translation>
     </message>
     <message>
+        <source>Step back one frame (Page Up)</source>
+        <translation>后退一帧 (Page Up)</translation>
+    </message>
+    <message>
+        <source>Step forward one frame (Page Down)</source>
+        <translation>前进一帧 (Page Down)</translation>
+    </message>
+    <message>
         <source>Show rulers</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Go to the layer&apos;s in point</source>
+        <translation>转到图层入点</translation>
+    </message>
+    <message>
+        <source>Go to the layer&apos;s out point</source>
+        <translation>转到图层出点</translation>
+    </message>
+    <message>
+        <source>Trim the layer&apos;s in point to the playhead</source>
+        <translation>在播放头处修剪图层入点</translation>
+    </message>
+    <message>
+        <source>Trim the layer&apos;s out point to the playhead</source>
+        <translation>在播放头处修剪图层出点</translation>
+    </message>
+    <message>
+        <source>Move the layer so it starts at the playhead</source>
+        <translation>移动图层使其从播放头开始</translation>
+    </message>
+    <message>
+        <source>Move the layer so it ends at the playhead</source>
+        <translation>移动图层使其在播放头结束</translation>
     </message>
     <message>
         <source>RAM preview (render to memory and play)</source>
@@ -5213,6 +5268,18 @@
     <message>
         <source>Ruler guides</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trim layer</source>
+        <translation>修剪图层</translation>
+    </message>
+    <message>
+        <source>Move layer</source>
+        <translation>移动图层</translation>
+    </message>
+    <message>
+        <source>Put the playhead inside the layer to trim it there</source>
+        <translation>将播放头放在图层内才能在那里修剪</translation>
     </message>
     <message>
         <source>Sending the audio to ElevenLabs…</source>
@@ -16953,6 +17020,10 @@ NEXT TIME</source>
         <translation>移动关键帧</translation>
     </message>
     <message>
+        <source>Paste keyframes</source>
+        <translation>粘贴关键帧</translation>
+    </message>
+    <message>
         <source>Apply</source>
         <translation>应用</translation>
     </message>
@@ -25138,6 +25209,26 @@ If playback stutters, try another.</source>
         <translation>搜索快捷键</translation>
     </message>
     <message>
+        <source>Shortcut set</source>
+        <translation>快捷键方案</translation>
+    </message>
+    <message>
+        <source>Flip</source>
+        <translation>Flip</translation>
+    </message>
+    <message>
+        <source>Flip&apos;s own shortcuts</source>
+        <translation>Flip 自己的快捷键</translation>
+    </message>
+    <message>
+        <source>After Effects</source>
+        <translation>After Effects</translation>
+    </message>
+    <message>
+        <source>As in After Effects: J/K go between keyframes, P/S/R/T/A show one property, U/UU, B/N the work area, I/O the layer&apos;s ends, [ ] and Alt+[ ] move and trim the layer at the playhead</source>
+        <translation>与 After Effects 相同:J/K 在关键帧间跳转,P/S/R/T/A 显示一个属性,U/UU,B/N 工作区,I/O 图层两端,[ ] 和 Alt+[ ] 在播放头处移动和修剪图层</translation>
+    </message>
+    <message>
         <source>Click a shortcut, then press the keys. Esc cancels, Backspace clears.</source>
         <translation>单击快捷键，然后按下按键。Esc 取消，Backspace 清除。</translation>
     </message>
@@ -30570,6 +30661,18 @@ If playback stutters, try another.</source>
 </context>
 <context>
     <name>TimelinePanel</name>
+    <message>
+        <source>Move work area</source>
+        <translation>移动工作区</translation>
+    </message>
+    <message>
+        <source>Work area: drag to move it</source>
+        <translation>工作区:拖动以移动</translation>
+    </message>
+    <message>
+        <source>Work area: drag to change where it starts or ends</source>
+        <translation>工作区:拖动以更改开始或结束位置</translation>
+    </message>
     <message>
         <source>Proxy</source>
         <translation>代理</translation>
