@@ -185,3 +185,11 @@ segunda por dos `onClosing` en `TextEditWindow.qml` (qmlcachegen; ahora se revis
   escrito (Mayús y AltGr no cuentan; Alt sí, para Alt+[).
 - 2 explicado: el primer paso a Pro abre «¿Usar los atajos de After Effects?», que se cierra con el clic de afuera; las
   pruebas restauran el registro y la pregunta vuelve cada vez. No es un fallo.
+
+### Ronda 2c (compilación 41711574854, portable `pruebas/FlipStudio-0.30-r4`)
+- 13 bien: «[» con la elipse elegida la mueve al cabezal (2,50 s).
+- 16 bien (Jorge, con su mouse): Ctrl+rueda acerca los valores de la curva y Alt+rueda el tiempo. Fallaba porque
+  `event.point` no existe en el evento de la rueda (es `graphWheel.point`): 214 TypeError en el registro.
+- 6 bien (Jorge): 130 en el ancho, Tab salta al alto.
+- Pendiente para Jorge con su teclado cuando haga falta: lo que pide Tab, Enter o Ctrl (la herramienta de pruebas sin
+  mouse no los manda).
