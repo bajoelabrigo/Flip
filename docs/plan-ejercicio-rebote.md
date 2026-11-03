@@ -241,3 +241,26 @@ Sigue mal / nuevo:
   trayecto pasa suave por cada clave), «Trayecto recto» e «Itinerante» (reparte en el tiempo las claves del medio
   para una sola velocidad en el trayecto). Prueba en tst_editorstate. Es con el modelo de siempre (X e Y con sus
   tangentes); tangentes espaciales propias de verdad sería otro modelo de datos.
+
+## Mañana del 2026-11-03: las tres piezas que faltaban (hecho en código; falta verlo en ventana)
+- **Posición unida como en AE** (`core/PositionPath`, campos `spatial`/`spIn`/`spOut` en `Keyframe`, `Clip::positionJoined`
+  y `positionSeparated`): X e Y siguen siendo dos pistas (todo lo que lee el lugar de un clip sigue igual), pero en un
+  clip unido sus claves llevan un solo trayecto: tiradores propios del camino (se arrastran en el trayecto de la vista
+  previa y no cambian el ritmo) y el ritmo como distancia recorrida por la curva (velocidad pareja en cada tramo;
+  Desacelerar, el gráfico de velocidad y la velocidad numérica lo frenan sin mover el camino). Se une solo cuando
+  Posición empieza a moverse; los proyectos de antes abren separados, como se hicieron. Menú de la clave: «Separar
+  dimensiones (X e Y por separado)» / «Unir Posición (un solo trayecto)». En el gráfico de velocidad Posición es una
+  curva («Pos»); en el de valores, X e Y sin tiradores (como AE). Trayecto curvo/recto e itinerante, para los dos modos.
+  Prueba `joinedPositionKeepsPathAndTimingApart` (tst_core) y `joinedPositionAndKeysOfSeveralTracks` (tst_editorstate).
+- **Claves de varias capas a la vez**: cada clave elegida lleva su pista. Ctrl o Mayús sobre la clave de otra pista la
+  suma, el recuadro sobre las filas llega a todas las pistas, y Desacelerar (F9…), Curvas, Motion Tools, invertir,
+  estirar, borrar y arrastrar actúan en todas, en un solo deshacer (`eachTrack` en QML, `eachPickedTrack` en C++).
+  Copiar sigue siendo de la última capa (el portapapeles es de una).
+- **Curvas de varias capas en el gráfico**: las claves de las otras capas elegidas se ven y se tocan: clic = editar esa
+  capa, Ctrl/Mayús = sumarla a las elegidas, arrastrar = mover en el tiempo todas las elegidas, el recuadro también las
+  toma. (Mover el valor de la curva de otra capa: primero se hace clic para editarla.)
+- **Ojo:** la compilación de la mañana (run 41655964320) se canceló sola al subir estos cambios: `build.yml` tiene
+  `cancel-in-progress`. No subir a la rama mientras compila.
+- Para probar en ventana: un clip con Posición en tres claves → curvar el trayecto en la vista previa (el ritmo no
+  cambia), F9 en las claves (frena sin mover el camino), gráfico de velocidad con «Pos», «Separar dimensiones» y
+  deshacer; claves de dos capas con Ctrl y con el recuadro, F9 y arrastrar; en el gráfico, clic en la clave de otra capa.
