@@ -179,3 +179,9 @@ corre los dos clips de subtítulos (0:23 → 0:21, el inglés sigue sincronizado
 encimaba con el original cuando las dos ocupan dos líneas con un estilo grande (`bilingualLineGap`: dos líneas de cada
 uno más un margen) y el idioma salía «American English» (ahora «English»). Falta verlos en la build siguiente.
 Ojo para probar: `DRIFT_DIARIZE_MODEL_DIR` apunta a `stage\hablantes\models\diarization` (sin eso no sale la casilla).
+
+### Extras publicados (2026-11-03)
+`hablantes` 1.0.0 (pide la app 0.30.0: las versiones anteriores no lo ven) y `textos.plantillas` 1.2.0 (12 estilos
+de subtítulos más; con la 0.29 el de palabras clave se ve sin el resaltado). Paquetes subidos al release `packages` de
+`flipstudio-extras` (hash comprobado al bajarlos) y después el índice en `getflipstudio.com/addons/index.json`
+(`flipstudio-web` `main`, desplegado con `deploy/deploy.sh`; 27 extras en vivo).
