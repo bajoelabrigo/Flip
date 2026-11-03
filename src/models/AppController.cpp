@@ -9960,9 +9960,16 @@ bool AppController::generateSubtitlesForSources(QList<SubtitleSource> sources, c
     const QString languageCode = language.trimmed().toLower();
     const int wordsPerCue = std::max(0, maxWordsPerCue);
     const int lineWidth = subtitleLineWidth();
+    // «In the cloud (ElevenLabs)»: only with a key and the user's consent (Settings › Cloud).
+    const QString elevenLabs = QString::fromLatin1(CloudProviders::kElevenLabs);
+    const bool cloud = subtitleCloudEngine() && subtitleCloudReady() && !translate;
+    const QString cloudKey = cloud ? m_cloud->apiKey(elevenLabs) : QString();
+    const QString cloudModel = cloud ? m_cloud->setting(elevenLabs, QStringLiteral("stt_model")) : QString();
+    const QStringList keyterms = subtitleKeyterms();
     const bool translate = m_subtitleTranslateNext;
 
-    (void)QtConcurrent::run([this, sources, rangeStart, rangeDuration, languageCode, wordsPerCue, lineWidth, translate]() {
+    (void)QtConcurrent::run([this, sources, rangeStart, rangeDuration, languageCode, wordsPerCue, lineWidth, translate,
+                             cloud, cloudKey, cloudModel, keyterms]() {
         auto setProgress = [this](double fraction, const QString &status) {
             QMetaObject::invokeMethod(
                 this,
@@ -10000,7 +10007,7 @@ bool AppController::generateSubtitlesForSources(QList<SubtitleSource> sources, c
 
         setProgress(0.02, tr("Getting speech recognition ready…"));
         drift::WhisperTranscriber &whisper = drift::WhisperTranscriber::instance();
-        if (!whisper.available()) {
+        if (!cloud && !whisper.available()) { // the cloud needs no model here
             qWarning() << "[subtitles] whisper unavailable:" << whisper.lastError();
             finish(false, whisper.lastError(), {});
             return;
@@ -10084,7 +10091,34 @@ bool AppController::generateSubtitlesForSources(QList<SubtitleSource> sources, c
             setProgress(0.15 + 0.80 * fraction, status);
             return m_subtitleGenCancel.loadRelaxed() == 0;
         };
-        if (!translate && !drift::CtcAligner::installedLanguages().isEmpty()) {
+        if (cloud) {
+            // ElevenLabs Scribe: every word timed, with the hard words given (names, brands).
+            QString flacError;
+            const QString flac = drift::writeTempFlac16k(mono, &flacError);
+            if (flac.isEmpty()) {
+                finish(false, flacError, {});
+                return;
+            }
+            setProgress(0.2, tr("Sending the audio to ElevenLabs…"));
+            drift::cloud::CloudError cloudError;
+            const auto transcript = drift::cloud::elevenlabs::speechToText(
+                cloudKey, cloudModel, flac, languageCode, false, 0, keyterms,
+                [this] { return m_subtitleGenCancel.loadRelaxed() != 0; },
+                [this, setProgress](double f) {
+                    setProgress(0.2 + 0.7 * f, f < 1.0 ? tr("Sending the audio to ElevenLabs…")
+                                                       : tr("ElevenLabs is transcribing…"));
+                },
+                &cloudError);
+            QFile::remove(flac);
+            res.cancelled = cloudError.code == QLatin1String("cancelled");
+            res.ok = transcript != nullptr && !cloudError.isError();
+            res.error = cloudError.message;
+            if (res.ok) {
+                res.language = transcript->language;
+                res.cues = drift::cuesFromTranscript(*transcript, 0, sampleToUsTotal(mono.size()), lineWidth, 1,
+                                                     wordsPerCue);
+            }
+        } else if (!translate && !drift::CtcAligner::installedLanguages().isEmpty()) {
             drift::LocalTranscribeOptions options;
             options.language = languageCode;
             options.align = true;
@@ -17262,6 +17296,42 @@ bool AppController::subtitleCleanupEnabled() const
 void AppController::setSubtitleCleanupEnabled(bool enabled)
 {
     QSettings().setValue(QStringLiteral("subtitles/cleanup"), enabled);
+}
+
+bool AppController::subtitleCloudReady() const
+{
+    const QString provider = QString::fromLatin1(CloudProviders::kElevenLabs);
+    return m_cloud && m_cloud->configured(provider) && m_cloud->consent(provider);
+}
+
+bool AppController::subtitleCloudEngine() const
+{
+    return QSettings().value(QStringLiteral("subtitles/cloud"), false).toBool();
+}
+
+void AppController::setSubtitleCloudEngine(bool cloud)
+{
+    QSettings().setValue(QStringLiteral("subtitles/cloud"), cloud);
+}
+
+QStringList AppController::subtitleKeyterms() const
+{
+    QStringList out;
+    for (const QString &term : QSettings().value(QStringLiteral("subtitles/keyterms")).toString().split(QLatin1Char(','))) {
+        if (!term.trimmed().isEmpty())
+            out.append(term.trimmed());
+    }
+    return out;
+}
+
+QString AppController::subtitleKeytermsText() const
+{
+    return subtitleKeyterms().join(QStringLiteral(", "));
+}
+
+void AppController::setSubtitleKeytermsText(const QString &text)
+{
+    QSettings().setValue(QStringLiteral("subtitles/keyterms"), text);
 }
 
 bool AppController::subtitleProfanityFilter() const

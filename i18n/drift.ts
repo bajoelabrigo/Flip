@@ -5228,6 +5228,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Sending the audio to ElevenLabs…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ElevenLabs is transcribing…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Solids</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26934,6 +26942,22 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Select a video or audio clip on the timeline first.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>On this computer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>In the cloud</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ElevenLabs Scribe: the audio is sent to ElevenLabs with your key</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hard words: names, brands… (separated by commas)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

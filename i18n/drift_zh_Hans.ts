@@ -5211,6 +5211,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Sending the audio to ElevenLabs…</source>
+        <translation>正在把音频发送到 ElevenLabs…</translation>
+    </message>
+    <message>
+        <source>ElevenLabs is transcribing…</source>
+        <translation>ElevenLabs 正在转写…</translation>
+    </message>
+    <message>
         <source>Solids</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26852,6 +26860,22 @@ If playback stutters, try another.</source>
     <message>
         <source>Select a video or audio clip on the timeline first.</source>
         <translation>请先在时间线上选择视频或音频片段。</translation>
+    </message>
+    <message>
+        <source>On this computer</source>
+        <translation>在这台电脑上</translation>
+    </message>
+    <message>
+        <source>In the cloud</source>
+        <translation>在云端</translation>
+    </message>
+    <message>
+        <source>ElevenLabs Scribe: the audio is sent to ElevenLabs with your key</source>
+        <translation>ElevenLabs Scribe：使用你的密钥把音频发送到 ElevenLabs</translation>
+    </message>
+    <message>
+        <source>Hard words: names, brands… (separated by commas)</source>
+        <translation>难词：人名、品牌…（用逗号分隔）</translation>
     </message>
     <message>
         <source>Style of the selected captions</source>

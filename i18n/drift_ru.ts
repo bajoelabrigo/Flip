@@ -5245,6 +5245,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Sending the audio to ElevenLabs…</source>
+        <translation>Отправка звука в ElevenLabs…</translation>
+    </message>
+    <message>
+        <source>ElevenLabs is transcribing…</source>
+        <translation>ElevenLabs распознаёт речь…</translation>
+    </message>
+    <message>
         <source>Solids</source>
         <translation type="unfinished"></translation>
     </message>
@@ -27041,6 +27049,22 @@ If playback stutters, try another.</source>
     <message>
         <source>Select a video or audio clip on the timeline first.</source>
         <translation>Сначала выберите видео- или аудиоклип на таймлайне.</translation>
+    </message>
+    <message>
+        <source>On this computer</source>
+        <translation>На этом компьютере</translation>
+    </message>
+    <message>
+        <source>In the cloud</source>
+        <translation>В облаке</translation>
+    </message>
+    <message>
+        <source>ElevenLabs Scribe: the audio is sent to ElevenLabs with your key</source>
+        <translation>ElevenLabs Scribe: звук отправляется в ElevenLabs с вашим ключом</translation>
+    </message>
+    <message>
+        <source>Hard words: names, brands… (separated by commas)</source>
+        <translation>Сложные слова: имена, бренды… (через запятую)</translation>
     </message>
     <message>
         <source>Style of the selected captions</source>

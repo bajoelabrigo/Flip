@@ -5211,6 +5211,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Sending the audio to ElevenLabs…</source>
+        <translation>ElevenLabs로 오디오 보내는 중…</translation>
+    </message>
+    <message>
+        <source>ElevenLabs is transcribing…</source>
+        <translation>ElevenLabs가 받아쓰는 중…</translation>
+    </message>
+    <message>
         <source>Solids</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26851,6 +26859,22 @@ If playback stutters, try another.</source>
     <message>
         <source>Select a video or audio clip on the timeline first.</source>
         <translation>먼저 타임라인에서 동영상 또는 오디오 클립을 선택하세요.</translation>
+    </message>
+    <message>
+        <source>On this computer</source>
+        <translation>이 컴퓨터에서</translation>
+    </message>
+    <message>
+        <source>In the cloud</source>
+        <translation>클라우드에서</translation>
+    </message>
+    <message>
+        <source>ElevenLabs Scribe: the audio is sent to ElevenLabs with your key</source>
+        <translation>ElevenLabs Scribe: 오디오가 내 키로 ElevenLabs에 전송됩니다</translation>
+    </message>
+    <message>
+        <source>Hard words: names, brands… (separated by commas)</source>
+        <translation>어려운 단어: 이름, 브랜드…(쉼표로 구분)</translation>
     </message>
     <message>
         <source>Style of the selected captions</source>

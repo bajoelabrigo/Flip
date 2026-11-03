@@ -5233,6 +5233,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Sending the audio to ElevenLabs…</source>
+        <translation>Envoi de l’audio à ElevenLabs…</translation>
+    </message>
+    <message>
+        <source>ElevenLabs is transcribing…</source>
+        <translation>ElevenLabs transcrit…</translation>
+    </message>
+    <message>
         <source>Solids</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26949,6 +26957,22 @@ Si la lecture saccade, essayez une autre option.</translation>
     <message>
         <source>Select a video or audio clip on the timeline first.</source>
         <translation>Sélectionnez d&apos;abord un clip vidéo ou audio sur la timeline.</translation>
+    </message>
+    <message>
+        <source>On this computer</source>
+        <translation>Sur cet ordinateur</translation>
+    </message>
+    <message>
+        <source>In the cloud</source>
+        <translation>Dans le nuage</translation>
+    </message>
+    <message>
+        <source>ElevenLabs Scribe: the audio is sent to ElevenLabs with your key</source>
+        <translation>ElevenLabs Scribe : l’audio est envoyé à ElevenLabs avec votre clé</translation>
+    </message>
+    <message>
+        <source>Hard words: names, brands… (separated by commas)</source>
+        <translation>Mots difficiles : noms, marques… (séparés par des virgules)</translation>
     </message>
     <message>
         <source>Style of the selected captions</source>

@@ -5284,6 +5284,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Sending the audio to ElevenLabs…</source>
+        <translation>جارٍ إرسال الصوت إلى ElevenLabs…</translation>
+    </message>
+    <message>
+        <source>ElevenLabs is transcribing…</source>
+        <translation>ElevenLabs يفرّغ النص…</translation>
+    </message>
+    <message>
         <source>Solids</source>
         <translation type="unfinished"></translation>
     </message>
@@ -27323,6 +27331,22 @@ If playback stutters, try another.</source>
     <message>
         <source>Select a video or audio clip on the timeline first.</source>
         <translation>حدد مقطع فيديو أو صوت على المخطط الزمني أولاً.</translation>
+    </message>
+    <message>
+        <source>On this computer</source>
+        <translation>على هذا الحاسوب</translation>
+    </message>
+    <message>
+        <source>In the cloud</source>
+        <translation>في السحابة</translation>
+    </message>
+    <message>
+        <source>ElevenLabs Scribe: the audio is sent to ElevenLabs with your key</source>
+        <translation>ElevenLabs Scribe: يُرسل الصوت إلى ElevenLabs بمفتاحك</translation>
+    </message>
+    <message>
+        <source>Hard words: names, brands… (separated by commas)</source>
+        <translation>كلمات صعبة: أسماء، علامات تجارية… (مفصولة بفواصل)</translation>
     </message>
     <message>
         <source>Style of the selected captions</source>

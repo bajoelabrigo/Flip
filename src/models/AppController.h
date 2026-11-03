@@ -1210,6 +1210,14 @@ public:
     Q_INVOKABLE bool subtitleEmojisEnabled() const;
     Q_INVOKABLE void setSubtitleEmojisEnabled(bool enabled);
     // New captions with swear words hidden behind their first letter (off by default).
+    // Captions made «in the cloud» (ElevenLabs Scribe) instead of on this computer: offered once
+    // Settings › Cloud has a key and the user's consent. Hard words (names, brands) help it.
+    Q_INVOKABLE bool subtitleCloudReady() const;
+    Q_INVOKABLE bool subtitleCloudEngine() const;
+    Q_INVOKABLE void setSubtitleCloudEngine(bool cloud);
+    Q_INVOKABLE QString subtitleKeytermsText() const;
+    Q_INVOKABLE void setSubtitleKeytermsText(const QString &text);
+    QStringList subtitleKeyterms() const;
     Q_INVOKABLE bool subtitleProfanityFilter() const;
     Q_INVOKABLE void setSubtitleProfanityFilter(bool enabled);
     Q_INVOKABLE void addEmojisToSubtitles(int trackIndex, int clipIndex);

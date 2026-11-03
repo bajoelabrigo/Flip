@@ -104,7 +104,7 @@ Item {
             // in place of the controls.
             ThemedComboBox {
                 id: captionLanguageBox
-                visible: root.whisperReady
+                visible: root.captionEngineReady
                 width: subtitleColumn.contentWidth
                 enabled: root.captionTargetReady && !EditorState.subtitleGenerating
                 textRole: "label"
@@ -116,7 +116,7 @@ Item {
 
             ThemedComboBox {
                 id: captionWordsBox
-                visible: root.whisperReady
+                visible: root.captionEngineReady
                 width: subtitleColumn.contentWidth
                 enabled: root.captionTargetReady && !EditorState.subtitleGenerating
                 textRole: "label"
@@ -126,9 +126,48 @@ Item {
                 onActivated: captionPrefs.words = currentValue
             }
 
+            // Where the speech is recognized: on this computer, or with ElevenLabs (offered once it
+            // is set up in Settings › Cloud). The cloud takes a list of hard words.
+            Row {
+                id: engineRow
+                visible: root.cloudReady
+                width: subtitleColumn.contentWidth
+                spacing: 6
+                readonly property real half: (width - spacing) / 2
+
+                ThemedButton {
+                    width: engineRow.half
+                    text: qsTr("On this computer")
+                    variant: root.useCloud ? "ghost" : "secondary"
+                    enabled: root.whisperReady
+                    onClicked: {
+                        root.useCloud = false
+                        EditorState.setSubtitleCloudEngine(false)
+                    }
+                }
+                ThemedButton {
+                    width: engineRow.half
+                    text: qsTr("In the cloud")
+                    variant: root.useCloud ? "secondary" : "ghost"
+                    tooltip: qsTr("ElevenLabs Scribe: the audio is sent to ElevenLabs with your key")
+                    onClicked: {
+                        root.useCloud = true
+                        EditorState.setSubtitleCloudEngine(true)
+                    }
+                }
+            }
+
+            ThemedTextField {
+                visible: root.cloudReady && root.useCloud
+                width: subtitleColumn.contentWidth
+                placeholderText: qsTr("Hard words: names, brands… (separated by commas)")
+                text: EditorState.subtitleKeytermsText()
+                onEditingFinished: EditorState.setSubtitleKeytermsText(text)
+            }
+
             // The look captions are created with, remembered for next time.
             Text {
-                visible: root.whisperReady || root.captionClipKind === "subtitle"
+                visible: root.captionEngineReady || root.captionClipKind === "subtitle"
                 width: subtitleColumn.contentWidth
                 // With captions picked, the gallery restyles them too (it took another panel).
                 text: root.captionClipKind === "subtitle" ? qsTr("Style of the selected captions")
@@ -140,7 +179,7 @@ Item {
 
             Grid {
                 id: captionStyleGrid
-                visible: root.whisperReady || root.captionClipKind === "subtitle"
+                visible: root.captionEngineReady || root.captionClipKind === "subtitle"
                 width: subtitleColumn.contentWidth
                 columns: 2
                 columnSpacing: Theme.spacingSm
@@ -228,7 +267,7 @@ Item {
             }
 
             ThemedCheckBox {
-                visible: root.whisperReady
+                visible: root.captionEngineReady
                 width: subtitleColumn.contentWidth
                 text: qsTr("Remove hesitations (eh, mmm) and capitalize")
                 checked: EditorState.subtitleCleanupEnabled()
@@ -236,7 +275,7 @@ Item {
             }
 
             ThemedCheckBox {
-                visible: root.whisperReady
+                visible: root.captionEngineReady
                 width: subtitleColumn.contentWidth
                 text: qsTr("Add emojis for keywords (fuego 🔥, Dios 🙏)")
                 checked: EditorState.subtitleEmojisEnabled()
@@ -244,7 +283,7 @@ Item {
             }
 
             ThemedCheckBox {
-                visible: root.whisperReady
+                visible: root.captionEngineReady
                 width: subtitleColumn.contentWidth
                 text: qsTr("Hide swear words (m*****)")
                 checked: EditorState.subtitleProfanityFilter()
@@ -263,7 +302,7 @@ Item {
             }
 
             ThemedButton {
-                visible: root.whisperReady && !EditorState.subtitleGenerating
+                visible: root.captionEngineReady && !EditorState.subtitleGenerating
                 width: subtitleColumn.contentWidth
                 text: qsTr("Add auto caption")
                 variant: "secondary"
@@ -299,7 +338,7 @@ Item {
             }
 
             Column {
-                visible: root.whisperReady && EditorState.subtitleGenerating
+                visible: root.captionEngineReady && EditorState.subtitleGenerating
                 width: subtitleColumn.contentWidth
                 spacing: Theme.spacingMd
 
@@ -342,7 +381,7 @@ Item {
             }
 
             ThemedButton {
-                visible: !root.whisperReady
+                visible: !root.captionEngineReady
                 width: subtitleColumn.contentWidth
                 text: root.runtimeReady
                       ? qsTr("Download speech recognition (about 670 MB)")
@@ -375,6 +414,13 @@ Item {
     }
     property string captionStyle: EditorState.subtitleStylePreset()
 
+    // ElevenLabs set up in Settings › Cloud: captions can also be made there.
+    property bool cloudReady: {
+        void EditorState.cloudProviders.revision // a key or consent given in Settings shows it at once
+        return EditorState.subtitleCloudReady()
+    }
+    property bool useCloud: EditorState.subtitleCloudEngine()
+    readonly property bool captionEngineReady: whisperReady || (cloudReady && useCloud)
     property bool whisperReady: Addons.hasKind("whisper-model")
                                 && Addons.runtimeAvailable()
     property bool runtimeReady: Addons.runtimeAvailable()

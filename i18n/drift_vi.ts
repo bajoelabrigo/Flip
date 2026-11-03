@@ -5219,6 +5219,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Sending the audio to ElevenLabs…</source>
+        <translation>Đang gửi âm thanh tới ElevenLabs…</translation>
+    </message>
+    <message>
+        <source>ElevenLabs is transcribing…</source>
+        <translation>ElevenLabs đang chép lời…</translation>
+    </message>
+    <message>
         <source>Solids</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26853,6 +26861,22 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Select a video or audio clip on the timeline first.</source>
         <translation>Trước tiên, hãy chọn một đoạn video hoặc âm thanh trên dòng thời gian.</translation>
+    </message>
+    <message>
+        <source>On this computer</source>
+        <translation>Trên máy này</translation>
+    </message>
+    <message>
+        <source>In the cloud</source>
+        <translation>Trên đám mây</translation>
+    </message>
+    <message>
+        <source>ElevenLabs Scribe: the audio is sent to ElevenLabs with your key</source>
+        <translation>ElevenLabs Scribe: âm thanh được gửi tới ElevenLabs bằng khóa của bạn</translation>
+    </message>
+    <message>
+        <source>Hard words: names, brands… (separated by commas)</source>
+        <translation>Từ khó: tên riêng, thương hiệu… (cách nhau bằng dấu phẩy)</translation>
     </message>
     <message>
         <source>Style of the selected captions</source>

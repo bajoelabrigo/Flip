@@ -5228,6 +5228,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Sending the audio to ElevenLabs…</source>
+        <translation>ශ්‍රව්‍යය ElevenLabs වෙත යවමින්…</translation>
+    </message>
+    <message>
+        <source>ElevenLabs is transcribing…</source>
+        <translation>ElevenLabs පිටපත් කරමින්…</translation>
+    </message>
+    <message>
         <source>Solids</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26943,6 +26951,22 @@ If playback stutters, try another.</source>
     <message>
         <source>Select a video or audio clip on the timeline first.</source>
         <translation>පළමුව කාලරේඛාවේ වීඩියෝ හෝ ශ්‍රව්‍ය ක්ලිපයක් තෝරන්න.</translation>
+    </message>
+    <message>
+        <source>On this computer</source>
+        <translation>මෙම පරිගණකයේ</translation>
+    </message>
+    <message>
+        <source>In the cloud</source>
+        <translation>වලාකුළේ</translation>
+    </message>
+    <message>
+        <source>ElevenLabs Scribe: the audio is sent to ElevenLabs with your key</source>
+        <translation>ElevenLabs Scribe: ඔබේ යතුර සමඟ ශ්‍රව්‍යය ElevenLabs වෙත යවයි</translation>
+    </message>
+    <message>
+        <source>Hard words: names, brands… (separated by commas)</source>
+        <translation>අපහසු වචන: නම්, සන්නාම… (කොමාවලින් වෙන් කර)</translation>
     </message>
     <message>
         <source>Style of the selected captions</source>

@@ -5328,6 +5328,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Sending the audio to ElevenLabs…</source>
+        <translation>ElevenLabs-এ অডিও পাঠানো হচ্ছে…</translation>
+    </message>
+    <message>
+        <source>ElevenLabs is transcribing…</source>
+        <translation>ElevenLabs লিখছে…</translation>
+    </message>
+    <message>
         <source>Solids</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26947,6 +26955,22 @@ If playback stutters, try another.</source>
     <message>
         <source>Select a video or audio clip on the timeline first.</source>
         <translation type="unfinished">প্রথমে টাইমলাইনে একটি ভিডিও বা অডিও ক্লিপ নির্বাচন করুন.</translation>
+    </message>
+    <message>
+        <source>On this computer</source>
+        <translation>এই কম্পিউটারে</translation>
+    </message>
+    <message>
+        <source>In the cloud</source>
+        <translation>ক্লাউডে</translation>
+    </message>
+    <message>
+        <source>ElevenLabs Scribe: the audio is sent to ElevenLabs with your key</source>
+        <translation>ElevenLabs Scribe: আপনার কী দিয়ে অডিও ElevenLabs-এ পাঠানো হয়</translation>
+    </message>
+    <message>
+        <source>Hard words: names, brands… (separated by commas)</source>
+        <translation>কঠিন শব্দ: নাম, ব্র্যান্ড… (কমা দিয়ে আলাদা)</translation>
     </message>
     <message>
         <source>Style of the selected captions</source>
