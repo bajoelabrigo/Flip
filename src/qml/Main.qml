@@ -642,7 +642,7 @@ ApplicationWindow {
             window.mediaPreviewPage.close()
             return
         }
-        const tools = [segmentationWindowLoader, denoiseWindowLoader, restoreWindowLoader,
+        const tools = [segmentationWindowLoader, denoiseWindowLoader, silenceReviewWindowLoader, restoreWindowLoader,
                        multicamWindowLoader, speedCurveWindowLoader, fadeCurveWindowLoader,
                        downloadsWindowLoader]
         for (var t = 0; t < tools.length; ++t) {
@@ -1085,6 +1085,21 @@ ApplicationWindow {
         id: denoiseWindowLoader
         sourceComponent: Component {
             DenoiseWindow { }
+        }
+    }
+
+    LazyLoader {
+        id: silenceReviewWindowLoader
+        sourceComponent: Component {
+            SilenceReviewWindow { }
+        }
+    }
+
+    // «Remove silences» has the clip's word timings: the pauses to pick from.
+    Connections {
+        target: EditorState
+        function onSilenceReviewReady(track, clip) {
+            silenceReviewWindowLoader.ensure().openFor(track, clip)
         }
     }
 

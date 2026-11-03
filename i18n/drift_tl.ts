@@ -2246,7 +2246,7 @@
     </message>
     <message>
         <source>Pause</source>
-        <translation type="unfinished"></translation>
+        <translation>Hinto</translation>
     </message>
     <message>
         <source>Play</source>
@@ -5595,6 +5595,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>That would remove the whole clip</source>
+        <translation>Mabubura nito ang buong clip</translation>
+    </message>
+    <message>
         <source>Volume</source>
         <translation type="unfinished"></translation>
     </message>
@@ -8149,7 +8153,7 @@
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Alisin</translation>
     </message>
 </context>
 <context>
@@ -18849,7 +18853,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Pause</source>
-        <translation type="unfinished"></translation>
+        <translation>Hinto</translation>
     </message>
     <message>
         <source>Play</source>
@@ -19900,7 +19904,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Pause</source>
-        <translation type="unfinished"></translation>
+        <translation>Hinto</translation>
     </message>
     <message>
         <source>Play</source>
@@ -20824,7 +20828,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Pause</source>
-        <translation type="unfinished"></translation>
+        <translation>Hinto</translation>
     </message>
     <message>
         <source>Play</source>
@@ -23597,7 +23601,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Pause</source>
-        <translation type="unfinished"></translation>
+        <translation>Hinto</translation>
     </message>
     <message>
         <source>Play preview</source>
@@ -25177,6 +25181,49 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>SilenceReviewWindow</name>
+    <message>
+        <source>Remove silences</source>
+        <translation>Alisin ang mga katahimikan</translation>
+    </message>
+    <message>
+        <source>Untick what you want to keep. Click a row to hear it.</source>
+        <translation>Alisin ang tsek sa gusto mong panatilihin. I-click ang isang hilera para marinig ito.</translation>
+    </message>
+    <message>
+        <source>Pauses longer than</source>
+        <translation>Mga hinto na mas mahaba sa</translation>
+    </message>
+    <message>
+        <source>Also filler words (eh, mmm)</source>
+        <translation>Pati mga pampuno (eh, mmm)</translation>
+    </message>
+    <message>
+        <source>Pause</source>
+        <translation>Hinto</translation>
+    </message>
+    <message>
+        <source>Listen</source>
+        <translation>Pakinggan</translation>
+    </message>
+    <message>
+        <source>No pauses this long in the clip.</source>
+        <translation>Walang ganito kahabang hinto sa clip.</translation>
+    </message>
+    <message>
+        <source>%1 of %2 · %3 s</source>
+        <translation>%1 sa %2 · %3 s</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Kanselahin</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>Alisin</translation>
+    </message>
+</context>
+<context>
     <name>SolidDialog</name>
     <message>
         <source>Solid settings</source>
@@ -25259,7 +25306,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Listen</source>
-        <translation type="unfinished"></translation>
+        <translation>Pakinggan</translation>
     </message>
     <message>
         <source>Add at the playhead</source>
@@ -25492,7 +25539,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Pause</source>
-        <translation type="unfinished"></translation>
+        <translation>Hinto</translation>
     </message>
     <message>
         <source>Play</source>
@@ -26276,7 +26323,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Pause</source>
-        <translation type="unfinished"></translation>
+        <translation>Hinto</translation>
     </message>
     <message>
         <source>Play preview</source>
@@ -30490,7 +30537,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Pause</source>
-        <translation type="unfinished"></translation>
+        <translation>Hinto</translation>
     </message>
     <message>
         <source>Play</source>
@@ -30774,7 +30821,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Remove silences</source>
-        <translation type="unfinished"></translation>
+        <translation>Alisin ang mga katahimikan</translation>
     </message>
     <message>
         <source>Remove silences and filler words — keep only the spoken parts (eh, mmm and long pauses go)</source>
@@ -31271,7 +31318,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Alisin</translation>
     </message>
     <message>
         <source>The clip keeps the value it has at the playhead. You can undo afterwards.</source>

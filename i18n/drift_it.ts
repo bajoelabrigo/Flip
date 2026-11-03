@@ -5591,6 +5591,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>That would remove the whole clip</source>
+        <translation>Verrebbe rimosso l’intero clip</translation>
+    </message>
+    <message>
         <source>Volume</source>
         <translation>Volume</translation>
     </message>
@@ -8149,7 +8153,7 @@
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Rimuovi</translation>
     </message>
 </context>
 <context>
@@ -25188,6 +25192,49 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     </message>
 </context>
 <context>
+    <name>SilenceReviewWindow</name>
+    <message>
+        <source>Remove silences</source>
+        <translation>Rimuovi silenzi</translation>
+    </message>
+    <message>
+        <source>Untick what you want to keep. Click a row to hear it.</source>
+        <translation>Togli la spunta a ciò che vuoi tenere. Fai clic su una riga per ascoltarla.</translation>
+    </message>
+    <message>
+        <source>Pauses longer than</source>
+        <translation>Pause più lunghe di</translation>
+    </message>
+    <message>
+        <source>Also filler words (eh, mmm)</source>
+        <translation>Anche gli intercalari (ehm, mmm)</translation>
+    </message>
+    <message>
+        <source>Pause</source>
+        <translation>Pausa</translation>
+    </message>
+    <message>
+        <source>Listen</source>
+        <translation>Ascolta</translation>
+    </message>
+    <message>
+        <source>No pauses this long in the clip.</source>
+        <translation>Nessuna pausa così lunga nel clip.</translation>
+    </message>
+    <message>
+        <source>%1 of %2 · %3 s</source>
+        <translation>%1 di %2 · %3 s</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Annulla</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>Rimuovi</translation>
+    </message>
+</context>
+<context>
     <name>SolidDialog</name>
     <message>
         <source>Solid settings</source>
@@ -31275,7 +31322,7 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Rimuovi</translation>
     </message>
     <message>
         <source>The clip keeps the value it has at the playhead. You can undo afterwards.</source>

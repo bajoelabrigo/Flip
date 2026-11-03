@@ -5691,6 +5691,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>That would remove the whole clip</source>
+        <translation>এতে পুরো ক্লিপটাই সরে যাবে</translation>
+    </message>
+    <message>
         <source>Volume</source>
         <translation type="unfinished">আয়তন</translation>
     </message>
@@ -8149,7 +8153,7 @@
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>সরান</translation>
     </message>
 </context>
 <context>
@@ -25184,6 +25188,49 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>SilenceReviewWindow</name>
+    <message>
+        <source>Remove silences</source>
+        <translation>নীরবতা সরান</translation>
+    </message>
+    <message>
+        <source>Untick what you want to keep. Click a row to hear it.</source>
+        <translation>যা রাখতে চান তার টিক তুলে দিন। শুনতে একটি সারিতে ক্লিক করুন।</translation>
+    </message>
+    <message>
+        <source>Pauses longer than</source>
+        <translation>এর চেয়ে লম্বা বিরতি</translation>
+    </message>
+    <message>
+        <source>Also filler words (eh, mmm)</source>
+        <translation>অপ্রয়োজনীয় শব্দও (এহ, উম)</translation>
+    </message>
+    <message>
+        <source>Pause</source>
+        <translation>বিরতি</translation>
+    </message>
+    <message>
+        <source>Listen</source>
+        <translation>শুনুন</translation>
+    </message>
+    <message>
+        <source>No pauses this long in the clip.</source>
+        <translation>ক্লিপে এত লম্বা কোনো বিরতি নেই।</translation>
+    </message>
+    <message>
+        <source>%1 of %2 · %3 s</source>
+        <translation>%2-এর মধ্যে %1 · %3 সে</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>বাতিল</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>সরান</translation>
+    </message>
+</context>
+<context>
     <name>SolidDialog</name>
     <message>
         <source>Solid settings</source>
@@ -25266,7 +25313,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Listen</source>
-        <translation type="unfinished"></translation>
+        <translation>শুনুন</translation>
     </message>
     <message>
         <source>Add at the playhead</source>
@@ -30602,7 +30649,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Remove silences</source>
-        <translation type="unfinished"></translation>
+        <translation>নীরবতা সরান</translation>
     </message>
     <message>
         <source>Remove silences and filler words — keep only the spoken parts (eh, mmm and long pauses go)</source>
@@ -31271,7 +31318,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>সরান</translation>
     </message>
     <message>
         <source>The clip keeps the value it has at the playhead. You can undo afterwards.</source>

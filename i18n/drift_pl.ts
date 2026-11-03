@@ -5613,6 +5613,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>That would remove the whole clip</source>
+        <translation>To usunęłoby cały klip</translation>
+    </message>
+    <message>
         <source>Volume</source>
         <translation>Głośność</translation>
     </message>
@@ -8199,7 +8203,7 @@
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Usuń</translation>
     </message>
 </context>
 <context>
@@ -25278,6 +25282,49 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     </message>
 </context>
 <context>
+    <name>SilenceReviewWindow</name>
+    <message>
+        <source>Remove silences</source>
+        <translation>Usuń ciszę</translation>
+    </message>
+    <message>
+        <source>Untick what you want to keep. Click a row to hear it.</source>
+        <translation>Odznacz to, co chcesz zachować. Kliknij wiersz, aby go odsłuchać.</translation>
+    </message>
+    <message>
+        <source>Pauses longer than</source>
+        <translation>Pauzy dłuższe niż</translation>
+    </message>
+    <message>
+        <source>Also filler words (eh, mmm)</source>
+        <translation>Także wtrącenia (yyy, mmm)</translation>
+    </message>
+    <message>
+        <source>Pause</source>
+        <translation>Pauza</translation>
+    </message>
+    <message>
+        <source>Listen</source>
+        <translation>Odsłuchaj</translation>
+    </message>
+    <message>
+        <source>No pauses this long in the clip.</source>
+        <translation>W klipie nie ma tak długich pauz.</translation>
+    </message>
+    <message>
+        <source>%1 of %2 · %3 s</source>
+        <translation>%1 z %2 · %3 s</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Anuluj</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>Usuń</translation>
+    </message>
+</context>
+<context>
     <name>SolidDialog</name>
     <message>
         <source>Solid settings</source>
@@ -31374,7 +31421,7 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Usuń</translation>
     </message>
     <message>
         <source>The clip keeps the value it has at the playhead. You can undo afterwards.</source>

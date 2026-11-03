@@ -5667,6 +5667,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>That would remove the whole clip</source>
+        <translation>سيؤدي ذلك إلى إزالة المقطع بأكمله</translation>
+    </message>
+    <message>
         <source>Volume</source>
         <translation>مستوى الصوت</translation>
     </message>
@@ -8349,7 +8353,7 @@
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>إزالة</translation>
     </message>
 </context>
 <context>
@@ -25548,6 +25552,49 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>SilenceReviewWindow</name>
+    <message>
+        <source>Remove silences</source>
+        <translation>إزالة الصمت</translation>
+    </message>
+    <message>
+        <source>Untick what you want to keep. Click a row to hear it.</source>
+        <translation>ألغِ تحديد ما تريد الاحتفاظ به. انقر على صف لسماعه.</translation>
+    </message>
+    <message>
+        <source>Pauses longer than</source>
+        <translation>فترات توقف أطول من</translation>
+    </message>
+    <message>
+        <source>Also filler words (eh, mmm)</source>
+        <translation>وكلمات الحشو أيضًا (إمم، آه)</translation>
+    </message>
+    <message>
+        <source>Pause</source>
+        <translation>توقف</translation>
+    </message>
+    <message>
+        <source>Listen</source>
+        <translation>استماع</translation>
+    </message>
+    <message>
+        <source>No pauses this long in the clip.</source>
+        <translation>لا توجد فترات توقف بهذا الطول في المقطع.</translation>
+    </message>
+    <message>
+        <source>%1 of %2 · %3 s</source>
+        <translation>%1 من %2 · %3 ث</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>إلغاء</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>إزالة</translation>
+    </message>
+</context>
+<context>
     <name>SolidDialog</name>
     <message>
         <source>Solid settings</source>
@@ -31651,7 +31698,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>إزالة</translation>
     </message>
     <message>
         <source>The clip keeps the value it has at the playhead. You can undo afterwards.</source>

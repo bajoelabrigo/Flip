@@ -5569,6 +5569,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>That would remove the whole clip</source>
+        <translation>这会删除整个片段</translation>
+    </message>
+    <message>
         <source>Volume</source>
         <translation>音量</translation>
     </message>
@@ -8099,7 +8103,7 @@
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>删除</translation>
     </message>
 </context>
 <context>
@@ -25098,6 +25102,49 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>SilenceReviewWindow</name>
+    <message>
+        <source>Remove silences</source>
+        <translation>删除静音</translation>
+    </message>
+    <message>
+        <source>Untick what you want to keep. Click a row to hear it.</source>
+        <translation>取消勾选要保留的部分。点击一行即可试听。</translation>
+    </message>
+    <message>
+        <source>Pauses longer than</source>
+        <translation>停顿长于</translation>
+    </message>
+    <message>
+        <source>Also filler words (eh, mmm)</source>
+        <translation>也包括语气词（呃、嗯）</translation>
+    </message>
+    <message>
+        <source>Pause</source>
+        <translation>停顿</translation>
+    </message>
+    <message>
+        <source>Listen</source>
+        <translation>试听</translation>
+    </message>
+    <message>
+        <source>No pauses this long in the clip.</source>
+        <translation>片段中没有这么长的停顿。</translation>
+    </message>
+    <message>
+        <source>%1 of %2 · %3 s</source>
+        <translation>%2 个中的 %1 个 · %3 秒</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>删除</translation>
+    </message>
+</context>
+<context>
     <name>SolidDialog</name>
     <message>
         <source>Solid settings</source>
@@ -31175,7 +31222,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>删除</translation>
     </message>
     <message>
         <source>The clip keeps the value it has at the playhead. You can undo afterwards.</source>

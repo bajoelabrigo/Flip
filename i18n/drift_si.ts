@@ -5591,6 +5591,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>That would remove the whole clip</source>
+        <translation>එය සම්පූර්ණ ක්ලිපයම ඉවත් කරයි</translation>
+    </message>
+    <message>
         <source>Volume</source>
         <translation type="unfinished">ශබ්ද මට්ටම</translation>
     </message>
@@ -8149,7 +8153,7 @@
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>ඉවත් කරන්න</translation>
     </message>
 </context>
 <context>
@@ -25184,6 +25188,49 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>SilenceReviewWindow</name>
+    <message>
+        <source>Remove silences</source>
+        <translation>නිහඬතා ඉවත් කරන්න</translation>
+    </message>
+    <message>
+        <source>Untick what you want to keep. Click a row to hear it.</source>
+        <translation>තබා ගැනීමට අවශ්‍ය දේ සලකුණු නොකරන්න. ඇසීමට පේළියක් ක්ලික් කරන්න.</translation>
+    </message>
+    <message>
+        <source>Pauses longer than</source>
+        <translation>මීට වඩා දිගු විරාම</translation>
+    </message>
+    <message>
+        <source>Also filler words (eh, mmm)</source>
+        <translation>පිරවුම් වචනද (ඒ, ම්ම්)</translation>
+    </message>
+    <message>
+        <source>Pause</source>
+        <translation>විරාමය</translation>
+    </message>
+    <message>
+        <source>Listen</source>
+        <translation>අසන්න</translation>
+    </message>
+    <message>
+        <source>No pauses this long in the clip.</source>
+        <translation>ක්ලිපයේ මෙතරම් දිගු විරාම නැත.</translation>
+    </message>
+    <message>
+        <source>%1 of %2 · %3 s</source>
+        <translation>%2 න් %1 · තත් %3</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>අවලංගු කරන්න</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>ඉවත් කරන්න</translation>
+    </message>
+</context>
+<context>
     <name>SolidDialog</name>
     <message>
         <source>Solid settings</source>
@@ -25266,7 +25313,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Listen</source>
-        <translation type="unfinished"></translation>
+        <translation>අසන්න</translation>
     </message>
     <message>
         <source>Add at the playhead</source>
@@ -30782,7 +30829,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Remove silences</source>
-        <translation type="unfinished"></translation>
+        <translation>නිහඬතා ඉවත් කරන්න</translation>
     </message>
     <message>
         <source>Remove silences and filler words — keep only the spoken parts (eh, mmm and long pauses go)</source>
@@ -31271,7 +31318,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>ඉවත් කරන්න</translation>
     </message>
     <message>
         <source>The clip keeps the value it has at the playhead. You can undo afterwards.</source>

@@ -27154,7 +27154,8 @@ void AppController::enhanceVoice(int trackIndex, int clipIndex)
     setLastMessage(tr("Voice enhanced: noise gate, de-esser, compressor and leveler"), QStringLiteral("success"));
 }
 
-QString AppController::cutSilencesAndFillers(int trackIndex, int clipIndex, double minPause, bool removeFillers)
+QString AppController::cutSilencesAndFillers(int trackIndex, int clipIndex, double minPause, bool removeFillers,
+                                             bool review)
 {
     if (!isValidClipIndex(trackIndex, clipIndex))
         return QStringLiteral("No such clip");
@@ -27165,7 +27166,7 @@ QString AppController::cutSilencesAndFillers(int trackIndex, int clipIndex, doub
     }
     const drift::TranscriptPtr transcript = m_project.transcript(clip.assetId);
     if (transcript && transcript->source.matches(clip.path)) {
-        applySilenceCut(clip.id, minPause, removeFillers);
+        applySilenceCut(clip.id, minPause, removeFillers, review);
         return {};
     }
 
@@ -27175,7 +27176,7 @@ QString AppController::cutSilencesAndFillers(int trackIndex, int clipIndex, doub
     const QJsonArray jobs = started.value(QStringLiteral("jobs")).toArray();
     if (jobs.isEmpty()) {
         if (m_project.transcript(clip.assetId)) {
-            applySilenceCut(clip.id, minPause, removeFillers);
+            applySilenceCut(clip.id, minPause, removeFillers, review);
             return {};
         }
         const QString code = started.value(QStringLiteral("error")).toString();
@@ -27188,7 +27189,8 @@ QString AppController::cutSilencesAndFillers(int trackIndex, int clipIndex, doub
     const QString jobId = jobs.first().toObject().value(QStringLiteral("job_id")).toString();
     m_pendingSilenceCuts.insert(jobId, QVariantMap{{QStringLiteral("clip"), clip.id},
                                                    {QStringLiteral("minPause"), minPause},
-                                                   {QStringLiteral("fillers"), removeFillers}});
+                                                   {QStringLiteral("fillers"), removeFillers},
+                                                   {QStringLiteral("review"), review}});
     if (!m_silenceCutHooked) {
         m_silenceCutHooked = true;
         connect(m_jobs, &JobRegistry::jobFinished, this, [this](const QString &id, bool ok) {
@@ -27205,7 +27207,8 @@ QString AppController::cutSilencesAndFillers(int trackIndex, int clipIndex, doub
             QTimer::singleShot(0, this, [this, pending]() {
                 applySilenceCut(pending.value(QStringLiteral("clip")).toString(),
                                 pending.value(QStringLiteral("minPause")).toDouble(),
-                                pending.value(QStringLiteral("fillers")).toBool());
+                                pending.value(QStringLiteral("fillers")).toBool(),
+                                pending.value(QStringLiteral("review")).toBool());
             });
         });
     }
@@ -27213,32 +27216,50 @@ QString AppController::cutSilencesAndFillers(int trackIndex, int clipIndex, doub
     return {};
 }
 
-void AppController::applySilenceCut(const QString &clipId, double minPause, bool removeFillers)
+void AppController::applySilenceCut(const QString &clipId, double minPause, bool removeFillers, bool review)
 {
     const QPair<int, int> loc = m_mcpController->locateClip(clipId);
     if (loc.first < 0)
         return;
     const drift::Clip &clip = m_project.tracks().at(loc.first).clips.at(loc.second);
-    const drift::TranscriptPtr transcript = m_project.transcript(clip.assetId);
-    if (!transcript) {
+    if (!m_project.transcript(clip.assetId)) {
         setLastMessage(tr("Could not analyse the speech in this clip"), QStringLiteral("error"));
         return;
     }
+    int fillers = 0;
+    const QList<drift::TimeRangeUs> keep = speechKeepRanges(clip, minPause, removeFillers, &fillers);
+    if (keep.isEmpty()) {
+        setLastMessage(tr("No speech found in this clip"), QStringLiteral("warning"));
+        return;
+    }
+    if (review) {
+        emit silenceReviewReady(loc.first, loc.second);
+        return;
+    }
+    cutToKeepRanges(loc.first, loc.second, keep, fillers);
+}
 
+QList<drift::TimeRangeUs> AppController::speechKeepRanges(const drift::Clip &clip, double minPause,
+                                                          bool removeFillers, int *fillers) const
+{
+    QList<drift::TimeRangeUs> ranges;
+    const drift::TranscriptPtr transcript = m_project.transcript(clip.assetId);
+    if (!transcript)
+        return ranges;
     // The spoken words inside the clip's trim, in source time; a hesitation is left out like a pause.
     constexpr drift::TimeUs kPadUs = 120'000; // air kept around each run of words
     const drift::TimeUs gapUs = drift::secondsToUs(qBound(0.2, minPause, 3.0));
-    QJsonArray ranges;
     drift::TimeUs runStart = -1;
     drift::TimeUs runEnd = -1;
-    int fillers = 0;
     const auto flush = [&]() {
         if (runStart < 0)
             return;
-        ranges.append(QJsonObject{
-            {QStringLiteral("start"), drift::usToSeconds(qMax(clip.srcIn, runStart - kPadUs))},
-            {QStringLiteral("end"), drift::usToSeconds(qMin(clip.srcOut, runEnd + kPadUs))},
-        });
+        const drift::TimeUs a = qMax(clip.srcIn, runStart - kPadUs);
+        const drift::TimeUs b = qMin(clip.srcOut, runEnd + kPadUs);
+        if (!ranges.isEmpty() && a <= ranges.last().endUs)
+            ranges.last().endUs = qMax(ranges.last().endUs, b); // the air of two runs met
+        else
+            ranges.append({a, b});
         runStart = runEnd = -1;
     };
     for (const int i : transcript->wordsInRange(clip.srcIn, clip.srcOut)) {
@@ -27248,7 +27269,8 @@ void AppController::applySilenceCut(const QString &clipId, double minPause, bool
         const bool filler = w.type == drift::TranscriptTokenType::Filler || drift::isFillerWord(w.text)
                             || drift::cleanSubtitleText(w.text).isEmpty();
         if (filler && removeFillers) {
-            ++fillers;
+            if (fillers)
+                ++*fillers;
             continue;
         }
         if (runStart >= 0 && w.startUs - runEnd > gapUs)
@@ -27258,12 +27280,18 @@ void AppController::applySilenceCut(const QString &clipId, double minPause, bool
         runEnd = qMax(runEnd, w.endUs);
     }
     flush();
-    if (ranges.isEmpty()) {
-        setLastMessage(tr("No speech found in this clip"), QStringLiteral("warning"));
-        return;
+    return ranges;
+}
+
+void AppController::cutToKeepRanges(int trackIndex, int clipIndex, const QList<drift::TimeRangeUs> &keep, int fillers)
+{
+    QJsonArray ranges;
+    for (const drift::TimeRangeUs &r : keep) {
+        ranges.append(QJsonObject{{QStringLiteral("start"), drift::usToSeconds(r.startUs)},
+                                  {QStringLiteral("end"), drift::usToSeconds(r.endUs)}});
     }
-    const double before = drift::usToSeconds(clip.timelineDuration); // `clip` is gone after the cut
-    const QJsonObject result = m_mcpController->keepRanges(loc.first, loc.second, ranges, 0.0, 0.03, true);
+    const double before = drift::usToSeconds(m_project.tracks().at(trackIndex).clips.at(clipIndex).timelineDuration);
+    const QJsonObject result = m_mcpController->keepRanges(trackIndex, clipIndex, ranges, 0.0, 0.03, true);
     if (!result.value(QStringLiteral("ok")).toBool(true) && result.contains(QStringLiteral("error"))) {
         setLastMessage(result.value(QStringLiteral("detail")).toString(tr("Could not cut this clip")),
                        QStringLiteral("error"));
@@ -27273,6 +27301,91 @@ void AppController::applySilenceCut(const QString &clipId, double minPause, bool
     setLastMessage(tr("Removed %1 s of pauses and %n filler word(s)", nullptr, fillers)
                        .arg(QString::number(qMax(0.0, before - after), 'f', 1)),
                    QStringLiteral("success"));
+}
+
+QVariantList AppController::silencePieces(int trackIndex, int clipIndex, double minPause, bool removeFillers) const
+{
+    QVariantList out;
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return out;
+    const drift::Clip &clip = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    const drift::TranscriptPtr transcript = m_project.transcript(clip.assetId);
+    if (!transcript)
+        return out;
+    const QList<drift::TimeRangeUs> keep = speechKeepRanges(clip, minPause, removeFillers, nullptr);
+    if (keep.isEmpty())
+        return out;
+    // What is left between the kept stretches (and before the first, after the last) is what goes.
+    QList<drift::TimeRangeUs> gone;
+    drift::TimeUs at = clip.srcIn;
+    for (const drift::TimeRangeUs &r : keep) {
+        if (r.startUs > at)
+            gone.append({at, r.startUs});
+        at = qMax(at, r.endUs);
+    }
+    if (clip.srcOut > at)
+        gone.append({at, clip.srcOut});
+    const QList<int> words = transcript->wordsInRange(clip.srcIn, clip.srcOut);
+    for (const drift::TimeRangeUs &g : std::as_const(gone)) {
+        if (g.length() < 100'000) // shorter than a tenth of a second: not worth a row
+            continue;
+        QStringList said; // the filler words inside, so the row can say «eh» instead of «pause»
+        for (const int i : words) {
+            const drift::TranscriptWord &w = transcript->words.at(i);
+            if (w.type == drift::TranscriptTokenType::Spacing || w.type == drift::TranscriptTokenType::AudioEvent)
+                continue;
+            const drift::TimeUs mid = (w.startUs + w.endUs) / 2;
+            if (mid >= g.startUs && mid < g.endUs)
+                said.append(w.text.trimmed());
+        }
+        const drift::TimeUs startOnTimeline = clip.timelineStart + clip.sourceUsToClipLocalUs(g.startUs);
+        const drift::TimeUs endOnTimeline = clip.timelineStart + clip.sourceUsToClipLocalUs(g.endUs);
+        out.append(QVariantMap{
+            {QStringLiteral("start"), drift::usToSeconds(g.startUs)},
+            {QStringLiteral("end"), drift::usToSeconds(g.endUs)},
+            {QStringLiteral("at"), drift::usToSeconds(qMin(startOnTimeline, endOnTimeline))},
+            {QStringLiteral("length"), drift::usToSeconds(qAbs(endOnTimeline - startOnTimeline))},
+            {QStringLiteral("filler"), !said.isEmpty()},
+            {QStringLiteral("text"), said.join(QLatin1Char(' '))},
+        });
+    }
+    return out;
+}
+
+void AppController::removeSilencePieces(int trackIndex, int clipIndex, const QVariantList &pieces)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex) || pieces.isEmpty())
+        return;
+    const drift::Clip &clip = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    QList<drift::TimeRangeUs> gone;
+    int fillers = 0;
+    for (const QVariant &v : pieces) {
+        const QVariantMap m = v.toMap();
+        const drift::TimeUs a = qMax(clip.srcIn, drift::secondsToUs(m.value(QStringLiteral("start")).toDouble()));
+        const drift::TimeUs b = qMin(clip.srcOut, drift::secondsToUs(m.value(QStringLiteral("end")).toDouble()));
+        if (b > a)
+            gone.append({a, b});
+        if (m.value(QStringLiteral("filler")).toBool())
+            fillers += int(qMax<qsizetype>(1, m.value(QStringLiteral("text")).toString().split(
+                                              QLatin1Char(' '), Qt::SkipEmptyParts).size()));
+    }
+    std::sort(gone.begin(), gone.end(), [](const drift::TimeRangeUs &x, const drift::TimeRangeUs &y) {
+        return x.startUs < y.startUs;
+    });
+    QList<drift::TimeRangeUs> keep;
+    drift::TimeUs at = clip.srcIn;
+    for (const drift::TimeRangeUs &g : std::as_const(gone)) {
+        if (g.startUs > at)
+            keep.append({at, g.startUs});
+        at = qMax(at, g.endUs);
+    }
+    if (clip.srcOut > at)
+        keep.append({at, clip.srcOut});
+    if (keep.isEmpty()) {
+        setLastMessage(tr("That would remove the whole clip"), QStringLiteral("warning"));
+        return;
+    }
+    cutToKeepRanges(trackIndex, clipIndex, keep, fillers);
 }
 
 void AppController::addAudioEffect(int trackIndex, int clipIndex, const QString &effectId)

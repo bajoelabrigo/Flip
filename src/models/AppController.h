@@ -1,5 +1,6 @@
 #pragma once
 
+#include "core/CutOps.h"
 #include "core/EffectStackStore.h"
 #include "core/Project.h"
 #include "core/TextAnimationPreset.h"
@@ -2018,8 +2019,16 @@ public:
     // pauses longer than `minPause` seconds and hesitations (eh, mmm), from a word-level
     // transcript of its media (made first when there is none). One undo step.
     // Returns an error message when nothing could start, empty otherwise.
+    // review = true: once the word timings are there, emit silenceReviewReady instead of cutting.
     Q_INVOKABLE QString cutSilencesAndFillers(int trackIndex, int clipIndex, double minPause = 0.6,
-                                           bool removeFillers = true);
+                                           bool removeFillers = true, bool review = false);
+    // «Remove silences» reviewed one by one, as CapCut: the pauses and filler words it would take
+    // out of a clip, [{start, end, at, length, filler, text}] (start/end in source seconds, at = where
+    // it begins on the timeline), [] while the clip has no word timings.
+    Q_INVOKABLE QVariantList silencePieces(int trackIndex, int clipIndex, double minPause = 0.6,
+                                           bool removeFillers = true) const;
+    // Cuts out the pieces given (the ones left ticked) and keeps the rest. One undo step.
+    Q_INVOKABLE void removeSilencePieces(int trackIndex, int clipIndex, const QVariantList &pieces);
     Q_INVOKABLE void removeAudioEffect(int trackIndex, int clipIndex, int effectIndex);
     // Voice changer: the "voz.*" filter on a clip ("" for none), and replacing it in one undo
     // step on this clip or, with allClips, on every clip with sound.
@@ -2440,6 +2449,8 @@ signals:
     void subtitleGenProgressChanged();
     void subtitleGenStatusChanged();
     void subtitleGenerationFinished(bool ok, const QString &message);
+    // cutSilencesAndFillers(review = true) has the clip's word timings: show the pauses to pick from.
+    void silenceReviewReady(int trackIndex, int clipIndex);
     void reverseRenderingChanged();
     void reverseRenderProgressChanged();
     void reverseRenderStatusChanged();
@@ -2697,7 +2708,11 @@ protected:
     QHash<QString, QVariantMap> m_pendingSilenceCuts;
     // Per instance: a function-level static hooked only the first controller's job registry.
     bool m_silenceCutHooked = false;
-    void applySilenceCut(const QString &clipId, double minPause, bool removeFillers);
+    void applySilenceCut(const QString &clipId, double minPause, bool removeFillers, bool review = false);
+    // The spoken stretches «Remove silences» keeps (source time), and how many filler words it drops.
+    QList<drift::TimeRangeUs> speechKeepRanges(const drift::Clip &clip, double minPause, bool removeFillers,
+                                               int *fillers) const;
+    void cutToKeepRanges(int trackIndex, int clipIndex, const QList<drift::TimeRangeUs> &keep, int fillers);
     bool m_subtitleTranslateNext = false; // the next generation run translates to English
     bool generateSubtitlesForSources(QList<SubtitleSource> sources, const QString &language,
                                      int maxWordsPerCue);

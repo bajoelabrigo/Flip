@@ -5591,6 +5591,10 @@
         <translation>Elige un clip con sonido para mejorar su voz</translation>
     </message>
     <message>
+        <source>That would remove the whole clip</source>
+        <translation>Eso quitaría el clip entero</translation>
+    </message>
+    <message>
         <source>Volume</source>
         <translation>Volumen</translation>
     </message>
@@ -25185,6 +25189,49 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Not now</source>
         <translation>Ahora no</translation>
+    </message>
+</context>
+<context>
+    <name>SilenceReviewWindow</name>
+    <message>
+        <source>Remove silences</source>
+        <translation>Quitar silencios</translation>
+    </message>
+    <message>
+        <source>Untick what you want to keep. Click a row to hear it.</source>
+        <translation>Desmarca lo que quieras conservar. Haz clic en una fila para escucharla.</translation>
+    </message>
+    <message>
+        <source>Pauses longer than</source>
+        <translation>Pausas de más de</translation>
+    </message>
+    <message>
+        <source>Also filler words (eh, mmm)</source>
+        <translation>También muletillas (eh, mmm)</translation>
+    </message>
+    <message>
+        <source>Pause</source>
+        <translation>Pausa</translation>
+    </message>
+    <message>
+        <source>Listen</source>
+        <translation>Escuchar</translation>
+    </message>
+    <message>
+        <source>No pauses this long in the clip.</source>
+        <translation>No hay pausas tan largas en el clip.</translation>
+    </message>
+    <message>
+        <source>%1 of %2 · %3 s</source>
+        <translation>%1 de %2 · %3 s</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Cancelar</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>Quitar</translation>
     </message>
 </context>
 <context>

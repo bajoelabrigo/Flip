@@ -48,7 +48,7 @@ Lo que tienen CapCut, Premiere y Descript:
 - [ ] Estilo y posición por subtítulo (no solo por clip).
 - [ ] Traducir a muchos idiomas y subtítulos bilingües.
 - [ ] Editar el video borrando texto (como Descript).
-- [ ] Revisar los silencios uno por uno antes de quitarlos.
+- [x] Revisar los silencios uno por uno antes de quitarlos.
 - [ ] Colores y nombres por hablante (el motor ya distingue voces).
 - [x] Reglas de lectura con aviso (letras por segundo, muy cortos, muy largos).
 - [x] Mover todos los subtítulos a la vez (adelantar o atrasar).
@@ -98,3 +98,6 @@ Para redes (estilo CapCut):
     por letra) y el alineador de palabras no tiene modelos para estos idiomas.
   - casilla «Dos líneas por subtítulo» al crear (se recuerda): el empaquetado ya admitía dos líneas pero al final
     cambiaba el salto por un espacio, así que nunca salían (probado compilando `SubtitleCue.cpp`).
+  - «Quitar silencios» (barra de la línea de tiempo) abre una ventana con cada pausa y muletilla: casilla para
+    conservarla, clic para oírla en el cabezal, pausas de más de 0,4/0,6/1/1,5 s y muletillas sí/no, y «Quitar» en un
+    solo deshacer (`SilenceReviewWindow.qml`, `silencePieces`, `removeSilencePieces`). Por MCP sigue cortando directo.

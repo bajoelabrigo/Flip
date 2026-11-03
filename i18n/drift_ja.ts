@@ -5569,6 +5569,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>That would remove the whole clip</source>
+        <translation>クリップ全体が削除されます</translation>
+    </message>
+    <message>
         <source>Volume</source>
         <translation>音量</translation>
     </message>
@@ -8099,7 +8103,7 @@
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>削除</translation>
     </message>
 </context>
 <context>
@@ -25098,6 +25102,49 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>SilenceReviewWindow</name>
+    <message>
+        <source>Remove silences</source>
+        <translation>無音を削除</translation>
+    </message>
+    <message>
+        <source>Untick what you want to keep. Click a row to hear it.</source>
+        <translation>残したいもののチェックを外してください。行をクリックすると再生します。</translation>
+    </message>
+    <message>
+        <source>Pauses longer than</source>
+        <translation>次より長い間</translation>
+    </message>
+    <message>
+        <source>Also filler words (eh, mmm)</source>
+        <translation>フィラー（えー、うーん）も</translation>
+    </message>
+    <message>
+        <source>Pause</source>
+        <translation>間</translation>
+    </message>
+    <message>
+        <source>Listen</source>
+        <translation>聞く</translation>
+    </message>
+    <message>
+        <source>No pauses this long in the clip.</source>
+        <translation>クリップにこれほど長い間はありません。</translation>
+    </message>
+    <message>
+        <source>%1 of %2 · %3 s</source>
+        <translation>%2 件中 %1 件 · %3 秒</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>キャンセル</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>削除</translation>
+    </message>
+</context>
+<context>
     <name>SolidDialog</name>
     <message>
         <source>Solid settings</source>
@@ -31176,7 +31223,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>削除</translation>
     </message>
     <message>
         <source>The clip keeps the value it has at the playhead. You can undo afterwards.</source>

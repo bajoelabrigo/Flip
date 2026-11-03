@@ -5613,6 +5613,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>That would remove the whole clip</source>
+        <translation>Это удалит весь клип</translation>
+    </message>
+    <message>
         <source>Volume</source>
         <translation>Громкость</translation>
     </message>
@@ -8199,7 +8203,7 @@
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Убрать</translation>
     </message>
 </context>
 <context>
@@ -25278,6 +25282,49 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>SilenceReviewWindow</name>
+    <message>
+        <source>Remove silences</source>
+        <translation>Убрать паузы</translation>
+    </message>
+    <message>
+        <source>Untick what you want to keep. Click a row to hear it.</source>
+        <translation>Снимите отметку с того, что хотите оставить. Щёлкните строку, чтобы прослушать.</translation>
+    </message>
+    <message>
+        <source>Pauses longer than</source>
+        <translation>Паузы длиннее</translation>
+    </message>
+    <message>
+        <source>Also filler words (eh, mmm)</source>
+        <translation>Также слова-паразиты (э-э, ммм)</translation>
+    </message>
+    <message>
+        <source>Pause</source>
+        <translation>Пауза</translation>
+    </message>
+    <message>
+        <source>Listen</source>
+        <translation>Прослушать</translation>
+    </message>
+    <message>
+        <source>No pauses this long in the clip.</source>
+        <translation>В клипе нет таких длинных пауз.</translation>
+    </message>
+    <message>
+        <source>%1 of %2 · %3 s</source>
+        <translation>%1 из %2 · %3 с</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Отмена</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>Убрать</translation>
+    </message>
+</context>
+<context>
     <name>SolidDialog</name>
     <message>
         <source>Solid settings</source>
@@ -31374,7 +31421,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Убрать</translation>
     </message>
     <message>
         <source>The clip keeps the value it has at the playhead. You can undo afterwards.</source>
