@@ -17,7 +17,8 @@ class Project;
 // `.opacity`, `.width`, `.height` directly), and on a shape layer `.content("Name")` (nested for groups) with
 // `.transform.position/rotation/opacity/scale/anchorPoint/skew` and `.size` (0.28). Also (0.30)
 // `linear/ease/easeIn/easeOut(t, tMin, tMax, v1, v2)` (or `(t, v1, v2)`), `clamp`, `degreesToRadians`,
-// `radiansToDegrees`, `valueAtTime(t)` (the property's own keys), `velocity` and `speed`. The last
+// `radiansToDegrees`, `valueAtTime(t)` (the property's own keys), `velocity`, `speed`, `index` (the layer's
+// place from the top, 1) and `thisLayer` (with `.index` and `.name`). The last
 // statement is the result.
 void installExpressionEngine();
 

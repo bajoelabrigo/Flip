@@ -93,6 +93,39 @@ class ExpressionHelper : public QObject
 public:
     Q_INVOKABLE double noise(double x, int seed) const { return behaviorNoise(x, seed); }
 
+    // The layer the expression belongs to (0.30): its track lives inside the clip, so the clip whose memory
+    // holds it is the one. AE's index counts from the top layer, 1.
+    Q_INVOKABLE QString selfName() const
+    {
+        const Clip *clip = selfClip(nullptr);
+        return clip ? clip->name : QString();
+    }
+    Q_INVOKABLE int selfIndex() const
+    {
+        int index = 0;
+        return selfClip(&index) ? index : 0;
+    }
+    const Clip *selfClip(int *indexOut) const
+    {
+        const Project *project = static_cast<const Project *>(expressionContext().project);
+        const char *track = static_cast<const char *>(expressionSelfRef().track);
+        if (!project || !track)
+            return nullptr;
+        int index = 0;
+        for (const Track &t : project->tracks()) {
+            for (const Clip &clip : t.clips) {
+                ++index;
+                const char *begin = reinterpret_cast<const char *>(&clip);
+                if (track >= begin && track < begin + sizeof(Clip)) {
+                    if (indexOut)
+                        *indexOut = index;
+                    return &clip;
+                }
+            }
+        }
+        return nullptr;
+    }
+
     // The property's own keys at another time (0.30): valueAtTime(), velocity.
     Q_INVOKABLE double selfAt(double seconds) const
     {
@@ -248,6 +281,11 @@ const char *const kPrelude = R"JS(
         }
         var layer = __layer;
         var thisComp = { layer: __layer };
+        // After Effects' index and thisLayer (0.30): this layer's place from the top, and the layer itself.
+        var index = __fx.selfIndex();
+        var thisLayer = __layer(__fx.selfName());
+        thisLayer.index = index;
+        thisLayer.name = __fx.selfName();
         return eval(__e);
     };
 })
