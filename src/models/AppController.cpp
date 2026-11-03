@@ -17992,8 +17992,8 @@ bool writeBleepTrack(const QString &path, drift::TimeUs lengthUs, const QList<dr
     auto *samples = reinterpret_cast<qint16 *>(pcm.data());
     const int fade = kRate / 200;
     for (const drift::TimeRangeUs &r : ranges) {
-        const qint64 a = qBound<qint64>(0, r.startUs * kRate / 1'000'000, frames);
-        const qint64 b = qBound<qint64>(0, r.endUs * kRate / 1'000'000, frames);
+        const qint64 a = qBound<qint64>(0, qint64(r.startUs * kRate / 1'000'000), frames);
+        const qint64 b = qBound<qint64>(0, qint64(r.endUs * kRate / 1'000'000), frames);
         for (qint64 i = a; i < b; ++i) {
             const double edge = qMin(1.0, double(qMin(i - a, b - 1 - i)) / fade);
             samples[i] = qint16(std::lround(0.3 * edge * 32767.0 * std::sin(2.0 * 3.14159265358979323846 * 1000.0 * double(i - a) / kRate)));
