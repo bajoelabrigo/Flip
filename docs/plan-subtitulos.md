@@ -30,7 +30,7 @@ Cómo seguir: marcar cada punto al terminarlo con el commit; probar en ventana a
 - [~] 8. Una sola línea de 42 letras, también en vertical; no permite dos líneas (`packSubtitleCues`).
 - [x] 9. El candado de la pista no protege los subtítulos (`setSubtitleCues`, `importSubtitleFileIntoClip`).
 - [x] 10. Curvas de velocidad y clips en reversa: subtítulos mal sincronizados.
-- [ ] 11. Chino, japonés y tailandés: se sincronizan mal (separan palabras por espacios).
+- [~] 11. Chino, japonés y tailandés: se sincronizan mal (separan palabras por espacios).
 
 ## Mejorar (más fácil de usar)
 - [x] Recordar las últimas opciones (idioma, largo, traducción).
@@ -93,3 +93,6 @@ Para redes (estilo CapCut):
     reacomodan): prueba actualizada.
   - curvas de velocidad y clips en reversa: los subtítulos se ubican con el mapeo del propio clip
     (`sourceUsToClipLocalUs`); los que salen de una transcripción guardada ya traen los tiempos por palabra.
+  - chino y japonés: cada ideograma o kana es una unidad y cuenta doble de ancho, así se parten en subtítulos del
+    largo justo (probado compilando `SubtitleCue.cpp`). El tailandés queda igual (sus palabras no se pueden partir
+    por letra) y el alineador de palabras no tiene modelos para estos idiomas.
