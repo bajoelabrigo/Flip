@@ -121,3 +121,17 @@ Material: video de B-roll con voz (`voz.wav` sobre el video de la gente).
 | 21 | AE5 | «Ver toda la curva» ajusta al largo del clip (17 s) y no a donde están las claves (en el primer segundo) | pendiente |
 | 22 | AE5 | El gráfico bajo la pista del video sale muy bajo (unos 50 px): sin pantalla completa no se puede trabajar | pendiente |
 | — | AE5 | Bien: S muestra solo Escala (también con dos capas), curvas de dos capas (la otra punteada con su etiqueta), clic en la clave de la otra capa pasa a editarla, Ctrl+clic suma claves de las dos capas y F9 las suaviza a la vez | ok |
+| 23 | SUB1 | El progreso de los hablantes dice «Telling speakers apart…» en inglés (sin traducir) | pendiente |
+| 24 | SUB1 | Justo después de traducir, la vista previa no mostraba ningún subtítulo en 0:02 hasta mover el cabezal | revisar |
+| 25 | SUB1 | «Editar con el texto» vuelve a transcribir aunque el clip ya tiene subtítulos; debería usar esa transcripción y abrir al instante | pendiente |
+| 26 | SUB1 | (Jorge) «Editar con el texto» tarda ~30 s sin aviso visible de carga (solo un aviso chico abajo que se va); el usuario puede pensar que no sirve: abrir la ventana al tiro con «Escuchando… %» y Cancelar | pendiente |
+| — | SUB1 | Bien: Hablante 1/2 con colores, palabras clave marcadas, Traducir dice «English», el inglés arriba sin encimarse con el español, Editar con el texto tacha y corta 0,7 s y los dos clips de subtítulos se acortan con el video | ok |
+| — | SUB1 | Sin probar: exportar MP4 con la pista de subtítulos y el .srt/.vtt (ffprobe) | — |
+| 27 | SUB2 | En la franja de subtítulos de la línea de tiempo el texto de un bloque se sale de su caja («a editar videos de» queda afuera) | pendiente |
+| 28 | SUB2 | Las miniaturas de los estilos «Subtítulo» y «Leyenda» casi no se ven (texto diminuto) | pendiente |
+| 29 | SUB2 | Elegir un estilo (Fondo de frase) con el clip de subtítulos elegido no cambia los subtítulos que ya están: la vista previa sigue con el estilo anterior | pendiente |
+| 30 | SUB3 | **Sin sesión el panel Traducir dice «Inicia sesión con Google…» y deja el botón apagado: la traducción en la computadora no se puede usar desde la pantalla.** Encender el botón si está el extra «Traducción sin internet» (y decir que traduce en el equipo) | pendiente |
+| — | SUB2 | Bien: Dos líneas, emojis (🎬 en dos frases), ocultar groserías, una sola voz sin etiquetas de hablante, la galería de 33 estilos | ok |
+| — | SUB3 | Bien: subtítulos creados en el equipo sin sesión (5), «Continuar sin cuenta» | ok |
+| — | SUB2/3 | Sin probar: pitido, quitar silencios con otras pistas, estilo por subtítulo, importar .srt, karaoke, exportar con subtítulos (siguen en la próxima ronda, con la compilación nueva) | — |
+| — | — | (E31 quitado: la bienvenida «Esperando al navegador» fue Jorge iniciando sesión) | — |
