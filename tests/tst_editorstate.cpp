@@ -13463,10 +13463,11 @@ void EditorStateTest::findAndReplaceInSubtitleCues()
     QCOMPARE(cue(2).text, QStringLiteral("line 2"));
     QCOMPARE(cue(0).wordEndsUs.size(), 2);
 
-    // A different number of words: the old timings would light the wrong one, so they go.
+    // A different number of words: the timings are carried over word by word (realignWordEnds), one
+    // per new word, so the karaoke keeps following the voice.
     QCOMPARE(state.replaceInTexts(QStringLiteral("line 1"), QStringLiteral("one more line"), subtitles, QVariantList{}), 1);
     QCOMPARE(cue(1).text, QStringLiteral("one more line"));
-    QVERIFY(cue(1).wordEndsUs.isEmpty());
+    QCOMPARE(cue(1).wordEndsUs.size(), 3);
 
     state.undo();
     QCOMPARE(cue(1).text, QStringLiteral("line 1"));
