@@ -58,7 +58,7 @@ Lo que tienen CapCut, Premiere y Descript:
 
 Para redes (estilo CapCut):
 - [x] Palabras clave resaltadas por la IA (color o tamaño) y emojis animados de Stock.
-- [ ] Más plantillas de subtítulos virales en Stock (palabra por palabra, rebote, caja que sigue la palabra).
+- [x] Más plantillas de subtítulos virales en Stock (palabra por palabra, rebote, caja que sigue la palabra).
 - [x] Filtro de groserías (*** o pitido). Hecho: casilla «Ocultar groserías (m*****)» al crear (es/en); falta el pitido.
 - [x] Revisión de ortografía.
 - [x] Elegir la transcripción en la nube (ElevenLabs) desde el panel de subtítulos.
@@ -149,3 +149,7 @@ ventanas de herramientas.
     (`WhisperTokenizer::encodeApprox`; los modelos no traen los merges). Probado aparte: codifica y vuelve exacto.
   - tailandés: las palabras se separan con el diccionario de ICU que trae Windows 10/11 (`icu.dll`, cargado con
     QLibrary; sin él queda como antes) y las marcas de vocal y tono no cuentan como ancho. Probado aparte.
+  - 12 estilos virales más en el extra «Plantillas de texto» 1.2.0 (flip-addons `textstyles.py`, categoría
+    `subtitulos`, que la galería de subtítulos ya lista): Rebote, Caja roja, Caja amarilla (la caja sigue la palabra),
+    Gigante, Neón azul, Máquina de escribir, Podcast, Palabras clave (colorea las *marcadas*), Sombra dura, Degradado,
+    Sello, Elegante. Paquete hecho en `flip-addons/dist`, **sin publicar** hasta verlos en ventana.
