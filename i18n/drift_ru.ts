@@ -5348,6 +5348,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Settle</source>
+        <translation>Затухание</translation>
+    </message>
+    <message>
+        <source>Reverse keyframes</source>
+        <translation>Обратить ключевые кадры</translation>
+    </message>
+    <message>
         <source>Pick two or more keys of a property to reverse them</source>
         <translation>Выберите два или больше ключа свойства, чтобы развернуть их</translation>
     </message>
@@ -6170,6 +6178,18 @@
     <message>
         <source>Straight path</source>
         <translation>Прямая траектория</translation>
+    </message>
+    <message>
+        <source>Join Position</source>
+        <translation>Объединить положение</translation>
+    </message>
+    <message>
+        <source>Separate dimensions</source>
+        <translation>Разделить измерения</translation>
+    </message>
+    <message>
+        <source>Shape motion path</source>
+        <translation>Изменить траекторию</translation>
     </message>
     <message>
         <source>Roving needs at least three Position keyframes</source>
@@ -17047,6 +17067,10 @@ NEXT TIME</source>
         <translation>Растушёвка маски</translation>
     </message>
     <message>
+        <source>Pos</source>
+        <translation>Пол.</translation>
+    </message>
+    <message>
         <source>Layer</source>
         <translation type="unfinished"></translation>
     </message>
@@ -17202,8 +17226,16 @@ NEXT TIME</source>
         <translation>Переместить ключевые кадры</translation>
     </message>
     <message>
+        <source>Keyframe easing changed</source>
+        <translation>Сглаживание ключевых кадров изменено</translation>
+    </message>
+    <message>
         <source>Paste keyframes</source>
         <translation>Вставить ключевые кадры</translation>
+    </message>
+    <message>
+        <source>Remove keyframes</source>
+        <translation>Удалить ключевые кадры</translation>
     </message>
     <message>
         <source>Apply</source>
@@ -17254,8 +17286,16 @@ NEXT TIME</source>
         <translation>Плавающие (одна скорость по траектории)</translation>
     </message>
     <message>
+        <source>Separate dimensions (X and Y apart)</source>
+        <translation>Разделить измерения (X и Y отдельно)</translation>
+    </message>
+    <message>
+        <source>Join Position (one path)</source>
+        <translation>Объединить положение (одна траектория)</translation>
+    </message>
+    <message>
         <source>Reverse keyframes</source>
-        <translation type="unfinished"></translation>
+        <translation>Обратить ключевые кадры</translation>
     </message>
     <message>
         <source>Stretch keyframes…</source>
@@ -19752,7 +19792,7 @@ NEXT TIME</source>
     <name>MotionPathOverlay</name>
     <message>
         <source>Shape motion path</source>
-        <translation type="unfinished"></translation>
+        <translation>Изменить траекторию</translation>
     </message>
     <message>
         <source>Move keyframe</source>
@@ -31783,7 +31823,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Remove keyframes</source>
-        <translation type="unfinished"></translation>
+        <translation>Удалить ключевые кадры</translation>
     </message>
     <message>
         <source>Stop animating (removes its keyframes)</source>
@@ -31839,7 +31879,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Separate dimensions</source>
-        <translation type="unfinished"></translation>
+        <translation>Разделить измерения</translation>
     </message>
     <message>
         <source>Behavior…</source>

@@ -5331,6 +5331,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Settle</source>
+        <translation>Assentar</translation>
+    </message>
+    <message>
+        <source>Reverse keyframes</source>
+        <translation>Inverter quadros-chave</translation>
+    </message>
+    <message>
         <source>Pick two or more keys of a property to reverse them</source>
         <translation>Escolha duas ou mais chaves de uma propriedade para invertê-las</translation>
     </message>
@@ -6145,6 +6153,18 @@
     <message>
         <source>Straight path</source>
         <translation>Trajeto reto</translation>
+    </message>
+    <message>
+        <source>Join Position</source>
+        <translation>Unir posição</translation>
+    </message>
+    <message>
+        <source>Separate dimensions</source>
+        <translation>Separar dimensões</translation>
+    </message>
+    <message>
+        <source>Shape motion path</source>
+        <translation>Moldar a trajetória</translation>
     </message>
     <message>
         <source>Roving needs at least three Position keyframes</source>
@@ -16985,6 +17005,10 @@ PRÓXIMA</translation>
         <translation>Difusão da máscara</translation>
     </message>
     <message>
+        <source>Pos</source>
+        <translation>Pos</translation>
+    </message>
+    <message>
         <source>Layer</source>
         <translation type="unfinished"></translation>
     </message>
@@ -17139,8 +17163,16 @@ PRÓXIMA</translation>
         <translation>Mover quadros-chave</translation>
     </message>
     <message>
+        <source>Keyframe easing changed</source>
+        <translation>Suavização dos quadros-chave alterada</translation>
+    </message>
+    <message>
         <source>Paste keyframes</source>
         <translation>Colar quadros-chave</translation>
+    </message>
+    <message>
+        <source>Remove keyframes</source>
+        <translation>Remover quadros-chave</translation>
     </message>
     <message>
         <source>Apply</source>
@@ -17191,8 +17223,16 @@ PRÓXIMA</translation>
         <translation>Itinerante (uma só velocidade no trajeto)</translation>
     </message>
     <message>
+        <source>Separate dimensions (X and Y apart)</source>
+        <translation>Separar dimensões (X e Y à parte)</translation>
+    </message>
+    <message>
+        <source>Join Position (one path)</source>
+        <translation>Unir posição (uma só trajetória)</translation>
+    </message>
+    <message>
         <source>Reverse keyframes</source>
-        <translation type="unfinished"></translation>
+        <translation>Inverter quadros-chave</translation>
     </message>
     <message>
         <source>Stretch keyframes…</source>
@@ -19675,7 +19715,7 @@ PRÓXIMA</translation>
     <name>MotionPathOverlay</name>
     <message>
         <source>Shape motion path</source>
-        <translation type="unfinished"></translation>
+        <translation>Moldar a trajetória</translation>
     </message>
     <message>
         <source>Move keyframe</source>
@@ -31684,7 +31724,7 @@ Se a reprodução travar, tente outra opção.</translation>
     </message>
     <message>
         <source>Remove keyframes</source>
-        <translation type="unfinished"></translation>
+        <translation>Remover quadros-chave</translation>
     </message>
     <message>
         <source>Stop animating (removes its keyframes)</source>
@@ -31740,7 +31780,7 @@ Se a reprodução travar, tente outra opção.</translation>
     </message>
     <message>
         <source>Separate dimensions</source>
-        <translation type="unfinished"></translation>
+        <translation>Separar dimensões</translation>
     </message>
     <message>
         <source>Behavior…</source>

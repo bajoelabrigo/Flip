@@ -5331,6 +5331,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Settle</source>
+        <translation>සංසිඳීම</translation>
+    </message>
+    <message>
+        <source>Reverse keyframes</source>
+        <translation>මූලරාමු ආපසු හරවන්න</translation>
+    </message>
+    <message>
         <source>Pick two or more keys of a property to reverse them</source>
         <translation>ඒවා ප්‍රතිලෝම කිරීමට ගුණාංගයක යතුරු දෙකක් හෝ වැඩි ගණනක් තෝරන්න</translation>
     </message>
@@ -6145,6 +6153,18 @@
     <message>
         <source>Straight path</source>
         <translation>සෘජු මාර්ගය</translation>
+    </message>
+    <message>
+        <source>Join Position</source>
+        <translation>පිහිටීම එක් කරන්න</translation>
+    </message>
+    <message>
+        <source>Separate dimensions</source>
+        <translation>මාන වෙන් කරන්න</translation>
+    </message>
+    <message>
+        <source>Shape motion path</source>
+        <translation>චලන මාර්ගය හැඩගසන්න</translation>
     </message>
     <message>
         <source>Roving needs at least three Position keyframes</source>
@@ -16981,6 +17001,10 @@ NEXT TIME</source>
         <translation>ආවරණ මෘදු බව (Feather)</translation>
     </message>
     <message>
+        <source>Pos</source>
+        <translation>පිහි.</translation>
+    </message>
+    <message>
         <source>Layer</source>
         <translation type="unfinished"></translation>
     </message>
@@ -17135,8 +17159,16 @@ NEXT TIME</source>
         <translation>කීෆ්‍රේම ගෙනයන්න</translation>
     </message>
     <message>
+        <source>Keyframe easing changed</source>
+        <translation>මූලරාමු සුමටනය වෙනස් විය</translation>
+    </message>
+    <message>
         <source>Paste keyframes</source>
         <translation>කී රාමු අලවන්න</translation>
+    </message>
+    <message>
+        <source>Remove keyframes</source>
+        <translation>මූලරාමු ඉවත් කරන්න</translation>
     </message>
     <message>
         <source>Apply</source>
@@ -17187,8 +17219,16 @@ NEXT TIME</source>
         <translation>සැරිසරන (මාර්ගයේ එක් වේගයක්)</translation>
     </message>
     <message>
+        <source>Separate dimensions (X and Y apart)</source>
+        <translation>මාන වෙන් කරන්න (X සහ Y වෙන වෙනම)</translation>
+    </message>
+    <message>
+        <source>Join Position (one path)</source>
+        <translation>පිහිටීම එක් කරන්න (එක් මාර්ගයක්)</translation>
+    </message>
+    <message>
         <source>Reverse keyframes</source>
-        <translation type="unfinished"></translation>
+        <translation>මූලරාමු ආපසු හරවන්න</translation>
     </message>
     <message>
         <source>Stretch keyframes…</source>
@@ -19671,7 +19711,7 @@ NEXT TIME</source>
     <name>MotionPathOverlay</name>
     <message>
         <source>Shape motion path</source>
-        <translation type="unfinished"></translation>
+        <translation>චලන මාර්ගය හැඩගසන්න</translation>
     </message>
     <message>
         <source>Move keyframe</source>
@@ -31680,7 +31720,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Remove keyframes</source>
-        <translation type="unfinished"></translation>
+        <translation>මූලරාමු ඉවත් කරන්න</translation>
     </message>
     <message>
         <source>Stop animating (removes its keyframes)</source>
@@ -31736,7 +31776,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Separate dimensions</source>
-        <translation type="unfinished"></translation>
+        <translation>මාන වෙන් කරන්න</translation>
     </message>
     <message>
         <source>Behavior…</source>

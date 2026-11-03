@@ -5339,6 +5339,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Settle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reverse keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Pick two or more keys of a property to reverse them</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6152,6 +6160,18 @@
     </message>
     <message>
         <source>Straight path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Join Position</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Separate dimensions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shape motion path</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -16981,6 +17001,10 @@ NEXT TIME</source>
         <translation>Calado de máscara</translation>
     </message>
     <message>
+        <source>Pos</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Layer</source>
         <translation type="unfinished"></translation>
     </message>
@@ -17135,7 +17159,15 @@ NEXT TIME</source>
         <translation>Mover fotogramas clave</translation>
     </message>
     <message>
+        <source>Keyframe easing changed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Paste keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove keyframes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -17184,6 +17216,14 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Roving (one speed along the path)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Separate dimensions (X and Y apart)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Join Position (one path)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

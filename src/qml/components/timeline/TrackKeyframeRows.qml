@@ -76,8 +76,7 @@ Item {
                 return
             root.marqueeActive = true
             root.marqueeSwallowClick = true
-            root.marqueeBase = root.marqueeAdditive && root.tools.track === root.trackIndex
-                               ? root.tools.keys.slice() : []
+            root.tools.beginBox(root.marqueeAdditive)
         }
         root.marqueeApply()
     }
@@ -86,24 +85,37 @@ Item {
             return
         root.marqueeApply()
         root.marqueeActive = false
-        // The clip of the keys picked becomes the selected one, so the inspector and Delete act
-        // on it (KeyframeKeyTools drops a pick that is not on the selected clip).
-        const keys = root.tools.keys
-        if (keys.length > 0 && !keys.some((k) => k.clip === EditorState.selectedClip
-                                                && EditorState.selectedTrack === root.trackIndex)) {
-            const picked = keys.slice()
-            EditorState.selectClip(root.trackIndex, picked[0].clip)
-            root.tools.pick(root.trackIndex, picked)
+        // The clips of the keys picked become the selected ones, so the inspector and Delete act
+        // on them (KeyframeKeyTools drops a pick that is not on a selected clip).
+        root.tools.endBox()
+    }
+    // The box, in scene coordinates, for every track's rows (0.30: it picks across layers).
+    function marqueeApply() {
+        const a = root.mapToItem(null, root.marqueeX0, root.marqueeY0)
+        const b = root.mapToItem(null, root.marqueeX1, root.marqueeY1)
+        root.tools.box = { x0: Math.min(a.x, b.x), y0: Math.min(a.y, b.y), x1: Math.max(a.x, b.x), y1: Math.max(a.y, b.y) }
+    }
+    Connections {
+        target: root.tools
+        function onBoxChanged() {
+            if (root.tools.box && root.visible)
+                root.boxApply(root.tools.box)
         }
     }
-    // Every key whose glyph the box touches, with the axis keys of a joined line.
-    function marqueeApply() {
+    // Every key of these rows whose glyph the box touches, with the axis keys of a joined line.
+    function boxApply(box) {
         const half = 7
-        const left = Math.min(root.marqueeX0, root.marqueeX1) - half
-        const right = Math.max(root.marqueeX0, root.marqueeX1) + half
-        const top = Math.min(root.marqueeY0, root.marqueeY1)
-        const bottom = Math.max(root.marqueeY0, root.marqueeY1)
-        const out = root.marqueeBase.slice()
+        const p0 = root.mapFromItem(null, box.x0, box.y0)
+        const p1 = root.mapFromItem(null, box.x1, box.y1)
+        const left = p0.x - half
+        const right = p1.x + half
+        const top = p0.y
+        const bottom = p1.y
+        if (bottom < 0 || top > root.height) {
+            root.tools.boxPart(root.trackIndex, [])
+            return
+        }
+        const out = []
         const add = (ref) => {
             if (!out.some((k) => root.tools.sameKey(k, ref)))
                 out.push(ref)
@@ -125,7 +137,7 @@ Item {
                 }
             }
         }
-        root.tools.pick(root.trackIndex, out)
+        root.tools.boxPart(root.trackIndex, out)
     }
 
     // Presses outside every clip's stretch: only the box.

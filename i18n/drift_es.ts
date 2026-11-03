@@ -5331,6 +5331,14 @@
         <translation>Comportamiento cambiado</translation>
     </message>
     <message>
+        <source>Settle</source>
+        <translation>Asentar</translation>
+    </message>
+    <message>
+        <source>Reverse keyframes</source>
+        <translation>Invertir fotogramas clave</translation>
+    </message>
+    <message>
         <source>Pick two or more keys of a property to reverse them</source>
         <translation>Elige dos o más claves de una propiedad para invertirlas</translation>
     </message>
@@ -6145,6 +6153,18 @@
     <message>
         <source>Straight path</source>
         <translation>Trayecto recto</translation>
+    </message>
+    <message>
+        <source>Join Position</source>
+        <translation>Unir Posición</translation>
+    </message>
+    <message>
+        <source>Separate dimensions</source>
+        <translation>Separar dimensiones</translation>
+    </message>
+    <message>
+        <source>Shape motion path</source>
+        <translation>Dar forma al trayecto</translation>
     </message>
     <message>
         <source>Roving needs at least three Position keyframes</source>
@@ -16985,6 +17005,10 @@ LA PRÓXIMA</translation>
         <translation>Calado de máscara</translation>
     </message>
     <message>
+        <source>Pos</source>
+        <translation>Pos</translation>
+    </message>
+    <message>
         <source>Layer</source>
         <translation>Capa</translation>
     </message>
@@ -17139,8 +17163,16 @@ LA PRÓXIMA</translation>
         <translation>Mover fotogramas clave</translation>
     </message>
     <message>
+        <source>Keyframe easing changed</source>
+        <translation>Suavizado de fotogramas clave cambiado</translation>
+    </message>
+    <message>
         <source>Paste keyframes</source>
         <translation>Pegar fotogramas clave</translation>
+    </message>
+    <message>
+        <source>Remove keyframes</source>
+        <translation>Quitar fotogramas clave</translation>
     </message>
     <message>
         <source>Apply</source>
@@ -17189,6 +17221,14 @@ LA PRÓXIMA</translation>
     <message>
         <source>Roving (one speed along the path)</source>
         <translation>Itinerante (una sola velocidad en el trayecto)</translation>
+    </message>
+    <message>
+        <source>Separate dimensions (X and Y apart)</source>
+        <translation>Separar dimensiones (X e Y por separado)</translation>
+    </message>
+    <message>
+        <source>Join Position (one path)</source>
+        <translation>Unir Posición (un solo trayecto)</translation>
     </message>
     <message>
         <source>Reverse keyframes</source>

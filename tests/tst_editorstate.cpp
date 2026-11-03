@@ -371,6 +371,7 @@ private slots:
     void provisionalKindReadsTheExtensionAlone();
     void importFileNameStaysStorable();
     void positionPathAndRovingKeys();
+    void joinedPositionAndKeysOfSeveralTracks();
 };
 
 // A file dragged in from the file manager has no bin row yet, so the timeline's drop preview
@@ -13969,6 +13970,57 @@ void EditorStateTest::positionPathAndRovingKeys()
     QCOMPARE(times.size(), 3);
     QVERIFY(std::abs(drift::usToSeconds(times.at(1)) - 0.4) < 0.01);
     QCOMPARE(times.last(), drift::secondsToUs(4.0));
+}
+
+// After Effects (0.30): Position becomes one property when it starts moving, Separate Dimensions
+// splits it, and the tools work on keys picked on several tracks at once, as one undo step.
+void EditorStateTest::joinedPositionAndKeysOfSeveralTracks()
+{
+    AssetLibrary library;
+    AppController state(&library);
+
+    state.project()->tracks().clear();
+    for (int i = 0; i < 2; ++i) {
+        drift::Clip clip;
+        clip.id = QStringLiteral("clip-%1").arg(i);
+        clip.type = drift::ClipType::Shape;
+        clip.timelineStart = 0;
+        clip.timelineDuration = drift::secondsToUs(4.0);
+        clip.srcOut = drift::secondsToUs(4.0);
+        drift::Track track{.type = drift::TrackType::Shape};
+        track.clips.append(clip);
+        state.project()->tracks().append(track);
+    }
+
+    state.setClipKeyframe(0, 0, QStringLiteral("x"), 0.0, 0.0);
+    state.setClipKeyframe(0, 0, QStringLiteral("x"), 2.0, 200.0);
+    const drift::Clip &moving = state.project()->tracks().at(0).clips.at(0);
+    QVERIFY(moving.positionJoined);
+    QCOMPARE(moving.transformY.keyframes().size(), moving.transformX.keyframes().size());
+    QVERIFY(std::abs(moving.transformX.evaluateAt(drift::secondsToUs(1.0)) - 100.0) < 0.5);
+    QVERIFY(std::abs(state.propertyValueAt(0, 0, QStringLiteral("position"), 2.0, 0.0) - 200.0) < 0.5);
+
+    state.setPositionJoined(0, 0, false);
+    QVERIFY(!state.project()->tracks().at(0).clips.at(0).positionJoined);
+    QVERIFY(state.project()->tracks().at(0).clips.at(0).positionSeparated);
+    state.undo();
+    QVERIFY(state.project()->tracks().at(0).clips.at(0).positionJoined);
+
+    // Keys picked on two tracks: one ease reaches both, in one undo step.
+    state.setClipKeyframe(1, 0, QStringLiteral("opacity"), 0.0, 0.0);
+    state.setClipKeyframe(1, 0, QStringLiteral("opacity"), 2.0, 1.0);
+    const QVariantList keys{
+        QVariantMap{{QStringLiteral("track"), 0}, {QStringLiteral("clip"), 0}, {QStringLiteral("prop"), QStringLiteral("x")},
+                    {QStringLiteral("seconds"), 0.0}},
+        QVariantMap{{QStringLiteral("track"), 1}, {QStringLiteral("clip"), 0}, {QStringLiteral("prop"), QStringLiteral("opacity")},
+                    {QStringLiteral("seconds"), 0.0}}};
+    state.setPickedKeyframes({{QStringLiteral("track"), 1}, {QStringLiteral("keys"), keys}});
+    state.easePickedKeyframes(QStringLiteral("ease"), 50.0, 50.0, 0.0);
+    QVERIFY(state.project()->tracks().at(0).clips.at(0).transformX.keyframes().first().outDx > 0.0);
+    QVERIFY(state.project()->tracks().at(1).clips.at(0).opacity.keyframes().first().outDx > 0.0);
+    state.undo();
+    QVERIFY(qFuzzyIsNull(state.project()->tracks().at(0).clips.at(0).transformX.keyframes().first().outDx));
+    QVERIFY(qFuzzyIsNull(state.project()->tracks().at(1).clips.at(0).opacity.keyframes().first().outDx));
 }
 
 QTEST_MAIN(EditorStateTest)

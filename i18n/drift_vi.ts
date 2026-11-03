@@ -5322,6 +5322,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Settle</source>
+        <translation>Lắng lại</translation>
+    </message>
+    <message>
+        <source>Reverse keyframes</source>
+        <translation>Đảo ngược khung hình chính</translation>
+    </message>
+    <message>
         <source>Pick two or more keys of a property to reverse them</source>
         <translation>Chọn hai khóa trở lên của một thuộc tính để đảo ngược</translation>
     </message>
@@ -6128,6 +6136,18 @@
     <message>
         <source>Straight path</source>
         <translation>Đường thẳng</translation>
+    </message>
+    <message>
+        <source>Join Position</source>
+        <translation>Gộp vị trí</translation>
+    </message>
+    <message>
+        <source>Separate dimensions</source>
+        <translation>Tách chiều</translation>
+    </message>
+    <message>
+        <source>Shape motion path</source>
+        <translation>Tạo hình đường chuyển động</translation>
     </message>
     <message>
         <source>Roving needs at least three Position keyframes</source>
@@ -16923,6 +16943,10 @@ LẦN SAU</translation>
         <translation>Độ mờ mặt nạ</translation>
     </message>
     <message>
+        <source>Pos</source>
+        <translation>VT</translation>
+    </message>
+    <message>
         <source>Layer</source>
         <translation type="unfinished"></translation>
     </message>
@@ -17076,8 +17100,16 @@ LẦN SAU</translation>
         <translation>Di chuyển các keyframe</translation>
     </message>
     <message>
+        <source>Keyframe easing changed</source>
+        <translation>Đã đổi độ mượt khung hình chính</translation>
+    </message>
+    <message>
         <source>Paste keyframes</source>
         <translation>Dán khung hình chính</translation>
+    </message>
+    <message>
+        <source>Remove keyframes</source>
+        <translation>Xóa khung hình chính</translation>
     </message>
     <message>
         <source>Apply</source>
@@ -17128,8 +17160,16 @@ LẦN SAU</translation>
         <translation>Lưu động (một tốc độ trên đường đi)</translation>
     </message>
     <message>
+        <source>Separate dimensions (X and Y apart)</source>
+        <translation>Tách chiều (X và Y riêng)</translation>
+    </message>
+    <message>
+        <source>Join Position (one path)</source>
+        <translation>Gộp vị trí (một đường đi)</translation>
+    </message>
+    <message>
         <source>Reverse keyframes</source>
-        <translation type="unfinished"></translation>
+        <translation>Đảo ngược khung hình chính</translation>
     </message>
     <message>
         <source>Stretch keyframes…</source>
@@ -19598,7 +19638,7 @@ LẦN SAU</translation>
     <name>MotionPathOverlay</name>
     <message>
         <source>Shape motion path</source>
-        <translation type="unfinished"></translation>
+        <translation>Tạo hình đường chuyển động</translation>
     </message>
     <message>
         <source>Move keyframe</source>
@@ -31585,7 +31625,7 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     </message>
     <message>
         <source>Remove keyframes</source>
-        <translation type="unfinished"></translation>
+        <translation>Xóa khung hình chính</translation>
     </message>
     <message>
         <source>Stop animating (removes its keyframes)</source>
@@ -31641,7 +31681,7 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     </message>
     <message>
         <source>Separate dimensions</source>
-        <translation type="unfinished"></translation>
+        <translation>Tách chiều</translation>
     </message>
     <message>
         <source>Behavior…</source>

@@ -5348,6 +5348,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Settle</source>
+        <translation>Wygaszenie</translation>
+    </message>
+    <message>
+        <source>Reverse keyframes</source>
+        <translation>Odwróć klatki kluczowe</translation>
+    </message>
+    <message>
         <source>Pick two or more keys of a property to reverse them</source>
         <translation>Wybierz co najmniej dwa klucze właściwości, aby je odwrócić</translation>
     </message>
@@ -6170,6 +6178,18 @@
     <message>
         <source>Straight path</source>
         <translation>Prosta ścieżka</translation>
+    </message>
+    <message>
+        <source>Join Position</source>
+        <translation>Połącz pozycję</translation>
+    </message>
+    <message>
+        <source>Separate dimensions</source>
+        <translation>Rozdziel wymiary</translation>
+    </message>
+    <message>
+        <source>Shape motion path</source>
+        <translation>Kształtuj ścieżkę ruchu</translation>
     </message>
     <message>
         <source>Roving needs at least three Position keyframes</source>
@@ -17047,6 +17067,10 @@ ZOBACZENIA</translation>
         <translation>Pióro maski</translation>
     </message>
     <message>
+        <source>Pos</source>
+        <translation>Poz.</translation>
+    </message>
+    <message>
         <source>Layer</source>
         <translation type="unfinished"></translation>
     </message>
@@ -17202,8 +17226,16 @@ ZOBACZENIA</translation>
         <translation>Przenieś klatki kluczowe</translation>
     </message>
     <message>
+        <source>Keyframe easing changed</source>
+        <translation>Zmieniono wygładzenie klatek kluczowych</translation>
+    </message>
+    <message>
         <source>Paste keyframes</source>
         <translation>Wklej klatki kluczowe</translation>
+    </message>
+    <message>
+        <source>Remove keyframes</source>
+        <translation>Usuń klatki kluczowe</translation>
     </message>
     <message>
         <source>Apply</source>
@@ -17254,8 +17286,16 @@ ZOBACZENIA</translation>
         <translation>Wędrujące (jedna prędkość na ścieżce)</translation>
     </message>
     <message>
+        <source>Separate dimensions (X and Y apart)</source>
+        <translation>Rozdziel wymiary (X i Y osobno)</translation>
+    </message>
+    <message>
+        <source>Join Position (one path)</source>
+        <translation>Połącz pozycję (jedna ścieżka)</translation>
+    </message>
+    <message>
         <source>Reverse keyframes</source>
-        <translation type="unfinished"></translation>
+        <translation>Odwróć klatki kluczowe</translation>
     </message>
     <message>
         <source>Stretch keyframes…</source>
@@ -19752,7 +19792,7 @@ ZOBACZENIA</translation>
     <name>MotionPathOverlay</name>
     <message>
         <source>Shape motion path</source>
-        <translation type="unfinished"></translation>
+        <translation>Kształtuj ścieżkę ruchu</translation>
     </message>
     <message>
         <source>Move keyframe</source>
@@ -31783,7 +31823,7 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     </message>
     <message>
         <source>Remove keyframes</source>
-        <translation type="unfinished"></translation>
+        <translation>Usuń klatki kluczowe</translation>
     </message>
     <message>
         <source>Stop animating (removes its keyframes)</source>
@@ -31839,7 +31879,7 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     </message>
     <message>
         <source>Separate dimensions</source>
-        <translation type="unfinished"></translation>
+        <translation>Rozdziel wymiary</translation>
     </message>
     <message>
         <source>Behavior…</source>

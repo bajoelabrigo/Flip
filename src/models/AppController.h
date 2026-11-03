@@ -822,6 +822,9 @@ public:
     // so the Motion Tools panel (0.26) works on them.
     Q_PROPERTY(QVariantMap pickedKeyframes READ pickedKeyframes WRITE setPickedKeyframes NOTIFY pickedKeyframesChanged)
     QVariantMap pickedKeyframes() const { return m_pickedKeyframes; }
+    // Runs `fn` once per track the picked keys are on, each time with that track's keys as the
+    // pick, in one undo step; false (and nothing run) when they are all on one track.
+    bool eachPickedTrack(const QString &label, const std::function<void()> &fn);
     void setPickedKeyframes(const QVariantMap &picked)
     {
         if (picked == m_pickedKeyframes)

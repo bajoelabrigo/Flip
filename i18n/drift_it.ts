@@ -5331,6 +5331,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Settle</source>
+        <translation>Assestamento</translation>
+    </message>
+    <message>
+        <source>Reverse keyframes</source>
+        <translation>Inverti fotogrammi chiave</translation>
+    </message>
+    <message>
         <source>Pick two or more keys of a property to reverse them</source>
         <translation>Scegli due o più chiavi di una proprietà per invertirle</translation>
     </message>
@@ -6145,6 +6153,18 @@
     <message>
         <source>Straight path</source>
         <translation>Percorso dritto</translation>
+    </message>
+    <message>
+        <source>Join Position</source>
+        <translation>Unisci posizione</translation>
+    </message>
+    <message>
+        <source>Separate dimensions</source>
+        <translation>Separa dimensioni</translation>
+    </message>
+    <message>
+        <source>Shape motion path</source>
+        <translation>Modella il tracciato</translation>
     </message>
     <message>
         <source>Roving needs at least three Position keyframes</source>
@@ -16985,6 +17005,10 @@ LA PROSSIMA</translation>
         <translation>Sfumatura maschera</translation>
     </message>
     <message>
+        <source>Pos</source>
+        <translation>Pos</translation>
+    </message>
+    <message>
         <source>Layer</source>
         <translation type="unfinished"></translation>
     </message>
@@ -17139,8 +17163,16 @@ LA PROSSIMA</translation>
         <translation>Sposta fotogrammi chiave</translation>
     </message>
     <message>
+        <source>Keyframe easing changed</source>
+        <translation>Andamento dei fotogrammi chiave cambiato</translation>
+    </message>
+    <message>
         <source>Paste keyframes</source>
         <translation>Incolla fotogrammi chiave</translation>
+    </message>
+    <message>
+        <source>Remove keyframes</source>
+        <translation>Rimuovi fotogrammi chiave</translation>
     </message>
     <message>
         <source>Apply</source>
@@ -17191,8 +17223,16 @@ LA PROSSIMA</translation>
         <translation>Itinerante (una sola velocità sul percorso)</translation>
     </message>
     <message>
+        <source>Separate dimensions (X and Y apart)</source>
+        <translation>Separa dimensioni (X e Y a parte)</translation>
+    </message>
+    <message>
+        <source>Join Position (one path)</source>
+        <translation>Unisci posizione (un solo tracciato)</translation>
+    </message>
+    <message>
         <source>Reverse keyframes</source>
-        <translation type="unfinished"></translation>
+        <translation>Inverti fotogrammi chiave</translation>
     </message>
     <message>
         <source>Stretch keyframes…</source>
@@ -19675,7 +19715,7 @@ LA PROSSIMA</translation>
     <name>MotionPathOverlay</name>
     <message>
         <source>Shape motion path</source>
-        <translation type="unfinished"></translation>
+        <translation>Modella il tracciato</translation>
     </message>
     <message>
         <source>Move keyframe</source>
@@ -31684,7 +31724,7 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     </message>
     <message>
         <source>Remove keyframes</source>
-        <translation type="unfinished"></translation>
+        <translation>Rimuovi fotogrammi chiave</translation>
     </message>
     <message>
         <source>Stop animating (removes its keyframes)</source>
@@ -31740,7 +31780,7 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     </message>
     <message>
         <source>Separate dimensions</source>
-        <translation type="unfinished"></translation>
+        <translation>Separa dimensioni</translation>
     </message>
     <message>
         <source>Behavior…</source>

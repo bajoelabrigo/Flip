@@ -5314,6 +5314,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Settle</source>
+        <translation>안착</translation>
+    </message>
+    <message>
+        <source>Reverse keyframes</source>
+        <translation>키프레임 반전</translation>
+    </message>
+    <message>
         <source>Pick two or more keys of a property to reverse them</source>
         <translation>반전하려면 속성의 키를 두 개 이상 선택하세요</translation>
     </message>
@@ -6120,6 +6128,18 @@
     <message>
         <source>Straight path</source>
         <translation>직선 경로</translation>
+    </message>
+    <message>
+        <source>Join Position</source>
+        <translation>위치 결합</translation>
+    </message>
+    <message>
+        <source>Separate dimensions</source>
+        <translation>차원 분리</translation>
+    </message>
+    <message>
+        <source>Shape motion path</source>
+        <translation>모션 경로 다듬기</translation>
     </message>
     <message>
         <source>Roving needs at least three Position keyframes</source>
@@ -16923,6 +16943,10 @@ NEXT TIME</source>
         <translation>마스크 페더</translation>
     </message>
     <message>
+        <source>Pos</source>
+        <translation>위치</translation>
+    </message>
+    <message>
         <source>Layer</source>
         <translation type="unfinished"></translation>
     </message>
@@ -17076,8 +17100,16 @@ NEXT TIME</source>
         <translation>키프레임 이동</translation>
     </message>
     <message>
+        <source>Keyframe easing changed</source>
+        <translation>키프레임 이징이 변경됨</translation>
+    </message>
+    <message>
         <source>Paste keyframes</source>
         <translation>키프레임 붙여넣기</translation>
+    </message>
+    <message>
+        <source>Remove keyframes</source>
+        <translation>키프레임 제거</translation>
     </message>
     <message>
         <source>Apply</source>
@@ -17128,8 +17160,16 @@ NEXT TIME</source>
         <translation>로빙(경로에서 일정한 속도)</translation>
     </message>
     <message>
+        <source>Separate dimensions (X and Y apart)</source>
+        <translation>차원 분리(X와 Y 따로)</translation>
+    </message>
+    <message>
+        <source>Join Position (one path)</source>
+        <translation>위치 결합(하나의 경로)</translation>
+    </message>
+    <message>
         <source>Reverse keyframes</source>
-        <translation type="unfinished"></translation>
+        <translation>키프레임 반전</translation>
     </message>
     <message>
         <source>Stretch keyframes…</source>
@@ -19598,7 +19638,7 @@ NEXT TIME</source>
     <name>MotionPathOverlay</name>
     <message>
         <source>Shape motion path</source>
-        <translation type="unfinished"></translation>
+        <translation>모션 경로 다듬기</translation>
     </message>
     <message>
         <source>Move keyframe</source>
@@ -31583,7 +31623,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Remove keyframes</source>
-        <translation type="unfinished"></translation>
+        <translation>키프레임 제거</translation>
     </message>
     <message>
         <source>Stop animating (removes its keyframes)</source>
@@ -31639,7 +31679,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Separate dimensions</source>
-        <translation type="unfinished"></translation>
+        <translation>차원 분리</translation>
     </message>
     <message>
         <source>Behavior…</source>

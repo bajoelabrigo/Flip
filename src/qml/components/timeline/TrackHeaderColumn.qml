@@ -1780,15 +1780,21 @@ Item {
                             const clip = keyLine.clip
                             const animated = EditorState.clipAnimatedProperties(track, clip)
                             const add = !!(modifiers & (Qt.ShiftModifier | Qt.ControlModifier))
-                            const out = add && tools.track === track ? tools.keys.slice() : []
+                            // Shift or Ctrl adds them to the keys picked, on this track or others (0.30).
+                            const out = add ? tools.keys.slice() : []
                             for (const prop of keyLine.props) {
                                 if (animated.indexOf(prop) < 0)
                                     continue
                                 for (const k of (EditorState.clipKeyframes(track, clip, prop) || [])) {
-                                    const ref = { clip: clip, prop: prop, seconds: k.seconds }
-                                    if (!out.some((o) => tools.sameKey(o, ref)))
+                                    const ref = { track: track, clip: clip, prop: prop, seconds: k.seconds }
+                                    if (!out.some((o) => tools.keyTrack(o) === track && tools.sameKey(o, ref)))
                                         out.push(ref)
                                 }
+                            }
+                            if (add) {
+                                tools.pick(track, out)
+                                tools.selectPickedClips()
+                                return
                             }
                             if (EditorState.selectedTrack !== track || EditorState.selectedClip !== clip)
                                 EditorState.selectClip(track, clip)

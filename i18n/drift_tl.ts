@@ -4743,7 +4743,7 @@
     </message>
     <message>
         <source>Keyframe easing changed</source>
-        <translation type="unfinished"></translation>
+        <translation>Binago ang easing ng keyframe</translation>
     </message>
     <message>
         <source>Keyframe easing updated</source>
@@ -5333,6 +5333,14 @@
     <message>
         <source>Behavior changed</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Settle</source>
+        <translation>Pag-ayos</translation>
+    </message>
+    <message>
+        <source>Reverse keyframes</source>
+        <translation>Baligtarin ang mga keyframe</translation>
     </message>
     <message>
         <source>Pick two or more keys of a property to reverse them</source>
@@ -6149,6 +6157,18 @@
     <message>
         <source>Straight path</source>
         <translation>Tuwid na landas</translation>
+    </message>
+    <message>
+        <source>Join Position</source>
+        <translation>Pagsamahin ang Posisyon</translation>
+    </message>
+    <message>
+        <source>Separate dimensions</source>
+        <translation>Paghiwalayin ang mga dimensyon</translation>
+    </message>
+    <message>
+        <source>Shape motion path</source>
+        <translation>Hubugin ang landas ng galaw</translation>
     </message>
     <message>
         <source>Roving needs at least three Position keyframes</source>
@@ -16981,6 +17001,10 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Pos</source>
+        <translation>Pos</translation>
+    </message>
+    <message>
         <source>Layer</source>
         <translation type="unfinished"></translation>
     </message>
@@ -17135,8 +17159,16 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Keyframe easing changed</source>
+        <translation>Binago ang easing ng keyframe</translation>
+    </message>
+    <message>
         <source>Paste keyframes</source>
         <translation>I-paste ang mga keyframe</translation>
+    </message>
+    <message>
+        <source>Remove keyframes</source>
+        <translation>Alisin ang mga keyframe</translation>
     </message>
     <message>
         <source>Apply</source>
@@ -17187,8 +17219,16 @@ NEXT TIME</source>
         <translation>Roving (iisang bilis sa landas)</translation>
     </message>
     <message>
+        <source>Separate dimensions (X and Y apart)</source>
+        <translation>Paghiwalayin ang mga dimensyon (hiwalay ang X at Y)</translation>
+    </message>
+    <message>
+        <source>Join Position (one path)</source>
+        <translation>Pagsamahin ang Posisyon (isang landas)</translation>
+    </message>
+    <message>
         <source>Reverse keyframes</source>
-        <translation type="unfinished"></translation>
+        <translation>Baligtarin ang mga keyframe</translation>
     </message>
     <message>
         <source>Stretch keyframes…</source>
@@ -19671,7 +19711,7 @@ NEXT TIME</source>
     <name>MotionPathOverlay</name>
     <message>
         <source>Shape motion path</source>
-        <translation type="unfinished"></translation>
+        <translation>Hubugin ang landas ng galaw</translation>
     </message>
     <message>
         <source>Move keyframe</source>
@@ -31688,7 +31728,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Remove keyframes</source>
-        <translation type="unfinished"></translation>
+        <translation>Alisin ang mga keyframe</translation>
     </message>
     <message>
         <source>Stop animating (removes its keyframes)</source>
@@ -31826,7 +31866,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Separate dimensions</source>
-        <translation type="unfinished"></translation>
+        <translation>Paghiwalayin ang mga dimensyon</translation>
     </message>
     <message>
         <source>Behavior…</source>

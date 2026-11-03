@@ -5431,6 +5431,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Settle</source>
+        <translation>স্থির হওয়া</translation>
+    </message>
+    <message>
+        <source>Reverse keyframes</source>
+        <translation>কীফ্রেম উল্টান</translation>
+    </message>
+    <message>
         <source>Pick two or more keys of a property to reverse them</source>
         <translation>উল্টাতে একটি বৈশিষ্ট্যের দুই বা তার বেশি কী বেছে নিন</translation>
     </message>
@@ -6245,6 +6253,18 @@
     <message>
         <source>Straight path</source>
         <translation>সোজা পথ</translation>
+    </message>
+    <message>
+        <source>Join Position</source>
+        <translation>অবস্থান যুক্ত করুন</translation>
+    </message>
+    <message>
+        <source>Separate dimensions</source>
+        <translation>মাত্রা আলাদা করুন</translation>
+    </message>
+    <message>
+        <source>Shape motion path</source>
+        <translation>গতিপথের আকার দিন</translation>
     </message>
     <message>
         <source>Roving needs at least three Position keyframes</source>
@@ -16981,6 +17001,10 @@ NEXT TIME</source>
         <translation type="unfinished">মুখোশের পালক</translation>
     </message>
     <message>
+        <source>Pos</source>
+        <translation>অব.</translation>
+    </message>
+    <message>
         <source>Layer</source>
         <translation type="unfinished"></translation>
     </message>
@@ -17135,8 +17159,16 @@ NEXT TIME</source>
         <translation>কীফ্রেমগুলো সরান</translation>
     </message>
     <message>
+        <source>Keyframe easing changed</source>
+        <translation>কীফ্রেমের মসৃণতা বদলেছে</translation>
+    </message>
+    <message>
         <source>Paste keyframes</source>
         <translation>কীফ্রেম পেস্ট করুন</translation>
+    </message>
+    <message>
+        <source>Remove keyframes</source>
+        <translation>কীফ্রেম সরান</translation>
     </message>
     <message>
         <source>Apply</source>
@@ -17187,8 +17219,16 @@ NEXT TIME</source>
         <translation>ঘোরানো (পথে একই গতি)</translation>
     </message>
     <message>
+        <source>Separate dimensions (X and Y apart)</source>
+        <translation>মাত্রা আলাদা করুন (X ও Y আলাদা)</translation>
+    </message>
+    <message>
+        <source>Join Position (one path)</source>
+        <translation>অবস্থান যুক্ত করুন (একটি পথ)</translation>
+    </message>
+    <message>
         <source>Reverse keyframes</source>
-        <translation type="unfinished"></translation>
+        <translation>কীফ্রেম উল্টান</translation>
     </message>
     <message>
         <source>Stretch keyframes…</source>
@@ -19671,7 +19711,7 @@ NEXT TIME</source>
     <name>MotionPathOverlay</name>
     <message>
         <source>Shape motion path</source>
-        <translation type="unfinished"></translation>
+        <translation>গতিপথের আকার দিন</translation>
     </message>
     <message>
         <source>Move keyframe</source>
@@ -31680,7 +31720,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Remove keyframes</source>
-        <translation type="unfinished"></translation>
+        <translation>কীফ্রেম সরান</translation>
     </message>
     <message>
         <source>Stop animating (removes its keyframes)</source>
@@ -31736,7 +31776,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Separate dimensions</source>
-        <translation type="unfinished"></translation>
+        <translation>মাত্রা আলাদা করুন</translation>
     </message>
     <message>
         <source>Behavior…</source>

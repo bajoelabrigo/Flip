@@ -5336,6 +5336,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Settle</source>
+        <translation>Stabiliser</translation>
+    </message>
+    <message>
+        <source>Reverse keyframes</source>
+        <translation>Inverser les images clés</translation>
+    </message>
+    <message>
         <source>Pick two or more keys of a property to reverse them</source>
         <translation>Choisissez au moins deux clés d&apos;une propriété pour les inverser</translation>
     </message>
@@ -6150,6 +6158,18 @@
     <message>
         <source>Straight path</source>
         <translation>Trajectoire droite</translation>
+    </message>
+    <message>
+        <source>Join Position</source>
+        <translation>Joindre la position</translation>
+    </message>
+    <message>
+        <source>Separate dimensions</source>
+        <translation>Séparer les dimensions</translation>
+    </message>
+    <message>
+        <source>Shape motion path</source>
+        <translation>Modeler la trajectoire</translation>
     </message>
     <message>
         <source>Roving needs at least three Position keyframes</source>
@@ -16987,6 +17007,10 @@ PROCHAINE</translation>
         <translation>Contour progressif du masque</translation>
     </message>
     <message>
+        <source>Pos</source>
+        <translation>Pos</translation>
+    </message>
+    <message>
         <source>Layer</source>
         <translation type="unfinished"></translation>
     </message>
@@ -17141,8 +17165,16 @@ PROCHAINE</translation>
         <translation>Déplacer les images clés</translation>
     </message>
     <message>
+        <source>Keyframe easing changed</source>
+        <translation>Lissage des images clés modifié</translation>
+    </message>
+    <message>
         <source>Paste keyframes</source>
         <translation>Coller les images clés</translation>
+    </message>
+    <message>
+        <source>Remove keyframes</source>
+        <translation>Supprimer les images clés</translation>
     </message>
     <message>
         <source>Apply</source>
@@ -17193,8 +17225,16 @@ PROCHAINE</translation>
         <translation>Itinérante (une seule vitesse sur la trajectoire)</translation>
     </message>
     <message>
+        <source>Separate dimensions (X and Y apart)</source>
+        <translation>Séparer les dimensions (X et Y à part)</translation>
+    </message>
+    <message>
+        <source>Join Position (one path)</source>
+        <translation>Joindre la position (une seule trajectoire)</translation>
+    </message>
+    <message>
         <source>Reverse keyframes</source>
-        <translation type="unfinished"></translation>
+        <translation>Inverser les images clés</translation>
     </message>
     <message>
         <source>Stretch keyframes…</source>
@@ -19677,7 +19717,7 @@ PROCHAINE</translation>
     <name>MotionPathOverlay</name>
     <message>
         <source>Shape motion path</source>
-        <translation type="unfinished"></translation>
+        <translation>Modeler la trajectoire</translation>
     </message>
     <message>
         <source>Move keyframe</source>
@@ -31688,7 +31728,7 @@ Si la lecture saccade, essayez une autre option.</translation>
     </message>
     <message>
         <source>Remove keyframes</source>
-        <translation type="unfinished"></translation>
+        <translation>Supprimer les images clés</translation>
     </message>
     <message>
         <source>Stop animating (removes its keyframes)</source>
@@ -31744,7 +31784,7 @@ Si la lecture saccade, essayez une autre option.</translation>
     </message>
     <message>
         <source>Separate dimensions</source>
-        <translation type="unfinished"></translation>
+        <translation>Séparer les dimensions</translation>
     </message>
     <message>
         <source>Behavior…</source>

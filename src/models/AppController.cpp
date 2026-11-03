@@ -12221,6 +12221,31 @@ void AppController::stretchKeyframes(int trackIndex, const QVariantList &keys, d
 // The keys the Curves panel works on: the ones picked on the timeline, or, with none picked,
 // every key of the selected clip's animated transform properties (EasyCurve works on what is
 // selected, and a clip is what most people have selected).
+bool AppController::eachPickedTrack(const QString &label, const std::function<void()> &fn)
+{
+    // Keys of several tracks picked at once (0.30, as After Effects): the tools work on one track's,
+    // so each track's run in turn, as the pick, inside one undo step.
+    const QVariantList keys = m_pickedKeyframes.value(QStringLiteral("keys")).toList();
+    const int fallback = m_pickedKeyframes.value(QStringLiteral("track")).toInt();
+    QMap<int, QVariantList> byTrack;
+    for (const QVariant &v : keys)
+        byTrack[v.toMap().value(QStringLiteral("track"), fallback).toInt()].append(v);
+    if (byTrack.size() < 2)
+        return false;
+    const QVariantMap all = m_pickedKeyframes;
+    const bool own = !m_editSessionOpen;
+    if (own)
+        beginEditSession(label);
+    for (auto it = byTrack.cbegin(); it != byTrack.cend(); ++it) {
+        m_pickedKeyframes = {{QStringLiteral("track"), it.key()}, {QStringLiteral("keys"), it.value()}};
+        fn();
+    }
+    m_pickedKeyframes = all;
+    if (own)
+        endEditSession(true);
+    return true;
+}
+
 QVariantMap AppController::curveTargetKeys() const
 {
     if (!m_pickedKeyframes.value(QStringLiteral("keys")).toList().isEmpty())
@@ -12309,6 +12334,8 @@ QVariantMap AppController::pickedKeyframeCurves() const
 
 void AppController::applyCurveToPicked(const QVariantList &a, const QVariantList &b)
 {
+    if (eachPickedTrack(tr("Curve applied"), [&] { applyCurveToPicked(a, b); }))
+        return;
     const QVariantMap target = curveTargetKeys();
     const int track = target.value(QStringLiteral("track")).toInt();
     const QVariantList keys = target.value(QStringLiteral("keys")).toList();
@@ -12375,6 +12402,8 @@ bool AppController::writeTextFile(const QUrl &fileUrl, const QString &text) cons
 void AppController::easePickedKeyframes(const QString &mode, double inInfluence, double outInfluence,
                                         double velocity)
 {
+    if (eachPickedTrack(tr("Keyframe easing changed"), [&] { easePickedKeyframes(mode, inInfluence, outInfluence, velocity); }))
+        return;
     const int track = m_pickedKeyframes.value(QStringLiteral("track")).toInt();
     const QVariantList keys = m_pickedKeyframes.value(QStringLiteral("keys")).toList();
     if (keys.isEmpty())
@@ -12523,6 +12552,8 @@ void AppController::setSettleParams(int trackIndex, int clipIndex, const QString
 
 void AppController::applySettleToPicked(const QString &kind)
 {
+    if (eachPickedTrack(tr("Settle"), [&] { applySettleToPicked(kind); }))
+        return;
     // The properties to settle: those of the picked keys, else the selected clip's animated transform.
     QList<QPair<QPair<int, int>, QString>> targets;
     const int track = m_pickedKeyframes.value(QStringLiteral("track")).toInt();
@@ -12589,6 +12620,9 @@ bool AppController::clonePickedKeyframes()
 
 bool AppController::reversePickedKeyframes()
 {
+    bool any = false;
+    if (eachPickedTrack(tr("Reverse keyframes"), [&] { any = reversePickedKeyframes() || any; }))
+        return any;
     // After Effects' Time-Reverse Keyframes (0.29): per property, the picked keys swap places
     // end for end within their span, so a clone of an entrance plays as its exit. Each stretch
     // keeps its curve, mirrored: a key's tangents trade sides, and a Hold moves to the key that

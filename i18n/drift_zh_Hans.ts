@@ -5314,6 +5314,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Settle</source>
+        <translation>回稳</translation>
+    </message>
+    <message>
+        <source>Reverse keyframes</source>
+        <translation>反转关键帧</translation>
+    </message>
+    <message>
         <source>Pick two or more keys of a property to reverse them</source>
         <translation>请选择某个属性的两个或更多关键帧以将其反转</translation>
     </message>
@@ -6120,6 +6128,18 @@
     <message>
         <source>Straight path</source>
         <translation>直线路径</translation>
+    </message>
+    <message>
+        <source>Join Position</source>
+        <translation>合并位置</translation>
+    </message>
+    <message>
+        <source>Separate dimensions</source>
+        <translation>单独尺寸</translation>
+    </message>
+    <message>
+        <source>Shape motion path</source>
+        <translation>调整运动路径</translation>
     </message>
     <message>
         <source>Roving needs at least three Position keyframes</source>
@@ -16923,6 +16943,10 @@ NEXT TIME</source>
         <translation>蒙版羽化</translation>
     </message>
     <message>
+        <source>Pos</source>
+        <translation>位置</translation>
+    </message>
+    <message>
         <source>Layer</source>
         <translation type="unfinished"></translation>
     </message>
@@ -17076,8 +17100,16 @@ NEXT TIME</source>
         <translation>移动关键帧</translation>
     </message>
     <message>
+        <source>Keyframe easing changed</source>
+        <translation>关键帧缓动已更改</translation>
+    </message>
+    <message>
         <source>Paste keyframes</source>
         <translation>粘贴关键帧</translation>
+    </message>
+    <message>
+        <source>Remove keyframes</source>
+        <translation>移除关键帧</translation>
     </message>
     <message>
         <source>Apply</source>
@@ -17128,8 +17160,16 @@ NEXT TIME</source>
         <translation>漫游(沿路径速度一致)</translation>
     </message>
     <message>
+        <source>Separate dimensions (X and Y apart)</source>
+        <translation>单独尺寸(X 和 Y 分开)</translation>
+    </message>
+    <message>
+        <source>Join Position (one path)</source>
+        <translation>合并位置(一条路径)</translation>
+    </message>
+    <message>
         <source>Reverse keyframes</source>
-        <translation type="unfinished"></translation>
+        <translation>反转关键帧</translation>
     </message>
     <message>
         <source>Stretch keyframes…</source>
@@ -19598,7 +19638,7 @@ NEXT TIME</source>
     <name>MotionPathOverlay</name>
     <message>
         <source>Shape motion path</source>
-        <translation type="unfinished"></translation>
+        <translation>调整运动路径</translation>
     </message>
     <message>
         <source>Move keyframe</source>
@@ -31584,7 +31624,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Remove keyframes</source>
-        <translation type="unfinished"></translation>
+        <translation>移除关键帧</translation>
     </message>
     <message>
         <source>Stop animating (removes its keyframes)</source>
@@ -31640,7 +31680,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Separate dimensions</source>
-        <translation type="unfinished"></translation>
+        <translation>单独尺寸</translation>
     </message>
     <message>
         <source>Behavior…</source>

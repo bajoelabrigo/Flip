@@ -7,16 +7,97 @@ import ".."
 // track unfolds into (TrackKeyframeRows): a key picked in one is picked in the other, and the
 // menu, the Curves popup and After Effects' keys (F9 Suave, Shift+F9 Suave al llegar,
 // Ctrl+Shift+F9 Suave al salir, Ctrl+Alt+H Salto, Ctrl+Alt+K Recto) are the same in both.
-// Picking keys on another track drops the ones picked before, so the keys act on one set.
+// Keys of several tracks can be picked at once (0.30, as After Effects picks keys of several
+// layers): Ctrl or Shift on another track's key, or a box across them; a plain pick starts over.
 Item {
     id: root
 
     width: 0
     height: 0
 
-    // The track the picked keys are on, and the keys themselves, each {clip, prop, seconds}.
+    // The track picked on last, and the keys themselves, each {track, clip, prop, seconds}.
     property int track: -1
     property var keys: []
+    // A box dragged over the rows of one track reaches the others' (0.30): `box` in scene
+    // coordinates while it lasts, `boxBase` what was picked before it (Shift or Ctrl), and each
+    // track's rows hand in the keys under it.
+    property var box: null
+    property var boxBase: []
+    property var boxParts: ({})
+    function boxPart(trackIndex, list) {
+        const parts = Object.assign({}, root.boxParts)
+        parts[trackIndex] = list.map((k) => ({ track: trackIndex, clip: k.clip, prop: k.prop, seconds: k.seconds }))
+        root.boxParts = parts
+        let out = root.boxBase.slice()
+        for (const t in parts) {
+            for (const k of parts[t]) {
+                if (!out.some((o) => o.track === k.track && root.sameKey(o, k)))
+                    out.push(k)
+            }
+        }
+        root.keys = out
+        if (list.length > 0)
+            root.track = trackIndex
+    }
+    function beginBox(additive) {
+        root.boxBase = additive ? root.keys.slice() : []
+        root.boxParts = ({})
+    }
+    function endBox() {
+        root.box = null
+        root.boxParts = ({})
+        root.selectPickedClips()
+    }
+
+    function keyTrack(k) {
+        return k.track !== undefined ? k.track : root.track
+    }
+    function pickedOn(trackIndex) {
+        return root.keys.filter((k) => root.keyTrack(k) === trackIndex)
+    }
+    function pickedTracks() {
+        const out = []
+        for (const k of root.keys) {
+            const t = root.keyTrack(k)
+            if (out.indexOf(t) < 0)
+                out.push(t)
+        }
+        return out
+    }
+    // `fn(track, keys)` for each track with picked keys, as one undo step when there are several.
+    function eachTrack(label, fn) {
+        const tracks = root.pickedTracks()
+        if (tracks.length === 1) {
+            fn(tracks[0], root.pickedOn(tracks[0]))
+            return
+        }
+        if (tracks.length === 0)
+            return
+        EditorState.beginEditSession(label)
+        try {
+            for (const t of tracks)
+                fn(t, root.pickedOn(t))
+        } finally {
+            EditorState.endEditSession(true)
+        }
+    }
+    // The clips with picked keys become the selected ones, so the inspector and Delete act on
+    // them (the pick follows the selection: see onSelectionChanged).
+    function selectPickedClips() {
+        const out = []
+        for (const k of root.keys) {
+            const t = root.keyTrack(k)
+            if (!out.some((p) => p.track === t && p.clip === k.clip))
+                out.push({ "track": t, "clip": k.clip })
+        }
+        if (out.length === 0)
+            return
+        const sel = EditorState.selection || []
+        const same = sel.length === out.length
+                     && out.every((p) => sel.some((q) => q.track === p.track && q.clip === p.clip))
+        if (!same)
+            EditorState.setSelection(out)
+    }
     // A run with Shift starts here: {clip, prop, seconds}.
     property var runFrom: null
     readonly property bool hasPick: track >= 0 && keys.length > 0
@@ -44,18 +125,18 @@ Item {
     }
 
     function isPicked(trackIndex, key) {
-        if (trackIndex !== root.track)
-            return false
         for (let i = 0; i < root.keys.length; ++i) {
-            if (sameKey(root.keys[i], key))
+            if (root.keyTrack(root.keys[i]) === trackIndex && sameKey(root.keys[i], key))
                 return true
         }
         return false
     }
 
+    // The keys picked now; ones given without a track are on `trackIndex`.
     function pick(trackIndex, list) {
         root.track = trackIndex
-        root.keys = list
+        root.keys = list.map((k) => ({ track: k.track !== undefined ? k.track : trackIndex,
+                                      clip: k.clip, prop: k.prop, seconds: k.seconds }))
     }
 
     function clear() {
@@ -74,32 +155,41 @@ Item {
         const first = refs[0]
         const ctrl = modifiers & Qt.ControlModifier
         const shift = modifiers & Qt.ShiftModifier
-        const mine = trackIndex === root.track ? root.keys : []
+        const here = (k) => root.keyTrack(k) === trackIndex
         if (ctrl) {
+            // Added to (or taken from) what is picked, on any track.
             pick(trackIndex, isPicked(trackIndex, first)
-                 ? mine.filter((k) => !refs.some((r) => sameKey(k, r)))
-                 : mine.concat(refs.filter((r) => !mine.some((k) => sameKey(k, r)))))
-        } else if (shift && root.runFrom && trackIndex === root.track
+                 ? root.keys.filter((k) => !(here(k) && refs.some((r) => sameKey(k, r))))
+                 : root.keys.concat(refs.filter((r) => !root.keys.some((k) => here(k) && sameKey(k, r)))
+                                        .map((r) => ({ track: trackIndex, clip: r.clip, prop: r.prop, seconds: r.seconds }))))
+            root.selectPickedClips()
+        } else if (shift && root.runFrom && root.keyTrack(root.runFrom) === trackIndex
                    && root.runFrom.clip === first.clip && root.runFrom.prop === first.prop) {
             const lo = Math.min(root.runFrom.seconds, first.seconds) - 1e-4
             const hi = Math.max(root.runFrom.seconds, first.seconds) + 1e-4
-            const out = []
+            // The run joins the keys picked on the other tracks.
+            const out = root.keys.filter((k) => !here(k))
             for (const k of (siblings || [])) {
                 if (k.seconds < lo || k.seconds > hi)
                     continue
                 if (k.refs && k.refs.length > 0) {
                     for (const r of k.refs)
-                        out.push({ clip: first.clip, prop: r.prop, seconds: r.seconds })
+                        out.push({ track: trackIndex, clip: first.clip, prop: r.prop, seconds: r.seconds })
                 } else {
-                    out.push({ clip: first.clip, prop: first.prop, seconds: k.seconds })
+                    out.push({ track: trackIndex, clip: first.clip, prop: first.prop, seconds: k.seconds })
                 }
             }
             pick(trackIndex, out)
+        } else if (shift && !isPicked(trackIndex, first)) {
+            // Shift with no run to make here: added, as Ctrl adds.
+            pick(trackIndex, root.keys.concat(refs.map((r) => ({ track: trackIndex, clip: r.clip, prop: r.prop,
+                                                                 seconds: r.seconds }))))
+            root.selectPickedClips()
         } else if (!isPicked(trackIndex, first)) {
             pick(trackIndex, refs)
         }
         if (!shift)
-            root.runFrom = first
+            root.runFrom = ({ track: trackIndex, clip: first.clip, prop: first.prop, seconds: first.seconds })
     }
 
     // How a key arrives and leaves, from its handles: none is straight, a flat one eased, any
@@ -140,10 +230,10 @@ Item {
 
     // Whether `key`, as it sat when the drag began, is one of those being dragged.
     function isShifted(trackIndex, key) {
-        if (!(root.shifting || root.stretching) || trackIndex !== root.track)
+        if (!(root.shifting || root.stretching))
             return false
         for (let i = 0; i < root.dragBase.length; ++i) {
-            if (sameKey(root.dragBase[i], key))
+            if (root.keyTrack(root.dragBase[i]) === trackIndex && sameKey(root.dragBase[i], key))
                 return true
         }
         return false
@@ -163,7 +253,7 @@ Item {
     }
     // Whether an Alt-press on `ref` can stretch: several picked, and it is the first or the last.
     function canStretch(trackIndex, ref) {
-        if (trackIndex !== root.track || root.keys.length < 2 || !isPicked(trackIndex, ref))
+        if (root.keys.length < 2 || !isPicked(trackIndex, ref))
             return false
         const times = root.keys.map((k) => k.seconds)
         const lo = Math.min.apply(null, times)
@@ -178,16 +268,17 @@ Item {
         const out = []
         for (let i = 0; i < root.keys.length; ++i) {
             const k = root.keys[i]
-            const clip = EditorState.clipAt(root.track, k.clip)
+            const kt = root.keyTrack(k)
+            const clip = EditorState.clipAt(kt, k.clip)
             const start = clip.start || 0
             const end = start + (clip.duration || 0)
-            const all = (EditorState.clipKeyframes(root.track, k.clip, k.prop) || [])
+            const all = (EditorState.clipKeyframes(kt, k.clip, k.prop) || [])
                         .map((p) => p.seconds).sort((a, b) => a - b)
             let before = start
             let after = end
             for (let j = 0; j < all.length; ++j) {
                 const s = all[j]
-                if (isPicked(root.track, { clip: k.clip, prop: k.prop, seconds: s }))
+                if (isPicked(kt, { clip: k.clip, prop: k.prop, seconds: s }))
                     continue
                 if (s < k.seconds - 1e-4)
                     before = Math.max(before, s + frame)
@@ -233,8 +324,9 @@ Item {
         let f = (seconds - root.stretchPivot) / span
         f = Math.max(root.stretchLo, Math.min(root.stretchHi, f))
         if (Math.abs(f - root.stretchFactor) > 1e-6) {
-            EditorState.previewStretchKeyframes(root.track, root.dragBase, root.stretchPivot,
-                                                root.stretchFactor, f)
+            for (const t of root.baseTracks())
+                EditorState.previewStretchKeyframes(t, root.dragBase.filter((k) => root.keyTrack(k) === t),
+                                                    root.stretchPivot, root.stretchFactor, f)
             root.stretchFactor = f
         }
         return root.stretchPivot + span * root.stretchFactor
@@ -246,7 +338,7 @@ Item {
         EditorState.commitPreviewDrag()
         const f = root.stretchFactor
         const p = root.stretchPivot
-        root.keys = root.dragBase.map((k) => ({ clip: k.clip, prop: k.prop,
+        root.keys = root.dragBase.map((k) => ({ track: root.keyTrack(k), clip: k.clip, prop: k.prop,
                                                 seconds: p + (k.seconds - p) * f }))
         root.runFrom = null
         root.stretching = false
@@ -260,16 +352,17 @@ Item {
         let hi = Infinity
         for (let i = 0; i < root.keys.length; ++i) {
             const k = root.keys[i]
-            const clip = EditorState.clipAt(root.track, k.clip)
+            const kt = root.keyTrack(k)
+            const clip = EditorState.clipAt(kt, k.clip)
             const start = clip.start || 0
             const end = start + (clip.duration || 0)
-            const all = (EditorState.clipKeyframes(root.track, k.clip, k.prop) || [])
+            const all = (EditorState.clipKeyframes(kt, k.clip, k.prop) || [])
                         .map((p) => p.seconds).sort((a, b) => a - b)
             let before = start
             let after = end
             for (let j = 0; j < all.length; ++j) {
                 const s = all[j]
-                if (isPicked(root.track, { clip: k.clip, prop: k.prop, seconds: s }))
+                if (isPicked(kt, { clip: k.clip, prop: k.prop, seconds: s }))
                     continue
                 if (s < k.seconds - 1e-4)
                     before = Math.max(before, s + frame)
@@ -292,9 +385,19 @@ Item {
         const d = Math.max(root.dragLo, Math.min(root.dragHi, delta))
         if (Math.abs(d - root.dragDelta) < 1e-6)
             return root.dragDelta
-        EditorState.previewShiftKeyframes(root.track, root.dragBase, root.dragDelta, d)
+        for (const t of root.baseTracks())
+            EditorState.previewShiftKeyframes(t, root.dragBase.filter((k) => root.keyTrack(k) === t), root.dragDelta, d)
         root.dragDelta = d
         return d
+    }
+    function baseTracks() {
+        const out = []
+        for (const k of root.dragBase) {
+            const t = root.keyTrack(k)
+            if (out.indexOf(t) < 0)
+                out.push(t)
+        }
+        return out
     }
 
     function endShift() {
@@ -302,7 +405,8 @@ Item {
             return
         EditorState.commitPreviewDrag()
         const d = root.dragDelta
-        root.keys = root.dragBase.map((k) => ({ clip: k.clip, prop: k.prop, seconds: k.seconds + d }))
+        root.keys = root.dragBase.map((k) => ({ track: root.keyTrack(k), clip: k.clip, prop: k.prop,
+                                                seconds: k.seconds + d }))
         root.runFrom = null
         root.shifting = false
         root.dragDelta = 0
@@ -311,7 +415,7 @@ Item {
 
     function applyEasing(mode) {
         if (root.hasPick)
-            EditorState.setKeyframesEasing(root.track, root.keys, mode)
+            root.eachTrack(qsTr("Keyframe easing changed"), (t, ks) => EditorState.setKeyframesEasing(t, ks, mode))
     }
 
     // Ctrl+C on picked keys copies them (not the clip); Ctrl+V pastes them on the selected clip
@@ -320,7 +424,8 @@ Item {
     function copyPicked() {
         if (!root.hasPick)
             return false
-        root.keysCopiedLast = EditorState.copyKeyframes(root.track, root.keys) > 0
+        // The clipboard holds one layer's keys: those of the track picked on last.
+        root.keysCopiedLast = EditorState.copyKeyframes(root.track, root.pickedOn(root.track)) > 0
         return root.keysCopiedLast
     }
     function pasteCopied() {
@@ -373,7 +478,7 @@ Item {
     function removePicked() {
         if (!root.hasPick)
             return false
-        EditorState.removeKeyframes(root.track, root.keys)
+        root.eachTrack(qsTr("Remove keyframes"), (t, ks) => EditorState.removeKeyframes(t, ks))
         clear()
         return true
     }
@@ -402,9 +507,12 @@ Item {
         function onSelectionChanged() {
             if (!root.hasPick)
                 return
-            if (EditorState.selectedTrack !== root.track
-                    || !root.keys.some((k) => k.clip === EditorState.selectedClip))
+            const sel = EditorState.selection || []
+            const kept = root.keys.filter((k) => sel.some((p) => p.track === root.keyTrack(k) && p.clip === k.clip))
+            if (kept.length === 0)
                 root.clear()
+            else if (kept.length !== root.keys.length)
+                root.keys = kept
         }
     }
 
@@ -446,7 +554,7 @@ Item {
         preferredWidth: Theme.dialogWidthSm
         onAccepted: {
             stretchField.parseAndCommit()
-            EditorState.stretchKeyframes(root.track, root.keys, stretchField.value)
+            root.eachTrack(qsTr("Stretch keyframes"), (t, ks) => EditorState.stretchKeyframes(t, ks, stretchField.value))
         }
         contentItem: Column {
             width: stretchDialog.preferredWidth
@@ -475,7 +583,8 @@ Item {
             if (hold)
                 root.applyEasing("hold")
             else if (root.hasPick)
-                EditorState.setKeyframesCurve(root.track, root.keys, x1, y1, x2, y2)
+                root.eachTrack(qsTr("Keyframe easing changed"),
+                               (t, ks) => EditorState.setKeyframesCurve(t, ks, x1, y1, x2, y2))
         }
     }
 
@@ -548,14 +657,14 @@ Item {
             height: visible ? implicitHeight : 0
             text: qsTr("Curved path (auto Bezier)")
             onTriggered: EditorState.setPositionPath(root.track, root.menuClip, "auto",
-                                                     root.keys.filter((k) => k.prop === "x" || k.prop === "y").map((k) => k.seconds))
+                                                     root.pickedOn(root.track).filter((k) => k.prop === "x" || k.prop === "y").map((k) => k.seconds))
         }
         ThemedMenuItem {
             visible: root.menuProp === "x" || root.menuProp === "y"
             height: visible ? implicitHeight : 0
             text: qsTr("Straight path")
             onTriggered: EditorState.setPositionPath(root.track, root.menuClip, "linear",
-                                                     root.keys.filter((k) => k.prop === "x" || k.prop === "y").map((k) => k.seconds))
+                                                     root.pickedOn(root.track).filter((k) => k.prop === "x" || k.prop === "y").map((k) => k.seconds))
         }
         ThemedMenuItem {
             visible: root.menuProp === "x" || root.menuProp === "y"
@@ -580,7 +689,7 @@ Item {
             text: qsTr("Reverse keyframes")
             visible: root.keys.length > 1
             height: visible ? implicitHeight : 0
-            onTriggered: EditorState.reverseKeyframes(root.track, root.keys)
+            onTriggered: root.eachTrack(qsTr("Reverse keyframes"), (t, ks) => EditorState.reverseKeyframes(t, ks))
         }
         ThemedMenuItem {
             // Also Alt + dragging the first or last picked key, as in After Effects.
@@ -592,7 +701,8 @@ Item {
         ThemedMenuItem {
             // After Effects' Keyframe Velocity (Ctrl+Shift+K there), for the key the menu is on.
             text: qsTr("Keyframe velocity…")
-            onTriggered: velocityDialog.openFor(root.track, root.menuClip, root.menuProp, root.menuSeconds, root.keys)
+            onTriggered: velocityDialog.openFor(root.track, root.menuClip, root.menuProp, root.menuSeconds,
+                                                root.pickedOn(root.track))
         }
         ThemedMenuItem {
             text: keyMenu.one ? qsTr("Delete keyframe") : qsTr("Delete keyframes")

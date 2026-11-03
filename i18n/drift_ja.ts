@@ -5314,6 +5314,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Settle</source>
+        <translation>落ち着き</translation>
+    </message>
+    <message>
+        <source>Reverse keyframes</source>
+        <translation>キーフレームを反転</translation>
+    </message>
+    <message>
         <source>Pick two or more keys of a property to reverse them</source>
         <translation>反転するには、プロパティのキーを2つ以上選んでください</translation>
     </message>
@@ -6120,6 +6128,18 @@
     <message>
         <source>Straight path</source>
         <translation>直線のパス</translation>
+    </message>
+    <message>
+        <source>Join Position</source>
+        <translation>位置を結合</translation>
+    </message>
+    <message>
+        <source>Separate dimensions</source>
+        <translation>次元に分割</translation>
+    </message>
+    <message>
+        <source>Shape motion path</source>
+        <translation>モーションパスを整形</translation>
     </message>
     <message>
         <source>Roving needs at least three Position keyframes</source>
@@ -16923,6 +16943,10 @@ NEXT TIME</source>
         <translation>マスク ぼかし</translation>
     </message>
     <message>
+        <source>Pos</source>
+        <translation>位置</translation>
+    </message>
+    <message>
         <source>Layer</source>
         <translation type="unfinished"></translation>
     </message>
@@ -17076,8 +17100,16 @@ NEXT TIME</source>
         <translation>キーフレームを移動</translation>
     </message>
     <message>
+        <source>Keyframe easing changed</source>
+        <translation>キーフレームの補間を変更しました</translation>
+    </message>
+    <message>
         <source>Paste keyframes</source>
         <translation>キーフレームを貼り付け</translation>
+    </message>
+    <message>
+        <source>Remove keyframes</source>
+        <translation>キーフレームを削除</translation>
     </message>
     <message>
         <source>Apply</source>
@@ -17128,8 +17160,16 @@ NEXT TIME</source>
         <translation>ロービング (パス上で一定の速度)</translation>
     </message>
     <message>
+        <source>Separate dimensions (X and Y apart)</source>
+        <translation>次元に分割(X と Y を別々に)</translation>
+    </message>
+    <message>
+        <source>Join Position (one path)</source>
+        <translation>位置を結合(1 本のパス)</translation>
+    </message>
+    <message>
         <source>Reverse keyframes</source>
-        <translation type="unfinished"></translation>
+        <translation>キーフレームを反転</translation>
     </message>
     <message>
         <source>Stretch keyframes…</source>
@@ -19598,7 +19638,7 @@ NEXT TIME</source>
     <name>MotionPathOverlay</name>
     <message>
         <source>Shape motion path</source>
-        <translation type="unfinished"></translation>
+        <translation>モーションパスを整形</translation>
     </message>
     <message>
         <source>Move keyframe</source>
@@ -31585,7 +31625,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Remove keyframes</source>
-        <translation type="unfinished"></translation>
+        <translation>キーフレームを削除</translation>
     </message>
     <message>
         <source>Stop animating (removes its keyframes)</source>
@@ -31641,7 +31681,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Separate dimensions</source>
-        <translation type="unfinished"></translation>
+        <translation>次元に分割</translation>
     </message>
     <message>
         <source>Behavior…</source>

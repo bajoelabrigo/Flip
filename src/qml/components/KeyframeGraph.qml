@@ -422,8 +422,20 @@ Item {
             if (x < left || x > right || y < top || y > bottom)
                 continue
             const ref = { clip: root.clipIndex, prop: root.refProp(h.prop), seconds: h.seconds }
-            if (!out.some((k) => root.tools.sameKey(k, ref)))
+            if (!out.some((k) => root.tools.keyTrack(k) === root.trackIndex && root.tools.sameKey(k, ref)))
                 out.push(ref)
+        }
+        // And the other layers' (0.30), each on its own track.
+        if (onlyIndex < 0 || root.othersShown) {
+            for (const o of root.otherKeyHandles) {
+                const x = root.xForSeconds(o.seconds)
+                const y = root.yForValue(o.value, o.entry)
+                if (x < left || x > right || y < top || y > bottom)
+                    continue
+                const ref = { track: o.track, clip: o.clip, prop: o.prop, seconds: o.seconds }
+                if (!out.some((k) => root.tools.keyTrack(k) === o.track && root.tools.sameKey(k, ref)))
+                    out.push(ref)
+            }
         }
         root.tools.pick(root.trackIndex, out)
     }
@@ -492,6 +504,40 @@ Item {
     // selected clips' curves are drawn faded and dashed as a reference, in their own value range,
     // and a click on a layer's name makes it the one being edited.
     property bool showOtherLayers: true
+    // The other layers' keys, to pick and move (0.30, as After Effects edits every selected
+    // layer's curves at once): each {track, clip, id, prop, seconds, value, entry, points}.
+    // Held as they were while such a drag lasts: rebuilt, the handle being dragged would go.
+    property var frozenOtherKeys: []
+    readonly property var otherKeyHandles: {
+        const out = []
+        if (!root.tools || root.speedGraph)
+            return out
+        if (root.frozenOtherKeys.length > 0)
+            return root.frozenOtherKeys
+        for (const layer of root.otherLayers) {
+            const at = EditorState.clipLocation(layer.id)
+            if (at.track < 0)
+                continue
+            for (const entry of layer.curves) {
+                for (const p of entry.points)
+                    out.push({ track: at.track, clip: at.clip, id: layer.id, prop: entry.prop, seconds: p.seconds,
+                               value: p.value, entry: entry, points: entry.points })
+            }
+        }
+        return out
+    }
+    // That layer's curves become the edited ones, as After Effects: it is the last of the
+    // selection, so its track's lines and this graph follow it; the rest stay picked.
+    function editLayer(id) {
+        const at = EditorState.clipLocation(id)
+        if (at.track < 0)
+            return
+        const picked = (EditorState.selection || []).filter(p => p.track !== at.track || p.clip !== at.clip)
+        picked.push({ "track": at.track, "clip": at.clip })
+        root.pinnedClipId = id
+        EditorState.setSelection(picked)
+        EditorState.setTrackKeyframesExpanded(at.track, true)
+    }
     readonly property var otherLayers: {
         void EditorState.selectionRevision
         void EditorState.tracksRevision
@@ -1549,7 +1595,7 @@ Item {
                             root.marqueeX0 = root.marqueeX1 = mouse.x
                             root.marqueeY0 = root.marqueeY1 = mouse.y
                             boxed = false
-                            root.marqueeBase = root.tools && root.tools.track === root.trackIndex
+                            root.marqueeBase = root.tools
                                 && (mouse.modifiers & (Qt.ShiftModifier | Qt.ControlModifier))
                                 ? root.tools.keys.slice() : []
                         }
@@ -1582,6 +1628,98 @@ Item {
                         color: Qt.rgba(Theme.primary.r, Theme.primary.g, Theme.primary.b, 0.14)
                         border.width: 1
                         border.color: Theme.primary
+                    }
+
+                    // The other selected layers' keys: a click picks one (Ctrl or Shift adds it to
+                    // the keys picked on every layer) and makes its layer the edited one; a drag
+                    // moves every picked key, on all the layers, in time.
+                    Repeater {
+                        model: root.otherKeyHandles
+                        delegate: Item {
+                            id: otherKey
+                            required property var modelData
+                            readonly property var ref: ({ clip: modelData.clip, prop: modelData.prop,
+                                                          seconds: modelData.seconds })
+                            readonly property bool isPicked: {
+                                if (!root.tools)
+                                    return false
+                                void root.tools.keys
+                                return root.tools.isPicked(modelData.track, ref)
+                            }
+                            readonly property real shiftDx: {
+                                if (!root.tools)
+                                    return 0
+                                void root.tools.dragDelta
+                                return root.tools.shifting && root.tools.isShifted(modelData.track, ref)
+                                       ? root.tools.dragDelta * root.pxPerSecond : 0
+                            }
+                            width: 16
+                            height: 16
+                            x: root.xForSeconds(modelData.seconds) - width / 2 + shiftDx
+                            y: root.yForValue(modelData.value, modelData.entry) - height / 2
+                            z: 1
+                            KeyframeGlyph {
+                                anchors.centerIn: parent
+                                size: otherKey.isPicked ? 13 : (otherHover.hovered ? 11 : 9)
+                                color: otherKey.modelData.entry.color
+                                picked: otherKey.isPicked
+                                lit: otherHover.hovered
+                            }
+                            HoverHandler {
+                                id: otherHover
+                                cursorShape: Qt.PointingHandCursor
+                            }
+                            MouseArea {
+                                anchors.fill: parent
+                                preventStealing: true
+                                property real pressX: 0
+                                property bool moved: false
+                                property bool armed: false
+                                onPressed: (mouse) => {
+                                    pressX = mapToItem(root, mouse.x, mouse.y).x
+                                    moved = false
+                                    armed = !(mouse.modifiers & (Qt.ControlModifier | Qt.ShiftModifier))
+                                    root.tools.press(otherKey.modelData.track, otherKey.ref, mouse.modifiers,
+                                                     otherKey.modelData.points)
+                                }
+                                onPositionChanged: (mouse) => {
+                                    if (!pressed || !armed)
+                                        return
+                                    const dx = mapToItem(root, mouse.x, mouse.y).x - pressX
+                                    if (!moved) {
+                                        if (Math.abs(dx) < 3)
+                                            return
+                                        moved = true
+                                        root.frozenOtherKeys = root.otherKeyHandles.slice()
+                                        root.tools.beginShift()
+                                    }
+                                    const want = EditorState.snapKeyTime(otherKey.modelData.seconds + dx / root.pxPerSecond)
+                                    root.tools.shiftTo(want - otherKey.modelData.seconds)
+                                }
+                                onReleased: {
+                                    if (moved) {
+                                        // Unfreezing rebuilds this delegate: everything else first.
+                                        moved = false
+                                        root.tools.endShift()
+                                        root.frozenOtherKeys = []
+                                        return
+                                    }
+                                    if (armed) {
+                                        root.editLayer(otherKey.modelData.id)
+                                        EditorState.playheadSeconds = otherKey.modelData.seconds
+                                    }
+                                    moved = false
+                                }
+                                onCanceled: {
+                                    const was = moved
+                                    moved = false
+                                    if (was) {
+                                        root.tools.endShift()
+                                        root.frozenOtherKeys = []
+                                    }
+                                }
+                            }
+                        }
                     }
 
                     Repeater {
@@ -1711,7 +1849,8 @@ Item {
                                         const entry = root.series.find((e) => e.prop === k.prop)
                                         const pt = entry ? entry.points.find((p) => Math.abs(p.seconds - k.seconds) < 1e-4)
                                                          : null
-                                        if (entry && pt && k.clip === root.clipIndex)
+                                        if (entry && pt && k.clip === root.clipIndex
+                                                && root.tools.keyTrack(k) === root.trackIndex)
                                             base.push({ key: k, value: pt.value, entry: entry })
                                     }
                                     root.groupValueBase = base
@@ -2234,14 +2373,7 @@ Item {
                 tooltip: qsTr("Edit this layer's curves (dashed)")
                 // As in After Effects, that layer becomes the selected one (the last of the
                 // selection), so its track's lines and this graph follow it; the rest stay picked.
-                onClicked: {
-                    const at = EditorState.clipLocation(modelData.id)
-                    const picked = (EditorState.selection || []).filter(p => p.track !== at.track || p.clip !== at.clip)
-                    picked.push({ "track": at.track, "clip": at.clip })
-                    root.pinnedClipId = modelData.id
-                    EditorState.setSelection(picked)
-                    EditorState.setTrackKeyframesExpanded(at.track, true)
-                }
+                onClicked: root.editLayer(modelData.id)
             }
         }
     }
