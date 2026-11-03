@@ -20864,6 +20864,14 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Options de contour : aucun, uni, dégradé linéaire ou radial, mode de fusion et opacité</translation>
     </message>
     <message>
+        <source>Fill colour. Right-click: no fill (or back on)</source>
+        <translation>Couleur du fond. Clic droit : sans fond (ou le remettre)</translation>
+    </message>
+    <message>
+        <source>Stroke colour. Right-click: no stroke (or back on)</source>
+        <translation>Couleur du contour. Clic droit : sans contour (ou le remettre)</translation>
+    </message>
+    <message>
         <source>Selection</source>
         <translation type="unfinished"></translation>
     </message>

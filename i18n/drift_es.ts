@@ -20862,6 +20862,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Opciones de trazo: ninguno, sólido, degradado lineal o radial, modo de fusión y opacidad</translation>
     </message>
     <message>
+        <source>Fill colour. Right-click: no fill (or back on)</source>
+        <translation>Color del relleno. Clic derecho: sin relleno (o volver a ponerlo)</translation>
+    </message>
+    <message>
+        <source>Stroke colour. Right-click: no stroke (or back on)</source>
+        <translation>Color del trazo. Clic derecho: sin trazo (o volver a ponerlo)</translation>
+    </message>
+    <message>
         <source>Selection</source>
         <translation>Selección</translation>
     </message>

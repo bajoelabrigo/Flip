@@ -416,7 +416,12 @@ Item {
     // Flattened key dots so a single Repeater can own every series' handles.
     readonly property var keyHandles: {
         const out = []
+        // Shaping one curve, only its keys are there to grab (0.30), as in After Effects' Graph
+        // Editor: the other properties' diamonds took the clicks meant for a handle (bounce #13).
+        const onlyFocused = curveEditing && focusedIndex >= 0 && focusedIndex < series.length
         for (let s = 0; s < series.length; ++s) {
+            if (onlyFocused && s !== focusedIndex)
+                continue
             const entry = series[s]
             for (let i = 0; i < entry.points.length; ++i) {
                 out.push({
@@ -1652,10 +1657,31 @@ Item {
                                 x: tangent.tipX - width / 2 + tangent.dragDx
                                 y: tangent.tipY - height / 2 + tangent.dragDy
 
-                                HoverHandler { cursorShape: Qt.PointingHandCursor }
-
-                                DragHandler {
-                                    target: null
+                                // A MouseArea that takes the press (0.30): with a DragHandler the
+                                // box-picking MouseArea under it took a quick drag and the handle
+                                // did not move (bounce exercise #12). Larger than the dot.
+                                MouseArea {
+                                    id: gripDrag
+                                    anchors.fill: parent
+                                    anchors.margins: -5
+                                    cursorShape: Qt.PointingHandCursor
+                                    preventStealing: true
+                                    property bool active: false
+                                    property point origin
+                                    property point translation: Qt.point(0, 0)
+                                    onPressed: (mouse) => {
+                                        origin = mapToItem(null, mouse.x, mouse.y)
+                                        translation = Qt.point(0, 0)
+                                        active = true
+                                    }
+                                    onPositionChanged: (mouse) => {
+                                        if (!active)
+                                            return
+                                        const p = mapToItem(null, mouse.x, mouse.y)
+                                        translation = Qt.point(p.x - origin.x, p.y - origin.y)
+                                    }
+                                    onReleased: active = false
+                                    onCanceled: active = false
                                     onActiveChanged: {
                                         if (active) {
                                             // Freeze the model exactly as a key drag does, so the

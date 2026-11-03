@@ -73,3 +73,26 @@ Ronda 1 (2026-11-03, build 71005, con el mouse):
 Resultado medido de la ronda 1 (exportado a `pruebasebote-r1`, comparado con `pruebasebote-ref\medir.py`): la
 caída y el reposo quedan a pocos píxeles; el aplastamiento sale mal por el problema 11 (base hasta 92 px arriba) y la
 bola entra un fotograma tarde (falta afinar la influencia de la primera clave en el gráfico de velocidad).
+
+### Arreglos tras la ronda 1 (2026-11-03, rama `flip/subtitulos`)
+- **11 (grave):** un tamaño animado crece alrededor del punto de anclaje (`Clip::anchorShift`), y la X/Y guardada se
+  refiere al primer tamaño con clave. Si un tamaño empieza a animarse sin ancla, se pone el centro (0,5/0,5); los que ya
+  estaban animados (proyectos viejos, plantillas que compensan con X) siguen como antes. La escala de las filas ya no
+  escribe claves de Posición para compensar; el recuadro del lienzo dibuja y arrastra igual que el render. Prueba
+  `animatedSizeGrowsAroundTheAnchor`.
+- **7:** la primera clave puesta a propósito reemplaza la clave de reposo del fotograma 0 (también la del otro eje de
+  Posición si van unidos).
+- **5:** Posición, en las filas de la línea de tiempo, es donde está el punto de anclaje (esquina guardada + ancla ×
+  tamaño de reposo). El inspector de la derecha todavía muestra la esquina.
+- **6:** la Escala de una forma dibujada es 100 % con el tamaño con que se dibujó (antes, contra el lienzo); el resumen
+  de la fila muestra los dos valores.
+- **10:** Tab / Mayús+Tab en un valor de una fila lo confirma y abre el siguiente (anterior); el foco ya no se va a los
+  botones de arriba.
+- **12:** los tiradores del gráfico toman el clic con su propia zona (más grande que el punto): un arrastre rápido ya
+  no lo agarraba el recuadro de selección de debajo.
+- **13:** con el gráfico abierto para moldear una curva, solo se agarran las claves de esa curva.
+- **1 y 2:** el selector de relleno/trazo dice que el clic derecho lo quita; con una herramienta de dibujo activa, lo que
+  se cambia en la forma elegida (color, grosor, sin trazo) vale también para las formas nuevas.
+- **3, 4, 8 y 9:** no se reproducen leyendo el código (no hay tecla suelta que pase a Simple; la vista previa en RAM es
+  el 0 del teclado numérico, como en AE; la cuadrícula de tercios es la del recorte del lienzo o una guía). Mirarlos
+  con calma en la ronda 2 y anotar el paso exacto.

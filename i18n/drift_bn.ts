@@ -20858,6 +20858,14 @@ If playback stutters, try another.</source>
         <translation>রেখা বিকল্প: কিছু না, একরঙা, রৈখিক বা বৃত্তাকার গ্রেডিয়েন্ট, মিশ্রণ মোড ও অস্বচ্ছতা</translation>
     </message>
     <message>
+        <source>Fill colour. Right-click: no fill (or back on)</source>
+        <translation>ভরাটের রং। ডান ক্লিক: ভরাট ছাড়া (বা আবার চালু)</translation>
+    </message>
+    <message>
+        <source>Stroke colour. Right-click: no stroke (or back on)</source>
+        <translation>রেখার রং। ডান ক্লিক: রেখা ছাড়া (বা আবার চালু)</translation>
+    </message>
+    <message>
         <source>Selection</source>
         <translation type="unfinished"></translation>
     </message>

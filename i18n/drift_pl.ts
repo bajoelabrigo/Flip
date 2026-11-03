@@ -20945,6 +20945,14 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
         <translation>Opcje obrysu: brak, jednolity, gradient liniowy lub radialny, tryb mieszania i krycie</translation>
     </message>
     <message>
+        <source>Fill colour. Right-click: no fill (or back on)</source>
+        <translation>Kolor wypełnienia. Prawy przycisk: bez wypełnienia (lub z powrotem)</translation>
+    </message>
+    <message>
+        <source>Stroke colour. Right-click: no stroke (or back on)</source>
+        <translation>Kolor obrysu. Prawy przycisk: bez obrysu (lub z powrotem)</translation>
+    </message>
+    <message>
         <source>Selection</source>
         <translation type="unfinished"></translation>
     </message>

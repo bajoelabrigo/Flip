@@ -20858,6 +20858,14 @@ If playback stutters, try another.</source>
         <translation>රේඛා විකල්ප: කිසිවක් නැත, ඝන, රේඛීය හෝ අරීය ශ්‍රේණිය, මිශ්‍ර කිරීමේ ප්‍රකාරය සහ පාරාන්ධතාව</translation>
     </message>
     <message>
+        <source>Fill colour. Right-click: no fill (or back on)</source>
+        <translation>පිරවුම් වර්ණය. දකුණු ක්ලික්: පිරවුමක් නැත (නැතහොත් නැවත)</translation>
+    </message>
+    <message>
+        <source>Stroke colour. Right-click: no stroke (or back on)</source>
+        <translation>රේඛා වර්ණය. දකුණු ක්ලික්: රේඛාවක් නැත (නැතහොත් නැවත)</translation>
+    </message>
+    <message>
         <source>Selection</source>
         <translation type="unfinished"></translation>
     </message>

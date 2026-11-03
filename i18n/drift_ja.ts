@@ -20779,6 +20779,14 @@ If playback stutters, try another.</source>
         <translation>線オプション：なし、単色、線形または円形グラデーション、描画モードと不透明度</translation>
     </message>
     <message>
+        <source>Fill colour. Right-click: no fill (or back on)</source>
+        <translation>塗りの色。右クリック：塗りなし（または元に戻す）</translation>
+    </message>
+    <message>
+        <source>Stroke colour. Right-click: no stroke (or back on)</source>
+        <translation>線の色。右クリック：線なし（または元に戻す）</translation>
+    </message>
+    <message>
         <source>Selection</source>
         <translation type="unfinished"></translation>
     </message>

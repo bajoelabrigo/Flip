@@ -32,6 +32,16 @@ Item {
     property var write: null
     // Before the first write of a drag (Scale reads where it starts).
     signal begun()
+    // Tab (or Shift+Tab) confirmed the typed value: the line opens the next (previous) value, as
+    // After Effects does. The focus never wanders off to the header's buttons.
+    signal tabbed(bool back)
+
+    function startEditing() {
+        field.text = root.format(root.shown).replace(root.suffix, "")
+        root.editing = true
+        field.forceActiveFocus()
+        field.selectAll()
+    }
 
     readonly property real shown: toDisplay(value)
     property bool editing: false
@@ -112,10 +122,7 @@ Item {
                 return
             }
             // A click: type the value.
-            field.text = root.format(root.shown).replace(root.suffix, "")
-            root.editing = true
-            field.forceActiveFocus()
-            field.selectAll()
+            root.startEditing()
         }
         onCanceled: {
             if (root.dragging) {
@@ -158,6 +165,16 @@ Item {
         Keys.onReturnPressed: finish(true)
         Keys.onEnterPressed: finish(true)
         Keys.onEscapePressed: finish(false)
+        Keys.onTabPressed: (event) => {
+            event.accepted = true
+            finish(true)
+            root.tabbed(false)
+        }
+        Keys.onBacktabPressed: (event) => {
+            event.accepted = true
+            finish(true)
+            root.tabbed(true)
+        }
         onActiveFocusChanged: if (!activeFocus) finish(true)
     }
 

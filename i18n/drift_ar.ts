@@ -21194,6 +21194,14 @@ If playback stutters, try another.</source>
         <translation>خيارات الحد: بلا، خالص، تدرج خطي أو شعاعي، وضع المزج والعتامة</translation>
     </message>
     <message>
+        <source>Fill colour. Right-click: no fill (or back on)</source>
+        <translation>لون التعبئة. نقرة يمنى: بلا تعبئة (أو إعادتها)</translation>
+    </message>
+    <message>
+        <source>Stroke colour. Right-click: no stroke (or back on)</source>
+        <translation>لون الحد. نقرة يمنى: بلا حد (أو إعادته)</translation>
+    </message>
+    <message>
         <source>Selection</source>
         <translation type="unfinished"></translation>
     </message>

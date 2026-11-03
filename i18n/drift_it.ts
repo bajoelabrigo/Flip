@@ -20862,6 +20862,14 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
         <translation>Opzioni traccia: nessuno, pieno, sfumatura lineare o radiale, metodo di fusione e opacità</translation>
     </message>
     <message>
+        <source>Fill colour. Right-click: no fill (or back on)</source>
+        <translation>Colore del riempimento. Clic destro: nessun riempimento (o di nuovo attivo)</translation>
+    </message>
+    <message>
+        <source>Stroke colour. Right-click: no stroke (or back on)</source>
+        <translation>Colore del tratto. Clic destro: nessun tratto (o di nuovo attivo)</translation>
+    </message>
+    <message>
         <source>Selection</source>
         <translation type="unfinished"></translation>
     </message>

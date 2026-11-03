@@ -20779,6 +20779,14 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Tùy chọn viền: không, màu đặc, chuyển sắc tuyến tính hoặc tròn, chế độ hòa trộn và độ mờ đục</translation>
     </message>
     <message>
+        <source>Fill colour. Right-click: no fill (or back on)</source>
+        <translation>Màu tô. Nhấp chuột phải: không tô (hoặc bật lại)</translation>
+    </message>
+    <message>
+        <source>Stroke colour. Right-click: no stroke (or back on)</source>
+        <translation>Màu viền. Nhấp chuột phải: không viền (hoặc bật lại)</translation>
+    </message>
+    <message>
         <source>Selection</source>
         <translation type="unfinished"></translation>
     </message>

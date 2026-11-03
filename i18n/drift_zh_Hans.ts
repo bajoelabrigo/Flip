@@ -20779,6 +20779,14 @@ If playback stutters, try another.</source>
         <translation>描边选项：无、纯色、线性或径向渐变、混合模式和不透明度</translation>
     </message>
     <message>
+        <source>Fill colour. Right-click: no fill (or back on)</source>
+        <translation>填充颜色。右键：无填充（或重新开启）</translation>
+    </message>
+    <message>
+        <source>Stroke colour. Right-click: no stroke (or back on)</source>
+        <translation>描边颜色。右键：无描边（或重新开启）</translation>
+    </message>
+    <message>
         <source>Selection</source>
         <translation type="unfinished"></translation>
     </message>

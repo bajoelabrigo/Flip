@@ -20862,6 +20862,14 @@ Se a reprodução travar, tente outra opção.</translation>
         <translation>Opções de traçado: nenhum, sólido, gradiente linear ou radial, modo de mesclagem e opacidade</translation>
     </message>
     <message>
+        <source>Fill colour. Right-click: no fill (or back on)</source>
+        <translation>Cor do preenchimento. Clique direito: sem preenchimento (ou de volta)</translation>
+    </message>
+    <message>
+        <source>Stroke colour. Right-click: no stroke (or back on)</source>
+        <translation>Cor do traço. Clique direito: sem traço (ou de volta)</translation>
+    </message>
+    <message>
         <source>Selection</source>
         <translation type="unfinished"></translation>
     </message>

@@ -422,8 +422,11 @@ Item {
                 const r = handle.layoutRotation * Math.PI / 180
                 const c = Math.cos(r)
                 const sn = Math.sin(r)
-                return Qt.point(ax - (c * ax - sn * ay), ay - (sn * ax + c * ay))
+                return Qt.point(ax - (c * ax - sn * ay) + handle.sizeShiftX, ay - (sn * ax + c * ay) + handle.sizeShiftY)
             }
+            // An animated size grows around the anchor (0.30), as the renderer draws it.
+            readonly property real sizeShiftX: (handle.box.restW || 0) > 0 ? handle.anchorFx * (handle.box.restW - handle.layoutW) : 0
+            readonly property real sizeShiftY: (handle.box.restH || 0) > 0 ? handle.anchorFy * (handle.box.restH - handle.layoutH) : 0
             readonly property real centerX: (layoutX + anchorShift.x + layoutW * 0.5) * sx
             readonly property real centerY: (layoutY + anchorShift.y + layoutH * 0.5) * sy
 
@@ -941,8 +944,10 @@ Item {
                                    + shiftX * Math.cos(a) - shiftY * Math.sin(a)
                         const cy = handle.dragStartY + handle.dragStartH / 2
                                    + shiftX * Math.sin(a) + shiftY * Math.cos(a)
-                        const x = cx - w / 2
-                        const y = cy - h / 2
+                        // An animated size already grows around the anchor (0.30): the stored corner
+                        // moves by what that growth adds.
+                        const x = cx - w / 2 + ((handle.box.restW || 0) > 0 ? handle.anchorFx * (w - handle.dragStartW) : 0)
+                        const y = cy - h / 2 + ((handle.box.restH || 0) > 0 ? handle.anchorFy * (h - handle.dragStartH) : 0)
 
                         handle.liveX = x
                         handle.liveY = y

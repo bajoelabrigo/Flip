@@ -20945,6 +20945,14 @@ If playback stutters, try another.</source>
         <translation>Параметры обводки: нет, сплошной, линейный или радиальный градиент, режим наложения и непрозрачность</translation>
     </message>
     <message>
+        <source>Fill colour. Right-click: no fill (or back on)</source>
+        <translation>Цвет заливки. Правый щелчок: без заливки (или вернуть)</translation>
+    </message>
+    <message>
+        <source>Stroke colour. Right-click: no stroke (or back on)</source>
+        <translation>Цвет обводки. Правый щелчок: без обводки (или вернуть)</translation>
+    </message>
+    <message>
         <source>Selection</source>
         <translation type="unfinished"></translation>
     </message>

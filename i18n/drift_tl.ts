@@ -20852,6 +20852,14 @@ If playback stutters, try another.</source>
         <translation>Mga opsyon ng stroke: wala, solido, linear o radial na gradient, blend mode at opacity</translation>
     </message>
     <message>
+        <source>Fill colour. Right-click: no fill (or back on)</source>
+        <translation>Kulay ng fill. Right-click: walang fill (o ibalik)</translation>
+    </message>
+    <message>
+        <source>Stroke colour. Right-click: no stroke (or back on)</source>
+        <translation>Kulay ng stroke. Right-click: walang stroke (o ibalik)</translation>
+    </message>
+    <message>
         <source>Selection</source>
         <translation type="unfinished"></translation>
     </message>

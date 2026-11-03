@@ -173,8 +173,15 @@ Rectangle {
             rotation: -35
             color: "#e04040"
         }
+        ThemedToolTip {
+            visible: swatchMouse.containsMouse
+            text: swatch.which === "fill" ? qsTr("Fill colour. Right-click: no fill (or back on)")
+                                          : qsTr("Stroke colour. Right-click: no stroke (or back on)")
+        }
         MouseArea {
+            id: swatchMouse
             anchors.fill: parent
+            hoverEnabled: true
             acceptedButtons: Qt.LeftButton | Qt.RightButton
             cursorShape: Qt.PointingHandCursor
             onClicked: mouse => {
@@ -183,6 +190,10 @@ Rectangle {
                     if (layer) {
                         EditorState.setStyleLayer(EditorState.selectedTrack, EditorState.selectedClip, layer.id,
                                                   { "enabled": layer.enabled === false })
+                        if (root.paintOptions && swatch.which === "stroke")
+                            EditorState.preview.toolStroke = layer.enabled === false ? "#ffffffff" : "none"
+                        else if (root.paintOptions)
+                            EditorState.preview.toolFill = layer.enabled === false ? "#ffff4d6d" : "none"
                     } else if (root.pickedStyled()) {
                         fillOptions.openFor(swatch.which, !root.pickedStyled())
                     } else if (swatch.which === "fill") {
@@ -193,6 +204,7 @@ Rectangle {
                     return
                 }
                 // A gradient, or a picked clip with no such layer yet: the options; else the colour.
+                // (Right-click: none, as the label's options; bounce exercise #1 looked for it here.)
                 if (swatch.isGradient || (root.pickedStyled() && !layer))
                     fillOptions.openFor(swatch.which, !root.pickedStyled())
                 else
@@ -351,7 +363,9 @@ Rectangle {
                     if (pickedStroke)
                         EditorState.setStyleLayer(EditorState.selectedTrack, EditorState.selectedClip, pickedStroke.id,
                                                   { "enabled": v > 0, "width": v })
-                    else
+                    // With a drawing tool on, the next shapes take the width too (0.30): a 0 typed with a
+                    // shape picked left the new ones with the old stroke (bounce exercise #2).
+                    if (!pickedStroke || root.paintOptions)
                         EditorState.preview.toolStrokeWidth = v
                 }
             }
@@ -381,7 +395,9 @@ Rectangle {
             if (layerId.length > 0) {
                 EditorState.setStyleLayer(EditorState.selectedTrack, EditorState.selectedClip, layerId,
                                           { "enabled": true, "paint": { "kind": "solid", "color": c } })
-                return
+                // With a drawing tool on, the next shapes take it too (0.30, as After Effects).
+                if (!root.paintOptions)
+                    return
             }
             if (target === "fill")
                 EditorState.preview.toolFill = c

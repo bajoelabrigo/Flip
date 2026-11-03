@@ -1487,12 +1487,27 @@ Item {
                                 return
                             }
                             const at = EditorState.playheadSeconds
+                            // An animated size grows around the anchor point by itself (0.30): no
+                            // Position keys to make up for it.
                             EditorState.previewSetPropertyValue(track, clip, "width", at, w)
                             EditorState.previewSetPropertyValue(track, clip, "height", at, h)
-                            if (!st.moving) {
-                                EditorState.previewSetPropertyValue(track, clip, "x", at, x)
-                                EditorState.previewSetPropertyValue(track, clip, "y", at, y)
-                            }
+                        }
+                        // Position reads where the anchor point is, as in After Effects (0.30): the
+                        // stored value is the box's corner, so the line adds the anchor's place in
+                        // the box (in the size it grows from when the size is animated).
+                        function positionOffset(prop) {
+                            const horizontal = prop === "x"
+                            const sizeProp = horizontal ? "width" : "height"
+                            const f = valueOf(horizontal ? "anchorX" : "anchorY")
+                            const keys = EditorState.clipAnimatedProperties(keyLines.trackIndex, keyLine.clip).indexOf(sizeProp) >= 0
+                                         ? (EditorState.clipKeyframes(keyLines.trackIndex, keyLine.clip, sizeProp) || []) : []
+                            const side = keys.length >= 2 ? keys[0].value : valueOf(sizeProp)
+                            return (isNaN(f) ? 0.5 : f) * (isNaN(side) ? 0 : side)
+                        }
+                        function positionValue(prop, tag) {
+                            const off = keyLine.positionOffset(prop)
+                            return { "prop": prop, "tag": tag, "toDisplay": (v) => v + off, "fromDisplay": (d) => d - off,
+                                     "min": -1e9, "max": 1e9, "step": 1, "decimals": 0, "suffix": "" }
                         }
                         // The values the line shows and edits: [{prop, tag, toDisplay, fromDisplay,
                         // min, max, step, decimals, suffix}].
@@ -1508,7 +1523,7 @@ Item {
                             if (group === "color")
                                 return []
                             if (group === "position")
-                                return [plain("x", "X", 1, 0, ""), plain("y", "Y", 1, 0, "")]
+                                return [keyLine.positionValue("x", "X"), keyLine.positionValue("y", "Y")]
                             if (group === "anchor") {
                                 // In the box's own pixels, as After Effects; stored as fractions.
                                 const w = Math.max(1, valueOf("width"))
@@ -1547,7 +1562,9 @@ Item {
                                 return [{ "prop": "pan", "tag": "", "toDisplay": pct, "fromDisplay": unPct,
                                           "min": -100, "max": 100, "step": 0.5, "decimals": 0, "suffix": "" }]
                             const prop = keyLine.modelData.prop
-                            if (prop === "width" || prop === "height" || prop === "x" || prop === "y")
+                            if (prop === "x" || prop === "y")
+                                return [keyLine.positionValue(prop, "")]
+                            if (prop === "width" || prop === "height")
                                 return [plain(prop, "", 1, 0, "")]
                             if (prop === "anchorX" || prop === "anchorY") {
                                 const side = Math.max(1, valueOf(prop === "anchorX" ? "width" : "height"))
@@ -1572,14 +1589,15 @@ Item {
                             const n = v => isNaN(v) ? "—" : String(Math.round(v))
                             const group = keyLine.joined ? keyLine.modelData.group : ""
                             if (group === "position")
-                                return "X: " + n(valueOf("x")) + " · Y: " + n(valueOf("y"))
+                                return "X: " + n(valueOf("x") + positionOffset("x")) + " · Y: " + n(valueOf("y") + positionOffset("y"))
                             if (group === "rotation")
                                 return Number(valueOf("rotation")).toFixed(1) + "°"
                             if (group === "scale") {
-                                // As the inspector: 100 % fills the canvas on its tighter axis.
-                                const cw = Math.max(1, EditorState.projectFile.projectWidth())
-                                const ch = Math.max(1, EditorState.projectFile.projectHeight())
-                                return Math.round(Math.max(valueOf("width") / cw, valueOf("height") / ch) * 100) + " %"
+                                // After Effects' two values, against the layer's own size.
+                                const nat = keyLine.naturalSize
+                                const sw = Math.round(valueOf("width") / Math.max(1, nat.w || 1) * 100)
+                                const sh = Math.round(valueOf("height") / Math.max(1, nat.h || 1) * 100)
+                                return sw === sh ? sw + " %" : sw + " × " + sh + " %"
                             }
                             if (group === "opacity")
                                 return Math.round(valueOf("opacity") * 100) + " %"
@@ -1834,9 +1852,22 @@ Item {
                                     }
                                 }
                                 Repeater {
+                                    id: hotRepeater
                                     model: keyLine.hotValues
+                                    // Tab from one value to the next of the line (0.30). The commit
+                                    // rebuilds the delegates, so the next one is looked up afterwards.
+                                    function editValue(index) {
+                                        const row = hotRepeater.itemAt(index)
+                                        if (row && row.scrub && row.scrub.visible)
+                                            row.scrub.startEditing()
+                                        else if (index >= 0 && index < hotRepeater.count)
+                                            hotRepeater.editValue(index + 1)
+                                    }
                                     delegate: Row {
+                                        id: hotRow
                                         required property var modelData
+                                        required property int index
+                                        property alias scrub: hotScrub
                                         spacing: 2
                                         // Scale's chain: both values together, or each on its own.
                                         IconButton {
@@ -1860,7 +1891,12 @@ Item {
                                             font.pixelSize: Theme.fontSizeTiny
                                         }
                                         ScrubValue {
+                                            id: hotScrub
                                             visible: !modelData.link
+                                            onTabbed: (back) => {
+                                                const next = hotRow.index + (back ? -1 : 1)
+                                                Qt.callLater(() => hotRepeater.editValue(next))
+                                            }
                                             trackIndex: keyLines.trackIndex
                                             clipIndex: keyLine.clip
                                             prop: modelData.prop || ""

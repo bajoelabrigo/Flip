@@ -20779,6 +20779,14 @@ If playback stutters, try another.</source>
         <translation>선 옵션: 없음, 단색, 선형 또는 방사형 그라디언트, 혼합 모드와 불투명도</translation>
     </message>
     <message>
+        <source>Fill colour. Right-click: no fill (or back on)</source>
+        <translation>채우기 색. 오른쪽 클릭: 채우기 없음(또는 다시 켜기)</translation>
+    </message>
+    <message>
+        <source>Stroke colour. Right-click: no stroke (or back on)</source>
+        <translation>선 색. 오른쪽 클릭: 선 없음(또는 다시 켜기)</translation>
+    </message>
+    <message>
         <source>Selection</source>
         <translation type="unfinished"></translation>
     </message>

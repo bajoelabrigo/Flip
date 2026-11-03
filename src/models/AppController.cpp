@@ -3450,6 +3450,7 @@ bool writeClipPropValue(drift::Clip &clip, const QString &prop, drift::TimeUs re
     }
     if (!parseEffectProp(prop, &effectIndex, &paramKey)) {
         drift::KeyframeTrack<double> *kt = transformTrackForProp(clip, prop);
+        const qsizetype keysBefore = kt ? kt->keyframes().size() : 0;
         if (!kt || !writeKeyframeValue(*kt, relative, value, autoKey, force))
             return false;
         // A 3D value written to a flat clip would do nothing, so writing one makes it a 3D layer.
@@ -3457,9 +3458,10 @@ bool writeClipPropValue(drift::Clip &clip, const QString &prop, drift::TimeUs re
             || kt == &clip.perspective) {
             clip.layer3d = true;
         }
-        // An animated size grows around the anchor point (as in After Effects); a clip that never
-        // had one gets the centre, so the old corner growth stays only in old projects.
-        if ((kt == &clip.transformW || kt == &clip.transformH) && kt->keyframes().size() >= 2
+        // An animated size grows around the anchor point (as in After Effects): a size that starts
+        // animating without one gets the centre. Sizes animated before (old projects, templates
+        // that move X to make up for it) keep growing from the corner.
+        if ((kt == &clip.transformW || kt == &clip.transformH) && keysBefore < 2 && kt->keyframes().size() >= 2
             && clip.anchorX.isEmpty() && clip.anchorY.isEmpty()) {
             clip.anchorX.setKeyframe(0, 0.5);
             clip.anchorY.setKeyframe(0, 0.5);
@@ -16295,7 +16297,14 @@ QVariantMap AppController::clipNaturalSize(int trackIndex, int clipIndex)
 {
     if (!isValidClipIndex(trackIndex, clipIndex))
         return {};
-    drift::Clip copy = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    const drift::Clip &source = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    // A drawn shape's 100 % is the box it was drawn with (its first size), as a shape layer in
+    // After Effects; the canvas made a drawn ball read 6.8 % × 12.2 % (bounce exercise #6).
+    if (source.type == drift::ClipType::Shape && !source.transformW.isEmpty() && !source.transformH.isEmpty()) {
+        return {{QStringLiteral("w"), qMax(1.0, source.transformW.keyframes().first().value)},
+                {QStringLiteral("h"), qMax(1.0, source.transformH.keyframes().first().value)}};
+    }
+    drift::Clip copy = source;
     resetTransformOf(copy);
     const double w = copy.transformW.isEmpty() ? m_project.width() : copy.transformW.evaluateAt(0);
     const double h = copy.transformH.isEmpty() ? m_project.height() : copy.transformH.evaluateAt(0);
@@ -22961,6 +22970,17 @@ void AppController::setClipKeyframe(int trackIndex, int clipIndex, const QString
     // clip's base layout key. Neither is ever what the caller meant.
     const drift::TimeUs rel = qBound<drift::TimeUs>(
         0, drift::secondsToUs(atSeconds) - clip.timelineStart, clip.timelineDuration);
+    // A property that is not animated yet keeps its static value as a lone key at the start; the
+    // first key set on purpose replaces it, as After Effects' stopwatch does (bounce exercise #7: a
+    // key at frame 6 left the old value at frame 0 and the ball jumped up before falling).
+    const auto onlyBaseKey = [&clip](const QString &p) {
+        const drift::KeyframeTrack<double> *kt = keyframeTrackForProp(clip, p, false);
+        return kt && !kt->stopwatch() && kt->keyframes().size() == 1 && kt->keyframes().firstKey() == 0;
+    };
+    const bool replaceBase = rel > 0 && onlyBaseKey(prop);
+    const QString linkedProp = prop == QLatin1String("x") ? QStringLiteral("y")
+                               : prop == QLatin1String("y") ? QStringLiteral("x") : QString();
+    const bool replaceLinkedBase = rel > 0 && m_positionLinked && !linkedProp.isEmpty() && onlyBaseKey(linkedProp);
     if (prop.startsWith(QLatin1String("model3d.")) && isLegacyModel3dPoseKey(prop.mid(8))) {
         bool wrote = false;
         for (const auto &write : legacyModel3dPoseWrites(clip, prop.mid(8), value, rel, m_project.height()))
@@ -22989,6 +23009,14 @@ void AppController::setClipKeyframe(int trackIndex, int clipIndex, const QString
                     otherKt->setEasing(rel, srcKt->easingAt(rel));
             }
         }
+    }
+    if (replaceBase) {
+        if (drift::KeyframeTrack<double> *kt = keyframeTrackForProp(clip, prop, false))
+            kt->removeKeyframe(0);
+    }
+    if (replaceLinkedBase) {
+        if (drift::KeyframeTrack<double> *kt = keyframeTrackForProp(clip, linkedProp, false))
+            kt->removeKeyframe(0);
     }
     pushProjectEdit(before, tr("Add keyframe"));
     finishEdit(tr("Keyframe set"));
