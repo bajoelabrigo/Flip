@@ -4,6 +4,7 @@
 #include "GpuPackageParse.h"
 #include "OrtSupport.h"
 
+#include <QCoreApplication>
 #include <QDataStream>
 #include <QDir>
 #include <QFile>
@@ -194,8 +195,8 @@ bool ChatterboxTts::Impl::ensureLoaded(QString *err)
     modelDir = resolveChatterboxModelDir();
     if (modelDir.isEmpty()) {
         if (err)
-            *err = QStringLiteral("Text-to-speech model not found. Install the Text to Speech "
-                                  "addon, or set DRIFT_CHATTERBOX_MODEL_DIR.");
+            *err = QCoreApplication::translate("ChatterboxTts", "The voice model is not installed. Install the "
+                                                                "AI voice extra in Extras.");
         return false;
     }
     if (!drift::ort::ensureLoaded(err))
@@ -219,7 +220,7 @@ bool ChatterboxTts::Impl::ensureLoaded(QString *err)
     });
     if (!ok) {
         if (err)
-            *err = QStringLiteral("Failed to load text-to-speech model: ") + *err;
+            *err = QCoreApplication::translate("ChatterboxTts", "Failed to load text-to-speech model: %1").arg(*err);
         speechEncoder.reset();
         embedTokens.reset();
         languageModel.reset();
@@ -374,7 +375,7 @@ std::vector<float> ChatterboxTts::Impl::generateChunk(
         }
     } catch (const Ort::Exception &e) {
         if (err)
-            *err = QStringLiteral("Speech generation failed: ") + QString::fromUtf8(e.what());
+            *err = QCoreApplication::translate("ChatterboxTts", "Speech generation failed: %1").arg(QString::fromUtf8(e.what()));
         return {};
     }
 
@@ -513,7 +514,7 @@ std::optional<VoiceConditioning> ChatterboxTts::encodeVoice(const std::vector<fl
         return std::nullopt;
     if (pcm24k.empty()) {
         if (err)
-            *err = QStringLiteral("The reference voice has no audio.");
+            *err = QCoreApplication::translate("ChatterboxTts", "The reference voice has no audio.");
         return std::nullopt;
     }
 
@@ -542,7 +543,7 @@ std::optional<VoiceConditioning> ChatterboxTts::encodeVoice(const std::vector<fl
         return v;
     } catch (const Ort::Exception &e) {
         if (err)
-            *err = QStringLiteral("Voice encoding failed: ") + QString::fromUtf8(e.what());
+            *err = QCoreApplication::translate("ChatterboxTts", "Voice encoding failed: %1").arg(QString::fromUtf8(e.what()));
         return std::nullopt;
     }
 }
@@ -556,12 +557,12 @@ std::vector<float> ChatterboxTts::synthesize(const QString &text, const QString 
         return {};
     if (!supportedLanguages().contains(lang)) {
         if (err)
-            *err = QStringLiteral("Unsupported language: ") + lang;
+            *err = QCoreApplication::translate("ChatterboxTts", "Unsupported language: %1").arg(lang);
         return {};
     }
     if (voice.condEmbShape.size() < 2) {
         if (err)
-            *err = QStringLiteral("Invalid voice conditioning.");
+            *err = QCoreApplication::translate("ChatterboxTts", "Invalid voice conditioning.");
         return {};
     }
 

@@ -13,8 +13,11 @@ Item {
 
     readonly property bool ready: EditorState.tts.available
     property bool runtimeReady: Addons.runtimeAvailable()
-    property string resultText: ""
-    property bool resultOk: true
+    // Kept by the controller, so switching tabs (which unloads this one) loses neither (0.30).
+    property string resultText: EditorState.tts.lastResultText
+    property bool resultOk: EditorState.tts.lastResultOk
+    onResultTextChanged: EditorState.tts.lastResultText = resultText
+    onResultOkChanged: EditorState.tts.lastResultOk = resultOk
 
     readonly property string clipKind: {
         const data = EditorState.selectedClipData
@@ -124,6 +127,8 @@ Item {
                     enabled: !EditorState.tts.running
                     placeholderText: qsTr("Type what the voice should say")
                     placeholderTextColor: Theme.mutedForeground
+                    Component.onCompleted: text = EditorState.tts.draftScript
+                    onTextChanged: EditorState.tts.draftScript = text
                 }
 
                 Text {
@@ -131,16 +136,6 @@ Item {
                     text: qsTr("%1 characters, about %2 s").arg(scriptField.text.length)
                           .arg(Math.ceil(scriptField.text.length / 14))
                     color: Theme.mutedForeground
-                    font.family: Theme.fontFamily
-                    font.pixelSize: Theme.fontSizeXs
-                }
-
-                Text {
-                    visible: Math.ceil(scriptField.text.length / 14) > 30
-                    width: parent.width
-                    wrapMode: Text.WordWrap
-                    text: qsTr("Speech longer than 30 seconds often ends in gibberish or silence. Split the script into shorter parts.")
-                    color: Theme.destructive
                     font.family: Theme.fontFamily
                     font.pixelSize: Theme.fontSizeXs
                 }
@@ -240,16 +235,32 @@ Item {
                     }
                 }
 
-                Text {
+                // Cloning a voice: what it is doing, how far, and a way out (0.30).
+                Column {
                     visible: EditorState.voices.encoding
                     width: parent.width
-                    wrapMode: Text.WordWrap
-                    text: EditorState.tts.loading
-                          ? qsTr("Loading voice model (first use takes a while)…")
-                          : qsTr("Learning the voice…")
-                    color: Theme.mutedForeground
-                    font.family: Theme.fontFamily
-                    font.pixelSize: Theme.fontSizeXs
+                    spacing: Theme.spacingSm
+                    Text {
+                        width: parent.width
+                        wrapMode: Text.WordWrap
+                        text: EditorState.tts.loading
+                              ? qsTr("Loading voice model (first use takes a while)…")
+                              : (EditorState.voices.encodeStatus || qsTr("Learning the voice…"))
+                        color: Theme.mutedForeground
+                        font.family: Theme.fontFamily
+                        font.pixelSize: Theme.fontSizeXs
+                    }
+                    ThemedProgressBar {
+                        width: parent.width
+                        value: EditorState.voices.encodeProgress
+                    }
+                    ThemedButton {
+                        text: qsTr("Cancel")
+                        variant: "destructive"
+                        glyph: Theme.icons.x
+                        tooltip: qsTr("Stop preparing the voice")
+                        onClicked: EditorState.voices.cancelEncoding()
+                    }
                 }
 
                 ThemedLabel {
@@ -266,12 +277,6 @@ Item {
                     valueRole: "code"
                     model: EditorState.tts.languageOptions()
                     Component.onCompleted: currentIndex = Math.max(0, indexOfValue(EditorState.tts.lastLanguage))
-                }
-
-                ThemedLabel {
-                    text: qsTr("Expressiveness")
-                    tone: "default"
-                    size: "sm"
                 }
 
                 ThemedSlider {
@@ -488,7 +493,7 @@ Item {
 
                 ThemedLabel {
                     width: parent.width
-                    text: qsTr("Record 5 to 20 seconds in a quiet room. Read this aloud in your natural voice:")
+                    text: qsTr("Record 3 to 20 seconds in a quiet room (it stops by itself at 20). Read this aloud in your natural voice:")
                 }
 
                 Text {
@@ -527,7 +532,9 @@ Item {
 
                     Text {
                         anchors.verticalCenter: parent.verticalCenter
-                        text: qsTr("%1 s").arg(EditorState.voices.recordingSeconds.toFixed(1))
+                        text: EditorState.voices.recordingSeconds >= 20
+                              ? qsTr("20 s: done, save the voice")
+                              : qsTr("%1 s").arg(EditorState.voices.recordingSeconds.toFixed(1))
                         color: Theme.panelForeground
                         font.family: Theme.fontFamily
                         font.pixelSize: Theme.fontSizeSm

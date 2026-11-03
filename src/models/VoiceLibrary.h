@@ -26,6 +26,9 @@ class VoiceLibrary : public QAbstractListModel
     Q_PROPERTY(double recordingSeconds READ recordingSeconds NOTIFY recordingSecondsChanged)
     Q_PROPERTY(double level READ level NOTIFY levelChanged)
     Q_PROPERTY(bool encoding READ encoding NOTIFY encodingChanged)
+    // Cloning a voice as it goes (0.30): how far, what it is doing, and cancelEncoding().
+    Q_PROPERTY(double encodeProgress READ encodeProgress NOTIFY encodeProgressChanged)
+    Q_PROPERTY(QString encodeStatus READ encodeStatus NOTIFY encodeProgressChanged)
 
 public:
     enum Roles {
@@ -64,6 +67,9 @@ public:
     Q_INVOKABLE void startRecording();
     Q_INVOKABLE void stopRecordingAndAdd(const QString &name);
     Q_INVOKABLE void cancelRecording();
+    Q_INVOKABLE void cancelEncoding();
+    double encodeProgress() const { return m_encodeProgress; }
+    QString encodeStatus() const { return m_encodeStatus; }
 
     // Blocking: loads the model if needed and re-encodes a stale cache. Worker threads only.
     std::optional<drift::VoiceConditioning> conditioning(const QString &id, QString *err);
@@ -75,6 +81,7 @@ signals:
     void recordingSecondsChanged();
     void levelChanged();
     void encodingChanged();
+    void encodeProgressChanged();
     void voiceAdded(const QString &id);
     void error(const QString &message);
 
@@ -97,5 +104,8 @@ private:
     drift::AudioRecorder m_recorder;
     QList<Entry> m_entries;
     bool m_encoding = false;
+    QString m_encodeJobId;
+    double m_encodeProgress = 0.0;
+    QString m_encodeStatus;
     QString m_recordingPath;
 };

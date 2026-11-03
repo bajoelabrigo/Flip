@@ -36,7 +36,9 @@ ThemedDialog {
         { id: "textAnimations", label: qsTr("Text animations"), tab: "text" },
         { id: "fonts", label: qsTr("Fonts"), tab: "text" },
         { id: "captionStyles", label: qsTr("Caption styles"), tab: "subtitles" },
-        { id: "voices", label: qsTr("Voices"), tab: "speech" },
+        // The voice changer's presets (voz.*), which live in a clip's Audio inspector, not in the
+        // Voz tab that turns text into speech.
+        { id: "voices", label: qsTr("Voice changer"), tab: "" },
         { id: "retouch", label: qsTr("Retouch"), tab: "" },
         // As the web names them, so the account keeps one set for both (0.22).
         { id: "looks", label: qsTr("Looks"), tab: "colorfx" },

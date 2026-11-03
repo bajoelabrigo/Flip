@@ -936,8 +936,9 @@ Item {
                 Repeater {
                     model: [
                         { id: "elevenlabs", name: "ElevenLabs",
-                          uses: qsTr("Transcription (Scribe), voiceover, sound effects") },
-                        { id: "fish", name: "Fish Audio", uses: qsTr("Voiceover") }
+                          uses: qsTr("Transcription (Scribe); voiceover and sound effects through AI agents") },
+                        // No panel of the app speaks with Fish yet (0.30): only agents (tts_generate).
+                        { id: "fish", name: "Fish Audio", uses: qsTr("Voiceover through AI agents") }
                     ]
 
                     delegate: Column {

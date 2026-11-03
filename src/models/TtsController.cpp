@@ -85,7 +85,18 @@ QString TtsController::lastVoice() const
 
 QString TtsController::lastLanguage() const
 {
-    return QSettings().value(QStringLiteral("tts/language"), QStringLiteral("en")).toString();
+    // Until one is chosen, the interface's language when the voice speaks it (it started in
+    // English for everyone).
+    QSettings settings;
+    if (settings.contains(QStringLiteral("tts/language")))
+        return settings.value(QStringLiteral("tts/language")).toString();
+    QString ui = settings.value(QStringLiteral("ui/language")).toString();
+    if (ui.isEmpty())
+        ui = QLocale::system().name();
+    QString code = ui.section(QLatin1Char('_'), 0, 0).section(QLatin1Char('-'), 0, 0).toLower();
+    if (code == QLatin1String("nb") || code == QLatin1String("nn"))
+        code = QStringLiteral("no");
+    return drift::ChatterboxTts::supportedLanguages().contains(code) ? code : QStringLiteral("en");
 }
 
 double TtsController::lastExaggeration() const
@@ -250,7 +261,7 @@ void TtsController::generate(const QString &text, const QString &voiceId, const 
             if (ctx.cancelled())
                 return;
             if (pcm.empty())
-                return ctx.fail(QStringLiteral("internal"), err.isEmpty() ? QStringLiteral("No speech was produced") : err);
+                return ctx.fail(QStringLiteral("internal"), err.isEmpty() ? tr("No speech was produced") : err);
             if (!VoiceLibrary::writeFlac24k(path, pcm, &err))
                 return ctx.fail(QStringLiteral("internal"), err);
             ctx.succeed({});
@@ -335,7 +346,7 @@ void TtsController::voiceoverFromSubtitles(int trackIndex, int clipIndex, const 
                     line.text, lang, *voice, static_cast<float>(exaggeration),
                     [&ctx, i, count](double p) {
                         ctx.progress(0.05 + 0.95 * (i + p) / count,
-                                     QStringLiteral("Speaking line %1 of %2…").arg(i + 1).arg(count));
+                                     tr("Speaking line %1 of %2…").arg(i + 1).arg(count));
                         return !ctx.cancelled();
                     },
                     &err);
@@ -343,7 +354,7 @@ void TtsController::voiceoverFromSubtitles(int trackIndex, int clipIndex, const 
                     return;
                 if (pcm.empty())
                     return ctx.fail(QStringLiteral("internal"),
-                                    err.isEmpty() ? QStringLiteral("No speech was produced") : err);
+                                    err.isEmpty() ? tr("No speech was produced") : err);
                 if (!VoiceLibrary::writeFlac24k(line.path, pcm, &err))
                     return ctx.fail(QStringLiteral("internal"), err);
                 line.speechSeconds = static_cast<double>(pcm.size()) / drift::ChatterboxTts::kSampleRate;
@@ -364,14 +375,17 @@ void TtsController::voiceoverFromSubtitles(int trackIndex, int clipIndex, const 
             }
             QList<AppController::GeneratedAudioPlacement> placements;
             int longer = 0;
+            int lost = 0;
             for (const CueSpeech &line : std::as_const(*lines)) {
                 const QJsonObject generator{{QStringLiteral("engine"), QStringLiteral("chatterbox")},
                                             {QStringLiteral("voice"), voiceName},
                                             {QStringLiteral("lang"), lang},
                                             {QStringLiteral("exaggeration"), exaggeration},
                                             {QStringLiteral("text"), line.text}};
-                if (!self->m_app->importGeneratedAudio(line.path, generator, false, 0.0, -1).ok)
+                if (!self->m_app->importGeneratedAudio(line.path, generator, false, 0.0, -1).ok) {
+                    ++lost;
                     continue;
+                }
                 placements.append({line.path, drift::usToSeconds(clipStartUs + line.startUs)});
                 if (line.speechSeconds > line.cueSeconds)
                     ++longer;
@@ -385,6 +399,9 @@ void TtsController::voiceoverFromSubtitles(int trackIndex, int clipIndex, const 
             QString message = tr("Generated %n line(s)", nullptr, placed);
             if (longer > 0)
                 message += tr("; %n ran longer than their captions", nullptr, longer);
+            // A line that could not be added is said, not skipped in silence (0.30).
+            if (lost > 0)
+                message += tr("; %n could not be added", nullptr, lost);
             self->setStatus(message);
             emit self->finished(true, message);
             return QJsonObject{};

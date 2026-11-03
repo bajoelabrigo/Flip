@@ -30,6 +30,10 @@ class TtsController : public QObject
     Q_PROPERTY(QString lastVoice READ lastVoice NOTIFY lastUsedChanged)
     Q_PROPERTY(QString lastLanguage READ lastLanguage NOTIFY lastUsedChanged)
     Q_PROPERTY(double lastExaggeration READ lastExaggeration NOTIFY lastUsedChanged)
+    // What the Voz tab shows, kept here: the tab is unloaded when another one is opened (0.30).
+    Q_PROPERTY(QString draftScript MEMBER m_draftScript NOTIFY panelStateChanged)
+    Q_PROPERTY(QString lastResultText MEMBER m_lastResultText NOTIFY panelStateChanged)
+    Q_PROPERTY(bool lastResultOk MEMBER m_lastResultOk NOTIFY panelStateChanged)
 
 public:
     TtsController(AppController *app, QObject *parent = nullptr);
@@ -70,9 +74,13 @@ signals:
     void progressChanged();
     void statusChanged();
     void lastUsedChanged();
+    void panelStateChanged();
     void finished(bool ok, const QString &message);
 
 private:
+    QString m_draftScript;
+    QString m_lastResultText;
+    bool m_lastResultOk = true;
     void remember(const QString &voiceId, const QString &lang, double exaggeration);
     void pollJob();
     void endJob();
