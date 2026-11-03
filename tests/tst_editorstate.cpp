@@ -4676,9 +4676,14 @@ void EditorStateTest::scaledSizeKeepsTheAnchorInPlace()
     state.addShapeClip(QStringLiteral("circle"), 0.0);
     const int t = state.selectedTrack();
     const int c = state.selectedClip();
+    // Where the box is drawn (0.30: a keyed size grows around the anchor in the renderer, from the
+    // size it had when its stopwatch went on, instead of moving Position).
     const auto centreX = [&](double seconds) {
-        return state.propertyValueAt(t, c, QStringLiteral("x"), seconds, 0.0)
-               + state.propertyValueAt(t, c, QStringLiteral("width"), seconds, 0.0) / 2.0;
+        const drift::Clip &clip = state.project()->tracks().at(t).clips.at(c);
+        const double width = state.propertyValueAt(t, c, QStringLiteral("width"), seconds, 0.0);
+        const double height = state.propertyValueAt(t, c, QStringLiteral("height"), seconds, 0.0);
+        return state.propertyValueAt(t, c, QStringLiteral("x"), seconds, 0.0) + width / 2.0
+               + clip.anchorShift(drift::secondsToUs(seconds) - clip.timelineStart, width, height, 0.0).x();
     };
     const double centre = centreX(0.0);
     const double w = state.propertyValueAt(t, c, QStringLiteral("width"), 0.0, 0.0);
