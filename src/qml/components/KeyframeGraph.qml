@@ -486,9 +486,9 @@ Item {
             if (pts[i].hold)
                 continue // a step has no tangents to shape
             if (i > 0)
-                out.push({ pointIndex: i, outgoing: false, color: entry.color, point: pts[i] })
+                out.push({ pointIndex: i, outgoing: false, color: entry.color, point: pts[i], neighbour: pts[i - 1] })
             if (i < pts.length - 1)
-                out.push({ pointIndex: i, outgoing: true, color: entry.color, point: pts[i] })
+                out.push({ pointIndex: i, outgoing: true, color: entry.color, point: pts[i], neighbour: pts[i + 1] })
         }
         return out
     }
@@ -496,11 +496,15 @@ Item {
     // A handle with no length still needs to be grabbable, so an unset tangent is drawn at a
     // default reach into its segment rather than sitting exactly on the key.
     readonly property real defaultHandleSeconds: 0.12
-    function handleSeconds(point, outgoing) {
+    // An unset handle reaches a third of its segment (After Effects' 33 % influence), or the fixed
+    // default when the neighbour is unknown. A fixed reach let the two handles of a short segment sit on
+    // each other, and a drag took the wrong one (bounce #21b: the fall slowed into the floor).
+    function handleSeconds(point, outgoing, neighbour) {
         const raw = outgoing ? (point.outDx || 0) : (point.inDx || 0)
         if (Math.abs(raw) > 1e-6)
             return raw
-        return outgoing ? defaultHandleSeconds : -defaultHandleSeconds
+        const reach = neighbour ? Math.abs(neighbour.seconds - point.seconds) / 3 : defaultHandleSeconds
+        return outgoing ? reach : -reach
     }
     function handleValue(point, outgoing) {
         return point.value + (outgoing ? (point.outDy || 0) : (point.inDy || 0))
@@ -1686,7 +1690,8 @@ Item {
                                 : root.yForValue(modelData.point.value, entry)
                             readonly property real tipX:
                                 root.xForSeconds(modelData.point.seconds
-                                                 + root.handleSeconds(modelData.point, modelData.outgoing))
+                                                 + root.handleSeconds(modelData.point, modelData.outgoing,
+                                                                      modelData.neighbour))
                             // In Speed Graph the handle is level with its key: its height is that side's speed.
                             readonly property real tipY: root.speedGraph
                                 ? tangent.keyY

@@ -57,6 +57,32 @@ Item {
             topPadding: Theme.pagePadding
             bottomPadding: Theme.spacingMd
 
+            // The set of defaults (0.30, Jorge): Flip's own, or After Effects' keys for the
+            // keyframe lines and the layers (J/K, P/S/R/T/A, U/UU, B/N, I/O, [ ] and Alt+[ ]).
+            // Shortcuts the user changed stay as they are.
+            Row {
+                spacing: Theme.spacingSm
+                ThemedLabel {
+                    anchors.verticalCenter: parent.verticalCenter
+                    text: qsTr("Shortcut set")
+                    size: "sm"
+                }
+                ThemedChip {
+                    readonly property bool isSet: { void EditorState.actions; return EditorState.shortcutPreset() !== "afterEffects" }
+                    text: qsTr("Flip")
+                    selected: isSet
+                    tooltip: qsTr("Flip's own shortcuts")
+                    onClicked: EditorState.setShortcutPreset("flip")
+                }
+                ThemedChip {
+                    readonly property bool isSet: { void EditorState.actions; return EditorState.shortcutPreset() === "afterEffects" }
+                    text: qsTr("After Effects")
+                    selected: isSet
+                    tooltip: qsTr("As in After Effects: J/K go between keyframes, P/S/R/T/A show one property, U/UU, B/N the work area, I/O the layer's ends, [ ] and Alt+[ ] move and trim the layer at the playhead")
+                    onClicked: EditorState.setShortcutPreset("afterEffects")
+                }
+            }
+
             Text {
                 width: parent.width
                 wrapMode: Text.WordWrap

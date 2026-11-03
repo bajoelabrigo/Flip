@@ -15,7 +15,10 @@ class Project;
 // `layer("Name")` with `.transform.position[0|1]`, `.transform.rotation`, `.transform.opacity`,
 // `.transform.scale[0|1]`, `.transform.anchorPoint[0|1]` (also `.x`, `.y`, `.rotation`,
 // `.opacity`, `.width`, `.height` directly), and on a shape layer `.content("Name")` (nested for groups) with
-// `.transform.position/rotation/opacity/scale/anchorPoint/skew` and `.size` (0.28). The last statement is the result.
+// `.transform.position/rotation/opacity/scale/anchorPoint/skew` and `.size` (0.28). Also (0.30)
+// `linear/ease/easeIn/easeOut(t, tMin, tMax, v1, v2)` (or `(t, v1, v2)`), `clamp`, `degreesToRadians`,
+// `radiansToDegrees`, `valueAtTime(t)` (the property's own keys), `velocity` and `speed`. The last
+// statement is the result.
 void installExpressionEngine();
 
 // Makes `project` the one layer("...") looks into on this thread, at timeline time `timelineUs`

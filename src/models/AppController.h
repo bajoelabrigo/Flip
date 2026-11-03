@@ -2173,6 +2173,9 @@ public:
     Q_INVOKABLE void stepToKeyframe(bool forward);
     Q_INVOKABLE void toggleRevealKeyframes();
     Q_INVOKABLE bool trackHasKeyframes(int trackIndex) const;
+    bool trackHasModifiedLines(int trackIndex) const;
+    bool lineModified(int trackIndex, int clipIndex, const QStringList &props) const;
+    void layerEditAtPlayhead(const QString &actionId);
     // [{label, prop, clips: [{clip, prop, start, duration, keys: clipKeyframes()}]}], one per
     // property name across the track's clips.
     Q_INVOKABLE QVariantList trackKeyframeRows(int trackIndex) const;
@@ -2244,6 +2247,9 @@ public:
     Q_INVOKABLE void goToWorkAreaIn();
     Q_INVOKABLE void goToWorkAreaOut();
     Q_INVOKABLE void clearWorkArea();
+    // The work area bar dragged on the ruler (0.30, After Effects): both ends in seconds, snapped to
+    // frames and kept inside the timeline; inside a preview drag it is one undo step.
+    Q_INVOKABLE void previewSetWorkArea(double inSeconds, double outSeconds);
     Q_INVOKABLE void toggleLoopWorkArea();
     Q_INVOKABLE void freezeFrameAtPlayhead();
     // CapCut's «Fit to video length» (0.29): the clip (music, usually) ends where the last picture ends, trimmed
@@ -2282,6 +2288,12 @@ public:
     // Restores every default binding. Backspace clears a binding and persists the
     // empty string, so without this there was no route back from having cleared one.
     Q_INVOKABLE void resetShortcuts();
+    // The set of default shortcuts (0.30): "flip" or "afterEffects". Changing it keeps the bindings
+    // the user chose; the rest follow the new set.
+    Q_INVOKABLE QString shortcutPreset() const;
+    Q_INVOKABLE void setShortcutPreset(const QString &preset);
+    // True the first time it is asked (and never again): Pro offers After Effects' set once.
+    Q_INVOKABLE bool takeAeShortcutsOffer();
     // Canonical chord string for a key event (Ctrl+Shift+Left, …). Same names the
     // Shortcut items and the shortcut-capture field use, so a rebound chord still
     // matches when it is dispatched from Keys.onPressed rather than Shortcut {}.
@@ -3173,6 +3185,8 @@ protected:
     QSet<QString> m_collapsedShapeGroups;
     // U (toggleRevealKeyframes): the tracks' fixed transform lines only when they have keys.
     bool m_keyframeRowsAnimatedOnly = false;
+    bool m_keyframeRowsModifiedOnly = false; // UU (0.30): the lines changed at all
+    qint64 m_lastRevealMs = 0;
     // The body of resetClipTransform, on any clip (a copy for resetClipProperties).
     void resetTransformOf(drift::Clip &clip);
     // The shaded letters the layer calls aim at (setTextStyleRange).

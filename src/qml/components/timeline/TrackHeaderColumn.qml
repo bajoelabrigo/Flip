@@ -1652,7 +1652,15 @@ Item {
                             const keys = keyLine.keysHere.slice()
                             const props = keyLine.props.slice()
                             const at = EditorState.playheadSeconds
-                            const several = keys.length > 1 || (keys.length === 0 && props.length > 1)
+                            // Adding with several layers picked keys them all (0.30, After Effects'
+                            // Alt+Shift+P and company), the ones that are under the playhead.
+                            const picked = (EditorState.selection || []).filter((p) => {
+                                const c = EditorState.clipAt(p.track, p.clip) || {}
+                                return !(p.track === track && p.clip === clip)
+                                       && at >= (c.start || 0) && at < (c.start || 0) + (c.duration || 0)
+                            })
+                            const others = keys.length === 0 ? picked : []
+                            const several = keys.length > 1 || (keys.length === 0 && props.length > 1) || others.length > 0
                             if (several)
                                 EditorState.beginEditSession(keys.length > 0 ? qsTr("Remove keyframe")
                                                                              : qsTr("Add keyframe"))
@@ -1663,6 +1671,10 @@ Item {
                                 } else {
                                     for (const prop of props)
                                         EditorState.addClipKeyframeAt(track, clip, prop, at)
+                                    for (const p of others) {
+                                        for (const prop of props)
+                                            EditorState.addClipKeyframeAt(p.track, p.clip, prop, at)
+                                    }
                                 }
                             } finally {
                                 if (several)

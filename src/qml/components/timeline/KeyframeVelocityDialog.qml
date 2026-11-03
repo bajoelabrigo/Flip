@@ -14,12 +14,16 @@ ThemedDialog {
     property string prop: ""
     property real seconds: 0
     property var vel: ({})
+    // Every picked key it applies to (0.30, After Effects): [{clip, prop, seconds}]; the key the
+    // menu was opened on gives the numbers shown.
+    property var keys: []
 
     title: qsTr("Keyframe velocity")
     acceptText: qsTr("Apply")
     preferredWidth: Theme.dialogWidthSm
 
-    function openFor(track, clip, prop, seconds) {
+    function openFor(track, clip, prop, seconds, picked) {
+        root.keys = (picked && picked.length > 0) ? picked : [{ "clip": clip, "prop": prop, "seconds": seconds }]
         root.trackIndex = track
         root.clipIndex = clip
         root.prop = prop
@@ -48,7 +52,30 @@ ThemedDialog {
             v.outSpeed = continuous.checked && root.vel.hasIn ? inSpeed.value : outSpeed.value
             v.outInfluence = outInfluence.value
         }
-        EditorState.setKeyVelocity(root.trackIndex, root.clipIndex, root.prop, root.seconds, v)
+        const several = root.keys.length > 1
+        if (several)
+            EditorState.beginEditSession(qsTr("Keyframe velocity"))
+        try {
+            for (const k of root.keys) {
+                // Each key takes the sides it has: the first has no way in, the last no way out.
+                const own = EditorState.keyVelocity(root.trackIndex, k.clip, k.prop, k.seconds) || {}
+                if (!own.valid)
+                    continue
+                const w = {}
+                if (own.hasIn && v.inSpeed !== undefined) {
+                    w.inSpeed = v.inSpeed
+                    w.inInfluence = v.inInfluence
+                }
+                if (own.hasOut && v.outSpeed !== undefined) {
+                    w.outSpeed = v.outSpeed
+                    w.outInfluence = v.outInfluence
+                }
+                EditorState.setKeyVelocity(root.trackIndex, k.clip, k.prop, k.seconds, w)
+            }
+        } finally {
+            if (several)
+                EditorState.endEditSession(true)
+        }
     }
 
     contentItem: Column {

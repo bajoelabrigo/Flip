@@ -128,6 +128,18 @@ inline ExpressionEvaluator &expressionEvaluatorRef()
     static ExpressionEvaluator evaluator = nullptr;
     return evaluator;
 }
+// The property an expression belongs to, while it runs on this thread (0.30): its keys at another
+// time, for valueAtTime() and velocity. `keysAt` is null outside an expression.
+struct ExpressionSelf
+{
+    const void *track = nullptr;
+    double (*keysAt)(const void *track, double seconds) = nullptr;
+};
+inline ExpressionSelf &expressionSelfRef()
+{
+    thread_local ExpressionSelf self;
+    return self;
+}
 struct ExpressionContext
 {
     const void *project = nullptr; // a drift::Project
@@ -471,9 +483,18 @@ private:
         value += m_behavior.speed * seconds;
         if (m_behavior.hasWiggle())
             value += m_behavior.wiggleAmount * behaviorNoise(seconds * m_behavior.wiggleFrequency, m_behavior.wiggleSeed);
-        if (!m_behavior.expression.isEmpty())
-            if (ExpressionEvaluator evaluator = expressionEvaluatorRef())
+        if (!m_behavior.expression.isEmpty()) {
+            if (ExpressionEvaluator evaluator = expressionEvaluatorRef()) {
+                ExpressionSelf &self = expressionSelfRef();
+                const ExpressionSelf outer = self;
+                self.track = this;
+                self.keysAt = [](const void *track, double s) {
+                    return double(static_cast<const KeyframeTrack *>(track)->evaluateKeys(TimeUs(s * 1e6)));
+                };
                 value = evaluator(m_behavior.expression, value, seconds);
+                self = outer;
+            }
+        }
         return value;
     }
 

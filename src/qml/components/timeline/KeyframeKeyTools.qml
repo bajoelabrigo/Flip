@@ -327,6 +327,21 @@ Item {
         if (!root.keysCopiedLast || !EditorState.hasCopiedKeyframes()
                 || EditorState.selectedTrack < 0 || EditorState.selectedClip < 0)
             return false
+        // With several layers picked, each gets the keys (0.30, as After Effects pastes into every
+        // selected layer's same property), in one undo step.
+        const picked = EditorState.selection || []
+        const several = picked.length > 1
+        if (several) {
+            EditorState.beginEditSession(qsTr("Paste keyframes"))
+            let any = false
+            try {
+                for (const p of picked)
+                    any = EditorState.pasteKeyframes(p.track, p.clip) || any
+            } finally {
+                EditorState.endEditSession(any)
+            }
+            return any
+        }
         if (!EditorState.pasteKeyframes(EditorState.selectedTrack, EditorState.selectedClip))
             return false
         // The pasted keys are the picked ones now (0.30, as After Effects): the next nudge, ease or
@@ -541,7 +556,7 @@ Item {
         ThemedMenuItem {
             // After Effects' Keyframe Velocity (Ctrl+Shift+K there), for the key the menu is on.
             text: qsTr("Keyframe velocity…")
-            onTriggered: velocityDialog.openFor(root.track, root.menuClip, root.menuProp, root.menuSeconds)
+            onTriggered: velocityDialog.openFor(root.track, root.menuClip, root.menuProp, root.menuSeconds, root.keys)
         }
         ThemedMenuItem {
             text: keyMenu.one ? qsTr("Delete keyframe") : qsTr("Delete keyframes")

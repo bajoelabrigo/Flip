@@ -807,6 +807,24 @@ ApplicationWindow {
         }
     }
 
+    // Pro turned on (0.30): offer After Effects' shortcuts, once.
+    LazyLoader {
+        id: aeShortcutsDialogLoader
+        sourceComponent: Component {
+            AeShortcutsDialog { }
+        }
+    }
+    Connections {
+        target: EditorState.preferences
+        function onProModeChanged() {
+            // In the editor only: the first-run dialogs (language, mode, account) come one at a time.
+            if (window.showStartScreen || !EditorState.preferences.proMode
+                    || EditorState.shortcutPreset() === "afterEffects" || !EditorState.takeAeShortcutsOffer())
+                return
+            Qt.callLater(() => aeShortcutsDialogLoader.ensure().open())
+        }
+    }
+
     LazyLoader {
         id: uiModeDialogLoader
         sourceComponent: Component {

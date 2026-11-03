@@ -11990,6 +11990,23 @@ void EngineTest::expressionsRunOnProperties()
         track.setBehavior(b);
         QCOMPARE(track.evaluateAt(0), 52.0);
     }
+    // After Effects' helpers (0.30): linear/ease/clamp, and the property's own keys at another time.
+    b.expression = QStringLiteral("linear(time, 0, 1, 0, 100)");
+    track.setBehavior(b);
+    QCOMPARE(track.evaluateAt(drift::secondsToUs(0.25)), 25.0);
+    QCOMPARE(track.evaluateAt(drift::secondsToUs(3.0)), 100.0);
+    b.expression = QStringLiteral("ease(0.5, 0, 10)");
+    track.setBehavior(b);
+    QCOMPARE(track.evaluateAt(0), 5.0);
+    b.expression = QStringLiteral("clamp(value, 0, 12)");
+    track.setBehavior(b);
+    QCOMPARE(track.evaluateAt(drift::secondsToUs(0.5)), 12.0);
+    b.expression = QStringLiteral("valueAtTime(time - 0.5)");
+    track.setBehavior(b);
+    QCOMPARE(track.evaluateAt(drift::secondsToUs(1.0)), 15.0);
+    b.expression = QStringLiteral("velocity");
+    track.setBehavior(b);
+    QVERIFY(std::abs(track.evaluateAt(drift::secondsToUs(0.5)) - 10.0) < 1e-6);
     // Broken code keeps the value and says why.
     b.expression = QStringLiteral("this is not js");
     track.setBehavior(b);

@@ -8,6 +8,46 @@ import "components/timeline"
 PanelFrame {
     id: root
 
+    // After Effects' work area bar (0.30): drag the bar to move the range, an end to
+    // change it. One undo step per drag; snapped to frames.
+    component WorkAreaGrip: MouseArea {
+        // "in", "out" or "both"
+        property string edge: "both"
+        property real pressX: 0
+        property real startIn: 0
+        property real startOut: 0
+        hoverEnabled: true
+        preventStealing: true
+        cursorShape: edge === "both" ? Qt.SizeAllCursor : Qt.SizeHorCursor
+        onPressed: (mouse) => {
+            pressX = mapToItem(null, mouse.x, mouse.y).x
+            startIn = EditorState.workAreaInSeconds
+            startOut = EditorState.workAreaOutSeconds
+            EditorState.beginPreviewDrag(qsTr("Move work area"))
+        }
+        onPositionChanged: (mouse) => {
+            if (!pressed)
+                return
+            const d = (mapToItem(null, mouse.x, mouse.y).x - pressX) / root.pxPerSecond
+            if (edge === "in")
+                EditorState.previewSetWorkArea(Math.min(startIn + d, startOut - 0.001), startOut)
+            else if (edge === "out")
+                EditorState.previewSetWorkArea(startIn, Math.max(startOut + d, startIn + 0.001))
+            else {
+                const len = startOut - startIn
+                const lo = Math.max(0, startIn + d)
+                EditorState.previewSetWorkArea(lo, lo + len)
+            }
+        }
+        onReleased: EditorState.commitPreviewDrag()
+        onCanceled: EditorState.commitPreviewDrag()
+        ThemedToolTip {
+            visible: parent.containsMouse && !parent.pressed
+            text: parent.edge === "both" ? qsTr("Work area: drag to move it")
+                                         : qsTr("Work area: drag to change where it starts or ends")
+        }
+    }
+
     // Keyframe lane height the user dragged to; session-only, kept here because the graph
     // itself is unloaded whenever no clip or no keyframe tab is selected.
     property real keyframeLaneHeight: 88
@@ -1943,6 +1983,25 @@ PanelFrame {
                                              * root.pxPerSecond)
                             color: Qt.rgba(Theme.primary.r, Theme.primary.g, Theme.primary.b, 0.18)
                             z: 1
+
+                            WorkAreaGrip {
+                                edge: "both"
+                                anchors.fill: parent
+                                anchors.leftMargin: 6
+                                anchors.rightMargin: 6
+                            }
+                            WorkAreaGrip {
+                                edge: "in"
+                                width: 8
+                                x: -2
+                                height: parent.height
+                            }
+                            WorkAreaGrip {
+                                edge: "out"
+                                width: 8
+                                x: parent.width - 6
+                                height: parent.height
+                            }
                         }
                     }
 

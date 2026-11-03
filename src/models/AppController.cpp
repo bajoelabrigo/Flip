@@ -5012,7 +5012,72 @@ QHash<QString, QString> defaultShortcuts()
         {QStringLiteral("multicam"), QStringLiteral("Ctrl+Shift+C")},
         {QStringLiteral("transformTogether"), QStringLiteral("Ctrl+G")},
         {QStringLiteral("selectTransformLayer"), QStringLiteral("Shift+G")},
+        // After Effects' layer keys (0.30), free in both sets: Alt+[ / Alt+] trim the picked layers'
+        // in or out point to the playhead, [ / ] move them so it starts or ends there; Page Up / Page
+        // Down step a frame. Going to the layer's own in and out point is I / O in the AE set only.
+        {QStringLiteral("trimInToPlayhead"), QStringLiteral("Alt+[")},
+        {QStringLiteral("trimOutToPlayhead"), QStringLiteral("Alt+]")},
+        {QStringLiteral("moveInToPlayhead"), QStringLiteral("[")},
+        {QStringLiteral("moveOutToPlayhead"), QStringLiteral("]")},
+        {QStringLiteral("stepBackPage"), QStringLiteral("PgUp")},
+        {QStringLiteral("stepForwardPage"), QStringLiteral("PgDown")},
+        {QStringLiteral("goToLayerIn"), QString()},
+        {QStringLiteral("goToLayerOut"), QString()},
     };
+}
+
+// The "After Effects" set (0.30, Jorge): what it changes over Flip's own. Its keys for the keyframe
+// lines and the layer go where AE has them, and what used them moves aside, so nothing is lost:
+// J / K step between keys (the shuttle takes Shift+J), P / S / R / T / A show one property's line,
+// G is the pen (guides go to Ctrl+;), Q the shape tool, W the 3D rotation, B / N the work area and
+// I / O the layer's in and out point, Ctrl+Shift+D splits.
+const QHash<QString, QString> &afterEffectsShortcutChanges()
+{
+    static const QHash<QString, QString> changes = {
+        {QStringLiteral("previousKeyframe"), QStringLiteral("J")},
+        {QStringLiteral("nextKeyframe"), QStringLiteral("K")},
+        {QStringLiteral("speedDown"), QStringLiteral("Shift+J")},
+        {QStringLiteral("showPositionRows"), QStringLiteral("P")},
+        {QStringLiteral("showScaleRows"), QStringLiteral("S")},
+        {QStringLiteral("showRotationRows"), QStringLiteral("R")},
+        {QStringLiteral("showOpacityRows"), QStringLiteral("T")},
+        {QStringLiteral("showAnchorRows"), QStringLiteral("A")},
+        {QStringLiteral("split"), QStringLiteral("Ctrl+Shift+D")},
+        {QStringLiteral("previewPenTool"), QStringLiteral("G")},
+        {QStringLiteral("toggleGuides"), QStringLiteral("Ctrl+;")},
+        {QStringLiteral("previewShapeTool"), QStringLiteral("Q")},
+        {QStringLiteral("deleteLeft"), QStringLiteral("Alt+Q")},
+        {QStringLiteral("deleteRight"), QStringLiteral("Alt+W")},
+        {QStringLiteral("gizmoMove"), QStringLiteral("Ctrl+Alt+1")},
+        {QStringLiteral("gizmoRotate"), QStringLiteral("W")},
+        {QStringLiteral("gizmoScale"), QStringLiteral("Ctrl+Alt+3")},
+        {QStringLiteral("selectRightTool"), QStringLiteral("Ctrl+Alt+A")},
+        {QStringLiteral("markIn"), QStringLiteral("B")},
+        {QStringLiteral("markOut"), QStringLiteral("N")},
+        {QStringLiteral("goToLayerIn"), QStringLiteral("I")},
+        {QStringLiteral("goToLayerOut"), QStringLiteral("O")},
+    };
+    return changes;
+}
+
+const QString kShortcutPresetAfterEffects = QStringLiteral("afterEffects");
+
+QString storedShortcutPreset()
+{
+    return QSettings().value(QStringLiteral("editor/shortcutPreset")).toString() == kShortcutPresetAfterEffects
+               ? kShortcutPresetAfterEffects
+               : QStringLiteral("flip");
+}
+
+QHash<QString, QString> shortcutDefaultsFor(const QString &preset)
+{
+    QHash<QString, QString> keys = defaultShortcuts();
+    if (preset == kShortcutPresetAfterEffects) {
+        const QHash<QString, QString> &changes = afterEffectsShortcutChanges();
+        for (auto it = changes.cbegin(); it != changes.cend(); ++it)
+            keys.insert(it.key(), it.value());
+    }
+    return keys;
 }
 
 } // namespace
@@ -5880,6 +5945,8 @@ QVariantList AppController::actions() const
         action(QStringLiteral("nextEdit"), tr("Go to next cut point")),
         action(QStringLiteral("stepBack"), tr("Step back one frame")),
         action(QStringLiteral("stepForward"), tr("Step forward one frame")),
+        action(QStringLiteral("stepBackPage"), tr("Step back one frame (Page Up)")),
+        action(QStringLiteral("stepForwardPage"), tr("Step forward one frame (Page Down)")),
         action(QStringLiteral("jumpBack"), tr("Jump back 1 second")),
         action(QStringLiteral("jumpForward"), tr("Jump forward 1 second")),
         action(QStringLiteral("jumpBackFar"), tr("Jump back 10 seconds")),
@@ -5910,6 +5977,12 @@ QVariantList AppController::actions() const
         action(QStringLiteral("markOut"), tr("Mark work area out")),
         action(QStringLiteral("goToIn"), tr("Go to work area in")),
         action(QStringLiteral("goToOut"), tr("Go to work area out")),
+        action(QStringLiteral("goToLayerIn"), tr("Go to the layer's in point")),
+        action(QStringLiteral("goToLayerOut"), tr("Go to the layer's out point")),
+        action(QStringLiteral("trimInToPlayhead"), tr("Trim the layer's in point to the playhead")),
+        action(QStringLiteral("trimOutToPlayhead"), tr("Trim the layer's out point to the playhead")),
+        action(QStringLiteral("moveInToPlayhead"), tr("Move the layer so it starts at the playhead")),
+        action(QStringLiteral("moveOutToPlayhead"), tr("Move the layer so it ends at the playhead")),
         action(QStringLiteral("clearInOut"), tr("Clear work area")),
         action(QStringLiteral("toggleLoop"), tr("Loop work area playback")),
         action(QStringLiteral("ramPreview"), tr("RAM preview (render to memory and play)")),
@@ -5968,6 +6041,11 @@ void AppController::setPlaying(bool playing)
     m_playing = playing;
     if (m_playing) {
         const drift::TimeUs durationUs = m_project.durationUs();
+        // Without the loop, playing from inside the work area stops at its end, as After Effects
+        // previews its work area (0.30).
+        const bool insideWorkArea = m_project.hasWorkArea() && m_playheadUs >= m_project.workAreaInUs()
+                                    && m_playheadUs < m_project.workAreaOutUs();
+        m_playback.setStopAtUs(!m_loopWorkAreaEnabled && insideWorkArea ? m_project.workAreaOutUs() : -1);
         if (m_loopWorkAreaEnabled && m_project.hasWorkArea()) {
             const drift::TimeUs loopIn = m_project.workAreaInUs();
             const drift::TimeUs loopOut = m_project.workAreaOutUs();
@@ -9086,6 +9164,65 @@ void AppController::alignSelectedClipRight()
 // shortcuts and by the align_clip_left/right MCP tools. These used to carry their own copy
 // of the split, which both broke their undo snapshot and left them ignoring rippleEnabled
 // while the identical context-menu path honoured it.
+// After Effects' [ ] and Alt+[ ] (0.30): every picked layer (the selected clip when none is
+// picked) has its in or out point trimmed to the playhead, or is moved so it starts or ends there,
+// in one undo step; I / O take the playhead to the selected layer's own in and out point.
+void AppController::layerEditAtPlayhead(const QString &actionId)
+{
+    QList<QPair<int, int>> targets = m_selection;
+    if (targets.isEmpty() && isValidClipIndex(m_selectedTrack, m_selectedClip))
+        targets.append({m_selectedTrack, m_selectedClip});
+    if (targets.isEmpty())
+        return;
+    const double frame = 1.0 / qMax(1, m_project.fps());
+    if (actionId == QLatin1String("goToLayerIn") || actionId == QLatin1String("goToLayerOut")) {
+        const QPair<int, int> at = isValidClipIndex(m_selectedTrack, m_selectedClip)
+                                       ? QPair<int, int>{m_selectedTrack, m_selectedClip} : targets.first();
+        const drift::Clip &clip = m_project.tracks().at(at.first).clips.at(at.second);
+        setPlayheadUs(actionId == QLatin1String("goToLayerIn")
+                          ? clip.timelineStart
+                          : qMax(clip.timelineStart, clip.timelineEnd() - drift::secondsToUs(frame)));
+        return;
+    }
+    QStringList ids;
+    for (const auto &p : std::as_const(targets)) {
+        if (isValidClipIndex(p.first, p.second))
+            ids.append(m_project.tracks().at(p.first).clips.at(p.second).id);
+    }
+    const double playhead = drift::usToSeconds(m_playheadUs);
+    beginEditSession(actionId.startsWith(QLatin1String("trim")) ? tr("Trim layer") : tr("Move layer"));
+    bool changed = false;
+    for (const QString &id : std::as_const(ids)) {
+        int t = -1;
+        int c = -1;
+        if (!findClipById(m_project, id, &t, &c))
+            continue;
+        const drift::Clip clip = m_project.tracks().at(t).clips.at(c);
+        const double start = drift::usToSeconds(clip.timelineStart);
+        const double end = drift::usToSeconds(clip.timelineEnd());
+        if (actionId == QLatin1String("trimInToPlayhead")) {
+            if (playhead > start && playhead < end) {
+                trimClipLeft(t, c, playhead);
+                changed = true;
+            }
+        } else if (actionId == QLatin1String("trimOutToPlayhead")) {
+            if (playhead > start && playhead < end) {
+                trimClipRight(t, c, playhead);
+                changed = true;
+            }
+        } else if (actionId == QLatin1String("moveInToPlayhead")) {
+            moveClip(t, c, playhead);
+            changed = true;
+        } else if (actionId == QLatin1String("moveOutToPlayhead")) {
+            moveClip(t, c, qMax(0.0, playhead - (end - start)));
+            changed = true;
+        }
+    }
+    endEditSession(changed);
+    if (!changed && actionId.startsWith(QLatin1String("trim")))
+        setLastMessage(tr("Put the playhead inside the layer to trim it there"), QStringLiteral("warning"));
+}
+
 void AppController::splitSelectedClipLeft()
 {
     splitClipLeftAt(m_selectedTrack, m_selectedClip, playheadSeconds());
@@ -11971,6 +12108,7 @@ void AppController::showOnlyKeyframeGroup(const QString &group)
         track.keyframesExpanded = !alreadyShown && tracks.contains(t) && !track.isAdjustmentLane();
     }
     m_keyframeRowsAnimatedOnly = false;
+    m_keyframeRowsModifiedOnly = false;
     m_keyframeRowsOnlyGroup = alreadyShown ? QString() : group;
     m_tracksCacheValid = false;
     m_tracksCache.clear();
@@ -29885,7 +30023,25 @@ void AppController::stepToKeyframe(bool forward)
 void AppController::toggleRevealKeyframes()
 {
     // As After Effects' U: open every track that has keys and show only the lines with keys; again,
-    // close them all and show the fixed lines once more.
+    // close them all and show the fixed lines once more. U twice in a row (UU, 0.30) shows instead
+    // the lines whose value was changed at all, animated or not.
+    const qint64 now = QDateTime::currentMSecsSinceEpoch();
+    const bool twice = now - m_lastRevealMs < 450 && m_keyframeRowsAnimatedOnly;
+    m_lastRevealMs = now;
+    if (twice) {
+        for (int t = 0; t < m_project.tracks().size(); ++t) {
+            drift::Track &track = m_project.tracks()[t];
+            track.keyframesExpanded = !track.isAdjustmentLane() && (trackHasKeyframes(t) || trackHasModifiedLines(t));
+        }
+        m_keyframeRowsAnimatedOnly = false;
+        m_keyframeRowsModifiedOnly = true;
+        m_keyframeRowsOnlyGroup.clear();
+        m_tracksCacheValid = false;
+        m_tracksCache.clear();
+        notifyTracksChanged();
+        return;
+    }
+    m_keyframeRowsModifiedOnly = false;
     bool anyOpen = false;
     for (const drift::Track &track : m_project.tracks())
         anyOpen = anyOpen || track.keyframesExpanded;
@@ -29898,6 +30054,31 @@ void AppController::toggleRevealKeyframes()
     m_tracksCacheValid = false;
     m_tracksCache.clear();
     notifyTracksChanged();
+}
+
+// UU (0.30): a transform line whose value is not the one Reset would give (Position, Scale, Rotation,
+// Opacity, Anchor Point), or an audio line off its default.
+bool AppController::lineModified(int trackIndex, int clipIndex, const QStringList &props) const
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return false;
+    const drift::Clip &clip = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    drift::Clip rest = clip;
+    const_cast<AppController *>(this)->resetTransformOf(rest);
+    for (const QString &prop : props) {
+        const drift::KeyframeTrack<double> *now = keyframeTrackForProp(clip, prop);
+        const drift::KeyframeTrack<double> *home = keyframeTrackForProp(rest, prop);
+        double fallback = 0.0;
+        if (prop == QLatin1String("opacity") || prop == QLatin1String("volume"))
+            fallback = 1.0;
+        else if (prop == QLatin1String("anchorX") || prop == QLatin1String("anchorY"))
+            fallback = 0.5;
+        const double a = now && !now->isEmpty() ? now->evaluateAt(0) : fallback;
+        const double b = home && !home->isEmpty() ? home->evaluateAt(0) : fallback;
+        if (std::abs(a - b) > 1e-3 * qMax(1.0, std::abs(b)))
+            return true;
+    }
+    return false;
 }
 
 bool AppController::trackHasKeyframes(int trackIndex) const
@@ -30018,6 +30199,20 @@ const QList<KeyframeGroup> &fixedKeyframeGroups(const drift::Track &track)
 }
 
 } // namespace
+
+bool AppController::trackHasModifiedLines(int trackIndex) const
+{
+    if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
+        return false;
+    const drift::Track &track = m_project.tracks().at(trackIndex);
+    for (const KeyframeGroup &group : fixedKeyframeGroups(track)) {
+        for (int c = 0; c < track.clips.size(); ++c) {
+            if (lineModified(trackIndex, c, group.props))
+                return true;
+        }
+    }
+    return false;
+}
 
 void AppController::setKeyframeGroupExpanded(int trackIndex, const QString &group, bool expanded)
 {
@@ -30516,9 +30711,16 @@ QVariantList AppController::trackKeyframeRows(int trackIndex) const
                     {QStringLiteral("keys"), keys},
                 });
             }
-            // U (revealKeyframes) shows only the lines that animate something.
+            // U (revealKeyframes) shows only the lines that animate something; UU those changed at all.
             if (m_keyframeRowsAnimatedOnly && !groupHasKeys)
                 continue;
+            if (m_keyframeRowsModifiedOnly && !groupHasKeys) {
+                bool modified = false;
+                for (int c = 0; c < clipCount && !modified; ++c)
+                    modified = lineModified(trackIndex, c, group.props);
+                if (!modified)
+                    continue;
+            }
             // Shift+A/P/R/T/S (0.26): only that line.
             if (!m_keyframeRowsOnlyGroup.isEmpty() && groupId != m_keyframeRowsOnlyGroup)
                 continue;
@@ -31019,6 +31221,29 @@ void AppController::markWorkAreaOut()
         m_project.clearWorkArea();
     pushProjectEdit(before, tr("Mark work area out"));
     finishEdit(tr("Work area out marked"));
+    emit workAreaChanged();
+}
+
+void AppController::previewSetWorkArea(double inSeconds, double outSeconds)
+{
+    const double fps = qMax(1, m_project.fps());
+    const auto snap = [fps](double s) { return std::round(s * fps) / fps; };
+    const drift::TimeUs end = qMax(m_project.durationUs(), drift::TimeUs{0});
+    drift::TimeUs in = qBound<drift::TimeUs>(0, drift::secondsToUs(snap(inSeconds)), end);
+    drift::TimeUs out = qBound<drift::TimeUs>(0, drift::secondsToUs(snap(outSeconds)), end);
+    const drift::TimeUs frame = drift::secondsToUs(1.0 / fps);
+    if (out - in < frame) {
+        if (out + frame <= end)
+            out = in + frame;
+        else
+            in = qMax<drift::TimeUs>(0, out - frame);
+    }
+    if (in == m_project.workAreaInUs() && out == m_project.workAreaOutUs())
+        return;
+    m_project.setWorkAreaInUs(in);
+    m_project.setWorkAreaOutUs(out);
+    if (m_previewDragActive)
+        m_previewDragDirty = true;
     emit workAreaChanged();
 }
 
@@ -32254,7 +32479,7 @@ QString AppController::setShortcut(const QString &actionId, const QString &keys)
 
 void AppController::loadShortcuts()
 {
-    m_shortcuts = defaultShortcuts();
+    m_shortcuts = shortcutDefaultsFor(storedShortcutPreset());
 
     QSettings settings;
     settings.beginGroup(QStringLiteral("shortcuts"));
@@ -32314,9 +32539,45 @@ void AppController::loadShortcuts()
     claimChords(defaultedIds);
 }
 
+QString AppController::shortcutPreset() const
+{
+    return storedShortcutPreset();
+}
+
+void AppController::setShortcutPreset(const QString &preset)
+{
+    const QString next = preset == kShortcutPresetAfterEffects ? kShortcutPresetAfterEffects : QStringLiteral("flip");
+    const QString previous = storedShortcutPreset();
+    if (next == previous)
+        return;
+    // A binding that only mirrors the old set's default goes, so the new set's arrives; one the user
+    // chose stays theirs (Jorge: nobody loses their own shortcuts).
+    const QHash<QString, QString> oldDefaults = shortcutDefaultsFor(previous);
+    QSettings settings;
+    settings.beginGroup(QStringLiteral("shortcuts"));
+    for (auto it = oldDefaults.cbegin(); it != oldDefaults.cend(); ++it) {
+        const QString stored = settings.value(it.key()).toString();
+        if (stored.isEmpty() || stored == it.value())
+            settings.remove(it.key());
+    }
+    settings.endGroup();
+    settings.setValue(QStringLiteral("editor/shortcutPreset"), next);
+    loadShortcuts();
+    emit shortcutsChanged();
+}
+
+bool AppController::takeAeShortcutsOffer()
+{
+    QSettings settings;
+    if (settings.value(QStringLiteral("editor/aeShortcutsOffered"), false).toBool())
+        return false;
+    settings.setValue(QStringLiteral("editor/aeShortcutsOffered"), true);
+    return true;
+}
+
 void AppController::resetShortcuts()
 {
-    m_shortcuts = defaultShortcuts();
+    m_shortcuts = shortcutDefaultsFor(storedShortcutPreset());
     QSettings settings;
     settings.beginGroup(QStringLiteral("shortcuts"));
     for (auto it = m_shortcuts.cbegin(); it != m_shortcuts.cend(); ++it)
@@ -32342,10 +32603,21 @@ QString AppController::shortcutChord(int key, int modifiers) const
     case Qt::Key_Up:        name = QStringLiteral("Up"); break;
     case Qt::Key_Right:     name = QStringLiteral("Right"); break;
     case Qt::Key_Down:      name = QStringLiteral("Down"); break;
-    case Qt::Key_PageUp:    name = QStringLiteral("PageUp"); break;
-    case Qt::Key_PageDown:  name = QStringLiteral("PageDown"); break;
+    case Qt::Key_PageUp:    name = QStringLiteral("PgUp"); break; // Qt's own key names, so the chord parses
+    case Qt::Key_PageDown:  name = QStringLiteral("PgDown"); break;
     case Qt::Key_Space:     name = QStringLiteral("Space"); break;
     case Qt::Key_Tab:       name = QStringLiteral("Tab"); break;
+    // After Effects' layer keys and their neighbours (0.30): [ ] ; ' = - , . / \ could not be recorded.
+    case Qt::Key_BracketLeft:  name = QStringLiteral("["); break;
+    case Qt::Key_BracketRight: name = QStringLiteral("]"); break;
+    case Qt::Key_Semicolon:    name = QStringLiteral(";"); break;
+    case Qt::Key_Apostrophe:   name = QStringLiteral("'"); break;
+    case Qt::Key_Equal:        name = QStringLiteral("="); break;
+    case Qt::Key_Minus:        name = QStringLiteral("-"); break;
+    case Qt::Key_Comma:        name = QStringLiteral(","); break;
+    case Qt::Key_Period:       name = QStringLiteral("."); break;
+    case Qt::Key_Slash:        name = QStringLiteral("/"); break;
+    case Qt::Key_Backslash:    name = QStringLiteral("\\"); break;
     case Qt::Key_Shift:
     case Qt::Key_Control:
     case Qt::Key_Alt:
@@ -32593,6 +32865,14 @@ void AppController::triggerAction(const QString &actionId)
         jumpSeconds(-10.0);
     else if (actionId == QStringLiteral("jumpForwardFar"))
         jumpSeconds(10.0);
+    else if (actionId == QStringLiteral("stepBackPage"))
+        stepFrames(-1);
+    else if (actionId == QStringLiteral("stepForwardPage"))
+        stepFrames(1);
+    else if (actionId == QStringLiteral("trimInToPlayhead") || actionId == QStringLiteral("trimOutToPlayhead")
+             || actionId == QStringLiteral("moveInToPlayhead") || actionId == QStringLiteral("moveOutToPlayhead")
+             || actionId == QStringLiteral("goToLayerIn") || actionId == QStringLiteral("goToLayerOut"))
+        layerEditAtPlayhead(actionId);
     else if (actionId == QStringLiteral("goToStart"))
         setPlayheadUs(0);
     else if (actionId == QStringLiteral("deleteLeft"))

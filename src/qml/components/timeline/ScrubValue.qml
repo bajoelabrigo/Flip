@@ -94,10 +94,16 @@ Item {
         cursorShape: Qt.SizeHorCursor
         property real pressX: 0
         property real startShown: 0
-        // Once used, the hint stays away until the pointer leaves: it sat over the line's name while
-        // the value was typed and the frames stepped (bounce exercise #14).
+        // The hint shows only once the pointer moves over the value, and not again after a press until
+        // it leaves: it sat over the line's name while the value was typed and the frames stepped, and
+        // the line is rebuilt on every commit, so a still pointer over the new one must not bring it back
+        // (bounce exercise #14).
         property bool hintUsed: false
-        onExited: hintUsed = false
+        property bool movedOver: false
+        onExited: {
+            hintUsed = false
+            movedOver = false
+        }
         onPressed: (mouse) => {
             hintUsed = true
             pressX = mapToItem(null, mouse.x, mouse.y).x
@@ -105,8 +111,10 @@ Item {
             root.liveShown = startShown
         }
         onPositionChanged: (mouse) => {
-            if (!pressed)
+            if (!pressed) {
+                movedOver = true
                 return
+            }
             const dx = mapToItem(null, mouse.x, mouse.y).x - pressX
             if (!root.dragging) {
                 if (Math.abs(dx) < 3)
@@ -171,21 +179,23 @@ Item {
         Keys.onReturnPressed: finish(true)
         Keys.onEnterPressed: finish(true)
         Keys.onEscapePressed: finish(false)
+        // The line asks for the next value first: the commit rebuilds the lines at once, so a signal
+        // sent after it came from a destroyed item and nobody heard it (bounce exercise #10b).
         Keys.onTabPressed: (event) => {
             event.accepted = true
-            finish(true)
             root.tabbed(false)
+            finish(true)
         }
         Keys.onBacktabPressed: (event) => {
             event.accepted = true
-            finish(true)
             root.tabbed(true)
+            finish(true)
         }
         onActiveFocusChanged: if (!activeFocus) finish(true)
     }
 
     ThemedToolTip {
-        visible: scrub.containsMouse && !scrub.hintUsed && !root.dragging && !root.editing
+        visible: scrub.containsMouse && scrub.movedOver && !scrub.hintUsed && !root.dragging && !root.editing
         text: qsTr("Drag to change, click to type")
     }
 }
