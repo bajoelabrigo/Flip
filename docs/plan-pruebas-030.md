@@ -135,3 +135,16 @@ Material: video de B-roll con voz (`voz.wav` sobre el video de la gente).
 | — | SUB3 | Bien: subtítulos creados en el equipo sin sesión (5), «Continuar sin cuenta» | ok |
 | — | SUB2/3 | Sin probar: pitido, quitar silencios con otras pistas, estilo por subtítulo, importar .srt, karaoke, exportar con subtítulos (siguen en la próxima ronda, con la compilación nueva) | — |
 | — | — | (E31 quitado: la bienvenida «Esperando al navegador» fue Jorge iniciando sesión) | — |
+
+## Estado (2026-11-03, tarde) — para seguir
+- Ronda 1 hecha (lista de arriba). Arreglos en `f1f6b` y `8fb52` (rama `flip/subtitulos`): 1, 3, 4, 5, 7, 8, 9/2 (ScrubValue
+  que re-elegía su clip al perder el foco; si vuelve: revisar herramienta de la línea de tiempo activa o el 1.er clic tras Pro),
+  10, 12, 14, 15, 16, 17, 18, 20, 21, 22, 23, 26, 27, 29, 30. Pendientes para la ronda 2: 6 (Tab ancho→alto), 11 (látigo de
+  emparentar ya existe pero solo con el clip elegido: hacerlo visible), 13 ([ ] con teclado español), 19 (gráfico con el
+  resultado de comportamientos), 24, 25 (Editar con el texto reusando los subtítulos), 28 (miniaturas de estilos).
+- Compilación con todo junto (voz nueva + arreglos): run 41685086924. Al salir: bajar `windows-portable` a
+  `E:\FlipStudio\pruebas\FlipStudio-0.30-r2`, rehacer los proyectos con `proyectos-030\make-*.jsonl` (mcp_e2e.py), copia del
+  registro, AE con el mouse de Jorge (avisarle), subtítulos sin mouse (`proyectos-030\cs.ps1 -P <pid> -Steps "c:x,y; w:ms"`),
+  SUB3 sin sesión: exportar `account` antes, borrarla, «Continuar sin cuenta», restaurar al final con la exportada.
+- Probar también la voz (docs/plan-voz.md): tomas, frases, [pausa 1s], velocidad/tono, diálogo, editar guion, leer título,
+  diseño nuevo, menú cruzado Subtítulos/Voz.
