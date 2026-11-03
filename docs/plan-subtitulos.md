@@ -193,4 +193,4 @@ Entra solo cuando DeepL no puede: sin sesión, sin internet (estado 0) o 429/502
 Extra `traduccion.local` 1.0.0 (512 MB, instala 631 MB, app ≥ 0.30.0) armado en flip-addons (`modelos.py`,
 `m2m100_ref.py` es la referencia en Python: «Gracias por invitarme.» → «Thank you for inviting me.», menos de 2 s por
 línea). **Sin publicar**: falta probarlo en ventana con `DRIFT_TRANSLATE_MODEL_DIR` =
-`flip-addonsuild\stage	raduccion.local\models	ranslate`.
+`flip-addons\build\stage\traduccion.local\models\translate`.
