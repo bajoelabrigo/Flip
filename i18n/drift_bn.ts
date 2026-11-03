@@ -5570,6 +5570,22 @@
         <translation>%1টি ক্যাপশনে অ্যানিমেটেড ইমোজি</translation>
     </message>
     <message>
+        <source>No hidden words with their timing to bleep</source>
+        <translation>বিপ দেওয়ার মতো সময়সহ লুকানো শব্দ নেই</translation>
+    </message>
+    <message>
+        <source>Could not make the bleep</source>
+        <translation>বিপ তৈরি করা যায়নি</translation>
+    </message>
+    <message>
+        <source>Bleep swear words</source>
+        <translation>গালিতে বিপ</translation>
+    </message>
+    <message>
+        <source>Bleeped %1 words</source>
+        <translation>%1টি শব্দে বিপ</translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26800,6 +26816,14 @@ If playback stutters, try another.</source>
     <message>
         <source>An animated emoji above each caption that mentions one (fuego, Dios, fiesta…)</source>
         <translation>যে ক্যাপশনে ইমোজির কথা আছে তার উপরে একটি অ্যানিমেটেড ইমোজি (আগুন, ঈশ্বর, উৎসব…)</translation>
+    </message>
+    <message>
+        <source>Bleep</source>
+        <translation>বিপ</translation>
+    </message>
+    <message>
+        <source>A beep over each hidden swear word, with the voice muted under it</source>
+        <translation>প্রতিটি লুকানো গালির উপর বিপ, নিচে কণ্ঠ নিঃশব্দ</translation>
     </message>
     <message>
         <source>Key words</source>

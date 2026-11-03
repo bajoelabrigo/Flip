@@ -5451,6 +5451,22 @@
         <translation>자막 %1개에 움직이는 이모지</translation>
     </message>
     <message>
+        <source>No hidden words with their timing to bleep</source>
+        <translation>삐 소리를 넣을 타이밍이 있는 가린 단어가 없습니다</translation>
+    </message>
+    <message>
+        <source>Could not make the bleep</source>
+        <translation>삐 소리를 만들 수 없습니다</translation>
+    </message>
+    <message>
+        <source>Bleep swear words</source>
+        <translation>욕설에 삐 소리</translation>
+    </message>
+    <message>
+        <source>Bleeped %1 words</source>
+        <translation>%1개 단어에 삐 소리</translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26740,6 +26756,14 @@ If playback stutters, try another.</source>
     <message>
         <source>An animated emoji above each caption that mentions one (fuego, Dios, fiesta…)</source>
         <translation>이모지를 언급하는 자막 위에 움직이는 이모지를 놓습니다 (불, 하나님, 파티…)</translation>
+    </message>
+    <message>
+        <source>Bleep</source>
+        <translation>삐 소리</translation>
+    </message>
+    <message>
+        <source>A beep over each hidden swear word, with the voice muted under it</source>
+        <translation>가린 욕설마다 삐 소리를 넣고 그 아래 목소리를 줄입니다</translation>
     </message>
     <message>
         <source>Key words</source>

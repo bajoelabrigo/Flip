@@ -5451,6 +5451,22 @@
         <translation>%1 件の字幕にアニメ絵文字</translation>
     </message>
     <message>
+        <source>No hidden words with their timing to bleep</source>
+        <translation>ピー音を入れるタイミング付きの伏せ字がありません</translation>
+    </message>
+    <message>
+        <source>Could not make the bleep</source>
+        <translation>ピー音を作成できませんでした</translation>
+    </message>
+    <message>
+        <source>Bleep swear words</source>
+        <translation>暴言にピー音</translation>
+    </message>
+    <message>
+        <source>Bleeped %1 words</source>
+        <translation>%1 語にピー音</translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26742,6 +26758,14 @@ If playback stutters, try another.</source>
     <message>
         <source>An animated emoji above each caption that mentions one (fuego, Dios, fiesta…)</source>
         <translation>絵文字になる言葉を含む字幕の上にアニメ絵文字を置きます（火、神、パーティー…）</translation>
+    </message>
+    <message>
+        <source>Bleep</source>
+        <translation>ピー音</translation>
+    </message>
+    <message>
+        <source>A beep over each hidden swear word, with the voice muted under it</source>
+        <translation>伏せた暴言ごとにピー音を入れ、その下の声を消します</translation>
     </message>
     <message>
         <source>Key words</source>

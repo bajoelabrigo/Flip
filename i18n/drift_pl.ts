@@ -5489,6 +5489,22 @@
         <translation>Animowane emoji w %1 napisach</translation>
     </message>
     <message>
+        <source>No hidden words with their timing to bleep</source>
+        <translation>Brak ukrytych słów z czasem do wypikania</translation>
+    </message>
+    <message>
+        <source>Could not make the bleep</source>
+        <translation>Nie udało się utworzyć piknięcia</translation>
+    </message>
+    <message>
+        <source>Bleep swear words</source>
+        <translation>Wypikaj przekleństwa</translation>
+    </message>
+    <message>
+        <source>Bleeped %1 words</source>
+        <translation>Wypikano słowa: %1</translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26930,6 +26946,14 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     <message>
         <source>An animated emoji above each caption that mentions one (fuego, Dios, fiesta…)</source>
         <translation>Animowane emoji nad każdym napisem, który o nim wspomina (ogień, Bóg, impreza…)</translation>
+    </message>
+    <message>
+        <source>Bleep</source>
+        <translation>Pik</translation>
+    </message>
+    <message>
+        <source>A beep over each hidden swear word, with the voice muted under it</source>
+        <translation>Piknięcie na każdym ukrytym przekleństwie, z wyciszonym głosem pod spodem</translation>
     </message>
     <message>
         <source>Key words</source>

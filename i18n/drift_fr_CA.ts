@@ -5475,6 +5475,22 @@
         <translation>Émojis animés sur %1 sous-titres</translation>
     </message>
     <message>
+        <source>No hidden words with their timing to bleep</source>
+        <translation>Aucun mot masqué avec son minutage à biper</translation>
+    </message>
+    <message>
+        <source>Could not make the bleep</source>
+        <translation>Impossible de créer le bip</translation>
+    </message>
+    <message>
+        <source>Bleep swear words</source>
+        <translation>Biper les jurons</translation>
+    </message>
+    <message>
+        <source>Bleeped %1 words</source>
+        <translation>Bip sur %1 mots</translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26838,6 +26854,14 @@ Si la lecture saccade, essayez une autre option.</translation>
     <message>
         <source>An animated emoji above each caption that mentions one (fuego, Dios, fiesta…)</source>
         <translation>Un émoji animé au-dessus de chaque sous-titre qui en évoque un (feu, Dieu, fête…)</translation>
+    </message>
+    <message>
+        <source>Bleep</source>
+        <translation>Bip</translation>
+    </message>
+    <message>
+        <source>A beep over each hidden swear word, with the voice muted under it</source>
+        <translation>Un bip sur chaque juron masqué, avec la voix coupée en dessous</translation>
     </message>
     <message>
         <source>Key words</source>

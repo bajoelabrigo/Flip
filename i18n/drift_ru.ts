@@ -5489,6 +5489,22 @@
         <translation>Анимированные эмодзи в субтитрах: %1</translation>
     </message>
     <message>
+        <source>No hidden words with their timing to bleep</source>
+        <translation>Нет скрытых слов с таймингом для запикивания</translation>
+    </message>
+    <message>
+        <source>Could not make the bleep</source>
+        <translation>Не удалось создать писк</translation>
+    </message>
+    <message>
+        <source>Bleep swear words</source>
+        <translation>Запикать ругательства</translation>
+    </message>
+    <message>
+        <source>Bleeped %1 words</source>
+        <translation>Запикано слов: %1</translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26930,6 +26946,14 @@ If playback stutters, try another.</source>
     <message>
         <source>An animated emoji above each caption that mentions one (fuego, Dios, fiesta…)</source>
         <translation>Анимированный эмодзи над каждым субтитром, где он упоминается (огонь, Бог, праздник…)</translation>
+    </message>
+    <message>
+        <source>Bleep</source>
+        <translation>Писк</translation>
+    </message>
+    <message>
+        <source>A beep over each hidden swear word, with the voice muted under it</source>
+        <translation>Писк поверх каждого скрытого ругательства, голос под ним приглушён</translation>
     </message>
     <message>
         <source>Key words</source>

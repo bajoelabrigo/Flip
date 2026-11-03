@@ -5470,6 +5470,22 @@
         <translation>උපසිරැසි %1 ක සජීවී ඉමෝජි</translation>
     </message>
     <message>
+        <source>No hidden words with their timing to bleep</source>
+        <translation>බීප් කිරීමට කාලය සහිත සැඟවූ වචන නැත</translation>
+    </message>
+    <message>
+        <source>Could not make the bleep</source>
+        <translation>බීප් එක සෑදීමට නොහැකි විය</translation>
+    </message>
+    <message>
+        <source>Bleep swear words</source>
+        <translation>කුණුහරුපවලට බීප්</translation>
+    </message>
+    <message>
+        <source>Bleeped %1 words</source>
+        <translation>වචන %1 කට බීප්</translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26832,6 +26848,14 @@ If playback stutters, try another.</source>
     <message>
         <source>An animated emoji above each caption that mentions one (fuego, Dios, fiesta…)</source>
         <translation>ඉමෝජියක් සඳහන් කරන එක් එක් උපසිරැසියට ඉහළින් සජීවී ඉමෝජියක් (ගින්න, දෙවියන්, සාදය…)</translation>
+    </message>
+    <message>
+        <source>Bleep</source>
+        <translation>බීප්</translation>
+    </message>
+    <message>
+        <source>A beep over each hidden swear word, with the voice muted under it</source>
+        <translation>සැඟවූ සෑම කුණුහරුපයකටම බීප් එකක්, යටින් හඬ නිහඬ කර</translation>
     </message>
     <message>
         <source>Key words</source>

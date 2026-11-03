@@ -5470,6 +5470,22 @@
         <translation>Emojis animados em %1 legendas</translation>
     </message>
     <message>
+        <source>No hidden words with their timing to bleep</source>
+        <translation>Nenhuma palavra oculta com tempo para bipar</translation>
+    </message>
+    <message>
+        <source>Could not make the bleep</source>
+        <translation>Não foi possível criar o bipe</translation>
+    </message>
+    <message>
+        <source>Bleep swear words</source>
+        <translation>Bipar palavrões</translation>
+    </message>
+    <message>
+        <source>Bleeped %1 words</source>
+        <translation>Bipe em %1 palavras</translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26836,6 +26852,14 @@ Se a reprodução travar, tente outra opção.</translation>
     <message>
         <source>An animated emoji above each caption that mentions one (fuego, Dios, fiesta…)</source>
         <translation>Um emoji animado acima de cada legenda que menciona um (fogo, Deus, festa…)</translation>
+    </message>
+    <message>
+        <source>Bleep</source>
+        <translation>Bipe</translation>
+    </message>
+    <message>
+        <source>A beep over each hidden swear word, with the voice muted under it</source>
+        <translation>Um bipe sobre cada palavrão oculto, com a voz silenciada por baixo</translation>
     </message>
     <message>
         <source>Key words</source>

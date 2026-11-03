@@ -5470,6 +5470,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>No hidden words with their timing to bleep</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not make the bleep</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bleep swear words</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bleeped %1 words</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26823,6 +26839,14 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>An animated emoji above each caption that mentions one (fuego, Dios, fiesta…)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bleep</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A beep over each hidden swear word, with the voice muted under it</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

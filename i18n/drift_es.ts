@@ -5470,6 +5470,22 @@
         <translation>Emojis animados en %1 subtítulos</translation>
     </message>
     <message>
+        <source>No hidden words with their timing to bleep</source>
+        <translation>No hay palabras tapadas con su tiempo para poner pitido</translation>
+    </message>
+    <message>
+        <source>Could not make the bleep</source>
+        <translation>No se pudo crear el pitido</translation>
+    </message>
+    <message>
+        <source>Bleep swear words</source>
+        <translation>Pitido en groserías</translation>
+    </message>
+    <message>
+        <source>Bleeped %1 words</source>
+        <translation>Pitido en %1 palabras</translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation>Preparando…</translation>
     </message>
@@ -26836,6 +26852,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>An animated emoji above each caption that mentions one (fuego, Dios, fiesta…)</source>
         <translation>Un emoji animado encima de cada subtítulo que menciona uno (fuego, Dios, fiesta…)</translation>
+    </message>
+    <message>
+        <source>Bleep</source>
+        <translation>Pitido</translation>
+    </message>
+    <message>
+        <source>A beep over each hidden swear word, with the voice muted under it</source>
+        <translation>Un pitido sobre cada grosería tapada, con la voz silenciada debajo</translation>
     </message>
     <message>
         <source>Key words</source>

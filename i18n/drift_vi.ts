@@ -5459,6 +5459,22 @@
         <translation>Emoji động trên %1 phụ đề</translation>
     </message>
     <message>
+        <source>No hidden words with their timing to bleep</source>
+        <translation>Không có từ bị che kèm thời gian để chèn tiếng bíp</translation>
+    </message>
+    <message>
+        <source>Could not make the bleep</source>
+        <translation>Không thể tạo tiếng bíp</translation>
+    </message>
+    <message>
+        <source>Bleep swear words</source>
+        <translation>Bíp từ tục</translation>
+    </message>
+    <message>
+        <source>Bleeped %1 words</source>
+        <translation>Đã bíp %1 từ</translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26742,6 +26758,14 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>An animated emoji above each caption that mentions one (fuego, Dios, fiesta…)</source>
         <translation>Một emoji động phía trên mỗi phụ đề có nhắc tới nó (lửa, Chúa, tiệc…)</translation>
+    </message>
+    <message>
+        <source>Bleep</source>
+        <translation>Bíp</translation>
+    </message>
+    <message>
+        <source>A beep over each hidden swear word, with the voice muted under it</source>
+        <translation>Tiếng bíp trên mỗi từ tục bị che, tắt tiếng giọng nói bên dưới</translation>
     </message>
     <message>
         <source>Key words</source>

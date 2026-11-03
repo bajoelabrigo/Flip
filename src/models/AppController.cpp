@@ -100,6 +100,7 @@
 #include "models/CloudProviders.h"
 #include "engine/WhisperTranscriber.h"
 #include "engine/SpellCheck.h"
+#include "engine/AudioFileWriter.h"
 #include "McpDetail.h"
 
 #include <QBuffer>
@@ -109,6 +110,7 @@
 #include <QCryptographicHash>
 #include <QCursor>
 #include <QDateTime>
+#include <QDataStream>
 #include <QDir>
 #include <QDesktopServices>
 #include <QProcess>
@@ -17574,6 +17576,134 @@ int AppController::addAnimatedEmojisToSubtitles(int trackIndex, int clipIndex)
     finishEdit(tr("Animated emojis"));
     setLastMessage(tr("Animated emojis on %1 captions").arg(placed), QStringLiteral("success"));
     return placed;
+}
+
+namespace {
+// Where a caption hides a word (m*****, f***): the stretches of the subtitle clip's own time, from
+// the word timings. Captions without timings for every word have none.
+QList<drift::TimeRangeUs> hiddenWordRanges(const drift::Clip &subtitles)
+{
+    static const QRegularExpression kHidden(QStringLiteral(R"(\p{L}\*{2,})"));
+    QList<drift::TimeRangeUs> out;
+    for (const drift::SubtitleCue &cue : subtitles.subtitleCues) {
+        const QStringList words = cue.text.split(QRegularExpression(QStringLiteral("\\s+")), Qt::SkipEmptyParts);
+        if (words.size() != cue.wordEndsUs.size())
+            continue;
+        for (int i = 0; i < words.size(); ++i) {
+            if (!kHidden.match(words.at(i)).hasMatch())
+                continue;
+            const drift::TimeUs a = i > 0 ? cue.wordEndsUs.at(i - 1) : cue.startUs;
+            const drift::TimeUs b = cue.wordEndsUs.at(i);
+            if (b > a)
+                out.append({a, b});
+        }
+    }
+    return out;
+}
+
+// A mono 48 kHz WAV of `lengthUs`, silent but for a 1 kHz tone over each range (5 ms fades).
+bool writeBleepTrack(const QString &path, drift::TimeUs lengthUs, const QList<drift::TimeRangeUs> &ranges)
+{
+    constexpr int kRate = 48000;
+    const qint64 frames = qMax<qint64>(1, lengthUs * kRate / 1'000'000);
+    QByteArray pcm(int(frames * 2), '\0');
+    auto *samples = reinterpret_cast<qint16 *>(pcm.data());
+    const int fade = kRate / 200;
+    for (const drift::TimeRangeUs &r : ranges) {
+        const qint64 a = qBound<qint64>(0, r.startUs * kRate / 1'000'000, frames);
+        const qint64 b = qBound<qint64>(0, r.endUs * kRate / 1'000'000, frames);
+        for (qint64 i = a; i < b; ++i) {
+            const double edge = qMin(1.0, double(qMin(i - a, b - 1 - i)) / fade);
+            samples[i] = qint16(std::lround(0.3 * edge * 32767.0 * std::sin(2.0 * 3.14159265358979323846 * 1000.0 * double(i - a) / kRate)));
+        }
+    }
+    QFile file(path);
+    if (!file.open(QIODevice::WriteOnly))
+        return false;
+    QByteArray header;
+    QDataStream out(&header, QIODevice::WriteOnly);
+    out.setByteOrder(QDataStream::LittleEndian);
+    out.writeRawData("RIFF", 4);
+    out << quint32(36 + pcm.size());
+    out.writeRawData("WAVEfmt ", 8);
+    out << quint32(16) << quint16(1) << quint16(1) << quint32(kRate) << quint32(kRate * 2) << quint16(2) << quint16(16);
+    out.writeRawData("data", 4);
+    out << quint32(pcm.size());
+    return file.write(header) == header.size() && file.write(pcm) == pcm.size();
+}
+} // namespace
+
+bool AppController::subtitleHasHiddenWords(int trackIndex, int clipIndex) const
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return false;
+    const drift::Clip &clip = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    return clip.type == drift::ClipType::Subtitle && !hiddenWordRanges(clip).isEmpty();
+}
+
+int AppController::bleepSubtitleSwearWords(int trackIndex, int clipIndex)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return 0;
+    const drift::Clip subtitles = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    if (subtitles.type != drift::ClipType::Subtitle)
+        return 0;
+    const QList<drift::TimeRangeUs> ranges = hiddenWordRanges(subtitles);
+    if (ranges.isEmpty()) {
+        setLastMessage(tr("No hidden words with their timing to bleep"), QStringLiteral("info"));
+        return 0;
+    }
+    const QString dir = drift::generatedAudioDir();
+    const QString path = QDir(dir).filePath(QStringLiteral("bleep-%1.wav")
+                                                .arg(QUuid::createUuid().toString(QUuid::WithoutBraces).left(8)));
+    if (dir.isEmpty() || !writeBleepTrack(path, subtitles.timelineDuration, ranges)) {
+        setLastMessage(tr("Could not make the bleep"), QStringLiteral("error"));
+        return 0;
+    }
+
+    m_mcpController->beginBatch();
+    // The voice goes silent under each bleep: volume keys on the clips whose speech was transcribed.
+    const drift::Project before = m_project;
+    constexpr drift::TimeUs kRampUs = 8'000;
+    for (int t = 0; t < m_project.tracks().size(); ++t) {
+        if (isTrackLocked(t))
+            continue;
+        for (drift::Clip &clip : m_project.tracks()[t].clips) {
+            if ((clip.type != drift::ClipType::Video && clip.type != drift::ClipType::Audio) || clip.assetId.isEmpty()
+                || !m_project.transcript(clip.assetId))
+                continue;
+            for (const drift::TimeRangeUs &r : ranges) {
+                const drift::TimeUs a = subtitles.timelineStart + r.startUs - clip.timelineStart;
+                const drift::TimeUs b = subtitles.timelineStart + r.endUs - clip.timelineStart;
+                if (b <= 0 || a >= clip.timelineDuration)
+                    continue;
+                const double level = clip.volume.isEmpty() ? 1.0 : clip.volume.evaluateAt(qMax<drift::TimeUs>(0, a));
+                const double after = clip.volume.isEmpty() ? 1.0 : clip.volume.evaluateAt(b);
+                clip.volume.setKeyframe(qMax<drift::TimeUs>(0, a - kRampUs), level);
+                clip.volume.setKeyframe(qMax<drift::TimeUs>(0, a), 0.0);
+                clip.volume.setKeyframe(b, 0.0);
+                clip.volume.setKeyframe(b + kRampUs, after);
+            }
+        }
+    }
+    pushProjectEdit(before, tr("Bleep swear words"));
+
+    // The tone, as one audio clip over the whole caption clip.
+    const QStringList assets = m_assetLibrary ? m_assetLibrary->importLocalPaths({path}) : QStringList();
+    if (!assets.isEmpty()) {
+        QEventLoop loop;
+        QTimer timeout;
+        timeout.setSingleShot(true);
+        timeout.start(15000);
+        connect(&timeout, &QTimer::timeout, &loop, &QEventLoop::quit);
+        connect(m_assetLibrary, &AssetLibrary::assetMetadataChanged, &loop, &QEventLoop::quit);
+        while (timeout.isActive() && m_assetLibrary->isImportPending(assets.first()))
+            loop.exec();
+        addClipsFromAssets(assets, -1, drift::usToSeconds(subtitles.timelineStart));
+    }
+    m_mcpController->endBatch(tr("Bleep swear words"), true);
+    setLastMessage(tr("Bleeped %1 words").arg(ranges.size()), QStringLiteral("success"));
+    return int(ranges.size());
 }
 
 void AppController::addEmojisToSubtitles(int trackIndex, int clipIndex)

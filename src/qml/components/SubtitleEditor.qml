@@ -543,6 +543,17 @@ Item {
                 onClicked: EditorState.addAnimatedEmojisToSubtitles(root.trackIndex, root.clipIndex)
             }
 
+            // The TV bleep over the hidden swear words (m*****), once captions have some.
+            ThemedButton {
+                visible: { void root.cues; return EditorState.subtitleHasHiddenWords(root.trackIndex, root.clipIndex) }
+                width: toolGrid.cell
+                text: qsTr("Bleep")
+                variant: "secondary"
+                glyph: Theme.icons.volumeOff
+                tooltip: qsTr("A beep over each hidden swear word, with the voice muted under it")
+                onClicked: EditorState.bleepSubtitleSwearWords(root.trackIndex, root.clipIndex)
+            }
+
             ThemedButton {
                 width: toolGrid.cell
                 text: qsTr("Key words")

@@ -5534,6 +5534,22 @@
         <translation>رموز تعبيرية متحركة في %1 ترجمة</translation>
     </message>
     <message>
+        <source>No hidden words with their timing to bleep</source>
+        <translation>لا توجد كلمات مخفية بتوقيتها لإضافة صفير</translation>
+    </message>
+    <message>
+        <source>Could not make the bleep</source>
+        <translation>تعذّر إنشاء الصفير</translation>
+    </message>
+    <message>
+        <source>Bleep swear words</source>
+        <translation>صفير على الشتائم</translation>
+    </message>
+    <message>
+        <source>Bleeped %1 words</source>
+        <translation>صفير على %1 كلمة</translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -27212,6 +27228,14 @@ If playback stutters, try another.</source>
     <message>
         <source>An animated emoji above each caption that mentions one (fuego, Dios, fiesta…)</source>
         <translation>رمز تعبيري متحرك فوق كل ترجمة تذكر واحدًا (نار، الله، حفلة…)</translation>
+    </message>
+    <message>
+        <source>Bleep</source>
+        <translation>صفير</translation>
+    </message>
+    <message>
+        <source>A beep over each hidden swear word, with the voice muted under it</source>
+        <translation>صفير فوق كل شتيمة مخفية مع كتم الصوت تحتها</translation>
     </message>
     <message>
         <source>Key words</source>

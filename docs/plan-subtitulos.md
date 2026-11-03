@@ -59,7 +59,7 @@ Lo que tienen CapCut, Premiere y Descript:
 Para redes (estilo CapCut):
 - [x] Palabras clave resaltadas por la IA (color o tamaño) y emojis animados de Stock.
 - [ ] Más plantillas de subtítulos virales en Stock (palabra por palabra, rebote, caja que sigue la palabra).
-- [~] Filtro de groserías (*** o pitido). Hecho: casilla «Ocultar groserías (m*****)» al crear (es/en); falta el pitido.
+- [x] Filtro de groserías (*** o pitido). Hecho: casilla «Ocultar groserías (m*****)» al crear (es/en); falta el pitido.
 - [x] Revisión de ortografía.
 - [x] Elegir la transcripción en la nube (ElevenLabs) desde el panel de subtítulos.
 
@@ -129,3 +129,6 @@ ventanas de herramientas.
   - emojis animados: botón «Animados» en el editor (sale si está el extra «Emojis animados»): cada subtítulo que tiene o
     pide un emoji (fuego 🔥, Dios 🙏…) recibe el emoji animado encima, con su tiempo, en una pista propia y un solo
     deshacer (`addAnimatedEmojisToSubtitles`).
+  - pitido: botón «Pitido» en el editor (sale cuando hay groserías tapadas con su tiempo): la voz baja a cero en cada
+    palabra (claves de volumen en los clips transcritos) y un tono de 1 kHz suena en una pista propia (WAV en
+    `generated-audio`). Un solo deshacer (`bleepSubtitleSwearWords`).

@@ -5451,6 +5451,22 @@
         <translation>已在 %1 条字幕上添加动态表情</translation>
     </message>
     <message>
+        <source>No hidden words with their timing to bleep</source>
+        <translation>没有带时间的隐藏词可以消音</translation>
+    </message>
+    <message>
+        <source>Could not make the bleep</source>
+        <translation>无法生成哔声</translation>
+    </message>
+    <message>
+        <source>Bleep swear words</source>
+        <translation>脏话哔声</translation>
+    </message>
+    <message>
+        <source>Bleeped %1 words</source>
+        <translation>已为 %1 个词加上哔声</translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26741,6 +26757,14 @@ If playback stutters, try another.</source>
     <message>
         <source>An animated emoji above each caption that mentions one (fuego, Dios, fiesta…)</source>
         <translation>在提到表情词的每条字幕上方放一个动态表情（火、上帝、派对…）</translation>
+    </message>
+    <message>
+        <source>Bleep</source>
+        <translation>哔声</translation>
+    </message>
+    <message>
+        <source>A beep over each hidden swear word, with the voice muted under it</source>
+        <translation>在每个隐藏的脏话上加哔声，并静音其下的人声</translation>
     </message>
     <message>
         <source>Key words</source>

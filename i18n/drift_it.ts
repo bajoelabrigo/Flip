@@ -5470,6 +5470,22 @@
         <translation>Emoji animate su %1 sottotitoli</translation>
     </message>
     <message>
+        <source>No hidden words with their timing to bleep</source>
+        <translation>Nessuna parola nascosta con i suoi tempi da coprire con il bip</translation>
+    </message>
+    <message>
+        <source>Could not make the bleep</source>
+        <translation>Impossibile creare il bip</translation>
+    </message>
+    <message>
+        <source>Bleep swear words</source>
+        <translation>Bip sulle parolacce</translation>
+    </message>
+    <message>
+        <source>Bleeped %1 words</source>
+        <translation>Bip su %1 parole</translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26836,6 +26852,14 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     <message>
         <source>An animated emoji above each caption that mentions one (fuego, Dios, fiesta…)</source>
         <translation>Un’emoji animata sopra ogni sottotitolo che ne nomina una (fuoco, Dio, festa…)</translation>
+    </message>
+    <message>
+        <source>Bleep</source>
+        <translation>Bip</translation>
+    </message>
+    <message>
+        <source>A beep over each hidden swear word, with the voice muted under it</source>
+        <translation>Un bip su ogni parolaccia nascosta, con la voce silenziata sotto</translation>
     </message>
     <message>
         <source>Key words</source>

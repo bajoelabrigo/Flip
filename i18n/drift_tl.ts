@@ -5474,6 +5474,22 @@
         <translation>Animated emojis sa %1 caption</translation>
     </message>
     <message>
+        <source>No hidden words with their timing to bleep</source>
+        <translation>Walang nakatagong salita na may tiyempo para i-bleep</translation>
+    </message>
+    <message>
+        <source>Could not make the bleep</source>
+        <translation>Hindi magawa ang bleep</translation>
+    </message>
+    <message>
+        <source>Bleep swear words</source>
+        <translation>I-bleep ang mga mura</translation>
+    </message>
+    <message>
+        <source>Bleeped %1 words</source>
+        <translation>Na-bleep ang %1 salita</translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26824,6 +26840,14 @@ If playback stutters, try another.</source>
     <message>
         <source>An animated emoji above each caption that mentions one (fuego, Dios, fiesta…)</source>
         <translation>Isang animated emoji sa itaas ng bawat caption na bumabanggit nito (apoy, Diyos, party…)</translation>
+    </message>
+    <message>
+        <source>Bleep</source>
+        <translation>Bleep</translation>
+    </message>
+    <message>
+        <source>A beep over each hidden swear word, with the voice muted under it</source>
+        <translation>Isang beep sa bawat nakatagong mura, naka-mute ang boses sa ilalim</translation>
     </message>
     <message>
         <source>Key words</source>

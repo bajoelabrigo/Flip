@@ -1224,6 +1224,11 @@ public:
     // many were placed (-1 when the extra is not installed).
     Q_INVOKABLE int addAnimatedEmojisToSubtitles(int trackIndex, int clipIndex);
     Q_INVOKABLE bool animatedEmojisAvailable() const;
+    // The TV bleep: over each hidden swear word (m*****) with a word timing, the voice drops to
+    // silence (volume keys on the clips that were transcribed) and a 1 kHz tone plays on a track
+    // of its own. One undo step; returns how many words were bleeped.
+    Q_INVOKABLE int bleepSubtitleSwearWords(int trackIndex, int clipIndex);
+    Q_INVOKABLE bool subtitleHasHiddenWords(int trackIndex, int clipIndex) const;
     // New captions with swear words hidden behind their first letter (off by default).
     // Captions made «in the cloud» (ElevenLabs Scribe) instead of on this computer: offered once
     // Settings › Cloud has a key and the user's consent. Hard words (names, brands) help it.
