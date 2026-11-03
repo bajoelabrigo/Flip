@@ -538,7 +538,7 @@ private:
                 const ExpressionSelf outer = self;
                 self.track = this;
                 self.keysAt = [](const void *track, double s) {
-                    return double(static_cast<const KeyframeTrack *>(track)->evaluateKeys(TimeUs(s * 1e6)));
+                    return double(static_cast<const KeyframeTrack *>(track)->evaluateKeys(secondsToUs(s)));
                 };
                 value = evaluator(m_behavior.expression, value, seconds);
                 self = outer;

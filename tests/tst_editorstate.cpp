@@ -8419,6 +8419,9 @@ void EditorStateTest::linkedPositionKeyframesAndTangents()
     state.setClipKeyframe(track, clip, QStringLiteral("y"), 0.0, 200.0);
     state.setClipKeyframe(track, clip, QStringLiteral("x"), 2.0, 500.0); // +400 span
     state.setClipKeyframe(track, clip, QStringLiteral("y"), 2.0, 400.0); // +200 span
+    // Linked X and Y as two curves: Separate Dimensions (moving, Position is joined since 0.30).
+    QVERIFY(state.positionJoined(track, clip));
+    state.setPositionJoined(track, clip, false);
 
     // 1. Setting keyframe at 1.0 on x automatically generates keyframe on y
     state.setClipKeyframe(track, clip, QStringLiteral("x"), 1.0, 300.0);

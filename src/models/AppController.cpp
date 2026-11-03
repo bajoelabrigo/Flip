@@ -25161,6 +25161,10 @@ void AppController::syncLinkedTangents(int trackIndex, int clipIndex, const QStr
 {
     if (!m_positionLinked || (prop != QLatin1String("x") && prop != QLatin1String("y")))
         return;
+    // Joined Position keeps one timing on X's keys and gives Y a copy (syncJoinedPosition): Y's
+    // key here is X's own.
+    if (positionJoined(trackIndex, clipIndex))
+        return;
 
     const QString otherProp = (prop == QLatin1String("x")) ? QStringLiteral("y") : QStringLiteral("x");
     drift::Keyframe<double> *otherKey = keyframeAt(trackIndex, clipIndex, otherProp, atSeconds);
