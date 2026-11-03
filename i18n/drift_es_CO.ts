@@ -4290,6 +4290,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Sign in with Google to translate captions, or install the Offline translation extra</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Words bleeped: %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5521,15 +5525,19 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Sign in with Google to translate captions</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Translating the captions…</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Could not translate the captions (no answer from the server)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Translating the captions on this computer…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not translate the captions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

@@ -4280,6 +4280,10 @@
         <translation>Đã thêm “%1” vào “%2” · để vẽ trên lớp riêng, nhấn Esc trước; để tách chúng, nhấp phải › Tách thành các lớp</translation>
     </message>
     <message>
+        <source>Sign in with Google to translate captions, or install the Offline translation extra</source>
+        <translation>Đăng nhập bằng Google để dịch phụ đề, hoặc cài tiện ích Dịch không cần mạng</translation>
+    </message>
+    <message>
         <source>Words bleeped: %1</source>
         <translation>Từ đã bíp: %1</translation>
     </message>
@@ -5502,16 +5506,20 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Sign in with Google to translate captions</source>
-        <translation>Đăng nhập bằng Google để dịch phụ đề</translation>
-    </message>
-    <message>
         <source>Translating the captions…</source>
         <translation>Đang dịch phụ đề…</translation>
     </message>
     <message>
         <source>Could not translate the captions (no answer from the server)</source>
         <translation>Không thể dịch phụ đề (máy chủ không phản hồi)</translation>
+    </message>
+    <message>
+        <source>Translating the captions on this computer…</source>
+        <translation>Đang dịch phụ đề trên máy tính này…</translation>
+    </message>
+    <message>
+        <source>Could not translate the captions</source>
+        <translation>Không thể dịch phụ đề</translation>
     </message>
     <message>
         <source>The captions changed while they were being translated; try again</source>

@@ -4272,6 +4272,10 @@
         <translation>“%1”을(를) “%2”에 추가함 · 별도 레이어에 그리려면 먼저 Esc, 나누려면 오른쪽 클릭 › 레이어로 분리</translation>
     </message>
     <message>
+        <source>Sign in with Google to translate captions, or install the Offline translation extra</source>
+        <translation>자막을 번역하려면 Google로 로그인하거나 오프라인 번역 추가 기능을 설치하세요</translation>
+    </message>
+    <message>
         <source>Words bleeped: %1</source>
         <translation>삐 소리 단어: %1</translation>
     </message>
@@ -5494,16 +5498,20 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Sign in with Google to translate captions</source>
-        <translation>자막을 번역하려면 Google로 로그인하세요</translation>
-    </message>
-    <message>
         <source>Translating the captions…</source>
         <translation>자막 번역 중…</translation>
     </message>
     <message>
         <source>Could not translate the captions (no answer from the server)</source>
         <translation>자막을 번역할 수 없습니다 (서버 응답 없음)</translation>
+    </message>
+    <message>
+        <source>Translating the captions on this computer…</source>
+        <translation>이 컴퓨터에서 자막을 번역하는 중…</translation>
+    </message>
+    <message>
+        <source>Could not translate the captions</source>
+        <translation>자막을 번역할 수 없습니다</translation>
     </message>
     <message>
         <source>The captions changed while they were being translated; try again</source>

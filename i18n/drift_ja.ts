@@ -4272,6 +4272,10 @@
         <translation>「%1」を「%2」に追加しました · 別のレイヤーに描くには先に Esc、分けるには右クリック › レイヤーに分割</translation>
     </message>
     <message>
+        <source>Sign in with Google to translate captions, or install the Offline translation extra</source>
+        <translation>字幕を翻訳するには Google でログインするか、オフライン翻訳のエクストラをインストールしてください</translation>
+    </message>
+    <message>
         <source>Words bleeped: %1</source>
         <translation>ピー音を入れた語: %1</translation>
     </message>
@@ -5494,16 +5498,20 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Sign in with Google to translate captions</source>
-        <translation>字幕を翻訳するには Google でログインしてください</translation>
-    </message>
-    <message>
         <source>Translating the captions…</source>
         <translation>字幕を翻訳しています…</translation>
     </message>
     <message>
         <source>Could not translate the captions (no answer from the server)</source>
         <translation>字幕を翻訳できませんでした（サーバーが応答しません）</translation>
+    </message>
+    <message>
+        <source>Translating the captions on this computer…</source>
+        <translation>このコンピューターで字幕を翻訳しています…</translation>
+    </message>
+    <message>
+        <source>Could not translate the captions</source>
+        <translation>字幕を翻訳できませんでした</translation>
     </message>
     <message>
         <source>The captions changed while they were being translated; try again</source>

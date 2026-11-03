@@ -4282,6 +4282,10 @@
         <translation>“%1” foi adicionado a “%2” · para desenhar noutra camada, prima Esc antes; para os separar, clique direito › Separar em camadas</translation>
     </message>
     <message>
+        <source>Sign in with Google to translate captions, or install the Offline translation extra</source>
+        <translation>Inicie sessão com o Google para traduzir as legendas, ou instale o extra Tradução sem internet</translation>
+    </message>
+    <message>
         <source>Words bleeped: %1</source>
         <translation>Palavras com bipe: %1</translation>
     </message>
@@ -5513,16 +5517,20 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Sign in with Google to translate captions</source>
-        <translation>Inicie sessão com o Google para traduzir legendas</translation>
-    </message>
-    <message>
         <source>Translating the captions…</source>
         <translation>A traduzir as legendas…</translation>
     </message>
     <message>
         <source>Could not translate the captions (no answer from the server)</source>
         <translation>Não foi possível traduzir as legendas (o servidor não respondeu)</translation>
+    </message>
+    <message>
+        <source>Translating the captions on this computer…</source>
+        <translation>A traduzir as legendas neste computador…</translation>
+    </message>
+    <message>
+        <source>Could not translate the captions</source>
+        <translation>Não foi possível traduzir as legendas</translation>
     </message>
     <message>
         <source>The captions changed while they were being translated; try again</source>

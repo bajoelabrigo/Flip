@@ -4272,6 +4272,10 @@
         <translation>“%1”已加入“%2” · 要画在单独的图层上，请先按 Esc；要分开它们，右键 › 分离为图层</translation>
     </message>
     <message>
+        <source>Sign in with Google to translate captions, or install the Offline translation extra</source>
+        <translation>使用 Google 登录以翻译字幕,或安装“离线翻译”扩展</translation>
+    </message>
+    <message>
         <source>Words bleeped: %1</source>
         <translation>已加哔声的词：%1</translation>
     </message>
@@ -5494,16 +5498,20 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Sign in with Google to translate captions</source>
-        <translation>使用 Google 登录以翻译字幕</translation>
-    </message>
-    <message>
         <source>Translating the captions…</source>
         <translation>正在翻译字幕…</translation>
     </message>
     <message>
         <source>Could not translate the captions (no answer from the server)</source>
         <translation>无法翻译字幕（服务器没有响应）</translation>
+    </message>
+    <message>
+        <source>Translating the captions on this computer…</source>
+        <translation>正在本机翻译字幕…</translation>
+    </message>
+    <message>
+        <source>Could not translate the captions</source>
+        <translation>无法翻译字幕</translation>
     </message>
     <message>
         <source>The captions changed while they were being translated; try again</source>

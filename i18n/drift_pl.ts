@@ -4292,6 +4292,10 @@
         <translation>„%1” dodano do „%2” · aby rysować na osobnej warstwie, najpierw naciśnij Esc; aby je rozdzielić, prawy przycisk › Rozdziel na warstwy</translation>
     </message>
     <message>
+        <source>Sign in with Google to translate captions, or install the Offline translation extra</source>
+        <translation>Zaloguj się przez Google, aby tłumaczyć napisy, albo zainstaluj dodatek Tłumaczenie offline</translation>
+    </message>
+    <message>
         <source>Words bleeped: %1</source>
         <translation>Wypikane słowa: %1</translation>
     </message>
@@ -5532,16 +5536,20 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Sign in with Google to translate captions</source>
-        <translation>Zaloguj się przez Google, aby tłumaczyć napisy</translation>
-    </message>
-    <message>
         <source>Translating the captions…</source>
         <translation>Tłumaczenie napisów…</translation>
     </message>
     <message>
         <source>Could not translate the captions (no answer from the server)</source>
         <translation>Nie udało się przetłumaczyć napisów (serwer nie odpowiedział)</translation>
+    </message>
+    <message>
+        <source>Translating the captions on this computer…</source>
+        <translation>Tłumaczenie napisów na tym komputerze…</translation>
+    </message>
+    <message>
+        <source>Could not translate the captions</source>
+        <translation>Nie udało się przetłumaczyć napisów</translation>
     </message>
     <message>
         <source>The captions changed while they were being translated; try again</source>

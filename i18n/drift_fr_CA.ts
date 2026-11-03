@@ -4287,6 +4287,10 @@
         <translation>« %1 » ajouté à « %2 » · pour dessiner sur un calque à part, appuyez d’abord sur Échap; pour les séparer, clic droit › Séparer en calques</translation>
     </message>
     <message>
+        <source>Sign in with Google to translate captions, or install the Offline translation extra</source>
+        <translation>Connectez-vous avec Google pour traduire les sous-titres, ou installez l’extra Traduction hors ligne</translation>
+    </message>
+    <message>
         <source>Words bleeped: %1</source>
         <translation>Mots bipés : %1</translation>
     </message>
@@ -5518,16 +5522,20 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Sign in with Google to translate captions</source>
-        <translation>Connectez-vous avec Google pour traduire les sous-titres</translation>
-    </message>
-    <message>
         <source>Translating the captions…</source>
         <translation>Traduction des sous-titres…</translation>
     </message>
     <message>
         <source>Could not translate the captions (no answer from the server)</source>
         <translation>Impossible de traduire les sous-titres (le serveur n’a pas répondu)</translation>
+    </message>
+    <message>
+        <source>Translating the captions on this computer…</source>
+        <translation>Traduction des sous-titres sur cet ordinateur…</translation>
+    </message>
+    <message>
+        <source>Could not translate the captions</source>
+        <translation>Impossible de traduire les sous-titres</translation>
     </message>
     <message>
         <source>The captions changed while they were being translated; try again</source>

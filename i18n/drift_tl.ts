@@ -4282,6 +4282,10 @@
         <translation>Idinagdag ang “%1” sa “%2” · para gumuhit sa hiwalay na layer, pindutin muna ang Esc; para paghiwalayin, right-click › Paghiwalayin sa mga layer</translation>
     </message>
     <message>
+        <source>Sign in with Google to translate captions, or install the Offline translation extra</source>
+        <translation>Mag-sign in gamit ang Google para isalin ang mga subtitle, o i-install ang extra na Offline na pagsasalin</translation>
+    </message>
+    <message>
         <source>Words bleeped: %1</source>
         <translation>Mga salitang na-bleep: %1</translation>
     </message>
@@ -5517,16 +5521,20 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Sign in with Google to translate captions</source>
-        <translation>Mag-sign in gamit ang Google para isalin ang mga caption</translation>
-    </message>
-    <message>
         <source>Translating the captions…</source>
         <translation>Isinasalin ang mga caption…</translation>
     </message>
     <message>
         <source>Could not translate the captions (no answer from the server)</source>
         <translation>Hindi maisalin ang mga caption (walang sagot ang server)</translation>
+    </message>
+    <message>
+        <source>Translating the captions on this computer…</source>
+        <translation>Isinasalin ang mga subtitle sa computer na ito…</translation>
+    </message>
+    <message>
+        <source>Could not translate the captions</source>
+        <translation>Hindi maisalin ang mga subtitle</translation>
     </message>
     <message>
         <source>The captions changed while they were being translated; try again</source>

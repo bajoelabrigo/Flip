@@ -4282,6 +4282,10 @@
         <translation>«%1» se añadió a «%2» · para dibujar en una capa aparte, pulsa Esc antes; para separarlas, clic derecho › Separar en capas</translation>
     </message>
     <message>
+        <source>Sign in with Google to translate captions, or install the Offline translation extra</source>
+        <translation>Inicia sesión con Google para traducir los subtítulos, o instala el extra Traducción sin internet</translation>
+    </message>
+    <message>
         <source>Words bleeped: %1</source>
         <translation>Palabras con pitido: %1</translation>
     </message>
@@ -5513,16 +5517,20 @@
         <translation>Máscara fija en la pantalla</translation>
     </message>
     <message>
-        <source>Sign in with Google to translate captions</source>
-        <translation>Inicia sesión con Google para traducir subtítulos</translation>
-    </message>
-    <message>
         <source>Translating the captions…</source>
         <translation>Traduciendo los subtítulos…</translation>
     </message>
     <message>
         <source>Could not translate the captions (no answer from the server)</source>
         <translation>No se pudieron traducir los subtítulos (el servidor no respondió)</translation>
+    </message>
+    <message>
+        <source>Translating the captions on this computer…</source>
+        <translation>Traduciendo los subtítulos en tu computadora…</translation>
+    </message>
+    <message>
+        <source>Could not translate the captions</source>
+        <translation>No se pudieron traducir los subtítulos</translation>
     </message>
     <message>
         <source>The captions changed while they were being translated; try again</source>

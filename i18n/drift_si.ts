@@ -4282,6 +4282,10 @@
         <translation>“%1” “%2” වෙත එක් කෙරිණි · වෙනම ස්තරයක ඇඳීමට පළමුව Esc ඔබන්න; ඒවා වෙන් කිරීමට දකුණු-ක්ලික් › ස්තරවලට වෙන් කරන්න</translation>
     </message>
     <message>
+        <source>Sign in with Google to translate captions, or install the Offline translation extra</source>
+        <translation>උපසිරැසි පරිවර්තනයට Google සමඟ පුරනය වන්න, නැතහොත් අන්තර්ජාලය නැති පරිවර්තන අමතරය ස්ථාපනය කරන්න</translation>
+    </message>
+    <message>
         <source>Words bleeped: %1</source>
         <translation>බීප් කළ වචන: %1</translation>
     </message>
@@ -5513,16 +5517,20 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Sign in with Google to translate captions</source>
-        <translation>උපසිරැසි පරිවර්තනයට Google සමඟ පුරනය වන්න</translation>
-    </message>
-    <message>
         <source>Translating the captions…</source>
         <translation>උපසිරැසි පරිවර්තනය කරමින්…</translation>
     </message>
     <message>
         <source>Could not translate the captions (no answer from the server)</source>
         <translation>උපසිරැසි පරිවර්තනය කළ නොහැකි විය (සේවාදායකය ප්‍රතිචාර නොදැක්වීය)</translation>
+    </message>
+    <message>
+        <source>Translating the captions on this computer…</source>
+        <translation>මෙම පරිගණකයේ උපසිරැසි පරිවර්තනය කරමින්…</translation>
+    </message>
+    <message>
+        <source>Could not translate the captions</source>
+        <translation>උපසිරැසි පරිවර්තනය කළ නොහැකි විය</translation>
     </message>
     <message>
         <source>The captions changed while they were being translated; try again</source>

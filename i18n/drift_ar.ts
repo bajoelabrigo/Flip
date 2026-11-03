@@ -4493,6 +4493,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Sign in with Google to translate captions, or install the Offline translation extra</source>
+        <translation>سجّل الدخول بحساب Google لترجمة الترجمات، أو ثبّت إضافة الترجمة دون إنترنت</translation>
+    </message>
+    <message>
         <source>Words bleeped: %1</source>
         <translation>كلمات بصفير: %1</translation>
     </message>
@@ -5577,16 +5581,20 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Sign in with Google to translate captions</source>
-        <translation>سجّل الدخول باستخدام Google لترجمة الترجمات</translation>
-    </message>
-    <message>
         <source>Translating the captions…</source>
         <translation>جارٍ ترجمة الترجمات…</translation>
     </message>
     <message>
         <source>Could not translate the captions (no answer from the server)</source>
         <translation>تعذّرت ترجمة الترجمات (لم يرد الخادم)</translation>
+    </message>
+    <message>
+        <source>Translating the captions on this computer…</source>
+        <translation>جارٍ ترجمة الترجمات على هذا الحاسوب…</translation>
+    </message>
+    <message>
+        <source>Could not translate the captions</source>
+        <translation>تعذّرت ترجمة الترجمات</translation>
     </message>
     <message>
         <source>The captions changed while they were being translated; try again</source>

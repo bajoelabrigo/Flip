@@ -4282,6 +4282,10 @@
         <translation>“%1” aggiunto a “%2” · per disegnare su un livello a parte, premi prima Esc; per separarli, clic destro › Separa in livelli</translation>
     </message>
     <message>
+        <source>Sign in with Google to translate captions, or install the Offline translation extra</source>
+        <translation>Accedi con Google per tradurre i sottotitoli, o installa l’extra Traduzione offline</translation>
+    </message>
+    <message>
         <source>Words bleeped: %1</source>
         <translation>Parole con bip: %1</translation>
     </message>
@@ -5513,16 +5517,20 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Sign in with Google to translate captions</source>
-        <translation>Accedi con Google per tradurre i sottotitoli</translation>
-    </message>
-    <message>
         <source>Translating the captions…</source>
         <translation>Traduzione dei sottotitoli…</translation>
     </message>
     <message>
         <source>Could not translate the captions (no answer from the server)</source>
         <translation>Impossibile tradurre i sottotitoli (il server non ha risposto)</translation>
+    </message>
+    <message>
+        <source>Translating the captions on this computer…</source>
+        <translation>Traduzione dei sottotitoli su questo computer…</translation>
+    </message>
+    <message>
+        <source>Could not translate the captions</source>
+        <translation>Impossibile tradurre i sottotitoli</translation>
     </message>
     <message>
         <source>The captions changed while they were being translated; try again</source>

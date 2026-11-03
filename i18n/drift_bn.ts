@@ -4343,6 +4343,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Sign in with Google to translate captions, or install the Offline translation extra</source>
+        <translation>সাবটাইটেল অনুবাদ করতে Google দিয়ে সাইন ইন করুন, অথবা অফলাইন অনুবাদ এক্সট্রা ইনস্টল করুন</translation>
+    </message>
+    <message>
         <source>Words bleeped: %1</source>
         <translation>বিপ দেওয়া শব্দ: %1</translation>
     </message>
@@ -5613,16 +5617,20 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Sign in with Google to translate captions</source>
-        <translation>ক্যাপশন অনুবাদ করতে Google দিয়ে সাইন ইন করুন</translation>
-    </message>
-    <message>
         <source>Translating the captions…</source>
         <translation>ক্যাপশন অনুবাদ করা হচ্ছে…</translation>
     </message>
     <message>
         <source>Could not translate the captions (no answer from the server)</source>
         <translation>ক্যাপশন অনুবাদ করা যায়নি (সার্ভার সাড়া দেয়নি)</translation>
+    </message>
+    <message>
+        <source>Translating the captions on this computer…</source>
+        <translation>এই কম্পিউটারে সাবটাইটেল অনুবাদ হচ্ছে…</translation>
+    </message>
+    <message>
+        <source>Could not translate the captions</source>
+        <translation>সাবটাইটেল অনুবাদ করা যায়নি</translation>
     </message>
     <message>
         <source>The captions changed while they were being translated; try again</source>

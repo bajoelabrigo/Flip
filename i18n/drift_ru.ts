@@ -4292,6 +4292,10 @@
         <translation>«%1» добавлен в «%2» · чтобы рисовать на отдельном слое, сначала нажмите Esc; чтобы разделить их, правый щелчок › Разделить на слои</translation>
     </message>
     <message>
+        <source>Sign in with Google to translate captions, or install the Offline translation extra</source>
+        <translation>Войдите через Google, чтобы переводить субтитры, или установите дополнение «Перевод без интернета»</translation>
+    </message>
+    <message>
         <source>Words bleeped: %1</source>
         <translation>Запикано слов: %1</translation>
     </message>
@@ -5532,16 +5536,20 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Sign in with Google to translate captions</source>
-        <translation>Войдите через Google, чтобы переводить субтитры</translation>
-    </message>
-    <message>
         <source>Translating the captions…</source>
         <translation>Перевод субтитров…</translation>
     </message>
     <message>
         <source>Could not translate the captions (no answer from the server)</source>
         <translation>Не удалось перевести субтитры (сервер не ответил)</translation>
+    </message>
+    <message>
+        <source>Translating the captions on this computer…</source>
+        <translation>Перевод субтитров на этом компьютере…</translation>
+    </message>
+    <message>
+        <source>Could not translate the captions</source>
+        <translation>Не удалось перевести субтитры</translation>
     </message>
     <message>
         <source>The captions changed while they were being translated; try again</source>
