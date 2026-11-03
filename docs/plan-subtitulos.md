@@ -185,3 +185,12 @@ Ojo para probar: `DRIFT_DIARIZE_MODEL_DIR` apunta a `stage\hablantes\models\diar
 de subtítulos más; con la 0.29 el de palabras clave se ve sin el resaltado). Paquetes subidos al release `packages` de
 `flipstudio-extras` (hash comprobado al bajarlos) y después el índice en `getflipstudio.com/addons/index.json`
 (`flipstudio-web` `main`, desplegado con `deploy/deploy.sh`; 27 extras en vivo).
+
+### Traducción sin internet (2026-11-03, noche)
+`engine/TextTranslator` (M2M100 418M, MIT, int8 ONNX, 100 idiomas): tokenizador BPE propio (NFKC, «▁», merges por
+rango; igual al de referencia en 4 frases de prueba), codificador + decodificador sin caché, decodificación voraz.
+Entra solo cuando DeepL no puede: sin sesión, sin internet (estado 0) o 429/502/503 (cupo del mes o DeepL caído).
+Extra `traduccion.local` 1.0.0 (512 MB, instala 631 MB, app ≥ 0.30.0) armado en flip-addons (`modelos.py`,
+`m2m100_ref.py` es la referencia en Python: «Gracias por invitarme.» → «Thank you for inviting me.», menos de 2 s por
+línea). **Sin publicar**: falta probarlo en ventana con `DRIFT_TRANSLATE_MODEL_DIR` =
+`flip-addonsuild\stage	raduccion.local\models	ranslate`.

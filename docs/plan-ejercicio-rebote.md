@@ -211,3 +211,33 @@ Sigue mal / nuevo:
   guardado en la clave 13 («Recto»). Revisar con números (MCP sin ventana).
 - 23: las claves de Escala pegadas siguen pintadas en celeste aunque ya no están elegidas.
 - Cuentas en los valores: no estaban en esta build (ya subidas, `ValueMath.qml`).
+
+## Noche del 2026-11-03: lo que falta para que la línea de tiempo sea como AE (hecho en código; falta verlo en ventana)
+- Arreglos de la ronda 3: 10b (Tab: se pide el valor siguiente antes de confirmar; la fila se rehacía y la señal se
+  perdía), 14 (el aviso solo aparece si el puntero se mueve encima), 21b (no era la cuenta: los dos tiradores de un tramo
+  corto quedaban uno encima del otro; ahora un tirador sin largo propio llega a 1/3 del tramo, la influencia de AE).
+  23 (pegadas que siguen pintadas) queda por mirar en ventana.
+- **Cuentas en los valores** (`ValueMath.qml`): «+50», «-=50», «*2», «/2», «100+20», «(1920-133)/2».
+- **Juegos de atajos** (Preferencias › Atajos: «Flip» / «After Effects»; el modo Pro lo ofrece una vez,
+  `AeShortcutsDialog`): J/K claves, P/S/R/T/A una propiedad, B/N zona de trabajo, I/O extremos de la capa,
+  G pluma, Q formas, W girar en 3D, Ctrl+; guías, Ctrl+Mayús+D dividir. En los dos juegos: [ ] mover la capa al
+  cabezal, Alt+[ ] recortar en el cabezal, RePág/AvPág un fotograma. UU muestra lo modificado. `shortcutChord` ya
+  graba [ ] ; ' = - , . / \ y usa PgUp/PgDown (los nombres de Qt). Sin atajos repetidos en ningún juego (comprobado).
+- **Zona de trabajo**: la barra se arrastra (mover, inicio, fin; con snap a fotogramas, un deshacer); sin bucle, al
+  reproducir desde dentro se detiene al final de la zona.
+- **Velocidad del fotograma clave**: se aplica a todas las claves elegidas.
+- **Varias capas**: pegar claves con varias capas elegidas las pega en cada una; el ◆ de una fila pone la clave en
+  todas las capas elegidas que están bajo el cabezal. (Elegir claves de varias pistas a la vez: sigue siendo de una.)
+- **Expresiones**: `linear/ease/easeIn/easeOut(t, tMin, tMax, v1, v2)` y `(t, v1, v2)`, `clamp`,
+  `degreesToRadians`, `radiansToDegrees`, `valueAtTime(t)`, `velocity`, `speed` (prueba en tst_engine). Faltan
+  `index` y `thisLayer`.
+- **Editor de gráficos**: botón «Gráfico sobre toda la línea de tiempo» (como el de AE; el de siempre queda bajo la
+  capa), Ctrl+rueda acerca los valores, rueda los mueve (en toda la línea de tiempo), Alt+rueda acerca el tiempo,
+  Mayús+rueda lo mueve; «Ver toda la curva», «Acercar a las claves elegidas», tipo de gráfico valores / velocidad /
+  automático, «Mostrar solo la curva que se edita», y el **recuadro de transformación** (dos o más claves elegidas:
+  sus lados estiran en el tiempo o escalan los valores). Las curvas de varias capas a la vez siguen siendo de
+  referencia (no editables).
+- **Posición**: en el menú de la clave, «Trayecto curvo (Bezier automático)» (tangentes Catmull-Rom en X e Y: el
+  trayecto pasa suave por cada clave), «Trayecto recto» e «Itinerante» (reparte en el tiempo las claves del medio
+  para una sola velocidad en el trayecto). Prueba en tst_editorstate. Es con el modelo de siempre (X e Y con sus
+  tangentes); tangentes espaciales propias de verdad sería otro modelo de datos.
