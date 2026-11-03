@@ -16590,7 +16590,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Top</source>
-        <translation type="unfinished"></translation>
+        <translation>Itaas</translation>
     </message>
     <message>
         <source>Bottom</source>
@@ -26764,6 +26764,26 @@ If playback stutters, try another.</source>
     <message>
         <source>Set end to current time</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Style: same as the clip</source>
+        <translation>Istilo: kapareho ng clip</translation>
+    </message>
+    <message>
+        <source>Like the clip</source>
+        <translation>Gaya ng clip</translation>
+    </message>
+    <message>
+        <source>Top</source>
+        <translation>Itaas</translation>
+    </message>
+    <message>
+        <source>Middle</source>
+        <translation>Gitna</translation>
+    </message>
+    <message>
+        <source>Where this caption sits on screen</source>
+        <translation>Kung saan nakalagay ang caption na ito sa screen</translation>
     </message>
     <message>
         <source>At %1</source>

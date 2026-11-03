@@ -27018,6 +27018,26 @@ If playback stutters, try another.</source>
         <translation>এই ক্যাপশনটি মুছুন</translation>
     </message>
     <message>
+        <source>Style: same as the clip</source>
+        <translation>স্টাইল: ক্লিপের মতো</translation>
+    </message>
+    <message>
+        <source>Like the clip</source>
+        <translation>ক্লিপের মতো</translation>
+    </message>
+    <message>
+        <source>Top</source>
+        <translation>উপরে</translation>
+    </message>
+    <message>
+        <source>Middle</source>
+        <translation>মাঝে</translation>
+    </message>
+    <message>
+        <source>Where this caption sits on screen</source>
+        <translation>এই ক্যাপশন পর্দায় কোথায় থাকবে</translation>
+    </message>
+    <message>
         <source>At %1</source>
         <translation type="unfinished">%1 এ</translation>
     </message>

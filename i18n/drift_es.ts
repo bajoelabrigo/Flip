@@ -26778,6 +26778,26 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Establecer final en la posición actual</translation>
     </message>
     <message>
+        <source>Style: same as the clip</source>
+        <translation>Estilo: igual que el clip</translation>
+    </message>
+    <message>
+        <source>Like the clip</source>
+        <translation>Como el clip</translation>
+    </message>
+    <message>
+        <source>Top</source>
+        <translation>Arriba</translation>
+    </message>
+    <message>
+        <source>Middle</source>
+        <translation>Centro</translation>
+    </message>
+    <message>
+        <source>Where this caption sits on screen</source>
+        <translation>Dónde va este subtítulo en la pantalla</translation>
+    </message>
+    <message>
         <source>At %1</source>
         <translation>En %1</translation>
     </message>

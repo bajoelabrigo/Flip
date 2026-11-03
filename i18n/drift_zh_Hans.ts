@@ -26683,6 +26683,26 @@ If playback stutters, try another.</source>
         <translation>将结束设为当前时间</translation>
     </message>
     <message>
+        <source>Style: same as the clip</source>
+        <translation>样式：与片段相同</translation>
+    </message>
+    <message>
+        <source>Like the clip</source>
+        <translation>与片段相同</translation>
+    </message>
+    <message>
+        <source>Top</source>
+        <translation>顶部</translation>
+    </message>
+    <message>
+        <source>Middle</source>
+        <translation>中间</translation>
+    </message>
+    <message>
+        <source>Where this caption sits on screen</source>
+        <translation>这条字幕在画面上的位置</translation>
+    </message>
+    <message>
         <source>At %1</source>
         <translation>位于 %1</translation>
     </message>

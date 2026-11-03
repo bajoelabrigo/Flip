@@ -62,7 +62,8 @@ Item {
     function refreshDisplay() {
         const s = []
         for (let i = 0; i < cues.length; i++)
-            s.push({ start: cues[i].start, end: cues[i].end, text: cues[i].text, wordEnds: cues[i].wordEnds || [] })
+            s.push({ start: cues[i].start, end: cues[i].end, text: cues[i].text, wordEnds: cues[i].wordEnds || [],
+                     style: cues[i].style || "", place: cues[i].place || "" })
         displayCues = s
     }
     onCuesChanged: if (!anyDragging) refreshDisplay()
@@ -147,10 +148,11 @@ Item {
             if (i === index) {
                 const delta = newStart - b[i].start
                 const moved = Math.abs((newEnd - b[i].end) - delta) < 1e-6
-                list.push({ start: newStart, end: newEnd, text: b[i].text,
+                list.push({ start: newStart, end: newEnd, text: b[i].text, style: b[i].style, place: b[i].place,
                             wordEnds: moved ? ends.map(e => e + delta) : ends })
             } else {
-                list.push({ start: b[i].start, end: b[i].end, text: b[i].text, wordEnds: ends })
+                list.push({ start: b[i].start, end: b[i].end, text: b[i].text, wordEnds: ends,
+                            style: b[i].style, place: b[i].place })
             }
         }
         EditorState.previewSetSubtitleCues(EditorState.selectedTrack, EditorState.selectedClip, list)

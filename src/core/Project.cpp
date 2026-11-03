@@ -237,6 +237,10 @@ QJsonArray subtitleCuesToJson(const QList<SubtitleCue> &cues)
                 ends.append(static_cast<double>(end));
             object.insert(QStringLiteral("wordEndsUs"), ends);
         }
+        if (!cue.styleId.isEmpty())
+            object.insert(QStringLiteral("styleId"), cue.styleId);
+        if (!cue.place.isEmpty())
+            object.insert(QStringLiteral("place"), cue.place);
         array.append(object);
     }
     return array;
@@ -253,6 +257,8 @@ QList<SubtitleCue> subtitleCuesFromJson(const QJsonArray &array)
         cue.text = object.value(QStringLiteral("text")).toString();
         for (const QJsonValue &end : object.value(QStringLiteral("wordEndsUs")).toArray())
             cue.wordEndsUs.append(static_cast<TimeUs>(end.toDouble()));
+        cue.styleId = object.value(QStringLiteral("styleId")).toString();
+        cue.place = object.value(QStringLiteral("place")).toString();
         cues.append(cue);
     }
     sortSubtitleCues(cues);

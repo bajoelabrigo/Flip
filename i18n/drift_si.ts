@@ -26774,6 +26774,26 @@ If playback stutters, try another.</source>
         <translation>වත්මන් වේලාව අවසානය ලෙස සකසන්න</translation>
     </message>
     <message>
+        <source>Style: same as the clip</source>
+        <translation>විලාසය: ක්ලිපයට සමාන</translation>
+    </message>
+    <message>
+        <source>Like the clip</source>
+        <translation>ක්ලිපයට සමාන</translation>
+    </message>
+    <message>
+        <source>Top</source>
+        <translation>ඉහළ</translation>
+    </message>
+    <message>
+        <source>Middle</source>
+        <translation>මැද</translation>
+    </message>
+    <message>
+        <source>Where this caption sits on screen</source>
+        <translation>මෙම උපසිරැසිය තිරයේ ඇති තැන</translation>
+    </message>
+    <message>
         <source>At %1</source>
         <translation>%1 හිදී</translation>
     </message>

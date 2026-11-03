@@ -26682,6 +26682,26 @@ If playback stutters, try another.</source>
         <translation>끝을 현재 시점으로 설정</translation>
     </message>
     <message>
+        <source>Style: same as the clip</source>
+        <translation>스타일: 클립과 같음</translation>
+    </message>
+    <message>
+        <source>Like the clip</source>
+        <translation>클립과 같음</translation>
+    </message>
+    <message>
+        <source>Top</source>
+        <translation>위</translation>
+    </message>
+    <message>
+        <source>Middle</source>
+        <translation>가운데</translation>
+    </message>
+    <message>
+        <source>Where this caption sits on screen</source>
+        <translation>이 자막이 화면에 놓이는 위치</translation>
+    </message>
+    <message>
         <source>At %1</source>
         <translation>%1에서</translation>
     </message>

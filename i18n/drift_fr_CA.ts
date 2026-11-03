@@ -26780,6 +26780,26 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Définir la fin à l&apos;heure actuelle</translation>
     </message>
     <message>
+        <source>Style: same as the clip</source>
+        <translation>Style : comme le clip</translation>
+    </message>
+    <message>
+        <source>Like the clip</source>
+        <translation>Comme le clip</translation>
+    </message>
+    <message>
+        <source>Top</source>
+        <translation>En haut</translation>
+    </message>
+    <message>
+        <source>Middle</source>
+        <translation>Au centre</translation>
+    </message>
+    <message>
+        <source>Where this caption sits on screen</source>
+        <translation>Où ce sous-titre se place à l’écran</translation>
+    </message>
+    <message>
         <source>At %1</source>
         <translation>À %1</translation>
     </message>

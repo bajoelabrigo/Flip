@@ -27,6 +27,7 @@
 #include "core/MediaAsset.h"
 #include "core/ShapePath.h"
 #include "core/SubtitleCue.h"
+#include "core/TextStyle.h"
 #include "core/Time.h"
 #include "core/TimelineOps.h"
 #include "core/Transition.h"
@@ -1548,10 +1549,22 @@ GpuLayer buildGpuLayer(const drift::Project &project, const drift::Clip &clip,
         if (!cue || cue->text.trimmed().isEmpty())
             return layer;
 
+        // A caption with a look of its own (a preset) or a place of its own (top, middle) for just
+        // that line; the rest of the clip keeps the clip's.
+        std::optional<drift::TextStyle> ownStyle;
+        if (!cue->styleId.isEmpty())
+            ownStyle = drift::textStyleForPresetId(cue->styleId);
+        QRectF cueRect = layoutRect;
+        const double canvasH = projectHeight * renderScale;
+        if (cue->place == QLatin1String("top"))
+            cueRect.moveTop(canvasH * 0.08);
+        else if (cue->place == QLatin1String("middle"))
+            cueRect.moveCenter(QPointF(cueRect.center().x(), canvasH * 0.5));
+
         // Each cue animates in and out on its own window, so cues play one after another.
         drift::textanim::BlockProps block;
         const QRectF rasterRect =
-            fillTextLayer(layer, textClip->textStyle, cue->text, layoutRect, renderScale,
+            fillTextLayer(layer, ownStyle ? *ownStyle : textClip->textStyle, cue->text, cueRect, renderScale,
                           karaokeWordIndex(clip, *cue, localUs), clip.timelineStart + cue->startUs,
                           cue->endUs - cue->startUs, timelineUs, &block);
         if (!layer.hasPixels())

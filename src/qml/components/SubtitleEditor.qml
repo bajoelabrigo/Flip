@@ -166,7 +166,8 @@ Item {
         const next = []
         for (let i = 0; i < cues.length; i++)
             next.push({ start: cues[i].start, end: cues[i].end, text: cues[i].text,
-                        wordEnds: (cues[i].wordEnds || []).slice() })
+                        wordEnds: (cues[i].wordEnds || []).slice(),
+                        style: cues[i].style || "", place: cues[i].place || "" })
         return next
     }
 
@@ -284,7 +285,7 @@ Item {
             const stop = clampTime(cue.end + delta)
             if (stop - start < 0.05)
                 continue // pushed off the clip entirely
-            next.push({ start: start, end: stop, text: cue.text,
+            next.push({ start: start, end: stop, text: cue.text, style: cue.style, place: cue.place,
                         wordEnds: cue.wordEnds.map(e => Math.max(start, Math.min(stop, e + delta))) })
         }
         if (next.length)
@@ -321,9 +322,9 @@ Item {
         // Each word with the space or line break after it, so a two-line caption keeps its break.
         const pieces = String(cue.text).trim().match(/\S+\s*/g) || []
         const first = { start: cue.start, end: t, text: pieces.slice(0, k).join("").trim(),
-                        wordEnds: timed ? cue.wordEnds.slice(0, k) : [] }
+                        wordEnds: timed ? cue.wordEnds.slice(0, k) : [], style: cue.style, place: cue.place }
         const second = { start: t, end: cue.end, text: pieces.slice(k).join("").trim(),
-                         wordEnds: timed ? cue.wordEnds.slice(k) : [] }
+                         wordEnds: timed ? cue.wordEnds.slice(k) : [], style: cue.style, place: cue.place }
         list.splice(index, 1, first, second)
         replaceCues(list)
         EditorState.selectedSubtitleCue = index + 1
@@ -337,7 +338,7 @@ Item {
         const a = list[index]
         const b = list[index + 1]
         const joined = { start: a.start, end: b.end, text: (a.text + " " + b.text).trim(),
-                         wordEnds: a.wordEnds.concat(b.wordEnds) }
+                         wordEnds: a.wordEnds.concat(b.wordEnds), style: a.style, place: a.place }
         list.splice(index, 2, joined)
         replaceCues(list)
         EditorState.selectedSubtitleCue = index
@@ -942,6 +943,7 @@ Item {
     property bool replaceOpen: false
     property bool moreOpen: false
     readonly property bool animatedEmojis: EditorState.animatedEmojisAvailable()
+    readonly property var cueStyleChoices: EditorState.subtitleStyleChoices()
 
     ThemedDialog {
         id: dictionaryDialog
@@ -1436,6 +1438,42 @@ Item {
                             enabled: root.selectedCueIndex >= 0
                             tooltip: qsTr("Delete this caption")
                             onClicked: root.removeCue(root.selectedCueIndex)
+                        }
+                    }
+
+                    // Just this caption's look and place (CapCut lets one line stand out).
+                    ThemedComboBox {
+                        id: cueStyleBox
+                        width: parent.width
+                        enabled: root.selectedCue !== null
+                        textRole: "label"
+                        valueRole: "id"
+                        model: [{ id: "", label: qsTr("Style: same as the clip") }].concat(root.cueStyleChoices)
+                        currentIndex: {
+                            const id = root.selectedCue ? (root.selectedCue.style || "") : ""
+                            return Math.max(0, indexOfValue(id))
+                        }
+                        onActivated: root.updateCue(root.selectedCueIndex, { style: currentValue })
+                    }
+
+                    Row {
+                        id: cuePlaceRow
+                        width: parent.width
+                        spacing: 6
+                        readonly property real third: (width - spacing * 2) / 3
+                        Repeater {
+                            model: [{ id: "", label: qsTr("Like the clip") }, { id: "top", label: qsTr("Top") },
+                                    { id: "middle", label: qsTr("Middle") }]
+                            ThemedButton {
+                                required property var modelData
+                                width: cuePlaceRow.third
+                                text: modelData.label
+                                enabled: root.selectedCue !== null
+                                variant: root.selectedCue && (root.selectedCue.place || "") === modelData.id
+                                         ? "secondary" : "ghost"
+                                tooltip: qsTr("Where this caption sits on screen")
+                                onClicked: root.updateCue(root.selectedCueIndex, { place: modelData.id })
+                            }
                         }
                     }
 

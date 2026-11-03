@@ -17,6 +17,10 @@ struct SubtitleCue
     // no longer matching the words (the text was edited, the cue retimed), falls back to the
     // proportional timing; karaoke follows the voice only with real timings (auditoria D11).
     QList<TimeUs> wordEndsUs;
+    // This caption's own look, as CapCut lets one line stand out: a text preset id (empty = the
+    // clip's style), and where it sits ("" = where the clip puts it, "top", "middle").
+    QString styleId;
+    QString place;
 };
 
 // Moves a cue and its word timings by `delta`.

@@ -26872,6 +26872,26 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
         <translation>Ustaw koniec na bieżący czas</translation>
     </message>
     <message>
+        <source>Style: same as the clip</source>
+        <translation>Styl: jak w klipie</translation>
+    </message>
+    <message>
+        <source>Like the clip</source>
+        <translation>Jak w klipie</translation>
+    </message>
+    <message>
+        <source>Top</source>
+        <translation>Góra</translation>
+    </message>
+    <message>
+        <source>Middle</source>
+        <translation>Środek</translation>
+    </message>
+    <message>
+        <source>Where this caption sits on screen</source>
+        <translation>Gdzie ten napis jest na ekranie</translation>
+    </message>
+    <message>
         <source>At %1</source>
         <translation>O %1</translation>
     </message>

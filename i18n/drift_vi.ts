@@ -26684,6 +26684,26 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Đặt thời gian kết thúc là thời gian hiện tại</translation>
     </message>
     <message>
+        <source>Style: same as the clip</source>
+        <translation>Kiểu: giống clip</translation>
+    </message>
+    <message>
+        <source>Like the clip</source>
+        <translation>Như clip</translation>
+    </message>
+    <message>
+        <source>Top</source>
+        <translation>Trên</translation>
+    </message>
+    <message>
+        <source>Middle</source>
+        <translation>Giữa</translation>
+    </message>
+    <message>
+        <source>Where this caption sits on screen</source>
+        <translation>Vị trí phụ đề này trên màn hình</translation>
+    </message>
+    <message>
         <source>At %1</source>
         <translation>Tại %1</translation>
     </message>

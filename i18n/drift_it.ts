@@ -26778,6 +26778,26 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
         <translation>Imposta fine alla posizione corrente</translation>
     </message>
     <message>
+        <source>Style: same as the clip</source>
+        <translation>Stile: come il clip</translation>
+    </message>
+    <message>
+        <source>Like the clip</source>
+        <translation>Come il clip</translation>
+    </message>
+    <message>
+        <source>Top</source>
+        <translation>In alto</translation>
+    </message>
+    <message>
+        <source>Middle</source>
+        <translation>Al centro</translation>
+    </message>
+    <message>
+        <source>Where this caption sits on screen</source>
+        <translation>Dove sta questo sottotitolo sullo schermo</translation>
+    </message>
+    <message>
         <source>At %1</source>
         <translation>A %1</translation>
     </message>

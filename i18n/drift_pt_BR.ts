@@ -26778,6 +26778,26 @@ Se a reprodução travar, tente outra opção.</translation>
         <translation>Definir fim no tempo atual</translation>
     </message>
     <message>
+        <source>Style: same as the clip</source>
+        <translation>Estilo: igual ao clipe</translation>
+    </message>
+    <message>
+        <source>Like the clip</source>
+        <translation>Como o clipe</translation>
+    </message>
+    <message>
+        <source>Top</source>
+        <translation>Em cima</translation>
+    </message>
+    <message>
+        <source>Middle</source>
+        <translation>No centro</translation>
+    </message>
+    <message>
+        <source>Where this caption sits on screen</source>
+        <translation>Onde esta legenda fica na tela</translation>
+    </message>
+    <message>
         <source>At %1</source>
         <translation>Em %1</translation>
     </message>

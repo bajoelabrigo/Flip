@@ -2089,6 +2089,8 @@ QVariantList subtitleCuesToMap(const QList<drift::SubtitleCue> &cues)
             {QStringLiteral("end"), drift::usToSeconds(cue.endUs)},
             {QStringLiteral("text"), cue.text},
             {QStringLiteral("wordEnds"), ends},
+            {QStringLiteral("style"), cue.styleId},
+            {QStringLiteral("place"), cue.place},
         });
     }
     return out;
@@ -2107,6 +2109,8 @@ QList<drift::SubtitleCue> subtitleCuesFromMap(const QVariantList &list)
         // Kept through the editor; activeWordIndexAt ignores them once they stop fitting.
         for (const QVariant &end : map.value(QStringLiteral("wordEnds")).toList())
             cue.wordEndsUs.append(drift::secondsToUs(end.toDouble()));
+        cue.styleId = map.value(QStringLiteral("style")).toString();
+        cue.place = map.value(QStringLiteral("place")).toString();
         cues.append(cue);
     }
     drift::sortSubtitleCues(cues);

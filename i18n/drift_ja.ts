@@ -26684,6 +26684,26 @@ If playback stutters, try another.</source>
         <translation>終了を現在の時間に設定</translation>
     </message>
     <message>
+        <source>Style: same as the clip</source>
+        <translation>スタイル：クリップと同じ</translation>
+    </message>
+    <message>
+        <source>Like the clip</source>
+        <translation>クリップと同じ</translation>
+    </message>
+    <message>
+        <source>Top</source>
+        <translation>上</translation>
+    </message>
+    <message>
+        <source>Middle</source>
+        <translation>中央</translation>
+    </message>
+    <message>
+        <source>Where this caption sits on screen</source>
+        <translation>この字幕の画面上の位置</translation>
+    </message>
+    <message>
         <source>At %1</source>
         <translation>%1 に</translation>
     </message>

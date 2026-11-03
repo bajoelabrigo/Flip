@@ -26766,6 +26766,26 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Style: same as the clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Like the clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Top</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Middle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Where this caption sits on screen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>At %1</source>
         <translation type="unfinished"></translation>
     </message>

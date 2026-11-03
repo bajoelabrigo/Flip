@@ -27154,6 +27154,26 @@ If playback stutters, try another.</source>
         <translation>تعيين النهاية إلى الوقت الحالي</translation>
     </message>
     <message>
+        <source>Style: same as the clip</source>
+        <translation>النمط: مثل المقطع</translation>
+    </message>
+    <message>
+        <source>Like the clip</source>
+        <translation>مثل المقطع</translation>
+    </message>
+    <message>
+        <source>Top</source>
+        <translation>أعلى</translation>
+    </message>
+    <message>
+        <source>Middle</source>
+        <translation>الوسط</translation>
+    </message>
+    <message>
+        <source>Where this caption sits on screen</source>
+        <translation>مكان هذه الترجمة على الشاشة</translation>
+    </message>
+    <message>
         <source>At %1</source>
         <translation>عند %1</translation>
     </message>

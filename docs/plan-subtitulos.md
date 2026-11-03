@@ -45,7 +45,7 @@ Cómo seguir: marcar cada punto al terminarlo con el commit; probar en ventana a
 ## Agregar
 Lo que tienen CapCut, Premiere y Descript:
 - [x] Dividir y unir subtítulos sueltos; «dividir en el cabezal».
-- [ ] Estilo y posición por subtítulo (no solo por clip).
+- [x] Estilo y posición por subtítulo (no solo por clip).
 - [ ] Traducir a muchos idiomas y subtítulos bilingües.
 - [ ] Editar el video borrando texto (como Descript).
 - [x] Revisar los silencios uno por uno antes de quitarlos.
@@ -132,3 +132,7 @@ ventanas de herramientas.
   - pitido: botón «Pitido» en el editor (sale cuando hay groserías tapadas con su tiempo): la voz baja a cero en cada
     palabra (claves de volumen en los clips transcritos) y un tono de 1 kHz suena en una pista propia (WAV en
     `generated-audio`). Un solo deshacer (`bleepSubtitleSwearWords`).
+  - estilo y lugar por subtítulo: cada subtítulo guarda `styleId` (un estilo de la galería, vacío = el del clip) y
+    `place` («top», «middle», vacío = donde lo pone el clip), en el proyecto y en el editor (desplegable «Estilo» y
+    «Como el clip / Arriba / Centro» bajo Dividir/Unir); el compositor los usa al dibujar esa línea. Dividir, unir,
+    mover y el carril los conservan.

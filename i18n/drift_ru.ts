@@ -26872,6 +26872,26 @@ If playback stutters, try another.</source>
         <translation>Установить конец на текущее время</translation>
     </message>
     <message>
+        <source>Style: same as the clip</source>
+        <translation>Стиль: как у клипа</translation>
+    </message>
+    <message>
+        <source>Like the clip</source>
+        <translation>Как у клипа</translation>
+    </message>
+    <message>
+        <source>Top</source>
+        <translation>Сверху</translation>
+    </message>
+    <message>
+        <source>Middle</source>
+        <translation>По центру</translation>
+    </message>
+    <message>
+        <source>Where this caption sits on screen</source>
+        <translation>Где этот субтитр на экране</translation>
+    </message>
+    <message>
         <source>At %1</source>
         <translation>В %1</translation>
     </message>
