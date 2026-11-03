@@ -194,3 +194,20 @@ fotograma clave en números, itinerantes e interpolación espacial, y emparentar
 B/N). 3. [ ] y Alt+[ ]. 4. Zona de trabajo arrastrable y reproducción dentro de ella. 5. Velocidad del fotograma
 clave para todas las elegidas. 6. Claves en varias capas (poner, copiar, pegar). 7. Expresiones que faltan.
 8. Editor de gráficos grande. 9. Posición unida con trayecto curvo e itinerantes.
+
+## Ronda 3 (2026-11-03, build 98d78, con el mouse; `pruebasebote-r3`)
+Rebote con la bola en el piso 13–15, 24–26 y 43–45, dos saltos que salen por la derecha (37/43 copiadas a 51/57), 26
+claves de Escala siguiendo la referencia, el aterrizaje 12–16 copiado con Mayús al 42. Medido: del 13 al 31 a 2–14 px
+de la referencia en cada fotograma; la caída (7–12) va lineal y adelantada hasta 100 px (falta darle aceleración).
+Bien en esta ronda: 15 (plurales), 16 (pegadas elegidas), 17 (anclaje 68/132 con 165×47), 18 (10 claves copiadas, alto
+incluido), 19 («Editar curva…» abre Y), 20 (escala del gráfico con el ancla: −244…974), 21 (claves y tiradores sobre la
+curva de velocidad), 22 (el recuadro copió 6 claves, solo de Y), aviso del trazo (sale, con algo de demora).
+Sigue mal / nuevo:
+- 10b: Tab confirma el ancho pero no abre el alto (el arreglo no sirvió): depurar con registros.
+- 14: el aviso «Arrastra para cambiarlo…» vuelve porque la fila se rehace al confirmar: mostrarlo solo si el puntero
+  se mueve encima.
+- 21b: arrastrar hacia abajo el tirador de salida de la clave 5 en el gráfico de velocidad dio una caída que arranca
+  rápido (4701/s) y frena, al revés de lo pedido. Sospecha: al volverse curva el tramo 5–13 se usa el tirador plano
+  guardado en la clave 13 («Recto»). Revisar con números (MCP sin ventana).
+- 23: las claves de Escala pegadas siguen pintadas en celeste aunque ya no están elegidas.
+- Cuentas en los valores: no estaban en esta build (ya subidas, `ValueMath.qml`).
