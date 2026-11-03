@@ -96,3 +96,25 @@ bola entra un fotograma tarde (falta afinar la influencia de la primera clave en
 - **3, 4, 8 y 9:** no se reproducen leyendo el código (no hay tecla suelta que pase a Simple; la vista previa en RAM es
   el 0 del teclado numérico, como en AE; la cuadrícula de tercios es la del recorte del lienzo o una guía). Mirarlos
   con calma en la ronda 2 y anotar el paso exacto.
+
+## Ronda 2 (2026-11-03, build dcc85, con el mouse; proyecto y video en `pruebasebote-r2`)
+Hecho: fondo, piso y bola con la barra de herramientas; ancla abajo escrita en la fila; Posición Y (5, 13, 19, 24, 31,
+37, 43) y las claves 37–43 **copiadas y pegadas** en 49–55; Posición X 962 → 2150 (31 → 55, sale por la derecha); F9 en
+las tres cimas; 14 claves de Escala con la cadena suelta, el aplastamiento copiado al segundo golpe; el tirador de la
+clave 5 movido en el gráfico de valores y revisado en el de velocidad. Medido: la base se queda en 886 mientras la bola
+se aplasta (arreglo 11 bien), cimas en 596 (objetivo 600), X a 50 px por fotograma, fuera de cuadro desde el 52.
+Bien en esta ronda: 1, 2, 5, 6, 7, 11, 12 y 13.
+
+Problemas nuevos:
+14. El aviso «Arrastra para cambiarlo, clic para escribirlo» de un valor se queda encima y tapa el nombre de la fila.
+15. Los avisos dicen «2 fotograma(s) clave pegado(s)» / «copiado(s)»: escribirlo bien según el número.
+16. Después de pegar, siguen elegidas las claves copiadas; en AE quedan elegidas las pegadas.
+10b. Tab confirma el ancho de Escala pero no abre el alto (lo escrito después se pierde).
+17. Punto de anclaje se muestra en píxeles de la caja ya escalada (68/132 pasa a 59/185 con 86 %×140 %); en AE son
+    los píxeles de la capa y no cambian con la escala.
+18. **Copiar claves de Escala:** al sumar rombos con Ctrl o Mayús solo entra el ancho; se pegó 165×140 en vez de
+    165×47. Con Mayús entró una sola clave. El aviso contó «4» para tres rombos de dos valores.
+19. «Editar curva…» en una clave de Posición Y abre el gráfico enfocado en Posición X.
+20. (menor) La escala de valores del gráfico pone 842 arriba cuando las claves llegan a 890.
+21. En el gráfico de velocidad las claves y los tiradores siguen donde están en el de valores; en AE se dibujan sobre la
+    curva de velocidad y se arrastran ahí (alto = velocidad, ancho = influencia).
