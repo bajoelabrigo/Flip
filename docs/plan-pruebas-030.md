@@ -210,7 +210,7 @@ segunda por dos `onClosing` en `TextEditWindow.qml` (qmlcachegen; ahora se revis
 ## Tanda grande con el mouse de Jorge (preparada el 2026-11-03)
 Proyectos en `E:\FlipStudio\pruebas\proyectos-030` (`ae1-pelota`, `ae2-titulo`, `ae3-producto`, `ae4-infografia`,
 `ae5-vertical`, `sub1-entrevista`, `sub2-vertical`, `sub3-sin-internet`, `tts1-narracion`; guiones `guion-tutorial.txt` y
-`guion-dialogo.md`, `prueba-importar.srt`). Versión: `E:FlipStudiopruebasFlipStudio-0.30-r6` (compilación 41729999979, con el extra de voces en `tts-voices` junto al programa). Antes: copia del registro; después, restaurarla.
+`guion-dialogo.md`, `prueba-importar.srt`). Versión: `E:/FlipStudio/pruebas/FlipStudio-0.30-r6` (compilación 41729999979, con el extra de voces en `tts-voices` junto al programa). Antes: copia del registro; después, restaurarla.
 Cada caso: lo que se hace → lo que tiene que pasar. Anotar en la tabla de abajo «bien» o lo que pasó.
 
 ### After Effects (20)
