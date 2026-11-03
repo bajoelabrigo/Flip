@@ -277,8 +277,8 @@ Item {
                     }
                 }
 
+                // Names, brands and terms to spell as given (the cloud's keyterms, Whisper's prompt here).
                 ThemedTextField {
-                    visible: root.cloudReady && root.useCloud
                     width: parent.width
                     placeholderText: qsTr("Hard words: names, brands… (separated by commas)")
                     text: EditorState.subtitleKeytermsText()

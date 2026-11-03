@@ -10036,6 +10036,13 @@ bool AppController::generateSubtitlesForSources(QList<SubtitleSource> sources, c
             finish(false, whisper.lastError(), {});
             return;
         }
+        // The hard words (names, brands) as Whisper's initial prompt, for this run only.
+        struct HintScope {
+            drift::WhisperTranscriber &w;
+            ~HintScope() { w.setInitialPrompt({}); }
+        } hintScope{whisper};
+        if (!cloud)
+            whisper.setInitialPrompt(keyterms.join(QStringLiteral(", ")));
 
         // Decode every source's raw audio over [srcIn, srcOut] at 16 kHz mono, back to back into
         // one buffer so Whisper runs once; spans remember where each source landed in it.

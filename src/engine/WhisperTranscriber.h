@@ -30,6 +30,10 @@ class WhisperTranscriber
 public:
     static WhisperTranscriber &instance();
 
+    // Words the next transcriptions should expect (names, brands, terms), as Whisper's initial
+    // prompt; empty for none. Set it before a run and clear it after: the instance is shared.
+    void setInitialPrompt(const QString &text);
+
     // Whether the model files are on disk. Cheap — it only looks for them, where available()
     // goes on to load three quarters of a gigabyte of ONNX sessions. Use this to report or
     // gate on availability; use available() when about to transcribe.

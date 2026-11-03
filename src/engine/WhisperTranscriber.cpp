@@ -55,6 +55,7 @@ constexpr int kSotToken = 50258;        // <|startoftranscript|>
 constexpr int kEosToken = 50257;        // <|endoftext|>
 constexpr int kTranscribeToken = 50359; // <|transcribe|>
 constexpr int kTranslateToken = 50358;  // <|translate|>
+constexpr int kStartOfPrevToken = 50361; // <|startofprev|>: the text before, as a hint
 constexpr int kNoTimestampsToken = 50363;
 constexpr int kTimestampBegin = 50364; // <|0.00|>
 constexpr int kMaxDecodeTokens = 224;  // per 30s window
@@ -300,6 +301,8 @@ struct WhisperTranscriber::Impl
     std::vector<std::string> decpInNames, decpOutNames;
 
     WhisperTokenizer tokenizer;
+    QString hintText;                 // setInitialPrompt
+    std::vector<int64_t> hintTokens;  // its tokens, made once the tokenizer is loaded
     std::vector<std::vector<float>> melFilters;
     std::vector<float> hann;
 
@@ -796,6 +799,12 @@ WhisperTranscriber &WhisperTranscriber::instance()
     return s;
 }
 
+void WhisperTranscriber::setInitialPrompt(const QString &text)
+{
+    d->hintText = text.trimmed();
+    d->hintTokens.clear();
+}
+
 bool WhisperTranscriber::modelPresent()
 {
     return !resolveWhisperModelDir().isEmpty();
@@ -892,6 +901,14 @@ WhisperResult WhisperTranscriber::transcribeSegments(
     const QString forcedLang = languageCode.trimmed().toLower();
     const bool forceLanguage = !forcedLang.isEmpty();
     int languageToken = d->languageByCode.value(QStringLiteral("en"), 50259); // <|en|> fallback
+    // The hint words as tokens (Whisper keeps at most half its context for the text before).
+    d->hintTokens.clear();
+    if (!d->hintText.isEmpty()) {
+        for (const int t : d->tokenizer.encodeApprox(QLatin1Char(' ') + d->hintText))
+            d->hintTokens.push_back(t);
+        if (d->hintTokens.size() > 223)
+            d->hintTokens.erase(d->hintTokens.begin(), d->hintTokens.end() - 223);
+    }
     if (forceLanguage) {
         const auto it = d->languageByCode.constFind(forcedLang);
         if (it == d->languageByCode.constEnd()) {
@@ -987,9 +1004,15 @@ WhisperResult WhisperTranscriber::transcribeSegments(
 
         Ort::Value encHidden = d->runEncoder(mel);
 
-        // Prompt: <|sot|> <lang> <|transcribe|> or <|translate|>  (timestamps enabled).
-        std::vector<int64_t> prompt{kSotToken, languageToken,
-                                    translateToEnglish ? kTranslateToken : kTranscribeToken};
+        // Prompt: [<|startofprev|> hint words] <|sot|> <lang> <|transcribe|> or <|translate|>
+        // (timestamps enabled). The hint makes the hard words come out spelled as given.
+        std::vector<int64_t> prompt;
+        if (!d->hintTokens.empty()) {
+            prompt.push_back(kStartOfPrevToken);
+            prompt.insert(prompt.end(), d->hintTokens.begin(), d->hintTokens.end());
+        }
+        prompt.insert(prompt.end(), {kSotToken, languageToken,
+                                     translateToEnglish ? kTranslateToken : kTranscribeToken});
 
         const double windowFrac = static_cast<double>(cursor) / total;
         const std::vector<int> generated = d->decodeWindow(

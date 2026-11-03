@@ -54,7 +54,7 @@ Lo que tienen CapCut, Premiere y Descript:
 - [x] Mover todos los subtítulos a la vez (adelantar o atrasar).
 - [~] Subtítulos dentro del MP4 (activables) y un `.srt` al lado del video al exportar.
 - [x] ASS con el estilo real del proyecto.
-- [~] Palabras difíciles antes de transcribir (nombres, marcas, términos). Hecho en la nube (keyterms de ElevenLabs); en el equipo falta (Whisper no tiene «prompt» en nuestro tokenizador).
+- [x] Palabras difíciles antes de transcribir (nombres, marcas, términos). Hecho en la nube (keyterms de ElevenLabs); en el equipo falta (Whisper no tiene «prompt» en nuestro tokenizador).
 
 Para redes (estilo CapCut):
 - [x] Palabras clave resaltadas por la IA (color o tamaño) y emojis animados de Stock.
@@ -144,3 +144,6 @@ ventanas de herramientas.
   - editar con el texto: botón «Editar con el texto…» en la pestaña Audio del clip; transcribe si hace falta y abre
     una ventana con las palabras (`TextEditWindow.qml`, `clipTranscriptWords`): clic tacha, Mayús + clic tacha un tramo,
     doble clic la escucha, «Cortar» quita lo tachado en un solo deshacer (por `removeSilencePieces`).
+  - palabras difíciles en el equipo: el campo de Opciones vale también sin la nube; van como «prompt» inicial de
+    Whisper (`<|startofprev|>` + las palabras), codificadas con el vocabulario por coincidencia más larga
+    (`WhisperTokenizer::encodeApprox`; los modelos no traen los merges). Probado aparte: codifica y vuelve exacto.
