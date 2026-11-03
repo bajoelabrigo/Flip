@@ -1,5 +1,6 @@
 import QtQuick
 import QtQuick.Controls.Basic
+import QtQuick.Window
 import Drift
 import "."
 
@@ -389,6 +390,22 @@ Item {
     Component.onCompleted: {
         EditorState.selectedSubtitleCue = root.activeCueIndex
         loadEditor()
+        // I and O (mark in / out) set the picked caption's start and end while this is open.
+        const w = root.Window.window
+        if (w && w.subtitleCueEditor !== undefined)
+            w.subtitleCueEditor = root
+    }
+    Component.onDestruction: {
+        const w = root.Window.window
+        if (w && w.subtitleCueEditor === root)
+            w.subtitleCueEditor = null
+    }
+    // The I / O keys: true when they went to a caption (else they mark the work area as before).
+    function markCueEdge(edge) {
+        if (!root.visible || root.selectedCue === null)
+            return false
+        root.setCueEdgeToPlayhead(root.selectedCueIndex, edge)
+        return true
     }
 
     Connections {
@@ -1109,9 +1126,9 @@ Item {
                     // puts it at the playhead. Typing the time still works.
                     Repeater {
                         model: [{ edge: "start", label: qsTr("Start"), glyph: Theme.icons.setStart,
-                                  tip: qsTr("Set start to current time") },
+                                  tip: qsTr("Set start to current time") + " (I)" },
                                 { edge: "end", label: qsTr("End"), glyph: Theme.icons.setEnd,
-                                  tip: qsTr("Set end to current time") }]
+                                  tip: qsTr("Set end to current time") + " (O)" }]
                         delegate: Row {
                             id: edgeRow
                             required property var modelData

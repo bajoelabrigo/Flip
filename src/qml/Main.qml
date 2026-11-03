@@ -1110,6 +1110,8 @@ ApplicationWindow {
     }
 
     property var mediaPreviewPage: null
+    // The open caption editor (Subtitles tab), so I / O set its caption's start and end.
+    property var subtitleCueEditor: null
 
     LazyLoader {
         id: mediaPreviewWindowLoader
@@ -1833,6 +1835,9 @@ ApplicationWindow {
             EditorState.clearSelection()
             return
         }
+        if ((id === "markIn" || id === "markOut") && window.subtitleCueEditor
+                && window.subtitleCueEditor.markCueEdge(id === "markIn" ? "start" : "end"))
+            return
         const pickedPart = EditorState.selectedShapePart
         if (pickedPart !== "" && (id === "clearSelection" || id === "duplicate" || id === "transformTogether")) {
             const track = EditorState.selectedTrack

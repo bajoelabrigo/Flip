@@ -76,7 +76,7 @@ Para redes (estilo CapCut):
   - largo de cada subtítulo según la forma del video (vertical 26 letras, cuadrado 32, horizontal 42): en vertical
     salían 3 o 4 líneas. La caja ya parte en líneas sola; falta ver en ventana si conviene un máximo de 2 líneas.
   - editor: inicio y fin en su propia fila con ◀ ▶ de un fotograma y «al cabezal»; Dividir en el cabezal (con los
-    tiempos por palabra), Unir con el siguiente, Eliminar en una fila; «Mover todos» ±0,1 s. Atajos de teclado: pendiente.
+    tiempos por palabra), Unir con el siguiente, Eliminar en una fila; «Mover todos» ±0,1 s. Atajos: I y O ponen el inicio y el fin del subtítulo elegido en el cabezal mientras el editor está abierto (si no, marcan el área de trabajo como siempre).
   - idioma: votan hasta tres tramos de 30 s con sonido repartidos por el video (antes solo los primeros 30 s).
   - sin «Sincronía de palabras»: se descartan los subtítulos sobre silencio (texto fantasma de Whisper).
   - la galería de estilos de Subtítulos cambia también los subtítulos elegidos («Estilo de los subtítulos elegidos»).
