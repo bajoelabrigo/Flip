@@ -160,7 +160,8 @@ Item {
             if (!root.editing)
                 return
             root.editing = false
-            const d = parseFloat(String(text).replace(",", "."))
+            // Sums too, as After Effects: "+50" adds to the value shown, "*2" doubles it, "100+20" is 120.
+            const d = ValueMath.evaluate(text, root.shown)
             if (commit && !isNaN(d)) {
                 root.begin()
                 root.apply(d)

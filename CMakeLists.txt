@@ -1258,6 +1258,7 @@ set_source_files_properties(src/qml/DownloadFormat.qml PROPERTIES QT_QML_SINGLET
 set_source_files_properties(src/qml/MediaImport.qml PROPERTIES QT_QML_SINGLETON_TYPE true)
 # App-wide notification queue; the visual host is components/ToastHost.qml.
 set_source_files_properties(src/qml/Toasts.qml PROPERTIES QT_QML_SINGLETON_TYPE true)
+set_source_files_properties(src/qml/ValueMath.qml PROPERTIES QT_QML_SINGLETON_TYPE true)
 # In-flight lift-and-drop state for the phone asset sheet; the ghost is drawn by
 # AndroidBottomSheet and the drop is performed by AndroidTimeline.
 set_source_files_properties(src/qml/TouchDrag.qml PROPERTIES QT_QML_SINGLETON_TYPE true)
@@ -1300,6 +1301,7 @@ qt_add_qml_module(drift
         src/qml/AndroidMediaPreview.qml
         src/qml/Theme.qml
         src/qml/Toasts.qml
+        src/qml/ValueMath.qml
         src/qml/TouchDrag.qml
         src/qml/AssetDrag.qml
         src/qml/EditorHeader.qml

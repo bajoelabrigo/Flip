@@ -89,7 +89,8 @@ ThemedTextField {
     }
 
     function parseAndCommit() {
-        const v = parseFloat(text)
+        // Sums too (0.30, as After Effects): "+50" adds to the value, "*2" doubles it, "100+20" is 120.
+        const v = ValueMath.evaluate(text, value)
         if (isNaN(v)) {
             _flash(qsTr("Enter a number"))
             Haptics.error()
