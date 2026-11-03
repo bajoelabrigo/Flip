@@ -31,5 +31,9 @@ Medida fotograma a fotograma (bbox de los píxeles de la bola):
 - Escala (separar ancho y alto): estirar en la caída (~87 % × 137 %), aplastar al tocar (~165 % × 47 %), estirar al
   subir (~86 % × 140 %), aplastar poco en el 2.º golpe (~110 % × 90 %), asentarse (~98 % × 104 %) y reposo 100 %.
 
+## Acordado con Jorge (2026-11-03)
+Fondo, piso y bola se crean con el **panel izquierdo** (Formas, Títulos…) y colores aproximados; la animación, solo
+con la línea de tiempo y el mouse.
+
 ## Lista de problemas (se llena durante el ejercicio)
 _(vacía todavía)_
