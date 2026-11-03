@@ -5625,6 +5625,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Listening to the clip to write down what is said…</source>
+        <translation>正在聆听片段以记下所说的内容…</translation>
+    </message>
+    <message>
+        <source>Cut %1 s from the video</source>
+        <translation>已从视频中剪掉 %1 秒</translation>
+    </message>
+    <message>
         <source>That would remove the whole clip</source>
         <translation>这会删除整个片段</translation>
     </message>
@@ -7883,6 +7891,14 @@
     <message>
         <source>Open Subtitles to create captions from this clip&apos;s speech</source>
         <translation>打开“字幕”，根据此片段的语音创建字幕</translation>
+    </message>
+    <message>
+        <source>Edit by text…</source>
+        <translation>按文字剪辑…</translation>
+    </message>
+    <message>
+        <source>See what is said and strike out words: the video loses those moments</source>
+        <translation>查看所说的内容并划掉词语：视频会去掉这些时刻</translation>
     </message>
     <message>
         <source>C</source>
@@ -27825,6 +27841,33 @@ If playback stutters, try another.</source>
     <message>
         <source>Get more templates</source>
         <translation>获取更多模板</translation>
+    </message>
+</context>
+<context>
+    <name>TextEditWindow</name>
+    <message>
+        <source>Edit by text</source>
+        <translation>按文字剪辑</translation>
+    </message>
+    <message>
+        <source>Click the words to take out (Shift + click for a stretch). Double click to hear one.</source>
+        <translation>点击要删除的词（Shift + 点击选择一段）。双击可试听。</translation>
+    </message>
+    <message>
+        <source>No words found in this clip.</source>
+        <translation>此片段中没有找到词语。</translation>
+    </message>
+    <message>
+        <source>%1 words · %2 s</source>
+        <translation>%1 个词 · %2 秒</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
+        <source>Cut</source>
+        <translation>剪切</translation>
     </message>
 </context>
 <context>

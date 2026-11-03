@@ -5723,6 +5723,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Listening to the clip to write down what is said…</source>
+        <translation>جارٍ الاستماع إلى المقطع لكتابة ما يُقال…</translation>
+    </message>
+    <message>
+        <source>Cut %1 s from the video</source>
+        <translation>قُصّ %1 ث من الفيديو</translation>
+    </message>
+    <message>
         <source>That would remove the whole clip</source>
         <translation>سيؤدي ذلك إلى إزالة المقطع بأكمله</translation>
     </message>
@@ -8133,6 +8141,14 @@
     <message>
         <source>Open Subtitles to create captions from this clip&apos;s speech</source>
         <translation>يفتح «الترجمات» لإنشاء ترجمات من كلام هذا المقطع</translation>
+    </message>
+    <message>
+        <source>Edit by text…</source>
+        <translation>التحرير بالنص…</translation>
+    </message>
+    <message>
+        <source>See what is said and strike out words: the video loses those moments</source>
+        <translation>شاهد ما يُقال واشطب كلمات: يفقد الفيديو تلك اللحظات</translation>
     </message>
     <message>
         <source>C</source>
@@ -28306,6 +28322,33 @@ If playback stutters, try another.</source>
     <message>
         <source>Get more templates</source>
         <translation>الحصول على المزيد من القوالب</translation>
+    </message>
+</context>
+<context>
+    <name>TextEditWindow</name>
+    <message>
+        <source>Edit by text</source>
+        <translation>التحرير بالنص</translation>
+    </message>
+    <message>
+        <source>Click the words to take out (Shift + click for a stretch). Double click to hear one.</source>
+        <translation>انقر الكلمات التي تريد إزالتها (Shift + نقرة لمقطع). انقر نقرًا مزدوجًا لسماع كلمة.</translation>
+    </message>
+    <message>
+        <source>No words found in this clip.</source>
+        <translation>لم يُعثر على كلمات في هذا المقطع.</translation>
+    </message>
+    <message>
+        <source>%1 words · %2 s</source>
+        <translation>%1 كلمة · %2 ث</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>إلغاء</translation>
+    </message>
+    <message>
+        <source>Cut</source>
+        <translation>قص</translation>
     </message>
 </context>
 <context>

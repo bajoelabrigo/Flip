@@ -5647,6 +5647,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Listening to the clip to write down what is said…</source>
+        <translation>Ascolto del clip per scrivere ciò che si dice…</translation>
+    </message>
+    <message>
+        <source>Cut %1 s from the video</source>
+        <translation>Tagliati %1 s dal video</translation>
+    </message>
+    <message>
         <source>That would remove the whole clip</source>
         <translation>Verrebbe rimosso l’intero clip</translation>
     </message>
@@ -7933,6 +7941,14 @@
     <message>
         <source>Open Subtitles to create captions from this clip&apos;s speech</source>
         <translation>Apre Sottotitoli per creare i sottotitoli dal parlato di questa clip</translation>
+    </message>
+    <message>
+        <source>Edit by text…</source>
+        <translation>Modifica con il testo…</translation>
+    </message>
+    <message>
+        <source>See what is said and strike out words: the video loses those moments</source>
+        <translation>Guarda ciò che si dice e cancella parole: il video perde quei momenti</translation>
     </message>
     <message>
         <source>C</source>
@@ -27922,6 +27938,33 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     <message>
         <source>Get more templates</source>
         <translation>Ottieni altri modelli</translation>
+    </message>
+</context>
+<context>
+    <name>TextEditWindow</name>
+    <message>
+        <source>Edit by text</source>
+        <translation>Modifica con il testo</translation>
+    </message>
+    <message>
+        <source>Click the words to take out (Shift + click for a stretch). Double click to hear one.</source>
+        <translation>Fai clic sulle parole da togliere (Maiusc + clic per un tratto). Doppio clic per ascoltarne una.</translation>
+    </message>
+    <message>
+        <source>No words found in this clip.</source>
+        <translation>Nessuna parola trovata in questo clip.</translation>
+    </message>
+    <message>
+        <source>%1 words · %2 s</source>
+        <translation>%1 parole · %2 s</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Annulla</translation>
+    </message>
+    <message>
+        <source>Cut</source>
+        <translation>Taglia</translation>
     </message>
 </context>
 <context>

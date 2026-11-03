@@ -27562,11 +27562,13 @@ QString AppController::cutSilencesAndFillers(int trackIndex, int clipIndex, doub
     const drift::Clip &clip = m_project.tracks().at(trackIndex).clips.at(clipIndex);
     if ((clip.type != drift::ClipType::Video && clip.type != drift::ClipType::Audio) || clip.assetId.isEmpty()) {
         setLastMessage(tr("Select a video or audio clip with speech"), QStringLiteral("warning"));
+        m_textEditNext = false;
         return QStringLiteral("Not a video or audio clip");
     }
+    const bool textEdit = std::exchange(m_textEditNext, false);
     const drift::TranscriptPtr transcript = m_project.transcript(clip.assetId);
     if (transcript && transcript->source.matches(clip.path)) {
-        applySilenceCut(clip.id, minPause, removeFillers, review);
+        applySilenceCut(clip.id, minPause, removeFillers, review, textEdit);
         return {};
     }
 
@@ -27576,7 +27578,7 @@ QString AppController::cutSilencesAndFillers(int trackIndex, int clipIndex, doub
     const QJsonArray jobs = started.value(QStringLiteral("jobs")).toArray();
     if (jobs.isEmpty()) {
         if (m_project.transcript(clip.assetId)) {
-            applySilenceCut(clip.id, minPause, removeFillers, review);
+            applySilenceCut(clip.id, minPause, removeFillers, review, textEdit);
             return {};
         }
         const QString code = started.value(QStringLiteral("error")).toString();
@@ -27590,7 +27592,8 @@ QString AppController::cutSilencesAndFillers(int trackIndex, int clipIndex, doub
     m_pendingSilenceCuts.insert(jobId, QVariantMap{{QStringLiteral("clip"), clip.id},
                                                    {QStringLiteral("minPause"), minPause},
                                                    {QStringLiteral("fillers"), removeFillers},
-                                                   {QStringLiteral("review"), review}});
+                                                   {QStringLiteral("review"), review},
+                                                   {QStringLiteral("text"), textEdit}});
     if (!m_silenceCutHooked) {
         m_silenceCutHooked = true;
         connect(m_jobs, &JobRegistry::jobFinished, this, [this](const QString &id, bool ok) {
@@ -27608,15 +27611,18 @@ QString AppController::cutSilencesAndFillers(int trackIndex, int clipIndex, doub
                 applySilenceCut(pending.value(QStringLiteral("clip")).toString(),
                                 pending.value(QStringLiteral("minPause")).toDouble(),
                                 pending.value(QStringLiteral("fillers")).toBool(),
-                                pending.value(QStringLiteral("review")).toBool());
+                                pending.value(QStringLiteral("review")).toBool(),
+                                pending.value(QStringLiteral("text")).toBool());
             });
         });
     }
-    setLastMessage(tr("Listening to the clip to find silences…"));
+    setLastMessage(textEdit ? tr("Listening to the clip to write down what is said…")
+                            : tr("Listening to the clip to find silences…"));
     return {};
 }
 
-void AppController::applySilenceCut(const QString &clipId, double minPause, bool removeFillers, bool review)
+void AppController::applySilenceCut(const QString &clipId, double minPause, bool removeFillers, bool review,
+                                    bool textEdit)
 {
     const QPair<int, int> loc = m_mcpController->locateClip(clipId);
     if (loc.first < 0)
@@ -27624,6 +27630,10 @@ void AppController::applySilenceCut(const QString &clipId, double minPause, bool
     const drift::Clip &clip = m_project.tracks().at(loc.first).clips.at(loc.second);
     if (!m_project.transcript(clip.assetId)) {
         setLastMessage(tr("Could not analyse the speech in this clip"), QStringLiteral("error"));
+        return;
+    }
+    if (textEdit) {
+        emit textEditReady(loc.first, loc.second);
         return;
     }
     int fillers = 0;
@@ -27698,9 +27708,47 @@ void AppController::cutToKeepRanges(int trackIndex, int clipIndex, const QList<d
         return;
     }
     const double after = result.value(QStringLiteral("duration")).toDouble(before);
+    if (fillers < 0) {
+        setLastMessage(tr("Cut %1 s from the video").arg(QString::number(qMax(0.0, before - after), 'f', 1)),
+                       QStringLiteral("success"));
+        return;
+    }
     setLastMessage(tr("Removed %1 s of pauses and %n filler word(s)", nullptr, fillers)
                        .arg(QString::number(qMax(0.0, before - after), 'f', 1)),
                    QStringLiteral("success"));
+}
+
+QString AppController::editClipByText(int trackIndex, int clipIndex)
+{
+    m_textEditNext = true;
+    return cutSilencesAndFillers(trackIndex, clipIndex, 0.6, false, false);
+}
+
+QVariantList AppController::clipTranscriptWords(int trackIndex, int clipIndex) const
+{
+    QVariantList out;
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return out;
+    const drift::Clip &clip = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    const drift::TranscriptPtr transcript = m_project.transcript(clip.assetId);
+    if (!transcript)
+        return out;
+    for (const int i : transcript->wordsInRange(clip.srcIn, clip.srcOut)) {
+        const drift::TranscriptWord &w = transcript->words.at(i);
+        if (w.type != drift::TranscriptTokenType::Word && w.type != drift::TranscriptTokenType::Filler)
+            continue;
+        const QString text = w.text.trimmed();
+        if (text.isEmpty())
+            continue;
+        const drift::TimeUs a = qMax(clip.srcIn, w.startUs);
+        const drift::TimeUs b = qMin(clip.srcOut, qMax(w.endUs, w.startUs + 1));
+        const drift::TimeUs at = clip.timelineStart + clip.sourceUsToClipLocalUs(a);
+        out.append(QVariantMap{{QStringLiteral("start"), drift::usToSeconds(a)},
+                               {QStringLiteral("end"), drift::usToSeconds(b)},
+                               {QStringLiteral("at"), drift::usToSeconds(at)},
+                               {QStringLiteral("text"), text}});
+    }
+    return out;
 }
 
 QVariantList AppController::silencePieces(int trackIndex, int clipIndex, double minPause, bool removeFillers) const
@@ -27765,7 +27813,9 @@ void AppController::removeSilencePieces(int trackIndex, int clipIndex, const QVa
         const drift::TimeUs b = qMin(clip.srcOut, drift::secondsToUs(m.value(QStringLiteral("end")).toDouble()));
         if (b > a)
             gone.append({a, b});
-        if (m.value(QStringLiteral("filler")).toBool())
+        if (m.value(QStringLiteral("words")).toBool())
+            fillers = -1; // struck out in the text editor
+        else if (m.value(QStringLiteral("filler")).toBool() && fillers >= 0)
             fillers += int(qMax<qsizetype>(1, m.value(QStringLiteral("text")).toString().split(
                                               QLatin1Char(' '), Qt::SkipEmptyParts).size()));
     }

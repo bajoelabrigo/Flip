@@ -5651,6 +5651,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Listening to the clip to write down what is said…</source>
+        <translation>Pinakikinggan ang clip para isulat ang sinasabi…</translation>
+    </message>
+    <message>
+        <source>Cut %1 s from the video</source>
+        <translation>Pinutol ang %1 s sa video</translation>
+    </message>
+    <message>
         <source>That would remove the whole clip</source>
         <translation>Mabubura nito ang buong clip</translation>
     </message>
@@ -7933,6 +7941,14 @@
     <message>
         <source>Open Subtitles to create captions from this clip&apos;s speech</source>
         <translation>Binubuksan ang Subtitles para gumawa ng caption mula sa pananalita sa clip na ito</translation>
+    </message>
+    <message>
+        <source>Edit by text…</source>
+        <translation>I-edit gamit ang teksto…</translation>
+    </message>
+    <message>
+        <source>See what is said and strike out words: the video loses those moments</source>
+        <translation>Tingnan ang sinasabi at guhitan ang mga salita: mawawala sa video ang mga sandaling iyon</translation>
     </message>
     <message>
         <source>C</source>
@@ -27910,6 +27926,33 @@ If playback stutters, try another.</source>
     <message>
         <source>Get more templates</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>TextEditWindow</name>
+    <message>
+        <source>Edit by text</source>
+        <translation>I-edit gamit ang teksto</translation>
+    </message>
+    <message>
+        <source>Click the words to take out (Shift + click for a stretch). Double click to hear one.</source>
+        <translation>I-click ang mga salitang aalisin (Shift + click para sa isang bahagi). Double click para marinig.</translation>
+    </message>
+    <message>
+        <source>No words found in this clip.</source>
+        <translation>Walang nakitang salita sa clip na ito.</translation>
+    </message>
+    <message>
+        <source>%1 words · %2 s</source>
+        <translation>%1 salita · %2 s</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Kanselahin</translation>
+    </message>
+    <message>
+        <source>Cut</source>
+        <translation>Putulin</translation>
     </message>
 </context>
 <context>

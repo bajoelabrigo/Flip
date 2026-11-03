@@ -1345,6 +1345,7 @@ qt_add_qml_module(drift
         src/qml/MulticamWindow.qml
         src/qml/DenoiseWindow.qml
         src/qml/SilenceReviewWindow.qml
+        src/qml/TextEditWindow.qml
         src/qml/RestoreWindow.qml
         src/qml/DownloadsWindow.qml
         src/qml/SpeedCurveWindow.qml

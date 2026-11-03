@@ -5633,6 +5633,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Listening to the clip to write down what is said…</source>
+        <translation>Đang nghe clip để ghi lại lời nói…</translation>
+    </message>
+    <message>
+        <source>Cut %1 s from the video</source>
+        <translation>Đã cắt %1 giây khỏi video</translation>
+    </message>
+    <message>
         <source>That would remove the whole clip</source>
         <translation>Thao tác này sẽ xóa toàn bộ clip</translation>
     </message>
@@ -7883,6 +7891,14 @@
     <message>
         <source>Open Subtitles to create captions from this clip&apos;s speech</source>
         <translation>Mở Phụ đề để tạo phụ đề từ lời nói trong clip này</translation>
+    </message>
+    <message>
+        <source>Edit by text…</source>
+        <translation>Sửa bằng văn bản…</translation>
+    </message>
+    <message>
+        <source>See what is said and strike out words: the video loses those moments</source>
+        <translation>Xem lời nói và gạch bỏ từ: video mất những khoảnh khắc đó</translation>
     </message>
     <message>
         <source>C</source>
@@ -27826,6 +27842,33 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Get more templates</source>
         <translation>Tải thêm mẫu</translation>
+    </message>
+</context>
+<context>
+    <name>TextEditWindow</name>
+    <message>
+        <source>Edit by text</source>
+        <translation>Sửa bằng văn bản</translation>
+    </message>
+    <message>
+        <source>Click the words to take out (Shift + click for a stretch). Double click to hear one.</source>
+        <translation>Bấm vào các từ muốn bỏ (Shift + bấm để chọn một đoạn). Bấm đúp để nghe.</translation>
+    </message>
+    <message>
+        <source>No words found in this clip.</source>
+        <translation>Không tìm thấy từ nào trong clip này.</translation>
+    </message>
+    <message>
+        <source>%1 words · %2 s</source>
+        <translation>%1 từ · %2 giây</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Hủy</translation>
+    </message>
+    <message>
+        <source>Cut</source>
+        <translation>Cắt</translation>
     </message>
 </context>
 <context>

@@ -5669,6 +5669,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Listening to the clip to write down what is said…</source>
+        <translation>Słucham klipu, aby zapisać, co jest mówione…</translation>
+    </message>
+    <message>
+        <source>Cut %1 s from the video</source>
+        <translation>Wycięto %1 s z filmu</translation>
+    </message>
+    <message>
         <source>That would remove the whole clip</source>
         <translation>To usunęłoby cały klip</translation>
     </message>
@@ -7983,6 +7991,14 @@
     <message>
         <source>Open Subtitles to create captions from this clip&apos;s speech</source>
         <translation>Otwiera Napisy, aby utworzyć napisy z mowy w tym klipie</translation>
+    </message>
+    <message>
+        <source>Edit by text…</source>
+        <translation>Edytuj tekstem…</translation>
+    </message>
+    <message>
+        <source>See what is said and strike out words: the video loses those moments</source>
+        <translation>Zobacz, co jest mówione, i skreślaj słowa: film traci te chwile</translation>
     </message>
     <message>
         <source>C</source>
@@ -28018,6 +28034,33 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     <message>
         <source>Get more templates</source>
         <translation>Pobierz więcej szablonów</translation>
+    </message>
+</context>
+<context>
+    <name>TextEditWindow</name>
+    <message>
+        <source>Edit by text</source>
+        <translation>Edytuj tekstem</translation>
+    </message>
+    <message>
+        <source>Click the words to take out (Shift + click for a stretch). Double click to hear one.</source>
+        <translation>Kliknij słowa do usunięcia (Shift + klik dla fragmentu). Dwuklik, aby odsłuchać.</translation>
+    </message>
+    <message>
+        <source>No words found in this clip.</source>
+        <translation>W tym klipie nie znaleziono słów.</translation>
+    </message>
+    <message>
+        <source>%1 words · %2 s</source>
+        <translation>Słowa: %1 · %2 s</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Anuluj</translation>
+    </message>
+    <message>
+        <source>Cut</source>
+        <translation>Wytnij</translation>
     </message>
 </context>
 <context>

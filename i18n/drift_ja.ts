@@ -5625,6 +5625,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Listening to the clip to write down what is said…</source>
+        <translation>話している内容を書き出すためにクリップを聞いています…</translation>
+    </message>
+    <message>
+        <source>Cut %1 s from the video</source>
+        <translation>動画から %1 秒カットしました</translation>
+    </message>
+    <message>
         <source>That would remove the whole clip</source>
         <translation>クリップ全体が削除されます</translation>
     </message>
@@ -7883,6 +7891,14 @@
     <message>
         <source>Open Subtitles to create captions from this clip&apos;s speech</source>
         <translation>このクリップの音声から字幕を作るために「字幕」を開きます</translation>
+    </message>
+    <message>
+        <source>Edit by text…</source>
+        <translation>テキストで編集…</translation>
+    </message>
+    <message>
+        <source>See what is said and strike out words: the video loses those moments</source>
+        <translation>話した内容を見て単語を消すと、動画のその部分がなくなります</translation>
     </message>
     <message>
         <source>C</source>
@@ -27826,6 +27842,33 @@ If playback stutters, try another.</source>
     <message>
         <source>Get more templates</source>
         <translation>テンプレートをさらに入手</translation>
+    </message>
+</context>
+<context>
+    <name>TextEditWindow</name>
+    <message>
+        <source>Edit by text</source>
+        <translation>テキストで編集</translation>
+    </message>
+    <message>
+        <source>Click the words to take out (Shift + click for a stretch). Double click to hear one.</source>
+        <translation>取り除く単語をクリック（Shift + クリックで範囲）。ダブルクリックで再生。</translation>
+    </message>
+    <message>
+        <source>No words found in this clip.</source>
+        <translation>このクリップに単語が見つかりません。</translation>
+    </message>
+    <message>
+        <source>%1 words · %2 s</source>
+        <translation>%1 語 · %2 秒</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>キャンセル</translation>
+    </message>
+    <message>
+        <source>Cut</source>
+        <translation>カット</translation>
     </message>
 </context>
 <context>

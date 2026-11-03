@@ -642,7 +642,7 @@ ApplicationWindow {
             window.mediaPreviewPage.close()
             return
         }
-        const tools = [segmentationWindowLoader, denoiseWindowLoader, silenceReviewWindowLoader, restoreWindowLoader,
+        const tools = [segmentationWindowLoader, denoiseWindowLoader, silenceReviewWindowLoader, textEditWindowLoader, restoreWindowLoader,
                        multicamWindowLoader, speedCurveWindowLoader, fadeCurveWindowLoader,
                        downloadsWindowLoader]
         for (var t = 0; t < tools.length; ++t) {
@@ -1095,11 +1095,21 @@ ApplicationWindow {
         }
     }
 
-    // «Remove silences» has the clip's word timings: the pauses to pick from.
+    LazyLoader {
+        id: textEditWindowLoader
+        sourceComponent: Component {
+            TextEditWindow { }
+        }
+    }
+
+    // «Remove silences» has the clip's word timings: the pauses to pick from; «Edit by text», the words.
     Connections {
         target: EditorState
         function onSilenceReviewReady(track, clip) {
             silenceReviewWindowLoader.ensure().openFor(track, clip)
+        }
+        function onTextEditReady(track, clip) {
+            textEditWindowLoader.ensure().openFor(track, clip)
         }
     }
 

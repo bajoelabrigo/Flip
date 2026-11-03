@@ -5647,6 +5647,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Listening to the clip to write down what is said…</source>
+        <translation>කියන දේ ලිවීමට ක්ලිපයට සවන් දෙමින්…</translation>
+    </message>
+    <message>
+        <source>Cut %1 s from the video</source>
+        <translation>වීඩියෝවෙන් තත් %1 ක් කපා දැමුවා</translation>
+    </message>
+    <message>
         <source>That would remove the whole clip</source>
         <translation>එය සම්පූර්ණ ක්ලිපයම ඉවත් කරයි</translation>
     </message>
@@ -7933,6 +7941,14 @@
     <message>
         <source>Open Subtitles to create captions from this clip&apos;s speech</source>
         <translation>මෙම ක්ලිපයේ කථනයෙන් උපසිරැසි සෑදීමට උපසිරැසි විවෘත කරයි</translation>
+    </message>
+    <message>
+        <source>Edit by text…</source>
+        <translation>පෙළෙන් සංස්කරණය…</translation>
+    </message>
+    <message>
+        <source>See what is said and strike out words: the video loses those moments</source>
+        <translation>කියන දේ බලා වචන කපා හරින්න: වීඩියෝවට ඒ මොහොත් අහිමි වේ</translation>
     </message>
     <message>
         <source>C</source>
@@ -27918,6 +27934,33 @@ If playback stutters, try another.</source>
     <message>
         <source>Get more templates</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>TextEditWindow</name>
+    <message>
+        <source>Edit by text</source>
+        <translation>පෙළෙන් සංස්කරණය</translation>
+    </message>
+    <message>
+        <source>Click the words to take out (Shift + click for a stretch). Double click to hear one.</source>
+        <translation>ඉවත් කිරීමට වචන ක්ලික් කරන්න (කොටසකට Shift + ක්ලික්). ඇසීමට දෙවරක් ක්ලික් කරන්න.</translation>
+    </message>
+    <message>
+        <source>No words found in this clip.</source>
+        <translation>මෙම ක්ලිපයේ වචන හමු නොවීය.</translation>
+    </message>
+    <message>
+        <source>%1 words · %2 s</source>
+        <translation>වචන %1 · තත් %2</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>අවලංගු කරන්න</translation>
+    </message>
+    <message>
+        <source>Cut</source>
+        <translation>කපන්න</translation>
     </message>
 </context>
 <context>

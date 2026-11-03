@@ -5655,6 +5655,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Listening to the clip to write down what is said…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cut %1 s from the video</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>That would remove the whole clip</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7932,6 +7940,14 @@
     </message>
     <message>
         <source>Open Subtitles to create captions from this clip&apos;s speech</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit by text…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>See what is said and strike out words: the video loses those moments</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -27918,6 +27934,33 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Get more templates</source>
         <translation>Conseguir más plantillas</translation>
+    </message>
+</context>
+<context>
+    <name>TextEditWindow</name>
+    <message>
+        <source>Edit by text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Click the words to take out (Shift + click for a stretch). Double click to hear one.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No words found in this clip.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 words · %2 s</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cut</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

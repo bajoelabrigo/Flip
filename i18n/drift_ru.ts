@@ -5669,6 +5669,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Listening to the clip to write down what is said…</source>
+        <translation>Прослушиваю клип, чтобы записать сказанное…</translation>
+    </message>
+    <message>
+        <source>Cut %1 s from the video</source>
+        <translation>Вырезано %1 с из видео</translation>
+    </message>
+    <message>
         <source>That would remove the whole clip</source>
         <translation>Это удалит весь клип</translation>
     </message>
@@ -7983,6 +7991,14 @@
     <message>
         <source>Open Subtitles to create captions from this clip&apos;s speech</source>
         <translation>Открывает «Субтитры», чтобы создать субтитры из речи этого клипа</translation>
+    </message>
+    <message>
+        <source>Edit by text…</source>
+        <translation>Монтаж по тексту…</translation>
+    </message>
+    <message>
+        <source>See what is said and strike out words: the video loses those moments</source>
+        <translation>Смотрите, что сказано, и вычёркивайте слова: видео теряет эти моменты</translation>
     </message>
     <message>
         <source>C</source>
@@ -28018,6 +28034,33 @@ If playback stutters, try another.</source>
     <message>
         <source>Get more templates</source>
         <translation>Больше шаблонов</translation>
+    </message>
+</context>
+<context>
+    <name>TextEditWindow</name>
+    <message>
+        <source>Edit by text</source>
+        <translation>Монтаж по тексту</translation>
+    </message>
+    <message>
+        <source>Click the words to take out (Shift + click for a stretch). Double click to hear one.</source>
+        <translation>Щёлкните слова, которые нужно убрать (Shift + щелчок — отрезок). Двойной щелчок — прослушать.</translation>
+    </message>
+    <message>
+        <source>No words found in this clip.</source>
+        <translation>В этом клипе нет слов.</translation>
+    </message>
+    <message>
+        <source>%1 words · %2 s</source>
+        <translation>Слов: %1 · %2 с</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Отмена</translation>
+    </message>
+    <message>
+        <source>Cut</source>
+        <translation>Вырезать</translation>
     </message>
 </context>
 <context>

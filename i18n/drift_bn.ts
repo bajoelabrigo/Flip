@@ -5747,6 +5747,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Listening to the clip to write down what is said…</source>
+        <translation>যা বলা হচ্ছে লিখতে ক্লিপ শোনা হচ্ছে…</translation>
+    </message>
+    <message>
+        <source>Cut %1 s from the video</source>
+        <translation>ভিডিও থেকে %1 সে কাটা হয়েছে</translation>
+    </message>
+    <message>
         <source>That would remove the whole clip</source>
         <translation>এতে পুরো ক্লিপটাই সরে যাবে</translation>
     </message>
@@ -7933,6 +7941,14 @@
     <message>
         <source>Open Subtitles to create captions from this clip&apos;s speech</source>
         <translation>এই ক্লিপের কথা থেকে ক্যাপশন তৈরি করতে সাবটাইটেল খোলে</translation>
+    </message>
+    <message>
+        <source>Edit by text…</source>
+        <translation>লেখা দিয়ে সম্পাদনা…</translation>
+    </message>
+    <message>
+        <source>See what is said and strike out words: the video loses those moments</source>
+        <translation>কী বলা হচ্ছে দেখুন ও শব্দ কেটে দিন: ভিডিও সেই মুহূর্তগুলো হারায়</translation>
     </message>
     <message>
         <source>C</source>
@@ -27918,6 +27934,33 @@ If playback stutters, try another.</source>
     <message>
         <source>Remove “%1” from your saved styles? Clips already using it keep their look.</source>
         <translation type="unfinished">আপনার সংরক্ষিত শৈলী থেকে &quot; %1 &quot; সরাতে চান? ইতিমধ্যেই এটি ব্যবহার করা ক্লিপগুলি তাদের চেহারা বজায় রাখে.</translation>
+    </message>
+</context>
+<context>
+    <name>TextEditWindow</name>
+    <message>
+        <source>Edit by text</source>
+        <translation>লেখা দিয়ে সম্পাদনা</translation>
+    </message>
+    <message>
+        <source>Click the words to take out (Shift + click for a stretch). Double click to hear one.</source>
+        <translation>যে শব্দ সরাতে চান তাতে ক্লিক করুন (একটি অংশের জন্য Shift + ক্লিক)। শুনতে ডাবল ক্লিক।</translation>
+    </message>
+    <message>
+        <source>No words found in this clip.</source>
+        <translation>এই ক্লিপে কোনো শব্দ পাওয়া যায়নি।</translation>
+    </message>
+    <message>
+        <source>%1 words · %2 s</source>
+        <translation>%1টি শব্দ · %2 সে</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>বাতিল</translation>
+    </message>
+    <message>
+        <source>Cut</source>
+        <translation>কাটুন</translation>
     </message>
 </context>
 <context>

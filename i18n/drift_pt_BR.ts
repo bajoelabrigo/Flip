@@ -5647,6 +5647,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Listening to the clip to write down what is said…</source>
+        <translation>Ouvindo o clipe para escrever o que é dito…</translation>
+    </message>
+    <message>
+        <source>Cut %1 s from the video</source>
+        <translation>%1 s cortados do vídeo</translation>
+    </message>
+    <message>
         <source>That would remove the whole clip</source>
         <translation>Isso removeria o clipe inteiro</translation>
     </message>
@@ -7933,6 +7941,14 @@
     <message>
         <source>Open Subtitles to create captions from this clip&apos;s speech</source>
         <translation>Abre Legendas para criar legendas com a fala deste clipe</translation>
+    </message>
+    <message>
+        <source>Edit by text…</source>
+        <translation>Editar pelo texto…</translation>
+    </message>
+    <message>
+        <source>See what is said and strike out words: the video loses those moments</source>
+        <translation>Veja o que é dito e risque palavras: o vídeo perde esses momentos</translation>
     </message>
     <message>
         <source>C</source>
@@ -27922,6 +27938,33 @@ Se a reprodução travar, tente outra opção.</translation>
     <message>
         <source>Get more templates</source>
         <translation>Obter mais modelos</translation>
+    </message>
+</context>
+<context>
+    <name>TextEditWindow</name>
+    <message>
+        <source>Edit by text</source>
+        <translation>Editar pelo texto</translation>
+    </message>
+    <message>
+        <source>Click the words to take out (Shift + click for a stretch). Double click to hear one.</source>
+        <translation>Clique nas palavras que quer tirar (Shift + clique para um trecho). Clique duplo para ouvir uma.</translation>
+    </message>
+    <message>
+        <source>No words found in this clip.</source>
+        <translation>Nenhuma palavra encontrada neste clipe.</translation>
+    </message>
+    <message>
+        <source>%1 words · %2 s</source>
+        <translation>%1 palavras · %2 s</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Cancelar</translation>
+    </message>
+    <message>
+        <source>Cut</source>
+        <translation>Cortar</translation>
     </message>
 </context>
 <context>

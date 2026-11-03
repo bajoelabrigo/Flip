@@ -422,6 +422,17 @@ Item {
             tooltip: qsTr("Open Subtitles to create captions from this clip's speech")
             onClicked: root.Window.window.showAssetsTab("subtitles")
         }
+
+        // Descript's editing: strike words out of the transcript and the video loses them.
+        ThemedButton {
+            visible: root.fileAudio
+            width: parent.width
+            text: qsTr("Edit by text…")
+            variant: "secondary"
+            glyph: Theme.icons.scissors
+            tooltip: qsTr("See what is said and strike out words: the video loses those moments")
+            onClicked: EditorState.editClipByText(EditorState.selectedTrack, EditorState.selectedClip)
+        }
         }
     }
 }

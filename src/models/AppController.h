@@ -2055,6 +2055,11 @@ public:
                                            bool removeFillers = true) const;
     // Cuts out the pieces given (the ones left ticked) and keeps the rest. One undo step.
     Q_INVOKABLE void removeSilencePieces(int trackIndex, int clipIndex, const QVariantList &pieces);
+    // Editing the video by its text, as Descript: the clip's words (made first when it has no word
+    // timings, then textEditReady), [{start, end, at, text}] in source seconds (at = on the timeline).
+    // Cutting what was struck out goes through removeSilencePieces.
+    Q_INVOKABLE QString editClipByText(int trackIndex, int clipIndex);
+    Q_INVOKABLE QVariantList clipTranscriptWords(int trackIndex, int clipIndex) const;
     Q_INVOKABLE void removeAudioEffect(int trackIndex, int clipIndex, int effectIndex);
     // Voice changer: the "voz.*" filter on a clip ("" for none), and replacing it in one undo
     // step on this clip or, with allClips, on every clip with sound.
@@ -2477,6 +2482,8 @@ signals:
     void subtitleGenerationFinished(bool ok, const QString &message);
     // cutSilencesAndFillers(review = true) has the clip's word timings: show the pauses to pick from.
     void silenceReviewReady(int trackIndex, int clipIndex);
+    // editClipByText has the clip's words: open the text editor.
+    void textEditReady(int trackIndex, int clipIndex);
     void reverseRenderingChanged();
     void reverseRenderProgressChanged();
     void reverseRenderStatusChanged();
@@ -2734,10 +2741,13 @@ protected:
     QHash<QString, QVariantMap> m_pendingSilenceCuts;
     // Per instance: a function-level static hooked only the first controller's job registry.
     bool m_silenceCutHooked = false;
-    void applySilenceCut(const QString &clipId, double minPause, bool removeFillers, bool review = false);
+    void applySilenceCut(const QString &clipId, double minPause, bool removeFillers, bool review = false,
+                         bool textEdit = false);
+    bool m_textEditNext = false; // the next cutSilencesAndFillers opens the text editor instead
     // The spoken stretches «Remove silences» keeps (source time), and how many filler words it drops.
     QList<drift::TimeRangeUs> speechKeepRanges(const drift::Clip &clip, double minPause, bool removeFillers,
                                                int *fillers) const;
+    // fillers < 0: words struck out in the text editor (the message says so instead of pauses).
     void cutToKeepRanges(int trackIndex, int clipIndex, const QList<drift::TimeRangeUs> &keep, int fillers);
     bool m_subtitleTranslateNext = false; // the next generation run translates to English
     bool generateSubtitlesForSources(QList<SubtitleSource> sources, const QString &language,
