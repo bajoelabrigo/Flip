@@ -1176,6 +1176,7 @@ Item {
                     // around the pointer, Alt zooms time around it, Shift scrolls time; the plain wheel
                     // moves the values when the graph has the whole timeline, and scrolls it otherwise.
                     WheelHandler {
+                        id: graphWheel
                         target: null
                         // Any modifier (the handler sorts them out below): a set of flags here means all
                         // of them pressed at once, so plain, Ctrl and Alt wheels never reached it (#16).
@@ -1187,12 +1188,12 @@ Item {
                             const steps = d / 120
                             const mods = event.modifiers
                             if (mods & Qt.ControlModifier) {
-                                const f = 1 - (graph.height - event.point.position.y) / Math.max(1, graph.height)
+                                const f = 1 - (graph.height - graphWheel.point.position.y) / Math.max(1, graph.height)
                                 const at = root.viewLo + (1 - f) * (root.viewHi - root.viewLo)
                                 const k = Math.pow(0.85, steps)
                                 root.setView(at - (at - root.viewLo) * k, at + (root.viewHi - at) * k)
                             } else if (mods & Qt.AltModifier) {
-                                root.timeZoomRequested(Math.pow(1.2, steps), root.secondsForX(event.point.position.x))
+                                root.timeZoomRequested(Math.pow(1.2, steps), root.secondsForX(graphWheel.point.position.x))
                             } else if (mods & Qt.ShiftModifier) {
                                 root.timeScrollRequested(-steps * 80)
                             } else if (root.fullView) {
