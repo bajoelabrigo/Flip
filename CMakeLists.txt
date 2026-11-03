@@ -1605,6 +1605,7 @@ target_link_libraries(drift PRIVATE
     Qt6::Network
     driftcore
     driftengine
+    ${DRIFT_SOUNDTOUCH_TARGET}
 )
 target_include_directories(drift PRIVATE src src/preview)
 
