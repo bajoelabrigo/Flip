@@ -236,6 +236,7 @@ private slots:
     void applyMulticamSwitchMergesAdjacentSameCamera();
     void applyMulticamSwitchRejectsEdges();
     void sliceClipToTimelineRangeKeepsSourceInSync();
+    void animatedSizeGrowsAroundTheAnchor();
 };
 
 // After Effects' gradient handles (0.29): points → gradient → the same points, for each kind.
@@ -7786,6 +7787,30 @@ void CoreTest::sceneTemplateBrandKitFollowsRolesAndFallsBack()
     QCOMPARE(r.refonted, 1);
     QCOMPARE(plain.at(0).clips.at(0).textStyle.fontFamily, QStringLiteral("Brand Sans"));
     QVERIFY(plain.at(0).clips.at(1).textStyle.fontFamily != QStringLiteral("Brand Sans"));
+}
+
+// Ejercicio del rebote (0.30): squashing a ball with its anchor at the bottom keeps the bottom on the floor.
+void CoreTest::animatedSizeGrowsAroundTheAnchor()
+{
+    drift::Clip clip;
+    clip.anchorX.setKeyframe(0, 0.5);
+    clip.anchorY.setKeyframe(0, 1.0);
+    clip.transformW.setKeyframe(0, 100.0);
+    clip.transformW.setKeyframe(1000000, 200.0);
+    clip.transformH.setKeyframe(0, 100.0);
+    clip.transformH.setKeyframe(1000000, 50.0);
+    // At rest nothing moves.
+    QCOMPARE(clip.anchorShift(0, 100.0, 100.0, 0.0), QPointF(0, 0));
+    // Twice as wide, half as tall: the left edge moves 50 px left and the top 50 px down,
+    // so the centre stays at x 50 and the bottom stays at y 100 of the rest box.
+    const QPointF shift = clip.anchorShift(1000000, 200.0, 50.0, 0.0);
+    QCOMPARE(shift.x(), -50.0);
+    QCOMPARE(shift.y(), 50.0);
+    // No anchor: the old corner growth, for projects saved before.
+    drift::Clip old = clip;
+    old.anchorX = {};
+    old.anchorY = {};
+    QCOMPARE(old.anchorShift(1000000, 200.0, 50.0, 0.0), QPointF(0, 0));
 }
 
 QTEST_MAIN(CoreTest)

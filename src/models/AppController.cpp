@@ -3457,6 +3457,13 @@ bool writeClipPropValue(drift::Clip &clip, const QString &prop, drift::TimeUs re
             || kt == &clip.perspective) {
             clip.layer3d = true;
         }
+        // An animated size grows around the anchor point (as in After Effects); a clip that never
+        // had one gets the centre, so the old corner growth stays only in old projects.
+        if ((kt == &clip.transformW || kt == &clip.transformH) && kt->keyframes().size() >= 2
+            && clip.anchorX.isEmpty() && clip.anchorY.isEmpty()) {
+            clip.anchorX.setKeyframe(0, 0.5);
+            clip.anchorY.setKeyframe(0, 0.5);
+        }
         return true;
     }
 

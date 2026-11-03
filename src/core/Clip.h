@@ -375,18 +375,36 @@ struct Clip
     // How far the box moves so that turning `rotationDeg` pivots on the anchor instead of the
     // centre, for a box w × h (project px) at clip time `relative`: a − R·a, with a the anchor
     // relative to the centre. Zero for a centred anchor or no turn.
+    //
+    // With an anchor point of its own the box also grows and shrinks around it, as After Effects
+    // scales around the anchor: the stored X/Y place the box at its first keyframed size, and at any
+    // other size it moves by anchor × (that size − this size). Without an anchor, nothing changes
+    // (old projects and templates animate size with their own position keys).
     QPointF anchorShift(TimeUs relative, double w, double h, double rotationDeg) const
     {
+        if (anchorX.isEmpty() && anchorY.isEmpty())
+            return {};
         const double fx = anchorX.isEmpty() ? 0.5 : anchorX.evaluateAt(relative);
         const double fy = anchorY.isEmpty() ? 0.5 : anchorY.evaluateAt(relative);
+        // w, h may be scaled for the canvas: the size change is taken as a ratio of the stored one.
+        const auto sizeShift = [relative](const KeyframeTrack<double> &track, double drawn, double fraction) {
+            if (track.keyframes().size() < 2)
+                return 0.0;
+            const double now = track.evaluateAt(relative);
+            const double rest = track.keyframes().first().value;
+            if (std::abs(now) < 1e-9)
+                return 0.0;
+            return fraction * (drawn * rest / now - drawn);
+        };
+        QPointF shift(sizeShift(transformW, w, fx), sizeShift(transformH, h, fy));
         const double ax = (fx - 0.5) * w;
         const double ay = (fy - 0.5) * h;
         if ((ax == 0.0 && ay == 0.0) || rotationDeg == 0.0)
-            return {};
+            return shift;
         const double r = rotationDeg * 3.14159265358979323846 / 180.0;
         const double c = std::cos(r);
         const double s = std::sin(r);
-        return {ax - (c * ax - s * ay), ay - (s * ax + c * ay)};
+        return shift + QPointF(ax - (c * ax - s * ay), ay - (s * ax + c * ay));
     }
     QList<Effect> effects;
     QList<Effect> audioEffects; // libavfilter chains applied to this clip's audio in the mixer
