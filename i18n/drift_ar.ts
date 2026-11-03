@@ -26269,6 +26269,10 @@ If playback stutters, try another.</source>
         <translation>لا يحتوي هذا الملف على نص يمكن قراءته</translation>
     </message>
     <message>
+        <source>Voice: %1</source>
+        <translation>الصوت: %1</translation>
+    </message>
+    <message>
         <source>A dialogue: a voice for each person</source>
         <translation>حوار: صوت لكل شخص</translation>
     </message>
@@ -26594,7 +26598,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished"></translation>
+        <translation>الكل</translation>
     </message>
     <message>
         <source>How hard it squashes, stretches and bends</source>
@@ -34971,6 +34975,81 @@ If playback stutters, try another.</source>
     <message>
         <source>Intensity</source>
         <translation>الشدة</translation>
+    </message>
+</context>
+<context>
+    <name>VoiceGallery</name>
+    <message>
+        <source>Narration</source>
+        <translation>سرد</translation>
+    </message>
+    <message>
+        <source>Young</source>
+        <translation>شاب</translation>
+    </message>
+    <message>
+        <source>Deep</source>
+        <translation>عميق</translation>
+    </message>
+    <message>
+        <source>Lively</source>
+        <translation>حيوي</translation>
+    </message>
+    <message>
+        <source>Soft</source>
+        <translation>هادئ</translation>
+    </message>
+    <message>
+        <source>Mature</source>
+        <translation>ناضج</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation>الكل</translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation>المفضلة</translation>
+    </message>
+    <message>
+        <source>Mine</source>
+        <translation>أصواتي</translation>
+    </message>
+    <message>
+        <source>Women</source>
+        <translation>نساء</translation>
+    </message>
+    <message>
+        <source>Men</source>
+        <translation>رجال</translation>
+    </message>
+    <message>
+        <source>Hear this voice</source>
+        <translation>استمع إلى هذا الصوت</translation>
+    </message>
+    <message>
+        <source>My voice</source>
+        <translation>صوتي</translation>
+    </message>
+    <message>
+        <source>Mark voices with the star to find them here</source>
+        <translation>ضع نجمة على الأصوات لتجدها هنا</translation>
+    </message>
+    <message>
+        <source>Your own voices appear here: «New voice» in Options</source>
+        <translation>تظهر أصواتك هنا: «صوت جديد» في الخيارات</translation>
+    </message>
+    <message>
+        <source>No voices of this kind</source>
+        <translation>لا توجد أصوات من هذا النوع</translation>
+    </message>
+    <message>
+        <source>Show fewer</source>
+        <translation>عرض أقل</translation>
+    </message>
+    <message>
+        <source>See all voices (%1)</source>
+        <translation>عرض كل الأصوات (%1)</translation>
     </message>
 </context>
 <context>

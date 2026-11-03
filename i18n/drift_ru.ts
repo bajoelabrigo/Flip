@@ -25999,6 +25999,10 @@ If playback stutters, try another.</source>
         <translation>В этом файле нет текста, который можно прочитать</translation>
     </message>
     <message>
+        <source>Voice: %1</source>
+        <translation>Голос: %1</translation>
+    </message>
+    <message>
         <source>A dialogue: a voice for each person</source>
         <translation>Диалог: свой голос для каждого человека</translation>
     </message>
@@ -26324,7 +26328,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished"></translation>
+        <translation>Все</translation>
     </message>
     <message>
         <source>How hard it squashes, stretches and bends</source>
@@ -34644,6 +34648,81 @@ If playback stutters, try another.</source>
     <message>
         <source>Intensity</source>
         <translation>Интенсивность</translation>
+    </message>
+</context>
+<context>
+    <name>VoiceGallery</name>
+    <message>
+        <source>Narration</source>
+        <translation>Повествование</translation>
+    </message>
+    <message>
+        <source>Young</source>
+        <translation>Молодой</translation>
+    </message>
+    <message>
+        <source>Deep</source>
+        <translation>Низкий</translation>
+    </message>
+    <message>
+        <source>Lively</source>
+        <translation>Живой</translation>
+    </message>
+    <message>
+        <source>Soft</source>
+        <translation>Мягкий</translation>
+    </message>
+    <message>
+        <source>Mature</source>
+        <translation>Зрелый</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation>Все</translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation>Избранное</translation>
+    </message>
+    <message>
+        <source>Mine</source>
+        <translation>Мои</translation>
+    </message>
+    <message>
+        <source>Women</source>
+        <translation>Женщины</translation>
+    </message>
+    <message>
+        <source>Men</source>
+        <translation>Мужчины</translation>
+    </message>
+    <message>
+        <source>Hear this voice</source>
+        <translation>Прослушать этот голос</translation>
+    </message>
+    <message>
+        <source>My voice</source>
+        <translation>Мой голос</translation>
+    </message>
+    <message>
+        <source>Mark voices with the star to find them here</source>
+        <translation>Отмечайте голоса звёздочкой, чтобы найти их здесь</translation>
+    </message>
+    <message>
+        <source>Your own voices appear here: «New voice» in Options</source>
+        <translation>Ваши собственные голоса появляются здесь: «Новый голос» в Параметрах</translation>
+    </message>
+    <message>
+        <source>No voices of this kind</source>
+        <translation>Нет голосов такого типа</translation>
+    </message>
+    <message>
+        <source>Show fewer</source>
+        <translation>Показать меньше</translation>
+    </message>
+    <message>
+        <source>See all voices (%1)</source>
+        <translation>Все голоса (%1)</translation>
     </message>
 </context>
 <context>

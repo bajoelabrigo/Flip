@@ -25819,6 +25819,10 @@ If playback stutters, try another.</source>
         <translation>このファイルには読み取れるテキストがありません</translation>
     </message>
     <message>
+        <source>Voice: %1</source>
+        <translation>音声: %1</translation>
+    </message>
+    <message>
         <source>A dialogue: a voice for each person</source>
         <translation>対話: 人ごとに別の声</translation>
     </message>
@@ -26144,7 +26148,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished"></translation>
+        <translation>すべて</translation>
     </message>
     <message>
         <source>How hard it squashes, stretches and bends</source>
@@ -34426,6 +34430,81 @@ If playback stutters, try another.</source>
     <message>
         <source>Intensity</source>
         <translation>強度</translation>
+    </message>
+</context>
+<context>
+    <name>VoiceGallery</name>
+    <message>
+        <source>Narration</source>
+        <translation>ナレーション</translation>
+    </message>
+    <message>
+        <source>Young</source>
+        <translation>若い</translation>
+    </message>
+    <message>
+        <source>Deep</source>
+        <translation>低音</translation>
+    </message>
+    <message>
+        <source>Lively</source>
+        <translation>元気</translation>
+    </message>
+    <message>
+        <source>Soft</source>
+        <translation>やさしい</translation>
+    </message>
+    <message>
+        <source>Mature</source>
+        <translation>大人</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation>すべて</translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation>お気に入り</translation>
+    </message>
+    <message>
+        <source>Mine</source>
+        <translation>マイボイス</translation>
+    </message>
+    <message>
+        <source>Women</source>
+        <translation>女性</translation>
+    </message>
+    <message>
+        <source>Men</source>
+        <translation>男性</translation>
+    </message>
+    <message>
+        <source>Hear this voice</source>
+        <translation>この音声を聴く</translation>
+    </message>
+    <message>
+        <source>My voice</source>
+        <translation>自分の声</translation>
+    </message>
+    <message>
+        <source>Mark voices with the star to find them here</source>
+        <translation>星を付けた音声がここに表示されます</translation>
+    </message>
+    <message>
+        <source>Your own voices appear here: «New voice» in Options</source>
+        <translation>自分の音声はここに表示されます: オプションの「新しい音声」</translation>
+    </message>
+    <message>
+        <source>No voices of this kind</source>
+        <translation>この種類の音声はありません</translation>
+    </message>
+    <message>
+        <source>Show fewer</source>
+        <translation>少なく表示</translation>
+    </message>
+    <message>
+        <source>See all voices (%1)</source>
+        <translation>すべての音声を見る (%1)</translation>
     </message>
 </context>
 <context>

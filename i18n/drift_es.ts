@@ -25909,6 +25909,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Ese archivo no tiene texto que se pueda leer</translation>
     </message>
     <message>
+        <source>Voice: %1</source>
+        <translation>Voz: %1</translation>
+    </message>
+    <message>
         <source>A dialogue: a voice for each person</source>
         <translation>Un diálogo: una voz para cada persona</translation>
     </message>
@@ -34535,6 +34539,81 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Intensity</source>
         <translation>Intensidad</translation>
+    </message>
+</context>
+<context>
+    <name>VoiceGallery</name>
+    <message>
+        <source>Narration</source>
+        <translation>Narración</translation>
+    </message>
+    <message>
+        <source>Young</source>
+        <translation>Joven</translation>
+    </message>
+    <message>
+        <source>Deep</source>
+        <translation>Grave</translation>
+    </message>
+    <message>
+        <source>Lively</source>
+        <translation>Animada</translation>
+    </message>
+    <message>
+        <source>Soft</source>
+        <translation>Suave</translation>
+    </message>
+    <message>
+        <source>Mature</source>
+        <translation>Madura</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation>Todas</translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation>Favoritas</translation>
+    </message>
+    <message>
+        <source>Mine</source>
+        <translation>Mías</translation>
+    </message>
+    <message>
+        <source>Women</source>
+        <translation>Mujeres</translation>
+    </message>
+    <message>
+        <source>Men</source>
+        <translation>Hombres</translation>
+    </message>
+    <message>
+        <source>Hear this voice</source>
+        <translation>Escuchar esta voz</translation>
+    </message>
+    <message>
+        <source>My voice</source>
+        <translation>Mi voz</translation>
+    </message>
+    <message>
+        <source>Mark voices with the star to find them here</source>
+        <translation>Marca voces con la estrella para encontrarlas aquí</translation>
+    </message>
+    <message>
+        <source>Your own voices appear here: «New voice» in Options</source>
+        <translation>Tus voces propias aparecen aquí: «Voz nueva» en Opciones</translation>
+    </message>
+    <message>
+        <source>No voices of this kind</source>
+        <translation>No hay voces de este tipo</translation>
+    </message>
+    <message>
+        <source>Show fewer</source>
+        <translation>Ver menos</translation>
+    </message>
+    <message>
+        <source>See all voices (%1)</source>
+        <translation>Ver todas las voces (%1)</translation>
     </message>
 </context>
 <context>

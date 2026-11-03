@@ -576,6 +576,9 @@ void AppController::setAddonManager(AddonManager *manager)
         connect(manager, &AddonManager::kindChanged, this, [this](const QString &kind) {
             if (kind == QLatin1String("scene-templates"))
                 emit sceneTemplatesChanged();
+            // The ready voices (0.30) are the «voces.ia» extra's.
+            if (kind == QLatin1String("tts-voices") && m_voices)
+                m_voices->reloadReadyVoices();
             if (kind != QLatin1String(drift::pdfium::kPdfiumKind))
                 return;
             drift::clearPdfRenderCaches();

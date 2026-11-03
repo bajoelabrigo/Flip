@@ -1412,6 +1412,7 @@ qt_add_qml_module(drift
         src/qml/components/assets/ScenesTab.qml
         src/qml/components/assets/SubtitlesTab.qml
         src/qml/components/assets/SpeechTab.qml
+        src/qml/components/assets/VoiceGallery.qml
         src/qml/components/assets/StickersTab.qml
         src/qml/components/assets/ShapesTab.qml
         src/qml/components/assets/FiltersTab.qml

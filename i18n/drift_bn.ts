@@ -2839,11 +2839,11 @@
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished"></translation>
+        <translation>সব</translation>
     </message>
     <message>
         <source>Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>প্রিয়</translation>
     </message>
     <message>
         <source>Duration</source>
@@ -4485,7 +4485,7 @@
     </message>
     <message>
         <source>Voice: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>কণ্ঠ: %1</translation>
     </message>
     <message>
         <source>Voice changer off</source>
@@ -18686,7 +18686,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>প্রিয়</translation>
     </message>
     <message>
         <source>No favorites yet. Star masks to save them here.</source>
@@ -25858,7 +25858,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>My voice</source>
-        <translation type="unfinished"></translation>
+        <translation>আমার কণ্ঠ</translation>
     </message>
     <message>
         <source>Import a voice sample</source>
@@ -25903,6 +25903,10 @@ If playback stutters, try another.</source>
     <message>
         <source>That file has no text that can be read</source>
         <translation>এই ফাইলে পড়ার মতো কোনো টেক্সট নেই</translation>
+    </message>
+    <message>
+        <source>Voice: %1</source>
+        <translation>কণ্ঠ: %1</translation>
     </message>
     <message>
         <source>A dialogue: a voice for each person</source>
@@ -26230,7 +26234,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished"></translation>
+        <translation>সব</translation>
     </message>
     <message>
         <source>How hard it squashes, stretches and bends</source>
@@ -29276,7 +29280,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Soft</source>
-        <translation type="unfinished"></translation>
+        <translation>কোমল</translation>
     </message>
     <message>
         <source>Strong</source>
@@ -33971,7 +33975,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Soft</source>
-        <translation type="unfinished"></translation>
+        <translation>কোমল</translation>
     </message>
     <message>
         <source>Strong smoothing for an even, soft skin</source>
@@ -34531,6 +34535,81 @@ If playback stutters, try another.</source>
     <message>
         <source>Intensity</source>
         <translation>তীব্রতা</translation>
+    </message>
+</context>
+<context>
+    <name>VoiceGallery</name>
+    <message>
+        <source>Narration</source>
+        <translation>বর্ণনা</translation>
+    </message>
+    <message>
+        <source>Young</source>
+        <translation>তরুণ</translation>
+    </message>
+    <message>
+        <source>Deep</source>
+        <translation>গভীর</translation>
+    </message>
+    <message>
+        <source>Lively</source>
+        <translation>প্রাণবন্ত</translation>
+    </message>
+    <message>
+        <source>Soft</source>
+        <translation>কোমল</translation>
+    </message>
+    <message>
+        <source>Mature</source>
+        <translation>পরিণত</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation>সব</translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation>প্রিয়</translation>
+    </message>
+    <message>
+        <source>Mine</source>
+        <translation>আমার</translation>
+    </message>
+    <message>
+        <source>Women</source>
+        <translation>নারী</translation>
+    </message>
+    <message>
+        <source>Men</source>
+        <translation>পুরুষ</translation>
+    </message>
+    <message>
+        <source>Hear this voice</source>
+        <translation>এই কণ্ঠ শুনুন</translation>
+    </message>
+    <message>
+        <source>My voice</source>
+        <translation>আমার কণ্ঠ</translation>
+    </message>
+    <message>
+        <source>Mark voices with the star to find them here</source>
+        <translation>এখানে পেতে কণ্ঠগুলোতে তারা দিন</translation>
+    </message>
+    <message>
+        <source>Your own voices appear here: «New voice» in Options</source>
+        <translation>আপনার নিজের কণ্ঠ এখানে দেখা যায়: বিকল্পে «নতুন কণ্ঠ»</translation>
+    </message>
+    <message>
+        <source>No voices of this kind</source>
+        <translation>এই ধরনের কোনো কণ্ঠ নেই</translation>
+    </message>
+    <message>
+        <source>Show fewer</source>
+        <translation>কম দেখান</translation>
+    </message>
+    <message>
+        <source>See all voices (%1)</source>
+        <translation>সব কণ্ঠ দেখুন (%1)</translation>
     </message>
 </context>
 <context>

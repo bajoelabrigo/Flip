@@ -90,6 +90,9 @@ Item {
         voicePlayer.play()
     }
     readonly property bool playing: voicePlayer.playbackState === MediaPlayer.PlayingState
+    // The gallery voice whose sample is playing (its ▷ turns into ‖).
+    property string playingVoice: ""
+    onPlayingChanged: if (!playing) playingVoice = ""
     // A dialogue («Ana: …», «Luis: …»): a voice for each person (0.30).
     property var speakerVoices: ({})
     readonly property var speakers: EditorState.tts.scriptSpeakers(scriptField.text)
@@ -234,15 +237,28 @@ Item {
                     width: parent.width
                     spacing: Theme.spacingSm
 
+                    // The voice in use; the gallery below picks it (0.30, as CapCut). Kept as the
+                    // model of the choice for the rest of the panel.
                     ThemedComboBox {
                         id: voiceBox
-                        width: parent.width - previewButton.width - moreButton.width - parent.spacing * 2
-                        anchors.verticalCenter: parent.verticalCenter
+                        visible: false
+                        width: 0
                         enabled: !root.busy
                         model: EditorState.voices
                         textRole: "name"
                         valueRole: "id"
                         Component.onCompleted: root.selectVoice(EditorState.tts.lastVoice)
+                    }
+
+                    Text {
+                        width: parent.width - previewButton.width - moreButton.width - parent.spacing * 2
+                        anchors.verticalCenter: parent.verticalCenter
+                        elide: Text.ElideRight
+                        text: qsTr("Voice: %1").arg(voiceBox.currentText)
+                        color: Theme.foreground
+                        font.family: Theme.fontFamily
+                        font.pixelSize: Theme.fontSizeSm
+                        font.weight: Font.DemiBold
                     }
 
                     IconButton {
@@ -264,7 +280,9 @@ Item {
                         anchors.verticalCenter: parent.verticalCenter
                         glyph: Theme.icons.ellipsis
                         tooltip: qsTr("Rename or delete this voice")
-                        enabled: voiceBox.currentIndex > 0 && !root.busy
+                        // Only the user's own voices: the ready ones come with the app's extra.
+                        enabled: !root.busy && voiceBox.currentIndex > 0
+                                 && !EditorState.voices.allVoices()[voiceBox.currentIndex].builtIn
                         onClicked: voiceMenu.popup()
 
                         ThemedContextMenu {
@@ -284,6 +302,22 @@ Item {
                                 }
                             }
                         }
+                    }
+                }
+
+                VoiceGallery {
+                    width: parent.width
+                    enabled: !root.busy
+                    currentId: voiceBox.currentValue || ""
+                    playingId: root.playingVoice
+                    onPicked: id => root.selectVoice(id)
+                    onPlayRequested: id => {
+                        if (root.playing && root.playingVoice === id) {
+                            voicePlayer.stop()
+                            return
+                        }
+                        root.play(EditorState.voices.referenceUrl(id))
+                        root.playingVoice = id
                     }
                 }
 

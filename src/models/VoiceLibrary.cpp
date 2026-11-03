@@ -5,6 +5,7 @@
 #include "TtsController.h"
 #include "engine/AddonRegistry.h"
 #include "engine/AudioFileWriter.h"
+#include "engine/GpuPackageParse.h"
 #include "engine/MediaProbe.h"
 #include "engine/SpeechAudio.h"
 
@@ -14,6 +15,7 @@
 #include <QJsonObject>
 #include <QCoreApplication>
 #include <QPointer>
+#include <QSet>
 #include <QStandardPaths>
 #include <QUuid>
 
@@ -32,12 +34,18 @@ QString voicesDir()
         .filePath(QStringLiteral("voices"));
 }
 
-// The built-in voice's reference lives in the addon; only its encoded cache is kept here.
+const QString kReadyPrefix = QStringLiteral("pack-");
+
+// The built-in voices' references live in the addons; only their encoded cache is kept here.
 QString voiceDir(const QString &id)
 {
     if (id.isEmpty() || id.contains(QLatin1Char('/')) || id.contains(QLatin1Char('\\')) || id.startsWith(QLatin1Char('.')))
         return {};
-    return QDir(voicesDir()).filePath(id == kDefaultId ? QStringLiteral("_default") : id);
+    if (id == kDefaultId)
+        return QDir(voicesDir()).filePath(QStringLiteral("_default"));
+    if (id.startsWith(kReadyPrefix))
+        return QDir(voicesDir()).filePath(QLatin1Char('_') + id);
+    return QDir(voicesDir()).filePath(id);
 }
 
 QString modelVersion()
@@ -101,6 +109,7 @@ VoiceLibrary::VoiceLibrary(AppController *app, TtsController *tts, QObject *pare
     connect(&m_recorder, &drift::AudioRecorder::recordingError, this, &VoiceLibrary::error);
 
     m_entries.append({kDefaultId, tr("Default"), QStringLiteral("builtin"), {}, true});
+    m_entries.append(readyVoices());
     QList<Entry> saved;
     const QDir dir(voicesDir());
     for (const QString &name : dir.entryList(QDir::Dirs | QDir::NoDotAndDotDot)) {
@@ -116,6 +125,83 @@ VoiceLibrary::VoiceLibrary(AppController *app, TtsController *tts, QObject *pare
     }
     std::sort(saved.begin(), saved.end(), [](const Entry &a, const Entry &b) { return a.created < b.created; });
     m_entries.append(saved);
+}
+
+QList<VoiceLibrary::Entry> VoiceLibrary::readyVoices() const
+{
+    struct Ready
+    {
+        Entry entry;
+        int order = 0;
+    };
+    QList<Ready> found;
+    QSet<QString> seen;
+    const QStringList roots = GpuPackageParse::defaultSearchPaths(
+        QStringLiteral("DRIFT_TTS_VOICES_DIR"), QStringLiteral("tts-voices"), QStringLiteral("tts-voices"));
+    for (const QString &root : roots) {
+        const QDir dir(root);
+        for (const QString &folder : dir.entryList(QDir::Dirs | QDir::NoDotAndDotDot, QDir::Name)) {
+            const QString path = dir.filePath(folder);
+            const QJsonObject meta = readMeta(path);
+            const QString reference = QDir(path).filePath(QStringLiteral("reference.flac"));
+            const QString name = meta.value(QStringLiteral("name")).toString();
+            if (name.isEmpty() || !QFile::exists(reference) || seen.contains(folder))
+                continue;
+            seen.insert(folder);
+            Entry e;
+            e.id = kReadyPrefix + folder;
+            e.name = name;
+            e.source = QStringLiteral("ready");
+            e.builtIn = true;
+            e.gender = meta.value(QStringLiteral("gender")).toString();
+            e.style = meta.value(QStringLiteral("style")).toString();
+            e.reference = reference;
+            const QString sample = QDir(path).filePath(QStringLiteral("sample.flac"));
+            e.sample = QFile::exists(sample) ? sample : reference;
+            const QString photo = QDir(path).filePath(QStringLiteral("portrait.jpg"));
+            if (QFile::exists(photo))
+                e.photo = photo;
+            found.append({e, meta.value(QStringLiteral("order")).toInt(found.size())});
+        }
+    }
+    std::stable_sort(found.begin(), found.end(), [](const Ready &a, const Ready &b) { return a.order < b.order; });
+    QList<Entry> out;
+    for (const Ready &r : std::as_const(found))
+        out.append(r.entry);
+    return out;
+}
+
+QVariantList VoiceLibrary::allVoices() const
+{
+    QVariantList out;
+    for (const Entry &e : m_entries) {
+        out.append(QVariantMap{{QStringLiteral("id"), e.id},
+                               {QStringLiteral("name"), e.name},
+                               {QStringLiteral("builtIn"), e.builtIn},
+                               {QStringLiteral("ready"), e.id.startsWith(kReadyPrefix)},
+                               {QStringLiteral("gender"), e.gender},
+                               {QStringLiteral("style"), e.style},
+                               {QStringLiteral("photo"), e.photo.isEmpty() ? QString()
+                                                                           : QUrl::fromLocalFile(e.photo).toString()}});
+    }
+    return out;
+}
+
+void VoiceLibrary::reloadReadyVoices()
+{
+    QList<Entry> next;
+    for (const Entry &e : std::as_const(m_entries)) {
+        if (e.id == kDefaultId)
+            next.append(e);
+    }
+    next.append(readyVoices());
+    for (const Entry &e : std::as_const(m_entries)) {
+        if (!e.builtIn)
+            next.append(e);
+    }
+    beginResetModel();
+    m_entries = next;
+    endResetModel();
 }
 
 int VoiceLibrary::rowCount(const QModelIndex &parent) const
@@ -140,6 +226,12 @@ QVariant VoiceLibrary::data(const QModelIndex &index, int role) const
         return e.source;
     case CreatedRole:
         return e.created;
+    case GenderRole:
+        return e.gender;
+    case StyleRole:
+        return e.style;
+    case PhotoRole:
+        return e.photo.isEmpty() ? QString() : QUrl::fromLocalFile(e.photo).toString();
     }
     return {};
 }
@@ -147,7 +239,8 @@ QVariant VoiceLibrary::data(const QModelIndex &index, int role) const
 QHash<int, QByteArray> VoiceLibrary::roleNames() const
 {
     return {{IdRole, "id"}, {NameRole, "name"}, {BuiltInRole, "builtIn"}, {SourceRole, "source"},
-            {CreatedRole, "created"}};
+            {CreatedRole, "created"}, {GenderRole, "gender"}, {StyleRole, "style"},
+            {PhotoRole, "photo"}};
 }
 
 int VoiceLibrary::indexOfId(const QString &id) const
@@ -172,6 +265,8 @@ QUrl VoiceLibrary::referenceUrl(const QString &id) const
         const QString dir = drift::resolveChatterboxModelDir();
         return dir.isEmpty() ? QUrl() : QUrl::fromLocalFile(QDir(dir).filePath(QStringLiteral("default_voice.wav")));
     }
+    if (id.startsWith(kReadyPrefix))
+        return QUrl::fromLocalFile(m_entries.at(indexOfId(id)).sample);
     return QUrl::fromLocalFile(QDir(voiceDir(id)).filePath(QStringLiteral("reference.flac")));
 }
 
@@ -387,6 +482,11 @@ std::optional<drift::VoiceConditioning> VoiceLibrary::conditioning(const QString
         const QString modelDir = drift::resolveChatterboxModelDir();
         if (!modelDir.isEmpty())
             reference = QDir(modelDir).filePath(QStringLiteral("default_voice.wav"));
+        QDir().mkpath(dir);
+    } else if (voiceId.startsWith(kReadyPrefix)) {
+        const int row = indexOfId(voiceId);
+        if (row >= 0)
+            reference = m_entries.at(row).reference;
         QDir().mkpath(dir);
     } else {
         reference = QDir(dir).filePath(QStringLiteral("reference.flac"));

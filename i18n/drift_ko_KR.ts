@@ -25818,6 +25818,10 @@ If playback stutters, try another.</source>
         <translation>이 파일에는 읽을 수 있는 텍스트가 없습니다</translation>
     </message>
     <message>
+        <source>Voice: %1</source>
+        <translation>음성: %1</translation>
+    </message>
+    <message>
         <source>A dialogue: a voice for each person</source>
         <translation>대화: 사람마다 다른 음성</translation>
     </message>
@@ -26143,7 +26147,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished"></translation>
+        <translation>전체</translation>
     </message>
     <message>
         <source>How hard it squashes, stretches and bends</source>
@@ -34424,6 +34428,81 @@ If playback stutters, try another.</source>
     <message>
         <source>Intensity</source>
         <translation>강도</translation>
+    </message>
+</context>
+<context>
+    <name>VoiceGallery</name>
+    <message>
+        <source>Narration</source>
+        <translation>내레이션</translation>
+    </message>
+    <message>
+        <source>Young</source>
+        <translation>젊은</translation>
+    </message>
+    <message>
+        <source>Deep</source>
+        <translation>낮은</translation>
+    </message>
+    <message>
+        <source>Lively</source>
+        <translation>활기찬</translation>
+    </message>
+    <message>
+        <source>Soft</source>
+        <translation>부드러운</translation>
+    </message>
+    <message>
+        <source>Mature</source>
+        <translation>성숙한</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation>전체</translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation>즐겨찾기</translation>
+    </message>
+    <message>
+        <source>Mine</source>
+        <translation>내 음성</translation>
+    </message>
+    <message>
+        <source>Women</source>
+        <translation>여성</translation>
+    </message>
+    <message>
+        <source>Men</source>
+        <translation>남성</translation>
+    </message>
+    <message>
+        <source>Hear this voice</source>
+        <translation>이 음성 듣기</translation>
+    </message>
+    <message>
+        <source>My voice</source>
+        <translation>내 목소리</translation>
+    </message>
+    <message>
+        <source>Mark voices with the star to find them here</source>
+        <translation>별표를 누른 음성이 여기에 표시됩니다</translation>
+    </message>
+    <message>
+        <source>Your own voices appear here: «New voice» in Options</source>
+        <translation>직접 만든 음성은 여기에 표시됩니다: 옵션의 «새 음성»</translation>
+    </message>
+    <message>
+        <source>No voices of this kind</source>
+        <translation>이 종류의 음성이 없습니다</translation>
+    </message>
+    <message>
+        <source>Show fewer</source>
+        <translation>간단히 보기</translation>
+    </message>
+    <message>
+        <source>See all voices (%1)</source>
+        <translation>모든 음성 보기 (%1)</translation>
     </message>
 </context>
 <context>

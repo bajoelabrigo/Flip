@@ -2839,11 +2839,11 @@
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished"></translation>
+        <translation>සියල්ල</translation>
     </message>
     <message>
         <source>Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>ප්‍රියතම</translation>
     </message>
     <message>
         <source>Duration</source>
@@ -4385,7 +4385,7 @@
     </message>
     <message>
         <source>Voice: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>හඬ: %1</translation>
     </message>
     <message>
         <source>Voice changer off</source>
@@ -18686,7 +18686,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>ප්‍රියතම</translation>
     </message>
     <message>
         <source>No favorites yet. Star masks to save them here.</source>
@@ -25858,7 +25858,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>My voice</source>
-        <translation type="unfinished"></translation>
+        <translation>මගේ හඬ</translation>
     </message>
     <message>
         <source>Import a voice sample</source>
@@ -25903,6 +25903,10 @@ If playback stutters, try another.</source>
     <message>
         <source>That file has no text that can be read</source>
         <translation>එම ගොනුවේ කියවිය හැකි පෙළක් නැත</translation>
+    </message>
+    <message>
+        <source>Voice: %1</source>
+        <translation>හඬ: %1</translation>
     </message>
     <message>
         <source>A dialogue: a voice for each person</source>
@@ -26230,7 +26234,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished"></translation>
+        <translation>සියල්ල</translation>
     </message>
     <message>
         <source>How hard it squashes, stretches and bends</source>
@@ -29240,7 +29244,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Soft</source>
-        <translation type="unfinished"></translation>
+        <translation>මෘදු</translation>
     </message>
     <message>
         <source>Strong</source>
@@ -33971,7 +33975,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Soft</source>
-        <translation type="unfinished"></translation>
+        <translation>මෘදු</translation>
     </message>
     <message>
         <source>Strong smoothing for an even, soft skin</source>
@@ -34531,6 +34535,81 @@ If playback stutters, try another.</source>
     <message>
         <source>Intensity</source>
         <translation>තීව්‍රතාව</translation>
+    </message>
+</context>
+<context>
+    <name>VoiceGallery</name>
+    <message>
+        <source>Narration</source>
+        <translation>කථනය</translation>
+    </message>
+    <message>
+        <source>Young</source>
+        <translation>තරුණ</translation>
+    </message>
+    <message>
+        <source>Deep</source>
+        <translation>ගැඹුරු</translation>
+    </message>
+    <message>
+        <source>Lively</source>
+        <translation>ප්‍රාණවත්</translation>
+    </message>
+    <message>
+        <source>Soft</source>
+        <translation>මෘදු</translation>
+    </message>
+    <message>
+        <source>Mature</source>
+        <translation>පරිණත</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation>සියල්ල</translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation>ප්‍රියතම</translation>
+    </message>
+    <message>
+        <source>Mine</source>
+        <translation>මගේ</translation>
+    </message>
+    <message>
+        <source>Women</source>
+        <translation>කාන්තා</translation>
+    </message>
+    <message>
+        <source>Men</source>
+        <translation>පිරිමි</translation>
+    </message>
+    <message>
+        <source>Hear this voice</source>
+        <translation>මෙම හඬ අසන්න</translation>
+    </message>
+    <message>
+        <source>My voice</source>
+        <translation>මගේ හඬ</translation>
+    </message>
+    <message>
+        <source>Mark voices with the star to find them here</source>
+        <translation>මෙහි සොයාගැනීමට හඬවලට තරුවක් දමන්න</translation>
+    </message>
+    <message>
+        <source>Your own voices appear here: «New voice» in Options</source>
+        <translation>ඔබේම හඬවල් මෙහි දිස්වේ: විකල්පවල «නව හඬ»</translation>
+    </message>
+    <message>
+        <source>No voices of this kind</source>
+        <translation>මෙම වර්ගයේ හඬ නැත</translation>
+    </message>
+    <message>
+        <source>Show fewer</source>
+        <translation>අඩුවෙන් පෙන්වන්න</translation>
+    </message>
+    <message>
+        <source>See all voices (%1)</source>
+        <translation>සියලු හඬ බලන්න (%1)</translation>
     </message>
 </context>
 <context>

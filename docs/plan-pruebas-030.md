@@ -206,3 +206,64 @@ segunda por dos `onClosing` en `TextEditWindow.qml` (qmlcachegen; ahora se revis
   «Editar con el texto» y «Quitar silencios» abren sin volver a escuchar.
 - 24: tras traducir no se vio subtítulo en 0:11 durante la reproducción; después sí. Revisar otra vez.
 - La herramienta de pruebas no llega a la tarjeta de estilo (la estrella sí): Jorge la probó con su mouse.
+
+## Tanda grande con el mouse de Jorge (preparada el 2026-11-03)
+Proyectos en `E:\FlipStudio\pruebas\proyectos-030` (`ae1-pelota`, `ae2-titulo`, `ae3-producto`, `ae4-infografia`,
+`ae5-vertical`, `sub1-entrevista`, `sub2-vertical`, `sub3-sin-internet`, `tts1-narracion`; guiones `guion-tutorial.txt` y
+`guion-dialogo.md`). Versión: la última compilación de `flip/subtitulos`. Antes: copia del registro; después, restaurarla.
+Cada caso: lo que se hace → lo que tiene que pasar. Anotar en la tabla de abajo «bien» o lo que pasó.
+
+### After Effects (20)
+| # | Proyecto | Qué se hace | Qué tiene que pasar |
+|---|---|---|---|
+| A1 | ae1 | Pro, elegir la elipse, cronómetro de Posición Y en 0 s, 900 en el segundo 1 | Una sola fila «Posición X Y», trayecto visible en la vista previa |
+| A2 | ae1 | Tres claves más (rebote), clic derecho en una › Trayecto recto | Esquina en el trayecto; el ritmo no cambia |
+| A3 | ae1 | Separar dimensiones y volver a unir | Las esquinas siguen ahí |
+| A4 | ae1 | Escala: cronómetro, soltar la cadena, 130, Tab, 75, Enter | Tab salta al alto; la elipse crece desde su centro |
+| A5 | ae1 | Velocidad del fotograma clave (clic derecho): Influencia 60, un clic en Aplicar | Se aplica al primer clic |
+| A6 | ae1 | Editar curva: Ctrl+rueda y Alt+rueda sobre una curva que sube | Valores y tiempo se acercan |
+| A7 | ae1 | Gráfico de velocidad (botón del gráfico) con la Posición unida | Una curva «Pos» en px/s |
+| A8 | ae2 | Emparentar «FLIP» al nulo con el látigo (la espiral del clip) y girar el nulo | El texto gira con el nulo; el látigo se ve en todas las capas |
+| A9 | ae2 | Juego de atajos After Effects; Alt+Mayús+P / S / R / T / A sobre un texto | Clave de esa propiedad y solo su fila a la vista |
+| A10 | ae2 | Cabezal en 2 s: [ , ] , Alt+[ , Alt+] sobre un texto | Mueve o recorta la capa al cabezal (con el teclado de Jorge) |
+| A11 | ae2 | U y UU con un texto animado | U: lo animado; UU: solo lo cambiado |
+| A12 | ae2 | J / K, B / N y reproducir | Saltan entre claves; la zona de trabajo para la reproducción |
+| A13 | ae3 | Escribir «(1920-200)/2» en Posición X | Queda 860 |
+| A14 | ae3 | Auto-orientar en una capa con trayecto en S | La capa gira siguiendo el camino |
+| A15 | ae3 | Ctrl + arrastrar un tirador del trayecto | Rompe la tangente (esquina con tiradores sueltos) |
+| A16 | ae4 | Expresión con index y linear en las barras | Cada barra a su altura; punto verde de expresión válida |
+| A17 | ae4 | Motion Tools › Rebote y Elástico | Se aplican; el gráfico (pendiente: 19) |
+| A18 | ae4 | Copiar claves de una barra y pegarlas en las cinco | «×5», cada una con sus claves |
+| A19 | ae5 | Curvas con claves de dos capas; F9 a todas | Las dos curvas editables; F9 suaviza las dos |
+| A20 | ae5 | Exportar solo la zona de trabajo (B/N) | El archivo dura lo que la zona |
+
+### Subtítulos (10)
+| # | Proyecto | Qué se hace | Qué tiene que pasar |
+|---|---|---|---|
+| S1 | sub1 | Crear subtítulos con hablantes | Hablante 1/2 con colores, progreso en español |
+| S2 | sub1 | Elegir «Fondo por palabra» con el clip de subtítulos elegido (un solo clic) | Cambia al primer clic; la tarjeta queda al frente |
+| S3 | sub1 | Traducir a English y mirar la vista previa sin mover el cabezal | Se ven los dos idiomas al tiro (24) |
+| S4 | sub1 | Ortografía en la pista en inglés | Diccionario inglés («Hello» no se marca) |
+| S5 | sub1 | «Editar con el texto» después de crear los subtítulos | Abre al instante, sin «Escuchando…» (25) |
+| S6 | sub2 | Estilos: mirar las tarjetas «Subtítulo» y «Leyenda» | Se lee el texto de la tarjeta (28) |
+| S7 | sub2 | Ocultar groserías + Pitido (bleep) en una palabra | Palabra con asteriscos y pitido al reproducir |
+| S8 | sub2 | Estilo propio de un subtítulo (clic derecho en un bloque) y lugar arriba | Solo ese subtítulo cambia |
+| S9 | sub3 | Sin sesión: Traducir con el extra «Traducción sin internet» | El botón está encendido y traduce en el equipo |
+| S10 | sub3 | Importar `prueba-importar.srt` y exportar el video con subtítulos | Aparecen los subtítulos del .srt; junto al MP4 sale su .srt |
+
+### Voz desde texto (10)
+| # | Proyecto | Qué se hace | Qué tiene que pasar |
+|---|---|---|---|
+| V1 | tts1 | Audio › Voz: la galería con fotos; filtros Mujeres, Graves, Favoritas | Filtran bien; ▷ suena la muestra de cada voz |
+| V2 | tts1 | Elegir una voz de la galería, escribir dos frases con «[pausa 1s]», Generar | Toma con sus frases; la pausa dura ~1 s; nada cortado |
+| V3 | tts1 | ↻ en una frase y luego «Generar de nuevo» | Cada vez suena distinto |
+| V4 | tts1 | Opciones: velocidad 1,25× y tono; mirar las etiquetas | Dicen Velocidad / Tono / Expresividad con su valor |
+| V5 | tts1 | Marcar «Crear también sus subtítulos» y Añadir | Subtítulos con el texto exacto del guion |
+| V6 | tts1 | Audio › Editar guion…, cambiar una frase y Reemplazar | Cambia la voz y sus subtítulos (sin pista doble); el clip se llama «Voz: …» |
+| V7 | tts1 | Importar guion: `guion-dialogo.md`, una voz distinta para Ana y Luis | Diálogo con dos voces, sin decir los nombres |
+| V8 | tts1 | Texto «Bienvenidos a mi canal» › Leer en voz alta | Voz pegada al texto |
+| V9 | tts1 | Bajar la música bajo esta voz | La música baja donde habla la voz |
+| V10 | tts1 | Guardar la voz como archivo y «+ Voz nueva» desde un clip | WAV/MP3 guardado; la voz nueva sale en «Mías» |
+
+| Caso | Resultado | Nota |
+|---|---|---|

@@ -25819,6 +25819,10 @@ If playback stutters, try another.</source>
         <translation>该文件没有可读取的文字</translation>
     </message>
     <message>
+        <source>Voice: %1</source>
+        <translation>配音：%1</translation>
+    </message>
+    <message>
         <source>A dialogue: a voice for each person</source>
         <translation>对话：每个人一种声音</translation>
     </message>
@@ -26144,7 +26148,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished"></translation>
+        <translation>全部</translation>
     </message>
     <message>
         <source>How hard it squashes, stretches and bends</source>
@@ -34425,6 +34429,81 @@ If playback stutters, try another.</source>
     <message>
         <source>Intensity</source>
         <translation>强度</translation>
+    </message>
+</context>
+<context>
+    <name>VoiceGallery</name>
+    <message>
+        <source>Narration</source>
+        <translation>旁白</translation>
+    </message>
+    <message>
+        <source>Young</source>
+        <translation>年轻</translation>
+    </message>
+    <message>
+        <source>Deep</source>
+        <translation>低沉</translation>
+    </message>
+    <message>
+        <source>Lively</source>
+        <translation>活泼</translation>
+    </message>
+    <message>
+        <source>Soft</source>
+        <translation>柔和</translation>
+    </message>
+    <message>
+        <source>Mature</source>
+        <translation>成熟</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation>全部</translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation>收藏</translation>
+    </message>
+    <message>
+        <source>Mine</source>
+        <translation>我的</translation>
+    </message>
+    <message>
+        <source>Women</source>
+        <translation>女声</translation>
+    </message>
+    <message>
+        <source>Men</source>
+        <translation>男声</translation>
+    </message>
+    <message>
+        <source>Hear this voice</source>
+        <translation>试听此配音</translation>
+    </message>
+    <message>
+        <source>My voice</source>
+        <translation>我的声音</translation>
+    </message>
+    <message>
+        <source>Mark voices with the star to find them here</source>
+        <translation>给配音加星标即可在这里找到</translation>
+    </message>
+    <message>
+        <source>Your own voices appear here: «New voice» in Options</source>
+        <translation>你自己的配音显示在这里：选项中的“新配音”</translation>
+    </message>
+    <message>
+        <source>No voices of this kind</source>
+        <translation>没有这类配音</translation>
+    </message>
+    <message>
+        <source>Show fewer</source>
+        <translation>收起</translation>
+    </message>
+    <message>
+        <source>See all voices (%1)</source>
+        <translation>查看全部配音 (%1)</translation>
     </message>
 </context>
 <context>

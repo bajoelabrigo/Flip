@@ -25999,6 +25999,10 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
         <translation>Ten plik nie ma tekstu do odczytania</translation>
     </message>
     <message>
+        <source>Voice: %1</source>
+        <translation>Głos: %1</translation>
+    </message>
+    <message>
         <source>A dialogue: a voice for each person</source>
         <translation>Dialog: osobny głos dla każdej osoby</translation>
     </message>
@@ -26324,7 +26328,7 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished"></translation>
+        <translation>Wszystkie</translation>
     </message>
     <message>
         <source>How hard it squashes, stretches and bends</source>
@@ -34644,6 +34648,81 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     <message>
         <source>Intensity</source>
         <translation>Intensywność</translation>
+    </message>
+</context>
+<context>
+    <name>VoiceGallery</name>
+    <message>
+        <source>Narration</source>
+        <translation>Narracja</translation>
+    </message>
+    <message>
+        <source>Young</source>
+        <translation>Młody</translation>
+    </message>
+    <message>
+        <source>Deep</source>
+        <translation>Niski</translation>
+    </message>
+    <message>
+        <source>Lively</source>
+        <translation>Żywy</translation>
+    </message>
+    <message>
+        <source>Soft</source>
+        <translation>Łagodny</translation>
+    </message>
+    <message>
+        <source>Mature</source>
+        <translation>Dojrzały</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation>Wszystkie</translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation>Ulubione</translation>
+    </message>
+    <message>
+        <source>Mine</source>
+        <translation>Moje</translation>
+    </message>
+    <message>
+        <source>Women</source>
+        <translation>Kobiety</translation>
+    </message>
+    <message>
+        <source>Men</source>
+        <translation>Mężczyźni</translation>
+    </message>
+    <message>
+        <source>Hear this voice</source>
+        <translation>Posłuchaj tego głosu</translation>
+    </message>
+    <message>
+        <source>My voice</source>
+        <translation>Mój głos</translation>
+    </message>
+    <message>
+        <source>Mark voices with the star to find them here</source>
+        <translation>Oznacz głosy gwiazdką, aby je tu znaleźć</translation>
+    </message>
+    <message>
+        <source>Your own voices appear here: «New voice» in Options</source>
+        <translation>Twoje własne głosy pojawiają się tutaj: «Nowy głos» w Opcjach</translation>
+    </message>
+    <message>
+        <source>No voices of this kind</source>
+        <translation>Brak głosów tego rodzaju</translation>
+    </message>
+    <message>
+        <source>Show fewer</source>
+        <translation>Pokaż mniej</translation>
+    </message>
+    <message>
+        <source>See all voices (%1)</source>
+        <translation>Zobacz wszystkie głosy (%1)</translation>
     </message>
 </context>
 <context>

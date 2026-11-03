@@ -25819,6 +25819,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Tệp đó không có văn bản đọc được</translation>
     </message>
     <message>
+        <source>Voice: %1</source>
+        <translation>Giọng: %1</translation>
+    </message>
+    <message>
         <source>A dialogue: a voice for each person</source>
         <translation>Hội thoại: mỗi người một giọng</translation>
     </message>
@@ -26144,7 +26148,7 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished"></translation>
+        <translation>Tất cả</translation>
     </message>
     <message>
         <source>How hard it squashes, stretches and bends</source>
@@ -34426,6 +34430,81 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Intensity</source>
         <translation>Cường độ</translation>
+    </message>
+</context>
+<context>
+    <name>VoiceGallery</name>
+    <message>
+        <source>Narration</source>
+        <translation>Thuyết minh</translation>
+    </message>
+    <message>
+        <source>Young</source>
+        <translation>Trẻ</translation>
+    </message>
+    <message>
+        <source>Deep</source>
+        <translation>Trầm</translation>
+    </message>
+    <message>
+        <source>Lively</source>
+        <translation>Sôi nổi</translation>
+    </message>
+    <message>
+        <source>Soft</source>
+        <translation>Nhẹ nhàng</translation>
+    </message>
+    <message>
+        <source>Mature</source>
+        <translation>Trưởng thành</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation>Tất cả</translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation>Yêu thích</translation>
+    </message>
+    <message>
+        <source>Mine</source>
+        <translation>Của tôi</translation>
+    </message>
+    <message>
+        <source>Women</source>
+        <translation>Nữ</translation>
+    </message>
+    <message>
+        <source>Men</source>
+        <translation>Nam</translation>
+    </message>
+    <message>
+        <source>Hear this voice</source>
+        <translation>Nghe giọng này</translation>
+    </message>
+    <message>
+        <source>My voice</source>
+        <translation>Giọng của tôi</translation>
+    </message>
+    <message>
+        <source>Mark voices with the star to find them here</source>
+        <translation>Gắn sao cho giọng để tìm ở đây</translation>
+    </message>
+    <message>
+        <source>Your own voices appear here: «New voice» in Options</source>
+        <translation>Giọng của riêng bạn hiện ở đây: «Giọng mới» trong Tùy chọn</translation>
+    </message>
+    <message>
+        <source>No voices of this kind</source>
+        <translation>Không có giọng loại này</translation>
+    </message>
+    <message>
+        <source>Show fewer</source>
+        <translation>Thu gọn</translation>
+    </message>
+    <message>
+        <source>See all voices (%1)</source>
+        <translation>Xem tất cả giọng (%1)</translation>
     </message>
 </context>
 <context>

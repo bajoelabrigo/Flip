@@ -18,6 +18,10 @@ class TtsController;
 // <AppDataLocation>/voices/<uuid>/ holding voice.json, reference.flac (24 kHz mono) and
 // conditioning.bin. The conditioning is a cache of the speech encoder's output; the reference is
 // what is authoritative, so a model update re-encodes it. Reached from QML as EditorState.voices.
+//
+// The ready voices of the «voces.ia» extra (0.30, as CapCut's catalogue) come after Default, as
+// built-in ones ("pack-<folder>"): their reference and sample are the extra's, their conditioning
+// is cached under voices/_pack-<folder>.
 class VoiceLibrary : public QAbstractListModel
 {
     Q_OBJECT
@@ -37,6 +41,9 @@ public:
         BuiltInRole,
         SourceRole,
         CreatedRole,
+        GenderRole, // "f", "m" or "" (the user's own voices)
+        StyleRole,  // narration, young, deep, lively, soft, mature; "" for the user's
+        PhotoRole,  // a ready voice's portrait (a made-up person, as CapCut shows one), or empty
     };
 
     static constexpr double kMinReferenceSeconds = 3.0;
@@ -61,6 +68,10 @@ public:
     Q_INVOKABLE void remove(const QString &id);
     // Where the reference recording can be played from; empty when the voice has none.
     Q_INVOKABLE QUrl referenceUrl(const QString &id) const;
+    // Every voice as {id, name, builtIn, gender, style, photo, ready}, for the gallery's filters.
+    Q_INVOKABLE QVariantList allVoices() const;
+    // Looks for the voices of the extra again (after it was installed or removed).
+    Q_INVOKABLE void reloadReadyVoices();
     Q_INVOKABLE QString nameFor(const QString &id) const;
     Q_INVOKABLE int indexOfId(const QString &id) const;
 
@@ -93,7 +104,13 @@ private:
         QString source;
         QDateTime created;
         bool builtIn = false;
+        QString gender;
+        QString style;
+        QString reference; // a ready voice's recording, in the extra
+        QString sample;    // what its ▷ plays
+        QString photo;     // portrait.jpg in the extra, when there is one
     };
+    QList<Entry> readyVoices() const;
 
     void addVoice(const QString &path, double inSeconds, double outSeconds, const QString &name,
                   const QString &source, bool removeSource);

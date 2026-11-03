@@ -322,7 +322,7 @@
     </message>
     <message>
         <source>Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Mga paborito</translation>
     </message>
     <message>
         <source>Stock downloads</source>
@@ -2839,11 +2839,11 @@
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished"></translation>
+        <translation>Lahat</translation>
     </message>
     <message>
         <source>Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Mga paborito</translation>
     </message>
     <message>
         <source>Duration</source>
@@ -4385,7 +4385,7 @@
     </message>
     <message>
         <source>Voice: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Boses: %1</translation>
     </message>
     <message>
         <source>Voice changer off</source>
@@ -7476,7 +7476,7 @@
     </message>
     <message>
         <source>Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Mga paborito</translation>
     </message>
     <message>
         <source>Show fewer categories</source>
@@ -16470,7 +16470,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Mga paborito</translation>
     </message>
     <message>
         <source>All</source>
@@ -18686,7 +18686,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Mga paborito</translation>
     </message>
     <message>
         <source>No favorites yet. Star masks to save them here.</source>
@@ -25851,7 +25851,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>My voice</source>
-        <translation type="unfinished"></translation>
+        <translation>Aking boses</translation>
     </message>
     <message>
         <source>Import a voice sample</source>
@@ -25896,6 +25896,10 @@ If playback stutters, try another.</source>
     <message>
         <source>That file has no text that can be read</source>
         <translation>Walang mababasang teksto ang file na iyon</translation>
+    </message>
+    <message>
+        <source>Voice: %1</source>
+        <translation>Boses: %1</translation>
     </message>
     <message>
         <source>A dialogue: a voice for each person</source>
@@ -26223,7 +26227,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished"></translation>
+        <translation>Lahat</translation>
     </message>
     <message>
         <source>How hard it squashes, stretches and bends</source>
@@ -28267,7 +28271,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Mga paborito</translation>
     </message>
     <message>
         <source>Trending</source>
@@ -28904,7 +28908,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Mga paborito</translation>
     </message>
     <message>
         <source>Templates</source>
@@ -29232,7 +29236,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Soft</source>
-        <translation type="unfinished"></translation>
+        <translation>Malumanay</translation>
     </message>
     <message>
         <source>Strong</source>
@@ -33963,7 +33967,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Soft</source>
-        <translation type="unfinished"></translation>
+        <translation>Malumanay</translation>
     </message>
     <message>
         <source>Strong smoothing for an even, soft skin</source>
@@ -34151,7 +34155,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Mga paborito</translation>
     </message>
     <message>
         <source>Select a video or image clip to retouch a face.</source>
@@ -34523,6 +34527,81 @@ If playback stutters, try another.</source>
     <message>
         <source>Intensity</source>
         <translation>Tindi</translation>
+    </message>
+</context>
+<context>
+    <name>VoiceGallery</name>
+    <message>
+        <source>Narration</source>
+        <translation>Pagsasalaysay</translation>
+    </message>
+    <message>
+        <source>Young</source>
+        <translation>Bata</translation>
+    </message>
+    <message>
+        <source>Deep</source>
+        <translation>Malalim</translation>
+    </message>
+    <message>
+        <source>Lively</source>
+        <translation>Masigla</translation>
+    </message>
+    <message>
+        <source>Soft</source>
+        <translation>Malumanay</translation>
+    </message>
+    <message>
+        <source>Mature</source>
+        <translation>Mature</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation>Lahat</translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation>Mga paborito</translation>
+    </message>
+    <message>
+        <source>Mine</source>
+        <translation>Akin</translation>
+    </message>
+    <message>
+        <source>Women</source>
+        <translation>Mga babae</translation>
+    </message>
+    <message>
+        <source>Men</source>
+        <translation>Mga lalaki</translation>
+    </message>
+    <message>
+        <source>Hear this voice</source>
+        <translation>Pakinggan ang boses na ito</translation>
+    </message>
+    <message>
+        <source>My voice</source>
+        <translation>Aking boses</translation>
+    </message>
+    <message>
+        <source>Mark voices with the star to find them here</source>
+        <translation>Lagyan ng bituin ang mga boses para makita rito</translation>
+    </message>
+    <message>
+        <source>Your own voices appear here: «New voice» in Options</source>
+        <translation>Dito lumalabas ang sarili mong mga boses: «Bagong boses» sa Mga opsyon</translation>
+    </message>
+    <message>
+        <source>No voices of this kind</source>
+        <translation>Walang boses na ganitong uri</translation>
+    </message>
+    <message>
+        <source>Show fewer</source>
+        <translation>Ipakita nang kaunti</translation>
+    </message>
+    <message>
+        <source>See all voices (%1)</source>
+        <translation>Tingnan lahat ng boses (%1)</translation>
     </message>
 </context>
 <context>

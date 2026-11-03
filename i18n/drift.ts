@@ -25898,6 +25898,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Voice: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>A dialogue: a voice for each person</source>
         <translation type="unfinished"></translation>
     </message>
@@ -34522,6 +34526,81 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Intensity</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>VoiceGallery</name>
+    <message>
+        <source>Narration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Young</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Deep</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lively</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Soft</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mature</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mine</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Women</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Men</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hear this voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>My voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mark voices with the star to find them here</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Your own voices appear here: «New voice» in Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No voices of this kind</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show fewer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>See all voices (%1)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
