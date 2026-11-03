@@ -171,3 +171,11 @@ poco y el aviso «Pitido en 1 palabras». Falta verlos en la build siguiente.
     cuando se acabe el cupo de DeepL, sin internet o sin sesión.
   - trampa: `deploy.ps1` corrido desde Git Bash usaba el `tar` de Git (toma «C:\…» por un servidor) y subía el
     paquete viejo sin avisar; ahora usa el tar de Windows y se corta si el paquete no se armó.
+
+### Prueba en ventana 3 (2026-11-03, build dcc85, `pruebas\subtitulos-030b\entrevista.drift`)
+Visto funcionando: «Distinguir a los hablantes» (Hablante 1 blanco, Hablante 2 amarillo, en la lista y en la vista
+previa), Traducir con DeepL al inglés (clip «Subtítulos (…)» encima, con tu sesión) y «Editar con el texto» que corta y
+corre los dos clips de subtítulos (0:23 → 0:21, el inglés sigue sincronizado). Arreglado después: la traducción se
+encimaba con el original cuando las dos ocupan dos líneas con un estilo grande (`bilingualLineGap`: dos líneas de cada
+uno más un margen) y el idioma salía «American English» (ahora «English»). Falta verlos en la build siguiente.
+Ojo para probar: `DRIFT_DIARIZE_MODEL_DIR` apunta a `stage\hablantes\models\diarization` (sin eso no sale la casilla).

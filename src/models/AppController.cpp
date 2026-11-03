@@ -10975,6 +10975,13 @@ bool AppController::objectDetectionAvailable() const
 }
 
 namespace {
+// How far above the original captions a translation sits (bilingual captions). Each caption is
+// centred in its box and may take two lines, so the gap is two lines of each plus a margin; a
+// fixed 11 % of the height let a big style's two lines run into each other.
+double bilingualLineGap(double originalPixelSize, double translatedPixelSize, double canvasHeight)
+{
+    return qMax(canvasHeight * 0.11, 1.25 * (originalPixelSize + translatedPixelSize) + canvasHeight * 0.02);
+}
 
 QList<QPair<QString, QString>> subtitleDictionaryPairs()
 {
@@ -11042,8 +11049,10 @@ void AppController::finalizeGeneratedSubtitles(drift::TimeUs timelineStart,
     applyDefaultVisualLayout(clip, m_project.width(), m_project.height());
     if (translated) {
         // The English line sits right above the original captions, a little smaller.
-        clip.transformY.setKeyframe(0, clip.transformY.evaluateAt(0) - m_project.height() * 0.11);
+        const double originalSize = clip.textStyle.pixelSize;
         clip.textStyle.pixelSize = qMax(12.0, clip.textStyle.pixelSize * 0.85);
+        clip.transformY.setKeyframe(0, clip.transformY.evaluateAt(0)
+                                           - bilingualLineGap(originalSize, clip.textStyle.pixelSize, m_project.height()));
         clip.name = tr("English subtitles");
     }
     QList<drift::SubtitleCue> cleaned = subtitleCleanupEnabled() ? drift::cleanSubtitleCues(cues) : cues;
@@ -17458,7 +17467,8 @@ QVariantList AppController::subtitleTranslationLanguages() const
     for (const char *code : kCodes) {
         const QString c = QString::fromLatin1(code);
         const QLocale locale(QString(c).replace(QLatin1Char('-'), QLatin1Char('_')));
-        QString label = locale.nativeLanguageName();
+        // Qt names plain "en" after the United States; DeepL's English is just English.
+        QString label = c == QLatin1String("en") ? QStringLiteral("English") : locale.nativeLanguageName();
         if (c == QLatin1String("pt-BR") || c == QLatin1String("pt-PT"))
             label += QStringLiteral(" (%1)").arg(locale.nativeTerritoryName());
         if (!label.isEmpty())
@@ -17532,8 +17542,10 @@ void AppController::translateSubtitles(int trackIndex, int clipIndex, const QStr
             cue.text = translations.at(i).toString();
             cue.wordEndsUs.clear(); // other words: the karaoke falls back to even timing
         }
-        clip.transformY.setKeyframe(0, clip.transformY.evaluateAt(0) - m_project.height() * 0.11);
+        const double originalSize = clip.textStyle.pixelSize;
         clip.textStyle.pixelSize = qMax(12.0, clip.textStyle.pixelSize * 0.85);
+        clip.transformY.setKeyframe(0, clip.transformY.evaluateAt(0)
+                                           - bilingualLineGap(originalSize, clip.textStyle.pixelSize, m_project.height()));
         m_project.tracks()[track].clips.append(clip);
         pushProjectEdit(before, tr("Translate captions"));
         finishEdit(tr("Translate captions"));
