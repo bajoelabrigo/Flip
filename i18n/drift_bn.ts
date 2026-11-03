@@ -26646,14 +26646,6 @@ If playback stutters, try another.</source>
         <translation type="unfinished">%1 ক্যাপশন</translation>
     </message>
     <message>
-        <source>Play the timeline — the line on screen lights up. Tap any line to edit it.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Play the timeline — the line on screen lights up. Click any line to jump to it and edit it below.</source>
-        <translation type="unfinished">টাইমলাইন চালান — স্ক্রিনের লাইনটি জ্বলছে। এটিতে লাফ দিতে এবং নীচে সম্পাদনা করতে যেকোনো লাইনে ক্লিক করুন.</translation>
-    </message>
-    <message>
         <source>Import</source>
         <translation type="unfinished">ইমপোর্ট</translation>
     </message>
@@ -26776,6 +26768,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Check the spelling of every caption, one word at a time</source>
         <translation>প্রতিটি ক্যাপশনের বানান একটি একটি শব্দ করে যাচাই করে</translation>
+    </message>
+    <message>
+        <source>File and timing</source>
+        <translation>ফাইল ও সময়</translation>
     </message>
     <message>
         <source>Words to check: %1</source>
@@ -26984,18 +26980,6 @@ If playback stutters, try another.</source>
 <context>
     <name>SubtitlesTab</name>
     <message>
-        <source>Subtitle track — one clip holds many timed captions. Place it on the timeline, trim its length, then add caption lines at each moment in the clip panel.</source>
-        <translation type="unfinished">সাবটাইটেল ট্র্যাক — একটি ক্লিপে অনেকগুলি সময়ের ক্যাপশন রয়েছে। এটিকে টাইমলাইনে রাখুন, এর দৈর্ঘ্য ট্রিম করুন, তারপর ক্লিপ প্যানেলে প্রতি মুহূর্তে ক্যাপশন লাইন যোগ করুন.</translation>
-    </message>
-    <message>
-        <source>Add subtitle clip</source>
-        <translation type="unfinished">সাবটাইটেল ক্লিপ যোগ করুন</translation>
-    </message>
-    <message>
-        <source>Import subtitle file</source>
-        <translation type="unfinished">সাবটাইটেল ফাইল ইমপোর্ট করুন</translation>
-    </message>
-    <message>
         <source>Import an SRT, WebVTT or ASS file as a subtitle clip</source>
         <translation>একটি SRT, WebVTT বা ASS ফাইল সাবটাইটেল ক্লিপ হিসেবে ইমপোর্ট করুন</translation>
     </message>
@@ -27022,14 +27006,6 @@ If playback stutters, try another.</source>
     <message>
         <source>All files (*)</source>
         <translation>সব ফাইল (*)</translation>
-    </message>
-    <message>
-        <source>Add auto caption</source>
-        <translation type="unfinished">স্বয়ংক্রিয় ক্যাপশন যোগ করুন</translation>
-    </message>
-    <message>
-        <source>Creates captions from the speech in the selected clip.</source>
-        <translation type="unfinished">নির্বাচিত ক্লিপে বক্তৃতা থেকে ক্যাপশন তৈরি করে.</translation>
     </message>
     <message>
         <source>Select a video or audio clip on the timeline first.</source>
@@ -27104,6 +27080,14 @@ If playback stutters, try another.</source>
         <translation type="unfinished">ক্যাপশন তৈরি করা হচ্ছে... %1%</translation>
     </message>
     <message>
+        <source>Captions from the voice</source>
+        <translation>কণ্ঠ থেকে ক্যাপশন</translation>
+    </message>
+    <message>
+        <source>Create captions</source>
+        <translation>ক্যাপশন তৈরি করুন</translation>
+    </message>
+    <message>
         <source>Cancel</source>
         <translation>বাতিল করুন</translation>
     </message>
@@ -27122,6 +27106,30 @@ If playback stutters, try another.</source>
     <message>
         <source>Needed for auto captions from speech</source>
         <translation type="unfinished">বক্তৃতা থেকে স্বয়ংক্রিয় ক্যাপশনের জন্য প্রয়োজন</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation>বিকল্প</translation>
+    </message>
+    <message>
+        <source>Show fewer</source>
+        <translation>কম দেখান</translation>
+    </message>
+    <message>
+        <source>See all styles (%1)</source>
+        <translation>সব স্টাইল দেখুন (%1)</translation>
+    </message>
+    <message>
+        <source>Write by hand</source>
+        <translation>হাতে লিখুন</translation>
+    </message>
+    <message>
+        <source>An empty caption clip at the playhead: write each line in the clip panel</source>
+        <translation>প্লেহেডে একটি খালি ক্যাপশন ক্লিপ: ক্লিপ প্যানেলে প্রতিটি লাইন লিখুন</translation>
+    </message>
+    <message>
+        <source>Import file</source>
+        <translation>ফাইল আমদানি</translation>
     </message>
     <message>
         <source>Recommended caption length</source>

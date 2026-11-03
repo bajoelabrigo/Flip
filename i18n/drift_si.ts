@@ -26646,14 +26646,6 @@ If playback stutters, try another.</source>
         <translation>උපසිරැසි %1</translation>
     </message>
     <message>
-        <source>Play the timeline — the line on screen lights up. Tap any line to edit it.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Play the timeline — the line on screen lights up. Click any line to jump to it and edit it below.</source>
-        <translation>කාලරේඛාව ධාවනය කරන්න — තිරයේ ඇති පේළිය දැල්වෙයි. ඕනෑම පේළියක් වෙත යාමට සහ පහතින් එය සංස්කරණය කිරීමට එය ක්ලික් කරන්න.</translation>
-    </message>
-    <message>
         <source>Import</source>
         <translation>ආයාත කරන්න</translation>
     </message>
@@ -26826,6 +26818,10 @@ If playback stutters, try another.</source>
         <translation>සියලු උපසිරැසිවල අක්ෂර වින්‍යාසය වචනයෙන් වචනය පරීක්ෂා කරයි</translation>
     </message>
     <message>
+        <source>File and timing</source>
+        <translation>ගොනුව සහ කාලය</translation>
+    </message>
+    <message>
         <source>Words to check: %1</source>
         <translation>පරීක්ෂා කළ යුතු වචන: %1</translation>
     </message>
@@ -26984,18 +26980,6 @@ If playback stutters, try another.</source>
 <context>
     <name>SubtitlesTab</name>
     <message>
-        <source>Subtitle track — one clip holds many timed captions. Place it on the timeline, trim its length, then add caption lines at each moment in the clip panel.</source>
-        <translation>උපසිරැසි ට්‍රැකය — එක් ක්ලිපයක කාල නියමිත උපසිරැසි රාශියක් රඳවා ගත හැක. එය කාලරේඛාව මත තබා, එහි දිග කප්පාදු කර, පසුව ක්ලිප් පුවරුවේ සෑම මොහොතකම උපසිරැසි පේළි එක් කරන්න.</translation>
-    </message>
-    <message>
-        <source>Add subtitle clip</source>
-        <translation>උපසිරැසි ක්ලිපයක් එක් කරන්න</translation>
-    </message>
-    <message>
-        <source>Import subtitle file</source>
-        <translation>උපසිරැසි ගොනුව ආයාත කරන්න</translation>
-    </message>
-    <message>
         <source>Import Subtitles</source>
         <translation>උපසිරැසි ආයාත කරන්න</translation>
     </message>
@@ -27018,14 +27002,6 @@ If playback stutters, try another.</source>
     <message>
         <source>All files (*)</source>
         <translation>සියලු ගොනු (*)</translation>
-    </message>
-    <message>
-        <source>Add auto caption</source>
-        <translation>ස්වයංක්‍රීය උපසිරැසි එක් කරන්න</translation>
-    </message>
-    <message>
-        <source>Creates captions from the speech in the selected clip.</source>
-        <translation>තෝරාගත් ක්ලිපයේ කථනයෙන් උපසිරැසි නිර්මාණය කරයි.</translation>
     </message>
     <message>
         <source>Select a video or audio clip on the timeline first.</source>
@@ -27064,6 +27040,14 @@ If playback stutters, try another.</source>
         <translation>කෙටි උපසිරැසි කාලගත කරනුයේ එක් එක් වාක්‍ය ඛණ්ඩය සමානව බෙදීමෙනි, එබැවින් ඒවා කථනය සමඟ තරමක් නොගැලපී පැවතිය හැක.</translation>
     </message>
     <message>
+        <source>Captions from the voice</source>
+        <translation>හඬෙන් උපසිරැසි</translation>
+    </message>
+    <message>
+        <source>Create captions</source>
+        <translation>උපසිරැසි සාදන්න</translation>
+    </message>
+    <message>
         <source>Create captions from the selected clips&apos; speech — several clips become one caption clip</source>
         <translation>තෝරාගත් ක්ලිප්වල කථනයෙන් උපසිරැසි සාදන්න — ක්ලිප් කිහිපයක් එක් උපසිරැසි ක්ලිපයක් බවට පත්වේ</translation>
     </message>
@@ -27094,6 +27078,30 @@ If playback stutters, try another.</source>
     <message>
         <source>Needed for auto captions from speech</source>
         <translation>කථනයෙන් ස්වයංක්‍රීය උපසිරැසි ලබාගැනීමට අවශ්‍ය වේ</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation>විකල්ප</translation>
+    </message>
+    <message>
+        <source>Show fewer</source>
+        <translation>අඩුවෙන් පෙන්වන්න</translation>
+    </message>
+    <message>
+        <source>See all styles (%1)</source>
+        <translation>සියලු විලාස බලන්න (%1)</translation>
+    </message>
+    <message>
+        <source>Write by hand</source>
+        <translation>අතින් ලියන්න</translation>
+    </message>
+    <message>
+        <source>An empty caption clip at the playhead: write each line in the clip panel</source>
+        <translation>වාදන ශීර්ෂයේ හිස් උපසිරැසි ක්ලිපයක්: ක්ලිප් පුවරුවේ එක් එක් පේළිය ලියන්න</translation>
+    </message>
+    <message>
+        <source>Import file</source>
+        <translation>ගොනුව ආයාත කරන්න</translation>
     </message>
     <message>
         <source>Recommended caption length</source>

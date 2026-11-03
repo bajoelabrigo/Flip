@@ -26555,14 +26555,6 @@ If playback stutters, try another.</source>
         <translation>%1 条字幕</translation>
     </message>
     <message>
-        <source>Play the timeline — the line on screen lights up. Tap any line to edit it.</source>
-        <translation>播放时间线，屏幕上的字幕会高亮显示。点按任意一行即可编辑。</translation>
-    </message>
-    <message>
-        <source>Play the timeline — the line on screen lights up. Click any line to jump to it and edit it below.</source>
-        <translation>播放时间线，屏幕上的字幕会高亮显示。点击任意一行即可跳转到该处并在下方编辑。</translation>
-    </message>
-    <message>
         <source>Import</source>
         <translation>导入</translation>
     </message>
@@ -26735,6 +26727,10 @@ If playback stutters, try another.</source>
         <translation>逐词检查所有字幕的拼写</translation>
     </message>
     <message>
+        <source>File and timing</source>
+        <translation>文件与时间</translation>
+    </message>
+    <message>
         <source>Words to check: %1</source>
         <translation>待检查的词：%1</translation>
     </message>
@@ -26893,18 +26889,6 @@ If playback stutters, try another.</source>
 <context>
     <name>SubtitlesTab</name>
     <message>
-        <source>Subtitle track — one clip holds many timed captions. Place it on the timeline, trim its length, then add caption lines at each moment in the clip panel.</source>
-        <translation>字幕轨道 — 一个片段包含多条定时字幕。将其放到时间线上并调整长度，然后在片段面板中为每个时刻添加字幕行。</translation>
-    </message>
-    <message>
-        <source>Add subtitle clip</source>
-        <translation>添加字幕片段</translation>
-    </message>
-    <message>
-        <source>Import subtitle file</source>
-        <translation>导入字幕文件</translation>
-    </message>
-    <message>
         <source>Import Subtitles</source>
         <translation>导入字幕</translation>
     </message>
@@ -26927,14 +26911,6 @@ If playback stutters, try another.</source>
     <message>
         <source>All files (*)</source>
         <translation>所有文件 (*)</translation>
-    </message>
-    <message>
-        <source>Add auto caption</source>
-        <translation>添加自动字幕</translation>
-    </message>
-    <message>
-        <source>Creates captions from the speech in the selected clip.</source>
-        <translation>根据所选片段中的语音生成字幕。</translation>
     </message>
     <message>
         <source>Select a video or audio clip on the timeline first.</source>
@@ -26973,6 +26949,14 @@ If playback stutters, try another.</source>
         <translation>较短的字幕是将每个短语平均拆分来定时的，因此可能与语音略有不同步。</translation>
     </message>
     <message>
+        <source>Captions from the voice</source>
+        <translation>根据语音生成字幕</translation>
+    </message>
+    <message>
+        <source>Create captions</source>
+        <translation>生成字幕</translation>
+    </message>
+    <message>
         <source>Create captions from the selected clips&apos; speech — several clips become one caption clip</source>
         <translation>根据所选片段的语音生成字幕 — 多个片段会合并为一个字幕片段</translation>
     </message>
@@ -27003,6 +26987,30 @@ If playback stutters, try another.</source>
     <message>
         <source>Needed for auto captions from speech</source>
         <translation>自动语音字幕需要此组件</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation>选项</translation>
+    </message>
+    <message>
+        <source>Show fewer</source>
+        <translation>收起</translation>
+    </message>
+    <message>
+        <source>See all styles (%1)</source>
+        <translation>查看全部样式（%1）</translation>
+    </message>
+    <message>
+        <source>Write by hand</source>
+        <translation>手动输入</translation>
+    </message>
+    <message>
+        <source>An empty caption clip at the playhead: write each line in the clip panel</source>
+        <translation>在播放头处添加空字幕片段：在片段面板中逐行输入</translation>
+    </message>
+    <message>
+        <source>Import file</source>
+        <translation>导入文件</translation>
     </message>
     <message>
         <source>Recommended caption length</source>

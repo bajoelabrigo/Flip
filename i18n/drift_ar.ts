@@ -27026,14 +27026,6 @@ If playback stutters, try another.</source>
         <translation>%1 تسمية توضيحية</translation>
     </message>
     <message>
-        <source>Play the timeline — the line on screen lights up. Tap any line to edit it.</source>
-        <translation>شغّل المخطط الزمني — يُضاء السطر الظاهر على الشاشة. انقر على أي سطر لتحريره.</translation>
-    </message>
-    <message>
-        <source>Play the timeline — the line on screen lights up. Click any line to jump to it and edit it below.</source>
-        <translation>شغّل المخطط الزمني — يضيء السطر على الشاشة. انقر على أي سطر للانتقال إليه وتعديله في الأسفل.</translation>
-    </message>
-    <message>
         <source>Import</source>
         <translation>استيراد</translation>
     </message>
@@ -27206,6 +27198,10 @@ If playback stutters, try another.</source>
         <translation>يدقق إملاء كل الترجمات، كلمة تلو الأخرى</translation>
     </message>
     <message>
+        <source>File and timing</source>
+        <translation>الملف والتوقيت</translation>
+    </message>
+    <message>
         <source>Words to check: %1</source>
         <translation>كلمات للمراجعة: %1</translation>
     </message>
@@ -27364,18 +27360,6 @@ If playback stutters, try another.</source>
 <context>
     <name>SubtitlesTab</name>
     <message>
-        <source>Subtitle track — one clip holds many timed captions. Place it on the timeline, trim its length, then add caption lines at each moment in the clip panel.</source>
-        <translation>مسار الترجمة — يحتوي المقطع الواحد على العديد من التسميات التوضيحية الموقوتة. ضعه على المخطط الزمني، وقص طوله، ثم أضف أسطر التسميات التوضيحية عند كل لحظة في لوحة المقطع.</translation>
-    </message>
-    <message>
-        <source>Add subtitle clip</source>
-        <translation>إضافة مقطع ترجمة</translation>
-    </message>
-    <message>
-        <source>Import subtitle file</source>
-        <translation>استيراد ملف ترجمة</translation>
-    </message>
-    <message>
         <source>Import Subtitles</source>
         <translation>استيراد الترجمة</translation>
     </message>
@@ -27398,14 +27382,6 @@ If playback stutters, try another.</source>
     <message>
         <source>All files (*)</source>
         <translation>كافة الملفات (*)</translation>
-    </message>
-    <message>
-        <source>Add auto caption</source>
-        <translation>إضافة تسمية توضيحية تلقائية</translation>
-    </message>
-    <message>
-        <source>Creates captions from the speech in the selected clip.</source>
-        <translation>إنشاء تسميات توضيحية من الكلام في المقطع المحدد.</translation>
     </message>
     <message>
         <source>Select a video or audio clip on the timeline first.</source>
@@ -27444,6 +27420,14 @@ If playback stutters, try another.</source>
         <translation>يتم توقيت التسميات التوضيحية الأقصر عن طريق تقسيم كل عبارة بالتساوي، لذا قد تبتعد قليلاً عن التزامن مع الكلام.</translation>
     </message>
     <message>
+        <source>Captions from the voice</source>
+        <translation>ترجمات من الصوت</translation>
+    </message>
+    <message>
+        <source>Create captions</source>
+        <translation>إنشاء الترجمات</translation>
+    </message>
+    <message>
         <source>Create captions from the selected clips&apos; speech — several clips become one caption clip</source>
         <translation>إنشاء تسميات توضيحية من كلام المقاطع المحددة — تصبح عدة مقاطع مقطع تسميات توضيحية واحدًا</translation>
     </message>
@@ -27474,6 +27458,30 @@ If playback stutters, try another.</source>
     <message>
         <source>Needed for auto captions from speech</source>
         <translation>مطلوب للتسميات التوضيحية التلقائية من الكلام</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation>خيارات</translation>
+    </message>
+    <message>
+        <source>Show fewer</source>
+        <translation>عرض أقل</translation>
+    </message>
+    <message>
+        <source>See all styles (%1)</source>
+        <translation>عرض كل الأنماط (%1)</translation>
+    </message>
+    <message>
+        <source>Write by hand</source>
+        <translation>الكتابة يدويًا</translation>
+    </message>
+    <message>
+        <source>An empty caption clip at the playhead: write each line in the clip panel</source>
+        <translation>مقطع ترجمة فارغ عند رأس التشغيل: اكتب كل سطر في لوحة المقطع</translation>
+    </message>
+    <message>
+        <source>Import file</source>
+        <translation>استيراد ملف</translation>
     </message>
     <message>
         <source>Recommended caption length</source>

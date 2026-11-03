@@ -26554,14 +26554,6 @@ If playback stutters, try another.</source>
         <translation>캡션 %1개</translation>
     </message>
     <message>
-        <source>Play the timeline — the line on screen lights up. Tap any line to edit it.</source>
-        <translation>타임라인을 재생하면 화면에 나오는 줄이 강조됩니다. 아무 줄이나 탭해서 편집하세요.</translation>
-    </message>
-    <message>
-        <source>Play the timeline — the line on screen lights up. Click any line to jump to it and edit it below.</source>
-        <translation>타임라인을 재생하면 화면의 선이 밝아집니다. 아무 선이나 클릭하면 해당 위치로 이동하고 아래에서 편집할 수 있습니다.</translation>
-    </message>
-    <message>
         <source>Import</source>
         <translation>가져오기</translation>
     </message>
@@ -26734,6 +26726,10 @@ If playback stutters, try another.</source>
         <translation>모든 자막의 맞춤법을 한 단어씩 검사합니다</translation>
     </message>
     <message>
+        <source>File and timing</source>
+        <translation>파일 및 타이밍</translation>
+    </message>
+    <message>
         <source>Words to check: %1</source>
         <translation>확인할 단어: %1</translation>
     </message>
@@ -26892,18 +26888,6 @@ If playback stutters, try another.</source>
 <context>
     <name>SubtitlesTab</name>
     <message>
-        <source>Subtitle track — one clip holds many timed captions. Place it on the timeline, trim its length, then add caption lines at each moment in the clip panel.</source>
-        <translation>자막 트랙 — 하나의 클립에 여러 시간 지정 캡션이 들어 있습니다. 타임라인에 배치하고 길이를 자른 다음 클립 패널에서 각 시점에 캡션 줄을 추가하세요.</translation>
-    </message>
-    <message>
-        <source>Add subtitle clip</source>
-        <translation>자막 클립 추가</translation>
-    </message>
-    <message>
-        <source>Import subtitle file</source>
-        <translation>자막 파일 가져오기</translation>
-    </message>
-    <message>
         <source>Import Subtitles</source>
         <translation>자막 가져오기</translation>
     </message>
@@ -26926,14 +26910,6 @@ If playback stutters, try another.</source>
     <message>
         <source>All files (*)</source>
         <translation>모든 파일(*)</translation>
-    </message>
-    <message>
-        <source>Add auto caption</source>
-        <translation>자동 캡션 추가</translation>
-    </message>
-    <message>
-        <source>Creates captions from the speech in the selected clip.</source>
-        <translation>선택한 클립의 음성에서 캡션을 생성합니다.</translation>
     </message>
     <message>
         <source>Select a video or audio clip on the timeline first.</source>
@@ -26972,6 +26948,14 @@ If playback stutters, try another.</source>
         <translation>짧은 캡션은 각 구문을 동일한 간격으로 나누어 타이밍을 맞추므로 음성과 약간 어긋날 수 있습니다.</translation>
     </message>
     <message>
+        <source>Captions from the voice</source>
+        <translation>음성으로 자막 만들기</translation>
+    </message>
+    <message>
+        <source>Create captions</source>
+        <translation>자막 만들기</translation>
+    </message>
+    <message>
         <source>Create captions from the selected clips&apos; speech — several clips become one caption clip</source>
         <translation>선택한 클립의 음성에서 캡션 생성 — 여러 클립이 하나의 캡션 클립이 됩니다</translation>
     </message>
@@ -27002,6 +26986,30 @@ If playback stutters, try another.</source>
     <message>
         <source>Needed for auto captions from speech</source>
         <translation>음성에서 자동 캡션을 만들려면 필요합니다</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation>옵션</translation>
+    </message>
+    <message>
+        <source>Show fewer</source>
+        <translation>간단히 보기</translation>
+    </message>
+    <message>
+        <source>See all styles (%1)</source>
+        <translation>모든 스타일 보기 (%1)</translation>
+    </message>
+    <message>
+        <source>Write by hand</source>
+        <translation>직접 입력</translation>
+    </message>
+    <message>
+        <source>An empty caption clip at the playhead: write each line in the clip panel</source>
+        <translation>재생 헤드에 빈 자막 클립: 클립 패널에서 각 줄을 입력하세요</translation>
+    </message>
+    <message>
+        <source>Import file</source>
+        <translation>파일 가져오기</translation>
     </message>
     <message>
         <source>Recommended caption length</source>

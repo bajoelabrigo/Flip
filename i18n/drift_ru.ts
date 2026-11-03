@@ -26744,14 +26744,6 @@ If playback stutters, try another.</source>
         <translation>Записей субтитров: %1</translation>
     </message>
     <message>
-        <source>Play the timeline — the line on screen lights up. Tap any line to edit it.</source>
-        <translation>Запустите таймлайн — текущая строка на экране подсветится. Коснитесь любой строки, чтобы изменить её.</translation>
-    </message>
-    <message>
-        <source>Play the timeline — the line on screen lights up. Click any line to jump to it and edit it below.</source>
-        <translation>Запустите воспроизведение таймлайна — текущая строка подсветится. Нажмите на строку, чтобы перейти к ней и изменить её ниже.</translation>
-    </message>
-    <message>
         <source>Import</source>
         <translation>Импорт</translation>
     </message>
@@ -26924,6 +26916,10 @@ If playback stutters, try another.</source>
         <translation>Проверяет орфографию всех субтитров по одному слову</translation>
     </message>
     <message>
+        <source>File and timing</source>
+        <translation>Файл и время</translation>
+    </message>
+    <message>
         <source>Words to check: %1</source>
         <translation>Слов на проверку: %1</translation>
     </message>
@@ -27082,18 +27078,6 @@ If playback stutters, try another.</source>
 <context>
     <name>SubtitlesTab</name>
     <message>
-        <source>Subtitle track — one clip holds many timed captions. Place it on the timeline, trim its length, then add caption lines at each moment in the clip panel.</source>
-        <translation>Дорожка субтитров — один клип содержит много записей с временными метками. Поместите его на таймлайн, обрежьте до нужной длины и добавьте строки субтитров для каждого момента на панели клипа.</translation>
-    </message>
-    <message>
-        <source>Add subtitle clip</source>
-        <translation>Добавить клип субтитров</translation>
-    </message>
-    <message>
-        <source>Import subtitle file</source>
-        <translation>Импортировать файл субтитров</translation>
-    </message>
-    <message>
         <source>Import Subtitles</source>
         <translation>Импорт субтитров</translation>
     </message>
@@ -27116,14 +27100,6 @@ If playback stutters, try another.</source>
     <message>
         <source>All files (*)</source>
         <translation>Все файлы (*)</translation>
-    </message>
-    <message>
-        <source>Add auto caption</source>
-        <translation>Добавить автоматические субтитры</translation>
-    </message>
-    <message>
-        <source>Creates captions from the speech in the selected clip.</source>
-        <translation>Создаёт субтитры из речи в выбранном клипе.</translation>
     </message>
     <message>
         <source>Select a video or audio clip on the timeline first.</source>
@@ -27162,6 +27138,14 @@ If playback stutters, try another.</source>
         <translation>Короткие субтитры создаются равномерным разделением фраз по времени, поэтому могут немного расходиться с речью.</translation>
     </message>
     <message>
+        <source>Captions from the voice</source>
+        <translation>Субтитры по голосу</translation>
+    </message>
+    <message>
+        <source>Create captions</source>
+        <translation>Создать субтитры</translation>
+    </message>
+    <message>
         <source>Create captions from the selected clips&apos; speech — several clips become one caption clip</source>
         <translation>Создать субтитры из речи в выбранных клипах — несколько клипов станут одним клипом субтитров</translation>
     </message>
@@ -27192,6 +27176,30 @@ If playback stutters, try another.</source>
     <message>
         <source>Needed for auto captions from speech</source>
         <translation>Необходимо для автоматических субтитров из речи</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation>Параметры</translation>
+    </message>
+    <message>
+        <source>Show fewer</source>
+        <translation>Свернуть</translation>
+    </message>
+    <message>
+        <source>See all styles (%1)</source>
+        <translation>Все стили (%1)</translation>
+    </message>
+    <message>
+        <source>Write by hand</source>
+        <translation>Написать вручную</translation>
+    </message>
+    <message>
+        <source>An empty caption clip at the playhead: write each line in the clip panel</source>
+        <translation>Пустой клип субтитров у курсора: впишите каждую строку в панели клипа</translation>
+    </message>
+    <message>
+        <source>Import file</source>
+        <translation>Импорт файла</translation>
     </message>
     <message>
         <source>Recommended caption length</source>

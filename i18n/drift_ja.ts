@@ -26556,14 +26556,6 @@ If playback stutters, try another.</source>
         <translation>%1 キャプション</translation>
     </message>
     <message>
-        <source>Play the timeline — the line on screen lights up. Tap any line to edit it.</source>
-        <translation>タイムラインを再生すると、画面に表示中の行がハイライトされます。行をタップすると編集できます。</translation>
-    </message>
-    <message>
-        <source>Play the timeline — the line on screen lights up. Click any line to jump to it and edit it below.</source>
-        <translation>タイムラインを再生 — 画面上の行がハイライトされます。任意の行をクリックしてジャンプし、下で編集します。</translation>
-    </message>
-    <message>
         <source>Import</source>
         <translation>インポート</translation>
     </message>
@@ -26736,6 +26728,10 @@ If playback stutters, try another.</source>
         <translation>すべての字幕のスペルを1語ずつチェックします</translation>
     </message>
     <message>
+        <source>File and timing</source>
+        <translation>ファイルとタイミング</translation>
+    </message>
+    <message>
         <source>Words to check: %1</source>
         <translation>確認する語: %1</translation>
     </message>
@@ -26894,18 +26890,6 @@ If playback stutters, try another.</source>
 <context>
     <name>SubtitlesTab</name>
     <message>
-        <source>Subtitle track — one clip holds many timed captions. Place it on the timeline, trim its length, then add caption lines at each moment in the clip panel.</source>
-        <translation>字幕トラック — 1つのクリップに多数のタイミング付きキャプションを保持します。タイムラインに配置し、長さを調整してから、クリップパネルで各瞬間にキャプション行を追加します。</translation>
-    </message>
-    <message>
-        <source>Add subtitle clip</source>
-        <translation>字幕クリップを追加</translation>
-    </message>
-    <message>
-        <source>Import subtitle file</source>
-        <translation>字幕ファイルをインポート</translation>
-    </message>
-    <message>
         <source>Import Subtitles</source>
         <translation>字幕をインポート</translation>
     </message>
@@ -26928,14 +26912,6 @@ If playback stutters, try another.</source>
     <message>
         <source>All files (*)</source>
         <translation>すべてのファイル (*)</translation>
-    </message>
-    <message>
-        <source>Add auto caption</source>
-        <translation>自動キャプションを追加</translation>
-    </message>
-    <message>
-        <source>Creates captions from the speech in the selected clip.</source>
-        <translation>選択したクリップの音声からキャプションを作成します。</translation>
     </message>
     <message>
         <source>Select a video or audio clip on the timeline first.</source>
@@ -26974,6 +26950,14 @@ If playback stutters, try another.</source>
         <translation>短いキャプションは各フレーズを均等に分割してタイミングを取るため、音声とわずかにずれることがあります。</translation>
     </message>
     <message>
+        <source>Captions from the voice</source>
+        <translation>音声から字幕</translation>
+    </message>
+    <message>
+        <source>Create captions</source>
+        <translation>字幕を作成</translation>
+    </message>
+    <message>
         <source>Create captions from the selected clips&apos; speech — several clips become one caption clip</source>
         <translation>選択したクリップの音声からキャプションを作成 — 複数のクリップが1つのキャプションクリップになります</translation>
     </message>
@@ -27004,6 +26988,30 @@ If playback stutters, try another.</source>
     <message>
         <source>Needed for auto captions from speech</source>
         <translation>音声からの自動キャプションに必要</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation>オプション</translation>
+    </message>
+    <message>
+        <source>Show fewer</source>
+        <translation>表示を減らす</translation>
+    </message>
+    <message>
+        <source>See all styles (%1)</source>
+        <translation>すべてのスタイルを表示 (%1)</translation>
+    </message>
+    <message>
+        <source>Write by hand</source>
+        <translation>手動で入力</translation>
+    </message>
+    <message>
+        <source>An empty caption clip at the playhead: write each line in the clip panel</source>
+        <translation>再生ヘッドに空の字幕クリップ：クリップパネルで各行を入力します</translation>
+    </message>
+    <message>
+        <source>Import file</source>
+        <translation>ファイルを読み込む</translation>
     </message>
     <message>
         <source>Recommended caption length</source>

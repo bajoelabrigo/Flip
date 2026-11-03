@@ -26650,14 +26650,6 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
         <translation>%1 sottotitoli</translation>
     </message>
     <message>
-        <source>Play the timeline — the line on screen lights up. Tap any line to edit it.</source>
-        <translation>Riproduci la timeline: la riga sullo schermo si illumina. Tocca una riga qualsiasi per modificarla.</translation>
-    </message>
-    <message>
-        <source>Play the timeline — the line on screen lights up. Click any line to jump to it and edit it below.</source>
-        <translation>Riproduci la timeline — la riga sullo schermo si evidenzia. Fai clic su una riga qualsiasi per saltarvi e modificarla sotto.</translation>
-    </message>
-    <message>
         <source>Import</source>
         <translation>Importa</translation>
     </message>
@@ -26830,6 +26822,10 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
         <translation>Controlla l’ortografia di tutti i sottotitoli, una parola alla volta</translation>
     </message>
     <message>
+        <source>File and timing</source>
+        <translation>File e tempi</translation>
+    </message>
+    <message>
         <source>Words to check: %1</source>
         <translation>Parole da controllare: %1</translation>
     </message>
@@ -26988,18 +26984,6 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
 <context>
     <name>SubtitlesTab</name>
     <message>
-        <source>Subtitle track — one clip holds many timed captions. Place it on the timeline, trim its length, then add caption lines at each moment in the clip panel.</source>
-        <translation>Traccia sottotitoli — una clip contiene molte didascalie temporizzate. Posizionala sulla timeline, ritagliane la lunghezza, quindi aggiungi le righe di didascalia a ogni istante nel pannello della clip.</translation>
-    </message>
-    <message>
-        <source>Add subtitle clip</source>
-        <translation>Aggiungi clip sottotitoli</translation>
-    </message>
-    <message>
-        <source>Import subtitle file</source>
-        <translation>Importa file di sottotitoli</translation>
-    </message>
-    <message>
         <source>Import Subtitles</source>
         <translation>Importa sottotitoli</translation>
     </message>
@@ -27022,14 +27006,6 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     <message>
         <source>All files (*)</source>
         <translation>Tutti i file (*)</translation>
-    </message>
-    <message>
-        <source>Add auto caption</source>
-        <translation>Aggiungi sottotitoli automatici</translation>
-    </message>
-    <message>
-        <source>Creates captions from the speech in the selected clip.</source>
-        <translation>Crea sottotitoli dal parlato nella clip selezionata.</translation>
     </message>
     <message>
         <source>Select a video or audio clip on the timeline first.</source>
@@ -27068,6 +27044,14 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
         <translation>I sottotitoli più brevi vengono sincronizzati dividendo ciascuna frase in modo uniforme, pertanto potrebbero desincronizzarsi leggermente rispetto al parlato.</translation>
     </message>
     <message>
+        <source>Captions from the voice</source>
+        <translation>Sottotitoli dalla voce</translation>
+    </message>
+    <message>
+        <source>Create captions</source>
+        <translation>Crea sottotitoli</translation>
+    </message>
+    <message>
         <source>Create captions from the selected clips&apos; speech — several clips become one caption clip</source>
         <translation>Crea sottotitoli dal parlato delle clip selezionate — più clip diventano un&apos;unica clip sottotitoli</translation>
     </message>
@@ -27098,6 +27082,30 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     <message>
         <source>Needed for auto captions from speech</source>
         <translation>Necessario per i sottotitoli automatici dal parlato</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation>Opzioni</translation>
+    </message>
+    <message>
+        <source>Show fewer</source>
+        <translation>Mostra meno</translation>
+    </message>
+    <message>
+        <source>See all styles (%1)</source>
+        <translation>Vedi tutti gli stili (%1)</translation>
+    </message>
+    <message>
+        <source>Write by hand</source>
+        <translation>Scrivi a mano</translation>
+    </message>
+    <message>
+        <source>An empty caption clip at the playhead: write each line in the clip panel</source>
+        <translation>Un clip di sottotitoli vuoto alla testina: scrivi ogni riga nel pannello del clip</translation>
+    </message>
+    <message>
+        <source>Import file</source>
+        <translation>Importa file</translation>
     </message>
     <message>
         <source>Recommended caption length</source>

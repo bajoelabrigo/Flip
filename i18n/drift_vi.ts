@@ -26556,14 +26556,6 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>%1 phụ đề</translation>
     </message>
     <message>
-        <source>Play the timeline — the line on screen lights up. Tap any line to edit it.</source>
-        <translation>Phát dòng thời gian — dòng chữ trên màn hình sẽ sáng lên. Nhấn vào dòng bất kỳ để chỉnh sửa.</translation>
-    </message>
-    <message>
-        <source>Play the timeline — the line on screen lights up. Click any line to jump to it and edit it below.</source>
-        <translation>Phát dòng thời gian — dòng trên màn hình sẽ sáng lên. Nhấp vào bất kỳ dòng nào để chuyển đến vị trí đó và chỉnh sửa bên dưới.</translation>
-    </message>
-    <message>
         <source>Import</source>
         <translation>Nhập</translation>
     </message>
@@ -26736,6 +26728,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Kiểm tra chính tả mọi phụ đề, từng từ một</translation>
     </message>
     <message>
+        <source>File and timing</source>
+        <translation>Tệp và thời gian</translation>
+    </message>
+    <message>
         <source>Words to check: %1</source>
         <translation>Từ cần kiểm tra: %1</translation>
     </message>
@@ -26894,18 +26890,6 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
 <context>
     <name>SubtitlesTab</name>
     <message>
-        <source>Subtitle track — one clip holds many timed captions. Place it on the timeline, trim its length, then add caption lines at each moment in the clip panel.</source>
-        <translation>Track phụ đề — một clip chứa nhiều phụ đề theo thời gian. Đặt nó trên dòng thời gian, cắt bớt độ dài của nó, sau đó thêm các dòng phụ đề vào từng thời điểm trong bảng clip.</translation>
-    </message>
-    <message>
-        <source>Add subtitle clip</source>
-        <translation>Thêm phụ đề clip</translation>
-    </message>
-    <message>
-        <source>Import subtitle file</source>
-        <translation>Nhập tệp phụ đề</translation>
-    </message>
-    <message>
         <source>Import Subtitles</source>
         <translation>Nhập phụ đề</translation>
     </message>
@@ -26928,14 +26912,6 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>All files (*)</source>
         <translation>Tất cả tệp (*)</translation>
-    </message>
-    <message>
-        <source>Add auto caption</source>
-        <translation>Thêm phụ đề tự động</translation>
-    </message>
-    <message>
-        <source>Creates captions from the speech in the selected clip.</source>
-        <translation>Tạo phụ đề từ lời thoại trong đoạn video đã chọn.</translation>
     </message>
     <message>
         <source>Select a video or audio clip on the timeline first.</source>
@@ -26974,6 +26950,14 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Phụ đề ngắn hơn được tính thời gian bằng cách chia đều từng cụm từ, do đó chúng có thể hơi không đồng bộ với âm thanh.</translation>
     </message>
     <message>
+        <source>Captions from the voice</source>
+        <translation>Phụ đề từ giọng nói</translation>
+    </message>
+    <message>
+        <source>Create captions</source>
+        <translation>Tạo phụ đề</translation>
+    </message>
+    <message>
         <source>Create captions from the selected clips&apos; speech — several clips become one caption clip</source>
         <translation>Tạo phụ đề từ lời thoại của các đoạn video đã chọn — nhiều đoạn video sẽ được gộp thành một phụ đề</translation>
     </message>
@@ -27004,6 +26988,30 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Needed for auto captions from speech</source>
         <translation>Cần thiết cho việc tạo phụ đề tự động từ giọng nói</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation>Tùy chọn</translation>
+    </message>
+    <message>
+        <source>Show fewer</source>
+        <translation>Thu gọn</translation>
+    </message>
+    <message>
+        <source>See all styles (%1)</source>
+        <translation>Xem tất cả kiểu (%1)</translation>
+    </message>
+    <message>
+        <source>Write by hand</source>
+        <translation>Viết tay</translation>
+    </message>
+    <message>
+        <source>An empty caption clip at the playhead: write each line in the clip panel</source>
+        <translation>Một clip phụ đề trống tại đầu phát: viết từng dòng trong bảng của clip</translation>
+    </message>
+    <message>
+        <source>Import file</source>
+        <translation>Nhập tệp</translation>
     </message>
     <message>
         <source>Recommended caption length</source>

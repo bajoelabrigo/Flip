@@ -26650,14 +26650,6 @@ Se a reprodução travar, tente outra opção.</translation>
         <translation>%1 legendas</translation>
     </message>
     <message>
-        <source>Play the timeline — the line on screen lights up. Tap any line to edit it.</source>
-        <translation>Reproduza a linha do tempo — a frase na tela se acende. Toque em qualquer frase para editá-la.</translation>
-    </message>
-    <message>
-        <source>Play the timeline — the line on screen lights up. Click any line to jump to it and edit it below.</source>
-        <translation>Reproduza a linha do tempo — a fala que está na tela se destaca. Clique em qualquer fala para ir até ela e editá-la abaixo.</translation>
-    </message>
-    <message>
         <source>Import</source>
         <translation>Importar</translation>
     </message>
@@ -26830,6 +26822,10 @@ Se a reprodução travar, tente outra opção.</translation>
         <translation>Verifica a ortografia de todas as legendas, uma palavra por vez</translation>
     </message>
     <message>
+        <source>File and timing</source>
+        <translation>Arquivo e tempos</translation>
+    </message>
+    <message>
         <source>Words to check: %1</source>
         <translation>Palavras para revisar: %1</translation>
     </message>
@@ -26988,18 +26984,6 @@ Se a reprodução travar, tente outra opção.</translation>
 <context>
     <name>SubtitlesTab</name>
     <message>
-        <source>Subtitle track — one clip holds many timed captions. Place it on the timeline, trim its length, then add caption lines at each moment in the clip panel.</source>
-        <translation>Faixa de legenda — um clipe reúne várias legendas cronometradas. Coloque-o na linha do tempo, apare a duração e adicione as falas da legenda em cada momento no painel do clipe.</translation>
-    </message>
-    <message>
-        <source>Add subtitle clip</source>
-        <translation>Adicionar clipe de legenda</translation>
-    </message>
-    <message>
-        <source>Import subtitle file</source>
-        <translation>Importar arquivo de legenda</translation>
-    </message>
-    <message>
         <source>Import Subtitles</source>
         <translation>Importar legendas</translation>
     </message>
@@ -27022,14 +27006,6 @@ Se a reprodução travar, tente outra opção.</translation>
     <message>
         <source>All files (*)</source>
         <translation>Todos os arquivos (*)</translation>
-    </message>
-    <message>
-        <source>Add auto caption</source>
-        <translation>Adicionar legenda automática</translation>
-    </message>
-    <message>
-        <source>Creates captions from the speech in the selected clip.</source>
-        <translation>Cria legendas a partir da fala do clipe selecionado.</translation>
     </message>
     <message>
         <source>Select a video or audio clip on the timeline first.</source>
@@ -27068,6 +27044,14 @@ Se a reprodução travar, tente outra opção.</translation>
         <translation>Legendas mais curtas têm o tempo definido dividindo cada frase em partes iguais, então podem ficar levemente fora de sincronia com a fala.</translation>
     </message>
     <message>
+        <source>Captions from the voice</source>
+        <translation>Legendas a partir da voz</translation>
+    </message>
+    <message>
+        <source>Create captions</source>
+        <translation>Criar legendas</translation>
+    </message>
+    <message>
         <source>Create captions from the selected clips&apos; speech — several clips become one caption clip</source>
         <translation>Criar legendas a partir da fala dos clipes selecionados — vários clipes se tornam um clipe de legendas</translation>
     </message>
@@ -27098,6 +27082,30 @@ Se a reprodução travar, tente outra opção.</translation>
     <message>
         <source>Needed for auto captions from speech</source>
         <translation>Necessário para legendas automáticas a partir da fala</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation>Opções</translation>
+    </message>
+    <message>
+        <source>Show fewer</source>
+        <translation>Ver menos</translation>
+    </message>
+    <message>
+        <source>See all styles (%1)</source>
+        <translation>Ver todos os estilos (%1)</translation>
+    </message>
+    <message>
+        <source>Write by hand</source>
+        <translation>Escrever à mão</translation>
+    </message>
+    <message>
+        <source>An empty caption clip at the playhead: write each line in the clip panel</source>
+        <translation>Um clipe de legendas vazio no cursor: escreva cada linha no painel do clipe</translation>
+    </message>
+    <message>
+        <source>Import file</source>
+        <translation>Importar arquivo</translation>
     </message>
     <message>
         <source>Recommended caption length</source>

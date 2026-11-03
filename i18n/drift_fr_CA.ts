@@ -26652,14 +26652,6 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>%1 sous-titres</translation>
     </message>
     <message>
-        <source>Play the timeline — the line on screen lights up. Tap any line to edit it.</source>
-        <translation>Lisez la ligne du temps — la ligne à l&apos;écran s&apos;illumine. Touchez n&apos;importe quelle ligne pour la modifier.</translation>
-    </message>
-    <message>
-        <source>Play the timeline — the line on screen lights up. Click any line to jump to it and edit it below.</source>
-        <translation>Lisez la timeline — la ligne à l&apos;écran s&apos;allume. Cliquez sur n&apos;importe quelle ligne pour y sauter et l&apos;éditer ci-dessous.</translation>
-    </message>
-    <message>
         <source>Import</source>
         <translation>Importer</translation>
     </message>
@@ -26832,6 +26824,10 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Vérifie l’orthographe de tous les sous-titres, un mot à la fois</translation>
     </message>
     <message>
+        <source>File and timing</source>
+        <translation>Fichier et minutage</translation>
+    </message>
+    <message>
         <source>Words to check: %1</source>
         <translation>Mots à vérifier : %1</translation>
     </message>
@@ -26990,18 +26986,6 @@ Si la lecture saccade, essayez une autre option.</translation>
 <context>
     <name>SubtitlesTab</name>
     <message>
-        <source>Subtitle track — one clip holds many timed captions. Place it on the timeline, trim its length, then add caption lines at each moment in the clip panel.</source>
-        <translation>Piste de sous-titres — un clip contient plusieurs légendes synchronisées. Placez-la sur la timeline, ajustez sa longueur, puis ajoutez des lignes de légende à chaque instant dans le panneau du clip.</translation>
-    </message>
-    <message>
-        <source>Add subtitle clip</source>
-        <translation>Ajouter un clip de sous-titres</translation>
-    </message>
-    <message>
-        <source>Import subtitle file</source>
-        <translation>Importer un fichier de sous-titres</translation>
-    </message>
-    <message>
         <source>Import Subtitles</source>
         <translation>Importer des sous-titres</translation>
     </message>
@@ -27024,14 +27008,6 @@ Si la lecture saccade, essayez une autre option.</translation>
     <message>
         <source>All files (*)</source>
         <translation>Tous les fichiers (*)</translation>
-    </message>
-    <message>
-        <source>Add auto caption</source>
-        <translation>Ajouter une légende automatique</translation>
-    </message>
-    <message>
-        <source>Creates captions from the speech in the selected clip.</source>
-        <translation>Crée des légendes à partir du discours dans le clip sélectionné.</translation>
     </message>
     <message>
         <source>Select a video or audio clip on the timeline first.</source>
@@ -27070,6 +27046,14 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Les légendes plus courtes sont synchronisées en divisant chaque phrase de façon égale, ce qui peut les faire décaler légèrement par rapport au discours.</translation>
     </message>
     <message>
+        <source>Captions from the voice</source>
+        <translation>Sous-titres à partir de la voix</translation>
+    </message>
+    <message>
+        <source>Create captions</source>
+        <translation>Créer les sous-titres</translation>
+    </message>
+    <message>
         <source>Create captions from the selected clips&apos; speech — several clips become one caption clip</source>
         <translation>Créer des sous-titres à partir des paroles des clips sélectionnés — plusieurs clips deviennent un seul clip de sous-titres</translation>
     </message>
@@ -27100,6 +27084,30 @@ Si la lecture saccade, essayez une autre option.</translation>
     <message>
         <source>Needed for auto captions from speech</source>
         <translation>Nécessaire pour les légendes automatiques à partir du discours</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation>Options</translation>
+    </message>
+    <message>
+        <source>Show fewer</source>
+        <translation>Voir moins</translation>
+    </message>
+    <message>
+        <source>See all styles (%1)</source>
+        <translation>Voir tous les styles (%1)</translation>
+    </message>
+    <message>
+        <source>Write by hand</source>
+        <translation>Écrire à la main</translation>
+    </message>
+    <message>
+        <source>An empty caption clip at the playhead: write each line in the clip panel</source>
+        <translation>Un clip de sous-titres vide à la tête de lecture : écrivez chaque ligne dans le panneau du clip</translation>
+    </message>
+    <message>
+        <source>Import file</source>
+        <translation>Importer un fichier</translation>
     </message>
     <message>
         <source>Recommended caption length</source>

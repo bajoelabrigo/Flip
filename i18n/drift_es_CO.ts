@@ -26646,14 +26646,6 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>%1 subtítulos</translation>
     </message>
     <message>
-        <source>Play the timeline — the line on screen lights up. Tap any line to edit it.</source>
-        <translation>Reproduce la línea de tiempo: la frase en pantalla se ilumina. Toca cualquier frase para editarla.</translation>
-    </message>
-    <message>
-        <source>Play the timeline — the line on screen lights up. Click any line to jump to it and edit it below.</source>
-        <translation>Reproduce la línea de tiempo: la línea en pantalla se iluminará. Haz clic en cualquier línea para saltar a ella y editarla abajo.</translation>
-    </message>
-    <message>
         <source>Import</source>
         <translation>Importar</translation>
     </message>
@@ -26826,6 +26818,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>File and timing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Words to check: %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26984,18 +26980,6 @@ Si la reproducción se corta, prueba con otra opción.</translation>
 <context>
     <name>SubtitlesTab</name>
     <message>
-        <source>Subtitle track — one clip holds many timed captions. Place it on the timeline, trim its length, then add caption lines at each moment in the clip panel.</source>
-        <translation>Pista de subtítulos: un solo clip contiene múltiples subtítulos sincronizados. Colócalo en la línea de tiempo, recorta su longitud y luego añade líneas de subtítulo para cada momento en el panel del clip.</translation>
-    </message>
-    <message>
-        <source>Add subtitle clip</source>
-        <translation>Añadir clip de subtítulos</translation>
-    </message>
-    <message>
-        <source>Import subtitle file</source>
-        <translation>Importar archivo de subtítulos</translation>
-    </message>
-    <message>
         <source>Import Subtitles</source>
         <translation>Importar subtítulos</translation>
     </message>
@@ -27018,14 +27002,6 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>All files (*)</source>
         <translation>Todos los archivos (*)</translation>
-    </message>
-    <message>
-        <source>Add auto caption</source>
-        <translation>Añadir subtítulos automáticos</translation>
-    </message>
-    <message>
-        <source>Creates captions from the speech in the selected clip.</source>
-        <translation>Crea subtítulos a partir de la voz en el clip seleccionado.</translation>
     </message>
     <message>
         <source>Select a video or audio clip on the timeline first.</source>
@@ -27064,6 +27040,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Los subtítulos más cortos se sincronizan dividiendo cada frase equitativamente, por lo que pueden desincronizarse ligeramente de la voz.</translation>
     </message>
     <message>
+        <source>Captions from the voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Create captions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Create captions from the selected clips&apos; speech — several clips become one caption clip</source>
         <translation>Crea subtítulos a partir de la voz de los clips seleccionados — varios clips se convierten en un clip de subtítulos</translation>
     </message>
@@ -27094,6 +27078,30 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Needed for auto captions from speech</source>
         <translation>Necesario para subtítulos automáticos a partir de voz</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show fewer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>See all styles (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Write by hand</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>An empty caption clip at the playhead: write each line in the clip panel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import file</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Recommended caption length</source>

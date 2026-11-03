@@ -26744,14 +26744,6 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
         <translation>%1 napisów</translation>
     </message>
     <message>
-        <source>Play the timeline — the line on screen lights up. Tap any line to edit it.</source>
-        <translation>Odtwórz oś czasu — wiersz na ekranie się podświetla. Dotknij dowolnego wiersza, aby go edytować.</translation>
-    </message>
-    <message>
-        <source>Play the timeline — the line on screen lights up. Click any line to jump to it and edit it below.</source>
-        <translation>Odtwórz oś czasu — linia na ekranie się podświetli. Kliknij dowolną linię, aby do niej skoczyć i edytować poniżej.</translation>
-    </message>
-    <message>
         <source>Import</source>
         <translation>Importuj</translation>
     </message>
@@ -26924,6 +26916,10 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
         <translation>Sprawdza pisownię wszystkich napisów, słowo po słowie</translation>
     </message>
     <message>
+        <source>File and timing</source>
+        <translation>Plik i czasy</translation>
+    </message>
+    <message>
         <source>Words to check: %1</source>
         <translation>Słowa do sprawdzenia: %1</translation>
     </message>
@@ -27082,18 +27078,6 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
 <context>
     <name>SubtitlesTab</name>
     <message>
-        <source>Subtitle track — one clip holds many timed captions. Place it on the timeline, trim its length, then add caption lines at each moment in the clip panel.</source>
-        <translation>Ścieżka napisów — jeden klip zawiera wiele zsynchronizowanych napisów. Umieść go na osi czasu, przytnij długość, a następnie dodaj linie napisów w każdym momencie w panelu klipu.</translation>
-    </message>
-    <message>
-        <source>Add subtitle clip</source>
-        <translation>Dodaj klip napisów</translation>
-    </message>
-    <message>
-        <source>Import subtitle file</source>
-        <translation>Importuj plik napisów</translation>
-    </message>
-    <message>
         <source>Import Subtitles</source>
         <translation>Importuj napisy</translation>
     </message>
@@ -27116,14 +27100,6 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     <message>
         <source>All files (*)</source>
         <translation>Wszystkie pliki (*)</translation>
-    </message>
-    <message>
-        <source>Add auto caption</source>
-        <translation>Dodaj automatyczne napisy</translation>
-    </message>
-    <message>
-        <source>Creates captions from the speech in the selected clip.</source>
-        <translation>Tworzy napisy z mowy w wybranym klipie.</translation>
     </message>
     <message>
         <source>Select a video or audio clip on the timeline first.</source>
@@ -27162,6 +27138,14 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
         <translation>Krótsze napisy są synchronizowane przez równy podział każdej frazy, więc mogą lekko wyjść z synchronizacji z mową.</translation>
     </message>
     <message>
+        <source>Captions from the voice</source>
+        <translation>Napisy z głosu</translation>
+    </message>
+    <message>
+        <source>Create captions</source>
+        <translation>Utwórz napisy</translation>
+    </message>
+    <message>
         <source>Create captions from the selected clips&apos; speech — several clips become one caption clip</source>
         <translation>Utwórz napisy z mowy wybranych klipów — kilka klipów staje się jednym klipem napisów</translation>
     </message>
@@ -27192,6 +27176,30 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     <message>
         <source>Needed for auto captions from speech</source>
         <translation>Potrzebne do automatycznych napisów z mowy</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation>Opcje</translation>
+    </message>
+    <message>
+        <source>Show fewer</source>
+        <translation>Pokaż mniej</translation>
+    </message>
+    <message>
+        <source>See all styles (%1)</source>
+        <translation>Zobacz wszystkie style (%1)</translation>
+    </message>
+    <message>
+        <source>Write by hand</source>
+        <translation>Napisz ręcznie</translation>
+    </message>
+    <message>
+        <source>An empty caption clip at the playhead: write each line in the clip panel</source>
+        <translation>Pusty klip napisów w miejscu głowicy: wpisz każdą linię w panelu klipu</translation>
+    </message>
+    <message>
+        <source>Import file</source>
+        <translation>Importuj plik</translation>
     </message>
     <message>
         <source>Recommended caption length</source>

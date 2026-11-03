@@ -512,106 +512,6 @@ Item {
             }
         }
 
-        Text {
-            width: parent.width
-            wrapMode: Text.WordWrap
-            text: root.compactEdit
-                  ? qsTr("Play the timeline — the line on screen lights up. Tap any line to edit it.")
-                  : qsTr("Play the timeline — the line on screen lights up. Click any line to jump to it and edit it below.")
-            color: Theme.mutedForeground
-            font.family: Theme.fontFamily
-            font.pixelSize: Theme.fontSizeXs
-            opacity: 0.8
-        }
-
-        // Every caption earlier or later at once: for a file out of sync with the voice.
-        Row {
-            id: shiftRow
-            width: parent.width
-            spacing: 4
-            visible: root.cues.length > 0
-
-            Text {
-                width: shiftRow.width - shiftBack.width * 2 - shiftRow.spacing * 2
-                height: shiftBack.height
-                verticalAlignment: Text.AlignVCenter
-                text: qsTr("Move all captions")
-                color: Theme.mutedForeground
-                font.family: Theme.fontFamily
-                font.pixelSize: Theme.fontSizeXs
-                elide: Text.ElideRight
-            }
-            IconButton {
-                id: shiftBack
-                glyph: Theme.icons.chevronLeft
-                variant: "ghost"
-                tooltip: qsTr("All captions 0.1 s earlier")
-                onClicked: root.shiftAllCues(-0.1)
-            }
-            IconButton {
-                glyph: Theme.icons.chevronRight
-                variant: "ghost"
-                tooltip: qsTr("All captions 0.1 s later")
-                onClicked: root.shiftAllCues(0.1)
-            }
-        }
-
-        Row {
-            width: parent.width
-            spacing: 6
-
-            ThemedButton {
-                width: (parent.width - parent.spacing) / 2
-                text: qsTr("Import")
-                variant: "secondary"
-                glyph: Theme.icons.upload
-                tooltip: qsTr("Replace these captions from an SRT, WebVTT or ASS file")
-                onClicked: {
-                    const url = FileDialogs.openFile(
-                        qsTr("Import Subtitles"),
-                        [qsTr("Subtitle files (*.srt *.vtt *.ass *.ssa)"),
-                         qsTr("SubRip subtitles (*.srt)"),
-                         qsTr("WebVTT subtitles (*.vtt)"),
-                         qsTr("SubStation Alpha subtitles (*.ass *.ssa)"),
-                         qsTr("All files (*)")])
-                    if (url != "")
-                        EditorState.importSubtitleFileIntoClip(
-                            root.trackIndex, root.clipIndex, url)
-                }
-            }
-
-            ThemedButton {
-                width: (parent.width - parent.spacing) / 2
-                text: qsTr("Export")
-                variant: "secondary"
-                glyph: Theme.icons.save
-                tooltip: qsTr("Save captions as SRT, WebVTT (.vtt) or ASS (.ass): the extension picks the format")
-                enabled: root.cues.length > 0
-                onClicked: {
-                    const url = FileDialogs.saveFile(
-                        qsTr("Export Subtitles"),
-                        [qsTr("SubRip subtitles (*.srt)"),
-                         qsTr("WebVTT subtitles (*.vtt)"),
-                         qsTr("Advanced SubStation Alpha subtitles (*.ass)")],
-                        (root.clip && root.clip.name) ? root.clip.name : EditorState.projectFile.projectName,
-                        "srt")
-                    if (url != "")
-                        EditorState.exportSubtitleFile(
-                            root.trackIndex, root.clipIndex, url, timelineTimesBox.checked)
-                }
-            }
-        }
-
-        ThemedCheckBox {
-            id: timelineTimesBox
-            width: parent.width
-            // On by default: the file then matches the exported video even when this clip does not
-            // start at 0:00 (off, it came out of sync).
-            checked: true
-            text: qsTr("Timestamps from the start of the video")
-            tooltip: qsTr("Offset the exported captions by this clip's start so they match the exported video")
-        }
-
         Grid {
             id: toolGrid
             width: parent.width
@@ -665,6 +565,109 @@ Item {
                         root.checkSpelling()
                     }
                 }
+            }
+        }
+
+        // Less used: the file and moving every caption, folded (minimal panel, Jorge 2026-11-01).
+        ThemedButton {
+            width: parent.width
+            text: qsTr("File and timing")
+            variant: "ghost"
+            glyph: root.moreOpen ? Theme.icons.chevronUp : Theme.icons.chevronDown
+            onClicked: root.moreOpen = !root.moreOpen
+        }
+
+        Column {
+            visible: root.moreOpen
+            width: parent.width
+            spacing: 4
+
+            // Every caption earlier or later at once: for a file out of sync with the voice.
+            Row {
+                id: shiftRow
+                width: parent.width
+                spacing: 4
+                visible: root.cues.length > 0
+
+                Text {
+                    width: shiftRow.width - shiftBack.width * 2 - shiftRow.spacing * 2
+                    height: shiftBack.height
+                    verticalAlignment: Text.AlignVCenter
+                    text: qsTr("Move all captions")
+                    color: Theme.mutedForeground
+                    font.family: Theme.fontFamily
+                    font.pixelSize: Theme.fontSizeXs
+                    elide: Text.ElideRight
+                }
+                IconButton {
+                    id: shiftBack
+                    glyph: Theme.icons.chevronLeft
+                    variant: "ghost"
+                    tooltip: qsTr("All captions 0.1 s earlier")
+                    onClicked: root.shiftAllCues(-0.1)
+                }
+                IconButton {
+                    glyph: Theme.icons.chevronRight
+                    variant: "ghost"
+                    tooltip: qsTr("All captions 0.1 s later")
+                    onClicked: root.shiftAllCues(0.1)
+                }
+            }
+
+            Row {
+                width: parent.width
+                spacing: 6
+
+                ThemedButton {
+                    width: (parent.width - parent.spacing) / 2
+                    text: qsTr("Import")
+                    variant: "secondary"
+                    glyph: Theme.icons.upload
+                    tooltip: qsTr("Replace these captions from an SRT, WebVTT or ASS file")
+                    onClicked: {
+                        const url = FileDialogs.openFile(
+                            qsTr("Import Subtitles"),
+                            [qsTr("Subtitle files (*.srt *.vtt *.ass *.ssa)"),
+                             qsTr("SubRip subtitles (*.srt)"),
+                             qsTr("WebVTT subtitles (*.vtt)"),
+                             qsTr("SubStation Alpha subtitles (*.ass *.ssa)"),
+                             qsTr("All files (*)")])
+                        if (url != "")
+                            EditorState.importSubtitleFileIntoClip(
+                                root.trackIndex, root.clipIndex, url)
+                    }
+                }
+
+                ThemedButton {
+                    width: (parent.width - parent.spacing) / 2
+                    text: qsTr("Export")
+                    variant: "secondary"
+                    glyph: Theme.icons.save
+                    tooltip: qsTr("Save captions as SRT, WebVTT (.vtt) or ASS (.ass): the extension picks the format")
+                    enabled: root.cues.length > 0
+                    onClicked: {
+                        const url = FileDialogs.saveFile(
+                            qsTr("Export Subtitles"),
+                            [qsTr("SubRip subtitles (*.srt)"),
+                             qsTr("WebVTT subtitles (*.vtt)"),
+                             qsTr("Advanced SubStation Alpha subtitles (*.ass)")],
+                            (root.clip && root.clip.name) ? root.clip.name : EditorState.projectFile.projectName,
+                            "srt")
+                        if (url != "")
+                            EditorState.exportSubtitleFile(
+                                root.trackIndex, root.clipIndex, url, timelineTimesBox.checked)
+                    }
+                }
+            }
+
+            ThemedCheckBox {
+                id: timelineTimesBox
+                width: parent.width
+                // On by default: the file then matches the exported video even when this clip does not
+                // start at 0:00 (off, it came out of sync).
+                checked: true
+                text: qsTr("Timestamps from the start of the video")
+                tooltip: qsTr("Offset the exported captions by this clip's start so they match the exported video")
             }
         }
 
@@ -902,6 +905,7 @@ Item {
     }
 
     property bool replaceOpen: false
+    property bool moreOpen: false
 
     ThemedDialog {
         id: dictionaryDialog

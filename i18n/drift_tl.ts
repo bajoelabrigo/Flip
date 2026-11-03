@@ -16425,7 +16425,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Options</source>
-        <translation type="unfinished"></translation>
+        <translation>Mga opsyon</translation>
     </message>
     <message>
         <source>Repeat</source>
@@ -26638,14 +26638,6 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Play the timeline — the line on screen lights up. Tap any line to edit it.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Play the timeline — the line on screen lights up. Click any line to jump to it and edit it below.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Import</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26818,6 +26810,10 @@ If playback stutters, try another.</source>
         <translation>Sinusuri ang baybay ng bawat caption, isa-isang salita</translation>
     </message>
     <message>
+        <source>File and timing</source>
+        <translation>File at tiyempo</translation>
+    </message>
+    <message>
         <source>Words to check: %1</source>
         <translation>Mga salitang susuriin: %1</translation>
     </message>
@@ -26976,18 +26972,6 @@ If playback stutters, try another.</source>
 <context>
     <name>SubtitlesTab</name>
     <message>
-        <source>Subtitle track — one clip holds many timed captions. Place it on the timeline, trim its length, then add caption lines at each moment in the clip panel.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Add subtitle clip</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Import subtitle file</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Import Subtitles</source>
         <translation type="unfinished"></translation>
     </message>
@@ -27009,14 +26993,6 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>All files (*)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Add auto caption</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Creates captions from the speech in the selected clip.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -27056,6 +27032,14 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Captions from the voice</source>
+        <translation>Mga caption mula sa boses</translation>
+    </message>
+    <message>
+        <source>Create captions</source>
+        <translation>Gumawa ng mga caption</translation>
+    </message>
+    <message>
         <source>Create captions from the selected clips&apos; speech — several clips become one caption clip</source>
         <translation type="unfinished"></translation>
     </message>
@@ -27086,6 +27070,30 @@ If playback stutters, try another.</source>
     <message>
         <source>Needed for auto captions from speech</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation>Mga opsyon</translation>
+    </message>
+    <message>
+        <source>Show fewer</source>
+        <translation>Ipakita nang kaunti</translation>
+    </message>
+    <message>
+        <source>See all styles (%1)</source>
+        <translation>Tingnan lahat ng istilo (%1)</translation>
+    </message>
+    <message>
+        <source>Write by hand</source>
+        <translation>Isulat nang mano-mano</translation>
+    </message>
+    <message>
+        <source>An empty caption clip at the playhead: write each line in the clip panel</source>
+        <translation>Isang walang laman na caption clip sa playhead: isulat ang bawat linya sa panel ng clip</translation>
+    </message>
+    <message>
+        <source>Import file</source>
+        <translation>Mag-import ng file</translation>
     </message>
     <message>
         <source>Recommended caption length</source>

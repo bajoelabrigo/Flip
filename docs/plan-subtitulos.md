@@ -40,7 +40,7 @@ Cómo seguir: marcar cada punto al terminarlo con el commit; probar en ventana a
 - [x] Vista previa antes de aplicar «Limpiar» y «Emojis».
 - [x] Quitar el aviso de «tiempos repartidos» cuando el extra de sincronía está instalado.
 - [x] Quitar el título repetido «Añadir subtítulos automáticos».
-- [ ] Aspecto moderno y minimalista en todo el panel (ver la regla de arriba).
+- [~] Aspecto moderno y minimalista en todo el panel (ver la regla de arriba).
 
 ## Agregar
 Lo que tienen CapCut, Premiere y Descript:
@@ -118,3 +118,7 @@ tarjeta, Dividir, Unir, Mover todos (izquierda), botón «Crear subtítulos…»
 siguiente): un subtítulo «.» que Whisper escribía en el silencio del final; Dividir perdía el salto de línea; Mover todos
 a la derecha no hacía nada si un subtítulo llegaba al final del clip. `shot.ps1`/`click.ps1` aceptan `-Title` para las
 ventanas de herramientas.
+  - panel minimalista, primera pasada: a la izquierda, idioma y «Crear subtítulos» arriba; largo, dos líneas,
+    muletillas, emojis, groserías, la nube y la traducción bajo «Opciones» (plegado, se recuerda); la galería muestra 6
+    estilos (favoritos y el actual primero) con «Ver todos»; al final «Escribir a mano» e «Importar archivo». En el
+    editor, sin el párrafo de ayuda; importar, exportar y mover todos bajo «Archivo y tiempos». Falta verlo en ventana.
