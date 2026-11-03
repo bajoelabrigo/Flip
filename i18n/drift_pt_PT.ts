@@ -6131,6 +6131,22 @@
         </translation>
     </message>
     <message>
+        <source>Curved path</source>
+        <translation>Trajeto curvo</translation>
+    </message>
+    <message>
+        <source>Straight path</source>
+        <translation>Trajeto reto</translation>
+    </message>
+    <message>
+        <source>Roving needs at least three Position keyframes</source>
+        <translation>O itinerante precisa de pelo menos três keyframes de Posição</translation>
+    </message>
+    <message>
+        <source>Roving keyframes</source>
+        <translation>Keyframes itinerantes</translation>
+    </message>
+    <message>
         <source>Exporting…</source>
         <translation>Exportando…</translation>
     </message>
@@ -16985,12 +17001,40 @@ PRÓXIMA</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Value graph</source>
-        <translation type="unfinished"></translation>
+        <source>Graph type: value. Click: speed graph</source>
+        <translation>Tipo de gráfico: valor. Clique: gráfico de velocidade</translation>
     </message>
     <message>
-        <source>Speed graph</source>
-        <translation type="unfinished"></translation>
+        <source>Graph type: speed. Click: automatic</source>
+        <translation>Tipo de gráfico: velocidade. Clique: automático</translation>
+    </message>
+    <message>
+        <source>Graph type: automatic (speed for a joined Position, value for the rest). Click: value graph</source>
+        <translation>Tipo de gráfico: automático (velocidade para uma Posição unida, valor para o resto). Clique: gráfico de valor</translation>
+    </message>
+    <message>
+        <source>Fit the whole curve in view (Ctrl+wheel zooms the values, Alt+wheel the time)</source>
+        <translation>Ver toda a curva (Ctrl+roda aproxima os valores, Alt+roda o tempo)</translation>
+    </message>
+    <message>
+        <source>Zoom to the picked keyframes</source>
+        <translation>Aproximar das keyframes escolhidas</translation>
+    </message>
+    <message>
+        <source>Show only the curve being edited</source>
+        <translation>Mostrar só a curva em edição</translation>
+    </message>
+    <message>
+        <source>Show the other properties&apos; curves too</source>
+        <translation>Mostrar também as curvas das outras propriedades</translation>
+    </message>
+    <message>
+        <source>Graph under its layer again</source>
+        <translation>Gráfico sob a camada outra vez</translation>
+    </message>
+    <message>
+        <source>Graph over the whole timeline, as After Effects&apos; Graph Editor</source>
+        <translation>Gráfico sobre toda a linha de tempo, como o Editor de gráficos do After Effects</translation>
     </message>
     <message>
         <source>Separate dimensions: key X and Y of Position apart</source>
@@ -17060,6 +17104,10 @@ PRÓXIMA</translation>
         <translation>Mover quadro-chave</translation>
     </message>
     <message>
+        <source>Transform keyframes</source>
+        <translation>Transformar keyframes</translation>
+    </message>
+    <message>
         <source>Edit keyframe curve</source>
         <translation>Editar curva do quadro-chave</translation>
     </message>
@@ -17121,6 +17169,18 @@ PRÓXIMA</translation>
     <message>
         <source>Edit curve…</source>
         <translation>Editar curva…</translation>
+    </message>
+    <message>
+        <source>Curved path (auto Bezier)</source>
+        <translation>Trajeto curvo (Bézier automático)</translation>
+    </message>
+    <message>
+        <source>Straight path</source>
+        <translation>Trajeto reto</translation>
+    </message>
+    <message>
+        <source>Roving (one speed along the path)</source>
+        <translation>Itinerante (uma só velocidade no trajeto)</translation>
     </message>
     <message>
         <source>Reverse keyframes</source>

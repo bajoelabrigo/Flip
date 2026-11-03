@@ -6106,6 +6106,22 @@
         </translation>
     </message>
     <message>
+        <source>Curved path</source>
+        <translation>곡선 경로</translation>
+    </message>
+    <message>
+        <source>Straight path</source>
+        <translation>직선 경로</translation>
+    </message>
+    <message>
+        <source>Roving needs at least three Position keyframes</source>
+        <translation>로빙에는 위치 키프레임이 3개 이상 필요합니다</translation>
+    </message>
+    <message>
+        <source>Roving keyframes</source>
+        <translation>로빙 키프레임</translation>
+    </message>
+    <message>
         <source>Exporting…</source>
         <translation>내보내는 중…</translation>
     </message>
@@ -16923,12 +16939,40 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Value graph</source>
-        <translation type="unfinished"></translation>
+        <source>Graph type: value. Click: speed graph</source>
+        <translation>그래프 종류: 값. 클릭: 속도 그래프</translation>
     </message>
     <message>
-        <source>Speed graph</source>
-        <translation type="unfinished"></translation>
+        <source>Graph type: speed. Click: automatic</source>
+        <translation>그래프 종류: 속도. 클릭: 자동</translation>
+    </message>
+    <message>
+        <source>Graph type: automatic (speed for a joined Position, value for the rest). Click: value graph</source>
+        <translation>그래프 종류: 자동(차원이 합쳐진 위치는 속도, 나머지는 값). 클릭: 값 그래프</translation>
+    </message>
+    <message>
+        <source>Fit the whole curve in view (Ctrl+wheel zooms the values, Alt+wheel the time)</source>
+        <translation>곡선 전체 보기(Ctrl+휠은 값, Alt+휠은 시간 확대)</translation>
+    </message>
+    <message>
+        <source>Zoom to the picked keyframes</source>
+        <translation>선택한 키프레임으로 확대</translation>
+    </message>
+    <message>
+        <source>Show only the curve being edited</source>
+        <translation>편집 중인 곡선만 보기</translation>
+    </message>
+    <message>
+        <source>Show the other properties&apos; curves too</source>
+        <translation>다른 속성의 곡선도 보기</translation>
+    </message>
+    <message>
+        <source>Graph under its layer again</source>
+        <translation>그래프를 다시 레이어 아래로</translation>
+    </message>
+    <message>
+        <source>Graph over the whole timeline, as After Effects&apos; Graph Editor</source>
+        <translation>타임라인 전체에 그래프 표시(After Effects 그래프 편집기처럼)</translation>
     </message>
     <message>
         <source>Separate dimensions: key X and Y of Position apart</source>
@@ -16997,6 +17041,10 @@ NEXT TIME</source>
         <translation>키프레임 이동</translation>
     </message>
     <message>
+        <source>Transform keyframes</source>
+        <translation>키프레임 변형</translation>
+    </message>
+    <message>
         <source>Edit keyframe curve</source>
         <translation>키프레임 곡선 편집</translation>
     </message>
@@ -17058,6 +17106,18 @@ NEXT TIME</source>
     <message>
         <source>Edit curve…</source>
         <translation>커브 편집…</translation>
+    </message>
+    <message>
+        <source>Curved path (auto Bezier)</source>
+        <translation>곡선 경로(자동 베지어)</translation>
+    </message>
+    <message>
+        <source>Straight path</source>
+        <translation>직선 경로</translation>
+    </message>
+    <message>
+        <source>Roving (one speed along the path)</source>
+        <translation>로빙(경로에서 일정한 속도)</translation>
     </message>
     <message>
         <source>Reverse keyframes</source>

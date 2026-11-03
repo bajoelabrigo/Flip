@@ -6106,6 +6106,22 @@
         </translation>
     </message>
     <message>
+        <source>Curved path</source>
+        <translation>カーブしたパス</translation>
+    </message>
+    <message>
+        <source>Straight path</source>
+        <translation>直線のパス</translation>
+    </message>
+    <message>
+        <source>Roving needs at least three Position keyframes</source>
+        <translation>ロービングには位置のキーフレームが 3 つ以上必要です</translation>
+    </message>
+    <message>
+        <source>Roving keyframes</source>
+        <translation>ロービングキーフレーム</translation>
+    </message>
+    <message>
         <source>Exporting…</source>
         <translation>エクスポート中…</translation>
     </message>
@@ -16923,12 +16939,40 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Value graph</source>
-        <translation type="unfinished"></translation>
+        <source>Graph type: value. Click: speed graph</source>
+        <translation>グラフの種類: 値。クリック: 速度グラフ</translation>
     </message>
     <message>
-        <source>Speed graph</source>
-        <translation type="unfinished"></translation>
+        <source>Graph type: speed. Click: automatic</source>
+        <translation>グラフの種類: 速度。クリック: 自動</translation>
+    </message>
+    <message>
+        <source>Graph type: automatic (speed for a joined Position, value for the rest). Click: value graph</source>
+        <translation>グラフの種類: 自動 (次元が結合された位置は速度、それ以外は値)。クリック: 値グラフ</translation>
+    </message>
+    <message>
+        <source>Fit the whole curve in view (Ctrl+wheel zooms the values, Alt+wheel the time)</source>
+        <translation>カーブ全体を表示 (Ctrl+ホイールで値、Alt+ホイールで時間をズーム)</translation>
+    </message>
+    <message>
+        <source>Zoom to the picked keyframes</source>
+        <translation>選択したキーフレームにズーム</translation>
+    </message>
+    <message>
+        <source>Show only the curve being edited</source>
+        <translation>編集中のカーブだけ表示</translation>
+    </message>
+    <message>
+        <source>Show the other properties&apos; curves too</source>
+        <translation>ほかのプロパティのカーブも表示</translation>
+    </message>
+    <message>
+        <source>Graph under its layer again</source>
+        <translation>グラフをレイヤーの下に戻す</translation>
+    </message>
+    <message>
+        <source>Graph over the whole timeline, as After Effects&apos; Graph Editor</source>
+        <translation>タイムライン全体にグラフを表示 (After Effects のグラフエディターと同じ)</translation>
     </message>
     <message>
         <source>Separate dimensions: key X and Y of Position apart</source>
@@ -16997,6 +17041,10 @@ NEXT TIME</source>
         <translation>キーフレームを移動</translation>
     </message>
     <message>
+        <source>Transform keyframes</source>
+        <translation>キーフレームを変形</translation>
+    </message>
+    <message>
         <source>Edit keyframe curve</source>
         <translation>キーフレームカーブを編集</translation>
     </message>
@@ -17058,6 +17106,18 @@ NEXT TIME</source>
     <message>
         <source>Edit curve…</source>
         <translation>カーブを編集…</translation>
+    </message>
+    <message>
+        <source>Curved path (auto Bezier)</source>
+        <translation>カーブしたパス (自動ベジェ)</translation>
+    </message>
+    <message>
+        <source>Straight path</source>
+        <translation>直線のパス</translation>
+    </message>
+    <message>
+        <source>Roving (one speed along the path)</source>
+        <translation>ロービング (パス上で一定の速度)</translation>
     </message>
     <message>
         <source>Reverse keyframes</source>

@@ -6219,6 +6219,22 @@
         </translation>
     </message>
     <message>
+        <source>Curved path</source>
+        <translation>مسار منحنٍ</translation>
+    </message>
+    <message>
+        <source>Straight path</source>
+        <translation>مسار مستقيم</translation>
+    </message>
+    <message>
+        <source>Roving needs at least three Position keyframes</source>
+        <translation>تحتاج الإطارات المتنقلة إلى ثلاثة إطارات مفتاحية للموضع على الأقل</translation>
+    </message>
+    <message>
+        <source>Roving keyframes</source>
+        <translation>إطارات مفتاحية متنقلة</translation>
+    </message>
+    <message>
         <source>Exporting…</source>
         <translation>جارٍ التصدير…</translation>
     </message>
@@ -17233,12 +17249,40 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Value graph</source>
-        <translation type="unfinished"></translation>
+        <source>Graph type: value. Click: speed graph</source>
+        <translation>نوع الرسم: القيمة. انقر: رسم السرعة</translation>
     </message>
     <message>
-        <source>Speed graph</source>
-        <translation type="unfinished"></translation>
+        <source>Graph type: speed. Click: automatic</source>
+        <translation>نوع الرسم: السرعة. انقر: تلقائي</translation>
+    </message>
+    <message>
+        <source>Graph type: automatic (speed for a joined Position, value for the rest). Click: value graph</source>
+        <translation>نوع الرسم: تلقائي (السرعة لموضع موحّد، والقيمة للباقي). انقر: رسم القيمة</translation>
+    </message>
+    <message>
+        <source>Fit the whole curve in view (Ctrl+wheel zooms the values, Alt+wheel the time)</source>
+        <translation>عرض المنحنى كاملًا (Ctrl+العجلة لتكبير القيم، Alt+العجلة للوقت)</translation>
+    </message>
+    <message>
+        <source>Zoom to the picked keyframes</source>
+        <translation>التكبير على الإطارات المختارة</translation>
+    </message>
+    <message>
+        <source>Show only the curve being edited</source>
+        <translation>إظهار المنحنى المحرَّر فقط</translation>
+    </message>
+    <message>
+        <source>Show the other properties&apos; curves too</source>
+        <translation>إظهار منحنيات الخصائص الأخرى أيضًا</translation>
+    </message>
+    <message>
+        <source>Graph under its layer again</source>
+        <translation>الرسم تحت طبقته مجددًا</translation>
+    </message>
+    <message>
+        <source>Graph over the whole timeline, as After Effects&apos; Graph Editor</source>
+        <translation>الرسم فوق الخط الزمني كله، مثل محرر الرسوم في After Effects</translation>
     </message>
     <message>
         <source>Separate dimensions: key X and Y of Position apart</source>
@@ -17312,6 +17356,10 @@ NEXT TIME</source>
         <translation>تحريك الإطار المفتاحي</translation>
     </message>
     <message>
+        <source>Transform keyframes</source>
+        <translation>تحويل الإطارات المفتاحية</translation>
+    </message>
+    <message>
         <source>Edit keyframe curve</source>
         <translation>تعديل منحنى الإطار المفتاحي</translation>
     </message>
@@ -17373,6 +17421,18 @@ NEXT TIME</source>
     <message>
         <source>Edit curve…</source>
         <translation>تحرير المنحنى…</translation>
+    </message>
+    <message>
+        <source>Curved path (auto Bezier)</source>
+        <translation>مسار منحنٍ (بيزيه تلقائي)</translation>
+    </message>
+    <message>
+        <source>Straight path</source>
+        <translation>مسار مستقيم</translation>
+    </message>
+    <message>
+        <source>Roving (one speed along the path)</source>
+        <translation>متنقلة (سرعة واحدة على المسار)</translation>
     </message>
     <message>
         <source>Reverse keyframes</source>

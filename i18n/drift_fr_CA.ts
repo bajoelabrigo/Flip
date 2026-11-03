@@ -6136,6 +6136,22 @@
         </translation>
     </message>
     <message>
+        <source>Curved path</source>
+        <translation>Trajectoire courbe</translation>
+    </message>
+    <message>
+        <source>Straight path</source>
+        <translation>Trajectoire droite</translation>
+    </message>
+    <message>
+        <source>Roving needs at least three Position keyframes</source>
+        <translation>Les images clés itinérantes demandent au moins trois images clés de Position</translation>
+    </message>
+    <message>
+        <source>Roving keyframes</source>
+        <translation>Images clés itinérantes</translation>
+    </message>
+    <message>
         <source>Exporting…</source>
         <translation>Exportation en cours…</translation>
     </message>
@@ -16987,12 +17003,40 @@ PROCHAINE</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Value graph</source>
-        <translation type="unfinished"></translation>
+        <source>Graph type: value. Click: speed graph</source>
+        <translation>Type de graphique : valeur. Clic : graphique de vitesse</translation>
     </message>
     <message>
-        <source>Speed graph</source>
-        <translation type="unfinished"></translation>
+        <source>Graph type: speed. Click: automatic</source>
+        <translation>Type de graphique : vitesse. Clic : automatique</translation>
+    </message>
+    <message>
+        <source>Graph type: automatic (speed for a joined Position, value for the rest). Click: value graph</source>
+        <translation>Type de graphique : automatique (vitesse pour une Position liée, valeur pour le reste). Clic : graphique de valeur</translation>
+    </message>
+    <message>
+        <source>Fit the whole curve in view (Ctrl+wheel zooms the values, Alt+wheel the time)</source>
+        <translation>Voir toute la courbe (Ctrl+molette zoome les valeurs, Alt+molette le temps)</translation>
+    </message>
+    <message>
+        <source>Zoom to the picked keyframes</source>
+        <translation>Zoomer sur les images clés choisies</translation>
+    </message>
+    <message>
+        <source>Show only the curve being edited</source>
+        <translation>Afficher seulement la courbe modifiée</translation>
+    </message>
+    <message>
+        <source>Show the other properties&apos; curves too</source>
+        <translation>Afficher aussi les courbes des autres propriétés</translation>
+    </message>
+    <message>
+        <source>Graph under its layer again</source>
+        <translation>Graphique sous son calque de nouveau</translation>
+    </message>
+    <message>
+        <source>Graph over the whole timeline, as After Effects&apos; Graph Editor</source>
+        <translation>Graphique sur toute la ligne de temps, comme l’Éditeur de graphiques d’After Effects</translation>
     </message>
     <message>
         <source>Separate dimensions: key X and Y of Position apart</source>
@@ -17062,6 +17106,10 @@ PROCHAINE</translation>
         <translation>Déplacer l&apos;image clé</translation>
     </message>
     <message>
+        <source>Transform keyframes</source>
+        <translation>Transformer les images clés</translation>
+    </message>
+    <message>
         <source>Edit keyframe curve</source>
         <translation>Modifier la courbe des images clés</translation>
     </message>
@@ -17123,6 +17171,18 @@ PROCHAINE</translation>
     <message>
         <source>Edit curve…</source>
         <translation>Modifier la courbe…</translation>
+    </message>
+    <message>
+        <source>Curved path (auto Bezier)</source>
+        <translation>Trajectoire courbe (Bézier automatique)</translation>
+    </message>
+    <message>
+        <source>Straight path</source>
+        <translation>Trajectoire droite</translation>
+    </message>
+    <message>
+        <source>Roving (one speed along the path)</source>
+        <translation>Itinérante (une seule vitesse sur la trajectoire)</translation>
     </message>
     <message>
         <source>Reverse keyframes</source>

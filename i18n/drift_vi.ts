@@ -6114,6 +6114,22 @@
         </translation>
     </message>
     <message>
+        <source>Curved path</source>
+        <translation>Đường cong</translation>
+    </message>
+    <message>
+        <source>Straight path</source>
+        <translation>Đường thẳng</translation>
+    </message>
+    <message>
+        <source>Roving needs at least three Position keyframes</source>
+        <translation>Khung hình lưu động cần ít nhất ba khung hình chính Vị trí</translation>
+    </message>
+    <message>
+        <source>Roving keyframes</source>
+        <translation>Khung hình chính lưu động</translation>
+    </message>
+    <message>
         <source>Exporting…</source>
         <translation>Đang xuất…</translation>
     </message>
@@ -16923,12 +16939,40 @@ LẦN SAU</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Value graph</source>
-        <translation type="unfinished"></translation>
+        <source>Graph type: value. Click: speed graph</source>
+        <translation>Loại đồ thị: giá trị. Nhấp: đồ thị tốc độ</translation>
     </message>
     <message>
-        <source>Speed graph</source>
-        <translation type="unfinished"></translation>
+        <source>Graph type: speed. Click: automatic</source>
+        <translation>Loại đồ thị: tốc độ. Nhấp: tự động</translation>
+    </message>
+    <message>
+        <source>Graph type: automatic (speed for a joined Position, value for the rest). Click: value graph</source>
+        <translation>Loại đồ thị: tự động (tốc độ cho Vị trí gộp chiều, giá trị cho phần còn lại). Nhấp: đồ thị giá trị</translation>
+    </message>
+    <message>
+        <source>Fit the whole curve in view (Ctrl+wheel zooms the values, Alt+wheel the time)</source>
+        <translation>Xem toàn bộ đường cong (Ctrl+cuộn phóng giá trị, Alt+cuộn phóng thời gian)</translation>
+    </message>
+    <message>
+        <source>Zoom to the picked keyframes</source>
+        <translation>Phóng tới các khung hình chính đã chọn</translation>
+    </message>
+    <message>
+        <source>Show only the curve being edited</source>
+        <translation>Chỉ hiện đường cong đang sửa</translation>
+    </message>
+    <message>
+        <source>Show the other properties&apos; curves too</source>
+        <translation>Hiện cả đường cong của các thuộc tính khác</translation>
+    </message>
+    <message>
+        <source>Graph under its layer again</source>
+        <translation>Đưa đồ thị về dưới lớp của nó</translation>
+    </message>
+    <message>
+        <source>Graph over the whole timeline, as After Effects&apos; Graph Editor</source>
+        <translation>Đồ thị trên toàn bộ dòng thời gian, như Graph Editor của After Effects</translation>
     </message>
     <message>
         <source>Separate dimensions: key X and Y of Position apart</source>
@@ -16997,6 +17041,10 @@ LẦN SAU</translation>
         <translation>Di chuyển keyframe</translation>
     </message>
     <message>
+        <source>Transform keyframes</source>
+        <translation>Biến đổi khung hình chính</translation>
+    </message>
+    <message>
         <source>Edit keyframe curve</source>
         <translation>Chỉnh sửa đường cong keyframe</translation>
     </message>
@@ -17058,6 +17106,18 @@ LẦN SAU</translation>
     <message>
         <source>Edit curve…</source>
         <translation>Chỉnh sửa đường cong…</translation>
+    </message>
+    <message>
+        <source>Curved path (auto Bezier)</source>
+        <translation>Đường cong (Bezier tự động)</translation>
+    </message>
+    <message>
+        <source>Straight path</source>
+        <translation>Đường thẳng</translation>
+    </message>
+    <message>
+        <source>Roving (one speed along the path)</source>
+        <translation>Lưu động (một tốc độ trên đường đi)</translation>
     </message>
     <message>
         <source>Reverse keyframes</source>

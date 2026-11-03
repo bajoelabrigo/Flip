@@ -6106,6 +6106,22 @@
         </translation>
     </message>
     <message>
+        <source>Curved path</source>
+        <translation>曲线路径</translation>
+    </message>
+    <message>
+        <source>Straight path</source>
+        <translation>直线路径</translation>
+    </message>
+    <message>
+        <source>Roving needs at least three Position keyframes</source>
+        <translation>漫游需要至少三个位置关键帧</translation>
+    </message>
+    <message>
+        <source>Roving keyframes</source>
+        <translation>漫游关键帧</translation>
+    </message>
+    <message>
         <source>Exporting…</source>
         <translation>正在导出…</translation>
     </message>
@@ -16923,12 +16939,40 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Value graph</source>
-        <translation type="unfinished"></translation>
+        <source>Graph type: value. Click: speed graph</source>
+        <translation>图表类型:值。点击:速度图表</translation>
     </message>
     <message>
-        <source>Speed graph</source>
-        <translation type="unfinished"></translation>
+        <source>Graph type: speed. Click: automatic</source>
+        <translation>图表类型:速度。点击:自动</translation>
+    </message>
+    <message>
+        <source>Graph type: automatic (speed for a joined Position, value for the rest). Click: value graph</source>
+        <translation>图表类型:自动(合并维度的位置用速度,其他用值)。点击:值图表</translation>
+    </message>
+    <message>
+        <source>Fit the whole curve in view (Ctrl+wheel zooms the values, Alt+wheel the time)</source>
+        <translation>显示整条曲线(Ctrl+滚轮缩放数值,Alt+滚轮缩放时间)</translation>
+    </message>
+    <message>
+        <source>Zoom to the picked keyframes</source>
+        <translation>缩放到所选关键帧</translation>
+    </message>
+    <message>
+        <source>Show only the curve being edited</source>
+        <translation>只显示正在编辑的曲线</translation>
+    </message>
+    <message>
+        <source>Show the other properties&apos; curves too</source>
+        <translation>也显示其他属性的曲线</translation>
+    </message>
+    <message>
+        <source>Graph under its layer again</source>
+        <translation>图表回到图层下方</translation>
+    </message>
+    <message>
+        <source>Graph over the whole timeline, as After Effects&apos; Graph Editor</source>
+        <translation>图表覆盖整个时间轴,如 After Effects 的图表编辑器</translation>
     </message>
     <message>
         <source>Separate dimensions: key X and Y of Position apart</source>
@@ -16997,6 +17041,10 @@ NEXT TIME</source>
         <translation>移动关键帧</translation>
     </message>
     <message>
+        <source>Transform keyframes</source>
+        <translation>变换关键帧</translation>
+    </message>
+    <message>
         <source>Edit keyframe curve</source>
         <translation>编辑关键帧曲线</translation>
     </message>
@@ -17058,6 +17106,18 @@ NEXT TIME</source>
     <message>
         <source>Edit curve…</source>
         <translation>编辑曲线…</translation>
+    </message>
+    <message>
+        <source>Curved path (auto Bezier)</source>
+        <translation>曲线路径(自动贝塞尔)</translation>
+    </message>
+    <message>
+        <source>Straight path</source>
+        <translation>直线路径</translation>
+    </message>
+    <message>
+        <source>Roving (one speed along the path)</source>
+        <translation>漫游(沿路径速度一致)</translation>
     </message>
     <message>
         <source>Reverse keyframes</source>

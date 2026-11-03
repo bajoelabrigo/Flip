@@ -6156,6 +6156,22 @@
         </translation>
     </message>
     <message>
+        <source>Curved path</source>
+        <translation>Кривая траектория</translation>
+    </message>
+    <message>
+        <source>Straight path</source>
+        <translation>Прямая траектория</translation>
+    </message>
+    <message>
+        <source>Roving needs at least three Position keyframes</source>
+        <translation>Для плавающих ключей нужно минимум три ключа положения</translation>
+    </message>
+    <message>
+        <source>Roving keyframes</source>
+        <translation>Плавающие ключи</translation>
+    </message>
+    <message>
         <source>Exporting…</source>
         <translation>Экспорт…</translation>
     </message>
@@ -17047,12 +17063,40 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Value graph</source>
-        <translation type="unfinished"></translation>
+        <source>Graph type: value. Click: speed graph</source>
+        <translation>Тип графика: значение. Щелчок: график скорости</translation>
     </message>
     <message>
-        <source>Speed graph</source>
-        <translation type="unfinished"></translation>
+        <source>Graph type: speed. Click: automatic</source>
+        <translation>Тип графика: скорость. Щелчок: автоматически</translation>
+    </message>
+    <message>
+        <source>Graph type: automatic (speed for a joined Position, value for the rest). Click: value graph</source>
+        <translation>Тип графика: автоматически (скорость для объединённого положения, значение для остального). Щелчок: график значений</translation>
+    </message>
+    <message>
+        <source>Fit the whole curve in view (Ctrl+wheel zooms the values, Alt+wheel the time)</source>
+        <translation>Показать всю кривую (Ctrl+колесо масштабирует значения, Alt+колесо — время)</translation>
+    </message>
+    <message>
+        <source>Zoom to the picked keyframes</source>
+        <translation>Приблизить выбранные ключи</translation>
+    </message>
+    <message>
+        <source>Show only the curve being edited</source>
+        <translation>Показывать только редактируемую кривую</translation>
+    </message>
+    <message>
+        <source>Show the other properties&apos; curves too</source>
+        <translation>Показывать и кривые других свойств</translation>
+    </message>
+    <message>
+        <source>Graph under its layer again</source>
+        <translation>График снова под своим слоем</translation>
+    </message>
+    <message>
+        <source>Graph over the whole timeline, as After Effects&apos; Graph Editor</source>
+        <translation>График на всю временную шкалу, как редактор графиков After Effects</translation>
     </message>
     <message>
         <source>Separate dimensions: key X and Y of Position apart</source>
@@ -17123,6 +17167,10 @@ NEXT TIME</source>
         <translation>Переместить ключевой кадр</translation>
     </message>
     <message>
+        <source>Transform keyframes</source>
+        <translation>Преобразовать ключи</translation>
+    </message>
+    <message>
         <source>Edit keyframe curve</source>
         <translation>Изменить кривую ключевого кадра</translation>
     </message>
@@ -17184,6 +17232,18 @@ NEXT TIME</source>
     <message>
         <source>Edit curve…</source>
         <translation>Изменить кривую…</translation>
+    </message>
+    <message>
+        <source>Curved path (auto Bezier)</source>
+        <translation>Кривая траектория (автоматический Безье)</translation>
+    </message>
+    <message>
+        <source>Straight path</source>
+        <translation>Прямая траектория</translation>
+    </message>
+    <message>
+        <source>Roving (one speed along the path)</source>
+        <translation>Плавающие (одна скорость по траектории)</translation>
     </message>
     <message>
         <source>Reverse keyframes</source>

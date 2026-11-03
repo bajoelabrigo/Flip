@@ -6139,6 +6139,22 @@
         </translation>
     </message>
     <message>
+        <source>Curved path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Straight path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Roving needs at least three Position keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Roving keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Exporting…</source>
         <translation>Exportando…</translation>
     </message>
@@ -16981,11 +16997,39 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Value graph</source>
+        <source>Graph type: value. Click: speed graph</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Speed graph</source>
+        <source>Graph type: speed. Click: automatic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Graph type: automatic (speed for a joined Position, value for the rest). Click: value graph</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fit the whole curve in view (Ctrl+wheel zooms the values, Alt+wheel the time)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Zoom to the picked keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show only the curve being edited</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show the other properties&apos; curves too</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Graph under its layer again</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Graph over the whole timeline, as After Effects&apos; Graph Editor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -17056,6 +17100,10 @@ NEXT TIME</source>
         <translation>Mover fotograma clave</translation>
     </message>
     <message>
+        <source>Transform keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Edit keyframe curve</source>
         <translation>Editar curva de fotograma clave</translation>
     </message>
@@ -17117,6 +17165,18 @@ NEXT TIME</source>
     <message>
         <source>Edit curve…</source>
         <translation>Editar curva…</translation>
+    </message>
+    <message>
+        <source>Curved path (auto Bezier)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Straight path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Roving (one speed along the path)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Reverse keyframes</source>

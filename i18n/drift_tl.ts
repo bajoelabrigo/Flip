@@ -6135,6 +6135,22 @@
         </translation>
     </message>
     <message>
+        <source>Curved path</source>
+        <translation>Kurbadong landas</translation>
+    </message>
+    <message>
+        <source>Straight path</source>
+        <translation>Tuwid na landas</translation>
+    </message>
+    <message>
+        <source>Roving needs at least three Position keyframes</source>
+        <translation>Kailangan ng hindi bababa sa tatlong keyframe ng Posisyon para sa roving</translation>
+    </message>
+    <message>
+        <source>Roving keyframes</source>
+        <translation>Mga roving keyframe</translation>
+    </message>
+    <message>
         <source>Exporting…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -16981,12 +16997,40 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Value graph</source>
-        <translation type="unfinished"></translation>
+        <source>Graph type: value. Click: speed graph</source>
+        <translation>Uri ng graph: value. I-click: speed graph</translation>
     </message>
     <message>
-        <source>Speed graph</source>
-        <translation type="unfinished"></translation>
+        <source>Graph type: speed. Click: automatic</source>
+        <translation>Uri ng graph: speed. I-click: awtomatiko</translation>
+    </message>
+    <message>
+        <source>Graph type: automatic (speed for a joined Position, value for the rest). Click: value graph</source>
+        <translation>Uri ng graph: awtomatiko (speed para sa pinagsamang Posisyon, value para sa iba). I-click: value graph</translation>
+    </message>
+    <message>
+        <source>Fit the whole curve in view (Ctrl+wheel zooms the values, Alt+wheel the time)</source>
+        <translation>Tingnan ang buong kurba (Ctrl+wheel para i-zoom ang value, Alt+wheel ang oras)</translation>
+    </message>
+    <message>
+        <source>Zoom to the picked keyframes</source>
+        <translation>I-zoom sa mga piniling keyframe</translation>
+    </message>
+    <message>
+        <source>Show only the curve being edited</source>
+        <translation>Ipakita lang ang kurbang ine-edit</translation>
+    </message>
+    <message>
+        <source>Show the other properties&apos; curves too</source>
+        <translation>Ipakita rin ang kurba ng ibang property</translation>
+    </message>
+    <message>
+        <source>Graph under its layer again</source>
+        <translation>Ibalik ang graph sa ilalim ng layer nito</translation>
+    </message>
+    <message>
+        <source>Graph over the whole timeline, as After Effects&apos; Graph Editor</source>
+        <translation>Graph sa buong timeline, tulad ng Graph Editor ng After Effects</translation>
     </message>
     <message>
         <source>Separate dimensions: key X and Y of Position apart</source>
@@ -17056,6 +17100,10 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Transform keyframes</source>
+        <translation>I-transform ang mga keyframe</translation>
+    </message>
+    <message>
         <source>Edit keyframe curve</source>
         <translation type="unfinished"></translation>
     </message>
@@ -17117,6 +17165,18 @@ NEXT TIME</source>
     <message>
         <source>Edit curve…</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Curved path (auto Bezier)</source>
+        <translation>Kurbadong landas (awtomatikong Bezier)</translation>
+    </message>
+    <message>
+        <source>Straight path</source>
+        <translation>Tuwid na landas</translation>
+    </message>
+    <message>
+        <source>Roving (one speed along the path)</source>
+        <translation>Roving (iisang bilis sa landas)</translation>
     </message>
     <message>
         <source>Reverse keyframes</source>

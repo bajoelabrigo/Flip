@@ -6231,6 +6231,22 @@
         </translation>
     </message>
     <message>
+        <source>Curved path</source>
+        <translation>বাঁকা পথ</translation>
+    </message>
+    <message>
+        <source>Straight path</source>
+        <translation>সোজা পথ</translation>
+    </message>
+    <message>
+        <source>Roving needs at least three Position keyframes</source>
+        <translation>ঘোরানো কীফ্রেমের জন্য অন্তত তিনটি পজিশন কীফ্রেম লাগে</translation>
+    </message>
+    <message>
+        <source>Roving keyframes</source>
+        <translation>ঘোরানো কীফ্রেম</translation>
+    </message>
+    <message>
         <source>Exporting…</source>
         <translation type="unfinished">এক্সপোর্ট করা হচ্ছে…</translation>
     </message>
@@ -16981,12 +16997,40 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Value graph</source>
-        <translation type="unfinished"></translation>
+        <source>Graph type: value. Click: speed graph</source>
+        <translation>গ্রাফের ধরন: মান। ক্লিক: গতির গ্রাফ</translation>
     </message>
     <message>
-        <source>Speed graph</source>
-        <translation type="unfinished"></translation>
+        <source>Graph type: speed. Click: automatic</source>
+        <translation>গ্রাফের ধরন: গতি। ক্লিক: স্বয়ংক্রিয়</translation>
+    </message>
+    <message>
+        <source>Graph type: automatic (speed for a joined Position, value for the rest). Click: value graph</source>
+        <translation>গ্রাফের ধরন: স্বয়ংক্রিয় (যুক্ত পজিশনে গতি, বাকিতে মান)। ক্লিক: মানের গ্রাফ</translation>
+    </message>
+    <message>
+        <source>Fit the whole curve in view (Ctrl+wheel zooms the values, Alt+wheel the time)</source>
+        <translation>পুরো বাঁক দেখুন (Ctrl+চাকা মান জুম করে, Alt+চাকা সময়)</translation>
+    </message>
+    <message>
+        <source>Zoom to the picked keyframes</source>
+        <translation>বাছাই করা কীফ্রেমে জুম করুন</translation>
+    </message>
+    <message>
+        <source>Show only the curve being edited</source>
+        <translation>শুধু সম্পাদনার বাঁকটি দেখান</translation>
+    </message>
+    <message>
+        <source>Show the other properties&apos; curves too</source>
+        <translation>অন্য প্রপার্টির বাঁকও দেখান</translation>
+    </message>
+    <message>
+        <source>Graph under its layer again</source>
+        <translation>গ্রাফ আবার লেয়ারের নিচে</translation>
+    </message>
+    <message>
+        <source>Graph over the whole timeline, as After Effects&apos; Graph Editor</source>
+        <translation>পুরো টাইমলাইনের উপর গ্রাফ, After Effects-এর গ্রাফ এডিটরের মতো</translation>
     </message>
     <message>
         <source>Separate dimensions: key X and Y of Position apart</source>
@@ -17056,6 +17100,10 @@ NEXT TIME</source>
         <translation type="unfinished">কীফ্রেম সরান</translation>
     </message>
     <message>
+        <source>Transform keyframes</source>
+        <translation>কীফ্রেম রূপান্তর</translation>
+    </message>
+    <message>
         <source>Edit keyframe curve</source>
         <translation type="unfinished">কীফ্রেম বক্ররেখা সম্পাদনা করুন</translation>
     </message>
@@ -17117,6 +17165,18 @@ NEXT TIME</source>
     <message>
         <source>Edit curve…</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Curved path (auto Bezier)</source>
+        <translation>বাঁকা পথ (স্বয়ংক্রিয় বেজিয়ার)</translation>
+    </message>
+    <message>
+        <source>Straight path</source>
+        <translation>সোজা পথ</translation>
+    </message>
+    <message>
+        <source>Roving (one speed along the path)</source>
+        <translation>ঘোরানো (পথে একই গতি)</translation>
     </message>
     <message>
         <source>Reverse keyframes</source>

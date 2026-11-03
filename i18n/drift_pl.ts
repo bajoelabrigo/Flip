@@ -6156,6 +6156,22 @@
         </translation>
     </message>
     <message>
+        <source>Curved path</source>
+        <translation>Zakrzywiona ścieżka</translation>
+    </message>
+    <message>
+        <source>Straight path</source>
+        <translation>Prosta ścieżka</translation>
+    </message>
+    <message>
+        <source>Roving needs at least three Position keyframes</source>
+        <translation>Wędrujące klatki wymagają co najmniej trzech klatek kluczowych Pozycji</translation>
+    </message>
+    <message>
+        <source>Roving keyframes</source>
+        <translation>Wędrujące klatki kluczowe</translation>
+    </message>
+    <message>
         <source>Exporting…</source>
         <translation>Eksportowanie…</translation>
     </message>
@@ -17047,12 +17063,40 @@ ZOBACZENIA</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Value graph</source>
-        <translation type="unfinished"></translation>
+        <source>Graph type: value. Click: speed graph</source>
+        <translation>Typ wykresu: wartość. Kliknij: wykres prędkości</translation>
     </message>
     <message>
-        <source>Speed graph</source>
-        <translation type="unfinished"></translation>
+        <source>Graph type: speed. Click: automatic</source>
+        <translation>Typ wykresu: prędkość. Kliknij: automatyczny</translation>
+    </message>
+    <message>
+        <source>Graph type: automatic (speed for a joined Position, value for the rest). Click: value graph</source>
+        <translation>Typ wykresu: automatyczny (prędkość dla połączonej Pozycji, wartość dla reszty). Kliknij: wykres wartości</translation>
+    </message>
+    <message>
+        <source>Fit the whole curve in view (Ctrl+wheel zooms the values, Alt+wheel the time)</source>
+        <translation>Pokaż całą krzywą (Ctrl+kółko przybliża wartości, Alt+kółko czas)</translation>
+    </message>
+    <message>
+        <source>Zoom to the picked keyframes</source>
+        <translation>Przybliż do wybranych klatek kluczowych</translation>
+    </message>
+    <message>
+        <source>Show only the curve being edited</source>
+        <translation>Pokaż tylko edytowaną krzywą</translation>
+    </message>
+    <message>
+        <source>Show the other properties&apos; curves too</source>
+        <translation>Pokaż też krzywe innych właściwości</translation>
+    </message>
+    <message>
+        <source>Graph under its layer again</source>
+        <translation>Wykres znów pod swoją warstwą</translation>
+    </message>
+    <message>
+        <source>Graph over the whole timeline, as After Effects&apos; Graph Editor</source>
+        <translation>Wykres na całej osi czasu, jak Edytor wykresów w After Effects</translation>
     </message>
     <message>
         <source>Separate dimensions: key X and Y of Position apart</source>
@@ -17123,6 +17167,10 @@ ZOBACZENIA</translation>
         <translation>Przenieś klatkę kluczową</translation>
     </message>
     <message>
+        <source>Transform keyframes</source>
+        <translation>Przekształć klatki kluczowe</translation>
+    </message>
+    <message>
         <source>Edit keyframe curve</source>
         <translation>Edytuj krzywą klatki kluczowej</translation>
     </message>
@@ -17184,6 +17232,18 @@ ZOBACZENIA</translation>
     <message>
         <source>Edit curve…</source>
         <translation>Edytuj krzywą…</translation>
+    </message>
+    <message>
+        <source>Curved path (auto Bezier)</source>
+        <translation>Zakrzywiona ścieżka (automatyczny Bézier)</translation>
+    </message>
+    <message>
+        <source>Straight path</source>
+        <translation>Prosta ścieżka</translation>
+    </message>
+    <message>
+        <source>Roving (one speed along the path)</source>
+        <translation>Wędrujące (jedna prędkość na ścieżce)</translation>
     </message>
     <message>
         <source>Reverse keyframes</source>
