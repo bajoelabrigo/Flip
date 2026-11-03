@@ -65,6 +65,9 @@ ToolWindow {
         }
     }
     onClosing: {
+        stopTimer.stop()
+        if (EditorState.playing)
+            EditorState.playing = false
         if (root.listening)
             EditorState.cancelTextEditListening()
         root.listening = false
@@ -125,12 +128,6 @@ ToolWindow {
     Timer {
         id: stopTimer
         onTriggered: EditorState.playing = false
-    }
-
-    onClosing: {
-        stopTimer.stop()
-        if (EditorState.playing)
-            EditorState.playing = false
     }
 
     ThemedLabel {
