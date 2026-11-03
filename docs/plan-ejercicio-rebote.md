@@ -156,3 +156,11 @@ Lo grande que ya se sabe que falta (se hace en una tanda, después de esta ronda
   recuadro que escala claves en bloque.
 - **Posición unida (X e Y en una propiedad)** con trayecto curvo por defecto (bezier automático espacial), y separar
   dimensiones como opción.
+
+## Decisión de Jorge (2026-11-03): hacer TODO lo que le falta para que la línea de tiempo funcione como AE
+No solo probarlo: implementar cada punto de la lista de arriba (editor de gráficos completo, Posición unida con trayecto
+curvo, atajos de AE, cuentas en los valores, zona de trabajo, [ ] y Alt+[ ], claves en varias capas, velocidad del
+fotograma clave en números, itinerantes e interpolación espacial, y emparentar/nulo/expresiones en una animación real).
+- **Atajos:** juego de atajos a elegir en Preferencias › Atajos: «Flip» (los de hoy) o «After Effects» (J/K claves,
+  P/S/R/T/A propiedades, U/UU, RePág/AvPág, [ ] y Alt+[ ]). El modo Pro propone el de AE la primera vez. Nadie pierde
+  sus atajos propios.
