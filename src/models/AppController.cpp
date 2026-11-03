@@ -9,6 +9,7 @@
 #include "MarketClient.h"
 #include "FileDialogs.h"
 #include "core/Clip.h"
+#include "core/PositionPath.h"
 #include "core/ClipAnimationPreset.h"
 #include "core/CatalogText.h"
 #include "core/SquashAnimation.h"
@@ -1227,8 +1228,33 @@ void AppController::notifyStabilizeStateChanged(const QString &clipId)
     emit selectedClipDataChanged();
 }
 
+void AppController::syncJoinedPositions(const drift::Project *before)
+{
+    // Ids of the clips whose Position stood still before this edit: one that starts moving now is
+    // joined, as After Effects' Position is one property, unless the user separated it.
+    QSet<QString> stillBefore;
+    if (before) {
+        for (const drift::Track &track : before->tracks()) {
+            for (const drift::Clip &clip : track.clips) {
+                if (!drift::positionAnimated(clip))
+                    stillBefore.insert(clip.id);
+            }
+        }
+    }
+    for (drift::Track &track : m_project.tracks()) {
+        for (drift::Clip &clip : track.clips) {
+            if (!clip.positionJoined && !clip.positionSeparated && before && stillBefore.contains(clip.id)
+                && drift::positionAnimated(clip))
+                drift::joinPosition(clip);
+            else
+                drift::syncJoinedPosition(clip);
+        }
+    }
+}
+
 void AppController::notifyTracksChanged()
 {
+    syncJoinedPositions(nullptr);
     // Trims and the other full-path preview edits land here rather than in emitPreviewEdit.
     if (m_previewDragActive)
         m_previewDragDirty = true;
@@ -7149,6 +7175,7 @@ void AppController::pushProjectEdit(const drift::Project &before, const QString 
     // This is also where a track created by this edit gets its id — nested lanes address their
     // parent by it, and the dozen places that append a track all leave it empty.
     syncTextAutoFit(m_project, before);
+    syncJoinedPositions(&before);
     normalizeProjectStructure(&before);
     syncCompositeAssetDurations();
     // Belt and braces for the tracks cache: normalizeProjectStructure() rewrites the project, and
@@ -13043,13 +13070,19 @@ QVariantMap AppController::keyVelocity(int trackIndex, int clipIndex, const QStr
     if (!isValidClipIndex(trackIndex, clipIndex))
         return out;
     const drift::Clip &clip = m_project.tracks().at(trackIndex).clips.at(clipIndex);
-    const drift::KeyframeTrack<double> *kt = keyframeTrackForProp(clip, prop);
+    // Joined Position: the speed along the path, which X's keys hold (px of path a second).
+    const bool path = clip.positionJoined && (prop == QLatin1String("x") || prop == QLatin1String("y"));
+    const drift::KeyframeTrack<double> *kt = path ? &clip.transformX : keyframeTrackForProp(clip, prop);
     if (!kt)
         return out;
     const drift::TimeUs at = kt->nearestKeyframe(drift::secondsToUs(seconds) - clip.timelineStart, 2000);
     if (at < 0)
         return out;
-    const QMap<drift::TimeUs, drift::Keyframe<double>> &keys = kt->keyframes();
+    QMap<drift::TimeUs, drift::Keyframe<double>> keys = kt->keyframes();
+    if (path) {
+        for (auto k = keys.begin(); k != keys.end(); ++k)
+            k->value = k->pathDistance;
+    }
     auto it = keys.constFind(at);
     const drift::Keyframe<double> &k = it.value();
     out.insert(QStringLiteral("valid"), true);
@@ -13083,7 +13116,9 @@ void AppController::setKeyVelocity(int trackIndex, int clipIndex, const QString 
         return;
     const drift::Project before = m_project;
     drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
-    drift::KeyframeTrack<double> *kt = keyframeTrackForProp(clip, prop, false);
+    // Joined Position's timing is X's keys' (Y gets a copy).
+    const bool path = clip.positionJoined && (prop == QLatin1String("x") || prop == QLatin1String("y"));
+    drift::KeyframeTrack<double> *kt = path ? &clip.transformX : keyframeTrackForProp(clip, prop, false);
     if (!kt)
         return;
     const drift::TimeUs at = kt->nearestKeyframe(drift::secondsToUs(seconds) - clip.timelineStart, 2000);
@@ -16238,6 +16273,8 @@ void AppController::emitPreviewFrame()
 void AppController::emitPreviewEdit(int trackIndex, int clipIndex, const QStringList &keys)
 {
     m_previewDragDirty = true;
+    if (isValidClipIndex(trackIndex, clipIndex) && m_project.tracks().at(trackIndex).clips.at(clipIndex).positionJoined)
+        drift::syncJoinedPosition(m_project.tracks()[trackIndex].clips[clipIndex]);
     // Multicam refreshes its tiles off tracksChanged, and a batch owes one at its end anyway.
     if (m_multicamActive || m_tracksBatchDepth > 0) {
         emitPreviewFrame();
@@ -16703,6 +16740,7 @@ void AppController::commitPreviewDrag()
 
     // Part of the drag's own undo step, like the edit that caused it.
     syncTextAutoFit(m_project, m_previewDragBefore);
+    syncJoinedPositions(&m_previewDragBefore);
     const QString text = m_previewDragText.isEmpty() ? tr("Edit clip") : m_previewDragText;
     if (!m_mcpController->undoSuspended())
         m_undoStack.push(new drift::ProjectSnapshotCommand(&m_project, m_previewDragBefore, m_project, text));
@@ -23295,6 +23333,10 @@ void AppController::removeClipKeyframe(int trackIndex, int clipIndex, const QStr
 {
     if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
         return;
+    if (prop == QLatin1String("position")) {
+        removeClipKeyframe(trackIndex, clipIndex, QStringLiteral("x"), atSeconds);
+        return;
+    }
     // "fx.<i>.<param>" addresses the effect stack, which now lives on the adjustment
     // linked to this clip. Transform props are untouched by this.
     redirectToKeyframeHost(&trackIndex, &clipIndex, prop);
@@ -23314,7 +23356,7 @@ void AppController::removeClipKeyframe(int trackIndex, int clipIndex, const QStr
     if (nearest < 0)
         return;
     kt->removeKeyframe(nearest);
-    if (m_positionLinked && (prop == QLatin1String("x") || prop == QLatin1String("y"))) {
+    if ((m_positionLinked || clip.positionJoined) && (prop == QLatin1String("x") || prop == QLatin1String("y"))) {
         const QString otherProp = (prop == QLatin1String("x")) ? QStringLiteral("y") : QStringLiteral("x");
         drift::KeyframeTrack<double> *otherKt = keyframeTrackForProp(clip, otherProp, false);
         if (otherKt) {
@@ -23332,6 +23374,18 @@ void AppController::previewMoveClipKeyframe(int trackIndex, int clipIndex, const
 {
     if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
         return;
+    if (prop == QLatin1String("position")) {
+        if (!isValidClipIndex(trackIndex, clipIndex))
+            return;
+        const drift::Clip &clip = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+        const drift::TimeUs from = drift::secondsToUs(fromSeconds) - clip.timelineStart;
+        const drift::TimeUs at = clip.transformX.nearestKeyframe(from, kKeyframeToleranceUs);
+        if (at < 0)
+            return;
+        previewMoveClipKeyframe(trackIndex, clipIndex, QStringLiteral("x"), fromSeconds, toSeconds,
+                                clip.transformX.keyframes().value(at).value);
+        return;
+    }
     // "fx.<i>.<param>" addresses the effect stack, which now lives on the adjustment
     // linked to this clip. Transform props are untouched by this.
     redirectToKeyframeHost(&trackIndex, &clipIndex, prop);
@@ -23361,7 +23415,7 @@ void AppController::previewMoveClipKeyframe(int trackIndex, int clipIndex, const
         kt->setKeyframe(toRel, value);
     }
 
-    if (m_positionLinked && (prop == QLatin1String("x") || prop == QLatin1String("y"))) {
+    if ((m_positionLinked || clip.positionJoined) && (prop == QLatin1String("x") || prop == QLatin1String("y"))) {
         const QString otherProp = (prop == QLatin1String("x")) ? QStringLiteral("y") : QStringLiteral("x");
         drift::KeyframeTrack<double> *otherKt = keyframeTrackForProp(clip, otherProp, false);
         if (otherKt && !otherKt->isEmpty()) {
@@ -23391,7 +23445,10 @@ drift::Keyframe<double> *AppController::keyframeAt(int trackIndex, int clipIndex
         return nullptr;
 
     drift::Clip &clip = track.clips[clipIndex];
-    drift::KeyframeTrack<double> *kt = keyframeTrackForProp(clip, prop, /*createIfMissing=*/false);
+    // Joined Position: its timing (handles, hold) is X's keys', and Y gets a copy of them.
+    const bool timing = clip.positionJoined && (prop == QLatin1String("y") || prop == QLatin1String("position"));
+    drift::KeyframeTrack<double> *kt = timing ? &clip.transformX
+                                              : keyframeTrackForProp(clip, prop, /*createIfMissing=*/false);
     if (!kt || kt->isEmpty())
         return nullptr;
 
@@ -23434,6 +23491,8 @@ double AppController::propertyValueAt(int trackIndex, int clipIndex, const QStri
         return fallback;
 
     const drift::Clip &clip = track.clips.at(clipIndex);
+    if (prop == QLatin1String("position"))
+        return drift::pathDistanceAt(clip, drift::secondsToUs(atSeconds) - clip.timelineStart);
     const drift::KeyframeTrack<double> *kt = keyframeTrackForProp(clip, prop);
     if (!kt || kt->isEmpty())
         return propertyBaseValue(trackIndex, clipIndex, prop, fallback);
@@ -23544,11 +23603,29 @@ QVariantList AppController::clipKeyframes(int trackIndex, int clipIndex, const Q
     }
 
     const drift::Clip &clip = track.clips.at(clipIndex);
-    const drift::KeyframeTrack<double> *kt = keyframeTrackForProp(clip, prop);
+    // Joined Position as the speed graph reads it: X's keys (they hold the timing), each at its
+    // distance along the path.
+    const bool path = prop == QLatin1String("position");
+    const drift::KeyframeTrack<double> *kt = path ? (clip.positionJoined ? &clip.transformX : nullptr)
+                                                  : keyframeTrackForProp(clip, prop);
     if (!kt)
         return out;
 
-    return keyframeListToVariant(*kt, clip.timelineStart);
+    out = keyframeListToVariant(*kt, clip.timelineStart);
+    if (clip.positionJoined && (path || prop == QLatin1String("x") || prop == QLatin1String("y"))) {
+        int i = 0;
+        for (auto it = kt->keyframes().constBegin(); it != kt->keyframes().constEnd(); ++it, ++i) {
+            QVariantMap m = out.at(i).toMap();
+            if (path)
+                m.insert(QStringLiteral("value"), it->pathDistance);
+            m.insert(QStringLiteral("spatial"), true);
+            m.insert(QStringLiteral("spIn"), it->spIn);
+            m.insert(QStringLiteral("spOut"), it->spOut);
+            m.insert(QStringLiteral("spatialAuto"), it->spatialAuto);
+            out[i] = m;
+        }
+    }
+    return out;
 }
 
 bool AppController::clipPropertyKeyframesEnabled(int trackIndex, int clipIndex,
@@ -23833,7 +23910,9 @@ void AppController::setKeyframesCurve(int trackIndex, const QVariantList &keys, 
             || c >= m_project.tracks().at(t).clips.size())
             return;
         drift::Clip &clip = m_project.tracks()[t].clips[c];
-        drift::KeyframeTrack<double> *kt = keyframeTrackForProp(clip, p, /*createIfMissing=*/false);
+        // Joined Position: the curve is of the distance along the path, on X's keys (Y follows).
+        const bool path = clip.positionJoined && (p == QLatin1String("x") || p == QLatin1String("y"));
+        drift::KeyframeTrack<double> *kt = path ? &clip.transformX : keyframeTrackForProp(clip, p, /*createIfMissing=*/false);
         if (!kt || kt->keyframes().size() < 2)
             return;
         const drift::TimeUs at =
@@ -23850,7 +23929,7 @@ void AppController::setKeyframesCurve(int trackIndex, const QVariantList &keys, 
         if (!a || !b)
             return;
         const double span = static_cast<double>(to - from);
-        const double dv = b->value - a->value;
+        const double dv = path ? b->pathDistance - a->pathDistance : b->value - a->value;
         a->hold = false;
         a->outDx = straightStart ? 0.0 : x1 * span;
         a->outDy = straightStart ? 0.0 : y1 * dv;
@@ -32648,6 +32727,23 @@ void AppController::setPositionPath(int trackIndex, int clipIndex, const QString
         }
         return false;
     };
+    const bool smooth = kind == QLatin1String("auto");
+    if (clip.positionJoined) {
+        // Joined: the path's own handles, Auto Bezier or none; the timing stays as it was.
+        for (drift::KeyframeTrack<double> *track : {&clip.transformX, &clip.transformY}) {
+            for (const drift::TimeUs t : times) {
+                drift::Keyframe<double> *key = track->keyframeRef(t);
+                if (!key || !isWanted(t))
+                    continue;
+                key->spatialAuto = smooth;
+                if (!smooth)
+                    key->spIn = key->spOut = 0.0;
+            }
+        }
+        pushProjectEdit(before, smooth ? tr("Curved path") : tr("Straight path"));
+        finishEdit(smooth ? tr("Curved path") : tr("Straight path"));
+        return;
+    }
     // Both axes get a key at every Position time, so the path has one set of points.
     for (const drift::TimeUs t : times) {
         if (!clip.transformX.keyframes().contains(t))
@@ -32655,7 +32751,6 @@ void AppController::setPositionPath(int trackIndex, int clipIndex, const QString
         if (!clip.transformY.keyframes().contains(t))
             clip.transformY.setKeyframe(t, clip.transformY.evaluateAt(t));
     }
-    const bool smooth = kind == QLatin1String("auto");
     for (drift::KeyframeTrack<double> *track : {&clip.transformX, &clip.transformY}) {
         for (int i = 0; i < times.size(); ++i) {
             if (!isWanted(times.at(i)))
@@ -32692,6 +32787,50 @@ void AppController::setPositionPath(int trackIndex, int clipIndex, const QString
     }
     pushProjectEdit(before, smooth ? tr("Curved path") : tr("Straight path"));
     finishEdit(smooth ? tr("Curved path") : tr("Straight path"));
+}
+
+bool AppController::positionJoined(int trackIndex, int clipIndex) const
+{
+    return isValidClipIndex(trackIndex, clipIndex) && m_project.tracks().at(trackIndex).clips.at(clipIndex).positionJoined;
+}
+
+void AppController::setPositionJoined(int trackIndex, int clipIndex, bool joined)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex) || positionJoined(trackIndex, clipIndex) == joined)
+        return;
+    const drift::Project before = m_project;
+    drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
+    if (joined)
+        drift::joinPosition(clip);
+    else
+        drift::separatePosition(clip);
+    pushProjectEdit(before, joined ? tr("Join Position") : tr("Separate dimensions"));
+    finishEdit(joined ? tr("Join Position") : tr("Separate dimensions"));
+}
+
+void AppController::previewSetSpatialTangents(int trackIndex, int clipIndex, double atSeconds, double inX, double inY,
+                                              double outX, double outY)
+{
+    if (!positionJoined(trackIndex, clipIndex))
+        return;
+    drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
+    const drift::TimeUs local = drift::secondsToUs(atSeconds) - clip.timelineStart;
+    const drift::TimeUs at = clip.transformX.nearestKeyframe(local, kKeyframeToleranceUs);
+    if (at < 0)
+        return;
+    if (!m_previewDragActive)
+        beginPreviewDrag(tr("Shape motion path"));
+    drift::Keyframe<double> *kx = clip.transformX.keyframeRef(at);
+    drift::Keyframe<double> *ky = clip.transformY.keyframeRef(at);
+    if (!kx || !ky)
+        return;
+    kx->spatialAuto = ky->spatialAuto = false;
+    kx->spIn = inX;
+    ky->spIn = inY;
+    kx->spOut = outX;
+    ky->spOut = outY;
+    drift::syncJoinedPosition(clip);
+    emitPreviewEdit(trackIndex, clipIndex, {QStringLiteral("x"), QStringLiteral("y")});
 }
 
 void AppController::roveKeyframes(int trackIndex, int clipIndex)
@@ -32737,6 +32876,13 @@ void AppController::roveKeyframes(int trackIndex, int clipIndex)
             if (!track->keyframes().contains(times.at(i)))
                 continue;
             drift::Keyframe<double> key = track->keyframes().value(times.at(i));
+            // Joined: the keys in between go at one speed along the path (their timing straight);
+            // the ends keep their ease.
+            if (clip.positionJoined && i > 0 && i + 1 < times.size()) {
+                key.inDx = key.inDy = key.outDx = key.outDy = 0.0;
+                keys.append({moved.at(i), key});
+                continue;
+            }
             // The handles keep their share of the segments they reach into.
             if (i > 0) {
                 const double k = double(moved.at(i) - moved.at(i - 1)) / qMax(1.0, double(times.at(i) - times.at(i - 1)));

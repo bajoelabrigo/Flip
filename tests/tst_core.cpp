@@ -36,6 +36,7 @@
 #include "core/VectorSource.h"
 #include "core/DotLottie.h"
 #include "core/CubeLut.h"
+#include "core/PositionPath.h"
 #include "core/ZipArchive.h"
 #include "core/SecretStore.h"
 #include "TestZip.h"
@@ -237,6 +238,7 @@ private slots:
     void applyMulticamSwitchRejectsEdges();
     void sliceClipToTimelineRangeKeepsSourceInSync();
     void animatedSizeGrowsAroundTheAnchor();
+    void joinedPositionKeepsPathAndTimingApart();
 };
 
 // After Effects' gradient handles (0.29): points → gradient → the same points, for each kind.
@@ -7790,6 +7792,87 @@ void CoreTest::sceneTemplateBrandKitFollowsRolesAndFallsBack()
 }
 
 // Ejercicio del rebote (0.30): squashing a ball with its anchor at the bottom keeps the bottom on the floor.
+// After Effects' Position as one property (0.30): an even speed along each stretch, the path's
+// own handles bend it without changing the timing, an ease slows the ends of the same path, and
+// the distances come back after saving.
+void CoreTest::joinedPositionKeepsPathAndTimingApart()
+{
+    using namespace drift;
+    const auto at = [](const Clip &c, TimeUs t) { return QPointF(c.transformX.evaluateAt(t), c.transformY.evaluateAt(t)); };
+    Clip line;
+    line.transformX.setKeyframe(0, 0.0);
+    line.transformX.setKeyframe(1000000, 100.0);
+    line.transformX.setKeyframe(2000000, 400.0);
+    line.transformY.setKeyframe(0, 0.0);
+    line.transformY.setKeyframe(2000000, 0.0);
+    joinPosition(line);
+    QVERIFY(line.positionJoined);
+    QCOMPARE(line.transformY.keyframes().size(), 3); // both axes on the same times
+    QVERIFY(qAbs(at(line, 500000).x() - 50.0) < 0.5);
+    QVERIFY(qAbs(at(line, 1500000).x() - 250.0) < 0.5);
+    QVERIFY(qAbs(pathDistanceAt(line, 2000000) - 400.0) < 0.5);
+
+    Clip arc;
+    arc.transformX.setKeyframe(0, 0.0);
+    arc.transformX.setKeyframe(1000000, 200.0);
+    arc.transformY.setKeyframe(0, 0.0);
+    arc.transformY.setKeyframe(1000000, 0.0);
+    joinPosition(arc);
+    for (const TimeUs t : {TimeUs(0), TimeUs(1000000)}) {
+        arc.transformX.keyframeRef(t)->spatialAuto = false;
+        arc.transformY.keyframeRef(t)->spatialAuto = false;
+    }
+    arc.transformY.keyframeRef(0)->spOut = -150.0;
+    arc.transformY.keyframeRef(1000000)->spIn = -150.0;
+    syncJoinedPosition(arc);
+    // Halfway in time is halfway along the bent path: its top.
+    QVERIFY(qAbs(at(arc, 500000).x() - 100.0) < 1.0);
+    QVERIFY(qAbs(at(arc, 500000).y() + 112.5) < 1.5);
+    double total = 0.0, firstHalf = 0.0;
+    QPointF last = at(arc, 0);
+    for (int i = 1; i <= 200; ++i) {
+        const QPointF p = at(arc, TimeUs(i) * 5000);
+        const double d = QLineF(last, p).length();
+        total += d;
+        if (i <= 100)
+            firstHalf += d;
+        last = p;
+    }
+    QVERIFY(qAbs(firstHalf / total - 0.5) < 0.01);
+
+    // Easy Ease on the timing: slow at the start, the same path.
+    for (KeyframeTrack<double> *t : {&arc.transformX, &arc.transformY}) {
+        t->keyframeRef(0)->outDx = 333333;
+        t->keyframeRef(1000000)->inDx = -333333;
+    }
+    syncJoinedPosition(arc);
+    QVERIFY(pathDistanceAt(arc, 100000) < 0.1 * total);
+    QVERIFY(qAbs(at(arc, 500000).x() - 100.0) < 1.0);
+
+    // Saved and loaded: the handles stay, the distances are worked out again.
+    Project project;
+    project.tracks().clear();
+    Track track{.type = TrackType::Video};
+    track.id = QStringLiteral("t");
+    Clip saved = arc;
+    saved.id = QStringLiteral("arc");
+    saved.srcIn = 0;
+    saved.srcOut = 2000000;
+    track.clips.append(saved);
+    project.tracks().append(track);
+    const Project reloaded = Project::fromJson(project.toJson());
+    const Clip &back = reloaded.tracks().constFirst().clips.constFirst();
+    QVERIFY(back.positionJoined);
+    QVERIFY(qAbs(at(back, 500000).y() - at(arc, 500000).y()) < 0.5);
+
+    // Separate dimensions: the keys keep their values and become plain X and Y.
+    separatePosition(line);
+    QVERIFY(!line.positionJoined);
+    QVERIFY(line.positionSeparated);
+    QCOMPARE(line.transformX.evaluateAt(1000000), 100.0);
+    QVERIFY(!line.transformX.keyframes().first().spatial);
+}
+
 void CoreTest::animatedSizeGrowsAroundTheAnchor()
 {
     drift::Clip clip;

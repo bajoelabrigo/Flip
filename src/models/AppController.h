@@ -2296,6 +2296,13 @@ public:
     // seconds; empty = all): "auto" gives X and Y smooth tangents through each key (AE's Auto Bezier
     // path, a Catmull-Rom spline), "linear" straight lines between keys. One undo step.
     Q_INVOKABLE void setPositionPath(int trackIndex, int clipIndex, const QString &kind, const QVariantList &seconds);
+    // After Effects' Position as one property (0.30, core/PositionPath) and Separate Dimensions.
+    Q_INVOKABLE bool positionJoined(int trackIndex, int clipIndex) const;
+    Q_INVOKABLE void setPositionJoined(int trackIndex, int clipIndex, bool joined);
+    // A joined Position key's handles on the motion path, px from the key; they stop following
+    // the neighbours (Auto Bezier) once set.
+    Q_INVOKABLE void previewSetSpatialTangents(int trackIndex, int clipIndex, double atSeconds, double inX, double inY,
+                                               double outX, double outY);
     // After Effects' roving keys (0.30): the inner Position keys are moved in time so the layer goes
     // along its path at one speed from the first key to the last. One undo step.
     Q_INVOKABLE void roveKeyframes(int trackIndex, int clipIndex);
@@ -2609,6 +2616,9 @@ protected:
     QVariantMap trimPreviewToMap(int trackIndex, int clipIndex, const TrimComputation &computed) const;
 
     void notifyTracksChanged();
+    // Joins Position on the clips that start moving in this edit (against `before`) and keeps every
+    // joined one's path in step with its keys.
+    void syncJoinedPositions(const drift::Project *before);
 
     // Refills the per-track clip models from the project. Called by notifyTracksChanged() before
     // the signal goes out, so a binding that wakes on tracksChanged already sees the new rows.

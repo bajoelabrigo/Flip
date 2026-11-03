@@ -162,10 +162,15 @@ Item {
             return fx.effect.label + " · " + fx.param.label
         return id
     }
+    // Joined Position's speed curve picks and eases X's keys: they hold its timing, and Y follows.
+    function refProp(prop) {
+        return prop === "position" ? "x" : prop
+    }
     function chipLabel(id) {
         switch (id) {
         case "x": return "X"
         case "y": return "Y"
+        case "position": return qsTr("Pos")
         case "width": return "W"
         case "height": return "H"
         case "rotation": return "°"
@@ -272,7 +277,7 @@ Item {
     function shifted(prop, seconds) {
         return !!tools && (tools.shifting || tools.stretching)
                && tools.isShifted(root.trackIndex,
-                                  { clip: root.clipIndex, prop: prop, seconds: seconds })
+                                  { clip: root.clipIndex, prop: root.refProp(prop), seconds: seconds })
     }
     property var frozenSeries: []
     // After Effects' Graph Editor (0.30). The graph type: "value", "speed" or "auto" (AE's auto-select:
@@ -311,7 +316,7 @@ Item {
         const span = Math.max(1e-6, entry.valueMax - entry.valueMin)
         let lo = Infinity, hi = -Infinity, t0 = Infinity, t1 = -Infinity
         for (const p of entry.points) {
-            if (!root.tools.isPicked(root.trackIndex, { clip: root.clipIndex, prop: entry.prop, seconds: p.seconds }))
+            if (!root.tools.isPicked(root.trackIndex, { clip: root.clipIndex, prop: root.refProp(entry.prop), seconds: p.seconds }))
                 continue
             for (const v of [p.value, p.value + (p.inDy || 0), p.value + (p.outDy || 0)]) {
                 lo = Math.min(lo, (v - entry.valueMin) / span)
@@ -416,7 +421,7 @@ Item {
                 : root.yForValue(h.value, entry)
             if (x < left || x > right || y < top || y > bottom)
                 continue
-            const ref = { clip: root.clipIndex, prop: h.prop, seconds: h.seconds }
+            const ref = { clip: root.clipIndex, prop: root.refProp(h.prop), seconds: h.seconds }
             if (!out.some((k) => root.tools.sameKey(k, ref)))
                 out.push(ref)
         }
@@ -447,9 +452,18 @@ Item {
         const animated = EditorState.clipAnimatedProperties(
                            root.trackIndex, root.clipIndex)
         const hidden = EditorState.keyframeGraphHiddenProperties
+        // After Effects' Position as one property (0.30): in the Speed Graph it is one curve, the
+        // speed along the path (X's and Y's own speeds say nothing there).
+        const joined = root.speedGraph && EditorState.positionJoined(root.trackIndex, root.clipIndex)
+        let pathShown = false
         for (let i = 0; i < animated.length; ++i) {
-            const id = animated[i]
-            if (!supportsProperty(id))
+            let id = animated[i]
+            if (joined && (id === "x" || id === "y")) {
+                if (pathShown)
+                    continue
+                pathShown = true
+                id = "position"
+            } else if (!supportsProperty(id))
                 continue
             const pts = EditorState.clipKeyframes(
                           root.trackIndex, root.clipIndex, id) || []
@@ -561,6 +575,10 @@ Item {
             return out
         const entry = series[focusedIndex]
         const pts = entry.points
+        // Joined Position's X and Y in the Value Graph: their shape is the path's, bent on the
+        // motion path in the preview; the timing is shaped in the Speed Graph (as After Effects).
+        if ((entry.prop === "x" || entry.prop === "y") && pts.length > 0 && pts[0].spatial)
+            return out
         for (let i = 0; i < pts.length; ++i) {
             if (pts[i].hold)
                 continue // a step has no tangents to shape
@@ -659,6 +677,11 @@ Item {
     readonly property int focusedIndex: {
         for (let i = 0; i < series.length; ++i) {
             if (series[i].prop === focusedProp)
+                return i
+        }
+        // X or Y focused while joined Position shows as one curve.
+        for (let i = 0; i < series.length; ++i) {
+            if (series[i].prop === "position" && (focusedProp === "x" || focusedProp === "y"))
                 return i
         }
         return series.length > 0 ? 0 : -1
@@ -1568,7 +1591,7 @@ Item {
                             required property var modelData
                             readonly property var entry: root.series[modelData.seriesIndex]
                             readonly property var ref: ({ clip: root.clipIndex,
-                                                          prop: modelData.prop,
+                                                          prop: root.refProp(modelData.prop),
                                                           seconds: modelData.seconds })
                             readonly property bool isPicked: {
                                 if (!root.tools)
@@ -1723,7 +1746,7 @@ Item {
                                 if (root.tools)
                                     root.tools.pick(root.trackIndex,
                                                     [{ clip: root.clipIndex,
-                                                       prop: keyDot.modelData.prop,
+                                                       prop: root.refProp(keyDot.modelData.prop),
                                                        seconds: keyDot.editSeconds }])
                                 root.dragProp = ""
                                 root.dragIndex = -1
@@ -1850,7 +1873,7 @@ Item {
                             void root.tools.keys
                             const entry = root.series[root.focusedIndex]
                             return entry.points.filter((p) => root.tools.isPicked(
-                                root.trackIndex, { clip: root.clipIndex, prop: entry.prop, seconds: p.seconds }))
+                                root.trackIndex, { clip: root.clipIndex, prop: root.refProp(entry.prop), seconds: p.seconds }))
                         }
                         readonly property var entry: root.focusedIndex >= 0 && root.focusedIndex < root.series.length
                                                      ? root.series[root.focusedIndex] : null
@@ -1910,7 +1933,7 @@ Item {
                                 transformBox.now[i] = to
                             }
                             for (let i = 0; i < b.length; ++i)
-                                refs.push({ clip: root.clipIndex, prop: e.prop, seconds: transformBox.now[i] })
+                                refs.push({ clip: root.clipIndex, prop: root.refProp(e.prop), seconds: transformBox.now[i] })
                             root.tools.pick(root.trackIndex, refs)
                         }
 

@@ -564,6 +564,18 @@ Item {
             onTriggered: EditorState.roveKeyframes(root.track, root.menuClip)
         }
         ThemedMenuItem {
+            // After Effects' Separate Dimensions: X and Y with their own curves, or one Position
+            // whose path and speed are shaped apart.
+            readonly property bool joined: {
+                void EditorState.tracksRevision
+                return EditorState.positionJoined(root.track, root.menuClip)
+            }
+            visible: root.menuProp === "x" || root.menuProp === "y"
+            height: visible ? implicitHeight : 0
+            text: joined ? qsTr("Separate dimensions (X and Y apart)") : qsTr("Join Position (one path)")
+            onTriggered: EditorState.setPositionJoined(root.track, root.menuClip, !joined)
+        }
+        ThemedMenuItem {
             // After Effects' Time-Reverse Keyframes (0.26).
             text: qsTr("Reverse keyframes")
             visible: root.keys.length > 1

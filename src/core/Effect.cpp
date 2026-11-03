@@ -60,6 +60,13 @@ QJsonObject keyframesToJson(const KeyframeTrack<double> &track)
             object.insert(QStringLiteral("corner"), true);
         if (key.hold)
             object.insert(QStringLiteral("hold"), true);
+        // Joined Position's own handles (0.30); the distances are worked out again on loading.
+        if (key.spatial) {
+            object.insert(QStringLiteral("spIn"), key.spIn);
+            object.insert(QStringLiteral("spOut"), key.spOut);
+            if (!key.spatialAuto)
+                object.insert(QStringLiteral("spAuto"), false);
+        }
         keyframes.append(object);
     }
     QJsonObject out{{QStringLiteral("keyframes"), keyframes}};
@@ -152,6 +159,12 @@ KeyframeTrack<double> keyframesFromJson(const QJsonObject &object)
         key.outDy = keyframe.value(QStringLiteral("outDy")).toDouble(0.0);
         key.corner = keyframe.value(QStringLiteral("corner")).toBool(false);
         key.hold = keyframe.value(QStringLiteral("hold")).toBool(false);
+        if (keyframe.contains(QStringLiteral("spOut")) || keyframe.contains(QStringLiteral("spIn"))) {
+            key.spatial = true;
+            key.spIn = keyframe.value(QStringLiteral("spIn")).toDouble(0.0);
+            key.spOut = keyframe.value(QStringLiteral("spOut")).toDouble(0.0);
+            key.spatialAuto = keyframe.value(QStringLiteral("spAuto")).toBool(true);
+        }
         track.setKeyframe(static_cast<TimeUs>(keyframe.value(QStringLiteral("timeUs")).toDouble()),
                           key);
     }

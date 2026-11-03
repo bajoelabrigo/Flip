@@ -348,6 +348,12 @@ struct Clip
     // After Effects' Auto-Orient along path (0.26): the clip turns to face the way Position moves,
     // added to its own Rotation.
     bool autoOrient = false;
+    // After Effects' Position as one property (0.30, core/PositionPath): the path has its own
+    // handles and the timing is the distance along it. Switched on when Position starts moving,
+    // unless the user chose Separate Dimensions (positionSeparated); projects from before load
+    // separate, as they were made.
+    bool positionJoined = false;
+    bool positionSeparated = false;
 
     // The turn Auto-Orient adds at clip time `relative`, in degrees (0 when off or still).
     double autoOrientDegrees(TimeUs relative) const

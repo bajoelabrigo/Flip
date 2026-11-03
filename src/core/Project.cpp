@@ -1,6 +1,7 @@
 #include "Project.h"
 
 #include "Clip.h"
+#include "PositionPath.h"
 #include "SubtitleCue.h"
 #include "TextAnimationPreset.h"
 #include "TimelineOps.h"
@@ -355,6 +356,10 @@ QJsonObject clipToJson(const Clip &clip)
         json.insert(QStringLiteral("timeRemap"), keyframesToJson(clip.timeRemap));
     if (clip.autoOrient)
         json.insert(QStringLiteral("autoOrient"), true);
+    if (clip.positionJoined)
+        json.insert(QStringLiteral("positionJoined"), true);
+    if (clip.positionSeparated)
+        json.insert(QStringLiteral("positionSeparated"), true);
     if (clip.nullObject)
         json.insert(QStringLiteral("nullObject"), true);
     if (clip.light.kind != 0) {
@@ -509,6 +514,8 @@ Clip clipFromJsonV2(const QJsonObject &object, int canvasW = 1920, int canvasH =
     if (object.contains(QStringLiteral("timeRemap")))
         clip.timeRemap = keyframesFromJson(object.value(QStringLiteral("timeRemap")).toObject());
     clip.autoOrient = object.value(QStringLiteral("autoOrient")).toBool(false);
+    clip.positionJoined = object.value(QStringLiteral("positionJoined")).toBool(false);
+    clip.positionSeparated = object.value(QStringLiteral("positionSeparated")).toBool(false);
     clip.nullObject = object.value(QStringLiteral("nullObject")).toBool(false);
     if (object.contains(QStringLiteral("light"))) {
         const QJsonObject l = object.value(QStringLiteral("light")).toObject();
@@ -681,6 +688,8 @@ Clip clipFromJsonV2(const QJsonObject &object, int canvasW = 1920, int canvasH =
     }
     if (object.contains(QStringLiteral("motionTrack")))
         clip.motionTrack = motionTrackFromJson(object.value(QStringLiteral("motionTrack")).toObject());
+    // Joined Position's distances along the path are not saved: they follow from the keys.
+    syncJoinedPosition(clip);
     return clip;
 }
 

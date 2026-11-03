@@ -461,6 +461,8 @@ add_library(driftcore STATIC
     src/core/CubeLut.cpp
     src/core/Stabilize.h
     src/core/Stabilize.cpp
+    src/core/PositionPath.h
+    src/core/PositionPath.cpp
     src/core/Bezier.h
     src/core/SpeedCurve.h
     src/core/SpeedCurve.cpp

@@ -7,6 +7,7 @@
 #include <QString>
 #include <QtMath>
 
+#include <array>
 #include <cmath>
 #include <type_traits>
 
@@ -56,13 +57,28 @@ struct Keyframe
     bool corner = false; // when false the editor holds the two tangents collinear
     bool hold = false;   // step: keep this value until the next key
 
+    // After Effects' joined Position (0.30, core/PositionPath): the key belongs to an X or Y track
+    // of a clip whose Position is one property. The path is then a curve in space, with its own
+    // handles (spIn / spOut: this axis' part, px from the key), and the timing is the distance
+    // travelled along it: the tangents above are in px of path (dy) over µs (dx), so the speed
+    // graph, Easy Ease and the velocity dialog work on it as on any value. `pathDistance` (where
+    // the key is along the path) and `pathArc` (the curve's parameter at each eighth of the
+    // outgoing segment's length, for an even speed) are derived by syncJoinedPosition and not saved.
+    bool spatial = false;
+    bool spatialAuto = true; // the handles follow the neighbours (Auto Bezier) until one is dragged
+    double spIn = 0.0;
+    double spOut = 0.0;
+    double pathDistance = 0.0;
+    std::array<float, 9> pathArc{};
+
     bool operator==(const Keyframe &other) const
     {
         return value == other.value && qFuzzyCompare(inDx + 1.0, other.inDx + 1.0)
             && qFuzzyCompare(inDy + 1.0, other.inDy + 1.0)
             && qFuzzyCompare(outDx + 1.0, other.outDx + 1.0)
             && qFuzzyCompare(outDy + 1.0, other.outDy + 1.0) && corner == other.corner
-            && hold == other.hold;
+            && hold == other.hold && spatial == other.spatial && spatialAuto == other.spatialAuto
+            && qFuzzyCompare(spIn + 1.0, other.spIn + 1.0) && qFuzzyCompare(spOut + 1.0, other.spOut + 1.0);
     }
 };
 
@@ -380,6 +396,11 @@ public:
         const double v0 = static_cast<double>(prev->value);
         const double v1 = static_cast<double>(it->value);
 
+        if constexpr (std::is_same_v<T, double>) {
+            if (prev->spatial && it->spatial)
+                return evaluateAlongPath(*prev, *it, t0, t1, static_cast<double>(time));
+        }
+
         // Straight segment: skip the solve entirely. This is the common case.
         if (qFuzzyIsNull(prev->outDx) && qFuzzyIsNull(prev->outDy) && qFuzzyIsNull(it->inDx)
             && qFuzzyIsNull(it->inDy)) {
@@ -397,6 +418,34 @@ public:
 
     // Break Qt implicit sharing so a cross-thread reader cannot race a detach on the live copy.
     void detachSharedData() { m_values.detach(); }
+
+    // Joined Position: how far along the path the segment from `a` (at t0) to `b` (at t1) has gone at
+    // `time`, then this axis at that point of the spatial curve.
+    static double evaluateAlongPath(const Keyframe<double> &a, const Keyframe<double> &b, double t0, double t1,
+                                    double time)
+    {
+        const double d0 = a.pathDistance;
+        const double d1 = b.pathDistance;
+        const double u = (time - t0) / (t1 - t0);
+        double d = d0 + (d1 - d0) * u;
+        if (!qFuzzyIsNull(a.outDx) || !qFuzzyIsNull(a.outDy) || !qFuzzyIsNull(b.inDx) || !qFuzzyIsNull(b.inDy)) {
+            const double x1 = qBound(t0, t0 + a.outDx, t1);
+            const double x2 = qBound(t0, t1 + b.inDx, t1);
+            const double s = bezierParameterForX(t0, x1, x2, t1, time);
+            d = cubicBezier(d0, d0 + a.outDy, d1 + b.inDy, d1, s);
+        }
+        const double length = d1 - d0;
+        // Standing still (two keys in one place): the time alone moves along whatever loop the
+        // handles make.
+        const double f = qBound(0.0, length > 1e-9 ? (d - d0) / length : u, 1.0);
+        double s = f;
+        if (a.pathArc[8] > 0.0f) {
+            const double at = f * 8.0;
+            const int i = qMin(7, int(at));
+            s = a.pathArc[i] + (a.pathArc[i + 1] - a.pathArc[i]) * (at - i);
+        }
+        return cubicBezier(a.value, a.value + a.spOut, b.value + b.spIn, b.value, s);
+    }
 
 private:
     // Elastic / Bounce: the swing after the key the curve last came to rest on.
