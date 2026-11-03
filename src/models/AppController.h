@@ -1249,6 +1249,10 @@ public:
     // second caption clip above the original: bilingual videos. The languages: [{code, label}].
     Q_INVOKABLE QVariantList subtitleTranslationLanguages() const;
     Q_INVOKABLE void translateSubtitles(int trackIndex, int clipIndex, const QString &language);
+    // The captions translated on this computer (0.30): no account, no internet, or DeepL's month spent.
+    void translateSubtitlesOffline(const QString &sourceId, const QStringList &texts, const QString &source,
+                                   const QString &target, const QString &label);
+    void insertTranslatedCaptions(const QString &sourceId, const QString &label, const QStringList &translations);
     Q_PROPERTY(bool subtitleTranslating READ subtitleTranslating NOTIFY subtitleTranslatingChanged)
     bool subtitleTranslating() const { return m_subtitleTranslating; }
     Q_INVOKABLE bool subtitleTwoLines() const;

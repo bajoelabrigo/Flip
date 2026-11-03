@@ -771,6 +771,8 @@ add_library(driftengine STATIC
     src/engine/FrameInterpolator.cpp
     src/engine/TextEmbedder.h
     src/engine/TextEmbedder.cpp
+    src/engine/TextTranslator.h
+    src/engine/TextTranslator.cpp
     src/engine/DepthSidecar.h
     src/engine/DepthSidecar.cpp
     src/engine/FaceLandmarker.h
