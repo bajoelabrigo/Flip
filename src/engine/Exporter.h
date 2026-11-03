@@ -9,6 +9,7 @@
 
 #include <functional>
 
+#include "core/SubtitleCue.h"
 #include "core/Time.h"
 
 namespace drift {
@@ -50,6 +51,9 @@ struct ExportSettings
     QString metadataArtist;
     QString metadataAlbum;
     QString metadataComment;
+    // Captions carried inside the file as tracks a player can turn on or off (mov_text in MP4/MOV,
+    // WebVTT in WebM, SubRip in Matroska), one per entry, timed in the exported file's own time.
+    QList<QList<drift::SubtitleCue>> subtitleTracks;
     // Optional export slice on the timeline. Both zero = encode the full project.
     drift::TimeUs startUs = 0;
     drift::TimeUs endUs = 0;

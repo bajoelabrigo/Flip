@@ -15238,12 +15238,12 @@ NEXT TIME</source>
         <translation>සම්පූර්ණ කාලරේඛාව වෙනුවට සලකුණු කළ In/Out පරාසය පමණක් Encode කරන්න</translation>
     </message>
     <message>
-        <source>Also save the captions (.srt)</source>
-        <translation>උපසිරැසිද සුරකින්න (.srt)</translation>
+        <source>Include the captions (inside the video and as .srt)</source>
+        <translation>උපසිරැසි ඇතුළත් කරන්න (වීඩියෝව තුළ සහ .srt ලෙස)</translation>
     </message>
     <message>
-        <source>A subtitle file next to the video, with the same name: players and YouTube can turn the captions on and off</source>
-        <translation>වීඩියෝව අසල එකම නමින් උපසිරැසි ගොනුවක්: ධාවක සහ YouTube හට ඒවා සක්‍රිය/අක්‍රිය කළ හැක</translation>
+        <source>The captions as a track inside the video and as a file next to it, with the same name: players and YouTube can turn them on and off</source>
+        <translation>උපසිරැසි වීඩියෝව තුළ පථයක් ලෙස සහ එකම නමින් අසල ගොනුවක් ලෙස: වාදක සහ YouTube හට ඒවා සක්‍රිය හා අක්‍රිය කළ හැක</translation>
     </message>
     <message>
         <source>Saves what you see in the preview. Pick a size — the picture shape stays the same.</source>

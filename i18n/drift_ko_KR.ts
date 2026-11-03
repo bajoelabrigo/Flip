@@ -15182,12 +15182,12 @@ NEXT TIME</source>
         <translation>전체 타임라인 대신 표시된 시작/끝 범위만 인코딩</translation>
     </message>
     <message>
-        <source>Also save the captions (.srt)</source>
-        <translation>자막도 저장(.srt)</translation>
+        <source>Include the captions (inside the video and as .srt)</source>
+        <translation>자막 포함 (영상 안과 .srt로)</translation>
     </message>
     <message>
-        <source>A subtitle file next to the video, with the same name: players and YouTube can turn the captions on and off</source>
-        <translation>영상 옆에 같은 이름의 자막 파일: 플레이어와 YouTube에서 자막을 켜고 끌 수 있습니다</translation>
+        <source>The captions as a track inside the video and as a file next to it, with the same name: players and YouTube can turn them on and off</source>
+        <translation>자막을 영상 안의 트랙과 같은 이름의 옆 파일로 저장합니다. 플레이어와 YouTube에서 켜고 끌 수 있습니다</translation>
     </message>
     <message>
         <source>Saves what you see in the preview. Pick a size — the picture shape stays the same.</source>

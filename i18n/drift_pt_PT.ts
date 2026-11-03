@@ -15242,12 +15242,12 @@ PRÓXIMA</translation>
         <translation>Codifica apenas o intervalo de entrada/saída marcado em vez da linha do tempo inteira</translation>
     </message>
     <message>
-        <source>Also save the captions (.srt)</source>
-        <translation>Guardar também as legendas (.srt)</translation>
+        <source>Include the captions (inside the video and as .srt)</source>
+        <translation>Incluir as legendas (no vídeo e em .srt)</translation>
     </message>
     <message>
-        <source>A subtitle file next to the video, with the same name: players and YouTube can turn the captions on and off</source>
-        <translation>Um ficheiro de legendas ao lado do vídeo, com o mesmo nome: os leitores e o YouTube podem ativá-las e desativá-las</translation>
+        <source>The captions as a track inside the video and as a file next to it, with the same name: players and YouTube can turn them on and off</source>
+        <translation>As legendas como faixa dentro do vídeo e como ficheiro ao lado, com o mesmo nome: os leitores e o YouTube podem ativá-las e desativá-las</translation>
     </message>
     <message>
         <source>Saves what you see in the preview. Pick a size — the picture shape stays the same.</source>

@@ -24,7 +24,7 @@ ThemedDialog {
     property bool advancedOpen: false
     property bool exportWorkAreaOnly: false
 
-    // «Also save the captions (.srt)», remembered; offered only when the timeline has captions.
+    // «Include the captions» (inside and as .srt), remembered; offered only when the timeline has captions.
     Settings {
         id: exportPrefs
         category: "export"
@@ -543,9 +543,9 @@ ThemedDialog {
             ThemedCheckBox {
                 width: parent.width
                 visible: root.exportMode === "video" && root.visible && EditorState.projectHasSubtitles()
-                text: qsTr("Also save the captions (.srt)")
+                text: qsTr("Include the captions (inside the video and as .srt)")
                 checked: exportPrefs.subtitleSidecar
-                tooltip: qsTr("A subtitle file next to the video, with the same name: players and YouTube can turn the captions on and off")
+                tooltip: qsTr("The captions as a track inside the video and as a file next to it, with the same name: players and YouTube can turn them on and off")
                 onToggled: exportPrefs.subtitleSidecar = checked
             }
 

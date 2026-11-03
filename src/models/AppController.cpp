@@ -33007,7 +33007,7 @@ void AppController::exportWithPreset(const QUrl &outputUrl, const QString &prese
 void AppController::exportWithSettings(const QUrl &outputUrl, const QVariantMap &settings,
                                        bool rememberChoice)
 {
-    const ExportSettings exportSettings = Exporter::settingsFromMap(settings);
+    ExportSettings exportSettings = Exporter::settingsFromMap(settings);
 
     // The muxer is chosen from the output file's extension, and a created document's URI has
     // none — so the staging file the encoder writes is given the one the settings imply.
@@ -33063,6 +33063,8 @@ void AppController::exportWithSettings(const QUrl &outputUrl, const QVariantMap 
         && !exportSettings.gifExport)
         sidecars = subtitleSidecarCues(snapshot, settings.value(QStringLiteral("startUs"), 0).toLongLong(),
                                        settings.value(QStringLiteral("endUs"), 0).toLongLong());
+    // The same captions inside the video too, as tracks a player can turn on or off.
+    exportSettings.subtitleTracks = sidecars;
 
     (void)QtConcurrent::run([this, snapshot, exportSettings, outputPath, outputUrl, disposable, sidecars]() {
         // Spans the encode *and* the copy into the user's document. Exporter::run takes its own

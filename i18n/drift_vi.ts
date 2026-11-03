@@ -15182,12 +15182,12 @@ LẦN SAU</translation>
         <translation>Chỉ mã hóa phạm vi Vào/Ra được đánh dấu thay vì toàn bộ dòng thời gian</translation>
     </message>
     <message>
-        <source>Also save the captions (.srt)</source>
-        <translation>Lưu cả phụ đề (.srt)</translation>
+        <source>Include the captions (inside the video and as .srt)</source>
+        <translation>Kèm phụ đề (trong video và dạng .srt)</translation>
     </message>
     <message>
-        <source>A subtitle file next to the video, with the same name: players and YouTube can turn the captions on and off</source>
-        <translation>Một tệp phụ đề cạnh video, cùng tên: trình phát và YouTube có thể bật tắt phụ đề</translation>
+        <source>The captions as a track inside the video and as a file next to it, with the same name: players and YouTube can turn them on and off</source>
+        <translation>Phụ đề dưới dạng một kênh trong video và một tệp cùng tên bên cạnh: trình phát và YouTube có thể bật tắt chúng</translation>
     </message>
     <message>
         <source>Saves what you see in the preview. Pick a size — the picture shape stays the same.</source>

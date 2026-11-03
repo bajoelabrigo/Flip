@@ -105,3 +105,6 @@ Para redes (estilo CapCut):
     (`engine/SpellCheck`, `ISpellChecker`) muestra una palabra a la vez con sus sugerencias, «Ignorar» y «Quitar la
     palabra repetida» (conserva el tiempo de la palabra). Solo sale si Windows tiene el diccionario del idioma (el de
     los últimos subtítulos creados, o el de la app). En macOS y Linux todavía no hay. Probado compilando aparte.
+  - subtítulos dentro del video: la misma casilla de Exportar («Incluir los subtítulos (dentro del video y en .srt)»)
+    los mete como pista que el reproductor activa o desactiva (`mov_text` en MP4/MOV, WebVTT en WebM, SubRip en MKV;
+    `Exporter.cpp` `openSubtitleTrack`). Falta comprobarlo con ffprobe en el portable.

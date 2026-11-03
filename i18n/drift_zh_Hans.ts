@@ -15182,12 +15182,12 @@ NEXT TIME</source>
         <translation>只编码标记的入点/出点范围，而不是整个时间线</translation>
     </message>
     <message>
-        <source>Also save the captions (.srt)</source>
-        <translation>同时保存字幕（.srt）</translation>
+        <source>Include the captions (inside the video and as .srt)</source>
+        <translation>包含字幕（视频内和 .srt 文件）</translation>
     </message>
     <message>
-        <source>A subtitle file next to the video, with the same name: players and YouTube can turn the captions on and off</source>
-        <translation>在视频旁保存同名字幕文件：播放器和 YouTube 可以开关字幕</translation>
+        <source>The captions as a track inside the video and as a file next to it, with the same name: players and YouTube can turn them on and off</source>
+        <translation>字幕作为视频内的轨道，并以同名文件保存在旁边：播放器和 YouTube 可以打开或关闭字幕</translation>
     </message>
     <message>
         <source>Saves what you see in the preview. Pick a size — the picture shape stays the same.</source>

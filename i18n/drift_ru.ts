@@ -15302,12 +15302,12 @@ NEXT TIME</source>
         <translation>Кодировать только отмеченный диапазон начала и конца вместо всего таймлайна</translation>
     </message>
     <message>
-        <source>Also save the captions (.srt)</source>
-        <translation>Сохранить и субтитры (.srt)</translation>
+        <source>Include the captions (inside the video and as .srt)</source>
+        <translation>Добавить субтитры (в видео и файлом .srt)</translation>
     </message>
     <message>
-        <source>A subtitle file next to the video, with the same name: players and YouTube can turn the captions on and off</source>
-        <translation>Файл субтитров рядом с видео, с тем же именем: плееры и YouTube смогут включать и выключать их</translation>
+        <source>The captions as a track inside the video and as a file next to it, with the same name: players and YouTube can turn them on and off</source>
+        <translation>Субтитры дорожкой внутри видео и файлом рядом с тем же именем: плееры и YouTube могут их включать и выключать</translation>
     </message>
     <message>
         <source>Saves what you see in the preview. Pick a size — the picture shape stays the same.</source>

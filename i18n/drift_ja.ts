@@ -15182,12 +15182,12 @@ NEXT TIME</source>
         <translation>タイムライン全体ではなく、マークされたイン/アウト範囲のみをエンコード</translation>
     </message>
     <message>
-        <source>Also save the captions (.srt)</source>
-        <translation>字幕も保存（.srt）</translation>
+        <source>Include the captions (inside the video and as .srt)</source>
+        <translation>字幕を含める（動画内と .srt）</translation>
     </message>
     <message>
-        <source>A subtitle file next to the video, with the same name: players and YouTube can turn the captions on and off</source>
-        <translation>動画と同じ名前の字幕ファイルを横に保存：プレーヤーや YouTube で字幕のオン・オフができます</translation>
+        <source>The captions as a track inside the video and as a file next to it, with the same name: players and YouTube can turn them on and off</source>
+        <translation>字幕を動画内のトラックとして、また同じ名前のファイルとして横に保存します。プレーヤーや YouTube でオン・オフできます</translation>
     </message>
     <message>
         <source>Saves what you see in the preview. Pick a size — the picture shape stays the same.</source>

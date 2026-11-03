@@ -15243,12 +15243,12 @@ PROCHAINE</translation>
         <translation>Encoder uniquement la plage In/Out marquée au lieu de toute la timeline</translation>
     </message>
     <message>
-        <source>Also save the captions (.srt)</source>
-        <translation>Enregistrer aussi les sous-titres (.srt)</translation>
+        <source>Include the captions (inside the video and as .srt)</source>
+        <translation>Inclure les sous-titres (dans la vidéo et en .srt)</translation>
     </message>
     <message>
-        <source>A subtitle file next to the video, with the same name: players and YouTube can turn the captions on and off</source>
-        <translation>Un fichier de sous-titres à côté de la vidéo, du même nom : les lecteurs et YouTube peuvent les activer ou les désactiver</translation>
+        <source>The captions as a track inside the video and as a file next to it, with the same name: players and YouTube can turn them on and off</source>
+        <translation>Les sous-titres comme piste dans la vidéo et comme fichier à côté, du même nom : les lecteurs et YouTube peuvent les activer et les désactiver</translation>
     </message>
     <message>
         <source>Saves what you see in the preview. Pick a size — the picture shape stays the same.</source>

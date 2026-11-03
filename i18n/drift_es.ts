@@ -15242,12 +15242,12 @@ LA PRÓXIMA</translation>
         <translation>Codificar únicamente el rango de Entrada/Salida marcado en lugar de toda la línea de tiempo</translation>
     </message>
     <message>
-        <source>Also save the captions (.srt)</source>
-        <translation>Guardar también los subtítulos (.srt)</translation>
+        <source>Include the captions (inside the video and as .srt)</source>
+        <translation>Incluir los subtítulos (dentro del video y en .srt)</translation>
     </message>
     <message>
-        <source>A subtitle file next to the video, with the same name: players and YouTube can turn the captions on and off</source>
-        <translation>Un archivo de subtítulos junto al video, con el mismo nombre: los reproductores y YouTube pueden activarlos y desactivarlos</translation>
+        <source>The captions as a track inside the video and as a file next to it, with the same name: players and YouTube can turn them on and off</source>
+        <translation>Los subtítulos como pista dentro del video y como archivo al lado, con el mismo nombre: los reproductores y YouTube pueden activarlos y desactivarlos</translation>
     </message>
     <message>
         <source>Saves what you see in the preview. Pick a size — the picture shape stays the same.</source>

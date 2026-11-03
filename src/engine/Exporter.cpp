@@ -668,6 +668,92 @@ void nv12ToYuv420p(const uint8_t *y, int yStride, const uint8_t *uv, int uvStrid
     }
 }
 
+// A caption track inside the file, so a player can turn the captions on or off: mov_text in MP4 and
+// MOV, WebVTT in WebM, SubRip in Matroska. Not fatal: a container without one exports without it.
+AVCodecContext *openSubtitleTrack(AVFormatContext *fmt, AVStream **streamOut)
+{
+    const char *name = fmt->oformat->name ? fmt->oformat->name : "";
+    AVCodecID id = AV_CODEC_ID_NONE;
+    if (std::strstr(name, "mp4") || std::strstr(name, "mov") || std::strstr(name, "ipod"))
+        id = AV_CODEC_ID_MOV_TEXT;
+    else if (std::strstr(name, "webm"))
+        id = AV_CODEC_ID_WEBVTT;
+    else if (std::strstr(name, "matroska"))
+        id = AV_CODEC_ID_SUBRIP;
+    if (id == AV_CODEC_ID_NONE || avformat_query_codec(fmt->oformat, id, FF_COMPLIANCE_NORMAL) != 1)
+        return nullptr;
+    const AVCodec *codec = avcodec_find_encoder(id);
+    if (!codec)
+        return nullptr;
+    AVCodecContext *ctx = avcodec_alloc_context3(codec);
+    if (!ctx)
+        return nullptr;
+    // The text encoders read ASS dialogue lines and need an ASS header to say how they look.
+    static const char kAssHeader[] =
+        "[Script Info]\r\nScriptType: v4.00+\r\nPlayResX: 384\r\nPlayResY: 288\r\n\r\n"
+        "[V4+ Styles]\r\nFormat: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, "
+        "BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, "
+        "Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding\r\n"
+        "Style: Default,Arial,16,&Hffffff,&Hffffff,&H0,&H0,0,0,0,0,100,100,0,0,1,1,0,2,10,10,10,0\r\n\r\n"
+        "[Events]\r\nFormat: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text\r\n";
+    ctx->subtitle_header = static_cast<uint8_t *>(av_mallocz(sizeof kAssHeader));
+    if (ctx->subtitle_header) {
+        std::memcpy(ctx->subtitle_header, kAssHeader, sizeof kAssHeader);
+        ctx->subtitle_header_size = int(sizeof kAssHeader - 1);
+    }
+    ctx->time_base = AVRational{1, 1000};
+    if (fmt->oformat->flags & AVFMT_GLOBALHEADER)
+        ctx->flags |= AV_CODEC_FLAG_GLOBAL_HEADER;
+    AVStream *stream = nullptr;
+    if (avcodec_open2(ctx, codec, nullptr) < 0 || !(stream = avformat_new_stream(fmt, nullptr))) {
+        avcodec_free_context(&ctx);
+        return nullptr;
+    }
+    avcodec_parameters_from_context(stream->codecpar, ctx);
+    stream->time_base = ctx->time_base;
+    *streamOut = stream;
+    return ctx;
+}
+
+// Every caption of a track, as packets (the muxer interleaves them with the picture and sound).
+void writeSubtitleTrack(AVFormatContext *fmt, AVCodecContext *ctx, AVStream *stream,
+                        const QList<drift::SubtitleCue> &cues)
+{
+    std::vector<uint8_t> buffer(64 * 1024);
+    int readOrder = 0;
+    for (const drift::SubtitleCue &cue : cues) {
+        QString text = cue.text.trimmed();
+        if (text.isEmpty() || cue.endUs <= cue.startUs || cue.startUs < 0)
+            continue;
+        text.remove(QLatin1Char('{')).remove(QLatin1Char('}')); // ASS override marks
+        text.replace(QLatin1Char('\n'), QStringLiteral("\\N"));
+        QByteArray line = QStringLiteral("%1,0,Default,,0,0,0,,%2").arg(readOrder++).arg(text).toUtf8();
+        AVSubtitleRect rect{};
+        rect.type = SUBTITLE_ASS;
+        rect.ass = line.data();
+        AVSubtitleRect *rects[1] = {&rect};
+        AVSubtitle sub{};
+        sub.num_rects = 1;
+        sub.rects = rects;
+        sub.pts = cue.startUs;
+        sub.end_display_time = uint32_t((cue.endUs - cue.startUs) / 1000);
+        const int size = avcodec_encode_subtitle(ctx, buffer.data(), int(buffer.size()), &sub);
+        if (size <= 0)
+            continue;
+        AVPacket *pkt = av_packet_alloc();
+        if (!pkt || av_new_packet(pkt, size) < 0) {
+            av_packet_free(&pkt);
+            continue;
+        }
+        std::memcpy(pkt->data, buffer.data(), size_t(size));
+        pkt->pts = pkt->dts = av_rescale_q(cue.startUs, AVRational{1, 1000000}, stream->time_base);
+        pkt->duration = av_rescale_q(cue.endUs - cue.startUs, AVRational{1, 1000000}, stream->time_base);
+        pkt->stream_index = stream->index;
+        av_interleaved_write_frame(fmt, pkt);
+        av_packet_free(&pkt);
+    }
+}
+
 // Sends a frame (or nullptr to flush) to the encoder and interleaves the packets.
 bool encodeWriteFrame(AVFormatContext *fmt, AVCodecContext *codec, AVStream *stream, AVFrame *frame,
                       AVPacket *pkt, QString *errorOut)
@@ -2063,6 +2149,7 @@ bool Exporter::run(const drift::Project &project, const ExportSettings &settings
     AVCodecContext *actx = nullptr;
     AVStream *vstream = nullptr;
     AVStream *astream = nullptr;
+    QList<QPair<AVCodecContext *, AVStream *>> subtitleTracks;
     AVFrame *vframe = nullptr;
     AVFrame *hwframe = nullptr;
     AVFrame *aframe = nullptr;
@@ -2199,6 +2286,16 @@ bool Exporter::run(const drift::Project &project, const ExportSettings &settings
         vstream->time_base = vctx->time_base;
         astream->time_base = actx->time_base;
 
+        for (const QList<drift::SubtitleCue> &cues : settings.subtitleTracks) {
+            if (cues.isEmpty())
+                continue;
+            AVStream *sstream = nullptr;
+            AVCodecContext *sctx = openSubtitleTrack(fmt, &sstream);
+            if (!sctx)
+                break; // this container takes none
+            subtitleTracks.append({sctx, sstream});
+        }
+
         const int frameSize = actx->frame_size > 0 ? actx->frame_size : 1024;
         const AVPixelFormat outPixFmt = vctx->pix_fmt;
         const AVPixelFormat swPixFmt =
@@ -2217,6 +2314,18 @@ bool Exporter::run(const drift::Project &project, const ExportSettings &settings
             goto cleanup;
         }
         headerWritten = true;
+        for (int i = 0; i < subtitleTracks.size(); ++i) {
+            const QList<drift::SubtitleCue> *cues = nullptr;
+            int n = 0;
+            for (const QList<drift::SubtitleCue> &track : settings.subtitleTracks) {
+                if (!track.isEmpty() && n++ == i) {
+                    cues = &track;
+                    break;
+                }
+            }
+            if (cues)
+                writeSubtitleTrack(fmt, subtitleTracks.at(i).first, subtitleTracks.at(i).second, *cues);
+        }
 
         const bool forceCpuSws = qEnvironmentVariableIsSet("DRIFT_EXPORT_SWSCALE")
                                  && qgetenv("DRIFT_EXPORT_SWSCALE") != "0";
@@ -2552,6 +2661,8 @@ cleanup:
         avcodec_free_context(&vctx);
     if (actx)
         avcodec_free_context(&actx);
+    for (auto &track : subtitleTracks)
+        avcodec_free_context(&track.first);
     if (hwDeviceCtx)
         av_buffer_unref(&hwDeviceCtx);
     if (fmt) {

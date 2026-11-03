@@ -15482,12 +15482,12 @@ NEXT TIME</source>
         <translation>ترميز نطاق البداية/النهاية المحدد فقط بدلاً من المخطط الزمني الكامل</translation>
     </message>
     <message>
-        <source>Also save the captions (.srt)</source>
-        <translation>حفظ الترجمات أيضًا (.srt)</translation>
+        <source>Include the captions (inside the video and as .srt)</source>
+        <translation>تضمين الترجمات (داخل الفيديو وبصيغة .srt)</translation>
     </message>
     <message>
-        <source>A subtitle file next to the video, with the same name: players and YouTube can turn the captions on and off</source>
-        <translation>ملف ترجمة بجوار الفيديو بالاسم نفسه: يمكن للمشغلات ويوتيوب تشغيل الترجمة وإيقافها</translation>
+        <source>The captions as a track inside the video and as a file next to it, with the same name: players and YouTube can turn them on and off</source>
+        <translation>الترجمات كمسار داخل الفيديو وكملف بجانبه بالاسم نفسه: يمكن للمشغلات ويوتيوب تشغيلها وإيقافها</translation>
     </message>
     <message>
         <source>Saves what you see in the preview. Pick a size — the picture shape stays the same.</source>

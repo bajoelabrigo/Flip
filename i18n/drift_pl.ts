@@ -15302,12 +15302,12 @@ ZOBACZENIA</translation>
         <translation>Koduj tylko oznaczony zakres Wejście/Wyjście zamiast całej osi czasu</translation>
     </message>
     <message>
-        <source>Also save the captions (.srt)</source>
-        <translation>Zapisz też napisy (.srt)</translation>
+        <source>Include the captions (inside the video and as .srt)</source>
+        <translation>Dołącz napisy (w filmie i jako .srt)</translation>
     </message>
     <message>
-        <source>A subtitle file next to the video, with the same name: players and YouTube can turn the captions on and off</source>
-        <translation>Plik napisów obok wideo, o tej samej nazwie: odtwarzacze i YouTube mogą je włączać i wyłączać</translation>
+        <source>The captions as a track inside the video and as a file next to it, with the same name: players and YouTube can turn them on and off</source>
+        <translation>Napisy jako ścieżka w filmie i jako plik obok, o tej samej nazwie: odtwarzacze i YouTube mogą je włączać i wyłączać</translation>
     </message>
     <message>
         <source>Saves what you see in the preview. Pick a size — the picture shape stays the same.</source>
