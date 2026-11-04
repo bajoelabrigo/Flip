@@ -5418,6 +5418,7 @@ TimelineClipsModel::Row AppController::clipRow(const drift::Clip &clip,
     row.linked = !clip.linkId.isEmpty();
     row.filmstripPath = clip.filmstripPath;
     row.textContent = clip.textContent;
+    row.insideBelow = clip.matteKeepsSource && !clip.matteClipId.isEmpty();
     row.rotationCorrection = clip.rotationCorrection;
     row.start = drift::usToSeconds(clip.timelineStart);
     row.duration = drift::usToSeconds(clip.timelineDuration);

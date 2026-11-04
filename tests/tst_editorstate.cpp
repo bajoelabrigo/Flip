@@ -369,6 +369,7 @@ private slots:
     void multiClipMoveCrossTracksWithLinkedPartners();
     void pasteAttributesToMultipleClips();
     void clipsModelFeedsDelegateRequiredProperties();
+    void clipsModelReportsShownInsideTheLayerBelow();
     void clipsModelNotifiesOnlyTheClipThatChanged();
     void clipsModelInsertsAndRemovesWithoutReset();
     void clipsModelDerivesGapsAndOverlaps();
@@ -13129,6 +13130,28 @@ void EditorStateTest::pasteAttributesToMultipleClips()
 // model` and reads its clip through it. Required properties turn off the delegate's context
 // object, so whether the roles still arrive is a property of QQmlDelegateModel rather than of
 // anything in this repo — and getting it wrong renders every clip blank. Pinned here.
+void EditorStateTest::clipsModelReportsShownInsideTheLayerBelow()
+{
+    // 0.30 Academy: the clip menu kept offering «Show only inside the layer below» after it was on, because
+    // the timeline's model had no insideBelow; it now reads «Show whole again».
+    AssetLibrary library;
+    AppController state(&library);
+    state.addSolidClip(QStringLiteral("#ff336699"), QStringLiteral("Box"), 400, 200);
+    state.addTextClip(QStringLiteral("Hola"), 0.0);
+    int textTrack = -1;
+    for (int t = 0; t < state.project()->tracks().size(); ++t) {
+        if (state.project()->tracks().at(t).type == drift::TrackType::Text)
+            textTrack = t;
+    }
+    QVERIFY(textTrack >= 0);
+    QVERIFY(state.showInsideLayerBelow(textTrack, 0));
+    auto *model = qobject_cast<QAbstractItemModel *>(state.clipsModel(textTrack));
+    QVERIFY(model);
+    QCOMPARE(model->data(model->index(0, 0), TimelineClipsModel::InsideBelowRole).toBool(), true);
+    state.showInsideLayerBelow(textTrack, 0);
+    QCOMPARE(model->data(model->index(0, 0), TimelineClipsModel::InsideBelowRole).toBool(), false);
+}
+
 void EditorStateTest::clipsModelFeedsDelegateRequiredProperties()
 {
     AssetLibrary library;

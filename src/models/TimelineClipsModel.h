@@ -56,6 +56,7 @@ public:
         FadeHandlesRole,
         EffectsRole,
         AudioEffectsRole,
+        InsideBelowRole,
     };
     Q_ENUM(Role)
 
@@ -89,6 +90,8 @@ public:
         QVariantList fadeHandles;
         QVariantList effects;
         QVariantList audioEffects;
+        // Shown only inside the layer below (0.30): the menu offers to show it whole again.
+        bool insideBelow = false;
 
         // Not roles: typed copies for the scene-graph renderer, derived from the fields above so
         // any change to them already arrives as a changed row.
