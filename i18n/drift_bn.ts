@@ -8106,6 +8106,14 @@
         <translation>ভয়েস সংরক্ষণ</translation>
     </message>
     <message>
+        <source>MP3 audio (*.mp3)</source>
+        <translation>MP3 অডিও (*.mp3)</translation>
+    </message>
+    <message>
+        <source>WAV audio (*.wav)</source>
+        <translation>WAV অডিও (*.wav)</translation>
+    </message>
+    <message>
         <source>FLAC audio (*.flac)</source>
         <translation>FLAC অডিও (*.flac)</translation>
     </message>

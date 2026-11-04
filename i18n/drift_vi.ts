@@ -8056,6 +8056,14 @@
         <translation>Lưu giọng</translation>
     </message>
     <message>
+        <source>MP3 audio (*.mp3)</source>
+        <translation>Âm thanh MP3 (*.mp3)</translation>
+    </message>
+    <message>
+        <source>WAV audio (*.wav)</source>
+        <translation>Âm thanh WAV (*.wav)</translation>
+    </message>
+    <message>
         <source>FLAC audio (*.flac)</source>
         <translation>Âm thanh FLAC (*.flac)</translation>
     </message>

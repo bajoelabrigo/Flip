@@ -8106,6 +8106,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>MP3 audio (*.mp3)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>WAV audio (*.wav)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>FLAC audio (*.flac)</source>
         <translation type="unfinished"></translation>
     </message>

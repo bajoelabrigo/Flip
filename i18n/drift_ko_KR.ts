@@ -8056,6 +8056,14 @@
         <translation>음성 저장</translation>
     </message>
     <message>
+        <source>MP3 audio (*.mp3)</source>
+        <translation>MP3 오디오 (*.mp3)</translation>
+    </message>
+    <message>
+        <source>WAV audio (*.wav)</source>
+        <translation>WAV 오디오 (*.wav)</translation>
+    </message>
+    <message>
         <source>FLAC audio (*.flac)</source>
         <translation>FLAC 오디오 (*.flac)</translation>
     </message>

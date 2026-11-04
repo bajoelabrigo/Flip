@@ -8056,6 +8056,14 @@
         <translation>音声を保存</translation>
     </message>
     <message>
+        <source>MP3 audio (*.mp3)</source>
+        <translation>MP3 オーディオ (*.mp3)</translation>
+    </message>
+    <message>
+        <source>WAV audio (*.wav)</source>
+        <translation>WAV オーディオ (*.wav)</translation>
+    </message>
+    <message>
         <source>FLAC audio (*.flac)</source>
         <translation>FLAC オーディオ (*.flac)</translation>
     </message>

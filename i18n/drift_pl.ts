@@ -8156,6 +8156,14 @@
         <translation>Zapisz głos</translation>
     </message>
     <message>
+        <source>MP3 audio (*.mp3)</source>
+        <translation>Dźwięk MP3 (*.mp3)</translation>
+    </message>
+    <message>
+        <source>WAV audio (*.wav)</source>
+        <translation>Dźwięk WAV (*.wav)</translation>
+    </message>
+    <message>
         <source>FLAC audio (*.flac)</source>
         <translation>Dźwięk FLAC (*.flac)</translation>
     </message>

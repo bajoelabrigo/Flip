@@ -221,8 +221,11 @@ Item {
                 glyph: Theme.icons.download
                 variant: "ghost"
                 onClicked: {
-                    const url = FileDialogs.saveFile(qsTr("Save the voice"), [qsTr("FLAC audio (*.flac)")],
-                                                     qsTr("voice"), "flac")
+                    // MP3 first, as people share a voice; WAV and FLAC too (0.30 tests E59).
+                    const url = FileDialogs.saveFile(qsTr("Save the voice"),
+                                                     [qsTr("MP3 audio (*.mp3)"), qsTr("WAV audio (*.wav)"),
+                                                      qsTr("FLAC audio (*.flac)")],
+                                                     qsTr("voice"), "mp3")
                     if (url == "")
                         return
                     if (EditorState.tts.saveClipVoice(EditorState.selectedTrack, EditorState.selectedClip, url))

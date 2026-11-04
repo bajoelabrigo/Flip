@@ -8106,6 +8106,14 @@
         <translation>හඬ සුරකින්න</translation>
     </message>
     <message>
+        <source>MP3 audio (*.mp3)</source>
+        <translation>MP3 ශ්‍රව්‍ය (*.mp3)</translation>
+    </message>
+    <message>
+        <source>WAV audio (*.wav)</source>
+        <translation>WAV ශ්‍රව්‍ය (*.wav)</translation>
+    </message>
+    <message>
         <source>FLAC audio (*.flac)</source>
         <translation>FLAC ශ්‍රව්‍ය (*.flac)</translation>
     </message>

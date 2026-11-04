@@ -8056,6 +8056,14 @@
         <translation>保存配音</translation>
     </message>
     <message>
+        <source>MP3 audio (*.mp3)</source>
+        <translation>MP3 音频 (*.mp3)</translation>
+    </message>
+    <message>
+        <source>WAV audio (*.wav)</source>
+        <translation>WAV 音频 (*.wav)</translation>
+    </message>
+    <message>
         <source>FLAC audio (*.flac)</source>
         <translation>FLAC 音频 (*.flac)</translation>
     </message>
