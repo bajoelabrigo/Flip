@@ -536,7 +536,6 @@ def apertura_esquinas():
 def elemento_flecha():
     t = _kit("elemento-flecha", "Flecha dibujada", "Hand-drawn arrow", "elementos", 4.0, 8100,
              ["elementos", "flecha", "señalar", "mira esto"], thumb_at=1.9)
-    photo_bg(t, "h-portrait-02", s1=1.03, label="Tu video")
     label(t, t.track("text", "Texto"), "¡MIRA ESTO!", 0.2, 3.5, Box(130, 250, 680, 130), "Poppins", 86, SUN,
           weight=800, italic=True, layers=[shadow("#000000", 0, 6, 16, 0.55), fill(SUN)],
           anim_in=tanim("pop", duration=0.4), anim_out=tanim("shrink", duration=0.3), name="Texto")
@@ -558,7 +557,6 @@ LOOP2 = "M 74 10 C 50 -2 14 8 6 38 C -2 66 24 94 56 92 C 88 90 100 62 94 36 C 90
 def elemento_circulo():
     t = _kit("elemento-circulo", "Círculo a mano", "Hand-drawn circle", "elementos", 3.5, 8101,
              ["elementos", "círculo", "resaltar", "señalar"], thumb_at=1.8)
-    photo_bg(t, "h-food-02", s1=1.0, label="Tu video")
     path(t, t.track("shape", "Círculo"), CORAL, 0.3, 3.1, centered(860, 330, 380, 280), LOOP, 11, draw=(0, 0.9),
          erase=(2.5, 0.45))
     path(t, t.track("shape", "Círculo"), WHITE, 0.55, 2.85, centered(860, 330, 400, 296), LOOP2, 4, draw=(0, 0.8),
@@ -635,7 +633,6 @@ def _cursor(t, tip_x, tip_y, t0, dur, click, leave, frm=(520, 300)):
 def elemento_clic():
     t = _kit("elemento-clic", "Botón con clic", "Click button", "elementos", 3.5, 8104,
              ["elementos", "clic", "cursor", "botón", "puntero"], thumb_at=1.7)
-    photo_bg(t, "h-cafe-01", s1=1.03, label="Tu video")
     box = centered(960, 540, 560, 130)
     pill(t, t.track("shape", "Botón"), WHITE, 0.2, 1.15, box,
          [(0, {"s": 0.0}, "back"), (0.4, {}, "hold"), (0.95, {}, "out"), (1.1, {"s": 0.93})],
@@ -659,7 +656,6 @@ BELL = ("M 50 4 C 30 4 18 20 18 42 L 18 62 L 6 78 L 94 78 L 82 62 L 82 42 C 82 2
 def elemento_suscribete():
     t = _kit("elemento-suscribete", "Botón suscríbete con campana", "Subscribe button with bell", "elementos", 4.0,
              8105, ["elementos", "suscríbete", "campana", "botón", "clic"], thumb_at=1.2)
-    photo_bg(t, "h-man-02", s1=1.03, label="Tu video")
     cy = 880
     box = centered(960, cy, 600, 124)
     sh = shadow("#000000", 0, 10, 28, 0.4)
@@ -694,7 +690,6 @@ def elemento_suscribete():
 def elemento_visor():
     t = _kit("elemento-visor", "Visor de cámara", "Camera viewfinder", "elementos", 3.5, 8106,
              ["elementos", "cámara", "grabando", "rec", "enfoque", "marco"], thumb_at=1.6)
-    photo_bg(t, "h-portrait-05", s1=1.03, label="Tu video")
     for box, grow in ((Box(640, 0, 2, 1080), "c"), (Box(1280, 0, 2, 1080), "c"), (Box(0, 360, 1920, 2), "c"),
                       (Box(0, 720, 1920, 2), "c")):
         m = [(0, {"sy" if box.w < 10 else "sx": 0.0}, "out"), (0.6, {})]
@@ -756,7 +751,6 @@ def _dots_blink(i, dur):
 def elemento_barras():
     t = _kit("elemento-barras", "Grupos de barras diagonales", "Slash groups", "elementos", 3.5, 8108,
              ["elementos", "barras", "diagonales", "adornos", "marco"], thumb_at=1.6)
-    photo_bg(t, "h-city-05", s1=1.04, label="Tu video")
     cols = [TEAL, TEAL, CORAL, SUN]
     for g, (x0, y0, step, dy) in enumerate(((160, 110, 66, -340), (1724, 700, -66, 340))):
         for i, c in enumerate(cols):
@@ -779,7 +773,6 @@ def elemento_barras():
 def elemento_globos():
     t = _kit("elemento-globos", "Globos de diálogo", "Speech bubbles", "elementos", 4.0, 8109,
              ["elementos", "globo", "diálogo", "conversación", "texto"], thumb_at=2.0)
-    photo_bg(t, "h-podcast-02", s1=1.03, label="Tu video")
     for (x, y, c, tail, at, end, text, nm) in ((200, 120, WHITE, 0.78, 0.2, 3.55, "¿Sabías que…?", "Globo 1"),
                                                (1160, 150, TEAL, 0.22, 1.0, 3.75, "¡Te lo cuento!", "Globo 2")):
         dl = end - at

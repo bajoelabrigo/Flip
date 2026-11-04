@@ -18068,8 +18068,8 @@ ZOBACZENIA</translation>
         <translation>Anuluj</translation>
     </message>
     <message>
-        <source>The lower third is fitted to the shape of your video.</source>
-        <translation>Belka dolna dopasuje się do kształtu filmu.</translation>
+        <source>The template is fitted to the shape of your video.</source>
+        <translation>Szablon dopasuje się do kształtu filmu.</translation>
     </message>
     <message>
         <source>Short (vertical 9:16)</source>

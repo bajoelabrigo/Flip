@@ -76,7 +76,6 @@ def tipografia_bloque():
 def titulo_barras():
     t = _kit("titulo-barras", "Título con barras", "Slash title", "titulos-estilo", 5.0, 7020,
              ["título", "canal", "estilo", "foto"], thumb_at=2.6)
-    photo_bg(t, "h-travel-03", s1=1.08, label="Tu foto o video")
     shade_full(t, 0.3)
     for i in range(3):
         t.solid(t.track("shape", "Barra"), TEAL if i < 2 else CORAL, 0.3 + i * 0.08, 4.4 - i * 0.08,
@@ -115,7 +114,6 @@ def titulo_cinetico():
 def tercio_doble():
     t = _kit("tercio-doble", "Tercio inferior doble", "Two-line lower third", "tercios", 5.0, 7040,
              ["nombre", "rótulo", "entrevista", "tercio inferior"], thumb_at=2.4)
-    photo_bg(t, "h-podcast-02", s1=1.05, label="Tu video")
     line(t, t.track("shape", "Acento"), TEAL, 0.3, 4.4, Box(120, 790, 12, 150), grow="y", length=0.3,
          opacity=keys([(0, 1.0, "hold"), (4.1, 1.0, "smooth"), (4.4, 0.0)]))
     rrect(t, t.track("shape", "Placa"), WHITE, 0.45, 4.2, Box(132, 790, 620, 90), radius=0,
@@ -170,7 +168,6 @@ def transicion_paneles():
 def barra_info():
     t = _kit("barra-info", "Barra de información", "Info bar", "barras-info", 6.0, 7070,
              ["barra", "información", "noticia", "rótulo"], thumb_at=2.8)
-    photo_bg(t, "h-city-04", s1=1.05, label="Tu video")
     shade_bottom(t, 360, 0.6)
     rrect(t, t.track("shape", "Barra"), NAVY, 0.3, 5.4, Box(0, 900, 1920, 90), radius=0, alpha=0.92,
           motion=slide_in(dy=120, length=0.4))

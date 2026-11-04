@@ -2080,6 +2080,27 @@ void EditorStateTest::sceneTemplateLayoutScalesAndCovers()
     QVERIFY(qAbs(fitted.transformW.evaluateAt(0) - 1080 * 0.92) < 0.5);
     QVERIFY(qAbs(fitted.transformX.evaluateAt(0) - 1080 * 0.04) < 0.5);
     QVERIFY(qAbs(fitted.transformY.evaluateAt(0) + fitted.transformH.evaluateAt(0) - 1920 * 0.74) < 0.5);
+
+    // Any other kit overlay keeps its size against the short side and its corner: a 300×120 button at the
+    // bottom right of a 16:9 frame stays 300×120, at the right edge of a Short's free part (92 % across, 80 %
+    // down). A shade over the whole canvas goes on covering the whole Short.
+    drift::Clip button;
+    button.type = drift::ClipType::Shape;
+    button.transformX.setKeyframe(0, 1560.0);
+    button.transformY.setKeyframe(0, 900.0);
+    button.transformW.setKeyframe(0, 300.0);
+    button.transformH.setKeyframe(0, 120.0);
+    drift::Clip shade;
+    shade.type = drift::ClipType::Shape;
+    QList<drift::Track> corner{drift::Track{.type = drift::TrackType::Video, .clips = {shade, button}}};
+    drift::fitOverlayLayout(corner, 1920, 1080, 1080, 1920, drift::OverlayFit::Keep);
+    const drift::Clip &kept = corner.at(0).clips.at(1);
+    QVERIFY(qAbs(kept.transformW.evaluateAt(0) - 300.0) < 0.5);
+    QVERIFY(qAbs(kept.transformX.evaluateAt(0) + 300.0 - 1080 * 0.96) < 0.5);
+    QVERIFY(qAbs(kept.transformY.evaluateAt(0) + 120.0 - 1920 * 0.80) < 0.5);
+    const drift::Clip &covering = corner.at(0).clips.at(0);
+    QVERIFY(qAbs(covering.transformW.evaluateAt(0) - 1080.0) < 0.5);
+    QVERIFY(qAbs(covering.transformH.evaluateAt(0) - 1920.0) < 0.5);
 }
 
 // A template of one's own: inside a composition a photo becomes a slot and a text an editable text;

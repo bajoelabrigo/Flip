@@ -376,19 +376,30 @@ QString AppController::sceneTemplateCategoryLabelFor(const QString &categoryId) 
 }
 
 namespace {
-// Lower thirds (Stock › YouTube kit, kit:lowerthirds) are an overlay drawn for one shape of video and used on
-// any: they get the Short or Video choice and are fitted by what they draw.
-bool isLowerThirdTemplate(const SceneTemplateEntry &entry)
+// The YouTube kit (Stock, category ytkit) is overlays drawn for one shape of video and used on any: they get the
+// Short or Video choice and are fitted by what they draw. Lower thirds sit on the lower part of the frame; the
+// rest keep their place. Its transitions are whole scenes and are fitted whole, like any template.
+bool isOverlayTemplate(const SceneTemplateEntry &entry)
 {
-    return entry.tags.contains(QStringLiteral("kit:lowerthirds")) || entry.tags.contains(QStringLiteral("tercio"));
+    if (entry.tags.contains(QStringLiteral("kit:transiciones")))
+        return false;
+    return entry.category == QLatin1String("ytkit") || entry.tags.contains(QStringLiteral("kit:lowerthirds"))
+        || entry.tags.contains(QStringLiteral("tercio"));
+}
+
+drift::OverlayFit overlayFitFor(const SceneTemplateEntry &entry)
+{
+    const bool lowerThird = entry.tags.contains(QStringLiteral("kit:lowerthirds"))
+        || entry.tags.contains(QStringLiteral("kit:tercios")) || entry.tags.contains(QStringLiteral("tercio"));
+    return lowerThird ? drift::OverlayFit::LowerThird : drift::OverlayFit::Keep;
 }
 } // namespace
 
 QString AppController::insertSceneTemplate(const QString &templateId)
 {
-    // A lower third into an empty timeline: the shape is the user's to choose (a Short or a normal video), not
+    // A YouTube-kit overlay into an empty timeline: the shape is the user's to choose (a Short or a normal video), not
     // the template's. Asked only where a window listens (the tests and MCP go straight in).
-    if (const SceneTemplateEntry *entry = sceneTemplateForId(templateId); entry && isLowerThirdTemplate(*entry)) {
+    if (const SceneTemplateEntry *entry = sceneTemplateForId(templateId); entry && isOverlayTemplate(*entry)) {
         bool timelineEmpty = true;
         for (const drift::Track &track : m_project.tracks())
             timelineEmpty = timelineEmpty && track.clips.isEmpty();
@@ -442,8 +453,8 @@ QString AppController::placeSceneTemplate(const QString &templateId, bool record
     bool timelineEmpty = true;
     for (const drift::Track &track : m_project.tracks())
         timelineEmpty = timelineEmpty && track.clips.isEmpty();
-    const bool lowerThird = isLowerThirdTemplate(*entry);
-    if (allowResize && timelineEmpty && lowerThird && (m_templateFormat == QLatin1String("short")
+    const bool overlay = isOverlayTemplate(*entry);
+    if (allowResize && timelineEmpty && overlay && (m_templateFormat == QLatin1String("short")
                                                        || m_templateFormat == QLatin1String("video"))) {
         // The shape the user picked for the video (Short or Video), not the template's.
         if (m_templateFormat == QLatin1String("short"))
@@ -456,12 +467,13 @@ QString AppController::placeSceneTemplate(const QString &templateId, bool record
     }
 
     QList<drift::Track> tracks = content.tracks();
-    // A lower third in a video of another shape is fitted by what it draws (a 16:9 one in a Short came out a
+    // A kit overlay in a video of another shape is fitted by what it draws (a 16:9 one in a Short came out a
     // third of the width, in the middle: Jorge, 0.30); any other template is fitted whole.
     const double fromAspect = double(content.width()) / qMax(1, content.height());
     const double toAspect = double(m_project.width()) / qMax(1, m_project.height());
-    if (lowerThird && qAbs(fromAspect - toAspect) > 0.1 * toAspect)
-        drift::fitLowerThirdLayout(tracks, content.width(), content.height(), m_project.width(), m_project.height());
+    if (overlay && qAbs(fromAspect - toAspect) > 0.1 * toAspect)
+        drift::fitOverlayLayout(tracks, content.width(), content.height(), m_project.width(), m_project.height(),
+                                overlayFitFor(*entry));
     else
         drift::scaleTemplateLayout(tracks, content.width(), content.height(), m_project.width(), m_project.height());
 

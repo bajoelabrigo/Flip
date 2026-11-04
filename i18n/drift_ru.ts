@@ -18068,8 +18068,8 @@ NEXT TIME</source>
         <translation>Отмена</translation>
     </message>
     <message>
-        <source>The lower third is fitted to the shape of your video.</source>
-        <translation>Нижняя плашка подстроится под форму вашего видео.</translation>
+        <source>The template is fitted to the shape of your video.</source>
+        <translation>Шаблон подстроится под форму вашего видео.</translation>
     </message>
     <message>
         <source>Short (vertical 9:16)</source>

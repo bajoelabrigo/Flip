@@ -17942,8 +17942,8 @@ LẦN SAU</translation>
         <translation>Hủy</translation>
     </message>
     <message>
-        <source>The lower third is fitted to the shape of your video.</source>
-        <translation>Thanh tiêu đề dưới sẽ khớp với khung hình video của bạn.</translation>
+        <source>The template is fitted to the shape of your video.</source>
+        <translation>Mẫu sẽ khớp với khung hình video của bạn.</translation>
     </message>
     <message>
         <source>Short (vertical 9:16)</source>

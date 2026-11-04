@@ -40,7 +40,6 @@ def hola_bienvenidos():
     D = 6.0
     t = _kit("hola-bienvenidos", "¡Hola! y bienvenidos a mi canal", "Hello! and welcome to my channel", "frases",
              D, 8300, ["hola", "bienvenida", "saludo", "intro", "canal"], thumb_at=3.6)
-    photo_bg(t, "h-city-05", s1=1.04, label="Tu video")
     land = 1.55
     out_at = D - 0.5
     tag = centered(960, 470, 560, 96)
@@ -107,7 +106,6 @@ def titulos_cajas():
     D = 7.0
     t = _kit("titulos-cajas", "Títulos en cajas", "Box titles", "titulos-estilo", D, 8301,
              ["cajas", "títulos", "máquina de escribir", "cursor", "subtítulo"], thumb_at=2.4)
-    photo_bg(t, "h-travel-02", s1=1.04, label="Tu video")
     x = 150
     lines = [("TÍTULOS EN CAJAS", 74, "Línea 1"), ("PARA TU VIDEO", 74, "Línea 2")]
     for i, (text, size, name) in enumerate(lines):

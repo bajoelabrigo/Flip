@@ -17942,8 +17942,8 @@ NEXT TIME</source>
         <translation>キャンセル</translation>
     </message>
     <message>
-        <source>The lower third is fitted to the shape of your video.</source>
-        <translation>ローワーサードは動画の形に合わせて調整されます。</translation>
+        <source>The template is fitted to the shape of your video.</source>
+        <translation>テンプレートは動画の形に合わせて調整されます。</translation>
     </message>
     <message>
         <source>Short (vertical 9:16)</source>

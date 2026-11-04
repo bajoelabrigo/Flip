@@ -18257,8 +18257,8 @@ NEXT TIME</source>
         <translation>إلغاء</translation>
     </message>
     <message>
-        <source>The lower third is fitted to the shape of your video.</source>
-        <translation>يتكيّف الشريط السفلي مع شكل الفيديو.</translation>
+        <source>The template is fitted to the shape of your video.</source>
+        <translation>يتكيّف القالب مع شكل الفيديو.</translation>
     </message>
     <message>
         <source>Short (vertical 9:16)</source>

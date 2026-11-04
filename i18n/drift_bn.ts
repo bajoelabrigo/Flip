@@ -18001,8 +18001,8 @@ NEXT TIME</source>
         <translation>বাতিল</translation>
     </message>
     <message>
-        <source>The lower third is fitted to the shape of your video.</source>
-        <translation>নিচের ব্যানারটি আপনার ভিডিওর আকারে মানিয়ে যায়।</translation>
+        <source>The template is fitted to the shape of your video.</source>
+        <translation>টেমপ্লেটটি আপনার ভিডিওর আকারে মানিয়ে যায়।</translation>
     </message>
     <message>
         <source>Short (vertical 9:16)</source>

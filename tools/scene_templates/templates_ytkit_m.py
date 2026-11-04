@@ -64,7 +64,6 @@ def cita_caja_blanca():
     D = 6.0
     t = _kit("cita-caja-blanca", "Cita en caja blanca", "Quote in a white box", "frases", D, 8370,
              ["cita", "frase", "caja", "autor"], thumb_at=3.0)
-    photo_bg(t, "h-nature-06", s1=1.05, label="Tu video")
     text = "LO SIMPLE BIEN HECHO\nSIEMPRE SE RECUERDA.\nLO COMPLICADO SE OLVIDA."
     size, pad = 44, 56
     tw = _lines_width(text, size)
@@ -86,7 +85,6 @@ def cita_marco():
     D = 6.0
     t = _kit("cita-marco", "Cita en marco", "Quote in a frame", "frases", D, 8371,
              ["cita", "frase", "marco", "contorno"], thumb_at=3.0)
-    photo_bg(t, "h-beach-03", s1=1.05, label="Tu video")
     t.solid(t.track("shape", "Oscurecer"), "#000000", 0.0, D, None, opacity=keys([(0, 0.0), (0.5, 0.25)]))
     text = "CREAR NO ES TENER IDEAS:\nES TERMINARLAS\nY MOSTRARLAS."
     size, pad = 46, 60
@@ -109,7 +107,6 @@ def cita_esquinas():
     D = 6.0
     t = _kit("cita-esquinas", "Cita entre esquinas", "Quote between corners", "frases", D, 8372,
              ["cita", "frase", "esquinas", "líneas"], thumb_at=3.0)
-    photo_bg(t, "h-beach-04", s1=1.05, label="Tu video")
     t.solid(t.track("shape", "Oscurecer"), "#000000", 0.0, D, None, opacity=keys([(0, 0.0), (0.5, 0.3)]))
     text = "CADA ERROR ES UN PASO\nHACIA LO QUE QUIERES\nHACER BIEN."
     size = 48
@@ -137,7 +134,6 @@ def cita_libre():
     D = 6.0
     t = _kit("cita-libre", "Cita sobre el video", "Quote over the video", "frases", D, 8373,
              ["cita", "frase", "centrada", "autor"], thumb_at=3.0)
-    photo_bg(t, "h-nature-02", s1=1.05, label="Tu video")
     text = "EL ESPACIO VACÍO TAMBIÉN HABLA:\nDEJA RESPIRAR TU IDEA."
     size = 56
     tw = _lines_width(text, size)
@@ -157,7 +153,6 @@ def cita_coral():
     D = 6.0
     t = _kit("cita-coral", "Cita en panel coral", "Quote on a coral panel", "frases", D, 8374,
              ["cita", "frase", "panel", "coral"], thumb_at=3.0)
-    photo_bg(t, "h-nature-04", s1=1.05, label="Tu video")
     t.solid(t.track("shape", "Panel"), CORAL, 0.1, D - 0.2, Box(0, 0, 900, 1080),
             [(0, {"dx": -900}, "out"), (0.55, {}, "hold"), (D - 0.2 - 0.5, {}, "in"), (D - 0.2, {"dx": -900})],
             layers=[shadow("#000000", 8, 0, 40, 0.35), fill(CORAL), no_stroke()])
@@ -175,7 +170,6 @@ def cita_barras():
     D = 6.0
     t = _kit("cita-barras", "Cita entre barras", "Quote between bars", "frases", D, 8375,
              ["cita", "frase", "barras", "centrada"], thumb_at=3.0)
-    photo_bg(t, "h-beach-05", s1=1.05, label="Tu video")
     t.solid(t.track("shape", "Oscurecer"), "#000000", 0.0, D, None, opacity=keys([(0, 0.0), (0.5, 0.3)]))
     text = "LA CONSTANCIA\nLE GANA AL TALENTO."
     size = 64
@@ -243,7 +237,6 @@ def llamada_contorno():
     D = 5.0
     t = _kit("llamada-contorno", "Llamada con línea", "Call-out line", "elementos", D, 8380,
              ["llamada", "línea", "señalar", "punto"], thumb_at=2.5)
-    photo_bg(t, "h-interior-02", s1=1.03, label="Tu video")
     _dot(t, 1060, 500, 0.2, D - 0.4)
     _leader(t, [(1060, 500), (900, 330), (560, 330)], 0.3, D - 0.6)
     _plain(t, "LLAMADA\nCON LÍNEA", Box(500, 214, 380, 2 * 44 * 1.15), 44, 0.8, D - 1.2, align="right", name="Título")
@@ -255,7 +248,6 @@ def llamada_etiqueta():
     D = 5.0
     t = _kit("llamada-etiqueta", "Llamada con etiqueta coral", "Call-out with a coral label", "elementos", D, 8381,
              ["llamada", "etiqueta", "coral", "línea"], thumb_at=2.5)
-    photo_bg(t, "h-food-01", s1=1.03, label="Tu video")
     _dot(t, 840, 680, 0.2, D - 0.4)
     _leader(t, [(840, 680), (700, 420), (560, 420)], 0.3, D - 0.6)
     _tag(t, "TEXTO PRINCIPAL", 560, 350, 40, 0.75, D - 1.15, fg=WHITE, bg=CORAL, align="right", name="Título")
@@ -268,7 +260,6 @@ def llamada_vertical():
     D = 5.0
     t = _kit("llamada-vertical", "Llamada con línea vertical", "Call-out with a vertical line", "elementos", D, 8382,
              ["llamada", "vertical", "descripción", "coral"], thumb_at=2.5)
-    photo_bg(t, "h-travel-03", s1=1.03, label="Tu video")
     _dot(t, 1120, 900, 0.2, D - 0.4)
     _leader(t, [(1120, 900), (1120, 760), (1260, 620)], 0.3, D - 0.6, colour=CORAL, width=6)
     t.solid(t.track("shape", "Barra"), CORAL, 0.7, D - 1.1, Box(1290, 560, 8, 170),
@@ -285,7 +276,6 @@ def llamada_marca_precio():
     D = 5.0
     t = _kit("llamada-marca-precio", "Llamada con marca y precio", "Call-out with brand and price", "elementos", D, 8383,
              ["llamada", "precio", "marca", "producto"], thumb_at=2.5)
-    photo_bg(t, "h-food-02", s1=1.03, label="Tu video")
     _dot(t, 1020, 840, 0.2, D - 0.4)
     _leader(t, [(1020, 840), (1200, 640), (1360, 640)], 0.3, D - 0.6)
     size = 38
@@ -303,7 +293,6 @@ def llamada_caja_coral():
     D = 5.0
     t = _kit("llamada-caja-coral", "Llamada en caja coral", "Call-out in a coral box", "elementos", D, 8384,
              ["llamada", "caja", "coral", "línea"], thumb_at=2.5)
-    photo_bg(t, "h-interior-03", s1=1.03, label="Tu video")
     _dot(t, 880, 290, 0.2, D - 0.4)
     _leader(t, [(880, 290), (1080, 560)], 0.3, D - 0.6, colour=CORAL, width=6)
     _tag(t, "LLAMADAS PARA\nTUS VIDEOS", 1080, 540, 44, 0.75, D - 1.15, fg=WHITE, bg=CORAL, name="Título")
@@ -316,7 +305,6 @@ def llamada_describe():
     D = 5.5
     t = _kit("llamada-describe", "Describe tu producto", "Describe your product", "elementos", D, 8385,
              ["llamada", "producto", "descripción", "marco"], thumb_at=2.8)
-    photo_bg(t, "h-office-01", s1=1.03, label="Tu video")
     t.solid(t.track("shape", "Oscurecer"), "#000000", 0.0, D, None, opacity=keys([(0, 0.0), (0.4, 0.2)]))
     _dot(t, 760, 640, 0.2, D - 0.4)
     _leader(t, [(760, 640), (960, 420), (1060, 420)], 0.3, D - 0.6)
@@ -338,7 +326,6 @@ def llamada_titular():
     D = 5.0
     t = _kit("llamada-titular", "Titular y descripción", "Headline and description", "elementos", D, 8386,
              ["llamada", "titular", "negro", "coral"], thumb_at=2.5)
-    photo_bg(t, "h-podcast-01", s1=1.03, label="Tu video")
     _dot(t, 1560, 450, 0.2, D - 0.4)
     _leader(t, [(1560, 450), (1460, 300)], 0.3, D - 0.6)
     _tag(t, "TITULAR", 1180, 180, 40, 0.65, D - 1.05, fg=WHITE, bg=CORAL, name="Titular")
@@ -351,7 +338,6 @@ def llamada_negra():
     D = 5.0
     t = _kit("llamada-negra", "Llamada en caja negra", "Call-out in a black box", "elementos", D, 8387,
              ["llamada", "negro", "vertical", "titular"], thumb_at=2.5)
-    photo_bg(t, "h-office-03", s1=1.03, label="Tu video")
     _dot(t, 1040, 720, 0.2, D - 0.4)
     _leader(t, [(1040, 720), (1040, 520)], 0.3, D - 0.6)
     w = _text_width("LÍNEA DE LLAMADA", 40) + 40 * 0.8
@@ -365,7 +351,6 @@ def llamada_creativa():
     D = 5.0
     t = _kit("llamada-creativa", "Llamada creativa", "Creative call-out", "elementos", D, 8388,
              ["llamada", "creativa", "blanco", "coral"], thumb_at=2.5)
-    photo_bg(t, "h-interior-05", s1=1.03, label="Tu video")
     _dot(t, 260, 980, 0.2, D - 0.4)
     _leader(t, [(260, 980), (420, 800), (520, 800)], 0.3, D - 0.6)
     _tag(t, "CREATIVA", 540, 690, 30, 0.7, D - 1.1, fg=WHITE, bg=CORAL, name="Titular")
@@ -379,7 +364,6 @@ def llamada_parrafo():
     D = 5.5
     t = _kit("llamada-parrafo", "Llamada con párrafo", "Call-out with a paragraph", "elementos", D, 8389,
              ["llamada", "párrafo", "descripción", "coral"], thumb_at=2.8)
-    photo_bg(t, "h-interior-04", s1=1.03, label="Tu video")
     _dot(t, 1160, 860, 0.2, D - 0.4)
     _leader(t, [(1160, 860), (1300, 700), (1800, 700)], 0.3, D - 0.6)
     _plain(t, "ESCRIBE TU TEXTO", Box(1310, 640, 490, 50), 36, 0.8, D - 1.2, name="Título")

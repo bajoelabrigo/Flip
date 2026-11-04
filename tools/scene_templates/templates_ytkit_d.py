@@ -85,7 +85,6 @@ def plate(t, name, colour, t0, dur, box, side="left", radius=0, length=0.45, out
 def tercio_pildora():
     t = _kit("tercio-pildora", "Tercio inferior píldora", "Pill lower third", "tercios", 5.0, 7500,
              ["nombre", "rótulo", "tercio inferior", "píldora"], thumb_at=2.4)
-    photo_bg(t, "h-portrait-04", s1=1.05, label="Tu video")
     shade_bottom(t, 380, 0.45)
     plate(t, "Placa", WHITE, 0.45, 3.95, Box(170, 800, 660, 90), radius=45,
           layers=[shadow("#000000", 0, 10, 28, 0.35), fill(WHITE), no_stroke()])
@@ -104,7 +103,6 @@ def tercio_pildora():
 def tercio_corchete():
     t = _kit("tercio-corchete", "Tercio inferior corchete", "Bracket lower third", "tercios", 5.0, 7501,
              ["nombre", "rótulo", "tercio inferior", "corchete"], thumb_at=2.4)
-    photo_bg(t, "h-man-01", s1=1.05, label="Tu video")
     shade_bottom(t, 420, 0.7)
     sh = [shadow("#000000", 0, 4, 14, 0.5), fill(WHITE)]
     plate(t, "Corchete", TEAL, 0.3, 4.3, Box(120, 790, 10, 170), side="top", length=0.35)
@@ -120,7 +118,6 @@ def tercio_corchete():
 def tercio_minimal():
     t = _kit("tercio-minimal", "Tercio inferior minimalista", "Minimal line lower third", "tercios", 5.0, 7502,
              ["nombre", "rótulo", "tercio inferior", "minimalista", "línea"], thumb_at=2.4)
-    photo_bg(t, "h-portrait-02", s1=1.05, label="Tu video")
     shade_bottom(t, 420, 0.6)
     plate(t, "Línea", WHITE, 0.3, 4.3, Box(120, 884, 560, 3), length=0.6, out=0.4)
     plate(t, "Acento", TEAL, 0.45, 4.05, Box(120, 882, 70, 7), length=0.4, out=0.3)
@@ -138,7 +135,6 @@ def tercio_minimal():
 def tercio_avatar():
     t = _kit("tercio-avatar", "Tercio inferior con foto", "Avatar lower third", "tercios", 5.0, 7503,
              ["nombre", "rótulo", "tercio inferior", "foto", "perfil"], thumb_at=2.4)
-    photo_bg(t, "h-man-04", s1=1.05, label="Tu video")
     shade_bottom(t, 380, 0.45)
     plate(t, "Placa", NAVY, 0.55, 3.75, Box(200, 805, 660, 120), radius=60, alpha=0.95)
     line(t, t.track("shape", "Línea"), TEAL, 0.9, 3.2, Box(306, 868, 120, 4), length=0.4,
@@ -155,7 +151,6 @@ def tercio_avatar():
 def tercio_derecha():
     t = _kit("tercio-derecha", "Tercio inferior a la derecha", "Right-aligned lower third", "tercios", 5.0, 7504,
              ["nombre", "rótulo", "tercio inferior", "derecha"], thumb_at=2.4)
-    photo_bg(t, "h-portrait-06", s1=1.05, label="Tu video")
     line(t, t.track("shape", "Acento"), CORAL, 0.3, 4.4, Box(1788, 790, 12, 150), grow="y", length=0.3,
          opacity=keys([(0, 1.0, "hold"), (4.1, 1.0, "smooth"), (4.4, 0.0)]))
     plate(t, "Placa", WHITE, 0.45, 3.75, Box(1168, 790, 620, 90), side="right")
@@ -170,7 +165,6 @@ def tercio_derecha():
 def tercio_entrevista():
     t = _kit("tercio-entrevista", "Tercio inferior entrevista", "Two-person lower thirds", "tercios", 5.0, 7505,
              ["nombre", "rótulo", "tercio inferior", "entrevista", "podcast", "dos personas"], thumb_at=2.6)
-    photo_bg(t, "h-podcast-03", s1=1.04, label="Tu video")
     shade_bottom(t, 360, 0.5)
     # Left guest
     line(t, t.track("shape", "Acento"), TEAL, 0.3, 4.3, Box(100, 850, 10, 130), grow="y", length=0.3,
@@ -197,7 +191,6 @@ def tercio_entrevista():
 def tercio_ubicacion():
     t = _kit("tercio-ubicacion", "Tercio inferior de lugar", "Location lower third", "tercios", 5.0, 7506,
              ["lugar", "ubicación", "viaje", "tercio inferior", "mapa"], thumb_at=2.4)
-    photo_bg(t, "h-nature-01", s1=1.06, label="Tu video")
     shade_bottom(t, 420, 0.65)
     # Map pin: a drop (circle + point) with a hole; it falls in and lifts away.
     drop = lambda dur: [(0, {"dy": -90}, "back"), (0.5, {}, "hold"), (dur - 0.35, {}, "in"), (dur, {"dy": -90})]
@@ -226,7 +219,6 @@ def tercio_ubicacion():
 def tercio_claro():
     t = _kit("tercio-claro", "Tercio inferior claro", "Light lower third", "tercios", 5.0, 7507,
              ["nombre", "rótulo", "tercio inferior", "claro", "blanco"], thumb_at=2.4)
-    photo_bg(t, "h-man-02", s1=1.05, label="Tu video")
     plate(t, "Placa", LIGHT, 0.35, 3.95, Box(120, 800, 640, 140), radius=14,
           layers=[shadow("#000000", 0, 12, 34, 0.3), fill(LIGHT), no_stroke()])
     plate(t, "Acento", CORAL, 0.6, 3.5, Box(146, 826, 7, 88), side="top", length=0.35, out=0.3, radius=3)
@@ -240,7 +232,6 @@ def tercio_claro():
 def tercio_vidrio():
     t = _kit("tercio-vidrio", "Tercio inferior de vidrio", "Glass lower third", "tercios", 5.0, 7508,
              ["nombre", "rótulo", "tercio inferior", "vidrio", "translúcido", "elegante"], thumb_at=2.4)
-    photo_bg(t, "h-portrait-03", s1=1.05, label="Tu video")
     glass = [shadow("#000000", 0, 14, 40, 0.35), fill(NAVY, 0.5),
              gradient([(0, WHITE, 0.16), (1, WHITE, 0.03)], angle=90, id="sheen"),
              {"id": "stroke", "kind": "stroke", "enabled": True, "width": 2, "strokeAlign": "inside",
@@ -264,7 +255,6 @@ def tercio_vidrio():
 def tercio_paso():
     t = _kit("tercio-paso", "Tercio inferior de paso", "Numbered step lower third", "tercios", 5.0, 7509,
              ["paso", "tutorial", "receta", "número", "tercio inferior"], thumb_at=2.4)
-    photo_bg(t, "h-cooking-01", s1=1.05, label="Tu video")
     shade_bottom(t, 380, 0.5)
     plate(t, "Placa", NAVY, 0.5, 3.8, Box(270, 790, 660, 96))
     plate(t, "Placa", TEAL, 0.65, 3.45, Box(270, 886, 420, 54))
@@ -282,7 +272,6 @@ def tercio_paso():
 def tercio_diagonal():
     t = _kit("tercio-diagonal", "Tercio inferior diagonal", "Slanted lower third", "tercios", 5.0, 7510,
              ["nombre", "rótulo", "tercio inferior", "deporte", "energía"], thumb_at=2.4)
-    photo_bg(t, "h-portrait-05", s1=1.05, label="Tu video")
     shade_bottom(t, 360, 0.45)
     t.solid(t.track("shape", "Placa"), CORAL, 0.35, 3.95, Box(96, 800, 700, 100),
             grow(Box(96, 800, 700, 100), "left", 3.95), kind="parallelogram")
@@ -302,7 +291,6 @@ def tercio_diagonal():
 def tercio_etiqueta():
     t = _kit("tercio-etiqueta", "Tercio inferior con etiqueta", "Tagged lower third", "tercios", 5.0, 7511,
              ["nombre", "rótulo", "tercio inferior", "invitado", "etiqueta"], thumb_at=2.4)
-    photo_bg(t, "h-portrait-01", s1=1.05, label="Tu video")
     shade_bottom(t, 460, 0.7)
     pill(t, t.track("shape", "Etiqueta"), SUN, 0.3, 4.1, Box(120, 716, 196, 46), popout(4.1, 0.4, 0.25))
     label(t, t.track("text", "Etiqueta"), "INVITADA", 0.4, 3.95, Box(120, 716, 196, 46), "Inter", 24, NAVY,
@@ -324,7 +312,6 @@ def tercio_etiqueta():
 def tercio_doble_vertical():
     t = _kit_tall("tercio-doble-vertical", "Tercio inferior doble vertical", "Two-line lower third (vertical)",
                   "tercios", 5.0, 7520, ["nombre", "rótulo", "tercio inferior", "shorts"], thumb_at=2.4)
-    photo_bg(t, "creator-02", s1=1.05, label="Tu video")
     line(t, t.track("shape", "Acento"), TEAL, 0.3, 4.4, Box(80, 1180, 12, 170), grow="y", length=0.3,
          opacity=keys([(0, 1.0, "hold"), (4.1, 1.0, "smooth"), (4.4, 0.0)]))
     plate(t, "Placa", WHITE, 0.45, 3.75, Box(92, 1180, 640, 100))
@@ -339,7 +326,6 @@ def tercio_doble_vertical():
 def tercio_pildora_vertical():
     t = _kit_tall("tercio-pildora-vertical", "Tercio inferior píldora vertical", "Pill lower third (vertical)",
                   "tercios", 5.0, 7521, ["nombre", "rótulo", "tercio inferior", "píldora", "shorts"], thumb_at=2.4)
-    photo_bg(t, "creator-03", s1=1.05, label="Tu video")
     shade_bottom(t, 900, 0.45)
     plate(t, "Placa", WHITE, 0.45, 3.95, Box(150, 1200, 640, 100), radius=50,
           layers=[shadow("#000000", 0, 10, 28, 0.35), fill(WHITE), no_stroke()])
@@ -362,7 +348,6 @@ def tercio_pildora_vertical():
 def barra_ticker():
     t = _kit("barra-ticker", "Barra de noticias con cinta", "News ticker bar", "barras-info", 6.0, 7800,
              ["barra", "noticias", "cinta", "última hora", "información"], thumb_at=3.0)
-    photo_bg(t, "h-city-06", s1=1.05, label="Tu video")
     shade_bottom(t, 300, 0.5)
     y, h = 950, 70
     slide = lambda dur: [(0, {"dy": 130}, "out"), (0.4, {}, "hold"), (dur - 0.4, {}, "in"), (dur, {"dy": 130})]
@@ -385,7 +370,6 @@ def barra_ticker():
 def barra_en_vivo():
     t = _kit("barra-en-vivo", "Etiqueta en vivo", "Live tag", "barras-info", 5.0, 7801,
              ["en vivo", "directo", "transmisión", "barra", "etiqueta"], thumb_at=2.4)
-    photo_bg(t, "h-concert-01", s1=1.05, label="Tu video")
     shade_top(t, 300, 0.6)
     rrect(t, t.track("shape", "Etiqueta"), CORAL, 0.3, 4.4, Box(80, 70, 230, 58), radius=10, motion=popout(4.4))
     t.solid(t.track("shape", "Punto"), WHITE, 0.45, 4.15, centered(110, 99, 16, 16), popout(4.15, 0.3, 0.2),
@@ -405,7 +389,6 @@ def barra_en_vivo():
 def barra_episodio():
     t = _kit("barra-episodio", "Distintivo de episodio", "Episode badge", "barras-info", 5.0, 7802,
              ["episodio", "podcast", "serie", "barra", "temporada"], thumb_at=2.4)
-    photo_bg(t, "h-podcast-02", s1=1.04, label="Tu video")
     plate(t, "Placa", NAVY, 0.5, 3.85, Box(210, 70, 640, 80))
     plate(t, "Placa", TEAL, 0.65, 3.5, Box(210, 150, 470, 54))
     t.solid(t.track("shape", "Insignia"), SUN, 0.3, 4.3, Box(80, 70, 134, 134), popout(4.3),
@@ -424,7 +407,6 @@ def barra_episodio():
 def barra_capitulos():
     t = _kit("barra-capitulos", "Barra de capítulos", "Chapter progress bar", "barras-info", 6.0, 7803,
              ["capítulos", "progreso", "barra", "índice", "tutorial"], thumb_at=3.2)
-    photo_bg(t, "h-travel-02", s1=1.05, label="Tu video")
     shade_bottom(t, 420, 0.75)
     names = ["Intro", "Subida al mirador", "El valle", "Despedida"]
     x0, total, gap, y = 120, 1680, 14, 970
@@ -461,7 +443,6 @@ def barra_capitulos():
 def barra_tema():
     t = _kit("barra-tema", "Barra de tema", "Topic bar", "barras-info", 5.0, 7804,
              ["tema", "barra", "título", "esquina", "información"], thumb_at=2.4)
-    photo_bg(t, "h-desk-02", s1=1.05, label="Tu video")
     plate(t, "Línea", CORAL, 0.3, 4.4, Box(80, 70, 10, 128), side="top", length=0.3, out=0.3)
     plate(t, "Placa", TEAL, 0.45, 3.9, Box(90, 70, 270, 42))
     plate(t, "Placa", NAVY, 0.55, 3.75, Box(90, 112, 720, 86))
@@ -475,7 +456,6 @@ def barra_tema():
 def barra_fecha_lugar():
     t = _kit("barra-fecha-lugar", "Barra de fecha y lugar", "Date and place bar", "barras-info", 5.0, 7805,
              ["fecha", "lugar", "evento", "barra", "calendario"], thumb_at=2.4)
-    photo_bg(t, "h-city-03", s1=1.05, label="Tu video")
     shade_bottom(t, 360, 0.5)
     plate(t, "Placa", NAVY, 0.5, 3.85, Box(210, 870, 600, 110), alpha=0.95)
     cal = Box(80, 850, 130, 150)
@@ -497,7 +477,6 @@ def barra_fecha_lugar():
 def barra_encuesta():
     t = _kit("barra-encuesta", "Barra de encuesta", "Poll bar", "barras-info", 6.0, 7806,
              ["encuesta", "pregunta", "votación", "barra", "comunidad"], thumb_at=3.4)
-    photo_bg(t, "h-food-01", s1=1.05, label="Tu video")
     card = Box(120, 700, 840, 290)
     t.solid(t.track("shape", "Tarjeta"), NAVY, 0.3, 5.3, card,
             [(0, {"dy": 60}, "out"), (0.5, {}, "hold"), (4.9, {}, "in"), (5.3, {"dy": 40})], kind="rounded-rectangle",
@@ -530,7 +509,6 @@ def barra_encuesta():
 def barra_patrocinado():
     t = _kit("barra-patrocinado", "Barra de patrocinio", "Sponsor bar", "barras-info", 5.0, 7807,
              ["patrocinado", "patrocinio", "marca", "logo", "barra"], thumb_at=2.4)
-    photo_bg(t, "h-summer-01", s1=1.05, label="Tu video")
     card = Box(1220, 850, 620, 140)
     t.solid(t.track("shape", "Tarjeta"), WHITE, 0.3, 4.3, card,
             [(0, {"dx": 720}, "out"), (0.5, {}, "hold"), (3.95, {}, "in"), (4.3, {"dx": 720})],
@@ -551,7 +529,6 @@ def barra_patrocinado():
 def barra_marcador():
     t = _kit("barra-marcador", "Marcador", "Score bar", "barras-info", 5.0, 7808,
              ["marcador", "deporte", "partido", "fútbol", "barra", "resultado"], thumb_at=2.4)
-    photo_bg(t, "h-soccer-03", s1=1.05, label="Tu video")
     shade_top(t, 260, 0.5)
     plate(t, "Equipo", TEAL, 0.45, 3.9, Box(560, 70, 300, 70), side="right")
     plate(t, "Equipo", CORAL, 0.45, 3.9, Box(1060, 70, 300, 70), side="left")
@@ -572,7 +549,6 @@ def barra_marcador():
 def barra_temporizador():
     t = _kit("barra-temporizador", "Barra de cuenta atrás", "Countdown timer bar", "barras-info", 6.0, 7809,
              ["temporizador", "cuenta atrás", "tiempo", "barra", "reto"], thumb_at=2.6)
-    photo_bg(t, "h-cooking-03", s1=1.05, label="Tu video")
     shade_bottom(t, 360, 0.5)
     card = Box(80, 860, 840, 130)
     t.solid(t.track("shape", "Placa"), NAVY, 0.3, 5.4, card,
@@ -599,7 +575,6 @@ def barra_temporizador():
 def barra_dato():
     t = _kit("barra-dato", "Barra de dato curioso", "Fun fact bar", "barras-info", 6.0, 7810,
              ["dato", "sabías que", "curiosidad", "barra", "información"], thumb_at=3.0)
-    photo_bg(t, "h-earth-01", s1=1.05, label="Tu video")
     shade_bottom(t, 360, 0.45)
     plate(t, "Placa", WHITE, 0.5, 4.85, Box(120, 886, 1180, 100),
           layers=[shadow("#000000", 0, 10, 30, 0.3), fill(WHITE), no_stroke()])
@@ -617,7 +592,6 @@ def barra_dato():
 def barra_noticia():
     t = _kit("barra-noticia", "Barra de titular", "Headline bar", "barras-info", 6.0, 7811,
              ["noticia", "titular", "barra", "información", "directo"], thumb_at=3.0)
-    photo_bg(t, "h-city-05", s1=1.05, label="Tu video")
     shade_bottom(t, 380, 0.55)
     plate(t, "Placa", NAVY, 0.45, 4.95, Box(120, 846, 1680, 100), alpha=0.96)
     plate(t, "Placa", WHITE, 0.6, 4.65, Box(120, 946, 1300, 52))

@@ -17942,8 +17942,8 @@ NEXT TIME</source>
         <translation>취소</translation>
     </message>
     <message>
-        <source>The lower third is fitted to the shape of your video.</source>
-        <translation>하단 자막이 영상 모양에 맞춰집니다.</translation>
+        <source>The template is fitted to the shape of your video.</source>
+        <translation>템플릿이 영상 모양에 맞춰집니다.</translation>
     </message>
     <message>
         <source>Short (vertical 9:16)</source>

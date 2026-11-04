@@ -17942,8 +17942,8 @@ NEXT TIME</source>
         <translation>取消</translation>
     </message>
     <message>
-        <source>The lower third is fitted to the shape of your video.</source>
-        <translation>下方字幕条会适配视频的形状。</translation>
+        <source>The template is fitted to the shape of your video.</source>
+        <translation>模板会适配视频的形状。</translation>
     </message>
     <message>
         <source>Short (vertical 9:16)</source>

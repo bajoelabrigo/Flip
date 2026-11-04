@@ -2347,7 +2347,7 @@ ApplicationWindow {
             ThemedLabel {
                 width: parent.width
                 wrapMode: Text.WordWrap
-                text: qsTr("The lower third is fitted to the shape of your video.")
+                text: qsTr("The template is fitted to the shape of your video.")
             }
             Row {
                 spacing: Theme.spacingMd

@@ -18005,8 +18005,8 @@ PRÓXIMA</translation>
         <translation>Cancelar</translation>
     </message>
     <message>
-        <source>The lower third is fitted to the shape of your video.</source>
-        <translation>O terço inferior ajusta-se ao formato do seu vídeo.</translation>
+        <source>The template is fitted to the shape of your video.</source>
+        <translation>O modelo ajusta-se ao formato do seu vídeo.</translation>
     </message>
     <message>
         <source>Short (vertical 9:16)</source>

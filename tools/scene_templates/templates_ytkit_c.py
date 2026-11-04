@@ -279,7 +279,6 @@ def cin_claro():
 def cin_foto():
     t = _kit("cinetico-foto", "Palabras sobre tu video", "Words over your video", KIN, 5.0, 7410,
              ["cinético", "palabras", "foto", "viaje", "ritmo"], thumb_at=4.0)
-    photo_bg(t, "h-travel-02", s1=1.12, label="Tu video")
     shade_full(t, 0.45)
     texto = t.track("text", "Palabra")
     for i, (w, at) in enumerate([("VIAJA.", 0.3), ("COME.", 1.2), ("REPITE.", 2.1)]):
@@ -374,7 +373,6 @@ def cin_grande_chico_v():
 def cin_foto_v():
     t = _tall("cinetico-foto-vertical", "Palabras sobre tu video vertical", "Words over your video (vertical)", KIN,
               5.0, 7442, ["cinético", "palabras", "foto", "viaje"], thumb_at=4.0)
-    photo_bg(t, "travel-01", s1=1.12, label="Tu video")
     shade_full(t, 0.4)
     texto = t.track("text", "Palabra")
     for i, (w, at) in enumerate([("SUBE.", 0.3), ("RESPIRA.", 1.2), ("MIRA.", 2.1)]):
@@ -421,7 +419,6 @@ def fra_editorial():
 def fra_foto():
     t = _kit("frase-foto", "Frase sobre foto", "Quote over a photo", QUO, 6.0, 7601,
              ["frase", "cita", "foto", "inspiración"], thumb_at=3.8)
-    photo_bg(t, "h-nature-02", s1=1.1, label="Tu foto o video")
     shade_full(t, 0.55)
     label(t, t.track("text", "Frase"), "No tienes que verlo todo;\nsolo el siguiente paso.", 0.5, 5.2,
           Box(120, 230, 1680, 430), "Cormorant Garamond", 140, WHITE, weight=600, italic=True, line=1.1,
@@ -602,7 +599,6 @@ def fra_leccion():
 def fra_tarjeta():
     t = _kit("frase-tarjeta", "Tarjeta de frase sobre video", "Quote card over video", QUO, 6.0, 7611,
              ["frase", "cita", "tarjeta", "foto", "superposición"], thumb_at=3.6)
-    photo_bg(t, "h-nature-05", s1=1.08, label="Tu video")
     shade_full(t, 0.3)
     card = [(0, {"dy": 140, "s": 0.96}, "out"), (0.6, {}, "hold"), (4.7, {}, "in"), (5.2, {"dy": 140, "s": 0.96})]
     fade = keys([(0, 0.0, "smooth"), (0.4, 1.0, "hold"), (4.8, 1.0, "smooth"), (5.2, 0.0)])
@@ -645,7 +641,6 @@ def fra_editorial_v():
 def fra_foto_v():
     t = _tall("frase-foto-vertical", "Frase sobre foto vertical", "Quote over a photo (vertical)", QUO, 6.0, 7641,
               ["frase", "cita", "foto", "inspiración"], thumb_at=3.8)
-    photo_bg(t, "nature-04", s1=1.1, label="Tu foto o video")
     shade_full(t, 0.45)
     label(t, t.track("text", "Frase"), "No tienes\nque verlo todo;\nsolo el\nsiguiente paso.", 0.5, 5.2,
           Box(80, 620, 920, 520), "Cormorant Garamond", 108, WHITE, weight=600, italic=True, line=1.1,

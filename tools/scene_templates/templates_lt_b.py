@@ -65,7 +65,6 @@ def kerry():
     D = _dur(r)
     t = _kit("kerry", "Tercio: barra vertical y nombre contorneado", "Lower third: vertical bar, outlined name", D, 8504,
              ["nombre", "contorno", "barra vertical"], thumb_at=2.5)
-    photo_bg(t, "h-sport-02", s1=1.03, label="Tu video")
     measured_bar(t, r, "bar", Box(196, 744, 50, 150), axis="y")
     name = "KERRY LEE"
     size = fit_size(name, 703, 900)
@@ -105,7 +104,6 @@ def andy():
     D = _dur(r)
     t = _kit("andy", "Tercio: barra que se abre desde el centro", "Lower third: bar opening from the middle", D, 8505,
              ["nombre", "centrado", "degradado"], thumb_at=2.5)
-    photo_bg(t, "h-podcast-02", s1=1.03, label="Tu video")
     box = Box(498, 759, 924, 110)
     measured_bar(t, r, "bar", box)
     name = "ANDY SCOTT"
@@ -149,7 +147,6 @@ def eliza():
     D = _dur(r)
     t = _kit("eliza", "Tercio: nombre en tres estilos", "Lower third: name in three styles", D, 8506,
              ["nombre", "contorno", "apellido"], thumb_at=2.6)
-    photo_bg(t, "h-office-05", s1=1.03, label="Tu video")
     box = Box(518, 894, 442, 76)
     measured_bar(t, r, "box", box)
     size = fit_size("ELIZA", 360, 900)
@@ -186,7 +183,6 @@ def morgan():
     D = _dur(r)
     t = _kit("morgan", "Tercio: apellido en caja, nombre encima", "Lower third: surname in a box, name above", D, 8507,
              ["nombre", "apellido", "centrado"], thumb_at=2.6)
-    photo_bg(t, "h-man-03", s1=1.03, label="Tu video")
     box = Box(622, 833, 676, 110)
     measured_bar(t, r, "bar", box)
     sur = "KETZNER"
@@ -235,7 +231,6 @@ def kim():
     D = _dur(r)
     t = _kit("kim", "Tercio: franja con cargo y nombre debajo", "Lower third: strip with role, name below", D, 8508,
              ["nombre", "franja", "derecha"], thumb_at=2.8)
-    photo_bg(t, "h-office-02", s1=1.03, label="Tu video")
     strip = Box(1178, 788, 558, 56)
     measured_bar(t, r, "strip", strip, axis="y")
 
@@ -269,7 +264,6 @@ def helen():
     D = _dur(r)
     t = _kit("helen", "Tercio a la derecha: dos cajas", "Lower third on the right: two boxes", D, 8509,
              ["nombre", "derecha", "cajas"], thumb_at=2.6)
-    photo_bg(t, "h-portrait-03", s1=1.03, label="Tu video")
     big, small = Box(784, 748, 1048, 110), Box(1298, 873, 535, 50)
     measured_bar(t, r, "big", big)
     measured_bar(t, r, "small", small, name="Caja 2")
@@ -301,7 +295,6 @@ def ronald():
     D = _dur(r)
     t = _kit("ronald", "Tercio a la derecha: escrito hacia atrás", "Lower third on the right: typed backwards", D, 8510,
              ["nombre", "derecha", "escritura"], thumb_at=2.6)
-    photo_bg(t, "h-man-04", s1=1.03, label="Tu video")
     box = Box(1045, 850, 775, 50)
     measured_bar(t, r, "box", box)
     size = fit_size("RONALD JOYCE", 989, 900)
@@ -322,7 +315,6 @@ def victoria():
     D = _dur(r)
     t = _kit("victoria", "Tercio a la derecha: línea degradada", "Lower third on the right: gradient line", D, 8511,
              ["nombre", "derecha", "línea"], thumb_at=2.6)
-    photo_bg(t, "h-portrait-06", s1=1.03, label="Tu video")
     measured_bar(t, r, "line", Box(800, 836, 1020, 16))
     size = fit_size("VICTORIA LUISE", 1020, 900)
     ty = _typing_backward(0.06, 0.15, 0.0)

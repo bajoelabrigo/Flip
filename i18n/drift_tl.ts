@@ -18001,8 +18001,8 @@ NEXT TIME</source>
         <translation>Kanselahin</translation>
     </message>
     <message>
-        <source>The lower third is fitted to the shape of your video.</source>
-        <translation>Iaangkop ang lower third sa hugis ng iyong video.</translation>
+        <source>The template is fitted to the shape of your video.</source>
+        <translation>Iaangkop ang template sa hugis ng iyong video.</translation>
     </message>
     <message>
         <source>Short (vertical 9:16)</source>

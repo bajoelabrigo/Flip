@@ -18001,7 +18001,7 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>The lower third is fitted to the shape of your video.</source>
+        <source>The template is fitted to the shape of your video.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

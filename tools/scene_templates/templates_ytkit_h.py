@@ -48,7 +48,6 @@ def _video_card(th, id, es, en, order, sample, video, avatar, likes, at_left):
     D = 6.5
     tags = ["tarjeta", "video", "miniatura", "campana"] + (["oscuro"] if th is DARK else ["claro"])
     t = _kit(id, es, en, D, order, tags, thumb_at=4.2)
-    photo_bg(t, sample, s1=1.03, label="Tu video")
     t0, t1 = 0.3, D - 0.2
     dur = t1 - t0
     card = Box(110 if at_left else 1920 - 110 - 560, 560, 560, 420)
@@ -112,7 +111,6 @@ def tarjeta_video_vertical():
     D = 6.0
     t = _kit("boton-tarjeta-video-vertical", "Tarjeta de video angosta", "Narrow video card", D, 8212,
              ["tarjeta", "video", "miniatura", "angosta", "campana"], thumb_at=4.0)
-    photo_bg(t, "h-cafe-04", s1=1.03, label="Tu video")
     th = LIGHT
     t0, t1 = 0.3, D - 0.2
     dur = t1 - t0
@@ -147,7 +145,6 @@ def mensajes():
     D = 9.0
     t = _kit("boton-mensajes", "Mensajes que se escriben solos", "Self-typing messages", D, 8213,
              ["mensajes", "escribir", "máquina de escribir", "campana", "me gusta"], thumb_at=5.0)
-    photo_bg(t, "h-podcast-02", s1=1.03, label="Tu video")
     th = LIGHT
     t0, t1 = 0.3, D - 0.2
     dur = t1 - t0
@@ -199,7 +196,6 @@ def foto_central():
     D = 6.0
     t = _kit("boton-foto-central", "Tarjeta con la foto en el centro", "Card with the picture in the middle", D,
              8214, ["tarjeta", "foto", "centro", "campana", "me gusta"], thumb_at=4.0)
-    photo_bg(t, "h-city-05", s1=1.03, label="Tu video")
     th = LIGHT
     t0, t1 = 0.3, D - 0.2
     dur = t1 - t0
@@ -230,7 +226,6 @@ def barra_oscura():
     D = 6.0
     t = _kit("boton-barra-oscura", "Barra oscura con suscribirse", "Dark subscribe bar", D, 8215,
              ["barra", "oscuro", "campana", "me gusta"], thumb_at=4.0)
-    photo_bg(t, "h-concert-01", s1=1.03, label="Tu video")
     th = DARK
     t0, t1 = 0.3, D - 0.2
     dur = t1 - t0

@@ -105,7 +105,6 @@ def boton_canal():
     D = 5.0
     t = _kit("boton-canal", "Canal con botón suscríbete", "Channel with a subscribe button", D, 8400,
              ["suscríbete", "canal", "foto", "campana"], thumb_at=2.6)
-    photo_bg(t, "h-man-02", s1=1.03, label="Tu video")
     cy = 940
     _avatar(t, "h-portrait-04", 150, cy, 104, 0.2, D - 0.4)
     name = _btn(t, 220, cy, "NOMBRE DEL CANAL", 36, 0.35, D - 0.65, fg=INK, bg=WHITE, name="Nombre del canal")
@@ -129,7 +128,6 @@ def pildora_iconos():
     D = 5.0
     t = _kit("pildora-iconos", "Píldora con tres iconos", "Pill with three icons", D, 8401,
              ["suscríbete", "me gusta", "campana", "píldora"], thumb_at=2.9)
-    photo_bg(t, "h-sport-01", s1=1.03, label="Tu video")
     cy, size = 940, 36
     parts = [("thumb", "ME GUSTA"), ("yt", "SUSCRÍBETE"), ("bell", "CAMPANA")]
     widths = [_text_width(s, size) + size * 1.2 + size * 0.45 for _, s in parts]
@@ -156,7 +154,6 @@ def yt_suscrito():
     D = 5.0
     t = _kit("yt-suscrito", "Logo de YouTube y suscríbete", "YouTube logo and subscribe", D, 8402,
              ["suscríbete", "logo", "youtube", "campana"], thumb_at=2.6)
-    photo_bg(t, "h-nature-03", s1=1.03, label="Tu video")
     cy = 940
     yt_icon(t, 160, cy, 120, 0.2, D - 0.4, motion=_pop(D - 0.4))
     x = 235
@@ -173,7 +170,6 @@ def pila_vertical():
     D = 5.0
     t = _kit("pila-vertical", "Botones en columna", "Stacked buttons", D, 8403,
              ["suscríbete", "me gusta", "campana", "columna"], thumb_at=2.4)
-    photo_bg(t, "h-man-04", s1=1.03, label="Tu video")
     for i, (kind, word) in enumerate([("thumb", "ME GUSTA"), ("yt", "SUSCRÍBETE"), ("bell", "ACTIVA LA CAMPANA")]):
         a = 0.3 + i * 0.25
         dur = D - 0.3 - a
@@ -187,7 +183,6 @@ def me_gusta():
     D = 4.5
     t = _kit("me-gusta", "Dale me gusta", "Like the video", D, 8404,
              ["me gusta", "like", "pulgar", "clic"], thumb_at=2.3)
-    photo_bg(t, "h-cafe-01", s1=1.03, label="Tu video")
     cy = 940
     box = _btn(t, 120, cy, "DALE ME GUSTA", 38, 0.2, D - 0.4, fg=INK, bg=WHITE, name="Me gusta")
     cx = box.x + box.w + 60
@@ -206,7 +201,6 @@ def tarjeta_lista():
     D = 5.5
     t = _kit("tarjeta-lista", "Tarjeta con lista", "Card with a checklist", D, 8405,
              ["suscríbete", "lista", "tarjeta", "me gusta"], thumb_at=3.2)
-    photo_bg(t, "h-office-03", s1=1.03, label="Tu video")
     card = Box(80, 560, 560, 440)
     rrect(t, t.track("shape", "Tarjeta"), WHITE, 0.2, D - 0.4, card, radius=24,
           motion=[(0, {"dy": 500}, "out"), (0.5, {}, "hold"), (D - 0.4 - 0.4, {}, "in"), (D - 0.4, {"dy": 500})],
@@ -232,7 +226,6 @@ def suscribete_contorno():
     D = 4.5
     t = _kit("suscribete-contorno", "Suscríbete en marco", "Subscribe in a frame", D, 8406,
              ["suscríbete", "marco", "contorno", "logo"], thumb_at=2.2)
-    photo_bg(t, "h-travel-03", s1=1.03, label="Tu video")
     yt_icon(t, 960, 790, 120, 0.2, D - 0.4,
             motion=[(0, {"dy": -80, "s": 0.5}, "back"), (0.45, {}, "hold"), (D - 0.4 - 0.3, {}, "in"), (D - 0.4, {"s": 0.0})])
     size = 40
@@ -250,7 +243,6 @@ def suscribete_texto():
     D = 4.5
     t = _kit("suscribete-texto", "Suscríbete con el logo", "Subscribe with the logo", D, 8407,
              ["suscríbete", "texto", "logo", "clic"], thumb_at=2.2)
-    photo_bg(t, "h-portrait-05", s1=1.03, label="Tu video")
     size = 54
     w = _text_width("SUSCRÍBETE", size)
     x = 1820 - w * 1.05 - 160
@@ -270,7 +262,6 @@ def campana_texto():
     D = 4.5
     t = _kit("campana-texto", "Activa la campana", "Turn on the bell", D, 8408,
              ["campana", "notificaciones", "texto", "coral"], thumb_at=2.2)
-    photo_bg(t, "h-food-02", s1=1.03, label="Tu video")
     t.solid(t.track("shape", "Oscurecer"), "#000000", 0.0, D, None, opacity=keys([(0, 0.0), (0.4, 0.25)]))
     cx, cy = 170, 935
     t.solid(t.track("shape", "Círculo"), CORAL, 0.2, D - 0.4, centered(cx, cy, 100, 100), _pop(D - 0.4), kind="ellipse",
@@ -289,7 +280,6 @@ def burbuja():
     D = 4.5
     t = _kit("burbuja-suscribete", "Burbuja con suscríbete", "Speech bubble with subscribe", D, 8409,
              ["suscríbete", "burbuja", "logo", "coral"], thumb_at=2.2)
-    photo_bg(t, "h-nature-05", s1=1.03, label="Tu video")
     bx, by = 170, 905
     path(t, t.track("shape", "Burbuja"), CORAL, 0.2, D - 0.4, centered(bx, by, 140, 120), BUBBLE, filled=True,
          motion=_pop(D - 0.4), layers=_sh(CORAL))
@@ -304,7 +294,6 @@ def nombre_botones():
     D = 5.0
     t = _kit("nombre-botones", "Nombre y tres botones", "Name and three buttons", D, 8410,
              ["suscríbete", "nombre", "botones", "canal"], thumb_at=2.6)
-    photo_bg(t, "h-man-01", s1=1.03, label="Tu video")
     txt(t, "NOMBRE DEL CANAL", Box(90, 790, 1100, 90), 62, 0.2, D - 0.5, weight=900, align="left", anim="wipe", ad=0.5,
         name="Nombre del canal", layers=[shadow("#000000", 0, 4, 16, 0.45), fill(WHITE)])
     x = 90
@@ -322,7 +311,6 @@ def fila_tres():
     D = 5.5
     t = _kit("fila-tres", "Fila de tres botones", "Row of three buttons", D, 8411,
              ["suscríbete", "me gusta", "campana", "fila"], thumb_at=3.6)
-    photo_bg(t, "h-sport-03", s1=1.03, label="Tu video")
     size, cy, gap = 38, 945, 28
     w1 = _btn_width("ME GUSTA", size, True)
     w2 = _btn_width("SUSCRÍBETE", size, True)

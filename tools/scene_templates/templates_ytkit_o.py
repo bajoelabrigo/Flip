@@ -43,7 +43,6 @@ def intro_historia():
     D = 5.0
     t = _kit("intro-historia", "Gran historia", "Big story", "aperturas", D, 8430,
              ["intro", "logo", "canal", "historia"], thumb_at=2.4)
-    photo_bg(t, "h-city-03", s1=1.05, label="Tu video")
     end = D - 0.3
     size = 92
     w = _text_width("GRAN HISTORIA", size)
@@ -61,7 +60,6 @@ def intro_blog():
     D = 5.0
     t = _kit("intro-blog", "Blog de viajes", "Travel blog", "aperturas", D, 8431,
              ["intro", "logo", "blog", "viajes"], thumb_at=2.4)
-    photo_bg(t, "h-travel-05", s1=1.05, label="Tu video")
     end = D - 0.3
     yt_icon(t, 960, 420, 130, 0.3, end - 0.3,
             motion=[(0, {"dy": -140, "s": 0.6}, "back"), (0.5, {}, "hold"), (end - 0.65, {}, "in"), (end - 0.3, {"s": 0.0})])
@@ -75,7 +73,6 @@ def intro_inclinado():
     D = 5.0
     t = _kit("intro-inclinado", "Nombre del canal inclinado", "Tilted channel name", "aperturas", D, 8432,
              ["intro", "inclinado", "nombre", "coral"], thumb_at=2.4)
-    photo_bg(t, "h-beach-02", s1=1.05, label="Tu video")
     end = D - 0.3
     size = 76
     w = _text_width("NOMBRE DEL CANAL", size) + size * 1.4
@@ -95,7 +92,6 @@ def intro_pildora():
     D = 5.0
     t = _kit("intro-pildora", "Logo y nombre en píldora", "Logo and name in a pill", "aperturas", D, 8433,
              ["intro", "logo", "píldora", "destellos"], thumb_at=2.4)
-    photo_bg(t, "h-man-03", s1=1.05, label="Tu video")
     end = D - 0.3
     yt_icon(t, 960, 450, 150, 0.3, end - 0.3)
     size = 54
@@ -119,7 +115,6 @@ def ver_siguiente():
     D = 5.0
     t = _kit("titulo-ver-siguiente", "Ver siguiente", "Watch next", "titulos-estilo", D, 8434,
              ["título", "ver siguiente", "caja", "video"], thumb_at=2.4)
-    photo_bg(t, "h-desk-02", s1=1.04, label="Tu video")
     end = D - 0.3
     sub = "Cómo hacer un buen video"
     w = max(_text_width("VER SIGUIENTE", 44), _text_width(sub, 30)) + 2 * 44 * 0.6 + 40
@@ -139,7 +134,6 @@ def titulo_cuadro_contorno():
     D = 5.0
     t = _kit("titulo-cuadro-contorno", "Título sobre un cuadro de contorno", "Title over an outlined square",
              "titulos-estilo", D, 8435, ["título", "contorno", "cuadro", "moderno"], thumb_at=2.4)
-    photo_bg(t, "h-beach-03", s1=1.04, label="Tu video")
     end = D - 0.3
     sq = Box(460, 330, 330, 330)
     path(t, t.track("shape", "Cuadro"), WHITE, 0.2, end - 0.2, sq, "M 0 0 L 100 0 L 100 100 L 0 100 Z", 12,
@@ -156,7 +150,6 @@ def titulo_marco_cajas():
     D = 5.0
     t = _kit("titulo-marco-cajas", "Título en cajas dentro de un marco", "Boxed title in a frame", "titulos-estilo", D,
              8436, ["título", "cajas", "marco", "negro"], thumb_at=2.4)
-    photo_bg(t, "h-nature-06", s1=1.04, label="Tu video")
     end = D - 0.3
     size = 56
     lines = ["LA MEJOR SOLUCIÓN", "PARA TU TEXTO"]
@@ -177,7 +170,6 @@ def titulo_cuadro_vertical():
     D = 5.0
     t = _kit("titulo-cuadro-vertical", "Pregunta en un cuadro blanco", "Question in a white square", "titulos-estilo", D,
              8437, ["título", "cuadro", "pregunta", "vertical"], thumb_at=2.4)
-    photo_bg(t, "h-nature-03", s1=1.04, label="Tu video")
     end = D - 0.3
     sq = Box(1380, 560, 400, 400)
     rrect(t, t.track("shape", "Cuadro"), WHITE, 0.3, end - 0.3, sq, radius=0,
@@ -197,7 +189,6 @@ def titulo_mixto():
     D = 5.0
     t = _kit("titulo-mixto", "Título con pesos mezclados", "Mixed-weight title", "titulos-estilo", D, 8438,
              ["título", "tipografía", "mezcla", "elegante"], thumb_at=2.4)
-    photo_bg(t, "h-autumn-02", s1=1.04, label="Tu video")
     end = D - 0.3
     rows = [("Buen diseño", 86, 900), ("para tus", 56, 500), ("títulos de YouTube.", 86, 900)]
     y = 250
@@ -217,7 +208,6 @@ def titulo_numero():
     D = 5.0
     t = _kit("titulo-numero", "Título con número", "Numbered title", "titulos-estilo", D, 8439,
              ["título", "número", "píldora", "lista"], thumb_at=2.4)
-    photo_bg(t, "h-desk-05", s1=1.04, label="Tu video")
     end = D - 0.3
     cx, cy = 1050, 900
     size = 36
@@ -240,7 +230,6 @@ def suscribete_ahora():
     D = 5.0
     t = _kit("titulo-suscribete-ahora", "¡Suscríbete ahora!", "Subscribe now!", "titulos-estilo", D, 8440,
              ["título", "suscríbete", "grande", "centrado"], thumb_at=2.8)
-    photo_bg(t, "h-city-04", s1=1.04, label="Tu video")
     t.solid(t.track("shape", "Oscurecer"), "#000000", 0.0, D, None, opacity=keys([(0, 0.0), (0.4, 0.25)]))
     txt(t, "¡SUSCRÍBETE AHORA\nEN MI CANAL!", Box(160, 400, 1600, 260), 100, 0.3, D - 0.6, weight=900,
         anim="typewriter", ad=1.2, name="Título", layers=_shade(), line=1.05)
@@ -252,7 +241,6 @@ def gracias_grande():
     D = 5.0
     t = _kit("gracias-grande", "¡Gracias por ver! grande", "Big thanks for watching", "frases", D, 8441,
              ["gracias", "final", "grande", "despedida"], thumb_at=2.6)
-    photo_bg(t, "h-sport-02", s1=1.04, label="Tu video")
     size = 120
     w = _text_width("¡GRACIAS POR VER!", size)
     txt(t, "¡GRACIAS POR VER!", Box(960 - w / 2 - 40, 440, w + 80, 170), size, 0.3, D - 0.6, weight=900, anim="pop",
@@ -293,7 +281,6 @@ def redes_insignia():
     D = 10.0
     t = _kit("redes-insignia", "Redes con insignia de color", "Socials with a colour badge", "redes", D, 8443,
              ["redes", "insignia", "sígueme", "logos"], thumb_at=1.6)
-    photo_bg(t, "h-portrait-06", s1=1.04, label="Tu video")
 
     def draw(i, net, handle, a, dur):
         cx, cy = 190, 930
@@ -320,7 +307,6 @@ def redes_corchetes():
     D = 10.0
     t = _kit("redes-corchetes", "Redes entre corchetes", "Socials between brackets", "redes", D, 8444,
              ["redes", "tarjeta", "corchetes", "logos"], thumb_at=1.6)
-    photo_bg(t, "h-sport-03", s1=1.04, label="Tu video")
 
     def draw(i, net, handle, a, dur):
         w = _text_width(handle, 34) + 140
@@ -342,7 +328,6 @@ def redes_circulo_marca():
     D = 10.0
     t = _kit("redes-circulo-marca", "Redes con logo en círculo", "Socials with a logo in a circle", "redes", D, 8445,
              ["redes", "círculo", "sígueme", "logos"], thumb_at=1.6)
-    photo_bg(t, "h-nature-02", s1=1.04, label="Tu video")
 
     def draw(i, net, handle, a, dur):
         cx, cy = 190, 930

@@ -359,7 +359,6 @@ TXT_SHADOW = shadow("#000000", 0, 4, 14, 0.55)
 
 
 def _photo(t, sample, dim=0.3):
-    photo_bg(t, sample, s1=1.06, label="Tu foto o video")
     if dim:
         shade_full(t, dim)
 
