@@ -11072,7 +11072,13 @@ void EditorStateTest::pasteOntoItsOwnKeysCarriesOn()
     QVERIFY(state.copyKeyframes(track, fall) >= 2); // joined Position brings X along
     state.setPlayheadSeconds(3.0);
     QVERIFY(state.pasteKeyframes(track, 0));
-    QVERIFY(qAbs(state.propertyValueAt(track, 0, y, 1.2, 0.0) - bounced) < 1e-6);
+    {
+        const double after = state.propertyValueAt(track, 0, y, 1.2, 0.0);
+        QVERIFY2(qAbs(after - bounced) < 1e-6,
+                 qPrintable(QStringLiteral("bounce at 1.2 s: %1 before the paste, %2 after (joined %3)")
+                                .arg(bounced).arg(after)
+                                .arg(state.project()->tracks().at(track).clips.at(0).positionJoined)));
+    }
     QCOMPARE(state.propertyValueAt(track, 0, y, 3.0, 0.0), 100.0);
     QVERIFY(state.propertyValueAt(track, 0, y, 4.2, 0.0) < 799.0); // and the copy bounces too
 }

@@ -25406,6 +25406,25 @@ bool AppController::pasteKeyframes(int trackIndex, int clipIndex, bool continueC
                 continue;
             drift::Keyframe<double> still = rest.value();
             still.inDx = still.inDy = still.outDx = still.outDy = 0.0;
+            // The fall into the rest key keeps its shape: on a joined Position its path handles follow the
+            // neighbours (Auto Bezier), and a still key beside it would flatten the fall and change the bounce.
+            // So they are frozen as they are, and the still key has none.
+            const drift::TimeUs restAt = rest.key();
+            const auto freeze = [restAt](drift::KeyframeTrack<double> *track) {
+                if (!track || !track->keyframes().contains(restAt))
+                    return;
+                drift::Keyframe<double> key = track->keyframes().value(restAt);
+                if (!key.spatial)
+                    return;
+                key.spatialAuto = false;
+                key.spOut = 0.0;
+                track->setKeyframe(restAt, key);
+            };
+            freeze(kt);
+            if (clip.positionJoined && (copied.prop == QLatin1String("x") || copied.prop == QLatin1String("y")))
+                freeze(copied.prop == QLatin1String("x") ? &clip.transformY : &clip.transformX);
+            still.spatialAuto = false;
+            still.spIn = still.spOut = 0.0;
             kt->setKeyframe(holdAt, still);
         }
     }
