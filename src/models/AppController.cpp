@@ -4291,6 +4291,12 @@ bool refitTextClipBox(drift::Clip &clip, int canvasW, int canvasH)
     };
     resize(clip.transformW, w);
     resize(clip.transformH, h);
+    // Its 100 % follows the words (0.30 Academy: a font size of 90 for 64 read Scale 141 %): a refit is
+    // the content changing, not a scale.
+    if (clip.restW > 0.0 && oldW > 0.0)
+        clip.restW *= w / oldW;
+    if (clip.restH > 0.0 && oldH > 0.0)
+        clip.restH *= h / oldH;
     return true;
 }
 
@@ -4359,6 +4365,16 @@ void syncTextAutoFit(drift::Project &project, const drift::Project &before)
                     else
                         clip.transformH.keyframeRef(clip.transformH.keyframes().firstKey())->value = need.height();
                 }
+            }
+            // Only the box changed (a side dragged, the lines wrapped): the text is laid out again, not
+            // scaled, so its 100 % is the new box (0.30 Academy: a narrowed title read Scale 280 %). A real
+            // scale (a corner, the Scale slider) changes the font size too and is kept as it is.
+            if (boxChanged && !textChanged && clip.transformW.keyframes().size() <= 1
+                && clip.transformH.keyframes().size() <= 1) {
+                if (clip.restW > 0.0)
+                    clip.restW = layoutKeyValue(clip.transformW, canvasW);
+                if (clip.restH > 0.0)
+                    clip.restH = layoutKeyValue(clip.transformH, canvasH);
             }
             if (!clip.textAutoFit)
                 continue;

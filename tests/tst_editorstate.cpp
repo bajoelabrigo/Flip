@@ -171,6 +171,7 @@ private slots:
     void oldProjectTextBoxNeverMoves();
     void sideResizeOfTextBoxStopsHugging();
     void narrowingAWrappingTextGrowsItsBox();
+    void relayingOutATextKeepsItsScaleAtOneHundred();
     void textAroundACircleGetsABoxAroundTheRing();
     void undoRedoClipAdd();
     void sourceFramingPreservesOriginalAndUndoes();
@@ -1643,6 +1644,37 @@ void EditorStateTest::textAroundACircleGetsABoxAroundTheRing()
                                                     .arg(flat.w).arg(flat.h)));
     QVERIFY(qAbs(ring.w - ring.h) < 1.0);
     QVERIFY(qAbs(ring.cx() - flat.cx()) < 1.0 && qAbs(ring.cy() - flat.cy()) < 1.0);
+#endif
+}
+
+void EditorStateTest::relayingOutATextKeepsItsScaleAtOneHundred()
+{
+#ifndef DRIFT_WITH_SKIA
+    QSKIP("measuring text needs DRIFT_WITH_SKIA");
+#else
+    // 0.30 Academy: a font size of 90 for 64 read Scale 141 %, a narrowed box 280 %. Changing the words, the
+    // font or the box lays the text out again; only a real scale moves Scale off 100 %.
+    AssetLibrary library;
+    AppController state(&library);
+    state.addTextClip(QStringLiteral("RUTA DEL LAGO"), 0.0);
+    const int track = state.selectedTrack();
+    const int clip = state.selectedClip();
+    const auto clipNow = [&]() -> const drift::Clip & { return state.project()->tracks().at(track).clips.at(clip); };
+    const auto scaleNow = [&]() {
+        const QVariantMap n = state.clipNaturalSize(track, clip);
+        return QPointF(textBoxOf(clipNow()).w / n.value(QStringLiteral("w")).toDouble(),
+                       textBoxOf(clipNow()).h / n.value(QStringLiteral("h")).toDouble());
+    };
+    QVERIFY(QLineF(scaleNow(), QPointF(1.0, 1.0)).length() < 0.01);
+    state.setTextStyle(track, clip, QVariantMap{{QStringLiteral("pixelSize"), clipNow().textStyle.pixelSize * 1.4}});
+    QVERIFY2(QLineF(scaleNow(), QPointF(1.0, 1.0)).length() < 0.01,
+             qPrintable(QStringLiteral("after the font: %1, %2").arg(scaleNow().x()).arg(scaleNow().y())));
+    const TextBox box = textBoxOf(clipNow());
+    state.beginPreviewDrag(QStringLiteral("Transform clip"));
+    state.previewSetClipRect(track, clip, box.x, box.y, box.w * 0.4, box.h);
+    state.commitPreviewDrag();
+    QVERIFY2(QLineF(scaleNow(), QPointF(1.0, 1.0)).length() < 0.01,
+             qPrintable(QStringLiteral("after the side: %1, %2").arg(scaleNow().x()).arg(scaleNow().y())));
 #endif
 }
 
