@@ -142,8 +142,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Voices</source>
-        <translation type="unfinished"></translation>
+        <source>Voice changer</source>
+        <translation>Pambago ng boses</translation>
     </message>
     <message>
         <source>Retouch</source>
@@ -199,7 +199,7 @@
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>Ilapat</translation>
     </message>
     <message>
         <source>Save in My presets</source>
@@ -322,7 +322,7 @@
     </message>
     <message>
         <source>Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Mga paborito</translation>
     </message>
     <message>
         <source>Stock downloads</source>
@@ -1112,6 +1112,29 @@
     <message>
         <source>Changes only that clip; the rest is untouched. It is drawn inside the clip&apos;s row on the timeline.</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AeShortcutsDialog</name>
+    <message>
+        <source>Use After Effects&apos; shortcuts?</source>
+        <translation>Gamitin ang mga shortcut ng After Effects?</translation>
+    </message>
+    <message>
+        <source>Use After Effects&apos;</source>
+        <translation>Gamitin ang sa After Effects</translation>
+    </message>
+    <message>
+        <source>Keep Flip&apos;s</source>
+        <translation>Panatilihin ang sa Flip</translation>
+    </message>
+    <message>
+        <source>J and K go to the previous and next keyframe, P, S, R, T and A show one property, U and UU what is animated or changed, B and N set the work area, I and O go to the layer&apos;s ends, [ ] and Alt+[ ] move and trim the layer at the playhead.</source>
+        <translation>Pumupunta ang J at K sa nakaraan at susunod na keyframe, ipinapakita ng P, S, R, T at A ang iisang property, ng U at UU ang naka-animate o binago, itinatakda ng B at N ang work area, pumupunta ang I at O sa mga dulo ng layer, ginagalaw at pinuputol ng [ ] at Alt+[ ] ang layer sa playhead.</translation>
+    </message>
+    <message>
+        <source>You can switch any time in Preferences › Shortcuts. Shortcuts you changed yourself stay as they are.</source>
+        <translation>Mapapalitan mo ito kahit kailan sa Preferences › Mga shortcut. Mananatili ang mga shortcut na ikaw mismo ang nagbago.</translation>
     </message>
 </context>
 <context>
@@ -2246,7 +2269,7 @@
     </message>
     <message>
         <source>Pause</source>
-        <translation type="unfinished"></translation>
+        <translation>Hinto</translation>
     </message>
     <message>
         <source>Play</source>
@@ -2816,11 +2839,11 @@
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished"></translation>
+        <translation>Lahat</translation>
     </message>
     <message>
         <source>Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Mga paborito</translation>
     </message>
     <message>
         <source>Duration</source>
@@ -4259,6 +4282,14 @@
         <translation>Idinagdag ang “%1” sa “%2” · para gumuhit sa hiwalay na layer, pindutin muna ang Esc; para paghiwalayin, right-click › Paghiwalayin sa mga layer</translation>
     </message>
     <message>
+        <source>Sign in with Google to translate captions, or install the Offline translation extra</source>
+        <translation>Mag-sign in gamit ang Google para isalin ang mga subtitle, o i-install ang extra na Offline na pagsasalin</translation>
+    </message>
+    <message>
+        <source>Words bleeped: %1</source>
+        <translation>Mga salitang na-bleep: %1</translation>
+    </message>
+    <message>
         <source>Add mask</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4350,11 +4381,11 @@
     </message>
     <message>
         <source>Voice changer</source>
-        <translation type="unfinished"></translation>
+        <translation>Pambago ng boses</translation>
     </message>
     <message>
         <source>Voice: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Boses: %1</translation>
     </message>
     <message>
         <source>Voice changer off</source>
@@ -4712,7 +4743,7 @@
     </message>
     <message>
         <source>Keyframe easing changed</source>
-        <translation type="unfinished"></translation>
+        <translation>Binago ang easing ng keyframe</translation>
     </message>
     <message>
         <source>Keyframe easing updated</source>
@@ -5216,8 +5247,60 @@
         <translation>Opacity</translation>
     </message>
     <message>
+        <source>Step back one frame (Page Up)</source>
+        <translation>Isang frame pabalik (Page Up)</translation>
+    </message>
+    <message>
+        <source>Step forward one frame (Page Down)</source>
+        <translation>Isang frame pasulong (Page Down)</translation>
+    </message>
+    <message>
         <source>Show rulers</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Go to the layer&apos;s in point</source>
+        <translation>Pumunta sa simula ng layer</translation>
+    </message>
+    <message>
+        <source>Go to the layer&apos;s out point</source>
+        <translation>Pumunta sa dulo ng layer</translation>
+    </message>
+    <message>
+        <source>Add a Position keyframe</source>
+        <translation>Magdagdag ng keyframe ng Posisyon</translation>
+    </message>
+    <message>
+        <source>Add a Scale keyframe</source>
+        <translation>Magdagdag ng keyframe ng Scale</translation>
+    </message>
+    <message>
+        <source>Add a Rotation keyframe</source>
+        <translation>Magdagdag ng keyframe ng Pag-ikot</translation>
+    </message>
+    <message>
+        <source>Add an Opacity keyframe</source>
+        <translation>Magdagdag ng keyframe ng Opacity</translation>
+    </message>
+    <message>
+        <source>Add an Anchor point keyframe</source>
+        <translation>Magdagdag ng keyframe ng Anchor point</translation>
+    </message>
+    <message>
+        <source>Trim the layer&apos;s in point to the playhead</source>
+        <translation>Putulin ang simula ng layer sa playhead</translation>
+    </message>
+    <message>
+        <source>Trim the layer&apos;s out point to the playhead</source>
+        <translation>Putulin ang dulo ng layer sa playhead</translation>
+    </message>
+    <message>
+        <source>Move the layer so it starts at the playhead</source>
+        <translation>Ilipat ang layer para magsimula sa playhead</translation>
+    </message>
+    <message>
+        <source>Move the layer so it ends at the playhead</source>
+        <translation>Ilipat ang layer para matapos sa playhead</translation>
     </message>
     <message>
         <source>RAM preview (render to memory and play)</source>
@@ -5230,6 +5313,38 @@
     <message>
         <source>Ruler guides</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Replace voice</source>
+        <translation>Palitan ang boses</translation>
+    </message>
+    <message>
+        <source>Voice replaced</source>
+        <translation>Napalitan ang boses</translation>
+    </message>
+    <message>
+        <source>Trim layer</source>
+        <translation>Putulin ang layer</translation>
+    </message>
+    <message>
+        <source>Move layer</source>
+        <translation>Ilipat ang layer</translation>
+    </message>
+    <message>
+        <source>Put the playhead inside the layer to trim it there</source>
+        <translation>Ilagay ang playhead sa loob ng layer para putulin ito roon</translation>
+    </message>
+    <message>
+        <source>Sending the audio to ElevenLabs…</source>
+        <translation>Ipinapadala ang audio sa ElevenLabs…</translation>
+    </message>
+    <message>
+        <source>ElevenLabs is transcribing…</source>
+        <translation>Nagta-transcribe ang ElevenLabs…</translation>
+    </message>
+    <message>
+        <source>Speaker %1</source>
+        <translation>Tagapagsalita %1</translation>
     </message>
     <message>
         <source>Solids</source>
@@ -5246,6 +5361,14 @@
     <message>
         <source>Behavior changed</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Settle</source>
+        <translation>Pag-ayos</translation>
+    </message>
+    <message>
+        <source>Reverse keyframes</source>
+        <translation>Baligtarin ang mga keyframe</translation>
     </message>
     <message>
         <source>Pick two or more keys of a property to reverse them</source>
@@ -5434,6 +5557,90 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Translating the captions…</source>
+        <translation>Isinasalin ang mga caption…</translation>
+    </message>
+    <message>
+        <source>Could not translate the captions (no answer from the server)</source>
+        <translation>Hindi maisalin ang mga caption (walang sagot ang server)</translation>
+    </message>
+    <message>
+        <source>Translating the captions on this computer…</source>
+        <translation>Isinasalin ang mga subtitle sa computer na ito…</translation>
+    </message>
+    <message>
+        <source>Could not translate the captions</source>
+        <translation>Hindi maisalin ang mga subtitle</translation>
+    </message>
+    <message>
+        <source>The captions changed while they were being translated; try again</source>
+        <translation>Nagbago ang mga caption habang isinasalin; subukang muli</translation>
+    </message>
+    <message>
+        <source>Captions (%1)</source>
+        <translation>Mga caption (%1)</translation>
+    </message>
+    <message>
+        <source>Translate captions</source>
+        <translation>Isalin ang mga caption</translation>
+    </message>
+    <message>
+        <source>Captions translated into %1</source>
+        <translation>Naisalin ang mga caption sa %1</translation>
+    </message>
+    <message>
+        <source>Edit speaker</source>
+        <translation>I-edit ang tagapagsalita</translation>
+    </message>
+    <message>
+        <source>No key words to highlight in these subtitles</source>
+        <translation>Walang keyword na iha-highlight sa mga caption na ito</translation>
+    </message>
+    <message>
+        <source>Highlight key words</source>
+        <translation>I-highlight ang mga keyword</translation>
+    </message>
+    <message>
+        <source>Key words highlighted in %1 captions</source>
+        <translation>Na-highlight ang mga keyword sa %1 caption</translation>
+    </message>
+    <message>
+        <source>Install «Animated emojis» from Extras first</source>
+        <translation>I-install muna ang «Animated emojis» mula sa Extras</translation>
+    </message>
+    <message>
+        <source>Emoji: %1</source>
+        <translation>Emoji: %1</translation>
+    </message>
+    <message>
+        <source>No captions with an emoji word (fuego, Dios, fiesta…)</source>
+        <translation>Walang caption na may salitang may emoji (apoy, Diyos, party…)</translation>
+    </message>
+    <message>
+        <source>Animated emojis</source>
+        <translation>Animated emojis</translation>
+    </message>
+    <message>
+        <source>Animated emojis on %1 captions</source>
+        <translation>Animated emojis sa %1 caption</translation>
+    </message>
+    <message>
+        <source>No hidden words with their timing to bleep</source>
+        <translation>Walang nakatagong salita na may tiyempo para i-bleep</translation>
+    </message>
+    <message>
+        <source>Could not make the bleep</source>
+        <translation>Hindi magawa ang bleep</translation>
+    </message>
+    <message>
+        <source>Bleep swear words</source>
+        <translation>I-bleep ang mga mura</translation>
+    </message>
+    <message>
+        <source>Bleep</source>
+        <translation>Bip</translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5585,6 +5792,30 @@
     <message>
         <source>Select a clip with sound to enhance its voice</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Listening to the clip to write down what is said…</source>
+        <translation>Pinakikinggan ang clip para isulat ang sinasabi…</translation>
+    </message>
+    <message>
+        <source>Move the other tracks</source>
+        <translation>Ilipat ang ibang track</translation>
+    </message>
+    <message>
+        <source>Edit by text</source>
+        <translation>I-edit gamit ang teksto</translation>
+    </message>
+    <message>
+        <source>Remove silences</source>
+        <translation>Alisin ang mga katahimikan</translation>
+    </message>
+    <message>
+        <source>Cut %1 s from the video</source>
+        <translation>Pinutol ang %1 s sa video</translation>
+    </message>
+    <message>
+        <source>That would remove the whole clip</source>
+        <translation>Mabubura nito ang buong clip</translation>
     </message>
     <message>
         <source>Volume</source>
@@ -5950,6 +6181,34 @@
             <numerusform></numerusform>
             <numerusform></numerusform>
         </translation>
+    </message>
+    <message>
+        <source>Curved path</source>
+        <translation>Kurbadong landas</translation>
+    </message>
+    <message>
+        <source>Straight path</source>
+        <translation>Tuwid na landas</translation>
+    </message>
+    <message>
+        <source>Join Position</source>
+        <translation>Pagsamahin ang Posisyon</translation>
+    </message>
+    <message>
+        <source>Separate dimensions</source>
+        <translation>Paghiwalayin ang mga dimensyon</translation>
+    </message>
+    <message>
+        <source>Shape motion path</source>
+        <translation>Hubugin ang landas ng galaw</translation>
+    </message>
+    <message>
+        <source>Roving needs at least three Position keyframes</source>
+        <translation>Kailangan ng hindi bababa sa tatlong keyframe ng Posisyon para sa roving</translation>
+    </message>
+    <message>
+        <source>Roving keyframes</source>
+        <translation>Mga roving keyframe</translation>
     </message>
     <message>
         <source>Exporting…</source>
@@ -7221,7 +7480,7 @@
     </message>
     <message>
         <source>Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Mga paborito</translation>
     </message>
     <message>
         <source>Show fewer categories</source>
@@ -7795,24 +8054,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Recommended caption length</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>1 word per caption</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>%1 words per caption</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Basic</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Voice changer</source>
-        <translation type="unfinished"></translation>
+        <translation>Pambago ng boses</translation>
     </message>
     <message>
         <source>Fade in</source>
@@ -7821,6 +8068,66 @@
     <message>
         <source>Fade out</source>
         <translation type="unfinished">Unti-unting paglaho</translation>
+    </message>
+    <message>
+        <source>Voice from text</source>
+        <translation>Boses mula sa teksto</translation>
+    </message>
+    <message>
+        <source>Edit script…</source>
+        <translation>I-edit ang script…</translation>
+    </message>
+    <message>
+        <source>Change the text or the voice and speak it again, in place of this audio</source>
+        <translation>Baguhin ang teksto o boses at ipabigkas muli, kapalit ng audio na ito</translation>
+    </message>
+    <message>
+        <source>Discard the voice you made?</source>
+        <translation>Itapon ang boses na ginawa mo?</translation>
+    </message>
+    <message>
+        <source>Discard and go on</source>
+        <translation>Itapon at magpatuloy</translation>
+    </message>
+    <message>
+        <source>The Voice panel has a take that is not on the timeline yet. Add it first with «Add to timeline», or discard it to start this one.</source>
+        <translation>May take sa panel na Boses na wala pa sa timeline. Idagdag muna ito gamit ang «Idagdag sa timeline», o itapon ito para simulan ang isang ito.</translation>
+    </message>
+    <message>
+        <source>Lower the music under this voice</source>
+        <translation>Hinaan ang musika sa ilalim ng boses na ito</translation>
+    </message>
+    <message>
+        <source>Save the voice as a file…</source>
+        <translation>I-save ang boses bilang file…</translation>
+    </message>
+    <message>
+        <source>Save the voice</source>
+        <translation>I-save ang boses</translation>
+    </message>
+    <message>
+        <source>MP3 audio (*.mp3)</source>
+        <translation>MP3 audio (*.mp3)</translation>
+    </message>
+    <message>
+        <source>WAV audio (*.wav)</source>
+        <translation>WAV audio (*.wav)</translation>
+    </message>
+    <message>
+        <source>FLAC audio (*.flac)</source>
+        <translation>FLAC audio (*.flac)</translation>
+    </message>
+    <message>
+        <source>voice</source>
+        <translation>boses</translation>
+    </message>
+    <message>
+        <source>Voice saved</source>
+        <translation>Na-save ang boses</translation>
+    </message>
+    <message>
+        <source>Could not save the voice</source>
+        <translation>Hindi ma-save ang boses</translation>
     </message>
     <message>
         <source>Normalize loudness</source>
@@ -7871,6 +8178,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Create captions…</source>
+        <translation>Gumawa ng caption…</translation>
+    </message>
+    <message>
+        <source>Open Subtitles to create captions from this clip&apos;s speech</source>
+        <translation>Binubuksan ang Subtitles para gumawa ng caption mula sa pananalita sa clip na ito</translation>
+    </message>
+    <message>
+        <source>Edit by text…</source>
+        <translation>I-edit gamit ang teksto…</translation>
+    </message>
+    <message>
+        <source>See what is said and strike out words: the video loses those moments</source>
+        <translation>Tingnan ang sinasabi at guhitan ang mga salita: mawawala sa video ang mga sandaling iyon</translation>
+    </message>
+    <message>
         <source>C</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7908,31 +8231,7 @@
     </message>
     <message>
         <source>Install AI engine first</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Auto subtitles</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Shorter captions are timed by splitting each phrase evenly, so they can drift slightly out of sync with the speech.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Creating captions… %1%</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Create captions from speech</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Several selected clips become one caption clip</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Download speech recognition (about 670 MB)</source>
-        <translation type="unfinished"></translation>
+        <translation>I-install muna ang AI engine</translation>
     </message>
 </context>
 <context>
@@ -8169,7 +8468,7 @@
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Alisin</translation>
     </message>
 </context>
 <context>
@@ -8432,7 +8731,7 @@
     </message>
     <message>
         <source>Pitch</source>
-        <translation type="unfinished"></translation>
+        <translation>Tono</translation>
     </message>
     <message>
         <source>Yaw</source>
@@ -9679,7 +9978,7 @@
     </message>
     <message>
         <source>Animated</source>
-        <translation type="unfinished"></translation>
+        <translation>Animated</translation>
     </message>
     <message>
         <source>Ripple / Water</source>
@@ -10479,7 +10778,7 @@
     </message>
     <message>
         <source>Pitch</source>
-        <translation type="unfinished"></translation>
+        <translation>Tono</translation>
     </message>
     <message>
         <source>Deep Voice</source>
@@ -13137,6 +13436,37 @@ NEXT TIME</source>
     </message>
 </context>
 <context>
+    <name>ChatterboxTts</name>
+    <message>
+        <source>The voice model is not installed. Install the AI voice extra in Extras.</source>
+        <translation>Hindi naka-install ang voice model. I-install ang AI voice extra sa Extras.</translation>
+    </message>
+    <message>
+        <source>Failed to load text-to-speech model: %1</source>
+        <translation>Hindi ma-load ang text-to-speech model: %1</translation>
+    </message>
+    <message>
+        <source>Speech generation failed: %1</source>
+        <translation>Nabigo ang paggawa ng boses: %1</translation>
+    </message>
+    <message>
+        <source>The reference voice has no audio.</source>
+        <translation>Walang audio ang reference na boses.</translation>
+    </message>
+    <message>
+        <source>Voice encoding failed: %1</source>
+        <translation>Nabigo ang pag-encode ng boses: %1</translation>
+    </message>
+    <message>
+        <source>Unsupported language: %1</source>
+        <translation>Hindi suportadong wika: %1</translation>
+    </message>
+    <message>
+        <source>Invalid voice conditioning.</source>
+        <translation>Di-wastong voice conditioning.</translation>
+    </message>
+</context>
+<context>
     <name>ChipScroller</name>
     <message>
         <source>Previous</source>
@@ -13499,7 +13829,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>Ilapat</translation>
     </message>
     <message>
         <source>Save</source>
@@ -14902,7 +15232,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Install AI engine first</source>
-        <translation type="unfinished"></translation>
+        <translation>I-install muna ang AI engine</translation>
     </message>
     <message>
         <source>Depth</source>
@@ -15252,6 +15582,14 @@ NEXT TIME</source>
     <message>
         <source>Encode only the marked In/Out range instead of the full timeline</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Include the captions (inside the video and as .srt)</source>
+        <translation>Isama ang mga caption (sa loob ng video at bilang .srt)</translation>
+    </message>
+    <message>
+        <source>The captions as a track inside the video and as a file next to it, with the same name: players and YouTube can turn them on and off</source>
+        <translation>Ang mga caption bilang track sa loob ng video at bilang file sa tabi nito, na pareho ang pangalan: maaaring i-on at i-off ng mga player at ng YouTube</translation>
     </message>
     <message>
         <source>Saves what you see in the preview. Pick a size — the picture shape stays the same.</source>
@@ -16050,7 +16388,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Isara</translation>
     </message>
     <message>
         <source>Replace</source>
@@ -16156,7 +16494,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Mga paborito</translation>
     </message>
     <message>
         <source>All</source>
@@ -16433,7 +16771,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Options</source>
-        <translation type="unfinished"></translation>
+        <translation>Mga opsyon</translation>
     </message>
     <message>
         <source>Repeat</source>
@@ -16550,7 +16888,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Top</source>
-        <translation type="unfinished"></translation>
+        <translation>Itaas</translation>
     </message>
     <message>
         <source>Bottom</source>
@@ -16786,6 +17124,10 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Pos</source>
+        <translation>Pos</translation>
+    </message>
+    <message>
         <source>Layer</source>
         <translation type="unfinished"></translation>
     </message>
@@ -16810,12 +17152,40 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Value graph</source>
-        <translation type="unfinished"></translation>
+        <source>Graph type: value. Click: speed graph</source>
+        <translation>Uri ng graph: value. I-click: speed graph</translation>
     </message>
     <message>
-        <source>Speed graph</source>
-        <translation type="unfinished"></translation>
+        <source>Graph type: speed. Click: automatic</source>
+        <translation>Uri ng graph: speed. I-click: awtomatiko</translation>
+    </message>
+    <message>
+        <source>Graph type: automatic (speed for a joined Position, value for the rest). Click: value graph</source>
+        <translation>Uri ng graph: awtomatiko (speed para sa pinagsamang Posisyon, value para sa iba). I-click: value graph</translation>
+    </message>
+    <message>
+        <source>Fit the whole curve in view (Ctrl+wheel zooms the values, Alt+wheel the time)</source>
+        <translation>Tingnan ang buong kurba (Ctrl+wheel para i-zoom ang value, Alt+wheel ang oras)</translation>
+    </message>
+    <message>
+        <source>Zoom to the picked keyframes</source>
+        <translation>I-zoom sa mga piniling keyframe</translation>
+    </message>
+    <message>
+        <source>Show only the curve being edited</source>
+        <translation>Ipakita lang ang kurbang ine-edit</translation>
+    </message>
+    <message>
+        <source>Show the other properties&apos; curves too</source>
+        <translation>Ipakita rin ang kurba ng ibang property</translation>
+    </message>
+    <message>
+        <source>Graph under its layer again</source>
+        <translation>Ibalik ang graph sa ilalim ng layer nito</translation>
+    </message>
+    <message>
+        <source>Graph over the whole timeline, as After Effects&apos; Graph Editor</source>
+        <translation>Graph sa buong timeline, tulad ng Graph Editor ng After Effects</translation>
     </message>
     <message>
         <source>Separate dimensions: key X and Y of Position apart</source>
@@ -16885,6 +17255,10 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Transform keyframes</source>
+        <translation>I-transform ang mga keyframe</translation>
+    </message>
+    <message>
         <source>Edit keyframe curve</source>
         <translation type="unfinished"></translation>
     </message>
@@ -16908,8 +17282,20 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Keyframe easing changed</source>
+        <translation>Binago ang easing ng keyframe</translation>
+    </message>
+    <message>
+        <source>Paste keyframes</source>
+        <translation>I-paste ang mga keyframe</translation>
+    </message>
+    <message>
+        <source>Remove keyframes</source>
+        <translation>Alisin ang mga keyframe</translation>
+    </message>
+    <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>Ilapat</translation>
     </message>
     <message>
         <source>50% packs the picked keys into half the time, 200% spreads them over twice. The first one stays where it is. Alt + dragging the first or last key does the same by hand.</source>
@@ -16944,8 +17330,28 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Curved path (auto Bezier)</source>
+        <translation>Kurbadong landas (awtomatikong Bezier)</translation>
+    </message>
+    <message>
+        <source>Straight path</source>
+        <translation>Tuwid na landas</translation>
+    </message>
+    <message>
+        <source>Roving (one speed along the path)</source>
+        <translation>Roving (iisang bilis sa landas)</translation>
+    </message>
+    <message>
+        <source>Separate dimensions (X and Y apart)</source>
+        <translation>Paghiwalayin ang mga dimensyon (hiwalay ang X at Y)</translation>
+    </message>
+    <message>
+        <source>Join Position (one path)</source>
+        <translation>Pagsamahin ang Posisyon (isang landas)</translation>
+    </message>
+    <message>
         <source>Reverse keyframes</source>
-        <translation type="unfinished"></translation>
+        <translation>Baligtarin ang mga keyframe</translation>
     </message>
     <message>
         <source>Stretch keyframes…</source>
@@ -16972,7 +17378,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>Ilapat</translation>
     </message>
     <message>
         <source>Speed in units per second. Influence is how far the handle reaches towards the next key: more is a softer ease.</source>
@@ -16984,7 +17390,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>Bilis</translation>
     </message>
     <message>
         <source>Influence</source>
@@ -17178,6 +17584,21 @@ NEXT TIME</source>
     <message>
         <source>720p</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>LocalTranscription</name>
+    <message>
+        <source>Finding speech…</source>
+        <translation>Hinahanap ang pananalita…</translation>
+    </message>
+    <message>
+        <source>Timing words…</source>
+        <translation>Inaayos ang tiyempo ng mga salita…</translation>
+    </message>
+    <message>
+        <source>Telling speakers apart…</source>
+        <translation>Pinaghihiwalay ang mga nagsasalita…</translation>
     </message>
 </context>
 <context>
@@ -17570,6 +17991,26 @@ NEXT TIME</source>
     <message>
         <source>Your example is ready. Try this:</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>What is the video for?</source>
+        <translation>Para saan ang video?</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Kanselahin</translation>
+    </message>
+    <message>
+        <source>The template is fitted to the shape of your video.</source>
+        <translation>Iaangkop ang template sa hugis ng iyong video.</translation>
+    </message>
+    <message>
+        <source>Short (vertical 9:16)</source>
+        <translation>Short (patayo 9:16)</translation>
+    </message>
+    <message>
+        <source>Video (horizontal 16:9)</source>
+        <translation>Video (pahiga 16:9)</translation>
     </message>
     <message>
         <source>Click a clip on the timeline to change it on the right.</source>
@@ -18261,7 +18702,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Install AI engine first</source>
-        <translation type="unfinished"></translation>
+        <translation>I-install muna ang AI engine</translation>
     </message>
     <message>
         <source>Add click-to-pick cutout (about 190 MB)</source>
@@ -18289,7 +18730,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Mga paborito</translation>
     </message>
     <message>
         <source>No favorites yet. Star masks to save them here.</source>
@@ -18850,7 +19291,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Pause</source>
-        <translation type="unfinished"></translation>
+        <translation>Hinto</translation>
     </message>
     <message>
         <source>Play</source>
@@ -19417,7 +19858,7 @@ NEXT TIME</source>
     <name>MotionPathOverlay</name>
     <message>
         <source>Shape motion path</source>
-        <translation type="unfinished"></translation>
+        <translation>Hubugin ang landas ng galaw</translation>
     </message>
     <message>
         <source>Move keyframe</source>
@@ -19901,7 +20342,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Pause</source>
-        <translation type="unfinished"></translation>
+        <translation>Hinto</translation>
     </message>
     <message>
         <source>Play</source>
@@ -20737,6 +21178,14 @@ If playback stutters, try another.</source>
         <translation>Mga opsyon ng stroke: wala, solido, linear o radial na gradient, blend mode at opacity</translation>
     </message>
     <message>
+        <source>Fill colour. Right-click: no fill (or back on)</source>
+        <translation>Kulay ng fill. Right-click: walang fill (o ibalik)</translation>
+    </message>
+    <message>
+        <source>Stroke colour. Right-click: no stroke (or back on)</source>
+        <translation>Kulay ng stroke. Right-click: walang stroke (o ibalik)</translation>
+    </message>
+    <message>
         <source>Selection</source>
         <translation type="unfinished"></translation>
     </message>
@@ -20825,7 +21274,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Pause</source>
-        <translation type="unfinished"></translation>
+        <translation>Hinto</translation>
     </message>
     <message>
         <source>Play</source>
@@ -21572,7 +22021,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>Ilapat</translation>
     </message>
     <message>
         <source>What After Effects does with expressions, without writing code. They add up: the loop, then the constant speed, then the wiggle.</source>
@@ -21647,8 +22096,8 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>value, time, wiggle(freq, amount), Math, and thisComp.layer(&quot;Name&quot;).transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. The last line is the result.</source>
-        <translation type="unfinished"></translation>
+        <source>value, time, index, thisLayer, wiggle(freq, amount), linear / ease / easeIn / easeOut(t, tMin, tMax, a, b), clamp, valueAtTime(t), velocity, speed, Math, and thisComp.layer(&quot;Name&quot;).transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. The last line is the result.</source>
+        <translation>value, time, index, thisLayer, wiggle(freq, amount), linear / ease / easeIn / easeOut(t, tMin, tMax, a, b), clamp, valueAtTime(t), velocity, speed, Math, at thisComp.layer(&quot;Name&quot;).transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. Ang huling linya ang resulta.</translation>
     </message>
 </context>
 <context>
@@ -21997,7 +22446,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Could not save the voice</source>
-        <translation type="unfinished"></translation>
+        <translation>Hindi ma-save ang boses</translation>
     </message>
 </context>
 <context>
@@ -22278,7 +22727,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Install AI engine first</source>
-        <translation type="unfinished"></translation>
+        <translation>I-install muna ang AI engine</translation>
     </message>
     <message>
         <source>Get models (openmodeldb.info)</source>
@@ -23350,14 +23799,6 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Transcription (Scribe), voiceover, sound effects</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Voiceover</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>No key</source>
         <translation type="unfinished"></translation>
     </message>
@@ -23558,6 +23999,14 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Transcription (Scribe); voiceover and sound effects through AI agents</source>
+        <translation>Transcription (Scribe); voiceover at sound effects sa pamamagitan ng mga AI agent</translation>
+    </message>
+    <message>
+        <source>Voiceover through AI agents</source>
+        <translation>Voiceover sa pamamagitan ng mga AI agent</translation>
+    </message>
+    <message>
         <source>Needed before Flip Studio or a connected agent can transcribe or generate audio with this service</source>
         <translation type="unfinished"></translation>
     </message>
@@ -23598,7 +24047,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Pause</source>
-        <translation type="unfinished"></translation>
+        <translation>Hinto</translation>
     </message>
     <message>
         <source>Play preview</source>
@@ -23610,7 +24059,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add to the timeline</source>
-        <translation type="unfinished"></translation>
+        <translation>Idagdag sa timeline</translation>
     </message>
 </context>
 <context>
@@ -24051,7 +24500,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Burahin</translation>
     </message>
 </context>
 <context>
@@ -25094,6 +25543,26 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Shortcut set</source>
+        <translation>Set ng shortcut</translation>
+    </message>
+    <message>
+        <source>Flip</source>
+        <translation>Flip</translation>
+    </message>
+    <message>
+        <source>Flip&apos;s own shortcuts</source>
+        <translation>Sariling mga shortcut ng Flip</translation>
+    </message>
+    <message>
+        <source>After Effects</source>
+        <translation>After Effects</translation>
+    </message>
+    <message>
+        <source>As in After Effects: J/K go between keyframes, P/S/R/T/A show one property, U/UU, B/N the work area, I/O the layer&apos;s ends, [ ] and Alt+[ ] move and trim the layer at the playhead</source>
+        <translation>Tulad sa After Effects: J/K sa pagitan ng mga keyframe, P/S/R/T/A isang property, U/UU, B/N ang work area, I/O ang mga dulo ng layer, [ ] at Alt+[ ] gumagalaw at pumuputol sa layer sa playhead</translation>
+    </message>
+    <message>
         <source>Click a shortcut, then press the keys. Esc cancels, Backspace clears.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -25178,6 +25647,49 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>SilenceReviewWindow</name>
+    <message>
+        <source>Remove silences</source>
+        <translation>Alisin ang mga katahimikan</translation>
+    </message>
+    <message>
+        <source>Untick what you want to keep. Click a row to hear it.</source>
+        <translation>Alisin ang tsek sa gusto mong panatilihin. I-click ang isang hilera para marinig ito.</translation>
+    </message>
+    <message>
+        <source>Pauses longer than</source>
+        <translation>Mga hinto na mas mahaba sa</translation>
+    </message>
+    <message>
+        <source>Also filler words (eh, mmm)</source>
+        <translation>Pati mga pampuno (eh, mmm)</translation>
+    </message>
+    <message>
+        <source>Pause</source>
+        <translation>Hinto</translation>
+    </message>
+    <message>
+        <source>Listen</source>
+        <translation>Pakinggan</translation>
+    </message>
+    <message>
+        <source>No pauses this long in the clip.</source>
+        <translation>Walang ganito kahabang hinto sa clip.</translation>
+    </message>
+    <message>
+        <source>%1 of %2 · %3 s</source>
+        <translation>%1 sa %2 · %3 s</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Kanselahin</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>Alisin</translation>
+    </message>
+</context>
+<context>
     <name>SolidDialog</name>
     <message>
         <source>Solid settings</source>
@@ -25189,7 +25701,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>Ilapat</translation>
     </message>
     <message>
         <source>Solid</source>
@@ -25260,7 +25772,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Listen</source>
-        <translation type="unfinished"></translation>
+        <translation>Pakinggan</translation>
     </message>
     <message>
         <source>Add at the playhead</source>
@@ -25271,42 +25783,26 @@ If playback stutters, try another.</source>
     <name>SpeechTab</name>
     <message>
         <source>Voice saved</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Turn a script into speech with a built-in or cloned voice. It is generated on this device and added at the playhead.</source>
-        <translation type="unfinished"></translation>
+        <translation>Na-save ang boses</translation>
     </message>
     <message>
         <source>Speech generation runs on this device and needs the voice model.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tumatakbo sa device na ito ang paggawa ng boses at kailangan nito ang voice model.</translation>
     </message>
     <message>
         <source>Download voice model</source>
-        <translation type="unfinished"></translation>
+        <translation>I-download ang voice model</translation>
     </message>
     <message>
         <source>Install AI engine first</source>
-        <translation type="unfinished"></translation>
+        <translation>I-install muna ang AI engine</translation>
     </message>
     <message>
         <source>Needed to generate speech</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Type what the voice should say</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>%1 characters, about %2 s</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Speech longer than 30 seconds often ends in gibberish or silence. Split the script into shorter parts.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Voice</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -25359,11 +25855,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Learning the voice…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Language</source>
-        <translation type="unfinished"></translation>
+        <translation>Pinag-aaralan ang boses…</translation>
     </message>
     <message>
         <source>Expressiveness</source>
@@ -25375,10 +25867,6 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Generate speech</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Generate speech and add it at the playhead</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -25407,7 +25895,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>My voice</source>
-        <translation type="unfinished"></translation>
+        <translation>Aking boses</translation>
     </message>
     <message>
         <source>Import a voice sample</source>
@@ -25420,6 +25908,106 @@ If playback stutters, try another.</source>
     <message>
         <source>All files (*)</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Voice from your text</source>
+        <translation>Boses mula sa iyong teksto</translation>
+    </message>
+    <message>
+        <source>Editing the script of a voice on the timeline: the new take replaces its audio.</source>
+        <translation>Ine-edit ang script ng isang boses sa timeline: papalitan ng bagong take ang audio nito.</translation>
+    </message>
+    <message>
+        <source>Type or paste the script. [pause 1s] adds a silence.</source>
+        <translation>I-type o i-paste ang script. Nagdadagdag ng katahimikan ang [pause 1s].</translation>
+    </message>
+    <message>
+        <source>Import script…</source>
+        <translation>Mag-import ng script…</translation>
+    </message>
+    <message>
+        <source>A .txt, .md or Word (.docx) file</source>
+        <translation>Isang .txt, .md o Word (.docx) na file</translation>
+    </message>
+    <message>
+        <source>Import a script</source>
+        <translation>Mag-import ng script</translation>
+    </message>
+    <message>
+        <source>Scripts (*.txt *.md *.docx)</source>
+        <translation>Mga script (*.txt *.md *.docx)</translation>
+    </message>
+    <message>
+        <source>That file has no text that can be read</source>
+        <translation>Walang mababasang teksto ang file na iyon</translation>
+    </message>
+    <message>
+        <source>Voice: %1</source>
+        <translation>Boses: %1</translation>
+    </message>
+    <message>
+        <source>A dialogue: a voice for each person</source>
+        <translation>Isang dayalogo: isang boses para sa bawat tao</translation>
+    </message>
+    <message>
+        <source>Generate again</source>
+        <translation>Gumawa ulit</translation>
+    </message>
+    <message>
+        <source>Speak the script; you hear it before it goes on the timeline</source>
+        <translation>Ipabigkas ang script; maririnig mo ito bago ilagay sa timeline</translation>
+    </message>
+    <message>
+        <source>Listen to the whole take</source>
+        <translation>Pakinggan ang buong take</translation>
+    </message>
+    <message>
+        <source>Take: %1 s</source>
+        <translation>Take: %1 s</translation>
+    </message>
+    <message>
+        <source>Listen to this sentence</source>
+        <translation>Pakinggan ang pangungusap na ito</translation>
+    </message>
+    <message>
+        <source>Speak this sentence again</source>
+        <translation>Ipabigkas muli ang pangungusap na ito</translation>
+    </message>
+    <message>
+        <source>Also create its captions</source>
+        <translation>Gumawa rin ng captions nito</translation>
+    </message>
+    <message>
+        <source>Replace the voice on the timeline</source>
+        <translation>Palitan ang boses sa timeline</translation>
+    </message>
+    <message>
+        <source>Add to the timeline</source>
+        <translation>Idagdag sa timeline</translation>
+    </message>
+    <message>
+        <source>Discard</source>
+        <translation>Itapon</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation>Mga opsyon</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>Bilis</translation>
+    </message>
+    <message>
+        <source>%1×</source>
+        <translation>%1×</translation>
+    </message>
+    <message>
+        <source>Pitch</source>
+        <translation>Tono</translation>
+    </message>
+    <message>
+        <source>Stop preparing the voice</source>
+        <translation>Itigil ang paghahanda ng boses</translation>
     </message>
     <message>
         <source>Name</source>
@@ -25442,8 +26030,8 @@ If playback stutters, try another.</source>
         <translation>%1 s</translation>
     </message>
     <message>
-        <source>Record 5 to 20 seconds in a quiet room. Read this aloud in your natural voice:</source>
-        <translation type="unfinished"></translation>
+        <source>Record 3 to 20 seconds in a quiet room (it stops by itself at 20). Read this aloud in your natural voice:</source>
+        <translation>Mag-record ng 3 hanggang 20 segundo sa tahimik na kuwarto (kusa itong titigil sa 20). Basahin ito nang malakas gamit ang natural mong boses:</translation>
     </message>
     <message>
         <source>The quick brown fox jumps over the lazy dog, while a gentle breeze moves through the quiet garden and the evening light fades slowly.</source>
@@ -25456,6 +26044,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Start recording</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>20 s: done, save the voice</source>
+        <translation>20 s: tapos na, i-save ang boses</translation>
     </message>
     <message>
         <source>I have the right to use this person&apos;s voice</source>
@@ -25493,7 +26085,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Pause</source>
-        <translation type="unfinished"></translation>
+        <translation>Hinto</translation>
     </message>
     <message>
         <source>Play</source>
@@ -25663,7 +26255,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>Ilapat</translation>
     </message>
     <message>
         <source>Apply letter by letter</source>
@@ -25679,7 +26271,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished"></translation>
+        <translation>Lahat</translation>
     </message>
     <message>
         <source>How hard it squashes, stretches and bends</source>
@@ -25695,7 +26287,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>Bilis</translation>
     </message>
     <message>
         <source>Faster makes it shorter, slower makes it longer</source>
@@ -25995,6 +26587,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>A simpler version in the browser: it doesn&apos;t have every tool of this app and gets no new ones. Everything new comes to this app.</source>
+        <translation>Mas simpleng bersyon sa browser: wala rito ang lahat ng tool ng app na ito at hindi na ito nakakatanggap ng bago. Lahat ng bago ay dumarating sa app na ito.</translation>
+    </message>
+    <message>
         <source>Click to sign in</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26273,7 +26869,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Pause</source>
-        <translation type="unfinished"></translation>
+        <translation>Hinto</translation>
     </message>
     <message>
         <source>Play preview</source>
@@ -26588,12 +27184,12 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Play the timeline — the line on screen lights up. Tap any line to edit it.</source>
-        <translation type="unfinished"></translation>
+        <source>Translate</source>
+        <translation>Isalin</translation>
     </message>
     <message>
-        <source>Play the timeline — the line on screen lights up. Click any line to jump to it and edit it below.</source>
-        <translation type="unfinished"></translation>
+        <source>The captions in another language, as a second line above (bilingual)</source>
+        <translation>Ang mga caption sa ibang wika, bilang ikalawang linya sa itaas (bilingual)</translation>
     </message>
     <message>
         <source>Import</source>
@@ -26626,6 +27222,18 @@ If playback stutters, try another.</source>
     <message>
         <source>Offset the exported captions by this clip&apos;s start so they match the exported video</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Translating…</source>
+        <translation>Isinasalin…</translation>
+    </message>
+    <message>
+        <source>Captions that will change: %1</source>
+        <translation>Mga caption na magbabago: %1</translation>
+    </message>
+    <message>
+        <source>+ %1 more</source>
+        <translation>+ %1 pa</translation>
     </message>
     <message>
         <source>(empty)</source>
@@ -26668,8 +27276,24 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Delete caption</source>
-        <translation type="unfinished"></translation>
+        <source>Style: same as the clip</source>
+        <translation>Istilo: kapareho ng clip</translation>
+    </message>
+    <message>
+        <source>Like the clip</source>
+        <translation>Gaya ng clip</translation>
+    </message>
+    <message>
+        <source>Top</source>
+        <translation>Itaas</translation>
+    </message>
+    <message>
+        <source>Middle</source>
+        <translation>Gitna</translation>
+    </message>
+    <message>
+        <source>Where this caption sits on screen</source>
+        <translation>Kung saan nakalagay ang caption na ito sa screen</translation>
     </message>
     <message>
         <source>At %1</source>
@@ -26686,6 +27310,30 @@ If playback stutters, try another.</source>
     <message>
         <source>Emojis</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Too short to read</source>
+        <translation>Masyadong maikli para mabasa</translation>
+    </message>
+    <message>
+        <source>On screen too long</source>
+        <translation>Masyadong matagal sa screen</translation>
+    </message>
+    <message>
+        <source>Too fast to read</source>
+        <translation>Masyadong mabilis para mabasa</translation>
+    </message>
+    <message>
+        <source>Move all captions</source>
+        <translation>Ilipat lahat</translation>
+    </message>
+    <message>
+        <source>All captions 0.1 s earlier</source>
+        <translation>Lahat 0.1 s mas maaga</translation>
+    </message>
+    <message>
+        <source>All captions 0.1 s later</source>
+        <translation>Lahat 0.1 s mas huli</translation>
     </message>
     <message>
         <source>Replace these captions from an SRT, WebVTT or ASS file</source>
@@ -26716,6 +27364,30 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Animated</source>
+        <translation>Animated</translation>
+    </message>
+    <message>
+        <source>An animated emoji above each caption that mentions one (fuego, Dios, fiesta…)</source>
+        <translation>Isang animated emoji sa itaas ng bawat caption na bumabanggit nito (apoy, Diyos, party…)</translation>
+    </message>
+    <message>
+        <source>Bleep</source>
+        <translation>Bleep</translation>
+    </message>
+    <message>
+        <source>A beep over each hidden swear word, with the voice muted under it</source>
+        <translation>Isang beep sa bawat nakatagong mura, naka-mute ang boses sa ilalim</translation>
+    </message>
+    <message>
+        <source>Key words</source>
+        <translation>Mga keyword</translation>
+    </message>
+    <message>
+        <source>Highlight the key word of each caption in colour (a number, a name, what matters)</source>
+        <translation>Iha-highlight sa kulay ang keyword ng bawat caption (isang numero, pangalan, ang mahalaga)</translation>
+    </message>
+    <message>
         <source>Clean up</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26730,6 +27402,70 @@ If playback stutters, try another.</source>
     <message>
         <source>Fix a word in every caption at once</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spelling</source>
+        <translation>Baybay</translation>
+    </message>
+    <message>
+        <source>Check the spelling of every caption, one word at a time</source>
+        <translation>Sinusuri ang baybay ng bawat caption, isa-isang salita</translation>
+    </message>
+    <message>
+        <source>Speakers</source>
+        <translation>Mga tagapagsalita</translation>
+    </message>
+    <message>
+        <source>File and timing</source>
+        <translation>File at tiyempo</translation>
+    </message>
+    <message>
+        <source>Words to check: %1</source>
+        <translation>Mga salitang susuriin: %1</translation>
+    </message>
+    <message>
+        <source>No spelling mistakes found.</source>
+        <translation>Walang nakitang mali sa baybay.</translation>
+    </message>
+    <message>
+        <source>Remove repeated word</source>
+        <translation>Alisin ang naulit na salita</translation>
+    </message>
+    <message>
+        <source>No suggestions: fix it in the text box.</source>
+        <translation>Walang mungkahi: ayusin ito sa text box.</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>Isara</translation>
+    </message>
+    <message>
+        <source>Without an account they are translated on this computer (a little slower).</source>
+        <translation>Kapag walang account, isinasalin ang mga ito sa computer na ito (medyo mas mabagal).</translation>
+    </message>
+    <message>
+        <source>Sign in with Google to translate captions, or install the Offline translation extra</source>
+        <translation>Mag-sign in gamit ang Google para isalin ang mga caption, o i-install ang extra na Offline na pagsasalin</translation>
+    </message>
+    <message>
+        <source>Ignore</source>
+        <translation>Huwag pansinin</translation>
+    </message>
+    <message>
+        <source>Nothing to change in these captions.</source>
+        <translation>Walang babaguhin sa mga caption na ito.</translation>
+    </message>
+    <message>
+        <source>(removed)</source>
+        <translation>(tatanggalin)</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Kanselahin</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>Ilapat</translation>
     </message>
     <message>
         <source>Find (e.g. jesus)</source>
@@ -26795,6 +27531,38 @@ If playback stutters, try another.</source>
         <source>Tip: write a word between asterisks, like *faith*, to highlight it in colour.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>One frame earlier</source>
+        <translation>Isang frame mas maaga</translation>
+    </message>
+    <message>
+        <source>One frame later</source>
+        <translation>Isang frame mas huli</translation>
+    </message>
+    <message>
+        <source>Split</source>
+        <translation>Hatiin</translation>
+    </message>
+    <message>
+        <source>Split this caption at the playhead</source>
+        <translation>Hatiin ang caption na ito sa playhead</translation>
+    </message>
+    <message>
+        <source>Join</source>
+        <translation>Pagsamahin</translation>
+    </message>
+    <message>
+        <source>Join this caption with the next one</source>
+        <translation>Pagsamahin ang caption na ito sa susunod</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete this caption</source>
+        <translation>Burahin ang caption na ito</translation>
+    </message>
 </context>
 <context>
     <name>SubtitleProgressDialog</name>
@@ -26817,18 +27585,6 @@ If playback stutters, try another.</source>
 </context>
 <context>
     <name>SubtitlesTab</name>
-    <message>
-        <source>Subtitle track — one clip holds many timed captions. Place it on the timeline, trim its length, then add caption lines at each moment in the clip panel.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Add subtitle clip</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Import subtitle file</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
         <source>Import Subtitles</source>
         <translation type="unfinished"></translation>
@@ -26854,20 +27610,48 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Add auto caption</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Creates captions from the speech in the selected clip.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Select a video or audio clip on the timeline first.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>On this computer</source>
+        <translation>Sa computer na ito</translation>
+    </message>
+    <message>
+        <source>In the cloud</source>
+        <translation>Sa cloud</translation>
+    </message>
+    <message>
+        <source>ElevenLabs Scribe: the audio is sent to ElevenLabs with your key</source>
+        <translation>ElevenLabs Scribe: ipinapadala ang audio sa ElevenLabs gamit ang iyong key</translation>
+    </message>
+    <message>
+        <source>Hard words: names, brands… (separated by commas)</source>
+        <translation>Mahihirap na salita: pangalan, brand… (hiwalay sa kuwit)</translation>
+    </message>
+    <message>
+        <source>Style of the selected captions</source>
+        <translation>Estilo ng mga napiling caption</translation>
+    </message>
+    <message>
+        <source>Two lines per caption</source>
+        <translation>Dalawang linya bawat caption</translation>
+    </message>
+    <message>
+        <source>Hide swear words (m*****)</source>
+        <translation>Itago ang mura (p****)</translation>
+    </message>
+    <message>
         <source>Shorter captions are timed by splitting each phrase evenly, so they can drift slightly out of sync with the speech.</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Captions from the voice</source>
+        <translation>Mga caption mula sa boses</translation>
+    </message>
+    <message>
+        <source>Create captions</source>
+        <translation>Gumawa ng mga caption</translation>
     </message>
     <message>
         <source>Create captions from the selected clips&apos; speech — several clips become one caption clip</source>
@@ -26895,11 +27679,43 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Install AI engine first</source>
-        <translation type="unfinished"></translation>
+        <translation>I-install muna ang AI engine</translation>
     </message>
     <message>
         <source>Needed for auto captions from speech</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation>Mga opsyon</translation>
+    </message>
+    <message>
+        <source>Tell the speakers apart (a colour for each)</source>
+        <translation>Paghiwalayin ang mga nagsasalita (isang kulay bawat isa)</translation>
+    </message>
+    <message>
+        <source>Highlight key words in colour</source>
+        <translation>I-highlight sa kulay ang mga keyword</translation>
+    </message>
+    <message>
+        <source>Show fewer</source>
+        <translation>Ipakita nang kaunti</translation>
+    </message>
+    <message>
+        <source>See all styles (%1)</source>
+        <translation>Tingnan lahat ng istilo (%1)</translation>
+    </message>
+    <message>
+        <source>Write by hand</source>
+        <translation>Isulat nang mano-mano</translation>
+    </message>
+    <message>
+        <source>An empty caption clip at the playhead: write each line in the clip panel</source>
+        <translation>Isang walang laman na caption clip sa playhead: isulat ang bawat linya sa panel ng clip</translation>
+    </message>
+    <message>
+        <source>Import file</source>
+        <translation>Mag-import ng file</translation>
     </message>
     <message>
         <source>Recommended caption length</source>
@@ -27499,7 +28315,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Mga paborito</translation>
     </message>
     <message>
         <source>Trending</source>
@@ -27604,6 +28420,41 @@ If playback stutters, try another.</source>
     <message>
         <source>Get more templates</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>TextEditWindow</name>
+    <message>
+        <source>Edit by text</source>
+        <translation>I-edit gamit ang teksto</translation>
+    </message>
+    <message>
+        <source>Click the words to take out (Shift + click for a stretch). Double click to hear one.</source>
+        <translation>I-click ang mga salitang aalisin (Shift + click para sa isang bahagi). Double click para marinig.</translation>
+    </message>
+    <message>
+        <source>No words found in this clip.</source>
+        <translation>Walang nakitang salita sa clip na ito.</translation>
+    </message>
+    <message>
+        <source>Listening to the clip to write down what is said… %1%</source>
+        <translation>Pinapakinggan ang clip para isulat ang sinasabi… %1%</translation>
+    </message>
+    <message>
+        <source>The first time takes a while; then it opens at once.</source>
+        <translation>Medyo matagal ang unang beses; pagkatapos ay agad na itong bubukas.</translation>
+    </message>
+    <message>
+        <source>%1 words · %2 s</source>
+        <translation>%1 salita · %2 s</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Kanselahin</translation>
+    </message>
+    <message>
+        <source>Cut</source>
+        <translation>Putulin</translation>
     </message>
 </context>
 <context>
@@ -28101,7 +28952,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Mga paborito</translation>
     </message>
     <message>
         <source>Templates</source>
@@ -28170,6 +29021,26 @@ If playback stutters, try another.</source>
     <message>
         <source>These letters go back to the style of the whole text</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Read aloud…</source>
+        <translation>Basahin nang malakas…</translation>
+    </message>
+    <message>
+        <source>Turn this text into a voice that starts with it</source>
+        <translation>Gawing boses ang tekstong ito na nagsisimula kasabay nito</translation>
+    </message>
+    <message>
+        <source>Discard the voice you made?</source>
+        <translation>Itapon ang boses na ginawa mo?</translation>
+    </message>
+    <message>
+        <source>Discard and go on</source>
+        <translation>Itapon at magpatuloy</translation>
+    </message>
+    <message>
+        <source>The Voice panel has a take that is not on the timeline yet. Add it first with «Add to timeline», or discard it to start this one.</source>
+        <translation>May take sa panel na Boses na wala pa sa timeline. Idagdag muna ito gamit ang «Idagdag sa timeline», o itapon ito para simulan ang isang ito.</translation>
     </message>
     <message>
         <source>Bold</source>
@@ -28421,7 +29292,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Soft</source>
-        <translation type="unfinished"></translation>
+        <translation>Malumanay</translation>
     </message>
     <message>
         <source>Strong</source>
@@ -30243,6 +31114,18 @@ If playback stutters, try another.</source>
 <context>
     <name>TimelinePanel</name>
     <message>
+        <source>Move work area</source>
+        <translation>Ilipat ang work area</translation>
+    </message>
+    <message>
+        <source>Work area: drag to move it</source>
+        <translation>Work area: i-drag para ilipat</translation>
+    </message>
+    <message>
+        <source>Work area: drag to change where it starts or ends</source>
+        <translation>Work area: i-drag para baguhin kung saan nagsisimula o natatapos</translation>
+    </message>
+    <message>
         <source>Proxy</source>
         <translation type="unfinished"></translation>
     </message>
@@ -30383,7 +31266,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Pause</source>
-        <translation type="unfinished"></translation>
+        <translation>Hinto</translation>
     </message>
     <message>
         <source>Play</source>
@@ -30667,7 +31550,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Remove silences</source>
-        <translation type="unfinished"></translation>
+        <translation>Alisin ang mga katahimikan</translation>
     </message>
     <message>
         <source>Remove silences and filler words — keep only the spoken parts (eh, mmm and long pauses go)</source>
@@ -31104,7 +31987,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Remove keyframes</source>
-        <translation type="unfinished"></translation>
+        <translation>Alisin ang mga keyframe</translation>
     </message>
     <message>
         <source>Stop animating (removes its keyframes)</source>
@@ -31164,7 +32047,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Alisin</translation>
     </message>
     <message>
         <source>The clip keeps the value it has at the playhead. You can undo afterwards.</source>
@@ -31242,7 +32125,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Separate dimensions</source>
-        <translation type="unfinished"></translation>
+        <translation>Paghiwalayin ang mga dimensyon</translation>
     </message>
     <message>
         <source>Behavior…</source>
@@ -32334,7 +33217,11 @@ If playback stutters, try another.</source>
     <name>TtsController</name>
     <message>
         <source>Loading voice model…</source>
-        <translation type="unfinished"></translation>
+        <translation>Nilo-load ang voice model…</translation>
+    </message>
+    <message>
+        <source>No speech was produced</source>
+        <translation>Walang nagawang boses</translation>
     </message>
     <message>
         <source>Install the voice model first</source>
@@ -32349,16 +33236,63 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Generating speech…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Cancelled</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Speaking sentence %1 of %2…</source>
+        <translation>Binibigkas ang pangungusap %1 ng %2…</translation>
+    </message>
+    <message>
+        <source>Sentence %1 could not be spoken: %2</source>
+        <translation>Hindi mabigkas ang pangungusap %1: %2</translation>
+    </message>
+    <message>
+        <source>Putting the take together…</source>
+        <translation>Pinagsasama ang take…</translation>
+    </message>
+    <message>
+        <source>Listen to it, then add it to the timeline</source>
+        <translation>Pakinggan ito, saka idagdag sa timeline</translation>
+    </message>
+    <message>
+        <source>Speaking sentence %1 again…</source>
+        <translation>Binibigkas muli ang pangungusap %1…</translation>
+    </message>
+    <message>
+        <source>Sentence %1 spoken again</source>
+        <translation>Nabigkas muli ang pangungusap %1</translation>
+    </message>
+    <message>
+        <source>Changing speed and pitch…</source>
+        <translation>Binabago ang bilis at tono…</translation>
+    </message>
+    <message>
+        <source>Replace voice</source>
+        <translation>Palitan ang boses</translation>
+    </message>
+    <message>
+        <source>Could not replace the voice</source>
+        <translation>Hindi mapalitan ang boses</translation>
+    </message>
+    <message>
         <source>Speech added to the timeline</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Voice replaced on the timeline</source>
+        <translation>Napalitan ang boses sa timeline</translation>
+    </message>
+    <message numerus="yes">
+        <source>The music goes down under the voice (%n clip(s))</source>
+        <translation>
+            <numerusform>Humihina ang musika sa ilalim ng boses (%n clip)</numerusform>
+            <numerusform>Humihina ang musika sa ilalim ng boses (%n na clip)</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>There is no music under this voice</source>
+        <translation>Walang musika sa ilalim ng boses na ito</translation>
     </message>
     <message>
         <source>Select a subtitle clip first</source>
@@ -32367,6 +33301,10 @@ If playback stutters, try another.</source>
     <message>
         <source>This subtitle clip has no text to speak</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speaking line %1 of %2…</source>
+        <translation>Binibigkas ang linya %1 ng %2…</translation>
     </message>
     <message>
         <source>Generate voiceover</source>
@@ -32388,6 +33326,13 @@ If playback stutters, try another.</source>
         <translation type="unfinished">
             <numerusform></numerusform>
             <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>; %n could not be added</source>
+        <translation>
+            <numerusform>; hindi maidagdag ang %n</numerusform>
+            <numerusform>; hindi maidagdag ang %n</numerusform>
         </translation>
     </message>
 </context>
@@ -33078,7 +34023,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Soft</source>
-        <translation type="unfinished"></translation>
+        <translation>Malumanay</translation>
     </message>
     <message>
         <source>Strong smoothing for an even, soft skin</source>
@@ -33266,7 +34211,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Mga paborito</translation>
     </message>
     <message>
         <source>Select a video or image clip to retouch a face.</source>
@@ -33641,6 +34586,81 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>VoiceGallery</name>
+    <message>
+        <source>Narration</source>
+        <translation>Pagsasalaysay</translation>
+    </message>
+    <message>
+        <source>Young</source>
+        <translation>Bata</translation>
+    </message>
+    <message>
+        <source>Deep</source>
+        <translation>Malalim</translation>
+    </message>
+    <message>
+        <source>Lively</source>
+        <translation>Masigla</translation>
+    </message>
+    <message>
+        <source>Soft</source>
+        <translation>Malumanay</translation>
+    </message>
+    <message>
+        <source>Mature</source>
+        <translation>Mature</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation>Lahat</translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation>Mga paborito</translation>
+    </message>
+    <message>
+        <source>Mine</source>
+        <translation>Akin</translation>
+    </message>
+    <message>
+        <source>Women</source>
+        <translation>Mga babae</translation>
+    </message>
+    <message>
+        <source>Men</source>
+        <translation>Mga lalaki</translation>
+    </message>
+    <message>
+        <source>Hear this voice</source>
+        <translation>Pakinggan ang boses na ito</translation>
+    </message>
+    <message>
+        <source>My voice</source>
+        <translation>Aking boses</translation>
+    </message>
+    <message>
+        <source>Mark voices with the star to find them here</source>
+        <translation>Lagyan ng bituin ang mga boses para makita rito</translation>
+    </message>
+    <message>
+        <source>Your own voices appear here: «New voice» in Options</source>
+        <translation>Dito lumalabas ang sarili mong mga boses: «Bagong boses» sa Mga opsyon</translation>
+    </message>
+    <message>
+        <source>No voices of this kind</source>
+        <translation>Walang boses na ganitong uri</translation>
+    </message>
+    <message>
+        <source>Show fewer</source>
+        <translation>Ipakita nang kaunti</translation>
+    </message>
+    <message>
+        <source>See all voices (%1)</source>
+        <translation>Tingnan lahat ng boses (%1)</translation>
+    </message>
+</context>
+<context>
     <name>VoiceLibrary</name>
     <message>
         <source>Default</source>
@@ -33653,6 +34673,18 @@ If playback stutters, try another.</source>
     <message>
         <source>A voice needs a name and a recording</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reading the recording…</source>
+        <translation>Binabasa ang recording…</translation>
+    </message>
+    <message>
+        <source>Loading voice model…</source>
+        <translation>Nilo-load ang voice model…</translation>
+    </message>
+    <message>
+        <source>Learning the voice…</source>
+        <translation>Pinag-aaralan ang boses…</translation>
     </message>
     <message>
         <source>Could not prepare the voice</source>
@@ -33669,6 +34701,18 @@ If playback stutters, try another.</source>
     <message>
         <source>The recording is too short: record at least %1 seconds</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unknown voice</source>
+        <translation>Hindi kilalang boses</translation>
+    </message>
+    <message>
+        <source>The reference recording for this voice is missing</source>
+        <translation>Nawawala ang reference recording ng boses na ito</translation>
+    </message>
+    <message>
+        <source>Could not read the reference recording</source>
+        <translation>Hindi mabasa ang reference recording</translation>
     </message>
 </context>
 <context>
@@ -33725,6 +34769,18 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Speech generation runs on this device and needs the voice model.</source>
+        <translation>Tumatakbo sa device na ito ang paggawa ng boses at kailangan nito ang voice model.</translation>
+    </message>
+    <message>
+        <source>Download voice model</source>
+        <translation>I-download ang voice model</translation>
+    </message>
+    <message>
+        <source>Install AI engine first</source>
+        <translation>I-install muna ang AI engine</translation>
+    </message>
+    <message>
         <source>Voice</source>
         <translation type="unfinished"></translation>
     </message>
@@ -33755,6 +34811,21 @@ If playback stutters, try another.</source>
     <message>
         <source>Close</source>
         <translation>Isara</translation>
+    </message>
+</context>
+<context>
+    <name>WhisperTranscriber</name>
+    <message>
+        <source>Transcribing %1–%2 of %3…</source>
+        <translation>Isinusulat ang %1–%2 ng %3…</translation>
+    </message>
+    <message>
+        <source>Detecting language…</source>
+        <translation>Tinutukoy ang wika…</translation>
+    </message>
+    <message>
+        <source>Finishing up…</source>
+        <translation>Tinatapos…</translation>
     </message>
 </context>
 <context>

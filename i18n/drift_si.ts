@@ -142,8 +142,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Voices</source>
-        <translation type="unfinished"></translation>
+        <source>Voice changer</source>
+        <translation>හඬ වෙනස් කරනය</translation>
     </message>
     <message>
         <source>Retouch</source>
@@ -199,7 +199,7 @@
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>යොදන්න</translation>
     </message>
     <message>
         <source>Save in My presets</source>
@@ -1112,6 +1112,29 @@
     <message>
         <source>Changes only that clip; the rest is untouched. It is drawn inside the clip&apos;s row on the timeline.</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AeShortcutsDialog</name>
+    <message>
+        <source>Use After Effects&apos; shortcuts?</source>
+        <translation>After Effects කෙටිමං භාවිත කරන්නද?</translation>
+    </message>
+    <message>
+        <source>Use After Effects&apos;</source>
+        <translation>After Effects ඒවා භාවිත කරන්න</translation>
+    </message>
+    <message>
+        <source>Keep Flip&apos;s</source>
+        <translation>Flip ඒවා තබා ගන්න</translation>
+    </message>
+    <message>
+        <source>J and K go to the previous and next keyframe, P, S, R, T and A show one property, U and UU what is animated or changed, B and N set the work area, I and O go to the layer&apos;s ends, [ ] and Alt+[ ] move and trim the layer at the playhead.</source>
+        <translation>J සහ K පෙර සහ ඊළඟ කී රාමුවට යයි, P, S, R, T සහ A එක් ගුණාංගයක් පෙන්වයි, U සහ UU සජීවිකරණය හෝ වෙනස් කළ දේ, B සහ N වැඩ ප්‍රදේශය සකසයි, I සහ O ස්තරයේ කෙළවරට යයි, [ ] සහ Alt+[ ] ධාවන හිසෙහි ස්තරය ගෙන යයි සහ කපයි.</translation>
+    </message>
+    <message>
+        <source>You can switch any time in Preferences › Shortcuts. Shortcuts you changed yourself stay as they are.</source>
+        <translation>මනාපයන් › කෙටිමං හි ඕනෑම විටෙක මාරු කළ හැක. ඔබ විසින් වෙනස් කළ කෙටිමං එලෙසම පවතී.</translation>
     </message>
 </context>
 <context>
@@ -2816,11 +2839,11 @@
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished"></translation>
+        <translation>සියල්ල</translation>
     </message>
     <message>
         <source>Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>ප්‍රියතම</translation>
     </message>
     <message>
         <source>Duration</source>
@@ -4259,6 +4282,14 @@
         <translation>“%1” “%2” වෙත එක් කෙරිණි · වෙනම ස්තරයක ඇඳීමට පළමුව Esc ඔබන්න; ඒවා වෙන් කිරීමට දකුණු-ක්ලික් › ස්තරවලට වෙන් කරන්න</translation>
     </message>
     <message>
+        <source>Sign in with Google to translate captions, or install the Offline translation extra</source>
+        <translation>උපසිරැසි පරිවර්තනයට Google සමඟ පුරනය වන්න, නැතහොත් අන්තර්ජාලය නැති පරිවර්තන අමතරය ස්ථාපනය කරන්න</translation>
+    </message>
+    <message>
+        <source>Words bleeped: %1</source>
+        <translation>බීප් කළ වචන: %1</translation>
+    </message>
+    <message>
         <source>Add mask</source>
         <translation>ආවරණයක් (Mask) එක් කරන්න</translation>
     </message>
@@ -4350,11 +4381,11 @@
     </message>
     <message>
         <source>Voice changer</source>
-        <translation type="unfinished"></translation>
+        <translation>හඬ වෙනස් කරනය</translation>
     </message>
     <message>
         <source>Voice: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>හඬ: %1</translation>
     </message>
     <message>
         <source>Voice changer off</source>
@@ -5212,8 +5243,60 @@
         <translation type="unfinished">පාරාන්ධතාව</translation>
     </message>
     <message>
+        <source>Step back one frame (Page Up)</source>
+        <translation>රාමුවක් පසුපසට (Page Up)</translation>
+    </message>
+    <message>
+        <source>Step forward one frame (Page Down)</source>
+        <translation>රාමුවක් ඉදිරියට (Page Down)</translation>
+    </message>
+    <message>
         <source>Show rulers</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Go to the layer&apos;s in point</source>
+        <translation>ස්තරයේ ආරම්භයට යන්න</translation>
+    </message>
+    <message>
+        <source>Go to the layer&apos;s out point</source>
+        <translation>ස්තරයේ අවසානයට යන්න</translation>
+    </message>
+    <message>
+        <source>Add a Position keyframe</source>
+        <translation>ස්ථාන යතුරු රාමුවක් එක් කරන්න</translation>
+    </message>
+    <message>
+        <source>Add a Scale keyframe</source>
+        <translation>පරිමාණ යතුරු රාමුවක් එක් කරන්න</translation>
+    </message>
+    <message>
+        <source>Add a Rotation keyframe</source>
+        <translation>භ්‍රමණ යතුරු රාමුවක් එක් කරන්න</translation>
+    </message>
+    <message>
+        <source>Add an Opacity keyframe</source>
+        <translation>පාරාන්ධතා යතුරු රාමුවක් එක් කරන්න</translation>
+    </message>
+    <message>
+        <source>Add an Anchor point keyframe</source>
+        <translation>නැංගුරම් ලක්ෂ්‍ය යතුරු රාමුවක් එක් කරන්න</translation>
+    </message>
+    <message>
+        <source>Trim the layer&apos;s in point to the playhead</source>
+        <translation>ධාවන හිසෙහි ස්තරයේ ආරම්භය කපන්න</translation>
+    </message>
+    <message>
+        <source>Trim the layer&apos;s out point to the playhead</source>
+        <translation>ධාවන හිසෙහි ස්තරයේ අවසානය කපන්න</translation>
+    </message>
+    <message>
+        <source>Move the layer so it starts at the playhead</source>
+        <translation>ධාවන හිසෙන් ආරම්භ වන සේ ස්තරය ගෙන යන්න</translation>
+    </message>
+    <message>
+        <source>Move the layer so it ends at the playhead</source>
+        <translation>ධාවන හිසෙන් අවසන් වන සේ ස්තරය ගෙන යන්න</translation>
     </message>
     <message>
         <source>RAM preview (render to memory and play)</source>
@@ -5226,6 +5309,38 @@
     <message>
         <source>Ruler guides</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Replace voice</source>
+        <translation>හඬ ප්‍රතිස්ථාපනය</translation>
+    </message>
+    <message>
+        <source>Voice replaced</source>
+        <translation>හඬ ප්‍රතිස්ථාපනය කළා</translation>
+    </message>
+    <message>
+        <source>Trim layer</source>
+        <translation>ස්තරය කපන්න</translation>
+    </message>
+    <message>
+        <source>Move layer</source>
+        <translation>ස්තරය ගෙන යන්න</translation>
+    </message>
+    <message>
+        <source>Put the playhead inside the layer to trim it there</source>
+        <translation>එතැනින් කැපීමට ධාවන හිස ස්තරය තුළ තබන්න</translation>
+    </message>
+    <message>
+        <source>Sending the audio to ElevenLabs…</source>
+        <translation>ශ්‍රව්‍යය ElevenLabs වෙත යවමින්…</translation>
+    </message>
+    <message>
+        <source>ElevenLabs is transcribing…</source>
+        <translation>ElevenLabs පිටපත් කරමින්…</translation>
+    </message>
+    <message>
+        <source>Speaker %1</source>
+        <translation>කථිකයා %1</translation>
     </message>
     <message>
         <source>Solids</source>
@@ -5242,6 +5357,14 @@
     <message>
         <source>Behavior changed</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Settle</source>
+        <translation>සංසිඳීම</translation>
+    </message>
+    <message>
+        <source>Reverse keyframes</source>
+        <translation>මූලරාමු ආපසු හරවන්න</translation>
     </message>
     <message>
         <source>Pick two or more keys of a property to reverse them</source>
@@ -5430,6 +5553,90 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Translating the captions…</source>
+        <translation>උපසිරැසි පරිවර්තනය කරමින්…</translation>
+    </message>
+    <message>
+        <source>Could not translate the captions (no answer from the server)</source>
+        <translation>උපසිරැසි පරිවර්තනය කළ නොහැකි විය (සේවාදායකය ප්‍රතිචාර නොදැක්වීය)</translation>
+    </message>
+    <message>
+        <source>Translating the captions on this computer…</source>
+        <translation>මෙම පරිගණකයේ උපසිරැසි පරිවර්තනය කරමින්…</translation>
+    </message>
+    <message>
+        <source>Could not translate the captions</source>
+        <translation>උපසිරැසි පරිවර්තනය කළ නොහැකි විය</translation>
+    </message>
+    <message>
+        <source>The captions changed while they were being translated; try again</source>
+        <translation>පරිවර්තනය අතරතුර උපසිරැසි වෙනස් විය; නැවත උත්සාහ කරන්න</translation>
+    </message>
+    <message>
+        <source>Captions (%1)</source>
+        <translation>උපසිරැසි (%1)</translation>
+    </message>
+    <message>
+        <source>Translate captions</source>
+        <translation>උපසිරැසි පරිවර්තනය</translation>
+    </message>
+    <message>
+        <source>Captions translated into %1</source>
+        <translation>උපසිරැසි %1 ට පරිවර්තනය කළා</translation>
+    </message>
+    <message>
+        <source>Edit speaker</source>
+        <translation>කථිකයා සංස්කරණය</translation>
+    </message>
+    <message>
+        <source>No key words to highlight in these subtitles</source>
+        <translation>මෙම උපසිරැසිවල ඉස්මතු කිරීමට මූල පද නැත</translation>
+    </message>
+    <message>
+        <source>Highlight key words</source>
+        <translation>මූල පද ඉස්මතු කරන්න</translation>
+    </message>
+    <message>
+        <source>Key words highlighted in %1 captions</source>
+        <translation>උපසිරැසි %1 ක මූල පද ඉස්මතු කළා</translation>
+    </message>
+    <message>
+        <source>Install «Animated emojis» from Extras first</source>
+        <translation>පළමුව අමතර වලින් «සජීවී ඉමෝජි» ස්ථාපනය කරන්න</translation>
+    </message>
+    <message>
+        <source>Emoji: %1</source>
+        <translation>ඉමෝජි: %1</translation>
+    </message>
+    <message>
+        <source>No captions with an emoji word (fuego, Dios, fiesta…)</source>
+        <translation>ඉමෝජි වචනයක් ඇති උපසිරැසි නැත (ගින්න, දෙවියන්, සාදය…)</translation>
+    </message>
+    <message>
+        <source>Animated emojis</source>
+        <translation>සජීවී ඉමෝජි</translation>
+    </message>
+    <message>
+        <source>Animated emojis on %1 captions</source>
+        <translation>උපසිරැසි %1 ක සජීවී ඉමෝජි</translation>
+    </message>
+    <message>
+        <source>No hidden words with their timing to bleep</source>
+        <translation>බීප් කිරීමට කාලය සහිත සැඟවූ වචන නැත</translation>
+    </message>
+    <message>
+        <source>Could not make the bleep</source>
+        <translation>බීප් එක සෑදීමට නොහැකි විය</translation>
+    </message>
+    <message>
+        <source>Bleep swear words</source>
+        <translation>කුණුහරුපවලට බීප්</translation>
+    </message>
+    <message>
+        <source>Bleep</source>
+        <translation>බීප්</translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5581,6 +5788,30 @@
     <message>
         <source>Select a clip with sound to enhance its voice</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Listening to the clip to write down what is said…</source>
+        <translation>කියන දේ ලිවීමට ක්ලිපයට සවන් දෙමින්…</translation>
+    </message>
+    <message>
+        <source>Move the other tracks</source>
+        <translation>අනෙක් පථ ගෙන යන්න</translation>
+    </message>
+    <message>
+        <source>Edit by text</source>
+        <translation>පෙළෙන් සංස්කරණය</translation>
+    </message>
+    <message>
+        <source>Remove silences</source>
+        <translation>නිහඬතා ඉවත් කරන්න</translation>
+    </message>
+    <message>
+        <source>Cut %1 s from the video</source>
+        <translation>වීඩියෝවෙන් තත් %1 ක් කපා දැමුවා</translation>
+    </message>
+    <message>
+        <source>That would remove the whole clip</source>
+        <translation>එය සම්පූර්ණ ක්ලිපයම ඉවත් කරයි</translation>
     </message>
     <message>
         <source>Volume</source>
@@ -5946,6 +6177,34 @@
             <numerusform>ක්ලිප් %nක් අලවන ලදී</numerusform>
             <numerusform>ක්ලිප් %nක් අලවන ලදී</numerusform>
         </translation>
+    </message>
+    <message>
+        <source>Curved path</source>
+        <translation>වක්‍ර මාර්ගය</translation>
+    </message>
+    <message>
+        <source>Straight path</source>
+        <translation>සෘජු මාර්ගය</translation>
+    </message>
+    <message>
+        <source>Join Position</source>
+        <translation>පිහිටීම එක් කරන්න</translation>
+    </message>
+    <message>
+        <source>Separate dimensions</source>
+        <translation>මාන වෙන් කරන්න</translation>
+    </message>
+    <message>
+        <source>Shape motion path</source>
+        <translation>චලන මාර්ගය හැඩගසන්න</translation>
+    </message>
+    <message>
+        <source>Roving needs at least three Position keyframes</source>
+        <translation>සැරිසරන කී රාමු සඳහා අවම වශයෙන් පිහිටුම් කී රාමු තුනක් අවශ්‍යයි</translation>
+    </message>
+    <message>
+        <source>Roving keyframes</source>
+        <translation>සැරිසරන කී රාමු</translation>
     </message>
     <message>
         <source>Exporting…</source>
@@ -7795,24 +8054,12 @@
         <translation>ශබ්ද මට්ටම</translation>
     </message>
     <message>
-        <source>Recommended caption length</source>
-        <translation>නිර්දේශිත උපසිරැසි දිග</translation>
-    </message>
-    <message>
-        <source>1 word per caption</source>
-        <translation>උපසිරැසියකට වචන 1ක්</translation>
-    </message>
-    <message>
-        <source>%1 words per caption</source>
-        <translation>උපසිරැසියකට වචන %1ක්</translation>
-    </message>
-    <message>
         <source>Basic</source>
         <translation type="unfinished">මූලික</translation>
     </message>
     <message>
         <source>Voice changer</source>
-        <translation type="unfinished"></translation>
+        <translation>හඬ වෙනස් කරනය</translation>
     </message>
     <message>
         <source>Fade in</source>
@@ -7821,6 +8068,66 @@
     <message>
         <source>Fade out</source>
         <translation type="unfinished">Fade out (ක්‍රමිකව මැකී යාම)</translation>
+    </message>
+    <message>
+        <source>Voice from text</source>
+        <translation>පෙළෙන් හඬ</translation>
+    </message>
+    <message>
+        <source>Edit script…</source>
+        <translation>පිටපත සංස්කරණය…</translation>
+    </message>
+    <message>
+        <source>Change the text or the voice and speak it again, in place of this audio</source>
+        <translation>පෙළ හෝ හඬ වෙනස් කර, මෙම ශ්‍රව්‍යය වෙනුවට නැවත කියවන්න</translation>
+    </message>
+    <message>
+        <source>Discard the voice you made?</source>
+        <translation>ඔබ සෑදූ හඬ ඉවත් කරන්නද?</translation>
+    </message>
+    <message>
+        <source>Discard and go on</source>
+        <translation>ඉවත් කර ඉදිරියට</translation>
+    </message>
+    <message>
+        <source>The Voice panel has a take that is not on the timeline yet. Add it first with «Add to timeline», or discard it to start this one.</source>
+        <translation>හඬ පැනලයේ තවම කාල රේඛාවට එක් නොකළ ටේක් එකක් ඇත. පළමුව «කාල රේඛාවට එක් කරන්න» මගින් එක් කරන්න, නැතහොත් මෙය ආරම්භ කිරීමට ඉවත් කරන්න.</translation>
+    </message>
+    <message>
+        <source>Lower the music under this voice</source>
+        <translation>මෙම හඬ යටතේ සංගීතය අඩු කරන්න</translation>
+    </message>
+    <message>
+        <source>Save the voice as a file…</source>
+        <translation>හඬ ගොනුවක් ලෙස සුරකින්න…</translation>
+    </message>
+    <message>
+        <source>Save the voice</source>
+        <translation>හඬ සුරකින්න</translation>
+    </message>
+    <message>
+        <source>MP3 audio (*.mp3)</source>
+        <translation>MP3 ශ්‍රව්‍ය (*.mp3)</translation>
+    </message>
+    <message>
+        <source>WAV audio (*.wav)</source>
+        <translation>WAV ශ්‍රව්‍ය (*.wav)</translation>
+    </message>
+    <message>
+        <source>FLAC audio (*.flac)</source>
+        <translation>FLAC ශ්‍රව්‍ය (*.flac)</translation>
+    </message>
+    <message>
+        <source>voice</source>
+        <translation>හඬ</translation>
+    </message>
+    <message>
+        <source>Voice saved</source>
+        <translation>හඬ සුරැකුණා</translation>
+    </message>
+    <message>
+        <source>Could not save the voice</source>
+        <translation>හඬ සුරැකිය නොහැකි විය</translation>
     </message>
     <message>
         <source>Normalize loudness</source>
@@ -7871,6 +8178,22 @@
         <translation>Pan</translation>
     </message>
     <message>
+        <source>Create captions…</source>
+        <translation>උපසිරැසි සාදන්න…</translation>
+    </message>
+    <message>
+        <source>Open Subtitles to create captions from this clip&apos;s speech</source>
+        <translation>මෙම ක්ලිපයේ කථනයෙන් උපසිරැසි සෑදීමට උපසිරැසි විවෘත කරයි</translation>
+    </message>
+    <message>
+        <source>Edit by text…</source>
+        <translation>පෙළෙන් සංස්කරණය…</translation>
+    </message>
+    <message>
+        <source>See what is said and strike out words: the video loses those moments</source>
+        <translation>කියන දේ බලා වචන කපා හරින්න: වීඩියෝවට ඒ මොහොත් අහිමි වේ</translation>
+    </message>
+    <message>
         <source>C</source>
         <translation>C</translation>
     </message>
@@ -7909,30 +8232,6 @@
     <message>
         <source>Install AI engine first</source>
         <translation>පළමුව AI එන්ජිම ස්ථාපනය කරන්න</translation>
-    </message>
-    <message>
-        <source>Auto subtitles</source>
-        <translation>ස්වයංක්‍රීය උපසිරැසි</translation>
-    </message>
-    <message>
-        <source>Shorter captions are timed by splitting each phrase evenly, so they can drift slightly out of sync with the speech.</source>
-        <translation>කෙටි උපසිරැසි කාලගත කරනුයේ එක් එක් වාක්‍ය ඛණ්ඩය සමානව බෙදීමෙනි, එබැවින් ඒවා කථනය සමඟ තරමක් නොගැලපී පැවතිය හැක.</translation>
-    </message>
-    <message>
-        <source>Creating captions… %1%</source>
-        <translation>උපසිරැසි සාදමින්… %1%</translation>
-    </message>
-    <message>
-        <source>Create captions from speech</source>
-        <translation>කථනයෙන් උපසිරැසි සාදන්න</translation>
-    </message>
-    <message>
-        <source>Several selected clips become one caption clip</source>
-        <translation>තෝරාගත් ක්ලිප් කිහිපය එක් උපසිරැසි ක්ලිපයක් බවට පත්වේ</translation>
-    </message>
-    <message>
-        <source>Download speech recognition (about 670 MB)</source>
-        <translation>කථන හඳුනාගැනීම බාගන්න (මෙගාබයිට් 670ක් පමණ)</translation>
     </message>
 </context>
 <context>
@@ -8169,7 +8468,7 @@
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>ඉවත් කරන්න</translation>
     </message>
 </context>
 <context>
@@ -8432,7 +8731,7 @@
     </message>
     <message>
         <source>Pitch</source>
-        <translation type="unfinished"></translation>
+        <translation>තාරතාව</translation>
     </message>
     <message>
         <source>Yaw</source>
@@ -9679,7 +9978,7 @@
     </message>
     <message>
         <source>Animated</source>
-        <translation type="unfinished"></translation>
+        <translation>සජීවී</translation>
     </message>
     <message>
         <source>Ripple / Water</source>
@@ -10479,7 +10778,7 @@
     </message>
     <message>
         <source>Pitch</source>
-        <translation type="unfinished"></translation>
+        <translation>තාරතාව</translation>
     </message>
     <message>
         <source>Deep Voice</source>
@@ -13137,6 +13436,37 @@ NEXT TIME</source>
     </message>
 </context>
 <context>
+    <name>ChatterboxTts</name>
+    <message>
+        <source>The voice model is not installed. Install the AI voice extra in Extras.</source>
+        <translation>හඬ ආකෘතිය ස්ථාපනය කර නැත. අමතර අංග තුළ AI හඬ අමතරය ස්ථාපනය කරන්න.</translation>
+    </message>
+    <message>
+        <source>Failed to load text-to-speech model: %1</source>
+        <translation>පෙළ-සිට-කථන ආකෘතිය පූරණය කිරීම අසාර්ථකයි: %1</translation>
+    </message>
+    <message>
+        <source>Speech generation failed: %1</source>
+        <translation>කථනය සෑදීම අසාර්ථකයි: %1</translation>
+    </message>
+    <message>
+        <source>The reference voice has no audio.</source>
+        <translation>යොමු හඬෙහි ශ්‍රව්‍යයක් නැත.</translation>
+    </message>
+    <message>
+        <source>Voice encoding failed: %1</source>
+        <translation>හඬ කේතනය අසාර්ථකයි: %1</translation>
+    </message>
+    <message>
+        <source>Unsupported language: %1</source>
+        <translation>සහාය නොදක්වන භාෂාව: %1</translation>
+    </message>
+    <message>
+        <source>Invalid voice conditioning.</source>
+        <translation>වලංගු නොවන හඬ සැකසුම.</translation>
+    </message>
+</context>
+<context>
     <name>ChipScroller</name>
     <message>
         <source>Previous</source>
@@ -13499,7 +13829,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>යොදන්න</translation>
     </message>
     <message>
         <source>Save</source>
@@ -15254,6 +15584,14 @@ NEXT TIME</source>
         <translation>සම්පූර්ණ කාලරේඛාව වෙනුවට සලකුණු කළ In/Out පරාසය පමණක් Encode කරන්න</translation>
     </message>
     <message>
+        <source>Include the captions (inside the video and as .srt)</source>
+        <translation>උපසිරැසි ඇතුළත් කරන්න (වීඩියෝව තුළ සහ .srt ලෙස)</translation>
+    </message>
+    <message>
+        <source>The captions as a track inside the video and as a file next to it, with the same name: players and YouTube can turn them on and off</source>
+        <translation>උපසිරැසි වීඩියෝව තුළ පථයක් ලෙස සහ එකම නමින් අසල ගොනුවක් ලෙස: වාදක සහ YouTube හට ඒවා සක්‍රිය හා අක්‍රිය කළ හැක</translation>
+    </message>
+    <message>
         <source>Saves what you see in the preview. Pick a size — the picture shape stays the same.</source>
         <translation>පෙරදසුනේ ඔබ දකින දේ සුරකියි. ප්‍රමාණයක් තෝරන්න — පින්තූරයේ හැඩය නොවෙනස්ව පවතී.</translation>
     </message>
@@ -16050,7 +16388,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>වසන්න</translation>
     </message>
     <message>
         <source>Replace</source>
@@ -16786,6 +17124,10 @@ NEXT TIME</source>
         <translation>ආවරණ මෘදු බව (Feather)</translation>
     </message>
     <message>
+        <source>Pos</source>
+        <translation>පිහි.</translation>
+    </message>
+    <message>
         <source>Layer</source>
         <translation type="unfinished"></translation>
     </message>
@@ -16810,12 +17152,40 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Value graph</source>
-        <translation type="unfinished"></translation>
+        <source>Graph type: value. Click: speed graph</source>
+        <translation>ප්‍රස්ථාර වර්ගය: අගය. ක්ලික්: වේග ප්‍රස්ථාරය</translation>
     </message>
     <message>
-        <source>Speed graph</source>
-        <translation type="unfinished"></translation>
+        <source>Graph type: speed. Click: automatic</source>
+        <translation>ප්‍රස්ථාර වර්ගය: වේගය. ක්ලික්: ස්වයංක්‍රීය</translation>
+    </message>
+    <message>
+        <source>Graph type: automatic (speed for a joined Position, value for the rest). Click: value graph</source>
+        <translation>ප්‍රස්ථාර වර්ගය: ස්වයංක්‍රීය (එකතු කළ පිහිටුමට වේගය, අනෙක්වාට අගය). ක්ලික්: අගය ප්‍රස්ථාරය</translation>
+    </message>
+    <message>
+        <source>Fit the whole curve in view (Ctrl+wheel zooms the values, Alt+wheel the time)</source>
+        <translation>මුළු වක්‍රයම බලන්න (Ctrl+රෝදය අගයන්, Alt+රෝදය කාලය විශාල කරයි)</translation>
+    </message>
+    <message>
+        <source>Zoom to the picked keyframes</source>
+        <translation>තෝරාගත් කී රාමුවලට විශාලනය</translation>
+    </message>
+    <message>
+        <source>Show only the curve being edited</source>
+        <translation>සංස්කරණය වන වක්‍රය පමණක් පෙන්වන්න</translation>
+    </message>
+    <message>
+        <source>Show the other properties&apos; curves too</source>
+        <translation>අනෙක් ගුණාංගවල වක්‍රද පෙන්වන්න</translation>
+    </message>
+    <message>
+        <source>Graph under its layer again</source>
+        <translation>ප්‍රස්ථාරය නැවත එහි ස්තරය යට</translation>
+    </message>
+    <message>
+        <source>Graph over the whole timeline, as After Effects&apos; Graph Editor</source>
+        <translation>මුළු කාලරේඛාව මත ප්‍රස්ථාරය, After Effects ප්‍රස්ථාර සංස්කාරකය මෙන්</translation>
     </message>
     <message>
         <source>Separate dimensions: key X and Y of Position apart</source>
@@ -16885,6 +17255,10 @@ NEXT TIME</source>
         <translation>කීෆ්‍රේමය ගෙනයන්න</translation>
     </message>
     <message>
+        <source>Transform keyframes</source>
+        <translation>කී රාමු පරිවර්තනය</translation>
+    </message>
+    <message>
         <source>Edit keyframe curve</source>
         <translation>කීෆ්‍රේම වක්‍රය සංස්කරණය කරන්න</translation>
     </message>
@@ -16908,8 +17282,20 @@ NEXT TIME</source>
         <translation>කීෆ්‍රේම ගෙනයන්න</translation>
     </message>
     <message>
+        <source>Keyframe easing changed</source>
+        <translation>මූලරාමු සුමටනය වෙනස් විය</translation>
+    </message>
+    <message>
+        <source>Paste keyframes</source>
+        <translation>කී රාමු අලවන්න</translation>
+    </message>
+    <message>
+        <source>Remove keyframes</source>
+        <translation>මූලරාමු ඉවත් කරන්න</translation>
+    </message>
+    <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>යොදන්න</translation>
     </message>
     <message>
         <source>50% packs the picked keys into half the time, 200% spreads them over twice. The first one stays where it is. Alt + dragging the first or last key does the same by hand.</source>
@@ -16944,8 +17330,28 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Curved path (auto Bezier)</source>
+        <translation>වක්‍ර මාර්ගය (ස්වයංක්‍රීය බෙසියර්)</translation>
+    </message>
+    <message>
+        <source>Straight path</source>
+        <translation>සෘජු මාර්ගය</translation>
+    </message>
+    <message>
+        <source>Roving (one speed along the path)</source>
+        <translation>සැරිසරන (මාර්ගයේ එක් වේගයක්)</translation>
+    </message>
+    <message>
+        <source>Separate dimensions (X and Y apart)</source>
+        <translation>මාන වෙන් කරන්න (X සහ Y වෙන වෙනම)</translation>
+    </message>
+    <message>
+        <source>Join Position (one path)</source>
+        <translation>පිහිටීම එක් කරන්න (එක් මාර්ගයක්)</translation>
+    </message>
+    <message>
         <source>Reverse keyframes</source>
-        <translation type="unfinished"></translation>
+        <translation>මූලරාමු ආපසු හරවන්න</translation>
     </message>
     <message>
         <source>Stretch keyframes…</source>
@@ -16972,7 +17378,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>යොදන්න</translation>
     </message>
     <message>
         <source>Speed in units per second. Influence is how far the handle reaches towards the next key: more is a softer ease.</source>
@@ -16984,7 +17390,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>වේගය</translation>
     </message>
     <message>
         <source>Influence</source>
@@ -17178,6 +17584,21 @@ NEXT TIME</source>
     <message>
         <source>720p</source>
         <translation>720p</translation>
+    </message>
+</context>
+<context>
+    <name>LocalTranscription</name>
+    <message>
+        <source>Finding speech…</source>
+        <translation>කථනය සොයමින්…</translation>
+    </message>
+    <message>
+        <source>Timing words…</source>
+        <translation>වචන කාලගත කරමින්…</translation>
+    </message>
+    <message>
+        <source>Telling speakers apart…</source>
+        <translation>කථිකයන් වෙන් කර හඳුනා ගනිමින්…</translation>
     </message>
 </context>
 <context>
@@ -17570,6 +17991,26 @@ NEXT TIME</source>
     <message>
         <source>Your example is ready. Try this:</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>What is the video for?</source>
+        <translation>වීඩියෝව කුමක් සඳහාද?</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>අවලංගු කරන්න</translation>
+    </message>
+    <message>
+        <source>The template is fitted to the shape of your video.</source>
+        <translation>අච්චුව ඔබේ වීඩියෝවේ හැඩයට ගැළපේ.</translation>
+    </message>
+    <message>
+        <source>Short (vertical 9:16)</source>
+        <translation>කෙටි (සිරස් 9:16)</translation>
+    </message>
+    <message>
+        <source>Video (horizontal 16:9)</source>
+        <translation>වීඩියෝ (තිරස් 16:9)</translation>
     </message>
     <message>
         <source>Click a clip on the timeline to change it on the right.</source>
@@ -18289,7 +18730,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>ප්‍රියතම</translation>
     </message>
     <message>
         <source>No favorites yet. Star masks to save them here.</source>
@@ -19417,7 +19858,7 @@ NEXT TIME</source>
     <name>MotionPathOverlay</name>
     <message>
         <source>Shape motion path</source>
-        <translation type="unfinished"></translation>
+        <translation>චලන මාර්ගය හැඩගසන්න</translation>
     </message>
     <message>
         <source>Move keyframe</source>
@@ -20743,6 +21184,14 @@ If playback stutters, try another.</source>
         <translation>රේඛා විකල්ප: කිසිවක් නැත, ඝන, රේඛීය හෝ අරීය ශ්‍රේණිය, මිශ්‍ර කිරීමේ ප්‍රකාරය සහ පාරාන්ධතාව</translation>
     </message>
     <message>
+        <source>Fill colour. Right-click: no fill (or back on)</source>
+        <translation>පිරවුම් වර්ණය. දකුණු ක්ලික්: පිරවුමක් නැත (නැතහොත් නැවත)</translation>
+    </message>
+    <message>
+        <source>Stroke colour. Right-click: no stroke (or back on)</source>
+        <translation>රේඛා වර්ණය. දකුණු ක්ලික්: රේඛාවක් නැත (නැතහොත් නැවත)</translation>
+    </message>
+    <message>
         <source>Selection</source>
         <translation type="unfinished"></translation>
     </message>
@@ -21578,7 +22027,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>යොදන්න</translation>
     </message>
     <message>
         <source>What After Effects does with expressions, without writing code. They add up: the loop, then the constant speed, then the wiggle.</source>
@@ -21653,8 +22102,8 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>value, time, wiggle(freq, amount), Math, and thisComp.layer(&quot;Name&quot;).transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. The last line is the result.</source>
-        <translation type="unfinished"></translation>
+        <source>value, time, index, thisLayer, wiggle(freq, amount), linear / ease / easeIn / easeOut(t, tMin, tMax, a, b), clamp, valueAtTime(t), velocity, speed, Math, and thisComp.layer(&quot;Name&quot;).transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. The last line is the result.</source>
+        <translation>value, time, index, thisLayer, wiggle(freq, amount), linear / ease / easeIn / easeOut(t, tMin, tMax, a, b), clamp, valueAtTime(t), velocity, speed, Math, සහ thisComp.layer(&quot;Name&quot;).transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. අවසාන පේළිය ප්‍රතිඵලයයි.</translation>
     </message>
 </context>
 <context>
@@ -22003,7 +22452,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Could not save the voice</source>
-        <translation type="unfinished"></translation>
+        <translation>හඬ සුරැකිය නොහැකි විය</translation>
     </message>
 </context>
 <context>
@@ -23357,14 +23806,6 @@ If playback stutters, try another.</source>
         <translation>Cloud සේවා සපයන්නන්</translation>
     </message>
     <message>
-        <source>Transcription (Scribe), voiceover, sound effects</source>
-        <translation>පෙළපෙරළිය (Scribe), හඬ කැවීම්, ශබ්ද ප්‍රයෝග</translation>
-    </message>
-    <message>
-        <source>Voiceover</source>
-        <translation>හඬ කැවීම (Voiceover)</translation>
-    </message>
-    <message>
         <source>No key</source>
         <translation>යතුරක් නැත</translation>
     </message>
@@ -23565,6 +24006,14 @@ If playback stutters, try another.</source>
         <translation>යතුරු Flip Studio හි සැකසීම් තුළ සංකේතනය නොකර ගබඩා කෙරේ. පද්ධති පරිසරයේ ඇති ELEVENLABS_API_KEY සහ FISH_API_KEY ප්‍රමුඛත්වය ගනී. භාවිතය ඔබගේම ගිණුමට අය කෙරේ.</translation>
     </message>
     <message>
+        <source>Transcription (Scribe); voiceover and sound effects through AI agents</source>
+        <translation>පිටපත් කිරීම (Scribe); AI නියෝජිතයන් හරහා හඬ කථනය සහ ශබ්ද ප්‍රයෝග</translation>
+    </message>
+    <message>
+        <source>Voiceover through AI agents</source>
+        <translation>AI නියෝජිතයන් හරහා හඬ කථනය</translation>
+    </message>
+    <message>
         <source>Needed before Flip Studio or a connected agent can transcribe or generate audio with this service</source>
         <translation>මෙම සේවාව සමඟ Flip Studio හෝ සම්බන්ධිත agent හට පෙළපෙරළි කිරීමට හෝ ශ්‍රව්‍ය ජනනය කිරීමට පෙර අවශ්‍ය වේ</translation>
     </message>
@@ -23617,7 +24066,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Add to the timeline</source>
-        <translation type="unfinished"></translation>
+        <translation>කාලරේඛාවට එක් කරන්න</translation>
     </message>
 </context>
 <context>
@@ -24058,7 +24507,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>මකන්න</translation>
     </message>
 </context>
 <context>
@@ -25101,6 +25550,26 @@ If playback stutters, try another.</source>
         <translation>කෙටිමං සොයන්න</translation>
     </message>
     <message>
+        <source>Shortcut set</source>
+        <translation>කෙටිමං කට්ටලය</translation>
+    </message>
+    <message>
+        <source>Flip</source>
+        <translation>Flip</translation>
+    </message>
+    <message>
+        <source>Flip&apos;s own shortcuts</source>
+        <translation>Flip හි කෙටිමං</translation>
+    </message>
+    <message>
+        <source>After Effects</source>
+        <translation>After Effects</translation>
+    </message>
+    <message>
+        <source>As in After Effects: J/K go between keyframes, P/S/R/T/A show one property, U/UU, B/N the work area, I/O the layer&apos;s ends, [ ] and Alt+[ ] move and trim the layer at the playhead</source>
+        <translation>After Effects මෙන්: J/K කී රාමු අතර, P/S/R/T/A එක් ගුණාංගයක්, U/UU, B/N වැඩ ප්‍රදේශය, I/O ස්තරයේ කෙළවර, [ ] සහ Alt+[ ] ධාවන හිසෙහි ස්තරය ගෙන යාම සහ කැපීම</translation>
+    </message>
+    <message>
         <source>Click a shortcut, then press the keys. Esc cancels, Backspace clears.</source>
         <translation>කෙටිමඟක් ක්ලික් කර, පසුව යතුරු ඔබන්න. Esc මඟින් අවලංගු වන අතර, Backspace මඟින් හිස් කෙරේ.</translation>
     </message>
@@ -25185,6 +25654,49 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>SilenceReviewWindow</name>
+    <message>
+        <source>Remove silences</source>
+        <translation>නිහඬතා ඉවත් කරන්න</translation>
+    </message>
+    <message>
+        <source>Untick what you want to keep. Click a row to hear it.</source>
+        <translation>තබා ගැනීමට අවශ්‍ය දේ සලකුණු නොකරන්න. ඇසීමට පේළියක් ක්ලික් කරන්න.</translation>
+    </message>
+    <message>
+        <source>Pauses longer than</source>
+        <translation>මීට වඩා දිගු විරාම</translation>
+    </message>
+    <message>
+        <source>Also filler words (eh, mmm)</source>
+        <translation>පිරවුම් වචනද (ඒ, ම්ම්)</translation>
+    </message>
+    <message>
+        <source>Pause</source>
+        <translation>විරාමය</translation>
+    </message>
+    <message>
+        <source>Listen</source>
+        <translation>අසන්න</translation>
+    </message>
+    <message>
+        <source>No pauses this long in the clip.</source>
+        <translation>ක්ලිපයේ මෙතරම් දිගු විරාම නැත.</translation>
+    </message>
+    <message>
+        <source>%1 of %2 · %3 s</source>
+        <translation>%2 න් %1 · තත් %3</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>අවලංගු කරන්න</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>ඉවත් කරන්න</translation>
+    </message>
+</context>
+<context>
     <name>SolidDialog</name>
     <message>
         <source>Solid settings</source>
@@ -25196,7 +25708,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>යොදන්න</translation>
     </message>
     <message>
         <source>Solid</source>
@@ -25267,7 +25779,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Listen</source>
-        <translation type="unfinished"></translation>
+        <translation>අසන්න</translation>
     </message>
     <message>
         <source>Add at the playhead</source>
@@ -25278,19 +25790,15 @@ If playback stutters, try another.</source>
     <name>SpeechTab</name>
     <message>
         <source>Voice saved</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Turn a script into speech with a built-in or cloned voice. It is generated on this device and added at the playhead.</source>
-        <translation type="unfinished"></translation>
+        <translation>හඬ සුරැකුණා</translation>
     </message>
     <message>
         <source>Speech generation runs on this device and needs the voice model.</source>
-        <translation type="unfinished"></translation>
+        <translation>කථනය සෑදීම මෙම උපාංගයේ ක්‍රියාත්මක වන අතර හඬ ආකෘතිය අවශ්‍ය වේ.</translation>
     </message>
     <message>
         <source>Download voice model</source>
-        <translation type="unfinished"></translation>
+        <translation>හඬ ආකෘතිය බාගන්න</translation>
     </message>
     <message>
         <source>Install AI engine first</source>
@@ -25301,20 +25809,8 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Type what the voice should say</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>%1 characters, about %2 s</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Speech longer than 30 seconds often ends in gibberish or silence. Split the script into shorter parts.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Voice</source>
-        <translation>කටහඬ</translation>
     </message>
     <message>
         <source>Stop</source>
@@ -25366,11 +25862,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Learning the voice…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Language</source>
-        <translation>භාෂාව</translation>
+        <translation>හඬ ඉගෙන ගනිමින්…</translation>
     </message>
     <message>
         <source>Expressiveness</source>
@@ -25382,10 +25874,6 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Generate speech</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Generate speech and add it at the playhead</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -25414,7 +25902,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>My voice</source>
-        <translation type="unfinished"></translation>
+        <translation>මගේ හඬ</translation>
     </message>
     <message>
         <source>Import a voice sample</source>
@@ -25427,6 +25915,106 @@ If playback stutters, try another.</source>
     <message>
         <source>All files (*)</source>
         <translation>සියලු ගොනු (*)</translation>
+    </message>
+    <message>
+        <source>Voice from your text</source>
+        <translation>ඔබේ පෙළෙන් හඬ</translation>
+    </message>
+    <message>
+        <source>Editing the script of a voice on the timeline: the new take replaces its audio.</source>
+        <translation>කාලරේඛාවේ හඬක පිටපත සංස්කරණය කරමින්: නව ටේක් එක එහි ශ්‍රව්‍යය ප්‍රතිස්ථාපනය කරයි.</translation>
+    </message>
+    <message>
+        <source>Type or paste the script. [pause 1s] adds a silence.</source>
+        <translation>පිටපත ටයිප් කරන්න හෝ අලවන්න. [pause 1s] නිහඬතාවක් එක් කරයි.</translation>
+    </message>
+    <message>
+        <source>Import script…</source>
+        <translation>පිටපත ආයාත කරන්න…</translation>
+    </message>
+    <message>
+        <source>A .txt, .md or Word (.docx) file</source>
+        <translation>.txt, .md හෝ Word (.docx) ගොනුවක්</translation>
+    </message>
+    <message>
+        <source>Import a script</source>
+        <translation>පිටපතක් ආයාත කරන්න</translation>
+    </message>
+    <message>
+        <source>Scripts (*.txt *.md *.docx)</source>
+        <translation>පිටපත් (*.txt *.md *.docx)</translation>
+    </message>
+    <message>
+        <source>That file has no text that can be read</source>
+        <translation>එම ගොනුවේ කියවිය හැකි පෙළක් නැත</translation>
+    </message>
+    <message>
+        <source>Voice: %1</source>
+        <translation>හඬ: %1</translation>
+    </message>
+    <message>
+        <source>A dialogue: a voice for each person</source>
+        <translation>සංවාදයක්: එක් එක් පුද්ගලයාට හඬක්</translation>
+    </message>
+    <message>
+        <source>Generate again</source>
+        <translation>නැවත සාදන්න</translation>
+    </message>
+    <message>
+        <source>Speak the script; you hear it before it goes on the timeline</source>
+        <translation>පිටපත කියවන්න; කාලරේඛාවට යාමට පෙර ඔබට එය ඇසේ</translation>
+    </message>
+    <message>
+        <source>Listen to the whole take</source>
+        <translation>සම්පූර්ණ ටේක් එකට සවන් දෙන්න</translation>
+    </message>
+    <message>
+        <source>Take: %1 s</source>
+        <translation>ටේක්: තත් %1</translation>
+    </message>
+    <message>
+        <source>Listen to this sentence</source>
+        <translation>මෙම වාක්‍යයට සවන් දෙන්න</translation>
+    </message>
+    <message>
+        <source>Speak this sentence again</source>
+        <translation>මෙම වාක්‍යය නැවත කියවන්න</translation>
+    </message>
+    <message>
+        <source>Also create its captions</source>
+        <translation>එහි උපසිරැසිද සාදන්න</translation>
+    </message>
+    <message>
+        <source>Replace the voice on the timeline</source>
+        <translation>කාලරේඛාවේ හඬ ප්‍රතිස්ථාපනය කරන්න</translation>
+    </message>
+    <message>
+        <source>Add to the timeline</source>
+        <translation>කාලරේඛාවට එක් කරන්න</translation>
+    </message>
+    <message>
+        <source>Discard</source>
+        <translation>ඉවතලන්න</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation>විකල්ප</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>වේගය</translation>
+    </message>
+    <message>
+        <source>%1×</source>
+        <translation>%1×</translation>
+    </message>
+    <message>
+        <source>Pitch</source>
+        <translation>තාරතාව</translation>
+    </message>
+    <message>
+        <source>Stop preparing the voice</source>
+        <translation>හඬ සූදානම් කිරීම නවත්වන්න</translation>
     </message>
     <message>
         <source>Name</source>
@@ -25449,8 +26037,8 @@ If playback stutters, try another.</source>
         <translation>තත් %1</translation>
     </message>
     <message>
-        <source>Record 5 to 20 seconds in a quiet room. Read this aloud in your natural voice:</source>
-        <translation type="unfinished"></translation>
+        <source>Record 3 to 20 seconds in a quiet room (it stops by itself at 20). Read this aloud in your natural voice:</source>
+        <translation>නිහඬ කාමරයක තත්පර 3 සිට 20 දක්වා පටිගත කරන්න (20 දී එය ඉබේ නවතී). ඔබේ ස්වාභාවික හඬින් මෙය හඬ නගා කියවන්න:</translation>
     </message>
     <message>
         <source>The quick brown fox jumps over the lazy dog, while a gentle breeze moves through the quiet garden and the evening light fades slowly.</source>
@@ -25463,6 +26051,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Start recording</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>20 s: done, save the voice</source>
+        <translation>තත් 20: හරි, හඬ සුරකින්න</translation>
     </message>
     <message>
         <source>I have the right to use this person&apos;s voice</source>
@@ -25670,7 +26262,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>යොදන්න</translation>
     </message>
     <message>
         <source>Apply letter by letter</source>
@@ -25686,7 +26278,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished"></translation>
+        <translation>සියල්ල</translation>
     </message>
     <message>
         <source>How hard it squashes, stretches and bends</source>
@@ -25702,7 +26294,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>වේගය</translation>
     </message>
     <message>
         <source>Faster makes it shorter, slower makes it longer</source>
@@ -26001,6 +26593,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Subtitles from the voice, on your computer, without internet</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A simpler version in the browser: it doesn&apos;t have every tool of this app and gets no new ones. Everything new comes to this app.</source>
+        <translation>බ්‍රව්සරයේ සරල අනුවාදයක්: මෙම යෙදුමේ සියලු මෙවලම් එහි නැත, නව දේ ද නොලැබේ. සියලු නව දේ මෙම යෙදුමට පැමිණේ.</translation>
     </message>
     <message>
         <source>Click to sign in</source>
@@ -26596,12 +27192,12 @@ If playback stutters, try another.</source>
         <translation>උපසිරැසි %1</translation>
     </message>
     <message>
-        <source>Play the timeline — the line on screen lights up. Tap any line to edit it.</source>
-        <translation type="unfinished"></translation>
+        <source>Translate</source>
+        <translation>පරිවර්තනය</translation>
     </message>
     <message>
-        <source>Play the timeline — the line on screen lights up. Click any line to jump to it and edit it below.</source>
-        <translation>කාලරේඛාව ධාවනය කරන්න — තිරයේ ඇති පේළිය දැල්වෙයි. ඕනෑම පේළියක් වෙත යාමට සහ පහතින් එය සංස්කරණය කිරීමට එය ක්ලික් කරන්න.</translation>
+        <source>The captions in another language, as a second line above (bilingual)</source>
+        <translation>වෙනත් භාෂාවකින් උපසිරැසි, ඉහළින් දෙවන පේළිය ලෙස (ද්විභාෂා)</translation>
     </message>
     <message>
         <source>Import</source>
@@ -26634,6 +27230,18 @@ If playback stutters, try another.</source>
     <message>
         <source>Offset the exported captions by this clip&apos;s start so they match the exported video</source>
         <translation>නිර්යාත කළ වීඩියෝවට ගැළපෙන පරිදි නිර්යාත උපසිරැසි මෙම ක්ලිපයේ ආරම්භක වේලාවෙන් විස්ථාපනය කරන්න</translation>
+    </message>
+    <message>
+        <source>Translating…</source>
+        <translation>පරිවර්තනය කරමින්…</translation>
+    </message>
+    <message>
+        <source>Captions that will change: %1</source>
+        <translation>වෙනස් වන උපසිරැසි: %1</translation>
+    </message>
+    <message>
+        <source>+ %1 more</source>
+        <translation>+ තවත් %1</translation>
     </message>
     <message>
         <source>(empty)</source>
@@ -26676,8 +27284,24 @@ If playback stutters, try another.</source>
         <translation>වත්මන් වේලාව අවසානය ලෙස සකසන්න</translation>
     </message>
     <message>
-        <source>Delete caption</source>
-        <translation>උපසිරැසිය මකන්න</translation>
+        <source>Style: same as the clip</source>
+        <translation>විලාසය: ක්ලිපයට සමාන</translation>
+    </message>
+    <message>
+        <source>Like the clip</source>
+        <translation>ක්ලිපයට සමාන</translation>
+    </message>
+    <message>
+        <source>Top</source>
+        <translation>ඉහළ</translation>
+    </message>
+    <message>
+        <source>Middle</source>
+        <translation>මැද</translation>
+    </message>
+    <message>
+        <source>Where this caption sits on screen</source>
+        <translation>මෙම උපසිරැසිය තිරයේ ඇති තැන</translation>
     </message>
     <message>
         <source>At %1</source>
@@ -26694,6 +27318,30 @@ If playback stutters, try another.</source>
     <message>
         <source>Emojis</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Too short to read</source>
+        <translation>කියවීමට ඉතා කෙටියි</translation>
+    </message>
+    <message>
+        <source>On screen too long</source>
+        <translation>තිරයේ ඉතා දිගු වේලාවක්</translation>
+    </message>
+    <message>
+        <source>Too fast to read</source>
+        <translation>කියවීමට ඉතා වේගවත්</translation>
+    </message>
+    <message>
+        <source>Move all captions</source>
+        <translation>සියල්ල ගෙන යන්න</translation>
+    </message>
+    <message>
+        <source>All captions 0.1 s earlier</source>
+        <translation>සියල්ල තත්. 0.1ක් කලින්</translation>
+    </message>
+    <message>
+        <source>All captions 0.1 s later</source>
+        <translation>සියල්ල තත්. 0.1ක් පසුව</translation>
     </message>
     <message>
         <source>Replace these captions from an SRT, WebVTT or ASS file</source>
@@ -26724,6 +27372,30 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Animated</source>
+        <translation>සජීවී</translation>
+    </message>
+    <message>
+        <source>An animated emoji above each caption that mentions one (fuego, Dios, fiesta…)</source>
+        <translation>ඉමෝජියක් සඳහන් කරන එක් එක් උපසිරැසියට ඉහළින් සජීවී ඉමෝජියක් (ගින්න, දෙවියන්, සාදය…)</translation>
+    </message>
+    <message>
+        <source>Bleep</source>
+        <translation>බීප්</translation>
+    </message>
+    <message>
+        <source>A beep over each hidden swear word, with the voice muted under it</source>
+        <translation>සැඟවූ සෑම කුණුහරුපයකටම බීප් එකක්, යටින් හඬ නිහඬ කර</translation>
+    </message>
+    <message>
+        <source>Key words</source>
+        <translation>මූල පද</translation>
+    </message>
+    <message>
+        <source>Highlight the key word of each caption in colour (a number, a name, what matters)</source>
+        <translation>එක් එක් උපසිරැසියේ මූල පදය වර්ණයෙන් ඉස්මතු කරයි (අංකයක්, නමක්, වැදගත් දේ)</translation>
+    </message>
+    <message>
         <source>Clean up</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26738,6 +27410,70 @@ If playback stutters, try another.</source>
     <message>
         <source>Fix a word in every caption at once</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spelling</source>
+        <translation>අක්ෂර වින්‍යාසය</translation>
+    </message>
+    <message>
+        <source>Check the spelling of every caption, one word at a time</source>
+        <translation>සියලු උපසිරැසිවල අක්ෂර වින්‍යාසය වචනයෙන් වචනය පරීක්ෂා කරයි</translation>
+    </message>
+    <message>
+        <source>Speakers</source>
+        <translation>කථිකයන්</translation>
+    </message>
+    <message>
+        <source>File and timing</source>
+        <translation>ගොනුව සහ කාලය</translation>
+    </message>
+    <message>
+        <source>Words to check: %1</source>
+        <translation>පරීක්ෂා කළ යුතු වචන: %1</translation>
+    </message>
+    <message>
+        <source>No spelling mistakes found.</source>
+        <translation>අක්ෂර වින්‍යාස දෝෂ හමු නොවීය.</translation>
+    </message>
+    <message>
+        <source>Remove repeated word</source>
+        <translation>නැවත ආ වචනය ඉවත් කරන්න</translation>
+    </message>
+    <message>
+        <source>No suggestions: fix it in the text box.</source>
+        <translation>යෝජනා නැත: පෙළ කොටුවේ නිවැරදි කරන්න.</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>වසන්න</translation>
+    </message>
+    <message>
+        <source>Without an account they are translated on this computer (a little slower).</source>
+        <translation>ගිණුමක් නොමැතිව ඒවා මෙම පරිගණකයේ පරිවර්තනය වේ (මඳක් සෙමින්).</translation>
+    </message>
+    <message>
+        <source>Sign in with Google to translate captions, or install the Offline translation extra</source>
+        <translation>උපසිරැසි පරිවර්තනය කිරීමට Google සමඟ පුරනය වන්න, නැතහොත් නොබැඳි පරිවර්තනය අමතරය ස්ථාපනය කරන්න</translation>
+    </message>
+    <message>
+        <source>Ignore</source>
+        <translation>නොසලකන්න</translation>
+    </message>
+    <message>
+        <source>Nothing to change in these captions.</source>
+        <translation>මෙම උපසිරැසිවල වෙනස් කිරීමට කිසිවක් නැත.</translation>
+    </message>
+    <message>
+        <source>(removed)</source>
+        <translation>(ඉවත් කෙරේ)</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>අවලංගු කරන්න</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>යොදන්න</translation>
     </message>
     <message>
         <source>Find (e.g. jesus)</source>
@@ -26803,6 +27539,38 @@ If playback stutters, try another.</source>
         <source>Tip: write a word between asterisks, like *faith*, to highlight it in colour.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>One frame earlier</source>
+        <translation>එක් රාමුවක් කලින්</translation>
+    </message>
+    <message>
+        <source>One frame later</source>
+        <translation>එක් රාමුවක් පසුව</translation>
+    </message>
+    <message>
+        <source>Split</source>
+        <translation>බෙදන්න</translation>
+    </message>
+    <message>
+        <source>Split this caption at the playhead</source>
+        <translation>මෙම උපසිරැසිය ධාවන ලක්ෂයේදී බෙදන්න</translation>
+    </message>
+    <message>
+        <source>Join</source>
+        <translation>එක් කරන්න</translation>
+    </message>
+    <message>
+        <source>Join this caption with the next one</source>
+        <translation>මෙම උපසිරැසිය ඊළඟ එක සමඟ එක් කරන්න</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete this caption</source>
+        <translation>මෙම උපසිරැසිය මකන්න</translation>
+    </message>
 </context>
 <context>
     <name>SubtitleProgressDialog</name>
@@ -26825,18 +27593,6 @@ If playback stutters, try another.</source>
 </context>
 <context>
     <name>SubtitlesTab</name>
-    <message>
-        <source>Subtitle track — one clip holds many timed captions. Place it on the timeline, trim its length, then add caption lines at each moment in the clip panel.</source>
-        <translation>උපසිරැසි ට්‍රැකය — එක් ක්ලිපයක කාල නියමිත උපසිරැසි රාශියක් රඳවා ගත හැක. එය කාලරේඛාව මත තබා, එහි දිග කප්පාදු කර, පසුව ක්ලිප් පුවරුවේ සෑම මොහොතකම උපසිරැසි පේළි එක් කරන්න.</translation>
-    </message>
-    <message>
-        <source>Add subtitle clip</source>
-        <translation>උපසිරැසි ක්ලිපයක් එක් කරන්න</translation>
-    </message>
-    <message>
-        <source>Import subtitle file</source>
-        <translation>උපසිරැසි ගොනුව ආයාත කරන්න</translation>
-    </message>
     <message>
         <source>Import Subtitles</source>
         <translation>උපසිරැසි ආයාත කරන්න</translation>
@@ -26862,20 +27618,48 @@ If playback stutters, try another.</source>
         <translation>සියලු ගොනු (*)</translation>
     </message>
     <message>
-        <source>Add auto caption</source>
-        <translation>ස්වයංක්‍රීය උපසිරැසි එක් කරන්න</translation>
-    </message>
-    <message>
-        <source>Creates captions from the speech in the selected clip.</source>
-        <translation>තෝරාගත් ක්ලිපයේ කථනයෙන් උපසිරැසි නිර්මාණය කරයි.</translation>
-    </message>
-    <message>
         <source>Select a video or audio clip on the timeline first.</source>
         <translation>පළමුව කාලරේඛාවේ වීඩියෝ හෝ ශ්‍රව්‍ය ක්ලිපයක් තෝරන්න.</translation>
     </message>
     <message>
+        <source>On this computer</source>
+        <translation>මෙම පරිගණකයේ</translation>
+    </message>
+    <message>
+        <source>In the cloud</source>
+        <translation>වලාකුළේ</translation>
+    </message>
+    <message>
+        <source>ElevenLabs Scribe: the audio is sent to ElevenLabs with your key</source>
+        <translation>ElevenLabs Scribe: ඔබේ යතුර සමඟ ශ්‍රව්‍යය ElevenLabs වෙත යවයි</translation>
+    </message>
+    <message>
+        <source>Hard words: names, brands… (separated by commas)</source>
+        <translation>අපහසු වචන: නම්, සන්නාම… (කොමාවලින් වෙන් කර)</translation>
+    </message>
+    <message>
+        <source>Style of the selected captions</source>
+        <translation>තෝරාගත් උපසිරැසිවල විලාසය</translation>
+    </message>
+    <message>
+        <source>Two lines per caption</source>
+        <translation>උපසිරැසියකට පේළි දෙකක්</translation>
+    </message>
+    <message>
+        <source>Hide swear words (m*****)</source>
+        <translation>අසභ්‍ය වචන සඟවන්න (f***)</translation>
+    </message>
+    <message>
         <source>Shorter captions are timed by splitting each phrase evenly, so they can drift slightly out of sync with the speech.</source>
         <translation>කෙටි උපසිරැසි කාලගත කරනුයේ එක් එක් වාක්‍ය ඛණ්ඩය සමානව බෙදීමෙනි, එබැවින් ඒවා කථනය සමඟ තරමක් නොගැලපී පැවතිය හැක.</translation>
+    </message>
+    <message>
+        <source>Captions from the voice</source>
+        <translation>හඬෙන් උපසිරැසි</translation>
+    </message>
+    <message>
+        <source>Create captions</source>
+        <translation>උපසිරැසි සාදන්න</translation>
     </message>
     <message>
         <source>Create captions from the selected clips&apos; speech — several clips become one caption clip</source>
@@ -26908,6 +27692,38 @@ If playback stutters, try another.</source>
     <message>
         <source>Needed for auto captions from speech</source>
         <translation>කථනයෙන් ස්වයංක්‍රීය උපසිරැසි ලබාගැනීමට අවශ්‍ය වේ</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation>විකල්ප</translation>
+    </message>
+    <message>
+        <source>Tell the speakers apart (a colour for each)</source>
+        <translation>කථිකයන් වෙන් කරන්න (එක් එක් අයට වර්ණයක්)</translation>
+    </message>
+    <message>
+        <source>Highlight key words in colour</source>
+        <translation>මූල පද වර්ණයෙන් ඉස්මතු කරන්න</translation>
+    </message>
+    <message>
+        <source>Show fewer</source>
+        <translation>අඩුවෙන් පෙන්වන්න</translation>
+    </message>
+    <message>
+        <source>See all styles (%1)</source>
+        <translation>සියලු විලාස බලන්න (%1)</translation>
+    </message>
+    <message>
+        <source>Write by hand</source>
+        <translation>අතින් ලියන්න</translation>
+    </message>
+    <message>
+        <source>An empty caption clip at the playhead: write each line in the clip panel</source>
+        <translation>වාදන ශීර්ෂයේ හිස් උපසිරැසි ක්ලිපයක්: ක්ලිප් පුවරුවේ එක් එක් පේළිය ලියන්න</translation>
+    </message>
+    <message>
+        <source>Import file</source>
+        <translation>ගොනුව ආයාත කරන්න</translation>
     </message>
     <message>
         <source>Recommended caption length</source>
@@ -27615,6 +28431,41 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>TextEditWindow</name>
+    <message>
+        <source>Edit by text</source>
+        <translation>පෙළෙන් සංස්කරණය</translation>
+    </message>
+    <message>
+        <source>Click the words to take out (Shift + click for a stretch). Double click to hear one.</source>
+        <translation>ඉවත් කිරීමට වචන ක්ලික් කරන්න (කොටසකට Shift + ක්ලික්). ඇසීමට දෙවරක් ක්ලික් කරන්න.</translation>
+    </message>
+    <message>
+        <source>No words found in this clip.</source>
+        <translation>මෙම ක්ලිපයේ වචන හමු නොවීය.</translation>
+    </message>
+    <message>
+        <source>Listening to the clip to write down what is said… %1%</source>
+        <translation>කියන දේ ලියා ගැනීමට ක්ලිපයට සවන් දෙමින්… %1%</translation>
+    </message>
+    <message>
+        <source>The first time takes a while; then it opens at once.</source>
+        <translation>පළමු වතාවට මඳ වේලාවක් ගතවේ; ඉන්පසු වහාම විවෘත වේ.</translation>
+    </message>
+    <message>
+        <source>%1 words · %2 s</source>
+        <translation>වචන %1 · තත් %2</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>අවලංගු කරන්න</translation>
+    </message>
+    <message>
+        <source>Cut</source>
+        <translation>කපන්න</translation>
+    </message>
+</context>
+<context>
     <name>TextEffects</name>
     <message>
         <source>Shine sweep</source>
@@ -28180,6 +29031,26 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Read aloud…</source>
+        <translation>හඬ නගා කියවන්න…</translation>
+    </message>
+    <message>
+        <source>Turn this text into a voice that starts with it</source>
+        <translation>මෙම පෙළ එය සමඟ ආරම්භ වන හඬක් බවට පත් කරන්න</translation>
+    </message>
+    <message>
+        <source>Discard the voice you made?</source>
+        <translation>ඔබ සෑදූ හඬ ඉවත් කරන්නද?</translation>
+    </message>
+    <message>
+        <source>Discard and go on</source>
+        <translation>ඉවත් කර ඉදිරියට</translation>
+    </message>
+    <message>
+        <source>The Voice panel has a take that is not on the timeline yet. Add it first with «Add to timeline», or discard it to start this one.</source>
+        <translation>හඬ පැනලයේ තවම කාල රේඛාවට එක් නොකළ ටේක් එකක් ඇත. පළමුව «කාල රේඛාවට එක් කරන්න» මගින් එක් කරන්න, නැතහොත් මෙය ආරම්භ කිරීමට ඉවත් කරන්න.</translation>
+    </message>
+    <message>
         <source>Bold</source>
         <translation type="unfinished"></translation>
     </message>
@@ -28429,7 +29300,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Soft</source>
-        <translation type="unfinished"></translation>
+        <translation>මෘදු</translation>
     </message>
     <message>
         <source>Strong</source>
@@ -30251,6 +31122,18 @@ If playback stutters, try another.</source>
 <context>
     <name>TimelinePanel</name>
     <message>
+        <source>Move work area</source>
+        <translation>වැඩ ප්‍රදේශය ගෙන යන්න</translation>
+    </message>
+    <message>
+        <source>Work area: drag to move it</source>
+        <translation>වැඩ ප්‍රදේශය: ගෙන යාමට අදින්න</translation>
+    </message>
+    <message>
+        <source>Work area: drag to change where it starts or ends</source>
+        <translation>වැඩ ප්‍රදේශය: ආරම්භය හෝ අවසානය වෙනස් කිරීමට අදින්න</translation>
+    </message>
+    <message>
         <source>Proxy</source>
         <translation>ප්‍රොක්සි</translation>
     </message>
@@ -30675,7 +31558,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Remove silences</source>
-        <translation type="unfinished"></translation>
+        <translation>නිහඬතා ඉවත් කරන්න</translation>
     </message>
     <message>
         <source>Remove silences and filler words — keep only the spoken parts (eh, mmm and long pauses go)</source>
@@ -31096,7 +31979,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Remove keyframes</source>
-        <translation type="unfinished"></translation>
+        <translation>මූලරාමු ඉවත් කරන්න</translation>
     </message>
     <message>
         <source>Stop animating (removes its keyframes)</source>
@@ -31152,7 +32035,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Separate dimensions</source>
-        <translation type="unfinished"></translation>
+        <translation>මාන වෙන් කරන්න</translation>
     </message>
     <message>
         <source>Behavior…</source>
@@ -31164,7 +32047,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>ඉවත් කරන්න</translation>
     </message>
     <message>
         <source>The clip keeps the value it has at the playhead. You can undo afterwards.</source>
@@ -32342,7 +33225,11 @@ If playback stutters, try another.</source>
     <name>TtsController</name>
     <message>
         <source>Loading voice model…</source>
-        <translation type="unfinished"></translation>
+        <translation>හඬ ආකෘතිය පූරණය කරමින්…</translation>
+    </message>
+    <message>
+        <source>No speech was produced</source>
+        <translation>කථනයක් නිපදවූයේ නැත</translation>
     </message>
     <message>
         <source>Install the voice model first</source>
@@ -32357,16 +33244,63 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Generating speech…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Cancelled</source>
         <translation>අවලංගු කෙරිණි</translation>
     </message>
     <message>
+        <source>Speaking sentence %1 of %2…</source>
+        <translation>වාක්‍ය %1 / %2 කියවමින්…</translation>
+    </message>
+    <message>
+        <source>Sentence %1 could not be spoken: %2</source>
+        <translation>වාක්‍ය %1 කියවිය නොහැකි විය: %2</translation>
+    </message>
+    <message>
+        <source>Putting the take together…</source>
+        <translation>ටේක් එක එකතු කරමින්…</translation>
+    </message>
+    <message>
+        <source>Listen to it, then add it to the timeline</source>
+        <translation>එයට සවන් දී, පසුව කාලරේඛාවට එක් කරන්න</translation>
+    </message>
+    <message>
+        <source>Speaking sentence %1 again…</source>
+        <translation>වාක්‍ය %1 නැවත කියවමින්…</translation>
+    </message>
+    <message>
+        <source>Sentence %1 spoken again</source>
+        <translation>වාක්‍ය %1 නැවත කියෙව්වා</translation>
+    </message>
+    <message>
+        <source>Changing speed and pitch…</source>
+        <translation>වේගය සහ තාරතාව වෙනස් කරමින්…</translation>
+    </message>
+    <message>
+        <source>Replace voice</source>
+        <translation>හඬ ප්‍රතිස්ථාපනය</translation>
+    </message>
+    <message>
+        <source>Could not replace the voice</source>
+        <translation>හඬ ප්‍රතිස්ථාපනය කළ නොහැකි විය</translation>
+    </message>
+    <message>
         <source>Speech added to the timeline</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Voice replaced on the timeline</source>
+        <translation>කාලරේඛාවේ හඬ ප්‍රතිස්ථාපනය කළා</translation>
+    </message>
+    <message numerus="yes">
+        <source>The music goes down under the voice (%n clip(s))</source>
+        <translation>
+            <numerusform>හඬ යටතේ සංගීතය අඩු වේ (ක්ලිප් %n)</numerusform>
+            <numerusform>හඬ යටතේ සංගීතය අඩු වේ (ක්ලිප් %n)</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>There is no music under this voice</source>
+        <translation>මෙම හඬ යටතේ සංගීතයක් නැත</translation>
     </message>
     <message>
         <source>Select a subtitle clip first</source>
@@ -32375,6 +33309,10 @@ If playback stutters, try another.</source>
     <message>
         <source>This subtitle clip has no text to speak</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speaking line %1 of %2…</source>
+        <translation>පේළිය %1 / %2 කියවමින්…</translation>
     </message>
     <message>
         <source>Generate voiceover</source>
@@ -32396,6 +33334,13 @@ If playback stutters, try another.</source>
         <translation type="unfinished">
             <numerusform></numerusform>
             <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>; %n could not be added</source>
+        <translation>
+            <numerusform>; %n එක් කළ නොහැකි විය</numerusform>
+            <numerusform>; %n එක් කළ නොහැකි විය</numerusform>
         </translation>
     </message>
 </context>
@@ -33086,7 +34031,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Soft</source>
-        <translation type="unfinished"></translation>
+        <translation>මෘදු</translation>
     </message>
     <message>
         <source>Strong smoothing for an even, soft skin</source>
@@ -33649,6 +34594,81 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>VoiceGallery</name>
+    <message>
+        <source>Narration</source>
+        <translation>කථනය</translation>
+    </message>
+    <message>
+        <source>Young</source>
+        <translation>තරුණ</translation>
+    </message>
+    <message>
+        <source>Deep</source>
+        <translation>ගැඹුරු</translation>
+    </message>
+    <message>
+        <source>Lively</source>
+        <translation>ප්‍රාණවත්</translation>
+    </message>
+    <message>
+        <source>Soft</source>
+        <translation>මෘදු</translation>
+    </message>
+    <message>
+        <source>Mature</source>
+        <translation>පරිණත</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation>සියල්ල</translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation>ප්‍රියතම</translation>
+    </message>
+    <message>
+        <source>Mine</source>
+        <translation>මගේ</translation>
+    </message>
+    <message>
+        <source>Women</source>
+        <translation>කාන්තා</translation>
+    </message>
+    <message>
+        <source>Men</source>
+        <translation>පිරිමි</translation>
+    </message>
+    <message>
+        <source>Hear this voice</source>
+        <translation>මෙම හඬ අසන්න</translation>
+    </message>
+    <message>
+        <source>My voice</source>
+        <translation>මගේ හඬ</translation>
+    </message>
+    <message>
+        <source>Mark voices with the star to find them here</source>
+        <translation>මෙහි සොයාගැනීමට හඬවලට තරුවක් දමන්න</translation>
+    </message>
+    <message>
+        <source>Your own voices appear here: «New voice» in Options</source>
+        <translation>ඔබේම හඬවල් මෙහි දිස්වේ: විකල්පවල «නව හඬ»</translation>
+    </message>
+    <message>
+        <source>No voices of this kind</source>
+        <translation>මෙම වර්ගයේ හඬ නැත</translation>
+    </message>
+    <message>
+        <source>Show fewer</source>
+        <translation>අඩුවෙන් පෙන්වන්න</translation>
+    </message>
+    <message>
+        <source>See all voices (%1)</source>
+        <translation>සියලු හඬ බලන්න (%1)</translation>
+    </message>
+</context>
+<context>
     <name>VoiceLibrary</name>
     <message>
         <source>Default</source>
@@ -33661,6 +34681,18 @@ If playback stutters, try another.</source>
     <message>
         <source>A voice needs a name and a recording</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reading the recording…</source>
+        <translation>පටිගත කිරීම කියවමින්…</translation>
+    </message>
+    <message>
+        <source>Loading voice model…</source>
+        <translation>හඬ ආකෘතිය පූරණය කරමින්…</translation>
+    </message>
+    <message>
+        <source>Learning the voice…</source>
+        <translation>හඬ ඉගෙන ගනිමින්…</translation>
     </message>
     <message>
         <source>Could not prepare the voice</source>
@@ -33677,6 +34709,18 @@ If playback stutters, try another.</source>
     <message>
         <source>The recording is too short: record at least %1 seconds</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unknown voice</source>
+        <translation>නොදන්නා හඬ</translation>
+    </message>
+    <message>
+        <source>The reference recording for this voice is missing</source>
+        <translation>මෙම හඬෙහි යොමු පටිගත කිරීම නැත</translation>
+    </message>
+    <message>
+        <source>Could not read the reference recording</source>
+        <translation>යොමු පටිගත කිරීම කියවිය නොහැකි විය</translation>
     </message>
 </context>
 <context>
@@ -33733,6 +34777,18 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Speech generation runs on this device and needs the voice model.</source>
+        <translation>කථනය සෑදීම මෙම උපාංගයේ ක්‍රියාත්මක වන අතර හඬ ආකෘතිය අවශ්‍ය වේ.</translation>
+    </message>
+    <message>
+        <source>Download voice model</source>
+        <translation>හඬ ආකෘතිය බාගන්න</translation>
+    </message>
+    <message>
+        <source>Install AI engine first</source>
+        <translation>පළමුව AI එන්ජිම ස්ථාපනය කරන්න</translation>
+    </message>
+    <message>
         <source>Voice</source>
         <translation>කටහඬ</translation>
     </message>
@@ -33763,6 +34819,21 @@ If playback stutters, try another.</source>
     <message>
         <source>Close</source>
         <translation>වසන්න</translation>
+    </message>
+</context>
+<context>
+    <name>WhisperTranscriber</name>
+    <message>
+        <source>Transcribing %1–%2 of %3…</source>
+        <translation>%3 න් %1–%2 පිටපත් කරමින්…</translation>
+    </message>
+    <message>
+        <source>Detecting language…</source>
+        <translation>භාෂාව හඳුනාගනිමින්…</translation>
+    </message>
+    <message>
+        <source>Finishing up…</source>
+        <translation>අවසන් කරමින්…</translation>
     </message>
 </context>
 <context>

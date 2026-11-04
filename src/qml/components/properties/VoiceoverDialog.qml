@@ -1,5 +1,6 @@
 import QtQuick
 import QtQuick.Controls.Basic
+import QtQuick.Window
 import Drift
 import ".."
 
@@ -9,6 +10,9 @@ ThemedDialog {
 
     property int trackIndex: -1
     property int clipIndex: -1
+    // A failure stays on screen here (0.30): the dialog used to close on any end, even a model
+    // that failed to load.
+    property string failure: ""
 
     title: qsTr("Generate voiceover")
     preferredWidth: Theme.dialogWidthMd
@@ -21,7 +25,10 @@ ThemedDialog {
         voiceBox.currentIndex = Math.max(0, EditorState.voices.indexOfId(EditorState.tts.lastVoice))
         langBox.currentIndex = Math.max(0, langBox.indexOfValue(EditorState.tts.lastLanguage))
         exaggerationSlider.value = EditorState.tts.lastExaggeration
+        failure = ""
         open()
+        if (EditorState.tts.available)
+            EditorState.tts.warmUp()
     }
 
     Connections {
@@ -29,14 +36,40 @@ ThemedDialog {
         function onFinished(ok, message) {
             if (!root.visible)
                 return
+            if (!ok) {
+                root.failure = message
+                return
+            }
             root.close()
-            AppController.setLastMessage(message, ok ? "success" : "error")
+            AppController.setLastMessage(message, "success")
         }
     }
 
     contentItem: Column {
+        id: body
         spacing: Theme.spacingLg
         width: parent ? parent.width : 360
+
+        ThemedLabel {
+            visible: !EditorState.tts.available
+            width: parent.width
+            wrapMode: Text.WordWrap
+            text: qsTr("Speech generation runs on this device and needs the voice model.")
+        }
+        ThemedButton {
+            visible: !EditorState.tts.available
+            width: parent.width
+            text: Addons.runtimeAvailable() ? qsTr("Download voice model") : qsTr("Install AI engine first")
+            variant: "primary"
+            glyph: Theme.icons.download
+            onClicked: {
+                const w = body.Window.window
+                const kind = Addons.runtimeAvailable() ? "tts-model" : "onnxruntime"
+                root.close()
+                if (w && w.openAddonManager)
+                    w.openAddonManager(kind)
+            }
+        }
 
         ThemedLabel {
             text: qsTr("Voice")
@@ -62,10 +95,6 @@ ThemedDialog {
             textRole: "label"
             valueRole: "code"
             model: EditorState.tts.languageOptions()
-        }
-
-        ThemedLabel {
-            text: qsTr("Expressiveness")
         }
 
         ThemedSlider {
@@ -104,6 +133,14 @@ ThemedDialog {
             }
         }
 
+        ThemedLabel {
+            visible: root.failure.length > 0 && !EditorState.tts.running
+            width: parent.width
+            wrapMode: Text.WordWrap
+            color: Theme.destructive
+            text: root.failure
+        }
+
         Row {
             spacing: Theme.spacingMd
             layoutDirection: Qt.RightToLeft
@@ -115,9 +152,12 @@ ThemedDialog {
                 variant: "primary"
                 glyph: Theme.icons.audioLines
                 enabled: EditorState.tts.available
-                onClicked: EditorState.tts.voiceoverFromSubtitles(
+                onClicked: {
+                    root.failure = ""
+                    EditorState.tts.voiceoverFromSubtitles(
                                root.trackIndex, root.clipIndex, voiceBox.currentValue,
                                langBox.currentValue, exaggerationSlider.value)
+                }
             }
 
             ThemedButton {

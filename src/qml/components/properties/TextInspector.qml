@@ -1421,6 +1421,47 @@ Item {
                 onClicked: voiceoverDialog.openFor(EditorState.selectedTrack, EditorState.selectedClip)
             }
 
+            // CapCut's «Text to speech» on a title (0.30): its words in the Voz tab, and the voice
+            // starts with the text when it is added.
+            ThemedButton {
+                visible: root.clipKind === "text" && root.hasTextStyle
+                width: parent.width
+                variant: "secondary"
+                glyph: Theme.icons.audioLines
+                text: qsTr("Read aloud…")
+                tooltip: qsTr("Turn this text into a voice that starts with it")
+                onClicked: {
+                    const track = EditorState.selectedTrack
+                    const clip = EditorState.selectedClip
+                    discardTakeDialog.ask(() => EditorState.tts.speakTextClip(track, clip))
+                }
+            }
+
+            // A take not added yet would be thrown away by starting another (0.30 tests E56): asked first.
+            ThemedDialog {
+                id: discardTakeDialog
+                property var proceed: null
+                title: qsTr("Discard the voice you made?")
+                preferredWidth: 380
+                acceptText: qsTr("Discard and go on")
+                acceptVariant: "destructive"
+                onAccepted: { if (proceed) proceed(); proceed = null }
+                onRejected: proceed = null
+                contentItem: ThemedLabel {
+                    width: discardTakeDialog.availableWidth
+                    wrapMode: Text.WordWrap
+                    text: qsTr("The Voice panel has a take that is not on the timeline yet. Add it first with «Add to timeline», or discard it to start this one.")
+                }
+                function ask(action) {
+                    if (!EditorState.tts.hasTake) {
+                        action()
+                        return
+                    }
+                    proceed = action
+                    open()
+                }
+            }
+
             // Font, size, weight, case, colour, spacing and alignment: CapCut's Básico head.
             Column {
                 width: parent.width

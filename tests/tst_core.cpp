@@ -36,6 +36,7 @@
 #include "core/VectorSource.h"
 #include "core/DotLottie.h"
 #include "core/CubeLut.h"
+#include "core/PositionPath.h"
 #include "core/ZipArchive.h"
 #include "core/SecretStore.h"
 #include "TestZip.h"
@@ -236,6 +237,9 @@ private slots:
     void applyMulticamSwitchMergesAdjacentSameCamera();
     void applyMulticamSwitchRejectsEdges();
     void sliceClipToTimelineRangeKeepsSourceInSync();
+    void animatedSizeGrowsAroundTheAnchor();
+    void joinedPositionKeepsPathAndTimingApart();
+    void keyedSizeGrowsAroundAnchorFromItsPivot();
 };
 
 // After Effects' gradient handles (0.29): points → gradient → the same points, for each kind.
@@ -1314,6 +1318,37 @@ void CoreTest::subtitleCuePacking()
     QCOMPARE(sentence.at(0).text, QStringLiteral("Que el Rey de Reyes los"));
     QCOMPARE(sentence.at(1).text, QStringLiteral("bendiga grandemente."));
     QCOMPARE(sentence.at(2).text, QStringLiteral("En este tutorial"));
+
+    // The karaoke's word timings survive the cleanup and the dictionary: a dropped hesitation
+    // takes its own timing with it, a replaced word takes the one it replaced.
+    drift::SubtitleCue timed{0, 4000, QStringLiteral("eh este es el camino")};
+    timed.wordEndsUs = {500, 1000, 1500, 2000, 3000};
+    const QList<drift::SubtitleCue> cleanTimed = drift::cleanSubtitleCues({timed});
+    QCOMPARE(cleanTimed.first().text, QStringLiteral("Este es el camino"));
+    QCOMPARE(cleanTimed.first().wordEndsUs, (QList<drift::TimeUs>{1000, 1500, 2000, 3000}));
+    QCOMPARE(drift::realignWordEnds(QStringLiteral("hola Jhon Smit"), {500, 1000, 1500},
+                                    QStringLiteral("hola John Smith")),
+             (QList<drift::TimeUs>{500, 1000, 1500}));
+    QCOMPARE(drift::realignWordEnds(QStringLiteral("vamos a la iglesia"), {500, 800, 1000, 2000},
+                                    QStringLiteral("vamos a la casa de Dios")),
+             (QList<drift::TimeUs>{500, 800, 1000, 2000, 2000, 2000}));
+    QCOMPARE(drift::realignWordEnds(QStringLiteral("muy muy bien"), {400, 800, 1200},
+                                    QStringLiteral("muy bien")),
+             (QList<drift::TimeUs>{400, 1200}));
+    QVERIFY(drift::realignWordEnds(QStringLiteral("dos palabras"), {500}, QStringLiteral("dos")).isEmpty());
+
+    // Swear words keep their first letter and their length; harmless look-alikes stay.
+    QCOMPARE(drift::maskProfanity(QStringLiteral("Qué mierda, coño")), QStringLiteral("Qué m*****, c***"));
+    QCOMPARE(drift::maskProfanity(QStringLiteral("put the output on")), QStringLiteral("put the output on"));
+    QCOMPARE(drift::maskProfanity(QStringLiteral("¡Fuck!")), QStringLiteral("¡F***!"));
+
+    // The key word of a caption: a number first, else the longest word that is not a filler word.
+    QCOMPARE(drift::highlightCaptionKeyword(QStringLiteral("Gana 100 % de descuento hoy")),
+             QStringLiteral("Gana *100 %* de descuento hoy"));
+    QCOMPARE(drift::highlightCaptionKeyword(QStringLiteral("Hola a todos, bienvenidos al canal.")),
+             QStringLiteral("Hola a todos, *bienvenidos* al canal."));
+    QCOMPARE(drift::highlightCaptionKeyword(QStringLiteral("Esto es *mío* ya")), QStringLiteral("Esto es *mío* ya"));
+    QCOMPARE(drift::highlightCaptionKeyword(QStringLiteral("Hola")), QStringLiteral("Hola"));
 
     // *Marked* words, inside punctuation too, and the Keywords rule.
     QVERIFY(drift::isMarkedWord(QStringLiteral("*fiel*")));
@@ -7117,6 +7152,13 @@ void CoreTest::transcriptCuesUseMeasuredTimings()
     QCOMPARE(cues[0].endUs, drift::secondsToUs(0.8));
     QCOMPARE(cues[4].text, QStringLiteral("speaker,"));
     QCOMPARE(cues[4].startUs, drift::secondsToUs(3.3));
+
+    // A new voice starts a caption of its own, and each caption knows who says it.
+    const auto packed = drift::cuesFromTranscript(*t, 0, drift::secondsToUs(10), 42, 1, 0);
+    QVERIFY(packed.size() >= 2);
+    QCOMPARE(packed.first().speaker, 0);
+    QCOMPARE(packed.last().speaker, 1);
+    QCOMPARE(packed.last().text, QStringLiteral("Next speaker, here"));
 }
 
 void CoreTest::transcriptSavedWithAssetNotHashed()
@@ -7748,6 +7790,137 @@ void CoreTest::sceneTemplateBrandKitFollowsRolesAndFallsBack()
     QCOMPARE(r.refonted, 1);
     QCOMPARE(plain.at(0).clips.at(0).textStyle.fontFamily, QStringLiteral("Brand Sans"));
     QVERIFY(plain.at(0).clips.at(1).textStyle.fontFamily != QStringLiteral("Brand Sans"));
+}
+
+// Ejercicio del rebote (0.30): squashing a ball with its anchor at the bottom keeps the bottom on the floor.
+// After Effects' Position as one property (0.30): an even speed along each stretch, the path's
+// own handles bend it without changing the timing, an ease slows the ends of the same path, and
+// the distances come back after saving.
+void CoreTest::keyedSizeGrowsAroundAnchorFromItsPivot()
+{
+    // The stopwatch put on a 200 px width and 260 typed at the same moment: one key, and the box
+    // still grows around its centre from the 200 it had (0.30, tests #7).
+    drift::Clip clip;
+    clip.transformW.setKeyframe(1000000, 260.0);
+    clip.transformW.setStopwatch(true);
+    clip.anchorX.setKeyframe(0, 0.5);
+    clip.anchorY.setKeyframe(0, 0.5);
+    clip.sizePivotW = 200.0;
+    QCOMPARE(clip.anchorShift(1000000, 260.0, 100.0, 0.0).x(), -30.0);
+    // Without its stopwatch the size is a plain value again: no shift.
+    clip.transformW.setStopwatch(false);
+    clip.transformW.removeKeyframe(1000000);
+    clip.transformW.setKeyframe(0, 260.0);
+    QCOMPARE(clip.anchorShift(0, 260.0, 100.0, 0.0).x(), 0.0);
+    // Old projects (no pivot): one key does not shift, the first of two is the rest size.
+    drift::Clip old;
+    old.anchorX.setKeyframe(0, 0.5);
+    old.transformW.setKeyframe(0, 200.0);
+    old.transformW.setStopwatch(true);
+    QCOMPARE(old.anchorShift(0, 200.0, 100.0, 0.0).x(), 0.0);
+    old.transformW.setKeyframe(1000000, 300.0);
+    QCOMPARE(old.anchorShift(1000000, 300.0, 100.0, 0.0).x(), -50.0);
+}
+
+void CoreTest::joinedPositionKeepsPathAndTimingApart()
+{
+    using namespace drift;
+    const auto at = [](const Clip &c, TimeUs t) { return QPointF(c.transformX.evaluateAt(t), c.transformY.evaluateAt(t)); };
+    Clip line;
+    line.transformX.setKeyframe(0, 0.0);
+    line.transformX.setKeyframe(1000000, 100.0);
+    line.transformX.setKeyframe(2000000, 400.0);
+    line.transformY.setKeyframe(0, 0.0);
+    line.transformY.setKeyframe(2000000, 0.0);
+    joinPosition(line);
+    QVERIFY(line.positionJoined);
+    QCOMPARE(line.transformY.keyframes().size(), 3); // both axes on the same times
+    QVERIFY(qAbs(at(line, 500000).x() - 50.0) < 0.5);
+    QVERIFY(qAbs(at(line, 1500000).x() - 250.0) < 0.5);
+    QVERIFY(qAbs(pathDistanceAt(line, 2000000) - 400.0) < 0.5);
+
+    Clip arc;
+    arc.transformX.setKeyframe(0, 0.0);
+    arc.transformX.setKeyframe(1000000, 200.0);
+    arc.transformY.setKeyframe(0, 0.0);
+    arc.transformY.setKeyframe(1000000, 0.0);
+    joinPosition(arc);
+    for (const TimeUs t : {TimeUs(0), TimeUs(1000000)}) {
+        arc.transformX.keyframeRef(t)->spatialAuto = false;
+        arc.transformY.keyframeRef(t)->spatialAuto = false;
+    }
+    arc.transformY.keyframeRef(0)->spOut = -150.0;
+    arc.transformY.keyframeRef(1000000)->spIn = -150.0;
+    syncJoinedPosition(arc);
+    // Halfway in time is halfway along the bent path: its top.
+    QVERIFY(qAbs(at(arc, 500000).x() - 100.0) < 1.0);
+    QVERIFY(qAbs(at(arc, 500000).y() + 112.5) < 1.5);
+    double total = 0.0, firstHalf = 0.0;
+    QPointF last = at(arc, 0);
+    for (int i = 1; i <= 200; ++i) {
+        const QPointF p = at(arc, TimeUs(i) * 5000);
+        const double d = QLineF(last, p).length();
+        total += d;
+        if (i <= 100)
+            firstHalf += d;
+        last = p;
+    }
+    QVERIFY(qAbs(firstHalf / total - 0.5) < 0.01);
+
+    // Easy Ease on the timing: slow at the start, the same path.
+    for (KeyframeTrack<double> *t : {&arc.transformX, &arc.transformY}) {
+        t->keyframeRef(0)->outDx = 333333;
+        t->keyframeRef(1000000)->inDx = -333333;
+    }
+    syncJoinedPosition(arc);
+    QVERIFY(pathDistanceAt(arc, 100000) < 0.1 * total);
+    QVERIFY(qAbs(at(arc, 500000).x() - 100.0) < 1.0);
+
+    // Saved and loaded: the handles stay, the distances are worked out again.
+    Project project;
+    project.tracks().clear();
+    Track track{.type = TrackType::Video};
+    track.id = QStringLiteral("t");
+    Clip saved = arc;
+    saved.id = QStringLiteral("arc");
+    saved.srcIn = 0;
+    saved.srcOut = 2000000;
+    track.clips.append(saved);
+    project.tracks().append(track);
+    const Project reloaded = Project::fromJson(project.toJson());
+    const Clip &back = reloaded.tracks().constFirst().clips.constFirst();
+    QVERIFY(back.positionJoined);
+    QVERIFY(qAbs(at(back, 500000).y() - at(arc, 500000).y()) < 0.5);
+
+    // Separate dimensions: the keys keep their values and become plain X and Y.
+    separatePosition(line);
+    QVERIFY(!line.positionJoined);
+    QVERIFY(line.positionSeparated);
+    QCOMPARE(line.transformX.evaluateAt(1000000), 100.0);
+    QVERIFY(!line.transformX.keyframes().first().spatial);
+}
+
+void CoreTest::animatedSizeGrowsAroundTheAnchor()
+{
+    drift::Clip clip;
+    clip.anchorX.setKeyframe(0, 0.5);
+    clip.anchorY.setKeyframe(0, 1.0);
+    clip.transformW.setKeyframe(0, 100.0);
+    clip.transformW.setKeyframe(1000000, 200.0);
+    clip.transformH.setKeyframe(0, 100.0);
+    clip.transformH.setKeyframe(1000000, 50.0);
+    // At rest nothing moves.
+    QCOMPARE(clip.anchorShift(0, 100.0, 100.0, 0.0), QPointF(0, 0));
+    // Twice as wide, half as tall: the left edge moves 50 px left and the top 50 px down,
+    // so the centre stays at x 50 and the bottom stays at y 100 of the rest box.
+    const QPointF shift = clip.anchorShift(1000000, 200.0, 50.0, 0.0);
+    QCOMPARE(shift.x(), -50.0);
+    QCOMPARE(shift.y(), 50.0);
+    // No anchor: the old corner growth, for projects saved before.
+    drift::Clip old = clip;
+    old.anchorX = {};
+    old.anchorY = {};
+    QCOMPARE(old.anchorShift(1000000, 200.0, 50.0, 0.0), QPointF(0, 0));
 }
 
 QTEST_MAIN(CoreTest)

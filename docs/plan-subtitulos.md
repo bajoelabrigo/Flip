@@ -1,0 +1,196 @@
+# Subtítulos: plan (Jorge, 2026-11-01)
+
+Lista acordada con Jorge tras revisar el área de subtítulos de la app de escritorio. Rama `flip/subtitulos`
+(sale de `flip/aviso-web`, que ya lleva el aviso de «Editar en línea»). Va en la próxima versión del escritorio.
+
+**Regla para todo lo de esta lista (Jorge):** que sea **fácil de usar** y que el aspecto sea **moderno y
+minimalista**: pocas opciones a la vista, lo avanzado plegado, textos cortos, nada repetido, una sola forma clara
+de hacer cada cosa.
+
+Cómo seguir: marcar cada punto al terminarlo con el commit; probar en ventana antes de publicar (regla de siempre).
+
+## Lo que ya tiene (referencia)
+- Crear subtítulos con IA en la computadora (Whisper); con el extra de sincronía, tiempo exacto por palabra
+  (`engine/LocalTranscription.cpp`, `WhisperTranscriber.cpp`, `AppController::generateSubtitlesForSources`).
+- Opciones: largo, 10 estilos + los de Stock, quitar muletillas, emojis, traducción al inglés (`SubtitlesTab.qml`).
+- Editar: `SubtitleEditor.qml` (líneas, buscar y reemplazar, diccionario), `SubtitleCueLane.qml` (arrastrar).
+- Archivos: SRT, VTT, ASS (`core/SrtIO.*`). Voz en off desde los subtítulos; quitar silencios.
+
+## Corregir
+- [x] 1. El karaoke se desincroniza: editar o mover un subtítulo borra el tiempo de cada palabra de todo el clip
+  (`SubtitleEditor.qml` `cloneCues`, `SubtitleCueLane.qml`); «quitar muletillas», el diccionario y los emojis
+  tampoco actualizan `wordEndsUs` (`finalizeGeneratedSubtitles`).
+- [x] 2. Mensajes en inglés: «Transcribing…», «Detecting language…», «Finishing up…», «Finding speech…», «Timing
+  words…» y los nombres de los idiomas (`QLocale::languageToString`).
+- [x] 3. El idioma se detecta solo con los primeros 30 s (`WhisperTranscriber.cpp`).
+- [x] 4. Sin el extra de sincronía, la IA puede inventar texto en los silencios (falta detectar voz).
+- [x] 5. Importar un SRT lo pone en el cabezal: si no está en 0, queda desfasado.
+- [x] 6. El SRT exportado sale desfasado si el clip no empieza en 0 (la opción por defecto es la equivocada).
+- [x] 7. Generar dos veces sobre el mismo tramo encima dos clips de subtítulos.
+- [x] 8. Una sola línea de 42 letras, también en vertical; no permite dos líneas (`packSubtitleCues`).
+- [x] 9. El candado de la pista no protege los subtítulos (`setSubtitleCues`, `importSubtitleFileIntoClip`).
+- [x] 10. Curvas de velocidad y clips en reversa: subtítulos mal sincronizados.
+- [x] 11. Chino, japonés y tailandés: se sincronizan mal (separan palabras por espacios).
+
+## Mejorar (más fácil de usar)
+- [x] Recordar las últimas opciones (idioma, largo, traducción).
+- [x] Unificar los 3 lugares desde donde se crean subtítulos (el del panel de audio no tiene estilos ni limpieza).
+- [x] Cambiar el estilo de subtítulos ya hechos desde la misma galería.
+- [x] Botones ◀ ▶ de un fotograma y atajos «inicio aquí» / «fin aquí» en vez de escribir los tiempos.
+- [x] Vista previa antes de aplicar «Limpiar» y «Emojis».
+- [x] Quitar el aviso de «tiempos repartidos» cuando el extra de sincronía está instalado.
+- [x] Quitar el título repetido «Añadir subtítulos automáticos».
+- [~] Aspecto moderno y minimalista en todo el panel (ver la regla de arriba).
+
+## Agregar
+Lo que tienen CapCut, Premiere y Descript:
+- [x] Dividir y unir subtítulos sueltos; «dividir en el cabezal».
+- [x] Estilo y posición por subtítulo (no solo por clip).
+- [~] Traducir a muchos idiomas y subtítulos bilingües.
+- [x] Editar el video borrando texto (como Descript).
+- [x] Revisar los silencios uno por uno antes de quitarlos.
+- [~] Colores y nombres por hablante (el motor ya distingue voces).
+- [x] Reglas de lectura con aviso (letras por segundo, muy cortos, muy largos).
+- [x] Mover todos los subtítulos a la vez (adelantar o atrasar).
+- [~] Subtítulos dentro del MP4 (activables) y un `.srt` al lado del video al exportar.
+- [x] ASS con el estilo real del proyecto.
+- [x] Palabras difíciles antes de transcribir (nombres, marcas, términos). Hecho en la nube (keyterms de ElevenLabs); en el equipo falta (Whisper no tiene «prompt» en nuestro tokenizador).
+
+Para redes (estilo CapCut):
+- [x] Palabras clave resaltadas por la IA (color o tamaño) y emojis animados de Stock.
+- [x] Más plantillas de subtítulos virales en Stock (palabra por palabra, rebote, caja que sigue la palabra).
+- [x] Filtro de groserías (*** o pitido). Hecho: casilla «Ocultar groserías (m*****)» al crear (es/en); falta el pitido.
+- [x] Revisión de ortografía.
+- [x] Elegir la transcripción en la nube (ElevenLabs) desde el panel de subtítulos.
+
+## Hecho
+- 2026-11-01, rama `flip/subtitulos` (sin compilar ni probar en ventana todavía; se prueba todo junto con la build):
+  - `7ff3e` karaoke: los tiempos por palabra viajan con cada subtítulo (editor y carril), un subtítulo movido
+    entero corre los suyos; limpiar, diccionario y buscar/reemplazar los reacomodan (`realignWordEnds`, con pruebas
+    en `tst_core` y probado aparte compilando `SubtitleCue.cpp`).
+  - `48045` mensajes de progreso traducidos (15 idiomas) y cada idioma con su propio nombre («Español», «Deutsch»).
+  - `7e3f0` un SRT importado empieza en 0:00 en una pista libre; exportar usa por defecto los tiempos del video.
+  - candado: no deja cambiar ni importar subtítulos en una pista bloqueada; generar otra vez va a otra pista.
+  - panel: recuerda idioma y largo, sin el título repetido, sin el aviso cuando está «Sincronía de palabras».
+- Segunda ronda (rama `flip/subtitulos`, sin compilar todavía):
+  - largo de cada subtítulo según la forma del video (vertical 26 letras, cuadrado 32, horizontal 42): en vertical
+    salían 3 o 4 líneas. La caja ya parte en líneas sola; falta ver en ventana si conviene un máximo de 2 líneas.
+  - editor: inicio y fin en su propia fila con ◀ ▶ de un fotograma y «al cabezal»; Dividir en el cabezal (con los
+    tiempos por palabra), Unir con el siguiente, Eliminar en una fila; «Mover todos» ±0,1 s. Atajos: I y O ponen el inicio y el fin del subtítulo elegido en el cabezal mientras el editor está abierto (si no, marcan el área de trabajo como siempre).
+  - idioma: votan hasta tres tramos de 30 s con sonido repartidos por el video (antes solo los primeros 30 s).
+  - sin «Sincronía de palabras»: se descartan los subtítulos sobre silencio (texto fantasma de Whisper).
+  - la galería de estilos de Subtítulos cambia también los subtítulos elegidos («Estilo de los subtítulos elegidos»).
+  - un solo lugar para crear subtítulos: el panel de audio lleva solo «Crear subtítulos…», que abre Subtítulos.
+  - «Limpiar» y «Emojis» muestran primero los cambios (antes tachado, después) con Aplicar / Cancelar.
+  - reglas de lectura: «Muy corto para leer» (< 0,7 s), «Mucho tiempo en pantalla» (> 7 s), «Muy rápido para leer»
+    (> 20 letras por segundo), en naranja junto al tiempo de cada línea.
+  - exportar: «Guardar también los subtítulos (.srt)» junto al video (una por pista; zona de trabajo incluida).
+    Falta: subtítulos dentro del MP4 (pista activable).
+  - ASS exportado con fuente, tamaño, negrita, colores, contorno o caja del clip (probado compilando `SrtIO.cpp`).
+  - «En tu equipo / En la nube» en Subtítulos (sale si Ajustes › Nube tiene clave y permiso de ElevenLabs) y el campo
+    «Palabras difíciles» (se mandan como keyterms). La nube no necesita el modelo local.
+  - CI run 41385748714: compiló; solo falló `findAndReplaceInSubtitleCues` (esperaba borrar los tiempos; ahora se
+    reacomodan): prueba actualizada.
+  - curvas de velocidad y clips en reversa: los subtítulos se ubican con el mapeo del propio clip
+    (`sourceUsToClipLocalUs`); los que salen de una transcripción guardada ya traen los tiempos por palabra.
+  - chino y japonés: cada ideograma o kana es una unidad y cuenta doble de ancho, así se parten en subtítulos del
+    largo justo (probado compilando `SubtitleCue.cpp`). El tailandés queda igual (sus palabras no se pueden partir
+    por letra) y el alineador de palabras no tiene modelos para estos idiomas.
+  - casilla «Dos líneas por subtítulo» al crear (se recuerda): el empaquetado ya admitía dos líneas pero al final
+    cambiaba el salto por un espacio, así que nunca salían (probado compilando `SubtitleCue.cpp`).
+  - «Quitar silencios» (barra de la línea de tiempo) abre una ventana con cada pausa y muletilla: casilla para
+    conservarla, clic para oírla en el cabezal, pausas de más de 0,4/0,6/1/1,5 s y muletillas sí/no, y «Quitar» en un
+    solo deshacer (`SilenceReviewWindow.qml`, `silencePieces`, `removeSilencePieces`). Por MCP sigue cortando directo.
+  - botón «Ortografía» en el editor (las herramientas quedan en una cuadrícula de 2×2): el corrector de Windows
+    (`engine/SpellCheck`, `ISpellChecker`) muestra una palabra a la vez con sus sugerencias, «Ignorar» y «Quitar la
+    palabra repetida» (conserva el tiempo de la palabra). Solo sale si Windows tiene el diccionario del idioma (el de
+    los últimos subtítulos creados, o el de la app). En macOS y Linux todavía no hay. Probado compilando aparte.
+  - subtítulos dentro del video: la misma casilla de Exportar («Incluir los subtítulos (dentro del video y en .srt)»)
+    los mete como pista que el reproductor activa o desactiva (`mov_text` en MP4/MOV, WebVTT en WebM, SubRip en MKV;
+    `Exporter.cpp` `openSubtitleTrack`). Falta comprobarlo con ffprobe en el portable.
+
+### Prueba en ventana (2026-11-02, build 4ca73, `pruebas\subtitulos-030`)
+Video vertical de 23 s con voz de Windows (Helena) y pausas. Visto funcionando: Quitar silencios (ventana con 4
+pausas, desmarcar, 0,4–1,5 s, escuchar mueve el cabezal y para al final, Quitar en 5 tramos y deshacer en un paso),
+dos líneas por subtítulo con karaoke, Ortografía («click» → «clic», karaoke conservado), tecla I, Limpiar con su
+tarjeta, Dividir, Unir, Mover todos (izquierda), botón «Crear subtítulos…» de Audio, y exportar: el MP4 lleva una pista
+`mov_text` con los subtítulos (ffprobe) y el `.srt` al lado coincide. Arreglado después (falta verlo en la build
+siguiente): un subtítulo «.» que Whisper escribía en el silencio del final; Dividir perdía el salto de línea; Mover todos
+a la derecha no hacía nada si un subtítulo llegaba al final del clip. `shot.ps1`/`click.ps1` aceptan `-Title` para las
+ventanas de herramientas.
+  - panel minimalista, primera pasada: a la izquierda, idioma y «Crear subtítulos» arriba; largo, dos líneas,
+    muletillas, emojis, groserías, la nube y la traducción bajo «Opciones» (plegado, se recuerda); la galería muestra 6
+    estilos (favoritos y el actual primero) con «Ver todos»; al final «Escribir a mano» e «Importar archivo». En el
+    editor, sin el párrafo de ayuda; importar, exportar y mover todos bajo «Archivo y tiempos». Falta verlo en ventana.
+  - palabras clave: en cada subtítulo se marca *así* (el color que ya dibujan los estilos) un número o la palabra más
+    larga que no sea de relleno (es, en, pt, fr, it; `highlightCaptionKeyword`, con prueba en `tst_core`). Casilla al
+    crear («Resaltar palabras clave en color») y botón «Palabras clave» en el editor con vista previa. Faltan los emojis
+    animados de Stock.
+  - emojis animados: botón «Animados» en el editor (sale si está el extra «Emojis animados»): cada subtítulo que tiene o
+    pide un emoji (fuego 🔥, Dios 🙏…) recibe el emoji animado encima, con su tiempo, en una pista propia y un solo
+    deshacer (`addAnimatedEmojisToSubtitles`).
+  - pitido: botón «Pitido» en el editor (sale cuando hay groserías tapadas con su tiempo): la voz baja a cero en cada
+    palabra (claves de volumen en los clips transcritos) y un tono de 1 kHz suena en una pista propia (WAV en
+    `generated-audio`). Un solo deshacer (`bleepSubtitleSwearWords`).
+  - estilo y lugar por subtítulo: cada subtítulo guarda `styleId` (un estilo de la galería, vacío = el del clip) y
+    `place` («top», «middle», vacío = donde lo pone el clip), en el proyecto y en el editor (desplegable «Estilo» y
+    «Como el clip / Arriba / Centro» bajo Dividir/Unir); el compositor los usa al dibujar esa línea. Dividir, unir,
+    mover y el carril los conservan.
+  - hablantes (app): casilla «Distinguir a los hablantes» en Opciones (sale con el extra de hablantes o con la nube);
+    cada cambio de voz empieza un subtítulo (`cuesFromTranscript`, prueba en `tst_core`), cada subtítulo guarda su
+    `speaker` y el clip `subtitleSpeakers` (nombre y color); el compositor pinta cada línea con su color y el editor
+    lista los hablantes (clic en el círculo = otro color, nombre editable) y muestra el nombre en cada línea.
+    **Falta publicar el extra** (`diarize-model`, receta `speaker-diarization.json` de Drift) con id `hablantes`.
+  - editar con el texto: botón «Editar con el texto…» en la pestaña Audio del clip; transcribe si hace falta y abre
+    una ventana con las palabras (`TextEditWindow.qml`, `clipTranscriptWords`): clic tacha, Mayús + clic tacha un tramo,
+    doble clic la escucha, «Cortar» quita lo tachado en un solo deshacer (por `removeSilencePieces`).
+  - palabras difíciles en el equipo: el campo de Opciones vale también sin la nube; van como «prompt» inicial de
+    Whisper (`<|startofprev|>` + las palabras), codificadas con el vocabulario por coincidencia más larga
+    (`WhisperTokenizer::encodeApprox`; los modelos no traen los merges). Probado aparte: codifica y vuelve exacto.
+  - tailandés: las palabras se separan con el diccionario de ICU que trae Windows 10/11 (`icu.dll`, cargado con
+    QLibrary; sin él queda como antes) y las marcas de vocal y tono no cuentan como ancho. Probado aparte.
+  - 12 estilos virales más en el extra «Plantillas de texto» 1.2.0 (flip-addons `textstyles.py`, categoría
+    `subtitulos`, que la galería de subtítulos ya lista): Rebote, Caja roja, Caja amarilla (la caja sigue la palabra),
+    Gigante, Neón azul, Máquina de escribir, Podcast, Palabras clave (colorea las *marcadas*), Sombra dura, Degradado,
+    Sello, Elegante. Paquete hecho en `flip-addons/dist`, **sin publicar** hasta verlos en ventana.
+
+### Prueba en ventana 2 (2026-11-03, build 71005, `pruebas\subtitulos-030\entrevista.drift`, dos voces)
+Visto funcionando: panel minimalista y Opciones, palabras clave al crear, Pitido (tono en la grosería), Animados (fuego
+sobre «puro fuego»), estilo y lugar por subtítulo (Arriba, «Fondo de frase»), Editar con el texto (tachar y Cortar) y
+los 12 estilos virales (cargados desde `flip-addons/build/stage` con `DRIFT_TEXT_STYLES_DIR`). El detector de voces
+funciona solo (MCP `diarize`: S1/S2 bien), pero los subtítulos salían sin hablante: el paso al tiempo de la línea de
+tiempo copiaba solo texto y tiempos (arreglado en `99500`). También arreglado después: los cortes de silencios y de
+«Editar con el texto» no corrían las otras pistas (ahora los subtítulos y los clips que siguen se adelantan, en el
+mismo deshacer; un clip que cruza el corte, como la pista del pitido, queda igual), el botón del lugar elegido se veía
+poco y el aviso «Pitido en 1 palabras». Falta verlos en la build siguiente.
+  - traducción (Jorge eligió DeepL en el servidor, 2026-11-03): `flipstudio-api` rama `traduccion` **desplegada**,
+    `POST /v1/translate` con cuenta (30 000 caracteres por cuenta al mes, 950 000 en total; el plan gratis de DeepL da
+    1 000 000), clave solo en el `.env` del servidor (`DEEPL_API_KEY`, también en `secretoslipstudio-api.env`). En la
+    app, botón «Traducir» en el editor: elige el idioma (31) y crea un segundo clip de subtítulos arriba, más chico
+    (bilingüe), sin las *marcas*. **Siguiente (pedido de Jorge):** un modelo de traducción en la computadora como respaldo
+    cuando se acabe el cupo de DeepL, sin internet o sin sesión.
+  - trampa: `deploy.ps1` corrido desde Git Bash usaba el `tar` de Git (toma «C:\…» por un servidor) y subía el
+    paquete viejo sin avisar; ahora usa el tar de Windows y se corta si el paquete no se armó.
+
+### Prueba en ventana 3 (2026-11-03, build dcc85, `pruebas\subtitulos-030b\entrevista.drift`)
+Visto funcionando: «Distinguir a los hablantes» (Hablante 1 blanco, Hablante 2 amarillo, en la lista y en la vista
+previa), Traducir con DeepL al inglés (clip «Subtítulos (…)» encima, con tu sesión) y «Editar con el texto» que corta y
+corre los dos clips de subtítulos (0:23 → 0:21, el inglés sigue sincronizado). Arreglado después: la traducción se
+encimaba con el original cuando las dos ocupan dos líneas con un estilo grande (`bilingualLineGap`: dos líneas de cada
+uno más un margen) y el idioma salía «American English» (ahora «English»). Falta verlos en la build siguiente.
+Ojo para probar: `DRIFT_DIARIZE_MODEL_DIR` apunta a `stage\hablantes\models\diarization` (sin eso no sale la casilla).
+
+### Extras publicados (2026-11-03)
+`hablantes` 1.0.0 (pide la app 0.30.0: las versiones anteriores no lo ven) y `textos.plantillas` 1.2.0 (12 estilos
+de subtítulos más; con la 0.29 el de palabras clave se ve sin el resaltado). Paquetes subidos al release `packages` de
+`flipstudio-extras` (hash comprobado al bajarlos) y después el índice en `getflipstudio.com/addons/index.json`
+(`flipstudio-web` `main`, desplegado con `deploy/deploy.sh`; 27 extras en vivo).
+
+### Traducción sin internet (2026-11-03, noche)
+`engine/TextTranslator` (M2M100 418M, MIT, int8 ONNX, 100 idiomas): tokenizador BPE propio (NFKC, «▁», merges por
+rango; igual al de referencia en 4 frases de prueba), codificador + decodificador sin caché, decodificación voraz.
+Entra solo cuando DeepL no puede: sin sesión, sin internet (estado 0) o 429/502/503 (cupo del mes o DeepL caído).
+Extra `traduccion.local` 1.0.0 (512 MB, instala 631 MB, app ≥ 0.30.0) armado en flip-addons (`modelos.py`,
+`m2m100_ref.py` es la referencia en Python: «Gracias por invitarme.» → «Thank you for inviting me.», menos de 2 s por
+línea). **Sin publicar**: falta probarlo en ventana con `DRIFT_TRANSLATE_MODEL_DIR` =
+`flip-addons\build\stage\traduccion.local\models\translate`.

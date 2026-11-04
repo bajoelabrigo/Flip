@@ -22,6 +22,7 @@
 #include "engine/SceneTemplateCatalog.h"
 
 #include <QCryptographicHash>
+#include <QMetaMethod>
 #include <QDateTime>
 #include <QFontDatabase>
 #include <QLocale>
@@ -374,9 +375,49 @@ QString AppController::sceneTemplateCategoryLabelFor(const QString &categoryId) 
     return sceneTemplateCategoryLabel(categoryId);
 }
 
+namespace {
+// The YouTube kit (Stock, category ytkit) is overlays drawn for one shape of video and used on any: they get the
+// Short or Video choice and are fitted by what they draw. Lower thirds sit on the lower part of the frame; the
+// rest keep their place. Its transitions are whole scenes and are fitted whole, like any template.
+bool isOverlayTemplate(const SceneTemplateEntry &entry)
+{
+    if (entry.tags.contains(QStringLiteral("kit:transiciones")))
+        return false;
+    return entry.category == QLatin1String("ytkit") || entry.tags.contains(QStringLiteral("kit:lowerthirds"))
+        || entry.tags.contains(QStringLiteral("tercio"));
+}
+
+drift::OverlayFit overlayFitFor(const SceneTemplateEntry &entry)
+{
+    const bool lowerThird = entry.tags.contains(QStringLiteral("kit:lowerthirds"))
+        || entry.tags.contains(QStringLiteral("kit:tercios")) || entry.tags.contains(QStringLiteral("tercio"));
+    return lowerThird ? drift::OverlayFit::LowerThird : drift::OverlayFit::Keep;
+}
+} // namespace
+
 QString AppController::insertSceneTemplate(const QString &templateId)
 {
+    // A YouTube-kit overlay into an empty timeline: the shape is the user's to choose (a Short or a normal video), not
+    // the template's. Asked only where a window listens (the tests and MCP go straight in).
+    if (const SceneTemplateEntry *entry = sceneTemplateForId(templateId); entry && isOverlayTemplate(*entry)) {
+        bool timelineEmpty = true;
+        for (const drift::Track &track : m_project.tracks())
+            timelineEmpty = timelineEmpty && track.clips.isEmpty();
+        static const QMetaMethod asked = QMetaMethod::fromSignal(&AppController::templateFormatRequested);
+        if (timelineEmpty && isSignalConnected(asked)) {
+            emit templateFormatRequested(templateId, entry->displayName);
+            return {};
+        }
+    }
     return placeSceneTemplate(templateId, true, true);
+}
+
+QString AppController::insertSceneTemplateAs(const QString &templateId, const QString &format)
+{
+    m_templateFormat = format;
+    const QString placed = placeSceneTemplate(templateId, true, true);
+    m_templateFormat.clear();
+    return placed;
 }
 
 QString AppController::placeSceneTemplate(const QString &templateId, bool recordUndo, bool allowResize)
@@ -412,12 +453,29 @@ QString AppController::placeSceneTemplate(const QString &templateId, bool record
     bool timelineEmpty = true;
     for (const drift::Track &track : m_project.tracks())
         timelineEmpty = timelineEmpty && track.clips.isEmpty();
-    if (allowResize && timelineEmpty
-        && (m_project.width() != content.width() || m_project.height() != content.height()))
+    const bool overlay = isOverlayTemplate(*entry);
+    if (allowResize && timelineEmpty && overlay && (m_templateFormat == QLatin1String("short")
+                                                       || m_templateFormat == QLatin1String("video"))) {
+        // The shape the user picked for the video (Short or Video), not the template's.
+        if (m_templateFormat == QLatin1String("short"))
+            m_project.setResolution(1080, 1920);
+        else
+            m_project.setResolution(1920, 1080);
+    } else if (allowResize && timelineEmpty
+               && (m_project.width() != content.width() || m_project.height() != content.height())) {
         m_project.setResolution(content.width(), content.height());
+    }
 
     QList<drift::Track> tracks = content.tracks();
-    drift::scaleTemplateLayout(tracks, content.width(), content.height(), m_project.width(), m_project.height());
+    // A kit overlay in a video of another shape is fitted by what it draws (a 16:9 one in a Short came out a
+    // third of the width, in the middle: Jorge, 0.30); any other template is fitted whole.
+    const double fromAspect = double(content.width()) / qMax(1, content.height());
+    const double toAspect = double(m_project.width()) / qMax(1, m_project.height());
+    if (overlay && qAbs(fromAspect - toAspect) > 0.1 * toAspect)
+        drift::fitOverlayLayout(tracks, content.width(), content.height(), m_project.width(), m_project.height(),
+                                overlayFitFor(*entry));
+    else
+        drift::scaleTemplateLayout(tracks, content.width(), content.height(), m_project.width(), m_project.height());
 
     // My brand: Business templates, and any that mark a brand role or a logo slot, take the kit's
     // colours and font now and its logo once the slots exist.

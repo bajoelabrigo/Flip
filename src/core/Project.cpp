@@ -1,6 +1,7 @@
 #include "Project.h"
 
 #include "Clip.h"
+#include "PositionPath.h"
 #include "SubtitleCue.h"
 #include "TextAnimationPreset.h"
 #include "TimelineOps.h"
@@ -237,6 +238,12 @@ QJsonArray subtitleCuesToJson(const QList<SubtitleCue> &cues)
                 ends.append(static_cast<double>(end));
             object.insert(QStringLiteral("wordEndsUs"), ends);
         }
+        if (!cue.styleId.isEmpty())
+            object.insert(QStringLiteral("styleId"), cue.styleId);
+        if (!cue.place.isEmpty())
+            object.insert(QStringLiteral("place"), cue.place);
+        if (cue.speaker >= 0)
+            object.insert(QStringLiteral("speaker"), cue.speaker);
         array.append(object);
     }
     return array;
@@ -253,6 +260,9 @@ QList<SubtitleCue> subtitleCuesFromJson(const QJsonArray &array)
         cue.text = object.value(QStringLiteral("text")).toString();
         for (const QJsonValue &end : object.value(QStringLiteral("wordEndsUs")).toArray())
             cue.wordEndsUs.append(static_cast<TimeUs>(end.toDouble()));
+        cue.styleId = object.value(QStringLiteral("styleId")).toString();
+        cue.place = object.value(QStringLiteral("place")).toString();
+        cue.speaker = object.value(QStringLiteral("speaker")).toInt(-1);
         cues.append(cue);
     }
     sortSubtitleCues(cues);
@@ -346,6 +356,18 @@ QJsonObject clipToJson(const Clip &clip)
         json.insert(QStringLiteral("timeRemap"), keyframesToJson(clip.timeRemap));
     if (clip.autoOrient)
         json.insert(QStringLiteral("autoOrient"), true);
+    if (clip.positionJoined)
+        json.insert(QStringLiteral("positionJoined"), true);
+    if (clip.positionSeparated)
+        json.insert(QStringLiteral("positionSeparated"), true);
+    if (clip.restW > 0.0 && clip.restH > 0.0) {
+        json.insert(QStringLiteral("restW"), clip.restW);
+        json.insert(QStringLiteral("restH"), clip.restH);
+    }
+    if (clip.sizePivotW > 0.0)
+        json.insert(QStringLiteral("sizePivotW"), clip.sizePivotW);
+    if (clip.sizePivotH > 0.0)
+        json.insert(QStringLiteral("sizePivotH"), clip.sizePivotH);
     if (clip.nullObject)
         json.insert(QStringLiteral("nullObject"), true);
     if (clip.light.kind != 0) {
@@ -427,6 +449,14 @@ QJsonObject clipToJson(const Clip &clip)
         json.insert(QStringLiteral("motionTrack"), motionTrackToJson(*clip.motionTrack));
     if (clip.textAutoFit)
         json.insert(QStringLiteral("textAutoFit"), true);
+    if (!clip.subtitleSpeakers.isEmpty()) {
+        QJsonArray speakers;
+        for (const SubtitleSpeaker &speaker : clip.subtitleSpeakers) {
+            speakers.append(QJsonObject{{QStringLiteral("name"), speaker.name},
+                                        {QStringLiteral("color"), speaker.color.name(QColor::HexArgb)}});
+        }
+        json.insert(QStringLiteral("subtitleSpeakers"), speakers);
+    }
     if (clip.cornerPinEnabled || clip.cornerPin != QList<QPointF>(4)) {
         QJsonArray pin;
         for (const QPointF &corner : clip.cornerPin)
@@ -492,6 +522,12 @@ Clip clipFromJsonV2(const QJsonObject &object, int canvasW = 1920, int canvasH =
     if (object.contains(QStringLiteral("timeRemap")))
         clip.timeRemap = keyframesFromJson(object.value(QStringLiteral("timeRemap")).toObject());
     clip.autoOrient = object.value(QStringLiteral("autoOrient")).toBool(false);
+    clip.positionJoined = object.value(QStringLiteral("positionJoined")).toBool(false);
+    clip.positionSeparated = object.value(QStringLiteral("positionSeparated")).toBool(false);
+    clip.restW = object.value(QStringLiteral("restW")).toDouble(0.0);
+    clip.restH = object.value(QStringLiteral("restH")).toDouble(0.0);
+    clip.sizePivotW = object.value(QStringLiteral("sizePivotW")).toDouble(0.0);
+    clip.sizePivotH = object.value(QStringLiteral("sizePivotH")).toDouble(0.0);
     clip.nullObject = object.value(QStringLiteral("nullObject")).toBool(false);
     if (object.contains(QStringLiteral("light"))) {
         const QJsonObject l = object.value(QStringLiteral("light")).toObject();
@@ -550,6 +586,11 @@ Clip clipFromJsonV2(const QJsonObject &object, int canvasW = 1920, int canvasH =
     clip.textAutoFit = object.value(QStringLiteral("textAutoFit")).toBool(false);
     clip.textStyle = textStyleFromJson(object.value(QStringLiteral("textStyle")).toObject());
     clip.subtitleCues = subtitleCuesFromJson(object.value(QStringLiteral("subtitleCues")).toArray());
+    for (const QJsonValue &v : object.value(QStringLiteral("subtitleSpeakers")).toArray()) {
+        const QJsonObject o = v.toObject();
+        clip.subtitleSpeakers.append({o.value(QStringLiteral("name")).toString(),
+                                      QColor(o.value(QStringLiteral("color")).toString())});
+    }
     clip.shapeStyle = shapeStyleFromJson(object.value(QStringLiteral("shapeStyle")).toObject());
     clip.vector = VectorSource::fromJson(object.value(QStringLiteral("vector")).toObject());
     clip.model3d = Model3dSource::fromJson(object.value(QStringLiteral("model3d")).toObject());
@@ -659,6 +700,8 @@ Clip clipFromJsonV2(const QJsonObject &object, int canvasW = 1920, int canvasH =
     }
     if (object.contains(QStringLiteral("motionTrack")))
         clip.motionTrack = motionTrackFromJson(object.value(QStringLiteral("motionTrack")).toObject());
+    // Joined Position's distances along the path are not saved: they follow from the keys.
+    syncJoinedPosition(clip);
     return clip;
 }
 

@@ -233,6 +233,11 @@ void MarketClient::setAssetLibrary(AssetLibrary *library)
     m_library = library;
 }
 
+AccountController *MarketClient::account() const
+{
+    return m_account.data();
+}
+
 void MarketClient::setAccount(AccountController *account)
 {
     m_account = account;

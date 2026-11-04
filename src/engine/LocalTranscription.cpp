@@ -6,6 +6,7 @@
 #include "SpeechAudio.h"
 #include "WhisperTranscriber.h"
 
+#include <QCoreApplication>
 #include <QDebug>
 #include <QFile>
 #include <QRegularExpression>
@@ -84,7 +85,7 @@ LocalTranscribeResult transcribeLocal(const std::vector<float> &pcmIn, TimeUs of
     QList<VadRange> speech;
     const bool haveVad = options.vad && SileroVad::modelPresent() && SileroVad::instance().available();
     if (haveVad) {
-        if (!report(0.0, QStringLiteral("Finding speech…"))) {
+        if (!report(0.0, QCoreApplication::translate("LocalTranscription", "Finding speech…"))) {
             result.cancelled = true;
             return result;
         }
@@ -143,6 +144,13 @@ LocalTranscribeResult transcribeLocal(const std::vector<float> &pcmIn, TimeUs of
     const bool canAlign = options.align && CtcAligner::modelPresent(language);
     if (canAlign && lowMemory())
         whisper.unload();
+    const double timingSpan = options.diarize ? 0.3 : 0.35;
+    // Loading the aligner and placing the first chunk take a while with nothing said: the bar sat at
+    // 67 % on Whisper's «Finishing up…» for ~20 s and looked hung (0.30 tests E49).
+    if (canAlign && !report(0.66, QCoreApplication::translate("LocalTranscription", "Timing words…"))) {
+        result.cancelled = true;
+        return result;
+    }
     CtcAligner &aligner = CtcAligner::instance();
     const bool alignerReady = canAlign && aligner.available(language);
     constexpr TimeUs kChunkMax = 28'000'000;
@@ -160,6 +168,12 @@ LocalTranscribeResult transcribeLocal(const std::vector<float> &pcmIn, TimeUs of
             chunkWords += segments.at(k).words;
 
         QList<AlignedWord> placed;
+        if (alignerReady && i > 0
+            && !report(0.65 + timingSpan * (static_cast<double>(i) / segments.size()),
+                       QCoreApplication::translate("LocalTranscription", "Timing words…"))) {
+            result.cancelled = true;
+            return result;
+        }
         if (alignerReady && chunkEnd - chunkStart <= kChunkMax + 2 * kWiden) {
             const size_t a = speechUsToSamples(chunkStart);
             const size_t b = std::min(pcmIn.size(), speechUsToSamples(chunkEnd));
@@ -184,8 +198,8 @@ LocalTranscribeResult transcribeLocal(const std::vector<float> &pcmIn, TimeUs of
                 wordSegment.append(k);
             }
         }
-        if (!report(0.65 + (options.diarize ? 0.3 : 0.35) * (static_cast<double>(j + 1) / segments.size()),
-                    QStringLiteral("Timing words…"))) {
+        if (!report(0.65 + timingSpan * (static_cast<double>(j + 1) / segments.size()),
+                    QCoreApplication::translate("LocalTranscription", "Timing words…"))) {
             result.cancelled = true;
             return result;
         }
@@ -251,7 +265,7 @@ LocalTranscribeResult transcribeLocal(const std::vector<float> &pcmIn, TimeUs of
         params.numSpeakers = options.numSpeakers;
         bool cancelled = false;
         const QList<DiarizeSegment> turns = diarizer.diarize(
-            pcmIn, params, [&](double f) { return report(0.95 + 0.05 * f, QStringLiteral("Telling speakers apart…")); },
+            pcmIn, params, [&](double f) { return report(0.95 + 0.05 * f, QCoreApplication::translate("LocalTranscription", "Telling speakers apart…")); },
             &cancelled);
         if (cancelled) {
             result.cancelled = true;

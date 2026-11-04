@@ -142,8 +142,8 @@
         <translation>자막 스타일</translation>
     </message>
     <message>
-        <source>Voices</source>
-        <translation>음성</translation>
+        <source>Voice changer</source>
+        <translation>음성 변조</translation>
     </message>
     <message>
         <source>Retouch</source>
@@ -1111,6 +1111,29 @@
     <message>
         <source>Changes only that clip; the rest is untouched. It is drawn inside the clip&apos;s row on the timeline.</source>
         <translation>해당 클립만 변경하고 나머지는 그대로입니다. 타임라인에서 클립의 행 안에 표시됩니다.</translation>
+    </message>
+</context>
+<context>
+    <name>AeShortcutsDialog</name>
+    <message>
+        <source>Use After Effects&apos; shortcuts?</source>
+        <translation>After Effects 단축키를 사용할까요?</translation>
+    </message>
+    <message>
+        <source>Use After Effects&apos;</source>
+        <translation>After Effects 단축키 사용</translation>
+    </message>
+    <message>
+        <source>Keep Flip&apos;s</source>
+        <translation>Flip 단축키 유지</translation>
+    </message>
+    <message>
+        <source>J and K go to the previous and next keyframe, P, S, R, T and A show one property, U and UU what is animated or changed, B and N set the work area, I and O go to the layer&apos;s ends, [ ] and Alt+[ ] move and trim the layer at the playhead.</source>
+        <translation>J와 K는 이전·다음 키프레임으로, P, S, R, T, A는 속성 하나만 표시, U와 UU는 애니메이션되거나 바뀐 것, B와 N은 작업 영역 지정, I와 O는 레이어 양 끝으로, [ ]와 Alt+[ ]는 재생 헤드에서 레이어를 옮기고 자릅니다.</translation>
+    </message>
+    <message>
+        <source>You can switch any time in Preferences › Shortcuts. Shortcuts you changed yourself stay as they are.</source>
+        <translation>환경설정 › 단축키에서 언제든 바꿀 수 있습니다. 직접 바꾼 단축키는 그대로 유지됩니다.</translation>
     </message>
 </context>
 <context>
@@ -4249,6 +4272,14 @@
         <translation>“%1”을(를) “%2”에 추가함 · 별도 레이어에 그리려면 먼저 Esc, 나누려면 오른쪽 클릭 › 레이어로 분리</translation>
     </message>
     <message>
+        <source>Sign in with Google to translate captions, or install the Offline translation extra</source>
+        <translation>자막을 번역하려면 Google로 로그인하거나 오프라인 번역 추가 기능을 설치하세요</translation>
+    </message>
+    <message>
+        <source>Words bleeped: %1</source>
+        <translation>삐 소리 단어: %1</translation>
+    </message>
+    <message>
         <source>Add mask</source>
         <translation>마스크 추가</translation>
     </message>
@@ -5195,8 +5226,60 @@
         <translation>불투명도</translation>
     </message>
     <message>
+        <source>Step back one frame (Page Up)</source>
+        <translation>한 프레임 뒤로 (Page Up)</translation>
+    </message>
+    <message>
+        <source>Step forward one frame (Page Down)</source>
+        <translation>한 프레임 앞으로 (Page Down)</translation>
+    </message>
+    <message>
         <source>Show rulers</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Go to the layer&apos;s in point</source>
+        <translation>레이어 시작점으로</translation>
+    </message>
+    <message>
+        <source>Go to the layer&apos;s out point</source>
+        <translation>레이어 끝점으로</translation>
+    </message>
+    <message>
+        <source>Add a Position keyframe</source>
+        <translation>위치 키프레임 추가</translation>
+    </message>
+    <message>
+        <source>Add a Scale keyframe</source>
+        <translation>크기 키프레임 추가</translation>
+    </message>
+    <message>
+        <source>Add a Rotation keyframe</source>
+        <translation>회전 키프레임 추가</translation>
+    </message>
+    <message>
+        <source>Add an Opacity keyframe</source>
+        <translation>불투명도 키프레임 추가</translation>
+    </message>
+    <message>
+        <source>Add an Anchor point keyframe</source>
+        <translation>기준점 키프레임 추가</translation>
+    </message>
+    <message>
+        <source>Trim the layer&apos;s in point to the playhead</source>
+        <translation>재생 헤드에서 레이어 시작 자르기</translation>
+    </message>
+    <message>
+        <source>Trim the layer&apos;s out point to the playhead</source>
+        <translation>재생 헤드에서 레이어 끝 자르기</translation>
+    </message>
+    <message>
+        <source>Move the layer so it starts at the playhead</source>
+        <translation>재생 헤드에서 시작하도록 레이어 이동</translation>
+    </message>
+    <message>
+        <source>Move the layer so it ends at the playhead</source>
+        <translation>재생 헤드에서 끝나도록 레이어 이동</translation>
     </message>
     <message>
         <source>RAM preview (render to memory and play)</source>
@@ -5209,6 +5292,38 @@
     <message>
         <source>Ruler guides</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Replace voice</source>
+        <translation>음성 바꾸기</translation>
+    </message>
+    <message>
+        <source>Voice replaced</source>
+        <translation>음성을 바꿨습니다</translation>
+    </message>
+    <message>
+        <source>Trim layer</source>
+        <translation>레이어 자르기</translation>
+    </message>
+    <message>
+        <source>Move layer</source>
+        <translation>레이어 이동</translation>
+    </message>
+    <message>
+        <source>Put the playhead inside the layer to trim it there</source>
+        <translation>그곳에서 자르려면 재생 헤드를 레이어 안에 두세요</translation>
+    </message>
+    <message>
+        <source>Sending the audio to ElevenLabs…</source>
+        <translation>ElevenLabs로 오디오 보내는 중…</translation>
+    </message>
+    <message>
+        <source>ElevenLabs is transcribing…</source>
+        <translation>ElevenLabs가 받아쓰는 중…</translation>
+    </message>
+    <message>
+        <source>Speaker %1</source>
+        <translation>화자 %1</translation>
     </message>
     <message>
         <source>Solids</source>
@@ -5225,6 +5340,14 @@
     <message>
         <source>Behavior changed</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Settle</source>
+        <translation>안착</translation>
+    </message>
+    <message>
+        <source>Reverse keyframes</source>
+        <translation>키프레임 반전</translation>
     </message>
     <message>
         <source>Pick two or more keys of a property to reverse them</source>
@@ -5411,6 +5534,90 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Translating the captions…</source>
+        <translation>자막 번역 중…</translation>
+    </message>
+    <message>
+        <source>Could not translate the captions (no answer from the server)</source>
+        <translation>자막을 번역할 수 없습니다 (서버 응답 없음)</translation>
+    </message>
+    <message>
+        <source>Translating the captions on this computer…</source>
+        <translation>이 컴퓨터에서 자막을 번역하는 중…</translation>
+    </message>
+    <message>
+        <source>Could not translate the captions</source>
+        <translation>자막을 번역할 수 없습니다</translation>
+    </message>
+    <message>
+        <source>The captions changed while they were being translated; try again</source>
+        <translation>번역하는 동안 자막이 바뀌었습니다. 다시 시도하세요</translation>
+    </message>
+    <message>
+        <source>Captions (%1)</source>
+        <translation>자막 (%1)</translation>
+    </message>
+    <message>
+        <source>Translate captions</source>
+        <translation>자막 번역</translation>
+    </message>
+    <message>
+        <source>Captions translated into %1</source>
+        <translation>자막을 %1(으)로 번역했습니다</translation>
+    </message>
+    <message>
+        <source>Edit speaker</source>
+        <translation>화자 편집</translation>
+    </message>
+    <message>
+        <source>No key words to highlight in these subtitles</source>
+        <translation>이 자막에는 강조할 키워드가 없습니다</translation>
+    </message>
+    <message>
+        <source>Highlight key words</source>
+        <translation>키워드 강조</translation>
+    </message>
+    <message>
+        <source>Key words highlighted in %1 captions</source>
+        <translation>자막 %1개에서 키워드를 강조했습니다</translation>
+    </message>
+    <message>
+        <source>Install «Animated emojis» from Extras first</source>
+        <translation>먼저 추가 기능에서 «움직이는 이모지»를 설치하세요</translation>
+    </message>
+    <message>
+        <source>Emoji: %1</source>
+        <translation>이모지: %1</translation>
+    </message>
+    <message>
+        <source>No captions with an emoji word (fuego, Dios, fiesta…)</source>
+        <translation>이모지 단어가 있는 자막이 없습니다 (불, 하나님, 파티…)</translation>
+    </message>
+    <message>
+        <source>Animated emojis</source>
+        <translation>움직이는 이모지</translation>
+    </message>
+    <message>
+        <source>Animated emojis on %1 captions</source>
+        <translation>자막 %1개에 움직이는 이모지</translation>
+    </message>
+    <message>
+        <source>No hidden words with their timing to bleep</source>
+        <translation>삐 소리를 넣을 타이밍이 있는 가린 단어가 없습니다</translation>
+    </message>
+    <message>
+        <source>Could not make the bleep</source>
+        <translation>삐 소리를 만들 수 없습니다</translation>
+    </message>
+    <message>
+        <source>Bleep swear words</source>
+        <translation>욕설에 삐 소리</translation>
+    </message>
+    <message>
+        <source>Bleep</source>
+        <translation>삐 소리</translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5559,6 +5766,30 @@
     <message>
         <source>Select a clip with sound to enhance its voice</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Listening to the clip to write down what is said…</source>
+        <translation>말한 내용을 받아 적기 위해 클립을 듣는 중…</translation>
+    </message>
+    <message>
+        <source>Move the other tracks</source>
+        <translation>다른 트랙 이동</translation>
+    </message>
+    <message>
+        <source>Edit by text</source>
+        <translation>텍스트로 편집</translation>
+    </message>
+    <message>
+        <source>Remove silences</source>
+        <translation>무음 제거</translation>
+    </message>
+    <message>
+        <source>Cut %1 s from the video</source>
+        <translation>영상에서 %1초를 잘랐습니다</translation>
+    </message>
+    <message>
+        <source>That would remove the whole clip</source>
+        <translation>클립 전체가 삭제됩니다</translation>
     </message>
     <message>
         <source>Volume</source>
@@ -5921,6 +6152,34 @@
         <translation>
             <numerusform>클립 %n개를 붙여넣음</numerusform>
         </translation>
+    </message>
+    <message>
+        <source>Curved path</source>
+        <translation>곡선 경로</translation>
+    </message>
+    <message>
+        <source>Straight path</source>
+        <translation>직선 경로</translation>
+    </message>
+    <message>
+        <source>Join Position</source>
+        <translation>위치 결합</translation>
+    </message>
+    <message>
+        <source>Separate dimensions</source>
+        <translation>차원 분리</translation>
+    </message>
+    <message>
+        <source>Shape motion path</source>
+        <translation>모션 경로 다듬기</translation>
+    </message>
+    <message>
+        <source>Roving needs at least three Position keyframes</source>
+        <translation>로빙에는 위치 키프레임이 3개 이상 필요합니다</translation>
+    </message>
+    <message>
+        <source>Roving keyframes</source>
+        <translation>로빙 키프레임</translation>
     </message>
     <message>
         <source>Exporting…</source>
@@ -7745,18 +8004,6 @@
         <translation>볼륨</translation>
     </message>
     <message>
-        <source>Recommended caption length</source>
-        <translation>권장 캡션 길이</translation>
-    </message>
-    <message>
-        <source>1 word per caption</source>
-        <translation>캡션당 1단어</translation>
-    </message>
-    <message>
-        <source>%1 words per caption</source>
-        <translation>캡션당 %1단어</translation>
-    </message>
-    <message>
         <source>Basic</source>
         <translation>기본</translation>
     </message>
@@ -7771,6 +8018,66 @@
     <message>
         <source>Fade out</source>
         <translation>페이드 아웃</translation>
+    </message>
+    <message>
+        <source>Voice from text</source>
+        <translation>텍스트로 음성 만들기</translation>
+    </message>
+    <message>
+        <source>Edit script…</source>
+        <translation>대본 편집…</translation>
+    </message>
+    <message>
+        <source>Change the text or the voice and speak it again, in place of this audio</source>
+        <translation>텍스트나 음성을 바꿔 이 오디오 대신 다시 읽게 합니다</translation>
+    </message>
+    <message>
+        <source>Discard the voice you made?</source>
+        <translation>만든 음성을 버릴까요?</translation>
+    </message>
+    <message>
+        <source>Discard and go on</source>
+        <translation>버리고 계속</translation>
+    </message>
+    <message>
+        <source>The Voice panel has a take that is not on the timeline yet. Add it first with «Add to timeline», or discard it to start this one.</source>
+        <translation>음성 패널에 아직 타임라인에 추가하지 않은 테이크가 있습니다. 먼저 「타임라인에 추가」로 추가하거나, 버리고 이것을 시작하세요.</translation>
+    </message>
+    <message>
+        <source>Lower the music under this voice</source>
+        <translation>이 음성 아래 음악 줄이기</translation>
+    </message>
+    <message>
+        <source>Save the voice as a file…</source>
+        <translation>음성을 파일로 저장…</translation>
+    </message>
+    <message>
+        <source>Save the voice</source>
+        <translation>음성 저장</translation>
+    </message>
+    <message>
+        <source>MP3 audio (*.mp3)</source>
+        <translation>MP3 오디오 (*.mp3)</translation>
+    </message>
+    <message>
+        <source>WAV audio (*.wav)</source>
+        <translation>WAV 오디오 (*.wav)</translation>
+    </message>
+    <message>
+        <source>FLAC audio (*.flac)</source>
+        <translation>FLAC 오디오 (*.flac)</translation>
+    </message>
+    <message>
+        <source>voice</source>
+        <translation>음성</translation>
+    </message>
+    <message>
+        <source>Voice saved</source>
+        <translation>음성을 저장했습니다</translation>
+    </message>
+    <message>
+        <source>Could not save the voice</source>
+        <translation>음성을 저장할 수 없습니다</translation>
     </message>
     <message>
         <source>Normalize loudness</source>
@@ -7821,6 +8128,22 @@
         <translation>패닝</translation>
     </message>
     <message>
+        <source>Create captions…</source>
+        <translation>자막 만들기…</translation>
+    </message>
+    <message>
+        <source>Open Subtitles to create captions from this clip&apos;s speech</source>
+        <translation>이 클립의 음성으로 자막을 만들도록 자막 패널을 엽니다</translation>
+    </message>
+    <message>
+        <source>Edit by text…</source>
+        <translation>텍스트로 편집…</translation>
+    </message>
+    <message>
+        <source>See what is said and strike out words: the video loses those moments</source>
+        <translation>말한 내용을 보고 단어를 지우면 영상의 그 순간이 사라집니다</translation>
+    </message>
+    <message>
         <source>C</source>
         <translation>C</translation>
     </message>
@@ -7859,30 +8182,6 @@
     <message>
         <source>Install AI engine first</source>
         <translation>먼저 AI 엔진을 설치하세요</translation>
-    </message>
-    <message>
-        <source>Auto subtitles</source>
-        <translation>자동 자막</translation>
-    </message>
-    <message>
-        <source>Shorter captions are timed by splitting each phrase evenly, so they can drift slightly out of sync with the speech.</source>
-        <translation>짧은 캡션은 각 구문을 동일한 간격으로 나누어 타이밍을 맞추므로 음성과 약간 어긋날 수 있습니다.</translation>
-    </message>
-    <message>
-        <source>Creating captions… %1%</source>
-        <translation>캡션 생성 중… %1%</translation>
-    </message>
-    <message>
-        <source>Create captions from speech</source>
-        <translation>음성으로 캡션 만들기</translation>
-    </message>
-    <message>
-        <source>Several selected clips become one caption clip</source>
-        <translation>선택한 여러 클립을 하나의 캡션 클립으로 결합</translation>
-    </message>
-    <message>
-        <source>Download speech recognition (about 670 MB)</source>
-        <translation>음성 인식 다운로드(약 670MB)</translation>
     </message>
 </context>
 <context>
@@ -8119,7 +8418,7 @@
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>제거</translation>
     </message>
 </context>
 <context>
@@ -13091,6 +13390,37 @@ NEXT TIME</source>
     </message>
 </context>
 <context>
+    <name>ChatterboxTts</name>
+    <message>
+        <source>The voice model is not installed. Install the AI voice extra in Extras.</source>
+        <translation>음성 모델이 설치되어 있지 않습니다. 추가 기능에서 AI 음성을 설치하세요.</translation>
+    </message>
+    <message>
+        <source>Failed to load text-to-speech model: %1</source>
+        <translation>텍스트 음성 변환 모델을 불러오지 못했습니다: %1</translation>
+    </message>
+    <message>
+        <source>Speech generation failed: %1</source>
+        <translation>음성 생성 실패: %1</translation>
+    </message>
+    <message>
+        <source>The reference voice has no audio.</source>
+        <translation>참조 음성에 오디오가 없습니다.</translation>
+    </message>
+    <message>
+        <source>Voice encoding failed: %1</source>
+        <translation>음성 인코딩 실패: %1</translation>
+    </message>
+    <message>
+        <source>Unsupported language: %1</source>
+        <translation>지원하지 않는 언어: %1</translation>
+    </message>
+    <message>
+        <source>Invalid voice conditioning.</source>
+        <translation>잘못된 음성 조건입니다.</translation>
+    </message>
+</context>
+<context>
     <name>ChipScroller</name>
     <message>
         <source>Previous</source>
@@ -13451,7 +13781,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>적용</translation>
     </message>
     <message>
         <source>Save</source>
@@ -15198,6 +15528,14 @@ NEXT TIME</source>
         <translation>전체 타임라인 대신 표시된 시작/끝 범위만 인코딩</translation>
     </message>
     <message>
+        <source>Include the captions (inside the video and as .srt)</source>
+        <translation>자막 포함 (영상 안과 .srt로)</translation>
+    </message>
+    <message>
+        <source>The captions as a track inside the video and as a file next to it, with the same name: players and YouTube can turn them on and off</source>
+        <translation>자막을 영상 안의 트랙과 같은 이름의 옆 파일로 저장합니다. 플레이어와 YouTube에서 켜고 끌 수 있습니다</translation>
+    </message>
+    <message>
         <source>Saves what you see in the preview. Pick a size — the picture shape stays the same.</source>
         <translation>미리보기에서 보이는 내용을 저장합니다. 크기를 선택해도 화면 비율은 그대로 유지됩니다.</translation>
     </message>
@@ -15992,7 +16330,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>닫기</translation>
     </message>
     <message>
         <source>Replace</source>
@@ -16728,6 +17066,10 @@ NEXT TIME</source>
         <translation>마스크 페더</translation>
     </message>
     <message>
+        <source>Pos</source>
+        <translation>위치</translation>
+    </message>
+    <message>
         <source>Layer</source>
         <translation type="unfinished"></translation>
     </message>
@@ -16752,12 +17094,40 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Value graph</source>
-        <translation type="unfinished"></translation>
+        <source>Graph type: value. Click: speed graph</source>
+        <translation>그래프 종류: 값. 클릭: 속도 그래프</translation>
     </message>
     <message>
-        <source>Speed graph</source>
-        <translation type="unfinished"></translation>
+        <source>Graph type: speed. Click: automatic</source>
+        <translation>그래프 종류: 속도. 클릭: 자동</translation>
+    </message>
+    <message>
+        <source>Graph type: automatic (speed for a joined Position, value for the rest). Click: value graph</source>
+        <translation>그래프 종류: 자동(차원이 합쳐진 위치는 속도, 나머지는 값). 클릭: 값 그래프</translation>
+    </message>
+    <message>
+        <source>Fit the whole curve in view (Ctrl+wheel zooms the values, Alt+wheel the time)</source>
+        <translation>곡선 전체 보기(Ctrl+휠은 값, Alt+휠은 시간 확대)</translation>
+    </message>
+    <message>
+        <source>Zoom to the picked keyframes</source>
+        <translation>선택한 키프레임으로 확대</translation>
+    </message>
+    <message>
+        <source>Show only the curve being edited</source>
+        <translation>편집 중인 곡선만 보기</translation>
+    </message>
+    <message>
+        <source>Show the other properties&apos; curves too</source>
+        <translation>다른 속성의 곡선도 보기</translation>
+    </message>
+    <message>
+        <source>Graph under its layer again</source>
+        <translation>그래프를 다시 레이어 아래로</translation>
+    </message>
+    <message>
+        <source>Graph over the whole timeline, as After Effects&apos; Graph Editor</source>
+        <translation>타임라인 전체에 그래프 표시(After Effects 그래프 편집기처럼)</translation>
     </message>
     <message>
         <source>Separate dimensions: key X and Y of Position apart</source>
@@ -16826,6 +17196,10 @@ NEXT TIME</source>
         <translation>키프레임 이동</translation>
     </message>
     <message>
+        <source>Transform keyframes</source>
+        <translation>키프레임 변형</translation>
+    </message>
+    <message>
         <source>Edit keyframe curve</source>
         <translation>키프레임 곡선 편집</translation>
     </message>
@@ -16849,8 +17223,20 @@ NEXT TIME</source>
         <translation>키프레임 이동</translation>
     </message>
     <message>
+        <source>Keyframe easing changed</source>
+        <translation>키프레임 이징이 변경됨</translation>
+    </message>
+    <message>
+        <source>Paste keyframes</source>
+        <translation>키프레임 붙여넣기</translation>
+    </message>
+    <message>
+        <source>Remove keyframes</source>
+        <translation>키프레임 제거</translation>
+    </message>
+    <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>적용</translation>
     </message>
     <message>
         <source>50% packs the picked keys into half the time, 200% spreads them over twice. The first one stays where it is. Alt + dragging the first or last key does the same by hand.</source>
@@ -16885,8 +17271,28 @@ NEXT TIME</source>
         <translation>커브 편집…</translation>
     </message>
     <message>
+        <source>Curved path (auto Bezier)</source>
+        <translation>곡선 경로(자동 베지어)</translation>
+    </message>
+    <message>
+        <source>Straight path</source>
+        <translation>직선 경로</translation>
+    </message>
+    <message>
+        <source>Roving (one speed along the path)</source>
+        <translation>로빙(경로에서 일정한 속도)</translation>
+    </message>
+    <message>
+        <source>Separate dimensions (X and Y apart)</source>
+        <translation>차원 분리(X와 Y 따로)</translation>
+    </message>
+    <message>
+        <source>Join Position (one path)</source>
+        <translation>위치 결합(하나의 경로)</translation>
+    </message>
+    <message>
         <source>Reverse keyframes</source>
-        <translation type="unfinished"></translation>
+        <translation>키프레임 반전</translation>
     </message>
     <message>
         <source>Stretch keyframes…</source>
@@ -16913,7 +17319,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>적용</translation>
     </message>
     <message>
         <source>Speed in units per second. Influence is how far the handle reaches towards the next key: more is a softer ease.</source>
@@ -16925,7 +17331,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>속도</translation>
     </message>
     <message>
         <source>Influence</source>
@@ -17119,6 +17525,21 @@ NEXT TIME</source>
     <message>
         <source>720p</source>
         <translation>720p</translation>
+    </message>
+</context>
+<context>
+    <name>LocalTranscription</name>
+    <message>
+        <source>Finding speech…</source>
+        <translation>음성을 찾는 중…</translation>
+    </message>
+    <message>
+        <source>Timing words…</source>
+        <translation>단어 타이밍을 맞추는 중…</translation>
+    </message>
+    <message>
+        <source>Telling speakers apart…</source>
+        <translation>화자를 구분하는 중…</translation>
     </message>
 </context>
 <context>
@@ -17511,6 +17932,26 @@ NEXT TIME</source>
     <message>
         <source>Your example is ready. Try this:</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>What is the video for?</source>
+        <translation>어떤 영상인가요?</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>취소</translation>
+    </message>
+    <message>
+        <source>The template is fitted to the shape of your video.</source>
+        <translation>템플릿이 영상 모양에 맞춰집니다.</translation>
+    </message>
+    <message>
+        <source>Short (vertical 9:16)</source>
+        <translation>쇼츠(세로 9:16)</translation>
+    </message>
+    <message>
+        <source>Video (horizontal 16:9)</source>
+        <translation>동영상(가로 16:9)</translation>
     </message>
     <message>
         <source>Click a clip on the timeline to change it on the right.</source>
@@ -19344,7 +19785,7 @@ NEXT TIME</source>
     <name>MotionPathOverlay</name>
     <message>
         <source>Shape motion path</source>
-        <translation type="unfinished"></translation>
+        <translation>모션 경로 다듬기</translation>
     </message>
     <message>
         <source>Move keyframe</source>
@@ -20664,6 +21105,14 @@ If playback stutters, try another.</source>
         <translation>선 옵션: 없음, 단색, 선형 또는 방사형 그라디언트, 혼합 모드와 불투명도</translation>
     </message>
     <message>
+        <source>Fill colour. Right-click: no fill (or back on)</source>
+        <translation>채우기 색. 오른쪽 클릭: 채우기 없음(또는 다시 켜기)</translation>
+    </message>
+    <message>
+        <source>Stroke colour. Right-click: no stroke (or back on)</source>
+        <translation>선 색. 오른쪽 클릭: 선 없음(또는 다시 켜기)</translation>
+    </message>
+    <message>
         <source>Selection</source>
         <translation type="unfinished"></translation>
     </message>
@@ -21498,7 +21947,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>적용</translation>
     </message>
     <message>
         <source>What After Effects does with expressions, without writing code. They add up: the loop, then the constant speed, then the wiggle.</source>
@@ -21573,8 +22022,8 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>value, time, wiggle(freq, amount), Math, and thisComp.layer(&quot;Name&quot;).transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. The last line is the result.</source>
-        <translation type="unfinished"></translation>
+        <source>value, time, index, thisLayer, wiggle(freq, amount), linear / ease / easeIn / easeOut(t, tMin, tMax, a, b), clamp, valueAtTime(t), velocity, speed, Math, and thisComp.layer(&quot;Name&quot;).transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. The last line is the result.</source>
+        <translation>value, time, index, thisLayer, wiggle(freq, amount), linear / ease / easeIn / easeOut(t, tMin, tMax, a, b), clamp, valueAtTime(t), velocity, speed, Math, 및 thisComp.layer(&quot;Name&quot;).transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. 마지막 줄이 결과입니다.</translation>
     </message>
 </context>
 <context>
@@ -23270,14 +23719,6 @@ If playback stutters, try another.</source>
         <translation>클라우드 제공업체</translation>
     </message>
     <message>
-        <source>Transcription (Scribe), voiceover, sound effects</source>
-        <translation>전사(Scribe), 보이스오버, 효과음</translation>
-    </message>
-    <message>
-        <source>Voiceover</source>
-        <translation>보이스오버</translation>
-    </message>
-    <message>
         <source>No key</source>
         <translation>키 없음</translation>
     </message>
@@ -23476,6 +23917,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Keys are stored unencrypted in Flip Studio&apos;s settings. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
         <translation>키는 Flip Studio 설정에 암호화되지 않은 상태로 저장됩니다. 환경 변수의 ELEVENLABS_API_KEY 및 FISH_API_KEY가 우선 적용됩니다. 사용 요금은 본인 계정에 청구됩니다.</translation>
+    </message>
+    <message>
+        <source>Transcription (Scribe); voiceover and sound effects through AI agents</source>
+        <translation>전사 (Scribe); AI 에이전트를 통한 내레이션과 효과음</translation>
+    </message>
+    <message>
+        <source>Voiceover through AI agents</source>
+        <translation>AI 에이전트를 통한 내레이션</translation>
     </message>
     <message>
         <source>Needed before Flip Studio or a connected agent can transcribe or generate audio with this service</source>
@@ -23971,7 +24420,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>삭제</translation>
     </message>
 </context>
 <context>
@@ -25014,6 +25463,26 @@ If playback stutters, try another.</source>
         <translation>단축키 검색</translation>
     </message>
     <message>
+        <source>Shortcut set</source>
+        <translation>단축키 세트</translation>
+    </message>
+    <message>
+        <source>Flip</source>
+        <translation>Flip</translation>
+    </message>
+    <message>
+        <source>Flip&apos;s own shortcuts</source>
+        <translation>Flip 고유 단축키</translation>
+    </message>
+    <message>
+        <source>After Effects</source>
+        <translation>After Effects</translation>
+    </message>
+    <message>
+        <source>As in After Effects: J/K go between keyframes, P/S/R/T/A show one property, U/UU, B/N the work area, I/O the layer&apos;s ends, [ ] and Alt+[ ] move and trim the layer at the playhead</source>
+        <translation>After Effects처럼: J/K 키프레임 사이 이동, P/S/R/T/A 속성 하나, U/UU, B/N 작업 영역, I/O 레이어 양 끝, [ ]와 Alt+[ ]로 재생 헤드에서 레이어 이동·자르기</translation>
+    </message>
+    <message>
         <source>Click a shortcut, then press the keys. Esc cancels, Backspace clears.</source>
         <translation>단축키를 클릭한 다음 키를 누르세요. Esc는 취소하고 Backspace는 지웁니다.</translation>
     </message>
@@ -25098,6 +25567,49 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>SilenceReviewWindow</name>
+    <message>
+        <source>Remove silences</source>
+        <translation>무음 제거</translation>
+    </message>
+    <message>
+        <source>Untick what you want to keep. Click a row to hear it.</source>
+        <translation>남기고 싶은 것은 선택을 해제하세요. 행을 클릭하면 들을 수 있습니다.</translation>
+    </message>
+    <message>
+        <source>Pauses longer than</source>
+        <translation>다음보다 긴 쉼</translation>
+    </message>
+    <message>
+        <source>Also filler words (eh, mmm)</source>
+        <translation>군말도 (어, 음)</translation>
+    </message>
+    <message>
+        <source>Pause</source>
+        <translation>쉼</translation>
+    </message>
+    <message>
+        <source>Listen</source>
+        <translation>듣기</translation>
+    </message>
+    <message>
+        <source>No pauses this long in the clip.</source>
+        <translation>클립에 이렇게 긴 쉼이 없습니다.</translation>
+    </message>
+    <message>
+        <source>%1 of %2 · %3 s</source>
+        <translation>%2개 중 %1개 · %3초</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>취소</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>제거</translation>
+    </message>
+</context>
+<context>
     <name>SolidDialog</name>
     <message>
         <source>Solid settings</source>
@@ -25109,7 +25621,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>적용</translation>
     </message>
     <message>
         <source>Solid</source>
@@ -25194,10 +25706,6 @@ If playback stutters, try another.</source>
         <translation>음성 저장됨</translation>
     </message>
     <message>
-        <source>Turn a script into speech with a built-in or cloned voice. It is generated on this device and added at the playhead.</source>
-        <translation>기본 제공 음성이나 복제한 음성으로 대본을 음성으로 바꿉니다. 이 기기에서 생성되어 재생 헤드 위치에 추가됩니다.</translation>
-    </message>
-    <message>
         <source>Speech generation runs on this device and needs the voice model.</source>
         <translation>음성 생성은 이 기기에서 실행되며 음성 모델이 필요합니다.</translation>
     </message>
@@ -25214,20 +25722,8 @@ If playback stutters, try another.</source>
         <translation>음성 생성에 필요</translation>
     </message>
     <message>
-        <source>Type what the voice should say</source>
-        <translation>음성이 말할 내용을 입력하세요</translation>
-    </message>
-    <message>
         <source>%1 characters, about %2 s</source>
         <translation>%1자, 약 %2초</translation>
-    </message>
-    <message>
-        <source>Speech longer than 30 seconds often ends in gibberish or silence. Split the script into shorter parts.</source>
-        <translation>30초가 넘는 음성은 알아들을 수 없는 소리나 무음으로 끝나는 경우가 많습니다. 대본을 더 짧게 나누세요.</translation>
-    </message>
-    <message>
-        <source>Voice</source>
-        <translation>음성</translation>
     </message>
     <message>
         <source>Stop</source>
@@ -25282,10 +25778,6 @@ If playback stutters, try another.</source>
         <translation>음성 학습 중…</translation>
     </message>
     <message>
-        <source>Language</source>
-        <translation>언어</translation>
-    </message>
-    <message>
         <source>Expressiveness</source>
         <translation>표현력</translation>
     </message>
@@ -25296,10 +25788,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Generate speech</source>
         <translation>음성 생성</translation>
-    </message>
-    <message>
-        <source>Generate speech and add it at the playhead</source>
-        <translation>음성을 생성해 재생 헤드 위치에 추가</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -25342,6 +25830,106 @@ If playback stutters, try another.</source>
         <translation>모든 파일(*)</translation>
     </message>
     <message>
+        <source>Voice from your text</source>
+        <translation>내 텍스트로 음성 만들기</translation>
+    </message>
+    <message>
+        <source>Editing the script of a voice on the timeline: the new take replaces its audio.</source>
+        <translation>타임라인에 있는 음성의 대본 편집 중: 새 테이크가 그 오디오를 대체합니다.</translation>
+    </message>
+    <message>
+        <source>Type or paste the script. [pause 1s] adds a silence.</source>
+        <translation>대본을 입력하거나 붙여 넣으세요. [pause 1s]는 무음을 넣습니다.</translation>
+    </message>
+    <message>
+        <source>Import script…</source>
+        <translation>대본 가져오기…</translation>
+    </message>
+    <message>
+        <source>A .txt, .md or Word (.docx) file</source>
+        <translation>.txt, .md 또는 Word (.docx) 파일</translation>
+    </message>
+    <message>
+        <source>Import a script</source>
+        <translation>대본 가져오기</translation>
+    </message>
+    <message>
+        <source>Scripts (*.txt *.md *.docx)</source>
+        <translation>대본 (*.txt *.md *.docx)</translation>
+    </message>
+    <message>
+        <source>That file has no text that can be read</source>
+        <translation>이 파일에는 읽을 수 있는 텍스트가 없습니다</translation>
+    </message>
+    <message>
+        <source>Voice: %1</source>
+        <translation>음성: %1</translation>
+    </message>
+    <message>
+        <source>A dialogue: a voice for each person</source>
+        <translation>대화: 사람마다 다른 음성</translation>
+    </message>
+    <message>
+        <source>Generate again</source>
+        <translation>다시 생성</translation>
+    </message>
+    <message>
+        <source>Speak the script; you hear it before it goes on the timeline</source>
+        <translation>대본을 읽어 줍니다. 타임라인에 넣기 전에 들어 볼 수 있습니다</translation>
+    </message>
+    <message>
+        <source>Listen to the whole take</source>
+        <translation>테이크 전체 듣기</translation>
+    </message>
+    <message>
+        <source>Take: %1 s</source>
+        <translation>테이크: %1초</translation>
+    </message>
+    <message>
+        <source>Listen to this sentence</source>
+        <translation>이 문장 듣기</translation>
+    </message>
+    <message>
+        <source>Speak this sentence again</source>
+        <translation>이 문장 다시 읽기</translation>
+    </message>
+    <message>
+        <source>Also create its captions</source>
+        <translation>자막도 만들기</translation>
+    </message>
+    <message>
+        <source>Replace the voice on the timeline</source>
+        <translation>타임라인의 음성 바꾸기</translation>
+    </message>
+    <message>
+        <source>Add to the timeline</source>
+        <translation>타임라인에 추가</translation>
+    </message>
+    <message>
+        <source>Discard</source>
+        <translation>버리기</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation>옵션</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>속도</translation>
+    </message>
+    <message>
+        <source>%1×</source>
+        <translation>%1×</translation>
+    </message>
+    <message>
+        <source>Pitch</source>
+        <translation>피치</translation>
+    </message>
+    <message>
+        <source>Stop preparing the voice</source>
+        <translation>음성 준비 중지</translation>
+    </message>
+    <message>
         <source>Name</source>
         <translation>이름</translation>
     </message>
@@ -25362,8 +25950,8 @@ If playback stutters, try another.</source>
         <translation>%1초</translation>
     </message>
     <message>
-        <source>Record 5 to 20 seconds in a quiet room. Read this aloud in your natural voice:</source>
-        <translation>조용한 곳에서 5~20초 동안 녹음하세요. 평소 목소리로 다음 문장을 소리 내어 읽으세요:</translation>
+        <source>Record 3 to 20 seconds in a quiet room (it stops by itself at 20). Read this aloud in your natural voice:</source>
+        <translation>조용한 방에서 3~20초 녹음하세요 (20초에 자동으로 멈춥니다). 평소 목소리로 이것을 소리 내어 읽으세요:</translation>
     </message>
     <message>
         <source>The quick brown fox jumps over the lazy dog, while a gentle breeze moves through the quiet garden and the evening light fades slowly.</source>
@@ -25376,6 +25964,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Start recording</source>
         <translation>녹음 시작</translation>
+    </message>
+    <message>
+        <source>20 s: done, save the voice</source>
+        <translation>20초: 완료, 음성 저장</translation>
     </message>
     <message>
         <source>I have the right to use this person&apos;s voice</source>
@@ -25583,7 +26175,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>적용</translation>
     </message>
     <message>
         <source>Apply letter by letter</source>
@@ -25599,7 +26191,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished"></translation>
+        <translation>전체</translation>
     </message>
     <message>
         <source>How hard it squashes, stretches and bends</source>
@@ -25615,7 +26207,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>속도</translation>
     </message>
     <message>
         <source>Faster makes it shorter, slower makes it longer</source>
@@ -25913,6 +26505,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Subtitles from the voice, on your computer, without internet</source>
         <translation>음성으로 자막 만들기, 내 컴퓨터에서 인터넷 없이</translation>
+    </message>
+    <message>
+        <source>A simpler version in the browser: it doesn&apos;t have every tool of this app and gets no new ones. Everything new comes to this app.</source>
+        <translation>브라우저용 간단한 버전: 이 앱의 모든 도구가 있지는 않으며 새 기능도 추가되지 않습니다. 새로운 기능은 모두 이 앱에 추가됩니다.</translation>
     </message>
     <message>
         <source>Click to sign in</source>
@@ -26504,12 +27100,12 @@ If playback stutters, try another.</source>
         <translation>캡션 %1개</translation>
     </message>
     <message>
-        <source>Play the timeline — the line on screen lights up. Tap any line to edit it.</source>
-        <translation>타임라인을 재생하면 화면에 나오는 줄이 강조됩니다. 아무 줄이나 탭해서 편집하세요.</translation>
+        <source>Translate</source>
+        <translation>번역</translation>
     </message>
     <message>
-        <source>Play the timeline — the line on screen lights up. Click any line to jump to it and edit it below.</source>
-        <translation>타임라인을 재생하면 화면의 선이 밝아집니다. 아무 선이나 클릭하면 해당 위치로 이동하고 아래에서 편집할 수 있습니다.</translation>
+        <source>The captions in another language, as a second line above (bilingual)</source>
+        <translation>다른 언어의 자막을 위쪽 두 번째 줄로 (2개 국어)</translation>
     </message>
     <message>
         <source>Import</source>
@@ -26542,6 +27138,18 @@ If playback stutters, try another.</source>
     <message>
         <source>Offset the exported captions by this clip&apos;s start so they match the exported video</source>
         <translation>이 클립의 시작 위치만큼 내보낸 캡션에 오프셋을 적용하여 내보낸 동영상과 맞춥니다</translation>
+    </message>
+    <message>
+        <source>Translating…</source>
+        <translation>번역 중…</translation>
+    </message>
+    <message>
+        <source>Captions that will change: %1</source>
+        <translation>바뀌는 자막: %1</translation>
+    </message>
+    <message>
+        <source>+ %1 more</source>
+        <translation>+ %1개 더</translation>
     </message>
     <message>
         <source>(empty)</source>
@@ -26584,8 +27192,24 @@ If playback stutters, try another.</source>
         <translation>끝을 현재 시점으로 설정</translation>
     </message>
     <message>
-        <source>Delete caption</source>
-        <translation>캡션 삭제</translation>
+        <source>Style: same as the clip</source>
+        <translation>스타일: 클립과 같음</translation>
+    </message>
+    <message>
+        <source>Like the clip</source>
+        <translation>클립과 같음</translation>
+    </message>
+    <message>
+        <source>Top</source>
+        <translation>위</translation>
+    </message>
+    <message>
+        <source>Middle</source>
+        <translation>가운데</translation>
+    </message>
+    <message>
+        <source>Where this caption sits on screen</source>
+        <translation>이 자막이 화면에 놓이는 위치</translation>
     </message>
     <message>
         <source>At %1</source>
@@ -26602,6 +27226,30 @@ If playback stutters, try another.</source>
     <message>
         <source>Emojis</source>
         <translation>이모지</translation>
+    </message>
+    <message>
+        <source>Too short to read</source>
+        <translation>읽기에 너무 짧음</translation>
+    </message>
+    <message>
+        <source>On screen too long</source>
+        <translation>화면에 너무 오래 표시됨</translation>
+    </message>
+    <message>
+        <source>Too fast to read</source>
+        <translation>읽기에 너무 빠름</translation>
+    </message>
+    <message>
+        <source>Move all captions</source>
+        <translation>모두 이동</translation>
+    </message>
+    <message>
+        <source>All captions 0.1 s earlier</source>
+        <translation>모두 0.1초 앞으로</translation>
+    </message>
+    <message>
+        <source>All captions 0.1 s later</source>
+        <translation>모두 0.1초 뒤로</translation>
     </message>
     <message>
         <source>Replace these captions from an SRT, WebVTT or ASS file</source>
@@ -26632,6 +27280,30 @@ If playback stutters, try another.</source>
         <translation>키워드가 들어간 자막 끝에 이모지 추가(불 🔥, 파티 🎉)</translation>
     </message>
     <message>
+        <source>Animated</source>
+        <translation>애니메이션</translation>
+    </message>
+    <message>
+        <source>An animated emoji above each caption that mentions one (fuego, Dios, fiesta…)</source>
+        <translation>이모지를 언급하는 자막 위에 움직이는 이모지를 놓습니다 (불, 하나님, 파티…)</translation>
+    </message>
+    <message>
+        <source>Bleep</source>
+        <translation>삐 소리</translation>
+    </message>
+    <message>
+        <source>A beep over each hidden swear word, with the voice muted under it</source>
+        <translation>가린 욕설마다 삐 소리를 넣고 그 아래 목소리를 줄입니다</translation>
+    </message>
+    <message>
+        <source>Key words</source>
+        <translation>키워드</translation>
+    </message>
+    <message>
+        <source>Highlight the key word of each caption in colour (a number, a name, what matters)</source>
+        <translation>각 자막의 키워드(숫자, 이름, 중요한 말)를 색으로 강조합니다</translation>
+    </message>
+    <message>
         <source>Clean up</source>
         <translation>정리</translation>
     </message>
@@ -26646,6 +27318,70 @@ If playback stutters, try another.</source>
     <message>
         <source>Fix a word in every caption at once</source>
         <translation>모든 자막에서 한 단어를 한 번에 수정</translation>
+    </message>
+    <message>
+        <source>Spelling</source>
+        <translation>맞춤법</translation>
+    </message>
+    <message>
+        <source>Check the spelling of every caption, one word at a time</source>
+        <translation>모든 자막의 맞춤법을 한 단어씩 검사합니다</translation>
+    </message>
+    <message>
+        <source>Speakers</source>
+        <translation>화자</translation>
+    </message>
+    <message>
+        <source>File and timing</source>
+        <translation>파일 및 타이밍</translation>
+    </message>
+    <message>
+        <source>Words to check: %1</source>
+        <translation>확인할 단어: %1</translation>
+    </message>
+    <message>
+        <source>No spelling mistakes found.</source>
+        <translation>맞춤법 오류가 없습니다.</translation>
+    </message>
+    <message>
+        <source>Remove repeated word</source>
+        <translation>반복된 단어 제거</translation>
+    </message>
+    <message>
+        <source>No suggestions: fix it in the text box.</source>
+        <translation>제안이 없습니다. 텍스트 상자에서 고치세요.</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>닫기</translation>
+    </message>
+    <message>
+        <source>Without an account they are translated on this computer (a little slower).</source>
+        <translation>계정이 없으면 이 컴퓨터에서 번역됩니다(조금 더 느림).</translation>
+    </message>
+    <message>
+        <source>Sign in with Google to translate captions, or install the Offline translation extra</source>
+        <translation>자막을 번역하려면 Google로 로그인하거나 오프라인 번역 추가 기능을 설치하세요</translation>
+    </message>
+    <message>
+        <source>Ignore</source>
+        <translation>무시</translation>
+    </message>
+    <message>
+        <source>Nothing to change in these captions.</source>
+        <translation>이 자막에는 바꿀 것이 없습니다.</translation>
+    </message>
+    <message>
+        <source>(removed)</source>
+        <translation>(삭제됨)</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>취소</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>적용</translation>
     </message>
     <message>
         <source>Find (e.g. jesus)</source>
@@ -26711,6 +27447,38 @@ If playback stutters, try another.</source>
         <source>Tip: write a word between asterisks, like *faith*, to highlight it in colour.</source>
         <translation>팁: *믿음*처럼 단어를 별표 사이에 쓰면 색으로 강조됩니다.</translation>
     </message>
+    <message>
+        <source>One frame earlier</source>
+        <translation>한 프레임 앞</translation>
+    </message>
+    <message>
+        <source>One frame later</source>
+        <translation>한 프레임 뒤</translation>
+    </message>
+    <message>
+        <source>Split</source>
+        <translation>분할</translation>
+    </message>
+    <message>
+        <source>Split this caption at the playhead</source>
+        <translation>재생 헤드에서 이 자막 분할</translation>
+    </message>
+    <message>
+        <source>Join</source>
+        <translation>합치기</translation>
+    </message>
+    <message>
+        <source>Join this caption with the next one</source>
+        <translation>이 자막을 다음 자막과 합치기</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete this caption</source>
+        <translation>이 자막 삭제</translation>
+    </message>
 </context>
 <context>
     <name>SubtitleProgressDialog</name>
@@ -26733,18 +27501,6 @@ If playback stutters, try another.</source>
 </context>
 <context>
     <name>SubtitlesTab</name>
-    <message>
-        <source>Subtitle track — one clip holds many timed captions. Place it on the timeline, trim its length, then add caption lines at each moment in the clip panel.</source>
-        <translation>자막 트랙 — 하나의 클립에 여러 시간 지정 캡션이 들어 있습니다. 타임라인에 배치하고 길이를 자른 다음 클립 패널에서 각 시점에 캡션 줄을 추가하세요.</translation>
-    </message>
-    <message>
-        <source>Add subtitle clip</source>
-        <translation>자막 클립 추가</translation>
-    </message>
-    <message>
-        <source>Import subtitle file</source>
-        <translation>자막 파일 가져오기</translation>
-    </message>
     <message>
         <source>Import Subtitles</source>
         <translation>자막 가져오기</translation>
@@ -26770,20 +27526,48 @@ If playback stutters, try another.</source>
         <translation>모든 파일(*)</translation>
     </message>
     <message>
-        <source>Add auto caption</source>
-        <translation>자동 캡션 추가</translation>
-    </message>
-    <message>
-        <source>Creates captions from the speech in the selected clip.</source>
-        <translation>선택한 클립의 음성에서 캡션을 생성합니다.</translation>
-    </message>
-    <message>
         <source>Select a video or audio clip on the timeline first.</source>
         <translation>먼저 타임라인에서 동영상 또는 오디오 클립을 선택하세요.</translation>
     </message>
     <message>
+        <source>On this computer</source>
+        <translation>이 컴퓨터에서</translation>
+    </message>
+    <message>
+        <source>In the cloud</source>
+        <translation>클라우드에서</translation>
+    </message>
+    <message>
+        <source>ElevenLabs Scribe: the audio is sent to ElevenLabs with your key</source>
+        <translation>ElevenLabs Scribe: 오디오가 내 키로 ElevenLabs에 전송됩니다</translation>
+    </message>
+    <message>
+        <source>Hard words: names, brands… (separated by commas)</source>
+        <translation>어려운 단어: 이름, 브랜드…(쉼표로 구분)</translation>
+    </message>
+    <message>
+        <source>Style of the selected captions</source>
+        <translation>선택한 자막의 스타일</translation>
+    </message>
+    <message>
+        <source>Two lines per caption</source>
+        <translation>자막당 두 줄</translation>
+    </message>
+    <message>
+        <source>Hide swear words (m*****)</source>
+        <translation>욕설 숨기기(f***)</translation>
+    </message>
+    <message>
         <source>Shorter captions are timed by splitting each phrase evenly, so they can drift slightly out of sync with the speech.</source>
         <translation>짧은 캡션은 각 구문을 동일한 간격으로 나누어 타이밍을 맞추므로 음성과 약간 어긋날 수 있습니다.</translation>
+    </message>
+    <message>
+        <source>Captions from the voice</source>
+        <translation>음성으로 자막 만들기</translation>
+    </message>
+    <message>
+        <source>Create captions</source>
+        <translation>자막 만들기</translation>
     </message>
     <message>
         <source>Create captions from the selected clips&apos; speech — several clips become one caption clip</source>
@@ -26816,6 +27600,38 @@ If playback stutters, try another.</source>
     <message>
         <source>Needed for auto captions from speech</source>
         <translation>음성에서 자동 캡션을 만들려면 필요합니다</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation>옵션</translation>
+    </message>
+    <message>
+        <source>Tell the speakers apart (a colour for each)</source>
+        <translation>화자 구분하기 (화자마다 색 하나)</translation>
+    </message>
+    <message>
+        <source>Highlight key words in colour</source>
+        <translation>키워드를 색으로 강조</translation>
+    </message>
+    <message>
+        <source>Show fewer</source>
+        <translation>간단히 보기</translation>
+    </message>
+    <message>
+        <source>See all styles (%1)</source>
+        <translation>모든 스타일 보기 (%1)</translation>
+    </message>
+    <message>
+        <source>Write by hand</source>
+        <translation>직접 입력</translation>
+    </message>
+    <message>
+        <source>An empty caption clip at the playhead: write each line in the clip panel</source>
+        <translation>재생 헤드에 빈 자막 클립: 클립 패널에서 각 줄을 입력하세요</translation>
+    </message>
+    <message>
+        <source>Import file</source>
+        <translation>파일 가져오기</translation>
     </message>
     <message>
         <source>Recommended caption length</source>
@@ -27521,6 +28337,41 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>TextEditWindow</name>
+    <message>
+        <source>Edit by text</source>
+        <translation>텍스트로 편집</translation>
+    </message>
+    <message>
+        <source>Click the words to take out (Shift + click for a stretch). Double click to hear one.</source>
+        <translation>뺄 단어를 클릭하세요 (Shift + 클릭으로 구간). 더블 클릭하면 들을 수 있습니다.</translation>
+    </message>
+    <message>
+        <source>No words found in this clip.</source>
+        <translation>이 클립에서 단어를 찾지 못했습니다.</translation>
+    </message>
+    <message>
+        <source>Listening to the clip to write down what is said… %1%</source>
+        <translation>말한 내용을 받아 적기 위해 클립을 듣는 중… %1%</translation>
+    </message>
+    <message>
+        <source>The first time takes a while; then it opens at once.</source>
+        <translation>처음에는 시간이 조금 걸리지만, 그다음부터는 바로 열립니다.</translation>
+    </message>
+    <message>
+        <source>%1 words · %2 s</source>
+        <translation>단어 %1개 · %2초</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>취소</translation>
+    </message>
+    <message>
+        <source>Cut</source>
+        <translation>자르기</translation>
+    </message>
+</context>
+<context>
     <name>TextEffects</name>
     <message>
         <source>Shine sweep</source>
@@ -28084,6 +28935,26 @@ If playback stutters, try another.</source>
     <message>
         <source>These letters go back to the style of the whole text</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Read aloud…</source>
+        <translation>소리 내어 읽기…</translation>
+    </message>
+    <message>
+        <source>Turn this text into a voice that starts with it</source>
+        <translation>이 텍스트를 함께 시작하는 음성으로 바꾸기</translation>
+    </message>
+    <message>
+        <source>Discard the voice you made?</source>
+        <translation>만든 음성을 버릴까요?</translation>
+    </message>
+    <message>
+        <source>Discard and go on</source>
+        <translation>버리고 계속</translation>
+    </message>
+    <message>
+        <source>The Voice panel has a take that is not on the timeline yet. Add it first with «Add to timeline», or discard it to start this one.</source>
+        <translation>음성 패널에 아직 타임라인에 추가하지 않은 테이크가 있습니다. 먼저 「타임라인에 추가」로 추가하거나, 버리고 이것을 시작하세요.</translation>
     </message>
     <message>
         <source>Bold</source>
@@ -30157,6 +31028,18 @@ If playback stutters, try another.</source>
 <context>
     <name>TimelinePanel</name>
     <message>
+        <source>Move work area</source>
+        <translation>작업 영역 이동</translation>
+    </message>
+    <message>
+        <source>Work area: drag to move it</source>
+        <translation>작업 영역: 끌어서 이동</translation>
+    </message>
+    <message>
+        <source>Work area: drag to change where it starts or ends</source>
+        <translation>작업 영역: 끌어서 시작이나 끝 바꾸기</translation>
+    </message>
+    <message>
         <source>Proxy</source>
         <translation>프록시</translation>
     </message>
@@ -30999,7 +31882,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Remove keyframes</source>
-        <translation type="unfinished"></translation>
+        <translation>키프레임 제거</translation>
     </message>
     <message>
         <source>Stop animating (removes its keyframes)</source>
@@ -31055,7 +31938,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Separate dimensions</source>
-        <translation type="unfinished"></translation>
+        <translation>차원 분리</translation>
     </message>
     <message>
         <source>Behavior…</source>
@@ -31067,7 +31950,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>제거</translation>
     </message>
     <message>
         <source>The clip keeps the value it has at the playhead. You can undo afterwards.</source>
@@ -32239,7 +33122,11 @@ If playback stutters, try another.</source>
     <name>TtsController</name>
     <message>
         <source>Loading voice model…</source>
-        <translation type="unfinished"></translation>
+        <translation>음성 모델 불러오는 중…</translation>
+    </message>
+    <message>
+        <source>No speech was produced</source>
+        <translation>생성된 음성이 없습니다</translation>
     </message>
     <message>
         <source>Install the voice model first</source>
@@ -32254,16 +33141,62 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Generating speech…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Cancelled</source>
         <translation>취소됨</translation>
     </message>
     <message>
+        <source>Speaking sentence %1 of %2…</source>
+        <translation>문장 %1/%2 읽는 중…</translation>
+    </message>
+    <message>
+        <source>Sentence %1 could not be spoken: %2</source>
+        <translation>문장 %1을(를) 읽지 못했습니다: %2</translation>
+    </message>
+    <message>
+        <source>Putting the take together…</source>
+        <translation>테이크 합치는 중…</translation>
+    </message>
+    <message>
+        <source>Listen to it, then add it to the timeline</source>
+        <translation>들어 본 다음 타임라인에 추가하세요</translation>
+    </message>
+    <message>
+        <source>Speaking sentence %1 again…</source>
+        <translation>문장 %1 다시 읽는 중…</translation>
+    </message>
+    <message>
+        <source>Sentence %1 spoken again</source>
+        <translation>문장 %1을(를) 다시 읽었습니다</translation>
+    </message>
+    <message>
+        <source>Changing speed and pitch…</source>
+        <translation>속도와 피치 바꾸는 중…</translation>
+    </message>
+    <message>
+        <source>Replace voice</source>
+        <translation>음성 바꾸기</translation>
+    </message>
+    <message>
+        <source>Could not replace the voice</source>
+        <translation>음성을 바꿀 수 없습니다</translation>
+    </message>
+    <message>
         <source>Speech added to the timeline</source>
         <translation>음성이 타임라인에 추가되었습니다</translation>
+    </message>
+    <message>
+        <source>Voice replaced on the timeline</source>
+        <translation>타임라인의 음성을 바꿨습니다</translation>
+    </message>
+    <message numerus="yes">
+        <source>The music goes down under the voice (%n clip(s))</source>
+        <translation>
+            <numerusform>음성 아래에서 음악이 줄어듭니다 (클립 %n개)</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>There is no music under this voice</source>
+        <translation>이 음성 아래에 음악이 없습니다</translation>
     </message>
     <message>
         <source>Select a subtitle clip first</source>
@@ -32272,6 +33205,10 @@ If playback stutters, try another.</source>
     <message>
         <source>This subtitle clip has no text to speak</source>
         <translation>이 자막 클립에는 읽을 텍스트가 없습니다</translation>
+    </message>
+    <message>
+        <source>Speaking line %1 of %2…</source>
+        <translation>줄 %1/%2 읽는 중…</translation>
     </message>
     <message>
         <source>Generate voiceover</source>
@@ -32291,6 +33228,12 @@ If playback stutters, try another.</source>
         <source>; %n ran longer than their captions</source>
         <translation>
             <numerusform>; %n개가 자막보다 길어졌습니다</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>; %n could not be added</source>
+        <translation>
+            <numerusform>; %n개를 추가하지 못했습니다</numerusform>
         </translation>
     </message>
 </context>
@@ -33544,6 +34487,81 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>VoiceGallery</name>
+    <message>
+        <source>Narration</source>
+        <translation>내레이션</translation>
+    </message>
+    <message>
+        <source>Young</source>
+        <translation>젊은</translation>
+    </message>
+    <message>
+        <source>Deep</source>
+        <translation>낮은</translation>
+    </message>
+    <message>
+        <source>Lively</source>
+        <translation>활기찬</translation>
+    </message>
+    <message>
+        <source>Soft</source>
+        <translation>부드러운</translation>
+    </message>
+    <message>
+        <source>Mature</source>
+        <translation>성숙한</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation>전체</translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation>즐겨찾기</translation>
+    </message>
+    <message>
+        <source>Mine</source>
+        <translation>내 음성</translation>
+    </message>
+    <message>
+        <source>Women</source>
+        <translation>여성</translation>
+    </message>
+    <message>
+        <source>Men</source>
+        <translation>남성</translation>
+    </message>
+    <message>
+        <source>Hear this voice</source>
+        <translation>이 음성 듣기</translation>
+    </message>
+    <message>
+        <source>My voice</source>
+        <translation>내 목소리</translation>
+    </message>
+    <message>
+        <source>Mark voices with the star to find them here</source>
+        <translation>별표를 누른 음성이 여기에 표시됩니다</translation>
+    </message>
+    <message>
+        <source>Your own voices appear here: «New voice» in Options</source>
+        <translation>직접 만든 음성은 여기에 표시됩니다: 옵션의 «새 음성»</translation>
+    </message>
+    <message>
+        <source>No voices of this kind</source>
+        <translation>이 종류의 음성이 없습니다</translation>
+    </message>
+    <message>
+        <source>Show fewer</source>
+        <translation>간단히 보기</translation>
+    </message>
+    <message>
+        <source>See all voices (%1)</source>
+        <translation>모든 음성 보기 (%1)</translation>
+    </message>
+</context>
+<context>
     <name>VoiceLibrary</name>
     <message>
         <source>Default</source>
@@ -33556,6 +34574,18 @@ If playback stutters, try another.</source>
     <message>
         <source>A voice needs a name and a recording</source>
         <translation>음성에는 이름과 녹음이 필요합니다</translation>
+    </message>
+    <message>
+        <source>Reading the recording…</source>
+        <translation>녹음 읽는 중…</translation>
+    </message>
+    <message>
+        <source>Loading voice model…</source>
+        <translation>음성 모델 불러오는 중…</translation>
+    </message>
+    <message>
+        <source>Learning the voice…</source>
+        <translation>목소리 학습 중…</translation>
     </message>
     <message>
         <source>Could not prepare the voice</source>
@@ -33572,6 +34602,18 @@ If playback stutters, try another.</source>
     <message>
         <source>The recording is too short: record at least %1 seconds</source>
         <translation>녹음이 너무 짧습니다: %1초 이상 녹음하세요</translation>
+    </message>
+    <message>
+        <source>Unknown voice</source>
+        <translation>알 수 없는 음성</translation>
+    </message>
+    <message>
+        <source>The reference recording for this voice is missing</source>
+        <translation>이 음성의 참조 녹음이 없습니다</translation>
+    </message>
+    <message>
+        <source>Could not read the reference recording</source>
+        <translation>참조 녹음을 읽을 수 없습니다</translation>
     </message>
 </context>
 <context>
@@ -33628,6 +34670,18 @@ If playback stutters, try another.</source>
         <translation>내레이션 생성</translation>
     </message>
     <message>
+        <source>Speech generation runs on this device and needs the voice model.</source>
+        <translation>음성 생성은 이 기기에서 실행되며 음성 모델이 필요합니다.</translation>
+    </message>
+    <message>
+        <source>Download voice model</source>
+        <translation>음성 모델 다운로드</translation>
+    </message>
+    <message>
+        <source>Install AI engine first</source>
+        <translation>먼저 AI 엔진을 설치하세요</translation>
+    </message>
+    <message>
         <source>Voice</source>
         <translation>음성</translation>
     </message>
@@ -33658,6 +34712,21 @@ If playback stutters, try another.</source>
     <message>
         <source>Close</source>
         <translation>닫기</translation>
+    </message>
+</context>
+<context>
+    <name>WhisperTranscriber</name>
+    <message>
+        <source>Transcribing %1–%2 of %3…</source>
+        <translation>%3 중 %1–%2 받아쓰는 중…</translation>
+    </message>
+    <message>
+        <source>Detecting language…</source>
+        <translation>언어를 감지하는 중…</translation>
+    </message>
+    <message>
+        <source>Finishing up…</source>
+        <translation>마무리하는 중…</translation>
     </message>
 </context>
 <context>

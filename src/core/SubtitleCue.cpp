@@ -1,7 +1,9 @@
 #include "SubtitleCue.h"
 
 #include <QCoreApplication>
+#include <QLibrary>
 #include <QRegularExpression>
+#include <QSet>
 
 #include <algorithm>
 #include <cmath>
@@ -26,13 +28,73 @@ struct TimedWord
 
 // Split "Hello world. How are you?" into ["Hello", " world.", " How", " are", " you?"] so
 // joining reproduces the original spacing/punctuation.
+// Thai is written without spaces between words. Windows 10 and later ship ICU (icu.dll), whose
+// dictionary word breaker finds them; without it a Thai run stays one unit, as before.
+QStringList splitThaiWords(const QString &token)
+{
+    using Open = void *(*)(int, const char *, const char16_t *, int32_t, int *);
+    using Step = int32_t (*)(void *);
+    using Close = void (*)(void *);
+    static Open open = nullptr;
+    static Step first = nullptr;
+    static Step next = nullptr;
+    static Close close = nullptr;
+    static const bool loaded = [] {
+#ifdef Q_OS_WIN
+        QLibrary icu(QStringLiteral("icu"));
+        if (!icu.load())
+            return false;
+        open = reinterpret_cast<Open>(icu.resolve("ubrk_open"));
+        first = reinterpret_cast<Step>(icu.resolve("ubrk_first"));
+        next = reinterpret_cast<Step>(icu.resolve("ubrk_next"));
+        close = reinterpret_cast<Close>(icu.resolve("ubrk_close"));
+        return open && first && next && close;
+#else
+        return false;
+#endif
+    }();
+    if (!loaded)
+        return {token};
+    int status = 0;
+    void *breaker = open(1 /* UBRK_WORD */, "th", reinterpret_cast<const char16_t *>(token.utf16()),
+                         int32_t(token.size()), &status);
+    if (!breaker || status > 0)
+        return {token};
+    QStringList words;
+    int32_t from = first(breaker);
+    for (int32_t to = next(breaker); to != -1; to = next(breaker)) {
+        const QString piece = token.mid(from, to - from);
+        // Spaces and punctuation stay with the word before them, as the other tokens do.
+        if (!words.isEmpty() && (piece.trimmed().isEmpty() || !piece.at(0).isLetterOrNumber()))
+            words.last() += piece;
+        else
+            words.append(piece);
+        from = to;
+    }
+    close(breaker);
+    return words.isEmpty() ? QStringList{token} : words;
+}
+
 QStringList tokenizeWords(const QString &text)
 {
-    static const QRegularExpression re(QStringLiteral(R"((\s*\S+))"));
+    // Chinese and Japanese write without spaces: each ideograph or kana is its own unit, so a
+    // caption can break between them (a whole sentence was one «word» and never wrapped).
+    static const QRegularExpression re(QStringLiteral(
+        R"((\s*(?:[\p{Han}\p{Hiragana}\p{Katakana}]|[^\s\p{Han}\p{Hiragana}\p{Katakana}]+)))"));
     QStringList tokens;
     auto it = re.globalMatch(text);
-    while (it.hasNext())
-        tokens.append(it.next().captured(1));
+    static const QRegularExpression thai(QStringLiteral(R"(\p{Thai})"));
+    while (it.hasNext()) {
+        const QString token = it.next().captured(1);
+        if (token.contains(thai)) {
+            const QString lead = token.left(token.size() - token.trimmed().size()); // the space before
+            QStringList words = splitThaiWords(token.trimmed());
+            words.first().prepend(lead);
+            tokens.append(words);
+        } else {
+            tokens.append(token);
+        }
+    }
     return tokens;
 }
 
@@ -173,6 +235,22 @@ void sortSubtitleCues(QList<SubtitleCue> &cues)
     });
 }
 
+namespace {
+// Letters a word takes on a line: an ideograph or kana is as wide as two Latin letters.
+int displayWidth(const QString &word)
+{
+    int width = 0;
+    for (const QChar c : word) {
+        if (c.category() == QChar::Mark_NonSpacing)
+            continue; // Thai vowel and tone marks sit on the letter: no width of their own
+        const QChar::Script script = c.script();
+        width += (script == QChar::Script_Han || script == QChar::Script_Hiragana
+                  || script == QChar::Script_Katakana) ? 2 : 1;
+    }
+    return width;
+}
+} // namespace
+
 QList<SubtitleCue> packSubtitleCues(const QList<SubtitleCue> &cues, int maxLineWidth,
                                     int maxLineCount, int maxWordsPerCue)
 {
@@ -205,7 +283,7 @@ QList<SubtitleCue> packSubtitleCues(const QList<SubtitleCue> &cues, int maxLineW
         QString text;
         for (const TimedWord &w : subtitle)
             text += w.word;
-        cue.text = text.trimmed().replace(QLatin1Char('\n'), QLatin1Char(' '));
+        cue.text = text.trimmed(); // the line breaks are the ones packing put in
         for (const TimedWord &w : subtitle) {
             if (!w.word.trimmed().isEmpty())
                 cue.wordEndsUs.append(w.endUs);
@@ -219,12 +297,15 @@ QList<SubtitleCue> packSubtitleCues(const QList<SubtitleCue> &cues, int maxLineW
     };
 
     for (TimedWord timing : words) {
+        // A break inside a word's text is not ours: only the packing below splits lines (a second
+        // line used to be flattened back into one, so two-line captions never came out).
+        timing.word.replace(QLatin1Char('\n'), QLatin1Char(' '));
         const bool longPause = timing.startUs - lastStart > kLongPauseUs;
-        const bool hasRoom = lineLen + timing.word.size() <= maxLineWidth;
+        const bool hasRoom = lineLen + displayWidth(timing.word) <= maxLineWidth;
         const bool wordCapHit = maxWordsPerCue > 0 && wordCount >= maxWordsPerCue;
 
         if (lineLen > 0 && hasRoom && !longPause && !wordCapHit) {
-            lineLen += timing.word.size();
+            lineLen += displayWidth(timing.word);
             subtitle.append(timing);
             ++wordCount;
         } else {
@@ -235,7 +316,7 @@ QList<SubtitleCue> packSubtitleCues(const QList<SubtitleCue> &cues, int maxLineW
                 ++lineCount;
                 timing.word = QLatin1Char('\n') + timing.word;
             }
-            lineLen = timing.word.trimmed().size();
+            lineLen = displayWidth(timing.word.trimmed());
             subtitle.append(timing);
             ++wordCount;
         }
@@ -279,6 +360,64 @@ bool isHesitation(const QString &word)
 }
 
 } // namespace
+
+namespace {
+QString wordKey(const QString &word)
+{
+    QString key;
+    for (const QChar c : word) {
+        if (c.isLetterOrNumber())
+            key.append(c.toLower());
+    }
+    return key;
+}
+} // namespace
+
+QList<TimeUs> realignWordEnds(const QString &oldText, const QList<TimeUs> &oldEnds, const QString &newText)
+{
+    const QStringList a = oldText.split(QLatin1Char(' '), Qt::SkipEmptyParts);
+    const QStringList b = newText.split(QLatin1Char(' '), Qt::SkipEmptyParts);
+    if (oldEnds.size() != a.size() || a.isEmpty() || b.isEmpty())
+        return {};
+    // Longest common run of words (by letters, case and punctuation aside): a kept word keeps its
+    // timing; a new word takes the end of the old words it replaced, or of the word before it.
+    const int n = a.size();
+    const int m = b.size();
+    QList<QList<int>> lcs(n + 1, QList<int>(m + 1, 0));
+    for (int i = n - 1; i >= 0; --i) {
+        for (int j = m - 1; j >= 0; --j)
+            lcs[i][j] = wordKey(a.at(i)) == wordKey(b.at(j)) ? lcs[i + 1][j + 1] + 1 : qMax(lcs[i + 1][j], lcs[i][j + 1]);
+    }
+    QList<TimeUs> out;
+    int i = 0;
+    int j = 0;
+    TimeUs last = -1; // the end of the last old word passed
+    while (j < m) {
+        if (i < n && wordKey(a.at(i)) == wordKey(b.at(j))) {
+            last = oldEnds.at(i);
+            out.append(last);
+            ++i;
+            ++j;
+        } else if (i < n && lcs[i + 1][j + 1] == lcs[i][j]) {
+            // One word for another (a name fixed): it takes the replaced word's timing.
+            last = oldEnds.at(i);
+            out.append(last);
+            ++i;
+            ++j;
+        } else if (i < n && lcs[i + 1][j] >= lcs[i][j + 1]) {
+            last = oldEnds.at(i); // an old word gone (or being replaced)
+            ++i;
+        } else {
+            // A new word: it ends where the old words it replaced did, else with the next old one.
+            out.append(last >= 0 ? last : oldEnds.at(qMin(i, n - 1)));
+            ++j;
+        }
+    }
+    // Never going back in time.
+    for (int k = 1; k < out.size(); ++k)
+        out[k] = qMax(out.at(k), out.at(k - 1));
+    return out;
+}
 
 QString cleanSubtitleText(const QString &text, bool capitalize)
 {
@@ -333,10 +472,78 @@ QList<SubtitleCue> cleanSubtitleCues(const QList<SubtitleCue> &cues)
             sentenceStart = last == QLatin1Char('.') || last == QLatin1Char('?') || last == QLatin1Char('!')
                             || last == QChar(0x2026);
         }
+        // The aligned word timings lose the hesitations' too, so the karaoke keeps following the
+        // voice (left as they were, there were more timings than words and it fell back to an even
+        // spread).
+        const QStringList words = cue.text.split(QLatin1Char(' '), Qt::SkipEmptyParts);
+        QList<TimeUs> ends;
+        if (cue.wordEndsUs.size() == words.size()) {
+            for (int i = 0; i < words.size(); ++i) {
+                if (!isHesitation(words.at(i)))
+                    ends.append(cue.wordEndsUs.at(i));
+            }
+        }
+        const QString before = cue.text;
         cue.text = cleanSubtitleText(cue.text, sentenceStart);
+        if (!ends.isEmpty() && cue.text.split(QLatin1Char(' '), Qt::SkipEmptyParts).size() == ends.size())
+            cue.wordEndsUs = ends;
+        else if (cue.text != before)
+            cue.wordEndsUs = realignWordEnds(before, cue.wordEndsUs, cue.text);
         if (!cue.text.isEmpty())
             out.append(cue);
     }
+    return out;
+}
+
+QString maskProfanity(const QString &text)
+{
+    // Stems: a word that starts with one is masked ("put" also takes "puta", "putos").
+    static const QStringList kStems = {
+        QStringLiteral("mierd"), QStringLiteral("put"), QStringLiteral("puñet"), QStringLiteral("cabron"),
+        QStringLiteral("carajo"), QStringLiteral("coño"), QStringLiteral("joder"), QStringLiteral("jodid"),
+        QStringLiteral("pendej"), QStringLiteral("verga"), QStringLiteral("chinga"), QStringLiteral("cojon"),
+        QStringLiteral("gilipoll"), QStringLiteral("culer"), QStringLiteral("huevon"),
+        QStringLiteral("marica"), QStringLiteral("malparid"), QStringLiteral("hijueput"), QStringLiteral("csm"),
+        QStringLiteral("fuck"), QStringLiteral("shit"), QStringLiteral("bitch"), QStringLiteral("asshole"),
+        QStringLiteral("bastard"), QStringLiteral("dick"), QStringLiteral("pussy"), QStringLiteral("cunt"),
+        QStringLiteral("motherfuck"), QStringLiteral("bullshit"), QStringLiteral("damn"),
+    };
+    // Words that start like one but are not swearing.
+    static const QStringList kInnocent = {
+        QStringLiteral("put"), QStringLiteral("puts"), QStringLiteral("putt"), QStringLiteral("putting"), QStringLiteral("output"),
+        QStringLiteral("dickens"), QStringLiteral("putin"), QStringLiteral("damnation"),
+    };
+    QString out;
+    QString word;
+    auto flush = [&]() {
+        if (word.isEmpty())
+            return;
+        // Matched as written («coño») and without accents («cabrón» → «cabron»).
+        const QString lower = word.toLower();
+        const QString key = word.normalized(QString::NormalizationForm_D)
+                                .remove(QRegularExpression(QStringLiteral("[\\x{0300}-\\x{036f}]")))
+                                .toLower();
+        bool bad = false;
+        if (!kInnocent.contains(key)) {
+            for (const QString &stem : kStems) {
+                if (lower.startsWith(stem) || key.startsWith(stem)) {
+                    bad = true;
+                    break;
+                }
+            }
+        }
+        out += bad ? word.left(1) + QString(word.size() - 1, QLatin1Char('*')) : word;
+        word.clear();
+    };
+    for (const QChar c : text) {
+        if (c.isLetter()) {
+            word += c;
+        } else {
+            flush();
+            out += c;
+        }
+    }
+    flush();
     return out;
 }
 
@@ -474,6 +681,80 @@ QString captionWithEmoji(const QString &text)
             return text.trimmed() + QLatin1Char(' ') + emoji;
     }
     return text;
+}
+
+QString highlightCaptionKeyword(const QString &text)
+{
+    // Words that carry no meaning of their own, accent-free and lower-case.
+    static const QSet<QString> kFiller = [] {
+        QSet<QString> set;
+        for (const char *w : {
+                 // es
+                 "el", "la", "los", "las", "un", "una", "unos", "unas", "de", "del", "al", "a", "en", "y", "o",
+                 "que", "con", "por", "para", "como", "pero", "mas", "muy", "ya", "se", "su", "sus", "mi", "mis",
+                 "tu", "tus", "lo", "le", "les", "me", "te", "nos", "es", "son", "fue", "era", "esta", "estan",
+                 "este", "esto", "estos", "estas", "ese", "esa", "eso", "esos", "esas", "aqui", "alli", "asi",
+                 "tambien", "porque", "cuando", "donde", "hay", "ser", "estar", "tener", "tiene", "tengo",
+                 "hacer", "hace", "vamos", "voy", "va", "van", "hoy", "ahora", "entonces", "despues", "antes",
+                 "todo", "todos", "toda", "todas", "algo", "nada", "cada", "otro", "otra", "otros", "sobre",
+                 "entre", "hasta", "desde", "sin", "solo", "bien", "mucho", "mucha", "muchos", "poco", "puede",
+                 "pueden", "hola", "bueno", "pues", "primero", "luego", "listo", "simple", "forma", "manera",
+                 // en
+                 "the", "an", "and", "or", "of", "to", "in", "on", "at", "for", "with", "is", "are", "was",
+                 "were", "be", "been", "it", "this", "that", "these", "those", "you", "we", "they", "he",
+                 "she", "his", "her", "our", "your", "their", "my", "me", "us", "them", "so", "but", "if",
+                 "then", "just", "very", "really", "here", "there", "what", "when", "where", "which", "who",
+                 "how", "about", "from", "into", "have", "has", "had", "will", "would", "can", "could",
+                 "going", "gonna", "get", "got", "now", "today", "all", "some", "any", "more", "much", "also",
+                 // pt
+                 "os", "as", "um", "uma", "do", "da", "dos", "das", "no", "na", "nos", "nas", "em", "e", "com",
+                 "nao", "sim", "voce", "isso", "isto", "aquilo", "aqui", "tambem", "muito", "agora",
+                 // fr
+                 "le", "les", "des", "du", "et", "ou", "est", "sont", "avec", "pour", "dans", "sur", "pas",
+                 "vous", "nous", "ils", "elle", "cette", "ces", "tres", "aussi", "mais", "donc",
+                 // it
+                 "il", "lo", "gli", "di", "che", "con", "per", "non", "sono", "questo", "questa", "molto",
+                 "anche", "ma", "perche"}) {
+            set.insert(QString::fromLatin1(w));
+        }
+        return set;
+    }();
+    if (text.contains(QLatin1Char('*')))
+        return text;
+    static const QRegularExpression kWord(QStringLiteral(R"(([$€£]?\d[\d.,]*\s?%?|[\p{L}\p{M}][\p{L}\p{M}'’-]*))"));
+    struct Candidate { int start; int length; int score; };
+    QList<Candidate> words;
+    for (auto it = kWord.globalMatch(text); it.hasNext();) {
+        const QRegularExpressionMatch m = it.next();
+        const QString w = m.captured(0).trimmed();
+        int score = 0;
+        if (w.front().isDigit() || w.front() == QLatin1Char('$') || w.front() == QChar(0x20AC)
+            || w.front() == QChar(0x00A3)) {
+            score = 1000; // «100 %», «$5», «3»: the number is what a viewer keeps
+        } else {
+            QString key;
+            for (const QChar c : w.normalized(QString::NormalizationForm_KD)) {
+                if (c.category() != QChar::Mark_NonSpacing)
+                    key.append(c.toLower());
+            }
+            if (!kFiller.contains(key) && w.size() >= 4)
+                score = int(w.size());
+        }
+        words.append({int(m.capturedStart(0)), int(w.size()), score});
+    }
+    if (words.size() < 3)
+        return text;
+    const Candidate *best = nullptr;
+    for (const Candidate &c : std::as_const(words)) {
+        if (c.score > 0 && (!best || c.score > best->score))
+            best = &c;
+    }
+    if (!best)
+        return text;
+    QString out = text;
+    out.insert(best->start + best->length, QLatin1Char('*'));
+    out.insert(best->start, QLatin1Char('*'));
+    return out;
 }
 
 QString applySubtitleReplacements(const QString &text, const QList<QPair<QString, QString>> &pairs)

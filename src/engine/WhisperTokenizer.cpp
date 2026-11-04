@@ -1,5 +1,7 @@
 #include "WhisperTokenizer.h"
 
+#include <QRegularExpression>
+
 #include <QFile>
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -45,6 +47,8 @@ bool WhisperTokenizer::load(const QString &vocabJsonPath)
 {
     m_loaded = false;
     m_idToBytes.clear();
+    m_bytesToId.clear();
+    m_longestPiece = 1;
 
     QFile file(vocabJsonPath);
     if (!file.open(QIODevice::ReadOnly))
@@ -71,10 +75,36 @@ bool WhisperTokenizer::load(const QString &vocabJsonPath)
                 bytes.append(static_cast<char>(found.value()));
         }
         m_idToBytes.insert(id, bytes);
+        if (id < kTextTokenLimit && !bytes.isEmpty()) {
+            m_bytesToId.insert(bytes, id);
+            m_longestPiece = qMax(m_longestPiece, int(bytes.size()));
+        }
     }
 
     m_loaded = !m_idToBytes.isEmpty();
     return m_loaded;
+}
+
+std::vector<int> WhisperTokenizer::encodeApprox(const QString &text) const
+{
+    std::vector<int> out;
+    static const QRegularExpression kWord(QStringLiteral(R"( ?\S+)"));
+    for (auto it = kWord.globalMatch(text); it.hasNext();) {
+        const QByteArray bytes = it.next().captured(0).toUtf8();
+        int at = 0;
+        while (at < bytes.size()) {
+            int length = qMin(m_longestPiece, int(bytes.size()) - at);
+            for (; length > 0; --length) {
+                const auto found = m_bytesToId.constFind(bytes.mid(at, length));
+                if (found != m_bytesToId.constEnd()) {
+                    out.push_back(found.value());
+                    break;
+                }
+            }
+            at += qMax(1, length); // every single byte is a piece of a byte-level vocabulary
+        }
+    }
+    return out;
 }
 
 QString WhisperTokenizer::decode(const std::vector<int> &tokens) const

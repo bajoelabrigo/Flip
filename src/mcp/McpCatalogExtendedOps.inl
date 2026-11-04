@@ -433,7 +433,7 @@
           "set_shape_style (layers fill + stroke, geometry knobs) and animate with set_keyframe "
           "shape.<key>.",
           objectSchema({{QStringLiteral("shape"), stringProp(QStringLiteral("Shape id from list_shapes"))},
-                        {QStringLiteral("at"), numberProp(QStringLiteral("Start seconds (default: playhead)"))},
+                        {QStringLiteral("at"), numberProp(QStringLiteral("Start seconds (default: 0)"))},
                         {QStringLiteral("track"), integerProp(QStringLiteral("Optional destination track; omitted picks or creates one"))}},
                        {QStringLiteral("shape")}) },
         // After Effects' Contents (0.28): the parts inside one shape layer.

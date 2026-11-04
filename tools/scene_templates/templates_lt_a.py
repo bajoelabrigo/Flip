@@ -27,7 +27,6 @@ def laura():
     D = 5.0
     t = _kit("laura", "Tercio: nombre y barra degradada", "Lower third: name over a gradient bar", D, 8500,
              ["nombre", "degradado", "barra"], thumb_at=2.5)
-    photo_bg(t, "h-portrait-02", s1=1.03, label="Tu video")
     r = Ref("laura")
     x0, bar = 195, Box(195, 850, 925, 50)
     grad = r.curve(Ref.edge("bar", "warm"), before=-1, after=bar.w + x0 - 1, offset=1 - x0)
@@ -55,7 +54,6 @@ def mari():
     D = 5.9
     t = _kit("mari", "Tercio: nombre dentro de la barra", "Lower third: name inside the bar", D, 8501,
              ["nombre", "degradado", "caja"], thumb_at=2.5)
-    photo_bg(t, "h-portrait-05", s1=1.03, label="Tu video")
     r = Ref("mari")
     x0, box = 196, Box(196, 769, 664, 111)
     grad = r.curve(Ref.edge("bar", "warm"), before=-1, after=box.w + x0 - 1, offset=1 - x0)
@@ -87,7 +85,6 @@ def endrue():
     D = round((163 - r.first) / 30 + 0.05, 2)
     t = _kit("endrue", "Tercio: caja con líneas blancas", "Lower third: box with white lines", D, 8502,
              ["nombre", "degradado", "caja", "líneas"], thumb_at=2.5)
-    photo_bg(t, "h-man-05", s1=1.03, label="Tu video")
     y0, box = 753, Box(197, 753, 1029, 164)
     white = r.curve(Ref.edge("bar", "white"), before=y0 - 1, after=y0 - 1, offset=1 - y0)
     grad = r.curve(Ref.edge("bar", "warm"), before=759, after=759, offset=1 - y0)
@@ -117,7 +114,6 @@ def clara():
     D = round((189 - r.first) / 30 + 0.05, 2)
     t = _kit("clara", "Tercio: nombre que sale de la caja", "Lower third: name rising out of the box", D, 8503,
              ["nombre", "degradado", "caja", "franja"], thumb_at=2.9)
-    photo_bg(t, "h-cafe-05", s1=1.03, label="Tu video")
     y0, box = 754, Box(510, 754, 900, 130)
     wtop = r.curve(Ref.edge("bar", "white", side="min"), before=y0, after=y0, offset=-y0)
     wbot = r.curve(Ref.edge("bar", "white"), before=y0 - 1, after=y0 - 1, offset=1 - y0)

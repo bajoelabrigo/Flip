@@ -105,6 +105,18 @@ ComboBox {
 
     popup: Popup {
         y: root.height + Theme.spacingXs
+        // Escape is an app-wide shortcut (clear the selection) that reaches the window before the
+        // list: the window is told the list is open so Escape closes it first (0.30 tests E62).
+        onOpened: {
+            const w = root.Window.window
+            if (w && w.notePopupOpen)
+                w.notePopupOpen(root.popup, true)
+        }
+        onClosed: {
+            const w = root.Window.window
+            if (w && w.notePopupOpen)
+                w.notePopupOpen(root.popup, false)
+        }
         width: root.width
         implicitHeight: Math.min(240, contentItem.implicitHeight + 2)
         padding: 1

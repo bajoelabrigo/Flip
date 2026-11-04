@@ -30,6 +30,10 @@ class WhisperTranscriber
 public:
     static WhisperTranscriber &instance();
 
+    // Words the next transcriptions should expect (names, brands, terms), as Whisper's initial
+    // prompt; empty for none. Set it before a run and clear it after: the instance is shared.
+    void setInitialPrompt(const QString &text);
+
     // Whether the model files are on disk. Cheap — it only looks for them, where available()
     // goes on to load three quarters of a gigabyte of ONNX sessions. Use this to report or
     // gate on availability; use available() when about to transcribe.
@@ -50,11 +54,12 @@ public:
     // languageCode: ISO-ish Whisper code ("en", "si", …). Empty = auto-detect from audio.
     // maxWordsPerCue: cap on words per subtitle cue; 0 leaves the default packing alone.
     // translateToEnglish: Whisper's translate task — the speech, in any language, written in
-    // English (the only target the model has).
+    // English (the only target the model has). maxLineWidth: letters per caption line (by the frame's
+    // shape); maxLineCount: lines per caption.
     WhisperResult transcribe(const std::vector<float> &pcm,
                              const std::function<bool(double, const QString &)> &progress,
                              const QString &languageCode = QString(), int maxWordsPerCue = 0,
-                             bool translateToEnglish = false);
+                             bool translateToEnglish = false, int maxLineWidth = 42, int maxLineCount = 1);
 
     // Whisper's own timestamped segments, unpacked: what word alignment starts from.
     WhisperResult transcribeSegments(const std::vector<float> &pcm,

@@ -46,7 +46,6 @@ def mejor_video():
     D = 5.0
     t = _kit("titulo-mejor-video", "Mejor video en YouTube", "Best video on YouTube", "titulos-estilo", D, 8330,
              ["título", "línea", "caja", "mejor video"], thumb_at=2.5)
-    photo_bg(t, "h-travel-02", s1=1.04, label="Tu video")
     end = D - 0.3
     t.solid(t.track("shape", "Línea"), CORAL, 0.2, 0.9, centered(960, 520, 520, 6),
             [(0, {"sx": 0.0}, "out"), (0.5, {}, "hold"), (0.9, {"sx": 0.0})])
@@ -65,7 +64,6 @@ def mejor_show_logo():
     D = 5.0
     t = _kit("titulo-mejor-show", "El mejor show en YouTube", "The best show on YouTube", "titulos-estilo", D, 8331,
              ["título", "logo", "show"], thumb_at=2.4)
-    photo_bg(t, "h-sport-01", s1=1.04, label="Tu video")
     end = D - 0.3
     yt_icon(t, 620, 470, 110, 0.3, end - 0.3)
     _line_text(t, "EL MEJOR SHOW", Box(700, 400, 1000, 80), 72, 0.55, end - 0.55, anim="wipe", ad=0.5, name="Línea 1")
@@ -79,7 +77,6 @@ def barra_nuevo_video():
     D = 5.0
     t = _kit("titulo-nuevo-video", "El nuevo video ya salió", "The new video is out", "titulos-estilo", D, 8332,
              ["título", "barra", "nuevo video", "estreno"], thumb_at=2.6)
-    photo_bg(t, "h-nature-05", s1=1.04, label="Tu video")
     end = D - 0.3
     _wipe_box(t, 520, 400, 880, 64, INK, 0.3, end - 0.3, name="Barra")
     _line_text(t, "EL NUEVO VIDEO YA SALIÓ", Box(520, 400, 880, 64), 34, 0.6, end - 0.7, align="center", anim="fade",
@@ -96,7 +93,6 @@ def cuadro_contorno():
     D = 5.0
     t = _kit("titulo-cuadro", "Título en un cuadro", "Title in a square", "titulos-estilo", D, 8333,
              ["título", "cuadro", "contorno", "minimalista"], thumb_at=2.6)
-    photo_bg(t, "h-beach-01", s1=1.04, label="Tu video")
     end = D - 0.3
     sq = centered(560, 540, 380, 380)
     outline(t, t.track("shape", "Cuadro"), WHITE, 8, 0.3, end - 0.3, sq, _life(end - 0.3, s0=0.6))
@@ -112,7 +108,6 @@ def linea_vertical():
     D = 5.0
     t = _kit("titulo-linea-vertical", "Título con línea vertical", "Title with a vertical line", "titulos-estilo", D,
              8334, ["título", "línea", "vertical", "minimalista"], thumb_at=2.4)
-    photo_bg(t, "h-studio-01", s1=1.04, label="Tu video")
     end = D - 0.3
     t.solid(t.track("shape", "Línea"), WHITE, 0.3, end - 0.3, Box(200, 690, 6, 200),
             [(0, {"sy": 0.0, "dy": 100}, "out"), (0.4, {}, "hold"), (end - 0.6, {}, "in"), (end - 0.3, {"sy": 0.0, "dy": 100})])
@@ -128,7 +123,6 @@ def promo_grande():
     D = 5.0
     t = _kit("titulo-promo", "Título grande en caja negra", "Big title in a black box", "titulos-estilo", D, 8335,
              ["título", "caja", "grande", "promo"], thumb_at=2.4)
-    photo_bg(t, "h-city-05", s1=1.04, label="Tu video")
     end = D - 0.3
     w = _text_width("TU PROMO", 130) + 130 * 0.8
     t.solid(t.track("shape", "Caja"), INK, 0.3, end - 0.3, centered(960, 490, w, 176),
@@ -145,7 +139,6 @@ def tres_cajas_negras():
     D = 6.0
     t = _kit("titulo-tres-cajas", "Tres líneas en cajas negras", "Three lines in black boxes", "titulos-estilo", D,
              8336, ["título", "cajas", "negro", "pregunta"], thumb_at=2.8)
-    photo_bg(t, "h-cooking-02", s1=1.04, label="Tu video")
     lines = ["HEMOS CREADO", "UNA GRAN SOLUCIÓN PARA TI", "¿QUIERES PROBARLA?"]
     for i, text in enumerate(lines):
         _box_line(t, text, 160, 290 + i * 92, 54, WHITE, INK, 0.3 + i * 0.4, D - 0.4 - (2 - i) * 0.1, name=f"Línea {i + 1}")
@@ -157,7 +150,6 @@ def etiqueta_inclinada():
     D = 5.0
     t = _kit("titulo-inclinado", "Etiqueta inclinada", "Tilted label", "titulos-estilo", D, 8337,
              ["título", "inclinado", "etiqueta", "firma"], thumb_at=2.4)
-    photo_bg(t, "h-sport-02", s1=1.04, label="Tu video")
     end = D - 0.3
     w = _text_width("Motion design", 84) + 84 * 0.8
     box = centered(960, 500, w, 124)
@@ -178,7 +170,6 @@ def centrado_cajas():
     D = 5.0
     t = _kit("titulo-no-olvides", "No olvides suscribirte y dar like", "Don't forget to subscribe and like",
              "titulos-estilo", D, 8338, ["título", "cajas", "suscríbete", "centrado"], thumb_at=2.6)
-    photo_bg(t, "h-portrait-06", s1=1.04, label="Tu video")
     end = D - 0.3
     for i, text in enumerate(["NO OLVIDES", "SUSCRIBIRTE", "Y DAR LIKE"]):
         a = 0.3 + i * 0.3
@@ -192,7 +183,6 @@ def contorno_doble():
     D = 5.0
     t = _kit("titulo-contorno", "Título en marcos de contorno", "Title in outlined frames", "titulos-estilo", D, 8339,
              ["título", "contorno", "marco"], thumb_at=2.6)
-    photo_bg(t, "h-city-05", s1=1.04, label="Tu video")
     end = D - 0.3
     for i, (text, size) in enumerate([("DISFRUTA", 54), ("Y USA ESTE PACK", 54)]):
         a = 0.3 + i * 0.3
@@ -208,7 +198,6 @@ def gracias_apoyo():
     D = 5.0
     t = _kit("titulo-gracias-apoyo", "¡Gracias por tu apoyo!", "Thank you for your support!", "frases", D, 8340,
              ["gracias", "apoyo", "caja"], thumb_at=2.4)
-    photo_bg(t, "h-nature-01", s1=1.04, label="Tu video")
     end = D - 0.3
     _line_text(t, "¡GRACIAS POR TU APOYO!", centered(960, 500, 1600, 90), 66, 0.3, end - 0.3, colour=INK, align="center",
                anim="wipe", ad=0.6, name="Gracias", box_bg=(WHITE, 1.0), pad=22)
@@ -244,7 +233,6 @@ def tercio_blanco():
     D = 6.0
     t = _kit("tercio-caja-blanca", "Nombre en caja blanca", "Name in a white box", "tercios", D, 8341,
              ["tercio", "nombre", "profesión", "caja"], thumb_at=2.0)
-    photo_bg(t, "h-man-02", s1=1.04, label="Tu video")
     _tercio(t, "blanca", D - 0.3)
     return t
 
@@ -253,7 +241,6 @@ def tercio_coral():
     D = 6.0
     t = _kit("tercio-caja-coral", "Nombre en caja coral", "Name in a coral box", "tercios", D, 8342,
              ["tercio", "nombre", "profesión", "coral"], thumb_at=2.0)
-    photo_bg(t, "h-portrait-05", s1=1.04, label="Tu video")
     _tercio(t, "coral", D - 0.3)
     return t
 
@@ -262,7 +249,6 @@ def tercio_linea():
     D = 6.0
     t = _kit("tercio-linea", "Nombre con línea", "Name with a line", "tercios", D, 8343,
              ["tercio", "nombre", "profesión", "línea"], thumb_at=2.0)
-    photo_bg(t, "h-portrait-04", s1=1.04, label="Tu video")
     _tercio(t, "linea", D - 0.3)
     return t
 
@@ -284,7 +270,6 @@ def redes_tarjeta():
     D = 10.0
     t = _kit("redes-tarjeta", "Redes en tarjeta blanca", "Socials on a white card", "redes", D, 8344,
              ["redes", "tarjeta", "sígueme", "logos"], thumb_at=1.6)
-    photo_bg(t, "h-city-02", s1=1.04, label="Tu video")
 
     def draw(i, net, handle, a, dur):
         card = Box(120, 892, 460, 100)
@@ -313,7 +298,6 @@ def redes_circulo():
     D = 10.0
     t = _kit("redes-circulo", "Redes en círculo y píldora", "Socials in a circle and pill", "redes", D, 8345,
              ["redes", "círculo", "píldora", "logos"], thumb_at=1.6)
-    photo_bg(t, "h-portrait-03", s1=1.04, label="Tu video")
 
     def draw(i, net, handle, a, dur):
         cx, cy = 200, 940
@@ -342,7 +326,6 @@ def redes_pincel():
     D = 10.0
     t = _kit("redes-pincel", "Redes en trazo de pincel", "Socials on a brush stroke", "redes", D, 8346,
              ["redes", "pincel", "trazo", "logos"], thumb_at=1.6)
-    photo_bg(t, "h-sport-01", s1=1.04, label="Tu video")
 
     def draw(i, net, handle, a, dur):
         stroke = Box(100, 890, 560, 110)

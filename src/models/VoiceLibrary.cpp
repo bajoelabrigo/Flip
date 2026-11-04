@@ -5,6 +5,7 @@
 #include "TtsController.h"
 #include "engine/AddonRegistry.h"
 #include "engine/AudioFileWriter.h"
+#include "engine/GpuPackageParse.h"
 #include "engine/MediaProbe.h"
 #include "engine/SpeechAudio.h"
 
@@ -12,7 +13,9 @@
 #include <QFile>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QCoreApplication>
 #include <QPointer>
+#include <QSet>
 #include <QStandardPaths>
 #include <QUuid>
 
@@ -21,7 +24,9 @@
 namespace {
 
 const QString kDefaultId = QStringLiteral("default");
-const QString kModelId = QStringLiteral("tts.chatterbox-multilingual");
+// The extra as it is published («Voz con IA»); the older id is still read for installs made before.
+const QString kModelId = QStringLiteral("voz.chatterbox");
+const QString kOldModelId = QStringLiteral("tts.chatterbox-multilingual");
 
 QString voicesDir()
 {
@@ -29,17 +34,25 @@ QString voicesDir()
         .filePath(QStringLiteral("voices"));
 }
 
-// The built-in voice's reference lives in the addon; only its encoded cache is kept here.
+const QString kReadyPrefix = QStringLiteral("pack-");
+
+// The built-in voices' references live in the addons; only their encoded cache is kept here.
 QString voiceDir(const QString &id)
 {
     if (id.isEmpty() || id.contains(QLatin1Char('/')) || id.contains(QLatin1Char('\\')) || id.startsWith(QLatin1Char('.')))
         return {};
-    return QDir(voicesDir()).filePath(id == kDefaultId ? QStringLiteral("_default") : id);
+    if (id == kDefaultId)
+        return QDir(voicesDir()).filePath(QStringLiteral("_default"));
+    if (id.startsWith(kReadyPrefix))
+        return QDir(voicesDir()).filePath(QLatin1Char('_') + id);
+    return QDir(voicesDir()).filePath(id);
 }
 
 QString modelVersion()
 {
     const drift::addon::InstalledAddon *addon = drift::addon::installedAddon(kModelId);
+    if (!addon)
+        addon = drift::addon::installedAddon(kOldModelId);
     return addon ? addon->version : QString();
 }
 
@@ -76,10 +89,27 @@ VoiceLibrary::VoiceLibrary(AppController *app, TtsController *tts, QObject *pare
 {
     connect(&m_recorder, &drift::AudioRecorder::recordingStateChanged, this, &VoiceLibrary::recordingChanged);
     connect(&m_recorder, &drift::AudioRecorder::recordedSecondsChanged, this, &VoiceLibrary::recordingSecondsChanged);
+    // A voice takes 20 s at most: the recording stops there by itself, ready to save (past it,
+    // the rest was cut without a word).
+    connect(&m_recorder, &drift::AudioRecorder::recordedSecondsChanged, this, [this] {
+        if (m_recorder.isRecording() && m_recorder.recordedSeconds() >= double(kMaxReferenceUs) / drift::kUsPerSecond)
+            m_recorder.pause();
+    });
     connect(&m_recorder, &drift::AudioRecorder::audioLevelChanged, this, &VoiceLibrary::levelChanged);
+    connect(m_app->m_jobs, &JobRegistry::jobChanged, this, [this](const QString &id) {
+        if (id.isEmpty() || id != m_encodeJobId)
+            return;
+        const QJsonObject job = m_app->m_jobs->job(id);
+        m_encodeProgress = job.value(QStringLiteral("progress")).toDouble();
+        const QString status = job.value(QStringLiteral("status")).toString();
+        if (!status.isEmpty())
+            m_encodeStatus = status;
+        emit encodeProgressChanged();
+    });
     connect(&m_recorder, &drift::AudioRecorder::recordingError, this, &VoiceLibrary::error);
 
     m_entries.append({kDefaultId, tr("Default"), QStringLiteral("builtin"), {}, true});
+    m_entries.append(readyVoices());
     QList<Entry> saved;
     const QDir dir(voicesDir());
     for (const QString &name : dir.entryList(QDir::Dirs | QDir::NoDotAndDotDot)) {
@@ -95,6 +125,83 @@ VoiceLibrary::VoiceLibrary(AppController *app, TtsController *tts, QObject *pare
     }
     std::sort(saved.begin(), saved.end(), [](const Entry &a, const Entry &b) { return a.created < b.created; });
     m_entries.append(saved);
+}
+
+QList<VoiceLibrary::Entry> VoiceLibrary::readyVoices() const
+{
+    struct Ready
+    {
+        Entry entry;
+        int order = 0;
+    };
+    QList<Ready> found;
+    QSet<QString> seen;
+    const QStringList roots = GpuPackageParse::defaultSearchPaths(
+        QStringLiteral("DRIFT_TTS_VOICES_DIR"), QStringLiteral("tts-voices"), QStringLiteral("tts-voices"));
+    for (const QString &root : roots) {
+        const QDir dir(root);
+        for (const QString &folder : dir.entryList(QDir::Dirs | QDir::NoDotAndDotDot, QDir::Name)) {
+            const QString path = dir.filePath(folder);
+            const QJsonObject meta = readMeta(path);
+            const QString reference = QDir(path).filePath(QStringLiteral("reference.flac"));
+            const QString name = meta.value(QStringLiteral("name")).toString();
+            if (name.isEmpty() || !QFile::exists(reference) || seen.contains(folder))
+                continue;
+            seen.insert(folder);
+            Entry e;
+            e.id = kReadyPrefix + folder;
+            e.name = name;
+            e.source = QStringLiteral("ready");
+            e.builtIn = true;
+            e.gender = meta.value(QStringLiteral("gender")).toString();
+            e.style = meta.value(QStringLiteral("style")).toString();
+            e.reference = reference;
+            const QString sample = QDir(path).filePath(QStringLiteral("sample.flac"));
+            e.sample = QFile::exists(sample) ? sample : reference;
+            const QString photo = QDir(path).filePath(QStringLiteral("portrait.jpg"));
+            if (QFile::exists(photo))
+                e.photo = photo;
+            found.append({e, meta.value(QStringLiteral("order")).toInt(found.size())});
+        }
+    }
+    std::stable_sort(found.begin(), found.end(), [](const Ready &a, const Ready &b) { return a.order < b.order; });
+    QList<Entry> out;
+    for (const Ready &r : std::as_const(found))
+        out.append(r.entry);
+    return out;
+}
+
+QVariantList VoiceLibrary::allVoices() const
+{
+    QVariantList out;
+    for (const Entry &e : m_entries) {
+        out.append(QVariantMap{{QStringLiteral("id"), e.id},
+                               {QStringLiteral("name"), e.name},
+                               {QStringLiteral("builtIn"), e.builtIn},
+                               {QStringLiteral("ready"), e.id.startsWith(kReadyPrefix)},
+                               {QStringLiteral("gender"), e.gender},
+                               {QStringLiteral("style"), e.style},
+                               {QStringLiteral("photo"), e.photo.isEmpty() ? QString()
+                                                                           : QUrl::fromLocalFile(e.photo).toString()}});
+    }
+    return out;
+}
+
+void VoiceLibrary::reloadReadyVoices()
+{
+    QList<Entry> next;
+    for (const Entry &e : std::as_const(m_entries)) {
+        if (e.id == kDefaultId)
+            next.append(e);
+    }
+    next.append(readyVoices());
+    for (const Entry &e : std::as_const(m_entries)) {
+        if (!e.builtIn)
+            next.append(e);
+    }
+    beginResetModel();
+    m_entries = next;
+    endResetModel();
 }
 
 int VoiceLibrary::rowCount(const QModelIndex &parent) const
@@ -119,6 +226,12 @@ QVariant VoiceLibrary::data(const QModelIndex &index, int role) const
         return e.source;
     case CreatedRole:
         return e.created;
+    case GenderRole:
+        return e.gender;
+    case StyleRole:
+        return e.style;
+    case PhotoRole:
+        return e.photo.isEmpty() ? QString() : QUrl::fromLocalFile(e.photo).toString();
     }
     return {};
 }
@@ -126,7 +239,8 @@ QVariant VoiceLibrary::data(const QModelIndex &index, int role) const
 QHash<int, QByteArray> VoiceLibrary::roleNames() const
 {
     return {{IdRole, "id"}, {NameRole, "name"}, {BuiltInRole, "builtIn"}, {SourceRole, "source"},
-            {CreatedRole, "created"}};
+            {CreatedRole, "created"}, {GenderRole, "gender"}, {StyleRole, "style"},
+            {PhotoRole, "photo"}};
 }
 
 int VoiceLibrary::indexOfId(const QString &id) const
@@ -151,6 +265,8 @@ QUrl VoiceLibrary::referenceUrl(const QString &id) const
         const QString dir = drift::resolveChatterboxModelDir();
         return dir.isEmpty() ? QUrl() : QUrl::fromLocalFile(QDir(dir).filePath(QStringLiteral("default_voice.wav")));
     }
+    if (id.startsWith(kReadyPrefix))
+        return QUrl::fromLocalFile(m_entries.at(indexOfId(id)).sample);
     return QUrl::fromLocalFile(QDir(voiceDir(id)).filePath(QStringLiteral("reference.flac")));
 }
 
@@ -207,12 +323,15 @@ void VoiceLibrary::addVoice(const QString &mediaPath, double inSeconds, double o
     const QDateTime created = QDateTime::currentDateTimeUtc();
     auto outcome = std::make_shared<Outcome>();
     setEncoding(true);
+    m_encodeProgress = 0.0;
+    m_encodeStatus = tr("Reading the recording…");
+    emit encodeProgressChanged();
     const QPointer<VoiceLibrary> self(this);
     TtsController *tts = m_tts;
-    m_app->m_jobs->start(
+    m_encodeJobId = m_app->m_jobs->start(
         QStringLiteral("voice-encode"), QStringLiteral("chatterbox"), JobRegistry::Lane::Model,
         [=](JobContext &ctx) {
-            ctx.progress(0.05, QStringLiteral("Reading the recording…"));
+            ctx.progress(0.05, QCoreApplication::translate("VoiceLibrary", "Reading the recording…"));
             drift::TimeUs inUs = drift::secondsToUs(qMax(0.0, inSeconds));
             drift::TimeUs outUs = outSeconds < 0 ? MediaProbe::probe(path).durationUs
                                                   : drift::secondsToUs(outSeconds);
@@ -230,12 +349,12 @@ void VoiceLibrary::addVoice(const QString &mediaPath, double inSeconds, double o
             const QString dir = voiceDir(id);
             QString err;
             QDir().mkpath(dir);
-            ctx.progress(0.2, QStringLiteral("Loading voice model…"));
+            ctx.progress(0.2, QCoreApplication::translate("VoiceLibrary", "Loading voice model…"));
             if (!tts->ensureLoaded(&err)) {
                 outcome->error = err;
                 return ctx.fail(QStringLiteral("internal"), err);
             }
-            ctx.progress(0.7, QStringLiteral("Learning the voice…"));
+            ctx.progress(0.7, QCoreApplication::translate("VoiceLibrary", "Learning the voice…"));
             const auto conditioning = tts->engine().encodeVoice(pcm, &err);
             if (!conditioning) {
                 outcome->error = err;
@@ -256,6 +375,7 @@ void VoiceLibrary::addVoice(const QString &mediaPath, double inSeconds, double o
         [self, id, trimmed, source, created, outcome](const QJsonObject &job) {
             if (!self)
                 return QJsonObject{};
+            self->m_encodeJobId.clear();
             self->setEncoding(false);
             if (!job.value(QStringLiteral("ok")).toBool()) {
                 QDir(voiceDir(id)).removeRecursively();
@@ -337,6 +457,12 @@ void VoiceLibrary::stopRecordingAndAdd(const QString &name)
     addVoice(path, 0.0, -1.0, name, QStringLiteral("mic"), true);
 }
 
+void VoiceLibrary::cancelEncoding()
+{
+    if (!m_encodeJobId.isEmpty())
+        m_app->m_jobs->cancel(m_encodeJobId);
+}
+
 void VoiceLibrary::cancelRecording()
 {
     if (m_recorder.isRecording())
@@ -349,7 +475,7 @@ std::optional<drift::VoiceConditioning> VoiceLibrary::conditioning(const QString
     const QString dir = voiceDir(voiceId);
     QString reference;
     if (dir.isEmpty()) {
-        *err = QStringLiteral("Unknown voice");
+        *err = QCoreApplication::translate("VoiceLibrary", "Unknown voice");
         return std::nullopt;
     }
     if (voiceId == kDefaultId) {
@@ -357,11 +483,16 @@ std::optional<drift::VoiceConditioning> VoiceLibrary::conditioning(const QString
         if (!modelDir.isEmpty())
             reference = QDir(modelDir).filePath(QStringLiteral("default_voice.wav"));
         QDir().mkpath(dir);
+    } else if (voiceId.startsWith(kReadyPrefix)) {
+        const int row = indexOfId(voiceId);
+        if (row >= 0)
+            reference = m_entries.at(row).reference;
+        QDir().mkpath(dir);
     } else {
         reference = QDir(dir).filePath(QStringLiteral("reference.flac"));
     }
     if (reference.isEmpty() || !QFile::exists(reference)) {
-        *err = QStringLiteral("The reference recording for this voice is missing");
+        *err = QCoreApplication::translate("VoiceLibrary", "The reference recording for this voice is missing");
         return std::nullopt;
     }
 
@@ -380,7 +511,7 @@ std::optional<drift::VoiceConditioning> VoiceLibrary::conditioning(const QString
         return std::nullopt;
     const std::vector<float> pcm = drift::readMono(reference, 0, kMaxReferenceUs, drift::ChatterboxTts::kSampleRate);
     if (pcm.empty()) {
-        *err = QStringLiteral("Could not read the reference recording");
+        *err = QCoreApplication::translate("VoiceLibrary", "Could not read the reference recording");
         return std::nullopt;
     }
     auto fresh = m_tts->engine().encodeVoice(pcm, err);

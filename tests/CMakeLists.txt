@@ -79,7 +79,7 @@ qt_add_executable(tst_editorstate
     ../src/mcp/McpStdioServer.cpp
 )
 target_include_directories(tst_editorstate PRIVATE ../src)
-target_link_libraries(tst_editorstate PRIVATE Qt6::Test Qt6::Gui Qt6::Quick Qt6::Multimedia Qt6::Concurrent Qt6::Network driftcore driftengine)
+target_link_libraries(tst_editorstate PRIVATE Qt6::Test Qt6::Gui Qt6::Quick Qt6::Multimedia Qt6::Concurrent Qt6::Network driftcore driftengine ${DRIFT_SOUNDTOUCH_TARGET})
 target_compile_definitions(tst_editorstate PRIVATE
     DRIFT_TEST_DENOISE_MODEL_DIR="${CMAKE_SOURCE_DIR}/models/deepfilternet3"
     DRIFT_VERSION="${PROJECT_VERSION}")
@@ -268,7 +268,7 @@ qt_add_executable(tst_mcp
     ../src/mcp/McpStdioServer.cpp
 )
 target_include_directories(tst_mcp PRIVATE ../src)
-target_link_libraries(tst_mcp PRIVATE Qt6::Test Qt6::Gui Qt6::Network Qt6::Multimedia Qt6::Concurrent driftcore driftengine)
+target_link_libraries(tst_mcp PRIVATE Qt6::Test Qt6::Gui Qt6::Network Qt6::Multimedia Qt6::Concurrent driftcore driftengine ${DRIFT_SOUNDTOUCH_TARGET})
 target_compile_definitions(tst_mcp PRIVATE DRIFT_VERSION="${PROJECT_VERSION}"
     DRIFT_TEST_DATA_DIR="${CMAKE_CURRENT_SOURCE_DIR}/data")
 add_test(NAME Mcp COMMAND tst_mcp)

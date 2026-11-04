@@ -142,8 +142,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Voices</source>
-        <translation type="unfinished"></translation>
+        <source>Voice changer</source>
+        <translation>ভয়েস চেঞ্জার</translation>
     </message>
     <message>
         <source>Retouch</source>
@@ -199,7 +199,7 @@
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>প্রয়োগ করুন</translation>
     </message>
     <message>
         <source>Save in My presets</source>
@@ -1112,6 +1112,29 @@
     <message>
         <source>Changes only that clip; the rest is untouched. It is drawn inside the clip&apos;s row on the timeline.</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AeShortcutsDialog</name>
+    <message>
+        <source>Use After Effects&apos; shortcuts?</source>
+        <translation>After Effects-এর শর্টকাট ব্যবহার করবেন?</translation>
+    </message>
+    <message>
+        <source>Use After Effects&apos;</source>
+        <translation>After Effects-এর গুলো ব্যবহার করুন</translation>
+    </message>
+    <message>
+        <source>Keep Flip&apos;s</source>
+        <translation>Flip-এর গুলো রাখুন</translation>
+    </message>
+    <message>
+        <source>J and K go to the previous and next keyframe, P, S, R, T and A show one property, U and UU what is animated or changed, B and N set the work area, I and O go to the layer&apos;s ends, [ ] and Alt+[ ] move and trim the layer at the playhead.</source>
+        <translation>J ও K আগের ও পরের কীফ্রেমে যায়, P, S, R, T ও A একটি প্রপার্টি দেখায়, U ও UU অ্যানিমেটেড বা বদলানো জিনিস, B ও N ওয়ার্ক এরিয়া ঠিক করে, I ও O লেয়ারের দুই প্রান্তে যায়, [ ] ও Alt+[ ] প্লেহেডে লেয়ার সরায় ও ছাঁটে।</translation>
+    </message>
+    <message>
+        <source>You can switch any time in Preferences › Shortcuts. Shortcuts you changed yourself stay as they are.</source>
+        <translation>পছন্দ › শর্টকাট থেকে যেকোনো সময় বদলাতে পারবেন। আপনি নিজে যেসব শর্টকাট বদলেছেন সেগুলো একই থাকবে।</translation>
     </message>
 </context>
 <context>
@@ -2816,11 +2839,11 @@
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished"></translation>
+        <translation>সব</translation>
     </message>
     <message>
         <source>Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>প্রিয়</translation>
     </message>
     <message>
         <source>Duration</source>
@@ -4320,6 +4343,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Sign in with Google to translate captions, or install the Offline translation extra</source>
+        <translation>সাবটাইটেল অনুবাদ করতে Google দিয়ে সাইন ইন করুন, অথবা অফলাইন অনুবাদ এক্সট্রা ইনস্টল করুন</translation>
+    </message>
+    <message>
+        <source>Words bleeped: %1</source>
+        <translation>বিপ দেওয়া শব্দ: %1</translation>
+    </message>
+    <message>
         <source>Mask added</source>
         <translation type="unfinished">মাস্ক যোগ করা হয়েছে</translation>
     </message>
@@ -4450,11 +4481,11 @@
     </message>
     <message>
         <source>Voice changer</source>
-        <translation type="unfinished"></translation>
+        <translation>ভয়েস চেঞ্জার</translation>
     </message>
     <message>
         <source>Voice: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>কণ্ঠ: %1</translation>
     </message>
     <message>
         <source>Voice changer off</source>
@@ -5312,8 +5343,60 @@
         <translation type="unfinished">অস্বচ্ছতা</translation>
     </message>
     <message>
+        <source>Step back one frame (Page Up)</source>
+        <translation>এক ফ্রেম পিছনে (Page Up)</translation>
+    </message>
+    <message>
+        <source>Step forward one frame (Page Down)</source>
+        <translation>এক ফ্রেম সামনে (Page Down)</translation>
+    </message>
+    <message>
         <source>Show rulers</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Go to the layer&apos;s in point</source>
+        <translation>লেয়ারের শুরুতে যান</translation>
+    </message>
+    <message>
+        <source>Go to the layer&apos;s out point</source>
+        <translation>লেয়ারের শেষে যান</translation>
+    </message>
+    <message>
+        <source>Add a Position keyframe</source>
+        <translation>একটি অবস্থান কীফ্রেম যোগ করুন</translation>
+    </message>
+    <message>
+        <source>Add a Scale keyframe</source>
+        <translation>একটি স্কেল কীফ্রেম যোগ করুন</translation>
+    </message>
+    <message>
+        <source>Add a Rotation keyframe</source>
+        <translation>একটি ঘূর্ণন কীফ্রেম যোগ করুন</translation>
+    </message>
+    <message>
+        <source>Add an Opacity keyframe</source>
+        <translation>একটি অস্বচ্ছতা কীফ্রেম যোগ করুন</translation>
+    </message>
+    <message>
+        <source>Add an Anchor point keyframe</source>
+        <translation>একটি অ্যাঙ্কর পয়েন্ট কীফ্রেম যোগ করুন</translation>
+    </message>
+    <message>
+        <source>Trim the layer&apos;s in point to the playhead</source>
+        <translation>প্লেহেডে লেয়ারের শুরু ছাঁটুন</translation>
+    </message>
+    <message>
+        <source>Trim the layer&apos;s out point to the playhead</source>
+        <translation>প্লেহেডে লেয়ারের শেষ ছাঁটুন</translation>
+    </message>
+    <message>
+        <source>Move the layer so it starts at the playhead</source>
+        <translation>লেয়ার সরান যাতে প্লেহেডে শুরু হয়</translation>
+    </message>
+    <message>
+        <source>Move the layer so it ends at the playhead</source>
+        <translation>লেয়ার সরান যাতে প্লেহেডে শেষ হয়</translation>
     </message>
     <message>
         <source>RAM preview (render to memory and play)</source>
@@ -5326,6 +5409,38 @@
     <message>
         <source>Ruler guides</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Replace voice</source>
+        <translation>ভয়েস বদলান</translation>
+    </message>
+    <message>
+        <source>Voice replaced</source>
+        <translation>ভয়েস বদলানো হয়েছে</translation>
+    </message>
+    <message>
+        <source>Trim layer</source>
+        <translation>লেয়ার ছাঁটুন</translation>
+    </message>
+    <message>
+        <source>Move layer</source>
+        <translation>লেয়ার সরান</translation>
+    </message>
+    <message>
+        <source>Put the playhead inside the layer to trim it there</source>
+        <translation>সেখানে ছাঁটতে প্লেহেড লেয়ারের ভিতরে রাখুন</translation>
+    </message>
+    <message>
+        <source>Sending the audio to ElevenLabs…</source>
+        <translation>ElevenLabs-এ অডিও পাঠানো হচ্ছে…</translation>
+    </message>
+    <message>
+        <source>ElevenLabs is transcribing…</source>
+        <translation>ElevenLabs লিখছে…</translation>
+    </message>
+    <message>
+        <source>Speaker %1</source>
+        <translation>বক্তা %1</translation>
     </message>
     <message>
         <source>Solids</source>
@@ -5342,6 +5457,14 @@
     <message>
         <source>Behavior changed</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Settle</source>
+        <translation>স্থির হওয়া</translation>
+    </message>
+    <message>
+        <source>Reverse keyframes</source>
+        <translation>কীফ্রেম উল্টান</translation>
     </message>
     <message>
         <source>Pick two or more keys of a property to reverse them</source>
@@ -5530,6 +5653,90 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Translating the captions…</source>
+        <translation>ক্যাপশন অনুবাদ করা হচ্ছে…</translation>
+    </message>
+    <message>
+        <source>Could not translate the captions (no answer from the server)</source>
+        <translation>ক্যাপশন অনুবাদ করা যায়নি (সার্ভার সাড়া দেয়নি)</translation>
+    </message>
+    <message>
+        <source>Translating the captions on this computer…</source>
+        <translation>এই কম্পিউটারে সাবটাইটেল অনুবাদ হচ্ছে…</translation>
+    </message>
+    <message>
+        <source>Could not translate the captions</source>
+        <translation>সাবটাইটেল অনুবাদ করা যায়নি</translation>
+    </message>
+    <message>
+        <source>The captions changed while they were being translated; try again</source>
+        <translation>অনুবাদের সময় ক্যাপশন বদলে গেছে; আবার চেষ্টা করুন</translation>
+    </message>
+    <message>
+        <source>Captions (%1)</source>
+        <translation>ক্যাপশন (%1)</translation>
+    </message>
+    <message>
+        <source>Translate captions</source>
+        <translation>ক্যাপশন অনুবাদ</translation>
+    </message>
+    <message>
+        <source>Captions translated into %1</source>
+        <translation>ক্যাপশন %1-এ অনুবাদ হয়েছে</translation>
+    </message>
+    <message>
+        <source>Edit speaker</source>
+        <translation>বক্তা সম্পাদনা</translation>
+    </message>
+    <message>
+        <source>No key words to highlight in these subtitles</source>
+        <translation>এই ক্যাপশনগুলোতে হাইলাইট করার মতো মূল শব্দ নেই</translation>
+    </message>
+    <message>
+        <source>Highlight key words</source>
+        <translation>মূল শব্দ হাইলাইট করুন</translation>
+    </message>
+    <message>
+        <source>Key words highlighted in %1 captions</source>
+        <translation>%1টি ক্যাপশনে মূল শব্দ হাইলাইট করা হয়েছে</translation>
+    </message>
+    <message>
+        <source>Install «Animated emojis» from Extras first</source>
+        <translation>আগে এক্সট্রা থেকে «অ্যানিমেটেড ইমোজি» ইনস্টল করুন</translation>
+    </message>
+    <message>
+        <source>Emoji: %1</source>
+        <translation>ইমোজি: %1</translation>
+    </message>
+    <message>
+        <source>No captions with an emoji word (fuego, Dios, fiesta…)</source>
+        <translation>কোনো ক্যাপশনে ইমোজির শব্দ নেই (আগুন, ঈশ্বর, উৎসব…)</translation>
+    </message>
+    <message>
+        <source>Animated emojis</source>
+        <translation>অ্যানিমেটেড ইমোজি</translation>
+    </message>
+    <message>
+        <source>Animated emojis on %1 captions</source>
+        <translation>%1টি ক্যাপশনে অ্যানিমেটেড ইমোজি</translation>
+    </message>
+    <message>
+        <source>No hidden words with their timing to bleep</source>
+        <translation>বিপ দেওয়ার মতো সময়সহ লুকানো শব্দ নেই</translation>
+    </message>
+    <message>
+        <source>Could not make the bleep</source>
+        <translation>বিপ তৈরি করা যায়নি</translation>
+    </message>
+    <message>
+        <source>Bleep swear words</source>
+        <translation>গালিতে বিপ</translation>
+    </message>
+    <message>
+        <source>Bleep</source>
+        <translation>বিপ</translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5681,6 +5888,30 @@
     <message>
         <source>Select a clip with sound to enhance its voice</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Listening to the clip to write down what is said…</source>
+        <translation>যা বলা হচ্ছে লিখতে ক্লিপ শোনা হচ্ছে…</translation>
+    </message>
+    <message>
+        <source>Move the other tracks</source>
+        <translation>অন্য ট্র্যাক সরান</translation>
+    </message>
+    <message>
+        <source>Edit by text</source>
+        <translation>লেখা দিয়ে সম্পাদনা</translation>
+    </message>
+    <message>
+        <source>Remove silences</source>
+        <translation>নীরবতা সরান</translation>
+    </message>
+    <message>
+        <source>Cut %1 s from the video</source>
+        <translation>ভিডিও থেকে %1 সে কাটা হয়েছে</translation>
+    </message>
+    <message>
+        <source>That would remove the whole clip</source>
+        <translation>এতে পুরো ক্লিপটাই সরে যাবে</translation>
     </message>
     <message>
         <source>Volume</source>
@@ -6046,6 +6277,34 @@
             <numerusform>%nটি ক্লিপ পেস্ট করা হয়েছে</numerusform>
             <numerusform>%nটি ক্লিপ পেস্ট করা হয়েছে</numerusform>
         </translation>
+    </message>
+    <message>
+        <source>Curved path</source>
+        <translation>বাঁকা পথ</translation>
+    </message>
+    <message>
+        <source>Straight path</source>
+        <translation>সোজা পথ</translation>
+    </message>
+    <message>
+        <source>Join Position</source>
+        <translation>অবস্থান যুক্ত করুন</translation>
+    </message>
+    <message>
+        <source>Separate dimensions</source>
+        <translation>মাত্রা আলাদা করুন</translation>
+    </message>
+    <message>
+        <source>Shape motion path</source>
+        <translation>গতিপথের আকার দিন</translation>
+    </message>
+    <message>
+        <source>Roving needs at least three Position keyframes</source>
+        <translation>ঘোরানো কীফ্রেমের জন্য অন্তত তিনটি পজিশন কীফ্রেম লাগে</translation>
+    </message>
+    <message>
+        <source>Roving keyframes</source>
+        <translation>ঘোরানো কীফ্রেম</translation>
     </message>
     <message>
         <source>Exporting…</source>
@@ -7795,24 +8054,12 @@
         <translation type="unfinished">আয়তন</translation>
     </message>
     <message>
-        <source>Recommended caption length</source>
-        <translation type="unfinished">প্রস্তাবিত ক্যাপশন দৈর্ঘ্য</translation>
-    </message>
-    <message>
-        <source>1 word per caption</source>
-        <translation>প্রতি ক্যাপশনে ১টি শব্দ</translation>
-    </message>
-    <message>
-        <source>%1 words per caption</source>
-        <translation>প্রতি ক্যাপশনে %1টি শব্দ</translation>
-    </message>
-    <message>
         <source>Basic</source>
         <translation type="unfinished">মৌলিক</translation>
     </message>
     <message>
         <source>Voice changer</source>
-        <translation type="unfinished"></translation>
+        <translation>ভয়েস চেঞ্জার</translation>
     </message>
     <message>
         <source>Fade in</source>
@@ -7821,6 +8068,66 @@
     <message>
         <source>Fade out</source>
         <translation type="unfinished">ফেড আউট</translation>
+    </message>
+    <message>
+        <source>Voice from text</source>
+        <translation>টেক্সট থেকে ভয়েস</translation>
+    </message>
+    <message>
+        <source>Edit script…</source>
+        <translation>স্ক্রিপ্ট সম্পাদনা…</translation>
+    </message>
+    <message>
+        <source>Change the text or the voice and speak it again, in place of this audio</source>
+        <translation>টেক্সট বা ভয়েস বদলে আবার বলান, এই অডিওর জায়গায়</translation>
+    </message>
+    <message>
+        <source>Discard the voice you made?</source>
+        <translation>আপনার তৈরি ভয়েস বাতিল করবেন?</translation>
+    </message>
+    <message>
+        <source>Discard and go on</source>
+        <translation>বাতিল করে এগিয়ে যান</translation>
+    </message>
+    <message>
+        <source>The Voice panel has a take that is not on the timeline yet. Add it first with «Add to timeline», or discard it to start this one.</source>
+        <translation>ভয়েস প্যানেলে এমন একটি টেক আছে যা এখনও টাইমলাইনে নেই। আগে «টাইমলাইনে যোগ করুন» দিয়ে যোগ করুন, অথবা এটি শুরু করতে বাতিল করুন।</translation>
+    </message>
+    <message>
+        <source>Lower the music under this voice</source>
+        <translation>এই ভয়েসের নিচে মিউজিক কমান</translation>
+    </message>
+    <message>
+        <source>Save the voice as a file…</source>
+        <translation>ভয়েস ফাইল হিসেবে সংরক্ষণ…</translation>
+    </message>
+    <message>
+        <source>Save the voice</source>
+        <translation>ভয়েস সংরক্ষণ</translation>
+    </message>
+    <message>
+        <source>MP3 audio (*.mp3)</source>
+        <translation>MP3 অডিও (*.mp3)</translation>
+    </message>
+    <message>
+        <source>WAV audio (*.wav)</source>
+        <translation>WAV অডিও (*.wav)</translation>
+    </message>
+    <message>
+        <source>FLAC audio (*.flac)</source>
+        <translation>FLAC অডিও (*.flac)</translation>
+    </message>
+    <message>
+        <source>voice</source>
+        <translation>ভয়েস</translation>
+    </message>
+    <message>
+        <source>Voice saved</source>
+        <translation>ভয়েস সংরক্ষিত হয়েছে</translation>
+    </message>
+    <message>
+        <source>Could not save the voice</source>
+        <translation>ভয়েস সংরক্ষণ করা যায়নি</translation>
     </message>
     <message>
         <source>Normalize loudness</source>
@@ -7871,6 +8178,22 @@
         <translation type="unfinished">প্যান</translation>
     </message>
     <message>
+        <source>Create captions…</source>
+        <translation>ক্যাপশন তৈরি করুন…</translation>
+    </message>
+    <message>
+        <source>Open Subtitles to create captions from this clip&apos;s speech</source>
+        <translation>এই ক্লিপের কথা থেকে ক্যাপশন তৈরি করতে সাবটাইটেল খোলে</translation>
+    </message>
+    <message>
+        <source>Edit by text…</source>
+        <translation>লেখা দিয়ে সম্পাদনা…</translation>
+    </message>
+    <message>
+        <source>See what is said and strike out words: the video loses those moments</source>
+        <translation>কী বলা হচ্ছে দেখুন ও শব্দ কেটে দিন: ভিডিও সেই মুহূর্তগুলো হারায়</translation>
+    </message>
+    <message>
         <source>C</source>
         <translation type="unfinished">সে</translation>
     </message>
@@ -7909,30 +8232,6 @@
     <message>
         <source>Install AI engine first</source>
         <translation type="unfinished">প্রথমে AI ইঞ্জিন ইনস্টল করুন</translation>
-    </message>
-    <message>
-        <source>Auto subtitles</source>
-        <translation type="unfinished">স্বয়ংক্রিয় সাবটাইটেল</translation>
-    </message>
-    <message>
-        <source>Shorter captions are timed by splitting each phrase evenly, so they can drift slightly out of sync with the speech.</source>
-        <translation type="unfinished">ছোট ক্যাপশন প্রতিটি শব্দগুচ্ছকে সমানভাবে বিভক্ত করে টাইম করা হয়, যাতে সেগুলি বক্তৃতার সাথে সিঙ্কের বাইরে চলে যেতে পারে.</translation>
-    </message>
-    <message>
-        <source>Creating captions… %1%</source>
-        <translation type="unfinished">ক্যাপশন তৈরি করা হচ্ছে... %1%</translation>
-    </message>
-    <message>
-        <source>Create captions from speech</source>
-        <translation type="unfinished">বক্তৃতা থেকে ক্যাপশন তৈরি করুন</translation>
-    </message>
-    <message>
-        <source>Several selected clips become one caption clip</source>
-        <translation type="unfinished">বেশ কয়েকটি নির্বাচিত ক্লিপ একটি ক্যাপশন ক্লিপ হয়ে যায়</translation>
-    </message>
-    <message>
-        <source>Download speech recognition (about 670 MB)</source>
-        <translation type="unfinished">স্পিচ রিকগনিশন ডাউনলোড করুন (প্রায় 670 এমবি)</translation>
     </message>
 </context>
 <context>
@@ -8169,7 +8468,7 @@
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>সরান</translation>
     </message>
 </context>
 <context>
@@ -9679,7 +9978,7 @@
     </message>
     <message>
         <source>Animated</source>
-        <translation type="unfinished"></translation>
+        <translation>অ্যানিমেটেড</translation>
     </message>
     <message>
         <source>Ripple / Water</source>
@@ -13137,6 +13436,37 @@ NEXT TIME</source>
     </message>
 </context>
 <context>
+    <name>ChatterboxTts</name>
+    <message>
+        <source>The voice model is not installed. Install the AI voice extra in Extras.</source>
+        <translation>ভয়েস মডেল ইনস্টল করা নেই। এক্সট্রাস থেকে AI ভয়েস এক্সট্রা ইনস্টল করুন।</translation>
+    </message>
+    <message>
+        <source>Failed to load text-to-speech model: %1</source>
+        <translation>টেক্সট-টু-স্পিচ মডেল লোড করা যায়নি: %1</translation>
+    </message>
+    <message>
+        <source>Speech generation failed: %1</source>
+        <translation>স্পিচ তৈরি ব্যর্থ হয়েছে: %1</translation>
+    </message>
+    <message>
+        <source>The reference voice has no audio.</source>
+        <translation>রেফারেন্স ভয়েসে কোনো অডিও নেই।</translation>
+    </message>
+    <message>
+        <source>Voice encoding failed: %1</source>
+        <translation>ভয়েস এনকোডিং ব্যর্থ হয়েছে: %1</translation>
+    </message>
+    <message>
+        <source>Unsupported language: %1</source>
+        <translation>অসমর্থিত ভাষা: %1</translation>
+    </message>
+    <message>
+        <source>Invalid voice conditioning.</source>
+        <translation>অবৈধ ভয়েস কন্ডিশনিং।</translation>
+    </message>
+</context>
+<context>
     <name>ChipScroller</name>
     <message>
         <source>Previous</source>
@@ -13499,7 +13829,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>প্রয়োগ করুন</translation>
     </message>
     <message>
         <source>Save</source>
@@ -15254,6 +15584,14 @@ NEXT TIME</source>
         <translation type="unfinished">সম্পূর্ণ টাইমলাইনের পরিবর্তে শুধুমাত্র চিহ্নিত ইন/আউট রেঞ্জ এনকোড করুন</translation>
     </message>
     <message>
+        <source>Include the captions (inside the video and as .srt)</source>
+        <translation>ক্যাপশন যুক্ত করুন (ভিডিওর ভেতরে ও .srt হিসেবে)</translation>
+    </message>
+    <message>
+        <source>The captions as a track inside the video and as a file next to it, with the same name: players and YouTube can turn them on and off</source>
+        <translation>ক্যাপশন ভিডিওর ভেতরে একটি ট্র্যাক হিসেবে এবং একই নামে পাশে একটি ফাইল হিসেবে: প্লেয়ার ও YouTube এগুলো চালু-বন্ধ করতে পারে</translation>
+    </message>
+    <message>
         <source>Saves what you see in the preview. Pick a size — the picture shape stays the same.</source>
         <translation type="unfinished">আপনি প্রিভিউতে যা দেখছেন তা সংরক্ষণ করে। একটি আকার চয়ন করুন - ছবির আকৃতি একই থাকে.</translation>
     </message>
@@ -16050,7 +16388,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>বন্ধ</translation>
     </message>
     <message>
         <source>Replace</source>
@@ -16786,6 +17124,10 @@ NEXT TIME</source>
         <translation type="unfinished">মুখোশের পালক</translation>
     </message>
     <message>
+        <source>Pos</source>
+        <translation>অব.</translation>
+    </message>
+    <message>
         <source>Layer</source>
         <translation type="unfinished"></translation>
     </message>
@@ -16810,12 +17152,40 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Value graph</source>
-        <translation type="unfinished"></translation>
+        <source>Graph type: value. Click: speed graph</source>
+        <translation>গ্রাফের ধরন: মান। ক্লিক: গতির গ্রাফ</translation>
     </message>
     <message>
-        <source>Speed graph</source>
-        <translation type="unfinished"></translation>
+        <source>Graph type: speed. Click: automatic</source>
+        <translation>গ্রাফের ধরন: গতি। ক্লিক: স্বয়ংক্রিয়</translation>
+    </message>
+    <message>
+        <source>Graph type: automatic (speed for a joined Position, value for the rest). Click: value graph</source>
+        <translation>গ্রাফের ধরন: স্বয়ংক্রিয় (যুক্ত পজিশনে গতি, বাকিতে মান)। ক্লিক: মানের গ্রাফ</translation>
+    </message>
+    <message>
+        <source>Fit the whole curve in view (Ctrl+wheel zooms the values, Alt+wheel the time)</source>
+        <translation>পুরো বাঁক দেখুন (Ctrl+চাকা মান জুম করে, Alt+চাকা সময়)</translation>
+    </message>
+    <message>
+        <source>Zoom to the picked keyframes</source>
+        <translation>বাছাই করা কীফ্রেমে জুম করুন</translation>
+    </message>
+    <message>
+        <source>Show only the curve being edited</source>
+        <translation>শুধু সম্পাদনার বাঁকটি দেখান</translation>
+    </message>
+    <message>
+        <source>Show the other properties&apos; curves too</source>
+        <translation>অন্য প্রপার্টির বাঁকও দেখান</translation>
+    </message>
+    <message>
+        <source>Graph under its layer again</source>
+        <translation>গ্রাফ আবার লেয়ারের নিচে</translation>
+    </message>
+    <message>
+        <source>Graph over the whole timeline, as After Effects&apos; Graph Editor</source>
+        <translation>পুরো টাইমলাইনের উপর গ্রাফ, After Effects-এর গ্রাফ এডিটরের মতো</translation>
     </message>
     <message>
         <source>Separate dimensions: key X and Y of Position apart</source>
@@ -16885,6 +17255,10 @@ NEXT TIME</source>
         <translation type="unfinished">কীফ্রেম সরান</translation>
     </message>
     <message>
+        <source>Transform keyframes</source>
+        <translation>কীফ্রেম রূপান্তর</translation>
+    </message>
+    <message>
         <source>Edit keyframe curve</source>
         <translation type="unfinished">কীফ্রেম বক্ররেখা সম্পাদনা করুন</translation>
     </message>
@@ -16908,8 +17282,20 @@ NEXT TIME</source>
         <translation>কীফ্রেমগুলো সরান</translation>
     </message>
     <message>
+        <source>Keyframe easing changed</source>
+        <translation>কীফ্রেমের মসৃণতা বদলেছে</translation>
+    </message>
+    <message>
+        <source>Paste keyframes</source>
+        <translation>কীফ্রেম পেস্ট করুন</translation>
+    </message>
+    <message>
+        <source>Remove keyframes</source>
+        <translation>কীফ্রেম সরান</translation>
+    </message>
+    <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>প্রয়োগ করুন</translation>
     </message>
     <message>
         <source>50% packs the picked keys into half the time, 200% spreads them over twice. The first one stays where it is. Alt + dragging the first or last key does the same by hand.</source>
@@ -16944,8 +17330,28 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Curved path (auto Bezier)</source>
+        <translation>বাঁকা পথ (স্বয়ংক্রিয় বেজিয়ার)</translation>
+    </message>
+    <message>
+        <source>Straight path</source>
+        <translation>সোজা পথ</translation>
+    </message>
+    <message>
+        <source>Roving (one speed along the path)</source>
+        <translation>ঘোরানো (পথে একই গতি)</translation>
+    </message>
+    <message>
+        <source>Separate dimensions (X and Y apart)</source>
+        <translation>মাত্রা আলাদা করুন (X ও Y আলাদা)</translation>
+    </message>
+    <message>
+        <source>Join Position (one path)</source>
+        <translation>অবস্থান যুক্ত করুন (একটি পথ)</translation>
+    </message>
+    <message>
         <source>Reverse keyframes</source>
-        <translation type="unfinished"></translation>
+        <translation>কীফ্রেম উল্টান</translation>
     </message>
     <message>
         <source>Stretch keyframes…</source>
@@ -16972,7 +17378,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>প্রয়োগ করুন</translation>
     </message>
     <message>
         <source>Speed in units per second. Influence is how far the handle reaches towards the next key: more is a softer ease.</source>
@@ -16984,7 +17390,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>গতি</translation>
     </message>
     <message>
         <source>Influence</source>
@@ -17178,6 +17584,21 @@ NEXT TIME</source>
     <message>
         <source>720p</source>
         <translation>720p</translation>
+    </message>
+</context>
+<context>
+    <name>LocalTranscription</name>
+    <message>
+        <source>Finding speech…</source>
+        <translation>কথা খোঁজা হচ্ছে…</translation>
+    </message>
+    <message>
+        <source>Timing words…</source>
+        <translation>শব্দের সময় মেলানো হচ্ছে…</translation>
+    </message>
+    <message>
+        <source>Telling speakers apart…</source>
+        <translation>বক্তাদের আলাদা করা হচ্ছে…</translation>
     </message>
 </context>
 <context>
@@ -17570,6 +17991,26 @@ NEXT TIME</source>
     <message>
         <source>Your example is ready. Try this:</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>What is the video for?</source>
+        <translation>ভিডিওটি কীসের জন্য?</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>বাতিল</translation>
+    </message>
+    <message>
+        <source>The template is fitted to the shape of your video.</source>
+        <translation>টেমপ্লেটটি আপনার ভিডিওর আকারে মানিয়ে যায়।</translation>
+    </message>
+    <message>
+        <source>Short (vertical 9:16)</source>
+        <translation>শর্টস (খাড়া 9:16)</translation>
+    </message>
+    <message>
+        <source>Video (horizontal 16:9)</source>
+        <translation>ভিডিও (আড়াআড়ি 16:9)</translation>
     </message>
     <message>
         <source>Click a clip on the timeline to change it on the right.</source>
@@ -18289,7 +18730,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>প্রিয়</translation>
     </message>
     <message>
         <source>No favorites yet. Star masks to save them here.</source>
@@ -19417,7 +19858,7 @@ NEXT TIME</source>
     <name>MotionPathOverlay</name>
     <message>
         <source>Shape motion path</source>
-        <translation type="unfinished"></translation>
+        <translation>গতিপথের আকার দিন</translation>
     </message>
     <message>
         <source>Move keyframe</source>
@@ -20743,6 +21184,14 @@ If playback stutters, try another.</source>
         <translation>রেখা বিকল্প: কিছু না, একরঙা, রৈখিক বা বৃত্তাকার গ্রেডিয়েন্ট, মিশ্রণ মোড ও অস্বচ্ছতা</translation>
     </message>
     <message>
+        <source>Fill colour. Right-click: no fill (or back on)</source>
+        <translation>ভরাটের রং। ডান ক্লিক: ভরাট ছাড়া (বা আবার চালু)</translation>
+    </message>
+    <message>
+        <source>Stroke colour. Right-click: no stroke (or back on)</source>
+        <translation>রেখার রং। ডান ক্লিক: রেখা ছাড়া (বা আবার চালু)</translation>
+    </message>
+    <message>
         <source>Selection</source>
         <translation type="unfinished"></translation>
     </message>
@@ -21578,7 +22027,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>প্রয়োগ করুন</translation>
     </message>
     <message>
         <source>What After Effects does with expressions, without writing code. They add up: the loop, then the constant speed, then the wiggle.</source>
@@ -21653,8 +22102,8 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>value, time, wiggle(freq, amount), Math, and thisComp.layer(&quot;Name&quot;).transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. The last line is the result.</source>
-        <translation type="unfinished"></translation>
+        <source>value, time, index, thisLayer, wiggle(freq, amount), linear / ease / easeIn / easeOut(t, tMin, tMax, a, b), clamp, valueAtTime(t), velocity, speed, Math, and thisComp.layer(&quot;Name&quot;).transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. The last line is the result.</source>
+        <translation>value, time, index, thisLayer, wiggle(freq, amount), linear / ease / easeIn / easeOut(t, tMin, tMax, a, b), clamp, valueAtTime(t), velocity, speed, Math, এবং thisComp.layer(&quot;Name&quot;).transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. শেষ লাইনটিই ফলাফল।</translation>
     </message>
 </context>
 <context>
@@ -22003,7 +22452,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Could not save the voice</source>
-        <translation type="unfinished"></translation>
+        <translation>ভয়েস সংরক্ষণ করা যায়নি</translation>
     </message>
 </context>
 <context>
@@ -23197,6 +23646,14 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Transcription (Scribe); voiceover and sound effects through AI agents</source>
+        <translation>ট্রান্সক্রিপশন (Scribe); AI এজেন্টের মাধ্যমে ভয়েসওভার ও সাউন্ড ইফেক্ট</translation>
+    </message>
+    <message>
+        <source>Voiceover through AI agents</source>
+        <translation>AI এজেন্টের মাধ্যমে ভয়েসওভার</translation>
+    </message>
+    <message>
         <source>Needed before Flip Studio or a connected agent can transcribe or generate audio with this service</source>
         <translation type="unfinished"></translation>
     </message>
@@ -23515,14 +23972,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Cloud providers</source>
         <translation type="unfinished">ক্লাউড প্রদানকারী</translation>
-    </message>
-    <message>
-        <source>Transcription (Scribe), voiceover, sound effects</source>
-        <translation type="unfinished">ট্রান্সক্রিপশন (স্ক্রাইব), ভয়েসওভার, সাউন্ড এফেক্ট</translation>
-    </message>
-    <message>
-        <source>Voiceover</source>
-        <translation type="unfinished">ভয়েসওভার</translation>
     </message>
     <message>
         <source>No key</source>
@@ -24058,7 +24507,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>মুছুন</translation>
     </message>
 </context>
 <context>
@@ -25101,6 +25550,26 @@ If playback stutters, try another.</source>
         <translation>শর্টকাট খুঁজুন</translation>
     </message>
     <message>
+        <source>Shortcut set</source>
+        <translation>শর্টকাট সেট</translation>
+    </message>
+    <message>
+        <source>Flip</source>
+        <translation>Flip</translation>
+    </message>
+    <message>
+        <source>Flip&apos;s own shortcuts</source>
+        <translation>Flip-এর নিজস্ব শর্টকাট</translation>
+    </message>
+    <message>
+        <source>After Effects</source>
+        <translation>After Effects</translation>
+    </message>
+    <message>
+        <source>As in After Effects: J/K go between keyframes, P/S/R/T/A show one property, U/UU, B/N the work area, I/O the layer&apos;s ends, [ ] and Alt+[ ] move and trim the layer at the playhead</source>
+        <translation>After Effects-এর মতো: J/K কীফ্রেমের মধ্যে যায়, P/S/R/T/A একটি প্রপার্টি দেখায়, U/UU, B/N ওয়ার্ক এরিয়া, I/O লেয়ারের প্রান্ত, [ ] ও Alt+[ ] প্লেহেডে লেয়ার সরায় ও ছাঁটে</translation>
+    </message>
+    <message>
         <source>Click a shortcut, then press the keys. Esc cancels, Backspace clears.</source>
         <translation>শর্টকাটে ক্লিক করে কী চাপুন। Esc বাতিল করে, Backspace মুছে দেয়.</translation>
     </message>
@@ -25185,6 +25654,49 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>SilenceReviewWindow</name>
+    <message>
+        <source>Remove silences</source>
+        <translation>নীরবতা সরান</translation>
+    </message>
+    <message>
+        <source>Untick what you want to keep. Click a row to hear it.</source>
+        <translation>যা রাখতে চান তার টিক তুলে দিন। শুনতে একটি সারিতে ক্লিক করুন।</translation>
+    </message>
+    <message>
+        <source>Pauses longer than</source>
+        <translation>এর চেয়ে লম্বা বিরতি</translation>
+    </message>
+    <message>
+        <source>Also filler words (eh, mmm)</source>
+        <translation>অপ্রয়োজনীয় শব্দও (এহ, উম)</translation>
+    </message>
+    <message>
+        <source>Pause</source>
+        <translation>বিরতি</translation>
+    </message>
+    <message>
+        <source>Listen</source>
+        <translation>শুনুন</translation>
+    </message>
+    <message>
+        <source>No pauses this long in the clip.</source>
+        <translation>ক্লিপে এত লম্বা কোনো বিরতি নেই।</translation>
+    </message>
+    <message>
+        <source>%1 of %2 · %3 s</source>
+        <translation>%2-এর মধ্যে %1 · %3 সে</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>বাতিল</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>সরান</translation>
+    </message>
+</context>
+<context>
     <name>SolidDialog</name>
     <message>
         <source>Solid settings</source>
@@ -25196,7 +25708,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>প্রয়োগ করুন</translation>
     </message>
     <message>
         <source>Solid</source>
@@ -25267,7 +25779,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Listen</source>
-        <translation type="unfinished"></translation>
+        <translation>শুনুন</translation>
     </message>
     <message>
         <source>Add at the playhead</source>
@@ -25278,19 +25790,15 @@ If playback stutters, try another.</source>
     <name>SpeechTab</name>
     <message>
         <source>Voice saved</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Turn a script into speech with a built-in or cloned voice. It is generated on this device and added at the playhead.</source>
-        <translation type="unfinished"></translation>
+        <translation>ভয়েস সংরক্ষিত হয়েছে</translation>
     </message>
     <message>
         <source>Speech generation runs on this device and needs the voice model.</source>
-        <translation type="unfinished"></translation>
+        <translation>স্পিচ তৈরি এই ডিভাইসেই চলে এবং এর জন্য ভয়েস মডেল দরকার।</translation>
     </message>
     <message>
         <source>Download voice model</source>
-        <translation type="unfinished"></translation>
+        <translation>ভয়েস মডেল ডাউনলোড করুন</translation>
     </message>
     <message>
         <source>Install AI engine first</source>
@@ -25301,20 +25809,8 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Type what the voice should say</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>%1 characters, about %2 s</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Speech longer than 30 seconds often ends in gibberish or silence. Split the script into shorter parts.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Voice</source>
-        <translation type="unfinished">ভয়েস</translation>
     </message>
     <message>
         <source>Stop</source>
@@ -25366,11 +25862,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Learning the voice…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Language</source>
-        <translation type="unfinished">ভাষা</translation>
+        <translation>ভয়েস শেখা হচ্ছে…</translation>
     </message>
     <message>
         <source>Expressiveness</source>
@@ -25382,10 +25874,6 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Generate speech</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Generate speech and add it at the playhead</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -25414,7 +25902,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>My voice</source>
-        <translation type="unfinished"></translation>
+        <translation>আমার কণ্ঠ</translation>
     </message>
     <message>
         <source>Import a voice sample</source>
@@ -25427,6 +25915,106 @@ If playback stutters, try another.</source>
     <message>
         <source>All files (*)</source>
         <translation type="unfinished">সব ফাইল (*)</translation>
+    </message>
+    <message>
+        <source>Voice from your text</source>
+        <translation>আপনার টেক্সট থেকে ভয়েস</translation>
+    </message>
+    <message>
+        <source>Editing the script of a voice on the timeline: the new take replaces its audio.</source>
+        <translation>টাইমলাইনের একটি ভয়েসের স্ক্রিপ্ট সম্পাদনা: নতুন টেক তার অডিও বদলে দেবে।</translation>
+    </message>
+    <message>
+        <source>Type or paste the script. [pause 1s] adds a silence.</source>
+        <translation>স্ক্রিপ্ট লিখুন বা পেস্ট করুন। [pause 1s] একটি নীরবতা যোগ করে।</translation>
+    </message>
+    <message>
+        <source>Import script…</source>
+        <translation>স্ক্রিপ্ট ইমপোর্ট…</translation>
+    </message>
+    <message>
+        <source>A .txt, .md or Word (.docx) file</source>
+        <translation>একটি .txt, .md বা Word (.docx) ফাইল</translation>
+    </message>
+    <message>
+        <source>Import a script</source>
+        <translation>একটি স্ক্রিপ্ট ইমপোর্ট করুন</translation>
+    </message>
+    <message>
+        <source>Scripts (*.txt *.md *.docx)</source>
+        <translation>স্ক্রিপ্ট (*.txt *.md *.docx)</translation>
+    </message>
+    <message>
+        <source>That file has no text that can be read</source>
+        <translation>এই ফাইলে পড়ার মতো কোনো টেক্সট নেই</translation>
+    </message>
+    <message>
+        <source>Voice: %1</source>
+        <translation>কণ্ঠ: %1</translation>
+    </message>
+    <message>
+        <source>A dialogue: a voice for each person</source>
+        <translation>একটি সংলাপ: প্রত্যেক ব্যক্তির জন্য একটি ভয়েস</translation>
+    </message>
+    <message>
+        <source>Generate again</source>
+        <translation>আবার তৈরি করুন</translation>
+    </message>
+    <message>
+        <source>Speak the script; you hear it before it goes on the timeline</source>
+        <translation>স্ক্রিপ্টটি বলান; টাইমলাইনে যাওয়ার আগে আপনি শুনবেন</translation>
+    </message>
+    <message>
+        <source>Listen to the whole take</source>
+        <translation>পুরো টেক শুনুন</translation>
+    </message>
+    <message>
+        <source>Take: %1 s</source>
+        <translation>টেক: %1 সে</translation>
+    </message>
+    <message>
+        <source>Listen to this sentence</source>
+        <translation>এই বাক্যটি শুনুন</translation>
+    </message>
+    <message>
+        <source>Speak this sentence again</source>
+        <translation>এই বাক্যটি আবার বলান</translation>
+    </message>
+    <message>
+        <source>Also create its captions</source>
+        <translation>এর ক্যাপশনও তৈরি করুন</translation>
+    </message>
+    <message>
+        <source>Replace the voice on the timeline</source>
+        <translation>টাইমলাইনে ভয়েস বদলান</translation>
+    </message>
+    <message>
+        <source>Add to the timeline</source>
+        <translation>টাইমলাইনে যোগ করুন</translation>
+    </message>
+    <message>
+        <source>Discard</source>
+        <translation>বাতিল</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation>বিকল্প</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>গতি</translation>
+    </message>
+    <message>
+        <source>%1×</source>
+        <translation>%1×</translation>
+    </message>
+    <message>
+        <source>Pitch</source>
+        <translation>পিচ</translation>
+    </message>
+    <message>
+        <source>Stop preparing the voice</source>
+        <translation>ভয়েস প্রস্তুত করা বন্ধ করুন</translation>
     </message>
     <message>
         <source>Name</source>
@@ -25449,8 +26037,8 @@ If playback stutters, try another.</source>
         <translation type="unfinished">%1 সেকেন্ড</translation>
     </message>
     <message>
-        <source>Record 5 to 20 seconds in a quiet room. Read this aloud in your natural voice:</source>
-        <translation type="unfinished"></translation>
+        <source>Record 3 to 20 seconds in a quiet room (it stops by itself at 20). Read this aloud in your natural voice:</source>
+        <translation>একটি শান্ত ঘরে ৩ থেকে ২০ সেকেন্ড রেকর্ড করুন (২০-এ নিজেই থেমে যাবে)। আপনার স্বাভাবিক কণ্ঠে এটি জোরে পড়ুন:</translation>
     </message>
     <message>
         <source>The quick brown fox jumps over the lazy dog, while a gentle breeze moves through the quiet garden and the evening light fades slowly.</source>
@@ -25463,6 +26051,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Start recording</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>20 s: done, save the voice</source>
+        <translation>২০ সে: হয়ে গেছে, ভয়েস সংরক্ষণ করুন</translation>
     </message>
     <message>
         <source>I have the right to use this person&apos;s voice</source>
@@ -25670,7 +26262,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>প্রয়োগ করুন</translation>
     </message>
     <message>
         <source>Apply letter by letter</source>
@@ -25686,7 +26278,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished"></translation>
+        <translation>সব</translation>
     </message>
     <message>
         <source>How hard it squashes, stretches and bends</source>
@@ -25702,7 +26294,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>গতি</translation>
     </message>
     <message>
         <source>Faster makes it shorter, slower makes it longer</source>
@@ -25987,6 +26579,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Subtitles from the voice, on your computer, without internet</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A simpler version in the browser: it doesn&apos;t have every tool of this app and gets no new ones. Everything new comes to this app.</source>
+        <translation>ব্রাউজারে একটি সহজ সংস্করণ: এতে এই অ্যাপের সব টুল নেই এবং নতুন কিছু আসে না। নতুন সবকিছু এই অ্যাপেই আসে।</translation>
     </message>
     <message>
         <source>Click to sign in</source>
@@ -26596,14 +27192,6 @@ If playback stutters, try another.</source>
         <translation type="unfinished">%1 ক্যাপশন</translation>
     </message>
     <message>
-        <source>Play the timeline — the line on screen lights up. Tap any line to edit it.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Play the timeline — the line on screen lights up. Click any line to jump to it and edit it below.</source>
-        <translation type="unfinished">টাইমলাইন চালান — স্ক্রিনের লাইনটি জ্বলছে। এটিতে লাফ দিতে এবং নীচে সম্পাদনা করতে যেকোনো লাইনে ক্লিক করুন.</translation>
-    </message>
-    <message>
         <source>Import</source>
         <translation type="unfinished">ইমপোর্ট</translation>
     </message>
@@ -26626,6 +27214,18 @@ If playback stutters, try another.</source>
     <message>
         <source>Replace these captions from an SRT, WebVTT or ASS file</source>
         <translation>একটি SRT, WebVTT বা ASS ফাইল থেকে এই ক্যাপশনগুলো বদলে দিন</translation>
+    </message>
+    <message>
+        <source>Move all captions</source>
+        <translation>সব সরান</translation>
+    </message>
+    <message>
+        <source>All captions 0.1 s earlier</source>
+        <translation>সব ০.১ সে. আগে</translation>
+    </message>
+    <message>
+        <source>All captions 0.1 s later</source>
+        <translation>সব ০.১ সে. পরে</translation>
     </message>
     <message>
         <source>Subtitle files (*.srt *.vtt *.ass *.ssa)</source>
@@ -26682,6 +27282,126 @@ If playback stutters, try another.</source>
     <message>
         <source>Fix a word in every caption at once</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Nothing to change in these captions.</source>
+        <translation>এই ক্যাপশনগুলোতে বদলানোর কিছু নেই।</translation>
+    </message>
+    <message>
+        <source>(removed)</source>
+        <translation>(সরানো হবে)</translation>
+    </message>
+    <message>
+        <source>Captions that will change: %1</source>
+        <translation>যে ক্যাপশন বদলাবে: %1</translation>
+    </message>
+    <message>
+        <source>Too short to read</source>
+        <translation>পড়ার জন্য খুব ছোট</translation>
+    </message>
+    <message>
+        <source>On screen too long</source>
+        <translation>পর্দায় অনেকক্ষণ</translation>
+    </message>
+    <message>
+        <source>Too fast to read</source>
+        <translation>পড়ার জন্য খুব দ্রুত</translation>
+    </message>
+    <message>
+        <source>Animated</source>
+        <translation>অ্যানিমেটেড</translation>
+    </message>
+    <message>
+        <source>An animated emoji above each caption that mentions one (fuego, Dios, fiesta…)</source>
+        <translation>যে ক্যাপশনে ইমোজির কথা আছে তার উপরে একটি অ্যানিমেটেড ইমোজি (আগুন, ঈশ্বর, উৎসব…)</translation>
+    </message>
+    <message>
+        <source>Bleep</source>
+        <translation>বিপ</translation>
+    </message>
+    <message>
+        <source>A beep over each hidden swear word, with the voice muted under it</source>
+        <translation>প্রতিটি লুকানো গালির উপর বিপ, নিচে কণ্ঠ নিঃশব্দ</translation>
+    </message>
+    <message>
+        <source>Key words</source>
+        <translation>মূল শব্দ</translation>
+    </message>
+    <message>
+        <source>Highlight the key word of each caption in colour (a number, a name, what matters)</source>
+        <translation>প্রতিটি ক্যাপশনের মূল শব্দ রঙে হাইলাইট করে (একটি সংখ্যা, একটি নাম, যা গুরুত্বপূর্ণ)</translation>
+    </message>
+    <message>
+        <source>Spelling</source>
+        <translation>বানান</translation>
+    </message>
+    <message>
+        <source>Check the spelling of every caption, one word at a time</source>
+        <translation>প্রতিটি ক্যাপশনের বানান একটি একটি শব্দ করে যাচাই করে</translation>
+    </message>
+    <message>
+        <source>Speakers</source>
+        <translation>বক্তারা</translation>
+    </message>
+    <message>
+        <source>File and timing</source>
+        <translation>ফাইল ও সময়</translation>
+    </message>
+    <message>
+        <source>Without an account they are translated on this computer (a little slower).</source>
+        <translation>অ্যাকাউন্ট ছাড়া এগুলি এই কম্পিউটারে অনুবাদ হয় (একটু ধীরে)।</translation>
+    </message>
+    <message>
+        <source>Sign in with Google to translate captions, or install the Offline translation extra</source>
+        <translation>ক্যাপশন অনুবাদ করতে Google দিয়ে সাইন ইন করুন, অথবা অফলাইন অনুবাদ এক্সট্রা ইনস্টল করুন</translation>
+    </message>
+    <message>
+        <source>Words to check: %1</source>
+        <translation>যাচাই করার শব্দ: %1</translation>
+    </message>
+    <message>
+        <source>No spelling mistakes found.</source>
+        <translation>কোনো বানান ভুল পাওয়া যায়নি।</translation>
+    </message>
+    <message>
+        <source>Remove repeated word</source>
+        <translation>পুনরাবৃত্ত শব্দটি সরান</translation>
+    </message>
+    <message>
+        <source>No suggestions: fix it in the text box.</source>
+        <translation>কোনো পরামর্শ নেই: টেক্সট বক্সে ঠিক করুন।</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>বন্ধ</translation>
+    </message>
+    <message>
+        <source>Translate</source>
+        <translation>অনুবাদ</translation>
+    </message>
+    <message>
+        <source>The captions in another language, as a second line above (bilingual)</source>
+        <translation>অন্য ভাষায় ক্যাপশন, উপরে দ্বিতীয় লাইন হিসেবে (দ্বিভাষিক)</translation>
+    </message>
+    <message>
+        <source>Translating…</source>
+        <translation>অনুবাদ হচ্ছে…</translation>
+    </message>
+    <message>
+        <source>Ignore</source>
+        <translation>উপেক্ষা</translation>
+    </message>
+    <message>
+        <source>+ %1 more</source>
+        <translation>+ আরও %1</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>বাতিল</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>প্রয়োগ করুন</translation>
     </message>
     <message>
         <source>Find (e.g. jesus)</source>
@@ -26788,8 +27508,56 @@ If playback stutters, try another.</source>
         <translation type="unfinished">বর্তমান সময়ে শেষ সেট করুন</translation>
     </message>
     <message>
-        <source>Delete caption</source>
-        <translation type="unfinished">ক্যাপশন মুছুন</translation>
+        <source>One frame earlier</source>
+        <translation>এক ফ্রেম আগে</translation>
+    </message>
+    <message>
+        <source>One frame later</source>
+        <translation>এক ফ্রেম পরে</translation>
+    </message>
+    <message>
+        <source>Split</source>
+        <translation>ভাগ করুন</translation>
+    </message>
+    <message>
+        <source>Split this caption at the playhead</source>
+        <translation>প্লেহেডে এই ক্যাপশনটি ভাগ করুন</translation>
+    </message>
+    <message>
+        <source>Join</source>
+        <translation>জুড়ুন</translation>
+    </message>
+    <message>
+        <source>Join this caption with the next one</source>
+        <translation>এই ক্যাপশনটি পরেরটির সঙ্গে জুড়ুন</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete this caption</source>
+        <translation>এই ক্যাপশনটি মুছুন</translation>
+    </message>
+    <message>
+        <source>Style: same as the clip</source>
+        <translation>স্টাইল: ক্লিপের মতো</translation>
+    </message>
+    <message>
+        <source>Like the clip</source>
+        <translation>ক্লিপের মতো</translation>
+    </message>
+    <message>
+        <source>Top</source>
+        <translation>উপরে</translation>
+    </message>
+    <message>
+        <source>Middle</source>
+        <translation>মাঝে</translation>
+    </message>
+    <message>
+        <source>Where this caption sits on screen</source>
+        <translation>এই ক্যাপশন পর্দায় কোথায় থাকবে</translation>
     </message>
     <message>
         <source>At %1</source>
@@ -26826,18 +27594,6 @@ If playback stutters, try another.</source>
 <context>
     <name>SubtitlesTab</name>
     <message>
-        <source>Subtitle track — one clip holds many timed captions. Place it on the timeline, trim its length, then add caption lines at each moment in the clip panel.</source>
-        <translation type="unfinished">সাবটাইটেল ট্র্যাক — একটি ক্লিপে অনেকগুলি সময়ের ক্যাপশন রয়েছে। এটিকে টাইমলাইনে রাখুন, এর দৈর্ঘ্য ট্রিম করুন, তারপর ক্লিপ প্যানেলে প্রতি মুহূর্তে ক্যাপশন লাইন যোগ করুন.</translation>
-    </message>
-    <message>
-        <source>Add subtitle clip</source>
-        <translation type="unfinished">সাবটাইটেল ক্লিপ যোগ করুন</translation>
-    </message>
-    <message>
-        <source>Import subtitle file</source>
-        <translation type="unfinished">সাবটাইটেল ফাইল ইমপোর্ট করুন</translation>
-    </message>
-    <message>
         <source>Import an SRT, WebVTT or ASS file as a subtitle clip</source>
         <translation>একটি SRT, WebVTT বা ASS ফাইল সাবটাইটেল ক্লিপ হিসেবে ইমপোর্ট করুন</translation>
     </message>
@@ -26866,16 +27622,28 @@ If playback stutters, try another.</source>
         <translation>সব ফাইল (*)</translation>
     </message>
     <message>
-        <source>Add auto caption</source>
-        <translation type="unfinished">স্বয়ংক্রিয় ক্যাপশন যোগ করুন</translation>
-    </message>
-    <message>
-        <source>Creates captions from the speech in the selected clip.</source>
-        <translation type="unfinished">নির্বাচিত ক্লিপে বক্তৃতা থেকে ক্যাপশন তৈরি করে.</translation>
-    </message>
-    <message>
         <source>Select a video or audio clip on the timeline first.</source>
         <translation type="unfinished">প্রথমে টাইমলাইনে একটি ভিডিও বা অডিও ক্লিপ নির্বাচন করুন.</translation>
+    </message>
+    <message>
+        <source>On this computer</source>
+        <translation>এই কম্পিউটারে</translation>
+    </message>
+    <message>
+        <source>In the cloud</source>
+        <translation>ক্লাউডে</translation>
+    </message>
+    <message>
+        <source>ElevenLabs Scribe: the audio is sent to ElevenLabs with your key</source>
+        <translation>ElevenLabs Scribe: আপনার কী দিয়ে অডিও ElevenLabs-এ পাঠানো হয়</translation>
+    </message>
+    <message>
+        <source>Hard words: names, brands… (separated by commas)</source>
+        <translation>কঠিন শব্দ: নাম, ব্র্যান্ড… (কমা দিয়ে আলাদা)</translation>
+    </message>
+    <message>
+        <source>Style of the selected captions</source>
+        <translation>নির্বাচিত ক্যাপশনের স্টাইল</translation>
     </message>
     <message>
         <source>Caption style</source>
@@ -26892,6 +27660,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Add emojis for keywords (fuego 🔥, Dios 🙏)</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Two lines per caption</source>
+        <translation>প্রতি ক্যাপশনে দুই লাইন</translation>
+    </message>
+    <message>
+        <source>Hide swear words (m*****)</source>
+        <translation>গালি লুকান (গ***)</translation>
     </message>
     <message>
         <source>Shorter captions are timed by splitting each phrase evenly, so they can drift slightly out of sync with the speech.</source>
@@ -26918,6 +27694,14 @@ If playback stutters, try another.</source>
         <translation type="unfinished">ক্যাপশন তৈরি করা হচ্ছে... %1%</translation>
     </message>
     <message>
+        <source>Captions from the voice</source>
+        <translation>কণ্ঠ থেকে ক্যাপশন</translation>
+    </message>
+    <message>
+        <source>Create captions</source>
+        <translation>ক্যাপশন তৈরি করুন</translation>
+    </message>
+    <message>
         <source>Cancel</source>
         <translation>বাতিল করুন</translation>
     </message>
@@ -26936,6 +27720,38 @@ If playback stutters, try another.</source>
     <message>
         <source>Needed for auto captions from speech</source>
         <translation type="unfinished">বক্তৃতা থেকে স্বয়ংক্রিয় ক্যাপশনের জন্য প্রয়োজন</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation>বিকল্প</translation>
+    </message>
+    <message>
+        <source>Tell the speakers apart (a colour for each)</source>
+        <translation>বক্তাদের আলাদা করুন (প্রত্যেকের একটি রঙ)</translation>
+    </message>
+    <message>
+        <source>Highlight key words in colour</source>
+        <translation>মূল শব্দ রঙে হাইলাইট করুন</translation>
+    </message>
+    <message>
+        <source>Show fewer</source>
+        <translation>কম দেখান</translation>
+    </message>
+    <message>
+        <source>See all styles (%1)</source>
+        <translation>সব স্টাইল দেখুন (%1)</translation>
+    </message>
+    <message>
+        <source>Write by hand</source>
+        <translation>হাতে লিখুন</translation>
+    </message>
+    <message>
+        <source>An empty caption clip at the playhead: write each line in the clip panel</source>
+        <translation>প্লেহেডে একটি খালি ক্যাপশন ক্লিপ: ক্লিপ প্যানেলে প্রতিটি লাইন লিখুন</translation>
+    </message>
+    <message>
+        <source>Import file</source>
+        <translation>ফাইল আমদানি</translation>
     </message>
     <message>
         <source>Recommended caption length</source>
@@ -27615,6 +28431,41 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>TextEditWindow</name>
+    <message>
+        <source>Edit by text</source>
+        <translation>লেখা দিয়ে সম্পাদনা</translation>
+    </message>
+    <message>
+        <source>Click the words to take out (Shift + click for a stretch). Double click to hear one.</source>
+        <translation>যে শব্দ সরাতে চান তাতে ক্লিক করুন (একটি অংশের জন্য Shift + ক্লিক)। শুনতে ডাবল ক্লিক।</translation>
+    </message>
+    <message>
+        <source>No words found in this clip.</source>
+        <translation>এই ক্লিপে কোনো শব্দ পাওয়া যায়নি।</translation>
+    </message>
+    <message>
+        <source>Listening to the clip to write down what is said… %1%</source>
+        <translation>যা বলা হচ্ছে তা লিখতে ক্লিপটি শোনা হচ্ছে… %1%</translation>
+    </message>
+    <message>
+        <source>The first time takes a while; then it opens at once.</source>
+        <translation>প্রথমবার একটু সময় লাগে; তারপর সঙ্গে সঙ্গে খোলে।</translation>
+    </message>
+    <message>
+        <source>%1 words · %2 s</source>
+        <translation>%1টি শব্দ · %2 সে</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>বাতিল</translation>
+    </message>
+    <message>
+        <source>Cut</source>
+        <translation>কাটুন</translation>
+    </message>
+</context>
+<context>
     <name>TextEffects</name>
     <message>
         <source>Shine sweep</source>
@@ -28216,6 +29067,26 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Read aloud…</source>
+        <translation>জোরে পড়ুন…</translation>
+    </message>
+    <message>
+        <source>Turn this text into a voice that starts with it</source>
+        <translation>এই টেক্সটকে এমন ভয়েসে বদলান যা এর সাথে শুরু হয়</translation>
+    </message>
+    <message>
+        <source>Discard the voice you made?</source>
+        <translation>আপনার তৈরি ভয়েস বাতিল করবেন?</translation>
+    </message>
+    <message>
+        <source>Discard and go on</source>
+        <translation>বাতিল করে এগিয়ে যান</translation>
+    </message>
+    <message>
+        <source>The Voice panel has a take that is not on the timeline yet. Add it first with «Add to timeline», or discard it to start this one.</source>
+        <translation>ভয়েস প্যানেলে এমন একটি টেক আছে যা এখনও টাইমলাইনে নেই। আগে «টাইমলাইনে যোগ করুন» দিয়ে যোগ করুন, অথবা এটি শুরু করতে বাতিল করুন।</translation>
+    </message>
+    <message>
         <source>Bold</source>
         <translation type="unfinished"></translation>
     </message>
@@ -28465,7 +29336,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Soft</source>
-        <translation type="unfinished"></translation>
+        <translation>কোমল</translation>
     </message>
     <message>
         <source>Strong</source>
@@ -30251,6 +31122,18 @@ If playback stutters, try another.</source>
 <context>
     <name>TimelinePanel</name>
     <message>
+        <source>Move work area</source>
+        <translation>ওয়ার্ক এরিয়া সরান</translation>
+    </message>
+    <message>
+        <source>Work area: drag to move it</source>
+        <translation>ওয়ার্ক এরিয়া: সরাতে টানুন</translation>
+    </message>
+    <message>
+        <source>Work area: drag to change where it starts or ends</source>
+        <translation>ওয়ার্ক এরিয়া: শুরু বা শেষ বদলাতে টানুন</translation>
+    </message>
+    <message>
         <source>Proxy</source>
         <translation>প্রক্সি</translation>
     </message>
@@ -30495,7 +31378,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Remove silences</source>
-        <translation type="unfinished"></translation>
+        <translation>নীরবতা সরান</translation>
     </message>
     <message>
         <source>Remove silences and filler words — keep only the spoken parts (eh, mmm and long pauses go)</source>
@@ -31096,7 +31979,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Remove keyframes</source>
-        <translation type="unfinished"></translation>
+        <translation>কীফ্রেম সরান</translation>
     </message>
     <message>
         <source>Stop animating (removes its keyframes)</source>
@@ -31152,7 +32035,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Separate dimensions</source>
-        <translation type="unfinished"></translation>
+        <translation>মাত্রা আলাদা করুন</translation>
     </message>
     <message>
         <source>Behavior…</source>
@@ -31164,7 +32047,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>সরান</translation>
     </message>
     <message>
         <source>The clip keeps the value it has at the playhead. You can undo afterwards.</source>
@@ -32342,7 +33225,11 @@ If playback stutters, try another.</source>
     <name>TtsController</name>
     <message>
         <source>Loading voice model…</source>
-        <translation type="unfinished"></translation>
+        <translation>ভয়েস মডেল লোড হচ্ছে…</translation>
+    </message>
+    <message>
+        <source>No speech was produced</source>
+        <translation>কোনো স্পিচ তৈরি হয়নি</translation>
     </message>
     <message>
         <source>Install the voice model first</source>
@@ -32357,16 +33244,63 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Generating speech…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Cancelled</source>
         <translation type="unfinished">বাতিল করা হয়েছে</translation>
     </message>
     <message>
+        <source>Speaking sentence %1 of %2…</source>
+        <translation>বাক্য %1/%2 বলা হচ্ছে…</translation>
+    </message>
+    <message>
+        <source>Sentence %1 could not be spoken: %2</source>
+        <translation>বাক্য %1 বলা যায়নি: %2</translation>
+    </message>
+    <message>
+        <source>Putting the take together…</source>
+        <translation>টেক জোড়া লাগানো হচ্ছে…</translation>
+    </message>
+    <message>
+        <source>Listen to it, then add it to the timeline</source>
+        <translation>শুনুন, তারপর টাইমলাইনে যোগ করুন</translation>
+    </message>
+    <message>
+        <source>Speaking sentence %1 again…</source>
+        <translation>বাক্য %1 আবার বলা হচ্ছে…</translation>
+    </message>
+    <message>
+        <source>Sentence %1 spoken again</source>
+        <translation>বাক্য %1 আবার বলা হয়েছে</translation>
+    </message>
+    <message>
+        <source>Changing speed and pitch…</source>
+        <translation>গতি ও পিচ বদলানো হচ্ছে…</translation>
+    </message>
+    <message>
+        <source>Replace voice</source>
+        <translation>কণ্ঠ বদলান</translation>
+    </message>
+    <message>
+        <source>Could not replace the voice</source>
+        <translation>ভয়েস বদলানো যায়নি</translation>
+    </message>
+    <message>
         <source>Speech added to the timeline</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Voice replaced on the timeline</source>
+        <translation>টাইমলাইনে ভয়েস বদলানো হয়েছে</translation>
+    </message>
+    <message numerus="yes">
+        <source>The music goes down under the voice (%n clip(s))</source>
+        <translation>
+            <numerusform>ভয়েসের নিচে মিউজিক কমে যায় (%n ক্লিপ)</numerusform>
+            <numerusform>ভয়েসের নিচে মিউজিক কমে যায় (%n ক্লিপ)</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>There is no music under this voice</source>
+        <translation>এই ভয়েসের নিচে কোনো মিউজিক নেই</translation>
     </message>
     <message>
         <source>Select a subtitle clip first</source>
@@ -32375,6 +33309,10 @@ If playback stutters, try another.</source>
     <message>
         <source>This subtitle clip has no text to speak</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speaking line %1 of %2…</source>
+        <translation>লাইন %1/%2 বলা হচ্ছে…</translation>
     </message>
     <message>
         <source>Generate voiceover</source>
@@ -32396,6 +33334,13 @@ If playback stutters, try another.</source>
         <translation type="unfinished">
             <numerusform></numerusform>
             <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>; %n could not be added</source>
+        <translation>
+            <numerusform>; %n যোগ করা যায়নি</numerusform>
+            <numerusform>; %n যোগ করা যায়নি</numerusform>
         </translation>
     </message>
 </context>
@@ -33086,7 +34031,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Soft</source>
-        <translation type="unfinished"></translation>
+        <translation>কোমল</translation>
     </message>
     <message>
         <source>Strong smoothing for an even, soft skin</source>
@@ -33649,6 +34594,81 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>VoiceGallery</name>
+    <message>
+        <source>Narration</source>
+        <translation>বর্ণনা</translation>
+    </message>
+    <message>
+        <source>Young</source>
+        <translation>তরুণ</translation>
+    </message>
+    <message>
+        <source>Deep</source>
+        <translation>গভীর</translation>
+    </message>
+    <message>
+        <source>Lively</source>
+        <translation>প্রাণবন্ত</translation>
+    </message>
+    <message>
+        <source>Soft</source>
+        <translation>কোমল</translation>
+    </message>
+    <message>
+        <source>Mature</source>
+        <translation>পরিণত</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation>সব</translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation>প্রিয়</translation>
+    </message>
+    <message>
+        <source>Mine</source>
+        <translation>আমার</translation>
+    </message>
+    <message>
+        <source>Women</source>
+        <translation>নারী</translation>
+    </message>
+    <message>
+        <source>Men</source>
+        <translation>পুরুষ</translation>
+    </message>
+    <message>
+        <source>Hear this voice</source>
+        <translation>এই কণ্ঠ শুনুন</translation>
+    </message>
+    <message>
+        <source>My voice</source>
+        <translation>আমার কণ্ঠ</translation>
+    </message>
+    <message>
+        <source>Mark voices with the star to find them here</source>
+        <translation>এখানে পেতে কণ্ঠগুলোতে তারা দিন</translation>
+    </message>
+    <message>
+        <source>Your own voices appear here: «New voice» in Options</source>
+        <translation>আপনার নিজের কণ্ঠ এখানে দেখা যায়: বিকল্পে «নতুন কণ্ঠ»</translation>
+    </message>
+    <message>
+        <source>No voices of this kind</source>
+        <translation>এই ধরনের কোনো কণ্ঠ নেই</translation>
+    </message>
+    <message>
+        <source>Show fewer</source>
+        <translation>কম দেখান</translation>
+    </message>
+    <message>
+        <source>See all voices (%1)</source>
+        <translation>সব কণ্ঠ দেখুন (%1)</translation>
+    </message>
+</context>
+<context>
     <name>VoiceLibrary</name>
     <message>
         <source>Default</source>
@@ -33661,6 +34681,18 @@ If playback stutters, try another.</source>
     <message>
         <source>A voice needs a name and a recording</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reading the recording…</source>
+        <translation>রেকর্ডিং পড়া হচ্ছে…</translation>
+    </message>
+    <message>
+        <source>Loading voice model…</source>
+        <translation>ভয়েস মডেল লোড হচ্ছে…</translation>
+    </message>
+    <message>
+        <source>Learning the voice…</source>
+        <translation>ভয়েস শেখা হচ্ছে…</translation>
     </message>
     <message>
         <source>Could not prepare the voice</source>
@@ -33677,6 +34709,18 @@ If playback stutters, try another.</source>
     <message>
         <source>The recording is too short: record at least %1 seconds</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unknown voice</source>
+        <translation>অজানা ভয়েস</translation>
+    </message>
+    <message>
+        <source>The reference recording for this voice is missing</source>
+        <translation>এই ভয়েসের রেফারেন্স রেকর্ডিং পাওয়া যাচ্ছে না</translation>
+    </message>
+    <message>
+        <source>Could not read the reference recording</source>
+        <translation>রেফারেন্স রেকর্ডিং পড়া যায়নি</translation>
     </message>
 </context>
 <context>
@@ -33733,6 +34777,18 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Speech generation runs on this device and needs the voice model.</source>
+        <translation>স্পিচ তৈরি এই ডিভাইসেই চলে এবং এর জন্য ভয়েস মডেল দরকার।</translation>
+    </message>
+    <message>
+        <source>Download voice model</source>
+        <translation>ভয়েস মডেল ডাউনলোড করুন</translation>
+    </message>
+    <message>
+        <source>Install AI engine first</source>
+        <translation>আগে AI ইঞ্জিন ইনস্টল করুন</translation>
+    </message>
+    <message>
         <source>Voice</source>
         <translation type="unfinished">ভয়েস</translation>
     </message>
@@ -33763,6 +34819,21 @@ If playback stutters, try another.</source>
     <message>
         <source>Close</source>
         <translation type="unfinished">বন্ধ করুন</translation>
+    </message>
+</context>
+<context>
+    <name>WhisperTranscriber</name>
+    <message>
+        <source>Transcribing %1–%2 of %3…</source>
+        <translation>%3-এর %1–%2 লেখা হচ্ছে…</translation>
+    </message>
+    <message>
+        <source>Detecting language…</source>
+        <translation>ভাষা শনাক্ত করা হচ্ছে…</translation>
+    </message>
+    <message>
+        <source>Finishing up…</source>
+        <translation>শেষ করা হচ্ছে…</translation>
     </message>
 </context>
 <context>

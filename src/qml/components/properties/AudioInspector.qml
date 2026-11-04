@@ -27,16 +27,6 @@ Item {
     readonly property bool hasSound: clipKind === "audio" || clipKind === "video"
     readonly property real clipLength: hasSelection && clipData.duration !== undefined ? clipData.duration : 0
 
-    // "Recommended" packs by display width like openai-whisper does; the numbered entries cap
-    // words per caption on top of that.
-    readonly property var captionLengthOptions: {
-        const options = [{ label: qsTr("Recommended caption length"), words: 0 }]
-        options.push({ label: qsTr("1 word per caption"), words: 1 })
-        for (let n = 2; n <= 8; ++n)
-            options.push({ label: qsTr("%1 words per caption").arg(n), words: n })
-        return options
-    }
-
     height: audioTabColumn.height
     implicitHeight: audioTabColumn.height
 
@@ -149,6 +139,99 @@ Item {
                         const fadeOut = fadeRow.modelData.key === "audioFadeOut" ? value : (root.clipData.audioFadeOut || 0)
                         EditorState.setClipAudioFade(EditorState.selectedTrack, EditorState.selectedClip, fadeIn, fadeOut)
                     }
+                }
+            }
+        }
+
+        // ----- A voice the app spoke: its script, to change and speak again (0.30) -----
+        Column {
+            readonly property string script: {
+                void EditorState.tracksRevision
+                return root.hasSelection ? EditorState.tts.clipScript(EditorState.selectedTrack, EditorState.selectedClip) : ""
+            }
+            width: parent.width
+            spacing: Theme.spacingXs
+            visible: script.length > 0
+
+            Text {
+                width: parent.width
+                text: qsTr("Voice from text")
+                color: Theme.mutedForeground
+                font.family: Theme.fontFamily
+                font.pixelSize: Theme.fontSizeXs
+            }
+            Text {
+                width: parent.width
+                wrapMode: Text.WordWrap
+                maximumLineCount: 2
+                elide: Text.ElideRight
+                text: "“" + parent.script + "”"
+                color: Theme.panelForeground
+                opacity: 0.8
+                font.family: Theme.fontFamily
+                font.pixelSize: Theme.fontSizeXs
+            }
+            ThemedButton {
+                width: parent.width
+                text: qsTr("Edit script…")
+                glyph: Theme.icons.pencil
+                enabled: !EditorState.tts.running
+                tooltip: qsTr("Change the text or the voice and speak it again, in place of this audio")
+                onClicked: {
+                    const track = EditorState.selectedTrack
+                    const clip = EditorState.selectedClip
+                    discardTakeDialog.ask(() => EditorState.tts.editClipScript(track, clip))
+                }
+            }
+
+            // A take not added yet would be thrown away by starting another (0.30 tests E56): asked first.
+            ThemedDialog {
+                id: discardTakeDialog
+                property var proceed: null
+                title: qsTr("Discard the voice you made?")
+                preferredWidth: 380
+                acceptText: qsTr("Discard and go on")
+                acceptVariant: "destructive"
+                onAccepted: { if (proceed) proceed(); proceed = null }
+                onRejected: proceed = null
+                contentItem: ThemedLabel {
+                    width: discardTakeDialog.availableWidth
+                    wrapMode: Text.WordWrap
+                    text: qsTr("The Voice panel has a take that is not on the timeline yet. Add it first with «Add to timeline», or discard it to start this one.")
+                }
+                function ask(action) {
+                    if (!EditorState.tts.hasTake) {
+                        action()
+                        return
+                    }
+                    proceed = action
+                    open()
+                }
+            }
+            ThemedButton {
+                width: parent.width
+                text: qsTr("Lower the music under this voice")
+                glyph: Theme.icons.music
+                variant: "secondary"
+                onClicked: EditorState.tts.duckMusicUnder(EditorState.selectedTrack, EditorState.selectedClip)
+            }
+            ThemedButton {
+                width: parent.width
+                text: qsTr("Save the voice as a file…")
+                glyph: Theme.icons.download
+                variant: "ghost"
+                onClicked: {
+                    // MP3 first, as people share a voice; WAV and FLAC too (0.30 tests E59).
+                    const url = FileDialogs.saveFile(qsTr("Save the voice"),
+                                                     [qsTr("MP3 audio (*.mp3)"), qsTr("WAV audio (*.wav)"),
+                                                      qsTr("FLAC audio (*.flac)")],
+                                                     qsTr("voice"), "mp3")
+                    if (url == "")
+                        return
+                    if (EditorState.tts.saveClipVoice(EditorState.selectedTrack, EditorState.selectedClip, url))
+                        AppController.setLastMessage(qsTr("Voice saved"), "success")
+                    else
+                        AppController.setLastMessage(qsTr("Could not save the voice"), "error")
                 }
             }
         }
@@ -421,94 +504,27 @@ Item {
             opacity: 0.5
         }
 
-        Text {
+        // One place to create captions (Assets › Subtitles: language, length, style, cleanup): this
+        // used to repeat part of it with fewer choices.
+        ThemedButton {
             visible: root.fileAudio
-            text: qsTr("Auto subtitles")
-            color: Theme.mutedForeground
-            font.family: Theme.fontFamily
-            font.pixelSize: Theme.fontSizeXs
-        }
-
-        // The transcriber is an addon, and so is the runtime it needs; without
-        // both there are no languages to list and nothing to run, so offer the
-        // download in place of the controls.
-        property bool whisperReady: Addons.hasKind("whisper-model")
-                                    && Addons.runtimeAvailable()
-        property bool runtimeReady: Addons.runtimeAvailable()
-
-        Connections {
-            target: Addons
-            function onKindChanged(kind) {
-                if (kind !== "whisper-model" && kind !== "onnxruntime")
-                    return
-                const section = subtitleLanguageBox.parent
-                section.runtimeReady = Addons.runtimeAvailable()
-                section.whisperReady = Addons.hasKind("whisper-model")
-                                       && section.runtimeReady
-            }
-        }
-
-        ThemedComboBox {
-            id: subtitleLanguageBox
-            visible: parent.whisperReady
-                     && root.fileAudio
             width: parent.width
-            enabled: !EditorState.subtitleGenerating
-            textRole: "label"
-            valueRole: "code"
-            model: EditorState.whisperLanguages()
-            Component.onCompleted: currentIndex = 0
+            text: qsTr("Create captions…")
+            variant: "secondary"
+            glyph: Theme.icons.captions
+            tooltip: qsTr("Open Subtitles to create captions from this clip's speech")
+            onClicked: root.Window.window.showAssetsTab("subtitles")
         }
 
-        ThemedComboBox {
-            id: subtitleWordsBox
-            visible: parent.whisperReady
-                     && root.fileAudio
-            width: parent.width
-            enabled: !EditorState.subtitleGenerating
-            textRole: "label"
-            valueRole: "words"
-            model: root.captionLengthOptions
-            Component.onCompleted: currentIndex = 0
-        }
-
-        Text {
-            visible: subtitleWordsBox.visible && subtitleWordsBox.currentValue > 0
-            width: parent.width
-            wrapMode: Text.WordWrap
-            text: qsTr("Shorter captions are timed by splitting each phrase evenly, so they can drift slightly out of sync with the speech.")
-            color: Theme.mutedForeground
-            font.family: Theme.fontFamily
-            font.pixelSize: Theme.fontSizeXs
-        }
-
+        // Descript's editing: strike words out of the transcript and the video loses them.
         ThemedButton {
-            visible: parent.whisperReady
-                     && root.fileAudio
+            visible: root.fileAudio
             width: parent.width
-            text: EditorState.subtitleGenerating
-                  ? qsTr("Creating captions… %1%").arg(Math.round(EditorState.subtitleGenProgress * 100))
-                  : qsTr("Create captions from speech")
-            enabled: !EditorState.subtitleGenerating
-            tooltip: qsTr("Several selected clips become one caption clip")
-            onClicked: {
-                const lang = subtitleLanguageBox.currentValue !== undefined
-                             ? subtitleLanguageBox.currentValue
-                             : ""
-                EditorState.generateSubtitlesForSelection(lang, subtitleWordsBox.currentValue)
-            }
-        }
-
-        ThemedButton {
-            visible: !parent.whisperReady
-                     && root.fileAudio
-            width: parent.width
-            text: parent.runtimeReady
-                  ? qsTr("Download speech recognition (about 670 MB)")
-                  : qsTr("Install AI engine first")
-            variant: "primary"
-            onClicked: root.Window.window.openAddonManager(
-                parent.runtimeReady ? "whisper-model" : "onnxruntime")
+            text: qsTr("Edit by text…")
+            variant: "secondary"
+            glyph: Theme.icons.scissors
+            tooltip: qsTr("See what is said and strike out words: the video loses those moments")
+            onClicked: EditorState.editClipByText(EditorState.selectedTrack, EditorState.selectedClip)
         }
         }
     }

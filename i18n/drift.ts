@@ -142,7 +142,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Voices</source>
+        <source>Voice changer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1111,6 +1111,29 @@
     </message>
     <message>
         <source>Changes only that clip; the rest is untouched. It is drawn inside the clip&apos;s row on the timeline.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AeShortcutsDialog</name>
+    <message>
+        <source>Use After Effects&apos; shortcuts?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use After Effects&apos;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keep Flip&apos;s</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>J and K go to the previous and next keyframe, P, S, R, T and A show one property, U and UU what is animated or changed, B and N set the work area, I and O go to the layer&apos;s ends, [ ] and Alt+[ ] move and trim the layer at the playhead.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You can switch any time in Preferences › Shortcuts. Shortcuts you changed yourself stay as they are.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4259,6 +4282,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Sign in with Google to translate captions, or install the Offline translation extra</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Words bleeped: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Add mask</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5212,7 +5243,59 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Step back one frame (Page Up)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Step forward one frame (Page Down)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Show rulers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Go to the layer&apos;s in point</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Go to the layer&apos;s out point</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add a Position keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add a Scale keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add a Rotation keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add an Opacity keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add an Anchor point keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trim the layer&apos;s in point to the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trim the layer&apos;s out point to the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move the layer so it starts at the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move the layer so it ends at the playhead</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5225,6 +5308,38 @@
     </message>
     <message>
         <source>Ruler guides</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Replace voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Voice replaced</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Trim layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Put the playhead inside the layer to trim it there</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sending the audio to ElevenLabs…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ElevenLabs is transcribing…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speaker %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5241,6 +5356,14 @@
     </message>
     <message>
         <source>Behavior changed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Settle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reverse keyframes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5430,6 +5553,90 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Translating the captions…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not translate the captions (no answer from the server)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Translating the captions on this computer…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not translate the captions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The captions changed while they were being translated; try again</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Captions (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Translate captions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Captions translated into %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit speaker</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No key words to highlight in these subtitles</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Highlight key words</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Key words highlighted in %1 captions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install «Animated emojis» from Extras first</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Emoji: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No captions with an emoji word (fuego, Dios, fiesta…)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Animated emojis</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Animated emojis on %1 captions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No hidden words with their timing to bleep</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not make the bleep</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bleep swear words</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bleep</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5580,6 +5787,30 @@
     </message>
     <message>
         <source>Select a clip with sound to enhance its voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Listening to the clip to write down what is said…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move the other tracks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit by text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove silences</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cut %1 s from the video</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>That would remove the whole clip</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5946,6 +6177,34 @@
             <numerusform></numerusform>
             <numerusform></numerusform>
         </translation>
+    </message>
+    <message>
+        <source>Curved path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Straight path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Join Position</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Separate dimensions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shape motion path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Roving needs at least three Position keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Roving keyframes</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Exporting…</source>
@@ -7795,18 +8054,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Recommended caption length</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>1 word per caption</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>%1 words per caption</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Basic</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7820,6 +8067,66 @@
     </message>
     <message>
         <source>Fade out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Voice from text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit script…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change the text or the voice and speak it again, in place of this audio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Discard the voice you made?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Discard and go on</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The Voice panel has a take that is not on the timeline yet. Add it first with «Add to timeline», or discard it to start this one.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lower the music under this voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save the voice as a file…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save the voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>MP3 audio (*.mp3)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>WAV audio (*.wav)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>FLAC audio (*.flac)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Voice saved</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not save the voice</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7871,6 +8178,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Create captions…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open Subtitles to create captions from this clip&apos;s speech</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit by text…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>See what is said and strike out words: the video loses those moments</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>C</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7908,30 +8231,6 @@
     </message>
     <message>
         <source>Install AI engine first</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Auto subtitles</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Shorter captions are timed by splitting each phrase evenly, so they can drift slightly out of sync with the speech.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Creating captions… %1%</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Create captions from speech</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Several selected clips become one caption clip</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Download speech recognition (about 670 MB)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -13137,6 +13436,37 @@ NEXT TIME</source>
     </message>
 </context>
 <context>
+    <name>ChatterboxTts</name>
+    <message>
+        <source>The voice model is not installed. Install the AI voice extra in Extras.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to load text-to-speech model: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speech generation failed: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The reference voice has no audio.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Voice encoding failed: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unsupported language: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Invalid voice conditioning.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ChipScroller</name>
     <message>
         <source>Previous</source>
@@ -15254,6 +15584,14 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Include the captions (inside the video and as .srt)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The captions as a track inside the video and as a file next to it, with the same name: players and YouTube can turn them on and off</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Saves what you see in the preview. Pick a size — the picture shape stays the same.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -16786,6 +17124,10 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Pos</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Layer</source>
         <translation type="unfinished"></translation>
     </message>
@@ -16810,11 +17152,39 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Value graph</source>
+        <source>Graph type: value. Click: speed graph</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Speed graph</source>
+        <source>Graph type: speed. Click: automatic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Graph type: automatic (speed for a joined Position, value for the rest). Click: value graph</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fit the whole curve in view (Ctrl+wheel zooms the values, Alt+wheel the time)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Zoom to the picked keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show only the curve being edited</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show the other properties&apos; curves too</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Graph under its layer again</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Graph over the whole timeline, as After Effects&apos; Graph Editor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -16885,6 +17255,10 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Transform keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Edit keyframe curve</source>
         <translation type="unfinished"></translation>
     </message>
@@ -16905,6 +17279,18 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Move keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keyframe easing changed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Paste keyframes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove keyframes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -16941,6 +17327,26 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Edit curve…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Curved path (auto Bezier)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Straight path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Roving (one speed along the path)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Separate dimensions (X and Y apart)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Join Position (one path)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -17177,6 +17583,21 @@ NEXT TIME</source>
     </message>
     <message>
         <source>720p</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>LocalTranscription</name>
+    <message>
+        <source>Finding speech…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Timing words…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Telling speakers apart…</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -17569,6 +17990,26 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Your example is ready. Try this:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>What is the video for?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The template is fitted to the shape of your video.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Short (vertical 9:16)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Video (horizontal 16:9)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -20737,6 +21178,14 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Fill colour. Right-click: no fill (or back on)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stroke colour. Right-click: no stroke (or back on)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Selection</source>
         <translation type="unfinished"></translation>
     </message>
@@ -21647,7 +22096,7 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>value, time, wiggle(freq, amount), Math, and thisComp.layer(&quot;Name&quot;).transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. The last line is the result.</source>
+        <source>value, time, index, thisLayer, wiggle(freq, amount), linear / ease / easeIn / easeOut(t, tMin, tMax, a, b), clamp, valueAtTime(t), velocity, speed, Math, and thisComp.layer(&quot;Name&quot;).transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. The last line is the result.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -23350,14 +23799,6 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Transcription (Scribe), voiceover, sound effects</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Voiceover</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>No key</source>
         <translation type="unfinished"></translation>
     </message>
@@ -23555,6 +23996,14 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Keys are stored unencrypted in Flip Studio&apos;s settings. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Transcription (Scribe); voiceover and sound effects through AI agents</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Voiceover through AI agents</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -25094,6 +25543,26 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Shortcut set</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flip&apos;s own shortcuts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>After Effects</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>As in After Effects: J/K go between keyframes, P/S/R/T/A show one property, U/UU, B/N the work area, I/O the layer&apos;s ends, [ ] and Alt+[ ] move and trim the layer at the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Click a shortcut, then press the keys. Esc cancels, Backspace clears.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -25174,6 +25643,49 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Not now</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SilenceReviewWindow</name>
+    <message>
+        <source>Remove silences</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Untick what you want to keep. Click a row to hear it.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pauses longer than</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Also filler words (eh, mmm)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pause</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Listen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No pauses this long in the clip.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 of %2 · %3 s</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -25274,10 +25786,6 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Turn a script into speech with a built-in or cloned voice. It is generated on this device and added at the playhead.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Speech generation runs on this device and needs the voice model.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -25294,19 +25802,7 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Type what the voice should say</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>%1 characters, about %2 s</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Speech longer than 30 seconds often ends in gibberish or silence. Split the script into shorter parts.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Voice</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -25362,10 +25858,6 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Language</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Expressiveness</source>
         <translation type="unfinished"></translation>
     </message>
@@ -25375,10 +25867,6 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Generate speech</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Generate speech and add it at the playhead</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -25422,6 +25910,106 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Voice from your text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Editing the script of a voice on the timeline: the new take replaces its audio.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Type or paste the script. [pause 1s] adds a silence.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import script…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A .txt, .md or Word (.docx) file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import a script</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scripts (*.txt *.md *.docx)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>That file has no text that can be read</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Voice: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A dialogue: a voice for each person</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Generate again</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speak the script; you hear it before it goes on the timeline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Listen to the whole take</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Take: %1 s</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Listen to this sentence</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speak this sentence again</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Also create its captions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Replace the voice on the timeline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add to the timeline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Discard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1×</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pitch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stop preparing the voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Name</source>
         <translation type="unfinished"></translation>
     </message>
@@ -25442,7 +26030,7 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Record 5 to 20 seconds in a quiet room. Read this aloud in your natural voice:</source>
+        <source>Record 3 to 20 seconds in a quiet room (it stops by itself at 20). Read this aloud in your natural voice:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -25455,6 +26043,10 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Start recording</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>20 s: done, save the voice</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -25992,6 +26584,10 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Subtitles from the voice, on your computer, without internet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A simpler version in the browser: it doesn&apos;t have every tool of this app and gets no new ones. Everything new comes to this app.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -26588,11 +27184,11 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Play the timeline — the line on screen lights up. Tap any line to edit it.</source>
+        <source>Translate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Play the timeline — the line on screen lights up. Click any line to jump to it and edit it below.</source>
+        <source>The captions in another language, as a second line above (bilingual)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -26625,6 +27221,18 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Offset the exported captions by this clip&apos;s start so they match the exported video</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Translating…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Captions that will change: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>+ %1 more</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -26668,7 +27276,23 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Delete caption</source>
+        <source>Style: same as the clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Like the clip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Top</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Middle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Where this caption sits on screen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -26685,6 +27309,30 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Emojis</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Too short to read</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>On screen too long</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Too fast to read</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move all captions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>All captions 0.1 s earlier</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>All captions 0.1 s later</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -26716,6 +27364,30 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Animated</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>An animated emoji above each caption that mentions one (fuego, Dios, fiesta…)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bleep</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A beep over each hidden swear word, with the voice muted under it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Key words</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Highlight the key word of each caption in colour (a number, a name, what matters)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Clean up</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26729,6 +27401,70 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Fix a word in every caption at once</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spelling</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Check the spelling of every caption, one word at a time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speakers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>File and timing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Words to check: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No spelling mistakes found.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove repeated word</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No suggestions: fix it in the text box.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Without an account they are translated on this computer (a little slower).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign in with Google to translate captions, or install the Offline translation extra</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ignore</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Nothing to change in these captions.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>(removed)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -26795,6 +27531,38 @@ If playback stutters, try another.</source>
         <source>Tip: write a word between asterisks, like *faith*, to highlight it in colour.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>One frame earlier</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>One frame later</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Split</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Split this caption at the playhead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Join</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Join this caption with the next one</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete this caption</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SubtitleProgressDialog</name>
@@ -26817,18 +27585,6 @@ If playback stutters, try another.</source>
 </context>
 <context>
     <name>SubtitlesTab</name>
-    <message>
-        <source>Subtitle track — one clip holds many timed captions. Place it on the timeline, trim its length, then add caption lines at each moment in the clip panel.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Add subtitle clip</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Import subtitle file</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
         <source>Import Subtitles</source>
         <translation type="unfinished"></translation>
@@ -26854,19 +27610,47 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Add auto caption</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Creates captions from the speech in the selected clip.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Select a video or audio clip on the timeline first.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>On this computer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>In the cloud</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ElevenLabs Scribe: the audio is sent to ElevenLabs with your key</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hard words: names, brands… (separated by commas)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Style of the selected captions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Two lines per caption</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide swear words (m*****)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Shorter captions are timed by splitting each phrase evenly, so they can drift slightly out of sync with the speech.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Captions from the voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Create captions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -26899,6 +27683,38 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Needed for auto captions from speech</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tell the speakers apart (a colour for each)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Highlight key words in colour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show fewer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>See all styles (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Write by hand</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>An empty caption clip at the playhead: write each line in the clip panel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -27607,6 +28423,41 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>TextEditWindow</name>
+    <message>
+        <source>Edit by text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Click the words to take out (Shift + click for a stretch). Double click to hear one.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No words found in this clip.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Listening to the clip to write down what is said… %1%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The first time takes a while; then it opens at once.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 words · %2 s</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cut</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>TextEffects</name>
     <message>
         <source>Shine sweep</source>
@@ -28169,6 +29020,26 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>These letters go back to the style of the whole text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Read aloud…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Turn this text into a voice that starts with it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Discard the voice you made?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Discard and go on</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The Voice panel has a take that is not on the timeline yet. Add it first with «Add to timeline», or discard it to start this one.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -30242,6 +31113,18 @@ If playback stutters, try another.</source>
 </context>
 <context>
     <name>TimelinePanel</name>
+    <message>
+        <source>Move work area</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Work area: drag to move it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Work area: drag to change where it starts or ends</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
         <source>Proxy</source>
         <translation type="unfinished"></translation>
@@ -32337,6 +33220,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>No speech was produced</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Install the voice model first</source>
         <translation type="unfinished"></translation>
     </message>
@@ -32349,15 +33236,62 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Generating speech…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Cancelled</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Speaking sentence %1 of %2…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sentence %1 could not be spoken: %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Putting the take together…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Listen to it, then add it to the timeline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speaking sentence %1 again…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sentence %1 spoken again</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Changing speed and pitch…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Replace voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not replace the voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Speech added to the timeline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Voice replaced on the timeline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>The music goes down under the voice (%n clip(s))</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>There is no music under this voice</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -32366,6 +33300,10 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>This subtitle clip has no text to speak</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Speaking line %1 of %2…</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -32385,6 +33323,13 @@ If playback stutters, try another.</source>
     </message>
     <message numerus="yes">
         <source>; %n ran longer than their captions</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>; %n could not be added</source>
         <translation type="unfinished">
             <numerusform></numerusform>
             <numerusform></numerusform>
@@ -33641,6 +34586,81 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>VoiceGallery</name>
+    <message>
+        <source>Narration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Young</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Deep</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lively</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Soft</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mature</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mine</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Women</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Men</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hear this voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>My voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mark voices with the star to find them here</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Your own voices appear here: «New voice» in Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No voices of this kind</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show fewer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>See all voices (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>VoiceLibrary</name>
     <message>
         <source>Default</source>
@@ -33652,6 +34672,18 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>A voice needs a name and a recording</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reading the recording…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Loading voice model…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Learning the voice…</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -33668,6 +34700,18 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>The recording is too short: record at least %1 seconds</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unknown voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The reference recording for this voice is missing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not read the reference recording</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -33725,6 +34769,18 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Speech generation runs on this device and needs the voice model.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Download voice model</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install AI engine first</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Voice</source>
         <translation type="unfinished"></translation>
     </message>
@@ -33754,6 +34810,21 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Close</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>WhisperTranscriber</name>
+    <message>
+        <source>Transcribing %1–%2 of %3…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Detecting language…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Finishing up…</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

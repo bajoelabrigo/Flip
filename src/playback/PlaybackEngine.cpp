@@ -832,6 +832,7 @@ void PlaybackEngine::pause()
     if (!m_playing)
         return;
     m_ramLoop = false;
+    m_stopAtUs = -1;
 
     m_playing = false;
     m_compositor.setPlaybackActive(false);
@@ -1014,6 +1015,14 @@ void PlaybackEngine::checkEndOfTimeline(drift::TimeUs timeUs)
 
     if (m_voiceoverRecording)
         return;
+
+    if (m_stopAtUs >= 0 && timeUs >= m_stopAtUs) {
+        m_playheadUs = m_stopAtUs;
+        m_stopAtUs = -1;
+        emit playheadUsChanged(static_cast<quint64>(m_playheadUs));
+        QMetaObject::invokeMethod(this, &PlaybackEngine::pause, Qt::QueuedConnection);
+        return;
+    }
 
     const drift::TimeUs durationUs = m_project->durationUs();
     if (durationUs > 0 && timeUs >= durationUs) {

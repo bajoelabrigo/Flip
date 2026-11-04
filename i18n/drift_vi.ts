@@ -142,8 +142,8 @@
         <translation>Kiểu phụ đề</translation>
     </message>
     <message>
-        <source>Voices</source>
-        <translation>Giọng nói</translation>
+        <source>Voice changer</source>
+        <translation>Bộ đổi giọng</translation>
     </message>
     <message>
         <source>Retouch</source>
@@ -1111,6 +1111,29 @@
     <message>
         <source>Changes only that clip; the rest is untouched. It is drawn inside the clip&apos;s row on the timeline.</source>
         <translation>Chỉ thay đổi clip đó; phần còn lại giữ nguyên. Nó được vẽ bên trong hàng của clip trên dòng thời gian.</translation>
+    </message>
+</context>
+<context>
+    <name>AeShortcutsDialog</name>
+    <message>
+        <source>Use After Effects&apos; shortcuts?</source>
+        <translation>Dùng phím tắt của After Effects?</translation>
+    </message>
+    <message>
+        <source>Use After Effects&apos;</source>
+        <translation>Dùng của After Effects</translation>
+    </message>
+    <message>
+        <source>Keep Flip&apos;s</source>
+        <translation>Giữ của Flip</translation>
+    </message>
+    <message>
+        <source>J and K go to the previous and next keyframe, P, S, R, T and A show one property, U and UU what is animated or changed, B and N set the work area, I and O go to the layer&apos;s ends, [ ] and Alt+[ ] move and trim the layer at the playhead.</source>
+        <translation>J và K tới khung hình chính trước và sau, P, S, R, T và A chỉ hiện một thuộc tính, U và UU những gì có hoạt ảnh hoặc đã thay đổi, B và N đặt vùng làm việc, I và O tới hai đầu lớp, [ ] và Alt+[ ] di chuyển và cắt lớp tại đầu phát.</translation>
+    </message>
+    <message>
+        <source>You can switch any time in Preferences › Shortcuts. Shortcuts you changed yourself stay as they are.</source>
+        <translation>Bạn có thể đổi bất cứ lúc nào trong Tùy chọn › Phím tắt. Những phím tắt bạn tự đổi vẫn giữ nguyên.</translation>
     </message>
 </context>
 <context>
@@ -4257,6 +4280,14 @@
         <translation>Đã thêm “%1” vào “%2” · để vẽ trên lớp riêng, nhấn Esc trước; để tách chúng, nhấp phải › Tách thành các lớp</translation>
     </message>
     <message>
+        <source>Sign in with Google to translate captions, or install the Offline translation extra</source>
+        <translation>Đăng nhập bằng Google để dịch phụ đề, hoặc cài tiện ích Dịch không cần mạng</translation>
+    </message>
+    <message>
+        <source>Words bleeped: %1</source>
+        <translation>Từ đã bíp: %1</translation>
+    </message>
+    <message>
         <source>Add mask</source>
         <translation>Thêm mặt nạ</translation>
     </message>
@@ -5203,8 +5234,60 @@
         <translation>Độ mờ đục</translation>
     </message>
     <message>
+        <source>Step back one frame (Page Up)</source>
+        <translation>Lùi một khung hình (Page Up)</translation>
+    </message>
+    <message>
+        <source>Step forward one frame (Page Down)</source>
+        <translation>Tiến một khung hình (Page Down)</translation>
+    </message>
+    <message>
         <source>Show rulers</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Go to the layer&apos;s in point</source>
+        <translation>Tới điểm đầu của lớp</translation>
+    </message>
+    <message>
+        <source>Go to the layer&apos;s out point</source>
+        <translation>Tới điểm cuối của lớp</translation>
+    </message>
+    <message>
+        <source>Add a Position keyframe</source>
+        <translation>Thêm khung hình chính Vị trí</translation>
+    </message>
+    <message>
+        <source>Add a Scale keyframe</source>
+        <translation>Thêm khung hình chính Tỷ lệ</translation>
+    </message>
+    <message>
+        <source>Add a Rotation keyframe</source>
+        <translation>Thêm khung hình chính Xoay</translation>
+    </message>
+    <message>
+        <source>Add an Opacity keyframe</source>
+        <translation>Thêm khung hình chính Độ mờ đục</translation>
+    </message>
+    <message>
+        <source>Add an Anchor point keyframe</source>
+        <translation>Thêm khung hình chính Điểm neo</translation>
+    </message>
+    <message>
+        <source>Trim the layer&apos;s in point to the playhead</source>
+        <translation>Cắt điểm đầu của lớp tại đầu phát</translation>
+    </message>
+    <message>
+        <source>Trim the layer&apos;s out point to the playhead</source>
+        <translation>Cắt điểm cuối của lớp tại đầu phát</translation>
+    </message>
+    <message>
+        <source>Move the layer so it starts at the playhead</source>
+        <translation>Di chuyển lớp để bắt đầu tại đầu phát</translation>
+    </message>
+    <message>
+        <source>Move the layer so it ends at the playhead</source>
+        <translation>Di chuyển lớp để kết thúc tại đầu phát</translation>
     </message>
     <message>
         <source>RAM preview (render to memory and play)</source>
@@ -5217,6 +5300,38 @@
     <message>
         <source>Ruler guides</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Replace voice</source>
+        <translation>Thay giọng</translation>
+    </message>
+    <message>
+        <source>Voice replaced</source>
+        <translation>Đã thay giọng</translation>
+    </message>
+    <message>
+        <source>Trim layer</source>
+        <translation>Cắt lớp</translation>
+    </message>
+    <message>
+        <source>Move layer</source>
+        <translation>Di chuyển lớp</translation>
+    </message>
+    <message>
+        <source>Put the playhead inside the layer to trim it there</source>
+        <translation>Đặt đầu phát bên trong lớp để cắt tại đó</translation>
+    </message>
+    <message>
+        <source>Sending the audio to ElevenLabs…</source>
+        <translation>Đang gửi âm thanh tới ElevenLabs…</translation>
+    </message>
+    <message>
+        <source>ElevenLabs is transcribing…</source>
+        <translation>ElevenLabs đang chép lời…</translation>
+    </message>
+    <message>
+        <source>Speaker %1</source>
+        <translation>Người nói %1</translation>
     </message>
     <message>
         <source>Solids</source>
@@ -5233,6 +5348,14 @@
     <message>
         <source>Behavior changed</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Settle</source>
+        <translation>Lắng lại</translation>
+    </message>
+    <message>
+        <source>Reverse keyframes</source>
+        <translation>Đảo ngược khung hình chính</translation>
     </message>
     <message>
         <source>Pick two or more keys of a property to reverse them</source>
@@ -5419,6 +5542,90 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Translating the captions…</source>
+        <translation>Đang dịch phụ đề…</translation>
+    </message>
+    <message>
+        <source>Could not translate the captions (no answer from the server)</source>
+        <translation>Không thể dịch phụ đề (máy chủ không phản hồi)</translation>
+    </message>
+    <message>
+        <source>Translating the captions on this computer…</source>
+        <translation>Đang dịch phụ đề trên máy tính này…</translation>
+    </message>
+    <message>
+        <source>Could not translate the captions</source>
+        <translation>Không thể dịch phụ đề</translation>
+    </message>
+    <message>
+        <source>The captions changed while they were being translated; try again</source>
+        <translation>Phụ đề đã thay đổi trong lúc dịch; hãy thử lại</translation>
+    </message>
+    <message>
+        <source>Captions (%1)</source>
+        <translation>Phụ đề (%1)</translation>
+    </message>
+    <message>
+        <source>Translate captions</source>
+        <translation>Dịch phụ đề</translation>
+    </message>
+    <message>
+        <source>Captions translated into %1</source>
+        <translation>Đã dịch phụ đề sang %1</translation>
+    </message>
+    <message>
+        <source>Edit speaker</source>
+        <translation>Sửa người nói</translation>
+    </message>
+    <message>
+        <source>No key words to highlight in these subtitles</source>
+        <translation>Không có từ khóa nào để làm nổi bật trong các phụ đề này</translation>
+    </message>
+    <message>
+        <source>Highlight key words</source>
+        <translation>Làm nổi bật từ khóa</translation>
+    </message>
+    <message>
+        <source>Key words highlighted in %1 captions</source>
+        <translation>Đã làm nổi bật từ khóa trong %1 phụ đề</translation>
+    </message>
+    <message>
+        <source>Install «Animated emojis» from Extras first</source>
+        <translation>Hãy cài «Emoji động» từ Tiện ích trước</translation>
+    </message>
+    <message>
+        <source>Emoji: %1</source>
+        <translation>Emoji: %1</translation>
+    </message>
+    <message>
+        <source>No captions with an emoji word (fuego, Dios, fiesta…)</source>
+        <translation>Không có phụ đề nào có từ ứng với emoji (lửa, Chúa, tiệc…)</translation>
+    </message>
+    <message>
+        <source>Animated emojis</source>
+        <translation>Emoji động</translation>
+    </message>
+    <message>
+        <source>Animated emojis on %1 captions</source>
+        <translation>Emoji động trên %1 phụ đề</translation>
+    </message>
+    <message>
+        <source>No hidden words with their timing to bleep</source>
+        <translation>Không có từ bị che kèm thời gian để chèn tiếng bíp</translation>
+    </message>
+    <message>
+        <source>Could not make the bleep</source>
+        <translation>Không thể tạo tiếng bíp</translation>
+    </message>
+    <message>
+        <source>Bleep swear words</source>
+        <translation>Bíp từ tục</translation>
+    </message>
+    <message>
+        <source>Bleep</source>
+        <translation>Tiếng bíp</translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5567,6 +5774,30 @@
     <message>
         <source>Select a clip with sound to enhance its voice</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Listening to the clip to write down what is said…</source>
+        <translation>Đang nghe clip để ghi lại lời nói…</translation>
+    </message>
+    <message>
+        <source>Move the other tracks</source>
+        <translation>Di chuyển các kênh khác</translation>
+    </message>
+    <message>
+        <source>Edit by text</source>
+        <translation>Sửa bằng văn bản</translation>
+    </message>
+    <message>
+        <source>Remove silences</source>
+        <translation>Xóa khoảng lặng</translation>
+    </message>
+    <message>
+        <source>Cut %1 s from the video</source>
+        <translation>Đã cắt %1 giây khỏi video</translation>
+    </message>
+    <message>
+        <source>That would remove the whole clip</source>
+        <translation>Thao tác này sẽ xóa toàn bộ clip</translation>
     </message>
     <message>
         <source>Volume</source>
@@ -5929,6 +6160,34 @@
         <translation>
             <numerusform>Đã dán %n clip</numerusform>
         </translation>
+    </message>
+    <message>
+        <source>Curved path</source>
+        <translation>Đường cong</translation>
+    </message>
+    <message>
+        <source>Straight path</source>
+        <translation>Đường thẳng</translation>
+    </message>
+    <message>
+        <source>Join Position</source>
+        <translation>Gộp vị trí</translation>
+    </message>
+    <message>
+        <source>Separate dimensions</source>
+        <translation>Tách chiều</translation>
+    </message>
+    <message>
+        <source>Shape motion path</source>
+        <translation>Tạo hình đường chuyển động</translation>
+    </message>
+    <message>
+        <source>Roving needs at least three Position keyframes</source>
+        <translation>Khung hình lưu động cần ít nhất ba khung hình chính Vị trí</translation>
+    </message>
+    <message>
+        <source>Roving keyframes</source>
+        <translation>Khung hình chính lưu động</translation>
     </message>
     <message>
         <source>Exporting…</source>
@@ -7745,18 +8004,6 @@
         <translation>Âm lượng</translation>
     </message>
     <message>
-        <source>Recommended caption length</source>
-        <translation>Độ dài phụ đề được đề xuất</translation>
-    </message>
-    <message>
-        <source>1 word per caption</source>
-        <translation>1 từ cho mỗi phụ đề</translation>
-    </message>
-    <message>
-        <source>%1 words per caption</source>
-        <translation>%1 từ cho mỗi phụ đề</translation>
-    </message>
-    <message>
         <source>Basic</source>
         <translation>Cơ bản</translation>
     </message>
@@ -7771,6 +8018,66 @@
     <message>
         <source>Fade out</source>
         <translation>Mờ dần</translation>
+    </message>
+    <message>
+        <source>Voice from text</source>
+        <translation>Giọng từ văn bản</translation>
+    </message>
+    <message>
+        <source>Edit script…</source>
+        <translation>Sửa kịch bản…</translation>
+    </message>
+    <message>
+        <source>Change the text or the voice and speak it again, in place of this audio</source>
+        <translation>Đổi văn bản hoặc giọng rồi đọc lại, thay cho âm thanh này</translation>
+    </message>
+    <message>
+        <source>Discard the voice you made?</source>
+        <translation>Bỏ giọng nói bạn đã tạo?</translation>
+    </message>
+    <message>
+        <source>Discard and go on</source>
+        <translation>Bỏ và tiếp tục</translation>
+    </message>
+    <message>
+        <source>The Voice panel has a take that is not on the timeline yet. Add it first with «Add to timeline», or discard it to start this one.</source>
+        <translation>Bảng Giọng nói có một bản thu chưa được thêm vào dòng thời gian. Hãy thêm trước bằng «Thêm vào dòng thời gian» hoặc bỏ nó để bắt đầu bản này.</translation>
+    </message>
+    <message>
+        <source>Lower the music under this voice</source>
+        <translation>Giảm nhạc dưới giọng này</translation>
+    </message>
+    <message>
+        <source>Save the voice as a file…</source>
+        <translation>Lưu giọng thành tệp…</translation>
+    </message>
+    <message>
+        <source>Save the voice</source>
+        <translation>Lưu giọng</translation>
+    </message>
+    <message>
+        <source>MP3 audio (*.mp3)</source>
+        <translation>Âm thanh MP3 (*.mp3)</translation>
+    </message>
+    <message>
+        <source>WAV audio (*.wav)</source>
+        <translation>Âm thanh WAV (*.wav)</translation>
+    </message>
+    <message>
+        <source>FLAC audio (*.flac)</source>
+        <translation>Âm thanh FLAC (*.flac)</translation>
+    </message>
+    <message>
+        <source>voice</source>
+        <translation>giọng</translation>
+    </message>
+    <message>
+        <source>Voice saved</source>
+        <translation>Đã lưu giọng</translation>
+    </message>
+    <message>
+        <source>Could not save the voice</source>
+        <translation>Không thể lưu giọng</translation>
     </message>
     <message>
         <source>Normalize loudness</source>
@@ -7821,6 +8128,22 @@
         <translation>Xoay</translation>
     </message>
     <message>
+        <source>Create captions…</source>
+        <translation>Tạo phụ đề…</translation>
+    </message>
+    <message>
+        <source>Open Subtitles to create captions from this clip&apos;s speech</source>
+        <translation>Mở Phụ đề để tạo phụ đề từ lời nói trong clip này</translation>
+    </message>
+    <message>
+        <source>Edit by text…</source>
+        <translation>Sửa bằng văn bản…</translation>
+    </message>
+    <message>
+        <source>See what is said and strike out words: the video loses those moments</source>
+        <translation>Xem lời nói và gạch bỏ từ: video mất những khoảnh khắc đó</translation>
+    </message>
+    <message>
         <source>C</source>
         <translation>C</translation>
     </message>
@@ -7859,30 +8182,6 @@
     <message>
         <source>Install AI engine first</source>
         <translation>Cài đặt công cụ AI trước</translation>
-    </message>
-    <message>
-        <source>Auto subtitles</source>
-        <translation>Phụ đề tự động</translation>
-    </message>
-    <message>
-        <source>Shorter captions are timed by splitting each phrase evenly, so they can drift slightly out of sync with the speech.</source>
-        <translation>Phụ đề ngắn hơn được tính thời gian bằng cách chia đều từng cụm từ, do đó chúng có thể hơi không đồng bộ với âm thanh.</translation>
-    </message>
-    <message>
-        <source>Creating captions… %1%</source>
-        <translation>Đang tạo phụ đề… %1%</translation>
-    </message>
-    <message>
-        <source>Create captions from speech</source>
-        <translation>Tạo phụ đề từ lời nói</translation>
-    </message>
-    <message>
-        <source>Several selected clips become one caption clip</source>
-        <translation>Một số clip được chọn sẽ trở thành một clip phụ đề</translation>
-    </message>
-    <message>
-        <source>Download speech recognition (about 670 MB)</source>
-        <translation>Tải xuống gói nhận dạng giọng nói (khoảng 670 MB)</translation>
     </message>
 </context>
 <context>
@@ -8119,7 +8418,7 @@
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Xóa</translation>
     </message>
 </context>
 <context>
@@ -13091,6 +13390,37 @@ LẦN SAU</translation>
     </message>
 </context>
 <context>
+    <name>ChatterboxTts</name>
+    <message>
+        <source>The voice model is not installed. Install the AI voice extra in Extras.</source>
+        <translation>Chưa cài mô hình giọng. Hãy cài tiện ích Giọng AI trong Tiện ích bổ sung.</translation>
+    </message>
+    <message>
+        <source>Failed to load text-to-speech model: %1</source>
+        <translation>Không tải được mô hình chuyển văn bản thành giọng nói: %1</translation>
+    </message>
+    <message>
+        <source>Speech generation failed: %1</source>
+        <translation>Tạo giọng nói thất bại: %1</translation>
+    </message>
+    <message>
+        <source>The reference voice has no audio.</source>
+        <translation>Giọng tham chiếu không có âm thanh.</translation>
+    </message>
+    <message>
+        <source>Voice encoding failed: %1</source>
+        <translation>Mã hóa giọng thất bại: %1</translation>
+    </message>
+    <message>
+        <source>Unsupported language: %1</source>
+        <translation>Ngôn ngữ không được hỗ trợ: %1</translation>
+    </message>
+    <message>
+        <source>Invalid voice conditioning.</source>
+        <translation>Điều kiện giọng không hợp lệ.</translation>
+    </message>
+</context>
+<context>
     <name>ChipScroller</name>
     <message>
         <source>Previous</source>
@@ -13451,7 +13781,7 @@ LẦN SAU</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>Áp dụng</translation>
     </message>
     <message>
         <source>Save</source>
@@ -15198,6 +15528,14 @@ LẦN SAU</translation>
         <translation>Chỉ mã hóa phạm vi Vào/Ra được đánh dấu thay vì toàn bộ dòng thời gian</translation>
     </message>
     <message>
+        <source>Include the captions (inside the video and as .srt)</source>
+        <translation>Kèm phụ đề (trong video và dạng .srt)</translation>
+    </message>
+    <message>
+        <source>The captions as a track inside the video and as a file next to it, with the same name: players and YouTube can turn them on and off</source>
+        <translation>Phụ đề dưới dạng một kênh trong video và một tệp cùng tên bên cạnh: trình phát và YouTube có thể bật tắt chúng</translation>
+    </message>
+    <message>
         <source>Saves what you see in the preview. Pick a size — the picture shape stays the same.</source>
         <translation>Lưu những gì bạn nhìn thấy trong bản xem trước. Chọn kích thước - hình dạng ảnh vẫn giữ nguyên.</translation>
     </message>
@@ -15992,7 +16330,7 @@ LẦN SAU</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Đóng</translation>
     </message>
     <message>
         <source>Replace</source>
@@ -16728,6 +17066,10 @@ LẦN SAU</translation>
         <translation>Độ mờ mặt nạ</translation>
     </message>
     <message>
+        <source>Pos</source>
+        <translation>VT</translation>
+    </message>
+    <message>
         <source>Layer</source>
         <translation type="unfinished"></translation>
     </message>
@@ -16752,12 +17094,40 @@ LẦN SAU</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Value graph</source>
-        <translation type="unfinished"></translation>
+        <source>Graph type: value. Click: speed graph</source>
+        <translation>Loại đồ thị: giá trị. Nhấp: đồ thị tốc độ</translation>
     </message>
     <message>
-        <source>Speed graph</source>
-        <translation type="unfinished"></translation>
+        <source>Graph type: speed. Click: automatic</source>
+        <translation>Loại đồ thị: tốc độ. Nhấp: tự động</translation>
+    </message>
+    <message>
+        <source>Graph type: automatic (speed for a joined Position, value for the rest). Click: value graph</source>
+        <translation>Loại đồ thị: tự động (tốc độ cho Vị trí gộp chiều, giá trị cho phần còn lại). Nhấp: đồ thị giá trị</translation>
+    </message>
+    <message>
+        <source>Fit the whole curve in view (Ctrl+wheel zooms the values, Alt+wheel the time)</source>
+        <translation>Xem toàn bộ đường cong (Ctrl+cuộn phóng giá trị, Alt+cuộn phóng thời gian)</translation>
+    </message>
+    <message>
+        <source>Zoom to the picked keyframes</source>
+        <translation>Phóng tới các khung hình chính đã chọn</translation>
+    </message>
+    <message>
+        <source>Show only the curve being edited</source>
+        <translation>Chỉ hiện đường cong đang sửa</translation>
+    </message>
+    <message>
+        <source>Show the other properties&apos; curves too</source>
+        <translation>Hiện cả đường cong của các thuộc tính khác</translation>
+    </message>
+    <message>
+        <source>Graph under its layer again</source>
+        <translation>Đưa đồ thị về dưới lớp của nó</translation>
+    </message>
+    <message>
+        <source>Graph over the whole timeline, as After Effects&apos; Graph Editor</source>
+        <translation>Đồ thị trên toàn bộ dòng thời gian, như Graph Editor của After Effects</translation>
     </message>
     <message>
         <source>Separate dimensions: key X and Y of Position apart</source>
@@ -16826,6 +17196,10 @@ LẦN SAU</translation>
         <translation>Di chuyển keyframe</translation>
     </message>
     <message>
+        <source>Transform keyframes</source>
+        <translation>Biến đổi khung hình chính</translation>
+    </message>
+    <message>
         <source>Edit keyframe curve</source>
         <translation>Chỉnh sửa đường cong keyframe</translation>
     </message>
@@ -16849,8 +17223,20 @@ LẦN SAU</translation>
         <translation>Di chuyển các keyframe</translation>
     </message>
     <message>
+        <source>Keyframe easing changed</source>
+        <translation>Đã đổi độ mượt khung hình chính</translation>
+    </message>
+    <message>
+        <source>Paste keyframes</source>
+        <translation>Dán khung hình chính</translation>
+    </message>
+    <message>
+        <source>Remove keyframes</source>
+        <translation>Xóa khung hình chính</translation>
+    </message>
+    <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>Áp dụng</translation>
     </message>
     <message>
         <source>50% packs the picked keys into half the time, 200% spreads them over twice. The first one stays where it is. Alt + dragging the first or last key does the same by hand.</source>
@@ -16885,8 +17271,28 @@ LẦN SAU</translation>
         <translation>Chỉnh sửa đường cong…</translation>
     </message>
     <message>
+        <source>Curved path (auto Bezier)</source>
+        <translation>Đường cong (Bezier tự động)</translation>
+    </message>
+    <message>
+        <source>Straight path</source>
+        <translation>Đường thẳng</translation>
+    </message>
+    <message>
+        <source>Roving (one speed along the path)</source>
+        <translation>Lưu động (một tốc độ trên đường đi)</translation>
+    </message>
+    <message>
+        <source>Separate dimensions (X and Y apart)</source>
+        <translation>Tách chiều (X và Y riêng)</translation>
+    </message>
+    <message>
+        <source>Join Position (one path)</source>
+        <translation>Gộp vị trí (một đường đi)</translation>
+    </message>
+    <message>
         <source>Reverse keyframes</source>
-        <translation type="unfinished"></translation>
+        <translation>Đảo ngược khung hình chính</translation>
     </message>
     <message>
         <source>Stretch keyframes…</source>
@@ -16913,7 +17319,7 @@ LẦN SAU</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>Áp dụng</translation>
     </message>
     <message>
         <source>Speed in units per second. Influence is how far the handle reaches towards the next key: more is a softer ease.</source>
@@ -16925,7 +17331,7 @@ LẦN SAU</translation>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>Tốc độ</translation>
     </message>
     <message>
         <source>Influence</source>
@@ -17119,6 +17525,21 @@ LẦN SAU</translation>
     <message>
         <source>720p</source>
         <translation>720p</translation>
+    </message>
+</context>
+<context>
+    <name>LocalTranscription</name>
+    <message>
+        <source>Finding speech…</source>
+        <translation>Đang tìm giọng nói…</translation>
+    </message>
+    <message>
+        <source>Timing words…</source>
+        <translation>Đang căn thời gian từng từ…</translation>
+    </message>
+    <message>
+        <source>Telling speakers apart…</source>
+        <translation>Đang phân biệt người nói…</translation>
     </message>
 </context>
 <context>
@@ -17511,6 +17932,26 @@ LẦN SAU</translation>
     <message>
         <source>Your example is ready. Try this:</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>What is the video for?</source>
+        <translation>Video này dùng cho gì?</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Hủy</translation>
+    </message>
+    <message>
+        <source>The template is fitted to the shape of your video.</source>
+        <translation>Mẫu sẽ khớp với khung hình video của bạn.</translation>
+    </message>
+    <message>
+        <source>Short (vertical 9:16)</source>
+        <translation>Short (dọc 9:16)</translation>
+    </message>
+    <message>
+        <source>Video (horizontal 16:9)</source>
+        <translation>Video (ngang 16:9)</translation>
     </message>
     <message>
         <source>Click a clip on the timeline to change it on the right.</source>
@@ -19344,7 +19785,7 @@ LẦN SAU</translation>
     <name>MotionPathOverlay</name>
     <message>
         <source>Shape motion path</source>
-        <translation type="unfinished"></translation>
+        <translation>Tạo hình đường chuyển động</translation>
     </message>
     <message>
         <source>Move keyframe</source>
@@ -20664,6 +21105,14 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Tùy chọn viền: không, màu đặc, chuyển sắc tuyến tính hoặc tròn, chế độ hòa trộn và độ mờ đục</translation>
     </message>
     <message>
+        <source>Fill colour. Right-click: no fill (or back on)</source>
+        <translation>Màu tô. Nhấp chuột phải: không tô (hoặc bật lại)</translation>
+    </message>
+    <message>
+        <source>Stroke colour. Right-click: no stroke (or back on)</source>
+        <translation>Màu viền. Nhấp chuột phải: không viền (hoặc bật lại)</translation>
+    </message>
+    <message>
         <source>Selection</source>
         <translation type="unfinished"></translation>
     </message>
@@ -21498,7 +21947,7 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>Áp dụng</translation>
     </message>
     <message>
         <source>What After Effects does with expressions, without writing code. They add up: the loop, then the constant speed, then the wiggle.</source>
@@ -21573,8 +22022,8 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>value, time, wiggle(freq, amount), Math, and thisComp.layer(&quot;Name&quot;).transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. The last line is the result.</source>
-        <translation type="unfinished"></translation>
+        <source>value, time, index, thisLayer, wiggle(freq, amount), linear / ease / easeIn / easeOut(t, tMin, tMax, a, b), clamp, valueAtTime(t), velocity, speed, Math, and thisComp.layer(&quot;Name&quot;).transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. The last line is the result.</source>
+        <translation>value, time, index, thisLayer, wiggle(freq, amount), linear / ease / easeIn / easeOut(t, tMin, tMax, a, b), clamp, valueAtTime(t), velocity, speed, Math, và thisComp.layer(&quot;Name&quot;).transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. Dòng cuối cùng là kết quả.</translation>
     </message>
 </context>
 <context>
@@ -23271,14 +23720,6 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Nhà cung cấp đám mây</translation>
     </message>
     <message>
-        <source>Transcription (Scribe), voiceover, sound effects</source>
-        <translation>Phiên âm (Scribe), lồng tiếng, hiệu ứng âm thanh</translation>
-    </message>
-    <message>
-        <source>Voiceover</source>
-        <translation>Lồng tiếng</translation>
-    </message>
-    <message>
         <source>No key</source>
         <translation>Không có khóa</translation>
     </message>
@@ -23477,6 +23918,14 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Keys are stored unencrypted in Flip Studio&apos;s settings. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
         <translation>Khóa được lưu trữ không được mã hóa trong cài đặt của Flip Studio. ELEVENLABS_API_KEY và FISH_API_KEY trong môi trường được ưu tiên. Việc sử dụng được tính phí vào tài khoản của riêng bạn.</translation>
+    </message>
+    <message>
+        <source>Transcription (Scribe); voiceover and sound effects through AI agents</source>
+        <translation>Phiên âm (Scribe); lồng tiếng và hiệu ứng âm thanh qua các tác tử AI</translation>
+    </message>
+    <message>
+        <source>Voiceover through AI agents</source>
+        <translation>Lồng tiếng qua các tác tử AI</translation>
     </message>
     <message>
         <source>Needed before Flip Studio or a connected agent can transcribe or generate audio with this service</source>
@@ -23972,7 +24421,7 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Xóa</translation>
     </message>
 </context>
 <context>
@@ -25015,6 +25464,26 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Tìm phím tắt</translation>
     </message>
     <message>
+        <source>Shortcut set</source>
+        <translation>Bộ phím tắt</translation>
+    </message>
+    <message>
+        <source>Flip</source>
+        <translation>Flip</translation>
+    </message>
+    <message>
+        <source>Flip&apos;s own shortcuts</source>
+        <translation>Phím tắt riêng của Flip</translation>
+    </message>
+    <message>
+        <source>After Effects</source>
+        <translation>After Effects</translation>
+    </message>
+    <message>
+        <source>As in After Effects: J/K go between keyframes, P/S/R/T/A show one property, U/UU, B/N the work area, I/O the layer&apos;s ends, [ ] and Alt+[ ] move and trim the layer at the playhead</source>
+        <translation>Như After Effects: J/K giữa các khung hình chính, P/S/R/T/A một thuộc tính, U/UU, B/N vùng làm việc, I/O hai đầu lớp, [ ] và Alt+[ ] di chuyển và cắt lớp tại đầu phát</translation>
+    </message>
+    <message>
         <source>Click a shortcut, then press the keys. Esc cancels, Backspace clears.</source>
         <translation>Nhấp chuột vào phím tắt, sau đó nhấn các phím tương ứng. Phím Esc để hủy, phím Backspace để xóa.</translation>
     </message>
@@ -25099,6 +25568,49 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     </message>
 </context>
 <context>
+    <name>SilenceReviewWindow</name>
+    <message>
+        <source>Remove silences</source>
+        <translation>Xóa khoảng lặng</translation>
+    </message>
+    <message>
+        <source>Untick what you want to keep. Click a row to hear it.</source>
+        <translation>Bỏ chọn những gì bạn muốn giữ. Bấm vào một dòng để nghe.</translation>
+    </message>
+    <message>
+        <source>Pauses longer than</source>
+        <translation>Khoảng dừng dài hơn</translation>
+    </message>
+    <message>
+        <source>Also filler words (eh, mmm)</source>
+        <translation>Cả từ đệm (ờ, ừm)</translation>
+    </message>
+    <message>
+        <source>Pause</source>
+        <translation>Khoảng dừng</translation>
+    </message>
+    <message>
+        <source>Listen</source>
+        <translation>Nghe</translation>
+    </message>
+    <message>
+        <source>No pauses this long in the clip.</source>
+        <translation>Không có khoảng dừng nào dài như vậy trong clip.</translation>
+    </message>
+    <message>
+        <source>%1 of %2 · %3 s</source>
+        <translation>%1 / %2 · %3 giây</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Hủy</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>Xóa</translation>
+    </message>
+</context>
+<context>
     <name>SolidDialog</name>
     <message>
         <source>Solid settings</source>
@@ -25110,7 +25622,7 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>Áp dụng</translation>
     </message>
     <message>
         <source>Solid</source>
@@ -25195,10 +25707,6 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Đã lưu giọng nói</translation>
     </message>
     <message>
-        <source>Turn a script into speech with a built-in or cloned voice. It is generated on this device and added at the playhead.</source>
-        <translation>Biến kịch bản thành giọng nói bằng giọng có sẵn hoặc giọng nhân bản. Giọng được tạo trên thiết bị này và thêm vào tại đầu phát.</translation>
-    </message>
-    <message>
         <source>Speech generation runs on this device and needs the voice model.</source>
         <translation>Việc tạo giọng nói chạy trên thiết bị này và cần mô hình giọng nói.</translation>
     </message>
@@ -25215,20 +25723,8 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Cần để tạo giọng nói</translation>
     </message>
     <message>
-        <source>Type what the voice should say</source>
-        <translation>Nhập nội dung giọng nói sẽ đọc</translation>
-    </message>
-    <message>
         <source>%1 characters, about %2 s</source>
         <translation>%1 ký tự, khoảng %2 giây</translation>
-    </message>
-    <message>
-        <source>Speech longer than 30 seconds often ends in gibberish or silence. Split the script into shorter parts.</source>
-        <translation>Giọng nói dài hơn 30 giây thường kết thúc bằng âm vô nghĩa hoặc im lặng. Hãy chia kịch bản thành các phần ngắn hơn.</translation>
-    </message>
-    <message>
-        <source>Voice</source>
-        <translation>Giọng nói</translation>
     </message>
     <message>
         <source>Stop</source>
@@ -25283,10 +25779,6 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Đang học giọng…</translation>
     </message>
     <message>
-        <source>Language</source>
-        <translation>Ngôn ngữ</translation>
-    </message>
-    <message>
         <source>Expressiveness</source>
         <translation>Độ biểu cảm</translation>
     </message>
@@ -25297,10 +25789,6 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Generate speech</source>
         <translation>Tạo giọng nói</translation>
-    </message>
-    <message>
-        <source>Generate speech and add it at the playhead</source>
-        <translation>Tạo giọng nói và thêm vào tại đầu phát</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -25343,6 +25831,106 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Tất cả tệp (*)</translation>
     </message>
     <message>
+        <source>Voice from your text</source>
+        <translation>Giọng từ văn bản của bạn</translation>
+    </message>
+    <message>
+        <source>Editing the script of a voice on the timeline: the new take replaces its audio.</source>
+        <translation>Đang sửa kịch bản của một giọng trên dòng thời gian: bản thu mới sẽ thay âm thanh của nó.</translation>
+    </message>
+    <message>
+        <source>Type or paste the script. [pause 1s] adds a silence.</source>
+        <translation>Nhập hoặc dán kịch bản. [pause 1s] thêm một khoảng lặng.</translation>
+    </message>
+    <message>
+        <source>Import script…</source>
+        <translation>Nhập kịch bản…</translation>
+    </message>
+    <message>
+        <source>A .txt, .md or Word (.docx) file</source>
+        <translation>Tệp .txt, .md hoặc Word (.docx)</translation>
+    </message>
+    <message>
+        <source>Import a script</source>
+        <translation>Nhập một kịch bản</translation>
+    </message>
+    <message>
+        <source>Scripts (*.txt *.md *.docx)</source>
+        <translation>Kịch bản (*.txt *.md *.docx)</translation>
+    </message>
+    <message>
+        <source>That file has no text that can be read</source>
+        <translation>Tệp đó không có văn bản đọc được</translation>
+    </message>
+    <message>
+        <source>Voice: %1</source>
+        <translation>Giọng: %1</translation>
+    </message>
+    <message>
+        <source>A dialogue: a voice for each person</source>
+        <translation>Hội thoại: mỗi người một giọng</translation>
+    </message>
+    <message>
+        <source>Generate again</source>
+        <translation>Tạo lại</translation>
+    </message>
+    <message>
+        <source>Speak the script; you hear it before it goes on the timeline</source>
+        <translation>Đọc kịch bản; bạn nghe trước khi đưa vào dòng thời gian</translation>
+    </message>
+    <message>
+        <source>Listen to the whole take</source>
+        <translation>Nghe cả bản thu</translation>
+    </message>
+    <message>
+        <source>Take: %1 s</source>
+        <translation>Bản thu: %1 giây</translation>
+    </message>
+    <message>
+        <source>Listen to this sentence</source>
+        <translation>Nghe câu này</translation>
+    </message>
+    <message>
+        <source>Speak this sentence again</source>
+        <translation>Đọc lại câu này</translation>
+    </message>
+    <message>
+        <source>Also create its captions</source>
+        <translation>Tạo cả phụ đề</translation>
+    </message>
+    <message>
+        <source>Replace the voice on the timeline</source>
+        <translation>Thay giọng trên dòng thời gian</translation>
+    </message>
+    <message>
+        <source>Add to the timeline</source>
+        <translation>Thêm vào dòng thời gian</translation>
+    </message>
+    <message>
+        <source>Discard</source>
+        <translation>Bỏ</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation>Tùy chọn</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>Tốc độ</translation>
+    </message>
+    <message>
+        <source>%1×</source>
+        <translation>%1×</translation>
+    </message>
+    <message>
+        <source>Pitch</source>
+        <translation>Cao độ</translation>
+    </message>
+    <message>
+        <source>Stop preparing the voice</source>
+        <translation>Dừng chuẩn bị giọng</translation>
+    </message>
+    <message>
         <source>Name</source>
         <translation>Tên</translation>
     </message>
@@ -25363,8 +25951,8 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>%1 s</translation>
     </message>
     <message>
-        <source>Record 5 to 20 seconds in a quiet room. Read this aloud in your natural voice:</source>
-        <translation>Ghi âm từ 5 đến 20 giây ở nơi yên tĩnh. Đọc to đoạn này bằng giọng tự nhiên của bạn:</translation>
+        <source>Record 3 to 20 seconds in a quiet room (it stops by itself at 20). Read this aloud in your natural voice:</source>
+        <translation>Ghi âm 3 đến 20 giây trong phòng yên tĩnh (tự dừng ở giây 20). Đọc to đoạn này bằng giọng tự nhiên của bạn:</translation>
     </message>
     <message>
         <source>The quick brown fox jumps over the lazy dog, while a gentle breeze moves through the quiet garden and the evening light fades slowly.</source>
@@ -25377,6 +25965,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Start recording</source>
         <translation>Bắt đầu ghi âm</translation>
+    </message>
+    <message>
+        <source>20 s: done, save the voice</source>
+        <translation>20 giây: xong, lưu giọng</translation>
     </message>
     <message>
         <source>I have the right to use this person&apos;s voice</source>
@@ -25584,7 +26176,7 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>Áp dụng</translation>
     </message>
     <message>
         <source>Apply letter by letter</source>
@@ -25600,7 +26192,7 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished"></translation>
+        <translation>Tất cả</translation>
     </message>
     <message>
         <source>How hard it squashes, stretches and bends</source>
@@ -25616,7 +26208,7 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>Tốc độ</translation>
     </message>
     <message>
         <source>Faster makes it shorter, slower makes it longer</source>
@@ -25915,6 +26507,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Subtitles from the voice, on your computer, without internet</source>
         <translation>Phụ đề từ giọng nói, ngay trên máy tính, không cần internet</translation>
+    </message>
+    <message>
+        <source>A simpler version in the browser: it doesn&apos;t have every tool of this app and gets no new ones. Everything new comes to this app.</source>
+        <translation>Phiên bản đơn giản hơn trên trình duyệt: không có đủ công cụ của ứng dụng này và không nhận tính năng mới. Mọi thứ mới đều có trên ứng dụng này.</translation>
     </message>
     <message>
         <source>Click to sign in</source>
@@ -26506,12 +27102,12 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>%1 phụ đề</translation>
     </message>
     <message>
-        <source>Play the timeline — the line on screen lights up. Tap any line to edit it.</source>
-        <translation>Phát dòng thời gian — dòng chữ trên màn hình sẽ sáng lên. Nhấn vào dòng bất kỳ để chỉnh sửa.</translation>
+        <source>Translate</source>
+        <translation>Dịch</translation>
     </message>
     <message>
-        <source>Play the timeline — the line on screen lights up. Click any line to jump to it and edit it below.</source>
-        <translation>Phát dòng thời gian — dòng trên màn hình sẽ sáng lên. Nhấp vào bất kỳ dòng nào để chuyển đến vị trí đó và chỉnh sửa bên dưới.</translation>
+        <source>The captions in another language, as a second line above (bilingual)</source>
+        <translation>Phụ đề bằng ngôn ngữ khác, làm dòng thứ hai phía trên (song ngữ)</translation>
     </message>
     <message>
         <source>Import</source>
@@ -26544,6 +27140,18 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Offset the exported captions by this clip&apos;s start so they match the exported video</source>
         <translation>Điều chỉnh vị trí phụ đề xuất ra sao cho khớp với vị trí bắt đầu của đoạn video này</translation>
+    </message>
+    <message>
+        <source>Translating…</source>
+        <translation>Đang dịch…</translation>
+    </message>
+    <message>
+        <source>Captions that will change: %1</source>
+        <translation>Số phụ đề sẽ đổi: %1</translation>
+    </message>
+    <message>
+        <source>+ %1 more</source>
+        <translation>+ %1 nữa</translation>
     </message>
     <message>
         <source>(empty)</source>
@@ -26586,8 +27194,24 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Đặt thời gian kết thúc là thời gian hiện tại</translation>
     </message>
     <message>
-        <source>Delete caption</source>
-        <translation>Xóa phụ đề</translation>
+        <source>Style: same as the clip</source>
+        <translation>Kiểu: giống clip</translation>
+    </message>
+    <message>
+        <source>Like the clip</source>
+        <translation>Như clip</translation>
+    </message>
+    <message>
+        <source>Top</source>
+        <translation>Trên</translation>
+    </message>
+    <message>
+        <source>Middle</source>
+        <translation>Giữa</translation>
+    </message>
+    <message>
+        <source>Where this caption sits on screen</source>
+        <translation>Vị trí phụ đề này trên màn hình</translation>
     </message>
     <message>
         <source>At %1</source>
@@ -26604,6 +27228,30 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Emojis</source>
         <translation>Emoji</translation>
+    </message>
+    <message>
+        <source>Too short to read</source>
+        <translation>Quá ngắn để đọc</translation>
+    </message>
+    <message>
+        <source>On screen too long</source>
+        <translation>Hiện quá lâu</translation>
+    </message>
+    <message>
+        <source>Too fast to read</source>
+        <translation>Quá nhanh để đọc</translation>
+    </message>
+    <message>
+        <source>Move all captions</source>
+        <translation>Dời tất cả</translation>
+    </message>
+    <message>
+        <source>All captions 0.1 s earlier</source>
+        <translation>Tất cả sớm 0,1 giây</translation>
+    </message>
+    <message>
+        <source>All captions 0.1 s later</source>
+        <translation>Tất cả trễ 0,1 giây</translation>
     </message>
     <message>
         <source>Replace these captions from an SRT, WebVTT or ASS file</source>
@@ -26634,6 +27282,30 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Thêm emoji vào cuối các phụ đề có nhắc đến từ khóa (fuego 🔥, fiesta 🎉)</translation>
     </message>
     <message>
+        <source>Animated</source>
+        <translation>Động</translation>
+    </message>
+    <message>
+        <source>An animated emoji above each caption that mentions one (fuego, Dios, fiesta…)</source>
+        <translation>Một emoji động phía trên mỗi phụ đề có nhắc tới nó (lửa, Chúa, tiệc…)</translation>
+    </message>
+    <message>
+        <source>Bleep</source>
+        <translation>Bíp</translation>
+    </message>
+    <message>
+        <source>A beep over each hidden swear word, with the voice muted under it</source>
+        <translation>Tiếng bíp trên mỗi từ tục bị che, tắt tiếng giọng nói bên dưới</translation>
+    </message>
+    <message>
+        <source>Key words</source>
+        <translation>Từ khóa</translation>
+    </message>
+    <message>
+        <source>Highlight the key word of each caption in colour (a number, a name, what matters)</source>
+        <translation>Tô màu từ khóa của mỗi phụ đề (một con số, một cái tên, điều quan trọng)</translation>
+    </message>
+    <message>
         <source>Clean up</source>
         <translation>Dọn dẹp</translation>
     </message>
@@ -26648,6 +27320,70 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Fix a word in every caption at once</source>
         <translation>Sửa một từ trong mọi phụ đề cùng lúc</translation>
+    </message>
+    <message>
+        <source>Spelling</source>
+        <translation>Chính tả</translation>
+    </message>
+    <message>
+        <source>Check the spelling of every caption, one word at a time</source>
+        <translation>Kiểm tra chính tả mọi phụ đề, từng từ một</translation>
+    </message>
+    <message>
+        <source>Speakers</source>
+        <translation>Người nói</translation>
+    </message>
+    <message>
+        <source>File and timing</source>
+        <translation>Tệp và thời gian</translation>
+    </message>
+    <message>
+        <source>Words to check: %1</source>
+        <translation>Từ cần kiểm tra: %1</translation>
+    </message>
+    <message>
+        <source>No spelling mistakes found.</source>
+        <translation>Không tìm thấy lỗi chính tả.</translation>
+    </message>
+    <message>
+        <source>Remove repeated word</source>
+        <translation>Xóa từ lặp lại</translation>
+    </message>
+    <message>
+        <source>No suggestions: fix it in the text box.</source>
+        <translation>Không có gợi ý: hãy sửa trong ô văn bản.</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>Đóng</translation>
+    </message>
+    <message>
+        <source>Without an account they are translated on this computer (a little slower).</source>
+        <translation>Khi không có tài khoản, chúng được dịch trên máy tính này (chậm hơn một chút).</translation>
+    </message>
+    <message>
+        <source>Sign in with Google to translate captions, or install the Offline translation extra</source>
+        <translation>Đăng nhập bằng Google để dịch phụ đề, hoặc cài tiện ích bổ sung Dịch ngoại tuyến</translation>
+    </message>
+    <message>
+        <source>Ignore</source>
+        <translation>Bỏ qua</translation>
+    </message>
+    <message>
+        <source>Nothing to change in these captions.</source>
+        <translation>Không có gì để thay đổi trong các phụ đề này.</translation>
+    </message>
+    <message>
+        <source>(removed)</source>
+        <translation>(bị xóa)</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Hủy</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>Áp dụng</translation>
     </message>
     <message>
         <source>Find (e.g. jesus)</source>
@@ -26713,6 +27449,38 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <source>Tip: write a word between asterisks, like *faith*, to highlight it in colour.</source>
         <translation>Mẹo: viết một từ giữa hai dấu sao, như *niềm tin*, để tô màu nổi bật.</translation>
     </message>
+    <message>
+        <source>One frame earlier</source>
+        <translation>Sớm một khung hình</translation>
+    </message>
+    <message>
+        <source>One frame later</source>
+        <translation>Trễ một khung hình</translation>
+    </message>
+    <message>
+        <source>Split</source>
+        <translation>Tách</translation>
+    </message>
+    <message>
+        <source>Split this caption at the playhead</source>
+        <translation>Tách phụ đề này tại đầu phát</translation>
+    </message>
+    <message>
+        <source>Join</source>
+        <translation>Nối</translation>
+    </message>
+    <message>
+        <source>Join this caption with the next one</source>
+        <translation>Nối phụ đề này với phụ đề sau</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete this caption</source>
+        <translation>Xóa phụ đề này</translation>
+    </message>
 </context>
 <context>
     <name>SubtitleProgressDialog</name>
@@ -26735,18 +27503,6 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
 </context>
 <context>
     <name>SubtitlesTab</name>
-    <message>
-        <source>Subtitle track — one clip holds many timed captions. Place it on the timeline, trim its length, then add caption lines at each moment in the clip panel.</source>
-        <translation>Track phụ đề — một clip chứa nhiều phụ đề theo thời gian. Đặt nó trên dòng thời gian, cắt bớt độ dài của nó, sau đó thêm các dòng phụ đề vào từng thời điểm trong bảng clip.</translation>
-    </message>
-    <message>
-        <source>Add subtitle clip</source>
-        <translation>Thêm phụ đề clip</translation>
-    </message>
-    <message>
-        <source>Import subtitle file</source>
-        <translation>Nhập tệp phụ đề</translation>
-    </message>
     <message>
         <source>Import Subtitles</source>
         <translation>Nhập phụ đề</translation>
@@ -26772,20 +27528,48 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Tất cả tệp (*)</translation>
     </message>
     <message>
-        <source>Add auto caption</source>
-        <translation>Thêm phụ đề tự động</translation>
-    </message>
-    <message>
-        <source>Creates captions from the speech in the selected clip.</source>
-        <translation>Tạo phụ đề từ lời thoại trong đoạn video đã chọn.</translation>
-    </message>
-    <message>
         <source>Select a video or audio clip on the timeline first.</source>
         <translation>Trước tiên, hãy chọn một đoạn video hoặc âm thanh trên dòng thời gian.</translation>
     </message>
     <message>
+        <source>On this computer</source>
+        <translation>Trên máy này</translation>
+    </message>
+    <message>
+        <source>In the cloud</source>
+        <translation>Trên đám mây</translation>
+    </message>
+    <message>
+        <source>ElevenLabs Scribe: the audio is sent to ElevenLabs with your key</source>
+        <translation>ElevenLabs Scribe: âm thanh được gửi tới ElevenLabs bằng khóa của bạn</translation>
+    </message>
+    <message>
+        <source>Hard words: names, brands… (separated by commas)</source>
+        <translation>Từ khó: tên riêng, thương hiệu… (cách nhau bằng dấu phẩy)</translation>
+    </message>
+    <message>
+        <source>Style of the selected captions</source>
+        <translation>Kiểu của phụ đề đã chọn</translation>
+    </message>
+    <message>
+        <source>Two lines per caption</source>
+        <translation>Hai dòng mỗi phụ đề</translation>
+    </message>
+    <message>
+        <source>Hide swear words (m*****)</source>
+        <translation>Ẩn từ tục tĩu (đ**)</translation>
+    </message>
+    <message>
         <source>Shorter captions are timed by splitting each phrase evenly, so they can drift slightly out of sync with the speech.</source>
         <translation>Phụ đề ngắn hơn được tính thời gian bằng cách chia đều từng cụm từ, do đó chúng có thể hơi không đồng bộ với âm thanh.</translation>
+    </message>
+    <message>
+        <source>Captions from the voice</source>
+        <translation>Phụ đề từ giọng nói</translation>
+    </message>
+    <message>
+        <source>Create captions</source>
+        <translation>Tạo phụ đề</translation>
     </message>
     <message>
         <source>Create captions from the selected clips&apos; speech — several clips become one caption clip</source>
@@ -26818,6 +27602,38 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Needed for auto captions from speech</source>
         <translation>Cần thiết cho việc tạo phụ đề tự động từ giọng nói</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation>Tùy chọn</translation>
+    </message>
+    <message>
+        <source>Tell the speakers apart (a colour for each)</source>
+        <translation>Phân biệt người nói (mỗi người một màu)</translation>
+    </message>
+    <message>
+        <source>Highlight key words in colour</source>
+        <translation>Tô màu từ khóa</translation>
+    </message>
+    <message>
+        <source>Show fewer</source>
+        <translation>Thu gọn</translation>
+    </message>
+    <message>
+        <source>See all styles (%1)</source>
+        <translation>Xem tất cả kiểu (%1)</translation>
+    </message>
+    <message>
+        <source>Write by hand</source>
+        <translation>Viết tay</translation>
+    </message>
+    <message>
+        <source>An empty caption clip at the playhead: write each line in the clip panel</source>
+        <translation>Một clip phụ đề trống tại đầu phát: viết từng dòng trong bảng của clip</translation>
+    </message>
+    <message>
+        <source>Import file</source>
+        <translation>Nhập tệp</translation>
     </message>
     <message>
         <source>Recommended caption length</source>
@@ -27523,6 +28339,41 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     </message>
 </context>
 <context>
+    <name>TextEditWindow</name>
+    <message>
+        <source>Edit by text</source>
+        <translation>Sửa bằng văn bản</translation>
+    </message>
+    <message>
+        <source>Click the words to take out (Shift + click for a stretch). Double click to hear one.</source>
+        <translation>Bấm vào các từ muốn bỏ (Shift + bấm để chọn một đoạn). Bấm đúp để nghe.</translation>
+    </message>
+    <message>
+        <source>No words found in this clip.</source>
+        <translation>Không tìm thấy từ nào trong clip này.</translation>
+    </message>
+    <message>
+        <source>Listening to the clip to write down what is said… %1%</source>
+        <translation>Đang nghe clip để ghi lại lời nói… %1%</translation>
+    </message>
+    <message>
+        <source>The first time takes a while; then it opens at once.</source>
+        <translation>Lần đầu sẽ mất một lúc; sau đó mở ngay lập tức.</translation>
+    </message>
+    <message>
+        <source>%1 words · %2 s</source>
+        <translation>%1 từ · %2 giây</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Hủy</translation>
+    </message>
+    <message>
+        <source>Cut</source>
+        <translation>Cắt</translation>
+    </message>
+</context>
+<context>
     <name>TextEffects</name>
     <message>
         <source>Shine sweep</source>
@@ -28018,6 +28869,26 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>These letters go back to the style of the whole text</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Read aloud…</source>
+        <translation>Đọc to…</translation>
+    </message>
+    <message>
+        <source>Turn this text into a voice that starts with it</source>
+        <translation>Biến văn bản này thành giọng bắt đầu cùng nó</translation>
+    </message>
+    <message>
+        <source>Discard the voice you made?</source>
+        <translation>Bỏ giọng nói bạn đã tạo?</translation>
+    </message>
+    <message>
+        <source>Discard and go on</source>
+        <translation>Bỏ và tiếp tục</translation>
+    </message>
+    <message>
+        <source>The Voice panel has a take that is not on the timeline yet. Add it first with «Add to timeline», or discard it to start this one.</source>
+        <translation>Bảng Giọng nói có một bản thu chưa được thêm vào dòng thời gian. Hãy thêm trước bằng «Thêm vào dòng thời gian» hoặc bỏ nó để bắt đầu bản này.</translation>
     </message>
     <message>
         <source>Bold</source>
@@ -30159,6 +31030,18 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
 <context>
     <name>TimelinePanel</name>
     <message>
+        <source>Move work area</source>
+        <translation>Di chuyển vùng làm việc</translation>
+    </message>
+    <message>
+        <source>Work area: drag to move it</source>
+        <translation>Vùng làm việc: kéo để di chuyển</translation>
+    </message>
+    <message>
+        <source>Work area: drag to change where it starts or ends</source>
+        <translation>Vùng làm việc: kéo để đổi điểm bắt đầu hoặc kết thúc</translation>
+    </message>
+    <message>
         <source>Proxy</source>
         <translation>Proxy</translation>
     </message>
@@ -31001,7 +31884,7 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     </message>
     <message>
         <source>Remove keyframes</source>
-        <translation type="unfinished"></translation>
+        <translation>Xóa khung hình chính</translation>
     </message>
     <message>
         <source>Stop animating (removes its keyframes)</source>
@@ -31057,7 +31940,7 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     </message>
     <message>
         <source>Separate dimensions</source>
-        <translation type="unfinished"></translation>
+        <translation>Tách chiều</translation>
     </message>
     <message>
         <source>Behavior…</source>
@@ -31069,7 +31952,7 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Xóa</translation>
     </message>
     <message>
         <source>The clip keeps the value it has at the playhead. You can undo afterwards.</source>
@@ -32241,7 +33124,11 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <name>TtsController</name>
     <message>
         <source>Loading voice model…</source>
-        <translation type="unfinished"></translation>
+        <translation>Đang tải mô hình giọng…</translation>
+    </message>
+    <message>
+        <source>No speech was produced</source>
+        <translation>Không tạo được giọng nói nào</translation>
     </message>
     <message>
         <source>Install the voice model first</source>
@@ -32256,16 +33143,62 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Generating speech…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Cancelled</source>
         <translation>Đã hủy bỏ</translation>
     </message>
     <message>
+        <source>Speaking sentence %1 of %2…</source>
+        <translation>Đang đọc câu %1/%2…</translation>
+    </message>
+    <message>
+        <source>Sentence %1 could not be spoken: %2</source>
+        <translation>Không đọc được câu %1: %2</translation>
+    </message>
+    <message>
+        <source>Putting the take together…</source>
+        <translation>Đang ghép bản thu…</translation>
+    </message>
+    <message>
+        <source>Listen to it, then add it to the timeline</source>
+        <translation>Hãy nghe, rồi thêm vào dòng thời gian</translation>
+    </message>
+    <message>
+        <source>Speaking sentence %1 again…</source>
+        <translation>Đang đọc lại câu %1…</translation>
+    </message>
+    <message>
+        <source>Sentence %1 spoken again</source>
+        <translation>Đã đọc lại câu %1</translation>
+    </message>
+    <message>
+        <source>Changing speed and pitch…</source>
+        <translation>Đang đổi tốc độ và cao độ…</translation>
+    </message>
+    <message>
+        <source>Replace voice</source>
+        <translation>Thay giọng nói</translation>
+    </message>
+    <message>
+        <source>Could not replace the voice</source>
+        <translation>Không thể thay giọng</translation>
+    </message>
+    <message>
         <source>Speech added to the timeline</source>
         <translation>Đã thêm giọng nói vào dòng thời gian</translation>
+    </message>
+    <message>
+        <source>Voice replaced on the timeline</source>
+        <translation>Đã thay giọng trên dòng thời gian</translation>
+    </message>
+    <message numerus="yes">
+        <source>The music goes down under the voice (%n clip(s))</source>
+        <translation>
+            <numerusform>Nhạc giảm xuống dưới giọng (%n clip)</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>There is no music under this voice</source>
+        <translation>Không có nhạc dưới giọng này</translation>
     </message>
     <message>
         <source>Select a subtitle clip first</source>
@@ -32274,6 +33207,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>This subtitle clip has no text to speak</source>
         <translation>Clip phụ đề này không có văn bản để đọc</translation>
+    </message>
+    <message>
+        <source>Speaking line %1 of %2…</source>
+        <translation>Đang đọc dòng %1/%2…</translation>
     </message>
     <message>
         <source>Generate voiceover</source>
@@ -32293,6 +33230,12 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <source>; %n ran longer than their captions</source>
         <translation>
             <numerusform>; %n câu dài hơn phụ đề của chúng</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>; %n could not be added</source>
+        <translation>
+            <numerusform>; %n không thêm được</numerusform>
         </translation>
     </message>
 </context>
@@ -33546,6 +34489,81 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     </message>
 </context>
 <context>
+    <name>VoiceGallery</name>
+    <message>
+        <source>Narration</source>
+        <translation>Thuyết minh</translation>
+    </message>
+    <message>
+        <source>Young</source>
+        <translation>Trẻ</translation>
+    </message>
+    <message>
+        <source>Deep</source>
+        <translation>Trầm</translation>
+    </message>
+    <message>
+        <source>Lively</source>
+        <translation>Sôi nổi</translation>
+    </message>
+    <message>
+        <source>Soft</source>
+        <translation>Nhẹ nhàng</translation>
+    </message>
+    <message>
+        <source>Mature</source>
+        <translation>Trưởng thành</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation>Tất cả</translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation>Yêu thích</translation>
+    </message>
+    <message>
+        <source>Mine</source>
+        <translation>Của tôi</translation>
+    </message>
+    <message>
+        <source>Women</source>
+        <translation>Nữ</translation>
+    </message>
+    <message>
+        <source>Men</source>
+        <translation>Nam</translation>
+    </message>
+    <message>
+        <source>Hear this voice</source>
+        <translation>Nghe giọng này</translation>
+    </message>
+    <message>
+        <source>My voice</source>
+        <translation>Giọng của tôi</translation>
+    </message>
+    <message>
+        <source>Mark voices with the star to find them here</source>
+        <translation>Gắn sao cho giọng để tìm ở đây</translation>
+    </message>
+    <message>
+        <source>Your own voices appear here: «New voice» in Options</source>
+        <translation>Giọng của riêng bạn hiện ở đây: «Giọng mới» trong Tùy chọn</translation>
+    </message>
+    <message>
+        <source>No voices of this kind</source>
+        <translation>Không có giọng loại này</translation>
+    </message>
+    <message>
+        <source>Show fewer</source>
+        <translation>Thu gọn</translation>
+    </message>
+    <message>
+        <source>See all voices (%1)</source>
+        <translation>Xem tất cả giọng (%1)</translation>
+    </message>
+</context>
+<context>
     <name>VoiceLibrary</name>
     <message>
         <source>Default</source>
@@ -33558,6 +34576,18 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>A voice needs a name and a recording</source>
         <translation>Giọng cần có tên và bản ghi âm</translation>
+    </message>
+    <message>
+        <source>Reading the recording…</source>
+        <translation>Đang đọc bản ghi âm…</translation>
+    </message>
+    <message>
+        <source>Loading voice model…</source>
+        <translation>Đang tải mô hình giọng…</translation>
+    </message>
+    <message>
+        <source>Learning the voice…</source>
+        <translation>Đang học giọng…</translation>
     </message>
     <message>
         <source>Could not prepare the voice</source>
@@ -33574,6 +34604,18 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>The recording is too short: record at least %1 seconds</source>
         <translation>Bản ghi âm quá ngắn: hãy ghi ít nhất %1 giây</translation>
+    </message>
+    <message>
+        <source>Unknown voice</source>
+        <translation>Giọng không xác định</translation>
+    </message>
+    <message>
+        <source>The reference recording for this voice is missing</source>
+        <translation>Thiếu bản ghi tham chiếu của giọng này</translation>
+    </message>
+    <message>
+        <source>Could not read the reference recording</source>
+        <translation>Không đọc được bản ghi tham chiếu</translation>
     </message>
 </context>
 <context>
@@ -33630,6 +34672,18 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Tạo lời thuyết minh</translation>
     </message>
     <message>
+        <source>Speech generation runs on this device and needs the voice model.</source>
+        <translation>Việc tạo giọng nói chạy trên thiết bị này và cần mô hình giọng.</translation>
+    </message>
+    <message>
+        <source>Download voice model</source>
+        <translation>Tải mô hình giọng</translation>
+    </message>
+    <message>
+        <source>Install AI engine first</source>
+        <translation>Hãy cài công cụ AI trước</translation>
+    </message>
+    <message>
         <source>Voice</source>
         <translation>Giọng nói</translation>
     </message>
@@ -33660,6 +34714,21 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
     <message>
         <source>Close</source>
         <translation>Đóng</translation>
+    </message>
+</context>
+<context>
+    <name>WhisperTranscriber</name>
+    <message>
+        <source>Transcribing %1–%2 of %3…</source>
+        <translation>Đang chép lời %1–%2 / %3…</translation>
+    </message>
+    <message>
+        <source>Detecting language…</source>
+        <translation>Đang nhận diện ngôn ngữ…</translation>
+    </message>
+    <message>
+        <source>Finishing up…</source>
+        <translation>Đang hoàn tất…</translation>
     </message>
 </context>
 <context>

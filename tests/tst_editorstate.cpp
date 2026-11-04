@@ -41,6 +41,7 @@
 #include "engine/TextLayout.h"
 #include "engine/ClipReaderPool.h"
 #include "models/AppController.h"
+#include "models/TtsController.h"
 #include "preview/PreviewController.h"
 #include "engine/EffectTemplateCatalog.h"
 #include "engine/SceneTemplateCatalog.h"
@@ -370,6 +371,9 @@ private slots:
     void trackFitAnswersForAKindMatchTheAssetForms();
     void provisionalKindReadsTheExtensionAlone();
     void importFileNameStaysStorable();
+    void positionPathAndRovingKeys();
+    void joinedPositionAndKeysOfSeveralTracks();
+    void speechScriptSplitsIntoSentencesAndPauses();
 };
 
 // A file dragged in from the file manager has no bin row yet, so the timeline's drop preview
@@ -2061,6 +2065,42 @@ void EditorStateTest::sceneTemplateLayoutScalesAndCovers()
 
     // Cover: a square picture in a tall slot keeps its middle, full height.
     QCOMPARE(drift::coverSourceFrame(QSizeF(1000, 1000), QSizeF(500, 1000)), QRectF(0.25, 0, 0.5, 1));
+
+    // A 16:9 lower third in a Short (0.30, Jorge: it came out tiny in the middle): fitted by what it draws, a bar
+    // 1040 px wide becomes 92 % of the 1080 px width, centred, its bottom at 74 % of the height.
+    drift::Clip bar;
+    bar.type = drift::ClipType::Shape;
+    bar.transformX.setKeyframe(0, 306.0);
+    bar.transformY.setKeyframe(0, 700.0);
+    bar.transformW.setKeyframe(0, 1040.0);
+    bar.transformH.setKeyframe(0, 248.0);
+    QList<drift::Track> third{drift::Track{.type = drift::TrackType::Video, .clips = {bar}}};
+    drift::fitLowerThirdLayout(third, 1920, 1080, 1080, 1920);
+    const drift::Clip &fitted = third.at(0).clips.at(0);
+    QVERIFY(qAbs(fitted.transformW.evaluateAt(0) - 1080 * 0.92) < 0.5);
+    QVERIFY(qAbs(fitted.transformX.evaluateAt(0) - 1080 * 0.04) < 0.5);
+    QVERIFY(qAbs(fitted.transformY.evaluateAt(0) + fitted.transformH.evaluateAt(0) - 1920 * 0.74) < 0.5);
+
+    // Any other kit overlay keeps its size against the short side and its corner: a 300×120 button at the
+    // bottom right of a 16:9 frame stays 300×120, at the right edge of a Short's free part (92 % across, 80 %
+    // down). A shade over the whole canvas goes on covering the whole Short.
+    drift::Clip button;
+    button.type = drift::ClipType::Shape;
+    button.transformX.setKeyframe(0, 1560.0);
+    button.transformY.setKeyframe(0, 900.0);
+    button.transformW.setKeyframe(0, 300.0);
+    button.transformH.setKeyframe(0, 120.0);
+    drift::Clip shade;
+    shade.type = drift::ClipType::Shape;
+    QList<drift::Track> corner{drift::Track{.type = drift::TrackType::Video, .clips = {shade, button}}};
+    drift::fitOverlayLayout(corner, 1920, 1080, 1080, 1920, drift::OverlayFit::Keep);
+    const drift::Clip &kept = corner.at(0).clips.at(1);
+    QVERIFY(qAbs(kept.transformW.evaluateAt(0) - 300.0) < 0.5);
+    QVERIFY(qAbs(kept.transformX.evaluateAt(0) + 300.0 - 1080 * 0.96) < 0.5);
+    QVERIFY(qAbs(kept.transformY.evaluateAt(0) + 120.0 - 1920 * 0.80) < 0.5);
+    const drift::Clip &covering = corner.at(0).clips.at(0);
+    QVERIFY(qAbs(covering.transformW.evaluateAt(0) - 1080.0) < 0.5);
+    QVERIFY(qAbs(covering.transformH.evaluateAt(0) - 1920.0) < 0.5);
 }
 
 // A template of one's own: inside a composition a photo becomes a slot and a text an editable text;
@@ -4672,9 +4712,14 @@ void EditorStateTest::scaledSizeKeepsTheAnchorInPlace()
     state.addShapeClip(QStringLiteral("circle"), 0.0);
     const int t = state.selectedTrack();
     const int c = state.selectedClip();
+    // Where the box is drawn (0.30: a keyed size grows around the anchor in the renderer, from the
+    // size it had when its stopwatch went on, instead of moving Position).
     const auto centreX = [&](double seconds) {
-        return state.propertyValueAt(t, c, QStringLiteral("x"), seconds, 0.0)
-               + state.propertyValueAt(t, c, QStringLiteral("width"), seconds, 0.0) / 2.0;
+        const drift::Clip &clip = state.project()->tracks().at(t).clips.at(c);
+        const double width = state.propertyValueAt(t, c, QStringLiteral("width"), seconds, 0.0);
+        const double height = state.propertyValueAt(t, c, QStringLiteral("height"), seconds, 0.0);
+        return state.propertyValueAt(t, c, QStringLiteral("x"), seconds, 0.0) + width / 2.0
+               + clip.anchorShift(drift::secondsToUs(seconds) - clip.timelineStart, width, height, 0.0).x();
     };
     const double centre = centreX(0.0);
     const double w = state.propertyValueAt(t, c, QStringLiteral("width"), 0.0, 0.0);
@@ -8417,6 +8462,9 @@ void EditorStateTest::linkedPositionKeyframesAndTangents()
     state.setClipKeyframe(track, clip, QStringLiteral("y"), 0.0, 200.0);
     state.setClipKeyframe(track, clip, QStringLiteral("x"), 2.0, 500.0); // +400 span
     state.setClipKeyframe(track, clip, QStringLiteral("y"), 2.0, 400.0); // +200 span
+    // Linked X and Y as two curves: Separate Dimensions (moving, Position is joined since 0.30).
+    QVERIFY(state.positionJoined(track, clip));
+    state.setPositionJoined(track, clip, false);
 
     // 1. Setting keyframe at 1.0 on x automatically generates keyframe on y
     state.setClipKeyframe(track, clip, QStringLiteral("x"), 1.0, 300.0);
@@ -8469,7 +8517,9 @@ void EditorStateTest::linkedPositionKeyframesAndTangents()
     // Separate Dimensions is kept in the settings: put it back so later tests start linked.
     const auto relink = qScopeGuard([&state] { state.setPositionLinked(true); });
     QVERIFY(!state.positionLinked());
-    // The timeline shows X Position and Y Position instead of the joined Position line.
+    // Separate Dimensions is the layer's own choice (0.30, as After Effects): asked for, the timeline
+    // shows X Position and Y Position instead of the joined Position line.
+    state.setPositionJoined(track, clip, false);
     bool joinedPosition = false;
     int separatedLines = 0;
     for (const QVariant &v : state.trackKeyframeRows(track)) {
@@ -13463,10 +13513,11 @@ void EditorStateTest::findAndReplaceInSubtitleCues()
     QCOMPARE(cue(2).text, QStringLiteral("line 2"));
     QCOMPARE(cue(0).wordEndsUs.size(), 2);
 
-    // A different number of words: the old timings would light the wrong one, so they go.
+    // A different number of words: the timings are carried over word by word (realignWordEnds), one
+    // per new word, so the karaoke keeps following the voice.
     QCOMPARE(state.replaceInTexts(QStringLiteral("line 1"), QStringLiteral("one more line"), subtitles, QVariantList{}), 1);
     QCOMPARE(cue(1).text, QStringLiteral("one more line"));
-    QVERIFY(cue(1).wordEndsUs.isEmpty());
+    QCOMPARE(cue(1).wordEndsUs.size(), 3);
 
     state.undo();
     QCOMPARE(cue(1).text, QStringLiteral("line 1"));
@@ -13926,6 +13977,116 @@ void EditorStateTest::shapeAsFixedOrStuckMask()
     state.undo();
     QCOMPARE(state.project()->tracks().size(), tracksBefore);
     QCOMPARE(clip(textId)->matteClipId, shapeId);
+}
+
+// After Effects' spatial interpolation and roving keys (0.30): a curved path through three Position keys
+// gives the middle key smooth tangents; roving moves it in time so the speed along the path is even.
+void EditorStateTest::positionPathAndRovingKeys()
+{
+    AssetLibrary library;
+    AppController state(&library);
+
+    drift::Clip clip;
+    clip.id = QStringLiteral("clip-path");
+    clip.type = drift::ClipType::Shape;
+    clip.timelineStart = 0;
+    clip.timelineDuration = drift::secondsToUs(4.0);
+    clip.srcOut = drift::secondsToUs(4.0);
+    // 100 px in the first second, 900 px in the next three: roving puts the middle key at 0.4 s.
+    clip.transformX.setKeyframe(0, 0.0);
+    clip.transformX.setKeyframe(drift::secondsToUs(1.0), 100.0);
+    clip.transformX.setKeyframe(drift::secondsToUs(4.0), 1000.0);
+    clip.transformY.setKeyframe(0, 0.0);
+    clip.transformY.setKeyframe(drift::secondsToUs(1.0), 0.0);
+    clip.transformY.setKeyframe(drift::secondsToUs(4.0), 0.0);
+
+    drift::Track track{.type = drift::TrackType::Shape};
+    track.clips.append(clip);
+    state.project()->tracks().clear();
+    state.project()->tracks().append(track);
+
+    state.setPositionPath(0, 0, QStringLiteral("auto"), {});
+    const drift::Keyframe<double> mid = state.project()->tracks().at(0).clips.at(0).transformX.keyframes().value(
+        drift::secondsToUs(1.0));
+    // The slope through the middle key is the one between its neighbours: 1000 px over 4 s.
+    QVERIFY(std::abs(mid.outDy / mid.outDx - 1000.0 / drift::secondsToUs(4.0)) < 1e-9);
+    QVERIFY(std::abs(mid.inDy / mid.inDx - 1000.0 / drift::secondsToUs(4.0)) < 1e-9);
+
+    state.setPositionPath(0, 0, QStringLiteral("linear"), {});
+    state.roveKeyframes(0, 0);
+    const QList<drift::TimeUs> times = state.project()->tracks().at(0).clips.at(0).transformX.keyframes().keys();
+    QCOMPARE(times.size(), 3);
+    QVERIFY(std::abs(drift::usToSeconds(times.at(1)) - 0.4) < 0.01);
+    QCOMPARE(times.last(), drift::secondsToUs(4.0));
+}
+
+// After Effects (0.30): Position becomes one property when it starts moving, Separate Dimensions
+// splits it, and the tools work on keys picked on several tracks at once, as one undo step.
+void EditorStateTest::joinedPositionAndKeysOfSeveralTracks()
+{
+    AssetLibrary library;
+    AppController state(&library);
+
+    state.project()->tracks().clear();
+    for (int i = 0; i < 2; ++i) {
+        drift::Clip clip;
+        clip.id = QStringLiteral("clip-%1").arg(i);
+        clip.type = drift::ClipType::Shape;
+        clip.timelineStart = 0;
+        clip.timelineDuration = drift::secondsToUs(4.0);
+        clip.srcOut = drift::secondsToUs(4.0);
+        drift::Track track{.type = drift::TrackType::Shape};
+        track.clips.append(clip);
+        state.project()->tracks().append(track);
+    }
+
+    state.setClipKeyframe(0, 0, QStringLiteral("x"), 0.0, 0.0);
+    state.setClipKeyframe(0, 0, QStringLiteral("x"), 2.0, 200.0);
+    const drift::Clip &moving = state.project()->tracks().at(0).clips.at(0);
+    QVERIFY(moving.positionJoined);
+    QCOMPARE(moving.transformY.keyframes().size(), moving.transformX.keyframes().size());
+    QVERIFY(std::abs(moving.transformX.evaluateAt(drift::secondsToUs(1.0)) - 100.0) < 0.5);
+    QVERIFY(std::abs(state.propertyValueAt(0, 0, QStringLiteral("position"), 2.0, 0.0) - 200.0) < 0.5);
+
+    state.setPositionJoined(0, 0, false);
+    QVERIFY(!state.project()->tracks().at(0).clips.at(0).positionJoined);
+    QVERIFY(state.project()->tracks().at(0).clips.at(0).positionSeparated);
+    state.undo();
+    QVERIFY(state.project()->tracks().at(0).clips.at(0).positionJoined);
+
+    // Keys picked on two tracks: one ease reaches both, in one undo step.
+    state.setClipKeyframe(1, 0, QStringLiteral("opacity"), 0.0, 0.0);
+    state.setClipKeyframe(1, 0, QStringLiteral("opacity"), 2.0, 1.0);
+    const QVariantList keys{
+        QVariantMap{{QStringLiteral("track"), 0}, {QStringLiteral("clip"), 0}, {QStringLiteral("prop"), QStringLiteral("x")},
+                    {QStringLiteral("seconds"), 0.0}},
+        QVariantMap{{QStringLiteral("track"), 1}, {QStringLiteral("clip"), 0}, {QStringLiteral("prop"), QStringLiteral("opacity")},
+                    {QStringLiteral("seconds"), 0.0}}};
+    state.setPickedKeyframes({{QStringLiteral("track"), 1}, {QStringLiteral("keys"), keys}});
+    state.easePickedKeyframes(QStringLiteral("ease"), 50.0, 50.0, 0.0);
+    QVERIFY(state.project()->tracks().at(0).clips.at(0).transformX.keyframes().first().outDx > 0.0);
+    QVERIFY(state.project()->tracks().at(1).clips.at(0).opacity.keyframes().first().outDx > 0.0);
+    state.undo();
+    QVERIFY(qFuzzyIsNull(state.project()->tracks().at(0).clips.at(0).transformX.keyframes().first().outDx));
+    QVERIFY(qFuzzyIsNull(state.project()->tracks().at(1).clips.at(0).opacity.keyframes().first().outDx));
+}
+
+// Text to speech (0.30): the script is spoken sentence by sentence; [pausa 1s] is a silence of its
+// own, a blank line a longer breath, and the last sentence has nothing after it.
+void EditorStateTest::speechScriptSplitsIntoSentencesAndPauses()
+{
+    const auto parts = TtsController::splitScript(
+        QStringLiteral("Hola a todos. Bienvenidos al canal! [pausa 1,5s] Hoy vemos algo nuevo.\n\nEmpecemos [pause] ya"));
+    QCOMPARE(parts.size(), 5);
+    QCOMPARE(parts.at(0).first, QStringLiteral("Hola a todos."));
+    QCOMPARE(parts.at(1).first, QStringLiteral("Bienvenidos al canal!"));
+    QCOMPARE(parts.at(1).second, 1.5);
+    QCOMPARE(parts.at(2).first, QStringLiteral("Hoy vemos algo nuevo."));
+    QVERIFY(parts.at(2).second > parts.at(0).second); // the blank line
+    QCOMPARE(parts.at(3).first, QStringLiteral("Empecemos"));
+    QCOMPARE(parts.at(3).second, 0.5);
+    QCOMPARE(parts.at(4).first, QStringLiteral("ya"));
+    QCOMPARE(parts.at(4).second, 0.0);
 }
 
 QTEST_MAIN(EditorStateTest)

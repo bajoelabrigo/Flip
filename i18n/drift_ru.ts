@@ -142,8 +142,8 @@
         <translation>Стили субтитров</translation>
     </message>
     <message>
-        <source>Voices</source>
-        <translation>Голоса</translation>
+        <source>Voice changer</source>
+        <translation>Изменение голоса</translation>
     </message>
     <message>
         <source>Retouch</source>
@@ -1113,6 +1113,29 @@
     <message>
         <source>Changes only that clip; the rest is untouched. It is drawn inside the clip&apos;s row on the timeline.</source>
         <translation>Меняет только этот клип; остальное не меняется. На таймлайне он рисуется внутри строки клипа.</translation>
+    </message>
+</context>
+<context>
+    <name>AeShortcutsDialog</name>
+    <message>
+        <source>Use After Effects&apos; shortcuts?</source>
+        <translation>Использовать сочетания клавиш After Effects?</translation>
+    </message>
+    <message>
+        <source>Use After Effects&apos;</source>
+        <translation>Как в After Effects</translation>
+    </message>
+    <message>
+        <source>Keep Flip&apos;s</source>
+        <translation>Оставить как во Flip</translation>
+    </message>
+    <message>
+        <source>J and K go to the previous and next keyframe, P, S, R, T and A show one property, U and UU what is animated or changed, B and N set the work area, I and O go to the layer&apos;s ends, [ ] and Alt+[ ] move and trim the layer at the playhead.</source>
+        <translation>J и K переходят к предыдущему и следующему ключу, P, S, R, T и A показывают одно свойство, U и UU — анимированное или изменённое, B и N задают рабочую область, I и O переходят к краям слоя, [ ] и Alt+[ ] сдвигают и обрезают слой по указателю.</translation>
+    </message>
+    <message>
+        <source>You can switch any time in Preferences › Shortcuts. Shortcuts you changed yourself stay as they are.</source>
+        <translation>Это можно изменить в любой момент в «Настройки › Сочетания клавиш». Сочетания, которые вы изменили сами, останутся.</translation>
     </message>
 </context>
 <context>
@@ -4269,6 +4292,14 @@
         <translation>«%1» добавлен в «%2» · чтобы рисовать на отдельном слое, сначала нажмите Esc; чтобы разделить их, правый щелчок › Разделить на слои</translation>
     </message>
     <message>
+        <source>Sign in with Google to translate captions, or install the Offline translation extra</source>
+        <translation>Войдите через Google, чтобы переводить субтитры, или установите дополнение «Перевод без интернета»</translation>
+    </message>
+    <message>
+        <source>Words bleeped: %1</source>
+        <translation>Запикано слов: %1</translation>
+    </message>
+    <message>
         <source>Add mask</source>
         <translation>Добавить маску</translation>
     </message>
@@ -5229,8 +5260,60 @@
         <translation>Непрозрачность</translation>
     </message>
     <message>
+        <source>Step back one frame (Page Up)</source>
+        <translation>Назад на кадр (Page Up)</translation>
+    </message>
+    <message>
+        <source>Step forward one frame (Page Down)</source>
+        <translation>Вперёд на кадр (Page Down)</translation>
+    </message>
+    <message>
         <source>Show rulers</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Go to the layer&apos;s in point</source>
+        <translation>К началу слоя</translation>
+    </message>
+    <message>
+        <source>Go to the layer&apos;s out point</source>
+        <translation>К концу слоя</translation>
+    </message>
+    <message>
+        <source>Add a Position keyframe</source>
+        <translation>Добавить ключевой кадр положения</translation>
+    </message>
+    <message>
+        <source>Add a Scale keyframe</source>
+        <translation>Добавить ключевой кадр масштаба</translation>
+    </message>
+    <message>
+        <source>Add a Rotation keyframe</source>
+        <translation>Добавить ключевой кадр поворота</translation>
+    </message>
+    <message>
+        <source>Add an Opacity keyframe</source>
+        <translation>Добавить ключевой кадр непрозрачности</translation>
+    </message>
+    <message>
+        <source>Add an Anchor point keyframe</source>
+        <translation>Добавить ключевой кадр опорной точки</translation>
+    </message>
+    <message>
+        <source>Trim the layer&apos;s in point to the playhead</source>
+        <translation>Обрезать начало слоя по указателю</translation>
+    </message>
+    <message>
+        <source>Trim the layer&apos;s out point to the playhead</source>
+        <translation>Обрезать конец слоя по указателю</translation>
+    </message>
+    <message>
+        <source>Move the layer so it starts at the playhead</source>
+        <translation>Сдвинуть слой, чтобы он начинался у указателя</translation>
+    </message>
+    <message>
+        <source>Move the layer so it ends at the playhead</source>
+        <translation>Сдвинуть слой, чтобы он заканчивался у указателя</translation>
     </message>
     <message>
         <source>RAM preview (render to memory and play)</source>
@@ -5243,6 +5326,38 @@
     <message>
         <source>Ruler guides</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Replace voice</source>
+        <translation>Заменить голос</translation>
+    </message>
+    <message>
+        <source>Voice replaced</source>
+        <translation>Голос заменён</translation>
+    </message>
+    <message>
+        <source>Trim layer</source>
+        <translation>Обрезать слой</translation>
+    </message>
+    <message>
+        <source>Move layer</source>
+        <translation>Сдвинуть слой</translation>
+    </message>
+    <message>
+        <source>Put the playhead inside the layer to trim it there</source>
+        <translation>Поставьте указатель внутрь слоя, чтобы обрезать его там</translation>
+    </message>
+    <message>
+        <source>Sending the audio to ElevenLabs…</source>
+        <translation>Отправка звука в ElevenLabs…</translation>
+    </message>
+    <message>
+        <source>ElevenLabs is transcribing…</source>
+        <translation>ElevenLabs распознаёт речь…</translation>
+    </message>
+    <message>
+        <source>Speaker %1</source>
+        <translation>Говорящий %1</translation>
     </message>
     <message>
         <source>Solids</source>
@@ -5259,6 +5374,14 @@
     <message>
         <source>Behavior changed</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Settle</source>
+        <translation>Затухание</translation>
+    </message>
+    <message>
+        <source>Reverse keyframes</source>
+        <translation>Обратить ключевые кадры</translation>
     </message>
     <message>
         <source>Pick two or more keys of a property to reverse them</source>
@@ -5449,6 +5572,90 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Translating the captions…</source>
+        <translation>Перевод субтитров…</translation>
+    </message>
+    <message>
+        <source>Could not translate the captions (no answer from the server)</source>
+        <translation>Не удалось перевести субтитры (сервер не ответил)</translation>
+    </message>
+    <message>
+        <source>Translating the captions on this computer…</source>
+        <translation>Перевод субтитров на этом компьютере…</translation>
+    </message>
+    <message>
+        <source>Could not translate the captions</source>
+        <translation>Не удалось перевести субтитры</translation>
+    </message>
+    <message>
+        <source>The captions changed while they were being translated; try again</source>
+        <translation>Субтитры изменились во время перевода; попробуйте ещё раз</translation>
+    </message>
+    <message>
+        <source>Captions (%1)</source>
+        <translation>Субтитры (%1)</translation>
+    </message>
+    <message>
+        <source>Translate captions</source>
+        <translation>Перевести субтитры</translation>
+    </message>
+    <message>
+        <source>Captions translated into %1</source>
+        <translation>Субтитры переведены: %1</translation>
+    </message>
+    <message>
+        <source>Edit speaker</source>
+        <translation>Изменить говорящего</translation>
+    </message>
+    <message>
+        <source>No key words to highlight in these subtitles</source>
+        <translation>В этих субтитрах нет ключевых слов для выделения</translation>
+    </message>
+    <message>
+        <source>Highlight key words</source>
+        <translation>Выделить ключевые слова</translation>
+    </message>
+    <message>
+        <source>Key words highlighted in %1 captions</source>
+        <translation>Ключевые слова выделены в субтитрах: %1</translation>
+    </message>
+    <message>
+        <source>Install «Animated emojis» from Extras first</source>
+        <translation>Сначала установите «Анимированные эмодзи» из Дополнений</translation>
+    </message>
+    <message>
+        <source>Emoji: %1</source>
+        <translation>Эмодзи: %1</translation>
+    </message>
+    <message>
+        <source>No captions with an emoji word (fuego, Dios, fiesta…)</source>
+        <translation>Нет субтитров со словом для эмодзи (огонь, Бог, праздник…)</translation>
+    </message>
+    <message>
+        <source>Animated emojis</source>
+        <translation>Анимированные эмодзи</translation>
+    </message>
+    <message>
+        <source>Animated emojis on %1 captions</source>
+        <translation>Анимированные эмодзи в субтитрах: %1</translation>
+    </message>
+    <message>
+        <source>No hidden words with their timing to bleep</source>
+        <translation>Нет скрытых слов с таймингом для запикивания</translation>
+    </message>
+    <message>
+        <source>Could not make the bleep</source>
+        <translation>Не удалось создать писк</translation>
+    </message>
+    <message>
+        <source>Bleep swear words</source>
+        <translation>Запикать ругательства</translation>
+    </message>
+    <message>
+        <source>Bleep</source>
+        <translation>Писк</translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5603,6 +5810,30 @@
     <message>
         <source>Select a clip with sound to enhance its voice</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Listening to the clip to write down what is said…</source>
+        <translation>Прослушиваю клип, чтобы записать сказанное…</translation>
+    </message>
+    <message>
+        <source>Move the other tracks</source>
+        <translation>Сдвинуть другие дорожки</translation>
+    </message>
+    <message>
+        <source>Edit by text</source>
+        <translation>Монтаж по тексту</translation>
+    </message>
+    <message>
+        <source>Remove silences</source>
+        <translation>Убрать паузы</translation>
+    </message>
+    <message>
+        <source>Cut %1 s from the video</source>
+        <translation>Вырезано %1 с из видео</translation>
+    </message>
+    <message>
+        <source>That would remove the whole clip</source>
+        <translation>Это удалит весь клип</translation>
     </message>
     <message>
         <source>Volume</source>
@@ -5971,6 +6202,34 @@
             <numerusform>Вставлено %n клипа</numerusform>
             <numerusform>Вставлено %n клипов</numerusform>
         </translation>
+    </message>
+    <message>
+        <source>Curved path</source>
+        <translation>Кривая траектория</translation>
+    </message>
+    <message>
+        <source>Straight path</source>
+        <translation>Прямая траектория</translation>
+    </message>
+    <message>
+        <source>Join Position</source>
+        <translation>Объединить положение</translation>
+    </message>
+    <message>
+        <source>Separate dimensions</source>
+        <translation>Разделить измерения</translation>
+    </message>
+    <message>
+        <source>Shape motion path</source>
+        <translation>Изменить траекторию</translation>
+    </message>
+    <message>
+        <source>Roving needs at least three Position keyframes</source>
+        <translation>Для плавающих ключей нужно минимум три ключа положения</translation>
+    </message>
+    <message>
+        <source>Roving keyframes</source>
+        <translation>Плавающие ключи</translation>
     </message>
     <message>
         <source>Exporting…</source>
@@ -7845,18 +8104,6 @@
         <translation>Громкость</translation>
     </message>
     <message>
-        <source>Recommended caption length</source>
-        <translation>Рекомендуемая длина субтитра</translation>
-    </message>
-    <message>
-        <source>1 word per caption</source>
-        <translation>1 слово на субтитр</translation>
-    </message>
-    <message>
-        <source>%1 words per caption</source>
-        <translation>Слов в субтитре: %1</translation>
-    </message>
-    <message>
         <source>Basic</source>
         <translation>Основное</translation>
     </message>
@@ -7871,6 +8118,66 @@
     <message>
         <source>Fade out</source>
         <translation>Затухание</translation>
+    </message>
+    <message>
+        <source>Voice from text</source>
+        <translation>Голос из текста</translation>
+    </message>
+    <message>
+        <source>Edit script…</source>
+        <translation>Изменить сценарий…</translation>
+    </message>
+    <message>
+        <source>Change the text or the voice and speak it again, in place of this audio</source>
+        <translation>Измените текст или голос и озвучьте заново вместо этого аудио</translation>
+    </message>
+    <message>
+        <source>Discard the voice you made?</source>
+        <translation>Удалить созданный голос?</translation>
+    </message>
+    <message>
+        <source>Discard and go on</source>
+        <translation>Удалить и продолжить</translation>
+    </message>
+    <message>
+        <source>The Voice panel has a take that is not on the timeline yet. Add it first with «Add to timeline», or discard it to start this one.</source>
+        <translation>В панели «Голос» есть дубль, которого ещё нет на таймлайне. Сначала добавьте его кнопкой «Добавить на таймлайн» или удалите, чтобы начать этот.</translation>
+    </message>
+    <message>
+        <source>Lower the music under this voice</source>
+        <translation>Приглушить музыку под этим голосом</translation>
+    </message>
+    <message>
+        <source>Save the voice as a file…</source>
+        <translation>Сохранить голос в файл…</translation>
+    </message>
+    <message>
+        <source>Save the voice</source>
+        <translation>Сохранить голос</translation>
+    </message>
+    <message>
+        <source>MP3 audio (*.mp3)</source>
+        <translation>Аудио MP3 (*.mp3)</translation>
+    </message>
+    <message>
+        <source>WAV audio (*.wav)</source>
+        <translation>Аудио WAV (*.wav)</translation>
+    </message>
+    <message>
+        <source>FLAC audio (*.flac)</source>
+        <translation>Аудио FLAC (*.flac)</translation>
+    </message>
+    <message>
+        <source>voice</source>
+        <translation>голос</translation>
+    </message>
+    <message>
+        <source>Voice saved</source>
+        <translation>Голос сохранён</translation>
+    </message>
+    <message>
+        <source>Could not save the voice</source>
+        <translation>Не удалось сохранить голос</translation>
     </message>
     <message>
         <source>Normalize loudness</source>
@@ -7921,6 +8228,22 @@
         <translation>Панорама</translation>
     </message>
     <message>
+        <source>Create captions…</source>
+        <translation>Создать субтитры…</translation>
+    </message>
+    <message>
+        <source>Open Subtitles to create captions from this clip&apos;s speech</source>
+        <translation>Открывает «Субтитры», чтобы создать субтитры из речи этого клипа</translation>
+    </message>
+    <message>
+        <source>Edit by text…</source>
+        <translation>Монтаж по тексту…</translation>
+    </message>
+    <message>
+        <source>See what is said and strike out words: the video loses those moments</source>
+        <translation>Смотрите, что сказано, и вычёркивайте слова: видео теряет эти моменты</translation>
+    </message>
+    <message>
         <source>C</source>
         <translation>Ц</translation>
     </message>
@@ -7959,30 +8282,6 @@
     <message>
         <source>Install AI engine first</source>
         <translation>Сначала установите движок ИИ</translation>
-    </message>
-    <message>
-        <source>Auto subtitles</source>
-        <translation>Автоматические субтитры</translation>
-    </message>
-    <message>
-        <source>Shorter captions are timed by splitting each phrase evenly, so they can drift slightly out of sync with the speech.</source>
-        <translation>Короткие субтитры создаются равномерным делением каждой фразы по времени, поэтому могут немного расходиться с речью.</translation>
-    </message>
-    <message>
-        <source>Creating captions… %1%</source>
-        <translation>Создание субтитров… %1%</translation>
-    </message>
-    <message>
-        <source>Create captions from speech</source>
-        <translation>Создать субтитры из речи</translation>
-    </message>
-    <message>
-        <source>Several selected clips become one caption clip</source>
-        <translation>Несколько выбранных клипов станут одним клипом субтитров</translation>
-    </message>
-    <message>
-        <source>Download speech recognition (about 670 MB)</source>
-        <translation>Скачать распознавание речи (около 670 МБ)</translation>
     </message>
 </context>
 <context>
@@ -8219,7 +8518,7 @@
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Убрать</translation>
     </message>
 </context>
 <context>
@@ -13191,6 +13490,37 @@ NEXT TIME</source>
     </message>
 </context>
 <context>
+    <name>ChatterboxTts</name>
+    <message>
+        <source>The voice model is not installed. Install the AI voice extra in Extras.</source>
+        <translation>Модель голоса не установлена. Установите дополнение «ИИ-голос» в разделе «Дополнения».</translation>
+    </message>
+    <message>
+        <source>Failed to load text-to-speech model: %1</source>
+        <translation>Не удалось загрузить модель синтеза речи: %1</translation>
+    </message>
+    <message>
+        <source>Speech generation failed: %1</source>
+        <translation>Ошибка генерации речи: %1</translation>
+    </message>
+    <message>
+        <source>The reference voice has no audio.</source>
+        <translation>В эталонном голосе нет звука.</translation>
+    </message>
+    <message>
+        <source>Voice encoding failed: %1</source>
+        <translation>Ошибка кодирования голоса: %1</translation>
+    </message>
+    <message>
+        <source>Unsupported language: %1</source>
+        <translation>Неподдерживаемый язык: %1</translation>
+    </message>
+    <message>
+        <source>Invalid voice conditioning.</source>
+        <translation>Недопустимые параметры голоса.</translation>
+    </message>
+</context>
+<context>
     <name>ChipScroller</name>
     <message>
         <source>Previous</source>
@@ -13555,7 +13885,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>Применить</translation>
     </message>
     <message>
         <source>Save</source>
@@ -15318,6 +15648,14 @@ NEXT TIME</source>
         <translation>Кодировать только отмеченный диапазон начала и конца вместо всего таймлайна</translation>
     </message>
     <message>
+        <source>Include the captions (inside the video and as .srt)</source>
+        <translation>Добавить субтитры (в видео и файлом .srt)</translation>
+    </message>
+    <message>
+        <source>The captions as a track inside the video and as a file next to it, with the same name: players and YouTube can turn them on and off</source>
+        <translation>Субтитры дорожкой внутри видео и файлом рядом с тем же именем: плееры и YouTube могут их включать и выключать</translation>
+    </message>
+    <message>
         <source>Saves what you see in the preview. Pick a size — the picture shape stays the same.</source>
         <translation>Сохраняет изображение из предпросмотра. Выберите размер — соотношение сторон сохранится.</translation>
     </message>
@@ -16116,7 +16454,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Закрыть</translation>
     </message>
     <message>
         <source>Replace</source>
@@ -16852,6 +17190,10 @@ NEXT TIME</source>
         <translation>Растушёвка маски</translation>
     </message>
     <message>
+        <source>Pos</source>
+        <translation>Пол.</translation>
+    </message>
+    <message>
         <source>Layer</source>
         <translation type="unfinished"></translation>
     </message>
@@ -16876,12 +17218,40 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Value graph</source>
-        <translation type="unfinished"></translation>
+        <source>Graph type: value. Click: speed graph</source>
+        <translation>Тип графика: значение. Щелчок: график скорости</translation>
     </message>
     <message>
-        <source>Speed graph</source>
-        <translation type="unfinished"></translation>
+        <source>Graph type: speed. Click: automatic</source>
+        <translation>Тип графика: скорость. Щелчок: автоматически</translation>
+    </message>
+    <message>
+        <source>Graph type: automatic (speed for a joined Position, value for the rest). Click: value graph</source>
+        <translation>Тип графика: автоматически (скорость для объединённого положения, значение для остального). Щелчок: график значений</translation>
+    </message>
+    <message>
+        <source>Fit the whole curve in view (Ctrl+wheel zooms the values, Alt+wheel the time)</source>
+        <translation>Показать всю кривую (Ctrl+колесо масштабирует значения, Alt+колесо — время)</translation>
+    </message>
+    <message>
+        <source>Zoom to the picked keyframes</source>
+        <translation>Приблизить выбранные ключи</translation>
+    </message>
+    <message>
+        <source>Show only the curve being edited</source>
+        <translation>Показывать только редактируемую кривую</translation>
+    </message>
+    <message>
+        <source>Show the other properties&apos; curves too</source>
+        <translation>Показывать и кривые других свойств</translation>
+    </message>
+    <message>
+        <source>Graph under its layer again</source>
+        <translation>График снова под своим слоем</translation>
+    </message>
+    <message>
+        <source>Graph over the whole timeline, as After Effects&apos; Graph Editor</source>
+        <translation>График на всю временную шкалу, как редактор графиков After Effects</translation>
     </message>
     <message>
         <source>Separate dimensions: key X and Y of Position apart</source>
@@ -16952,6 +17322,10 @@ NEXT TIME</source>
         <translation>Переместить ключевой кадр</translation>
     </message>
     <message>
+        <source>Transform keyframes</source>
+        <translation>Преобразовать ключи</translation>
+    </message>
+    <message>
         <source>Edit keyframe curve</source>
         <translation>Изменить кривую ключевого кадра</translation>
     </message>
@@ -16975,8 +17349,20 @@ NEXT TIME</source>
         <translation>Переместить ключевые кадры</translation>
     </message>
     <message>
+        <source>Keyframe easing changed</source>
+        <translation>Сглаживание ключевых кадров изменено</translation>
+    </message>
+    <message>
+        <source>Paste keyframes</source>
+        <translation>Вставить ключевые кадры</translation>
+    </message>
+    <message>
+        <source>Remove keyframes</source>
+        <translation>Удалить ключевые кадры</translation>
+    </message>
+    <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>Применить</translation>
     </message>
     <message>
         <source>50% packs the picked keys into half the time, 200% spreads them over twice. The first one stays where it is. Alt + dragging the first or last key does the same by hand.</source>
@@ -17011,8 +17397,28 @@ NEXT TIME</source>
         <translation>Изменить кривую…</translation>
     </message>
     <message>
+        <source>Curved path (auto Bezier)</source>
+        <translation>Кривая траектория (автоматический Безье)</translation>
+    </message>
+    <message>
+        <source>Straight path</source>
+        <translation>Прямая траектория</translation>
+    </message>
+    <message>
+        <source>Roving (one speed along the path)</source>
+        <translation>Плавающие (одна скорость по траектории)</translation>
+    </message>
+    <message>
+        <source>Separate dimensions (X and Y apart)</source>
+        <translation>Разделить измерения (X и Y отдельно)</translation>
+    </message>
+    <message>
+        <source>Join Position (one path)</source>
+        <translation>Объединить положение (одна траектория)</translation>
+    </message>
+    <message>
         <source>Reverse keyframes</source>
-        <translation type="unfinished"></translation>
+        <translation>Обратить ключевые кадры</translation>
     </message>
     <message>
         <source>Stretch keyframes…</source>
@@ -17039,7 +17445,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>Применить</translation>
     </message>
     <message>
         <source>Speed in units per second. Influence is how far the handle reaches towards the next key: more is a softer ease.</source>
@@ -17051,7 +17457,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>Скорость</translation>
     </message>
     <message>
         <source>Influence</source>
@@ -17245,6 +17651,21 @@ NEXT TIME</source>
     <message>
         <source>720p</source>
         <translation>720p</translation>
+    </message>
+</context>
+<context>
+    <name>LocalTranscription</name>
+    <message>
+        <source>Finding speech…</source>
+        <translation>Поиск речи…</translation>
+    </message>
+    <message>
+        <source>Timing words…</source>
+        <translation>Синхронизация слов…</translation>
+    </message>
+    <message>
+        <source>Telling speakers apart…</source>
+        <translation>Различаем говорящих…</translation>
     </message>
 </context>
 <context>
@@ -17637,6 +18058,26 @@ NEXT TIME</source>
     <message>
         <source>Your example is ready. Try this:</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>What is the video for?</source>
+        <translation>Для чего видео?</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Отмена</translation>
+    </message>
+    <message>
+        <source>The template is fitted to the shape of your video.</source>
+        <translation>Шаблон подстроится под форму вашего видео.</translation>
+    </message>
+    <message>
+        <source>Short (vertical 9:16)</source>
+        <translation>Shorts (вертикальное 9:16)</translation>
+    </message>
+    <message>
+        <source>Video (horizontal 16:9)</source>
+        <translation>Видео (горизонтальное 16:9)</translation>
     </message>
     <message>
         <source>Click a clip on the timeline to change it on the right.</source>
@@ -19498,7 +19939,7 @@ NEXT TIME</source>
     <name>MotionPathOverlay</name>
     <message>
         <source>Shape motion path</source>
-        <translation type="unfinished"></translation>
+        <translation>Изменить траекторию</translation>
     </message>
     <message>
         <source>Move keyframe</source>
@@ -20830,6 +21271,14 @@ If playback stutters, try another.</source>
         <translation>Параметры обводки: нет, сплошной, линейный или радиальный градиент, режим наложения и непрозрачность</translation>
     </message>
     <message>
+        <source>Fill colour. Right-click: no fill (or back on)</source>
+        <translation>Цвет заливки. Правый щелчок: без заливки (или вернуть)</translation>
+    </message>
+    <message>
+        <source>Stroke colour. Right-click: no stroke (or back on)</source>
+        <translation>Цвет обводки. Правый щелчок: без обводки (или вернуть)</translation>
+    </message>
+    <message>
         <source>Selection</source>
         <translation type="unfinished"></translation>
     </message>
@@ -21666,7 +22115,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>Применить</translation>
     </message>
     <message>
         <source>What After Effects does with expressions, without writing code. They add up: the loop, then the constant speed, then the wiggle.</source>
@@ -21741,8 +22190,8 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>value, time, wiggle(freq, amount), Math, and thisComp.layer(&quot;Name&quot;).transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. The last line is the result.</source>
-        <translation type="unfinished"></translation>
+        <source>value, time, index, thisLayer, wiggle(freq, amount), linear / ease / easeIn / easeOut(t, tMin, tMax, a, b), clamp, valueAtTime(t), velocity, speed, Math, and thisComp.layer(&quot;Name&quot;).transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. The last line is the result.</source>
+        <translation>value, time, index, thisLayer, wiggle(freq, amount), linear / ease / easeIn / easeOut(t, tMin, tMax, a, b), clamp, valueAtTime(t), velocity, speed, Math, и thisComp.layer(&quot;Name&quot;).transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. Последняя строка — результат.</translation>
     </message>
 </context>
 <context>
@@ -23451,14 +23900,6 @@ If playback stutters, try another.</source>
         <translation>Облачные сервисы</translation>
     </message>
     <message>
-        <source>Transcription (Scribe), voiceover, sound effects</source>
-        <translation>Расшифровка речи (Scribe), озвучка, звуковые эффекты</translation>
-    </message>
-    <message>
-        <source>Voiceover</source>
-        <translation>Озвучка</translation>
-    </message>
-    <message>
         <source>No key</source>
         <translation>Нет ключа</translation>
     </message>
@@ -23657,6 +24098,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Keys are stored unencrypted in Flip Studio&apos;s settings. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
         <translation>Ключи хранятся без шифрования в настройках Flip Studio. Переменные окружения ELEVENLABS_API_KEY и FISH_API_KEY имеют приоритет. Использование оплачивается с вашего аккаунта.</translation>
+    </message>
+    <message>
+        <source>Transcription (Scribe); voiceover and sound effects through AI agents</source>
+        <translation>Транскрипция (Scribe); озвучка и звуковые эффекты через ИИ-агентов</translation>
+    </message>
+    <message>
+        <source>Voiceover through AI agents</source>
+        <translation>Озвучка через ИИ-агентов</translation>
     </message>
     <message>
         <source>Needed before Flip Studio or a connected agent can transcribe or generate audio with this service</source>
@@ -24152,7 +24601,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Удалить</translation>
     </message>
 </context>
 <context>
@@ -25195,6 +25644,26 @@ If playback stutters, try another.</source>
         <translation>Поиск сочетаний клавиш</translation>
     </message>
     <message>
+        <source>Shortcut set</source>
+        <translation>Набор сочетаний</translation>
+    </message>
+    <message>
+        <source>Flip</source>
+        <translation>Flip</translation>
+    </message>
+    <message>
+        <source>Flip&apos;s own shortcuts</source>
+        <translation>Сочетания клавиш Flip</translation>
+    </message>
+    <message>
+        <source>After Effects</source>
+        <translation>After Effects</translation>
+    </message>
+    <message>
+        <source>As in After Effects: J/K go between keyframes, P/S/R/T/A show one property, U/UU, B/N the work area, I/O the layer&apos;s ends, [ ] and Alt+[ ] move and trim the layer at the playhead</source>
+        <translation>Как в After Effects: J/K — между ключами, P/S/R/T/A — одно свойство, U/UU, B/N — рабочая область, I/O — края слоя, [ ] и Alt+[ ] сдвигают и обрезают слой по указателю</translation>
+    </message>
+    <message>
         <source>Click a shortcut, then press the keys. Esc cancels, Backspace clears.</source>
         <translation>Нажмите на сочетание и затем нужные клавиши. Esc отменяет, Backspace очищает.</translation>
     </message>
@@ -25279,6 +25748,49 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>SilenceReviewWindow</name>
+    <message>
+        <source>Remove silences</source>
+        <translation>Убрать паузы</translation>
+    </message>
+    <message>
+        <source>Untick what you want to keep. Click a row to hear it.</source>
+        <translation>Снимите отметку с того, что хотите оставить. Щёлкните строку, чтобы прослушать.</translation>
+    </message>
+    <message>
+        <source>Pauses longer than</source>
+        <translation>Паузы длиннее</translation>
+    </message>
+    <message>
+        <source>Also filler words (eh, mmm)</source>
+        <translation>Также слова-паразиты (э-э, ммм)</translation>
+    </message>
+    <message>
+        <source>Pause</source>
+        <translation>Пауза</translation>
+    </message>
+    <message>
+        <source>Listen</source>
+        <translation>Прослушать</translation>
+    </message>
+    <message>
+        <source>No pauses this long in the clip.</source>
+        <translation>В клипе нет таких длинных пауз.</translation>
+    </message>
+    <message>
+        <source>%1 of %2 · %3 s</source>
+        <translation>%1 из %2 · %3 с</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Отмена</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>Убрать</translation>
+    </message>
+</context>
+<context>
     <name>SolidDialog</name>
     <message>
         <source>Solid settings</source>
@@ -25290,7 +25802,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>Применить</translation>
     </message>
     <message>
         <source>Solid</source>
@@ -25375,10 +25887,6 @@ If playback stutters, try another.</source>
         <translation>Голос сохранён</translation>
     </message>
     <message>
-        <source>Turn a script into speech with a built-in or cloned voice. It is generated on this device and added at the playhead.</source>
-        <translation>Превратите сценарий в речь встроенным или клонированным голосом. Речь создаётся на этом устройстве и добавляется на позицию указателя.</translation>
-    </message>
-    <message>
         <source>Speech generation runs on this device and needs the voice model.</source>
         <translation>Синтез речи выполняется на этом устройстве и требует голосовой модели.</translation>
     </message>
@@ -25395,20 +25903,8 @@ If playback stutters, try another.</source>
         <translation>Нужна для синтеза речи</translation>
     </message>
     <message>
-        <source>Type what the voice should say</source>
-        <translation>Введите, что должен сказать голос</translation>
-    </message>
-    <message>
         <source>%1 characters, about %2 s</source>
         <translation>Символов: %1, около %2 с</translation>
-    </message>
-    <message>
-        <source>Speech longer than 30 seconds often ends in gibberish or silence. Split the script into shorter parts.</source>
-        <translation>Речь длиннее 30 секунд часто заканчивается бессмыслицей или тишиной. Разбейте сценарий на части покороче.</translation>
-    </message>
-    <message>
-        <source>Voice</source>
-        <translation>Голос</translation>
     </message>
     <message>
         <source>Stop</source>
@@ -25463,10 +25959,6 @@ If playback stutters, try another.</source>
         <translation>Изучение голоса…</translation>
     </message>
     <message>
-        <source>Language</source>
-        <translation>Язык</translation>
-    </message>
-    <message>
         <source>Expressiveness</source>
         <translation>Выразительность</translation>
     </message>
@@ -25477,10 +25969,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Generate speech</source>
         <translation>Создать речь</translation>
-    </message>
-    <message>
-        <source>Generate speech and add it at the playhead</source>
-        <translation>Создать речь и добавить на позицию указателя</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -25523,6 +26011,106 @@ If playback stutters, try another.</source>
         <translation>Все файлы (*)</translation>
     </message>
     <message>
+        <source>Voice from your text</source>
+        <translation>Голос из вашего текста</translation>
+    </message>
+    <message>
+        <source>Editing the script of a voice on the timeline: the new take replaces its audio.</source>
+        <translation>Вы редактируете сценарий голоса на таймлайне: новый дубль заменит его аудио.</translation>
+    </message>
+    <message>
+        <source>Type or paste the script. [pause 1s] adds a silence.</source>
+        <translation>Введите или вставьте сценарий. [pause 1s] добавляет паузу.</translation>
+    </message>
+    <message>
+        <source>Import script…</source>
+        <translation>Импорт сценария…</translation>
+    </message>
+    <message>
+        <source>A .txt, .md or Word (.docx) file</source>
+        <translation>Файл .txt, .md или Word (.docx)</translation>
+    </message>
+    <message>
+        <source>Import a script</source>
+        <translation>Импортировать сценарий</translation>
+    </message>
+    <message>
+        <source>Scripts (*.txt *.md *.docx)</source>
+        <translation>Сценарии (*.txt *.md *.docx)</translation>
+    </message>
+    <message>
+        <source>That file has no text that can be read</source>
+        <translation>В этом файле нет текста, который можно прочитать</translation>
+    </message>
+    <message>
+        <source>Voice: %1</source>
+        <translation>Голос: %1</translation>
+    </message>
+    <message>
+        <source>A dialogue: a voice for each person</source>
+        <translation>Диалог: свой голос для каждого человека</translation>
+    </message>
+    <message>
+        <source>Generate again</source>
+        <translation>Сгенерировать снова</translation>
+    </message>
+    <message>
+        <source>Speak the script; you hear it before it goes on the timeline</source>
+        <translation>Озвучить сценарий; вы услышите его до того, как он попадёт на таймлайн</translation>
+    </message>
+    <message>
+        <source>Listen to the whole take</source>
+        <translation>Прослушать весь дубль</translation>
+    </message>
+    <message>
+        <source>Take: %1 s</source>
+        <translation>Дубль: %1 с</translation>
+    </message>
+    <message>
+        <source>Listen to this sentence</source>
+        <translation>Прослушать эту фразу</translation>
+    </message>
+    <message>
+        <source>Speak this sentence again</source>
+        <translation>Озвучить эту фразу заново</translation>
+    </message>
+    <message>
+        <source>Also create its captions</source>
+        <translation>Также создать субтитры</translation>
+    </message>
+    <message>
+        <source>Replace the voice on the timeline</source>
+        <translation>Заменить голос на таймлайне</translation>
+    </message>
+    <message>
+        <source>Add to the timeline</source>
+        <translation>Добавить на таймлайн</translation>
+    </message>
+    <message>
+        <source>Discard</source>
+        <translation>Отменить</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation>Параметры</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>Скорость</translation>
+    </message>
+    <message>
+        <source>%1×</source>
+        <translation>%1×</translation>
+    </message>
+    <message>
+        <source>Pitch</source>
+        <translation>Высота тона</translation>
+    </message>
+    <message>
+        <source>Stop preparing the voice</source>
+        <translation>Прекратить подготовку голоса</translation>
+    </message>
+    <message>
         <source>Name</source>
         <translation>Название</translation>
     </message>
@@ -25543,8 +26131,8 @@ If playback stutters, try another.</source>
         <translation>%1 с</translation>
     </message>
     <message>
-        <source>Record 5 to 20 seconds in a quiet room. Read this aloud in your natural voice:</source>
-        <translation>Запишите от 5 до 20 секунд в тихом помещении. Прочитайте вслух своим обычным голосом:</translation>
+        <source>Record 3 to 20 seconds in a quiet room (it stops by itself at 20). Read this aloud in your natural voice:</source>
+        <translation>Запишите от 3 до 20 секунд в тихой комнате (запись остановится сама на 20). Прочитайте вслух своим обычным голосом:</translation>
     </message>
     <message>
         <source>The quick brown fox jumps over the lazy dog, while a gentle breeze moves through the quiet garden and the evening light fades slowly.</source>
@@ -25557,6 +26145,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Start recording</source>
         <translation>Начать запись</translation>
+    </message>
+    <message>
+        <source>20 s: done, save the voice</source>
+        <translation>20 с: готово, сохранить голос</translation>
     </message>
     <message>
         <source>I have the right to use this person&apos;s voice</source>
@@ -25764,7 +26356,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>Применить</translation>
     </message>
     <message>
         <source>Apply letter by letter</source>
@@ -25780,7 +26372,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished"></translation>
+        <translation>Все</translation>
     </message>
     <message>
         <source>How hard it squashes, stretches and bends</source>
@@ -25796,7 +26388,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>Скорость</translation>
     </message>
     <message>
         <source>Faster makes it shorter, slower makes it longer</source>
@@ -26095,6 +26687,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Subtitles from the voice, on your computer, without internet</source>
         <translation>Субтитры по голосу, на вашем компьютере, без интернета</translation>
+    </message>
+    <message>
+        <source>A simpler version in the browser: it doesn&apos;t have every tool of this app and gets no new ones. Everything new comes to this app.</source>
+        <translation>Упрощённая версия в браузере: в ней нет всех инструментов этого приложения и не появляются новинки. Всё новое выходит в этом приложении.</translation>
     </message>
     <message>
         <source>Click to sign in</source>
@@ -26694,12 +27290,12 @@ If playback stutters, try another.</source>
         <translation>Записей субтитров: %1</translation>
     </message>
     <message>
-        <source>Play the timeline — the line on screen lights up. Tap any line to edit it.</source>
-        <translation>Запустите таймлайн — текущая строка на экране подсветится. Коснитесь любой строки, чтобы изменить её.</translation>
+        <source>Translate</source>
+        <translation>Перевести</translation>
     </message>
     <message>
-        <source>Play the timeline — the line on screen lights up. Click any line to jump to it and edit it below.</source>
-        <translation>Запустите воспроизведение таймлайна — текущая строка подсветится. Нажмите на строку, чтобы перейти к ней и изменить её ниже.</translation>
+        <source>The captions in another language, as a second line above (bilingual)</source>
+        <translation>Субтитры на другом языке второй строкой сверху (двуязычные)</translation>
     </message>
     <message>
         <source>Import</source>
@@ -26732,6 +27328,18 @@ If playback stutters, try another.</source>
     <message>
         <source>Offset the exported captions by this clip&apos;s start so they match the exported video</source>
         <translation>Сдвинуть временные метки экспортируемых субтитров на начало этого клипа, чтобы они совпадали с экспортированным видео</translation>
+    </message>
+    <message>
+        <source>Translating…</source>
+        <translation>Перевод…</translation>
+    </message>
+    <message>
+        <source>Captions that will change: %1</source>
+        <translation>Изменятся субтитры: %1</translation>
+    </message>
+    <message>
+        <source>+ %1 more</source>
+        <translation>+ ещё %1</translation>
     </message>
     <message>
         <source>(empty)</source>
@@ -26774,8 +27382,24 @@ If playback stutters, try another.</source>
         <translation>Установить конец на текущее время</translation>
     </message>
     <message>
-        <source>Delete caption</source>
-        <translation>Удалить запись субтитров</translation>
+        <source>Style: same as the clip</source>
+        <translation>Стиль: как у клипа</translation>
+    </message>
+    <message>
+        <source>Like the clip</source>
+        <translation>Как у клипа</translation>
+    </message>
+    <message>
+        <source>Top</source>
+        <translation>Сверху</translation>
+    </message>
+    <message>
+        <source>Middle</source>
+        <translation>По центру</translation>
+    </message>
+    <message>
+        <source>Where this caption sits on screen</source>
+        <translation>Где этот субтитр на экране</translation>
     </message>
     <message>
         <source>At %1</source>
@@ -26792,6 +27416,30 @@ If playback stutters, try another.</source>
     <message>
         <source>Emojis</source>
         <translation>Эмодзи</translation>
+    </message>
+    <message>
+        <source>Too short to read</source>
+        <translation>Слишком коротко для чтения</translation>
+    </message>
+    <message>
+        <source>On screen too long</source>
+        <translation>Слишком долго на экране</translation>
+    </message>
+    <message>
+        <source>Too fast to read</source>
+        <translation>Слишком быстро для чтения</translation>
+    </message>
+    <message>
+        <source>Move all captions</source>
+        <translation>Сдвинуть все</translation>
+    </message>
+    <message>
+        <source>All captions 0.1 s earlier</source>
+        <translation>Все на 0,1 с раньше</translation>
+    </message>
+    <message>
+        <source>All captions 0.1 s later</source>
+        <translation>Все на 0,1 с позже</translation>
     </message>
     <message>
         <source>Replace these captions from an SRT, WebVTT or ASS file</source>
@@ -26822,6 +27470,30 @@ If playback stutters, try another.</source>
         <translation>Добавить эмодзи в конец субтитров с ключевым словом (огонь 🔥, праздник 🎉)</translation>
     </message>
     <message>
+        <source>Animated</source>
+        <translation>Анимация</translation>
+    </message>
+    <message>
+        <source>An animated emoji above each caption that mentions one (fuego, Dios, fiesta…)</source>
+        <translation>Анимированный эмодзи над каждым субтитром, где он упоминается (огонь, Бог, праздник…)</translation>
+    </message>
+    <message>
+        <source>Bleep</source>
+        <translation>Писк</translation>
+    </message>
+    <message>
+        <source>A beep over each hidden swear word, with the voice muted under it</source>
+        <translation>Писк поверх каждого скрытого ругательства, голос под ним приглушён</translation>
+    </message>
+    <message>
+        <source>Key words</source>
+        <translation>Ключевые слова</translation>
+    </message>
+    <message>
+        <source>Highlight the key word of each caption in colour (a number, a name, what matters)</source>
+        <translation>Выделяет цветом ключевое слово каждого субтитра (число, имя, главное)</translation>
+    </message>
+    <message>
         <source>Clean up</source>
         <translation>Очистить</translation>
     </message>
@@ -26836,6 +27508,70 @@ If playback stutters, try another.</source>
     <message>
         <source>Fix a word in every caption at once</source>
         <translation>Исправить слово во всех субтитрах сразу</translation>
+    </message>
+    <message>
+        <source>Spelling</source>
+        <translation>Орфография</translation>
+    </message>
+    <message>
+        <source>Check the spelling of every caption, one word at a time</source>
+        <translation>Проверяет орфографию всех субтитров по одному слову</translation>
+    </message>
+    <message>
+        <source>Speakers</source>
+        <translation>Говорящие</translation>
+    </message>
+    <message>
+        <source>File and timing</source>
+        <translation>Файл и время</translation>
+    </message>
+    <message>
+        <source>Words to check: %1</source>
+        <translation>Слов на проверку: %1</translation>
+    </message>
+    <message>
+        <source>No spelling mistakes found.</source>
+        <translation>Орфографических ошибок не найдено.</translation>
+    </message>
+    <message>
+        <source>Remove repeated word</source>
+        <translation>Убрать повторённое слово</translation>
+    </message>
+    <message>
+        <source>No suggestions: fix it in the text box.</source>
+        <translation>Нет вариантов: исправьте в поле текста.</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>Закрыть</translation>
+    </message>
+    <message>
+        <source>Without an account they are translated on this computer (a little slower).</source>
+        <translation>Без учётной записи они переводятся на этом компьютере (чуть медленнее).</translation>
+    </message>
+    <message>
+        <source>Sign in with Google to translate captions, or install the Offline translation extra</source>
+        <translation>Войдите через Google, чтобы переводить субтитры, или установите дополнение «Офлайн-перевод»</translation>
+    </message>
+    <message>
+        <source>Ignore</source>
+        <translation>Пропустить</translation>
+    </message>
+    <message>
+        <source>Nothing to change in these captions.</source>
+        <translation>В этих субтитрах нечего менять.</translation>
+    </message>
+    <message>
+        <source>(removed)</source>
+        <translation>(удалено)</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Отмена</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>Применить</translation>
     </message>
     <message>
         <source>Find (e.g. jesus)</source>
@@ -26901,6 +27637,38 @@ If playback stutters, try another.</source>
         <source>Tip: write a word between asterisks, like *faith*, to highlight it in colour.</source>
         <translation>Совет: возьмите слово в звёздочки, например *вера*, чтобы выделить его цветом.</translation>
     </message>
+    <message>
+        <source>One frame earlier</source>
+        <translation>На кадр раньше</translation>
+    </message>
+    <message>
+        <source>One frame later</source>
+        <translation>На кадр позже</translation>
+    </message>
+    <message>
+        <source>Split</source>
+        <translation>Разделить</translation>
+    </message>
+    <message>
+        <source>Split this caption at the playhead</source>
+        <translation>Разделить этот субтитр по указателю</translation>
+    </message>
+    <message>
+        <source>Join</source>
+        <translation>Объединить</translation>
+    </message>
+    <message>
+        <source>Join this caption with the next one</source>
+        <translation>Объединить этот субтитр со следующим</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete this caption</source>
+        <translation>Удалить этот субтитр</translation>
+    </message>
 </context>
 <context>
     <name>SubtitleProgressDialog</name>
@@ -26923,18 +27691,6 @@ If playback stutters, try another.</source>
 </context>
 <context>
     <name>SubtitlesTab</name>
-    <message>
-        <source>Subtitle track — one clip holds many timed captions. Place it on the timeline, trim its length, then add caption lines at each moment in the clip panel.</source>
-        <translation>Дорожка субтитров — один клип содержит много записей с временными метками. Поместите его на таймлайн, обрежьте до нужной длины и добавьте строки субтитров для каждого момента на панели клипа.</translation>
-    </message>
-    <message>
-        <source>Add subtitle clip</source>
-        <translation>Добавить клип субтитров</translation>
-    </message>
-    <message>
-        <source>Import subtitle file</source>
-        <translation>Импортировать файл субтитров</translation>
-    </message>
     <message>
         <source>Import Subtitles</source>
         <translation>Импорт субтитров</translation>
@@ -26960,20 +27716,48 @@ If playback stutters, try another.</source>
         <translation>Все файлы (*)</translation>
     </message>
     <message>
-        <source>Add auto caption</source>
-        <translation>Добавить автоматические субтитры</translation>
-    </message>
-    <message>
-        <source>Creates captions from the speech in the selected clip.</source>
-        <translation>Создаёт субтитры из речи в выбранном клипе.</translation>
-    </message>
-    <message>
         <source>Select a video or audio clip on the timeline first.</source>
         <translation>Сначала выберите видео- или аудиоклип на таймлайне.</translation>
     </message>
     <message>
+        <source>On this computer</source>
+        <translation>На этом компьютере</translation>
+    </message>
+    <message>
+        <source>In the cloud</source>
+        <translation>В облаке</translation>
+    </message>
+    <message>
+        <source>ElevenLabs Scribe: the audio is sent to ElevenLabs with your key</source>
+        <translation>ElevenLabs Scribe: звук отправляется в ElevenLabs с вашим ключом</translation>
+    </message>
+    <message>
+        <source>Hard words: names, brands… (separated by commas)</source>
+        <translation>Сложные слова: имена, бренды… (через запятую)</translation>
+    </message>
+    <message>
+        <source>Style of the selected captions</source>
+        <translation>Стиль выбранных субтитров</translation>
+    </message>
+    <message>
+        <source>Two lines per caption</source>
+        <translation>Две строки в субтитре</translation>
+    </message>
+    <message>
+        <source>Hide swear words (m*****)</source>
+        <translation>Скрывать ругательства (б***)</translation>
+    </message>
+    <message>
         <source>Shorter captions are timed by splitting each phrase evenly, so they can drift slightly out of sync with the speech.</source>
         <translation>Короткие субтитры создаются равномерным разделением фраз по времени, поэтому могут немного расходиться с речью.</translation>
+    </message>
+    <message>
+        <source>Captions from the voice</source>
+        <translation>Субтитры по голосу</translation>
+    </message>
+    <message>
+        <source>Create captions</source>
+        <translation>Создать субтитры</translation>
     </message>
     <message>
         <source>Create captions from the selected clips&apos; speech — several clips become one caption clip</source>
@@ -27006,6 +27790,38 @@ If playback stutters, try another.</source>
     <message>
         <source>Needed for auto captions from speech</source>
         <translation>Необходимо для автоматических субтитров из речи</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation>Параметры</translation>
+    </message>
+    <message>
+        <source>Tell the speakers apart (a colour for each)</source>
+        <translation>Различать говорящих (у каждого свой цвет)</translation>
+    </message>
+    <message>
+        <source>Highlight key words in colour</source>
+        <translation>Выделять ключевые слова цветом</translation>
+    </message>
+    <message>
+        <source>Show fewer</source>
+        <translation>Свернуть</translation>
+    </message>
+    <message>
+        <source>See all styles (%1)</source>
+        <translation>Все стили (%1)</translation>
+    </message>
+    <message>
+        <source>Write by hand</source>
+        <translation>Написать вручную</translation>
+    </message>
+    <message>
+        <source>An empty caption clip at the playhead: write each line in the clip panel</source>
+        <translation>Пустой клип субтитров у курсора: впишите каждую строку в панели клипа</translation>
+    </message>
+    <message>
+        <source>Import file</source>
+        <translation>Импорт файла</translation>
     </message>
     <message>
         <source>Recommended caption length</source>
@@ -27715,6 +28531,41 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>TextEditWindow</name>
+    <message>
+        <source>Edit by text</source>
+        <translation>Монтаж по тексту</translation>
+    </message>
+    <message>
+        <source>Click the words to take out (Shift + click for a stretch). Double click to hear one.</source>
+        <translation>Щёлкните слова, которые нужно убрать (Shift + щелчок — отрезок). Двойной щелчок — прослушать.</translation>
+    </message>
+    <message>
+        <source>No words found in this clip.</source>
+        <translation>В этом клипе нет слов.</translation>
+    </message>
+    <message>
+        <source>Listening to the clip to write down what is said… %1%</source>
+        <translation>Прослушиваем клип, чтобы записать сказанное… %1%</translation>
+    </message>
+    <message>
+        <source>The first time takes a while; then it opens at once.</source>
+        <translation>В первый раз это занимает некоторое время; потом открывается сразу.</translation>
+    </message>
+    <message>
+        <source>%1 words · %2 s</source>
+        <translation>Слов: %1 · %2 с</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Отмена</translation>
+    </message>
+    <message>
+        <source>Cut</source>
+        <translation>Вырезать</translation>
+    </message>
+</context>
+<context>
     <name>TextEffects</name>
     <message>
         <source>Shine sweep</source>
@@ -28278,6 +29129,26 @@ If playback stutters, try another.</source>
     <message>
         <source>These letters go back to the style of the whole text</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Read aloud…</source>
+        <translation>Прочитать вслух…</translation>
+    </message>
+    <message>
+        <source>Turn this text into a voice that starts with it</source>
+        <translation>Превратить этот текст в голос, который начинается вместе с ним</translation>
+    </message>
+    <message>
+        <source>Discard the voice you made?</source>
+        <translation>Удалить созданный голос?</translation>
+    </message>
+    <message>
+        <source>Discard and go on</source>
+        <translation>Удалить и продолжить</translation>
+    </message>
+    <message>
+        <source>The Voice panel has a take that is not on the timeline yet. Add it first with «Add to timeline», or discard it to start this one.</source>
+        <translation>В панели «Голос» есть дубль, которого ещё нет на таймлайне. Сначала добавьте его кнопкой «Добавить на таймлайн» или удалите, чтобы начать этот.</translation>
     </message>
     <message>
         <source>Bold</source>
@@ -30351,6 +31222,18 @@ If playback stutters, try another.</source>
 <context>
     <name>TimelinePanel</name>
     <message>
+        <source>Move work area</source>
+        <translation>Сдвинуть рабочую область</translation>
+    </message>
+    <message>
+        <source>Work area: drag to move it</source>
+        <translation>Рабочая область: перетащите, чтобы сдвинуть</translation>
+    </message>
+    <message>
+        <source>Work area: drag to change where it starts or ends</source>
+        <translation>Рабочая область: перетащите, чтобы изменить начало или конец</translation>
+    </message>
+    <message>
         <source>Proxy</source>
         <translation>Прокси-файл</translation>
     </message>
@@ -31199,7 +32082,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Remove keyframes</source>
-        <translation type="unfinished"></translation>
+        <translation>Удалить ключевые кадры</translation>
     </message>
     <message>
         <source>Stop animating (removes its keyframes)</source>
@@ -31255,7 +32138,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Separate dimensions</source>
-        <translation type="unfinished"></translation>
+        <translation>Разделить измерения</translation>
     </message>
     <message>
         <source>Behavior…</source>
@@ -31267,7 +32150,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Убрать</translation>
     </message>
     <message>
         <source>The clip keeps the value it has at the playhead. You can undo afterwards.</source>
@@ -32451,7 +33334,11 @@ If playback stutters, try another.</source>
     <name>TtsController</name>
     <message>
         <source>Loading voice model…</source>
-        <translation type="unfinished"></translation>
+        <translation>Загрузка модели голоса…</translation>
+    </message>
+    <message>
+        <source>No speech was produced</source>
+        <translation>Речь не была создана</translation>
     </message>
     <message>
         <source>Install the voice model first</source>
@@ -32466,16 +33353,64 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Generating speech…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Cancelled</source>
         <translation>Отменено</translation>
     </message>
     <message>
+        <source>Speaking sentence %1 of %2…</source>
+        <translation>Озвучивание фразы %1 из %2…</translation>
+    </message>
+    <message>
+        <source>Sentence %1 could not be spoken: %2</source>
+        <translation>Не удалось озвучить фразу %1: %2</translation>
+    </message>
+    <message>
+        <source>Putting the take together…</source>
+        <translation>Сборка дубля…</translation>
+    </message>
+    <message>
+        <source>Listen to it, then add it to the timeline</source>
+        <translation>Прослушайте, затем добавьте на таймлайн</translation>
+    </message>
+    <message>
+        <source>Speaking sentence %1 again…</source>
+        <translation>Повторное озвучивание фразы %1…</translation>
+    </message>
+    <message>
+        <source>Sentence %1 spoken again</source>
+        <translation>Фраза %1 озвучена заново</translation>
+    </message>
+    <message>
+        <source>Changing speed and pitch…</source>
+        <translation>Изменение скорости и высоты тона…</translation>
+    </message>
+    <message>
+        <source>Replace voice</source>
+        <translation>Заменить голос</translation>
+    </message>
+    <message>
+        <source>Could not replace the voice</source>
+        <translation>Не удалось заменить голос</translation>
+    </message>
+    <message>
         <source>Speech added to the timeline</source>
         <translation>Речь добавлена на таймлайн</translation>
+    </message>
+    <message>
+        <source>Voice replaced on the timeline</source>
+        <translation>Голос заменён на таймлайне</translation>
+    </message>
+    <message numerus="yes">
+        <source>The music goes down under the voice (%n clip(s))</source>
+        <translation>
+            <numerusform>Музыка приглушается под голосом (%n клип)</numerusform>
+            <numerusform>Музыка приглушается под голосом (%n клипа)</numerusform>
+            <numerusform>Музыка приглушается под голосом (%n клипов)</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>There is no music under this voice</source>
+        <translation>Под этим голосом нет музыки</translation>
     </message>
     <message>
         <source>Select a subtitle clip first</source>
@@ -32484,6 +33419,10 @@ If playback stutters, try another.</source>
     <message>
         <source>This subtitle clip has no text to speak</source>
         <translation>В этом клипе субтитров нет текста для озвучки</translation>
+    </message>
+    <message>
+        <source>Speaking line %1 of %2…</source>
+        <translation>Озвучивание строки %1 из %2…</translation>
     </message>
     <message>
         <source>Generate voiceover</source>
@@ -32507,6 +33446,14 @@ If playback stutters, try another.</source>
             <numerusform>; %n длилась дольше своего субтитра</numerusform>
             <numerusform>; %n длились дольше своих субтитров</numerusform>
             <numerusform>; %n длились дольше своих субтитров</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>; %n could not be added</source>
+        <translation>
+            <numerusform>; %n не удалось добавить</numerusform>
+            <numerusform>; %n не удалось добавить</numerusform>
+            <numerusform>; %n не удалось добавить</numerusform>
         </translation>
     </message>
 </context>
@@ -33760,6 +34707,81 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>VoiceGallery</name>
+    <message>
+        <source>Narration</source>
+        <translation>Повествование</translation>
+    </message>
+    <message>
+        <source>Young</source>
+        <translation>Молодой</translation>
+    </message>
+    <message>
+        <source>Deep</source>
+        <translation>Низкий</translation>
+    </message>
+    <message>
+        <source>Lively</source>
+        <translation>Живой</translation>
+    </message>
+    <message>
+        <source>Soft</source>
+        <translation>Мягкий</translation>
+    </message>
+    <message>
+        <source>Mature</source>
+        <translation>Зрелый</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation>Все</translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation>Избранное</translation>
+    </message>
+    <message>
+        <source>Mine</source>
+        <translation>Мои</translation>
+    </message>
+    <message>
+        <source>Women</source>
+        <translation>Женщины</translation>
+    </message>
+    <message>
+        <source>Men</source>
+        <translation>Мужчины</translation>
+    </message>
+    <message>
+        <source>Hear this voice</source>
+        <translation>Прослушать этот голос</translation>
+    </message>
+    <message>
+        <source>My voice</source>
+        <translation>Мой голос</translation>
+    </message>
+    <message>
+        <source>Mark voices with the star to find them here</source>
+        <translation>Отмечайте голоса звёздочкой, чтобы найти их здесь</translation>
+    </message>
+    <message>
+        <source>Your own voices appear here: «New voice» in Options</source>
+        <translation>Ваши собственные голоса появляются здесь: «Новый голос» в Параметрах</translation>
+    </message>
+    <message>
+        <source>No voices of this kind</source>
+        <translation>Нет голосов такого типа</translation>
+    </message>
+    <message>
+        <source>Show fewer</source>
+        <translation>Показать меньше</translation>
+    </message>
+    <message>
+        <source>See all voices (%1)</source>
+        <translation>Все голоса (%1)</translation>
+    </message>
+</context>
+<context>
     <name>VoiceLibrary</name>
     <message>
         <source>Default</source>
@@ -33772,6 +34794,18 @@ If playback stutters, try another.</source>
     <message>
         <source>A voice needs a name and a recording</source>
         <translation>Для голоса нужны имя и запись</translation>
+    </message>
+    <message>
+        <source>Reading the recording…</source>
+        <translation>Чтение записи…</translation>
+    </message>
+    <message>
+        <source>Loading voice model…</source>
+        <translation>Загрузка модели голоса…</translation>
+    </message>
+    <message>
+        <source>Learning the voice…</source>
+        <translation>Изучение голоса…</translation>
     </message>
     <message>
         <source>Could not prepare the voice</source>
@@ -33788,6 +34822,18 @@ If playback stutters, try another.</source>
     <message>
         <source>The recording is too short: record at least %1 seconds</source>
         <translation>Запись слишком короткая: запишите не менее %1 с</translation>
+    </message>
+    <message>
+        <source>Unknown voice</source>
+        <translation>Неизвестный голос</translation>
+    </message>
+    <message>
+        <source>The reference recording for this voice is missing</source>
+        <translation>Отсутствует эталонная запись для этого голоса</translation>
+    </message>
+    <message>
+        <source>Could not read the reference recording</source>
+        <translation>Не удалось прочитать эталонную запись</translation>
     </message>
 </context>
 <context>
@@ -33844,6 +34890,18 @@ If playback stutters, try another.</source>
         <translation>Создать озвучку</translation>
     </message>
     <message>
+        <source>Speech generation runs on this device and needs the voice model.</source>
+        <translation>Генерация речи выполняется на этом устройстве и требует модель голоса.</translation>
+    </message>
+    <message>
+        <source>Download voice model</source>
+        <translation>Скачать модель голоса</translation>
+    </message>
+    <message>
+        <source>Install AI engine first</source>
+        <translation>Сначала установите ИИ-движок</translation>
+    </message>
+    <message>
         <source>Voice</source>
         <translation>Голос</translation>
     </message>
@@ -33874,6 +34932,21 @@ If playback stutters, try another.</source>
     <message>
         <source>Close</source>
         <translation>Закрыть</translation>
+    </message>
+</context>
+<context>
+    <name>WhisperTranscriber</name>
+    <message>
+        <source>Transcribing %1–%2 of %3…</source>
+        <translation>Распознавание %1–%2 из %3…</translation>
+    </message>
+    <message>
+        <source>Detecting language…</source>
+        <translation>Определение языка…</translation>
+    </message>
+    <message>
+        <source>Finishing up…</source>
+        <translation>Завершение…</translation>
     </message>
 </context>
 <context>

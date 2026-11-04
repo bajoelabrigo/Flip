@@ -57,10 +57,13 @@ public:
 
     // 24 kHz mono float. `text` is split into sentence-sized chunks, each generated separately and
     // joined with a short pause. progress(0..1) returning false cancels: the result is then empty
-    // and *err is left untouched. Failures return empty with *err set.
+    // and *err is left untouched. Failures return empty with *err set. variant 0 always says the
+    // same words the same way; any other number samples the model, so another variant is another
+    // reading (redoing one sentence).
     std::vector<float> synthesize(const QString &text, const QString &lang,
                                   const VoiceConditioning &voice, float exaggeration,
-                                  const std::function<bool(double)> &progress, QString *err);
+                                  const std::function<bool(double)> &progress, QString *err,
+                                  unsigned variant = 0);
 
     ChatterboxTts(const ChatterboxTts &) = delete;
     ChatterboxTts &operator=(const ChatterboxTts &) = delete;

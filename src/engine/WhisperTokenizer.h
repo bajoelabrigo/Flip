@@ -22,9 +22,16 @@ public:
     // Reassembles UTF-8 text from the text tokens (id < kTextTokenLimit) in the run.
     QString decode(const std::vector<int> &tokens) const;
 
+    // Text to tokens by the longest piece of the vocabulary at each step, word by word (a leading
+    // space belongs to the word, as in GPT-2). The models ship without the BPE merges, so this is
+    // not the canonical split; it is good enough for an initial prompt (names, brands, terms).
+    std::vector<int> encodeApprox(const QString &text) const;
+
 private:
     bool m_loaded = false;
     QHash<int, QByteArray> m_idToBytes;
+    QHash<QByteArray, int> m_bytesToId; // text pieces only
+    int m_longestPiece = 1;
 };
 
 } // namespace drift

@@ -52,7 +52,6 @@ def final_tarjeta_vertical():
     D = 10.0
     t = _kit("final-tarjeta-vertical", "Pantalla final: tarjeta vertical", "End screen: tall card", D, 8350,
              ["pantalla final", "tarjeta", "gracias", "suscríbete"], thumb_at=4.5)
-    photo_bg(t, "h-city-02", s1=1.04, label="Tu video")
     t.solid(t.track("shape", "Oscurecer"), "#000000", 0.0, D, None, opacity=keys([(0, 0.0), (0.5, 0.4)]))
     card = Box(700, 90, 520, 900)
     rrect(t, t.track("shape", "Tarjeta"), CORAL, 0.2, D - 0.2, card, radius=18,
@@ -78,7 +77,6 @@ def final_circulo():
     D = 10.0
     t = _kit("final-circulo", "Pantalla final con círculo", "End screen with a circle", D, 8351,
              ["pantalla final", "círculo", "gracias", "dos videos"], thumb_at=4.5)
-    photo_bg(t, "h-nature-01", s1=1.04, label="Tu video")
     t.solid(t.track("shape", "Oscurecer"), "#000000", 0.0, D, None, opacity=keys([(0, 0.0), (0.5, 0.35)]))
     t.solid(t.track("shape", "Círculo"), CORAL, 0.2, D - 0.2, centered(330, 540, 1180, 1180),
             [(0, {"dx": -1300}, "out"), (0.8, {}, "hold"), (D - 0.2 - 0.6, {}, "in"), (D - 0.2, {"dx": -1300})],
@@ -102,7 +100,6 @@ def final_panel_curvo():
     D = 10.0
     t = _kit("final-panel-curvo", "Pantalla final con panel curvo", "End screen with a curved panel", D, 8352,
              ["pantalla final", "panel", "curva", "gracias"], thumb_at=4.5)
-    photo_bg(t, "h-sport-01", s1=1.04, label="Tu video")
     t.solid(t.track("shape", "Borde"), CORAL, 0.2, D - 0.2, centered(-60, 540, 1500, 1500),
             [(0, {"dx": -1200}, "out"), (0.8, {}, "hold"), (D - 0.2 - 0.6, {}, "in"), (D - 0.2, {"dx": -1200})],
             kind="ellipse")

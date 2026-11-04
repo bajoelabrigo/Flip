@@ -37,8 +37,24 @@ ThemedDialog {
         LabelledProgressRing {
             width: parent.width
             value: EditorState.subtitleGenProgress
-            // Whisper reports nothing until the first chunk lands.
-            indeterminate: EditorState.subtitleGenProgress <= 0
+            // Whisper reports nothing until the first chunk lands; a step that says nothing for a
+            // while (placing the words in time) spins too, so it does not look hung (0.30 tests E49).
+            indeterminate: EditorState.subtitleGenProgress <= 0 || stallTimer.stalled
+        }
+
+        Timer {
+            id: stallTimer
+            property bool stalled: false
+            property real seen: -1
+            interval: 2500
+            repeat: true
+            running: root.visible
+            onRunningChanged: { stalled = false; seen = -1 }
+            onTriggered: {
+                const now = EditorState.subtitleGenProgress
+                stalled = now > 0 && now < 1 && Math.abs(now - seen) < 0.001
+                seen = now
+            }
         }
 
         ThemedLabel {

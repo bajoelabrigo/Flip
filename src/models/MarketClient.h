@@ -124,6 +124,7 @@ public:
     // Flip Studio: requests carry the Flip Studio account's token instead of the marketplace's
     // own sign-in, and no machine-derived client id is sent.
     void setAccount(AccountController *account);
+    AccountController *account() const; // defined where AccountController is complete
 
     bool configured() const;
     bool consented() const { return m_consented; }

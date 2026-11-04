@@ -125,7 +125,6 @@ def tarjeta_canal():
     D = 6.5
     t = _kit("boton-tarjeta-canal", "Tarjeta del canal con suscribirse", "Channel card with subscribe", D, 8200,
              ["tarjeta", "canal", "campana", "me gusta"], thumb_at=3.6)
-    photo_bg(t, "h-man-02", s1=1.03, label="Tu video")
     t0, t1 = 0.3, D - 0.2
     card = Box(110, 330, 260, 400)
     cx = card.x + card.w / 2
@@ -167,7 +166,6 @@ def barra_canal():
     D = 7.0
     t = _kit("boton-barra-canal", "Barra del canal con contador", "Channel bar with live counter", D, 8201,
              ["barra", "contador", "seguidores", "campana", "me gusta"], thumb_at=4.6)
-    photo_bg(t, "h-food-01", s1=1.03, label="Tu video")
     t0, t1 = 0.3, D - 0.2
     bar = Box(0, 930, 1920, 150)
     dur = t1 - t0
@@ -221,7 +219,6 @@ def pildora():
     D = 5.5
     t = _kit("boton-pildora", "Píldora con me gusta y suscribirse", "Pill with like and subscribe", D, 8202,
              ["píldora", "me gusta", "no me gusta", "compacto"], thumb_at=3.2)
-    photo_bg(t, "h-city-05", s1=1.03, label="Tu video")
     t0, t1 = 0.3, D - 0.2
     dur = t1 - t0
     pillb = Box(700, 860, 520, 100)
@@ -258,7 +255,6 @@ def tarjeta_mini():
     D = 5.0
     t = _kit("boton-tarjeta-mini", "Tarjeta pequeña con suscribirse", "Small subscribe card", D, 8203,
              ["tarjeta", "pequeño", "esquina", "minimalista"], thumb_at=2.6)
-    photo_bg(t, "h-cafe-01", s1=1.03, label="Tu video")
     t0, t1 = 0.3, D - 0.2
     dur = t1 - t0
     card = Box(1500, 760, 300, 150)
@@ -281,7 +277,6 @@ def pildora_campana():
     D = 6.0
     t = _kit("boton-pildora-campana", "Píldora con campana y suscribirse", "Pill with bell and subscribe", D, 8204,
              ["píldora", "campana", "me gusta", "compacto"], thumb_at=3.9)
-    photo_bg(t, "h-studio-01", s1=1.03, label="Tu video")
     t0, t1 = 0.3, D - 0.2
     dur = t1 - t0
     pillb = Box(1240, 860, 560, 100)
@@ -308,7 +303,6 @@ def iconos_grandes():
     t = _kit("boton-iconos-grandes", "Íconos grandes: me gusta, suscribirse y campana",
              "Big icons: like, subscribe and bell", D, 8205, ["íconos", "grande", "sin fondo", "campana", "me gusta"],
              thumb_at=4.0)
-    photo_bg(t, "h-concert-01", s1=1.03, label="Tu video")
     t0, t1 = 0.3, D - 0.2
     cy = 900
     c_like, c_sub, c_bell = 1.7, 2.7, 3.7
@@ -331,7 +325,6 @@ def pildora_larga():
     D = 6.5
     t = _kit("boton-pildora-larga", "Píldora que se alarga desde la foto", "Pill that stretches out of the picture",
              D, 8206, ["píldora", "foto", "campana", "me gusta", "se alarga"], thumb_at=4.3)
-    photo_bg(t, "h-city-02", s1=1.03, label="Tu video")
     t0, t1 = 0.3, D - 0.2
     dur = t1 - t0
     pillb = Box(120, 880, 620, 110)
@@ -372,7 +365,6 @@ def redes():
     D = 6.0
     t = _kit("boton-redes", "Sígueme en mis redes", "Follow me on my socials", D, 8207,
              ["redes", "sígueme", "seguir", "usuario", "perfil"], thumb_at=3.2)
-    photo_bg(t, "h-concert-03", s1=1.03, label="Tu video")
     t1 = D - 0.2
     items = [(PLAY, CORAL, "@tucanal", "Usuario 1"), (BUBBLE, TEAL, "@tuperfil", "Usuario 2"),
              (HEART, SUN, "@tunombre", "Usuario 3")]

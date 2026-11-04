@@ -1,5 +1,6 @@
 #pragma once
 
+#include "core/CutOps.h"
 #include "core/EffectStackStore.h"
 #include "core/Project.h"
 #include "core/TextAnimationPreset.h"
@@ -549,6 +550,9 @@ public:
     // how many clips were placed.
     int placeGeneratedAudioOnNewTracks(const QList<GeneratedAudioPlacement> &items,
                                        const QString &undoText);
+    // The clip plays another asset from its start, as long as that one lasts (the voice's script
+    // edited and spoken again, 0.30): same place, track, volume and effects; one undo step.
+    bool swapClipAudio(const QString &clipId, const QString &assetId);
 
     void setAddonManager(AddonManager *manager);
     // Also hears Stock's templates: installed ones reload the Templates tab, "Use" places them.
@@ -618,6 +622,8 @@ public:
     Q_INVOKABLE bool importSubtitleFileIntoClip(int trackIndex, int clipIndex, const QUrl &url);
     // Export a subtitle clip's cues as SRT, WebVTT or ASS (by extension). Timestamps are clip-local unless timelineTimes,
     // which offsets them by the clip's start so they line up with the exported video.
+    // True when the timeline has captions: the export dialog then offers to save them as .srt too.
+    Q_INVOKABLE bool projectHasSubtitles() const;
     Q_INVOKABLE bool exportSubtitleFile(int trackIndex, int clipIndex, const QUrl &url,
                                         bool timelineTimes = false);
     // maxWordsPerCue caps words per caption; 0 keeps the recommended (character-width) packing.
@@ -819,6 +825,11 @@ public:
     // so the Motion Tools panel (0.26) works on them.
     Q_PROPERTY(QVariantMap pickedKeyframes READ pickedKeyframes WRITE setPickedKeyframes NOTIFY pickedKeyframesChanged)
     QVariantMap pickedKeyframes() const { return m_pickedKeyframes; }
+    // Runs `fn` once per track the picked keys are on, each time with that track's keys as the
+    // pick, in one undo step; false (and nothing run) when they are all on one track.
+    bool eachPickedTrack(const QString &label, const std::function<void()> &fn);
+    // A key on a property group ("position", "scale"…) of the selected layers at the playhead.
+    void keyGroupAtPlayhead(const QString &group);
     void setPickedKeyframes(const QVariantMap &picked)
     {
         if (picked == m_pickedKeyframes)
@@ -1191,6 +1202,13 @@ public:
                                    const QVariantList &only = {});
     // Hesitations out, first letters up, dictionary applied — what new captions get.
     Q_INVOKABLE void cleanUpSubtitles(int trackIndex, int clipIndex);
+    // What «Clean up» (kind "cleanup") or «Emojis» (kind "emojis") would change: [{before, after}].
+    Q_INVOKABLE QVariantList subtitleChangesPreview(int trackIndex, int clipIndex, const QString &kind) const;
+    // Spelling, with the system's spell checker (Windows; none elsewhere yet): the words it flags in
+    // a subtitle clip, [{cue, start, length, word, suggestions}]. language "" = the one the captions
+    // were last made in, else the app's.
+    Q_INVOKABLE bool subtitleSpellCheckAvailable(const QString &language = {}) const;
+    Q_INVOKABLE QVariantList subtitleSpellingIssues(int trackIndex, int clipIndex, const QString &language = {}) const;
     // The user's corrections ([{find, replace}]), applied to every generated caption.
     Q_INVOKABLE QVariantList subtitleDictionary() const;
     Q_INVOKABLE void setSubtitleDictionary(const QVariantList &entries);
@@ -1205,6 +1223,54 @@ public:
     // Emojis for keywords at the end of captions: an option for new captions, and an action.
     Q_INVOKABLE bool subtitleEmojisEnabled() const;
     Q_INVOKABLE void setSubtitleEmojisEnabled(bool enabled);
+    // Key words marked in colour (*like this*) when captions are made, and on captions already made.
+    Q_INVOKABLE bool subtitleKeywordsEnabled() const;
+    Q_INVOKABLE void setSubtitleKeywordsEnabled(bool enabled);
+    Q_INVOKABLE void highlightSubtitleKeywords(int trackIndex, int clipIndex);
+    // CapCut's animated emojis: each caption that has (or calls for) an emoji gets the animated one
+    // from the «Animated emojis» extra above it, for the caption's time. One undo step; returns how
+    // many were placed (-1 when the extra is not installed).
+    Q_INVOKABLE int addAnimatedEmojisToSubtitles(int trackIndex, int clipIndex);
+    Q_INVOKABLE bool animatedEmojisAvailable() const;
+    // The TV bleep: over each hidden swear word (m*****) with a word timing, the voice drops to
+    // silence (volume keys on the clips that were transcribed) and a 1 kHz tone plays on a track
+    // of its own. One undo step; returns how many words were bleeped.
+    Q_INVOKABLE int bleepSubtitleSwearWords(int trackIndex, int clipIndex);
+    Q_INVOKABLE bool subtitleHasHiddenWords(int trackIndex, int clipIndex) const;
+    // New captions with swear words hidden behind their first letter (off by default).
+    // Captions made «in the cloud» (ElevenLabs Scribe) instead of on this computer: offered once
+    // Settings › Cloud has a key and the user's consent. Hard words (names, brands) help it.
+    Q_INVOKABLE bool subtitleCloudReady() const;
+    Q_INVOKABLE bool subtitleCloudEngine() const;
+    Q_INVOKABLE void setSubtitleCloudEngine(bool cloud);
+    Q_INVOKABLE QString subtitleKeytermsText() const;
+    Q_INVOKABLE void setSubtitleKeytermsText(const QString &text);
+    QStringList subtitleKeyterms() const;
+    // «Tell the speakers apart» when creating captions (needs the speaker-labels extra): each voice
+    // gets its lines in a colour and a name that can be changed.
+    Q_INVOKABLE bool subtitleSpeakersEnabled() const;
+    Q_INVOKABLE void setSubtitleSpeakersEnabled(bool enabled);
+    Q_INVOKABLE bool subtitleSpeakersAvailable() const;
+    Q_INVOKABLE void setSubtitleSpeaker(int trackIndex, int clipIndex, int speaker, const QString &name,
+                                        const QColor &color);
+    // Captions translated into another language with DeepL on our server (needs the account), as a
+    // second caption clip above the original: bilingual videos. The languages: [{code, label}].
+    Q_INVOKABLE QVariantList subtitleTranslationLanguages() const;
+    Q_INVOKABLE void translateSubtitles(int trackIndex, int clipIndex, const QString &language);
+    // Stops the listening «Edit with the text» started.
+    Q_INVOKABLE void cancelTextEditListening();
+    // The Offline translation extra is installed: captions can be translated without an account.
+    Q_INVOKABLE bool offlineTranslationAvailable() const;
+    // The captions translated on this computer (0.30): no account, no internet, or DeepL's month spent.
+    void translateSubtitlesOffline(const QString &sourceId, const QStringList &texts, const QString &source,
+                                   const QString &target, const QString &label);
+    void insertTranslatedCaptions(const QString &sourceId, const QString &label, const QStringList &translations);
+    Q_PROPERTY(bool subtitleTranslating READ subtitleTranslating NOTIFY subtitleTranslatingChanged)
+    bool subtitleTranslating() const { return m_subtitleTranslating; }
+    Q_INVOKABLE bool subtitleTwoLines() const;
+    Q_INVOKABLE void setSubtitleTwoLines(bool enabled);
+    Q_INVOKABLE bool subtitleProfanityFilter() const;
+    Q_INVOKABLE void setSubtitleProfanityFilter(bool enabled);
     Q_INVOKABLE void addEmojisToSubtitles(int trackIndex, int clipIndex);
     Q_INVOKABLE void previewSetSubtitleCues(int trackIndex, int clipIndex, const QVariantList &cues);
     Q_INVOKABLE double subtitleLocalPlayheadSeconds(int trackIndex, int clipIndex) const;
@@ -1772,8 +1838,13 @@ public:
     // ({clip, prop, seconds}) with their values and curves, by their time after the first one;
     // pasted on a clip's same properties starting at the playhead. Returns how many were copied.
     Q_INVOKABLE int copyKeyframes(int trackIndex, const QVariantList &keys);
-    Q_INVOKABLE bool pasteKeyframes(int trackIndex, int clipIndex);
+    // continueChain: pasted onto the keys they came from, the copies go after them (clone chain). Off when
+    // pasting into several layers at once: each gets them at the playhead, as After Effects (0.30 tests E47).
+    Q_INVOKABLE bool pasteKeyframes(int trackIndex, int clipIndex, bool continueChain = true);
     Q_INVOKABLE bool hasCopiedKeyframes() const { return !m_keyClipboard.isEmpty(); }
+    // The keys the last paste made ({clip, prop, seconds}, on the track pasted to), so they are the
+    // ones picked afterwards, as After Effects leaves them.
+    Q_INVOKABLE QVariantList lastPastedKeyframes() const { return m_lastPastedKeys; }
     // A drag of the picked keys (each {clip, prop, seconds} where it started), inside a preview
     // drag: the keys that sit fromDelta seconds off their start move to toDelta off it, all
     // together, keeping their shape. The caller keeps them between their unpicked neighbours.
@@ -1878,6 +1949,10 @@ public:
     // At the playhead, on top of the stack. An empty project takes the template's size first.
     // Returns the composition clip's id, or empty.
     Q_INVOKABLE QString insertSceneTemplate(const QString &templateId);
+    // A lower third into an empty timeline (0.30, Jorge): "short" makes the project vertical (1080×1920),
+    // "video" wide (1920×1080), and the lower third is fitted to it. insertSceneTemplate asks first
+    // (templateFormatRequested) when a window is listening.
+    Q_INVOKABLE QString insertSceneTemplateAs(const QString &templateId, const QString &format);
     // The scene template asset behind a clip (or the open composition), or empty.
     Q_INVOKABLE QString sceneTemplateAssetAt(int trackIndex, int clipIndex) const;
     // {assetId, name, emptySlots, slots[{clipId, slotId, number, label, empty, kind, mediaName,
@@ -2001,8 +2076,21 @@ public:
     // pauses longer than `minPause` seconds and hesitations (eh, mmm), from a word-level
     // transcript of its media (made first when there is none). One undo step.
     // Returns an error message when nothing could start, empty otherwise.
+    // review = true: once the word timings are there, emit silenceReviewReady instead of cutting.
     Q_INVOKABLE QString cutSilencesAndFillers(int trackIndex, int clipIndex, double minPause = 0.6,
-                                           bool removeFillers = true);
+                                           bool removeFillers = true, bool review = false);
+    // «Remove silences» reviewed one by one, as CapCut: the pauses and filler words it would take
+    // out of a clip, [{start, end, at, length, filler, text}] (start/end in source seconds, at = where
+    // it begins on the timeline), [] while the clip has no word timings.
+    Q_INVOKABLE QVariantList silencePieces(int trackIndex, int clipIndex, double minPause = 0.6,
+                                           bool removeFillers = true) const;
+    // Cuts out the pieces given (the ones left ticked) and keeps the rest. One undo step.
+    Q_INVOKABLE void removeSilencePieces(int trackIndex, int clipIndex, const QVariantList &pieces);
+    // Editing the video by its text, as Descript: the clip's words (made first when it has no word
+    // timings, then textEditReady), [{start, end, at, text}] in source seconds (at = on the timeline).
+    // Cutting what was struck out goes through removeSilencePieces.
+    Q_INVOKABLE QString editClipByText(int trackIndex, int clipIndex);
+    Q_INVOKABLE QVariantList clipTranscriptWords(int trackIndex, int clipIndex) const;
     Q_INVOKABLE void removeAudioEffect(int trackIndex, int clipIndex, int effectIndex);
     // Voice changer: the "voz.*" filter on a clip ("" for none), and replacing it in one undo
     // step on this clip or, with allClips, on every clip with sound.
@@ -2107,6 +2195,9 @@ public:
     Q_INVOKABLE void stepToKeyframe(bool forward);
     Q_INVOKABLE void toggleRevealKeyframes();
     Q_INVOKABLE bool trackHasKeyframes(int trackIndex) const;
+    bool trackHasModifiedLines(int trackIndex) const;
+    bool lineModified(int trackIndex, int clipIndex, const QStringList &props) const;
+    void layerEditAtPlayhead(const QString &actionId);
     // [{label, prop, clips: [{clip, prop, start, duration, keys: clipKeyframes()}]}], one per
     // property name across the track's clips.
     Q_INVOKABLE QVariantList trackKeyframeRows(int trackIndex) const;
@@ -2178,6 +2269,9 @@ public:
     Q_INVOKABLE void goToWorkAreaIn();
     Q_INVOKABLE void goToWorkAreaOut();
     Q_INVOKABLE void clearWorkArea();
+    // The work area bar dragged on the ruler (0.30, After Effects): both ends in seconds, snapped to
+    // frames and kept inside the timeline; inside a preview drag it is one undo step.
+    Q_INVOKABLE void previewSetWorkArea(double inSeconds, double outSeconds);
     Q_INVOKABLE void toggleLoopWorkArea();
     Q_INVOKABLE void freezeFrameAtPlayhead();
     // CapCut's «Fit to video length» (0.29): the clip (music, usually) ends where the last picture ends, trimmed
@@ -2216,6 +2310,27 @@ public:
     // Restores every default binding. Backspace clears a binding and persists the
     // empty string, so without this there was no route back from having cleared one.
     Q_INVOKABLE void resetShortcuts();
+    // Position's path (0.30, After Effects' spatial interpolation), on the keys at `seconds` (timeline
+    // seconds; empty = all): "auto" gives X and Y smooth tangents through each key (AE's Auto Bezier
+    // path, a Catmull-Rom spline), "linear" straight lines between keys. One undo step.
+    Q_INVOKABLE void setPositionPath(int trackIndex, int clipIndex, const QString &kind, const QVariantList &seconds);
+    // After Effects' Position as one property (0.30, core/PositionPath) and Separate Dimensions.
+    Q_INVOKABLE bool positionJoined(int trackIndex, int clipIndex) const;
+    Q_INVOKABLE bool positionSeparated(int trackIndex, int clipIndex) const;
+    Q_INVOKABLE void setPositionJoined(int trackIndex, int clipIndex, bool joined);
+    // A joined Position key's handles on the motion path, px from the key; they stop following
+    // the neighbours (Auto Bezier) once set.
+    Q_INVOKABLE void previewSetSpatialTangents(int trackIndex, int clipIndex, double atSeconds, double inX, double inY,
+                                               double outX, double outY);
+    // After Effects' roving keys (0.30): the inner Position keys are moved in time so the layer goes
+    // along its path at one speed from the first key to the last. One undo step.
+    Q_INVOKABLE void roveKeyframes(int trackIndex, int clipIndex);
+    // The set of default shortcuts (0.30): "flip" or "afterEffects". Changing it keeps the bindings
+    // the user chose; the rest follow the new set.
+    Q_INVOKABLE QString shortcutPreset() const;
+    Q_INVOKABLE void setShortcutPreset(const QString &preset);
+    // True the first time it is asked (and never again): Pro offers After Effects' set once.
+    Q_INVOKABLE bool takeAeShortcutsOffer();
     // Canonical chord string for a key event (Ctrl+Shift+Left, …). Same names the
     // Shortcut items and the shortcut-capture field use, so a rebound chord still
     // matches when it is dispatched from Keys.onPressed rather than Shortcut {}.
@@ -2423,6 +2538,16 @@ signals:
     void subtitleGenProgressChanged();
     void subtitleGenStatusChanged();
     void subtitleGenerationFinished(bool ok, const QString &message);
+    // cutSilencesAndFillers(review = true) has the clip's word timings: show the pauses to pick from.
+    void silenceReviewReady(int trackIndex, int clipIndex);
+    void subtitleTranslatingChanged();
+    // editClipByText has the clip's words: open the text editor.
+    void textEditReady(int trackIndex, int clipIndex);
+    // «Edit with the text» while the clip is first listened to (0.30, Jorge: it took half a minute
+    // with no sign of life): the window opens at once and shows how far it has got.
+    void textEditListening(int trackIndex, int clipIndex);
+    void textEditProgress(double fraction, const QString &status);
+    void textEditFailed(const QString &message);
     void reverseRenderingChanged();
     void reverseRenderProgressChanged();
     void reverseRenderStatusChanged();
@@ -2466,6 +2591,8 @@ signals:
     void fontCatalogChanged();
     // Scene templates were installed or removed (Stock, Extras).
     void sceneTemplatesChanged();
+    // A lower third is going into an empty timeline: which shape, Short or Video (insertSceneTemplateAs).
+    void templateFormatRequested(const QString &templateId, const QString &name);
     void templateBeatFitChanged();
     void brandKitChanged();
     void templatePickerRequested(const QString &mode, const QString &compositeAssetId, const QList<QUrl> &urls);
@@ -2515,6 +2642,9 @@ protected:
     QVariantMap trimPreviewToMap(int trackIndex, int clipIndex, const TrimComputation &computed) const;
 
     void notifyTracksChanged();
+    // Joins Position on the clips that start moving in this edit (against `before`) and keeps every
+    // joined one's path in step with its keys.
+    void syncJoinedPositions(const drift::Project *before);
 
     // Refills the per-track clip models from the project. Called by notifyTracksChanged() before
     // the signal goes out, so a binding that wakes on tracksChanged already sees the new rows.
@@ -2594,6 +2724,8 @@ protected:
     // insertSceneTemplate without its undo step and messages when !recordUndo (Change template
     // records one for the whole swap); allowResize lets an empty project take the template's size.
     QString placeSceneTemplate(const QString &templateId, bool recordUndo, bool allowResize);
+    // The shape insertSceneTemplateAs asked for ("short", "video"), read once by placeSceneTemplate.
+    QString m_templateFormat;
     static QString templateTextKindLabel(const QString &kind);
     void applyTemplateBeatFit(const QString &compositeAssetId, const AudioBeatAnalysis &analysis,
                               drift::TimeUs offsetUs);
@@ -2667,6 +2799,8 @@ protected:
         double speed = 1.0;
         bool reverse = false;
         QString assetId;
+        // The clip itself: its own source → timeline mapping (speed curves and reverse included).
+        drift::Clip clip;
     };
     static SubtitleSource subtitleSourceFromClip(const drift::Clip &clip);
     // Captions straight from stored transcripts, when every source has a current one. Empty
@@ -2678,12 +2812,30 @@ protected:
     QHash<QString, QVariantMap> m_pendingSilenceCuts;
     // Per instance: a function-level static hooked only the first controller's job registry.
     bool m_silenceCutHooked = false;
-    void applySilenceCut(const QString &clipId, double minPause, bool removeFillers);
+    void applySilenceCut(const QString &clipId, double minPause, bool removeFillers, bool review = false,
+                         bool textEdit = false);
+    bool m_textEditNext = false; // the next cutSilencesAndFillers opens the text editor instead
+    bool m_subtitleTranslating = false;
+    // The spoken stretches «Remove silences» keeps (source time), and how many filler words it drops.
+    QList<drift::TimeRangeUs> speechKeepRanges(const drift::Clip &clip, double minPause, bool removeFillers,
+                                               int *fillers) const;
+    // fillers < 0: words struck out in the text editor (the message says so instead of pauses).
+    void cutToKeepRanges(int trackIndex, int clipIndex, const QList<drift::TimeRangeUs> &keep, int fillers);
+    // After a cut that closed up its own track, the other tracks follow: captions in the cut go, the
+    // later ones move up, and clips that start after a cut move up by it (timeline time, before the cut).
+    void rippleOtherTracks(int cutTrack, QList<drift::TimeRangeUs> gone);
     bool m_subtitleTranslateNext = false; // the next generation run translates to English
     bool generateSubtitlesForSources(QList<SubtitleSource> sources, const QString &language,
                                      int maxWordsPerCue);
     void finishNormalize(const QString &clipId, double lufs, double targetLufs);
     bool m_normalizing = false;
+    int subtitleLineWidth() const; // letters per generated caption, by the frame's shape
+    int subtitleLineCount() const { return subtitleTwoLines() ? 2 : 1; }
+    // The captions of each visible subtitle track in the exported video's times (bottom track first),
+    // and writing them next to the video as «name.srt», «name.2.srt»…
+    QList<QList<drift::SubtitleCue>> subtitleSidecarCues(const drift::Project &project, drift::TimeUs rangeStart,
+                                                         drift::TimeUs rangeEnd) const;
+    void writeSubtitleSidecars(const QString &videoPath, const QList<QList<drift::SubtitleCue>> &tracks);
     void finalizeGeneratedSubtitles(drift::TimeUs timelineStart, drift::TimeUs timelineDuration,
                                     const QList<drift::SubtitleCue> &cues, bool translated = false);
     // Defaulted severity so the existing call sites, which report ordinary status,
@@ -2998,6 +3150,7 @@ protected:
     QString m_penTargetLayerId;
     // Set while Squash & Stretch or Bend add their effect, so the selection stays on the clip.
     bool m_addEffectKeepsSelection = false;    QVariantMap m_pickedKeyframes;
+    QString m_textEditJobId; // the transcription «Edit with the text» waits on
     QString m_keyframeRowsOnlyGroup;
     int m_selectionRevision = 0;
     int m_timelineTrimCursorSide = 0;
@@ -3082,6 +3235,8 @@ protected:
     QSet<QString> m_collapsedShapeGroups;
     // U (toggleRevealKeyframes): the tracks' fixed transform lines only when they have keys.
     bool m_keyframeRowsAnimatedOnly = false;
+    bool m_keyframeRowsModifiedOnly = false; // UU (0.30): the lines changed at all
+    qint64 m_lastRevealMs = 0;
     // The body of resetClipTransform, on any clip (a copy for resetClipProperties).
     void resetTransformOf(drift::Clip &clip);
     // The shaded letters the layer calls aim at (setTextStyleRange).
@@ -3130,6 +3285,7 @@ protected:
     drift::TimeUs m_keyClipboardFirstUs = 0;
     drift::TimeUs m_keyClipboardLastUs = 0;
     int m_keyClipboardTimes = 0;
+    QVariantList m_lastPastedKeys;
 
     // Whole-file peaks, for the dialogs that show a complete clip at once (Denoise, Speed
     // Curve). The timeline uses m_waveformBlocks instead — see waveformPeaksRange.

@@ -2,6 +2,7 @@
 
 #include "Time.h"
 
+#include <QColor>
 #include <QList>
 #include <QPair>
 #include <QString>
@@ -17,6 +18,19 @@ struct SubtitleCue
     // no longer matching the words (the text was edited, the cue retimed), falls back to the
     // proportional timing; karaoke follows the voice only with real timings (auditoria D11).
     QList<TimeUs> wordEndsUs;
+    // This caption's own look, as CapCut lets one line stand out: a text preset id (empty = the
+    // clip's style), and where it sits ("" = where the clip puts it, "top", "middle").
+    QString styleId;
+    QString place;
+    // Who says it (index into the clip's subtitleSpeakers), -1 = nobody in particular.
+    int speaker = -1;
+};
+
+// A voice in a subtitle clip: its name and the colour its lines are drawn in.
+struct SubtitleSpeaker
+{
+    QString name;
+    QColor color;
 };
 
 // Moves a cue and its word timings by `delta`.
@@ -57,10 +71,26 @@ QList<SubtitleCue> packSubtitleCues(const QList<SubtitleCue> &cues, int maxLineW
 QString cleanSubtitleText(const QString &text, bool capitalize = true);
 QList<SubtitleCue> cleanSubtitleCues(const QList<SubtitleCue> &cues);
 
+// Swear words hidden behind their first letter («mierda» → «m*****», «fuck» → «f***»): Spanish
+// and English, whole words, accents and case aside. The word count stays, so the karaoke's timings
+// still fit.
+QString maskProfanity(const QString &text);
+
 // The caption with one emoji added at its end for the first keyword it mentions ("fuego" 🔥,
 // "Dios" 🙏, "fiesta" 🎉 …; Spanish and English). Unchanged when nothing matches or when it
 // already has an emoji.
 QString captionWithEmoji(const QString &text);
+
+// The caption with its key word marked *like this* (the colour highlight captions already draw), as
+// CapCut's «keywords»: a number or amount first, else the longest word that is not a filler word
+// (Spanish, English, Portuguese, French, Italian). Unchanged when it already has a mark or has fewer
+// than three words. The word count stays, so the karaoke's timings still fit.
+QString highlightCaptionKeyword(const QString &text);
+
+// The word timings of `oldText` carried over to `newText` (the same caption after a word was
+// removed, replaced or added): kept words keep theirs, a new word takes the end of what it replaced.
+// Empty when `oldEnds` does not match `oldText`.
+QList<TimeUs> realignWordEnds(const QString &oldText, const QList<TimeUs> &oldEnds, const QString &newText);
 
 // Whole-word, case-insensitive replacements (find -> replace), applied in order: the user's
 // subtitle dictionary and Find & replace.

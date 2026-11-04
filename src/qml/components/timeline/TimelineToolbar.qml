@@ -236,7 +236,8 @@ Item {
             if (!Addons.hasKind("whisper-model"))
                 toolbar.Window.window.openAddonManager("whisper-model")
             else
-                EditorState.cutSilencesAndFillers(EditorState.selectedTrack, EditorState.selectedClip)
+                // Reviewed one by one before cutting (the window opens once the timings are there).
+                EditorState.cutSilencesAndFillers(EditorState.selectedTrack, EditorState.selectedClip, 0.6, true, true)
             break
         // From the overflow menu, where there is no submenu: the first choice.
         case "transform": toolbar.triggerAction("flip"); break

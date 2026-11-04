@@ -179,6 +179,9 @@ Item {
     property var keyframeTools: null
     // Scale's chain (0.25): its two values move together while on, as After Effects' default.
     property bool scaleLinked: true
+    // Tab on a line's value (0.30): the value to open next, {track, props, index}. The commit
+    // rebuilds the lines, so the new delegate opens it when it is made.
+    property var pendingHotEdit: null
 
     function trackHeight(index) {
         // Reading `tracks` is what gives callers' bindings a dependency to re-evaluate on —
@@ -1487,12 +1490,52 @@ Item {
                                 return
                             }
                             const at = EditorState.playheadSeconds
+                            // An animated size grows around the anchor point by itself (0.30): no
+                            // Position keys to make up for it.
                             EditorState.previewSetPropertyValue(track, clip, "width", at, w)
                             EditorState.previewSetPropertyValue(track, clip, "height", at, h)
-                            if (!st.moving) {
-                                EditorState.previewSetPropertyValue(track, clip, "x", at, x)
-                                EditorState.previewSetPropertyValue(track, clip, "y", at, y)
-                            }
+                            // A text's letters grow with it, as a scaled text layer (its box alone
+                            // grew and the words stayed the same size).
+                            if (st.text)
+                                EditorState.previewSetPropertyValue(track, clip, "text.pixelSize", at, Math.max(1, Math.round(st.px * k)))
+                        }
+                        // Position reads where the anchor point is, as in After Effects (0.30): the
+                        // stored value is the box's corner, so the line adds the anchor's place in
+                        // the box (in the size it grows from when the size is animated).
+                        function positionOffset(prop) {
+                            const horizontal = prop === "x"
+                            const f = valueOf(horizontal ? "anchorX" : "anchorY")
+                            return (isNaN(f) ? 0.5 : f) * keyLine.restSide(horizontal ? "width" : "height")
+                        }
+                        // The layer's own size on one axis: the size it grows from when the size is
+                        // animated (the first key), else the size it has. The anchor is measured in it,
+                        // so scaling does not change the anchor's numbers (bounce exercise #17).
+                        // The layer's own size (Scale 100 %) once known, for the anchor's numbers: in
+                        // After Effects they are the layer's pixels, which scaling does not change
+                        // (scaling a ball made its anchor read 337 for 259: bounce test #7).
+                        function layerSide(sizeProp) {
+                            const nat = keyLine.naturalSize
+                            const c = EditorState.clipAt(keyLines.trackIndex, keyLine.clip) || {}
+                            if ((c.kind === "shape" || c.kind === "text") && nat && nat.w > 0 && nat.h > 0)
+                                return sizeProp === "width" ? nat.w : nat.h
+                            return keyLine.restSide(sizeProp)
+                        }
+                        function restSide(sizeProp) {
+                            const keys = EditorState.clipAnimatedProperties(keyLines.trackIndex, keyLine.clip).indexOf(sizeProp) >= 0
+                                         ? (EditorState.clipKeyframes(keyLines.trackIndex, keyLine.clip, sizeProp) || []) : []
+                            // As the renderer (Clip::anchorShift): a keyed size grows from the size it
+                            // had when its stopwatch went on, even with a single key. Reading the size
+                            // it has now moved every Position number when scaling (0.30 tests E40).
+                            const c = keys.length > 0 ? (EditorState.clipAt(keyLines.trackIndex, keyLine.clip) || {}) : {}
+                            const pivot = sizeProp === "width" ? c.sizePivotW : c.sizePivotH
+                            const side = keys.length > 0 && pivot > 0 ? pivot
+                                       : keys.length >= 2 ? keys[0].value : valueOf(sizeProp)
+                            return isNaN(side) ? 0 : side
+                        }
+                        function positionValue(prop, tag) {
+                            const off = keyLine.positionOffset(prop)
+                            return { "prop": prop, "tag": tag, "toDisplay": (v) => v + off, "fromDisplay": (d) => d - off,
+                                     "min": -1e9, "max": 1e9, "step": 1, "decimals": 0, "suffix": "" }
                         }
                         // The values the line shows and edits: [{prop, tag, toDisplay, fromDisplay,
                         // min, max, step, decimals, suffix}].
@@ -1508,11 +1551,11 @@ Item {
                             if (group === "color")
                                 return []
                             if (group === "position")
-                                return [plain("x", "X", 1, 0, ""), plain("y", "Y", 1, 0, "")]
+                                return [keyLine.positionValue("x", "X"), keyLine.positionValue("y", "Y")]
                             if (group === "anchor") {
                                 // In the box's own pixels, as After Effects; stored as fractions.
-                                const w = Math.max(1, valueOf("width"))
-                                const h = Math.max(1, valueOf("height"))
+                                const w = Math.max(1, keyLine.layerSide("width"))
+                                const h = Math.max(1, keyLine.layerSide("height"))
                                 return [{ "prop": "anchorX", "tag": "X", "toDisplay": (f) => f * w, "fromDisplay": (d) => d / w,
                                           "min": -1e6, "max": 1e6, "step": 1, "decimals": 0, "suffix": "" },
                                         { "prop": "anchorY", "tag": "Y", "toDisplay": (f) => f * h, "fromDisplay": (d) => d / h,
@@ -1547,10 +1590,12 @@ Item {
                                 return [{ "prop": "pan", "tag": "", "toDisplay": pct, "fromDisplay": unPct,
                                           "min": -100, "max": 100, "step": 0.5, "decimals": 0, "suffix": "" }]
                             const prop = keyLine.modelData.prop
-                            if (prop === "width" || prop === "height" || prop === "x" || prop === "y")
+                            if (prop === "x" || prop === "y")
+                                return [keyLine.positionValue(prop, "")]
+                            if (prop === "width" || prop === "height")
                                 return [plain(prop, "", 1, 0, "")]
                             if (prop === "anchorX" || prop === "anchorY") {
-                                const side = Math.max(1, valueOf(prop === "anchorX" ? "width" : "height"))
+                                const side = Math.max(1, keyLine.layerSide(prop === "anchorX" ? "width" : "height"))
                                 return [{ "prop": prop, "tag": "", "toDisplay": (f) => f * side, "fromDisplay": (d) => d / side,
                                           "min": -1e6, "max": 1e6, "step": 1, "decimals": 0, "suffix": "" }]
                             }
@@ -1572,14 +1617,15 @@ Item {
                             const n = v => isNaN(v) ? "—" : String(Math.round(v))
                             const group = keyLine.joined ? keyLine.modelData.group : ""
                             if (group === "position")
-                                return "X: " + n(valueOf("x")) + " · Y: " + n(valueOf("y"))
+                                return "X: " + n(valueOf("x") + positionOffset("x")) + " · Y: " + n(valueOf("y") + positionOffset("y"))
                             if (group === "rotation")
                                 return Number(valueOf("rotation")).toFixed(1) + "°"
                             if (group === "scale") {
-                                // As the inspector: 100 % fills the canvas on its tighter axis.
-                                const cw = Math.max(1, EditorState.projectFile.projectWidth())
-                                const ch = Math.max(1, EditorState.projectFile.projectHeight())
-                                return Math.round(Math.max(valueOf("width") / cw, valueOf("height") / ch) * 100) + " %"
+                                // After Effects' two values, against the layer's own size.
+                                const nat = keyLine.naturalSize
+                                const sw = Math.round(valueOf("width") / Math.max(1, nat.w || 1) * 100)
+                                const sh = Math.round(valueOf("height") / Math.max(1, nat.h || 1) * 100)
+                                return sw === sh ? sw + " %" : sw + " × " + sh + " %"
                             }
                             if (group === "opacity")
                                 return Math.round(valueOf("opacity") * 100) + " %"
@@ -1626,7 +1672,15 @@ Item {
                             const keys = keyLine.keysHere.slice()
                             const props = keyLine.props.slice()
                             const at = EditorState.playheadSeconds
-                            const several = keys.length > 1 || (keys.length === 0 && props.length > 1)
+                            // Adding with several layers picked keys them all (0.30, After Effects'
+                            // Alt+Shift+P and company), the ones that are under the playhead.
+                            const picked = (EditorState.selection || []).filter((p) => {
+                                const c = EditorState.clipAt(p.track, p.clip) || {}
+                                return !(p.track === track && p.clip === clip)
+                                       && at >= (c.start || 0) && at < (c.start || 0) + (c.duration || 0)
+                            })
+                            const others = keys.length === 0 ? picked : []
+                            const several = keys.length > 1 || (keys.length === 0 && props.length > 1) || others.length > 0
                             if (several)
                                 EditorState.beginEditSession(keys.length > 0 ? qsTr("Remove keyframe")
                                                                              : qsTr("Add keyframe"))
@@ -1637,6 +1691,10 @@ Item {
                                 } else {
                                     for (const prop of props)
                                         EditorState.addClipKeyframeAt(track, clip, prop, at)
+                                    for (const p of others) {
+                                        for (const prop of props)
+                                            EditorState.addClipKeyframeAt(p.track, p.clip, prop, at)
+                                    }
                                 }
                             } finally {
                                 if (several)
@@ -1742,15 +1800,21 @@ Item {
                             const clip = keyLine.clip
                             const animated = EditorState.clipAnimatedProperties(track, clip)
                             const add = !!(modifiers & (Qt.ShiftModifier | Qt.ControlModifier))
-                            const out = add && tools.track === track ? tools.keys.slice() : []
+                            // Shift or Ctrl adds them to the keys picked, on this track or others (0.30).
+                            const out = add ? tools.keys.slice() : []
                             for (const prop of keyLine.props) {
                                 if (animated.indexOf(prop) < 0)
                                     continue
                                 for (const k of (EditorState.clipKeyframes(track, clip, prop) || [])) {
-                                    const ref = { clip: clip, prop: prop, seconds: k.seconds }
-                                    if (!out.some((o) => tools.sameKey(o, ref)))
+                                    const ref = { track: track, clip: clip, prop: prop, seconds: k.seconds }
+                                    if (!out.some((o) => tools.keyTrack(o) === track && tools.sameKey(o, ref)))
                                         out.push(ref)
                                 }
+                            }
+                            if (add) {
+                                tools.pick(track, out)
+                                tools.selectPickedClips()
+                                return
                             }
                             if (EditorState.selectedTrack !== track || EditorState.selectedClip !== clip)
                                 EditorState.selectClip(track, clip)
@@ -1834,9 +1898,24 @@ Item {
                                     }
                                 }
                                 Repeater {
+                                    id: hotRepeater
                                     model: keyLine.hotValues
+                                    // Tab from one value to the next of the line (0.30). The commit
+                                    // rebuilds the delegates, so the next one is looked up afterwards.
+                                    function editValue(index) {
+                                        const row = hotRepeater.itemAt(index)
+                                        if (row && row.scrub && row.scrub.visible) {
+                                            row.scrub.startEditing()
+                                            root.pendingHotEdit = null
+                                        } else if (index >= 0 && index < hotRepeater.count) {
+                                            hotRepeater.editValue(index + 1)
+                                        }
+                                    }
                                     delegate: Row {
+                                        id: hotRow
                                         required property var modelData
+                                        required property int index
+                                        property alias scrub: hotScrub
                                         spacing: 2
                                         // Scale's chain: both values together, or each on its own.
                                         IconButton {
@@ -1860,7 +1939,43 @@ Item {
                                             font.pixelSize: Theme.fontSizeTiny
                                         }
                                         ScrubValue {
+                                            id: hotScrub
                                             visible: !modelData.link
+                                            onTabbed: (back) => {
+                                                // The Scale chain between width and height is no value:
+                                                // Tab goes past it (it lost the focus and the keys
+                                                // typed next went to the app, tests #6).
+                                                const values = keyLine.hotValues || []
+                                                let next = hotRow.index + (back ? -1 : 1)
+                                                while (next >= 0 && next < values.length && values[next] && values[next].link)
+                                                    next += back ? -1 : 1
+                                                root.pendingHotEdit = { "track": keyLines.trackIndex,
+                                                                        "props": keyLine.props.join(","),
+                                                                        "index": next }
+                                                // Unless the rebuilt line already opened it (this row may be gone by then).
+                                                Qt.callLater(() => {
+                                                    try {
+                                                        if (root.pendingHotEdit)
+                                                            hotRepeater.editValue(next)
+                                                    } catch (e) {
+                                                    }
+                                                })
+                                            }
+                                            Component.onCompleted: {
+                                                const p = root.pendingHotEdit
+                                                if (p && p.track === keyLines.trackIndex && p.index === hotRow.index
+                                                        && p.props === keyLine.props.join(",") && !hotRow.modelData.link) {
+                                                    // The commit rebuilds the lines more than once: the edit is done only
+                                                    // when a row still standing opened it (a row made and destroyed at
+                                                    // once took it and nothing opened, tests #6).
+                                                    Qt.callLater(() => {
+                                                        if (root.pendingHotEdit !== p)
+                                                            return
+                                                        hotScrub.startEditing()
+                                                        root.pendingHotEdit = null
+                                                    })
+                                                }
+                                            }
                                             trackIndex: keyLines.trackIndex
                                             clipIndex: keyLine.clip
                                             prop: modelData.prop || ""
@@ -1989,8 +2104,18 @@ Item {
                                 visible: keyLine.modelData.group === "position"
                                 height: visible ? implicitHeight : 0
                                 text: qsTr("Separate dimensions")
-                                icon.name: EditorState.positionLinked ? "" : Theme.icons.check
-                                onTriggered: EditorState.positionLinked = !EditorState.positionLinked
+                                // The clip's own choice (0.30): checked when its X and Y are apart.
+                                readonly property bool separated: {
+                                    void EditorState.tracksRevision
+                                    return keyLine.clip >= 0
+                                           && EditorState.positionSeparated(keyLines.trackIndex, keyLine.clip)
+                                           && !EditorState.positionJoined(keyLines.trackIndex, keyLine.clip)
+                                }
+                                icon.name: separated ? Theme.icons.check : ""
+                                onTriggered: {
+                                    if (keyLine.clip >= 0)
+                                        EditorState.setPositionJoined(keyLines.trackIndex, keyLine.clip, separated)
+                                }
                             }
                             ThemedMenuSeparator {}
                             ThemedMenuItem {

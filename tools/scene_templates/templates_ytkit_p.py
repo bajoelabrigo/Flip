@@ -48,7 +48,6 @@ def final_cuna():
     D = 10.0
     t = _kit("final-cuna", "Pantalla final con cuña blanca", "End screen with a white wedge", "pantallas-finales", D,
              8460, ["pantalla final", "cuña", "gracias", "dos videos"], thumb_at=4.5)
-    photo_bg(t, "h-nature-06", s1=1.04, label="Tu video")
     path(t, t.track("shape", "Cuña"), WHITE, 0.2, D - 0.2, Box(0, 520, 1920, 560), "M 0 34 L 50 0 L 100 34 L 100 100 L 0 100 Z",
          filled=True, motion=[(0, {"dy": 600}, "out"), (0.7, {}, "hold"), (D - 0.2 - 0.6, {}, "in"), (D - 0.2, {"dy": 600})],
          layers=[shadow("#000000", 0, -8, 30, 0.3), fill(WHITE), no_stroke()])
@@ -72,7 +71,6 @@ def final_triangulo():
     D = 10.0
     t = _kit("final-triangulo", "Pantalla final con triángulo", "End screen with a triangle", "pantallas-finales", D,
              8461, ["pantalla final", "triángulo", "gracias", "video siguiente"], thumb_at=4.5)
-    photo_bg(t, "h-beach-04", s1=1.04, label="Tu video")
     t.solid(t.track("shape", "Oscurecer"), "#000000", 0.0, D, None, opacity=keys([(0, 0.0), (0.5, 0.3)]))
     tri = Box(0, 150, 760, 780)
     m = [(0, {"dx": -800}, "out"), (0.7, {}, "hold"), (D - 0.2 - 0.6, {}, "in"), (D - 0.2, {"dx": -800})]
@@ -98,7 +96,6 @@ def final_flecha():
     D = 10.0
     t = _kit("final-flecha", "Pantalla final con flecha", "End screen with an arrow", "pantallas-finales", D, 8462,
              ["pantalla final", "flecha", "suscríbete", "video recomendado"], thumb_at=4.5)
-    photo_bg(t, "h-city-03", s1=1.04, label="Tu video")
     t.solid(t.track("shape", "Oscurecer"), "#000000", 0.0, D, None, opacity=keys([(0, 0.0), (0.5, 0.55)]))
     txt(t, "¡GRACIAS POR VER!", Box(150, 120, 900, 90), 68, 0.4, D - 0.8, weight=900, align="left", anim="wipe", ad=0.6,
         name="Gracias", layers=_shade())
@@ -134,7 +131,6 @@ def titulo_contornos():
     D = 5.0
     t = _kit("titulo-contornos", "Título en cajas de contorno", "Title in outlined boxes", "titulos-estilo", D, 8463,
              ["título", "contorno", "cajas", "blanco"], thumb_at=2.4)
-    photo_bg(t, "h-city-06", s1=1.04, label="Tu video")
     _outlined_line(t, "ESCRIBE TU TEXTO", 140, 420, 72, 0.3, D - 0.3, "Línea 1")
     _outlined_line(t, "EN CAJAS DE CONTORNO", 140, 540, 48, 0.6, D - 0.4, "Línea 2")
     return t
@@ -145,7 +141,6 @@ def titulo_dos_pesos():
     D = 5.0
     t = _kit("titulo-dos-pesos", "Título en dos pesos", "Two-weight title", "titulos-estilo", D, 8464,
              ["título", "tipografía", "centrado", "simple"], thumb_at=2.4)
-    photo_bg(t, "h-beach-02", s1=1.04, label="Tu video")
     txt(t, "TÍTULOS EN CAJA", Box(260, 430, 1400, 110), 88, 0.3, D - 0.6, weight=900, anim="rise", ad=0.5,
         name="Título", layers=_shade())
     txt(t, "con cualquier tipografía", Box(260, 540, 1400, 80), 52, 0.6, D - 0.9, weight=500, anim="rise", ad=0.5,

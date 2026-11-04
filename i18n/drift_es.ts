@@ -142,8 +142,8 @@
         <translation>Estilos de subtítulos</translation>
     </message>
     <message>
-        <source>Voices</source>
-        <translation>Voces</translation>
+        <source>Voice changer</source>
+        <translation>Cambiador de voz</translation>
     </message>
     <message>
         <source>Retouch</source>
@@ -1112,6 +1112,29 @@
     <message>
         <source>Changes only that clip; the rest is untouched. It is drawn inside the clip&apos;s row on the timeline.</source>
         <translation>Cambia solo ese clip; lo demás queda igual. En la línea de tiempo se dibuja dentro de la fila del clip.</translation>
+    </message>
+</context>
+<context>
+    <name>AeShortcutsDialog</name>
+    <message>
+        <source>Use After Effects&apos; shortcuts?</source>
+        <translation>¿Usar los atajos de After Effects?</translation>
+    </message>
+    <message>
+        <source>Use After Effects&apos;</source>
+        <translation>Usar los de After Effects</translation>
+    </message>
+    <message>
+        <source>Keep Flip&apos;s</source>
+        <translation>Seguir con los de Flip</translation>
+    </message>
+    <message>
+        <source>J and K go to the previous and next keyframe, P, S, R, T and A show one property, U and UU what is animated or changed, B and N set the work area, I and O go to the layer&apos;s ends, [ ] and Alt+[ ] move and trim the layer at the playhead.</source>
+        <translation>J y K van a la clave anterior y a la siguiente, P, S, R, T y A muestran una sola propiedad, U y UU lo animado o lo modificado, B y N marcan la zona de trabajo, I y O van a los extremos de la capa, [ ] y Alt+[ ] mueven y recortan la capa en el cabezal.</translation>
+    </message>
+    <message>
+        <source>You can switch any time in Preferences › Shortcuts. Shortcuts you changed yourself stay as they are.</source>
+        <translation>Puedes cambiarlo cuando quieras en Preferencias › Atajos. Los atajos que cambiaste tú siguen igual.</translation>
     </message>
 </context>
 <context>
@@ -4259,6 +4282,14 @@
         <translation>«%1» se añadió a «%2» · para dibujar en una capa aparte, pulsa Esc antes; para separarlas, clic derecho › Separar en capas</translation>
     </message>
     <message>
+        <source>Sign in with Google to translate captions, or install the Offline translation extra</source>
+        <translation>Inicia sesión con Google para traducir los subtítulos, o instala el extra Traducción sin internet</translation>
+    </message>
+    <message>
+        <source>Words bleeped: %1</source>
+        <translation>Palabras con pitido: %1</translation>
+    </message>
+    <message>
         <source>Add mask</source>
         <translation>Añadir máscara</translation>
     </message>
@@ -4313,8 +4344,8 @@
     <message numerus="yes">
         <source>Copied %n keyframe(s)</source>
         <translation>
-            <numerusform>%n fotograma(s) clave copiado(s)</numerusform>
-            <numerusform>%n fotograma(s) clave copiado(s)</numerusform>
+            <numerusform>%n fotograma clave copiado</numerusform>
+            <numerusform>%n fotogramas clave copiados</numerusform>
         </translation>
     </message>
     <message>
@@ -4328,8 +4359,8 @@
     <message numerus="yes">
         <source>Pasted %n keyframe(s)</source>
         <translation>
-            <numerusform>%n fotograma(s) clave pegado(s)</numerusform>
-            <numerusform>%n fotograma(s) clave pegado(s)</numerusform>
+            <numerusform>%n fotograma clave pegado</numerusform>
+            <numerusform>%n fotogramas clave pegados</numerusform>
         </translation>
     </message>
     <message>
@@ -5212,8 +5243,60 @@
         <translation>Opacidad</translation>
     </message>
     <message>
+        <source>Step back one frame (Page Up)</source>
+        <translation>Retroceder un fotograma (RePág)</translation>
+    </message>
+    <message>
+        <source>Step forward one frame (Page Down)</source>
+        <translation>Avanzar un fotograma (AvPág)</translation>
+    </message>
+    <message>
         <source>Show rulers</source>
         <translation>Mostrar reglas</translation>
+    </message>
+    <message>
+        <source>Go to the layer&apos;s in point</source>
+        <translation>Ir al inicio de la capa</translation>
+    </message>
+    <message>
+        <source>Go to the layer&apos;s out point</source>
+        <translation>Ir al final de la capa</translation>
+    </message>
+    <message>
+        <source>Add a Position keyframe</source>
+        <translation>Añadir un fotograma clave de Posición</translation>
+    </message>
+    <message>
+        <source>Add a Scale keyframe</source>
+        <translation>Añadir un fotograma clave de Escala</translation>
+    </message>
+    <message>
+        <source>Add a Rotation keyframe</source>
+        <translation>Añadir un fotograma clave de Rotación</translation>
+    </message>
+    <message>
+        <source>Add an Opacity keyframe</source>
+        <translation>Añadir un fotograma clave de Opacidad</translation>
+    </message>
+    <message>
+        <source>Add an Anchor point keyframe</source>
+        <translation>Añadir un fotograma clave de Punto de anclaje</translation>
+    </message>
+    <message>
+        <source>Trim the layer&apos;s in point to the playhead</source>
+        <translation>Recortar el inicio de la capa en el cabezal</translation>
+    </message>
+    <message>
+        <source>Trim the layer&apos;s out point to the playhead</source>
+        <translation>Recortar el final de la capa en el cabezal</translation>
+    </message>
+    <message>
+        <source>Move the layer so it starts at the playhead</source>
+        <translation>Mover la capa para que empiece en el cabezal</translation>
+    </message>
+    <message>
+        <source>Move the layer so it ends at the playhead</source>
+        <translation>Mover la capa para que termine en el cabezal</translation>
     </message>
     <message>
         <source>RAM preview (render to memory and play)</source>
@@ -5226,6 +5309,38 @@
     <message>
         <source>Ruler guides</source>
         <translation>Guías de las reglas</translation>
+    </message>
+    <message>
+        <source>Replace voice</source>
+        <translation>Reemplazar voz</translation>
+    </message>
+    <message>
+        <source>Voice replaced</source>
+        <translation>Voz reemplazada</translation>
+    </message>
+    <message>
+        <source>Trim layer</source>
+        <translation>Recortar capa</translation>
+    </message>
+    <message>
+        <source>Move layer</source>
+        <translation>Mover capa</translation>
+    </message>
+    <message>
+        <source>Put the playhead inside the layer to trim it there</source>
+        <translation>Pon el cabezal dentro de la capa para recortarla ahí</translation>
+    </message>
+    <message>
+        <source>Sending the audio to ElevenLabs…</source>
+        <translation>Enviando el audio a ElevenLabs…</translation>
+    </message>
+    <message>
+        <source>ElevenLabs is transcribing…</source>
+        <translation>ElevenLabs está transcribiendo…</translation>
+    </message>
+    <message>
+        <source>Speaker %1</source>
+        <translation>Hablante %1</translation>
     </message>
     <message>
         <source>Solids</source>
@@ -5242,6 +5357,14 @@
     <message>
         <source>Behavior changed</source>
         <translation>Comportamiento cambiado</translation>
+    </message>
+    <message>
+        <source>Settle</source>
+        <translation>Asentar</translation>
+    </message>
+    <message>
+        <source>Reverse keyframes</source>
+        <translation>Invertir fotogramas clave</translation>
     </message>
     <message>
         <source>Pick two or more keys of a property to reverse them</source>
@@ -5430,6 +5553,90 @@
         <translation>Máscara fija en la pantalla</translation>
     </message>
     <message>
+        <source>Translating the captions…</source>
+        <translation>Traduciendo los subtítulos…</translation>
+    </message>
+    <message>
+        <source>Could not translate the captions (no answer from the server)</source>
+        <translation>No se pudieron traducir los subtítulos (el servidor no respondió)</translation>
+    </message>
+    <message>
+        <source>Translating the captions on this computer…</source>
+        <translation>Traduciendo los subtítulos en tu computadora…</translation>
+    </message>
+    <message>
+        <source>Could not translate the captions</source>
+        <translation>No se pudieron traducir los subtítulos</translation>
+    </message>
+    <message>
+        <source>The captions changed while they were being translated; try again</source>
+        <translation>Los subtítulos cambiaron mientras se traducían; inténtalo otra vez</translation>
+    </message>
+    <message>
+        <source>Captions (%1)</source>
+        <translation>Subtítulos (%1)</translation>
+    </message>
+    <message>
+        <source>Translate captions</source>
+        <translation>Traducir subtítulos</translation>
+    </message>
+    <message>
+        <source>Captions translated into %1</source>
+        <translation>Subtítulos traducidos: %1</translation>
+    </message>
+    <message>
+        <source>Edit speaker</source>
+        <translation>Editar hablante</translation>
+    </message>
+    <message>
+        <source>No key words to highlight in these subtitles</source>
+        <translation>No hay palabras clave que resaltar en estos subtítulos</translation>
+    </message>
+    <message>
+        <source>Highlight key words</source>
+        <translation>Resaltar palabras clave</translation>
+    </message>
+    <message>
+        <source>Key words highlighted in %1 captions</source>
+        <translation>Palabras clave resaltadas en %1 subtítulos</translation>
+    </message>
+    <message>
+        <source>Install «Animated emojis» from Extras first</source>
+        <translation>Primero instala «Emojis animados» desde Extras</translation>
+    </message>
+    <message>
+        <source>Emoji: %1</source>
+        <translation>Emoji: %1</translation>
+    </message>
+    <message>
+        <source>No captions with an emoji word (fuego, Dios, fiesta…)</source>
+        <translation>Ningún subtítulo tiene una palabra con emoji (fuego, Dios, fiesta…)</translation>
+    </message>
+    <message>
+        <source>Animated emojis</source>
+        <translation>Emojis animados</translation>
+    </message>
+    <message>
+        <source>Animated emojis on %1 captions</source>
+        <translation>Emojis animados en %1 subtítulos</translation>
+    </message>
+    <message>
+        <source>No hidden words with their timing to bleep</source>
+        <translation>No hay palabras tapadas con su tiempo para poner pitido</translation>
+    </message>
+    <message>
+        <source>Could not make the bleep</source>
+        <translation>No se pudo crear el pitido</translation>
+    </message>
+    <message>
+        <source>Bleep swear words</source>
+        <translation>Pitido en groserías</translation>
+    </message>
+    <message>
+        <source>Bleep</source>
+        <translation>Pitido</translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation>Preparando…</translation>
     </message>
@@ -5581,6 +5788,30 @@
     <message>
         <source>Select a clip with sound to enhance its voice</source>
         <translation>Elige un clip con sonido para mejorar su voz</translation>
+    </message>
+    <message>
+        <source>Listening to the clip to write down what is said…</source>
+        <translation>Escuchando el clip para escribir lo que se dice…</translation>
+    </message>
+    <message>
+        <source>Move the other tracks</source>
+        <translation>Mover las otras pistas</translation>
+    </message>
+    <message>
+        <source>Edit by text</source>
+        <translation>Editar con el texto</translation>
+    </message>
+    <message>
+        <source>Remove silences</source>
+        <translation>Quitar silencios</translation>
+    </message>
+    <message>
+        <source>Cut %1 s from the video</source>
+        <translation>Se cortaron %1 s del video</translation>
+    </message>
+    <message>
+        <source>That would remove the whole clip</source>
+        <translation>Eso quitaría el clip entero</translation>
     </message>
     <message>
         <source>Volume</source>
@@ -5946,6 +6177,34 @@
             <numerusform>Se pegó %n clip</numerusform>
             <numerusform>Se pegaron %n clips</numerusform>
         </translation>
+    </message>
+    <message>
+        <source>Curved path</source>
+        <translation>Trayecto curvo</translation>
+    </message>
+    <message>
+        <source>Straight path</source>
+        <translation>Trayecto recto</translation>
+    </message>
+    <message>
+        <source>Join Position</source>
+        <translation>Unir Posición</translation>
+    </message>
+    <message>
+        <source>Separate dimensions</source>
+        <translation>Separar dimensiones</translation>
+    </message>
+    <message>
+        <source>Shape motion path</source>
+        <translation>Dar forma al trayecto</translation>
+    </message>
+    <message>
+        <source>Roving needs at least three Position keyframes</source>
+        <translation>Para «Itinerante» hacen falta al menos tres claves de Posición</translation>
+    </message>
+    <message>
+        <source>Roving keyframes</source>
+        <translation>Claves itinerantes</translation>
     </message>
     <message>
         <source>Exporting…</source>
@@ -7795,18 +8054,6 @@
         <translation>Volumen</translation>
     </message>
     <message>
-        <source>Recommended caption length</source>
-        <translation>Longitud de subtítulo recomendada</translation>
-    </message>
-    <message>
-        <source>1 word per caption</source>
-        <translation>1 palabra por subtítulo</translation>
-    </message>
-    <message>
-        <source>%1 words per caption</source>
-        <translation>%1 palabras por subtítulo</translation>
-    </message>
-    <message>
         <source>Basic</source>
         <translation>Básico</translation>
     </message>
@@ -7821,6 +8068,66 @@
     <message>
         <source>Fade out</source>
         <translation>Desaparición progresiva</translation>
+    </message>
+    <message>
+        <source>Voice from text</source>
+        <translation>Voz desde texto</translation>
+    </message>
+    <message>
+        <source>Edit script…</source>
+        <translation>Editar guion…</translation>
+    </message>
+    <message>
+        <source>Change the text or the voice and speak it again, in place of this audio</source>
+        <translation>Cambia el texto o la voz y vuelve a decirlo, en lugar de este audio</translation>
+    </message>
+    <message>
+        <source>Discard the voice you made?</source>
+        <translation>¿Descartar la voz que hiciste?</translation>
+    </message>
+    <message>
+        <source>Discard and go on</source>
+        <translation>Descartar y seguir</translation>
+    </message>
+    <message>
+        <source>The Voice panel has a take that is not on the timeline yet. Add it first with «Add to timeline», or discard it to start this one.</source>
+        <translation>En el panel Voz hay una toma que todavía no está en la línea de tiempo. Añádela antes con «Añadir a la línea de tiempo» o descártala para empezar esta.</translation>
+    </message>
+    <message>
+        <source>Lower the music under this voice</source>
+        <translation>Bajar la música bajo esta voz</translation>
+    </message>
+    <message>
+        <source>Save the voice as a file…</source>
+        <translation>Guardar la voz como archivo…</translation>
+    </message>
+    <message>
+        <source>Save the voice</source>
+        <translation>Guardar la voz</translation>
+    </message>
+    <message>
+        <source>MP3 audio (*.mp3)</source>
+        <translation>Audio MP3 (*.mp3)</translation>
+    </message>
+    <message>
+        <source>WAV audio (*.wav)</source>
+        <translation>Audio WAV (*.wav)</translation>
+    </message>
+    <message>
+        <source>FLAC audio (*.flac)</source>
+        <translation>Audio FLAC (*.flac)</translation>
+    </message>
+    <message>
+        <source>voice</source>
+        <translation>voz</translation>
+    </message>
+    <message>
+        <source>Voice saved</source>
+        <translation>Voz guardada</translation>
+    </message>
+    <message>
+        <source>Could not save the voice</source>
+        <translation>No se pudo guardar la voz</translation>
     </message>
     <message>
         <source>Normalize loudness</source>
@@ -7871,6 +8178,22 @@
         <translation>Panorámica</translation>
     </message>
     <message>
+        <source>Create captions…</source>
+        <translation>Crear subtítulos…</translation>
+    </message>
+    <message>
+        <source>Open Subtitles to create captions from this clip&apos;s speech</source>
+        <translation>Abre Subtítulos para crear subtítulos con lo que se dice en este clip</translation>
+    </message>
+    <message>
+        <source>Edit by text…</source>
+        <translation>Editar con el texto…</translation>
+    </message>
+    <message>
+        <source>See what is said and strike out words: the video loses those moments</source>
+        <translation>Mira lo que se dice y tacha palabras: el video pierde esos momentos</translation>
+    </message>
+    <message>
         <source>C</source>
         <translation>C</translation>
     </message>
@@ -7909,30 +8232,6 @@
     <message>
         <source>Install AI engine first</source>
         <translation>Instala el motor de IA primero</translation>
-    </message>
-    <message>
-        <source>Auto subtitles</source>
-        <translation>Subtítulos automáticos</translation>
-    </message>
-    <message>
-        <source>Shorter captions are timed by splitting each phrase evenly, so they can drift slightly out of sync with the speech.</source>
-        <translation>Los subtítulos más cortos se sincronizan dividiendo cada frase equitativamente, por lo que pueden desincronizarse ligeramente de la voz.</translation>
-    </message>
-    <message>
-        <source>Creating captions… %1%</source>
-        <translation>Creando subtítulos… %1%</translation>
-    </message>
-    <message>
-        <source>Create captions from speech</source>
-        <translation>Crear subtítulos a partir de voz</translation>
-    </message>
-    <message>
-        <source>Several selected clips become one caption clip</source>
-        <translation>Varios clips seleccionados se convierten en un clip de subtítulos</translation>
-    </message>
-    <message>
-        <source>Download speech recognition (about 670 MB)</source>
-        <translation>Descargar reconocimiento de voz (aprox. 670 MB)</translation>
     </message>
 </context>
 <context>
@@ -13141,6 +13440,37 @@ LA PRÓXIMA</translation>
     </message>
 </context>
 <context>
+    <name>ChatterboxTts</name>
+    <message>
+        <source>The voice model is not installed. Install the AI voice extra in Extras.</source>
+        <translation>El modelo de voz no está instalado. Instala el extra de voz con IA en Extras.</translation>
+    </message>
+    <message>
+        <source>Failed to load text-to-speech model: %1</source>
+        <translation>No se pudo cargar el modelo de texto a voz: %1</translation>
+    </message>
+    <message>
+        <source>Speech generation failed: %1</source>
+        <translation>No se pudo generar la voz: %1</translation>
+    </message>
+    <message>
+        <source>The reference voice has no audio.</source>
+        <translation>La voz de referencia no tiene audio.</translation>
+    </message>
+    <message>
+        <source>Voice encoding failed: %1</source>
+        <translation>No se pudo codificar la voz: %1</translation>
+    </message>
+    <message>
+        <source>Unsupported language: %1</source>
+        <translation>Idioma no compatible: %1</translation>
+    </message>
+    <message>
+        <source>Invalid voice conditioning.</source>
+        <translation>Condicionamiento de voz no válido.</translation>
+    </message>
+</context>
+<context>
     <name>ChipScroller</name>
     <message>
         <source>Previous</source>
@@ -15258,6 +15588,14 @@ LA PRÓXIMA</translation>
         <translation>Codificar únicamente el rango de Entrada/Salida marcado en lugar de toda la línea de tiempo</translation>
     </message>
     <message>
+        <source>Include the captions (inside the video and as .srt)</source>
+        <translation>Incluir los subtítulos (dentro del video y en .srt)</translation>
+    </message>
+    <message>
+        <source>The captions as a track inside the video and as a file next to it, with the same name: players and YouTube can turn them on and off</source>
+        <translation>Los subtítulos como pista dentro del video y como archivo al lado, con el mismo nombre: los reproductores y YouTube pueden activarlos y desactivarlos</translation>
+    </message>
+    <message>
         <source>Saves what you see in the preview. Pick a size — the picture shape stays the same.</source>
         <translation>Guarda lo que ves en la vista previa. Elige un tamaño: la forma de la imagen se mantiene.</translation>
     </message>
@@ -16790,6 +17128,10 @@ LA PRÓXIMA</translation>
         <translation>Calado de máscara</translation>
     </message>
     <message>
+        <source>Pos</source>
+        <translation>Pos</translation>
+    </message>
+    <message>
         <source>Layer</source>
         <translation>Capa</translation>
     </message>
@@ -16814,12 +17156,40 @@ LA PRÓXIMA</translation>
         <translation>Mostrar las curvas de las otras capas elegidas</translation>
     </message>
     <message>
-        <source>Value graph</source>
-        <translation>Gráfico de valores</translation>
+        <source>Graph type: value. Click: speed graph</source>
+        <translation>Tipo de gráfico: valores. Clic: gráfico de velocidad</translation>
     </message>
     <message>
-        <source>Speed graph</source>
-        <translation>Gráfico de velocidad</translation>
+        <source>Graph type: speed. Click: automatic</source>
+        <translation>Tipo de gráfico: velocidad. Clic: automático</translation>
+    </message>
+    <message>
+        <source>Graph type: automatic (speed for a joined Position, value for the rest). Click: value graph</source>
+        <translation>Tipo de gráfico: automático (velocidad para una Posición unida, valores para lo demás). Clic: gráfico de valores</translation>
+    </message>
+    <message>
+        <source>Fit the whole curve in view (Ctrl+wheel zooms the values, Alt+wheel the time)</source>
+        <translation>Ver toda la curva (Ctrl+rueda acerca los valores, Alt+rueda el tiempo)</translation>
+    </message>
+    <message>
+        <source>Zoom to the picked keyframes</source>
+        <translation>Acercar a las claves elegidas</translation>
+    </message>
+    <message>
+        <source>Show only the curve being edited</source>
+        <translation>Mostrar solo la curva que se edita</translation>
+    </message>
+    <message>
+        <source>Show the other properties&apos; curves too</source>
+        <translation>Mostrar también las curvas de las otras propiedades</translation>
+    </message>
+    <message>
+        <source>Graph under its layer again</source>
+        <translation>Gráfico bajo su capa otra vez</translation>
+    </message>
+    <message>
+        <source>Graph over the whole timeline, as After Effects&apos; Graph Editor</source>
+        <translation>Gráfico sobre toda la línea de tiempo, como el Editor de gráficos de After Effects</translation>
     </message>
     <message>
         <source>Separate dimensions: key X and Y of Position apart</source>
@@ -16889,6 +17259,10 @@ LA PRÓXIMA</translation>
         <translation>Mover fotograma clave</translation>
     </message>
     <message>
+        <source>Transform keyframes</source>
+        <translation>Transformar claves</translation>
+    </message>
+    <message>
         <source>Edit keyframe curve</source>
         <translation>Editar curva de fotograma clave</translation>
     </message>
@@ -16910,6 +17284,18 @@ LA PRÓXIMA</translation>
     <message>
         <source>Move keyframes</source>
         <translation>Mover fotogramas clave</translation>
+    </message>
+    <message>
+        <source>Keyframe easing changed</source>
+        <translation>Suavizado de fotogramas clave cambiado</translation>
+    </message>
+    <message>
+        <source>Paste keyframes</source>
+        <translation>Pegar fotogramas clave</translation>
+    </message>
+    <message>
+        <source>Remove keyframes</source>
+        <translation>Quitar fotogramas clave</translation>
     </message>
     <message>
         <source>Apply</source>
@@ -16946,6 +17332,26 @@ LA PRÓXIMA</translation>
     <message>
         <source>Edit curve…</source>
         <translation>Editar curva…</translation>
+    </message>
+    <message>
+        <source>Curved path (auto Bezier)</source>
+        <translation>Trayecto curvo (Bezier automático)</translation>
+    </message>
+    <message>
+        <source>Straight path</source>
+        <translation>Trayecto recto</translation>
+    </message>
+    <message>
+        <source>Roving (one speed along the path)</source>
+        <translation>Itinerante (una sola velocidad en el trayecto)</translation>
+    </message>
+    <message>
+        <source>Separate dimensions (X and Y apart)</source>
+        <translation>Separar dimensiones (X e Y por separado)</translation>
+    </message>
+    <message>
+        <source>Join Position (one path)</source>
+        <translation>Unir Posición (un solo trayecto)</translation>
     </message>
     <message>
         <source>Reverse keyframes</source>
@@ -17182,6 +17588,21 @@ LA PRÓXIMA</translation>
     <message>
         <source>720p</source>
         <translation>720p</translation>
+    </message>
+</context>
+<context>
+    <name>LocalTranscription</name>
+    <message>
+        <source>Finding speech…</source>
+        <translation>Buscando la voz…</translation>
+    </message>
+    <message>
+        <source>Timing words…</source>
+        <translation>Sincronizando las palabras…</translation>
+    </message>
+    <message>
+        <source>Telling speakers apart…</source>
+        <translation>Distinguiendo a los hablantes…</translation>
     </message>
 </context>
 <context>
@@ -17574,6 +17995,26 @@ LA PRÓXIMA</translation>
     <message>
         <source>Your example is ready. Try this:</source>
         <translation>Tu ejemplo está listo. Prueba esto:</translation>
+    </message>
+    <message>
+        <source>What is the video for?</source>
+        <translation>¿Para qué es el video?</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Cancelar</translation>
+    </message>
+    <message>
+        <source>The template is fitted to the shape of your video.</source>
+        <translation>La plantilla se ajusta a la forma de tu video.</translation>
+    </message>
+    <message>
+        <source>Short (vertical 9:16)</source>
+        <translation>Short (vertical 9:16)</translation>
+    </message>
+    <message>
+        <source>Video (horizontal 16:9)</source>
+        <translation>Video (horizontal 16:9)</translation>
     </message>
     <message>
         <source>Click a clip on the timeline to change it on the right.</source>
@@ -20747,6 +21188,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Opciones de trazo: ninguno, sólido, degradado lineal o radial, modo de fusión y opacidad</translation>
     </message>
     <message>
+        <source>Fill colour. Right-click: no fill (or back on)</source>
+        <translation>Color del relleno. Clic derecho: sin relleno (o volver a ponerlo)</translation>
+    </message>
+    <message>
+        <source>Stroke colour. Right-click: no stroke (or back on)</source>
+        <translation>Color del trazo. Clic derecho: sin trazo (o volver a ponerlo)</translation>
+    </message>
+    <message>
         <source>Selection</source>
         <translation>Selección</translation>
     </message>
@@ -21657,8 +22106,8 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Expresión guardada como «%1»</translation>
     </message>
     <message>
-        <source>value, time, wiggle(freq, amount), Math, and thisComp.layer(&quot;Name&quot;).transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. The last line is the result.</source>
-        <translation>value, time, wiggle(frecuencia, cantidad), Math y thisComp.layer(&quot;Nombre&quot;).transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. La última línea es el resultado.</translation>
+        <source>value, time, index, thisLayer, wiggle(freq, amount), linear / ease / easeIn / easeOut(t, tMin, tMax, a, b), clamp, valueAtTime(t), velocity, speed, Math, and thisComp.layer(&quot;Name&quot;).transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. The last line is the result.</source>
+        <translation>value, time, index, thisLayer, wiggle(freq, amount), linear / ease / easeIn / easeOut(t, tMin, tMax, a, b), clamp, valueAtTime(t), velocity, speed, Math, y thisComp.layer(&quot;Name&quot;).transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. La última línea es el resultado.</translation>
     </message>
 </context>
 <context>
@@ -23361,14 +23810,6 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Proveedores en la nube</translation>
     </message>
     <message>
-        <source>Transcription (Scribe), voiceover, sound effects</source>
-        <translation>Transcripción (Scribe), voz en off, efectos de sonido</translation>
-    </message>
-    <message>
-        <source>Voiceover</source>
-        <translation>Voz en off</translation>
-    </message>
-    <message>
         <source>No key</source>
         <translation>Sin clave</translation>
     </message>
@@ -23567,6 +24008,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Keys are stored unencrypted in Flip Studio&apos;s settings. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
         <translation>Las claves se guardan sin cifrar en la configuración de Flip Studio. ELEVENLABS_API_KEY y FISH_API_KEY en el entorno tienen prioridad. El uso se factura a tu propia cuenta.</translation>
+    </message>
+    <message>
+        <source>Transcription (Scribe); voiceover and sound effects through AI agents</source>
+        <translation>Transcripción (Scribe); voz en off y efectos de sonido a través de agentes de IA</translation>
+    </message>
+    <message>
+        <source>Voiceover through AI agents</source>
+        <translation>Voz en off a través de agentes de IA</translation>
     </message>
     <message>
         <source>Needed before Flip Studio or a connected agent can transcribe or generate audio with this service</source>
@@ -25105,6 +25554,26 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Buscar atajos</translation>
     </message>
     <message>
+        <source>Shortcut set</source>
+        <translation>Juego de atajos</translation>
+    </message>
+    <message>
+        <source>Flip</source>
+        <translation>Flip</translation>
+    </message>
+    <message>
+        <source>Flip&apos;s own shortcuts</source>
+        <translation>Los atajos propios de Flip</translation>
+    </message>
+    <message>
+        <source>After Effects</source>
+        <translation>After Effects</translation>
+    </message>
+    <message>
+        <source>As in After Effects: J/K go between keyframes, P/S/R/T/A show one property, U/UU, B/N the work area, I/O the layer&apos;s ends, [ ] and Alt+[ ] move and trim the layer at the playhead</source>
+        <translation>Como en After Effects: J/K van entre claves, P/S/R/T/A muestran una propiedad, U/UU, B/N la zona de trabajo, I/O los extremos de la capa, [ ] y Alt+[ ] mueven y recortan la capa en el cabezal</translation>
+    </message>
+    <message>
         <source>Click a shortcut, then press the keys. Esc cancels, Backspace clears.</source>
         <translation>Haz clic en un atajo y pulsa las teclas. Esc cancela, Retroceso borra.</translation>
     </message>
@@ -25186,6 +25655,49 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Not now</source>
         <translation>Ahora no</translation>
+    </message>
+</context>
+<context>
+    <name>SilenceReviewWindow</name>
+    <message>
+        <source>Remove silences</source>
+        <translation>Quitar silencios</translation>
+    </message>
+    <message>
+        <source>Untick what you want to keep. Click a row to hear it.</source>
+        <translation>Desmarca lo que quieras conservar. Haz clic en una fila para escucharla.</translation>
+    </message>
+    <message>
+        <source>Pauses longer than</source>
+        <translation>Pausas de más de</translation>
+    </message>
+    <message>
+        <source>Also filler words (eh, mmm)</source>
+        <translation>También muletillas (eh, mmm)</translation>
+    </message>
+    <message>
+        <source>Pause</source>
+        <translation>Pausa</translation>
+    </message>
+    <message>
+        <source>Listen</source>
+        <translation>Escuchar</translation>
+    </message>
+    <message>
+        <source>No pauses this long in the clip.</source>
+        <translation>No hay pausas tan largas en el clip.</translation>
+    </message>
+    <message>
+        <source>%1 of %2 · %3 s</source>
+        <translation>%1 de %2 · %3 s</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Cancelar</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>Quitar</translation>
     </message>
 </context>
 <context>
@@ -25285,10 +25797,6 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Voz guardada</translation>
     </message>
     <message>
-        <source>Turn a script into speech with a built-in or cloned voice. It is generated on this device and added at the playhead.</source>
-        <translation>Convierte un guion en voz con una voz incluida o clonada. Se genera en este equipo y se agrega en el cabezal.</translation>
-    </message>
-    <message>
         <source>Speech generation runs on this device and needs the voice model.</source>
         <translation>La voz se genera en este equipo y necesita el modelo de voz.</translation>
     </message>
@@ -25305,20 +25813,8 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Necesario para generar voz</translation>
     </message>
     <message>
-        <source>Type what the voice should say</source>
-        <translation>Escribe lo que debe decir la voz</translation>
-    </message>
-    <message>
         <source>%1 characters, about %2 s</source>
         <translation>%1 caracteres, unos %2 s</translation>
-    </message>
-    <message>
-        <source>Speech longer than 30 seconds often ends in gibberish or silence. Split the script into shorter parts.</source>
-        <translation>Una voz de más de 30 segundos suele terminar en balbuceos o silencio. Divide el guion en partes más cortas.</translation>
-    </message>
-    <message>
-        <source>Voice</source>
-        <translation>Voz</translation>
     </message>
     <message>
         <source>Stop</source>
@@ -25373,10 +25869,6 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Aprendiendo la voz…</translation>
     </message>
     <message>
-        <source>Language</source>
-        <translation>Idioma</translation>
-    </message>
-    <message>
         <source>Expressiveness</source>
         <translation>Expresividad</translation>
     </message>
@@ -25387,10 +25879,6 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Generate speech</source>
         <translation>Generar voz</translation>
-    </message>
-    <message>
-        <source>Generate speech and add it at the playhead</source>
-        <translation>Generar la voz y agregarla en el cabezal</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -25433,6 +25921,106 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Todos los archivos (*)</translation>
     </message>
     <message>
+        <source>Voice from your text</source>
+        <translation>Voz desde tu texto</translation>
+    </message>
+    <message>
+        <source>Editing the script of a voice on the timeline: the new take replaces its audio.</source>
+        <translation>Estás editando el guion de una voz de la línea de tiempo: la nueva toma reemplaza su audio.</translation>
+    </message>
+    <message>
+        <source>Type or paste the script. [pause 1s] adds a silence.</source>
+        <translation>Escribe o pega el guion. [pausa 1s] añade un silencio.</translation>
+    </message>
+    <message>
+        <source>Import script…</source>
+        <translation>Importar guion…</translation>
+    </message>
+    <message>
+        <source>A .txt, .md or Word (.docx) file</source>
+        <translation>Un archivo .txt, .md o de Word (.docx)</translation>
+    </message>
+    <message>
+        <source>Import a script</source>
+        <translation>Importar un guion</translation>
+    </message>
+    <message>
+        <source>Scripts (*.txt *.md *.docx)</source>
+        <translation>Guiones (*.txt *.md *.docx)</translation>
+    </message>
+    <message>
+        <source>That file has no text that can be read</source>
+        <translation>Ese archivo no tiene texto que se pueda leer</translation>
+    </message>
+    <message>
+        <source>Voice: %1</source>
+        <translation>Voz: %1</translation>
+    </message>
+    <message>
+        <source>A dialogue: a voice for each person</source>
+        <translation>Un diálogo: una voz para cada persona</translation>
+    </message>
+    <message>
+        <source>Generate again</source>
+        <translation>Generar de nuevo</translation>
+    </message>
+    <message>
+        <source>Speak the script; you hear it before it goes on the timeline</source>
+        <translation>Di el guion; lo escuchas antes de que vaya a la línea de tiempo</translation>
+    </message>
+    <message>
+        <source>Listen to the whole take</source>
+        <translation>Escuchar toda la toma</translation>
+    </message>
+    <message>
+        <source>Take: %1 s</source>
+        <translation>Toma: %1 s</translation>
+    </message>
+    <message>
+        <source>Listen to this sentence</source>
+        <translation>Escuchar esta frase</translation>
+    </message>
+    <message>
+        <source>Speak this sentence again</source>
+        <translation>Volver a decir esta frase</translation>
+    </message>
+    <message>
+        <source>Also create its captions</source>
+        <translation>Crear también sus subtítulos</translation>
+    </message>
+    <message>
+        <source>Replace the voice on the timeline</source>
+        <translation>Reemplazar la voz en la línea de tiempo</translation>
+    </message>
+    <message>
+        <source>Add to the timeline</source>
+        <translation>Añadir a la línea de tiempo</translation>
+    </message>
+    <message>
+        <source>Discard</source>
+        <translation>Descartar</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation>Opciones</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>Velocidad</translation>
+    </message>
+    <message>
+        <source>%1×</source>
+        <translation>%1×</translation>
+    </message>
+    <message>
+        <source>Pitch</source>
+        <translation>Tono</translation>
+    </message>
+    <message>
+        <source>Stop preparing the voice</source>
+        <translation>Dejar de preparar la voz</translation>
+    </message>
+    <message>
         <source>Name</source>
         <translation>Nombre</translation>
     </message>
@@ -25453,8 +26041,8 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>%1 s</translation>
     </message>
     <message>
-        <source>Record 5 to 20 seconds in a quiet room. Read this aloud in your natural voice:</source>
-        <translation>Graba de 5 a 20 segundos en un lugar silencioso. Lee esto en voz alta con tu voz natural:</translation>
+        <source>Record 3 to 20 seconds in a quiet room (it stops by itself at 20). Read this aloud in your natural voice:</source>
+        <translation>Graba de 3 a 20 segundos en un lugar silencioso (se detiene solo a los 20). Lee esto en voz alta con tu voz natural:</translation>
     </message>
     <message>
         <source>The quick brown fox jumps over the lazy dog, while a gentle breeze moves through the quiet garden and the evening light fades slowly.</source>
@@ -25467,6 +26055,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Start recording</source>
         <translation>Empezar a grabar</translation>
+    </message>
+    <message>
+        <source>20 s: done, save the voice</source>
+        <translation>20 s: listo, guarda la voz</translation>
     </message>
     <message>
         <source>I have the right to use this person&apos;s voice</source>
@@ -26005,6 +26597,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Subtitles from the voice, on your computer, without internet</source>
         <translation>Subtítulos desde la voz, en tu computadora, sin internet</translation>
+    </message>
+    <message>
+        <source>A simpler version in the browser: it doesn&apos;t have every tool of this app and gets no new ones. Everything new comes to this app.</source>
+        <translation>Una versión más sencilla en el navegador: no tiene todas las herramientas de esta app y no recibe novedades. Todo lo nuevo llega a esta app.</translation>
     </message>
     <message>
         <source>Click to sign in</source>
@@ -26600,12 +27196,12 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>%1 subtítulos</translation>
     </message>
     <message>
-        <source>Play the timeline — the line on screen lights up. Tap any line to edit it.</source>
-        <translation>Reproduce la línea de tiempo: la frase en pantalla se ilumina. Toca cualquier frase para editarla.</translation>
+        <source>Translate</source>
+        <translation>Traducir</translation>
     </message>
     <message>
-        <source>Play the timeline — the line on screen lights up. Click any line to jump to it and edit it below.</source>
-        <translation>Reproduce la línea de tiempo: la línea en pantalla se iluminará. Haz clic en cualquier línea para saltar a ella y editarla abajo.</translation>
+        <source>The captions in another language, as a second line above (bilingual)</source>
+        <translation>Los subtítulos en otro idioma, como segunda línea arriba (bilingüe)</translation>
     </message>
     <message>
         <source>Import</source>
@@ -26638,6 +27234,18 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Offset the exported captions by this clip&apos;s start so they match the exported video</source>
         <translation>Desplaza los subtítulos exportados según el inicio de este clip para que coincidan con el video exportado</translation>
+    </message>
+    <message>
+        <source>Translating…</source>
+        <translation>Traduciendo…</translation>
+    </message>
+    <message>
+        <source>Captions that will change: %1</source>
+        <translation>Subtítulos que cambian: %1</translation>
+    </message>
+    <message>
+        <source>+ %1 more</source>
+        <translation>+ %1 más</translation>
     </message>
     <message>
         <source>(empty)</source>
@@ -26680,8 +27288,24 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Establecer final en la posición actual</translation>
     </message>
     <message>
-        <source>Delete caption</source>
-        <translation>Eliminar subtítulo</translation>
+        <source>Style: same as the clip</source>
+        <translation>Estilo: igual que el clip</translation>
+    </message>
+    <message>
+        <source>Like the clip</source>
+        <translation>Como el clip</translation>
+    </message>
+    <message>
+        <source>Top</source>
+        <translation>Arriba</translation>
+    </message>
+    <message>
+        <source>Middle</source>
+        <translation>Centro</translation>
+    </message>
+    <message>
+        <source>Where this caption sits on screen</source>
+        <translation>Dónde va este subtítulo en la pantalla</translation>
     </message>
     <message>
         <source>At %1</source>
@@ -26698,6 +27322,30 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Emojis</source>
         <translation>Emojis</translation>
+    </message>
+    <message>
+        <source>Too short to read</source>
+        <translation>Muy corto para leer</translation>
+    </message>
+    <message>
+        <source>On screen too long</source>
+        <translation>Mucho tiempo en pantalla</translation>
+    </message>
+    <message>
+        <source>Too fast to read</source>
+        <translation>Muy rápido para leer</translation>
+    </message>
+    <message>
+        <source>Move all captions</source>
+        <translation>Mover todos</translation>
+    </message>
+    <message>
+        <source>All captions 0.1 s earlier</source>
+        <translation>Todos 0,1 s antes</translation>
+    </message>
+    <message>
+        <source>All captions 0.1 s later</source>
+        <translation>Todos 0,1 s después</translation>
     </message>
     <message>
         <source>Replace these captions from an SRT, WebVTT or ASS file</source>
@@ -26728,6 +27376,30 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Agrega un emoji al final de los subtítulos que mencionan una palabra clave (fuego 🔥, fiesta 🎉)</translation>
     </message>
     <message>
+        <source>Animated</source>
+        <translation>Animados</translation>
+    </message>
+    <message>
+        <source>An animated emoji above each caption that mentions one (fuego, Dios, fiesta…)</source>
+        <translation>Un emoji animado encima de cada subtítulo que menciona uno (fuego, Dios, fiesta…)</translation>
+    </message>
+    <message>
+        <source>Bleep</source>
+        <translation>Pitido</translation>
+    </message>
+    <message>
+        <source>A beep over each hidden swear word, with the voice muted under it</source>
+        <translation>Un pitido sobre cada grosería tapada, con la voz silenciada debajo</translation>
+    </message>
+    <message>
+        <source>Key words</source>
+        <translation>Palabras clave</translation>
+    </message>
+    <message>
+        <source>Highlight the key word of each caption in colour (a number, a name, what matters)</source>
+        <translation>Resalta en color la palabra clave de cada subtítulo (un número, un nombre, lo importante)</translation>
+    </message>
+    <message>
         <source>Clean up</source>
         <translation>Limpiar</translation>
     </message>
@@ -26742,6 +27414,70 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Fix a word in every caption at once</source>
         <translation>Corrige una palabra en todos los subtítulos a la vez</translation>
+    </message>
+    <message>
+        <source>Spelling</source>
+        <translation>Ortografía</translation>
+    </message>
+    <message>
+        <source>Check the spelling of every caption, one word at a time</source>
+        <translation>Revisa la ortografía de todos los subtítulos, palabra por palabra</translation>
+    </message>
+    <message>
+        <source>Speakers</source>
+        <translation>Hablantes</translation>
+    </message>
+    <message>
+        <source>File and timing</source>
+        <translation>Archivo y tiempos</translation>
+    </message>
+    <message>
+        <source>Words to check: %1</source>
+        <translation>Palabras por revisar: %1</translation>
+    </message>
+    <message>
+        <source>No spelling mistakes found.</source>
+        <translation>No se encontraron faltas de ortografía.</translation>
+    </message>
+    <message>
+        <source>Remove repeated word</source>
+        <translation>Quitar la palabra repetida</translation>
+    </message>
+    <message>
+        <source>No suggestions: fix it in the text box.</source>
+        <translation>Sin sugerencias: corrígela en el cuadro de texto.</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>Cerrar</translation>
+    </message>
+    <message>
+        <source>Without an account they are translated on this computer (a little slower).</source>
+        <translation>Sin cuenta se traducen en esta computadora (un poco más lento).</translation>
+    </message>
+    <message>
+        <source>Sign in with Google to translate captions, or install the Offline translation extra</source>
+        <translation>Inicia sesión con Google para traducir los subtítulos, o instala el extra Traducción sin internet</translation>
+    </message>
+    <message>
+        <source>Ignore</source>
+        <translation>Ignorar</translation>
+    </message>
+    <message>
+        <source>Nothing to change in these captions.</source>
+        <translation>No hay nada que cambiar en estos subtítulos.</translation>
+    </message>
+    <message>
+        <source>(removed)</source>
+        <translation>(se quita)</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Cancelar</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>Aplicar</translation>
     </message>
     <message>
         <source>Find (e.g. jesus)</source>
@@ -26807,6 +27543,38 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <source>Tip: write a word between asterisks, like *faith*, to highlight it in colour.</source>
         <translation>Consejo: escribe una palabra entre asteriscos, como *fe*, para resaltarla en color.</translation>
     </message>
+    <message>
+        <source>One frame earlier</source>
+        <translation>Un fotograma antes</translation>
+    </message>
+    <message>
+        <source>One frame later</source>
+        <translation>Un fotograma después</translation>
+    </message>
+    <message>
+        <source>Split</source>
+        <translation>Dividir</translation>
+    </message>
+    <message>
+        <source>Split this caption at the playhead</source>
+        <translation>Dividir este subtítulo en el cabezal</translation>
+    </message>
+    <message>
+        <source>Join</source>
+        <translation>Unir</translation>
+    </message>
+    <message>
+        <source>Join this caption with the next one</source>
+        <translation>Unir este subtítulo con el siguiente</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation>Eliminar</translation>
+    </message>
+    <message>
+        <source>Delete this caption</source>
+        <translation>Eliminar este subtítulo</translation>
+    </message>
 </context>
 <context>
     <name>SubtitleProgressDialog</name>
@@ -26829,18 +27597,6 @@ Si la reproducción se corta, prueba con otra opción.</translation>
 </context>
 <context>
     <name>SubtitlesTab</name>
-    <message>
-        <source>Subtitle track — one clip holds many timed captions. Place it on the timeline, trim its length, then add caption lines at each moment in the clip panel.</source>
-        <translation>Pista de subtítulos: un solo clip contiene múltiples subtítulos sincronizados. Colócalo en la línea de tiempo, recorta su longitud y luego añade líneas de subtítulo para cada momento en el panel del clip.</translation>
-    </message>
-    <message>
-        <source>Add subtitle clip</source>
-        <translation>Añadir clip de subtítulos</translation>
-    </message>
-    <message>
-        <source>Import subtitle file</source>
-        <translation>Importar archivo de subtítulos</translation>
-    </message>
     <message>
         <source>Import Subtitles</source>
         <translation>Importar subtítulos</translation>
@@ -26866,20 +27622,48 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Todos los archivos (*)</translation>
     </message>
     <message>
-        <source>Add auto caption</source>
-        <translation>Añadir subtítulos automáticos</translation>
-    </message>
-    <message>
-        <source>Creates captions from the speech in the selected clip.</source>
-        <translation>Crea subtítulos a partir de la voz en el clip seleccionado.</translation>
-    </message>
-    <message>
         <source>Select a video or audio clip on the timeline first.</source>
         <translation>Selecciona primero un clip de video o audio en la línea de tiempo.</translation>
     </message>
     <message>
+        <source>On this computer</source>
+        <translation>En tu equipo</translation>
+    </message>
+    <message>
+        <source>In the cloud</source>
+        <translation>En la nube</translation>
+    </message>
+    <message>
+        <source>ElevenLabs Scribe: the audio is sent to ElevenLabs with your key</source>
+        <translation>ElevenLabs Scribe: el audio se envía a ElevenLabs con tu clave</translation>
+    </message>
+    <message>
+        <source>Hard words: names, brands… (separated by commas)</source>
+        <translation>Palabras difíciles: nombres, marcas… (separadas por comas)</translation>
+    </message>
+    <message>
+        <source>Style of the selected captions</source>
+        <translation>Estilo de los subtítulos elegidos</translation>
+    </message>
+    <message>
+        <source>Two lines per caption</source>
+        <translation>Dos líneas por subtítulo</translation>
+    </message>
+    <message>
+        <source>Hide swear words (m*****)</source>
+        <translation>Ocultar groserías (m*****)</translation>
+    </message>
+    <message>
         <source>Shorter captions are timed by splitting each phrase evenly, so they can drift slightly out of sync with the speech.</source>
         <translation>Los subtítulos más cortos se sincronizan dividiendo cada frase equitativamente, por lo que pueden desincronizarse ligeramente de la voz.</translation>
+    </message>
+    <message>
+        <source>Captions from the voice</source>
+        <translation>Subtítulos desde la voz</translation>
+    </message>
+    <message>
+        <source>Create captions</source>
+        <translation>Crear subtítulos</translation>
     </message>
     <message>
         <source>Create captions from the selected clips&apos; speech — several clips become one caption clip</source>
@@ -26912,6 +27696,38 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Needed for auto captions from speech</source>
         <translation>Necesario para subtítulos automáticos a partir de voz</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation>Opciones</translation>
+    </message>
+    <message>
+        <source>Tell the speakers apart (a colour for each)</source>
+        <translation>Distinguir a los hablantes (un color para cada uno)</translation>
+    </message>
+    <message>
+        <source>Highlight key words in colour</source>
+        <translation>Resaltar palabras clave en color</translation>
+    </message>
+    <message>
+        <source>Show fewer</source>
+        <translation>Ver menos</translation>
+    </message>
+    <message>
+        <source>See all styles (%1)</source>
+        <translation>Ver todos los estilos (%1)</translation>
+    </message>
+    <message>
+        <source>Write by hand</source>
+        <translation>Escribir a mano</translation>
+    </message>
+    <message>
+        <source>An empty caption clip at the playhead: write each line in the clip panel</source>
+        <translation>Un clip de subtítulos vacío en el cabezal: escribe cada línea en el panel del clip</translation>
+    </message>
+    <message>
+        <source>Import file</source>
+        <translation>Importar archivo</translation>
     </message>
     <message>
         <source>Recommended caption length</source>
@@ -27619,6 +28435,41 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
 </context>
 <context>
+    <name>TextEditWindow</name>
+    <message>
+        <source>Edit by text</source>
+        <translation>Editar con el texto</translation>
+    </message>
+    <message>
+        <source>Click the words to take out (Shift + click for a stretch). Double click to hear one.</source>
+        <translation>Haz clic en las palabras que quieras quitar (Mayús + clic para un tramo). Doble clic para escuchar una.</translation>
+    </message>
+    <message>
+        <source>No words found in this clip.</source>
+        <translation>No se encontraron palabras en este clip.</translation>
+    </message>
+    <message>
+        <source>Listening to the clip to write down what is said… %1%</source>
+        <translation>Escuchando el clip para escribir lo que se dice… %1%</translation>
+    </message>
+    <message>
+        <source>The first time takes a while; then it opens at once.</source>
+        <translation>La primera vez tarda un poco; después se abre al instante.</translation>
+    </message>
+    <message>
+        <source>%1 words · %2 s</source>
+        <translation>%1 palabras · %2 s</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Cancelar</translation>
+    </message>
+    <message>
+        <source>Cut</source>
+        <translation>Cortar</translation>
+    </message>
+</context>
+<context>
     <name>TextEffects</name>
     <message>
         <source>Shine sweep</source>
@@ -28182,6 +29033,26 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>These letters go back to the style of the whole text</source>
         <translation>Estas letras vuelven al estilo de todo el texto</translation>
+    </message>
+    <message>
+        <source>Read aloud…</source>
+        <translation>Leer en voz alta…</translation>
+    </message>
+    <message>
+        <source>Turn this text into a voice that starts with it</source>
+        <translation>Convierte este texto en una voz que empieza con él</translation>
+    </message>
+    <message>
+        <source>Discard the voice you made?</source>
+        <translation>¿Descartar la voz que hiciste?</translation>
+    </message>
+    <message>
+        <source>Discard and go on</source>
+        <translation>Descartar y seguir</translation>
+    </message>
+    <message>
+        <source>The Voice panel has a take that is not on the timeline yet. Add it first with «Add to timeline», or discard it to start this one.</source>
+        <translation>En el panel Voz hay una toma que todavía no está en la línea de tiempo. Añádela antes con «Añadir a la línea de tiempo» o descártala para empezar esta.</translation>
     </message>
     <message>
         <source>Bold</source>
@@ -30254,6 +31125,18 @@ Si la reproducción se corta, prueba con otra opción.</translation>
 </context>
 <context>
     <name>TimelinePanel</name>
+    <message>
+        <source>Move work area</source>
+        <translation>Mover la zona de trabajo</translation>
+    </message>
+    <message>
+        <source>Work area: drag to move it</source>
+        <translation>Zona de trabajo: arrastra para moverla</translation>
+    </message>
+    <message>
+        <source>Work area: drag to change where it starts or ends</source>
+        <translation>Zona de trabajo: arrastra para cambiar dónde empieza o termina</translation>
+    </message>
     <message>
         <source>Proxy</source>
         <translation>Proxy</translation>
@@ -32349,6 +33232,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Cargando el modelo de voz…</translation>
     </message>
     <message>
+        <source>No speech was produced</source>
+        <translation>No se produjo ninguna voz</translation>
+    </message>
+    <message>
         <source>Install the voice model first</source>
         <translation>Primero instala el modelo de voz</translation>
     </message>
@@ -32361,16 +33248,63 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Preparando la voz…</translation>
     </message>
     <message>
-        <source>Generating speech…</source>
-        <translation>Generando la voz…</translation>
-    </message>
-    <message>
         <source>Cancelled</source>
         <translation>Cancelado</translation>
     </message>
     <message>
+        <source>Speaking sentence %1 of %2…</source>
+        <translation>Diciendo la frase %1 de %2…</translation>
+    </message>
+    <message>
+        <source>Sentence %1 could not be spoken: %2</source>
+        <translation>No se pudo decir la frase %1: %2</translation>
+    </message>
+    <message>
+        <source>Putting the take together…</source>
+        <translation>Uniendo la toma…</translation>
+    </message>
+    <message>
+        <source>Listen to it, then add it to the timeline</source>
+        <translation>Escúchala y luego añádela a la línea de tiempo</translation>
+    </message>
+    <message>
+        <source>Speaking sentence %1 again…</source>
+        <translation>Volviendo a decir la frase %1…</translation>
+    </message>
+    <message>
+        <source>Sentence %1 spoken again</source>
+        <translation>Frase %1 dicha de nuevo</translation>
+    </message>
+    <message>
+        <source>Changing speed and pitch…</source>
+        <translation>Cambiando velocidad y tono…</translation>
+    </message>
+    <message>
+        <source>Replace voice</source>
+        <translation>Reemplazar la voz</translation>
+    </message>
+    <message>
+        <source>Could not replace the voice</source>
+        <translation>No se pudo reemplazar la voz</translation>
+    </message>
+    <message>
         <source>Speech added to the timeline</source>
         <translation>Voz agregada a la línea de tiempo</translation>
+    </message>
+    <message>
+        <source>Voice replaced on the timeline</source>
+        <translation>Voz reemplazada en la línea de tiempo</translation>
+    </message>
+    <message numerus="yes">
+        <source>The music goes down under the voice (%n clip(s))</source>
+        <translation>
+            <numerusform>La música baja bajo la voz (%n clip)</numerusform>
+            <numerusform>La música baja bajo la voz (%n clips)</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>There is no music under this voice</source>
+        <translation>No hay música bajo esta voz</translation>
     </message>
     <message>
         <source>Select a subtitle clip first</source>
@@ -32379,6 +33313,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>This subtitle clip has no text to speak</source>
         <translation>Este clip de subtítulos no tiene texto para leer</translation>
+    </message>
+    <message>
+        <source>Speaking line %1 of %2…</source>
+        <translation>Diciendo la línea %1 de %2…</translation>
     </message>
     <message>
         <source>Generate voiceover</source>
@@ -32400,6 +33338,13 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>
             <numerusform>; %n duró más que su subtítulo</numerusform>
             <numerusform>; %n duraron más que sus subtítulos</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>; %n could not be added</source>
+        <translation>
+            <numerusform>; %n no se pudo añadir</numerusform>
+            <numerusform>; %n no se pudieron añadir</numerusform>
         </translation>
     </message>
 </context>
@@ -33653,6 +34598,81 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
 </context>
 <context>
+    <name>VoiceGallery</name>
+    <message>
+        <source>Narration</source>
+        <translation>Narración</translation>
+    </message>
+    <message>
+        <source>Young</source>
+        <translation>Joven</translation>
+    </message>
+    <message>
+        <source>Deep</source>
+        <translation>Grave</translation>
+    </message>
+    <message>
+        <source>Lively</source>
+        <translation>Animada</translation>
+    </message>
+    <message>
+        <source>Soft</source>
+        <translation>Suave</translation>
+    </message>
+    <message>
+        <source>Mature</source>
+        <translation>Madura</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation>Todas</translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation>Favoritas</translation>
+    </message>
+    <message>
+        <source>Mine</source>
+        <translation>Mías</translation>
+    </message>
+    <message>
+        <source>Women</source>
+        <translation>Mujeres</translation>
+    </message>
+    <message>
+        <source>Men</source>
+        <translation>Hombres</translation>
+    </message>
+    <message>
+        <source>Hear this voice</source>
+        <translation>Escuchar esta voz</translation>
+    </message>
+    <message>
+        <source>My voice</source>
+        <translation>Mi voz</translation>
+    </message>
+    <message>
+        <source>Mark voices with the star to find them here</source>
+        <translation>Marca voces con la estrella para encontrarlas aquí</translation>
+    </message>
+    <message>
+        <source>Your own voices appear here: «New voice» in Options</source>
+        <translation>Tus voces propias aparecen aquí: «Voz nueva» en Opciones</translation>
+    </message>
+    <message>
+        <source>No voices of this kind</source>
+        <translation>No hay voces de este tipo</translation>
+    </message>
+    <message>
+        <source>Show fewer</source>
+        <translation>Ver menos</translation>
+    </message>
+    <message>
+        <source>See all voices (%1)</source>
+        <translation>Ver todas las voces (%1)</translation>
+    </message>
+</context>
+<context>
     <name>VoiceLibrary</name>
     <message>
         <source>Default</source>
@@ -33665,6 +34685,18 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>A voice needs a name and a recording</source>
         <translation>Una voz necesita un nombre y una grabación</translation>
+    </message>
+    <message>
+        <source>Reading the recording…</source>
+        <translation>Leyendo la grabación…</translation>
+    </message>
+    <message>
+        <source>Loading voice model…</source>
+        <translation>Cargando el modelo de voz…</translation>
+    </message>
+    <message>
+        <source>Learning the voice…</source>
+        <translation>Aprendiendo la voz…</translation>
     </message>
     <message>
         <source>Could not prepare the voice</source>
@@ -33681,6 +34713,18 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>The recording is too short: record at least %1 seconds</source>
         <translation>La grabación es muy corta: graba al menos %1 segundos</translation>
+    </message>
+    <message>
+        <source>Unknown voice</source>
+        <translation>Voz desconocida</translation>
+    </message>
+    <message>
+        <source>The reference recording for this voice is missing</source>
+        <translation>Falta la grabación de referencia de esta voz</translation>
+    </message>
+    <message>
+        <source>Could not read the reference recording</source>
+        <translation>No se pudo leer la grabación de referencia</translation>
     </message>
 </context>
 <context>
@@ -33737,6 +34781,18 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Generar locución</translation>
     </message>
     <message>
+        <source>Speech generation runs on this device and needs the voice model.</source>
+        <translation>La generación de voz se hace en este equipo y necesita el modelo de voz.</translation>
+    </message>
+    <message>
+        <source>Download voice model</source>
+        <translation>Descargar modelo de voz</translation>
+    </message>
+    <message>
+        <source>Install AI engine first</source>
+        <translation>Instala primero el motor de IA</translation>
+    </message>
+    <message>
         <source>Voice</source>
         <translation>Voz</translation>
     </message>
@@ -33767,6 +34823,21 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Close</source>
         <translation>Cerrar</translation>
+    </message>
+</context>
+<context>
+    <name>WhisperTranscriber</name>
+    <message>
+        <source>Transcribing %1–%2 of %3…</source>
+        <translation>Transcribiendo %1–%2 de %3…</translation>
+    </message>
+    <message>
+        <source>Detecting language…</source>
+        <translation>Detectando el idioma…</translation>
+    </message>
+    <message>
+        <source>Finishing up…</source>
+        <translation>Terminando…</translation>
     </message>
 </context>
 <context>

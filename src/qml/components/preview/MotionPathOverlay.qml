@@ -25,6 +25,9 @@ Item {
     // px: After Effects' motion path handles. X and Y are keyed apart, so a key's spatial handle is
     // the pair of its X and Y value handles (outDy of each), which is exactly how the path bends.
     property var handles: []
+    // After Effects' Position as one property (0.30): the handles are the path's own (spIn/spOut of
+    // the X and Y keys) and bend it without touching the timing.
+    property bool joined: false
     // [{seconds, x, y, hasX, hasY}] in canvas px of the centre, and the sampled line.
     property var keys: []
     property var samples: []
@@ -38,9 +41,15 @@ Item {
             return { x: 0, y: 0 }
         const cw = root.box.canvasWidth
         const ch = root.box.canvasHeight
+        // The anchor's place, as the renderer puts it: in the size the layer grows from while its size
+        // is keyed, so scaling does not slide the path off the layer (0.30 tests E40).
+        const fx = isNaN(root.box.anchorFx) ? 0.5 : root.box.anchorFx
+        const fy = isNaN(root.box.anchorFy) ? 0.5 : root.box.anchorFy
+        const rw = root.box.restW > 0 ? root.box.restW : root.valueAt("width", seconds, cw)
+        const rh = root.box.restH > 0 ? root.box.restH : root.valueAt("height", seconds, ch)
         return {
-            x: root.valueAt("x", seconds, 0) + root.valueAt("width", seconds, cw) / 2,
-            y: root.valueAt("y", seconds, 0) + root.valueAt("height", seconds, ch) / 2
+            x: root.valueAt("x", seconds, 0) + fx * rw,
+            y: root.valueAt("y", seconds, 0) + fy * rh
         }
     }
     // True when a press at (mx, my) of `item` falls on the clip as it is drawn now. A straight
@@ -101,9 +110,9 @@ Item {
                            "prevSeconds": prev ? prev.seconds : NaN, "nextSeconds": next ? next.seconds : NaN })
             }
             if (next)
-                side("out", next, xk.outDy, yk.outDy)
+                side("out", next, root.joined ? xk.spOut : xk.outDy, root.joined ? yk.spOut : yk.outDy)
             if (prev)
-                side("in", prev, xk.inDy, yk.inDy)
+                side("in", prev, root.joined ? xk.spIn : xk.inDy, root.joined ? yk.spIn : yk.inDy)
         }
         root.handles = out
     }
@@ -122,6 +131,7 @@ Item {
             root.handles = []
             return
         }
+        root.joined = EditorState.positionJoined(root.trackIndex, root.clipIndex)
         const animated = EditorState.clipAnimatedProperties(root.trackIndex, root.clipIndex) || []
         const hasX = animated.indexOf("x") >= 0
         const hasY = animated.indexOf("y") >= 0
@@ -245,7 +255,8 @@ Item {
                         }
                         wasLinked = EditorState.positionLinked
                         // The X and Y handles are set apart here; linked, one would rescale the other.
-                        EditorState.setPositionLinkedForDrag(false)
+                        if (!root.joined)
+                            EditorState.setPositionLinkedForDrag(false)
                         root.shaping = true
                         EditorState.beginPreviewDrag(qsTr("Shape motion path"))
                     }
@@ -261,7 +272,8 @@ Item {
                     onCanceled: finish()
                     function finish() {
                         EditorState.commitPreviewDrag()
-                        EditorState.setPositionLinkedForDrag(wasLinked)
+                        if (!root.joined)
+                            EditorState.setPositionLinkedForDrag(wasLinked)
                         root.shaping = false
                         root.rebuild()
                     }
@@ -271,6 +283,34 @@ Item {
             // unless Ctrl breaks them apart (After Effects' Convert Vertex).
             function apply(mods) {
                 const m = hd.modelData
+                if (root.joined) {
+                    // The path's own handles: the other side turns with this one, keeping its
+                    // length, unless Ctrl breaks them apart.
+                    const out = m.side === "out"
+                    let inX = m.xKey.spIn, inY = m.yKey.spIn, outX = m.xKey.spOut, outY = m.yKey.spOut
+                    const keep = (mods & Qt.ControlModifier) === 0
+                    if (out) {
+                        outX = hd.liveOx
+                        outY = hd.liveOy
+                        if (keep && !isNaN(m.prevSeconds)) {
+                            const len = Math.hypot(inX, inY) || Math.hypot(outX, outY)
+                            const l = Math.max(1e-6, Math.hypot(outX, outY))
+                            inX = -outX / l * len
+                            inY = -outY / l * len
+                        }
+                    } else {
+                        inX = hd.liveOx
+                        inY = hd.liveOy
+                        if (keep && !isNaN(m.nextSeconds)) {
+                            const len = Math.hypot(outX, outY) || Math.hypot(inX, inY)
+                            const l = Math.max(1e-6, Math.hypot(inX, inY))
+                            outX = -inX / l * len
+                            outY = -inY / l * len
+                        }
+                    }
+                    EditorState.previewSetSpatialTangents(root.trackIndex, root.clipIndex, m.seconds, inX, inY, outX, outY)
+                    return
+                }
                 const xk = m.xKey
                 const yk = m.yKey
                 const out = m.side === "out"

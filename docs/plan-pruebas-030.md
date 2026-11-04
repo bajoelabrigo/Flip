@@ -1,0 +1,368 @@
+# Pruebas de la 0.30: 5 proyectos de After Effects y 3 de subtítulos
+
+Pedido de Jorge (2026-11-03): preparar 5 proyectos para la línea de tiempo tipo After Effects y 3 para los subtítulos,
+usando todas las herramientas instaladas, en escenarios distintos. Se hacen en ventana, se anotan los errores en la
+lista de abajo (sin arreglar nada a mitad de camino), al final se corrige todo, se compila una vez y se repite hasta
+que quede al 100 %.
+
+- Proyectos de partida y material: `E:\FlipStudio\pruebas\proyectos-030\` (`ae1…ae5`, `sub1…sub3`), armados con
+  `tools/e2e/mcp_e2e.py` y los `make-*.jsonl` de esa carpeta (solo el material y las capas; la animación se hace a mano
+  en la prueba, como un usuario).
+- Antes de cada sesión: copia del registro desde PowerShell; al final, restaurarla (y la clave `account` exportada
+  después, si se usó la cuenta). Variables para los extras sin publicar: `DRIFT_TRANSLATE_MODEL_DIR`,
+  `DRIFT_DIARIZE_MODEL_DIR`, `DRIFT_TEXT_STYLES_DIR` (rutas en `docs/plan-subtitulos.md`).
+- Sin el mouse de Jorge: `tools/e2e/shot.ps1` / `click.ps1` / `drag.ps1` / `type.ps1` con `-TargetPid`, y MCP para
+  leer el estado. Con el mouse de Jorge (cuando él está): computer use.
+
+## After Effects
+
+### AE1 — Pelota que rebota y sale de cuadro (formas, Posición unida)
+Material: fondo sólido 1920×1080, círculo (capa de forma) y una línea de suelo.
+1. Activar Posición con el cronómetro; claves de caída, golpe, dos rebotes y salida por la derecha.
+2. Ver que Posición se unió sola (menú de la clave: «Separar dimensiones»).
+3. Curvar el trayecto con los tiradores de la vista previa: el ritmo no debe cambiar.
+4. F9 en las claves altas; gráfico de velocidad («Pos»): caída que acelera, subida que frena.
+5. «Itinerante» en las claves del medio; «Trayecto recto» en el golpe (esquina).
+6. Escala: Squash al golpe (claves copiadas y pegadas en cada golpe), anclaje abajo.
+7. Separar dimensiones y volver a unir; deshacer y rehacer.
+Resultado esperado: rebote creíble, sin saltos; el trayecto no se deforma al cambiar el ritmo.
+
+### AE2 — Título cinético con nulo (varias capas a la vez)
+Material: tres textos («FLIP», «STUDIO», «0.30») y un objeto nulo.
+1. Emparentar los tres textos al nulo; animar Escala y Rotación del nulo.
+2. Entradas escalonadas: claves de Opacidad y Posición en cada texto.
+3. Elegir claves de las tres capas con Ctrl+clic y con un recuadro que cruce las tres pistas; F9, arrastrar, estirar
+   con Alt, invertir; un solo deshacer para cada cosa.
+4. Juego de atajos «After Effects»: P/S/R/T/A, U y UU, J/K, B/N (zona de trabajo), [ ] y Alt+[ ].
+5. Zona de trabajo: arrastrarla y reproducir (se detiene al final).
+Resultado esperado: todo actúa en las tres capas; los atajos hacen lo de AE.
+
+### AE3 — Producto con trayecto curvo y Auto-Orient (vista previa y gráfico)
+Material: video del robot (1280×720) de fondo y una imagen/forma de «producto» encima.
+1. Trayecto en S con cuatro claves; tiradores en la vista previa (Ctrl rompe la simetría).
+2. Auto-Orient: el producto mira hacia donde va.
+3. Velocidad numérica (diálogo) en varias claves a la vez, en px/s del trayecto.
+4. Cuentas en los valores: «+50», «*2», «(1920-200)/2».
+5. Gráfico sobre toda la línea de tiempo: rueda, Ctrl+rueda, Alt+rueda, «Ver toda la curva», «Acercar a las elegidas»,
+   recuadro de transformación (estirar en tiempo, escalar valores).
+Resultado esperado: curva suave, ritmo parejo, cuentas bien, el gráfico no se pierde.
+
+### AE4 — Infografía con expresiones y Motion Tools
+Material: cinco barras (formas) y un texto contador.
+1. Expresiones: `wiggle`, `loopOut`, `index * 10`, `thisLayer.index`, `linear(time, 0, 2, 0, 100)`,
+   `valueAtTime(time - 0.2)`, `velocity`.
+2. Motion Tools: Elastic y Bounce sobre la Escala de las barras; Curvas (presets y propia) en las claves elegidas.
+3. Panel Curvas con claves de varias capas elegidas: aplicar en todas.
+4. Copiar claves de una barra y pegarlas con las cinco elegidas.
+Resultado esperado: expresiones sin error, cada barra según su índice, los paneles tocan todas las capas elegidas.
+
+### AE5 — Video vertical para redes con zooms al ritmo (curvas de varias capas)
+Material: video vertical 1080×1920 a 120 fps y dos textos encima.
+1. Zooms rápidos (Escala) y sacudida (Posición) en el video; los mismos en los textos.
+2. Gráfico con las tres capas elegidas: tocar las claves de las otras capas (clic = editar esa capa, Ctrl = sumar),
+   arrastrarlas en el tiempo juntas, recuadro sobre varias capas.
+3. Velocidad del fotograma clave para muchas claves; Curvas «Rebote» en todas.
+4. Exportar un tramo con la zona de trabajo.
+Resultado esperado: se editan las curvas de las tres capas sin cambiar de capa a cada rato.
+
+## Subtítulos
+
+### SUB1 — Entrevista horizontal con dos voces
+Material: `entrevista.mp4` (dos personas).
+1. Crear subtítulos con «Distinguir a los hablantes» y «Resaltar palabras clave».
+2. Traducir al inglés con DeepL (con sesión): ver que no se encime con el original y que diga «English».
+3. «Editar con el texto»: tachar dos frases y cortar; los dos clips de subtítulos siguen sincronizados.
+4. Exportar MP4 con la pista de subtítulos y el `.srt`/`.vtt` al lado (ffprobe).
+
+### SUB2 — Vertical estilo TikTok
+Material: `charla-vertical.mp4`.
+1. Estilos virales (los 12), subtítulos animados (emoji), estilo y lugar por subtítulo.
+2. Quitar silencios: las otras pistas (música, texto) se corren en el mismo deshacer.
+3. Groserías con pitido; aviso «Pitido en 1 palabra».
+4. Máximo de dos líneas; palabras clave en color.
+
+### SUB3 — Sin sesión y sin internet
+Material: video de B-roll con voz (`voz.wav` sobre el video de la gente).
+1. Sin sesión: transcribir en el equipo.
+2. Traducir con el modelo del equipo (extra «Traducción sin internet», con `DRIFT_TRANSLATE_MODEL_DIR`): el aviso de
+   «Traduciendo los subtítulos en tu computadora…», el clip traducido y su tiempo por línea.
+3. Importar un `.srt`, mover tiempos, karaoke (palabra resaltada), exportar quemado.
+
+## Lista de errores (se llena durante las pruebas; no se arregla nada hasta el final)
+
+| # | Proyecto | Qué pasó | Estado |
+|---|---|---|---|
+| 1 | AE1 | La herramienta `add_shape` (MCP) pone la forma en la esquina de arriba a la izquierda, no centrada como dice su descripción | pendiente |
+| 2 | AE1 | Tras pasar a Pro, el primer clic sobre un clip no lo eligió (el segundo sí) | revisar |
+| 3 | AE1 | Con Posición unida la línea de tiempo sigue mostrando dos filas (Posición X / Posición Y); en AE es una fila «Posición» con los dos valores | pendiente |
+| 4 | AE1 | La rueda sobre las filas no las desplaza cuando el panel de la línea de tiempo es bajo (Escala quedaba fuera); hubo que agrandar el panel | pendiente |
+| 5 | AE1 | Escala: al escribir 130 en el ancho con el cronómetro recién puesto, la pelota se ensancha pero la fila sigue diciendo 100,0 / 100,0 % (el primer tamaño con clave pasa a ser el 100 %) | pendiente |
+| 6 | AE1 | Escala: Tab desde el ancho no pasa al alto (el 75 no se aplicó) | pendiente |
+| 7 | AE1 | Al escalar cambian los números de Punto de anclaje (259 → 337) y de Posición X; en AE el anclaje no cambia con la escala | pendiente |
+| 8 | AE1 | Separar dimensiones y volver a unir pierde las esquinas («Trayecto recto») de los golpes: todo vuelve a Bezier automático | pendiente |
+| — | AE1 | Bien: Posición se une sola, trayecto con tiradores propios, doblarlo no cambia el ritmo, F9 frena sin mover el camino, gráfico de velocidad «Pos» con velocidad pareja por tramo, influencia, Trayecto recto (esquinas), Itinerante, deshacer/rehacer | ok |
+| 9 | AE2 | Con un clip elegido, el clic sobre otro clip no cambia la elección (seguía el nulo); hace falta Esc antes. Pasa sobre todo tras usar sus filas o emparentar (mismo que el 2) | pendiente |
+| 10 | AE2 | Un texto recién creado dice «Escala 10 %» en Transformar | pendiente |
+| 11 | AE2 | Emparentar solo está en clic derecho › Avanzado › «Seguir a (primario)»: en AE es una columna visible (con el látigo) en la línea de tiempo | pendiente |
+| 12 | AE2 | Juego «After Effects»: Alt+Mayús+T (y P/S/R) no ponen clave de esa propiedad como en AE | pendiente |
+| 13 | AE2 | [ , ] , Alt+[ , Alt+] no hicieron nada (teclado español: «[» va con AltGr; revisar qué tecla llega y aceptar la de la distribución) | revisar |
+| 14 | AE2 | UU muestra Posición y Escala 100/100 del nulo como modificadas aunque no se tocaron | pendiente |
+| — | AE2 | Bien: emparentar al nulo y girar con él, T muestra solo Opacidad (de las capas elegidas), Inicio, K/J entre claves, B/N zona de trabajo y la reproducción se para al final, copiar y pegar claves en dos capas («×2»), recuadro sobre dos pistas + F9 en las dos, arrastrar claves de dos pistas juntas, deshacer/rehacer | ok |
+| 15 | AE3 | Velocidad del fotograma clave: con el cursor aún en el último campo, el primer clic en «Aplicar» solo confirma el campo; hace falta un segundo clic | pendiente |
+| 16 | AE3 | Gráfico: Ctrl+rueda y Alt+rueda no acercaron valores ni tiempo (la rueda sola sí movió el tiempo). Revisar con el mouse de Jorge: puede ser que la herramienta de pruebas no mande el modificador con la rueda | revisar |
+| — | AE3 | Sin probar: Ctrl sobre un tirador del trayecto (la herramienta no deja mantener Ctrl durante el arrastre) | — |
+| — | AE3 | Bien: cuentas en los valores (resultado 860 de «(1920-200)/2»), trayecto en S de 4 claves, Auto-Orient, velocidad de varias claves en px/s del trayecto (el camino no cambia), gráfico a pantalla completa, «Ver toda la curva», recuadro de transformación que estira en el tiempo, deshacer | ok |
+| 17 | AE4 | Comportamiento › Expresión: la ayuda solo nombra value, time, wiggle, Math y thisComp.layer; faltan index, thisLayer, linear, ease, easeIn/Out, clamp, valueAtTime, velocity, speed | pendiente |
+| 18 | AE4 | El menú de la fila de Posición muestra «✓ Separar dimensiones» marcado aun antes de animar (y al animar se une sola): el estado que muestra confunde | pendiente |
+| 19 | AE4 | El gráfico dibuja solo las claves: no muestra el resultado del comportamiento (Rebote, expresión, bucle); AE dibuja el valor final | mejora |
+| — | AE4 | Bien: expresión con index y linear (la barra baja index×100 y 300 más en 2 s), punto verde de expresión válida, marca «≈» en la fila, «+800» relativo en un valor animado, Motion Tools › Rebote aplicado | ok |
+| — | AE4 | Sin probar todavía: Curvas con claves de varias capas, Elástico, pegar en las cinco barras | — |
+| 20 | AE5 | Escala de un texto: al escribir 150 la fila queda en «30,2 / 14,3 %» (ancho y alto distintos aunque unidos) y el texto no se ve más grande; la escala de los textos está rota (ver 10) | pendiente |
+| 21 | AE5 | «Ver toda la curva» ajusta al largo del clip (17 s) y no a donde están las claves (en el primer segundo) | pendiente |
+| 22 | AE5 | El gráfico bajo la pista del video sale muy bajo (unos 50 px): sin pantalla completa no se puede trabajar | pendiente |
+| — | AE5 | Bien: S muestra solo Escala (también con dos capas), curvas de dos capas (la otra punteada con su etiqueta), clic en la clave de la otra capa pasa a editarla, Ctrl+clic suma claves de las dos capas y F9 las suaviza a la vez | ok |
+| 23 | SUB1 | El progreso de los hablantes dice «Telling speakers apart…» en inglés (sin traducir) | pendiente |
+| 24 | SUB1 | Justo después de traducir, la vista previa no mostraba ningún subtítulo en 0:02 hasta mover el cabezal | revisar |
+| 25 | SUB1 | «Editar con el texto» vuelve a transcribir aunque el clip ya tiene subtítulos; debería usar esa transcripción y abrir al instante | pendiente |
+| 26 | SUB1 | (Jorge) «Editar con el texto» tarda ~30 s sin aviso visible de carga (solo un aviso chico abajo que se va); el usuario puede pensar que no sirve: abrir la ventana al tiro con «Escuchando… %» y Cancelar | pendiente |
+| — | SUB1 | Bien: Hablante 1/2 con colores, palabras clave marcadas, Traducir dice «English», el inglés arriba sin encimarse con el español, Editar con el texto tacha y corta 0,7 s y los dos clips de subtítulos se acortan con el video | ok |
+| — | SUB1 | Sin probar: exportar MP4 con la pista de subtítulos y el .srt/.vtt (ffprobe) | — |
+| 27 | SUB2 | En la franja de subtítulos de la línea de tiempo el texto de un bloque se sale de su caja («a editar videos de» queda afuera) | pendiente |
+| 28 | SUB2 | Las miniaturas de los estilos «Subtítulo» y «Leyenda» casi no se ven (texto diminuto) | pendiente |
+| 29 | SUB2 | Elegir un estilo (Fondo de frase) con el clip de subtítulos elegido no cambia los subtítulos que ya están: la vista previa sigue con el estilo anterior | pendiente |
+| 30 | SUB3 | **Sin sesión el panel Traducir dice «Inicia sesión con Google…» y deja el botón apagado: la traducción en la computadora no se puede usar desde la pantalla.** Encender el botón si está el extra «Traducción sin internet» (y decir que traduce en el equipo) | pendiente |
+| — | SUB2 | Bien: Dos líneas, emojis (🎬 en dos frases), ocultar groserías, una sola voz sin etiquetas de hablante, la galería de 33 estilos | ok |
+| — | SUB3 | Bien: subtítulos creados en el equipo sin sesión (5), «Continuar sin cuenta» | ok |
+| — | SUB2/3 | Sin probar: pitido, quitar silencios con otras pistas, estilo por subtítulo, importar .srt, karaoke, exportar con subtítulos (siguen en la próxima ronda, con la compilación nueva) | — |
+| — | — | (E31 quitado: la bienvenida «Esperando al navegador» fue Jorge iniciando sesión) | — |
+
+## Estado (2026-11-03, tarde) — para seguir
+- Ronda 1 hecha (lista de arriba). Arreglos en `f1f6b` y `8fb52` (rama `flip/subtitulos`): 1, 3, 4, 5, 7, 8, 9/2 (ScrubValue
+  que re-elegía su clip al perder el foco; si vuelve: revisar herramienta de la línea de tiempo activa o el 1.er clic tras Pro),
+  10, 12, 14, 15, 16, 17, 18, 20, 21, 22, 23, 26, 27, 29, 30. Pendientes para la ronda 2: 6 (Tab ancho→alto), 11 (látigo de
+  emparentar ya existe pero solo con el clip elegido: hacerlo visible), 13 ([ ] con teclado español), 19 (gráfico con el
+  resultado de comportamientos), 24, 25 (Editar con el texto reusando los subtítulos), 28 (miniaturas de estilos).
+- Compilación con todo junto (voz nueva + arreglos): run 41685086924. Al salir: bajar `windows-portable` a
+  `E:\FlipStudio\pruebas\FlipStudio-0.30-r2`, rehacer los proyectos con `proyectos-030\make-*.jsonl` (mcp_e2e.py), copia del
+  registro, AE con el mouse de Jorge (avisarle), subtítulos sin mouse (`proyectos-030\cs.ps1 -P <pid> -Steps "c:x,y; w:ms"`),
+  SUB3 sin sesión: exportar `account` antes, borrarla, «Continuar sin cuenta», restaurar al final con la exportada.
+- Probar también la voz (docs/plan-voz.md): tomas, frases, [pausa 1s], velocidad/tono, diálogo, editar guion, leer título,
+  diseño nuevo, menú cruzado Subtítulos/Voz.
+
+## Ronda 2 (2026-11-03, compilación 41690321814, portable `pruebas\FlipStudio-0.30-r2`)
+Compilación: la primera (41685086924) falló porque las pruebas compilan `TtsController.cpp` sin SoundTouch (`4e888`), la
+segunda por dos `onClosing` en `TextEditWindow.qml` (qmlcachegen; ahora se revisan todos los QML cambiados en local con
+`qmlcachegen --only-bytecode --resource-path /x/<archivo>`). La tercera (41690321814) salió bien.
+
+| # | Proyecto | Qué pasó | Estado |
+|---|---|---|---|
+| — | AE1 | Bien: 1 (formas centradas), 3 (una fila «Posición X Y» al animar), 4 (rueda sobre las filas), 5 (el ancho dice 130), 14 (UU), 15 (Aplicar al primer clic), 18 (menú sin «✓ Separar»), separar/unir | ok |
+| 2 | AE1 | Sigue: el primer clic tras pasar a Pro no elige el clip | revisar |
+| 6 | AE1 | Sigue: Tab desde el ancho iba a la cadena (sin campo), el foco se perdía y lo tecleado iba a la app (Ctrl+A eligió todo) | arreglado (salta la cadena) |
+| 7 | AE1 | Sigue: con el cronómetro y 130 escrito en el mismo instante queda una sola clave y la forma crecía desde su esquina (X 960 → 1038). Ahora el tamaño guarda su punto de partida al poner el cronómetro (`Clip::sizePivotW/H`) y crece alrededor del anclaje; prueba `keyedSizeGrowsAroundAnchorFromItsPivot` | arreglado |
+| 11 | AE1 | El látigo de emparentar ahora está en todas las capas en Pro (tenue hasta pasar el puntero) | arreglado |
+| 13 | AE1 | Sigue: «[» con teclado español llega como Ctrl+Alt+[ (AltGr). Filtro `AltGrShortcutFilter` en `main.cpp` (fuera de campos de texto) | arreglado |
+| 16 | AE1 | La herramienta de pruebas no mantiene Ctrl/Alt con la rueda (tampoco hace zoom en la línea de tiempo): **lo prueba Jorge con su mouse** | Jorge |
+| 19 | AE1 | Elástico se aplica (≈ en la fila) pero el gráfico sigue sin dibujar el resultado del comportamiento | mejora |
+| 10 | AE2 | Sigue en el inspector Transformar («Escala 10 %» de un texto nuevo): ahora cuenta desde el tamaño propio | arreglado |
+| — | AE2 | Bien: 12 (Alt+Mayús+P con el juego After Effects pone claves de Posición y muestra solo esa fila) | ok |
+| 32 | Voz | La primera frase se cortaba en la coma («Hola a todos, bienvenidos al canal.» → «Hola a todos», Jorge lo oyó). Reintenta con otra redacción y otras lecturas si la frase sale muy corta (< 22 letras por segundo) | arreglado |
+| 33 | Voz | ↻ (rehacer frase) y «Generar de nuevo» daban el mismo audio (la voz elige siempre lo más probable): ahora cada vez es otra lectura (`variant`) | arreglado |
+| 34 | Voz | Los subtítulos de una voz se sacaban escuchándola («¡Toy vamos…») en vez del guion: ahora salen del guion con los tiempos de cada frase | arreglado |
+| 35 | Voz | Reemplazar la voz dejaba sus subtítulos viejos (dos pistas de subtítulos): ahora se cambian | arreglado |
+| 36 | Voz | El clip y el medio se llamaban «tts-chatterbox-…flac»: ahora «Voz: Hola a todos, bienvenidos…» | arreglado |
+| 37 | Voz | Opciones: los tres deslizadores no decían qué eran (Velocidad, Tono, Expresividad) ni su valor | arreglado |
+| — | Voz | Bien: Voz y Subtítulos juntos en Audio, diseño nuevo, «Cargando el modelo…», progreso por frase con Cancelar, [pausa 1s] (1,18 s de silencio), velocidad 1,25×, Editar guion desde Audio (aviso de reemplazo), Reemplazar, diálogo Ana/Luis (una voz por persona, sin decir los nombres) | ok |
+| 38 | Voz | Solo hay una voz («Predeterminada»): un diálogo suena igual para todos. Es el punto 1 de `docs/plan-voz.md` (paquete de voces) | pendiente |
+| — | — | Sin probar todavía: Curvas con varias capas, pegar en las cinco barras, exportar la zona de trabajo, Ctrl en un tirador del trayecto; subtítulos: pitido, quitar silencios, estilo por subtítulo, .srt, karaoke, exportar con subtítulos, SUB3 sin sesión con la traducción en el equipo; voz: leer un título, importar guion, guardar la voz, bajar la música | — |
+
+### Ronda 2b (compilación 41706768086, portable `pruebas\FlipStudio-0.30-r3`, con el mouse de Jorge)
+- 7 bien: con el cronómetro y 130 la elipse crece alrededor de su centro. 11: el látigo está en todas las capas pero
+  casi no se veía (ahora más opaco y más grande).
+- 6 seguía: la fila se reconstruye dos veces al confirmar y la primera, destruida al instante, se llevaba la edición
+  pendiente («root is not defined», «format is not a function»). Ahora se da por hecha solo cuando una fila viva abrió el campo.
+- 13: el teclado de Jorge es Español (Latinoamérica): «[» va con Mayús, no con AltGr. El filtro ahora mira el carácter
+  escrito (Mayús y AltGr no cuentan; Alt sí, para Alt+[).
+- 2 explicado: el primer paso a Pro abre «¿Usar los atajos de After Effects?», que se cierra con el clic de afuera; las
+  pruebas restauran el registro y la pregunta vuelve cada vez. No es un fallo.
+
+### Ronda 2c (compilación 41711574854, portable `pruebas/FlipStudio-0.30-r4`)
+- 13 bien: «[» con la elipse elegida la mueve al cabezal (2,50 s).
+- 16 bien (Jorge, con su mouse): Ctrl+rueda acerca los valores de la curva y Alt+rueda el tiempo. Fallaba porque
+  `event.point` no existe en el evento de la rueda (es `graphWheel.point`): 214 TypeError en el registro.
+- 6 bien (Jorge): 130 en el ancho, Tab salta al alto.
+- Pendiente para Jorge con su teclado cuando haga falta: lo que pide Tab, Enter o Ctrl (la herramienta de pruebas sin
+  mouse no los manda).
+
+### Subtítulos, ronda 2 (portable r4, sin mouse; Jorge probó los estilos con el suyo)
+- Bien: Subtítulos y Voz juntos en Títulos y en Audio; 27 (texto de cada bloque en una línea dentro de su caja); 11
+  subtítulos con avisos de lectura; Traducir a English (pista arriba con su estilo, sin encimarse).
+- 29: el primer clic en un estilo solo movía la tarjeta al frente: la lista se rehacía y lo que seguía al clic no corría.
+  Ahora se aplica primero y se resalta al final; y un estilo de subtítulos se aplica entero (con su animación).
+- 28: las tarjetas de estilos pequeños («Subtítulo», «Leyenda») tienen un mínimo de letra (1/5 de la tarjeta).
+- 39 (nuevo): Ortografía revisaba los subtítulos en inglés con el diccionario español («Hello» → «Ello»): ahora el idioma
+  sale de las palabras comunes del propio texto.
+- 25: los subtítulos hechos con el reconocimiento local o la nube guardan su transcripción en el clip (un solo clip), así
+  «Editar con el texto» y «Quitar silencios» abren sin volver a escuchar.
+- 24: tras traducir no se vio subtítulo en 0:11 durante la reproducción; después sí. Revisar otra vez.
+- La herramienta de pruebas no llega a la tarjeta de estilo (la estrella sí): Jorge la probó con su mouse.
+
+## Tanda grande con el mouse de Jorge (preparada el 2026-11-03)
+Proyectos en `E:\FlipStudio\pruebas\proyectos-030` (`ae1-pelota`, `ae2-titulo`, `ae3-producto`, `ae4-infografia`,
+`ae5-vertical`, `sub1-entrevista`, `sub2-vertical`, `sub3-sin-internet`, `tts1-narracion`; guiones `guion-tutorial.txt` y
+`guion-dialogo.md`, `prueba-importar.srt`). Versión: `E:/FlipStudio/pruebas/FlipStudio-0.30-r6` (compilación 41729999979, con el extra de voces en `tts-voices` junto al programa). Antes: copia del registro; después, restaurarla.
+Cada caso: lo que se hace → lo que tiene que pasar. Anotar en la tabla de abajo «bien» o lo que pasó.
+
+### After Effects (20)
+| # | Proyecto | Qué se hace | Qué tiene que pasar |
+|---|---|---|---|
+| A1 | ae1 | Pro, elegir la elipse, cronómetro de Posición Y en 0 s, 900 en el segundo 1 | Una sola fila «Posición X Y», trayecto visible en la vista previa |
+| A2 | ae1 | Tres claves más (rebote), clic derecho en una › Trayecto recto | Esquina en el trayecto; el ritmo no cambia |
+| A3 | ae1 | Separar dimensiones y volver a unir | Las esquinas siguen ahí |
+| A4 | ae1 | Escala: cronómetro, soltar la cadena, 130, Tab, 75, Enter | Tab salta al alto; la elipse crece desde su centro |
+| A5 | ae1 | Velocidad del fotograma clave (clic derecho): Influencia 60, un clic en Aplicar | Se aplica al primer clic |
+| A6 | ae1 | Editar curva: Ctrl+rueda y Alt+rueda sobre una curva que sube | Valores y tiempo se acercan |
+| A7 | ae1 | Gráfico de velocidad (botón del gráfico) con la Posición unida | Una curva «Pos» en px/s |
+| A8 | ae2 | Emparentar «FLIP» al nulo con el látigo (la espiral del clip) y girar el nulo | El texto gira con el nulo; el látigo se ve en todas las capas |
+| A9 | ae2 | Juego de atajos After Effects; Alt+Mayús+P / S / R / T / A sobre un texto | Clave de esa propiedad y solo su fila a la vista |
+| A10 | ae2 | Cabezal en 2 s: [ , ] , Alt+[ , Alt+] sobre un texto | Mueve o recorta la capa al cabezal (con el teclado de Jorge) |
+| A11 | ae2 | U y UU con un texto animado | U: lo animado; UU: solo lo cambiado |
+| A12 | ae2 | J / K, B / N y reproducir | Saltan entre claves; la zona de trabajo para la reproducción |
+| A13 | ae3 | Escribir «(1920-200)/2» en Posición X | Queda 860 |
+| A14 | ae3 | Auto-orientar en una capa con trayecto en S | La capa gira siguiendo el camino |
+| A15 | ae3 | Ctrl + arrastrar un tirador del trayecto | Rompe la tangente (esquina con tiradores sueltos) |
+| A16 | ae4 | Expresión con index y linear en las barras | Cada barra a su altura; punto verde de expresión válida |
+| A17 | ae4 | Motion Tools › Rebote y Elástico | Se aplican; el gráfico (pendiente: 19) |
+| A18 | ae4 | Copiar claves de una barra y pegarlas en las cinco | «×5», cada una con sus claves |
+| A19 | ae5 | Curvas con claves de dos capas; F9 a todas | Las dos curvas editables; F9 suaviza las dos |
+| A20 | ae5 | Exportar solo la zona de trabajo (B/N) | El archivo dura lo que la zona |
+
+### Subtítulos (10)
+| # | Proyecto | Qué se hace | Qué tiene que pasar |
+|---|---|---|---|
+| S1 | sub1 | Crear subtítulos con hablantes | Hablante 1/2 con colores, progreso en español |
+| S2 | sub1 | Elegir «Fondo por palabra» con el clip de subtítulos elegido (un solo clic) | Cambia al primer clic; la tarjeta queda al frente |
+| S3 | sub1 | Traducir a English y mirar la vista previa sin mover el cabezal | Se ven los dos idiomas al tiro (24) |
+| S4 | sub1 | Ortografía en la pista en inglés | Diccionario inglés («Hello» no se marca) |
+| S5 | sub1 | «Editar con el texto» después de crear los subtítulos | Abre al instante, sin «Escuchando…» (25) |
+| S6 | sub2 | Estilos: mirar las tarjetas «Subtítulo» y «Leyenda» | Se lee el texto de la tarjeta (28) |
+| S7 | sub2 | Ocultar groserías + Pitido (bleep) en una palabra | Palabra con asteriscos y pitido al reproducir |
+| S8 | sub2 | Estilo propio de un subtítulo (clic derecho en un bloque) y lugar arriba | Solo ese subtítulo cambia |
+| S9 | sub3 | Sin sesión: Traducir con el extra «Traducción sin internet» | El botón está encendido y traduce en el equipo |
+| S10 | sub3 | Importar `prueba-importar.srt` y exportar el video con subtítulos | Aparecen los subtítulos del .srt; junto al MP4 sale su .srt |
+
+### Voz desde texto (10)
+| # | Proyecto | Qué se hace | Qué tiene que pasar |
+|---|---|---|---|
+| V1 | tts1 | Audio › Voz: la galería con fotos; filtros Mujeres, Graves, Favoritas | Filtran bien; ▷ suena la muestra de cada voz |
+| V2 | tts1 | Elegir una voz de la galería, escribir dos frases con «[pausa 1s]», Generar | Toma con sus frases; la pausa dura ~1 s; nada cortado |
+| V3 | tts1 | ↻ en una frase y luego «Generar de nuevo» | Cada vez suena distinto |
+| V4 | tts1 | Opciones: velocidad 1,25× y tono; mirar las etiquetas | Dicen Velocidad / Tono / Expresividad con su valor |
+| V5 | tts1 | Marcar «Crear también sus subtítulos» y Añadir | Subtítulos con el texto exacto del guion |
+| V6 | tts1 | Audio › Editar guion…, cambiar una frase y Reemplazar | Cambia la voz y sus subtítulos (sin pista doble); el clip se llama «Voz: …» |
+| V7 | tts1 | Importar guion: `guion-dialogo.md`, una voz distinta para Ana y Luis | Diálogo con dos voces, sin decir los nombres |
+| V8 | tts1 | Texto «Bienvenidos a mi canal» › Leer en voz alta | Voz pegada al texto |
+| V9 | tts1 | Bajar la música bajo esta voz | La música baja donde habla la voz |
+| V10 | tts1 | Guardar la voz como archivo y «+ Voz nueva» desde un clip | WAV/MP3 guardado; la voz nueva sale en «Mías» |
+
+| Caso | Resultado | Nota |
+|---|---|---|
+| A1 | bien | una fila «Posición», trayecto visible |
+| A2 | bien | Trayecto recto deja la esquina (con X movida en la última clave para que se vea) |
+| A3 | bien | separar y unir conserva la esquina |
+| A4 | falla (E40) | Tab al alto bien y la elipse crece desde su centro, PERO Posición cambia de número en TODAS las claves (960/540 → 1038/500, +78/−40) y el trayecto de la vista previa queda corrido respecto de la elipse. En AE la escala no toca Posición. Anclaje 259/162 sin cambio |
+| A5 | bien | Influencia 60 y Aplicar: se cerró al primer clic (tarda ~1 s) |
+| A6 | sin probar | la herramienta no manda Ctrl/Alt con la rueda (nada cambió); Jorge ya lo vio bien en la 2c. Ojo: al elegir «Editar curva…» en el menú el cabezal saltó a 1:10 (¿el clic pasó a la regla de abajo del menú?) — revisar |
+| A7 | bien | gráfico de velocidad en px/s de la Posición unida |
+| A8 | falla (E41) | el látigo emparenta (FLIP gira 45° con el nulo) PERO solo se ve así mientras el nulo está elegido: con FLIP, STUDIO o nada elegido, FLIP sale derecho en la vista previa |
+| A9 | bien | Alt+Mayús+P/S/R/T/A ponen clave y dejan solo su fila. Detalles: el gráfico de abajo sigue mostrando la curva de Posición aunque la fila visible sea otra (E42); con una sola clave Posición sale en dos filas X/Y (E43, menor) |
+| A10 | falla (E44) | «[» y «]» con otros clips en la misma pista: STUDIO no queda en el cabezal, se reordena la pista (con [ quedó en 10 s y empujó 0.30; con ] pasó a 0 s y empujó FLIP). Alt+[ / Alt+] la herramienta no los manda (los prueba Jorge) |
+| A11 | bien | U muestra lo animado, UU lo cambiado (Rotación 45 del nulo + lo animado); U otra vez lo pliega, como AE |
+| A12 | bien | K salta a la clave, B/N marcan la zona y la reproducción se para en 10:01 |
+| A13 | bien | «(1920-200)/2» queda 860 |
+| A14 | bien | trayecto de 4 claves (Tab de X a Y funciona) y clic derecho › Avanzado › «Orientar según el trazado»: la estrella gira con el camino |
+| A15 | Jorge | la herramienta no mantiene Ctrl durante un arrastre |
+| A16 | bien | Comportamiento › Expresión: la ayuda ya nombra index, linear, ease, clamp, valueAtTime…; «value - 600 + index*200 + linear(time,0,2,0,100)» mueve la barra y la fila muestra «≈». (E45: el menú ⋯ de Posición X de un rectángulo SIN animar muestra «✓ Separar dimensiones», volvió el 18) |
+| A17 | bien | Elástico (≈) y Rebote (la opacidad pasa a 91 % después de la última clave). El gráfico sigue sin dibujar el resultado (19, mejora) |
+| A18 | falla (E47) | copiar 2 claves de Opacidad y pegar con las 5 barras elegidas: «pegados (×5)» y las barras 2–5 las tienen en 0–1 s, PERO en la barra de origen quedaron en ~2–3 s (no en el cabezal, que estaba en 0) y el cabezal saltó a 4:08 al pegar. (E46: tras Esc, el primer clic en un clip no lo eligió; el segundo sí) |
+| A19 | bien | Escala con claves en el texto y el video, S muestra las dos, curvas de las dos (la otra punteada con su nombre), F9 suaviza las dos. (E48: el gráfico de Escala va en px —371…595— aunque la fila dice %; en AE es %) |
+| A20 | bien | «Exportar solo el área de trabajo (00:00.00 – 00:02.06)»: el MP4 dura 2,066 s |
+| S1 | bien | con el extra de hablantes: «Distinguir a los hablantes» → Hablante 1 (blanco) y 2 (amarillo), 11 subtítulos, progreso en español. (Sin el extra la casilla no sale: normal) |
+| S2 | bien | «Fondo por palabra» cambia al primer clic y la tarjeta pasa al frente |
+| S3 | bien | Traducir › English: los dos idiomas en la vista previa al tiro, sin mover el cabezal (24 cerrado) |
+| S4 | bien | Ortografía en la pista en inglés: «No se encontraron faltas de ortografía» |
+| S5 | bien | Audio › «Editar con el texto…» abre al instante con la transcripción (25 cerrado) |
+| S6 | bien | las tarjetas «Subtítulo» (Una línea de apoyo) y «Leyenda» (Mira hasta el final) se leen (28 cerrado) |
+| S8 | bien | clic en un subtítulo de la lista › Estilo: Hormozi + Arriba: solo ese cambia. (Ojo: clic derecho en la franja o en la lista no abre nada; el estilo propio está al abrir el subtítulo) |
+| — | nota (E49) | al crear subtítulos el progreso se queda ~20 s en «67 % Terminando…»; parece colgado |
+| S7 | bien | Ocultar groserías: «Pues digo m*****» y el botón «Pitido» pone el pitido («Palabras con pitido: 1»). (E50: el clip del pitido se llama «bleep-291de7a9.wav»; debería decir «Pitido») |
+| S9 | bien | sin sesión: «Sin cuenta se traducen en esta computadora (un poco más lento)», botón encendido, traduce (30 cerrado) |
+| S10 | bien | importar .srt: «Se importaron 3 subtítulos»; exportar con «Incluir los subtítulos (dentro del video y en .srt)»: MP4 con 3 pistas de subtítulos y .srt, .2.srt, .3.srt. Mejoras: E51 el .srt importado cae encima de los subtítulos que ya había (mismo lugar, se tapan); E52 los .srt se llaman .2/.3 en vez de por idioma (.en.srt); E53 la traducción en el equipo traduce cada bloque suelto («We first opened the program and chose a» / «and video.») |
+| V1 | bien | galería con fotos; filtros Mujeres (20), Joven, Grave (5), Favoritas (la estrella la suma); ▷ arriba toca la muestra de la voz elegida |
+| V2 | bien | Adán, dos frases con «[pausa 1s]»: toma de 5,0 s, la pausa mide 1,24 s (silencedetect), la primera frase entera (1,97 s) |
+| V3 | bien | ↻ en la frase 1 cambia solo esa (otro archivo, otro largo) y «Generar de nuevo» da otra toma (5,0 → 5,1 → 5,2 s) |
+| V4 | bien | Opciones: Velocidad 1,25× / Tono 1,00× / Expresividad 0,50 con su nombre y valor |
+| V5 | bien | «Crear también sus subtítulos» + Añadir: subtítulos con el texto del guion |
+| V6 | bien | Audio › «Editar guion…» avisa que la toma reemplaza; «cinco» en vez de «tres» y «Reemplazar»: una sola pista de subtítulos con el texto nuevo. (E54: el clip se llama «Voz: Hola a todos, bienvenidos al canal. [pau…»: sacar las marcas [pausa …] del nombre) |
+| V7 | falla (E55) | «Importar guion…» con guion-dialogo.md: detecta Ana y Luis y da una voz a cada uno (Luana / Álex), no dice los nombres, PERO lee en voz alta el título del archivo «# Diálogo» como una frase más |
+| V8 | bien | Texto › «Leer en voz alta…» pasa el texto a Voz; Generar + Añadir: la voz empieza con el texto (0,00) y se llama «Voz: Bienvenidos a mi canal». (E56: si había una toma sin añadir, la descarta sin preguntar) |
+| V9 | bien | «Bajar la música bajo esta voz»: «La música baja bajo la voz (2 clips)», claves de volumen en la música. (E57: lo hizo bajo las dos voces aunque el botón dice «esta voz») |
+| V10 | bien | «Guardar la voz como archivo…»: «Voz guardada» (v10-voz.flac); «+ Voz nueva › Del clip seleccionado» con la casilla de derechos: «Prueba V10» sale en Mías (borrada después). (E59: solo ofrece FLAC; la gente espera MP3/WAV. E60: el nombre propuesto es el del clip entero, con «[pau…») |
+
+### Resumen de la tanda grande (2026-11-03, noche)
+- 40 casos: **31 bien**, **5 fallos** (E40 escala que corre Posición, E41 emparentar que solo se ve con el nulo elegido,
+  E44 [ ] que reordenan la pista, E47 pegar claves en la capa de origen, E55 «# Diálogo» leído), 2 para Jorge (A6 ya
+  visto en la 2c, A15 Ctrl + arrastrar tirador), y detalles E42–E60 (menores y mejoras).
+- Para correrla: los extras de hablantes y traducción en el equipo vienen de `flip-addons\build\stage` con
+  `DRIFT_DIARIZE_MODEL_DIR` y `DRIFT_TRANSLATE_MODEL_DIR` (sin ellos la casilla de hablantes no sale).
+- La herramienta `type` del mouse escribe letras que **no** disparan atajos (U, P…): para atajos, `key`.
+
+### Arreglos tras la tanda grande (2026-11-03, noche; sin probar en ventana todavía)
+- **E41** (no era la vista previa): el látigo **no emparentaba** con el mouse (deshacer vacío; con MCP `set_parent` sí
+  funcionaba). La búsqueda de la capa bajo el puntero (`TimelineClipItem.qml` `clipItemAt`) descartaba ramas por el
+  tamaño de contenedores que miden 0 con sus hijos afuera; ahora solo mide las capas.
+- **E40**: la fila de Posición y el trayecto usaban el tamaño actual; ahora el de reposo (`sizePivotW/H`, como
+  `Clip::anchorShift`): `restSide` en `TrackHeaderColumn.qml`, `centreAt` en `MotionPathOverlay.qml`, y `clipAt` da
+  `sizePivotW/H`.
+- **E44**: [ / ] hacia un lugar ocupado de la misma pista pasan la capa a una pista nueva encima (`layerEditAtPlayhead`).
+- **E47**: pegar en varias capas a la vez pega en el cabezal en todas (`pasteKeyframes(…, continueChain=false)`).
+- **E55**: un guion `.md` se lee sin títulos (#), viñetas ni marcas (`TtsController::readScriptFile`).
+- **E54/E60**: el nombre de una voz no lleva las marcas «[pausa 1s]». **E50**: el clip del pitido se llama «Pitido».
+- Quedan para después (mejoras): E42/E43/E45 (Posición en una fila aunque no esté animada, gráfico que sigue la fila
+  visible), E46, E48 (Escala en % en el gráfico), E49, E51–E53, E56, E57, E59 (MP3/WAV), 19.
+- **Ojo (cuenta de Jorge):** al restaurar el registro tras tts1 se volvió a poner la sesión exportada antes de sub3; si
+  la app de prueba renovó el token en tts1, la próxima vez que Jorge abra Flip puede tener que iniciar sesión otra vez.
+
+### Ronda r8 (2026-11-04, compilación 41772809803, portable `pruebas\FlipStudio-0.30-r8`, con el mouse de Jorge)
+| Caso | Resultado | Nota |
+|---|---|---|
+| A4 (E40) | bien | Posición sigue en 960/900 al escalar 130/75; la elipse crece desde su centro y el trayecto queda en su sitio |
+| A8 (E41) | falla | el látigo sigue sin emparentar (deshacer vacío). Ahora las capas se anotan en el panel y el soltar se mide contra esa lista (r9) |
+| A10 (E44) | bien | «[» con vecinos: STUDIO pasa a su propia pista en el cabezal (8,53 s), FLIP y 0.30 no se mueven |
+| A18 (E47) | bien | «pegados (×5)», las cinco barras en 0–1 s, el cabezal queda en 0 |
+| E43/E45 | bien | Posición en una fila sin animar |
+| 19 | bien | Elástico: la oscilación después de la clave se ve punteada sobre la curva |
+| E42/E48 | bien | Alt+Mayús+S: el gráfico pasa a Escala y el eje va en % |
+| E49 | bien | el anillo gira mientras transcribe y luego «Sincronizando las palabras…» |
+| E51/E52/E53 | bien | el .srt importado queda arriba sin taparse; `r8-subs.en.srt` y `.es.srt`; la traducción va por frases («First we opened the program and chosen a» / «video.») |
+| E55 | bien | el .md entra sin «# Diálogo»; 5 frases en vez de 6 |
+| E56 | bien | «¿Descartar la voz que hiciste?» con una toma sin añadir |
+| E57 | bien | «La música baja bajo la voz (1 clip)» con otra voz encima |
+| E59 | bien | el diálogo ofrece MP3/WAV/FLAC; `r8-voz.mp3` mp3 24 kHz mono 1,58 s |
+| E61 (nuevo) | arreglado (r9) | la voz del diálogo se llamaba «Voz: Ana: Hola Luis…»: sin los nombres |
+| — | revisar | un primer clic en «Leer en voz alta» no hizo nada (el segundo sí), como E46: se vuelve a mirar con r9 |
+
+### Ronda r10 (2026-11-04, compilación 41780383262, con el mouse de Jorge)
+- **A8 (E41) bien:** el látigo emparenta; con nada elegido FLIP gira 45° con el nulo. Causa: los clips los dibuja
+  el renderizador de la pista y solo los activos tienen `TimelineClipItem`; ahora se busca por pista y tiempo
+  (`TimelinePanel.clipAtScenePoint`).
+- **E46 no se reproduce** (Esc + clic, claves elegidas + Esc + clic, reproducir/parar + Esc + clic: elige siempre).
+- **El «clic perdido» era la pestaña Texto:** tardaba más de 1 s en armarse y el clic siguiente caía en la página
+  anterior. Ahora se arma en segundo plano al elegir un texto (r11).
+- **E61 bien:** la voz del diálogo se llama «Voz: Hola Luis, ¿ya viste…».
+- **E62 (nuevo):** Esc no cerraba un desplegable abierto (el atajo de la app llega antes). Arreglado en r11.
+- **r11:** E62 bien (Esc cierra el desplegable de idioma). La pestaña Texto: con `FLIP_TRACE_CLICKS=1` el registro
+  muestra que el clic SÍ pasa a Texto; lo que pasaba es que armar `TextInspector` (3856 líneas, Básico ~2000) congela
+  la ventana más de 1,5 s y no se redibuja. Ahora la página, una vez hecha, queda viva (r12).
+- Aviso viejo en el registro (de la 0.26, carpetas): `MediaAssetsTab.qml:559` DropArea con `anchors.fill` dentro de
+  un Column. Las tarjetas se ordenan bien y soltar en carpetas funciona; no se toca en la 0.30.

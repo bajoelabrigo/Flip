@@ -642,7 +642,7 @@ ApplicationWindow {
             window.mediaPreviewPage.close()
             return
         }
-        const tools = [segmentationWindowLoader, denoiseWindowLoader, restoreWindowLoader,
+        const tools = [segmentationWindowLoader, denoiseWindowLoader, silenceReviewWindowLoader, textEditWindowLoader, restoreWindowLoader,
                        multicamWindowLoader, speedCurveWindowLoader, fadeCurveWindowLoader,
                        downloadsWindowLoader]
         for (var t = 0; t < tools.length; ++t) {
@@ -804,6 +804,24 @@ ApplicationWindow {
         id: projectSetupDialogLoader
         sourceComponent: Component {
             ProjectSetupDialog { }
+        }
+    }
+
+    // Pro turned on (0.30): offer After Effects' shortcuts, once.
+    LazyLoader {
+        id: aeShortcutsDialogLoader
+        sourceComponent: Component {
+            AeShortcutsDialog { }
+        }
+    }
+    Connections {
+        target: EditorState.preferences
+        function onProModeChanged() {
+            // In the editor only: the first-run dialogs (language, mode, account) come one at a time.
+            if (window.showStartScreen || !EditorState.preferences.proMode
+                    || EditorState.shortcutPreset() === "afterEffects" || !EditorState.takeAeShortcutsOffer())
+                return
+            Qt.callLater(() => aeShortcutsDialogLoader.ensure().open())
         }
     }
 
@@ -1089,6 +1107,35 @@ ApplicationWindow {
     }
 
     LazyLoader {
+        id: silenceReviewWindowLoader
+        sourceComponent: Component {
+            SilenceReviewWindow { }
+        }
+    }
+
+    LazyLoader {
+        id: textEditWindowLoader
+        sourceComponent: Component {
+            TextEditWindow { }
+        }
+    }
+
+    // «Remove silences» has the clip's word timings: the pauses to pick from; «Edit by text», the words.
+    Connections {
+        target: EditorState
+        function onSilenceReviewReady(track, clip) {
+            silenceReviewWindowLoader.ensure().openFor(track, clip)
+        }
+        function onTextEditReady(track, clip) {
+            textEditWindowLoader.ensure().openFor(track, clip)
+        }
+        // Open at once while the clip is listened to (it shows the progress itself from then on).
+        function onTextEditListening(track, clip) {
+            textEditWindowLoader.ensure().openListening(track, clip)
+        }
+    }
+
+    LazyLoader {
         id: restoreWindowLoader
         sourceComponent: Component {
             RestoreWindow { }
@@ -1110,6 +1157,8 @@ ApplicationWindow {
     }
 
     property var mediaPreviewPage: null
+    // The open caption editor (Subtitles tab), so I / O set its caption's start and end.
+    property var subtitleCueEditor: null
 
     LazyLoader {
         id: mediaPreviewWindowLoader
@@ -1130,6 +1179,11 @@ ApplicationWindow {
 
     function showAssetsTab(tabId) {
         assetsPanel.showTab(tabId)
+    }
+    // «Edit script…» on a voice the app spoke: the Voz tab, with its script (0.30).
+    Connections {
+        target: EditorState.tts
+        function onEditRequested(settings) { assetsPanel.showTab("speech") }
     }
 
     // File › Import Media… in the menu bar: the Media tab, then the file picker.
@@ -1808,7 +1862,19 @@ ApplicationWindow {
     //
     // Escape (clearSelection): CapCut-style — if a timeline cut tool is active,
     // first press returns to Select; only then does Escape clear the selection.
+    // Drop-down lists open right now (ThemedComboBox tells): Escape closes the newest first.
+    property var openPopups: []
+    function notePopupOpen(popup, open) {
+        const rest = window.openPopups.filter((p) => p !== popup)
+        window.openPopups = open ? rest.concat([popup]) : rest
+    }
     function dispatchAction(id) {
+        if (id === "clearSelection" && window.openPopups.length > 0) {
+            const top = window.openPopups[window.openPopups.length - 1]
+            window.openPopups = window.openPopups.slice(0, -1)
+            top.close()
+            return
+        }
         // While a text field has the keyboard, the editing keys are its own (0.29: Ctrl+A in a colour's hex
         // field picked every clip on the timeline, and the typed colour was thrown away).
         const typing = window.activeFocusItem
@@ -1833,6 +1899,9 @@ ApplicationWindow {
             EditorState.clearSelection()
             return
         }
+        if ((id === "markIn" || id === "markOut") && window.subtitleCueEditor
+                && window.subtitleCueEditor.markCueEdge(id === "markIn" ? "start" : "end"))
+            return
         const pickedPart = EditorState.selectedShapePart
         if (pickedPart !== "" && (id === "clearSelection" || id === "duplicate" || id === "transformTogether")) {
             const track = EditorState.selectedTrack
@@ -2261,6 +2330,59 @@ ApplicationWindow {
     TouchDragGhost {
         visible: TouchDrag.active
         z: 10000
+    }
+
+    // A lower third going into an empty timeline (0.30, Jorge): the video's shape is chosen here, Short or a
+    // normal video, and the lower third is fitted to it.
+    ThemedDialog {
+        id: templateFormatDialog
+        property string templateId: ""
+        title: qsTr("What is the video for?")
+        preferredWidth: 420
+        showAccept: false
+        rejectText: qsTr("Cancel")
+        contentItem: Column {
+            spacing: Theme.spacingMd
+            width: templateFormatDialog.availableWidth
+            ThemedLabel {
+                width: parent.width
+                wrapMode: Text.WordWrap
+                text: qsTr("The template is fitted to the shape of your video.")
+            }
+            Row {
+                spacing: Theme.spacingMd
+                width: parent.width
+                ThemedButton {
+                    width: (parent.width - Theme.spacingMd) / 2
+                    text: qsTr("Short (vertical 9:16)")
+                    glyph: Theme.icons.smartphone
+                    variant: "primary"
+                    onClicked: {
+                        const id = templateFormatDialog.templateId
+                        templateFormatDialog.close()
+                        EditorState.insertSceneTemplateAs(id, "short")
+                    }
+                }
+                ThemedButton {
+                    width: (parent.width - Theme.spacingMd) / 2
+                    text: qsTr("Video (horizontal 16:9)")
+                    glyph: Theme.icons.monitor
+                    variant: "secondary"
+                    onClicked: {
+                        const id = templateFormatDialog.templateId
+                        templateFormatDialog.close()
+                        EditorState.insertSceneTemplateAs(id, "video")
+                    }
+                }
+            }
+        }
+    }
+    Connections {
+        target: EditorState
+        function onTemplateFormatRequested(templateId, name) {
+            templateFormatDialog.templateId = templateId
+            templateFormatDialog.open()
+        }
     }
 
     // Notification host — above all panels, so any message lands in one place.

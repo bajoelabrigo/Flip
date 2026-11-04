@@ -647,14 +647,26 @@ bool parseAss(const QString &content, QList<SubtitleCue> *outCues, QString *erro
     return finishParsedCues(cues, outCues, error);
 }
 
-QString writeAss(const QList<SubtitleCue> &cues, int playResX, int playResY)
+// ASS colours are &HAABBGGRR, with 00 for opaque.
+static QString assColour(const QColor &c)
+{
+    return QStringLiteral("&H%1%2%3%4")
+        .arg(255 - c.alpha(), 2, 16, QLatin1Char('0'))
+        .arg(c.blue(), 2, 16, QLatin1Char('0'))
+        .arg(c.green(), 2, 16, QLatin1Char('0'))
+        .arg(c.red(), 2, 16, QLatin1Char('0'))
+        .toUpper();
+}
+
+QString writeAss(const QList<SubtitleCue> &cues, int playResX, int playResY, const AssStyleHint *style)
 {
     if (playResX <= 0 || playResY <= 0) {
         playResX = 1920;
         playResY = 1080;
     }
     const int shortSide = qMin(playResX, playResY);
-    const int fontSize = qMax(8, qRound(shortSide * 0.06));
+    const int fontSize = style && style->pixelSize > 0 ? qMax(8, qRound(style->pixelSize))
+                                                       : qMax(8, qRound(shortSide * 0.06));
     const int marginH = qMax(10, qRound(playResX * 0.04));
     const int marginV = qMax(10, qRound(playResY * 0.06));
 
@@ -670,10 +682,22 @@ QString writeAss(const QList<SubtitleCue> &cues, int playResX, int playResY)
         "Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, "
         "BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, "
         "BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding\n");
-    out += QStringLiteral("Style: Default,Arial,%1,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,"
-                          "0,0,0,0,100,100,0,0,1,%2,0,2,%3,%3,%4,1\n\n")
+    // The captions' own look when given (font, size, bold, italic, colours, outline or box).
+    const QString font = style && !style->fontFamily.isEmpty() ? style->fontFamily : QStringLiteral("Arial");
+    const QString primary = style ? assColour(style->primary) : QStringLiteral("&H00FFFFFF");
+    const bool box = style && style->box;
+    const QString outline = style ? assColour(box ? style->boxColor : style->outline) : QStringLiteral("&H00000000");
+    const QString back = box && style ? assColour(style->boxColor) : QStringLiteral("&H80000000");
+    const int outlineWidth = style && style->outlineWidth >= 0.0 ? qRound(style->outlineWidth)
+                                                                  : qMax(1, qRound(fontSize / 20.0));
+    out += QStringLiteral("Style: Default,%1,%2,%3,&H000000FF,%4,%5,%6,%7,0,0,100,100,0,0,%8,%9,0,2,%10,%10,%11,1\n\n")
+               .arg(QString(font).replace(QLatin1Char(','), QLatin1Char(' ')))
                .arg(fontSize)
-               .arg(qMax(1, qRound(fontSize / 20.0)))
+               .arg(primary, outline, back)
+               .arg(style && style->bold ? -1 : 0)
+               .arg(style && style->italic ? -1 : 0)
+               .arg(box ? 3 : 1)
+               .arg(box ? qMax(2, fontSize / 6) : outlineWidth)
                .arg(marginH)
                .arg(marginV);
     out += QStringLiteral("[Events]\n"
@@ -750,13 +774,13 @@ bool parseSubtitleFile(const QString &path, QList<SubtitleCue> *outCues, QString
 }
 
 bool writeSubtitleFile(const QString &path, const QList<SubtitleCue> &cues, QString *error,
-                       int playResX, int playResY)
+                       int playResX, int playResY, const AssStyleHint *style)
 {
     switch (subtitleFormatForPath(path)) {
     case SubtitleFormat::WebVtt:
         return writeTextFile(path, writeWebVtt(cues), error);
     case SubtitleFormat::Ass:
-        return writeTextFile(path, writeAss(cues, playResX, playResY), error);
+        return writeTextFile(path, writeAss(cues, playResX, playResY, style), error);
     case SubtitleFormat::Srt:
         break;
     }

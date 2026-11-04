@@ -6,7 +6,7 @@ set(CMAKE_OSX_DEPLOYMENT_TARGET "12.0" CACHE STRING "Oldest macOS release Drift 
 
 # C is enabled for JUCE only: its modules compile a handful of C sources (zlib, flac, oggvorbis)
 # and its CMake refuses to configure without it.
-project(Drift VERSION 0.29.0 LANGUAGES CXX C)
+project(Drift VERSION 0.30.0 LANGUAGES CXX C)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -461,6 +461,8 @@ add_library(driftcore STATIC
     src/core/CubeLut.cpp
     src/core/Stabilize.h
     src/core/Stabilize.cpp
+    src/core/PositionPath.h
+    src/core/PositionPath.cpp
     src/core/Bezier.h
     src/core/SpeedCurve.h
     src/core/SpeedCurve.cpp
@@ -746,6 +748,8 @@ add_library(driftengine STATIC
     src/engine/WhisperTokenizer.cpp
     src/engine/WhisperTranscriber.h
     src/engine/WhisperTranscriber.cpp
+    src/engine/SpellCheck.h
+    src/engine/SpellCheck.cpp
     src/engine/ChatterboxTokenizer.h
     src/engine/ChatterboxTokenizer.cpp
     src/engine/ChatterboxTts.h
@@ -769,6 +773,8 @@ add_library(driftengine STATIC
     src/engine/FrameInterpolator.cpp
     src/engine/TextEmbedder.h
     src/engine/TextEmbedder.cpp
+    src/engine/TextTranslator.h
+    src/engine/TextTranslator.cpp
     src/engine/DepthSidecar.h
     src/engine/DepthSidecar.cpp
     src/engine/FaceLandmarker.h
@@ -875,7 +881,7 @@ if(WIN32)
         src/engine/D3d11GlInterop.h
         src/engine/D3d11GlInterop.cpp
     )
-    target_link_libraries(driftengine PRIVATE d3d11 dxgi d3dcompiler opengl32)
+    target_link_libraries(driftengine PRIVATE d3d11 dxgi d3dcompiler opengl32 ole32)
 endif()
 target_compile_definitions(driftengine PRIVATE DRIFT_VERSION="${DRIFT_VERSION_STRING}")
 
@@ -1256,6 +1262,7 @@ set_source_files_properties(src/qml/DownloadFormat.qml PROPERTIES QT_QML_SINGLET
 set_source_files_properties(src/qml/MediaImport.qml PROPERTIES QT_QML_SINGLETON_TYPE true)
 # App-wide notification queue; the visual host is components/ToastHost.qml.
 set_source_files_properties(src/qml/Toasts.qml PROPERTIES QT_QML_SINGLETON_TYPE true)
+set_source_files_properties(src/qml/ValueMath.qml PROPERTIES QT_QML_SINGLETON_TYPE true)
 # In-flight lift-and-drop state for the phone asset sheet; the ghost is drawn by
 # AndroidBottomSheet and the drop is performed by AndroidTimeline.
 set_source_files_properties(src/qml/TouchDrag.qml PROPERTIES QT_QML_SINGLETON_TYPE true)
@@ -1298,6 +1305,7 @@ qt_add_qml_module(drift
         src/qml/AndroidMediaPreview.qml
         src/qml/Theme.qml
         src/qml/Toasts.qml
+        src/qml/ValueMath.qml
         src/qml/TouchDrag.qml
         src/qml/AssetDrag.qml
         src/qml/EditorHeader.qml
@@ -1342,6 +1350,8 @@ qt_add_qml_module(drift
         src/qml/SegmentationWindow.qml
         src/qml/MulticamWindow.qml
         src/qml/DenoiseWindow.qml
+        src/qml/SilenceReviewWindow.qml
+        src/qml/TextEditWindow.qml
         src/qml/RestoreWindow.qml
         src/qml/DownloadsWindow.qml
         src/qml/SpeedCurveWindow.qml
@@ -1402,6 +1412,7 @@ qt_add_qml_module(drift
         src/qml/components/assets/ScenesTab.qml
         src/qml/components/assets/SubtitlesTab.qml
         src/qml/components/assets/SpeechTab.qml
+        src/qml/components/assets/VoiceGallery.qml
         src/qml/components/assets/StickersTab.qml
         src/qml/components/assets/ShapesTab.qml
         src/qml/components/assets/FiltersTab.qml
@@ -1550,6 +1561,7 @@ qt_add_qml_module(drift
         src/qml/components/CircularProgress.qml
         src/qml/components/RecoveryDialog.qml
         src/qml/components/UiModeDialog.qml
+        src/qml/components/AeShortcutsDialog.qml
         src/qml/components/UnsavedChangesDialog.qml
         src/qml/components/UpscaleModelCard.qml
         src/qml/components/RecentProjectsPopup.qml
@@ -1594,6 +1606,7 @@ target_link_libraries(drift PRIVATE
     Qt6::Network
     driftcore
     driftengine
+    ${DRIFT_SOUNDTOUCH_TARGET}
 )
 target_include_directories(drift PRIVATE src src/preview)
 

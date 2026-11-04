@@ -1372,10 +1372,12 @@ Item {
     }
 
     // The spiral: drag it onto another clip and this one follows it; dropped on nothing, it
-    // unlinks. Only on the selected clip, as AE draws it on the layer you are working on.
+    // unlinks. On every layer in Pro, as After Effects' Parent column (0.30: only the selected clip
+    // had it and it was not found, tests #11); faint on the others until the pointer is on it.
     Item {
         id: pickWhip
-        visible: clipItem.selected && !clipItem.touchMode && clipItem.trackType !== "audio"
+        visible: (clipItem.selected || EditorState.preferences.proMode) && !clipItem.touchMode
+                 && clipItem.trackType !== "audio"
                  && clipItem.clipData.kind !== "adjustment" && clipItem.width > 40 && clipItem.height >= 20
         width: 16
         height: 16
@@ -1385,20 +1387,26 @@ Item {
         z: 60
         property var line: null
 
-        // The clip item under a point of the window, if any.
+        // The clip item under a point of the window, if any. Only the clip items themselves are
+        // measured: the rows and columns that hold them can be zero-sized with their children laid out
+        // past their edges, and pruning by those boxes never reached a clip (0.30 tests E41: the whip
+        // drew its line and dropped onto the null without linking).
         function clipItemAt(item, gx, gy) {
             if (!item || !item.visible)
                 return null
             const kids = item.children
             for (let i = kids.length - 1; i >= 0; --i) {
                 const k = kids[i]
-                if (!k || !k.visible || k.width <= 0 || k.height <= 0)
+                if (!k || !k.visible)
                     continue
-                const p = k.mapFromItem(null, gx, gy)
-                if (p.x < 0 || p.y < 0 || p.x > k.width || p.y > k.height)
+                if (k.clipData !== undefined && k.trackIndex !== undefined && k.clipIndex !== undefined) {
+                    if (k === clipItem || k.width <= 0 || k.height <= 0)
+                        continue
+                    const p = k.mapFromItem(null, gx, gy)
+                    if (p.x >= 0 && p.y >= 0 && p.x <= k.width && p.y <= k.height)
+                        return k
                     continue
-                if (k.clipData !== undefined && k.trackIndex !== undefined && k.clipIndex !== undefined && k !== clipItem)
-                    return k
+                }
                 const inner = clipItemAt(k, gx, gy)
                 if (inner)
                     return inner
@@ -1409,8 +1417,9 @@ Item {
         IconGlyph {
             anchors.centerIn: parent
             glyph: "pick-whip"
-            iconSize: 14
-            iconColor: whipArea.containsMouse || whipArea.pressed ? Theme.primary : Qt.rgba(1, 1, 1, 0.85)
+            iconSize: 16
+            iconColor: whipArea.containsMouse || whipArea.pressed ? Theme.primary
+                       : Qt.rgba(1, 1, 1, clipItem.selected || clipItem.parentName.length > 0 ? 0.95 : 0.7)
         }
         MouseArea {
             id: whipArea
@@ -1448,8 +1457,15 @@ Item {
                 }
                 if (!root)
                     return
-                const g = whipArea.mapToItem(root, mouse.x, mouse.y)
-                const target = pickWhip.clipItemAt(clipItem.panel, g.x, g.y)
+                // Clips are drawn by the track renderer and only the active ones have an item (the
+                // null had none: 0.30 tests E41), so the layer is found by its place on the timeline.
+                const g = whipArea.mapToItem(null, mouse.x, mouse.y)
+                const hit = clipItem.panel && clipItem.panel.clipAtScenePoint
+                            ? clipItem.panel.clipAtScenePoint(g.x, g.y) : null
+                let target = hit && !(hit.track === clipItem.trackIndex && hit.clip === clipItem.clipIndex)
+                             ? { "trackIndex": hit.track, "clipIndex": hit.clip } : null
+                if (!target)
+                    target = pickWhip.clipItemAt(clipItem.panel, g.x, g.y)
                 if (target)
                     EditorState.setClipParent(clipItem.trackIndex, clipItem.clipIndex, target.trackIndex, target.clipIndex)
                 else if (clipItem.parentName.length > 0)

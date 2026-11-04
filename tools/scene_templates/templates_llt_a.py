@@ -50,7 +50,6 @@ def francois():
     D = duration(r)
     t = _kit("francois", "Tercio con logo: nombre y barra roja", "Logo lower third: name over a red bar", D, 8530,
              ["nombre", "barra", "rojo"], thumb_at=2.5)
-    photo_bg(t, "h-city-01", s1=1.03, label="Tu video")
     _logo_square(t, r, Box(306, 700, 147, 148), D)
     bar = Box(463, 700, 881, 248)
     top = edge(r, "bar", "warm", "min", before=700, after=700)
@@ -85,7 +84,6 @@ def roger():
     D = duration(r)
     t = _kit("roger", "Tercio con logo: cuadro que gira y caja con marca", "Logo lower third: spinning square and brand box",
              D, 8531, ["nombre", "barra", "rojo", "marca"], thumb_at=3.0)
-    photo_bg(t, "h-city-01", s1=1.03, label="Tu video")
     fps = r.fps
     cx, cy, side = 607.0, 644.0, 185.0
     gone = (48 - r.first) / fps  # the square is all white by then: it leaves, the white box goes on
@@ -225,7 +223,6 @@ def jamie():
     D = round(len(poses) / fps + 0.01, 2)
     t = _kit("jamie", "Tercio con logo: barra que gira como un prisma", "Logo lower third: bar turning like a prism",
              D, 8532, ["nombre", "3d", "prisma", "marca"], thumb_at=2.4)
-    photo_bg(t, "h-city-01", s1=1.03, label="Tu video")
 
     def pose(which):
         """Per frame (centre y, depth, tilt) of face "a" (red) or "b" (white); the white face hides behind the
@@ -288,7 +285,6 @@ def charlotte():
     D = duration(r)
     t = _kit("charlotte", "Tercio con logo: nombre calado en la barra", "Logo lower third: name cut out of the bar", D,
              8533, ["nombre", "barra", "rojo", "calado", "marca"], thumb_at=2.6)
-    photo_bg(t, "h-city-01", s1=1.03, label="Tu video")
     top = edge(r, "bar", "warm", "min", before=589, after=589)
     bottom = edge(r, "bar", "warm", "max", before=589, after=589)
     x0, x1 = 308, 1416
@@ -378,7 +374,6 @@ def jason_e():
     D = round((last - first + 2) / fps, 2)
     t = _kit("jason-e", "Tercio con logo: logo que rueda y destapa el nombre", "Logo lower third: rolling logo reveals the name",
              D, 8534, ["nombre", "subrayado", "logo"], thumb_at=2.4)
-    photo_bg(t, "h-city-01", s1=1.03, label="Tu video")
     from llt_motion import frames_of
     us = frames_of(D)
     fr = lambda u: first + u * fps  # noqa: E731
@@ -483,7 +478,6 @@ def jessica():
     D = round((last - first + 2) / fps, 2)
     t = _kit("jessica", "Tercio con logo: ranura inclinada", "Logo lower third: slanted slot", D, 8535,
              ["nombre", "cargo", "logo", "diagonal"], thumb_at=2.6)
-    photo_bg(t, "h-city-01", s1=1.03, label="Tu video")
     from llt_motion import frames_of
     us = frames_of(D)
     fr = lambda u: first + u * fps  # noqa: E731
@@ -552,7 +546,6 @@ def david():
     D = round((last - first + 2) / fps, 2)
     t = _kit("david", "Tercio con logo: anillo que rueda", "Logo lower third: rolling ring", D, 8536,
              ["nombre", "anillo", "logo", "círculo"], thumb_at=2.4)
-    photo_bg(t, "h-city-01", s1=1.03, label="Tu video")
     from llt_motion import frames_of
     us = frames_of(D)
     fr = lambda u: first + u * fps  # noqa: E731
@@ -633,7 +626,6 @@ def neil():
     D = round((last - first + 1) / fps, 2)
     t = _kit("neil", "Tercio con logo: cubo que gira", "Logo lower third: turning cube", D, 8537,
              ["nombre", "3d", "cubo", "logo"], thumb_at=2.6)
-    photo_bg(t, "h-city-01", s1=1.03, label="Tu video")
     from llt_motion import frames_of
     us = frames_of(D)
     fr = lambda u: first + u * fps  # noqa: E731
@@ -761,7 +753,6 @@ def joanna():
     D = duration(r)
     t = _kit("joanna", "Tercio con logo: barra blanca y pestaña inclinada", "Logo lower third: white bar, slanted tab", D,
              8538, ["nombre", "barra", "blanco", "logo"], thumb_at=2.4)
-    photo_bg(t, "h-city-01", s1=1.03, label="Tu video")
     from llt_motion import frames_of
     us = frames_of(D)
     X1, Y0, Y1 = 1459.0, 712.0, 870.0
@@ -813,7 +804,6 @@ def hendrick():
     D = round((last - first + 1) / fps, 2)
     t = _kit("hendrick", "Tercio con logo: cuadro que cae y abre la barra", "Logo lower third: tumbling square opens the bar",
              D, 8539, ["nombre", "barra", "rojo", "logo"], thumb_at=2.6)
-    photo_bg(t, "h-city-01", s1=1.03, label="Tu video")
     from llt_motion import frames_of
     us = frames_of(D)
     fin = lambda u: (lambda i: i if i <= 77 else 154 - i)(first + u * fps)  # noqa: E731  the entrance's frame
@@ -875,7 +865,6 @@ def bevan():
     D = round((last - first + 1) / fps, 2)
     t = _kit("bevan", "Tercio con logo: triángulo que se dibuja", "Logo lower third: self-drawing triangle", D, 8540,
              ["nombre", "cargo", "línea", "triángulo", "logo"], thumb_at=2.6)
-    photo_bg(t, "h-city-01", s1=1.03, label="Tu video")
     from llt_motion import frames_of
     from scene import shape_style, stroke
     us = frames_of(D)
@@ -974,7 +963,6 @@ def janice():
     D = round((last - first + 1) / fps, 2)
     t = _kit("janice", "Tercio con logo: barra que sube de una línea", "Logo lower third: bar rising from a line", D,
              8541, ["nombre", "cargo", "barra", "rojo", "marca"], thumb_at=2.8)
-    photo_bg(t, "h-city-01", s1=1.03, label="Tu video")
     from llt_motion import frames_of
     us = frames_of(D)
     fr = lambda u: first + u * fps  # noqa: E731
@@ -1041,7 +1029,6 @@ def charlie():
     D = round((last - first) / fps, 2)
     t = _kit("charlie", "Tercio con logo: dos líneas que se abren", "Logo lower third: two lines parting", D, 8542,
              ["nombre", "líneas", "blanco", "logo"], thumb_at=2.4)
-    photo_bg(t, "h-city-01", s1=1.03, label="Tu video")
     from llt_motion import frames_of
     us = frames_of(D)
     fin = lambda u: (lambda i: i - 4 if i <= 71 else 138 - i)(first + u * fps)  # noqa: E731  the entrance frame
@@ -1099,7 +1086,6 @@ def lizzie():
     D = round((last - first + 1) / fps, 2)
     t = _kit("lizzie", "Tercio con logo: línea que barre", "Logo lower third: sweeping line", D, 8543,
              ["nombre", "cargo", "línea", "logo"], thumb_at=2.4)
-    photo_bg(t, "h-city-01", s1=1.03, label="Tu video")
     from llt_motion import frames_of
     us = frames_of(D)
     fin = lambda u: (lambda i: i if i <= 53 else 107 - i)(first + u * fps)  # noqa: E731
@@ -1159,7 +1145,6 @@ def patricia():
     D = round((last - first + 1) / fps, 2)
     t = _kit("patricia", "Tercio con logo: logo que gira y nombre que entra", "Logo lower third: flipping logo, sliding name",
              D, 8544, ["nombre", "cargo", "subrayado", "logo", "3d"], thumb_at=2.4)
-    photo_bg(t, "h-city-01", s1=1.03, label="Tu video")
     from llt_motion import frames_of
     us = frames_of(D)
     fr = lambda u: first + u * fps  # noqa: E731
@@ -1266,7 +1251,6 @@ def jim():
     D = round((last - first + 1) / fps, 2)
     t = _kit("jim", "Tercio con logo: logo que destapa el nombre", "Logo lower third: logo uncovering the name", D, 8545,
              ["nombre", "logo", "simple"], thumb_at=2.4)
-    photo_bg(t, "h-city-01", s1=1.03, label="Tu video")
     from llt_motion import frames_of
     us = frames_of(D)
     fr = lambda u: first + u * fps  # noqa: E731
@@ -1317,7 +1301,6 @@ def jason_f():
     D = round((last - first + 1) / fps, 2)
     t = _kit("jason-f", "Tercio con logo: pestaña que sube y barra blanca", "Logo lower third: rising tab, white bar", D,
              8546, ["nombre", "barra", "blanco", "marca"], thumb_at=2.4)
-    photo_bg(t, "h-city-01", s1=1.03, label="Tu video")
     from llt_motion import frames_of
     us = frames_of(D)
     fin = lambda u: (lambda i: i if i <= 64 else 129 - i)(first + u * fps)  # noqa: E731
@@ -1376,7 +1359,6 @@ def lucas():
     D = round((last - first + 1) / fps, 2)
     t = _kit("lucas", "Tercio con logo: bloque que corre y abre la barra", "Logo lower third: running block opens the bar",
              D, 8547, ["nombre", "barra", "blanco", "rojo", "logo"], thumb_at=2.6)
-    photo_bg(t, "h-city-01", s1=1.03, label="Tu video")
     from llt_motion import frames_of
     us = frames_of(D)
     rows = _row_runs("lucas_rows.txt")
@@ -1427,7 +1409,6 @@ def brian():
     D = round((last - first + 1) / fps, 2)
     t = _kit("brian", "Tercio con logo: entrada con parpadeo", "Logo lower third: glitch entrance", D, 8548,
              ["nombre", "logo", "glitch"], thumb_at=2.4)
-    photo_bg(t, "h-city-01", s1=1.03, label="Tu video")
     from llt_motion import frames_of
     us = frames_of(D)
     scan = _boxes("brian.txt")
@@ -1505,7 +1486,6 @@ def harry():
     D = round((last - first + 1) / fps, 2)
     t = _kit("harry", "Tercio con logo: bloque que corre y destapa", "Logo lower third: running block reveals the name", D,
              8549, ["nombre", "cargo", "subrayado", "marca"], thumb_at=2.6)
-    photo_bg(t, "h-city-01", s1=1.03, label="Tu video")
     from llt_motion import frames_of
     us = frames_of(D)
     scan = _scan("harry.txt", ("box", "ul", "role"))
@@ -1557,7 +1537,6 @@ def sarah():
     D = round((last - first + 1) / fps, 2)
     t = _kit("sarah", "Tercio con logo: anillo y dos líneas", "Logo lower third: ring and two lines", D, 8550,
              ["nombre", "cargo", "líneas", "anillo", "logo"], thumb_at=2.6)
-    photo_bg(t, "h-city-01", s1=1.03, label="Tu video")
     from llt_motion import frames_of
     us = frames_of(D)
     ring, top_r, top_l, bot_r, bot_l, name_b, role_b = {}, {}, {}, {}, {}, {}, {}
@@ -1653,7 +1632,6 @@ def gabriel():
     D = round((last - first + 1) / fps, 2)
     t = _kit("gabriel", "Tercio con logo: barra roja que se vuelve blanca", "Logo lower third: red bar turning white", D, 8551,
              ["nombre", "barra", "rojo", "blanco", "logo"], thumb_at=2.6)
-    photo_bg(t, "h-city-01", s1=1.03, label="Tu video")
     from llt_motion import frames_of
     fr = lambda u: first + u * fps  # noqa: E731
     top = _table(_GB_TOP, 852.0, 708.0)
@@ -1685,7 +1663,6 @@ def cindy():
     D = round((last - first + 1) / fps, 2)
     t = _kit("cindy", "Tercio con logo: logo verde que destapa el nombre", "Logo lower third: green logo reveals the name",
              D, 8552, ["nombre", "logo", "verde", "simple"], thumb_at=2.6)
-    photo_bg(t, "h-city-01", s1=1.03, label="Tu video")
     from llt_motion import frames_of
     us = frames_of(D)
     scan = _boxes("cindy.txt")
@@ -1746,7 +1723,6 @@ def caryn():
     D = round((last - first + 1) / fps, 2)
     t = _kit("caryn", "Tercio con logo: caja que gira", "Logo lower third: turning box", D, 8553,
              ["nombre", "3d", "caja", "logo"], thumb_at=2.8)
-    photo_bg(t, "h-city-01", s1=1.03, label="Tu video")
     from llt_motion import frames_of
     us = frames_of(D)
     fin = lambda u: (lambda i: i if i <= 69 else 139 - i)(first + u * fps)  # noqa: E731

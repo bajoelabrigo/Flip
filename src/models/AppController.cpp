@@ -9,6 +9,7 @@
 #include "MarketClient.h"
 #include "FileDialogs.h"
 #include "core/Clip.h"
+#include "core/PositionPath.h"
 #include "core/ClipAnimationPreset.h"
 #include "core/CatalogText.h"
 #include "core/SquashAnimation.h"
@@ -99,6 +100,11 @@
 #include "models/JobRegistry.h"
 #include "models/CloudProviders.h"
 #include "engine/WhisperTranscriber.h"
+#include "engine/SpellCheck.h"
+#include "engine/TextTranslator.h"
+#include "models/AccountController.h"
+#include "engine/SpeakerDiarizer.h"
+#include "engine/AudioFileWriter.h"
 #include "McpDetail.h"
 
 #include <QBuffer>
@@ -108,6 +114,7 @@
 #include <QCryptographicHash>
 #include <QCursor>
 #include <QDateTime>
+#include <QDataStream>
 #include <QDir>
 #include <QDesktopServices>
 #include <QProcess>
@@ -569,6 +576,9 @@ void AppController::setAddonManager(AddonManager *manager)
         connect(manager, &AddonManager::kindChanged, this, [this](const QString &kind) {
             if (kind == QLatin1String("scene-templates"))
                 emit sceneTemplatesChanged();
+            // The ready voices (0.30) are the «voces.ia» extra's.
+            if (kind == QLatin1String("tts-voices") && m_voices)
+                m_voices->reloadReadyVoices();
             if (kind != QLatin1String(drift::pdfium::kPdfiumKind))
                 return;
             drift::clearPdfRenderCaches();
@@ -1221,8 +1231,39 @@ void AppController::notifyStabilizeStateChanged(const QString &clipId)
     emit selectedClipDataChanged();
 }
 
+void AppController::syncJoinedPositions(const drift::Project *before)
+{
+    // Ids of the clips whose Position stood still before this edit: one that starts moving now is
+    // joined, as After Effects' Position is one property, unless the user separated it.
+    QSet<QString> stillBefore;
+    if (before) {
+        for (const drift::Track &track : before->tracks()) {
+            for (const drift::Clip &clip : track.clips) {
+                if (!drift::positionAnimated(clip))
+                    stillBefore.insert(clip.id);
+            }
+        }
+    }
+    for (drift::Track &track : m_project.tracks()) {
+        for (drift::Clip &clip : track.clips) {
+            // A shape's or a text's own size (Scale 100 %), the first time it is seen with a size.
+            if ((clip.type == drift::ClipType::Shape || clip.type == drift::ClipType::Text) && clip.restW <= 0.0
+                && !clip.transformW.isEmpty() && !clip.transformH.isEmpty()) {
+                clip.restW = qMax(1.0, clip.transformW.keyframes().first().value);
+                clip.restH = qMax(1.0, clip.transformH.keyframes().first().value);
+            }
+            if (!clip.positionJoined && !clip.positionSeparated && before && stillBefore.contains(clip.id)
+                && drift::positionAnimated(clip))
+                drift::joinPosition(clip);
+            else
+                drift::syncJoinedPosition(clip);
+        }
+    }
+}
+
 void AppController::notifyTracksChanged()
 {
+    syncJoinedPositions(nullptr);
     // Trims and the other full-path preview edits land here rather than in emitPreviewEdit.
     if (m_previewDragActive)
         m_previewDragDirty = true;
@@ -2086,6 +2127,9 @@ QVariantList subtitleCuesToMap(const QList<drift::SubtitleCue> &cues)
             {QStringLiteral("end"), drift::usToSeconds(cue.endUs)},
             {QStringLiteral("text"), cue.text},
             {QStringLiteral("wordEnds"), ends},
+            {QStringLiteral("style"), cue.styleId},
+            {QStringLiteral("place"), cue.place},
+            {QStringLiteral("speaker"), cue.speaker},
         });
     }
     return out;
@@ -2104,6 +2148,9 @@ QList<drift::SubtitleCue> subtitleCuesFromMap(const QVariantList &list)
         // Kept through the editor; activeWordIndexAt ignores them once they stop fitting.
         for (const QVariant &end : map.value(QStringLiteral("wordEnds")).toList())
             cue.wordEndsUs.append(drift::secondsToUs(end.toDouble()));
+        cue.styleId = map.value(QStringLiteral("style")).toString();
+        cue.place = map.value(QStringLiteral("place")).toString();
+        cue.speaker = map.value(QStringLiteral("speaker"), -1).toInt();
         cues.append(cue);
     }
     drift::sortSubtitleCues(cues);
@@ -3439,12 +3486,34 @@ bool writeClipPropValue(drift::Clip &clip, const QString &prop, drift::TimeUs re
     }
     if (!parseEffectProp(prop, &effectIndex, &paramKey)) {
         drift::KeyframeTrack<double> *kt = transformTrackForProp(clip, prop);
+        const qsizetype keysBefore = kt ? kt->keyframes().size() : 0;
+        // The size before its first key: where the box grows from around the anchor.
+        const double sizeBefore = kt && !kt->isEmpty() ? kt->evaluateAt(relative) : 0.0;
+        const bool keyedBefore = kt && (kt->stopwatch() || kt->keyframes().size() >= 2);
         if (!kt || !writeKeyframeValue(*kt, relative, value, autoKey, force))
             return false;
         // A 3D value written to a flat clip would do nothing, so writing one makes it a 3D layer.
         if (kt == &clip.rotationX || kt == &clip.rotationY || kt == &clip.positionZ
             || kt == &clip.perspective) {
             clip.layer3d = true;
+        }
+        // An animated size grows around the anchor point (as in After Effects): a size that starts
+        // animating without one gets the centre. Sizes animated before (old projects, templates
+        // that move X to make up for it) keep growing from the corner.
+        if ((kt == &clip.transformW || kt == &clip.transformH) && keysBefore < 2 && kt->keyframes().size() >= 2
+            && clip.anchorX.isEmpty() && clip.anchorY.isEmpty()) {
+            clip.anchorX.setKeyframe(0, 0.5);
+            clip.anchorY.setKeyframe(0, 0.5);
+        }
+        // The size's stopwatch (0.30): from now on it grows around the anchor from the size it had,
+        // even before a second key.
+        if ((kt == &clip.transformW || kt == &clip.transformH) && !keyedBefore && kt->stopwatch()
+            && sizeBefore > 0.0) {
+            (kt == &clip.transformW ? clip.sizePivotW : clip.sizePivotH) = sizeBefore;
+            if (clip.anchorX.isEmpty() && clip.anchorY.isEmpty()) {
+                clip.anchorX.setKeyframe(0, 0.5);
+                clip.anchorY.setKeyframe(0, 0.5);
+            }
         }
         return true;
     }
@@ -4042,7 +4111,8 @@ void applyDefaultVisualLayout(drift::Clip &clip, int canvasW, int canvasH, doubl
             w = canvasW * 0.6;
             h = w / aspect;
         }
-        setClipLayoutPixels(clip, 0, 0, w, h);
+        // Centred, as a new shape layer in After Effects (0.30: it landed in the top-left corner).
+        setClipLayoutPixels(clip, (canvasW - w) / 2.0, (canvasH - h) / 2.0, w, h);
         return;
     }
     if (clip.type == drift::ClipType::Text) {
@@ -4992,7 +5062,83 @@ QHash<QString, QString> defaultShortcuts()
         {QStringLiteral("multicam"), QStringLiteral("Ctrl+Shift+C")},
         {QStringLiteral("transformTogether"), QStringLiteral("Ctrl+G")},
         {QStringLiteral("selectTransformLayer"), QStringLiteral("Shift+G")},
+        // After Effects' layer keys (0.30), free in both sets: Alt+[ / Alt+] trim the picked layers'
+        // in or out point to the playhead, [ / ] move them so it starts or ends there; Page Up / Page
+        // Down step a frame. Going to the layer's own in and out point is I / O in the AE set only.
+        {QStringLiteral("trimInToPlayhead"), QStringLiteral("Alt+[")},
+        {QStringLiteral("trimOutToPlayhead"), QStringLiteral("Alt+]")},
+        {QStringLiteral("moveInToPlayhead"), QStringLiteral("[")},
+        {QStringLiteral("moveOutToPlayhead"), QStringLiteral("]")},
+        {QStringLiteral("stepBackPage"), QStringLiteral("PgUp")},
+        {QStringLiteral("stepForwardPage"), QStringLiteral("PgDown")},
+        {QStringLiteral("goToLayerIn"), QString()},
+        {QStringLiteral("goToLayerOut"), QString()},
+        // After Effects' Alt+Shift+P/S/R/T/A (a key on that property at the playhead): the AE set's.
+        {QStringLiteral("keyPosition"), QString()},
+        {QStringLiteral("keyScale"), QString()},
+        {QStringLiteral("keyRotation"), QString()},
+        {QStringLiteral("keyOpacity"), QString()},
+        {QStringLiteral("keyAnchor"), QString()},
     };
+}
+
+// The "After Effects" set (0.30, Jorge): what it changes over Flip's own. Its keys for the keyframe
+// lines and the layer go where AE has them, and what used them moves aside, so nothing is lost:
+// J / K step between keys (the shuttle takes Shift+J), P / S / R / T / A show one property's line,
+// G is the pen (guides go to Ctrl+;), Q the shape tool, W the 3D rotation, B / N the work area and
+// I / O the layer's in and out point, Ctrl+Shift+D splits.
+const QHash<QString, QString> &afterEffectsShortcutChanges()
+{
+    static const QHash<QString, QString> changes = {
+        {QStringLiteral("previousKeyframe"), QStringLiteral("J")},
+        {QStringLiteral("nextKeyframe"), QStringLiteral("K")},
+        {QStringLiteral("speedDown"), QStringLiteral("Shift+J")},
+        {QStringLiteral("showPositionRows"), QStringLiteral("P")},
+        {QStringLiteral("showScaleRows"), QStringLiteral("S")},
+        {QStringLiteral("showRotationRows"), QStringLiteral("R")},
+        {QStringLiteral("showOpacityRows"), QStringLiteral("T")},
+        {QStringLiteral("showAnchorRows"), QStringLiteral("A")},
+        {QStringLiteral("split"), QStringLiteral("Ctrl+Shift+D")},
+        {QStringLiteral("previewPenTool"), QStringLiteral("G")},
+        {QStringLiteral("toggleGuides"), QStringLiteral("Ctrl+;")},
+        {QStringLiteral("previewShapeTool"), QStringLiteral("Q")},
+        {QStringLiteral("deleteLeft"), QStringLiteral("Alt+Q")},
+        {QStringLiteral("deleteRight"), QStringLiteral("Alt+W")},
+        {QStringLiteral("gizmoMove"), QStringLiteral("Ctrl+Alt+1")},
+        {QStringLiteral("gizmoRotate"), QStringLiteral("W")},
+        {QStringLiteral("gizmoScale"), QStringLiteral("Ctrl+Alt+3")},
+        {QStringLiteral("selectRightTool"), QStringLiteral("Ctrl+Alt+A")},
+        {QStringLiteral("markIn"), QStringLiteral("B")},
+        {QStringLiteral("markOut"), QStringLiteral("N")},
+        {QStringLiteral("goToLayerIn"), QStringLiteral("I")},
+        {QStringLiteral("goToLayerOut"), QStringLiteral("O")},
+        {QStringLiteral("keyPosition"), QStringLiteral("Alt+Shift+P")},
+        {QStringLiteral("keyScale"), QStringLiteral("Alt+Shift+S")},
+        {QStringLiteral("keyRotation"), QStringLiteral("Alt+Shift+R")},
+        {QStringLiteral("keyOpacity"), QStringLiteral("Alt+Shift+T")},
+        {QStringLiteral("keyAnchor"), QStringLiteral("Alt+Shift+A")},
+    };
+    return changes;
+}
+
+const QString kShortcutPresetAfterEffects = QStringLiteral("afterEffects");
+
+QString storedShortcutPreset()
+{
+    return QSettings().value(QStringLiteral("editor/shortcutPreset")).toString() == kShortcutPresetAfterEffects
+               ? kShortcutPresetAfterEffects
+               : QStringLiteral("flip");
+}
+
+QHash<QString, QString> shortcutDefaultsFor(const QString &preset)
+{
+    QHash<QString, QString> keys = defaultShortcuts();
+    if (preset == kShortcutPresetAfterEffects) {
+        const QHash<QString, QString> &changes = afterEffectsShortcutChanges();
+        for (auto it = changes.cbegin(); it != changes.cend(); ++it)
+            keys.insert(it.key(), it.value());
+    }
+    return keys;
 }
 
 } // namespace
@@ -5052,6 +5198,13 @@ QVariantMap AppController::clipToMap(const drift::Clip &clip, const drift::Clip 
         {QStringLiteral("textContent"), clip.textContent},
         {QStringLiteral("textStyle"), textStyleToMap(clip.textStyle, clip.timelineStart)},
         {QStringLiteral("subtitleCues"), subtitleCuesToMap(clip.subtitleCues)},
+        {QStringLiteral("subtitleSpeakers"), [&clip] {
+             QVariantList speakers;
+             for (const drift::SubtitleSpeaker &speaker : clip.subtitleSpeakers)
+                 speakers.append(QVariantMap{{QStringLiteral("name"), speaker.name},
+                                             {QStringLiteral("color"), speaker.color}});
+             return speakers;
+         }()},
         {QStringLiteral("shapeStyle"), shapeStyleToMap(clip.shapeStyle, clip.timelineStart)},
         {QStringLiteral("blendMode"), drift::blendModeToString(clip.blendMode)},
         {QStringLiteral("speed"), clip.speed},
@@ -5853,6 +6006,8 @@ QVariantList AppController::actions() const
         action(QStringLiteral("nextEdit"), tr("Go to next cut point")),
         action(QStringLiteral("stepBack"), tr("Step back one frame")),
         action(QStringLiteral("stepForward"), tr("Step forward one frame")),
+        action(QStringLiteral("stepBackPage"), tr("Step back one frame (Page Up)")),
+        action(QStringLiteral("stepForwardPage"), tr("Step forward one frame (Page Down)")),
         action(QStringLiteral("jumpBack"), tr("Jump back 1 second")),
         action(QStringLiteral("jumpForward"), tr("Jump forward 1 second")),
         action(QStringLiteral("jumpBackFar"), tr("Jump back 10 seconds")),
@@ -5883,6 +6038,17 @@ QVariantList AppController::actions() const
         action(QStringLiteral("markOut"), tr("Mark work area out")),
         action(QStringLiteral("goToIn"), tr("Go to work area in")),
         action(QStringLiteral("goToOut"), tr("Go to work area out")),
+        action(QStringLiteral("goToLayerIn"), tr("Go to the layer's in point")),
+        action(QStringLiteral("goToLayerOut"), tr("Go to the layer's out point")),
+        action(QStringLiteral("keyPosition"), tr("Add a Position keyframe")),
+        action(QStringLiteral("keyScale"), tr("Add a Scale keyframe")),
+        action(QStringLiteral("keyRotation"), tr("Add a Rotation keyframe")),
+        action(QStringLiteral("keyOpacity"), tr("Add an Opacity keyframe")),
+        action(QStringLiteral("keyAnchor"), tr("Add an Anchor point keyframe")),
+        action(QStringLiteral("trimInToPlayhead"), tr("Trim the layer's in point to the playhead")),
+        action(QStringLiteral("trimOutToPlayhead"), tr("Trim the layer's out point to the playhead")),
+        action(QStringLiteral("moveInToPlayhead"), tr("Move the layer so it starts at the playhead")),
+        action(QStringLiteral("moveOutToPlayhead"), tr("Move the layer so it ends at the playhead")),
         action(QStringLiteral("clearInOut"), tr("Clear work area")),
         action(QStringLiteral("toggleLoop"), tr("Loop work area playback")),
         action(QStringLiteral("ramPreview"), tr("RAM preview (render to memory and play)")),
@@ -5941,6 +6107,11 @@ void AppController::setPlaying(bool playing)
     m_playing = playing;
     if (m_playing) {
         const drift::TimeUs durationUs = m_project.durationUs();
+        // Without the loop, playing from inside the work area stops at its end, as After Effects
+        // previews its work area (0.30).
+        const bool insideWorkArea = m_project.hasWorkArea() && m_playheadUs >= m_project.workAreaInUs()
+                                    && m_playheadUs < m_project.workAreaOutUs();
+        m_playback.setStopAtUs(!m_loopWorkAreaEnabled && insideWorkArea ? m_project.workAreaOutUs() : -1);
         if (m_loopWorkAreaEnabled && m_project.hasWorkArea()) {
             const drift::TimeUs loopIn = m_project.workAreaInUs();
             const drift::TimeUs loopOut = m_project.workAreaOutUs();
@@ -6980,6 +7151,10 @@ QVariantMap AppController::clipAt(int trackIndex, int clipIndex) const
     map.insert(QStringLiteral("transformParents"),
                transformParentsForClip(m_project, trackIndex, tracks.at(trackIndex).clips.at(clipIndex),
                                        m_playheadUs));
+    // The size a keyed size grows from (0.30): the timeline's Position reads the anchor in it.
+    const drift::Clip &own = tracks.at(trackIndex).clips.at(clipIndex);
+    map.insert(QStringLiteral("sizePivotW"), own.sizePivotW);
+    map.insert(QStringLiteral("sizePivotH"), own.sizePivotH);
     return map;
 }
 
@@ -7043,6 +7218,7 @@ void AppController::pushProjectEdit(const drift::Project &before, const QString 
     // This is also where a track created by this edit gets its id — nested lanes address their
     // parent by it, and the dozen places that append a track all leave it empty.
     syncTextAutoFit(m_project, before);
+    syncJoinedPositions(&before);
     normalizeProjectStructure(&before);
     syncCompositeAssetDurations();
     // Belt and braces for the tracks cache: normalizeProjectStructure() rewrites the project, and
@@ -7458,6 +7634,19 @@ AppController::GeneratedAudioImport AppController::importGeneratedAudio(
         asset->generator = generator;
         projectFile()->setDirty(true);
     }
+    // A voice made from a script is named by its words (as in CapCut), not by its file
+    // («tts-chatterbox-hola-a-todos-376a613a.flac»).
+    // Without the script's own marks ([pausa 1s], [Ana]…): they are not words (0.30 tests E54).
+    static const QRegularExpression scriptTagRe(QStringLiteral("\\[[^\\]]*\\]"));
+    // Nor a dialogue's names («Ana: Hola Luis…»): they are who speaks, not what is said.
+    static const QRegularExpression speakerRe(QStringLiteral("(?m)^\\s*[^\\s:]{1,24}:\\s+"));
+    const QString spoken =
+        generator.value(QStringLiteral("text")).toString().remove(scriptTagRe).remove(speakerRe).simplified();
+    if (!spoken.isEmpty()) {
+        constexpr int kNameLetters = 40;
+        const QString words = spoken.size() > kNameLetters ? spoken.left(kNameLetters).trimmed() + QStringLiteral("…") : spoken;
+        m_assetLibrary->setAssetName(m_assetLibrary->indexOfId(assetId), tr("Voice: %1").arg(words));
+    }
     result.ok = true;
     result.assetId = assetId;
     if (const drift::MediaAsset *asset = m_project.asset(assetId))
@@ -7496,6 +7685,26 @@ AppController::GeneratedAudioImport AppController::importGeneratedAudio(
             if (!before.contains(c.id))
                 result.clipId = c.id;
     return result;
+}
+
+bool AppController::swapClipAudio(const QString &clipId, const QString &assetId)
+{
+    const QPair<int, int> loc = m_mcpController->locateClip(clipId);
+    const drift::MediaAsset *asset = m_project.asset(assetId);
+    if (loc.first < 0 || !asset || asset->durationUs <= 0)
+        return false;
+    const drift::Project before = m_project;
+    drift::Clip &clip = m_project.tracks()[loc.first].clips[loc.second];
+    // A clip still called as its old voice takes the new one's name.
+    if (const drift::MediaAsset *old = before.asset(clip.assetId); old && clip.name == old->name)
+        clip.name = asset->name;
+    clip.assetId = assetId;
+    clip.srcIn = 0;
+    clip.srcOut = asset->durationUs;
+    clip.timelineDuration = drift::TimeUs(double(asset->durationUs) / qMax(0.01, clip.speed));
+    pushProjectEdit(before, tr("Replace voice"));
+    finishEdit(tr("Voice replaced"));
+    return true;
 }
 
 int AppController::placeGeneratedAudioOnNewTracks(const QList<GeneratedAudioPlacement> &items,
@@ -9059,6 +9268,96 @@ void AppController::alignSelectedClipRight()
 // shortcuts and by the align_clip_left/right MCP tools. These used to carry their own copy
 // of the split, which both broke their undo snapshot and left them ignoring rippleEnabled
 // while the identical context-menu path honoured it.
+// After Effects' [ ] and Alt+[ ] (0.30): every picked layer (the selected clip when none is
+// picked) has its in or out point trimmed to the playhead, or is moved so it starts or ends there,
+// in one undo step; I / O take the playhead to the selected layer's own in and out point.
+void AppController::layerEditAtPlayhead(const QString &actionId)
+{
+    QList<QPair<int, int>> targets = m_selection;
+    if (targets.isEmpty() && isValidClipIndex(m_selectedTrack, m_selectedClip))
+        targets.append({m_selectedTrack, m_selectedClip});
+    if (targets.isEmpty())
+        return;
+    const double frame = 1.0 / qMax(1, m_project.fps());
+    if (actionId == QLatin1String("goToLayerIn") || actionId == QLatin1String("goToLayerOut")) {
+        const QPair<int, int> at = isValidClipIndex(m_selectedTrack, m_selectedClip)
+                                       ? QPair<int, int>{m_selectedTrack, m_selectedClip} : targets.first();
+        const drift::Clip &clip = m_project.tracks().at(at.first).clips.at(at.second);
+        setPlayheadUs(actionId == QLatin1String("goToLayerIn")
+                          ? clip.timelineStart
+                          : qMax(clip.timelineStart, clip.timelineEnd() - drift::secondsToUs(frame)));
+        return;
+    }
+    QStringList ids;
+    for (const auto &p : std::as_const(targets)) {
+        if (isValidClipIndex(p.first, p.second))
+            ids.append(m_project.tracks().at(p.first).clips.at(p.second).id);
+    }
+    const double playhead = drift::usToSeconds(m_playheadUs);
+    beginEditSession(actionId.startsWith(QLatin1String("trim")) ? tr("Trim layer") : tr("Move layer"));
+    bool changed = false;
+    QStringList movedToOwnTrack;
+    for (const QString &id : std::as_const(ids)) {
+        int t = -1;
+        int c = -1;
+        if (!findClipById(m_project, id, &t, &c))
+            continue;
+        const drift::Clip clip = m_project.tracks().at(t).clips.at(c);
+        const double start = drift::usToSeconds(clip.timelineStart);
+        const double end = drift::usToSeconds(clip.timelineEnd());
+        if (actionId == QLatin1String("trimInToPlayhead")) {
+            if (playhead > start && playhead < end) {
+                trimClipLeft(t, c, playhead);
+                changed = true;
+            }
+        } else if (actionId == QLatin1String("trimOutToPlayhead")) {
+            if (playhead > start && playhead < end) {
+                trimClipRight(t, c, playhead);
+                changed = true;
+            }
+        } else if (actionId == QLatin1String("moveInToPlayhead") || actionId == QLatin1String("moveOutToPlayhead")) {
+            const double newStart = actionId == QLatin1String("moveInToPlayhead") ? playhead
+                                                                                   : qMax(0.0, playhead - (end - start));
+            const drift::TimeUs ns = drift::secondsToUs(newStart);
+            const drift::TimeUs ne = ns + clip.timelineDuration;
+            // In After Effects every layer has its own row, so [ and ] just slide it. Here clips can
+            // share a track: sliding into a neighbour made the track reshuffle (STUDIO landed at 10 s and
+            // pushed 0.30 along; 0.30 tests E44). Then the layer goes to a track of its own above.
+            bool blocked = false;
+            const QList<drift::Clip> &row = m_project.tracks().at(t).clips;
+            for (int o = 0; o < row.size() && !blocked; ++o)
+                blocked = o != c && row.at(o).timelineStart < ne && row.at(o).timelineEnd() > ns;
+            if (!blocked) {
+                moveClip(t, c, newStart);
+            } else {
+                const drift::Project before = m_project;
+                drift::Clip moved = m_project.tracks()[t].clips.takeAt(c);
+                moved.timelineStart = ns;
+                drift::Track lane{.type = m_project.tracks().at(t).type};
+                lane.clips.append(moved);
+                m_project.tracks().insert(t, lane);
+                pushProjectEdit(before, tr("Move layer"));
+                finishEdit(tr("Move layer"));
+                movedToOwnTrack.append(id);
+            }
+            changed = true;
+        }
+    }
+    if (!movedToOwnTrack.isEmpty()) {
+        QVariantList pairs;
+        for (const QString &id : std::as_const(ids)) {
+            int t = -1;
+            int c = -1;
+            if (findClipById(m_project, id, &t, &c))
+                pairs.append(QVariantMap{{QStringLiteral("track"), t}, {QStringLiteral("clip"), c}});
+        }
+        setSelection(pairs);
+    }
+    endEditSession(changed);
+    if (!changed && actionId.startsWith(QLatin1String("trim")))
+        setLastMessage(tr("Put the playhead inside the layer to trim it there"), QStringLiteral("warning"));
+}
+
 void AppController::splitSelectedClipLeft()
 {
     splitClipLeftAt(m_selectedTrack, m_selectedClip, playheadSeconds());
@@ -9508,6 +9807,12 @@ void AppController::addSubtitleClip(double atSeconds)
 
 namespace {
 
+// As bilingualLineGap (two lines of each plus a margin): one caption clip stacked over another.
+double subtitleStackGap(double belowPixelSize, double abovePixelSize, double canvasHeight)
+{
+    return qMax(canvasHeight * 0.11, 1.25 * (belowPixelSize + abovePixelSize) + canvasHeight * 0.02);
+}
+
 drift::TimeUs subtitleClipDurationForCues(const QList<drift::SubtitleCue> &cues)
 {
     drift::TimeUs duration = drift::kSubtitleClipDurationUs;
@@ -9535,16 +9840,15 @@ bool AppController::importSubtitleFile(const QUrl &url, double atSeconds)
 
     const drift::TimeUs duration = subtitleClipDurationForCues(cues);
     const drift::Project before = m_project;
+    // A subtitle file's times are the video's: it starts at 0:00 (at the playhead it came in out of
+    // sync), on a track free there so nothing pushes it along. Dropped somewhere, it starts there.
+    const drift::TimeUs start = atSeconds < 0.0 ? 0 : drift::secondsToUs(atSeconds);
     const int trackIndex =
-        drift::ensureTrackForClipType(m_project, drift::ClipType::Subtitle, true);
+        drift::ensureFreeTrackForClipType(m_project, drift::ClipType::Subtitle, start, duration, true);
     if (trackIndex < 0)
         return false;
 
     drift::Track &track = m_project.tracks()[trackIndex];
-    const drift::TimeUs startSeconds = atSeconds < 0.0 ? m_playheadUs : drift::secondsToUs(atSeconds);
-    const drift::TimeUs start =
-        drift::resolveClipStart(m_project, track, -1, startSeconds, duration, m_snapEnabled,
-                                m_playheadUs);
 
     drift::Clip clip;
     clip.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
@@ -9558,6 +9862,31 @@ bool AppController::importSubtitleFile(const QUrl &url, double atSeconds)
     if (const std::optional<drift::TextStyle> preset = drift::textStyleForPresetId(QStringLiteral("subtitle")))
         clip.textStyle = *preset;
     applyDefaultVisualLayout(clip, m_project.width(), m_project.height());
+    // Captions already on screen at those times: the file's go right above the highest of them, as a
+    // translation does, instead of on top of them where neither could be read (0.30 tests E51).
+    {
+        bool under = false;
+        double topY = 0.0;
+        double topSize = clip.textStyle.pixelSize;
+        for (int t = 0; t < m_project.tracks().size(); ++t) {
+            if (t == trackIndex || m_project.tracks().at(t).hidden)
+                continue;
+            for (const drift::Clip &other : m_project.tracks().at(t).clips) {
+                if (other.type != drift::ClipType::Subtitle || other.subtitleCues.isEmpty()
+                    || other.timelineStart >= start + duration || other.timelineEnd() <= start)
+                    continue;
+                const double y = other.transformY.isEmpty() ? 0.0 : other.transformY.evaluateAt(0);
+                if (!under || y < topY) {
+                    topY = y;
+                    topSize = other.textStyle.pixelSize;
+                }
+                under = true;
+            }
+        }
+        const double ownY = clip.transformY.isEmpty() ? 0.0 : clip.transformY.evaluateAt(0);
+        if (under && ownY > topY - subtitleStackGap(topSize, clip.textStyle.pixelSize, m_project.height()))
+            clip.transformY.setKeyframe(0, topY - subtitleStackGap(topSize, clip.textStyle.pixelSize, m_project.height()));
+    }
 
     track.clips.append(clip);
     const int newClipIndex = track.clips.size() - 1;
@@ -9572,6 +9901,10 @@ bool AppController::importSubtitleFileIntoClip(int trackIndex, int clipIndex, co
 {
     if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
         return false;
+    if (isTrackLocked(trackIndex)) {
+        setLastMessage(tr("This track is locked. Unlock it with the padlock in its header."), QStringLiteral("warning"));
+        return false;
+    }
 
     drift::Track &track = m_project.tracks()[trackIndex];
     if (clipIndex < 0 || clipIndex >= track.clips.size())
@@ -9610,6 +9943,86 @@ bool AppController::importSubtitleFileIntoClip(int trackIndex, int clipIndex, co
     return true;
 }
 
+bool AppController::projectHasSubtitles() const
+{
+    for (const drift::Track &track : m_project.tracks()) {
+        for (const drift::Clip &clip : track.clips) {
+            if (clip.type == drift::ClipType::Subtitle && !clip.subtitleCues.isEmpty())
+                return true;
+        }
+    }
+    return false;
+}
+
+QList<QList<drift::SubtitleCue>> AppController::subtitleSidecarCues(const drift::Project &project,
+                                                                    drift::TimeUs rangeStart,
+                                                                    drift::TimeUs rangeEnd) const
+{
+    QList<QList<drift::SubtitleCue>> out;
+    // Bottom track first: the original captions are under a translation added above them.
+    for (int t = project.tracks().size() - 1; t >= 0; --t) {
+        const drift::Track &track = project.tracks().at(t);
+        if (track.hidden)
+            continue;
+        QList<drift::SubtitleCue> cues;
+        for (const drift::Clip &clip : track.clips) {
+            if (clip.type != drift::ClipType::Subtitle)
+                continue;
+            for (drift::SubtitleCue cue : clip.subtitleCues) {
+                // The clip's own times on the timeline, trimmed to what the clip shows.
+                if (cue.endUs <= clip.srcIn || cue.startUs >= clip.srcOut)
+                    continue;
+                cue.startUs = clip.timelineStart + qMax(cue.startUs, clip.srcIn) - clip.srcIn;
+                cue.endUs = clip.timelineStart + qMin(cue.endUs, clip.srcOut) - clip.srcIn;
+                if (rangeEnd > rangeStart) { // only the work area is exported
+                    if (cue.endUs <= rangeStart || cue.startUs >= rangeEnd)
+                        continue;
+                    cue.startUs = qMax(cue.startUs, rangeStart) - rangeStart;
+                    cue.endUs = qMin(cue.endUs, rangeEnd) - rangeStart;
+                }
+                cue.text = drift::textWithoutWordMarks(cue.text);
+                cue.wordEndsUs.clear();
+                if (cue.endUs > cue.startUs && !cue.text.trimmed().isEmpty())
+                    cues.append(cue);
+            }
+        }
+        if (!cues.isEmpty()) {
+            drift::sortSubtitleCues(cues);
+            out.append(cues);
+        }
+    }
+    return out;
+}
+
+namespace {
+QString captionsLanguage(const QStringList &texts);
+}
+
+void AppController::writeSubtitleSidecars(const QString &videoPath, const QList<QList<drift::SubtitleCue>> &tracks)
+{
+    const QFileInfo info(videoPath);
+    const QString base = info.absolutePath() + QLatin1Char('/') + info.completeBaseName();
+    QStringList used;
+    for (int i = 0; i < tracks.size(); ++i) {
+        // The first keeps the video's own name (what players load); the others say their language
+        // («video.en.srt»), as players list them, not «video.2.srt» (0.30 tests E52).
+        QString path = base + QStringLiteral(".srt");
+        if (i > 0) {
+            QStringList texts;
+            for (const drift::SubtitleCue &cue : tracks.at(i))
+                texts.append(cue.text);
+            const QString lang = captionsLanguage(texts);
+            path = lang.isEmpty() || used.contains(lang) ? base + QStringLiteral(".%1.srt").arg(i + 1)
+                                                         : base + QStringLiteral(".%1.srt").arg(lang);
+            if (!lang.isEmpty())
+                used.append(lang);
+        }
+        QString error;
+        if (!drift::writeSubtitleFile(path, tracks.at(i), &error, m_project.width(), m_project.height()))
+            qWarning() << "[export] could not write" << path << error;
+    }
+}
+
 bool AppController::exportSubtitleFile(int trackIndex, int clipIndex, const QUrl &url, bool timelineTimes)
 {
     if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
@@ -9645,8 +10058,24 @@ bool AppController::exportSubtitleFile(int trackIndex, int clipIndex, const QUrl
         }
     }
 
+    // An .ass file keeps the captions' look (font, size, colours, outline or box).
+    const drift::TextStyle &look = clip.textStyle;
+    drift::AssStyleHint hint;
+    hint.fontFamily = look.fontFamily;
+    hint.pixelSize = look.pixelSize;
+    hint.bold = look.fontWeight >= 600;
+    hint.italic = look.italic;
+    hint.primary = look.primaryColor();
+    if (const drift::TextShadingLayer *stroke =
+            drift::firstTextLayerOfKind(look.layers, drift::TextLayerKind::Stroke, true)) {
+        hint.outline = stroke->paint.color;
+        hint.outlineWidth = stroke->width;
+    }
+    hint.box = look.boxEnabled;
+    hint.boxColor = look.boxColor;
+
     QString error;
-    if (!drift::writeSubtitleFile(path, cues, &error, m_project.width(), m_project.height())) {
+    if (!drift::writeSubtitleFile(path, cues, &error, m_project.width(), m_project.height(), &hint)) {
         setLastMessage(error.isEmpty() ? tr("Could not write subtitle file") : error, QStringLiteral("error"));
         return false;
     }
@@ -9776,7 +10205,7 @@ bool AppController::generateSubtitlesForRange(int trackIndex, double startSec, d
 AppController::SubtitleSource AppController::subtitleSourceFromClip(const drift::Clip &clip)
 {
     return {clip.path,           clip.srcIn,           clip.srcOut, clip.timelineStart,
-            clip.timelineDuration, clip.effectiveSpeed(), clip.reverse, clip.assetId};
+            clip.timelineDuration, clip.effectiveSpeed(), clip.reverse, clip.assetId, clip};
 }
 
 std::optional<QList<drift::SubtitleCue>> AppController::cuesFromStoredTranscripts(
@@ -9787,19 +10216,25 @@ std::optional<QList<drift::SubtitleCue>> AppController::cuesFromStoredTranscript
         const drift::TranscriptPtr t = m_project.transcript(source.assetId);
         if (!t || !t->source.matches(source.path))
             return std::nullopt;
-        const drift::TimeUs offset = source.timelineStart - rangeStart;
-        const double speed = source.speed > 0 ? source.speed : 1.0;
+        // Source time → timeline through the clip's own mapping (speed curves and reverse too).
+        const auto toTimeline = [&](drift::TimeUs sourceUs) -> drift::TimeUs {
+            const drift::TimeUs at = source.clip.timelineStart + source.clip.sourceUsToClipLocalUs(sourceUs);
+            return qBound(source.timelineStart, at, source.timelineStart + source.timelineDuration) - rangeStart;
+        };
         for (const drift::SubtitleCue &cue :
-             drift::cuesFromTranscript(*t, source.srcIn, source.srcOut, 42, 1, qMax(0, maxWordsPerCue))) {
-            const double a = drift::usToSeconds(cue.startUs - source.srcIn);
-            const double b = drift::usToSeconds(cue.endUs - source.srcIn);
-            const double span = drift::usToSeconds(source.srcOut - source.srcIn);
-            const double tlStart = source.reverse ? (span - b) / speed : a / speed;
-            const double tlEnd = source.reverse ? (span - a) / speed : b / speed;
+             drift::cuesFromTranscript(*t, source.srcIn, source.srcOut, subtitleLineWidth(), subtitleLineCount(), qMax(0, maxWordsPerCue))) {
             drift::SubtitleCue m;
-            m.startUs = offset + qBound<drift::TimeUs>(0, drift::secondsToUs(tlStart), source.timelineDuration);
-            m.endUs = offset + qBound<drift::TimeUs>(0, drift::secondsToUs(tlEnd), source.timelineDuration);
+            m.startUs = toTimeline(cue.startUs);
+            m.endUs = toTimeline(cue.endUs);
+            if (m.startUs > m.endUs)
+                std::swap(m.startUs, m.endUs); // reversed
             m.text = cue.text;
+            m.speaker = cue.speaker; // who says it (it was dropped here, so voices never got their colour)
+            // The words' timings too, so the karaoke follows the voice (they were dropped here).
+            if (!source.reverse) {
+                for (const drift::TimeUs end : cue.wordEndsUs)
+                    m.wordEndsUs.append(toTimeline(end));
+            }
             if (m.endUs > m.startUs)
                 mapped.append(m);
         }
@@ -9877,9 +10312,19 @@ bool AppController::generateSubtitlesForSources(QList<SubtitleSource> sources, c
     const drift::TimeUs rangeDuration = rangeEnd - rangeStart;
     const QString languageCode = language.trimmed().toLower();
     const int wordsPerCue = std::max(0, maxWordsPerCue);
+    const int lineWidth = subtitleLineWidth();
+    const int lineCount = subtitleLineCount();
     const bool translate = m_subtitleTranslateNext;
+    // «In the cloud (ElevenLabs)»: only with a key and the user's consent (Settings › Cloud).
+    const QString elevenLabs = QString::fromLatin1(CloudProviders::kElevenLabs);
+    const bool cloud = subtitleCloudEngine() && subtitleCloudReady() && !translate;
+    const QString cloudKey = cloud ? m_cloud->apiKey(elevenLabs) : QString();
+    const QString cloudModel = cloud ? m_cloud->setting(elevenLabs, QStringLiteral("stt_model")) : QString();
+    const QStringList keyterms = subtitleKeyterms();
+    const bool speakers = subtitleSpeakersEnabled() && subtitleSpeakersAvailable();
 
-    (void)QtConcurrent::run([this, sources, rangeStart, rangeDuration, languageCode, wordsPerCue, translate]() {
+    (void)QtConcurrent::run([this, sources, rangeStart, rangeDuration, languageCode, wordsPerCue, lineWidth, lineCount,
+                             translate, cloud, cloudKey, cloudModel, keyterms, speakers]() {
         auto setProgress = [this](double fraction, const QString &status) {
             QMetaObject::invokeMethod(
                 this,
@@ -9917,11 +10362,18 @@ bool AppController::generateSubtitlesForSources(QList<SubtitleSource> sources, c
 
         setProgress(0.02, tr("Getting speech recognition ready…"));
         drift::WhisperTranscriber &whisper = drift::WhisperTranscriber::instance();
-        if (!whisper.available()) {
+        if (!cloud && !whisper.available()) { // the cloud needs no model here
             qWarning() << "[subtitles] whisper unavailable:" << whisper.lastError();
             finish(false, whisper.lastError(), {});
             return;
         }
+        // The hard words (names, brands) as Whisper's initial prompt, for this run only.
+        struct HintScope {
+            drift::WhisperTranscriber &w;
+            ~HintScope() { w.setInitialPrompt({}); }
+        } hintScope{whisper};
+        if (!cloud)
+            whisper.setInitialPrompt(keyterms.join(QStringLiteral(", ")));
 
         // Decode every source's raw audio over [srcIn, srcOut] at 16 kHz mono, back to back into
         // one buffer so Whisper runs once; spans remember where each source landed in it.
@@ -9996,27 +10448,73 @@ bool AppController::generateSubtitlesForSources(QList<SubtitleSource> sources, c
         // it was said (wav2vec2 forced alignment), so captions start and end on the words and
         // karaoke follows the voice. Without one, Whisper's segments are split by length.
         drift::WhisperResult res;
+        // The words with their times, when this run timed them (local pipeline or the cloud).
+        std::shared_ptr<drift::Transcript> heard;
         const auto onProgress = [this, setProgress](double fraction, const QString &status) {
             // Map 0–1 into the remaining 15%–95% of the overall bar.
             setProgress(0.15 + 0.80 * fraction, status);
             return m_subtitleGenCancel.loadRelaxed() == 0;
         };
-        if (!translate && !drift::CtcAligner::installedLanguages().isEmpty()) {
+        if (cloud) {
+            // ElevenLabs Scribe: every word timed, with the hard words given (names, brands).
+            QString flacError;
+            const QString flac = drift::writeTempFlac16k(mono, &flacError);
+            if (flac.isEmpty()) {
+                finish(false, flacError, {});
+                return;
+            }
+            setProgress(0.2, tr("Sending the audio to ElevenLabs…"));
+            drift::cloud::CloudError cloudError;
+            const auto transcript = drift::cloud::elevenlabs::speechToText(
+                cloudKey, cloudModel, flac, languageCode, speakers, 0, keyterms,
+                [this] { return m_subtitleGenCancel.loadRelaxed() != 0; },
+                [this, setProgress](double f) {
+                    setProgress(0.2 + 0.7 * f, f < 1.0 ? tr("Sending the audio to ElevenLabs…")
+                                                       : tr("ElevenLabs is transcribing…"));
+                },
+                &cloudError);
+            QFile::remove(flac);
+            res.cancelled = cloudError.code == QLatin1String("cancelled");
+            res.ok = transcript != nullptr && !cloudError.isError();
+            res.error = cloudError.message;
+            if (res.ok) {
+                res.language = transcript->language;
+                res.cues = drift::cuesFromTranscript(*transcript, 0, sampleToUsTotal(mono.size()), lineWidth, lineCount,
+                                                     wordsPerCue);
+                heard = transcript;
+            }
+        } else if (!translate && (speakers || !drift::CtcAligner::installedLanguages().isEmpty())) {
             drift::LocalTranscribeOptions options;
             options.language = languageCode;
-            options.align = true;
-            options.diarize = false;
+            options.align = !drift::CtcAligner::installedLanguages().isEmpty();
+            options.diarize = speakers;
             const drift::LocalTranscribeResult local = drift::transcribeLocal(mono, 0, options, onProgress);
             res.cancelled = local.cancelled;
             res.ok = local.transcript != nullptr;
             res.error = local.error;
             if (local.transcript) {
                 res.language = local.transcript->language;
-                res.cues = drift::cuesFromTranscript(*local.transcript, 0, sampleToUsTotal(mono.size()), 42, 1,
+                res.cues = drift::cuesFromTranscript(*local.transcript, 0, sampleToUsTotal(mono.size()), lineWidth, lineCount,
                                                      wordsPerCue);
+                heard = local.transcript;
             }
         } else {
-            res = whisper.transcribe(mono, onProgress, languageCode, wordsPerCue, translate);
+            res = whisper.transcribe(mono, onProgress, languageCode, wordsPerCue, translate, lineWidth, lineCount);
+            // Without the voice detection of «Word sync», Whisper may write text over silence
+            // («Gracias por ver», «Subtítulos por…»): a caption whose audio is near silence goes.
+            QList<drift::SubtitleCue> heard;
+            for (const drift::SubtitleCue &cue : std::as_const(res.cues)) {
+                const auto first = static_cast<size_t>(std::max<int64_t>(0, (cue.startUs * rate) / drift::kUsPerSecond));
+                const auto last = std::min(mono.size(), static_cast<size_t>((cue.endUs * rate) / drift::kUsPerSecond));
+                double energy = 0.0;
+                for (size_t i = first; i < last; ++i)
+                    energy += double(mono[i]) * mono[i];
+                const double rms = last > first ? std::sqrt(energy / double(last - first)) : 0.0;
+                if (rms >= 0.004)
+                    heard.append(cue);
+            }
+            if (!heard.isEmpty())
+                res.cues = heard;
         }
 
         qWarning() << "[subtitles] transcribe done. ok:" << res.ok << "cancelled:" << res.cancelled
@@ -10032,6 +10530,30 @@ bool AppController::generateSubtitlesForSources(QList<SubtitleSource> sources, c
         }
 
         setProgress(0.96, tr("Building caption track…"));
+
+        // Kept as the clip's transcript, in its file's times (0.30, tests #25): «Edit with the text»
+        // and «Remove silences» use it at once instead of listening to the clip again. One clip
+        // only: with several the words would have to be split back by file.
+        if (heard && sources.size() == 1 && !sources.first().assetId.isEmpty()) {
+            auto kept = std::make_shared<drift::Transcript>(*heard);
+            const drift::TimeUs offset = sources.first().srcIn;
+            for (drift::TranscriptWord &word : kept->words) {
+                word.startUs += offset;
+                word.endUs += offset;
+            }
+            kept->source = drift::SourceFingerprint::of(sources.first().path);
+            const QString assetId = sources.first().assetId;
+            QMetaObject::invokeMethod(
+                this,
+                [this, assetId, kept]() {
+                    const drift::MediaAsset *asset = m_project.asset(assetId);
+                    if (!asset || !kept->source.matches(asset->path) || m_project.transcript(assetId))
+                        return;
+                    m_project.setTranscript(assetId, kept);
+                    projectFile()->setDirty(true);
+                },
+                Qt::QueuedConnection);
+        }
 
         auto sampleToUs = [rate](size_t sample) {
             return static_cast<drift::TimeUs>((static_cast<int64_t>(sample) * drift::kUsPerSecond) / rate);
@@ -10053,28 +10575,30 @@ bool AppController::generateSubtitlesForSources(QList<SubtitleSource> sources, c
             const SubtitleSource &source = sources.at(static_cast<qsizetype>(spanIndex));
             const drift::TimeUs spanStartUs = sampleToUs(span.sampleStart);
             const drift::TimeUs spanLengthUs = sampleToUs(span.sampleEnd) - spanStartUs;
-            const double spanSec = drift::usToSeconds(source.srcOut - source.srcIn);
             const double srcStart = drift::usToSeconds(qBound<drift::TimeUs>(0, cue.startUs - spanStartUs, spanLengthUs));
             const double srcEnd = drift::usToSeconds(qBound<drift::TimeUs>(0, cue.endUs - spanStartUs, spanLengthUs));
-            const double tlStart = source.reverse ? (spanSec - srcEnd) / source.speed : srcStart / source.speed;
-            const double tlEnd = source.reverse ? (spanSec - srcStart) / source.speed : srcEnd / source.speed;
-            const drift::TimeUs offset = source.timelineStart - rangeStart;
-            const drift::TimeUs s =
-                offset + qBound<drift::TimeUs>(0, drift::secondsToUs(tlStart), source.timelineDuration);
-            const drift::TimeUs e =
-                offset + qBound<drift::TimeUs>(0, drift::secondsToUs(tlEnd), source.timelineDuration);
+            // Through the clip's own mapping, so a speed curve or a reversed clip still lines up
+            // (a constant speed alone missed both).
+            const auto toTimeline = [&](double srcSec) -> drift::TimeUs {
+                const drift::TimeUs sourceUs = source.srcIn + drift::secondsToUs(srcSec);
+                const drift::TimeUs at = source.clip.timelineStart + source.clip.sourceUsToClipLocalUs(sourceUs);
+                return qBound(source.timelineStart, at, source.timelineStart + source.timelineDuration) - rangeStart;
+            };
+            drift::TimeUs s = toTimeline(srcStart);
+            drift::TimeUs e = toTimeline(srcEnd);
+            if (s > e)
+                std::swap(s, e); // reversed
             if (e > s) {
                 drift::SubtitleCue m;
                 m.startUs = s;
                 m.endUs = e;
                 m.text = cue.text;
+                m.speaker = cue.speaker; // who says it, for the voices' colours
                 // The aligned words' ends, mapped the same way, so karaoke follows the voice.
                 if (!source.reverse) {
-                    for (const drift::TimeUs end : cue.wordEndsUs) {
-                        const double src = drift::usToSeconds(qBound<drift::TimeUs>(0, end - spanStartUs, spanLengthUs));
-                        m.wordEndsUs.append(offset + qBound<drift::TimeUs>(0, drift::secondsToUs(src / source.speed),
-                                                                           source.timelineDuration));
-                    }
+                    for (const drift::TimeUs end : cue.wordEndsUs)
+                        m.wordEndsUs.append(toTimeline(
+                            drift::usToSeconds(qBound<drift::TimeUs>(0, end - spanStartUs, spanLengthUs))));
                 }
                 mapped.append(m);
             }
@@ -10799,6 +11323,13 @@ bool AppController::objectDetectionAvailable() const
 }
 
 namespace {
+// How far above the original captions a translation sits (bilingual captions). Each caption is
+// centred in its box and may take two lines, so the gap is two lines of each plus a margin; a
+// fixed 11 % of the height let a big style's two lines run into each other.
+double bilingualLineGap(double originalPixelSize, double translatedPixelSize, double canvasHeight)
+{
+    return qMax(canvasHeight * 0.11, 1.25 * (originalPixelSize + translatedPixelSize) + canvasHeight * 0.02);
+}
 
 QList<QPair<QString, QString>> subtitleDictionaryPairs()
 {
@@ -10822,6 +11353,21 @@ void storeSubtitleDictionary(const QList<QPair<QString, QString>> &pairs)
 
 } // namespace
 
+int AppController::subtitleLineWidth() const
+{
+    // Letters per caption, by the frame's shape: the caption box of a vertical video is narrow
+    // (TikTok, Reels, Shorts), and 42 letters there wrapped into three or four lines.
+    const int w = m_project.width();
+    const int h = m_project.height();
+    if (w <= 0 || h <= 0)
+        return 42;
+    if (h > w * 1.2)
+        return 26;
+    if (h > w * 0.9)
+        return 32;
+    return 42;
+}
+
 void AppController::finalizeGeneratedSubtitles(drift::TimeUs timelineStart,
                                                drift::TimeUs timelineDuration,
                                                const QList<drift::SubtitleCue> &cues, bool translated)
@@ -10829,7 +11375,10 @@ void AppController::finalizeGeneratedSubtitles(drift::TimeUs timelineStart,
     const drift::Project before = m_project;
     const int trackIndex = translated
                                ? drift::insertTrackAtTopForClipType(m_project, drift::ClipType::Subtitle)
-                               : drift::ensureTrackForClipType(m_project, drift::ClipType::Subtitle, true);
+                               // A track free over the whole range: generating again stacks a new
+                               // clip above instead of on top of the first one.
+                               : drift::ensureFreeTrackForClipType(m_project, drift::ClipType::Subtitle,
+                                                                   timelineStart, timelineDuration, true);
     qWarning() << "[subtitles] finalize: trackIndex" << trackIndex << "cues" << cues.size()
                << "start" << timelineStart << "dur" << timelineDuration;
     if (trackIndex < 0)
@@ -10848,21 +11397,55 @@ void AppController::finalizeGeneratedSubtitles(drift::TimeUs timelineStart,
     applyDefaultVisualLayout(clip, m_project.width(), m_project.height());
     if (translated) {
         // The English line sits right above the original captions, a little smaller.
-        clip.transformY.setKeyframe(0, clip.transformY.evaluateAt(0) - m_project.height() * 0.11);
+        const double originalSize = clip.textStyle.pixelSize;
         clip.textStyle.pixelSize = qMax(12.0, clip.textStyle.pixelSize * 0.85);
+        clip.transformY.setKeyframe(0, clip.transformY.evaluateAt(0)
+                                           - bilingualLineGap(originalSize, clip.textStyle.pixelSize, m_project.height()));
         clip.name = tr("English subtitles");
     }
     QList<drift::SubtitleCue> cleaned = subtitleCleanupEnabled() ? drift::cleanSubtitleCues(cues) : cues;
+    // A caption with no letter or digit (a lone «.» that Whisper writes over the silence at the end)
+    // is no caption.
+    cleaned.removeIf([](const drift::SubtitleCue &cue) {
+        return std::none_of(cue.text.cbegin(), cue.text.cend(), [](QChar c) { return c.isLetterOrNumber(); });
+    });
     const QList<QPair<QString, QString>> dictionary = subtitleDictionaryPairs();
     const bool emojis = subtitleEmojisEnabled();
+    const bool keywords = subtitleKeywordsEnabled();
+    const bool masked = subtitleProfanityFilter();
     for (drift::SubtitleCue &cue : cleaned) {
-        cue.text = drift::applySubtitleReplacements(cue.text, dictionary);
+        // The dictionary may change how many words there are: the timings follow (karaoke).
+        const QString fixed = drift::applySubtitleReplacements(cue.text, dictionary);
+        if (fixed != cue.text) {
+            cue.wordEndsUs = drift::realignWordEnds(cue.text, cue.wordEndsUs, fixed);
+            cue.text = fixed;
+        }
+        if (masked)
+            cue.text = drift::maskProfanity(cue.text); // same words, so the timings still fit
+        if (keywords)
+            cue.text = drift::highlightCaptionKeyword(cue.text); // same words: the timings fit
         if (emojis)
             cue.text = drift::captionWithEmoji(cue.text);
     }
     if (cleaned.isEmpty())
         cleaned = cues;
     clip.subtitleCues = cleaned;
+    // Two voices or more: each its colour and a name the editor lets change («Speaker 1»…).
+    {
+        static const QList<QColor> kVoiceColours = {QColor(255, 255, 255), QColor(255, 214, 64),
+                                                     QColor(96, 205, 255), QColor(255, 128, 171),
+                                                     QColor(140, 230, 120), QColor(255, 160, 80)};
+        int count = 0;
+        for (const drift::SubtitleCue &cue : std::as_const(clip.subtitleCues))
+            count = qMax(count, cue.speaker + 1);
+        if (count >= 2) {
+            for (int i = 0; i < count; ++i)
+                clip.subtitleSpeakers.append({tr("Speaker %1").arg(i + 1), kVoiceColours.at(i % kVoiceColours.size())});
+        } else {
+            for (drift::SubtitleCue &cue : clip.subtitleCues)
+                cue.speaker = -1; // one voice: nothing to tell apart
+        }
+    }
     if (!translated)
         clip.name = drift::subtitleClipName(cleaned);
 
@@ -11714,6 +12297,41 @@ void AppController::setShapePathPoints(int trackIndex, int clipIndex, const QVar
     finishEdit(tr("Path edited"));
 }
 
+void AppController::keyGroupAtPlayhead(const QString &group)
+{
+    // After Effects' Alt+Shift+P/S/R/T/A: a key on that property of every selected layer, with the
+    // value it has now, and its line shown.
+    static const QHash<QString, QStringList> props = {
+        {QStringLiteral("position"), {QStringLiteral("x"), QStringLiteral("y")}},
+        {QStringLiteral("scale"), {QStringLiteral("width"), QStringLiteral("height")}},
+        {QStringLiteral("rotation"), {QStringLiteral("rotation")}},
+        {QStringLiteral("opacity"), {QStringLiteral("opacity")}},
+        {QStringLiteral("anchor"), {QStringLiteral("anchorX"), QStringLiteral("anchorY")}},
+    };
+    const QStringList list = props.value(group);
+    if (list.isEmpty())
+        return;
+    QList<QPair<int, int>> targets;
+    for (const QVariant &v : selection()) {
+        const QVariantMap p = v.toMap();
+        targets.append({p.value(QStringLiteral("track")).toInt(), p.value(QStringLiteral("clip")).toInt()});
+    }
+    if (targets.isEmpty() && isValidClipIndex(m_selectedTrack, m_selectedClip))
+        targets.append({m_selectedTrack, m_selectedClip});
+    if (targets.isEmpty())
+        return;
+    const double at = playheadSeconds();
+    beginEditSession(tr("Add keyframe"));
+    for (const auto &t : std::as_const(targets)) {
+        if (!isValidClipIndex(t.first, t.second))
+            continue;
+        for (const QString &prop : list)
+            setClipKeyframe(t.first, t.second, prop, at, propertyValueAt(t.first, t.second, prop, at, propertyBaseValue(t.first, t.second, prop, 0.0)));
+    }
+    endEditSession(true);
+    showOnlyKeyframeGroup(group);
+}
+
 void AppController::showOnlyKeyframeGroup(const QString &group)
 {
     QSet<int> tracks;
@@ -11736,6 +12354,7 @@ void AppController::showOnlyKeyframeGroup(const QString &group)
         track.keyframesExpanded = !alreadyShown && tracks.contains(t) && !track.isAdjustmentLane();
     }
     m_keyframeRowsAnimatedOnly = false;
+    m_keyframeRowsModifiedOnly = false;
     m_keyframeRowsOnlyGroup = alreadyShown ? QString() : group;
     m_tracksCacheValid = false;
     m_tracksCache.clear();
@@ -11820,6 +12439,31 @@ void AppController::stretchKeyframes(int trackIndex, const QVariantList &keys, d
 // The keys the Curves panel works on: the ones picked on the timeline, or, with none picked,
 // every key of the selected clip's animated transform properties (EasyCurve works on what is
 // selected, and a clip is what most people have selected).
+bool AppController::eachPickedTrack(const QString &label, const std::function<void()> &fn)
+{
+    // Keys of several tracks picked at once (0.30, as After Effects): the tools work on one track's,
+    // so each track's run in turn, as the pick, inside one undo step.
+    const QVariantList keys = m_pickedKeyframes.value(QStringLiteral("keys")).toList();
+    const int fallback = m_pickedKeyframes.value(QStringLiteral("track")).toInt();
+    QMap<int, QVariantList> byTrack;
+    for (const QVariant &v : keys)
+        byTrack[v.toMap().value(QStringLiteral("track"), fallback).toInt()].append(v);
+    if (byTrack.size() < 2)
+        return false;
+    const QVariantMap all = m_pickedKeyframes;
+    const bool own = !m_editSessionOpen;
+    if (own)
+        beginEditSession(label);
+    for (auto it = byTrack.cbegin(); it != byTrack.cend(); ++it) {
+        m_pickedKeyframes = {{QStringLiteral("track"), it.key()}, {QStringLiteral("keys"), it.value()}};
+        fn();
+    }
+    m_pickedKeyframes = all;
+    if (own)
+        endEditSession(true);
+    return true;
+}
+
 QVariantMap AppController::curveTargetKeys() const
 {
     if (!m_pickedKeyframes.value(QStringLiteral("keys")).toList().isEmpty())
@@ -11908,6 +12552,8 @@ QVariantMap AppController::pickedKeyframeCurves() const
 
 void AppController::applyCurveToPicked(const QVariantList &a, const QVariantList &b)
 {
+    if (eachPickedTrack(tr("Curve applied"), [&] { applyCurveToPicked(a, b); }))
+        return;
     const QVariantMap target = curveTargetKeys();
     const int track = target.value(QStringLiteral("track")).toInt();
     const QVariantList keys = target.value(QStringLiteral("keys")).toList();
@@ -11974,6 +12620,8 @@ bool AppController::writeTextFile(const QUrl &fileUrl, const QString &text) cons
 void AppController::easePickedKeyframes(const QString &mode, double inInfluence, double outInfluence,
                                         double velocity)
 {
+    if (eachPickedTrack(tr("Keyframe easing changed"), [&] { easePickedKeyframes(mode, inInfluence, outInfluence, velocity); }))
+        return;
     const int track = m_pickedKeyframes.value(QStringLiteral("track")).toInt();
     const QVariantList keys = m_pickedKeyframes.value(QStringLiteral("keys")).toList();
     if (keys.isEmpty())
@@ -12122,6 +12770,8 @@ void AppController::setSettleParams(int trackIndex, int clipIndex, const QString
 
 void AppController::applySettleToPicked(const QString &kind)
 {
+    if (eachPickedTrack(tr("Settle"), [&] { applySettleToPicked(kind); }))
+        return;
     // The properties to settle: those of the picked keys, else the selected clip's animated transform.
     QList<QPair<QPair<int, int>, QString>> targets;
     const int track = m_pickedKeyframes.value(QStringLiteral("track")).toInt();
@@ -12188,6 +12838,9 @@ bool AppController::clonePickedKeyframes()
 
 bool AppController::reversePickedKeyframes()
 {
+    bool any = false;
+    if (eachPickedTrack(tr("Reverse keyframes"), [&] { any = reversePickedKeyframes() || any; }))
+        return any;
     // After Effects' Time-Reverse Keyframes (0.29): per property, the picked keys swap places
     // end for end within their span, so a clone of an entrance plays as its exit. Each stretch
     // keeps its curve, mirrored: a key's tangents trade sides, and a Hold moves to the key that
@@ -12669,13 +13322,19 @@ QVariantMap AppController::keyVelocity(int trackIndex, int clipIndex, const QStr
     if (!isValidClipIndex(trackIndex, clipIndex))
         return out;
     const drift::Clip &clip = m_project.tracks().at(trackIndex).clips.at(clipIndex);
-    const drift::KeyframeTrack<double> *kt = keyframeTrackForProp(clip, prop);
+    // Joined Position: the speed along the path, which X's keys hold (px of path a second).
+    const bool path = clip.positionJoined && (prop == QLatin1String("x") || prop == QLatin1String("y"));
+    const drift::KeyframeTrack<double> *kt = path ? &clip.transformX : keyframeTrackForProp(clip, prop);
     if (!kt)
         return out;
     const drift::TimeUs at = kt->nearestKeyframe(drift::secondsToUs(seconds) - clip.timelineStart, 2000);
     if (at < 0)
         return out;
-    const QMap<drift::TimeUs, drift::Keyframe<double>> &keys = kt->keyframes();
+    QMap<drift::TimeUs, drift::Keyframe<double>> keys = kt->keyframes();
+    if (path) {
+        for (auto k = keys.begin(); k != keys.end(); ++k)
+            k->value = k->pathDistance;
+    }
     auto it = keys.constFind(at);
     const drift::Keyframe<double> &k = it.value();
     out.insert(QStringLiteral("valid"), true);
@@ -12709,7 +13368,9 @@ void AppController::setKeyVelocity(int trackIndex, int clipIndex, const QString 
         return;
     const drift::Project before = m_project;
     drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
-    drift::KeyframeTrack<double> *kt = keyframeTrackForProp(clip, prop, false);
+    // Joined Position's timing is X's keys' (Y gets a copy).
+    const bool path = clip.positionJoined && (prop == QLatin1String("x") || prop == QLatin1String("y"));
+    drift::KeyframeTrack<double> *kt = path ? &clip.transformX : keyframeTrackForProp(clip, prop, false);
     if (!kt)
         return;
     const drift::TimeUs at = kt->nearestKeyframe(drift::secondsToUs(seconds) - clip.timelineStart, 2000);
@@ -15864,6 +16525,8 @@ void AppController::emitPreviewFrame()
 void AppController::emitPreviewEdit(int trackIndex, int clipIndex, const QStringList &keys)
 {
     m_previewDragDirty = true;
+    if (isValidClipIndex(trackIndex, clipIndex) && m_project.tracks().at(trackIndex).clips.at(clipIndex).positionJoined)
+        drift::syncJoinedPosition(m_project.tracks()[trackIndex].clips[clipIndex]);
     // Multicam refreshes its tiles off tracksChanged, and a batch owes one at its end anyway.
     if (m_multicamActive || m_tracksBatchDepth > 0) {
         emitPreviewFrame();
@@ -16071,7 +16734,19 @@ QVariantMap AppController::clipNaturalSize(int trackIndex, int clipIndex)
 {
     if (!isValidClipIndex(trackIndex, clipIndex))
         return {};
-    drift::Clip copy = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    const drift::Clip &source = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    // Its own size, once known (0.30): stays the 100 % however Scale is keyed afterwards.
+    if (source.restW > 0.0 && source.restH > 0.0)
+        return {{QStringLiteral("w"), source.restW}, {QStringLiteral("h"), source.restH}};
+    // A drawn shape's 100 % is the box it was drawn with (its first size), as a shape layer in
+    // After Effects; the canvas made a drawn ball read 6.8 % × 12.2 % (bounce exercise #6).
+    // A text's, its box (the canvas made a new title read 10 %).
+    if ((source.type == drift::ClipType::Shape || source.type == drift::ClipType::Text)
+        && !source.transformW.isEmpty() && !source.transformH.isEmpty()) {
+        return {{QStringLiteral("w"), qMax(1.0, source.transformW.keyframes().first().value)},
+                {QStringLiteral("h"), qMax(1.0, source.transformH.keyframes().first().value)}};
+    }
+    drift::Clip copy = source;
     resetTransformOf(copy);
     const double w = copy.transformW.isEmpty() ? m_project.width() : copy.transformW.evaluateAt(0);
     const double h = copy.transformH.isEmpty() ? m_project.height() : copy.transformH.evaluateAt(0);
@@ -16322,6 +16997,7 @@ void AppController::commitPreviewDrag()
 
     // Part of the drag's own undo step, like the edit that caused it.
     syncTextAutoFit(m_project, m_previewDragBefore);
+    syncJoinedPositions(&m_previewDragBefore);
     const QString text = m_previewDragText.isEmpty() ? tr("Edit clip") : m_previewDragText;
     if (!m_mcpController->undoSuspended())
         m_undoStack.push(new drift::ProjectSnapshotCommand(&m_project, m_previewDragBefore, m_project, text));
@@ -16784,6 +17460,10 @@ void AppController::setSubtitleCues(int trackIndex, int clipIndex, const QVarian
 {
     if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
         return;
+    if (isTrackLocked(trackIndex)) {
+        setLastMessage(tr("This track is locked. Unlock it with the padlock in its header."), QStringLiteral("warning"));
+        return;
+    }
 
     drift::Track &track = m_project.tracks()[trackIndex];
     if (clipIndex < 0 || clipIndex >= track.clips.size())
@@ -16826,6 +17506,7 @@ int AppController::replaceInSubtitles(int trackIndex, int clipIndex, const QStri
     for (drift::SubtitleCue &cue : clip.subtitleCues) {
         const QString next = drift::applySubtitleReplacements(cue.text, pair);
         if (next != cue.text) {
+            cue.wordEndsUs = drift::realignWordEnds(cue.text, cue.wordEndsUs, next); // karaoke
             cue.text = next;
             ++changed;
         }
@@ -16839,6 +17520,122 @@ int AppController::replaceInSubtitles(int trackIndex, int clipIndex, const QStri
     return changed;
 }
 
+namespace {
+// The language a clip's captions are written in, from their commonest words (0.30, tests #39: the
+// English line made by Translate was checked with the Spanish dictionary, «Hello» → «Ello»).
+// Empty when the words do not tell.
+QString captionsLanguage(const QStringList &texts)
+{
+    static const QList<QPair<QString, QStringList>> kWords = {
+        {QStringLiteral("en"), {"the", "and", "you", "to", "is", "of", "it", "that", "we", "i", "this", "for", "with", "are", "what"}},
+        {QStringLiteral("es"), {"el", "la", "que", "de", "y", "en", "los", "es", "un", "una", "por", "con", "para", "lo", "se"}},
+        {QStringLiteral("pt"), {"o", "a", "que", "de", "e", "do", "da", "em", "um", "uma", "para", "com", "os", "mas", "voce"}},
+        {QStringLiteral("fr"), {"le", "la", "les", "de", "et", "est", "un", "une", "je", "vous", "que", "pour", "pas", "des", "dans"}},
+        {QStringLiteral("it"), {"il", "la", "che", "di", "e", "ma", "un", "una", "per", "non", "sono", "con", "del", "della", "lo"}},
+        {QStringLiteral("de"), {"der", "die", "und", "das", "ist", "ich", "nicht", "ein", "eine", "zu", "mit", "sie", "es", "den", "wir"}},
+    };
+    QHash<QString, int> counts;
+    static const QRegularExpression split(QStringLiteral("[^\\p{L}]+"));
+    for (const QString &text : texts) {
+        for (const QString &word : text.toLower().split(split, Qt::SkipEmptyParts))
+            counts[word] += 1;
+    }
+    QString best;
+    int bestScore = 0;
+    int second = 0;
+    for (const auto &lang : kWords) {
+        int score = 0;
+        for (const QString &w : lang.second)
+            score += counts.value(w);
+        if (score > bestScore) {
+            second = bestScore;
+            bestScore = score;
+            best = lang.first;
+        } else if (score > second) {
+            second = score;
+        }
+    }
+    return bestScore >= 3 && bestScore > second * 3 / 2 ? best : QString();
+}
+
+QString subtitleSpellLanguage(const QString &language, const QStringList &texts = {})
+{
+    if (!language.isEmpty())
+        return language;
+    const QString remembered = QSettings().value(QStringLiteral("subtitles/language")).toString();
+    const QString fallback = remembered.isEmpty() ? QLocale().name() : remembered;
+    const QString written = captionsLanguage(texts);
+    // The dictionary of the language they are written in, keeping the region when it is that one.
+    if (written.isEmpty() || fallback.startsWith(written))
+        return fallback;
+    return written;
+}
+} // namespace
+
+bool AppController::subtitleSpellCheckAvailable(const QString &language) const
+{
+    return drift::spell::available(subtitleSpellLanguage(language));
+}
+
+QVariantList AppController::subtitleSpellingIssues(int trackIndex, int clipIndex, const QString &language) const
+{
+    QVariantList out;
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return out;
+    const drift::Clip &clip = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    if (clip.type != drift::ClipType::Subtitle)
+        return out;
+    QStringList texts;
+    for (const drift::SubtitleCue &cue : clip.subtitleCues)
+        texts.append(cue.text);
+    for (const drift::spell::Issue &issue : drift::spell::check(texts, subtitleSpellLanguage(language, texts))) {
+        out.append(QVariantMap{
+            {QStringLiteral("cue"), issue.text},
+            {QStringLiteral("start"), issue.start},
+            {QStringLiteral("length"), issue.length},
+            {QStringLiteral("word"), issue.word},
+            {QStringLiteral("suggestions"), issue.suggestions},
+        });
+    }
+    return out;
+}
+
+QVariantList AppController::subtitleChangesPreview(int trackIndex, int clipIndex, const QString &kind) const
+{
+    // What «Clean up» or «Emojis» would change, caption by caption ({before, after}), shown before
+    // anything is applied.
+    QVariantList out;
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return out;
+    const drift::Clip &clip = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    if (clip.type != drift::ClipType::Subtitle)
+        return out;
+    if (kind == QLatin1String("emojis") || kind == QLatin1String("keywords")) {
+        const bool emoji = kind == QLatin1String("emojis");
+        for (const drift::SubtitleCue &cue : clip.subtitleCues) {
+            const QString next = emoji ? drift::captionWithEmoji(cue.text) : drift::highlightCaptionKeyword(cue.text);
+            if (next != cue.text)
+                out.append(QVariantMap{{QStringLiteral("before"), cue.text}, {QStringLiteral("after"), next}});
+        }
+        return out;
+    }
+    const QList<QPair<QString, QString>> dictionary = subtitleDictionaryPairs();
+    // Cleaning drops empty captions, so the cues are matched by their times.
+    const QList<drift::SubtitleCue> cleaned = drift::cleanSubtitleCues(clip.subtitleCues);
+    for (const drift::SubtitleCue &cue : clip.subtitleCues) {
+        QString after;
+        for (const drift::SubtitleCue &c : cleaned) {
+            if (c.startUs == cue.startUs && c.endUs == cue.endUs) {
+                after = drift::applySubtitleReplacements(c.text, dictionary);
+                break;
+            }
+        }
+        if (after != cue.text)
+            out.append(QVariantMap{{QStringLiteral("before"), cue.text}, {QStringLiteral("after"), after}});
+    }
+    return out;
+}
+
 void AppController::cleanUpSubtitles(int trackIndex, int clipIndex)
 {
     if (!isValidClipIndex(trackIndex, clipIndex))
@@ -16848,8 +17645,13 @@ void AppController::cleanUpSubtitles(int trackIndex, int clipIndex)
         return;
     QList<drift::SubtitleCue> cues = drift::cleanSubtitleCues(clip.subtitleCues);
     const QList<QPair<QString, QString>> dictionary = subtitleDictionaryPairs();
-    for (drift::SubtitleCue &cue : cues)
-        cue.text = drift::applySubtitleReplacements(cue.text, dictionary);
+    for (drift::SubtitleCue &cue : cues) {
+        const QString fixed = drift::applySubtitleReplacements(cue.text, dictionary);
+        if (fixed != cue.text) {
+            cue.wordEndsUs = drift::realignWordEnds(cue.text, cue.wordEndsUs, fixed); // karaoke
+            cue.text = fixed;
+        }
+    }
     bool same = cues.size() == clip.subtitleCues.size();
     for (int i = 0; same && i < cues.size(); ++i)
         same = cues.at(i).text == clip.subtitleCues.at(i).text;
@@ -16912,12 +17714,6 @@ QList<QPair<int, int>> textFindMatches(const QString &text, const QRegularExpres
 QString textFindKey(int track, int clip, int cue, int start)
 {
     return QStringLiteral("%1:%2:%3:%4").arg(track).arg(clip).arg(cue).arg(start);
-}
-
-int subtitleWordCount(const QString &text)
-{
-    static const QRegularExpression space(QStringLiteral("\\s+"));
-    return int(text.split(space, Qt::SkipEmptyParts).size());
 }
 
 } // namespace
@@ -17040,14 +17836,11 @@ int AppController::replaceInTexts(const QString &needle, const QString &replacem
                 for (int i = 0; i < clip.subtitleCues.size(); ++i) {
                     drift::SubtitleCue &cue = clip.subtitleCues[i];
                     QString text = cue.text;
-                    const int wordsBefore = subtitleWordCount(text);
                     if (replaceIn(t, c, i, text, nullptr) == 0)
                         continue;
+                    // The word timings follow the words (karaoke): kept ones keep theirs.
+                    cue.wordEndsUs = drift::realignWordEnds(cue.text, cue.wordEndsUs, text);
                     cue.text = text;
-                    // Word timings that no longer match the words would light the wrong one;
-                    // with the same number of words they still fit (a word fixed in place).
-                    if (subtitleWordCount(text) != wordsBefore)
-                        cue.wordEndsUs.clear();
                 }
             }
         }
@@ -17104,6 +17897,321 @@ void AppController::setSubtitleCleanupEnabled(bool enabled)
     QSettings().setValue(QStringLiteral("subtitles/cleanup"), enabled);
 }
 
+bool AppController::subtitleCloudReady() const
+{
+    const QString provider = QString::fromLatin1(CloudProviders::kElevenLabs);
+    return m_cloud && m_cloud->configured(provider) && m_cloud->consent(provider);
+}
+
+bool AppController::subtitleCloudEngine() const
+{
+    return QSettings().value(QStringLiteral("subtitles/cloud"), false).toBool();
+}
+
+void AppController::setSubtitleCloudEngine(bool cloud)
+{
+    QSettings().setValue(QStringLiteral("subtitles/cloud"), cloud);
+}
+
+QStringList AppController::subtitleKeyterms() const
+{
+    QStringList out;
+    for (const QString &term : QSettings().value(QStringLiteral("subtitles/keyterms")).toString().split(QLatin1Char(','))) {
+        if (!term.trimmed().isEmpty())
+            out.append(term.trimmed());
+    }
+    return out;
+}
+
+QString AppController::subtitleKeytermsText() const
+{
+    return subtitleKeyterms().join(QStringLiteral(", "));
+}
+
+void AppController::setSubtitleKeytermsText(const QString &text)
+{
+    QSettings().setValue(QStringLiteral("subtitles/keyterms"), text);
+}
+
+QVariantList AppController::subtitleTranslationLanguages() const
+{
+    // What DeepL translates into, named in their own language.
+    static const char *kCodes[] = {"es", "en", "pt-BR", "pt-PT", "fr", "it", "de", "nl", "pl", "ru", "uk",
+                                   "tr", "ar", "ja", "ko", "zh", "id", "sv", "da", "nb", "fi", "cs", "ro",
+                                   "hu", "el", "bg", "sk", "sl", "lt", "lv", "et"};
+    QVariantList out;
+    for (const char *code : kCodes) {
+        const QString c = QString::fromLatin1(code);
+        const QLocale locale(QString(c).replace(QLatin1Char('-'), QLatin1Char('_')));
+        // Qt names plain "en" after the United States; DeepL's English is just English.
+        QString label = c == QLatin1String("en") ? QStringLiteral("English") : locale.nativeLanguageName();
+        if (c == QLatin1String("pt-BR") || c == QLatin1String("pt-PT"))
+            label += QStringLiteral(" (%1)").arg(locale.nativeTerritoryName());
+        if (!label.isEmpty())
+            label[0] = label[0].toUpper();
+        out.append(QVariantMap{{QStringLiteral("code"), c}, {QStringLiteral("label"), label}});
+    }
+    return out;
+}
+
+namespace {
+// Captions cut a sentence across several of them («Primero abrimos el programa y elegimos un» / «video.»).
+// Translated one by one, each half came back on its own («…and chose a» / «and video.»: 0.30 tests
+// E53). So whole sentences are translated (up to four captions each) and the words shared back out,
+// as many to each caption as it had.
+struct CaptionSentences {
+    QStringList sentences;
+    QList<QList<int>> wordCounts; // per sentence, the words of each of its captions
+};
+
+CaptionSentences groupCaptionSentences(const QStringList &texts)
+{
+    CaptionSentences out;
+    QStringList parts;
+    QList<int> counts;
+    const auto close = [&] {
+        if (parts.isEmpty())
+            return;
+        out.sentences.append(parts.join(QLatin1Char(' ')));
+        out.wordCounts.append(counts);
+        parts.clear();
+        counts.clear();
+    };
+    for (const QString &raw : texts) {
+        const QString text = raw.simplified();
+        parts.append(text);
+        counts.append(qMax(1, int(text.split(QLatin1Char(' '), Qt::SkipEmptyParts).size())));
+        const QChar last = text.isEmpty() ? QChar() : text.back();
+        if (last == QLatin1Char('.') || last == QLatin1Char('!') || last == QLatin1Char('?') || last == QChar(0x2026)
+            || last == QChar(0x3002) || parts.size() >= 4)
+            close();
+    }
+    close();
+    return out;
+}
+
+QStringList splitCaptionSentences(const CaptionSentences &grouped, const QStringList &translated)
+{
+    QStringList out;
+    if (translated.size() != grouped.sentences.size())
+        return out;
+    for (int s = 0; s < translated.size(); ++s) {
+        const QList<int> &counts = grouped.wordCounts.at(s);
+        if (counts.size() == 1) {
+            out.append(translated.at(s).trimmed());
+            continue;
+        }
+        const QStringList words = translated.at(s).simplified().split(QLatin1Char(' '), Qt::SkipEmptyParts);
+        int total = 0;
+        for (const int c : counts)
+            total += c;
+        int taken = 0;
+        int before = 0;
+        for (int i = 0; i < counts.size(); ++i) {
+            before += counts.at(i);
+            int upto = i == counts.size() - 1 ? int(words.size())
+                                               : int(std::lround(double(before) / total * words.size()));
+            // Each caption keeps at least a word while there are words for the ones after it.
+            const int left = int(counts.size()) - i - 1;
+            const int least = qMin(taken + 1, int(words.size()));
+            const int most = qMax(least, int(words.size()) - left);
+            upto = qMin(qMax(upto, least), most);
+            out.append(words.mid(taken, upto - taken).join(QLatin1Char(' ')));
+            taken = upto;
+        }
+    }
+    return out;
+}
+} // namespace
+
+void AppController::translateSubtitles(int trackIndex, int clipIndex, const QString &language)
+{
+    if (m_subtitleTranslating || !isValidClipIndex(trackIndex, clipIndex))
+        return;
+    const drift::Clip source = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    if (source.type != drift::ClipType::Subtitle || source.subtitleCues.isEmpty())
+        return;
+    // The *marks* of key words would come back moved or lost: the translation goes without them.
+    QStringList cueTexts;
+    for (const drift::SubtitleCue &cue : source.subtitleCues)
+        cueTexts.append(QString(cue.text).remove(QLatin1Char('*')));
+    // Whole sentences go to the translator; insertTranslatedCaptions shares them back out.
+    const QStringList plain = groupCaptionSentences(cueTexts).sentences;
+    QJsonArray texts;
+    for (const QString &sentence : plain)
+        texts.append(sentence);
+    const QString sourceLanguage = QSettings().value(QStringLiteral("subtitles/language")).toString();
+    const QString sourceId = source.id;
+    QString label = language;
+    for (const QVariant &v : subtitleTranslationLanguages()) {
+        if (v.toMap().value(QStringLiteral("code")).toString() == language)
+            label = v.toMap().value(QStringLiteral("label")).toString();
+    }
+    AccountController *account = m_marketClient ? m_marketClient->account() : nullptr;
+    if (!account || !account->signedIn()) {
+        // Without an account, on this computer when its model is there (0.30).
+        if (drift::TextTranslator::modelPresent())
+            translateSubtitlesOffline(sourceId, plain, sourceLanguage, language, label);
+        else
+            setLastMessage(tr("Sign in with Google to translate captions, or install the Offline translation extra"),
+                           QStringLiteral("warning"));
+        return;
+    }
+    QJsonObject body{{QStringLiteral("texts"), texts}, {QStringLiteral("target"), language}};
+    if (!sourceLanguage.isEmpty())
+        body.insert(QStringLiteral("source"), sourceLanguage);
+
+    m_subtitleTranslating = true;
+    emit subtitleTranslatingChanged();
+    setLastMessage(tr("Translating the captions…"));
+    account->postAuthorized(QStringLiteral("/v1/translate"), QJsonDocument(body).toJson(QJsonDocument::Compact),
+                            [this, sourceId, label, plain, sourceLanguage, language](int status, const QByteArray &payload) {
+        m_subtitleTranslating = false;
+        emit subtitleTranslatingChanged();
+        const QJsonObject answer = QJsonDocument::fromJson(payload).object();
+        if (status != 200) {
+            // No internet, the month's quota spent or DeepL down: this computer's model, when there (0.30).
+            const bool unavailable = status == 0 || status == 429 || status == 502 || status == 503;
+            if (unavailable && drift::TextTranslator::modelPresent()) {
+                translateSubtitlesOffline(sourceId, plain, sourceLanguage, language, label);
+                return;
+            }
+            const QString detail = answer.value(QStringLiteral("error")).toString();
+            setLastMessage(detail.isEmpty() ? tr("Could not translate the captions (no answer from the server)") : detail,
+                           QStringLiteral("error"));
+            return;
+        }
+        QStringList translations;
+        for (const QJsonValue &v : answer.value(QStringLiteral("translations")).toArray())
+            translations.append(v.toString());
+        insertTranslatedCaptions(sourceId, label, translations);
+    });
+}
+
+bool AppController::offlineTranslationAvailable() const
+{
+    return drift::TextTranslator::modelPresent();
+}
+
+void AppController::translateSubtitlesOffline(const QString &sourceId, const QStringList &texts, const QString &source,
+                                              const QString &target, const QString &label)
+{
+    m_subtitleTranslating = true;
+    emit subtitleTranslatingChanged();
+    setLastMessage(tr("Translating the captions on this computer…"));
+    (void)QtConcurrent::run([this, sourceId, texts, source, target, label]() {
+        QString error;
+        QStringList out;
+        if (std::shared_ptr<drift::TextTranslator> translator = drift::TextTranslator::load(&error))
+            out = translator->translate(texts, source, target, &error);
+        QMetaObject::invokeMethod(this, [this, sourceId, label, out, error]() {
+            m_subtitleTranslating = false;
+            emit subtitleTranslatingChanged();
+            if (out.isEmpty()) {
+                setLastMessage(error.isEmpty() ? tr("Could not translate the captions") : error, QStringLiteral("error"));
+                return;
+            }
+            insertTranslatedCaptions(sourceId, label, out);
+        }, Qt::QueuedConnection);
+    });
+}
+
+void AppController::insertTranslatedCaptions(const QString &sourceId, const QString &label, const QStringList &sentences)
+{
+    {
+        const QPair<int, int> loc = m_mcpController->locateClip(sourceId);
+        if (loc.first < 0)
+            return;
+        const drift::Clip original = m_project.tracks().at(loc.first).clips.at(loc.second);
+        // Sent as whole sentences: their words go back to the captions they came from.
+        QStringList cueTexts;
+        for (const drift::SubtitleCue &cue : original.subtitleCues)
+            cueTexts.append(QString(cue.text).remove(QLatin1Char('*')));
+        const QStringList translations = splitCaptionSentences(groupCaptionSentences(cueTexts), sentences);
+        if (translations.size() != original.subtitleCues.size()) {
+            setLastMessage(tr("The captions changed while they were being translated; try again"), QStringLiteral("warning"));
+            return;
+        }
+        // The translation as its own caption clip right above the original, a little higher and smaller.
+        const drift::Project before = m_project;
+        const int track = drift::insertTrackAtTopForClipType(m_project, drift::ClipType::Subtitle);
+        if (track < 0)
+            return;
+        drift::Clip clip = original;
+        clip.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
+        clip.name = tr("Captions (%1)").arg(label);
+        clip.subtitleSpeakers = original.subtitleSpeakers;
+        for (int i = 0; i < clip.subtitleCues.size(); ++i) {
+            drift::SubtitleCue &cue = clip.subtitleCues[i];
+            cue.text = translations.at(i);
+            cue.wordEndsUs.clear(); // other words: the karaoke falls back to even timing
+        }
+        const double originalSize = clip.textStyle.pixelSize;
+        clip.textStyle.pixelSize = qMax(12.0, clip.textStyle.pixelSize * 0.85);
+        clip.transformY.setKeyframe(0, clip.transformY.evaluateAt(0)
+                                           - bilingualLineGap(originalSize, clip.textStyle.pixelSize, m_project.height()));
+        m_project.tracks()[track].clips.append(clip);
+        pushProjectEdit(before, tr("Translate captions"));
+        finishEdit(tr("Translate captions"));
+        selectClip(track, m_project.tracks().at(track).clips.size() - 1);
+        setLastMessage(tr("Captions translated into %1").arg(label), QStringLiteral("success"));
+    }
+}
+
+bool AppController::subtitleSpeakersEnabled() const
+{
+    return QSettings().value(QStringLiteral("subtitles/speakers"), false).toBool();
+}
+
+void AppController::setSubtitleSpeakersEnabled(bool enabled)
+{
+    QSettings().setValue(QStringLiteral("subtitles/speakers"), enabled);
+}
+
+bool AppController::subtitleSpeakersAvailable() const
+{
+    // The cloud tells voices apart on its own; on this computer it takes the speaker-labels extra.
+    return drift::SpeakerDiarizer::modelPresent() || (subtitleCloudEngine() && subtitleCloudReady());
+}
+
+void AppController::setSubtitleSpeaker(int trackIndex, int clipIndex, int speaker, const QString &name,
+                                       const QColor &color)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex) || isTrackLocked(trackIndex))
+        return;
+    drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
+    if (clip.type != drift::ClipType::Subtitle || speaker < 0 || speaker >= clip.subtitleSpeakers.size())
+        return;
+    const drift::Project before = m_project;
+    drift::SubtitleSpeaker &entry = clip.subtitleSpeakers[speaker];
+    if (!name.trimmed().isEmpty())
+        entry.name = name.trimmed();
+    if (color.isValid())
+        entry.color = color;
+    pushProjectEdit(before, tr("Edit speaker"));
+    finishEdit(tr("Edit speaker"));
+}
+
+bool AppController::subtitleTwoLines() const
+{
+    return QSettings().value(QStringLiteral("subtitles/twoLines"), false).toBool();
+}
+
+void AppController::setSubtitleTwoLines(bool enabled)
+{
+    QSettings().setValue(QStringLiteral("subtitles/twoLines"), enabled);
+}
+
+bool AppController::subtitleProfanityFilter() const
+{
+    return QSettings().value(QStringLiteral("subtitles/profanity"), false).toBool();
+}
+
+void AppController::setSubtitleProfanityFilter(bool enabled)
+{
+    QSettings().setValue(QStringLiteral("subtitles/profanity"), enabled);
+}
+
 bool AppController::subtitleEmojisEnabled() const
 {
     return QSettings().value(QStringLiteral("subtitles/emojis"), false).toBool();
@@ -17112,6 +18220,293 @@ bool AppController::subtitleEmojisEnabled() const
 void AppController::setSubtitleEmojisEnabled(bool enabled)
 {
     QSettings().setValue(QStringLiteral("subtitles/emojis"), enabled);
+}
+
+bool AppController::subtitleKeywordsEnabled() const
+{
+    return QSettings().value(QStringLiteral("subtitles/keywords"), false).toBool();
+}
+
+void AppController::setSubtitleKeywordsEnabled(bool enabled)
+{
+    QSettings().setValue(QStringLiteral("subtitles/keywords"), enabled);
+}
+
+void AppController::highlightSubtitleKeywords(int trackIndex, int clipIndex)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex) || isTrackLocked(trackIndex))
+        return;
+    drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
+    if (clip.type != drift::ClipType::Subtitle)
+        return;
+    const drift::Project before = m_project;
+    int marked = 0;
+    for (drift::SubtitleCue &cue : clip.subtitleCues) {
+        const QString next = drift::highlightCaptionKeyword(cue.text);
+        if (next != cue.text) {
+            cue.text = next; // the same words, so the karaoke's timings still fit
+            ++marked;
+        }
+    }
+    if (marked == 0) {
+        setLastMessage(tr("No key words to highlight in these subtitles"), QStringLiteral("info"));
+        return;
+    }
+    pushProjectEdit(before, tr("Highlight key words"));
+    finishEdit(tr("Highlight key words"));
+    setLastMessage(tr("Key words highlighted in %1 captions").arg(marked), QStringLiteral("success"));
+}
+
+namespace {
+// The emoji a caption shows or calls for, mapped to the sticker of the «Animated emojis» extra.
+QString animatedEmojiFor(const QString &caption)
+{
+    static const QList<QPair<QString, QString>> kMap = {
+        {QStringLiteral("🙏"), QStringLiteral("folded-hands")}, {QStringLiteral("🔥"), QStringLiteral("fire")},
+        {QStringLiteral("❤"), QStringLiteral("red-heart")}, {QStringLiteral("🎉"), QStringLiteral("party-popper")},
+        {QStringLiteral("😂"), QStringLiteral("face-with-tears-of-joy")}, {QStringLiteral("✨"), QStringLiteral("sparkles")},
+        {QStringLiteral("💡"), QStringLiteral("light-bulb")}, {QStringLiteral("🏆"), QStringLiteral("trophy")},
+        {QStringLiteral("💰"), QStringLiteral("money-bag")}, {QStringLiteral("💲"), QStringLiteral("money-bag")},
+        {QStringLiteral("🎁"), QStringLiteral("wrapped-gift")}, {QStringLiteral("🙌"), QStringLiteral("raising-hands")},
+        {QStringLiteral("🕊"), QStringLiteral("dove")}, {QStringLiteral("✝"), QStringLiteral("latin-cross")},
+        {QStringLiteral("📖"), QStringLiteral("open-book")}, {QStringLiteral("🤯"), QStringLiteral("exploding-head")},
+        {QStringLiteral("😮"), QStringLiteral("face-with-open-mouth")}, {QStringLiteral("😢"), QStringLiteral("loudly-crying-face")},
+        {QStringLiteral("💪"), QStringLiteral("flexed-biceps")}, {QStringLiteral("🎵"), QStringLiteral("musical-notes")},
+        {QStringLiteral("🎶"), QStringLiteral("musical-notes")}, {QStringLiteral("🎤"), QStringLiteral("musical-notes")},
+        {QStringLiteral("☀"), QStringLiteral("sun")}, {QStringLiteral("🎂"), QStringLiteral("birthday-cake")},
+        {QStringLiteral("👀"), QStringLiteral("eyes")}, {QStringLiteral("😊"), QStringLiteral("smiling-face-with-heart-eyes")},
+        {QStringLiteral("😄"), QStringLiteral("star-struck")}, {QStringLiteral("😱"), QStringLiteral("face-with-open-mouth")},
+        {QStringLiteral("💯"), QStringLiteral("hundred-points")}, {QStringLiteral("⭐"), QStringLiteral("glowing-star")},
+        {QStringLiteral("🚀"), QStringLiteral("rocket")}, {QStringLiteral("👍"), QStringLiteral("thumbs-up")},
+        {QStringLiteral("👏"), QStringLiteral("clapping-hands")}, {QStringLiteral("👋"), QStringLiteral("waving-hand")},
+        {QStringLiteral("🤔"), QStringLiteral("thinking-face")}, {QStringLiteral("😎"), QStringLiteral("smiling-face-with-sunglasses")},
+        {QStringLiteral("👑"), QStringLiteral("crown")}, {QStringLiteral("📣"), QStringLiteral("megaphone")},
+        {QStringLiteral("⚠"), QStringLiteral("warning")}, {QStringLiteral("✅"), QStringLiteral("check-mark-button")},
+        {QStringLiteral("❌"), QStringLiteral("cross-mark")}, {QStringLiteral("❓"), QStringLiteral("red-question-mark")},
+        {QStringLiteral("❗"), QStringLiteral("red-exclamation-mark")}, {QStringLiteral("🎈"), QStringLiteral("balloon")},
+        {QStringLiteral("🕯"), QStringLiteral("candle")}, {QStringLiteral("🔔"), QStringLiteral("bell")},
+        {QStringLiteral("😇"), QStringLiteral("smiling-face-with-halo")}, {QStringLiteral("🤗"), QStringLiteral("hugging-face")},
+    };
+    // The caption's own emoji first; else the one «Emojis» would add for its words.
+    for (const QString &text : {caption, drift::captionWithEmoji(caption)}) {
+        for (const auto &[emoji, sticker] : kMap) {
+            if (text.contains(emoji))
+                return QStringLiteral("emojis-animados/") + sticker;
+        }
+    }
+    return {};
+}
+} // namespace
+
+bool AppController::animatedEmojisAvailable() const
+{
+    for (const QVariant &item : builtinStickers()) {
+        if (item.toMap().value(QStringLiteral("id")).toString().startsWith(QLatin1String("emojis-animados/")))
+            return true;
+    }
+    return false;
+}
+
+int AppController::addAnimatedEmojisToSubtitles(int trackIndex, int clipIndex)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return 0;
+    const drift::Clip subtitles = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    if (subtitles.type != drift::ClipType::Subtitle)
+        return 0;
+    QHash<QString, QString> paths; // sticker id → Lottie file
+    for (const QVariant &item : builtinStickers()) {
+        const QVariantMap sticker = item.toMap();
+        const QString id = sticker.value(QStringLiteral("id")).toString();
+        if (id.startsWith(QLatin1String("emojis-animados/")))
+            paths.insert(id, sticker.value(QStringLiteral("path")).toString());
+    }
+    if (paths.isEmpty()) {
+        setLastMessage(tr("Install «Animated emojis» from Extras first"), QStringLiteral("warning"));
+        return -1;
+    }
+
+    // Above the captions, centred: a fifth of the canvas's shorter side.
+    const double side = qMin(m_project.width(), m_project.height()) / 5.0;
+    const double captionTop = subtitles.transformY.evaluateAt(0);
+    const double y = qMax(0.0, captionTop - side - side * 0.1);
+    const double x = (m_project.width() - side) / 2.0;
+
+    const drift::Project before = m_project;
+    const int target = drift::ensureFreeTrackForClipType(m_project, drift::ClipType::Vector, subtitles.timelineStart,
+                                                         subtitles.timelineDuration, true);
+    if (target < 0)
+        return 0;
+    QHash<QString, drift::VectorSource> loaded;
+    int placed = 0;
+    for (const drift::SubtitleCue &cue : subtitles.subtitleCues) {
+        const QString id = animatedEmojiFor(cue.text);
+        if (id.isEmpty() || !paths.contains(id) || cue.endUs <= cue.startUs)
+            continue;
+        if (!loaded.contains(id)) {
+            drift::VectorSource vector;
+            QString error = resolveVectorInput(paths.value(id), QString(), &vector);
+            if (!error.isEmpty() || !drift::vec::probeVectorSource(vector, &error))
+                continue;
+            loaded.insert(id, vector);
+        }
+        drift::Clip clip;
+        clip.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
+        clip.type = drift::ClipType::Vector;
+        clip.vector = loaded.value(id);
+        clip.name = tr("Emoji: %1").arg(id.section(QLatin1Char('/'), 1));
+        clip.timelineStart = subtitles.timelineStart + cue.startUs;
+        clip.timelineDuration = qMax(drift::kMinClipDurationUs, cue.endUs - cue.startUs);
+        clip.srcIn = 0;
+        clip.srcOut = clip.timelineDuration;
+        applyVectorOptions(clip, {{QStringLiteral("loop"), QStringLiteral("loop")}});
+        clip.thumbnailPath = MediaThumbnail::generateVector(clip.vector);
+        clip.filmstripPath = clip.thumbnailPath;
+        setClipLayoutPixels(clip, x, y, side, side);
+        m_project.tracks()[target].clips.append(clip);
+        ++placed;
+    }
+    if (placed == 0) {
+        m_project = before;
+        setLastMessage(tr("No captions with an emoji word (fuego, Dios, fiesta…)"), QStringLiteral("info"));
+        return 0;
+    }
+    std::sort(m_project.tracks()[target].clips.begin(), m_project.tracks()[target].clips.end(),
+              [](const drift::Clip &a, const drift::Clip &b) { return a.timelineStart < b.timelineStart; });
+    pushProjectEdit(before, tr("Animated emojis"));
+    finishEdit(tr("Animated emojis"));
+    setLastMessage(tr("Animated emojis on %1 captions").arg(placed), QStringLiteral("success"));
+    return placed;
+}
+
+namespace {
+// Where a caption hides a word (m*****, f***): the stretches of the subtitle clip's own time, from
+// the word timings. Captions without timings for every word have none.
+QList<drift::TimeRangeUs> hiddenWordRanges(const drift::Clip &subtitles)
+{
+    static const QRegularExpression kHidden(QStringLiteral(R"(\p{L}\*{2,})"));
+    QList<drift::TimeRangeUs> out;
+    for (const drift::SubtitleCue &cue : subtitles.subtitleCues) {
+        const QStringList words = cue.text.split(QRegularExpression(QStringLiteral("\\s+")), Qt::SkipEmptyParts);
+        if (words.size() != cue.wordEndsUs.size())
+            continue;
+        for (int i = 0; i < words.size(); ++i) {
+            if (!kHidden.match(words.at(i)).hasMatch())
+                continue;
+            const drift::TimeUs a = i > 0 ? cue.wordEndsUs.at(i - 1) : cue.startUs;
+            const drift::TimeUs b = cue.wordEndsUs.at(i);
+            if (b > a)
+                out.append({a, b});
+        }
+    }
+    return out;
+}
+
+// A mono 48 kHz WAV of `lengthUs`, silent but for a 1 kHz tone over each range (5 ms fades).
+bool writeBleepTrack(const QString &path, drift::TimeUs lengthUs, const QList<drift::TimeRangeUs> &ranges)
+{
+    constexpr int kRate = 48000;
+    const qint64 frames = qMax<qint64>(1, lengthUs * kRate / 1'000'000);
+    QByteArray pcm(int(frames * 2), '\0');
+    auto *samples = reinterpret_cast<qint16 *>(pcm.data());
+    const int fade = kRate / 200;
+    for (const drift::TimeRangeUs &r : ranges) {
+        const qint64 a = qBound<qint64>(0, qint64(r.startUs * kRate / 1'000'000), frames);
+        const qint64 b = qBound<qint64>(0, qint64(r.endUs * kRate / 1'000'000), frames);
+        for (qint64 i = a; i < b; ++i) {
+            const double edge = qMin(1.0, double(qMin(i - a, b - 1 - i)) / fade);
+            samples[i] = qint16(std::lround(0.3 * edge * 32767.0 * std::sin(2.0 * 3.14159265358979323846 * 1000.0 * double(i - a) / kRate)));
+        }
+    }
+    QFile file(path);
+    if (!file.open(QIODevice::WriteOnly))
+        return false;
+    QByteArray header;
+    QDataStream out(&header, QIODevice::WriteOnly);
+    out.setByteOrder(QDataStream::LittleEndian);
+    out.writeRawData("RIFF", 4);
+    out << quint32(36 + pcm.size());
+    out.writeRawData("WAVEfmt ", 8);
+    out << quint32(16) << quint16(1) << quint16(1) << quint32(kRate) << quint32(kRate * 2) << quint16(2) << quint16(16);
+    out.writeRawData("data", 4);
+    out << quint32(pcm.size());
+    return file.write(header) == header.size() && file.write(pcm) == pcm.size();
+}
+} // namespace
+
+bool AppController::subtitleHasHiddenWords(int trackIndex, int clipIndex) const
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return false;
+    const drift::Clip &clip = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    return clip.type == drift::ClipType::Subtitle && !hiddenWordRanges(clip).isEmpty();
+}
+
+int AppController::bleepSubtitleSwearWords(int trackIndex, int clipIndex)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return 0;
+    const drift::Clip subtitles = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    if (subtitles.type != drift::ClipType::Subtitle)
+        return 0;
+    const QList<drift::TimeRangeUs> ranges = hiddenWordRanges(subtitles);
+    if (ranges.isEmpty()) {
+        setLastMessage(tr("No hidden words with their timing to bleep"), QStringLiteral("info"));
+        return 0;
+    }
+    const QString dir = drift::generatedAudioDir();
+    const QString path = QDir(dir).filePath(QStringLiteral("bleep-%1.wav")
+                                                .arg(QUuid::createUuid().toString(QUuid::WithoutBraces).left(8)));
+    if (dir.isEmpty() || !writeBleepTrack(path, subtitles.timelineDuration, ranges)) {
+        setLastMessage(tr("Could not make the bleep"), QStringLiteral("error"));
+        return 0;
+    }
+
+    m_mcpController->beginBatch();
+    // The voice goes silent under each bleep: volume keys on the clips whose speech was transcribed.
+    const drift::Project before = m_project;
+    constexpr drift::TimeUs kRampUs = 8'000;
+    for (int t = 0; t < m_project.tracks().size(); ++t) {
+        if (isTrackLocked(t))
+            continue;
+        for (drift::Clip &clip : m_project.tracks()[t].clips) {
+            if ((clip.type != drift::ClipType::Video && clip.type != drift::ClipType::Audio) || clip.assetId.isEmpty()
+                || !m_project.transcript(clip.assetId))
+                continue;
+            for (const drift::TimeRangeUs &r : ranges) {
+                const drift::TimeUs a = subtitles.timelineStart + r.startUs - clip.timelineStart;
+                const drift::TimeUs b = subtitles.timelineStart + r.endUs - clip.timelineStart;
+                if (b <= 0 || a >= clip.timelineDuration)
+                    continue;
+                const double level = clip.volume.isEmpty() ? 1.0 : clip.volume.evaluateAt(qMax<drift::TimeUs>(0, a));
+                const double after = clip.volume.isEmpty() ? 1.0 : clip.volume.evaluateAt(b);
+                clip.volume.setKeyframe(qMax<drift::TimeUs>(0, a - kRampUs), level);
+                clip.volume.setKeyframe(qMax<drift::TimeUs>(0, a), 0.0);
+                clip.volume.setKeyframe(b, 0.0);
+                clip.volume.setKeyframe(b + kRampUs, after);
+            }
+        }
+    }
+    pushProjectEdit(before, tr("Bleep swear words"));
+
+    // The tone, as one audio clip over the whole caption clip.
+    const QStringList assets = m_assetLibrary ? m_assetLibrary->importLocalPaths({path}) : QStringList();
+    if (!assets.isEmpty()) {
+        QEventLoop loop;
+        QTimer timeout;
+        timeout.setSingleShot(true);
+        timeout.start(15000);
+        connect(&timeout, &QTimer::timeout, &loop, &QEventLoop::quit);
+        connect(m_assetLibrary, &AssetLibrary::assetMetadataChanged, &loop, &QEventLoop::quit);
+        while (timeout.isActive() && m_assetLibrary->isImportPending(assets.first()))
+            loop.exec();
+        // Named for what it is, not its file («bleep-291de7a9.wav»: 0.30 tests E50).
+        m_assetLibrary->setAssetName(m_assetLibrary->indexOfId(assets.first()), tr("Bleep"));
+        addClipsFromAssets(assets, -1, drift::usToSeconds(subtitles.timelineStart));
+    }
+    m_mcpController->endBatch(tr("Bleep swear words"), true);
+    setLastMessage(tr("Words bleeped: %1").arg(ranges.size()), QStringLiteral("success"));
+    return int(ranges.size());
 }
 
 void AppController::addEmojisToSubtitles(int trackIndex, int clipIndex)
@@ -17163,6 +18558,10 @@ void AppController::previewSetSubtitleCues(int trackIndex, int clipIndex, const 
 {
     if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
         return;
+    if (isTrackLocked(trackIndex)) {
+        setLastMessage(tr("This track is locked. Unlock it with the padlock in its header."), QStringLiteral("warning"));
+        return;
+    }
 
     drift::Track &track = m_project.tracks()[trackIndex];
     if (clipIndex < 0 || clipIndex >= track.clips.size())
@@ -17922,16 +19321,23 @@ void AppController::applyTextPreset(int trackIndex, int clipIndex, const QString
 
     const drift::Project before = m_project;
     int rangeStart = -1, rangeEnd = -1;
-    if (textStyleRangeFor(trackIndex, clipIndex, &rangeStart, &rangeEnd)) {
+    // A caption style is the whole subtitle clip's (0.30: with a caption open in the editor it went
+    // to some letters only, without its box, and the captions looked the same).
+    if (clip.type != drift::ClipType::Subtitle && textStyleRangeFor(trackIndex, clipIndex, &rangeStart, &rangeEnd)) {
         // Shaded letters (0.24): the template's stack (and font) go to them only.
         writeTextRangeStyle(clip, rangeStart, rangeEnd, drift::textStyleWithPresetLook(clip.textStyle, *preset));
         pushProjectEdit(before, tr("Apply text preset"));
         finishEdit(tr("Text preset applied"));
         return;
     }
-    // The template brings the look; the text keeps its motion, keyframes and counter.
+    // The template brings the look; the text keeps its motion, keyframes and counter. A caption
+    // style is all of it, its words' motion and colours included, as when the captions were made
+    // (0.30, tests #29: the old style's animation stayed and the captions looked the same).
     QStringList dropped;
-    clip.textStyle = drift::textStyleWithPresetLook(clip.textStyle, *preset, &dropped);
+    if (clip.type == drift::ClipType::Subtitle)
+        clip.textStyle = *preset;
+    else
+        clip.textStyle = drift::textStyleWithPresetLook(clip.textStyle, *preset, &dropped);
     clip.textStyle.packId = presetId;
     pushProjectEdit(before, tr("Apply text preset"));
     finishEdit(tr("Text preset applied"));
@@ -22189,6 +23595,17 @@ void AppController::setClipKeyframe(int trackIndex, int clipIndex, const QString
     // clip's base layout key. Neither is ever what the caller meant.
     const drift::TimeUs rel = qBound<drift::TimeUs>(
         0, drift::secondsToUs(atSeconds) - clip.timelineStart, clip.timelineDuration);
+    // A property that is not animated yet keeps its static value as a lone key at the start; the
+    // first key set on purpose replaces it, as After Effects' stopwatch does (bounce exercise #7: a
+    // key at frame 6 left the old value at frame 0 and the ball jumped up before falling).
+    const auto onlyBaseKey = [&clip](const QString &p) {
+        const drift::KeyframeTrack<double> *kt = keyframeTrackForProp(clip, p, false);
+        return kt && !kt->stopwatch() && kt->keyframes().size() == 1 && kt->keyframes().firstKey() == 0;
+    };
+    const bool replaceBase = rel > 0 && onlyBaseKey(prop);
+    const QString linkedProp = prop == QLatin1String("x") ? QStringLiteral("y")
+                               : prop == QLatin1String("y") ? QStringLiteral("x") : QString();
+    const bool replaceLinkedBase = rel > 0 && m_positionLinked && !linkedProp.isEmpty() && onlyBaseKey(linkedProp);
     if (prop.startsWith(QLatin1String("model3d.")) && isLegacyModel3dPoseKey(prop.mid(8))) {
         bool wrote = false;
         for (const auto &write : legacyModel3dPoseWrites(clip, prop.mid(8), value, rel, m_project.height()))
@@ -22217,6 +23634,14 @@ void AppController::setClipKeyframe(int trackIndex, int clipIndex, const QString
                     otherKt->setEasing(rel, srcKt->easingAt(rel));
             }
         }
+    }
+    if (replaceBase) {
+        if (drift::KeyframeTrack<double> *kt = keyframeTrackForProp(clip, prop, false))
+            kt->removeKeyframe(0);
+    }
+    if (replaceLinkedBase) {
+        if (drift::KeyframeTrack<double> *kt = keyframeTrackForProp(clip, linkedProp, false))
+            kt->removeKeyframe(0);
     }
     pushProjectEdit(before, tr("Add keyframe"));
     finishEdit(tr("Keyframe set"));
@@ -22298,6 +23723,10 @@ void AppController::removeClipKeyframe(int trackIndex, int clipIndex, const QStr
 {
     if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
         return;
+    if (prop == QLatin1String("position")) {
+        removeClipKeyframe(trackIndex, clipIndex, QStringLiteral("x"), atSeconds);
+        return;
+    }
     // "fx.<i>.<param>" addresses the effect stack, which now lives on the adjustment
     // linked to this clip. Transform props are untouched by this.
     redirectToKeyframeHost(&trackIndex, &clipIndex, prop);
@@ -22317,7 +23746,7 @@ void AppController::removeClipKeyframe(int trackIndex, int clipIndex, const QStr
     if (nearest < 0)
         return;
     kt->removeKeyframe(nearest);
-    if (m_positionLinked && (prop == QLatin1String("x") || prop == QLatin1String("y"))) {
+    if ((m_positionLinked || clip.positionJoined) && (prop == QLatin1String("x") || prop == QLatin1String("y"))) {
         const QString otherProp = (prop == QLatin1String("x")) ? QStringLiteral("y") : QStringLiteral("x");
         drift::KeyframeTrack<double> *otherKt = keyframeTrackForProp(clip, otherProp, false);
         if (otherKt) {
@@ -22335,6 +23764,18 @@ void AppController::previewMoveClipKeyframe(int trackIndex, int clipIndex, const
 {
     if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
         return;
+    if (prop == QLatin1String("position")) {
+        if (!isValidClipIndex(trackIndex, clipIndex))
+            return;
+        const drift::Clip &clip = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+        const drift::TimeUs from = drift::secondsToUs(fromSeconds) - clip.timelineStart;
+        const drift::TimeUs at = clip.transformX.nearestKeyframe(from, kKeyframeToleranceUs);
+        if (at < 0)
+            return;
+        previewMoveClipKeyframe(trackIndex, clipIndex, QStringLiteral("x"), fromSeconds, toSeconds,
+                                clip.transformX.keyframes().value(at).value);
+        return;
+    }
     // "fx.<i>.<param>" addresses the effect stack, which now lives on the adjustment
     // linked to this clip. Transform props are untouched by this.
     redirectToKeyframeHost(&trackIndex, &clipIndex, prop);
@@ -22364,7 +23805,7 @@ void AppController::previewMoveClipKeyframe(int trackIndex, int clipIndex, const
         kt->setKeyframe(toRel, value);
     }
 
-    if (m_positionLinked && (prop == QLatin1String("x") || prop == QLatin1String("y"))) {
+    if ((m_positionLinked || clip.positionJoined) && (prop == QLatin1String("x") || prop == QLatin1String("y"))) {
         const QString otherProp = (prop == QLatin1String("x")) ? QStringLiteral("y") : QStringLiteral("x");
         drift::KeyframeTrack<double> *otherKt = keyframeTrackForProp(clip, otherProp, false);
         if (otherKt && !otherKt->isEmpty()) {
@@ -22394,7 +23835,10 @@ drift::Keyframe<double> *AppController::keyframeAt(int trackIndex, int clipIndex
         return nullptr;
 
     drift::Clip &clip = track.clips[clipIndex];
-    drift::KeyframeTrack<double> *kt = keyframeTrackForProp(clip, prop, /*createIfMissing=*/false);
+    // Joined Position: its timing (handles, hold) is X's keys', and Y gets a copy of them.
+    const bool timing = clip.positionJoined && (prop == QLatin1String("y") || prop == QLatin1String("position"));
+    drift::KeyframeTrack<double> *kt = timing ? &clip.transformX
+                                              : keyframeTrackForProp(clip, prop, /*createIfMissing=*/false);
     if (!kt || kt->isEmpty())
         return nullptr;
 
@@ -22437,6 +23881,8 @@ double AppController::propertyValueAt(int trackIndex, int clipIndex, const QStri
         return fallback;
 
     const drift::Clip &clip = track.clips.at(clipIndex);
+    if (prop == QLatin1String("position"))
+        return drift::pathDistanceAt(clip, drift::secondsToUs(atSeconds) - clip.timelineStart);
     const drift::KeyframeTrack<double> *kt = keyframeTrackForProp(clip, prop);
     if (!kt || kt->isEmpty())
         return propertyBaseValue(trackIndex, clipIndex, prop, fallback);
@@ -22547,11 +23993,29 @@ QVariantList AppController::clipKeyframes(int trackIndex, int clipIndex, const Q
     }
 
     const drift::Clip &clip = track.clips.at(clipIndex);
-    const drift::KeyframeTrack<double> *kt = keyframeTrackForProp(clip, prop);
+    // Joined Position as the speed graph reads it: X's keys (they hold the timing), each at its
+    // distance along the path.
+    const bool path = prop == QLatin1String("position");
+    const drift::KeyframeTrack<double> *kt = path ? (clip.positionJoined ? &clip.transformX : nullptr)
+                                                  : keyframeTrackForProp(clip, prop);
     if (!kt)
         return out;
 
-    return keyframeListToVariant(*kt, clip.timelineStart);
+    out = keyframeListToVariant(*kt, clip.timelineStart);
+    if (clip.positionJoined && (path || prop == QLatin1String("x") || prop == QLatin1String("y"))) {
+        int i = 0;
+        for (auto it = kt->keyframes().constBegin(); it != kt->keyframes().constEnd(); ++it, ++i) {
+            QVariantMap m = out.at(i).toMap();
+            if (path)
+                m.insert(QStringLiteral("value"), it->pathDistance);
+            m.insert(QStringLiteral("spatial"), true);
+            m.insert(QStringLiteral("spIn"), it->spIn);
+            m.insert(QStringLiteral("spOut"), it->spOut);
+            m.insert(QStringLiteral("spatialAuto"), it->spatialAuto);
+            out[i] = m;
+        }
+    }
+    return out;
 }
 
 bool AppController::clipPropertyKeyframesEnabled(int trackIndex, int clipIndex,
@@ -22836,7 +24300,9 @@ void AppController::setKeyframesCurve(int trackIndex, const QVariantList &keys, 
             || c >= m_project.tracks().at(t).clips.size())
             return;
         drift::Clip &clip = m_project.tracks()[t].clips[c];
-        drift::KeyframeTrack<double> *kt = keyframeTrackForProp(clip, p, /*createIfMissing=*/false);
+        // Joined Position: the curve is of the distance along the path, on X's keys (Y follows).
+        const bool path = clip.positionJoined && (p == QLatin1String("x") || p == QLatin1String("y"));
+        drift::KeyframeTrack<double> *kt = path ? &clip.transformX : keyframeTrackForProp(clip, p, /*createIfMissing=*/false);
         if (!kt || kt->keyframes().size() < 2)
             return;
         const drift::TimeUs at =
@@ -22853,7 +24319,7 @@ void AppController::setKeyframesCurve(int trackIndex, const QVariantList &keys, 
         if (!a || !b)
             return;
         const double span = static_cast<double>(to - from);
-        const double dv = b->value - a->value;
+        const double dv = path ? b->pathDistance - a->pathDistance : b->value - a->value;
         a->hold = false;
         a->outDx = straightStart ? 0.0 : x1 * span;
         a->outDy = straightStart ? 0.0 : y1 * dv;
@@ -23244,7 +24710,9 @@ void AppController::createLowerThird(const QVariantMap &o)
     const QColor roleColour = colour("roleColor", style == QLatin1String("roleBar") ? "#1a1a1a" : "#555555");
     const double W = m_project.width();
     const double H = m_project.height();
-    const double u = H / 1080.0; // sizes are designed at 1080 lines
+    // Sizes are designed at 1080 lines on the short side: a Short's 1920 lines made every text 1.8 times too big
+    // for its width (0.30).
+    const double u = qMin(W, H) / 1080.0;
     const drift::TimeUs start = m_playheadUs;
     const drift::TimeUs length = drift::secondsToUs(qBound(1.0, o.value(QStringLiteral("seconds"), 5.0).toDouble(), 60.0));
     const int fps = qMax(1, m_project.fps());
@@ -23706,9 +25174,22 @@ void AppController::setClipScaledSize(int trackIndex, int clipIndex, const QStri
     };
     const bool sizeAnimated = clipAnimatedProperties(trackIndex, clipIndex).contains(prop);
     const double v = qMax(1.0, value);
+    const bool keyedBefore = size.stopwatch() || size.keyframes().size() > 1;
+    const double sizeBefore = valueAt(oldSize, rel, canvas);
     writeKeyframeValue(size, rel, v, m_autoKeyEnabled || sizeAnimated, false);
     const bool keyed = size.stopwatch() || size.keyframes().size() > 1;
-    if (!keyed) {
+    double &pivot = horizontal ? clip.sizePivotW : clip.sizePivotH;
+    // Its stopwatch (0.30): it grows around the anchor from the size it had, drawn so by itself.
+    if (keyed && !keyedBefore) {
+        pivot = sizeBefore;
+        if (clip.anchorX.isEmpty() && clip.anchorY.isEmpty()) {
+            clip.anchorX.setKeyframe(0, 0.5);
+            clip.anchorY.setKeyframe(0, 0.5);
+        }
+    }
+    if (keyed && pivot > 0.0) {
+        // Nothing to make up for: the renderer grows it around the anchor.
+    } else if (!keyed) {
         // A plain value: the whole position moves by the same amount, keys and all.
         const double d = valueAt(anchor, rel, 0.5) * (valueAt(oldSize, rel, canvas) - v);
         if (pos.isEmpty()) {
@@ -23829,13 +25310,14 @@ int AppController::copyKeyframes(int trackIndex, const QVariantList &keys)
     return int(copied.size());
 }
 
-bool AppController::pasteKeyframes(int trackIndex, int clipIndex)
+bool AppController::pasteKeyframes(int trackIndex, int clipIndex, bool continueChain)
 {
     if (m_keyClipboard.isEmpty() || !isValidClipIndex(trackIndex, clipIndex))
         return false;
     const drift::Project before = m_project;
     int pasted = 0;
     QStringList missing;
+    QVariantList pastedKeys;
     // Pasted (or cloned) back onto the very keys they came from, the copies go after them, one
     // step on (the keys' own spacing), so the animation carries on (As After Effects users expect:
     // Jorge, 0.26; on top they changed nothing). Elsewhere they land at the playhead.
@@ -23848,7 +25330,7 @@ bool AppController::pasteKeyframes(int trackIndex, int clipIndex)
         const bool sameClip = isValidClipIndex(t, c)
                               && m_project.tracks().at(t).clips.at(c).id == m_keyClipboardClipId;
         const drift::TimeUs span = m_keyClipboardLastUs - m_keyClipboardFirstUs;
-        if (sameClip && span > 0 && m_playheadUs >= m_keyClipboardFirstUs - drift::kUsPerSecond / 100
+        if (continueChain && sameClip && span > 0 && m_playheadUs >= m_keyClipboardFirstUs - drift::kUsPerSecond / 100
             && m_playheadUs <= m_keyClipboardLastUs + drift::kUsPerSecond / 100) {
             const drift::TimeUs step = span / qMax(1, m_keyClipboardTimes - 1);
             pasteAtUs = m_keyClipboardLastUs + step;
@@ -23870,12 +25352,17 @@ bool AppController::pasteKeyframes(int trackIndex, int clipIndex)
         const drift::TimeUs at = qMax<drift::TimeUs>(0, pasteAtUs - clip.timelineStart) + copied.afterFirstUs;
         kt->setKeyframe(at, copied.key);
         ++pasted;
+        if (t == trackIndex) {
+            pastedKeys.append(QVariantMap{{QStringLiteral("clip"), c}, {QStringLiteral("prop"), copied.prop},
+                                          {QStringLiteral("seconds"), drift::usToSeconds(clip.timelineStart + at)}});
+        }
     }
     if (pasted == 0) {
         m_project = before;
         setLastMessage(tr("This clip has none of the copied keyframes' properties"), QStringLiteral("warning"));
         return false;
     }
+    m_lastPastedKeys = pastedKeys;
     pushProjectEdit(before, tr("Paste keyframes"));
     finishEdit(tr("Paste keyframes"));
     if (pasteAtUs != m_playheadUs) {
@@ -24044,6 +25531,10 @@ void AppController::syncLinkedTangents(int trackIndex, int clipIndex, const QStr
                                        double outDx, double outDy, bool corner)
 {
     if (!m_positionLinked || (prop != QLatin1String("x") && prop != QLatin1String("y")))
+        return;
+    // Joined Position keeps one timing on X's keys and gives Y a copy (syncJoinedPosition): Y's
+    // key here is X's own.
+    if (positionJoined(trackIndex, clipIndex))
         return;
 
     const QString otherProp = (prop == QLatin1String("x")) ? QStringLiteral("y") : QStringLiteral("x");
@@ -26893,18 +28384,21 @@ void AppController::enhanceVoice(int trackIndex, int clipIndex)
     setLastMessage(tr("Voice enhanced: noise gate, de-esser, compressor and leveler"), QStringLiteral("success"));
 }
 
-QString AppController::cutSilencesAndFillers(int trackIndex, int clipIndex, double minPause, bool removeFillers)
+QString AppController::cutSilencesAndFillers(int trackIndex, int clipIndex, double minPause, bool removeFillers,
+                                             bool review)
 {
     if (!isValidClipIndex(trackIndex, clipIndex))
         return QStringLiteral("No such clip");
     const drift::Clip &clip = m_project.tracks().at(trackIndex).clips.at(clipIndex);
     if ((clip.type != drift::ClipType::Video && clip.type != drift::ClipType::Audio) || clip.assetId.isEmpty()) {
         setLastMessage(tr("Select a video or audio clip with speech"), QStringLiteral("warning"));
+        m_textEditNext = false;
         return QStringLiteral("Not a video or audio clip");
     }
+    const bool textEdit = std::exchange(m_textEditNext, false);
     const drift::TranscriptPtr transcript = m_project.transcript(clip.assetId);
     if (transcript && transcript->source.matches(clip.path)) {
-        applySilenceCut(clip.id, minPause, removeFillers);
+        applySilenceCut(clip.id, minPause, removeFillers, review, textEdit);
         return {};
     }
 
@@ -26914,7 +28408,7 @@ QString AppController::cutSilencesAndFillers(int trackIndex, int clipIndex, doub
     const QJsonArray jobs = started.value(QStringLiteral("jobs")).toArray();
     if (jobs.isEmpty()) {
         if (m_project.transcript(clip.assetId)) {
-            applySilenceCut(clip.id, minPause, removeFillers);
+            applySilenceCut(clip.id, minPause, removeFillers, review, textEdit);
             return {};
         }
         const QString code = started.value(QStringLiteral("error")).toString();
@@ -26925,9 +28419,26 @@ QString AppController::cutSilencesAndFillers(int trackIndex, int clipIndex, doub
         return started.value(QStringLiteral("detail")).toString(code);
     }
     const QString jobId = jobs.first().toObject().value(QStringLiteral("job_id")).toString();
+    if (textEdit) {
+        m_textEditJobId = jobId;
+        static bool hooked = false;
+        if (!hooked) {
+            hooked = true;
+            connect(m_jobs, &JobRegistry::jobChanged, this, [this](const QString &id) {
+                if (id.isEmpty() || id != m_textEditJobId)
+                    return;
+                const QJsonObject job = m_jobs->job(id);
+                emit textEditProgress(job.value(QStringLiteral("progress")).toDouble(),
+                                      job.value(QStringLiteral("status")).toString());
+            });
+        }
+        emit textEditListening(trackIndex, clipIndex);
+    }
     m_pendingSilenceCuts.insert(jobId, QVariantMap{{QStringLiteral("clip"), clip.id},
                                                    {QStringLiteral("minPause"), minPause},
-                                                   {QStringLiteral("fillers"), removeFillers}});
+                                                   {QStringLiteral("fillers"), removeFillers},
+                                                   {QStringLiteral("review"), review},
+                                                   {QStringLiteral("text"), textEdit}});
     if (!m_silenceCutHooked) {
         m_silenceCutHooked = true;
         connect(m_jobs, &JobRegistry::jobFinished, this, [this](const QString &id, bool ok) {
@@ -26936,48 +28447,84 @@ QString AppController::cutSilencesAndFillers(int trackIndex, int clipIndex, doub
                 return;
             const QVariantMap pending = it.value();
             m_pendingSilenceCuts.remove(id);
+            if (id == m_textEditJobId)
+                m_textEditJobId.clear();
             if (!ok) {
                 setLastMessage(tr("Could not analyse the speech in this clip"), QStringLiteral("error"));
+                if (pending.value(QStringLiteral("text")).toBool())
+                    emit textEditFailed(tr("Could not analyse the speech in this clip"));
                 return;
             }
             // The transcript is stored by the job's own completion handler; run after it.
             QTimer::singleShot(0, this, [this, pending]() {
                 applySilenceCut(pending.value(QStringLiteral("clip")).toString(),
                                 pending.value(QStringLiteral("minPause")).toDouble(),
-                                pending.value(QStringLiteral("fillers")).toBool());
+                                pending.value(QStringLiteral("fillers")).toBool(),
+                                pending.value(QStringLiteral("review")).toBool(),
+                                pending.value(QStringLiteral("text")).toBool());
             });
         });
     }
-    setLastMessage(tr("Listening to the clip to find silences…"));
+    setLastMessage(textEdit ? tr("Listening to the clip to write down what is said…")
+                            : tr("Listening to the clip to find silences…"));
     return {};
 }
 
-void AppController::applySilenceCut(const QString &clipId, double minPause, bool removeFillers)
+void AppController::cancelTextEditListening()
+{
+    if (!m_textEditJobId.isEmpty())
+        m_jobs->cancel(m_textEditJobId);
+}
+
+void AppController::applySilenceCut(const QString &clipId, double minPause, bool removeFillers, bool review,
+                                    bool textEdit)
 {
     const QPair<int, int> loc = m_mcpController->locateClip(clipId);
     if (loc.first < 0)
         return;
     const drift::Clip &clip = m_project.tracks().at(loc.first).clips.at(loc.second);
-    const drift::TranscriptPtr transcript = m_project.transcript(clip.assetId);
-    if (!transcript) {
+    if (!m_project.transcript(clip.assetId)) {
         setLastMessage(tr("Could not analyse the speech in this clip"), QStringLiteral("error"));
         return;
     }
+    if (textEdit) {
+        emit textEditReady(loc.first, loc.second);
+        return;
+    }
+    int fillers = 0;
+    const QList<drift::TimeRangeUs> keep = speechKeepRanges(clip, minPause, removeFillers, &fillers);
+    if (keep.isEmpty()) {
+        setLastMessage(tr("No speech found in this clip"), QStringLiteral("warning"));
+        return;
+    }
+    if (review) {
+        emit silenceReviewReady(loc.first, loc.second);
+        return;
+    }
+    cutToKeepRanges(loc.first, loc.second, keep, fillers);
+}
 
+QList<drift::TimeRangeUs> AppController::speechKeepRanges(const drift::Clip &clip, double minPause,
+                                                          bool removeFillers, int *fillers) const
+{
+    QList<drift::TimeRangeUs> ranges;
+    const drift::TranscriptPtr transcript = m_project.transcript(clip.assetId);
+    if (!transcript)
+        return ranges;
     // The spoken words inside the clip's trim, in source time; a hesitation is left out like a pause.
     constexpr drift::TimeUs kPadUs = 120'000; // air kept around each run of words
     const drift::TimeUs gapUs = drift::secondsToUs(qBound(0.2, minPause, 3.0));
-    QJsonArray ranges;
     drift::TimeUs runStart = -1;
     drift::TimeUs runEnd = -1;
-    int fillers = 0;
     const auto flush = [&]() {
         if (runStart < 0)
             return;
-        ranges.append(QJsonObject{
-            {QStringLiteral("start"), drift::usToSeconds(qMax(clip.srcIn, runStart - kPadUs))},
-            {QStringLiteral("end"), drift::usToSeconds(qMin(clip.srcOut, runEnd + kPadUs))},
-        });
+        const drift::TimeUs a = qMax(clip.srcIn, runStart - kPadUs);
+        const drift::TimeUs b = qMin(clip.srcOut, runEnd + kPadUs);
+        if (!ranges.isEmpty() && a <= ranges.last().endUs)
+            ranges.last().endUs = qMax(ranges.last().endUs, b); // the air of two runs met
+        else
+            ranges.append({a, b});
         runStart = runEnd = -1;
     };
     for (const int i : transcript->wordsInRange(clip.srcIn, clip.srcOut)) {
@@ -26987,7 +28534,8 @@ void AppController::applySilenceCut(const QString &clipId, double minPause, bool
         const bool filler = w.type == drift::TranscriptTokenType::Filler || drift::isFillerWord(w.text)
                             || drift::cleanSubtitleText(w.text).isEmpty();
         if (filler && removeFillers) {
-            ++fillers;
+            if (fillers)
+                ++*fillers;
             continue;
         }
         if (runStart >= 0 && w.startUs - runEnd > gapUs)
@@ -26997,21 +28545,228 @@ void AppController::applySilenceCut(const QString &clipId, double minPause, bool
         runEnd = qMax(runEnd, w.endUs);
     }
     flush();
-    if (ranges.isEmpty()) {
-        setLastMessage(tr("No speech found in this clip"), QStringLiteral("warning"));
+    return ranges;
+}
+
+void AppController::rippleOtherTracks(int cutTrack, QList<drift::TimeRangeUs> gone)
+{
+    if (gone.isEmpty())
         return;
+    // Latest first, so each cut's times are still the ones from before the cut.
+    std::sort(gone.begin(), gone.end(), [](const drift::TimeRangeUs &a, const drift::TimeRangeUs &b) {
+        return a.startUs > b.startUs;
+    });
+    const drift::Project before = m_project;
+    bool changed = false;
+    for (int t = 0; t < m_project.tracks().size(); ++t) {
+        if (t == cutTrack || isTrackLocked(t))
+            continue;
+        for (drift::Clip &clip : m_project.tracks()[t].clips) {
+            for (const drift::TimeRangeUs &g : std::as_const(gone)) {
+                const drift::TimeUs length = g.length();
+                if (clip.timelineStart >= g.endUs) {
+                    clip.timelineStart -= length; // wholly after: moves up
+                    changed = true;
+                    continue;
+                }
+                if (clip.type != drift::ClipType::Subtitle || clip.timelineEnd() <= g.startUs)
+                    continue;
+                // A caption clip across the cut: captions in it go, the later ones move up.
+                const drift::TimeUs a = qMax<drift::TimeUs>(0, g.startUs - clip.timelineStart);
+                const drift::TimeUs b = qMin(clip.timelineDuration, g.endUs - clip.timelineStart);
+                const drift::TimeUs inside = b - a;
+                if (inside <= 0)
+                    continue;
+                QList<drift::SubtitleCue> kept;
+                for (drift::SubtitleCue cue : std::as_const(clip.subtitleCues)) {
+                    const auto mapTime = [&](drift::TimeUs u) { return u <= a ? u : (u >= b ? u - inside : a); };
+                    cue.startUs = mapTime(cue.startUs);
+                    cue.endUs = mapTime(cue.endUs);
+                    for (drift::TimeUs &end : cue.wordEndsUs)
+                        end = mapTime(end);
+                    if (cue.endUs - cue.startUs >= 100'000)
+                        kept.append(cue);
+                }
+                clip.subtitleCues = kept;
+                clip.timelineDuration -= inside;
+                clip.srcOut = clip.srcIn + clip.timelineDuration;
+                changed = true;
+            }
+        }
     }
-    const double before = drift::usToSeconds(clip.timelineDuration); // `clip` is gone after the cut
-    const QJsonObject result = m_mcpController->keepRanges(loc.first, loc.second, ranges, 0.0, 0.03, true);
+    if (!changed)
+        return;
+    pushProjectEdit(before, tr("Move the other tracks"));
+}
+
+void AppController::cutToKeepRanges(int trackIndex, int clipIndex, const QList<drift::TimeRangeUs> &keep, int fillers)
+{
+    QJsonArray ranges;
+    for (const drift::TimeRangeUs &r : keep) {
+        ranges.append(QJsonObject{{QStringLiteral("start"), drift::usToSeconds(r.startUs)},
+                                  {QStringLiteral("end"), drift::usToSeconds(r.endUs)}});
+    }
+    const drift::Clip cut = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    const double before = drift::usToSeconds(cut.timelineDuration);
+    // What goes, on the timeline: the gaps between the kept stretches (and before the first, after the last).
+    QList<drift::TimeRangeUs> gone;
+    {
+        drift::TimeUs at = cut.srcIn;
+        const auto addGone = [&](drift::TimeUs a, drift::TimeUs b) {
+            if (b <= a)
+                return;
+            drift::TimeUs ta = cut.timelineStart + cut.sourceUsToClipLocalUs(a);
+            drift::TimeUs tb = cut.timelineStart + cut.sourceUsToClipLocalUs(b);
+            if (ta > tb)
+                std::swap(ta, tb);
+            if (tb > ta)
+                gone.append({ta, tb});
+        };
+        for (const drift::TimeRangeUs &r : keep) {
+            addGone(at, r.startUs);
+            at = qMax(at, r.endUs);
+        }
+        addGone(at, cut.srcOut);
+    }
+    m_mcpController->beginBatch();
+    const QJsonObject result = m_mcpController->keepRanges(trackIndex, clipIndex, ranges, 0.0, 0.03, true);
     if (!result.value(QStringLiteral("ok")).toBool(true) && result.contains(QStringLiteral("error"))) {
+        m_mcpController->endBatch(QString(), false);
         setLastMessage(result.value(QStringLiteral("detail")).toString(tr("Could not cut this clip")),
                        QStringLiteral("error"));
         return;
     }
+    rippleOtherTracks(trackIndex, gone);
+    m_mcpController->endBatch(fillers < 0 ? tr("Edit by text") : tr("Remove silences"), true);
     const double after = result.value(QStringLiteral("duration")).toDouble(before);
+    if (fillers < 0) {
+        setLastMessage(tr("Cut %1 s from the video").arg(QString::number(qMax(0.0, before - after), 'f', 1)),
+                       QStringLiteral("success"));
+        return;
+    }
     setLastMessage(tr("Removed %1 s of pauses and %n filler word(s)", nullptr, fillers)
                        .arg(QString::number(qMax(0.0, before - after), 'f', 1)),
                    QStringLiteral("success"));
+}
+
+QString AppController::editClipByText(int trackIndex, int clipIndex)
+{
+    m_textEditNext = true;
+    return cutSilencesAndFillers(trackIndex, clipIndex, 0.6, false, false);
+}
+
+QVariantList AppController::clipTranscriptWords(int trackIndex, int clipIndex) const
+{
+    QVariantList out;
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return out;
+    const drift::Clip &clip = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    const drift::TranscriptPtr transcript = m_project.transcript(clip.assetId);
+    if (!transcript)
+        return out;
+    for (const int i : transcript->wordsInRange(clip.srcIn, clip.srcOut)) {
+        const drift::TranscriptWord &w = transcript->words.at(i);
+        if (w.type != drift::TranscriptTokenType::Word && w.type != drift::TranscriptTokenType::Filler)
+            continue;
+        const QString text = w.text.trimmed();
+        if (text.isEmpty())
+            continue;
+        const drift::TimeUs a = qMax(clip.srcIn, w.startUs);
+        const drift::TimeUs b = qMin(clip.srcOut, qMax(w.endUs, w.startUs + 1));
+        const drift::TimeUs at = clip.timelineStart + clip.sourceUsToClipLocalUs(a);
+        out.append(QVariantMap{{QStringLiteral("start"), drift::usToSeconds(a)},
+                               {QStringLiteral("end"), drift::usToSeconds(b)},
+                               {QStringLiteral("at"), drift::usToSeconds(at)},
+                               {QStringLiteral("text"), text}});
+    }
+    return out;
+}
+
+QVariantList AppController::silencePieces(int trackIndex, int clipIndex, double minPause, bool removeFillers) const
+{
+    QVariantList out;
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return out;
+    const drift::Clip &clip = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    const drift::TranscriptPtr transcript = m_project.transcript(clip.assetId);
+    if (!transcript)
+        return out;
+    const QList<drift::TimeRangeUs> keep = speechKeepRanges(clip, minPause, removeFillers, nullptr);
+    if (keep.isEmpty())
+        return out;
+    // What is left between the kept stretches (and before the first, after the last) is what goes.
+    QList<drift::TimeRangeUs> gone;
+    drift::TimeUs at = clip.srcIn;
+    for (const drift::TimeRangeUs &r : keep) {
+        if (r.startUs > at)
+            gone.append({at, r.startUs});
+        at = qMax(at, r.endUs);
+    }
+    if (clip.srcOut > at)
+        gone.append({at, clip.srcOut});
+    const QList<int> words = transcript->wordsInRange(clip.srcIn, clip.srcOut);
+    for (const drift::TimeRangeUs &g : std::as_const(gone)) {
+        if (g.length() < 100'000) // shorter than a tenth of a second: not worth a row
+            continue;
+        QStringList said; // the filler words inside, so the row can say «eh» instead of «pause»
+        for (const int i : words) {
+            const drift::TranscriptWord &w = transcript->words.at(i);
+            if (w.type == drift::TranscriptTokenType::Spacing || w.type == drift::TranscriptTokenType::AudioEvent)
+                continue;
+            const drift::TimeUs mid = (w.startUs + w.endUs) / 2;
+            if (mid >= g.startUs && mid < g.endUs)
+                said.append(w.text.trimmed());
+        }
+        const drift::TimeUs startOnTimeline = clip.timelineStart + clip.sourceUsToClipLocalUs(g.startUs);
+        const drift::TimeUs endOnTimeline = clip.timelineStart + clip.sourceUsToClipLocalUs(g.endUs);
+        out.append(QVariantMap{
+            {QStringLiteral("start"), drift::usToSeconds(g.startUs)},
+            {QStringLiteral("end"), drift::usToSeconds(g.endUs)},
+            {QStringLiteral("at"), drift::usToSeconds(qMin(startOnTimeline, endOnTimeline))},
+            {QStringLiteral("length"), drift::usToSeconds(qAbs(endOnTimeline - startOnTimeline))},
+            {QStringLiteral("filler"), !said.isEmpty()},
+            {QStringLiteral("text"), said.join(QLatin1Char(' '))},
+        });
+    }
+    return out;
+}
+
+void AppController::removeSilencePieces(int trackIndex, int clipIndex, const QVariantList &pieces)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex) || pieces.isEmpty())
+        return;
+    const drift::Clip &clip = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    QList<drift::TimeRangeUs> gone;
+    int fillers = 0;
+    for (const QVariant &v : pieces) {
+        const QVariantMap m = v.toMap();
+        const drift::TimeUs a = qMax(clip.srcIn, drift::secondsToUs(m.value(QStringLiteral("start")).toDouble()));
+        const drift::TimeUs b = qMin(clip.srcOut, drift::secondsToUs(m.value(QStringLiteral("end")).toDouble()));
+        if (b > a)
+            gone.append({a, b});
+        if (m.value(QStringLiteral("words")).toBool())
+            fillers = -1; // struck out in the text editor
+        else if (m.value(QStringLiteral("filler")).toBool() && fillers >= 0)
+            fillers += int(qMax<qsizetype>(1, m.value(QStringLiteral("text")).toString().split(
+                                              QLatin1Char(' '), Qt::SkipEmptyParts).size()));
+    }
+    std::sort(gone.begin(), gone.end(), [](const drift::TimeRangeUs &x, const drift::TimeRangeUs &y) {
+        return x.startUs < y.startUs;
+    });
+    QList<drift::TimeRangeUs> keep;
+    drift::TimeUs at = clip.srcIn;
+    for (const drift::TimeRangeUs &g : std::as_const(gone)) {
+        if (g.startUs > at)
+            keep.append({at, g.startUs});
+        at = qMax(at, g.endUs);
+    }
+    if (clip.srcOut > at)
+        keep.append({at, clip.srcOut});
+    if (keep.isEmpty()) {
+        setLastMessage(tr("That would remove the whole clip"), QStringLiteral("warning"));
+        return;
+    }
+    cutToKeepRanges(trackIndex, clipIndex, keep, fillers);
 }
 
 void AppController::addAudioEffect(int trackIndex, int clipIndex, const QString &effectId)
@@ -28828,7 +30583,25 @@ void AppController::stepToKeyframe(bool forward)
 void AppController::toggleRevealKeyframes()
 {
     // As After Effects' U: open every track that has keys and show only the lines with keys; again,
-    // close them all and show the fixed lines once more.
+    // close them all and show the fixed lines once more. U twice in a row (UU, 0.30) shows instead
+    // the lines whose value was changed at all, animated or not.
+    const qint64 now = QDateTime::currentMSecsSinceEpoch();
+    const bool twice = now - m_lastRevealMs < 450 && m_keyframeRowsAnimatedOnly;
+    m_lastRevealMs = now;
+    if (twice) {
+        for (int t = 0; t < m_project.tracks().size(); ++t) {
+            drift::Track &track = m_project.tracks()[t];
+            track.keyframesExpanded = !track.isAdjustmentLane() && (trackHasKeyframes(t) || trackHasModifiedLines(t));
+        }
+        m_keyframeRowsAnimatedOnly = false;
+        m_keyframeRowsModifiedOnly = true;
+        m_keyframeRowsOnlyGroup.clear();
+        m_tracksCacheValid = false;
+        m_tracksCache.clear();
+        notifyTracksChanged();
+        return;
+    }
+    m_keyframeRowsModifiedOnly = false;
     bool anyOpen = false;
     for (const drift::Track &track : m_project.tracks())
         anyOpen = anyOpen || track.keyframesExpanded;
@@ -28841,6 +30614,43 @@ void AppController::toggleRevealKeyframes()
     m_tracksCacheValid = false;
     m_tracksCache.clear();
     notifyTracksChanged();
+}
+
+// UU (0.30): a transform line whose value is not the one Reset would give (Position, Scale, Rotation,
+// Opacity, Anchor Point), or an audio line off its default.
+bool AppController::lineModified(int trackIndex, int clipIndex, const QStringList &props) const
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return false;
+    const drift::Clip &clip = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    drift::Clip rest = clip;
+    const_cast<AppController *>(this)->resetTransformOf(rest);
+    for (const QString &prop : props) {
+        const drift::KeyframeTrack<double> *now = keyframeTrackForProp(clip, prop);
+        const drift::KeyframeTrack<double> *home = keyframeTrackForProp(rest, prop);
+        double fallback = 0.0;
+        if (prop == QLatin1String("opacity") || prop == QLatin1String("volume"))
+            fallback = 1.0;
+        else if (prop == QLatin1String("anchorX") || prop == QLatin1String("anchorY"))
+            fallback = 0.5;
+        const double a = now && !now->isEmpty() ? now->evaluateAt(0) : fallback;
+        double b = home && !home->isEmpty() ? home->evaluateAt(0) : fallback;
+        // A shape's, a null's or a text's home is its own size, centred (0.30: UU listed an
+        // untouched null's Position and Scale, test #14); Reset fills the canvas only for media.
+        if ((clip.type == drift::ClipType::Shape || clip.type == drift::ClipType::Text) && clip.restW > 0.0) {
+            if (prop == QLatin1String("width"))
+                b = clip.restW;
+            else if (prop == QLatin1String("height"))
+                b = clip.restH;
+            else if (prop == QLatin1String("x"))
+                b = (m_project.width() - clip.restW) / 2.0;
+            else if (prop == QLatin1String("y"))
+                b = (m_project.height() - clip.restH) / 2.0;
+        }
+        if (std::abs(a - b) > 1e-3 * qMax(1.0, std::abs(b)))
+            return true;
+    }
+    return false;
 }
 
 bool AppController::trackHasKeyframes(int trackIndex) const
@@ -28961,6 +30771,20 @@ const QList<KeyframeGroup> &fixedKeyframeGroups(const drift::Track &track)
 }
 
 } // namespace
+
+bool AppController::trackHasModifiedLines(int trackIndex) const
+{
+    if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
+        return false;
+    const drift::Track &track = m_project.tracks().at(trackIndex);
+    for (const KeyframeGroup &group : fixedKeyframeGroups(track)) {
+        for (int c = 0; c < track.clips.size(); ++c) {
+            if (lineModified(trackIndex, c, group.props))
+                return true;
+        }
+    }
+    return false;
+}
 
 void AppController::setKeyframeGroupExpanded(int trackIndex, const QString &group, bool expanded)
 {
@@ -29459,15 +31283,33 @@ QVariantList AppController::trackKeyframeRows(int trackIndex) const
                     {QStringLiteral("keys"), keys},
                 });
             }
-            // U (revealKeyframes) shows only the lines that animate something.
+            // U (revealKeyframes) shows only the lines that animate something; UU those changed at all.
             if (m_keyframeRowsAnimatedOnly && !groupHasKeys)
                 continue;
+            if (m_keyframeRowsModifiedOnly && !groupHasKeys) {
+                bool modified = false;
+                for (int c = 0; c < clipCount && !modified; ++c)
+                    modified = lineModified(trackIndex, c, group.props);
+                if (!modified)
+                    continue;
+            }
             // Shift+A/P/R/T/S (0.26): only that line.
             if (!m_keyframeRowsOnlyGroup.isEmpty() && groupId != m_keyframeRowsOnlyGroup)
                 continue;
             // Separate Dimensions (0.26): X Position and Y Position, each a property of its own
             // with its own stopwatch and keys, in place of the joined Position line.
-            const bool separated = groupId == QLatin1String("position") && m_dimensionsSeparated;
+            // Each clip's own choice decides (0.30): joined Position is one line, Separate Dimensions
+            // two; with neither on the track, the old preference.
+            bool anyJoined = false;
+            bool anySeparated = false;
+            for (int c = 0; c < clipCount; ++c) {
+                anyJoined = anyJoined || track.clips.at(c).positionJoined;
+                anySeparated = anySeparated || track.clips.at(c).positionSeparated;
+            }
+            // In After Effects Position is one line until Separate Dimensions is chosen for that layer;
+            // the old app-wide preference split it on layers that never asked (two rows on a still
+            // rectangle, «✓ Separate dimensions» before animating: 0.30 tests E43/E45).
+            const bool separated = groupId == QLatin1String("position") && !anyJoined && anySeparated;
             const bool expanded = !separated && group.props.size() > 1
                 && m_keyframeGroupsExpanded.contains(track.id + QLatin1Char('|') + groupId);
             if (!separated) {
@@ -29962,6 +31804,29 @@ void AppController::markWorkAreaOut()
         m_project.clearWorkArea();
     pushProjectEdit(before, tr("Mark work area out"));
     finishEdit(tr("Work area out marked"));
+    emit workAreaChanged();
+}
+
+void AppController::previewSetWorkArea(double inSeconds, double outSeconds)
+{
+    const double fps = qMax(1, m_project.fps());
+    const auto snap = [fps](double s) { return std::round(s * fps) / fps; };
+    const drift::TimeUs end = qMax(m_project.durationUs(), drift::TimeUs{0});
+    drift::TimeUs in = qBound<drift::TimeUs>(0, drift::secondsToUs(snap(inSeconds)), end);
+    drift::TimeUs out = qBound<drift::TimeUs>(0, drift::secondsToUs(snap(outSeconds)), end);
+    const drift::TimeUs frame = drift::secondsToUs(1.0 / fps);
+    if (out - in < frame) {
+        if (out + frame <= end)
+            out = in + frame;
+        else
+            in = qMax<drift::TimeUs>(0, out - frame);
+    }
+    if (in == m_project.workAreaInUs() && out == m_project.workAreaOutUs())
+        return;
+    m_project.setWorkAreaInUs(in);
+    m_project.setWorkAreaOutUs(out);
+    if (m_previewDragActive)
+        m_previewDragDirty = true;
     emit workAreaChanged();
 }
 
@@ -31197,7 +33062,7 @@ QString AppController::setShortcut(const QString &actionId, const QString &keys)
 
 void AppController::loadShortcuts()
 {
-    m_shortcuts = defaultShortcuts();
+    m_shortcuts = shortcutDefaultsFor(storedShortcutPreset());
 
     QSettings settings;
     settings.beginGroup(QStringLiteral("shortcuts"));
@@ -31257,9 +33122,267 @@ void AppController::loadShortcuts()
     claimChords(defaultedIds);
 }
 
+QString AppController::shortcutPreset() const
+{
+    return storedShortcutPreset();
+}
+
+void AppController::setShortcutPreset(const QString &preset)
+{
+    const QString next = preset == kShortcutPresetAfterEffects ? kShortcutPresetAfterEffects : QStringLiteral("flip");
+    const QString previous = storedShortcutPreset();
+    if (next == previous)
+        return;
+    // A binding that only mirrors the old set's default goes, so the new set's arrives; one the user
+    // chose stays theirs (Jorge: nobody loses their own shortcuts).
+    const QHash<QString, QString> oldDefaults = shortcutDefaultsFor(previous);
+    QSettings settings;
+    settings.beginGroup(QStringLiteral("shortcuts"));
+    for (auto it = oldDefaults.cbegin(); it != oldDefaults.cend(); ++it) {
+        const QString stored = settings.value(it.key()).toString();
+        if (stored.isEmpty() || stored == it.value())
+            settings.remove(it.key());
+    }
+    settings.endGroup();
+    settings.setValue(QStringLiteral("editor/shortcutPreset"), next);
+    loadShortcuts();
+    emit shortcutsChanged();
+}
+
+namespace {
+// The times where Position has a key, on either axis.
+QList<drift::TimeUs> positionKeyTimes(const drift::Clip &clip)
+{
+    QList<drift::TimeUs> times = clip.transformX.keyframes().keys();
+    for (const drift::TimeUs t : clip.transformY.keyframes().keys()) {
+        if (!times.contains(t))
+            times.append(t);
+    }
+    std::sort(times.begin(), times.end());
+    return times;
+}
+} // namespace
+
+void AppController::setPositionPath(int trackIndex, int clipIndex, const QString &kind, const QVariantList &seconds)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return;
+    const drift::Project before = m_project;
+    drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
+    const QList<drift::TimeUs> times = positionKeyTimes(clip);
+    if (times.size() < 2)
+        return;
+    QSet<drift::TimeUs> wanted;
+    for (const QVariant &v : seconds)
+        wanted.insert(drift::secondsToUs(v.toDouble()) - clip.timelineStart);
+    const auto isWanted = [&](drift::TimeUs t) {
+        if (wanted.isEmpty())
+            return true;
+        for (const drift::TimeUs w : wanted) {
+            if (std::abs(w - t) <= kKeyframeToleranceUs)
+                return true;
+        }
+        return false;
+    };
+    const bool smooth = kind == QLatin1String("auto");
+    if (clip.positionJoined) {
+        // Joined: the path's own handles, Auto Bezier or none; the timing stays as it was.
+        for (drift::KeyframeTrack<double> *track : {&clip.transformX, &clip.transformY}) {
+            for (const drift::TimeUs t : times) {
+                drift::Keyframe<double> *key = track->keyframeRef(t);
+                if (!key || !isWanted(t))
+                    continue;
+                key->spatialAuto = smooth;
+                if (!smooth)
+                    key->spIn = key->spOut = 0.0;
+            }
+        }
+        pushProjectEdit(before, smooth ? tr("Curved path") : tr("Straight path"));
+        finishEdit(smooth ? tr("Curved path") : tr("Straight path"));
+        return;
+    }
+    // Both axes get a key at every Position time, so the path has one set of points.
+    for (const drift::TimeUs t : times) {
+        if (!clip.transformX.keyframes().contains(t))
+            clip.transformX.setKeyframe(t, clip.transformX.evaluateAt(t));
+        if (!clip.transformY.keyframes().contains(t))
+            clip.transformY.setKeyframe(t, clip.transformY.evaluateAt(t));
+    }
+    for (drift::KeyframeTrack<double> *track : {&clip.transformX, &clip.transformY}) {
+        for (int i = 0; i < times.size(); ++i) {
+            if (!isWanted(times.at(i)))
+                continue;
+            drift::Keyframe<double> key = track->keyframes().value(times.at(i));
+            key.hold = false;
+            key.corner = false;
+            if (!smooth) {
+                key.inDx = key.inDy = key.outDx = key.outDy = 0.0;
+            } else {
+                // Catmull-Rom: the slope through a key is the one between its neighbours; the
+                // ends have only one, so their outer side stays straight.
+                const int a = qMax(0, i - 1);
+                const int b = qMin(times.size() - 1, i + 1);
+                const double dt = double(times.at(b) - times.at(a));
+                const double slope = dt > 0 ? (track->keyframes().value(times.at(b)).value
+                                               - track->keyframes().value(times.at(a)).value) / dt : 0.0;
+                if (i > 0) {
+                    key.inDx = -double(times.at(i) - times.at(i - 1)) / 3.0;
+                    key.inDy = slope * key.inDx;
+                } else {
+                    key.inDx = key.inDy = 0.0;
+                }
+                if (i + 1 < times.size()) {
+                    key.outDx = double(times.at(i + 1) - times.at(i)) / 3.0;
+                    key.outDy = slope * key.outDx;
+                } else {
+                    key.outDx = key.outDy = 0.0;
+                }
+            }
+            track->setKeyframe(times.at(i), key);
+        }
+        track->setStopwatch(true);
+    }
+    pushProjectEdit(before, smooth ? tr("Curved path") : tr("Straight path"));
+    finishEdit(smooth ? tr("Curved path") : tr("Straight path"));
+}
+
+bool AppController::positionSeparated(int trackIndex, int clipIndex) const
+{
+    return isValidClipIndex(trackIndex, clipIndex) && m_project.tracks().at(trackIndex).clips.at(clipIndex).positionSeparated;
+}
+
+bool AppController::positionJoined(int trackIndex, int clipIndex) const
+{
+    return isValidClipIndex(trackIndex, clipIndex) && m_project.tracks().at(trackIndex).clips.at(clipIndex).positionJoined;
+}
+
+void AppController::setPositionJoined(int trackIndex, int clipIndex, bool joined)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return;
+    // Separating a clip that never moved still counts: it stays separate when it starts to.
+    if (positionJoined(trackIndex, clipIndex) == joined
+        && (joined || positionSeparated(trackIndex, clipIndex)))
+        return;
+    const drift::Project before = m_project;
+    drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
+    if (joined)
+        drift::joinPosition(clip);
+    else
+        drift::separatePosition(clip);
+    pushProjectEdit(before, joined ? tr("Join Position") : tr("Separate dimensions"));
+    finishEdit(joined ? tr("Join Position") : tr("Separate dimensions"));
+}
+
+void AppController::previewSetSpatialTangents(int trackIndex, int clipIndex, double atSeconds, double inX, double inY,
+                                              double outX, double outY)
+{
+    if (!positionJoined(trackIndex, clipIndex))
+        return;
+    drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
+    const drift::TimeUs local = drift::secondsToUs(atSeconds) - clip.timelineStart;
+    const drift::TimeUs at = clip.transformX.nearestKeyframe(local, kKeyframeToleranceUs);
+    if (at < 0)
+        return;
+    if (!m_previewDragActive)
+        beginPreviewDrag(tr("Shape motion path"));
+    drift::Keyframe<double> *kx = clip.transformX.keyframeRef(at);
+    drift::Keyframe<double> *ky = clip.transformY.keyframeRef(at);
+    if (!kx || !ky)
+        return;
+    kx->spatialAuto = ky->spatialAuto = false;
+    kx->spIn = inX;
+    ky->spIn = inY;
+    kx->spOut = outX;
+    ky->spOut = outY;
+    drift::syncJoinedPosition(clip);
+    emitPreviewEdit(trackIndex, clipIndex, {QStringLiteral("x"), QStringLiteral("y")});
+}
+
+void AppController::roveKeyframes(int trackIndex, int clipIndex)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return;
+    const drift::Clip &now = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    const QList<drift::TimeUs> times = positionKeyTimes(now);
+    if (times.size() < 3) {
+        setLastMessage(tr("Roving needs at least three Position keyframes"), QStringLiteral("warning"));
+        return;
+    }
+    // How far along the path each key is, measured on what plays.
+    QList<double> along{0.0};
+    double total = 0.0;
+    for (int i = 0; i + 1 < times.size(); ++i) {
+        const int steps = 64;
+        double px = now.transformX.evaluateAt(times.at(i));
+        double py = now.transformY.evaluateAt(times.at(i));
+        for (int k = 1; k <= steps; ++k) {
+            const drift::TimeUs t = times.at(i) + (times.at(i + 1) - times.at(i)) * k / steps;
+            const double x = now.transformX.evaluateAt(t);
+            const double y = now.transformY.evaluateAt(t);
+            total += std::hypot(x - px, y - py);
+            px = x;
+            py = y;
+        }
+        along.append(total);
+    }
+    if (total <= 1e-6)
+        return;
+    const drift::Project before = m_project;
+    drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
+    const drift::TimeUs first = times.first();
+    const drift::TimeUs span = times.last() - first;
+    QList<drift::TimeUs> moved;
+    for (int i = 0; i < times.size(); ++i)
+        moved.append(i == 0 || i == times.size() - 1 ? times.at(i)
+                                                     : first + drift::TimeUs(double(span) * along.at(i) / total));
+    for (drift::KeyframeTrack<double> *track : {&clip.transformX, &clip.transformY}) {
+        QList<QPair<drift::TimeUs, drift::Keyframe<double>>> keys;
+        for (int i = 0; i < times.size(); ++i) {
+            if (!track->keyframes().contains(times.at(i)))
+                continue;
+            drift::Keyframe<double> key = track->keyframes().value(times.at(i));
+            // Joined: the keys in between go at one speed along the path (their timing straight);
+            // the ends keep their ease.
+            if (clip.positionJoined && i > 0 && i + 1 < times.size()) {
+                key.inDx = key.inDy = key.outDx = key.outDy = 0.0;
+                keys.append({moved.at(i), key});
+                continue;
+            }
+            // The handles keep their share of the segments they reach into.
+            if (i > 0) {
+                const double k = double(moved.at(i) - moved.at(i - 1)) / qMax(1.0, double(times.at(i) - times.at(i - 1)));
+                key.inDx *= k;
+                key.inDy *= k;
+            }
+            if (i + 1 < times.size()) {
+                const double k = double(moved.at(i + 1) - moved.at(i)) / qMax(1.0, double(times.at(i + 1) - times.at(i)));
+                key.outDx *= k;
+                key.outDy *= k;
+            }
+            keys.append({moved.at(i), key});
+        }
+        for (const drift::TimeUs t : times)
+            track->removeKeyframe(t);
+        for (const auto &k : keys)
+            track->setKeyframe(k.first, k.second);
+    }
+    pushProjectEdit(before, tr("Roving keyframes"));
+    finishEdit(tr("Roving keyframes"));
+}
+
+bool AppController::takeAeShortcutsOffer()
+{
+    QSettings settings;
+    if (settings.value(QStringLiteral("editor/aeShortcutsOffered"), false).toBool())
+        return false;
+    settings.setValue(QStringLiteral("editor/aeShortcutsOffered"), true);
+    return true;
+}
+
 void AppController::resetShortcuts()
 {
-    m_shortcuts = defaultShortcuts();
+    m_shortcuts = shortcutDefaultsFor(storedShortcutPreset());
     QSettings settings;
     settings.beginGroup(QStringLiteral("shortcuts"));
     for (auto it = m_shortcuts.cbegin(); it != m_shortcuts.cend(); ++it)
@@ -31285,10 +33408,21 @@ QString AppController::shortcutChord(int key, int modifiers) const
     case Qt::Key_Up:        name = QStringLiteral("Up"); break;
     case Qt::Key_Right:     name = QStringLiteral("Right"); break;
     case Qt::Key_Down:      name = QStringLiteral("Down"); break;
-    case Qt::Key_PageUp:    name = QStringLiteral("PageUp"); break;
-    case Qt::Key_PageDown:  name = QStringLiteral("PageDown"); break;
+    case Qt::Key_PageUp:    name = QStringLiteral("PgUp"); break; // Qt's own key names, so the chord parses
+    case Qt::Key_PageDown:  name = QStringLiteral("PgDown"); break;
     case Qt::Key_Space:     name = QStringLiteral("Space"); break;
     case Qt::Key_Tab:       name = QStringLiteral("Tab"); break;
+    // After Effects' layer keys and their neighbours (0.30): [ ] ; ' = - , . / \ could not be recorded.
+    case Qt::Key_BracketLeft:  name = QStringLiteral("["); break;
+    case Qt::Key_BracketRight: name = QStringLiteral("]"); break;
+    case Qt::Key_Semicolon:    name = QStringLiteral(";"); break;
+    case Qt::Key_Apostrophe:   name = QStringLiteral("'"); break;
+    case Qt::Key_Equal:        name = QStringLiteral("="); break;
+    case Qt::Key_Minus:        name = QStringLiteral("-"); break;
+    case Qt::Key_Comma:        name = QStringLiteral(","); break;
+    case Qt::Key_Period:       name = QStringLiteral("."); break;
+    case Qt::Key_Slash:        name = QStringLiteral("/"); break;
+    case Qt::Key_Backslash:    name = QStringLiteral("\\"); break;
     case Qt::Key_Shift:
     case Qt::Key_Control:
     case Qt::Key_Alt:
@@ -31536,6 +33670,16 @@ void AppController::triggerAction(const QString &actionId)
         jumpSeconds(-10.0);
     else if (actionId == QStringLiteral("jumpForwardFar"))
         jumpSeconds(10.0);
+    else if (actionId == QStringLiteral("stepBackPage"))
+        stepFrames(-1);
+    else if (actionId == QStringLiteral("stepForwardPage"))
+        stepFrames(1);
+    else if (actionId == QStringLiteral("trimInToPlayhead") || actionId == QStringLiteral("trimOutToPlayhead")
+             || actionId == QStringLiteral("moveInToPlayhead") || actionId == QStringLiteral("moveOutToPlayhead")
+             || actionId == QStringLiteral("goToLayerIn") || actionId == QStringLiteral("goToLayerOut"))
+        layerEditAtPlayhead(actionId);
+    else if (actionId.startsWith(QLatin1String("key")) && actionId.size() > 3 && actionId.at(3).isUpper())
+        keyGroupAtPlayhead(actionId.mid(3).toLower());
     else if (actionId == QStringLiteral("goToStart"))
         setPlayheadUs(0);
     else if (actionId == QStringLiteral("deleteLeft"))
@@ -32594,7 +34738,7 @@ void AppController::exportWithPreset(const QUrl &outputUrl, const QString &prese
 void AppController::exportWithSettings(const QUrl &outputUrl, const QVariantMap &settings,
                                        bool rememberChoice)
 {
-    const ExportSettings exportSettings = Exporter::settingsFromMap(settings);
+    ExportSettings exportSettings = Exporter::settingsFromMap(settings);
 
     // The muxer is chosen from the output file's extension, and a created document's URI has
     // none — so the staging file the encoder writes is given the one the settings imply.
@@ -32643,7 +34787,17 @@ void AppController::exportWithSettings(const QUrl &outputUrl, const QVariantMap 
 
     const bool disposable = writeTargetIsDisposable(outputUrl);
 
-    (void)QtConcurrent::run([this, snapshot, exportSettings, outputPath, outputUrl, disposable]() {
+    // «Also save the captions (.srt)»: one file per subtitle track, in the exported video's times,
+    // written next to it once the video is done (players pick «video.srt» up on their own).
+    QList<QList<drift::SubtitleCue>> sidecars;
+    if (settings.value(QStringLiteral("subtitleSidecar")).toBool() && !exportSettings.audioOnly
+        && !exportSettings.gifExport)
+        sidecars = subtitleSidecarCues(snapshot, settings.value(QStringLiteral("startUs"), 0).toLongLong(),
+                                       settings.value(QStringLiteral("endUs"), 0).toLongLong());
+    // The same captions inside the video too, as tracks a player can turn on or off.
+    exportSettings.subtitleTracks = sidecars;
+
+    (void)QtConcurrent::run([this, snapshot, exportSettings, outputPath, outputUrl, disposable, sidecars]() {
         // Spans the encode *and* the copy into the user's document. Exporter::run takes its own
         // hold, but that one ends when run() returns — and the commit below is the phase that
         // would otherwise lose a multi-minute render to a screen that idled out mid-copy. The
@@ -32684,7 +34838,9 @@ void AppController::exportWithSettings(const QUrl &outputUrl, const QVariantMap 
 
         QMetaObject::invokeMethod(
             this,
-            [this, ok, error, outputUrl]() {
+            [this, ok, error, outputUrl, sidecars]() {
+                if (ok && outputUrl.isLocalFile())
+                    writeSubtitleSidecars(outputUrl.toLocalFile(), sidecars);
                 m_exportInProgress = false;
                 m_exportProgress = ok ? 1.0 : 0.0;
 #ifdef Q_OS_ANDROID

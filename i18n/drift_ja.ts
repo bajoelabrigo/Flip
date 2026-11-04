@@ -142,8 +142,8 @@
         <translation>字幕スタイル</translation>
     </message>
     <message>
-        <source>Voices</source>
-        <translation>音声</translation>
+        <source>Voice changer</source>
+        <translation>ボイスチェンジャー</translation>
     </message>
     <message>
         <source>Retouch</source>
@@ -1111,6 +1111,29 @@
     <message>
         <source>Changes only that clip; the rest is untouched. It is drawn inside the clip&apos;s row on the timeline.</source>
         <translation>そのクリップだけを変更し、ほかはそのままです。タイムラインではクリップの行の中に表示されます。</translation>
+    </message>
+</context>
+<context>
+    <name>AeShortcutsDialog</name>
+    <message>
+        <source>Use After Effects&apos; shortcuts?</source>
+        <translation>After Effects のショートカットを使いますか?</translation>
+    </message>
+    <message>
+        <source>Use After Effects&apos;</source>
+        <translation>After Effects のものを使う</translation>
+    </message>
+    <message>
+        <source>Keep Flip&apos;s</source>
+        <translation>Flip のままにする</translation>
+    </message>
+    <message>
+        <source>J and K go to the previous and next keyframe, P, S, R, T and A show one property, U and UU what is animated or changed, B and N set the work area, I and O go to the layer&apos;s ends, [ ] and Alt+[ ] move and trim the layer at the playhead.</source>
+        <translation>J と K で前後のキーフレームへ、P・S・R・T・A でプロパティを 1 つ表示、U と UU でアニメーションや変更のある項目、B と N でワークエリアを設定、I と O でレイヤーの端へ、[ ] と Alt+[ ] で再生ヘッドの位置にレイヤーを移動・トリミングします。</translation>
+    </message>
+    <message>
+        <source>You can switch any time in Preferences › Shortcuts. Shortcuts you changed yourself stay as they are.</source>
+        <translation>環境設定 › ショートカットでいつでも切り替えられます。自分で変更したショートカットはそのままです。</translation>
     </message>
 </context>
 <context>
@@ -4249,6 +4272,14 @@
         <translation>「%1」を「%2」に追加しました · 別のレイヤーに描くには先に Esc、分けるには右クリック › レイヤーに分割</translation>
     </message>
     <message>
+        <source>Sign in with Google to translate captions, or install the Offline translation extra</source>
+        <translation>字幕を翻訳するには Google でログインするか、オフライン翻訳のエクストラをインストールしてください</translation>
+    </message>
+    <message>
+        <source>Words bleeped: %1</source>
+        <translation>ピー音を入れた語: %1</translation>
+    </message>
+    <message>
         <source>Add mask</source>
         <translation>マスクを追加</translation>
     </message>
@@ -5195,8 +5226,60 @@
         <translation>不透明度</translation>
     </message>
     <message>
+        <source>Step back one frame (Page Up)</source>
+        <translation>1 フレーム戻る (Page Up)</translation>
+    </message>
+    <message>
+        <source>Step forward one frame (Page Down)</source>
+        <translation>1 フレーム進む (Page Down)</translation>
+    </message>
+    <message>
         <source>Show rulers</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Go to the layer&apos;s in point</source>
+        <translation>レイヤーのインポイントへ</translation>
+    </message>
+    <message>
+        <source>Go to the layer&apos;s out point</source>
+        <translation>レイヤーのアウトポイントへ</translation>
+    </message>
+    <message>
+        <source>Add a Position keyframe</source>
+        <translation>位置のキーフレームを追加</translation>
+    </message>
+    <message>
+        <source>Add a Scale keyframe</source>
+        <translation>スケールのキーフレームを追加</translation>
+    </message>
+    <message>
+        <source>Add a Rotation keyframe</source>
+        <translation>回転のキーフレームを追加</translation>
+    </message>
+    <message>
+        <source>Add an Opacity keyframe</source>
+        <translation>不透明度のキーフレームを追加</translation>
+    </message>
+    <message>
+        <source>Add an Anchor point keyframe</source>
+        <translation>アンカーポイントのキーフレームを追加</translation>
+    </message>
+    <message>
+        <source>Trim the layer&apos;s in point to the playhead</source>
+        <translation>レイヤーのインポイントを再生ヘッドでトリミング</translation>
+    </message>
+    <message>
+        <source>Trim the layer&apos;s out point to the playhead</source>
+        <translation>レイヤーのアウトポイントを再生ヘッドでトリミング</translation>
+    </message>
+    <message>
+        <source>Move the layer so it starts at the playhead</source>
+        <translation>再生ヘッドから始まるようにレイヤーを移動</translation>
+    </message>
+    <message>
+        <source>Move the layer so it ends at the playhead</source>
+        <translation>再生ヘッドで終わるようにレイヤーを移動</translation>
     </message>
     <message>
         <source>RAM preview (render to memory and play)</source>
@@ -5209,6 +5292,38 @@
     <message>
         <source>Ruler guides</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Replace voice</source>
+        <translation>音声を置き換え</translation>
+    </message>
+    <message>
+        <source>Voice replaced</source>
+        <translation>音声を置き換えました</translation>
+    </message>
+    <message>
+        <source>Trim layer</source>
+        <translation>レイヤーをトリミング</translation>
+    </message>
+    <message>
+        <source>Move layer</source>
+        <translation>レイヤーを移動</translation>
+    </message>
+    <message>
+        <source>Put the playhead inside the layer to trim it there</source>
+        <translation>トリミングするには再生ヘッドをレイヤー内に置いてください</translation>
+    </message>
+    <message>
+        <source>Sending the audio to ElevenLabs…</source>
+        <translation>ElevenLabs に音声を送信中…</translation>
+    </message>
+    <message>
+        <source>ElevenLabs is transcribing…</source>
+        <translation>ElevenLabs が文字起こし中…</translation>
+    </message>
+    <message>
+        <source>Speaker %1</source>
+        <translation>話者 %1</translation>
     </message>
     <message>
         <source>Solids</source>
@@ -5225,6 +5340,14 @@
     <message>
         <source>Behavior changed</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Settle</source>
+        <translation>落ち着き</translation>
+    </message>
+    <message>
+        <source>Reverse keyframes</source>
+        <translation>キーフレームを反転</translation>
     </message>
     <message>
         <source>Pick two or more keys of a property to reverse them</source>
@@ -5411,6 +5534,90 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Translating the captions…</source>
+        <translation>字幕を翻訳しています…</translation>
+    </message>
+    <message>
+        <source>Could not translate the captions (no answer from the server)</source>
+        <translation>字幕を翻訳できませんでした（サーバーが応答しません）</translation>
+    </message>
+    <message>
+        <source>Translating the captions on this computer…</source>
+        <translation>このコンピューターで字幕を翻訳しています…</translation>
+    </message>
+    <message>
+        <source>Could not translate the captions</source>
+        <translation>字幕を翻訳できませんでした</translation>
+    </message>
+    <message>
+        <source>The captions changed while they were being translated; try again</source>
+        <translation>翻訳中に字幕が変更されました。もう一度お試しください</translation>
+    </message>
+    <message>
+        <source>Captions (%1)</source>
+        <translation>字幕（%1）</translation>
+    </message>
+    <message>
+        <source>Translate captions</source>
+        <translation>字幕を翻訳</translation>
+    </message>
+    <message>
+        <source>Captions translated into %1</source>
+        <translation>字幕を%1に翻訳しました</translation>
+    </message>
+    <message>
+        <source>Edit speaker</source>
+        <translation>話者を編集</translation>
+    </message>
+    <message>
+        <source>No key words to highlight in these subtitles</source>
+        <translation>これらの字幕に強調するキーワードはありません</translation>
+    </message>
+    <message>
+        <source>Highlight key words</source>
+        <translation>キーワードを強調</translation>
+    </message>
+    <message>
+        <source>Key words highlighted in %1 captions</source>
+        <translation>%1 件の字幕でキーワードを強調しました</translation>
+    </message>
+    <message>
+        <source>Install «Animated emojis» from Extras first</source>
+        <translation>先に「アニメ絵文字」を追加機能からインストールしてください</translation>
+    </message>
+    <message>
+        <source>Emoji: %1</source>
+        <translation>絵文字: %1</translation>
+    </message>
+    <message>
+        <source>No captions with an emoji word (fuego, Dios, fiesta…)</source>
+        <translation>絵文字になる言葉を含む字幕がありません（火、神、パーティー…）</translation>
+    </message>
+    <message>
+        <source>Animated emojis</source>
+        <translation>アニメ絵文字</translation>
+    </message>
+    <message>
+        <source>Animated emojis on %1 captions</source>
+        <translation>%1 件の字幕にアニメ絵文字</translation>
+    </message>
+    <message>
+        <source>No hidden words with their timing to bleep</source>
+        <translation>ピー音を入れるタイミング付きの伏せ字がありません</translation>
+    </message>
+    <message>
+        <source>Could not make the bleep</source>
+        <translation>ピー音を作成できませんでした</translation>
+    </message>
+    <message>
+        <source>Bleep swear words</source>
+        <translation>暴言にピー音</translation>
+    </message>
+    <message>
+        <source>Bleep</source>
+        <translation>ピー音</translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5559,6 +5766,30 @@
     <message>
         <source>Select a clip with sound to enhance its voice</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Listening to the clip to write down what is said…</source>
+        <translation>話している内容を書き出すためにクリップを聞いています…</translation>
+    </message>
+    <message>
+        <source>Move the other tracks</source>
+        <translation>ほかのトラックを移動</translation>
+    </message>
+    <message>
+        <source>Edit by text</source>
+        <translation>テキストで編集</translation>
+    </message>
+    <message>
+        <source>Remove silences</source>
+        <translation>無音を削除</translation>
+    </message>
+    <message>
+        <source>Cut %1 s from the video</source>
+        <translation>動画から %1 秒カットしました</translation>
+    </message>
+    <message>
+        <source>That would remove the whole clip</source>
+        <translation>クリップ全体が削除されます</translation>
     </message>
     <message>
         <source>Volume</source>
@@ -5921,6 +6152,34 @@
         <translation>
             <numerusform>%n 個のクリップを貼り付けました</numerusform>
         </translation>
+    </message>
+    <message>
+        <source>Curved path</source>
+        <translation>カーブしたパス</translation>
+    </message>
+    <message>
+        <source>Straight path</source>
+        <translation>直線のパス</translation>
+    </message>
+    <message>
+        <source>Join Position</source>
+        <translation>位置を結合</translation>
+    </message>
+    <message>
+        <source>Separate dimensions</source>
+        <translation>次元に分割</translation>
+    </message>
+    <message>
+        <source>Shape motion path</source>
+        <translation>モーションパスを整形</translation>
+    </message>
+    <message>
+        <source>Roving needs at least three Position keyframes</source>
+        <translation>ロービングには位置のキーフレームが 3 つ以上必要です</translation>
+    </message>
+    <message>
+        <source>Roving keyframes</source>
+        <translation>ロービングキーフレーム</translation>
     </message>
     <message>
         <source>Exporting…</source>
@@ -7745,18 +8004,6 @@
         <translation>音量</translation>
     </message>
     <message>
-        <source>Recommended caption length</source>
-        <translation>推奨キャプション長</translation>
-    </message>
-    <message>
-        <source>1 word per caption</source>
-        <translation>キャプションあたり 1 単語</translation>
-    </message>
-    <message>
-        <source>%1 words per caption</source>
-        <translation>キャプションあたり %1 単語</translation>
-    </message>
-    <message>
         <source>Basic</source>
         <translation>基本</translation>
     </message>
@@ -7771,6 +8018,66 @@
     <message>
         <source>Fade out</source>
         <translation>フェードアウト</translation>
+    </message>
+    <message>
+        <source>Voice from text</source>
+        <translation>テキストから音声</translation>
+    </message>
+    <message>
+        <source>Edit script…</source>
+        <translation>台本を編集…</translation>
+    </message>
+    <message>
+        <source>Change the text or the voice and speak it again, in place of this audio</source>
+        <translation>テキストや声を変えて、この音声の代わりにもう一度読み上げます</translation>
+    </message>
+    <message>
+        <source>Discard the voice you made?</source>
+        <translation>作成した音声を破棄しますか？</translation>
+    </message>
+    <message>
+        <source>Discard and go on</source>
+        <translation>破棄して続ける</translation>
+    </message>
+    <message>
+        <source>The Voice panel has a take that is not on the timeline yet. Add it first with «Add to timeline», or discard it to start this one.</source>
+        <translation>音声パネルにまだタイムラインに追加していないテイクがあります。先に「タイムラインに追加」で追加するか、破棄してこちらを始めてください。</translation>
+    </message>
+    <message>
+        <source>Lower the music under this voice</source>
+        <translation>この音声の下の音楽を下げる</translation>
+    </message>
+    <message>
+        <source>Save the voice as a file…</source>
+        <translation>音声をファイルとして保存…</translation>
+    </message>
+    <message>
+        <source>Save the voice</source>
+        <translation>音声を保存</translation>
+    </message>
+    <message>
+        <source>MP3 audio (*.mp3)</source>
+        <translation>MP3 オーディオ (*.mp3)</translation>
+    </message>
+    <message>
+        <source>WAV audio (*.wav)</source>
+        <translation>WAV オーディオ (*.wav)</translation>
+    </message>
+    <message>
+        <source>FLAC audio (*.flac)</source>
+        <translation>FLAC オーディオ (*.flac)</translation>
+    </message>
+    <message>
+        <source>voice</source>
+        <translation>音声</translation>
+    </message>
+    <message>
+        <source>Voice saved</source>
+        <translation>音声を保存しました</translation>
+    </message>
+    <message>
+        <source>Could not save the voice</source>
+        <translation>音声を保存できませんでした</translation>
     </message>
     <message>
         <source>Normalize loudness</source>
@@ -7821,6 +8128,22 @@
         <translation>パン</translation>
     </message>
     <message>
+        <source>Create captions…</source>
+        <translation>字幕を作成…</translation>
+    </message>
+    <message>
+        <source>Open Subtitles to create captions from this clip&apos;s speech</source>
+        <translation>このクリップの音声から字幕を作るために「字幕」を開きます</translation>
+    </message>
+    <message>
+        <source>Edit by text…</source>
+        <translation>テキストで編集…</translation>
+    </message>
+    <message>
+        <source>See what is said and strike out words: the video loses those moments</source>
+        <translation>話した内容を見て単語を消すと、動画のその部分がなくなります</translation>
+    </message>
+    <message>
         <source>C</source>
         <translation>C</translation>
     </message>
@@ -7859,30 +8182,6 @@
     <message>
         <source>Install AI engine first</source>
         <translation>まず AI エンジンをインストール</translation>
-    </message>
-    <message>
-        <source>Auto subtitles</source>
-        <translation>自動字幕</translation>
-    </message>
-    <message>
-        <source>Shorter captions are timed by splitting each phrase evenly, so they can drift slightly out of sync with the speech.</source>
-        <translation>短いキャプションは各フレーズを均等に分割してタイミングを取るため、音声とわずかにずれることがあります。</translation>
-    </message>
-    <message>
-        <source>Creating captions… %1%</source>
-        <translation>キャプションを作成中… %1%</translation>
-    </message>
-    <message>
-        <source>Create captions from speech</source>
-        <translation>音声からキャプションを作成</translation>
-    </message>
-    <message>
-        <source>Several selected clips become one caption clip</source>
-        <translation>選択した複数のクリップが1つのキャプションクリップになります</translation>
-    </message>
-    <message>
-        <source>Download speech recognition (about 670 MB)</source>
-        <translation>音声認識をダウンロード (約 670 MB)</translation>
     </message>
 </context>
 <context>
@@ -8119,7 +8418,7 @@
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>削除</translation>
     </message>
 </context>
 <context>
@@ -13091,6 +13390,37 @@ NEXT TIME</source>
     </message>
 </context>
 <context>
+    <name>ChatterboxTts</name>
+    <message>
+        <source>The voice model is not installed. Install the AI voice extra in Extras.</source>
+        <translation>音声モデルがインストールされていません。エクストラで AI 音声をインストールしてください。</translation>
+    </message>
+    <message>
+        <source>Failed to load text-to-speech model: %1</source>
+        <translation>音声合成モデルを読み込めませんでした: %1</translation>
+    </message>
+    <message>
+        <source>Speech generation failed: %1</source>
+        <translation>音声の生成に失敗しました: %1</translation>
+    </message>
+    <message>
+        <source>The reference voice has no audio.</source>
+        <translation>参照音声に音がありません。</translation>
+    </message>
+    <message>
+        <source>Voice encoding failed: %1</source>
+        <translation>音声のエンコードに失敗しました: %1</translation>
+    </message>
+    <message>
+        <source>Unsupported language: %1</source>
+        <translation>サポートされていない言語: %1</translation>
+    </message>
+    <message>
+        <source>Invalid voice conditioning.</source>
+        <translation>音声の条件付けが無効です。</translation>
+    </message>
+</context>
+<context>
     <name>ChipScroller</name>
     <message>
         <source>Previous</source>
@@ -13451,7 +13781,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>適用</translation>
     </message>
     <message>
         <source>Save</source>
@@ -15198,6 +15528,14 @@ NEXT TIME</source>
         <translation>タイムライン全体ではなく、マークされたイン/アウト範囲のみをエンコード</translation>
     </message>
     <message>
+        <source>Include the captions (inside the video and as .srt)</source>
+        <translation>字幕を含める（動画内と .srt）</translation>
+    </message>
+    <message>
+        <source>The captions as a track inside the video and as a file next to it, with the same name: players and YouTube can turn them on and off</source>
+        <translation>字幕を動画内のトラックとして、また同じ名前のファイルとして横に保存します。プレーヤーや YouTube でオン・オフできます</translation>
+    </message>
+    <message>
         <source>Saves what you see in the preview. Pick a size — the picture shape stays the same.</source>
         <translation>プレビューで見えているものを保存します。サイズを選択します — 画像の形状は変わりません。</translation>
     </message>
@@ -15992,7 +16330,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>閉じる</translation>
     </message>
     <message>
         <source>Replace</source>
@@ -16728,6 +17066,10 @@ NEXT TIME</source>
         <translation>マスク ぼかし</translation>
     </message>
     <message>
+        <source>Pos</source>
+        <translation>位置</translation>
+    </message>
+    <message>
         <source>Layer</source>
         <translation type="unfinished"></translation>
     </message>
@@ -16752,12 +17094,40 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Value graph</source>
-        <translation type="unfinished"></translation>
+        <source>Graph type: value. Click: speed graph</source>
+        <translation>グラフの種類: 値。クリック: 速度グラフ</translation>
     </message>
     <message>
-        <source>Speed graph</source>
-        <translation type="unfinished"></translation>
+        <source>Graph type: speed. Click: automatic</source>
+        <translation>グラフの種類: 速度。クリック: 自動</translation>
+    </message>
+    <message>
+        <source>Graph type: automatic (speed for a joined Position, value for the rest). Click: value graph</source>
+        <translation>グラフの種類: 自動 (次元が結合された位置は速度、それ以外は値)。クリック: 値グラフ</translation>
+    </message>
+    <message>
+        <source>Fit the whole curve in view (Ctrl+wheel zooms the values, Alt+wheel the time)</source>
+        <translation>カーブ全体を表示 (Ctrl+ホイールで値、Alt+ホイールで時間をズーム)</translation>
+    </message>
+    <message>
+        <source>Zoom to the picked keyframes</source>
+        <translation>選択したキーフレームにズーム</translation>
+    </message>
+    <message>
+        <source>Show only the curve being edited</source>
+        <translation>編集中のカーブだけ表示</translation>
+    </message>
+    <message>
+        <source>Show the other properties&apos; curves too</source>
+        <translation>ほかのプロパティのカーブも表示</translation>
+    </message>
+    <message>
+        <source>Graph under its layer again</source>
+        <translation>グラフをレイヤーの下に戻す</translation>
+    </message>
+    <message>
+        <source>Graph over the whole timeline, as After Effects&apos; Graph Editor</source>
+        <translation>タイムライン全体にグラフを表示 (After Effects のグラフエディターと同じ)</translation>
     </message>
     <message>
         <source>Separate dimensions: key X and Y of Position apart</source>
@@ -16826,6 +17196,10 @@ NEXT TIME</source>
         <translation>キーフレームを移動</translation>
     </message>
     <message>
+        <source>Transform keyframes</source>
+        <translation>キーフレームを変形</translation>
+    </message>
+    <message>
         <source>Edit keyframe curve</source>
         <translation>キーフレームカーブを編集</translation>
     </message>
@@ -16849,8 +17223,20 @@ NEXT TIME</source>
         <translation>キーフレームを移動</translation>
     </message>
     <message>
+        <source>Keyframe easing changed</source>
+        <translation>キーフレームの補間を変更しました</translation>
+    </message>
+    <message>
+        <source>Paste keyframes</source>
+        <translation>キーフレームを貼り付け</translation>
+    </message>
+    <message>
+        <source>Remove keyframes</source>
+        <translation>キーフレームを削除</translation>
+    </message>
+    <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>適用</translation>
     </message>
     <message>
         <source>50% packs the picked keys into half the time, 200% spreads them over twice. The first one stays where it is. Alt + dragging the first or last key does the same by hand.</source>
@@ -16885,8 +17271,28 @@ NEXT TIME</source>
         <translation>カーブを編集…</translation>
     </message>
     <message>
+        <source>Curved path (auto Bezier)</source>
+        <translation>カーブしたパス (自動ベジェ)</translation>
+    </message>
+    <message>
+        <source>Straight path</source>
+        <translation>直線のパス</translation>
+    </message>
+    <message>
+        <source>Roving (one speed along the path)</source>
+        <translation>ロービング (パス上で一定の速度)</translation>
+    </message>
+    <message>
+        <source>Separate dimensions (X and Y apart)</source>
+        <translation>次元に分割(X と Y を別々に)</translation>
+    </message>
+    <message>
+        <source>Join Position (one path)</source>
+        <translation>位置を結合(1 本のパス)</translation>
+    </message>
+    <message>
         <source>Reverse keyframes</source>
-        <translation type="unfinished"></translation>
+        <translation>キーフレームを反転</translation>
     </message>
     <message>
         <source>Stretch keyframes…</source>
@@ -16913,7 +17319,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>適用</translation>
     </message>
     <message>
         <source>Speed in units per second. Influence is how far the handle reaches towards the next key: more is a softer ease.</source>
@@ -16925,7 +17331,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>速度</translation>
     </message>
     <message>
         <source>Influence</source>
@@ -17119,6 +17525,21 @@ NEXT TIME</source>
     <message>
         <source>720p</source>
         <translation>720p</translation>
+    </message>
+</context>
+<context>
+    <name>LocalTranscription</name>
+    <message>
+        <source>Finding speech…</source>
+        <translation>音声を探しています…</translation>
+    </message>
+    <message>
+        <source>Timing words…</source>
+        <translation>単語のタイミングを合わせています…</translation>
+    </message>
+    <message>
+        <source>Telling speakers apart…</source>
+        <translation>話者を区別しています…</translation>
     </message>
 </context>
 <context>
@@ -17511,6 +17932,26 @@ NEXT TIME</source>
     <message>
         <source>Your example is ready. Try this:</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>What is the video for?</source>
+        <translation>どんな動画ですか？</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>キャンセル</translation>
+    </message>
+    <message>
+        <source>The template is fitted to the shape of your video.</source>
+        <translation>テンプレートは動画の形に合わせて調整されます。</translation>
+    </message>
+    <message>
+        <source>Short (vertical 9:16)</source>
+        <translation>ショート（縦 9:16）</translation>
+    </message>
+    <message>
+        <source>Video (horizontal 16:9)</source>
+        <translation>動画（横 16:9）</translation>
     </message>
     <message>
         <source>Click a clip on the timeline to change it on the right.</source>
@@ -19344,7 +19785,7 @@ NEXT TIME</source>
     <name>MotionPathOverlay</name>
     <message>
         <source>Shape motion path</source>
-        <translation type="unfinished"></translation>
+        <translation>モーションパスを整形</translation>
     </message>
     <message>
         <source>Move keyframe</source>
@@ -20664,6 +21105,14 @@ If playback stutters, try another.</source>
         <translation>線オプション：なし、単色、線形または円形グラデーション、描画モードと不透明度</translation>
     </message>
     <message>
+        <source>Fill colour. Right-click: no fill (or back on)</source>
+        <translation>塗りの色。右クリック：塗りなし（または元に戻す）</translation>
+    </message>
+    <message>
+        <source>Stroke colour. Right-click: no stroke (or back on)</source>
+        <translation>線の色。右クリック：線なし（または元に戻す）</translation>
+    </message>
+    <message>
         <source>Selection</source>
         <translation type="unfinished"></translation>
     </message>
@@ -21498,7 +21947,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>適用</translation>
     </message>
     <message>
         <source>What After Effects does with expressions, without writing code. They add up: the loop, then the constant speed, then the wiggle.</source>
@@ -21573,8 +22022,8 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>value, time, wiggle(freq, amount), Math, and thisComp.layer(&quot;Name&quot;).transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. The last line is the result.</source>
-        <translation type="unfinished"></translation>
+        <source>value, time, index, thisLayer, wiggle(freq, amount), linear / ease / easeIn / easeOut(t, tMin, tMax, a, b), clamp, valueAtTime(t), velocity, speed, Math, and thisComp.layer(&quot;Name&quot;).transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. The last line is the result.</source>
+        <translation>value, time, index, thisLayer, wiggle(freq, amount), linear / ease / easeIn / easeOut(t, tMin, tMax, a, b), clamp, valueAtTime(t), velocity, speed, Math, および thisComp.layer(&quot;Name&quot;).transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. 最後の行が結果になります。</translation>
     </message>
 </context>
 <context>
@@ -23271,14 +23720,6 @@ If playback stutters, try another.</source>
         <translation>クラウドプロバイダー</translation>
     </message>
     <message>
-        <source>Transcription (Scribe), voiceover, sound effects</source>
-        <translation>文字起こし (Scribe)、ボイスオーバー、効果音</translation>
-    </message>
-    <message>
-        <source>Voiceover</source>
-        <translation>ボイスオーバー</translation>
-    </message>
-    <message>
         <source>No key</source>
         <translation>キーなし</translation>
     </message>
@@ -23477,6 +23918,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Keys are stored unencrypted in Flip Studio&apos;s settings. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
         <translation>キーは暗号化されずに Flip Studio の設定に保存されます。環境変数の ELEVENLABS_API_KEY および FISH_API_KEY が優先されます。利用料金はお客様のアカウントに請求されます。</translation>
+    </message>
+    <message>
+        <source>Transcription (Scribe); voiceover and sound effects through AI agents</source>
+        <translation>文字起こし (Scribe)、AI エージェントによるナレーションと効果音</translation>
+    </message>
+    <message>
+        <source>Voiceover through AI agents</source>
+        <translation>AI エージェントによるナレーション</translation>
     </message>
     <message>
         <source>Needed before Flip Studio or a connected agent can transcribe or generate audio with this service</source>
@@ -23972,7 +24421,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>削除</translation>
     </message>
 </context>
 <context>
@@ -25015,6 +25464,26 @@ If playback stutters, try another.</source>
         <translation>ショートカットを検索</translation>
     </message>
     <message>
+        <source>Shortcut set</source>
+        <translation>ショートカットセット</translation>
+    </message>
+    <message>
+        <source>Flip</source>
+        <translation>Flip</translation>
+    </message>
+    <message>
+        <source>Flip&apos;s own shortcuts</source>
+        <translation>Flip 独自のショートカット</translation>
+    </message>
+    <message>
+        <source>After Effects</source>
+        <translation>After Effects</translation>
+    </message>
+    <message>
+        <source>As in After Effects: J/K go between keyframes, P/S/R/T/A show one property, U/UU, B/N the work area, I/O the layer&apos;s ends, [ ] and Alt+[ ] move and trim the layer at the playhead</source>
+        <translation>After Effects と同じ: J/K でキーフレーム間を移動、P/S/R/T/A でプロパティを 1 つ表示、U/UU、B/N でワークエリア、I/O でレイヤーの端、[ ] と Alt+[ ] で再生ヘッドの位置にレイヤーを移動・トリミング</translation>
+    </message>
+    <message>
         <source>Click a shortcut, then press the keys. Esc cancels, Backspace clears.</source>
         <translation>ショートカットをクリックし、キーを押します。Esc でキャンセル、Backspace でクリアします。</translation>
     </message>
@@ -25099,6 +25568,49 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>SilenceReviewWindow</name>
+    <message>
+        <source>Remove silences</source>
+        <translation>無音を削除</translation>
+    </message>
+    <message>
+        <source>Untick what you want to keep. Click a row to hear it.</source>
+        <translation>残したいもののチェックを外してください。行をクリックすると再生します。</translation>
+    </message>
+    <message>
+        <source>Pauses longer than</source>
+        <translation>次より長い間</translation>
+    </message>
+    <message>
+        <source>Also filler words (eh, mmm)</source>
+        <translation>フィラー（えー、うーん）も</translation>
+    </message>
+    <message>
+        <source>Pause</source>
+        <translation>間</translation>
+    </message>
+    <message>
+        <source>Listen</source>
+        <translation>聞く</translation>
+    </message>
+    <message>
+        <source>No pauses this long in the clip.</source>
+        <translation>クリップにこれほど長い間はありません。</translation>
+    </message>
+    <message>
+        <source>%1 of %2 · %3 s</source>
+        <translation>%2 件中 %1 件 · %3 秒</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>キャンセル</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>削除</translation>
+    </message>
+</context>
+<context>
     <name>SolidDialog</name>
     <message>
         <source>Solid settings</source>
@@ -25110,7 +25622,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>適用</translation>
     </message>
     <message>
         <source>Solid</source>
@@ -25195,10 +25707,6 @@ If playback stutters, try another.</source>
         <translation>ボイスを保存しました</translation>
     </message>
     <message>
-        <source>Turn a script into speech with a built-in or cloned voice. It is generated on this device and added at the playhead.</source>
-        <translation>内蔵ボイスまたはクローンしたボイスで台本を音声に変換します。このデバイス上で生成され、再生ヘッド位置に追加されます。</translation>
-    </message>
-    <message>
         <source>Speech generation runs on this device and needs the voice model.</source>
         <translation>音声の生成はこのデバイス上で行われ、音声モデルが必要です。</translation>
     </message>
@@ -25215,20 +25723,8 @@ If playback stutters, try another.</source>
         <translation>音声の生成に必要です</translation>
     </message>
     <message>
-        <source>Type what the voice should say</source>
-        <translation>ボイスに話させる内容を入力</translation>
-    </message>
-    <message>
         <source>%1 characters, about %2 s</source>
         <translation>%1 文字、約 %2 秒</translation>
-    </message>
-    <message>
-        <source>Speech longer than 30 seconds often ends in gibberish or silence. Split the script into shorter parts.</source>
-        <translation>30 秒を超える音声は、意味不明な音や無音で終わることがよくあります。台本を短く分けてください。</translation>
-    </message>
-    <message>
-        <source>Voice</source>
-        <translation>ボイス</translation>
     </message>
     <message>
         <source>Stop</source>
@@ -25283,10 +25779,6 @@ If playback stutters, try another.</source>
         <translation>ボイスを学習しています…</translation>
     </message>
     <message>
-        <source>Language</source>
-        <translation>言語</translation>
-    </message>
-    <message>
         <source>Expressiveness</source>
         <translation>表現力</translation>
     </message>
@@ -25297,10 +25789,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Generate speech</source>
         <translation>音声を生成</translation>
-    </message>
-    <message>
-        <source>Generate speech and add it at the playhead</source>
-        <translation>音声を生成して再生ヘッド位置に追加</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -25343,6 +25831,106 @@ If playback stutters, try another.</source>
         <translation>すべてのファイル (*)</translation>
     </message>
     <message>
+        <source>Voice from your text</source>
+        <translation>あなたのテキストから音声</translation>
+    </message>
+    <message>
+        <source>Editing the script of a voice on the timeline: the new take replaces its audio.</source>
+        <translation>タイムライン上の音声の台本を編集中: 新しいテイクがその音声を置き換えます。</translation>
+    </message>
+    <message>
+        <source>Type or paste the script. [pause 1s] adds a silence.</source>
+        <translation>台本を入力または貼り付けます。[pause 1s] で無音を入れます。</translation>
+    </message>
+    <message>
+        <source>Import script…</source>
+        <translation>台本を読み込む…</translation>
+    </message>
+    <message>
+        <source>A .txt, .md or Word (.docx) file</source>
+        <translation>.txt、.md、または Word (.docx) ファイル</translation>
+    </message>
+    <message>
+        <source>Import a script</source>
+        <translation>台本を読み込む</translation>
+    </message>
+    <message>
+        <source>Scripts (*.txt *.md *.docx)</source>
+        <translation>台本 (*.txt *.md *.docx)</translation>
+    </message>
+    <message>
+        <source>That file has no text that can be read</source>
+        <translation>このファイルには読み取れるテキストがありません</translation>
+    </message>
+    <message>
+        <source>Voice: %1</source>
+        <translation>音声: %1</translation>
+    </message>
+    <message>
+        <source>A dialogue: a voice for each person</source>
+        <translation>対話: 人ごとに別の声</translation>
+    </message>
+    <message>
+        <source>Generate again</source>
+        <translation>もう一度生成</translation>
+    </message>
+    <message>
+        <source>Speak the script; you hear it before it goes on the timeline</source>
+        <translation>台本を読み上げます。タイムラインに置く前に聞けます</translation>
+    </message>
+    <message>
+        <source>Listen to the whole take</source>
+        <translation>テイク全体を聞く</translation>
+    </message>
+    <message>
+        <source>Take: %1 s</source>
+        <translation>テイク: %1 秒</translation>
+    </message>
+    <message>
+        <source>Listen to this sentence</source>
+        <translation>この文を聞く</translation>
+    </message>
+    <message>
+        <source>Speak this sentence again</source>
+        <translation>この文をもう一度読み上げる</translation>
+    </message>
+    <message>
+        <source>Also create its captions</source>
+        <translation>字幕も作成する</translation>
+    </message>
+    <message>
+        <source>Replace the voice on the timeline</source>
+        <translation>タイムラインの音声を置き換える</translation>
+    </message>
+    <message>
+        <source>Add to the timeline</source>
+        <translation>タイムラインに追加</translation>
+    </message>
+    <message>
+        <source>Discard</source>
+        <translation>破棄</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation>オプション</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>速度</translation>
+    </message>
+    <message>
+        <source>%1×</source>
+        <translation>%1×</translation>
+    </message>
+    <message>
+        <source>Pitch</source>
+        <translation>ピッチ</translation>
+    </message>
+    <message>
+        <source>Stop preparing the voice</source>
+        <translation>音声の準備を中止</translation>
+    </message>
+    <message>
         <source>Name</source>
         <translation>名前</translation>
     </message>
@@ -25363,8 +25951,8 @@ If playback stutters, try another.</source>
         <translation>%1 秒</translation>
     </message>
     <message>
-        <source>Record 5 to 20 seconds in a quiet room. Read this aloud in your natural voice:</source>
-        <translation>静かな場所で 5〜20 秒録音してください。次の文を自然な声で読み上げてください:</translation>
+        <source>Record 3 to 20 seconds in a quiet room (it stops by itself at 20). Read this aloud in your natural voice:</source>
+        <translation>静かな部屋で 3〜20 秒録音してください (20 秒で自動停止)。いつもの声でこれを読み上げてください:</translation>
     </message>
     <message>
         <source>The quick brown fox jumps over the lazy dog, while a gentle breeze moves through the quiet garden and the evening light fades slowly.</source>
@@ -25377,6 +25965,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Start recording</source>
         <translation>録音を開始</translation>
+    </message>
+    <message>
+        <source>20 s: done, save the voice</source>
+        <translation>20 秒: 完了、音声を保存</translation>
     </message>
     <message>
         <source>I have the right to use this person&apos;s voice</source>
@@ -25584,7 +26176,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>適用</translation>
     </message>
     <message>
         <source>Apply letter by letter</source>
@@ -25600,7 +26192,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished"></translation>
+        <translation>すべて</translation>
     </message>
     <message>
         <source>How hard it squashes, stretches and bends</source>
@@ -25616,7 +26208,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>速度</translation>
     </message>
     <message>
         <source>Faster makes it shorter, slower makes it longer</source>
@@ -25915,6 +26507,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Subtitles from the voice, on your computer, without internet</source>
         <translation>音声から字幕を作成。コンピューター上で、インターネット不要</translation>
+    </message>
+    <message>
+        <source>A simpler version in the browser: it doesn&apos;t have every tool of this app and gets no new ones. Everything new comes to this app.</source>
+        <translation>ブラウザー用の簡易版です。このアプリのすべてのツールはなく、新機能も追加されません。新しい機能はすべてこのアプリに追加されます。</translation>
     </message>
     <message>
         <source>Click to sign in</source>
@@ -26506,12 +27102,12 @@ If playback stutters, try another.</source>
         <translation>%1 キャプション</translation>
     </message>
     <message>
-        <source>Play the timeline — the line on screen lights up. Tap any line to edit it.</source>
-        <translation>タイムラインを再生すると、画面に表示中の行がハイライトされます。行をタップすると編集できます。</translation>
+        <source>Translate</source>
+        <translation>翻訳</translation>
     </message>
     <message>
-        <source>Play the timeline — the line on screen lights up. Click any line to jump to it and edit it below.</source>
-        <translation>タイムラインを再生 — 画面上の行がハイライトされます。任意の行をクリックしてジャンプし、下で編集します。</translation>
+        <source>The captions in another language, as a second line above (bilingual)</source>
+        <translation>別の言語の字幕を上の2行目に（バイリンガル）</translation>
     </message>
     <message>
         <source>Import</source>
@@ -26544,6 +27140,18 @@ If playback stutters, try another.</source>
     <message>
         <source>Offset the exported captions by this clip&apos;s start so they match the exported video</source>
         <translation>エクスポートするキャプションをこのクリップの開始位置でオフセットし、エクスポートしたビデオと一致させます</translation>
+    </message>
+    <message>
+        <source>Translating…</source>
+        <translation>翻訳中…</translation>
+    </message>
+    <message>
+        <source>Captions that will change: %1</source>
+        <translation>変更される字幕: %1</translation>
+    </message>
+    <message>
+        <source>+ %1 more</source>
+        <translation>+ ほか %1 件</translation>
     </message>
     <message>
         <source>(empty)</source>
@@ -26586,8 +27194,24 @@ If playback stutters, try another.</source>
         <translation>終了を現在の時間に設定</translation>
     </message>
     <message>
-        <source>Delete caption</source>
-        <translation>キャプションを削除</translation>
+        <source>Style: same as the clip</source>
+        <translation>スタイル：クリップと同じ</translation>
+    </message>
+    <message>
+        <source>Like the clip</source>
+        <translation>クリップと同じ</translation>
+    </message>
+    <message>
+        <source>Top</source>
+        <translation>上</translation>
+    </message>
+    <message>
+        <source>Middle</source>
+        <translation>中央</translation>
+    </message>
+    <message>
+        <source>Where this caption sits on screen</source>
+        <translation>この字幕の画面上の位置</translation>
     </message>
     <message>
         <source>At %1</source>
@@ -26604,6 +27228,30 @@ If playback stutters, try another.</source>
     <message>
         <source>Emojis</source>
         <translation>絵文字</translation>
+    </message>
+    <message>
+        <source>Too short to read</source>
+        <translation>短すぎて読めません</translation>
+    </message>
+    <message>
+        <source>On screen too long</source>
+        <translation>表示時間が長すぎます</translation>
+    </message>
+    <message>
+        <source>Too fast to read</source>
+        <translation>速すぎて読めません</translation>
+    </message>
+    <message>
+        <source>Move all captions</source>
+        <translation>すべて移動</translation>
+    </message>
+    <message>
+        <source>All captions 0.1 s earlier</source>
+        <translation>すべて0.1秒早く</translation>
+    </message>
+    <message>
+        <source>All captions 0.1 s later</source>
+        <translation>すべて0.1秒遅く</translation>
     </message>
     <message>
         <source>Replace these captions from an SRT, WebVTT or ASS file</source>
@@ -26634,6 +27282,30 @@ If playback stutters, try another.</source>
         <translation>キーワードを含む字幕の末尾に絵文字を追加します（fuego 🔥、fiesta 🎉）</translation>
     </message>
     <message>
+        <source>Animated</source>
+        <translation>アニメ</translation>
+    </message>
+    <message>
+        <source>An animated emoji above each caption that mentions one (fuego, Dios, fiesta…)</source>
+        <translation>絵文字になる言葉を含む字幕の上にアニメ絵文字を置きます（火、神、パーティー…）</translation>
+    </message>
+    <message>
+        <source>Bleep</source>
+        <translation>ピー音</translation>
+    </message>
+    <message>
+        <source>A beep over each hidden swear word, with the voice muted under it</source>
+        <translation>伏せた暴言ごとにピー音を入れ、その下の声を消します</translation>
+    </message>
+    <message>
+        <source>Key words</source>
+        <translation>キーワード</translation>
+    </message>
+    <message>
+        <source>Highlight the key word of each caption in colour (a number, a name, what matters)</source>
+        <translation>各字幕のキーワード（数字、名前、大事な語）を色で強調します</translation>
+    </message>
+    <message>
         <source>Clean up</source>
         <translation>クリーンアップ</translation>
     </message>
@@ -26648,6 +27320,70 @@ If playback stutters, try another.</source>
     <message>
         <source>Fix a word in every caption at once</source>
         <translation>すべての字幕の単語を一度に修正します</translation>
+    </message>
+    <message>
+        <source>Spelling</source>
+        <translation>スペル</translation>
+    </message>
+    <message>
+        <source>Check the spelling of every caption, one word at a time</source>
+        <translation>すべての字幕のスペルを1語ずつチェックします</translation>
+    </message>
+    <message>
+        <source>Speakers</source>
+        <translation>話者</translation>
+    </message>
+    <message>
+        <source>File and timing</source>
+        <translation>ファイルとタイミング</translation>
+    </message>
+    <message>
+        <source>Words to check: %1</source>
+        <translation>確認する語: %1</translation>
+    </message>
+    <message>
+        <source>No spelling mistakes found.</source>
+        <translation>スペルの誤りは見つかりませんでした。</translation>
+    </message>
+    <message>
+        <source>Remove repeated word</source>
+        <translation>重複した語を削除</translation>
+    </message>
+    <message>
+        <source>No suggestions: fix it in the text box.</source>
+        <translation>候補がありません。テキストボックスで修正してください。</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>閉じる</translation>
+    </message>
+    <message>
+        <source>Without an account they are translated on this computer (a little slower).</source>
+        <translation>アカウントなしでは、このコンピューターで翻訳されます（少し遅くなります）。</translation>
+    </message>
+    <message>
+        <source>Sign in with Google to translate captions, or install the Offline translation extra</source>
+        <translation>字幕を翻訳するには Google でサインインするか、「オフライン翻訳」エクストラをインストールしてください</translation>
+    </message>
+    <message>
+        <source>Ignore</source>
+        <translation>無視</translation>
+    </message>
+    <message>
+        <source>Nothing to change in these captions.</source>
+        <translation>この字幕に変更点はありません。</translation>
+    </message>
+    <message>
+        <source>(removed)</source>
+        <translation>（削除）</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>キャンセル</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>適用</translation>
     </message>
     <message>
         <source>Find (e.g. jesus)</source>
@@ -26713,6 +27449,38 @@ If playback stutters, try another.</source>
         <source>Tip: write a word between asterisks, like *faith*, to highlight it in colour.</source>
         <translation>ヒント: *faith* のように単語をアスタリスクで囲むと、色でハイライトされます。</translation>
     </message>
+    <message>
+        <source>One frame earlier</source>
+        <translation>1フレーム前</translation>
+    </message>
+    <message>
+        <source>One frame later</source>
+        <translation>1フレーム後</translation>
+    </message>
+    <message>
+        <source>Split</source>
+        <translation>分割</translation>
+    </message>
+    <message>
+        <source>Split this caption at the playhead</source>
+        <translation>再生ヘッドでこの字幕を分割</translation>
+    </message>
+    <message>
+        <source>Join</source>
+        <translation>結合</translation>
+    </message>
+    <message>
+        <source>Join this caption with the next one</source>
+        <translation>この字幕を次と結合</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete this caption</source>
+        <translation>この字幕を削除</translation>
+    </message>
 </context>
 <context>
     <name>SubtitleProgressDialog</name>
@@ -26735,18 +27503,6 @@ If playback stutters, try another.</source>
 </context>
 <context>
     <name>SubtitlesTab</name>
-    <message>
-        <source>Subtitle track — one clip holds many timed captions. Place it on the timeline, trim its length, then add caption lines at each moment in the clip panel.</source>
-        <translation>字幕トラック — 1つのクリップに多数のタイミング付きキャプションを保持します。タイムラインに配置し、長さを調整してから、クリップパネルで各瞬間にキャプション行を追加します。</translation>
-    </message>
-    <message>
-        <source>Add subtitle clip</source>
-        <translation>字幕クリップを追加</translation>
-    </message>
-    <message>
-        <source>Import subtitle file</source>
-        <translation>字幕ファイルをインポート</translation>
-    </message>
     <message>
         <source>Import Subtitles</source>
         <translation>字幕をインポート</translation>
@@ -26772,20 +27528,48 @@ If playback stutters, try another.</source>
         <translation>すべてのファイル (*)</translation>
     </message>
     <message>
-        <source>Add auto caption</source>
-        <translation>自動キャプションを追加</translation>
-    </message>
-    <message>
-        <source>Creates captions from the speech in the selected clip.</source>
-        <translation>選択したクリップの音声からキャプションを作成します。</translation>
-    </message>
-    <message>
         <source>Select a video or audio clip on the timeline first.</source>
         <translation>まずタイムライン上のビデオまたはオーディオクリップを選択してください。</translation>
     </message>
     <message>
+        <source>On this computer</source>
+        <translation>このパソコンで</translation>
+    </message>
+    <message>
+        <source>In the cloud</source>
+        <translation>クラウドで</translation>
+    </message>
+    <message>
+        <source>ElevenLabs Scribe: the audio is sent to ElevenLabs with your key</source>
+        <translation>ElevenLabs Scribe：音声はあなたのキーで ElevenLabs に送信されます</translation>
+    </message>
+    <message>
+        <source>Hard words: names, brands… (separated by commas)</source>
+        <translation>難しい単語：名前、ブランド名…（カンマ区切り）</translation>
+    </message>
+    <message>
+        <source>Style of the selected captions</source>
+        <translation>選択した字幕のスタイル</translation>
+    </message>
+    <message>
+        <source>Two lines per caption</source>
+        <translation>字幕ごとに2行</translation>
+    </message>
+    <message>
+        <source>Hide swear words (m*****)</source>
+        <translation>汚い言葉を隠す（f***）</translation>
+    </message>
+    <message>
         <source>Shorter captions are timed by splitting each phrase evenly, so they can drift slightly out of sync with the speech.</source>
         <translation>短いキャプションは各フレーズを均等に分割してタイミングを取るため、音声とわずかにずれることがあります。</translation>
+    </message>
+    <message>
+        <source>Captions from the voice</source>
+        <translation>音声から字幕</translation>
+    </message>
+    <message>
+        <source>Create captions</source>
+        <translation>字幕を作成</translation>
     </message>
     <message>
         <source>Create captions from the selected clips&apos; speech — several clips become one caption clip</source>
@@ -26818,6 +27602,38 @@ If playback stutters, try another.</source>
     <message>
         <source>Needed for auto captions from speech</source>
         <translation>音声からの自動キャプションに必要</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation>オプション</translation>
+    </message>
+    <message>
+        <source>Tell the speakers apart (a colour for each)</source>
+        <translation>話者を区別する（話者ごとに色分け）</translation>
+    </message>
+    <message>
+        <source>Highlight key words in colour</source>
+        <translation>キーワードを色で強調</translation>
+    </message>
+    <message>
+        <source>Show fewer</source>
+        <translation>表示を減らす</translation>
+    </message>
+    <message>
+        <source>See all styles (%1)</source>
+        <translation>すべてのスタイルを表示 (%1)</translation>
+    </message>
+    <message>
+        <source>Write by hand</source>
+        <translation>手動で入力</translation>
+    </message>
+    <message>
+        <source>An empty caption clip at the playhead: write each line in the clip panel</source>
+        <translation>再生ヘッドに空の字幕クリップ：クリップパネルで各行を入力します</translation>
+    </message>
+    <message>
+        <source>Import file</source>
+        <translation>ファイルを読み込む</translation>
     </message>
     <message>
         <source>Recommended caption length</source>
@@ -27523,6 +28339,41 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>TextEditWindow</name>
+    <message>
+        <source>Edit by text</source>
+        <translation>テキストで編集</translation>
+    </message>
+    <message>
+        <source>Click the words to take out (Shift + click for a stretch). Double click to hear one.</source>
+        <translation>取り除く単語をクリック（Shift + クリックで範囲）。ダブルクリックで再生。</translation>
+    </message>
+    <message>
+        <source>No words found in this clip.</source>
+        <translation>このクリップに単語が見つかりません。</translation>
+    </message>
+    <message>
+        <source>Listening to the clip to write down what is said… %1%</source>
+        <translation>クリップを聞いて話の内容を書き起こしています… %1%</translation>
+    </message>
+    <message>
+        <source>The first time takes a while; then it opens at once.</source>
+        <translation>初回は少し時間がかかります。その後はすぐに開きます。</translation>
+    </message>
+    <message>
+        <source>%1 words · %2 s</source>
+        <translation>%1 語 · %2 秒</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>キャンセル</translation>
+    </message>
+    <message>
+        <source>Cut</source>
+        <translation>カット</translation>
+    </message>
+</context>
+<context>
     <name>TextEffects</name>
     <message>
         <source>Shine sweep</source>
@@ -28086,6 +28937,26 @@ If playback stutters, try another.</source>
     <message>
         <source>These letters go back to the style of the whole text</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Read aloud…</source>
+        <translation>読み上げ…</translation>
+    </message>
+    <message>
+        <source>Turn this text into a voice that starts with it</source>
+        <translation>このテキストを、それと同時に始まる音声にする</translation>
+    </message>
+    <message>
+        <source>Discard the voice you made?</source>
+        <translation>作成した音声を破棄しますか？</translation>
+    </message>
+    <message>
+        <source>Discard and go on</source>
+        <translation>破棄して続ける</translation>
+    </message>
+    <message>
+        <source>The Voice panel has a take that is not on the timeline yet. Add it first with «Add to timeline», or discard it to start this one.</source>
+        <translation>音声パネルにまだタイムラインに追加していないテイクがあります。先に「タイムラインに追加」で追加するか、破棄してこちらを始めてください。</translation>
     </message>
     <message>
         <source>Bold</source>
@@ -30159,6 +31030,18 @@ If playback stutters, try another.</source>
 <context>
     <name>TimelinePanel</name>
     <message>
+        <source>Move work area</source>
+        <translation>ワークエリアを移動</translation>
+    </message>
+    <message>
+        <source>Work area: drag to move it</source>
+        <translation>ワークエリア: ドラッグして移動</translation>
+    </message>
+    <message>
+        <source>Work area: drag to change where it starts or ends</source>
+        <translation>ワークエリア: ドラッグして開始や終了を変更</translation>
+    </message>
+    <message>
         <source>Proxy</source>
         <translation>プロキシ</translation>
     </message>
@@ -31001,7 +31884,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Remove keyframes</source>
-        <translation type="unfinished"></translation>
+        <translation>キーフレームを削除</translation>
     </message>
     <message>
         <source>Stop animating (removes its keyframes)</source>
@@ -31057,7 +31940,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Separate dimensions</source>
-        <translation type="unfinished"></translation>
+        <translation>次元に分割</translation>
     </message>
     <message>
         <source>Behavior…</source>
@@ -31069,7 +31952,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>削除</translation>
     </message>
     <message>
         <source>The clip keeps the value it has at the playhead. You can undo afterwards.</source>
@@ -32241,7 +33124,11 @@ If playback stutters, try another.</source>
     <name>TtsController</name>
     <message>
         <source>Loading voice model…</source>
-        <translation type="unfinished"></translation>
+        <translation>音声モデルを読み込み中…</translation>
+    </message>
+    <message>
+        <source>No speech was produced</source>
+        <translation>音声が生成されませんでした</translation>
     </message>
     <message>
         <source>Install the voice model first</source>
@@ -32256,16 +33143,62 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Generating speech…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Cancelled</source>
         <translation>キャンセルされました</translation>
     </message>
     <message>
+        <source>Speaking sentence %1 of %2…</source>
+        <translation>文 %1/%2 を読み上げ中…</translation>
+    </message>
+    <message>
+        <source>Sentence %1 could not be spoken: %2</source>
+        <translation>文 %1 を読み上げられませんでした: %2</translation>
+    </message>
+    <message>
+        <source>Putting the take together…</source>
+        <translation>テイクをまとめています…</translation>
+    </message>
+    <message>
+        <source>Listen to it, then add it to the timeline</source>
+        <translation>聞いてから、タイムラインに追加してください</translation>
+    </message>
+    <message>
+        <source>Speaking sentence %1 again…</source>
+        <translation>文 %1 をもう一度読み上げ中…</translation>
+    </message>
+    <message>
+        <source>Sentence %1 spoken again</source>
+        <translation>文 %1 を読み上げ直しました</translation>
+    </message>
+    <message>
+        <source>Changing speed and pitch…</source>
+        <translation>速度とピッチを変更中…</translation>
+    </message>
+    <message>
+        <source>Replace voice</source>
+        <translation>音声を置き換え</translation>
+    </message>
+    <message>
+        <source>Could not replace the voice</source>
+        <translation>音声を置き換えられませんでした</translation>
+    </message>
+    <message>
         <source>Speech added to the timeline</source>
         <translation>音声をタイムラインに追加しました</translation>
+    </message>
+    <message>
+        <source>Voice replaced on the timeline</source>
+        <translation>タイムラインの音声を置き換えました</translation>
+    </message>
+    <message numerus="yes">
+        <source>The music goes down under the voice (%n clip(s))</source>
+        <translation>
+            <numerusform>音声の下で音楽が下がります (%n 個のクリップ)</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>There is no music under this voice</source>
+        <translation>この音声の下に音楽はありません</translation>
     </message>
     <message>
         <source>Select a subtitle clip first</source>
@@ -32274,6 +33207,10 @@ If playback stutters, try another.</source>
     <message>
         <source>This subtitle clip has no text to speak</source>
         <translation>この字幕クリップには読み上げるテキストがありません</translation>
+    </message>
+    <message>
+        <source>Speaking line %1 of %2…</source>
+        <translation>行 %1/%2 を読み上げ中…</translation>
     </message>
     <message>
         <source>Generate voiceover</source>
@@ -32293,6 +33230,12 @@ If playback stutters, try another.</source>
         <source>; %n ran longer than their captions</source>
         <translation>
             <numerusform>、%n 行が字幕より長くなりました</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>; %n could not be added</source>
+        <translation>
+            <numerusform>; %n 個を追加できませんでした</numerusform>
         </translation>
     </message>
 </context>
@@ -33546,6 +34489,81 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>VoiceGallery</name>
+    <message>
+        <source>Narration</source>
+        <translation>ナレーション</translation>
+    </message>
+    <message>
+        <source>Young</source>
+        <translation>若い</translation>
+    </message>
+    <message>
+        <source>Deep</source>
+        <translation>低音</translation>
+    </message>
+    <message>
+        <source>Lively</source>
+        <translation>元気</translation>
+    </message>
+    <message>
+        <source>Soft</source>
+        <translation>やさしい</translation>
+    </message>
+    <message>
+        <source>Mature</source>
+        <translation>大人</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation>すべて</translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation>お気に入り</translation>
+    </message>
+    <message>
+        <source>Mine</source>
+        <translation>マイボイス</translation>
+    </message>
+    <message>
+        <source>Women</source>
+        <translation>女性</translation>
+    </message>
+    <message>
+        <source>Men</source>
+        <translation>男性</translation>
+    </message>
+    <message>
+        <source>Hear this voice</source>
+        <translation>この音声を聴く</translation>
+    </message>
+    <message>
+        <source>My voice</source>
+        <translation>自分の声</translation>
+    </message>
+    <message>
+        <source>Mark voices with the star to find them here</source>
+        <translation>星を付けた音声がここに表示されます</translation>
+    </message>
+    <message>
+        <source>Your own voices appear here: «New voice» in Options</source>
+        <translation>自分の音声はここに表示されます: オプションの「新しい音声」</translation>
+    </message>
+    <message>
+        <source>No voices of this kind</source>
+        <translation>この種類の音声はありません</translation>
+    </message>
+    <message>
+        <source>Show fewer</source>
+        <translation>少なく表示</translation>
+    </message>
+    <message>
+        <source>See all voices (%1)</source>
+        <translation>すべての音声を見る (%1)</translation>
+    </message>
+</context>
+<context>
     <name>VoiceLibrary</name>
     <message>
         <source>Default</source>
@@ -33558,6 +34576,18 @@ If playback stutters, try another.</source>
     <message>
         <source>A voice needs a name and a recording</source>
         <translation>ボイスには名前と録音が必要です</translation>
+    </message>
+    <message>
+        <source>Reading the recording…</source>
+        <translation>録音を読み込み中…</translation>
+    </message>
+    <message>
+        <source>Loading voice model…</source>
+        <translation>音声モデルを読み込み中…</translation>
+    </message>
+    <message>
+        <source>Learning the voice…</source>
+        <translation>声を学習中…</translation>
     </message>
     <message>
         <source>Could not prepare the voice</source>
@@ -33574,6 +34604,18 @@ If playback stutters, try another.</source>
     <message>
         <source>The recording is too short: record at least %1 seconds</source>
         <translation>録音が短すぎます。%1 秒以上録音してください</translation>
+    </message>
+    <message>
+        <source>Unknown voice</source>
+        <translation>不明な声</translation>
+    </message>
+    <message>
+        <source>The reference recording for this voice is missing</source>
+        <translation>この声の参照録音が見つかりません</translation>
+    </message>
+    <message>
+        <source>Could not read the reference recording</source>
+        <translation>参照録音を読み込めませんでした</translation>
     </message>
 </context>
 <context>
@@ -33630,6 +34672,18 @@ If playback stutters, try another.</source>
         <translation>ナレーションを生成</translation>
     </message>
     <message>
+        <source>Speech generation runs on this device and needs the voice model.</source>
+        <translation>音声の生成はこのデバイス上で行われ、音声モデルが必要です。</translation>
+    </message>
+    <message>
+        <source>Download voice model</source>
+        <translation>音声モデルをダウンロード</translation>
+    </message>
+    <message>
+        <source>Install AI engine first</source>
+        <translation>先に AI エンジンをインストールしてください</translation>
+    </message>
+    <message>
         <source>Voice</source>
         <translation>ボイス</translation>
     </message>
@@ -33660,6 +34714,21 @@ If playback stutters, try another.</source>
     <message>
         <source>Close</source>
         <translation>閉じる</translation>
+    </message>
+</context>
+<context>
+    <name>WhisperTranscriber</name>
+    <message>
+        <source>Transcribing %1–%2 of %3…</source>
+        <translation>%3 のうち %1–%2 を文字起こし中…</translation>
+    </message>
+    <message>
+        <source>Detecting language…</source>
+        <translation>言語を検出しています…</translation>
+    </message>
+    <message>
+        <source>Finishing up…</source>
+        <translation>仕上げています…</translation>
     </message>
 </context>
 <context>

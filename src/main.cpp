@@ -60,6 +60,7 @@
 #include <QQmlEngine>
 #include <QQuickWindow>
 #include <QQuickItem>
+#include <QKeyEvent>
 #include <QMouseEvent>
 #include <QPointer>
 #include <QSurfaceFormat>
@@ -283,6 +284,59 @@ protected:
 private:
     AppController *m_controller = nullptr;
     MarketClient *m_market = nullptr;
+};
+
+// After Effects' [ and ] (move the layer so it starts or ends at the playhead) and Alt+[ / Alt+] on
+// keyboards that type them with Shift or AltGr (0.30, tests #13: Latin American Spanish has [ on
+// Shift, Spain's on AltGr, which Windows sends as Ctrl+Alt), so the key arrived as Shift+[ or
+// Ctrl+Alt+[ and no shortcut matched. A key that produced "[" or "]" runs the action bound to it,
+// with Alt when Alt was held on its own, as a shortcut would. Text fields keep it («[pausa 1s]»).
+class AltGrShortcutFilter : public QObject
+{
+public:
+    AltGrShortcutFilter(AppController *controller, QQmlApplicationEngine *engine, QObject *parent)
+        : QObject(parent)
+        , m_controller(controller)
+        , m_engine(engine)
+    {
+    }
+
+protected:
+    bool eventFilter(QObject *watched, QEvent *event) override
+    {
+        if (event->type() != QEvent::KeyPress)
+            return QObject::eventFilter(watched, event);
+        const auto *key = static_cast<QKeyEvent *>(event);
+        const Qt::KeyboardModifiers altGr = Qt::ControlModifier | Qt::AltModifier;
+        const QString text = key->text();
+        if ((text != QLatin1String("[") && text != QLatin1String("]")) || key->isAutoRepeat())
+            return QObject::eventFilter(watched, event);
+        Qt::KeyboardModifiers mods = key->modifiers() & ~(Qt::ShiftModifier | Qt::KeypadModifier);
+        if ((mods & altGr) == altGr)
+            mods &= ~altGr;
+        if (mods != Qt::NoModifier && mods != Qt::AltModifier)
+            return QObject::eventFilter(watched, event);
+        const QString chord = mods == Qt::AltModifier ? QStringLiteral("Alt+") + text : text;
+        if (QObject *focus = QGuiApplication::focusObject();
+            focus && (focus->inherits("QQuickTextInput") || focus->inherits("QQuickTextEdit")))
+            return QObject::eventFilter(watched, event);
+        QString action;
+        for (const QVariant &v : m_controller->actions()) {
+            const QVariantMap map = v.toMap();
+            if (map.value(QStringLiteral("shortcut")).toString() == chord)
+                action = map.value(QStringLiteral("id")).toString();
+        }
+        if (action.isEmpty() || m_engine->rootObjects().isEmpty())
+            return QObject::eventFilter(watched, event);
+        QObject *host = m_engine->rootObjects().constFirst()->property("host").value<QObject *>();
+        if (!host || !QMetaObject::invokeMethod(host, "dispatchAction", Q_ARG(QVariant, action)))
+            return QObject::eventFilter(watched, event);
+        return true;
+    }
+
+private:
+    AppController *m_controller = nullptr;
+    QQmlApplicationEngine *m_engine = nullptr;
 };
 
 #ifdef Q_OS_ANDROID
@@ -857,6 +911,7 @@ int main(int argc, char *argv[])
 #endif
     engine.setInitialProperties({{QStringLiteral("shellPreference"), resolvedShell}});
     engine.loadFromModule("Drift", "Shell");
+    app.installEventFilter(new AltGrShortcutFilter(&editorState, &engine, &app));
     drift::perf::install();
     if (drift::perf::enabled()) {
         // Frame pacing: the interval between swaps is the frame time the user sees. Windows are

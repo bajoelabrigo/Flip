@@ -84,6 +84,8 @@ public:
     drift::TimeUs playheadUs() const { return m_playheadUs; }
 
     void setLoopWorkArea(bool enabled) { m_loopWorkArea = enabled; }
+    // Playback that started inside the work area stops at its end (0.30, After Effects); -1 plays on.
+    void setStopAtUs(drift::TimeUs us) { m_stopAtUs = us; }
     bool loopWorkArea() const { return m_loopWorkArea; }
 
     void setVoiceoverRecording(bool rec) { m_voiceoverRecording = rec; }
@@ -343,6 +345,7 @@ private:
     drift::TimeUs m_ramIn = 0;
     drift::TimeUs m_ramOut = 0;
     bool m_loopWorkArea = false;
+    drift::TimeUs m_stopAtUs = -1;
     bool m_voiceoverRecording = false;
     // processedUSecs() is cumulative from QAudioSink::start(), not from the last clock reset.
     // Subtracting this (captured whenever the clock is re-anchored) keeps a seek from landing

@@ -206,7 +206,6 @@ def clarke():
     t = _kit("invitado", "Tercio limpio: etiqueta blanca con «invitado especial»",
              "Clean lower third: white label with a guest tag", D, 8574, ["nombre", "amarillo", "blanco", "invitado"],
              thumb_at=3.0)
-    photo_bg(t, "h-city-01", s1=1.03, label="Tu video")
     p = Piece(t, D)
     m, line_m = Measured("lt3-clarke"), Measured("lt3-clarke-line")
     acc, base_r = _label(p, m, line_m, 745, 918, 895, "Thomas Clarke", (251, 771, 829, 596))
@@ -229,7 +228,6 @@ def bond():
     D = 6.0
     t = _kit("cargo-amarillo", "Tercio limpio: etiqueta blanca y cargo amarillo",
              "Clean lower third: white label, yellow role", D, 8575, ["nombre", "amarillo", "blanco"], thumb_at=3.0)
-    photo_bg(t, "h-city-01", s1=1.03, label="Tu video")
     p = Piece(t, D, first=10)
     m = Measured("lt3-bond")
     acc, base_r = _label(p, m, m, 757, 843, 809, "Thomas Bond", (222, 771, 829, 557), line_from=12)
@@ -242,7 +240,6 @@ def bond():
 
 def _new(id, es, en, order, tags):
     t = _kit(id, es, en, 6.0, order, ["nombre"] + tags, thumb_at=3.0)
-    photo_bg(t, "h-city-01", s1=1.03, label="Tu video")
     return t
 
 

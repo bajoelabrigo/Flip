@@ -72,7 +72,6 @@ def canal_nombre():
     «SUSCRÍBETE» tag under the name."""
     t = _kit("intro-canal-nombre", "Logo y nombre del canal", "Logo and channel name", "aperturas", D_INTRO, 8310,
              ["intro", "logo", "nombre", "canal"], thumb_at=2.4)
-    photo_bg(t, "h-nature-01", s1=1.05, label="Tu video")
     end = D_INTRO - 0.3
     slide = [(0, {"s": 0.0, "dx": 190}, "back"), (0.45, {"dx": 190}, "inout"), (0.95, {}, "hold"),
              (end - 0.3 - 0.35, {}, "in"), (end - 0.3, {"s": 0.0})]
@@ -90,7 +89,6 @@ def canal_tu_youtube():
     """The icon drops in on top; under it «TU CANAL» in a coral box and «DE YOUTUBE» below, line by line."""
     t = _kit("intro-tu-canal", "Tu canal de YouTube", "Your YouTube channel", "aperturas", D_INTRO, 8311,
              ["intro", "logo", "canal", "caja"], thumb_at=2.4)
-    photo_bg(t, "h-beach-01", s1=1.05, label="Tu video")
     end = D_INTRO - 0.3
     yt_icon(t, 960, 400, 150, 0.3, end - 0.3,
             motion=[(0, {"dy": -120, "s": 0.6}, "back"), (0.5, {}, "hold"), (end - 0.65, {}, "in"), (end - 0.3, {"s": 0.0})])
@@ -107,7 +105,6 @@ def canal_apilado():
     """Three stacked lines «TU / CANAL DE / YOUTUBE» bounce in word by word, with speech bubbles popping round."""
     t = _kit("intro-apilado", "Tu canal de YouTube apilado", "Stacked YouTube channel", "aperturas", D_INTRO, 8312,
              ["intro", "apilado", "burbujas", "canal"], thumb_at=2.6)
-    photo_bg(t, "h-city-02", s1=1.05, label="Tu video")
     end = D_INTRO - 0.3
     for i, (word, size, name) in enumerate([("TU", 110, "Línea 1"), ("CANAL DE", 110, "Línea 2"), ("YOUTUBE", 120, "Línea 3")]):
         a = 0.3 + i * 0.22
@@ -281,7 +278,6 @@ def suscribete_ahora():
     D = 5.0
     t = _kit("suscribete-ahora", "¡Suscríbete ahora a mi canal!", "Subscribe now on my channel!", "frases", D, 8318,
              ["suscríbete", "frase", "letras"], thumb_at=2.4)
-    photo_bg(t, "h-city-05", s1=1.05, label="Tu video")
     end = D - 0.3
     txt(t, "¡SUSCRÍBETE AHORA", Box(260, 420, 1400, 120), 96, 0.3, end - 0.3, weight=900,
         anim="fade-up-char", ad=0.9, name="Línea 1", layers=shade())
@@ -296,7 +292,6 @@ def botones_fila():
     D = 6.0
     t = _kit("botones-fila", "Me gusta, suscríbete y campana", "Like, subscribe and bell", "elementos", D, 8319,
              ["botones", "me gusta", "suscríbete", "campana"], thumb_at=3.6)
-    photo_bg(t, "h-concert-01", s1=1.04, label="Tu video")
     end = D - 0.3
     items = [("ME GUSTA", "like"), ("SUSCRÍBETE", "yt"), ("ACTIVA LA CAMPANA", "bell")]
     x = 300
@@ -330,7 +325,6 @@ def redes_logos():
     D = 9.0
     t = _kit("redes-logos", "Tus redes con logos", "Your socials with logos", "redes", D, 8320,
              ["redes", "instagram", "facebook", "tiktok", "x", "usuario"], thumb_at=1.6)
-    photo_bg(t, "h-portrait-05", s1=1.04, label="Tu video")
     nets = [("instagram", "@tuusuario"), ("facebook", "/tupagina"), ("tiktok", "@tuusuario"), ("x", "@tuusuario")]
     slot = (D - 0.3) / len(nets)
     for i, (net, handle) in enumerate(nets):
@@ -403,7 +397,6 @@ def final_curva():
     D = 10.0
     t = _kit("final-curva", "Pantalla final con curva", "End screen with a curve", "pantallas-finales", D, 8322,
              ["pantalla final", "curva", "gracias", "dos videos"], thumb_at=4.5)
-    photo_bg(t, "h-nature-05", s1=1.04, label="Tu video")
     # A bowl coming down from the top: its curved edge low in the middle, the video showing in the corners below.
     circle = centered(960, -300, 2700, 2700)
     t.solid(t.track("shape", "Curva"), CORAL, 0.2, D - 0.2, circle,
@@ -437,7 +430,6 @@ def final_diagonal():
     D = 10.0
     t = _kit("final-diagonal", "Pantalla final en diagonal", "Diagonal end screen", "pantallas-finales", D, 8323,
              ["pantalla final", "diagonal", "gracias", "suscríbete"], thumb_at=4.5)
-    photo_bg(t, "h-cafe-01", s1=1.04, label="Tu video")
     t.solid(t.track("shape", "Oscurecer"), "#000000", 0.0, D, None, opacity=keys([(0, 0.0), (0.5, 0.45)]))
     path(t, t.track("shape", "Diagonal"), CORAL, 0.2, D - 0.2, Box(880, 0, 1040, 1080), "M 30 0 L 100 0 L 100 100 L 0 100 Z",
          filled=True, motion=[(0, {"dx": 1100}, "out"), (0.7, {}, "hold"), (D - 0.2 - 0.6, {}, "in"), (D - 0.2, {"dx": 1100})],

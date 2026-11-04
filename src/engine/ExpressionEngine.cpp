@@ -93,6 +93,46 @@ class ExpressionHelper : public QObject
 public:
     Q_INVOKABLE double noise(double x, int seed) const { return behaviorNoise(x, seed); }
 
+    // The layer the expression belongs to (0.30): its track lives inside the clip, so the clip whose memory
+    // holds it is the one. AE's index counts from the top layer, 1.
+    Q_INVOKABLE QString selfName() const
+    {
+        const Clip *clip = selfClip(nullptr);
+        return clip ? clip->name : QString();
+    }
+    Q_INVOKABLE int selfIndex() const
+    {
+        int index = 0;
+        return selfClip(&index) ? index : 0;
+    }
+    const Clip *selfClip(int *indexOut) const
+    {
+        const Project *project = static_cast<const Project *>(expressionContext().project);
+        const char *track = static_cast<const char *>(expressionSelfRef().track);
+        if (!project || !track)
+            return nullptr;
+        int index = 0;
+        for (const Track &t : project->tracks()) {
+            for (const Clip &clip : t.clips) {
+                ++index;
+                const char *begin = reinterpret_cast<const char *>(&clip);
+                if (track >= begin && track < begin + sizeof(Clip)) {
+                    if (indexOut)
+                        *indexOut = index;
+                    return &clip;
+                }
+            }
+        }
+        return nullptr;
+    }
+
+    // The property's own keys at another time (0.30): valueAtTime(), velocity.
+    Q_INVOKABLE double selfAt(double seconds) const
+    {
+        const ExpressionSelf &self = expressionSelfRef();
+        return self.keysAt ? self.keysAt(self.track, seconds) : 0.0;
+    }
+
     Q_INVOKABLE double prop(const QString &layerName, const QString &prop, double seconds) const
     {
         const Project *project = static_cast<const Project *>(expressionContext().project);
@@ -180,6 +220,33 @@ const char *const kPrelude = R"JS(
 (function (__e) {
     return function (value, time) {
         function wiggle(freq, amount, seed) { return value + amount * __fx.noise(time * freq, seed || 0); }
+        // After Effects' interpolation and maths (0.30), on numbers and on [x, y] arrays alike.
+        function __map(a, b, f) {
+            if (Array.isArray(a) || Array.isArray(b)) {
+                var n = Math.max(Array.isArray(a) ? a.length : 1, Array.isArray(b) ? b.length : 1), out = [];
+                for (var i = 0; i < n; ++i)
+                    out.push(f(Array.isArray(a) ? a[Math.min(i, a.length - 1)] : a, Array.isArray(b) ? b[Math.min(i, b.length - 1)] : b));
+                return out;
+            }
+            return f(a, b);
+        }
+        function clamp(v, lo, hi) { return __map(v, 0, function (x) { return Math.min(Math.max(x, Math.min(lo, hi)), Math.max(lo, hi)); }); }
+        function __interp(shape, t, tMin, tMax, v1, v2) {
+            if (v1 === undefined) { v1 = tMin; v2 = tMax; tMin = 0; tMax = 1; }
+            var u = tMax === tMin ? (t >= tMax ? 1 : 0) : (t - tMin) / (tMax - tMin);
+            u = shape(Math.min(1, Math.max(0, u)));
+            return __map(v1, v2, function (a, b) { return a + (b - a) * u; });
+        }
+        function linear(t, a, b, c, d) { return __interp(function (u) { return u; }, t, a, b, c, d); }
+        function ease(t, a, b, c, d) { return __interp(function (u) { return u * u * (3 - 2 * u); }, t, a, b, c, d); }
+        function easeIn(t, a, b, c, d) { return __interp(function (u) { return u * u; }, t, a, b, c, d); }
+        function easeOut(t, a, b, c, d) { return __interp(function (u) { return 1 - (1 - u) * (1 - u); }, t, a, b, c, d); }
+        function degreesToRadians(d) { return d * Math.PI / 180; }
+        function radiansToDegrees(r) { return r * 180 / Math.PI; }
+        function valueAtTime(t) { return __fx.selfAt(t); }
+        var __h = 1 / 240;
+        var velocity = (__fx.selfAt(time + __h) - __fx.selfAt(time - __h)) / (2 * __h);
+        var speed = Math.abs(velocity);
         // Inside a longer expression the loop is the behaviour's (set alone, it becomes one).
         function loopOut() { return value; }
         function loopIn() { return value; }
@@ -214,6 +281,11 @@ const char *const kPrelude = R"JS(
         }
         var layer = __layer;
         var thisComp = { layer: __layer };
+        // After Effects' index and thisLayer (0.30): this layer's place from the top, and the layer itself.
+        var index = __fx.selfIndex();
+        var thisLayer = __layer(__fx.selfName());
+        thisLayer.index = index;
+        thisLayer.name = __fx.selfName();
         return eval(__e);
     };
 })

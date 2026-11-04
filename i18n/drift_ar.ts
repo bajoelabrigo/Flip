@@ -142,8 +142,8 @@
         <translation>أنماط الترجمة</translation>
     </message>
     <message>
-        <source>Voices</source>
-        <translation>الأصوات</translation>
+        <source>Voice changer</source>
+        <translation>مغيّر الصوت</translation>
     </message>
     <message>
         <source>Retouch</source>
@@ -1116,6 +1116,29 @@
     <message>
         <source>Changes only that clip; the rest is untouched. It is drawn inside the clip&apos;s row on the timeline.</source>
         <translation>تغيّر ذلك المقطع فقط؛ ويبقى الباقي كما هو. وتُرسم داخل صف المقطع على المخطط الزمني.</translation>
+    </message>
+</context>
+<context>
+    <name>AeShortcutsDialog</name>
+    <message>
+        <source>Use After Effects&apos; shortcuts?</source>
+        <translation>هل تستخدم اختصارات After Effects؟</translation>
+    </message>
+    <message>
+        <source>Use After Effects&apos;</source>
+        <translation>استخدم اختصارات After Effects</translation>
+    </message>
+    <message>
+        <source>Keep Flip&apos;s</source>
+        <translation>أبقِ اختصارات Flip</translation>
+    </message>
+    <message>
+        <source>J and K go to the previous and next keyframe, P, S, R, T and A show one property, U and UU what is animated or changed, B and N set the work area, I and O go to the layer&apos;s ends, [ ] and Alt+[ ] move and trim the layer at the playhead.</source>
+        <translation>J وK للانتقال إلى الإطار المفتاحي السابق والتالي، وP وS وR وT وA لإظهار خاصية واحدة، وU وUU لما هو متحرك أو معدّل، وB وN لتحديد منطقة العمل، وI وO للانتقال إلى طرفي الطبقة، و[ ] وAlt+[ ] لتحريك الطبقة وقصّها عند المؤشر.</translation>
+    </message>
+    <message>
+        <source>You can switch any time in Preferences › Shortcuts. Shortcuts you changed yourself stay as they are.</source>
+        <translation>يمكنك التبديل في أي وقت من التفضيلات › الاختصارات. الاختصارات التي غيّرتها بنفسك تبقى كما هي.</translation>
     </message>
 </context>
 <context>
@@ -4470,6 +4493,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Sign in with Google to translate captions, or install the Offline translation extra</source>
+        <translation>سجّل الدخول بحساب Google لترجمة الترجمات، أو ثبّت إضافة الترجمة دون إنترنت</translation>
+    </message>
+    <message>
+        <source>Words bleeped: %1</source>
+        <translation>كلمات بصفير: %1</translation>
+    </message>
+    <message>
         <source>Camera clip added</source>
         <translation>تمت إضافة مقطع الكاميرا</translation>
     </message>
@@ -5268,8 +5299,60 @@
         <translation>العتامة</translation>
     </message>
     <message>
+        <source>Step back one frame (Page Up)</source>
+        <translation>الرجوع إطارًا (Page Up)</translation>
+    </message>
+    <message>
+        <source>Step forward one frame (Page Down)</source>
+        <translation>التقدم إطارًا (Page Down)</translation>
+    </message>
+    <message>
         <source>Show rulers</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Go to the layer&apos;s in point</source>
+        <translation>الانتقال إلى بداية الطبقة</translation>
+    </message>
+    <message>
+        <source>Go to the layer&apos;s out point</source>
+        <translation>الانتقال إلى نهاية الطبقة</translation>
+    </message>
+    <message>
+        <source>Add a Position keyframe</source>
+        <translation>إضافة إطار رئيسي للموضع</translation>
+    </message>
+    <message>
+        <source>Add a Scale keyframe</source>
+        <translation>إضافة إطار رئيسي للحجم</translation>
+    </message>
+    <message>
+        <source>Add a Rotation keyframe</source>
+        <translation>إضافة إطار رئيسي للدوران</translation>
+    </message>
+    <message>
+        <source>Add an Opacity keyframe</source>
+        <translation>إضافة إطار رئيسي للعتامة</translation>
+    </message>
+    <message>
+        <source>Add an Anchor point keyframe</source>
+        <translation>إضافة إطار رئيسي لنقطة الارتكاز</translation>
+    </message>
+    <message>
+        <source>Trim the layer&apos;s in point to the playhead</source>
+        <translation>قصّ بداية الطبقة عند المؤشر</translation>
+    </message>
+    <message>
+        <source>Trim the layer&apos;s out point to the playhead</source>
+        <translation>قصّ نهاية الطبقة عند المؤشر</translation>
+    </message>
+    <message>
+        <source>Move the layer so it starts at the playhead</source>
+        <translation>تحريك الطبقة لتبدأ عند المؤشر</translation>
+    </message>
+    <message>
+        <source>Move the layer so it ends at the playhead</source>
+        <translation>تحريك الطبقة لتنتهي عند المؤشر</translation>
     </message>
     <message>
         <source>RAM preview (render to memory and play)</source>
@@ -5282,6 +5365,38 @@
     <message>
         <source>Ruler guides</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Replace voice</source>
+        <translation>استبدال الصوت</translation>
+    </message>
+    <message>
+        <source>Voice replaced</source>
+        <translation>تم استبدال الصوت</translation>
+    </message>
+    <message>
+        <source>Trim layer</source>
+        <translation>قصّ الطبقة</translation>
+    </message>
+    <message>
+        <source>Move layer</source>
+        <translation>تحريك الطبقة</translation>
+    </message>
+    <message>
+        <source>Put the playhead inside the layer to trim it there</source>
+        <translation>ضع المؤشر داخل الطبقة لقصّها هناك</translation>
+    </message>
+    <message>
+        <source>Sending the audio to ElevenLabs…</source>
+        <translation>جارٍ إرسال الصوت إلى ElevenLabs…</translation>
+    </message>
+    <message>
+        <source>ElevenLabs is transcribing…</source>
+        <translation>ElevenLabs يفرّغ النص…</translation>
+    </message>
+    <message>
+        <source>Speaker %1</source>
+        <translation>المتحدث %1</translation>
     </message>
     <message>
         <source>Solids</source>
@@ -5298,6 +5413,14 @@
     <message>
         <source>Behavior changed</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Settle</source>
+        <translation>استقرار</translation>
+    </message>
+    <message>
+        <source>Reverse keyframes</source>
+        <translation>عكس الإطارات الرئيسية</translation>
     </message>
     <message>
         <source>Pick two or more keys of a property to reverse them</source>
@@ -5494,6 +5617,90 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Translating the captions…</source>
+        <translation>جارٍ ترجمة الترجمات…</translation>
+    </message>
+    <message>
+        <source>Could not translate the captions (no answer from the server)</source>
+        <translation>تعذّرت ترجمة الترجمات (لم يرد الخادم)</translation>
+    </message>
+    <message>
+        <source>Translating the captions on this computer…</source>
+        <translation>جارٍ ترجمة الترجمات على هذا الحاسوب…</translation>
+    </message>
+    <message>
+        <source>Could not translate the captions</source>
+        <translation>تعذّرت ترجمة الترجمات</translation>
+    </message>
+    <message>
+        <source>The captions changed while they were being translated; try again</source>
+        <translation>تغيّرت الترجمات أثناء ترجمتها؛ حاول مرة أخرى</translation>
+    </message>
+    <message>
+        <source>Captions (%1)</source>
+        <translation>ترجمات (%1)</translation>
+    </message>
+    <message>
+        <source>Translate captions</source>
+        <translation>ترجمة الترجمات</translation>
+    </message>
+    <message>
+        <source>Captions translated into %1</source>
+        <translation>تُرجمت الترجمات إلى %1</translation>
+    </message>
+    <message>
+        <source>Edit speaker</source>
+        <translation>تعديل المتحدث</translation>
+    </message>
+    <message>
+        <source>No key words to highlight in these subtitles</source>
+        <translation>لا توجد كلمات مفتاحية لإبرازها في هذه الترجمات</translation>
+    </message>
+    <message>
+        <source>Highlight key words</source>
+        <translation>إبراز الكلمات المفتاحية</translation>
+    </message>
+    <message>
+        <source>Key words highlighted in %1 captions</source>
+        <translation>تم إبراز الكلمات المفتاحية في %1 ترجمة</translation>
+    </message>
+    <message>
+        <source>Install «Animated emojis» from Extras first</source>
+        <translation>ثبّت «الرموز التعبيرية المتحركة» من الإضافات أولًا</translation>
+    </message>
+    <message>
+        <source>Emoji: %1</source>
+        <translation>رمز تعبيري: %1</translation>
+    </message>
+    <message>
+        <source>No captions with an emoji word (fuego, Dios, fiesta…)</source>
+        <translation>لا توجد ترجمة بكلمة لها رمز تعبيري (نار، الله، حفلة…)</translation>
+    </message>
+    <message>
+        <source>Animated emojis</source>
+        <translation>رموز تعبيرية متحركة</translation>
+    </message>
+    <message>
+        <source>Animated emojis on %1 captions</source>
+        <translation>رموز تعبيرية متحركة في %1 ترجمة</translation>
+    </message>
+    <message>
+        <source>No hidden words with their timing to bleep</source>
+        <translation>لا توجد كلمات مخفية بتوقيتها لإضافة صفير</translation>
+    </message>
+    <message>
+        <source>Could not make the bleep</source>
+        <translation>تعذّر إنشاء الصفير</translation>
+    </message>
+    <message>
+        <source>Bleep swear words</source>
+        <translation>صفير على الشتائم</translation>
+    </message>
+    <message>
+        <source>Bleep</source>
+        <translation>صفير</translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5657,6 +5864,30 @@
     <message>
         <source>Select a clip with sound to enhance its voice</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Listening to the clip to write down what is said…</source>
+        <translation>جارٍ الاستماع إلى المقطع لكتابة ما يُقال…</translation>
+    </message>
+    <message>
+        <source>Move the other tracks</source>
+        <translation>تحريك المسارات الأخرى</translation>
+    </message>
+    <message>
+        <source>Edit by text</source>
+        <translation>التحرير بالنص</translation>
+    </message>
+    <message>
+        <source>Remove silences</source>
+        <translation>إزالة الصمت</translation>
+    </message>
+    <message>
+        <source>Cut %1 s from the video</source>
+        <translation>قُصّ %1 ث من الفيديو</translation>
+    </message>
+    <message>
+        <source>That would remove the whole clip</source>
+        <translation>سيؤدي ذلك إلى إزالة المقطع بأكمله</translation>
     </message>
     <message>
         <source>Volume</source>
@@ -6034,6 +6265,34 @@
             <numerusform>تم لصق %n مقطعًا</numerusform>
             <numerusform>تم لصق %n مقطع</numerusform>
         </translation>
+    </message>
+    <message>
+        <source>Curved path</source>
+        <translation>مسار منحنٍ</translation>
+    </message>
+    <message>
+        <source>Straight path</source>
+        <translation>مسار مستقيم</translation>
+    </message>
+    <message>
+        <source>Join Position</source>
+        <translation>دمج الموضع</translation>
+    </message>
+    <message>
+        <source>Separate dimensions</source>
+        <translation>فصل الأبعاد</translation>
+    </message>
+    <message>
+        <source>Shape motion path</source>
+        <translation>تشكيل مسار الحركة</translation>
+    </message>
+    <message>
+        <source>Roving needs at least three Position keyframes</source>
+        <translation>تحتاج الإطارات المتنقلة إلى ثلاثة إطارات مفتاحية للموضع على الأقل</translation>
+    </message>
+    <message>
+        <source>Roving keyframes</source>
+        <translation>إطارات مفتاحية متنقلة</translation>
     </message>
     <message>
         <source>Exporting…</source>
@@ -7995,18 +8254,6 @@
         <translation>مستوى الصوت</translation>
     </message>
     <message>
-        <source>Recommended caption length</source>
-        <translation>طول التسمية التوضيحية الموصى به</translation>
-    </message>
-    <message>
-        <source>1 word per caption</source>
-        <translation>كلمة واحدة لكل تسمية توضيحية</translation>
-    </message>
-    <message>
-        <source>%1 words per caption</source>
-        <translation>%1 كلمة لكل تسمية توضيحية</translation>
-    </message>
-    <message>
         <source>Basic</source>
         <translation>أساسي</translation>
     </message>
@@ -8021,6 +8268,66 @@
     <message>
         <source>Fade out</source>
         <translation>اختفاء تدريجي</translation>
+    </message>
+    <message>
+        <source>Voice from text</source>
+        <translation>صوت من نص</translation>
+    </message>
+    <message>
+        <source>Edit script…</source>
+        <translation>تعديل النص…</translation>
+    </message>
+    <message>
+        <source>Change the text or the voice and speak it again, in place of this audio</source>
+        <translation>غيّر النص أو الصوت وانطقه من جديد بدلًا من هذا الصوت</translation>
+    </message>
+    <message>
+        <source>Discard the voice you made?</source>
+        <translation>هل تريد تجاهل الصوت الذي أنشأته؟</translation>
+    </message>
+    <message>
+        <source>Discard and go on</source>
+        <translation>تجاهل والمتابعة</translation>
+    </message>
+    <message>
+        <source>The Voice panel has a take that is not on the timeline yet. Add it first with «Add to timeline», or discard it to start this one.</source>
+        <translation>في لوحة الصوت تسجيل لم يُضف إلى المخطط الزمني بعد. أضفه أولًا عبر «إضافة إلى المخطط الزمني» أو تجاهله لبدء هذا.</translation>
+    </message>
+    <message>
+        <source>Lower the music under this voice</source>
+        <translation>خفض الموسيقى تحت هذا الصوت</translation>
+    </message>
+    <message>
+        <source>Save the voice as a file…</source>
+        <translation>حفظ الصوت كملف…</translation>
+    </message>
+    <message>
+        <source>Save the voice</source>
+        <translation>حفظ الصوت</translation>
+    </message>
+    <message>
+        <source>MP3 audio (*.mp3)</source>
+        <translation>صوت MP3 (*.mp3)</translation>
+    </message>
+    <message>
+        <source>WAV audio (*.wav)</source>
+        <translation>صوت WAV (*.wav)</translation>
+    </message>
+    <message>
+        <source>FLAC audio (*.flac)</source>
+        <translation>صوت FLAC (*.flac)</translation>
+    </message>
+    <message>
+        <source>voice</source>
+        <translation>صوت</translation>
+    </message>
+    <message>
+        <source>Voice saved</source>
+        <translation>تم حفظ الصوت</translation>
+    </message>
+    <message>
+        <source>Could not save the voice</source>
+        <translation>تعذّر حفظ الصوت</translation>
     </message>
     <message>
         <source>Normalize loudness</source>
@@ -8071,6 +8378,22 @@
         <translation>التوزيع الصوتي</translation>
     </message>
     <message>
+        <source>Create captions…</source>
+        <translation>إنشاء ترجمات…</translation>
+    </message>
+    <message>
+        <source>Open Subtitles to create captions from this clip&apos;s speech</source>
+        <translation>يفتح «الترجمات» لإنشاء ترجمات من كلام هذا المقطع</translation>
+    </message>
+    <message>
+        <source>Edit by text…</source>
+        <translation>التحرير بالنص…</translation>
+    </message>
+    <message>
+        <source>See what is said and strike out words: the video loses those moments</source>
+        <translation>شاهد ما يُقال واشطب كلمات: يفقد الفيديو تلك اللحظات</translation>
+    </message>
+    <message>
         <source>C</source>
         <translation>C</translation>
     </message>
@@ -8109,30 +8432,6 @@
     <message>
         <source>Install AI engine first</source>
         <translation>تثبيت محرك الذكاء الاصطناعي أولاً</translation>
-    </message>
-    <message>
-        <source>Auto subtitles</source>
-        <translation>ترجمة تلقائية</translation>
-    </message>
-    <message>
-        <source>Shorter captions are timed by splitting each phrase evenly, so they can drift slightly out of sync with the speech.</source>
-        <translation>يتم ضبط توقيت التسميات التوضيحية الأقصر عبر تقسيم كل عبارة بالتساوي، لذا قد تخرج قليلًا عن التزامن مع الكلام.</translation>
-    </message>
-    <message>
-        <source>Creating captions… %1%</source>
-        <translation>جارٍ إنشاء التسميات التوضيحية… %1%</translation>
-    </message>
-    <message>
-        <source>Create captions from speech</source>
-        <translation>إنشاء تسميات توضيحية من الكلام</translation>
-    </message>
-    <message>
-        <source>Several selected clips become one caption clip</source>
-        <translation>تتحول عدة مقاطع محددة إلى مقطع تسميات توضيحية واحد</translation>
-    </message>
-    <message>
-        <source>Download speech recognition (about 670 MB)</source>
-        <translation>تنزيل التعرف على الكلام (حوالي 670 MB)</translation>
     </message>
 </context>
 <context>
@@ -8369,7 +8668,7 @@
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>إزالة</translation>
     </message>
 </context>
 <context>
@@ -13341,6 +13640,37 @@ NEXT TIME</source>
     </message>
 </context>
 <context>
+    <name>ChatterboxTts</name>
+    <message>
+        <source>The voice model is not installed. Install the AI voice extra in Extras.</source>
+        <translation>نموذج الصوت غير مثبّت. ثبّت إضافة الصوت بالذكاء الاصطناعي من الإضافات.</translation>
+    </message>
+    <message>
+        <source>Failed to load text-to-speech model: %1</source>
+        <translation>فشل تحميل نموذج تحويل النص إلى كلام: %1</translation>
+    </message>
+    <message>
+        <source>Speech generation failed: %1</source>
+        <translation>فشل توليد الكلام: %1</translation>
+    </message>
+    <message>
+        <source>The reference voice has no audio.</source>
+        <translation>الصوت المرجعي لا يحتوي على صوت.</translation>
+    </message>
+    <message>
+        <source>Voice encoding failed: %1</source>
+        <translation>فشل ترميز الصوت: %1</translation>
+    </message>
+    <message>
+        <source>Unsupported language: %1</source>
+        <translation>لغة غير مدعومة: %1</translation>
+    </message>
+    <message>
+        <source>Invalid voice conditioning.</source>
+        <translation>تكييف صوت غير صالح.</translation>
+    </message>
+</context>
+<context>
     <name>ChipScroller</name>
     <message>
         <source>Previous</source>
@@ -13711,7 +14041,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>تطبيق</translation>
     </message>
     <message>
         <source>Save</source>
@@ -15498,6 +15828,14 @@ NEXT TIME</source>
         <translation>ترميز نطاق البداية/النهاية المحدد فقط بدلاً من المخطط الزمني الكامل</translation>
     </message>
     <message>
+        <source>Include the captions (inside the video and as .srt)</source>
+        <translation>تضمين الترجمات (داخل الفيديو وبصيغة .srt)</translation>
+    </message>
+    <message>
+        <source>The captions as a track inside the video and as a file next to it, with the same name: players and YouTube can turn them on and off</source>
+        <translation>الترجمات كمسار داخل الفيديو وكملف بجانبه بالاسم نفسه: يمكن للمشغلات ويوتيوب تشغيلها وإيقافها</translation>
+    </message>
+    <message>
         <source>Saves what you see in the preview. Pick a size — the picture shape stays the same.</source>
         <translation>يحفظ ما تراه في المعاينة. اختر حجمًا — يبقى شكل الصورة كما هو.</translation>
     </message>
@@ -16302,7 +16640,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>إغلاق</translation>
     </message>
     <message>
         <source>Replace</source>
@@ -17038,6 +17376,10 @@ NEXT TIME</source>
         <translation>تنعيم القناع</translation>
     </message>
     <message>
+        <source>Pos</source>
+        <translation>موضع</translation>
+    </message>
+    <message>
         <source>Layer</source>
         <translation type="unfinished"></translation>
     </message>
@@ -17062,12 +17404,40 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Value graph</source>
-        <translation type="unfinished"></translation>
+        <source>Graph type: value. Click: speed graph</source>
+        <translation>نوع الرسم: القيمة. انقر: رسم السرعة</translation>
     </message>
     <message>
-        <source>Speed graph</source>
-        <translation type="unfinished"></translation>
+        <source>Graph type: speed. Click: automatic</source>
+        <translation>نوع الرسم: السرعة. انقر: تلقائي</translation>
+    </message>
+    <message>
+        <source>Graph type: automatic (speed for a joined Position, value for the rest). Click: value graph</source>
+        <translation>نوع الرسم: تلقائي (السرعة لموضع موحّد، والقيمة للباقي). انقر: رسم القيمة</translation>
+    </message>
+    <message>
+        <source>Fit the whole curve in view (Ctrl+wheel zooms the values, Alt+wheel the time)</source>
+        <translation>عرض المنحنى كاملًا (Ctrl+العجلة لتكبير القيم، Alt+العجلة للوقت)</translation>
+    </message>
+    <message>
+        <source>Zoom to the picked keyframes</source>
+        <translation>التكبير على الإطارات المختارة</translation>
+    </message>
+    <message>
+        <source>Show only the curve being edited</source>
+        <translation>إظهار المنحنى المحرَّر فقط</translation>
+    </message>
+    <message>
+        <source>Show the other properties&apos; curves too</source>
+        <translation>إظهار منحنيات الخصائص الأخرى أيضًا</translation>
+    </message>
+    <message>
+        <source>Graph under its layer again</source>
+        <translation>الرسم تحت طبقته مجددًا</translation>
+    </message>
+    <message>
+        <source>Graph over the whole timeline, as After Effects&apos; Graph Editor</source>
+        <translation>الرسم فوق الخط الزمني كله، مثل محرر الرسوم في After Effects</translation>
     </message>
     <message>
         <source>Separate dimensions: key X and Y of Position apart</source>
@@ -17141,6 +17511,10 @@ NEXT TIME</source>
         <translation>تحريك الإطار المفتاحي</translation>
     </message>
     <message>
+        <source>Transform keyframes</source>
+        <translation>تحويل الإطارات المفتاحية</translation>
+    </message>
+    <message>
         <source>Edit keyframe curve</source>
         <translation>تعديل منحنى الإطار المفتاحي</translation>
     </message>
@@ -17164,8 +17538,20 @@ NEXT TIME</source>
         <translation>تحريك الإطارات المفتاحية</translation>
     </message>
     <message>
+        <source>Keyframe easing changed</source>
+        <translation>تم تغيير تنعيم الإطارات الرئيسية</translation>
+    </message>
+    <message>
+        <source>Paste keyframes</source>
+        <translation>لصق الإطارات المفتاحية</translation>
+    </message>
+    <message>
+        <source>Remove keyframes</source>
+        <translation>إزالة الإطارات الرئيسية</translation>
+    </message>
+    <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>تطبيق</translation>
     </message>
     <message>
         <source>50% packs the picked keys into half the time, 200% spreads them over twice. The first one stays where it is. Alt + dragging the first or last key does the same by hand.</source>
@@ -17200,8 +17586,28 @@ NEXT TIME</source>
         <translation>تحرير المنحنى…</translation>
     </message>
     <message>
+        <source>Curved path (auto Bezier)</source>
+        <translation>مسار منحنٍ (بيزيه تلقائي)</translation>
+    </message>
+    <message>
+        <source>Straight path</source>
+        <translation>مسار مستقيم</translation>
+    </message>
+    <message>
+        <source>Roving (one speed along the path)</source>
+        <translation>متنقلة (سرعة واحدة على المسار)</translation>
+    </message>
+    <message>
+        <source>Separate dimensions (X and Y apart)</source>
+        <translation>فصل الأبعاد (X وY منفصلان)</translation>
+    </message>
+    <message>
+        <source>Join Position (one path)</source>
+        <translation>دمج الموضع (مسار واحد)</translation>
+    </message>
+    <message>
         <source>Reverse keyframes</source>
-        <translation type="unfinished"></translation>
+        <translation>عكس الإطارات الرئيسية</translation>
     </message>
     <message>
         <source>Stretch keyframes…</source>
@@ -17228,7 +17634,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>تطبيق</translation>
     </message>
     <message>
         <source>Speed in units per second. Influence is how far the handle reaches towards the next key: more is a softer ease.</source>
@@ -17240,7 +17646,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>السرعة</translation>
     </message>
     <message>
         <source>Influence</source>
@@ -17434,6 +17840,21 @@ NEXT TIME</source>
     <message>
         <source>720p</source>
         <translation>720p</translation>
+    </message>
+</context>
+<context>
+    <name>LocalTranscription</name>
+    <message>
+        <source>Finding speech…</source>
+        <translation>جارٍ البحث عن الكلام…</translation>
+    </message>
+    <message>
+        <source>Timing words…</source>
+        <translation>جارٍ توقيت الكلمات…</translation>
+    </message>
+    <message>
+        <source>Telling speakers apart…</source>
+        <translation>جارٍ التمييز بين المتحدثين…</translation>
     </message>
 </context>
 <context>
@@ -17826,6 +18247,26 @@ NEXT TIME</source>
     <message>
         <source>Your example is ready. Try this:</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>What is the video for?</source>
+        <translation>لأي نوع هذا الفيديو؟</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>إلغاء</translation>
+    </message>
+    <message>
+        <source>The template is fitted to the shape of your video.</source>
+        <translation>يتكيّف القالب مع شكل الفيديو.</translation>
+    </message>
+    <message>
+        <source>Short (vertical 9:16)</source>
+        <translation>قصير (عمودي 9:16)</translation>
+    </message>
+    <message>
+        <source>Video (horizontal 16:9)</source>
+        <translation>فيديو (أفقي 16:9)</translation>
     </message>
     <message>
         <source>Click a clip on the timeline to change it on the right.</source>
@@ -19729,7 +20170,7 @@ NEXT TIME</source>
     <name>MotionPathOverlay</name>
     <message>
         <source>Shape motion path</source>
-        <translation type="unfinished"></translation>
+        <translation>تشكيل مسار الحركة</translation>
     </message>
     <message>
         <source>Move keyframe</source>
@@ -21079,6 +21520,14 @@ If playback stutters, try another.</source>
         <translation>خيارات الحد: بلا، خالص، تدرج خطي أو شعاعي، وضع المزج والعتامة</translation>
     </message>
     <message>
+        <source>Fill colour. Right-click: no fill (or back on)</source>
+        <translation>لون التعبئة. نقرة يمنى: بلا تعبئة (أو إعادتها)</translation>
+    </message>
+    <message>
+        <source>Stroke colour. Right-click: no stroke (or back on)</source>
+        <translation>لون الحد. نقرة يمنى: بلا حد (أو إعادته)</translation>
+    </message>
+    <message>
         <source>Selection</source>
         <translation type="unfinished"></translation>
     </message>
@@ -21918,7 +22367,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>تطبيق</translation>
     </message>
     <message>
         <source>What After Effects does with expressions, without writing code. They add up: the loop, then the constant speed, then the wiggle.</source>
@@ -21993,8 +22442,8 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>value, time, wiggle(freq, amount), Math, and thisComp.layer(&quot;Name&quot;).transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. The last line is the result.</source>
-        <translation type="unfinished"></translation>
+        <source>value, time, index, thisLayer, wiggle(freq, amount), linear / ease / easeIn / easeOut(t, tMin, tMax, a, b), clamp, valueAtTime(t), velocity, speed, Math, and thisComp.layer(&quot;Name&quot;).transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. The last line is the result.</source>
+        <translation>value, time, index, thisLayer, wiggle(freq, amount), linear / ease / easeIn / easeOut(t, tMin, tMax, a, b), clamp, valueAtTime(t), velocity, speed, Math, و thisComp.layer(&quot;Name&quot;).transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. السطر الأخير هو النتيجة.</translation>
     </message>
 </context>
 <context>
@@ -23721,14 +24170,6 @@ If playback stutters, try another.</source>
         <translation>موفرو الخدمات السحابية</translation>
     </message>
     <message>
-        <source>Transcription (Scribe), voiceover, sound effects</source>
-        <translation>تفريغ صوتي (Scribe)، تعليق صوتي، تأثيرات صوتية</translation>
-    </message>
-    <message>
-        <source>Voiceover</source>
-        <translation>تعليق صوتي</translation>
-    </message>
-    <message>
         <source>No key</source>
         <translation>لا يوجد مفتاح</translation>
     </message>
@@ -23927,6 +24368,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Keys are stored unencrypted in Flip Studio&apos;s settings. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
         <translation>تُخزن المفاتيح دون تشفير في إعدادات Flip Studio. وتكون الأولوية لـ ELEVENLABS_API_KEY و FISH_API_KEY في البيئة. وتتم فوترة الاستخدام على حسابك الخاص.</translation>
+    </message>
+    <message>
+        <source>Transcription (Scribe); voiceover and sound effects through AI agents</source>
+        <translation>النسخ (Scribe)؛ التعليق الصوتي والمؤثرات الصوتية عبر وكلاء الذكاء الاصطناعي</translation>
+    </message>
+    <message>
+        <source>Voiceover through AI agents</source>
+        <translation>التعليق الصوتي عبر وكلاء الذكاء الاصطناعي</translation>
     </message>
     <message>
         <source>Needed before Flip Studio or a connected agent can transcribe or generate audio with this service</source>
@@ -24422,7 +24871,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>حذف</translation>
     </message>
 </context>
 <context>
@@ -25465,6 +25914,26 @@ If playback stutters, try another.</source>
         <translation>البحث في الاختصارات</translation>
     </message>
     <message>
+        <source>Shortcut set</source>
+        <translation>مجموعة الاختصارات</translation>
+    </message>
+    <message>
+        <source>Flip</source>
+        <translation>Flip</translation>
+    </message>
+    <message>
+        <source>Flip&apos;s own shortcuts</source>
+        <translation>اختصارات Flip الخاصة</translation>
+    </message>
+    <message>
+        <source>After Effects</source>
+        <translation>After Effects</translation>
+    </message>
+    <message>
+        <source>As in After Effects: J/K go between keyframes, P/S/R/T/A show one property, U/UU, B/N the work area, I/O the layer&apos;s ends, [ ] and Alt+[ ] move and trim the layer at the playhead</source>
+        <translation>كما في After Effects: J/K بين الإطارات المفتاحية، P/S/R/T/A خاصية واحدة، U/UU، B/N منطقة العمل، I/O طرفا الطبقة، [ ] وAlt+[ ] لتحريك الطبقة وقصّها عند المؤشر</translation>
+    </message>
+    <message>
         <source>Click a shortcut, then press the keys. Esc cancels, Backspace clears.</source>
         <translation>انقر على اختصار، ثم اضغط على المفاتيح. Esc للإلغاء، وBackspace للمسح.</translation>
     </message>
@@ -25549,6 +26018,49 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>SilenceReviewWindow</name>
+    <message>
+        <source>Remove silences</source>
+        <translation>إزالة الصمت</translation>
+    </message>
+    <message>
+        <source>Untick what you want to keep. Click a row to hear it.</source>
+        <translation>ألغِ تحديد ما تريد الاحتفاظ به. انقر على صف لسماعه.</translation>
+    </message>
+    <message>
+        <source>Pauses longer than</source>
+        <translation>فترات توقف أطول من</translation>
+    </message>
+    <message>
+        <source>Also filler words (eh, mmm)</source>
+        <translation>وكلمات الحشو أيضًا (إمم، آه)</translation>
+    </message>
+    <message>
+        <source>Pause</source>
+        <translation>توقف</translation>
+    </message>
+    <message>
+        <source>Listen</source>
+        <translation>استماع</translation>
+    </message>
+    <message>
+        <source>No pauses this long in the clip.</source>
+        <translation>لا توجد فترات توقف بهذا الطول في المقطع.</translation>
+    </message>
+    <message>
+        <source>%1 of %2 · %3 s</source>
+        <translation>%1 من %2 · %3 ث</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>إلغاء</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>إزالة</translation>
+    </message>
+</context>
+<context>
     <name>SolidDialog</name>
     <message>
         <source>Solid settings</source>
@@ -25560,7 +26072,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>تطبيق</translation>
     </message>
     <message>
         <source>Solid</source>
@@ -25645,10 +26157,6 @@ If playback stutters, try another.</source>
         <translation>تم حفظ الصوت</translation>
     </message>
     <message>
-        <source>Turn a script into speech with a built-in or cloned voice. It is generated on this device and added at the playhead.</source>
-        <translation>حوّل نصًا مكتوبًا إلى كلام بصوت مدمج أو مستنسخ. يُولَّد على هذا الجهاز ويُضاف عند مؤشر التشغيل.</translation>
-    </message>
-    <message>
         <source>Speech generation runs on this device and needs the voice model.</source>
         <translation>يعمل توليد الكلام على هذا الجهاز ويحتاج إلى نموذج الصوت.</translation>
     </message>
@@ -25665,20 +26173,8 @@ If playback stutters, try another.</source>
         <translation>مطلوب لتوليد الكلام</translation>
     </message>
     <message>
-        <source>Type what the voice should say</source>
-        <translation>اكتب ما يجب أن يقوله الصوت</translation>
-    </message>
-    <message>
         <source>%1 characters, about %2 s</source>
         <translation>%1 حرف، نحو %2 ث</translation>
-    </message>
-    <message>
-        <source>Speech longer than 30 seconds often ends in gibberish or silence. Split the script into shorter parts.</source>
-        <translation>الكلام الأطول من 30 ثانية ينتهي غالبًا بكلام غير مفهوم أو صمت. قسّم النص إلى أجزاء أقصر.</translation>
-    </message>
-    <message>
-        <source>Voice</source>
-        <translation>الصوت البشري</translation>
     </message>
     <message>
         <source>Stop</source>
@@ -25733,10 +26229,6 @@ If playback stutters, try another.</source>
         <translation>جارٍ تعلّم الصوت…</translation>
     </message>
     <message>
-        <source>Language</source>
-        <translation>اللغة</translation>
-    </message>
-    <message>
         <source>Expressiveness</source>
         <translation>التعبيرية</translation>
     </message>
@@ -25747,10 +26239,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Generate speech</source>
         <translation>توليد الكلام</translation>
-    </message>
-    <message>
-        <source>Generate speech and add it at the playhead</source>
-        <translation>توليد الكلام وإضافته عند مؤشر التشغيل</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -25793,6 +26281,106 @@ If playback stutters, try another.</source>
         <translation>جميع الملفات (*)</translation>
     </message>
     <message>
+        <source>Voice from your text</source>
+        <translation>صوت من نصك</translation>
+    </message>
+    <message>
+        <source>Editing the script of a voice on the timeline: the new take replaces its audio.</source>
+        <translation>تعديل نص صوت على المخطط الزمني: اللقطة الجديدة تستبدل صوته.</translation>
+    </message>
+    <message>
+        <source>Type or paste the script. [pause 1s] adds a silence.</source>
+        <translation>اكتب النص أو الصقه. [pause 1s] يضيف صمتًا.</translation>
+    </message>
+    <message>
+        <source>Import script…</source>
+        <translation>استيراد نص…</translation>
+    </message>
+    <message>
+        <source>A .txt, .md or Word (.docx) file</source>
+        <translation>ملف ‎.txt أو ‎.md أو Word (‎.docx)</translation>
+    </message>
+    <message>
+        <source>Import a script</source>
+        <translation>استيراد نص</translation>
+    </message>
+    <message>
+        <source>Scripts (*.txt *.md *.docx)</source>
+        <translation>نصوص (*.txt *.md *.docx)</translation>
+    </message>
+    <message>
+        <source>That file has no text that can be read</source>
+        <translation>لا يحتوي هذا الملف على نص يمكن قراءته</translation>
+    </message>
+    <message>
+        <source>Voice: %1</source>
+        <translation>الصوت: %1</translation>
+    </message>
+    <message>
+        <source>A dialogue: a voice for each person</source>
+        <translation>حوار: صوت لكل شخص</translation>
+    </message>
+    <message>
+        <source>Generate again</source>
+        <translation>توليد مرة أخرى</translation>
+    </message>
+    <message>
+        <source>Speak the script; you hear it before it goes on the timeline</source>
+        <translation>انطق النص؛ تسمعه قبل أن يُضاف إلى المخطط الزمني</translation>
+    </message>
+    <message>
+        <source>Listen to the whole take</source>
+        <translation>الاستماع إلى اللقطة كاملة</translation>
+    </message>
+    <message>
+        <source>Take: %1 s</source>
+        <translation>اللقطة: %1 ث</translation>
+    </message>
+    <message>
+        <source>Listen to this sentence</source>
+        <translation>الاستماع إلى هذه الجملة</translation>
+    </message>
+    <message>
+        <source>Speak this sentence again</source>
+        <translation>نطق هذه الجملة مرة أخرى</translation>
+    </message>
+    <message>
+        <source>Also create its captions</source>
+        <translation>إنشاء الترجمة أيضًا</translation>
+    </message>
+    <message>
+        <source>Replace the voice on the timeline</source>
+        <translation>استبدال الصوت على المخطط الزمني</translation>
+    </message>
+    <message>
+        <source>Add to the timeline</source>
+        <translation>إضافة إلى المخطط الزمني</translation>
+    </message>
+    <message>
+        <source>Discard</source>
+        <translation>تجاهل</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation>خيارات</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>السرعة</translation>
+    </message>
+    <message>
+        <source>%1×</source>
+        <translation>%1×</translation>
+    </message>
+    <message>
+        <source>Pitch</source>
+        <translation>طبقة الصوت</translation>
+    </message>
+    <message>
+        <source>Stop preparing the voice</source>
+        <translation>إيقاف تحضير الصوت</translation>
+    </message>
+    <message>
         <source>Name</source>
         <translation>الاسم</translation>
     </message>
@@ -25813,8 +26401,8 @@ If playback stutters, try another.</source>
         <translation>%1 s</translation>
     </message>
     <message>
-        <source>Record 5 to 20 seconds in a quiet room. Read this aloud in your natural voice:</source>
-        <translation>سجّل من 5 إلى 20 ثانية في غرفة هادئة. اقرأ هذا بصوت عالٍ بصوتك الطبيعي:</translation>
+        <source>Record 3 to 20 seconds in a quiet room (it stops by itself at 20). Read this aloud in your natural voice:</source>
+        <translation>سجّل من 3 إلى 20 ثانية في مكان هادئ (يتوقف تلقائيًا عند 20). اقرأ هذا بصوت عالٍ بصوتك الطبيعي:</translation>
     </message>
     <message>
         <source>The quick brown fox jumps over the lazy dog, while a gentle breeze moves through the quiet garden and the evening light fades slowly.</source>
@@ -25827,6 +26415,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Start recording</source>
         <translation>بدء التسجيل</translation>
+    </message>
+    <message>
+        <source>20 s: done, save the voice</source>
+        <translation>20 ث: تم، احفظ الصوت</translation>
     </message>
     <message>
         <source>I have the right to use this person&apos;s voice</source>
@@ -26034,7 +26626,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>تطبيق</translation>
     </message>
     <message>
         <source>Apply letter by letter</source>
@@ -26050,7 +26642,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished"></translation>
+        <translation>الكل</translation>
     </message>
     <message>
         <source>How hard it squashes, stretches and bends</source>
@@ -26066,7 +26658,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>السرعة</translation>
     </message>
     <message>
         <source>Faster makes it shorter, slower makes it longer</source>
@@ -26365,6 +26957,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Subtitles from the voice, on your computer, without internet</source>
         <translation>ترجمة من الصوت، على جهازك، بدون إنترنت</translation>
+    </message>
+    <message>
+        <source>A simpler version in the browser: it doesn&apos;t have every tool of this app and gets no new ones. Everything new comes to this app.</source>
+        <translation>نسخة أبسط في المتصفح: لا تضم كل أدوات هذا التطبيق ولا تتلقى ميزات جديدة. كل جديد يصل إلى هذا التطبيق.</translation>
     </message>
     <message>
         <source>Click to sign in</source>
@@ -26976,12 +27572,12 @@ If playback stutters, try another.</source>
         <translation>%1 تسمية توضيحية</translation>
     </message>
     <message>
-        <source>Play the timeline — the line on screen lights up. Tap any line to edit it.</source>
-        <translation>شغّل المخطط الزمني — يُضاء السطر الظاهر على الشاشة. انقر على أي سطر لتحريره.</translation>
+        <source>Translate</source>
+        <translation>ترجمة</translation>
     </message>
     <message>
-        <source>Play the timeline — the line on screen lights up. Click any line to jump to it and edit it below.</source>
-        <translation>شغّل المخطط الزمني — يضيء السطر على الشاشة. انقر على أي سطر للانتقال إليه وتعديله في الأسفل.</translation>
+        <source>The captions in another language, as a second line above (bilingual)</source>
+        <translation>الترجمات بلغة أخرى كسطر ثانٍ في الأعلى (ثنائية اللغة)</translation>
     </message>
     <message>
         <source>Import</source>
@@ -27014,6 +27610,18 @@ If playback stutters, try another.</source>
     <message>
         <source>Offset the exported captions by this clip&apos;s start so they match the exported video</source>
         <translation>إزاحة التسميات التوضيحية المصدّرة بمقدار بداية هذا المقطع لتتطابق مع الفيديو المصدَّر</translation>
+    </message>
+    <message>
+        <source>Translating…</source>
+        <translation>جارٍ الترجمة…</translation>
+    </message>
+    <message>
+        <source>Captions that will change: %1</source>
+        <translation>الترجمات التي ستتغير: %1</translation>
+    </message>
+    <message>
+        <source>+ %1 more</source>
+        <translation>+ %1 أخرى</translation>
     </message>
     <message>
         <source>(empty)</source>
@@ -27056,8 +27664,24 @@ If playback stutters, try another.</source>
         <translation>تعيين النهاية إلى الوقت الحالي</translation>
     </message>
     <message>
-        <source>Delete caption</source>
-        <translation>حذف التسمية التوضيحية</translation>
+        <source>Style: same as the clip</source>
+        <translation>النمط: مثل المقطع</translation>
+    </message>
+    <message>
+        <source>Like the clip</source>
+        <translation>مثل المقطع</translation>
+    </message>
+    <message>
+        <source>Top</source>
+        <translation>أعلى</translation>
+    </message>
+    <message>
+        <source>Middle</source>
+        <translation>الوسط</translation>
+    </message>
+    <message>
+        <source>Where this caption sits on screen</source>
+        <translation>مكان هذه الترجمة على الشاشة</translation>
     </message>
     <message>
         <source>At %1</source>
@@ -27074,6 +27698,30 @@ If playback stutters, try another.</source>
     <message>
         <source>Emojis</source>
         <translation>الرموز التعبيرية</translation>
+    </message>
+    <message>
+        <source>Too short to read</source>
+        <translation>قصير جدًا للقراءة</translation>
+    </message>
+    <message>
+        <source>On screen too long</source>
+        <translation>يبقى على الشاشة طويلًا</translation>
+    </message>
+    <message>
+        <source>Too fast to read</source>
+        <translation>سريع جدًا للقراءة</translation>
+    </message>
+    <message>
+        <source>Move all captions</source>
+        <translation>نقل الكل</translation>
+    </message>
+    <message>
+        <source>All captions 0.1 s earlier</source>
+        <translation>الكل أبكر بـ 0.1 ث</translation>
+    </message>
+    <message>
+        <source>All captions 0.1 s later</source>
+        <translation>الكل أبطأ بـ 0.1 ث</translation>
     </message>
     <message>
         <source>Replace these captions from an SRT, WebVTT or ASS file</source>
@@ -27104,6 +27752,30 @@ If playback stutters, try another.</source>
         <translation>إضافة رمز تعبيري في نهاية أسطر الترجمة التي تذكر كلمة مفتاحية (fuego 🔥، fiesta 🎉)</translation>
     </message>
     <message>
+        <source>Animated</source>
+        <translation>متحركة</translation>
+    </message>
+    <message>
+        <source>An animated emoji above each caption that mentions one (fuego, Dios, fiesta…)</source>
+        <translation>رمز تعبيري متحرك فوق كل ترجمة تذكر واحدًا (نار، الله، حفلة…)</translation>
+    </message>
+    <message>
+        <source>Bleep</source>
+        <translation>صفير</translation>
+    </message>
+    <message>
+        <source>A beep over each hidden swear word, with the voice muted under it</source>
+        <translation>صفير فوق كل شتيمة مخفية مع كتم الصوت تحتها</translation>
+    </message>
+    <message>
+        <source>Key words</source>
+        <translation>كلمات مفتاحية</translation>
+    </message>
+    <message>
+        <source>Highlight the key word of each caption in colour (a number, a name, what matters)</source>
+        <translation>يبرز بلون الكلمة المفتاحية في كل ترجمة (رقم، اسم، ما يهم)</translation>
+    </message>
+    <message>
         <source>Clean up</source>
         <translation>تنظيف</translation>
     </message>
@@ -27118,6 +27790,70 @@ If playback stutters, try another.</source>
     <message>
         <source>Fix a word in every caption at once</source>
         <translation>تصحيح كلمة في كل أسطر الترجمة دفعة واحدة</translation>
+    </message>
+    <message>
+        <source>Spelling</source>
+        <translation>الإملاء</translation>
+    </message>
+    <message>
+        <source>Check the spelling of every caption, one word at a time</source>
+        <translation>يدقق إملاء كل الترجمات، كلمة تلو الأخرى</translation>
+    </message>
+    <message>
+        <source>Speakers</source>
+        <translation>المتحدثون</translation>
+    </message>
+    <message>
+        <source>File and timing</source>
+        <translation>الملف والتوقيت</translation>
+    </message>
+    <message>
+        <source>Words to check: %1</source>
+        <translation>كلمات للمراجعة: %1</translation>
+    </message>
+    <message>
+        <source>No spelling mistakes found.</source>
+        <translation>لم يتم العثور على أخطاء إملائية.</translation>
+    </message>
+    <message>
+        <source>Remove repeated word</source>
+        <translation>إزالة الكلمة المكررة</translation>
+    </message>
+    <message>
+        <source>No suggestions: fix it in the text box.</source>
+        <translation>لا اقتراحات: صحّحها في مربع النص.</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>إغلاق</translation>
+    </message>
+    <message>
+        <source>Without an account they are translated on this computer (a little slower).</source>
+        <translation>بدون حساب تُترجم على هذا الكمبيوتر (أبطأ قليلًا).</translation>
+    </message>
+    <message>
+        <source>Sign in with Google to translate captions, or install the Offline translation extra</source>
+        <translation>سجّل الدخول باستخدام Google لترجمة الترجمات المرئية، أو ثبّت الإضافة «ترجمة دون اتصال»</translation>
+    </message>
+    <message>
+        <source>Ignore</source>
+        <translation>تجاهل</translation>
+    </message>
+    <message>
+        <source>Nothing to change in these captions.</source>
+        <translation>لا شيء لتغييره في هذه الترجمات.</translation>
+    </message>
+    <message>
+        <source>(removed)</source>
+        <translation>(محذوف)</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>إلغاء</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>تطبيق</translation>
     </message>
     <message>
         <source>Find (e.g. jesus)</source>
@@ -27183,6 +27919,38 @@ If playback stutters, try another.</source>
         <source>Tip: write a word between asterisks, like *faith*, to highlight it in colour.</source>
         <translation>نصيحة: اكتب كلمة بين نجمتين، مثل *إيمان*، لإبرازها بلون.</translation>
     </message>
+    <message>
+        <source>One frame earlier</source>
+        <translation>إطار واحد قبل</translation>
+    </message>
+    <message>
+        <source>One frame later</source>
+        <translation>إطار واحد بعد</translation>
+    </message>
+    <message>
+        <source>Split</source>
+        <translation>تقسيم</translation>
+    </message>
+    <message>
+        <source>Split this caption at the playhead</source>
+        <translation>تقسيم هذه الترجمة عند مؤشر التشغيل</translation>
+    </message>
+    <message>
+        <source>Join</source>
+        <translation>دمج</translation>
+    </message>
+    <message>
+        <source>Join this caption with the next one</source>
+        <translation>دمج هذه الترجمة مع التالية</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete this caption</source>
+        <translation>حذف هذه الترجمة</translation>
+    </message>
 </context>
 <context>
     <name>SubtitleProgressDialog</name>
@@ -27205,18 +27973,6 @@ If playback stutters, try another.</source>
 </context>
 <context>
     <name>SubtitlesTab</name>
-    <message>
-        <source>Subtitle track — one clip holds many timed captions. Place it on the timeline, trim its length, then add caption lines at each moment in the clip panel.</source>
-        <translation>مسار الترجمة — يحتوي المقطع الواحد على العديد من التسميات التوضيحية الموقوتة. ضعه على المخطط الزمني، وقص طوله، ثم أضف أسطر التسميات التوضيحية عند كل لحظة في لوحة المقطع.</translation>
-    </message>
-    <message>
-        <source>Add subtitle clip</source>
-        <translation>إضافة مقطع ترجمة</translation>
-    </message>
-    <message>
-        <source>Import subtitle file</source>
-        <translation>استيراد ملف ترجمة</translation>
-    </message>
     <message>
         <source>Import Subtitles</source>
         <translation>استيراد الترجمة</translation>
@@ -27242,20 +27998,48 @@ If playback stutters, try another.</source>
         <translation>كافة الملفات (*)</translation>
     </message>
     <message>
-        <source>Add auto caption</source>
-        <translation>إضافة تسمية توضيحية تلقائية</translation>
-    </message>
-    <message>
-        <source>Creates captions from the speech in the selected clip.</source>
-        <translation>إنشاء تسميات توضيحية من الكلام في المقطع المحدد.</translation>
-    </message>
-    <message>
         <source>Select a video or audio clip on the timeline first.</source>
         <translation>حدد مقطع فيديو أو صوت على المخطط الزمني أولاً.</translation>
     </message>
     <message>
+        <source>On this computer</source>
+        <translation>على هذا الحاسوب</translation>
+    </message>
+    <message>
+        <source>In the cloud</source>
+        <translation>في السحابة</translation>
+    </message>
+    <message>
+        <source>ElevenLabs Scribe: the audio is sent to ElevenLabs with your key</source>
+        <translation>ElevenLabs Scribe: يُرسل الصوت إلى ElevenLabs بمفتاحك</translation>
+    </message>
+    <message>
+        <source>Hard words: names, brands… (separated by commas)</source>
+        <translation>كلمات صعبة: أسماء، علامات تجارية… (مفصولة بفواصل)</translation>
+    </message>
+    <message>
+        <source>Style of the selected captions</source>
+        <translation>نمط الترجمات المحددة</translation>
+    </message>
+    <message>
+        <source>Two lines per caption</source>
+        <translation>سطران لكل ترجمة</translation>
+    </message>
+    <message>
+        <source>Hide swear words (m*****)</source>
+        <translation>إخفاء الشتائم (ش****)</translation>
+    </message>
+    <message>
         <source>Shorter captions are timed by splitting each phrase evenly, so they can drift slightly out of sync with the speech.</source>
         <translation>يتم توقيت التسميات التوضيحية الأقصر عن طريق تقسيم كل عبارة بالتساوي، لذا قد تبتعد قليلاً عن التزامن مع الكلام.</translation>
+    </message>
+    <message>
+        <source>Captions from the voice</source>
+        <translation>ترجمات من الصوت</translation>
+    </message>
+    <message>
+        <source>Create captions</source>
+        <translation>إنشاء الترجمات</translation>
     </message>
     <message>
         <source>Create captions from the selected clips&apos; speech — several clips become one caption clip</source>
@@ -27288,6 +28072,38 @@ If playback stutters, try another.</source>
     <message>
         <source>Needed for auto captions from speech</source>
         <translation>مطلوب للتسميات التوضيحية التلقائية من الكلام</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation>خيارات</translation>
+    </message>
+    <message>
+        <source>Tell the speakers apart (a colour for each)</source>
+        <translation>التمييز بين المتحدثين (لون لكل واحد)</translation>
+    </message>
+    <message>
+        <source>Highlight key words in colour</source>
+        <translation>إبراز الكلمات المفتاحية بلون</translation>
+    </message>
+    <message>
+        <source>Show fewer</source>
+        <translation>عرض أقل</translation>
+    </message>
+    <message>
+        <source>See all styles (%1)</source>
+        <translation>عرض كل الأنماط (%1)</translation>
+    </message>
+    <message>
+        <source>Write by hand</source>
+        <translation>الكتابة يدويًا</translation>
+    </message>
+    <message>
+        <source>An empty caption clip at the playhead: write each line in the clip panel</source>
+        <translation>مقطع ترجمة فارغ عند رأس التشغيل: اكتب كل سطر في لوحة المقطع</translation>
+    </message>
+    <message>
+        <source>Import file</source>
+        <translation>استيراد ملف</translation>
     </message>
     <message>
         <source>Recommended caption length</source>
@@ -28003,6 +28819,41 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>TextEditWindow</name>
+    <message>
+        <source>Edit by text</source>
+        <translation>التحرير بالنص</translation>
+    </message>
+    <message>
+        <source>Click the words to take out (Shift + click for a stretch). Double click to hear one.</source>
+        <translation>انقر الكلمات التي تريد إزالتها (Shift + نقرة لمقطع). انقر نقرًا مزدوجًا لسماع كلمة.</translation>
+    </message>
+    <message>
+        <source>No words found in this clip.</source>
+        <translation>لم يُعثر على كلمات في هذا المقطع.</translation>
+    </message>
+    <message>
+        <source>Listening to the clip to write down what is said… %1%</source>
+        <translation>جارٍ الاستماع إلى المقطع لكتابة ما يُقال… %1%</translation>
+    </message>
+    <message>
+        <source>The first time takes a while; then it opens at once.</source>
+        <translation>تستغرق المرة الأولى بعض الوقت؛ وبعدها يُفتح فورًا.</translation>
+    </message>
+    <message>
+        <source>%1 words · %2 s</source>
+        <translation>%1 كلمة · %2 ث</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>إلغاء</translation>
+    </message>
+    <message>
+        <source>Cut</source>
+        <translation>قص</translation>
+    </message>
+</context>
+<context>
     <name>TextEffects</name>
     <message>
         <source>Shine sweep</source>
@@ -28566,6 +29417,26 @@ If playback stutters, try another.</source>
     <message>
         <source>These letters go back to the style of the whole text</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Read aloud…</source>
+        <translation>قراءة بصوت عالٍ…</translation>
+    </message>
+    <message>
+        <source>Turn this text into a voice that starts with it</source>
+        <translation>حوّل هذا النص إلى صوت يبدأ معه</translation>
+    </message>
+    <message>
+        <source>Discard the voice you made?</source>
+        <translation>هل تريد تجاهل الصوت الذي أنشأته؟</translation>
+    </message>
+    <message>
+        <source>Discard and go on</source>
+        <translation>تجاهل والمتابعة</translation>
+    </message>
+    <message>
+        <source>The Voice panel has a take that is not on the timeline yet. Add it first with «Add to timeline», or discard it to start this one.</source>
+        <translation>في لوحة الصوت تسجيل لم يُضف إلى المخطط الزمني بعد. أضفه أولًا عبر «إضافة إلى المخطط الزمني» أو تجاهله لبدء هذا.</translation>
     </message>
     <message>
         <source>Bold</source>
@@ -30639,6 +31510,18 @@ If playback stutters, try another.</source>
 <context>
     <name>TimelinePanel</name>
     <message>
+        <source>Move work area</source>
+        <translation>تحريك منطقة العمل</translation>
+    </message>
+    <message>
+        <source>Work area: drag to move it</source>
+        <translation>منطقة العمل: اسحب لتحريكها</translation>
+    </message>
+    <message>
+        <source>Work area: drag to change where it starts or ends</source>
+        <translation>منطقة العمل: اسحب لتغيير بدايتها أو نهايتها</translation>
+    </message>
+    <message>
         <source>Proxy</source>
         <translation>ملف وكيل</translation>
     </message>
@@ -31484,7 +32367,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Remove keyframes</source>
-        <translation type="unfinished"></translation>
+        <translation>إزالة الإطارات الرئيسية</translation>
     </message>
     <message>
         <source>Stop animating (removes its keyframes)</source>
@@ -31544,7 +32427,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>إزالة</translation>
     </message>
     <message>
         <source>The clip keeps the value it has at the playhead. You can undo afterwards.</source>
@@ -31658,7 +32541,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Separate dimensions</source>
-        <translation type="unfinished"></translation>
+        <translation>فصل الأبعاد</translation>
     </message>
     <message>
         <source>Behavior…</source>
@@ -32766,7 +33649,11 @@ If playback stutters, try another.</source>
     <name>TtsController</name>
     <message>
         <source>Loading voice model…</source>
-        <translation type="unfinished"></translation>
+        <translation>جارٍ تحميل نموذج الصوت…</translation>
+    </message>
+    <message>
+        <source>No speech was produced</source>
+        <translation>لم يُنتج أي كلام</translation>
     </message>
     <message>
         <source>Install the voice model first</source>
@@ -32781,16 +33668,67 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Generating speech…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Cancelled</source>
         <translation>تم الإلغاء</translation>
     </message>
     <message>
+        <source>Speaking sentence %1 of %2…</source>
+        <translation>جارٍ نطق الجملة %1 من %2…</translation>
+    </message>
+    <message>
+        <source>Sentence %1 could not be spoken: %2</source>
+        <translation>تعذّر نطق الجملة %1: %2</translation>
+    </message>
+    <message>
+        <source>Putting the take together…</source>
+        <translation>جارٍ تجميع اللقطة…</translation>
+    </message>
+    <message>
+        <source>Listen to it, then add it to the timeline</source>
+        <translation>استمع إليها ثم أضفها إلى المخطط الزمني</translation>
+    </message>
+    <message>
+        <source>Speaking sentence %1 again…</source>
+        <translation>جارٍ نطق الجملة %1 مرة أخرى…</translation>
+    </message>
+    <message>
+        <source>Sentence %1 spoken again</source>
+        <translation>تم نطق الجملة %1 مرة أخرى</translation>
+    </message>
+    <message>
+        <source>Changing speed and pitch…</source>
+        <translation>جارٍ تغيير السرعة وطبقة الصوت…</translation>
+    </message>
+    <message>
+        <source>Replace voice</source>
+        <translation>استبدال الصوت</translation>
+    </message>
+    <message>
+        <source>Could not replace the voice</source>
+        <translation>تعذّر استبدال الصوت</translation>
+    </message>
+    <message>
         <source>Speech added to the timeline</source>
         <translation>تمت إضافة الكلام إلى المخطط الزمني</translation>
+    </message>
+    <message>
+        <source>Voice replaced on the timeline</source>
+        <translation>تم استبدال الصوت على المخطط الزمني</translation>
+    </message>
+    <message numerus="yes">
+        <source>The music goes down under the voice (%n clip(s))</source>
+        <translation>
+            <numerusform>تنخفض الموسيقى تحت الصوت (%n مقطع)</numerusform>
+            <numerusform>تنخفض الموسيقى تحت الصوت (%n مقطع)</numerusform>
+            <numerusform>تنخفض الموسيقى تحت الصوت (%n مقطعان)</numerusform>
+            <numerusform>تنخفض الموسيقى تحت الصوت (%n مقاطع)</numerusform>
+            <numerusform>تنخفض الموسيقى تحت الصوت (%n مقطعًا)</numerusform>
+            <numerusform>تنخفض الموسيقى تحت الصوت (%n مقطع)</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>There is no music under this voice</source>
+        <translation>لا توجد موسيقى تحت هذا الصوت</translation>
     </message>
     <message>
         <source>Select a subtitle clip first</source>
@@ -32799,6 +33737,10 @@ If playback stutters, try another.</source>
     <message>
         <source>This subtitle clip has no text to speak</source>
         <translation>مقطع الترجمة هذا لا يحتوي على نص للنطق</translation>
+    </message>
+    <message>
+        <source>Speaking line %1 of %2…</source>
+        <translation>جارٍ نطق السطر %1 من %2…</translation>
     </message>
     <message>
         <source>Generate voiceover</source>
@@ -32828,6 +33770,17 @@ If playback stutters, try another.</source>
             <numerusform>؛ %n منها استغرقت أطول من أسطر ترجمتها</numerusform>
             <numerusform>؛ %n منها استغرقت أطول من أسطر ترجمتها</numerusform>
             <numerusform>؛ %n منها استغرقت أطول من أسطر ترجمتها</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>; %n could not be added</source>
+        <translation>
+            <numerusform>؛ تعذّرت إضافة %n</numerusform>
+            <numerusform>؛ تعذّرت إضافة %n</numerusform>
+            <numerusform>؛ تعذّرت إضافة %n</numerusform>
+            <numerusform>؛ تعذّرت إضافة %n</numerusform>
+            <numerusform>؛ تعذّرت إضافة %n</numerusform>
+            <numerusform>؛ تعذّرت إضافة %n</numerusform>
         </translation>
     </message>
 </context>
@@ -34081,6 +35034,81 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>VoiceGallery</name>
+    <message>
+        <source>Narration</source>
+        <translation>سرد</translation>
+    </message>
+    <message>
+        <source>Young</source>
+        <translation>شاب</translation>
+    </message>
+    <message>
+        <source>Deep</source>
+        <translation>عميق</translation>
+    </message>
+    <message>
+        <source>Lively</source>
+        <translation>حيوي</translation>
+    </message>
+    <message>
+        <source>Soft</source>
+        <translation>هادئ</translation>
+    </message>
+    <message>
+        <source>Mature</source>
+        <translation>ناضج</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation>الكل</translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation>المفضلة</translation>
+    </message>
+    <message>
+        <source>Mine</source>
+        <translation>أصواتي</translation>
+    </message>
+    <message>
+        <source>Women</source>
+        <translation>نساء</translation>
+    </message>
+    <message>
+        <source>Men</source>
+        <translation>رجال</translation>
+    </message>
+    <message>
+        <source>Hear this voice</source>
+        <translation>استمع إلى هذا الصوت</translation>
+    </message>
+    <message>
+        <source>My voice</source>
+        <translation>صوتي</translation>
+    </message>
+    <message>
+        <source>Mark voices with the star to find them here</source>
+        <translation>ضع نجمة على الأصوات لتجدها هنا</translation>
+    </message>
+    <message>
+        <source>Your own voices appear here: «New voice» in Options</source>
+        <translation>تظهر أصواتك هنا: «صوت جديد» في الخيارات</translation>
+    </message>
+    <message>
+        <source>No voices of this kind</source>
+        <translation>لا توجد أصوات من هذا النوع</translation>
+    </message>
+    <message>
+        <source>Show fewer</source>
+        <translation>عرض أقل</translation>
+    </message>
+    <message>
+        <source>See all voices (%1)</source>
+        <translation>عرض كل الأصوات (%1)</translation>
+    </message>
+</context>
+<context>
     <name>VoiceLibrary</name>
     <message>
         <source>Default</source>
@@ -34093,6 +35121,18 @@ If playback stutters, try another.</source>
     <message>
         <source>A voice needs a name and a recording</source>
         <translation>يحتاج الصوت إلى اسم وتسجيل</translation>
+    </message>
+    <message>
+        <source>Reading the recording…</source>
+        <translation>جارٍ قراءة التسجيل…</translation>
+    </message>
+    <message>
+        <source>Loading voice model…</source>
+        <translation>جارٍ تحميل نموذج الصوت…</translation>
+    </message>
+    <message>
+        <source>Learning the voice…</source>
+        <translation>جارٍ تعلّم الصوت…</translation>
     </message>
     <message>
         <source>Could not prepare the voice</source>
@@ -34109,6 +35149,18 @@ If playback stutters, try another.</source>
     <message>
         <source>The recording is too short: record at least %1 seconds</source>
         <translation>التسجيل قصير جدًا: سجّل %1 ثانية على الأقل</translation>
+    </message>
+    <message>
+        <source>Unknown voice</source>
+        <translation>صوت غير معروف</translation>
+    </message>
+    <message>
+        <source>The reference recording for this voice is missing</source>
+        <translation>التسجيل المرجعي لهذا الصوت مفقود</translation>
+    </message>
+    <message>
+        <source>Could not read the reference recording</source>
+        <translation>تعذّرت قراءة التسجيل المرجعي</translation>
     </message>
 </context>
 <context>
@@ -34165,6 +35217,18 @@ If playback stutters, try another.</source>
         <translation>توليد تعليق صوتي</translation>
     </message>
     <message>
+        <source>Speech generation runs on this device and needs the voice model.</source>
+        <translation>يعمل توليد الكلام على هذا الجهاز ويحتاج إلى نموذج الصوت.</translation>
+    </message>
+    <message>
+        <source>Download voice model</source>
+        <translation>تنزيل نموذج الصوت</translation>
+    </message>
+    <message>
+        <source>Install AI engine first</source>
+        <translation>ثبّت محرك الذكاء الاصطناعي أولًا</translation>
+    </message>
+    <message>
         <source>Voice</source>
         <translation>الصوت البشري</translation>
     </message>
@@ -34195,6 +35259,21 @@ If playback stutters, try another.</source>
     <message>
         <source>Close</source>
         <translation>إغلاق</translation>
+    </message>
+</context>
+<context>
+    <name>WhisperTranscriber</name>
+    <message>
+        <source>Transcribing %1–%2 of %3…</source>
+        <translation>جارٍ النسخ %1–%2 من %3…</translation>
+    </message>
+    <message>
+        <source>Detecting language…</source>
+        <translation>جارٍ اكتشاف اللغة…</translation>
+    </message>
+    <message>
+        <source>Finishing up…</source>
+        <translation>جارٍ الإنهاء…</translation>
     </message>
 </context>
 <context>

@@ -1,5 +1,7 @@
+import QtCore
 import QtQuick
 import QtQuick.Controls.Basic
+import QtQuick.Window
 import Drift
 import "."
 
@@ -69,6 +71,94 @@ Item {
         return parseFloat(t)
     }
 
+    // «Clean up» and «Emojis» show what they would change first, applied only on «Apply».
+    property string changesKind: ""
+    property var changesList: []
+    function showChanges(kind) {
+        root.changesList = EditorState.subtitleChangesPreview(root.trackIndex, root.clipIndex, kind)
+        root.changesKind = kind
+    }
+    function applyChanges() {
+        if (root.changesKind === "emojis")
+            EditorState.addEmojisToSubtitles(root.trackIndex, root.clipIndex)
+        else if (root.changesKind === "keywords")
+            EditorState.highlightSubtitleKeywords(root.trackIndex, root.clipIndex)
+        else if (root.changesKind === "cleanup")
+            EditorState.cleanUpSubtitles(root.trackIndex, root.clipIndex)
+        root.changesKind = ""
+    }
+
+    // Spelling, one flagged word at a time (the system's spell checker): a suggestion fixes it in its
+    // caption, «Ignore» skips that word for the rest of the check.
+    readonly property bool spellAvailable: EditorState.subtitleSpellCheckAvailable()
+    property bool spellOpen: false
+    property var spellIssues: []
+    property var spellIgnored: ({})
+    readonly property var spellIssue: spellIssues.length > 0 ? spellIssues[0] : null
+    function checkSpelling() {
+        root.spellIssues = EditorState.subtitleSpellingIssues(root.trackIndex, root.clipIndex)
+            .filter(i => !root.spellIgnored[i.word.toLowerCase()])
+        root.spellOpen = true
+        if (root.spellIssue)
+            EditorState.selectedSubtitleCue = root.spellIssue.cue
+    }
+    function fixSpelling(suggestion) {
+        const issue = root.spellIssue
+        const cue = issue ? root.cues[issue.cue] : null
+        if (!cue || String(cue.text).substr(issue.start, issue.length) !== issue.word) {
+            root.checkSpelling()
+            return
+        }
+        let before = cue.text.slice(0, issue.start)
+        const after = cue.text.slice(issue.start + issue.length)
+        const patch = {}
+        if (suggestion === "") {
+            // A repeated word: it goes with its space, and the first of the pair takes its timing.
+            before = before.replace(/\s+$/, "")
+            const ends = (cue.wordEnds || []).slice()
+            const k = root.wordCount(before)
+            if (ends.length === root.wordCount(cue.text) && k > 0) {
+                ends.splice(k - 1, 1)
+                patch.wordEnds = ends
+            }
+        }
+        patch.text = before + suggestion + after
+        root.updateCue(issue.cue, patch)
+        Qt.callLater(root.checkSpelling)
+    }
+    function ignoreSpelling() {
+        const issue = root.spellIssue
+        if (!issue)
+            return
+        const ignored = Object.assign({}, root.spellIgnored)
+        ignored[issue.word.toLowerCase()] = true
+        root.spellIgnored = ignored
+        root.spellIssues = root.spellIssues.filter(i => !ignored[i.word.toLowerCase()])
+        if (root.spellIssue)
+            EditorState.selectedSubtitleCue = root.spellIssue.cue
+    }
+    function escapeHtml(t) {
+        return String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+    }
+
+    // Reading rules (as Premiere's caption checks): a caption shown too briefly, too long, or with
+    // more letters than a viewer reads in its time (about 20 per second). Empty when it reads well.
+    function readingIssue(cue) {
+        if (!cue)
+            return ""
+        const length = cue.end - cue.start
+        const letters = String(cue.text || "").replace(/\*/g, "").trim().length
+        if (letters === 0)
+            return ""
+        if (length < 0.7)
+            return qsTr("Too short to read")
+        if (length > 7)
+            return qsTr("On screen too long")
+        if (letters / length > 20)
+            return qsTr("Too fast to read")
+        return ""
+    }
+
     function replaceCues(newCues) {
         EditorState.setSubtitleCues(trackIndex, clipIndex, newCues)
     }
@@ -76,14 +166,29 @@ Item {
     function cloneCues() {
         const next = []
         for (let i = 0; i < cues.length; i++)
-            next.push({ start: cues[i].start, end: cues[i].end, text: cues[i].text })
+            next.push({ start: cues[i].start, end: cues[i].end, text: cues[i].text,
+                        wordEnds: (cues[i].wordEnds || []).slice(),
+                        style: cues[i].style || "", place: cues[i].place || "",
+                        speaker: cues[i].speaker !== undefined ? cues[i].speaker : -1 })
         return next
     }
 
+    function wordCount(text) {
+        const t = String(text).trim()
+        return t.length ? t.split(/\s+/).length : 0
+    }
+
+    // Each cue keeps its word timings (the karaoke follows the voice); a text whose words no
+    // longer match them loses its own, and only its own.
     function updateCue(index, patch) {
         const next = cloneCues()
-        if (index >= 0 && index < next.length)
-            Object.assign(next[index], patch)
+        if (index >= 0 && index < next.length) {
+            const before = next[index]
+            if (patch.text !== undefined && patch.wordEnds === undefined
+                    && wordCount(patch.text) !== wordCount(before.text))
+                patch.wordEnds = []
+            Object.assign(before, patch)
+        }
         replaceCues(next)
     }
 
@@ -121,7 +226,7 @@ Item {
             cur.end = mid
         }
 
-        list.splice(index + 1, 0, { start: newStart, end: newEnd, text: "" })
+        list.splice(index + 1, 0, { start: newStart, end: newEnd, text: "", wordEnds: [] })
         replaceCues(list)
         EditorState.selectedSubtitleCue = index + 1
     }
@@ -143,6 +248,106 @@ Item {
         const patch = {}
         patch[edge] = t
         root.updateCue(index, patch)
+    }
+
+    // One frame of the project: what the arrows move a cue's start or end by.
+    readonly property double frameSeconds: {
+        const fps = EditorState.projectFile.projectFps()
+        return fps > 0 ? 1 / fps : 1 / 30
+    }
+
+    function nudgeCueEdge(index, edge, direction) {
+        if (index < 0 || index >= root.cues.length)
+            return
+        const cue = root.cues[index]
+        const minLength = root.frameSeconds
+        let v = cue[edge] + direction * root.frameSeconds
+        if (edge === "start")
+            v = Math.max(0, Math.min(v, cue.end - minLength))
+        else
+            v = Math.max(cue.start + minLength, root.clipDuration > 0 ? Math.min(v, root.clipDuration) : v)
+        const patch = {}
+        patch[edge] = v
+        root.updateCue(index, patch)
+    }
+
+    // Every caption earlier or later at once (an .srt out of sync, a video trimmed at the start),
+    // with its word timings. What would go before the clip's start or past its end is trimmed there
+    // (a caption reaching the end used to stop the whole move, so the button did nothing).
+    function shiftAllCues(delta) {
+        const list = cloneCues()
+        if (!list.length || Math.abs(delta) < 1e-6)
+            return
+        const end = root.clipDuration > 0 ? root.clipDuration : Infinity
+        const clampTime = t => Math.max(0, Math.min(end, t))
+        const next = []
+        for (let i = 0; i < list.length; i++) {
+            const cue = list[i]
+            const start = clampTime(cue.start + delta)
+            const stop = clampTime(cue.end + delta)
+            if (stop - start < 0.05)
+                continue // pushed off the clip entirely
+            next.push({ start: start, end: stop, text: cue.text, style: cue.style, place: cue.place,
+                        speaker: cue.speaker,
+                        wordEnds: cue.wordEnds.map(e => Math.max(start, Math.min(stop, e + delta))) })
+        }
+        if (next.length)
+            replaceCues(next)
+    }
+
+    // The caption under the playhead in two (CapCut's Split): the words said before it stay, the
+    // rest start a caption there. With word timings the cut falls between the right words.
+    readonly property bool canSplitCue: {
+        const i = root.selectedCueIndex
+        if (i < 0 || i >= root.cues.length)
+            return false
+        const t = root.localPlayhead
+        return t > root.cues[i].start + 0.05 && t < root.cues[i].end - 0.05
+    }
+    function splitCueAtPlayhead() {
+        const index = root.selectedCueIndex
+        if (!root.canSplitCue)
+            return
+        const t = root.localPlayhead
+        const list = cloneCues()
+        const cue = list[index]
+        const words = String(cue.text).trim().split(/\s+/).filter(w => w.length)
+        const timed = cue.wordEnds.length === words.length && words.length > 0
+        let k = 0
+        if (timed) {
+            while (k < words.length && cue.wordEnds[k] <= t)
+                ++k
+        } else {
+            k = Math.round(words.length * (t - cue.start) / (cue.end - cue.start))
+        }
+        if (words.length > 1)
+            k = Math.max(1, Math.min(words.length - 1, k))
+        // Each word with the space or line break after it, so a two-line caption keeps its break.
+        const pieces = String(cue.text).trim().match(/\S+\s*/g) || []
+        const first = { start: cue.start, end: t, text: pieces.slice(0, k).join("").trim(),
+                        wordEnds: timed ? cue.wordEnds.slice(0, k) : [], style: cue.style, place: cue.place,
+                        speaker: cue.speaker }
+        const second = { start: t, end: cue.end, text: pieces.slice(k).join("").trim(),
+                         wordEnds: timed ? cue.wordEnds.slice(k) : [], style: cue.style, place: cue.place,
+                         speaker: cue.speaker }
+        list.splice(index, 1, first, second)
+        replaceCues(list)
+        EditorState.selectedSubtitleCue = index + 1
+    }
+
+    // The caption and the next one become one (their words and timings kept).
+    function joinWithNext(index) {
+        if (index < 0 || index + 1 >= root.cues.length)
+            return
+        const list = cloneCues()
+        const a = list[index]
+        const b = list[index + 1]
+        const joined = { start: a.start, end: b.end, text: (a.text + " " + b.text).trim(),
+                         wordEnds: a.wordEnds.concat(b.wordEnds), style: a.style, place: a.place,
+                         speaker: a.speaker }
+        list.splice(index, 2, joined)
+        replaceCues(list)
+        EditorState.selectedSubtitleCue = index
     }
 
     // Add a new cue at the playhead, chaining it to its neighbours: the preceding cue's
@@ -185,7 +390,7 @@ Item {
         if (newEnd <= t)
             newEnd = t + 0.5
 
-        list.push({ start: t, end: newEnd, text: "" })
+        list.push({ start: t, end: newEnd, text: "", wordEnds: [] })
         list.sort(function (a, b) { return a.start - b.start })
         replaceCues(list)
 
@@ -213,10 +418,6 @@ Item {
         const cue = currentCue()
         if (!cueText.activeFocus)
             cueText.text = cue ? cue.text : ""
-        if (!startField.activeFocus)
-            startField.text = cue ? formatCueTime(cue.start) : ""
-        if (!endField.activeFocus)
-            endField.text = cue ? formatCueTime(cue.end) : ""
     }
 
     // A different cue was picked: its values replace the fields outright. Clicking a row does
@@ -225,8 +426,6 @@ Item {
     function loadEditor() {
         const cue = currentCue()
         cueText.text = cue ? cue.text : ""
-        startField.text = cue ? formatCueTime(cue.start) : ""
-        endField.text = cue ? formatCueTime(cue.end) : ""
     }
 
     // While playing, the edited cue tracks the playhead — but not while the text box is being
@@ -246,6 +445,10 @@ Item {
     // Reset the editing selection only when a different clip is selected — not on every
     // cue edit (selectedClipData hands back a fresh object each time).
     function resetSelectionForClip() {
+        root.changesKind = "" // a preview belongs to the clip it was made for
+        root.spellOpen = false
+        root.spellIssues = []
+        root.spellIgnored = ({})
         Qt.callLater(function () {
             // loadEditor explicitly: a new clip whose active cue lands on the same index
             // leaves selectedCueIndex unchanged, so nothing else would refresh the fields.
@@ -258,6 +461,22 @@ Item {
     Component.onCompleted: {
         EditorState.selectedSubtitleCue = root.activeCueIndex
         loadEditor()
+        // I and O (mark in / out) set the picked caption's start and end while this is open.
+        const w = root.Window.window
+        if (w && w.subtitleCueEditor !== undefined)
+            w.subtitleCueEditor = root
+    }
+    Component.onDestruction: {
+        const w = root.Window.window
+        if (w && w.subtitleCueEditor === root)
+            w.subtitleCueEditor = null
+    }
+    // The I / O keys: true when they went to a caption (else they mark the work area as before).
+    function markCueEdge(edge) {
+        if (!root.visible || root.selectedCue === null)
+            return false
+        root.setCueEdgeToPlayhead(root.selectedCueIndex, edge)
+        return true
     }
 
     Connections {
@@ -302,103 +521,492 @@ Item {
             }
         }
 
-        Text {
+        Grid {
+            id: toolGrid
             width: parent.width
-            wrapMode: Text.WordWrap
-            text: root.compactEdit
-                  ? qsTr("Play the timeline — the line on screen lights up. Tap any line to edit it.")
-                  : qsTr("Play the timeline — the line on screen lights up. Click any line to jump to it and edit it below.")
-            color: Theme.mutedForeground
-            font.family: Theme.fontFamily
-            font.pixelSize: Theme.fontSizeXs
-            opacity: 0.8
-        }
-
-        Row {
-            width: parent.width
+            columns: 2
             spacing: 6
+            readonly property real cell: (width - spacing) / 2
 
             ThemedButton {
-                width: (parent.width - parent.spacing) / 2
-                text: qsTr("Import")
-                variant: "secondary"
-                glyph: Theme.icons.upload
-                tooltip: qsTr("Replace these captions from an SRT, WebVTT or ASS file")
-                onClicked: {
-                    const url = FileDialogs.openFile(
-                        qsTr("Import Subtitles"),
-                        [qsTr("Subtitle files (*.srt *.vtt *.ass *.ssa)"),
-                         qsTr("SubRip subtitles (*.srt)"),
-                         qsTr("WebVTT subtitles (*.vtt)"),
-                         qsTr("SubStation Alpha subtitles (*.ass *.ssa)"),
-                         qsTr("All files (*)")])
-                    if (url != "")
-                        EditorState.importSubtitleFileIntoClip(
-                            root.trackIndex, root.clipIndex, url)
-                }
-            }
-
-            ThemedButton {
-                width: (parent.width - parent.spacing) / 2
-                text: qsTr("Export")
-                variant: "secondary"
-                glyph: Theme.icons.save
-                tooltip: qsTr("Save captions as SRT, WebVTT (.vtt) or ASS (.ass): the extension picks the format")
-                enabled: root.cues.length > 0
-                onClicked: {
-                    const url = FileDialogs.saveFile(
-                        qsTr("Export Subtitles"),
-                        [qsTr("SubRip subtitles (*.srt)"),
-                         qsTr("WebVTT subtitles (*.vtt)"),
-                         qsTr("Advanced SubStation Alpha subtitles (*.ass)")],
-                        (root.clip && root.clip.name) ? root.clip.name : EditorState.projectFile.projectName,
-                        "srt")
-                    if (url != "")
-                        EditorState.exportSubtitleFile(
-                            root.trackIndex, root.clipIndex, url, timelineTimesBox.checked)
-                }
-            }
-        }
-
-        ThemedCheckBox {
-            id: timelineTimesBox
-            width: parent.width
-            text: qsTr("Timestamps from the start of the video")
-            tooltip: qsTr("Offset the exported captions by this clip's start so they match the exported video")
-        }
-
-        Row {
-            width: parent.width
-            spacing: 6
-
-            ThemedButton {
-                width: (parent.width - parent.spacing * 2) / 3
+                width: toolGrid.cell
                 text: qsTr("Emojis")
                 variant: "secondary"
                 glyph: Theme.icons.smile
                 tooltip: qsTr("Add an emoji at the end of captions that mention a keyword (fuego 🔥, fiesta 🎉)")
                 enabled: root.cues.length > 0
-                onClicked: EditorState.addEmojisToSubtitles(root.trackIndex, root.clipIndex)
+                onClicked: root.showChanges("emojis")
+            }
+
+            // Into another language (DeepL on our server): a second caption clip above, bilingual.
+            ThemedButton {
+                width: toolGrid.cell
+                text: qsTr("Translate")
+                variant: root.translateOpen ? "primary" : "secondary"
+                glyph: Theme.icons.languages
+                tooltip: qsTr("The captions in another language, as a second line above (bilingual)")
+                enabled: root.cues.length > 0
+                onClicked: root.translateOpen = !root.translateOpen
+            }
+
+            // CapCut's animated emojis over the captions that mention one (an extra of Stickers).
+            ThemedButton {
+                visible: root.animatedEmojis
+                width: toolGrid.cell
+                text: qsTr("Animated")
+                variant: "secondary"
+                glyph: Theme.icons.smile
+                tooltip: qsTr("An animated emoji above each caption that mentions one (fuego, Dios, fiesta…)")
+                enabled: root.cues.length > 0
+                onClicked: EditorState.addAnimatedEmojisToSubtitles(root.trackIndex, root.clipIndex)
+            }
+
+            // The TV bleep over the hidden swear words (m*****), once captions have some.
+            ThemedButton {
+                visible: { void root.cues; return EditorState.subtitleHasHiddenWords(root.trackIndex, root.clipIndex) }
+                width: toolGrid.cell
+                text: qsTr("Bleep")
+                variant: "secondary"
+                glyph: Theme.icons.volumeOff
+                tooltip: qsTr("A beep over each hidden swear word, with the voice muted under it")
+                onClicked: EditorState.bleepSubtitleSwearWords(root.trackIndex, root.clipIndex)
             }
 
             ThemedButton {
-                width: (parent.width - parent.spacing * 2) / 3
+                width: toolGrid.cell
+                text: qsTr("Key words")
+                variant: "secondary"
+                glyph: Theme.icons.sparkles
+                tooltip: qsTr("Highlight the key word of each caption in colour (a number, a name, what matters)")
+                enabled: root.cues.length > 0
+                onClicked: root.showChanges("keywords")
+            }
+
+            ThemedButton {
+                width: toolGrid.cell
                 text: qsTr("Clean up")
                 variant: "secondary"
                 glyph: Theme.icons.wand
                 tooltip: qsTr("Remove hesitations (eh, mmm), capitalize each caption and apply your dictionary")
                 enabled: root.cues.length > 0
-                onClicked: EditorState.cleanUpSubtitles(root.trackIndex, root.clipIndex)
+                onClicked: root.showChanges("cleanup")
             }
 
             ThemedButton {
-                width: (parent.width - parent.spacing * 2) / 3
+                width: toolGrid.cell
                 text: qsTr("Find & replace")
                 variant: root.replaceOpen ? "primary" : "secondary"
                 glyph: Theme.icons.search
                 tooltip: qsTr("Fix a word in every caption at once")
                 enabled: root.cues.length > 0
                 onClicked: root.replaceOpen = !root.replaceOpen
+            }
+
+            ThemedButton {
+                visible: root.spellAvailable
+                width: toolGrid.cell
+                text: qsTr("Spelling")
+                variant: root.spellOpen ? "primary" : "secondary"
+                glyph: Theme.icons.check
+                tooltip: qsTr("Check the spelling of every caption, one word at a time")
+                enabled: root.cues.length > 0
+                onClicked: {
+                    if (root.spellOpen) {
+                        root.spellOpen = false
+                    } else {
+                        root.spellIgnored = ({})
+                        root.checkSpelling()
+                    }
+                }
+            }
+        }
+
+        // The voices told apart: a colour (click for the next one) and a name for each.
+        Column {
+            visible: root.speakers.length > 0
+            width: parent.width
+            spacing: 4
+
+            Text {
+                text: qsTr("Speakers")
+                color: Theme.mutedForeground
+                font.family: Theme.fontFamily
+                font.pixelSize: Theme.fontSizeXs
+            }
+
+            Repeater {
+                model: root.speakers
+                Row {
+                    id: speakerRow
+                    required property var modelData
+                    required property int index
+                    width: parent.width
+                    spacing: 6
+
+                    Rectangle {
+                        width: 22
+                        height: 22
+                        radius: 11
+                        anchors.verticalCenter: parent.verticalCenter
+                        color: speakerRow.modelData.color
+                        border.width: 1
+                        border.color: Theme.panelBorder
+                        MouseArea {
+                            anchors.fill: parent
+                            cursorShape: Qt.PointingHandCursor
+                            onClicked: EditorState.setSubtitleSpeaker(root.trackIndex, root.clipIndex, speakerRow.index,
+                                                                      "", root.nextVoiceColour(speakerRow.modelData.color))
+                        }
+                    }
+                    ThemedTextField {
+                        width: speakerRow.width - 22 - speakerRow.spacing
+                        text: speakerRow.modelData.name
+                        onEditingFinished: EditorState.setSubtitleSpeaker(root.trackIndex, root.clipIndex,
+                                                                          speakerRow.index, text, "")
+                    }
+                }
+            }
+        }
+
+        // Less used: the file and moving every caption, folded (minimal panel, Jorge 2026-11-01).
+        ThemedButton {
+            width: parent.width
+            text: qsTr("File and timing")
+            variant: "ghost"
+            glyph: root.moreOpen ? Theme.icons.chevronUp : Theme.icons.chevronDown
+            onClicked: root.moreOpen = !root.moreOpen
+        }
+
+        Column {
+            visible: root.moreOpen
+            width: parent.width
+            spacing: 4
+
+            // Every caption earlier or later at once: for a file out of sync with the voice.
+            Row {
+                id: shiftRow
+                width: parent.width
+                spacing: 4
+                visible: root.cues.length > 0
+
+                Text {
+                    width: shiftRow.width - shiftBack.width * 2 - shiftRow.spacing * 2
+                    height: shiftBack.height
+                    verticalAlignment: Text.AlignVCenter
+                    text: qsTr("Move all captions")
+                    color: Theme.mutedForeground
+                    font.family: Theme.fontFamily
+                    font.pixelSize: Theme.fontSizeXs
+                    elide: Text.ElideRight
+                }
+                IconButton {
+                    id: shiftBack
+                    glyph: Theme.icons.chevronLeft
+                    variant: "ghost"
+                    tooltip: qsTr("All captions 0.1 s earlier")
+                    onClicked: root.shiftAllCues(-0.1)
+                }
+                IconButton {
+                    glyph: Theme.icons.chevronRight
+                    variant: "ghost"
+                    tooltip: qsTr("All captions 0.1 s later")
+                    onClicked: root.shiftAllCues(0.1)
+                }
+            }
+
+            Row {
+                width: parent.width
+                spacing: 6
+
+                ThemedButton {
+                    width: (parent.width - parent.spacing) / 2
+                    text: qsTr("Import")
+                    variant: "secondary"
+                    glyph: Theme.icons.upload
+                    tooltip: qsTr("Replace these captions from an SRT, WebVTT or ASS file")
+                    onClicked: {
+                        const url = FileDialogs.openFile(
+                            qsTr("Import Subtitles"),
+                            [qsTr("Subtitle files (*.srt *.vtt *.ass *.ssa)"),
+                             qsTr("SubRip subtitles (*.srt)"),
+                             qsTr("WebVTT subtitles (*.vtt)"),
+                             qsTr("SubStation Alpha subtitles (*.ass *.ssa)"),
+                             qsTr("All files (*)")])
+                        if (url != "")
+                            EditorState.importSubtitleFileIntoClip(
+                                root.trackIndex, root.clipIndex, url)
+                    }
+                }
+
+                ThemedButton {
+                    width: (parent.width - parent.spacing) / 2
+                    text: qsTr("Export")
+                    variant: "secondary"
+                    glyph: Theme.icons.save
+                    tooltip: qsTr("Save captions as SRT, WebVTT (.vtt) or ASS (.ass): the extension picks the format")
+                    enabled: root.cues.length > 0
+                    onClicked: {
+                        const url = FileDialogs.saveFile(
+                            qsTr("Export Subtitles"),
+                            [qsTr("SubRip subtitles (*.srt)"),
+                             qsTr("WebVTT subtitles (*.vtt)"),
+                             qsTr("Advanced SubStation Alpha subtitles (*.ass)")],
+                            (root.clip && root.clip.name) ? root.clip.name : EditorState.projectFile.projectName,
+                            "srt")
+                        if (url != "")
+                            EditorState.exportSubtitleFile(
+                                root.trackIndex, root.clipIndex, url, timelineTimesBox.checked)
+                    }
+                }
+            }
+
+            ThemedCheckBox {
+                id: timelineTimesBox
+                width: parent.width
+                // On by default: the file then matches the exported video even when this clip does not
+                // start at 0:00 (off, it came out of sync).
+                checked: true
+                text: qsTr("Timestamps from the start of the video")
+                tooltip: qsTr("Offset the exported captions by this clip's start so they match the exported video")
+            }
+        }
+
+        // Translate: the language, then the translated captions land above the originals.
+        Rectangle {
+            visible: root.translateOpen
+            width: parent.width
+            height: visible ? translateColumn.implicitHeight + 16 : 0
+            radius: Theme.radiusMd
+            color: Theme.panelAccent
+            border.width: 1
+            border.color: Theme.panelBorder
+
+            Column {
+                id: translateColumn
+                x: 8
+                y: 8
+                width: parent.width - 16
+                spacing: 6
+
+                ThemedComboBox {
+                    id: translateLanguageBox
+                    width: parent.width
+                    textRole: "label"
+                    valueRole: "code"
+                    model: EditorState.subtitleTranslationLanguages()
+                    Component.onCompleted: currentIndex = Math.max(0, indexOfValue(translatePrefs.translateTo))
+                    onActivated: translatePrefs.translateTo = currentValue
+                }
+
+                // Without an account the captions are translated on this computer, when its model is
+                // installed (0.30): the button only waits for an account when there is none of both.
+                readonly property bool offline: EditorState.offlineTranslationAvailable()
+                Text {
+                    visible: !Account.signedIn
+                    width: parent.width
+                    wrapMode: Text.WordWrap
+                    text: translateColumn.offline
+                          ? qsTr("Without an account they are translated on this computer (a little slower).")
+                          : qsTr("Sign in with Google to translate captions, or install the Offline translation extra")
+                    color: Theme.mutedForeground
+                    font.family: Theme.fontFamily
+                    font.pixelSize: Theme.fontSizeXs
+                }
+
+                Row {
+                    width: parent.width
+                    spacing: 6
+                    ThemedButton {
+                        width: (parent.width - parent.spacing) / 2
+                        text: qsTr("Close")
+                        variant: "ghost"
+                        onClicked: root.translateOpen = false
+                    }
+                    ThemedButton {
+                        width: (parent.width - parent.spacing) / 2
+                        text: EditorState.subtitleTranslating ? qsTr("Translating…") : qsTr("Translate")
+                        variant: "primary"
+                        enabled: (Account.signedIn || translateColumn.offline) && !EditorState.subtitleTranslating
+                        onClicked: EditorState.translateSubtitles(root.trackIndex, root.clipIndex,
+                                                                  translateLanguageBox.currentValue)
+                    }
+                }
+            }
+        }
+
+        // Spelling: the flagged word in its caption, the suggestions to fix it, or Ignore.
+        Rectangle {
+            visible: root.spellOpen
+            width: parent.width
+            height: visible ? spellColumn.implicitHeight + 16 : 0
+            radius: Theme.radiusMd
+            color: Theme.panelAccent
+            border.width: 1
+            border.color: Theme.panelBorder
+
+            Column {
+                id: spellColumn
+                x: 8
+                y: 8
+                width: parent.width - 16
+                spacing: 6
+
+                Text {
+                    width: parent.width
+                    wrapMode: Text.WordWrap
+                    text: root.spellIssue ? qsTr("Words to check: %1").arg(root.spellIssues.length)
+                                          : qsTr("No spelling mistakes found.")
+                    color: Theme.panelForeground
+                    font.family: Theme.fontFamily
+                    font.pixelSize: Theme.fontSizeXs
+                    font.weight: Font.Medium
+                }
+
+                Text {
+                    visible: root.spellIssue !== null
+                    width: parent.width
+                    wrapMode: Text.WordWrap
+                    textFormat: Text.StyledText
+                    text: {
+                        const issue = root.spellIssue
+                        const cue = issue ? root.cues[issue.cue] : null
+                        if (!cue)
+                            return ""
+                        const t = String(cue.text)
+                        return root.escapeHtml(t.slice(0, issue.start))
+                            + "<u><b>" + root.escapeHtml(issue.word) + "</b></u>"
+                            + root.escapeHtml(t.slice(issue.start + issue.length))
+                    }
+                    color: Theme.panelForeground
+                    font.family: Theme.fontFamily
+                    font.pixelSize: Theme.fontSizeSm
+                }
+
+                Flow {
+                    visible: root.spellIssue !== null
+                    width: parent.width
+                    spacing: 6
+                    Repeater {
+                        model: root.spellIssue ? root.spellIssue.suggestions : []
+                        ThemedButton {
+                            required property var modelData
+                            text: modelData === "" ? qsTr("Remove repeated word") : modelData
+                            variant: "secondary"
+                            onClicked: root.fixSpelling(modelData)
+                        }
+                    }
+                    Text {
+                        visible: root.spellIssue !== null && root.spellIssue.suggestions.length === 0
+                        height: 28
+                        verticalAlignment: Text.AlignVCenter
+                        text: qsTr("No suggestions: fix it in the text box.")
+                        color: Theme.mutedForeground
+                        font.family: Theme.fontFamily
+                        font.pixelSize: Theme.fontSizeXs
+                    }
+                }
+
+                Row {
+                    width: parent.width
+                    spacing: 6
+                    ThemedButton {
+                        width: (parent.width - parent.spacing) / 2
+                        text: qsTr("Close")
+                        variant: "ghost"
+                        onClicked: root.spellOpen = false
+                    }
+                    ThemedButton {
+                        width: (parent.width - parent.spacing) / 2
+                        visible: root.spellIssue !== null
+                        text: qsTr("Ignore")
+                        variant: "secondary"
+                        onClicked: root.ignoreSpelling()
+                    }
+                }
+            }
+        }
+
+        // The preview: a few «before → after» lines, then Apply or Cancel.
+        Rectangle {
+            id: changesCard
+            visible: root.changesKind !== ""
+            width: parent.width
+            height: visible ? changesColumn.implicitHeight + 16 : 0
+            radius: Theme.radiusMd
+            color: Theme.panelAccent
+            border.width: 1
+            border.color: Theme.panelBorder
+
+            Column {
+                id: changesColumn
+                x: 8
+                y: 8
+                width: parent.width - 16
+                spacing: 6
+
+                Text {
+                    width: parent.width
+                    wrapMode: Text.WordWrap
+                    text: root.changesList.length === 0
+                          ? qsTr("Nothing to change in these captions.")
+                          : qsTr("Captions that will change: %1").arg(root.changesList.length)
+                    color: Theme.panelForeground
+                    font.family: Theme.fontFamily
+                    font.pixelSize: Theme.fontSizeXs
+                    font.weight: Font.Medium
+                }
+
+                Repeater {
+                    model: root.changesList.slice(0, 5)
+                    delegate: Column {
+                        required property var modelData
+                        width: changesColumn.width
+                        spacing: 1
+                        Text {
+                            width: parent.width
+                            text: modelData.before
+                            elide: Text.ElideRight
+                            font.strikeout: true
+                            color: Theme.mutedForeground
+                            font.family: Theme.fontFamily
+                            font.pixelSize: Theme.fontSizeXs
+                        }
+                        Text {
+                            width: parent.width
+                            text: modelData.after.length ? modelData.after : qsTr("(removed)")
+                            elide: Text.ElideRight
+                            color: Theme.panelForeground
+                            font.family: Theme.fontFamily
+                            font.pixelSize: Theme.fontSizeXs
+                        }
+                    }
+                }
+
+                Text {
+                    visible: root.changesList.length > 5
+                    text: qsTr("+ %1 more").arg(root.changesList.length - 5)
+                    color: Theme.mutedForeground
+                    font.family: Theme.fontFamily
+                    font.pixelSize: Theme.fontSizeXs
+                }
+
+                Row {
+                    width: parent.width
+                    spacing: 6
+                    ThemedButton {
+                        width: (parent.width - parent.spacing) / 2
+                        text: qsTr("Cancel")
+                        variant: "ghost"
+                        onClicked: root.changesKind = ""
+                    }
+                    ThemedButton {
+                        width: (parent.width - parent.spacing) / 2
+                        text: qsTr("Apply")
+                        variant: "primary"
+                        enabled: root.changesList.length > 0
+                        onClicked: root.applyChanges()
+                    }
+                }
             }
         }
 
@@ -460,6 +1068,26 @@ Item {
     }
 
     property bool replaceOpen: false
+    property bool moreOpen: false
+    property bool translateOpen: false
+    Settings {
+        id: translatePrefs
+        category: "subtitles"
+        property string translateTo: "en"
+    }
+    readonly property bool animatedEmojis: EditorState.animatedEmojisAvailable()
+    readonly property var cueStyleChoices: EditorState.subtitleStyleChoices()
+    readonly property var speakers: (clip && clip.subtitleSpeakers) ? clip.subtitleSpeakers : []
+    function speakerOf(cue) {
+        const i = cue && cue.speaker !== undefined ? cue.speaker : -1
+        return i >= 0 && i < root.speakers.length ? root.speakers[i] : null
+    }
+    readonly property var voiceColours: ["#ffffff", "#ffd640", "#60cdff", "#ff80ab", "#8ce678", "#ffa050"]
+    function nextVoiceColour(current) {
+        const now = String(current).toLowerCase()
+        let i = root.voiceColours.findIndex(c => now.indexOf(c.substring(1)) >= 0)
+        return root.voiceColours[(i + 1) % root.voiceColours.length]
+    }
 
     ThemedDialog {
         id: dictionaryDialog
@@ -643,14 +1271,36 @@ Item {
                     width: parent.width - 24 - deleteButton.width
                     spacing: 2
 
-                    Text {
-                        text: root.formatCueTime(cueDelegate.modelData.start) + "  →  "
-                              + root.formatCueTime(cueDelegate.modelData.end)
-                        color: Theme.mutedForeground
-                        font.family: Theme.monoFontFamily
-                        font.pixelSize: Theme.fontSizeXs
-                        opacity: (cueDelegate.isActive || cueDelegate.isSelected) ? 0.95 : (rowHover.containsMouse ? 0.85 : 0.65)
-                        Behavior on opacity { NumberAnimation { duration: 150 } }
+                    Row {
+                        spacing: 8
+                        // Who says it, in that voice's colour.
+                        Text {
+                            readonly property var who: root.speakerOf(cueDelegate.modelData)
+                            visible: who !== null
+                            text: who ? who.name : ""
+                            color: who ? who.color : Theme.mutedForeground
+                            font.family: Theme.fontFamily
+                            font.pixelSize: Theme.fontSizeXs
+                            font.weight: Font.Medium
+                        }
+                        Text {
+                            text: root.formatCueTime(cueDelegate.modelData.start) + "  →  "
+                                  + root.formatCueTime(cueDelegate.modelData.end)
+                            color: Theme.mutedForeground
+                            font.family: Theme.monoFontFamily
+                            font.pixelSize: Theme.fontSizeXs
+                            opacity: (cueDelegate.isActive || cueDelegate.isSelected) ? 0.95 : (rowHover.containsMouse ? 0.85 : 0.65)
+                            Behavior on opacity { NumberAnimation { duration: 150 } }
+                        }
+                        // A quiet word when the caption does not read well (see readingIssue).
+                        Text {
+                            readonly property string issue: root.readingIssue(cueDelegate.modelData)
+                            visible: issue.length > 0
+                            text: "• " + issue
+                            color: Theme.warning
+                            font.family: Theme.fontFamily
+                            font.pixelSize: Theme.fontSizeXs
+                        }
                     }
 
                     Text {
@@ -843,84 +1493,141 @@ Item {
                         }
                     }
 
-                    Row {
-                        width: parent.width
-                        spacing: 8
-
-                        // Start
-                        Column {
-                            width: (parent.width - parent.spacing) / 2
+                    // Start and end, each on its own line: the arrows move it a frame, the last button
+                    // puts it at the playhead. Typing the time still works.
+                    Repeater {
+                        model: [{ edge: "start", label: qsTr("Start"), glyph: Theme.icons.setStart,
+                                  tip: qsTr("Set start to current time") + " (I)" },
+                                { edge: "end", label: qsTr("End"), glyph: Theme.icons.setEnd,
+                                  tip: qsTr("Set end to current time") + " (O)" }]
+                        delegate: Row {
+                            id: edgeRow
+                            required property var modelData
+                            width: parent.width
                             spacing: 4
+
                             Text {
-                                text: qsTr("Start")
+                                width: 44
+                                height: edgeField.height
+                                verticalAlignment: Text.AlignVCenter
+                                text: edgeRow.modelData.label
                                 color: Theme.mutedForeground
                                 font.family: Theme.fontFamily
                                 font.pixelSize: Theme.fontSizeXs
+                                elide: Text.ElideRight
                             }
-                            Row {
-                                width: parent.width
-                                spacing: 4
-                                ThemedTextField {
-                                    id: startField
-                                    width: parent.width - startPh.width - parent.spacing
-                                    onEditingFinished: {
-                                        const v = root.parseCueTime(text)
-                                        if (!isNaN(v) && root.selectedCueIndex >= 0)
-                                            root.updateCue(root.selectedCueIndex, { start: v })
+                            IconButton {
+                                id: edgeBack
+                                glyph: Theme.icons.chevronLeft
+                                variant: "ghost"
+                                enabled: root.selectedCueIndex >= 0
+                                tooltip: qsTr("One frame earlier")
+                                onClicked: root.nudgeCueEdge(root.selectedCueIndex, edgeRow.modelData.edge, -1)
+                            }
+                            ThemedTextField {
+                                id: edgeField
+                                width: edgeRow.width - 44 - edgeBack.width * 3 - edgeRow.spacing * 4
+                                horizontalAlignment: Text.AlignHCenter
+                                text: {
+                                    void root.cues
+                                    const cue = root.selectedCue
+                                    return cue ? root.formatCueTime(cue[edgeRow.modelData.edge]) : ""
+                                }
+                                onEditingFinished: {
+                                    const v = root.parseCueTime(text)
+                                    if (!isNaN(v) && root.selectedCueIndex >= 0) {
+                                        const patch = {}
+                                        patch[edgeRow.modelData.edge] = v
+                                        root.updateCue(root.selectedCueIndex, patch)
                                     }
                                 }
-                                IconButton {
-                                    id: startPh
-                                    glyph: Theme.icons.setStart
-                                    variant: "ghost"
-                                    enabled: root.localPlayhead >= 0
-                                    tooltip: qsTr("Set start to current time")
-                                    onClicked: root.setCueEdgeToPlayhead(root.selectedCueIndex, "start")
-                                }
                             }
-                        }
-
-                        // End
-                        Column {
-                            width: (parent.width - parent.spacing) / 2
-                            spacing: 4
-                            Text {
-                                text: qsTr("End")
-                                color: Theme.mutedForeground
-                                font.family: Theme.fontFamily
-                                font.pixelSize: Theme.fontSizeXs
+                            IconButton {
+                                glyph: Theme.icons.chevronRight
+                                variant: "ghost"
+                                enabled: root.selectedCueIndex >= 0
+                                tooltip: qsTr("One frame later")
+                                onClicked: root.nudgeCueEdge(root.selectedCueIndex, edgeRow.modelData.edge, 1)
                             }
-                            Row {
-                                width: parent.width
-                                spacing: 4
-                                ThemedTextField {
-                                    id: endField
-                                    width: parent.width - endPh.width - parent.spacing
-                                    onEditingFinished: {
-                                        const v = root.parseCueTime(text)
-                                        if (!isNaN(v) && root.selectedCueIndex >= 0)
-                                            root.updateCue(root.selectedCueIndex, { end: v })
-                                    }
-                                }
-                                IconButton {
-                                    id: endPh
-                                    glyph: Theme.icons.setEnd
-                                    variant: "ghost"
-                                    enabled: root.localPlayhead >= 0
-                                    tooltip: qsTr("Set end to current time")
-                                    onClicked: root.setCueEdgeToPlayhead(root.selectedCueIndex, "end")
-                                }
+                            IconButton {
+                                glyph: edgeRow.modelData.glyph
+                                variant: "ghost"
+                                enabled: root.localPlayhead >= 0 && root.selectedCueIndex >= 0
+                                tooltip: edgeRow.modelData.tip
+                                onClicked: root.setCueEdgeToPlayhead(root.selectedCueIndex, edgeRow.modelData.edge)
                             }
                         }
                     }
 
-                    ThemedButton {
-                        text: qsTr("Delete caption")
-                        variant: "destructive"
-                        glyph: Theme.icons.trash
-                        onClicked: {
-                            if (root.selectedCueIndex >= 0)
-                                root.removeCue(root.selectedCueIndex)
+                    // What can be done to this caption, in one quiet row.
+                    Row {
+                        id: cueActions
+                        width: parent.width
+                        spacing: 6
+                        readonly property real third: (width - spacing * 2) / 3
+
+                        ThemedButton {
+                            width: cueActions.third
+                            text: qsTr("Split")
+                            variant: "ghost"
+                            glyph: Theme.icons.scissors
+                            enabled: root.canSplitCue
+                            tooltip: qsTr("Split this caption at the playhead")
+                            onClicked: root.splitCueAtPlayhead()
+                        }
+                        ThemedButton {
+                            width: cueActions.third
+                            text: qsTr("Join")
+                            variant: "ghost"
+                            glyph: Theme.icons.link
+                            enabled: root.selectedCueIndex >= 0 && root.selectedCueIndex + 1 < root.cues.length
+                            tooltip: qsTr("Join this caption with the next one")
+                            onClicked: root.joinWithNext(root.selectedCueIndex)
+                        }
+                        ThemedButton {
+                            width: cueActions.third
+                            text: qsTr("Delete")
+                            variant: "ghost"
+                            glyph: Theme.icons.trash
+                            enabled: root.selectedCueIndex >= 0
+                            tooltip: qsTr("Delete this caption")
+                            onClicked: root.removeCue(root.selectedCueIndex)
+                        }
+                    }
+
+                    // Just this caption's look and place (CapCut lets one line stand out).
+                    ThemedComboBox {
+                        id: cueStyleBox
+                        width: parent.width
+                        enabled: root.selectedCue !== null
+                        textRole: "label"
+                        valueRole: "id"
+                        model: [{ id: "", label: qsTr("Style: same as the clip") }].concat(root.cueStyleChoices)
+                        currentIndex: {
+                            const id = root.selectedCue ? (root.selectedCue.style || "") : ""
+                            return Math.max(0, indexOfValue(id))
+                        }
+                        onActivated: root.updateCue(root.selectedCueIndex, { style: currentValue })
+                    }
+
+                    Row {
+                        id: cuePlaceRow
+                        width: parent.width
+                        spacing: 6
+                        readonly property real third: (width - spacing * 2) / 3
+                        Repeater {
+                            model: [{ id: "", label: qsTr("Like the clip") }, { id: "top", label: qsTr("Top") },
+                                    { id: "middle", label: qsTr("Middle") }]
+                            ThemedButton {
+                                required property var modelData
+                                width: cuePlaceRow.third
+                                text: modelData.label
+                                enabled: root.selectedCue !== null
+                                variant: root.selectedCue && (root.selectedCue.place || "") === modelData.id
+                                         ? "primary" : "ghost"
+                                tooltip: qsTr("Where this caption sits on screen")
+                                onClicked: root.updateCue(root.selectedCueIndex, { place: modelData.id })
+                            }
                         }
                     }
 

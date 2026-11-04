@@ -486,7 +486,6 @@ def pantalla_foto():
     T = 15.0
     t = _kit("pantalla-final-foto", "Pantalla final con foto de fondo", "Photo end screen", "pantallas-finales", T,
              7903, ["pantalla final", "foto", "suscríbete", "cierre"], thumb_at=3.2)
-    photo_bg(t, "h-travel-02", s1=1.12, label="Tu foto o video")
     shade_full(t, 0.55)
     t.solid(t.track("shape", "Sombra"), "#000000", 0.0, T, Box(0, 0, 1100, 1080),
             layers=[{"id": "fill", "kind": "fill", "enabled": True, "opacity": 1.0,
@@ -688,7 +687,6 @@ def redes_pildoras():
     T = 6.0
     t = _kit("redes-pildoras", "Redes en píldoras", "Social pills", "redes", T, 8000,
              ["redes", "sígueme", "usuario", "píldoras"], thumb_at=2.6)
-    photo_bg(t, "h-city-05", s1=1.06, label="Tu video")
     shade_full(t, 0.45)
     label(t, t.track("text", "Título"), "SÍGUEME EN REDES", 0.2, T - 0.6, Box(360, 330, 1200, 100), "Anton", 84, WHITE,
           weight=400, spacing=10, anim_in=tanim("rise", duration=0.5), anim_out=tanim("fade", duration=0.3),
@@ -792,7 +790,6 @@ def redes_tercio():
     T = 5.0
     t = _kit("redes-tercio", "Usuario en tercio inferior", "Lower-third handle", "redes", T, 8003,
              ["redes", "usuario", "tercio inferior", "rótulo"], thumb_at=2.2)
-    photo_bg(t, "h-podcast-03", s1=1.05, label="Tu video")
     shade_bottom(t, 380, 0.55)
     sq = Box(120, 790, 130, 130)
     rrect(t, t.track("shape", "Icono"), CORAL, 0.2, T - 0.4, sq, radius=18, motion=pio(T - 0.4, 0.4, 0.3))
@@ -906,7 +903,6 @@ def redes_esquina():
     T = 5.0
     t = _kit("redes-esquina", "Usuario en la esquina", "Corner handle", "redes", T, 8007,
              ["redes", "usuario", "esquina", "notificación"], thumb_at=2.0)
-    photo_bg(t, "h-beach-05", s1=1.05, label="Tu video")
     cx, cy, d = 1740, 140, 116
     plate = Box(cx - 560, cy - 50, 560, 100)
     pill(t, t.track("shape", "Placa"), NAVY, 0.5, T - 0.9, plate, grow_io(plate, T - 0.9, "right", 0.45, 0.35),
@@ -924,7 +920,6 @@ def redes_barra():
     T = 6.0
     t = _kit("redes-barra", "Barra de redes", "Social bar", "redes", T, 8008,
              ["redes", "barra", "usuario", "rótulo"], thumb_at=2.6)
-    photo_bg(t, "h-cafe-01", s1=1.05, label="Tu video")
     shade_bottom(t, 360, 0.55)
     E = T - 0.4
     bar = Box(0, 850, 1920, 150)

@@ -3,6 +3,29 @@
 Flip Studio es un fork de Drift. Esta sección lista lo que Flip Studio cambia respecto a Drift; debajo sigue el
 registro heredado de Drift.
 
+## 0.30.0 — Subtítulos y voz como las apps grandes, y la línea de tiempo de After Effects
+
+- Subtítulos: panel mínimo (`SubtitlesTab.qml`), hablantes (`SpeakerDiarizer`, extra de hablantes), traducción a 31
+  idiomas con DeepL en el servidor y en el equipo con M2M100 (`TextTranslator`, por frases:
+  `groupCaptionSentences`), editar con el texto (`TextEditWindow.qml`), quitar silencios con revisión, groserías y
+  pitido (`bleepSubtitleSwearWords`), palabra clave, emojis animados, estilo y lugar por subtítulo, reglas de lectura,
+  ortografía en el idioma del texto (`captionsLanguage`), pista de subtítulos dentro del video (`openSubtitleTrack`),
+  .srt por idioma (`writeSubtitleSidecars`), .ass con estilo, .srt importado sobre los demás, CJK y tailandés, karaoke
+  que conserva los tiempos, progreso que avisa y gira.
+- Voz: galería de 40 voces (extra `voces.ia`, `VoiceGallery.qml`), tomas que se escuchan antes, frases rehechas,
+  pausas, velocidad y tono (SoundTouch), diálogos, guion .md/.docx sin marcas (`readScriptFile`), editar guion y
+  reemplazar con sus subtítulos, leer un título, bajar la música solo bajo la voz (`duckMusicUnder`), guardar en
+  MP3/WAV/FLAC (`AudioFileWriter` por extensión), pregunta antes de descartar una toma.
+- Línea de tiempo AE: Posición unida con trayecto (`positionJoined`), editor de gráficos completo (`KeyframeGraph.qml`:
+  vista completa, rueda, ajustar, recuadro, velocidad, filas visibles, Escala en %, resultado de comportamientos),
+  juego de atajos After Effects, zona de trabajo, [ ] Alt+[ ] (a pista propia si está ocupado), látigo en cada capa
+  (`TimelinePanel.clipAtScenePoint`), claves de varias capas, pegar en varias capas en el cabezal
+  (`pasteKeyframes(..., continueChain)`), expresiones con index/thisLayer, cuentas en los valores, tamaño con
+  pivote (`Clip::sizePivotW/H`) también en la fila y el trayecto.
+- Interfaz: pestaña Texto armada una vez y en segundo plano, Esc cierra un desplegable (`notePopupOpen`).
+- Kit de YouTube: sin el fondo «Tu video» y con la pregunta Short o Video; en otra forma se ajusta por lo que dibuja
+  (`fitOverlayLayout`: tercios abajo, lo demás con su tamaño y su lugar dentro de la zona libre de un Short).
+
 ## 0.29.0 — Tercios inferiores fáciles y animación a mano como After Effects
 
 - Tercios: generador `LowerThirdDialog.qml` / `createLowerThird`, etiqueta ajustada al texto (`Clip::fitTextId`,

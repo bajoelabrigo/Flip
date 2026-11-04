@@ -4,6 +4,7 @@
 #include "GpuPackageParse.h"
 #include "OrtSupport.h"
 
+#include <QCoreApplication>
 #include <QDataStream>
 #include <QDir>
 #include <QFile>
@@ -155,7 +156,7 @@ struct ChatterboxTts::Impl
     std::vector<float> generateChunk(const QString &text, const QString &lang,
                                      const VoiceConditioning &voice, float exaggeration,
                                      const std::function<bool(double)> &progress, double base,
-                                     double span, bool *cancelled, QString *err);
+                                     double span, bool *cancelled, QString *err, unsigned variant);
 };
 
 bool ChatterboxTts::Impl::loadConstants(QString *err)
@@ -194,8 +195,8 @@ bool ChatterboxTts::Impl::ensureLoaded(QString *err)
     modelDir = resolveChatterboxModelDir();
     if (modelDir.isEmpty()) {
         if (err)
-            *err = QStringLiteral("Text-to-speech model not found. Install the Text to Speech "
-                                  "addon, or set DRIFT_CHATTERBOX_MODEL_DIR.");
+            *err = QCoreApplication::translate("ChatterboxTts", "The voice model is not installed. Install the "
+                                                                "AI voice extra in Extras.");
         return false;
     }
     if (!drift::ort::ensureLoaded(err))
@@ -219,7 +220,7 @@ bool ChatterboxTts::Impl::ensureLoaded(QString *err)
     });
     if (!ok) {
         if (err)
-            *err = QStringLiteral("Failed to load text-to-speech model: ") + *err;
+            *err = QCoreApplication::translate("ChatterboxTts", "Failed to load text-to-speech model: %1").arg(*err);
         speechEncoder.reset();
         embedTokens.reset();
         languageModel.reset();
@@ -249,7 +250,7 @@ bool ChatterboxTts::Impl::ensureLoaded(QString *err)
 std::vector<float> ChatterboxTts::Impl::generateChunk(
     const QString &text, const QString &lang, const VoiceConditioning &voice, float exaggeration,
     const std::function<bool(double)> &progress, double base, double span, bool *cancelled,
-    QString *err)
+    QString *err, unsigned variant)
 {
     std::vector<int64_t> ids = tokenizer.encode(text, lang);
     const int64_t textLen = int64_t(ids.size());
@@ -309,6 +310,7 @@ std::vector<float> ChatterboxTts::Impl::generateChunk(
 
         std::vector<int64_t> mask(size_t(seqLen), 1);
         std::vector<char> penalised;
+        std::mt19937 sampler{variant};
         std::vector<int64_t> history{startToken};
         const std::vector<const char *> inN = cstrs(lmIn);
         const std::vector<const char *> outN = cstrs(lmOut);
@@ -346,7 +348,24 @@ std::vector<float> ChatterboxTts::Impl::generateChunk(
                 float &sc = scores[size_t(t)];
                 sc = sc < 0 ? sc * repetitionPenalty : sc / repetitionPenalty;
             }
-            const int64_t next = std::max_element(scores.begin(), scores.end()) - scores.begin();
+            int64_t next = std::max_element(scores.begin(), scores.end()) - scores.begin();
+            if (variant != 0) {
+                // Another reading: one of the 50 likeliest tokens at temperature 0.8.
+                constexpr int kTopK = 50;
+                constexpr float kTemperature = 0.8f;
+                std::vector<int64_t> order(static_cast<size_t>(vocabSize));
+                for (int64_t k = 0; k < vocabSize; ++k)
+                    order[size_t(k)] = k;
+                const int top = int(std::min<int64_t>(kTopK, vocabSize));
+                std::partial_sort(order.begin(), order.begin() + top, order.end(),
+                                  [&scores](int64_t a, int64_t b) { return scores[size_t(a)] > scores[size_t(b)]; });
+                std::vector<double> weights(static_cast<size_t>(top));
+                const float best = scores[size_t(order[0])];
+                for (int k = 0; k < top; ++k)
+                    weights[size_t(k)] = std::exp(double(scores[size_t(order[size_t(k)])] - best) / kTemperature);
+                std::discrete_distribution<int> pick(weights.begin(), weights.end());
+                next = order[size_t(pick(sampler))];
+            }
             generated.push_back(next);
             if (next == stopToken)
                 break;
@@ -374,7 +393,7 @@ std::vector<float> ChatterboxTts::Impl::generateChunk(
         }
     } catch (const Ort::Exception &e) {
         if (err)
-            *err = QStringLiteral("Speech generation failed: ") + QString::fromUtf8(e.what());
+            *err = QCoreApplication::translate("ChatterboxTts", "Speech generation failed: %1").arg(QString::fromUtf8(e.what()));
         return {};
     }
 
@@ -513,7 +532,7 @@ std::optional<VoiceConditioning> ChatterboxTts::encodeVoice(const std::vector<fl
         return std::nullopt;
     if (pcm24k.empty()) {
         if (err)
-            *err = QStringLiteral("The reference voice has no audio.");
+            *err = QCoreApplication::translate("ChatterboxTts", "The reference voice has no audio.");
         return std::nullopt;
     }
 
@@ -542,7 +561,7 @@ std::optional<VoiceConditioning> ChatterboxTts::encodeVoice(const std::vector<fl
         return v;
     } catch (const Ort::Exception &e) {
         if (err)
-            *err = QStringLiteral("Voice encoding failed: ") + QString::fromUtf8(e.what());
+            *err = QCoreApplication::translate("ChatterboxTts", "Voice encoding failed: %1").arg(QString::fromUtf8(e.what()));
         return std::nullopt;
     }
 }
@@ -550,18 +569,18 @@ std::optional<VoiceConditioning> ChatterboxTts::encodeVoice(const std::vector<fl
 std::vector<float> ChatterboxTts::synthesize(const QString &text, const QString &lang,
                                              const VoiceConditioning &voice, float exaggeration,
                                              const std::function<bool(double)> &progress,
-                                             QString *err)
+                                             QString *err, unsigned variant)
 {
     if (!d->ensureLoaded(err))
         return {};
     if (!supportedLanguages().contains(lang)) {
         if (err)
-            *err = QStringLiteral("Unsupported language: ") + lang;
+            *err = QCoreApplication::translate("ChatterboxTts", "Unsupported language: %1").arg(lang);
         return {};
     }
     if (voice.condEmbShape.size() < 2) {
         if (err)
-            *err = QStringLiteral("Invalid voice conditioning.");
+            *err = QCoreApplication::translate("ChatterboxTts", "Invalid voice conditioning.");
         return {};
     }
 
@@ -584,25 +603,51 @@ std::vector<float> ChatterboxTts::synthesize(const QString &text, const QString 
         return last;
     };
     for (qsizetype i = 0; i < chunks.size(); ++i) {
-        std::vector<float> wav = d->generateChunk(chunks.at(i), lang, voice, exaggeration,
-                                                  progress, double(i) * span, span, &cancelled, err);
+        std::vector<float> wav = d->generateChunk(chunks.at(i), lang, voice, exaggeration, progress,
+                                                  double(i) * span, span, &cancelled, err, variant);
         if (cancelled)
             return {};
         if (wav.empty())
             return {};
-        // A sentence that came back mute (the model sometimes never speaks one, e.g. a short one
-        // after a colon) gets one more try, worded with a comma instead of the colon.
-        if (trimTail(wav) < size_t(kSampleRate) * 3 / 10 && !chunks.at(i).trimmed().isEmpty()) {
-            QString retry = chunks.at(i);
-            retry.replace(QLatin1Char(':'), QLatin1Char(','));
-            if (retry == chunks.at(i))
-                retry += QStringLiteral(" …");
-            std::vector<float> again = d->generateChunk(retry, lang, voice, exaggeration, progress,
-                                                        double(i) * span, span, &cancelled, err);
-            if (cancelled)
-                return {};
-            if (!again.empty() && trimTail(again) > size_t(kSampleRate) * 3 / 10)
-                wav = std::move(again);
+        // A sentence that came back mute or cut short gets other wordings, and the longest voiced
+        // one is kept. The model sometimes never speaks a short one after a colon, and sometimes
+        // stops at a comma ("Hola a todos, bienvenidos al canal." said only "Hola a todos").
+        // Decoding is greedy, so the same words would come back the same: each try words it apart.
+        // Far below ~22 characters a second is a sentence that did not finish.
+        const QString chunk = chunks.at(i).trimmed();
+        const size_t minVoiced = std::max<size_t>(size_t(kSampleRate) * 3 / 10,
+                                                  size_t(double(chunk.size()) / 22.0 * kSampleRate));
+        size_t voiced = trimTail(wav);
+        if (voiced < minVoiced && !chunk.isEmpty()) {
+            QString noColon = chunk;
+            noColon.replace(QLatin1Char(':'), QLatin1Char(','));
+            QString noCommas = chunk;
+            noCommas.replace(QLatin1Char(':'), QLatin1Char(' ')).replace(QLatin1Char(','), QLatin1Char(' '));
+            noCommas = noCommas.simplified();
+            // Other wordings first, then two other readings of the same words.
+            QList<QPair<QString, unsigned>> tries;
+            for (const QString &t : {noColon, noCommas, chunk + QStringLiteral(" …")}) {
+                if (t != chunk && !tries.contains(qMakePair(t, variant)))
+                    tries.append({t, variant});
+            }
+            tries.append({chunk, variant + 1001u});
+            tries.append({chunk, variant + 1002u});
+            for (const auto &retry : std::as_const(tries)) {
+                std::vector<float> again = d->generateChunk(retry.first, lang, voice, exaggeration, progress,
+                                                            double(i) * span, span, &cancelled, err,
+                                                            retry.second);
+                if (cancelled)
+                    return {};
+                if (again.empty())
+                    continue;
+                const size_t againVoiced = trimTail(again);
+                if (againVoiced > voiced) {
+                    wav = std::move(again);
+                    voiced = againVoiced;
+                }
+                if (voiced >= minVoiced)
+                    break;
+            }
         }
         if (i > 0)
             out.insert(out.end(), size_t(kChunkGapSamples), 0.0f);

@@ -1,3 +1,4 @@
+import QtCore
 import QtQuick
 import QtQuick.Controls.Basic
 import QtQuick.Window
@@ -5,7 +6,8 @@ import QtMultimedia
 import Drift
 import ".."
 
-// Speech tab: local text-to-speech with optional voice cloning, placed at the playhead.
+// Speech tab: local text-to-speech with optional voice cloning. The script is spoken into a take,
+// heard (and fixed sentence by sentence) before it goes on the timeline.
 Item {
     id: root
     // The panel's sidebar drives the category (0.23): its chips are not shown.
@@ -13,8 +15,11 @@ Item {
 
     readonly property bool ready: EditorState.tts.available
     property bool runtimeReady: Addons.runtimeAvailable()
-    property string resultText: ""
-    property bool resultOk: true
+    // Kept by the controller, so switching tabs (which unloads this one) loses neither (0.30).
+    property string resultText: EditorState.tts.lastResultText
+    property bool resultOk: EditorState.tts.lastResultOk
+    onResultTextChanged: EditorState.tts.lastResultText = resultText
+    onResultOkChanged: EditorState.tts.lastResultOk = resultOk
 
     readonly property string clipKind: {
         const data = EditorState.selectedClipData
@@ -72,6 +77,47 @@ Item {
         audioOutput: AudioOutput {}
     }
 
+    Settings {
+        id: speechPrefs
+        category: "tts"
+        property bool optionsOpen: false
+        property bool captions: false
+    }
+
+    function play(url) {
+        voicePlayer.stop()
+        voicePlayer.source = url
+        voicePlayer.play()
+    }
+    readonly property bool playing: voicePlayer.playbackState === MediaPlayer.PlayingState
+    // The gallery voice whose sample is playing (its ▷ turns into ‖).
+    property string playingVoice: ""
+    onPlayingChanged: if (!playing) playingVoice = ""
+    // A dialogue («Ana: …», «Luis: …»): a voice for each person (0.30).
+    property var speakerVoices: ({})
+    readonly property var speakers: EditorState.tts.scriptSpeakers(scriptField.text)
+
+    // «Edit script…» on a voice of the timeline: its script and settings, ready to speak again.
+    Connections {
+        target: EditorState.tts
+        function onEditRequested(settings) {
+            scriptField.text = settings.text
+            root.selectVoice(settings.voice)
+            langBox.currentIndex = Math.max(0, langBox.indexOfValue(settings.lang))
+            exaggerationSlider.value = settings.exaggeration
+            speedSlider.value = settings.speed
+            pitchSlider.value = settings.pitch
+        }
+    }
+
+    // A new speed or pitch reshapes the take once the slider rests (without speaking it again).
+    Timer {
+        id: retuneTimer
+        interval: 450
+        onTriggered: if (EditorState.tts.hasTake)
+                         EditorState.tts.retune(speedSlider.value, pitchSlider.value)
+    }
+
     Flickable {
         anchors.fill: parent
         contentWidth: width
@@ -79,21 +125,31 @@ Item {
         clip: true
         ScrollBar.vertical: AppScrollBar { }
 
+        // As Subtitles (Jorge, 0.30): the script, the voice and «Generate» first, the take to hear
+        // below, the rest folded under Options.
         Column {
             id: speechColumn
             x: Theme.pagePadding
             width: parent.width - Theme.pagePadding * 2
-            spacing: Theme.spacingLg
+            spacing: Theme.spacingMd
             topPadding: Theme.pagePadding
 
             readonly property real contentWidth: width
 
             Text {
                 width: speechColumn.contentWidth
+                text: qsTr("Voice from your text")
+                color: Theme.panelForeground
+                font.family: Theme.fontFamily
+                font.pixelSize: Theme.fontSizeSm
+                font.weight: Font.Medium
+            }
+
+            Text {
+                visible: !root.ready
+                width: speechColumn.contentWidth
                 wrapMode: Text.WordWrap
-                text: root.ready
-                      ? qsTr("Turn a script into speech with a built-in or cloned voice. It is generated on this device and added at the playhead.")
-                      : qsTr("Speech generation runs on this device and needs the voice model.")
+                text: qsTr("Speech generation runs on this device and needs the voice model.")
                 color: Theme.mutedForeground
                 font.family: Theme.fontFamily
                 font.pixelSize: Theme.fontSizeXs
@@ -115,50 +171,78 @@ Item {
             Column {
                 visible: root.ready
                 width: speechColumn.contentWidth
-                spacing: Theme.spacingLg
+                spacing: Theme.spacingMd
+
+                Text {
+                    visible: EditorState.tts.replacing
+                    width: parent.width
+                    wrapMode: Text.WordWrap
+                    text: qsTr("Editing the script of a voice on the timeline: the new take replaces its audio.")
+                    color: Theme.primary
+                    font.family: Theme.fontFamily
+                    font.pixelSize: Theme.fontSizeXs
+                }
 
                 ThemedTextArea {
                     id: scriptField
                     width: parent.width
                     height: 140
                     enabled: !EditorState.tts.running
-                    placeholderText: qsTr("Type what the voice should say")
+                    placeholderText: qsTr("Type or paste the script. [pause 1s] adds a silence.")
                     placeholderTextColor: Theme.mutedForeground
+                    Component.onCompleted: text = EditorState.tts.draftScript
+                    onTextChanged: EditorState.tts.draftScript = text
                 }
 
-                Text {
+                Item {
                     width: parent.width
-                    text: qsTr("%1 characters, about %2 s").arg(scriptField.text.length)
-                          .arg(Math.ceil(scriptField.text.length / 14))
-                    color: Theme.mutedForeground
-                    font.family: Theme.fontFamily
-                    font.pixelSize: Theme.fontSizeXs
-                }
+                    height: importButton.height
 
-                Text {
-                    visible: Math.ceil(scriptField.text.length / 14) > 30
-                    width: parent.width
-                    wrapMode: Text.WordWrap
-                    text: qsTr("Speech longer than 30 seconds often ends in gibberish or silence. Split the script into shorter parts.")
-                    color: Theme.destructive
-                    font.family: Theme.fontFamily
-                    font.pixelSize: Theme.fontSizeXs
-                }
-
-                ThemedLabel {
-                    text: qsTr("Voice")
-                    tone: "default"
-                    size: "sm"
+                    Text {
+                        anchors.left: parent.left
+                        anchors.verticalCenter: parent.verticalCenter
+                        width: parent.width - importButton.width - Theme.spacingSm
+                        elide: Text.ElideRight
+                        text: qsTr("%1 characters, about %2 s").arg(scriptField.text.length)
+                              .arg(Math.ceil(scriptField.text.length / 14 / Math.max(0.5, speedSlider.value)))
+                        color: Theme.mutedForeground
+                        font.family: Theme.fontFamily
+                        font.pixelSize: Theme.fontSizeXs
+                    }
+                    ThemedButton {
+                        id: importButton
+                        anchors.right: parent.right
+                        text: qsTr("Import script…")
+                        variant: "ghost"
+                        glyph: Theme.icons.upload
+                        enabled: !EditorState.tts.running
+                        tooltip: qsTr("A .txt, .md or Word (.docx) file")
+                        onClicked: {
+                            const url = FileDialogs.openFile(qsTr("Import a script"),
+                                                             [qsTr("Scripts (*.txt *.md *.docx)"), qsTr("All files (*)")])
+                            if (url == "")
+                                return
+                            const text = EditorState.tts.readScriptFile(url)
+                            if (text.length > 0)
+                                scriptField.text = text
+                            else {
+                                root.resultOk = false
+                                root.resultText = qsTr("That file has no text that can be read")
+                            }
+                        }
+                    }
                 }
 
                 Row {
                     width: parent.width
                     spacing: Theme.spacingSm
 
+                    // The voice in use; the gallery below picks it (0.30, as CapCut). Kept as the
+                    // model of the choice for the rest of the panel.
                     ThemedComboBox {
                         id: voiceBox
-                        width: parent.width - previewButton.width - moreButton.width - parent.spacing * 2
-                        anchors.verticalCenter: parent.verticalCenter
+                        visible: false
+                        width: 0
                         enabled: !root.busy
                         model: EditorState.voices
                         textRole: "name"
@@ -166,19 +250,28 @@ Item {
                         Component.onCompleted: root.selectVoice(EditorState.tts.lastVoice)
                     }
 
+                    Text {
+                        width: parent.width - previewButton.width - moreButton.width - parent.spacing * 2
+                        anchors.verticalCenter: parent.verticalCenter
+                        elide: Text.ElideRight
+                        text: qsTr("Voice: %1").arg(voiceBox.currentText)
+                        color: Theme.foreground
+                        font.family: Theme.fontFamily
+                        font.pixelSize: Theme.fontSizeSm
+                        font.weight: Font.DemiBold
+                    }
+
                     IconButton {
                         id: previewButton
                         anchors.verticalCenter: parent.verticalCenter
-                        readonly property bool playing: voicePlayer.playbackState === MediaPlayer.PlayingState
-                        glyph: playing ? Theme.icons.pause : Theme.icons.play
-                        tooltip: playing ? qsTr("Stop") : qsTr("Play the voice sample")
+                        glyph: root.playing ? Theme.icons.pause : Theme.icons.play
+                        tooltip: root.playing ? qsTr("Stop") : qsTr("Play the voice sample")
                         onClicked: {
-                            if (playing) {
+                            if (root.playing) {
                                 voicePlayer.stop()
                                 return
                             }
-                            voicePlayer.source = EditorState.voices.referenceUrl(voiceBox.currentValue)
-                            voicePlayer.play()
+                            root.play(EditorState.voices.referenceUrl(voiceBox.currentValue))
                         }
                     }
 
@@ -187,7 +280,9 @@ Item {
                         anchors.verticalCenter: parent.verticalCenter
                         glyph: Theme.icons.ellipsis
                         tooltip: qsTr("Rename or delete this voice")
-                        enabled: voiceBox.currentIndex > 0 && !root.busy
+                        // Only the user's own voices: the ready ones come with the app's extra.
+                        enabled: !root.busy && voiceBox.currentIndex > 0
+                                 && !EditorState.voices.allVoices()[voiceBox.currentIndex].builtIn
                         onClicked: voiceMenu.popup()
 
                         ThemedContextMenu {
@@ -210,52 +305,74 @@ Item {
                     }
                 }
 
-                ThemedButton {
-                    id: newVoiceButton
+                VoiceGallery {
                     width: parent.width
-                    text: qsTr("New voice")
-                    variant: "secondary"
-                    glyph: Theme.icons.plus
                     enabled: !root.busy
-                    tooltip: qsTr("Clone a voice from a recording")
-                    onClicked: newVoiceMenu.popup()
-
-                    ThemedContextMenu {
-                        id: newVoiceMenu
-                        ThemedMenuItem {
-                            text: qsTr("From selected clip")
-                            enabled: root.clipUsable
-                            onTriggered: voiceDialog.openForClip()
+                    currentId: voiceBox.currentValue || ""
+                    playingId: root.playingVoice
+                    onPicked: id => root.selectVoice(id)
+                    onPlayRequested: id => {
+                        if (root.playing && root.playingVoice === id) {
+                            voicePlayer.stop()
+                            return
                         }
-                        ThemedMenuItem {
-                            text: qsTr("Record…")
-                            icon.name: Theme.icons.mic
-                            onTriggered: voiceDialog.openForMic()
-                        }
-                        ThemedMenuItem {
-                            text: qsTr("Import file…")
-                            icon.name: Theme.icons.upload
-                            onTriggered: voiceDialog.openForFile()
-                        }
+                        root.play(EditorState.voices.referenceUrl(id))
+                        root.playingVoice = id
                     }
                 }
 
-                Text {
-                    visible: EditorState.voices.encoding
+                Column {
+                    visible: root.speakers.length > 0
                     width: parent.width
-                    wrapMode: Text.WordWrap
-                    text: EditorState.tts.loading
-                          ? qsTr("Loading voice model (first use takes a while)…")
-                          : qsTr("Learning the voice…")
-                    color: Theme.mutedForeground
-                    font.family: Theme.fontFamily
-                    font.pixelSize: Theme.fontSizeXs
-                }
+                    spacing: Theme.spacingXs
 
-                ThemedLabel {
-                    text: qsTr("Language")
-                    tone: "default"
-                    size: "sm"
+                    Text {
+                        width: parent.width
+                        wrapMode: Text.WordWrap
+                        text: qsTr("A dialogue: a voice for each person")
+                        color: Theme.mutedForeground
+                        font.family: Theme.fontFamily
+                        font.pixelSize: Theme.fontSizeXs
+                    }
+                    Repeater {
+                        model: root.speakers
+                        delegate: Row {
+                            id: speakerRow
+                            required property string modelData
+                            width: parent.width
+                            spacing: Theme.spacingSm
+                            Text {
+                                anchors.verticalCenter: parent.verticalCenter
+                                width: parent.width * 0.32
+                                elide: Text.ElideRight
+                                text: speakerRow.modelData
+                                color: Theme.panelForeground
+                                font.family: Theme.fontFamily
+                                font.pixelSize: Theme.fontSizeSm
+                            }
+                            ThemedComboBox {
+                                width: parent.width * 0.68 - parent.spacing
+                                enabled: !root.busy
+                                model: EditorState.voices
+                                textRole: "name"
+                                valueRole: "id"
+                                Component.onCompleted: {
+                                    const chosen = root.speakerVoices[speakerRow.modelData]
+                                    // A second person starts on another voice, so the two are told apart.
+                                    const fallback = Math.min(count - 1, root.speakers.indexOf(speakerRow.modelData))
+                                    currentIndex = chosen ? Math.max(0, EditorState.voices.indexOfId(chosen)) : Math.max(0, fallback)
+                                    const map = Object.assign({}, root.speakerVoices)
+                                    map[speakerRow.modelData] = currentValue
+                                    root.speakerVoices = map
+                                }
+                                onActivated: {
+                                    const map = Object.assign({}, root.speakerVoices)
+                                    map[speakerRow.modelData] = currentValue
+                                    root.speakerVoices = map
+                                }
+                            }
+                        }
+                    }
                 }
 
                 ThemedComboBox {
@@ -268,45 +385,20 @@ Item {
                     Component.onCompleted: currentIndex = Math.max(0, indexOfValue(EditorState.tts.lastLanguage))
                 }
 
-                ThemedLabel {
-                    text: qsTr("Expressiveness")
-                    tone: "default"
-                    size: "sm"
-                }
-
-                ThemedSlider {
-                    id: exaggerationSlider
-                    width: parent.width
-                    label: qsTr("Expressiveness")
-                    from: 0.25
-                    to: 2.0
-                    stepSize: 0.05
-                    value: EditorState.tts.lastExaggeration
-                    enabled: !EditorState.tts.running
-                }
-
-                Text {
-                    width: parent.width
-                    wrapMode: Text.WordWrap
-                    text: qsTr("Higher values sound more dramatic and speak faster")
-                    color: Theme.mutedForeground
-                    font.family: Theme.fontFamily
-                    font.pixelSize: Theme.fontSizeXs
-                }
-
                 ThemedButton {
                     visible: !EditorState.tts.running
                     width: parent.width
-                    text: qsTr("Generate speech")
-                    variant: "primary"
+                    text: EditorState.tts.hasTake ? qsTr("Generate again") : qsTr("Generate speech")
+                    variant: EditorState.tts.hasTake ? "secondary" : "primary"
                     glyph: Theme.icons.audioLines
                     enabled: root.canGenerate
-                    tooltip: qsTr("Generate speech and add it at the playhead")
+                    tooltip: qsTr("Speak the script; you hear it before it goes on the timeline")
                     onClicked: {
                         root.resultText = ""
                         voicePlayer.stop()
-                        EditorState.tts.generate(scriptField.text, voiceBox.currentValue,
-                                                 langBox.currentValue, exaggerationSlider.value)
+                        EditorState.tts.generate(scriptField.text, voiceBox.currentValue, langBox.currentValue,
+                                                 exaggerationSlider.value, speedSlider.value, pitchSlider.value,
+                                                 root.speakerVoices)
                     }
                 }
 
@@ -363,6 +455,114 @@ Item {
                     }
                 }
 
+                // ---- The take: heard before it goes on the timeline -----------------------------
+                Rectangle {
+                    visible: EditorState.tts.hasTake && !EditorState.tts.running
+                    width: parent.width
+                    height: takeColumn.height + Theme.spacingMd * 2
+                    radius: Theme.radiusMd
+                    color: Theme.panelMuted
+
+                    Column {
+                        id: takeColumn
+                        x: Theme.spacingMd
+                        y: Theme.spacingMd
+                        width: parent.width - Theme.spacingMd * 2
+                        spacing: Theme.spacingSm
+
+                        Row {
+                            spacing: Theme.spacingSm
+                            IconButton {
+                                anchors.verticalCenter: parent.verticalCenter
+                                glyph: root.playing && voicePlayer.source == EditorState.tts.takeUrl
+                                       ? Theme.icons.pause : Theme.icons.play
+                                tooltip: qsTr("Listen to the whole take")
+                                onClicked: {
+                                    if (root.playing && voicePlayer.source == EditorState.tts.takeUrl)
+                                        voicePlayer.stop()
+                                    else
+                                        root.play(EditorState.tts.takeUrl)
+                                }
+                            }
+                            Text {
+                                anchors.verticalCenter: parent.verticalCenter
+                                text: qsTr("Take: %1 s").arg(EditorState.tts.takeSeconds.toFixed(1))
+                                color: Theme.panelForeground
+                                font.family: Theme.fontFamily
+                                font.pixelSize: Theme.fontSizeSm
+                            }
+                        }
+
+                        // Each sentence: hear it, or speak it again if it came out wrong.
+                        Repeater {
+                            model: EditorState.tts.sentences
+                            delegate: Row {
+                                id: sentenceRow
+                                required property var modelData
+                                required property int index
+                                width: takeColumn.width
+                                spacing: Theme.spacingXs
+                                IconButton {
+                                    id: sentencePlay
+                                    anchors.verticalCenter: parent.verticalCenter
+                                    glyph: Theme.icons.play
+                                    tooltip: qsTr("Listen to this sentence")
+                                    onClicked: root.play(sentenceRow.modelData.url)
+                                }
+                                Text {
+                                    anchors.verticalCenter: parent.verticalCenter
+                                    width: parent.width - sentencePlay.width - sentenceAgain.width - parent.spacing * 2
+                                    elide: Text.ElideRight
+                                    text: sentenceRow.modelData.text
+                                    color: Theme.panelForeground
+                                    font.family: Theme.fontFamily
+                                    font.pixelSize: Theme.fontSizeXs
+                                }
+                                IconButton {
+                                    id: sentenceAgain
+                                    anchors.verticalCenter: parent.verticalCenter
+                                    glyph: Theme.icons.refresh
+                                    tooltip: qsTr("Speak this sentence again")
+                                    onClicked: {
+                                        voicePlayer.stop()
+                                        EditorState.tts.regenerateSentence(sentenceRow.index, voiceBox.currentValue,
+                                                                           langBox.currentValue, exaggerationSlider.value)
+                                    }
+                                }
+                            }
+                        }
+
+                        ThemedCheckBox {
+                            width: parent.width
+                            text: qsTr("Also create its captions")
+                            checked: speechPrefs.captions
+                            onToggled: speechPrefs.captions = checked
+                        }
+
+                        ThemedButton {
+                            width: parent.width
+                            text: EditorState.tts.replacing ? qsTr("Replace the voice on the timeline")
+                                                            : qsTr("Add to the timeline")
+                            variant: "primary"
+                            glyph: Theme.icons.plus
+                            onClicked: {
+                                voicePlayer.stop()
+                                EditorState.tts.insertTake(speechPrefs.captions)
+                            }
+                        }
+                        ThemedButton {
+                            width: parent.width
+                            text: qsTr("Discard")
+                            variant: "ghost"
+                            glyph: Theme.icons.trash
+                            onClicked: {
+                                voicePlayer.stop()
+                                EditorState.tts.discardTake()
+                            }
+                        }
+                    }
+                }
+
                 Text {
                     visible: root.resultText.length > 0 && !EditorState.tts.running
                     width: parent.width
@@ -371,6 +571,191 @@ Item {
                     color: root.resultOk ? Theme.mutedForeground : Theme.destructive
                     font.family: Theme.fontFamily
                     font.pixelSize: Theme.fontSizeXs
+                }
+
+                // Everything else, folded (remembered open or closed).
+                ThemedButton {
+                    width: parent.width
+                    text: qsTr("Options")
+                    variant: "ghost"
+                    glyph: speechPrefs.optionsOpen ? Theme.icons.chevronUp : Theme.icons.chevronDown
+                    onClicked: speechPrefs.optionsOpen = !speechPrefs.optionsOpen
+                }
+
+                Column {
+                    visible: speechPrefs.optionsOpen
+                    width: parent.width
+                    spacing: Theme.spacingSm
+
+                    Item {
+                        width: parent.width
+                        height: Theme.fontSizeSm + 6
+
+                        Text {
+                            anchors.left: parent.left
+                            anchors.verticalCenter: parent.verticalCenter
+                            text: qsTr("Speed")
+                            color: Theme.foreground
+                            font.family: Theme.fontFamily
+                            font.pixelSize: Theme.fontSizeSm
+                        }
+                        Text {
+                            anchors.right: parent.right
+                            anchors.verticalCenter: parent.verticalCenter
+                            text: qsTr("%1×").arg(Number(speedSlider.value).toFixed(2))
+                            color: Theme.mutedForeground
+                            font.family: Theme.fontFamily
+                            font.pixelSize: Theme.fontSizeSm
+                        }
+                    }
+
+                    ThemedSlider {
+                        id: speedSlider
+                        width: parent.width
+                        label: qsTr("Speed")
+                        from: 0.5
+                        to: 2.0
+                        stepSize: 0.05
+                        value: EditorState.tts.lastSpeed
+                        valueFormatter: v => qsTr("%1×").arg(Number(v).toFixed(2))
+                        enabled: !EditorState.tts.running
+                        onMoved: retuneTimer.restart()
+                    }
+
+                    Item {
+                        width: parent.width
+                        height: Theme.fontSizeSm + 6
+
+                        Text {
+                            anchors.left: parent.left
+                            anchors.verticalCenter: parent.verticalCenter
+                            text: qsTr("Pitch")
+                            color: Theme.foreground
+                            font.family: Theme.fontFamily
+                            font.pixelSize: Theme.fontSizeSm
+                        }
+                        Text {
+                            anchors.right: parent.right
+                            anchors.verticalCenter: parent.verticalCenter
+                            text: qsTr("%1×").arg(Number(pitchSlider.value).toFixed(2))
+                            color: Theme.mutedForeground
+                            font.family: Theme.fontFamily
+                            font.pixelSize: Theme.fontSizeSm
+                        }
+                    }
+
+                    ThemedSlider {
+                        id: pitchSlider
+                        width: parent.width
+                        label: qsTr("Pitch")
+                        from: 0.5
+                        to: 2.0
+                        stepSize: 0.05
+                        value: EditorState.tts.lastPitch
+                        valueFormatter: v => qsTr("%1×").arg(Number(v).toFixed(2))
+                        enabled: !EditorState.tts.running
+                        onMoved: retuneTimer.restart()
+                    }
+
+                    Item {
+                        width: parent.width
+                        height: Theme.fontSizeSm + 6
+
+                        Text {
+                            anchors.left: parent.left
+                            anchors.verticalCenter: parent.verticalCenter
+                            text: qsTr("Expressiveness")
+                            color: Theme.foreground
+                            font.family: Theme.fontFamily
+                            font.pixelSize: Theme.fontSizeSm
+                        }
+                        Text {
+                            anchors.right: parent.right
+                            anchors.verticalCenter: parent.verticalCenter
+                            text: Number(exaggerationSlider.value).toFixed(2)
+                            color: Theme.mutedForeground
+                            font.family: Theme.fontFamily
+                            font.pixelSize: Theme.fontSizeSm
+                        }
+                    }
+
+                    ThemedSlider {
+                        id: exaggerationSlider
+                        width: parent.width
+                        label: qsTr("Expressiveness")
+                        from: 0.25
+                        to: 2.0
+                        stepSize: 0.05
+                        value: EditorState.tts.lastExaggeration
+                        enabled: !EditorState.tts.running
+                    }
+
+                    Text {
+                        width: parent.width
+                        wrapMode: Text.WordWrap
+                        text: qsTr("Higher values sound more dramatic and speak faster")
+                        color: Theme.mutedForeground
+                        font.family: Theme.fontFamily
+                        font.pixelSize: Theme.fontSizeXs
+                    }
+
+                    ThemedButton {
+                        id: newVoiceButton
+                        width: parent.width
+                        text: qsTr("New voice")
+                        variant: "secondary"
+                        glyph: Theme.icons.plus
+                        enabled: !root.busy
+                        tooltip: qsTr("Clone a voice from a recording")
+                        onClicked: newVoiceMenu.popup()
+
+                        ThemedContextMenu {
+                            id: newVoiceMenu
+                            ThemedMenuItem {
+                                text: qsTr("From selected clip")
+                                enabled: root.clipUsable
+                                onTriggered: voiceDialog.openForClip()
+                            }
+                            ThemedMenuItem {
+                                text: qsTr("Record…")
+                                icon.name: Theme.icons.mic
+                                onTriggered: voiceDialog.openForMic()
+                            }
+                            ThemedMenuItem {
+                                text: qsTr("Import file…")
+                                icon.name: Theme.icons.upload
+                                onTriggered: voiceDialog.openForFile()
+                            }
+                        }
+                    }
+
+                    // Cloning a voice: what it is doing, how far, and a way out (0.30).
+                    Column {
+                        visible: EditorState.voices.encoding
+                        width: parent.width
+                        spacing: Theme.spacingSm
+                        Text {
+                            width: parent.width
+                            wrapMode: Text.WordWrap
+                            text: EditorState.tts.loading
+                                  ? qsTr("Loading voice model (first use takes a while)…")
+                                  : (EditorState.voices.encodeStatus || qsTr("Learning the voice…"))
+                            color: Theme.mutedForeground
+                            font.family: Theme.fontFamily
+                            font.pixelSize: Theme.fontSizeXs
+                        }
+                        ThemedProgressBar {
+                            width: parent.width
+                            value: EditorState.voices.encodeProgress
+                        }
+                        ThemedButton {
+                            text: qsTr("Cancel")
+                            variant: "destructive"
+                            glyph: Theme.icons.x
+                            tooltip: qsTr("Stop preparing the voice")
+                            onClicked: EditorState.voices.cancelEncoding()
+                        }
+                    }
                 }
             }
         }
@@ -488,7 +873,7 @@ Item {
 
                 ThemedLabel {
                     width: parent.width
-                    text: qsTr("Record 5 to 20 seconds in a quiet room. Read this aloud in your natural voice:")
+                    text: qsTr("Record 3 to 20 seconds in a quiet room (it stops by itself at 20). Read this aloud in your natural voice:")
                 }
 
                 Text {
@@ -527,7 +912,9 @@ Item {
 
                     Text {
                         anchors.verticalCenter: parent.verticalCenter
-                        text: qsTr("%1 s").arg(EditorState.voices.recordingSeconds.toFixed(1))
+                        text: EditorState.voices.recordingSeconds >= 20
+                              ? qsTr("20 s: done, save the voice")
+                              : qsTr("%1 s").arg(EditorState.voices.recordingSeconds.toFixed(1))
                         color: Theme.panelForeground
                         font.family: Theme.fontFamily
                         font.pixelSize: Theme.fontSizeSm

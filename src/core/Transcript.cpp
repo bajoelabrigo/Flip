@@ -269,8 +269,20 @@ QList<SubtitleCue> cuesFromTranscript(const Transcript &transcript, TimeUs inUs,
                                       int maxLineWidth, int maxLineCount, int maxWordsPerCue)
 {
     // One cue per word, then the existing packer: it re-splits each cue into words, and a
-    // single-word cue keeps its measured timing exactly.
+    // single-word cue keeps its measured timing exactly. A change of speaker starts a caption of
+    // its own, which carries who says it.
+    QList<SubtitleCue> packed;
     QList<SubtitleCue> perWord;
+    int runSpeaker = -2;
+    const auto flushRun = [&]() {
+        if (perWord.isEmpty())
+            return;
+        for (SubtitleCue cue : packSubtitleCues(perWord, maxLineWidth, maxLineCount, maxWordsPerCue)) {
+            cue.speaker = runSpeaker >= 0 ? runSpeaker : -1;
+            packed.append(cue);
+        }
+        perWord.clear();
+    };
     for (const int i : transcript.wordsInRange(inUs, outUs)) {
         const TranscriptWord &w = transcript.words.at(i);
         if (w.type != TranscriptTokenType::Word && w.type != TranscriptTokenType::Filler)
@@ -283,10 +295,15 @@ QList<SubtitleCue> cuesFromTranscript(const Transcript &transcript, TimeUs inUs,
         cue.endUs = std::min(std::max(w.endUs, w.startUs + 1), outUs);
         if (cue.endUs <= cue.startUs)
             continue;
+        if (transcript.diarized && w.speaker != runSpeaker) {
+            flushRun();
+            runSpeaker = w.speaker;
+        }
         cue.text = perWord.isEmpty() ? text : QLatin1Char(' ') + text;
         perWord.append(cue);
     }
-    return packSubtitleCues(perWord, maxLineWidth, maxLineCount, maxWordsPerCue);
+    flushRun();
+    return packed;
 }
 
 } // namespace drift

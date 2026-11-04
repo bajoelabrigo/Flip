@@ -142,8 +142,8 @@
         <translation>字幕样式</translation>
     </message>
     <message>
-        <source>Voices</source>
-        <translation>声音</translation>
+        <source>Voice changer</source>
+        <translation>变声器</translation>
     </message>
     <message>
         <source>Retouch</source>
@@ -1111,6 +1111,29 @@
     <message>
         <source>Changes only that clip; the rest is untouched. It is drawn inside the clip&apos;s row on the timeline.</source>
         <translation>只改变该片段，其他内容不受影响。它显示在时间线上该片段的行内。</translation>
+    </message>
+</context>
+<context>
+    <name>AeShortcutsDialog</name>
+    <message>
+        <source>Use After Effects&apos; shortcuts?</source>
+        <translation>使用 After Effects 的快捷键?</translation>
+    </message>
+    <message>
+        <source>Use After Effects&apos;</source>
+        <translation>使用 After Effects 的</translation>
+    </message>
+    <message>
+        <source>Keep Flip&apos;s</source>
+        <translation>保留 Flip 的</translation>
+    </message>
+    <message>
+        <source>J and K go to the previous and next keyframe, P, S, R, T and A show one property, U and UU what is animated or changed, B and N set the work area, I and O go to the layer&apos;s ends, [ ] and Alt+[ ] move and trim the layer at the playhead.</source>
+        <translation>J 和 K 跳到上一个和下一个关键帧,P、S、R、T 和 A 只显示一个属性,U 和 UU 显示有动画或已改动的属性,B 和 N 设置工作区,I 和 O 跳到图层两端,[ ] 和 Alt+[ ] 在播放头处移动和修剪图层。</translation>
+    </message>
+    <message>
+        <source>You can switch any time in Preferences › Shortcuts. Shortcuts you changed yourself stay as they are.</source>
+        <translation>可随时在“偏好设置 › 快捷键”中切换。你自己改过的快捷键保持不变。</translation>
     </message>
 </context>
 <context>
@@ -4249,6 +4272,14 @@
         <translation>“%1”已加入“%2” · 要画在单独的图层上，请先按 Esc；要分开它们，右键 › 分离为图层</translation>
     </message>
     <message>
+        <source>Sign in with Google to translate captions, or install the Offline translation extra</source>
+        <translation>使用 Google 登录以翻译字幕,或安装“离线翻译”扩展</translation>
+    </message>
+    <message>
+        <source>Words bleeped: %1</source>
+        <translation>已加哔声的词：%1</translation>
+    </message>
+    <message>
         <source>Add mask</source>
         <translation>添加蒙版</translation>
     </message>
@@ -5195,8 +5226,60 @@
         <translation>不透明度</translation>
     </message>
     <message>
+        <source>Step back one frame (Page Up)</source>
+        <translation>后退一帧 (Page Up)</translation>
+    </message>
+    <message>
+        <source>Step forward one frame (Page Down)</source>
+        <translation>前进一帧 (Page Down)</translation>
+    </message>
+    <message>
         <source>Show rulers</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Go to the layer&apos;s in point</source>
+        <translation>转到图层入点</translation>
+    </message>
+    <message>
+        <source>Go to the layer&apos;s out point</source>
+        <translation>转到图层出点</translation>
+    </message>
+    <message>
+        <source>Add a Position keyframe</source>
+        <translation>添加位置关键帧</translation>
+    </message>
+    <message>
+        <source>Add a Scale keyframe</source>
+        <translation>添加缩放关键帧</translation>
+    </message>
+    <message>
+        <source>Add a Rotation keyframe</source>
+        <translation>添加旋转关键帧</translation>
+    </message>
+    <message>
+        <source>Add an Opacity keyframe</source>
+        <translation>添加不透明度关键帧</translation>
+    </message>
+    <message>
+        <source>Add an Anchor point keyframe</source>
+        <translation>添加锚点关键帧</translation>
+    </message>
+    <message>
+        <source>Trim the layer&apos;s in point to the playhead</source>
+        <translation>在播放头处修剪图层入点</translation>
+    </message>
+    <message>
+        <source>Trim the layer&apos;s out point to the playhead</source>
+        <translation>在播放头处修剪图层出点</translation>
+    </message>
+    <message>
+        <source>Move the layer so it starts at the playhead</source>
+        <translation>移动图层使其从播放头开始</translation>
+    </message>
+    <message>
+        <source>Move the layer so it ends at the playhead</source>
+        <translation>移动图层使其在播放头结束</translation>
     </message>
     <message>
         <source>RAM preview (render to memory and play)</source>
@@ -5209,6 +5292,38 @@
     <message>
         <source>Ruler guides</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Replace voice</source>
+        <translation>替换配音</translation>
+    </message>
+    <message>
+        <source>Voice replaced</source>
+        <translation>已替换配音</translation>
+    </message>
+    <message>
+        <source>Trim layer</source>
+        <translation>修剪图层</translation>
+    </message>
+    <message>
+        <source>Move layer</source>
+        <translation>移动图层</translation>
+    </message>
+    <message>
+        <source>Put the playhead inside the layer to trim it there</source>
+        <translation>将播放头放在图层内才能在那里修剪</translation>
+    </message>
+    <message>
+        <source>Sending the audio to ElevenLabs…</source>
+        <translation>正在把音频发送到 ElevenLabs…</translation>
+    </message>
+    <message>
+        <source>ElevenLabs is transcribing…</source>
+        <translation>ElevenLabs 正在转写…</translation>
+    </message>
+    <message>
+        <source>Speaker %1</source>
+        <translation>说话人 %1</translation>
     </message>
     <message>
         <source>Solids</source>
@@ -5225,6 +5340,14 @@
     <message>
         <source>Behavior changed</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Settle</source>
+        <translation>回稳</translation>
+    </message>
+    <message>
+        <source>Reverse keyframes</source>
+        <translation>反转关键帧</translation>
     </message>
     <message>
         <source>Pick two or more keys of a property to reverse them</source>
@@ -5411,6 +5534,90 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Translating the captions…</source>
+        <translation>正在翻译字幕…</translation>
+    </message>
+    <message>
+        <source>Could not translate the captions (no answer from the server)</source>
+        <translation>无法翻译字幕（服务器没有响应）</translation>
+    </message>
+    <message>
+        <source>Translating the captions on this computer…</source>
+        <translation>正在本机翻译字幕…</translation>
+    </message>
+    <message>
+        <source>Could not translate the captions</source>
+        <translation>无法翻译字幕</translation>
+    </message>
+    <message>
+        <source>The captions changed while they were being translated; try again</source>
+        <translation>翻译期间字幕已更改，请重试</translation>
+    </message>
+    <message>
+        <source>Captions (%1)</source>
+        <translation>字幕（%1）</translation>
+    </message>
+    <message>
+        <source>Translate captions</source>
+        <translation>翻译字幕</translation>
+    </message>
+    <message>
+        <source>Captions translated into %1</source>
+        <translation>字幕已翻译为%1</translation>
+    </message>
+    <message>
+        <source>Edit speaker</source>
+        <translation>编辑说话人</translation>
+    </message>
+    <message>
+        <source>No key words to highlight in these subtitles</source>
+        <translation>这些字幕中没有可高亮的关键词</translation>
+    </message>
+    <message>
+        <source>Highlight key words</source>
+        <translation>高亮关键词</translation>
+    </message>
+    <message>
+        <source>Key words highlighted in %1 captions</source>
+        <translation>已在 %1 条字幕中高亮关键词</translation>
+    </message>
+    <message>
+        <source>Install «Animated emojis» from Extras first</source>
+        <translation>请先在扩展中安装“动态表情”</translation>
+    </message>
+    <message>
+        <source>Emoji: %1</source>
+        <translation>表情：%1</translation>
+    </message>
+    <message>
+        <source>No captions with an emoji word (fuego, Dios, fiesta…)</source>
+        <translation>没有包含表情词的字幕（火、上帝、派对…）</translation>
+    </message>
+    <message>
+        <source>Animated emojis</source>
+        <translation>动态表情</translation>
+    </message>
+    <message>
+        <source>Animated emojis on %1 captions</source>
+        <translation>已在 %1 条字幕上添加动态表情</translation>
+    </message>
+    <message>
+        <source>No hidden words with their timing to bleep</source>
+        <translation>没有带时间的隐藏词可以消音</translation>
+    </message>
+    <message>
+        <source>Could not make the bleep</source>
+        <translation>无法生成哔声</translation>
+    </message>
+    <message>
+        <source>Bleep swear words</source>
+        <translation>脏话哔声</translation>
+    </message>
+    <message>
+        <source>Bleep</source>
+        <translation>哔声</translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5559,6 +5766,30 @@
     <message>
         <source>Select a clip with sound to enhance its voice</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Listening to the clip to write down what is said…</source>
+        <translation>正在聆听片段以记下所说的内容…</translation>
+    </message>
+    <message>
+        <source>Move the other tracks</source>
+        <translation>移动其他轨道</translation>
+    </message>
+    <message>
+        <source>Edit by text</source>
+        <translation>按文字剪辑</translation>
+    </message>
+    <message>
+        <source>Remove silences</source>
+        <translation>删除静音</translation>
+    </message>
+    <message>
+        <source>Cut %1 s from the video</source>
+        <translation>已从视频中剪掉 %1 秒</translation>
+    </message>
+    <message>
+        <source>That would remove the whole clip</source>
+        <translation>这会删除整个片段</translation>
     </message>
     <message>
         <source>Volume</source>
@@ -5921,6 +6152,34 @@
         <translation>
             <numerusform>已粘贴 %n 个片段</numerusform>
         </translation>
+    </message>
+    <message>
+        <source>Curved path</source>
+        <translation>曲线路径</translation>
+    </message>
+    <message>
+        <source>Straight path</source>
+        <translation>直线路径</translation>
+    </message>
+    <message>
+        <source>Join Position</source>
+        <translation>合并位置</translation>
+    </message>
+    <message>
+        <source>Separate dimensions</source>
+        <translation>单独尺寸</translation>
+    </message>
+    <message>
+        <source>Shape motion path</source>
+        <translation>调整运动路径</translation>
+    </message>
+    <message>
+        <source>Roving needs at least three Position keyframes</source>
+        <translation>漫游需要至少三个位置关键帧</translation>
+    </message>
+    <message>
+        <source>Roving keyframes</source>
+        <translation>漫游关键帧</translation>
     </message>
     <message>
         <source>Exporting…</source>
@@ -7745,18 +8004,6 @@
         <translation>音量</translation>
     </message>
     <message>
-        <source>Recommended caption length</source>
-        <translation>建议字幕长度</translation>
-    </message>
-    <message>
-        <source>1 word per caption</source>
-        <translation>每条字幕 1 个词</translation>
-    </message>
-    <message>
-        <source>%1 words per caption</source>
-        <translation>每条字幕 %1 个词</translation>
-    </message>
-    <message>
         <source>Basic</source>
         <translation>基础</translation>
     </message>
@@ -7771,6 +8018,66 @@
     <message>
         <source>Fade out</source>
         <translation>淡出</translation>
+    </message>
+    <message>
+        <source>Voice from text</source>
+        <translation>文字转语音</translation>
+    </message>
+    <message>
+        <source>Edit script…</source>
+        <translation>编辑脚本…</translation>
+    </message>
+    <message>
+        <source>Change the text or the voice and speak it again, in place of this audio</source>
+        <translation>更改文字或声音并重新朗读，替换此音频</translation>
+    </message>
+    <message>
+        <source>Discard the voice you made?</source>
+        <translation>要放弃你制作的语音吗？</translation>
+    </message>
+    <message>
+        <source>Discard and go on</source>
+        <translation>放弃并继续</translation>
+    </message>
+    <message>
+        <source>The Voice panel has a take that is not on the timeline yet. Add it first with «Add to timeline», or discard it to start this one.</source>
+        <translation>语音面板中有一段尚未添加到时间线的录音。请先用“添加到时间线”添加它，或放弃它以开始这一段。</translation>
+    </message>
+    <message>
+        <source>Lower the music under this voice</source>
+        <translation>降低此配音下的音乐</translation>
+    </message>
+    <message>
+        <source>Save the voice as a file…</source>
+        <translation>将配音另存为文件…</translation>
+    </message>
+    <message>
+        <source>Save the voice</source>
+        <translation>保存配音</translation>
+    </message>
+    <message>
+        <source>MP3 audio (*.mp3)</source>
+        <translation>MP3 音频 (*.mp3)</translation>
+    </message>
+    <message>
+        <source>WAV audio (*.wav)</source>
+        <translation>WAV 音频 (*.wav)</translation>
+    </message>
+    <message>
+        <source>FLAC audio (*.flac)</source>
+        <translation>FLAC 音频 (*.flac)</translation>
+    </message>
+    <message>
+        <source>voice</source>
+        <translation>配音</translation>
+    </message>
+    <message>
+        <source>Voice saved</source>
+        <translation>配音已保存</translation>
+    </message>
+    <message>
+        <source>Could not save the voice</source>
+        <translation>无法保存配音</translation>
     </message>
     <message>
         <source>Normalize loudness</source>
@@ -7821,6 +8128,22 @@
         <translation>声像</translation>
     </message>
     <message>
+        <source>Create captions…</source>
+        <translation>创建字幕…</translation>
+    </message>
+    <message>
+        <source>Open Subtitles to create captions from this clip&apos;s speech</source>
+        <translation>打开“字幕”，根据此片段的语音创建字幕</translation>
+    </message>
+    <message>
+        <source>Edit by text…</source>
+        <translation>按文字剪辑…</translation>
+    </message>
+    <message>
+        <source>See what is said and strike out words: the video loses those moments</source>
+        <translation>查看所说的内容并划掉词语：视频会去掉这些时刻</translation>
+    </message>
+    <message>
         <source>C</source>
         <translation>中</translation>
     </message>
@@ -7859,30 +8182,6 @@
     <message>
         <source>Install AI engine first</source>
         <translation>请先安装 AI 引擎</translation>
-    </message>
-    <message>
-        <source>Auto subtitles</source>
-        <translation>自动字幕</translation>
-    </message>
-    <message>
-        <source>Shorter captions are timed by splitting each phrase evenly, so they can drift slightly out of sync with the speech.</source>
-        <translation>较短的字幕通过平均拆分每个短语来计时，因此可能与语音略有不同步。</translation>
-    </message>
-    <message>
-        <source>Creating captions… %1%</source>
-        <translation>正在生成字幕… %1%</translation>
-    </message>
-    <message>
-        <source>Create captions from speech</source>
-        <translation>从语音生成字幕</translation>
-    </message>
-    <message>
-        <source>Several selected clips become one caption clip</source>
-        <translation>多个所选片段将合并为一个字幕片段</translation>
-    </message>
-    <message>
-        <source>Download speech recognition (about 670 MB)</source>
-        <translation>下载语音识别（约 670 MB）</translation>
     </message>
 </context>
 <context>
@@ -8119,7 +8418,7 @@
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>删除</translation>
     </message>
 </context>
 <context>
@@ -13091,6 +13390,37 @@ NEXT TIME</source>
     </message>
 </context>
 <context>
+    <name>ChatterboxTts</name>
+    <message>
+        <source>The voice model is not installed. Install the AI voice extra in Extras.</source>
+        <translation>未安装语音模型。请在“扩展”中安装 AI 语音扩展。</translation>
+    </message>
+    <message>
+        <source>Failed to load text-to-speech model: %1</source>
+        <translation>无法加载文字转语音模型：%1</translation>
+    </message>
+    <message>
+        <source>Speech generation failed: %1</source>
+        <translation>语音生成失败：%1</translation>
+    </message>
+    <message>
+        <source>The reference voice has no audio.</source>
+        <translation>参考声音没有音频。</translation>
+    </message>
+    <message>
+        <source>Voice encoding failed: %1</source>
+        <translation>声音编码失败：%1</translation>
+    </message>
+    <message>
+        <source>Unsupported language: %1</source>
+        <translation>不支持的语言：%1</translation>
+    </message>
+    <message>
+        <source>Invalid voice conditioning.</source>
+        <translation>声音条件无效。</translation>
+    </message>
+</context>
+<context>
     <name>ChipScroller</name>
     <message>
         <source>Previous</source>
@@ -13451,7 +13781,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>应用</translation>
     </message>
     <message>
         <source>Save</source>
@@ -15198,6 +15528,14 @@ NEXT TIME</source>
         <translation>只编码标记的入点/出点范围，而不是整个时间线</translation>
     </message>
     <message>
+        <source>Include the captions (inside the video and as .srt)</source>
+        <translation>包含字幕（视频内和 .srt 文件）</translation>
+    </message>
+    <message>
+        <source>The captions as a track inside the video and as a file next to it, with the same name: players and YouTube can turn them on and off</source>
+        <translation>字幕作为视频内的轨道，并以同名文件保存在旁边：播放器和 YouTube 可以打开或关闭字幕</translation>
+    </message>
+    <message>
         <source>Saves what you see in the preview. Pick a size — the picture shape stays the same.</source>
         <translation>保存预览中看到的画面。选择尺寸 — 画面比例保持不变。</translation>
     </message>
@@ -15992,7 +16330,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>关闭</translation>
     </message>
     <message>
         <source>Replace</source>
@@ -16728,6 +17066,10 @@ NEXT TIME</source>
         <translation>蒙版羽化</translation>
     </message>
     <message>
+        <source>Pos</source>
+        <translation>位置</translation>
+    </message>
+    <message>
         <source>Layer</source>
         <translation type="unfinished"></translation>
     </message>
@@ -16752,12 +17094,40 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Value graph</source>
-        <translation type="unfinished"></translation>
+        <source>Graph type: value. Click: speed graph</source>
+        <translation>图表类型:值。点击:速度图表</translation>
     </message>
     <message>
-        <source>Speed graph</source>
-        <translation type="unfinished"></translation>
+        <source>Graph type: speed. Click: automatic</source>
+        <translation>图表类型:速度。点击:自动</translation>
+    </message>
+    <message>
+        <source>Graph type: automatic (speed for a joined Position, value for the rest). Click: value graph</source>
+        <translation>图表类型:自动(合并维度的位置用速度,其他用值)。点击:值图表</translation>
+    </message>
+    <message>
+        <source>Fit the whole curve in view (Ctrl+wheel zooms the values, Alt+wheel the time)</source>
+        <translation>显示整条曲线(Ctrl+滚轮缩放数值,Alt+滚轮缩放时间)</translation>
+    </message>
+    <message>
+        <source>Zoom to the picked keyframes</source>
+        <translation>缩放到所选关键帧</translation>
+    </message>
+    <message>
+        <source>Show only the curve being edited</source>
+        <translation>只显示正在编辑的曲线</translation>
+    </message>
+    <message>
+        <source>Show the other properties&apos; curves too</source>
+        <translation>也显示其他属性的曲线</translation>
+    </message>
+    <message>
+        <source>Graph under its layer again</source>
+        <translation>图表回到图层下方</translation>
+    </message>
+    <message>
+        <source>Graph over the whole timeline, as After Effects&apos; Graph Editor</source>
+        <translation>图表覆盖整个时间轴,如 After Effects 的图表编辑器</translation>
     </message>
     <message>
         <source>Separate dimensions: key X and Y of Position apart</source>
@@ -16826,6 +17196,10 @@ NEXT TIME</source>
         <translation>移动关键帧</translation>
     </message>
     <message>
+        <source>Transform keyframes</source>
+        <translation>变换关键帧</translation>
+    </message>
+    <message>
         <source>Edit keyframe curve</source>
         <translation>编辑关键帧曲线</translation>
     </message>
@@ -16849,8 +17223,20 @@ NEXT TIME</source>
         <translation>移动关键帧</translation>
     </message>
     <message>
+        <source>Keyframe easing changed</source>
+        <translation>关键帧缓动已更改</translation>
+    </message>
+    <message>
+        <source>Paste keyframes</source>
+        <translation>粘贴关键帧</translation>
+    </message>
+    <message>
+        <source>Remove keyframes</source>
+        <translation>移除关键帧</translation>
+    </message>
+    <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>应用</translation>
     </message>
     <message>
         <source>50% packs the picked keys into half the time, 200% spreads them over twice. The first one stays where it is. Alt + dragging the first or last key does the same by hand.</source>
@@ -16885,8 +17271,28 @@ NEXT TIME</source>
         <translation>编辑曲线…</translation>
     </message>
     <message>
+        <source>Curved path (auto Bezier)</source>
+        <translation>曲线路径(自动贝塞尔)</translation>
+    </message>
+    <message>
+        <source>Straight path</source>
+        <translation>直线路径</translation>
+    </message>
+    <message>
+        <source>Roving (one speed along the path)</source>
+        <translation>漫游(沿路径速度一致)</translation>
+    </message>
+    <message>
+        <source>Separate dimensions (X and Y apart)</source>
+        <translation>单独尺寸(X 和 Y 分开)</translation>
+    </message>
+    <message>
+        <source>Join Position (one path)</source>
+        <translation>合并位置(一条路径)</translation>
+    </message>
+    <message>
         <source>Reverse keyframes</source>
-        <translation type="unfinished"></translation>
+        <translation>反转关键帧</translation>
     </message>
     <message>
         <source>Stretch keyframes…</source>
@@ -16913,7 +17319,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>应用</translation>
     </message>
     <message>
         <source>Speed in units per second. Influence is how far the handle reaches towards the next key: more is a softer ease.</source>
@@ -16925,7 +17331,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>速度</translation>
     </message>
     <message>
         <source>Influence</source>
@@ -17119,6 +17525,21 @@ NEXT TIME</source>
     <message>
         <source>720p</source>
         <translation>720p</translation>
+    </message>
+</context>
+<context>
+    <name>LocalTranscription</name>
+    <message>
+        <source>Finding speech…</source>
+        <translation>正在查找语音…</translation>
+    </message>
+    <message>
+        <source>Timing words…</source>
+        <translation>正在对齐每个字词…</translation>
+    </message>
+    <message>
+        <source>Telling speakers apart…</source>
+        <translation>正在区分说话人…</translation>
     </message>
 </context>
 <context>
@@ -17511,6 +17932,26 @@ NEXT TIME</source>
     <message>
         <source>Your example is ready. Try this:</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>What is the video for?</source>
+        <translation>这个视频用于？</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
+        <source>The template is fitted to the shape of your video.</source>
+        <translation>模板会适配视频的形状。</translation>
+    </message>
+    <message>
+        <source>Short (vertical 9:16)</source>
+        <translation>短视频（竖屏 9:16）</translation>
+    </message>
+    <message>
+        <source>Video (horizontal 16:9)</source>
+        <translation>视频（横屏 16:9）</translation>
     </message>
     <message>
         <source>Click a clip on the timeline to change it on the right.</source>
@@ -19344,7 +19785,7 @@ NEXT TIME</source>
     <name>MotionPathOverlay</name>
     <message>
         <source>Shape motion path</source>
-        <translation type="unfinished"></translation>
+        <translation>调整运动路径</translation>
     </message>
     <message>
         <source>Move keyframe</source>
@@ -20664,6 +21105,14 @@ If playback stutters, try another.</source>
         <translation>描边选项：无、纯色、线性或径向渐变、混合模式和不透明度</translation>
     </message>
     <message>
+        <source>Fill colour. Right-click: no fill (or back on)</source>
+        <translation>填充颜色。右键：无填充（或重新开启）</translation>
+    </message>
+    <message>
+        <source>Stroke colour. Right-click: no stroke (or back on)</source>
+        <translation>描边颜色。右键：无描边（或重新开启）</translation>
+    </message>
+    <message>
         <source>Selection</source>
         <translation type="unfinished"></translation>
     </message>
@@ -21498,7 +21947,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>应用</translation>
     </message>
     <message>
         <source>What After Effects does with expressions, without writing code. They add up: the loop, then the constant speed, then the wiggle.</source>
@@ -21573,8 +22022,8 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>value, time, wiggle(freq, amount), Math, and thisComp.layer(&quot;Name&quot;).transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. The last line is the result.</source>
-        <translation type="unfinished"></translation>
+        <source>value, time, index, thisLayer, wiggle(freq, amount), linear / ease / easeIn / easeOut(t, tMin, tMax, a, b), clamp, valueAtTime(t), velocity, speed, Math, and thisComp.layer(&quot;Name&quot;).transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. The last line is the result.</source>
+        <translation>value, time, index, thisLayer, wiggle(freq, amount), linear / ease / easeIn / easeOut(t, tMin, tMax, a, b), clamp, valueAtTime(t), velocity, speed, Math, 以及 thisComp.layer(&quot;Name&quot;).transform.position[0], .rotation, .scale[0], .opacity, .anchorPoint[0]. 最后一行就是结果。</translation>
     </message>
 </context>
 <context>
@@ -23271,14 +23720,6 @@ If playback stutters, try another.</source>
         <translation>云服务提供商</translation>
     </message>
     <message>
-        <source>Transcription (Scribe), voiceover, sound effects</source>
-        <translation>转录 (Scribe)、旁白、音效</translation>
-    </message>
-    <message>
-        <source>Voiceover</source>
-        <translation>旁白</translation>
-    </message>
-    <message>
         <source>No key</source>
         <translation>无密钥</translation>
     </message>
@@ -23477,6 +23918,14 @@ If playback stutters, try another.</source>
     <message>
         <source>Keys are stored unencrypted in Flip Studio&apos;s settings. ELEVENLABS_API_KEY and FISH_API_KEY in the environment take precedence. Use is billed to your own account.</source>
         <translation>密钥以未加密形式保存在 Flip Studio 的设置中。环境变量中的 ELEVENLABS_API_KEY 和 FISH_API_KEY 优先。使用费用计入你自己的账户。</translation>
+    </message>
+    <message>
+        <source>Transcription (Scribe); voiceover and sound effects through AI agents</source>
+        <translation>转录 (Scribe)；通过 AI 代理进行配音和音效</translation>
+    </message>
+    <message>
+        <source>Voiceover through AI agents</source>
+        <translation>通过 AI 代理进行配音</translation>
     </message>
     <message>
         <source>Needed before Flip Studio or a connected agent can transcribe or generate audio with this service</source>
@@ -23972,7 +24421,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>删除</translation>
     </message>
 </context>
 <context>
@@ -25015,6 +25464,26 @@ If playback stutters, try another.</source>
         <translation>搜索快捷键</translation>
     </message>
     <message>
+        <source>Shortcut set</source>
+        <translation>快捷键方案</translation>
+    </message>
+    <message>
+        <source>Flip</source>
+        <translation>Flip</translation>
+    </message>
+    <message>
+        <source>Flip&apos;s own shortcuts</source>
+        <translation>Flip 自己的快捷键</translation>
+    </message>
+    <message>
+        <source>After Effects</source>
+        <translation>After Effects</translation>
+    </message>
+    <message>
+        <source>As in After Effects: J/K go between keyframes, P/S/R/T/A show one property, U/UU, B/N the work area, I/O the layer&apos;s ends, [ ] and Alt+[ ] move and trim the layer at the playhead</source>
+        <translation>与 After Effects 相同:J/K 在关键帧间跳转,P/S/R/T/A 显示一个属性,U/UU,B/N 工作区,I/O 图层两端,[ ] 和 Alt+[ ] 在播放头处移动和修剪图层</translation>
+    </message>
+    <message>
         <source>Click a shortcut, then press the keys. Esc cancels, Backspace clears.</source>
         <translation>单击快捷键，然后按下按键。Esc 取消，Backspace 清除。</translation>
     </message>
@@ -25099,6 +25568,49 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>SilenceReviewWindow</name>
+    <message>
+        <source>Remove silences</source>
+        <translation>删除静音</translation>
+    </message>
+    <message>
+        <source>Untick what you want to keep. Click a row to hear it.</source>
+        <translation>取消勾选要保留的部分。点击一行即可试听。</translation>
+    </message>
+    <message>
+        <source>Pauses longer than</source>
+        <translation>停顿长于</translation>
+    </message>
+    <message>
+        <source>Also filler words (eh, mmm)</source>
+        <translation>也包括语气词（呃、嗯）</translation>
+    </message>
+    <message>
+        <source>Pause</source>
+        <translation>停顿</translation>
+    </message>
+    <message>
+        <source>Listen</source>
+        <translation>试听</translation>
+    </message>
+    <message>
+        <source>No pauses this long in the clip.</source>
+        <translation>片段中没有这么长的停顿。</translation>
+    </message>
+    <message>
+        <source>%1 of %2 · %3 s</source>
+        <translation>%2 个中的 %1 个 · %3 秒</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>删除</translation>
+    </message>
+</context>
+<context>
     <name>SolidDialog</name>
     <message>
         <source>Solid settings</source>
@@ -25110,7 +25622,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>应用</translation>
     </message>
     <message>
         <source>Solid</source>
@@ -25195,10 +25707,6 @@ If playback stutters, try another.</source>
         <translation>已保存语音</translation>
     </message>
     <message>
-        <source>Turn a script into speech with a built-in or cloned voice. It is generated on this device and added at the playhead.</source>
-        <translation>使用内置或克隆的语音将脚本转为语音。在此设备上生成并添加到播放头位置。</translation>
-    </message>
-    <message>
         <source>Speech generation runs on this device and needs the voice model.</source>
         <translation>语音在此设备上生成，需要语音模型。</translation>
     </message>
@@ -25215,20 +25723,8 @@ If playback stutters, try another.</source>
         <translation>生成语音需要此项</translation>
     </message>
     <message>
-        <source>Type what the voice should say</source>
-        <translation>输入要朗读的内容</translation>
-    </message>
-    <message>
         <source>%1 characters, about %2 s</source>
         <translation>%1 个字符，约 %2 秒</translation>
-    </message>
-    <message>
-        <source>Speech longer than 30 seconds often ends in gibberish or silence. Split the script into shorter parts.</source>
-        <translation>超过 30 秒的语音常常以含糊不清或静音结尾。请将脚本拆分为较短的部分。</translation>
-    </message>
-    <message>
-        <source>Voice</source>
-        <translation>语音</translation>
     </message>
     <message>
         <source>Stop</source>
@@ -25283,10 +25779,6 @@ If playback stutters, try another.</source>
         <translation>正在学习语音…</translation>
     </message>
     <message>
-        <source>Language</source>
-        <translation>语言</translation>
-    </message>
-    <message>
         <source>Expressiveness</source>
         <translation>表现力</translation>
     </message>
@@ -25297,10 +25789,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Generate speech</source>
         <translation>生成语音</translation>
-    </message>
-    <message>
-        <source>Generate speech and add it at the playhead</source>
-        <translation>生成语音并添加到播放头位置</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -25343,6 +25831,106 @@ If playback stutters, try another.</source>
         <translation>所有文件 (*)</translation>
     </message>
     <message>
+        <source>Voice from your text</source>
+        <translation>用你的文字生成语音</translation>
+    </message>
+    <message>
+        <source>Editing the script of a voice on the timeline: the new take replaces its audio.</source>
+        <translation>正在编辑时间线上配音的脚本：新的录制将替换其音频。</translation>
+    </message>
+    <message>
+        <source>Type or paste the script. [pause 1s] adds a silence.</source>
+        <translation>输入或粘贴脚本。[pause 1s] 会插入一段静音。</translation>
+    </message>
+    <message>
+        <source>Import script…</source>
+        <translation>导入脚本…</translation>
+    </message>
+    <message>
+        <source>A .txt, .md or Word (.docx) file</source>
+        <translation>.txt、.md 或 Word (.docx) 文件</translation>
+    </message>
+    <message>
+        <source>Import a script</source>
+        <translation>导入脚本</translation>
+    </message>
+    <message>
+        <source>Scripts (*.txt *.md *.docx)</source>
+        <translation>脚本 (*.txt *.md *.docx)</translation>
+    </message>
+    <message>
+        <source>That file has no text that can be read</source>
+        <translation>该文件没有可读取的文字</translation>
+    </message>
+    <message>
+        <source>Voice: %1</source>
+        <translation>配音：%1</translation>
+    </message>
+    <message>
+        <source>A dialogue: a voice for each person</source>
+        <translation>对话：每个人一种声音</translation>
+    </message>
+    <message>
+        <source>Generate again</source>
+        <translation>重新生成</translation>
+    </message>
+    <message>
+        <source>Speak the script; you hear it before it goes on the timeline</source>
+        <translation>朗读脚本；放到时间线之前你可以先听</translation>
+    </message>
+    <message>
+        <source>Listen to the whole take</source>
+        <translation>试听整段录制</translation>
+    </message>
+    <message>
+        <source>Take: %1 s</source>
+        <translation>录制：%1 秒</translation>
+    </message>
+    <message>
+        <source>Listen to this sentence</source>
+        <translation>试听这句</translation>
+    </message>
+    <message>
+        <source>Speak this sentence again</source>
+        <translation>重新朗读这句</translation>
+    </message>
+    <message>
+        <source>Also create its captions</source>
+        <translation>同时生成字幕</translation>
+    </message>
+    <message>
+        <source>Replace the voice on the timeline</source>
+        <translation>替换时间线上的配音</translation>
+    </message>
+    <message>
+        <source>Add to the timeline</source>
+        <translation>添加到时间线</translation>
+    </message>
+    <message>
+        <source>Discard</source>
+        <translation>放弃</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation>选项</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>速度</translation>
+    </message>
+    <message>
+        <source>%1×</source>
+        <translation>%1×</translation>
+    </message>
+    <message>
+        <source>Pitch</source>
+        <translation>音调</translation>
+    </message>
+    <message>
+        <source>Stop preparing the voice</source>
+        <translation>停止准备声音</translation>
+    </message>
+    <message>
         <source>Name</source>
         <translation>名称</translation>
     </message>
@@ -25363,8 +25951,8 @@ If playback stutters, try another.</source>
         <translation>%1 秒</translation>
     </message>
     <message>
-        <source>Record 5 to 20 seconds in a quiet room. Read this aloud in your natural voice:</source>
-        <translation>请在安静的环境中录制 5 到 20 秒。用自然的声音朗读以下内容：</translation>
+        <source>Record 3 to 20 seconds in a quiet room (it stops by itself at 20). Read this aloud in your natural voice:</source>
+        <translation>在安静的房间里录制 3 到 20 秒（到 20 秒会自动停止）。用你自然的声音大声朗读：</translation>
     </message>
     <message>
         <source>The quick brown fox jumps over the lazy dog, while a gentle breeze moves through the quiet garden and the evening light fades slowly.</source>
@@ -25377,6 +25965,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Start recording</source>
         <translation>开始录制</translation>
+    </message>
+    <message>
+        <source>20 s: done, save the voice</source>
+        <translation>20 秒：完成，保存声音</translation>
     </message>
     <message>
         <source>I have the right to use this person&apos;s voice</source>
@@ -25584,7 +26176,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>应用</translation>
     </message>
     <message>
         <source>Apply letter by letter</source>
@@ -25600,7 +26192,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished"></translation>
+        <translation>全部</translation>
     </message>
     <message>
         <source>How hard it squashes, stretches and bends</source>
@@ -25616,7 +26208,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>速度</translation>
     </message>
     <message>
         <source>Faster makes it shorter, slower makes it longer</source>
@@ -25914,6 +26506,10 @@ If playback stutters, try another.</source>
     <message>
         <source>Subtitles from the voice, on your computer, without internet</source>
         <translation>根据语音生成字幕，在你的电脑上完成，无需联网</translation>
+    </message>
+    <message>
+        <source>A simpler version in the browser: it doesn&apos;t have every tool of this app and gets no new ones. Everything new comes to this app.</source>
+        <translation>浏览器中的简化版：没有本应用的全部工具，也不再更新。所有新功能都只在本应用中提供。</translation>
     </message>
     <message>
         <source>Click to sign in</source>
@@ -26505,12 +27101,12 @@ If playback stutters, try another.</source>
         <translation>%1 条字幕</translation>
     </message>
     <message>
-        <source>Play the timeline — the line on screen lights up. Tap any line to edit it.</source>
-        <translation>播放时间线，屏幕上的字幕会高亮显示。点按任意一行即可编辑。</translation>
+        <source>Translate</source>
+        <translation>翻译</translation>
     </message>
     <message>
-        <source>Play the timeline — the line on screen lights up. Click any line to jump to it and edit it below.</source>
-        <translation>播放时间线，屏幕上的字幕会高亮显示。点击任意一行即可跳转到该处并在下方编辑。</translation>
+        <source>The captions in another language, as a second line above (bilingual)</source>
+        <translation>另一种语言的字幕，作为上方的第二行（双语）</translation>
     </message>
     <message>
         <source>Import</source>
@@ -26543,6 +27139,18 @@ If playback stutters, try another.</source>
     <message>
         <source>Offset the exported captions by this clip&apos;s start so they match the exported video</source>
         <translation>按此片段的起点偏移导出的字幕，使其与导出的视频对齐</translation>
+    </message>
+    <message>
+        <source>Translating…</source>
+        <translation>翻译中…</translation>
+    </message>
+    <message>
+        <source>Captions that will change: %1</source>
+        <translation>将更改的字幕：%1</translation>
+    </message>
+    <message>
+        <source>+ %1 more</source>
+        <translation>+ 另外 %1 条</translation>
     </message>
     <message>
         <source>(empty)</source>
@@ -26585,8 +27193,24 @@ If playback stutters, try another.</source>
         <translation>将结束设为当前时间</translation>
     </message>
     <message>
-        <source>Delete caption</source>
-        <translation>删除字幕</translation>
+        <source>Style: same as the clip</source>
+        <translation>样式：与片段相同</translation>
+    </message>
+    <message>
+        <source>Like the clip</source>
+        <translation>与片段相同</translation>
+    </message>
+    <message>
+        <source>Top</source>
+        <translation>顶部</translation>
+    </message>
+    <message>
+        <source>Middle</source>
+        <translation>中间</translation>
+    </message>
+    <message>
+        <source>Where this caption sits on screen</source>
+        <translation>这条字幕在画面上的位置</translation>
     </message>
     <message>
         <source>At %1</source>
@@ -26603,6 +27227,30 @@ If playback stutters, try another.</source>
     <message>
         <source>Emojis</source>
         <translation>表情</translation>
+    </message>
+    <message>
+        <source>Too short to read</source>
+        <translation>太短，来不及读</translation>
+    </message>
+    <message>
+        <source>On screen too long</source>
+        <translation>显示时间过长</translation>
+    </message>
+    <message>
+        <source>Too fast to read</source>
+        <translation>太快，来不及读</translation>
+    </message>
+    <message>
+        <source>Move all captions</source>
+        <translation>全部移动</translation>
+    </message>
+    <message>
+        <source>All captions 0.1 s earlier</source>
+        <translation>全部提前 0.1 秒</translation>
+    </message>
+    <message>
+        <source>All captions 0.1 s later</source>
+        <translation>全部延后 0.1 秒</translation>
     </message>
     <message>
         <source>Replace these captions from an SRT, WebVTT or ASS file</source>
@@ -26633,6 +27281,30 @@ If playback stutters, try another.</source>
         <translation>在提到关键词的字幕末尾添加表情（fuego 🔥、fiesta 🎉）</translation>
     </message>
     <message>
+        <source>Animated</source>
+        <translation>动态</translation>
+    </message>
+    <message>
+        <source>An animated emoji above each caption that mentions one (fuego, Dios, fiesta…)</source>
+        <translation>在提到表情词的每条字幕上方放一个动态表情（火、上帝、派对…）</translation>
+    </message>
+    <message>
+        <source>Bleep</source>
+        <translation>哔声</translation>
+    </message>
+    <message>
+        <source>A beep over each hidden swear word, with the voice muted under it</source>
+        <translation>在每个隐藏的脏话上加哔声，并静音其下的人声</translation>
+    </message>
+    <message>
+        <source>Key words</source>
+        <translation>关键词</translation>
+    </message>
+    <message>
+        <source>Highlight the key word of each caption in colour (a number, a name, what matters)</source>
+        <translation>用颜色突出每条字幕的关键词（数字、名字、要点）</translation>
+    </message>
+    <message>
         <source>Clean up</source>
         <translation>清理</translation>
     </message>
@@ -26647,6 +27319,70 @@ If playback stutters, try another.</source>
     <message>
         <source>Fix a word in every caption at once</source>
         <translation>一次性修正所有字幕中的某个词</translation>
+    </message>
+    <message>
+        <source>Spelling</source>
+        <translation>拼写</translation>
+    </message>
+    <message>
+        <source>Check the spelling of every caption, one word at a time</source>
+        <translation>逐词检查所有字幕的拼写</translation>
+    </message>
+    <message>
+        <source>Speakers</source>
+        <translation>说话人</translation>
+    </message>
+    <message>
+        <source>File and timing</source>
+        <translation>文件与时间</translation>
+    </message>
+    <message>
+        <source>Words to check: %1</source>
+        <translation>待检查的词：%1</translation>
+    </message>
+    <message>
+        <source>No spelling mistakes found.</source>
+        <translation>未发现拼写错误。</translation>
+    </message>
+    <message>
+        <source>Remove repeated word</source>
+        <translation>删除重复的词</translation>
+    </message>
+    <message>
+        <source>No suggestions: fix it in the text box.</source>
+        <translation>没有建议：请在文本框中修改。</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>关闭</translation>
+    </message>
+    <message>
+        <source>Without an account they are translated on this computer (a little slower).</source>
+        <translation>未登录账户时，会在这台电脑上翻译（稍慢一些）。</translation>
+    </message>
+    <message>
+        <source>Sign in with Google to translate captions, or install the Offline translation extra</source>
+        <translation>使用 Google 登录以翻译字幕，或安装“离线翻译”扩展</translation>
+    </message>
+    <message>
+        <source>Ignore</source>
+        <translation>忽略</translation>
+    </message>
+    <message>
+        <source>Nothing to change in these captions.</source>
+        <translation>这些字幕没有需要更改的内容。</translation>
+    </message>
+    <message>
+        <source>(removed)</source>
+        <translation>（删除）</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>应用</translation>
     </message>
     <message>
         <source>Find (e.g. jesus)</source>
@@ -26712,6 +27448,38 @@ If playback stutters, try another.</source>
         <source>Tip: write a word between asterisks, like *faith*, to highlight it in colour.</source>
         <translation>提示：将词语放在星号之间（如 *信心*），即可用颜色突出显示。</translation>
     </message>
+    <message>
+        <source>One frame earlier</source>
+        <translation>提前一帧</translation>
+    </message>
+    <message>
+        <source>One frame later</source>
+        <translation>延后一帧</translation>
+    </message>
+    <message>
+        <source>Split</source>
+        <translation>拆分</translation>
+    </message>
+    <message>
+        <source>Split this caption at the playhead</source>
+        <translation>在播放头处拆分此字幕</translation>
+    </message>
+    <message>
+        <source>Join</source>
+        <translation>合并</translation>
+    </message>
+    <message>
+        <source>Join this caption with the next one</source>
+        <translation>将此字幕与下一条合并</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete this caption</source>
+        <translation>删除此字幕</translation>
+    </message>
 </context>
 <context>
     <name>SubtitleProgressDialog</name>
@@ -26734,18 +27502,6 @@ If playback stutters, try another.</source>
 </context>
 <context>
     <name>SubtitlesTab</name>
-    <message>
-        <source>Subtitle track — one clip holds many timed captions. Place it on the timeline, trim its length, then add caption lines at each moment in the clip panel.</source>
-        <translation>字幕轨道 — 一个片段包含多条定时字幕。将其放到时间线上并调整长度，然后在片段面板中为每个时刻添加字幕行。</translation>
-    </message>
-    <message>
-        <source>Add subtitle clip</source>
-        <translation>添加字幕片段</translation>
-    </message>
-    <message>
-        <source>Import subtitle file</source>
-        <translation>导入字幕文件</translation>
-    </message>
     <message>
         <source>Import Subtitles</source>
         <translation>导入字幕</translation>
@@ -26771,20 +27527,48 @@ If playback stutters, try another.</source>
         <translation>所有文件 (*)</translation>
     </message>
     <message>
-        <source>Add auto caption</source>
-        <translation>添加自动字幕</translation>
-    </message>
-    <message>
-        <source>Creates captions from the speech in the selected clip.</source>
-        <translation>根据所选片段中的语音生成字幕。</translation>
-    </message>
-    <message>
         <source>Select a video or audio clip on the timeline first.</source>
         <translation>请先在时间线上选择视频或音频片段。</translation>
     </message>
     <message>
+        <source>On this computer</source>
+        <translation>在这台电脑上</translation>
+    </message>
+    <message>
+        <source>In the cloud</source>
+        <translation>在云端</translation>
+    </message>
+    <message>
+        <source>ElevenLabs Scribe: the audio is sent to ElevenLabs with your key</source>
+        <translation>ElevenLabs Scribe：使用你的密钥把音频发送到 ElevenLabs</translation>
+    </message>
+    <message>
+        <source>Hard words: names, brands… (separated by commas)</source>
+        <translation>难词：人名、品牌…（用逗号分隔）</translation>
+    </message>
+    <message>
+        <source>Style of the selected captions</source>
+        <translation>所选字幕的样式</translation>
+    </message>
+    <message>
+        <source>Two lines per caption</source>
+        <translation>每条字幕两行</translation>
+    </message>
+    <message>
+        <source>Hide swear words (m*****)</source>
+        <translation>隐藏脏话（f***）</translation>
+    </message>
+    <message>
         <source>Shorter captions are timed by splitting each phrase evenly, so they can drift slightly out of sync with the speech.</source>
         <translation>较短的字幕是将每个短语平均拆分来定时的，因此可能与语音略有不同步。</translation>
+    </message>
+    <message>
+        <source>Captions from the voice</source>
+        <translation>根据语音生成字幕</translation>
+    </message>
+    <message>
+        <source>Create captions</source>
+        <translation>生成字幕</translation>
     </message>
     <message>
         <source>Create captions from the selected clips&apos; speech — several clips become one caption clip</source>
@@ -26817,6 +27601,38 @@ If playback stutters, try another.</source>
     <message>
         <source>Needed for auto captions from speech</source>
         <translation>自动语音字幕需要此组件</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation>选项</translation>
+    </message>
+    <message>
+        <source>Tell the speakers apart (a colour for each)</source>
+        <translation>区分说话人（每人一种颜色）</translation>
+    </message>
+    <message>
+        <source>Highlight key words in colour</source>
+        <translation>用颜色高亮关键词</translation>
+    </message>
+    <message>
+        <source>Show fewer</source>
+        <translation>收起</translation>
+    </message>
+    <message>
+        <source>See all styles (%1)</source>
+        <translation>查看全部样式（%1）</translation>
+    </message>
+    <message>
+        <source>Write by hand</source>
+        <translation>手动输入</translation>
+    </message>
+    <message>
+        <source>An empty caption clip at the playhead: write each line in the clip panel</source>
+        <translation>在播放头处添加空字幕片段：在片段面板中逐行输入</translation>
+    </message>
+    <message>
+        <source>Import file</source>
+        <translation>导入文件</translation>
     </message>
     <message>
         <source>Recommended caption length</source>
@@ -27522,6 +28338,41 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>TextEditWindow</name>
+    <message>
+        <source>Edit by text</source>
+        <translation>按文字剪辑</translation>
+    </message>
+    <message>
+        <source>Click the words to take out (Shift + click for a stretch). Double click to hear one.</source>
+        <translation>点击要删除的词（Shift + 点击选择一段）。双击可试听。</translation>
+    </message>
+    <message>
+        <source>No words found in this clip.</source>
+        <translation>此片段中没有找到词语。</translation>
+    </message>
+    <message>
+        <source>Listening to the clip to write down what is said… %1%</source>
+        <translation>正在聆听片段以记下所说的内容… %1%</translation>
+    </message>
+    <message>
+        <source>The first time takes a while; then it opens at once.</source>
+        <translation>第一次需要一些时间；之后会立即打开。</translation>
+    </message>
+    <message>
+        <source>%1 words · %2 s</source>
+        <translation>%1 个词 · %2 秒</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
+        <source>Cut</source>
+        <translation>剪切</translation>
+    </message>
+</context>
+<context>
     <name>TextEffects</name>
     <message>
         <source>Shine sweep</source>
@@ -28085,6 +28936,26 @@ If playback stutters, try another.</source>
     <message>
         <source>These letters go back to the style of the whole text</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Read aloud…</source>
+        <translation>朗读…</translation>
+    </message>
+    <message>
+        <source>Turn this text into a voice that starts with it</source>
+        <translation>将此文字转为与其同时开始的配音</translation>
+    </message>
+    <message>
+        <source>Discard the voice you made?</source>
+        <translation>要放弃你制作的语音吗？</translation>
+    </message>
+    <message>
+        <source>Discard and go on</source>
+        <translation>放弃并继续</translation>
+    </message>
+    <message>
+        <source>The Voice panel has a take that is not on the timeline yet. Add it first with «Add to timeline», or discard it to start this one.</source>
+        <translation>语音面板中有一段尚未添加到时间线的录音。请先用“添加到时间线”添加它，或放弃它以开始这一段。</translation>
     </message>
     <message>
         <source>Bold</source>
@@ -30158,6 +31029,18 @@ If playback stutters, try another.</source>
 <context>
     <name>TimelinePanel</name>
     <message>
+        <source>Move work area</source>
+        <translation>移动工作区</translation>
+    </message>
+    <message>
+        <source>Work area: drag to move it</source>
+        <translation>工作区:拖动以移动</translation>
+    </message>
+    <message>
+        <source>Work area: drag to change where it starts or ends</source>
+        <translation>工作区:拖动以更改开始或结束位置</translation>
+    </message>
+    <message>
         <source>Proxy</source>
         <translation>代理</translation>
     </message>
@@ -31000,7 +31883,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Remove keyframes</source>
-        <translation type="unfinished"></translation>
+        <translation>移除关键帧</translation>
     </message>
     <message>
         <source>Stop animating (removes its keyframes)</source>
@@ -31056,7 +31939,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Separate dimensions</source>
-        <translation type="unfinished"></translation>
+        <translation>单独尺寸</translation>
     </message>
     <message>
         <source>Behavior…</source>
@@ -31068,7 +31951,7 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>删除</translation>
     </message>
     <message>
         <source>The clip keeps the value it has at the playhead. You can undo afterwards.</source>
@@ -32240,7 +33123,11 @@ If playback stutters, try another.</source>
     <name>TtsController</name>
     <message>
         <source>Loading voice model…</source>
-        <translation type="unfinished"></translation>
+        <translation>正在加载语音模型…</translation>
+    </message>
+    <message>
+        <source>No speech was produced</source>
+        <translation>未生成任何语音</translation>
     </message>
     <message>
         <source>Install the voice model first</source>
@@ -32255,16 +33142,62 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Generating speech…</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Cancelled</source>
         <translation>已取消</translation>
     </message>
     <message>
+        <source>Speaking sentence %1 of %2…</source>
+        <translation>正在朗读第 %1/%2 句…</translation>
+    </message>
+    <message>
+        <source>Sentence %1 could not be spoken: %2</source>
+        <translation>第 %1 句无法朗读：%2</translation>
+    </message>
+    <message>
+        <source>Putting the take together…</source>
+        <translation>正在合成录制…</translation>
+    </message>
+    <message>
+        <source>Listen to it, then add it to the timeline</source>
+        <translation>先试听，再添加到时间线</translation>
+    </message>
+    <message>
+        <source>Speaking sentence %1 again…</source>
+        <translation>正在重新朗读第 %1 句…</translation>
+    </message>
+    <message>
+        <source>Sentence %1 spoken again</source>
+        <translation>第 %1 句已重新朗读</translation>
+    </message>
+    <message>
+        <source>Changing speed and pitch…</source>
+        <translation>正在调整速度和音调…</translation>
+    </message>
+    <message>
+        <source>Replace voice</source>
+        <translation>替换配音</translation>
+    </message>
+    <message>
+        <source>Could not replace the voice</source>
+        <translation>无法替换配音</translation>
+    </message>
+    <message>
         <source>Speech added to the timeline</source>
         <translation>语音已添加到时间线</translation>
+    </message>
+    <message>
+        <source>Voice replaced on the timeline</source>
+        <translation>已替换时间线上的配音</translation>
+    </message>
+    <message numerus="yes">
+        <source>The music goes down under the voice (%n clip(s))</source>
+        <translation>
+            <numerusform>音乐在配音下方降低（%n 个片段）</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>There is no music under this voice</source>
+        <translation>此配音下方没有音乐</translation>
     </message>
     <message>
         <source>Select a subtitle clip first</source>
@@ -32273,6 +33206,10 @@ If playback stutters, try another.</source>
     <message>
         <source>This subtitle clip has no text to speak</source>
         <translation>此字幕片段没有可朗读的文本</translation>
+    </message>
+    <message>
+        <source>Speaking line %1 of %2…</source>
+        <translation>正在朗读第 %1/%2 行…</translation>
     </message>
     <message>
         <source>Generate voiceover</source>
@@ -32292,6 +33229,12 @@ If playback stutters, try another.</source>
         <source>; %n ran longer than their captions</source>
         <translation>
             <numerusform>；%n 句比其字幕更长</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>; %n could not be added</source>
+        <translation>
+            <numerusform>；%n 个无法添加</numerusform>
         </translation>
     </message>
 </context>
@@ -33545,6 +34488,81 @@ If playback stutters, try another.</source>
     </message>
 </context>
 <context>
+    <name>VoiceGallery</name>
+    <message>
+        <source>Narration</source>
+        <translation>旁白</translation>
+    </message>
+    <message>
+        <source>Young</source>
+        <translation>年轻</translation>
+    </message>
+    <message>
+        <source>Deep</source>
+        <translation>低沉</translation>
+    </message>
+    <message>
+        <source>Lively</source>
+        <translation>活泼</translation>
+    </message>
+    <message>
+        <source>Soft</source>
+        <translation>柔和</translation>
+    </message>
+    <message>
+        <source>Mature</source>
+        <translation>成熟</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation>全部</translation>
+    </message>
+    <message>
+        <source>Favorites</source>
+        <translation>收藏</translation>
+    </message>
+    <message>
+        <source>Mine</source>
+        <translation>我的</translation>
+    </message>
+    <message>
+        <source>Women</source>
+        <translation>女声</translation>
+    </message>
+    <message>
+        <source>Men</source>
+        <translation>男声</translation>
+    </message>
+    <message>
+        <source>Hear this voice</source>
+        <translation>试听此配音</translation>
+    </message>
+    <message>
+        <source>My voice</source>
+        <translation>我的声音</translation>
+    </message>
+    <message>
+        <source>Mark voices with the star to find them here</source>
+        <translation>给配音加星标即可在这里找到</translation>
+    </message>
+    <message>
+        <source>Your own voices appear here: «New voice» in Options</source>
+        <translation>你自己的配音显示在这里：选项中的“新配音”</translation>
+    </message>
+    <message>
+        <source>No voices of this kind</source>
+        <translation>没有这类配音</translation>
+    </message>
+    <message>
+        <source>Show fewer</source>
+        <translation>收起</translation>
+    </message>
+    <message>
+        <source>See all voices (%1)</source>
+        <translation>查看全部配音 (%1)</translation>
+    </message>
+</context>
+<context>
     <name>VoiceLibrary</name>
     <message>
         <source>Default</source>
@@ -33557,6 +34575,18 @@ If playback stutters, try another.</source>
     <message>
         <source>A voice needs a name and a recording</source>
         <translation>声音需要名称和一段录音</translation>
+    </message>
+    <message>
+        <source>Reading the recording…</source>
+        <translation>正在读取录音…</translation>
+    </message>
+    <message>
+        <source>Loading voice model…</source>
+        <translation>正在加载语音模型…</translation>
+    </message>
+    <message>
+        <source>Learning the voice…</source>
+        <translation>正在学习声音…</translation>
     </message>
     <message>
         <source>Could not prepare the voice</source>
@@ -33573,6 +34603,18 @@ If playback stutters, try another.</source>
     <message>
         <source>The recording is too short: record at least %1 seconds</source>
         <translation>录音太短：请至少录制 %1 秒</translation>
+    </message>
+    <message>
+        <source>Unknown voice</source>
+        <translation>未知声音</translation>
+    </message>
+    <message>
+        <source>The reference recording for this voice is missing</source>
+        <translation>缺少此声音的参考录音</translation>
+    </message>
+    <message>
+        <source>Could not read the reference recording</source>
+        <translation>无法读取参考录音</translation>
     </message>
 </context>
 <context>
@@ -33629,6 +34671,18 @@ If playback stutters, try another.</source>
         <translation>生成配音</translation>
     </message>
     <message>
+        <source>Speech generation runs on this device and needs the voice model.</source>
+        <translation>语音生成在此设备上运行，需要语音模型。</translation>
+    </message>
+    <message>
+        <source>Download voice model</source>
+        <translation>下载语音模型</translation>
+    </message>
+    <message>
+        <source>Install AI engine first</source>
+        <translation>请先安装 AI 引擎</translation>
+    </message>
+    <message>
         <source>Voice</source>
         <translation>声音</translation>
     </message>
@@ -33659,6 +34713,21 @@ If playback stutters, try another.</source>
     <message>
         <source>Close</source>
         <translation>关闭</translation>
+    </message>
+</context>
+<context>
+    <name>WhisperTranscriber</name>
+    <message>
+        <source>Transcribing %1–%2 of %3…</source>
+        <translation>正在转写 %1–%2（共 %3）…</translation>
+    </message>
+    <message>
+        <source>Detecting language…</source>
+        <translation>正在检测语言…</translation>
+    </message>
+    <message>
+        <source>Finishing up…</source>
+        <translation>正在收尾…</translation>
     </message>
 </context>
 <context>

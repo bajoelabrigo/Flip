@@ -62,7 +62,9 @@ Item {
     function refreshDisplay() {
         const s = []
         for (let i = 0; i < cues.length; i++)
-            s.push({ start: cues[i].start, end: cues[i].end, text: cues[i].text })
+            s.push({ start: cues[i].start, end: cues[i].end, text: cues[i].text, wordEnds: cues[i].wordEnds || [],
+                     style: cues[i].style || "", place: cues[i].place || "",
+                     speaker: cues[i].speaker !== undefined ? cues[i].speaker : -1 })
         displayCues = s
     }
     onCuesChanged: if (!anyDragging) refreshDisplay()
@@ -141,10 +143,19 @@ Item {
         const b = baseCues()
         const list = []
         for (let i = 0; i < b.length; i++) {
-            if (i === index)
-                list.push({ start: newStart, end: newEnd, text: b[i].text })
-            else
-                list.push({ start: b[i].start, end: b[i].end, text: b[i].text })
+            // The word timings go with the cue: moved whole, they move with it; trimmed, they stay
+            // with the voice (dropped here, they took the karaoke of every cue with them).
+            const ends = b[i].wordEnds || []
+            if (i === index) {
+                const delta = newStart - b[i].start
+                const moved = Math.abs((newEnd - b[i].end) - delta) < 1e-6
+                list.push({ start: newStart, end: newEnd, text: b[i].text, style: b[i].style, place: b[i].place,
+                            speaker: b[i].speaker,
+                            wordEnds: moved ? ends.map(e => e + delta) : ends })
+            } else {
+                list.push({ start: b[i].start, end: b[i].end, text: b[i].text, wordEnds: ends,
+                            style: b[i].style, place: b[i].place, speaker: b[i].speaker })
+            }
         }
         EditorState.previewSetSubtitleCues(EditorState.selectedTrack, EditorState.selectedClip, list)
     }
@@ -381,8 +392,11 @@ Item {
                             anchors.rightMargin: 6
                             verticalAlignment: Text.AlignVCenter
                             elide: Text.ElideRight
+                            // One line in the block: a two-line caption's break let the first line run
+                            // past the block's end (eliding works on single lines only).
+                            clip: true
                             text: (block.modelData.text && block.modelData.text.length)
-                                  ? block.modelData.text : qsTr("(empty)")
+                                  ? block.modelData.text.replace(/\s*\n\s*/g, " ") : qsTr("(empty)")
                             color: Theme.onMedia
                             font.family: Theme.fontFamily
                             font.pixelSize: Theme.fontSizeXs

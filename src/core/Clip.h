@@ -200,6 +200,7 @@ struct Clip
     // Saved only when true.
     bool textAutoFit = false;
     QList<SubtitleCue> subtitleCues; // only meaningful when type == Subtitle
+    QList<SubtitleSpeaker> subtitleSpeakers; // the voices those cues name (cue.speaker), if told apart
     ShapeStyle shapeStyle; // only meaningful when type == Shape
     VectorSource vector;   // only meaningful when type == Vector
     Model3dSource model3d; // only meaningful when type == Model3d
@@ -347,6 +348,23 @@ struct Clip
     // After Effects' Auto-Orient along path (0.26): the clip turns to face the way Position moves,
     // added to its own Rotation.
     bool autoOrient = false;
+    // After Effects' Position as one property (0.30, core/PositionPath): the path has its own
+    // handles and the timing is the distance along it. Switched on when Position starts moving,
+    // unless the user chose Separate Dimensions (positionSeparated); projects from before load
+    // separate, as they were made.
+    bool positionJoined = false;
+    bool positionSeparated = false;
+    // A shape's or a text's own size, Scale's 100 % (0.30, After Effects' layer size): kept from the
+    // size it had before it was ever scaled, so keying Scale no longer makes the new size the 100 %
+    // (a 130 % read 100 %) and the anchor's numbers stay put. 0 = not known yet.
+    double restW = 0.0;
+    double restH = 0.0;
+    // The size the box had when its size got its stopwatch (0.30): the stored X/Y place the box at
+    // it, and any keyed size grows around the anchor from there, even with one key (the stopwatch
+    // and a typed 130 at the same moment left one key, the 130, and the box grew from its corner).
+    // 0 = from before: the first of two keys or more, as it was.
+    double sizePivotW = 0.0;
+    double sizePivotH = 0.0;
 
     // The turn Auto-Orient adds at clip time `relative`, in degrees (0 when off or still).
     double autoOrientDegrees(TimeUs relative) const
@@ -374,18 +392,39 @@ struct Clip
     // How far the box moves so that turning `rotationDeg` pivots on the anchor instead of the
     // centre, for a box w × h (project px) at clip time `relative`: a − R·a, with a the anchor
     // relative to the centre. Zero for a centred anchor or no turn.
+    //
+    // With an anchor point of its own the box also grows and shrinks around it, as After Effects
+    // scales around the anchor: the stored X/Y place the box at its first keyframed size, and at any
+    // other size it moves by anchor × (that size − this size). Without an anchor, nothing changes
+    // (old projects and templates animate size with their own position keys).
     QPointF anchorShift(TimeUs relative, double w, double h, double rotationDeg) const
     {
+        if (anchorX.isEmpty() && anchorY.isEmpty())
+            return {};
         const double fx = anchorX.isEmpty() ? 0.5 : anchorX.evaluateAt(relative);
         const double fy = anchorY.isEmpty() ? 0.5 : anchorY.evaluateAt(relative);
+        // w, h may be scaled for the canvas: the size change is taken as a ratio of the stored one.
+        const auto sizeShift = [relative](const KeyframeTrack<double> &track, double drawn, double fraction,
+                                          double pivot) {
+            // With a pivot: while the size is keyed (its stopwatch on, even with one key).
+            const bool keyed = track.keyframes().size() >= 2 || (track.stopwatch() && !track.isEmpty());
+            if (!keyed || (pivot <= 0.0 && track.keyframes().size() < 2))
+                return 0.0;
+            const double now = track.evaluateAt(relative);
+            const double rest = pivot > 0.0 ? pivot : track.keyframes().first().value;
+            if (std::abs(now) < 1e-9)
+                return 0.0;
+            return fraction * (drawn * rest / now - drawn);
+        };
+        QPointF shift(sizeShift(transformW, w, fx, sizePivotW), sizeShift(transformH, h, fy, sizePivotH));
         const double ax = (fx - 0.5) * w;
         const double ay = (fy - 0.5) * h;
         if ((ax == 0.0 && ay == 0.0) || rotationDeg == 0.0)
-            return {};
+            return shift;
         const double r = rotationDeg * 3.14159265358979323846 / 180.0;
         const double c = std::cos(r);
         const double s = std::sin(r);
-        return {ax - (c * ax - s * ay), ay - (s * ax + c * ay)};
+        return shift + QPointF(ax - (c * ax - s * ay), ay - (s * ax + c * ay));
     }
     QList<Effect> effects;
     QList<Effect> audioEffects; // libavfilter chains applied to this clip's audio in the mixer

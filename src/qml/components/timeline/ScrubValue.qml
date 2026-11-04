@@ -32,6 +32,16 @@ Item {
     property var write: null
     // Before the first write of a drag (Scale reads where it starts).
     signal begun()
+    // Tab (or Shift+Tab) confirmed the typed value: the line opens the next (previous) value, as
+    // After Effects does. The focus never wanders off to the header's buttons.
+    signal tabbed(bool back)
+
+    function startEditing() {
+        field.text = root.format(root.shown).replace(root.suffix, "")
+        root.editing = true
+        field.forceActiveFocus()
+        field.selectAll()
+    }
 
     readonly property real shown: toDisplay(value)
     property bool editing: false
@@ -55,8 +65,9 @@ Item {
             EditorState.previewSetPropertyValue(root.trackIndex, root.clipIndex, root.prop,
                                                 EditorState.playheadSeconds, stored)
     }
-    function begin() {
-        if (EditorState.selectedTrack !== root.trackIndex || EditorState.selectedClip !== root.clipIndex)
+    function begin(keepSelection) {
+        if (!keepSelection
+                && (EditorState.selectedTrack !== root.trackIndex || EditorState.selectedClip !== root.clipIndex))
             EditorState.selectClip(root.trackIndex, root.clipIndex)
         EditorState.beginPreviewDrag(root.undoLabel)
         root.begun()
@@ -84,14 +95,27 @@ Item {
         cursorShape: Qt.SizeHorCursor
         property real pressX: 0
         property real startShown: 0
+        // The hint shows only once the pointer moves over the value, and not again after a press until
+        // it leaves: it sat over the line's name while the value was typed and the frames stepped, and
+        // the line is rebuilt on every commit, so a still pointer over the new one must not bring it back
+        // (bounce exercise #14).
+        property bool hintUsed: false
+        property bool movedOver: false
+        onExited: {
+            hintUsed = false
+            movedOver = false
+        }
         onPressed: (mouse) => {
+            hintUsed = true
             pressX = mapToItem(null, mouse.x, mouse.y).x
             startShown = root.shown
             root.liveShown = startShown
         }
         onPositionChanged: (mouse) => {
-            if (!pressed)
+            if (!pressed) {
+                movedOver = true
                 return
+            }
             const dx = mapToItem(null, mouse.x, mouse.y).x - pressX
             if (!root.dragging) {
                 if (Math.abs(dx) < 3)
@@ -112,10 +136,7 @@ Item {
                 return
             }
             // A click: type the value.
-            field.text = root.format(root.shown).replace(root.suffix, "")
-            root.editing = true
-            field.forceActiveFocus()
-            field.selectAll()
+            root.startEditing()
         }
         onCanceled: {
             if (root.dragging) {
@@ -144,13 +165,20 @@ Item {
         font.pixelSize: Theme.fontSizeTiny
         selectByMouse: true
         inputMethodHints: Qt.ImhFormattedNumbersOnly
-        function finish(commit) {
+        // `focusLost`: the click went elsewhere (another clip): the value is kept, but the selection
+        // stays where the click put it (0.30: a field left typing re-selected its own clip, so
+        // clicking another clip seemed to do nothing until Esc, tests #2 and #9).
+        function finish(commit, focusLost) {
             if (!root.editing)
                 return
             root.editing = false
-            const d = parseFloat(String(text).replace(",", "."))
+            // Untouched: nothing to write.
+            if (text === root.format(root.shown).replace(root.suffix, ""))
+                return
+            // Sums too, as After Effects: "+50" adds to the value shown, "*2" doubles it, "100+20" is 120.
+            const d = ValueMath.evaluate(text, root.shown)
             if (commit && !isNaN(d)) {
-                root.begin()
+                root.begin(!!focusLost)
                 root.apply(d)
                 EditorState.commitPreviewDrag()
             }
@@ -158,11 +186,23 @@ Item {
         Keys.onReturnPressed: finish(true)
         Keys.onEnterPressed: finish(true)
         Keys.onEscapePressed: finish(false)
-        onActiveFocusChanged: if (!activeFocus) finish(true)
+        // The line asks for the next value first: the commit rebuilds the lines at once, so a signal
+        // sent after it came from a destroyed item and nobody heard it (bounce exercise #10b).
+        Keys.onTabPressed: (event) => {
+            event.accepted = true
+            root.tabbed(false)
+            finish(true)
+        }
+        Keys.onBacktabPressed: (event) => {
+            event.accepted = true
+            root.tabbed(true)
+            finish(true)
+        }
+        onActiveFocusChanged: if (!activeFocus) finish(true, true)
     }
 
     ThemedToolTip {
-        visible: scrub.containsMouse && !root.dragging && !root.editing
+        visible: scrub.containsMouse && scrub.movedOver && !scrub.hintUsed && !root.dragging && !root.editing
         text: qsTr("Drag to change, click to type")
     }
 }

@@ -11990,6 +11990,42 @@ void EngineTest::expressionsRunOnProperties()
         track.setBehavior(b);
         QCOMPARE(track.evaluateAt(0), 52.0);
     }
+    // index and thisLayer (0.30): the layer the property belongs to, found in the project in scope.
+    {
+        drift::KeyframeTrack<double> &own = project.tracks()[0].clips[0].rotation;
+        drift::TrackBehavior ib;
+        ib.expression = QStringLiteral("index * 10 + thisLayer.index + (thisLayer.name === \"Nulo 1\" ? 100 : 0)");
+        own.setBehavior(ib);
+        QCOMPARE(own.evaluateAt(0), 111.0);
+        // A track outside every layer has none.
+        ib.expression = QStringLiteral("index");
+        track.setBehavior(ib);
+        QCOMPARE(track.evaluateAt(0), 0.0);
+    }
+    // After Effects' helpers (0.30): linear/ease/clamp, and the property's own keys at another time.
+    b.expression = QStringLiteral("linear(time, 0, 1, 0, 100)");
+    track.setBehavior(b);
+    QCOMPARE(track.evaluateAt(drift::secondsToUs(0.25)), 25.0);
+    QCOMPARE(track.evaluateAt(drift::secondsToUs(3.0)), 100.0);
+    b.expression = QStringLiteral("ease(0.5, 0, 10)");
+    track.setBehavior(b);
+    QCOMPARE(track.evaluateAt(0), 5.0);
+    b.expression = QStringLiteral("clamp(value, 0, 12)");
+    track.setBehavior(b);
+    QCOMPARE(track.evaluateAt(drift::secondsToUs(0.5)), 12.0);
+    b.expression = QStringLiteral("valueAtTime(time - 0.5)");
+    track.setBehavior(b);
+    QCOMPARE(track.evaluateAt(drift::secondsToUs(1.0)), 15.0);
+    b.expression = QStringLiteral("velocity");
+    track.setBehavior(b);
+    {
+        // The keys' own rate of change at 0.5 s, whatever curve they have.
+        const double h = 1.0 / 240.0;
+        const double expected = (track.evaluateKeys(drift::secondsToUs(0.5 + h))
+                                 - track.evaluateKeys(drift::secondsToUs(0.5 - h))) / (2 * h);
+        QVERIFY(expected > 0.0);
+        QVERIFY(std::abs(track.evaluateAt(drift::secondsToUs(0.5)) - expected) < 1e-3);
+    }
     // Broken code keeps the value and says why.
     b.expression = QStringLiteral("this is not js");
     track.setBehavior(b);
