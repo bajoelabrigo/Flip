@@ -4232,6 +4232,8 @@ quint64 textFitKey(const drift::TextStyle &style)
     quint64 key = drift::text::layoutKey(QString(), style, 0.0, 0.0, 1.0, -1, drift::text::WordSplit::Whole);
     key = qHashMulti(key, style.boxEnabled, style.boxPadX(), style.boxPadY(),
                      drift::textStrokeWidth(style, false));
+    // Curve and Around a circle size the hugging box too (0.30); the layout key leaves them out.
+    key = qHashMulti(key, style.pathBend, style.pathCircle);
     for (auto it = style.keyframes.constBegin(); it != style.keyframes.constEnd(); ++it) {
         key = qHashMulti(key, it.key(), it->enabled());
         for (auto k = it->keyframes().constBegin(); k != it->keyframes().constEnd(); ++k)
