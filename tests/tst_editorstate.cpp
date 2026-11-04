@@ -147,6 +147,7 @@ private slots:
     void motionToolsReverseMirrorsPickedKeys();
     void gradientHandlesAndToolPaintOptions();
     void motionToolsTrimBendAndCaps();
+    void nullObjectHasNoShapeTab();
     void textClipTakesMasks();
     void motionTrackingKeysTheElementOverItsVideo();
     void motionTrackingHidesAnObjectAndDrivesAMask();
@@ -687,6 +688,18 @@ void EditorStateTest::audioAdjustmentTrackArrivesWithAClip()
 
 // CapCut's text masks: a selected text shows the Masks tab, and a mask added to it is listed as
 // its own, like a photo's.
+// An After Effects null is not drawn (0.30): no Shape tab, fill or stroke; it says it is a null.
+void EditorStateTest::nullObjectHasNoShapeTab()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    state.addNullObject();
+    const QStringList caps = state.selectedClipData().value(QStringLiteral("caps")).toStringList();
+    QVERIFY(caps.contains(QStringLiteral("nullObject")));
+    QVERIFY(caps.contains(QStringLiteral("transformable")));
+    QVERIFY(!caps.contains(QStringLiteral("shape")));
+}
+
 void EditorStateTest::textClipTakesMasks()
 {
     AssetLibrary library;

@@ -1125,6 +1125,12 @@ QStringList inspectorCaps(const drift::Clip &clip, drift::TrackType trackType)
              << QStringLiteral("videoTools") << QStringLiteral("trackable");
         break;
     case ClipType::Shape:
+        // A null is not drawn (0.30): no Shape tab, no fill and stroke, no blending, as an After Effects null.
+        if (clip.nullObject && clip.light.kind == 0) {
+            caps << QStringLiteral("transformable") << QStringLiteral("animatable") << QStringLiteral("trackable")
+                 << QStringLiteral("nullObject");
+            break;
+        }
         caps << QStringLiteral("transformable") << QStringLiteral("blendable") << QStringLiteral("animatable")
              << QStringLiteral("shape") << QStringLiteral("trackable");
         break;

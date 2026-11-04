@@ -119,7 +119,9 @@ Item {
             // A shape from the library (Stock › Shapes) has no built-in kind to name it.
             if (root.shapeStyle.kind === "custom")
                 out.push({ "id": "", "kind": "custom",
-                           "label": (root.clipData && root.clipData.name) || qsTr("Library shape") })
+                           // A part (a merged path, a pen path) goes by its own name, not the layer's (0.30).
+                           "label": root.editingPart ? (root.part.name || qsTr("Path"))
+                                    : (root.clipData && root.clipData.name) || qsTr("Library shape") })
             for (let i = 0; i < root.shapeCatalog.length; ++i) {
                 const entry = root.shapeCatalog[i]
                 if (seen[entry.kind])

@@ -405,7 +405,9 @@ Rectangle {
             Layout.alignment: Qt.AlignVCenter
             spacing: Theme.spacingSm
             visible: root.paintOptions || (root.tool === "select" && root.pickedStyled()
-                                           && EditorState.selectedClipData.kind === "shape")
+                                           && EditorState.selectedClipData.kind === "shape"
+                                           // A null has no paint (0.30).
+                                           && (EditorState.selectedClipData.caps || []).indexOf("nullObject") < 0)
 
             PaintLabel { which: "fill"; text: qsTr("Fill") }
             PaintSwatch { which: "fill" }
