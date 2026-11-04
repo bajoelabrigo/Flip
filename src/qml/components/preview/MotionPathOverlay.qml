@@ -482,9 +482,9 @@ Item {
                     const dy = (p.y - press.y) / root.sy
                     const s = dot.modelData.seconds
                     if (dot.modelData.hasX)
-                        EditorState.previewMoveClipKeyframe(root.trackIndex, root.clipIndex, "x", s, s, baseX + dx)
+                        EditorState.previewMoveClipKeyframe(root.trackIndex, root.clipIndex, "x", s, s, baseX + dx, true)
                     if (dot.modelData.hasY)
-                        EditorState.previewMoveClipKeyframe(root.trackIndex, root.clipIndex, "y", s, s, baseY + dy)
+                        EditorState.previewMoveClipKeyframe(root.trackIndex, root.clipIndex, "y", s, s, baseY + dy, true)
                     dot.x = p.x - dot.width / 2 - (press.x - (dot.modelData.x * root.sx))
                     dot.y = p.y - dot.height / 2 - (press.y - (dot.modelData.y * root.sy))
                 }

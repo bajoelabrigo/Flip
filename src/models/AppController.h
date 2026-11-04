@@ -1758,8 +1758,11 @@ public:
     Q_INVOKABLE void removeClipChannelKeyframes(int trackIndex, int clipIndex, const QString &prop,
                                                 double atSeconds, const QStringList &suffixes);
     Q_INVOKABLE void removeClipKeyframe(int trackIndex, int clipIndex, const QString &prop, double atSeconds);
+    // `light` (0.30): inside a preview drag whose caller draws the key itself (the graph's dot, the motion
+    // path's), only the preview is redrawn on each move; the timeline and the panels catch up at the release.
     Q_INVOKABLE void previewMoveClipKeyframe(int trackIndex, int clipIndex, const QString &prop,
-                                             double fromSeconds, double toSeconds, double value);
+                                             double fromSeconds, double toSeconds, double value,
+                                             bool light = false);
     Q_INVOKABLE QVariantList clipKeyframes(int trackIndex, int clipIndex, const QString &prop) const;
     // Every property of the clip that carries an animation, in strip order.
     Q_INVOKABLE QStringList clipAnimatedProperties(int trackIndex, int clipIndex) const;

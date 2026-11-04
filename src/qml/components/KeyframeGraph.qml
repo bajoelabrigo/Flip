@@ -2082,7 +2082,7 @@ Item {
                                                  entry)))
                                 EditorState.previewMoveClipKeyframe(
                                     root.trackIndex, root.clipIndex,
-                                    keyDot.modelData.prop, keyDot.editSeconds, newSec, newVal)
+                                    keyDot.modelData.prop, keyDot.editSeconds, newSec, newVal, true)
                                 keyDot.editSeconds = newSec
                                 keyDot.dragDx = root.xForSeconds(newSec) - root.xForSeconds(baseSec)
                                 keyDot.dragDy = root.yForValue(newVal, entry)

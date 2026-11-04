@@ -24529,7 +24529,7 @@ void AppController::removeClipKeyframe(int trackIndex, int clipIndex, const QStr
 }
 
 void AppController::previewMoveClipKeyframe(int trackIndex, int clipIndex, const QString &prop,
-                                            double fromSeconds, double toSeconds, double value)
+                                            double fromSeconds, double toSeconds, double value, bool light)
 {
     if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
         return;
@@ -24585,6 +24585,12 @@ void AppController::previewMoveClipKeyframe(int trackIndex, int clipIndex, const
                 otherKt->setKeyframe(toRel, otherKey);
             }
         }
+    }
+    // Every move fanned out to the timeline, the panels and every curve: that is what made the graph lag
+    // behind the pointer (Jorge, 0.30).  After Effects only redraws.
+    if (light && m_previewDragActive) {
+        emitPreviewEdit(trackIndex, clipIndex, {prop, QStringLiteral("x"), QStringLiteral("y")});
+        return;
     }
     emitPreviewFrame();
 }
@@ -26550,6 +26556,13 @@ void AppController::previewSetKeyframeTangents(int trackIndex, int clipIndex, co
 
     applyTangents(*key, inDx, inDy, outDx, outDy, corner);
     syncLinkedTangents(trackIndex, clipIndex, prop, atSeconds, inDx, inDy, outDx, outDy, corner);
+    // While a handle is dragged (the graph's, the motion path's) only the preview redraws on each move, as
+    // every other drag here: the whole timeline, the panels and every curve were rebuilt for each pixel, which
+    // is why shaping a curve lagged (Jorge, 0.30). The rest catches up at the release.
+    if (m_previewDragActive) {
+        emitPreviewEdit(trackIndex, clipIndex, {prop, QStringLiteral("x"), QStringLiteral("y")});
+        return;
+    }
     notifyTracksChanged();
     emit selectedClipDataChanged();
     emit projectMutated();
