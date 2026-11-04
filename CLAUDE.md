@@ -78,6 +78,17 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
   ponga claves después de una caída tiene que dejar una clave quieta antes.
 
 
+### Cursos de nulos y formas (2026-11-04, tarde) — **detalle en `docs/tutorial-nulos-formas-ae.md`**
+- Controles de expresión, látigo a efectos, renombrar efectos, expresión activa, buscar propiedades; formas y pluma
+  como AE (polígono con rueda, Alt+clic, guiones en px, menú del trazado, Ctrl+T, formas desde texto/SVG, combinar);
+  `.ai` como PDF. Visto en ventana en la r3 (run 41874630576). **No publicar** hasta que Jorge diga.
+- **Siguiente:** Academia de la web (`docs/plan-academia.md`).
+- **Trampa nueva:** `AppController.cpp` no ve las cabeceras de Skia (compila también en las pruebas sin ellas): lo
+  que necesite Skia va en `src/engine` con una función sin tipos de Skia (`text::characterOutlines`).
+- **Trampa nueva:** al valor que muestra una fila (`propertyValueAt`) hay que darle la hora en `expressionContext()`:
+  sin ella, una expresión que lee otra capa la lee en su inicio.
+- **Trampa nueva:** el doble clic simulado le llega a un `AbstractButton` como dos clics: medir el tiempo entre clics.
+
 ### 0.29.0 PUBLICADA (2026-11-01) — tercios inferiores fáciles y animación a mano como AE — **detalle en `docs/plan-0.29.md`**
 - PRs #49 y #50 (`flip/v0.29-tutorial` → `main`), tag `v0.29.0`, release (run 41288201475); copia en `versiones\FlipStudio-0.29.0`;
   MSIX `msstore.yml` run 41294173565 → `tienda\FlipStudio-Store\paquete-0.29.0`. Notas de la Store: «Notas para la Store
