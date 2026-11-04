@@ -51,14 +51,25 @@ PanelFrame {
 
     // Keyframe lane height the user dragged to; session-only, kept here because the graph
     // itself is unloaded whenever no clip or no keyframe tab is selected.
-    // Every clip on the timeline, for the pick whip to find the one it is dropped on (0.30 tests E41).
-    property var whipTargets: []
-    function registerWhipTarget(item) {
-        if (root.whipTargets.indexOf(item) < 0)
-            root.whipTargets = root.whipTargets.concat([item])
-    }
-    function unregisterWhipTarget(item) {
-        root.whipTargets = root.whipTargets.filter((k) => k !== item)
+    // The clip under a point of the window, for the pick whip (0.30 tests E41). Clips are drawn by the
+    // track renderer and only the active ones have an item of their own, so it is found by place: the
+    // row under the point (or the lane in it), and the clip there at that time. {track, clip} or null.
+    function clipAtScenePoint(sceneX, sceneY) {
+        const p = root.touchDropPoint(sceneX, sceneY)
+        if (!p.inside)
+            return null
+        const target = root.dropTargetAtY(p.y)
+        const track = target.lane >= 0 ? target.lane : target.track
+        if (track < 0 || !root.tracks[track])
+            return null
+        const seconds = p.x / Math.max(1e-6, root.pxPerSecond)
+        const clips = root.tracks[track].clips || []
+        for (let i = clips.length - 1; i >= 0; --i) {
+            const c = clips[i]
+            if (seconds >= c.start && seconds <= c.start + c.duration)
+                return { "track": track, "clip": i }
+        }
+        return null
     }
     property real keyframeLaneHeight: 88
 
