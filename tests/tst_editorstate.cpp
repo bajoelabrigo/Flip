@@ -222,6 +222,7 @@ private slots:
     void typedValueOnAnAnimatedPropertyAddsAKey();
     void fitClipToVideoLengthTrimsTheMusic();
     void splitTextIntoLettersMakesOneLayerEach();
+    void shapesFromTextLandOnAShapeTrack();
     void removeClipKeysInRangeClearsEveryRow();
     void frameSolidCoversTheWholeWork();
     void colourWipeTakesUpToThreeAccents();
@@ -4549,6 +4550,32 @@ void EditorStateTest::splitTextIntoLettersMakesOneLayerEach()
         texts += int(std::count_if(track.clips.cbegin(), track.clips.cend(),
                                    [](const drift::Clip &k) { return k.type == drift::ClipType::Text; }));
     QCOMPARE(texts, 1);
+}
+
+void EditorStateTest::shapesFromTextLandOnAShapeTrack()
+{
+    // 0.30 Academy: Create shapes from text left the shape layer on the text track, drawn as a text clip.
+    AssetLibrary library;
+    AppController state(&library);
+    state.addTextClip(QStringLiteral("AB"), 0.0);
+    QVERIFY(state.selectedTrack() >= 0 && state.selectedClip() >= 0);
+    state.createShapesFromText();
+    int shapes = 0;
+    int texts = 0;
+    for (const drift::Track &track : state.project()->tracks()) {
+        for (const drift::Clip &clip : track.clips) {
+            if (clip.type == drift::ClipType::Shape) {
+                ++shapes;
+                QCOMPARE(int(track.type), int(drift::TrackType::Shape));
+            } else if (clip.type == drift::ClipType::Text) {
+                ++texts;
+            }
+        }
+    }
+    QCOMPARE(shapes, 1);
+    QCOMPARE(texts, 0);
+    QVERIFY(state.selectedTrack() >= 0);
+    QCOMPARE(int(state.project()->tracks().at(state.selectedTrack()).type), int(drift::TrackType::Shape));
 }
 
 void EditorStateTest::removeClipKeysInRangeClearsEveryRow()

@@ -13620,8 +13620,33 @@ void AppController::createShapesFromText()
     else
         setClipLayoutPixels(clip, x + (w - b.width()) / 2.0, y + (h - b.height()) / 2.0, b.width(), b.height());
     clip.name = tr("%1 Outlines").arg(text.left(30));
+    // A shape layer on a shape track (0.30 Academy: it stayed on the text track and drew as a text clip):
+    // moved to a new one above, and the text track goes if it is left empty.
+    QString movedId;
+    if (m_project.tracks().at(m_selectedTrack).type != drift::TrackType::Shape) {
+        const drift::Clip shape = clip;
+        const QString fromId = m_project.tracks().at(m_selectedTrack).id;
+        m_project.tracks()[m_selectedTrack].clips.removeAt(m_selectedClip);
+        const int track = drift::insertTrackAboveForClipType(m_project, m_selectedTrack, drift::ClipType::Shape);
+        m_project.tracks()[track].clips.append(shape);
+        for (int t = 0; t < m_project.tracks().size(); ++t) {
+            const drift::Track &old = m_project.tracks().at(t);
+            if (!fromId.isEmpty() && old.id == fromId && old.clips.isEmpty() && !old.isAdjustmentLane()) {
+                m_project.tracks().removeAt(t);
+                break;
+            }
+        }
+        m_project.ensureTrackIds();
+        movedId = shape.id;
+    }
     pushProjectEdit(before, tr("Shapes from text"));
     finishEdit(tr("Shapes from text"));
+    if (!movedId.isEmpty()) {
+        int t = -1;
+        int c = -1;
+        if (findClipById(m_project, movedId, &t, &c))
+            selectClip(t, c);
+    }
     emit selectedClipDataChanged();
 }
 
