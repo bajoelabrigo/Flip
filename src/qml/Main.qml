@@ -1862,7 +1862,19 @@ ApplicationWindow {
     //
     // Escape (clearSelection): CapCut-style — if a timeline cut tool is active,
     // first press returns to Select; only then does Escape clear the selection.
+    // Drop-down lists open right now (ThemedComboBox tells): Escape closes the newest first.
+    property var openPopups: []
+    function notePopupOpen(popup, open) {
+        const rest = window.openPopups.filter((p) => p !== popup)
+        window.openPopups = open ? rest.concat([popup]) : rest
+    }
     function dispatchAction(id) {
+        if (id === "clearSelection" && window.openPopups.length > 0) {
+            const top = window.openPopups[window.openPopups.length - 1]
+            window.openPopups = window.openPopups.slice(0, -1)
+            top.close()
+            return
+        }
         // While a text field has the keyboard, the editing keys are its own (0.29: Ctrl+A in a colour's hex
         // field picked every clip on the timeline, and the typed colour was thrown away).
         const typing = window.activeFocusItem

@@ -813,8 +813,12 @@ PanelFrame {
 
                 Loader {
                     id: textLoader
-                    active: root.currentTabId === "text"
-                    visible: active
+                    // Built in the background as soon as a text is picked, so opening its tab is
+                    // immediate: made on the click it took over a second, and a click meant for the
+                    // page landed on the one before it (0.30 tests: «Read aloud» did nothing).
+                    active: root.currentTabId === "text" || (root.hasSelection && root.clipKind === "text")
+                    asynchronous: root.currentTabId !== "text"
+                    visible: root.currentTabId === "text"
                     sourceComponent: Component {
                         TextInspector {
                             width: tabColumn.width

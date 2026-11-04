@@ -351,3 +351,13 @@ Cada caso: lo que se hace → lo que tiene que pasar. Anotar en la tabla de abaj
 | E59 | bien | el diálogo ofrece MP3/WAV/FLAC; `r8-voz.mp3` mp3 24 kHz mono 1,58 s |
 | E61 (nuevo) | arreglado (r9) | la voz del diálogo se llamaba «Voz: Ana: Hola Luis…»: sin los nombres |
 | — | revisar | un primer clic en «Leer en voz alta» no hizo nada (el segundo sí), como E46: se vuelve a mirar con r9 |
+
+### Ronda r10 (2026-11-04, compilación 41780383262, con el mouse de Jorge)
+- **A8 (E41) bien:** el látigo emparenta; con nada elegido FLIP gira 45° con el nulo. Causa: los clips los dibuja
+  el renderizador de la pista y solo los activos tienen `TimelineClipItem`; ahora se busca por pista y tiempo
+  (`TimelinePanel.clipAtScenePoint`).
+- **E46 no se reproduce** (Esc + clic, claves elegidas + Esc + clic, reproducir/parar + Esc + clic: elige siempre).
+- **El «clic perdido» era la pestaña Texto:** tardaba más de 1 s en armarse y el clic siguiente caía en la página
+  anterior. Ahora se arma en segundo plano al elegir un texto (r11).
+- **E61 bien:** la voz del diálogo se llama «Voz: Hola Luis, ¿ya viste…».
+- **E62 (nuevo):** Esc no cerraba un desplegable abierto (el atajo de la app llega antes). Arreglado en r11.
