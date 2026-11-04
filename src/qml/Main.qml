@@ -2062,7 +2062,13 @@ ApplicationWindow {
             // A field that confirms its text on Enter but lets the key go on (the colour's hex) is no
             // layer to rename (0.30 tests).
             const fieldFocused = !!window.activeFocusItem && window.activeFocusItem.cursorPosition !== undefined
-            if ((event.key === Qt.Key_Return || event.key === Qt.Key_Enter) && !fieldFocused
+            // Nor while a menu or popup is open: Enter is its item's (0.30 Academy: Enter on «Extrusion» in
+            // Add layer opened Rename clip instead).
+            let popupOpen = false
+            const overlay = editorScope.Overlay.overlay
+            for (let i = 0; overlay && i < overlay.children.length && !popupOpen; ++i)
+                popupOpen = overlay.children[i].visible && overlay.children[i].width > 0
+            if ((event.key === Qt.Key_Return || event.key === Qt.Key_Enter) && !fieldFocused && !popupOpen
                     && (event.modifiers & ~Qt.KeypadModifier) === Qt.NoModifier
                     && timelinePanel.visible && EditorState.selectedTrack >= 0 && EditorState.selectedClip >= 0) {
                 timelinePanel.requestRenameClip(EditorState.selectedTrack, EditorState.selectedClip)
