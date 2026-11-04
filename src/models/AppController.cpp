@@ -95,8 +95,6 @@
 #include "engine/TextLayout.h"
 #ifdef DRIFT_WITH_SKIA
 #include "engine/SkiaTextPainter.h"
-#include "engine/SkiaTextGeometry.h"
-#include "include/core/SkPath.h"
 #endif
 #include "engine/TransitionCatalog.h"
 #include "models/JobRegistry.h"
@@ -13549,43 +13547,11 @@ void AppController::createShapesFromText()
             FrameCompositor::textEditGeometry(clip, text, at, m_project.width(), m_project.height(), 1.0);
         const drift::TextStyle style = clip.textStyle.isAnimated()
                                            ? clip.textStyle.resolvedAt(at - clip.timelineStart) : clip.textStyle;
-        const auto set = geometry.layoutRect.width() > 0.5
-                             ? drift::text::fragmentsFor(text, style, geometry.layoutRect.width(),
-                                                         geometry.layoutRect.height(), 1.0, -1,
-                                                         drift::text::WordSplit::Characters)
-                             : nullptr;
-        const QList<drift::text::StyledWord> frags = set ? set->frags : QList<drift::text::StyledWord>{};
-        for (const drift::text::StyledWord &frag : frags) {
-            if (!frag.geometry || frag.geometry->colour || frag.geometry->path.isEmpty())
-                continue;
-            QPainterPath path;
-            path.setFillRule(Qt::WindingFill);
-            SkPath::Iter iter(frag.geometry->path, false);
-            SkPoint pts[4];
-            for (SkPath::Verb verb = iter.next(pts); verb != SkPath::kDone_Verb; verb = iter.next(pts)) {
-                switch (verb) {
-                case SkPath::kMove_Verb:
-                    path.moveTo(pts[0].fX, pts[0].fY);
-                    break;
-                case SkPath::kLine_Verb:
-                    path.lineTo(pts[1].fX, pts[1].fY);
-                    break;
-                case SkPath::kQuad_Verb:
-                case SkPath::kConic_Verb:
-                    path.quadTo(pts[1].fX, pts[1].fY, pts[2].fX, pts[2].fY);
-                    break;
-                case SkPath::kCubic_Verb:
-                    path.cubicTo(pts[1].fX, pts[1].fY, pts[2].fX, pts[2].fY, pts[3].fX, pts[3].fY);
-                    break;
-                case SkPath::kClose_Verb:
-                    path.closeSubpath();
-                    break;
-                default:
-                    break;
-                }
-            }
+        for (const drift::text::CharacterOutline &letter :
+             drift::text::characterOutlines(text, style, geometry.layoutRect.width(), geometry.layoutRect.height())) {
+            QPainterPath path = letter.path;
             path.translate(geometry.layoutRect.topLeft());
-            letters.append({text.mid(frag.textStart, frag.textLength), path});
+            letters.append({letter.text, path});
             all.addPath(path);
         }
     }

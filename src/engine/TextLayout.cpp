@@ -1405,4 +1405,46 @@ drift::textanim::EvalContext evalContextFor(const drift::TextStyle &style, const
     return ctx;
 }
 
+QList<CharacterOutline> characterOutlines(const QString &text, const drift::TextStyle &style, double w, double h)
+{
+    QList<CharacterOutline> out;
+    if (w <= 0.5 || h <= 0.5)
+        return out;
+    const auto set = fragmentsFor(text, style, w, h, 1.0, -1, WordSplit::Characters);
+    if (!set)
+        return out;
+    for (const StyledWord &frag : set->frags) {
+        if (!frag.geometry || frag.geometry->colour || frag.geometry->path.isEmpty())
+            continue;
+        QPainterPath path;
+        path.setFillRule(Qt::WindingFill);
+        SkPath::Iter iter(frag.geometry->path, false);
+        SkPoint pts[4];
+        for (SkPath::Verb verb = iter.next(pts); verb != SkPath::kDone_Verb; verb = iter.next(pts)) {
+            switch (verb) {
+            case SkPath::kMove_Verb:
+                path.moveTo(pts[0].fX, pts[0].fY);
+                break;
+            case SkPath::kLine_Verb:
+                path.lineTo(pts[1].fX, pts[1].fY);
+                break;
+            case SkPath::kQuad_Verb:
+            case SkPath::kConic_Verb:
+                path.quadTo(pts[1].fX, pts[1].fY, pts[2].fX, pts[2].fY);
+                break;
+            case SkPath::kCubic_Verb:
+                path.cubicTo(pts[1].fX, pts[1].fY, pts[2].fX, pts[2].fY, pts[3].fX, pts[3].fY);
+                break;
+            case SkPath::kClose_Verb:
+                path.closeSubpath();
+                break;
+            default:
+                break;
+            }
+        }
+        out.append({text.mid(frag.textStart, frag.textLength), path});
+    }
+    return out;
+}
+
 } // namespace drift::text

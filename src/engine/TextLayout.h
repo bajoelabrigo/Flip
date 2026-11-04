@@ -1,5 +1,7 @@
 #pragma once
 
+#include <QPainterPath>
+
 #include "core/TextAnimator.h"
 #include "core/TextStyle.h"
 
@@ -139,6 +141,15 @@ void clearLayoutCache();
 // style wraps. Glyphs only: strokes, shadows and the background box paint around it (bleedFor).
 // Invalid when the text could not be laid out (a build without Skia).
 QSizeF naturalTextSize(const QString &text, const TextStyle &style, double maxWidth);
+
+// Each drawn character's outline as the renderer lays it out (0.30, Create Shapes from Text), block-local
+// in project px for a block of w x h: the character and its path. Empty without Skia or without glyphs.
+struct CharacterOutline
+{
+    QString text;
+    QPainterPath path;
+};
+QList<CharacterOutline> characterOutlines(const QString &text, const TextStyle &style, double w, double h);
 
 // The split the animators need: characters when any selector works per character (or the line
 // is bent, which places glyphs one at a time), else whole words.
