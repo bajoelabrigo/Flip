@@ -1642,7 +1642,7 @@ void EditorStateTest::textAroundACircleGetsABoxAroundTheRing()
     const TextBox ring = textBoxOf(clipNow());
     QVERIFY2(ring.h > flat.h * 3.0, qPrintable(QStringLiteral("ring %1x%2, flat %3x%4").arg(ring.w).arg(ring.h)
                                                     .arg(flat.w).arg(flat.h)));
-    QVERIFY(qAbs(ring.w - ring.h) < 1.0);
+    QVERIFY(ring.w >= flat.w - 1.0); // one line still fits: a narrower box wraps it and the ring goes flat
     QVERIFY(qAbs(ring.cx() - flat.cx()) < 1.0 && qAbs(ring.cy() - flat.cy()) < 1.0);
 #endif
 }

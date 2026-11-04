@@ -4182,7 +4182,8 @@ QSizeF fittedTextSizeForStyle(const QString &text, const drift::TextStyle &style
             const double around = natural.width() + (share > 0.95 ? natural.height() * 0.6 : 0.0);
             const double radius = around / (6.283185307179586 * share);
             const double side = 2.0 * (radius + natural.height()) + 2.0 * padY;
-            return QSizeF(qMax(side, qMax(em, natural.width() * 0.3) + 2.0 * padX), side);
+            // Never narrower than the line: the words would wrap and a ring needs one line.
+            return QSizeF(qMax(side, qMax(em, natural.width()) + 2.0 * padX), side);
         }
         const double rise = drift::text::textBendRise(style);
         if (rise > 0.5)
