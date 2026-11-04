@@ -750,6 +750,7 @@ QtObject {
         settings: "settings",
         upload: "upload",
         plus: "plus",
+        minus: "minus",
         volumeHigh: "volume-2",
         volumeOff: "volume-off",
         eye: "eye",
