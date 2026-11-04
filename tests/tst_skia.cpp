@@ -2813,6 +2813,20 @@ void SkiaTest::textRunOpacityScriptAndShrinkToFit()
              qPrintable(QStringLiteral("encogido mide %1").arg(shrunkInk.bbox.height())));
     QVERIFY2(shrunkInk.count < grownInk.count * 0.85,
              qPrintable(QStringLiteral("tinta encogida %1, sin encoger %2").arg(shrunkInk.count).arg(grownInk.count)));
+
+    // 4) 0.30 Academia: sin ajuste de línea, el renglón encogido entra entero; antes medía justo el ancho de
+    // la caja y la O y la R se salían y quedaban cortadas.
+    TextStyle oneLine = style;
+    oneLine.wordWrap = false;
+    oneLine.shrinkToFit = true;
+    const QString title = QStringLiteral("RUTA DEL LAGO");
+    const QRectF narrow(0, 0, 220, 300);
+    const QImage line = skiaText(textClip(oneLine, title), title, narrow, 1.0, -1, nullptr);
+    QVERIFY(!line.isNull());
+    const Ink lineInk = inkOf(line);
+    QVERIFY(lineInk.count > 0);
+    QVERIFY2(lineInk.bbox.width() <= narrow.width() - 3,
+             qPrintable(QStringLiteral("la tinta mide %1 en una caja de %2").arg(lineInk.bbox.width()).arg(narrow.width())));
 }
 
 #include "tst_skia.moc"

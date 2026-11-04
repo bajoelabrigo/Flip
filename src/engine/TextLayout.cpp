@@ -1286,11 +1286,15 @@ std::shared_ptr<const FragmentSet> fragmentsFor(const QString &text, const drift
     // until it fits. A few halvings of the size are plenty; the largest that fits wins.
     drift::TextStyle fitted = style;
     if (style.shrinkToFit && blockHeight > 0.0 && wrapWidth > 0.0) {
+        // A little air on each side: round and slanted letters (O, R) reach past their advance and were cut
+        // by the box when the line measured exactly its width (0.30 Academy).
+        const double airX = qMax(2.0, wrapWidth * 0.03);
+        const double airY = qMax(1.0, blockHeight * 0.02);
         const auto overflows = [&](const TextLayoutResult &r) {
             if (!r.paragraph)
                 return false;
-            return r.paragraph->contentHeight > blockHeight + 0.5
-                   || (!style.wordWrap && r.paragraph->contentWidth > wrapWidth + 0.5);
+            return r.paragraph->contentHeight > blockHeight - airY
+                   || (!style.wordWrap && r.paragraph->contentWidth > wrapWidth - airX);
         };
         if (overflows(laid)) {
             double lo = 0.05, hi = 1.0;
