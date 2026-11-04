@@ -36447,11 +36447,15 @@ QString AppController::addStyleLayer(int trackIndex, int clipIndex, const QStrin
     case drift::TextLayerKind::Glow:
         layer = drift::glowLayer(stack.primaryColor, 18.0, 0.8, drift::mintTextLayerId(layers));
         break;
-    case drift::TextLayerKind::Extrude:
-        layer = drift::solidFillLayer(QColor(40, 40, 40), drift::mintTextLayerId(layers));
+    case drift::TextLayerKind::Extrude: {
+        // Deep enough to read and a darker tone of the letters (0.30 Academy: 6 px of dark grey sat hidden
+        // under the stroke and the shadow of a 96 px title).
+        const QColor base = stack.primaryColor.isValid() ? stack.primaryColor : QColor(120, 120, 120);
+        layer = drift::solidFillLayer(base.darker(260), drift::mintTextLayerId(layers));
         layer.kind = drift::TextLayerKind::Extrude;
-        layer.width = 6.0;
+        layer.width = shape ? 6.0 : qBound(6.0, clip->textStyle.pixelSize * 0.15, 60.0);
         break;
+    }
     }
     const int index = atIndex < 0 || atIndex > layers.size() ? naturalLayerIndex(layers, layerKind) : atIndex;
     layers.insert(index, layer);

@@ -47,6 +47,12 @@ Item {
     // our own kinds under it; Videos and Photos stay up here as they were.
     readonly property var categories: root.panelDriven ? root.ownCategories : []
     property string activeCategory: ""
+    // The open kind's own categories (Templates › Photo reels, Intros…), for the panel's tree (0.30).
+    readonly property var subCategories: root.panelDriven ? stock.categoryChips : []
+    readonly property string activeSubCategory: stock.activeCategoryChip
+    function chooseSubCategory(id) {
+        stock.chooseCategoryChip(id)
+    }
     onSectionChanged: root.syncActiveCategory()
     // The kinds arrive with the catalog, after the tab opened on Home.
     onOwnCategoriesChanged: root.syncActiveCategory()
@@ -369,6 +375,7 @@ Item {
             compact: root.compact
             query: root.query
             categories: root.ownCategories
+            chipsInTree: root.panelDriven
             onCategoryActivated: (categoryId) => root.showSection(categoryId)
         }
     }

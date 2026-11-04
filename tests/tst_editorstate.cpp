@@ -9184,6 +9184,15 @@ void EditorStateTest::shapeLayersAndKeyframes()
     QVERIFY(state.addTextLayer(track, clip, QStringLiteral("glow")).isEmpty());
     state.addTextClip(QStringLiteral("Hi"), 2.0);
     QVERIFY(!state.addStyleLayer(state.selectedTrack(), state.selectedClip(), QStringLiteral("glow")).isEmpty());
+
+    // 0.30 Academy: an extrusion added to a big title is deep enough to see, in a darker tone of the letters.
+    state.setTextStyle(state.selectedTrack(), state.selectedClip(), QVariantMap{{QStringLiteral("pixelSize"), 100.0}});
+    const QString extrudeId = state.addStyleLayer(state.selectedTrack(), state.selectedClip(), QStringLiteral("extrude"));
+    QVERIFY(!extrudeId.isEmpty());
+    const drift::Clip &title = state.project()->tracks().at(state.selectedTrack()).clips.at(state.selectedClip());
+    const drift::TextShadingLayer *extrude = drift::findTextLayer(title.textStyle.layers, extrudeId);
+    QVERIFY(extrude);
+    QVERIFY2(extrude->width >= 14.0, qPrintable(QStringLiteral("depth %1").arg(extrude->width)));
 }
 
 // A ramp on an audio clip goes through exactly the same session, apply and replace flow a video

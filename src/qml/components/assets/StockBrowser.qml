@@ -27,6 +27,16 @@ Item {
 
     signal categoryActivated(string categoryId)
 
+    // On the desktop the panel's tree lists the active kind's categories under it (0.30, Jorge: the chips
+    // row had to be slid sideways to see them all); the row then stays hidden.
+    property bool chipsInTree: false
+    readonly property var categoryChips: root.categoryFilter && Market.canSearch && !root.allTypes
+                                         ? [{ id: "", label: qsTr("All") }].concat(root.categoryFilter.options) : []
+    readonly property string activeCategoryChip: root.filterValues.category || ""
+    function chooseCategoryChip(id) {
+        root.setFilter("category", id)
+    }
+
     readonly property real sidePadding: compact ? Theme.androidPagePadding : Theme.pagePadding
     readonly property int activeFilterCount: Object.keys(filterValues).length
     // What the grids show: Market.items, copied here so a next page can be appended without the
@@ -388,7 +398,7 @@ Item {
             x: root.sidePadding
             width: parent.width - root.sidePadding * 2
             height: categoryRow.height
-            visible: !!root.categoryFilter && Market.canSearch && !root.allTypes
+            visible: !!root.categoryFilter && Market.canSearch && !root.allTypes && !root.chipsInTree
             contentWidth: categoryRow.width
             flickableDirection: Flickable.HorizontalFlick
             boundsBehavior: Flickable.StopAtBounds

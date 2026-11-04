@@ -842,9 +842,17 @@ PanelFrame {
             if (root.expandedGroups[tabId] !== true)
                 continue
             const categories = root.subcategoriesFor(tabId)
+            const browser = root.browserFor(tabId)
             for (let j = 0; j < categories.length; ++j) {
                 const category = categories[j]
                 rows.push({ kind: "sub", tabId: tabId, categoryId: category.id, label: category.label })
+                // The open Stock kind's own categories hang under it (0.30, Jorge: the chips row above the
+                // cards had to be slid sideways to see them all).
+                const inner = browser && browser.subCategories && browser.activeCategory === category.id
+                              ? browser.subCategories : []
+                for (let k = 0; inner.length > 1 && k < inner.length; ++k)
+                    rows.push({ kind: "subsub", tabId: tabId, categoryId: category.id, innerId: inner[k].id,
+                                label: inner[k].label })
             }
         }
         return rows
@@ -1212,8 +1220,14 @@ PanelFrame {
                     delegate: AbstractButton {
                         id: treeRow
                         required property var modelData
-                        readonly property bool isSub: modelData.kind === "sub"
-                        readonly property bool current: treeRow.isSub
+                        readonly property bool isSub: modelData.kind === "sub" || modelData.kind === "subsub"
+                        readonly property bool isSubSub: modelData.kind === "subsub"
+                        readonly property bool current: treeRow.isSubSub
+                            ? (root.currentTabId === modelData.tabId
+                               && root.currentSubcategoryId === modelData.categoryId
+                               && !!root.browserFor(modelData.tabId)
+                               && root.browserFor(modelData.tabId).activeSubCategory === modelData.innerId)
+                            : treeRow.isSub
                             ? (root.currentTabId === modelData.tabId
                                && root.currentSubcategoryId === modelData.categoryId)
                             : root.currentTabId === modelData.tabId
@@ -1221,12 +1235,20 @@ PanelFrame {
                         // Una subcategoría de la pestaña que no está abierta se marca a medias.
                         x: Theme.spacingXs
                         width: tabRailColumn.width - Theme.spacingXs * 2
-                        height: treeRow.isSub ? 26 : 32
+                        height: treeRow.isSubSub ? 24 : treeRow.isSub ? 26 : 32
                         hoverEnabled: true
                         focusPolicy: Qt.StrongFocus
-                        onClicked: treeRow.isSub
-                                   ? root.chooseSubcategory(treeRow.modelData.tabId, treeRow.modelData.categoryId)
-                                   : root.showTab(treeRow.modelData.tabId)
+                        onClicked: {
+                            if (treeRow.isSubSub) {
+                                const browser = root.browserFor(treeRow.modelData.tabId)
+                                if (browser)
+                                    browser.chooseSubCategory(treeRow.modelData.innerId)
+                            } else if (treeRow.isSub) {
+                                root.chooseSubcategory(treeRow.modelData.tabId, treeRow.modelData.categoryId)
+                            } else {
+                                root.showTab(treeRow.modelData.tabId)
+                            }
+                        }
 
                         Accessible.role: treeRow.isSub ? Accessible.ListItem : Accessible.PageTab
                         Accessible.name: treeRow.isSub ? treeRow.modelData.label
@@ -1242,7 +1264,8 @@ PanelFrame {
                         }
 
                         contentItem: Row {
-                            leftPadding: treeRow.isSub ? Theme.spacing2xl : Theme.spacingMd
+                            leftPadding: treeRow.isSubSub ? Theme.spacing2xl + Theme.spacingLg
+                                         : treeRow.isSub ? Theme.spacing2xl : Theme.spacingMd
                             spacing: Theme.spacingMd
 
                             // La flechita del grupo: solo en las pestañas que tienen subcategorías.
