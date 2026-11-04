@@ -816,7 +816,11 @@ PanelFrame {
                     // Built in the background as soon as a text is picked, so opening its tab is
                     // immediate: made on the click it took over a second, and a click meant for the
                     // page landed on the one before it (0.30 tests: «Read aloud» did nothing).
-                    active: root.currentTabId === "text" || (root.hasSelection && root.clipKind === "text")
+                    // And kept once made: rebuilt on every pick of a text it froze the window for over a
+                    // second each time the tab opened.
+                    property bool made: false
+                    onLoaded: made = true
+                    active: made || root.currentTabId === "text" || (root.hasSelection && root.clipKind === "text")
                     asynchronous: root.currentTabId !== "text"
                     visible: root.currentTabId === "text"
                     sourceComponent: Component {

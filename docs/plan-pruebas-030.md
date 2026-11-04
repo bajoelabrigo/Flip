@@ -361,3 +361,8 @@ Cada caso: lo que se hace → lo que tiene que pasar. Anotar en la tabla de abaj
   anterior. Ahora se arma en segundo plano al elegir un texto (r11).
 - **E61 bien:** la voz del diálogo se llama «Voz: Hola Luis, ¿ya viste…».
 - **E62 (nuevo):** Esc no cerraba un desplegable abierto (el atajo de la app llega antes). Arreglado en r11.
+- **r11:** E62 bien (Esc cierra el desplegable de idioma). La pestaña Texto: con `FLIP_TRACE_CLICKS=1` el registro
+  muestra que el clic SÍ pasa a Texto; lo que pasaba es que armar `TextInspector` (3856 líneas, Básico ~2000) congela
+  la ventana más de 1,5 s y no se redibuja. Ahora la página, una vez hecha, queda viva (r12).
+- Aviso viejo en el registro (de la 0.26, carpetas): `MediaAssetsTab.qml:559` DropArea con `anchors.fill` dentro de
+  un Column. Las tarjetas se ordenan bien y soltar en carpetas funciona; no se toca en la 0.30.
