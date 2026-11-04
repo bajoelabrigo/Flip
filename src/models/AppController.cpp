@@ -25172,6 +25172,35 @@ int AppController::splitTextIntoLetters(int trackIndex, int clipIndex)
         };
         moveTrack(clip.transformX, letter.centre.x() - w / 2.0, shift.x() + (origW - w) / 2.0);
         moveTrack(clip.transformY, letter.centre.y() - h / 2.0, shift.y() + (origH - h) / 2.0);
+        // The letter's own box lays the glyph out on its own (vertical centring, padding): measured where it
+        // landed and moved the difference, so splitting leaves every letter where it was (0.30 Academy: the
+        // letters jumped about 60 px up).
+        const FrameCompositor::TextEditGeometry placed = FrameCompositor::textEditGeometry(
+            clip, clip.textContent, at, m_project.width(), m_project.height(), 1.0);
+        if (placed.set) {
+            const QList<QRectF> own = drift::text::selectionRects(*placed.set, 0, int(clip.textContent.size()));
+            if (!own.isEmpty()) {
+                const QPointF c = placed.layoutRect.center();
+                QTransform ownToCanvas;
+                ownToCanvas.translate(c.x(), c.y());
+                ownToCanvas.rotate(placed.rotation);
+                ownToCanvas.translate(-c.x(), -c.y());
+                ownToCanvas.translate(placed.layoutRect.x(), placed.layoutRect.y());
+                const QPointF miss = letter.centre - ownToCanvas.map(own.first().center());
+                const auto nudge = [](drift::KeyframeTrack<double> &kt, double delta) {
+                    if (std::abs(delta) < 1e-6)
+                        return;
+                    const QMap<drift::TimeUs, drift::Keyframe<double>> keys = kt.keyframes();
+                    for (auto it = keys.cbegin(); it != keys.cend(); ++it) {
+                        drift::Keyframe<double> key = it.value();
+                        key.value += delta;
+                        kt.setKeyframe(it.key(), key);
+                    }
+                };
+                nudge(clip.transformX, miss.x());
+                nudge(clip.transformY, miss.y());
+            }
+        }
         const int track = drift::insertTrackAboveForClipType(m_project, trackIndex, drift::ClipType::Text);
         m_project.tracks()[track].clips.append(clip);
         ids.prepend(clip.id);

@@ -4503,7 +4503,33 @@ void EditorStateTest::splitTextIntoLettersMakesOneLayerEach()
     const int t = state.selectedTrack();
     const int c = state.selectedClip();
     QVERIFY(t >= 0 && c >= 0);
+    // Where each letter sits in the original, to check that splitting leaves them there (0.30 Academy: the
+    // letters jumped up because each new box lays its glyph out on its own).
+    const auto letterCentre = [&state](const drift::Clip &k, int from, int to) {
+        const drift::TimeUs at = k.timelineStart + drift::secondsToUs(0.5);
+        const FrameCompositor::TextEditGeometry g = FrameCompositor::textEditGeometry(
+            k, k.textContent, at, state.project()->width(), state.project()->height(), 1.0);
+        if (!g.set)
+            return QPointF(-1e9, -1e9);
+        const QList<QRectF> rects = drift::text::selectionRects(*g.set, from, to);
+        return rects.isEmpty() ? QPointF(-1e9, -1e9) : rects.first().center() + g.layoutRect.topLeft();
+    };
+    const drift::Clip whole = state.project()->tracks().at(t).clips.at(c);
+    const QList<QPointF> wasAt{letterCentre(whole, 0, 1), letterCentre(whole, 1, 2), letterCentre(whole, 3, 4)};
     QCOMPARE(state.splitTextIntoLetters(t, c), 3);
+    QList<QPointF> nowAt;
+    for (const drift::Track &track : state.project()->tracks()) {
+        for (const drift::Clip &clip : track.clips) {
+            if (clip.type == drift::ClipType::Text)
+                nowAt.append(letterCentre(clip, 0, int(clip.textContent.size())));
+        }
+    }
+    QCOMPARE(nowAt.size(), 3);
+    for (int i = 0; i < 3; ++i) {
+        QVERIFY2(QLineF(wasAt.at(i), nowAt.at(i)).length() < 1.5,
+                 qPrintable(QStringLiteral("letter %1 moved from %2,%3 to %4,%5").arg(i).arg(wasAt.at(i).x())
+                                .arg(wasAt.at(i).y()).arg(nowAt.at(i).x()).arg(nowAt.at(i).y())));
+    }
     QStringList letters;
     QList<double> xs;
     for (const drift::Track &track : state.project()->tracks()) {
