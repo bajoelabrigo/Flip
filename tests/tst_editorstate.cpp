@@ -323,6 +323,8 @@ private slots:
     void trackKeyframeRowsUnfoldAndEdit();
     void solidsAndCompositionsInMedia();
     void pasteOntoItsOwnKeysCarriesOn();
+    void autoBezierKeyRunsThroughWithoutStopping();
+    void rovingKeysSpreadAgainAfterAnEase();
     void cutoutTemplateLandsInAComposition();
     void beatTemplateOnSilentClipStillApplies();
     void splittingAGradedClipKeepsEffectsOnBothHalves();
@@ -11050,6 +11052,125 @@ void EditorStateTest::pasteOntoItsOwnKeysCarriesOn()
     QVERIFY(qAbs(state.playheadSeconds() - 4.0) < 1e-6);
     QVERIFY(state.pasteKeyframes(track, 0));
     QCOMPARE(times().size(), 6);
+
+    // A falling ball with Bounce, cloned further on (0.30, Jorge: «it copies the keyframe, not the
+    // animation»): it rests on the floor until a frame before the copies, so the first fall still bounces.
+    const QString y = QStringLiteral("y");
+    state.setClipKeyframe(track, 0, y, 0.0, 100.0);
+    state.setClipKeyframe(track, 0, y, 1.0, 800.0);
+    {
+        drift::KeyframeTrack<double> &kt = state.project()->tracks()[track].clips[0].transformY;
+        drift::TrackBehavior b = kt.behavior();
+        b.settle = drift::TrackBehavior::Settle::Bounce;
+        kt.setBehavior(b);
+    }
+    const double bounced = state.propertyValueAt(track, 0, y, 1.2, 0.0);
+    QVERIFY(bounced < 799.0); // off the floor, hopping
+    const QVariantList fall{
+        QVariantMap{{QStringLiteral("clip"), 0}, {QStringLiteral("prop"), y}, {QStringLiteral("seconds"), 0.0}},
+        QVariantMap{{QStringLiteral("clip"), 0}, {QStringLiteral("prop"), y}, {QStringLiteral("seconds"), 1.0}}};
+    QVERIFY(state.copyKeyframes(track, fall) >= 2); // joined Position brings X along
+    state.setPlayheadSeconds(3.0);
+    QVERIFY(state.pasteKeyframes(track, 0));
+    {
+        const double after = state.propertyValueAt(track, 0, y, 1.2, 0.0);
+        QVERIFY2(qAbs(after - bounced) < 1e-6,
+                 qPrintable(QStringLiteral("bounce at 1.2 s: %1 before the paste, %2 after (joined %3)")
+                                .arg(bounced).arg(after)
+                                .arg(state.project()->tracks().at(track).clips.at(0).positionJoined)));
+    }
+    QCOMPARE(state.propertyValueAt(track, 0, y, 3.0, 0.0), 100.0);
+    QVERIFY(state.propertyValueAt(track, 0, y, 4.2, 0.0) < 799.0); // and the copy bounces too
+}
+
+// After Effects' Ctrl+click on a straight key (0.30 tutorial): Auto Bezier, handles along the slope
+// from the previous key to the next, so the value keeps moving through the key.
+void EditorStateTest::autoBezierKeyRunsThroughWithoutStopping()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    state.project()->tracks().clear();
+    state.addSolidClip(QStringLiteral("#ff336699"), QStringLiteral("Box"), 200, 200);
+    int track = -1;
+    for (int t = 0; t < state.project()->tracks().size(); ++t) {
+        if (!state.project()->tracks().at(t).clips.isEmpty())
+            track = t;
+    }
+    QVERIFY(track >= 0);
+    const QString rot = QStringLiteral("rotation");
+    state.setClipKeyframe(track, 0, rot, 0.0, 0.0);
+    state.setClipKeyframe(track, 0, rot, 1.0, 90.0);
+    state.setClipKeyframe(track, 0, rot, 2.0, 180.0);
+    const QVariantList middle{
+        QVariantMap{{QStringLiteral("clip"), 0}, {QStringLiteral("prop"), rot}, {QStringLiteral("seconds"), 1.0}}};
+    state.setKeyframesEasing(track, middle, QStringLiteral("auto"));
+    const drift::KeyframeTrack<double> &kt = state.project()->tracks().at(track).clips.at(0).rotation;
+    const drift::Keyframe<double> key = kt.keyframes().value(drift::secondsToUs(1.0));
+    QVERIFY(key.outDx > 0.0);
+    QVERIFY(key.inDx < 0.0);
+    QVERIFY(!key.corner);
+    // 90° a second on both sides: the handles follow that slope, so nothing slows at the key.
+    QVERIFY(qAbs(key.outDy / key.outDx - 90.0 / 1e6) < 1e-9);
+    QVERIFY(qAbs(key.inDy / key.inDx - 90.0 / 1e6) < 1e-9);
+    QVERIFY(qAbs(state.propertyValueAt(track, 0, rot, 1.0, 0.0) - 90.0) < 1e-6);
+    // Ctrl+click again: straight.
+    state.setKeyframesEasing(track, middle, QStringLiteral("linear"));
+    const drift::Keyframe<double> flat = state.project()->tracks().at(track).clips.at(0).rotation.keyframes().value(
+        drift::secondsToUs(1.0));
+    QCOMPARE(flat.outDx, 0.0);
+    QCOMPARE(flat.inDx, 0.0);
+}
+
+// After Effects' Rove Across Time (0.30 tutorial, the billiard ball): the keys in the middle go where an even
+// speed puts them, it stays on, and easing the last key spreads them again so the ball brakes over the whole run.
+void EditorStateTest::rovingKeysSpreadAgainAfterAnEase()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    state.project()->tracks().clear();
+    state.addSolidClip(QStringLiteral("#ff336699"), QStringLiteral("Ball"), 100, 100);
+    int track = -1;
+    for (int t = 0; t < state.project()->tracks().size(); ++t) {
+        if (!state.project()->tracks().at(t).clips.isEmpty())
+            track = t;
+    }
+    QVERIFY(track >= 0);
+    // 100 px, then 900 px, then 100 px: the middle key sits far too early for an even speed.
+    const QList<QPair<double, double>> keys{{0.0, 0.0}, {0.5, 100.0}, {1.0, 1000.0}, {3.0, 1100.0}};
+    for (const auto &k : keys) {
+        state.setClipKeyframe(track, 0, QStringLiteral("x"), k.first, k.second);
+        state.setClipKeyframe(track, 0, QStringLiteral("y"), k.first, 300.0);
+    }
+    const auto innerTimes = [&] {
+        QList<double> out;
+        const QVariantList all = state.clipKeyframes(track, 0, QStringLiteral("x"));
+        for (int i = 1; i + 1 < all.size(); ++i)
+            out.append(all.at(i).toMap().value(QStringLiteral("seconds")).toDouble());
+        return out;
+    };
+    state.setPositionRoving(track, 0, true);
+    QVERIFY(state.positionRoving(track, 0));
+    QList<double> even = innerTimes();
+    QCOMPARE(even.size(), 2);
+    // Even speed over 1100 px in 3 s: 100 px at 0.27 s, 1000 px at 2.73 s.
+    QVERIFY(qAbs(even.at(0) - 3.0 * 100.0 / 1100.0) < 0.02);
+    QVERIFY(qAbs(even.at(1) - 3.0 * 1000.0 / 1100.0) < 0.02);
+    // Easing the arrival of the last key slows the whole run down: the keys in the middle come earlier.
+    const QVariantList last{
+        QVariantMap{{QStringLiteral("clip"), 0}, {QStringLiteral("prop"), QStringLiteral("x")}, {QStringLiteral("seconds"), 3.0}}};
+    state.setKeyframesEasing(track, last, QStringLiteral("easeIn"));
+    const QList<double> eased = innerTimes();
+    QCOMPARE(eased.size(), 2);
+    QVERIFY(eased.at(1) < even.at(1) - 0.05);
+    // Saved and loaded with the project.
+    const QJsonObject json = state.project()->toJson();
+    QString error;
+    const drift::Project loaded = drift::Project::fromJson(json, &error);
+    QVERIFY(loaded.tracks().at(track).clips.at(0).positionRoving);
+    // Locked to time: it stays where it is.
+    state.setPositionRoving(track, 0, false);
+    QVERIFY(!state.positionRoving(track, 0));
+    QCOMPARE(innerTimes(), eased);
 }
 
 void EditorStateTest::trackKeyframeRowsUnfoldAndEdit()

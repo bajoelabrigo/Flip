@@ -55,7 +55,28 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 
 ---
 
-## Estado (actualizado 2026-11-01)
+## Estado (actualizado 2026-11-04)
+
+### 0.30.0 A PUNTO DE PUBLICAR (2026-11-04, noche) — **seguir por `docs/plan-0.30.md` › «Para seguir»**
+- PR #52 unido a `main`; el tag `v0.30.0` se **borró** y el release se canceló antes de salir (Jorge encontró que
+  Clonar/pegar claves perdía el Rebote). Arreglado en `flip/subtitulos` (`pasteKeyframes`), compilación r16
+  (run 41798607082) **sin probar en ventana**. Después: PR nuevo, tag, release, MSIX, web.
+- Ya hecho y en vivo: Kit de YouTube sin el fondo «Tu video» y con la pregunta Short/Video (`fitOverlayLayout`),
+  310 plantillas subidas a Stock; extras `voces.ia` y `traduccion.local` en el release `packages` (el índice de la
+  web va en `flipstudio-web` `80cca`, sin desplegar).
+- **2026-11-04 (mañana):** Jorge pidió que todo el curso de fotogramas clave de AE (`docs/tutorial-keyframes-ae.md`)
+  se pueda hacer en Flip antes de publicar. Hecho y **probado en ventana en la r20** (run 41833162993). Falta su sí
+  para publicar (tag `v0.30.0`, release, MSIX, web `80cca`).
+- **Trampa nueva:** un color animado de un efecto se arma desde sus canales; si sale `#rrggbbaa` y el shader declara
+  `uniform vec3`, no se aplica y queda el color de antes (sin error). Solo los colores con alfa llevan 8 dígitos.
+- **Trampa nueva:** `mcp_e2e.py` acepta `"mods": "ctrl,shift,alt"` en click/key/drag/wheel (los sostiene solo para la
+  ventana de prueba con `AttachThreadInput` + `SetKeyboardState`); `pruebas	utorial-aeentana\middrag.py` toma una
+  captura con el botón todavía apretado.
+- **Trampa nueva:** el permiso del mouse va por ruta del ejecutable; un portable abierto desde
+  `Downloads\FlipStudio\pruebas` (la unión) no es el mismo que desde `E:\FlipStudio\pruebas`.
+- **Trampa nueva:** Rebote/Elástico solo actúan donde el valor se queda quieto (`settleOffset`): cualquier cosa que
+  ponga claves después de una caída tiene que dejar una clave quieta antes.
+
 
 ### 0.29.0 PUBLICADA (2026-11-01) — tercios inferiores fáciles y animación a mano como AE — **detalle en `docs/plan-0.29.md`**
 - PRs #49 y #50 (`flip/v0.29-tutorial` → `main`), tag `v0.29.0`, release (run 41288201475); copia en `versiones\FlipStudio-0.29.0`;

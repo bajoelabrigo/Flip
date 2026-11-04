@@ -355,6 +355,9 @@ Item {
                                 size: keyItem.isPicked ? 17 : (keyMouse.containsMouse ? 15 : 13)
                                 inHalf: keyItem.halves["in"]
                                 outHalf: keyItem.halves["out"]
+                                shadeByNeighbours: true
+                                hasPrev: keyItem.index > 0
+                                hasNext: keyItem.index < span.modelData.keys.length - 1
                                 color: span.keyColor
                                 picked: keyItem.isPicked
                                 // Only the pointer lights a key: lighting every key under the
@@ -376,6 +379,12 @@ Item {
                                     // when this is one of them.
                                     if (mouse.button === Qt.RightButton)
                                         return
+                                    if (root.tools.aeToggleInterpolation(root.trackIndex, keyItem.refList,
+                                                                         keyItem.halves, mouse.modifiers)) {
+                                        keyItem.dragArmed = false
+                                        keyItem.moved = false
+                                        return
+                                    }
                                     const ctrl = mouse.modifiers & Qt.ControlModifier
                                     const shift = mouse.modifiers & Qt.ShiftModifier
                                     // A joined key picks its axes' keys together, so they move as one

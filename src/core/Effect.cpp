@@ -343,9 +343,11 @@ Effect Effect::resolvedAt(TimeUs clipTimeUs) const
         if (!it.key().endsWith(QLatin1String(".r")) || it->isEmpty())
             continue;
         const QString base = it.key().chopped(2);
-        const QString hex = parameters.value(base).toString();
-        if (!hex.startsWith(QLatin1Char('#')))
-            continue;
+        // An effect whose colour was never set by hand has no stored value (the catalog's default is
+        // filled in later): its keys still decide the colour (0.30 tests, Fill's Color animated
+        // straight away stayed at the default red).
+        const QString stored = parameters.value(base).toString();
+        const QString hex = stored.startsWith(QLatin1Char('#')) ? stored : QStringLiteral("#ffffff");
         const auto channel = [&](const char *suffix, double fallback) {
             const auto t = paramKeyframes.constFind(base + QLatin1String(suffix));
             const double v = (t == paramKeyframes.constEnd() || t->isEmpty()) ? fallback
@@ -353,7 +355,10 @@ Effect Effect::resolvedAt(TimeUs clipTimeUs) const
             return qBound(0, int(std::lround(v * 255.0)), 255);
         };
         const QColor base0(hex.left(7));
-        const bool hasAlpha = hex.size() == 9 || paramKeyframes.contains(base + QLatin1String(".a"));
+        // Only a colour that has an alpha (stored as #rrggbbaa) gets one back: the inspector keys all four
+        // channels, and an "#rrggbbaa" bound to a vec3 uniform does not bind at all (0.30 tests: Fill's
+        // animated Color stayed red).
+        const bool hasAlpha = hex.size() == 9;
         const double a0 = hex.size() == 9 ? hex.right(2).toInt(nullptr, 16) / 255.0 : 1.0;
         QString composed = QStringLiteral("#%1%2%3")
                                .arg(channel(".r", base0.redF()), 2, 16, QLatin1Char('0'))

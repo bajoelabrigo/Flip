@@ -354,6 +354,9 @@ struct Clip
     // separate, as they were made.
     bool positionJoined = false;
     bool positionSeparated = false;
+    // After Effects' roving keys (0.30): the inner Position keys follow the path at one speed,
+    // spread again after every edit, until locked to time.
+    bool positionRoving = false;
     // A shape's or a text's own size, Scale's 100 % (0.30, After Effects' layer size): kept from the
     // size it had before it was ever scaled, so keying Scale no longer makes the new size the 100 %
     // (a 130 % read 100 %) and the anchor's numbers stay put. 0 = not known yet.

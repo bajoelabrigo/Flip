@@ -39,6 +39,42 @@ Item {
         onReleased: EditorState.commitPreviewDrag()
         onCanceled: EditorState.commitPreviewDrag()
     }
+    // A corner of the transform box: scales time and values together from the corner across; with Alt
+    // only this corner moves and the keys between follow it (After Effects: a bounce that dies down).
+    component BoxCorner: MouseArea {
+        property string corner: "tr"
+        property Item box: null
+        property point origin
+        property bool alone: false
+        width: 10
+        height: 10
+        preventStealing: true
+        hoverEnabled: true
+        cursorShape: corner === "tl" || corner === "br" ? Qt.SizeFDiagCursor : Qt.SizeBDiagCursor
+        Rectangle {
+            anchors.centerIn: parent
+            width: 7
+            height: 7
+            color: Theme.panelBackground
+            border.width: 1
+            border.color: Theme.primary
+        }
+        onPressed: (mouse) => {
+            origin = mapToItem(null, mouse.x, mouse.y)
+            alone = !!(mouse.modifiers & Qt.AltModifier)
+            box.begin()
+        }
+        onPositionChanged: (mouse) => {
+            if (!pressed)
+                return
+            const p = mapToItem(null, mouse.x, mouse.y)
+            box.applyCorner(corner, p.x - origin.x, p.y - origin.y, alone)
+        }
+        onReleased: EditorState.commitPreviewDrag()
+        onCanceled: EditorState.commitPreviewDrag()
+    }
+    // The transform box shows around two or more picked keys; its button hides it (After Effects).
+    property bool transformBoxShown: true
 
     property real pxPerSecond: 50
     property real contentX: 0
@@ -1001,6 +1037,19 @@ Item {
                         onClicked: root.graphType = root.graphType === "value" ? "speed"
                                                   : root.graphType === "speed" ? "auto" : "value"
                     }
+                    // After Effects' Show Transform Box (0.30).
+                    IconButton {
+                        anchors.verticalCenter: parent.verticalCenter
+                        glyph: "square"
+                        variant: "text"
+                        buttonSize: 20
+                        iconSize: 13
+                        active: root.transformBoxShown
+                        tooltip: root.transformBoxShown
+                                 ? qsTr("Hide the transform box around the picked keys")
+                                 : qsTr("Show the transform box around the picked keys (drag a side or a corner; Alt + a corner moves only that corner)")
+                        onClicked: root.transformBoxShown = !root.transformBoxShown
+                    }
                     // After Effects' Fit All and Zoom to Selection (0.30).
                     IconButton {
                         anchors.verticalCenter: parent.verticalCenter
@@ -1902,12 +1951,26 @@ Item {
                                                  | PointerDevice.Stylus
                                 onTapped: {
                                     root.focusedProp = keyDot.modelData.prop
+                                    // After Effects' Ctrl+click: straight, or rounded (Auto Bezier).
+                                    if (root.tools && root.tools.aeToggleInterpolation(
+                                            root.trackIndex, keyDot.ref, keyDot.modelData.halves,
+                                            EditorState.keyboardModifiers()))
+                                        return
                                     keyDot.pickHere()
                                     if (!(EditorState.keyboardModifiers()
                                           & (Qt.ControlModifier | Qt.ShiftModifier)))
                                         EditorState.playheadSeconds = keyDot.modelData.seconds
                                 }
-                                onDoubleTapped: keyDot.remove()
+                                // With After Effects' keys, a double-click opens Keyframe Velocity, as
+                                // AE's graph does; Flip's own keys remove the key.
+                                onDoubleTapped: {
+                                    if (root.tools && root.tools.aeKeys)
+                                        root.tools.openVelocity(root.trackIndex, root.clipIndex,
+                                                                root.refProp(keyDot.modelData.prop),
+                                                                keyDot.modelData.seconds)
+                                    else
+                                        keyDot.remove()
+                                }
                             }
                             TapHandler {
                                 acceptedButtons: Qt.RightButton
@@ -2104,7 +2167,7 @@ Item {
                         }
                         readonly property var entry: root.focusedIndex >= 0 && root.focusedIndex < root.series.length
                                                      ? root.series[root.focusedIndex] : null
-                        visible: picked.length >= 2 && !!entry
+                        visible: picked.length >= 2 && !!entry && root.transformBoxShown
                         z: 5
                         readonly property real t0: picked.length ? Math.min(...picked.map((p) => p.seconds)) : 0
                         readonly property real t1: picked.length ? Math.max(...picked.map((p) => p.seconds)) : 0
@@ -2168,6 +2231,58 @@ Item {
                         BoxSide { box: transformBox; side: "right"; x: parent.width - 5; width: 8; height: parent.height }
                         BoxSide { box: transformBox; side: "top"; y: -3; height: 8; width: parent.width; x: 0 }
                         BoxSide { box: transformBox; side: "bottom"; y: parent.height - 5; height: 8; width: parent.width; x: 0 }
+                        BoxCorner { box: transformBox; corner: "tl"; x: -5; y: -5 }
+                        BoxCorner { box: transformBox; corner: "tr"; x: parent.width - 5; y: -5 }
+                        BoxCorner { box: transformBox; corner: "bl"; x: -5; y: parent.height - 5 }
+                        BoxCorner { box: transformBox; corner: "br"; x: parent.width - 5; y: parent.height - 5 }
+
+                        // A corner dragged dxPx, dyPx: without `alone` the box keeps its shape and grows from the
+                        // corner across; with it only that corner moves, and every key goes where the same
+                        // place in the warped box is (bilinear).
+                        function applyCorner(corner, dxPx, dyPx, alone) {
+                            const e = transformBox.entry
+                            if (!e)
+                                return
+                            const b = transformBox.base
+                            const tLo = Math.min(...b.map((x) => x.seconds)), tHi = Math.max(...b.map((x) => x.seconds))
+                            const vLo = Math.min(...b.map((x) => x.value)), vHi = Math.max(...b.map((x) => x.value))
+                            const dt = root.secondsForX(dxPx)
+                            const dv = root.valueForY(root.yForValue(vLo, e) + dyPx, e) - vLo
+                            // Corners as [time, value]: bl, br, tl, tr.
+                            const c = { bl: [tLo, vLo], br: [tHi, vLo], tl: [tLo, vHi], tr: [tHi, vHi] }
+                            if (alone) {
+                                c[corner] = [c[corner][0] + dt, c[corner][1] + dv]
+                            } else {
+                                const left = corner === "tl" || corner === "bl"
+                                const top = corner === "tl" || corner === "tr"
+                                const nt0 = left ? tLo + dt : tLo, nt1 = left ? tHi : tHi + dt
+                                const nv0 = top ? vLo : vLo + dv, nv1 = top ? vHi + dv : vHi
+                                c.bl = [nt0, nv0]; c.br = [nt1, nv0]; c.tl = [nt0, nv1]; c.tr = [nt1, nv1]
+                            }
+                            const targets = b.map((k) => {
+                                const u = tHi - tLo > 1e-9 ? (k.seconds - tLo) / (tHi - tLo) : 0
+                                const w = vHi - vLo > 1e-9 ? (k.value - vLo) / (vHi - vLo) : 0
+                                const mix = (i) => (1 - u) * (1 - w) * c.bl[i] + u * (1 - w) * c.br[i]
+                                                   + (1 - u) * w * c.tl[i] + u * w * c.tr[i]
+                                return { seconds: EditorState.snapKeyTime(Math.max(0, mix(0))), value: mix(1) }
+                            })
+                            // Those going later move from the last one back, the others from the first on, so
+                            // none lands on a key that has not moved yet.
+                            const order = b.map((x, i) => i).sort((i, j) => {
+                                const li = targets[i].seconds > transformBox.now[i], lj = targets[j].seconds > transformBox.now[j]
+                                if (li !== lj)
+                                    return li ? -1 : 1
+                                return li ? b[j].seconds - b[i].seconds : b[i].seconds - b[j].seconds
+                            })
+                            for (const i of order) {
+                                EditorState.previewMoveClipKeyframe(root.trackIndex, root.clipIndex, e.prop,
+                                                                    transformBox.now[i], targets[i].seconds, targets[i].value)
+                                transformBox.now[i] = targets[i].seconds
+                            }
+                            root.tools.pick(root.trackIndex, transformBox.now.map((t) => ({ clip: root.clipIndex,
+                                                                                           prop: root.refProp(e.prop),
+                                                                                           seconds: t })))
+                        }
                     }
 
                     // Tangent grips for the focused curve, above the keys so they stay
@@ -2228,6 +2343,24 @@ Item {
                                 // A MouseArea that takes the press (0.30): with a DragHandler the
                                 // box-picking MouseArea under it took a quick drag and the handle
                                 // did not move (bounce exercise #12). Larger than the dot.
+                                Rectangle {
+                                    visible: gripDrag.active && gripDrag.readout !== ""
+                                    x: 12
+                                    y: -height - 4
+                                    z: 10
+                                    width: readoutText.implicitWidth + 10
+                                    height: readoutText.implicitHeight + 6
+                                    radius: 3
+                                    color: Qt.rgba(0, 0, 0, 0.75)
+                                    Text {
+                                        id: readoutText
+                                        anchors.centerIn: parent
+                                        text: gripDrag.readout
+                                        color: "#ffffff"
+                                        font.pixelSize: 11
+                                    }
+                                }
+
                                 MouseArea {
                                     id: gripDrag
                                     anchors.fill: parent
@@ -2238,7 +2371,15 @@ Item {
                                     property point origin
                                     property point translation: Qt.point(0, 0)
                                     property real startKeyY: 0
+                                    // Alt at the press breaks the handles apart (After Effects): this
+                                    // side moves alone, the key becomes a corner.
+                                    property bool breakApart: false
+                                    // What the drag reads out next to the grip (After Effects shows the
+                                    // speed and the influence while a handle moves).
+                                    property string readout: ""
                                     onPressed: (mouse) => {
+                                        breakApart = !!(mouse.modifiers & Qt.AltModifier)
+                                        readout = ""
                                         startKeyY = tangent.keyY
                                         origin = mapToItem(null, mouse.x, mouse.y)
                                         translation = Qt.point(0, 0)
@@ -2256,6 +2397,16 @@ Item {
                                     // reaches into its segment), up the speed on that side of the key.
                                     // The handle keeps the way the value goes there; unless the key
                                     // is a corner, the other side takes the same speed.
+                                    // The curve's points whose keys are picked too, other than this one.
+                                    function otherPicked(pts) {
+                                        if (!root.tools)
+                                            return []
+                                        const prop = root.refProp(root.series[root.focusedIndex].prop)
+                                        const mine = tangent.modelData.point
+                                        return pts.filter((q) => Math.abs(q.seconds - mine.seconds) > 1e-4 && root.tools.keys.some((k) =>
+                                            root.tools.keyTrack(k) === root.trackIndex && k.clip === root.clipIndex
+                                            && k.prop === prop && Math.abs(k.seconds - q.seconds) < 1e-4))
+                                    }
                                     function speedDrag(p, outgoing) {
                                         const pts = root.series[root.focusedIndex].points
                                         const i = tangent.modelData.pointIndex
@@ -2268,6 +2419,39 @@ Item {
                                         dx = outgoing ? Math.max(segment * 0.01, Math.min(segment, dx))
                                                       : Math.min(-segment * 0.01, Math.max(-segment, dx))
                                         const speed = root.speedForY(gripDrag.startKeyY + translation.y)
+                                        const corner = p.corner || gripDrag.breakApart
+                                        // The same speed and reach on the same side of every other picked
+                                        // key of this curve (After Effects shapes them all at once).
+                                        const share = Math.abs(dx) / Math.max(1e-9, segment)
+                                        for (const q of [p].concat(gripDrag.otherPicked(pts))) {
+                                            const qi = q === p ? i : pts.indexOf(q)
+                                            const nb = outgoing ? pts[qi + 1] : pts[qi - 1]
+                                            if (!nb)
+                                                continue
+                                            const seg = Math.abs(nb.seconds - q.seconds)
+                                            const qdx = (outgoing ? 1 : -1) * share * seg
+                                            const rising = outgoing ? nb.value >= q.value : q.value >= nb.value
+                                            const slope = (rising ? 1 : -1) * speed
+                                            const qCorner = q.corner || gripDrag.breakApart
+                                            let inDx = q.inDx || 0
+                                            let inDy = q.inDy || 0
+                                            let outDx = q.outDx || 0
+                                            let outDy = q.outDy || 0
+                                            if (outgoing) {
+                                                outDx = qdx
+                                                outDy = slope * qdx
+                                                if (!qCorner && Math.abs(inDx) > 1e-6)
+                                                    inDy = slope * inDx
+                                            } else {
+                                                inDx = qdx
+                                                inDy = slope * qdx
+                                                if (!qCorner && Math.abs(outDx) > 1e-6)
+                                                    outDy = slope * outDx
+                                            }
+                                            EditorState.previewSetKeyframeTangents(
+                                                root.trackIndex, root.clipIndex, root.series[root.focusedIndex].prop,
+                                                q.seconds, inDx, inDy, outDx, outDy, qCorner)
+                                        }
                                         const rising = outgoing ? neighbour.value >= p.value : p.value >= neighbour.value
                                         const slope = (rising ? 1 : -1) * speed
                                         let inDx = p.inDx || 0
@@ -2277,17 +2461,17 @@ Item {
                                         if (outgoing) {
                                             outDx = dx
                                             outDy = slope * dx
-                                            if (!p.corner && Math.abs(inDx) > 1e-6)
+                                            if (!corner && Math.abs(inDx) > 1e-6)
                                                 inDy = slope * inDx
                                         } else {
                                             inDx = dx
                                             inDy = slope * dx
-                                            if (!p.corner && Math.abs(outDx) > 1e-6)
+                                            if (!corner && Math.abs(outDx) > 1e-6)
                                                 outDy = slope * outDx
                                         }
-                                        EditorState.previewSetKeyframeTangents(
-                                            root.trackIndex, root.clipIndex, root.series[root.focusedIndex].prop,
-                                            p.seconds, inDx, inDy, outDx, outDy, p.corner)
+                                        gripDrag.readout = qsTr("Speed %1/s · Influence %2%")
+                                            .arg(Math.abs(speed).toFixed(Math.abs(speed) >= 100 ? 0 : 2))
+                                            .arg((share * 100).toFixed(1))
                                         root.dragTangentInDx = inDx
                                         root.dragTangentInDy = inDy
                                         root.dragTangentOutDx = outDx
@@ -2345,11 +2529,12 @@ Item {
                                         const outDx = outgoing ? dx : (p.outDx || 0)
                                         let inDy = outgoing ? (p.inDy || 0) : dy
                                         let outDy = outgoing ? dy : (p.outDy || 0)
+                                        const corner = p.corner || gripDrag.breakApart
 
                                         // Unless the key is a corner, the far tangent takes the
                                         // same slope so the curve stays smooth through the key.
                                         // Its dx has the opposite sign, so its dy flips with it.
-                                        if (!p.corner && Math.abs(dx) > 1e-6) {
+                                        if (!corner && Math.abs(dx) > 1e-6) {
                                             const slope = dy / dx
                                             if (outgoing)
                                                 inDy = slope * inDx
@@ -2360,7 +2545,43 @@ Item {
                                         EditorState.previewSetKeyframeTangents(
                                             root.trackIndex, root.clipIndex,
                                             root.series[root.focusedIndex].prop,
-                                            p.seconds, inDx, inDy, outDx, outDy, p.corner)
+                                            p.seconds, inDx, inDy, outDx, outDy, corner)
+
+                                        // The other picked keys of this curve take the same handle on the
+                                        // same side, measured against their own neighbour (a bounce's floor
+                                        // keys all sharpen at once, as After Effects).
+                                        const vpts = root.series[root.focusedIndex].points
+                                        const vi = tangent.modelData.pointIndex
+                                        const vnb = outgoing ? vpts[vi + 1] : vpts[vi - 1]
+                                        const vseg = vnb ? Math.abs(vnb.seconds - p.seconds) : 0
+                                        const vrise = vnb ? vnb.value - p.value : 0
+                                        if (vseg > 1e-9) {
+                                            const share = Math.abs(dx) / vseg
+                                            const lift = Math.abs(vrise) > 1e-9 ? dy / vrise : 0
+                                            for (const q of gripDrag.otherPicked(vpts)) {
+                                                const qi = vpts.indexOf(q)
+                                                const nb = outgoing ? vpts[qi + 1] : vpts[qi - 1]
+                                                if (!nb)
+                                                    continue
+                                                const qdx = (outgoing ? 1 : -1) * share * Math.abs(nb.seconds - q.seconds)
+                                                const qdy = lift * (nb.value - q.value)
+                                                const qCorner = q.corner || gripDrag.breakApart
+                                                let qinDx = outgoing ? (q.inDx || 0) : qdx
+                                                let qoutDx = outgoing ? qdx : (q.outDx || 0)
+                                                let qinDy = outgoing ? (q.inDy || 0) : qdy
+                                                let qoutDy = outgoing ? qdy : (q.outDy || 0)
+                                                if (!qCorner && Math.abs(qdx) > 1e-9) {
+                                                    if (outgoing)
+                                                        qinDy = qdy / qdx * qinDx
+                                                    else
+                                                        qoutDy = qdy / qdx * qoutDx
+                                                }
+                                                EditorState.previewSetKeyframeTangents(
+                                                    root.trackIndex, root.clipIndex, root.series[root.focusedIndex].prop,
+                                                    q.seconds, qinDx, qinDy, qoutDx, qoutDy, qCorner)
+                                            }
+                                            gripDrag.readout = qsTr("Influence %1%").arg((share * 100).toFixed(1))
+                                        }
 
                                         root.dragTangentInDx = inDx
                                         root.dragTangentInDy = inDy

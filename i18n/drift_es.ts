@@ -5251,8 +5251,24 @@
         <translation>Avanzar un fotograma (AvPág)</translation>
     </message>
     <message>
+        <source>Step back one frame (Ctrl+Left)</source>
+        <translation>Retroceder un fotograma (Ctrl+Izquierda)</translation>
+    </message>
+    <message>
+        <source>Step forward one frame (Ctrl+Right)</source>
+        <translation>Avanzar un fotograma (Ctrl+Derecha)</translation>
+    </message>
+    <message>
         <source>Show rulers</source>
         <translation>Mostrar reglas</translation>
+    </message>
+    <message>
+        <source>Show only audio levels</source>
+        <translation>Mostrar solo los niveles de audio</translation>
+    </message>
+    <message>
+        <source>Show only effects</source>
+        <translation>Mostrar solo los efectos</translation>
     </message>
     <message>
         <source>Go to the layer&apos;s in point</source>
@@ -6205,6 +6221,10 @@
     <message>
         <source>Roving keyframes</source>
         <translation>Claves itinerantes</translation>
+    </message>
+    <message>
+        <source>Lock keyframes to time</source>
+        <translation>Fijar las claves al tiempo</translation>
     </message>
     <message>
         <source>Exporting…</source>
@@ -11251,6 +11271,10 @@
     <message>
         <source>Extra room (px)</source>
         <translation>Margen extra (px)</translation>
+    </message>
+    <message>
+        <source>Fill</source>
+        <translation>Relleno</translation>
     </message>
     <message>
         <source>Linear Wipe</source>
@@ -17168,6 +17192,14 @@ LA PRÓXIMA</translation>
         <translation>Tipo de gráfico: automático (velocidad para una Posición unida, valores para lo demás). Clic: gráfico de valores</translation>
     </message>
     <message>
+        <source>Hide the transform box around the picked keys</source>
+        <translation>Ocultar la caja de transformación de las claves elegidas</translation>
+    </message>
+    <message>
+        <source>Show the transform box around the picked keys (drag a side or a corner; Alt + a corner moves only that corner)</source>
+        <translation>Mostrar la caja de transformación de las claves elegidas (arrastra un lado o una esquina; Alt + una esquina mueve solo esa esquina)</translation>
+    </message>
+    <message>
         <source>Fit the whole curve in view (Ctrl+wheel zooms the values, Alt+wheel the time)</source>
         <translation>Ver toda la curva (Ctrl+rueda acerca los valores, Alt+rueda el tiempo)</translation>
     </message>
@@ -17263,8 +17295,16 @@ LA PRÓXIMA</translation>
         <translation>Transformar claves</translation>
     </message>
     <message>
+        <source>Speed %1/s · Influence %2%</source>
+        <translation>Velocidad %1/s · Influencia %2%</translation>
+    </message>
+    <message>
         <source>Edit keyframe curve</source>
         <translation>Editar curva de fotograma clave</translation>
+    </message>
+    <message>
+        <source>Influence %1%</source>
+        <translation>Influencia %1%</translation>
     </message>
     <message>
         <source>The layer whose curves you are editing</source>
@@ -17273,6 +17313,69 @@ LA PRÓXIMA</translation>
     <message>
         <source>Edit this layer&apos;s curves (dashed)</source>
         <translation>Editar las curvas de esta capa (punteadas)</translation>
+    </message>
+</context>
+<context>
+    <name>KeyframeInterpolationDialog</name>
+    <message>
+        <source>Current settings</source>
+        <translation>Ajustes actuales</translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation>Lineal</translation>
+    </message>
+    <message>
+        <source>Bezier (smooth)</source>
+        <translation>Bezier (suave)</translation>
+    </message>
+    <message>
+        <source>Continuous Bezier</source>
+        <translation>Bezier continuo</translation>
+    </message>
+    <message>
+        <source>Auto Bezier</source>
+        <translation>Bezier automático</translation>
+    </message>
+    <message>
+        <source>Hold</source>
+        <translation>Mantener</translation>
+    </message>
+    <message>
+        <source>Bezier</source>
+        <translation>Bezier</translation>
+    </message>
+    <message>
+        <source>Rove across time</source>
+        <translation>Desplazar en el tiempo</translation>
+    </message>
+    <message>
+        <source>Lock to time</source>
+        <translation>Fijar al tiempo</translation>
+    </message>
+    <message>
+        <source>Keyframe interpolation</source>
+        <translation>Interpolación de fotogramas clave</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation>Aceptar</translation>
+    </message>
+    <message>
+        <source>Temporal is how the value changes in time; Spatial is the path Position draws between the keys.</source>
+        <translation>La temporal es cómo cambia el valor en el tiempo; la espacial, el trayecto que dibuja la Posición entre las claves.</translation>
+    </message>
+    <message>
+        <source>Temporal interpolation</source>
+        <translation>Interpolación temporal</translation>
+    </message>
+    <message>
+        <source>Spatial interpolation</source>
+        <translation>Interpolación espacial</translation>
+    </message>
+    <message>
+        <source>Roving</source>
+        <translation>Desplazamiento en el tiempo</translation>
     </message>
 </context>
 <context>
@@ -17322,6 +17425,10 @@ LA PRÓXIMA</translation>
         <translation>Suave al salir</translation>
     </message>
     <message>
+        <source>Rounded (auto Bezier)</source>
+        <translation>Redondeada (Bezier automático)</translation>
+    </message>
+    <message>
         <source>Hold</source>
         <translation>Salto</translation>
     </message>
@@ -17360,6 +17467,10 @@ LA PRÓXIMA</translation>
     <message>
         <source>Stretch keyframes…</source>
         <translation>Estirar fotogramas clave…</translation>
+    </message>
+    <message>
+        <source>Keyframe interpolation…</source>
+        <translation>Interpolación de fotogramas clave…</translation>
     </message>
     <message>
         <source>Keyframe velocity…</source>
@@ -19871,6 +19982,10 @@ LA PRÓXIMA</translation>
     <message>
         <source>drag to move the clip at this keyframe</source>
         <translation>arrastra para mover el clip en este fotograma clave</translation>
+    </message>
+    <message>
+        <source>Alt+click: curved or straight</source>
+        <translation>Alt+clic: curva o recta</translation>
     </message>
 </context>
 <context>

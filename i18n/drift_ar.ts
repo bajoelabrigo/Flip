@@ -5307,7 +5307,23 @@
         <translation>التقدم إطارًا (Page Down)</translation>
     </message>
     <message>
+        <source>Step back one frame (Ctrl+Left)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Step forward one frame (Ctrl+Right)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Show rulers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show only audio levels</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show only effects</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6293,6 +6309,10 @@
     <message>
         <source>Roving keyframes</source>
         <translation>إطارات مفتاحية متنقلة</translation>
+    </message>
+    <message>
+        <source>Lock keyframes to time</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Exporting…</source>
@@ -11451,6 +11471,10 @@
     <message>
         <source>Extra room (px)</source>
         <translation>هامش إضافي (px)</translation>
+    </message>
+    <message>
+        <source>Fill</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Linear Wipe</source>
@@ -17416,6 +17440,14 @@ NEXT TIME</source>
         <translation>نوع الرسم: تلقائي (السرعة لموضع موحّد، والقيمة للباقي). انقر: رسم القيمة</translation>
     </message>
     <message>
+        <source>Hide the transform box around the picked keys</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show the transform box around the picked keys (drag a side or a corner; Alt + a corner moves only that corner)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Fit the whole curve in view (Ctrl+wheel zooms the values, Alt+wheel the time)</source>
         <translation>عرض المنحنى كاملًا (Ctrl+العجلة لتكبير القيم، Alt+العجلة للوقت)</translation>
     </message>
@@ -17515,8 +17547,16 @@ NEXT TIME</source>
         <translation>تحويل الإطارات المفتاحية</translation>
     </message>
     <message>
+        <source>Speed %1/s · Influence %2%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Edit keyframe curve</source>
         <translation>تعديل منحنى الإطار المفتاحي</translation>
+    </message>
+    <message>
+        <source>Influence %1%</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>The layer whose curves you are editing</source>
@@ -17524,6 +17564,69 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Edit this layer&apos;s curves (dashed)</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>KeyframeInterpolationDialog</name>
+    <message>
+        <source>Current settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bezier (smooth)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Continuous Bezier</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto Bezier</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hold</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bezier</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rove across time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lock to time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keyframe interpolation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Temporal is how the value changes in time; Spatial is the path Position draws between the keys.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Temporal interpolation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spatial interpolation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Roving</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -17574,6 +17677,10 @@ NEXT TIME</source>
         <translation>ناعم عند المغادرة</translation>
     </message>
     <message>
+        <source>Rounded (auto Bezier)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Hold</source>
         <translation>تثبيت</translation>
     </message>
@@ -17611,6 +17718,10 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Stretch keyframes…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keyframe interpolation…</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -20178,6 +20289,10 @@ NEXT TIME</source>
     </message>
     <message>
         <source>drag to move the clip at this keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Alt+click: curved or straight</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

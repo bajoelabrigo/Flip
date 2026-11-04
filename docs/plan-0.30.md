@@ -22,3 +22,41 @@ Además de lo de `docs/plan-subtitulos.md` y `docs/plan-ejercicio-rebote.md`:
    errores; subidas 310 con `publish.py` + `publish_delta.py` + `apply_delta.sh` (hashes comprobados en vivo).
 5. **Extras `voces.ia` 1.0.0 (40 voces, retratos aprobados por Jorge el 2026-11-04) y `traduccion.local` 1.0.0:**
    paquetes subidos al release `packages`. **Falta:** copiar `flip-addons/dist/index.json` a la web al publicar la 0.30.
+6. **Clonar y copiar/pegar con Rebote (Jorge, 2026-11-04, noche) — ARREGLADO, FALTA PROBAR EN VENTANA.** Jorge: Motion
+   Tools › Clonar y Ctrl+C/Ctrl+V «copian el fotograma pero no la animación». Probado en ventana con la r15: con
+   Separar dimensiones X e Y se copian y clonan por separado **como en After Effects** (Jorge lo pidió así: no
+   juntarlas). Clonar las claves de Y sí repite la caída. Lo que fallaba es el **Rebote/Elástico**: el motor solo
+   rebota donde el valor se queda quieto (`KeyframeTrack::settleOffset`) y con la copia detrás la pelota subía
+   despacio hacia ella sin rebotar. Arreglo (`pasteKeyframes`, commit «Clone and paste keys keep Bounce and
+   Elastic»): en una propiedad con Rebote/Elástico se pone una clave quieta (el valor del suelo) un fotograma antes de
+   la copia. Prueba en `pasteOntoItsOwnKeysCarriesOn`. (Un primer intento que juntaba X con Y y copiaba toda la
+   animación con una sola clave se deshizo: commit «Revert …».) En la ventana de Jorge las claves clonadas eran de
+   la fila Posición X, que no se mueve: hay que elegir las de Y (clic en el nombre «Posición Y» elige todas).
+   Compilación **r16**: run 41798607082 → `pruebas\FlipStudio-0.30-r16`.
+
+## El curso de fotogramas clave de AE (Jorge, 2026-11-04 noche)
+Jorge: la 0.30 sale solo cuando todo lo del curso (1:49, `Videos\aTubeCatcher\🔷 CURSO de AFTER EFFECTS…mkv`) se
+pueda hacer en Flip. Lista punto por punto, con el minuto y el estado, en **`docs/tutorial-keyframes-ae.md`**. Lo
+que faltaba se hizo en el commit `752a6` (compilación run 41819171666 → `pruebas\FlipStudio-0.30-r17`) y se prueba
+en ventana sin el mouse de Jorge (`mcp_e2e.py` ahora sostiene Ctrl/Mayús/Alt con `"mods"`, solo para la ventana de
+prueba). La r17 también lleva el arreglo del rebote al clonar (era la r16).
+**Hecho y probado en ventana (2026-11-04, mañana):** todo lo del curso, en la **r20** (run 41833162993,
+`pruebas\FlipStudio-0.30-r20`), con los arreglos que salieron al probar (Intro en un campo, color en una fila, color
+animado de un efecto que no se dibujaba) y clonar con Rebote (Y igual antes y después, y la copia rebota). Registro
+restaurado (`pruebas	utorial-aeegistro-antes.reg`, 0 diferencias; la cuenta no cambió). Queda distinto a
+propósito: Espacio + arrastrar (en Flip Espacio reproduce). **Falta:** que Jorge diga si se publica, y publicar.
+
+## Para seguir (2026-11-05)
+
+1. Bajar la r16 si no se bajó (`gh run download 41798607082 -R bajoelabrigo/Flip -n windows-portable`), abrirla en
+   ventana: pelota (elipse arriba, Separar dimensiones, claves de Y en 0 s y 1 s, Rebote), clonar en 3 s y mirar que
+   rebote en la primera caída y en la copia; también Ctrl+C/Ctrl+V. Que Jorge lo pruebe.
+2. Si queda bien: PR de `flip/subtitulos` a `main` (el PR #52 ya está unido; este es uno nuevo con el arreglo),
+   **tag `v0.30.0`** otra vez (se borró: el release se canceló antes de publicarse, no hay release `v0.30.0`),
+   esperar `release.yml`, MSIX (`msstore.yml` con `ref=v0.30.0`, `version=0.30.0.0`) a
+   `tienda\FlipStudio-Store\paquete-0.30.0`, copia en `versiones\FlipStudio-0.30.0`.
+3. Web: `flipstudio-web` commit `80cca` (novedades 0.30 + índice de extras con `voces.ia` y `traduccion.local`) está
+   hecho **sin desplegar**: desplegar con `deploy/deploy.sh` después del release. Añadir a las novedades el arreglo
+   del rebote si hace falta (las notas de la versión ya cubren el Kit de YouTube).
+4. Notas: añadir a `release-notes/0.30.0.md` › Arreglos «Clonar y pegar claves conservan el Rebote y el Elástico».
+5. Stock del kit sin fondo y los dos extras **ya están subidos** (no repetir).

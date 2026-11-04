@@ -37,7 +37,7 @@ Item {
     signal tabbed(bool back)
 
     function startEditing() {
-        field.text = root.format(root.shown).replace(root.suffix, "")
+        field.text = root.editText(root.shown)
         root.editing = true
         field.forceActiveFocus()
         field.selectAll()
@@ -51,7 +51,18 @@ Item {
     implicitWidth: label.implicitWidth + 2
     implicitHeight: label.implicitHeight
 
+    // The number in the field while typing: plain, without the turns or the unit.
+    function editText(d) {
+        return decimals > 0 ? Number(d).toFixed(decimals) : String(Math.round(d))
+    }
+    // Rotation as After Effects writes it: whole turns and the degrees left (1x+30.0°).
+    property bool turns: false
     function format(d) {
+        if (turns) {
+            const n = d < 0 ? Math.ceil(d / 360) : Math.floor(d / 360)
+            const rest = d - n * 360
+            return n + "x" + (rest < 0 ? "-" : "+") + Math.abs(rest).toFixed(decimals) + suffix
+        }
         return (decimals > 0 ? Number(d).toFixed(decimals) : String(Math.round(d))) + suffix
     }
     function clampShown(d) {
@@ -173,10 +184,12 @@ Item {
                 return
             root.editing = false
             // Untouched: nothing to write.
-            if (text === root.format(root.shown).replace(root.suffix, ""))
+            if (text === root.editText(root.shown))
                 return
+            // Turns typed as After Effects writes them: "1x+30" is 390°.
+            const t = root.turns ? /^\s*(-?\d+)\s*x\s*([+-]?\s*\d*\.?\d+)\s*°?\s*$/i.exec(text) : null
             // Sums too, as After Effects: "+50" adds to the value shown, "*2" doubles it, "100+20" is 120.
-            const d = ValueMath.evaluate(text, root.shown)
+            const d = t ? Number(t[1]) * 360 + Number(t[2].replace(/\s/g, "")) : ValueMath.evaluate(text, root.shown)
             if (commit && !isNaN(d)) {
                 root.begin(!!focusLost)
                 root.apply(d)

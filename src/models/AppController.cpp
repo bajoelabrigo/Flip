@@ -5024,6 +5024,9 @@ QHash<QString, QString> defaultShortcuts()
         {QStringLiteral("showRotationRows"), QStringLiteral("Shift+R")},
         {QStringLiteral("showOpacityRows"), QStringLiteral("Shift+T")},
         {QStringLiteral("showScaleRows"), QStringLiteral("Shift+S")},
+        // After Effects' L (Audio Levels) and E (Effects), on Shift in Flip's set (0.30).
+        {QStringLiteral("showAudioRows"), QStringLiteral("Shift+L")},
+        {QStringLiteral("showEffectRows"), QStringLiteral("Shift+E")},
         {QStringLiteral("toggleBookmark"), QStringLiteral("M")},
         {QStringLiteral("nextBookmark"), QStringLiteral("Shift+M")},
         {QStringLiteral("previousBookmark"), QStringLiteral("Ctrl+Shift+M")},
@@ -5071,6 +5074,9 @@ QHash<QString, QString> defaultShortcuts()
         {QStringLiteral("moveOutToPlayhead"), QStringLiteral("]")},
         {QStringLiteral("stepBackPage"), QStringLiteral("PgUp")},
         {QStringLiteral("stepForwardPage"), QStringLiteral("PgDown")},
+        // After Effects' Ctrl+Left / Ctrl+Right step a frame too: the AE set's (Left / Right stay).
+        {QStringLiteral("stepBackCtrl"), QString()},
+        {QStringLiteral("stepForwardCtrl"), QString()},
         {QStringLiteral("goToLayerIn"), QString()},
         {QStringLiteral("goToLayerOut"), QString()},
         // After Effects' Alt+Shift+P/S/R/T/A (a key on that property at the playhead): the AE set's.
@@ -5098,6 +5104,9 @@ const QHash<QString, QString> &afterEffectsShortcutChanges()
         {QStringLiteral("showRotationRows"), QStringLiteral("R")},
         {QStringLiteral("showOpacityRows"), QStringLiteral("T")},
         {QStringLiteral("showAnchorRows"), QStringLiteral("A")},
+        {QStringLiteral("showAudioRows"), QStringLiteral("L")},
+        {QStringLiteral("showEffectRows"), QStringLiteral("E")},
+        {QStringLiteral("speedUp"), QStringLiteral("Shift+L")},
         {QStringLiteral("split"), QStringLiteral("Ctrl+Shift+D")},
         {QStringLiteral("previewPenTool"), QStringLiteral("G")},
         {QStringLiteral("toggleGuides"), QStringLiteral("Ctrl+;")},
@@ -5117,6 +5126,10 @@ const QHash<QString, QString> &afterEffectsShortcutChanges()
         {QStringLiteral("keyRotation"), QStringLiteral("Alt+Shift+R")},
         {QStringLiteral("keyOpacity"), QStringLiteral("Alt+Shift+T")},
         {QStringLiteral("keyAnchor"), QStringLiteral("Alt+Shift+A")},
+        {QStringLiteral("stepBackCtrl"), QStringLiteral("Ctrl+Left")},
+        {QStringLiteral("stepForwardCtrl"), QStringLiteral("Ctrl+Right")},
+        {QStringLiteral("jumpBackFar"), QStringLiteral("Ctrl+Shift+Left")},
+        {QStringLiteral("jumpForwardFar"), QStringLiteral("Ctrl+Shift+Right")},
     };
     return changes;
 }
@@ -6008,6 +6021,8 @@ QVariantList AppController::actions() const
         action(QStringLiteral("stepForward"), tr("Step forward one frame")),
         action(QStringLiteral("stepBackPage"), tr("Step back one frame (Page Up)")),
         action(QStringLiteral("stepForwardPage"), tr("Step forward one frame (Page Down)")),
+        action(QStringLiteral("stepBackCtrl"), tr("Step back one frame (Ctrl+Left)")),
+        action(QStringLiteral("stepForwardCtrl"), tr("Step forward one frame (Ctrl+Right)")),
         action(QStringLiteral("jumpBack"), tr("Jump back 1 second")),
         action(QStringLiteral("jumpForward"), tr("Jump forward 1 second")),
         action(QStringLiteral("jumpBackFar"), tr("Jump back 10 seconds")),
@@ -6027,6 +6042,8 @@ QVariantList AppController::actions() const
         action(QStringLiteral("showRotationRows"), tr("Show only Rotation")),
         action(QStringLiteral("showOpacityRows"), tr("Show only Opacity")),
         action(QStringLiteral("showScaleRows"), tr("Show only Scale")),
+        action(QStringLiteral("showAudioRows"), tr("Show only audio levels")),
+        action(QStringLiteral("showEffectRows"), tr("Show only effects")),
         action(QStringLiteral("gizmoMove"), tr("3D gizmo: move")),
         action(QStringLiteral("gizmoRotate"), tr("3D gizmo: rotate")),
         action(QStringLiteral("gizmoScale"), tr("3D gizmo: scale")),
@@ -7219,6 +7236,7 @@ void AppController::pushProjectEdit(const drift::Project &before, const QString 
     // parent by it, and the dozen places that append a track all leave it empty.
     syncTextAutoFit(m_project, before);
     syncJoinedPositions(&before);
+    syncRovingPositions();
     normalizeProjectStructure(&before);
     syncCompositeAssetDurations();
     // Belt and braces for the tracks cache: normalizeProjectStructure() rewrites the project, and
@@ -12339,6 +12357,28 @@ void AppController::showOnlyKeyframeGroup(const QString &group)
         tracks.insert(pair.first);
     if (tracks.isEmpty() && isValidClipIndex(m_selectedTrack, m_selectedClip))
         tracks.insert(m_selectedTrack);
+    // L: a picked video's sound may sit on its own linked track; that one opens too.
+    if (group == QLatin1String("volume")) {
+        QSet<QString> links;
+        for (const QPair<int, int> &pair : m_selection) {
+            if (isValidClipIndex(pair.first, pair.second)) {
+                const QString id = m_project.tracks().at(pair.first).clips.at(pair.second).linkId;
+                if (!id.isEmpty())
+                    links.insert(id);
+            }
+        }
+        if (isValidClipIndex(m_selectedTrack, m_selectedClip)) {
+            const QString id = m_project.tracks().at(m_selectedTrack).clips.at(m_selectedClip).linkId;
+            if (!id.isEmpty())
+                links.insert(id);
+        }
+        for (int t = 0; t < m_project.tracks().size() && !links.isEmpty(); ++t) {
+            for (const drift::Clip &clip : m_project.tracks().at(t).clips) {
+                if (!clip.linkId.isEmpty() && links.contains(clip.linkId))
+                    tracks.insert(t);
+            }
+        }
+    }
     if (tracks.isEmpty()) {
         for (int t = 0; t < m_project.tracks().size(); ++t) {
             if (trackHasKeyframes(t))
@@ -16998,6 +17038,7 @@ void AppController::commitPreviewDrag()
     // Part of the drag's own undo step, like the edit that caused it.
     syncTextAutoFit(m_project, m_previewDragBefore);
     syncJoinedPositions(&m_previewDragBefore);
+    syncRovingPositions();
     const QString text = m_previewDragText.isEmpty() ? tr("Edit clip") : m_previewDragText;
     if (!m_mcpController->undoSuspended())
         m_undoStack.push(new drift::ProjectSnapshotCommand(&m_project, m_previewDragBefore, m_project, text));
@@ -25336,6 +25377,57 @@ bool AppController::pasteKeyframes(int trackIndex, int clipIndex, bool continueC
             pasteAtUs = m_keyClipboardLastUs + step;
         }
     }
+    // A property that bounces or swings (Motion Tools' Bounce / Elastic) does so only where it comes to
+    // rest; with the copies straight after, the ball rose slowly to them and the bounce was gone (Jorge,
+    // 0.30: «it copies the keyframe, not the animation»). It stays at rest until a frame before the copies.
+    {
+        const drift::TimeUs frame = drift::frameDurationUs(m_project.fps());
+        QSet<QString> held;
+        for (const CopiedKey &copied : std::as_const(m_keyClipboard)) {
+            if (held.contains(copied.prop))
+                continue;
+            held.insert(copied.prop);
+            int t = trackIndex;
+            int c = clipIndex;
+            redirectToKeyframeHost(&t, &c, copied.prop);
+            if (!isValidClipIndex(t, c))
+                continue;
+            drift::Clip &clip = m_project.tracks()[t].clips[c];
+            drift::KeyframeTrack<double> *kt = keyframeTrackForProp(clip, copied.prop, false);
+            if (!kt || kt->isEmpty() || kt->behavior().settle == drift::TrackBehavior::Settle::None)
+                continue;
+            const drift::TimeUs firstAt = qMax<drift::TimeUs>(0, pasteAtUs - clip.timelineStart);
+            const drift::TimeUs holdAt = firstAt - frame;
+            auto rest = kt->keyframes().lowerBound(firstAt);
+            if (rest == kt->keyframes().constBegin())
+                continue;
+            rest = std::prev(rest);
+            if (holdAt <= rest.key() + frame)
+                continue;
+            drift::Keyframe<double> still = rest.value();
+            still.inDx = still.inDy = still.outDx = still.outDy = 0.0;
+            // The fall into the rest key keeps its shape: on a joined Position its path handles follow the
+            // neighbours (Auto Bezier), and a still key beside it would flatten the fall and change the bounce.
+            // So they are frozen as they are, and the still key has none.
+            const drift::TimeUs restAt = rest.key();
+            const auto freeze = [restAt](drift::KeyframeTrack<double> *track) {
+                if (!track || !track->keyframes().contains(restAt))
+                    return;
+                drift::Keyframe<double> key = track->keyframes().value(restAt);
+                if (!key.spatial)
+                    return;
+                key.spatialAuto = false;
+                key.spOut = 0.0;
+                track->setKeyframe(restAt, key);
+            };
+            freeze(kt);
+            if (clip.positionJoined && (copied.prop == QLatin1String("x") || copied.prop == QLatin1String("y")))
+                freeze(copied.prop == QLatin1String("x") ? &clip.transformY : &clip.transformX);
+            still.spatialAuto = false;
+            still.spIn = still.spOut = 0.0;
+            kt->setKeyframe(holdAt, still);
+        }
+    }
     for (const CopiedKey &copied : std::as_const(m_keyClipboard)) {
         int t = trackIndex;
         int c = clipIndex;
@@ -25505,6 +25597,30 @@ bool AppController::applyKeyframeEasing(int trackIndex, int clipIndex, const QSt
                 key->inDy = 0.0;
             }
             key->corner = true;
+        } else if (mode == QLatin1String("auto")) {
+            // After Effects' Auto Bezier (what Ctrl+click turns a straight key into): handles a third
+            // of the way to each neighbour, along the slope from the previous key to the next one, so
+            // the value runs through the key without stopping. The first and last key aim at their one
+            // neighbour.
+            kt->setEasing(at, drift::Interpolation::Ease);
+            drift::Keyframe<double> *key = kt->keyframeRef(at);
+            if (key) {
+                const auto &all = kt->keyframes();
+                auto it = all.constFind(at);
+                const bool hasPrev = it != all.constBegin();
+                const auto next = std::next(it);
+                const bool hasNext = next != all.constEnd();
+                double slope = 0.0;
+                if (hasPrev && hasNext)
+                    slope = (next.value().value - std::prev(it).value().value) / double(next.key() - std::prev(it).key());
+                else if (hasPrev)
+                    slope = (it.value().value - std::prev(it).value().value) / double(at - std::prev(it).key());
+                else if (hasNext)
+                    slope = (next.value().value - it.value().value) / double(next.key() - at);
+                key->inDy = slope * key->inDx;
+                key->outDy = slope * key->outDx;
+                key->corner = false;
+            }
         } else {
             kt->setEasing(at, drift::interpolationFromString(mode));
         }
@@ -30707,8 +30823,11 @@ QString AppController::animatedPropertyLabel(int trackIndex, int clipIndex, cons
         if (host && effectIndex >= 0 && effectIndex < host->effects.size()) {
             const drift::Effect &effect = host->effects.at(effectIndex);
             if (const EffectPresetEntry *def = effectDefForId(effect.catalogId)) {
+                // A colour's channel (color.r) is named as the colour, whose line it joins.
+                const QString base = paramKey.size() > 2 && paramKey.at(paramKey.size() - 2) == QLatin1Char('.')
+                                         ? paramKey.left(paramKey.size() - 2) : QString();
                 for (const drift::EffectParamSpec &p : def->meta.parameters) {
-                    if (p.key == paramKey)
+                    if (p.key == paramKey || (!base.isEmpty() && p.key == base && p.isColor()))
                         return def->meta.displayName + QStringLiteral(" · ") + p.label;
                 }
                 return def->meta.displayName + QStringLiteral(" · ") + paramKey;
@@ -31244,7 +31363,10 @@ QVariantList AppController::trackKeyframeRows(int trackIndex) const
     // one, carrying the axes' own keys (refs) so a drag moves them together.
     QSet<QString> grouped;
     {
-        for (const KeyframeGroup &group : fixedKeyframeGroups(track)) {
+        // L (0.30, After Effects' Audio Levels) on a video layer: its own sound's Volume line.
+        const bool audioLevelsOnVideo = m_keyframeRowsOnlyGroup == QLatin1String("volume")
+                                        && track.type == drift::TrackType::Video;
+        for (const KeyframeGroup &group : audioLevelsOnVideo ? audioKeyframeGroups() : fixedKeyframeGroups(track)) {
             const QString groupId = QString::fromLatin1(group.id);
             for (const QString &prop : group.props)
                 grouped.insert(prop);
@@ -31360,6 +31482,66 @@ QVariantList AppController::trackKeyframeRows(int trackIndex) const
         for (const QString &prop : clipAnimatedProperties(trackIndex, c)) {
             if (grouped.contains(prop) || prop.startsWith(QLatin1String("part.")))
                 continue;
+            // P, S, R, T, A, L show only their line; E (0.30) only the effects' lines.
+            const bool effectLine = prop.startsWith(QLatin1String("fx.")) || prop.startsWith(QLatin1String("afx."));
+            if (!m_keyframeRowsOnlyGroup.isEmpty()
+                && !(m_keyframeRowsOnlyGroup == QLatin1String("effects") && effectLine))
+                continue;
+            // An effect's colour is one line, as After Effects' Color (0.30 tutorial): its four channels'
+            // keys merge, one diamond per time carrying each channel's own key (refs).
+            static const QStringList channels{QStringLiteral(".r"), QStringLiteral(".g"), QStringLiteral(".b"),
+                                              QStringLiteral(".a")};
+            QString colorBase;
+            if (effectLine && prop.size() > 2) {
+                for (const QString &ch : channels) {
+                    if (prop.endsWith(ch)) {
+                        const QString base = prop.left(prop.size() - 2);
+                        const QStringList all = clipAnimatedProperties(trackIndex, c);
+                        int present = 0;
+                        for (const QString &other : channels)
+                            present += all.contains(base + other) ? 1 : 0;
+                        if (present >= 2)
+                            colorBase = base;
+                        break;
+                    }
+                }
+            }
+            if (!colorBase.isEmpty()) {
+                if (!prop.endsWith(QLatin1String(".r")) && clipAnimatedProperties(trackIndex, c).contains(colorBase + QStringLiteral(".r")))
+                    continue; // the line goes in with its .r channel
+                QMap<qint64, QVariantMap> merged;
+                for (const QString &ch : channels) {
+                    const QString channel = colorBase + ch;
+                    for (const QVariant &v : clipKeyframes(trackIndex, c, channel)) {
+                        QVariantMap key = v.toMap();
+                        const double seconds = key.value(QStringLiteral("seconds")).toDouble();
+                        QVariantMap &at = merged[qRound64(seconds * 1000.0)];
+                        if (at.isEmpty())
+                            at = key;
+                        QVariantList refs = at.value(QStringLiteral("refs")).toList();
+                        refs.append(QVariantMap{{QStringLiteral("prop"), channel}, {QStringLiteral("seconds"), seconds}});
+                        at.insert(QStringLiteral("refs"), refs);
+                    }
+                }
+                QVariantList keys;
+                for (const QVariantMap &key : std::as_const(merged))
+                    keys.append(key);
+                if (keys.isEmpty())
+                    continue;
+                const QString label = animatedPropertyLabel(trackIndex, c, colorBase + QStringLiteral(".r"));
+                if (!clipsByLabel.contains(label))
+                    order.append(label);
+                clipsByLabel[label].append(QVariantMap{
+                    {QStringLiteral("clip"), c},
+                    {QStringLiteral("prop"), prop},
+                    {QStringLiteral("start"), drift::usToSeconds(
+                         m_project.tracks().at(trackIndex).clips.at(c).timelineStart)},
+                    {QStringLiteral("duration"), drift::usToSeconds(
+                         m_project.tracks().at(trackIndex).clips.at(c).timelineDuration)},
+                    {QStringLiteral("keys"), keys},
+                });
+                continue;
+            }
             const QVariantList keys = clipKeyframes(trackIndex, c, prop);
             if (keys.isEmpty())
                 continue;
@@ -33299,27 +33481,26 @@ void AppController::previewSetSpatialTangents(int trackIndex, int clipIndex, dou
     emitPreviewEdit(trackIndex, clipIndex, {QStringLiteral("x"), QStringLiteral("y")});
 }
 
-void AppController::roveKeyframes(int trackIndex, int clipIndex)
+namespace {
+// After Effects' roving keys: the Position keys between the first and the last go where the layer would be
+// at one even speed along the path; the ends keep their ease, which then shapes the whole run (an eased last
+// key slows the layer down over all of it, not only its last stretch). False when nothing changed.
+bool roveClipPosition(drift::Clip &clip)
 {
-    if (!isValidClipIndex(trackIndex, clipIndex))
-        return;
-    const drift::Clip &now = m_project.tracks().at(trackIndex).clips.at(clipIndex);
-    const QList<drift::TimeUs> times = positionKeyTimes(now);
-    if (times.size() < 3) {
-        setLastMessage(tr("Roving needs at least three Position keyframes"), QStringLiteral("warning"));
-        return;
-    }
+    const QList<drift::TimeUs> times = positionKeyTimes(clip);
+    if (times.size() < 3)
+        return false;
     // How far along the path each key is, measured on what plays.
     QList<double> along{0.0};
     double total = 0.0;
     for (int i = 0; i + 1 < times.size(); ++i) {
         const int steps = 64;
-        double px = now.transformX.evaluateAt(times.at(i));
-        double py = now.transformY.evaluateAt(times.at(i));
+        double px = clip.transformX.evaluateAt(times.at(i));
+        double py = clip.transformY.evaluateAt(times.at(i));
         for (int k = 1; k <= steps; ++k) {
             const drift::TimeUs t = times.at(i) + (times.at(i + 1) - times.at(i)) * k / steps;
-            const double x = now.transformX.evaluateAt(t);
-            const double y = now.transformY.evaluateAt(t);
+            const double x = clip.transformX.evaluateAt(t);
+            const double y = clip.transformY.evaluateAt(t);
             total += std::hypot(x - px, y - py);
             px = x;
             py = y;
@@ -33327,29 +33508,72 @@ void AppController::roveKeyframes(int trackIndex, int clipIndex)
         along.append(total);
     }
     if (total <= 1e-6)
-        return;
-    const drift::Project before = m_project;
-    drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
+        return false;
     const drift::TimeUs first = times.first();
     const drift::TimeUs span = times.last() - first;
+    // The run's timing, 0..1 in time to 0..1 along the path: a cubic with the ends' ease. A flat handle
+    // eases that end (its reach is the influence); a straight end goes evenly.
+    const auto endHandle = [&](bool atStart) -> QPointF {
+        const drift::TimeUs at = atStart ? times.first() : times.last();
+        const drift::KeyframeTrack<double> &kt = clip.transformX.keyframes().contains(at) ? clip.transformX
+                                                                                          : clip.transformY;
+        const drift::Keyframe<double> key = kt.keyframes().value(at);
+        const double dx = atStart ? key.outDx : -key.inDx;
+        const double dy = atStart ? key.outDy : key.inDy;
+        const double gap = double(atStart ? times.at(1) - times.at(0) : times.last() - times.at(times.size() - 2));
+        if (key.hold || dx <= 0.0 || std::abs(dy) > 1e-9 * qMax(1.0, std::abs(key.value)) || gap <= 0.0)
+            return atStart ? QPointF(1.0 / 3.0, 1.0 / 3.0) : QPointF(2.0 / 3.0, 2.0 / 3.0);
+        const double reach = qBound(0.01, dx / gap, 1.0);
+        return atStart ? QPointF(reach, 0.0) : QPointF(1.0 - reach, 1.0);
+    };
+    const QPointF c1 = endHandle(true);
+    const QPointF c2 = endHandle(false);
+    const auto bez = [](double a, double b, double u) {
+        const double v = 1.0 - u;
+        return 3.0 * v * v * u * a + 3.0 * v * u * u * b + u * u * u;
+    };
+    const auto timeFor = [&](double progress) {
+        double lo = 0.0;
+        double hi = 1.0;
+        for (int it = 0; it < 50; ++it) {
+            const double mid = 0.5 * (lo + hi);
+            if (bez(c1.y(), c2.y(), mid) < progress)
+                lo = mid;
+            else
+                hi = mid;
+        }
+        return bez(c1.x(), c2.x(), 0.5 * (lo + hi));
+    };
     QList<drift::TimeUs> moved;
     for (int i = 0; i < times.size(); ++i)
         moved.append(i == 0 || i == times.size() - 1 ? times.at(i)
-                                                     : first + drift::TimeUs(double(span) * along.at(i) / total));
+                                                     : first + drift::TimeUs(std::llround(double(span) * timeFor(along.at(i) / total))));
+    // Never two keys on one time, never out of order.
+    for (int i = 1; i + 1 < moved.size(); ++i)
+        moved[i] = qBound(moved.at(i - 1) + 1000, moved.at(i), moved.last() - drift::TimeUs(1000) * (moved.size() - 1 - i));
+    // Rounding alone never moves a key: spreading them again after an edit that changed nothing is a no-op.
+    bool changed = false;
+    for (int i = 0; i < times.size(); ++i) {
+        if (std::llabs(moved.at(i) - times.at(i)) <= 2)
+            moved[i] = times.at(i);
+        changed = changed || moved.at(i) != times.at(i);
+    }
     for (drift::KeyframeTrack<double> *track : {&clip.transformX, &clip.transformY}) {
         QList<QPair<drift::TimeUs, drift::Keyframe<double>>> keys;
         for (int i = 0; i < times.size(); ++i) {
             if (!track->keyframes().contains(times.at(i)))
                 continue;
             drift::Keyframe<double> key = track->keyframes().value(times.at(i));
-            // Joined: the keys in between go at one speed along the path (their timing straight);
-            // the ends keep their ease.
+            // Joined, the keys in between go at one speed (their timing straight); the ends, and every key
+            // of a separated Position (whose handles draw the path), keep their handles, stretched with
+            // the segments they reach into.
             if (clip.positionJoined && i > 0 && i + 1 < times.size()) {
+                if (key.inDx != 0.0 || key.outDx != 0.0 || key.inDy != 0.0 || key.outDy != 0.0)
+                    changed = true;
                 key.inDx = key.inDy = key.outDx = key.outDy = 0.0;
                 keys.append({moved.at(i), key});
                 continue;
             }
-            // The handles keep their share of the segments they reach into.
             if (i > 0) {
                 const double k = double(moved.at(i) - moved.at(i - 1)) / qMax(1.0, double(times.at(i) - times.at(i - 1)));
                 key.inDx *= k;
@@ -33362,13 +33586,53 @@ void AppController::roveKeyframes(int trackIndex, int clipIndex)
             }
             keys.append({moved.at(i), key});
         }
+        if (!changed)
+            continue;
         for (const drift::TimeUs t : times)
             track->removeKeyframe(t);
         for (const auto &k : keys)
             track->setKeyframe(k.first, k.second);
     }
-    pushProjectEdit(before, tr("Roving keyframes"));
-    finishEdit(tr("Roving keyframes"));
+    return changed;
+}
+} // namespace
+
+void AppController::roveKeyframes(int trackIndex, int clipIndex)
+{
+    setPositionRoving(trackIndex, clipIndex, true);
+}
+
+bool AppController::positionRoving(int trackIndex, int clipIndex) const
+{
+    return isValidClipIndex(trackIndex, clipIndex) && m_project.tracks().at(trackIndex).clips.at(clipIndex).positionRoving;
+}
+
+void AppController::setPositionRoving(int trackIndex, int clipIndex, bool on)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return;
+    if (on && positionKeyTimes(m_project.tracks().at(trackIndex).clips.at(clipIndex)).size() < 3) {
+        setLastMessage(tr("Roving needs at least three Position keyframes"), QStringLiteral("warning"));
+        return;
+    }
+    const drift::Project before = m_project;
+    drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
+    // It stays on, as After Effects' roving keys: every later edit spreads them again (syncRovingPositions).
+    clip.positionRoving = on;
+    if (on)
+        roveClipPosition(clip);
+    pushProjectEdit(before, on ? tr("Roving keyframes") : tr("Lock keyframes to time"));
+    finishEdit(on ? tr("Roving keyframes") : tr("Lock keyframes to time"));
+}
+
+void AppController::syncRovingPositions()
+{
+    for (drift::Track &track : m_project.tracks()) {
+        for (drift::Clip &clip : track.clips) {
+            if (clip.positionRoving)
+                roveClipPosition(clip);
+        }
+    }
 }
 
 bool AppController::takeAeShortcutsOffer()
@@ -33618,6 +33882,10 @@ void AppController::triggerAction(const QString &actionId)
         showOnlyKeyframeGroup(QStringLiteral("opacity"));
     else if (actionId == QStringLiteral("showScaleRows"))
         showOnlyKeyframeGroup(QStringLiteral("scale"));
+    else if (actionId == QStringLiteral("showAudioRows"))
+        showOnlyKeyframeGroup(QStringLiteral("volume"));
+    else if (actionId == QStringLiteral("showEffectRows"))
+        showOnlyKeyframeGroup(QStringLiteral("effects"));
     else if (actionId == QStringLiteral("previousKeyframe"))
         stepToKeyframe(false);
     else if (actionId == QStringLiteral("nextKeyframe"))
@@ -33670,9 +33938,9 @@ void AppController::triggerAction(const QString &actionId)
         jumpSeconds(-10.0);
     else if (actionId == QStringLiteral("jumpForwardFar"))
         jumpSeconds(10.0);
-    else if (actionId == QStringLiteral("stepBackPage"))
+    else if (actionId == QStringLiteral("stepBackPage") || actionId == QStringLiteral("stepBackCtrl"))
         stepFrames(-1);
-    else if (actionId == QStringLiteral("stepForwardPage"))
+    else if (actionId == QStringLiteral("stepForwardPage") || actionId == QStringLiteral("stepForwardCtrl"))
         stepFrames(1);
     else if (actionId == QStringLiteral("trimInToPlayhead") || actionId == QStringLiteral("trimOutToPlayhead")
              || actionId == QStringLiteral("moveInToPlayhead") || actionId == QStringLiteral("moveOutToPlayhead")

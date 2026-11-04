@@ -17,6 +17,11 @@ Item {
     property color pickedColor: "#ff3b45"
     property bool lit: false // hovered or under the playhead
     property real size: 11
+    // As After Effects (0.30): the side with no key next to it is drawn dark, the side that leads to
+    // another key light, so a key hidden off screen still shows there is one.
+    property bool shadeByNeighbours: false
+    property bool hasPrev: true
+    property bool hasNext: true
 
     width: size
     height: size
@@ -44,14 +49,15 @@ Item {
         preferredRendererType: Shape.CurveRenderer
 
         ShapePath {
-            fillColor: Qt.darker(root.face, 1.28)
+            fillColor: root.shadeByNeighbours ? (root.hasPrev ? root.face : Qt.darker(root.face, 1.9))
+                                              : Qt.darker(root.face, 1.28)
             strokeColor: root.picked || root.lit ? "#ffffff" : Qt.rgba(0, 0, 0, 0.6)
             strokeWidth: root.picked ? 1.4 : 1
             joinStyle: ShapePath.RoundJoin
             PathSvg { path: root.leftPaths[root.inHalf] || root.leftPaths["linear"] }
         }
         ShapePath {
-            fillColor: root.face
+            fillColor: root.shadeByNeighbours && !root.hasNext ? Qt.darker(root.face, 1.9) : root.face
             strokeColor: root.picked || root.lit ? "#ffffff" : Qt.rgba(0, 0, 0, 0.6)
             strokeWidth: root.picked ? 1.4 : 1
             joinStyle: ShapePath.RoundJoin
