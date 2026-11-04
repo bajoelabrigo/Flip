@@ -17934,6 +17934,26 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>What is the video for?</source>
+        <translation>どんな動画ですか？</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>キャンセル</translation>
+    </message>
+    <message>
+        <source>The lower third is fitted to the shape of your video.</source>
+        <translation>ローワーサードは動画の形に合わせて調整されます。</translation>
+    </message>
+    <message>
+        <source>Short (vertical 9:16)</source>
+        <translation>ショート（縦 9:16）</translation>
+    </message>
+    <message>
+        <source>Video (horizontal 16:9)</source>
+        <translation>動画（横 16:9）</translation>
+    </message>
+    <message>
         <source>Click a clip on the timeline to change it on the right.</source>
         <translation type="unfinished"></translation>
     </message>

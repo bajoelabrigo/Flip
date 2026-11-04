@@ -17997,6 +17997,26 @@ LA PRÓXIMA</translation>
         <translation>Tu ejemplo está listo. Prueba esto:</translation>
     </message>
     <message>
+        <source>What is the video for?</source>
+        <translation>¿Para qué es el video?</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Cancelar</translation>
+    </message>
+    <message>
+        <source>The lower third is fitted to the shape of your video.</source>
+        <translation>El tercio inferior se ajusta a la forma de tu video.</translation>
+    </message>
+    <message>
+        <source>Short (vertical 9:16)</source>
+        <translation>Short (vertical 9:16)</translation>
+    </message>
+    <message>
+        <source>Video (horizontal 16:9)</source>
+        <translation>Video (horizontal 16:9)</translation>
+    </message>
+    <message>
         <source>Click a clip on the timeline to change it on the right.</source>
         <translation>Haz clic en un clip de la línea de tiempo para cambiarlo a la derecha.</translation>
     </message>

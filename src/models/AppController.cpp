@@ -24710,7 +24710,9 @@ void AppController::createLowerThird(const QVariantMap &o)
     const QColor roleColour = colour("roleColor", style == QLatin1String("roleBar") ? "#1a1a1a" : "#555555");
     const double W = m_project.width();
     const double H = m_project.height();
-    const double u = H / 1080.0; // sizes are designed at 1080 lines
+    // Sizes are designed at 1080 lines on the short side: a Short's 1920 lines made every text 1.8 times too big
+    // for its width (0.30).
+    const double u = qMin(W, H) / 1080.0;
     const drift::TimeUs start = m_playheadUs;
     const drift::TimeUs length = drift::secondsToUs(qBound(1.0, o.value(QStringLiteral("seconds"), 5.0).toDouble(), 60.0));
     const int fps = qMax(1, m_project.fps());

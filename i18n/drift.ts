@@ -17993,6 +17993,26 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>What is the video for?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The lower third is fitted to the shape of your video.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Short (vertical 9:16)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Video (horizontal 16:9)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Click a clip on the timeline to change it on the right.</source>
         <translation type="unfinished"></translation>
     </message>

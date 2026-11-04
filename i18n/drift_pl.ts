@@ -18060,6 +18060,26 @@ ZOBACZENIA</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>What is the video for?</source>
+        <translation>Do czego jest film?</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Anuluj</translation>
+    </message>
+    <message>
+        <source>The lower third is fitted to the shape of your video.</source>
+        <translation>Belka dolna dopasuje się do kształtu filmu.</translation>
+    </message>
+    <message>
+        <source>Short (vertical 9:16)</source>
+        <translation>Short (pionowy 9:16)</translation>
+    </message>
+    <message>
+        <source>Video (horizontal 16:9)</source>
+        <translation>Film (poziomy 16:9)</translation>
+    </message>
+    <message>
         <source>Click a clip on the timeline to change it on the right.</source>
         <translation type="unfinished"></translation>
     </message>

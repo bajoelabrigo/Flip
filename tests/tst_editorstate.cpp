@@ -2065,6 +2065,21 @@ void EditorStateTest::sceneTemplateLayoutScalesAndCovers()
 
     // Cover: a square picture in a tall slot keeps its middle, full height.
     QCOMPARE(drift::coverSourceFrame(QSizeF(1000, 1000), QSizeF(500, 1000)), QRectF(0.25, 0, 0.5, 1));
+
+    // A 16:9 lower third in a Short (0.30, Jorge: it came out tiny in the middle): fitted by what it draws, a bar
+    // 1040 px wide becomes 92 % of the 1080 px width, centred, its bottom at 74 % of the height.
+    drift::Clip bar;
+    bar.type = drift::ClipType::Shape;
+    bar.transformX.setKeyframe(0, 306.0);
+    bar.transformY.setKeyframe(0, 700.0);
+    bar.transformW.setKeyframe(0, 1040.0);
+    bar.transformH.setKeyframe(0, 248.0);
+    QList<drift::Track> third{drift::Track{.type = drift::TrackType::Video, .clips = {bar}}};
+    drift::fitLowerThirdLayout(third, 1920, 1080, 1080, 1920);
+    const drift::Clip &fitted = third.at(0).clips.at(0);
+    QVERIFY(qAbs(fitted.transformW.evaluateAt(0) - 1080 * 0.92) < 0.5);
+    QVERIFY(qAbs(fitted.transformX.evaluateAt(0) - 1080 * 0.04) < 0.5);
+    QVERIFY(qAbs(fitted.transformY.evaluateAt(0) + fitted.transformH.evaluateAt(0) - 1920 * 0.74) < 0.5);
 }
 
 // A template of one's own: inside a composition a photo becomes a slot and a text an editable text;

@@ -17999,6 +17999,26 @@ PROCHAINE</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>What is the video for?</source>
+        <translation>Pour quel format est la vidéo?</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Annuler</translation>
+    </message>
+    <message>
+        <source>The lower third is fitted to the shape of your video.</source>
+        <translation>Le tiers inférieur s’ajuste à la forme de votre vidéo.</translation>
+    </message>
+    <message>
+        <source>Short (vertical 9:16)</source>
+        <translation>Short (vertical 9:16)</translation>
+    </message>
+    <message>
+        <source>Video (horizontal 16:9)</source>
+        <translation>Vidéo (horizontal 16:9)</translation>
+    </message>
+    <message>
         <source>Click a clip on the timeline to change it on the right.</source>
         <translation type="unfinished"></translation>
     </message>

@@ -1949,6 +1949,10 @@ public:
     // At the playhead, on top of the stack. An empty project takes the template's size first.
     // Returns the composition clip's id, or empty.
     Q_INVOKABLE QString insertSceneTemplate(const QString &templateId);
+    // A lower third into an empty timeline (0.30, Jorge): "short" makes the project vertical (1080×1920),
+    // "video" wide (1920×1080), and the lower third is fitted to it. insertSceneTemplate asks first
+    // (templateFormatRequested) when a window is listening.
+    Q_INVOKABLE QString insertSceneTemplateAs(const QString &templateId, const QString &format);
     // The scene template asset behind a clip (or the open composition), or empty.
     Q_INVOKABLE QString sceneTemplateAssetAt(int trackIndex, int clipIndex) const;
     // {assetId, name, emptySlots, slots[{clipId, slotId, number, label, empty, kind, mediaName,
@@ -2587,6 +2591,8 @@ signals:
     void fontCatalogChanged();
     // Scene templates were installed or removed (Stock, Extras).
     void sceneTemplatesChanged();
+    // A lower third is going into an empty timeline: which shape, Short or Video (insertSceneTemplateAs).
+    void templateFormatRequested(const QString &templateId, const QString &name);
     void templateBeatFitChanged();
     void brandKitChanged();
     void templatePickerRequested(const QString &mode, const QString &compositeAssetId, const QList<QUrl> &urls);
@@ -2718,6 +2724,8 @@ protected:
     // insertSceneTemplate without its undo step and messages when !recordUndo (Change template
     // records one for the whole swap); allowResize lets an empty project take the template's size.
     QString placeSceneTemplate(const QString &templateId, bool recordUndo, bool allowResize);
+    // The shape insertSceneTemplateAs asked for ("short", "video"), read once by placeSceneTemplate.
+    QString m_templateFormat;
     static QString templateTextKindLabel(const QString &kind);
     void applyTemplateBeatFit(const QString &compositeAssetId, const AudioBeatAnalysis &analysis,
                               drift::TimeUs offsetUs);

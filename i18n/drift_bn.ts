@@ -17993,6 +17993,26 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>What is the video for?</source>
+        <translation>ভিডিওটি কীসের জন্য?</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>বাতিল</translation>
+    </message>
+    <message>
+        <source>The lower third is fitted to the shape of your video.</source>
+        <translation>নিচের ব্যানারটি আপনার ভিডিওর আকারে মানিয়ে যায়।</translation>
+    </message>
+    <message>
+        <source>Short (vertical 9:16)</source>
+        <translation>শর্টস (খাড়া 9:16)</translation>
+    </message>
+    <message>
+        <source>Video (horizontal 16:9)</source>
+        <translation>ভিডিও (আড়াআড়ি 16:9)</translation>
+    </message>
+    <message>
         <source>Click a clip on the timeline to change it on the right.</source>
         <translation type="unfinished"></translation>
     </message>

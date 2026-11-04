@@ -2332,6 +2332,59 @@ ApplicationWindow {
         z: 10000
     }
 
+    // A lower third going into an empty timeline (0.30, Jorge): the video's shape is chosen here, Short or a
+    // normal video, and the lower third is fitted to it.
+    ThemedDialog {
+        id: templateFormatDialog
+        property string templateId: ""
+        title: qsTr("What is the video for?")
+        preferredWidth: 420
+        showAccept: false
+        rejectText: qsTr("Cancel")
+        contentItem: Column {
+            spacing: Theme.spacingMd
+            width: templateFormatDialog.availableWidth
+            ThemedLabel {
+                width: parent.width
+                wrapMode: Text.WordWrap
+                text: qsTr("The lower third is fitted to the shape of your video.")
+            }
+            Row {
+                spacing: Theme.spacingMd
+                width: parent.width
+                ThemedButton {
+                    width: (parent.width - Theme.spacingMd) / 2
+                    text: qsTr("Short (vertical 9:16)")
+                    glyph: Theme.icons.smartphone
+                    variant: "primary"
+                    onClicked: {
+                        const id = templateFormatDialog.templateId
+                        templateFormatDialog.close()
+                        EditorState.insertSceneTemplateAs(id, "short")
+                    }
+                }
+                ThemedButton {
+                    width: (parent.width - Theme.spacingMd) / 2
+                    text: qsTr("Video (horizontal 16:9)")
+                    glyph: Theme.icons.monitor
+                    variant: "secondary"
+                    onClicked: {
+                        const id = templateFormatDialog.templateId
+                        templateFormatDialog.close()
+                        EditorState.insertSceneTemplateAs(id, "video")
+                    }
+                }
+            }
+        }
+    }
+    Connections {
+        target: EditorState
+        function onTemplateFormatRequested(templateId, name) {
+            templateFormatDialog.templateId = templateId
+            templateFormatDialog.open()
+        }
+    }
+
     // Notification host — above all panels, so any message lands in one place.
     ToastHost { }
 }

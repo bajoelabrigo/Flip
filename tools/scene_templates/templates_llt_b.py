@@ -117,7 +117,6 @@ def card():
     D = 6.0
     t = _kit("tarjeta", "Tercio con logo: tarjeta oscura y ficha blanca", "Logo lower third: dark card and white tag",
              D, 8570, ["nombre", "tarjeta", "verde", "web"], thumb_at=3.0)
-    photo_bg(t, "h-office-01", s1=1.03, label="Tu video")
     p = Piece(t, D, -154, 358)
     right = curve([(0, 250), (2, 330), (4, 531), (6, 621), (8, 682), (10, 720), (12, 741), (14, 749), (16, 750),
                    (24, 735), (32, 728)])
@@ -160,7 +159,6 @@ def pill():
     D = 6.0
     t = _kit("pastilla", "Tercio con logo: pastilla oscura y pestaña verde", "Logo lower third: dark pill and green tab",
              D, 8571, ["nombre", "pastilla", "verde"], thumb_at=3.0)
-    photo_bg(t, "h-office-01", s1=1.03, label="Tu video")
     p = Piece(t, D, -99, 58)
     # The tab first: it hangs behind the pill.
     drop = curve([(46, -72), (52, -40), (54, -25), (56, -17), (58, -13), (60, -9), (62, -8), (66, 0)])
@@ -204,7 +202,6 @@ def bar_tag():
     D = 6.0
     t = _kit("barra-etiqueta", "Tercio con logo: barra oscura y etiqueta verde", "Logo lower third: dark bar and green tag",
              D, 8572, ["nombre", "barra", "verde"], thumb_at=3.0)
-    photo_bg(t, "h-office-01", s1=1.03, label="Tu video")
     p = Piece(t, D, -927, 461, start=20)
     right = curve([(24, 1023), (26, 1023), (28, 1071), (30, 1178), (32, 1472), (34, 1581), (36, 1632), (38, 1663),
                    (40, 1684), (42, 1697), (44, 1705), (50, 1714), (56, 1717)])
@@ -231,7 +228,6 @@ def big_name():
     t = _kit("nombre-grande", "Tercio con logo: nombre grande y barra de progreso",
              "Logo lower third: big name and progress line", D, 8573, ["nombre", "barra", "verde", "progreso"],
              thumb_at=3.0)
-    photo_bg(t, "h-office-01", s1=1.03, label="Tu video")
     p = Piece(t, D, -923, 102, start=24)
     rise = curve([(26, 899), (28, 826), (30, 795), (32, 778), (34, 768), (36, 760), (38, 755), (40, 751), (44, 746),
                   (48, 744)])
