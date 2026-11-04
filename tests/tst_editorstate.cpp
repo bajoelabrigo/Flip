@@ -11050,6 +11050,29 @@ void EditorStateTest::pasteOntoItsOwnKeysCarriesOn()
     QVERIFY(qAbs(state.playheadSeconds() - 4.0) < 1e-6);
     QVERIFY(state.pasteKeyframes(track, 0));
     QCOMPARE(times().size(), 6);
+
+    // A falling ball with Bounce, cloned further on (0.30, Jorge: «it copies the keyframe, not the
+    // animation»): it rests on the floor until a frame before the copies, so the first fall still bounces.
+    const QString y = QStringLiteral("y");
+    state.setClipKeyframe(track, 0, y, 0.0, 100.0);
+    state.setClipKeyframe(track, 0, y, 1.0, 800.0);
+    {
+        drift::KeyframeTrack<double> &kt = state.project()->tracks()[track].clips[0].transformY;
+        drift::TrackBehavior b = kt.behavior();
+        b.settle = drift::TrackBehavior::Settle::Bounce;
+        kt.setBehavior(b);
+    }
+    const double bounced = state.propertyValueAt(track, 0, y, 1.2, 0.0);
+    QVERIFY(bounced < 799.0); // off the floor, hopping
+    const QVariantList fall{
+        QVariantMap{{QStringLiteral("clip"), 0}, {QStringLiteral("prop"), y}, {QStringLiteral("seconds"), 0.0}},
+        QVariantMap{{QStringLiteral("clip"), 0}, {QStringLiteral("prop"), y}, {QStringLiteral("seconds"), 1.0}}};
+    QCOMPARE(state.copyKeyframes(track, fall), 2);
+    state.setPlayheadSeconds(3.0);
+    QVERIFY(state.pasteKeyframes(track, 0));
+    QVERIFY(qAbs(state.propertyValueAt(track, 0, y, 1.2, 0.0) - bounced) < 1e-6);
+    QCOMPARE(state.propertyValueAt(track, 0, y, 3.0, 0.0), 100.0);
+    QVERIFY(state.propertyValueAt(track, 0, y, 4.2, 0.0) < 799.0); // and the copy bounces too
 }
 
 void EditorStateTest::trackKeyframeRowsUnfoldAndEdit()

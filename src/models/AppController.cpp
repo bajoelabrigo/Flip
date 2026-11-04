@@ -25336,6 +25336,38 @@ bool AppController::pasteKeyframes(int trackIndex, int clipIndex, bool continueC
             pasteAtUs = m_keyClipboardLastUs + step;
         }
     }
+    // A property that bounces or swings (Motion Tools' Bounce / Elastic) does so only where it comes to
+    // rest; with the copies straight after, the ball rose slowly to them and the bounce was gone (Jorge,
+    // 0.30: «it copies the keyframe, not the animation»). It stays at rest until a frame before the copies.
+    {
+        const drift::TimeUs frame = drift::frameDurationUs(m_project.fps());
+        QSet<QString> held;
+        for (const CopiedKey &copied : std::as_const(m_keyClipboard)) {
+            if (held.contains(copied.prop))
+                continue;
+            held.insert(copied.prop);
+            int t = trackIndex;
+            int c = clipIndex;
+            redirectToKeyframeHost(&t, &c, copied.prop);
+            if (!isValidClipIndex(t, c))
+                continue;
+            drift::Clip &clip = m_project.tracks()[t].clips[c];
+            drift::KeyframeTrack<double> *kt = keyframeTrackForProp(clip, copied.prop, false);
+            if (!kt || kt->isEmpty() || kt->behavior().settle == drift::TrackBehavior::Settle::None)
+                continue;
+            const drift::TimeUs firstAt = qMax<drift::TimeUs>(0, pasteAtUs - clip.timelineStart);
+            const drift::TimeUs holdAt = firstAt - frame;
+            auto rest = kt->keyframes().lowerBound(firstAt);
+            if (rest == kt->keyframes().constBegin())
+                continue;
+            rest = std::prev(rest);
+            if (holdAt <= rest.key() + frame)
+                continue;
+            drift::Keyframe<double> still = rest.value();
+            still.inDx = still.inDy = still.outDx = still.outDy = 0.0;
+            kt->setKeyframe(holdAt, still);
+        }
+    }
     for (const CopiedKey &copied : std::as_const(m_keyClipboard)) {
         int t = trackIndex;
         int c = clipIndex;
