@@ -21128,6 +21128,18 @@ ZOBACZENIA</translation>
         <source>The picked points (all of them with none picked) grow and turn about their middle; the stroke keeps its width.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Scale X %</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale Y %</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rotation °</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PlaybackEngine</name>

@@ -21045,6 +21045,18 @@ LA PRÓXIMA</translation>
         <source>The picked points (all of them with none picked) grow and turn about their middle; the stroke keeps its width.</source>
         <translation>Los puntos elegidos (todos si no hay ninguno elegido) crecen y giran sobre su centro; el trazo conserva su grosor.</translation>
     </message>
+    <message>
+        <source>Scale X %</source>
+        <translation>Escala X %</translation>
+    </message>
+    <message>
+        <source>Scale Y %</source>
+        <translation>Escala Y %</translation>
+    </message>
+    <message>
+        <source>Rotation °</source>
+        <translation>Rotación °</translation>
+    </message>
 </context>
 <context>
     <name>PlaybackEngine</name>

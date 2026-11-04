@@ -1007,9 +1007,24 @@ Item {
             Row {
                 width: parent.width
                 spacing: Theme.spacingMd
-                ThemedNumberField { id: ftScaleX; width: (parent.width - 2 * parent.spacing) / 3; from: -1000; to: 1000; value: 100; unit: "%" }
-                ThemedNumberField { id: ftScaleY; width: (parent.width - 2 * parent.spacing) / 3; from: -1000; to: 1000; value: 100; unit: "%" }
-                ThemedNumberField { id: ftAngle; width: (parent.width - 2 * parent.spacing) / 3; from: -3600; to: 3600; value: 0; unit: "°" }
+                Column {
+                    width: (parent.width - 2 * parent.spacing) / 3
+                    spacing: 2
+                    ThemedLabel { text: qsTr("Scale X %"); size: "sm"; opacity: 0.8 }
+                    ThemedNumberField { id: ftScaleX; width: parent.width; from: -1000; to: 1000; value: 100; unit: "%" }
+                }
+                Column {
+                    width: (parent.width - 2 * parent.spacing) / 3
+                    spacing: 2
+                    ThemedLabel { text: qsTr("Scale Y %"); size: "sm"; opacity: 0.8 }
+                    ThemedNumberField { id: ftScaleY; width: parent.width; from: -1000; to: 1000; value: 100; unit: "%" }
+                }
+                Column {
+                    width: (parent.width - 2 * parent.spacing) / 3
+                    spacing: 2
+                    ThemedLabel { text: qsTr("Rotation °"); size: "sm"; opacity: 0.8 }
+                    ThemedNumberField { id: ftAngle; width: parent.width; from: -3600; to: 3600; value: 0; unit: "°" }
+                }
             }
         }
     }

@@ -24524,7 +24524,14 @@ double AppController::propertyValueAt(int trackIndex, int clipIndex, const QStri
     if (!kt || kt->isEmpty())
         return propertyBaseValue(trackIndex, clipIndex, prop, fallback);
 
-    return kt->evaluateAt(drift::secondsToUs(atSeconds) - clip.timelineStart);
+    // An expression reading another layer (0.30: a Slider through effect()) is evaluated at this moment, as
+    // the renderer does; without the time it read the other layer at its start and the row kept that value.
+    drift::ExpressionContext &context = drift::expressionContext();
+    const qint64 savedUs = context.timelineUs;
+    context.timelineUs = drift::secondsToUs(atSeconds);
+    const double value = kt->evaluateAt(drift::secondsToUs(atSeconds) - clip.timelineStart);
+    context.timelineUs = savedUs;
+    return value;
 }
 
 // What an unkeyed property evaluates to. These mirror the defaults the compositor passes to
