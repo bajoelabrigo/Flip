@@ -187,7 +187,15 @@ Item {
     }
     onTrimCursorSideChanged: applyTrimCursor()
     onTrimCursorHeightChanged: if (trimCursorSide !== 0) applyTrimCursor()
+    // The pick whip finds the layer it is dropped on in this list (0.30 tests E41: walking the item
+    // tree never reached a clip, and the whip dropped onto the null without linking).
+    Component.onCompleted: {
+        if (panel && panel.registerWhipTarget)
+            panel.registerWhipTarget(clipItem)
+    }
     Component.onDestruction: {
+        if (panel && panel.unregisterWhipTarget)
+            panel.unregisterWhipTarget(clipItem)
         if (trimPreviewActive && trackClips)
             trackClips.setLivePreview(clipData.id, false, 0, 0, 0, 0)
         if (trimCursorSide !== 0)
@@ -1457,8 +1465,22 @@ Item {
                 }
                 if (!root)
                     return
-                const g = whipArea.mapToItem(root, mouse.x, mouse.y)
-                const target = pickWhip.clipItemAt(clipItem.panel, g.x, g.y)
+                // Scene coordinates, as the targets are measured in (mapFromItem(null, …)).
+                const g = whipArea.mapToItem(null, mouse.x, mouse.y)
+                let target = null
+                const listed = clipItem.panel && clipItem.panel.whipTargets ? clipItem.panel.whipTargets : []
+                for (let i = listed.length - 1; i >= 0 && !target; --i) {
+                    const k = listed[i]
+                    if (!k || k === clipItem || !k.visible || k.width <= 0 || k.height <= 0)
+                        continue
+                    const p = k.mapFromItem(null, g.x, g.y)
+                    if (p.x >= 0 && p.y >= 0 && p.x <= k.width && p.y <= k.height)
+                        target = k
+                }
+                if (!target)
+                    target = pickWhip.clipItemAt(clipItem.panel, g.x, g.y)
+                if (!target)
+                    console.warn("[pick-whip] no layer under", g.x, g.y, "among", listed.length)
                 if (target)
                     EditorState.setClipParent(clipItem.trackIndex, clipItem.clipIndex, target.trackIndex, target.clipIndex)
                 else if (clipItem.parentName.length > 0)

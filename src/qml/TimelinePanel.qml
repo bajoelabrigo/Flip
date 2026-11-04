@@ -51,6 +51,15 @@ PanelFrame {
 
     // Keyframe lane height the user dragged to; session-only, kept here because the graph
     // itself is unloaded whenever no clip or no keyframe tab is selected.
+    // Every clip on the timeline, for the pick whip to find the one it is dropped on (0.30 tests E41).
+    property var whipTargets: []
+    function registerWhipTarget(item) {
+        if (root.whipTargets.indexOf(item) < 0)
+            root.whipTargets = root.whipTargets.concat([item])
+    }
+    function unregisterWhipTarget(item) {
+        root.whipTargets = root.whipTargets.filter((k) => k !== item)
+    }
     property real keyframeLaneHeight: 88
 
     property real zoom: 1.0

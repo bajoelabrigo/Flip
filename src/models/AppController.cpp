@@ -7638,7 +7638,10 @@ AppController::GeneratedAudioImport AppController::importGeneratedAudio(
     // («tts-chatterbox-hola-a-todos-376a613a.flac»).
     // Without the script's own marks ([pausa 1s], [Ana]…): they are not words (0.30 tests E54).
     static const QRegularExpression scriptTagRe(QStringLiteral("\\[[^\\]]*\\]"));
-    const QString spoken = generator.value(QStringLiteral("text")).toString().remove(scriptTagRe).simplified();
+    // Nor a dialogue's names («Ana: Hola Luis…»): they are who speaks, not what is said.
+    static const QRegularExpression speakerRe(QStringLiteral("(?m)^\\s*[^\\s:]{1,24}:\\s+"));
+    const QString spoken =
+        generator.value(QStringLiteral("text")).toString().remove(scriptTagRe).remove(speakerRe).simplified();
     if (!spoken.isEmpty()) {
         constexpr int kNameLetters = 40;
         const QString words = spoken.size() > kNameLetters ? spoken.left(kNameLetters).trimmed() + QStringLiteral("…") : spoken;
