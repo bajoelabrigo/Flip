@@ -1773,6 +1773,10 @@ public:
                                                         const QString &prop);
     Q_INVOKABLE double propertyValueAt(int trackIndex, int clipIndex, const QString &prop,
                                        double atSeconds, double fallback) const;
+    // propertyValueAt for many times in one call (0.30): the motion path samples hundreds of them on every
+    // mouse move, and one call each made shaping it slow.
+    Q_INVOKABLE QVariantList propertyValuesAt(int trackIndex, int clipIndex, const QString &prop,
+                                              const QVariantList &seconds, double fallback) const;
     // The value its keys give, without its behaviour (expression, loop, wiggle): the size a scaled layer grows
     // from (0.30).
     Q_INVOKABLE double propertyKeysValueAt(int trackIndex, int clipIndex, const QString &prop, double atSeconds,

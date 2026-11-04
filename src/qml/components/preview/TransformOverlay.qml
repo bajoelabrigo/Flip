@@ -216,6 +216,11 @@ Item {
                                                && k.clip === clip && (k.prop === "x" || k.prop === "y"))
         if (keys.length === 0)
             return null
+        // Away from every picked key the drag puts a new key there, as in the tutorial's exercise (a straight
+        // fall, then at frame 10 the layer pulled aside bends the path): only on a key does it carry the path.
+        const here = EditorState.playheadSeconds
+        if (!keys.some((k) => Math.abs(k.seconds - here) < 1 / 240))
+            return null
         const out = []
         for (const prop of ["x", "y"]) {
             for (const k of (EditorState.clipKeyframes(track, clip, prop) || [])) {

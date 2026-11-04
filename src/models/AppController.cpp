@@ -24666,6 +24666,16 @@ double AppController::propertyValueAt(int trackIndex, int clipIndex, const QStri
     return value;
 }
 
+QVariantList AppController::propertyValuesAt(int trackIndex, int clipIndex, const QString &prop,
+                                            const QVariantList &seconds, double fallback) const
+{
+    QVariantList out;
+    out.reserve(seconds.size());
+    for (const QVariant &s : seconds)
+        out.append(propertyValueAt(trackIndex, clipIndex, prop, s.toDouble(), fallback));
+    return out;
+}
+
 double AppController::propertyKeysValueAt(int trackIndex, int clipIndex, const QString &prop, double atSeconds,
                                           double fallback) const
 {

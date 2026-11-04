@@ -74,30 +74,54 @@ Item {
         }
         return null
     }
-    function samplesNow() {
+    // The centre at many times in a few calls (0.30: one call per point made shaping the path slow).
+    function centresAt(times) {
+        if (!root.box || times.length === 0)
+            return []
+        const cw = root.box.canvasWidth
+        const ch = root.box.canvasHeight
+        const fx = isNaN(root.box.anchorFx) ? 0.5 : root.box.anchorFx
+        const fy = isNaN(root.box.anchorFy) ? 0.5 : root.box.anchorFy
+        const t = root.trackIndex
+        const c = root.clipIndex
+        const xs = EditorState.propertyValuesAt(t, c, "x", times, 0)
+        const ys = EditorState.propertyValuesAt(t, c, "y", times, 0)
+        const ws = root.box.restW > 0 ? null : EditorState.propertyValuesAt(t, c, "width", times, cw)
+        const hs = root.box.restH > 0 ? null : EditorState.propertyValuesAt(t, c, "height", times, ch)
         const pts = []
-        const ks = root.keys
-        if (ks.length > 1) {
-            const a = ks[0].seconds
-            const b = ks[ks.length - 1].seconds
-            const steps = Math.min(240, Math.max(16, Math.round((b - a) * 30)))
-            for (let i = 0; i <= steps; ++i)
-                pts.push(root.centreAt(a + (b - a) * i / steps))
-        }
+        for (let i = 0; i < times.length; ++i)
+            pts.push({ x: xs[i] + fx * (ws ? ws[i] : root.box.restW), y: ys[i] + fy * (hs ? hs[i] : root.box.restH) })
         return pts
     }
-    function frameDotsNow() {
-        const pts = []
+    // The line: the same number of points in every segment between two keys, so a fast stretch (few frames,
+    // a long way) is as smooth as a slow one; before, its corners showed and the curve looked bent.
+    function samplesNow() {
         const ks = root.keys
+        const times = []
+        if (ks.length > 1) {
+            const per = Math.max(24, Math.min(96, Math.floor(480 / (ks.length - 1))))
+            for (let k = 0; k < ks.length - 1; ++k) {
+                const a = ks[k].seconds
+                const b = ks[k + 1].seconds
+                for (let i = 0; i < per; ++i)
+                    times.push(a + (b - a) * i / per)
+            }
+            times.push(ks[ks.length - 1].seconds)
+        }
+        return root.centresAt(times)
+    }
+    function frameDotsNow() {
+        const ks = root.keys
+        const times = []
         if (ks.length > 1) {
             const fps = Math.max(1, EditorState.projectFile.projectFps())
             const a = ks[0].seconds
             const b = ks[ks.length - 1].seconds
             const n = Math.min(900, Math.round((b - a) * fps))
             for (let i = 1; i < n; ++i)
-                pts.push(root.centreAt(a + i / fps))
+                times.push(a + i / fps)
         }
-        return pts
+        return root.centresAt(times)
     }
     // After Effects' Convert Vertex on the path (Alt+click on a key's square, or a click with the pen): a key
     // with curved handles goes straight, a straight one gets them. With several Position keys picked and this
@@ -153,9 +177,16 @@ Item {
 
     function rebuild() {
         if (root.shaping) {
-            root.samples = root.samplesNow()
-            root.frameDots = root.frameDotsNow()
-            path.requestPaint()
+            // Once a frame while a handle moves: the line follows the pointer without queuing redraws.
+            if (root.shapeQueued)
+                return
+            root.shapeQueued = true
+            Qt.callLater(() => {
+                root.shapeQueued = false
+                root.samples = root.samplesNow()
+                root.frameDots = root.frameDotsNow()
+                path.requestPaint()
+            })
             return
         }
         if (root.dragging)
@@ -224,6 +255,7 @@ Item {
         }
     }
     property bool rebuildQueued: false
+    property bool shapeQueued: false
     property bool convertedOnPress: false
     onWidthChanged: path.requestPaint()
     onHeightChanged: path.requestPaint()
