@@ -332,3 +332,22 @@ Cada caso: lo que se hace → lo que tiene que pasar. Anotar en la tabla de abaj
   visible), E46, E48 (Escala en % en el gráfico), E49, E51–E53, E56, E57, E59 (MP3/WAV), 19.
 - **Ojo (cuenta de Jorge):** al restaurar el registro tras tts1 se volvió a poner la sesión exportada antes de sub3; si
   la app de prueba renovó el token en tts1, la próxima vez que Jorge abra Flip puede tener que iniciar sesión otra vez.
+
+### Ronda r8 (2026-11-04, compilación 41772809803, portable `pruebas\FlipStudio-0.30-r8`, con el mouse de Jorge)
+| Caso | Resultado | Nota |
+|---|---|---|
+| A4 (E40) | bien | Posición sigue en 960/900 al escalar 130/75; la elipse crece desde su centro y el trayecto queda en su sitio |
+| A8 (E41) | falla | el látigo sigue sin emparentar (deshacer vacío). Ahora las capas se anotan en el panel y el soltar se mide contra esa lista (r9) |
+| A10 (E44) | bien | «[» con vecinos: STUDIO pasa a su propia pista en el cabezal (8,53 s), FLIP y 0.30 no se mueven |
+| A18 (E47) | bien | «pegados (×5)», las cinco barras en 0–1 s, el cabezal queda en 0 |
+| E43/E45 | bien | Posición en una fila sin animar |
+| 19 | bien | Elástico: la oscilación después de la clave se ve punteada sobre la curva |
+| E42/E48 | bien | Alt+Mayús+S: el gráfico pasa a Escala y el eje va en % |
+| E49 | bien | el anillo gira mientras transcribe y luego «Sincronizando las palabras…» |
+| E51/E52/E53 | bien | el .srt importado queda arriba sin taparse; `r8-subs.en.srt` y `.es.srt`; la traducción va por frases («First we opened the program and chosen a» / «video.») |
+| E55 | bien | el .md entra sin «# Diálogo»; 5 frases en vez de 6 |
+| E56 | bien | «¿Descartar la voz que hiciste?» con una toma sin añadir |
+| E57 | bien | «La música baja bajo la voz (1 clip)» con otra voz encima |
+| E59 | bien | el diálogo ofrece MP3/WAV/FLAC; `r8-voz.mp3` mp3 24 kHz mono 1,58 s |
+| E61 (nuevo) | arreglado (r9) | la voz del diálogo se llamaba «Voz: Ana: Hola Luis…»: sin los nombres |
+| — | revisar | un primer clic en «Leer en voz alta» no hizo nada (el segundo sí), como E46: se vuelve a mirar con r9 |
