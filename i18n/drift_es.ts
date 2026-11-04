@@ -15499,7 +15499,7 @@ LA PRÓXIMA</translation>
     </message>
     <message>
         <source>Rename…</source>
-        <translation>Renombrar…</translation>
+        <translation>Cambiar nombre…</translation>
     </message>
     <message>
         <source>Copy this effect</source>
@@ -29031,7 +29031,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Rename…</source>
-        <translation>Renombrar…</translation>
+        <translation>Cambiar nombre…</translation>
     </message>
     <message>
         <source>Export…</source>
