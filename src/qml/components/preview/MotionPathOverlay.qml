@@ -31,6 +31,9 @@ Item {
     // [{seconds, x, y, hasX, hasY}] in canvas px of the centre, and the sampled line.
     property var keys: []
     property var samples: []
+    // Where the layer is on each frame between the first and last key (After Effects' dots on the path:
+    // close together it goes slowly, far apart fast).
+    property var frameDots: []
 
     function valueAt(prop, seconds, base) {
         return EditorState.propertyValueAt(root.trackIndex, root.clipIndex, prop, seconds, base)
@@ -83,6 +86,37 @@ Item {
         }
         return pts
     }
+    function frameDotsNow() {
+        const pts = []
+        const ks = root.keys
+        if (ks.length > 1) {
+            const fps = Math.max(1, EditorState.projectFile.projectFps())
+            const a = ks[0].seconds
+            const b = ks[ks.length - 1].seconds
+            const n = Math.min(900, Math.round((b - a) * fps))
+            for (let i = 1; i < n; ++i)
+                pts.push(root.centreAt(a + i / fps))
+        }
+        return pts
+    }
+    // After Effects' Convert Vertex on the path (Alt+click on a key's square, or a click with the pen): a key
+    // with curved handles goes straight, a straight one gets them. With several Position keys picked and this
+    // one among them, all of them change.
+    function convertVertex(seconds) {
+        const curved = root.handles.some((h) => Math.abs(h.seconds - seconds) < 1e-4 && !h.straight)
+        let times = [seconds]
+        const pick = EditorState.pickedKeyframes || {}
+        const picked = (pick.keys || []).filter((k) => (k.track !== undefined ? k.track : pick.track) === root.trackIndex
+                                                  && k.clip === root.clipIndex && (k.prop === "x" || k.prop === "y"))
+        if (picked.some((k) => Math.abs(k.seconds - seconds) < 1e-4)) {
+            times = []
+            for (const k of picked) {
+                if (!times.some((t) => Math.abs(t - k.seconds) < 1e-4))
+                    times.push(k.seconds)
+            }
+        }
+        EditorState.setPositionPath(root.trackIndex, root.clipIndex, curved ? "linear" : "auto", times)
+    }
     function buildHandles() {
         const xs = EditorState.clipKeyframes(root.trackIndex, root.clipIndex, "x") || []
         const ys = EditorState.clipKeyframes(root.trackIndex, root.clipIndex, "y") || []
@@ -120,6 +154,7 @@ Item {
     function rebuild() {
         if (root.shaping) {
             root.samples = root.samplesNow()
+            root.frameDots = root.frameDotsNow()
             path.requestPaint()
             return
         }
@@ -128,6 +163,7 @@ Item {
         if (!root.flat || root.trackIndex < 0) {
             root.keys = []
             root.samples = []
+            root.frameDots = []
             root.handles = []
             return
         }
@@ -162,6 +198,7 @@ Item {
         root.keys = out
         // The line between the first and last key, sampled finely enough to show the curves.
         root.samples = root.samplesNow()
+        root.frameDots = root.frameDotsNow()
         root.buildHandles()
         path.requestPaint()
     }
@@ -187,6 +224,7 @@ Item {
         }
     }
     property bool rebuildQueued: false
+    property bool convertedOnPress: false
     onWidthChanged: path.requestPaint()
     onHeightChanged: path.requestPaint()
 
@@ -208,6 +246,14 @@ Item {
             for (let i = 1; i < pts.length; ++i)
                 ctx.lineTo(pts[i].x * root.sx, pts[i].y * root.sy)
             ctx.stroke()
+            // A dot per frame.
+            ctx.setLineDash([])
+            ctx.fillStyle = Theme.primary
+            for (const d of root.frameDots) {
+                ctx.beginPath()
+                ctx.arc(d.x * root.sx, d.y * root.sy, 1.6, 0, 2 * Math.PI)
+                ctx.fill()
+            }
         }
     }
 
@@ -377,6 +423,12 @@ Item {
                 property real baseX: 0
                 property real baseY: 0
                 onPressed: (mouse) => {
+                    if ((mouse.modifiers & Qt.AltModifier) || EditorState.preview.tool === "pen") {
+                        root.convertVertex(dot.modelData.seconds)
+                        root.convertedOnPress = true
+                        return
+                    }
+                    root.convertedOnPress = false
                     if (!dot.here && root.overLayer(dotMouse, mouse.x, mouse.y)) {
                         mouse.accepted = false
                         return
@@ -391,7 +443,7 @@ Item {
                     EditorState.beginPreviewDrag(qsTr("Move keyframe"))
                 }
                 onPositionChanged: (mouse) => {
-                    if (!pressed)
+                    if (!pressed || root.convertedOnPress)
                         return
                     const p = mapToItem(root, mouse.x, mouse.y)
                     const dx = (p.x - press.x) / root.sx
@@ -405,11 +457,15 @@ Item {
                     dot.y = p.y - dot.height / 2 - (press.y - (dot.modelData.y * root.sy))
                 }
                 onReleased: {
+                    if (root.convertedOnPress)
+                        return
                     EditorState.commitPreviewDrag()
                     root.dragging = false
                     root.rebuild()
                 }
                 onCanceled: {
+                    if (root.convertedOnPress)
+                        return
                     EditorState.commitPreviewDrag()
                     root.dragging = false
                     root.rebuild()
@@ -419,6 +475,7 @@ Item {
             ThemedToolTip {
                 visible: dotMouse.containsMouse && !dotMouse.pressed
                 text: dot.modelData.seconds.toFixed(2) + " s · " + qsTr("drag to move the clip at this keyframe")
+                      + " · " + qsTr("Alt+click: curved or straight")
             }
         }
     }

@@ -5234,7 +5234,23 @@
         <translation>한 프레임 앞으로 (Page Down)</translation>
     </message>
     <message>
+        <source>Step back one frame (Ctrl+Left)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Step forward one frame (Ctrl+Right)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Show rulers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show only audio levels</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show only effects</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6180,6 +6196,10 @@
     <message>
         <source>Roving keyframes</source>
         <translation>로빙 키프레임</translation>
+    </message>
+    <message>
+        <source>Lock keyframes to time</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Exporting…</source>
@@ -11201,6 +11221,10 @@
     <message>
         <source>Extra room (px)</source>
         <translation>추가 여백 (px)</translation>
+    </message>
+    <message>
+        <source>Fill</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Linear Wipe</source>
@@ -17106,6 +17130,14 @@ NEXT TIME</source>
         <translation>그래프 종류: 자동(차원이 합쳐진 위치는 속도, 나머지는 값). 클릭: 값 그래프</translation>
     </message>
     <message>
+        <source>Hide the transform box around the picked keys</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show the transform box around the picked keys (drag a side or a corner; Alt + a corner moves only that corner)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Fit the whole curve in view (Ctrl+wheel zooms the values, Alt+wheel the time)</source>
         <translation>곡선 전체 보기(Ctrl+휠은 값, Alt+휠은 시간 확대)</translation>
     </message>
@@ -17200,8 +17232,16 @@ NEXT TIME</source>
         <translation>키프레임 변형</translation>
     </message>
     <message>
+        <source>Speed %1/s · Influence %2%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Edit keyframe curve</source>
         <translation>키프레임 곡선 편집</translation>
+    </message>
+    <message>
+        <source>Influence %1%</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>The layer whose curves you are editing</source>
@@ -17209,6 +17249,69 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Edit this layer&apos;s curves (dashed)</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>KeyframeInterpolationDialog</name>
+    <message>
+        <source>Current settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Linear</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bezier (smooth)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Continuous Bezier</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto Bezier</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hold</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bezier</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rove across time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lock to time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keyframe interpolation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Temporal is how the value changes in time; Spatial is the path Position draws between the keys.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Temporal interpolation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Spatial interpolation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Roving</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -17259,6 +17362,10 @@ NEXT TIME</source>
         <translation>출발을 부드럽게</translation>
     </message>
     <message>
+        <source>Rounded (auto Bezier)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Hold</source>
         <translation>고정</translation>
     </message>
@@ -17296,6 +17403,10 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Stretch keyframes…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keyframe interpolation…</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -19793,6 +19904,10 @@ NEXT TIME</source>
     </message>
     <message>
         <source>drag to move the clip at this keyframe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Alt+click: curved or straight</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

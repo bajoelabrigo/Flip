@@ -61,6 +61,24 @@ Item {
         const a = box.quad[0], b = box.quad[1], d = box.quad[3]
         return Qt.point((a.x + (b.x - a.x) * u + (d.x - a.x) * v) * sx, (a.y + (b.y - a.y) * u + (d.y - a.y) * v) * sy)
     }
+    // Ctrl while dragging the anchor sticks it to the layer's centre, corners and edge middles (After Effects).
+    function anchorSnap(px, py, mods) {
+        if (!(mods & Qt.ControlModifier) || !root.anchorReady)
+            return Qt.point(px, py)
+        let best = null
+        let bestD = 18
+        for (const u of [0, 0.5, 1]) {
+            for (const v of [0, 0.5, 1]) {
+                const q = root.boxToOverlay(u, v)
+                const d = Math.hypot(q.x - px, q.y - py)
+                if (d < bestD) {
+                    bestD = d
+                    best = q
+                }
+            }
+        }
+        return best || Qt.point(px, py)
+    }
     function overlayToBox(px, py) {
         const a = box.quad[0], b = box.quad[1], d = box.quad[3]
         const ux = (b.x - a.x) * sx, uy = (b.y - a.y) * sy
@@ -245,7 +263,7 @@ Item {
                 root.dragRect = Qt.rect((mouse.x + area.x), (mouse.y + area.y), 0, 0)
                 root.dragging = true
             } else if (root.tool === "anchor") {
-                root.anchorLive = Qt.point((mouse.x + area.x), (mouse.y + area.y))
+                root.anchorLive = root.anchorSnap(mouse.x + area.x, mouse.y + area.y, mouse.modifiers)
             } else if (root.sketchReady) {
                 // The clip being sketched, kept: once the playhead runs past its end `box` is null.
                 root.sketchTrack = root.box.track
@@ -270,7 +288,7 @@ Item {
                 root.dragRect = root.shapeRect(root.dragFrom, Qt.point((mouse.x + area.x), (mouse.y + area.y)),
                                                mouse.modifiers & Qt.ShiftModifier, mouse.modifiers & Qt.AltModifier)
             else if (root.tool === "anchor")
-                root.anchorLive = Qt.point((mouse.x + area.x), (mouse.y + area.y))
+                root.anchorLive = root.anchorSnap(mouse.x + area.x, mouse.y + area.y, mouse.modifiers)
             else if (root.tool === "sketch")
                 root.sketchPointer = Qt.point((mouse.x + area.x), (mouse.y + area.y))
         }
@@ -318,7 +336,8 @@ Item {
                     EditorState.applyMotionSketch(root.sketchTrack, root.sketchClip, root.sketch, 2.0)
                 root.sketch = []
             } else if (root.tool === "anchor" && root.anchorReady && root.box) {
-                const f = root.overlayToBox((mouse.x + area.x), (mouse.y + area.y))
+                const at = root.anchorSnap(mouse.x + area.x, mouse.y + area.y, mouse.modifiers)
+                const f = root.overlayToBox(at.x, at.y)
                 root.anchorLive = Qt.point(-1, -1)
                 EditorState.setAnchorKeepingPlace(root.box.track, root.box.clip, f.x, f.y)
             }

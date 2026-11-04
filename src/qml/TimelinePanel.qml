@@ -152,6 +152,9 @@ PanelFrame {
     function copyPickedKeys() {
         return keyTools.copyPicked()
     }
+    function nudgePickedKeys(frames) {
+        return keyTools.nudgePicked(frames)
+    }
     function pasteCopiedKeys() {
         return keyTools.pasteCopied()
     }
@@ -1198,6 +1201,16 @@ PanelFrame {
     }
 
     function handleTimelineWheel(wheel) {
+        // Alt+wheel zooms time as well, as After Effects (0.30). Qt turns an Alt wheel sideways, so
+        // either axis counts.
+        if ((wheel.modifiers & Qt.AltModifier) && !(wheel.modifiers & Qt.ControlModifier)) {
+            const turn = wheel.angleDelta.y !== 0 ? wheel.angleDelta.y : wheel.angleDelta.x
+            if (turn !== 0) {
+                setZoomAround(zoom * (turn > 0 ? 1.15 : 1.0 / 1.15), Math.max(0, wheel.x / pxPerSecond),
+                              wheel.x - flick.contentX)
+                return
+            }
+        }
         if (wheel.modifiers & Qt.ControlModifier) {
             // Wheel MouseAreas live in content space, so wheel.x is already a
             // content X — keep that time fixed under the cursor.

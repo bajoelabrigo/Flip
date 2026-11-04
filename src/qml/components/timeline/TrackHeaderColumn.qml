@@ -1461,7 +1461,14 @@ Item {
                             const nat = keyLine.naturalSize
                             if (!st || !nat.w || !nat.h)
                                 return
-                            const f = Math.max(0.0001, fraction)
+                            // Below zero the layer turns over on that axis.
+                            const cm = EditorState.clipAt(keyLines.trackIndex, keyLine.clip) || {}
+                            const wantFlip = fraction < 0
+                            if (wantFlip !== !!(horizontal ? cm.flipH : cm.flipV))
+                                EditorState.setClipFlip(keyLines.trackIndex, keyLine.clip,
+                                                        horizontal ? wantFlip : !!cm.flipH,
+                                                        horizontal ? !!cm.flipV : wantFlip)
+                            const f = Math.max(0.0001, Math.abs(fraction))
                             if (horizontal) {
                                 const w = f * nat.w
                                 keyLine.writeSize(w, root.scaleLinked ? st.h * (w / Math.max(1, st.w)) : st.h)
@@ -1562,19 +1569,24 @@ Item {
                                           "min": -1e6, "max": 1e6, "step": 1, "decimals": 0, "suffix": "" }]
                             }
                             if (group === "rotation")
-                                return [plain("rotation", "", 0.5, 1, "°")]
+                                return [Object.assign(plain("rotation", "", 0.5, 1, "°"), { "turns": true })]
                             if (group === "scale") {
                                 // After Effects' two values (width, height %) and the chain between.
                                 const nat = keyLine.naturalSize
                                 const nw = Math.max(1, nat.w || 1)
                                 const nh = Math.max(1, nat.h || 1)
+                                // A flipped layer reads as a negative scale, and a negative one flips it, as
+                                // After Effects (0.30).
+                                const cm = EditorState.clipAt(keyLines.trackIndex, keyLine.clip) || {}
+                                const sh = cm.flipH ? -1 : 1
+                                const sv = cm.flipV ? -1 : 1
                                 return [{ "link": true },
-                                        { "prop": "width", "value": valueOf("width") / nw, "toDisplay": pct,
-                                          "fromDisplay": unPct, "min": 1, "max": 5000, "step": 0.5, "decimals": 1,
+                                        { "prop": "width", "value": sh * valueOf("width") / nw, "toDisplay": pct,
+                                          "fromDisplay": unPct, "min": -5000, "max": 5000, "step": 0.5, "decimals": 1,
                                           "suffix": "", "begin": keyLine.beginScale,
                                           "write": (f) => keyLine.writeScaleAxis(true, f) },
-                                        { "prop": "height", "value": valueOf("height") / nh, "toDisplay": pct,
-                                          "fromDisplay": unPct, "min": 1, "max": 5000, "step": 0.5, "decimals": 1,
+                                        { "prop": "height", "value": sv * valueOf("height") / nh, "toDisplay": pct,
+                                          "fromDisplay": unPct, "min": -5000, "max": 5000, "step": 0.5, "decimals": 1,
                                           "suffix": " %", "begin": keyLine.beginScale,
                                           "write": (f) => keyLine.writeScaleAxis(false, f) }]
                             }
@@ -1724,6 +1736,20 @@ Item {
                             }
                         }
                         // Playhead to the key before or after it on this line.
+                        // Whether ◀ / ▶ have a key to go to: dim at the ends, as After Effects.
+                        function hasKeyBeyond(forward) {
+                            void EditorState.tracksRevision
+                            if (keyLine.clip < 0)
+                                return false
+                            const now = EditorState.playheadSeconds
+                            for (const prop of keyLine.props) {
+                                for (const k of (EditorState.clipKeyframes(keyLines.trackIndex, keyLine.clip, prop) || [])) {
+                                    if (forward ? k.seconds > now + 1 / 120 : k.seconds < now - 1 / 120)
+                                        return true
+                                }
+                            }
+                            return false
+                        }
                         function stepKey(forward) {
                             if (keyLine.clip < 0)
                                 return
@@ -1990,6 +2016,7 @@ Item {
                                             step: modelData.step ?? 1
                                             decimals: modelData.decimals ?? 0
                                             suffix: modelData.suffix ?? ""
+                                            turns: !!modelData.turns
                                             write: modelData.write || null
                                             onBegun: if (modelData.begin) modelData.begin()
                                         }
@@ -2029,6 +2056,7 @@ Item {
                             buttonSize: 16
                             iconSize: 11
                             tooltip: qsTr("Previous keyframe")
+                            enabled: keyLine.hasKeyBeyond(false)
                             onClicked: keyLine.stepKey(false)
                         }
                         IconButton {
@@ -2042,6 +2070,7 @@ Item {
                             buttonSize: 16
                             iconSize: 11
                             tooltip: qsTr("Next keyframe")
+                            enabled: keyLine.hasKeyBeyond(true)
                             onClicked: keyLine.stepKey(true)
                         }
                         IconButton {

@@ -2325,6 +2325,9 @@ public:
     // After Effects' roving keys (0.30): the inner Position keys are moved in time so the layer goes
     // along its path at one speed from the first key to the last. One undo step.
     Q_INVOKABLE void roveKeyframes(int trackIndex, int clipIndex);
+    // Roving stays on for the clip until it is locked to time again (After Effects' Rove Across Time).
+    Q_INVOKABLE bool positionRoving(int trackIndex, int clipIndex) const;
+    Q_INVOKABLE void setPositionRoving(int trackIndex, int clipIndex, bool on);
     // The set of default shortcuts (0.30): "flip" or "afterEffects". Changing it keeps the bindings
     // the user chose; the rest follow the new set.
     Q_INVOKABLE QString shortcutPreset() const;
@@ -2645,6 +2648,7 @@ protected:
     // Joins Position on the clips that start moving in this edit (against `before`) and keeps every
     // joined one's path in step with its keys.
     void syncJoinedPositions(const drift::Project *before);
+    void syncRovingPositions();
 
     // Refills the per-track clip models from the project. Called by notifyTracksChanged() before
     // the signal goes out, so a binding that wakes on tracksChanged already sees the new rows.

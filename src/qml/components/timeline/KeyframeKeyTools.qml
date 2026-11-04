@@ -150,7 +150,36 @@ Item {
     // on that clip, for the run.
     // `ref` is one key, or every axis key of a joined diamond (Scale's width and height, Position's
     // X and Y): Ctrl and Shift take them all, or a copy carried only the first (bounce exercise #18).
+    // With After Effects' keys (0.30): Ctrl+click turns a key straight, or rounds a straight one (Auto
+    // Bezier), and Shift+click adds a key to the pick or takes it out, as AE. True when it was a
+    // Ctrl+click (the key is picked and changed; nothing else to do).
+    readonly property bool aeKeys: { void EditorState.actions; return EditorState.shortcutPreset() === "afterEffects" }
+    function aeModifiers(modifiers) {
+        if (root.aeKeys && (modifiers & Qt.ShiftModifier) && !(modifiers & Qt.ControlModifier))
+            return (modifiers & ~Qt.ShiftModifier) | Qt.ControlModifier
+        return modifiers
+    }
+    function aeToggleInterpolation(trackIndex, ref, halves, modifiers) {
+        if (!root.aeKeys || !(modifiers & Qt.ControlModifier) || (modifiers & Qt.ShiftModifier))
+            return false
+        const refs = Array.isArray(ref) ? ref : [ref]
+        if (!isPicked(trackIndex, refs[0]))
+            pick(trackIndex, refs)
+        const straight = halves && halves["in"] === "linear" && halves["out"] === "linear"
+        root.applyEasing(straight ? "auto" : "linear")
+        return true
+    }
+
+    // Keyframe Velocity for one key (a double-click in the graph with AE's keys, Ctrl+Shift+K).
+    function openVelocity(trackIndex, clipIndex, prop, seconds) {
+        const ref = { clip: clipIndex, prop: prop, seconds: seconds }
+        if (!isPicked(trackIndex, ref))
+            pick(trackIndex, [ref])
+        velocityDialog.openFor(trackIndex, clipIndex, prop, seconds, root.pickedOn(trackIndex))
+    }
+
     function press(trackIndex, ref, modifiers, siblings) {
+        modifiers = root.aeModifiers(modifiers)
         const refs = Array.isArray(ref) ? ref : [ref]
         const first = refs[0]
         const ctrl = modifiers & Qt.ControlModifier
@@ -413,6 +442,18 @@ Item {
         root.dragBase = []
     }
 
+    // Alt+Left / Alt+Right on picked keys (After Effects): a frame earlier or later, all together,
+    // stopping at their unpicked neighbours. One undo step. False when nothing is picked.
+    function nudgePicked(frames) {
+        if (!root.hasPick)
+            return false
+        const fps = Math.max(1, EditorState.projectFile.projectFps())
+        root.beginShift()
+        root.shiftTo(frames / fps)
+        root.endShift()
+        return true
+    }
+
     function applyEasing(mode) {
         if (root.hasPick)
             root.eachTrack(qsTr("Keyframe easing changed"), (t, ks) => EditorState.setKeyframesEasing(t, ks, mode))
@@ -536,10 +577,31 @@ Item {
         enabled: root.hasPick
         onActivated: root.applyEasing("hold")
     }
+    // Ctrl+Alt+K: After Effects' Keyframe Interpolation dialog with AE's keys, Straight with Flip's.
     Shortcut {
         sequence: "Ctrl+Alt+K"
         enabled: root.hasPick
-        onActivated: root.applyEasing("linear")
+        onActivated: root.aeKeys ? root.openInterpolation() : root.applyEasing("linear")
+    }
+    function openInterpolation() {
+        const ks = root.pickedOn(root.track)
+        if (ks.length > 0)
+            interpolationDialog.openFor(root.track, ks[0].clip, ks)
+    }
+
+    KeyframeInterpolationDialog {
+        id: interpolationDialog
+    }
+
+    // After Effects' Keyframe Velocity key, on the first picked key.
+    Shortcut {
+        sequence: "Ctrl+Shift+K"
+        enabled: root.hasPick
+        onActivated: {
+            const k = root.pickedOn(root.track)[0]
+            if (k)
+                root.openVelocity(root.track, k.clip, k.prop, k.seconds)
+        }
     }
 
     KeyframeVelocityDialog {
@@ -599,7 +661,7 @@ Item {
 
         ThemedMenuItem {
             text: qsTr("Straight")
-            shortcutText: "Ctrl+Alt+K"
+            shortcutText: root.aeKeys ? "" : "Ctrl+Alt+K"
             icon.name: keyMenu.check("linear", "linear")
             onTriggered: root.applyEasing("linear")
         }
@@ -620,6 +682,13 @@ Item {
             shortcutText: "Ctrl+Shift+F9"
             icon.name: keyMenu.check("linear", "ease")
             onTriggered: root.applyEasing("easeOut")
+        }
+        ThemedMenuItem {
+            // After Effects' Auto Bezier: the value runs through the key without stopping
+            // (Ctrl+click on a straight key with AE's keys).
+            text: qsTr("Rounded (auto Bezier)")
+            icon.name: keyMenu.check("bezier", "bezier")
+            onTriggered: root.applyEasing("auto")
         }
         ThemedMenuItem {
             text: qsTr("Hold")
@@ -669,8 +738,14 @@ Item {
         ThemedMenuItem {
             visible: root.menuProp === "x" || root.menuProp === "y"
             height: visible ? implicitHeight : 0
+            // On until turned off, as After Effects' Rove Across Time.
+            readonly property bool roving: {
+                void EditorState.tracksRevision
+                return EditorState.positionRoving(root.track, root.menuClip)
+            }
             text: qsTr("Roving (one speed along the path)")
-            onTriggered: EditorState.roveKeyframes(root.track, root.menuClip)
+            icon.name: roving ? Theme.icons.check : ""
+            onTriggered: EditorState.setPositionRoving(root.track, root.menuClip, !roving)
         }
         ThemedMenuItem {
             // After Effects' Separate Dimensions: X and Y with their own curves, or one Position
@@ -697,6 +772,12 @@ Item {
             visible: root.keys.length > 1
             height: visible ? implicitHeight : 0
             onTriggered: stretchDialog.open()
+        }
+        ThemedMenuItem {
+            // After Effects' Keyframe Interpolation (Ctrl+Alt+K there), for the picked keys.
+            text: qsTr("Keyframe interpolation…")
+            shortcutText: root.aeKeys ? "Ctrl+Alt+K" : ""
+            onTriggered: root.openInterpolation()
         }
         ThemedMenuItem {
             // After Effects' Keyframe Velocity (Ctrl+Shift+K there), for the key the menu is on.

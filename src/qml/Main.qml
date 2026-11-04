@@ -1945,6 +1945,10 @@ ApplicationWindow {
         }
         if (id === "paste" && timelinePanel.visible && timelinePanel.pasteCopiedKeys())
             return
+        // Alt+Left / Alt+Right move picked keys a frame, as in After Effects.
+        if ((id === "nudgeLeft" || id === "nudgeRight") && timelinePanel.visible
+                && timelinePanel.nudgePickedKeys(id === "nudgeLeft" ? -1 : 1))
+            return
         if (id === "selectAll" && timelinePanel.visible && timelinePanel.pickAllKeys())
             return
         // Tool modes are QML state, so they are dispatched here rather
@@ -2053,6 +2057,15 @@ ApplicationWindow {
         enabled: !window.showStartScreen
         focus: true
         Keys.onPressed: function(event) {
+            // Enter on a picked layer renames it, as in After Effects (0.30). Only an Enter no field
+            // took gets here.
+            if ((event.key === Qt.Key_Return || event.key === Qt.Key_Enter)
+                    && (event.modifiers & ~Qt.KeypadModifier) === Qt.NoModifier
+                    && timelinePanel.visible && EditorState.selectedTrack >= 0 && EditorState.selectedClip >= 0) {
+                timelinePanel.requestRenameClip(EditorState.selectedTrack, EditorState.selectedClip)
+                event.accepted = true
+                return
+            }
             const id = EditorState.actionForArrowChord(event.key, event.modifiers)
             if (id === "")
                 return

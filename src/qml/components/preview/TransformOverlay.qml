@@ -209,6 +209,26 @@ Item {
     }
 
     // The selected clip's motion path (0.25), over the boxes so its dots stay grabbable.
+    // The layer's Position keys ({prop, seconds, value}) when every one of them is picked, else null.
+    function pickedPathKeys(track, clip) {
+        const pick = EditorState.pickedKeyframes || {}
+        const keys = (pick.keys || []).filter((k) => (k.track !== undefined ? k.track : pick.track) === track
+                                               && k.clip === clip && (k.prop === "x" || k.prop === "y"))
+        if (keys.length === 0)
+            return null
+        const out = []
+        for (const prop of ["x", "y"]) {
+            for (const k of (EditorState.clipKeyframes(track, clip, prop) || [])) {
+                const picked = keys.some((p) => Math.abs(p.seconds - k.seconds) < 1e-4
+                                                && (p.prop === prop || EditorState.positionJoined(track, clip)))
+                if (!picked)
+                    return null
+                out.push({ prop: prop, seconds: k.seconds, value: k.value })
+            }
+        }
+        return out.length > 2 ? out : null
+    }
+
     MotionPathOverlay {
         anchors.fill: parent
         z: 950
@@ -712,6 +732,8 @@ Item {
                 property real pressPx: 0
                 property real pressPy: 0
                 property var startBox: null
+                // The whole path's keys while the drag carries them (pickedPathKeys), else null.
+                property var pathKeys: null
                 // The box that moves: this one, or the one on top at the press point.
                 property var mover: handle
 
@@ -745,6 +767,9 @@ Item {
                         m.dragStartW = m.layoutW
                         m.dragStartH = m.layoutH
                         bodyDrag.startBox = m.grabBox()
+                        // Every Position key of the layer picked: the drag carries the whole path
+                        // (After Effects), not a key at the playhead.
+                        bodyDrag.pathKeys = root.pickedPathKeys(m.box.track, m.box.clip)
                         m.liveX = m.dragStartX
                         m.liveY = m.dragStartY
                         EditorState.selectClip(m.box.track, m.box.clip)
@@ -777,9 +802,24 @@ Item {
                     // Seen edge-on, the plane has no point under the pointer: hold still.
                     if (!moved.valid)
                         return
+                    // Shift keeps the drag on one axis, the one it has gone furthest along (After Effects).
+                    if (bodyDrag.centroid.modifiers & Qt.ShiftModifier) {
+                        if (Math.abs(moved.x - m.dragStartX) >= Math.abs(moved.y - m.dragStartY))
+                            moved.y = m.dragStartY
+                        else
+                            moved.x = m.dragStartX
+                    }
                     m.publishGuides(moved.guideX, moved.guideY)
                     m.liveX = moved.x
                     m.liveY = moved.y
+                    if (bodyDrag.pathKeys) {
+                        const dx = moved.x - m.dragStartX
+                        const dy = moved.y - m.dragStartY
+                        for (const k of bodyDrag.pathKeys)
+                            EditorState.previewMoveClipKeyframe(m.box.track, m.box.clip, k.prop, k.seconds, k.seconds,
+                                                                k.value + (k.prop === "x" ? dx : dy))
+                        return
+                    }
                     EditorState.previewSetClipPosition(m.box.track, m.box.clip, moved.x, moved.y)
                 }
             }
