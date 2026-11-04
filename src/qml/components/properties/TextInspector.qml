@@ -3392,113 +3392,6 @@ Item {
                 }
             }
 
-            Loader {
-                id: animSignInLoader
-                active: false
-                sourceComponent: Component { SignInRequiredDialog { reason: "trends" } }
-            }
-
-            Grid {
-                id: presetGrid
-                width: parent.width
-                readonly property real gap: Theme.spacingLg
-                columns: Theme.touchUi
-                         ? Math.max(2, Math.min(3, Math.floor((width + gap) / (104 + gap))))
-                         : Math.max(2, Math.floor((width + gap) / (104 + gap)))
-                columnSpacing: gap
-                rowSpacing: gap
-                readonly property real tileWidth: Math.floor((width - gap * (columns - 1)) / columns)
-                Repeater {
-                    model: root.animTileModel
-                    delegate: TextAnimPresetTile {
-                        required property var modelData
-                        required property int index
-                        slot: root.animSlot
-                        presetId: modelData.id
-                        label: modelData.label
-                        trending: root.wearsFlame(modelData.id)
-                        tileWidth: presetGrid.tileWidth
-                        selected: modelData.id.length === 0
-                                  ? (!root.slotHasPreset && !root.slotData.custom)
-                                  : root.slotData.preset === modelData.id
-                        playing: root.page === "animate" && root.visible && !EditorState.playing
-                                 && modelData.id.length > 0
-                                 && (Theme.touchUi ? selected : hovered)
-                        onClicked: root.pickPreset(modelData.id)
-
-                        AssetFavoriteButton {
-                            visible: modelData.id.length > 0
-                            anchors.right: parent.right
-                            anchors.top: parent.top
-                            anchors.margins: 2
-                            tabId: "textAnimations"
-                            itemId: modelData.id
-                        }
-
-                        // The user's own animations (saved here, imported or from Stock) can be
-                        // renamed, shared and removed.
-                        IconButton {
-                            visible: modelData.id.startsWith("user:")
-                            anchors.left: parent.left
-                            anchors.top: parent.top
-                            anchors.margins: 2
-                            glyph: Theme.icons.ellipsis
-                            variant: "ghost"
-                            buttonSize: 20
-                            iconSize: 12
-                            tooltip: qsTr("Animation options")
-                            onClicked: animMenu.popup()
-                        }
-                        ThemedContextMenu {
-                            id: animMenu
-                            ThemedMenuItem {
-                                text: qsTr("Rename…")
-                                icon.name: Theme.icons.pencil
-                                onTriggered: animRenameDialog.openFor(modelData)
-                            }
-                            ThemedMenuItem {
-                                text: qsTr("Export…")
-                                icon.name: Theme.icons.folderOutput
-                                onTriggered: {
-                                    const url = FileDialogs.saveFile(qsTr("Export text animation"),
-                                                                     [qsTr("Text animations (*.json)")],
-                                                                     modelData.label, "json")
-                                    if (url.toString().length > 0)
-                                        EditorState.exportUserTextAnimationPreset(modelData.id, url)
-                                }
-                            }
-                            ThemedMenuSeparator { }
-                            ThemedMenuItem {
-                                text: qsTr("Delete")
-                                icon.name: Theme.icons.trash
-                                onTriggered: animDeleteDialog.openFor(modelData)
-                            }
-                        }
-                    }
-                }
-            }
-
-            Text {
-                visible: root.animStockShown && Market.configured
-                width: parent.width
-                text: root.animCategory === "__favorites__" ? qsTr("Stock favorites") : qsTr("From Stock")
-                color: Theme.panelForeground
-                font.family: Theme.fontFamily
-                font.pixelSize: Theme.fontSizeSm
-                font.weight: Font.Medium
-            }
-
-            StockPanelCards {
-                visible: root.animStockShown && Market.configured
-                width: parent.width
-                type: "text-animation"
-                items: root.animCategory === "__favorites__" ? root.animStockFavorites : null
-                bare: root.animCategory === "__favorites__"
-                glyph: Theme.icons.type
-                isInstalled: function(item) { return !!root.stockAnimPreset(item) }
-                apply: function(item) { root.applyStockAnim(item) }
-            }
-
             // Selected preset's controls.
             Column {
                 width: parent.width
@@ -3756,6 +3649,114 @@ Item {
                     }
                 }
             }
+
+            Loader {
+                id: animSignInLoader
+                active: false
+                sourceComponent: Component { SignInRequiredDialog { reason: "trends" } }
+            }
+
+            Grid {
+                id: presetGrid
+                width: parent.width
+                readonly property real gap: Theme.spacingLg
+                columns: Theme.touchUi
+                         ? Math.max(2, Math.min(3, Math.floor((width + gap) / (104 + gap))))
+                         : Math.max(2, Math.floor((width + gap) / (104 + gap)))
+                columnSpacing: gap
+                rowSpacing: gap
+                readonly property real tileWidth: Math.floor((width - gap * (columns - 1)) / columns)
+                Repeater {
+                    model: root.animTileModel
+                    delegate: TextAnimPresetTile {
+                        required property var modelData
+                        required property int index
+                        slot: root.animSlot
+                        presetId: modelData.id
+                        label: modelData.label
+                        trending: root.wearsFlame(modelData.id)
+                        tileWidth: presetGrid.tileWidth
+                        selected: modelData.id.length === 0
+                                  ? (!root.slotHasPreset && !root.slotData.custom)
+                                  : root.slotData.preset === modelData.id
+                        playing: root.page === "animate" && root.visible && !EditorState.playing
+                                 && modelData.id.length > 0
+                                 && (Theme.touchUi ? selected : hovered)
+                        onClicked: root.pickPreset(modelData.id)
+
+                        AssetFavoriteButton {
+                            visible: modelData.id.length > 0
+                            anchors.right: parent.right
+                            anchors.top: parent.top
+                            anchors.margins: 2
+                            tabId: "textAnimations"
+                            itemId: modelData.id
+                        }
+
+                        // The user's own animations (saved here, imported or from Stock) can be
+                        // renamed, shared and removed.
+                        IconButton {
+                            visible: modelData.id.startsWith("user:")
+                            anchors.left: parent.left
+                            anchors.top: parent.top
+                            anchors.margins: 2
+                            glyph: Theme.icons.ellipsis
+                            variant: "ghost"
+                            buttonSize: 20
+                            iconSize: 12
+                            tooltip: qsTr("Animation options")
+                            onClicked: animMenu.popup()
+                        }
+                        ThemedContextMenu {
+                            id: animMenu
+                            ThemedMenuItem {
+                                text: qsTr("Rename…")
+                                icon.name: Theme.icons.pencil
+                                onTriggered: animRenameDialog.openFor(modelData)
+                            }
+                            ThemedMenuItem {
+                                text: qsTr("Export…")
+                                icon.name: Theme.icons.folderOutput
+                                onTriggered: {
+                                    const url = FileDialogs.saveFile(qsTr("Export text animation"),
+                                                                     [qsTr("Text animations (*.json)")],
+                                                                     modelData.label, "json")
+                                    if (url.toString().length > 0)
+                                        EditorState.exportUserTextAnimationPreset(modelData.id, url)
+                                }
+                            }
+                            ThemedMenuSeparator { }
+                            ThemedMenuItem {
+                                text: qsTr("Delete")
+                                icon.name: Theme.icons.trash
+                                onTriggered: animDeleteDialog.openFor(modelData)
+                            }
+                        }
+                    }
+                }
+            }
+
+            Text {
+                visible: root.animStockShown && Market.configured
+                width: parent.width
+                text: root.animCategory === "__favorites__" ? qsTr("Stock favorites") : qsTr("From Stock")
+                color: Theme.panelForeground
+                font.family: Theme.fontFamily
+                font.pixelSize: Theme.fontSizeSm
+                font.weight: Font.Medium
+            }
+
+            StockPanelCards {
+                visible: root.animStockShown && Market.configured
+                width: parent.width
+                type: "text-animation"
+                items: root.animCategory === "__favorites__" ? root.animStockFavorites : null
+                bare: root.animCategory === "__favorites__"
+                glyph: Theme.icons.type
+                isInstalled: function(item) { return !!root.stockAnimPreset(item) }
+                apply: function(item) { root.applyStockAnim(item) }
+            }
+
 
             CollapsibleSection {
                 width: parent.width
