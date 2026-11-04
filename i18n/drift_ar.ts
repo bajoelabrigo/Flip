@@ -5697,6 +5697,10 @@
         <translation>صفير على الشتائم</translation>
     </message>
     <message>
+        <source>Bleep</source>
+        <translation>صفير</translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>

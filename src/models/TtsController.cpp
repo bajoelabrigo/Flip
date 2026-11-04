@@ -864,7 +864,30 @@ QString TtsController::readScriptFile(const QUrl &url) const
     QFile file(path);
     if (!file.open(QIODevice::ReadOnly))
         return {};
-    if (QFileInfo(path).suffix().compare(QLatin1String("docx"), Qt::CaseInsensitive) != 0)
+    const QString suffix = QFileInfo(path).suffix();
+    if (suffix.compare(QLatin1String("md"), Qt::CaseInsensitive) == 0
+        || suffix.compare(QLatin1String("markdown"), Qt::CaseInsensitive) == 0) {
+        // Markdown: what is read is the words, not the marks. A heading is the script's title and is
+        // left out (it was read aloud as a line, «# Diálogo»: 0.30 tests E55); bullets, quotes,
+        // emphasis, code and link marks go, the words stay.
+        static const QRegularExpression bulletRe(QStringLiteral("^\\s*(?:[-*+]|\\d+[.)]|>)\\s+"));
+        static const QRegularExpression emphasisRe(QStringLiteral("(\\*\\*|__|\\*|_|`)(.+?)\\1"));
+        static const QRegularExpression linkRe(QStringLiteral("!?\\[([^\\]]*)\\]\\([^)]*\\)"));
+        static const QRegularExpression ruleRe(QStringLiteral("^\\s*(?:[-*_]\\s*){3,}$"));
+        QStringList lines;
+        for (QString line : QString::fromUtf8(file.readAll()).split(QLatin1Char('\n'))) {
+            line = line.trimmed();
+            if (line.startsWith(QLatin1Char('#')) || ruleRe.match(line).hasMatch())
+                continue;
+            line.remove(bulletRe);
+            line.replace(linkRe, QStringLiteral("\\1"));
+            for (int pass = 0; pass < 3; ++pass)
+                line.replace(emphasisRe, QStringLiteral("\\2"));
+            lines.append(line);
+        }
+        return lines.join(QLatin1Char('\n')).trimmed();
+    }
+    if (suffix.compare(QLatin1String("docx"), Qt::CaseInsensitive) != 0)
         return QString::fromUtf8(file.readAll()).trimmed();
     // A Word document: the text of each paragraph of word/document.xml, one per line.
     QString err;

@@ -5622,6 +5622,10 @@
         <translation>Bíp từ tục</translation>
     </message>
     <message>
+        <source>Bleep</source>
+        <translation>Tiếng bíp</translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>

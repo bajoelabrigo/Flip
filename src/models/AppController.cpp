@@ -7151,6 +7151,10 @@ QVariantMap AppController::clipAt(int trackIndex, int clipIndex) const
     map.insert(QStringLiteral("transformParents"),
                transformParentsForClip(m_project, trackIndex, tracks.at(trackIndex).clips.at(clipIndex),
                                        m_playheadUs));
+    // The size a keyed size grows from (0.30): the timeline's Position reads the anchor in it.
+    const drift::Clip &own = tracks.at(trackIndex).clips.at(clipIndex);
+    map.insert(QStringLiteral("sizePivotW"), own.sizePivotW);
+    map.insert(QStringLiteral("sizePivotH"), own.sizePivotH);
     return map;
 }
 
@@ -7632,7 +7636,9 @@ AppController::GeneratedAudioImport AppController::importGeneratedAudio(
     }
     // A voice made from a script is named by its words (as in CapCut), not by its file
     // («tts-chatterbox-hola-a-todos-376a613a.flac»).
-    const QString spoken = generator.value(QStringLiteral("text")).toString().simplified();
+    // Without the script's own marks ([pausa 1s], [Ana]…): they are not words (0.30 tests E54).
+    static const QRegularExpression scriptTagRe(QStringLiteral("\\[[^\\]]*\\]"));
+    const QString spoken = generator.value(QStringLiteral("text")).toString().remove(scriptTagRe).simplified();
     if (!spoken.isEmpty()) {
         constexpr int kNameLetters = 40;
         const QString words = spoken.size() > kNameLetters ? spoken.left(kNameLetters).trimmed() + QStringLiteral("…") : spoken;
@@ -9287,6 +9293,7 @@ void AppController::layerEditAtPlayhead(const QString &actionId)
     const double playhead = drift::usToSeconds(m_playheadUs);
     beginEditSession(actionId.startsWith(QLatin1String("trim")) ? tr("Trim layer") : tr("Move layer"));
     bool changed = false;
+    QStringList movedToOwnTrack;
     for (const QString &id : std::as_const(ids)) {
         int t = -1;
         int c = -1;
@@ -9305,13 +9312,43 @@ void AppController::layerEditAtPlayhead(const QString &actionId)
                 trimClipRight(t, c, playhead);
                 changed = true;
             }
-        } else if (actionId == QLatin1String("moveInToPlayhead")) {
-            moveClip(t, c, playhead);
-            changed = true;
-        } else if (actionId == QLatin1String("moveOutToPlayhead")) {
-            moveClip(t, c, qMax(0.0, playhead - (end - start)));
+        } else if (actionId == QLatin1String("moveInToPlayhead") || actionId == QLatin1String("moveOutToPlayhead")) {
+            const double newStart = actionId == QLatin1String("moveInToPlayhead") ? playhead
+                                                                                   : qMax(0.0, playhead - (end - start));
+            const drift::TimeUs ns = drift::secondsToUs(newStart);
+            const drift::TimeUs ne = ns + clip.timelineDuration;
+            // In After Effects every layer has its own row, so [ and ] just slide it. Here clips can
+            // share a track: sliding into a neighbour made the track reshuffle (STUDIO landed at 10 s and
+            // pushed 0.30 along; 0.30 tests E44). Then the layer goes to a track of its own above.
+            bool blocked = false;
+            const QList<drift::Clip> &row = m_project.tracks().at(t).clips;
+            for (int o = 0; o < row.size() && !blocked; ++o)
+                blocked = o != c && row.at(o).timelineStart < ne && row.at(o).timelineEnd() > ns;
+            if (!blocked) {
+                moveClip(t, c, newStart);
+            } else {
+                const drift::Project before = m_project;
+                drift::Clip moved = m_project.tracks()[t].clips.takeAt(c);
+                moved.timelineStart = ns;
+                drift::Track lane{.type = m_project.tracks().at(t).type};
+                lane.clips.append(moved);
+                m_project.tracks().insert(t, lane);
+                pushProjectEdit(before, tr("Move layer"));
+                finishEdit(tr("Move layer"));
+                movedToOwnTrack.append(id);
+            }
             changed = true;
         }
+    }
+    if (!movedToOwnTrack.isEmpty()) {
+        QVariantList pairs;
+        for (const QString &id : std::as_const(ids)) {
+            int t = -1;
+            int c = -1;
+            if (findClipById(m_project, id, &t, &c))
+                pairs.append(QVariantMap{{QStringLiteral("track"), t}, {QStringLiteral("clip"), c}});
+        }
+        setSelection(pairs);
     }
     endEditSession(changed);
     if (!changed && actionId.startsWith(QLatin1String("trim")))
@@ -18335,6 +18372,8 @@ int AppController::bleepSubtitleSwearWords(int trackIndex, int clipIndex)
         connect(m_assetLibrary, &AssetLibrary::assetMetadataChanged, &loop, &QEventLoop::quit);
         while (timeout.isActive() && m_assetLibrary->isImportPending(assets.first()))
             loop.exec();
+        // Named for what it is, not its file («bleep-291de7a9.wav»: 0.30 tests E50).
+        m_assetLibrary->setAssetName(m_assetLibrary->indexOfId(assets.first()), tr("Bleep"));
         addClipsFromAssets(assets, -1, drift::usToSeconds(subtitles.timelineStart));
     }
     m_mcpController->endBatch(tr("Bleep swear words"), true);
@@ -25141,7 +25180,7 @@ int AppController::copyKeyframes(int trackIndex, const QVariantList &keys)
     return int(copied.size());
 }
 
-bool AppController::pasteKeyframes(int trackIndex, int clipIndex)
+bool AppController::pasteKeyframes(int trackIndex, int clipIndex, bool continueChain)
 {
     if (m_keyClipboard.isEmpty() || !isValidClipIndex(trackIndex, clipIndex))
         return false;
@@ -25161,7 +25200,7 @@ bool AppController::pasteKeyframes(int trackIndex, int clipIndex)
         const bool sameClip = isValidClipIndex(t, c)
                               && m_project.tracks().at(t).clips.at(c).id == m_keyClipboardClipId;
         const drift::TimeUs span = m_keyClipboardLastUs - m_keyClipboardFirstUs;
-        if (sameClip && span > 0 && m_playheadUs >= m_keyClipboardFirstUs - drift::kUsPerSecond / 100
+        if (continueChain && sameClip && span > 0 && m_playheadUs >= m_keyClipboardFirstUs - drift::kUsPerSecond / 100
             && m_playheadUs <= m_keyClipboardLastUs + drift::kUsPerSecond / 100) {
             const drift::TimeUs step = span / qMax(1, m_keyClipboardTimes - 1);
             pasteAtUs = m_keyClipboardLastUs + step;

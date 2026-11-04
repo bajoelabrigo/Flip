@@ -5733,6 +5733,10 @@
         <translation>গালিতে বিপ</translation>
     </message>
     <message>
+        <source>Bleep</source>
+        <translation>বিপ</translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>

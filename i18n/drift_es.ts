@@ -5633,6 +5633,10 @@
         <translation>Pitido en groserías</translation>
     </message>
     <message>
+        <source>Bleep</source>
+        <translation>Pitido</translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation>Preparando…</translation>
     </message>

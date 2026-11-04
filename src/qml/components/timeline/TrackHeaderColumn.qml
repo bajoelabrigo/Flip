@@ -1523,7 +1523,13 @@ Item {
                         function restSide(sizeProp) {
                             const keys = EditorState.clipAnimatedProperties(keyLines.trackIndex, keyLine.clip).indexOf(sizeProp) >= 0
                                          ? (EditorState.clipKeyframes(keyLines.trackIndex, keyLine.clip, sizeProp) || []) : []
-                            const side = keys.length >= 2 ? keys[0].value : valueOf(sizeProp)
+                            // As the renderer (Clip::anchorShift): a keyed size grows from the size it
+                            // had when its stopwatch went on, even with a single key. Reading the size
+                            // it has now moved every Position number when scaling (0.30 tests E40).
+                            const c = keys.length > 0 ? (EditorState.clipAt(keyLines.trackIndex, keyLine.clip) || {}) : {}
+                            const pivot = sizeProp === "width" ? c.sizePivotW : c.sizePivotH
+                            const side = keys.length > 0 && pivot > 0 ? pivot
+                                       : keys.length >= 2 ? keys[0].value : valueOf(sizeProp)
                             return isNaN(side) ? 0 : side
                         }
                         function positionValue(prop, tag) {

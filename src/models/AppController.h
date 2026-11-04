@@ -1838,7 +1838,9 @@ public:
     // ({clip, prop, seconds}) with their values and curves, by their time after the first one;
     // pasted on a clip's same properties starting at the playhead. Returns how many were copied.
     Q_INVOKABLE int copyKeyframes(int trackIndex, const QVariantList &keys);
-    Q_INVOKABLE bool pasteKeyframes(int trackIndex, int clipIndex);
+    // continueChain: pasted onto the keys they came from, the copies go after them (clone chain). Off when
+    // pasting into several layers at once: each gets them at the playhead, as After Effects (0.30 tests E47).
+    Q_INVOKABLE bool pasteKeyframes(int trackIndex, int clipIndex, bool continueChain = true);
     Q_INVOKABLE bool hasCopiedKeyframes() const { return !m_keyClipboard.isEmpty(); }
     // The keys the last paste made ({clip, prop, seconds}, on the track pasted to), so they are the
     // ones picked afterwards, as After Effects leaves them.

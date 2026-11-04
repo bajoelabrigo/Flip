@@ -5614,6 +5614,10 @@
         <translation>욕설에 삐 소리</translation>
     </message>
     <message>
+        <source>Bleep</source>
+        <translation>삐 소리</translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>

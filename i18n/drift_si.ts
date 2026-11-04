@@ -5633,6 +5633,10 @@
         <translation>කුණුහරුපවලට බීප්</translation>
     </message>
     <message>
+        <source>Bleep</source>
+        <translation>බීප්</translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>

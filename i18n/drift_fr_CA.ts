@@ -5638,6 +5638,10 @@
         <translation>Biper les jurons</translation>
     </message>
     <message>
+        <source>Bleep</source>
+        <translation>Bip</translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>

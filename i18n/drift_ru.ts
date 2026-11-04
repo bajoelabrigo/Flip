@@ -5652,6 +5652,10 @@
         <translation>Запикать ругательства</translation>
     </message>
     <message>
+        <source>Bleep</source>
+        <translation>Писк</translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>

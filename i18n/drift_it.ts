@@ -5633,6 +5633,10 @@
         <translation>Bip sulle parolacce</translation>
     </message>
     <message>
+        <source>Bleep</source>
+        <translation>Bip</translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>

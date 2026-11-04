@@ -5652,6 +5652,10 @@
         <translation>Wypikaj przekleństwa</translation>
     </message>
     <message>
+        <source>Bleep</source>
+        <translation>Piknięcie</translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>

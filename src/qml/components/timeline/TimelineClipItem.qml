@@ -1387,20 +1387,26 @@ Item {
         z: 60
         property var line: null
 
-        // The clip item under a point of the window, if any.
+        // The clip item under a point of the window, if any. Only the clip items themselves are
+        // measured: the rows and columns that hold them can be zero-sized with their children laid out
+        // past their edges, and pruning by those boxes never reached a clip (0.30 tests E41: the whip
+        // drew its line and dropped onto the null without linking).
         function clipItemAt(item, gx, gy) {
             if (!item || !item.visible)
                 return null
             const kids = item.children
             for (let i = kids.length - 1; i >= 0; --i) {
                 const k = kids[i]
-                if (!k || !k.visible || k.width <= 0 || k.height <= 0)
+                if (!k || !k.visible)
                     continue
-                const p = k.mapFromItem(null, gx, gy)
-                if (p.x < 0 || p.y < 0 || p.x > k.width || p.y > k.height)
+                if (k.clipData !== undefined && k.trackIndex !== undefined && k.clipIndex !== undefined) {
+                    if (k === clipItem || k.width <= 0 || k.height <= 0)
+                        continue
+                    const p = k.mapFromItem(null, gx, gy)
+                    if (p.x >= 0 && p.y >= 0 && p.x <= k.width && p.y <= k.height)
+                        return k
                     continue
-                if (k.clipData !== undefined && k.trackIndex !== undefined && k.clipIndex !== undefined && k !== clipItem)
-                    return k
+                }
                 const inner = clipItemAt(k, gx, gy)
                 if (inner)
                     return inner

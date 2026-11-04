@@ -441,7 +441,7 @@ Item {
             let any = false
             try {
                 for (const p of picked)
-                    any = EditorState.pasteKeyframes(p.track, p.clip) || any
+                    any = EditorState.pasteKeyframes(p.track, p.clip, false) || any
             } finally {
                 EditorState.endEditSession(any)
             }

@@ -5614,6 +5614,10 @@
         <translation>暴言にピー音</translation>
     </message>
     <message>
+        <source>Bleep</source>
+        <translation>ピー音</translation>
+    </message>
+    <message>
         <source>Getting ready…</source>
         <translation type="unfinished"></translation>
     </message>

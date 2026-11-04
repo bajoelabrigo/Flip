@@ -41,9 +41,15 @@ Item {
             return { x: 0, y: 0 }
         const cw = root.box.canvasWidth
         const ch = root.box.canvasHeight
+        // The anchor's place, as the renderer puts it: in the size the layer grows from while its size
+        // is keyed, so scaling does not slide the path off the layer (0.30 tests E40).
+        const fx = isNaN(root.box.anchorFx) ? 0.5 : root.box.anchorFx
+        const fy = isNaN(root.box.anchorFy) ? 0.5 : root.box.anchorFy
+        const rw = root.box.restW > 0 ? root.box.restW : root.valueAt("width", seconds, cw)
+        const rh = root.box.restH > 0 ? root.box.restH : root.valueAt("height", seconds, ch)
         return {
-            x: root.valueAt("x", seconds, 0) + root.valueAt("width", seconds, cw) / 2,
-            y: root.valueAt("y", seconds, 0) + root.valueAt("height", seconds, ch) / 2
+            x: root.valueAt("x", seconds, 0) + fx * rw,
+            y: root.valueAt("y", seconds, 0) + fy * rh
         }
     }
     // True when a press at (mx, my) of `item` falls on the clip as it is drawn now. A straight
