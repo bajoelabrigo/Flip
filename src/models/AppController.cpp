@@ -5139,6 +5139,12 @@ QHash<QString, QString> defaultShortcuts()
         {QStringLiteral("trimOutToPlayhead"), QStringLiteral("Alt+]")},
         {QStringLiteral("moveInToPlayhead"), QStringLiteral("[")},
         {QStringLiteral("moveOutToPlayhead"), QStringLiteral("]")},
+        // After Effects' layer order (0.30, Jorge): Ctrl+] / Ctrl+[ one up or down, with Shift to the top or
+        // the bottom. A layer here is its track.
+        {QStringLiteral("layerForward"), QStringLiteral("Ctrl+]")},
+        {QStringLiteral("layerBackward"), QStringLiteral("Ctrl+[")},
+        {QStringLiteral("layerToFront"), QStringLiteral("Ctrl+Shift+]")},
+        {QStringLiteral("layerToBack"), QStringLiteral("Ctrl+Shift+[")},
         {QStringLiteral("stepBackPage"), QStringLiteral("PgUp")},
         {QStringLiteral("stepForwardPage"), QStringLiteral("PgDown")},
         // After Effects' Ctrl+Left / Ctrl+Right step a frame too: the AE set's (Left / Right stay).
@@ -6134,6 +6140,10 @@ QVariantList AppController::actions() const
         action(QStringLiteral("trimOutToPlayhead"), tr("Trim the layer's out point to the playhead")),
         action(QStringLiteral("moveInToPlayhead"), tr("Move the layer so it starts at the playhead")),
         action(QStringLiteral("moveOutToPlayhead"), tr("Move the layer so it ends at the playhead")),
+        action(QStringLiteral("layerForward"), tr("Bring layer forward")),
+        action(QStringLiteral("layerBackward"), tr("Send layer backward")),
+        action(QStringLiteral("layerToFront"), tr("Bring layer to front")),
+        action(QStringLiteral("layerToBack"), tr("Send layer to back")),
         action(QStringLiteral("clearInOut"), tr("Clear work area")),
         action(QStringLiteral("toggleLoop"), tr("Loop work area playback")),
         action(QStringLiteral("ramPreview"), tr("RAM preview (render to memory and play)")),
@@ -32593,6 +32603,39 @@ bool AppController::canShrinkTrackHeights() const
     return false;
 }
 
+// Ctrl+] / Ctrl+[ (with Shift: to the top / bottom), After Effects' layer order: the picked clip's track
+// moves among the picture tracks (an audio track or an adjustment lane is no place for it).
+void AppController::moveSelectedLayerInStack(const QString &actionId)
+{
+    const int from = m_selectedTrack;
+    if (from < 0 || from >= m_project.tracks().size())
+        return;
+    const auto picture = [this](int t) {
+        const drift::Track &track = m_project.tracks().at(t);
+        return track.type != drift::TrackType::Audio && !track.isAdjustmentLane();
+    };
+    if (!picture(from))
+        return;
+    QList<int> stack;
+    for (int t = 0; t < m_project.tracks().size(); ++t) {
+        if (picture(t))
+            stack.append(t);
+    }
+    const int at = int(stack.indexOf(from));
+    int to = at;
+    if (actionId == QLatin1String("layerForward"))
+        to = at - 1;
+    else if (actionId == QLatin1String("layerBackward"))
+        to = at + 1;
+    else if (actionId == QLatin1String("layerToFront"))
+        to = 0;
+    else if (actionId == QLatin1String("layerToBack"))
+        to = int(stack.size()) - 1;
+    if (to < 0 || to >= stack.size() || to == at)
+        return;
+    moveTrack(from, stack.at(to));
+}
+
 void AppController::moveTrack(int fromIndex, int toIndex)
 {
     const int trackCount = m_project.tracks().size();
@@ -34868,6 +34911,10 @@ void AppController::triggerAction(const QString &actionId)
              || actionId == QStringLiteral("moveInToPlayhead") || actionId == QStringLiteral("moveOutToPlayhead")
              || actionId == QStringLiteral("goToLayerIn") || actionId == QStringLiteral("goToLayerOut"))
         layerEditAtPlayhead(actionId);
+    else if (actionId.startsWith(QLatin1String("layer")) && (actionId.endsWith(QLatin1String("Forward"))
+             || actionId.endsWith(QLatin1String("Backward")) || actionId.endsWith(QLatin1String("Front"))
+             || actionId.endsWith(QLatin1String("Back"))))
+        moveSelectedLayerInStack(actionId);
     else if (actionId.startsWith(QLatin1String("key")) && actionId.size() > 3 && actionId.at(3).isUpper())
         keyGroupAtPlayhead(actionId.mid(3).toLower());
     else if (actionId == QStringLiteral("goToStart"))

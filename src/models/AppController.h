@@ -2254,6 +2254,7 @@ public:
     Q_INVOKABLE double trackHeightScaleMin() const { return 0.6; }
     Q_INVOKABLE double trackHeightScaleMax() const { return 4.0; }
     Q_INVOKABLE void moveTrack(int fromIndex, int toIndex);
+    void moveSelectedLayerInStack(const QString &actionId);
     Q_INVOKABLE void addTrack(const QString &type);
     Q_INVOKABLE void removeTrack(int trackIndex);
     // A click on a track header: picks that track alone; `extendRange` (Shift) adds every track
