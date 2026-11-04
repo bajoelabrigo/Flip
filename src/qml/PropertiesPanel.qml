@@ -811,6 +811,12 @@ PanelFrame {
                     }
                 }
 
+                Timer {
+                    interval: 3000
+                    running: true
+                    onTriggered: textLoader.warm = true
+                }
+
                 Loader {
                     id: textLoader
                     // Built in the background as soon as a text is picked, so opening its tab is
@@ -819,8 +825,11 @@ PanelFrame {
                     // And kept once made: rebuilt on every pick of a text it froze the window for over a
                     // second each time the tab opened.
                     property bool made: false
+                    // Built in the background a few seconds after the editor opens, so even the first
+                    // text picked opens its tab at once.
+                    property bool warm: false
                     onLoaded: made = true
-                    active: made || root.currentTabId === "text" || (root.hasSelection && root.clipKind === "text")
+                    active: made || warm || root.currentTabId === "text" || (root.hasSelection && root.clipKind === "text")
                     asynchronous: root.currentTabId !== "text"
                     visible: root.currentTabId === "text"
                     sourceComponent: Component {
