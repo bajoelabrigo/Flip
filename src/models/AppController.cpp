@@ -4302,7 +4302,7 @@ void syncTextAutoFit(drift::Project &project, const drift::Project &before)
     bool indexed = false;
     for (drift::Track &track : project.tracks()) {
         for (drift::Clip &clip : track.clips) {
-            if (clip.type != drift::ClipType::Text || !clip.textAutoFit)
+            if (clip.type != drift::ClipType::Text)
                 continue;
             if (!indexed) {
                 for (const drift::Track &oldTrack : before.tracks()) {
@@ -4318,6 +4318,33 @@ void syncTextAutoFit(drift::Project &project, const drift::Project &before)
                                      || textFitKey(old->textStyle) != textFitKey(clip.textStyle);
             const bool boxChanged = old->transformW.keyframes() != clip.transformW.keyframes()
                                     || old->transformH.keyframes() != clip.transformH.keyframes();
+            // Only the width dragged on a wrapping text (0.30 Academy): the lines that wrap need room below,
+            // as in CapCut; without it the box showed only its middle line.
+            if (boxChanged && !textChanged && old->transformH.keyframes() == clip.transformH.keyframes()
+                && clip.textStyle.wordWrap && !clip.textStyle.shrinkToFit
+                && clip.transformW.keyframes().size() <= 1 && clip.transformH.keyframes().size() <= 1) {
+                const double w = layoutKeyValue(clip.transformW, canvasW);
+                const double h = layoutKeyValue(clip.transformH, canvasH);
+                const double em = qMax(1.0, clip.textStyle.pixelSize);
+                const double pad = em * 0.15 + qMax(0.0, drift::textStrokeWidth(clip.textStyle, false));
+                const QSizeF need = fittedTextSizeForStyle(shownClipText(clip), clip.textStyle,
+                                                           qMax(em, w - 2.0 * pad));
+                if (need.isValid() && need.height() > h + 0.5) {
+                    const double grow = need.height() - h;
+                    const double fy = clip.textStyle.valign == drift::TextVAlign::Middle ? 0.5
+                                      : clip.textStyle.valign == drift::TextVAlign::Top ? 0.0 : 1.0;
+                    if (clip.transformY.isEmpty())
+                        clip.transformY.setKeyframe(0, -grow * fy);
+                    else
+                        clip.transformY.keyframeRef(clip.transformY.keyframes().firstKey())->value -= grow * fy;
+                    if (clip.transformH.isEmpty())
+                        clip.transformH.setKeyframe(0, need.height());
+                    else
+                        clip.transformH.keyframeRef(clip.transformH.keyframes().firstKey())->value = need.height();
+                }
+            }
+            if (!clip.textAutoFit)
+                continue;
             if (textChanged && !boxChanged) {
                 refitTextClipBox(clip, canvasW, canvasH);
             } else if (boxChanged && !textChanged) {

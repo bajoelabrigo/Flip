@@ -170,6 +170,7 @@ private slots:
     void textBoxGrowsLiveWhileTyping();
     void oldProjectTextBoxNeverMoves();
     void sideResizeOfTextBoxStopsHugging();
+    void narrowingAWrappingTextGrowsItsBox();
     void undoRedoClipAdd();
     void sourceFramingPreservesOriginalAndUndoes();
     void undoLibraryClipDropOntoExistingTrack();
@@ -1616,6 +1617,35 @@ void EditorStateTest::sideResizeOfTextBoxStopsHugging()
     state.undo();
     state.undo();
     QVERIFY(clipNow().textAutoFit);
+#endif
+}
+
+void EditorStateTest::narrowingAWrappingTextGrowsItsBox()
+{
+#ifndef DRIFT_WITH_SKIA
+    QSKIP("measuring text needs DRIFT_WITH_SKIA");
+#else
+    // 0.30 Academy: a side of the box dragged in wrapped the words onto three lines but kept one line's
+    // height, so only the middle one showed. The box grows down to fit them, as in CapCut.
+    AssetLibrary library;
+    AppController state(&library);
+    state.addTextClip(QStringLiteral("RUTA DEL LAGO"), 0.0);
+    const int track = state.selectedTrack();
+    const int clip = state.selectedClip();
+    const auto clipNow = [&]() -> const drift::Clip & { return state.project()->tracks().at(track).clips.at(clip); };
+    const TextBox first = textBoxOf(clipNow());
+    QVERIFY(clipNow().textStyle.wordWrap);
+    state.beginPreviewDrag(QStringLiteral("Transform clip"));
+    state.previewSetClipRect(track, clip, first.x, first.y, first.w * 0.4, first.h);
+    state.commitPreviewDrag();
+    const TextBox narrow = textBoxOf(clipNow());
+    QVERIFY(qAbs(narrow.w - first.w * 0.4) < 0.5);
+    QVERIFY2(narrow.h > first.h * 1.5, qPrintable(QStringLiteral("height %1 from %2").arg(narrow.h).arg(first.h)));
+    // A second drag, once the box no longer hugs, grows it too.
+    state.beginPreviewDrag(QStringLiteral("Transform clip"));
+    state.previewSetClipRect(track, clip, narrow.x, narrow.y, first.w * 0.3, narrow.h);
+    state.commitPreviewDrag();
+    QVERIFY(textBoxOf(clipNow()).h >= narrow.h);
 #endif
 }
 
