@@ -57,6 +57,7 @@ private slots:
     void gradientHandlesRoundTrip();
     void strokeArrowheadsRoundTrip();
     void timeConversion();
+    void effectColorKeysWithoutStoredColor();
     void counterTextCountsInTheTextsFormat();
     void sceneTemplateSuggestionsScoreCountAndShape();
     void sceneTemplateCutsSnapToBeats();
@@ -243,6 +244,23 @@ private slots:
 };
 
 // After Effects' gradient handles (0.29): points → gradient → the same points, for each kind.
+// Fill's Color animated straight away (0.30 tutorial): the effect has no stored colour yet, the keys
+// still make the colour the shader gets.
+void CoreTest::effectColorKeysWithoutStoredColor()
+{
+    drift::Effect effect;
+    effect.catalogId = QStringLiteral("ae.fill");
+    const double rgb[3] = {1.0, 0.4, 0.8};
+    const char *suffix[3] = {".r", ".g", ".b"};
+    for (int i = 0; i < 3; ++i) {
+        drift::KeyframeTrack<double> track;
+        track.setKeyframe(0, rgb[i]);
+        track.setKeyframe(drift::secondsToUs(2.0), 0.0);
+        effect.paramKeyframes.insert(QStringLiteral("color") + QLatin1String(suffix[i]), track);
+    }
+    QCOMPARE(effect.resolvedAt(0).parameters.value(QStringLiteral("color")).toString(), QStringLiteral("#ff66cc"));
+}
+
 void CoreTest::strokeArrowheadsRoundTrip()
 {
     // 0.29: a pen line can end in an arrowhead; it is saved only when set and read back bounded.

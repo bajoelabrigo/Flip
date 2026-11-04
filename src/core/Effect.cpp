@@ -343,9 +343,11 @@ Effect Effect::resolvedAt(TimeUs clipTimeUs) const
         if (!it.key().endsWith(QLatin1String(".r")) || it->isEmpty())
             continue;
         const QString base = it.key().chopped(2);
-        const QString hex = parameters.value(base).toString();
-        if (!hex.startsWith(QLatin1Char('#')))
-            continue;
+        // An effect whose colour was never set by hand has no stored value (the catalog's default is
+        // filled in later): its keys still decide the colour (0.30 tests, Fill's Color animated
+        // straight away stayed at the default red).
+        const QString stored = parameters.value(base).toString();
+        const QString hex = stored.startsWith(QLatin1Char('#')) ? stored : QStringLiteral("#ffffff");
         const auto channel = [&](const char *suffix, double fallback) {
             const auto t = paramKeyframes.constFind(base + QLatin1String(suffix));
             const double v = (t == paramKeyframes.constEnd() || t->isEmpty()) ? fallback
