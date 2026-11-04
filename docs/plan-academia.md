@@ -29,7 +29,7 @@ ventana. Sin publicar nada de la app hasta que Jorge lo diga.
 - Entrega: resumen, cursos y lecciones, cuántas capturas reales, pendientes, cómo agregar cursos, resultados de pruebas.
 
 ## Estado
-**2026-11-04 (noche): las 18 lecciones escritas, en `flipstudio-web` rama `academia` (SIN desplegar).**
+**2026-11-04 (noche): 26 lecciones (18 + 8 más de texto, pedido de Jorge «incluye todo sobre texto»), en `flipstudio-web` rama `academia` (SIN desplegar).** Un tema puede tener varias lecciones: `lecciones/<nivel>/<tema>.json`, `<tema>-2.json`, `<tema>-3.json`… 71 capturas originales, 73 imágenes.
 
 - Código: `flipstudio-web/tools/academia/`. `build.py` arma `academia/` desde `cursos.json` (niveles y temas) y
   `lecciones/<nivel>/<tema>.json` (las 11 partes). Una lección se publica solo con `estado: "completa"`, todas sus

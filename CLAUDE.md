@@ -79,7 +79,7 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 
 
 ### Academia de la web (2026-11-04, noche) — **detalle en `docs/plan-academia.md` › Estado**
-- 18 lecciones (3 niveles × 6 temas) con capturas reales, en `flipstudio-web` rama `academia`, **sin desplegar**.
+- 26 lecciones (3 niveles × 6 temas; Texto tiene 3, 4 y 3 lecciones) con capturas reales, en `flipstudio-web` rama `academia`, **sin desplegar**. Un tema admite `<tema>-2.json`, `-3.json`…
   Generador `flipstudio-web/tools/academia/build.py`; originales en `E:\FlipStudio\academia\capturas`.
 - Al capturar salieron fallos de la app, arreglados en `flip/subtitulos` (lista en `release-notes/0.30.0.md` ›
   Arreglos). El último (caja de selección de una Escala por expresión) está en la compilación siguiente a la nf5.
