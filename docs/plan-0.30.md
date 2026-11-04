@@ -34,6 +34,13 @@ Además de lo de `docs/plan-subtitulos.md` y `docs/plan-ejercicio-rebote.md`:
    la fila Posición X, que no se mueve: hay que elegir las de Y (clic en el nombre «Posición Y» elige todas).
    Compilación **r16**: run 41798607082 → `pruebas\FlipStudio-0.30-r16`.
 
+## El curso de fotogramas clave de AE (Jorge, 2026-11-04 noche)
+Jorge: la 0.30 sale solo cuando todo lo del curso (1:49, `Videos\aTubeCatcher\🔷 CURSO de AFTER EFFECTS…mkv`) se
+pueda hacer en Flip. Lista punto por punto, con el minuto y el estado, en **`docs/tutorial-keyframes-ae.md`**. Lo
+que faltaba se hizo en el commit `752a6` (compilación run 41819171666 → `pruebas\FlipStudio-0.30-r17`) y se prueba
+en ventana sin el mouse de Jorge (`mcp_e2e.py` ahora sostiene Ctrl/Mayús/Alt con `"mods"`, solo para la ventana de
+prueba). La r17 también lleva el arreglo del rebote al clonar (era la r16).
+
 ## Para seguir (2026-11-05)
 
 1. Bajar la r16 si no se bajó (`gh run download 41798607082 -R bajoelabrigo/Flip -n windows-portable`), abrirla en

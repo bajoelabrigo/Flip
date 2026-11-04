@@ -248,7 +248,58 @@ def _grab(hwnd):
     return image
 
 
-def click(pid, x, y, button="left"):
+class held_modifiers:
+    """Ctrl / Shift / Alt held for the app's window only, while posted messages are read (0.30): the input of
+    this thread is attached to the window's and the shared key state gets those keys down, so Qt's
+    GetKeyState sees them. The real keyboard is never touched; the state is put back afterwards."""
+
+    VK = {"ctrl": (0x11, 0xA2), "shift": (0x10, 0xA0), "alt": (0x12, 0xA4)}
+
+    def __init__(self, pid, mods):
+        self.pid = pid
+        self.mods = [m.strip().lower() for m in (mods or "").replace("+", ",").split(",") if m.strip()]
+
+    def wparam(self):
+        return (0x08 if "ctrl" in self.mods else 0) | (0x04 if "shift" in self.mods else 0)
+
+    def __enter__(self):
+        import ctypes
+        from ctypes import wintypes
+
+        if not self.mods:
+            return self
+        user32 = ctypes.windll.user32
+        hwnd, _ = _window_lparam(self.pid, 0, 0)
+        self.attached = False
+        if not hwnd:
+            return self
+        target = user32.GetWindowThreadProcessId(hwnd, None)
+        self.me = ctypes.windll.kernel32.GetCurrentThreadId()
+        self.target = target
+        self.attached = bool(user32.AttachThreadInput(self.me, target, True))
+        self.saved = (ctypes.c_ubyte * 256)()
+        user32.GetKeyboardState(self.saved)
+        state = (ctypes.c_ubyte * 256)()
+        ctypes.memmove(state, self.saved, 256)
+        for m in self.mods:
+            for vk in self.VK.get(m, ()):
+                state[vk] = 0x80
+        user32.SetKeyboardState(state)
+        return self
+
+    def __exit__(self, *exc):
+        import ctypes
+
+        if not self.mods or not getattr(self, "attached", False):
+            return False
+        time.sleep(0.4)  # the posted messages are read first
+        user32 = ctypes.windll.user32
+        user32.SetKeyboardState(self.saved)
+        user32.AttachThreadInput(self.me, self.target, False)
+        return False
+
+
+def click(pid, x, y, button="left", mods=""):
     """A left (or right) click at (x, y) of the window's own picture (as a screenshot shows it), posted to the
     window as messages: the real mouse never moves and nothing else on the desktop is touched."""
     import ctypes
@@ -280,12 +331,14 @@ def click(pid, x, y, button="left"):
     lparam = (point.y << 16) | (point.x & 0xFFFF)
     WM_MOUSEMOVE = 0x200
     down, up, held = (0x204, 0x205, 2) if button == "right" else (0x201, 0x202, 1)
-    user32.PostMessageW(hwnd, WM_MOUSEMOVE, 0, lparam)
-    time.sleep(0.05)
-    user32.PostMessageW(hwnd, down, held, lparam)
-    time.sleep(0.08)
-    user32.PostMessageW(hwnd, up, 0, lparam)
-    return f"{button}-clicked {x},{y}"
+    with held_modifiers(pid, mods) as m:
+        k = m.wparam()
+        user32.PostMessageW(hwnd, WM_MOUSEMOVE, k, lparam)
+        time.sleep(0.05)
+        user32.PostMessageW(hwnd, down, held | k, lparam)
+        time.sleep(0.08)
+        user32.PostMessageW(hwnd, up, k, lparam)
+    return f"{button}-clicked {x},{y} {mods}"
 
 
 def _window_lparam(pid, x, y):
@@ -334,7 +387,7 @@ def type_text(pid, text):
     return f"typed {len(text)} characters"
 
 
-def press_key(pid, vk):
+def press_key(pid, vk, mods=""):
     """A key press (Windows virtual-key code: 0x0D Enter, 0x1B Escape, 0x2E Delete, 0x08 Backspace,
     0x25-0x28 arrows) posted to the window like click(). Modifiers cannot be posted: Qt reads them
     from the real keyboard."""
@@ -345,14 +398,18 @@ def press_key(pid, vk):
     if not hwnd:
         return "no window"
     scan = user32.MapVirtualKeyW(vk, 0)
-    extended = 1 << 24 if vk in (0x2E, 0x25, 0x26, 0x27, 0x28) else 0
-    user32.PostMessageW(hwnd, 0x0100, vk, 1 | (scan << 16) | extended)  # WM_KEYDOWN
-    time.sleep(0.05)
-    user32.PostMessageW(hwnd, 0x0101, vk, 1 | (scan << 16) | extended | (3 << 30))  # WM_KEYUP
-    return f"pressed key 0x{vk:02X}"
+    extended = 1 << 24 if vk in (0x2E, 0x25, 0x26, 0x27, 0x28, 0x21, 0x22) else 0
+    alt = "alt" in (mods or "").lower()
+    # With Alt held Windows sends WM_SYSKEYDOWN; Qt reads Alt from the key state either way.
+    down, up = (0x0104, 0x0105) if alt else (0x0100, 0x0101)
+    with held_modifiers(pid, mods):
+        user32.PostMessageW(hwnd, down, vk, 1 | (scan << 16) | extended | ((1 << 29) if alt else 0))
+        time.sleep(0.05)
+        user32.PostMessageW(hwnd, up, vk, 1 | (scan << 16) | extended | (3 << 30) | ((1 << 29) if alt else 0))
+    return f"pressed key 0x{vk:02X} {mods}"
 
 
-def drag(pid, x, y, x2, y2, steps=12):
+def drag(pid, x, y, x2, y2, steps=12, mods=""):
     """A left-button drag from (x, y) to (x2, y2), posted like click()."""
     import ctypes
 
@@ -360,20 +417,22 @@ def drag(pid, x, y, x2, y2, steps=12):
     hwnd, lparam = _window_lparam(pid, x, y)
     if not hwnd:
         return "no window"
-    user32.PostMessageW(hwnd, 0x200, 0, lparam(x, y))
-    time.sleep(0.05)
-    user32.PostMessageW(hwnd, 0x201, 1, lparam(x, y))
-    time.sleep(0.08)
-    for i in range(1, steps + 1):
-        px = x + (x2 - x) * i / steps
-        py = y + (y2 - y) * i / steps
-        user32.PostMessageW(hwnd, 0x200, 1, lparam(px, py))
-        time.sleep(0.04)
-    user32.PostMessageW(hwnd, 0x202, 0, lparam(x2, y2))
-    return f"dragged {x},{y} -> {x2},{y2}"
+    with held_modifiers(pid, mods) as m:
+        k = m.wparam()
+        user32.PostMessageW(hwnd, 0x200, k, lparam(x, y))
+        time.sleep(0.05)
+        user32.PostMessageW(hwnd, 0x201, 1 | k, lparam(x, y))
+        time.sleep(0.08)
+        for i in range(1, steps + 1):
+            px = x + (x2 - x) * i / steps
+            py = y + (y2 - y) * i / steps
+            user32.PostMessageW(hwnd, 0x200, 1 | k, lparam(px, py))
+            time.sleep(0.04)
+        user32.PostMessageW(hwnd, 0x202, k, lparam(x2, y2))
+    return f"dragged {x},{y} -> {x2},{y2} {mods}"
 
 
-def double_click(pid, x, y):
+def double_click(pid, x, y, mods=""):
     """A left double-click at (x, y), posted like click()."""
     import ctypes
 
@@ -382,15 +441,17 @@ def double_click(pid, x, y):
     if not hwnd:
         return "no window"
     at = lparam(x, y)
-    user32.PostMessageW(hwnd, 0x200, 0, at)
-    time.sleep(0.05)
-    for message, held in ((0x201, 1), (0x202, 0), (0x203, 1), (0x202, 0)):
-        user32.PostMessageW(hwnd, message, held, at)
-        time.sleep(0.04)
-    return f"double-clicked {x},{y}"
+    with held_modifiers(pid, mods) as m:
+        k = m.wparam()
+        user32.PostMessageW(hwnd, 0x200, k, at)
+        time.sleep(0.05)
+        for message, held in ((0x201, 1), (0x202, 0), (0x203, 1), (0x202, 0)):
+            user32.PostMessageW(hwnd, message, held | k, at)
+            time.sleep(0.04)
+    return f"double-clicked {x},{y} {mods}"
 
 
-def wheel(pid, x, y, notches):
+def wheel(pid, x, y, notches, mods=""):
     """Wheel notches (negative: down) at (x, y) of the window, posted like click()."""
     import ctypes
     from ctypes import wintypes
@@ -414,11 +475,13 @@ def wheel(pid, x, y, notches):
     user32.GetWindowRect(hwnd, ctypes.byref(rect))
     sx, sy = rect.left + int(x), rect.top + int(y)  # WM_MOUSEWHEEL takes screen coordinates
     lparam = ((sy & 0xFFFF) << 16) | (sx & 0xFFFF)
-    for _ in range(abs(int(notches))):
-        delta = 120 if notches > 0 else -120
-        user32.PostMessageW(hwnd, 0x020A, (delta & 0xFFFF) << 16, lparam)
-        time.sleep(0.08)
-    return f"wheel {notches} at {x},{y}"
+    with held_modifiers(pid, mods) as m:
+        k = m.wparam()
+        for _ in range(abs(int(notches))):
+            delta = 120 if notches > 0 else -120
+            user32.PostMessageW(hwnd, 0x020A, ((delta & 0xFFFF) << 16) | k, lparam)
+            time.sleep(0.08)
+    return f"wheel {notches} at {x},{y} {mods}"
 
 
 def main():
@@ -453,7 +516,7 @@ def main():
             tool = call["tool"]
             args = substitute(call.get("args", {}), memory)
             if tool == "click":
-                print(f"[{index}] {click(gui.pid if gui else bridge.proc.pid, args['x'], args['y'], args.get('button', 'left'))}")
+                print(f"[{index}] {click(gui.pid if gui else bridge.proc.pid, args['x'], args['y'], args.get('button', 'left'), args.get('mods', ''))}")
                 time.sleep(float(call.get("sleep", 1.0)))
                 continue
             if tool == "type":
@@ -461,19 +524,19 @@ def main():
                 time.sleep(float(call.get("sleep", 0.5)))
                 continue
             if tool == "key":
-                print(f"[{index}] {press_key(gui.pid if gui else bridge.proc.pid, int(args['vk']))}")
+                print(f"[{index}] {press_key(gui.pid if gui else bridge.proc.pid, int(args['vk']), args.get('mods', ''))}")
                 time.sleep(float(call.get("sleep", 0.5)))
                 continue
             if tool == "drag":
-                print(f"[{index}] {drag(gui.pid if gui else bridge.proc.pid, args['x'], args['y'], args['x2'], args['y2'])}")
+                print(f"[{index}] {drag(gui.pid if gui else bridge.proc.pid, args['x'], args['y'], args['x2'], args['y2'], mods=args.get('mods', ''))}")
                 time.sleep(float(call.get("sleep", 1.0)))
                 continue
             if tool == "dblclick":
-                print(f"[{index}] {double_click(gui.pid if gui else bridge.proc.pid, args['x'], args['y'])}")
+                print(f"[{index}] {double_click(gui.pid if gui else bridge.proc.pid, args['x'], args['y'], args.get('mods', ''))}")
                 time.sleep(float(call.get("sleep", 1.0)))
                 continue
             if tool == "wheel":
-                print(f"[{index}] {wheel(gui.pid if gui else bridge.proc.pid, args['x'], args['y'], args['notches'])}")
+                print(f"[{index}] {wheel(gui.pid if gui else bridge.proc.pid, args['x'], args['y'], args['notches'], args.get('mods', ''))}")
                 time.sleep(float(call.get("sleep", 1.0)))
                 continue
             if tool == "screenshot":
