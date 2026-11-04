@@ -40,6 +40,11 @@ pueda hacer en Flip. Lista punto por punto, con el minuto y el estado, en **`doc
 que faltaba se hizo en el commit `752a6` (compilación run 41819171666 → `pruebas\FlipStudio-0.30-r17`) y se prueba
 en ventana sin el mouse de Jorge (`mcp_e2e.py` ahora sostiene Ctrl/Mayús/Alt con `"mods"`, solo para la ventana de
 prueba). La r17 también lleva el arreglo del rebote al clonar (era la r16).
+**Hecho y probado en ventana (2026-11-04, mañana):** todo lo del curso, en la **r20** (run 41833162993,
+`pruebas\FlipStudio-0.30-r20`), con los arreglos que salieron al probar (Intro en un campo, color en una fila, color
+animado de un efecto que no se dibujaba) y clonar con Rebote (Y igual antes y después, y la copia rebota). Registro
+restaurado (`pruebas	utorial-aeegistro-antes.reg`, 0 diferencias; la cuenta no cambió). Queda distinto a
+propósito: Espacio + arrastrar (en Flip Espacio reproduce). **Falta:** que Jorge diga si se publica, y publicar.
 
 ## Para seguir (2026-11-05)
 
