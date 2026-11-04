@@ -21289,14 +21289,23 @@ void AppController::convertSelectionToSubtitle()
         m_project, drift::ClipType::Subtitle, subtitle.timelineStart, subtitle.timelineDuration, true);
     if (subtitleTrack < 0)
         return;
-    drift::Track &track = m_project.tracks()[subtitleTrack];
-    track.clips.append(subtitle);
-    const int subtitleIndex = track.clips.size() - 1;
+    m_project.tracks()[subtitleTrack].clips.append(subtitle);
+    // The emptied text tracks go (0.30 Academy: an empty «Text 1» row stayed behind).
+    for (int t = m_project.tracks().size() - 1; t >= 0; --t) {
+        const drift::Track &emptied = m_project.tracks().at(t);
+        if (emptied.clips.isEmpty() && !emptied.isAdjustmentLane() && emptiedTrackIds.contains(emptied.id))
+            m_project.tracks().removeAt(t);
+    }
+    m_project.ensureTrackIds();
+    int subtitleIndex = -1;
+    int placedTrack = -1;
+    findClipById(m_project, subtitle.id, &placedTrack, &subtitleIndex);
 
     pushProjectEdit(before, tr("Text converted to subtitles"));
     clearSelection();
     finishEdit(tr("Text converted to subtitles"));
-    selectClip(subtitleTrack, subtitleIndex);
+    if (placedTrack >= 0)
+        selectClip(placedTrack, subtitleIndex);
 }
 
 bool AppController::canSeparateAudioSelection() const

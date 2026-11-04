@@ -370,6 +370,7 @@ private slots:
     void pasteAttributesToMultipleClips();
     void clipsModelFeedsDelegateRequiredProperties();
     void clipsModelReportsShownInsideTheLayerBelow();
+    void textConvertedToSubtitleLeavesNoEmptyTrack();
     void clipsModelNotifiesOnlyTheClipThatChanged();
     void clipsModelInsertsAndRemovesWithoutReset();
     void clipsModelDerivesGapsAndOverlaps();
@@ -13130,6 +13131,26 @@ void EditorStateTest::pasteAttributesToMultipleClips()
 // model` and reads its clip through it. Required properties turn off the delegate's context
 // object, so whether the roles still arrive is a property of QQmlDelegateModel rather than of
 // anything in this repo — and getting it wrong renders every clip blank. Pinned here.
+void EditorStateTest::textConvertedToSubtitleLeavesNoEmptyTrack()
+{
+    // 0.30 Academy: Convert to subtitle left the text's track behind, empty.
+    AssetLibrary library;
+    AppController state(&library);
+    state.project()->tracks().clear();
+    state.addTextClip(QStringLiteral("Hola a todos"), 0.0);
+    QVERIFY(state.selectedTrack() >= 0);
+    state.convertSelectionToSubtitle();
+    int subtitles = 0;
+    for (const drift::Track &track : state.project()->tracks()) {
+        QVERIFY2(track.type != drift::TrackType::Text || !track.clips.isEmpty(), "an empty text track stayed");
+        for (const drift::Clip &clip : track.clips)
+            subtitles += clip.type == drift::ClipType::Subtitle ? 1 : 0;
+    }
+    QCOMPARE(subtitles, 1);
+    QVERIFY(state.selectedTrack() >= 0);
+    QCOMPARE(int(state.project()->tracks().at(state.selectedTrack()).type), int(drift::TrackType::Subtitle));
+}
+
 void EditorStateTest::clipsModelReportsShownInsideTheLayerBelow()
 {
     // 0.30 Academy: the clip menu kept offering «Show only inside the layer below» after it was on, because
