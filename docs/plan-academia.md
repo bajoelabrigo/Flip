@@ -29,4 +29,20 @@ ventana. Sin publicar nada de la app hasta que Jorge lo diga.
 - Entrega: resumen, cursos y lecciones, cuántas capturas reales, pendientes, cómo agregar cursos, resultados de pruebas.
 
 ## Estado
-Sin empezar.
+**2026-11-04 (noche): las 18 lecciones escritas, en `flipstudio-web` rama `academia` (SIN desplegar).**
+
+- Código: `flipstudio-web/tools/academia/`. `build.py` arma `academia/` desde `cursos.json` (niveles y temas) y
+  `lecciones/<nivel>/<tema>.json` (las 11 partes). Una lección se publica solo con `estado: "completa"`, todas sus
+  partes y todas sus imágenes; si no, sale «En preparación». `academia/academia.js` guarda en `localStorage`
+  (`flip-academia`) las hechas y la última; `styles.css` lleva los estilos `.acad-*`.
+- Capturas: originales en `E:\FlipStudio\academia\capturas\<nivel>\<tema>\NN.png` (ventana entera, por mensajes);
+  `tools/academia/capturas.json` dice el recorte y los números de cada una y `anot.py` hace el `.webp` en
+  `assets/academia/`. Rehacer una: capturar encima de la original y `py tools/academia/anot.py <nivel>/<tema>/NN`.
+  Ojo: el panel General de un clip de audio muestra la ruta con el usuario de Windows; recortarlo siempre.
+- Agregar un curso o una lección: el nivel o tema en `cursos.json`, su JSON en `lecciones/`, las capturas y su
+  entrada en `capturas.json`, después `anot.py` y `build.py`, y la página en `sitemap.xml`.
+- Enlaces: nota en `guia.html` y las páginas en `sitemap.xml`. Probado en el navegador: 0 enlaces rotos, 51+
+  imágenes cargan, escritorio y celular, consola limpia.
+- Errores de la app encontrados al capturar y arreglados en `flip/subtitulos` (`release-notes/0.30.0.md` › Arreglos):
+  Opacidad en % en expresiones, Escala por expresión desde el centro también en el dibujo, Dividir en letras movía
+  las letras, Formas desde texto quedaba en la pista de texto, «Renombrar…» frente a «Cambiar nombre…».
