@@ -22,6 +22,16 @@ registro heredado de Drift.
   (`TimelinePanel.clipAtScenePoint`), claves de varias capas, pegar en varias capas en el cabezal
   (`pasteKeyframes(..., continueChain)`), expresiones con index/thisLayer, cuentas en los valores, tamaño con
   pivote (`Clip::sizePivotW/H`) también en la fila y el trayecto.
+- Curso de fotogramas clave de AE (`docs/tutorial-keyframes-ae.md`): diálogo de Interpolación
+  (`KeyframeInterpolationDialog.qml`), Bezier automático temporal (`"auto"`), Ctrl/Mayús+clic al estilo AE, Alt+flechas
+  en claves, Ctrl+flechas, L y E, Intro renombra, Ctrl+Mayús+K, desplazar en el tiempo persistente
+  (`Clip::positionRoving`, `syncRovingPositions`), caja del gráfico con esquinas y Alt, Alt separa tiradores y
+  lectura de velocidad e influencia, puntos por fotograma, convertir vértice con Alt+clic, mover todo el trayecto,
+  Mayús en un eje, Ctrl pega el anclaje, rotación en vueltas, escala negativa, efecto `ae.fill`, color de un efecto
+  en una fila. `mcp_e2e.py` sostiene Ctrl/Mayús/Alt para la ventana de prueba.
+- Arreglos: clonar y pegar claves conservan el Rebote (clave quieta antes de las copias, tiradores del suelo
+  congelados); el color animado de un efecto sin alfa se manda como `#rrggbb` (con el alfa del inspector salía
+  `#rrggbbaa` y el `uniform vec3` no lo tomaba).
 - Interfaz: pestaña Texto armada una vez y en segundo plano, Esc cierra un desplegable (`notePopupOpen`).
 - Kit de YouTube: sin el fondo «Tu video» y con la pregunta Short o Video; en otra forma se ajusta por lo que dibuja
   (`fitOverlayLayout`: tercios abajo, lo demás con su tamaño y su lugar dentro de la zona libre de un Short).
