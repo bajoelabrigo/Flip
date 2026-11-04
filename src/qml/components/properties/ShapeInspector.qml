@@ -688,13 +688,15 @@ Item {
                     unit: "°"
                 }
 
+                // A polygon drawn with the tool counts its sides in Points (0.30, After Effects' Polystar).
+                readonly property bool sidedPolygon: !!root.shapeStyle && root.shapeStyle.polygonFromPoints === true
                 Row {
                     width: parent.width
                     spacing: 8
-                    visible: root.shapeHas("star")
+                    visible: root.shapeHas("star") || parent.sidedPolygon
 
                     PropertyKeyframeRow {
-                        width: (parent.width - parent.spacing) / 2
+                        width: root.shapeHas("star") ? (parent.width - parent.spacing) / 2 : parent.width
                         propDef: root.knob("points", qsTr("Points"), 0)
                         keyframeList: root.knobKeyframes("points")
                         useSlider: true
@@ -702,6 +704,7 @@ Item {
                         sliderTo: 60
                     }
                     PropertyKeyframeRow {
+                        visible: root.shapeHas("star")
                         width: (parent.width - parent.spacing) / 2
                         propDef: root.knob("innerRatio", qsTr("Inner radius"), 2)
                         keyframeList: root.knobKeyframes("innerRatio")

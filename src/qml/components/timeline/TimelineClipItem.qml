@@ -571,6 +571,24 @@ Item {
                 visible: clipItem.clipData.kind === "text"
                 onTriggered: EditorState.splitTextIntoLetters(clipItem.trackIndex, clipItem.clipIndex)
             }
+            // After Effects' Create Shapes from Vector Layer (0.30): an SVG (Illustrator's export) as shape parts.
+            ThemedMenuItem {
+                text: qsTr("Create shapes from vector layer")
+                visible: clipItem.clipData.kind === "vector"
+                onTriggered: {
+                    EditorState.selectClip(clipItem.trackIndex, clipItem.clipIndex)
+                    EditorState.createShapesFromVectorLayer()
+                }
+            }
+            // After Effects' Create Shapes from Text (0.30): one shape layer, a part per letter.
+            ThemedMenuItem {
+                text: qsTr("Create shapes from text")
+                visible: clipItem.clipData.kind === "text"
+                onTriggered: {
+                    EditorState.selectClip(clipItem.trackIndex, clipItem.clipIndex)
+                    EditorState.createShapesFromText()
+                }
+            }
             // Every row's keys at once (0.29): a Squash jump writes six rows; picking them key by key was the
             // only way to clear them.
             ThemedContextMenu {

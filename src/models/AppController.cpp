@@ -136,6 +136,7 @@
 #include <QPainterPath>
 #include <QPixmap>
 #include <QRegularExpression>
+#include <QXmlStreamReader>
 #include <QAudioDevice>
 #include <QThreadPool>
 #include <QSaveFile>
@@ -2169,6 +2170,7 @@ QVariantMap shapeStyleToMap(const drift::ShapeStyle &s, drift::TimeUs timelineSt
         {QStringLiteral("layers"), layers},
         {QStringLiteral("cornerRadius"), s.cornerRadius},
         {QStringLiteral("points"), s.points},
+        {QStringLiteral("polygonFromPoints"), s.polygonFromPoints},
         {QStringLiteral("innerRatio"), s.innerRatio},
         {QStringLiteral("outerRoundness"), s.outerRoundness},
         {QStringLiteral("innerRoundness"), s.innerRoundness},
@@ -11916,13 +11918,22 @@ void AppController::applyToolPaintOptions(drift::ShapeStyle &style) const
 }
 
 void AppController::addDrawnShape(const QString &kind, double x, double y, double w, double h, const QString &fill,
-                                  const QString &stroke, double strokeWidth)
+                                  const QString &stroke, double strokeWidth, double rotation, int points)
 {
     if (w < 1.0 || h < 1.0)
         return;
-    drift::ShapeStyle style = shapeStyleForKind(kind);
+    // After Effects' Rounded Rectangle (0.30): a rectangle whose Roundness starts at 20.
+    const bool rounded = kind == QLatin1String("roundedRectangle");
+    drift::ShapeStyle style = shapeStyleForKind(rounded ? QStringLiteral("rectangle") : kind);
+    if (rounded)
+        style.cornerRadius = 20.0;
     if (kind == QLatin1String("polygon")) {
         style.kind = drift::ShapeKind::Hexagon;
+        // Its sides are Points, as After Effects' polygon (the wheel sets them while drawing).
+        style.polygonFromPoints = true;
+        style.points = points >= 3 ? points : 5;
+    } else if (points >= 3 && kind == QLatin1String("star")) {
+        style.points = points;
     }
     paintDrawnShape(style, fill, stroke, strokeWidth);
     applyToolPaintOptions(style);
@@ -11953,6 +11964,9 @@ void AppController::addDrawnShape(const QString &kind, double x, double y, doubl
     clip.srcIn = 0;
     clip.srcOut = drift::defaultStillDurationUs();
     setClipLayoutPixels(clip, x, y, w, h);
+    // Turned while drawing (a polygon or a star follows the pointer, as After Effects).
+    if (std::abs(rotation) > 1e-6)
+        clip.rotation.setKeyframe(0, rotation);
     track.clips.append(clip);
     const int newClipIndex = track.clips.size() - 1;
     pushProjectEdit(before, tr("Shape drawn"));
@@ -13145,6 +13159,447 @@ void AppController::addNullForSelection()
     }
     pushProjectEdit(before, tr("Parent set"));
     finishEdit(tr("Parent set"));
+}
+
+namespace {
+
+// An SVG colour attribute: none, #rgb, #rrggbb, rgb(r,g,b) or a name Qt knows. `ok` false for "none".
+QColor svgColor(const QString &value, bool *ok)
+{
+    const QString v = value.trimmed();
+    *ok = !(v.isEmpty() || v == QLatin1String("none") || v == QLatin1String("transparent"));
+    if (!*ok)
+        return {};
+    static const QRegularExpression rgb(QStringLiteral(R"(rgb\(\s*([\d.]+)\s*,\s*([\d.]+)\s*,\s*([\d.]+)\s*\))"));
+    const QRegularExpressionMatch m = rgb.match(v);
+    if (m.hasMatch())
+        return QColor(qRound(m.captured(1).toDouble()), qRound(m.captured(2).toDouble()), qRound(m.captured(3).toDouble()));
+    const QColor c(v);
+    *ok = c.isValid();
+    return c;
+}
+
+// An SVG transform list (matrix, translate, scale, rotate, skewX/Y) as a QTransform.
+QTransform svgTransform(const QString &text)
+{
+    QTransform out;
+    static const QRegularExpression item(QStringLiteral(R"((matrix|translate|scale|rotate|skewX|skewY)\s*\(([^)]*)\))"));
+    auto it = item.globalMatch(text);
+    while (it.hasNext()) {
+        const QRegularExpressionMatch m = it.next();
+        QList<double> n;
+        for (const QString &part : m.captured(2).split(QRegularExpression(QStringLiteral("[\\s,]+")), Qt::SkipEmptyParts))
+            n.append(part.toDouble());
+        const QString op = m.captured(1);
+        QTransform t;
+        if (op == QLatin1String("matrix") && n.size() >= 6)
+            t = QTransform(n[0], n[1], n[2], n[3], n[4], n[5]);
+        else if (op == QLatin1String("translate") && !n.isEmpty())
+            t.translate(n[0], n.size() > 1 ? n[1] : 0.0);
+        else if (op == QLatin1String("scale") && !n.isEmpty())
+            t.scale(n[0], n.size() > 1 ? n[1] : n[0]);
+        else if (op == QLatin1String("rotate") && !n.isEmpty()) {
+            if (n.size() >= 3) {
+                t.translate(n[1], n[2]);
+                t.rotate(n[0]);
+                t.translate(-n[1], -n[2]);
+            } else {
+                t.rotate(n[0]);
+            }
+        } else if (op == QLatin1String("skewX") && !n.isEmpty())
+            t.shear(std::tan(qDegreesToRadians(n[0])), 0.0);
+        else if (op == QLatin1String("skewY") && !n.isEmpty())
+            t.shear(0.0, std::tan(qDegreesToRadians(n[0])));
+        // SVG applies the list left to right onto the point: the leftmost is outermost.
+        out = t * out;
+    }
+    return out;
+}
+
+struct SvgPaint
+{
+    QString fill = QStringLiteral("#000000");
+    QString stroke = QStringLiteral("none");
+    double strokeWidth = 1.0;
+    double opacity = 1.0;
+};
+
+// Reads presentation attributes and the style="" list over the inherited paint.
+SvgPaint svgPaintOf(const QXmlStreamAttributes &attrs, SvgPaint paint)
+{
+    QHash<QString, QString> props;
+    for (const QXmlStreamAttribute &a : attrs)
+        props.insert(a.name().toString(), a.value().toString());
+    for (const QString &decl : props.value(QStringLiteral("style")).split(QLatin1Char(';'), Qt::SkipEmptyParts)) {
+        const int colon = decl.indexOf(QLatin1Char(':'));
+        if (colon > 0)
+            props.insert(decl.left(colon).trimmed(), decl.mid(colon + 1).trimmed());
+    }
+    if (props.contains(QStringLiteral("fill")))
+        paint.fill = props.value(QStringLiteral("fill"));
+    if (props.contains(QStringLiteral("stroke")))
+        paint.stroke = props.value(QStringLiteral("stroke"));
+    if (props.contains(QStringLiteral("stroke-width")))
+        paint.strokeWidth = props.value(QStringLiteral("stroke-width")).remove(QStringLiteral("px")).toDouble();
+    if (props.contains(QStringLiteral("opacity")))
+        paint.opacity *= props.value(QStringLiteral("opacity")).toDouble();
+    return paint;
+}
+
+} // namespace
+
+// After Effects' Create Shapes from Vector Layer (0.30, the shapes course: an Illustrator file as layers):
+// the picked SVG becomes a shape layer whose parts are its paths, rectangles, circles, ellipses, lines and
+// polygons, each with its fill and stroke, named by their id, so every piece of the drawing animates apart.
+void AppController::createShapesFromVectorLayer()
+{
+    if (!isValidClipIndex(m_selectedTrack, m_selectedClip))
+        return;
+    drift::Clip &clip = m_project.tracks()[m_selectedTrack].clips[m_selectedClip];
+    if (clip.type != drift::ClipType::Vector) {
+        setLastMessage(tr("Select an SVG layer to turn into shapes"), QStringLiteral("warning"));
+        return;
+    }
+    const QByteArray data = drift::vec::vectorSourceBytes(clip.vector);
+    QXmlStreamReader xml(data);
+    QRectF viewBox;
+    struct Piece
+    {
+        QString name;
+        QPainterPath path;
+        SvgPaint paint;
+    };
+    QList<Piece> pieces;
+    QList<QPair<QTransform, SvgPaint>> stack{{QTransform(), SvgPaint()}};
+    int skipDepth = 0;
+    while (!xml.atEnd()) {
+        xml.readNext();
+        if (xml.isEndElement()) {
+            if (skipDepth > 0) {
+                --skipDepth;
+                continue;
+            }
+            if (stack.size() > 1)
+                stack.removeLast();
+            continue;
+        }
+        if (!xml.isStartElement())
+            continue;
+        if (skipDepth > 0) {
+            ++skipDepth;
+            continue;
+        }
+        const QString tag = xml.name().toString();
+        const QXmlStreamAttributes attrs = xml.attributes();
+        // Definitions, clip paths, masks and symbols are not drawn where they stand.
+        if (tag == QLatin1String("defs") || tag == QLatin1String("clipPath") || tag == QLatin1String("mask")
+            || tag == QLatin1String("symbol") || tag == QLatin1String("style") || tag == QLatin1String("title")
+            || tag == QLatin1String("metadata")) {
+            skipDepth = 1;
+            continue;
+        }
+        const QTransform t = svgTransform(attrs.value(QStringLiteral("transform")).toString()) * stack.last().first;
+        const SvgPaint paint = svgPaintOf(attrs, stack.last().second);
+        stack.append({t, paint});
+        const auto num = [&attrs](const char *key) { return attrs.value(QLatin1String(key)).toString().remove(QStringLiteral("px")).toDouble(); };
+        if (tag == QLatin1String("svg") && viewBox.isNull()) {
+            const QStringList vb = attrs.value(QStringLiteral("viewBox")).toString().split(QRegularExpression(QStringLiteral("[\\s,]+")), Qt::SkipEmptyParts);
+            if (vb.size() == 4)
+                viewBox = QRectF(vb[0].toDouble(), vb[1].toDouble(), vb[2].toDouble(), vb[3].toDouble());
+            else if (num("width") > 0 && num("height") > 0)
+                viewBox = QRectF(0, 0, num("width"), num("height"));
+            continue;
+        }
+        QPainterPath path;
+        if (tag == QLatin1String("path")) {
+            drift::parseSvgPathData(attrs.value(QStringLiteral("d")).toString(), &path);
+        } else if (tag == QLatin1String("rect")) {
+            const double rx = num("rx") > 0 ? num("rx") : num("ry");
+            if (rx > 0)
+                path.addRoundedRect(QRectF(num("x"), num("y"), num("width"), num("height")), rx, num("ry") > 0 ? num("ry") : rx);
+            else
+                path.addRect(QRectF(num("x"), num("y"), num("width"), num("height")));
+        } else if (tag == QLatin1String("circle")) {
+            path.addEllipse(QPointF(num("cx"), num("cy")), num("r"), num("r"));
+        } else if (tag == QLatin1String("ellipse")) {
+            path.addEllipse(QPointF(num("cx"), num("cy")), num("rx"), num("ry"));
+        } else if (tag == QLatin1String("line")) {
+            path.moveTo(num("x1"), num("y1"));
+            path.lineTo(num("x2"), num("y2"));
+        } else if (tag == QLatin1String("polygon") || tag == QLatin1String("polyline")) {
+            const QStringList n = attrs.value(QStringLiteral("points")).toString().split(QRegularExpression(QStringLiteral("[\\s,]+")), Qt::SkipEmptyParts);
+            for (int i = 0; i + 1 < n.size(); i += 2) {
+                const QPointF pt(n[i].toDouble(), n[i + 1].toDouble());
+                if (i == 0)
+                    path.moveTo(pt);
+                else
+                    path.lineTo(pt);
+            }
+            if (tag == QLatin1String("polygon"))
+                path.closeSubpath();
+        } else {
+            continue;
+        }
+        if (path.isEmpty())
+            continue;
+        QString name = attrs.value(QStringLiteral("id")).toString();
+        if (name.isEmpty())
+            name = attrs.value(QStringLiteral("inkscape:label")).toString();
+        pieces.append({name, t.map(path), paint});
+    }
+    if (pieces.isEmpty()) {
+        setLastMessage(tr("This SVG has no paths to turn into shapes"), QStringLiteral("warning"));
+        return;
+    }
+    const drift::TimeUs rel = qBound<drift::TimeUs>(0, m_playheadUs - clip.timelineStart, clip.timelineDuration);
+    const double w = clip.transformW.isEmpty() ? m_project.width() : clip.transformW.evaluateAt(rel);
+    const double h = clip.transformH.isEmpty() ? m_project.height() : clip.transformH.evaluateAt(rel);
+    if (viewBox.isNull()) {
+        QPainterPath all;
+        for (const Piece &piece : std::as_const(pieces))
+            all.addPath(piece.path);
+        viewBox = all.boundingRect();
+    }
+    // The drawing as the vector layer shows it (preserveAspectRatio "meet"), with the box centre as the origin.
+    const double k = qMin(w / qMax(1e-6, viewBox.width()), h / qMax(1e-6, viewBox.height()));
+    QTransform toBox;
+    toBox.translate(-viewBox.width() * k / 2.0, -viewBox.height() * k / 2.0);
+    toBox.scale(k, k);
+    toBox.translate(-viewBox.left(), -viewBox.top());
+
+    const drift::Project before = m_project;
+    drift::ShapeStyle layer;
+    layer.kind = drift::ShapeKind::Rectangle;
+    layer.partsRefWidth = w;
+    layer.partsRefHeight = h;
+    int n = 0;
+    // SVG draws in document order (later on top); parts[0] is drawn on top.
+    for (auto it = pieces.crbegin(); it != pieces.crend(); ++it) {
+        const QPainterPath path = toBox.map(it->path);
+        QRectF lb = path.boundingRect();
+        if (lb.width() < 0.5 && lb.height() < 0.5)
+            continue;
+        lb = lb.adjusted(0, 0, lb.width() < 0.5 ? 1 : 0, lb.height() < 0.5 ? 1 : 0);
+        drift::ShapePart part;
+        part.id = QStringLiteral("p%1").arg(++n);
+        part.name = it->name.isEmpty() ? tr("Path %1").arg(pieces.size() - n + 1) : it->name;
+        part.width = lb.width();
+        part.height = lb.height();
+        part.transform.x = lb.center().x();
+        part.transform.y = lb.center().y();
+        part.transform.opacity = qBound(0.0, it->paint.opacity, 1.0) * 100.0;
+        part.shape = drift::ShapeStyle();
+        part.shape.kind = drift::ShapeKind::Custom;
+        QTransform toUnit;
+        toUnit.scale(100.0 / lb.width(), 100.0 / lb.height());
+        toUnit.translate(-lb.left(), -lb.top());
+        part.shape.customPath = drift::painterPathToSvg(toUnit.map(path));
+        bool hasFill = false;
+        bool hasStroke = false;
+        const QColor fill = svgColor(it->paint.fill, &hasFill);
+        const QColor stroke = svgColor(it->paint.stroke, &hasStroke);
+        part.shape.layers = drift::defaultShapeLayers(hasFill ? fill : QColor(Qt::black), QColor(),
+                                                      hasStroke ? stroke : QColor(Qt::white),
+                                                      hasStroke ? qMax(0.1, it->paint.strokeWidth * k) : 0.0);
+        for (drift::TextShadingLayer &l : part.shape.layers) {
+            if (l.kind == drift::TextLayerKind::Fill)
+                l.enabled = hasFill;
+            if (l.kind == drift::TextLayerKind::Stroke)
+                l.strokeAlign = drift::StrokeAlign::Center;
+        }
+        layer.parts.push_back(part);
+    }
+    if (layer.parts.empty())
+        return;
+    const QString name = clip.name;
+    clip.type = drift::ClipType::Shape;
+    clip.shapeStyle = layer;
+    clip.vector = drift::VectorSource();
+    clip.name = tr("%1 Outlines").arg(name.isEmpty() ? tr("Vector") : name);
+    pushProjectEdit(before, tr("Shapes from vector layer"));
+    finishEdit(tr("Shapes from vector layer"));
+    emit selectedClipDataChanged();
+}
+
+// After Effects' Merge Paths (0.30, the shapes course: a moon from two circles): the shapes of one level of a
+// layer of parts (inside the picked group, else the layer's top level) become one path, top to bottom:
+// "add" joins them, "subtract" cuts each lower one out of what is above, "intersect" keeps what they share and
+// "exclude" what they do not. It takes the top shape's paint. The shapes' animation does not survive the merge.
+bool AppController::mergeShapeParts(int trackIndex, int clipIndex, const QString &groupId, const QString &mode)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return false;
+    drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
+    if (clip.type != drift::ClipType::Shape || !clip.shapeStyle.hasParts())
+        return false;
+    const drift::Project before = m_project;
+    std::vector<drift::ShapePart> *level = &clip.shapeStyle.parts;
+    if (!groupId.isEmpty()) {
+        drift::ShapePart *group = drift::findShapePart(clip.shapeStyle.parts, groupId);
+        if (group && group->group)
+            level = &group->children;
+    }
+    QList<int> shapes;
+    for (int i = 0; i < int(level->size()); ++i) {
+        if (!level->at(i).group && level->at(i).visible)
+            shapes.append(i);
+    }
+    if (shapes.size() < 2) {
+        setLastMessage(tr("Merge needs two shapes or more in the same place of the contents"), QStringLiteral("warning"));
+        return false;
+    }
+    const auto placed = [](const drift::ShapePart &part) {
+        const drift::ShapePartTransform &t = part.transform;
+        QTransform m;
+        m.translate(t.x, t.y);
+        m.rotate(t.rotation);
+        if (qAbs(t.skew) > 1e-6) {
+            m.rotate(t.skewAxis);
+            m.shear(-std::tan(qDegreesToRadians(t.skew)), 0.0);
+            m.rotate(-t.skewAxis);
+        }
+        m.scale(t.scaleX / 100.0, t.scaleY / 100.0);
+        m.translate(-t.anchorX, -t.anchorY);
+        drift::ShapeStyle shape = part.shape;
+        shape.parts.clear();
+        return m.map(drift::shapePath(shape, QRectF(-part.width / 2.0, -part.height / 2.0, part.width, part.height)));
+    };
+    QPainterPath result = placed(level->at(shapes.first()));
+    for (int k = 1; k < shapes.size(); ++k) {
+        const QPainterPath p = placed(level->at(shapes.at(k)));
+        if (mode == QLatin1String("subtract"))
+            result = result.subtracted(p);
+        else if (mode == QLatin1String("intersect"))
+            result = result.intersected(p);
+        else if (mode == QLatin1String("exclude"))
+            result = result.united(p).subtracted(result.intersected(p));
+        else
+            result = result.united(p);
+    }
+    result = result.simplified();
+    const QRectF lb = result.boundingRect();
+    if (result.isEmpty() || lb.width() < 0.5 || lb.height() < 0.5) {
+        setLastMessage(tr("Nothing is left of the shapes with this merge"), QStringLiteral("warning"));
+        return false;
+    }
+    drift::ShapePart merged = level->at(shapes.first());
+    merged.keyframes.clear();
+    merged.transform = drift::ShapePartTransform();
+    merged.transform.x = lb.center().x();
+    merged.transform.y = lb.center().y();
+    merged.width = lb.width();
+    merged.height = lb.height();
+    merged.shape.kind = drift::ShapeKind::Custom;
+    merged.shape.keyframes.clear();
+    merged.shape.pathShapes.clear();
+    QTransform toUnit;
+    toUnit.scale(100.0 / lb.width(), 100.0 / lb.height());
+    toUnit.translate(-lb.left(), -lb.top());
+    merged.shape.customPath = drift::painterPathToSvg(toUnit.map(result));
+    merged.shape.customEvenOdd = mode == QLatin1String("exclude");
+    merged.name = tr("Merged %1").arg(merged.name);
+    const int at = shapes.first();
+    for (int k = shapes.size() - 1; k >= 1; --k)
+        level->erase(level->begin() + shapes.at(k));
+    (*level)[at] = merged;
+    shapePartFocus() = {clip.id, merged.id};
+    pushProjectEdit(before, tr("Merge paths"));
+    finishEdit(tr("Merge paths"));
+    emit selectedShapePartChanged();
+    emit selectedClipDataChanged();
+    return true;
+}
+
+// After Effects' Create Shapes from Text (0.30, the shapes course): the picked text becomes a shape layer with
+// one part per letter («T», «e», «x»…), each with its own outline, transform and fill, so the letters move,
+// turn and bend one by one. The text cannot be edited afterwards, as in After Effects. One undo step.
+void AppController::createShapesFromText()
+{
+    if (!isValidClipIndex(m_selectedTrack, m_selectedClip))
+        return;
+    drift::Clip &clip = m_project.tracks()[m_selectedTrack].clips[m_selectedClip];
+    if (clip.type != drift::ClipType::Text) {
+        setLastMessage(tr("Select a text to turn into shapes"), QStringLiteral("warning"));
+        return;
+    }
+    const drift::Project before = m_project;
+    const drift::TimeUs rel = qBound<drift::TimeUs>(0, m_playheadUs - clip.timelineStart, clip.timelineDuration);
+    const drift::TextStyle &ts = clip.textStyle;
+    QFont font(ts.fontFamily);
+    font.setPixelSize(qMax(1, qRound(ts.pixelSize)));
+    font.setWeight(QFont::Weight(qBound(100, ts.fontWeight, 900)));
+    font.setItalic(ts.italic);
+    const QString text = clip.textContent.isEmpty() ? clip.name : clip.textContent;
+    const QFontMetricsF metrics(font);
+    struct Letter
+    {
+        QString ch;
+        QPainterPath path;
+    };
+    QList<Letter> letters;
+    QPainterPath all;
+    double baseline = metrics.ascent();
+    for (const QString &line : text.split(QLatin1Char('\n'))) {
+        for (int i = 0; i < line.size(); ++i) {
+            const QChar c = line.at(i);
+            if (c.isSpace() || c.isLowSurrogate())
+                continue;
+            const QString glyph = c.isHighSurrogate() && i + 1 < line.size() ? line.mid(i, 2) : QString(c);
+            QPainterPath path;
+            path.addText(QPointF(metrics.horizontalAdvance(line.left(i)), baseline), font, glyph);
+            if (path.isEmpty())
+                continue;
+            letters.append({glyph, path});
+            all.addPath(path);
+        }
+        baseline += metrics.lineSpacing();
+    }
+    const QRectF b = all.boundingRect();
+    if (letters.isEmpty() || b.width() < 1.0 || b.height() < 1.0)
+        return;
+    const double w = clip.transformW.isEmpty() ? m_project.width() : clip.transformW.evaluateAt(rel);
+    const double h = clip.transformH.isEmpty() ? m_project.height() : clip.transformH.evaluateAt(rel);
+    const double x = clip.transformX.isEmpty() ? 0.0 : clip.transformX.evaluateAt(rel);
+    const double y = clip.transformY.isEmpty() ? 0.0 : clip.transformY.evaluateAt(rel);
+    const drift::TextShadingLayer *fill =
+        drift::firstTextLayerOfKind(clip.textStyle.layers, drift::TextLayerKind::Fill, false);
+    const QColor color = fill ? fill->paint.color : QColor(Qt::white);
+
+    drift::ShapeStyle layer;
+    layer.kind = drift::ShapeKind::Rectangle;
+    layer.partsRefWidth = b.width();
+    layer.partsRefHeight = b.height();
+    int n = 0;
+    for (const Letter &letter : std::as_const(letters)) {
+        const QRectF lb = letter.path.boundingRect();
+        if (lb.width() < 0.5 || lb.height() < 0.5)
+            continue;
+        drift::ShapePart part;
+        part.id = QStringLiteral("p%1").arg(++n);
+        part.name = letter.ch;
+        part.width = lb.width();
+        part.height = lb.height();
+        part.transform.x = lb.center().x() - b.center().x();
+        part.transform.y = lb.center().y() - b.center().y();
+        part.shape = drift::ShapeStyle();
+        part.shape.kind = drift::ShapeKind::Custom;
+        QTransform toUnit;
+        toUnit.scale(100.0 / lb.width(), 100.0 / lb.height());
+        toUnit.translate(-lb.left(), -lb.top());
+        part.shape.customPath = drift::painterPathToSvg(toUnit.map(letter.path));
+        part.shape.layers = drift::defaultShapeLayers(color, color, Qt::white, 0.0);
+        // The first letter drawn last is on top: keep the reading order top to bottom in the list.
+        layer.parts.push_back(part);
+    }
+    if (layer.parts.empty())
+        return;
+    clip.type = drift::ClipType::Shape;
+    clip.shapeStyle = layer;
+    setClipLayoutPixels(clip, x + (w - b.width()) / 2.0, y + (h - b.height()) / 2.0, b.width(), b.height());
+    clip.name = tr("%1 Outlines").arg(text.left(30));
+    pushProjectEdit(before, tr("Shapes from text"));
+    finishEdit(tr("Shapes from text"));
+    emit selectedClipDataChanged();
 }
 
 void AppController::convertSelectionToShape(bool asOutline)

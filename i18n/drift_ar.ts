@@ -5475,7 +5475,59 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Select an SVG layer to turn into shapes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This SVG has no paths to turn into shapes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Path %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 Outlines</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Vector</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shapes from vector layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Merge needs two shapes or more in the same place of the contents</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Nothing is left of the shapes with this merge</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Merged %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Merge paths</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a text to turn into shapes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shapes from text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Motion sketch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rename effect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -11457,6 +11509,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Angle Control</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Start (%)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -11471,6 +11527,18 @@
     <message>
         <source>Extra room (px)</source>
         <translation>هامش إضافي (px)</translation>
+    </message>
+    <message>
+        <source>Checkbox Control</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Checkbox</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Color Control</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Fill</source>
@@ -11491,6 +11559,22 @@
     <message>
         <source>Feather (px)</source>
         <translation>التنعيم (px)</translation>
+    </message>
+    <message>
+        <source>Point Control</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Point</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Slider Control</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Slider</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Liquid</source>
@@ -15267,6 +15351,10 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Expression Controls</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Other</source>
         <translation>أخرى</translation>
     </message>
@@ -15650,6 +15738,10 @@ NEXT TIME</source>
         <translation>تصفح التأثيرات</translation>
     </message>
     <message>
+        <source>Rename…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Copy this effect</source>
         <translation>نسخ هذا التأثير</translation>
     </message>
@@ -15716,6 +15808,18 @@ NEXT TIME</source>
     <message>
         <source>Pick %1</source>
         <translation>اختيار %1</translation>
+    </message>
+    <message>
+        <source>Rename effect</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rename</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Empty gives it back its own name. Expressions can read it by this name: effect(&quot;name&quot;)(&quot;value&quot;).</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Edit %1</source>
@@ -19167,10 +19271,6 @@ NEXT TIME</source>
         <translation>PDF</translation>
     </message>
     <message>
-        <source>PDF (needs the PDF Viewer addon)</source>
-        <translation>PDF (يحتاج إلى إضافة عارض PDF)</translation>
-    </message>
-    <message>
         <source>Search media</source>
         <translation>البحث في الوسائط</translation>
     </message>
@@ -19383,6 +19483,10 @@ NEXT TIME</source>
     <message>
         <source>Move to folder…</source>
         <translation>نقل إلى مجلد…</translation>
+    </message>
+    <message>
+        <source>PDF · Illustrator .ai (needs the PDF Viewer addon)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>This folder is empty</source>
@@ -20514,6 +20618,14 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Shapes from text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A text becomes a shape layer with one shape per letter, to animate them one by one</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Centre</source>
         <translation type="unfinished"></translation>
     </message>
@@ -21233,6 +21345,38 @@ NEXT TIME</source>
         <source>Add vertex</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Set first vertex</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>RotoBezier (smooth points)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Straight corners</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Closed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Free transform points…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Free transform points</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The picked points (all of them with none picked) grow and turn about their middle; the stroke keeps its width.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PlaybackEngine</name>
@@ -21611,6 +21755,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Rounded rectangle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Ellipse</source>
         <translation type="unfinished"></translation>
     </message>
@@ -21625,14 +21773,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Line</source>
         <translation>خط</translation>
-    </message>
-    <message>
-        <source>Fill Options: none, solid, linear or radial gradient, blend mode and opacity</source>
-        <translation>خيارات التعبئة: بلا، خالص، تدرج خطي أو شعاعي، وضع المزج والعتامة</translation>
-    </message>
-    <message>
-        <source>Stroke Options: none, solid, linear or radial gradient, blend mode and opacity</source>
-        <translation>خيارات الحد: بلا، خالص، تدرج خطي أو شعاعي، وضع المزج والعتامة</translation>
     </message>
     <message>
         <source>Fill colour. Right-click: no fill (or back on)</source>
@@ -21667,7 +21807,23 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Shape: drag on the preview (Shift for a square or circle)</source>
+        <source>Fill Options: none, solid, linear or radial gradient, blend mode and opacity. Alt+click: the next kind</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stroke Options: none, solid, linear or radial gradient, blend mode and opacity. Alt+click: the next kind</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shape: drag on the preview (Shift for a square or circle). Alt+click: the next shape; double-click: one the size of the frame</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The shape tool draws a mask on the picked layer. Click: draw shapes again</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The shape tool draws shapes. Click: draw a mask on the picked layer instead</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -22529,11 +22685,15 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>The pick whip links another layer&apos;s position, rotation, scale, opacity or anchor point</source>
+        <source>The pick whip links another layer&apos;s position, rotation, scale, opacity, anchor point or effect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Pick whip: drag onto another layer&apos;s property line in the timeline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Expression on</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -24662,6 +24822,10 @@ If playback stutters, try another.</source>
         <translation>شرطة ونقطة</translation>
     </message>
     <message>
+        <source>Dash and gap (px)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Collapse layer</source>
         <translation>طي الطبقة</translation>
     </message>
@@ -24720,6 +24884,22 @@ If playback stutters, try another.</source>
     <message>
         <source>Dash offset</source>
         <translation>إزاحة الشرطة</translation>
+    </message>
+    <message>
+        <source>Dash %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Gap %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add a dash or a gap</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Take away the last dash or gap (none left: a solid line)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Arrow at start</source>
@@ -24938,6 +25118,26 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Empty group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Merge paths</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add (join)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Subtract (the lower cuts the upper)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Intersect (what they share)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Exclude (what they do not share)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -31458,6 +31658,14 @@ If playback stutters, try another.</source>
         <translation>تقسيم إلى أحرف</translation>
     </message>
     <message>
+        <source>Create shapes from vector layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Create shapes from text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Delete keyframes</source>
         <translation>حذف الإطارات الرئيسية</translation>
     </message>
@@ -31674,6 +31882,10 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Curve editor: the keyframe lines turn into their curves</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search properties</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

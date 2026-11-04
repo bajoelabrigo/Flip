@@ -58,6 +58,8 @@ class PreviewController : public QObject
     // a drawn shape or outline gets (the options on the toolbar's right).
     Q_PROPERTY(QString tool READ tool WRITE setTool NOTIFY toolChanged)
     Q_PROPERTY(QString shapeToolKind READ shapeToolKind WRITE setShapeToolKind NOTIFY toolChanged)
+    // After Effects' «Tool creates mask» (0.30): with a layer picked, the shape tool draws a mask on it.
+    Q_PROPERTY(bool shapeToolMask READ shapeToolMask WRITE setShapeToolMask NOTIFY toolChanged)
     Q_PROPERTY(QString toolFill READ toolFill WRITE setToolFill NOTIFY toolChanged)
     Q_PROPERTY(QString toolStroke READ toolStroke WRITE setToolStroke NOTIFY toolChanged)
     Q_PROPERTY(double toolStrokeWidth READ toolStrokeWidth WRITE setToolStrokeWidth NOTIFY toolChanged)
@@ -125,6 +127,14 @@ public:
         setPenMode(next == QLatin1String("pen"));
     }
     QString shapeToolKind() const { return m_shapeToolKind; }
+    bool shapeToolMask() const { return m_shapeToolMask; }
+    void setShapeToolMask(bool on)
+    {
+        if (on == m_shapeToolMask)
+            return;
+        m_shapeToolMask = on;
+        emit toolChanged();
+    }
     void setShapeToolKind(const QString &kind)
     {
         if (kind == m_shapeToolKind)
@@ -344,6 +354,7 @@ private:
     bool m_safeZones = false;
     QString m_tool = QStringLiteral("select");
     QString m_shapeToolKind = QStringLiteral("rectangle");
+    bool m_shapeToolMask = false;
     // "none" leaves that paint off.
     QString m_toolFill = QStringLiteral("#ffff4d6d");
     QString m_toolStroke = QStringLiteral("#ffffffff");

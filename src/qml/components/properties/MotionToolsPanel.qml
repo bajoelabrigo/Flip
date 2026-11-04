@@ -491,6 +491,17 @@ Item {
             }
             ToolButton {
                 width: (parent.width - parent.spacing) / 2
+                label: qsTr("Shapes from text")
+                tip: qsTr("A text becomes a shape layer with one shape per letter, to animate them one by one")
+                enabledTool: root.hasClip && EditorState.selectedClipData && EditorState.selectedClipData.kind === "text"
+                onActivated: EditorState.createShapesFromText()
+            }
+        }
+        Row {
+            width: parent.width
+            spacing: Theme.spacingSm
+            ToolButton {
+                width: (parent.width - parent.spacing) / 2
                 label: qsTr("Centre")
                 tip: qsTr("Puts the selected layers in the middle of the frame")
                 enabledTool: root.hasClip

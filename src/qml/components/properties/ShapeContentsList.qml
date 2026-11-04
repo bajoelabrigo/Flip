@@ -50,6 +50,10 @@ Column {
         if (list.focusedPart.length > 0)
             EditorState.duplicateShapePart(list.trackIndex, list.clipIndex, list.focusedPart)
     }
+    function merge(mode) {
+        const group = list.focusedRow && list.focusedRow.group ? list.focusedPart : ""
+        EditorState.mergeShapeParts(list.trackIndex, list.clipIndex, group, mode)
+    }
     function groupFocused() {
         if (list.focusedPart.length > 0)
             EditorState.groupShapePart(list.trackIndex, list.clipIndex, list.focusedPart)
@@ -124,6 +128,15 @@ Column {
                 ThemedMenuItem { text: qsTr("Polygon"); onTriggered: list.add("polygon") }
                 ThemedMenuSeparator { }
                 ThemedMenuItem { text: qsTr("Empty group"); onTriggered: list.add("group") }
+                ThemedMenuSeparator { }
+                // After Effects' Merge Paths (0.30): the shapes here (in the picked group, else the layer) as one.
+                ThemedContextMenu {
+                    title: qsTr("Merge paths")
+                    ThemedMenuItem { text: qsTr("Add (join)"); onTriggered: list.merge("add") }
+                    ThemedMenuItem { text: qsTr("Subtract (the lower cuts the upper)"); onTriggered: list.merge("subtract") }
+                    ThemedMenuItem { text: qsTr("Intersect (what they share)"); onTriggered: list.merge("intersect") }
+                    ThemedMenuItem { text: qsTr("Exclude (what they do not share)"); onTriggered: list.merge("exclude") }
+                }
             }
         }
     }

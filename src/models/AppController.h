@@ -724,7 +724,8 @@ public:
     // The Shape tool (0.26): a shape of `kind` dragged out on the preview, the box in canvas px,
     // painted with the toolbar's fill and stroke ("none" for either leaves it off).
     Q_INVOKABLE void addDrawnShape(const QString &kind, double x, double y, double w, double h,
-                                   const QString &fill, const QString &stroke, double strokeWidth);
+                                   const QString &fill, const QString &stroke, double strokeWidth,
+                                   double rotation = 0.0, int points = 0);
     // The Text tool (0.26): a new text centred where the preview was clicked (canvas px); the
     // caller then opens it for typing. Returns {track, clip}, empty when it could not be added.
     // `backdrop`: the colour under the click (the preview sampled there), so the new words read on it.
@@ -877,6 +878,12 @@ public:
     // `outline` (Motion Tools › Trim, 0.26): a text's letters become a stroke in its colour with no
     // fill, ready for Trim Paths (a trimmed fill only shows pieces).
     Q_INVOKABLE void convertSelectionToShape(bool outline = false);
+    // After Effects' Create Shapes from Text (0.30): one shape part per letter, to animate them one by one.
+    Q_INVOKABLE void createShapesFromText();
+    // After Effects' Merge Paths (0.30) over one level of a layer's parts: add, subtract, intersect, exclude.
+    Q_INVOKABLE bool mergeShapeParts(int trackIndex, int clipIndex, const QString &groupId, const QString &mode);
+    // After Effects' Create Shapes from Vector Layer (0.30): an SVG's paths as the parts of a shape layer.
+    Q_INVOKABLE void createShapesFromVectorLayer();
     Q_INVOKABLE void centerSelectionInFrame();
     // After Effects' Motion Sketch (0.26): the pointer's path recorded on the preview
     // ([{t: timeline seconds, x, y: canvas px of the clip's centre}]) becomes its Position keys
