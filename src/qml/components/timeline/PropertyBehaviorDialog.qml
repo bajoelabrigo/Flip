@@ -127,7 +127,19 @@ ThemedDialog {
         const n = Math.max(1, (i === 0 ? nat.w : nat.h) || 1)
         return root.scaleHead + n + root.scaleBody + code + root.scaleTail + i + "] : __v) * __n / 100"
     }
+    // Opacity is kept as 0..1; After Effects' expression reads and gives it in % (0.30 Academy: linear(time, 1.5,
+    // 2, 100, 0) read 10000 %).
+    readonly property string percentHead: "/*opacity%*/var __v = (function (value) { return ("
+    readonly property string percentTail: "
+); })(value * 100); __v / 100"
+    function isPercent() {
+        return root.props.length === 1 && root.props[0] === "opacity"
+    }
     function unwrapped(code) {
+        if (code.startsWith(root.percentHead)) {
+            const end = code.lastIndexOf(root.percentTail)
+            return end > 0 ? code.substring(root.percentHead.length, end) : code
+        }
         if (code.startsWith(root.scaleHead)) {
             const from = code.indexOf(root.scaleBody)
             const end = code.lastIndexOf("\n); })([value / __n")
@@ -148,6 +160,8 @@ ThemedDialog {
             const own = Object.assign({}, b)
             if (hasCode && root.isScale())
                 own.expression = root.scaleWrapped(b.expression.trim(), i)
+            else if (hasCode && root.isPercent())
+                own.expression = root.percentHead + b.expression.trim() + root.percentTail
             else if (several)
                 own.expression = root.wrapped(b.expression.trim(), i)
             EditorState.setPropertyBehavior(root.trackIndex, root.clipIndex, root.props[i], own)
