@@ -24382,14 +24382,27 @@ void AppController::removeClipKeyframe(int trackIndex, int clipIndex, const QStr
     const drift::TimeUs nearest = kt->nearestKeyframe(rel, kKeyframeToleranceUs);
     if (nearest < 0)
         return;
-    kt->removeKeyframe(nearest);
+    // Taking away the last key keeps the value it had, as After Effects does when the stopwatch goes off (0.30,
+    // Academy capture: the X of a ball dropped to 0 px and the ball jumped to the left edge).
+    const auto removeKeepingValue = [](drift::KeyframeTrack<double> *track, drift::TimeUs at) {
+        if (track->keyframes().size() <= 1) {
+            const double value = track->evaluateAt(at);
+            const drift::TrackBehavior behavior = track->behavior();
+            *track = {};
+            track->setKeyframe(0, value);
+            track->setBehavior(behavior);
+            return;
+        }
+        track->removeKeyframe(at);
+    };
+    removeKeepingValue(kt, nearest);
     if ((m_positionLinked || clip.positionJoined) && (prop == QLatin1String("x") || prop == QLatin1String("y"))) {
         const QString otherProp = (prop == QLatin1String("x")) ? QStringLiteral("y") : QStringLiteral("x");
         drift::KeyframeTrack<double> *otherKt = keyframeTrackForProp(clip, otherProp, false);
         if (otherKt) {
             const drift::TimeUs otherNearest = otherKt->nearestKeyframe(rel, kKeyframeToleranceUs);
             if (otherNearest >= 0)
-                otherKt->removeKeyframe(otherNearest);
+                removeKeepingValue(otherKt, otherNearest);
         }
     }
     pushProjectEdit(before, tr("Remove keyframe"));
