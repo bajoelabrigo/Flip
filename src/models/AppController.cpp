@@ -23763,18 +23763,6 @@ void AppController::removeLinkedMask(int maskTrackIndex, int maskClipIndex)
     emit focusedMaskChanged();
 }
 
-QVariantMap AppController::clipLocation(const QString &clipId) const
-{
-    for (int t = 0; t < m_project.tracks().size(); ++t) {
-        const drift::Track &track = m_project.tracks().at(t);
-        for (int c = 0; c < track.clips.size(); ++c) {
-            if (track.clips.at(c).id == clipId)
-                return {{QStringLiteral("track"), t}, {QStringLiteral("index"), c}};
-        }
-    }
-    return {};
-}
-
 QVariantList AppController::linkedMaskClips(int trackIndex, int clipIndex) const
 {
     QVariantList out;

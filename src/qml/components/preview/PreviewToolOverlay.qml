@@ -406,13 +406,13 @@ Item {
                     const id = EditorState.addMaskToClipInPlace(track, clip, shape)
                     // The new lane can shift the tracks: the mask is found again by its id.
                     const e = id ? EditorState.clipLocation(id) : ({})
-                    if (e.track !== undefined) {
-                        const cur = Object.assign({}, (EditorState.clipAt(e.track, e.index) || {}).mask || {})
+                    if (e.track !== undefined && e.track >= 0) {
+                        const cur = Object.assign({}, (EditorState.clipAt(e.track, e.clip) || {}).mask || {})
                         cur.x = (a0.x + a1.x) / 2
                         cur.y = (a0.y + a1.y) / 2
                         cur.w = Math.abs(a1.x - a0.x)
                         cur.h = Math.abs(a1.y - a0.y)
-                        EditorState.setClipMask(e.track, e.index, cur)
+                        EditorState.setClipMask(e.track, e.clip, cur)
                     }
                     root.forceActiveFocus()
                     return
