@@ -64,6 +64,14 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 - Ya hecho y en vivo: Kit de YouTube sin el fondo «Tu video» y con la pregunta Short/Video (`fitOverlayLayout`),
   310 plantillas subidas a Stock; extras `voces.ia` y `traduccion.local` en el release `packages` (el índice de la
   web va en `flipstudio-web` `80cca`, sin desplegar).
+- **2026-11-04 (mañana):** Jorge pidió que todo el curso de fotogramas clave de AE (`docs/tutorial-keyframes-ae.md`)
+  se pueda hacer en Flip antes de publicar. Hecho y **probado en ventana en la r20** (run 41833162993). Falta su sí
+  para publicar (tag `v0.30.0`, release, MSIX, web `80cca`).
+- **Trampa nueva:** un color animado de un efecto se arma desde sus canales; si sale `#rrggbbaa` y el shader declara
+  `uniform vec3`, no se aplica y queda el color de antes (sin error). Solo los colores con alfa llevan 8 dígitos.
+- **Trampa nueva:** `mcp_e2e.py` acepta `"mods": "ctrl,shift,alt"` en click/key/drag/wheel (los sostiene solo para la
+  ventana de prueba con `AttachThreadInput` + `SetKeyboardState`); `pruebas	utorial-aeentana\middrag.py` toma una
+  captura con el botón todavía apretado.
 - **Trampa nueva:** el permiso del mouse va por ruta del ejecutable; un portable abierto desde
   `Downloads\FlipStudio\pruebas` (la unión) no es el mismo que desde `E:\FlipStudio\pruebas`.
 - **Trampa nueva:** Rebote/Elástico solo actúan donde el valor se queda quieto (`settleOffset`): cualquier cosa que
