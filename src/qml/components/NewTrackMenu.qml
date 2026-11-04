@@ -8,6 +8,9 @@ Popup {
 
     width: 180
     padding: Theme.spacingMd
+    // Kept inside the window (0.30, Academy capture: under the timeline's «+» the list ran off the bottom
+    // and Null object, Solid… could not be reached): with margins Qt moves it up when it does not fit.
+    margins: Theme.spacingSm
     modal: true
     dim: false
     closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
