@@ -787,11 +787,19 @@ Item {
         enabled: root.showPath && !root.penActive
         visible: enabled
         hoverEnabled: true
+        // The path's menu (0.30): right-click while editing the points, as with the Pen.
+        acceptedButtons: Qt.LeftButton | Qt.RightButton
         property var grab: null
         property point last
 
         onPressed: mouse => {
             keyCatcher.forceActiveFocus()
+            if (mouse.button === Qt.RightButton) {
+                grab = null
+                if (root.contours.length > 0)
+                    pathMenu.popup(mapToItem(root, mouse.x, mouse.y))
+                return
+            }
             const g = root.gripAt(mouse.x, mouse.y)
             const shift = (mouse.modifiers & Qt.ShiftModifier) !== 0
             if (g && g.part === "point") {

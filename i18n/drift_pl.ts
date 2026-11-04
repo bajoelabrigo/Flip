@@ -25209,6 +25209,10 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Polygon (%1 sides)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Layers</source>
         <translation>Warstwy</translation>
     </message>

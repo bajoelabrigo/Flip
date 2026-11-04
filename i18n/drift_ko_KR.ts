@@ -25028,6 +25028,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Polygon (%1 sides)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Layers</source>
         <translation>레이어</translation>
     </message>

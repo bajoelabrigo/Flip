@@ -114,7 +114,25 @@ ThemedDialog {
     function wrapped(code, i) {
         return root.wrapHead + code + "\n); Array.isArray(__v) ? __v[" + i + "] : __v"
     }
+    // Scale is kept as the layer's width and height in px; After Effects' expression reads and gives it in %
+    // (0.30, the nulls course: a Slider of 150 is 150 %). The 100 % size is the layer's natural one.
+    readonly property string scaleHead: "/*scale%*/var __n = "
+    readonly property string scaleBody: "; var __v = (function (value) { return ("
+    readonly property string scaleTail: "\n); })([value / __n * 100, value / __n * 100]); (Array.isArray(__v) ? __v["
+    function isScale() {
+        return root.props.length === 2 && root.props[0] === "width" && root.props[1] === "height"
+    }
+    function scaleWrapped(code, i) {
+        const nat = EditorState.clipNaturalSize(root.trackIndex, root.clipIndex) || {}
+        const n = Math.max(1, (i === 0 ? nat.w : nat.h) || 1)
+        return root.scaleHead + n + root.scaleBody + code + root.scaleTail + i + "] : __v) * __n / 100"
+    }
     function unwrapped(code) {
+        if (code.startsWith(root.scaleHead)) {
+            const from = code.indexOf(root.scaleBody)
+            const end = code.lastIndexOf("\n); })([value / __n")
+            return from > 0 && end > from ? code.substring(from + root.scaleBody.length, end) : code
+        }
         if (!code.startsWith(root.wrapHead))
             return code
         const end = code.lastIndexOf("\n); Array.isArray(__v)")
@@ -124,10 +142,13 @@ ThemedDialog {
         for (const field of [frequencyField, amountField, seedField, speedField])
             field.parseAndCommit()
         const b = behavior()
-        const several = root.props.length > 1 && (b.expression || "").trim().length > 0
+        const hasCode = (b.expression || "").trim().length > 0
+        const several = root.props.length > 1 && hasCode
         for (let i = 0; i < root.props.length; ++i) {
             const own = Object.assign({}, b)
-            if (several)
+            if (hasCode && root.isScale())
+                own.expression = root.scaleWrapped(b.expression.trim(), i)
+            else if (several)
                 own.expression = root.wrapped(b.expression.trim(), i)
             EditorState.setPropertyBehavior(root.trackIndex, root.clipIndex, root.props[i], own)
         }

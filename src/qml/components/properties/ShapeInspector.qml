@@ -416,6 +416,9 @@ Item {
                 textRole: "label"
                 valueRole: "id"
                 tooltip: qsTr("Shape drawn by this clip")
+                // A polygon drawn with the Polygon tool (0.30) is a hexagon with its own number of sides.
+                displayText: root.shapeStyle && root.shapeStyle.polygonFromPoints === true
+                             ? qsTr("Polygon (%1 sides)").arg(root.shapeStyle.points || 5) : currentText
                 currentIndex: {
                     const options = shapeTabColumn.kindOptions
                     for (let i = 0; i < options.length; ++i) {

@@ -155,8 +155,42 @@ Item {
               : EditorState.preview.shapeToolKind === "roundedRectangle" ? Math.min(20 * root.sx, Math.min(width, height) / 2) : 0
         rotation: root.polystarTool ? root.dragRotation : 0
         color: "transparent"
-        border.width: 1.5
+        border.width: root.polystarTool ? 0 : 1.5
         border.color: Theme.primary
+        // The polygon or star itself while it is drawn out (0.30, as After Effects), not its box.
+        Canvas {
+            id: polystarOutline
+            anchors.fill: parent
+            visible: root.polystarTool
+            readonly property int points: root.dragPoints
+            readonly property bool star: EditorState.preview.shapeToolKind === "star"
+            onPointsChanged: requestPaint()
+            onStarChanged: requestPaint()
+            onWidthChanged: requestPaint()
+            onHeightChanged: requestPaint()
+            onPaint: {
+                const ctx = getContext("2d")
+                ctx.reset()
+                const n = Math.max(3, points)
+                const cx = width / 2, cy = height / 2
+                const r = Math.min(width, height) / 2
+                const steps = star ? n * 2 : n
+                ctx.beginPath()
+                for (let i = 0; i < steps; ++i) {
+                    const a = -Math.PI / 2 + i * 2 * Math.PI / steps
+                    const rr = star && i % 2 === 1 ? r * 0.5 : r
+                    const px = cx + Math.cos(a) * rr, py = cy + Math.sin(a) * rr
+                    if (i === 0)
+                        ctx.moveTo(px, py)
+                    else
+                        ctx.lineTo(px, py)
+                }
+                ctx.closePath()
+                ctx.lineWidth = 1.5
+                ctx.strokeStyle = Theme.primary
+                ctx.stroke()
+            }
+        }
         // How many points the polygon or star gets (the wheel changes it).
         Text {
             visible: root.polystarTool
@@ -370,9 +404,9 @@ Item {
                     const shape = kind === "ellipse" ? "ellipse" : kind === "star" ? "star" : "rectangle"
                     const track = root.box.track, clip = root.box.clip
                     const id = EditorState.addMaskToClipInPlace(track, clip, shape)
-                    for (const e of (EditorState.linkedMaskClips(track, clip) || [])) {
-                        if (e.id !== id)
-                            continue
+                    // The new lane can shift the tracks: the mask is found again by its id.
+                    const e = id ? EditorState.clipLocation(id) : ({})
+                    if (e.track !== undefined) {
                         const cur = Object.assign({}, (EditorState.clipAt(e.track, e.index) || {}).mask || {})
                         cur.x = (a0.x + a1.x) / 2
                         cur.y = (a0.y + a1.y) / 2

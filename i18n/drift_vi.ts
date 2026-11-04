@@ -25029,6 +25029,10 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Polygon (%1 sides)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Layers</source>
         <translation>Lớp</translation>
     </message>

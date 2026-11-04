@@ -13,7 +13,7 @@ Rectangle {
     readonly property string tool: EditorState.preview.tool
     readonly property var shapeKinds: [
         { id: "rectangle", label: qsTr("Rectangle"), glyph: Theme.icons.square },
-        { id: "roundedRectangle", label: qsTr("Rounded rectangle"), glyph: Theme.icons.square },
+        { id: "roundedRectangle", label: qsTr("Rounded rectangle"), glyph: "square-rounded" },
         { id: "ellipse", label: qsTr("Ellipse"), glyph: "circle" },
         { id: "star", label: qsTr("Star"), glyph: "star" },
         { id: "polygon", label: qsTr("Polygon"), glyph: "hexagon" },
@@ -272,8 +272,17 @@ Rectangle {
                 root.pick("shape")
             }
             // A double-click makes the shape the size of the frame (After Effects' double-click on the tool).
-            onDoubleClicked: {
+            // Also told by two clicks close together: the button does not always get the double-click itself.
+            property real lastClickMs: 0
+            property real lastFrameShapeMs: 0
+            onDoubleClicked: frameShape()
+            function frameShape() {
                 menuTimer.stop()
+                const now = Date.now()
+                if (now - lastFrameShapeMs < 600)
+                    return
+                lastFrameShapeMs = now
+                lastClickMs = 0
                 const w = EditorState.projectFile.projectWidth()
                 const h = EditorState.projectFile.projectHeight()
                 if (w > 0 && h > 0)
@@ -284,7 +293,7 @@ Rectangle {
             }
             Timer {
                 id: menuTimer
-                interval: 260
+                interval: Qt.styleHints.mouseDoubleClickInterval
                 onTriggered: shapeMenu.popup(shapeButton, 0, shapeButton.height)
             }
             onClicked: {
@@ -292,6 +301,12 @@ Rectangle {
                     shapeButton.cycleKind()
                     return
                 }
+                const now = Date.now()
+                if (now - lastClickMs < Qt.styleHints.mouseDoubleClickInterval) {
+                    frameShape()
+                    return
+                }
+                lastClickMs = now
                 // Ellipse and Line have buttons of their own (0.29): coming from them, this one is the
                 // rectangle again (it kept the line, and a drag meant for a label drew a line).
                 const k = EditorState.preview.shapeToolKind

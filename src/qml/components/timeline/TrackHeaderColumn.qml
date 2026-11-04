@@ -1577,7 +1577,7 @@ Item {
                                 "min": -1e9, "max": 1e9, "step": step, "decimals": decimals, "suffix": suffix })
                             const group = keyLine.joined ? keyLine.modelData.group : ""
                             // A colour line (0.28) shows a swatch, not numbers.
-                            if (group === "color")
+                            if (group === "color" || keyLine.modelData.channelProps)
                                 return []
                             if (group === "position")
                                 return [keyLine.positionValue("x", "X"), keyLine.positionValue("y", "Y")]
@@ -1834,14 +1834,14 @@ Item {
                                 // Alt+click (After Effects): an expression for the property, or, when it has
                                 // one, the expression taken away (its keys and the rest of its behaviour stay).
                                 if (EditorState.keyboardModifiers() & Qt.AltModifier) {
-                                    if (keyLine.hasExpression || keyLine.hasBehavior) {
-                                        const b = EditorState.propertyBehavior(keyLines.trackIndex, keyLine.clip, keyLine.props[0]) || {}
-                                        if ((b.expression || "").length > 0) {
-                                            b.expression = ""
-                                            for (const prop of keyLine.props)
-                                                EditorState.setPropertyBehavior(keyLines.trackIndex, keyLine.clip, prop, b)
-                                            return
-                                        }
+                                    // Also one switched off (0.30): After Effects takes it away the same.
+                                    const b = EditorState.propertyBehavior(keyLines.trackIndex, keyLine.clip, keyLine.props[0]) || {}
+                                    if ((b.expression || "").length > 0) {
+                                        b.expression = ""
+                                        b.expressionEnabled = true
+                                        for (const prop of keyLine.props)
+                                            EditorState.setPropertyBehavior(keyLines.trackIndex, keyLine.clip, prop, b)
+                                        return
                                     }
                                     behaviorDialog.openFor(keyLines.trackIndex, keyLine.clip, keyLine.props,
                                                            keyRowsNames.rowLabel(keyLine.modelData),
@@ -1928,12 +1928,19 @@ Item {
                                 // «Color» (0.28): the colour at the playhead; picking one writes the four
                                 // channels in one undo step (a key at the playhead when it is animated).
                                 ColorSwatchField {
-                                    visible: keyLine.modelData.group === "color"
+                                    // Also an effect's colour (0.30, Expression Controls' Color): its r, g, b.
+                                    readonly property bool effectColor: !!keyLine.modelData.channelProps
+                                    visible: keyLine.modelData.group === "color" || effectColor
                                     anchors.verticalCenter: parent.verticalCenter
                                     showHex: false
                                     swatchSize: 14
-                                    readonly property var channels: keyLine.modelData.group === "color" ? keyLine.props : []
+                                    readonly property var channels: keyLine.modelData.group === "color" || effectColor ? keyLine.props : []
                                     hex: {
+                                        if (channels.length === 3) {
+                                            const h3 = (v) => ("0" + Math.round(Math.max(0, Math.min(1, v)) * 255).toString(16)).slice(-2)
+                                            return "#ff" + h3(keyLine.valueOf(channels[0])) + h3(keyLine.valueOf(channels[1]))
+                                                   + h3(keyLine.valueOf(channels[2]))
+                                        }
                                         if (channels.length < 4)
                                             return "#ffffffff"
                                         const h = (v) => ("0" + Math.round(Math.max(0, Math.min(1, v)) * 255).toString(16)).slice(-2)
@@ -1947,6 +1954,27 @@ Item {
                                         const track = keyLines.trackIndex
                                         const clip = keyLine.clip
                                         const ch = channels.slice()
+                                        if (ch.length === 3) {
+                                            // fx.<i>.<key>.r: unanimated it is the effect's own colour, else keys.
+                                            const parts = ch[0].split(".")
+                                            const animated = EditorState.clipAnimatedProperties(track, clip)
+                                            const keyed = ch.some(p => animated.indexOf(p) >= 0)
+                                            if (!keyed) {
+                                                EditorState.setEffectColorParam(track, clip, Number(parts[1]),
+                                                                                parts.slice(2, parts.length - 1).join("."),
+                                                                                Qt.rgba(c.r, c.g, c.b, 1).toString())
+                                                return
+                                            }
+                                            EditorState.beginPreviewDrag(qsTr("Colour"))
+                                            try {
+                                                for (let i = 0; i < 3; ++i)
+                                                    EditorState.previewSetPropertyValue(track, clip, ch[i], EditorState.playheadSeconds,
+                                                                                        [c.r, c.g, c.b][i])
+                                            } finally {
+                                                EditorState.commitPreviewDrag()
+                                            }
+                                            return
+                                        }
                                         if (ch.length < 4)
                                             return
                                         if (EditorState.selectedTrack !== track || EditorState.selectedClip !== clip)

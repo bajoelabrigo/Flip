@@ -1594,6 +1594,8 @@ GpuLayer buildGpuLayer(const drift::Project &project, const drift::Clip &clip,
         const drift::skia::ShapePainterResult painted = drift::skia::makeShapePainter(request);
         layer.vector = painted.painter;
         destRect = painted.rect;
+        // A lane mask is drawn in the layout box, not in the stroke's or glow's bleed (0.30).
+        maskLayerRect = painted.rect;
 #else
         static bool warned = false;
         if (!warned) {

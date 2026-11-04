@@ -95,6 +95,8 @@
 #include "engine/TextLayout.h"
 #ifdef DRIFT_WITH_SKIA
 #include "engine/SkiaTextPainter.h"
+#include "engine/SkiaTextGeometry.h"
+#include "include/core/SkPath.h"
 #endif
 #include "engine/TransitionCatalog.h"
 #include "models/JobRegistry.h"
@@ -13538,8 +13540,59 @@ void AppController::createShapesFromText()
     };
     QList<Letter> letters;
     QPainterPath all;
+#ifdef DRIFT_WITH_SKIA
+    // The letters as the renderer lays them out (0.30): the same font, weight, size, spacing and box, one
+    // piece per character, placed on the canvas where the text shows them.
+    {
+        const drift::TimeUs at = qBound(clip.timelineStart, m_playheadUs, clip.timelineEnd() - 1);
+        const FrameCompositor::TextEditGeometry geometry =
+            FrameCompositor::textEditGeometry(clip, text, at, m_project.width(), m_project.height(), 1.0);
+        const drift::TextStyle style = clip.textStyle.isAnimated()
+                                           ? clip.textStyle.resolvedAt(at - clip.timelineStart) : clip.textStyle;
+        const auto set = geometry.layoutRect.width() > 0.5
+                             ? drift::text::fragmentsFor(text, style, geometry.layoutRect.width(),
+                                                         geometry.layoutRect.height(), 1.0, -1,
+                                                         drift::text::WordSplit::Characters)
+                             : nullptr;
+        const QList<drift::text::StyledWord> frags = set ? set->frags : QList<drift::text::StyledWord>{};
+        for (const drift::text::StyledWord &frag : frags) {
+            if (!frag.geometry || frag.geometry->colour || frag.geometry->path.isEmpty())
+                continue;
+            QPainterPath path;
+            path.setFillRule(Qt::WindingFill);
+            SkPath::Iter iter(frag.geometry->path, false);
+            SkPoint pts[4];
+            for (SkPath::Verb verb = iter.next(pts); verb != SkPath::kDone_Verb; verb = iter.next(pts)) {
+                switch (verb) {
+                case SkPath::kMove_Verb:
+                    path.moveTo(pts[0].fX, pts[0].fY);
+                    break;
+                case SkPath::kLine_Verb:
+                    path.lineTo(pts[1].fX, pts[1].fY);
+                    break;
+                case SkPath::kQuad_Verb:
+                case SkPath::kConic_Verb:
+                    path.quadTo(pts[1].fX, pts[1].fY, pts[2].fX, pts[2].fY);
+                    break;
+                case SkPath::kCubic_Verb:
+                    path.cubicTo(pts[1].fX, pts[1].fY, pts[2].fX, pts[2].fY, pts[3].fX, pts[3].fY);
+                    break;
+                case SkPath::kClose_Verb:
+                    path.closeSubpath();
+                    break;
+                default:
+                    break;
+                }
+            }
+            path.translate(geometry.layoutRect.topLeft());
+            letters.append({text.mid(frag.textStart, frag.textLength), path});
+            all.addPath(path);
+        }
+    }
+#endif
     double baseline = metrics.ascent();
-    for (const QString &line : text.split(QLatin1Char('\n'))) {
+    const QStringList fallbackLines = letters.isEmpty() ? text.split(QLatin1Char('\n')) : QStringList{};
+    for (const QString &line : fallbackLines) {
         for (int i = 0; i < line.size(); ++i) {
             const QChar c = line.at(i);
             if (c.isSpace() || c.isLowSurrogate())
@@ -13595,7 +13648,11 @@ void AppController::createShapesFromText()
         return;
     clip.type = drift::ClipType::Shape;
     clip.shapeStyle = layer;
-    setClipLayoutPixels(clip, x + (w - b.width()) / 2.0, y + (h - b.height()) / 2.0, b.width(), b.height());
+    // The renderer's letters are already where the text shows them; the fallback's are centred in its box.
+    if (fallbackLines.isEmpty())
+        setClipLayoutPixels(clip, b.left(), b.top(), b.width(), b.height());
+    else
+        setClipLayoutPixels(clip, x + (w - b.width()) / 2.0, y + (h - b.height()) / 2.0, b.width(), b.height());
     clip.name = tr("%1 Outlines").arg(text.left(30));
     pushProjectEdit(before, tr("Shapes from text"));
     finishEdit(tr("Shapes from text"));
@@ -13964,7 +14021,54 @@ bool AppController::renameEffect(int trackIndex, int clipIndex, int effectIndex,
     if (clip.effects.at(effectIndex).label == trimmed)
         return false;
     const drift::Project before = m_project;
+    // The name expressions used for it until now: its own, else the catalog's (as the pick whip writes it).
+    QString oldName = clip.effects.at(effectIndex).label;
+    const EffectPresetEntry *def = effectDefForId(clip.effects.at(effectIndex).catalogId);
+    if (oldName.isEmpty() && def)
+        oldName = def->meta.displayName;
     clip.effects[effectIndex].label = trimmed;
+    QString newName = trimmed;
+    if (newName.isEmpty() && def)
+        newName = def->meta.displayName;
+    // After Effects keeps the expressions that point at a renamed effect working (0.30, the nulls course):
+    // effect("Old") becomes effect("New") in every expression of the project.
+    if (!oldName.isEmpty() && oldName != newName) {
+        const QString from = QStringLiteral("effect(\"%1\")").arg(oldName);
+        const QString to = QStringLiteral("effect(\"%1\")").arg(newName);
+        static const QStringList transformProps = {
+            QStringLiteral("x"), QStringLiteral("y"), QStringLiteral("width"), QStringLiteral("height"),
+            QStringLiteral("rotation"), QStringLiteral("rotationX"), QStringLiteral("rotationY"), QStringLiteral("z"),
+            QStringLiteral("opacity"), QStringLiteral("volume"), QStringLiteral("pan"), QStringLiteral("anchorX"),
+            QStringLiteral("anchorY"), QStringLiteral("timeRemap")};
+        for (drift::Track &t : m_project.tracks()) {
+            for (drift::Clip &c : t.clips) {
+                QStringList props = transformProps;
+                for (int i = 0; i < c.effects.size(); ++i) {
+                    const EffectPresetEntry *d = effectDefForId(c.effects.at(i).catalogId);
+                    if (!d)
+                        continue;
+                    for (const drift::EffectParamSpec &spec : d->meta.parameters) {
+                        const QString base = QStringLiteral("fx.%1.%2").arg(i).arg(spec.key);
+                        if (spec.isColor())
+                            props << base + QStringLiteral(".r") << base + QStringLiteral(".g")
+                                  << base + QStringLiteral(".b") << base + QStringLiteral(".a");
+                        else if (spec.isVec2())
+                            props << base + QStringLiteral(".x") << base + QStringLiteral(".y");
+                        else
+                            props << base;
+                    }
+                }
+                for (const QString &prop : std::as_const(props)) {
+                    drift::KeyframeTrack<double> *kt = keyframeTrackForProp(c, prop, false);
+                    if (!kt || !kt->behavior().expression.contains(from))
+                        continue;
+                    drift::TrackBehavior b = kt->behavior();
+                    b.expression.replace(from, to);
+                    kt->setBehavior(b);
+                }
+            }
+        }
+    }
     pushProjectEdit(before, tr("Rename effect"));
     finishEdit(tr("Rename effect"));
     return true;
@@ -23659,6 +23763,18 @@ void AppController::removeLinkedMask(int maskTrackIndex, int maskClipIndex)
     emit focusedMaskChanged();
 }
 
+QVariantMap AppController::clipLocation(const QString &clipId) const
+{
+    for (int t = 0; t < m_project.tracks().size(); ++t) {
+        const drift::Track &track = m_project.tracks().at(t);
+        for (int c = 0; c < track.clips.size(); ++c) {
+            if (track.clips.at(c).id == clipId)
+                return {{QStringLiteral("track"), t}, {QStringLiteral("index"), c}};
+        }
+    }
+    return {};
+}
+
 QVariantList AppController::linkedMaskClips(int trackIndex, int clipIndex) const
 {
     QVariantList out;
@@ -24492,9 +24608,31 @@ double AppController::propertyBaseValue(int trackIndex, int clipIndex, const QSt
             QString paramKey;
             if (parseEffectProp(prop, &effectIndex, &paramKey)
                 && effectIndex >= 0 && effectIndex < clip.effects.size()) {
-                const QVariant value = clip.effects.at(effectIndex).parameters.value(paramKey);
-                if (value.isValid())
+                const drift::Effect &effect = clip.effects.at(effectIndex);
+                const QVariant value = effect.parameters.value(paramKey);
+                if (value.isValid() && value.typeId() != QMetaType::QString)
                     return value.toDouble();
+                // A fresh effect stores nothing until a value is changed (0.30: E showed an Expression Control's
+                // Slider at 0 and the colour as 0): its catalog default, and a colour channel from the hex.
+                if (const EffectPresetEntry *def = effectDefForId(effect.catalogId)) {
+                    const QMap<QString, QVariant> params = resolvedEffectParameters(effect, *def);
+                    static const QStringList channels{QStringLiteral(".r"), QStringLiteral(".g"),
+                                                      QStringLiteral(".b"), QStringLiteral(".a")};
+                    for (int ch = 0; ch < channels.size(); ++ch) {
+                        if (!paramKey.endsWith(channels.at(ch)))
+                            continue;
+                        const QString hex = params.value(paramKey.chopped(2)).toString();
+                        if (!hex.startsWith(QLatin1Char('#')))
+                            break;
+                        const QColor c(hex.size() == 9 ? hex.left(7) : hex);
+                        if (ch == 3)
+                            return hex.size() == 9 ? hex.right(2).toInt(nullptr, 16) / 255.0 : 1.0;
+                        return ch == 0 ? c.redF() : ch == 1 ? c.greenF() : c.blueF();
+                    }
+                    const QVariant fallback = params.value(paramKey);
+                    if (fallback.isValid() && fallback.typeId() != QMetaType::QString)
+                        return fallback.typeId() == QMetaType::Bool ? (fallback.toBool() ? 1.0 : 0.0) : fallback.toDouble();
+                }
             }
             if (parseAudioEffectProp(prop, &effectIndex, &paramKey)
                 && effectIndex >= 0 && effectIndex < clip.audioEffects.size()) {
@@ -31352,11 +31490,13 @@ QString AppController::animatedPropertyLabel(int trackIndex, int clipIndex, cons
                 // A colour's channel (color.r) is named as the colour, whose line it joins.
                 const QString base = paramKey.size() > 2 && paramKey.at(paramKey.size() - 2) == QLatin1Char('.')
                                          ? paramKey.left(paramKey.size() - 2) : QString();
+                // A renamed effect (0.30) shows the name the user gave it, as After Effects.
+                const QString name = effect.label.isEmpty() ? def->meta.displayName : effect.label;
                 for (const drift::EffectParamSpec &p : def->meta.parameters) {
                     if (p.key == paramKey || (!base.isEmpty() && p.key == base && p.isColor()))
-                        return def->meta.displayName + QStringLiteral(" · ") + p.label;
+                        return name + QStringLiteral(" · ") + p.label;
                 }
-                return def->meta.displayName + QStringLiteral(" · ") + paramKey;
+                return name + QStringLiteral(" · ") + paramKey;
             }
         }
         return paramKey;
@@ -32195,14 +32335,17 @@ QVariantList AppController::trackKeyframeRowsAll(int trackIndex) const
     }
     // E (0.30, After Effects): every parameter of the layer's effects, keyed or not, so an Expression Control's
     // Slider can be picked with the pick whip before it has a key.
-    if (m_keyframeRowsOnlyGroup == QLatin1String("effects")) {
+    // An expanded layer (no filter) lists its Expression Controls the same way, keyed or not, as After Effects
+    // shows its Effects group (0.30: the Slider could not be pick-whipped until it had a key).
+    const bool allEffectRows = m_keyframeRowsOnlyGroup == QLatin1String("effects");
+    if (allEffectRows || (m_keyframeRowsOnlyGroup.isEmpty() && !m_keyframeRowsAnimatedOnly)) {
         for (int c = 0; c < clipCount; ++c) {
             const drift::Clip *host = effectHostClip(trackIndex, c, drift::AdjustmentKind::VideoEffects);
             if (!host)
                 continue;
             for (int i = 0; i < host->effects.size(); ++i) {
                 const EffectPresetEntry *def = effectDefForId(host->effects.at(i).catalogId);
-                if (!def)
+                if (!def || (!allEffectRows && def->meta.category != QLatin1String("expression")))
                     continue;
                 for (const drift::EffectParamSpec &spec : def->meta.parameters) {
                     if (spec.isFilePath() || spec.isClip())
