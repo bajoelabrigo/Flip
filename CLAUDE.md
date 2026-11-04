@@ -78,6 +78,18 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
   ponga claves después de una caída tiene que dejar una clave quieta antes.
 
 
+### Academia de la web (2026-11-04, noche) — **detalle en `docs/plan-academia.md` › Estado**
+- 18 lecciones (3 niveles × 6 temas) con capturas reales, en `flipstudio-web` rama `academia`, **sin desplegar**.
+  Generador `flipstudio-web/tools/academia/build.py`; originales en `E:\FlipStudio\academia\capturas`.
+- Al capturar salieron fallos de la app, arreglados en `flip/subtitulos` (lista en `release-notes/0.30.0.md` ›
+  Arreglos). El último (caja de selección de una Escala por expresión) está en la compilación siguiente a la nf5.
+- **Trampa nueva:** `anchorShift` solo se aplicaba si la capa tenía claves de anclaje (`FrameCompositor`
+  `layoutRectForClip`, `TransformLayer`, y `restW/restH` de `PreviewController`): todo lo que mueva el tamaño
+  sin claves (una expresión) tiene que pasar por esos tres.
+- **Trampa nueva:** el panel General de un clip de audio muestra la ruta con el usuario de Windows: no capturarlo.
+- **Trampa nueva:** las opciones de un menú contextual de QML salen donde está el mouse real de Jorge, y un clic
+  simulado justo después de cargar un modelo puede caer en otro control: capturar antes de cada clic.
+
 ### Cursos de nulos y formas (2026-11-04, tarde) — **detalle en `docs/tutorial-nulos-formas-ae.md`**
 - Controles de expresión, látigo a efectos, renombrar efectos, expresión activa, buscar propiedades; formas y pluma
   como AE (polígono con rueda, Alt+clic, guiones en px, menú del trazado, Ctrl+T, formas desde texto/SVG, combinar);
