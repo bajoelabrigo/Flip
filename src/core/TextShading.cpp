@@ -452,6 +452,9 @@ quint64 textLayersHash(const QList<TextShadingLayer> &layers)
                        static_cast<int>(l.scope));
         h = qHashMulti(h, l.miterLimit, l.taperStartLength, l.taperEndLength, l.taperStartWidth, l.taperEndWidth,
                        l.taperEase, l.waveAmount, l.waveLength, l.wavePhase, l.arrowStart, l.arrowEnd, l.arrowSize);
+        // The Dash / Gap pairs (0.30): without them a changed pattern kept the cached drawing.
+        for (const double run : l.dashPattern)
+            h = qHashMulti(h, run);
     }
     return h;
 }
