@@ -2059,7 +2059,10 @@ ApplicationWindow {
         Keys.onPressed: function(event) {
             // Enter on a picked layer renames it, as in After Effects (0.30). Only an Enter no field
             // took gets here.
-            if ((event.key === Qt.Key_Return || event.key === Qt.Key_Enter)
+            // A field that confirms its text on Enter but lets the key go on (the colour's hex) is no
+            // layer to rename (0.30 tests).
+            const fieldFocused = !!window.activeFocusItem && window.activeFocusItem.cursorPosition !== undefined
+            if ((event.key === Qt.Key_Return || event.key === Qt.Key_Enter) && !fieldFocused
                     && (event.modifiers & ~Qt.KeypadModifier) === Qt.NoModifier
                     && timelinePanel.visible && EditorState.selectedTrack >= 0 && EditorState.selectedClip >= 0) {
                 timelinePanel.requestRenameClip(EditorState.selectedTrack, EditorState.selectedClip)

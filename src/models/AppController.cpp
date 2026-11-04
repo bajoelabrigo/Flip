@@ -30823,8 +30823,11 @@ QString AppController::animatedPropertyLabel(int trackIndex, int clipIndex, cons
         if (host && effectIndex >= 0 && effectIndex < host->effects.size()) {
             const drift::Effect &effect = host->effects.at(effectIndex);
             if (const EffectPresetEntry *def = effectDefForId(effect.catalogId)) {
+                // A colour's channel (color.r) is named as the colour, whose line it joins.
+                const QString base = paramKey.size() > 2 && paramKey.at(paramKey.size() - 2) == QLatin1Char('.')
+                                         ? paramKey.left(paramKey.size() - 2) : QString();
                 for (const drift::EffectParamSpec &p : def->meta.parameters) {
-                    if (p.key == paramKey)
+                    if (p.key == paramKey || (!base.isEmpty() && p.key == base && p.isColor()))
                         return def->meta.displayName + QStringLiteral(" · ") + p.label;
                 }
                 return def->meta.displayName + QStringLiteral(" · ") + paramKey;
@@ -31484,6 +31487,61 @@ QVariantList AppController::trackKeyframeRows(int trackIndex) const
             if (!m_keyframeRowsOnlyGroup.isEmpty()
                 && !(m_keyframeRowsOnlyGroup == QLatin1String("effects") && effectLine))
                 continue;
+            // An effect's colour is one line, as After Effects' Color (0.30 tutorial): its four channels'
+            // keys merge, one diamond per time carrying each channel's own key (refs).
+            static const QStringList channels{QStringLiteral(".r"), QStringLiteral(".g"), QStringLiteral(".b"),
+                                              QStringLiteral(".a")};
+            QString colorBase;
+            if (effectLine && prop.size() > 2) {
+                for (const QString &ch : channels) {
+                    if (prop.endsWith(ch)) {
+                        const QString base = prop.left(prop.size() - 2);
+                        const QStringList all = clipAnimatedProperties(trackIndex, c);
+                        int present = 0;
+                        for (const QString &other : channels)
+                            present += all.contains(base + other) ? 1 : 0;
+                        if (present >= 2)
+                            colorBase = base;
+                        break;
+                    }
+                }
+            }
+            if (!colorBase.isEmpty()) {
+                if (!prop.endsWith(QLatin1String(".r")) && clipAnimatedProperties(trackIndex, c).contains(colorBase + QStringLiteral(".r")))
+                    continue; // the line goes in with its .r channel
+                QMap<qint64, QVariantMap> merged;
+                for (const QString &ch : channels) {
+                    const QString channel = colorBase + ch;
+                    for (const QVariant &v : clipKeyframes(trackIndex, c, channel)) {
+                        QVariantMap key = v.toMap();
+                        const double seconds = key.value(QStringLiteral("seconds")).toDouble();
+                        QVariantMap &at = merged[qRound64(seconds * 1000.0)];
+                        if (at.isEmpty())
+                            at = key;
+                        QVariantList refs = at.value(QStringLiteral("refs")).toList();
+                        refs.append(QVariantMap{{QStringLiteral("prop"), channel}, {QStringLiteral("seconds"), seconds}});
+                        at.insert(QStringLiteral("refs"), refs);
+                    }
+                }
+                QVariantList keys;
+                for (const QVariantMap &key : std::as_const(merged))
+                    keys.append(key);
+                if (keys.isEmpty())
+                    continue;
+                const QString label = animatedPropertyLabel(trackIndex, c, colorBase + QStringLiteral(".r"));
+                if (!clipsByLabel.contains(label))
+                    order.append(label);
+                clipsByLabel[label].append(QVariantMap{
+                    {QStringLiteral("clip"), c},
+                    {QStringLiteral("prop"), prop},
+                    {QStringLiteral("start"), drift::usToSeconds(
+                         m_project.tracks().at(trackIndex).clips.at(c).timelineStart)},
+                    {QStringLiteral("duration"), drift::usToSeconds(
+                         m_project.tracks().at(trackIndex).clips.at(c).timelineDuration)},
+                    {QStringLiteral("keys"), keys},
+                });
+                continue;
+            }
             const QVariantList keys = clipKeyframes(trackIndex, c, prop);
             if (keys.isEmpty())
                 continue;
