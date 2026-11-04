@@ -1060,6 +1060,8 @@ QVariantList PreviewController::clipsAtPlayhead() const
                 {QStringLiteral("parentSig"), parentSig},
                 {QStringLiteral("parents"), parentChain},
                 {QStringLiteral("name"), clip.name},
+                // A null (0.30): drawn as After Effects draws it, an outlined square, selected or not.
+                {QStringLiteral("nullObject"), clip.nullObject && clip.light.kind == 0},
                 {QStringLiteral("nullObject"), clip.nullObject},
                 {QStringLiteral("clipParented"), clipParented},
                 {QStringLiteral("pixelSize"), clip.textStyle.pixelSize},

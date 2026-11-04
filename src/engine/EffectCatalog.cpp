@@ -74,6 +74,9 @@ QString translatedCategoryLabel(const QString &slug)
     // 0.26: the rubber deformer the Squash & Stretch animations key.
     if (slug == QLatin1String("squash"))
         return QCoreApplication::translate("EffectCatalog", "Squash & Stretch");
+    // 0.30: After Effects' Expression Controls (Slider, Point, Angle, Color, Checkbox), for nulls.
+    if (slug == QLatin1String("expression"))
+        return QCoreApplication::translate("EffectCatalog", "Expression Controls");
     if (slug.isEmpty())
         return QCoreApplication::translate("EffectCatalog", "Other");
     return slug.at(0).toUpper() + slug.mid(1);

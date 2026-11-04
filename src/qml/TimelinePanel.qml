@@ -1602,6 +1602,24 @@ PanelFrame {
                         onClicked: root.toggleGraphMode()
                     }
 
+                    // After Effects' search box over the layers (0.30): typing «color» leaves only the colour lines
+                    // of the picked layers (all of them with none picked).
+                    ThemedTextField {
+                        id: rowSearchField
+                        anchors.verticalCenter: parent.verticalCenter
+                        x: 8
+                        width: Math.max(60, addTrackButton.x - 16)
+                        height: 24
+                        font.pixelSize: Theme.fontSizeXs
+                        placeholderText: qsTr("Search properties")
+                        text: EditorState.keyframeRowsSearch
+                        onTextEdited: EditorState.keyframeRowsSearch = text
+                        Keys.onEscapePressed: {
+                            EditorState.keyframeRowsSearch = ""
+                            focus = false
+                        }
+                    }
+
                     Rectangle {
                         anchors.right: parent.right
                         anchors.bottom: parent.bottom

@@ -167,6 +167,7 @@ class AppController : public QObject
     // the list for that rebuilt every clip in the project into QVariantMaps, once per binding,
     // per emission — with two dozen such bindings across the desktop and touch shells.
     Q_PROPERTY(quint32 tracksRevision READ tracksRevision NOTIFY tracksChanged)
+    Q_PROPERTY(QString keyframeRowsSearch READ keyframeRowsSearch WRITE setKeyframeRowsSearch NOTIFY keyframeRowsSearchChanged)
     // For the bindings that only ask how many tracks there are, or whether there are any.
     Q_PROPERTY(int trackCount READ trackCount NOTIFY tracksChanged)
     // "Is the timeline empty?" — asked by the empty-state copy in both shells, which used to
@@ -890,6 +891,11 @@ public:
     Q_INVOKABLE QVariantMap keyVelocity(int trackIndex, int clipIndex, const QString &prop, double seconds) const;
     Q_INVOKABLE void setKeyVelocity(int trackIndex, int clipIndex, const QString &prop, double seconds,
                                     const QVariantMap &velocity);
+    // An effect parameter as an expression reads it (0.30, the pick whip on an effect's line):
+    // effect("Slider Control")("Slider"), with [i] for one axis or channel unless `whole`.
+    Q_INVOKABLE QString effectExpressionPath(int trackIndex, int clipIndex, const QString &prop, bool whole) const;
+    // After Effects' Rename on an effect (0.30); empty gives back the catalog's name. One undo step.
+    Q_INVOKABLE bool renameEffect(int trackIndex, int clipIndex, int effectIndex, const QString &label);
     Q_INVOKABLE void setPropertyBehavior(int trackIndex, int clipIndex, const QString &prop,
                                          const QVariantMap &behavior);
     // After Effects' Parent column (0.26). {parentId, parentName, parentTrack, parentClip,
@@ -2201,6 +2207,9 @@ public:
     // [{label, prop, clips: [{clip, prop, start, duration, keys: clipKeyframes()}]}], one per
     // property name across the track's clips.
     Q_INVOKABLE QVariantList trackKeyframeRows(int trackIndex) const;
+    // The timeline's property search (0.30, After Effects' search box): rows whose name holds it.
+    QString keyframeRowsSearch() const { return m_keyframeRowsSearch; }
+    void setKeyframeRowsSearch(const QString &text);
     // "X position", "Zoom punch · Punch"… for a keyframed property of a clip.
     Q_INVOKABLE QString animatedPropertyLabel(int trackIndex, int clipIndex, const QString &prop) const;
     // How tall the waveform is drawn inside the row (0.1-1.0). View-only.
@@ -2480,6 +2489,7 @@ public:
                                          int rotationCorrection = 0) const;
 
 signals:
+    void keyframeRowsSearchChanged();
     void pickedKeyframesChanged();
     void userTextAnimationPresetsChanged();
 
@@ -2649,6 +2659,8 @@ protected:
     // joined one's path in step with its keys.
     void syncJoinedPositions(const drift::Project *before);
     void syncRovingPositions();
+    QVariantList trackKeyframeRowsAll(int trackIndex) const;
+    static QString searchKey(const QString &text);
 
     // Refills the per-track clip models from the project. Called by notifyTracksChanged() before
     // the signal goes out, so a binding that wakes on tracksChanged already sees the new rows.
@@ -3155,6 +3167,7 @@ protected:
     // Set while Squash & Stretch or Bend add their effect, so the selection stays on the clip.
     bool m_addEffectKeepsSelection = false;    QVariantMap m_pickedKeyframes;
     QString m_textEditJobId; // the transcription «Edit with the text» waits on
+    QString m_keyframeRowsSearch;
     QString m_keyframeRowsOnlyGroup;
     int m_selectionRevision = 0;
     int m_timelineTrimCursorSide = 0;

@@ -1,0 +1,34 @@
+{
+  "id": "ae.angle_control",
+  "displayName": "Angle Control",
+  "category": "expression",
+  "backend": "gpu",
+  "order": 932,
+  "parameters": [
+    {
+      "identifier": "angle",
+      "displayName": "Angle",
+      "type": "float",
+      "minValue": -36000,
+      "maxValue": 36000,
+      "defaultValue": 0
+    }
+  ],
+  "pipeline": {
+    "intermediateBuffers": [],
+    "passes": [
+      {
+        "passIndex": 0,
+        "fragmentShader": "main.frag",
+        "inputs": [
+          {
+            "type": "source_texture"
+          }
+        ],
+        "output": {
+          "type": "canvas"
+        }
+      }
+    ]
+  }
+}

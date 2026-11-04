@@ -3,7 +3,9 @@
 #include "core/Clip.h"
 #include "core/Keyframe.h"
 #include "core/Project.h"
+#include "engine/EffectCatalog.h"
 
+#include <QColor>
 #include <QCoreApplication>
 #include <QHash>
 #include <QJSEngine>
@@ -170,6 +172,124 @@ public:
         return 0.0;
     }
 
+    // After Effects' effect("Slider Control")("Slider") (0.30, the nulls course): a value of one of a layer's
+    // effects (on the layer or on its own effects lane), found by the name the user gave it, its catalog name
+    // (also in English, from the id) or its place from 1; the parameter likewise. `component` picks x/y of a
+    // point and r/g/b/a (0..1) of a colour; effectSize says how many there are (0: no such parameter).
+    Q_INVOKABLE int effectSize(const QString &layerName, const QString &effectName, const QString &paramName) const
+    {
+        QVariantMap params;
+        const drift::EffectParamSpec *spec = findEffectParam(layerName, effectName, paramName, &params);
+        if (!spec)
+            return 0;
+        if (spec->type == EffectParamType::Vec2)
+            return 2;
+        if (spec->type == EffectParamType::Color)
+            return 4;
+        return 1;
+    }
+    Q_INVOKABLE double effectValue(const QString &layerName, const QString &effectName, const QString &paramName,
+                                   int component) const
+    {
+        QVariantMap params;
+        const drift::EffectParamSpec *spec = findEffectParam(layerName, effectName, paramName, &params);
+        if (!spec)
+            return 0.0;
+        if (spec->type == EffectParamType::Vec2)
+            return params.value(spec->key + (component == 1 ? QStringLiteral(".y") : QStringLiteral(".x"))).toDouble();
+        if (spec->type == EffectParamType::Color) {
+            const QString hex = params.value(spec->key).toString();
+            const QColor c(hex.size() == 9 ? hex.left(7) : hex);
+            switch (component) {
+            case 0: return c.redF();
+            case 1: return c.greenF();
+            case 2: return c.blueF();
+            default: return hex.size() == 9 ? hex.right(2).toInt(nullptr, 16) / 255.0 : 1.0;
+            }
+        }
+        const QVariant v = params.value(spec->key);
+        return v.typeId() == QMetaType::Bool ? (v.toBool() ? 1.0 : 0.0) : v.toDouble();
+    }
+    static QString simplified(const QString &name)
+    {
+        QString out;
+        for (const QChar c : name) {
+            if (c.isLetterOrNumber())
+                out.append(c.toLower());
+        }
+        return out;
+    }
+    // "ae.slider_control" -> "slidercontrol", so the English name an expression from After Effects uses matches.
+    static QString idName(const QString &id)
+    {
+        const int dot = id.indexOf(QLatin1Char('.'));
+        return simplified(dot >= 0 ? id.mid(dot + 1) : id);
+    }
+    const drift::EffectParamSpec *findEffectParam(const QString &layerName, const QString &effectName,
+                                                  const QString &paramName, QVariantMap *paramsOut) const
+    {
+        const Project *project = static_cast<const Project *>(expressionContext().project);
+        if (!project)
+            return nullptr;
+        const Clip *layer = nullptr;
+        for (const Track &track : project->tracks()) {
+            for (const Clip &clip : track.clips) {
+                if (clip.name == layerName && clip.type != ClipType::Adjustment) {
+                    layer = &clip;
+                    break;
+                }
+            }
+            if (layer)
+                break;
+        }
+        if (!layer)
+            return nullptr;
+        // The layer's own effects, then those on the lane linked to it (where the inspector puts them).
+        QList<QPair<const Clip *, const Effect *>> effects;
+        for (const Effect &e : layer->effects)
+            effects.append({layer, &e});
+        for (const Track &track : project->tracks()) {
+            for (const Clip &clip : track.clips) {
+                if (clip.type == ClipType::Adjustment && clip.linkedClipId == layer->id) {
+                    for (const Effect &e : clip.effects)
+                        effects.append({&clip, &e});
+                }
+            }
+        }
+        const QString wantEffect = simplified(effectName);
+        bool byIndex = false;
+        const int effectIndex = effectName.toInt(&byIndex);
+        for (int i = 0; i < effects.size(); ++i) {
+            const Effect &effect = *effects.at(i).second;
+            const EffectPresetEntry *def = effectDefForId(effect.catalogId);
+            if (!def)
+                continue;
+            const bool named = byIndex ? effectIndex == i + 1
+                                       : (simplified(effect.label) == wantEffect
+                                          || simplified(def->meta.displayName) == wantEffect
+                                          || idName(effect.catalogId) == wantEffect);
+            if (!named)
+                continue;
+            const QString wantParam = simplified(paramName);
+            bool paramByIndex = false;
+            const int paramIndex = paramName.toInt(&paramByIndex);
+            const QList<drift::EffectParamSpec> &specs = def->meta.parameters;
+            for (int j = 0; j < specs.size(); ++j) {
+                const drift::EffectParamSpec &spec = specs.at(j);
+                const bool match = paramByIndex ? paramIndex == j + 1
+                                                : (simplified(spec.key) == wantParam || simplified(spec.label) == wantParam);
+                if (!match)
+                    continue;
+                const Clip *host = effects.at(i).first;
+                const TimeUs relative = expressionContext().timelineUs - host->timelineStart;
+                *paramsOut = resolvedEffectParameters(effect.resolvedAt(qMax<TimeUs>(0, relative)), *def);
+                return &spec;
+            }
+            return nullptr;
+        }
+        return nullptr;
+    }
+
     // After Effects' content("…") (0.28): a part of a shape layer, found by name down the path of groups
     // (names joined by U+0001), its transform and size at the time.
     Q_INVOKABLE double partProp(const QString &layerName, const QString &path, const QString &prop, double seconds) const
@@ -277,6 +397,18 @@ const char *const kPrelude = R"JS(
                 return c;
             }
             l.content = function (n) { return __content([n]); };
+            // effect("Slider Control")("Slider"): a number, [x, y] for a point, [r, g, b, a] for a colour.
+            l.effect = function (en) {
+                return function (pn) {
+                    var n = __fx.effectSize(name, String(en), String(pn));
+                    if (n <= 1)
+                        return __fx.effectValue(name, String(en), String(pn), 0);
+                    var out = [];
+                    for (var i = 0; i < n; ++i)
+                        out.push(__fx.effectValue(name, String(en), String(pn), i));
+                    return out;
+                };
+            };
             return l;
         }
         var layer = __layer;
@@ -286,6 +418,7 @@ const char *const kPrelude = R"JS(
         var thisLayer = __layer(__fx.selfName());
         thisLayer.index = index;
         thisLayer.name = __fx.selfName();
+        var effect = thisLayer.effect;
         return eval(__e);
     };
 })

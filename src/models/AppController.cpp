@@ -3655,8 +3655,11 @@ QVariantMap effectToMap(const drift::Effect &effect, int effectIndex, drift::Tim
         // Compositor-only effects carry no filter name, so an uninstalled one would label itself
         // with an empty string; the catalog id is at least the name the user has to go install.
         {QStringLiteral("label"),
-         def ? def->meta.displayName : (effect.name.isEmpty() ? effect.catalogId : effect.name)},
+         !effect.label.isEmpty() ? effect.label
+                                 : def ? def->meta.displayName : (effect.name.isEmpty() ? effect.catalogId : effect.name)},
         {QStringLiteral("params"), params},
+        {QStringLiteral("catalogLabel"), def ? def->meta.displayName : effect.catalogId},
+        {QStringLiteral("customLabel"), effect.label},
         {QStringLiteral("compositorOnly"), def ? def->meta.compositorOnly : false},
         {QStringLiteral("needsDepth"), def ? def->needsDepth : false},
         {QStringLiteral("missing"), def == nullptr},
@@ -3673,7 +3676,8 @@ QVariantMap effectBadgeToMap(const drift::Effect &effect)
     const EffectPresetEntry *def = effectDefForId(effect.catalogId);
     return {
         {QStringLiteral("label"),
-         def ? def->meta.displayName : (effect.name.isEmpty() ? effect.catalogId : effect.name)},
+         !effect.label.isEmpty() ? effect.label
+                                 : def ? def->meta.displayName : (effect.name.isEmpty() ? effect.catalogId : effect.name)},
         {QStringLiteral("enabled"), effect.enabled},
     };
 }
@@ -13446,6 +13450,71 @@ QString AppController::checkExpression(const QString &expression) const
     return drift::expressionError(expression);
 }
 
+QString AppController::effectExpressionPath(int trackIndex, int clipIndex, const QString &prop, bool whole) const
+{
+    // fx.<i>.<key>[.x|.y|.r|.g|.b|.a] → effect("Name")("Param")[component], as After Effects' pick whip writes it.
+    int effectIndex = -1;
+    QString paramKey;
+    if (!parseEffectProp(prop, &effectIndex, &paramKey))
+        return {};
+    const drift::Clip *host = effectHostClip(trackIndex, clipIndex, drift::AdjustmentKind::VideoEffects);
+    if (!host || effectIndex < 0 || effectIndex >= host->effects.size())
+        return {};
+    const drift::Effect &effect = host->effects.at(effectIndex);
+    const EffectPresetEntry *def = effectDefForId(effect.catalogId);
+    if (!def)
+        return {};
+    int component = -1;
+    QString key = paramKey;
+    static const QStringList suffixes{QStringLiteral(".x"), QStringLiteral(".y"), QStringLiteral(".r"),
+                                      QStringLiteral(".g"), QStringLiteral(".b"), QStringLiteral(".a")};
+    for (int i = 0; i < suffixes.size(); ++i) {
+        if (key.endsWith(suffixes.at(i))) {
+            const QString shorter = key.chopped(2);
+            for (const drift::EffectParamSpec &spec : def->meta.parameters) {
+                if (spec.key == shorter && (spec.isVec2() || spec.isColor())) {
+                    component = i < 2 ? i : i - 2;
+                    key = shorter;
+                }
+            }
+            break;
+        }
+    }
+    QString paramLabel = key;
+    for (const drift::EffectParamSpec &spec : def->meta.parameters) {
+        if (spec.key == key)
+            paramLabel = spec.label;
+    }
+    const QString effectName = effect.label.isEmpty() ? def->meta.displayName : effect.label;
+    const auto quoted = [](const QString &t) {
+        QString out = t;
+        out.replace(QLatin1Char('\\'), QStringLiteral("\\\\")).replace(QLatin1Char('"'), QStringLiteral("\\\""));
+        return QLatin1Char('"') + out + QLatin1Char('"');
+    };
+    QString path = QStringLiteral("effect(%1)(%2)").arg(quoted(effectName), quoted(paramLabel));
+    if (component >= 0 && !whole)
+        path += QStringLiteral("[%1]").arg(component);
+    return path;
+}
+
+bool AppController::renameEffect(int trackIndex, int clipIndex, int effectIndex, const QString &label)
+{
+    redirectToKeyframeHost(&trackIndex, &clipIndex, QStringLiteral("fx.%1.x").arg(effectIndex));
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return false;
+    drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
+    if (effectIndex < 0 || effectIndex >= clip.effects.size())
+        return false;
+    const QString trimmed = label.trimmed();
+    if (clip.effects.at(effectIndex).label == trimmed)
+        return false;
+    const drift::Project before = m_project;
+    clip.effects[effectIndex].label = trimmed;
+    pushProjectEdit(before, tr("Rename effect"));
+    finishEdit(tr("Rename effect"));
+    return true;
+}
+
 QVariantMap AppController::propertyBehavior(int trackIndex, int clipIndex, const QString &prop) const
 {
     QVariantMap out{{QStringLiteral("active"), false}, {QStringLiteral("loop"), QStringLiteral("none")}};
@@ -13465,6 +13534,7 @@ QVariantMap AppController::propertyBehavior(int trackIndex, int clipIndex, const
     out.insert(QStringLiteral("wiggleAmount"), b.wiggleAmount);
     out.insert(QStringLiteral("wiggleSeed"), b.wiggleSeed);
     out.insert(QStringLiteral("expression"), b.expression);
+    out.insert(QStringLiteral("expressionEnabled"), b.expressionEnabled);
     return out;
 }
 
@@ -13482,6 +13552,7 @@ void AppController::setPropertyBehavior(int trackIndex, int clipIndex, const QSt
     b.wiggleAmount = behavior.value(QStringLiteral("wiggleAmount")).toDouble();
     b.wiggleSeed = behavior.value(QStringLiteral("wiggleSeed")).toInt();
     b.expression = behavior.value(QStringLiteral("expression")).toString().trimmed();
+    b.expressionEnabled = behavior.value(QStringLiteral("expressionEnabled"), true).toBool();
     // After Effects' loopOut("cycle") / loopIn(...) alone is the behaviour's own loop, not code.
     static const QRegularExpression loopCall(
         QStringLiteral(R"(^loop(?:Out|In)\(\s*(?:["']?(cycle|pingpong|offset|continue)["']?)?\s*\)\s*;?$)"));
@@ -13506,7 +13577,7 @@ void AppController::setPropertyBehavior(int trackIndex, int clipIndex, const QSt
     const double base = propertyBaseValue(trackIndex, clipIndex, prop);
     const drift::Project before = m_project;
     drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
-    drift::KeyframeTrack<double> *track = keyframeTrackForProp(clip, prop, b.isActive());
+    drift::KeyframeTrack<double> *track = keyframeTrackForProp(clip, prop, b.isActive() || !b.expression.isEmpty());
     if (!track)
         return;
     if (track->behavior() == b)
@@ -31349,7 +31420,88 @@ QVariantList AppController::shapePartCrumbs() const
     return out;
 }
 
+// After Effects' search box over the layers (0.30): only the lines whose name holds what is typed,
+// accents and case aside; an axis line stays with its property.
 QVariantList AppController::trackKeyframeRows(int trackIndex) const
+{
+    const QVariantList rows = trackKeyframeRowsAll(trackIndex);
+    const QString wanted = searchKey(m_keyframeRowsSearch);
+    if (wanted.isEmpty())
+        return rows;
+    const auto translated = [](const QVariantMap &row) {
+        static const QHash<QString, const char *> groups{
+            {QStringLiteral("anchor"), "Anchor point"}, {QStringLiteral("position"), "Position"},
+            {QStringLiteral("rotation"), "Rotation"},   {QStringLiteral("scale"), "Scale"},
+            {QStringLiteral("opacity"), "Opacity"},     {QStringLiteral("volume"), "Volume"},
+            {QStringLiteral("pan"), "Pan"}};
+        const QString group = row.value(QStringLiteral("group")).toString();
+        if (groups.contains(group))
+            return QCoreApplication::translate("TrackKeyframeRows", groups.value(group)) + QLatin1Char(' ')
+                   + QString::fromLatin1(groups.value(group));
+        return row.value(QStringLiteral("label")).toString();
+    };
+    QVariantList out;
+    QSet<QString> keptGroups;
+    for (const QVariant &v : rows) {
+        const QVariantMap row = v.toMap();
+        const QString group = row.value(QStringLiteral("group")).toString();
+        if (row.value(QStringLiteral("axis")).toBool()) {
+            if (keptGroups.contains(group))
+                out.append(v);
+            continue;
+        }
+        if (searchKey(translated(row)).contains(wanted)) {
+            out.append(v);
+            if (!group.isEmpty())
+                keptGroups.insert(group);
+        }
+    }
+    return out;
+}
+
+QString AppController::searchKey(const QString &text)
+{
+    // Lower case without accents, so «posicion» finds «Posición».
+    const QString decomposed = text.normalized(QString::NormalizationForm_D).toLower();
+    QString out;
+    for (const QChar c : decomposed) {
+        if (c.category() != QChar::Mark_NonSpacing)
+            out.append(c);
+    }
+    return out.trimmed();
+}
+
+void AppController::setKeyframeRowsSearch(const QString &text)
+{
+    if (text == m_keyframeRowsSearch)
+        return;
+    m_keyframeRowsSearch = text;
+    // The lines of the picked layers open, as After Effects unfolds what matches.
+    if (!searchKey(text).isEmpty()) {
+        QSet<int> tracks;
+        for (const QPair<int, int> &pair : m_selection)
+            tracks.insert(pair.first);
+        if (tracks.isEmpty() && isValidClipIndex(m_selectedTrack, m_selectedClip))
+            tracks.insert(m_selectedTrack);
+        if (tracks.isEmpty()) {
+            for (int t = 0; t < m_project.tracks().size(); ++t)
+                tracks.insert(t);
+        }
+        m_keyframeRowsAnimatedOnly = false;
+        m_keyframeRowsModifiedOnly = false;
+        m_keyframeRowsOnlyGroup.clear();
+        for (const int t : std::as_const(tracks)) {
+            if (t >= 0 && t < m_project.tracks().size() && !m_project.tracks().at(t).isAdjustmentLane())
+                m_project.tracks()[t].keyframesExpanded = true;
+        }
+    }
+    m_tracksCacheValid = false;
+    m_tracksCache.clear();
+    emit keyframeRowsSearchChanged();
+    notifyTracksChanged();
+}
+
+QVariantList AppController::trackKeyframeRowsAll(int trackIndex) const
 {
     if (trackIndex < 0 || trackIndex >= m_project.tracks().size()
         || m_project.tracks().at(trackIndex).isAdjustmentLane())
@@ -31478,6 +31630,8 @@ QVariantList AppController::trackKeyframeRows(int trackIndex) const
     // first-seen order.
     QStringList order;
     QHash<QString, QVariantList> clipsByLabel;
+    // A colour's line keys its channels together (0.30).
+    QHash<QString, QStringList> channelsByLabel;
     for (int c = 0; c < clipCount; ++c) {
         for (const QString &prop : clipAnimatedProperties(trackIndex, c)) {
             if (grouped.contains(prop) || prop.startsWith(QLatin1String("part.")))
@@ -31531,6 +31685,8 @@ QVariantList AppController::trackKeyframeRows(int trackIndex) const
                 const QString label = animatedPropertyLabel(trackIndex, c, colorBase + QStringLiteral(".r"));
                 if (!clipsByLabel.contains(label))
                     order.append(label);
+                channelsByLabel.insert(label, QStringList{colorBase + QStringLiteral(".r"), colorBase + QStringLiteral(".g"),
+                                                          colorBase + QStringLiteral(".b")});
                 clipsByLabel[label].append(QVariantMap{
                     {QStringLiteral("clip"), c},
                     {QStringLiteral("prop"), prop},
@@ -31582,13 +31738,60 @@ QVariantList AppController::trackKeyframeRows(int trackIndex) const
             break;
         }
     }
+    // E (0.30, After Effects): every parameter of the layer's effects, keyed or not, so an Expression Control's
+    // Slider can be picked with the pick whip before it has a key.
+    if (m_keyframeRowsOnlyGroup == QLatin1String("effects")) {
+        for (int c = 0; c < clipCount; ++c) {
+            const drift::Clip *host = effectHostClip(trackIndex, c, drift::AdjustmentKind::VideoEffects);
+            if (!host)
+                continue;
+            for (int i = 0; i < host->effects.size(); ++i) {
+                const EffectPresetEntry *def = effectDefForId(host->effects.at(i).catalogId);
+                if (!def)
+                    continue;
+                for (const drift::EffectParamSpec &spec : def->meta.parameters) {
+                    if (spec.isFilePath() || spec.isClip())
+                        continue;
+                    const QString base = QStringLiteral("fx.%1.%2").arg(i).arg(spec.key);
+                    QStringList props;
+                    if (spec.isColor())
+                        props = {base + QStringLiteral(".r")};
+                    else if (spec.isVec2())
+                        props = {base + QStringLiteral(".x"), base + QStringLiteral(".y")};
+                    else
+                        props = {base};
+                    for (const QString &prop : std::as_const(props)) {
+                        QString label = animatedPropertyLabel(trackIndex, c, prop);
+                        if (spec.isVec2())
+                            label += prop.endsWith(QLatin1String(".y")) ? QStringLiteral(" Y") : QStringLiteral(" X");
+                        if (clipsByLabel.contains(label))
+                            continue;
+                        order.append(label);
+                        if (spec.isColor())
+                            channelsByLabel.insert(label, QStringList{base + QStringLiteral(".r"), base + QStringLiteral(".g"),
+                                                                      base + QStringLiteral(".b")});
+                        clipsByLabel[label].append(QVariantMap{
+                            {QStringLiteral("clip"), c},
+                            {QStringLiteral("prop"), prop},
+                            {QStringLiteral("start"), drift::usToSeconds(track.clips.at(c).timelineStart)},
+                            {QStringLiteral("duration"), drift::usToSeconds(track.clips.at(c).timelineDuration)},
+                            {QStringLiteral("keys"), QVariantList()},
+                        });
+                    }
+                }
+            }
+        }
+    }
     for (const QString &label : std::as_const(order)) {
         const QVariantList clips = clipsByLabel.value(label);
-        rows.append(QVariantMap{
+        QVariantMap row{
             {QStringLiteral("label"), label},
             {QStringLiteral("prop"), clips.first().toMap().value(QStringLiteral("prop"))},
             {QStringLiteral("clips"), clips},
-        });
+        };
+        if (channelsByLabel.contains(label))
+            row.insert(QStringLiteral("channelProps"), channelsByLabel.value(label));
+        rows.append(row);
     }
     if (track.type == drift::TrackType::Shape && m_keyframeRowsOnlyGroup.isEmpty()) {
         const QVariantList contents = shapeContentRows(trackIndex, keyframeTargetClip(trackIndex));

@@ -579,7 +579,19 @@ bool AssetLibrary::isVectorPath(const QString &path)
 
 bool AssetLibrary::isPdfPath(const QString &path)
 {
-    return QFileInfo(path).suffix().toLower() == QLatin1String("pdf");
+    const QString suffix = QFileInfo(path).suffix().toLower();
+    if (suffix == QLatin1String("pdf"))
+        return true;
+    // An Adobe Illustrator file saved with «Create PDF Compatible File» (Illustrator's default since
+    // version 9) is a PDF inside: it opens as one, page by page (0.30, Jorge). One saved without it
+    // starts with PostScript and is not media.
+    if (suffix == QLatin1String("ai")) {
+        QFile file(path);
+        if (!file.open(QIODevice::ReadOnly))
+            return false;
+        return file.read(1024).contains("%PDF-");
+    }
+    return false;
 }
 
 // Only the binary container: a .gltf references sidecar .bin/texture files that bundling and
@@ -661,6 +673,7 @@ QString AssetLibrary::mediaNameFilter() const
         globs.append(QStringLiteral("*.lottie"));
         globs.append(QStringLiteral("*.glb"));
         globs.append(QStringLiteral("*.pdf"));
+        globs.append(QStringLiteral("*.ai"));
         return globs.join(QLatin1Char(' '));
     }();
     return tr("Media files (%1)").arg(pattern);

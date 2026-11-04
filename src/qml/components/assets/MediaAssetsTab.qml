@@ -1955,7 +1955,7 @@ Item {
                             { glyph: Theme.icons.box, label: qsTr("3D"),
                               formats: "glTF binary (.glb)" },
                             { glyph: Theme.icons.fileText, label: qsTr("PDF"),
-                              formats: qsTr("PDF (needs the PDF Viewer addon)") }
+                              formats: qsTr("PDF · Illustrator .ai (needs the PDF Viewer addon)") }
                         ]
 
                         // The kind on one line and its formats under it, both the full width:

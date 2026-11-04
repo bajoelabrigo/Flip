@@ -1,0 +1,32 @@
+{
+  "id": "ae.color_control",
+  "displayName": "Color Control",
+  "category": "expression",
+  "backend": "gpu",
+  "order": 933,
+  "parameters": [
+    {
+      "identifier": "color",
+      "displayName": "Color",
+      "type": "color",
+      "defaultValue": "#ff0000"
+    }
+  ],
+  "pipeline": {
+    "intermediateBuffers": [],
+    "passes": [
+      {
+        "passIndex": 0,
+        "fragmentShader": "main.frag",
+        "inputs": [
+          {
+            "type": "source_texture"
+          }
+        ],
+        "output": {
+          "type": "canvas"
+        }
+      }
+    ]
+  }
+}

@@ -1142,7 +1142,7 @@ Item {
                     for (const row of rows) {
                         if (row.group || row.kind === "heading")
                             continue
-                        const props = [row.prop]
+                        const props = row.channelProps ? row.channelProps.slice() : [row.prop]
                         if (known.has(JSON.stringify(props)))
                             continue
                         known.add(JSON.stringify(props))
@@ -1157,17 +1157,31 @@ Item {
                         required property var modelData
                         required property int index
                         readonly property bool joined: !!modelData.group && !modelData.axis
-                        readonly property var props: joined ? modelData.groupProps : [modelData.prop]
+                        readonly property var props: joined ? modelData.groupProps : (modelData.channelProps || [modelData.prop])
                         readonly property int clip: keyLines.targetClip
                         // After Effects' expression pick whip (0.26) lands here: the line names the
                         // layer's property as an expression reads it, or "" when expressions cannot.
                         readonly property bool exprWhipTarget: true
-                        function exprWhipReference(targetProp) {
+                        function exprWhipReference(targetProp, whole) {
                             if (keyLine.clip < 0)
                                 return ""
                             const name = (EditorState.clipAt(keyLines.trackIndex, keyLine.clip) || {}).name || ""
                             if (name.length === 0)
                                 return ""
+                            // An effect's parameter (0.30): effect("Slider Control")("Slider").
+                            const own = keyLine.modelData.prop || ""
+                            if (own.startsWith("fx.")) {
+                                const path = EditorState.effectExpressionPath(keyLines.trackIndex, keyLine.clip, own,
+                                                                              !!whole || !!keyLine.modelData.channelProps)
+                                return path.length > 0 ? "thisComp.layer(" + JSON.stringify(name) + ")." + path : ""
+                            }
+                            // The whole Position / Scale / Anchor for a two-value property (0.30): each axis takes its own.
+                            if (whole && keyLine.joined) {
+                                const all = { "position": "transform.position", "scale": "transform.scale",
+                                              "anchor": "transform.anchorPoint" }
+                                if (all[keyLine.modelData.group])
+                                    return "thisComp.layer(" + JSON.stringify(name) + ")." + all[keyLine.modelData.group]
+                            }
                             // A joined line gives the axis matching the property being edited.
                             const second = targetProp === "y" || targetProp === "height" || targetProp === "anchorY"
                             const axis = keyLine.joined ? (second ? 1 : 0) : -1
@@ -1196,6 +1210,14 @@ Item {
                                 return false
                             const b = EditorState.propertyBehavior(keyLines.trackIndex, keyLine.clip, keyLine.props[0])
                             return !!b && b.active === true
+                        }
+                        // An expression on it (0.30): its name in red, as After Effects shows a linked property.
+                        readonly property bool hasExpression: {
+                            void EditorState.tracksRevision
+                            if (keyLine.clip < 0)
+                                return false
+                            const b = EditorState.propertyBehavior(keyLines.trackIndex, keyLine.clip, keyLine.props[0])
+                            return !!b && (b.expression || "").length > 0 && b.expressionEnabled !== false
                         }
                         HoverHandler { id: lineHover }
                         // After Effects' Contents (0.28): a heading line (Contents, a part, its
@@ -1809,6 +1831,23 @@ Item {
                             tooltip: keyLine.animated ? qsTr("Stop animating (removes its keyframes)")
                                                       : qsTr("Animate: a keyframe at the playhead")
                             onClicked: {
+                                // Alt+click (After Effects): an expression for the property, or, when it has
+                                // one, the expression taken away (its keys and the rest of its behaviour stay).
+                                if (EditorState.keyboardModifiers() & Qt.AltModifier) {
+                                    if (keyLine.hasExpression || keyLine.hasBehavior) {
+                                        const b = EditorState.propertyBehavior(keyLines.trackIndex, keyLine.clip, keyLine.props[0]) || {}
+                                        if ((b.expression || "").length > 0) {
+                                            b.expression = ""
+                                            for (const prop of keyLine.props)
+                                                EditorState.setPropertyBehavior(keyLines.trackIndex, keyLine.clip, prop, b)
+                                            return
+                                        }
+                                    }
+                                    behaviorDialog.openFor(keyLines.trackIndex, keyLine.clip, keyLine.props,
+                                                           keyRowsNames.rowLabel(keyLine.modelData),
+                                                           keyLines.expressionTargets())
+                                    return
+                                }
                                 if (keyLine.animated)
                                     EditorState.stopAnimating(keyLines.trackIndex, keyLine.clip, keyLine.props.slice(),
                                                               EditorState.playheadSeconds)
@@ -1876,7 +1915,7 @@ Item {
                                 text: (keyLine.modelData.axis && !keyLine.modelData.separated ? "· " : "")
                                       + keyRowsNames.rowLabel(keyLine.modelData)
                                       + (keyLine.hasBehavior ? "  ≈" : "")
-                                color: Theme.panelForeground
+                                color: keyLine.hasExpression ? "#ff5a5f" : Theme.panelForeground
                                 font.family: Theme.fontFamily
                                 font.pixelSize: Theme.fontSizeXs
                                 elide: Text.ElideRight

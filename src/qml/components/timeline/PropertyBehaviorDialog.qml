@@ -92,7 +92,8 @@ ThemedDialog {
         amountField.value = b.wiggleAmount ? b.wiggleAmount : 20
         seedField.value = b.wiggleSeed || 0
         speedField.value = b.speed || 0
-        expressionField.text = b.expression || ""
+        expressionField.text = root.unwrapped(b.expression || "")
+        expressionOn.checked = b.expressionEnabled !== false
     }
 
     function behavior() {
@@ -102,16 +103,34 @@ ThemedDialog {
             wiggleFrequency: wiggleSwitch.checked ? frequencyField.value : 0,
             wiggleAmount: wiggleSwitch.checked ? amountField.value : 0,
             wiggleSeed: Math.round(seedField.value),
-            expression: expressionField.text
+            expression: expressionField.text,
+            expressionEnabled: expressionOn.checked
         }
     }
 
+    // A property of two or more values (Position, a colour, a point) set at once (0.30): each value takes its
+    // own entry of the expression's [x, y] or [r, g, b, a], as After Effects does with one expression.
+    readonly property string wrapHead: "var __v = ("
+    function wrapped(code, i) {
+        return root.wrapHead + code + "\n); Array.isArray(__v) ? __v[" + i + "] : __v"
+    }
+    function unwrapped(code) {
+        if (!code.startsWith(root.wrapHead))
+            return code
+        const end = code.lastIndexOf("\n); Array.isArray(__v)")
+        return end > 0 ? code.substring(root.wrapHead.length, end) : code
+    }
     onAccepted: {
         for (const field of [frequencyField, amountField, seedField, speedField])
             field.parseAndCommit()
         const b = behavior()
-        for (const prop of root.props)
-            EditorState.setPropertyBehavior(root.trackIndex, root.clipIndex, prop, b)
+        const several = root.props.length > 1 && (b.expression || "").trim().length > 0
+        for (let i = 0; i < root.props.length; ++i) {
+            const own = Object.assign({}, b)
+            if (several)
+                own.expression = root.wrapped(b.expression.trim(), i)
+            EditorState.setPropertyBehavior(root.trackIndex, root.clipIndex, root.props[i], own)
+        }
     }
 
     contentItem: Column {
@@ -257,9 +276,9 @@ ThemedDialog {
                         const line = whip.lineAt(whip.Window.window ? whip.Window.window.contentItem : null, p.x, p.y)
                         if (!line)
                             return
-                        const ref = line.exprWhipReference(root.props.length > 0 ? root.props[0] : "")
+                        const ref = line.exprWhipReference(root.props.length > 0 ? root.props[0] : "", root.props.length > 1)
                         if (ref.length === 0) {
-                            EditorState.setLastMessage(qsTr("The pick whip links another layer's position, rotation, scale, opacity or anchor point"), "warning")
+                            EditorState.setLastMessage(qsTr("The pick whip links another layer's position, rotation, scale, opacity, anchor point or effect"), "warning")
                             return
                         }
                         expressionField.insert(expressionField.cursorPosition, ref)
@@ -292,6 +311,14 @@ ThemedDialog {
                     }
                 }
             }
+        }
+        // After Effects' «=» switch (0.30): off, the expression stays written but does nothing.
+        ThemedSwitch {
+            id: expressionOn
+            width: parent.width
+            checked: true
+            visible: expressionField.text.trim().length > 0
+            text: qsTr("Expression on")
         }
         ThemedTextArea {
             id: expressionField

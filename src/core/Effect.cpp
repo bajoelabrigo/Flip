@@ -76,7 +76,7 @@ QJsonObject keyframesToJson(const KeyframeTrack<double> &track)
     if (track.stopwatch())
         out.insert(QStringLiteral("stopwatch"), true);
     // The behaviour (0.26), only when there is one.
-    if (const TrackBehavior &b = track.behavior(); b.isActive()) {
+    if (const TrackBehavior &b = track.behavior(); b.isActive() || !b.expression.isEmpty()) {
         QJsonObject behavior;
         if (b.loop != LoopMode::None)
             behavior.insert(QStringLiteral("loop"), loopModeToString(b.loop));
@@ -90,6 +90,8 @@ QJsonObject keyframesToJson(const KeyframeTrack<double> &track)
         }
         if (!b.expression.isEmpty())
             behavior.insert(QStringLiteral("expression"), b.expression);
+        if (!b.expression.isEmpty() && !b.expressionEnabled)
+            behavior.insert(QStringLiteral("expressionEnabled"), false);
         if (b.settle != TrackBehavior::Settle::None) {
             behavior.insert(QStringLiteral("settle"), b.settle == TrackBehavior::Settle::Elastic ? QStringLiteral("elastic")
                                                                                                 : QStringLiteral("bounce"));
@@ -140,6 +142,7 @@ KeyframeTrack<double> keyframesFromJson(const QJsonObject &object)
         behavior.bounceMaxJumps = qBound(0, b.value(QStringLiteral("bounceMaxJumps")).toInt(5), 50);
         behavior.bounceJumpOut = b.value(QStringLiteral("bounceJumpOut")).toBool(false);
         behavior.expression = b.value(QStringLiteral("expression")).toString();
+        behavior.expressionEnabled = b.value(QStringLiteral("expressionEnabled")).toBool(true);
         track.setBehavior(behavior);
     }
 
@@ -201,6 +204,8 @@ QJsonArray effectsToJson(const QList<Effect> &effects)
         };
         if (!effect.enabled)
             object.insert(QStringLiteral("enabled"), false);
+        if (!effect.label.isEmpty())
+            object.insert(QStringLiteral("label"), effect.label);
         if (!paramKeyframes.isEmpty())
             object.insert(QStringLiteral("paramKeyframes"), paramKeyframes);
         if (effect.templateTag.isValid()) {
@@ -242,6 +247,7 @@ QList<Effect> effectsFromJson(const QJsonArray &array)
         effect.name = object.value(QStringLiteral("name")).toString();
         effect.catalogId = object.value(QStringLiteral("catalogId")).toString();
         effect.enabled = object.value(QStringLiteral("enabled")).toBool(true);
+        effect.label = object.value(QStringLiteral("label")).toString();
         const QJsonObject params = object.value(QStringLiteral("parameters")).toObject();
         for (auto it = params.constBegin(); it != params.constEnd(); ++it)
             effect.parameters.insert(it.key(), it.value().toVariant());

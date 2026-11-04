@@ -1078,6 +1078,17 @@ Item {
                 }
             }
 
+            // A null (0.30, After Effects): no pixels of its own, so it shows as an outlined square in the
+            // preview, selected or not, to grab and see what it does (never rendered or exported).
+            Rectangle {
+                visible: handle.box.nullObject === true
+                anchors.fill: parent
+                color: "transparent"
+                border.width: 1
+                border.color: handle.selected ? Theme.primary : "#d0d0d0"
+                opacity: handle.selected ? 1 : 0.8
+            }
+
             // Live size while resizing, the same readout the crop tool shows;
             // the live angle while rotating.
             Rectangle {
