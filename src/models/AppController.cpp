@@ -4173,6 +4173,21 @@ QSizeF fittedTextSizeForStyle(const QString &text, const drift::TextStyle &style
         if (style.valign == drift::TextVAlign::Middle)
             padY += qMax(0.0, style.boxPadY());
     }
+    // Letters bent by Curve or wrapped around a circle (0.30 Academy: the box kept the flat line's size, so the
+    // ring's top and bottom letters stood outside it and could not be picked). One line only, as drawn.
+    const double lineH = em * qMax(0.5, style.lineHeight);
+    if (natural.height() < lineH * 1.6) {
+        if (style.pathCircle > 0.5) {
+            const double share = qBound(0.1, style.pathCircle / 100.0, 1.0);
+            const double around = natural.width() + (share > 0.95 ? natural.height() * 0.6 : 0.0);
+            const double radius = around / (6.283185307179586 * share);
+            const double side = 2.0 * (radius + natural.height()) + 2.0 * padY;
+            return QSizeF(qMax(side, qMax(em, natural.width() * 0.3) + 2.0 * padX), side);
+        }
+        const double rise = drift::text::textBendRise(style);
+        if (rise > 0.5)
+            return QSizeF(qMax(em, natural.width()) + 2.0 * padX, qMax(em, natural.height()) + 2.0 * (padY + rise));
+    }
     // Empty text still keeps a box an em wide for the caret.
     return QSizeF(qMax(em, natural.width()) + 2.0 * padX, qMax(em, natural.height()) + 2.0 * padY);
 }

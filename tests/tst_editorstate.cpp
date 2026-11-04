@@ -171,6 +171,7 @@ private slots:
     void oldProjectTextBoxNeverMoves();
     void sideResizeOfTextBoxStopsHugging();
     void narrowingAWrappingTextGrowsItsBox();
+    void textAroundACircleGetsABoxAroundTheRing();
     void undoRedoClipAdd();
     void sourceFramingPreservesOriginalAndUndoes();
     void undoLibraryClipDropOntoExistingTrack();
@@ -1617,6 +1618,29 @@ void EditorStateTest::sideResizeOfTextBoxStopsHugging()
     state.undo();
     state.undo();
     QVERIFY(clipNow().textAutoFit);
+#endif
+}
+
+void EditorStateTest::textAroundACircleGetsABoxAroundTheRing()
+{
+#ifndef DRIFT_WITH_SKIA
+    QSKIP("measuring text needs DRIFT_WITH_SKIA");
+#else
+    // 0.30 Academy: Around a circle drew a ring but the box stayed the flat line's, so the ring's letters
+    // stood outside it. The hugging box takes the ring's size, centred where it was.
+    AssetLibrary library;
+    AppController state(&library);
+    state.addTextClip(QStringLiteral("VUELTA COMPLETA AL LAGO"), 0.0);
+    const int track = state.selectedTrack();
+    const int clip = state.selectedClip();
+    const auto clipNow = [&]() -> const drift::Clip & { return state.project()->tracks().at(track).clips.at(clip); };
+    const TextBox flat = textBoxOf(clipNow());
+    state.setTextStyle(track, clip, QVariantMap{{QStringLiteral("pathBend"), 40.0}, {QStringLiteral("pathCircle"), 100.0}});
+    const TextBox ring = textBoxOf(clipNow());
+    QVERIFY2(ring.h > flat.h * 3.0, qPrintable(QStringLiteral("ring %1x%2, flat %3x%4").arg(ring.w).arg(ring.h)
+                                                    .arg(flat.w).arg(flat.h)));
+    QVERIFY(qAbs(ring.w - ring.h) < 1.0);
+    QVERIFY(qAbs(ring.cx() - flat.cx()) < 1.0 && qAbs(ring.cy() - flat.cy()) < 1.0);
 #endif
 }
 
