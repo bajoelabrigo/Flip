@@ -1558,7 +1558,10 @@ Item {
                             const c = keys.length > 0 ? (EditorState.clipAt(keyLines.trackIndex, keyLine.clip) || {}) : {}
                             const pivot = sizeProp === "width" ? c.sizePivotW : c.sizePivotH
                             const side = keys.length > 0 && pivot > 0 ? pivot
-                                       : keys.length >= 2 ? keys[0].value : valueOf(sizeProp)
+                                       : keys.length >= 2 ? keys[0].value
+                                       // Moved by a behaviour (an expression on Scale): the size its keys give (0.30).
+                                       : EditorState.propertyKeysValueAt(keyLines.trackIndex, keyLine.clip, sizeProp,
+                                                                         EditorState.playheadSeconds, valueOf(sizeProp))
                             return isNaN(side) ? 0 : side
                         }
                         function positionValue(prop, tag) {

@@ -24384,8 +24384,15 @@ void AppController::removeClipKeyframe(int trackIndex, int clipIndex, const QStr
         return;
     // Taking away the last key keeps the value it had, as After Effects does when the stopwatch goes off (0.30,
     // Academy capture: the X of a ball dropped to 0 px and the ball jumped to the left edge).
-    const auto removeKeepingValue = [](drift::KeyframeTrack<double> *track, drift::TimeUs at) {
-        if (track->keyframes().size() <= 1) {
+    // Only the transform keeps its fixed value as a lone key: an effect's or a mask's lives on the effect or
+    // the mask, which the property falls back to once its track is empty.
+    static const QStringList transformProps = {
+        QStringLiteral("x"), QStringLiteral("y"), QStringLiteral("width"), QStringLiteral("height"),
+        QStringLiteral("rotation"), QStringLiteral("rotationX"), QStringLiteral("rotationY"), QStringLiteral("z"),
+        QStringLiteral("opacity"), QStringLiteral("anchorX"), QStringLiteral("anchorY")};
+    const bool keepsLoneKey = transformProps.contains(prop);
+    const auto removeKeepingValue = [keepsLoneKey](drift::KeyframeTrack<double> *track, drift::TimeUs at) {
+        if (keepsLoneKey && track->keyframes().size() <= 1) {
             const double value = track->evaluateAt(at);
             const drift::TrackBehavior behavior = track->behavior();
             *track = {};
@@ -24545,6 +24552,21 @@ double AppController::propertyValueAt(int trackIndex, int clipIndex, const QStri
     const double value = kt->evaluateAt(drift::secondsToUs(atSeconds) - clip.timelineStart);
     context.timelineUs = savedUs;
     return value;
+}
+
+double AppController::propertyKeysValueAt(int trackIndex, int clipIndex, const QString &prop, double atSeconds,
+                                          double fallback) const
+{
+    if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
+        return fallback;
+    redirectToKeyframeHost(&trackIndex, &clipIndex, prop);
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return fallback;
+    const drift::Clip &clip = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    const drift::KeyframeTrack<double> *kt = keyframeTrackForProp(clip, prop);
+    if (!kt || kt->isEmpty())
+        return propertyBaseValue(trackIndex, clipIndex, prop, fallback);
+    return kt->evaluateKeys(drift::secondsToUs(atSeconds) - clip.timelineStart);
 }
 
 // What an unkeyed property evaluates to. These mirror the defaults the compositor passes to

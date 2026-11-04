@@ -324,6 +324,8 @@ private slots:
     void solidsAndCompositionsInMedia();
     void pasteOntoItsOwnKeysCarriesOn();
     void autoBezierKeyRunsThroughWithoutStopping();
+    void removingTheLastTransformKeyKeepsTheValue();
+    void scaleMovedByAnExpressionGrowsAroundTheAnchor();
     void rovingKeysSpreadAgainAfterAnEase();
     void cutoutTemplateLandsInAComposition();
     void beatTemplateOnSilentClipStillApplies();
@@ -11085,6 +11087,49 @@ void EditorStateTest::pasteOntoItsOwnKeysCarriesOn()
 
 // After Effects' Ctrl+click on a straight key (0.30 tutorial): Auto Bezier, handles along the slope
 // from the previous key to the next, so the value keeps moving through the key.
+// The rhombus on the last key of X (0.30, Academy capture): taking it away keeps the value it had, as
+// After Effects' stopwatch; it used to drop to 0 and the layer jumped to the left edge.
+void EditorStateTest::removingTheLastTransformKeyKeepsTheValue()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    state.project()->tracks().clear();
+    state.addSolidClip(QStringLiteral("#ff336699"), QStringLiteral("Box"), 200, 200);
+    int track = -1;
+    for (int t = 0; t < state.project()->tracks().size(); ++t) {
+        if (!state.project()->tracks().at(t).clips.isEmpty())
+            track = t;
+    }
+    QVERIFY(track >= 0);
+    state.setClipKeyframe(track, 0, QStringLiteral("x"), 1.0, 640.0);
+    state.removeClipKeyframe(track, 0, QStringLiteral("x"), 1.0);
+    QVERIFY(qAbs(state.propertyValueAt(track, 0, QStringLiteral("x"), 1.0, -1.0) - 640.0) < 1e-6);
+    QVERIFY(!state.clipAnimatedProperties(track, 0).contains(QStringLiteral("x")));
+}
+
+// A size driven by an expression grows around the anchor (0.30, Academy capture: a circle scaled by a
+// Slider grew from its top-left corner): its centre stays where it was.
+void EditorStateTest::scaleMovedByAnExpressionGrowsAroundTheAnchor()
+{
+    // The app wires up the expression engine the tracks evaluate through.
+    AssetLibrary library;
+    AppController state(&library);
+    drift::Clip clip;
+    clip.timelineDuration = drift::secondsToUs(5.0);
+    clip.transformW.setKeyframe(0, 200.0);
+    clip.transformH.setKeyframe(0, 200.0);
+    drift::TrackBehavior b;
+    b.expression = QStringLiteral("value * 1.5");
+    clip.transformW.setBehavior(b);
+    clip.transformH.setBehavior(b);
+    const double w = clip.transformW.evaluateAt(0);
+    QVERIFY(qAbs(w - 300.0) < 1e-6);
+    const QPointF shift = clip.anchorShift(0, w, w, 0.0);
+    // The box moves up and left by half the growth, so the middle stays put.
+    QVERIFY(qAbs(shift.x() + 50.0) < 1e-6);
+    QVERIFY(qAbs(shift.y() + 50.0) < 1e-6);
+}
+
 void EditorStateTest::autoBezierKeyRunsThroughWithoutStopping()
 {
     AssetLibrary library;

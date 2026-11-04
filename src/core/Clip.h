@@ -402,13 +402,24 @@ struct Clip
     // (old projects and templates animate size with their own position keys).
     QPointF anchorShift(TimeUs relative, double w, double h, double rotationDeg) const
     {
-        if (anchorX.isEmpty() && anchorY.isEmpty())
+        // A size moved by a behaviour (an expression, a loop, a wiggle) grows around the anchor too (0.30,
+        // Academy capture: a circle scaled by a Slider grew from its top-left corner).
+        const bool sizeBehavior = transformW.behavior().isActive() || transformH.behavior().isActive();
+        if (anchorX.isEmpty() && anchorY.isEmpty() && !sizeBehavior)
             return {};
         const double fx = anchorX.isEmpty() ? 0.5 : anchorX.evaluateAt(relative);
         const double fy = anchorY.isEmpty() ? 0.5 : anchorY.evaluateAt(relative);
         // w, h may be scaled for the canvas: the size change is taken as a ratio of the stored one.
         const auto sizeShift = [relative](const KeyframeTrack<double> &track, double drawn, double fraction,
                                           double pivot) {
+            // A behaviour on the size: it grows from the size its keys give (or its own value) at this moment.
+            if (track.behavior().isActive() && !track.isEmpty()) {
+                const double now = track.evaluateAt(relative);
+                const double rest = track.evaluateKeys(relative);
+                if (std::abs(now) < 1e-9)
+                    return 0.0;
+                return fraction * (drawn * rest / now - drawn);
+            }
             // With a pivot: while the size is keyed (its stopwatch on, even with one key).
             const bool keyed = track.keyframes().size() >= 2 || (track.stopwatch() && !track.isEmpty());
             if (!keyed || (pivot <= 0.0 && track.keyframes().size() < 2))

@@ -1773,6 +1773,10 @@ public:
                                                         const QString &prop);
     Q_INVOKABLE double propertyValueAt(int trackIndex, int clipIndex, const QString &prop,
                                        double atSeconds, double fallback) const;
+    // The value its keys give, without its behaviour (expression, loop, wiggle): the size a scaled layer grows
+    // from (0.30).
+    Q_INVOKABLE double propertyKeysValueAt(int trackIndex, int clipIndex, const QString &prop, double atSeconds,
+                                           double fallback) const;
     // What the property evaluates to with no keyframes at all — the same implicit defaults
     // the compositor uses, so an unkeyed curve is drawn where the clip actually sits.
     Q_INVOKABLE double propertyBaseValue(int trackIndex, int clipIndex, const QString &prop,

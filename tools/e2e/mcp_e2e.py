@@ -36,6 +36,10 @@ def env_with_models(stage):
     env["DRIFT_DENOISE_MODEL_DIR"] = os.path.join(stage, "ruido.voz", "models", "deepfilternet3")
     env["DRIFT_INTERP_MODEL_DIR"] = os.path.join(stage, "transiciones.ia", "models", "interp", "rife")
     env["DRIFT_TEXTEMBED_MODEL_DIR"] = os.path.join(stage, "texto.ia", "models", "textembed", "minilm")
+    # Voices, speakers and offline translation (0.30): the 40 voices of «Voces con IA» and their tools.
+    env["DRIFT_TTS_VOICES_DIR"] = os.path.join(stage, "voces.ia", "tts-voices")
+    env["DRIFT_DIARIZE_MODEL_DIR"] = os.path.join(stage, "hablantes", "models", "diarization")
+    env["DRIFT_TRANSLATE_MODEL_DIR"] = os.path.join(stage, "traduccion.local", "models", "translate")
     # Fonts staged by flip-addons (a family not yet published shows in renders before it reaches the users).
     # Both packs: an installed fonts.basic would otherwise win over the staged one (a weight added there unseen).
     roots = [os.path.join(stage, pack, "fonts") for pack in ("fonts.basic", "fonts.extra")]
