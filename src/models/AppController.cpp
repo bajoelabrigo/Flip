@@ -25248,8 +25248,53 @@ int AppController::removeClipKeysInRange(int trackIndex, int clipIndex, double f
     return int(keys.size());
 }
 
-int AppController::copyKeyframes(int trackIndex, const QVariantList &keys)
+int AppController::copyKeyframes(int trackIndex, const QVariantList &pickedKeys)
 {
+    // Keys of one moment only (one key picked, Jorge 0.30: «it copies the keyframe, not the animation»):
+    // the whole animation of those properties is what is copied or cloned, so the ball falls again.
+    QVariantList keys = pickedKeys;
+    {
+        QList<double> moments;
+        for (const QVariant &entry : pickedKeys) {
+            const double s = entry.toMap().value(QStringLiteral("seconds")).toDouble();
+            bool known = false;
+            for (double m : std::as_const(moments))
+                known = known || qAbs(m - s) * drift::kUsPerSecond <= kKeyframeToleranceUs;
+            if (!known)
+                moments.append(s);
+        }
+        if (moments.size() == 1) {
+            QVariantList whole;
+            QSet<QString> props;
+            for (const QVariant &entry : pickedKeys) {
+                const QVariantMap k = entry.toMap();
+                const int clipIndex = k.value(QStringLiteral("clip")).toInt();
+                QStringList names{k.value(QStringLiteral("prop")).toString()};
+                if (names.first() == QLatin1String("x") || names.first() == QLatin1String("y"))
+                    names = {QStringLiteral("x"), QStringLiteral("y")};
+                for (const QString &p : std::as_const(names)) {
+                    const QString id = QString::number(clipIndex) + QLatin1Char('/') + p;
+                    if (props.contains(id))
+                        continue;
+                    props.insert(id);
+                    int t = trackIndex;
+                    int c = clipIndex;
+                    redirectToKeyframeHost(&t, &c, p);
+                    if (!isValidClipIndex(t, c))
+                        continue;
+                    const drift::Clip &clip = m_project.tracks().at(t).clips.at(c);
+                    const drift::KeyframeTrack<double> *kt = keyframeTrackForProp(clip, p);
+                    if (!kt)
+                        continue;
+                    for (auto it = kt->keyframes().constBegin(); it != kt->keyframes().constEnd(); ++it)
+                        whole.append(QVariantMap{{QStringLiteral("clip"), clipIndex}, {QStringLiteral("prop"), p},
+                                                 {QStringLiteral("seconds"), drift::usToSeconds(clip.timelineStart + it.key())}});
+                }
+            }
+            if (whole.size() > keys.size())
+                keys = whole;
+        }
+    }
     QList<CopiedKey> copied;
     QSet<QString> seen;
     auto take = [&](int clipIndex, const QString &p, double atSeconds) {
@@ -25278,8 +25323,9 @@ int AppController::copyKeyframes(int trackIndex, const QVariantList &keys)
         const QString p = k.value(QStringLiteral("prop")).toString();
         const double s = k.value(QStringLiteral("seconds")).toDouble();
         take(c, p, s);
-        // Linked position: x and y travel together, as removeKeyframes deletes them together.
-        if (m_positionLinked && (p == QLatin1String("x") || p == QLatin1String("y")))
+        // Position: x and y travel together (also with Separate dimensions, where a key picked on the X row
+        // alone copied a still X and nothing moved: Jorge, 0.30). `take` skips an axis with no key there.
+        if (p == QLatin1String("x") || p == QLatin1String("y"))
             take(c, p == QLatin1String("x") ? QStringLiteral("y") : QStringLiteral("x"), s);
     }
     if (copied.isEmpty())

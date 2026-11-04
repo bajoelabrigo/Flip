@@ -11050,6 +11050,23 @@ void EditorStateTest::pasteOntoItsOwnKeysCarriesOn()
     QVERIFY(qAbs(state.playheadSeconds() - 4.0) < 1e-6);
     QVERIFY(state.pasteKeyframes(track, 0));
     QCOMPARE(times().size(), 6);
+
+    // A ball falling with Separate dimensions (0.30, Jorge: «it copies the keyframe, not the animation»):
+    // one key picked on the still X row copies the whole fall, Y included, and cloned elsewhere it falls
+    // again.
+    const QString x = QStringLiteral("x");
+    const QString y = QStringLiteral("y");
+    state.setClipKeyframe(track, 0, x, 0.0, 960.0);
+    state.setClipKeyframe(track, 0, y, 0.0, 100.0);
+    state.setClipKeyframe(track, 0, x, 0.5, 960.0);
+    state.setClipKeyframe(track, 0, y, 0.5, 800.0);
+    const QVariantList oneKey{
+        QVariantMap{{QStringLiteral("clip"), 0}, {QStringLiteral("prop"), x}, {QStringLiteral("seconds"), 0.5}}};
+    QCOMPARE(state.copyKeyframes(track, oneKey), 4);
+    state.setPlayheadSeconds(2.0);
+    QVERIFY(state.pasteKeyframes(track, 0));
+    QCOMPARE(state.propertyValueAt(track, 0, y, 2.0, 0.0), 100.0);
+    QCOMPARE(state.propertyValueAt(track, 0, y, 2.5, 0.0), 800.0);
 }
 
 void EditorStateTest::trackKeyframeRowsUnfoldAndEdit()
