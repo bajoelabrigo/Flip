@@ -9804,6 +9804,12 @@ void AppController::addSubtitleClip(double atSeconds)
 
 namespace {
 
+// As bilingualLineGap (two lines of each plus a margin): one caption clip stacked over another.
+double subtitleStackGap(double belowPixelSize, double abovePixelSize, double canvasHeight)
+{
+    return qMax(canvasHeight * 0.11, 1.25 * (belowPixelSize + abovePixelSize) + canvasHeight * 0.02);
+}
+
 drift::TimeUs subtitleClipDurationForCues(const QList<drift::SubtitleCue> &cues)
 {
     drift::TimeUs duration = drift::kSubtitleClipDurationUs;
@@ -9853,6 +9859,31 @@ bool AppController::importSubtitleFile(const QUrl &url, double atSeconds)
     if (const std::optional<drift::TextStyle> preset = drift::textStyleForPresetId(QStringLiteral("subtitle")))
         clip.textStyle = *preset;
     applyDefaultVisualLayout(clip, m_project.width(), m_project.height());
+    // Captions already on screen at those times: the file's go right above the highest of them, as a
+    // translation does, instead of on top of them where neither could be read (0.30 tests E51).
+    {
+        bool under = false;
+        double topY = 0.0;
+        double topSize = clip.textStyle.pixelSize;
+        for (int t = 0; t < m_project.tracks().size(); ++t) {
+            if (t == trackIndex || m_project.tracks().at(t).hidden)
+                continue;
+            for (const drift::Clip &other : m_project.tracks().at(t).clips) {
+                if (other.type != drift::ClipType::Subtitle || other.subtitleCues.isEmpty()
+                    || other.timelineStart >= start + duration || other.timelineEnd() <= start)
+                    continue;
+                const double y = other.transformY.isEmpty() ? 0.0 : other.transformY.evaluateAt(0);
+                if (!under || y < topY) {
+                    topY = y;
+                    topSize = other.textStyle.pixelSize;
+                }
+                under = true;
+            }
+        }
+        const double ownY = clip.transformY.isEmpty() ? 0.0 : clip.transformY.evaluateAt(0);
+        if (under && ownY > topY - subtitleStackGap(topSize, clip.textStyle.pixelSize, m_project.height()))
+            clip.transformY.setKeyframe(0, topY - subtitleStackGap(topSize, clip.textStyle.pixelSize, m_project.height()));
+    }
 
     track.clips.append(clip);
     const int newClipIndex = track.clips.size() - 1;
@@ -9960,12 +9991,29 @@ QList<QList<drift::SubtitleCue>> AppController::subtitleSidecarCues(const drift:
     return out;
 }
 
+namespace {
+QString captionsLanguage(const QStringList &texts);
+}
+
 void AppController::writeSubtitleSidecars(const QString &videoPath, const QList<QList<drift::SubtitleCue>> &tracks)
 {
     const QFileInfo info(videoPath);
     const QString base = info.absolutePath() + QLatin1Char('/') + info.completeBaseName();
+    QStringList used;
     for (int i = 0; i < tracks.size(); ++i) {
-        const QString path = i == 0 ? base + QStringLiteral(".srt") : base + QStringLiteral(".%1.srt").arg(i + 1);
+        // The first keeps the video's own name (what players load); the others say their language
+        // («video.en.srt»), as players list them, not «video.2.srt» (0.30 tests E52).
+        QString path = base + QStringLiteral(".srt");
+        if (i > 0) {
+            QStringList texts;
+            for (const drift::SubtitleCue &cue : tracks.at(i))
+                texts.append(cue.text);
+            const QString lang = captionsLanguage(texts);
+            path = lang.isEmpty() || used.contains(lang) ? base + QStringLiteral(".%1.srt").arg(i + 1)
+                                                         : base + QStringLiteral(".%1.srt").arg(lang);
+            if (!lang.isEmpty())
+                used.append(lang);
+        }
         QString error;
         if (!drift::writeSubtitleFile(path, tracks.at(i), &error, m_project.width(), m_project.height()))
             qWarning() << "[export] could not write" << path << error;
@@ -17903,6 +17951,76 @@ QVariantList AppController::subtitleTranslationLanguages() const
     return out;
 }
 
+namespace {
+// Captions cut a sentence across several of them («Primero abrimos el programa y elegimos un» / «video.»).
+// Translated one by one, each half came back on its own («…and chose a» / «and video.»: 0.30 tests
+// E53). So whole sentences are translated (up to four captions each) and the words shared back out,
+// as many to each caption as it had.
+struct CaptionSentences {
+    QStringList sentences;
+    QList<QList<int>> wordCounts; // per sentence, the words of each of its captions
+};
+
+CaptionSentences groupCaptionSentences(const QStringList &texts)
+{
+    CaptionSentences out;
+    QStringList parts;
+    QList<int> counts;
+    const auto close = [&] {
+        if (parts.isEmpty())
+            return;
+        out.sentences.append(parts.join(QLatin1Char(' ')));
+        out.wordCounts.append(counts);
+        parts.clear();
+        counts.clear();
+    };
+    for (const QString &raw : texts) {
+        const QString text = raw.simplified();
+        parts.append(text);
+        counts.append(qMax(1, int(text.split(QLatin1Char(' '), Qt::SkipEmptyParts).size())));
+        const QChar last = text.isEmpty() ? QChar() : text.back();
+        if (last == QLatin1Char('.') || last == QLatin1Char('!') || last == QLatin1Char('?') || last == QChar(0x2026)
+            || last == QChar(0x3002) || parts.size() >= 4)
+            close();
+    }
+    close();
+    return out;
+}
+
+QStringList splitCaptionSentences(const CaptionSentences &grouped, const QStringList &translated)
+{
+    QStringList out;
+    if (translated.size() != grouped.sentences.size())
+        return out;
+    for (int s = 0; s < translated.size(); ++s) {
+        const QList<int> &counts = grouped.wordCounts.at(s);
+        if (counts.size() == 1) {
+            out.append(translated.at(s).trimmed());
+            continue;
+        }
+        const QStringList words = translated.at(s).simplified().split(QLatin1Char(' '), Qt::SkipEmptyParts);
+        int total = 0;
+        for (const int c : counts)
+            total += c;
+        int taken = 0;
+        int before = 0;
+        for (int i = 0; i < counts.size(); ++i) {
+            before += counts.at(i);
+            int upto = i == counts.size() - 1 ? int(words.size())
+                                               : int(std::lround(double(before) / total * words.size()));
+            // Each caption keeps at least a word while there are words for the ones after it.
+            const int left = int(counts.size()) - i - 1;
+            const int least = qMin(taken + 1, int(words.size()));
+            const int most = qMax(least, int(words.size()) - left);
+            upto = qMin(qMax(upto, least), most);
+            out.append(words.mid(taken, upto - taken).join(QLatin1Char(' ')));
+            taken = upto;
+        }
+    }
+    return out;
+}
+} // namespace
+
 void AppController::translateSubtitles(int trackIndex, int clipIndex, const QString &language)
 {
     if (m_subtitleTranslating || !isValidClipIndex(trackIndex, clipIndex))
@@ -17911,12 +18029,14 @@ void AppController::translateSubtitles(int trackIndex, int clipIndex, const QStr
     if (source.type != drift::ClipType::Subtitle || source.subtitleCues.isEmpty())
         return;
     // The *marks* of key words would come back moved or lost: the translation goes without them.
+    QStringList cueTexts;
+    for (const drift::SubtitleCue &cue : source.subtitleCues)
+        cueTexts.append(QString(cue.text).remove(QLatin1Char('*')));
+    // Whole sentences go to the translator; insertTranslatedCaptions shares them back out.
+    const QStringList plain = groupCaptionSentences(cueTexts).sentences;
     QJsonArray texts;
-    QStringList plain;
-    for (const drift::SubtitleCue &cue : source.subtitleCues) {
-        texts.append(QString(cue.text).remove(QLatin1Char('*')));
-        plain.append(QString(cue.text).remove(QLatin1Char('*')));
-    }
+    for (const QString &sentence : plain)
+        texts.append(sentence);
     const QString sourceLanguage = QSettings().value(QStringLiteral("subtitles/language")).toString();
     const QString sourceId = source.id;
     QString label = language;
@@ -17993,13 +18113,18 @@ void AppController::translateSubtitlesOffline(const QString &sourceId, const QSt
     });
 }
 
-void AppController::insertTranslatedCaptions(const QString &sourceId, const QString &label, const QStringList &translations)
+void AppController::insertTranslatedCaptions(const QString &sourceId, const QString &label, const QStringList &sentences)
 {
     {
         const QPair<int, int> loc = m_mcpController->locateClip(sourceId);
         if (loc.first < 0)
             return;
         const drift::Clip original = m_project.tracks().at(loc.first).clips.at(loc.second);
+        // Sent as whole sentences: their words go back to the captions they came from.
+        QStringList cueTexts;
+        for (const drift::SubtitleCue &cue : original.subtitleCues)
+            cueTexts.append(QString(cue.text).remove(QLatin1Char('*')));
+        const QStringList translations = splitCaptionSentences(groupCaptionSentences(cueTexts), sentences);
         if (translations.size() != original.subtitleCues.size()) {
             setLastMessage(tr("The captions changed while they were being translated; try again"), QStringLiteral("warning"));
             return;
@@ -31176,8 +31301,10 @@ QVariantList AppController::trackKeyframeRows(int trackIndex) const
                 anyJoined = anyJoined || track.clips.at(c).positionJoined;
                 anySeparated = anySeparated || track.clips.at(c).positionSeparated;
             }
-            const bool separated = groupId == QLatin1String("position")
-                                   && (anyJoined ? false : (anySeparated || m_dimensionsSeparated));
+            // In After Effects Position is one line until Separate Dimensions is chosen for that layer;
+            // the old app-wide preference split it on layers that never asked (two rows on a still
+            // rectangle, «✓ Separate dimensions» before animating: 0.30 tests E43/E45).
+            const bool separated = groupId == QLatin1String("position") && !anyJoined && anySeparated;
             const bool expanded = !separated && group.props.size() > 1
                 && m_keyframeGroupsExpanded.contains(track.id + QLatin1Char('|') + groupId);
             if (!separated) {

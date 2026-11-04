@@ -2,6 +2,7 @@
 
 #include <QDir>
 #include <QFile>
+#include <QFileInfo>
 #include <QStandardPaths>
 #include <QUuid>
 
@@ -41,6 +42,7 @@ struct AudioFileWriter::Impl
     QString tmpPath;
     int channels = 2;
     int frameSize = 4608;
+    AVSampleFormat sampleFormat = AV_SAMPLE_FMT_S16;
     int64_t nextPts = 0;
     bool finished = false;
 
@@ -84,9 +86,24 @@ bool AudioFileWriter::Impl::encodeOneFrame(const float *interleaved, QString *er
         return false;
     }
 
-    auto *out = reinterpret_cast<int16_t *>(frame->data[0]);
-    for (int i = 0; i < frameSize * channels; ++i)
-        out[i] = toS16(interleaved[i]);
+    // FLAC and WAV take interleaved 16-bit; MP3 (LAME) takes planar float or planar 16-bit.
+    if (sampleFormat == AV_SAMPLE_FMT_FLTP) {
+        for (int ch = 0; ch < channels; ++ch) {
+            auto *out = reinterpret_cast<float *>(frame->data[ch]);
+            for (int i = 0; i < frameSize; ++i)
+                out[i] = std::clamp(interleaved[i * channels + ch], -1.0f, 1.0f);
+        }
+    } else if (sampleFormat == AV_SAMPLE_FMT_S16P) {
+        for (int ch = 0; ch < channels; ++ch) {
+            auto *out = reinterpret_cast<int16_t *>(frame->data[ch]);
+            for (int i = 0; i < frameSize; ++i)
+                out[i] = toS16(interleaved[i * channels + ch]);
+        }
+    } else {
+        auto *out = reinterpret_cast<int16_t *>(frame->data[0]);
+        for (int i = 0; i < frameSize * channels; ++i)
+            out[i] = toS16(interleaved[i]);
+    }
 
     frame->pts = nextPts;
     nextPts += frameSize;
@@ -148,13 +165,41 @@ bool AudioFileWriter::open(const QString &path, int sampleRate, int channels, QS
         QFile::remove(d->tmpPath);
 
     const QByteArray tmpUtf8 = d->tmpPath.toUtf8();
-    avformat_alloc_output_context2(&d->fmt, nullptr, "flac", tmpUtf8.constData());
+    // The kind follows the name: .wav and .mp3 for a voice saved to share (0.30 tests E59), FLAC
+    // for everything the app keeps itself.
+    const QString suffix = QFileInfo(path).suffix().toLower();
+    const char *container = suffix == QLatin1String("wav") ? "wav" : suffix == QLatin1String("mp3") ? "mp3" : "flac";
+    avformat_alloc_output_context2(&d->fmt, nullptr, container, tmpUtf8.constData());
     if (!d->fmt)
         return fail(QStringLiteral("Could not create the audio container"));
 
-    const AVCodec *codec = avcodec_find_encoder(AV_CODEC_ID_FLAC);
+    const AVCodec *codec = nullptr;
+    d->sampleFormat = AV_SAMPLE_FMT_S16;
+    if (suffix == QLatin1String("wav")) {
+        codec = avcodec_find_encoder(AV_CODEC_ID_PCM_S16LE);
+    } else if (suffix == QLatin1String("mp3")) {
+        codec = avcodec_find_encoder_by_name("libmp3lame");
+        if (!codec)
+            codec = avcodec_find_encoder(AV_CODEC_ID_MP3);
+        d->sampleFormat = AV_SAMPLE_FMT_FLTP;
+        const void *configs = nullptr;
+        if (codec && avcodec_get_supported_config(nullptr, codec, AV_CODEC_CONFIG_SAMPLE_FORMAT, 0, &configs, nullptr) >= 0
+            && configs) {
+            const auto *fmts = static_cast<const AVSampleFormat *>(configs);
+            AVSampleFormat chosen = AV_SAMPLE_FMT_NONE;
+            for (const AVSampleFormat *f = fmts; *f != AV_SAMPLE_FMT_NONE; ++f) {
+                if ((*f == AV_SAMPLE_FMT_FLTP || *f == AV_SAMPLE_FMT_S16P || *f == AV_SAMPLE_FMT_S16)
+                    && (chosen == AV_SAMPLE_FMT_NONE || *f == AV_SAMPLE_FMT_FLTP))
+                    chosen = *f;
+            }
+            if (chosen != AV_SAMPLE_FMT_NONE)
+                d->sampleFormat = chosen;
+        }
+    } else {
+        codec = avcodec_find_encoder(AV_CODEC_ID_FLAC);
+    }
     if (!codec)
-        return fail(QStringLiteral("FLAC encoder not available"));
+        return fail(QStringLiteral("No encoder for this kind of audio file"));
 
     d->stream = avformat_new_stream(d->fmt, nullptr);
     if (!d->stream)
@@ -164,19 +209,22 @@ bool AudioFileWriter::open(const QString &path, int sampleRate, int channels, QS
     if (!d->ctx)
         return fail(QStringLiteral("Could not allocate the audio encoder"));
 
-    d->ctx->sample_fmt = AV_SAMPLE_FMT_S16;
+    d->ctx->sample_fmt = d->sampleFormat;
     d->ctx->sample_rate = sampleRate;
+    if (suffix == QLatin1String("mp3"))
+        d->ctx->bit_rate = 192000;
     av_channel_layout_default(&d->ctx->ch_layout, channels);
     d->ctx->time_base = AVRational{1, sampleRate};
     if (d->fmt->oformat->flags & AVFMT_GLOBALHEADER)
         d->ctx->flags |= AV_CODEC_FLAG_GLOBAL_HEADER;
 
     if (avcodec_open2(d->ctx, codec, nullptr) < 0)
-        return fail(QStringLiteral("Could not open the FLAC encoder"));
+        return fail(QStringLiteral("Could not open the audio encoder"));
 
     avcodec_parameters_from_context(d->stream->codecpar, d->ctx);
     d->stream->time_base = d->ctx->time_base;
     d->frameSize = d->ctx->frame_size > 0 ? d->ctx->frame_size : 4608;
+    // A WAV's PCM takes any block: the same as FLAC's keeps the code one path.
 
     if (!(d->fmt->oformat->flags & AVFMT_NOFILE)) {
         if (avio_open(&d->fmt->pb, tmpUtf8.constData(), AVIO_FLAG_WRITE) < 0)
@@ -191,7 +239,7 @@ bool AudioFileWriter::open(const QString &path, int sampleRate, int channels, QS
     if (!d->pkt || !d->frame)
         return fail(QStringLiteral("Could not allocate audio buffers"));
 
-    d->frame->format = AV_SAMPLE_FMT_S16;
+    d->frame->format = d->sampleFormat;
     d->frame->sample_rate = sampleRate;
     av_channel_layout_copy(&d->frame->ch_layout, &d->ctx->ch_layout);
     d->frame->nb_samples = d->frameSize;

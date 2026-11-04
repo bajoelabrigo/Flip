@@ -8082,6 +8082,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Discard the voice you made?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Discard and go on</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The Voice panel has a take that is not on the timeline yet. Add it first with «Add to timeline», or discard it to start this one.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Lower the music under this voice</source>
         <translation type="unfinished"></translation>
     </message>
@@ -28928,6 +28940,18 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Turn this text into a voice that starts with it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Discard the voice you made?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Discard and go on</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The Voice panel has a take that is not on the timeline yet. Add it first with «Add to timeline», or discard it to start this one.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

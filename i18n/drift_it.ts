@@ -8082,6 +8082,18 @@
         <translation>Cambia il testo o la voce e fallo ripetere, al posto di questo audio</translation>
     </message>
     <message>
+        <source>Discard the voice you made?</source>
+        <translation>Scartare la voce creata?</translation>
+    </message>
+    <message>
+        <source>Discard and go on</source>
+        <translation>Scarta e continua</translation>
+    </message>
+    <message>
+        <source>The Voice panel has a take that is not on the timeline yet. Add it first with «Add to timeline», or discard it to start this one.</source>
+        <translation>Nel pannello Voce c’è una ripresa non ancora sulla timeline. Aggiungila prima con «Aggiungi alla timeline» oppure scartala per iniziare questa.</translation>
+    </message>
+    <message>
         <source>Lower the music under this voice</source>
         <translation>Abbassa la musica sotto questa voce</translation>
     </message>
@@ -29001,6 +29013,18 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     <message>
         <source>Turn this text into a voice that starts with it</source>
         <translation>Trasforma questo testo in una voce che inizia con esso</translation>
+    </message>
+    <message>
+        <source>Discard the voice you made?</source>
+        <translation>Scartare la voce creata?</translation>
+    </message>
+    <message>
+        <source>Discard and go on</source>
+        <translation>Scarta e continua</translation>
+    </message>
+    <message>
+        <source>The Voice panel has a take that is not on the timeline yet. Add it first with «Add to timeline», or discard it to start this one.</source>
+        <translation>Nel pannello Voce c’è una ripresa non ancora sulla timeline. Aggiungila prima con «Aggiungi alla timeline» oppure scartala per iniziare questa.</translation>
     </message>
     <message>
         <source>Bold</source>

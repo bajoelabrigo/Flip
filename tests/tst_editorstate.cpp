@@ -8481,7 +8481,9 @@ void EditorStateTest::linkedPositionKeyframesAndTangents()
     // Separate Dimensions is kept in the settings: put it back so later tests start linked.
     const auto relink = qScopeGuard([&state] { state.setPositionLinked(true); });
     QVERIFY(!state.positionLinked());
-    // The timeline shows X Position and Y Position instead of the joined Position line.
+    // Separate Dimensions is the layer's own choice (0.30, as After Effects): asked for, the timeline
+    // shows X Position and Y Position instead of the joined Position line.
+    state.setPositionJoined(track, clip, false);
     bool joinedPosition = false;
     int separatedLines = 0;
     for (const QVariant &v : state.trackKeyframeRows(track)) {

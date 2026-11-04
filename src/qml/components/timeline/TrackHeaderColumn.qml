@@ -2108,9 +2108,8 @@ Item {
                                 readonly property bool separated: {
                                     void EditorState.tracksRevision
                                     return keyLine.clip >= 0
-                                           && (EditorState.positionSeparated(keyLines.trackIndex, keyLine.clip)
-                                               || (!EditorState.positionJoined(keyLines.trackIndex, keyLine.clip)
-                                                   && !EditorState.positionLinked))
+                                           && EditorState.positionSeparated(keyLines.trackIndex, keyLine.clip)
+                                           && !EditorState.positionJoined(keyLines.trackIndex, keyLine.clip)
                                 }
                                 icon.name: separated ? Theme.icons.check : ""
                                 onTriggered: {

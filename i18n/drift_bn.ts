@@ -8082,6 +8082,18 @@
         <translation>টেক্সট বা ভয়েস বদলে আবার বলান, এই অডিওর জায়গায়</translation>
     </message>
     <message>
+        <source>Discard the voice you made?</source>
+        <translation>আপনার তৈরি ভয়েস বাতিল করবেন?</translation>
+    </message>
+    <message>
+        <source>Discard and go on</source>
+        <translation>বাতিল করে এগিয়ে যান</translation>
+    </message>
+    <message>
+        <source>The Voice panel has a take that is not on the timeline yet. Add it first with «Add to timeline», or discard it to start this one.</source>
+        <translation>ভয়েস প্যানেলে এমন একটি টেক আছে যা এখনও টাইমলাইনে নেই। আগে «টাইমলাইনে যোগ করুন» দিয়ে যোগ করুন, অথবা এটি শুরু করতে বাতিল করুন।</translation>
+    </message>
+    <message>
         <source>Lower the music under this voice</source>
         <translation>এই ভয়েসের নিচে মিউজিক কমান</translation>
     </message>
@@ -29033,6 +29045,18 @@ If playback stutters, try another.</source>
     <message>
         <source>Turn this text into a voice that starts with it</source>
         <translation>এই টেক্সটকে এমন ভয়েসে বদলান যা এর সাথে শুরু হয়</translation>
+    </message>
+    <message>
+        <source>Discard the voice you made?</source>
+        <translation>আপনার তৈরি ভয়েস বাতিল করবেন?</translation>
+    </message>
+    <message>
+        <source>Discard and go on</source>
+        <translation>বাতিল করে এগিয়ে যান</translation>
+    </message>
+    <message>
+        <source>The Voice panel has a take that is not on the timeline yet. Add it first with «Add to timeline», or discard it to start this one.</source>
+        <translation>ভয়েস প্যানেলে এমন একটি টেক আছে যা এখনও টাইমলাইনে নেই। আগে «টাইমলাইনে যোগ করুন» দিয়ে যোগ করুন, অথবা এটি শুরু করতে বাতিল করুন।</translation>
     </message>
     <message>
         <source>Bold</source>

@@ -8082,6 +8082,18 @@
         <translation>Baguhin ang teksto o boses at ipabigkas muli, kapalit ng audio na ito</translation>
     </message>
     <message>
+        <source>Discard the voice you made?</source>
+        <translation>Itapon ang boses na ginawa mo?</translation>
+    </message>
+    <message>
+        <source>Discard and go on</source>
+        <translation>Itapon at magpatuloy</translation>
+    </message>
+    <message>
+        <source>The Voice panel has a take that is not on the timeline yet. Add it first with «Add to timeline», or discard it to start this one.</source>
+        <translation>May take sa panel na Boses na wala pa sa timeline. Idagdag muna ito gamit ang «Idagdag sa timeline», o itapon ito para simulan ang isang ito.</translation>
+    </message>
+    <message>
         <source>Lower the music under this voice</source>
         <translation>Hinaan ang musika sa ilalim ng boses na ito</translation>
     </message>
@@ -28989,6 +29001,18 @@ If playback stutters, try another.</source>
     <message>
         <source>Turn this text into a voice that starts with it</source>
         <translation>Gawing boses ang tekstong ito na nagsisimula kasabay nito</translation>
+    </message>
+    <message>
+        <source>Discard the voice you made?</source>
+        <translation>Itapon ang boses na ginawa mo?</translation>
+    </message>
+    <message>
+        <source>Discard and go on</source>
+        <translation>Itapon at magpatuloy</translation>
+    </message>
+    <message>
+        <source>The Voice panel has a take that is not on the timeline yet. Add it first with «Add to timeline», or discard it to start this one.</source>
+        <translation>May take sa panel na Boses na wala pa sa timeline. Idagdag muna ito gamit ang «Idagdag sa timeline», o itapon ito para simulan ang isang ito.</translation>
     </message>
     <message>
         <source>Bold</source>

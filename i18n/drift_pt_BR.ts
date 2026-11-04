@@ -8082,6 +8082,18 @@
         <translation>Mude o texto ou a voz e fale de novo, no lugar deste áudio</translation>
     </message>
     <message>
+        <source>Discard the voice you made?</source>
+        <translation>Descartar a voz que você criou?</translation>
+    </message>
+    <message>
+        <source>Discard and go on</source>
+        <translation>Descartar e continuar</translation>
+    </message>
+    <message>
+        <source>The Voice panel has a take that is not on the timeline yet. Add it first with «Add to timeline», or discard it to start this one.</source>
+        <translation>O painel Voz tem uma tomada que ainda não está na linha do tempo. Adicione-a antes com «Adicionar à linha do tempo» ou descarte-a para começar esta.</translation>
+    </message>
+    <message>
         <source>Lower the music under this voice</source>
         <translation>Abaixar a música sob esta voz</translation>
     </message>
@@ -29001,6 +29013,18 @@ Se a reprodução travar, tente outra opção.</translation>
     <message>
         <source>Turn this text into a voice that starts with it</source>
         <translation>Transforme este texto numa voz que começa com ele</translation>
+    </message>
+    <message>
+        <source>Discard the voice you made?</source>
+        <translation>Descartar a voz que você criou?</translation>
+    </message>
+    <message>
+        <source>Discard and go on</source>
+        <translation>Descartar e continuar</translation>
+    </message>
+    <message>
+        <source>The Voice panel has a take that is not on the timeline yet. Add it first with «Add to timeline», or discard it to start this one.</source>
+        <translation>O painel Voz tem uma tomada que ainda não está na linha do tempo. Adicione-a antes com «Adicionar à linha do tempo» ou descarte-a para começar esta.</translation>
     </message>
     <message>
         <source>Bold</source>

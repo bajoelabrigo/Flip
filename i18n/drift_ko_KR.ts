@@ -8032,6 +8032,18 @@
         <translation>텍스트나 음성을 바꿔 이 오디오 대신 다시 읽게 합니다</translation>
     </message>
     <message>
+        <source>Discard the voice you made?</source>
+        <translation>만든 음성을 버릴까요?</translation>
+    </message>
+    <message>
+        <source>Discard and go on</source>
+        <translation>버리고 계속</translation>
+    </message>
+    <message>
+        <source>The Voice panel has a take that is not on the timeline yet. Add it first with «Add to timeline», or discard it to start this one.</source>
+        <translation>음성 패널에 아직 타임라인에 추가하지 않은 테이크가 있습니다. 먼저 「타임라인에 추가」로 추가하거나, 버리고 이것을 시작하세요.</translation>
+    </message>
+    <message>
         <source>Lower the music under this voice</source>
         <translation>이 음성 아래 음악 줄이기</translation>
     </message>
@@ -28903,6 +28915,18 @@ If playback stutters, try another.</source>
     <message>
         <source>Turn this text into a voice that starts with it</source>
         <translation>이 텍스트를 함께 시작하는 음성으로 바꾸기</translation>
+    </message>
+    <message>
+        <source>Discard the voice you made?</source>
+        <translation>만든 음성을 버릴까요?</translation>
+    </message>
+    <message>
+        <source>Discard and go on</source>
+        <translation>버리고 계속</translation>
+    </message>
+    <message>
+        <source>The Voice panel has a take that is not on the timeline yet. Add it first with «Add to timeline», or discard it to start this one.</source>
+        <translation>음성 패널에 아직 타임라인에 추가하지 않은 테이크가 있습니다. 먼저 「타임라인에 추가」로 추가하거나, 버리고 이것을 시작하세요.</translation>
     </message>
     <message>
         <source>Bold</source>

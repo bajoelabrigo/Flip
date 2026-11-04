@@ -8132,6 +8132,18 @@
         <translation>Zmień tekst lub głos i wypowiedz go ponownie, zamiast tego dźwięku</translation>
     </message>
     <message>
+        <source>Discard the voice you made?</source>
+        <translation>Odrzucić utworzony głos?</translation>
+    </message>
+    <message>
+        <source>Discard and go on</source>
+        <translation>Odrzuć i kontynuuj</translation>
+    </message>
+    <message>
+        <source>The Voice panel has a take that is not on the timeline yet. Add it first with «Add to timeline», or discard it to start this one.</source>
+        <translation>W panelu Głos jest nagranie, którego nie ma jeszcze na osi czasu. Najpierw dodaj je przyciskiem „Dodaj do osi czasu” albo odrzuć, aby zacząć to.</translation>
+    </message>
+    <message>
         <source>Lower the music under this voice</source>
         <translation>Ścisz muzykę pod tym głosem</translation>
     </message>
@@ -29097,6 +29109,18 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     <message>
         <source>Turn this text into a voice that starts with it</source>
         <translation>Zamień ten tekst w głos, który zaczyna się razem z nim</translation>
+    </message>
+    <message>
+        <source>Discard the voice you made?</source>
+        <translation>Odrzucić utworzony głos?</translation>
+    </message>
+    <message>
+        <source>Discard and go on</source>
+        <translation>Odrzuć i kontynuuj</translation>
+    </message>
+    <message>
+        <source>The Voice panel has a take that is not on the timeline yet. Add it first with «Add to timeline», or discard it to start this one.</source>
+        <translation>W panelu Głos jest nagranie, którego nie ma jeszcze na osi czasu. Najpierw dodaj je przyciskiem „Dodaj do osi czasu” albo odrzuć, aby zacząć to.</translation>
     </message>
     <message>
         <source>Bold</source>

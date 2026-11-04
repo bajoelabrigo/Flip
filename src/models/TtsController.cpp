@@ -6,6 +6,7 @@
 #include "engine/AddonRegistry.h"
 #include "engine/AudioFileWriter.h"
 #include "engine/OrtRuntime.h"
+#include "engine/SpeechAudio.h"
 #include "core/ZipArchive.h"
 
 #include <QDir>
@@ -19,6 +20,7 @@
 
 #include <soundtouch/SoundTouch.h>
 
+#include <algorithm>
 #include <map>
 #include <memory>
 #include <optional>
@@ -825,6 +827,28 @@ bool TtsController::saveClipVoice(int trackIndex, int clipIndex, const QUrl &url
     if (!asset)
         return false;
     const QString target = url.toLocalFile();
+    const QString suffix = QFileInfo(target).suffix().toLower();
+    if (suffix == QLatin1String("wav") || suffix == QLatin1String("mp3")) {
+        // WAV or MP3, as people share a voice (0.30 tests E59): decoded and written anew. The voices
+        // are mono at 24 kHz (Chatterbox) or less, so that is what is kept.
+        constexpr int kRate = 24000;
+        const std::vector<float> pcm = drift::readMono(asset->path, 0, -1, kRate);
+        if (pcm.empty())
+            return false;
+        drift::AudioFileWriter writer;
+        QString error;
+        if (!writer.open(target, kRate, 1, &error))
+            return false;
+        constexpr int kBlock = 1 << 15;
+        for (size_t off = 0; off < pcm.size(); off += kBlock) {
+            const int n = int(std::min<size_t>(kBlock, pcm.size() - off));
+            if (!writer.writeFrames(pcm.data() + off, n, &error)) {
+                writer.abort();
+                return false;
+            }
+        }
+        return writer.finish(&error);
+    }
     if (QFile::exists(target))
         QFile::remove(target);
     return QFile::copy(asset->path, target);
@@ -842,7 +866,15 @@ int TtsController::duckMusicUnder(int trackIndex, int clipIndex)
             continue;
         for (int c = 0; c < tracks.at(t).clips.size(); ++c) {
             const drift::Clip &other = tracks.at(t).clips.at(c);
-            if (other.timelineStart < voice.timelineEnd() && other.timelineEnd() > voice.timelineStart)
+            if (other.timelineStart >= voice.timelineEnd() || other.timelineEnd() <= voice.timelineStart)
+                continue;
+            // Only the music: another voice from a script, or a recorded voiceover, is speech too and
+            // stays as loud (0.30 tests E57: the other voice went down with the music, «2 clips»).
+            const drift::MediaAsset *asset = m_app->m_project.asset(other.assetId);
+            const bool speech = asset
+                                && (asset->generator.contains(QStringLiteral("text"))
+                                    || QFileInfo(asset->path).fileName().startsWith(QLatin1String("voiceover-")));
+            if (!speech)
                 music.append({t, c});
         }
     }

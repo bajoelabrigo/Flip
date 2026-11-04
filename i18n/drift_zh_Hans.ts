@@ -8032,6 +8032,18 @@
         <translation>更改文字或声音并重新朗读，替换此音频</translation>
     </message>
     <message>
+        <source>Discard the voice you made?</source>
+        <translation>要放弃你制作的语音吗？</translation>
+    </message>
+    <message>
+        <source>Discard and go on</source>
+        <translation>放弃并继续</translation>
+    </message>
+    <message>
+        <source>The Voice panel has a take that is not on the timeline yet. Add it first with «Add to timeline», or discard it to start this one.</source>
+        <translation>语音面板中有一段尚未添加到时间线的录音。请先用“添加到时间线”添加它，或放弃它以开始这一段。</translation>
+    </message>
+    <message>
         <source>Lower the music under this voice</source>
         <translation>降低此配音下的音乐</translation>
     </message>
@@ -28904,6 +28916,18 @@ If playback stutters, try another.</source>
     <message>
         <source>Turn this text into a voice that starts with it</source>
         <translation>将此文字转为与其同时开始的配音</translation>
+    </message>
+    <message>
+        <source>Discard the voice you made?</source>
+        <translation>要放弃你制作的语音吗？</translation>
+    </message>
+    <message>
+        <source>Discard and go on</source>
+        <translation>放弃并继续</translation>
+    </message>
+    <message>
+        <source>The Voice panel has a take that is not on the timeline yet. Add it first with «Add to timeline», or discard it to start this one.</source>
+        <translation>语音面板中有一段尚未添加到时间线的录音。请先用“添加到时间线”添加它，或放弃它以开始这一段。</translation>
     </message>
     <message>
         <source>Bold</source>

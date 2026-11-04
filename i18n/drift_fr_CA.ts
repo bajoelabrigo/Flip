@@ -8083,6 +8083,18 @@
         <translation>Changez le texte ou la voix et faites-le redire, à la place de cet audio</translation>
     </message>
     <message>
+        <source>Discard the voice you made?</source>
+        <translation>Supprimer la voix créée?</translation>
+    </message>
+    <message>
+        <source>Discard and go on</source>
+        <translation>Supprimer et continuer</translation>
+    </message>
+    <message>
+        <source>The Voice panel has a take that is not on the timeline yet. Add it first with «Add to timeline», or discard it to start this one.</source>
+        <translation>Le panneau Voix contient une prise qui n’est pas encore dans la ligne de temps. Ajoutez-la d’abord avec « Ajouter à la ligne de temps », ou supprimez-la pour commencer celle-ci.</translation>
+    </message>
+    <message>
         <source>Lower the music under this voice</source>
         <translation>Baisser la musique sous cette voix</translation>
     </message>
@@ -29005,6 +29017,18 @@ Si la lecture saccade, essayez une autre option.</translation>
     <message>
         <source>Turn this text into a voice that starts with it</source>
         <translation>Transformer ce texte en une voix qui commence avec lui</translation>
+    </message>
+    <message>
+        <source>Discard the voice you made?</source>
+        <translation>Supprimer la voix créée?</translation>
+    </message>
+    <message>
+        <source>Discard and go on</source>
+        <translation>Supprimer et continuer</translation>
+    </message>
+    <message>
+        <source>The Voice panel has a take that is not on the timeline yet. Add it first with «Add to timeline», or discard it to start this one.</source>
+        <translation>Le panneau Voix contient une prise qui n’est pas encore dans la ligne de temps. Ajoutez-la d’abord avec « Ajouter à la ligne de temps », ou supprimez-la pour commencer celle-ci.</translation>
     </message>
     <message>
         <source>Bold</source>

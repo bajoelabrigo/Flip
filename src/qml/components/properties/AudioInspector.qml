@@ -177,7 +177,36 @@ Item {
                 glyph: Theme.icons.pencil
                 enabled: !EditorState.tts.running
                 tooltip: qsTr("Change the text or the voice and speak it again, in place of this audio")
-                onClicked: EditorState.tts.editClipScript(EditorState.selectedTrack, EditorState.selectedClip)
+                onClicked: {
+                    const track = EditorState.selectedTrack
+                    const clip = EditorState.selectedClip
+                    discardTakeDialog.ask(() => EditorState.tts.editClipScript(track, clip))
+                }
+            }
+
+            // A take not added yet would be thrown away by starting another (0.30 tests E56): asked first.
+            ThemedDialog {
+                id: discardTakeDialog
+                property var proceed: null
+                title: qsTr("Discard the voice you made?")
+                preferredWidth: 380
+                acceptText: qsTr("Discard and go on")
+                acceptVariant: "destructive"
+                onAccepted: { if (proceed) proceed(); proceed = null }
+                onRejected: proceed = null
+                contentItem: ThemedLabel {
+                    width: discardTakeDialog.availableWidth
+                    wrapMode: Text.WordWrap
+                    text: qsTr("The Voice panel has a take that is not on the timeline yet. Add it first with «Add to timeline», or discard it to start this one.")
+                }
+                function ask(action) {
+                    if (!EditorState.tts.hasTake) {
+                        action()
+                        return
+                    }
+                    proceed = action
+                    open()
+                }
             }
             ThemedButton {
                 width: parent.width

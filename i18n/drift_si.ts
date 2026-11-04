@@ -8082,6 +8082,18 @@
         <translation>පෙළ හෝ හඬ වෙනස් කර, මෙම ශ්‍රව්‍යය වෙනුවට නැවත කියවන්න</translation>
     </message>
     <message>
+        <source>Discard the voice you made?</source>
+        <translation>ඔබ සෑදූ හඬ ඉවත් කරන්නද?</translation>
+    </message>
+    <message>
+        <source>Discard and go on</source>
+        <translation>ඉවත් කර ඉදිරියට</translation>
+    </message>
+    <message>
+        <source>The Voice panel has a take that is not on the timeline yet. Add it first with «Add to timeline», or discard it to start this one.</source>
+        <translation>හඬ පැනලයේ තවම කාල රේඛාවට එක් නොකළ ටේක් එකක් ඇත. පළමුව «කාල රේඛාවට එක් කරන්න» මගින් එක් කරන්න, නැතහොත් මෙය ආරම්භ කිරීමට ඉවත් කරන්න.</translation>
+    </message>
+    <message>
         <source>Lower the music under this voice</source>
         <translation>මෙම හඬ යටතේ සංගීතය අඩු කරන්න</translation>
     </message>
@@ -28997,6 +29009,18 @@ If playback stutters, try another.</source>
     <message>
         <source>Turn this text into a voice that starts with it</source>
         <translation>මෙම පෙළ එය සමඟ ආරම්භ වන හඬක් බවට පත් කරන්න</translation>
+    </message>
+    <message>
+        <source>Discard the voice you made?</source>
+        <translation>ඔබ සෑදූ හඬ ඉවත් කරන්නද?</translation>
+    </message>
+    <message>
+        <source>Discard and go on</source>
+        <translation>ඉවත් කර ඉදිරියට</translation>
+    </message>
+    <message>
+        <source>The Voice panel has a take that is not on the timeline yet. Add it first with «Add to timeline», or discard it to start this one.</source>
+        <translation>හඬ පැනලයේ තවම කාල රේඛාවට එක් නොකළ ටේක් එකක් ඇත. පළමුව «කාල රේඛාවට එක් කරන්න» මගින් එක් කරන්න, නැතහොත් මෙය ආරම්භ කිරීමට ඉවත් කරන්න.</translation>
     </message>
     <message>
         <source>Bold</source>

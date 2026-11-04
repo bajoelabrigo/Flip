@@ -8282,6 +8282,18 @@
         <translation>غيّر النص أو الصوت وانطقه من جديد بدلًا من هذا الصوت</translation>
     </message>
     <message>
+        <source>Discard the voice you made?</source>
+        <translation>هل تريد تجاهل الصوت الذي أنشأته؟</translation>
+    </message>
+    <message>
+        <source>Discard and go on</source>
+        <translation>تجاهل والمتابعة</translation>
+    </message>
+    <message>
+        <source>The Voice panel has a take that is not on the timeline yet. Add it first with «Add to timeline», or discard it to start this one.</source>
+        <translation>في لوحة الصوت تسجيل لم يُضف إلى المخطط الزمني بعد. أضفه أولًا عبر «إضافة إلى المخطط الزمني» أو تجاهله لبدء هذا.</translation>
+    </message>
+    <message>
         <source>Lower the music under this voice</source>
         <translation>خفض الموسيقى تحت هذا الصوت</translation>
     </message>
@@ -29385,6 +29397,18 @@ If playback stutters, try another.</source>
     <message>
         <source>Turn this text into a voice that starts with it</source>
         <translation>حوّل هذا النص إلى صوت يبدأ معه</translation>
+    </message>
+    <message>
+        <source>Discard the voice you made?</source>
+        <translation>هل تريد تجاهل الصوت الذي أنشأته؟</translation>
+    </message>
+    <message>
+        <source>Discard and go on</source>
+        <translation>تجاهل والمتابعة</translation>
+    </message>
+    <message>
+        <source>The Voice panel has a take that is not on the timeline yet. Add it first with «Add to timeline», or discard it to start this one.</source>
+        <translation>في لوحة الصوت تسجيل لم يُضف إلى المخطط الزمني بعد. أضفه أولًا عبر «إضافة إلى المخطط الزمني» أو تجاهله لبدء هذا.</translation>
     </message>
     <message>
         <source>Bold</source>

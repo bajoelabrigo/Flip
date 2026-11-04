@@ -360,13 +360,19 @@ Item {
             return []
         const fmt = (v) => Math.abs(v) >= 100 ? String(Math.round(v))
                           : Math.abs(v) >= 10 ? v.toFixed(1) : v.toFixed(2)
+        const focused = root.series[root.focusedIndex]
+        // Scale reads in % of the layer's own size, as its line does and as After Effects (0.30 tests
+        // E48: the axis said 371…595, the width in pixels).
+        const percent = root.percentOf(focused.prop)
+        const unit = percent > 0 ? " %" : ""
+        const scaled = (v) => percent > 0 ? v / percent * 100 : v
         if (root.speedGraph) {
             const top = root.speedPeak
             if (!(top > 0))
                 return []
-            return [0, 0.5, 1].map((f) => ({ "y": h - 4 - f * (h - 8), "label": fmt(top * f) + "/s" }))
+            return [0, 0.5, 1].map((f) => ({ "y": h - 4 - f * (h - 8), "label": fmt(scaled(top * f)) + unit + "/s" }))
         }
-        const entry = root.series[root.focusedIndex]
+        const entry = focused
         void root.viewLo
         void root.viewHi
         const lo = root.valueForY(h, entry)
@@ -376,9 +382,19 @@ Item {
         const shown = root.displayOffset(entry.prop)
         for (let i = 0; i <= n; ++i) {
             const v = lo + (hi - lo) * i / n
-            out.push({ "y": root.yForValue(v, entry), "label": fmt(v + shown) })
+            out.push({ "y": root.yForValue(v, entry), "label": fmt(scaled(v + shown)) + unit })
         }
         return out
+    }
+    // A width or height is shown as a percentage of the layer's own size (Scale 100 %): that size,
+    // or 0 for any other property.
+    function percentOf(prop) {
+        if ((prop !== "width" && prop !== "height") || root.trackIndex < 0 || root.clipIndex < 0)
+            return 0
+        void EditorState.tracksRevision
+        const nat = EditorState.clipNaturalSize(root.trackIndex, root.clipIndex) || {}
+        const side = prop === "width" ? nat.w : nat.h
+        return side > 0 ? side : 0
     }
     // Position reads where the anchor point is (0.30), as the track's lines show it: the stored
     // value is the box's corner, so the axis adds the anchor's place in the layer (bounce #20).
@@ -394,7 +410,9 @@ Item {
                                                          EditorState.propertyBaseValue(root.trackIndex, root.clipIndex, p, 0))
         const animated = EditorState.clipAnimatedProperties(root.trackIndex, root.clipIndex).indexOf(sizeProp) >= 0
         const keys = animated ? (EditorState.clipKeyframes(root.trackIndex, root.clipIndex, sizeProp) || []) : []
-        const side = keys.length >= 2 ? keys[0].value : value(sizeProp)
+        // The size a keyed size grows from, as the renderer and the track's lines (0.30 tests E40).
+        const pivot = keys.length > 0 ? (horizontal ? root.clip.sizePivotW : root.clip.sizePivotH) : 0
+        const side = pivot > 0 ? pivot : keys.length >= 2 ? keys[0].value : value(sizeProp)
         const f = value(anchorProp)
         return (isNaN(f) ? 0.5 : f) * (isNaN(side) ? 0 : side)
     }
@@ -482,9 +500,23 @@ Item {
         // After Effects' Position as one property (0.30): in the Speed Graph it is one curve, the
         // speed along the path (X's and Y's own speeds say nothing there).
         const joined = root.speedGraph && EditorState.positionJoined(root.trackIndex, root.clipIndex)
+        // Only the properties whose lines are on show (0.30 tests E42, as After Effects' Graph Editor
+        // shows the properties in view): after S or Alt+Shift+S the graph kept drawing Position.
+        const rows = root.inline ? (EditorState.trackKeyframeRows(root.trackIndex) || []) : []
+        const onShow = {}
+        let filtered = false
+        for (const r of rows) {
+            if (!r || !r.group)
+                continue
+            filtered = true
+            for (const p of (r.groupProps && r.groupProps.length > 0 ? r.groupProps : [r.prop]))
+                onShow[p] = true
+        }
         let pathShown = false
         for (let i = 0; i < animated.length; ++i) {
             let id = animated[i]
+            if (filtered && !onShow[id])
+                continue
             if (joined && (id === "x" || id === "y")) {
                 if (pathShown)
                     continue
@@ -499,11 +531,32 @@ Item {
             const base = EditorState.propertyBaseValue(
                            root.trackIndex, root.clipIndex, id, 0)
             const range = root.valueRangeFor(id, pts, base)
+            // A behaviour (Bounce, Elastic, loop, wiggle, an expression) changes what plays: its
+            // result is drawn over the keys' curve, as After Effects' post-expression graph (0.30
+            // tests #19), and the range takes it in.
+            let result = []
+            if (id !== "position") {
+                const b = EditorState.propertyBehavior(root.trackIndex, root.clipIndex, id)
+                if (b && b.active === true) {
+                    const t0 = root.clipStart
+                    const steps = 160
+                    const dt = root.clipDuration / steps
+                    for (let k = 0; k <= steps; ++k) {
+                        const v = EditorState.propertyValueAt(root.trackIndex, root.clipIndex, id, t0 + dt * k, base)
+                        if (!isFinite(v))
+                            continue
+                        result.push({ seconds: t0 + dt * k, value: v })
+                        range.min = Math.min(range.min, v)
+                        range.max = Math.max(range.max, v)
+                    }
+                }
+            }
             out.push({
                 prop: id,
                 label: root.chipLabel(id),
                 color: Theme.keyframeCurveColor(id),
                 points: pts,
+                result: result,
                 baseValue: base,
                 enabled: EditorState.clipPropertyKeyframesEnabled(
                              root.trackIndex, root.clipIndex, id),
@@ -1532,6 +1585,23 @@ Item {
                                 const tail = sorted[sorted.length - 1]
                                 ctx.lineTo(spanX1, root.yForValue(tail.value, entry))
                                 ctx.stroke()
+                                // What plays with its behaviour on top (dashed), over the keys' curve.
+                                if (!root.speedGraph && entry.result && entry.result.length > 1) {
+                                    ctx.save()
+                                    ctx.setLineDash([5, 3])
+                                    ctx.lineWidth = focused ? 2 : 1
+                                    ctx.beginPath()
+                                    for (let k = 0; k < entry.result.length; ++k) {
+                                        const rx = root.xForSeconds(entry.result[k].seconds)
+                                        const ry = root.yForValue(entry.result[k].value, entry)
+                                        if (k === 0)
+                                            ctx.moveTo(rx, ry)
+                                        else
+                                            ctx.lineTo(rx, ry)
+                                    }
+                                    ctx.stroke()
+                                    ctx.restore()
+                                }
                             }
                             ctx.globalAlpha = 1.0
                             // The focused curve's speed, sampled from what plays: |Δvalue/Δt|,

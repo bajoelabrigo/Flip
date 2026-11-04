@@ -8032,6 +8032,18 @@
         <translation>テキストや声を変えて、この音声の代わりにもう一度読み上げます</translation>
     </message>
     <message>
+        <source>Discard the voice you made?</source>
+        <translation>作成した音声を破棄しますか？</translation>
+    </message>
+    <message>
+        <source>Discard and go on</source>
+        <translation>破棄して続ける</translation>
+    </message>
+    <message>
+        <source>The Voice panel has a take that is not on the timeline yet. Add it first with «Add to timeline», or discard it to start this one.</source>
+        <translation>音声パネルにまだタイムラインに追加していないテイクがあります。先に「タイムラインに追加」で追加するか、破棄してこちらを始めてください。</translation>
+    </message>
+    <message>
         <source>Lower the music under this voice</source>
         <translation>この音声の下の音楽を下げる</translation>
     </message>
@@ -28905,6 +28917,18 @@ If playback stutters, try another.</source>
     <message>
         <source>Turn this text into a voice that starts with it</source>
         <translation>このテキストを、それと同時に始まる音声にする</translation>
+    </message>
+    <message>
+        <source>Discard the voice you made?</source>
+        <translation>作成した音声を破棄しますか？</translation>
+    </message>
+    <message>
+        <source>Discard and go on</source>
+        <translation>破棄して続ける</translation>
+    </message>
+    <message>
+        <source>The Voice panel has a take that is not on the timeline yet. Add it first with «Add to timeline», or discard it to start this one.</source>
+        <translation>音声パネルにまだタイムラインに追加していないテイクがあります。先に「タイムラインに追加」で追加するか、破棄してこちらを始めてください。</translation>
     </message>
     <message>
         <source>Bold</source>
