@@ -23,6 +23,8 @@ registro heredado de Drift.
   (`pasteKeyframes(..., continueChain)`), expresiones con index/thisLayer, cuentas en los valores, tamaño con
   pivote (`Clip::sizePivotW/H`) también en la fila y el trayecto.
 - Interfaz: pestaña Texto armada una vez y en segundo plano, Esc cierra un desplegable (`notePopupOpen`).
+- Kit de YouTube: sin el fondo «Tu video» y con la pregunta Short o Video; en otra forma se ajusta por lo que dibuja
+  (`fitOverlayLayout`: tercios abajo, lo demás con su tamaño y su lugar dentro de la zona libre de un Short).
 
 ## 0.29.0 — Tercios inferiores fáciles y animación a mano como After Effects
 

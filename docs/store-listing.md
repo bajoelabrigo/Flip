@@ -110,7 +110,7 @@ El paquete declara `runFullTrust`. Partner Center pide justificarlo:
 
 > editor de video, editar videos, video editor, reels, shorts, transiciones, subtítulos
 
-**Notas para la Store (0.30.0)**. Lo nuevo desde la 0.29.0 (ya subida). 1059/1500 caracteres en español, 1017 en inglés.
+**Notas para la Store (0.30.0)**. Lo nuevo desde la 0.29.0 (ya subida). Unos 1170/1500 caracteres en español, 1130 en inglés.
 
 > Novedades de la 0.30.0
 >
@@ -121,6 +121,7 @@ El paquete declara `runFullTrust`. Partner Center pide justificarlo:
 > - Diálogos con una voz por persona, guion desde .txt, .md o Word, y la música baja sola bajo la voz. Guarda la voz en MP3 o WAV.
 > - Línea de tiempo como After Effects: Posición con trayecto curvo, editor de gráficos completo y atajos de After Effects a elegir.
 > - Látigo para emparentar capas, claves de varias capas a la vez y expresiones con index y linear.
+> - Kit de YouTube sin fondo y a la medida de un Short: tercios, botones y títulos se ven grandes en vertical.
 > - Arreglos: la escala ya no mueve la Posición, Esc cierra los desplegables y la pestaña Texto abre al instante.
 
 En inglés:
@@ -134,6 +135,7 @@ En inglés:
 > - Dialogues with one voice per person, scripts from .txt, .md or Word, and the music ducks under the voice. Save the voice as MP3 or WAV.
 > - After Effects timeline: Position with a curved path, a full graph editor and After Effects shortcuts to choose.
 > - Pick whip to parent layers, keys of several layers at once and expressions with index and linear.
+> - YouTube kit without a background and sized for Shorts: lower thirds, buttons and titles read well in vertical.
 > - Fixes: scale no longer moves Position, Esc closes drop-downs and the Text tab opens at once.
 
 **Notas para la Store (0.29.0, combinadas)**. Si la 0.28.0 no se subió (al 2026-11-01 no se había subido): estas cubren la 0.27, la 0.28 y la 0.29. 1111/1500 caracteres en español, 1043 en inglés.
