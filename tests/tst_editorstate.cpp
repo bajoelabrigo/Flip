@@ -39,6 +39,7 @@
 #include "engine/FrameCompositor.h"
 #include "engine/GpuCompositor.h"
 #include "engine/TextLayout.h"
+#include "engine/TransformLayer.h"
 #include "engine/ClipReaderPool.h"
 #include "models/AppController.h"
 #include "models/TtsController.h"
@@ -11128,6 +11129,15 @@ void EditorStateTest::scaleMovedByAnExpressionGrowsAroundTheAnchor()
     // The box moves up and left by half the growth, so the middle stays put.
     QVERIFY(qAbs(shift.x() + 50.0) < 1e-6);
     QVERIFY(qAbs(shift.y() + 50.0) < 1e-6);
+    // Placed by the layer transform too, with no anchor keys of its own (0.30 Academy: the circle grew from
+    // its top-left corner because the renderer only shifted clips that had anchor keys).
+    clip.transformX.setKeyframe(0, 100.0);
+    clip.transformY.setKeyframe(0, 100.0);
+    QVERIFY(clip.anchorX.isEmpty() && clip.anchorY.isEmpty());
+    drift::Project project;
+    const QPointF middle = drift::clipWorldPose(project, clip, 0).map(QPointF(0.0, 0.0));
+    QVERIFY2(qAbs(middle.x() - 200.0) < 1e-6 && qAbs(middle.y() - 200.0) < 1e-6,
+             qPrintable(QStringLiteral("middle at %1, %2").arg(middle.x()).arg(middle.y())));
 }
 
 void EditorStateTest::autoBezierKeyRunsThroughWithoutStopping()

@@ -928,7 +928,9 @@ void layoutRectForClip(const drift::Clip &clip, drift::TimeUs timelineUs, int pr
     if (rotationOut)
         *rotationOut = rotation;
     // The anchor point (0.25): the box moves so the turn pivots there rather than on its centre.
-    if (!clip.anchorX.isEmpty() || !clip.anchorY.isEmpty()) {
+    // Also without anchor keys: a size moved by a behaviour (an expression reading a Slider) grows around
+    // the centre (0.30 Academy: the circle grew from its top-left corner). anchorShift is zero otherwise.
+    {
         const QPointF shift = clip.anchorShift(relative, *wOut / renderScale, *hOut / renderScale, rotation);
         *xOut += shift.x() * renderScale;
         *yOut += shift.y() * renderScale;
