@@ -46,7 +46,8 @@ Item {
     function showItems() {
         const before = root.shownItems
         const next = Market.items
-        const appended = before.length > 0 && next.length > before.length && next[0].id === before[0].id
+        // A longer page of the same list, or the same list read again (a favourite, a use count): stay put.
+        const appended = before.length > 0 && next.length >= before.length && next[0].id === before[0].id
         const view = !appended ? null
                    : audioList.visible ? audioList : justified.visible ? justified : grid.visible ? grid : null
         const y = view ? view.contentY : 0
@@ -54,6 +55,23 @@ Item {
         if (view) {
             view.forceLayout()
             view.contentY = y
+        } else {
+            // A new list (another category, from the tree or the wheel) starts at its top (0.30.1: the
+            // wheel landed it part way down, the first cards' names showing above).
+            // Hidden while the page loads, so every view, and once it has laid the new cards out.
+            const toTop = () => {
+                for (const v of [audioList, justified, grid]) {
+                    if (!v)
+                        continue
+                    // A wheel flick still running from the list before carried the new one down (0.30.1).
+                    v.cancelFlick()
+                    v.forceLayout()
+                    v.positionViewAtBeginning()
+                    v.contentY = v.originY - v.topMargin
+                }
+            }
+            toTop()
+            Qt.callLater(toTop)
         }
     }
     // Our own catalogues sort by category; it is shown as a row of chips, not only behind Filters.
@@ -586,12 +604,31 @@ Item {
             flickable: root.showHome ? home.flickable
                        : root.mediaKind === "audio" ? audioList
                        : root.mediaKind === "image" ? justified : grid
-            categories: root.categories
-            activeCategory: Market.activeTypeId
+            // The open kind's own categories come first, one by one as their chips (0.31, Jorge: the
+            // wheel jumped from Templates › Intros straight to Music); past the last, the next kind.
+            readonly property bool stepsChips: root.categoryChips.length > 1
+            categories: {
+                const steps = []
+                for (const kind of root.categories) {
+                    if (stepsChips && kind.id === Market.activeTypeId) {
+                        for (const chip of root.categoryChips)
+                            steps.push({ id: "chip:" + chip.id, label: chip.label })
+                    } else {
+                        steps.push({ id: "kind:" + kind.id, label: kind.label })
+                    }
+                }
+                return steps
+            }
+            activeCategory: stepsChips ? "chip:" + root.activeCategoryChip : "kind:" + Market.activeTypeId
             active: root.categories.length > 0 && !root.detailShown
                     && root.query.trim().length === 0 && root.submittedQuery.trim().length === 0
                     && (root.showHome || (!Market.hasMore && !Market.searching))
-            onCategoryActivated: (categoryId) => root.categoryActivated(categoryId)
+            onCategoryActivated: (categoryId) => {
+                if (categoryId.startsWith("chip:"))
+                    root.chooseCategoryChip(categoryId.slice(5))
+                else
+                    root.categoryActivated(categoryId.slice(5))
+            }
         }
 
         StockHome {

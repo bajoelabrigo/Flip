@@ -57,12 +57,16 @@ MouseArea {
                                         <= flickable.originY - flickable.topMargin + 2)
 
     function toStart() {
-        if (flickable)
-            flickable.contentY = flickable.originY - flickable.topMargin
+        if (!flickable)
+            return
+        // The wheel's flick from the list before would carry the new one on down (0.30.1).
+        flickable.cancelFlick()
+        flickable.contentY = flickable.originY - flickable.topMargin
     }
     function toEnd() {
         if (!flickable)
             return
+        flickable.cancelFlick()
         flickable.contentY = Math.max(flickable.originY - flickable.topMargin,
                                       flickable.originY + flickable.contentHeight
                                       + flickable.bottomMargin - flickable.height)

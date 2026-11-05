@@ -482,7 +482,7 @@ Item {
                                     } else if (keyItem.dragArmed) {
                                         // A click: the clip and the playhead go to the key, so the
                                         // inspector shows the value it holds.
-                                        EditorState.selectClip(root.trackIndex, span.modelData.clip)
+                                        root.tools.selectKeyOwner(root.trackIndex, span.modelData.clip)
                                         root.tools.pick(root.trackIndex, keyItem.refList)
                                         EditorState.playheadSeconds = keyItem.modelData.seconds
                                     }

@@ -1,3 +1,7 @@
+> **PUBLICADA (2026-11-05):** PR #54, tag `v0.30.0`, release run 41957455028, MSIX run 41957495499 en
+> `tienda\FlipStudio-Store\paquete-0.30.0`, copia en `versiones\FlipStudio-0.30.0`, web desplegada (78e67).
+> Falta (Jorge): subir el MSIX a Partner Center y, al aprobarse, TXT `version` = 0.30.0.
+
 # 0.30.0 — lo que va en la próxima versión (lista abierta, 2026-11-03)
 
 Además de lo de `docs/plan-subtitulos.md` y `docs/plan-ejercicio-rebote.md`:

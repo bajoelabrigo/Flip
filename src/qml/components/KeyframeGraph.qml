@@ -403,10 +403,18 @@ Item {
         const unit = percent > 0 ? " %" : ""
         const scaled = (v) => percent > 0 ? v / percent * 100 : v
         if (root.speedGraph) {
-            const top = root.speedPeak
+            const top = root.speedAxisTop(root.speedPeak)
             if (!(top > 0))
                 return []
-            return [0, 0.5, 1].map((f) => ({ "y": h - 4 - f * (h - 8), "label": fmt(scaled(top * f)) + unit + "/s" }))
+            // Round lines from 0 up, as After Effects (0.30.1): fewer when the graph is short.
+            let step = root.speedStep(top)
+            while (step > 0 && (h - 18) * step / top < 22)
+                step *= 2
+            const ticks = []
+            const sUnit = percent > 0 ? " %/s" : root.speedUnit(focused.prop)
+            for (let v = 0; v <= top + step * 0.01; v += step)
+                ticks.push({ "y": h - 10 - (v / top) * (h - 18), "label": (v === 0 ? "0" : fmt(scaled(v))) + sUnit })
+            return ticks
         }
         const entry = focused
         void root.viewLo
@@ -729,9 +737,17 @@ Item {
         // motion path in the preview; the timing is shaped in the Speed Graph (as After Effects).
         if ((entry.prop === "x" || entry.prop === "y") && pts.length > 0 && pts[0].spatial)
             return out
+        // Only the picked keys show their handles (0.30.1, as After Effects: every key's handles at once
+        // crowded the graph, and Jorge read them as one handle moving all the keys).
+        if (root.tools)
+            void root.tools.keys
+        const prop = root.refProp(entry.prop)
         for (let i = 0; i < pts.length; ++i) {
             if (pts[i].hold)
                 continue // a step has no tangents to shape
+            if (root.tools && !root.tools.isPicked(root.trackIndex, { clip: root.clipIndex, prop: prop,
+                                                                     seconds: pts[i].seconds }))
+                continue
             if (i > 0)
                 out.push({ pointIndex: i, outgoing: false, color: entry.color, point: pts[i], neighbour: pts[i - 1] })
             if (i < pts.length - 1)
@@ -882,17 +898,46 @@ Item {
     // handle's height is the speed on that side of its key, its reach the influence. The axis keeps
     // the top it had when a drag began, so it does not rescale under the pointer.
     property real frozenSpeedPeak: 0
+    // After Effects' handle and picked-key yellow (0.30.1).
+    readonly property color handleYellow: "#f2d21b"
     function speedTop() {
-        return root.draggingKey && root.frozenSpeedPeak > 0 ? root.frozenSpeedPeak : root.speedPeak
+        return root.speedAxisTop(root.draggingKey && root.frozenSpeedPeak > 0 ? root.frozenSpeedPeak : root.speedPeak)
+    }
+    // The axis' round step for a top speed (0.30.1, After Effects' 500 / 1000 / 2000 px/sec lines).
+    function speedStep(top) {
+        if (!(top > 0))
+            return 1
+        const rough = top / 4
+        const mag = Math.pow(10, Math.floor(Math.log(rough) / Math.LN10))
+        const f = rough / mag
+        return (f <= 1 ? 1 : f <= 2 ? 2 : f <= 2.5 ? 2.5 : f <= 5 ? 5 : 10) * mag
+    }
+    // Room above the fastest moment, up to the next round line, as After Effects leaves it.
+    function speedAxisTop(peak) {
+        if (!(peak > 0))
+            return 0
+        const step = root.speedStep(peak * 1.1)
+        return Math.ceil(peak * 1.1 / step) * step
+    }
+    // What a speed reads in: pixels for where a layer is, degrees for its turn, % for scale and opacity.
+    function speedUnit(prop) {
+        if (root.percentOf(prop) > 0 || prop === "opacity")
+            return " %/s"
+        if (prop.indexOf("rot") >= 0 || prop.indexOf("Rotation") >= 0)
+            return " °/s"
+        if (prop === "x" || prop === "y" || prop === "z" || prop.indexOf("anchor") === 0 || prop.indexOf("position") === 0)
+            return " px/s"
+        return "/s"
     }
     function speedY(sp) {
         const top = root.speedTop()
+        // 0 sits a little above the bottom, so a key that stops there shows whole (0.30.1).
         if (!(top > 0))
-            return graph.height - 4
-        return graph.height - 4 - (Math.min(sp, top) / top) * (graph.height - 8)
+            return graph.height - 10
+        return graph.height - 10 - (Math.min(sp, top) / top) * (graph.height - 18)
     }
     function speedForY(y) {
-        return Math.max(0, (graph.height - 4 - y) / Math.max(1, graph.height - 8) * root.speedTop())
+        return Math.max(0, (graph.height - 10 - y) / Math.max(1, graph.height - 18) * root.speedTop())
     }
     // How fast a property changes just after (or just before) a key, in its units per second.
     function keySideSpeed(entry, seconds, outgoing) {
@@ -1658,39 +1703,56 @@ Item {
                             if (root.speedGraph && root.focusedIndex >= 0 && root.focusedIndex < root.series.length
                                     && root.series[root.focusedIndex].points.length > 1) {
                                 const entry = root.series[root.focusedIndex]
-                                const t0 = root.clipStart
-                                const t1 = root.clipStart + root.clipDuration
-                                const steps = Math.min(400, Math.max(40, Math.round((spanX1 - spanX0) / 3)))
+                                // Between the first key and the last (0.30.1, as After Effects): outside them
+                                // nothing moves, a dashed line at 0.
+                                const keyTimes = entry.points.map((p) => p.seconds).sort((a, b) => a - b)
+                                const t0 = keyTimes[0]
+                                const t1 = keyTimes[keyTimes.length - 1]
+                                const steps = Math.min(480, Math.max(48, Math.round((root.xForSeconds(t1) - root.xForSeconds(t0)) / 2)))
                                 const dt = (t1 - t0) / steps
                                 const base = entry.baseValue !== undefined ? entry.baseValue : 0
+                                const times = []
+                                for (let i = 0; i <= steps; ++i)
+                                    times.push(t0 + dt * i)
+                                const values = EditorState.propertyValuesAt(root.trackIndex, root.clipIndex, entry.prop,
+                                                                            times, base)
                                 const speeds = []
                                 let peak = 0
-                                let prev = EditorState.propertyValueAt(root.trackIndex, root.clipIndex, entry.prop, t0, base)
-                                for (let i = 1; i <= steps; ++i) {
-                                    const v = EditorState.propertyValueAt(root.trackIndex, root.clipIndex, entry.prop,
-                                                                          t0 + dt * i, base)
-                                    const sp = Math.abs(v - prev) / Math.max(1e-6, dt)
+                                for (let i = 1; i < values.length; ++i) {
+                                    const sp = Math.abs(values[i] - values[i - 1]) / Math.max(1e-6, dt)
                                     speeds.push(sp)
                                     peak = Math.max(peak, sp)
-                                    prev = v
                                 }
                                 root.speedPeak = peak
-                                if (peak > 1e-9) {
-                                    // After Effects' Speed Graph: the speed is the curve now.
-                                    ctx.strokeStyle = String(entry.color)
+                                if (peak > 1e-9 && speeds.length > 0) {
+                                    // After Effects' Speed Graph: the speed is the curve now, light grey and thin.
+                                    const zeroY = root.speedY(0)
+                                    const firstY = root.speedY(speeds[0])
+                                    const lastY = root.speedY(speeds[speeds.length - 1])
+                                    const fx = root.xForSeconds(t0)
+                                    const lx = root.xForSeconds(t1)
+                                    ctx.strokeStyle = "#d4d4d4"
                                     ctx.globalAlpha = 1.0
-                                    ctx.lineWidth = 2
+                                    ctx.lineWidth = 1.5
                                     ctx.beginPath()
-                                    for (let i = 0; i < speeds.length; ++i) {
-                                        const x = root.xForSeconds(t0 + dt * (i + 0.5))
-                                        const y = graph.height - 4 - (speeds[i] / peak) * (graph.height - 8)
-                                        if (i === 0)
-                                            ctx.moveTo(x, y)
-                                        else
-                                            ctx.lineTo(x, y)
-                                    }
+                                    ctx.moveTo(fx, firstY)
+                                    for (let i = 0; i < speeds.length; ++i)
+                                        ctx.lineTo(root.xForSeconds(t0 + dt * (i + 0.5)), root.speedY(speeds[i]))
+                                    ctx.lineTo(lx, lastY)
+                                    // At the last key the layer stops: straight down to 0.
+                                    ctx.lineTo(lx, zeroY)
                                     ctx.stroke()
-                                    ctx.setLineDash([])
+                                    ctx.save()
+                                    ctx.setLineDash([3, 3])
+                                    ctx.lineWidth = 1
+                                    ctx.beginPath()
+                                    ctx.moveTo(spanX0, zeroY)
+                                    ctx.lineTo(fx, zeroY)
+                                    ctx.lineTo(fx, firstY)
+                                    ctx.moveTo(lx, zeroY)
+                                    ctx.lineTo(spanX1, zeroY)
+                                    ctx.stroke()
+                                    ctx.restore()
                                     ctx.globalAlpha = 1.0
                                 }
                             }
@@ -1905,14 +1967,18 @@ Item {
 
                             // The same shapes as the tracks' rows: how the value arrives and
                             // leaves, red and larger when picked.
-                            KeyframeGlyph {
+                            // In the graph a key is a small square, as After Effects' Graph Editor (0.30.1):
+                            // the curve's colour, yellow when picked. The rows keep their glyphs.
+                            Rectangle {
                                 anchors.centerIn: parent
-                                size: keyDot.isPicked ? 17 : (keyHover.hovered ? 15 : 13)
-                                inHalf: keyDot.modelData.halves["in"]
-                                outHalf: keyDot.modelData.halves["out"]
-                                color: keyDot.modelData.color
-                                picked: keyDot.isPicked
-                                lit: keyHover.hovered
+                                width: keyHover.hovered && !keyDot.isPicked ? 8 : 7
+                                height: width
+                                color: keyDot.isPicked ? root.handleYellow
+                                       : root.speedGraph ? Theme.panelBackground : keyDot.modelData.color
+                                border.width: 1
+                                border.color: keyDot.isPicked ? root.handleYellow
+                                              : root.speedGraph ? (keyHover.hovered ? "#ffffff" : root.handleYellow)
+                                              : (keyHover.hovered ? "#ffffff" : keyDot.modelData.color)
                             }
                             HoverHandler {
                                 id: keyHover
@@ -2318,8 +2384,8 @@ Item {
                                 width: Math.hypot(tangent.tipX - tangent.keyX + tangent.dragDx,
                                                   tangent.tipY - tangent.keyY + tangent.dragDy)
                                 height: 1
-                                color: tangent.modelData.color
-                                opacity: 0.55
+                                // After Effects' yellow handle line (0.30.1).
+                                color: root.handleYellow
                                 transformOrigin: Item.TopLeft
                                 rotation: Math.atan2(tangent.tipY - tangent.keyY + tangent.dragDy,
                                                      tangent.tipX - tangent.keyX + tangent.dragDx)
@@ -2331,12 +2397,13 @@ Item {
 
                             Rectangle {
                                 id: grip
-                                width: 8
-                                height: 8
-                                radius: 4
-                                color: Theme.panelBackground
-                                border.width: 1.5
-                                border.color: tangent.modelData.color
+                                // A small solid yellow dot, as After Effects (0.30.1, Jorge: «los manejadores
+                                // son muy grandes»); the hit area below stays generous.
+                                width: gripDrag.containsMouse || gripDrag.active ? 7 : 6
+                                height: width
+                                radius: width / 2
+                                color: root.handleYellow
+                                border.width: 0
                                 x: tangent.tipX - width / 2 + tangent.dragDx
                                 y: tangent.tipY - height / 2 + tangent.dragDy
 
@@ -2364,7 +2431,8 @@ Item {
                                 MouseArea {
                                     id: gripDrag
                                     anchors.fill: parent
-                                    anchors.margins: -5
+                                    anchors.margins: -6
+                                    hoverEnabled: true
                                     cursorShape: Qt.PointingHandCursor
                                     preventStealing: true
                                     property bool active: false
@@ -2420,10 +2488,10 @@ Item {
                                                       : Math.min(-segment * 0.01, Math.max(-segment, dx))
                                         const speed = root.speedForY(gripDrag.startKeyY + translation.y)
                                         const corner = p.corner || gripDrag.breakApart
-                                        // The same speed and reach on the same side of every other picked
-                                        // key of this curve (After Effects shapes them all at once).
+                                        // Only this key's handle (0.30.1, Jorge: the other picked keys changed with it
+                                        // and the whole bounce moved; checked in the window).
                                         const share = Math.abs(dx) / Math.max(1e-9, segment)
-                                        for (const q of [p].concat(gripDrag.otherPicked(pts))) {
+                                        for (const q of [p]) {
                                             const qi = q === p ? i : pts.indexOf(q)
                                             const nb = outgoing ? pts[qi + 1] : pts[qi - 1]
                                             if (!nb)

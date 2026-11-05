@@ -57,7 +57,12 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 
 ## Estado (actualizado 2026-11-04)
 
-### 0.30.0 A PUNTO DE PUBLICAR (2026-11-04, noche) — **seguir por `docs/plan-0.30.md` › «Para seguir»**
+### 0.30.0 PUBLICADA (2026-11-05) — fotogramas clave, nulos y formas como AE, Academia — **detalle en `docs/plan-0.30.md`**
+- PR #54 (`flip/subtitulos` → `main`), tag `v0.30.0`, release (run 41957455028, 2 h 10 min: el tag no tenía caché de `main`
+  y compiló Skia/ICU desde cero); copia en `versiones\FlipStudio-0.30.0` (hashes comprobados). MSIX: `msstore.yml` run
+  41957495499 → `tienda\FlipStudio-Store\paquete-0.30.0`. Web `flipstudio-web` `main` 78e67 (Academia + novedades + índice
+  de extras) **desplegada**. **Jorge subió el MSIX (2026-11-05).** Falta: cuando la aprueben, TXT `version` = 0.30.0.
+- Lo de abajo es la historia de antes de publicar.
 - PR #52 unido a `main`; el tag `v0.30.0` se **borró** y el release se canceló antes de salir (Jorge encontró que
   Clonar/pegar claves perdía el Rebote). Arreglado en `flip/subtitulos` (`pasteKeyframes`), compilación r16
   (run 41798607082) **sin probar en ventana**. Después: PR nuevo, tag, release, MSIX, web.
