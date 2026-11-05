@@ -27258,18 +27258,6 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
         <translation>Poproś o szablon</translation>
     </message>
     <message>
-        <source>Want more? Download a free animation from LottieFiles (.json or .lottie) and drop it into Media.</source>
-        <translation>Chcesz więcej? Pobierz darmową animację z LottieFiles (.json lub .lottie) i upuść ją do multimediów.</translation>
-    </message>
-    <message>
-        <source>LottieFiles</source>
-        <translation>LottieFiles</translation>
-    </message>
-    <message>
-        <source>Opens lottiefiles.com in your browser</source>
-        <translation>Otwiera lottiefiles.com w przeglądarce</translation>
-    </message>
-    <message>
         <source>Have your photos already? Choose them and Flip suggests the templates that fit.</source>
         <translation>Masz już zdjęcia? Wybierz je, a Flip zaproponuje pasujące szablony.</translation>
     </message>

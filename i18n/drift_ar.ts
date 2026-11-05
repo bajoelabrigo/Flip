@@ -27531,18 +27531,6 @@ If playback stutters, try another.</source>
         <translation>اطلب قالبًا</translation>
     </message>
     <message>
-        <source>Want more? Download a free animation from LottieFiles (.json or .lottie) and drop it into Media.</source>
-        <translation>تريد المزيد؟ نزّل حركة مجانية من LottieFiles (.json أو .lottie) وأفلتها في الوسائط.</translation>
-    </message>
-    <message>
-        <source>LottieFiles</source>
-        <translation>LottieFiles</translation>
-    </message>
-    <message>
-        <source>Opens lottiefiles.com in your browser</source>
-        <translation>يفتح lottiefiles.com في متصفحك</translation>
-    </message>
-    <message>
         <source>Have your photos already? Choose them and Flip suggests the templates that fit.</source>
         <translation>هل لديك صورك بالفعل؟ اخترها وسيقترح Flip القوالب المناسبة.</translation>
     </message>

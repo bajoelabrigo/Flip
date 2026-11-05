@@ -525,87 +525,34 @@ Item {
             TapHandler { onTapped: root.runResolve() }
         }
 
-        // «Ask for a template»: on the templates tab, for what the search did not find.
-        Row {
+        // «Ask for a template» and «Use with my photos» side by side, without the notes that took the room
+        // of a row of cards (Jorge, 0.30); their tooltips say what they do. No LottieFiles link either.
+        Flow {
             visible: root.templates
             x: root.sidePadding
             width: parent.width - root.sidePadding * 2
-            spacing: Theme.spacingMd
+            spacing: Theme.spacingSm
 
-            Text {
-                width: parent.width - askButton.width - parent.spacing
-                anchors.verticalCenter: askButton.verticalCenter
-                text: qsTr("Missing a template? Ask for it, or vote for other people’s ideas.")
-                color: Theme.mutedForeground
-                font.family: Theme.fontFamily
-                font.pixelSize: Theme.fontSizeXs
-                wrapMode: Text.WordWrap
-            }
-            ThemedButton {
-                id: askButton
-                variant: "secondary"
-                glyph: Theme.icons.plus
-                text: qsTr("Ask for a template")
-                onClicked: requestsDialog.openFor(Market.activeTypeId)
-            }
-        }
-
-        // LottieFiles has no API we may search for the user, but its free animations can be used:
-        // the user downloads one there and drops the file here.
-        Row {
-            visible: root.animations
-            x: root.sidePadding
-            width: parent.width - root.sidePadding * 2
-            spacing: Theme.spacingMd
-            topPadding: Theme.spacingSm
-
-            Text {
-                width: parent.width - lottieButton.width - parent.spacing
-                anchors.verticalCenter: lottieButton.verticalCenter
-                text: qsTr("Want more? Download a free animation from LottieFiles (.json or .lottie) and drop it into Media.")
-                color: Theme.mutedForeground
-                font.family: Theme.fontFamily
-                font.pixelSize: Theme.fontSizeXs
-                wrapMode: Text.WordWrap
-            }
-            ThemedButton {
-                id: lottieButton
-                variant: "secondary"
-                glyph: Theme.icons.search
-                text: qsTr("LottieFiles")
-                tooltip: qsTr("Opens lottiefiles.com in your browser")
-                onClicked: Qt.openUrlExternally("https://lottiefiles.com/free-animations")
-            }
-        }
-
-        // Templates the other way round: the photos first, then the templates that fit them.
-        Row {
-            visible: root.templates
-            x: root.sidePadding
-            width: parent.width - root.sidePadding * 2
-            spacing: Theme.spacingMd
-            topPadding: Theme.spacingSm
-
-            Text {
-                width: parent.width - withPhotosButton.width - parent.spacing
-                anchors.verticalCenter: withPhotosButton.verticalCenter
-                text: qsTr("Have your photos already? Choose them and Flip suggests the templates that fit.")
-                color: Theme.mutedForeground
-                font.family: Theme.fontFamily
-                font.pixelSize: Theme.fontSizeXs
-                wrapMode: Text.WordWrap
-            }
             ThemedButton {
                 id: withPhotosButton
                 variant: "secondary"
                 glyph: Theme.icons.image
                 text: qsTr("Use with my photos…")
+                tooltip: qsTr("Have your photos already? Choose them and Flip suggests the templates that fit.")
                 onClicked: {
                     const urls = FileDialogs.openFiles(qsTr("Choose photos and videos"), [AssetLibrary.mediaNameFilter()])
                     const chosen = urls.filter(u => u.toString().length > 0)
                     if (chosen.length > 0)
                         EditorState.requestTemplatePicker("photos", "", chosen)
                 }
+            }
+            ThemedButton {
+                id: askButton
+                variant: "secondary"
+                glyph: Theme.icons.plus
+                text: qsTr("Ask for a template")
+                tooltip: qsTr("Missing a template? Ask for it, or vote for other people’s ideas.")
+                onClicked: requestsDialog.openFor(Market.activeTypeId)
             }
         }
     }

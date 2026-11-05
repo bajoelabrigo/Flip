@@ -27075,18 +27075,6 @@ If playback stutters, try another.</source>
         <translation>请求模板</translation>
     </message>
     <message>
-        <source>Want more? Download a free animation from LottieFiles (.json or .lottie) and drop it into Media.</source>
-        <translation>想要更多？从 LottieFiles 免费下载动画（.json 或 .lottie），拖入“媒体”即可。</translation>
-    </message>
-    <message>
-        <source>LottieFiles</source>
-        <translation>LottieFiles</translation>
-    </message>
-    <message>
-        <source>Opens lottiefiles.com in your browser</source>
-        <translation>在浏览器中打开 lottiefiles.com</translation>
-    </message>
-    <message>
         <source>Have your photos already? Choose them and Flip suggests the templates that fit.</source>
         <translation>已经有照片了？选择它们，Flip 会推荐适合的模板。</translation>
     </message>

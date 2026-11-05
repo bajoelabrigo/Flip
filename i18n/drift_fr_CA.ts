@@ -27169,18 +27169,6 @@ Si la lecture saccade, essayez une autre option.</translation>
         <translation>Demander un modèle</translation>
     </message>
     <message>
-        <source>Want more? Download a free animation from LottieFiles (.json or .lottie) and drop it into Media.</source>
-        <translation>Vous en voulez plus? Téléchargez une animation gratuite de LottieFiles (.json ou .lottie) et déposez-la dans Médias.</translation>
-    </message>
-    <message>
-        <source>LottieFiles</source>
-        <translation>LottieFiles</translation>
-    </message>
-    <message>
-        <source>Opens lottiefiles.com in your browser</source>
-        <translation>Ouvre lottiefiles.com dans votre navigateur</translation>
-    </message>
-    <message>
         <source>Have your photos already? Choose them and Flip suggests the templates that fit.</source>
         <translation>Vous avez déjà vos photos? Choisissez-les et Flip vous suggère les modèles qui conviennent.</translation>
     </message>

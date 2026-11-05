@@ -27258,18 +27258,6 @@ If playback stutters, try another.</source>
         <translation>Попросить шаблон</translation>
     </message>
     <message>
-        <source>Want more? Download a free animation from LottieFiles (.json or .lottie) and drop it into Media.</source>
-        <translation>Хотите больше? Скачайте бесплатную анимацию с LottieFiles (.json или .lottie) и перетащите её в «Медиа».</translation>
-    </message>
-    <message>
-        <source>LottieFiles</source>
-        <translation>LottieFiles</translation>
-    </message>
-    <message>
-        <source>Opens lottiefiles.com in your browser</source>
-        <translation>Открывает lottiefiles.com в браузере</translation>
-    </message>
-    <message>
         <source>Have your photos already? Choose them and Flip suggests the templates that fit.</source>
         <translation>Фото уже готовы? Выберите их, и Flip предложит подходящие шаблоны.</translation>
     </message>

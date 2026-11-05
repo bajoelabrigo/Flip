@@ -27074,18 +27074,6 @@ If playback stutters, try another.</source>
         <translation>템플릿 요청</translation>
     </message>
     <message>
-        <source>Want more? Download a free animation from LottieFiles (.json or .lottie) and drop it into Media.</source>
-        <translation>더 필요하신가요? LottieFiles에서 무료 애니메이션(.json 또는 .lottie)을 다운로드해 미디어에 끌어다 놓으세요.</translation>
-    </message>
-    <message>
-        <source>LottieFiles</source>
-        <translation>LottieFiles</translation>
-    </message>
-    <message>
-        <source>Opens lottiefiles.com in your browser</source>
-        <translation>브라우저에서 lottiefiles.com 열기</translation>
-    </message>
-    <message>
         <source>Have your photos already? Choose them and Flip suggests the templates that fit.</source>
         <translation>사진이 이미 있나요? 선택하면 Flip이 어울리는 템플릿을 추천합니다.</translation>
     </message>

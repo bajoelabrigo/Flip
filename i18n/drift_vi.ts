@@ -27076,18 +27076,6 @@ Nếu phát lại bị giật, hãy thử lựa chọn khác.</translation>
         <translation>Yêu cầu mẫu</translation>
     </message>
     <message>
-        <source>Want more? Download a free animation from LottieFiles (.json or .lottie) and drop it into Media.</source>
-        <translation>Muốn thêm? Tải một hoạt ảnh miễn phí từ LottieFiles (.json hoặc .lottie) và thả vào Phương tiện.</translation>
-    </message>
-    <message>
-        <source>LottieFiles</source>
-        <translation>LottieFiles</translation>
-    </message>
-    <message>
-        <source>Opens lottiefiles.com in your browser</source>
-        <translation>Mở lottiefiles.com trong trình duyệt</translation>
-    </message>
-    <message>
         <source>Have your photos already? Choose them and Flip suggests the templates that fit.</source>
         <translation>Đã có ảnh rồi? Hãy chọn chúng và Flip sẽ gợi ý các mẫu phù hợp.</translation>
     </message>

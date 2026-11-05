@@ -27076,18 +27076,6 @@ If playback stutters, try another.</source>
         <translation>テンプレートをリクエスト</translation>
     </message>
     <message>
-        <source>Want more? Download a free animation from LottieFiles (.json or .lottie) and drop it into Media.</source>
-        <translation>もっと欲しいですか？ LottieFiles から無料のアニメーション（.json または .lottie）をダウンロードして、メディアにドロップしてください。</translation>
-    </message>
-    <message>
-        <source>LottieFiles</source>
-        <translation>LottieFiles</translation>
-    </message>
-    <message>
-        <source>Opens lottiefiles.com in your browser</source>
-        <translation>ブラウザーで lottiefiles.com を開きます</translation>
-    </message>
-    <message>
         <source>Have your photos already? Choose them and Flip suggests the templates that fit.</source>
         <translation>写真はもう用意できていますか？選ぶと Flip が合うテンプレートを提案します。</translation>
     </message>
