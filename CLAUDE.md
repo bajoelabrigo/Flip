@@ -57,6 +57,21 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 
 ## Estado (actualizado 2026-11-04)
 
+### 0.30.1 PUBLICADA (2026-11-05) — arreglos (Jorge: «es una corrección, no son novedades») — **detalle en `docs/plan-0.30.1.md`**
+- PR #55 (`flip/v0.30.1` → `main`), tag `v0.30.1`, release (run 41992980133); copia en `versiones\FlipStudio-0.30.1` (hashes
+  comprobados). MSIX: `msstore.yml` run 41993039969 → `tienda\FlipStudio-Store\paquete-0.30.1`. Notas de la Store: «Notas para la
+  Store (0.30.1)» en `docs/store-listing.md`. Novedades en la web (`flipstudio-web` `fc458`, desplegado).
+- Gráfico de velocidad como AE (tiradores amarillos solo en claves elegidas, el tirador cambia solo su clave), Squash: su capa
+  de ajuste sigue elegida al marcar claves, Stock: la rueda recorre las categorías del tipo y la lista empieza arriba.
+  Probado en ventana (r1–r4). **Falta (Jorge):** subir el MSIX y, al aprobarse, TXT `version` = 0.30.1.
+- **Regla (Jorge):** los arreglos después de publicar van como versión de parche (0.30.1), no como la siguiente.
+- **Trampa nueva:** la capa de ajuste de Squash vive en **su propia pista** (hija de la del clip, `scope: parentTrack`): para saber
+  si un ajuste es «de» un clip usar `adjustmentTargetState`, no comparar la pista.
+- **Trampa nueva:** la rueda de un `Flickable` de Qt 6 deja un flick andando: al cambiar de lista con la rueda hay que llamar
+  `cancelFlick()` antes de subirla, o la lista nueva baja sola.
+- **Trampa nueva:** `flipstudio-web/tools/make_novedades.py` reescribe la página entera distinto a la publicada (rompe «m*****»
+  y quita «Editar en línea»): para una versión, insertar solo su sección a mano.
+
 ### 0.30.0 PUBLICADA (2026-11-05) — fotogramas clave, nulos y formas como AE, Academia — **detalle en `docs/plan-0.30.md`**
 - PR #54 (`flip/subtitulos` → `main`), tag `v0.30.0`, release (run 41957455028, 2 h 10 min: el tag no tenía caché de `main`
   y compiló Skia/ICU desde cero); copia en `versiones\FlipStudio-0.30.0` (hashes comprobados). MSIX: `msstore.yml` run

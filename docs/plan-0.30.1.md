@@ -1,4 +1,4 @@
-# 0.30.1 — arreglos (desde el 2026-11-05)
+# 0.30.1 — arreglos (PUBLICADA el 2026-11-05: PR #55, tag v0.30.1, release run 41992980133, MSIX run 41993039969)
 
 Pedidos de Jorge después de publicar la 0.30.0. Jorge (2026-11-05): «esto debe entrar como versión 0.30.1 porque es
 una corrección, no son novedades». Rama `flip/v0.30.1` (salida de `flip/subtitulos`, que ya está en `main`).
