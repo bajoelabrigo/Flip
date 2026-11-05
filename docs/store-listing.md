@@ -110,6 +110,24 @@ El paquete declara `runFullTrust`. Partner Center pide justificarlo:
 
 > editor de video, editar videos, video editor, reels, shorts, transiciones, subtítulos
 
+**Notas para la Store (0.30.1)**. Solo arreglos desde la 0.30.0 (ya subida). Unos 415/1500 caracteres en español.
+
+> Novedades de la 0.30.1
+>
+> - Gráfico de velocidad como el de After Effects: tiradores pequeños y amarillos solo en las claves elegidas, claves como cuadraditos y escala en números redondos.
+> - Mover el tirador de una clave cambia solo esa clave.
+> - Squash & Stretch: marcar sus claves ya no cierra el ajuste, y se borran con Supr.
+> - Stock: la rueda pasa a la categoría siguiente del mismo tipo y la lista empieza arriba.
+
+En inglés:
+
+> What's new in 0.30.1
+>
+> - Speed graph as in After Effects: small yellow handles only on the picked keys, square keys and a round-numbered scale.
+> - Dragging a key's handle changes only that key.
+> - Squash & Stretch: boxing its keys no longer closes the adjustment, and Delete removes them.
+> - Stock: the wheel moves on to the next category of the same kind and the list starts at the top.
+
 **Notas para la Store (0.30.0)**. Lo nuevo desde la 0.29.0 (ya subida). Unos 1356/1500 caracteres en español, 1310 en inglés.
 
 > Novedades de la 0.30.0

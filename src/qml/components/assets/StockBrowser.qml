@@ -63,6 +63,8 @@ Item {
                 for (const v of [audioList, justified, grid]) {
                     if (!v)
                         continue
+                    // A wheel flick still running from the list before carried the new one down (0.30.1).
+                    v.cancelFlick()
                     v.forceLayout()
                     v.positionViewAtBeginning()
                     v.contentY = v.originY - v.topMargin
