@@ -586,12 +586,31 @@ Item {
             flickable: root.showHome ? home.flickable
                        : root.mediaKind === "audio" ? audioList
                        : root.mediaKind === "image" ? justified : grid
-            categories: root.categories
-            activeCategory: Market.activeTypeId
+            // The open kind's own categories come first, one by one as their chips (0.31, Jorge: the
+            // wheel jumped from Templates › Intros straight to Music); past the last, the next kind.
+            readonly property bool stepsChips: root.categoryChips.length > 1
+            categories: {
+                const steps = []
+                for (const kind of root.categories) {
+                    if (stepsChips && kind.id === Market.activeTypeId) {
+                        for (const chip of root.categoryChips)
+                            steps.push({ id: "chip:" + chip.id, label: chip.label })
+                    } else {
+                        steps.push({ id: "kind:" + kind.id, label: kind.label })
+                    }
+                }
+                return steps
+            }
+            activeCategory: stepsChips ? "chip:" + root.activeCategoryChip : "kind:" + Market.activeTypeId
             active: root.categories.length > 0 && !root.detailShown
                     && root.query.trim().length === 0 && root.submittedQuery.trim().length === 0
                     && (root.showHome || (!Market.hasMore && !Market.searching))
-            onCategoryActivated: (categoryId) => root.categoryActivated(categoryId)
+            onCategoryActivated: (categoryId) => {
+                if (categoryId.startsWith("chip:"))
+                    root.chooseCategoryChip(categoryId.slice(5))
+                else
+                    root.categoryActivated(categoryId.slice(5))
+            }
         }
 
         StockHome {

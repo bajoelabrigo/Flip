@@ -95,8 +95,32 @@ Item {
         const sel = EditorState.selection || []
         const same = sel.length === out.length
                      && out.every((p) => sel.some((q) => q.track === p.track && q.clip === p.clip))
-        if (!same)
+        // A picked adjustment layer linked to the clip whose keys were boxed (Squash & Stretch's) stays
+        // the selected one (0.31, Jorge: its panel closed under him as the box let go, before he could
+        // delete the keys). Delete still takes the picked keys first.
+        const kept = out.every((p) => sel.some((q) => q.track === p.track && q.clip === p.clip)
+                                      || root.heldByAdjustment(p.track, p.clip))
+        if (!same && !kept)
             EditorState.setSelection(out)
+    }
+    // Whether a selected adjustment layer is linked to this clip, so a key of the clip picked from its
+    // rows leaves that layer selected.
+    function heldByAdjustment(trackIndex, clipIndex) {
+        const sel = EditorState.selection || []
+        const host = EditorState.clipAt(trackIndex, clipIndex)
+        if (!host || !host.id)
+            return false
+        return sel.some((q) => {
+            if (q.track !== trackIndex || q.clip === clipIndex)
+                return false
+            const a = EditorState.clipAt(q.track, q.clip)
+            return !!a && a.kind === "adjustment" && !!a.linkedClipId && a.linkedClipId === host.id
+        })
+    }
+    // A click on a key selects its clip, unless that clip's linked adjustment layer is the selected one.
+    function selectKeyOwner(trackIndex, clipIndex) {
+        if (!root.heldByAdjustment(trackIndex, clipIndex))
+            EditorState.selectClip(trackIndex, clipIndex)
     }
     // A run with Shift starts here: {clip, prop, seconds}.
     property var runFrom: null

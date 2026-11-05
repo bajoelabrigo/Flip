@@ -1,7 +1,7 @@
-# 0.31.0 — lista abierta (desde el 2026-11-05)
+# 0.30.1 — arreglos (desde el 2026-11-05)
 
-Pedidos de Jorge después de publicar la 0.30.0. Nada empezado todavía: Jorge dijo «eso lo vamos a hacer en la
-próxima, solo para que anotes».
+Pedidos de Jorge después de publicar la 0.30.0. Jorge (2026-11-05): «esto debe entrar como versión 0.30.1 porque es
+una corrección, no son novedades». Rama `flip/v0.30.1`.
 
 ## Arreglos
 
