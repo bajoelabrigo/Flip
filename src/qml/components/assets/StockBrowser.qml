@@ -58,10 +58,18 @@ Item {
         } else {
             // A new list (another category, from the tree or the wheel) starts at its top (0.30.1: the
             // wheel landed it part way down, the first cards' names showing above).
-            for (const v of [audioList, justified, grid]) {
-                if (v && v.visible)
+            // Hidden while the page loads, so every view, and once it has laid the new cards out.
+            const toTop = () => {
+                for (const v of [audioList, justified, grid]) {
+                    if (!v)
+                        continue
+                    v.forceLayout()
+                    v.positionViewAtBeginning()
                     v.contentY = v.originY - v.topMargin
+                }
             }
+            toTop()
+            Qt.callLater(toTop)
         }
     }
     // Our own catalogues sort by category; it is shown as a row of chips, not only behind Filters.
