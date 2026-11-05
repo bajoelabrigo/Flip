@@ -796,6 +796,13 @@ Item {
                     ThemedContextMenu {
                         id: effectCardMenu
                         ThemedMenuItem {
+                            // After Effects' Rename (0.30): «Glow radius», «Controls»; expressions find it by it.
+                            text: qsTr("Rename…")
+                            icon.name: Theme.icons.pencil
+                            onTriggered: renameEffectDialog.openFor(effectCard.index, effectCard.effectData.customLabel || "",
+                                                                    effectCard.effectData.catalogLabel || effectCard.effectData.label)
+                        }
+                        ThemedMenuItem {
                             text: qsTr("Copy this effect")
                             icon.name: Theme.icons.copy
                             onTriggered: EditorState.copyEffectToClipboard(
@@ -1510,5 +1517,40 @@ Item {
             }
         }
 
+    }
+
+    ThemedDialog {
+        id: renameEffectDialog
+        property int effectIndex: -1
+        title: qsTr("Rename effect")
+        acceptText: qsTr("Rename")
+        preferredWidth: Theme.dialogWidthSm
+        function openFor(index, current, catalogName) {
+            renameEffectDialog.effectIndex = index
+            renameEffectField.text = current
+            renameEffectField.placeholderText = catalogName
+            open()
+        }
+        contentItem: Column {
+            width: parent ? parent.width : Theme.dialogWidthSm
+            spacing: Theme.spacingMd
+            ThemedTextField {
+                id: renameEffectField
+                width: parent.width
+            }
+            ThemedLabel {
+                width: parent.width
+                wrapMode: Text.WordWrap
+                size: "sm"
+                opacity: 0.8
+                text: qsTr("Empty gives it back its own name. Expressions can read it by this name: effect(\"name\")(\"value\").")
+            }
+        }
+        onOpened: {
+            renameEffectField.forceActiveFocus()
+            renameEffectField.selectAll()
+        }
+        onAccepted: EditorState.renameEffect(EditorState.selectedTrack, EditorState.selectedClip,
+                                             renameEffectDialog.effectIndex, renameEffectField.text)
     }
 }

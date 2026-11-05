@@ -130,6 +130,9 @@ struct TextShadingLayer
     StrokeAlign strokeAlign = StrokeAlign::Outside; // the legacy outline grew outward only
     StrokeDash dash = StrokeDash::Solid;
     double dashOffset = 0.0;   // dash phase in stroke widths (keyframable → marching ants)
+    // After Effects' Dashes (0.30, the shapes course): Dash, Gap, Dash, Gap… in px at pixelSize, as many pairs
+    // as added with +. When set it replaces the `dash` preset; a lone Dash uses the same length as its gap.
+    QList<double> dashPattern;
     StrokeCap cap = StrokeCap::Round;
     StrokeJoin join = StrokeJoin::Round;
     double miterLimit = 4.0;   // After Effects' Miter Limit: how far a sharp corner may reach, in widths

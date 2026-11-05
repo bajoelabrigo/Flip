@@ -842,12 +842,36 @@ PanelFrame {
             if (root.expandedGroups[tabId] !== true)
                 continue
             const categories = root.subcategoriesFor(tabId)
+            const browser = root.browserFor(tabId)
             for (let j = 0; j < categories.length; ++j) {
                 const category = categories[j]
-                rows.push({ kind: "sub", tabId: tabId, categoryId: category.id, label: category.label })
+                // The open Stock kind's own categories hang under it (0.30, Jorge: the chips row above the
+                // cards had to be slid sideways to see them all), and its arrow opens and closes them as in
+                // CapCut. Other kinds show the arrow closed: choosing one opens it.
+                const nested = !!browser && browser.subCategories !== undefined
+                const active = nested && browser.activeCategory === category.id
+                const foldable = nested && (active ? browser.subCategories.length > 1
+                                                   : category.id !== "all" && category.id.length > 0)
+                const shut = root.closedSubs[tabId + "/" + category.id] === true
+                rows.push({ kind: "sub", tabId: tabId, categoryId: category.id, label: category.label,
+                            nested: nested, foldable: foldable, unfolded: foldable && active && !shut })
+                const inner = active && !shut ? browser.subCategories : []
+                for (let k = 0; inner.length > 1 && k < inner.length; ++k)
+                    rows.push({ kind: "subsub", tabId: tabId, categoryId: category.id, innerId: inner[k].id,
+                                label: inner[k].label })
             }
         }
         return rows
+    }
+
+    // Stock kinds whose categories were folded away with their arrow (0.30).
+    property var closedSubs: ({})
+    function setSubClosed(tabId, categoryId, closed) {
+        const next = {}
+        for (const key in root.closedSubs)
+            next[key] = root.closedSubs[key]
+        next[tabId + "/" + categoryId] = closed
+        root.closedSubs = next
     }
 
     // Abrir una pestaña despliega su grupo, como Filmora.
@@ -1212,8 +1236,14 @@ PanelFrame {
                     delegate: AbstractButton {
                         id: treeRow
                         required property var modelData
-                        readonly property bool isSub: modelData.kind === "sub"
-                        readonly property bool current: treeRow.isSub
+                        readonly property bool isSub: modelData.kind === "sub" || modelData.kind === "subsub"
+                        readonly property bool isSubSub: modelData.kind === "subsub"
+                        readonly property bool current: treeRow.isSubSub
+                            ? (root.currentTabId === modelData.tabId
+                               && root.currentSubcategoryId === modelData.categoryId
+                               && !!root.browserFor(modelData.tabId)
+                               && root.browserFor(modelData.tabId).activeSubCategory === modelData.innerId)
+                            : treeRow.isSub
                             ? (root.currentTabId === modelData.tabId
                                && root.currentSubcategoryId === modelData.categoryId)
                             : root.currentTabId === modelData.tabId
@@ -1221,12 +1251,22 @@ PanelFrame {
                         // Una subcategoría de la pestaña que no está abierta se marca a medias.
                         x: Theme.spacingXs
                         width: tabRailColumn.width - Theme.spacingXs * 2
-                        height: treeRow.isSub ? 26 : 32
+                        height: treeRow.isSubSub ? 24 : treeRow.isSub ? 26 : 32
                         hoverEnabled: true
                         focusPolicy: Qt.StrongFocus
-                        onClicked: treeRow.isSub
-                                   ? root.chooseSubcategory(treeRow.modelData.tabId, treeRow.modelData.categoryId)
-                                   : root.showTab(treeRow.modelData.tabId)
+                        onClicked: {
+                            if (treeRow.isSubSub) {
+                                const browser = root.browserFor(treeRow.modelData.tabId)
+                                if (browser)
+                                    browser.chooseSubCategory(treeRow.modelData.innerId)
+                            } else if (treeRow.isSub) {
+                                // Choosing a kind opens its categories.
+                                root.setSubClosed(treeRow.modelData.tabId, treeRow.modelData.categoryId, false)
+                                root.chooseSubcategory(treeRow.modelData.tabId, treeRow.modelData.categoryId)
+                            } else {
+                                root.showTab(treeRow.modelData.tabId)
+                            }
+                        }
 
                         Accessible.role: treeRow.isSub ? Accessible.ListItem : Accessible.PageTab
                         Accessible.name: treeRow.isSub ? treeRow.modelData.label
@@ -1242,8 +1282,43 @@ PanelFrame {
                         }
 
                         contentItem: Row {
-                            leftPadding: treeRow.isSub ? Theme.spacing2xl : Theme.spacingMd
+                            leftPadding: treeRow.isSubSub ? Theme.spacing2xl + Theme.spacingLg + Theme.spacingXl
+                                         : treeRow.isSub ? (treeRow.modelData.nested !== true ? Theme.spacing2xl
+                                                            : treeRow.modelData.foldable === true ? Theme.spacingXl
+                                                            : Theme.spacingXl + Theme.iconSizeSm + Theme.spacingMd)
+                                         : Theme.spacingMd
                             spacing: Theme.spacingMd
+
+                            // A Stock kind's arrow (0.30, as in CapCut): open, it folds the categories away; closed,
+                            // it opens the kind with them.
+                            Item {
+                                visible: treeRow.modelData.kind === "sub" && treeRow.modelData.foldable === true
+                                width: visible ? Theme.iconSizeSm : 0
+                                height: visible ? Theme.iconSizeSm : 0
+                                anchors.verticalCenter: parent.verticalCenter
+
+                                IconGlyph {
+                                    anchors.centerIn: parent
+                                    glyph: treeRow.modelData.unfolded ? Theme.icons.chevronDown : Theme.icons.chevronRight
+                                    iconSize: Theme.iconSizeSm
+                                    iconColor: Theme.mutedForeground
+                                }
+
+                                MouseArea {
+                                    anchors.fill: parent
+                                    anchors.margins: -Theme.spacingXs
+                                    cursorShape: Qt.PointingHandCursor
+                                    onClicked: {
+                                        const d = treeRow.modelData
+                                        if (d.unfolded) {
+                                            root.setSubClosed(d.tabId, d.categoryId, true)
+                                        } else {
+                                            root.setSubClosed(d.tabId, d.categoryId, false)
+                                            root.chooseSubcategory(d.tabId, d.categoryId)
+                                        }
+                                    }
+                                }
+                            }
 
                             // La flechita del grupo: solo en las pestañas que tienen subcategorías.
                             Item {

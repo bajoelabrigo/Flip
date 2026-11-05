@@ -1286,11 +1286,15 @@ std::shared_ptr<const FragmentSet> fragmentsFor(const QString &text, const drift
     // until it fits. A few halvings of the size are plenty; the largest that fits wins.
     drift::TextStyle fitted = style;
     if (style.shrinkToFit && blockHeight > 0.0 && wrapWidth > 0.0) {
+        // A little air on each side: round and slanted letters (O, R) reach past their advance and were cut
+        // by the box when the line measured exactly its width (0.30 Academy).
+        const double airX = qMax(2.0, wrapWidth * 0.03);
+        const double airY = qMax(1.0, blockHeight * 0.02);
         const auto overflows = [&](const TextLayoutResult &r) {
             if (!r.paragraph)
                 return false;
-            return r.paragraph->contentHeight > blockHeight + 0.5
-                   || (!style.wordWrap && r.paragraph->contentWidth > wrapWidth + 0.5);
+            return r.paragraph->contentHeight > blockHeight - airY
+                   || (!style.wordWrap && r.paragraph->contentWidth > wrapWidth - airX);
         };
         if (overflows(laid)) {
             double lo = 0.05, hi = 1.0;
@@ -1403,6 +1407,48 @@ drift::textanim::EvalContext evalContextFor(const drift::TextStyle &style, const
     ctx.baseFillColor = drift::textFillColor(style, false);
     ctx.baseStrokeColor = drift::textStrokeColor(style, false);
     return ctx;
+}
+
+QList<CharacterOutline> characterOutlines(const QString &text, const drift::TextStyle &style, double w, double h)
+{
+    QList<CharacterOutline> out;
+    if (w <= 0.5 || h <= 0.5)
+        return out;
+    const auto set = fragmentsFor(text, style, w, h, 1.0, -1, WordSplit::Characters);
+    if (!set)
+        return out;
+    for (const StyledWord &frag : set->frags) {
+        if (!frag.geometry || frag.geometry->colour || frag.geometry->path.isEmpty())
+            continue;
+        QPainterPath path;
+        path.setFillRule(Qt::WindingFill);
+        SkPath::Iter iter(frag.geometry->path, false);
+        SkPoint pts[4];
+        for (SkPath::Verb verb = iter.next(pts); verb != SkPath::kDone_Verb; verb = iter.next(pts)) {
+            switch (verb) {
+            case SkPath::kMove_Verb:
+                path.moveTo(pts[0].fX, pts[0].fY);
+                break;
+            case SkPath::kLine_Verb:
+                path.lineTo(pts[1].fX, pts[1].fY);
+                break;
+            case SkPath::kQuad_Verb:
+            case SkPath::kConic_Verb:
+                path.quadTo(pts[1].fX, pts[1].fY, pts[2].fX, pts[2].fY);
+                break;
+            case SkPath::kCubic_Verb:
+                path.cubicTo(pts[1].fX, pts[1].fY, pts[2].fX, pts[2].fY, pts[3].fX, pts[3].fY);
+                break;
+            case SkPath::kClose_Verb:
+                path.closeSubpath();
+                break;
+            default:
+                break;
+            }
+        }
+        out.append({text.mid(frag.textStart, frag.textLength), path});
+    }
+    return out;
 }
 
 } // namespace drift::text

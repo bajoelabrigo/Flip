@@ -27,6 +27,16 @@ Item {
 
     signal categoryActivated(string categoryId)
 
+    // On the desktop the panel's tree lists the active kind's categories under it (0.30, Jorge: the chips
+    // row had to be slid sideways to see them all); the row then stays hidden.
+    property bool chipsInTree: false
+    readonly property var categoryChips: root.categoryFilter && Market.canSearch && !root.allTypes
+                                         ? [{ id: "", label: qsTr("All") }].concat(root.categoryFilter.options) : []
+    readonly property string activeCategoryChip: root.filterValues.category || ""
+    function chooseCategoryChip(id) {
+        root.setFilter("category", id)
+    }
+
     readonly property real sidePadding: compact ? Theme.androidPagePadding : Theme.pagePadding
     readonly property int activeFilterCount: Object.keys(filterValues).length
     // What the grids show: Market.items, copied here so a next page can be appended without the
@@ -309,12 +319,58 @@ Item {
         Item {
             x: root.sidePadding
             width: parent.width - root.sidePadding * 2
-            height: Math.max(sourceFlick.height, filterButton.height)
+            readonly property bool showSources: !root.templates && (Market.canSearchAll || Market.providers.length > 1)
+            readonly property bool showFilters: Market.filters.length > 0 && Market.canSearch
+            height: Math.max(showSources ? sourceFlick.height : 0,
+                             root.templates ? templateButtons.height : 0, showFilters ? filterButton.height : 0)
+            // The one source's name («Flip Studio») said nothing and took a row (Jorge, 0.30). Not from the
+            // children's `visible`: a child of a hidden item reads hidden, so the row never came back.
+            visible: showSources || root.templates || showFilters
+
+            // Templates: «Use with my photos» and «Ask for a template» on one line, beside the filters, where
+            // the source's name was; what each does is in its tooltip (Jorge, 0.30: the notes took the room).
+            Row {
+                id: templateButtons
+                visible: root.templates
+                anchors.left: parent.left
+                anchors.right: parent.showFilters ? filterButton.left : parent.right
+                anchors.rightMargin: parent.showFilters ? Theme.spacingSm : 0
+                anchors.verticalCenter: parent.verticalCenter
+                spacing: Theme.spacingSm
+                readonly property real half: (width - spacing) / 2
+
+                ThemedButton {
+                    width: Math.min(implicitWidth, templateButtons.half)
+                    leftPadding: Theme.spacingMd
+                    rightPadding: Theme.spacingMd
+                    variant: "secondary"
+                    glyph: Theme.icons.image
+                    text: qsTr("Use with my photos…")
+                    tooltip: qsTr("Have your photos already? Choose them and Flip suggests the templates that fit.")
+                    onClicked: {
+                        const urls = FileDialogs.openFiles(qsTr("Choose photos and videos"), [AssetLibrary.mediaNameFilter()])
+                        const chosen = urls.filter(u => u.toString().length > 0)
+                        if (chosen.length > 0)
+                            EditorState.requestTemplatePicker("photos", "", chosen)
+                    }
+                }
+                ThemedButton {
+                    width: Math.min(implicitWidth, templateButtons.half)
+                    leftPadding: Theme.spacingMd
+                    rightPadding: Theme.spacingMd
+                    variant: "secondary"
+                    glyph: Theme.icons.plus
+                    text: qsTr("Ask for a template")
+                    tooltip: qsTr("Missing a template? Ask for it, or vote for other people’s ideas.")
+                    onClicked: requestsDialog.openFor(Market.activeTypeId)
+                }
+            }
 
             Flickable {
                 id: sourceFlick
+                visible: parent.showSources
                 anchors.left: parent.left
-                anchors.right: filterButton.visible ? filterButton.left : parent.right
+                anchors.right: parent.showFilters ? filterButton.left : parent.right
                 anchors.verticalCenter: parent.verticalCenter
                 height: sourceRow.height
                 contentWidth: sourceRow.width
@@ -355,7 +411,7 @@ Item {
                 id: filterButton
                 anchors.right: parent.right
                 anchors.verticalCenter: parent.verticalCenter
-                visible: Market.filters.length > 0 && Market.canSearch
+                visible: parent.showFilters
                 glyph: Theme.icons.sliders
                 active: root.filtersExpanded
                 tooltip: root.activeFilterCount > 0
@@ -388,7 +444,7 @@ Item {
             x: root.sidePadding
             width: parent.width - root.sidePadding * 2
             height: categoryRow.height
-            visible: !!root.categoryFilter && Market.canSearch && !root.allTypes
+            visible: !!root.categoryFilter && Market.canSearch && !root.allTypes && !root.chipsInTree
             contentWidth: categoryRow.width
             flickableDirection: Flickable.HorizontalFlick
             boundsBehavior: Flickable.StopAtBounds
@@ -513,90 +569,6 @@ Item {
             }
             HoverHandler { id: linkHover; cursorShape: Qt.PointingHandCursor }
             TapHandler { onTapped: root.runResolve() }
-        }
-
-        // «Ask for a template»: on the templates tab, for what the search did not find.
-        Row {
-            visible: root.templates
-            x: root.sidePadding
-            width: parent.width - root.sidePadding * 2
-            spacing: Theme.spacingMd
-
-            Text {
-                width: parent.width - askButton.width - parent.spacing
-                anchors.verticalCenter: askButton.verticalCenter
-                text: qsTr("Missing a template? Ask for it, or vote for other people’s ideas.")
-                color: Theme.mutedForeground
-                font.family: Theme.fontFamily
-                font.pixelSize: Theme.fontSizeXs
-                wrapMode: Text.WordWrap
-            }
-            ThemedButton {
-                id: askButton
-                variant: "secondary"
-                glyph: Theme.icons.plus
-                text: qsTr("Ask for a template")
-                onClicked: requestsDialog.openFor(Market.activeTypeId)
-            }
-        }
-
-        // LottieFiles has no API we may search for the user, but its free animations can be used:
-        // the user downloads one there and drops the file here.
-        Row {
-            visible: root.animations
-            x: root.sidePadding
-            width: parent.width - root.sidePadding * 2
-            spacing: Theme.spacingMd
-            topPadding: Theme.spacingSm
-
-            Text {
-                width: parent.width - lottieButton.width - parent.spacing
-                anchors.verticalCenter: lottieButton.verticalCenter
-                text: qsTr("Want more? Download a free animation from LottieFiles (.json or .lottie) and drop it into Media.")
-                color: Theme.mutedForeground
-                font.family: Theme.fontFamily
-                font.pixelSize: Theme.fontSizeXs
-                wrapMode: Text.WordWrap
-            }
-            ThemedButton {
-                id: lottieButton
-                variant: "secondary"
-                glyph: Theme.icons.search
-                text: qsTr("LottieFiles")
-                tooltip: qsTr("Opens lottiefiles.com in your browser")
-                onClicked: Qt.openUrlExternally("https://lottiefiles.com/free-animations")
-            }
-        }
-
-        // Templates the other way round: the photos first, then the templates that fit them.
-        Row {
-            visible: root.templates
-            x: root.sidePadding
-            width: parent.width - root.sidePadding * 2
-            spacing: Theme.spacingMd
-            topPadding: Theme.spacingSm
-
-            Text {
-                width: parent.width - withPhotosButton.width - parent.spacing
-                anchors.verticalCenter: withPhotosButton.verticalCenter
-                text: qsTr("Have your photos already? Choose them and Flip suggests the templates that fit.")
-                color: Theme.mutedForeground
-                font.family: Theme.fontFamily
-                font.pixelSize: Theme.fontSizeXs
-                wrapMode: Text.WordWrap
-            }
-            ThemedButton {
-                id: withPhotosButton
-                variant: "secondary"
-                glyph: Theme.icons.image
-                text: qsTr("Use with my photos…")
-                onClicked: {
-                    const urls = FileDialogs.openFiles(qsTr("Choose photos and videos"), [AssetLibrary.mediaNameFilter()])
-                    const chosen = urls.filter(u => u.toString().length > 0)
-                    if (chosen.length > 0)
-                        EditorState.requestTemplatePicker("photos", "", chosen)
-                }
-            }
         }
     }
 

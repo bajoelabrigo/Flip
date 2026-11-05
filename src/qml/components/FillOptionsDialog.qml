@@ -67,6 +67,23 @@ ThemedDialog {
     }
 
     function openFor(which, toolOnly) {
+        root.prepare(which, toolOnly)
+        previewBox.checked = true
+        open()
+    }
+    // After Effects' Alt+click on the Fill / Stroke word (0.30): the next kind (None, Solid, Linear, Radial)
+    // straight away, without the window.
+    function cycle(which, toolOnly) {
+        root.prepare(which, toolOnly)
+        const order = ["none", "solid", "linear", "radial"]
+        const at = order.indexOf(root.kind)
+        root.kind = order[(at + 1) % order.length]
+        if (root.isGradient && !(root.gradient && root.gradient.stops))
+            root.gradient = root.defaultGradient
+        previewBox.checked = false
+        root.finish()
+    }
+    function prepare(which, toolOnly) {
         root.target = which
         const data = EditorState.selectedClipData
         const style = data ? (data.kind === "shape" ? data.shapeStyle : data.kind === "text" ? data.textStyle : null)
@@ -104,8 +121,6 @@ ThemedDialog {
                                        options.paint || {})
             })
         }
-        previewBox.checked = true
-        open()
     }
 
     // The layer patch for the working copy (without the switch on/off).
@@ -152,7 +167,8 @@ ThemedDialog {
         root.push()
     }
 
-    onAccepted: {
+    onAccepted: root.finish()
+    function finish() {
         if (root.mode === "layer") {
             if (!previewBox.checked)
                 root.write()

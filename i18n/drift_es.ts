@@ -5315,6 +5315,22 @@
         <translation>Mover la capa para que termine en el cabezal</translation>
     </message>
     <message>
+        <source>Bring layer forward</source>
+        <translation>Traer la capa adelante</translation>
+    </message>
+    <message>
+        <source>Send layer backward</source>
+        <translation>Enviar la capa atrás</translation>
+    </message>
+    <message>
+        <source>Bring layer to front</source>
+        <translation>Traer la capa al frente</translation>
+    </message>
+    <message>
+        <source>Send layer to back</source>
+        <translation>Enviar la capa al fondo</translation>
+    </message>
+    <message>
         <source>RAM preview (render to memory and play)</source>
         <translation>Vista previa en RAM (calcular en memoria y reproducir)</translation>
     </message>
@@ -5419,8 +5435,60 @@
         <translation>Acepta luces</translation>
     </message>
     <message>
+        <source>Select an SVG layer to turn into shapes</source>
+        <translation>Elige una capa SVG para convertirla en formas</translation>
+    </message>
+    <message>
+        <source>This SVG has no paths to turn into shapes</source>
+        <translation>Este SVG no tiene trazados para convertir en formas</translation>
+    </message>
+    <message>
+        <source>Path %1</source>
+        <translation>Trazado %1</translation>
+    </message>
+    <message>
+        <source>%1 Outlines</source>
+        <translation>%1 Contornos</translation>
+    </message>
+    <message>
+        <source>Vector</source>
+        <translation>Vector</translation>
+    </message>
+    <message>
+        <source>Shapes from vector layer</source>
+        <translation>Formas desde capa vectorial</translation>
+    </message>
+    <message>
+        <source>Merge needs two shapes or more in the same place of the contents</source>
+        <translation>Para combinar hacen falta dos formas o más en el mismo lugar del contenido</translation>
+    </message>
+    <message>
+        <source>Nothing is left of the shapes with this merge</source>
+        <translation>Con esta combinación no queda nada de las formas</translation>
+    </message>
+    <message>
+        <source>Merged %1</source>
+        <translation>%1 combinado</translation>
+    </message>
+    <message>
+        <source>Merge paths</source>
+        <translation>Combinar trazados</translation>
+    </message>
+    <message>
+        <source>Select a text to turn into shapes</source>
+        <translation>Elige un texto para convertirlo en formas</translation>
+    </message>
+    <message>
+        <source>Shapes from text</source>
+        <translation>Formas desde texto</translation>
+    </message>
+    <message>
         <source>Motion sketch</source>
         <translation>Bosquejo de movimiento</translation>
+    </message>
+    <message>
+        <source>Rename effect</source>
+        <translation>Renombrar efecto</translation>
     </message>
     <message>
         <source>Shape added to the layer</source>
@@ -11257,6 +11325,10 @@
         <translation>Inclinar (%)</translation>
     </message>
     <message>
+        <source>Angle Control</source>
+        <translation>Control de ángulo</translation>
+    </message>
+    <message>
         <source>Start (%)</source>
         <translation>Inicio (%)</translation>
     </message>
@@ -11271,6 +11343,18 @@
     <message>
         <source>Extra room (px)</source>
         <translation>Margen extra (px)</translation>
+    </message>
+    <message>
+        <source>Checkbox Control</source>
+        <translation>Control de casilla</translation>
+    </message>
+    <message>
+        <source>Checkbox</source>
+        <translation>Casilla</translation>
+    </message>
+    <message>
+        <source>Color Control</source>
+        <translation>Control de color</translation>
     </message>
     <message>
         <source>Fill</source>
@@ -11291,6 +11375,22 @@
     <message>
         <source>Feather (px)</source>
         <translation>Difuminado (px)</translation>
+    </message>
+    <message>
+        <source>Point Control</source>
+        <translation>Control de punto</translation>
+    </message>
+    <message>
+        <source>Point</source>
+        <translation>Punto</translation>
+    </message>
+    <message>
+        <source>Slider Control</source>
+        <translation>Control deslizante</translation>
+    </message>
+    <message>
+        <source>Slider</source>
+        <translation>Deslizador</translation>
     </message>
     <message>
         <source>Liquid</source>
@@ -15031,6 +15131,10 @@ LA PRÓXIMA</translation>
         <translation>Squash &amp; Stretch</translation>
     </message>
     <message>
+        <source>Expression Controls</source>
+        <translation>Controles de expresión</translation>
+    </message>
+    <message>
         <source>Other</source>
         <translation>Otro</translation>
     </message>
@@ -15410,6 +15514,10 @@ LA PRÓXIMA</translation>
         <translation>Explorar efectos</translation>
     </message>
     <message>
+        <source>Rename…</source>
+        <translation>Cambiar nombre…</translation>
+    </message>
+    <message>
         <source>Copy this effect</source>
         <translation>Copiar este efecto</translation>
     </message>
@@ -15476,6 +15584,18 @@ LA PRÓXIMA</translation>
     <message>
         <source>Pick %1</source>
         <translation>Elige %1</translation>
+    </message>
+    <message>
+        <source>Rename effect</source>
+        <translation>Renombrar efecto</translation>
+    </message>
+    <message>
+        <source>Rename</source>
+        <translation>Renombrar</translation>
+    </message>
+    <message>
+        <source>Empty gives it back its own name. Expressions can read it by this name: effect(&quot;name&quot;)(&quot;value&quot;).</source>
+        <translation>Vacío le devuelve su nombre. Las expresiones lo leen con este nombre: effect(&quot;nombre&quot;)(&quot;valor&quot;).</translation>
     </message>
     <message>
         <source>Edit %1</source>
@@ -16626,6 +16746,10 @@ LA PRÓXIMA</translation>
     <message>
         <source>Transform layer</source>
         <translation>Capa de transformación</translation>
+    </message>
+    <message>
+        <source>Null object</source>
+        <translation>Objeto nulo</translation>
     </message>
     <message>
         <source>Original dimensions: %1 × %2</source>
@@ -18915,10 +19039,6 @@ LA PRÓXIMA</translation>
         <translation>PDF</translation>
     </message>
     <message>
-        <source>PDF (needs the PDF Viewer addon)</source>
-        <translation>PDF (necesita el extra Visor de PDF)</translation>
-    </message>
-    <message>
         <source>Search media</source>
         <translation>Buscar medios</translation>
     </message>
@@ -19119,6 +19239,10 @@ LA PRÓXIMA</translation>
     <message>
         <source>Move to folder…</source>
         <translation>Mover a la carpeta…</translation>
+    </message>
+    <message>
+        <source>PDF · Illustrator .ai (needs the PDF Viewer addon)</source>
+        <translation>PDF · Illustrator .ai (necesita el extra Visor de PDF)</translation>
     </message>
     <message>
         <source>This folder is empty</source>
@@ -20202,6 +20326,14 @@ LA PRÓXIMA</translation>
         <translation>Las letras de un texto o una forma pasan a ser un trazado editable</translation>
     </message>
     <message>
+        <source>Shapes from text</source>
+        <translation>Formas desde texto</translation>
+    </message>
+    <message>
+        <source>A text becomes a shape layer with one shape per letter, to animate them one by one</source>
+        <translation>Un texto pasa a ser una capa de formas con una forma por letra, para animarlas una por una</translation>
+    </message>
+    <message>
         <source>Centre</source>
         <translation>Centrar</translation>
     </message>
@@ -20901,6 +21033,50 @@ LA PRÓXIMA</translation>
         <source>Add vertex</source>
         <translation>Añadir vértice</translation>
     </message>
+    <message>
+        <source>Set first vertex</source>
+        <translation>Fijar primer vértice</translation>
+    </message>
+    <message>
+        <source>RotoBezier (smooth points)</source>
+        <translation>RotoBezier (puntos suaves)</translation>
+    </message>
+    <message>
+        <source>Straight corners</source>
+        <translation>Esquinas rectas</translation>
+    </message>
+    <message>
+        <source>Closed</source>
+        <translation>Cerrado</translation>
+    </message>
+    <message>
+        <source>Free transform points…</source>
+        <translation>Transformar puntos libremente…</translation>
+    </message>
+    <message>
+        <source>Free transform points</source>
+        <translation>Transformar puntos libremente</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>Aplicar</translation>
+    </message>
+    <message>
+        <source>The picked points (all of them with none picked) grow and turn about their middle; the stroke keeps its width.</source>
+        <translation>Los puntos elegidos (todos si no hay ninguno elegido) crecen y giran sobre su centro; el trazo conserva su grosor.</translation>
+    </message>
+    <message>
+        <source>Scale X %</source>
+        <translation>Escala X %</translation>
+    </message>
+    <message>
+        <source>Scale Y %</source>
+        <translation>Escala Y %</translation>
+    </message>
+    <message>
+        <source>Rotation °</source>
+        <translation>Rotación °</translation>
+    </message>
 </context>
 <context>
     <name>PlaybackEngine</name>
@@ -21279,6 +21455,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Rectángulo</translation>
     </message>
     <message>
+        <source>Rounded rectangle</source>
+        <translation>Rectángulo redondeado</translation>
+    </message>
+    <message>
         <source>Ellipse</source>
         <translation>Elipse</translation>
     </message>
@@ -21293,14 +21473,6 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Line</source>
         <translation>Línea</translation>
-    </message>
-    <message>
-        <source>Fill Options: none, solid, linear or radial gradient, blend mode and opacity</source>
-        <translation>Opciones de relleno: ninguno, sólido, degradado lineal o radial, modo de fusión y opacidad</translation>
-    </message>
-    <message>
-        <source>Stroke Options: none, solid, linear or radial gradient, blend mode and opacity</source>
-        <translation>Opciones de trazo: ninguno, sólido, degradado lineal o radial, modo de fusión y opacidad</translation>
     </message>
     <message>
         <source>Fill colour. Right-click: no fill (or back on)</source>
@@ -21335,8 +21507,24 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Punto de anclaje: arrástralo sin mover la capa</translation>
     </message>
     <message>
-        <source>Shape: drag on the preview (Shift for a square or circle)</source>
-        <translation>Forma: arrastra en la vista previa (Mayús para un cuadrado o un círculo)</translation>
+        <source>Fill Options: none, solid, linear or radial gradient, blend mode and opacity. Alt+click: the next kind</source>
+        <translation>Opciones de relleno: ninguno, sólido, degradado lineal o radial, fusión y opacidad. Alt+clic: el tipo siguiente</translation>
+    </message>
+    <message>
+        <source>Stroke Options: none, solid, linear or radial gradient, blend mode and opacity. Alt+click: the next kind</source>
+        <translation>Opciones de trazo: ninguno, sólido, degradado lineal o radial, fusión y opacidad. Alt+clic: el tipo siguiente</translation>
+    </message>
+    <message>
+        <source>Shape: drag on the preview (Shift for a square or circle). Alt+click: the next shape; double-click: one the size of the frame</source>
+        <translation>Forma: arrastra en la vista previa (Mayús para un cuadrado o un círculo). Alt+clic: la forma siguiente; doble clic: una del tamaño del cuadro</translation>
+    </message>
+    <message>
+        <source>The shape tool draws a mask on the picked layer. Click: draw shapes again</source>
+        <translation>La herramienta de forma dibuja una máscara en la capa elegida. Clic: volver a dibujar formas</translation>
+    </message>
+    <message>
+        <source>The shape tool draws shapes. Click: draw a mask on the picked layer instead</source>
+        <translation>La herramienta de forma dibuja formas. Clic: dibujar una máscara en la capa elegida</translation>
     </message>
     <message>
         <source>Ellipse: drag on the preview (Shift for a circle)</source>
@@ -22193,12 +22381,16 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Expresión (JavaScript)</translation>
     </message>
     <message>
-        <source>The pick whip links another layer&apos;s position, rotation, scale, opacity or anchor point</source>
-        <translation>El látigo enlaza la posición, la rotación, la escala, la opacidad o el punto de anclaje de otra capa</translation>
+        <source>The pick whip links another layer&apos;s position, rotation, scale, opacity, anchor point or effect</source>
+        <translation>El látigo enlaza la posición, la rotación, la escala, la opacidad, el anclaje o un efecto de otra capa</translation>
     </message>
     <message>
         <source>Pick whip: drag onto another layer&apos;s property line in the timeline</source>
         <translation>Látigo: arrástralo hasta la fila de una propiedad de otra capa en la línea de tiempo</translation>
+    </message>
+    <message>
+        <source>Expression on</source>
+        <translation>Expresión activa</translation>
     </message>
     <message>
         <source>My expressions (%1)</source>
@@ -24302,6 +24494,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Raya-punto</translation>
     </message>
     <message>
+        <source>Dash and gap (px)</source>
+        <translation>Guion y espacio (px)</translation>
+    </message>
+    <message>
         <source>Collapse layer</source>
         <translation>Contraer capa</translation>
     </message>
@@ -24360,6 +24556,22 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Dash offset</source>
         <translation>Desplazamiento del guion</translation>
+    </message>
+    <message>
+        <source>Dash %1</source>
+        <translation>Guion %1</translation>
+    </message>
+    <message>
+        <source>Gap %1</source>
+        <translation>Espacio %1</translation>
+    </message>
+    <message>
+        <source>Add a dash or a gap</source>
+        <translation>Añadir un guion o un espacio</translation>
+    </message>
+    <message>
+        <source>Take away the last dash or gap (none left: a solid line)</source>
+        <translation>Quitar el último guion o espacio (sin ninguno: línea continua)</translation>
     </message>
     <message>
         <source>Arrow at start</source>
@@ -24579,6 +24791,26 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Empty group</source>
         <translation>Grupo vacío</translation>
+    </message>
+    <message>
+        <source>Merge paths</source>
+        <translation>Combinar trazados</translation>
+    </message>
+    <message>
+        <source>Add (join)</source>
+        <translation>Sumar (unir)</translation>
+    </message>
+    <message>
+        <source>Subtract (the lower cuts the upper)</source>
+        <translation>Restar (la de abajo corta a la de arriba)</translation>
+    </message>
+    <message>
+        <source>Intersect (what they share)</source>
+        <translation>Intersecar (lo que comparten)</translation>
+    </message>
+    <message>
+        <source>Exclude (what they do not share)</source>
+        <translation>Excluir (lo que no comparten)</translation>
     </message>
     <message>
         <source>This layer is one shape. Add another one to build it from parts: each part has its own fill, border and position.</source>
@@ -24917,6 +25149,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Anchor Y</source>
         <translation>Anclaje Y</translation>
+    </message>
+    <message>
+        <source>Polygon (%1 sides)</source>
+        <translation>Polígono (%1 lados)</translation>
     </message>
     <message>
         <source>Layers</source>
@@ -26931,18 +27167,6 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Pide una plantilla</translation>
     </message>
     <message>
-        <source>Want more? Download a free animation from LottieFiles (.json or .lottie) and drop it into Media.</source>
-        <translation>¿Quieres más? Descarga una animación gratis de LottieFiles (.json o .lottie) y suéltala en Medios.</translation>
-    </message>
-    <message>
-        <source>LottieFiles</source>
-        <translation>LottieFiles</translation>
-    </message>
-    <message>
-        <source>Opens lottiefiles.com in your browser</source>
-        <translation>Abre lottiefiles.com en tu navegador</translation>
-    </message>
-    <message>
         <source>Have your photos already? Choose them and Flip suggests the templates that fit.</source>
         <translation>¿Ya tienes tus fotos? Elígelas y Flip te sugiere las plantillas que les quedan.</translation>
     </message>
@@ -28815,7 +29039,7 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Rename…</source>
-        <translation>Renombrar…</translation>
+        <translation>Cambiar nombre…</translation>
     </message>
     <message>
         <source>Export…</source>
@@ -31074,6 +31298,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Dividir en letras</translation>
     </message>
     <message>
+        <source>Create shapes from vector layer</source>
+        <translation>Crear formas desde capa vectorial</translation>
+    </message>
+    <message>
+        <source>Create shapes from text</source>
+        <translation>Crear formas desde texto</translation>
+    </message>
+    <message>
         <source>Delete keyframes</source>
         <translation>Borrar fotogramas clave</translation>
     </message>
@@ -31291,6 +31523,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Curve editor: the keyframe lines turn into their curves</source>
         <translation>Editor de curvas: las filas de fotogramas clave se vuelven curvas</translation>
+    </message>
+    <message>
+        <source>Search properties</source>
+        <translation>Buscar propiedades</translation>
     </message>
     <message>
         <source>Click or drag to seek</source>

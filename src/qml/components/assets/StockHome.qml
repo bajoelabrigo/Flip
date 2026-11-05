@@ -90,20 +90,12 @@ Item {
                 y: Theme.spacingLg
                 width: parent.width - root.sidePadding * 2
                 spacing: Theme.spacingMd
-                Text {
-                    width: parent.width - askButton.width - parent.spacing
-                    anchors.verticalCenter: askButton.verticalCenter
-                    text: qsTr("Can’t find it? Ask for it and vote for other people’s ideas.")
-                    color: Theme.mutedForeground
-                    font.family: Theme.fontFamily
-                    font.pixelSize: Theme.fontSizeXs
-                    wrapMode: Text.WordWrap
-                }
                 ThemedButton {
                     id: askButton
                     variant: "secondary"
                     glyph: Theme.icons.plus
                     text: qsTr("Ask for a template")
+                    tooltip: qsTr("Can’t find it? Ask for it and vote for other people’s ideas.")
                     onClicked: root.askRequested()
                 }
             }

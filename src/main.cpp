@@ -61,6 +61,7 @@
 #include <QQuickWindow>
 #include <QQuickItem>
 #include <QKeyEvent>
+#include <QKeySequence>
 #include <QMouseEvent>
 #include <QPointer>
 #include <QSurfaceFormat>
@@ -307,6 +308,23 @@ protected:
         if (event->type() != QEvent::KeyPress)
             return QObject::eventFilter(watched, event);
         const auto *key = static_cast<QKeyEvent *>(event);
+        if (key->isAutoRepeat())
+            return QObject::eventFilter(watched, event);
+        // Ctrl+[ / Ctrl+] and with Shift (0.30, bring a layer forward or back) go by where the keys are, as in
+        // After Effects: the two keys to the right of P, whatever they print. On a Latin American keyboard [ and
+        // ] are Shift+{ and Shift+}, so Ctrl+[ and Ctrl+Shift+[ were the same keys (Jorge could not use them).
+        // Windows' scan codes are the place on the keyboard; text fields keep their keys.
+        if ((key->modifiers() & Qt::ControlModifier) && !(key->modifiers() & Qt::AltModifier)
+            && key->key() != Qt::Key_BracketLeft && key->key() != Qt::Key_BracketRight) {
+            const quint32 scan = key->nativeScanCode() & 0xff;
+            if (scan == 0x1a || scan == 0x1b) {
+                int combo = int(Qt::CTRL) | (scan == 0x1a ? Qt::Key_BracketLeft : Qt::Key_BracketRight);
+                if (key->modifiers() & Qt::ShiftModifier)
+                    combo |= int(Qt::SHIFT);
+                if (runActionFor(QKeySequence(combo)))
+                    return true;
+            }
+        }
         const Qt::KeyboardModifiers altGr = Qt::ControlModifier | Qt::AltModifier;
         const QString text = key->text();
         if ((text != QLatin1String("[") && text != QLatin1String("]")) || key->isAutoRepeat())
@@ -335,6 +353,26 @@ protected:
     }
 
 private:
+    // The action whose shortcut is `wanted`, run as its Shortcut would; false when there is none or a text
+    // field has the keys.
+    bool runActionFor(const QKeySequence &wanted)
+    {
+        if (QObject *focus = QGuiApplication::focusObject();
+            focus && (focus->inherits("QQuickTextInput") || focus->inherits("QQuickTextEdit")))
+            return false;
+        QString action;
+        for (const QVariant &v : m_controller->actions()) {
+            const QVariantMap map = v.toMap();
+            if (QKeySequence::fromString(map.value(QStringLiteral("shortcut")).toString(), QKeySequence::PortableText)
+                == wanted)
+                action = map.value(QStringLiteral("id")).toString();
+        }
+        if (action.isEmpty() || m_engine->rootObjects().isEmpty())
+            return false;
+        QObject *host = m_engine->rootObjects().constFirst()->property("host").value<QObject *>();
+        return host && QMetaObject::invokeMethod(host, "dispatchAction", Q_ARG(QVariant, action));
+    }
+
     AppController *m_controller = nullptr;
     QQmlApplicationEngine *m_engine = nullptr;
 };

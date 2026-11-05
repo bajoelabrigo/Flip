@@ -1060,6 +1060,8 @@ QVariantList PreviewController::clipsAtPlayhead() const
                 {QStringLiteral("parentSig"), parentSig},
                 {QStringLiteral("parents"), parentChain},
                 {QStringLiteral("name"), clip.name},
+                // A null (0.30): drawn as After Effects draws it, an outlined square, selected or not.
+                {QStringLiteral("nullObject"), clip.nullObject && clip.light.kind == 0},
                 {QStringLiteral("nullObject"), clip.nullObject},
                 {QStringLiteral("clipParented"), clipParented},
                 {QStringLiteral("pixelSize"), clip.textStyle.pixelSize},
@@ -1072,11 +1074,17 @@ QVariantList PreviewController::clipsAtPlayhead() const
                 {QStringLiteral("width"), w},
                 {QStringLiteral("height"), h},
                 // An animated size grows around the anchor (0.30): the size it pivots from, or 0.
-                {QStringLiteral("restW"), clip.anchorX.isEmpty() ? 0.0
+                // A size moved by a behaviour (an expression reading a Slider) grows from what its keys give,
+                // with or without anchor keys, as Clip::anchorShift draws it (0.30 Academy).
+                {QStringLiteral("restW"), clip.transformW.behavior().isActive() && !clip.transformW.isEmpty()
+                                              ? clip.transformW.evaluateKeys(relative)
+                                          : clip.anchorX.isEmpty() ? 0.0
                                           : clip.sizePivotW > 0.0 && clip.transformW.stopwatch() && !clip.transformW.isEmpty() ? clip.sizePivotW
                                           : clip.transformW.keyframes().size() >= 2 ? clip.transformW.keyframes().first().value
                                                                                      : 0.0},
-                {QStringLiteral("restH"), clip.anchorY.isEmpty() ? 0.0
+                {QStringLiteral("restH"), clip.transformH.behavior().isActive() && !clip.transformH.isEmpty()
+                                              ? clip.transformH.evaluateKeys(relative)
+                                          : clip.anchorY.isEmpty() ? 0.0
                                           : clip.sizePivotH > 0.0 && clip.transformH.stopwatch() && !clip.transformH.isEmpty() ? clip.sizePivotH
                                           : clip.transformH.keyframes().size() >= 2 ? clip.transformH.keyframes().first().value
                                                                                      : 0.0},
@@ -1358,7 +1366,11 @@ QVariantMap PreviewController::maskEditorState() const
             frameY = value(clip.transformY, 0.0);
             frameW = value(clip.transformW, m_app.m_project.width());
             frameH = value(clip.transformH, m_app.m_project.height());
-            frameRotation = value(clip.rotation, 0.0);
+            frameRotation = value(clip.rotation, 0.0) + clip.autoOrientDegrees(relative);
+            // Placed as the renderer does (0.30): moved by the anchor's shift, so it turns about its centre.
+            const QPointF shift = clip.anchorShift(relative, frameW, frameH, frameRotation);
+            frameX += shift.x();
+            frameY += shift.y();
             if (clip.type != drift::ClipType::Model3d) {
                 framePose.rotationX = value(clip.rotationX, 0.0);
                 framePose.rotationY = value(clip.rotationY, 0.0);
@@ -1401,8 +1413,20 @@ QVariantMap PreviewController::maskEditorState() const
     out.insert(QStringLiteral("z"), framePose.positionZ);
     out.insert(QStringLiteral("perspective"), framePose.perspective);
     // A host moved by a transform layer: the handles are placed through that parent too.
-    const drift::TransformParent parent =
+    drift::TransformParent parent =
         hostTrack >= 0 ? m_app.transformParentFor(hostTrack) : drift::TransformParent{};
+    // And the clip's own After Effects parent (0.30, the nulls course: a mask on a layer that follows a
+    // turning null sat off the layer), as the transform handles have it.
+    if (hostClip >= 0) {
+        const drift::Clip &clip = m_app.m_project.tracks().at(hostTrack).clips.at(hostClip);
+        bool clipParented = false;
+        const QTransform clipParent =
+            drift::clipParentMatrix(m_app.m_project, clip, m_app.m_playheadUs, 1.0, &clipParented);
+        if (clipParented) {
+            parent.matrix = parent.hasParent ? clipParent * parent.matrix : clipParent;
+            parent.hasParent = true;
+        }
+    }
     out.insert(QStringLiteral("parentActive"), parent.hasParent);
     out.insert(QStringLiteral("parent"), transformToList(parent.matrix));
     return out;

@@ -78,6 +78,37 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
   ponga claves después de una caída tiene que dejar una clave quieta antes.
 
 
+- **2026-11-05:** Jorge dijo «pruebas todo y si está todo bien, ya desplegamos la 0.30 y la web» (y «corrige todo»).
+  Arreglos de última hora en `flip/subtitulos` (curvas fluidas, trazo del movimiento, clave nueva al mover, nulo, Stock en
+  árbol con flechas, Ctrl+[ por posición). **Trampa nueva:** en QML no calcular el `visible` de un padre con el `visible` de
+  sus hijos (un hijo de un padre oculto se lee oculto y el padre no vuelve). **Trampa nueva:** el teclado de Jorge es
+  latinoamericano (0x080A): [ ] salen con Mayús; los atajos con [ ] van por código de tecla (`AltGrShortcutFilter` en `main.cpp`);
+  para simularlos, `vk` 0xBA/0xBB (códigos 0x1A/0x1B). **Trampa nueva:** cada movimiento de un arrastre que llame
+  `notifyTracksChanged` rehace la línea de tiempo y los paneles: dentro de un arrastre usar `emitPreviewEdit`.
+
+### Academia de la web (2026-11-04, noche) — **detalle en `docs/plan-academia.md` › Estado**
+- 26 lecciones (3 niveles × 6 temas; Texto tiene 3, 4 y 3 lecciones) con capturas reales, en `flipstudio-web` rama `academia`, **sin desplegar**. Un tema admite `<tema>-2.json`, `-3.json`…
+  Generador `flipstudio-web/tools/academia/build.py`; originales en `E:\FlipStudio\academia\capturas`.
+- Al capturar salieron fallos de la app, arreglados en `flip/subtitulos` (lista en `release-notes/0.30.0.md` ›
+  Arreglos). El último (caja de selección de una Escala por expresión) está en la compilación siguiente a la nf5.
+- **Trampa nueva:** `anchorShift` solo se aplicaba si la capa tenía claves de anclaje (`FrameCompositor`
+  `layoutRectForClip`, `TransformLayer`, y `restW/restH` de `PreviewController`): todo lo que mueva el tamaño
+  sin claves (una expresión) tiene que pasar por esos tres.
+- **Trampa nueva:** el panel General de un clip de audio muestra la ruta con el usuario de Windows: no capturarlo.
+- **Trampa nueva:** las opciones de un menú contextual de QML salen donde está el mouse real de Jorge, y un clic
+  simulado justo después de cargar un modelo puede caer en otro control: capturar antes de cada clic.
+
+### Cursos de nulos y formas (2026-11-04, tarde) — **detalle en `docs/tutorial-nulos-formas-ae.md`**
+- Controles de expresión, látigo a efectos, renombrar efectos, expresión activa, buscar propiedades; formas y pluma
+  como AE (polígono con rueda, Alt+clic, guiones en px, menú del trazado, Ctrl+T, formas desde texto/SVG, combinar);
+  `.ai` como PDF. Visto en ventana en la r3 (run 41874630576). **No publicar** hasta que Jorge diga.
+- **Siguiente:** Academia de la web (`docs/plan-academia.md`).
+- **Trampa nueva:** `AppController.cpp` no ve las cabeceras de Skia (compila también en las pruebas sin ellas): lo
+  que necesite Skia va en `src/engine` con una función sin tipos de Skia (`text::characterOutlines`).
+- **Trampa nueva:** al valor que muestra una fila (`propertyValueAt`) hay que darle la hora en `expressionContext()`:
+  sin ella, una expresión que lee otra capa la lee en su inicio.
+- **Trampa nueva:** el doble clic simulado le llega a un `AbstractButton` como dos clics: medir el tiempo entre clics.
+
 ### 0.29.0 PUBLICADA (2026-11-01) — tercios inferiores fáciles y animación a mano como AE — **detalle en `docs/plan-0.29.md`**
 - PRs #49 y #50 (`flip/v0.29-tutorial` → `main`), tag `v0.29.0`, release (run 41288201475); copia en `versiones\FlipStudio-0.29.0`;
   MSIX `msstore.yml` run 41294173565 → `tienda\FlipStudio-Store\paquete-0.29.0`. Notas de la Store: «Notas para la Store

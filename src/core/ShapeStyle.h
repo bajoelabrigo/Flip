@@ -79,6 +79,9 @@ struct ShapeStyle
     // parallelogram that stays inside the box.
     double skew = 0.0;
     int points = 5;            // star / burst spikes
+    // After Effects' Polygon (0.30, the shapes course): a hexagon drawn with the tool takes its side count
+    // from `points` (keyframable, set with the wheel while drawing); older hexagons keep their six.
+    bool polygonFromPoints = false;
     double innerRatio = 0.5;   // star / burst inner radius, fraction of outer
     // After Effects' Outer / Inner Roundness (0.28), % : a star's or polygon's corners become curves; 100 % turns
     // a polygon into a circle.

@@ -96,6 +96,18 @@ Item {
     property point dragTo: Qt.point(0, 0)
     property bool dragging: false
     readonly property bool lineTool: tool === "shape" && EditorState.preview.shapeToolKind === "line"
+    // After Effects' Polygon and Star (0.30): drawn out from the centre, turning with the pointer (Shift keeps
+    // them upright) and with the wheel adding or taking away points while the button is down.
+    readonly property bool polystarTool: tool === "shape" && (EditorState.preview.shapeToolKind === "star"
+                                                              || EditorState.preview.shapeToolKind === "polygon")
+    property real dragRotation: 0
+    property int dragPoints: 5
+    function polystarRect(from, to, shift) {
+        const r = Math.max(1, Math.hypot(to.x - from.x, to.y - from.y))
+        // A point aims at the pointer.
+        root.dragRotation = shift ? 0 : Math.atan2(to.y - from.y, to.x - from.x) * 180 / Math.PI + 90
+        return Qt.rect(from.x - r, from.y - r, 2 * r, 2 * r)
+    }
 
     // The Line tool: Shift keeps it at 0°, 45° or 90°, as AE's pen with Shift.
     function linePoint(from, to, shift) {
@@ -139,10 +151,56 @@ Item {
         y: root.dragRect.y
         width: root.dragRect.width
         height: root.dragRect.height
-        radius: EditorState.preview.shapeToolKind === "ellipse" ? Math.min(width, height) / 2 : 0
+        radius: EditorState.preview.shapeToolKind === "ellipse" ? Math.min(width, height) / 2
+              : EditorState.preview.shapeToolKind === "roundedRectangle" ? Math.min(20 * root.sx, Math.min(width, height) / 2) : 0
+        rotation: root.polystarTool ? root.dragRotation : 0
         color: "transparent"
-        border.width: 1.5
+        border.width: root.polystarTool ? 0 : 1.5
         border.color: Theme.primary
+        // The polygon or star itself while it is drawn out (0.30, as After Effects), not its box.
+        Canvas {
+            id: polystarOutline
+            anchors.fill: parent
+            visible: root.polystarTool
+            readonly property int points: root.dragPoints
+            readonly property bool star: EditorState.preview.shapeToolKind === "star"
+            onPointsChanged: requestPaint()
+            onStarChanged: requestPaint()
+            onWidthChanged: requestPaint()
+            onHeightChanged: requestPaint()
+            onPaint: {
+                const ctx = getContext("2d")
+                ctx.reset()
+                const n = Math.max(3, points)
+                const cx = width / 2, cy = height / 2
+                const r = Math.min(width, height) / 2
+                const steps = star ? n * 2 : n
+                ctx.beginPath()
+                for (let i = 0; i < steps; ++i) {
+                    const a = -Math.PI / 2 + i * 2 * Math.PI / steps
+                    const rr = star && i % 2 === 1 ? r * 0.5 : r
+                    const px = cx + Math.cos(a) * rr, py = cy + Math.sin(a) * rr
+                    if (i === 0)
+                        ctx.moveTo(px, py)
+                    else
+                        ctx.lineTo(px, py)
+                }
+                ctx.closePath()
+                ctx.lineWidth = 1.5
+                ctx.strokeStyle = Theme.primary
+                ctx.stroke()
+            }
+        }
+        // How many points the polygon or star gets (the wheel changes it).
+        Text {
+            visible: root.polystarTool
+            anchors.centerIn: parent
+            rotation: -parent.rotation
+            text: root.dragPoints
+            color: Theme.primary
+            font.pixelSize: 14
+            font.bold: true
+        }
     }
 
     // ----- Motion sketch: the pointer's path while the playhead runs in real time ---------------
@@ -244,6 +302,14 @@ Item {
                      : root.tool === "anchor" || root.tool === "sketch" || root.tool === "puppet" ? Qt.SizeAllCursor
                      : Qt.CrossCursor
 
+        onWheel: wheel => {
+            if (!(root.polystarTool && root.dragging)) {
+                wheel.accepted = false
+                return
+            }
+            const turn = wheel.angleDelta.y !== 0 ? wheel.angleDelta.y : wheel.angleDelta.x
+            root.dragPoints = Math.max(3, Math.min(60, root.dragPoints + (turn > 0 ? 1 : -1)))
+        }
         onPressed: mouse => {
             if (root.puppetReady) {
                 const hit = root.puppetPinAt((mouse.x + area.x), (mouse.y + area.y))
@@ -258,6 +324,7 @@ Item {
                 return
             }
             if (root.tool === "shape" || root.tool === "roi") {
+                root.dragRotation = 0
                 root.dragFrom = Qt.point((mouse.x + area.x), (mouse.y + area.y))
                 root.dragTo = Qt.point((mouse.x + area.x), (mouse.y + area.y))
                 root.dragRect = Qt.rect((mouse.x + area.x), (mouse.y + area.y), 0, 0)
@@ -284,6 +351,9 @@ Item {
             }
             if (root.lineTool && root.dragging)
                 root.dragTo = root.linePoint(root.dragFrom, Qt.point((mouse.x + area.x), (mouse.y + area.y)), mouse.modifiers & Qt.ShiftModifier)
+            else if (root.polystarTool && root.dragging)
+                root.dragRect = root.polystarRect(root.dragFrom, Qt.point((mouse.x + area.x), (mouse.y + area.y)),
+                                                  mouse.modifiers & Qt.ShiftModifier)
             else if ((root.tool === "shape" || root.tool === "roi") && root.dragging)
                 root.dragRect = root.shapeRect(root.dragFrom, Qt.point((mouse.x + area.x), (mouse.y + area.y)),
                                                mouse.modifiers & Qt.ShiftModifier, mouse.modifiers & Qt.AltModifier)
@@ -326,9 +396,32 @@ Item {
                     return
                 r.width = Math.max(r.width, 1)
                 r.height = Math.max(r.height, 1)
+                // «Tool creates mask» (0.30, After Effects): the drawn box becomes a mask on the picked layer.
+                if (EditorState.preview.shapeToolMask && root.box && root.box.quad && root.box.quad.length === 4) {
+                    const a0 = root.overlayToBox(r.x, r.y)
+                    const a1 = root.overlayToBox(r.x + r.width, r.y + r.height)
+                    const kind = EditorState.preview.shapeToolKind
+                    const shape = kind === "ellipse" ? "ellipse" : kind === "star" ? "star" : "rectangle"
+                    const track = root.box.track, clip = root.box.clip
+                    const id = EditorState.addMaskToClipInPlace(track, clip, shape)
+                    // The new lane can shift the tracks: the mask is found again by its id.
+                    const e = id ? EditorState.clipLocation(id) : ({})
+                    if (e.track !== undefined && e.track >= 0) {
+                        const cur = Object.assign({}, (EditorState.clipAt(e.track, e.clip) || {}).mask || {})
+                        cur.x = (a0.x + a1.x) / 2
+                        cur.y = (a0.y + a1.y) / 2
+                        cur.w = Math.abs(a1.x - a0.x)
+                        cur.h = Math.abs(a1.y - a0.y)
+                        EditorState.setClipMask(e.track, e.clip, cur)
+                    }
+                    root.forceActiveFocus()
+                    return
+                }
                 EditorState.addDrawnShape(EditorState.preview.shapeToolKind, r.x / root.sx, r.y / root.sy,
                                           r.width / root.sx, r.height / root.sy, EditorState.preview.toolFill,
-                                          EditorState.preview.toolStroke, EditorState.preview.toolStrokeWidth)
+                                          EditorState.preview.toolStroke, EditorState.preview.toolStrokeWidth,
+                                          root.polystarTool ? root.dragRotation : 0,
+                                          root.polystarTool ? root.dragPoints : 0)
                 root.forceActiveFocus()
             } else if (root.tool === "sketch" && sketchTimer.running) {
                 sketchTimer.stop()

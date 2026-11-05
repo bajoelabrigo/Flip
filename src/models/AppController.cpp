@@ -136,6 +136,7 @@
 #include <QPainterPath>
 #include <QPixmap>
 #include <QRegularExpression>
+#include <QXmlStreamReader>
 #include <QAudioDevice>
 #include <QThreadPool>
 #include <QSaveFile>
@@ -1124,6 +1125,12 @@ QStringList inspectorCaps(const drift::Clip &clip, drift::TrackType trackType)
              << QStringLiteral("videoTools") << QStringLiteral("trackable");
         break;
     case ClipType::Shape:
+        // A null is not drawn (0.30): no Shape tab, no fill and stroke, no blending, as an After Effects null.
+        if (clip.nullObject && clip.light.kind == 0) {
+            caps << QStringLiteral("transformable") << QStringLiteral("animatable") << QStringLiteral("trackable")
+                 << QStringLiteral("nullObject");
+            break;
+        }
         caps << QStringLiteral("transformable") << QStringLiteral("blendable") << QStringLiteral("animatable")
              << QStringLiteral("shape") << QStringLiteral("trackable");
         break;
@@ -2169,6 +2176,7 @@ QVariantMap shapeStyleToMap(const drift::ShapeStyle &s, drift::TimeUs timelineSt
         {QStringLiteral("layers"), layers},
         {QStringLiteral("cornerRadius"), s.cornerRadius},
         {QStringLiteral("points"), s.points},
+        {QStringLiteral("polygonFromPoints"), s.polygonFromPoints},
         {QStringLiteral("innerRatio"), s.innerRatio},
         {QStringLiteral("outerRoundness"), s.outerRoundness},
         {QStringLiteral("innerRoundness"), s.innerRoundness},
@@ -3655,8 +3663,11 @@ QVariantMap effectToMap(const drift::Effect &effect, int effectIndex, drift::Tim
         // Compositor-only effects carry no filter name, so an uninstalled one would label itself
         // with an empty string; the catalog id is at least the name the user has to go install.
         {QStringLiteral("label"),
-         def ? def->meta.displayName : (effect.name.isEmpty() ? effect.catalogId : effect.name)},
+         !effect.label.isEmpty() ? effect.label
+                                 : def ? def->meta.displayName : (effect.name.isEmpty() ? effect.catalogId : effect.name)},
         {QStringLiteral("params"), params},
+        {QStringLiteral("catalogLabel"), def ? def->meta.displayName : effect.catalogId},
+        {QStringLiteral("customLabel"), effect.label},
         {QStringLiteral("compositorOnly"), def ? def->meta.compositorOnly : false},
         {QStringLiteral("needsDepth"), def ? def->needsDepth : false},
         {QStringLiteral("missing"), def == nullptr},
@@ -3673,7 +3684,8 @@ QVariantMap effectBadgeToMap(const drift::Effect &effect)
     const EffectPresetEntry *def = effectDefForId(effect.catalogId);
     return {
         {QStringLiteral("label"),
-         def ? def->meta.displayName : (effect.name.isEmpty() ? effect.catalogId : effect.name)},
+         !effect.label.isEmpty() ? effect.label
+                                 : def ? def->meta.displayName : (effect.name.isEmpty() ? effect.catalogId : effect.name)},
         {QStringLiteral("enabled"), effect.enabled},
     };
 }
@@ -4167,6 +4179,22 @@ QSizeF fittedTextSizeForStyle(const QString &text, const drift::TextStyle &style
         if (style.valign == drift::TextVAlign::Middle)
             padY += qMax(0.0, style.boxPadY());
     }
+    // Letters bent by Curve or wrapped around a circle (0.30 Academy: the box kept the flat line's size, so the
+    // ring's top and bottom letters stood outside it and could not be picked). One line only, as drawn.
+    const double lineH = em * qMax(0.5, style.lineHeight);
+    if (natural.height() < lineH * 1.6) {
+        if (style.pathCircle > 0.5) {
+            const double share = qBound(0.1, style.pathCircle / 100.0, 1.0);
+            const double around = natural.width() + (share > 0.95 ? natural.height() * 0.6 : 0.0);
+            const double radius = around / (6.283185307179586 * share);
+            const double side = 2.0 * (radius + natural.height()) + 2.0 * padY;
+            // Never narrower than the line: the words would wrap and a ring needs one line.
+            return QSizeF(qMax(side, qMax(em, natural.width()) + 2.0 * padX), side);
+        }
+        const double rise = drift::text::textBendRise(style);
+        if (rise > 0.5)
+            return QSizeF(qMax(em, natural.width()) + 2.0 * padX, qMax(em, natural.height()) + 2.0 * (padY + rise));
+    }
     // Empty text still keeps a box an em wide for the caret.
     return QSizeF(qMax(em, natural.width()) + 2.0 * padX, qMax(em, natural.height()) + 2.0 * padY);
 }
@@ -4211,6 +4239,8 @@ quint64 textFitKey(const drift::TextStyle &style)
     quint64 key = drift::text::layoutKey(QString(), style, 0.0, 0.0, 1.0, -1, drift::text::WordSplit::Whole);
     key = qHashMulti(key, style.boxEnabled, style.boxPadX(), style.boxPadY(),
                      drift::textStrokeWidth(style, false));
+    // Curve and Around a circle size the hugging box too (0.30); the layout key leaves them out.
+    key = qHashMulti(key, style.pathBend, style.pathCircle);
     for (auto it = style.keyframes.constBegin(); it != style.keyframes.constEnd(); ++it) {
         key = qHashMulti(key, it.key(), it->enabled());
         for (auto k = it->keyframes().constBegin(); k != it->keyframes().constEnd(); ++k)
@@ -4268,6 +4298,12 @@ bool refitTextClipBox(drift::Clip &clip, int canvasW, int canvasH)
     };
     resize(clip.transformW, w);
     resize(clip.transformH, h);
+    // Its 100 % follows the words (0.30 Academy: a font size of 90 for 64 read Scale 141 %): a refit is
+    // the content changing, not a scale.
+    if (clip.restW > 0.0 && oldW > 0.0)
+        clip.restW *= w / oldW;
+    if (clip.restH > 0.0 && oldH > 0.0)
+        clip.restH *= h / oldH;
     return true;
 }
 
@@ -4296,7 +4332,7 @@ void syncTextAutoFit(drift::Project &project, const drift::Project &before)
     bool indexed = false;
     for (drift::Track &track : project.tracks()) {
         for (drift::Clip &clip : track.clips) {
-            if (clip.type != drift::ClipType::Text || !clip.textAutoFit)
+            if (clip.type != drift::ClipType::Text)
                 continue;
             if (!indexed) {
                 for (const drift::Track &oldTrack : before.tracks()) {
@@ -4312,6 +4348,43 @@ void syncTextAutoFit(drift::Project &project, const drift::Project &before)
                                      || textFitKey(old->textStyle) != textFitKey(clip.textStyle);
             const bool boxChanged = old->transformW.keyframes() != clip.transformW.keyframes()
                                     || old->transformH.keyframes() != clip.transformH.keyframes();
+            // Only the width dragged on a wrapping text (0.30 Academy): the lines that wrap need room below,
+            // as in CapCut; without it the box showed only its middle line.
+            if (boxChanged && !textChanged && old->transformH.keyframes() == clip.transformH.keyframes()
+                && clip.textStyle.wordWrap && !clip.textStyle.shrinkToFit
+                && clip.transformW.keyframes().size() <= 1 && clip.transformH.keyframes().size() <= 1) {
+                const double w = layoutKeyValue(clip.transformW, canvasW);
+                const double h = layoutKeyValue(clip.transformH, canvasH);
+                const double em = qMax(1.0, clip.textStyle.pixelSize);
+                const double pad = em * 0.15 + qMax(0.0, drift::textStrokeWidth(clip.textStyle, false));
+                const QSizeF need = fittedTextSizeForStyle(shownClipText(clip), clip.textStyle,
+                                                           qMax(em, w - 2.0 * pad));
+                if (need.isValid() && need.height() > h + 0.5) {
+                    const double grow = need.height() - h;
+                    const double fy = clip.textStyle.valign == drift::TextVAlign::Middle ? 0.5
+                                      : clip.textStyle.valign == drift::TextVAlign::Top ? 0.0 : 1.0;
+                    if (clip.transformY.isEmpty())
+                        clip.transformY.setKeyframe(0, -grow * fy);
+                    else
+                        clip.transformY.keyframeRef(clip.transformY.keyframes().firstKey())->value -= grow * fy;
+                    if (clip.transformH.isEmpty())
+                        clip.transformH.setKeyframe(0, need.height());
+                    else
+                        clip.transformH.keyframeRef(clip.transformH.keyframes().firstKey())->value = need.height();
+                }
+            }
+            // Only the box changed (a side dragged, the lines wrapped): the text is laid out again, not
+            // scaled, so its 100 % is the new box (0.30 Academy: a narrowed title read Scale 280 %). A real
+            // scale (a corner, the Scale slider) changes the font size too and is kept as it is.
+            if (boxChanged && !textChanged && clip.transformW.keyframes().size() <= 1
+                && clip.transformH.keyframes().size() <= 1) {
+                if (clip.restW > 0.0)
+                    clip.restW = layoutKeyValue(clip.transformW, canvasW);
+                if (clip.restH > 0.0)
+                    clip.restH = layoutKeyValue(clip.transformH, canvasH);
+            }
+            if (!clip.textAutoFit)
+                continue;
             if (textChanged && !boxChanged) {
                 refitTextClipBox(clip, canvasW, canvasH);
             } else if (boxChanged && !textChanged) {
@@ -5072,6 +5145,12 @@ QHash<QString, QString> defaultShortcuts()
         {QStringLiteral("trimOutToPlayhead"), QStringLiteral("Alt+]")},
         {QStringLiteral("moveInToPlayhead"), QStringLiteral("[")},
         {QStringLiteral("moveOutToPlayhead"), QStringLiteral("]")},
+        // After Effects' layer order (0.30, Jorge): Ctrl+] / Ctrl+[ one up or down, with Shift to the top or
+        // the bottom. A layer here is its track.
+        {QStringLiteral("layerForward"), QStringLiteral("Ctrl+]")},
+        {QStringLiteral("layerBackward"), QStringLiteral("Ctrl+[")},
+        {QStringLiteral("layerToFront"), QStringLiteral("Ctrl+Shift+]")},
+        {QStringLiteral("layerToBack"), QStringLiteral("Ctrl+Shift+[")},
         {QStringLiteral("stepBackPage"), QStringLiteral("PgUp")},
         {QStringLiteral("stepForwardPage"), QStringLiteral("PgDown")},
         // After Effects' Ctrl+Left / Ctrl+Right step a frame too: the AE set's (Left / Right stay).
@@ -5370,6 +5449,7 @@ TimelineClipsModel::Row AppController::clipRow(const drift::Clip &clip,
     row.linked = !clip.linkId.isEmpty();
     row.filmstripPath = clip.filmstripPath;
     row.textContent = clip.textContent;
+    row.insideBelow = clip.matteKeepsSource && !clip.matteClipId.isEmpty();
     row.rotationCorrection = clip.rotationCorrection;
     row.start = drift::usToSeconds(clip.timelineStart);
     row.duration = drift::usToSeconds(clip.timelineDuration);
@@ -6066,6 +6146,10 @@ QVariantList AppController::actions() const
         action(QStringLiteral("trimOutToPlayhead"), tr("Trim the layer's out point to the playhead")),
         action(QStringLiteral("moveInToPlayhead"), tr("Move the layer so it starts at the playhead")),
         action(QStringLiteral("moveOutToPlayhead"), tr("Move the layer so it ends at the playhead")),
+        action(QStringLiteral("layerForward"), tr("Bring layer forward")),
+        action(QStringLiteral("layerBackward"), tr("Send layer backward")),
+        action(QStringLiteral("layerToFront"), tr("Bring layer to front")),
+        action(QStringLiteral("layerToBack"), tr("Send layer to back")),
         action(QStringLiteral("clearInOut"), tr("Clear work area")),
         action(QStringLiteral("toggleLoop"), tr("Loop work area playback")),
         action(QStringLiteral("ramPreview"), tr("RAM preview (render to memory and play)")),
@@ -11912,13 +11996,22 @@ void AppController::applyToolPaintOptions(drift::ShapeStyle &style) const
 }
 
 void AppController::addDrawnShape(const QString &kind, double x, double y, double w, double h, const QString &fill,
-                                  const QString &stroke, double strokeWidth)
+                                  const QString &stroke, double strokeWidth, double rotation, int points)
 {
     if (w < 1.0 || h < 1.0)
         return;
-    drift::ShapeStyle style = shapeStyleForKind(kind);
+    // After Effects' Rounded Rectangle (0.30): a rectangle whose Roundness starts at 20.
+    const bool rounded = kind == QLatin1String("roundedRectangle");
+    drift::ShapeStyle style = shapeStyleForKind(rounded ? QStringLiteral("rectangle") : kind);
+    if (rounded)
+        style.cornerRadius = 20.0;
     if (kind == QLatin1String("polygon")) {
         style.kind = drift::ShapeKind::Hexagon;
+        // Its sides are Points, as After Effects' polygon (the wheel sets them while drawing).
+        style.polygonFromPoints = true;
+        style.points = points >= 3 ? points : 5;
+    } else if (points >= 3 && kind == QLatin1String("star")) {
+        style.points = points;
     }
     paintDrawnShape(style, fill, stroke, strokeWidth);
     applyToolPaintOptions(style);
@@ -11949,6 +12042,9 @@ void AppController::addDrawnShape(const QString &kind, double x, double y, doubl
     clip.srcIn = 0;
     clip.srcOut = drift::defaultStillDurationUs();
     setClipLayoutPixels(clip, x, y, w, h);
+    // Turned while drawing (a polygon or a star follows the pointer, as After Effects).
+    if (std::abs(rotation) > 1e-6)
+        clip.rotation.setKeyframe(0, rotation);
     track.clips.append(clip);
     const int newClipIndex = track.clips.size() - 1;
     pushProjectEdit(before, tr("Shape drawn"));
@@ -13143,6 +13239,495 @@ void AppController::addNullForSelection()
     finishEdit(tr("Parent set"));
 }
 
+namespace {
+
+// An SVG colour attribute: none, #rgb, #rrggbb, rgb(r,g,b) or a name Qt knows. `ok` false for "none".
+QColor svgColor(const QString &value, bool *ok)
+{
+    const QString v = value.trimmed();
+    *ok = !(v.isEmpty() || v == QLatin1String("none") || v == QLatin1String("transparent"));
+    if (!*ok)
+        return {};
+    static const QRegularExpression rgb(QStringLiteral(R"(rgb\(\s*([\d.]+)\s*,\s*([\d.]+)\s*,\s*([\d.]+)\s*\))"));
+    const QRegularExpressionMatch m = rgb.match(v);
+    if (m.hasMatch())
+        return QColor(qRound(m.captured(1).toDouble()), qRound(m.captured(2).toDouble()), qRound(m.captured(3).toDouble()));
+    const QColor c(v);
+    *ok = c.isValid();
+    return c;
+}
+
+// An SVG transform list (matrix, translate, scale, rotate, skewX/Y) as a QTransform.
+QTransform svgTransform(const QString &text)
+{
+    QTransform out;
+    static const QRegularExpression item(QStringLiteral(R"((matrix|translate|scale|rotate|skewX|skewY)\s*\(([^)]*)\))"));
+    auto it = item.globalMatch(text);
+    while (it.hasNext()) {
+        const QRegularExpressionMatch m = it.next();
+        QList<double> n;
+        for (const QString &part : m.captured(2).split(QRegularExpression(QStringLiteral("[\\s,]+")), Qt::SkipEmptyParts))
+            n.append(part.toDouble());
+        const QString op = m.captured(1);
+        QTransform t;
+        if (op == QLatin1String("matrix") && n.size() >= 6)
+            t = QTransform(n[0], n[1], n[2], n[3], n[4], n[5]);
+        else if (op == QLatin1String("translate") && !n.isEmpty())
+            t.translate(n[0], n.size() > 1 ? n[1] : 0.0);
+        else if (op == QLatin1String("scale") && !n.isEmpty())
+            t.scale(n[0], n.size() > 1 ? n[1] : n[0]);
+        else if (op == QLatin1String("rotate") && !n.isEmpty()) {
+            if (n.size() >= 3) {
+                t.translate(n[1], n[2]);
+                t.rotate(n[0]);
+                t.translate(-n[1], -n[2]);
+            } else {
+                t.rotate(n[0]);
+            }
+        } else if (op == QLatin1String("skewX") && !n.isEmpty())
+            t.shear(std::tan(qDegreesToRadians(n[0])), 0.0);
+        else if (op == QLatin1String("skewY") && !n.isEmpty())
+            t.shear(0.0, std::tan(qDegreesToRadians(n[0])));
+        // SVG applies the list left to right onto the point: the leftmost is outermost.
+        out = t * out;
+    }
+    return out;
+}
+
+struct SvgPaint
+{
+    QString fill = QStringLiteral("#000000");
+    QString stroke = QStringLiteral("none");
+    double strokeWidth = 1.0;
+    double opacity = 1.0;
+};
+
+// Reads presentation attributes and the style="" list over the inherited paint.
+SvgPaint svgPaintOf(const QXmlStreamAttributes &attrs, SvgPaint paint)
+{
+    QHash<QString, QString> props;
+    for (const QXmlStreamAttribute &a : attrs)
+        props.insert(a.name().toString(), a.value().toString());
+    for (const QString &decl : props.value(QStringLiteral("style")).split(QLatin1Char(';'), Qt::SkipEmptyParts)) {
+        const int colon = decl.indexOf(QLatin1Char(':'));
+        if (colon > 0)
+            props.insert(decl.left(colon).trimmed(), decl.mid(colon + 1).trimmed());
+    }
+    if (props.contains(QStringLiteral("fill")))
+        paint.fill = props.value(QStringLiteral("fill"));
+    if (props.contains(QStringLiteral("stroke")))
+        paint.stroke = props.value(QStringLiteral("stroke"));
+    if (props.contains(QStringLiteral("stroke-width")))
+        paint.strokeWidth = props.value(QStringLiteral("stroke-width")).remove(QStringLiteral("px")).toDouble();
+    if (props.contains(QStringLiteral("opacity")))
+        paint.opacity *= props.value(QStringLiteral("opacity")).toDouble();
+    return paint;
+}
+
+} // namespace
+
+// After Effects' Create Shapes from Vector Layer (0.30, the shapes course: an Illustrator file as layers):
+// the picked SVG becomes a shape layer whose parts are its paths, rectangles, circles, ellipses, lines and
+// polygons, each with its fill and stroke, named by their id, so every piece of the drawing animates apart.
+void AppController::createShapesFromVectorLayer()
+{
+    if (!isValidClipIndex(m_selectedTrack, m_selectedClip))
+        return;
+    drift::Clip &clip = m_project.tracks()[m_selectedTrack].clips[m_selectedClip];
+    if (clip.type != drift::ClipType::Vector) {
+        setLastMessage(tr("Select an SVG layer to turn into shapes"), QStringLiteral("warning"));
+        return;
+    }
+    const QByteArray data = drift::vec::vectorSourceBytes(clip.vector);
+    QXmlStreamReader xml(data);
+    QRectF viewBox;
+    struct Piece
+    {
+        QString name;
+        QPainterPath path;
+        SvgPaint paint;
+    };
+    QList<Piece> pieces;
+    QList<QPair<QTransform, SvgPaint>> stack{{QTransform(), SvgPaint()}};
+    int skipDepth = 0;
+    while (!xml.atEnd()) {
+        xml.readNext();
+        if (xml.isEndElement()) {
+            if (skipDepth > 0) {
+                --skipDepth;
+                continue;
+            }
+            if (stack.size() > 1)
+                stack.removeLast();
+            continue;
+        }
+        if (!xml.isStartElement())
+            continue;
+        if (skipDepth > 0) {
+            ++skipDepth;
+            continue;
+        }
+        const QString tag = xml.name().toString();
+        const QXmlStreamAttributes attrs = xml.attributes();
+        // Definitions, clip paths, masks and symbols are not drawn where they stand.
+        if (tag == QLatin1String("defs") || tag == QLatin1String("clipPath") || tag == QLatin1String("mask")
+            || tag == QLatin1String("symbol") || tag == QLatin1String("style") || tag == QLatin1String("title")
+            || tag == QLatin1String("metadata")) {
+            skipDepth = 1;
+            continue;
+        }
+        const QTransform t = svgTransform(attrs.value(QStringLiteral("transform")).toString()) * stack.last().first;
+        const SvgPaint paint = svgPaintOf(attrs, stack.last().second);
+        stack.append({t, paint});
+        const auto num = [&attrs](const char *key) { return attrs.value(QLatin1String(key)).toString().remove(QStringLiteral("px")).toDouble(); };
+        if (tag == QLatin1String("svg") && viewBox.isNull()) {
+            const QStringList vb = attrs.value(QStringLiteral("viewBox")).toString().split(QRegularExpression(QStringLiteral("[\\s,]+")), Qt::SkipEmptyParts);
+            if (vb.size() == 4)
+                viewBox = QRectF(vb[0].toDouble(), vb[1].toDouble(), vb[2].toDouble(), vb[3].toDouble());
+            else if (num("width") > 0 && num("height") > 0)
+                viewBox = QRectF(0, 0, num("width"), num("height"));
+            continue;
+        }
+        QPainterPath path;
+        if (tag == QLatin1String("path")) {
+            drift::parseSvgPathData(attrs.value(QStringLiteral("d")).toString(), &path);
+        } else if (tag == QLatin1String("rect")) {
+            const double rx = num("rx") > 0 ? num("rx") : num("ry");
+            if (rx > 0)
+                path.addRoundedRect(QRectF(num("x"), num("y"), num("width"), num("height")), rx, num("ry") > 0 ? num("ry") : rx);
+            else
+                path.addRect(QRectF(num("x"), num("y"), num("width"), num("height")));
+        } else if (tag == QLatin1String("circle")) {
+            path.addEllipse(QPointF(num("cx"), num("cy")), num("r"), num("r"));
+        } else if (tag == QLatin1String("ellipse")) {
+            path.addEllipse(QPointF(num("cx"), num("cy")), num("rx"), num("ry"));
+        } else if (tag == QLatin1String("line")) {
+            path.moveTo(num("x1"), num("y1"));
+            path.lineTo(num("x2"), num("y2"));
+        } else if (tag == QLatin1String("polygon") || tag == QLatin1String("polyline")) {
+            const QStringList n = attrs.value(QStringLiteral("points")).toString().split(QRegularExpression(QStringLiteral("[\\s,]+")), Qt::SkipEmptyParts);
+            for (int i = 0; i + 1 < n.size(); i += 2) {
+                const QPointF pt(n[i].toDouble(), n[i + 1].toDouble());
+                if (i == 0)
+                    path.moveTo(pt);
+                else
+                    path.lineTo(pt);
+            }
+            if (tag == QLatin1String("polygon"))
+                path.closeSubpath();
+        } else {
+            continue;
+        }
+        if (path.isEmpty())
+            continue;
+        QString name = attrs.value(QStringLiteral("id")).toString();
+        if (name.isEmpty())
+            name = attrs.value(QStringLiteral("inkscape:label")).toString();
+        pieces.append({name, t.map(path), paint});
+    }
+    if (pieces.isEmpty()) {
+        setLastMessage(tr("This SVG has no paths to turn into shapes"), QStringLiteral("warning"));
+        return;
+    }
+    const drift::TimeUs rel = qBound<drift::TimeUs>(0, m_playheadUs - clip.timelineStart, clip.timelineDuration);
+    const double w = clip.transformW.isEmpty() ? m_project.width() : clip.transformW.evaluateAt(rel);
+    const double h = clip.transformH.isEmpty() ? m_project.height() : clip.transformH.evaluateAt(rel);
+    if (viewBox.isNull()) {
+        QPainterPath all;
+        for (const Piece &piece : std::as_const(pieces))
+            all.addPath(piece.path);
+        viewBox = all.boundingRect();
+    }
+    // The drawing as the vector layer shows it (preserveAspectRatio "meet"), with the box centre as the origin.
+    const double k = qMin(w / qMax(1e-6, viewBox.width()), h / qMax(1e-6, viewBox.height()));
+    QTransform toBox;
+    toBox.translate(-viewBox.width() * k / 2.0, -viewBox.height() * k / 2.0);
+    toBox.scale(k, k);
+    toBox.translate(-viewBox.left(), -viewBox.top());
+
+    const drift::Project before = m_project;
+    drift::ShapeStyle layer;
+    layer.kind = drift::ShapeKind::Rectangle;
+    layer.partsRefWidth = w;
+    layer.partsRefHeight = h;
+    int n = 0;
+    // SVG draws in document order (later on top); parts[0] is drawn on top.
+    for (auto it = pieces.crbegin(); it != pieces.crend(); ++it) {
+        const QPainterPath path = toBox.map(it->path);
+        QRectF lb = path.boundingRect();
+        if (lb.width() < 0.5 && lb.height() < 0.5)
+            continue;
+        lb = lb.adjusted(0, 0, lb.width() < 0.5 ? 1 : 0, lb.height() < 0.5 ? 1 : 0);
+        drift::ShapePart part;
+        part.id = QStringLiteral("p%1").arg(++n);
+        part.name = it->name.isEmpty() ? tr("Path %1").arg(pieces.size() - n + 1) : it->name;
+        part.width = lb.width();
+        part.height = lb.height();
+        part.transform.x = lb.center().x();
+        part.transform.y = lb.center().y();
+        part.transform.opacity = qBound(0.0, it->paint.opacity, 1.0) * 100.0;
+        part.shape = drift::ShapeStyle();
+        part.shape.kind = drift::ShapeKind::Custom;
+        QTransform toUnit;
+        toUnit.scale(100.0 / lb.width(), 100.0 / lb.height());
+        toUnit.translate(-lb.left(), -lb.top());
+        part.shape.customPath = drift::painterPathToSvg(toUnit.map(path));
+        bool hasFill = false;
+        bool hasStroke = false;
+        const QColor fill = svgColor(it->paint.fill, &hasFill);
+        const QColor stroke = svgColor(it->paint.stroke, &hasStroke);
+        part.shape.layers = drift::defaultShapeLayers(hasFill ? fill : QColor(Qt::black), QColor(),
+                                                      hasStroke ? stroke : QColor(Qt::white),
+                                                      hasStroke ? qMax(0.1, it->paint.strokeWidth * k) : 0.0);
+        for (drift::TextShadingLayer &l : part.shape.layers) {
+            if (l.kind == drift::TextLayerKind::Fill)
+                l.enabled = hasFill;
+            if (l.kind == drift::TextLayerKind::Stroke)
+                l.strokeAlign = drift::StrokeAlign::Center;
+        }
+        layer.parts.push_back(part);
+    }
+    if (layer.parts.empty())
+        return;
+    const QString name = clip.name;
+    clip.type = drift::ClipType::Shape;
+    clip.shapeStyle = layer;
+    clip.vector = drift::VectorSource();
+    clip.name = tr("%1 Outlines").arg(name.isEmpty() ? tr("Vector") : name);
+    pushProjectEdit(before, tr("Shapes from vector layer"));
+    finishEdit(tr("Shapes from vector layer"));
+    emit selectedClipDataChanged();
+}
+
+// After Effects' Merge Paths (0.30, the shapes course: a moon from two circles): the shapes of one level of a
+// layer of parts (inside the picked group, else the layer's top level) become one path, top to bottom:
+// "add" joins them, "subtract" cuts each lower one out of what is above, "intersect" keeps what they share and
+// "exclude" what they do not. It takes the top shape's paint. The shapes' animation does not survive the merge.
+bool AppController::mergeShapeParts(int trackIndex, int clipIndex, const QString &groupId, const QString &mode)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return false;
+    drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
+    if (clip.type != drift::ClipType::Shape || !clip.shapeStyle.hasParts())
+        return false;
+    const drift::Project before = m_project;
+    std::vector<drift::ShapePart> *level = &clip.shapeStyle.parts;
+    if (!groupId.isEmpty()) {
+        drift::ShapePart *group = drift::findShapePart(clip.shapeStyle.parts, groupId);
+        if (group && group->group)
+            level = &group->children;
+    }
+    QList<int> shapes;
+    for (int i = 0; i < int(level->size()); ++i) {
+        if (!level->at(i).group && level->at(i).visible)
+            shapes.append(i);
+    }
+    if (shapes.size() < 2) {
+        setLastMessage(tr("Merge needs two shapes or more in the same place of the contents"), QStringLiteral("warning"));
+        return false;
+    }
+    const auto placed = [](const drift::ShapePart &part) {
+        const drift::ShapePartTransform &t = part.transform;
+        QTransform m;
+        m.translate(t.x, t.y);
+        m.rotate(t.rotation);
+        if (qAbs(t.skew) > 1e-6) {
+            m.rotate(t.skewAxis);
+            m.shear(-std::tan(qDegreesToRadians(t.skew)), 0.0);
+            m.rotate(-t.skewAxis);
+        }
+        m.scale(t.scaleX / 100.0, t.scaleY / 100.0);
+        m.translate(-t.anchorX, -t.anchorY);
+        drift::ShapeStyle shape = part.shape;
+        shape.parts.clear();
+        return m.map(drift::shapePath(shape, QRectF(-part.width / 2.0, -part.height / 2.0, part.width, part.height)));
+    };
+    QPainterPath result = placed(level->at(shapes.first()));
+    for (int k = 1; k < shapes.size(); ++k) {
+        const QPainterPath p = placed(level->at(shapes.at(k)));
+        if (mode == QLatin1String("subtract"))
+            result = result.subtracted(p);
+        else if (mode == QLatin1String("intersect"))
+            result = result.intersected(p);
+        else if (mode == QLatin1String("exclude"))
+            result = result.united(p).subtracted(result.intersected(p));
+        else
+            result = result.united(p);
+    }
+    result = result.simplified();
+    const QRectF lb = result.boundingRect();
+    if (result.isEmpty() || lb.width() < 0.5 || lb.height() < 0.5) {
+        setLastMessage(tr("Nothing is left of the shapes with this merge"), QStringLiteral("warning"));
+        return false;
+    }
+    drift::ShapePart merged = level->at(shapes.first());
+    merged.keyframes.clear();
+    merged.transform = drift::ShapePartTransform();
+    merged.transform.x = lb.center().x();
+    merged.transform.y = lb.center().y();
+    merged.width = lb.width();
+    merged.height = lb.height();
+    merged.shape.kind = drift::ShapeKind::Custom;
+    merged.shape.keyframes.clear();
+    merged.shape.pathShapes.clear();
+    QTransform toUnit;
+    toUnit.scale(100.0 / lb.width(), 100.0 / lb.height());
+    toUnit.translate(-lb.left(), -lb.top());
+    merged.shape.customPath = drift::painterPathToSvg(toUnit.map(result));
+    merged.shape.customEvenOdd = mode == QLatin1String("exclude");
+    merged.name = tr("Merged %1").arg(merged.name);
+    const int at = shapes.first();
+    for (int k = shapes.size() - 1; k >= 1; --k)
+        level->erase(level->begin() + shapes.at(k));
+    (*level)[at] = merged;
+    shapePartFocus() = {clip.id, merged.id};
+    pushProjectEdit(before, tr("Merge paths"));
+    finishEdit(tr("Merge paths"));
+    emit selectedShapePartChanged();
+    emit selectedClipDataChanged();
+    return true;
+}
+
+// After Effects' Create Shapes from Text (0.30, the shapes course): the picked text becomes a shape layer with
+// one part per letter («T», «e», «x»…), each with its own outline, transform and fill, so the letters move,
+// turn and bend one by one. The text cannot be edited afterwards, as in After Effects. One undo step.
+void AppController::createShapesFromText()
+{
+    if (!isValidClipIndex(m_selectedTrack, m_selectedClip))
+        return;
+    drift::Clip &clip = m_project.tracks()[m_selectedTrack].clips[m_selectedClip];
+    if (clip.type != drift::ClipType::Text) {
+        setLastMessage(tr("Select a text to turn into shapes"), QStringLiteral("warning"));
+        return;
+    }
+    const drift::Project before = m_project;
+    const drift::TimeUs rel = qBound<drift::TimeUs>(0, m_playheadUs - clip.timelineStart, clip.timelineDuration);
+    const drift::TextStyle &ts = clip.textStyle;
+    QFont font(ts.fontFamily);
+    font.setPixelSize(qMax(1, qRound(ts.pixelSize)));
+    font.setWeight(QFont::Weight(qBound(100, ts.fontWeight, 900)));
+    font.setItalic(ts.italic);
+    const QString text = clip.textContent.isEmpty() ? clip.name : clip.textContent;
+    const QFontMetricsF metrics(font);
+    struct Letter
+    {
+        QString ch;
+        QPainterPath path;
+    };
+    QList<Letter> letters;
+    QPainterPath all;
+#ifdef DRIFT_WITH_SKIA
+    // The letters as the renderer lays them out (0.30): the same font, weight, size, spacing and box, one
+    // piece per character, placed on the canvas where the text shows them.
+    {
+        const drift::TimeUs at = qBound(clip.timelineStart, m_playheadUs, clip.timelineEnd() - 1);
+        const FrameCompositor::TextEditGeometry geometry =
+            FrameCompositor::textEditGeometry(clip, text, at, m_project.width(), m_project.height(), 1.0);
+        const drift::TextStyle style = clip.textStyle.isAnimated()
+                                           ? clip.textStyle.resolvedAt(at - clip.timelineStart) : clip.textStyle;
+        for (const drift::text::CharacterOutline &letter :
+             drift::text::characterOutlines(text, style, geometry.layoutRect.width(), geometry.layoutRect.height())) {
+            QPainterPath path = letter.path;
+            path.translate(geometry.layoutRect.topLeft());
+            letters.append({letter.text, path});
+            all.addPath(path);
+        }
+    }
+#endif
+    double baseline = metrics.ascent();
+    const QStringList fallbackLines = letters.isEmpty() ? text.split(QLatin1Char('\n')) : QStringList{};
+    for (const QString &line : fallbackLines) {
+        for (int i = 0; i < line.size(); ++i) {
+            const QChar c = line.at(i);
+            if (c.isSpace() || c.isLowSurrogate())
+                continue;
+            const QString glyph = c.isHighSurrogate() && i + 1 < line.size() ? line.mid(i, 2) : QString(c);
+            QPainterPath path;
+            path.addText(QPointF(metrics.horizontalAdvance(line.left(i)), baseline), font, glyph);
+            if (path.isEmpty())
+                continue;
+            letters.append({glyph, path});
+            all.addPath(path);
+        }
+        baseline += metrics.lineSpacing();
+    }
+    const QRectF b = all.boundingRect();
+    if (letters.isEmpty() || b.width() < 1.0 || b.height() < 1.0)
+        return;
+    const double w = clip.transformW.isEmpty() ? m_project.width() : clip.transformW.evaluateAt(rel);
+    const double h = clip.transformH.isEmpty() ? m_project.height() : clip.transformH.evaluateAt(rel);
+    const double x = clip.transformX.isEmpty() ? 0.0 : clip.transformX.evaluateAt(rel);
+    const double y = clip.transformY.isEmpty() ? 0.0 : clip.transformY.evaluateAt(rel);
+    const drift::TextShadingLayer *fill =
+        drift::firstTextLayerOfKind(clip.textStyle.layers, drift::TextLayerKind::Fill, false);
+    const QColor color = fill ? fill->paint.color : QColor(Qt::white);
+
+    drift::ShapeStyle layer;
+    layer.kind = drift::ShapeKind::Rectangle;
+    layer.partsRefWidth = b.width();
+    layer.partsRefHeight = b.height();
+    int n = 0;
+    for (const Letter &letter : std::as_const(letters)) {
+        const QRectF lb = letter.path.boundingRect();
+        if (lb.width() < 0.5 || lb.height() < 0.5)
+            continue;
+        drift::ShapePart part;
+        part.id = QStringLiteral("p%1").arg(++n);
+        part.name = letter.ch;
+        part.width = lb.width();
+        part.height = lb.height();
+        part.transform.x = lb.center().x() - b.center().x();
+        part.transform.y = lb.center().y() - b.center().y();
+        part.shape = drift::ShapeStyle();
+        part.shape.kind = drift::ShapeKind::Custom;
+        QTransform toUnit;
+        toUnit.scale(100.0 / lb.width(), 100.0 / lb.height());
+        toUnit.translate(-lb.left(), -lb.top());
+        part.shape.customPath = drift::painterPathToSvg(toUnit.map(letter.path));
+        part.shape.layers = drift::defaultShapeLayers(color, color, Qt::white, 0.0);
+        // The first letter drawn last is on top: keep the reading order top to bottom in the list.
+        layer.parts.push_back(part);
+    }
+    if (layer.parts.empty())
+        return;
+    clip.type = drift::ClipType::Shape;
+    clip.shapeStyle = layer;
+    // The renderer's letters are already where the text shows them; the fallback's are centred in its box.
+    if (fallbackLines.isEmpty())
+        setClipLayoutPixels(clip, b.left(), b.top(), b.width(), b.height());
+    else
+        setClipLayoutPixels(clip, x + (w - b.width()) / 2.0, y + (h - b.height()) / 2.0, b.width(), b.height());
+    clip.name = tr("%1 Outlines").arg(text.left(30));
+    // A shape layer on a shape track (0.30 Academy: it stayed on the text track and drew as a text clip):
+    // moved to a new one above, and the text track goes if it is left empty.
+    QString movedId;
+    if (m_project.tracks().at(m_selectedTrack).type != drift::TrackType::Shape) {
+        const drift::Clip shape = clip;
+        const QString fromId = m_project.tracks().at(m_selectedTrack).id;
+        m_project.tracks()[m_selectedTrack].clips.removeAt(m_selectedClip);
+        const int track = drift::insertTrackAboveForClipType(m_project, m_selectedTrack, drift::ClipType::Shape);
+        m_project.tracks()[track].clips.append(shape);
+        for (int t = 0; t < m_project.tracks().size(); ++t) {
+            const drift::Track &old = m_project.tracks().at(t);
+            if (!fromId.isEmpty() && old.id == fromId && old.clips.isEmpty() && !old.isAdjustmentLane()) {
+                m_project.tracks().removeAt(t);
+                break;
+            }
+        }
+        m_project.ensureTrackIds();
+        movedId = shape.id;
+    }
+    pushProjectEdit(before, tr("Shapes from text"));
+    finishEdit(tr("Shapes from text"));
+    if (!movedId.isEmpty()) {
+        int t = -1;
+        int c = -1;
+        if (findClipById(m_project, movedId, &t, &c))
+            selectClip(t, c);
+    }
+    emit selectedClipDataChanged();
+}
+
 void AppController::convertSelectionToShape(bool asOutline)
 {
     if (!isValidClipIndex(m_selectedTrack, m_selectedClip))
@@ -13446,6 +14031,118 @@ QString AppController::checkExpression(const QString &expression) const
     return drift::expressionError(expression);
 }
 
+QString AppController::effectExpressionPath(int trackIndex, int clipIndex, const QString &prop, bool whole) const
+{
+    // fx.<i>.<key>[.x|.y|.r|.g|.b|.a] → effect("Name")("Param")[component], as After Effects' pick whip writes it.
+    int effectIndex = -1;
+    QString paramKey;
+    if (!parseEffectProp(prop, &effectIndex, &paramKey))
+        return {};
+    const drift::Clip *host = effectHostClip(trackIndex, clipIndex, drift::AdjustmentKind::VideoEffects);
+    if (!host || effectIndex < 0 || effectIndex >= host->effects.size())
+        return {};
+    const drift::Effect &effect = host->effects.at(effectIndex);
+    const EffectPresetEntry *def = effectDefForId(effect.catalogId);
+    if (!def)
+        return {};
+    int component = -1;
+    QString key = paramKey;
+    static const QStringList suffixes{QStringLiteral(".x"), QStringLiteral(".y"), QStringLiteral(".r"),
+                                      QStringLiteral(".g"), QStringLiteral(".b"), QStringLiteral(".a")};
+    for (int i = 0; i < suffixes.size(); ++i) {
+        if (key.endsWith(suffixes.at(i))) {
+            const QString shorter = key.chopped(2);
+            for (const drift::EffectParamSpec &spec : def->meta.parameters) {
+                if (spec.key == shorter && (spec.isVec2() || spec.isColor())) {
+                    component = i < 2 ? i : i - 2;
+                    key = shorter;
+                }
+            }
+            break;
+        }
+    }
+    QString paramLabel = key;
+    for (const drift::EffectParamSpec &spec : def->meta.parameters) {
+        if (spec.key == key)
+            paramLabel = spec.label;
+    }
+    const QString effectName = effect.label.isEmpty() ? def->meta.displayName : effect.label;
+    const auto quoted = [](const QString &t) {
+        QString out = t;
+        out.replace(QLatin1Char('\\'), QStringLiteral("\\\\")).replace(QLatin1Char('"'), QStringLiteral("\\\""));
+        return QLatin1Char('"') + out + QLatin1Char('"');
+    };
+    QString path = QStringLiteral("effect(%1)(%2)").arg(quoted(effectName), quoted(paramLabel));
+    if (component >= 0 && !whole)
+        path += QStringLiteral("[%1]").arg(component);
+    return path;
+}
+
+bool AppController::renameEffect(int trackIndex, int clipIndex, int effectIndex, const QString &label)
+{
+    redirectToKeyframeHost(&trackIndex, &clipIndex, QStringLiteral("fx.%1.x").arg(effectIndex));
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return false;
+    drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
+    if (effectIndex < 0 || effectIndex >= clip.effects.size())
+        return false;
+    const QString trimmed = label.trimmed();
+    if (clip.effects.at(effectIndex).label == trimmed)
+        return false;
+    const drift::Project before = m_project;
+    // The name expressions used for it until now: its own, else the catalog's (as the pick whip writes it).
+    QString oldName = clip.effects.at(effectIndex).label;
+    const EffectPresetEntry *def = effectDefForId(clip.effects.at(effectIndex).catalogId);
+    if (oldName.isEmpty() && def)
+        oldName = def->meta.displayName;
+    clip.effects[effectIndex].label = trimmed;
+    QString newName = trimmed;
+    if (newName.isEmpty() && def)
+        newName = def->meta.displayName;
+    // After Effects keeps the expressions that point at a renamed effect working (0.30, the nulls course):
+    // effect("Old") becomes effect("New") in every expression of the project.
+    if (!oldName.isEmpty() && oldName != newName) {
+        const QString from = QStringLiteral("effect(\"%1\")").arg(oldName);
+        const QString to = QStringLiteral("effect(\"%1\")").arg(newName);
+        static const QStringList transformProps = {
+            QStringLiteral("x"), QStringLiteral("y"), QStringLiteral("width"), QStringLiteral("height"),
+            QStringLiteral("rotation"), QStringLiteral("rotationX"), QStringLiteral("rotationY"), QStringLiteral("z"),
+            QStringLiteral("opacity"), QStringLiteral("volume"), QStringLiteral("pan"), QStringLiteral("anchorX"),
+            QStringLiteral("anchorY"), QStringLiteral("timeRemap")};
+        for (drift::Track &t : m_project.tracks()) {
+            for (drift::Clip &c : t.clips) {
+                QStringList props = transformProps;
+                for (int i = 0; i < c.effects.size(); ++i) {
+                    const EffectPresetEntry *d = effectDefForId(c.effects.at(i).catalogId);
+                    if (!d)
+                        continue;
+                    for (const drift::EffectParamSpec &spec : d->meta.parameters) {
+                        const QString base = QStringLiteral("fx.%1.%2").arg(i).arg(spec.key);
+                        if (spec.isColor())
+                            props << base + QStringLiteral(".r") << base + QStringLiteral(".g")
+                                  << base + QStringLiteral(".b") << base + QStringLiteral(".a");
+                        else if (spec.isVec2())
+                            props << base + QStringLiteral(".x") << base + QStringLiteral(".y");
+                        else
+                            props << base;
+                    }
+                }
+                for (const QString &prop : std::as_const(props)) {
+                    drift::KeyframeTrack<double> *kt = keyframeTrackForProp(c, prop, false);
+                    if (!kt || !kt->behavior().expression.contains(from))
+                        continue;
+                    drift::TrackBehavior b = kt->behavior();
+                    b.expression.replace(from, to);
+                    kt->setBehavior(b);
+                }
+            }
+        }
+    }
+    pushProjectEdit(before, tr("Rename effect"));
+    finishEdit(tr("Rename effect"));
+    return true;
+}
+
 QVariantMap AppController::propertyBehavior(int trackIndex, int clipIndex, const QString &prop) const
 {
     QVariantMap out{{QStringLiteral("active"), false}, {QStringLiteral("loop"), QStringLiteral("none")}};
@@ -13465,6 +14162,7 @@ QVariantMap AppController::propertyBehavior(int trackIndex, int clipIndex, const
     out.insert(QStringLiteral("wiggleAmount"), b.wiggleAmount);
     out.insert(QStringLiteral("wiggleSeed"), b.wiggleSeed);
     out.insert(QStringLiteral("expression"), b.expression);
+    out.insert(QStringLiteral("expressionEnabled"), b.expressionEnabled);
     return out;
 }
 
@@ -13482,6 +14180,7 @@ void AppController::setPropertyBehavior(int trackIndex, int clipIndex, const QSt
     b.wiggleAmount = behavior.value(QStringLiteral("wiggleAmount")).toDouble();
     b.wiggleSeed = behavior.value(QStringLiteral("wiggleSeed")).toInt();
     b.expression = behavior.value(QStringLiteral("expression")).toString().trimmed();
+    b.expressionEnabled = behavior.value(QStringLiteral("expressionEnabled"), true).toBool();
     // After Effects' loopOut("cycle") / loopIn(...) alone is the behaviour's own loop, not code.
     static const QRegularExpression loopCall(
         QStringLiteral(R"(^loop(?:Out|In)\(\s*(?:["']?(cycle|pingpong|offset|continue)["']?)?\s*\)\s*;?$)"));
@@ -13506,7 +14205,7 @@ void AppController::setPropertyBehavior(int trackIndex, int clipIndex, const QSt
     const double base = propertyBaseValue(trackIndex, clipIndex, prop);
     const drift::Project before = m_project;
     drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
-    drift::KeyframeTrack<double> *track = keyframeTrackForProp(clip, prop, b.isActive());
+    drift::KeyframeTrack<double> *track = keyframeTrackForProp(clip, prop, b.isActive() || !b.expression.isEmpty());
     if (!track)
         return;
     if (track->behavior() == b)
@@ -20625,14 +21324,23 @@ void AppController::convertSelectionToSubtitle()
         m_project, drift::ClipType::Subtitle, subtitle.timelineStart, subtitle.timelineDuration, true);
     if (subtitleTrack < 0)
         return;
-    drift::Track &track = m_project.tracks()[subtitleTrack];
-    track.clips.append(subtitle);
-    const int subtitleIndex = track.clips.size() - 1;
+    m_project.tracks()[subtitleTrack].clips.append(subtitle);
+    // The emptied text tracks go (0.30 Academy: an empty «Text 1» row stayed behind).
+    for (int t = m_project.tracks().size() - 1; t >= 0; --t) {
+        const drift::Track &emptied = m_project.tracks().at(t);
+        if (emptied.clips.isEmpty() && !emptied.isAdjustmentLane() && emptiedTrackIds.contains(emptied.id))
+            m_project.tracks().removeAt(t);
+    }
+    m_project.ensureTrackIds();
+    int subtitleIndex = -1;
+    int placedTrack = -1;
+    findClipById(m_project, subtitle.id, &placedTrack, &subtitleIndex);
 
     pushProjectEdit(before, tr("Text converted to subtitles"));
     clearSelection();
     finishEdit(tr("Text converted to subtitles"));
-    selectClip(subtitleTrack, subtitleIndex);
+    if (placedTrack >= 0)
+        selectClip(placedTrack, subtitleIndex);
 }
 
 bool AppController::canSeparateAudioSelection() const
@@ -23786,14 +24494,34 @@ void AppController::removeClipKeyframe(int trackIndex, int clipIndex, const QStr
     const drift::TimeUs nearest = kt->nearestKeyframe(rel, kKeyframeToleranceUs);
     if (nearest < 0)
         return;
-    kt->removeKeyframe(nearest);
+    // Taking away the last key keeps the value it had, as After Effects does when the stopwatch goes off (0.30,
+    // Academy capture: the X of a ball dropped to 0 px and the ball jumped to the left edge).
+    // Only the transform keeps its fixed value as a lone key: an effect's or a mask's lives on the effect or
+    // the mask, which the property falls back to once its track is empty.
+    static const QStringList transformProps = {
+        QStringLiteral("x"), QStringLiteral("y"), QStringLiteral("width"), QStringLiteral("height"),
+        QStringLiteral("rotation"), QStringLiteral("rotationX"), QStringLiteral("rotationY"), QStringLiteral("z"),
+        QStringLiteral("opacity"), QStringLiteral("anchorX"), QStringLiteral("anchorY")};
+    const bool keepsLoneKey = transformProps.contains(prop);
+    const auto removeKeepingValue = [keepsLoneKey](drift::KeyframeTrack<double> *track, drift::TimeUs at) {
+        if (keepsLoneKey && track->keyframes().size() <= 1) {
+            const double value = track->evaluateAt(at);
+            const drift::TrackBehavior behavior = track->behavior();
+            *track = {};
+            track->setKeyframe(0, value);
+            track->setBehavior(behavior);
+            return;
+        }
+        track->removeKeyframe(at);
+    };
+    removeKeepingValue(kt, nearest);
     if ((m_positionLinked || clip.positionJoined) && (prop == QLatin1String("x") || prop == QLatin1String("y"))) {
         const QString otherProp = (prop == QLatin1String("x")) ? QStringLiteral("y") : QStringLiteral("x");
         drift::KeyframeTrack<double> *otherKt = keyframeTrackForProp(clip, otherProp, false);
         if (otherKt) {
             const drift::TimeUs otherNearest = otherKt->nearestKeyframe(rel, kKeyframeToleranceUs);
             if (otherNearest >= 0)
-                otherKt->removeKeyframe(otherNearest);
+                removeKeepingValue(otherKt, otherNearest);
         }
     }
     pushProjectEdit(before, tr("Remove keyframe"));
@@ -23801,7 +24529,7 @@ void AppController::removeClipKeyframe(int trackIndex, int clipIndex, const QStr
 }
 
 void AppController::previewMoveClipKeyframe(int trackIndex, int clipIndex, const QString &prop,
-                                            double fromSeconds, double toSeconds, double value)
+                                            double fromSeconds, double toSeconds, double value, bool light)
 {
     if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
         return;
@@ -23857,6 +24585,12 @@ void AppController::previewMoveClipKeyframe(int trackIndex, int clipIndex, const
                 otherKt->setKeyframe(toRel, otherKey);
             }
         }
+    }
+    // Every move fanned out to the timeline, the panels and every curve: that is what made the graph lag
+    // behind the pointer (Jorge, 0.30).  After Effects only redraws.
+    if (light && m_previewDragActive) {
+        emitPreviewEdit(trackIndex, clipIndex, {prop, QStringLiteral("x"), QStringLiteral("y")});
+        return;
     }
     emitPreviewFrame();
 }
@@ -23928,7 +24662,39 @@ double AppController::propertyValueAt(int trackIndex, int clipIndex, const QStri
     if (!kt || kt->isEmpty())
         return propertyBaseValue(trackIndex, clipIndex, prop, fallback);
 
-    return kt->evaluateAt(drift::secondsToUs(atSeconds) - clip.timelineStart);
+    // An expression reading another layer (0.30: a Slider through effect()) is evaluated at this moment, as
+    // the renderer does; without the time it read the other layer at its start and the row kept that value.
+    drift::ExpressionContext &context = drift::expressionContext();
+    const qint64 savedUs = context.timelineUs;
+    context.timelineUs = drift::secondsToUs(atSeconds);
+    const double value = kt->evaluateAt(drift::secondsToUs(atSeconds) - clip.timelineStart);
+    context.timelineUs = savedUs;
+    return value;
+}
+
+QVariantList AppController::propertyValuesAt(int trackIndex, int clipIndex, const QString &prop,
+                                            const QVariantList &seconds, double fallback) const
+{
+    QVariantList out;
+    out.reserve(seconds.size());
+    for (const QVariant &s : seconds)
+        out.append(propertyValueAt(trackIndex, clipIndex, prop, s.toDouble(), fallback));
+    return out;
+}
+
+double AppController::propertyKeysValueAt(int trackIndex, int clipIndex, const QString &prop, double atSeconds,
+                                          double fallback) const
+{
+    if (trackIndex < 0 || trackIndex >= m_project.tracks().size())
+        return fallback;
+    redirectToKeyframeHost(&trackIndex, &clipIndex, prop);
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return fallback;
+    const drift::Clip &clip = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    const drift::KeyframeTrack<double> *kt = keyframeTrackForProp(clip, prop);
+    if (!kt || kt->isEmpty())
+        return propertyBaseValue(trackIndex, clipIndex, prop, fallback);
+    return kt->evaluateKeys(drift::secondsToUs(atSeconds) - clip.timelineStart);
 }
 
 // What an unkeyed property evaluates to. These mirror the defaults the compositor passes to
@@ -23966,9 +24732,31 @@ double AppController::propertyBaseValue(int trackIndex, int clipIndex, const QSt
             QString paramKey;
             if (parseEffectProp(prop, &effectIndex, &paramKey)
                 && effectIndex >= 0 && effectIndex < clip.effects.size()) {
-                const QVariant value = clip.effects.at(effectIndex).parameters.value(paramKey);
-                if (value.isValid())
+                const drift::Effect &effect = clip.effects.at(effectIndex);
+                const QVariant value = effect.parameters.value(paramKey);
+                if (value.isValid() && value.typeId() != QMetaType::QString)
                     return value.toDouble();
+                // A fresh effect stores nothing until a value is changed (0.30: E showed an Expression Control's
+                // Slider at 0 and the colour as 0): its catalog default, and a colour channel from the hex.
+                if (const EffectPresetEntry *def = effectDefForId(effect.catalogId)) {
+                    const QMap<QString, QVariant> params = resolvedEffectParameters(effect, *def);
+                    static const QStringList channels{QStringLiteral(".r"), QStringLiteral(".g"),
+                                                      QStringLiteral(".b"), QStringLiteral(".a")};
+                    for (int ch = 0; ch < channels.size(); ++ch) {
+                        if (!paramKey.endsWith(channels.at(ch)))
+                            continue;
+                        const QString hex = params.value(paramKey.chopped(2)).toString();
+                        if (!hex.startsWith(QLatin1Char('#')))
+                            break;
+                        const QColor c(hex.size() == 9 ? hex.left(7) : hex);
+                        if (ch == 3)
+                            return hex.size() == 9 ? hex.right(2).toInt(nullptr, 16) / 255.0 : 1.0;
+                        return ch == 0 ? c.redF() : ch == 1 ? c.greenF() : c.blueF();
+                    }
+                    const QVariant fallback = params.value(paramKey);
+                    if (fallback.isValid() && fallback.typeId() != QMetaType::QString)
+                        return fallback.typeId() == QMetaType::Bool ? (fallback.toBool() ? 1.0 : 0.0) : fallback.toDouble();
+                }
             }
             if (parseAudioEffectProp(prop, &effectIndex, &paramKey)
                 && effectIndex >= 0 && effectIndex < clip.audioEffects.size()) {
@@ -24512,6 +25300,35 @@ int AppController::splitTextIntoLetters(int trackIndex, int clipIndex)
         };
         moveTrack(clip.transformX, letter.centre.x() - w / 2.0, shift.x() + (origW - w) / 2.0);
         moveTrack(clip.transformY, letter.centre.y() - h / 2.0, shift.y() + (origH - h) / 2.0);
+        // The letter's own box lays the glyph out on its own (vertical centring, padding): measured where it
+        // landed and moved the difference, so splitting leaves every letter where it was (0.30 Academy: the
+        // letters jumped about 60 px up).
+        const FrameCompositor::TextEditGeometry placed = FrameCompositor::textEditGeometry(
+            clip, clip.textContent, at, m_project.width(), m_project.height(), 1.0);
+        if (placed.set) {
+            const QList<QRectF> own = drift::text::selectionRects(*placed.set, 0, int(clip.textContent.size()));
+            if (!own.isEmpty()) {
+                const QPointF c = placed.layoutRect.center();
+                QTransform ownToCanvas;
+                ownToCanvas.translate(c.x(), c.y());
+                ownToCanvas.rotate(placed.rotation);
+                ownToCanvas.translate(-c.x(), -c.y());
+                ownToCanvas.translate(placed.layoutRect.x(), placed.layoutRect.y());
+                const QPointF miss = letter.centre - ownToCanvas.map(own.first().center());
+                const auto nudge = [](drift::KeyframeTrack<double> &kt, double delta) {
+                    if (std::abs(delta) < 1e-6)
+                        return;
+                    const QMap<drift::TimeUs, drift::Keyframe<double>> keys = kt.keyframes();
+                    for (auto it = keys.cbegin(); it != keys.cend(); ++it) {
+                        drift::Keyframe<double> key = it.value();
+                        key.value += delta;
+                        kt.setKeyframe(it.key(), key);
+                    }
+                };
+                nudge(clip.transformX, miss.x());
+                nudge(clip.transformY, miss.y());
+            }
+        }
         const int track = drift::insertTrackAboveForClipType(m_project, trackIndex, drift::ClipType::Text);
         m_project.tracks()[track].clips.append(clip);
         ids.prepend(clip.id);
@@ -25739,6 +26556,13 @@ void AppController::previewSetKeyframeTangents(int trackIndex, int clipIndex, co
 
     applyTangents(*key, inDx, inDy, outDx, outDy, corner);
     syncLinkedTangents(trackIndex, clipIndex, prop, atSeconds, inDx, inDy, outDx, outDy, corner);
+    // While a handle is dragged (the graph's, the motion path's) only the preview redraws on each move, as
+    // every other drag here: the whole timeline, the panels and every curve were rebuilt for each pixel, which
+    // is why shaping a curve lagged (Jorge, 0.30). The rest catches up at the release.
+    if (m_previewDragActive) {
+        emitPreviewEdit(trackIndex, clipIndex, {prop, QStringLiteral("x"), QStringLiteral("y")});
+        return;
+    }
     notifyTracksChanged();
     emit selectedClipDataChanged();
     emit projectMutated();
@@ -30826,11 +31650,13 @@ QString AppController::animatedPropertyLabel(int trackIndex, int clipIndex, cons
                 // A colour's channel (color.r) is named as the colour, whose line it joins.
                 const QString base = paramKey.size() > 2 && paramKey.at(paramKey.size() - 2) == QLatin1Char('.')
                                          ? paramKey.left(paramKey.size() - 2) : QString();
+                // A renamed effect (0.30) shows the name the user gave it, as After Effects.
+                const QString name = effect.label.isEmpty() ? def->meta.displayName : effect.label;
                 for (const drift::EffectParamSpec &p : def->meta.parameters) {
                     if (p.key == paramKey || (!base.isEmpty() && p.key == base && p.isColor()))
-                        return def->meta.displayName + QStringLiteral(" · ") + p.label;
+                        return name + QStringLiteral(" · ") + p.label;
                 }
-                return def->meta.displayName + QStringLiteral(" · ") + paramKey;
+                return name + QStringLiteral(" · ") + paramKey;
             }
         }
         return paramKey;
@@ -31349,7 +32175,88 @@ QVariantList AppController::shapePartCrumbs() const
     return out;
 }
 
+// After Effects' search box over the layers (0.30): only the lines whose name holds what is typed,
+// accents and case aside; an axis line stays with its property.
 QVariantList AppController::trackKeyframeRows(int trackIndex) const
+{
+    const QVariantList rows = trackKeyframeRowsAll(trackIndex);
+    const QString wanted = searchKey(m_keyframeRowsSearch);
+    if (wanted.isEmpty())
+        return rows;
+    const auto translated = [](const QVariantMap &row) {
+        static const QHash<QString, const char *> groups{
+            {QStringLiteral("anchor"), "Anchor point"}, {QStringLiteral("position"), "Position"},
+            {QStringLiteral("rotation"), "Rotation"},   {QStringLiteral("scale"), "Scale"},
+            {QStringLiteral("opacity"), "Opacity"},     {QStringLiteral("volume"), "Volume"},
+            {QStringLiteral("pan"), "Pan"}};
+        const QString group = row.value(QStringLiteral("group")).toString();
+        if (groups.contains(group))
+            return QCoreApplication::translate("TrackKeyframeRows", groups.value(group)) + QLatin1Char(' ')
+                   + QString::fromLatin1(groups.value(group));
+        return row.value(QStringLiteral("label")).toString();
+    };
+    QVariantList out;
+    QSet<QString> keptGroups;
+    for (const QVariant &v : rows) {
+        const QVariantMap row = v.toMap();
+        const QString group = row.value(QStringLiteral("group")).toString();
+        if (row.value(QStringLiteral("axis")).toBool()) {
+            if (keptGroups.contains(group))
+                out.append(v);
+            continue;
+        }
+        if (searchKey(translated(row)).contains(wanted)) {
+            out.append(v);
+            if (!group.isEmpty())
+                keptGroups.insert(group);
+        }
+    }
+    return out;
+}
+
+QString AppController::searchKey(const QString &text)
+{
+    // Lower case without accents, so «posicion» finds «Posición».
+    const QString decomposed = text.normalized(QString::NormalizationForm_D).toLower();
+    QString out;
+    for (const QChar c : decomposed) {
+        if (c.category() != QChar::Mark_NonSpacing)
+            out.append(c);
+    }
+    return out.trimmed();
+}
+
+void AppController::setKeyframeRowsSearch(const QString &text)
+{
+    if (text == m_keyframeRowsSearch)
+        return;
+    m_keyframeRowsSearch = text;
+    // The lines of the picked layers open, as After Effects unfolds what matches.
+    if (!searchKey(text).isEmpty()) {
+        QSet<int> tracks;
+        for (const QPair<int, int> &pair : m_selection)
+            tracks.insert(pair.first);
+        if (tracks.isEmpty() && isValidClipIndex(m_selectedTrack, m_selectedClip))
+            tracks.insert(m_selectedTrack);
+        if (tracks.isEmpty()) {
+            for (int t = 0; t < m_project.tracks().size(); ++t)
+                tracks.insert(t);
+        }
+        m_keyframeRowsAnimatedOnly = false;
+        m_keyframeRowsModifiedOnly = false;
+        m_keyframeRowsOnlyGroup.clear();
+        for (const int t : std::as_const(tracks)) {
+            if (t >= 0 && t < m_project.tracks().size() && !m_project.tracks().at(t).isAdjustmentLane())
+                m_project.tracks()[t].keyframesExpanded = true;
+        }
+    }
+    m_tracksCacheValid = false;
+    m_tracksCache.clear();
+    emit keyframeRowsSearchChanged();
+    notifyTracksChanged();
+}
+
+QVariantList AppController::trackKeyframeRowsAll(int trackIndex) const
 {
     if (trackIndex < 0 || trackIndex >= m_project.tracks().size()
         || m_project.tracks().at(trackIndex).isAdjustmentLane())
@@ -31478,6 +32385,8 @@ QVariantList AppController::trackKeyframeRows(int trackIndex) const
     // first-seen order.
     QStringList order;
     QHash<QString, QVariantList> clipsByLabel;
+    // A colour's line keys its channels together (0.30).
+    QHash<QString, QStringList> channelsByLabel;
     for (int c = 0; c < clipCount; ++c) {
         for (const QString &prop : clipAnimatedProperties(trackIndex, c)) {
             if (grouped.contains(prop) || prop.startsWith(QLatin1String("part.")))
@@ -31531,6 +32440,8 @@ QVariantList AppController::trackKeyframeRows(int trackIndex) const
                 const QString label = animatedPropertyLabel(trackIndex, c, colorBase + QStringLiteral(".r"));
                 if (!clipsByLabel.contains(label))
                     order.append(label);
+                channelsByLabel.insert(label, QStringList{colorBase + QStringLiteral(".r"), colorBase + QStringLiteral(".g"),
+                                                          colorBase + QStringLiteral(".b")});
                 clipsByLabel[label].append(QVariantMap{
                     {QStringLiteral("clip"), c},
                     {QStringLiteral("prop"), prop},
@@ -31582,13 +32493,63 @@ QVariantList AppController::trackKeyframeRows(int trackIndex) const
             break;
         }
     }
+    // E (0.30, After Effects): every parameter of the layer's effects, keyed or not, so an Expression Control's
+    // Slider can be picked with the pick whip before it has a key.
+    // An expanded layer (no filter) lists its Expression Controls the same way, keyed or not, as After Effects
+    // shows its Effects group (0.30: the Slider could not be pick-whipped until it had a key).
+    const bool allEffectRows = m_keyframeRowsOnlyGroup == QLatin1String("effects");
+    if (allEffectRows || (m_keyframeRowsOnlyGroup.isEmpty() && !m_keyframeRowsAnimatedOnly)) {
+        for (int c = 0; c < clipCount; ++c) {
+            const drift::Clip *host = effectHostClip(trackIndex, c, drift::AdjustmentKind::VideoEffects);
+            if (!host)
+                continue;
+            for (int i = 0; i < host->effects.size(); ++i) {
+                const EffectPresetEntry *def = effectDefForId(host->effects.at(i).catalogId);
+                if (!def || (!allEffectRows && def->meta.category != QLatin1String("expression")))
+                    continue;
+                for (const drift::EffectParamSpec &spec : def->meta.parameters) {
+                    if (spec.isFilePath() || spec.isClip())
+                        continue;
+                    const QString base = QStringLiteral("fx.%1.%2").arg(i).arg(spec.key);
+                    QStringList props;
+                    if (spec.isColor())
+                        props = {base + QStringLiteral(".r")};
+                    else if (spec.isVec2())
+                        props = {base + QStringLiteral(".x"), base + QStringLiteral(".y")};
+                    else
+                        props = {base};
+                    for (const QString &prop : std::as_const(props)) {
+                        QString label = animatedPropertyLabel(trackIndex, c, prop);
+                        if (spec.isVec2())
+                            label += prop.endsWith(QLatin1String(".y")) ? QStringLiteral(" Y") : QStringLiteral(" X");
+                        if (clipsByLabel.contains(label))
+                            continue;
+                        order.append(label);
+                        if (spec.isColor())
+                            channelsByLabel.insert(label, QStringList{base + QStringLiteral(".r"), base + QStringLiteral(".g"),
+                                                                      base + QStringLiteral(".b")});
+                        clipsByLabel[label].append(QVariantMap{
+                            {QStringLiteral("clip"), c},
+                            {QStringLiteral("prop"), prop},
+                            {QStringLiteral("start"), drift::usToSeconds(track.clips.at(c).timelineStart)},
+                            {QStringLiteral("duration"), drift::usToSeconds(track.clips.at(c).timelineDuration)},
+                            {QStringLiteral("keys"), QVariantList()},
+                        });
+                    }
+                }
+            }
+        }
+    }
     for (const QString &label : std::as_const(order)) {
         const QVariantList clips = clipsByLabel.value(label);
-        rows.append(QVariantMap{
+        QVariantMap row{
             {QStringLiteral("label"), label},
             {QStringLiteral("prop"), clips.first().toMap().value(QStringLiteral("prop"))},
             {QStringLiteral("clips"), clips},
-        });
+        };
+        if (channelsByLabel.contains(label))
+            row.insert(QStringLiteral("channelProps"), channelsByLabel.value(label));
+        rows.append(row);
     }
     if (track.type == drift::TrackType::Shape && m_keyframeRowsOnlyGroup.isEmpty()) {
         const QVariantList contents = shapeContentRows(trackIndex, keyframeTargetClip(trackIndex));
@@ -31669,6 +32630,39 @@ bool AppController::canShrinkTrackHeights() const
             return true;
     }
     return false;
+}
+
+// Ctrl+] / Ctrl+[ (with Shift: to the top / bottom), After Effects' layer order: the picked clip's track
+// moves among the picture tracks (an audio track or an adjustment lane is no place for it).
+void AppController::moveSelectedLayerInStack(const QString &actionId)
+{
+    const int from = m_selectedTrack;
+    if (from < 0 || from >= m_project.tracks().size())
+        return;
+    const auto picture = [this](int t) {
+        const drift::Track &track = m_project.tracks().at(t);
+        return track.type != drift::TrackType::Audio && !track.isAdjustmentLane();
+    };
+    if (!picture(from))
+        return;
+    QList<int> stack;
+    for (int t = 0; t < m_project.tracks().size(); ++t) {
+        if (picture(t))
+            stack.append(t);
+    }
+    const int at = int(stack.indexOf(from));
+    int to = at;
+    if (actionId == QLatin1String("layerForward"))
+        to = at - 1;
+    else if (actionId == QLatin1String("layerBackward"))
+        to = at + 1;
+    else if (actionId == QLatin1String("layerToFront"))
+        to = 0;
+    else if (actionId == QLatin1String("layerToBack"))
+        to = int(stack.size()) - 1;
+    if (to < 0 || to >= stack.size() || to == at)
+        return;
+    moveTrack(from, stack.at(to));
 }
 
 void AppController::moveTrack(int fromIndex, int toIndex)
@@ -33946,6 +34940,10 @@ void AppController::triggerAction(const QString &actionId)
              || actionId == QStringLiteral("moveInToPlayhead") || actionId == QStringLiteral("moveOutToPlayhead")
              || actionId == QStringLiteral("goToLayerIn") || actionId == QStringLiteral("goToLayerOut"))
         layerEditAtPlayhead(actionId);
+    else if (actionId.startsWith(QLatin1String("layer")) && (actionId.endsWith(QLatin1String("Forward"))
+             || actionId.endsWith(QLatin1String("Backward")) || actionId.endsWith(QLatin1String("Front"))
+             || actionId.endsWith(QLatin1String("Back"))))
+        moveSelectedLayerInStack(actionId);
     else if (actionId.startsWith(QLatin1String("key")) && actionId.size() > 3 && actionId.at(3).isUpper())
         keyGroupAtPlayhead(actionId.mid(3).toLower());
     else if (actionId == QStringLiteral("goToStart"))
@@ -35525,11 +36523,15 @@ QString AppController::addStyleLayer(int trackIndex, int clipIndex, const QStrin
     case drift::TextLayerKind::Glow:
         layer = drift::glowLayer(stack.primaryColor, 18.0, 0.8, drift::mintTextLayerId(layers));
         break;
-    case drift::TextLayerKind::Extrude:
-        layer = drift::solidFillLayer(QColor(40, 40, 40), drift::mintTextLayerId(layers));
+    case drift::TextLayerKind::Extrude: {
+        // Deep enough to read and a darker tone of the letters (0.30 Academy: 6 px of dark grey sat hidden
+        // under the stroke and the shadow of a 96 px title).
+        const QColor base = stack.primaryColor.isValid() ? stack.primaryColor : QColor(120, 120, 120);
+        layer = drift::solidFillLayer(base.darker(260), drift::mintTextLayerId(layers));
         layer.kind = drift::TextLayerKind::Extrude;
-        layer.width = 6.0;
+        layer.width = shape ? 6.0 : qBound(6.0, clip->textStyle.pixelSize * 0.15, 60.0);
         break;
+    }
     }
     const int index = atIndex < 0 || atIndex > layers.size() ? naturalLayerIndex(layers, layerKind) : atIndex;
     layers.insert(index, layer);

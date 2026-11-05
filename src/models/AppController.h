@@ -167,6 +167,7 @@ class AppController : public QObject
     // the list for that rebuilt every clip in the project into QVariantMaps, once per binding,
     // per emission — with two dozen such bindings across the desktop and touch shells.
     Q_PROPERTY(quint32 tracksRevision READ tracksRevision NOTIFY tracksChanged)
+    Q_PROPERTY(QString keyframeRowsSearch READ keyframeRowsSearch WRITE setKeyframeRowsSearch NOTIFY keyframeRowsSearchChanged)
     // For the bindings that only ask how many tracks there are, or whether there are any.
     Q_PROPERTY(int trackCount READ trackCount NOTIFY tracksChanged)
     // "Is the timeline empty?" — asked by the empty-state copy in both shells, which used to
@@ -723,7 +724,8 @@ public:
     // The Shape tool (0.26): a shape of `kind` dragged out on the preview, the box in canvas px,
     // painted with the toolbar's fill and stroke ("none" for either leaves it off).
     Q_INVOKABLE void addDrawnShape(const QString &kind, double x, double y, double w, double h,
-                                   const QString &fill, const QString &stroke, double strokeWidth);
+                                   const QString &fill, const QString &stroke, double strokeWidth,
+                                   double rotation = 0.0, int points = 0);
     // The Text tool (0.26): a new text centred where the preview was clicked (canvas px); the
     // caller then opens it for typing. Returns {track, clip}, empty when it could not be added.
     // `backdrop`: the colour under the click (the preview sampled there), so the new words read on it.
@@ -876,6 +878,12 @@ public:
     // `outline` (Motion Tools › Trim, 0.26): a text's letters become a stroke in its colour with no
     // fill, ready for Trim Paths (a trimmed fill only shows pieces).
     Q_INVOKABLE void convertSelectionToShape(bool outline = false);
+    // After Effects' Create Shapes from Text (0.30): one shape part per letter, to animate them one by one.
+    Q_INVOKABLE void createShapesFromText();
+    // After Effects' Merge Paths (0.30) over one level of a layer's parts: add, subtract, intersect, exclude.
+    Q_INVOKABLE bool mergeShapeParts(int trackIndex, int clipIndex, const QString &groupId, const QString &mode);
+    // After Effects' Create Shapes from Vector Layer (0.30): an SVG's paths as the parts of a shape layer.
+    Q_INVOKABLE void createShapesFromVectorLayer();
     Q_INVOKABLE void centerSelectionInFrame();
     // After Effects' Motion Sketch (0.26): the pointer's path recorded on the preview
     // ([{t: timeline seconds, x, y: canvas px of the clip's centre}]) becomes its Position keys
@@ -890,6 +898,11 @@ public:
     Q_INVOKABLE QVariantMap keyVelocity(int trackIndex, int clipIndex, const QString &prop, double seconds) const;
     Q_INVOKABLE void setKeyVelocity(int trackIndex, int clipIndex, const QString &prop, double seconds,
                                     const QVariantMap &velocity);
+    // An effect parameter as an expression reads it (0.30, the pick whip on an effect's line):
+    // effect("Slider Control")("Slider"), with [i] for one axis or channel unless `whole`.
+    Q_INVOKABLE QString effectExpressionPath(int trackIndex, int clipIndex, const QString &prop, bool whole) const;
+    // After Effects' Rename on an effect (0.30); empty gives back the catalog's name. One undo step.
+    Q_INVOKABLE bool renameEffect(int trackIndex, int clipIndex, int effectIndex, const QString &label);
     Q_INVOKABLE void setPropertyBehavior(int trackIndex, int clipIndex, const QString &prop,
                                          const QVariantMap &behavior);
     // After Effects' Parent column (0.26). {parentId, parentName, parentTrack, parentClip,
@@ -1745,8 +1758,11 @@ public:
     Q_INVOKABLE void removeClipChannelKeyframes(int trackIndex, int clipIndex, const QString &prop,
                                                 double atSeconds, const QStringList &suffixes);
     Q_INVOKABLE void removeClipKeyframe(int trackIndex, int clipIndex, const QString &prop, double atSeconds);
+    // `light` (0.30): inside a preview drag whose caller draws the key itself (the graph's dot, the motion
+    // path's), only the preview is redrawn on each move; the timeline and the panels catch up at the release.
     Q_INVOKABLE void previewMoveClipKeyframe(int trackIndex, int clipIndex, const QString &prop,
-                                             double fromSeconds, double toSeconds, double value);
+                                             double fromSeconds, double toSeconds, double value,
+                                             bool light = false);
     Q_INVOKABLE QVariantList clipKeyframes(int trackIndex, int clipIndex, const QString &prop) const;
     // Every property of the clip that carries an animation, in strip order.
     Q_INVOKABLE QStringList clipAnimatedProperties(int trackIndex, int clipIndex) const;
@@ -1760,6 +1776,14 @@ public:
                                                         const QString &prop);
     Q_INVOKABLE double propertyValueAt(int trackIndex, int clipIndex, const QString &prop,
                                        double atSeconds, double fallback) const;
+    // propertyValueAt for many times in one call (0.30): the motion path samples hundreds of them on every
+    // mouse move, and one call each made shaping it slow.
+    Q_INVOKABLE QVariantList propertyValuesAt(int trackIndex, int clipIndex, const QString &prop,
+                                              const QVariantList &seconds, double fallback) const;
+    // The value its keys give, without its behaviour (expression, loop, wiggle): the size a scaled layer grows
+    // from (0.30).
+    Q_INVOKABLE double propertyKeysValueAt(int trackIndex, int clipIndex, const QString &prop, double atSeconds,
+                                           double fallback) const;
     // What the property evaluates to with no keyframes at all — the same implicit defaults
     // the compositor uses, so an unkeyed curve is drawn where the clip actually sits.
     Q_INVOKABLE double propertyBaseValue(int trackIndex, int clipIndex, const QString &prop,
@@ -2201,6 +2225,9 @@ public:
     // [{label, prop, clips: [{clip, prop, start, duration, keys: clipKeyframes()}]}], one per
     // property name across the track's clips.
     Q_INVOKABLE QVariantList trackKeyframeRows(int trackIndex) const;
+    // The timeline's property search (0.30, After Effects' search box): rows whose name holds it.
+    QString keyframeRowsSearch() const { return m_keyframeRowsSearch; }
+    void setKeyframeRowsSearch(const QString &text);
     // "X position", "Zoom punch · Punch"… for a keyframed property of a clip.
     Q_INVOKABLE QString animatedPropertyLabel(int trackIndex, int clipIndex, const QString &prop) const;
     // How tall the waveform is drawn inside the row (0.1-1.0). View-only.
@@ -2234,6 +2261,7 @@ public:
     Q_INVOKABLE double trackHeightScaleMin() const { return 0.6; }
     Q_INVOKABLE double trackHeightScaleMax() const { return 4.0; }
     Q_INVOKABLE void moveTrack(int fromIndex, int toIndex);
+    void moveSelectedLayerInStack(const QString &actionId);
     Q_INVOKABLE void addTrack(const QString &type);
     Q_INVOKABLE void removeTrack(int trackIndex);
     // A click on a track header: picks that track alone; `extendRange` (Shift) adds every track
@@ -2480,6 +2508,7 @@ public:
                                          int rotationCorrection = 0) const;
 
 signals:
+    void keyframeRowsSearchChanged();
     void pickedKeyframesChanged();
     void userTextAnimationPresetsChanged();
 
@@ -2649,6 +2678,8 @@ protected:
     // joined one's path in step with its keys.
     void syncJoinedPositions(const drift::Project *before);
     void syncRovingPositions();
+    QVariantList trackKeyframeRowsAll(int trackIndex) const;
+    static QString searchKey(const QString &text);
 
     // Refills the per-track clip models from the project. Called by notifyTracksChanged() before
     // the signal goes out, so a binding that wakes on tracksChanged already sees the new rows.
@@ -3155,6 +3186,7 @@ protected:
     // Set while Squash & Stretch or Bend add their effect, so the selection stays on the clip.
     bool m_addEffectKeepsSelection = false;    QVariantMap m_pickedKeyframes;
     QString m_textEditJobId; // the transcription «Edit with the text» waits on
+    QString m_keyframeRowsSearch;
     QString m_keyframeRowsOnlyGroup;
     int m_selectionRevision = 0;
     int m_timelineTrimCursorSide = 0;

@@ -92,7 +92,8 @@ ThemedDialog {
         amountField.value = b.wiggleAmount ? b.wiggleAmount : 20
         seedField.value = b.wiggleSeed || 0
         speedField.value = b.speed || 0
-        expressionField.text = b.expression || ""
+        expressionField.text = root.unwrapped(b.expression || "")
+        expressionOn.checked = b.expressionEnabled !== false
     }
 
     function behavior() {
@@ -102,16 +103,69 @@ ThemedDialog {
             wiggleFrequency: wiggleSwitch.checked ? frequencyField.value : 0,
             wiggleAmount: wiggleSwitch.checked ? amountField.value : 0,
             wiggleSeed: Math.round(seedField.value),
-            expression: expressionField.text
+            expression: expressionField.text,
+            expressionEnabled: expressionOn.checked
         }
     }
 
+    // A property of two or more values (Position, a colour, a point) set at once (0.30): each value takes its
+    // own entry of the expression's [x, y] or [r, g, b, a], as After Effects does with one expression.
+    readonly property string wrapHead: "var __v = ("
+    function wrapped(code, i) {
+        return root.wrapHead + code + "\n); Array.isArray(__v) ? __v[" + i + "] : __v"
+    }
+    // Scale is kept as the layer's width and height in px; After Effects' expression reads and gives it in %
+    // (0.30, the nulls course: a Slider of 150 is 150 %). The 100 % size is the layer's natural one.
+    readonly property string scaleHead: "/*scale%*/var __n = "
+    readonly property string scaleBody: "; var __v = (function (value) { return ("
+    readonly property string scaleTail: "\n); })([value / __n * 100, value / __n * 100]); (Array.isArray(__v) ? __v["
+    function isScale() {
+        return root.props.length === 2 && root.props[0] === "width" && root.props[1] === "height"
+    }
+    function scaleWrapped(code, i) {
+        const nat = EditorState.clipNaturalSize(root.trackIndex, root.clipIndex) || {}
+        const n = Math.max(1, (i === 0 ? nat.w : nat.h) || 1)
+        return root.scaleHead + n + root.scaleBody + code + root.scaleTail + i + "] : __v) * __n / 100"
+    }
+    // Opacity is kept as 0..1; After Effects' expression reads and gives it in % (0.30 Academy: linear(time, 1.5,
+    // 2, 100, 0) read 10000 %).
+    readonly property string percentHead: "/*opacity%*/var __v = (function (value) { return ("
+    readonly property string percentTail: "
+); })(value * 100); __v / 100"
+    function isPercent() {
+        return root.props.length === 1 && root.props[0] === "opacity"
+    }
+    function unwrapped(code) {
+        if (code.startsWith(root.percentHead)) {
+            const end = code.lastIndexOf(root.percentTail)
+            return end > 0 ? code.substring(root.percentHead.length, end) : code
+        }
+        if (code.startsWith(root.scaleHead)) {
+            const from = code.indexOf(root.scaleBody)
+            const end = code.lastIndexOf("\n); })([value / __n")
+            return from > 0 && end > from ? code.substring(from + root.scaleBody.length, end) : code
+        }
+        if (!code.startsWith(root.wrapHead))
+            return code
+        const end = code.lastIndexOf("\n); Array.isArray(__v)")
+        return end > 0 ? code.substring(root.wrapHead.length, end) : code
+    }
     onAccepted: {
         for (const field of [frequencyField, amountField, seedField, speedField])
             field.parseAndCommit()
         const b = behavior()
-        for (const prop of root.props)
-            EditorState.setPropertyBehavior(root.trackIndex, root.clipIndex, prop, b)
+        const hasCode = (b.expression || "").trim().length > 0
+        const several = root.props.length > 1 && hasCode
+        for (let i = 0; i < root.props.length; ++i) {
+            const own = Object.assign({}, b)
+            if (hasCode && root.isScale())
+                own.expression = root.scaleWrapped(b.expression.trim(), i)
+            else if (hasCode && root.isPercent())
+                own.expression = root.percentHead + b.expression.trim() + root.percentTail
+            else if (several)
+                own.expression = root.wrapped(b.expression.trim(), i)
+            EditorState.setPropertyBehavior(root.trackIndex, root.clipIndex, root.props[i], own)
+        }
     }
 
     contentItem: Column {
@@ -257,9 +311,9 @@ ThemedDialog {
                         const line = whip.lineAt(whip.Window.window ? whip.Window.window.contentItem : null, p.x, p.y)
                         if (!line)
                             return
-                        const ref = line.exprWhipReference(root.props.length > 0 ? root.props[0] : "")
+                        const ref = line.exprWhipReference(root.props.length > 0 ? root.props[0] : "", root.props.length > 1)
                         if (ref.length === 0) {
-                            EditorState.setLastMessage(qsTr("The pick whip links another layer's position, rotation, scale, opacity or anchor point"), "warning")
+                            EditorState.setLastMessage(qsTr("The pick whip links another layer's position, rotation, scale, opacity, anchor point or effect"), "warning")
                             return
                         }
                         expressionField.insert(expressionField.cursorPosition, ref)
@@ -292,6 +346,14 @@ ThemedDialog {
                     }
                 }
             }
+        }
+        // After Effects' «=» switch (0.30): off, the expression stays written but does nothing.
+        ThemedSwitch {
+            id: expressionOn
+            width: parent.width
+            checked: true
+            visible: expressionField.text.trim().length > 0
+            text: qsTr("Expression on")
         }
         ThemedTextArea {
             id: expressionField

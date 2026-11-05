@@ -452,6 +452,9 @@ quint64 textLayersHash(const QList<TextShadingLayer> &layers)
                        static_cast<int>(l.scope));
         h = qHashMulti(h, l.miterLimit, l.taperStartLength, l.taperEndLength, l.taperStartWidth, l.taperEndWidth,
                        l.taperEase, l.waveAmount, l.waveLength, l.wavePhase, l.arrowStart, l.arrowEnd, l.arrowSize);
+        // The Dash / Gap pairs (0.30): without them a changed pattern kept the cached drawing.
+        for (const double run : l.dashPattern)
+            h = qHashMulti(h, run);
     }
     return h;
 }
@@ -598,6 +601,12 @@ QJsonObject textShadingLayerToJson(const TextShadingLayer &l)
         o.insert(QStringLiteral("strokeAlign"), strokeAlignToString(l.strokeAlign));
         o.insert(QStringLiteral("dash"), strokeDashToString(l.dash));
         o.insert(QStringLiteral("dashOffset"), l.dashOffset);
+        if (!l.dashPattern.isEmpty()) {
+            QJsonArray pattern;
+            for (const double v : l.dashPattern)
+                pattern.append(v);
+            o.insert(QStringLiteral("dashPattern"), pattern);
+        }
         if (l.cap != StrokeCap::Round)
             o.insert(QStringLiteral("cap"), strokeCapToString(l.cap));
         if (l.join != StrokeJoin::Round)
@@ -671,6 +680,12 @@ TextShadingLayer textShadingLayerFromJson(const QJsonObject &o)
         l.strokeAlign = o.value(QStringLiteral("strokeOutside")).toBool(true) ? StrokeAlign::Outside : StrokeAlign::Center;
     l.dash = strokeDashFromString(o.value(QStringLiteral("dash")).toString());
     l.dashOffset = o.value(QStringLiteral("dashOffset")).toDouble(0.0);
+    l.dashPattern.clear();
+    for (const QJsonValue &v : o.value(QStringLiteral("dashPattern")).toArray()) {
+        const double run = v.toDouble(0.0);
+        if (std::isfinite(run))
+            l.dashPattern.append(qBound(0.0, run, 100000.0));
+    }
     l.cap = strokeCapFromString(o.value(QStringLiteral("cap")).toString());
     l.join = strokeJoinFromString(o.value(QStringLiteral("join")).toString());
     l.miterLimit = qBound(1.0, o.value(QStringLiteral("miterLimit")).toDouble(4.0), 100.0);

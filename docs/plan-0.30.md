@@ -46,6 +46,16 @@ animado de un efecto que no se dibujaba) y clonar con Rebote (Y igual antes y de
 restaurado (`pruebas	utorial-aeegistro-antes.reg`, 0 diferencias; la cuenta no cambió). Queda distinto a
 propósito: Espacio + arrastrar (en Flip Espacio reproduce). **Falta:** que Jorge diga si se publica, y publicar.
 
+## 2026-11-04, tarde: cursos de nulos y de formas/pluma, y archivos .ai
+
+Jorge (después de «No subas hasta que te diga»): revisar los dos cursos de After Effects (nulos y formas/pluma),
+añadir lo que falte y probarlo en ventana. **Hecho y visto en ventana** (r1 41853361934, r2 41868656800,
+r3 41874630576 = portable `pruebas\FlipStudio-0.30-nf3`); lista completa en `docs/tutorial-nulos-formas-ae.md`.
+`release-notes/0.30.0.md` ya lo cuenta. El tag `v0.30.0` sigue **borrado**; publicar solo cuando Jorge diga.
+Las novedades de la web (`flipstudio-web` `cda81`) no tienen todavía lo de estos cursos.
+
+**Después:** la Academia de la web (`docs/plan-academia.md`).
+
 ## Para seguir (2026-11-05)
 
 1. Bajar la r16 si no se bajó (`gh run download 41798607082 -R bajoelabrigo/Flip -n windows-portable`), abrirla en

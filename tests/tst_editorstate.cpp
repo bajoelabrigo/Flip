@@ -39,6 +39,7 @@
 #include "engine/FrameCompositor.h"
 #include "engine/GpuCompositor.h"
 #include "engine/TextLayout.h"
+#include "engine/TransformLayer.h"
 #include "engine/ClipReaderPool.h"
 #include "models/AppController.h"
 #include "models/TtsController.h"
@@ -146,6 +147,7 @@ private slots:
     void motionToolsReverseMirrorsPickedKeys();
     void gradientHandlesAndToolPaintOptions();
     void motionToolsTrimBendAndCaps();
+    void nullObjectHasNoShapeTab();
     void textClipTakesMasks();
     void motionTrackingKeysTheElementOverItsVideo();
     void motionTrackingHidesAnObjectAndDrivesAMask();
@@ -169,6 +171,9 @@ private slots:
     void textBoxGrowsLiveWhileTyping();
     void oldProjectTextBoxNeverMoves();
     void sideResizeOfTextBoxStopsHugging();
+    void narrowingAWrappingTextGrowsItsBox();
+    void relayingOutATextKeepsItsScaleAtOneHundred();
+    void textAroundACircleGetsABoxAroundTheRing();
     void undoRedoClipAdd();
     void sourceFramingPreservesOriginalAndUndoes();
     void undoLibraryClipDropOntoExistingTrack();
@@ -221,6 +226,7 @@ private slots:
     void typedValueOnAnAnimatedPropertyAddsAKey();
     void fitClipToVideoLengthTrimsTheMusic();
     void splitTextIntoLettersMakesOneLayerEach();
+    void shapesFromTextLandOnAShapeTrack();
     void removeClipKeysInRangeClearsEveryRow();
     void frameSolidCoversTheWholeWork();
     void colourWipeTakesUpToThreeAccents();
@@ -324,6 +330,8 @@ private slots:
     void solidsAndCompositionsInMedia();
     void pasteOntoItsOwnKeysCarriesOn();
     void autoBezierKeyRunsThroughWithoutStopping();
+    void removingTheLastTransformKeyKeepsTheValue();
+    void scaleMovedByAnExpressionGrowsAroundTheAnchor();
     void rovingKeysSpreadAgainAfterAnEase();
     void cutoutTemplateLandsInAComposition();
     void beatTemplateOnSilentClipStillApplies();
@@ -363,6 +371,8 @@ private slots:
     void multiClipMoveCrossTracksWithLinkedPartners();
     void pasteAttributesToMultipleClips();
     void clipsModelFeedsDelegateRequiredProperties();
+    void clipsModelReportsShownInsideTheLayerBelow();
+    void textConvertedToSubtitleLeavesNoEmptyTrack();
     void clipsModelNotifiesOnlyTheClipThatChanged();
     void clipsModelInsertsAndRemovesWithoutReset();
     void clipsModelDerivesGapsAndOverlaps();
@@ -678,6 +688,18 @@ void EditorStateTest::audioAdjustmentTrackArrivesWithAClip()
 
 // CapCut's text masks: a selected text shows the Masks tab, and a mask added to it is listed as
 // its own, like a photo's.
+// An After Effects null is not drawn (0.30): no Shape tab, fill or stroke; it says it is a null.
+void EditorStateTest::nullObjectHasNoShapeTab()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    state.addNullObject();
+    const QStringList caps = state.selectedClipData().value(QStringLiteral("caps")).toStringList();
+    QVERIFY(caps.contains(QStringLiteral("nullObject")));
+    QVERIFY(caps.contains(QStringLiteral("transformable")));
+    QVERIFY(!caps.contains(QStringLiteral("shape")));
+}
+
 void EditorStateTest::textClipTakesMasks()
 {
     AssetLibrary library;
@@ -1612,6 +1634,89 @@ void EditorStateTest::sideResizeOfTextBoxStopsHugging()
     state.undo();
     state.undo();
     QVERIFY(clipNow().textAutoFit);
+#endif
+}
+
+void EditorStateTest::textAroundACircleGetsABoxAroundTheRing()
+{
+#ifndef DRIFT_WITH_SKIA
+    QSKIP("measuring text needs DRIFT_WITH_SKIA");
+#else
+    // 0.30 Academy: Around a circle drew a ring but the box stayed the flat line's, so the ring's letters
+    // stood outside it. The hugging box takes the ring's size, centred where it was.
+    AssetLibrary library;
+    AppController state(&library);
+    state.addTextClip(QStringLiteral("VUELTA COMPLETA AL LAGO"), 0.0);
+    const int track = state.selectedTrack();
+    const int clip = state.selectedClip();
+    const auto clipNow = [&]() -> const drift::Clip & { return state.project()->tracks().at(track).clips.at(clip); };
+    const TextBox flat = textBoxOf(clipNow());
+    state.setTextStyle(track, clip, QVariantMap{{QStringLiteral("pathBend"), 40.0}, {QStringLiteral("pathCircle"), 100.0}});
+    const TextBox ring = textBoxOf(clipNow());
+    QVERIFY2(ring.h > flat.h * 3.0, qPrintable(QStringLiteral("ring %1x%2, flat %3x%4").arg(ring.w).arg(ring.h)
+                                                    .arg(flat.w).arg(flat.h)));
+    QVERIFY(ring.w >= flat.w - 1.0); // one line still fits: a narrower box wraps it and the ring goes flat
+    QVERIFY(qAbs(ring.cx() - flat.cx()) < 1.0 && qAbs(ring.cy() - flat.cy()) < 1.0);
+#endif
+}
+
+void EditorStateTest::relayingOutATextKeepsItsScaleAtOneHundred()
+{
+#ifndef DRIFT_WITH_SKIA
+    QSKIP("measuring text needs DRIFT_WITH_SKIA");
+#else
+    // 0.30 Academy: a font size of 90 for 64 read Scale 141 %, a narrowed box 280 %. Changing the words, the
+    // font or the box lays the text out again; only a real scale moves Scale off 100 %.
+    AssetLibrary library;
+    AppController state(&library);
+    state.addTextClip(QStringLiteral("RUTA DEL LAGO"), 0.0);
+    const int track = state.selectedTrack();
+    const int clip = state.selectedClip();
+    const auto clipNow = [&]() -> const drift::Clip & { return state.project()->tracks().at(track).clips.at(clip); };
+    const auto scaleNow = [&]() {
+        const QVariantMap n = state.clipNaturalSize(track, clip);
+        return QPointF(textBoxOf(clipNow()).w / n.value(QStringLiteral("w")).toDouble(),
+                       textBoxOf(clipNow()).h / n.value(QStringLiteral("h")).toDouble());
+    };
+    QVERIFY(QLineF(scaleNow(), QPointF(1.0, 1.0)).length() < 0.01);
+    state.setTextStyle(track, clip, QVariantMap{{QStringLiteral("pixelSize"), clipNow().textStyle.pixelSize * 1.4}});
+    QVERIFY2(QLineF(scaleNow(), QPointF(1.0, 1.0)).length() < 0.01,
+             qPrintable(QStringLiteral("after the font: %1, %2").arg(scaleNow().x()).arg(scaleNow().y())));
+    const TextBox box = textBoxOf(clipNow());
+    state.beginPreviewDrag(QStringLiteral("Transform clip"));
+    state.previewSetClipRect(track, clip, box.x, box.y, box.w * 0.4, box.h);
+    state.commitPreviewDrag();
+    QVERIFY2(QLineF(scaleNow(), QPointF(1.0, 1.0)).length() < 0.01,
+             qPrintable(QStringLiteral("after the side: %1, %2").arg(scaleNow().x()).arg(scaleNow().y())));
+#endif
+}
+
+void EditorStateTest::narrowingAWrappingTextGrowsItsBox()
+{
+#ifndef DRIFT_WITH_SKIA
+    QSKIP("measuring text needs DRIFT_WITH_SKIA");
+#else
+    // 0.30 Academy: a side of the box dragged in wrapped the words onto three lines but kept one line's
+    // height, so only the middle one showed. The box grows down to fit them, as in CapCut.
+    AssetLibrary library;
+    AppController state(&library);
+    state.addTextClip(QStringLiteral("RUTA DEL LAGO"), 0.0);
+    const int track = state.selectedTrack();
+    const int clip = state.selectedClip();
+    const auto clipNow = [&]() -> const drift::Clip & { return state.project()->tracks().at(track).clips.at(clip); };
+    const TextBox first = textBoxOf(clipNow());
+    QVERIFY(clipNow().textStyle.wordWrap);
+    state.beginPreviewDrag(QStringLiteral("Transform clip"));
+    state.previewSetClipRect(track, clip, first.x, first.y, first.w * 0.4, first.h);
+    state.commitPreviewDrag();
+    const TextBox narrow = textBoxOf(clipNow());
+    QVERIFY(qAbs(narrow.w - first.w * 0.4) < 0.5);
+    QVERIFY2(narrow.h > first.h * 1.5, qPrintable(QStringLiteral("height %1 from %2").arg(narrow.h).arg(first.h)));
+    // A second drag, once the box no longer hugs, grows it too.
+    state.beginPreviewDrag(QStringLiteral("Transform clip"));
+    state.previewSetClipRect(track, clip, narrow.x, narrow.y, first.w * 0.3, narrow.h);
+    state.commitPreviewDrag();
+    QVERIFY(textBoxOf(clipNow()).h >= narrow.h);
 #endif
 }
 
@@ -4500,7 +4605,33 @@ void EditorStateTest::splitTextIntoLettersMakesOneLayerEach()
     const int t = state.selectedTrack();
     const int c = state.selectedClip();
     QVERIFY(t >= 0 && c >= 0);
+    // Where each letter sits in the original, to check that splitting leaves them there (0.30 Academy: the
+    // letters jumped up because each new box lays its glyph out on its own).
+    const auto letterCentre = [&state](const drift::Clip &k, int from, int to) {
+        const drift::TimeUs at = k.timelineStart + drift::secondsToUs(0.5);
+        const FrameCompositor::TextEditGeometry g = FrameCompositor::textEditGeometry(
+            k, k.textContent, at, state.project()->width(), state.project()->height(), 1.0);
+        if (!g.set)
+            return QPointF(-1e9, -1e9);
+        const QList<QRectF> rects = drift::text::selectionRects(*g.set, from, to);
+        return rects.isEmpty() ? QPointF(-1e9, -1e9) : rects.first().center() + g.layoutRect.topLeft();
+    };
+    const drift::Clip whole = state.project()->tracks().at(t).clips.at(c);
+    const QList<QPointF> wasAt{letterCentre(whole, 0, 1), letterCentre(whole, 1, 2), letterCentre(whole, 3, 4)};
     QCOMPARE(state.splitTextIntoLetters(t, c), 3);
+    QList<QPointF> nowAt;
+    for (const drift::Track &track : state.project()->tracks()) {
+        for (const drift::Clip &clip : track.clips) {
+            if (clip.type == drift::ClipType::Text)
+                nowAt.append(letterCentre(clip, 0, int(clip.textContent.size())));
+        }
+    }
+    QCOMPARE(nowAt.size(), 3);
+    for (int i = 0; i < 3; ++i) {
+        QVERIFY2(QLineF(wasAt.at(i), nowAt.at(i)).length() < 1.5,
+                 qPrintable(QStringLiteral("letter %1 moved from %2,%3 to %4,%5").arg(i).arg(wasAt.at(i).x())
+                                .arg(wasAt.at(i).y()).arg(nowAt.at(i).x()).arg(nowAt.at(i).y())));
+    }
     QStringList letters;
     QList<double> xs;
     for (const drift::Track &track : state.project()->tracks()) {
@@ -4520,6 +4651,32 @@ void EditorStateTest::splitTextIntoLettersMakesOneLayerEach()
         texts += int(std::count_if(track.clips.cbegin(), track.clips.cend(),
                                    [](const drift::Clip &k) { return k.type == drift::ClipType::Text; }));
     QCOMPARE(texts, 1);
+}
+
+void EditorStateTest::shapesFromTextLandOnAShapeTrack()
+{
+    // 0.30 Academy: Create shapes from text left the shape layer on the text track, drawn as a text clip.
+    AssetLibrary library;
+    AppController state(&library);
+    state.addTextClip(QStringLiteral("AB"), 0.0);
+    QVERIFY(state.selectedTrack() >= 0 && state.selectedClip() >= 0);
+    state.createShapesFromText();
+    int shapes = 0;
+    int texts = 0;
+    for (const drift::Track &track : state.project()->tracks()) {
+        for (const drift::Clip &clip : track.clips) {
+            if (clip.type == drift::ClipType::Shape) {
+                ++shapes;
+                QCOMPARE(int(track.type), int(drift::TrackType::Shape));
+            } else if (clip.type == drift::ClipType::Text) {
+                ++texts;
+            }
+        }
+    }
+    QCOMPARE(shapes, 1);
+    QCOMPARE(texts, 0);
+    QVERIFY(state.selectedTrack() >= 0);
+    QCOMPARE(int(state.project()->tracks().at(state.selectedTrack()).type), int(drift::TrackType::Shape));
 }
 
 void EditorStateTest::removeClipKeysInRangeClearsEveryRow()
@@ -9040,6 +9197,15 @@ void EditorStateTest::shapeLayersAndKeyframes()
     QVERIFY(state.addTextLayer(track, clip, QStringLiteral("glow")).isEmpty());
     state.addTextClip(QStringLiteral("Hi"), 2.0);
     QVERIFY(!state.addStyleLayer(state.selectedTrack(), state.selectedClip(), QStringLiteral("glow")).isEmpty());
+
+    // 0.30 Academy: an extrusion added to a big title is deep enough to see, in a darker tone of the letters.
+    state.setTextStyle(state.selectedTrack(), state.selectedClip(), QVariantMap{{QStringLiteral("pixelSize"), 100.0}});
+    const QString extrudeId = state.addStyleLayer(state.selectedTrack(), state.selectedClip(), QStringLiteral("extrude"));
+    QVERIFY(!extrudeId.isEmpty());
+    const drift::Clip &title = state.project()->tracks().at(state.selectedTrack()).clips.at(state.selectedClip());
+    const drift::TextShadingLayer *extrude = drift::findTextLayer(title.textStyle.layers, extrudeId);
+    QVERIFY(extrude);
+    QVERIFY2(extrude->width >= 14.0, qPrintable(QStringLiteral("depth %1").arg(extrude->width)));
 }
 
 // A ramp on an audio clip goes through exactly the same session, apply and replace flow a video
@@ -11085,6 +11251,58 @@ void EditorStateTest::pasteOntoItsOwnKeysCarriesOn()
 
 // After Effects' Ctrl+click on a straight key (0.30 tutorial): Auto Bezier, handles along the slope
 // from the previous key to the next, so the value keeps moving through the key.
+// The rhombus on the last key of X (0.30, Academy capture): taking it away keeps the value it had, as
+// After Effects' stopwatch; it used to drop to 0 and the layer jumped to the left edge.
+void EditorStateTest::removingTheLastTransformKeyKeepsTheValue()
+{
+    AssetLibrary library;
+    AppController state(&library);
+    state.project()->tracks().clear();
+    state.addSolidClip(QStringLiteral("#ff336699"), QStringLiteral("Box"), 200, 200);
+    int track = -1;
+    for (int t = 0; t < state.project()->tracks().size(); ++t) {
+        if (!state.project()->tracks().at(t).clips.isEmpty())
+            track = t;
+    }
+    QVERIFY(track >= 0);
+    state.setClipKeyframe(track, 0, QStringLiteral("x"), 1.0, 640.0);
+    state.removeClipKeyframe(track, 0, QStringLiteral("x"), 1.0);
+    QVERIFY(qAbs(state.propertyValueAt(track, 0, QStringLiteral("x"), 1.0, -1.0) - 640.0) < 1e-6);
+    QVERIFY(!state.clipAnimatedProperties(track, 0).contains(QStringLiteral("x")));
+}
+
+// A size driven by an expression grows around the anchor (0.30, Academy capture: a circle scaled by a
+// Slider grew from its top-left corner): its centre stays where it was.
+void EditorStateTest::scaleMovedByAnExpressionGrowsAroundTheAnchor()
+{
+    // The app wires up the expression engine the tracks evaluate through.
+    AssetLibrary library;
+    AppController state(&library);
+    drift::Clip clip;
+    clip.timelineDuration = drift::secondsToUs(5.0);
+    clip.transformW.setKeyframe(0, 200.0);
+    clip.transformH.setKeyframe(0, 200.0);
+    drift::TrackBehavior b;
+    b.expression = QStringLiteral("value * 1.5");
+    clip.transformW.setBehavior(b);
+    clip.transformH.setBehavior(b);
+    const double w = clip.transformW.evaluateAt(0);
+    QVERIFY(qAbs(w - 300.0) < 1e-6);
+    const QPointF shift = clip.anchorShift(0, w, w, 0.0);
+    // The box moves up and left by half the growth, so the middle stays put.
+    QVERIFY(qAbs(shift.x() + 50.0) < 1e-6);
+    QVERIFY(qAbs(shift.y() + 50.0) < 1e-6);
+    // Placed by the layer transform too, with no anchor keys of its own (0.30 Academy: the circle grew from
+    // its top-left corner because the renderer only shifted clips that had anchor keys).
+    clip.transformX.setKeyframe(0, 100.0);
+    clip.transformY.setKeyframe(0, 100.0);
+    QVERIFY(clip.anchorX.isEmpty() && clip.anchorY.isEmpty());
+    drift::Project project;
+    const QPointF middle = drift::clipWorldPose(project, clip, 0).map(QPointF(0.0, 0.0));
+    QVERIFY2(qAbs(middle.x() - 200.0) < 1e-6 && qAbs(middle.y() - 200.0) < 1e-6,
+             qPrintable(QStringLiteral("middle at %1, %2").arg(middle.x()).arg(middle.y())));
+}
+
 void EditorStateTest::autoBezierKeyRunsThroughWithoutStopping()
 {
     AssetLibrary library;
@@ -12967,6 +13185,48 @@ void EditorStateTest::pasteAttributesToMultipleClips()
 // model` and reads its clip through it. Required properties turn off the delegate's context
 // object, so whether the roles still arrive is a property of QQmlDelegateModel rather than of
 // anything in this repo — and getting it wrong renders every clip blank. Pinned here.
+void EditorStateTest::textConvertedToSubtitleLeavesNoEmptyTrack()
+{
+    // 0.30 Academy: Convert to subtitle left the text's track behind, empty.
+    AssetLibrary library;
+    AppController state(&library);
+    state.project()->tracks().clear();
+    state.addTextClip(QStringLiteral("Hola a todos"), 0.0);
+    QVERIFY(state.selectedTrack() >= 0);
+    state.convertSelectionToSubtitle();
+    int subtitles = 0;
+    for (const drift::Track &track : state.project()->tracks()) {
+        QVERIFY2(track.type != drift::TrackType::Text || !track.clips.isEmpty(), "an empty text track stayed");
+        for (const drift::Clip &clip : track.clips)
+            subtitles += clip.type == drift::ClipType::Subtitle ? 1 : 0;
+    }
+    QCOMPARE(subtitles, 1);
+    QVERIFY(state.selectedTrack() >= 0);
+    QCOMPARE(int(state.project()->tracks().at(state.selectedTrack()).type), int(drift::TrackType::Subtitle));
+}
+
+void EditorStateTest::clipsModelReportsShownInsideTheLayerBelow()
+{
+    // 0.30 Academy: the clip menu kept offering «Show only inside the layer below» after it was on, because
+    // the timeline's model had no insideBelow; it now reads «Show whole again».
+    AssetLibrary library;
+    AppController state(&library);
+    state.addSolidClip(QStringLiteral("#ff336699"), QStringLiteral("Box"), 400, 200);
+    state.addTextClip(QStringLiteral("Hola"), 0.0);
+    int textTrack = -1;
+    for (int t = 0; t < state.project()->tracks().size(); ++t) {
+        if (state.project()->tracks().at(t).type == drift::TrackType::Text)
+            textTrack = t;
+    }
+    QVERIFY(textTrack >= 0);
+    QVERIFY(state.showInsideLayerBelow(textTrack, 0));
+    auto *model = qobject_cast<QAbstractItemModel *>(state.clipsModel(textTrack));
+    QVERIFY(model);
+    QCOMPARE(model->data(model->index(0, 0), TimelineClipsModel::InsideBelowRole).toBool(), true);
+    state.showInsideLayerBelow(textTrack, 0);
+    QCOMPARE(model->data(model->index(0, 0), TimelineClipsModel::InsideBelowRole).toBool(), false);
+}
+
 void EditorStateTest::clipsModelFeedsDelegateRequiredProperties()
 {
     AssetLibrary library;

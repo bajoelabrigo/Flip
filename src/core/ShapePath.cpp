@@ -493,7 +493,8 @@ QPainterPath shapePath(const ShapeStyle &style, const QRectF &bounds)
     case ShapeKind::Pentagon:
         return regularPolygonPath(bounds, 5, 0.0, style.outerRoundness / 100.0);
     case ShapeKind::Hexagon:
-        return regularPolygonPath(bounds, 6, 0.0, style.outerRoundness / 100.0);
+        return regularPolygonPath(bounds, style.polygonFromPoints ? qBound(3, style.points, 200) : 6, 0.0,
+                                  style.outerRoundness / 100.0);
     case ShapeKind::Octagon:
         return regularPolygonPath(bounds, 8, 22.5, style.outerRoundness / 100.0);
     case ShapeKind::Parallelogram:

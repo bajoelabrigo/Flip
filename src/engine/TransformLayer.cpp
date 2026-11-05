@@ -205,7 +205,9 @@ QTransform ownPose(const Clip &clip, TimeUs timelineUs, const QSize &projectSize
     double x = valueAt(clip.transformX, relative, 0.0);
     double y = valueAt(clip.transformY, relative, 0.0);
     const double rotation = valueAt(clip.rotation, relative, 0.0) + clip.autoOrientDegrees(relative);
-    if (!clip.anchorX.isEmpty() || !clip.anchorY.isEmpty()) {
+    // Not only with an anchor of its own: a size moved by a behaviour grows around the centre too (0.30,
+    // anchorShift returns nothing when there is nothing to move).
+    {
         const QPointF shift = clip.anchorShift(relative, w, h, rotation);
         x += shift.x();
         y += shift.y();

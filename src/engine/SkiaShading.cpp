@@ -99,6 +99,25 @@ sk_sp<SkPathEffect> sketchEffect(const TextShadingLayer &layer, double scale)
 sk_sp<SkPathEffect> strokePathEffectFor(const TextShadingLayer &layer, double strokeWidthPx, double scale)
 {
     sk_sp<SkPathEffect> effect;
+    // After Effects' own Dash / Gap values (0.30), in px: they replace the preset.
+    if (!layer.dashPattern.isEmpty() && strokeWidthPx > 0.0) {
+        std::vector<SkScalar> intervals;
+        for (double run : layer.dashPattern)
+            intervals.push_back(float(qMax(0.01, run) * scale));
+        if (intervals.size() % 2 == 1)
+            intervals.push_back(intervals.back());
+        bool anyOn = false;
+        for (std::size_t i = 0; i < intervals.size(); i += 2)
+            anyOn = anyOn || intervals[i] > 0.02f;
+        if (anyOn) {
+            sk_sp<SkPathEffect> dash = SkDashPathEffect::Make(SkSpan<const SkScalar>(intervals),
+                                                              float(layer.dashOffset * strokeWidthPx));
+            effect = std::move(dash);
+        }
+        if (sk_sp<SkPathEffect> sketch = sketchEffect(layer, scale))
+            effect = effect ? SkPathEffect::MakeCompose(std::move(sketch), std::move(effect)) : std::move(sketch);
+        return effect;
+    }
     const QList<double> pattern = strokeDashIntervals(layer.dash);
     if (!pattern.isEmpty() && strokeWidthPx > 0.0) {
         std::vector<SkScalar> intervals;

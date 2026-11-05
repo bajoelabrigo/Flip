@@ -5315,6 +5315,22 @@
         <translation>Sposta il livello perché finisca all’indicatore</translation>
     </message>
     <message>
+        <source>Bring layer forward</source>
+        <translation>Porta avanti il livello</translation>
+    </message>
+    <message>
+        <source>Send layer backward</source>
+        <translation>Porta indietro il livello</translation>
+    </message>
+    <message>
+        <source>Bring layer to front</source>
+        <translation>Porta il livello in primo piano</translation>
+    </message>
+    <message>
+        <source>Send layer to back</source>
+        <translation>Porta il livello in fondo</translation>
+    </message>
+    <message>
         <source>RAM preview (render to memory and play)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5419,7 +5435,59 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Select an SVG layer to turn into shapes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This SVG has no paths to turn into shapes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Path %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 Outlines</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Vector</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shapes from vector layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Merge needs two shapes or more in the same place of the contents</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Nothing is left of the shapes with this merge</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Merged %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Merge paths</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a text to turn into shapes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shapes from text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Motion sketch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rename effect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -11257,6 +11325,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Angle Control</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Start (%)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -11271,6 +11343,18 @@
     <message>
         <source>Extra room (px)</source>
         <translation>Margine extra (px)</translation>
+    </message>
+    <message>
+        <source>Checkbox Control</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Checkbox</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Color Control</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Fill</source>
@@ -11291,6 +11375,22 @@
     <message>
         <source>Feather (px)</source>
         <translation>Sfumatura (px)</translation>
+    </message>
+    <message>
+        <source>Point Control</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Point</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Slider Control</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Slider</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Liquid</source>
@@ -15031,6 +15131,10 @@ LA PROSSIMA</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Expression Controls</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Other</source>
         <translation>Altro</translation>
     </message>
@@ -15410,6 +15514,10 @@ LA PROSSIMA</translation>
         <translation>Sfoglia effetti</translation>
     </message>
     <message>
+        <source>Rename…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Copy this effect</source>
         <translation>Copia questo effetto</translation>
     </message>
@@ -15476,6 +15584,18 @@ LA PROSSIMA</translation>
     <message>
         <source>Pick %1</source>
         <translation>Seleziona %1</translation>
+    </message>
+    <message>
+        <source>Rename effect</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rename</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Empty gives it back its own name. Expressions can read it by this name: effect(&quot;name&quot;)(&quot;value&quot;).</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Edit %1</source>
@@ -16626,6 +16746,10 @@ LA PROSSIMA</translation>
     <message>
         <source>Transform layer</source>
         <translation>Livello di trasformazione</translation>
+    </message>
+    <message>
+        <source>Null object</source>
+        <translation>Oggetto nullo</translation>
     </message>
     <message>
         <source>Original dimensions: %1 × %2</source>
@@ -18915,10 +19039,6 @@ LA PROSSIMA</translation>
         <translation>PDF</translation>
     </message>
     <message>
-        <source>PDF (needs the PDF Viewer addon)</source>
-        <translation>PDF (richiede l&apos;extra Visualizzatore PDF)</translation>
-    </message>
-    <message>
         <source>Search media</source>
         <translation>Cerca elementi multimediali</translation>
     </message>
@@ -19119,6 +19239,10 @@ LA PROSSIMA</translation>
     <message>
         <source>Move to folder…</source>
         <translation>Sposta nella cartella…</translation>
+    </message>
+    <message>
+        <source>PDF · Illustrator .ai (needs the PDF Viewer addon)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>This folder is empty</source>
@@ -20202,6 +20326,14 @@ LA PROSSIMA</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Shapes from text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A text becomes a shape layer with one shape per letter, to animate them one by one</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Centre</source>
         <translation type="unfinished"></translation>
     </message>
@@ -20531,7 +20663,7 @@ LA PROSSIMA</translation>
     </message>
     <message>
         <source>Null object</source>
-        <translation type="unfinished"></translation>
+        <translation>Oggetto nullo</translation>
     </message>
     <message>
         <source>Point light</source>
@@ -20899,6 +21031,50 @@ LA PROSSIMA</translation>
     </message>
     <message>
         <source>Add vertex</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set first vertex</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>RotoBezier (smooth points)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Straight corners</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Closed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Free transform points…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Free transform points</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The picked points (all of them with none picked) grow and turn about their middle; the stroke keeps its width.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale X %</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale Y %</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rotation °</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -21279,6 +21455,10 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Rounded rectangle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Ellipse</source>
         <translation type="unfinished"></translation>
     </message>
@@ -21293,14 +21473,6 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     <message>
         <source>Line</source>
         <translation>Linea</translation>
-    </message>
-    <message>
-        <source>Fill Options: none, solid, linear or radial gradient, blend mode and opacity</source>
-        <translation>Opzioni riempimento: nessuno, pieno, sfumatura lineare o radiale, metodo di fusione e opacità</translation>
-    </message>
-    <message>
-        <source>Stroke Options: none, solid, linear or radial gradient, blend mode and opacity</source>
-        <translation>Opzioni traccia: nessuno, pieno, sfumatura lineare o radiale, metodo di fusione e opacità</translation>
     </message>
     <message>
         <source>Fill colour. Right-click: no fill (or back on)</source>
@@ -21335,7 +21507,23 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Shape: drag on the preview (Shift for a square or circle)</source>
+        <source>Fill Options: none, solid, linear or radial gradient, blend mode and opacity. Alt+click: the next kind</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stroke Options: none, solid, linear or radial gradient, blend mode and opacity. Alt+click: the next kind</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shape: drag on the preview (Shift for a square or circle). Alt+click: the next shape; double-click: one the size of the frame</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The shape tool draws a mask on the picked layer. Click: draw shapes again</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The shape tool draws shapes. Click: draw a mask on the picked layer instead</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -22193,11 +22381,15 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>The pick whip links another layer&apos;s position, rotation, scale, opacity or anchor point</source>
+        <source>The pick whip links another layer&apos;s position, rotation, scale, opacity, anchor point or effect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Pick whip: drag onto another layer&apos;s property line in the timeline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Expression on</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -24302,6 +24494,10 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
         <translation>Tratto-punto</translation>
     </message>
     <message>
+        <source>Dash and gap (px)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Collapse layer</source>
         <translation>Comprimi livello</translation>
     </message>
@@ -24360,6 +24556,22 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     <message>
         <source>Dash offset</source>
         <translation>Scostamento tratteggio</translation>
+    </message>
+    <message>
+        <source>Dash %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Gap %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add a dash or a gap</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Take away the last dash or gap (none left: a solid line)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Arrow at start</source>
@@ -24578,6 +24790,26 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     </message>
     <message>
         <source>Empty group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Merge paths</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add (join)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Subtract (the lower cuts the upper)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Intersect (what they share)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Exclude (what they do not share)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -24916,6 +25148,10 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     </message>
     <message>
         <source>Anchor Y</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Polygon (%1 sides)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -26929,18 +27165,6 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     <message>
         <source>Ask for a template</source>
         <translation>Richiedi un modello</translation>
-    </message>
-    <message>
-        <source>Want more? Download a free animation from LottieFiles (.json or .lottie) and drop it into Media.</source>
-        <translation>Vuoi di più? Scarica un&apos;animazione gratuita da LottieFiles (.json o .lottie) e trascinala in Media.</translation>
-    </message>
-    <message>
-        <source>LottieFiles</source>
-        <translation>LottieFiles</translation>
-    </message>
-    <message>
-        <source>Opens lottiefiles.com in your browser</source>
-        <translation>Apre lottiefiles.com nel browser</translation>
     </message>
     <message>
         <source>Have your photos already? Choose them and Flip suggests the templates that fit.</source>
@@ -31074,6 +31298,14 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
         <translation>Dividi in lettere</translation>
     </message>
     <message>
+        <source>Create shapes from vector layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Create shapes from text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Delete keyframes</source>
         <translation>Elimina fotogrammi chiave</translation>
     </message>
@@ -31290,6 +31522,10 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     </message>
     <message>
         <source>Curve editor: the keyframe lines turn into their curves</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search properties</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

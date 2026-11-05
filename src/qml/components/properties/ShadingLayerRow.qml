@@ -38,8 +38,14 @@ Column {
                                         qsTr("Add"), qsTr("Darken"), qsTr("Lighten")]
     readonly property var strokeAligns: ["center", "outside", "inside"]
     readonly property var strokeAlignLabels: [qsTr("Centre"), qsTr("Outside"), qsTr("Inside")]
-    readonly property var dashes: ["solid", "dash", "dot", "dashdot"]
-    readonly property var dashLabels: [qsTr("Solid"), qsTr("Dashed"), qsTr("Dotted"), qsTr("Dash-dot")]
+    readonly property var dashes: ["solid", "dash", "dot", "dashdot", "custom"]
+    readonly property var dashLabels: [qsTr("Solid"), qsTr("Dashed"), qsTr("Dotted"), qsTr("Dash-dot"),
+                                       qsTr("Dash and gap (px)")]
+    // After Effects' Dashes (0.30): the Dash / Gap pairs, in px.
+    readonly property var dashPattern: (row.layerData && row.layerData.dashPattern) || []
+    function setDashPattern(list) {
+        row.setLayer({ "dashPattern": list, "dash": list.length > 0 ? "dash" : "solid" })
+    }
     readonly property bool sketchy: Number(row.layerData.sketchLength) > 0 || Number(row.layerData.sketchDeviation) > 0
     property bool sketchExpanded: false
     // After Effects' Taper and Wave (0.28): shapes only (text strokes do not draw them).
@@ -264,19 +270,81 @@ Column {
                 ThemedComboBox {
                     width: parent.width
                     model: row.dashLabels
-                    currentIndex: Math.max(0, row.dashes.indexOf(row.layerData.dash || "solid"))
-                    onActivated: row.setLayer({ "dash": row.dashes[currentIndex] })
+                    currentIndex: row.dashPattern.length > 0 ? 4 : Math.max(0, row.dashes.indexOf(row.layerData.dash || "solid"))
+                    onActivated: {
+                        if (row.dashes[currentIndex] === "custom")
+                            row.setDashPattern(row.dashPattern.length > 0 ? row.dashPattern : [20, 10])
+                        else
+                            row.setLayer({ "dash": row.dashes[currentIndex], "dashPattern": [] })
+                    }
                 }
             }
 
             PropertyKeyframeRow {
                 width: (parent.width - parent.spacing) / 2
-                visible: (row.layerData.dash || "solid") !== "solid"
+                visible: (row.layerData.dash || "solid") !== "solid" || row.dashPattern.length > 0
                 propDef: row.prop("dashOffset", qsTr("Dash offset"), 2)
                 keyframeList: row.keyframes("dashOffset")
                 useSlider: true
                 sliderFrom: -20
                 sliderTo: 20
+            }
+        }
+        // Dash, Gap, Dash, Gap… with + and − (After Effects' Dashes): each field in px.
+        Flow {
+            width: parent.width - parent.leftPadding - parent.rightPadding
+            spacing: 6
+            visible: row.kind === "stroke" && row.dashPattern.length > 0
+            Repeater {
+                model: row.dashPattern.length
+                delegate: Column {
+                    required property int index
+                    width: 70
+                    spacing: 2
+                    Text {
+                        text: index % 2 === 0 ? qsTr("Dash %1").arg(Math.floor(index / 2) + 1)
+                                              : qsTr("Gap %1").arg(Math.floor(index / 2) + 1)
+                        color: Theme.mutedForeground
+                        font.pixelSize: Theme.fontSizeXs
+                        font.family: Theme.fontFamily
+                    }
+                    ThemedNumberField {
+                        width: parent.width
+                        from: 0
+                        to: 10000
+                        decimals: 1
+                        value: row.dashPattern[index] || 0
+                        onEdited: (v) => {
+                            const list = row.dashPattern.slice()
+                            list[index] = v
+                            row.setDashPattern(list)
+                        }
+                    }
+                }
+            }
+            IconButton {
+                glyph: Theme.icons.plus
+                variant: "ghost"
+                buttonSize: 22
+                iconSize: 12
+                tooltip: qsTr("Add a dash or a gap")
+                onClicked: {
+                    const list = row.dashPattern.slice()
+                    list.push(list.length > 0 ? list[list.length - 1] : 10)
+                    row.setDashPattern(list)
+                }
+            }
+            IconButton {
+                glyph: "minus"
+                variant: "ghost"
+                buttonSize: 22
+                iconSize: 12
+                tooltip: qsTr("Take away the last dash or gap (none left: a solid line)")
+                onClicked: {
+                    const list = row.dashPattern.slice()
+                    list.pop()
+                    row.setDashPattern(list)
+                }
             }
         }
 

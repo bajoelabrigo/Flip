@@ -119,11 +119,14 @@ struct TrackBehavior
     bool bounceJumpOut = false;
     // A JavaScript expression run last, on the value with everything above (empty = none).
     QString expression;
+    // After Effects' «Enable Expression» switch (0.30): off, the expression is kept but not run.
+    bool expressionEnabled = true;
 
     bool hasWiggle() const { return wiggleFrequency > 0.0 && wiggleAmount != 0.0; }
     bool isActive() const
     {
-        return loop != LoopMode::None || speed != 0.0 || hasWiggle() || settle != Settle::None || !expression.isEmpty();
+        return loop != LoopMode::None || speed != 0.0 || hasWiggle() || settle != Settle::None
+               || (!expression.isEmpty() && expressionEnabled);
     }
     bool operator==(const TrackBehavior &o) const
     {
@@ -132,7 +135,8 @@ struct TrackBehavior
                && settleAmplitude == o.settleAmplitude && settleFrequency == o.settleFrequency
                && settleDecay == o.settleDecay && bounceElasticity == o.bounceElasticity
                && bounceGravity == o.bounceGravity && bounceMaxJumps == o.bounceMaxJumps
-               && bounceJumpOut == o.bounceJumpOut && expression == o.expression;
+               && bounceJumpOut == o.bounceJumpOut && expression == o.expression
+               && expressionEnabled == o.expressionEnabled;
     }
 };
 
@@ -532,7 +536,7 @@ private:
         value += m_behavior.speed * seconds;
         if (m_behavior.hasWiggle())
             value += m_behavior.wiggleAmount * behaviorNoise(seconds * m_behavior.wiggleFrequency, m_behavior.wiggleSeed);
-        if (!m_behavior.expression.isEmpty()) {
+        if (!m_behavior.expression.isEmpty() && m_behavior.expressionEnabled) {
             if (ExpressionEvaluator evaluator = expressionEvaluatorRef()) {
                 ExpressionSelf &self = expressionSelfRef();
                 const ExpressionSelf outer = self;

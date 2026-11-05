@@ -119,7 +119,9 @@ Item {
             // A shape from the library (Stock › Shapes) has no built-in kind to name it.
             if (root.shapeStyle.kind === "custom")
                 out.push({ "id": "", "kind": "custom",
-                           "label": (root.clipData && root.clipData.name) || qsTr("Library shape") })
+                           // A part (a merged path, a pen path) goes by its own name, not the layer's (0.30).
+                           "label": root.editingPart ? (root.part.name || qsTr("Path"))
+                                    : (root.clipData && root.clipData.name) || qsTr("Library shape") })
             for (let i = 0; i < root.shapeCatalog.length; ++i) {
                 const entry = root.shapeCatalog[i]
                 if (seen[entry.kind])
@@ -416,6 +418,9 @@ Item {
                 textRole: "label"
                 valueRole: "id"
                 tooltip: qsTr("Shape drawn by this clip")
+                // A polygon drawn with the Polygon tool (0.30) is a hexagon with its own number of sides.
+                displayText: root.shapeStyle && root.shapeStyle.polygonFromPoints === true
+                             ? qsTr("Polygon (%1 sides)").arg(root.shapeStyle.points || 5) : currentText
                 currentIndex: {
                     const options = shapeTabColumn.kindOptions
                     for (let i = 0; i < options.length; ++i) {
@@ -688,13 +693,15 @@ Item {
                     unit: "°"
                 }
 
+                // A polygon drawn with the tool counts its sides in Points (0.30, After Effects' Polystar).
+                readonly property bool sidedPolygon: !!root.shapeStyle && root.shapeStyle.polygonFromPoints === true
                 Row {
                     width: parent.width
                     spacing: 8
-                    visible: root.shapeHas("star")
+                    visible: root.shapeHas("star") || parent.sidedPolygon
 
                     PropertyKeyframeRow {
-                        width: (parent.width - parent.spacing) / 2
+                        width: root.shapeHas("star") ? (parent.width - parent.spacing) / 2 : parent.width
                         propDef: root.knob("points", qsTr("Points"), 0)
                         keyframeList: root.knobKeyframes("points")
                         useSlider: true
@@ -702,6 +709,7 @@ Item {
                         sliderTo: 60
                     }
                     PropertyKeyframeRow {
+                        visible: root.shapeHas("star")
                         width: (parent.width - parent.spacing) / 2
                         propDef: root.knob("innerRatio", qsTr("Inner radius"), 2)
                         keyframeList: root.knobKeyframes("innerRatio")

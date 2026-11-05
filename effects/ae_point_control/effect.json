@@ -1,0 +1,43 @@
+{
+  "id": "ae.point_control",
+  "displayName": "Point Control",
+  "category": "expression",
+  "backend": "gpu",
+  "order": 931,
+  "parameters": [
+    {
+      "identifier": "point",
+      "displayName": "Point",
+      "type": "point",
+      "minValue": [
+        -100000,
+        -100000
+      ],
+      "maxValue": [
+        100000,
+        100000
+      ],
+      "defaultValue": [
+        960,
+        540
+      ]
+    }
+  ],
+  "pipeline": {
+    "intermediateBuffers": [],
+    "passes": [
+      {
+        "passIndex": 0,
+        "fragmentShader": "main.frag",
+        "inputs": [
+          {
+            "type": "source_texture"
+          }
+        ],
+        "output": {
+          "type": "canvas"
+        }
+      }
+    ]
+  }
+}

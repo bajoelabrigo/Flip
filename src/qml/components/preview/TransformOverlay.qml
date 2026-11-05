@@ -216,6 +216,11 @@ Item {
                                                && k.clip === clip && (k.prop === "x" || k.prop === "y"))
         if (keys.length === 0)
             return null
+        // Away from every picked key the drag puts a new key there, as in the tutorial's exercise (a straight
+        // fall, then at frame 10 the layer pulled aside bends the path): only on a key does it carry the path.
+        const here = EditorState.playheadSeconds
+        if (!keys.some((k) => Math.abs(k.seconds - here) < 1 / 240))
+            return null
         const out = []
         for (const prop of ["x", "y"]) {
             for (const k of (EditorState.clipKeyframes(track, clip, prop) || [])) {
@@ -1076,6 +1081,17 @@ Item {
                         root.endInteraction()
                     }
                 }
+            }
+
+            // A null (0.30, After Effects): no pixels of its own, so it shows as an outlined square in the
+            // preview, selected or not, to grab and see what it does (never rendered or exported).
+            Rectangle {
+                visible: handle.box.nullObject === true
+                anchors.fill: parent
+                color: "transparent"
+                border.width: 1
+                border.color: handle.selected ? Theme.primary : "#d0d0d0"
+                opacity: handle.selected ? 1 : 0.8
             }
 
             // Live size while resizing, the same readout the crop tool shows;

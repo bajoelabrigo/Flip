@@ -5298,6 +5298,22 @@
         <translation>再生ヘッドで終わるようにレイヤーを移動</translation>
     </message>
     <message>
+        <source>Bring layer forward</source>
+        <translation>レイヤーを前面へ</translation>
+    </message>
+    <message>
+        <source>Send layer backward</source>
+        <translation>レイヤーを背面へ</translation>
+    </message>
+    <message>
+        <source>Bring layer to front</source>
+        <translation>レイヤーを最前面へ</translation>
+    </message>
+    <message>
+        <source>Send layer to back</source>
+        <translation>レイヤーを最背面へ</translation>
+    </message>
+    <message>
         <source>RAM preview (render to memory and play)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5402,7 +5418,59 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Select an SVG layer to turn into shapes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This SVG has no paths to turn into shapes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Path %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 Outlines</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Vector</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shapes from vector layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Merge needs two shapes or more in the same place of the contents</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Nothing is left of the shapes with this merge</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Merged %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Merge paths</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a text to turn into shapes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shapes from text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Motion sketch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rename effect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -11207,6 +11275,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Angle Control</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Start (%)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -11221,6 +11293,18 @@
     <message>
         <source>Extra room (px)</source>
         <translation>追加の余白（px）</translation>
+    </message>
+    <message>
+        <source>Checkbox Control</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Checkbox</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Color Control</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Fill</source>
@@ -11241,6 +11325,22 @@
     <message>
         <source>Feather (px)</source>
         <translation>ぼかし（px）</translation>
+    </message>
+    <message>
+        <source>Point Control</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Point</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Slider Control</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Slider</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Liquid</source>
@@ -14972,6 +15072,10 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Expression Controls</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Other</source>
         <translation>その他</translation>
     </message>
@@ -15350,6 +15454,10 @@ NEXT TIME</source>
         <translation>エフェクトを参照</translation>
     </message>
     <message>
+        <source>Rename…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Copy this effect</source>
         <translation>このエフェクトをコピー</translation>
     </message>
@@ -15416,6 +15524,18 @@ NEXT TIME</source>
     <message>
         <source>Pick %1</source>
         <translation>選択 %1</translation>
+    </message>
+    <message>
+        <source>Rename effect</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rename</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Empty gives it back its own name. Expressions can read it by this name: effect(&quot;name&quot;)(&quot;value&quot;).</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Edit %1</source>
@@ -16564,6 +16684,10 @@ NEXT TIME</source>
     <message>
         <source>Transform layer</source>
         <translation>変形レイヤー</translation>
+    </message>
+    <message>
+        <source>Null object</source>
+        <translation>ヌルオブジェクト</translation>
     </message>
     <message>
         <source>Original dimensions: %1 × %2</source>
@@ -18852,10 +18976,6 @@ NEXT TIME</source>
         <translation>PDF</translation>
     </message>
     <message>
-        <source>PDF (needs the PDF Viewer addon)</source>
-        <translation>PDF（PDF ビューアーのエクストラが必要）</translation>
-    </message>
-    <message>
         <source>Search media</source>
         <translation>メディアを検索</translation>
     </message>
@@ -19054,6 +19174,10 @@ NEXT TIME</source>
     <message>
         <source>Move to folder…</source>
         <translation>フォルダーに移動…</translation>
+    </message>
+    <message>
+        <source>PDF · Illustrator .ai (needs the PDF Viewer addon)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>This folder is empty</source>
@@ -20124,6 +20248,14 @@ NEXT TIME</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Shapes from text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A text becomes a shape layer with one shape per letter, to animate them one by one</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Centre</source>
         <translation type="unfinished"></translation>
     </message>
@@ -20453,7 +20585,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Null object</source>
-        <translation type="unfinished"></translation>
+        <translation>ヌルオブジェクト</translation>
     </message>
     <message>
         <source>Point light</source>
@@ -20816,6 +20948,50 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Add vertex</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set first vertex</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>RotoBezier (smooth points)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Straight corners</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Closed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Free transform points…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Free transform points</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The picked points (all of them with none picked) grow and turn about their middle; the stroke keeps its width.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale X %</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale Y %</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rotation °</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -21196,6 +21372,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Rounded rectangle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Ellipse</source>
         <translation type="unfinished"></translation>
     </message>
@@ -21210,14 +21390,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Line</source>
         <translation>線</translation>
-    </message>
-    <message>
-        <source>Fill Options: none, solid, linear or radial gradient, blend mode and opacity</source>
-        <translation>塗りオプション：なし、単色、線形または円形グラデーション、描画モードと不透明度</translation>
-    </message>
-    <message>
-        <source>Stroke Options: none, solid, linear or radial gradient, blend mode and opacity</source>
-        <translation>線オプション：なし、単色、線形または円形グラデーション、描画モードと不透明度</translation>
     </message>
     <message>
         <source>Fill colour. Right-click: no fill (or back on)</source>
@@ -21252,7 +21424,23 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Shape: drag on the preview (Shift for a square or circle)</source>
+        <source>Fill Options: none, solid, linear or radial gradient, blend mode and opacity. Alt+click: the next kind</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stroke Options: none, solid, linear or radial gradient, blend mode and opacity. Alt+click: the next kind</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shape: drag on the preview (Shift for a square or circle). Alt+click: the next shape; double-click: one the size of the frame</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The shape tool draws a mask on the picked layer. Click: draw shapes again</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The shape tool draws shapes. Click: draw a mask on the picked layer instead</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -22109,11 +22297,15 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>The pick whip links another layer&apos;s position, rotation, scale, opacity or anchor point</source>
+        <source>The pick whip links another layer&apos;s position, rotation, scale, opacity, anchor point or effect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Pick whip: drag onto another layer&apos;s property line in the timeline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Expression on</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -24212,6 +24404,10 @@ If playback stutters, try another.</source>
         <translation>一点鎖線</translation>
     </message>
     <message>
+        <source>Dash and gap (px)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Collapse layer</source>
         <translation>レイヤーを折りたたむ</translation>
     </message>
@@ -24270,6 +24466,22 @@ If playback stutters, try another.</source>
     <message>
         <source>Dash offset</source>
         <translation>破線オフセット</translation>
+    </message>
+    <message>
+        <source>Dash %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Gap %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add a dash or a gap</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Take away the last dash or gap (none left: a solid line)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Arrow at start</source>
@@ -24488,6 +24700,26 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Empty group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Merge paths</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add (join)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Subtract (the lower cuts the upper)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Intersect (what they share)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Exclude (what they do not share)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -24826,6 +25058,10 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Anchor Y</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Polygon (%1 sides)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -26838,18 +27074,6 @@ If playback stutters, try another.</source>
     <message>
         <source>Ask for a template</source>
         <translation>テンプレートをリクエスト</translation>
-    </message>
-    <message>
-        <source>Want more? Download a free animation from LottieFiles (.json or .lottie) and drop it into Media.</source>
-        <translation>もっと欲しいですか？ LottieFiles から無料のアニメーション（.json または .lottie）をダウンロードして、メディアにドロップしてください。</translation>
-    </message>
-    <message>
-        <source>LottieFiles</source>
-        <translation>LottieFiles</translation>
-    </message>
-    <message>
-        <source>Opens lottiefiles.com in your browser</source>
-        <translation>ブラウザーで lottiefiles.com を開きます</translation>
     </message>
     <message>
         <source>Have your photos already? Choose them and Flip suggests the templates that fit.</source>
@@ -30978,6 +31202,14 @@ If playback stutters, try another.</source>
         <translation>文字に分割</translation>
     </message>
     <message>
+        <source>Create shapes from vector layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Create shapes from text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Delete keyframes</source>
         <translation>キーフレームを削除</translation>
     </message>
@@ -31194,6 +31426,10 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Curve editor: the keyframe lines turn into their curves</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search properties</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

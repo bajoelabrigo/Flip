@@ -829,6 +829,8 @@ QJsonObject shapeStyleToJson(const ShapeStyle &s)
                 o.insert(QLatin1String(knob.key), value);
         }
     }
+    if (s.polygonFromPoints)
+        o.insert(QStringLiteral("polygonFromPoints"), true);
     if (s.kind == ShapeKind::Custom) {
         o.insert(QStringLiteral("customPath"), s.customPath);
         if (s.customEvenOdd)
@@ -912,6 +914,7 @@ ShapeStyle shapeStyleFromJson(const QJsonObject &o)
     // still loads.
     s.cornerRadius = o.value(QStringLiteral("cornerRadius")).toDouble(s.cornerRadius);
     s.points = o.value(QStringLiteral("points")).toInt(s.points);
+    s.polygonFromPoints = o.value(QStringLiteral("polygonFromPoints")).toBool(false);
     s.innerRatio = o.value(QStringLiteral("innerRatio")).toDouble(s.innerRatio);
     s.outerRoundness = qBound(0.0, o.value(QStringLiteral("outerRoundness")).toDouble(0.0), 100.0);
     s.innerRoundness = qBound(0.0, o.value(QStringLiteral("innerRoundness")).toDouble(0.0), 100.0);

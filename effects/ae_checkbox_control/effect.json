@@ -1,0 +1,32 @@
+{
+  "id": "ae.checkbox_control",
+  "displayName": "Checkbox Control",
+  "category": "expression",
+  "backend": "gpu",
+  "order": 934,
+  "parameters": [
+    {
+      "identifier": "checkbox",
+      "displayName": "Checkbox",
+      "type": "bool",
+      "defaultValue": 0
+    }
+  ],
+  "pipeline": {
+    "intermediateBuffers": [],
+    "passes": [
+      {
+        "passIndex": 0,
+        "fragmentShader": "main.frag",
+        "inputs": [
+          {
+            "type": "source_texture"
+          }
+        ],
+        "output": {
+          "type": "canvas"
+        }
+      }
+    ]
+  }
+}

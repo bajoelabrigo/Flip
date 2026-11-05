@@ -192,6 +192,99 @@ Item {
         }
         return list
     }
+    // After Effects' Mask and Shape Path menu (0.30, the shapes course), on the picked points or, with none,
+    // on every point: Set First Vertex, RotoBezier (every point smooth, its handles following the
+    // neighbours), straight corners, open/close, Free Transform Points.
+    function smoothPoint(pts, i, closed) {
+        const p = pts[i]
+        const n = pts.length
+        const prev = i > 0 ? pts[i - 1] : (closed ? pts[n - 1] : p)
+        const next = i < n - 1 ? pts[i + 1] : (closed ? pts[0] : p)
+        const tx = (next.x - prev.x) / 6, ty = (next.y - prev.y) / 6
+        p.ix = p.x - tx; p.iy = p.y - ty
+        p.ox = p.x + tx; p.oy = p.y + ty
+    }
+    function targets() {
+        const out = []
+        if (root.selected.length > 0) {
+            for (const key of root.selected) {
+                const [c, i] = key.split(":").map(Number)
+                out.push({ c: c, i: i })
+            }
+        } else {
+            for (let c = 0; c < root.contours.length; ++c)
+                for (let i = 0; i < root.contours[c].points.length; ++i)
+                    out.push({ c: c, i: i })
+        }
+        return out
+    }
+    function rotoBezier() {
+        const list = root.cloneContours(root.contours)
+        for (const t of root.targets())
+            root.smoothPoint(list[t.c].points, t.i, list[t.c].closed)
+        root.write(list)
+        root.stateRevision++
+    }
+    function straightenPoints() {
+        const list = root.cloneContours(root.contours)
+        for (const t of root.targets()) {
+            const p = list[t.c].points[t.i]
+            p.ix = p.x; p.iy = p.y
+            p.ox = p.x; p.oy = p.y
+        }
+        root.write(list)
+        root.stateRevision++
+    }
+    function setFirstVertex() {
+        if (root.selected.length !== 1)
+            return
+        const [c, i] = root.selected[0].split(":").map(Number)
+        const list = root.cloneContours(root.contours)
+        const pts = list[c].points
+        list[c].points = pts.slice(i).concat(pts.slice(0, i))
+        root.selected = [c + ":0"]
+        root.write(list)
+        root.stateRevision++
+    }
+    function toggleClosed() {
+        const list = root.cloneContours(root.contours)
+        const cs = {}
+        for (const t of root.targets())
+            cs[t.c] = true
+        const all = Object.keys(cs).map(Number)
+        const close = all.some(c => !list[c].closed)
+        for (const c of all)
+            list[c].closed = close
+        root.write(list)
+        root.stateRevision++
+    }
+    // Free Transform Points (Ctrl+T in After Effects): the picked points (or all) scale and turn about their
+    // centre by `scale` and `degrees`.
+    function transformPoints(scaleX, scaleY, degrees) {
+        const list = root.cloneContours(root.contours)
+        const ts = root.targets()
+        if (ts.length === 0)
+            return
+        let lx = Infinity, ly = Infinity, hx = -Infinity, hy = -Infinity
+        for (const t of ts) {
+            const p = list[t.c].points[t.i]
+            lx = Math.min(lx, p.x); ly = Math.min(ly, p.y); hx = Math.max(hx, p.x); hy = Math.max(hy, p.y)
+        }
+        const cx = (lx + hx) / 2, cy = (ly + hy) / 2
+        const a = degrees * Math.PI / 180, ca = Math.cos(a), sa = Math.sin(a)
+        const map = (x, y) => {
+            const dx = (x - cx) * scaleX, dy = (y - cy) * scaleY
+            return [cx + dx * ca - dy * sa, cy + dx * sa + dy * ca]
+        }
+        for (const t of ts) {
+            const p = list[t.c].points[t.i]
+            ;[p.x, p.y] = map(p.x, p.y)
+            ;[p.ix, p.iy] = map(p.ix, p.iy)
+            ;[p.ox, p.oy] = map(p.ox, p.oy)
+        }
+        root.write(list)
+        root.stateRevision++
+    }
     function toggleCorner(list, c, i) {
         const pts = list[c].points
         const p = pts[i]
@@ -261,7 +354,8 @@ Item {
                     && (k === Qt.Key_Escape || k === Qt.Key_Return || k === Qt.Key_Enter || k === Qt.Key_Backspace
                         || k === Qt.Key_Delete || (root.selected.length > 0 && (k === Qt.Key_Left || k === Qt.Key_Right
                                                                                || k === Qt.Key_Up || k === Qt.Key_Down))
-                        || (k === Qt.Key_A && (event.modifiers & Qt.ControlModifier))))
+                        || (k === Qt.Key_A && (event.modifiers & Qt.ControlModifier))
+                        || (k === Qt.Key_T && (event.modifiers & Qt.ControlModifier) && root.showPath)))
                 event.accepted = true
         }
         Keys.onPressed: event => {
@@ -295,6 +389,12 @@ Item {
             }
             if (!root.showPath)
                 return
+            // Ctrl+T: Free Transform Points (After Effects), as numbers.
+            if (k === Qt.Key_T && (event.modifiers & Qt.ControlModifier)) {
+                freeTransform.open()
+                event.accepted = true
+                return
+            }
             if (k === Qt.Key_A && (event.modifiers & Qt.ControlModifier)) {
                 const all = []
                 for (let c = 0; c < root.contours.length; ++c)
@@ -526,7 +626,11 @@ Item {
             keyCatcher.forceActiveFocus()
             op = null
             if (mouse.button === Qt.RightButton) {
+                const wasDrawing = !!root.drawing
                 root.endDrawing(true)
+                if (!wasDrawing && root.showPath && root.contours.length > 0) {
+                    pathMenu.popup(mapToItem(root, mouse.x, mouse.y))
+                }
                 return
             }
             let here = root.overlayToBox(mouse.x, mouse.y)
@@ -683,11 +787,19 @@ Item {
         enabled: root.showPath && !root.penActive
         visible: enabled
         hoverEnabled: true
+        // The path's menu (0.30): right-click while editing the points, as with the Pen.
+        acceptedButtons: Qt.LeftButton | Qt.RightButton
         property var grab: null
         property point last
 
         onPressed: mouse => {
             keyCatcher.forceActiveFocus()
+            if (mouse.button === Qt.RightButton) {
+                grab = null
+                if (root.contours.length > 0)
+                    pathMenu.popup(mapToItem(root, mouse.x, mouse.y))
+                return
+            }
             const g = root.gripAt(mouse.x, mouse.y)
             const shift = (mouse.modifiers & Qt.ShiftModifier) !== 0
             if (g && g.part === "point") {
@@ -838,6 +950,82 @@ Item {
             root.marquee = null
             EditorState.cancelPreviewDrag()
             root.liveContours = null
+        }
+    }
+
+    ThemedContextMenu {
+        id: pathMenu
+        ThemedMenuItem {
+            text: qsTr("Set first vertex")
+            enabled: root.selected.length === 1
+            onTriggered: root.setFirstVertex()
+        }
+        ThemedMenuItem {
+            text: qsTr("RotoBezier (smooth points)")
+            onTriggered: root.rotoBezier()
+        }
+        ThemedMenuItem {
+            text: qsTr("Straight corners")
+            onTriggered: root.straightenPoints()
+        }
+        ThemedMenuItem {
+            text: qsTr("Closed")
+            icon.name: root.contours.length > 0 && root.contours.every(k => k.closed) ? Theme.icons.check : ""
+            onTriggered: root.toggleClosed()
+        }
+        ThemedMenuItem {
+            text: qsTr("Free transform points…")
+            shortcutText: "Ctrl+T"
+            onTriggered: freeTransform.open()
+        }
+    }
+    ThemedDialog {
+        id: freeTransform
+        title: qsTr("Free transform points")
+        acceptText: qsTr("Apply")
+        preferredWidth: Theme.dialogWidthSm
+        onAccepted: {
+            for (const f of [ftScaleX, ftScaleY, ftAngle])
+                f.parseAndCommit()
+            root.transformPoints(ftScaleX.value / 100, ftScaleY.value / 100, ftAngle.value)
+        }
+        onOpened: {
+            ftScaleX.value = 100
+            ftScaleY.value = 100
+            ftAngle.value = 0
+        }
+        contentItem: Column {
+            width: freeTransform.preferredWidth
+            spacing: Theme.spacingMd
+            ThemedLabel {
+                width: parent.width
+                wrapMode: Text.WordWrap
+                size: "sm"
+                opacity: 0.85
+                text: qsTr("The picked points (all of them with none picked) grow and turn about their middle; the stroke keeps its width.")
+            }
+            Row {
+                width: parent.width
+                spacing: Theme.spacingMd
+                Column {
+                    width: (parent.width - 2 * parent.spacing) / 3
+                    spacing: 2
+                    ThemedLabel { text: qsTr("Scale X %"); size: "sm"; opacity: 0.8 }
+                    ThemedNumberField { id: ftScaleX; width: parent.width; from: -1000; to: 1000; value: 100; unit: "%" }
+                }
+                Column {
+                    width: (parent.width - 2 * parent.spacing) / 3
+                    spacing: 2
+                    ThemedLabel { text: qsTr("Scale Y %"); size: "sm"; opacity: 0.8 }
+                    ThemedNumberField { id: ftScaleY; width: parent.width; from: -1000; to: 1000; value: 100; unit: "%" }
+                }
+                Column {
+                    width: (parent.width - 2 * parent.spacing) / 3
+                    spacing: 2
+                    ThemedLabel { text: qsTr("Rotation °"); size: "sm"; opacity: 0.8 }
+                    ThemedNumberField { id: ftAngle; width: parent.width; from: -3600; to: 3600; value: 0; unit: "°" }
+                }
+            }
         }
     }
 }

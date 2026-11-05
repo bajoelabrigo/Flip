@@ -13,6 +13,7 @@ Rectangle {
     readonly property string tool: EditorState.preview.tool
     readonly property var shapeKinds: [
         { id: "rectangle", label: qsTr("Rectangle"), glyph: Theme.icons.square },
+        { id: "roundedRectangle", label: qsTr("Rounded rectangle"), glyph: "square-rounded" },
         { id: "ellipse", label: qsTr("Ellipse"), glyph: "circle" },
         { id: "star", label: qsTr("Star"), glyph: "star" },
         { id: "polygon", label: qsTr("Polygon"), glyph: "hexagon" },
@@ -115,13 +116,19 @@ Rectangle {
             anchors.fill: parent
             hoverEnabled: true
             cursorShape: Qt.PointingHandCursor
-            onClicked: fillOptions.openFor(paintLabel.which, !root.pickedStyled())
+            // Alt+click (After Effects): the next kind, None, Solid, Linear, Radial, without the window.
+            onClicked: mouse => {
+                if (mouse.modifiers & Qt.AltModifier)
+                    fillOptions.cycle(paintLabel.which, !root.pickedStyled())
+                else
+                    fillOptions.openFor(paintLabel.which, !root.pickedStyled())
+            }
         }
         ThemedToolTip {
             visible: labelMouse.containsMouse
             text: paintLabel.which === "fill"
-                  ? qsTr("Fill Options: none, solid, linear or radial gradient, blend mode and opacity")
-                  : qsTr("Stroke Options: none, solid, linear or radial gradient, blend mode and opacity")
+                  ? qsTr("Fill Options: none, solid, linear or radial gradient, blend mode and opacity. Alt+click: the next kind")
+                  : qsTr("Stroke Options: none, solid, linear or radial gradient, blend mode and opacity. Alt+click: the next kind")
         }
     }
 
@@ -254,9 +261,52 @@ Rectangle {
             id: shapeButton
             toolId: "shape"
             shortcutId: "previewShapeTool"
-            label: qsTr("Shape: drag on the preview (Shift for a square or circle)") + " · " + root.currentShape.label
+            label: qsTr("Shape: drag on the preview (Shift for a square or circle). Alt+click: the next shape; double-click: one the size of the frame") + " · " + root.currentShape.label
             glyph: root.currentShape.glyph
+            // After Effects' Alt+click on the shape tool (0.30): the next shape, Rectangle, Rounded Rectangle,
+            // Ellipse, Polygon, Star.
+            function cycleKind() {
+                const order = ["rectangle", "roundedRectangle", "ellipse", "polygon", "star"]
+                const at = order.indexOf(EditorState.preview.shapeToolKind)
+                EditorState.preview.shapeToolKind = order[(at + 1) % order.length]
+                root.pick("shape")
+            }
+            // A double-click makes the shape the size of the frame (After Effects' double-click on the tool).
+            // Also told by two clicks close together: the button does not always get the double-click itself.
+            property real lastClickMs: 0
+            property real lastFrameShapeMs: 0
+            onDoubleClicked: frameShape()
+            function frameShape() {
+                menuTimer.stop()
+                const now = Date.now()
+                if (now - lastFrameShapeMs < 600)
+                    return
+                lastFrameShapeMs = now
+                lastClickMs = 0
+                const w = EditorState.projectFile.projectWidth()
+                const h = EditorState.projectFile.projectHeight()
+                if (w > 0 && h > 0)
+                    EditorState.addDrawnShape(EditorState.preview.shapeToolKind === "line" ? "rectangle"
+                                                                                             : EditorState.preview.shapeToolKind,
+                                              0, 0, w, h, EditorState.preview.toolFill, EditorState.preview.toolStroke,
+                                              EditorState.preview.toolStrokeWidth)
+            }
+            Timer {
+                id: menuTimer
+                interval: Qt.styleHints.mouseDoubleClickInterval
+                onTriggered: shapeMenu.popup(shapeButton, 0, shapeButton.height)
+            }
             onClicked: {
+                if (EditorState.keyboardModifiers() & Qt.AltModifier) {
+                    shapeButton.cycleKind()
+                    return
+                }
+                const now = Date.now()
+                if (now - lastClickMs < Qt.styleHints.mouseDoubleClickInterval) {
+                    frameShape()
+                    return
+                }
+                lastClickMs = now
                 // Ellipse and Line have buttons of their own (0.29): coming from them, this one is the
                 // rectangle again (it kept the line, and a drag meant for a label drew a line).
                 const k = EditorState.preview.shapeToolKind
@@ -267,7 +317,7 @@ Rectangle {
                 }
                 // A second click on the active tool, as AE's long press, offers the other shapes.
                 if (root.tool === "shape")
-                    shapeMenu.popup(shapeButton, 0, shapeButton.height)
+                    menuTimer.restart()
                 else
                     root.pick("shape")
             }
@@ -290,6 +340,17 @@ Rectangle {
                     onObjectRemoved: (index, object) => shapeMenu.removeItem(object)
                 }
             }
+        }
+        // After Effects' «Tool creates shape / mask» (0.30): with a layer picked, the shape tool can draw a mask on it.
+        IconButton {
+            Layout.alignment: Qt.AlignVCenter
+            visible: root.tool === "shape" && EditorState.selectedClip >= 0
+            glyph: "square-dashed"
+            active: EditorState.preview.shapeToolMask
+            tooltip: EditorState.preview.shapeToolMask
+                     ? qsTr("The shape tool draws a mask on the picked layer. Click: draw shapes again")
+                     : qsTr("The shape tool draws shapes. Click: draw a mask on the picked layer instead")
+            onClicked: EditorState.preview.shapeToolMask = !EditorState.preview.shapeToolMask
         }
         // Ellipse and Line one click away (0.29), not only behind the shape button's second click.
         IconButton {
@@ -344,7 +405,9 @@ Rectangle {
             Layout.alignment: Qt.AlignVCenter
             spacing: Theme.spacingSm
             visible: root.paintOptions || (root.tool === "select" && root.pickedStyled()
-                                           && EditorState.selectedClipData.kind === "shape")
+                                           && EditorState.selectedClipData.kind === "shape"
+                                           // A null has no paint (0.30).
+                                           && (EditorState.selectedClipData.caps || []).indexOf("nullObject") < 0)
 
             PaintLabel { which: "fill"; text: qsTr("Fill") }
             PaintSwatch { which: "fill" }

@@ -46,6 +46,7 @@ QList<int> changedRoles(const TimelineClipsModel::Row &a, const TimelineClipsMod
     diff(a.fadeHandles != b.fadeHandles, TimelineClipsModel::FadeHandlesRole);
     diff(a.effects != b.effects, TimelineClipsModel::EffectsRole);
     diff(a.audioEffects != b.audioEffects, TimelineClipsModel::AudioEffectsRole);
+    diff(a.insideBelow != b.insideBelow, TimelineClipsModel::InsideBelowRole);
     return roles;
 }
 
@@ -209,6 +210,7 @@ QVariant TimelineClipsModel::data(const QModelIndex &index, int role) const
     case FadeHandlesRole: return row.fadeHandles;
     case EffectsRole: return row.effects;
     case AudioEffectsRole: return row.audioEffects;
+    case InsideBelowRole: return row.insideBelow;
     default: return {};
     }
 }
@@ -242,5 +244,6 @@ QHash<int, QByteArray> TimelineClipsModel::roleNames() const
         {FadeHandlesRole, "fadeHandles"},
         {EffectsRole, "effects"},
         {AudioEffectsRole, "audioEffects"},
+        {InsideBelowRole, "insideBelow"},
     };
 }

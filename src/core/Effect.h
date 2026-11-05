@@ -61,6 +61,10 @@ struct Effect
     // label/sliders. Rendering uses catalog metadata in the engine layer.
     QString catalogId;
 
+    // A name of the user's own (0.30, After Effects' Rename on an effect: «Radio del resplandor»);
+    // empty shows the catalog's. Expressions find the effect by either.
+    QString label;
+
     // When false the effect stays on the clip (params/keyframes preserved) but is
     // skipped at render/mix time. Default true so older projects load as enabled.
     bool enabled = true;
