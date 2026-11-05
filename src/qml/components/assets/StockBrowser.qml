@@ -46,7 +46,8 @@ Item {
     function showItems() {
         const before = root.shownItems
         const next = Market.items
-        const appended = before.length > 0 && next.length > before.length && next[0].id === before[0].id
+        // A longer page of the same list, or the same list read again (a favourite, a use count): stay put.
+        const appended = before.length > 0 && next.length >= before.length && next[0].id === before[0].id
         const view = !appended ? null
                    : audioList.visible ? audioList : justified.visible ? justified : grid.visible ? grid : null
         const y = view ? view.contentY : 0
@@ -54,6 +55,13 @@ Item {
         if (view) {
             view.forceLayout()
             view.contentY = y
+        } else {
+            // A new list (another category, from the tree or the wheel) starts at its top (0.30.1: the
+            // wheel landed it part way down, the first cards' names showing above).
+            for (const v of [audioList, justified, grid]) {
+                if (v && v.visible)
+                    v.contentY = v.originY - v.topMargin
+            }
         }
     }
     // Our own catalogues sort by category; it is shown as a row of chips, not only behind Filters.

@@ -111,10 +111,16 @@ Item {
         if (!host || !host.id)
             return false
         return sel.some((q) => {
-            if (q.track !== trackIndex || q.clip === clipIndex)
+            if (q.track === trackIndex && q.clip === clipIndex)
                 return false
             const a = EditorState.clipAt(q.track, q.clip)
-            return !!a && a.kind === "adjustment" && !!a.linkedClipId && a.linkedClipId === host.id
+            if (!a || a.kind !== "adjustment")
+                return false
+            // The layer lives in its own lane under the clip's track (0.30.1: it is not on the same track).
+            const target = EditorState.adjustmentTargetState(q.track, q.clip)
+            if (!target || target.mode === "allBelow" || target.targetTrack !== trackIndex)
+                return false
+            return target.mode === "track" || target.targetClipId === host.id
         })
     }
     // A click on a key selects its clip, unless that clip's linked adjustment layer is the selected one.

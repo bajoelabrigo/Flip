@@ -408,12 +408,12 @@ Item {
                 return []
             // Round lines from 0 up, as After Effects (0.30.1): fewer when the graph is short.
             let step = root.speedStep(top)
-            while (step > 0 && (h - 8) * step / top < 22)
+            while (step > 0 && (h - 18) * step / top < 22)
                 step *= 2
             const ticks = []
             const sUnit = percent > 0 ? " %/s" : root.speedUnit(focused.prop)
             for (let v = 0; v <= top + step * 0.01; v += step)
-                ticks.push({ "y": h - 4 - (v / top) * (h - 8), "label": fmt(scaled(v)) + sUnit })
+                ticks.push({ "y": h - 10 - (v / top) * (h - 18), "label": (v === 0 ? "0" : fmt(scaled(v))) + sUnit })
             return ticks
         }
         const entry = focused
@@ -931,12 +931,13 @@ Item {
     }
     function speedY(sp) {
         const top = root.speedTop()
+        // 0 sits a little above the bottom, so a key that stops there shows whole (0.30.1).
         if (!(top > 0))
-            return graph.height - 4
-        return graph.height - 4 - (Math.min(sp, top) / top) * (graph.height - 8)
+            return graph.height - 10
+        return graph.height - 10 - (Math.min(sp, top) / top) * (graph.height - 18)
     }
     function speedForY(y) {
-        return Math.max(0, (graph.height - 4 - y) / Math.max(1, graph.height - 8) * root.speedTop())
+        return Math.max(0, (graph.height - 10 - y) / Math.max(1, graph.height - 18) * root.speedTop())
     }
     // How fast a property changes just after (or just before) a key, in its units per second.
     function keySideSpeed(entry, seconds, outgoing) {
