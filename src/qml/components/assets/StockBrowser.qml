@@ -319,10 +319,13 @@ Item {
         Item {
             x: root.sidePadding
             width: parent.width - root.sidePadding * 2
-            height: Math.max(sourceFlick.visible ? sourceFlick.height : 0,
-                             templateButtons.visible ? templateButtons.height : 0, filterButton.height)
-            // The one source's name («Flip Studio») said nothing and took a row (Jorge, 0.30).
-            visible: sourceFlick.visible || templateButtons.visible || filterButton.visible
+            readonly property bool showSources: !root.templates && (Market.canSearchAll || Market.providers.length > 1)
+            readonly property bool showFilters: Market.filters.length > 0 && Market.canSearch
+            height: Math.max(showSources ? sourceFlick.height : 0,
+                             root.templates ? templateButtons.height : 0, showFilters ? filterButton.height : 0)
+            // The one source's name («Flip Studio») said nothing and took a row (Jorge, 0.30). Not from the
+            // children's `visible`: a child of a hidden item reads hidden, so the row never came back.
+            visible: showSources || root.templates || showFilters
 
             // Templates: «Use with my photos» and «Ask for a template» on one line, beside the filters, where
             // the source's name was; what each does is in its tooltip (Jorge, 0.30: the notes took the room).
@@ -330,8 +333,8 @@ Item {
                 id: templateButtons
                 visible: root.templates
                 anchors.left: parent.left
-                anchors.right: filterButton.visible ? filterButton.left : parent.right
-                anchors.rightMargin: filterButton.visible ? Theme.spacingSm : 0
+                anchors.right: parent.showFilters ? filterButton.left : parent.right
+                anchors.rightMargin: parent.showFilters ? Theme.spacingSm : 0
                 anchors.verticalCenter: parent.verticalCenter
                 spacing: Theme.spacingSm
                 readonly property real half: (width - spacing) / 2
@@ -365,9 +368,9 @@ Item {
 
             Flickable {
                 id: sourceFlick
-                visible: !root.templates && (Market.canSearchAll || Market.providers.length > 1)
+                visible: parent.showSources
                 anchors.left: parent.left
-                anchors.right: filterButton.visible ? filterButton.left : parent.right
+                anchors.right: parent.showFilters ? filterButton.left : parent.right
                 anchors.verticalCenter: parent.verticalCenter
                 height: sourceRow.height
                 contentWidth: sourceRow.width
@@ -408,7 +411,7 @@ Item {
                 id: filterButton
                 anchors.right: parent.right
                 anchors.verticalCenter: parent.verticalCenter
-                visible: Market.filters.length > 0 && Market.canSearch
+                visible: parent.showFilters
                 glyph: Theme.icons.sliders
                 active: root.filtersExpanded
                 tooltip: root.activeFilterCount > 0
