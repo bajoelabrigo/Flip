@@ -319,10 +319,53 @@ Item {
         Item {
             x: root.sidePadding
             width: parent.width - root.sidePadding * 2
-            height: Math.max(sourceFlick.height, filterButton.height)
+            height: Math.max(sourceFlick.visible ? sourceFlick.height : 0,
+                             templateButtons.visible ? templateButtons.height : 0, filterButton.height)
+            // The one source's name («Flip Studio») said nothing and took a row (Jorge, 0.30).
+            visible: sourceFlick.visible || templateButtons.visible || filterButton.visible
+
+            // Templates: «Use with my photos» and «Ask for a template» on one line, beside the filters, where
+            // the source's name was; what each does is in its tooltip (Jorge, 0.30: the notes took the room).
+            Row {
+                id: templateButtons
+                visible: root.templates
+                anchors.left: parent.left
+                anchors.right: filterButton.visible ? filterButton.left : parent.right
+                anchors.rightMargin: filterButton.visible ? Theme.spacingSm : 0
+                anchors.verticalCenter: parent.verticalCenter
+                spacing: Theme.spacingSm
+                readonly property real half: (width - spacing) / 2
+
+                ThemedButton {
+                    width: Math.min(implicitWidth, templateButtons.half)
+                    leftPadding: Theme.spacingMd
+                    rightPadding: Theme.spacingMd
+                    variant: "secondary"
+                    glyph: Theme.icons.image
+                    text: qsTr("Use with my photos…")
+                    tooltip: qsTr("Have your photos already? Choose them and Flip suggests the templates that fit.")
+                    onClicked: {
+                        const urls = FileDialogs.openFiles(qsTr("Choose photos and videos"), [AssetLibrary.mediaNameFilter()])
+                        const chosen = urls.filter(u => u.toString().length > 0)
+                        if (chosen.length > 0)
+                            EditorState.requestTemplatePicker("photos", "", chosen)
+                    }
+                }
+                ThemedButton {
+                    width: Math.min(implicitWidth, templateButtons.half)
+                    leftPadding: Theme.spacingMd
+                    rightPadding: Theme.spacingMd
+                    variant: "secondary"
+                    glyph: Theme.icons.plus
+                    text: qsTr("Ask for a template")
+                    tooltip: qsTr("Missing a template? Ask for it, or vote for other people’s ideas.")
+                    onClicked: requestsDialog.openFor(Market.activeTypeId)
+                }
+            }
 
             Flickable {
                 id: sourceFlick
+                visible: !root.templates && (Market.canSearchAll || Market.providers.length > 1)
                 anchors.left: parent.left
                 anchors.right: filterButton.visible ? filterButton.left : parent.right
                 anchors.verticalCenter: parent.verticalCenter
@@ -523,37 +566,6 @@ Item {
             }
             HoverHandler { id: linkHover; cursorShape: Qt.PointingHandCursor }
             TapHandler { onTapped: root.runResolve() }
-        }
-
-        // «Ask for a template» and «Use with my photos» side by side, without the notes that took the room
-        // of a row of cards (Jorge, 0.30); their tooltips say what they do. No LottieFiles link either.
-        Flow {
-            visible: root.templates
-            x: root.sidePadding
-            width: parent.width - root.sidePadding * 2
-            spacing: Theme.spacingSm
-
-            ThemedButton {
-                id: withPhotosButton
-                variant: "secondary"
-                glyph: Theme.icons.image
-                text: qsTr("Use with my photos…")
-                tooltip: qsTr("Have your photos already? Choose them and Flip suggests the templates that fit.")
-                onClicked: {
-                    const urls = FileDialogs.openFiles(qsTr("Choose photos and videos"), [AssetLibrary.mediaNameFilter()])
-                    const chosen = urls.filter(u => u.toString().length > 0)
-                    if (chosen.length > 0)
-                        EditorState.requestTemplatePicker("photos", "", chosen)
-                }
-            }
-            ThemedButton {
-                id: askButton
-                variant: "secondary"
-                glyph: Theme.icons.plus
-                text: qsTr("Ask for a template")
-                tooltip: qsTr("Missing a template? Ask for it, or vote for other people’s ideas.")
-                onClicked: requestsDialog.openFor(Market.activeTypeId)
-            }
         }
     }
 
