@@ -5306,6 +5306,22 @@
         <translation>Di chuyển lớp để kết thúc tại đầu phát</translation>
     </message>
     <message>
+        <source>Bring layer forward</source>
+        <translation>Đưa lớp lên trước</translation>
+    </message>
+    <message>
+        <source>Send layer backward</source>
+        <translation>Đưa lớp ra sau</translation>
+    </message>
+    <message>
+        <source>Bring layer to front</source>
+        <translation>Đưa lớp lên trên cùng</translation>
+    </message>
+    <message>
+        <source>Send layer to back</source>
+        <translation>Đưa lớp xuống dưới cùng</translation>
+    </message>
+    <message>
         <source>RAM preview (render to memory and play)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -16670,6 +16686,10 @@ LẦN SAU</translation>
         <translation>Lớp chuyển đổi</translation>
     </message>
     <message>
+        <source>Null object</source>
+        <translation>Đối tượng rỗng</translation>
+    </message>
+    <message>
         <source>Original dimensions: %1 × %2</source>
         <translation>Kích thước ban đầu: %1 × %2</translation>
     </message>
@@ -20565,7 +20585,7 @@ LẦN SAU</translation>
     </message>
     <message>
         <source>Null object</source>
-        <translation type="unfinished"></translation>
+        <translation>Đối tượng rỗng</translation>
     </message>
     <message>
         <source>Point light</source>

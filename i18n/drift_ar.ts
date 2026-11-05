@@ -5371,6 +5371,22 @@
         <translation>تحريك الطبقة لتنتهي عند المؤشر</translation>
     </message>
     <message>
+        <source>Bring layer forward</source>
+        <translation>تقديم الطبقة</translation>
+    </message>
+    <message>
+        <source>Send layer backward</source>
+        <translation>إرجاع الطبقة</translation>
+    </message>
+    <message>
+        <source>Bring layer to front</source>
+        <translation>إحضار الطبقة إلى الأمام</translation>
+    </message>
+    <message>
+        <source>Send layer to back</source>
+        <translation>إرسال الطبقة إلى الخلف</translation>
+    </message>
+    <message>
         <source>RAM preview (render to memory and play)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -16980,6 +16996,10 @@ NEXT TIME</source>
         <translation>طبقة التحويل</translation>
     </message>
     <message>
+        <source>Null object</source>
+        <translation>كائن فارغ</translation>
+    </message>
+    <message>
         <source>Original dimensions: %1 × %2</source>
         <translation>الأبعاد الأصلية: %1 × %2</translation>
     </message>
@@ -20955,7 +20975,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Null object</source>
-        <translation type="unfinished"></translation>
+        <translation>كائن فارغ</translation>
     </message>
     <message>
         <source>Point light</source>

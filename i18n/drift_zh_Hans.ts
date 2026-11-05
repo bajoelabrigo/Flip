@@ -5298,6 +5298,22 @@
         <translation>移动图层使其在播放头结束</translation>
     </message>
     <message>
+        <source>Bring layer forward</source>
+        <translation>图层前移</translation>
+    </message>
+    <message>
+        <source>Send layer backward</source>
+        <translation>图层后移</translation>
+    </message>
+    <message>
+        <source>Bring layer to front</source>
+        <translation>图层置顶</translation>
+    </message>
+    <message>
+        <source>Send layer to back</source>
+        <translation>图层置底</translation>
+    </message>
+    <message>
         <source>RAM preview (render to memory and play)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -16670,6 +16686,10 @@ NEXT TIME</source>
         <translation>变换图层</translation>
     </message>
     <message>
+        <source>Null object</source>
+        <translation>空对象</translation>
+    </message>
+    <message>
         <source>Original dimensions: %1 × %2</source>
         <translation>原始尺寸：%1 × %2</translation>
     </message>
@@ -20565,7 +20585,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Null object</source>
-        <translation type="unfinished"></translation>
+        <translation>空对象</translation>
     </message>
     <message>
         <source>Point light</source>

@@ -5320,6 +5320,22 @@
         <translation>Déplacer le calque pour qu’il finisse à la tête de lecture</translation>
     </message>
     <message>
+        <source>Bring layer forward</source>
+        <translation>Avancer le calque</translation>
+    </message>
+    <message>
+        <source>Send layer backward</source>
+        <translation>Reculer le calque</translation>
+    </message>
+    <message>
+        <source>Bring layer to front</source>
+        <translation>Calque au premier plan</translation>
+    </message>
+    <message>
+        <source>Send layer to back</source>
+        <translation>Calque à l’arrière-plan</translation>
+    </message>
+    <message>
         <source>RAM preview (render to memory and play)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -16733,6 +16749,10 @@ PROCHAINE</translation>
         <translation>Transformer le calque</translation>
     </message>
     <message>
+        <source>Null object</source>
+        <translation>Objet nul</translation>
+    </message>
+    <message>
         <source>Original dimensions: %1 × %2</source>
         <translation>Dimensions d&apos;origine : %1 × %2</translation>
     </message>
@@ -20645,7 +20665,7 @@ PROCHAINE</translation>
     </message>
     <message>
         <source>Null object</source>
-        <translation type="unfinished"></translation>
+        <translation>Objet nul</translation>
     </message>
     <message>
         <source>Point light</source>

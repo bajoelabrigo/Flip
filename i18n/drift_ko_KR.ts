@@ -5298,6 +5298,22 @@
         <translation>재생 헤드에서 끝나도록 레이어 이동</translation>
     </message>
     <message>
+        <source>Bring layer forward</source>
+        <translation>레이어 앞으로</translation>
+    </message>
+    <message>
+        <source>Send layer backward</source>
+        <translation>레이어 뒤로</translation>
+    </message>
+    <message>
+        <source>Bring layer to front</source>
+        <translation>레이어 맨 앞으로</translation>
+    </message>
+    <message>
+        <source>Send layer to back</source>
+        <translation>레이어 맨 뒤로</translation>
+    </message>
+    <message>
         <source>RAM preview (render to memory and play)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -16670,6 +16686,10 @@ NEXT TIME</source>
         <translation>변환 레이어</translation>
     </message>
     <message>
+        <source>Null object</source>
+        <translation>널 개체</translation>
+    </message>
+    <message>
         <source>Original dimensions: %1 × %2</source>
         <translation>원본 크기: %1 × %2</translation>
     </message>
@@ -20565,7 +20585,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Null object</source>
-        <translation type="unfinished"></translation>
+        <translation>널 개체</translation>
     </message>
     <message>
         <source>Point light</source>

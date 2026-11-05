@@ -5298,6 +5298,22 @@
         <translation>再生ヘッドで終わるようにレイヤーを移動</translation>
     </message>
     <message>
+        <source>Bring layer forward</source>
+        <translation>レイヤーを前面へ</translation>
+    </message>
+    <message>
+        <source>Send layer backward</source>
+        <translation>レイヤーを背面へ</translation>
+    </message>
+    <message>
+        <source>Bring layer to front</source>
+        <translation>レイヤーを最前面へ</translation>
+    </message>
+    <message>
+        <source>Send layer to back</source>
+        <translation>レイヤーを最背面へ</translation>
+    </message>
+    <message>
         <source>RAM preview (render to memory and play)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -16670,6 +16686,10 @@ NEXT TIME</source>
         <translation>変形レイヤー</translation>
     </message>
     <message>
+        <source>Null object</source>
+        <translation>ヌルオブジェクト</translation>
+    </message>
+    <message>
         <source>Original dimensions: %1 × %2</source>
         <translation>元のサイズ : %1 × %2</translation>
     </message>
@@ -20565,7 +20585,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Null object</source>
-        <translation type="unfinished"></translation>
+        <translation>ヌルオブジェクト</translation>
     </message>
     <message>
         <source>Point light</source>

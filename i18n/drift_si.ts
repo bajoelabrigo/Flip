@@ -5315,6 +5315,22 @@
         <translation>ධාවන හිසෙන් අවසන් වන සේ ස්තරය ගෙන යන්න</translation>
     </message>
     <message>
+        <source>Bring layer forward</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Send layer backward</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bring layer to front</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Send layer to back</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>RAM preview (render to memory and play)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -16726,6 +16742,10 @@ NEXT TIME</source>
     <message>
         <source>Transform layer</source>
         <translation>පරිවර්තන ස්තරය</translation>
+    </message>
+    <message>
+        <source>Null object</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Original dimensions: %1 × %2</source>

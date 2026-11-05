@@ -5332,6 +5332,22 @@
         <translation>Przesuń warstwę, by kończyła się przy głowicy</translation>
     </message>
     <message>
+        <source>Bring layer forward</source>
+        <translation>Przesuń warstwę do przodu</translation>
+    </message>
+    <message>
+        <source>Send layer backward</source>
+        <translation>Przesuń warstwę do tyłu</translation>
+    </message>
+    <message>
+        <source>Bring layer to front</source>
+        <translation>Przenieś warstwę na wierzch</translation>
+    </message>
+    <message>
+        <source>Send layer to back</source>
+        <translation>Przenieś warstwę na spód</translation>
+    </message>
+    <message>
         <source>RAM preview (render to memory and play)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -16794,6 +16810,10 @@ ZOBACZENIA</translation>
         <translation>Warstwa transformacji</translation>
     </message>
     <message>
+        <source>Null object</source>
+        <translation>Obiekt zerowy</translation>
+    </message>
+    <message>
         <source>Original dimensions: %1 × %2</source>
         <translation>Oryginalne wymiary: %1 × %2</translation>
     </message>
@@ -20721,7 +20741,7 @@ ZOBACZENIA</translation>
     </message>
     <message>
         <source>Null object</source>
-        <translation type="unfinished"></translation>
+        <translation>Obiekt zerowy</translation>
     </message>
     <message>
         <source>Point light</source>

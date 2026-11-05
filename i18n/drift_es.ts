@@ -5315,6 +5315,22 @@
         <translation>Mover la capa para que termine en el cabezal</translation>
     </message>
     <message>
+        <source>Bring layer forward</source>
+        <translation>Traer la capa adelante</translation>
+    </message>
+    <message>
+        <source>Send layer backward</source>
+        <translation>Enviar la capa atrás</translation>
+    </message>
+    <message>
+        <source>Bring layer to front</source>
+        <translation>Traer la capa al frente</translation>
+    </message>
+    <message>
+        <source>Send layer to back</source>
+        <translation>Enviar la capa al fondo</translation>
+    </message>
+    <message>
         <source>RAM preview (render to memory and play)</source>
         <translation>Vista previa en RAM (calcular en memoria y reproducir)</translation>
     </message>
@@ -16730,6 +16746,10 @@ LA PRÓXIMA</translation>
     <message>
         <source>Transform layer</source>
         <translation>Capa de transformación</translation>
+    </message>
+    <message>
+        <source>Null object</source>
+        <translation>Objeto nulo</translation>
     </message>
     <message>
         <source>Original dimensions: %1 × %2</source>

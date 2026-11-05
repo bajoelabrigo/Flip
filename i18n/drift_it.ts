@@ -5315,6 +5315,22 @@
         <translation>Sposta il livello perché finisca all’indicatore</translation>
     </message>
     <message>
+        <source>Bring layer forward</source>
+        <translation>Porta avanti il livello</translation>
+    </message>
+    <message>
+        <source>Send layer backward</source>
+        <translation>Porta indietro il livello</translation>
+    </message>
+    <message>
+        <source>Bring layer to front</source>
+        <translation>Porta il livello in primo piano</translation>
+    </message>
+    <message>
+        <source>Send layer to back</source>
+        <translation>Porta il livello in fondo</translation>
+    </message>
+    <message>
         <source>RAM preview (render to memory and play)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -16732,6 +16748,10 @@ LA PROSSIMA</translation>
         <translation>Livello di trasformazione</translation>
     </message>
     <message>
+        <source>Null object</source>
+        <translation>Oggetto nullo</translation>
+    </message>
+    <message>
         <source>Original dimensions: %1 × %2</source>
         <translation>Dimensioni originali: %1 × %2</translation>
     </message>
@@ -20643,7 +20663,7 @@ LA PROSSIMA</translation>
     </message>
     <message>
         <source>Null object</source>
-        <translation type="unfinished"></translation>
+        <translation>Oggetto nullo</translation>
     </message>
     <message>
         <source>Point light</source>

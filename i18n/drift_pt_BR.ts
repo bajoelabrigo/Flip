@@ -5315,6 +5315,22 @@
         <translation>Mover a camada para terminar no cursor</translation>
     </message>
     <message>
+        <source>Bring layer forward</source>
+        <translation>Trazer camada para frente</translation>
+    </message>
+    <message>
+        <source>Send layer backward</source>
+        <translation>Enviar camada para trás</translation>
+    </message>
+    <message>
+        <source>Bring layer to front</source>
+        <translation>Trazer camada para a frente de tudo</translation>
+    </message>
+    <message>
+        <source>Send layer to back</source>
+        <translation>Enviar camada para o fundo</translation>
+    </message>
+    <message>
         <source>RAM preview (render to memory and play)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -16732,6 +16748,10 @@ PRÓXIMA</translation>
         <translation>Camada de transformação</translation>
     </message>
     <message>
+        <source>Null object</source>
+        <translation>Objeto nulo</translation>
+    </message>
+    <message>
         <source>Original dimensions: %1 × %2</source>
         <translation>Dimensões originais: %1 × %2</translation>
     </message>
@@ -20643,7 +20663,7 @@ PRÓXIMA</translation>
     </message>
     <message>
         <source>Null object</source>
-        <translation type="unfinished"></translation>
+        <translation>Objeto nulo</translation>
     </message>
     <message>
         <source>Point light</source>

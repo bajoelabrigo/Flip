@@ -5315,6 +5315,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Bring layer forward</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Send layer backward</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Bring layer to front</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Send layer to back</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>RAM preview (render to memory and play)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -16725,6 +16741,10 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Transform layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Null object</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

@@ -5332,6 +5332,22 @@
         <translation>Сдвинуть слой, чтобы он заканчивался у указателя</translation>
     </message>
     <message>
+        <source>Bring layer forward</source>
+        <translation>Переместить слой вперёд</translation>
+    </message>
+    <message>
+        <source>Send layer backward</source>
+        <translation>Переместить слой назад</translation>
+    </message>
+    <message>
+        <source>Bring layer to front</source>
+        <translation>На передний план</translation>
+    </message>
+    <message>
+        <source>Send layer to back</source>
+        <translation>На задний план</translation>
+    </message>
+    <message>
         <source>RAM preview (render to memory and play)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -16794,6 +16810,10 @@ NEXT TIME</source>
         <translation>Преобразовать слой</translation>
     </message>
     <message>
+        <source>Null object</source>
+        <translation>Нулевой объект</translation>
+    </message>
+    <message>
         <source>Original dimensions: %1 × %2</source>
         <translation>Исходный размер: %1 × %2</translation>
     </message>
@@ -20721,7 +20741,7 @@ NEXT TIME</source>
     </message>
     <message>
         <source>Null object</source>
-        <translation type="unfinished"></translation>
+        <translation>Нулевой объект</translation>
     </message>
     <message>
         <source>Point light</source>
