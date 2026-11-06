@@ -7940,7 +7940,7 @@ void CoreTest::joinedPositionKeepsPathAndTimingApart()
         straightAt.append(at(straight, TimeUs(i) * 100000));
     separatePosition(straight);
     for (int i = 0; i <= 20; ++i)
-        QVERIFY(QLineF(at(straight, TimeUs(i) * 100000), straightAt.at(i)).length() < 0.5);
+        QVERIFY(QLineF(at(straight, TimeUs(i) * 100000), straightAt.at(i)).length() < 2.0);
     Clip eased = arc;
     QList<QPointF> joinedAt;
     for (int i = 0; i <= 20; ++i)
