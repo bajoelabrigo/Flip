@@ -743,6 +743,28 @@ Item {
             return out
         const entry = series[focusedIndex]
         const pts = entry.points
+        // Roving Position keys in Speed Graph (0.30.2, After Effects): only the run's two ends have handles,
+        // and they reach over the whole run, not their own stretch.
+        if (root.speedGraph && (entry.prop === "position" || entry.prop === "x" || entry.prop === "y")
+                && pts.length >= 3) {
+            void EditorState.tracksRevision
+            const rove = EditorState.roveEase(root.trackIndex, root.clipIndex)
+            if (rove && rove.active) {
+                if (root.tools)
+                    void root.tools.keys
+                const rprop = root.refProp(entry.prop)
+                const pickedAt = (q) => !root.tools || root.tools.isPicked(root.trackIndex,
+                    { clip: root.clipIndex, prop: rprop, seconds: q.seconds })
+                const last = pts.length - 1
+                if (pickedAt(pts[0]))
+                    out.push({ pointIndex: 0, outgoing: true, color: entry.color, point: pts[0], neighbour: pts[last],
+                               rove: rove })
+                if (pickedAt(pts[last]))
+                    out.push({ pointIndex: last, outgoing: false, color: entry.color, point: pts[last], neighbour: pts[0],
+                               rove: rove })
+                return out
+            }
+        }
         // Joined Position's X and Y in the Value Graph: their shape is the path's, bent on the
         // motion path in the preview; the timing is shaped in the Speed Graph (as After Effects).
         if ((entry.prop === "x" || entry.prop === "y") && pts.length > 0 && pts[0].spatial)
@@ -2035,10 +2057,20 @@ Item {
                                 border.width: 1
                                 border.color: root.handleYellow
                             }
+                            // A roving Position key (Rove Across Time) is a small circle, as After Effects (0.30.2).
+                            readonly property bool roving: {
+                                void EditorState.tracksRevision
+                                const pr = keyDot.modelData.prop
+                                return (pr === "x" || pr === "y" || pr === "position") && !!keyDot.entry
+                                    && keyDot.modelData.pointIndex > 0
+                                    && keyDot.modelData.pointIndex < keyDot.entry.points.length - 1
+                                    && EditorState.positionRoving(root.trackIndex, root.clipIndex)
+                            }
                             Rectangle {
                                 anchors.centerIn: parent
                                 width: keyHover.hovered && !keyDot.isPicked ? 8 : 7
                                 height: width
+                                radius: keyDot.roving ? width / 2 : 0
                                 color: keyDot.isPicked ? root.handleYellow
                                        : root.speedGraph ? Theme.panelBackground : keyDot.modelData.color
                                 border.width: 1
@@ -2470,8 +2502,12 @@ Item {
                                 : root.yForValue(modelData.point.value, entry)
                             readonly property real tipX:
                                 root.xForSeconds(modelData.point.seconds
-                                                 + root.handleSeconds(modelData.point, modelData.outgoing,
-                                                                      modelData.neighbour))
+                                                 + (modelData.rove
+                                                    ? (modelData.outgoing ? 1 : -1) * (modelData.outgoing ? modelData.rove.outReach
+                                                                                                         : modelData.rove.inReach)
+                                                      * Math.abs(modelData.neighbour.seconds - modelData.point.seconds)
+                                                    : root.handleSeconds(modelData.point, modelData.outgoing,
+                                                                         modelData.neighbour)))
                             // In Speed Graph the handle is level with its key: its height is that side's speed.
                             readonly property real tipY: root.speedGraph
                                 ? tangent.keyY
@@ -2583,6 +2619,24 @@ Item {
                                             && k.prop === prop && Math.abs(k.seconds - q.seconds) < 1e-4))
                                     }
                                     function speedDrag(p, outgoing) {
+                                        // A roving run's end (0.30.2): its reach is over the whole run.
+                                        if (tangent.modelData.rove) {
+                                            const far = tangent.modelData.neighbour
+                                            const runSpan = Math.max(1e-6, Math.abs(far.seconds - p.seconds))
+                                            const rdx = root.secondsForX(tangent.tipX + translation.x - tangent.keyX)
+                                            const reach = Math.max(0.01, Math.min(1, Math.abs(rdx) / runSpan))
+                                            const rspeed = root.speedForY(gripDrag.startKeyY + translation.y)
+                                            EditorState.previewSetRoveEase(root.trackIndex, root.clipIndex, outgoing, reach, rspeed)
+                                            gripDrag.readout = qsTr("Speed %1/s · Influence %2%")
+                                                .arg(Math.abs(rspeed).toFixed(Math.abs(rspeed) >= 100 ? 0 : 2))
+                                                .arg((reach * 100).toFixed(1))
+                                            tangent.dragDx = root.xForSeconds(p.seconds + (outgoing ? 1 : -1) * reach * runSpan) - tangent.tipX
+                                            tangent.dragDy = root.speedY(rspeed) - tangent.keyY
+                                            root.speedDragSeconds = p.seconds
+                                            root.speedDragDy = tangent.dragDy
+                                            curveCanvas.requestPaint()
+                                            return
+                                        }
                                         const pts = root.series[root.focusedIndex].points
                                         const i = tangent.modelData.pointIndex
                                         const neighbour = outgoing ? pts[i + 1] : pts[i - 1]

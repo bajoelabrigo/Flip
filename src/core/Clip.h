@@ -357,6 +357,13 @@ struct Clip
     // After Effects' roving keys (0.30): the inner Position keys follow the path at one speed,
     // spread again after every edit, until locked to time.
     bool positionRoving = false;
+    // The roving run's ease (0.30.2, as After Effects): the first key's outgoing and the last key's
+    // incoming handle over the whole run, not their own stretch. Reach is the share of the run's time,
+    // speed is along the path in px per microsecond. A reach below 0 is not set yet (an even run).
+    double roveOutReach = -1.0;
+    double roveOutSpeed = 0.0;
+    double roveInReach = -1.0;
+    double roveInSpeed = 0.0;
     // A shape's or a text's own size, Scale's 100 % (0.30, After Effects' layer size): kept from the
     // size it had before it was ever scaled, so keying Scale no longer makes the new size the 100 %
     // (a 130 % read 100 %) and the anchor's numbers stay put. 0 = not known yet.
