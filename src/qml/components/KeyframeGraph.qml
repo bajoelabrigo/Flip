@@ -80,8 +80,8 @@ Item {
             const p = mapToItem(null, mouse.x, mouse.y)
             box.applyCorner(corner, p.x - origin.x, p.y - origin.y, alone)
         }
-        onReleased: EditorState.commitPreviewDrag()
-        onCanceled: EditorState.commitPreviewDrag()
+        onReleased: { box.warp = null; EditorState.commitPreviewDrag() }
+        onCanceled: { box.warp = null; EditorState.commitPreviewDrag() }
     }
     // The transform box shows around two or more picked keys; its button hides it (After Effects).
     property bool transformBoxShown: true
@@ -2283,9 +2283,44 @@ Item {
                         // After Effects' box: a light grey veil with a white edge (0.30.1).
                         Rectangle {
                             anchors.fill: parent
+                            visible: !transformBox.warp
                             color: Qt.rgba(1, 1, 1, 0.09)
                             border.width: 1
                             border.color: "#d8d8d8"
+                        }
+                        // Alt on a corner: the box drawn warped while it moves, as After Effects (0.30.2).
+                        property var warp: null
+                        onWarpChanged: warpCanvas.requestPaint()
+                        Canvas {
+                            id: warpCanvas
+                            visible: !!transformBox.warp
+                            x: -transformBox.x
+                            y: -transformBox.y
+                            width: transformBox.parent ? transformBox.parent.width : 0
+                            height: transformBox.parent ? transformBox.parent.height : 0
+                            onPaint: {
+                                const ctx = getContext("2d")
+                                ctx.reset()
+                                const w = transformBox.warp
+                                const e = transformBox.entry
+                                if (!w || !e)
+                                    return
+                                const pt = (c) => [root.xForSeconds(c[0]), root.yForValue(c[1], e)]
+                                const q = [pt(w.bl), pt(w.br), pt(w.tr), pt(w.tl)]
+                                ctx.beginPath()
+                                ctx.moveTo(q[0][0], q[0][1])
+                                for (let i = 1; i < 4; ++i)
+                                    ctx.lineTo(q[i][0], q[i][1])
+                                ctx.closePath()
+                                ctx.fillStyle = Qt.rgba(1, 1, 1, 0.09)
+                                ctx.fill()
+                                ctx.lineWidth = 1
+                                ctx.strokeStyle = "#d8d8d8"
+                                ctx.stroke()
+                                ctx.fillStyle = "#f2f2f2"
+                                for (const c of q)
+                                    ctx.fillRect(c[0] - 3.5, c[1] - 3.5, 7, 7)
+                            }
                         }
 
                         // Where each picked key started, and where it is now in the drag.
@@ -2295,6 +2330,7 @@ Item {
                             const e = transformBox.entry
                             transformBox.base = transformBox.picked.map((p) => ({ "seconds": p.seconds, "value": p.value }))
                             transformBox.now = transformBox.base.map((b) => b.seconds)
+                            transformBox.warp = null
                             EditorState.beginPreviewDrag(qsTr("Transform keyframes"))
                         }
                         // side: "left", "right", "top", "bottom"; k the stretch (1 = as it was).
@@ -2354,6 +2390,7 @@ Item {
                             const c = { bl: [tLo, vLo], br: [tHi, vLo], tl: [tLo, vHi], tr: [tHi, vHi] }
                             if (alone) {
                                 c[corner] = [c[corner][0] + dt, c[corner][1] + dv]
+                                transformBox.warp = { bl: c.bl, br: c.br, tl: c.tl, tr: c.tr }
                             } else {
                                 const left = corner === "tl" || corner === "bl"
                                 const top = corner === "tl" || corner === "tr"
@@ -2527,10 +2564,11 @@ Item {
                                                       : Math.min(-segment * 0.01, Math.max(-segment, dx))
                                         const speed = root.speedForY(gripDrag.startKeyY + translation.y)
                                         const corner = p.corner || gripDrag.breakApart
-                                        // Only this key's handle (0.30.1, Jorge: the other picked keys changed with it
-                                        // and the whole bounce moved; checked in the window).
+                                        // The same speed and reach on the same side of every other picked key of this
+                                        // curve, as After Effects (0.30.2, Jorge: «como After Effects»). Only the picked
+                                        // keys show handles, so it is plain which ones follow.
                                         const share = Math.abs(dx) / Math.max(1e-9, segment)
-                                        for (const q of [p]) {
+                                        for (const q of [p].concat(gripDrag.otherPicked(pts))) {
                                             const qi = q === p ? i : pts.indexOf(q)
                                             const nb = outgoing ? pts[qi + 1] : pts[qi - 1]
                                             if (!nb)
