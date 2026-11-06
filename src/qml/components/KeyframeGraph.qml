@@ -22,6 +22,15 @@ Item {
         preventStealing: true
         hoverEnabled: true
         cursorShape: side === "left" || side === "right" ? Qt.SizeHorCursor : Qt.SizeVerCursor
+        // The square at the middle of the side, as After Effects draws it (0.30.1).
+        Rectangle {
+            anchors.centerIn: parent
+            width: 7
+            height: 7
+            color: "#f2f2f2"
+            border.width: 1
+            border.color: "#202020"
+        }
         onPressed: (mouse) => {
             origin = mapToItem(null, mouse.x, mouse.y)
             startSpan = side === "left" || side === "right"
@@ -51,13 +60,14 @@ Item {
         preventStealing: true
         hoverEnabled: true
         cursorShape: corner === "tl" || corner === "br" ? Qt.SizeFDiagCursor : Qt.SizeBDiagCursor
+        // After Effects' white squares (0.30.1).
         Rectangle {
             anchors.centerIn: parent
             width: 7
             height: 7
-            color: Theme.panelBackground
+            color: "#f2f2f2"
             border.width: 1
-            border.color: Theme.primary
+            border.color: "#202020"
         }
         onPressed: (mouse) => {
             origin = mapToItem(null, mouse.x, mouse.y)
@@ -769,8 +779,14 @@ Item {
         const reach = neighbour ? Math.abs(neighbour.seconds - point.seconds) / 3 : defaultHandleSeconds
         return outgoing ? reach : -reach
     }
-    function handleValue(point, outgoing) {
-        return point.value + (outgoing ? (point.outDy || 0) : (point.inDy || 0))
+    function handleValue(point, outgoing, neighbour) {
+        const dx = outgoing ? (point.outDx || 0) : (point.inDx || 0)
+        const dy = outgoing ? (point.outDy || 0) : (point.inDy || 0)
+        // A straight side (no handle yet) draws its handle along the line to the neighbour, where the
+        // curve really goes (0.30.1, as After Effects: a flat handle on a straight line misled).
+        if (Math.abs(dx) < 1e-6 && Math.abs(dy) < 1e-9 && neighbour && !point.hold)
+            return point.value + (neighbour.value - point.value) / 3
+        return point.value + dy
     }
 
     readonly property real clipStart: clip.start || 0
@@ -1969,6 +1985,26 @@ Item {
                             // leaves, red and larger when picked.
                             // In the graph a key is a small square, as After Effects' Graph Editor (0.30.1):
                             // the curve's colour, yellow when picked. The rows keep their glyphs.
+                            // In Speed Graph a key whose two sides go at different speeds shows a second
+                            // square at its incoming speed, as After Effects splits it (0.30.1).
+                            readonly property real splitDy: {
+                                if (!root.speedGraph || !keyDot.entry || keyDot.modelData.pointIndex <= 0
+                                        || keyDot.modelData.pointIndex >= keyDot.entry.points.length - 1)
+                                    return 0
+                                const a = root.speedY(root.keySideSpeed(keyDot.entry, keyDot.modelData.seconds, false))
+                                const b = root.speedY(root.keySideSpeed(keyDot.entry, keyDot.modelData.seconds, true))
+                                return Math.abs(a - b) > 4 ? a - b : 0
+                            }
+                            Rectangle {
+                                visible: parent.splitDy !== 0
+                                x: (parent.width - width) / 2
+                                y: (parent.height - height) / 2 + parent.splitDy
+                                width: 7
+                                height: 7
+                                color: keyDot.isPicked ? root.handleYellow : Theme.panelBackground
+                                border.width: 1
+                                border.color: root.handleYellow
+                            }
                             Rectangle {
                                 anchors.centerIn: parent
                                 width: keyHover.hovered && !keyDot.isPicked ? 8 : 7
@@ -2244,12 +2280,12 @@ Item {
                         y: entry ? root.yForValue(v1, entry) - 8 : 0
                         height: entry ? root.yForValue(v0, entry) - root.yForValue(v1, entry) + 16 : 0
 
+                        // After Effects' box: a light grey veil with a white edge (0.30.1).
                         Rectangle {
                             anchors.fill: parent
-                            color: "transparent"
+                            color: Qt.rgba(1, 1, 1, 0.09)
                             border.width: 1
-                            border.color: Theme.primary
-                            opacity: 0.8
+                            border.color: "#d8d8d8"
                         }
 
                         // Where each picked key started, and where it is now in the drag.
@@ -2372,7 +2408,7 @@ Item {
                             // In Speed Graph the handle is level with its key: its height is that side's speed.
                             readonly property real tipY: root.speedGraph
                                 ? tangent.keyY
-                                : root.yForValue(root.handleValue(modelData.point, modelData.outgoing), entry)
+                                : root.yForValue(root.handleValue(modelData.point, modelData.outgoing, modelData.neighbour), entry)
 
                             anchors.fill: parent
                             z: 4
@@ -2417,13 +2453,16 @@ Item {
                                     z: 10
                                     width: readoutText.implicitWidth + 10
                                     height: readoutText.implicitHeight + 6
-                                    radius: 3
-                                    color: Qt.rgba(0, 0, 0, 0.75)
+                                    // After Effects' pale yellow note, one line each (0.30.1).
+                                    radius: 2
+                                    color: "#f7efb4"
+                                    border.width: 1
+                                    border.color: "#8a7f3c"
                                     Text {
                                         id: readoutText
                                         anchors.centerIn: parent
-                                        text: gripDrag.readout
-                                        color: "#ffffff"
+                                        text: gripDrag.readout.replace(" · ", "\n")
+                                        color: "#1c1c1c"
                                         font.pixelSize: 11
                                     }
                                 }
