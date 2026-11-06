@@ -914,6 +914,9 @@ Item {
     // handle's height is the speed on that side of its key, its reach the influence. The axis keeps
     // the top it had when a drag began, so it does not rescale under the pointer.
     property real frozenSpeedPeak: 0
+    // Speed Graph drag (0.30.2): the key whose handle moves rides up and down with it, as After Effects.
+    property real speedDragSeconds: -1
+    property real speedDragDy: 0
     // After Effects' handle and picked-key yellow (0.30.1).
     readonly property color handleYellow: "#f2d21b"
     function speedTop() {
@@ -1562,6 +1565,31 @@ Item {
                             const spanX0 = root.xForSeconds(root.clipStart)
                             const spanX1 = root.xForSeconds(root.clipStart + root.clipDuration)
 
+                            // After Effects' grid (0.30.2): a vertical line every few frames or seconds,
+                            // about 90 px apart, behind the curves.
+                            {
+                                const steps = [1 / 30, 2 / 30, 5 / 30, 10 / 30, 0.5, 1, 2, 5, 10, 30, 60]
+                                let step = steps[steps.length - 1]
+                                for (const st of steps) {
+                                    if (st * root.pxPerSecond >= 90) {
+                                        step = st
+                                        break
+                                    }
+                                }
+                                const x0 = root.xForSeconds(0)
+                                const tLeft = (root.paintOriginX - x0) / Math.max(1e-6, root.pxPerSecond)
+                                const tRight = (root.paintOriginX + width - x0) / Math.max(1e-6, root.pxPerSecond)
+                                ctx.strokeStyle = "rgba(255,255,255,0.055)"
+                                ctx.lineWidth = 1
+                                ctx.beginPath()
+                                for (let t = Math.ceil(tLeft / step) * step; t <= tRight; t += step) {
+                                    const gx = Math.round(root.xForSeconds(t)) + 0.5
+                                    ctx.moveTo(gx, 0)
+                                    ctx.lineTo(gx, height)
+                                }
+                                ctx.stroke()
+                            }
+
                             for (let s = 0; s < root.series.length; ++s) {
                                 // «Only the curve being edited» (0.30) leaves the others out.
                                 if (!root.othersShown && !root.isFocused(s))
@@ -1979,6 +2007,8 @@ Item {
                                 : root.yForValue(root.draggingKey && root.shifted(modelData.prop, modelData.seconds)
                                                      ? root.groupValue(modelData.value, entry) : modelData.value, entry))
                                - height / 2 + dragDy
+                               + (root.speedGraph && Math.abs(root.speedDragSeconds - modelData.seconds) < 1e-4
+                                  ? root.speedDragDy : 0)
                             z: isPicked ? 3 : 2
 
                             // The same shapes as the tracks' rows: how the value arrives and
@@ -2453,14 +2483,15 @@ Item {
                             // Leader line from the key out to the grip.
                             Rectangle {
                                 x: tangent.keyX
-                                y: tangent.keyY
+                                // Level in Speed Graph: the key rides with its handle (0.30.2).
+                                y: tangent.keyY + (root.speedGraph ? tangent.dragDy : 0)
                                 width: Math.hypot(tangent.tipX - tangent.keyX + tangent.dragDx,
-                                                  tangent.tipY - tangent.keyY + tangent.dragDy)
+                                                  root.speedGraph ? 0 : tangent.tipY - tangent.keyY + tangent.dragDy)
                                 height: 1
                                 // After Effects' yellow handle line (0.30.1).
                                 color: root.handleYellow
                                 transformOrigin: Item.TopLeft
-                                rotation: Math.atan2(tangent.tipY - tangent.keyY + tangent.dragDy,
+                                rotation: Math.atan2(root.speedGraph ? 0 : tangent.tipY - tangent.keyY + tangent.dragDy,
                                                      tangent.tipX - tangent.keyX + tangent.dragDx)
                                           * 180 / Math.PI
                             }
@@ -2498,7 +2529,7 @@ Item {
                                     Text {
                                         id: readoutText
                                         anchors.centerIn: parent
-                                        text: gripDrag.readout.replace(" · ", "\n")
+                                        text: gripDrag.readout.replace("/s", root.focusedIndex >= 0 && root.focusedIndex < root.series.length ? root.speedUnit(root.series[root.focusedIndex].prop) : "/s").replace(" · ", "\n")
                                         color: "#1c1c1c"
                                         font.pixelSize: 11
                                     }
@@ -2623,6 +2654,11 @@ Item {
                                         root.dragTangentOutDy = outDy
                                         tangent.dragDx = root.xForSeconds(p.seconds + dx) - tangent.tipX
                                         tangent.dragDy = root.speedY(speed) - tangent.keyY
+                                        // The key square shows the side it leaves by (the last key: the way in);
+                                        // it follows when that is the side dragged or the two sides go together.
+                                        const shownOut = i < pts.length - 1
+                                        root.speedDragSeconds = (!corner || shownOut === outgoing) ? p.seconds : -1
+                                        root.speedDragDy = tangent.dragDy
                                     }
                                     onActiveChanged: {
                                         if (active) {
@@ -2647,6 +2683,8 @@ Item {
                                             root.dragTangentIndex = -1
                                             tangent.dragDx = 0
                                             tangent.dragDy = 0
+                                            root.speedDragSeconds = -1
+                                            root.speedDragDy = 0
                                             EditorState.commitPreviewDrag()
                                             root.draggingKey = false
                                         }
