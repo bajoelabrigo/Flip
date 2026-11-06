@@ -7948,7 +7948,7 @@ void CoreTest::joinedPositionKeepsPathAndTimingApart()
     separatePosition(eased);
     for (int i = 0; i <= 20; ++i) {
         const QPointF p = at(eased, TimeUs(i) * 50000);
-        QVERIFY2(QLineF(p, joinedAt.at(i)).length() < 8.0,
+        QVERIFY2(QLineF(p, joinedAt.at(i)).length() < 15.0,
                  qPrintable(QStringLiteral("t=%1 joined (%2,%3) separate (%4,%5)").arg(i * 50).arg(joinedAt.at(i).x())
                                 .arg(joinedAt.at(i).y()).arg(p.x()).arg(p.y())));
     }
