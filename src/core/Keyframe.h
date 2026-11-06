@@ -448,6 +448,11 @@ public:
             const int i = qMin(7, int(at));
             s = a.pathArc[i] + (a.pathArc[i + 1] - a.pathArc[i]) * (at - i);
         }
+        // An axis with no path handles on this stretch goes straight and even along it (0.30.2: the
+        // handles sitting on the keys made it ease in and out, and the eighths could not even that out,
+        // so a straight Position sped up and slowed down by up to 47 px on its own).
+        if (qFuzzyIsNull(a.spOut) && qFuzzyIsNull(b.spIn))
+            return a.value + (b.value - a.value) * s;
         return cubicBezier(a.value, a.value + a.spOut, b.value + b.spIn, b.value, s);
     }
 

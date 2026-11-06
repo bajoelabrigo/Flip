@@ -145,8 +145,12 @@ void syncJoinedPosition(Clip &clip)
         const Keyframe<double> &ny = ys.keyframes()[times.at(i + 1)];
         const QPointF a = points.at(i);
         const QPointF d = points.at(i + 1);
-        const QPointF b = a + QPointF(kx->spOut, ky->spOut);
-        const QPointF c = d + QPointF(nx.spIn, ny.spIn);
+        // An axis with no handles on the stretch runs straight (thirds), as evaluateAlongPath reads it.
+        const bool xLine = qFuzzyIsNull(kx->spOut) && qFuzzyIsNull(nx.spIn);
+        const bool yLine = qFuzzyIsNull(ky->spOut) && qFuzzyIsNull(ny.spIn);
+        const QPointF third = (d - a) / 3.0;
+        const QPointF b(xLine ? a.x() + third.x() : a.x() + kx->spOut, yLine ? a.y() + third.y() : a.y() + ky->spOut);
+        const QPointF c(xLine ? d.x() - third.x() : d.x() + nx.spIn, yLine ? d.y() - third.y() : d.y() + ny.spIn);
         constexpr int kSteps = 96;
         std::array<double, kSteps + 1> cumulative{};
         QPointF last = a;
