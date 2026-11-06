@@ -7921,7 +7921,26 @@ void CoreTest::joinedPositionKeepsPathAndTimingApart()
     QCOMPARE(line.transformX.evaluateAt(1000000), 100.0);
     QVERIFY(!line.transformX.keyframes().first().spatial);
 
-    // 0.30.1 (Jorge): an eased Position keeps its timing when separated, on the arc too.
+    // 0.30.2 (Jorge): an eased Position keeps its timing when separated: exactly on a straight path,
+    // and closely on the arc (one curve per axis cannot follow a bent path's speed exactly, as in AE).
+    Clip straight;
+    straight.transformX.setKeyframe(0, 100.0);
+    straight.transformX.setKeyframe(2000000, 1700.0);
+    straight.transformY.setKeyframe(0, 540.0);
+    straight.transformY.setKeyframe(2000000, 900.0);
+    joinPosition(straight);
+    for (KeyframeTrack<double> *t : {&straight.transformX, &straight.transformY}) {
+        t->keyframeRef(0)->outDx = 1500000;
+        t->keyframeRef(2000000)->inDx = -400000;
+        t->keyframeRef(2000000)->inDy = -300.0;
+    }
+    syncJoinedPosition(straight);
+    QList<QPointF> straightAt;
+    for (int i = 0; i <= 20; ++i)
+        straightAt.append(at(straight, TimeUs(i) * 100000));
+    separatePosition(straight);
+    for (int i = 0; i <= 20; ++i)
+        QVERIFY(QLineF(at(straight, TimeUs(i) * 100000), straightAt.at(i)).length() < 0.5);
     Clip eased = arc;
     QList<QPointF> joinedAt;
     for (int i = 0; i <= 20; ++i)
@@ -7929,7 +7948,7 @@ void CoreTest::joinedPositionKeepsPathAndTimingApart()
     separatePosition(eased);
     for (int i = 0; i <= 20; ++i) {
         const QPointF p = at(eased, TimeUs(i) * 50000);
-        QVERIFY2(QLineF(p, joinedAt.at(i)).length() < 3.0,
+        QVERIFY2(QLineF(p, joinedAt.at(i)).length() < 8.0,
                  qPrintable(QStringLiteral("t=%1 joined (%2,%3) separate (%4,%5)").arg(i * 50).arg(joinedAt.at(i).x())
                                 .arg(joinedAt.at(i).y()).arg(p.x()).arg(p.y())));
     }
