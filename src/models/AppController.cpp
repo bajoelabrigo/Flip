@@ -34769,7 +34769,7 @@ void AppController::previewSetRoveEase(int trackIndex, int clipIndex, bool outgo
     if (!clip.positionRoving || !clip.positionJoined)
         return;
     if (!m_previewDragActive)
-        beginPreviewDrag(tr("Edit keyframe curve"));
+        beginPreviewDrag(QCoreApplication::translate("KeyframeGraph", "Edit keyframe curve"));
     if (outgoing) {
         clip.roveOutReach = qBound(0.01, reach, 1.0);
         clip.roveOutSpeed = qMax(0.0, speedPerSecond) / 1e6;
