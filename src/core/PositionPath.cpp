@@ -1,8 +1,11 @@
 #include "PositionPath.h"
 
+#include "Bezier.h"
+
 #include <QPointF>
 
 #include <algorithm>
+#include <array>
 #include <cmath>
 
 namespace drift {
@@ -142,8 +145,12 @@ void syncJoinedPosition(Clip &clip)
         const Keyframe<double> &ny = ys.keyframes()[times.at(i + 1)];
         const QPointF a = points.at(i);
         const QPointF d = points.at(i + 1);
-        const QPointF b = a + QPointF(kx->spOut, ky->spOut);
-        const QPointF c = d + QPointF(nx.spIn, ny.spIn);
+        // An axis with no handles on the stretch runs straight (thirds), as evaluateAlongPath reads it.
+        const bool xLine = qFuzzyIsNull(kx->spOut) && qFuzzyIsNull(nx.spIn);
+        const bool yLine = qFuzzyIsNull(ky->spOut) && qFuzzyIsNull(ny.spIn);
+        const QPointF third = (d - a) / 3.0;
+        const QPointF b(xLine ? a.x() + third.x() : a.x() + kx->spOut, yLine ? a.y() + third.y() : a.y() + ky->spOut);
+        const QPointF c(xLine ? d.x() - third.x() : d.x() + nx.spIn, yLine ? d.y() - third.y() : d.y() + ny.spIn);
         constexpr int kSteps = 96;
         std::array<double, kSteps + 1> cumulative{};
         QPointF last = a;
@@ -197,24 +204,134 @@ void separatePosition(Clip &clip)
     }
     clip.positionJoined = false;
     clip.positionSeparated = true;
-    // The spatial handles as value ones over a third of each segment: the same path while the
-    // timing is even, which is what the separate tracks can say.
+    // Each axis keeps playing what it played joined (0.30.2, Jorge: an eased Position turned into a
+    // straight line on separating). A straight stretch of path converts exactly: the distance
+    // tangents scaled by how much of the distance this axis covers. A curved one is fitted: for a
+    // few handle reaches in time, the handles' values that best match what played (least squares
+    // over the stretch), keeping the closest.
+    const QList<TimeUs> times = unionTimes(clip);
+    const int n = times.size();
+    if (n == 0)
+        return;
+    QList<Keyframe<double>> bx, by;
+    for (const TimeUs t : times) {
+        bx.append(clip.transformX.keyframes().value(t));
+        by.append(clip.transformY.keyframes().value(t));
+    }
+    constexpr int kSamples = 16;
+    // What each axis played joined, kSamples inside every segment, before the keys stop being spatial.
+    QList<std::array<double, kSamples>> playedX(qMax(0, n - 1)), playedY(qMax(0, n - 1));
+    for (int i = 0; i + 1 < n; ++i) {
+        for (int k = 0; k < kSamples; ++k) {
+            const TimeUs t = times.at(i) + (times.at(i + 1) - times.at(i)) * (k + 1) / (kSamples + 1);
+            playedX[i][k] = clip.transformX.evaluateKeys(t);
+            playedY[i][k] = clip.transformY.evaluateKeys(t);
+        }
+    }
     for (KeyframeTrack<double> *track : {&clip.transformX, &clip.transformY}) {
-        const QList<TimeUs> times = track->keyframes().keys();
-        for (int i = 0; i < times.size(); ++i) {
+        const bool isX = track == &clip.transformX;
+        const QList<Keyframe<double>> &before = isX ? bx : by;
+        const QList<std::array<double, kSamples>> &played = isX ? playedX : playedY;
+        for (int i = 0; i < n; ++i) {
             Keyframe<double> *key = track->keyframeRef(times.at(i));
-            const double toPrev = i > 0 ? double(times.at(i) - times.at(i - 1)) : 0.0;
-            const double toNext = i + 1 < times.size() ? double(times.at(i + 1) - times.at(i)) : 0.0;
-            key->inDx = -toPrev / 3.0;
-            key->outDx = toNext / 3.0;
-            key->inDy = toPrev > 0 ? key->spIn : 0.0;
-            key->outDy = toNext > 0 ? key->spOut : 0.0;
-            if (qFuzzyIsNull(key->inDy) && qFuzzyIsNull(key->outDy))
-                key->inDx = key->outDx = 0.0;
+            if (!key)
+                continue;
+            key->inDx = key->inDy = key->outDx = key->outDy = 0.0;
             // The path handles are kept (unused while separate) for joining again.
             key->spatial = false;
             key->pathDistance = 0.0;
             key->pathArc.fill(0.0f);
+        }
+        for (int i = 0; i + 1 < n; ++i) {
+            const Keyframe<double> &a = before.at(i);
+            const Keyframe<double> &b = before.at(i + 1);
+            if (a.hold)
+                continue;
+            const double t0 = double(times.at(i));
+            const double t1 = double(times.at(i + 1));
+            const double span = t1 - t0;
+            if (span <= 0.0)
+                continue;
+            Keyframe<double> *k0 = track->keyframeRef(times.at(i));
+            Keyframe<double> *k1 = track->keyframeRef(times.at(i + 1));
+            const double v0 = a.value;
+            const double v1 = b.value;
+            const bool straightPath = qFuzzyIsNull(bx.at(i).spOut) && qFuzzyIsNull(by.at(i).spOut)
+                                      && qFuzzyIsNull(bx.at(i + 1).spIn) && qFuzzyIsNull(by.at(i + 1).spIn);
+            const double dd = b.pathDistance - a.pathDistance;
+            if (straightPath) {
+                // Along a line this axis moves the same share of the distance all the way.
+                const double share = std::abs(dd) > 1e-9 ? (v1 - v0) / dd : 0.0;
+                k0->outDx = a.outDx;
+                k0->outDy = a.outDy * share;
+                k1->inDx = b.inDx;
+                k1->inDy = b.inDy * share;
+                continue;
+            }
+            const auto weights = [](double s) {
+                const double u = 1.0 - s;
+                return std::array<double, 4>{u * u * u, 3.0 * u * u * s, 3.0 * u * s * s, s * s * s};
+            };
+            QList<double> outReach{a.outDx > 0 ? a.outDx / span : 1.0 / 3.0};
+            QList<double> inReach{b.inDx < 0 ? -b.inDx / span : 1.0 / 3.0};
+            for (int r = 1; r <= 9; ++r) {
+                outReach.append(r / 10.0);
+                inReach.append(r / 10.0);
+            }
+            double bestErr = -1.0, bestX1 = 0, bestX2 = 0, bestY1 = 0, bestY2 = 0;
+            for (const double ro : outReach) {
+                for (const double ri : inReach) {
+                    const double x1 = t0 + ro * span;
+                    const double x2 = t1 - ri * span;
+                    // Normal equations of y1, y2 over the samples.
+                    double s11 = 0, s12 = 0, s22 = 0, r1 = 0, r2 = 0;
+                    std::array<std::array<double, 4>, kSamples> ws;
+                    for (int k = 0; k < kSamples; ++k) {
+                        const double t = t0 + span * (k + 1) / (kSamples + 1);
+                        ws[k] = weights(bezierParameterForX(t0, x1, x2, t1, t));
+                        const double rest = played[i][k] - ws[k][0] * v0 - ws[k][3] * v1;
+                        s11 += ws[k][1] * ws[k][1];
+                        s12 += ws[k][1] * ws[k][2];
+                        s22 += ws[k][2] * ws[k][2];
+                        r1 += ws[k][1] * rest;
+                        r2 += ws[k][2] * rest;
+                    }
+                    const double det = s11 * s22 - s12 * s12;
+                    if (std::abs(det) < 1e-12)
+                        continue;
+                    const double y1 = (r1 * s22 - r2 * s12) / det;
+                    const double y2 = (s11 * r2 - s12 * r1) / det;
+                    double err = 0.0;
+                    for (int k = 0; k < kSamples; ++k) {
+                        const double v = ws[k][0] * v0 + ws[k][1] * y1 + ws[k][2] * y2 + ws[k][3] * v1;
+                        err = qMax(err, std::abs(v - played[i][k]));
+                    }
+                    if (bestErr < 0.0 || err < bestErr) {
+                        bestErr = err;
+                        bestX1 = x1;
+                        bestX2 = x2;
+                        bestY1 = y1;
+                        bestY2 = y2;
+                    }
+                }
+            }
+            if (bestErr < 0.0)
+                continue;
+            k0->outDx = bestX1 - t0;
+            k0->outDy = bestY1 - v0;
+            k1->inDx = bestX2 - t1;
+            k1->inDy = bestY2 - v1;
+        }
+        // A key where this axis turns (a bounce's floor) leaves at another slope than it arrives: a
+        // corner, so dragging one handle does not bend the other.
+        for (int i = 1; i + 1 < n; ++i) {
+            Keyframe<double> *key = track->keyframeRef(times.at(i));
+            if (!key || qFuzzyIsNull(key->inDx) || qFuzzyIsNull(key->outDx))
+                continue;
+            const double in = key->inDy / key->inDx;
+            const double out = key->outDy / key->outDx;
+            if (std::abs(in - out) > 1e-3 * qMax(1e-9, qMax(std::abs(in), std::abs(out))))
+                key->corner = true;
         }
     }
 }

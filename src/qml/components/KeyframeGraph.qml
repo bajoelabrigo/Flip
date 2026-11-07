@@ -22,6 +22,15 @@ Item {
         preventStealing: true
         hoverEnabled: true
         cursorShape: side === "left" || side === "right" ? Qt.SizeHorCursor : Qt.SizeVerCursor
+        // The square at the middle of the side, as After Effects draws it (0.30.1).
+        Rectangle {
+            anchors.centerIn: parent
+            width: 7
+            height: 7
+            color: "#f2f2f2"
+            border.width: 1
+            border.color: "#202020"
+        }
         onPressed: (mouse) => {
             origin = mapToItem(null, mouse.x, mouse.y)
             startSpan = side === "left" || side === "right"
@@ -51,13 +60,14 @@ Item {
         preventStealing: true
         hoverEnabled: true
         cursorShape: corner === "tl" || corner === "br" ? Qt.SizeFDiagCursor : Qt.SizeBDiagCursor
+        // After Effects' white squares (0.30.1).
         Rectangle {
             anchors.centerIn: parent
             width: 7
             height: 7
-            color: Theme.panelBackground
+            color: "#f2f2f2"
             border.width: 1
-            border.color: Theme.primary
+            border.color: "#202020"
         }
         onPressed: (mouse) => {
             origin = mapToItem(null, mouse.x, mouse.y)
@@ -70,8 +80,8 @@ Item {
             const p = mapToItem(null, mouse.x, mouse.y)
             box.applyCorner(corner, p.x - origin.x, p.y - origin.y, alone)
         }
-        onReleased: EditorState.commitPreviewDrag()
-        onCanceled: EditorState.commitPreviewDrag()
+        onReleased: { box.warp = null; EditorState.commitPreviewDrag() }
+        onCanceled: { box.warp = null; EditorState.commitPreviewDrag() }
     }
     // The transform box shows around two or more picked keys; its button hides it (After Effects).
     property bool transformBoxShown: true
@@ -733,24 +743,52 @@ Item {
             return out
         const entry = series[focusedIndex]
         const pts = entry.points
+        // Roving Position keys in Speed Graph (0.30.2, After Effects): only the run's two ends have handles,
+        // and they reach over the whole run, not their own stretch.
+        if (root.speedGraph && (entry.prop === "position" || entry.prop === "x" || entry.prop === "y")
+                && pts.length >= 3) {
+            // No tracksRevision here: it moves with every step of a drag, and rebuilding the handles under the
+            // pointer drops the drag (the graph then stayed frozen). The series changes when the keys do.
+            const rove = EditorState.roveEase(root.trackIndex, root.clipIndex)
+            if (rove && rove.active) {
+                if (root.tools)
+                    void root.tools.keys
+                const rprop = root.refProp(entry.prop)
+                const pickedAt = (q) => !root.tools || root.tools.isPicked(root.trackIndex,
+                    { clip: root.clipIndex, prop: rprop, seconds: q.seconds })
+                const last = pts.length - 1
+                if (pickedAt(pts[0]))
+                    out.push({ pointIndex: 0, outgoing: true, color: entry.color, point: pts[0], neighbour: pts[last],
+                               rove: rove })
+                if (pickedAt(pts[last]))
+                    out.push({ pointIndex: last, outgoing: false, color: entry.color, point: pts[last], neighbour: pts[0],
+                               rove: rove })
+                return out
+            }
+        }
         // Joined Position's X and Y in the Value Graph: their shape is the path's, bent on the
         // motion path in the preview; the timing is shaped in the Speed Graph (as After Effects).
         if ((entry.prop === "x" || entry.prop === "y") && pts.length > 0 && pts[0].spatial)
             return out
-        // Only the picked keys show their handles (0.30.1, as After Effects: every key's handles at once
-        // crowded the graph, and Jorge read them as one handle moving all the keys).
+        // Every eased key shows its handles, the picked ones filled (0.30.2, as After Effects' captures of the
+        // bounce and the thrown ball: the keys not picked are hollow squares with their handles). A straight
+        // (Linear) side has a handle only on a picked key, and never in the Value Graph: easing it (F9,
+        // Ctrl+click) gives it one.
         if (root.tools)
             void root.tools.keys
         const prop = root.refProp(entry.prop)
         for (let i = 0; i < pts.length; ++i) {
             if (pts[i].hold)
                 continue // a step has no tangents to shape
-            if (root.tools && !root.tools.isPicked(root.trackIndex, { clip: root.clipIndex, prop: prop,
-                                                                     seconds: pts[i].seconds }))
-                continue
-            if (i > 0)
+            const picked = !root.tools || root.tools.isPicked(root.trackIndex, { clip: root.clipIndex, prop: prop,
+                                                                               seconds: pts[i].seconds })
+            const linearIn = Math.abs(pts[i].inDx || 0) < 1e-6 && Math.abs(pts[i].inDy || 0) < 1e-9
+            const linearOut = Math.abs(pts[i].outDx || 0) < 1e-6 && Math.abs(pts[i].outDy || 0) < 1e-9
+            const straightIn = linearIn && (!root.speedGraph || !picked)
+            const straightOut = linearOut && (!root.speedGraph || !picked)
+            if (i > 0 && !straightIn)
                 out.push({ pointIndex: i, outgoing: false, color: entry.color, point: pts[i], neighbour: pts[i - 1] })
-            if (i < pts.length - 1)
+            if (i < pts.length - 1 && !straightOut)
                 out.push({ pointIndex: i, outgoing: true, color: entry.color, point: pts[i], neighbour: pts[i + 1] })
         }
         return out
@@ -769,8 +807,14 @@ Item {
         const reach = neighbour ? Math.abs(neighbour.seconds - point.seconds) / 3 : defaultHandleSeconds
         return outgoing ? reach : -reach
     }
-    function handleValue(point, outgoing) {
-        return point.value + (outgoing ? (point.outDy || 0) : (point.inDy || 0))
+    function handleValue(point, outgoing, neighbour) {
+        const dx = outgoing ? (point.outDx || 0) : (point.inDx || 0)
+        const dy = outgoing ? (point.outDy || 0) : (point.inDy || 0)
+        // A straight side (no handle yet) draws its handle along the line to the neighbour, where the
+        // curve really goes (0.30.1, as After Effects: a flat handle on a straight line misled).
+        if (Math.abs(dx) < 1e-6 && Math.abs(dy) < 1e-9 && neighbour && !point.hold)
+            return point.value + (neighbour.value - point.value) / 3
+        return point.value + dy
     }
 
     readonly property real clipStart: clip.start || 0
@@ -898,6 +942,9 @@ Item {
     // handle's height is the speed on that side of its key, its reach the influence. The axis keeps
     // the top it had when a drag began, so it does not rescale under the pointer.
     property real frozenSpeedPeak: 0
+    // Speed Graph drag (0.30.2): the key whose handle moves rides up and down with it, as After Effects.
+    property real speedDragSeconds: -1
+    property real speedDragDy: 0
     // After Effects' handle and picked-key yellow (0.30.1).
     readonly property color handleYellow: "#f2d21b"
     function speedTop() {
@@ -1546,6 +1593,31 @@ Item {
                             const spanX0 = root.xForSeconds(root.clipStart)
                             const spanX1 = root.xForSeconds(root.clipStart + root.clipDuration)
 
+                            // After Effects' grid (0.30.2): a vertical line every few frames or seconds,
+                            // about 90 px apart, behind the curves.
+                            {
+                                const steps = [1 / 30, 2 / 30, 5 / 30, 10 / 30, 0.5, 1, 2, 5, 10, 30, 60]
+                                let step = steps[steps.length - 1]
+                                for (const st of steps) {
+                                    if (st * root.pxPerSecond >= 90) {
+                                        step = st
+                                        break
+                                    }
+                                }
+                                const x0 = root.xForSeconds(0)
+                                const tLeft = (root.paintOriginX - x0) / Math.max(1e-6, root.pxPerSecond)
+                                const tRight = (root.paintOriginX + width - x0) / Math.max(1e-6, root.pxPerSecond)
+                                ctx.strokeStyle = "rgba(255,255,255,0.055)"
+                                ctx.lineWidth = 1
+                                ctx.beginPath()
+                                for (let t = Math.ceil(tLeft / step) * step; t <= tRight; t += step) {
+                                    const gx = Math.round(root.xForSeconds(t)) + 0.5
+                                    ctx.moveTo(gx, 0)
+                                    ctx.lineTo(gx, height)
+                                }
+                                ctx.stroke()
+                            }
+
                             for (let s = 0; s < root.series.length; ++s) {
                                 // «Only the curve being edited» (0.30) leaves the others out.
                                 if (!root.othersShown && !root.isFocused(s))
@@ -1708,27 +1780,42 @@ Item {
                                 const keyTimes = entry.points.map((p) => p.seconds).sort((a, b) => a - b)
                                 const t0 = keyTimes[0]
                                 const t1 = keyTimes[keyTimes.length - 1]
-                                const steps = Math.min(480, Math.max(48, Math.round((root.xForSeconds(t1) - root.xForSeconds(t0)) / 2)))
-                                const dt = (t1 - t0) / steps
+                                // Sampled stretch by stretch between keys (0.30.2): a difference across a key
+                                // where the value turns back (a bounce) read as a dip to almost 0; After Effects
+                                // draws a clean step there.
+                                const total = Math.max(1, Math.round((root.xForSeconds(t1) - root.xForSeconds(t0)) / 2))
                                 const base = entry.baseValue !== undefined ? entry.baseValue : 0
+                                const stretches = []
                                 const times = []
-                                for (let i = 0; i <= steps; ++i)
-                                    times.push(t0 + dt * i)
-                                const values = EditorState.propertyValuesAt(root.trackIndex, root.clipIndex, entry.prop,
-                                                                            times, base)
-                                const speeds = []
+                                for (let k = 0; k + 1 < keyTimes.length; ++k) {
+                                    const a = keyTimes[k]
+                                    const b = keyTimes[k + 1]
+                                    if (b - a < 1e-6)
+                                        continue
+                                    const n = Math.max(4, Math.min(240, Math.round(total * (b - a) / Math.max(1e-6, t1 - t0))))
+                                    stretches.push({ "a": a, "b": b, "n": n, "from": times.length })
+                                    for (let j = 0; j <= n; ++j)
+                                        times.push(a + (b - a) * j / n)
+                                }
+                                const values = times.length > 0
+                                    ? EditorState.propertyValuesAt(root.trackIndex, root.clipIndex, entry.prop, times, base) : []
                                 let peak = 0
-                                for (let i = 1; i < values.length; ++i) {
-                                    const sp = Math.abs(values[i] - values[i - 1]) / Math.max(1e-6, dt)
-                                    speeds.push(sp)
-                                    peak = Math.max(peak, sp)
+                                for (const st of stretches) {
+                                    const dt = (st.b - st.a) / st.n
+                                    st.speeds = []
+                                    for (let j = 1; j <= st.n; ++j) {
+                                        const sp = Math.abs(values[st.from + j] - values[st.from + j - 1]) / Math.max(1e-9, dt)
+                                        st.speeds.push(sp)
+                                        peak = Math.max(peak, sp)
+                                    }
                                 }
                                 root.speedPeak = peak
-                                if (peak > 1e-9 && speeds.length > 0) {
+                                if (peak > 1e-9 && stretches.length > 0) {
                                     // After Effects' Speed Graph: the speed is the curve now, light grey and thin.
                                     const zeroY = root.speedY(0)
-                                    const firstY = root.speedY(speeds[0])
-                                    const lastY = root.speedY(speeds[speeds.length - 1])
+                                    const firstY = root.speedY(stretches[0].speeds[0])
+                                    const lastSt = stretches[stretches.length - 1]
+                                    const lastY = root.speedY(lastSt.speeds[lastSt.speeds.length - 1])
                                     const fx = root.xForSeconds(t0)
                                     const lx = root.xForSeconds(t1)
                                     ctx.strokeStyle = "#d4d4d4"
@@ -1736,8 +1823,14 @@ Item {
                                     ctx.lineWidth = 1.5
                                     ctx.beginPath()
                                     ctx.moveTo(fx, firstY)
-                                    for (let i = 0; i < speeds.length; ++i)
-                                        ctx.lineTo(root.xForSeconds(t0 + dt * (i + 0.5)), root.speedY(speeds[i]))
+                                    for (const st of stretches) {
+                                        const dt = (st.b - st.a) / st.n
+                                        // Each stretch starts at its key with its own speed: a step when it changes.
+                                        ctx.lineTo(root.xForSeconds(st.a), root.speedY(st.speeds[0]))
+                                        for (let j = 0; j < st.speeds.length; ++j)
+                                            ctx.lineTo(root.xForSeconds(st.a + dt * (j + 0.5)), root.speedY(st.speeds[j]))
+                                        ctx.lineTo(root.xForSeconds(st.b), root.speedY(st.speeds[st.speeds.length - 1]))
+                                    }
                                     ctx.lineTo(lx, lastY)
                                     // At the last key the layer stops: straight down to 0.
                                     ctx.lineTo(lx, zeroY)
@@ -1963,22 +2056,59 @@ Item {
                                 : root.yForValue(root.draggingKey && root.shifted(modelData.prop, modelData.seconds)
                                                      ? root.groupValue(modelData.value, entry) : modelData.value, entry))
                                - height / 2 + dragDy
+                               + (root.speedGraph && Math.abs(root.speedDragSeconds - modelData.seconds) < 1e-4
+                                  ? root.speedDragDy : 0)
                             z: isPicked ? 3 : 2
 
                             // The same shapes as the tracks' rows: how the value arrives and
                             // leaves, red and larger when picked.
                             // In the graph a key is a small square, as After Effects' Graph Editor (0.30.1):
                             // the curve's colour, yellow when picked. The rows keep their glyphs.
+                            // In Speed Graph a key whose two sides go at different speeds shows a second
+                            // square at its incoming speed, as After Effects splits it (0.30.1).
+                            readonly property real splitDy: {
+                                if (!root.speedGraph || !keyDot.entry || keyDot.modelData.pointIndex <= 0
+                                        || keyDot.modelData.pointIndex >= keyDot.entry.points.length - 1)
+                                    return 0
+                                const a = root.speedY(root.keySideSpeed(keyDot.entry, keyDot.modelData.seconds, false))
+                                const b = root.speedY(root.keySideSpeed(keyDot.entry, keyDot.modelData.seconds, true))
+                                return Math.abs(a - b) > 4 ? a - b : 0
+                            }
+                            Rectangle {
+                                visible: parent.splitDy !== 0
+                                x: (parent.width - width) / 2
+                                y: (parent.height - height) / 2 + parent.splitDy
+                                width: 7
+                                height: 7
+                                color: keyDot.isPicked ? root.handleYellow : Theme.panelBackground
+                                border.width: 1
+                                border.color: root.handleYellow
+                            }
+                            // A roving Position key (Rove Across Time) is a small circle, as After Effects (0.30.2).
+                            readonly property bool roving: {
+                                void EditorState.tracksRevision
+                                const pr = keyDot.modelData.prop
+                                return (pr === "x" || pr === "y" || pr === "position") && !!keyDot.entry
+                                    && keyDot.modelData.pointIndex > 0
+                                    && keyDot.modelData.pointIndex < keyDot.entry.points.length - 1
+                                    && EditorState.positionRoving(root.trackIndex, root.clipIndex)
+                            }
                             Rectangle {
                                 anchors.centerIn: parent
                                 width: keyHover.hovered && !keyDot.isPicked ? 8 : 7
                                 height: width
+                                radius: keyDot.roving ? width / 2 : 0
+                                // The curve being edited: hollow yellow squares, filled when picked (After Effects);
+                                // the other curves keep their own colour.
+                                readonly property bool onFocused: root.speedGraph || (root.focusedIndex >= 0
+                                    && root.focusedIndex < root.series.length
+                                    && root.series[root.focusedIndex].prop === keyDot.modelData.prop)
                                 color: keyDot.isPicked ? root.handleYellow
-                                       : root.speedGraph ? Theme.panelBackground : keyDot.modelData.color
+                                       : onFocused ? Theme.panelBackground : keyDot.modelData.color
                                 border.width: 1
                                 border.color: keyDot.isPicked ? root.handleYellow
-                                              : root.speedGraph ? (keyHover.hovered ? "#ffffff" : root.handleYellow)
-                                              : (keyHover.hovered ? "#ffffff" : keyDot.modelData.color)
+                                              : keyHover.hovered ? "#ffffff"
+                                              : onFocused ? root.handleYellow : keyDot.modelData.color
                             }
                             HoverHandler {
                                 id: keyHover
@@ -2244,12 +2374,47 @@ Item {
                         y: entry ? root.yForValue(v1, entry) - 8 : 0
                         height: entry ? root.yForValue(v0, entry) - root.yForValue(v1, entry) + 16 : 0
 
+                        // After Effects' box: a light grey veil with a white edge (0.30.1).
                         Rectangle {
                             anchors.fill: parent
-                            color: "transparent"
+                            visible: !transformBox.warp
+                            color: Qt.rgba(1, 1, 1, 0.09)
                             border.width: 1
-                            border.color: Theme.primary
-                            opacity: 0.8
+                            border.color: "#d8d8d8"
+                        }
+                        // Alt on a corner: the box drawn warped while it moves, as After Effects (0.30.2).
+                        property var warp: null
+                        onWarpChanged: warpCanvas.requestPaint()
+                        Canvas {
+                            id: warpCanvas
+                            visible: !!transformBox.warp
+                            x: -transformBox.x
+                            y: -transformBox.y
+                            width: transformBox.parent ? transformBox.parent.width : 0
+                            height: transformBox.parent ? transformBox.parent.height : 0
+                            onPaint: {
+                                const ctx = getContext("2d")
+                                ctx.reset()
+                                const w = transformBox.warp
+                                const e = transformBox.entry
+                                if (!w || !e)
+                                    return
+                                const pt = (c) => [root.xForSeconds(c[0]), root.yForValue(c[1], e)]
+                                const q = [pt(w.bl), pt(w.br), pt(w.tr), pt(w.tl)]
+                                ctx.beginPath()
+                                ctx.moveTo(q[0][0], q[0][1])
+                                for (let i = 1; i < 4; ++i)
+                                    ctx.lineTo(q[i][0], q[i][1])
+                                ctx.closePath()
+                                ctx.fillStyle = Qt.rgba(1, 1, 1, 0.09)
+                                ctx.fill()
+                                ctx.lineWidth = 1
+                                ctx.strokeStyle = "#d8d8d8"
+                                ctx.stroke()
+                                ctx.fillStyle = "#f2f2f2"
+                                for (const c of q)
+                                    ctx.fillRect(c[0] - 3.5, c[1] - 3.5, 7, 7)
+                            }
                         }
 
                         // Where each picked key started, and where it is now in the drag.
@@ -2259,6 +2424,7 @@ Item {
                             const e = transformBox.entry
                             transformBox.base = transformBox.picked.map((p) => ({ "seconds": p.seconds, "value": p.value }))
                             transformBox.now = transformBox.base.map((b) => b.seconds)
+                            transformBox.warp = null
                             EditorState.beginPreviewDrag(qsTr("Transform keyframes"))
                         }
                         // side: "left", "right", "top", "bottom"; k the stretch (1 = as it was).
@@ -2318,6 +2484,7 @@ Item {
                             const c = { bl: [tLo, vLo], br: [tHi, vLo], tl: [tLo, vHi], tr: [tHi, vHi] }
                             if (alone) {
                                 c[corner] = [c[corner][0] + dt, c[corner][1] + dv]
+                                transformBox.warp = { bl: c.bl, br: c.br, tl: c.tl, tr: c.tr }
                             } else {
                                 const left = corner === "tl" || corner === "bl"
                                 const top = corner === "tl" || corner === "tr"
@@ -2367,12 +2534,16 @@ Item {
                                 : root.yForValue(modelData.point.value, entry)
                             readonly property real tipX:
                                 root.xForSeconds(modelData.point.seconds
-                                                 + root.handleSeconds(modelData.point, modelData.outgoing,
-                                                                      modelData.neighbour))
+                                                 + (modelData.rove
+                                                    ? (modelData.outgoing ? 1 : -1) * (modelData.outgoing ? modelData.rove.outReach
+                                                                                                         : modelData.rove.inReach)
+                                                      * Math.abs(modelData.neighbour.seconds - modelData.point.seconds)
+                                                    : root.handleSeconds(modelData.point, modelData.outgoing,
+                                                                         modelData.neighbour)))
                             // In Speed Graph the handle is level with its key: its height is that side's speed.
                             readonly property real tipY: root.speedGraph
                                 ? tangent.keyY
-                                : root.yForValue(root.handleValue(modelData.point, modelData.outgoing), entry)
+                                : root.yForValue(root.handleValue(modelData.point, modelData.outgoing, modelData.neighbour), entry)
 
                             anchors.fill: parent
                             z: 4
@@ -2380,14 +2551,15 @@ Item {
                             // Leader line from the key out to the grip.
                             Rectangle {
                                 x: tangent.keyX
-                                y: tangent.keyY
+                                // Level in Speed Graph: the key rides with its handle (0.30.2).
+                                y: tangent.keyY + (root.speedGraph ? tangent.dragDy : 0)
                                 width: Math.hypot(tangent.tipX - tangent.keyX + tangent.dragDx,
-                                                  tangent.tipY - tangent.keyY + tangent.dragDy)
+                                                  root.speedGraph ? 0 : tangent.tipY - tangent.keyY + tangent.dragDy)
                                 height: 1
                                 // After Effects' yellow handle line (0.30.1).
                                 color: root.handleYellow
                                 transformOrigin: Item.TopLeft
-                                rotation: Math.atan2(tangent.tipY - tangent.keyY + tangent.dragDy,
+                                rotation: Math.atan2(root.speedGraph ? 0 : tangent.tipY - tangent.keyY + tangent.dragDy,
                                                      tangent.tipX - tangent.keyX + tangent.dragDx)
                                           * 180 / Math.PI
                             }
@@ -2417,13 +2589,16 @@ Item {
                                     z: 10
                                     width: readoutText.implicitWidth + 10
                                     height: readoutText.implicitHeight + 6
-                                    radius: 3
-                                    color: Qt.rgba(0, 0, 0, 0.75)
+                                    // After Effects' pale yellow note, one line each (0.30.1).
+                                    radius: 2
+                                    color: "#f7efb4"
+                                    border.width: 1
+                                    border.color: "#8a7f3c"
                                     Text {
                                         id: readoutText
                                         anchors.centerIn: parent
-                                        text: gripDrag.readout
-                                        color: "#ffffff"
+                                        text: gripDrag.readout.replace("/s", root.focusedIndex >= 0 && root.focusedIndex < root.series.length ? root.speedUnit(root.series[root.focusedIndex].prop) : "/s").replace(" · ", "\n")
+                                        color: "#1c1c1c"
                                         font.pixelSize: 11
                                     }
                                 }
@@ -2471,11 +2646,41 @@ Item {
                                             return []
                                         const prop = root.refProp(root.series[root.focusedIndex].prop)
                                         const mine = tangent.modelData.point
+                                        // A handle of a key that is not picked shapes that key alone.
+                                        if (!root.tools.isPicked(root.trackIndex, { clip: root.clipIndex, prop: prop,
+                                                                                    seconds: mine.seconds }))
+                                            return []
                                         return pts.filter((q) => Math.abs(q.seconds - mine.seconds) > 1e-4 && root.tools.keys.some((k) =>
                                             root.tools.keyTrack(k) === root.trackIndex && k.clip === root.clipIndex
                                             && k.prop === prop && Math.abs(k.seconds - q.seconds) < 1e-4))
                                     }
+                                    // A straight (linear) other side: After Effects keeps the key's two speeds
+                                    // apart (not Continuous) when one side gets a handle, so the other side keeps
+                                    // its own speed until Keyframe Velocity › Continuous joins them (0.30.2,
+                                    // Jorge: the thrown ball).
+                                    function straightOther(index, count, inDx, outDx, outgoing) {
+                                        return outgoing ? index > 0 && Math.abs(inDx) < 1e-6
+                                                        : index < count - 1 && Math.abs(outDx) < 1e-6
+                                    }
                                     function speedDrag(p, outgoing) {
+                                        // A roving run's end (0.30.2): its reach is over the whole run.
+                                        if (tangent.modelData.rove) {
+                                            const far = tangent.modelData.neighbour
+                                            const runSpan = Math.max(1e-6, Math.abs(far.seconds - p.seconds))
+                                            const rdx = root.secondsForX(tangent.tipX + translation.x - tangent.keyX)
+                                            const reach = Math.max(0.01, Math.min(1, Math.abs(rdx) / runSpan))
+                                            const rspeed = root.speedForY(gripDrag.startKeyY + translation.y)
+                                            EditorState.previewSetRoveEase(root.trackIndex, root.clipIndex, outgoing, reach, rspeed)
+                                            gripDrag.readout = qsTr("Speed %1/s · Influence %2%")
+                                                .arg(Math.abs(rspeed).toFixed(Math.abs(rspeed) >= 100 ? 0 : 2))
+                                                .arg((reach * 100).toFixed(1))
+                                            tangent.dragDx = root.xForSeconds(p.seconds + (outgoing ? 1 : -1) * reach * runSpan) - tangent.tipX
+                                            tangent.dragDy = root.speedY(rspeed) - tangent.keyY
+                                            root.speedDragSeconds = p.seconds
+                                            root.speedDragDy = tangent.dragDy
+                                            curveCanvas.requestPaint()
+                                            return
+                                        }
                                         const pts = root.series[root.focusedIndex].points
                                         const i = tangent.modelData.pointIndex
                                         const neighbour = outgoing ? pts[i + 1] : pts[i - 1]
@@ -2488,10 +2693,12 @@ Item {
                                                       : Math.min(-segment * 0.01, Math.max(-segment, dx))
                                         const speed = root.speedForY(gripDrag.startKeyY + translation.y)
                                         const corner = p.corner || gripDrag.breakApart
-                                        // Only this key's handle (0.30.1, Jorge: the other picked keys changed with it
-                                        // and the whole bounce moved; checked in the window).
+                                            || gripDrag.straightOther(i, pts.length, p.inDx || 0, p.outDx || 0, outgoing)
+                                        // The same speed and reach on the same side of every other picked key of this
+                                        // curve, as After Effects (0.30.2, Jorge: «como After Effects»). Only the picked
+                                        // keys show handles, so it is plain which ones follow.
                                         const share = Math.abs(dx) / Math.max(1e-9, segment)
-                                        for (const q of [p]) {
+                                        for (const q of [p].concat(gripDrag.otherPicked(pts))) {
                                             const qi = q === p ? i : pts.indexOf(q)
                                             const nb = outgoing ? pts[qi + 1] : pts[qi - 1]
                                             if (!nb)
@@ -2500,11 +2707,12 @@ Item {
                                             const qdx = (outgoing ? 1 : -1) * share * seg
                                             const rising = outgoing ? nb.value >= q.value : q.value >= nb.value
                                             const slope = (rising ? 1 : -1) * speed
-                                            const qCorner = q.corner || gripDrag.breakApart
                                             let inDx = q.inDx || 0
                                             let inDy = q.inDy || 0
                                             let outDx = q.outDx || 0
                                             let outDy = q.outDy || 0
+                                            const qCorner = q.corner || gripDrag.breakApart
+                                                || gripDrag.straightOther(qi, pts.length, inDx, outDx, outgoing)
                                             if (outgoing) {
                                                 outDx = qdx
                                                 outDy = slope * qdx
@@ -2546,6 +2754,11 @@ Item {
                                         root.dragTangentOutDy = outDy
                                         tangent.dragDx = root.xForSeconds(p.seconds + dx) - tangent.tipX
                                         tangent.dragDy = root.speedY(speed) - tangent.keyY
+                                        // The key square shows the side it leaves by (the last key: the way in);
+                                        // it follows when that is the side dragged or the two sides go together.
+                                        const shownOut = i < pts.length - 1
+                                        root.speedDragSeconds = (!corner || shownOut === outgoing) ? p.seconds : -1
+                                        root.speedDragDy = tangent.dragDy
                                     }
                                     onActiveChanged: {
                                         if (active) {
@@ -2570,6 +2783,8 @@ Item {
                                             root.dragTangentIndex = -1
                                             tangent.dragDx = 0
                                             tangent.dragDy = 0
+                                            root.speedDragSeconds = -1
+                                            root.speedDragDy = 0
                                             EditorState.commitPreviewDrag()
                                             root.draggingKey = false
                                         }

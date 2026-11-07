@@ -412,8 +412,8 @@ QtObject {
     // their gutter chips all read as the same series. Chosen for separation at
     // 1.5px stroke width on both panel backgrounds.
     readonly property var keyframeCurveColors: ({
-        "x": "#16a9f3",
-        "y": "#f59e0b",
+        "x": "#e5503f", // After Effects: X red, Y green (0.30.2)
+        "y": "#4fbe3a",
         "width": "#23d160",
         "height": "#e879f9",
         "rotation": "#f43f5e",

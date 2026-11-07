@@ -576,8 +576,12 @@ jobs:
       # no console attached (qplaintestlogger.cpp) — which is exactly ctest's pipe. Without it a
       # failing suite reports only "***Failed" with not one FAIL! line to say which case or why,
       # and qWarning/qFatal go the same way, so even a fatal startup error is invisible.
+      # Flip Studio (0.30.2, Jorge: a failed test cost an hour of window testing each time): a failing test no
+      # longer stops the installer and the portable from being built and uploaded; the job's last step fails
+      # it afterwards, so a release still never publishes with a failing test.
       - name: Test
         id: test
+        continue-on-error: true
         shell: pwsh
         env:
           QT_FORCE_STDERR_LOGGING: 1
@@ -603,14 +607,14 @@ jobs:
       # Flip Studio: the Translations test rewrites i18n/*.ts with lupdate's output before failing,
       # and there is no lupdate off CI, so hand the regenerated catalogs back.
       - name: Upload regenerated translations
-        if: failure() && steps.test.outcome == 'failure'
+        if: steps.test.outcome == 'failure'
         uses: actions/upload-artifact@v4
         with:
           name: i18n-regenerated
           path: i18n/*.ts
 
       - name: Summarize test failures
-        if: failure() && steps.test.outcome == 'failure'
+        if: steps.test.outcome == 'failure'
         shell: bash
         run: |
           {
@@ -744,6 +748,13 @@ jobs:
             build/Release/effectthumbs.exe
             build/Release/templatethumbs.exe
             build/Release/transitionthumbs.exe
+
+      - name: Fail when a test failed
+        if: steps.test.outcome == 'failure'
+        shell: bash
+        run: |
+          echo "A test failed (see Summarize test failures); the installer and the portable were still uploaded."
+          exit 1
 
   macos:
     name: macOS disk image

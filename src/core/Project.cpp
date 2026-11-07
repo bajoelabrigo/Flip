@@ -362,6 +362,10 @@ QJsonObject clipToJson(const Clip &clip)
         json.insert(QStringLiteral("positionSeparated"), true);
     if (clip.positionRoving)
         json.insert(QStringLiteral("positionRoving"), true);
+    if (clip.roveOutReach >= 0.0 || clip.roveInReach >= 0.0) {
+        json.insert(QStringLiteral("roveEase"), QJsonArray{clip.roveOutReach, clip.roveOutSpeed,
+                                                          clip.roveInReach, clip.roveInSpeed});
+    }
     if (clip.restW > 0.0 && clip.restH > 0.0) {
         json.insert(QStringLiteral("restW"), clip.restW);
         json.insert(QStringLiteral("restH"), clip.restH);
@@ -527,6 +531,15 @@ Clip clipFromJsonV2(const QJsonObject &object, int canvasW = 1920, int canvasH =
     clip.positionJoined = object.value(QStringLiteral("positionJoined")).toBool(false);
     clip.positionSeparated = object.value(QStringLiteral("positionSeparated")).toBool(false);
     clip.positionRoving = object.value(QStringLiteral("positionRoving")).toBool(false);
+    {
+        const QJsonArray ease = object.value(QStringLiteral("roveEase")).toArray();
+        if (ease.size() == 4) {
+            clip.roveOutReach = ease.at(0).toDouble(-1.0);
+            clip.roveOutSpeed = ease.at(1).toDouble(0.0);
+            clip.roveInReach = ease.at(2).toDouble(-1.0);
+            clip.roveInSpeed = ease.at(3).toDouble(0.0);
+        }
+    }
     clip.restW = object.value(QStringLiteral("restW")).toDouble(0.0);
     clip.restH = object.value(QStringLiteral("restH")).toDouble(0.0);
     clip.sizePivotW = object.value(QStringLiteral("sizePivotW")).toDouble(0.0);

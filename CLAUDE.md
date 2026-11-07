@@ -46,6 +46,10 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 - La clave de firma de Drift (`CutWire`) ya no se usa; los extras se firman con la nuestra.
 - Lo de pago vive en servidores propios; las claves de API nunca dentro del `.exe`.
 - Antes de publicar algo, compilarlo y probarlo en Windows.
+- **REGLA (Jorge, 2026-11-06): antes de CADA compilación en GitHub, `pwsh tools/precheck.ps1`** (traducciones con
+  lupdate y sintaxis de los QML tocados; un minuto). Un fallo de Translations costaba una hora de compilación. Y desde la
+  0.30.2 el trabajo de Windows sube el instalador y la portable aunque falle una prueba (falla al final): se puede seguir
+  probando en ventana mientras se arregla la prueba; un release nunca se publica con una prueba en rojo.
 - **REGLA (Jorge, 2026-10-22): todo cambio o actualización se comprueba EN VENTANA antes de publicar**, viendo con
   los propios ojos que quedó como queremos: abrir cada panel o función que toca el cambio, comprobar que se vea
   lo que tiene que verse, hacer clic y ver el resultado en la vista previa. Las hojas renderizadas, el MCP sin

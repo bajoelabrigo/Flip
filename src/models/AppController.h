@@ -2356,6 +2356,12 @@ public:
     // Roving stays on for the clip until it is locked to time again (After Effects' Rove Across Time).
     Q_INVOKABLE bool positionRoving(int trackIndex, int clipIndex) const;
     Q_INVOKABLE void setPositionRoving(int trackIndex, int clipIndex, bool on);
+    // The roving run's ease (0.30.2): {active, spanSeconds, outReach, outSpeed, inReach, inSpeed}, speeds
+    // in px a second along the path, reaches as shares of the run's time.
+    Q_INVOKABLE QVariantMap roveEase(int trackIndex, int clipIndex) const;
+    // One end of it while a Speed Graph handle drags (inside a preview drag).
+    Q_INVOKABLE void previewSetRoveEase(int trackIndex, int clipIndex, bool outgoing, double reach,
+                                        double speedPerSecond);
     // The set of default shortcuts (0.30): "flip" or "afterEffects". Changing it keeps the bindings
     // the user chose; the rest follow the new set.
     Q_INVOKABLE QString shortcutPreset() const;

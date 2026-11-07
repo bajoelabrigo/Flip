@@ -95,3 +95,6 @@ tools/stock_i18n/work/
 upload-list.txt
 remove-list.txt
 work/
+
+# tools/precheck.ps1 scratch
+.qmcheck/

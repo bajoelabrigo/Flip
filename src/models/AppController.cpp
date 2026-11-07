@@ -34479,8 +34479,133 @@ namespace {
 // After Effects' roving keys: the Position keys between the first and the last go where the layer would be
 // at one even speed along the path; the ends keep their ease, which then shapes the whole run (an eased last
 // key slows the layer down over all of it, not only its last stretch). False when nothing changed.
-bool roveClipPosition(drift::Clip &clip)
+// Joined Position with roving keys (0.30.2, as After Effects): the first key's outgoing and the last
+// key's incoming ease shape one timing curve over the whole run (Clip::rove*), the keys between sit on it
+// where the layer is along the path, and every key's handles follow that curve, so the speed runs on
+// smoothly through the roving keys (Jorge: the billiard ball). False when nothing changed.
+bool roveJoinedPosition(drift::Clip &clip, bool adoptKeyEdits)
 {
+    const QList<drift::TimeUs> times = positionKeyTimes(clip);
+    const int n = times.size();
+    if (n < 3)
+        return false;
+    drift::KeyframeTrack<double> &xs = clip.transformX;
+    QList<double> along;
+    for (const drift::TimeUs t : times)
+        along.append(xs.keyframes().contains(t) ? xs.keyframes().value(t).pathDistance : 0.0);
+    const double total = along.last() - along.first();
+    const double span = double(times.last() - times.first());
+    if (total <= 1e-6 || span <= 0.0)
+        return false;
+    const double avg = total / span;
+    const drift::Keyframe<double> firstKey = xs.keyframes().value(times.first());
+    const drift::Keyframe<double> lastKey = xs.keyframes().value(times.last());
+    // Not set yet: what the ends' own handles say, or the even run roving starts as.
+    if (clip.roveOutReach < 0.0) {
+        clip.roveOutReach = firstKey.outDx > 0.0 ? qBound(0.01, firstKey.outDx / span, 1.0) : 1.0 / 3.0;
+        clip.roveOutSpeed = firstKey.outDx > 0.0 ? firstKey.outDy / firstKey.outDx : avg;
+    }
+    if (clip.roveInReach < 0.0) {
+        clip.roveInReach = lastKey.inDx < 0.0 ? qBound(0.01, -lastKey.inDx / span, 1.0) : 1.0 / 3.0;
+        clip.roveInSpeed = lastKey.inDx < 0.0 ? lastKey.inDy / lastKey.inDx : avg;
+    }
+    // An end eased some other way since (F9, Keyframe Velocity): its speed is the new one.
+    const auto otherSpeed = [](double dx, double dy, double was) {
+        if (std::abs(dx) < 1e-9)
+            return was;
+        const double v = dy / dx;
+        return std::abs(v - was) > 1e-6 * qMax(1e-9, std::abs(was)) + 1e-12 ? v : was;
+    };
+    // Not while the run's own handle drags: the keys still hold the speed it had before.
+    if (adoptKeyEdits) {
+        clip.roveOutSpeed = otherSpeed(firstKey.outDx, firstKey.outDy, clip.roveOutSpeed);
+        clip.roveInSpeed = otherSpeed(lastKey.inDx, lastKey.inDy, clip.roveInSpeed);
+    }
+
+    // The run's timing: a cubic in (time from the first key, distance from it).
+    const double bx1 = clip.roveOutReach * span;
+    const double by1 = qBound(0.0, clip.roveOutSpeed * bx1, total);
+    const double bx2 = span - clip.roveInReach * span;
+    const double by2 = qBound(0.0, total - clip.roveInSpeed * clip.roveInReach * span, total);
+    const auto at = [](double a, double b, double c, double d, double u) {
+        const double v = 1.0 - u;
+        return v * v * v * a + 3.0 * v * v * u * b + 3.0 * v * u * u * c + u * u * u * d;
+    };
+    const auto derivativeAt = [&](double u) {
+        const double v = 1.0 - u;
+        return QPointF(3.0 * (v * v * bx1 + 2.0 * v * u * (bx2 - bx1) + u * u * (span - bx2)),
+                       3.0 * (v * v * by1 + 2.0 * v * u * (by2 - by1) + u * u * (total - by2)));
+    };
+    QList<double> param{0.0};
+    QList<drift::TimeUs> moved{times.first()};
+    for (int i = 1; i + 1 < n; ++i) {
+        const double want = along.at(i) - along.first();
+        double lo = 0.0, hi = 1.0;
+        for (int it = 0; it < 60; ++it) {
+            const double mid = 0.5 * (lo + hi);
+            if (at(0.0, by1, by2, total, mid) < want)
+                lo = mid;
+            else
+                hi = mid;
+        }
+        const double u = 0.5 * (lo + hi);
+        param.append(u);
+        moved.append(times.first() + drift::TimeUs(std::llround(at(0.0, bx1, bx2, span, u))));
+    }
+    param.append(1.0);
+    moved.append(times.last());
+    for (int i = 1; i + 1 < n; ++i)
+        moved[i] = qBound(moved.at(i - 1) + 1000, moved.at(i), moved.last() - drift::TimeUs(1000) * (n - 1 - i));
+    bool changed = false;
+    for (int i = 0; i < n; ++i) {
+        if (std::llabs(moved.at(i) - times.at(i)) <= 2)
+            moved[i] = times.at(i);
+        changed = changed || moved.at(i) != times.at(i);
+    }
+    for (drift::KeyframeTrack<double> *track : {&clip.transformX, &clip.transformY}) {
+        QList<QPair<drift::TimeUs, drift::Keyframe<double>>> keys;
+        for (int i = 0; i < n; ++i) {
+            if (!track->keyframes().contains(times.at(i)))
+                continue;
+            const drift::Keyframe<double> was = track->keyframes().value(times.at(i));
+            drift::Keyframe<double> key = was;
+            // Each stretch is exactly its piece of the run's cubic (de Casteljau): the handle of a key is the
+            // curve's derivative there times a third of the stretch's share of the curve, so the speed runs on
+            // through the roving keys without a kink (a third of the stretch's time would bend it).
+            const QPointF d = derivativeAt(param.at(i));
+            key.hold = false;
+            key.corner = false;
+            key.inDx = key.inDy = key.outDx = key.outDy = 0.0;
+            if (i > 0) {
+                const double share = (param.at(i) - param.at(i - 1)) / 3.0;
+                key.inDx = -d.x() * share;
+                key.inDy = -d.y() * share;
+            }
+            if (i + 1 < n) {
+                const double share = (param.at(i + 1) - param.at(i)) / 3.0;
+                key.outDx = d.x() * share;
+                key.outDy = d.y() * share;
+            }
+            const auto near = [](double a, double b) { return std::abs(a - b) <= 1e-6 * qMax(1.0, std::abs(b)); };
+            if (!near(key.inDx, was.inDx) || !near(key.inDy, was.inDy) || !near(key.outDx, was.outDx)
+                || !near(key.outDy, was.outDy) || key.hold != was.hold || key.corner != was.corner)
+                changed = true;
+            keys.append({moved.at(i), key});
+        }
+        if (!changed)
+            continue;
+        for (const drift::TimeUs t : times)
+            track->removeKeyframe(t);
+        for (const auto &k : keys)
+            track->setKeyframe(k.first, k.second);
+    }
+    return changed;
+}
+
+bool roveClipPosition(drift::Clip &clip, bool adoptKeyEdits = true)
+{
+    if (clip.positionJoined)
+        return roveJoinedPosition(clip, adoptKeyEdits);
     const QList<drift::TimeUs> times = positionKeyTimes(clip);
     if (times.size() < 3)
         return false;
@@ -34613,10 +34738,53 @@ void AppController::setPositionRoving(int trackIndex, int clipIndex, bool on)
     drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
     // It stays on, as After Effects' roving keys: every later edit spreads them again (syncRovingPositions).
     clip.positionRoving = on;
+    // A new run starts from the ends' own handles (or even).
+    clip.roveOutReach = clip.roveInReach = -1.0;
     if (on)
         roveClipPosition(clip);
     pushProjectEdit(before, on ? tr("Roving keyframes") : tr("Lock keyframes to time"));
     finishEdit(on ? tr("Roving keyframes") : tr("Lock keyframes to time"));
+}
+
+QVariantMap AppController::roveEase(int trackIndex, int clipIndex) const
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return {};
+    const drift::Clip &clip = m_project.tracks().at(trackIndex).clips.at(clipIndex);
+    const QList<drift::TimeUs> times = positionKeyTimes(clip);
+    const bool active = clip.positionRoving && clip.positionJoined && times.size() >= 3 && clip.roveOutReach >= 0.0
+                        && clip.roveInReach >= 0.0;
+    if (!active)
+        return {{QStringLiteral("active"), false}};
+    return {{QStringLiteral("active"), true},
+            {QStringLiteral("startSeconds"), drift::usToSeconds(times.first())},
+            {QStringLiteral("spanSeconds"), drift::usToSeconds(times.last() - times.first())},
+            {QStringLiteral("outReach"), clip.roveOutReach},
+            {QStringLiteral("outSpeed"), clip.roveOutSpeed * 1e6},
+            {QStringLiteral("inReach"), clip.roveInReach},
+            {QStringLiteral("inSpeed"), clip.roveInSpeed * 1e6}};
+}
+
+void AppController::previewSetRoveEase(int trackIndex, int clipIndex, bool outgoing, double reach,
+                                       double speedPerSecond)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return;
+    drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
+    if (!clip.positionRoving || !clip.positionJoined)
+        return;
+    if (!m_previewDragActive)
+        beginPreviewDrag(QCoreApplication::translate("KeyframeGraph", "Edit keyframe curve"));
+    if (outgoing) {
+        clip.roveOutReach = qBound(0.01, reach, 1.0);
+        clip.roveOutSpeed = qMax(0.0, speedPerSecond) / 1e6;
+    } else {
+        clip.roveInReach = qBound(0.01, reach, 1.0);
+        clip.roveInSpeed = qMax(0.0, speedPerSecond) / 1e6;
+    }
+    roveClipPosition(clip, false);
+    drift::syncJoinedPosition(clip);
+    emitPreviewEdit(trackIndex, clipIndex, {QStringLiteral("x"), QStringLiteral("y")});
 }
 
 void AppController::syncRovingPositions()
