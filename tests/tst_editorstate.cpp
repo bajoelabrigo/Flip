@@ -11392,7 +11392,10 @@ void EditorStateTest::rovingKeysSpreadAgainAfterAnEase()
 
     // Joined Position (0.30.2, as After Effects): the eased run is one smooth speed curve, with no kink at
     // the roving keys (each stretch is its exact piece of the run's curve, not a third of its time).
+    // A straight path, as the billiard ball: a curved one is measured in eighths of its arc, which bends the
+    // speed of one axis a little on its own and would hide what this checks.
     state.setPositionJoined(track, 0, true);
+    state.setPositionPath(track, 0, QStringLiteral("linear"), {});
     state.setPositionRoving(track, 0, true);
     QVERIFY(state.positionJoined(track, 0));
     const QList<double> joined = innerTimes();
