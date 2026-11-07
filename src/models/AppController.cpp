@@ -34483,7 +34483,7 @@ namespace {
 // key's incoming ease shape one timing curve over the whole run (Clip::rove*), the keys between sit on it
 // where the layer is along the path, and every key's handles follow that curve, so the speed runs on
 // smoothly through the roving keys (Jorge: the billiard ball). False when nothing changed.
-bool roveJoinedPosition(drift::Clip &clip)
+bool roveJoinedPosition(drift::Clip &clip, bool adoptKeyEdits)
 {
     const QList<drift::TimeUs> times = positionKeyTimes(clip);
     const int n = times.size();
@@ -34516,8 +34516,11 @@ bool roveJoinedPosition(drift::Clip &clip)
         const double v = dy / dx;
         return std::abs(v - was) > 1e-6 * qMax(1e-9, std::abs(was)) + 1e-12 ? v : was;
     };
-    clip.roveOutSpeed = otherSpeed(firstKey.outDx, firstKey.outDy, clip.roveOutSpeed);
-    clip.roveInSpeed = otherSpeed(lastKey.inDx, lastKey.inDy, clip.roveInSpeed);
+    // Not while the run's own handle drags: the keys still hold the speed it had before.
+    if (adoptKeyEdits) {
+        clip.roveOutSpeed = otherSpeed(firstKey.outDx, firstKey.outDy, clip.roveOutSpeed);
+        clip.roveInSpeed = otherSpeed(lastKey.inDx, lastKey.inDy, clip.roveInSpeed);
+    }
 
     // The run's timing: a cubic in (time from the first key, distance from it).
     const double bx1 = clip.roveOutReach * span;
@@ -34597,10 +34600,10 @@ bool roveJoinedPosition(drift::Clip &clip)
     return changed;
 }
 
-bool roveClipPosition(drift::Clip &clip)
+bool roveClipPosition(drift::Clip &clip, bool adoptKeyEdits = true)
 {
     if (clip.positionJoined)
-        return roveJoinedPosition(clip);
+        return roveJoinedPosition(clip, adoptKeyEdits);
     const QList<drift::TimeUs> times = positionKeyTimes(clip);
     if (times.size() < 3)
         return false;
@@ -34777,7 +34780,7 @@ void AppController::previewSetRoveEase(int trackIndex, int clipIndex, bool outgo
         clip.roveInReach = qBound(0.01, reach, 1.0);
         clip.roveInSpeed = qMax(0.0, speedPerSecond) / 1e6;
     }
-    roveClipPosition(clip);
+    roveClipPosition(clip, false);
     drift::syncJoinedPosition(clip);
     emitPreviewEdit(trackIndex, clipIndex, {QStringLiteral("x"), QStringLiteral("y")});
 }

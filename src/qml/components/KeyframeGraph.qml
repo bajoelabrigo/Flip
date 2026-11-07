@@ -747,7 +747,8 @@ Item {
         // and they reach over the whole run, not their own stretch.
         if (root.speedGraph && (entry.prop === "position" || entry.prop === "x" || entry.prop === "y")
                 && pts.length >= 3) {
-            void EditorState.tracksRevision
+            // No tracksRevision here: it moves with every step of a drag, and rebuilding the handles under the
+            // pointer drops the drag (the graph then stayed frozen). The series changes when the keys do.
             const rove = EditorState.roveEase(root.trackIndex, root.clipIndex)
             if (rove && rove.active) {
                 if (root.tools)
@@ -780,9 +781,13 @@ Item {
             if (root.tools && !root.tools.isPicked(root.trackIndex, { clip: root.clipIndex, prop: prop,
                                                                      seconds: pts[i].seconds }))
                 continue
-            if (i > 0)
+            // In the Value Graph a straight (Linear) side has no handle, as After Effects (0.30.2): easing the
+            // key (F9, Ctrl+click) gives it one.
+            const straightIn = !root.speedGraph && Math.abs(pts[i].inDx || 0) < 1e-6 && Math.abs(pts[i].inDy || 0) < 1e-9
+            const straightOut = !root.speedGraph && Math.abs(pts[i].outDx || 0) < 1e-6 && Math.abs(pts[i].outDy || 0) < 1e-9
+            if (i > 0 && !straightIn)
                 out.push({ pointIndex: i, outgoing: false, color: entry.color, point: pts[i], neighbour: pts[i - 1] })
-            if (i < pts.length - 1)
+            if (i < pts.length - 1 && !straightOut)
                 out.push({ pointIndex: i, outgoing: true, color: entry.color, point: pts[i], neighbour: pts[i + 1] })
         }
         return out
