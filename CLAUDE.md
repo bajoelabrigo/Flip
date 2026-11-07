@@ -61,13 +61,29 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 
 ## Estado (actualizado 2026-11-04)
 
+### 0.30.2 PUBLICADA (2026-11-07) — curvas iguales a After Effects (arreglos)
+- PR #56 (`flip/v0.30.2` → `main`), tag `v0.30.2`, release (run 42331235247), MSIX `msstore.yml` run 42331254692 →
+  `tienda\FlipStudio-Store\paquete-0.30.2` **y copia en `OneDrive\FlipStudio\tienda\FlipStudio-Store\paquete-0.30.2`**
+  (Jorge trabaja desde la tableta y sube el MSIX desde ahí). La 0.30.1 **no se subió** a la Store: las notas «0.30.2,
+  combinadas con la 0.30.1» de `docs/store-listing.md` cubren las dos. Falta (Jorge): subir el MSIX y, al aprobarse, TXT `version`.
+- Hecho a mano en ventana contra 6 capturas de AE (comparaciones en `E:\FlipStudio\pruebas\v031\comparar`, aprobadas por
+  Jorge): EASY OUT, pelota lanzada separada y con Continua, caja con Alt, rebote suave, billar con Itinerante.
+- **Trampa nueva:** las formas de AE se miden por píxeles, no a ojo: la pelota con Continua da 0,50/0,20/0,05 de la
+  velocidad inicial a ¼, ½ y ¾ del tramo (influencias ~33 % y velocidad inicial ≈ 3,2 × la media).
+- **Trampa nueva:** en AE Ctrl+clic sobre una clave cambia su interpolación (aquí igual); para sumar a la selección, Mayús+clic.
+- **Trampa nueva:** una clave recta no es «Continua»: al sacar el tirador de un lado el otro conserva su velocidad
+  (`straightOther` en `speedDrag`). Desplazar en el tiempo parte la cúbica del recorrido con de Casteljau en cada clave
+  (`roveJoinedPosition`); con tercios del tiempo hacía un quiebre.
+- **Trampa nueva:** un trayecto unido curvo se mide en octavos de arco: la velocidad de un eje salta un poco en las
+  claves aunque el tiempo sea suave. Las pruebas de suavidad del tiempo van con «Trayecto recto».
+
 ### 0.30.1 PUBLICADA (2026-11-05) — arreglos (Jorge: «es una corrección, no son novedades») — **detalle en `docs/plan-0.30.1.md`**
 - PR #55 (`flip/v0.30.1` → `main`), tag `v0.30.1`, release (run 41992980133); copia en `versiones\FlipStudio-0.30.1` (hashes
   comprobados). MSIX: `msstore.yml` run 41993039969 → `tienda\FlipStudio-Store\paquete-0.30.1`. Notas de la Store: «Notas para la
   Store (0.30.1)» en `docs/store-listing.md`. Novedades en la web (`flipstudio-web` `fc458`, desplegado).
 - Gráfico de velocidad como AE (tiradores amarillos solo en claves elegidas, el tirador cambia solo su clave), Squash: su capa
   de ajuste sigue elegida al marcar claves, Stock: la rueda recorre las categorías del tipo y la lista empieza arriba.
-  Probado en ventana (r1–r4). **Falta (Jorge):** subir el MSIX y, al aprobarse, TXT `version` = 0.30.1.
+  Probado en ventana (r1–r4). **No se subió a la Store** (va junto con la 0.30.2).
 - **Regla (Jorge):** los arreglos después de publicar van como versión de parche (0.30.1), no como la siguiente.
 - **Trampa nueva:** la capa de ajuste de Squash vive en **su propia pista** (hija de la del clip, `scope: parentTrack`): para saber
   si un ajuste es «de» un clip usar `adjustmentTargetState`, no comparar la pista.
