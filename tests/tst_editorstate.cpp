@@ -11389,6 +11389,23 @@ void EditorStateTest::rovingKeysSpreadAgainAfterAnEase()
     state.setPositionRoving(track, 0, false);
     QVERIFY(!state.positionRoving(track, 0));
     QCOMPARE(innerTimes(), eased);
+
+    // Joined Position (0.30.2, as After Effects): the eased run is one smooth speed curve, with no kink at
+    // the roving keys (each stretch is its exact piece of the run's curve, not a third of its time).
+    state.setPositionJoined(track, 0, true);
+    state.setPositionRoving(track, 0, true);
+    QVERIFY(state.positionJoined(track, 0));
+    const QList<double> joined = innerTimes();
+    QCOMPARE(joined.size(), 2);
+    const drift::Clip &ball = state.project()->tracks().at(track).clips.at(0);
+    for (const double seconds : joined) {
+        const drift::TimeUs at = drift::secondsToUs(seconds) - ball.timelineStart;
+        const drift::TimeUs h = 10000;
+        const double before = (ball.transformX.evaluateAt(at) - ball.transformX.evaluateAt(at - h)) / 0.01;
+        const double after = (ball.transformX.evaluateAt(at + h) - ball.transformX.evaluateAt(at)) / 0.01;
+        QVERIFY2(qAbs(after - before) < 0.03 * qMax(qAbs(after), qAbs(before)) + 2.0,
+                 qPrintable(QStringLiteral("%1 s: %2 vs %3 px/s").arg(seconds).arg(before).arg(after)));
+    }
 }
 
 void EditorStateTest::trackKeyframeRowsUnfoldAndEdit()

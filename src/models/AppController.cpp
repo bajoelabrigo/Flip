@@ -34531,13 +34531,10 @@ bool roveJoinedPosition(drift::Clip &clip, bool adoptKeyEdits)
         const double v = 1.0 - u;
         return v * v * v * a + 3.0 * v * v * u * b + 3.0 * v * u * u * c + u * u * u * d;
     };
-    const auto slopeAt = [&](double u) {
+    const auto derivativeAt = [&](double u) {
         const double v = 1.0 - u;
-        const double dx = 3.0 * (v * v * bx1 + 2.0 * v * u * (bx2 - bx1) + u * u * (span - bx2));
-        const double dy = 3.0 * (v * v * by1 + 2.0 * v * u * (by2 - by1) + u * u * (total - by2));
-        if (dx > 1e-9)
-            return dy / dx;
-        return u < 0.5 ? clip.roveOutSpeed : clip.roveInSpeed;
+        return QPointF(3.0 * (v * v * bx1 + 2.0 * v * u * (bx2 - bx1) + u * u * (span - bx2)),
+                       3.0 * (v * v * by1 + 2.0 * v * u * (by2 - by1) + u * u * (total - by2)));
     };
     QList<double> param{0.0};
     QList<drift::TimeUs> moved{times.first()};
@@ -34572,17 +34569,22 @@ bool roveJoinedPosition(drift::Clip &clip, bool adoptKeyEdits)
                 continue;
             const drift::Keyframe<double> was = track->keyframes().value(times.at(i));
             drift::Keyframe<double> key = was;
-            const double slope = i == 0 ? clip.roveOutSpeed : i == n - 1 ? clip.roveInSpeed : slopeAt(param.at(i));
+            // Each stretch is exactly its piece of the run's cubic (de Casteljau): the handle of a key is the
+            // curve's derivative there times a third of the stretch's share of the curve, so the speed runs on
+            // through the roving keys without a kink (a third of the stretch's time would bend it).
+            const QPointF d = derivativeAt(param.at(i));
             key.hold = false;
             key.corner = false;
             key.inDx = key.inDy = key.outDx = key.outDy = 0.0;
             if (i > 0) {
-                key.inDx = -double(moved.at(i) - moved.at(i - 1)) / 3.0;
-                key.inDy = slope * key.inDx;
+                const double share = (param.at(i) - param.at(i - 1)) / 3.0;
+                key.inDx = -d.x() * share;
+                key.inDy = -d.y() * share;
             }
             if (i + 1 < n) {
-                key.outDx = double(moved.at(i + 1) - moved.at(i)) / 3.0;
-                key.outDy = slope * key.outDx;
+                const double share = (param.at(i + 1) - param.at(i)) / 3.0;
+                key.outDx = d.x() * share;
+                key.outDy = d.y() * share;
             }
             const auto near = [](double a, double b) { return std::abs(a - b) <= 1e-6 * qMax(1.0, std::abs(b)); };
             if (!near(key.inDx, was.inDx) || !near(key.inDy, was.inDy) || !near(key.outDx, was.outDx)

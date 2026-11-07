@@ -770,21 +770,22 @@ Item {
         // motion path in the preview; the timing is shaped in the Speed Graph (as After Effects).
         if ((entry.prop === "x" || entry.prop === "y") && pts.length > 0 && pts[0].spatial)
             return out
-        // Only the picked keys show their handles (0.30.1, as After Effects: every key's handles at once
-        // crowded the graph, and Jorge read them as one handle moving all the keys).
+        // Every eased key shows its handles, the picked ones filled (0.30.2, as After Effects' captures of the
+        // bounce and the thrown ball: the keys not picked are hollow squares with their handles). A straight
+        // (Linear) side has a handle only on a picked key, and never in the Value Graph: easing it (F9,
+        // Ctrl+click) gives it one.
         if (root.tools)
             void root.tools.keys
         const prop = root.refProp(entry.prop)
         for (let i = 0; i < pts.length; ++i) {
             if (pts[i].hold)
                 continue // a step has no tangents to shape
-            if (root.tools && !root.tools.isPicked(root.trackIndex, { clip: root.clipIndex, prop: prop,
-                                                                     seconds: pts[i].seconds }))
-                continue
-            // In the Value Graph a straight (Linear) side has no handle, as After Effects (0.30.2): easing the
-            // key (F9, Ctrl+click) gives it one.
-            const straightIn = !root.speedGraph && Math.abs(pts[i].inDx || 0) < 1e-6 && Math.abs(pts[i].inDy || 0) < 1e-9
-            const straightOut = !root.speedGraph && Math.abs(pts[i].outDx || 0) < 1e-6 && Math.abs(pts[i].outDy || 0) < 1e-9
+            const picked = !root.tools || root.tools.isPicked(root.trackIndex, { clip: root.clipIndex, prop: prop,
+                                                                               seconds: pts[i].seconds })
+            const linearIn = Math.abs(pts[i].inDx || 0) < 1e-6 && Math.abs(pts[i].inDy || 0) < 1e-9
+            const linearOut = Math.abs(pts[i].outDx || 0) < 1e-6 && Math.abs(pts[i].outDy || 0) < 1e-9
+            const straightIn = linearIn && (!root.speedGraph || !picked)
+            const straightOut = linearOut && (!root.speedGraph || !picked)
             if (i > 0 && !straightIn)
                 out.push({ pointIndex: i, outgoing: false, color: entry.color, point: pts[i], neighbour: pts[i - 1] })
             if (i < pts.length - 1 && !straightOut)
@@ -1779,27 +1780,42 @@ Item {
                                 const keyTimes = entry.points.map((p) => p.seconds).sort((a, b) => a - b)
                                 const t0 = keyTimes[0]
                                 const t1 = keyTimes[keyTimes.length - 1]
-                                const steps = Math.min(480, Math.max(48, Math.round((root.xForSeconds(t1) - root.xForSeconds(t0)) / 2)))
-                                const dt = (t1 - t0) / steps
+                                // Sampled stretch by stretch between keys (0.30.2): a difference across a key
+                                // where the value turns back (a bounce) read as a dip to almost 0; After Effects
+                                // draws a clean step there.
+                                const total = Math.max(1, Math.round((root.xForSeconds(t1) - root.xForSeconds(t0)) / 2))
                                 const base = entry.baseValue !== undefined ? entry.baseValue : 0
+                                const stretches = []
                                 const times = []
-                                for (let i = 0; i <= steps; ++i)
-                                    times.push(t0 + dt * i)
-                                const values = EditorState.propertyValuesAt(root.trackIndex, root.clipIndex, entry.prop,
-                                                                            times, base)
-                                const speeds = []
+                                for (let k = 0; k + 1 < keyTimes.length; ++k) {
+                                    const a = keyTimes[k]
+                                    const b = keyTimes[k + 1]
+                                    if (b - a < 1e-6)
+                                        continue
+                                    const n = Math.max(4, Math.min(240, Math.round(total * (b - a) / Math.max(1e-6, t1 - t0))))
+                                    stretches.push({ "a": a, "b": b, "n": n, "from": times.length })
+                                    for (let j = 0; j <= n; ++j)
+                                        times.push(a + (b - a) * j / n)
+                                }
+                                const values = times.length > 0
+                                    ? EditorState.propertyValuesAt(root.trackIndex, root.clipIndex, entry.prop, times, base) : []
                                 let peak = 0
-                                for (let i = 1; i < values.length; ++i) {
-                                    const sp = Math.abs(values[i] - values[i - 1]) / Math.max(1e-6, dt)
-                                    speeds.push(sp)
-                                    peak = Math.max(peak, sp)
+                                for (const st of stretches) {
+                                    const dt = (st.b - st.a) / st.n
+                                    st.speeds = []
+                                    for (let j = 1; j <= st.n; ++j) {
+                                        const sp = Math.abs(values[st.from + j] - values[st.from + j - 1]) / Math.max(1e-9, dt)
+                                        st.speeds.push(sp)
+                                        peak = Math.max(peak, sp)
+                                    }
                                 }
                                 root.speedPeak = peak
-                                if (peak > 1e-9 && speeds.length > 0) {
+                                if (peak > 1e-9 && stretches.length > 0) {
                                     // After Effects' Speed Graph: the speed is the curve now, light grey and thin.
                                     const zeroY = root.speedY(0)
-                                    const firstY = root.speedY(speeds[0])
-                                    const lastY = root.speedY(speeds[speeds.length - 1])
+                                    const firstY = root.speedY(stretches[0].speeds[0])
+                                    const lastSt = stretches[stretches.length - 1]
+                                    const lastY = root.speedY(lastSt.speeds[lastSt.speeds.length - 1])
                                     const fx = root.xForSeconds(t0)
                                     const lx = root.xForSeconds(t1)
                                     ctx.strokeStyle = "#d4d4d4"
@@ -1807,8 +1823,14 @@ Item {
                                     ctx.lineWidth = 1.5
                                     ctx.beginPath()
                                     ctx.moveTo(fx, firstY)
-                                    for (let i = 0; i < speeds.length; ++i)
-                                        ctx.lineTo(root.xForSeconds(t0 + dt * (i + 0.5)), root.speedY(speeds[i]))
+                                    for (const st of stretches) {
+                                        const dt = (st.b - st.a) / st.n
+                                        // Each stretch starts at its key with its own speed: a step when it changes.
+                                        ctx.lineTo(root.xForSeconds(st.a), root.speedY(st.speeds[0]))
+                                        for (let j = 0; j < st.speeds.length; ++j)
+                                            ctx.lineTo(root.xForSeconds(st.a + dt * (j + 0.5)), root.speedY(st.speeds[j]))
+                                        ctx.lineTo(root.xForSeconds(st.b), root.speedY(st.speeds[st.speeds.length - 1]))
+                                    }
                                     ctx.lineTo(lx, lastY)
                                     // At the last key the layer stops: straight down to 0.
                                     ctx.lineTo(lx, zeroY)
@@ -2076,12 +2098,17 @@ Item {
                                 width: keyHover.hovered && !keyDot.isPicked ? 8 : 7
                                 height: width
                                 radius: keyDot.roving ? width / 2 : 0
+                                // The curve being edited: hollow yellow squares, filled when picked (After Effects);
+                                // the other curves keep their own colour.
+                                readonly property bool onFocused: root.speedGraph || (root.focusedIndex >= 0
+                                    && root.focusedIndex < root.series.length
+                                    && root.series[root.focusedIndex].prop === keyDot.modelData.prop)
                                 color: keyDot.isPicked ? root.handleYellow
-                                       : root.speedGraph ? Theme.panelBackground : keyDot.modelData.color
+                                       : onFocused ? Theme.panelBackground : keyDot.modelData.color
                                 border.width: 1
                                 border.color: keyDot.isPicked ? root.handleYellow
-                                              : root.speedGraph ? (keyHover.hovered ? "#ffffff" : root.handleYellow)
-                                              : (keyHover.hovered ? "#ffffff" : keyDot.modelData.color)
+                                              : keyHover.hovered ? "#ffffff"
+                                              : onFocused ? root.handleYellow : keyDot.modelData.color
                             }
                             HoverHandler {
                                 id: keyHover
@@ -2619,9 +2646,21 @@ Item {
                                             return []
                                         const prop = root.refProp(root.series[root.focusedIndex].prop)
                                         const mine = tangent.modelData.point
+                                        // A handle of a key that is not picked shapes that key alone.
+                                        if (!root.tools.isPicked(root.trackIndex, { clip: root.clipIndex, prop: prop,
+                                                                                    seconds: mine.seconds }))
+                                            return []
                                         return pts.filter((q) => Math.abs(q.seconds - mine.seconds) > 1e-4 && root.tools.keys.some((k) =>
                                             root.tools.keyTrack(k) === root.trackIndex && k.clip === root.clipIndex
                                             && k.prop === prop && Math.abs(k.seconds - q.seconds) < 1e-4))
+                                    }
+                                    // A straight (linear) other side: After Effects keeps the key's two speeds
+                                    // apart (not Continuous) when one side gets a handle, so the other side keeps
+                                    // its own speed until Keyframe Velocity › Continuous joins them (0.30.2,
+                                    // Jorge: the thrown ball).
+                                    function straightOther(index, count, inDx, outDx, outgoing) {
+                                        return outgoing ? index > 0 && Math.abs(inDx) < 1e-6
+                                                        : index < count - 1 && Math.abs(outDx) < 1e-6
                                     }
                                     function speedDrag(p, outgoing) {
                                         // A roving run's end (0.30.2): its reach is over the whole run.
@@ -2654,6 +2693,7 @@ Item {
                                                       : Math.min(-segment * 0.01, Math.max(-segment, dx))
                                         const speed = root.speedForY(gripDrag.startKeyY + translation.y)
                                         const corner = p.corner || gripDrag.breakApart
+                                            || gripDrag.straightOther(i, pts.length, p.inDx || 0, p.outDx || 0, outgoing)
                                         // The same speed and reach on the same side of every other picked key of this
                                         // curve, as After Effects (0.30.2, Jorge: «como After Effects»). Only the picked
                                         // keys show handles, so it is plain which ones follow.
@@ -2667,11 +2707,12 @@ Item {
                                             const qdx = (outgoing ? 1 : -1) * share * seg
                                             const rising = outgoing ? nb.value >= q.value : q.value >= nb.value
                                             const slope = (rising ? 1 : -1) * speed
-                                            const qCorner = q.corner || gripDrag.breakApart
                                             let inDx = q.inDx || 0
                                             let inDy = q.inDy || 0
                                             let outDx = q.outDx || 0
                                             let outDy = q.outDy || 0
+                                            const qCorner = q.corner || gripDrag.breakApart
+                                                || gripDrag.straightOther(qi, pts.length, inDx, outDx, outgoing)
                                             if (outgoing) {
                                                 outDx = qdx
                                                 outDy = slope * qdx
