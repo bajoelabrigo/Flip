@@ -110,6 +110,37 @@ El paquete declara `runFullTrust`. Partner Center pide justificarlo:
 
 > editor de video, editar videos, video editor, reels, shorts, transiciones, subtítulos
 
+**Notas para la Store (0.30.2, combinadas con la 0.30.1)**. La 0.30.1 no se subió (Jorge, 2026-11-07): estas cubren todo
+desde la 0.30.0. Unos 1100/1500 caracteres en español.
+
+> Novedades de la 0.30.2
+>
+> - Gráficos de fotogramas clave iguales a los de After Effects: cuadrícula, X en rojo e Y en verde, claves sin elegir huecas con sus tiradores y la caja de transformar con su velo gris.
+> - Gráfico de velocidad como el de After Effects: tiradores pequeños y amarillos, claves como cuadraditos y escala en números redondos.
+> - Squash & Stretch: marcar sus claves ya no cierra el ajuste, y se borran con Supr.
+> - Stock: la rueda pasa a la categoría siguiente del mismo tipo y la lista empieza arriba.
+> - Separar dimensiones conserva la animación suavizada; los tramos rectos avanzan parejos.
+> - Velocidad del fotograma clave: la entrada y la salida quedan separadas hasta que marcas Continua, como la pelota lanzada de After Effects.
+> - Varias claves elegidas cambian juntas al mover el tirador de una, también en el gráfico de velocidad.
+> - Alt en una esquina de la caja deforma el rebote y se ve la caja inclinada.
+> - Desplazar en el tiempo: los tiradores de las puntas forman la velocidad de todo el recorrido, en una sola curva suave.
+> - El gráfico de velocidad de un rebote cambia en escalones limpios, sin picos.
+
+En inglés:
+
+> What's new in 0.30.2
+>
+> - Keyframe graphs that match After Effects: grid, X in red and Y in green, unpicked keys hollow with their handles, and the transform box with its grey veil.
+> - Speed graph as in After Effects: small yellow handles, square keys and a round-numbered scale.
+> - Squash & Stretch: boxing its keys no longer closes the adjustment, and Delete removes them.
+> - Stock: the wheel moves on to the next category of the same kind and the list starts at the top.
+> - Separate Dimensions keeps the eased animation; straight stretches move evenly.
+> - Keyframe Velocity: the incoming and outgoing speeds stay apart until you tick Continuous, like After Effects' thrown ball.
+> - With several keys picked, dragging one handle changes them all, in the speed graph too.
+> - Alt on a corner of the box warps the bounce and the box is drawn slanted.
+> - Rove Across Time: the end handles shape the speed of the whole run, in one smooth curve.
+> - The speed graph of a bounce steps cleanly at each key, without spikes.
+
 **Notas para la Store (0.30.1)**. Solo arreglos desde la 0.30.0 (ya subida). Unos 415/1500 caracteres en español.
 
 > Novedades de la 0.30.1
