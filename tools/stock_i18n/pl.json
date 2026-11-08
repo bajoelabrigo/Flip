@@ -25826,6 +25826,678 @@
     "pierścień"
    ]
   },
+  "template:llt10-amanda": {
+   "name": "Biała belka: imię, stanowisko na plakietce",
+   "tags": [
+    "belka",
+    "biały",
+    "imię"
+   ]
+  },
+  "template:llt10-elena": {
+   "name": "Biała belka: imię w polu",
+   "tags": [
+    "belka",
+    "biały",
+    "imię"
+   ]
+  },
+  "template:llt10-elizabeth": {
+   "name": "Biała belka: imię i plakietka po prawej",
+   "tags": [
+    "belka",
+    "biały",
+    "po prawej"
+   ]
+  },
+  "template:llt10-emily": {
+   "name": "Biała belka: imię w połowie w polu",
+   "tags": [
+    "belka",
+    "biały",
+    "imię"
+   ]
+  },
+  "template:llt10-erica": {
+   "name": "Biała belka: dwie plakietki ze stanowiskiem",
+   "tags": [
+    "belka",
+    "biały",
+    "imię"
+   ]
+  },
+  "template:llt10-gabriela": {
+   "name": "Biała belka: po prawej, długie imię",
+   "tags": [
+    "belka",
+    "biały",
+    "po prawej"
+   ]
+  },
+  "template:llt10-hanna": {
+   "name": "Biała belka: nazwisko w polu",
+   "tags": [
+    "belka",
+    "biały",
+    "imię"
+   ]
+  },
+  "template:llt10-iren": {
+   "name": "Biała belka: wyśrodkowana, z plakietką",
+   "tags": [
+    "belka",
+    "biały",
+    "wyśrodkowany"
+   ]
+  },
+  "template:llt10-kristina": {
+   "name": "Biała belka: pole ze stanowiskiem w dwóch liniach",
+   "tags": [
+    "belka",
+    "biały",
+    "wyśrodkowany"
+   ]
+  },
+  "template:llt10-lora": {
+   "name": "Biała belka: nazwisko w polu po prawej",
+   "tags": [
+    "belka",
+    "biały",
+    "po prawej"
+   ]
+  },
+  "template:llt10-monica": {
+   "name": "Biała belka: imię w dwóch liniach, plakietka",
+   "tags": [
+    "belka",
+    "biały",
+    "wyśrodkowany"
+   ]
+  },
+  "template:llt10-monika": {
+   "name": "Biała belka: linia, stanowisko po prawej",
+   "tags": [
+    "belka",
+    "biały",
+    "po prawej"
+   ]
+  },
+  "template:llt11-1": {
+   "name": "Gradientowa belka: nazwisko w gradiencie, plakietka",
+   "tags": [
+    "belka",
+    "gradient",
+    "imię"
+   ]
+  },
+  "template:llt11-10": {
+   "name": "Gradientowa belka: nazwisko w polu, podkreślenie",
+   "tags": [
+    "belka",
+    "gradient",
+    "imię"
+   ]
+  },
+  "template:llt11-11": {
+   "name": "Gradientowa belka: wysoki pasek, nazwisko w polu",
+   "tags": [
+    "belka",
+    "gradient",
+    "imię"
+   ]
+  },
+  "template:llt11-12": {
+   "name": "Gradientowa belka: plakietka, ramka, nazwisko w gradiencie",
+   "tags": [
+    "belka",
+    "gradient",
+    "imię"
+   ]
+  },
+  "template:llt11-13": {
+   "name": "Gradientowa belka: plakietka i kwadrat",
+   "tags": [
+    "belka",
+    "gradient",
+    "imię"
+   ]
+  },
+  "template:llt11-14": {
+   "name": "Gradientowa belka: podkreślenie, stanowisko po prawej",
+   "tags": [
+    "belka",
+    "gradient",
+    "imię"
+   ]
+  },
+  "template:llt11-15": {
+   "name": "Gradientowa belka: kwadraty i plakietka",
+   "tags": [
+    "belka",
+    "gradient",
+    "imię"
+   ]
+  },
+  "template:llt11-16": {
+   "name": "Gradientowa belka ze zdjęciem: nazwisko w gradiencie",
+   "tags": [
+    "belka",
+    "gradient",
+    "zdjęcie"
+   ]
+  },
+  "template:llt11-17": {
+   "name": "Gradientowa belka ze zdjęciem: imię w dwóch liniach, plakietka",
+   "tags": [
+    "belka",
+    "gradient",
+    "zdjęcie"
+   ]
+  },
+  "template:llt11-18": {
+   "name": "Gradientowa belka ze zdjęciem i paskiem",
+   "tags": [
+    "belka",
+    "gradient",
+    "zdjęcie"
+   ]
+  },
+  "template:llt11-19": {
+   "name": "Gradientowa belka ze zdjęciem w ramce",
+   "tags": [
+    "belka",
+    "gradient",
+    "zdjęcie"
+   ]
+  },
+  "template:llt11-2": {
+   "name": "Gradientowa belka: podkreślenie",
+   "tags": [
+    "belka",
+    "gradient",
+    "imię"
+   ]
+  },
+  "template:llt11-20": {
+   "name": "Gradientowa belka ze zdjęciem, ramką i plakietką",
+   "tags": [
+    "belka",
+    "gradient",
+    "zdjęcie"
+   ]
+  },
+  "template:llt11-3": {
+   "name": "Gradientowa belka: pole ze stanowiskiem po prawej",
+   "tags": [
+    "belka",
+    "gradient",
+    "imię"
+   ]
+  },
+  "template:llt11-4": {
+   "name": "Gradientowa belka: ramka i plakietka",
+   "tags": [
+    "belka",
+    "gradient",
+    "imię"
+   ]
+  },
+  "template:llt11-5": {
+   "name": "Gradientowa belka: pionowy pasek",
+   "tags": [
+    "belka",
+    "gradient",
+    "imię"
+   ]
+  },
+  "template:llt11-6": {
+   "name": "Gradientowa belka: imię w jednej linii, plakietka",
+   "tags": [
+    "belka",
+    "gradient",
+    "imię"
+   ]
+  },
+  "template:llt11-7": {
+   "name": "Gradientowa belka: imię w polu, stanowisko w ramce",
+   "tags": [
+    "belka",
+    "gradient",
+    "imię"
+   ]
+  },
+  "template:llt11-8": {
+   "name": "Gradientowa belka: nazwisko w gradiencie",
+   "tags": [
+    "belka",
+    "gradient",
+    "imię"
+   ]
+  },
+  "template:llt11-9": {
+   "name": "Gradientowa belka: plakietka u góry, ramka",
+   "tags": [
+    "belka",
+    "gradient",
+    "imię"
+   ]
+  },
+  "template:llt12-alexandra": {
+   "name": "Niebieska belka: pasek odsłania imię",
+   "tags": [
+    "belka",
+    "niebieski",
+    "pasek",
+    "po prawej"
+   ]
+  },
+  "template:llt12-cajas": {
+   "name": "Niebieska belka: trzy rosnące pola",
+   "tags": [
+    "belka",
+    "niebieski",
+    "pole"
+   ]
+  },
+  "template:llt12-corchetes": {
+   "name": "Niebieska belka: dwa paski rozsuwają się",
+   "tags": [
+    "belka",
+    "niebieski",
+    "pasek"
+   ]
+  },
+  "template:llt12-corni": {
+   "name": "Niebieska belka: imię w polu, biała plakietka",
+   "tags": [
+    "belka",
+    "niebieski",
+    "pole"
+   ]
+  },
+  "template:llt12-jacob": {
+   "name": "Niebieska belka: rozsuwane pole z białym pasem",
+   "tags": [
+    "belka",
+    "niebieski",
+    "pole"
+   ]
+  },
+  "template:llt12-jeremi": {
+   "name": "Niebieska belka: linia opada i odsłania imię",
+   "tags": [
+    "belka",
+    "niebieski",
+    "podkreślenie"
+   ]
+  },
+  "template:llt12-jeremy": {
+   "name": "Niebieska belka: imię w dwóch liniach, podkreślenie",
+   "tags": [
+    "belka",
+    "niebieski",
+    "podkreślenie"
+   ]
+  },
+  "template:llt12-john-rojers": {
+   "name": "Niebieska belka: obrócone imię w polu",
+   "tags": [
+    "belka",
+    "niebieski",
+    "pole",
+    "obrócony"
+   ]
+  },
+  "template:llt12-john-watson": {
+   "name": "Niebieska belka: skośne rozsuwane pole",
+   "tags": [
+    "belka",
+    "niebieski",
+    "pole",
+    "skośny"
+   ]
+  },
+  "template:llt12-marketing": {
+   "name": "Niebieska belka: litery pojawiają się, pasek",
+   "tags": [
+    "belka",
+    "niebieski",
+    "pasek"
+   ]
+  },
+  "template:llt12-minimal": {
+   "name": "Niebieska belka: pole rozsuwa się od środka",
+   "tags": [
+    "belka",
+    "niebieski",
+    "pole"
+   ]
+  },
+  "template:llt12-modern": {
+   "name": "Niebieska belka: dwie unoszące się linie, podkreślenie",
+   "tags": [
+    "belka",
+    "niebieski",
+    "podkreślenie"
+   ]
+  },
+  "template:llt12-rosanda": {
+   "name": "Niebieska belka: pasek zamiata obrócone imię",
+   "tags": [
+    "belka",
+    "niebieski",
+    "pasek",
+    "obrócony"
+   ]
+  },
+  "template:llt12-suzanna": {
+   "name": "Niebieska belka: litery pojawiają się i zbliżają",
+   "tags": [
+    "belka",
+    "niebieski",
+    "po prawej"
+   ]
+  },
+  "template:llt12-titulos": {
+   "name": "Niebieska belka: pole opada, biały pas",
+   "tags": [
+    "belka",
+    "niebieski",
+    "pole"
+   ]
+  },
+  "template:llt12-your-text": {
+   "name": "Niebieska belka: dwie linie wychodzą z paska",
+   "tags": [
+    "belka",
+    "niebieski",
+    "pasek",
+    "obrócony"
+   ]
+  },
+  "template:llt13-clark": {
+   "name": "Kursywna belka: grube nazwisko, cienkie imię",
+   "tags": [
+    "belka",
+    "biały",
+    "kursywa"
+   ]
+  },
+  "template:llt13-david": {
+   "name": "Kursywna belka: stanowisko, pasek i imię",
+   "tags": [
+    "belka",
+    "biały",
+    "kursywa",
+    "pasek"
+   ]
+  },
+  "template:llt13-dominic": {
+   "name": "Kursywna belka: duże podkreślone nazwisko",
+   "tags": [
+    "belka",
+    "biały",
+    "kursywa"
+   ]
+  },
+  "template:llt13-emily": {
+   "name": "Kursywna belka: imię w dwóch liniach, podkreślenie",
+   "tags": [
+    "belka",
+    "biały",
+    "kursywa"
+   ]
+  },
+  "template:llt13-foster": {
+   "name": "Kursywna belka: stanowisko u góry, linia",
+   "tags": [
+    "belka",
+    "biały",
+    "kursywa"
+   ]
+  },
+  "template:llt13-james": {
+   "name": "Kursywna belka: pasek, stanowisko na dole",
+   "tags": [
+    "belka",
+    "biały",
+    "kursywa",
+    "pasek"
+   ]
+  },
+  "template:llt13-kingsley": {
+   "name": "Kursywna belka: imię i pasek po prawej",
+   "tags": [
+    "belka",
+    "biały",
+    "kursywa",
+    "pasek",
+    "po prawej"
+   ]
+  },
+  "template:llt13-maximilian": {
+   "name": "Kursywna belka: podkreślone imię i nazwisko",
+   "tags": [
+    "belka",
+    "biały",
+    "kursywa"
+   ]
+  },
+  "template:llt13-michael": {
+   "name": "Kursywna belka: podkreślone imię",
+   "tags": [
+    "belka",
+    "biały",
+    "kursywa"
+   ]
+  },
+  "template:llt13-nathaniel": {
+   "name": "Kursywna belka wyrównana do prawej",
+   "tags": [
+    "belka",
+    "biały",
+    "kursywa",
+    "po prawej"
+   ]
+  },
+  "template:llt13-olivia": {
+   "name": "Kursywna belka: stanowisko po lewej, podkreślenie",
+   "tags": [
+    "belka",
+    "biały",
+    "kursywa"
+   ]
+  },
+  "template:llt13-sophia": {
+   "name": "Kursywna belka: pasek, stanowisko obok",
+   "tags": [
+    "belka",
+    "biały",
+    "kursywa",
+    "pasek"
+   ]
+  },
+  "template:llt14-barra-azul": {
+   "name": "Czerwona belka: logo i granatowy pasek",
+   "tags": [
+    "belka",
+    "czerwony",
+    "granatowy",
+    "logo",
+    "pasek"
+   ]
+  },
+  "template:llt14-barra-gris": {
+   "name": "Czerwona belka: logo, szary pasek i plakietka",
+   "tags": [
+    "belka",
+    "czerwony",
+    "granatowy",
+    "logo",
+    "pasek"
+   ]
+  },
+  "template:llt14-caja-alta": {
+   "name": "Czerwona belka: wysokie pole z czerwoną krawędzią",
+   "tags": [
+    "belka",
+    "czerwony",
+    "granatowy",
+    "pole"
+   ]
+  },
+  "template:llt14-caja-grande": {
+   "name": "Czerwona belka: duże pole z tytułem i akapitem",
+   "tags": [
+    "belka",
+    "czerwony",
+    "granatowy",
+    "pole"
+   ]
+  },
+  "template:llt14-disenador": {
+   "name": "Czerwona belka: imię w czerwonej ramce",
+   "tags": [
+    "belka",
+    "czerwony",
+    "granatowy"
+   ]
+  },
+  "template:llt14-dos-cuadros": {
+   "name": "Czerwona belka: dwa kwadraty i dwie linie",
+   "tags": [
+    "belka",
+    "czerwony",
+    "granatowy"
+   ]
+  },
+  "template:llt14-hexagono": {
+   "name": "Czerwona belka: logo w sześciokącie, biała plakietka",
+   "tags": [
+    "belka",
+    "czerwony",
+    "granatowy",
+    "logo"
+   ]
+  },
+  "template:llt14-linea-roja": {
+   "name": "Czerwona belka: logo, czerwona linia i szerokie pole",
+   "tags": [
+    "belka",
+    "czerwony",
+    "granatowy",
+    "logo",
+    "pole"
+   ]
+  },
+  "template:llt14-logo-lineas": {
+   "name": "Czerwona belka: logo, linia i dwie linie tekstu",
+   "tags": [
+    "belka",
+    "czerwony",
+    "granatowy",
+    "logo"
+   ]
+  },
+  "template:llt14-logo-texto": {
+   "name": "Czerwona belka: logo i pole z akapitem",
+   "tags": [
+    "belka",
+    "czerwony",
+    "granatowy",
+    "logo",
+    "pole"
+   ]
+  },
+  "template:llt14-marca": {
+   "name": "Czerwona belka: logo, ukośnik i imię",
+   "tags": [
+    "belka",
+    "czerwony",
+    "granatowy",
+    "logo"
+   ]
+  },
+  "template:llt14-pestana": {
+   "name": "Czerwona belka: logo, zakładka i pole z tekstem",
+   "tags": [
+    "belka",
+    "czerwony",
+    "granatowy",
+    "logo",
+    "pole"
+   ]
+  },
+  "template:llt14-primer-titulo": {
+   "name": "Czerwona belka: logo, tytuł i pole z tekstem",
+   "tags": [
+    "belka",
+    "czerwony",
+    "granatowy",
+    "logo",
+    "pole"
+   ]
+  },
+  "template:llt15-barra-larga": {
+   "name": "Minimalistyczna belka: długi pasek z logo i datą",
+   "tags": [
+    "belka",
+    "minimalistyczny",
+    "czarny",
+    "logo",
+    "pasek"
+   ]
+  },
+  "template:llt15-descripcion": {
+   "name": "Minimalistyczna belka: imię i opis",
+   "tags": [
+    "belka",
+    "minimalistyczny",
+    "czarny"
+   ]
+  },
+  "template:llt15-dos-lineas": {
+   "name": "Minimalistyczna belka: imię i stanowisko w dwóch liniach",
+   "tags": [
+    "belka",
+    "minimalistyczny",
+    "czarny"
+   ]
+  },
+  "template:llt15-logo-ficha": {
+   "name": "Minimalistyczna belka: kwadrat logo i dwie linie",
+   "tags": [
+    "belka",
+    "minimalistyczny",
+    "czarny",
+    "logo"
+   ]
+  },
+  "template:llt15-logo-nombre": {
+   "name": "Minimalistyczna belka: blok logo i imię",
+   "tags": [
+    "belka",
+    "minimalistyczny",
+    "czarny",
+    "logo"
+   ]
+  },
+  "template:llt15-nombre": {
+   "name": "Minimalistyczna belka: imię na białej plakietce",
+   "tags": [
+    "belka",
+    "minimalistyczny",
+    "czarny"
+   ]
+  },
+  "template:llt15-nombre-cargo": {
+   "name": "Minimalistyczna belka: imię i stanowisko",
+   "tags": [
+    "belka",
+    "minimalistyczny",
+    "czarny"
+   ]
+  },
   "template:llt2-barra-etiqueta": {
    "name": "Belka z logo: ciemny pasek i zielona etykieta",
    "tags": [
@@ -25958,6 +26630,435 @@
     "żółty",
     "biały",
     "gość"
+   ]
+  },
+  "template:llt4-cuadro-sube": {
+   "name": "Belka z logo: ciemny kwadrat, logo unosi się",
+   "tags": [
+    "belka",
+    "logo",
+    "imię",
+    "pasek",
+    "zielony",
+    "kwadrat"
+   ]
+  },
+  "template:llt4-ficha-blanca": {
+   "name": "Belka z logo: biała karta rozwija się",
+   "tags": [
+    "belka",
+    "logo",
+    "imię",
+    "biały",
+    "plakietka"
+   ]
+  },
+  "template:llt4-logo-izquierda": {
+   "name": "Belka z logo: ciemny pasek, logo po lewej",
+   "tags": [
+    "belka",
+    "logo",
+    "imię",
+    "pasek",
+    "zielony"
+   ]
+  },
+  "template:llt4-pastilla-barra": {
+   "name": "Belka z logo: kapsuła rozwija się w pasek",
+   "tags": [
+    "belka",
+    "logo",
+    "imię",
+    "pasek",
+    "zielony",
+    "kapsuła"
+   ]
+  },
+  "template:llt5-adam": {
+   "name": "Belka ze zdjęciem: pionowe zdjęcie, imię na wierzchu",
+   "tags": [
+    "belka",
+    "zdjęcie",
+    "imię",
+    "szary",
+    "pionowy",
+    "wyśrodkowany"
+   ]
+  },
+  "template:llt5-eddy": {
+   "name": "Belka ze zdjęciem: okrągłe zdjęcie po prawej, ciemny pas",
+   "tags": [
+    "belka",
+    "zdjęcie",
+    "imię",
+    "ciemny",
+    "okrągły"
+   ]
+  },
+  "template:llt5-elis": {
+   "name": "Belka ze zdjęciem: okrągłe zdjęcie, imię po prawej",
+   "tags": [
+    "belka",
+    "zdjęcie",
+    "imię",
+    "szary",
+    "okrągły"
+   ]
+  },
+  "template:llt5-emma": {
+   "name": "Belka ze zdjęciem: pionowe zdjęcie z pasami na wierzchu",
+   "tags": [
+    "belka",
+    "zdjęcie",
+    "imię",
+    "szary",
+    "pionowy"
+   ]
+  },
+  "template:llt5-kris": {
+   "name": "Belka ze zdjęciem: okrągłe zdjęcie u góry, imię pod spodem",
+   "tags": [
+    "belka",
+    "zdjęcie",
+    "imię",
+    "szary",
+    "okrągły",
+    "wyśrodkowany"
+   ]
+  },
+  "template:llt5-martin": {
+   "name": "Belka ze zdjęciem: kwadratowe zdjęcie, imię po prawej",
+   "tags": [
+    "belka",
+    "zdjęcie",
+    "imię",
+    "szary"
+   ]
+  },
+  "template:llt5-monika": {
+   "name": "Belka ze zdjęciem: zdjęcie po prawej, imię po lewej",
+   "tags": [
+    "belka",
+    "zdjęcie",
+    "imię",
+    "szary"
+   ]
+  },
+  "template:llt5-rachel": {
+   "name": "Belka ze zdjęciem: pionowe zdjęcie po prawej, nazwisko konturem",
+   "tags": [
+    "belka",
+    "zdjęcie",
+    "imię",
+    "ciemny",
+    "pionowy"
+   ]
+  },
+  "template:llt5-rose": {
+   "name": "Belka ze zdjęciem: zdjęcie u góry, imię pod spodem",
+   "tags": [
+    "belka",
+    "zdjęcie",
+    "imię",
+    "szary",
+    "wyśrodkowany"
+   ]
+  },
+  "template:llt6-barra-inclinada": {
+   "name": "Belka: biały skośny pasek, duże imię",
+   "tags": [
+    "belka",
+    "imię",
+    "biały",
+    "skośny"
+   ]
+  },
+  "template:llt6-barrido-rojo": {
+   "name": "Belka: czerwony blok odsłania imię",
+   "tags": [
+    "belka",
+    "imię",
+    "czerwony"
+   ]
+  },
+  "template:llt6-caja-nombre": {
+   "name": "Belka: imię w białym polu, które się kurczy",
+   "tags": [
+    "belka",
+    "imię",
+    "biały",
+    "pole"
+   ]
+  },
+  "template:llt6-cursor": {
+   "name": "Belka: blok zamienia się w kursor i odsłania imię",
+   "tags": [
+    "belka",
+    "imię",
+    "biały",
+    "kursor"
+   ]
+  },
+  "template:llt6-divisor": {
+   "name": "Belka: linia podziału, stanowisko i imię po bokach",
+   "tags": [
+    "belka",
+    "imię",
+    "linia"
+   ]
+  },
+  "template:llt6-etiqueta-blanca": {
+   "name": "Belka: duże imię, biała etykieta ze stanowiskiem",
+   "tags": [
+    "belka",
+    "imię",
+    "biały",
+    "etykieta"
+   ]
+  },
+  "template:llt6-etiqueta-roja": {
+   "name": "Belka: imię po prawej, czerwony pas ze stanowiskiem",
+   "tags": [
+    "belka",
+    "imię",
+    "czerwony",
+    "po prawej"
+   ]
+  },
+  "template:llt6-letras": {
+   "name": "Belka: imię pojawia się litera po literze",
+   "tags": [
+    "belka",
+    "imię",
+    "litery"
+   ]
+  },
+  "template:llt6-linea-fina": {
+   "name": "Belka: cienka linia, imię i stanowisko po bokach",
+   "tags": [
+    "belka",
+    "imię",
+    "linia"
+   ]
+  },
+  "template:llt6-subrayado-rojo": {
+   "name": "Belka: duże imię, czerwone podkreślenie",
+   "tags": [
+    "belka",
+    "imię",
+    "czerwony",
+    "podkreślenie"
+   ]
+  },
+  "template:llt7-barra-azul": {
+   "name": "Belka: niebieski pasek z logo, jedna linia",
+   "tags": [
+    "belka",
+    "logo",
+    "niebieski"
+   ]
+  },
+  "template:llt7-barra-azul-2": {
+   "name": "Belka: niebieski pasek z logo, dwie linie",
+   "tags": [
+    "belka",
+    "logo",
+    "niebieski"
+   ]
+  },
+  "template:llt8-barrett": {
+   "name": "Pomarańczowa belka: długie podkreślenie",
+   "tags": [
+    "belka",
+    "pomarańczowy",
+    "imię"
+   ]
+  },
+  "template:llt8-brandon": {
+   "name": "Pomarańczowa belka: pasek i imię",
+   "tags": [
+    "belka",
+    "pomarańczowy",
+    "imię"
+   ]
+  },
+  "template:llt8-cameron": {
+   "name": "Pomarańczowa belka: stanowisko u góry, znaczniki",
+   "tags": [
+    "belka",
+    "pomarańczowy",
+    "imię"
+   ]
+  },
+  "template:llt8-castro": {
+   "name": "Pomarańczowa belka: stanowisko w dwóch liniach",
+   "tags": [
+    "belka",
+    "pomarańczowy",
+    "imię"
+   ]
+  },
+  "template:llt8-charley": {
+   "name": "Pomarańczowa belka: pasek opadający w dół",
+   "tags": [
+    "belka",
+    "pomarańczowy",
+    "imię"
+   ]
+  },
+  "template:llt8-daniel": {
+   "name": "Pomarańczowa belka: blok obok stanowiska",
+   "tags": [
+    "belka",
+    "pomarańczowy",
+    "imię"
+   ]
+  },
+  "template:llt8-dodson": {
+   "name": "Pomarańczowa belka: linia, stanowisko po prawej",
+   "tags": [
+    "belka",
+    "pomarańczowy",
+    "imię"
+   ]
+  },
+  "template:llt8-hayden": {
+   "name": "Pomarańczowa belka: wysoki pasek i stanowisko",
+   "tags": [
+    "belka",
+    "pomarańczowy",
+    "imię"
+   ]
+  },
+  "template:llt8-jake": {
+   "name": "Pomarańczowa belka: długie linie po bokach",
+   "tags": [
+    "belka",
+    "pomarańczowy",
+    "imię"
+   ]
+  },
+  "template:llt8-james": {
+   "name": "Pomarańczowa belka: blok przed stanowiskiem",
+   "tags": [
+    "belka",
+    "pomarańczowy",
+    "imię"
+   ]
+  },
+  "template:llt8-john": {
+   "name": "Pomarańczowa belka: nawias",
+   "tags": [
+    "belka",
+    "pomarańczowy",
+    "imię"
+   ]
+  },
+  "template:llt8-madden": {
+   "name": "Pomarańczowa belka: linie po bokach stanowiska",
+   "tags": [
+    "belka",
+    "pomarańczowy",
+    "imię"
+   ]
+  },
+  "template:llt8-mason": {
+   "name": "Pomarańczowa belka: długa linia, stanowisko po prawej",
+   "tags": [
+    "belka",
+    "pomarańczowy",
+    "imię"
+   ]
+  },
+  "template:llt8-rason": {
+   "name": "Pomarańczowa belka: pasek, stanowisko u góry",
+   "tags": [
+    "belka",
+    "pomarańczowy",
+    "imię"
+   ]
+  },
+  "template:llt8-ryan": {
+   "name": "Pomarańczowa belka: linia i stanowisko u góry",
+   "tags": [
+    "belka",
+    "pomarańczowy",
+    "imię"
+   ]
+  },
+  "template:llt9-benjamin": {
+   "name": "Złota belka: plakietka u góry, linia",
+   "tags": [
+    "belka",
+    "złoty",
+    "imię"
+   ]
+  },
+  "template:llt9-emily": {
+   "name": "Złota belka: imię w białym polu, plakietka",
+   "tags": [
+    "belka",
+    "złoty",
+    "pole"
+   ]
+  },
+  "template:llt9-katherine": {
+   "name": "Złota belka: plakietka i kropka po prawej",
+   "tags": [
+    "belka",
+    "złoty",
+    "kursywa",
+    "po prawej"
+   ]
+  },
+  "template:llt9-max": {
+   "name": "Złota belka: imię w polu, stanowisko na plakietce",
+   "tags": [
+    "belka",
+    "złoty",
+    "kursywa",
+    "pole"
+   ]
+  },
+  "template:llt9-natalie": {
+   "name": "Złota belka: linia z kropką",
+   "tags": [
+    "belka",
+    "złoty",
+    "imię"
+   ]
+  },
+  "template:llt9-vanja": {
+   "name": "Złota belka: cienka kursywa, kwadraty",
+   "tags": [
+    "belka",
+    "złoty",
+    "kursywa"
+   ]
+  },
+  "template:llt9-vanja-negrita": {
+   "name": "Złota belka: gruba kursywa, kwadraty",
+   "tags": [
+    "belka",
+    "złoty",
+    "kursywa"
+   ]
+  },
+  "template:llt9-victoria": {
+   "name": "Złota belka: pasek, gruba kursywa",
+   "tags": [
+    "belka",
+    "złoty",
+    "kursywa"
+   ]
+  },
+  "template:llt9-yaroslava": {
+   "name": "Złota belka: pole ze stanowiskiem po prawej",
+   "tags": [
+    "belka",
+    "złoty",
+    "kursywa",
+    "po prawej"
    ]
   },
   "template:lt-andy": {

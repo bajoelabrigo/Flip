@@ -25704,6 +25704,678 @@
     "singsing"
    ]
   },
+  "template:llt10-amanda": {
+   "name": "Puting lower third: pangalan, tungkulin sa tag",
+   "tags": [
+    "lower third",
+    "puti",
+    "template"
+   ]
+  },
+  "template:llt10-elena": {
+   "name": "Puting lower third: pangalan sa kahon",
+   "tags": [
+    "lower third",
+    "puti",
+    "template"
+   ]
+  },
+  "template:llt10-elizabeth": {
+   "name": "Puting lower third: pangalan at tag, sa kanan",
+   "tags": [
+    "lower third",
+    "puti",
+    "kanan"
+   ]
+  },
+  "template:llt10-emily": {
+   "name": "Puting lower third: pangalang kalahati ay nasa kahon",
+   "tags": [
+    "lower third",
+    "puti",
+    "template"
+   ]
+  },
+  "template:llt10-erica": {
+   "name": "Puting lower third: dalawang tag na may tungkulin",
+   "tags": [
+    "lower third",
+    "puti",
+    "template"
+   ]
+  },
+  "template:llt10-gabriela": {
+   "name": "Puting lower third: sa kanan, mahabang pangalan",
+   "tags": [
+    "lower third",
+    "puti",
+    "kanan"
+   ]
+  },
+  "template:llt10-hanna": {
+   "name": "Puting lower third: apelyido sa kahon",
+   "tags": [
+    "lower third",
+    "puti",
+    "template"
+   ]
+  },
+  "template:llt10-iren": {
+   "name": "Puting lower third: nakagitna na may tag",
+   "tags": [
+    "lower third",
+    "puti",
+    "nakagitna"
+   ]
+  },
+  "template:llt10-kristina": {
+   "name": "Puting lower third: kahon na may tungkuling dalawang linya",
+   "tags": [
+    "lower third",
+    "puti",
+    "nakagitna"
+   ]
+  },
+  "template:llt10-lora": {
+   "name": "Puting lower third: apelyido sa kahon, sa kanan",
+   "tags": [
+    "lower third",
+    "puti",
+    "kanan"
+   ]
+  },
+  "template:llt10-monica": {
+   "name": "Puting lower third: pangalang dalawang linya, tag",
+   "tags": [
+    "lower third",
+    "puti",
+    "nakagitna"
+   ]
+  },
+  "template:llt10-monika": {
+   "name": "Puting lower third: linya, tungkulin sa kanan",
+   "tags": [
+    "lower third",
+    "puti",
+    "kanan"
+   ]
+  },
+  "template:llt11-1": {
+   "name": "Gradient na lower third: gradient na apelyido, tag",
+   "tags": [
+    "lower third",
+    "gradient",
+    "template"
+   ]
+  },
+  "template:llt11-10": {
+   "name": "Gradient na lower third: kahon ng apelyido, salungguhit",
+   "tags": [
+    "lower third",
+    "gradient",
+    "template"
+   ]
+  },
+  "template:llt11-11": {
+   "name": "Gradient na lower third: matangkad na bar, kahon ng apelyido",
+   "tags": [
+    "lower third",
+    "gradient",
+    "template"
+   ]
+  },
+  "template:llt11-12": {
+   "name": "Gradient na lower third: tag, frame, gradient na apelyido",
+   "tags": [
+    "lower third",
+    "gradient",
+    "template"
+   ]
+  },
+  "template:llt11-13": {
+   "name": "Gradient na lower third: tag at parisukat",
+   "tags": [
+    "lower third",
+    "gradient",
+    "template"
+   ]
+  },
+  "template:llt11-14": {
+   "name": "Gradient na lower third: salungguhit, tungkulin sa kanan",
+   "tags": [
+    "lower third",
+    "gradient",
+    "template"
+   ]
+  },
+  "template:llt11-15": {
+   "name": "Gradient na lower third: mga parisukat at tag",
+   "tags": [
+    "lower third",
+    "gradient",
+    "template"
+   ]
+  },
+  "template:llt11-16": {
+   "name": "Gradient na lower third: may larawan",
+   "tags": [
+    "lower third",
+    "gradient",
+    "larawan"
+   ]
+  },
+  "template:llt11-17": {
+   "name": "Gradient na lower third: may larawan at tag",
+   "tags": [
+    "lower third",
+    "gradient",
+    "larawan"
+   ]
+  },
+  "template:llt11-18": {
+   "name": "Gradient na lower third: may larawan at bar",
+   "tags": [
+    "lower third",
+    "gradient",
+    "larawan"
+   ]
+  },
+  "template:llt11-19": {
+   "name": "Gradient na lower third: may larawan sa frame",
+   "tags": [
+    "lower third",
+    "gradient",
+    "larawan"
+   ]
+  },
+  "template:llt11-2": {
+   "name": "Gradient na lower third: salungguhit",
+   "tags": [
+    "lower third",
+    "gradient",
+    "template"
+   ]
+  },
+  "template:llt11-20": {
+   "name": "Gradient na lower third: may larawan, frame at tag",
+   "tags": [
+    "lower third",
+    "gradient",
+    "larawan"
+   ]
+  },
+  "template:llt11-3": {
+   "name": "Gradient na lower third: kahon ng tungkulin sa kanan",
+   "tags": [
+    "lower third",
+    "gradient",
+    "template"
+   ]
+  },
+  "template:llt11-4": {
+   "name": "Gradient na lower third: frame at tag",
+   "tags": [
+    "lower third",
+    "gradient",
+    "template"
+   ]
+  },
+  "template:llt11-5": {
+   "name": "Gradient na lower third: patayong bar",
+   "tags": [
+    "lower third",
+    "gradient",
+    "template"
+   ]
+  },
+  "template:llt11-6": {
+   "name": "Gradient na lower third: pangalang isang linya, tag",
+   "tags": [
+    "lower third",
+    "gradient",
+    "template"
+   ]
+  },
+  "template:llt11-7": {
+   "name": "Gradient na lower third: kahon ng pangalan, frame ng tungkulin",
+   "tags": [
+    "lower third",
+    "gradient",
+    "template"
+   ]
+  },
+  "template:llt11-8": {
+   "name": "Gradient na lower third: gradient na apelyido",
+   "tags": [
+    "lower third",
+    "gradient",
+    "template"
+   ]
+  },
+  "template:llt11-9": {
+   "name": "Gradient na lower third: tag sa itaas, frame",
+   "tags": [
+    "lower third",
+    "gradient",
+    "template"
+   ]
+  },
+  "template:llt12-alexandra": {
+   "name": "Asul na lower third: inilalantad ng bar ang pangalan",
+   "tags": [
+    "lower third",
+    "asul",
+    "bar",
+    "kanan"
+   ]
+  },
+  "template:llt12-cajas": {
+   "name": "Asul na lower third: tatlong lumalaking kahon",
+   "tags": [
+    "lower third",
+    "asul",
+    "kahon"
+   ]
+  },
+  "template:llt12-corchetes": {
+   "name": "Asul na lower third: dalawang bar na bumubukas nang magkahiwalay",
+   "tags": [
+    "lower third",
+    "asul",
+    "bar"
+   ]
+  },
+  "template:llt12-corni": {
+   "name": "Asul na lower third: kahon ng pangalan, puting tag",
+   "tags": [
+    "lower third",
+    "asul",
+    "kahon"
+   ]
+  },
+  "template:llt12-jacob": {
+   "name": "Asul na lower third: bumubukas na kahon, puting banda",
+   "tags": [
+    "lower third",
+    "asul",
+    "kahon"
+   ]
+  },
+  "template:llt12-jeremi": {
+   "name": "Asul na lower third: linyang dumudulas pababa, pangalan",
+   "tags": [
+    "lower third",
+    "asul",
+    "salungguhit"
+   ]
+  },
+  "template:llt12-jeremy": {
+   "name": "Asul na lower third: pangalang dalawang linya, salungguhit",
+   "tags": [
+    "lower third",
+    "asul",
+    "salungguhit"
+   ]
+  },
+  "template:llt12-john-rojers": {
+   "name": "Asul na lower third: nakaikot na pangalan sa kahon",
+   "tags": [
+    "lower third",
+    "asul",
+    "kahon",
+    "nakaikot"
+   ]
+  },
+  "template:llt12-john-watson": {
+   "name": "Asul na lower third: pahilig na bumubukas na kahon",
+   "tags": [
+    "lower third",
+    "asul",
+    "kahon",
+    "pahilig"
+   ]
+  },
+  "template:llt12-marketing": {
+   "name": "Asul na lower third: mga letrang fade in, bar",
+   "tags": [
+    "lower third",
+    "asul",
+    "bar"
+   ]
+  },
+  "template:llt12-minimal": {
+   "name": "Asul na lower third: kahon mula sa gitna",
+   "tags": [
+    "lower third",
+    "asul",
+    "kahon"
+   ]
+  },
+  "template:llt12-modern": {
+   "name": "Asul na lower third: dalawang umaakyat na linya, salungguhit",
+   "tags": [
+    "lower third",
+    "asul",
+    "salungguhit"
+   ]
+  },
+  "template:llt12-rosanda": {
+   "name": "Asul na lower third: bar na sumasaklaw sa nakaikot na pangalan",
+   "tags": [
+    "lower third",
+    "asul",
+    "bar",
+    "nakaikot"
+   ]
+  },
+  "template:llt12-suzanna": {
+   "name": "Asul na lower third: mga letrang fade in, zoom",
+   "tags": [
+    "lower third",
+    "asul",
+    "kanan"
+   ]
+  },
+  "template:llt12-titulos": {
+   "name": "Asul na lower third: kahon pababa, puting banda",
+   "tags": [
+    "lower third",
+    "asul",
+    "kahon"
+   ]
+  },
+  "template:llt12-your-text": {
+   "name": "Asul na lower third: mga linyang lumalabas sa bar",
+   "tags": [
+    "lower third",
+    "asul",
+    "bar",
+    "nakaikot"
+   ]
+  },
+  "template:llt13-clark": {
+   "name": "Italic na lower third: makapal na apelyido, magaang unang pangalan",
+   "tags": [
+    "lower third",
+    "puti",
+    "italic"
+   ]
+  },
+  "template:llt13-david": {
+   "name": "Italic na lower third: tungkulin, bar at pangalan",
+   "tags": [
+    "lower third",
+    "puti",
+    "italic",
+    "bar"
+   ]
+  },
+  "template:llt13-dominic": {
+   "name": "Italic na lower third: malaking apelyidong may salungguhit",
+   "tags": [
+    "lower third",
+    "puti",
+    "italic"
+   ]
+  },
+  "template:llt13-emily": {
+   "name": "Italic na lower third: pangalang dalawang linya, salungguhit",
+   "tags": [
+    "lower third",
+    "puti",
+    "italic"
+   ]
+  },
+  "template:llt13-foster": {
+   "name": "Italic na lower third: tungkulin sa itaas, linya",
+   "tags": [
+    "lower third",
+    "puti",
+    "italic"
+   ]
+  },
+  "template:llt13-james": {
+   "name": "Italic na lower third: bar, tungkulin sa ibaba kanan",
+   "tags": [
+    "lower third",
+    "puti",
+    "italic",
+    "bar"
+   ]
+  },
+  "template:llt13-kingsley": {
+   "name": "Italic na lower third: pangalan, bar sa kanan",
+   "tags": [
+    "lower third",
+    "puti",
+    "italic",
+    "bar",
+    "kanan"
+   ]
+  },
+  "template:llt13-maximilian": {
+   "name": "Italic na lower third: pangalang may salungguhit, huli",
+   "tags": [
+    "lower third",
+    "puti",
+    "italic"
+   ]
+  },
+  "template:llt13-michael": {
+   "name": "Italic na lower third: pangalang may salungguhit",
+   "tags": [
+    "lower third",
+    "puti",
+    "italic"
+   ]
+  },
+  "template:llt13-nathaniel": {
+   "name": "Italic na lower third: nakahanay sa kanan",
+   "tags": [
+    "lower third",
+    "puti",
+    "italic",
+    "kanan"
+   ]
+  },
+  "template:llt13-olivia": {
+   "name": "Italic na lower third: tungkulin sa kaliwa, salungguhit",
+   "tags": [
+    "lower third",
+    "puti",
+    "italic"
+   ]
+  },
+  "template:llt13-sophia": {
+   "name": "Italic na lower third: bar, tungkulin sa tabi",
+   "tags": [
+    "lower third",
+    "puti",
+    "italic",
+    "bar"
+   ]
+  },
+  "template:llt14-barra-azul": {
+   "name": "Pulang lower third: logo at navy na bar",
+   "tags": [
+    "lower third",
+    "pula",
+    "navy",
+    "logo",
+    "bar"
+   ]
+  },
+  "template:llt14-barra-gris": {
+   "name": "Pulang lower third: logo, slate na bar at tag",
+   "tags": [
+    "lower third",
+    "pula",
+    "navy",
+    "logo",
+    "bar"
+   ]
+  },
+  "template:llt14-caja-alta": {
+   "name": "Pulang lower third: matangkad na kahon, pulang gilid",
+   "tags": [
+    "lower third",
+    "pula",
+    "navy",
+    "kahon"
+   ]
+  },
+  "template:llt14-caja-grande": {
+   "name": "Pulang lower third: malaking kahon, pamagat, teksto",
+   "tags": [
+    "lower third",
+    "pula",
+    "navy",
+    "kahon"
+   ]
+  },
+  "template:llt14-disenador": {
+   "name": "Pulang lower third: pangalan sa pulang frame",
+   "tags": [
+    "lower third",
+    "pula",
+    "navy"
+   ]
+  },
+  "template:llt14-dos-cuadros": {
+   "name": "Pulang lower third: dalawang parisukat, dalawang linya",
+   "tags": [
+    "lower third",
+    "pula",
+    "navy"
+   ]
+  },
+  "template:llt14-hexagono": {
+   "name": "Pulang lower third: heksagonong logo, puting tag",
+   "tags": [
+    "lower third",
+    "pula",
+    "navy",
+    "logo"
+   ]
+  },
+  "template:llt14-linea-roja": {
+   "name": "Pulang lower third: logo, pulang linya, malapad na kahon",
+   "tags": [
+    "lower third",
+    "pula",
+    "navy",
+    "logo",
+    "kahon"
+   ]
+  },
+  "template:llt14-logo-lineas": {
+   "name": "Pulang lower third: logo, linya at dalawang linya",
+   "tags": [
+    "lower third",
+    "pula",
+    "navy",
+    "logo"
+   ]
+  },
+  "template:llt14-logo-texto": {
+   "name": "Pulang lower third: logo at kahon ng talata",
+   "tags": [
+    "lower third",
+    "pula",
+    "navy",
+    "logo",
+    "kahon"
+   ]
+  },
+  "template:llt14-marca": {
+   "name": "Pulang lower third: logo, slash at pangalan",
+   "tags": [
+    "lower third",
+    "pula",
+    "navy",
+    "logo"
+   ]
+  },
+  "template:llt14-pestana": {
+   "name": "Pulang lower third: logo, tab at kahon ng teksto",
+   "tags": [
+    "lower third",
+    "pula",
+    "navy",
+    "logo",
+    "kahon"
+   ]
+  },
+  "template:llt14-primer-titulo": {
+   "name": "Pulang lower third: logo, pamagat, kahon ng teksto",
+   "tags": [
+    "lower third",
+    "pula",
+    "navy",
+    "logo",
+    "kahon"
+   ]
+  },
+  "template:llt15-barra-larga": {
+   "name": "Minimalistang lower third: mahabang bar, logo, petsa",
+   "tags": [
+    "lower third",
+    "minimalista",
+    "itim",
+    "logo",
+    "bar"
+   ]
+  },
+  "template:llt15-descripcion": {
+   "name": "Minimalistang lower third: pangalan at paglalarawan",
+   "tags": [
+    "lower third",
+    "minimalista",
+    "itim"
+   ]
+  },
+  "template:llt15-dos-lineas": {
+   "name": "Minimalistang lower third: tungkuling dalawang linya",
+   "tags": [
+    "lower third",
+    "minimalista",
+    "itim"
+   ]
+  },
+  "template:llt15-logo-ficha": {
+   "name": "Minimalistang lower third: parisukat ng logo, dalawang linya",
+   "tags": [
+    "lower third",
+    "minimalista",
+    "itim",
+    "logo"
+   ]
+  },
+  "template:llt15-logo-nombre": {
+   "name": "Minimalistang lower third: bloke ng logo, pangalan",
+   "tags": [
+    "lower third",
+    "minimalista",
+    "itim",
+    "logo"
+   ]
+  },
+  "template:llt15-nombre": {
+   "name": "Minimalistang lower third: pangalan sa puting tag",
+   "tags": [
+    "lower third",
+    "minimalista",
+    "itim"
+   ]
+  },
+  "template:llt15-nombre-cargo": {
+   "name": "Minimalistang lower third: pangalan at tungkulin",
+   "tags": [
+    "lower third",
+    "minimalista",
+    "itim"
+   ]
+  },
   "template:llt2-barra-etiqueta": {
    "name": "Lower third na may logo: madilim na bar at berdeng tatak",
    "tags": [
@@ -25836,6 +26508,435 @@
     "dilaw",
     "puti",
     "panauhin"
+   ]
+  },
+  "template:llt4-cuadro-sube": {
+   "name": "Lower third na may logo: madilim na parisukat, umaangat ang logo",
+   "tags": [
+    "lower third",
+    "logo",
+    "pangalan",
+    "bar",
+    "berde",
+    "parisukat"
+   ]
+  },
+  "template:llt4-ficha-blanca": {
+   "name": "Lower third na may logo: puting card na bumubukas",
+   "tags": [
+    "lower third",
+    "logo",
+    "pangalan",
+    "puti",
+    "card"
+   ]
+  },
+  "template:llt4-logo-izquierda": {
+   "name": "Lower third na may logo: madilim na bar, logo sa kaliwa",
+   "tags": [
+    "lower third",
+    "logo",
+    "pangalan",
+    "bar",
+    "berde"
+   ]
+  },
+  "template:llt4-pastilla-barra": {
+   "name": "Lower third na may logo: kapsula na bumubukas bilang bar",
+   "tags": [
+    "lower third",
+    "logo",
+    "pangalan",
+    "bar",
+    "berde",
+    "kapsula"
+   ]
+  },
+  "template:llt5-adam": {
+   "name": "Lower third na may larawan: matangkad na larawan, pangalan sa ibabaw nito",
+   "tags": [
+    "lower third",
+    "larawan",
+    "pangalan",
+    "abo",
+    "patayo",
+    "nakagitna"
+   ]
+  },
+  "template:llt5-eddy": {
+   "name": "Lower third na may larawan: bilog na larawan sa kanan, madilim na banda",
+   "tags": [
+    "lower third",
+    "larawan",
+    "pangalan",
+    "madilim",
+    "bilog"
+   ]
+  },
+  "template:llt5-elis": {
+   "name": "Lower third na may larawan: bilog na larawan, pangalan sa kanan",
+   "tags": [
+    "lower third",
+    "larawan",
+    "pangalan",
+    "abo",
+    "bilog"
+   ]
+  },
+  "template:llt5-emma": {
+   "name": "Lower third na may larawan: matangkad na larawan na may mga banda sa kabuuan",
+   "tags": [
+    "lower third",
+    "larawan",
+    "pangalan",
+    "abo",
+    "patayo"
+   ]
+  },
+  "template:llt5-kris": {
+   "name": "Lower third na may larawan: bilog na larawan sa itaas, pangalan sa ibaba",
+   "tags": [
+    "lower third",
+    "larawan",
+    "pangalan",
+    "abo",
+    "bilog",
+    "nakagitna"
+   ]
+  },
+  "template:llt5-martin": {
+   "name": "Lower third na may larawan: parisukat na larawan, pangalan sa kanan",
+   "tags": [
+    "lower third",
+    "larawan",
+    "pangalan",
+    "abo"
+   ]
+  },
+  "template:llt5-monika": {
+   "name": "Lower third na may larawan: larawan sa kanan, pangalan sa kaliwa",
+   "tags": [
+    "lower third",
+    "larawan",
+    "pangalan",
+    "abo"
+   ]
+  },
+  "template:llt5-rachel": {
+   "name": "Lower third na may larawan: matangkad na larawan sa kanan, apelyidong may balangkas",
+   "tags": [
+    "lower third",
+    "larawan",
+    "pangalan",
+    "madilim",
+    "patayo"
+   ]
+  },
+  "template:llt5-rose": {
+   "name": "Lower third na may larawan: larawan sa itaas, pangalan sa ibaba",
+   "tags": [
+    "lower third",
+    "larawan",
+    "pangalan",
+    "abo",
+    "nakagitna"
+   ]
+  },
+  "template:llt6-barra-inclinada": {
+   "name": "Lower third: puting pahilig na bar, malaking pangalan",
+   "tags": [
+    "lower third",
+    "pangalan",
+    "puti",
+    "pahilig"
+   ]
+  },
+  "template:llt6-barrido-rojo": {
+   "name": "Lower third: pulang bloke na sumasaklaw para ilantad ang pangalan",
+   "tags": [
+    "lower third",
+    "pangalan",
+    "pula"
+   ]
+  },
+  "template:llt6-caja-nombre": {
+   "name": "Lower third: pangalan sa puting kahon na lumiliit",
+   "tags": [
+    "lower third",
+    "pangalan",
+    "puti",
+    "kahon"
+   ]
+  },
+  "template:llt6-cursor": {
+   "name": "Lower third: bloke na nagiging cursor at naglalantad ng pangalan",
+   "tags": [
+    "lower third",
+    "pangalan",
+    "puti",
+    "cursor"
+   ]
+  },
+  "template:llt6-divisor": {
+   "name": "Lower third: linyang panghati, tungkulin at pangalan sa magkabilang panig",
+   "tags": [
+    "lower third",
+    "pangalan",
+    "linya"
+   ]
+  },
+  "template:llt6-etiqueta-blanca": {
+   "name": "Lower third: malaking pangalan, puting label na may tungkulin",
+   "tags": [
+    "lower third",
+    "pangalan",
+    "puti",
+    "label"
+   ]
+  },
+  "template:llt6-etiqueta-roja": {
+   "name": "Lower third: pangalan sa kanan, pulang bar na may tungkulin",
+   "tags": [
+    "lower third",
+    "pangalan",
+    "pula",
+    "kanan"
+   ]
+  },
+  "template:llt6-letras": {
+   "name": "Lower third: pangalang dumarating letra por letra",
+   "tags": [
+    "lower third",
+    "pangalan",
+    "letra"
+   ]
+  },
+  "template:llt6-linea-fina": {
+   "name": "Lower third: manipis na linya, pangalan at tungkulin sa magkabilang panig",
+   "tags": [
+    "lower third",
+    "pangalan",
+    "linya"
+   ]
+  },
+  "template:llt6-subrayado-rojo": {
+   "name": "Lower third: malaking pangalan, pulang salungguhit",
+   "tags": [
+    "lower third",
+    "pangalan",
+    "pula",
+    "salungguhit"
+   ]
+  },
+  "template:llt7-barra-azul": {
+   "name": "Lower third: asul na bar na may logo, isang linya",
+   "tags": [
+    "lower third",
+    "logo",
+    "asul"
+   ]
+  },
+  "template:llt7-barra-azul-2": {
+   "name": "Lower third: asul na bar na may logo, dalawang linya",
+   "tags": [
+    "lower third",
+    "logo",
+    "asul"
+   ]
+  },
+  "template:llt8-barrett": {
+   "name": "Orange na lower third: mahabang salungguhit",
+   "tags": [
+    "lower third",
+    "orange",
+    "template"
+   ]
+  },
+  "template:llt8-brandon": {
+   "name": "Orange na lower third: bar at pangalan",
+   "tags": [
+    "lower third",
+    "orange",
+    "template"
+   ]
+  },
+  "template:llt8-cameron": {
+   "name": "Orange na lower third: tungkulin sa itaas, mga marka",
+   "tags": [
+    "lower third",
+    "orange",
+    "template"
+   ]
+  },
+  "template:llt8-castro": {
+   "name": "Orange na lower third: tungkuling may dalawang linya",
+   "tags": [
+    "lower third",
+    "orange",
+    "template"
+   ]
+  },
+  "template:llt8-charley": {
+   "name": "Orange na lower third: bar na tumatakbo pababa",
+   "tags": [
+    "lower third",
+    "orange",
+    "template"
+   ]
+  },
+  "template:llt8-daniel": {
+   "name": "Orange na lower third: bloke sa tabi ng tungkulin",
+   "tags": [
+    "lower third",
+    "orange",
+    "template"
+   ]
+  },
+  "template:llt8-dodson": {
+   "name": "Orange na lower third: linya, tungkulin sa kanan",
+   "tags": [
+    "lower third",
+    "orange",
+    "template"
+   ]
+  },
+  "template:llt8-hayden": {
+   "name": "Orange na lower third: matangkad na bar at tungkulin",
+   "tags": [
+    "lower third",
+    "orange",
+    "template"
+   ]
+  },
+  "template:llt8-jake": {
+   "name": "Orange na lower third: mahahabang linya sa magkabilang panig",
+   "tags": [
+    "lower third",
+    "orange",
+    "template"
+   ]
+  },
+  "template:llt8-james": {
+   "name": "Orange na lower third: bloke bago ang tungkulin",
+   "tags": [
+    "lower third",
+    "orange",
+    "template"
+   ]
+  },
+  "template:llt8-john": {
+   "name": "Orange na lower third: bracket",
+   "tags": [
+    "lower third",
+    "orange",
+    "template"
+   ]
+  },
+  "template:llt8-madden": {
+   "name": "Orange na lower third: mga linya sa tabi ng tungkulin",
+   "tags": [
+    "lower third",
+    "orange",
+    "template"
+   ]
+  },
+  "template:llt8-mason": {
+   "name": "Orange na lower third: mahabang linya, tungkulin sa kanan",
+   "tags": [
+    "lower third",
+    "orange",
+    "template"
+   ]
+  },
+  "template:llt8-rason": {
+   "name": "Orange na lower third: bar, tungkulin sa itaas",
+   "tags": [
+    "lower third",
+    "orange",
+    "template"
+   ]
+  },
+  "template:llt8-ryan": {
+   "name": "Orange na lower third: linya at tungkulin sa itaas",
+   "tags": [
+    "lower third",
+    "orange",
+    "template"
+   ]
+  },
+  "template:llt9-benjamin": {
+   "name": "Gold na lower third: tag sa itaas, linya",
+   "tags": [
+    "lower third",
+    "gold",
+    "template"
+   ]
+  },
+  "template:llt9-emily": {
+   "name": "Gold na lower third: pangalan sa puting kahon, tag",
+   "tags": [
+    "lower third",
+    "gold",
+    "kahon"
+   ]
+  },
+  "template:llt9-katherine": {
+   "name": "Gold na lower third: tag at tuldok, sa kanan",
+   "tags": [
+    "lower third",
+    "gold",
+    "italic",
+    "kanan"
+   ]
+  },
+  "template:llt9-max": {
+   "name": "Gold na lower third: pangalan sa kahon, tag ng tungkulin",
+   "tags": [
+    "lower third",
+    "gold",
+    "italic",
+    "kahon"
+   ]
+  },
+  "template:llt9-natalie": {
+   "name": "Gold na lower third: linya na may tuldok",
+   "tags": [
+    "lower third",
+    "gold",
+    "template"
+   ]
+  },
+  "template:llt9-vanja": {
+   "name": "Gold na lower third: magaang italic, mga parisukat",
+   "tags": [
+    "lower third",
+    "gold",
+    "italic"
+   ]
+  },
+  "template:llt9-vanja-negrita": {
+   "name": "Gold na lower third: makapal na italic, mga parisukat",
+   "tags": [
+    "lower third",
+    "gold",
+    "italic"
+   ]
+  },
+  "template:llt9-victoria": {
+   "name": "Gold na lower third: bar, makapal na italic",
+   "tags": [
+    "lower third",
+    "gold",
+    "italic"
+   ]
+  },
+  "template:llt9-yaroslava": {
+   "name": "Gold na lower third: kahon na may tungkulin, sa kanan",
+   "tags": [
+    "lower third",
+    "gold",
+    "italic",
+    "kanan"
    ]
   },
   "template:lt-andy": {

@@ -26623,6 +26623,678 @@
     "anello"
    ]
   },
+  "template:llt10-amanda": {
+   "name": "Sottopancia bianco: nome e ruolo su una scheda",
+   "tags": [
+    "sottopancia",
+    "bianco",
+    "nome"
+   ]
+  },
+  "template:llt10-elena": {
+   "name": "Sottopancia bianco: nome in una scatola",
+   "tags": [
+    "sottopancia",
+    "bianco",
+    "nome"
+   ]
+  },
+  "template:llt10-elizabeth": {
+   "name": "Sottopancia bianco: nome e scheda a destra",
+   "tags": [
+    "sottopancia",
+    "bianco",
+    "destra"
+   ]
+  },
+  "template:llt10-emily": {
+   "name": "Sottopancia bianco: nome diviso tra scatola e fuori",
+   "tags": [
+    "sottopancia",
+    "bianco",
+    "nome"
+   ]
+  },
+  "template:llt10-erica": {
+   "name": "Sottopancia bianco: due schede con il ruolo",
+   "tags": [
+    "sottopancia",
+    "bianco",
+    "nome"
+   ]
+  },
+  "template:llt10-gabriela": {
+   "name": "Sottopancia bianco: a destra con nome lungo",
+   "tags": [
+    "sottopancia",
+    "bianco",
+    "destra"
+   ]
+  },
+  "template:llt10-hanna": {
+   "name": "Sottopancia bianco: cognome in una scatola",
+   "tags": [
+    "sottopancia",
+    "bianco",
+    "nome"
+   ]
+  },
+  "template:llt10-iren": {
+   "name": "Sottopancia bianco: centrato con una scheda",
+   "tags": [
+    "sottopancia",
+    "bianco",
+    "centrato"
+   ]
+  },
+  "template:llt10-kristina": {
+   "name": "Sottopancia bianco: scatola con ruolo su due righe",
+   "tags": [
+    "sottopancia",
+    "bianco",
+    "centrato"
+   ]
+  },
+  "template:llt10-lora": {
+   "name": "Sottopancia bianco: cognome in una scatola a destra",
+   "tags": [
+    "sottopancia",
+    "bianco",
+    "destra"
+   ]
+  },
+  "template:llt10-monica": {
+   "name": "Sottopancia bianco: nome su due righe e scheda",
+   "tags": [
+    "sottopancia",
+    "bianco",
+    "centrato"
+   ]
+  },
+  "template:llt10-monika": {
+   "name": "Sottopancia bianco: linea e ruolo a destra",
+   "tags": [
+    "sottopancia",
+    "bianco",
+    "destra"
+   ]
+  },
+  "template:llt11-1": {
+   "name": "Sottopancia sfumato: cognome sfumato e scheda",
+   "tags": [
+    "sottopancia",
+    "sfumato",
+    "nome"
+   ]
+  },
+  "template:llt11-10": {
+   "name": "Sottopancia sfumato: cognome in una scatola e sottolineatura",
+   "tags": [
+    "sottopancia",
+    "sfumato",
+    "nome"
+   ]
+  },
+  "template:llt11-11": {
+   "name": "Sottopancia sfumato: barra alta e cognome in una scatola",
+   "tags": [
+    "sottopancia",
+    "sfumato",
+    "nome"
+   ]
+  },
+  "template:llt11-12": {
+   "name": "Sottopancia sfumato: scheda sopra, cornice e cognome sfumato",
+   "tags": [
+    "sottopancia",
+    "sfumato",
+    "nome"
+   ]
+  },
+  "template:llt11-13": {
+   "name": "Sottopancia sfumato: etichetta e quadrato",
+   "tags": [
+    "sottopancia",
+    "sfumato",
+    "nome"
+   ]
+  },
+  "template:llt11-14": {
+   "name": "Sottopancia sfumato: sottolineatura e ruolo a destra",
+   "tags": [
+    "sottopancia",
+    "sfumato",
+    "nome"
+   ]
+  },
+  "template:llt11-15": {
+   "name": "Sottopancia sfumato: quadrati e scheda",
+   "tags": [
+    "sottopancia",
+    "sfumato",
+    "nome"
+   ]
+  },
+  "template:llt11-16": {
+   "name": "Sottopancia sfumato con foto: cognome sfumato",
+   "tags": [
+    "sottopancia",
+    "sfumato",
+    "foto"
+   ]
+  },
+  "template:llt11-17": {
+   "name": "Sottopancia sfumato con foto: nome su due righe e scheda",
+   "tags": [
+    "sottopancia",
+    "sfumato",
+    "foto"
+   ]
+  },
+  "template:llt11-18": {
+   "name": "Sottopancia sfumato con foto: barra",
+   "tags": [
+    "sottopancia",
+    "sfumato",
+    "foto"
+   ]
+  },
+  "template:llt11-19": {
+   "name": "Sottopancia sfumato con foto: foto in una cornice",
+   "tags": [
+    "sottopancia",
+    "sfumato",
+    "foto"
+   ]
+  },
+  "template:llt11-2": {
+   "name": "Sottopancia sfumato: sottolineatura",
+   "tags": [
+    "sottopancia",
+    "sfumato",
+    "nome"
+   ]
+  },
+  "template:llt11-20": {
+   "name": "Sottopancia sfumato con foto: foto, cornice e scheda",
+   "tags": [
+    "sottopancia",
+    "sfumato",
+    "foto"
+   ]
+  },
+  "template:llt11-3": {
+   "name": "Sottopancia sfumato: scatola con il ruolo a destra",
+   "tags": [
+    "sottopancia",
+    "sfumato",
+    "nome"
+   ]
+  },
+  "template:llt11-4": {
+   "name": "Sottopancia sfumato: cornice e scheda",
+   "tags": [
+    "sottopancia",
+    "sfumato",
+    "nome"
+   ]
+  },
+  "template:llt11-5": {
+   "name": "Sottopancia sfumato: barra verticale",
+   "tags": [
+    "sottopancia",
+    "sfumato",
+    "nome"
+   ]
+  },
+  "template:llt11-6": {
+   "name": "Sottopancia sfumato: nome su una riga e scheda",
+   "tags": [
+    "sottopancia",
+    "sfumato",
+    "nome"
+   ]
+  },
+  "template:llt11-7": {
+   "name": "Sottopancia sfumato: nome in una scatola e ruolo in una cornice",
+   "tags": [
+    "sottopancia",
+    "sfumato",
+    "nome"
+   ]
+  },
+  "template:llt11-8": {
+   "name": "Sottopancia sfumato: cognome sfumato",
+   "tags": [
+    "sottopancia",
+    "sfumato",
+    "nome"
+   ]
+  },
+  "template:llt11-9": {
+   "name": "Sottopancia sfumato: scheda sopra e cornice",
+   "tags": [
+    "sottopancia",
+    "sfumato",
+    "nome"
+   ]
+  },
+  "template:llt12-alexandra": {
+   "name": "Sottopancia blu: barra che scopre il nome",
+   "tags": [
+    "sottopancia",
+    "blu",
+    "barra",
+    "destra"
+   ]
+  },
+  "template:llt12-cajas": {
+   "name": "Sottopancia blu: tre scatole che crescono",
+   "tags": [
+    "sottopancia",
+    "blu",
+    "scatola"
+   ]
+  },
+  "template:llt12-corchetes": {
+   "name": "Sottopancia blu: due barre che si aprono",
+   "tags": [
+    "sottopancia",
+    "blu",
+    "barra"
+   ]
+  },
+  "template:llt12-corni": {
+   "name": "Sottopancia blu: nome in una scatola e ruolo su scheda bianca",
+   "tags": [
+    "sottopancia",
+    "blu",
+    "scatola"
+   ]
+  },
+  "template:llt12-jacob": {
+   "name": "Sottopancia blu: scatola che si apre con fascia bianca",
+   "tags": [
+    "sottopancia",
+    "blu",
+    "scatola"
+   ]
+  },
+  "template:llt12-jeremi": {
+   "name": "Sottopancia blu: linea che scende e scopre il nome",
+   "tags": [
+    "sottopancia",
+    "blu",
+    "sottolineatura"
+   ]
+  },
+  "template:llt12-jeremy": {
+   "name": "Sottopancia blu: nome su due righe e sottolineatura",
+   "tags": [
+    "sottopancia",
+    "blu",
+    "sottolineatura"
+   ]
+  },
+  "template:llt12-john-rojers": {
+   "name": "Sottopancia blu: nome ruotato in una scatola",
+   "tags": [
+    "sottopancia",
+    "blu",
+    "scatola",
+    "ruotato"
+   ]
+  },
+  "template:llt12-john-watson": {
+   "name": "Sottopancia blu: scatola inclinata che si apre",
+   "tags": [
+    "sottopancia",
+    "blu",
+    "scatola",
+    "inclinato"
+   ]
+  },
+  "template:llt12-marketing": {
+   "name": "Sottopancia blu: lettere che appaiono e barra",
+   "tags": [
+    "sottopancia",
+    "blu",
+    "barra"
+   ]
+  },
+  "template:llt12-minimal": {
+   "name": "Sottopancia blu: scatola che si apre dal centro",
+   "tags": [
+    "sottopancia",
+    "blu",
+    "scatola"
+   ]
+  },
+  "template:llt12-modern": {
+   "name": "Sottopancia blu: due linee che salgono e sottolineatura",
+   "tags": [
+    "sottopancia",
+    "blu",
+    "sottolineatura"
+   ]
+  },
+  "template:llt12-rosanda": {
+   "name": "Sottopancia blu: barra che scorre su un nome ruotato",
+   "tags": [
+    "sottopancia",
+    "blu",
+    "barra",
+    "ruotato"
+   ]
+  },
+  "template:llt12-suzanna": {
+   "name": "Sottopancia blu: lettere che appaiono e zoom",
+   "tags": [
+    "sottopancia",
+    "blu",
+    "destra"
+   ]
+  },
+  "template:llt12-titulos": {
+   "name": "Sottopancia blu: scatola che scende con fascia bianca",
+   "tags": [
+    "sottopancia",
+    "blu",
+    "scatola"
+   ]
+  },
+  "template:llt12-your-text": {
+   "name": "Sottopancia blu: due linee che escono da una barra",
+   "tags": [
+    "sottopancia",
+    "blu",
+    "barra",
+    "ruotato"
+   ]
+  },
+  "template:llt13-clark": {
+   "name": "Sottopancia in corsivo: cognome grassetto e nome sottile",
+   "tags": [
+    "sottopancia",
+    "bianco",
+    "corsivo"
+   ]
+  },
+  "template:llt13-david": {
+   "name": "Sottopancia in corsivo: ruolo, barra e nome",
+   "tags": [
+    "sottopancia",
+    "bianco",
+    "corsivo",
+    "barra"
+   ]
+  },
+  "template:llt13-dominic": {
+   "name": "Sottopancia in corsivo: cognome grande sottolineato",
+   "tags": [
+    "sottopancia",
+    "bianco",
+    "corsivo"
+   ]
+  },
+  "template:llt13-emily": {
+   "name": "Sottopancia in corsivo: nome su due righe e sottolineatura",
+   "tags": [
+    "sottopancia",
+    "bianco",
+    "corsivo"
+   ]
+  },
+  "template:llt13-foster": {
+   "name": "Sottopancia in corsivo: ruolo sopra e linea",
+   "tags": [
+    "sottopancia",
+    "bianco",
+    "corsivo"
+   ]
+  },
+  "template:llt13-james": {
+   "name": "Sottopancia in corsivo: barra e ruolo sotto",
+   "tags": [
+    "sottopancia",
+    "bianco",
+    "corsivo",
+    "barra"
+   ]
+  },
+  "template:llt13-kingsley": {
+   "name": "Sottopancia in corsivo: nome e barra a destra",
+   "tags": [
+    "sottopancia",
+    "bianco",
+    "corsivo",
+    "barra",
+    "destra"
+   ]
+  },
+  "template:llt13-maximilian": {
+   "name": "Sottopancia in corsivo: nome sottolineato e cognome",
+   "tags": [
+    "sottopancia",
+    "bianco",
+    "corsivo"
+   ]
+  },
+  "template:llt13-michael": {
+   "name": "Sottopancia in corsivo: nome sottolineato",
+   "tags": [
+    "sottopancia",
+    "bianco",
+    "corsivo"
+   ]
+  },
+  "template:llt13-nathaniel": {
+   "name": "Sottopancia in corsivo: allineato a destra",
+   "tags": [
+    "sottopancia",
+    "bianco",
+    "corsivo",
+    "destra"
+   ]
+  },
+  "template:llt13-olivia": {
+   "name": "Sottopancia in corsivo: ruolo a sinistra e sottolineatura",
+   "tags": [
+    "sottopancia",
+    "bianco",
+    "corsivo"
+   ]
+  },
+  "template:llt13-sophia": {
+   "name": "Sottopancia in corsivo: barra e ruolo accanto",
+   "tags": [
+    "sottopancia",
+    "bianco",
+    "corsivo",
+    "barra"
+   ]
+  },
+  "template:llt14-barra-azul": {
+   "name": "Sottopancia rosso: logo e barra blu navy",
+   "tags": [
+    "sottopancia",
+    "rosso",
+    "blu navy",
+    "logo",
+    "barra"
+   ]
+  },
+  "template:llt14-barra-gris": {
+   "name": "Sottopancia rosso: logo, barra grigia e scheda",
+   "tags": [
+    "sottopancia",
+    "rosso",
+    "blu navy",
+    "logo",
+    "barra"
+   ]
+  },
+  "template:llt14-caja-alta": {
+   "name": "Sottopancia rosso: scatola alta con bordo rosso",
+   "tags": [
+    "sottopancia",
+    "rosso",
+    "blu navy",
+    "scatola"
+   ]
+  },
+  "template:llt14-caja-grande": {
+   "name": "Sottopancia rosso: grande scatola con titolo e paragrafo",
+   "tags": [
+    "sottopancia",
+    "rosso",
+    "blu navy",
+    "scatola"
+   ]
+  },
+  "template:llt14-disenador": {
+   "name": "Sottopancia rosso: nome in una cornice rossa",
+   "tags": [
+    "sottopancia",
+    "rosso",
+    "blu navy"
+   ]
+  },
+  "template:llt14-dos-cuadros": {
+   "name": "Sottopancia rosso: due quadrati e due linee",
+   "tags": [
+    "sottopancia",
+    "rosso",
+    "blu navy"
+   ]
+  },
+  "template:llt14-hexagono": {
+   "name": "Sottopancia rosso: logo in esagono e scheda bianca",
+   "tags": [
+    "sottopancia",
+    "rosso",
+    "blu navy",
+    "logo"
+   ]
+  },
+  "template:llt14-linea-roja": {
+   "name": "Sottopancia rosso: logo, linea rossa e scatola larga",
+   "tags": [
+    "sottopancia",
+    "rosso",
+    "blu navy",
+    "logo",
+    "scatola"
+   ]
+  },
+  "template:llt14-logo-lineas": {
+   "name": "Sottopancia rosso: logo, linea e due righe",
+   "tags": [
+    "sottopancia",
+    "rosso",
+    "blu navy",
+    "logo"
+   ]
+  },
+  "template:llt14-logo-texto": {
+   "name": "Sottopancia rosso: logo e scatola con paragrafo",
+   "tags": [
+    "sottopancia",
+    "rosso",
+    "blu navy",
+    "logo",
+    "scatola"
+   ]
+  },
+  "template:llt14-marca": {
+   "name": "Sottopancia rosso: logo, barra obliqua e nome",
+   "tags": [
+    "sottopancia",
+    "rosso",
+    "blu navy",
+    "logo"
+   ]
+  },
+  "template:llt14-pestana": {
+   "name": "Sottopancia rosso: logo, linguetta e riquadro di testo",
+   "tags": [
+    "sottopancia",
+    "rosso",
+    "blu navy",
+    "logo",
+    "scatola"
+   ]
+  },
+  "template:llt14-primer-titulo": {
+   "name": "Sottopancia rosso: logo, titolo e riquadro di testo",
+   "tags": [
+    "sottopancia",
+    "rosso",
+    "blu navy",
+    "logo",
+    "scatola"
+   ]
+  },
+  "template:llt15-barra-larga": {
+   "name": "Sottopancia minimalista: barra lunga con logo e data",
+   "tags": [
+    "sottopancia",
+    "minimalista",
+    "nero",
+    "logo",
+    "barra"
+   ]
+  },
+  "template:llt15-descripcion": {
+   "name": "Sottopancia minimalista: nome e descrizione",
+   "tags": [
+    "sottopancia",
+    "minimalista",
+    "nero"
+   ]
+  },
+  "template:llt15-dos-lineas": {
+   "name": "Sottopancia minimalista: nome e ruolo su due righe",
+   "tags": [
+    "sottopancia",
+    "minimalista",
+    "nero"
+   ]
+  },
+  "template:llt15-logo-ficha": {
+   "name": "Sottopancia minimalista: quadrato del logo e due righe",
+   "tags": [
+    "sottopancia",
+    "minimalista",
+    "nero",
+    "logo"
+   ]
+  },
+  "template:llt15-logo-nombre": {
+   "name": "Sottopancia minimalista: blocco del logo e nome",
+   "tags": [
+    "sottopancia",
+    "minimalista",
+    "nero",
+    "logo"
+   ]
+  },
+  "template:llt15-nombre": {
+   "name": "Sottopancia minimalista: nome su una scheda bianca",
+   "tags": [
+    "sottopancia",
+    "minimalista",
+    "nero"
+   ]
+  },
+  "template:llt15-nombre-cargo": {
+   "name": "Sottopancia minimalista: nome e ruolo",
+   "tags": [
+    "sottopancia",
+    "minimalista",
+    "nero"
+   ]
+  },
   "template:llt2-barra-etiqueta": {
    "name": "Sottopancia con logo: barra scura ed etichetta verde",
    "tags": [
@@ -26755,6 +27427,435 @@
     "giallo",
     "bianco",
     "ospite"
+   ]
+  },
+  "template:llt4-cuadro-sube": {
+   "name": "Sottopancia con logo: quadrato scuro e logo che sale",
+   "tags": [
+    "sottopancia",
+    "logo",
+    "nome",
+    "barra",
+    "verde",
+    "quadrato"
+   ]
+  },
+  "template:llt4-ficha-blanca": {
+   "name": "Sottopancia con logo: scheda bianca che si apre",
+   "tags": [
+    "sottopancia",
+    "logo",
+    "nome",
+    "bianco",
+    "scheda"
+   ]
+  },
+  "template:llt4-logo-izquierda": {
+   "name": "Sottopancia con logo: barra scura e logo a sinistra",
+   "tags": [
+    "sottopancia",
+    "logo",
+    "nome",
+    "barra",
+    "verde"
+   ]
+  },
+  "template:llt4-pastilla-barra": {
+   "name": "Sottopancia con logo: pillola che si apre in barra",
+   "tags": [
+    "sottopancia",
+    "logo",
+    "nome",
+    "barra",
+    "verde",
+    "pillola"
+   ]
+  },
+  "template:llt5-adam": {
+   "name": "Sottopancia con foto: foto verticale e nome sopra",
+   "tags": [
+    "sottopancia",
+    "foto",
+    "nome",
+    "grigio",
+    "verticale",
+    "centrato"
+   ]
+  },
+  "template:llt5-eddy": {
+   "name": "Sottopancia con foto: foto rotonda a destra e fascia scura",
+   "tags": [
+    "sottopancia",
+    "foto",
+    "nome",
+    "scuro",
+    "rotonda"
+   ]
+  },
+  "template:llt5-elis": {
+   "name": "Sottopancia con foto: foto rotonda e nome a destra",
+   "tags": [
+    "sottopancia",
+    "foto",
+    "nome",
+    "grigio",
+    "rotonda"
+   ]
+  },
+  "template:llt5-emma": {
+   "name": "Sottopancia con foto: foto verticale con fasce sopra",
+   "tags": [
+    "sottopancia",
+    "foto",
+    "nome",
+    "grigio",
+    "verticale"
+   ]
+  },
+  "template:llt5-kris": {
+   "name": "Sottopancia con foto: foto rotonda sopra e nome sotto",
+   "tags": [
+    "sottopancia",
+    "foto",
+    "nome",
+    "grigio",
+    "rotonda",
+    "centrato"
+   ]
+  },
+  "template:llt5-martin": {
+   "name": "Sottopancia con foto: foto quadrata e nome a destra",
+   "tags": [
+    "sottopancia",
+    "foto",
+    "nome",
+    "grigio"
+   ]
+  },
+  "template:llt5-monika": {
+   "name": "Sottopancia con foto: foto a destra e nome a sinistra",
+   "tags": [
+    "sottopancia",
+    "foto",
+    "nome",
+    "grigio"
+   ]
+  },
+  "template:llt5-rachel": {
+   "name": "Sottopancia con foto: foto verticale a destra e cognome in contorno",
+   "tags": [
+    "sottopancia",
+    "foto",
+    "nome",
+    "scuro",
+    "verticale"
+   ]
+  },
+  "template:llt5-rose": {
+   "name": "Sottopancia con foto: foto sopra e nome sotto",
+   "tags": [
+    "sottopancia",
+    "foto",
+    "nome",
+    "grigio",
+    "centrato"
+   ]
+  },
+  "template:llt6-barra-inclinada": {
+   "name": "Sottopancia: barra bianca inclinata e nome grande",
+   "tags": [
+    "sottopancia",
+    "nome",
+    "bianco",
+    "inclinato"
+   ]
+  },
+  "template:llt6-barrido-rojo": {
+   "name": "Sottopancia: blocco rosso che scorre e scopre il nome",
+   "tags": [
+    "sottopancia",
+    "nome",
+    "rosso"
+   ]
+  },
+  "template:llt6-caja-nombre": {
+   "name": "Sottopancia: nome in una scatola bianca che si restringe",
+   "tags": [
+    "sottopancia",
+    "nome",
+    "bianco",
+    "scatola"
+   ]
+  },
+  "template:llt6-cursor": {
+   "name": "Sottopancia: blocco che diventa cursore e scopre il nome",
+   "tags": [
+    "sottopancia",
+    "nome",
+    "bianco",
+    "cursore"
+   ]
+  },
+  "template:llt6-divisor": {
+   "name": "Sottopancia: linea divisoria con ruolo e nome ai lati",
+   "tags": [
+    "sottopancia",
+    "nome",
+    "linea"
+   ]
+  },
+  "template:llt6-etiqueta-blanca": {
+   "name": "Sottopancia: nome grande ed etichetta bianca con il ruolo",
+   "tags": [
+    "sottopancia",
+    "nome",
+    "bianco",
+    "etichetta"
+   ]
+  },
+  "template:llt6-etiqueta-roja": {
+   "name": "Sottopancia: nome a destra e striscia rossa con il ruolo",
+   "tags": [
+    "sottopancia",
+    "nome",
+    "rosso",
+    "destra"
+   ]
+  },
+  "template:llt6-letras": {
+   "name": "Sottopancia: nome che arriva lettera per lettera",
+   "tags": [
+    "sottopancia",
+    "nome",
+    "lettere"
+   ]
+  },
+  "template:llt6-linea-fina": {
+   "name": "Sottopancia: linea sottile con nome e ruolo ai lati",
+   "tags": [
+    "sottopancia",
+    "nome",
+    "linea"
+   ]
+  },
+  "template:llt6-subrayado-rojo": {
+   "name": "Sottopancia: nome grande e sottolineatura rossa",
+   "tags": [
+    "sottopancia",
+    "nome",
+    "rosso",
+    "sottolineatura"
+   ]
+  },
+  "template:llt7-barra-azul": {
+   "name": "Sottopancia: barra blu con logo e una riga",
+   "tags": [
+    "sottopancia",
+    "logo",
+    "blu"
+   ]
+  },
+  "template:llt7-barra-azul-2": {
+   "name": "Sottopancia: barra blu con logo e due righe",
+   "tags": [
+    "sottopancia",
+    "logo",
+    "blu"
+   ]
+  },
+  "template:llt8-barrett": {
+   "name": "Sottopancia arancione: lunga sottolineatura",
+   "tags": [
+    "sottopancia",
+    "arancione",
+    "nome"
+   ]
+  },
+  "template:llt8-brandon": {
+   "name": "Sottopancia arancione: barra e nome",
+   "tags": [
+    "sottopancia",
+    "arancione",
+    "nome"
+   ]
+  },
+  "template:llt8-cameron": {
+   "name": "Sottopancia arancione: ruolo sopra con segni",
+   "tags": [
+    "sottopancia",
+    "arancione",
+    "nome"
+   ]
+  },
+  "template:llt8-castro": {
+   "name": "Sottopancia arancione: ruolo su due righe",
+   "tags": [
+    "sottopancia",
+    "arancione",
+    "nome"
+   ]
+  },
+  "template:llt8-charley": {
+   "name": "Sottopancia arancione: barra che scende",
+   "tags": [
+    "sottopancia",
+    "arancione",
+    "nome"
+   ]
+  },
+  "template:llt8-daniel": {
+   "name": "Sottopancia arancione: blocco accanto al ruolo",
+   "tags": [
+    "sottopancia",
+    "arancione",
+    "nome"
+   ]
+  },
+  "template:llt8-dodson": {
+   "name": "Sottopancia arancione: linea e ruolo a destra",
+   "tags": [
+    "sottopancia",
+    "arancione",
+    "nome"
+   ]
+  },
+  "template:llt8-hayden": {
+   "name": "Sottopancia arancione: barra alta e ruolo",
+   "tags": [
+    "sottopancia",
+    "arancione",
+    "nome"
+   ]
+  },
+  "template:llt8-jake": {
+   "name": "Sottopancia arancione: lunghe linee ai lati",
+   "tags": [
+    "sottopancia",
+    "arancione",
+    "nome"
+   ]
+  },
+  "template:llt8-james": {
+   "name": "Sottopancia arancione: blocco prima del ruolo",
+   "tags": [
+    "sottopancia",
+    "arancione",
+    "nome"
+   ]
+  },
+  "template:llt8-john": {
+   "name": "Sottopancia arancione: parentesi",
+   "tags": [
+    "sottopancia",
+    "arancione",
+    "nome"
+   ]
+  },
+  "template:llt8-madden": {
+   "name": "Sottopancia arancione: linee ai lati del ruolo",
+   "tags": [
+    "sottopancia",
+    "arancione",
+    "nome"
+   ]
+  },
+  "template:llt8-mason": {
+   "name": "Sottopancia arancione: linea lunga e ruolo a destra",
+   "tags": [
+    "sottopancia",
+    "arancione",
+    "nome"
+   ]
+  },
+  "template:llt8-rason": {
+   "name": "Sottopancia arancione: barra e ruolo sopra",
+   "tags": [
+    "sottopancia",
+    "arancione",
+    "nome"
+   ]
+  },
+  "template:llt8-ryan": {
+   "name": "Sottopancia arancione: linea e ruolo sopra",
+   "tags": [
+    "sottopancia",
+    "arancione",
+    "nome"
+   ]
+  },
+  "template:llt9-benjamin": {
+   "name": "Sottopancia dorato: etichetta sopra e linea",
+   "tags": [
+    "sottopancia",
+    "dorato",
+    "nome"
+   ]
+  },
+  "template:llt9-emily": {
+   "name": "Sottopancia dorato: nome in una scatola bianca ed etichetta",
+   "tags": [
+    "sottopancia",
+    "dorato",
+    "scatola"
+   ]
+  },
+  "template:llt9-katherine": {
+   "name": "Sottopancia dorato: etichetta e punto a destra",
+   "tags": [
+    "sottopancia",
+    "dorato",
+    "corsivo",
+    "destra"
+   ]
+  },
+  "template:llt9-max": {
+   "name": "Sottopancia dorato: nome in una scatola e ruolo su una scheda",
+   "tags": [
+    "sottopancia",
+    "dorato",
+    "corsivo",
+    "scatola"
+   ]
+  },
+  "template:llt9-natalie": {
+   "name": "Sottopancia dorato: linea con un punto",
+   "tags": [
+    "sottopancia",
+    "dorato",
+    "nome"
+   ]
+  },
+  "template:llt9-vanja": {
+   "name": "Sottopancia dorato: corsivo sottile con quadrati",
+   "tags": [
+    "sottopancia",
+    "dorato",
+    "corsivo"
+   ]
+  },
+  "template:llt9-vanja-negrita": {
+   "name": "Sottopancia dorato: corsivo grosso con quadrati",
+   "tags": [
+    "sottopancia",
+    "dorato",
+    "corsivo"
+   ]
+  },
+  "template:llt9-victoria": {
+   "name": "Sottopancia dorato: barra e corsivo grosso",
+   "tags": [
+    "sottopancia",
+    "dorato",
+    "corsivo"
+   ]
+  },
+  "template:llt9-yaroslava": {
+   "name": "Sottopancia dorato: riquadro con ruolo a destra",
+   "tags": [
+    "sottopancia",
+    "dorato",
+    "corsivo",
+    "destra"
    ]
   },
   "template:lt-andy": {

@@ -35,9 +35,9 @@ class GradPiece(Piece):
         return min(u, self.dur - u) * FPS
 
 
-def _kit(id, es, en, order, tags):
-    return wide(f"llt11-{id}", es, en, "ytkit", D, order=order,
-                tags=["kit:lowerthirds", "tercio", "degradado"] + tags, thumb_at=1.6)
+def _kit(id, es, en, order, tags, dur=D):
+    return wide(f"llt11-{id}", es, en, "ytkit", dur, order=order,
+                tags=["kit:lowerthirds", "tercio", "degradado"] + tags, thumb_at=round(min(1.6, dur / 2), 1))
 
 
 def _rect(p, r):
@@ -73,7 +73,15 @@ def frame(p, r, at=0, w=6):
     box(p, "Marco 4", (x1 - w, y0, x1, y1), "ttb", at + 6)
 
 
-def words(p, x0, y0, x1, y1, parts, at=0, name="Nombre", align="left"):
+class StepPiece(GradPiece):
+    """A piece whose words enter and leave one by one in the same order (first in, first out): its frame is the
+    plain frame count, and each word works out its own entrance and exit."""
+
+    def frame(self, u):
+        return u * FPS
+
+
+def words(p, x0, y0, x1, y1, parts, at=0, name="Nombre", align="left", steps=None, speed=16):
     """A line made of words [(text, weight, italic, fill)] side by side with a word space between, sized so the
     whole line spans x0..x1 (its capitals centred on y0..y1), sliding up into place from frame `at`; fill is a
     colour or "grad"."""
@@ -88,8 +96,18 @@ def words(p, x0, y0, x1, y1, parts, at=0, name="Nombre", align="left"):
     ct, cb = cy - 0.35 * size, cy + 0.35 * size
     x = x0
     rx0, ry0, rx1, ry1 = _rect(p, (x0, y0, x1, y1))
-    lift = lambda fr: (0.0, (1 - EASE(fr - at)) * (y1 - y0) * 1.2)  # noqa: E731
+    end = p.dur * FPS
+
+    def lifter(a_in, a_out):
+        """Up into place from frame a_in; down out of it, gone a_out frames before the end (StepPiece only)."""
+        def k(fr):
+            if steps is None:
+                return EASE(fr - at)
+            return min(EASE((fr - a_in) * 16 / speed), EASE((end - a_out - fr) * 16 / speed))
+        # Far enough down to clear the reveal box (its bottom is 12 px under the line).
+        return lambda fr: (0.0, (1 - k(fr)) * ((y1 - y0) + 26))
     for i, ((text, weight, italic, fill), em) in enumerate(zip(parts, ems)):
+        lift = lifter(*(steps[i] if steps else (at, 0)))
         w = em * size
         clip = p.text(text, x + p.dx, ct + p.dy, cb + p.dy, w, FONT, weight, WHITE if fill == "grad" else fill,
                       name if i == 0 else f"{name} {i + 1}", shift=lift,
@@ -188,10 +206,16 @@ def p7():
 
 
 def p8():
-    t, p = piece("8", "Tercio degradado: apellido en degradado", "Gradient lower third: gradient last name", 8677,
-                 (453, 455, 1472, 627))
-    words(p, 454, 457, 1472, 550, [("Aleix", 400, True, WHITE), ("Richard", 700, False, "grad")], 0)
-    words(p, 453, 594, 951, 627, [("Television reporter", 700, False, WHITE)], 6, "Cargo")
+    # Measured at 30 fps: each word rises in 7 frames, Aleix first, Richard 3 frames later, the role's two words 6
+    # and 7 later; they drop out in the same order (Aleix and Television first, Richard last).
+    # The reference shows it for 2.2 s (from the first letter in to the last out), shorter than the rest.
+    t = _kit("8", "Tercio degradado: apellido en degradado", "Gradient lower third: gradient last name", 8677, [],
+             dur=2.2)
+    p = StepPiece(t, 2.2, 120 - 453, 960 - 627)
+    words(p, 454, 457, 1472, 550, [("Aleix", 400, True, WHITE), ("Richard", 700, False, "grad")],
+          steps=[(0, 4), (3, 0)], speed=7)
+    words(p, 453, 594, 951, 627, [("Television", 700, False, WHITE), ("reporter", 700, False, WHITE)], name="Cargo",
+          steps=[(6, 4), (7, 3)], speed=7)
     return t
 
 

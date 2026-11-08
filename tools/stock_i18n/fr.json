@@ -26516,6 +26516,678 @@
     "anneau"
    ]
   },
+  "template:llt10-amanda": {
+   "name": "Bandeau titre blanc : nom et fonction sur une fiche",
+   "tags": [
+    "bandeau titre",
+    "blanc",
+    "nom"
+   ]
+  },
+  "template:llt10-elena": {
+   "name": "Bandeau titre blanc : nom dans une boîte",
+   "tags": [
+    "bandeau titre",
+    "blanc",
+    "nom"
+   ]
+  },
+  "template:llt10-elizabeth": {
+   "name": "Bandeau titre blanc : nom et fiche à droite",
+   "tags": [
+    "bandeau titre",
+    "blanc",
+    "droite"
+   ]
+  },
+  "template:llt10-emily": {
+   "name": "Bandeau titre blanc : nom coupé entre boîte et extérieur",
+   "tags": [
+    "bandeau titre",
+    "blanc",
+    "nom"
+   ]
+  },
+  "template:llt10-erica": {
+   "name": "Bandeau titre blanc : deux fiches avec la fonction",
+   "tags": [
+    "bandeau titre",
+    "blanc",
+    "nom"
+   ]
+  },
+  "template:llt10-gabriela": {
+   "name": "Bandeau titre blanc : à droite avec nom long",
+   "tags": [
+    "bandeau titre",
+    "blanc",
+    "droite"
+   ]
+  },
+  "template:llt10-hanna": {
+   "name": "Bandeau titre blanc : nom de famille dans une boîte",
+   "tags": [
+    "bandeau titre",
+    "blanc",
+    "nom"
+   ]
+  },
+  "template:llt10-iren": {
+   "name": "Bandeau titre blanc : centré avec une fiche",
+   "tags": [
+    "bandeau titre",
+    "blanc",
+    "centré"
+   ]
+  },
+  "template:llt10-kristina": {
+   "name": "Bandeau titre blanc : boîte avec fonction sur deux lignes",
+   "tags": [
+    "bandeau titre",
+    "blanc",
+    "centré"
+   ]
+  },
+  "template:llt10-lora": {
+   "name": "Bandeau titre blanc : nom de famille dans une boîte à droite",
+   "tags": [
+    "bandeau titre",
+    "blanc",
+    "droite"
+   ]
+  },
+  "template:llt10-monica": {
+   "name": "Bandeau titre blanc : nom sur deux lignes et fiche",
+   "tags": [
+    "bandeau titre",
+    "blanc",
+    "centré"
+   ]
+  },
+  "template:llt10-monika": {
+   "name": "Bandeau titre blanc : ligne et fonction à droite",
+   "tags": [
+    "bandeau titre",
+    "blanc",
+    "droite"
+   ]
+  },
+  "template:llt11-1": {
+   "name": "Bandeau titre dégradé : nom de famille en dégradé et fiche",
+   "tags": [
+    "bandeau titre",
+    "dégradé",
+    "nom"
+   ]
+  },
+  "template:llt11-10": {
+   "name": "Bandeau titre dégradé : nom de famille dans une boîte et soulignement",
+   "tags": [
+    "bandeau titre",
+    "dégradé",
+    "nom"
+   ]
+  },
+  "template:llt11-11": {
+   "name": "Bandeau titre dégradé : barre haute et nom de famille dans une boîte",
+   "tags": [
+    "bandeau titre",
+    "dégradé",
+    "nom"
+   ]
+  },
+  "template:llt11-12": {
+   "name": "Bandeau titre dégradé : fiche en haut, cadre et nom de famille en dégradé",
+   "tags": [
+    "bandeau titre",
+    "dégradé",
+    "nom"
+   ]
+  },
+  "template:llt11-13": {
+   "name": "Bandeau titre dégradé : étiquette et carré",
+   "tags": [
+    "bandeau titre",
+    "dégradé",
+    "nom"
+   ]
+  },
+  "template:llt11-14": {
+   "name": "Bandeau titre dégradé : soulignement et fonction à droite",
+   "tags": [
+    "bandeau titre",
+    "dégradé",
+    "nom"
+   ]
+  },
+  "template:llt11-15": {
+   "name": "Bandeau titre dégradé : carrés et fiche",
+   "tags": [
+    "bandeau titre",
+    "dégradé",
+    "nom"
+   ]
+  },
+  "template:llt11-16": {
+   "name": "Bandeau titre dégradé avec photo : nom de famille en dégradé",
+   "tags": [
+    "bandeau titre",
+    "dégradé",
+    "photo"
+   ]
+  },
+  "template:llt11-17": {
+   "name": "Bandeau titre dégradé avec photo : nom sur deux lignes et fiche",
+   "tags": [
+    "bandeau titre",
+    "dégradé",
+    "photo"
+   ]
+  },
+  "template:llt11-18": {
+   "name": "Bandeau titre dégradé avec photo : barre",
+   "tags": [
+    "bandeau titre",
+    "dégradé",
+    "photo"
+   ]
+  },
+  "template:llt11-19": {
+   "name": "Bandeau titre dégradé avec photo : photo dans un cadre",
+   "tags": [
+    "bandeau titre",
+    "dégradé",
+    "photo"
+   ]
+  },
+  "template:llt11-2": {
+   "name": "Bandeau titre dégradé : soulignement",
+   "tags": [
+    "bandeau titre",
+    "dégradé",
+    "nom"
+   ]
+  },
+  "template:llt11-20": {
+   "name": "Bandeau titre dégradé avec photo : photo, cadre et fiche",
+   "tags": [
+    "bandeau titre",
+    "dégradé",
+    "photo"
+   ]
+  },
+  "template:llt11-3": {
+   "name": "Bandeau titre dégradé : boîte avec la fonction à droite",
+   "tags": [
+    "bandeau titre",
+    "dégradé",
+    "nom"
+   ]
+  },
+  "template:llt11-4": {
+   "name": "Bandeau titre dégradé : cadre et fiche",
+   "tags": [
+    "bandeau titre",
+    "dégradé",
+    "nom"
+   ]
+  },
+  "template:llt11-5": {
+   "name": "Bandeau titre dégradé : barre verticale",
+   "tags": [
+    "bandeau titre",
+    "dégradé",
+    "nom"
+   ]
+  },
+  "template:llt11-6": {
+   "name": "Bandeau titre dégradé : nom sur une ligne et fiche",
+   "tags": [
+    "bandeau titre",
+    "dégradé",
+    "nom"
+   ]
+  },
+  "template:llt11-7": {
+   "name": "Bandeau titre dégradé : nom dans une boîte et fonction dans un cadre",
+   "tags": [
+    "bandeau titre",
+    "dégradé",
+    "nom"
+   ]
+  },
+  "template:llt11-8": {
+   "name": "Bandeau titre dégradé : nom de famille en dégradé",
+   "tags": [
+    "bandeau titre",
+    "dégradé",
+    "nom"
+   ]
+  },
+  "template:llt11-9": {
+   "name": "Bandeau titre dégradé : fiche en haut et cadre",
+   "tags": [
+    "bandeau titre",
+    "dégradé",
+    "nom"
+   ]
+  },
+  "template:llt12-alexandra": {
+   "name": "Bandeau titre bleu : barre qui révèle le nom",
+   "tags": [
+    "bandeau titre",
+    "bleu",
+    "barre",
+    "droite"
+   ]
+  },
+  "template:llt12-cajas": {
+   "name": "Bandeau titre bleu : trois boîtes qui grandissent",
+   "tags": [
+    "bandeau titre",
+    "bleu",
+    "boîte"
+   ]
+  },
+  "template:llt12-corchetes": {
+   "name": "Bandeau titre bleu : deux barres qui s'écartent",
+   "tags": [
+    "bandeau titre",
+    "bleu",
+    "barre"
+   ]
+  },
+  "template:llt12-corni": {
+   "name": "Bandeau titre bleu : nom dans une boîte et fonction sur fiche blanche",
+   "tags": [
+    "bandeau titre",
+    "bleu",
+    "boîte"
+   ]
+  },
+  "template:llt12-jacob": {
+   "name": "Bandeau titre bleu : boîte qui s'ouvre avec bande blanche",
+   "tags": [
+    "bandeau titre",
+    "bleu",
+    "boîte"
+   ]
+  },
+  "template:llt12-jeremi": {
+   "name": "Bandeau titre bleu : ligne qui descend et révèle le nom",
+   "tags": [
+    "bandeau titre",
+    "bleu",
+    "soulignement"
+   ]
+  },
+  "template:llt12-jeremy": {
+   "name": "Bandeau titre bleu : nom sur deux lignes et soulignement",
+   "tags": [
+    "bandeau titre",
+    "bleu",
+    "soulignement"
+   ]
+  },
+  "template:llt12-john-rojers": {
+   "name": "Bandeau titre bleu : nom incliné dans une boîte",
+   "tags": [
+    "bandeau titre",
+    "bleu",
+    "boîte",
+    "incliné"
+   ]
+  },
+  "template:llt12-john-watson": {
+   "name": "Bandeau titre bleu : boîte inclinée qui s'ouvre",
+   "tags": [
+    "bandeau titre",
+    "bleu",
+    "boîte",
+    "incliné"
+   ]
+  },
+  "template:llt12-marketing": {
+   "name": "Bandeau titre bleu : lettres qui apparaissent et barre",
+   "tags": [
+    "bandeau titre",
+    "bleu",
+    "barre"
+   ]
+  },
+  "template:llt12-minimal": {
+   "name": "Bandeau titre bleu : boîte qui s'ouvre depuis le centre",
+   "tags": [
+    "bandeau titre",
+    "bleu",
+    "boîte"
+   ]
+  },
+  "template:llt12-modern": {
+   "name": "Bandeau titre bleu : deux lignes qui montent et soulignement",
+   "tags": [
+    "bandeau titre",
+    "bleu",
+    "soulignement"
+   ]
+  },
+  "template:llt12-rosanda": {
+   "name": "Bandeau titre bleu : barre qui balaie un nom incliné",
+   "tags": [
+    "bandeau titre",
+    "bleu",
+    "barre",
+    "incliné"
+   ]
+  },
+  "template:llt12-suzanna": {
+   "name": "Bandeau titre bleu : lettres qui apparaissent et zoom",
+   "tags": [
+    "bandeau titre",
+    "bleu",
+    "droite"
+   ]
+  },
+  "template:llt12-titulos": {
+   "name": "Bandeau titre bleu : boîte qui descend avec bande blanche",
+   "tags": [
+    "bandeau titre",
+    "bleu",
+    "boîte"
+   ]
+  },
+  "template:llt12-your-text": {
+   "name": "Bandeau titre bleu : deux lignes qui sortent d'une barre",
+   "tags": [
+    "bandeau titre",
+    "bleu",
+    "barre",
+    "incliné"
+   ]
+  },
+  "template:llt13-clark": {
+   "name": "Bandeau titre en italique : nom de famille gras et prénom fin",
+   "tags": [
+    "bandeau titre",
+    "blanc",
+    "italique"
+   ]
+  },
+  "template:llt13-david": {
+   "name": "Bandeau titre en italique : fonction, barre et nom",
+   "tags": [
+    "bandeau titre",
+    "blanc",
+    "italique",
+    "barre"
+   ]
+  },
+  "template:llt13-dominic": {
+   "name": "Bandeau titre en italique : grand nom de famille souligné",
+   "tags": [
+    "bandeau titre",
+    "blanc",
+    "italique"
+   ]
+  },
+  "template:llt13-emily": {
+   "name": "Bandeau titre en italique : nom sur deux lignes et soulignement",
+   "tags": [
+    "bandeau titre",
+    "blanc",
+    "italique"
+   ]
+  },
+  "template:llt13-foster": {
+   "name": "Bandeau titre en italique : fonction en haut et ligne",
+   "tags": [
+    "bandeau titre",
+    "blanc",
+    "italique"
+   ]
+  },
+  "template:llt13-james": {
+   "name": "Bandeau titre en italique : barre et fonction en dessous",
+   "tags": [
+    "bandeau titre",
+    "blanc",
+    "italique",
+    "barre"
+   ]
+  },
+  "template:llt13-kingsley": {
+   "name": "Bandeau titre en italique : nom et barre à droite",
+   "tags": [
+    "bandeau titre",
+    "blanc",
+    "italique",
+    "barre",
+    "droite"
+   ]
+  },
+  "template:llt13-maximilian": {
+   "name": "Bandeau titre en italique : prénom souligné et nom de famille",
+   "tags": [
+    "bandeau titre",
+    "blanc",
+    "italique"
+   ]
+  },
+  "template:llt13-michael": {
+   "name": "Bandeau titre en italique : nom souligné",
+   "tags": [
+    "bandeau titre",
+    "blanc",
+    "italique"
+   ]
+  },
+  "template:llt13-nathaniel": {
+   "name": "Bandeau titre en italique : aligné à droite",
+   "tags": [
+    "bandeau titre",
+    "blanc",
+    "italique",
+    "droite"
+   ]
+  },
+  "template:llt13-olivia": {
+   "name": "Bandeau titre en italique : fonction à gauche et soulignement",
+   "tags": [
+    "bandeau titre",
+    "blanc",
+    "italique"
+   ]
+  },
+  "template:llt13-sophia": {
+   "name": "Bandeau titre en italique : barre et fonction à côté",
+   "tags": [
+    "bandeau titre",
+    "blanc",
+    "italique",
+    "barre"
+   ]
+  },
+  "template:llt14-barra-azul": {
+   "name": "Bandeau titre rouge : logo et barre bleu marine",
+   "tags": [
+    "bandeau titre",
+    "rouge",
+    "bleu marine",
+    "logo",
+    "barre"
+   ]
+  },
+  "template:llt14-barra-gris": {
+   "name": "Bandeau titre rouge : logo, barre grise et fiche",
+   "tags": [
+    "bandeau titre",
+    "rouge",
+    "bleu marine",
+    "logo",
+    "barre"
+   ]
+  },
+  "template:llt14-caja-alta": {
+   "name": "Bandeau titre rouge : boîte haute à bord rouge",
+   "tags": [
+    "bandeau titre",
+    "rouge",
+    "bleu marine",
+    "boîte"
+   ]
+  },
+  "template:llt14-caja-grande": {
+   "name": "Bandeau titre rouge : grande boîte avec titre et paragraphe",
+   "tags": [
+    "bandeau titre",
+    "rouge",
+    "bleu marine",
+    "boîte"
+   ]
+  },
+  "template:llt14-disenador": {
+   "name": "Bandeau titre rouge : nom dans un cadre rouge",
+   "tags": [
+    "bandeau titre",
+    "rouge",
+    "bleu marine"
+   ]
+  },
+  "template:llt14-dos-cuadros": {
+   "name": "Bandeau titre rouge : deux carrés et deux lignes",
+   "tags": [
+    "bandeau titre",
+    "rouge",
+    "bleu marine"
+   ]
+  },
+  "template:llt14-hexagono": {
+   "name": "Bandeau titre rouge : logo en hexagone et fiche blanche",
+   "tags": [
+    "bandeau titre",
+    "rouge",
+    "bleu marine",
+    "logo"
+   ]
+  },
+  "template:llt14-linea-roja": {
+   "name": "Bandeau titre rouge : logo, ligne rouge et boîte large",
+   "tags": [
+    "bandeau titre",
+    "rouge",
+    "bleu marine",
+    "logo",
+    "boîte"
+   ]
+  },
+  "template:llt14-logo-lineas": {
+   "name": "Bandeau titre rouge : logo, ligne et deux lignes",
+   "tags": [
+    "bandeau titre",
+    "rouge",
+    "bleu marine",
+    "logo"
+   ]
+  },
+  "template:llt14-logo-texto": {
+   "name": "Bandeau titre rouge : logo et boîte avec paragraphe",
+   "tags": [
+    "bandeau titre",
+    "rouge",
+    "bleu marine",
+    "logo",
+    "boîte"
+   ]
+  },
+  "template:llt14-marca": {
+   "name": "Bandeau titre rouge : logo, barre oblique et nom",
+   "tags": [
+    "bandeau titre",
+    "rouge",
+    "bleu marine",
+    "logo"
+   ]
+  },
+  "template:llt14-pestana": {
+   "name": "Bandeau titre rouge : logo, onglet et boîte de texte",
+   "tags": [
+    "bandeau titre",
+    "rouge",
+    "bleu marine",
+    "logo",
+    "boîte"
+   ]
+  },
+  "template:llt14-primer-titulo": {
+   "name": "Bandeau titre rouge : logo, titre et boîte de texte",
+   "tags": [
+    "bandeau titre",
+    "rouge",
+    "bleu marine",
+    "logo",
+    "boîte"
+   ]
+  },
+  "template:llt15-barra-larga": {
+   "name": "Bandeau titre minimaliste : longue barre avec logo et date",
+   "tags": [
+    "bandeau titre",
+    "minimaliste",
+    "noir",
+    "logo",
+    "barre"
+   ]
+  },
+  "template:llt15-descripcion": {
+   "name": "Bandeau titre minimaliste : nom et description",
+   "tags": [
+    "bandeau titre",
+    "minimaliste",
+    "noir"
+   ]
+  },
+  "template:llt15-dos-lineas": {
+   "name": "Bandeau titre minimaliste : nom et fonction sur deux lignes",
+   "tags": [
+    "bandeau titre",
+    "minimaliste",
+    "noir"
+   ]
+  },
+  "template:llt15-logo-ficha": {
+   "name": "Bandeau titre minimaliste : carré du logo et deux lignes",
+   "tags": [
+    "bandeau titre",
+    "minimaliste",
+    "noir",
+    "logo"
+   ]
+  },
+  "template:llt15-logo-nombre": {
+   "name": "Bandeau titre minimaliste : bloc du logo et nom",
+   "tags": [
+    "bandeau titre",
+    "minimaliste",
+    "noir",
+    "logo"
+   ]
+  },
+  "template:llt15-nombre": {
+   "name": "Bandeau titre minimaliste : nom sur une fiche blanche",
+   "tags": [
+    "bandeau titre",
+    "minimaliste",
+    "noir"
+   ]
+  },
+  "template:llt15-nombre-cargo": {
+   "name": "Bandeau titre minimaliste : nom et fonction",
+   "tags": [
+    "bandeau titre",
+    "minimaliste",
+    "noir"
+   ]
+  },
   "template:llt2-barra-etiqueta": {
    "name": "Bandeau titre avec logo : barre sombre et étiquette verte",
    "tags": [
@@ -26648,6 +27320,435 @@
     "jaune",
     "blanc",
     "invité"
+   ]
+  },
+  "template:llt4-cuadro-sube": {
+   "name": "Bandeau titre avec logo : carré sombre et logo qui monte",
+   "tags": [
+    "bandeau titre",
+    "logo",
+    "nom",
+    "barre",
+    "vert",
+    "carré"
+   ]
+  },
+  "template:llt4-ficha-blanca": {
+   "name": "Bandeau titre avec logo : fiche blanche qui s'ouvre",
+   "tags": [
+    "bandeau titre",
+    "logo",
+    "nom",
+    "blanc",
+    "fiche"
+   ]
+  },
+  "template:llt4-logo-izquierda": {
+   "name": "Bandeau titre avec logo : barre sombre et logo à gauche",
+   "tags": [
+    "bandeau titre",
+    "logo",
+    "nom",
+    "barre",
+    "vert"
+   ]
+  },
+  "template:llt4-pastilla-barra": {
+   "name": "Bandeau titre avec logo : pastille qui s'ouvre en barre",
+   "tags": [
+    "bandeau titre",
+    "logo",
+    "nom",
+    "barre",
+    "vert",
+    "pastille"
+   ]
+  },
+  "template:llt5-adam": {
+   "name": "Bandeau titre avec photo : photo verticale et nom par-dessus",
+   "tags": [
+    "bandeau titre",
+    "photo",
+    "nom",
+    "gris",
+    "vertical",
+    "centré"
+   ]
+  },
+  "template:llt5-eddy": {
+   "name": "Bandeau titre avec photo : photo ronde à droite et bande sombre",
+   "tags": [
+    "bandeau titre",
+    "photo",
+    "nom",
+    "sombre",
+    "ronde"
+   ]
+  },
+  "template:llt5-elis": {
+   "name": "Bandeau titre avec photo : photo ronde et nom à droite",
+   "tags": [
+    "bandeau titre",
+    "photo",
+    "nom",
+    "gris",
+    "ronde"
+   ]
+  },
+  "template:llt5-emma": {
+   "name": "Bandeau titre avec photo : photo verticale avec bandes par-dessus",
+   "tags": [
+    "bandeau titre",
+    "photo",
+    "nom",
+    "gris",
+    "vertical"
+   ]
+  },
+  "template:llt5-kris": {
+   "name": "Bandeau titre avec photo : photo ronde en haut et nom en dessous",
+   "tags": [
+    "bandeau titre",
+    "photo",
+    "nom",
+    "gris",
+    "ronde",
+    "centré"
+   ]
+  },
+  "template:llt5-martin": {
+   "name": "Bandeau titre avec photo : photo carrée et nom à droite",
+   "tags": [
+    "bandeau titre",
+    "photo",
+    "nom",
+    "gris"
+   ]
+  },
+  "template:llt5-monika": {
+   "name": "Bandeau titre avec photo : photo à droite et nom à gauche",
+   "tags": [
+    "bandeau titre",
+    "photo",
+    "nom",
+    "gris"
+   ]
+  },
+  "template:llt5-rachel": {
+   "name": "Bandeau titre avec photo : photo verticale à droite et nom de famille en contour",
+   "tags": [
+    "bandeau titre",
+    "photo",
+    "nom",
+    "sombre",
+    "vertical"
+   ]
+  },
+  "template:llt5-rose": {
+   "name": "Bandeau titre avec photo : photo en haut et nom en dessous",
+   "tags": [
+    "bandeau titre",
+    "photo",
+    "nom",
+    "gris",
+    "centré"
+   ]
+  },
+  "template:llt6-barra-inclinada": {
+   "name": "Bandeau titre : barre blanche inclinée et grand nom",
+   "tags": [
+    "bandeau titre",
+    "nom",
+    "blanc",
+    "incliné"
+   ]
+  },
+  "template:llt6-barrido-rojo": {
+   "name": "Bandeau titre : bloc rouge qui balaie et révèle le nom",
+   "tags": [
+    "bandeau titre",
+    "nom",
+    "rouge"
+   ]
+  },
+  "template:llt6-caja-nombre": {
+   "name": "Bandeau titre : nom dans une boîte blanche qui rétrécit",
+   "tags": [
+    "bandeau titre",
+    "nom",
+    "blanc",
+    "boîte"
+   ]
+  },
+  "template:llt6-cursor": {
+   "name": "Bandeau titre : bloc qui devient curseur et révèle le nom",
+   "tags": [
+    "bandeau titre",
+    "nom",
+    "blanc",
+    "curseur"
+   ]
+  },
+  "template:llt6-divisor": {
+   "name": "Bandeau titre : ligne de séparation avec fonction et nom de chaque côté",
+   "tags": [
+    "bandeau titre",
+    "nom",
+    "ligne"
+   ]
+  },
+  "template:llt6-etiqueta-blanca": {
+   "name": "Bandeau titre : grand nom et étiquette blanche avec la fonction",
+   "tags": [
+    "bandeau titre",
+    "nom",
+    "blanc",
+    "étiquette"
+   ]
+  },
+  "template:llt6-etiqueta-roja": {
+   "name": "Bandeau titre : nom à droite et bande rouge avec la fonction",
+   "tags": [
+    "bandeau titre",
+    "nom",
+    "rouge",
+    "droite"
+   ]
+  },
+  "template:llt6-letras": {
+   "name": "Bandeau titre : nom qui arrive lettre par lettre",
+   "tags": [
+    "bandeau titre",
+    "nom",
+    "lettres"
+   ]
+  },
+  "template:llt6-linea-fina": {
+   "name": "Bandeau titre : ligne fine avec nom et fonction de chaque côté",
+   "tags": [
+    "bandeau titre",
+    "nom",
+    "ligne"
+   ]
+  },
+  "template:llt6-subrayado-rojo": {
+   "name": "Bandeau titre : grand nom et soulignement rouge",
+   "tags": [
+    "bandeau titre",
+    "nom",
+    "rouge",
+    "soulignement"
+   ]
+  },
+  "template:llt7-barra-azul": {
+   "name": "Bandeau titre : barre bleue avec logo et une ligne",
+   "tags": [
+    "bandeau titre",
+    "logo",
+    "bleu"
+   ]
+  },
+  "template:llt7-barra-azul-2": {
+   "name": "Bandeau titre : barre bleue avec logo et deux lignes",
+   "tags": [
+    "bandeau titre",
+    "logo",
+    "bleu"
+   ]
+  },
+  "template:llt8-barrett": {
+   "name": "Bandeau titre orange : long soulignement",
+   "tags": [
+    "bandeau titre",
+    "orange",
+    "nom"
+   ]
+  },
+  "template:llt8-brandon": {
+   "name": "Bandeau titre orange : barre et nom",
+   "tags": [
+    "bandeau titre",
+    "orange",
+    "nom"
+   ]
+  },
+  "template:llt8-cameron": {
+   "name": "Bandeau titre orange : fonction en haut avec repères",
+   "tags": [
+    "bandeau titre",
+    "orange",
+    "nom"
+   ]
+  },
+  "template:llt8-castro": {
+   "name": "Bandeau titre orange : fonction sur deux lignes",
+   "tags": [
+    "bandeau titre",
+    "orange",
+    "nom"
+   ]
+  },
+  "template:llt8-charley": {
+   "name": "Bandeau titre orange : barre qui descend",
+   "tags": [
+    "bandeau titre",
+    "orange",
+    "nom"
+   ]
+  },
+  "template:llt8-daniel": {
+   "name": "Bandeau titre orange : bloc à côté de la fonction",
+   "tags": [
+    "bandeau titre",
+    "orange",
+    "nom"
+   ]
+  },
+  "template:llt8-dodson": {
+   "name": "Bandeau titre orange : ligne et fonction à droite",
+   "tags": [
+    "bandeau titre",
+    "orange",
+    "nom"
+   ]
+  },
+  "template:llt8-hayden": {
+   "name": "Bandeau titre orange : barre haute et fonction",
+   "tags": [
+    "bandeau titre",
+    "orange",
+    "nom"
+   ]
+  },
+  "template:llt8-jake": {
+   "name": "Bandeau titre orange : longues lignes de chaque côté",
+   "tags": [
+    "bandeau titre",
+    "orange",
+    "nom"
+   ]
+  },
+  "template:llt8-james": {
+   "name": "Bandeau titre orange : bloc avant la fonction",
+   "tags": [
+    "bandeau titre",
+    "orange",
+    "nom"
+   ]
+  },
+  "template:llt8-john": {
+   "name": "Bandeau titre orange : crochet",
+   "tags": [
+    "bandeau titre",
+    "orange",
+    "nom"
+   ]
+  },
+  "template:llt8-madden": {
+   "name": "Bandeau titre orange : lignes de chaque côté de la fonction",
+   "tags": [
+    "bandeau titre",
+    "orange",
+    "nom"
+   ]
+  },
+  "template:llt8-mason": {
+   "name": "Bandeau titre orange : longue ligne et fonction à droite",
+   "tags": [
+    "bandeau titre",
+    "orange",
+    "nom"
+   ]
+  },
+  "template:llt8-rason": {
+   "name": "Bandeau titre orange : barre et fonction en haut",
+   "tags": [
+    "bandeau titre",
+    "orange",
+    "nom"
+   ]
+  },
+  "template:llt8-ryan": {
+   "name": "Bandeau titre orange : ligne et fonction en haut",
+   "tags": [
+    "bandeau titre",
+    "orange",
+    "nom"
+   ]
+  },
+  "template:llt9-benjamin": {
+   "name": "Bandeau titre doré : étiquette en haut et ligne",
+   "tags": [
+    "bandeau titre",
+    "doré",
+    "nom"
+   ]
+  },
+  "template:llt9-emily": {
+   "name": "Bandeau titre doré : nom dans une boîte blanche et étiquette",
+   "tags": [
+    "bandeau titre",
+    "doré",
+    "boîte"
+   ]
+  },
+  "template:llt9-katherine": {
+   "name": "Bandeau titre doré : étiquette et point à droite",
+   "tags": [
+    "bandeau titre",
+    "doré",
+    "italique",
+    "droite"
+   ]
+  },
+  "template:llt9-max": {
+   "name": "Bandeau titre doré : nom dans une boîte et fonction sur une fiche",
+   "tags": [
+    "bandeau titre",
+    "doré",
+    "italique",
+    "boîte"
+   ]
+  },
+  "template:llt9-natalie": {
+   "name": "Bandeau titre doré : ligne avec un point",
+   "tags": [
+    "bandeau titre",
+    "doré",
+    "nom"
+   ]
+  },
+  "template:llt9-vanja": {
+   "name": "Bandeau titre doré : italique fin avec carrés",
+   "tags": [
+    "bandeau titre",
+    "doré",
+    "italique"
+   ]
+  },
+  "template:llt9-vanja-negrita": {
+   "name": "Bandeau titre doré : italique gras avec carrés",
+   "tags": [
+    "bandeau titre",
+    "doré",
+    "italique"
+   ]
+  },
+  "template:llt9-victoria": {
+   "name": "Bandeau titre doré : barre et italique gras",
+   "tags": [
+    "bandeau titre",
+    "doré",
+    "italique"
+   ]
+  },
+  "template:llt9-yaroslava": {
+   "name": "Bandeau titre doré : carré avec fonction à droite",
+   "tags": [
+    "bandeau titre",
+    "doré",
+    "italique",
+    "droite"
    ]
   },
   "template:lt-andy": {

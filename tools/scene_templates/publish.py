@@ -16,6 +16,7 @@ import argparse
 import datetime
 import hashlib
 import json
+import re
 import os
 import shutil
 import zipfile
@@ -113,7 +114,9 @@ def main() -> int:
             "previewSquare": f"{tid}/preview-square.mp4" if (pkg / "preview-square.mp4").exists() else None,
             # The YouTube kit draws with the 0.26 shape tools (custom outlines, trim paths): older apps don't get it.
             # The lower thirds with a logo and the clean ones (llt*) lean on 0.29: the 3D turn about the anchor.
-            **({"minAppVersion": "0.29.0"} if tid.startswith("llt") else
+            # The rebuilt ones from llt4 on were made and checked with the 0.30 app.
+            **({"minAppVersion": "0.30.0"} if re.match(r"llt([4-9]|1\d)-", tid) else
+               {"minAppVersion": "0.29.0"} if tid.startswith("llt") else
                {"minAppVersion": "0.26.0"} if manifest.get("category") == "ytkit" else {}),
             "zip": f"{tid}.zip",
             "sha256": hashlib.sha256(data).hexdigest(),

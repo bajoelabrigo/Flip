@@ -25783,6 +25783,678 @@
     "anel"
    ]
   },
+  "template:llt10-amanda": {
+   "name": "Terço inferior branco: nome e cargo em uma ficha",
+   "tags": [
+    "terço inferior",
+    "branco",
+    "nome"
+   ]
+  },
+  "template:llt10-elena": {
+   "name": "Terço inferior branco: nome em caixa",
+   "tags": [
+    "terço inferior",
+    "branco",
+    "nome"
+   ]
+  },
+  "template:llt10-elizabeth": {
+   "name": "Terço inferior branco: nome e ficha à direita",
+   "tags": [
+    "terço inferior",
+    "branco",
+    "direita"
+   ]
+  },
+  "template:llt10-emily": {
+   "name": "Terço inferior branco: nome dividido entre caixa e fora",
+   "tags": [
+    "terço inferior",
+    "branco",
+    "nome"
+   ]
+  },
+  "template:llt10-erica": {
+   "name": "Terço inferior branco: duas fichas com o cargo",
+   "tags": [
+    "terço inferior",
+    "branco",
+    "nome"
+   ]
+  },
+  "template:llt10-gabriela": {
+   "name": "Terço inferior branco: à direita com nome longo",
+   "tags": [
+    "terço inferior",
+    "branco",
+    "direita"
+   ]
+  },
+  "template:llt10-hanna": {
+   "name": "Terço inferior branco: sobrenome em caixa",
+   "tags": [
+    "terço inferior",
+    "branco",
+    "nome"
+   ]
+  },
+  "template:llt10-iren": {
+   "name": "Terço inferior branco: centralizado com ficha",
+   "tags": [
+    "terço inferior",
+    "branco",
+    "centralizado"
+   ]
+  },
+  "template:llt10-kristina": {
+   "name": "Terço inferior branco: caixa com cargo em duas linhas",
+   "tags": [
+    "terço inferior",
+    "branco",
+    "centralizado"
+   ]
+  },
+  "template:llt10-lora": {
+   "name": "Terço inferior branco: sobrenome em caixa à direita",
+   "tags": [
+    "terço inferior",
+    "branco",
+    "direita"
+   ]
+  },
+  "template:llt10-monica": {
+   "name": "Terço inferior branco: nome em duas linhas e ficha",
+   "tags": [
+    "terço inferior",
+    "branco",
+    "centralizado"
+   ]
+  },
+  "template:llt10-monika": {
+   "name": "Terço inferior branco: linha e cargo à direita",
+   "tags": [
+    "terço inferior",
+    "branco",
+    "direita"
+   ]
+  },
+  "template:llt11-1": {
+   "name": "Terço inferior degradê: sobrenome em degradê e ficha",
+   "tags": [
+    "terço inferior",
+    "degradê",
+    "nome"
+   ]
+  },
+  "template:llt11-10": {
+   "name": "Terço inferior degradê: sobrenome em caixa e sublinhado",
+   "tags": [
+    "terço inferior",
+    "degradê",
+    "nome"
+   ]
+  },
+  "template:llt11-11": {
+   "name": "Terço inferior degradê: barra alta e sobrenome em caixa",
+   "tags": [
+    "terço inferior",
+    "degradê",
+    "nome"
+   ]
+  },
+  "template:llt11-12": {
+   "name": "Terço inferior degradê: ficha em cima, moldura e sobrenome em degradê",
+   "tags": [
+    "terço inferior",
+    "degradê",
+    "nome"
+   ]
+  },
+  "template:llt11-13": {
+   "name": "Terço inferior degradê: etiqueta e quadrado",
+   "tags": [
+    "terço inferior",
+    "degradê",
+    "nome"
+   ]
+  },
+  "template:llt11-14": {
+   "name": "Terço inferior degradê: sublinhado e cargo à direita",
+   "tags": [
+    "terço inferior",
+    "degradê",
+    "nome"
+   ]
+  },
+  "template:llt11-15": {
+   "name": "Terço inferior degradê: quadrados e ficha",
+   "tags": [
+    "terço inferior",
+    "degradê",
+    "nome"
+   ]
+  },
+  "template:llt11-16": {
+   "name": "Terço inferior degradê com foto: sobrenome em degradê",
+   "tags": [
+    "terço inferior",
+    "degradê",
+    "foto"
+   ]
+  },
+  "template:llt11-17": {
+   "name": "Terço inferior degradê com foto: nome em duas linhas e ficha",
+   "tags": [
+    "terço inferior",
+    "degradê",
+    "foto"
+   ]
+  },
+  "template:llt11-18": {
+   "name": "Terço inferior degradê com foto: barra",
+   "tags": [
+    "terço inferior",
+    "degradê",
+    "foto"
+   ]
+  },
+  "template:llt11-19": {
+   "name": "Terço inferior degradê com foto: foto em moldura",
+   "tags": [
+    "terço inferior",
+    "degradê",
+    "foto"
+   ]
+  },
+  "template:llt11-2": {
+   "name": "Terço inferior degradê: sublinhado",
+   "tags": [
+    "terço inferior",
+    "degradê",
+    "nome"
+   ]
+  },
+  "template:llt11-20": {
+   "name": "Terço inferior degradê com foto: foto, moldura e ficha",
+   "tags": [
+    "terço inferior",
+    "degradê",
+    "foto"
+   ]
+  },
+  "template:llt11-3": {
+   "name": "Terço inferior degradê: caixa com o cargo à direita",
+   "tags": [
+    "terço inferior",
+    "degradê",
+    "nome"
+   ]
+  },
+  "template:llt11-4": {
+   "name": "Terço inferior degradê: moldura e ficha",
+   "tags": [
+    "terço inferior",
+    "degradê",
+    "nome"
+   ]
+  },
+  "template:llt11-5": {
+   "name": "Terço inferior degradê: barra vertical",
+   "tags": [
+    "terço inferior",
+    "degradê",
+    "nome"
+   ]
+  },
+  "template:llt11-6": {
+   "name": "Terço inferior degradê: nome em uma linha e ficha",
+   "tags": [
+    "terço inferior",
+    "degradê",
+    "nome"
+   ]
+  },
+  "template:llt11-7": {
+   "name": "Terço inferior degradê: nome em caixa e cargo em moldura",
+   "tags": [
+    "terço inferior",
+    "degradê",
+    "nome"
+   ]
+  },
+  "template:llt11-8": {
+   "name": "Terço inferior degradê: sobrenome em degradê",
+   "tags": [
+    "terço inferior",
+    "degradê",
+    "nome"
+   ]
+  },
+  "template:llt11-9": {
+   "name": "Terço inferior degradê: ficha em cima e moldura",
+   "tags": [
+    "terço inferior",
+    "degradê",
+    "nome"
+   ]
+  },
+  "template:llt12-alexandra": {
+   "name": "Terço inferior azul: barra que revela o nome",
+   "tags": [
+    "terço inferior",
+    "azul",
+    "barra",
+    "direita"
+   ]
+  },
+  "template:llt12-cajas": {
+   "name": "Terço inferior azul: três caixas que crescem",
+   "tags": [
+    "terço inferior",
+    "azul",
+    "caixa"
+   ]
+  },
+  "template:llt12-corchetes": {
+   "name": "Terço inferior azul: duas barras que se abrem",
+   "tags": [
+    "terço inferior",
+    "azul",
+    "barra"
+   ]
+  },
+  "template:llt12-corni": {
+   "name": "Terço inferior azul: nome em caixa e cargo em ficha branca",
+   "tags": [
+    "terço inferior",
+    "azul",
+    "caixa"
+   ]
+  },
+  "template:llt12-jacob": {
+   "name": "Terço inferior azul: caixa que se abre com faixa branca",
+   "tags": [
+    "terço inferior",
+    "azul",
+    "caixa"
+   ]
+  },
+  "template:llt12-jeremi": {
+   "name": "Terço inferior azul: linha que desce e revela o nome",
+   "tags": [
+    "terço inferior",
+    "azul",
+    "sublinhado"
+   ]
+  },
+  "template:llt12-jeremy": {
+   "name": "Terço inferior azul: nome em duas linhas e sublinhado",
+   "tags": [
+    "terço inferior",
+    "azul",
+    "sublinhado"
+   ]
+  },
+  "template:llt12-john-rojers": {
+   "name": "Terço inferior azul: nome girado em caixa",
+   "tags": [
+    "terço inferior",
+    "azul",
+    "caixa",
+    "girado"
+   ]
+  },
+  "template:llt12-john-watson": {
+   "name": "Terço inferior azul: caixa inclinada que se abre",
+   "tags": [
+    "terço inferior",
+    "azul",
+    "caixa",
+    "inclinado"
+   ]
+  },
+  "template:llt12-marketing": {
+   "name": "Terço inferior azul: letras que aparecem e barra",
+   "tags": [
+    "terço inferior",
+    "azul",
+    "barra"
+   ]
+  },
+  "template:llt12-minimal": {
+   "name": "Terço inferior azul: caixa que se abre a partir do centro",
+   "tags": [
+    "terço inferior",
+    "azul",
+    "caixa"
+   ]
+  },
+  "template:llt12-modern": {
+   "name": "Terço inferior azul: duas linhas que sobem e sublinhado",
+   "tags": [
+    "terço inferior",
+    "azul",
+    "sublinhado"
+   ]
+  },
+  "template:llt12-rosanda": {
+   "name": "Terço inferior azul: barra que varre um nome girado",
+   "tags": [
+    "terço inferior",
+    "azul",
+    "barra",
+    "girado"
+   ]
+  },
+  "template:llt12-suzanna": {
+   "name": "Terço inferior azul: letras que aparecem e zoom",
+   "tags": [
+    "terço inferior",
+    "azul",
+    "direita"
+   ]
+  },
+  "template:llt12-titulos": {
+   "name": "Terço inferior azul: caixa que desce com faixa branca",
+   "tags": [
+    "terço inferior",
+    "azul",
+    "caixa"
+   ]
+  },
+  "template:llt12-your-text": {
+   "name": "Terço inferior azul: duas linhas que saem de uma barra",
+   "tags": [
+    "terço inferior",
+    "azul",
+    "barra",
+    "girado"
+   ]
+  },
+  "template:llt13-clark": {
+   "name": "Terço inferior em itálico: sobrenome em negrito e nome fino",
+   "tags": [
+    "terço inferior",
+    "branco",
+    "itálico"
+   ]
+  },
+  "template:llt13-david": {
+   "name": "Terço inferior em itálico: cargo, barra e nome",
+   "tags": [
+    "terço inferior",
+    "branco",
+    "itálico",
+    "barra"
+   ]
+  },
+  "template:llt13-dominic": {
+   "name": "Terço inferior em itálico: sobrenome grande sublinhado",
+   "tags": [
+    "terço inferior",
+    "branco",
+    "itálico"
+   ]
+  },
+  "template:llt13-emily": {
+   "name": "Terço inferior em itálico: nome em duas linhas e sublinhado",
+   "tags": [
+    "terço inferior",
+    "branco",
+    "itálico"
+   ]
+  },
+  "template:llt13-foster": {
+   "name": "Terço inferior em itálico: cargo em cima e linha",
+   "tags": [
+    "terço inferior",
+    "branco",
+    "itálico"
+   ]
+  },
+  "template:llt13-james": {
+   "name": "Terço inferior em itálico: barra e cargo embaixo",
+   "tags": [
+    "terço inferior",
+    "branco",
+    "itálico",
+    "barra"
+   ]
+  },
+  "template:llt13-kingsley": {
+   "name": "Terço inferior em itálico: nome e barra à direita",
+   "tags": [
+    "terço inferior",
+    "branco",
+    "itálico",
+    "barra",
+    "direita"
+   ]
+  },
+  "template:llt13-maximilian": {
+   "name": "Terço inferior em itálico: nome sublinhado e sobrenome",
+   "tags": [
+    "terço inferior",
+    "branco",
+    "itálico"
+   ]
+  },
+  "template:llt13-michael": {
+   "name": "Terço inferior em itálico: nome sublinhado",
+   "tags": [
+    "terço inferior",
+    "branco",
+    "itálico"
+   ]
+  },
+  "template:llt13-nathaniel": {
+   "name": "Terço inferior em itálico: alinhado à direita",
+   "tags": [
+    "terço inferior",
+    "branco",
+    "itálico",
+    "direita"
+   ]
+  },
+  "template:llt13-olivia": {
+   "name": "Terço inferior em itálico: cargo à esquerda e sublinhado",
+   "tags": [
+    "terço inferior",
+    "branco",
+    "itálico"
+   ]
+  },
+  "template:llt13-sophia": {
+   "name": "Terço inferior em itálico: barra e cargo ao lado",
+   "tags": [
+    "terço inferior",
+    "branco",
+    "itálico",
+    "barra"
+   ]
+  },
+  "template:llt14-barra-azul": {
+   "name": "Terço inferior vermelho: logo e barra azul-marinho",
+   "tags": [
+    "terço inferior",
+    "vermelho",
+    "azul-marinho",
+    "logo",
+    "barra"
+   ]
+  },
+  "template:llt14-barra-gris": {
+   "name": "Terço inferior vermelho: logo, barra cinza e ficha",
+   "tags": [
+    "terço inferior",
+    "vermelho",
+    "azul-marinho",
+    "logo",
+    "barra"
+   ]
+  },
+  "template:llt14-caja-alta": {
+   "name": "Terço inferior vermelho: caixa alta com borda vermelha",
+   "tags": [
+    "terço inferior",
+    "vermelho",
+    "azul-marinho",
+    "caixa"
+   ]
+  },
+  "template:llt14-caja-grande": {
+   "name": "Terço inferior vermelho: caixa grande com título e parágrafo",
+   "tags": [
+    "terço inferior",
+    "vermelho",
+    "azul-marinho",
+    "caixa"
+   ]
+  },
+  "template:llt14-disenador": {
+   "name": "Terço inferior vermelho: nome em moldura vermelha",
+   "tags": [
+    "terço inferior",
+    "vermelho",
+    "azul-marinho"
+   ]
+  },
+  "template:llt14-dos-cuadros": {
+   "name": "Terço inferior vermelho: dois quadrados e duas linhas",
+   "tags": [
+    "terço inferior",
+    "vermelho",
+    "azul-marinho"
+   ]
+  },
+  "template:llt14-hexagono": {
+   "name": "Terço inferior vermelho: logo em hexágono e ficha branca",
+   "tags": [
+    "terço inferior",
+    "vermelho",
+    "azul-marinho",
+    "logo"
+   ]
+  },
+  "template:llt14-linea-roja": {
+   "name": "Terço inferior vermelho: logo, linha vermelha e caixa larga",
+   "tags": [
+    "terço inferior",
+    "vermelho",
+    "azul-marinho",
+    "logo",
+    "caixa"
+   ]
+  },
+  "template:llt14-logo-lineas": {
+   "name": "Terço inferior vermelho: logo, linha e duas linhas",
+   "tags": [
+    "terço inferior",
+    "vermelho",
+    "azul-marinho",
+    "logo"
+   ]
+  },
+  "template:llt14-logo-texto": {
+   "name": "Terço inferior vermelho: logo e caixa com parágrafo",
+   "tags": [
+    "terço inferior",
+    "vermelho",
+    "azul-marinho",
+    "logo",
+    "caixa"
+   ]
+  },
+  "template:llt14-marca": {
+   "name": "Terço inferior vermelho: logo, barra inclinada e nome",
+   "tags": [
+    "terço inferior",
+    "vermelho",
+    "azul-marinho",
+    "logo"
+   ]
+  },
+  "template:llt14-pestana": {
+   "name": "Terço inferior vermelho: logo, aba e caixa de texto",
+   "tags": [
+    "terço inferior",
+    "vermelho",
+    "azul-marinho",
+    "logo",
+    "caixa"
+   ]
+  },
+  "template:llt14-primer-titulo": {
+   "name": "Terço inferior vermelho: logo, título e caixa de texto",
+   "tags": [
+    "terço inferior",
+    "vermelho",
+    "azul-marinho",
+    "logo",
+    "caixa"
+   ]
+  },
+  "template:llt15-barra-larga": {
+   "name": "Terço inferior minimalista: barra longa com logo e data",
+   "tags": [
+    "terço inferior",
+    "minimalista",
+    "preto",
+    "logo",
+    "barra"
+   ]
+  },
+  "template:llt15-descripcion": {
+   "name": "Terço inferior minimalista: nome e descrição",
+   "tags": [
+    "terço inferior",
+    "minimalista",
+    "preto"
+   ]
+  },
+  "template:llt15-dos-lineas": {
+   "name": "Terço inferior minimalista: nome e cargo em duas linhas",
+   "tags": [
+    "terço inferior",
+    "minimalista",
+    "preto"
+   ]
+  },
+  "template:llt15-logo-ficha": {
+   "name": "Terço inferior minimalista: quadrado do logo e duas linhas",
+   "tags": [
+    "terço inferior",
+    "minimalista",
+    "preto",
+    "logo"
+   ]
+  },
+  "template:llt15-logo-nombre": {
+   "name": "Terço inferior minimalista: bloco do logo e nome",
+   "tags": [
+    "terço inferior",
+    "minimalista",
+    "preto",
+    "logo"
+   ]
+  },
+  "template:llt15-nombre": {
+   "name": "Terço inferior minimalista: nome em ficha branca",
+   "tags": [
+    "terço inferior",
+    "minimalista",
+    "preto"
+   ]
+  },
+  "template:llt15-nombre-cargo": {
+   "name": "Terço inferior minimalista: nome e cargo",
+   "tags": [
+    "terço inferior",
+    "minimalista",
+    "preto"
+   ]
+  },
   "template:llt2-barra-etiqueta": {
    "name": "Terço inferior com logo: barra escura e etiqueta verde",
    "tags": [
@@ -25915,6 +26587,435 @@
     "amarelo",
     "branco",
     "convidado"
+   ]
+  },
+  "template:llt4-cuadro-sube": {
+   "name": "Terço inferior com logo: quadrado escuro e logo que sobe",
+   "tags": [
+    "terço inferior",
+    "logo",
+    "nome",
+    "barra",
+    "verde",
+    "quadrado"
+   ]
+  },
+  "template:llt4-ficha-blanca": {
+   "name": "Terço inferior com logo: ficha branca que se abre",
+   "tags": [
+    "terço inferior",
+    "logo",
+    "nome",
+    "branco",
+    "ficha"
+   ]
+  },
+  "template:llt4-logo-izquierda": {
+   "name": "Terço inferior com logo: barra escura e logo à esquerda",
+   "tags": [
+    "terço inferior",
+    "logo",
+    "nome",
+    "barra",
+    "verde"
+   ]
+  },
+  "template:llt4-pastilla-barra": {
+   "name": "Terço inferior com logo: pílula que se abre em barra",
+   "tags": [
+    "terço inferior",
+    "logo",
+    "nome",
+    "barra",
+    "verde",
+    "pílula"
+   ]
+  },
+  "template:llt5-adam": {
+   "name": "Terço inferior com foto: foto vertical e nome por cima",
+   "tags": [
+    "terço inferior",
+    "foto",
+    "nome",
+    "cinza",
+    "vertical",
+    "centralizado"
+   ]
+  },
+  "template:llt5-eddy": {
+   "name": "Terço inferior com foto: foto redonda à direita e faixa escura",
+   "tags": [
+    "terço inferior",
+    "foto",
+    "nome",
+    "escuro",
+    "redonda"
+   ]
+  },
+  "template:llt5-elis": {
+   "name": "Terço inferior com foto: foto redonda e nome à direita",
+   "tags": [
+    "terço inferior",
+    "foto",
+    "nome",
+    "cinza",
+    "redonda"
+   ]
+  },
+  "template:llt5-emma": {
+   "name": "Terço inferior com foto: foto vertical com faixas por cima",
+   "tags": [
+    "terço inferior",
+    "foto",
+    "nome",
+    "cinza",
+    "vertical"
+   ]
+  },
+  "template:llt5-kris": {
+   "name": "Terço inferior com foto: foto redonda em cima e nome embaixo",
+   "tags": [
+    "terço inferior",
+    "foto",
+    "nome",
+    "cinza",
+    "redonda",
+    "centralizado"
+   ]
+  },
+  "template:llt5-martin": {
+   "name": "Terço inferior com foto: foto quadrada e nome à direita",
+   "tags": [
+    "terço inferior",
+    "foto",
+    "nome",
+    "cinza"
+   ]
+  },
+  "template:llt5-monika": {
+   "name": "Terço inferior com foto: foto à direita e nome à esquerda",
+   "tags": [
+    "terço inferior",
+    "foto",
+    "nome",
+    "cinza"
+   ]
+  },
+  "template:llt5-rachel": {
+   "name": "Terço inferior com foto: foto vertical à direita e sobrenome em contorno",
+   "tags": [
+    "terço inferior",
+    "foto",
+    "nome",
+    "escuro",
+    "vertical"
+   ]
+  },
+  "template:llt5-rose": {
+   "name": "Terço inferior com foto: foto em cima e nome embaixo",
+   "tags": [
+    "terço inferior",
+    "foto",
+    "nome",
+    "cinza",
+    "centralizado"
+   ]
+  },
+  "template:llt6-barra-inclinada": {
+   "name": "Terço inferior: barra branca inclinada e nome grande",
+   "tags": [
+    "terço inferior",
+    "nome",
+    "branco",
+    "inclinado"
+   ]
+  },
+  "template:llt6-barrido-rojo": {
+   "name": "Terço inferior: bloco vermelho que varre e revela o nome",
+   "tags": [
+    "terço inferior",
+    "nome",
+    "vermelho"
+   ]
+  },
+  "template:llt6-caja-nombre": {
+   "name": "Terço inferior: nome em caixa branca que encolhe",
+   "tags": [
+    "terço inferior",
+    "nome",
+    "branco",
+    "caixa"
+   ]
+  },
+  "template:llt6-cursor": {
+   "name": "Terço inferior: bloco que vira cursor e revela o nome",
+   "tags": [
+    "terço inferior",
+    "nome",
+    "branco",
+    "cursor"
+   ]
+  },
+  "template:llt6-divisor": {
+   "name": "Terço inferior: linha divisória com cargo e nome nos lados",
+   "tags": [
+    "terço inferior",
+    "nome",
+    "linha"
+   ]
+  },
+  "template:llt6-etiqueta-blanca": {
+   "name": "Terço inferior: nome grande e etiqueta branca com o cargo",
+   "tags": [
+    "terço inferior",
+    "nome",
+    "branco",
+    "etiqueta"
+   ]
+  },
+  "template:llt6-etiqueta-roja": {
+   "name": "Terço inferior: nome à direita e faixa vermelha com o cargo",
+   "tags": [
+    "terço inferior",
+    "nome",
+    "vermelho",
+    "direita"
+   ]
+  },
+  "template:llt6-letras": {
+   "name": "Terço inferior: nome que chega letra por letra",
+   "tags": [
+    "terço inferior",
+    "nome",
+    "letras"
+   ]
+  },
+  "template:llt6-linea-fina": {
+   "name": "Terço inferior: linha fina com nome e cargo nos lados",
+   "tags": [
+    "terço inferior",
+    "nome",
+    "linha"
+   ]
+  },
+  "template:llt6-subrayado-rojo": {
+   "name": "Terço inferior: nome grande e sublinhado vermelho",
+   "tags": [
+    "terço inferior",
+    "nome",
+    "vermelho",
+    "sublinhado"
+   ]
+  },
+  "template:llt7-barra-azul": {
+   "name": "Terço inferior: barra azul com logo e uma linha",
+   "tags": [
+    "terço inferior",
+    "logo",
+    "azul"
+   ]
+  },
+  "template:llt7-barra-azul-2": {
+   "name": "Terço inferior: barra azul com logo e duas linhas",
+   "tags": [
+    "terço inferior",
+    "logo",
+    "azul"
+   ]
+  },
+  "template:llt8-barrett": {
+   "name": "Terço inferior laranja: sublinhado longo",
+   "tags": [
+    "terço inferior",
+    "laranja",
+    "nome"
+   ]
+  },
+  "template:llt8-brandon": {
+   "name": "Terço inferior laranja: barra e nome",
+   "tags": [
+    "terço inferior",
+    "laranja",
+    "nome"
+   ]
+  },
+  "template:llt8-cameron": {
+   "name": "Terço inferior laranja: cargo em cima com marcas",
+   "tags": [
+    "terço inferior",
+    "laranja",
+    "nome"
+   ]
+  },
+  "template:llt8-castro": {
+   "name": "Terço inferior laranja: cargo em duas linhas",
+   "tags": [
+    "terço inferior",
+    "laranja",
+    "nome"
+   ]
+  },
+  "template:llt8-charley": {
+   "name": "Terço inferior laranja: barra que desce",
+   "tags": [
+    "terço inferior",
+    "laranja",
+    "nome"
+   ]
+  },
+  "template:llt8-daniel": {
+   "name": "Terço inferior laranja: bloco ao lado do cargo",
+   "tags": [
+    "terço inferior",
+    "laranja",
+    "nome"
+   ]
+  },
+  "template:llt8-dodson": {
+   "name": "Terço inferior laranja: linha e cargo à direita",
+   "tags": [
+    "terço inferior",
+    "laranja",
+    "nome"
+   ]
+  },
+  "template:llt8-hayden": {
+   "name": "Terço inferior laranja: barra alta e cargo",
+   "tags": [
+    "terço inferior",
+    "laranja",
+    "nome"
+   ]
+  },
+  "template:llt8-jake": {
+   "name": "Terço inferior laranja: linhas longas nos lados",
+   "tags": [
+    "terço inferior",
+    "laranja",
+    "nome"
+   ]
+  },
+  "template:llt8-james": {
+   "name": "Terço inferior laranja: bloco antes do cargo",
+   "tags": [
+    "terço inferior",
+    "laranja",
+    "nome"
+   ]
+  },
+  "template:llt8-john": {
+   "name": "Terço inferior laranja: colchete",
+   "tags": [
+    "terço inferior",
+    "laranja",
+    "nome"
+   ]
+  },
+  "template:llt8-madden": {
+   "name": "Terço inferior laranja: linhas nos lados do cargo",
+   "tags": [
+    "terço inferior",
+    "laranja",
+    "nome"
+   ]
+  },
+  "template:llt8-mason": {
+   "name": "Terço inferior laranja: linha longa e cargo à direita",
+   "tags": [
+    "terço inferior",
+    "laranja",
+    "nome"
+   ]
+  },
+  "template:llt8-rason": {
+   "name": "Terço inferior laranja: barra e cargo em cima",
+   "tags": [
+    "terço inferior",
+    "laranja",
+    "nome"
+   ]
+  },
+  "template:llt8-ryan": {
+   "name": "Terço inferior laranja: linha e cargo em cima",
+   "tags": [
+    "terço inferior",
+    "laranja",
+    "nome"
+   ]
+  },
+  "template:llt9-benjamin": {
+   "name": "Terço inferior dourado: etiqueta em cima e linha",
+   "tags": [
+    "terço inferior",
+    "dourado",
+    "nome"
+   ]
+  },
+  "template:llt9-emily": {
+   "name": "Terço inferior dourado: nome em caixa branca e etiqueta",
+   "tags": [
+    "terço inferior",
+    "dourado",
+    "caixa"
+   ]
+  },
+  "template:llt9-katherine": {
+   "name": "Terço inferior dourado: etiqueta e ponto à direita",
+   "tags": [
+    "terço inferior",
+    "dourado",
+    "itálico",
+    "direita"
+   ]
+  },
+  "template:llt9-max": {
+   "name": "Terço inferior dourado: nome em caixa e cargo em ficha",
+   "tags": [
+    "terço inferior",
+    "dourado",
+    "itálico",
+    "caixa"
+   ]
+  },
+  "template:llt9-natalie": {
+   "name": "Terço inferior dourado: linha com um ponto",
+   "tags": [
+    "terço inferior",
+    "dourado",
+    "nome"
+   ]
+  },
+  "template:llt9-vanja": {
+   "name": "Terço inferior dourado: itálico fino com quadrados",
+   "tags": [
+    "terço inferior",
+    "dourado",
+    "itálico"
+   ]
+  },
+  "template:llt9-vanja-negrita": {
+   "name": "Terço inferior dourado: itálico grosso com quadrados",
+   "tags": [
+    "terço inferior",
+    "dourado",
+    "itálico"
+   ]
+  },
+  "template:llt9-victoria": {
+   "name": "Terço inferior dourado: barra e itálico grosso",
+   "tags": [
+    "terço inferior",
+    "dourado",
+    "itálico"
+   ]
+  },
+  "template:llt9-yaroslava": {
+   "name": "Terço inferior dourado: quadro com cargo à direita",
+   "tags": [
+    "terço inferior",
+    "dourado",
+    "itálico",
+    "direita"
    ]
   },
   "template:lt-andy": {

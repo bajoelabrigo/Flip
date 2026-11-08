@@ -25286,6 +25286,678 @@
     "vòng"
    ]
   },
+  "template:llt10-amanda": {
+   "name": "Thanh tên màu trắng: tên, chức danh trên nhãn",
+   "tags": [
+    "thanh tên",
+    "trắng",
+    "tên"
+   ]
+  },
+  "template:llt10-elena": {
+   "name": "Thanh tên màu trắng: tên trong hộp",
+   "tags": [
+    "thanh tên",
+    "trắng",
+    "tên"
+   ]
+  },
+  "template:llt10-elizabeth": {
+   "name": "Thanh tên màu trắng: tên và nhãn bên phải",
+   "tags": [
+    "thanh tên",
+    "trắng",
+    "bên phải"
+   ]
+  },
+  "template:llt10-emily": {
+   "name": "Thanh tên màu trắng: tên nằm nửa trong hộp",
+   "tags": [
+    "thanh tên",
+    "trắng",
+    "tên"
+   ]
+  },
+  "template:llt10-erica": {
+   "name": "Thanh tên màu trắng: hai nhãn ghi chức danh",
+   "tags": [
+    "thanh tên",
+    "trắng",
+    "tên"
+   ]
+  },
+  "template:llt10-gabriela": {
+   "name": "Thanh tên màu trắng: bên phải, tên dài",
+   "tags": [
+    "thanh tên",
+    "trắng",
+    "bên phải"
+   ]
+  },
+  "template:llt10-hanna": {
+   "name": "Thanh tên màu trắng: họ trong hộp",
+   "tags": [
+    "thanh tên",
+    "trắng",
+    "tên"
+   ]
+  },
+  "template:llt10-iren": {
+   "name": "Thanh tên màu trắng: căn giữa kèm nhãn",
+   "tags": [
+    "thanh tên",
+    "trắng",
+    "căn giữa"
+   ]
+  },
+  "template:llt10-kristina": {
+   "name": "Thanh tên màu trắng: hộp có chức danh hai dòng",
+   "tags": [
+    "thanh tên",
+    "trắng",
+    "căn giữa"
+   ]
+  },
+  "template:llt10-lora": {
+   "name": "Thanh tên màu trắng: họ trong hộp bên phải",
+   "tags": [
+    "thanh tên",
+    "trắng",
+    "bên phải"
+   ]
+  },
+  "template:llt10-monica": {
+   "name": "Thanh tên màu trắng: tên hai dòng, nhãn",
+   "tags": [
+    "thanh tên",
+    "trắng",
+    "căn giữa"
+   ]
+  },
+  "template:llt10-monika": {
+   "name": "Thanh tên màu trắng: đường kẻ, chức danh bên phải",
+   "tags": [
+    "thanh tên",
+    "trắng",
+    "bên phải"
+   ]
+  },
+  "template:llt11-1": {
+   "name": "Thanh tên chuyển sắc: họ chuyển sắc, nhãn",
+   "tags": [
+    "thanh tên",
+    "chuyển sắc",
+    "tên"
+   ]
+  },
+  "template:llt11-10": {
+   "name": "Thanh tên chuyển sắc: họ trong hộp, gạch chân",
+   "tags": [
+    "thanh tên",
+    "chuyển sắc",
+    "tên"
+   ]
+  },
+  "template:llt11-11": {
+   "name": "Thanh tên chuyển sắc: thanh cao, họ trong hộp",
+   "tags": [
+    "thanh tên",
+    "chuyển sắc",
+    "tên"
+   ]
+  },
+  "template:llt11-12": {
+   "name": "Thanh tên chuyển sắc: nhãn, khung, họ chuyển sắc",
+   "tags": [
+    "thanh tên",
+    "chuyển sắc",
+    "tên"
+   ]
+  },
+  "template:llt11-13": {
+   "name": "Thanh tên chuyển sắc: nhãn và ô vuông",
+   "tags": [
+    "thanh tên",
+    "chuyển sắc",
+    "tên"
+   ]
+  },
+  "template:llt11-14": {
+   "name": "Thanh tên chuyển sắc: gạch chân, chức danh bên phải",
+   "tags": [
+    "thanh tên",
+    "chuyển sắc",
+    "tên"
+   ]
+  },
+  "template:llt11-15": {
+   "name": "Thanh tên chuyển sắc: ô vuông và nhãn",
+   "tags": [
+    "thanh tên",
+    "chuyển sắc",
+    "tên"
+   ]
+  },
+  "template:llt11-16": {
+   "name": "Thanh tên chuyển sắc có ảnh: họ chuyển sắc",
+   "tags": [
+    "thanh tên",
+    "chuyển sắc",
+    "ảnh"
+   ]
+  },
+  "template:llt11-17": {
+   "name": "Thanh tên chuyển sắc có ảnh: tên hai dòng, nhãn",
+   "tags": [
+    "thanh tên",
+    "chuyển sắc",
+    "ảnh"
+   ]
+  },
+  "template:llt11-18": {
+   "name": "Thanh tên chuyển sắc có ảnh và thanh",
+   "tags": [
+    "thanh tên",
+    "chuyển sắc",
+    "ảnh"
+   ]
+  },
+  "template:llt11-19": {
+   "name": "Thanh tên chuyển sắc có ảnh trong khung",
+   "tags": [
+    "thanh tên",
+    "chuyển sắc",
+    "ảnh"
+   ]
+  },
+  "template:llt11-2": {
+   "name": "Thanh tên chuyển sắc: gạch chân",
+   "tags": [
+    "thanh tên",
+    "chuyển sắc",
+    "tên"
+   ]
+  },
+  "template:llt11-20": {
+   "name": "Thanh tên chuyển sắc có ảnh, khung và nhãn",
+   "tags": [
+    "thanh tên",
+    "chuyển sắc",
+    "ảnh"
+   ]
+  },
+  "template:llt11-3": {
+   "name": "Thanh tên chuyển sắc: hộp chức danh bên phải",
+   "tags": [
+    "thanh tên",
+    "chuyển sắc",
+    "tên"
+   ]
+  },
+  "template:llt11-4": {
+   "name": "Thanh tên chuyển sắc: khung và nhãn",
+   "tags": [
+    "thanh tên",
+    "chuyển sắc",
+    "tên"
+   ]
+  },
+  "template:llt11-5": {
+   "name": "Thanh tên chuyển sắc: thanh dọc",
+   "tags": [
+    "thanh tên",
+    "chuyển sắc",
+    "tên"
+   ]
+  },
+  "template:llt11-6": {
+   "name": "Thanh tên chuyển sắc: tên một dòng, nhãn",
+   "tags": [
+    "thanh tên",
+    "chuyển sắc",
+    "tên"
+   ]
+  },
+  "template:llt11-7": {
+   "name": "Thanh tên chuyển sắc: tên trong hộp, chức danh trong khung",
+   "tags": [
+    "thanh tên",
+    "chuyển sắc",
+    "tên"
+   ]
+  },
+  "template:llt11-8": {
+   "name": "Thanh tên chuyển sắc: họ chuyển sắc",
+   "tags": [
+    "thanh tên",
+    "chuyển sắc",
+    "tên"
+   ]
+  },
+  "template:llt11-9": {
+   "name": "Thanh tên chuyển sắc: nhãn ở trên, khung",
+   "tags": [
+    "thanh tên",
+    "chuyển sắc",
+    "tên"
+   ]
+  },
+  "template:llt12-alexandra": {
+   "name": "Thanh tên màu xanh dương: thanh để lộ tên",
+   "tags": [
+    "thanh tên",
+    "xanh dương",
+    "thanh",
+    "bên phải"
+   ]
+  },
+  "template:llt12-cajas": {
+   "name": "Thanh tên màu xanh dương: ba hộp lớn dần",
+   "tags": [
+    "thanh tên",
+    "xanh dương",
+    "hộp"
+   ]
+  },
+  "template:llt12-corchetes": {
+   "name": "Thanh tên màu xanh dương: hai thanh tách ra",
+   "tags": [
+    "thanh tên",
+    "xanh dương",
+    "thanh"
+   ]
+  },
+  "template:llt12-corni": {
+   "name": "Thanh tên màu xanh dương: tên trong hộp, nhãn trắng",
+   "tags": [
+    "thanh tên",
+    "xanh dương",
+    "hộp"
+   ]
+  },
+  "template:llt12-jacob": {
+   "name": "Thanh tên màu xanh dương: hộp mở ra có dải trắng",
+   "tags": [
+    "thanh tên",
+    "xanh dương",
+    "hộp"
+   ]
+  },
+  "template:llt12-jeremi": {
+   "name": "Thanh tên màu xanh dương: đường kẻ trượt xuống để lộ tên",
+   "tags": [
+    "thanh tên",
+    "xanh dương",
+    "gạch chân"
+   ]
+  },
+  "template:llt12-jeremy": {
+   "name": "Thanh tên màu xanh dương: tên hai dòng, gạch chân",
+   "tags": [
+    "thanh tên",
+    "xanh dương",
+    "gạch chân"
+   ]
+  },
+  "template:llt12-john-rojers": {
+   "name": "Thanh tên màu xanh dương: tên xoay trong hộp",
+   "tags": [
+    "thanh tên",
+    "xanh dương",
+    "hộp",
+    "xoay"
+   ]
+  },
+  "template:llt12-john-watson": {
+   "name": "Thanh tên màu xanh dương: hộp nghiêng mở ra",
+   "tags": [
+    "thanh tên",
+    "xanh dương",
+    "hộp",
+    "nghiêng"
+   ]
+  },
+  "template:llt12-marketing": {
+   "name": "Thanh tên màu xanh dương: chữ cái hiện dần, thanh",
+   "tags": [
+    "thanh tên",
+    "xanh dương",
+    "thanh"
+   ]
+  },
+  "template:llt12-minimal": {
+   "name": "Thanh tên màu xanh dương: hộp mở ra từ giữa",
+   "tags": [
+    "thanh tên",
+    "xanh dương",
+    "hộp"
+   ]
+  },
+  "template:llt12-modern": {
+   "name": "Thanh tên màu xanh dương: hai đường kẻ trồi lên, gạch chân",
+   "tags": [
+    "thanh tên",
+    "xanh dương",
+    "gạch chân"
+   ]
+  },
+  "template:llt12-rosanda": {
+   "name": "Thanh tên màu xanh dương: thanh quét qua tên xoay",
+   "tags": [
+    "thanh tên",
+    "xanh dương",
+    "thanh",
+    "xoay"
+   ]
+  },
+  "template:llt12-suzanna": {
+   "name": "Thanh tên màu xanh dương: chữ cái hiện dần và phóng lại gần",
+   "tags": [
+    "thanh tên",
+    "xanh dương",
+    "bên phải"
+   ]
+  },
+  "template:llt12-titulos": {
+   "name": "Thanh tên màu xanh dương: hộp đi xuống, dải trắng",
+   "tags": [
+    "thanh tên",
+    "xanh dương",
+    "hộp"
+   ]
+  },
+  "template:llt12-your-text": {
+   "name": "Thanh tên màu xanh dương: hai đường kẻ tách ra từ thanh",
+   "tags": [
+    "thanh tên",
+    "xanh dương",
+    "thanh",
+    "xoay"
+   ]
+  },
+  "template:llt13-clark": {
+   "name": "Thanh tên chữ nghiêng: họ đậm, tên mảnh",
+   "tags": [
+    "thanh tên",
+    "trắng",
+    "chữ nghiêng"
+   ]
+  },
+  "template:llt13-david": {
+   "name": "Thanh tên chữ nghiêng: chức danh, thanh và tên",
+   "tags": [
+    "thanh tên",
+    "trắng",
+    "chữ nghiêng",
+    "thanh"
+   ]
+  },
+  "template:llt13-dominic": {
+   "name": "Thanh tên chữ nghiêng: họ lớn có gạch chân",
+   "tags": [
+    "thanh tên",
+    "trắng",
+    "chữ nghiêng"
+   ]
+  },
+  "template:llt13-emily": {
+   "name": "Thanh tên chữ nghiêng: tên hai dòng, gạch chân",
+   "tags": [
+    "thanh tên",
+    "trắng",
+    "chữ nghiêng"
+   ]
+  },
+  "template:llt13-foster": {
+   "name": "Thanh tên chữ nghiêng: chức danh ở trên, đường kẻ",
+   "tags": [
+    "thanh tên",
+    "trắng",
+    "chữ nghiêng"
+   ]
+  },
+  "template:llt13-james": {
+   "name": "Thanh tên chữ nghiêng: thanh, chức danh ở dưới",
+   "tags": [
+    "thanh tên",
+    "trắng",
+    "chữ nghiêng",
+    "thanh"
+   ]
+  },
+  "template:llt13-kingsley": {
+   "name": "Thanh tên chữ nghiêng: tên và thanh bên phải",
+   "tags": [
+    "thanh tên",
+    "trắng",
+    "chữ nghiêng",
+    "thanh",
+    "bên phải"
+   ]
+  },
+  "template:llt13-maximilian": {
+   "name": "Thanh tên chữ nghiêng: tên gạch chân và họ",
+   "tags": [
+    "thanh tên",
+    "trắng",
+    "chữ nghiêng"
+   ]
+  },
+  "template:llt13-michael": {
+   "name": "Thanh tên chữ nghiêng: tên có gạch chân",
+   "tags": [
+    "thanh tên",
+    "trắng",
+    "chữ nghiêng"
+   ]
+  },
+  "template:llt13-nathaniel": {
+   "name": "Thanh tên chữ nghiêng căn phải",
+   "tags": [
+    "thanh tên",
+    "trắng",
+    "chữ nghiêng",
+    "bên phải"
+   ]
+  },
+  "template:llt13-olivia": {
+   "name": "Thanh tên chữ nghiêng: chức danh bên trái, gạch chân",
+   "tags": [
+    "thanh tên",
+    "trắng",
+    "chữ nghiêng"
+   ]
+  },
+  "template:llt13-sophia": {
+   "name": "Thanh tên chữ nghiêng: thanh, chức danh bên cạnh",
+   "tags": [
+    "thanh tên",
+    "trắng",
+    "chữ nghiêng",
+    "thanh"
+   ]
+  },
+  "template:llt14-barra-azul": {
+   "name": "Thanh tên màu đỏ: logo và thanh xanh navy",
+   "tags": [
+    "thanh tên",
+    "đỏ",
+    "xanh navy",
+    "logo",
+    "thanh"
+   ]
+  },
+  "template:llt14-barra-gris": {
+   "name": "Thanh tên màu đỏ: logo, thanh xám và nhãn",
+   "tags": [
+    "thanh tên",
+    "đỏ",
+    "xanh navy",
+    "logo",
+    "thanh"
+   ]
+  },
+  "template:llt14-caja-alta": {
+   "name": "Thanh tên màu đỏ: hộp cao viền đỏ",
+   "tags": [
+    "thanh tên",
+    "đỏ",
+    "xanh navy",
+    "hộp"
+   ]
+  },
+  "template:llt14-caja-grande": {
+   "name": "Thanh tên màu đỏ: hộp lớn có tiêu đề và đoạn văn",
+   "tags": [
+    "thanh tên",
+    "đỏ",
+    "xanh navy",
+    "hộp"
+   ]
+  },
+  "template:llt14-disenador": {
+   "name": "Thanh tên màu đỏ: tên trong khung đỏ",
+   "tags": [
+    "thanh tên",
+    "đỏ",
+    "xanh navy"
+   ]
+  },
+  "template:llt14-dos-cuadros": {
+   "name": "Thanh tên màu đỏ: hai ô vuông và hai dòng",
+   "tags": [
+    "thanh tên",
+    "đỏ",
+    "xanh navy"
+   ]
+  },
+  "template:llt14-hexagono": {
+   "name": "Thanh tên màu đỏ: logo trong hình lục giác, nhãn trắng",
+   "tags": [
+    "thanh tên",
+    "đỏ",
+    "xanh navy",
+    "logo"
+   ]
+  },
+  "template:llt14-linea-roja": {
+   "name": "Thanh tên màu đỏ: logo, đường kẻ đỏ và hộp rộng",
+   "tags": [
+    "thanh tên",
+    "đỏ",
+    "xanh navy",
+    "logo",
+    "hộp"
+   ]
+  },
+  "template:llt14-logo-lineas": {
+   "name": "Thanh tên màu đỏ: logo, đường kẻ và hai dòng",
+   "tags": [
+    "thanh tên",
+    "đỏ",
+    "xanh navy",
+    "logo"
+   ]
+  },
+  "template:llt14-logo-texto": {
+   "name": "Thanh tên màu đỏ: logo và hộp đoạn văn",
+   "tags": [
+    "thanh tên",
+    "đỏ",
+    "xanh navy",
+    "logo",
+    "hộp"
+   ]
+  },
+  "template:llt14-marca": {
+   "name": "Thanh tên màu đỏ: logo, dấu gạch chéo và tên",
+   "tags": [
+    "thanh tên",
+    "đỏ",
+    "xanh navy",
+    "logo"
+   ]
+  },
+  "template:llt14-pestana": {
+   "name": "Thanh tên màu đỏ: logo, thẻ tab và hộp văn bản",
+   "tags": [
+    "thanh tên",
+    "đỏ",
+    "xanh navy",
+    "logo",
+    "hộp"
+   ]
+  },
+  "template:llt14-primer-titulo": {
+   "name": "Thanh tên màu đỏ: logo, tiêu đề và hộp văn bản",
+   "tags": [
+    "thanh tên",
+    "đỏ",
+    "xanh navy",
+    "logo",
+    "hộp"
+   ]
+  },
+  "template:llt15-barra-larga": {
+   "name": "Thanh tên tối giản: thanh dài có logo và ngày",
+   "tags": [
+    "thanh tên",
+    "tối giản",
+    "đen",
+    "logo",
+    "thanh"
+   ]
+  },
+  "template:llt15-descripcion": {
+   "name": "Thanh tên tối giản: tên và mô tả",
+   "tags": [
+    "thanh tên",
+    "tối giản",
+    "đen"
+   ]
+  },
+  "template:llt15-dos-lineas": {
+   "name": "Thanh tên tối giản: tên và chức danh hai dòng",
+   "tags": [
+    "thanh tên",
+    "tối giản",
+    "đen"
+   ]
+  },
+  "template:llt15-logo-ficha": {
+   "name": "Thanh tên tối giản: ô logo và hai dòng",
+   "tags": [
+    "thanh tên",
+    "tối giản",
+    "đen",
+    "logo"
+   ]
+  },
+  "template:llt15-logo-nombre": {
+   "name": "Thanh tên tối giản: khối logo và tên",
+   "tags": [
+    "thanh tên",
+    "tối giản",
+    "đen",
+    "logo"
+   ]
+  },
+  "template:llt15-nombre": {
+   "name": "Thanh tên tối giản: tên trên nhãn trắng",
+   "tags": [
+    "thanh tên",
+    "tối giản",
+    "đen"
+   ]
+  },
+  "template:llt15-nombre-cargo": {
+   "name": "Thanh tên tối giản: tên và chức danh",
+   "tags": [
+    "thanh tên",
+    "tối giản",
+    "đen"
+   ]
+  },
   "template:llt2-barra-etiqueta": {
    "name": "Thanh tên có logo: dải tối và nhãn xanh lá",
    "tags": [
@@ -25418,6 +26090,435 @@
     "vàng",
     "trắng",
     "khách mời"
+   ]
+  },
+  "template:llt4-cuadro-sube": {
+   "name": "Thanh tên có logo: ô vuông tối, logo nhô lên",
+   "tags": [
+    "thanh tên",
+    "logo",
+    "tên",
+    "thanh",
+    "xanh lá",
+    "ô vuông"
+   ]
+  },
+  "template:llt4-ficha-blanca": {
+   "name": "Thanh tên có logo: thẻ trắng mở ra",
+   "tags": [
+    "thanh tên",
+    "logo",
+    "tên",
+    "trắng",
+    "nhãn"
+   ]
+  },
+  "template:llt4-logo-izquierda": {
+   "name": "Thanh tên có logo: thanh tối, logo bên trái",
+   "tags": [
+    "thanh tên",
+    "logo",
+    "tên",
+    "thanh",
+    "xanh lá"
+   ]
+  },
+  "template:llt4-pastilla-barra": {
+   "name": "Thanh tên có logo: viên thuốc mở ra thành thanh",
+   "tags": [
+    "thanh tên",
+    "logo",
+    "tên",
+    "thanh",
+    "xanh lá",
+    "viên thuốc"
+   ]
+  },
+  "template:llt5-adam": {
+   "name": "Thanh tên có ảnh: ảnh dọc, tên phủ lên trên",
+   "tags": [
+    "thanh tên",
+    "ảnh",
+    "tên",
+    "xám",
+    "dọc",
+    "căn giữa"
+   ]
+  },
+  "template:llt5-eddy": {
+   "name": "Thanh tên có ảnh: ảnh tròn bên phải, dải tối",
+   "tags": [
+    "thanh tên",
+    "ảnh",
+    "tên",
+    "tối",
+    "tròn"
+   ]
+  },
+  "template:llt5-elis": {
+   "name": "Thanh tên có ảnh: ảnh tròn, tên bên phải",
+   "tags": [
+    "thanh tên",
+    "ảnh",
+    "tên",
+    "xám",
+    "tròn"
+   ]
+  },
+  "template:llt5-emma": {
+   "name": "Thanh tên có ảnh: ảnh dọc có các dải phủ ngang",
+   "tags": [
+    "thanh tên",
+    "ảnh",
+    "tên",
+    "xám",
+    "dọc"
+   ]
+  },
+  "template:llt5-kris": {
+   "name": "Thanh tên có ảnh: ảnh tròn ở trên, tên ở dưới",
+   "tags": [
+    "thanh tên",
+    "ảnh",
+    "tên",
+    "xám",
+    "tròn",
+    "căn giữa"
+   ]
+  },
+  "template:llt5-martin": {
+   "name": "Thanh tên có ảnh: ảnh vuông, tên bên phải",
+   "tags": [
+    "thanh tên",
+    "ảnh",
+    "tên",
+    "xám"
+   ]
+  },
+  "template:llt5-monika": {
+   "name": "Thanh tên có ảnh: ảnh bên phải, tên bên trái",
+   "tags": [
+    "thanh tên",
+    "ảnh",
+    "tên",
+    "xám"
+   ]
+  },
+  "template:llt5-rachel": {
+   "name": "Thanh tên có ảnh: ảnh dọc bên phải, họ viền ngoài",
+   "tags": [
+    "thanh tên",
+    "ảnh",
+    "tên",
+    "tối",
+    "dọc"
+   ]
+  },
+  "template:llt5-rose": {
+   "name": "Thanh tên có ảnh: ảnh ở trên, tên ở dưới",
+   "tags": [
+    "thanh tên",
+    "ảnh",
+    "tên",
+    "xám",
+    "căn giữa"
+   ]
+  },
+  "template:llt6-barra-inclinada": {
+   "name": "Thanh tên: thanh trắng nghiêng, tên lớn",
+   "tags": [
+    "thanh tên",
+    "tên",
+    "trắng",
+    "nghiêng"
+   ]
+  },
+  "template:llt6-barrido-rojo": {
+   "name": "Thanh tên: khối đỏ quét qua để lộ tên",
+   "tags": [
+    "thanh tên",
+    "tên",
+    "đỏ"
+   ]
+  },
+  "template:llt6-caja-nombre": {
+   "name": "Thanh tên: tên trong hộp trắng thu nhỏ lại",
+   "tags": [
+    "thanh tên",
+    "tên",
+    "trắng",
+    "hộp"
+   ]
+  },
+  "template:llt6-cursor": {
+   "name": "Thanh tên: khối biến thành con trỏ và để lộ tên",
+   "tags": [
+    "thanh tên",
+    "tên",
+    "trắng",
+    "con trỏ"
+   ]
+  },
+  "template:llt6-divisor": {
+   "name": "Thanh tên: đường chia, chức danh và tên hai bên",
+   "tags": [
+    "thanh tên",
+    "tên",
+    "đường kẻ"
+   ]
+  },
+  "template:llt6-etiqueta-blanca": {
+   "name": "Thanh tên: tên lớn, nhãn trắng ghi chức danh",
+   "tags": [
+    "thanh tên",
+    "tên",
+    "trắng",
+    "nhãn dán"
+   ]
+  },
+  "template:llt6-etiqueta-roja": {
+   "name": "Thanh tên: tên bên phải, dải đỏ ghi chức danh",
+   "tags": [
+    "thanh tên",
+    "tên",
+    "đỏ",
+    "bên phải"
+   ]
+  },
+  "template:llt6-letras": {
+   "name": "Thanh tên: tên hiện ra từng chữ cái",
+   "tags": [
+    "thanh tên",
+    "tên",
+    "chữ cái"
+   ]
+  },
+  "template:llt6-linea-fina": {
+   "name": "Thanh tên: đường kẻ mảnh, tên và chức danh hai bên",
+   "tags": [
+    "thanh tên",
+    "tên",
+    "đường kẻ"
+   ]
+  },
+  "template:llt6-subrayado-rojo": {
+   "name": "Thanh tên: tên lớn, gạch chân đỏ",
+   "tags": [
+    "thanh tên",
+    "tên",
+    "đỏ",
+    "gạch chân"
+   ]
+  },
+  "template:llt7-barra-azul": {
+   "name": "Thanh tên: thanh xanh có logo, một dòng",
+   "tags": [
+    "thanh tên",
+    "logo",
+    "xanh dương"
+   ]
+  },
+  "template:llt7-barra-azul-2": {
+   "name": "Thanh tên: thanh xanh có logo, hai dòng",
+   "tags": [
+    "thanh tên",
+    "logo",
+    "xanh dương"
+   ]
+  },
+  "template:llt8-barrett": {
+   "name": "Thanh tên màu cam: gạch chân dài",
+   "tags": [
+    "thanh tên",
+    "cam",
+    "tên"
+   ]
+  },
+  "template:llt8-brandon": {
+   "name": "Thanh tên màu cam: thanh và tên",
+   "tags": [
+    "thanh tên",
+    "cam",
+    "tên"
+   ]
+  },
+  "template:llt8-cameron": {
+   "name": "Thanh tên màu cam: chức danh ở trên, dấu hiệu",
+   "tags": [
+    "thanh tên",
+    "cam",
+    "tên"
+   ]
+  },
+  "template:llt8-castro": {
+   "name": "Thanh tên màu cam: chức danh hai dòng",
+   "tags": [
+    "thanh tên",
+    "cam",
+    "tên"
+   ]
+  },
+  "template:llt8-charley": {
+   "name": "Thanh tên màu cam: thanh chạy xuống",
+   "tags": [
+    "thanh tên",
+    "cam",
+    "tên"
+   ]
+  },
+  "template:llt8-daniel": {
+   "name": "Thanh tên màu cam: khối cạnh chức danh",
+   "tags": [
+    "thanh tên",
+    "cam",
+    "tên"
+   ]
+  },
+  "template:llt8-dodson": {
+   "name": "Thanh tên màu cam: đường kẻ, chức danh bên phải",
+   "tags": [
+    "thanh tên",
+    "cam",
+    "tên"
+   ]
+  },
+  "template:llt8-hayden": {
+   "name": "Thanh tên màu cam: thanh cao và chức danh",
+   "tags": [
+    "thanh tên",
+    "cam",
+    "tên"
+   ]
+  },
+  "template:llt8-jake": {
+   "name": "Thanh tên màu cam: đường kẻ dài hai bên",
+   "tags": [
+    "thanh tên",
+    "cam",
+    "tên"
+   ]
+  },
+  "template:llt8-james": {
+   "name": "Thanh tên màu cam: khối trước chức danh",
+   "tags": [
+    "thanh tên",
+    "cam",
+    "tên"
+   ]
+  },
+  "template:llt8-john": {
+   "name": "Thanh tên màu cam: dấu ngoặc",
+   "tags": [
+    "thanh tên",
+    "cam",
+    "tên"
+   ]
+  },
+  "template:llt8-madden": {
+   "name": "Thanh tên màu cam: đường kẻ hai bên chức danh",
+   "tags": [
+    "thanh tên",
+    "cam",
+    "tên"
+   ]
+  },
+  "template:llt8-mason": {
+   "name": "Thanh tên màu cam: đường kẻ dài, chức danh bên phải",
+   "tags": [
+    "thanh tên",
+    "cam",
+    "tên"
+   ]
+  },
+  "template:llt8-rason": {
+   "name": "Thanh tên màu cam: thanh, chức danh ở trên",
+   "tags": [
+    "thanh tên",
+    "cam",
+    "tên"
+   ]
+  },
+  "template:llt8-ryan": {
+   "name": "Thanh tên màu cam: đường kẻ và chức danh ở trên",
+   "tags": [
+    "thanh tên",
+    "cam",
+    "tên"
+   ]
+  },
+  "template:llt9-benjamin": {
+   "name": "Thanh tên màu vàng kim: nhãn ở trên, đường kẻ",
+   "tags": [
+    "thanh tên",
+    "vàng kim",
+    "tên"
+   ]
+  },
+  "template:llt9-emily": {
+   "name": "Thanh tên màu vàng kim: tên trong hộp trắng, nhãn",
+   "tags": [
+    "thanh tên",
+    "vàng kim",
+    "hộp"
+   ]
+  },
+  "template:llt9-katherine": {
+   "name": "Thanh tên màu vàng kim: nhãn và chấm bên phải",
+   "tags": [
+    "thanh tên",
+    "vàng kim",
+    "chữ nghiêng",
+    "bên phải"
+   ]
+  },
+  "template:llt9-max": {
+   "name": "Thanh tên màu vàng kim: tên trong hộp, chức danh trên nhãn",
+   "tags": [
+    "thanh tên",
+    "vàng kim",
+    "chữ nghiêng",
+    "hộp"
+   ]
+  },
+  "template:llt9-natalie": {
+   "name": "Thanh tên màu vàng kim: đường kẻ có chấm",
+   "tags": [
+    "thanh tên",
+    "vàng kim",
+    "tên"
+   ]
+  },
+  "template:llt9-vanja": {
+   "name": "Thanh tên màu vàng kim: chữ nghiêng mảnh, ô vuông",
+   "tags": [
+    "thanh tên",
+    "vàng kim",
+    "chữ nghiêng"
+   ]
+  },
+  "template:llt9-vanja-negrita": {
+   "name": "Thanh tên màu vàng kim: chữ nghiêng đậm, ô vuông",
+   "tags": [
+    "thanh tên",
+    "vàng kim",
+    "chữ nghiêng"
+   ]
+  },
+  "template:llt9-victoria": {
+   "name": "Thanh tên màu vàng kim: thanh, chữ nghiêng đậm",
+   "tags": [
+    "thanh tên",
+    "vàng kim",
+    "chữ nghiêng"
+   ]
+  },
+  "template:llt9-yaroslava": {
+   "name": "Thanh tên màu vàng kim: ô chứa chức danh bên phải",
+   "tags": [
+    "thanh tên",
+    "vàng kim",
+    "chữ nghiêng",
+    "bên phải"
    ]
   },
   "template:lt-andy": {

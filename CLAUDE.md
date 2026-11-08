@@ -61,6 +61,17 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 
 ## Estado (actualizado 2026-11-04)
 
+### Stock: 129 tercios nuevos llt4–llt15 PUBLICADOS (2026-11-07, noche)
+- Todos los videos de `Downloads\EDITAR PARA STOCK\LOWERTHIRDS` rehechos «casi iguales» (`templates_llt_d.py` … `_o.py`,
+  rama `flip/stock-llt4`), renderizados de nuevo en `tienda\plantillasender-llt-final`, copiados a `paquetes`, con
+  `minAppVersion` 0.30.0 y los 13 idiomas. Subidos con `publish.py` + `publish_delta.py` + `apply_delta.sh` (1660 plantillas).
+- Jorge revisó los 12 videos de comparación; corrigió solo Aleix Richard nº 8 (`llt11-8`): palabras en escalera que salen
+  en el mismo orden en que entran (`StepPiece`) y 2,2 s como el original. En todo `llt11` el cargo asomaba una franja al
+  estar fuera: ahora baja `alto + 26` px.
+- **Falta:** ver el formato vertical (Short) de los tercios en la ventana de la app.
+- **Trampa nueva:** varios agentes de traducción en paralelo escriben su script con el mismo nombre en el scratchpad y se
+  pisan: pedir nombres únicos.
+
 ### 0.30.2 PUBLICADA (2026-11-07) — curvas iguales a After Effects (arreglos)
 - PR #56 (`flip/v0.30.2` → `main`), tag `v0.30.2`, release (run 42331235247), MSIX `msstore.yml` run 42331254692 →
   `tienda\FlipStudio-Store\paquete-0.30.2` **y copia en `OneDrive\FlipStudio\tienda\FlipStudio-Store\paquete-0.30.2`**
