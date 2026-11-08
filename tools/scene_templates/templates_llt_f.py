@@ -24,6 +24,7 @@ SHADED = [gradient([(0.0, "#FFFFFF"), (0.45, "#FFFFFF"), (1.0, "#8E8E8E")], angl
 FPS = 60.0
 _STAGE = Path(__file__).resolve().parents[4] / "codigo" / "flip-addons" / "build" / "stage"
 _FILES = {("Archivo", 900): "fonts.extra/fonts/archivo/Archivo-Black.ttf",
+          ("Archivo", 400): "fonts.extra/fonts/archivo/Archivo-Regular.ttf",
           ("Poppins", 500): "fonts.basic/fonts/poppins/Poppins-Medium.ttf",
           ("Poppins", 600): "fonts.basic/fonts/poppins/Poppins-SemiBold.ttf",
           ("Poppins", 700): "fonts.basic/fonts/poppins/Poppins-Bold.ttf"}
@@ -324,4 +325,106 @@ def white_label():
     return t
 
 
-TEMPLATES = [slanted_bar, red_sweep, divider, red_underline, white_label]
+def thin_line():
+    """6: a thin line draws from right to left; the first name fades in letter by letter above it, the last name
+    slides out to the right and the role to the left from the same point under it."""
+    start = 3  # frames from 24.05 s of the video
+    D = 4.0
+    t = _kit("linea-fina", "Tercio: línea fina con nombre y cargo a los lados",
+             "Lower third: thin line, name and role either side", D, 8605, ["nombre", "linea"], thumb_at=2.0)
+    p = Piece(t, D, start)
+    left = table({3: 1748, 8: 1740, 16: 1716, 20: 1661, 24: 1636, 28: 1585, 32: 1560, 36: 1496, 40: 1407,
+                  44: 1280, 48: 823, 52: 556, 56: 442, 60: 366, 64: 315, 68: 277, 72: 247, 76: 213, 80: 201, 88: 181})
+    p.shape("Línea", WHITE, (181, 860, 1748, 863), lambda fr: (left(fr), 860, 1748, 863))
+    first_slide = table({30: 200, 45: 180, 54: 57, 63: 27, 81: 3, 100: 0})
+    first = p.text("Robert", 1013, 791, 858, 390, NAME_FONT, 900, WHITE, "Nombre", spacing_em=-0.01,
+                   shift=first_slide)
+    first["textStyle"]["animation"] = {
+        "in": tanim("fade", duration=0.6, unit="character", stagger=0.15, ease="easeInOut"),
+        "out": tanim("fade", duration=0.6, unit="character", stagger=0.15, ease="easeInOut", order="backward")}
+    last_slide = table({38: -600, 40: -534, 44: -465, 48: -280, 52: -173, 56: -128, 60: -97, 64: -64, 68: -46,
+                        72: -39, 80: -21, 88: -8, 96: 0})
+    p.text("Wilkinson", 1010, 867, 934, 562, NAME_FONT, 900, WHITE, "Apellido", spacing_em=-0.01,
+           shift=last_slide, reveal=lambda fr: (1001, 864, 1920, 945))
+    role_slide = table({30: 700, 32: 663, 36: 630, 40: 584, 44: 503, 48: 312, 52: 188, 56: 127, 60: 91, 64: 71,
+                        68: 51, 72: 33, 76: 20, 80: 18, 84: 7, 96: 0})
+    p.text("Help desk worker - desktop support", 975, 898, 911, 670, ROLE_FONT, 700, WHITE, "Cargo",
+           align="right", spacing_em=0.1, shift=role_slide, reveal=lambda fr: (0, 880, 992, 925))
+    return t
+
+
+def name_box():
+    """7: a white box grows from a thin upright line to the right, the name (a heavy word and a light one) riding
+    in on its right edge at 1.47 times its size; then box and name shrink together to their place, a thin line
+    slides out under them and the role shows from the left."""
+    start = 3  # frames from 28.4 s of the video
+    D = 6.63
+    t = _kit("caja-nombre", "Tercio: nombre en caja blanca que se encoge", "Lower third: name in a white box that shrinks",
+             D, 8606, ["nombre", "blanco", "caja"], thumb_at=3.3)
+    p = Piece(t, D, start)
+    grow = table({3: 147, 6: 149, 9: 152, 12: 155, 15: 160, 18: 166, 21: 173, 24: 181, 27: 191, 30: 203, 33: 218,
+                  36: 236, 39: 257, 42: 285, 45: 319, 48: 366, 51: 433, 54: 552, 57: 794, 60: 948, 63: 1027,
+                  66: 1079, 69: 1117, 72: 1146, 75: 1170, 78: 1189, 81: 1204, 84: 1216, 87: 1226, 90: 1234,
+                  93: 1240, 96: 1244, 99: 1246, 102: 1247, 105: 1246, 108: 1244, 111: 1240, 114: 1233, 117: 1224,
+                  120: 1213, 123: 1197, 126: 1175, 129: 1135, 132: 1048, 135: 995, 138: 968, 141: 951, 144: 939,
+                  147: 929, 150: 921, 153: 915, 156: 910, 159: 906, 162: 903, 165: 900, 168: 898, 171: 896,
+                  174: 895, 177: 894, 180: 893})
+    BIG = 1.475
+    CX, CY = 146.0, 851.5
+    tall = table({3: 0.05, 12: 1.0})
+    k = lambda fr: BIG if fr <= 102 else (grow(fr) - CX) / 747  # noqa: E731
+
+    def box(fr):
+        h = 50.5 * k(fr) * tall(fr)
+        return (CX, CY - h, grow(fr), CY + h)
+    p.shape("Caja", WHITE, (146, 801, 893, 902), box)
+
+    def slide(fr):
+        return (grow(fr) - 15 * k(fr)) - (CX + (878 - CX) * k(fr))
+
+    def scaled_text(content, edge, caps_top, caps_bottom, width, weight, name):
+        size, bearing = fit(content.upper(), width, NAME_FONT, weight, -0.01)
+        h = size * 1.6
+        w = width + size * 3
+        bx = Box(edge - bearing * size, (caps_top + caps_bottom) / 2 - h / 2, w, h)
+        motion = []
+        for u in frames_of(D):
+            fr = p.frame(u)
+            kk = k(fr)
+            ncx = CX + (bx.cx - CX) * kk + slide(fr)
+            ncy = CY + (bx.cy - CY) * kk
+            motion.append((u, {"s": kk, "dx": ncx - bx.cx, "dy": ncy - bx.cy}, "linear"))
+        clip = label(t, t.track("text", name), content, 0.0, D, bx, NAME_FONT, size, INK, weight=weight,
+                     align="left", name=name, line=1.0, motion=motion, spacing=-0.01 * size, case="upper")
+        # The box scaling does not scale the type: its size is keyed too.
+        clip["textStyle"]["keyframes"] = {"pixelSize": keys([(u, size * k(p.frame(u)), "linear")
+                                                             for u in frames_of(D)])}
+
+        def local(u):
+            fr = p.frame(u)
+            kk = k(fr)
+            x0, y0, x1, y1 = box(fr)
+            ncx = CX + (bx.cx - CX) * kk + slide(fr)
+            ncy = CY + (bx.cy - CY) * kk
+            if x1 - x0 < 0.5:
+                return (-4000.0, -4000.0, -3999.0, -3999.0)
+            return (bx.cx + (x0 - ncx) / kk, bx.cy + (y0 - ncy) / kk, bx.cx + (x1 - ncx) / kk,
+                    bx.cy + (y1 - ncy) / kk)
+        mask_track(t, clip, bx, local, D)
+        return clip
+    scaled_text("Taylor", 161, 816, 887, 377, 900, "Nombre")
+    scaled_text("Wilson", 526, 816, 887, 330, 400, "Apellido")
+    under = table({121: 146, 123: 358, 126: 428, 129: 552, 132: 818, 135: 981, 138: 1063, 141: 1116, 144: 1155,
+                   147: 1185, 150: 1208, 153: 1227, 156: 1242, 159: 1255, 162: 1265, 165: 1273, 168: 1280,
+                   171: 1285, 174: 1289, 177: 1292, 180: 1294, 186: 1296})
+    p.shape("Línea", WHITE, (146, 927, 1296, 930), lambda fr: (146, 927, under(fr), 930) if fr >= 121
+            else (146, 928, 146, 928))
+    shown = table({116: 149, 117: 284, 123: 284, 126: 562, 129: 922, 132: 974})
+    p.text("Media relations coordinator &", 149, 954, 972, 825, ROLE_FONT, 500, WHITE, "Cargo", spacing_em=0.35,
+           reveal=lambda fr: (140, 940, shown(fr), 980))
+    p.text("Vice president of marketing", 147, 990, 1008, 749, ROLE_FONT, 500, WHITE, "Cargo 2", spacing_em=0.35,
+           reveal=lambda fr: (140, 980, shown(fr - 3), 1016))
+    return t
+
+
+TEMPLATES = [slanted_bar, red_sweep, divider, red_underline, white_label, thin_line, name_box]
