@@ -36,7 +36,7 @@ OUR_CROP = tuple(int(v) for v in os.environ.get("LLT_OURCROP", ",".join(map(str,
 
 
 def ref_frame(at: float, target: Path) -> None:
-    subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", f"{at:.4f}", "-i", str(VIDEO), "-frames:v", "1",
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", f"{at:.4f}", "-i", str(VIDEO), "-frames:v", "1", "-vf", "scale=1920:1080",
                     str(target)], check=True)
 
 
