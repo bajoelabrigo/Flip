@@ -68,6 +68,11 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 - Jorge revisó los 12 videos de comparación; corrigió solo Aleix Richard nº 8 (`llt11-8`): palabras en escalera que salen
   en el mismo orden en que entran (`StepPiece`) y 2,2 s como el original. En todo `llt11` el cargo asomaba una franja al
   estar fuera: ahora baja `alto + 26` px.
+- **2026-11-08, `llt11` rehecho entero** (Jorge: «eran todas las de esa serie»): cajas que nacen como línea con panel
+  blanco delante, marcos y líneas con punta blanca, foto descubierta por una franja, nombres desde atrás o con fundido, y
+  cada una con la duración del original (`wipe`, `frame`, `words(how=…)`, `photo` en `templates_llt_k.py`). Ya está en
+  `paquetes`, **sin subir**: Jorge quiere subirla junto con el próximo grupo nuevo (en Stock sigue la versión vieja).
+  Comparación: `prototipos-degradado-11\comparacion-serie-corregida.mp4`.
 - **Falta:** ver el formato vertical (Short) de los tercios en la ventana de la app.
 - **Trampa nueva:** varios agentes de traducción en paralelo escriben su script con el mismo nombre en el scratchpad y se
   pisan: pedir nombres únicos.
