@@ -1237,8 +1237,10 @@ TextRangeSelector textRangeSelectorFromJson(const QJsonObject &o)
     s.easeLo = textAnimParamFromJson(o.value(QStringLiteral("easeLo")), 0.0);
     s.easeHi = textAnimParamFromJson(o.value(QStringLiteral("easeHi")), 0.0);
     s.smoothness = textAnimParamFromJson(o.value(QStringLiteral("smoothness")), 100.0);
-    s.staggerUs = o.value(QStringLiteral("staggerUs")).toInteger(s.staggerUs);
-    s.durationUs = o.value(QStringLiteral("durationUs")).toInteger(s.durationUs);
+    // A preset's {"$": "stagger", "mul": 1000000} arrives as a double: 0.1335 s is 133500.000001 µs, which
+    // toInteger() refuses (it falls back to the default without a word), so round instead.
+    s.staggerUs = qRound64(o.value(QStringLiteral("staggerUs")).toDouble(static_cast<double>(s.staggerUs)));
+    s.durationUs = qRound64(o.value(QStringLiteral("durationUs")).toDouble(static_cast<double>(s.durationUs)));
     if (o.contains(QStringLiteral("ease")))
         s.ease = textEaseSpecFromJson(o.value(QStringLiteral("ease")));
     s.order = textAnimOrderFromString(o.value(QStringLiteral("order")).toString());

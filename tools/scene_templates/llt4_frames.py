@@ -26,9 +26,13 @@ import build  # noqa: E402
 import renderlock  # noqa: E402
 from mcp_e2e import Bridge  # noqa: E402
 
-VIDEO = Path(os.environ["USERPROFILE"]) / "Downloads" / "EDITAR PARA STOCK" / "LOWERTHIRDS" / "50962342.mp4"
+VIDEO = Path(os.environ["USERPROFILE"]) / "Downloads" / "EDITAR PARA STOCK" / "LOWERTHIRDS" /     os.environ.get("LLT_VIDEO", "50962342.mp4")
 EXE = Path("E:/FlipStudio/pruebas/FlipStudio-0.30.2-stock/Flip Studio/flipstudio.exe")
 CROP = (0, 640, 1280, 1080)
+# Another set: LLT_VIDEO=<file>, LLT_REFCROP / LLT_OURCROP = x0,y0,x1,y1 (ours scaled to the reference's crop size,
+# for a piece drawn smaller than the reference).
+REF_CROP = tuple(int(v) for v in os.environ.get("LLT_REFCROP", ",".join(map(str, CROP))).split(","))
+OUR_CROP = tuple(int(v) for v in os.environ.get("LLT_OURCROP", ",".join(map(str, REF_CROP))).split(","))
 
 
 def ref_frame(at: float, target: Path) -> None:
@@ -70,13 +74,13 @@ def main() -> int:
             if (build.APPDATA / "projects").exists():
                 for name in set(os.listdir(build.APPDATA / "projects")) - projects_before:
                     shutil.rmtree(build.APPDATA / "projects" / name, ignore_errors=True)
-    w, h = (CROP[2] - CROP[0]) // 2, (CROP[3] - CROP[1]) // 2
+    w, h = (REF_CROP[2] - REF_CROP[0]) // 2, (REF_CROP[3] - REF_CROP[1]) // 2
     sheet = Image.new("RGB", (w * 2, h * len(shots)), "black")
     d = ImageDraw.Draw(sheet)
     for k, (u, mine, ref) in enumerate(shots):
-        for col, path in enumerate((ref, mine)):
+        for col, (path, crop) in enumerate(((ref, REF_CROP), (mine, OUR_CROP))):
             with Image.open(path) as im:
-                sheet.paste(im.convert("RGB").crop(CROP).resize((w, h)), (col * w, k * h))
+                sheet.paste(im.convert("RGB").crop(crop).resize((w, h)), (col * w, k * h))
         d.text((4, k * h + 4), f"{u:.3f}", fill="yellow")
     sheet.save(out / f"{tid}-pares.png")
     return 0
