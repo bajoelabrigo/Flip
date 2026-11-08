@@ -12,13 +12,15 @@ from pathlib import Path
 
 from kit import Box, label, wide
 from llt_motion import frames_of, mask_track
-from scene import fill, keys, no_stroke, tanim
+from scene import fill, gradient, keys, no_stroke, tanim
 
 NAME_FONT = "Archivo"
 ROLE_FONT = "Poppins"
 WHITE = "#FFFFFF"
 INK = "#151515"
 RED = "#E3262B"
+# Some names fade from white at the top to grey at the bottom (Oliver, O'Sullivan).
+SHADED = [gradient([(0.0, "#FFFFFF"), (0.45, "#FFFFFF"), (1.0, "#8E8E8E")], angle=90)]
 FPS = 60.0
 _STAGE = Path(__file__).resolve().parents[4] / "codigo" / "flip-addons" / "build" / "stage"
 _FILES = {("Archivo", 900): "fonts.extra/fonts/archivo/Archivo-Black.ttf",
@@ -83,7 +85,7 @@ class Piece:
         return clip
 
     def text(self, content, edge, caps_top, caps_bottom, width, family, weight, colour, name, align="left",
-             spacing_em=0.0, shift=None, reveal=None, editable=True, case="upper", bold=()):
+             spacing_em=0.0, shift=None, reveal=None, editable=True, case="upper", bold=(), layers=None):
         """A line whose capitals span [caps_top, caps_bottom] and whose ink is `width` wide from `edge` (its left,
         or its right with align right); shift(frame) = dx slides it, reveal(frame) = (x0, y0, x1, y1) screen
         rect shows only that part."""
@@ -93,10 +95,12 @@ class Piece:
         cy = (caps_top + caps_bottom) / 2
         x = edge - bearing * size if align == "left" else edge - w + size * 0.02
         box = Box(x, cy - h / 2, w, h)
-        motion = [(u, {"dx": shift(self.frame(u))}, "linear") for u in frames_of(self.dur)] if shift else None
+        two = (lambda fr: (lambda v: v if isinstance(v, tuple) else (v, 0.0))(shift(fr))) if shift else None
+        motion = [(u, {"dx": two(self.frame(u))[0], "dy": two(self.frame(u))[1]}, "linear")
+                  for u in frames_of(self.dur)] if shift else None
         clip = label(self.t, self.t.track("text", name), content, 0.0, self.dur, box, family, size, colour,
                      weight=weight, align=align, name=name, line=1.0, editable=editable, motion=motion,
-                     spacing=spacing_em * size, case=case)
+                     spacing=spacing_em * size, case=case, layers=layers)
         # Bold words (runs): each given substring of `content` in Bold.
         runs = []
         for word in bold:
@@ -110,8 +114,8 @@ class Piece:
                 x0, y0, x1, y1 = reveal(self.frame(u))
                 if x1 - x0 < 0.5 or y1 - y0 < 0.5:
                     return (-4000.0, -4000.0, -3999.0, -3999.0)
-                dx = shift(self.frame(u)) if shift else 0.0
-                return (x0 - dx, y0, x1 - dx, y1)
+                dx, dy = two(self.frame(u)) if shift else (0.0, 0.0)
+                return (x0 - dx, y0 - dy, x1 - dx, y1 - dy)
             mask_track(self.t, clip, box, local, self.dur)
         return clip
 
@@ -209,7 +213,8 @@ def red_sweep():
     p.shape("Bloque", RED, (258, 806, 974, 916), block)
     first_shift = table({60: 260, 62: 200, 66: 183, 70: 166, 74: 129, 78: 71, 80: 57, 84: 40, 90: 26, 100: 12,
                          110: 5, 120: 1, 126: 0})
-    first = p.text("Oliver", 189, 745, 814, 424, NAME_FONT, 900, WHITE, "Nombre", spacing_em=-0.01, shift=first_shift)
+    first = p.text("Oliver", 189, 745, 814, 424, NAME_FONT, 900, WHITE, "Nombre", spacing_em=-0.01, shift=first_shift,
+                   layers=SHADED)
     # Letter by letter, each coming in big and see-through and settling (its block starts at frame 58).
     first["timelineStartUs"] = int(round((58 - start) / FPS * 1e6))
     first["timelineDurationUs"] = int(round((D - 2 * (58 - start) / FPS) * 1e6))
@@ -225,4 +230,98 @@ def red_sweep():
     return t
 
 
-TEMPLATES = [slanted_bar, red_sweep]
+def divider():
+    """3: a white divider line grows down while it flies in from the right; the role comes out of it to the left
+    and the name to the right, riding with it until it lands."""
+    start = 30  # frames from 10.6 s of the video
+    D = 2.95  # the reference leaves a little sooner than a mirror of 3.2 s
+    t = _kit("divisor", "Tercio: línea divisoria con cargo y nombre a los lados",
+             "Lower third: divider line, role and name either side", D, 8602, ["nombre", "linea"], thumb_at=1.6)
+    p = Piece(t, D, start)
+    lx = table({30: 1390, 34: 1367, 36: 1351, 38: 1330, 40: 1302, 42: 1258, 44: 1181, 46: 1100, 48: 1060, 50: 1030,
+                52: 1005, 54: 990, 56: 980, 58: 971, 62: 955, 66: 935, 70: 922, 74: 917, 78: 914, 82: 912, 86: 909,
+                90: 906, 94: 904, 96: 903, 102: 902})
+    bottom = table({30: 770, 34: 800, 36: 806, 38: 814, 40: 824, 42: 840, 44: 869, 58: 900, 62: 953, 82: 968,
+                    92: 971, 100: 972})
+
+    def line(fr):
+        if fr < 30:
+            return (1390, 766, 1390, 766)
+        return (lx(fr), 766, lx(fr) + 3, bottom(fr))
+    p.shape("Línea", WHITE, (902, 766, 905, 972), line)
+    name_off = table({46: -460, 48: -412, 58: -180, 62: -136, 70: -66, 78: -37, 90: -10, 100: 0})
+    role_off = table({46: 230, 48: 200, 50: 166, 54: 122, 58: 87, 62: 64, 66: 59, 70: 44, 78: 20, 90: 4, 100: 0})
+    name_slide = lambda fr: lx(fr) - 902 + name_off(fr)  # noqa: E731
+    role_slide = lambda fr: lx(fr) - 902 + role_off(fr)  # noqa: E731
+    right_of_line = lambda fr: (line(fr)[2] + 1, 780, 1920, 960) if fr >= 44 else (0, 0, 0, 0)  # noqa: E731
+    left_of_line = lambda fr: (0, 780, line(fr)[0] - 1, 960) if fr >= 44 else (0, 0, 0, 0)  # noqa: E731
+    p.text("Martin", 924, 801, 866, 386, NAME_FONT, 900, WHITE, "Nombre", spacing_em=-0.01, shift=name_slide,
+           reveal=right_of_line)
+    p.text("Stewardson", 924, 873, 942, 697, NAME_FONT, 900, WHITE, "Apellido", spacing_em=-0.01,
+           shift=name_slide, reveal=right_of_line)
+    p.text("Media relations coordinator & vice", 874, 843, 860, 627, ROLE_FONT, 500, WHITE, "Cargo",
+           align="right", shift=role_slide, reveal=left_of_line)
+    p.text("President of marketing", 874, 879, 896, 407, ROLE_FONT, 500, WHITE, "Cargo 2", align="right",
+           shift=role_slide, reveal=left_of_line)
+    return t
+
+
+def red_underline():
+    """4: a red underline draws to the right; the last name slides in from the right as its letters fade in one by
+    one, the first name comes down into place above it, and the bold role slides in from the left."""
+    start = 4  # frames from 15.0 s of the video
+    D = 4.1
+    t = _kit("subrayado-rojo", "Tercio: nombre grande y subrayado rojo", "Lower third: big name, red underline", D,
+             8603, ["nombre", "rojo", "subrayado"], thumb_at=2.0)
+    p = Piece(t, D, start)
+    under = table({3: 124, 24: 187, 33: 220, 36: 280, 39: 317, 42: 370, 45: 448, 48: 589, 51: 700, 54: 900,
+                   60: 1150, 66: 1300, 75: 1380, 90: 1408})
+    p.shape("Subrayado", RED, (124, 944, 1408, 956), lambda fr: (124, 944, under(fr), 956))
+    role_slide = table({30: -1500, 40: -1360, 45: -1172, 48: -991, 51: -661, 54: -448, 57: -341, 60: -263, 63: -208, 66: -171,
+                        72: -111, 78: -78, 84: -45, 90: -30, 96: -18, 105: -6, 112: 0})
+    p.text("Help desk worker - desktop support", 128, 880, 916, 1350, ROLE_FONT, 700, WHITE, "Cargo",
+           shift=role_slide, reveal=lambda fr: (124, 860, 1920, 935))
+    last_slide = table({6: 380, 12: 368, 24: 336, 30: 325, 33: 314, 36: 307, 39: 303, 42: 281, 45: 255, 48: 227,
+                        51: 151, 54: 97, 57: 64, 60: 60, 63: 53, 66: 38, 72: 31, 81: 10, 93: 5, 105: 0})
+    last = p.text("Anderson", 123, 767, 850, 669, NAME_FONT, 900, WHITE, "Apellido", spacing_em=-0.01,
+                  shift=last_slide)
+    last["textStyle"]["animation"] = {
+        "in": tanim("fade", duration=0.4, unit="character", stagger=0.08, ease="easeInOut", delay=0.3),
+        "out": tanim("fade", duration=0.4, unit="character", stagger=0.08, ease="easeInOut", order="backward",
+                     delay=0.3)}
+    drop = table({44: -110, 45: -70, 48: -45, 51: -22, 54: -10, 57: -4, 63: 0})
+    p.text("William", 124, 675, 754, 535, NAME_FONT, 900, WHITE, "Nombre", spacing_em=-0.01,
+           shift=lambda fr: (0.0, drop(fr)), reveal=lambda fr: (100, 668, 1920, 762))
+    return t
+
+
+def white_label():
+    """5: a thin white line on the left opens to the right into a label with the role in it; the last name slides in
+    from the right as its letters fade in, and the first name comes down into place above it."""
+    start = 4  # frames from 19.4 s of the video
+    D = 4.26
+    t = _kit("etiqueta-blanca", "Tercio: nombre grande y etiqueta blanca con el cargo",
+             "Lower third: big name, white label with the role", D, 8604, ["nombre", "blanco", "etiqueta"],
+             thumb_at=2.1)
+    p = Piece(t, D, start)
+    right = table({4: 122, 16: 122, 20: 146, 24: 187, 28: 209, 32: 228, 36: 241, 40: 282, 44: 323, 48: 391,
+                   52: 494, 56: 726, 60: 989, 64: 1106, 68: 1161, 72: 1207, 76: 1248, 80: 1256, 88: 1284})
+    label_ = lambda fr: (119, 926, right(fr), 974) if fr >= 3 else (119, 950, 119, 950)  # noqa: E731
+    p.shape("Etiqueta", WHITE, (119, 926, 1284, 974), label_)
+    p.text("Marketing research analyst & marketing manager", 1268, 943, 958, 1110, ROLE_FONT, 600, INK, "Cargo",
+           align="right", spacing_em=0.3, shift=lambda fr: right(fr) - 1284, reveal=label_)
+    slide = table({20: 400, 40: 387, 44: 373, 48: 333, 52: 319, 56: 170, 60: 115, 64: 74, 68: 61, 76: 61, 80: 47,
+                   84: 34, 96: 20, 110: 0})
+    last = p.text("O'Sullivan", 128, 842, 921, 684, NAME_FONT, 900, WHITE, "Apellido", spacing_em=-0.01, shift=slide,
+                  layers=SHADED)
+    last["textStyle"]["animation"] = {
+        "in": tanim("fade", duration=0.45, unit="character", stagger=0.08, ease="easeInOut", delay=0.3),
+        "out": tanim("fade", duration=0.45, unit="character", stagger=0.08, ease="easeInOut", order="backward",
+                     delay=0.3)}
+    drop = table({42: -110, 44: -70, 48: -45, 52: -22, 56: -8, 60: 0})
+    p.text("Natalie", 123, 759, 837, 474, NAME_FONT, 900, WHITE, "Nombre", spacing_em=-0.01,
+           shift=lambda fr: (0.0, drop(fr)), reveal=lambda fr: (100, 750, 1920, 842))
+    return t
+
+
+TEMPLATES = [slanted_bar, red_sweep, divider, red_underline, white_label]
