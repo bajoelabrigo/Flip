@@ -94,7 +94,12 @@ class Piece:
         h = size * 1.6
         w = width + size * 3
         cy = (caps_top + caps_bottom) / 2
-        x = edge - bearing * size if align == "left" else edge - w + size * 0.02
+        if align == "left":
+            x = edge - bearing * size
+        elif align == "center":
+            x = edge - w / 2
+        else:
+            x = edge - w + size * 0.02
         box = Box(x, cy - h / 2, w, h)
         two = (lambda fr: (lambda v: v if isinstance(v, tuple) else (v, 0.0))(shift(fr))) if shift else None
         motion = [(u, {"dx": two(self.frame(u))[0], "dy": two(self.frame(u))[1]}, "linear")
