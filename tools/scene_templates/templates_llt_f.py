@@ -217,12 +217,12 @@ def red_sweep():
     first = p.text("Oliver", 189, 745, 814, 424, NAME_FONT, 900, WHITE, "Nombre", spacing_em=-0.01, shift=first_shift,
                    layers=SHADED)
     # Letter by letter, each coming in big and see-through and settling (its block starts at frame 58).
-    first["timelineStartUs"] = int(round((58 - start) / FPS * 1e6))
-    first["timelineDurationUs"] = int(round((D - 2 * (58 - start) / FPS) * 1e6))
+    wait = round((58 - start) / FPS, 2)
     first["textStyle"]["animation"] = {
-        "in": tanim("pop", duration=0.33, unit="character", stagger=0.07, ease="easeOut", **{"from": 170}),
+        "in": tanim("pop", duration=0.33, unit="character", stagger=0.07, ease="easeOut", delay=wait,
+                    **{"from": 170}),
         "out": tanim("pop", duration=0.33, unit="character", stagger=0.07, ease="easeIn", order="backward",
-                     **{"from": 170})}
+                     delay=wait, **{"from": 170})}
     shown = table({64: 189, 66: 399, 72: 400, 74: 812, 76: 868})
     p.text("Network administrator &", 189, 934, 953, 678, ROLE_FONT, 500, WHITE, "Cargo", spacing_em=0.42,
            reveal=lambda fr: (180, 925, shown(fr), 960))
@@ -427,4 +427,118 @@ def name_box():
     return t
 
 
-TEMPLATES = [slanted_bar, red_sweep, divider, red_underline, white_label, thin_line, name_box]
+def red_tag_right():
+    """8: a red bar grows to the left from the right with the role riding on its left end; the last name slides in
+    from the right and the first name rises above it, all right aligned."""
+    start = 9  # frames from 35.2 s of the video
+    D = 4.22
+    t = _kit("etiqueta-roja", "Tercio: nombre a la derecha y franja roja con el cargo",
+             "Lower third: name on the right, red bar with the role", D, 8607, ["nombre", "rojo", "derecha"],
+             thumb_at=2.1)
+    p = Piece(t, D, start)
+    lx = table({9: 1760, 12: 1756, 15: 1754, 18: 1750, 21: 1744, 24: 1738, 27: 1730, 30: 1722, 33: 1712, 36: 1698,
+                39: 1682, 42: 1662, 45: 1638, 48: 1606, 51: 1562, 54: 1496, 57: 1368, 60: 1164, 63: 1064, 66: 1008,
+                69: 970, 72: 940, 75: 918, 78: 900, 81: 884, 84: 872, 87: 862, 90: 854, 93: 846, 96: 840, 99: 836,
+                102: 832, 105: 830, 108: 828, 111: 826, 114: 824})
+    bar = lambda fr: (lx(fr), 892, 1764, 946) if fr >= 8 else (1764, 919, 1764, 919)  # noqa: E731
+    p.shape("Franja", RED, (824, 892, 1764, 946), bar)
+    p.text("Market development manager", 842, 910, 928, 908, ROLE_FONT, 500, WHITE, "Cargo", spacing_em=0.45,
+           shift=lambda fr: lx(fr) - 824, reveal=bar)
+    in_from_right = table({39: 641, 42: 627, 45: 608, 48: 585, 51: 552, 54: 503, 57: 406, 60: 254, 63: 180, 66: 138,
+                           69: 109, 72: 87, 75: 70, 78: 57, 81: 45, 84: 36, 87: 29, 90: 22, 93: 17, 96: 13, 99: 9,
+                           102: 6, 105: 4, 108: 2, 111: 1, 114: 0})
+    p.text("Robinson", 1761, 786, 871, 640, NAME_FONT, 900, WHITE, "Apellido", align="right", spacing_em=-0.01,
+           shift=lambda fr: in_from_right(fr) if fr >= 37 else 900.0, reveal=lambda fr: (0, 775, 1765, 885))
+    rise = table({50: 110, 51: 91, 54: 83, 57: 67, 60: 42, 63: 30, 66: 23, 69: 18, 72: 14, 75: 11, 78: 9, 81: 7,
+                  84: 6, 87: 5, 90: 4, 93: 3, 96: 2, 99: 1, 105: 0})
+    p.text("Michael", 1761, 686, 771, 537, NAME_FONT, 900, WHITE, "Nombre", align="right", spacing_em=-0.01,
+           shift=lambda fr: (0.0, rise(fr)), reveal=lambda fr: (1100, 660, 1800, 778))
+    return t
+
+
+def letters_in():
+    """9: the first name comes in from the right letter by letter, slows, then rushes into place; the last name
+    follows the same way under it and the role shows from the left."""
+    start = -1  # frames from 40.5 s of the video
+    D = 5.8  # the reference leaves a little sooner than a mirror of its whole span
+    t = _kit("letras", "Tercio: nombre que llega letra por letra", "Lower third: name arriving letter by letter", D,
+             8608, ["nombre", "letras"], thumb_at=3.2)
+    p = Piece(t, D, start)
+    first_slide = table({-1: 700, 16: 676, 20: 606, 24: 536, 28: 505, 32: 486, 36: 473, 40: 462, 44: 453, 48: 445,
+                         52: 437, 56: 429, 60: 421, 64: 413, 68: 403, 72: 391, 76: 377, 80: 357, 84: 329, 88: 273,
+                         92: 155, 96: 100, 100: 72, 104: 53, 108: 40, 112: 30, 116: 22, 120: 16, 124: 11, 128: 8,
+                         132: 5, 136: 3, 140: 1, 144: 0})
+    first = p.text("Thomas", 142, 787, 857, 431, NAME_FONT, 900, WHITE, "Nombre", spacing_em=-0.01,
+                   shift=first_slide)
+    first["textStyle"]["animation"] = {
+        "in": tanim("pop", duration=0.3, unit="character", stagger=0.15, ease="easeOut", **{"from": 160}),
+        "out": tanim("pop", duration=0.3, unit="character", stagger=0.15, ease="easeIn", order="backward",
+                     **{"from": 160})}
+    last_slide = table({72: 535, 76: 514, 80: 489, 84: 450, 88: 374, 92: 213, 96: 137, 100: 98, 104: 73, 108: 55,
+                        112: 41, 116: 30, 120: 22, 124: 16, 128: 10, 132: 7, 136: 4, 140: 2, 148: 0})
+    last = p.text("Henderson", 142, 865, 935, 598, NAME_FONT, 900, WHITE, "Apellido", spacing_em=-0.01,
+                  shift=last_slide)
+    wait = round((70 - start) / FPS, 2)
+    last["textStyle"]["animation"] = {
+        "in": tanim("pop", duration=0.25, unit="character", stagger=0.06, ease="easeOut", delay=wait,
+                    **{"from": 160}),
+        "out": tanim("pop", duration=0.25, unit="character", stagger=0.06, ease="easeIn", order="backward",
+                     delay=wait, **{"from": 160})}
+    shown = table({70: 141, 72: 258, 80: 260, 84: 499, 88: 812, 92: 968})
+    p.text("Media relations coordinator & vice", 141, 954, 971, 827, ROLE_FONT, 500, WHITE, "Cargo",
+           spacing_em=0.35, reveal=lambda fr: (130, 945, shown(fr), 980))
+    p.text("President of marketing", 141, 986, 1003, 533, ROLE_FONT, 500, WHITE, "Cargo 2", spacing_em=0.35,
+           reveal=lambda fr: (130, 980, shown(fr - 30), 1012))
+    return t
+
+
+def cursor_block():
+    """10: a white line grows into a block that slides right and narrows into a cursor, uncovering the first name
+    behind it as it slides left; the last name comes down from behind the block; both settle to the left with the
+    cursor after the first name, and the role shows from the left."""
+    start = 6  # frames from 46.9 s of the video
+    D = 6.9
+    t = _kit("cursor", "Tercio: bloque que se vuelve cursor y descubre el nombre",
+             "Lower third: block turns into a cursor and uncovers the name", D, 8609, ["nombre", "blanco", "cursor"],
+             thumb_at=3.4)
+    p = Piece(t, D, start)
+    left = table({6: 480, 27: 480, 30: 482, 33: 484, 36: 488, 39: 490, 42: 494, 45: 500, 48: 506, 51: 514, 54: 522,
+                  57: 532, 60: 546, 63: 562, 66: 584, 69: 612, 72: 656, 75: 744, 77: 840, 81: 940, 85: 996, 89: 1035,
+                  93: 1070, 97: 1068})
+    right = table({6: 481, 9: 483, 12: 485, 15: 487, 18: 489, 21: 493, 24: 499, 27: 505, 30: 511, 33: 519, 36: 529,
+                   39: 541, 42: 555, 45: 575, 48: 601, 51: 639, 54: 703, 57: 839, 60: 923, 63: 967, 66: 997, 69: 1017,
+                   72: 1033, 75: 1047, 77: 1054, 81: 1070, 85: 1050, 89: 1080, 93: 1094, 97: 1090})
+    first_x = table({75: 720, 78: 674, 81: 622, 84: 592, 87: 572, 90: 556, 93: 544, 96: 534, 99: 524, 102: 516,
+                     105: 509, 108: 501, 111: 494, 114: 486, 117: 478, 120: 469, 123: 459, 126: 446, 129: 427,
+                     132: 401, 135: 348, 138: 258, 141: 218, 144: 196, 147: 182, 150: 171, 153: 162, 156: 155,
+                     159: 150, 162: 146, 165: 143, 168: 140, 185: 134})
+
+    def block(fr):
+        if fr < 5.5:
+            return (480, 751, 480, 751)
+        if fr <= 97:
+            return (left(fr), 692, right(fr), 811)
+        # The cursor sticks to the end of the first name, then shrinks away (frames 116-126).
+        x = min(1068.0, first_x(fr) + 591)
+        k = max(0.0, min(1.0, (126 - fr) / 10))
+        return (x, 750 - 50 * k, x + 12, 750 + 50 * k)
+    p.shape("Bloque", WHITE, (480, 692, 1094, 811), block)
+    p.text("Victoria", 134, 711, 794, 584, NAME_FONT, 900, WHITE, "Nombre", spacing_em=-0.01,
+           shift=lambda fr: first_x(fr) - 134 if fr >= 75 else 586.0,
+           reveal=lambda fr: (0, 690, block(fr)[0] - 1, 812) if fr >= 75 else (0, 0, 0, 0))
+    drop = table({72: -95, 78: -70, 82: -40, 86: -15, 90: 0})
+    last_x = table({72: 514, 99: 512, 105: 510, 108: 508, 111: 506, 114: 504, 117: 501, 120: 497, 123: 492,
+                    126: 485, 129: 476, 132: 462, 135: 433, 138: 384, 141: 362, 144: 350, 147: 342, 150: 336,
+                    153: 331, 156: 328, 159: 325, 162: 323, 165: 321, 168: 319, 185: 316})
+    p.text("Henderson", 316, 813, 896, 730, NAME_FONT, 900, WHITE, "Apellido", spacing_em=-0.01,
+           shift=lambda fr: (last_x(fr) - 316, drop(fr)), reveal=lambda fr: (0, 811, 1920, 910))
+    shown = table({116: 173, 120: 380, 123: 395, 126: 811, 138: 862})
+    p.text("Marketing research analyst &", 173, 926, 943, 689, ROLE_FONT, 500, WHITE, "Cargo", spacing_em=0.4,
+           reveal=lambda fr: (160, 915, shown(fr), 950))
+    p.text("Marketing manager", 173, 957, 974, 434, ROLE_FONT, 500, WHITE, "Cargo 2", spacing_em=0.4,
+           reveal=lambda fr: (160, 950, shown(fr - 6), 982))
+    return t
+
+
+TEMPLATES = [slanted_bar, red_sweep, divider, red_underline, white_label, thin_line, name_box, red_tag_right,
+             letters_in, cursor_block]
