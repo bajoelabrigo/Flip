@@ -76,6 +76,10 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 - **Falta:** ver el formato vertical (Short) de los tercios en la ventana de la app.
 - **Trampa nueva:** varios agentes de traducción en paralelo escriben su script con el mismo nombre en el scratchpad y se
   pisan: pedir nombres únicos.
+- **2026-11-08, carpeta TITLE entera hecha (Jorge: «al final yo reviso todo»), SIN SUBIR:** `tit1`–`tit7` (`templates_tit_a`…`_g`,
+  126 títulos, orden 8800–8941) y `llt16` (`templates_llt_p`, 9 tercios de 38277673, orden 8760–). Aprobados tit1–tit3;
+  falta que Jorge revise tit4–tit7 y llt16 (`prototipos-titulos-4`…`-8mparacion-*.mp4`). 3547929 es el logo del
+  sitio de stock: no se hizo. Notas en `estudio-<video>NOTAS.md`.
 
 ### 0.30.2 PUBLICADA (2026-11-07) — curvas iguales a After Effects (arreglos)
 - PR #56 (`flip/v0.30.2` → `main`), tag `v0.30.2`, release (run 42331235247), MSIX `msstore.yml` run 42331254692 →
