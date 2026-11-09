@@ -27,3 +27,16 @@ en el panel de Texto (si Jorge lo quiere) y compilar; la plantilla `yp0-barra-se
 4. **Tramas de puntos y líneas de barrido**: hoy, trazados con cientos de cuadritos; falta un relleno con patrón para formas.
 - Trampa: una forma escalada a cientos de miles de px (trazados con hueco par-impar) colgó el render con 5 GB; usar un
   sólido de cuadro completo con máscara invertida.
+
+## yp3 (pack youtube 3)
+1. Giro 3D en Y con perspectiva y grosor (ícono play, caja roja, caja like→campana, tarjeta blanca): hoy, ancho que se
+   aplasta + copia oscura de canto.
+2. Mosaicos que se dan vuelta en 3D (pantalla rosa «next video»): hoy, rectángulos que se deslizan.
+3. Claves de espaciado entre letras («Weekly videos», «Thanks for watching» se abren).
+4. Animación de texto «desenfoque por letra» (todas las pantallas finales): hoy, fundido.
+5. Formas líquidas que se funden (metaballs): píldora burbuja, estiramiento de color, manchas rojas.
+6. Partículas de salpicadura irregulares: hoy, elipses.
+7. Garabatos curvos que se dibujan y se recogen: hoy, barras rectas.
+8. Esquinas redondeadas en trazados propios (hexágono).
+9. Trazos con degradado (marco del hexágono, banda azul, aro del avatar).
+10. Estelas en espiral de entrada: hoy, arco/espiral que se dibuja.
