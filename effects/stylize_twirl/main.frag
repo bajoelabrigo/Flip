@@ -13,5 +13,11 @@ void main() {
     float a = radians(angle) * t * t;
     float s = sin(a), co = cos(a);
     vec2 q = vec2(co * p.x - s * p.y, s * p.x + co * p.y) + c;
-    fragColor = texture(u_currentTexture, clamp(q / u_resolution, 0.0, 1.0));
+    // Points the turn brings in from outside the picture are mirrored back in, kept 2 px off the border: the
+    // border pixel of a shape or a padded layer is see-through, and clamping to it smeared dark bands across.
+    vec2 lo = vec2(2.0), hi = u_resolution - 2.0;
+    vec2 span = max(hi - lo, vec2(1.0));
+    vec2 m = mod(q - lo, 2.0 * span);
+    q = lo + min(m, 2.0 * span - m);
+    fragColor = texture(u_currentTexture, q / u_resolution);
 }
