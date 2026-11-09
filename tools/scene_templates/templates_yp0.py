@@ -380,7 +380,7 @@ def bar_followers():
           g=lambda v: (105 * (1 - E(v, 13.3, 0.45)), out(v), 1, 0, E(v, 13.3, 0.4)))
     num = s.txt("129704", (358, 993, 520, 1027), ROBOTO, 500, BLACK, "Seguidores", align="left",
                 g=lambda v: (0, out(v) + 50 * (1 - E(v, 13.33, 0.35)), 1, 0, E(v, 13.33, 0.15)))
-    num["textStyle"].update(counter=True, counterFrom=119600, counterSeconds=6.8)
+    num["textStyle"].update(counter=True, counterFrom=119600, counterSeconds=6.8, counterCurve="linear")
     s.txt("followers", (545, 999, 687, 1023), ROBOTO, 400, INK, "Texto", align="left",
           g=lambda v: (0, out(v) + 50 * (1 - E(v, 13.4, 0.35)), 1, 0, E(v, 13.45, 0.25)))
     s.thumb("Me gusta", 1145, 969, 70, 17.2,
