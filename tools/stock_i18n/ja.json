@@ -25888,6 +25888,78 @@
     "黒"
    ]
   },
+  "template:llt16-barra-nombre": {
+   "name": "ローワーサード：赤いバーと細字の名前",
+   "tags": [
+    "ローワーサード",
+    "フラット",
+    "youtube"
+   ]
+  },
+  "template:llt16-cargo-azul": {
+   "name": "ローワーサード：青いボックスの名前と肩書き",
+   "tags": [
+    "ローワーサード",
+    "フラット",
+    "youtube"
+   ]
+  },
+  "template:llt16-cargo-rojo": {
+   "name": "ローワーサード：細字の名前と赤い肩書き",
+   "tags": [
+    "ローワーサード",
+    "フラット",
+    "youtube"
+   ]
+  },
+  "template:llt16-director": {
+   "name": "ローワーサード：白い肩書きと赤い名前",
+   "tags": [
+    "ローワーサード",
+    "フラット",
+    "youtube"
+   ]
+  },
+  "template:llt16-fotografa": {
+   "name": "ローワーサード：小さな肩書きとシアンの名前",
+   "tags": [
+    "ローワーサード",
+    "フラット",
+    "youtube"
+   ]
+  },
+  "template:llt16-hora": {
+   "name": "ローワーサード：時刻と日付",
+   "tags": [
+    "ローワーサード",
+    "フラット",
+    "日付"
+   ]
+  },
+  "template:llt16-show": {
+   "name": "ローワーサード：2本の線に挟まれたタイトル",
+   "tags": [
+    "ローワーサード",
+    "フラット",
+    "youtube"
+   ]
+  },
+  "template:llt16-titulo-rojo": {
+   "name": "ローワーサード：タイトルと赤いサブタイトル",
+   "tags": [
+    "ローワーサード",
+    "フラット",
+    "youtube"
+   ]
+  },
+  "template:llt16-tu-texto": {
+   "name": "ローワーサード：オレンジとグレーのボックス",
+   "tags": [
+    "ローワーサード",
+    "フラット",
+    "youtube"
+   ]
+  },
   "template:llt2-barra-etiqueta": {
    "name": "ロゴ付きテロップ：ダークバーと緑のタグ",
    "tags": [
@@ -32094,6 +32166,1180 @@
     "写真"
    ]
   },
+  "template:tit1-creative": {
+   "name": "タイトル：落書き風のクリエイティブタイトル",
+   "tags": [
+    "タイトル",
+    "sns",
+    "落書き",
+    "ピンク"
+   ]
+  },
+  "template:tit1-design": {
+   "name": "タイトル：雲の中のデザイン",
+   "tags": [
+    "タイトル",
+    "sns",
+    "雲",
+    "落書き"
+   ]
+  },
+  "template:tit1-follow": {
+   "name": "タイトル：ピンクのリボンでフォロー",
+   "tags": [
+    "タイトル",
+    "sns",
+    "instagram",
+    "フォロー",
+    "リボン"
+   ]
+  },
+  "template:tit1-likecount": {
+   "name": "タイトル：カウンターとWOW付きのいいね",
+   "tags": [
+    "タイトル",
+    "sns",
+    "いいね",
+    "カウンター",
+    "wow",
+    "ハート"
+   ]
+  },
+  "template:tit1-likenew": {
+   "name": "タイトル：矢印付きの新着動画いいね",
+   "tags": [
+    "タイトル",
+    "sns",
+    "いいね",
+    "新着動画",
+    "矢印"
+   ]
+  },
+  "template:tit1-likethis": {
+   "name": "タイトル：花付きのこの動画にいいね",
+   "tags": [
+    "タイトル",
+    "sns",
+    "いいね",
+    "花"
+   ]
+  },
+  "template:tit1-smile": {
+   "name": "タイトル：笑顔でハッピーに",
+   "tags": [
+    "タイトル",
+    "sns",
+    "ハッピー",
+    "笑顔",
+    "顔文字"
+   ]
+  },
+  "template:tit1-subscribe": {
+   "name": "タイトル：花付きのチャンネル登録",
+   "tags": [
+    "タイトル",
+    "sns",
+    "チャンネル登録",
+    "花",
+    "youtube"
+   ]
+  },
+  "template:tit2-2022": {
+   "name": "タイトル：エンボスの年号",
+   "tags": [
+    "タイポグラフィ",
+    "白黒",
+    "年号",
+    "エンボス"
+   ]
+  },
+  "template:tit2-be-awesome": {
+   "name": "タイトル：写真付きのBe awesome",
+   "tags": [
+    "タイポグラフィ",
+    "白黒",
+    "写真",
+    "縦型"
+   ]
+  },
+  "template:tit2-big-black": {
+   "name": "タイトル：ラベル付きの特大BLACK",
+   "tags": [
+    "タイポグラフィ",
+    "白黒",
+    "黒",
+    "ラベル"
+   ]
+  },
+  "template:tit2-circulos": {
+   "name": "タイトル：6つの円",
+   "tags": [
+    "タイポグラフィ",
+    "白黒",
+    "円",
+    "白"
+   ]
+  },
+  "template:tit2-ciudad": {
+   "name": "タイトル：写真の上の傾いた街タイトル",
+   "tags": [
+    "タイポグラフィ",
+    "白黒",
+    "写真",
+    "都市",
+    "傾き"
+   ]
+  },
+  "template:tit2-creative-inclinado": {
+   "name": "タイトル：傾いた巨大ワード",
+   "tags": [
+    "タイポグラフィ",
+    "白黒",
+    "傾き",
+    "黒"
+   ]
+  },
+  "template:tit2-creative-pack": {
+   "name": "タイトル：降ってくる文字",
+   "tags": [
+    "タイポグラフィ",
+    "白黒",
+    "イタリック",
+    "白"
+   ]
+  },
+  "template:tit2-creative-relieve": {
+   "name": "タイトル：エンボスのクリエイティブ",
+   "tags": [
+    "タイポグラフィ",
+    "白黒",
+    "エンボス",
+    "影",
+    "白"
+   ]
+  },
+  "template:tit2-event-music": {
+   "name": "タイトル：写真が降りてくるイベントタイトル",
+   "tags": [
+    "タイポグラフィ",
+    "白黒",
+    "写真",
+    "イベント",
+    "イタリック"
+   ]
+  },
+  "template:tit2-hello-world": {
+   "name": "タイトル：イタリック体のHello World!",
+   "tags": [
+    "タイポグラフィ",
+    "白黒",
+    "イタリック",
+    "白"
+   ]
+  },
+  "template:tit2-montserrat-bold": {
+   "name": "タイトル：言葉入りの2本の黒いバー",
+   "tags": [
+    "タイポグラフィ",
+    "白黒",
+    "バー",
+    "白"
+   ]
+  },
+  "template:tit2-new-trend": {
+   "name": "タイトル：裏返るNew Trend",
+   "tags": [
+    "タイポグラフィ",
+    "白黒",
+    "アウトライン",
+    "白"
+   ]
+  },
+  "template:tit2-new-typography": {
+   "name": "タイトル：イタリックの言葉入りバー",
+   "tags": [
+    "タイポグラフィ",
+    "白黒",
+    "バー",
+    "イタリック",
+    "白"
+   ]
+  },
+  "template:tit2-trend": {
+   "name": "タイトル：トレンドの新タイポグラフィ",
+   "tags": [
+    "タイポグラフィ",
+    "白黒",
+    "黒"
+   ]
+  },
+  "template:tit2-trend-doble": {
+   "name": "タイトル：2つに分かれたトレンド",
+   "tags": [
+    "タイポグラフィ",
+    "白黒",
+    "黒",
+    "白",
+    "ダブル"
+   ]
+  },
+  "template:tit2-typo-slide": {
+   "name": "タイトル：白いカード",
+   "tags": [
+    "タイポグラフィ",
+    "白黒",
+    "カード",
+    "黒"
+   ]
+  },
+  "template:tit3-20-animation": {
+   "name": "タイトル：20 Animation",
+   "tags": [
+    "タイトル",
+    "水色",
+    "コーポレート",
+    "数字"
+   ]
+  },
+  "template:tit3-20-cuadro": {
+   "name": "タイトル：枠入りの20 Animated",
+   "tags": [
+    "タイトル",
+    "水色",
+    "コーポレート",
+    "枠"
+   ]
+  },
+  "template:tit3-best-day": {
+   "name": "タイトル：イタリックのボックスと枠",
+   "tags": [
+    "タイトル",
+    "水色",
+    "コーポレート",
+    "イタリック"
+   ]
+  },
+  "template:tit3-best-event": {
+   "name": "タイトル：傾いたボックスとマーケット",
+   "tags": [
+    "タイトル",
+    "水色",
+    "コーポレート",
+    "傾き",
+    "イベント"
+   ]
+  },
+  "template:tit3-circulo": {
+   "name": "タイトル：円の上の名前",
+   "tags": [
+    "タイトル",
+    "水色",
+    "コーポレート",
+    "円",
+    "名前"
+   ]
+  },
+  "template:tit3-design-success": {
+   "name": "タイトル：円付きのDesign for success",
+   "tags": [
+    "タイトル",
+    "水色",
+    "コーポレート",
+    "円"
+   ]
+  },
+  "template:tit3-disenador": {
+   "name": "タイトル：肩書きボックスと名前",
+   "tags": [
+    "タイトル",
+    "水色",
+    "コーポレート",
+    "名前",
+    "傾き"
+   ]
+  },
+  "template:tit3-dos-triangulos": {
+   "name": "タイトル：2つの三角形に挟まれた名前",
+   "tags": [
+    "タイトル",
+    "水色",
+    "コーポレート",
+    "三角形",
+    "名前"
+   ]
+  },
+  "template:tit3-evento": {
+   "name": "タイトル：枠付きの傾いたイベント",
+   "tags": [
+    "タイトル",
+    "水色",
+    "コーポレート",
+    "イベント",
+    "枠",
+    "傾き"
+   ]
+  },
+  "template:tit3-globo": {
+   "name": "タイトル：吹き出し",
+   "tags": [
+    "タイトル",
+    "水色",
+    "コーポレート",
+    "吹き出し",
+    "枠"
+   ]
+  },
+  "template:tit3-holiday": {
+   "name": "タイトル：日付入りのホリデー",
+   "tags": [
+    "タイトル",
+    "水色",
+    "コーポレート",
+    "イベント",
+    "傾き"
+   ]
+  },
+  "template:tit3-life": {
+   "name": "タイトル：枠の中のLife is life",
+   "tags": [
+    "タイトル",
+    "水色",
+    "コーポレート",
+    "枠"
+   ]
+  },
+  "template:tit3-nombre-caja": {
+   "name": "タイトル：名前ボックス（2行）",
+   "tags": [
+    "タイトル",
+    "水色",
+    "コーポレート",
+    "名前"
+   ]
+  },
+  "template:tit3-nombre-cargo-arriba": {
+   "name": "タイトル：名前ボックスと上の肩書き",
+   "tags": [
+    "タイトル",
+    "水色",
+    "コーポレート",
+    "名前"
+   ]
+  },
+  "template:tit3-nombre-lineas": {
+   "name": "タイトル：2本の線に挟まれた名前",
+   "tags": [
+    "タイトル",
+    "水色",
+    "コーポレート",
+    "名前",
+    "線"
+   ]
+  },
+  "template:tit3-nombre-sombra": {
+   "name": "タイトル：ずらした枠付きボックス",
+   "tags": [
+    "タイトル",
+    "水色",
+    "コーポレート",
+    "名前",
+    "枠"
+   ]
+  },
+  "template:tit3-rombo": {
+   "name": "タイトル：ひし形の中のイベント",
+   "tags": [
+    "タイトル",
+    "水色",
+    "コーポレート",
+    "ひし形",
+    "イベント"
+   ]
+  },
+  "template:tit3-titles-pack": {
+   "name": "タイトル：2つの傾いた枠",
+   "tags": [
+    "タイトル",
+    "水色",
+    "コーポレート",
+    "枠",
+    "傾き"
+   ]
+  },
+  "template:tit3-triangulo": {
+   "name": "タイトル：三角形の上の名前",
+   "tags": [
+    "タイトル",
+    "水色",
+    "コーポレート",
+    "三角形",
+    "名前"
+   ]
+  },
+  "template:tit3-unique-animated": {
+   "name": "タイトル：イタリックの3パーツ",
+   "tags": [
+    "タイトル",
+    "水色",
+    "コーポレート",
+    "イタリック"
+   ]
+  },
+  "template:tit4-algo-nuevo": {
+   "name": "タイトル：柄入りボックスと言葉",
+   "tags": [
+    "タイトル",
+    "黄色",
+    "黒",
+    "枠"
+   ]
+  },
+  "template:tit4-anio": {
+   "name": "タイトル：平行四辺形付きの年号",
+   "tags": [
+    "タイトル",
+    "黄色",
+    "黒",
+    "年号"
+   ]
+  },
+  "template:tit4-art-festival": {
+   "name": "タイトル：アート、ボックス、フェスティバル",
+   "tags": [
+    "タイトル",
+    "黄色",
+    "黒",
+    "イベント"
+   ]
+  },
+  "template:tit4-autumn-event": {
+   "name": "タイトル：枠入りの言葉と下の一言",
+   "tags": [
+    "タイトル",
+    "黄色",
+    "黒",
+    "イベント"
+   ]
+  },
+  "template:tit4-dont-stop": {
+   "name": "タイトル：円の中のフレーズ",
+   "tags": [
+    "タイトル",
+    "黄色",
+    "黒",
+    "円"
+   ]
+  },
+  "template:tit4-etiqueta-nombre": {
+   "name": "タイトル：タグ、名前、肩書き",
+   "tags": [
+    "タイトル",
+    "黄色",
+    "黒",
+    "名前"
+   ]
+  },
+  "template:tit4-facil": {
+   "name": "タイトル：言葉と黄色いバー",
+   "tags": [
+    "タイトル",
+    "黄色",
+    "黒",
+    "バー"
+   ]
+  },
+  "template:tit4-fecha-cajas": {
+   "name": "タイトル：ボックス入りの日付と時刻",
+   "tags": [
+    "タイトル",
+    "黄色",
+    "黒",
+    "イベント",
+    "日付"
+   ]
+  },
+  "template:tit4-festival-info": {
+   "name": "タイトル：フェスティバルの日付と詳細",
+   "tags": [
+    "タイトル",
+    "黄色",
+    "黒",
+    "イベント",
+    "日付"
+   ]
+  },
+  "template:tit4-informacion": {
+   "name": "タイトル：円の中の情報",
+   "tags": [
+    "タイトル",
+    "黄色",
+    "黒",
+    "円"
+   ]
+  },
+  "template:tit4-logo-nombre": {
+   "name": "タイトル：ロゴ、タグ、名前",
+   "tags": [
+    "タイトル",
+    "黄色",
+    "黒",
+    "ロゴ",
+    "名前"
+   ]
+  },
+  "template:tit4-nombre-caja": {
+   "name": "タイトル：黄色いボックスの名前",
+   "tags": [
+    "タイトル",
+    "黄色",
+    "黒",
+    "名前"
+   ]
+  },
+  "template:tit4-nombre-cajas": {
+   "name": "タイトル：ボックス入りの名前と肩書き",
+   "tags": [
+    "タイトル",
+    "黄色",
+    "黒",
+    "名前"
+   ]
+  },
+  "template:tit4-presents": {
+   "name": "タイトル：枠の中のpresents",
+   "tags": [
+    "タイトル",
+    "黄色",
+    "黒",
+    "枠"
+   ]
+  },
+  "template:tit4-productor": {
+   "name": "タイトル：枠の中の名前とタグ",
+   "tags": [
+    "タイトル",
+    "黄色",
+    "黒",
+    "枠",
+    "名前"
+   ]
+  },
+  "template:tit4-simple-design": {
+   "name": "タイトル：放り込まれた2つのボックス",
+   "tags": [
+    "タイトル",
+    "黄色",
+    "黒",
+    "ボックス"
+   ]
+  },
+  "template:tit4-speakers": {
+   "name": "タイトル：大きなボックスのハッシュタグ",
+   "tags": [
+    "タイトル",
+    "黄色",
+    "黒",
+    "イベント"
+   ]
+  },
+  "template:tit4-triangulo": {
+   "name": "タイトル：三角形の中の数字",
+   "tags": [
+    "タイトル",
+    "黄色",
+    "黒",
+    "三角形"
+   ]
+  },
+  "template:tit4-twenty": {
+   "name": "タイトル：Twenty creative titles",
+   "tags": [
+    "タイトル",
+    "黄色",
+    "黒",
+    "数字"
+   ]
+  },
+  "template:tit4-ubicacion": {
+   "name": "タイトル：ピンの中の場所",
+   "tags": [
+    "タイトル",
+    "黄色",
+    "黒",
+    "ピン",
+    "場所"
+   ]
+  },
+  "template:tit5-canal-tarjeta": {
+   "name": "タイトル：回転して言葉を出す四角",
+   "tags": [
+    "タイトル",
+    "チャンネル",
+    "カラフル",
+    "枠"
+   ]
+  },
+  "template:tit5-compartir": {
+   "name": "タイトル：言葉が切り替わる紫のタグ",
+   "tags": [
+    "タイトル",
+    "チャンネル",
+    "カラフル",
+    "ラベル",
+    "youtube"
+   ]
+  },
+  "template:tit5-condensada": {
+   "name": "タイトル：自分で書かれていく細身の書体",
+   "tags": [
+    "タイトル",
+    "チャンネル",
+    "カラフル",
+    "細身書体"
+   ]
+  },
+  "template:tit5-creative": {
+   "name": "タイトル：まっすぐになるライラックの言葉",
+   "tags": [
+    "タイトル",
+    "チャンネル",
+    "カラフル",
+    "紫"
+   ]
+  },
+  "template:tit5-dinamico": {
+   "name": "タイトル：まっすぐになる二重のオレンジ枠",
+   "tags": [
+    "タイトル",
+    "チャンネル",
+    "カラフル",
+    "枠"
+   ]
+  },
+  "template:tit5-directo": {
+   "name": "タイトル：傾くライブ配信",
+   "tags": [
+    "タイトル",
+    "チャンネル",
+    "カラフル",
+    "ライブ配信",
+    "youtube"
+   ]
+  },
+  "template:tit5-etiqueta": {
+   "name": "タイトル：開いて傾くラベル",
+   "tags": [
+    "タイトル",
+    "チャンネル",
+    "カラフル",
+    "ラベル"
+   ]
+  },
+  "template:tit5-hashtag": {
+   "name": "タイトル：黄色地にタイプされるハッシュタグ",
+   "tags": [
+    "タイトル",
+    "チャンネル",
+    "カラフル",
+    "ハッシュタグ"
+   ]
+  },
+  "template:tit5-logo-canal": {
+   "name": "タイトル：YouTubeボタンとチャンネル名",
+   "tags": [
+    "タイトル",
+    "チャンネル",
+    "カラフル",
+    "ロゴ",
+    "youtube"
+   ]
+  },
+  "template:tit5-logo-negro": {
+   "name": "タイトル：黒地のYouTubeボタン",
+   "tags": [
+    "タイトル",
+    "チャンネル",
+    "カラフル",
+    "ロゴ",
+    "youtube"
+   ]
+  },
+  "template:tit5-moderno": {
+   "name": "タイトル：円に変わるYouTubeボタン",
+   "tags": [
+    "タイトル",
+    "チャンネル",
+    "カラフル",
+    "円",
+    "youtube"
+   ]
+  },
+  "template:tit5-no-pierdas": {
+   "name": "タイトル：形が変わる枠の中のフレーズ",
+   "tags": [
+    "タイトル",
+    "チャンネル",
+    "カラフル",
+    "枠"
+   ]
+  },
+  "template:tit5-pila": {
+   "name": "タイトル：降ってくるいいね・共有・登録ブロック",
+   "tags": [
+    "タイトル",
+    "チャンネル",
+    "カラフル",
+    "ブロック",
+    "チャンネル登録",
+    "youtube"
+   ]
+  },
+  "template:tit5-rombo": {
+   "name": "タイトル：赤地の白いひし形",
+   "tags": [
+    "タイトル",
+    "チャンネル",
+    "カラフル",
+    "ひし形"
+   ]
+  },
+  "template:tit5-seguinos": {
+   "name": "タイトル：ひっくり返る青いコイン",
+   "tags": [
+    "タイトル",
+    "チャンネル",
+    "カラフル",
+    "円"
+   ]
+  },
+  "template:tit5-social-media": {
+   "name": "タイトル：黄色地で回るリング",
+   "tags": [
+    "タイトル",
+    "チャンネル",
+    "カラフル",
+    "円"
+   ]
+  },
+  "template:tit5-soporte": {
+   "name": "タイトル：ブロックの列とバンド",
+   "tags": [
+    "タイトル",
+    "チャンネル",
+    "カラフル",
+    "帯"
+   ]
+  },
+  "template:tit5-tu-canal": {
+   "name": "タイトル：白いボックスに反転する枠",
+   "tags": [
+    "タイトル",
+    "チャンネル",
+    "カラフル",
+    "ボックス"
+   ]
+  },
+  "template:tit5-tutorial": {
+   "name": "タイトル：1文字ずつ現れるチュートリアル",
+   "tags": [
+    "タイトル",
+    "チャンネル",
+    "カラフル",
+    "チュートリアル"
+   ]
+  },
+  "template:tit5-verano": {
+   "name": "タイトル：稲妻と降ってくる言葉",
+   "tags": [
+    "タイトル",
+    "チャンネル",
+    "カラフル",
+    "夏"
+   ]
+  },
+  "template:tit6-always-strive": {
+   "name": "タイトル：降ってくる文字と感嘆符",
+   "tags": [
+    "タイポグラフィ",
+    "白黒",
+    "キネティック",
+    "細身書体"
+   ]
+  },
+  "template:tit6-art-always": {
+   "name": "タイトル：ストライプ、輪郭、せり上がる文字",
+   "tags": [
+    "タイポグラフィ",
+    "白黒",
+    "キネティック",
+    "ストライプ",
+    "アウトライン"
+   ]
+  },
+  "template:tit6-awesome": {
+   "name": "タイトル：写真の上の白いボックスと吹き出し",
+   "tags": [
+    "タイポグラフィ",
+    "白黒",
+    "キネティック",
+    "写真"
+   ]
+  },
+  "template:tit6-be-strong": {
+   "name": "タイトル：逆再生で広がる打ち消し線のフレーズ",
+   "tags": [
+    "タイポグラフィ",
+    "白黒",
+    "キネティック",
+    "枠",
+    "打ち消し線"
+   ]
+  },
+  "template:tit6-big": {
+   "name": "タイトル：影付きの巨大ワードと黒いパネル",
+   "tags": [
+    "タイポグラフィ",
+    "白黒",
+    "キネティック",
+    "影"
+   ]
+  },
+  "template:tit6-big-text": {
+   "name": "タイトル：数字、輪郭文字、写真",
+   "tags": [
+    "タイポグラフィ",
+    "白黒",
+    "キネティック",
+    "アウトライン",
+    "写真"
+   ]
+  },
+  "template:tit6-ciencia": {
+   "name": "タイトル：フレーズを反転させるパネル、枠、十字",
+   "tags": [
+    "タイポグラフィ",
+    "白黒",
+    "キネティック",
+    "枠"
+   ]
+  },
+  "template:tit6-color-change": {
+   "name": "タイトル：光る打ち消し線の言葉",
+   "tags": [
+    "タイポグラフィ",
+    "白黒",
+    "キネティック",
+    "打ち消し線"
+   ]
+  },
+  "template:tit6-corporate": {
+   "name": "タイトル：フレーズの後ろに広がる黒い帯",
+   "tags": [
+    "タイポグラフィ",
+    "白黒",
+    "キネティック",
+    "写真"
+   ]
+  },
+  "template:tit6-create-ideas": {
+   "name": "タイトル：せり上がる文字とハッシュ",
+   "tags": [
+    "タイポグラフィ",
+    "白黒",
+    "キネティック",
+    "ハッシュタグ"
+   ]
+  },
+  "template:tit6-dynamism": {
+   "name": "タイトル：十字付きの枠の中で光る言葉",
+   "tags": [
+    "タイポグラフィ",
+    "白黒",
+    "キネティック",
+    "枠"
+   ]
+  },
+  "template:tit6-enjoy": {
+   "name": "タイトル：回転する四角と分割された言葉",
+   "tags": [
+    "タイポグラフィ",
+    "白黒",
+    "キネティック",
+    "四角"
+   ]
+  },
+  "template:tit6-fashion": {
+   "name": "タイトル：後ろに3枚の写真があるボックス",
+   "tags": [
+    "タイポグラフィ",
+    "白黒",
+    "キネティック",
+    "写真",
+    "ファッション"
+   ]
+  },
+  "template:tit6-health": {
+   "name": "タイトル：白と黒の間の回転する言葉の帯",
+   "tags": [
+    "タイポグラフィ",
+    "白黒",
+    "キネティック",
+    "ダブル"
+   ]
+  },
+  "template:tit6-look": {
+   "name": "タイトル：巨大な文字の上のグレーのボックス",
+   "tags": [
+    "タイポグラフィ",
+    "白黒",
+    "キネティック",
+    "ボックス"
+   ]
+  },
+  "template:tit6-never-give-up": {
+   "name": "タイトル：写真ストリップの上にタイプされるフレーズ",
+   "tags": [
+    "タイポグラフィ",
+    "白黒",
+    "キネティック",
+    "写真"
+   ]
+  },
+  "template:tit6-typography": {
+   "name": "タイトル：写真の上のラベル付き白いボックス",
+   "tags": [
+    "タイポグラフィ",
+    "白黒",
+    "キネティック",
+    "写真"
+   ]
+  },
+  "template:tit6-visuality": {
+   "name": "タイトル：光る3本の線とポインター",
+   "tags": [
+    "タイポグラフィ",
+    "白黒",
+    "キネティック",
+    "アウトライン"
+   ]
+  },
+  "template:tit6-wonderful": {
+   "name": "タイトル：閉じていく3つの言葉と線",
+   "tags": [
+    "タイポグラフィ",
+    "白黒",
+    "キネティック",
+    "線"
+   ]
+  },
+  "template:tit6-you": {
+   "name": "タイトル：写真で塗りつぶされた言葉",
+   "tags": [
+    "タイポグラフィ",
+    "白黒",
+    "キネティック",
+    "写真"
+   ]
+  },
+  "template:tit7-always-strive": {
+   "name": "タイトル：赤い影と記号のフレーズ",
+   "tags": [
+    "タイポグラフィ",
+    "カラフル",
+    "キネティック",
+    "影"
+   ]
+  },
+  "template:tit7-art-always": {
+   "name": "タイトル：赤・シアン・白の文字",
+   "tags": [
+    "タイポグラフィ",
+    "カラフル",
+    "キネティック",
+    "グリッチ"
+   ]
+  },
+  "template:tit7-big": {
+   "name": "タイトル：影付きボックスと2色の四角",
+   "tags": [
+    "タイポグラフィ",
+    "カラフル",
+    "キネティック",
+    "四角"
+   ]
+  },
+  "template:tit7-ciencia": {
+   "name": "タイトル：スラブ書体の黒いボックス",
+   "tags": [
+    "タイポグラフィ",
+    "カラフル",
+    "キネティック",
+    "スラブ体"
+   ]
+  },
+  "template:tit7-colorful": {
+   "name": "タイトル：言葉の中に写真がある白い帯",
+   "tags": [
+    "タイポグラフィ",
+    "カラフル",
+    "キネティック",
+    "写真"
+   ]
+  },
+  "template:tit7-concept-azul": {
+   "name": "タイトル：青地のワイドな言葉",
+   "tags": [
+    "タイポグラフィ",
+    "カラフル",
+    "キネティック",
+    "青"
+   ]
+  },
+  "template:tit7-concept-oscuro": {
+   "name": "タイトル：大きな文字の上の青いボックス",
+   "tags": [
+    "タイポグラフィ",
+    "カラフル",
+    "キネティック",
+    "青"
+   ]
+  },
+  "template:tit7-create": {
+   "name": "タイトル：グレーの言葉と白いカード",
+   "tags": [
+    "タイポグラフィ",
+    "カラフル",
+    "キネティック"
+   ]
+  },
+  "template:tit7-dynamic": {
+   "name": "タイトル：閉じる枠と青い記号",
+   "tags": [
+    "タイポグラフィ",
+    "カラフル",
+    "キネティック",
+    "枠"
+   ]
+  },
+  "template:tit7-easy-editing": {
+   "name": "タイトル：黄色い柄の上の赤い文字",
+   "tags": [
+    "タイポグラフィ",
+    "カラフル",
+    "キネティック",
+    "黄色"
+   ]
+  },
+  "template:tit7-enjoy": {
+   "name": "タイトル：回転する四角と分割された言葉",
+   "tags": [
+    "タイポグラフィ",
+    "カラフル",
+    "キネティック",
+    "四角"
+   ]
+  },
+  "template:tit7-fashion": {
+   "name": "タイトル：巨大な文字の中の写真とボックス",
+   "tags": [
+    "タイポグラフィ",
+    "カラフル",
+    "キネティック",
+    "写真",
+    "ファッション"
+   ]
+  },
+  "template:tit7-health-box": {
+   "name": "タイトル：2列の間に言葉の壁を収めた四角",
+   "tags": [
+    "タイポグラフィ",
+    "カラフル",
+    "キネティック",
+    "四角"
+   ]
+  },
+  "template:tit7-health-wall": {
+   "name": "タイトル：斜めの言葉の壁",
+   "tags": [
+    "タイポグラフィ",
+    "カラフル",
+    "キネティック",
+    "斜め"
+   ]
+  },
+  "template:tit7-look": {
+   "name": "タイトル：巨大な文字と青い枠",
+   "tags": [
+    "タイポグラフィ",
+    "カラフル",
+    "キネティック",
+    "枠"
+   ]
+  },
+  "template:tit7-love": {
+   "name": "タイトル：ピンクの写真の上を滑る言葉",
+   "tags": [
+    "タイポグラフィ",
+    "カラフル",
+    "キネティック",
+    "写真"
+   ]
+  },
+  "template:tit7-modern": {
+   "name": "タイトル：数字付きのエレガントなセリフ体",
+   "tags": [
+    "タイポグラフィ",
+    "カラフル",
+    "キネティック",
+    "セリフ体"
+   ]
+  },
+  "template:tit7-never-give-up": {
+   "name": "タイトル：階段状の4枚の写真とフレーズ",
+   "tags": [
+    "タイポグラフィ",
+    "カラフル",
+    "キネティック",
+    "写真"
+   ]
+  },
+  "template:tit7-newest": {
+   "name": "タイトル：緑のバー付きの輪郭文字",
+   "tags": [
+    "タイポグラフィ",
+    "カラフル",
+    "キネティック",
+    "アウトライン"
+   ]
+  },
+  "template:tit7-scene": {
+   "name": "タイトル：写真の上のストライプ、白いパネル、数字",
+   "tags": [
+    "タイポグラフィ",
+    "カラフル",
+    "キネティック",
+    "ストライプ",
+    "写真"
+   ]
+  },
+  "template:tit7-text-animation": {
+   "name": "タイトル：写真の上のテキスト行",
+   "tags": [
+    "タイポグラフィ",
+    "カラフル",
+    "キネティック",
+    "写真"
+   ]
+  },
+  "template:tit7-typography": {
+   "name": "タイトル：文字に囲まれたピンクのカード",
+   "tags": [
+    "タイポグラフィ",
+    "カラフル",
+    "キネティック",
+    "写真"
+   ]
+  },
   "template:top-5-mas-vendidos": {
    "name": "売れ筋トップ5",
    "tags": [
@@ -32215,6 +33461,3259 @@
     "キラキラ",
     "ピンク",
     "エモい"
+   ]
+  },
+  "template:yp0-barra-campana": {
+   "name": "いいね・ベル・登録のバー",
+   "tags": [
+    "youtube",
+    "チャンネル登録",
+    "ボタン",
+    "バー",
+    "クリック",
+    "いいね"
+   ]
+  },
+  "template:yp0-barra-canal": {
+   "name": "いいね・登録・ベル付きチャンネルバー",
+   "tags": [
+    "youtube",
+    "チャンネル登録",
+    "ボタン",
+    "バー",
+    "クリック",
+    "いいね"
+   ]
+  },
+  "template:yp0-barra-me-gusta": {
+   "name": "いいね・低評価・登録のバー",
+   "tags": [
+    "youtube",
+    "チャンネル登録",
+    "ボタン",
+    "バー",
+    "クリック",
+    "いいね"
+   ]
+  },
+  "template:yp0-barra-seguidores": {
+   "name": "フォロワーカウンター付きチャンネルバー",
+   "tags": [
+    "youtube",
+    "チャンネル登録",
+    "ボタン",
+    "バー",
+    "カウンター",
+    "フォロワー"
+   ]
+  },
+  "template:yp0-fila-grande": {
+   "name": "大きないいね・登録・ベル",
+   "tags": [
+    "youtube",
+    "チャンネル登録",
+    "ボタン",
+    "クリック",
+    "いいね",
+    "ベル"
+   ]
+  },
+  "template:yp0-redes": {
+   "name": "フォロー付きSNSバー",
+   "tags": [
+    "youtube",
+    "チャンネル登録",
+    "ボタン",
+    "sns",
+    "facebook",
+    "instagram"
+   ]
+  },
+  "template:yp0-tarjeta-canal": {
+   "name": "登録ボタン付きチャンネルカード",
+   "tags": [
+    "youtube",
+    "チャンネル登録",
+    "ボタン",
+    "カード",
+    "クリック"
+   ]
+  },
+  "template:yp0-tarjeta-iconos": {
+   "name": "登録・いいね・ベルのカード",
+   "tags": [
+    "youtube",
+    "チャンネル登録",
+    "ボタン",
+    "カード",
+    "クリック",
+    "いいね"
+   ]
+  },
+  "template:yp0-tarjeta-mini": {
+   "name": "小さな登録カード",
+   "tags": [
+    "youtube",
+    "チャンネル登録",
+    "ボタン",
+    "カード",
+    "クリック"
+   ]
+  },
+  "template:yp1-apertura-avatar-bandas": {
+   "name": "オープナー：落ちてくるアイコンとせり上がる帯",
+   "tags": [
+    "youtube",
+    "赤",
+    "オープナー",
+    "アイコン"
+   ]
+  },
+  "template:yp1-apertura-avatar-circulo": {
+   "name": "オープナー：アイコンと広がる円",
+   "tags": [
+    "youtube",
+    "赤",
+    "オープナー",
+    "アイコン"
+   ]
+  },
+  "template:yp1-apertura-blanca": {
+   "name": "オープナー：白地の斜め帯とボタン",
+   "tags": [
+    "youtube",
+    "赤",
+    "オープナー",
+    "ロゴ"
+   ]
+  },
+  "template:yp1-apertura-diana": {
+   "name": "オープナー：赤い円の上の丸いボタン",
+   "tags": [
+    "youtube",
+    "赤",
+    "オープナー",
+    "ロゴ"
+   ]
+  },
+  "template:yp1-apertura-flechas": {
+   "name": "オープナー：暗いシェブロンと転がるボタン",
+   "tags": [
+    "youtube",
+    "赤",
+    "オープナー",
+    "ロゴ"
+   ]
+  },
+  "template:yp1-apertura-gotas": {
+   "name": "オープナー：YouTubeボタンになるしずく",
+   "tags": [
+    "youtube",
+    "赤",
+    "オープナー",
+    "ロゴ"
+   ]
+  },
+  "template:yp1-apertura-logo-vuela": {
+   "name": "オープナー：後ろへ飛び回転するロゴ",
+   "tags": [
+    "youtube",
+    "赤",
+    "オープナー",
+    "ロゴ"
+   ]
+  },
+  "template:yp1-apertura-ondas": {
+   "name": "オープナー：ロゴ、渦巻く弧、赤い波",
+   "tags": [
+    "youtube",
+    "赤",
+    "オープナー",
+    "ロゴ",
+    "波"
+   ]
+  },
+  "template:yp1-apertura-tipografica-gaming": {
+   "name": "タイポオープナー：最高のゲームチャンネル",
+   "tags": [
+    "youtube",
+    "赤",
+    "オープナー",
+    "タイポグラフィ",
+    "キネティック"
+   ]
+  },
+  "template:yp1-apertura-tipografica-roja": {
+   "name": "赤のタイポオープナー：新着動画・いいね・登録",
+   "tags": [
+    "youtube",
+    "赤",
+    "オープナー",
+    "タイポグラフィ",
+    "キネティック"
+   ]
+  },
+  "template:yp1-apertura-tipografica-suscribete": {
+   "name": "タイポオープナー：エピソードを見て登録",
+   "tags": [
+    "youtube",
+    "赤",
+    "オープナー",
+    "タイポグラフィ",
+    "キネティック"
+   ]
+  },
+  "template:yp1-barra-suscribir": {
+   "name": "登録：アイコン、いいね、ベル付きバー",
+   "tags": [
+    "youtube",
+    "赤",
+    "チャンネル登録",
+    "いいね",
+    "ベル"
+   ]
+  },
+  "template:yp1-barra-vertical": {
+   "name": "赤いバーの上の4行タイトル",
+   "tags": [
+    "youtube",
+    "赤",
+    "タイトル",
+    "シンプル",
+    "バー"
+   ]
+  },
+  "template:yp1-best-video": {
+   "name": "青い波の上の大きなタイトル",
+   "tags": [
+    "youtube",
+    "赤",
+    "タイトル",
+    "波"
+   ]
+  },
+  "template:yp1-big-text": {
+   "name": "暗い部屋の大きな赤いテキスト",
+   "tags": [
+    "youtube",
+    "赤",
+    "タイトル",
+    "大きい"
+   ]
+  },
+  "template:yp1-big-title": {
+   "name": "斜めの赤い帯の上の大きなタイトル",
+   "tags": [
+    "youtube",
+    "赤",
+    "タイトル",
+    "大きい"
+   ]
+  },
+  "template:yp1-bold-titles": {
+   "name": "赤い線と自分で描かれる枠のタイトル",
+   "tags": [
+    "youtube",
+    "赤",
+    "タイトル",
+    "シンプル",
+    "枠"
+   ]
+  },
+  "template:yp1-cajas-tecleadas": {
+   "name": "赤と白のボックスにタイプされるタイトル",
+   "tags": [
+    "youtube",
+    "赤",
+    "タイトル",
+    "シンプル",
+    "ボックス"
+   ]
+  },
+  "template:yp1-cita-cajas-grises": {
+   "name": "赤い引用符のグレーボックスの引用",
+   "tags": [
+    "youtube",
+    "赤",
+    "引用",
+    "フレーズ"
+   ]
+  },
+  "template:yp1-cita-centrada": {
+   "name": "2本の線に挟まれた中央寄せの引用",
+   "tags": [
+    "youtube",
+    "赤",
+    "引用",
+    "フレーズ"
+   ]
+  },
+  "template:yp1-cita-circulo": {
+   "name": "赤い円の中の引用",
+   "tags": [
+    "youtube",
+    "赤",
+    "引用",
+    "フレーズ"
+   ]
+  },
+  "template:yp1-cita-cuadro-rojo": {
+   "name": "サイドタブ付き赤い四角の引用",
+   "tags": [
+    "youtube",
+    "赤",
+    "引用",
+    "フレーズ"
+   ]
+  },
+  "template:yp1-cita-etiqueta": {
+   "name": "赤い発言者タグ付きの引用",
+   "tags": [
+    "youtube",
+    "赤",
+    "引用",
+    "フレーズ"
+   ]
+  },
+  "template:yp1-cita-marco-fino": {
+   "name": "バッジ付き細い赤枠の引用",
+   "tags": [
+    "youtube",
+    "赤",
+    "引用",
+    "フレーズ"
+   ]
+  },
+  "template:yp1-cita-marco-rojo": {
+   "name": "赤枠のタイプされる引用",
+   "tags": [
+    "youtube",
+    "赤",
+    "引用",
+    "フレーズ"
+   ]
+  },
+  "template:yp1-cita-panel-rojo": {
+   "name": "赤いパネル横の暗いボックスの引用",
+   "tags": [
+    "youtube",
+    "赤",
+    "引用",
+    "フレーズ"
+   ]
+  },
+  "template:yp1-columna-suscribir": {
+   "name": "登録：アイコン、いいね、ベル付きカラム",
+   "tags": [
+    "youtube",
+    "赤",
+    "チャンネル登録",
+    "いいね",
+    "ベル"
+   ]
+  },
+  "template:yp1-como-un-pro": {
+   "name": "赤い線の下の階段状タイトル",
+   "tags": [
+    "youtube",
+    "赤",
+    "タイトル",
+    "シンプル",
+    "階段状"
+   ]
+  },
+  "template:yp1-design": {
+   "name": "文字が降る赤いタイトル",
+   "tags": [
+    "youtube",
+    "赤",
+    "タイトル",
+    "シンプル",
+    "落下"
+   ]
+  },
+  "template:yp1-fila-suscribir": {
+   "name": "登録：下部のいいね・登録・ベル",
+   "tags": [
+    "youtube",
+    "赤",
+    "チャンネル登録",
+    "いいね",
+    "ベル"
+   ]
+  },
+  "template:yp1-final-banda": {
+   "name": "エンドスクリーン：動画上の暗い帯",
+   "tags": [
+    "youtube",
+    "赤",
+    "エンドスクリーン",
+    "動画"
+   ]
+  },
+  "template:yp1-final-columna": {
+   "name": "エンドスクリーン：色付き動画上の暗いカラム",
+   "tags": [
+    "youtube",
+    "赤",
+    "エンドスクリーン",
+    "動画"
+   ]
+  },
+  "template:yp1-final-gracias": {
+   "name": "エンドスクリーン：ご視聴ありがとう＋登録",
+   "tags": [
+    "youtube",
+    "赤",
+    "エンドスクリーン",
+    "ありがとう"
+   ]
+  },
+  "template:yp1-final-like-share": {
+   "name": "エンドスクリーン：おすすめ動画といいね・コメント・共有",
+   "tags": [
+    "youtube",
+    "赤",
+    "エンドスクリーン",
+    "sns"
+   ]
+  },
+  "template:yp1-fondo-arcos": {
+   "name": "背景：散らばる赤い弧とダッシュ",
+   "tags": [
+    "youtube",
+    "赤",
+    "背景",
+    "図形"
+   ]
+  },
+  "template:yp1-fondo-bloques": {
+   "name": "背景：赤い四角入りの白いブロック",
+   "tags": [
+    "youtube",
+    "赤",
+    "背景",
+    "ブロック"
+   ]
+  },
+  "template:yp1-fondo-botones": {
+   "name": "背景：再生ボタンの列",
+   "tags": [
+    "youtube",
+    "赤",
+    "背景"
+   ]
+  },
+  "template:yp1-fondo-capas": {
+   "name": "背景：重なる赤い波",
+   "tags": [
+    "youtube",
+    "赤",
+    "背景",
+    "波"
+   ]
+  },
+  "template:yp1-fondo-cruces": {
+   "name": "背景：ピンクと白の十字",
+   "tags": [
+    "youtube",
+    "赤",
+    "背景",
+    "図形"
+   ]
+  },
+  "template:yp1-fondo-destellos": {
+   "name": "背景：斜めの赤い筋",
+   "tags": [
+    "youtube",
+    "赤",
+    "背景",
+    "光"
+   ]
+  },
+  "template:yp1-fondo-espiral": {
+   "name": "背景：赤・白・グレーの渦巻き",
+   "tags": [
+    "youtube",
+    "赤",
+    "背景",
+    "渦巻き"
+   ]
+  },
+  "template:yp1-fondo-flechas": {
+   "name": "背景：進む赤いシェブロン",
+   "tags": [
+    "youtube",
+    "赤",
+    "背景",
+    "矢印"
+   ]
+  },
+  "template:yp1-fondo-guiones": {
+   "name": "背景：飛ぶ赤いダッシュ",
+   "tags": [
+    "youtube",
+    "赤",
+    "背景",
+    "図形"
+   ]
+  },
+  "template:yp1-fondo-lineas": {
+   "name": "背景：細い波状の赤い線",
+   "tags": [
+    "youtube",
+    "赤",
+    "背景",
+    "線"
+   ]
+  },
+  "template:yp1-fondo-liquido-azul": {
+   "name": "背景：青いリキッド",
+   "tags": [
+    "youtube",
+    "赤",
+    "背景",
+    "リキッド"
+   ]
+  },
+  "template:yp1-fondo-liquido-oscuro": {
+   "name": "背景：暗い赤のリキッド",
+   "tags": [
+    "youtube",
+    "赤",
+    "背景",
+    "リキッド"
+   ]
+  },
+  "template:yp1-fondo-ondas-gruesas": {
+   "name": "背景：太い赤い波",
+   "tags": [
+    "youtube",
+    "赤",
+    "背景",
+    "波"
+   ]
+  },
+  "template:yp1-fondo-puntos": {
+   "name": "背景：脈打つ赤い点",
+   "tags": [
+    "youtube",
+    "赤",
+    "背景",
+    "ドット"
+   ]
+  },
+  "template:yp1-fondo-rayas": {
+   "name": "背景：斜めの赤いストライプ",
+   "tags": [
+    "youtube",
+    "赤",
+    "背景",
+    "ストライプ"
+   ]
+  },
+  "template:yp1-fondo-rayas-onduladas": {
+   "name": "背景：波打つ赤いストライプ",
+   "tags": [
+    "youtube",
+    "赤",
+    "背景",
+    "波"
+   ]
+  },
+  "template:yp1-fondo-redes": {
+   "name": "背景：SNSアイコン",
+   "tags": [
+    "youtube",
+    "赤",
+    "背景",
+    "sns"
+   ]
+  },
+  "template:yp1-fondo-texto": {
+   "name": "背景：繰り返す編集可能テキスト",
+   "tags": [
+    "youtube",
+    "赤",
+    "背景",
+    "テキスト"
+   ]
+  },
+  "template:yp1-frase-ondas-rojas": {
+   "name": "赤い波の上の3行フレーズ",
+   "tags": [
+    "youtube",
+    "赤",
+    "タイトル",
+    "波",
+    "フレーズ"
+   ]
+  },
+  "template:yp1-info-anillo": {
+   "name": "インフォグラフィック：テキスト付きパーセントリング",
+   "tags": [
+    "youtube",
+    "赤",
+    "コールアウト",
+    "ポインター",
+    "パーセント",
+    "カウンター"
+   ]
+  },
+  "template:yp1-info-anillo-linea": {
+   "name": "インフォグラフィック：線上のタイトルとパーセントリング",
+   "tags": [
+    "youtube",
+    "赤",
+    "コールアウト",
+    "ポインター",
+    "パーセント",
+    "カウンター"
+   ]
+  },
+  "template:yp1-info-barra-porcentaje": {
+   "name": "インフォグラフィック：グレーボックスのパーセントと赤いラベル",
+   "tags": [
+    "youtube",
+    "赤",
+    "コールアウト",
+    "ポインター",
+    "パーセント",
+    "カウンター"
+   ]
+  },
+  "template:yp1-info-porcentaje": {
+   "name": "インフォグラフィック：ラベル付きの大きなパーセント",
+   "tags": [
+    "youtube",
+    "赤",
+    "コールアウト",
+    "ポインター",
+    "パーセント",
+    "カウンター"
+   ]
+  },
+  "template:yp1-insignia-me-gusta": {
+   "name": "登録：いいねとベルに回転変化するバッジ",
+   "tags": [
+    "youtube",
+    "赤",
+    "チャンネル登録",
+    "いいね",
+    "ベル"
+   ]
+  },
+  "template:yp1-liquid-title": {
+   "name": "リキッドの上のアウトラインタイトル",
+   "tags": [
+    "youtube",
+    "赤",
+    "タイトル",
+    "リキッド",
+    "アウトライン"
+   ]
+  },
+  "template:yp1-llamada-barra-roja": {
+   "name": "コールアウト：段落付きの赤いバー",
+   "tags": [
+    "youtube",
+    "赤",
+    "コールアウト",
+    "ポインター",
+    "段落"
+   ]
+  },
+  "template:yp1-llamada-dato": {
+   "name": "コールアウト：見出し、本文、赤いボックスの数値",
+   "tags": [
+    "youtube",
+    "赤",
+    "コールアウト",
+    "ポインター",
+    "データ"
+   ]
+  },
+  "template:yp1-llamada-especificacion": {
+   "name": "コールアウト：線の上の赤いタイトル",
+   "tags": [
+    "youtube",
+    "赤",
+    "コールアウト",
+    "ポインター",
+    "スペック"
+   ]
+  },
+  "template:yp1-llamada-numero": {
+   "name": "コールアウト：円の中の数字と2つのテキスト",
+   "tags": [
+    "youtube",
+    "赤",
+    "コールアウト",
+    "ポインター",
+    "数字"
+   ]
+  },
+  "template:yp1-llamada-numero-cuadro": {
+   "name": "コールアウト：赤い四角の数字と白いボックス",
+   "tags": [
+    "youtube",
+    "赤",
+    "コールアウト",
+    "ポインター",
+    "数字"
+   ]
+  },
+  "template:yp1-llamada-pantalla": {
+   "name": "コールアウト：赤いラベルとアウトラインボックス",
+   "tags": [
+    "youtube",
+    "赤",
+    "コールアウト",
+    "ポインター",
+    "ラベル"
+   ]
+  },
+  "template:yp1-llamada-titular": {
+   "name": "コールアウト：赤い輪郭の見出し",
+   "tags": [
+    "youtube",
+    "赤",
+    "コールアウト",
+    "ポインター",
+    "見出し"
+   ]
+  },
+  "template:yp1-mejor-juego": {
+   "name": "赤いブロック下のグレーボックスのタイトル",
+   "tags": [
+    "youtube",
+    "赤",
+    "タイトル",
+    "シンプル",
+    "ボックス"
+   ]
+  },
+  "template:yp1-modern-bold": {
+   "name": "ピンクのボックスのアウトラインタイトル",
+   "tags": [
+    "youtube",
+    "赤",
+    "タイトル",
+    "ボックス"
+   ]
+  },
+  "template:yp1-modern-title": {
+   "name": "赤い線に挟まれたタイトル",
+   "tags": [
+    "youtube",
+    "赤",
+    "タイトル",
+    "シンプル",
+    "ストライプ"
+   ]
+  },
+  "template:yp1-motion-studio": {
+   "name": "交差する2本の赤いバーのタイトル",
+   "tags": [
+    "youtube",
+    "赤",
+    "タイトル",
+    "シンプル",
+    "バー"
+   ]
+  },
+  "template:yp1-no-olvides-calificar": {
+   "name": "タイトル：赤枠の「評価を忘れずに」",
+   "tags": [
+    "youtube",
+    "赤",
+    "タイトル",
+    "シンプル",
+    "枠"
+   ]
+  },
+  "template:yp1-pila-botones": {
+   "name": "登録：反転するいいね・登録・通知ボタン",
+   "tags": [
+    "youtube",
+    "赤",
+    "チャンネル登録",
+    "いいね",
+    "ボタン"
+   ]
+  },
+  "template:yp1-red-circulo-barra": {
+   "name": "SNS：回る丸いアイコンとサイト名のバー",
+   "tags": [
+    "youtube",
+    "赤",
+    "sns",
+    "リンク"
+   ]
+  },
+  "template:yp1-red-cuadro-follow": {
+   "name": "SNS：転がる四角とFOLLOW US",
+   "tags": [
+    "youtube",
+    "赤",
+    "sns",
+    "リンク"
+   ]
+  },
+  "template:yp1-red-pastilla": {
+   "name": "SNS：カプセル中央のアイコン",
+   "tags": [
+    "youtube",
+    "赤",
+    "sns",
+    "リンク"
+   ]
+  },
+  "template:yp1-red-rombo": {
+   "name": "SNS：自分で描かれるひし形とチャンネル名",
+   "tags": [
+    "youtube",
+    "赤",
+    "sns",
+    "リンク"
+   ]
+  },
+  "template:yp1-strong-titles": {
+   "name": "赤い波の下の力強いタイトル",
+   "tags": [
+    "youtube",
+    "赤",
+    "タイトル",
+    "波"
+   ]
+  },
+  "template:yp1-top-10": {
+   "name": "下に2本の赤い線があるタイトル",
+   "tags": [
+    "youtube",
+    "赤",
+    "タイトル",
+    "シンプル",
+    "リスト"
+   ]
+  },
+  "template:yp1-transicion-barras-1": {
+   "name": "トランジション：赤・白・黒のバー（左へ）",
+   "tags": [
+    "youtube",
+    "赤",
+    "トランジション",
+    "バー"
+   ]
+  },
+  "template:yp1-transicion-barras-2": {
+   "name": "トランジション：赤・白・黒のバー（下へ）",
+   "tags": [
+    "youtube",
+    "赤",
+    "トランジション",
+    "バー"
+   ]
+  },
+  "template:yp1-transicion-bloques-1": {
+   "name": "トランジション：赤・白・黒のブロック",
+   "tags": [
+    "youtube",
+    "赤",
+    "トランジション",
+    "ブロック"
+   ]
+  },
+  "template:yp1-transicion-bloques-2": {
+   "name": "トランジション：赤・白・黒のブロック（別パターン）",
+   "tags": [
+    "youtube",
+    "赤",
+    "トランジション",
+    "ブロック"
+   ]
+  },
+  "template:yp1-transicion-capsulas-1": {
+   "name": "トランジション：カプセル（左へ）",
+   "tags": [
+    "youtube",
+    "赤",
+    "トランジション",
+    "カプセル"
+   ]
+  },
+  "template:yp1-transicion-capsulas-2": {
+   "name": "トランジション：カプセル（下へ）",
+   "tags": [
+    "youtube",
+    "赤",
+    "トランジション",
+    "カプセル"
+   ]
+  },
+  "template:yp1-transicion-circulo": {
+   "name": "トランジション：開く赤・白・黒の円",
+   "tags": [
+    "youtube",
+    "赤",
+    "トランジション",
+    "図形",
+    "円"
+   ]
+  },
+  "template:yp1-transicion-cuadrado": {
+   "name": "トランジション：開く赤・白・黒の四角",
+   "tags": [
+    "youtube",
+    "赤",
+    "トランジション",
+    "図形",
+    "四角"
+   ]
+  },
+  "template:yp1-transicion-estrella": {
+   "name": "トランジション：開く赤・白・黒の星",
+   "tags": [
+    "youtube",
+    "赤",
+    "トランジション",
+    "図形",
+    "星"
+   ]
+  },
+  "template:yp1-transicion-flechas-1": {
+   "name": "トランジション：赤・白・黒のシェブロン（左へ）",
+   "tags": [
+    "youtube",
+    "赤",
+    "トランジション",
+    "矢印"
+   ]
+  },
+  "template:yp1-transicion-flechas-2": {
+   "name": "トランジション：赤・白・黒のシェブロン（下へ）",
+   "tags": [
+    "youtube",
+    "赤",
+    "トランジション",
+    "矢印"
+   ]
+  },
+  "template:yp1-transicion-flechas-3": {
+   "name": "トランジション：赤・白・黒のシェブロン（上へ）",
+   "tags": [
+    "youtube",
+    "赤",
+    "トランジション",
+    "矢印"
+   ]
+  },
+  "template:yp1-transicion-flechas-4": {
+   "name": "トランジション：赤・白・黒のシェブロン（右へ）",
+   "tags": [
+    "youtube",
+    "赤",
+    "トランジション",
+    "矢印"
+   ]
+  },
+  "template:yp1-transicion-hexagono": {
+   "name": "トランジション：開く赤・白・黒の六角形",
+   "tags": [
+    "youtube",
+    "赤",
+    "トランジション",
+    "図形",
+    "六角形"
+   ]
+  },
+  "template:yp1-transicion-remolino": {
+   "name": "トランジション：赤と白の渦",
+   "tags": [
+    "youtube",
+    "赤",
+    "トランジション",
+    "リキッド"
+   ]
+  },
+  "template:yp1-trazo-rojo": {
+   "name": "赤い落書き線付きの3行タイトル",
+   "tags": [
+    "youtube",
+    "赤",
+    "タイトル",
+    "ストローク"
+   ]
+  },
+  "template:yp1-ver-siguiente-caja": {
+   "name": "タイトル：白いボックスの「次の動画」",
+   "tags": [
+    "youtube",
+    "赤",
+    "タイトル",
+    "シンプル",
+    "ボックス"
+   ]
+  },
+  "template:yp1-ver-siguiente-dos-colores": {
+   "name": "タイトル：白と赤のボックスの「次の動画」",
+   "tags": [
+    "youtube",
+    "赤",
+    "タイトル",
+    "シンプル",
+    "ボックス"
+   ]
+  },
+  "template:yp2-apertura": {
+   "name": "オープニング：YouTubeボタン付き赤白リング",
+   "tags": [
+    "youtube",
+    "赤",
+    "オープナー",
+    "ロゴ",
+    "リング"
+   ]
+  },
+  "template:yp2-aro-canal": {
+   "name": "CHANNELへ開く赤白リング",
+   "tags": [
+    "youtube",
+    "赤",
+    "リング",
+    "ロゴ",
+    "チャンネル"
+   ]
+  },
+  "template:yp2-barra-15k": {
+   "name": "バー：いいねと登録",
+   "tags": [
+    "youtube",
+    "赤",
+    "チャンネル登録",
+    "バー"
+   ]
+  },
+  "template:yp2-barra-campana": {
+   "name": "バー：いいね・登録・ベル",
+   "tags": [
+    "youtube",
+    "赤",
+    "チャンネル登録",
+    "バー"
+   ]
+  },
+  "template:yp2-barra-canal": {
+   "name": "写真と登録ボタン付きチャンネルバー",
+   "tags": [
+    "youtube",
+    "赤",
+    "チャンネル登録",
+    "バー"
+   ]
+  },
+  "template:yp2-barra-contadores": {
+   "name": "バー：いいね、カウント、登録",
+   "tags": [
+    "youtube",
+    "赤",
+    "チャンネル登録",
+    "バー"
+   ]
+  },
+  "template:yp2-barra-simple": {
+   "name": "バー：いいね・低評価・登録",
+   "tags": [
+    "youtube",
+    "赤",
+    "チャンネル登録",
+    "バー"
+   ]
+  },
+  "template:yp2-dos-tarjetas": {
+   "name": "カード：登録といいね",
+   "tags": [
+    "youtube",
+    "赤",
+    "チャンネル登録",
+    "いいね"
+   ]
+  },
+  "template:yp2-icono-aro-blanco": {
+   "name": "アイコン：白いリングの炸裂",
+   "tags": [
+    "youtube",
+    "赤",
+    "アイコン",
+    "アニメーション"
+   ]
+  },
+  "template:yp2-icono-aro-rojo": {
+   "name": "アイコン：赤いリングの炸裂",
+   "tags": [
+    "youtube",
+    "赤",
+    "アイコン",
+    "アニメーション"
+   ]
+  },
+  "template:yp2-icono-buscador": {
+   "name": "アイコン：自分で描かれる検索ボックス",
+   "tags": [
+    "youtube",
+    "赤",
+    "アイコン",
+    "アニメーション"
+   ]
+  },
+  "template:yp2-icono-campana": {
+   "name": "アイコン：赤く鳴るベル",
+   "tags": [
+    "youtube",
+    "赤",
+    "アイコン",
+    "アニメーション"
+   ]
+  },
+  "template:yp2-icono-cargando": {
+   "name": "アイコン：回る読み込みドット",
+   "tags": [
+    "youtube",
+    "赤",
+    "アイコン",
+    "アニメーション"
+   ]
+  },
+  "template:yp2-icono-cursor": {
+   "name": "アイコン：クリックするポインター",
+   "tags": [
+    "youtube",
+    "赤",
+    "アイコン",
+    "アニメーション"
+   ]
+  },
+  "template:yp2-icono-destello": {
+   "name": "アイコン：ストロークの炸裂",
+   "tags": [
+    "youtube",
+    "赤",
+    "アイコン",
+    "アニメーション"
+   ]
+  },
+  "template:yp2-icono-flecha": {
+   "name": "アイコン：下を指す矢印",
+   "tags": [
+    "youtube",
+    "赤",
+    "アイコン",
+    "アニメーション"
+   ]
+  },
+  "template:yp2-icono-me-gusta": {
+   "name": "アイコン：赤くなるいいね",
+   "tags": [
+    "youtube",
+    "赤",
+    "アイコン",
+    "アニメーション"
+   ]
+  },
+  "template:yp2-pagina-video": {
+   "name": "視聴ページ：登録とベル",
+   "tags": [
+    "youtube",
+    "赤",
+    "チャンネル登録",
+    "ページ"
+   ]
+  },
+  "template:yp2-redes-barras": {
+   "name": "SNS：アイコン付き12本のバー",
+   "tags": [
+    "youtube",
+    "赤",
+    "sns",
+    "バー",
+    "アイコン"
+   ]
+  },
+  "template:yp2-redes-iconos": {
+   "name": "SNS：検索ボックス付き6つのアイコン",
+   "tags": [
+    "youtube",
+    "赤",
+    "sns",
+    "アイコン",
+    "検索"
+   ]
+  },
+  "template:yp2-siguiente-barra": {
+   "name": "エンドスクリーン：赤いバーの次の動画",
+   "tags": [
+    "youtube",
+    "赤",
+    "エンドスクリーン",
+    "次の動画"
+   ]
+  },
+  "template:yp2-siguiente-onda": {
+   "name": "エンドスクリーン：赤い波の次の動画",
+   "tags": [
+    "youtube",
+    "赤",
+    "エンドスクリーン",
+    "次の動画"
+   ]
+  },
+  "template:yp2-tarjeta-canal": {
+   "name": "写真とロゴ付きチャンネルカード",
+   "tags": [
+    "youtube",
+    "赤",
+    "チャンネル",
+    "ロゴ",
+    "写真"
+   ]
+  },
+  "template:yp2-tarjeta-video": {
+   "name": "動画カード：登録とベル",
+   "tags": [
+    "youtube",
+    "赤",
+    "チャンネル登録",
+    "カード"
+   ]
+  },
+  "template:yp2-titulo-animation": {
+   "name": "広がる赤いボックスのタイトル",
+   "tags": [
+    "youtube",
+    "赤",
+    "タイトル",
+    "ラベル"
+   ]
+  },
+  "template:yp2-titulo-best": {
+   "name": "タグとスライドする言葉のタイトル",
+   "tags": [
+    "youtube",
+    "赤",
+    "タイトル",
+    "ラベル"
+   ]
+  },
+  "template:yp2-titulo-brand": {
+   "name": "赤い線付きの大きなタイトル",
+   "tags": [
+    "youtube",
+    "赤",
+    "タイトル",
+    "ラベル"
+   ]
+  },
+  "template:yp2-titulo-clean": {
+   "name": "2本の赤い線に挟まれたタイトル",
+   "tags": [
+    "youtube",
+    "赤",
+    "タイトル",
+    "ラベル"
+   ]
+  },
+  "template:yp2-titulo-just-edit": {
+   "name": "枠の中のタイトルと下の言葉",
+   "tags": [
+    "youtube",
+    "赤",
+    "タイトル",
+    "ラベル"
+   ]
+  },
+  "template:yp2-titulo-motion-design": {
+   "name": "赤いタグ付きタイトル",
+   "tags": [
+    "youtube",
+    "赤",
+    "タイトル",
+    "ラベル"
+   ]
+  },
+  "template:yp2-titulo-new-project": {
+   "name": "赤いバーで現れるタイトル",
+   "tags": [
+    "youtube",
+    "赤",
+    "タイトル",
+    "ラベル"
+   ]
+  },
+  "template:yp2-titulo-rendering": {
+   "name": "落ちる赤い線の下のタイトル",
+   "tags": [
+    "youtube",
+    "赤",
+    "タイトル",
+    "ラベル"
+   ]
+  },
+  "template:yp2-titulo-simple": {
+   "name": "赤い四角から滑り出すタイトル",
+   "tags": [
+    "youtube",
+    "赤",
+    "タイトル",
+    "ラベル"
+   ]
+  },
+  "template:yp2-titulo-your-channel": {
+   "name": "赤枠のタイトル",
+   "tags": [
+    "youtube",
+    "赤",
+    "タイトル",
+    "ラベル"
+   ]
+  },
+  "template:yp2-transicion-diagonal": {
+   "name": "トランジション：赤・白・グレーの斜めバー",
+   "tags": [
+    "youtube",
+    "赤",
+    "トランジション",
+    "斜め"
+   ]
+  },
+  "template:yp2-transicion-franjas": {
+   "name": "トランジション：回転する赤と白のストライプ",
+   "tags": [
+    "youtube",
+    "赤",
+    "トランジション",
+    "ストライプ"
+   ]
+  },
+  "template:yp3-avatar-cadena": {
+   "name": "ボタン：いいねとベルが連なるアイコン",
+   "tags": [
+    "youtube",
+    "チャンネル登録",
+    "ボタン",
+    "アイコン",
+    "いいね",
+    "ベル"
+   ]
+  },
+  "template:yp3-avatar-rojo": {
+   "name": "ボタン：赤い登録付きチャンネルアイコン",
+   "tags": [
+    "youtube",
+    "チャンネル登録",
+    "ボタン",
+    "アイコン",
+    "ベル",
+    "カーソル"
+   ]
+  },
+  "template:yp3-burbujas-rojas": {
+   "name": "ボタン：ベル、アイコン、いいねの赤いバブル",
+   "tags": [
+    "youtube",
+    "チャンネル登録",
+    "ボタン",
+    "アイコン",
+    "ベル",
+    "いいね"
+   ]
+  },
+  "template:yp3-caja-me-gusta-campana": {
+   "name": "ボタン：いいねからベルに変わる赤いボックス",
+   "tags": [
+    "youtube",
+    "チャンネル登録",
+    "ボタン",
+    "いいね",
+    "ベル",
+    "3d"
+   ]
+  },
+  "template:yp3-caja-roja-campana": {
+   "name": "ボタン：ベルと傾いた「登録済み」の赤いボックス",
+   "tags": [
+    "youtube",
+    "チャンネル登録",
+    "ボタン",
+    "ベル",
+    "3d"
+   ]
+  },
+  "template:yp3-campana-redonda": {
+   "name": "ボタン：「登録済み」に変わる丸いベル",
+   "tags": [
+    "youtube",
+    "チャンネル登録",
+    "ボタン",
+    "ベル",
+    "カーソル"
+   ]
+  },
+  "template:yp3-final-anillos-blancos": {
+   "name": "エンドスクリーン：白いリングの「Click to Subscribe」",
+   "tags": [
+    "youtube",
+    "エンドスクリーン",
+    "チャンネル登録",
+    "白",
+    "ピンク"
+   ]
+  },
+  "template:yp3-final-aro-degradado": {
+   "name": "エンドスクリーン：黒地のグラデーションリング",
+   "tags": [
+    "youtube",
+    "エンドスクリーン",
+    "チャンネル登録",
+    "黒",
+    "グラデーション",
+    "sns"
+   ]
+  },
+  "template:yp3-final-banda-azul": {
+   "name": "エンドスクリーン：写真上の青い帯と2本の動画",
+   "tags": [
+    "youtube",
+    "エンドスクリーン",
+    "チャンネル登録",
+    "青",
+    "写真"
+   ]
+  },
+  "template:yp3-final-capsula-turquesa": {
+   "name": "エンドスクリーン：ティールのカプセルと2本の動画",
+   "tags": [
+    "youtube",
+    "エンドスクリーン",
+    "チャンネル登録",
+    "ターコイズ",
+    "いいね",
+    "ベル"
+   ]
+  },
+  "template:yp3-final-gris": {
+   "name": "エンドスクリーン：やわらかなグレーと2本の動画とアイコン",
+   "tags": [
+    "youtube",
+    "エンドスクリーン",
+    "チャンネル登録",
+    "グレー",
+    "ニューモーフィズム"
+   ]
+  },
+  "template:yp3-final-hexagono": {
+   "name": "エンドスクリーン：グラデーション六角形の「Click to Subscribe」",
+   "tags": [
+    "youtube",
+    "エンドスクリーン",
+    "チャンネル登録",
+    "六角形",
+    "グラデーション",
+    "sns"
+   ]
+  },
+  "template:yp3-final-manchas-rojas": {
+   "name": "エンドスクリーン：アイコンと次の動画の赤いしみ",
+   "tags": [
+    "youtube",
+    "エンドスクリーン",
+    "チャンネル登録",
+    "赤",
+    "sns"
+   ]
+  },
+  "template:yp3-final-no-olvides": {
+   "name": "エンドスクリーン：青い斜線の「登録を忘れずに」",
+   "tags": [
+    "youtube",
+    "エンドスクリーン",
+    "チャンネル登録",
+    "青",
+    "写真",
+    "sns"
+   ]
+  },
+  "template:yp3-final-olas-turquesa": {
+   "name": "エンドスクリーン：おすすめ動画とティールの波",
+   "tags": [
+    "youtube",
+    "エンドスクリーン",
+    "チャンネル登録",
+    "ターコイズ",
+    "波"
+   ]
+  },
+  "template:yp3-final-rosa": {
+   "name": "エンドスクリーン：ピンクの「Thanks for Watching!」",
+   "tags": [
+    "youtube",
+    "エンドスクリーン",
+    "チャンネル登録",
+    "ピンク",
+    "sns"
+   ]
+  },
+  "template:yp3-final-rosa-siguiente": {
+   "name": "エンドスクリーン：ブロック付きピンクの「次の動画」",
+   "tags": [
+    "youtube",
+    "エンドスクリーン",
+    "チャンネル登録",
+    "ピンク",
+    "ブロック"
+   ]
+  },
+  "template:yp3-final-tarjeta-lila": {
+   "name": "エンドスクリーン：ライラックのカード「登録をお忘れなく」",
+   "tags": [
+    "youtube",
+    "エンドスクリーン",
+    "チャンネル登録",
+    "ライラック",
+    "写真"
+   ]
+  },
+  "template:yp3-final-tarjeta-morada": {
+   "name": "エンドスクリーン：2本の動画付き紫のカード",
+   "tags": [
+    "youtube",
+    "エンドスクリーン",
+    "チャンネル登録",
+    "紫"
+   ]
+  },
+  "template:yp3-me-gusta-redondo": {
+   "name": "ボタン：「いいね済み」「登録済み」の丸いいいねとベル",
+   "tags": [
+    "youtube",
+    "チャンネル登録",
+    "ボタン",
+    "いいね",
+    "ベル",
+    "カーソル"
+   ]
+  },
+  "template:yp3-pestana-degradado": {
+   "name": "ボタン：アイコン付きピンクと紫のタブ",
+   "tags": [
+    "youtube",
+    "チャンネル登録",
+    "ボタン",
+    "アイコン",
+    "グラデーション"
+   ]
+  },
+  "template:yp3-pildora-burbujas": {
+   "name": "ボタン：アイコン付きグラデーションのバブルカプセル",
+   "tags": [
+    "youtube",
+    "チャンネル登録",
+    "ボタン",
+    "アイコン",
+    "グラデーション",
+    "いいね"
+   ]
+  },
+  "template:yp3-pildora-degradado": {
+   "name": "ボタン：グラデーションのベル付き白いカプセル",
+   "tags": [
+    "youtube",
+    "チャンネル登録",
+    "ボタン",
+    "ベル",
+    "カーソル",
+    "グラデーション"
+   ]
+  },
+  "template:yp3-play-contorno": {
+   "name": "ボタン：反転して「登録済み」になる白い再生アイコン",
+   "tags": [
+    "youtube",
+    "チャンネル登録",
+    "ボタン",
+    "カーソル",
+    "白",
+    "3d"
+   ]
+  },
+  "template:yp3-suscribirse-rojo": {
+   "name": "ボタン：いいねとベル付き赤い登録",
+   "tags": [
+    "youtube",
+    "チャンネル登録",
+    "ボタン",
+    "いいね",
+    "ベル",
+    "カーソル"
+   ]
+  },
+  "template:yp3-tarjeta-blanca": {
+   "name": "ボタン：アイコンといいね付き白いカード",
+   "tags": [
+    "youtube",
+    "チャンネル登録",
+    "ボタン",
+    "いいね",
+    "アイコン",
+    "3d"
+   ]
+  },
+  "template:yp4-bienvenida": {
+   "name": "ストーリー：赤と黒の円盤のウェルカム",
+   "tags": [
+    "ストーリー",
+    "youtube",
+    "縦型",
+    "ウェルカム",
+    "円"
+   ]
+  },
+  "template:yp4-canal": {
+   "name": "ストーリー：再生ボタン付きCHANNEL",
+   "tags": [
+    "ストーリー",
+    "youtube",
+    "縦型",
+    "チャンネル"
+   ]
+  },
+  "template:yp4-contador": {
+   "name": "ストーリー：写真と黄色い枠の2/6",
+   "tags": [
+    "ストーリー",
+    "youtube",
+    "縦型",
+    "写真",
+    "黄色",
+    "カウンター"
+   ]
+  },
+  "template:yp4-derechos": {
+   "name": "ストーリー：黄色地の白い円",
+   "tags": [
+    "ストーリー",
+    "youtube",
+    "縦型",
+    "黄色",
+    "円"
+   ]
+  },
+  "template:yp4-fundamentos": {
+   "name": "ストーリー：写真の上の傾いた赤いラベル",
+   "tags": [
+    "ストーリー",
+    "youtube",
+    "縦型",
+    "写真",
+    "ラベル"
+   ]
+  },
+  "template:yp4-gracias": {
+   "name": "ストーリー：2枚の写真と名前のありがとう",
+   "tags": [
+    "ストーリー",
+    "youtube",
+    "縦型",
+    "写真",
+    "ありがとう"
+   ]
+  },
+  "template:yp4-love": {
+   "name": "ストーリー：登録カード付きのlove",
+   "tags": [
+    "ストーリー",
+    "youtube",
+    "縦型",
+    "写真",
+    "チャンネル登録"
+   ]
+  },
+  "template:yp4-mi-plan": {
+   "name": "ストーリー：リストとラベル付きのマイプラン",
+   "tags": [
+    "ストーリー",
+    "youtube",
+    "縦型",
+    "写真",
+    "リスト"
+   ]
+  },
+  "template:yp4-nombre-blanco": {
+   "name": "ストーリー：白地の丸い写真付き名前",
+   "tags": [
+    "ストーリー",
+    "youtube",
+    "縦型",
+    "写真",
+    "名前"
+   ]
+  },
+  "template:yp4-nombre-circulo": {
+   "name": "ストーリー：丸い写真の横の名前",
+   "tags": [
+    "ストーリー",
+    "youtube",
+    "縦型",
+    "写真",
+    "名前"
+   ]
+  },
+  "template:yp4-numeros": {
+   "name": "ストーリー：スライド01と02",
+   "tags": [
+    "ストーリー",
+    "youtube",
+    "縦型",
+    "写真",
+    "数字"
+   ]
+  },
+  "template:yp4-por-ejemplo": {
+   "name": "ストーリー：写真付き赤地の黄色いフレーズ",
+   "tags": [
+    "ストーリー",
+    "youtube",
+    "縦型",
+    "写真",
+    "フレーズ"
+   ]
+  },
+  "template:yp4-seguir": {
+   "name": "ストーリー：SNSカード付きのフォロー",
+   "tags": [
+    "ストーリー",
+    "youtube",
+    "縦型",
+    "写真",
+    "フォロー",
+    "sns"
+   ]
+  },
+  "template:yp4-siguiente": {
+   "name": "ストーリー：「次」とWatchの2枚の写真",
+   "tags": [
+    "ストーリー",
+    "youtube",
+    "縦型",
+    "写真",
+    "次"
+   ]
+  },
+  "template:yp4-social-media": {
+   "name": "ストーリー：フォローミー付きSocial Media",
+   "tags": [
+    "ストーリー",
+    "youtube",
+    "縦型",
+    "写真",
+    "フォロー"
+   ]
+  },
+  "template:yp4-vlogger": {
+   "name": "ストーリー：ハートと登録のVLOGGER",
+   "tags": [
+    "ストーリー",
+    "youtube",
+    "縦型",
+    "写真",
+    "チャンネル登録",
+    "ハート"
+   ]
+  },
+  "template:yp5-avatar-cycle": {
+   "name": "ローワーサード：アイコンと切り替わるタグ",
+   "tags": [
+    "youtube",
+    "アイコン",
+    "いいね",
+    "チャンネル登録"
+   ]
+  },
+  "template:yp5-best-show": {
+   "name": "ローワーサード：ボタン、区切り線、2行",
+   "tags": [
+    "youtube",
+    "ボタン"
+   ]
+  },
+  "template:yp5-best-solution": {
+   "name": "タイトル：枠の中の白と黒のボックス",
+   "tags": [
+    "youtube",
+    "ボックス",
+    "枠"
+   ]
+  },
+  "template:yp5-best-video": {
+   "name": "タイトル：赤い線と赤いボックス",
+   "tags": [
+    "youtube",
+    "赤"
+   ]
+  },
+  "template:yp5-big-live-story": {
+   "name": "ローワーサード：ズームダウンする再生ボタンと名前",
+   "tags": [
+    "youtube",
+    "ボタン",
+    "チャンネル登録"
+   ]
+  },
+  "template:yp5-box-any-fonts": {
+   "name": "中央2つのボックスのタイトル",
+   "tags": [
+    "youtube",
+    "ボックス",
+    "タイプ入力"
+   ]
+  },
+  "template:yp5-box-auto-resized": {
+   "name": "入力に合わせて伸びるボックスタイトル",
+   "tags": [
+    "youtube",
+    "ボックス",
+    "タイプ入力"
+   ]
+  },
+  "template:yp5-box-automatically": {
+   "name": "白と黒のボックスのタイトル",
+   "tags": [
+    "youtube",
+    "ボックス",
+    "タイプ入力"
+   ]
+  },
+  "template:yp5-box-best-choice": {
+   "name": "3つの黒いボックスのタイトル",
+   "tags": [
+    "youtube",
+    "ボックス",
+    "タイプ入力"
+   ]
+  },
+  "template:yp5-box-dont-forget": {
+   "name": "3つの白いボックスの中央寄せタイトル",
+   "tags": [
+    "youtube",
+    "ボックス",
+    "チャンネル登録"
+   ]
+  },
+  "template:yp5-box-enjoy": {
+   "name": "白い輪郭ボックスのタイトル",
+   "tags": [
+    "youtube",
+    "ボックス",
+    "アウトライン"
+   ]
+  },
+  "template:yp5-box-great-design": {
+   "name": "2つの白いボックスのタイトル",
+   "tags": [
+    "youtube",
+    "ボックス",
+    "タイプ入力"
+   ]
+  },
+  "template:yp5-box-like-that": {
+   "name": "中央から開くボックスのタイトル",
+   "tags": [
+    "youtube",
+    "ボックス",
+    "チャンネル登録"
+   ]
+  },
+  "template:yp5-box-motion-design": {
+   "name": "斜めの白いボックスのタイトル",
+   "tags": [
+    "youtube",
+    "ボックス",
+    "傾き"
+   ]
+  },
+  "template:yp5-box-thank-support": {
+   "name": "タイトル：白いボックスに開く線",
+   "tags": [
+    "youtube",
+    "ボックス"
+   ]
+  },
+  "template:yp5-box-we-created": {
+   "name": "タイプされる3つの黒いボックスのタイトル",
+   "tags": [
+    "youtube",
+    "ボックス",
+    "タイプ入力"
+   ]
+  },
+  "template:yp5-box-write-text": {
+   "name": "1つのアウトラインボックスのタイトル",
+   "tags": [
+    "youtube",
+    "ボックス",
+    "タイプ入力"
+   ]
+  },
+  "template:yp5-bubble-swap": {
+   "name": "ローワーサード：いいねから登録に変わる赤いバブル",
+   "tags": [
+    "youtube",
+    "いいね",
+    "チャンネル登録",
+    "吹き出し"
+   ]
+  },
+  "template:yp5-callout-brand": {
+   "name": "コールアウト：ブランドと価格",
+   "tags": [
+    "youtube",
+    "コールアウト",
+    "価格"
+   ]
+  },
+  "template:yp5-callout-creative": {
+   "name": "コールアウト：点線と2つのボックス",
+   "tags": [
+    "youtube",
+    "コールアウト",
+    "赤"
+   ]
+  },
+  "template:yp5-callout-elbow": {
+   "name": "コールアウト：折れ線と赤いテキストボックス",
+   "tags": [
+    "youtube",
+    "コールアウト",
+    "赤"
+   ]
+  },
+  "template:yp5-callout-headline": {
+   "name": "コールアウト：赤い見出しと黒いボックス",
+   "tags": [
+    "youtube",
+    "コールアウト",
+    "赤"
+   ]
+  },
+  "template:yp5-callout-line-up": {
+   "name": "コールアウト：黒いボックスへ伸びる線",
+   "tags": [
+    "youtube",
+    "コールアウト"
+   ]
+  },
+  "template:yp5-callout-outline": {
+   "name": "点とテキスト付きコールアウト線",
+   "tags": [
+    "youtube",
+    "コールアウト"
+   ]
+  },
+  "template:yp5-callout-product": {
+   "name": "コールアウト：線と商品フレーム",
+   "tags": [
+    "youtube",
+    "コールアウト",
+    "商品"
+   ]
+  },
+  "template:yp5-callout-red-box": {
+   "name": "赤いボックス付きコールアウト線",
+   "tags": [
+    "youtube",
+    "コールアウト",
+    "赤"
+   ]
+  },
+  "template:yp5-callout-red-line": {
+   "name": "コールアウト：赤い線と赤いボックス",
+   "tags": [
+    "youtube",
+    "コールアウト",
+    "赤"
+   ]
+  },
+  "template:yp5-callout-title-bar": {
+   "name": "コールアウト：赤いバーとタイトル",
+   "tags": [
+    "youtube",
+    "コールアウト",
+    "赤"
+   ]
+  },
+  "template:yp5-channel-name": {
+   "name": "ローワーサード：ストライプ付き傾いたチャンネル名",
+   "tags": [
+    "youtube",
+    "ボタン",
+    "ストライプ"
+   ]
+  },
+  "template:yp5-clean-modern": {
+   "name": "ローワーサード：カプセル内の数字とテキスト",
+   "tags": [
+    "youtube",
+    "数字",
+    "カプセル"
+   ]
+  },
+  "template:yp5-clean-titles": {
+   "name": "タイトル：白枠の中の4行",
+   "tags": [
+    "youtube",
+    "枠"
+   ]
+  },
+  "template:yp5-click-channel": {
+   "name": "ローワーサード：ボタンをクリックと赤いバー",
+   "tags": [
+    "youtube",
+    "ボタン",
+    "クリック"
+   ]
+  },
+  "template:yp5-counter-bubbles": {
+   "name": "カウンター：通知バブル",
+   "tags": [
+    "youtube",
+    "カウンター",
+    "いいね"
+   ]
+  },
+  "template:yp5-counter-heart": {
+   "name": "ハート付きいいねカウンター",
+   "tags": [
+    "youtube",
+    "カウンター",
+    "いいね"
+   ]
+  },
+  "template:yp5-counter-link": {
+   "name": "概要欄のリンク",
+   "tags": [
+    "youtube",
+    "リンク"
+   ]
+  },
+  "template:yp5-counter-person": {
+   "name": "フォロワーカウンター",
+   "tags": [
+    "youtube",
+    "カウンター"
+   ]
+  },
+  "template:yp5-counter-subscribers": {
+   "name": "登録者数カウンター",
+   "tags": [
+    "youtube",
+    "カウンター",
+    "チャンネル登録"
+   ]
+  },
+  "template:yp5-doodle-channel": {
+   "name": "ローワーサード：白いボタン、赤いバー、落書き",
+   "tags": [
+    "youtube",
+    "ボタン",
+    "イラスト"
+   ]
+  },
+  "template:yp5-end-big-arc": {
+   "name": "エンドスクリーン：大きなコーラルの弧と2本の動画",
+   "tags": [
+    "youtube",
+    "感謝",
+    "コーラル"
+   ]
+  },
+  "template:yp5-end-circle": {
+   "name": "エンドスクリーン：コーラルの半円とおすすめ動画",
+   "tags": [
+    "youtube",
+    "感謝",
+    "コーラル"
+   ]
+  },
+  "template:yp5-end-coral": {
+   "name": "コーラルのエンドスクリーン：アイコン、2本の動画、SNS",
+   "tags": [
+    "youtube",
+    "感謝",
+    "コーラル"
+   ]
+  },
+  "template:yp5-end-coral-column": {
+   "name": "コーラルのエンドスクリーン：2本の動画、SNS、アイコン",
+   "tags": [
+    "youtube",
+    "感謝",
+    "コーラル"
+   ]
+  },
+  "template:yp5-end-diagonal": {
+   "name": "エンドスクリーン：斜めのコーラルパネルと次の動画",
+   "tags": [
+    "youtube",
+    "感謝",
+    "コーラル"
+   ]
+  },
+  "template:yp5-end-side-panel": {
+   "name": "エンドスクリーン：コーラルのパネルと2本の動画",
+   "tags": [
+    "youtube",
+    "感謝",
+    "コーラル"
+   ]
+  },
+  "template:yp5-end-subscribe-arrow": {
+   "name": "エンドスクリーン：おすすめ動画と大きなSUBSCRIBE",
+   "tags": [
+    "youtube",
+    "感謝",
+    "チャンネル登録"
+   ]
+  },
+  "template:yp5-end-white-arrow": {
+   "name": "エンドスクリーン：赤い矢印付き白い三角形",
+   "tags": [
+    "youtube",
+    "感謝",
+    "矢印"
+   ]
+  },
+  "template:yp5-end-white-band": {
+   "name": "エンドスクリーン：2本の動画と白い帯",
+   "tags": [
+    "youtube",
+    "感謝",
+    "白"
+   ]
+  },
+  "template:yp5-end-white-curve": {
+   "name": "エンドスクリーン：湾曲した白いパネルと2本の動画",
+   "tags": [
+    "youtube",
+    "感謝",
+    "白"
+   ]
+  },
+  "template:yp5-good-design": {
+   "name": "タイトル：1語ずつ現れる3行",
+   "tags": [
+    "youtube",
+    "ミニマル"
+   ]
+  },
+  "template:yp5-hello-welcome": {
+   "name": "タイトル：HELLO! 私のチャンネルへようこそ",
+   "tags": [
+    "youtube",
+    "ウェルカム",
+    "コーラル"
+   ]
+  },
+  "template:yp5-how-do-i": {
+   "name": "ローワーサード：白いボックスの質問",
+   "tags": [
+    "youtube",
+    "ボックス",
+    "白"
+   ]
+  },
+  "template:yp5-like-card": {
+   "name": "ローワーサード：いいね・登録・通知",
+   "tags": [
+    "youtube",
+    "いいね",
+    "チャンネル登録",
+    "ベル"
+   ]
+  },
+  "template:yp5-like-column": {
+   "name": "ローワーサード：3つのタグが付いた赤いカラム",
+   "tags": [
+    "youtube",
+    "いいね",
+    "チャンネル登録",
+    "ベル"
+   ]
+  },
+  "template:yp5-like-hand": {
+   "name": "ローワーサード：手で動画にいいね",
+   "tags": [
+    "youtube",
+    "いいね"
+   ]
+  },
+  "template:yp5-modern-titles": {
+   "name": "タイトル：白枠と3行",
+   "tags": [
+    "youtube",
+    "枠"
+   ]
+  },
+  "template:yp5-modern-universal": {
+   "name": "ローワーサード：3行と1本の線",
+   "tags": [
+    "youtube",
+    "ミニマル"
+   ]
+  },
+  "template:yp5-name-bar": {
+   "name": "ローワーサード：白いバーと滑り出す名前",
+   "tags": [
+    "youtube",
+    "名前",
+    "バー"
+   ]
+  },
+  "template:yp5-name-red-box": {
+   "name": "ローワーサード：赤いボックスの名前",
+   "tags": [
+    "youtube",
+    "名前",
+    "赤"
+   ]
+  },
+  "template:yp5-name-square-line": {
+   "name": "ローワーサード：小さな四角、線、名前",
+   "tags": [
+    "youtube",
+    "名前",
+    "線"
+   ]
+  },
+  "template:yp5-name-white-box": {
+   "name": "ローワーサード：白いボックスにタイプされる名前",
+   "tags": [
+    "youtube",
+    "名前",
+    "ボックス"
+   ]
+  },
+  "template:yp5-new-video": {
+   "name": "ローワーサード：黒いバーの新着動画",
+   "tags": [
+    "youtube",
+    "バー",
+    "黒"
+   ]
+  },
+  "template:yp5-notify-bell": {
+   "name": "ローワーサード：鳴るベルの通知",
+   "tags": [
+    "youtube",
+    "ベル"
+   ]
+  },
+  "template:yp5-opener-boxes": {
+   "name": "赤のオープナー：黒いボックスの名前",
+   "tags": [
+    "youtube",
+    "赤",
+    "ボックス"
+   ]
+  },
+  "template:yp5-opener-divider": {
+   "name": "赤のオープナー：ボタン、区切り線、名前",
+   "tags": [
+    "youtube",
+    "赤",
+    "チャンネル登録"
+   ]
+  },
+  "template:yp5-opener-fade": {
+   "name": "赤のオープナー：フェードインするボタンと名前",
+   "tags": [
+    "youtube",
+    "赤"
+   ]
+  },
+  "template:yp5-opener-flip": {
+   "name": "赤のオープナー：反転するボタンと名前",
+   "tags": [
+    "youtube",
+    "赤",
+    "波"
+   ]
+  },
+  "template:yp5-opener-typed": {
+   "name": "赤のオープナー：タイプされる名前",
+   "tags": [
+    "youtube",
+    "赤",
+    "タイプ入力"
+   ]
+  },
+  "template:yp5-profile-card": {
+   "name": "ローワーサード：アイコン付き白いカード",
+   "tags": [
+    "youtube",
+    "アイコン",
+    "チャンネル登録"
+   ]
+  },
+  "template:yp5-promo-pack": {
+   "name": "タイトル：黒いボックスのYOUTUBE PROMO",
+   "tags": [
+    "youtube",
+    "ボックス",
+    "黒"
+   ]
+  },
+  "template:yp5-quote-black-frame": {
+   "name": "タグ付き黒枠の引用",
+   "tags": [
+    "youtube",
+    "引用",
+    "枠"
+   ]
+  },
+  "template:yp5-quote-brackets": {
+   "name": "2つの角に挟まれた引用",
+   "tags": [
+    "youtube",
+    "引用"
+   ]
+  },
+  "template:yp5-quote-bubble": {
+   "name": "吹き出しの引用",
+   "tags": [
+    "youtube",
+    "引用",
+    "吹き出し"
+   ]
+  },
+  "template:yp5-quote-centred": {
+   "name": "白いタグ付き中央寄せの引用",
+   "tags": [
+    "youtube",
+    "引用"
+   ]
+  },
+  "template:yp5-quote-corners": {
+   "name": "2つの白い角に挟まれた引用",
+   "tags": [
+    "youtube",
+    "引用"
+   ]
+  },
+  "template:yp5-quote-frame": {
+   "name": "黒いタグ付き枠の引用",
+   "tags": [
+    "youtube",
+    "引用",
+    "枠"
+   ]
+  },
+  "template:yp5-quote-line": {
+   "name": "引用：縦線とボックス内の引用符",
+   "tags": [
+    "youtube",
+    "引用"
+   ]
+  },
+  "template:yp5-quote-split-bar": {
+   "name": "2本のバーの間に開く引用",
+   "tags": [
+    "youtube",
+    "引用"
+   ]
+  },
+  "template:yp5-quote-two-lines": {
+   "name": "2本の線に挟まれた引用",
+   "tags": [
+    "youtube",
+    "引用"
+   ]
+  },
+  "template:yp5-quote-white-box": {
+   "name": "黒い引用符の白いボックスの引用",
+   "tags": [
+    "youtube",
+    "引用",
+    "ボックス"
+   ]
+  },
+  "template:yp5-record-iris": {
+   "name": "トランジション：開く録画サークル",
+   "tags": [
+    "youtube",
+    "トランジション",
+    "円"
+   ]
+  },
+  "template:yp5-social-baldosa-fb": {
+   "name": "SNSバー：Facebook（飛んでくるタイル）",
+   "tags": [
+    "youtube",
+    "sns",
+    "facebook"
+   ]
+  },
+  "template:yp5-social-baldosa-ig": {
+   "name": "SNSバー：Instagram（飛んでくるタイル）",
+   "tags": [
+    "youtube",
+    "sns",
+    "instagram"
+   ]
+  },
+  "template:yp5-social-baldosa-tw": {
+   "name": "SNSバー：Twitter（飛んでくるタイル）",
+   "tags": [
+    "youtube",
+    "sns",
+    "twitter"
+   ]
+  },
+  "template:yp5-social-baldosa-yt": {
+   "name": "SNSバー：YouTube（飛んでくるタイル）",
+   "tags": [
+    "youtube",
+    "sns"
+   ]
+  },
+  "template:yp5-social-barras-fb": {
+   "name": "SNSバー：Facebook（2本のバーが開く）",
+   "tags": [
+    "youtube",
+    "sns",
+    "facebook"
+   ]
+  },
+  "template:yp5-social-barras-ig": {
+   "name": "SNSバー：Instagram（2本のバーが開く）",
+   "tags": [
+    "youtube",
+    "sns",
+    "instagram"
+   ]
+  },
+  "template:yp5-social-barras-tw": {
+   "name": "SNSバー：Twitter（2本のバーが開く）",
+   "tags": [
+    "youtube",
+    "sns",
+    "twitter"
+   ]
+  },
+  "template:yp5-social-barras-yt": {
+   "name": "SNSバー：YouTube（2本のバーが開く）",
+   "tags": [
+    "youtube",
+    "sns"
+   ]
+  },
+  "template:yp5-social-circulo-fb": {
+   "name": "SNSバー：Facebook（円とカプセル）",
+   "tags": [
+    "youtube",
+    "sns",
+    "facebook"
+   ]
+  },
+  "template:yp5-social-circulo-ig": {
+   "name": "SNSバー：Instagram（円とカプセル）",
+   "tags": [
+    "youtube",
+    "sns",
+    "instagram"
+   ]
+  },
+  "template:yp5-social-circulo-tw": {
+   "name": "SNSバー：Twitter（円とカプセル）",
+   "tags": [
+    "youtube",
+    "sns",
+    "twitter"
+   ]
+  },
+  "template:yp5-social-circulo-yt": {
+   "name": "SNSバー：YouTube（円とカプセル）",
+   "tags": [
+    "youtube",
+    "sns"
+   ]
+  },
+  "template:yp5-social-cuadro-fb": {
+   "name": "SNSバー：Facebook（反転するタイル）",
+   "tags": [
+    "youtube",
+    "sns",
+    "facebook"
+   ]
+  },
+  "template:yp5-social-cuadro-ig": {
+   "name": "SNSバー：Instagram（反転するタイル）",
+   "tags": [
+    "youtube",
+    "sns",
+    "instagram"
+   ]
+  },
+  "template:yp5-social-cuadro-tw": {
+   "name": "SNSバー：Twitter（反転するタイル）",
+   "tags": [
+    "youtube",
+    "sns",
+    "twitter"
+   ]
+  },
+  "template:yp5-social-cuadro-yt": {
+   "name": "SNSバー：YouTube（反転するタイル）",
+   "tags": [
+    "youtube",
+    "sns"
+   ]
+  },
+  "template:yp5-social-pincel-fb": {
+   "name": "SNSバー：Facebook（筆のストローク）",
+   "tags": [
+    "youtube",
+    "sns",
+    "facebook"
+   ]
+  },
+  "template:yp5-social-pincel-ig": {
+   "name": "SNSバー：Instagram（筆のストローク）",
+   "tags": [
+    "youtube",
+    "sns",
+    "instagram"
+   ]
+  },
+  "template:yp5-social-pincel-tw": {
+   "name": "SNSバー：Twitter（筆のストローク）",
+   "tags": [
+    "youtube",
+    "sns",
+    "twitter"
+   ]
+  },
+  "template:yp5-social-pincel-yt": {
+   "name": "SNSバー：YouTube（筆のストローク）",
+   "tags": [
+    "youtube",
+    "sns"
+   ]
+  },
+  "template:yp5-stacked-channel": {
+   "name": "ローワーサード：チャット吹き出し付き3行のチャンネル名",
+   "tags": [
+    "youtube",
+    "バブル"
+   ]
+  },
+  "template:yp5-sub-avatar-pill": {
+   "name": "ローワーサード：アイコンとクリック付き登録",
+   "tags": [
+    "youtube",
+    "チャンネル登録",
+    "アイコン",
+    "クリック"
+   ]
+  },
+  "template:yp5-sub-center-avatar": {
+   "name": "ローワーサード：カプセル中央のアイコン",
+   "tags": [
+    "youtube",
+    "チャンネル登録",
+    "アイコン"
+   ]
+  },
+  "template:yp5-sub-channel-tag": {
+   "name": "ローワーサード：チャンネル名付き登録済み",
+   "tags": [
+    "youtube",
+    "チャンネル登録",
+    "クリック"
+   ]
+  },
+  "template:yp5-sub-grey-bell": {
+   "name": "ローワーサード：グレーに変わる登録とベル",
+   "tags": [
+    "youtube",
+    "チャンネル登録",
+    "ベル",
+    "クリック"
+   ]
+  },
+  "template:yp5-sub-logo-box": {
+   "name": "ローワーサード：白いボックスのロゴと登録",
+   "tags": [
+    "youtube",
+    "チャンネル登録",
+    "ボタン"
+   ]
+  },
+  "template:yp5-sub-red-pill": {
+   "name": "ローワーサード：登録に変わる赤いカプセル",
+   "tags": [
+    "youtube",
+    "チャンネル登録",
+    "クリック"
+   ]
+  },
+  "template:yp5-sub-red-white": {
+   "name": "ローワーサード：登録済みに変わる登録",
+   "tags": [
+    "youtube",
+    "チャンネル登録",
+    "ベル"
+   ]
+  },
+  "template:yp5-sub-stack": {
+   "name": "ローワーサード：アイコンと3つの赤いタグ",
+   "tags": [
+    "youtube",
+    "チャンネル登録",
+    "アイコン"
+   ]
+  },
+  "template:yp5-subscribe-icon": {
+   "name": "ローワーサード：回るボタン付き登録",
+   "tags": [
+    "youtube",
+    "チャンネル登録",
+    "ボタン"
+   ]
+  },
+  "template:yp5-subscribe-now": {
+   "name": "タイトル：1文字ずつ現れる「今すぐ登録」",
+   "tags": [
+    "youtube",
+    "チャンネル登録"
+   ]
+  },
+  "template:yp5-subscribe-to": {
+   "name": "タイトル：白いボックスの登録",
+   "tags": [
+    "youtube",
+    "チャンネル登録",
+    "ボックス"
+   ]
+  },
+  "template:yp5-subscribed-click": {
+   "name": "ローワーサード：クリック付き赤い登録バー",
+   "tags": [
+    "youtube",
+    "チャンネル登録",
+    "クリック"
+   ]
+  },
+  "template:yp5-thanks-watching": {
+   "name": "タイトル：ご視聴ありがとうございました",
+   "tags": [
+    "youtube",
+    "感謝"
+   ]
+  },
+  "template:yp5-three-icons": {
+   "name": "ローワーサード：光るいいね・再生・ベル",
+   "tags": [
+    "youtube",
+    "いいね",
+    "ベル"
+   ]
+  },
+  "template:yp5-three-pills": {
+   "name": "ローワーサード：横並びの3つのボタン",
+   "tags": [
+    "youtube",
+    "いいね",
+    "チャンネル登録",
+    "ベル"
+   ]
+  },
+  "template:yp5-tilted-cycle": {
+   "name": "ローワーサード：言葉が変わる傾いたタグ",
+   "tags": [
+    "youtube",
+    "いいね",
+    "チャンネル登録",
+    "ベル"
+   ]
+  },
+  "template:yp5-travel-blog": {
+   "name": "ローワーサード：せり上がるボタンと名前",
+   "tags": [
+    "youtube",
+    "ボタン"
+   ]
+  },
+  "template:yp5-triangle-box": {
+   "name": "ローワーサード：白いボタンに変わる三角形",
+   "tags": [
+    "youtube",
+    "ボタン",
+    "白"
+   ]
+  },
+  "template:yp5-watch-next": {
+   "name": "ローワーサード：白いボックスの「次の動画」",
+   "tags": [
+    "youtube",
+    "ボックス",
+    "白"
+   ]
+  },
+  "template:yp5-white-opener": {
+   "name": "オープナー：白地の赤い円盤とチャンネル",
+   "tags": [
+    "youtube",
+    "円",
+    "アイコン"
+   ]
+  },
+  "template:yp5-your-channel-label": {
+   "name": "ローワーサード：ボタンときらめき付き赤いラベル",
+   "tags": [
+    "youtube",
+    "ボタン",
+    "ラベル"
+   ]
+  },
+  "template:yp7-apertura-cuadro-rojo": {
+   "name": "オープナー：赤い四角とチャンネルカード",
+   "tags": [
+    "youtube",
+    "白黒",
+    "ファッション",
+    "ロゴ",
+    "オープナー"
+   ]
+  },
+  "template:yp7-apertura-foto-perfil": {
+   "name": "オープナー：アイコンに変わる映像",
+   "tags": [
+    "youtube",
+    "白黒",
+    "ファッション",
+    "ロゴ",
+    "オープナー"
+   ]
+  },
+  "template:yp7-apertura-palabras": {
+   "name": "オープナー：黒と白のパネル上の言葉",
+   "tags": [
+    "youtube",
+    "白黒",
+    "ファッション",
+    "言葉",
+    "オープナー"
+   ]
+  },
+  "template:yp7-apertura-youtube": {
+   "name": "オープナー：塗りつぶされるアウトラインのYOUTUBE",
+   "tags": [
+    "youtube",
+    "白黒",
+    "ファッション",
+    "オープナー"
+   ]
+  },
+  "template:yp7-awesomeness": {
+   "name": "タイポグラフィ：白枠の中の言葉",
+   "tags": [
+    "youtube",
+    "白黒",
+    "ファッション",
+    "タイポグラフィ",
+    "枠"
+   ]
+  },
+  "template:yp7-be-happy": {
+   "name": "タイポグラフィ：整列して色が変わるフレーズ",
+   "tags": [
+    "youtube",
+    "白黒",
+    "ファッション",
+    "タイポグラフィ",
+    "フレーズ"
+   ]
+  },
+  "template:yp7-caja-negra": {
+   "name": "タイポグラフィ：黒いボックスのフレーズ",
+   "tags": [
+    "youtube",
+    "白黒",
+    "ファッション",
+    "タイポグラフィ",
+    "ボックス"
+   ]
+  },
+  "template:yp7-cita-barra": {
+   "name": "タイポグラフィ：バーの上の引用",
+   "tags": [
+    "youtube",
+    "白黒",
+    "ファッション",
+    "タイポグラフィ",
+    "引用",
+    "ボックス"
+   ]
+  },
+  "template:yp7-cita-barra-2": {
+   "name": "タイポグラフィ：2つの四角付き引用バー",
+   "tags": [
+    "youtube",
+    "白黒",
+    "ファッション",
+    "タイポグラフィ",
+    "引用",
+    "ボックス"
+   ]
+  },
+  "template:yp7-cita-cuadro": {
+   "name": "タイポグラフィ：四角いボックスの引用",
+   "tags": [
+    "youtube",
+    "白黒",
+    "ファッション",
+    "タイポグラフィ",
+    "引用",
+    "ボックス"
+   ]
+  },
+  "template:yp7-cita-cuadro-2": {
+   "name": "タイポグラフィ：角に四角がある引用ボックス",
+   "tags": [
+    "youtube",
+    "白黒",
+    "ファッション",
+    "タイポグラフィ",
+    "引用",
+    "ボックス"
+   ]
+  },
+  "template:yp7-cita-cuadro-3": {
+   "name": "タイポグラフィ：2つの四角付き引用",
+   "tags": [
+    "youtube",
+    "白黒",
+    "ファッション",
+    "タイポグラフィ",
+    "引用",
+    "ボックス"
+   ]
+  },
+  "template:yp7-elementos-1": {
+   "name": "エレメント：点滅する図形とドット",
+   "tags": [
+    "youtube",
+    "白黒",
+    "ファッション",
+    "オーバーレイ",
+    "グリッチ"
+   ]
+  },
+  "template:yp7-elementos-2": {
+   "name": "エレメント：図形、リング、ドットスクリーン",
+   "tags": [
+    "youtube",
+    "白黒",
+    "ファッション",
+    "オーバーレイ",
+    "グリッチ"
+   ]
+  },
+  "template:yp7-elementos-3": {
+   "name": "エレメント：斜線とドットのひし形",
+   "tags": [
+    "youtube",
+    "白黒",
+    "ファッション",
+    "オーバーレイ",
+    "グリッチ"
+   ]
+  },
+  "template:yp7-elementos-4": {
+   "name": "エレメント：走査線とリング",
+   "tags": [
+    "youtube",
+    "白黒",
+    "ファッション",
+    "オーバーレイ",
+    "グリッチ"
+   ]
+  },
+  "template:yp7-final-1": {
+   "name": "エンドカード：動画1本",
+   "tags": [
+    "youtube",
+    "白黒",
+    "ファッション",
+    "エンドスクリーン",
+    "動画"
+   ]
+  },
+  "template:yp7-final-2": {
+   "name": "エンドカード：縦に並ぶ2本の動画",
+   "tags": [
+    "youtube",
+    "白黒",
+    "ファッション",
+    "エンドスクリーン",
+    "動画"
+   ]
+  },
+  "template:yp7-final-3": {
+   "name": "エンドカード：横に並ぶ2本の動画",
+   "tags": [
+    "youtube",
+    "白黒",
+    "ファッション",
+    "エンドスクリーン",
+    "動画"
+   ]
+  },
+  "template:yp7-final-4": {
+   "name": "エンドカード：動画4本",
+   "tags": [
+    "youtube",
+    "白黒",
+    "ファッション",
+    "エンドスクリーン",
+    "動画"
+   ]
+  },
+  "template:yp7-frase-entre-barras": {
+   "name": "タイポグラフィ：2本のバーに挟まれたフレーズ",
+   "tags": [
+    "youtube",
+    "白黒",
+    "ファッション",
+    "タイポグラフィ",
+    "フレーズ"
+   ]
+  },
+  "template:yp7-frase-inclinada": {
+   "name": "タイポグラフィ：線の間の傾いたフレーズ",
+   "tags": [
+    "youtube",
+    "白黒",
+    "ファッション",
+    "タイポグラフィ",
+    "フレーズ"
+   ]
+  },
+  "template:yp7-greatness": {
+   "name": "タイポグラフィ：所定の位置に落ちる文字",
+   "tags": [
+    "youtube",
+    "白黒",
+    "ファッション",
+    "タイポグラフィ"
+   ]
+  },
+  "template:yp7-icono-campana": {
+   "name": "アイコン：鳴るベル",
+   "tags": [
+    "youtube",
+    "白黒",
+    "ファッション",
+    "アイコン",
+    "ベル"
+   ]
+  },
+  "template:yp7-icono-compartir": {
+   "name": "アイコン：共有ボタン",
+   "tags": [
+    "youtube",
+    "白黒",
+    "ファッション",
+    "アイコン",
+    "共有"
+   ]
+  },
+  "template:yp7-icono-me-gusta": {
+   "name": "アイコン：いいねボタン",
+   "tags": [
+    "youtube",
+    "白黒",
+    "ファッション",
+    "アイコン",
+    "いいね"
+   ]
+  },
+  "template:yp7-icono-suscribirse": {
+   "name": "アイコン：登録ボタン",
+   "tags": [
+    "youtube",
+    "白黒",
+    "ファッション",
+    "アイコン",
+    "チャンネル登録"
+   ]
+  },
+  "template:yp7-nota-campana": {
+   "name": "おまけ：手書きの「ベルアイコンをクリック」",
+   "tags": [
+    "youtube",
+    "白黒",
+    "ファッション",
+    "矢印",
+    "手書き"
+   ]
+  },
+  "template:yp7-nota-comenta": {
+   "name": "おまけ：矢印付き手書きの「下にコメント」",
+   "tags": [
+    "youtube",
+    "白黒",
+    "ファッション",
+    "矢印",
+    "手書き"
+   ]
+  },
+  "template:yp7-nota-suscribete": {
+   "name": "おまけ：矢印付き手書きの「登録してね」",
+   "tags": [
+    "youtube",
+    "白黒",
+    "ファッション",
+    "矢印",
+    "手書き"
+   ]
+  },
+  "template:yp7-nota-video": {
+   "name": "おまけ：手書きの「動画はこちら」",
+   "tags": [
+    "youtube",
+    "白黒",
+    "ファッション",
+    "矢印",
+    "手書き"
+   ]
+  },
+  "template:yp7-red-dribbble": {
+   "name": "SNS：Dribbbleカード",
+   "tags": [
+    "youtube",
+    "白黒",
+    "ファッション",
+    "sns",
+    "dribbble"
+   ]
+  },
+  "template:yp7-red-facebook": {
+   "name": "SNS：Facebookカード",
+   "tags": [
+    "youtube",
+    "白黒",
+    "ファッション",
+    "sns",
+    "facebook"
+   ]
+  },
+  "template:yp7-red-google-plus": {
+   "name": "SNS：Google Plusカード",
+   "tags": [
+    "youtube",
+    "白黒",
+    "ファッション",
+    "sns",
+    "google plus"
+   ]
+  },
+  "template:yp7-red-instagram": {
+   "name": "SNS：Instagramカード",
+   "tags": [
+    "youtube",
+    "白黒",
+    "ファッション",
+    "sns",
+    "instagram"
+   ]
+  },
+  "template:yp7-red-linkedin": {
+   "name": "SNS：LinkedInカード",
+   "tags": [
+    "youtube",
+    "白黒",
+    "ファッション",
+    "sns",
+    "linkedin"
+   ]
+  },
+  "template:yp7-red-pinterest": {
+   "name": "SNS：Pinterestカード",
+   "tags": [
+    "youtube",
+    "白黒",
+    "ファッション",
+    "sns",
+    "pinterest"
+   ]
+  },
+  "template:yp7-red-twitter": {
+   "name": "SNS：Twitterカード",
+   "tags": [
+    "youtube",
+    "白黒",
+    "ファッション",
+    "sns",
+    "twitter"
+   ]
+  },
+  "template:yp7-red-whatsapp": {
+   "name": "SNS：WhatsAppカード",
+   "tags": [
+    "youtube",
+    "白黒",
+    "ファッション",
+    "sns",
+    "whatsapp"
+   ]
+  },
+  "template:yp7-super-awesome-life": {
+   "name": "タイポグラフィ：せり上がって寄っていく3行",
+   "tags": [
+    "youtube",
+    "白黒",
+    "ファッション",
+    "タイポグラフィ"
+   ]
+  },
+  "template:yp7-suscribirse-banda": {
+   "name": "登録：下部の帯",
+   "tags": [
+    "youtube",
+    "白黒",
+    "ファッション",
+    "チャンネル登録",
+    "帯"
+   ]
+  },
+  "template:yp7-suscribirse-banda-foto": {
+   "name": "登録：写真付き下部の帯",
+   "tags": [
+    "youtube",
+    "白黒",
+    "ファッション",
+    "チャンネル登録",
+    "帯"
+   ]
+  },
+  "template:yp7-suscribirse-barra": {
+   "name": "登録：アイコン付きバー",
+   "tags": [
+    "youtube",
+    "白黒",
+    "ファッション",
+    "チャンネル登録"
+   ]
+  },
+  "template:yp7-suscribirse-tarjeta": {
+   "name": "登録：写真付きカード",
+   "tags": [
+    "youtube",
+    "白黒",
+    "ファッション",
+    "チャンネル登録"
+   ]
+  },
+  "template:yp7-telefono": {
+   "name": "シーン：いいねと登録のスマートフォン",
+   "tags": [
+    "youtube",
+    "白黒",
+    "ファッション",
+    "スマートフォン",
+    "チャンネル登録"
+   ]
+  },
+  "template:yp7-telefono-izquierda": {
+   "name": "シーン：左側のスマートフォン",
+   "tags": [
+    "youtube",
+    "白黒",
+    "ファッション",
+    "スマートフォン",
+    "チャンネル登録"
+   ]
+  },
+  "template:yp7-transicion-circulo": {
+   "name": "トランジション：中央からの円",
+   "tags": [
+    "youtube",
+    "白黒",
+    "ファッション",
+    "トランジション"
+   ]
+  },
+  "template:yp7-transicion-circulo-arriba": {
+   "name": "トランジション：上からの円",
+   "tags": [
+    "youtube",
+    "白黒",
+    "ファッション",
+    "トランジション"
+   ]
+  },
+  "template:yp7-transicion-circulo-izquierda": {
+   "name": "トランジション：左からの円",
+   "tags": [
+    "youtube",
+    "白黒",
+    "ファッション",
+    "トランジション"
+   ]
+  },
+  "template:yp7-transicion-diagonal": {
+   "name": "トランジション：斜めワイプ",
+   "tags": [
+    "youtube",
+    "白黒",
+    "ファッション",
+    "トランジション"
+   ]
+  },
+  "template:yp7-transicion-izquierda": {
+   "name": "トランジション：左へのワイプ",
+   "tags": [
+    "youtube",
+    "白黒",
+    "ファッション",
+    "トランジション"
+   ]
+  },
+  "template:yp7-transicion-lineas": {
+   "name": "トランジション：中央からの線",
+   "tags": [
+    "youtube",
+    "白黒",
+    "ファッション",
+    "トランジション"
+   ]
+  },
+  "template:yp7-transicion-rectangulo": {
+   "name": "トランジション：中央からの長方形",
+   "tags": [
+    "youtube",
+    "白黒",
+    "ファッション",
+    "トランジション"
+   ]
+  },
+  "template:yp7-transicion-sube": {
+   "name": "トランジション：せり上がる帯",
+   "tags": [
+    "youtube",
+    "白黒",
+    "ファッション",
+    "トランジション"
    ]
   },
   "template:yt-calle-a-que-te-dedicas": {

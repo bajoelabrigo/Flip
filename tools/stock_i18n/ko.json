@@ -25339,6 +25339,78 @@
     "검정"
    ]
   },
+  "template:llt16-barra-nombre": {
+   "name": "로어서드: 빨간 바와 밝은 이름",
+   "tags": [
+    "로어서드",
+    "플랫",
+    "템플릿"
+   ]
+  },
+  "template:llt16-cargo-azul": {
+   "name": "로어서드: 파란 박스의 이름과 직함",
+   "tags": [
+    "로어서드",
+    "플랫",
+    "템플릿"
+   ]
+  },
+  "template:llt16-cargo-rojo": {
+   "name": "로어서드: 밝은 이름, 빨간 직함",
+   "tags": [
+    "로어서드",
+    "플랫",
+    "템플릿"
+   ]
+  },
+  "template:llt16-director": {
+   "name": "로어서드: 흰 직함, 빨간 이름",
+   "tags": [
+    "로어서드",
+    "플랫",
+    "템플릿"
+   ]
+  },
+  "template:llt16-fotografa": {
+   "name": "로어서드: 작은 직함, 시안 바탕 이름",
+   "tags": [
+    "로어서드",
+    "플랫",
+    "템플릿"
+   ]
+  },
+  "template:llt16-hora": {
+   "name": "로어서드: 시간과 날짜",
+   "tags": [
+    "로어서드",
+    "플랫",
+    "날짜"
+   ]
+  },
+  "template:llt16-show": {
+   "name": "로어서드: 두 줄 사이의 제목",
+   "tags": [
+    "로어서드",
+    "플랫",
+    "템플릿"
+   ]
+  },
+  "template:llt16-titulo-rojo": {
+   "name": "로어서드: 제목과 빨간 부제",
+   "tags": [
+    "로어서드",
+    "플랫",
+    "템플릿"
+   ]
+  },
+  "template:llt16-tu-texto": {
+   "name": "로어서드: 주황색과 회색 박스",
+   "tags": [
+    "로어서드",
+    "플랫",
+    "템플릿"
+   ]
+  },
   "template:llt2-barra-etiqueta": {
    "name": "로고 하단 자막: 어두운 바와 초록 태그",
    "tags": [
@@ -31487,6 +31559,1238 @@
     "레트로"
    ]
   },
+  "template:tit1-creative": {
+   "name": "타이틀: 낙서가 있는 크리에이티브 타이틀",
+   "tags": [
+    "타이틀",
+    "소셜",
+    "낙서",
+    "분홍"
+   ]
+  },
+  "template:tit1-design": {
+   "name": "타이틀: 구름 속 디자인",
+   "tags": [
+    "타이틀",
+    "소셜",
+    "구름",
+    "낙서"
+   ]
+  },
+  "template:tit1-follow": {
+   "name": "타이틀: 분홍 리본과 팔로우",
+   "tags": [
+    "타이틀",
+    "소셜",
+    "인스타그램",
+    "팔로우",
+    "리본"
+   ]
+  },
+  "template:tit1-likecount": {
+   "name": "타이틀: 카운터와 WOW가 있는 좋아요",
+   "tags": [
+    "타이틀",
+    "소셜",
+    "좋아요",
+    "카운터",
+    "wow",
+    "하트"
+   ]
+  },
+  "template:tit1-likenew": {
+   "name": "타이틀: 화살표가 있는 새 영상 좋아요",
+   "tags": [
+    "타이틀",
+    "소셜",
+    "좋아요",
+    "새 영상",
+    "화살표"
+   ]
+  },
+  "template:tit1-likethis": {
+   "name": "타이틀: 꽃과 함께 이 영상 좋아요",
+   "tags": [
+    "타이틀",
+    "소셜",
+    "좋아요",
+    "꽃"
+   ]
+  },
+  "template:tit1-smile": {
+   "name": "타이틀: 웃으면 행복해요",
+   "tags": [
+    "타이틀",
+    "소셜",
+    "행복",
+    "미소",
+    "이모티콘"
+   ]
+  },
+  "template:tit1-subscribe": {
+   "name": "타이틀: 꽃과 함께 구독",
+   "tags": [
+    "타이틀",
+    "소셜",
+    "구독",
+    "꽃",
+    "youtube"
+   ]
+  },
+  "template:tit2-2022": {
+   "name": "타이틀: 엠보스 연도",
+   "tags": [
+    "타이포그래피",
+    "흑백",
+    "연도",
+    "엠보스",
+    "타이틀"
+   ]
+  },
+  "template:tit2-be-awesome": {
+   "name": "타이틀: 사진과 Be awesome",
+   "tags": [
+    "타이포그래피",
+    "흑백",
+    "사진",
+    "세로",
+    "타이틀"
+   ]
+  },
+  "template:tit2-big-black": {
+   "name": "타이틀: 라벨이 있는 BIG BLACK",
+   "tags": [
+    "타이포그래피",
+    "흑백",
+    "검정",
+    "태그",
+    "타이틀"
+   ]
+  },
+  "template:tit2-circulos": {
+   "name": "타이틀: 여섯 개의 원",
+   "tags": [
+    "타이포그래피",
+    "흑백",
+    "원",
+    "흰색",
+    "타이틀"
+   ]
+  },
+  "template:tit2-ciudad": {
+   "name": "타이틀: 사진 위 기울어진 도시 제목",
+   "tags": [
+    "타이포그래피",
+    "흑백",
+    "사진",
+    "도시",
+    "기울임",
+    "타이틀"
+   ]
+  },
+  "template:tit2-creative-inclinado": {
+   "name": "타이틀: 거대한 기울어진 단어",
+   "tags": [
+    "타이포그래피",
+    "흑백",
+    "기울임",
+    "검정",
+    "타이틀"
+   ]
+  },
+  "template:tit2-creative-pack": {
+   "name": "타이틀: 떨어지는 글자",
+   "tags": [
+    "타이포그래피",
+    "흑백",
+    "이탤릭",
+    "흰색",
+    "타이틀"
+   ]
+  },
+  "template:tit2-creative-relieve": {
+   "name": "타이틀: 엠보스 크리에이티브",
+   "tags": [
+    "타이포그래피",
+    "흑백",
+    "엠보스",
+    "그림자",
+    "흰색",
+    "타이틀"
+   ]
+  },
+  "template:tit2-event-music": {
+   "name": "타이틀: 이벤트 제목, 사진이 내려옴",
+   "tags": [
+    "타이포그래피",
+    "흑백",
+    "사진",
+    "이벤트",
+    "이탤릭",
+    "타이틀"
+   ]
+  },
+  "template:tit2-hello-world": {
+   "name": "타이틀: 이탤릭 Hello World!",
+   "tags": [
+    "타이포그래피",
+    "흑백",
+    "이탤릭",
+    "흰색",
+    "타이틀"
+   ]
+  },
+  "template:tit2-montserrat-bold": {
+   "name": "타이틀: 단어가 있는 두 개의 검은 바",
+   "tags": [
+    "타이포그래피",
+    "흑백",
+    "바",
+    "흰색",
+    "타이틀"
+   ]
+  },
+  "template:tit2-new-trend": {
+   "name": "타이틀: 뒤집히는 New Trend",
+   "tags": [
+    "타이포그래피",
+    "흑백",
+    "윤곽선",
+    "흰색",
+    "타이틀"
+   ]
+  },
+  "template:tit2-new-typography": {
+   "name": "타이틀: 이탤릭 단어가 있는 바",
+   "tags": [
+    "타이포그래피",
+    "흑백",
+    "바",
+    "이탤릭",
+    "흰색",
+    "타이틀"
+   ]
+  },
+  "template:tit2-trend": {
+   "name": "타이틀: 트렌드 뉴 타이포그래피",
+   "tags": [
+    "타이포그래피",
+    "흑백",
+    "검정",
+    "타이틀"
+   ]
+  },
+  "template:tit2-trend-doble": {
+   "name": "타이틀: 둘로 나뉜 트렌드",
+   "tags": [
+    "타이포그래피",
+    "흑백",
+    "검정",
+    "흰색",
+    "이중",
+    "타이틀"
+   ]
+  },
+  "template:tit2-typo-slide": {
+   "name": "타이틀: 흰색 카드",
+   "tags": [
+    "타이포그래피",
+    "흑백",
+    "카드",
+    "검정",
+    "타이틀"
+   ]
+  },
+  "template:tit3-20-animation": {
+   "name": "타이틀: 20 애니메이션",
+   "tags": [
+    "타이틀",
+    "하늘색",
+    "기업",
+    "숫자"
+   ]
+  },
+  "template:tit3-20-cuadro": {
+   "name": "타이틀: 프레임 속 20 애니메이션",
+   "tags": [
+    "타이틀",
+    "하늘색",
+    "기업",
+    "프레임"
+   ]
+  },
+  "template:tit3-best-day": {
+   "name": "타이틀: 이탤릭 박스와 프레임",
+   "tags": [
+    "타이틀",
+    "하늘색",
+    "기업",
+    "이탤릭"
+   ]
+  },
+  "template:tit3-best-event": {
+   "name": "타이틀: 기울어진 박스와 마켓",
+   "tags": [
+    "타이틀",
+    "하늘색",
+    "기업",
+    "기울임",
+    "이벤트"
+   ]
+  },
+  "template:tit3-circulo": {
+   "name": "타이틀: 원 위의 이름",
+   "tags": [
+    "타이틀",
+    "하늘색",
+    "기업",
+    "원",
+    "이름"
+   ]
+  },
+  "template:tit3-design-success": {
+   "name": "타이틀: 원이 있는 Design for success",
+   "tags": [
+    "타이틀",
+    "하늘색",
+    "기업",
+    "원"
+   ]
+  },
+  "template:tit3-disenador": {
+   "name": "타이틀: 직함 박스와 이름",
+   "tags": [
+    "타이틀",
+    "하늘색",
+    "기업",
+    "이름",
+    "기울임"
+   ]
+  },
+  "template:tit3-dos-triangulos": {
+   "name": "타이틀: 두 삼각형 사이의 이름",
+   "tags": [
+    "타이틀",
+    "하늘색",
+    "기업",
+    "삼각형",
+    "이름"
+   ]
+  },
+  "template:tit3-evento": {
+   "name": "타이틀: 프레임이 있는 기울어진 이벤트",
+   "tags": [
+    "타이틀",
+    "하늘색",
+    "기업",
+    "이벤트",
+    "프레임",
+    "기울임"
+   ]
+  },
+  "template:tit3-globo": {
+   "name": "타이틀: 말풍선",
+   "tags": [
+    "타이틀",
+    "하늘색",
+    "기업",
+    "말풍선",
+    "프레임"
+   ]
+  },
+  "template:tit3-holiday": {
+   "name": "타이틀: 날짜가 있는 휴일",
+   "tags": [
+    "타이틀",
+    "하늘색",
+    "기업",
+    "이벤트",
+    "기울임"
+   ]
+  },
+  "template:tit3-life": {
+   "name": "타이틀: 프레임 속 Life is life",
+   "tags": [
+    "타이틀",
+    "하늘색",
+    "기업",
+    "프레임"
+   ]
+  },
+  "template:tit3-nombre-caja": {
+   "name": "타이틀: 이름 박스, 두 줄",
+   "tags": [
+    "타이틀",
+    "하늘색",
+    "기업",
+    "이름"
+   ]
+  },
+  "template:tit3-nombre-cargo-arriba": {
+   "name": "타이틀: 이름 박스, 위에 직함",
+   "tags": [
+    "타이틀",
+    "하늘색",
+    "기업",
+    "이름"
+   ]
+  },
+  "template:tit3-nombre-lineas": {
+   "name": "타이틀: 두 선 사이의 이름",
+   "tags": [
+    "타이틀",
+    "하늘색",
+    "기업",
+    "이름",
+    "선"
+   ]
+  },
+  "template:tit3-nombre-sombra": {
+   "name": "타이틀: 어긋난 프레임이 있는 박스",
+   "tags": [
+    "타이틀",
+    "하늘색",
+    "기업",
+    "이름",
+    "프레임"
+   ]
+  },
+  "template:tit3-rombo": {
+   "name": "타이틀: 마름모 속 이벤트",
+   "tags": [
+    "타이틀",
+    "하늘색",
+    "기업",
+    "마름모",
+    "이벤트"
+   ]
+  },
+  "template:tit3-titles-pack": {
+   "name": "타이틀: 기울어진 두 프레임",
+   "tags": [
+    "타이틀",
+    "하늘색",
+    "기업",
+    "프레임",
+    "기울임"
+   ]
+  },
+  "template:tit3-triangulo": {
+   "name": "타이틀: 삼각형 위의 이름",
+   "tags": [
+    "타이틀",
+    "하늘색",
+    "기업",
+    "삼각형",
+    "이름"
+   ]
+  },
+  "template:tit3-unique-animated": {
+   "name": "타이틀: 이탤릭 세 부분",
+   "tags": [
+    "타이틀",
+    "하늘색",
+    "기업",
+    "이탤릭"
+   ]
+  },
+  "template:tit4-algo-nuevo": {
+   "name": "타이틀: 패턴 박스와 단어",
+   "tags": [
+    "타이틀",
+    "노랑",
+    "검정",
+    "프레임"
+   ]
+  },
+  "template:tit4-anio": {
+   "name": "타이틀: 평행사변형이 있는 연도",
+   "tags": [
+    "타이틀",
+    "노랑",
+    "검정",
+    "연도"
+   ]
+  },
+  "template:tit4-art-festival": {
+   "name": "타이틀: 아트, 박스, 페스티벌",
+   "tags": [
+    "타이틀",
+    "노랑",
+    "검정",
+    "이벤트"
+   ]
+  },
+  "template:tit4-autumn-event": {
+   "name": "타이틀: 박스 안 단어와 아래 단어",
+   "tags": [
+    "타이틀",
+    "노랑",
+    "검정",
+    "이벤트"
+   ]
+  },
+  "template:tit4-dont-stop": {
+   "name": "타이틀: 원 속 문구",
+   "tags": [
+    "타이틀",
+    "노랑",
+    "검정",
+    "원"
+   ]
+  },
+  "template:tit4-etiqueta-nombre": {
+   "name": "타이틀: 태그, 이름, 직함",
+   "tags": [
+    "타이틀",
+    "노랑",
+    "검정",
+    "이름"
+   ]
+  },
+  "template:tit4-facil": {
+   "name": "타이틀: 단어와 노란 바",
+   "tags": [
+    "타이틀",
+    "노랑",
+    "검정",
+    "바"
+   ]
+  },
+  "template:tit4-fecha-cajas": {
+   "name": "타이틀: 박스 속 날짜와 시간",
+   "tags": [
+    "타이틀",
+    "노랑",
+    "검정",
+    "이벤트",
+    "날짜"
+   ]
+  },
+  "template:tit4-festival-info": {
+   "name": "타이틀: 페스티벌 날짜와 세부 정보",
+   "tags": [
+    "타이틀",
+    "노랑",
+    "검정",
+    "이벤트",
+    "날짜"
+   ]
+  },
+  "template:tit4-informacion": {
+   "name": "타이틀: 원 속 정보",
+   "tags": [
+    "타이틀",
+    "노랑",
+    "검정",
+    "원"
+   ]
+  },
+  "template:tit4-logo-nombre": {
+   "name": "타이틀: 로고, 태그, 이름",
+   "tags": [
+    "타이틀",
+    "노랑",
+    "검정",
+    "로고",
+    "이름"
+   ]
+  },
+  "template:tit4-nombre-caja": {
+   "name": "타이틀: 노란 박스 속 이름",
+   "tags": [
+    "타이틀",
+    "노랑",
+    "검정",
+    "이름"
+   ]
+  },
+  "template:tit4-nombre-cajas": {
+   "name": "타이틀: 박스 속 이름과 직함",
+   "tags": [
+    "타이틀",
+    "노랑",
+    "검정",
+    "이름"
+   ]
+  },
+  "template:tit4-presents": {
+   "name": "타이틀: 프레임 속 presents",
+   "tags": [
+    "타이틀",
+    "노랑",
+    "검정",
+    "프레임"
+   ]
+  },
+  "template:tit4-productor": {
+   "name": "타이틀: 프레임 속 이름과 태그",
+   "tags": [
+    "타이틀",
+    "노랑",
+    "검정",
+    "프레임",
+    "이름"
+   ]
+  },
+  "template:tit4-simple-design": {
+   "name": "타이틀: 던져 넣은 두 박스",
+   "tags": [
+    "타이틀",
+    "노랑",
+    "검정",
+    "박스"
+   ]
+  },
+  "template:tit4-speakers": {
+   "name": "타이틀: 큰 박스 속 해시태그",
+   "tags": [
+    "타이틀",
+    "노랑",
+    "검정",
+    "이벤트"
+   ]
+  },
+  "template:tit4-triangulo": {
+   "name": "타이틀: 삼각형 속 숫자",
+   "tags": [
+    "타이틀",
+    "노랑",
+    "검정",
+    "삼각형"
+   ]
+  },
+  "template:tit4-twenty": {
+   "name": "타이틀: Twenty 크리에이티브 타이틀",
+   "tags": [
+    "타이틀",
+    "노랑",
+    "검정",
+    "숫자"
+   ]
+  },
+  "template:tit4-ubicacion": {
+   "name": "타이틀: 핀 속 위치",
+   "tags": [
+    "타이틀",
+    "노랑",
+    "검정",
+    "핀",
+    "위치"
+   ]
+  },
+  "template:tit5-canal-tarjeta": {
+   "name": "타이틀: 회전하며 단어를 내보내는 사각형",
+   "tags": [
+    "타이틀",
+    "채널",
+    "컬러",
+    "프레임"
+   ]
+  },
+  "template:tit5-compartir": {
+   "name": "타이틀: 단어가 바뀌는 보라색 태그",
+   "tags": [
+    "타이틀",
+    "채널",
+    "컬러",
+    "태그",
+    "youtube"
+   ]
+  },
+  "template:tit5-condensada": {
+   "name": "타이틀: 스스로 써지는 콘덴스드 글꼴",
+   "tags": [
+    "타이틀",
+    "채널",
+    "컬러",
+    "콘덴스드"
+   ]
+  },
+  "template:tit5-creative": {
+   "name": "타이틀: 바로 서는 연보라 단어",
+   "tags": [
+    "타이틀",
+    "채널",
+    "컬러",
+    "보라"
+   ]
+  },
+  "template:tit5-dinamico": {
+   "name": "타이틀: 바로 서는 주황색 이중 프레임",
+   "tags": [
+    "타이틀",
+    "채널",
+    "컬러",
+    "프레임"
+   ]
+  },
+  "template:tit5-directo": {
+   "name": "타이틀: 기울어지는 라이브 방송",
+   "tags": [
+    "타이틀",
+    "채널",
+    "컬러",
+    "라이브",
+    "youtube"
+   ]
+  },
+  "template:tit5-etiqueta": {
+   "name": "타이틀: 열리며 기울어지는 라벨",
+   "tags": [
+    "타이틀",
+    "채널",
+    "컬러",
+    "태그"
+   ]
+  },
+  "template:tit5-hashtag": {
+   "name": "타이틀: 노란 바탕에 타이핑되는 해시태그",
+   "tags": [
+    "타이틀",
+    "채널",
+    "컬러",
+    "해시태그"
+   ]
+  },
+  "template:tit5-logo-canal": {
+   "name": "타이틀: 유튜브 버튼과 채널 이름",
+   "tags": [
+    "타이틀",
+    "채널",
+    "컬러",
+    "로고",
+    "youtube"
+   ]
+  },
+  "template:tit5-logo-negro": {
+   "name": "타이틀: 검은 바탕의 유튜브 버튼",
+   "tags": [
+    "타이틀",
+    "채널",
+    "컬러",
+    "로고",
+    "youtube"
+   ]
+  },
+  "template:tit5-moderno": {
+   "name": "타이틀: 원으로 변하는 유튜브 버튼",
+   "tags": [
+    "타이틀",
+    "채널",
+    "컬러",
+    "원",
+    "youtube"
+   ]
+  },
+  "template:tit5-no-pierdas": {
+   "name": "타이틀: 모양이 변하는 프레임 속 문구",
+   "tags": [
+    "타이틀",
+    "채널",
+    "컬러",
+    "프레임"
+   ]
+  },
+  "template:tit5-pila": {
+   "name": "타이틀: 떨어지는 좋아요, 공유, 구독 블록",
+   "tags": [
+    "타이틀",
+    "채널",
+    "컬러",
+    "블록",
+    "구독",
+    "youtube"
+   ]
+  },
+  "template:tit5-rombo": {
+   "name": "타이틀: 빨간 바탕의 흰 마름모",
+   "tags": [
+    "타이틀",
+    "채널",
+    "컬러",
+    "마름모"
+   ]
+  },
+  "template:tit5-seguinos": {
+   "name": "타이틀: 뒤집히는 파란 동전",
+   "tags": [
+    "타이틀",
+    "채널",
+    "컬러",
+    "원"
+   ]
+  },
+  "template:tit5-social-media": {
+   "name": "타이틀: 노란 바탕에 도는 링",
+   "tags": [
+    "타이틀",
+    "채널",
+    "컬러",
+    "원"
+   ]
+  },
+  "template:tit5-soporte": {
+   "name": "타이틀: 블록 줄과 밴드",
+   "tags": [
+    "타이틀",
+    "채널",
+    "컬러",
+    "밴드"
+   ]
+  },
+  "template:tit5-tu-canal": {
+   "name": "타이틀: 흰 박스로 뒤집히는 프레임",
+   "tags": [
+    "타이틀",
+    "채널",
+    "컬러",
+    "박스"
+   ]
+  },
+  "template:tit5-tutorial": {
+   "name": "타이틀: 글자가 하나씩 튀어나오는 튜토리얼",
+   "tags": [
+    "타이틀",
+    "채널",
+    "컬러",
+    "튜토리얼"
+   ]
+  },
+  "template:tit5-verano": {
+   "name": "타이틀: 번개와 떨어지는 단어",
+   "tags": [
+    "타이틀",
+    "채널",
+    "컬러",
+    "여름"
+   ]
+  },
+  "template:tit6-always-strive": {
+   "name": "타이틀: 떨어지는 글자와 느낌표",
+   "tags": [
+    "타이포그래피",
+    "흑백",
+    "키네틱",
+    "콘덴스드",
+    "타이틀"
+   ]
+  },
+  "template:tit6-art-always": {
+   "name": "타이틀: 줄무늬, 윤곽선, 올라오는 글자",
+   "tags": [
+    "타이포그래피",
+    "흑백",
+    "키네틱",
+    "줄무늬",
+    "윤곽선",
+    "타이틀"
+   ]
+  },
+  "template:tit6-awesome": {
+   "name": "타이틀: 사진 위 흰 박스와 말풍선",
+   "tags": [
+    "타이포그래피",
+    "흑백",
+    "키네틱",
+    "사진",
+    "타이틀"
+   ]
+  },
+  "template:tit6-be-strong": {
+   "name": "타이틀: 취소선 문구가 거꾸로 풀림",
+   "tags": [
+    "타이포그래피",
+    "흑백",
+    "키네틱",
+    "프레임",
+    "취소선",
+    "타이틀"
+   ]
+  },
+  "template:tit6-big": {
+   "name": "타이틀: 그림자가 있는 거대한 단어와 검은 패널",
+   "tags": [
+    "타이포그래피",
+    "흑백",
+    "키네틱",
+    "그림자",
+    "타이틀"
+   ]
+  },
+  "template:tit6-big-text": {
+   "name": "타이틀: 숫자, 윤곽선 단어, 사진",
+   "tags": [
+    "타이포그래피",
+    "흑백",
+    "키네틱",
+    "윤곽선",
+    "사진",
+    "타이틀"
+   ]
+  },
+  "template:tit6-ciencia": {
+   "name": "타이틀: 문구를 반전하는 패널, 프레임, 십자",
+   "tags": [
+    "타이포그래피",
+    "흑백",
+    "키네틱",
+    "프레임",
+    "타이틀"
+   ]
+  },
+  "template:tit6-color-change": {
+   "name": "타이틀: 취소선 단어가 켜짐",
+   "tags": [
+    "타이포그래피",
+    "흑백",
+    "키네틱",
+    "취소선",
+    "타이틀"
+   ]
+  },
+  "template:tit6-corporate": {
+   "name": "타이틀: 문구 뒤로 커지는 검은 밴드",
+   "tags": [
+    "타이포그래피",
+    "흑백",
+    "키네틱",
+    "사진",
+    "타이틀"
+   ]
+  },
+  "template:tit6-create-ideas": {
+   "name": "타이틀: 올라오는 글자와 해시",
+   "tags": [
+    "타이포그래피",
+    "흑백",
+    "키네틱",
+    "해시태그",
+    "타이틀"
+   ]
+  },
+  "template:tit6-dynamism": {
+   "name": "타이틀: 십자가 있는 프레임 속 켜지는 단어",
+   "tags": [
+    "타이포그래피",
+    "흑백",
+    "키네틱",
+    "프레임",
+    "타이틀"
+   ]
+  },
+  "template:tit6-enjoy": {
+   "name": "타이틀: 회전하는 사각형과 갈라진 단어",
+   "tags": [
+    "타이포그래피",
+    "흑백",
+    "키네틱",
+    "사각형",
+    "타이틀"
+   ]
+  },
+  "template:tit6-fashion": {
+   "name": "타이틀: 뒤에 사진 세 장이 있는 박스",
+   "tags": [
+    "타이포그래피",
+    "흑백",
+    "키네틱",
+    "사진",
+    "패션",
+    "타이틀"
+   ]
+  },
+  "template:tit6-health": {
+   "name": "타이틀: 흰색과 검정 사이 돌아가는 단어 띠",
+   "tags": [
+    "타이포그래피",
+    "흑백",
+    "키네틱",
+    "이중",
+    "타이틀"
+   ]
+  },
+  "template:tit6-look": {
+   "name": "타이틀: 거대한 글자 위 회색 박스",
+   "tags": [
+    "타이포그래피",
+    "흑백",
+    "키네틱",
+    "박스",
+    "타이틀"
+   ]
+  },
+  "template:tit6-never-give-up": {
+   "name": "타이틀: 사진 띠 위에 타이핑되는 문구",
+   "tags": [
+    "타이포그래피",
+    "흑백",
+    "키네틱",
+    "사진",
+    "타이틀"
+   ]
+  },
+  "template:tit6-typography": {
+   "name": "타이틀: 사진 위 라벨이 있는 흰 박스",
+   "tags": [
+    "타이포그래피",
+    "흑백",
+    "키네틱",
+    "사진",
+    "타이틀"
+   ]
+  },
+  "template:tit6-visuality": {
+   "name": "타이틀: 켜지는 세 줄과 포인터",
+   "tags": [
+    "타이포그래피",
+    "흑백",
+    "키네틱",
+    "윤곽선",
+    "타이틀"
+   ]
+  },
+  "template:tit6-wonderful": {
+   "name": "타이틀: 모이는 세 단어와 선",
+   "tags": [
+    "타이포그래피",
+    "흑백",
+    "키네틱",
+    "선",
+    "타이틀"
+   ]
+  },
+  "template:tit6-you": {
+   "name": "타이틀: 사진으로 채운 단어",
+   "tags": [
+    "타이포그래피",
+    "흑백",
+    "키네틱",
+    "사진",
+    "타이틀"
+   ]
+  },
+  "template:tit7-always-strive": {
+   "name": "타이틀: 빨간 그림자와 기호가 있는 문구",
+   "tags": [
+    "타이포그래피",
+    "컬러",
+    "키네틱",
+    "그림자",
+    "타이틀"
+   ]
+  },
+  "template:tit7-art-always": {
+   "name": "타이틀: 빨강, 시안, 흰색 글자",
+   "tags": [
+    "타이포그래피",
+    "컬러",
+    "키네틱",
+    "글리치",
+    "타이틀"
+   ]
+  },
+  "template:tit7-big": {
+   "name": "타이틀: 그림자 박스와 두 색 사각형",
+   "tags": [
+    "타이포그래피",
+    "컬러",
+    "키네틱",
+    "사각형",
+    "타이틀"
+   ]
+  },
+  "template:tit7-ciencia": {
+   "name": "타이틀: 슬랩 글자가 있는 검은 박스",
+   "tags": [
+    "타이포그래피",
+    "컬러",
+    "키네틱",
+    "슬랩",
+    "타이틀"
+   ]
+  },
+  "template:tit7-colorful": {
+   "name": "타이틀: 단어 안에 사진이 있는 흰 밴드",
+   "tags": [
+    "타이포그래피",
+    "컬러",
+    "키네틱",
+    "사진",
+    "타이틀"
+   ]
+  },
+  "template:tit7-concept-azul": {
+   "name": "타이틀: 파란 바탕의 넓은 단어",
+   "tags": [
+    "타이포그래피",
+    "컬러",
+    "키네틱",
+    "파랑",
+    "타이틀"
+   ]
+  },
+  "template:tit7-concept-oscuro": {
+   "name": "타이틀: 큰 글자 위 파란 박스",
+   "tags": [
+    "타이포그래피",
+    "컬러",
+    "키네틱",
+    "파랑",
+    "타이틀"
+   ]
+  },
+  "template:tit7-create": {
+   "name": "타이틀: 회색 단어와 흰색 카드",
+   "tags": [
+    "타이포그래피",
+    "컬러",
+    "키네틱",
+    "타이틀"
+   ]
+  },
+  "template:tit7-dynamic": {
+   "name": "타이틀: 닫히는 프레임과 파란 기호",
+   "tags": [
+    "타이포그래피",
+    "컬러",
+    "키네틱",
+    "프레임",
+    "타이틀"
+   ]
+  },
+  "template:tit7-easy-editing": {
+   "name": "타이틀: 노란 패턴 위 빨간 글자",
+   "tags": [
+    "타이포그래피",
+    "컬러",
+    "키네틱",
+    "노랑",
+    "타이틀"
+   ]
+  },
+  "template:tit7-enjoy": {
+   "name": "타이틀: 회전하는 사각형과 갈라진 단어",
+   "tags": [
+    "타이포그래피",
+    "컬러",
+    "키네틱",
+    "사각형",
+    "타이틀"
+   ]
+  },
+  "template:tit7-fashion": {
+   "name": "타이틀: 거대한 글자 속 사진과 박스",
+   "tags": [
+    "타이포그래피",
+    "컬러",
+    "키네틱",
+    "사진",
+    "패션",
+    "타이틀"
+   ]
+  },
+  "template:tit7-health-box": {
+   "name": "타이틀: 두 줄 사이 단어 벽을 담은 사각형",
+   "tags": [
+    "타이포그래피",
+    "컬러",
+    "키네틱",
+    "사각형",
+    "타이틀"
+   ]
+  },
+  "template:tit7-health-wall": {
+   "name": "타이틀: 대각선 단어 벽",
+   "tags": [
+    "타이포그래피",
+    "컬러",
+    "키네틱",
+    "대각선",
+    "타이틀"
+   ]
+  },
+  "template:tit7-look": {
+   "name": "타이틀: 거대한 글자와 파란 프레임",
+   "tags": [
+    "타이포그래피",
+    "컬러",
+    "키네틱",
+    "프레임",
+    "타이틀"
+   ]
+  },
+  "template:tit7-love": {
+   "name": "타이틀: 분홍 사진 위를 미끄러지는 단어",
+   "tags": [
+    "타이포그래피",
+    "컬러",
+    "키네틱",
+    "사진",
+    "타이틀"
+   ]
+  },
+  "template:tit7-modern": {
+   "name": "타이틀: 숫자가 있는 우아한 세리프",
+   "tags": [
+    "타이포그래피",
+    "컬러",
+    "키네틱",
+    "세리프",
+    "타이틀"
+   ]
+  },
+  "template:tit7-never-give-up": {
+   "name": "타이틀: 계단식 사진 네 장과 문구",
+   "tags": [
+    "타이포그래피",
+    "컬러",
+    "키네틱",
+    "사진",
+    "타이틀"
+   ]
+  },
+  "template:tit7-newest": {
+   "name": "타이틀: 초록 바가 있는 윤곽선 단어",
+   "tags": [
+    "타이포그래피",
+    "컬러",
+    "키네틱",
+    "윤곽선",
+    "타이틀"
+   ]
+  },
+  "template:tit7-scene": {
+   "name": "타이틀: 줄무늬, 흰 패널, 사진 위 숫자",
+   "tags": [
+    "타이포그래피",
+    "컬러",
+    "키네틱",
+    "줄무늬",
+    "사진",
+    "타이틀"
+   ]
+  },
+  "template:tit7-text-animation": {
+   "name": "타이틀: 사진 위 텍스트 줄",
+   "tags": [
+    "타이포그래피",
+    "컬러",
+    "키네틱",
+    "사진",
+    "타이틀"
+   ]
+  },
+  "template:tit7-typography": {
+   "name": "타이틀: 글자로 둘러싼 분홍 카드",
+   "tags": [
+    "타이포그래피",
+    "컬러",
+    "키네틱",
+    "사진",
+    "타이틀"
+   ]
+  },
   "template:top-5-mas-vendidos": {
    "name": "베스트셀러 TOP 5",
    "tags": [
@@ -31611,6 +32915,3585 @@
     "반짝이",
     "핑크",
     "감성"
+   ]
+  },
+  "template:yp0-barra-campana": {
+   "name": "좋아요, 알림 벨, 구독이 있는 바",
+   "tags": [
+    "youtube",
+    "구독",
+    "버튼",
+    "바",
+    "클릭",
+    "좋아요"
+   ]
+  },
+  "template:yp0-barra-canal": {
+   "name": "좋아요, 구독, 알림 벨이 있는 채널 바",
+   "tags": [
+    "youtube",
+    "구독",
+    "버튼",
+    "바",
+    "클릭",
+    "좋아요"
+   ]
+  },
+  "template:yp0-barra-me-gusta": {
+   "name": "좋아요, 싫어요, 구독이 있는 바",
+   "tags": [
+    "youtube",
+    "구독",
+    "버튼",
+    "바",
+    "클릭",
+    "좋아요"
+   ]
+  },
+  "template:yp0-barra-seguidores": {
+   "name": "팔로워 카운터가 있는 채널 바",
+   "tags": [
+    "youtube",
+    "구독",
+    "버튼",
+    "바",
+    "카운터",
+    "팔로워"
+   ]
+  },
+  "template:yp0-fila-grande": {
+   "name": "큰 좋아요, 구독, 알림 벨",
+   "tags": [
+    "youtube",
+    "구독",
+    "버튼",
+    "클릭",
+    "좋아요",
+    "알림 벨"
+   ]
+  },
+  "template:yp0-redes": {
+   "name": "팔로우가 있는 소셜 바",
+   "tags": [
+    "youtube",
+    "구독",
+    "버튼",
+    "소셜",
+    "페이스북",
+    "인스타그램"
+   ]
+  },
+  "template:yp0-tarjeta-canal": {
+   "name": "구독이 있는 채널 카드",
+   "tags": [
+    "youtube",
+    "구독",
+    "버튼",
+    "카드",
+    "클릭",
+    "유튜브"
+   ]
+  },
+  "template:yp0-tarjeta-iconos": {
+   "name": "구독, 좋아요, 알림 벨이 있는 카드",
+   "tags": [
+    "youtube",
+    "구독",
+    "버튼",
+    "카드",
+    "클릭",
+    "좋아요"
+   ]
+  },
+  "template:yp0-tarjeta-mini": {
+   "name": "작은 구독 카드",
+   "tags": [
+    "youtube",
+    "구독",
+    "버튼",
+    "카드",
+    "클릭",
+    "유튜브"
+   ]
+  },
+  "template:yp1-apertura-avatar-bandas": {
+   "name": "오프너: 떨어지는 아바타와 올라오는 밴드",
+   "tags": [
+    "youtube",
+    "빨강",
+    "오프닝",
+    "아바타",
+    "유튜브"
+   ]
+  },
+  "template:yp1-apertura-avatar-circulo": {
+   "name": "오프너: 아바타와 열리는 원",
+   "tags": [
+    "youtube",
+    "빨강",
+    "오프닝",
+    "아바타",
+    "유튜브"
+   ]
+  },
+  "template:yp1-apertura-blanca": {
+   "name": "오프너: 흰 바탕의 비스듬한 밴드와 버튼",
+   "tags": [
+    "youtube",
+    "빨강",
+    "오프닝",
+    "로고",
+    "유튜브"
+   ]
+  },
+  "template:yp1-apertura-diana": {
+   "name": "오프너: 빨간 원 위의 둥근 버튼",
+   "tags": [
+    "youtube",
+    "빨강",
+    "오프닝",
+    "로고",
+    "유튜브"
+   ]
+  },
+  "template:yp1-apertura-flechas": {
+   "name": "오프너: 어두운 쉐브론과 구르는 버튼",
+   "tags": [
+    "youtube",
+    "빨강",
+    "오프닝",
+    "로고",
+    "유튜브"
+   ]
+  },
+  "template:yp1-apertura-gotas": {
+   "name": "오프너: 유튜브 버튼을 만드는 방울",
+   "tags": [
+    "youtube",
+    "빨강",
+    "오프닝",
+    "로고",
+    "유튜브"
+   ]
+  },
+  "template:yp1-apertura-logo-vuela": {
+   "name": "오프너: 뒤로 날아가며 도는 로고",
+   "tags": [
+    "youtube",
+    "빨강",
+    "오프닝",
+    "로고",
+    "유튜브"
+   ]
+  },
+  "template:yp1-apertura-ondas": {
+   "name": "오프너: 로고, 소용돌이 호, 빨간 물결",
+   "tags": [
+    "youtube",
+    "빨강",
+    "오프닝",
+    "로고",
+    "물결",
+    "유튜브"
+   ]
+  },
+  "template:yp1-apertura-tipografica-gaming": {
+   "name": "타이포 오프너: 최고의 게이밍 채널",
+   "tags": [
+    "youtube",
+    "빨강",
+    "오프닝",
+    "타이포그래피",
+    "키네틱",
+    "유튜브"
+   ]
+  },
+  "template:yp1-apertura-tipografica-roja": {
+   "name": "빨간 타이포 오프너: 새 영상, 좋아요, 구독",
+   "tags": [
+    "youtube",
+    "빨강",
+    "오프닝",
+    "타이포그래피",
+    "키네틱",
+    "유튜브"
+   ]
+  },
+  "template:yp1-apertura-tipografica-suscribete": {
+   "name": "타이포 오프너: 에피소드 시청과 구독",
+   "tags": [
+    "youtube",
+    "빨강",
+    "오프닝",
+    "타이포그래피",
+    "키네틱",
+    "유튜브"
+   ]
+  },
+  "template:yp1-barra-suscribir": {
+   "name": "구독: 아바타, 좋아요, 알림 벨이 있는 바",
+   "tags": [
+    "youtube",
+    "빨강",
+    "구독",
+    "좋아요",
+    "알림 벨",
+    "유튜브"
+   ]
+  },
+  "template:yp1-barra-vertical": {
+   "name": "빨간 바 위의 네 줄 제목",
+   "tags": [
+    "youtube",
+    "빨강",
+    "타이틀",
+    "심플",
+    "바",
+    "유튜브"
+   ]
+  },
+  "template:yp1-best-video": {
+   "name": "파란 물결 위의 큰 제목",
+   "tags": [
+    "youtube",
+    "빨강",
+    "타이틀",
+    "물결",
+    "유튜브"
+   ]
+  },
+  "template:yp1-big-text": {
+   "name": "어두운 방 속 큰 빨간 텍스트",
+   "tags": [
+    "youtube",
+    "빨강",
+    "타이틀",
+    "큰",
+    "유튜브"
+   ]
+  },
+  "template:yp1-big-title": {
+   "name": "비스듬한 빨간 밴드 위의 큰 제목",
+   "tags": [
+    "youtube",
+    "빨강",
+    "타이틀",
+    "큰",
+    "유튜브"
+   ]
+  },
+  "template:yp1-bold-titles": {
+   "name": "빨간 선과 스스로 그려지는 프레임이 있는 제목",
+   "tags": [
+    "youtube",
+    "빨강",
+    "타이틀",
+    "심플",
+    "프레임",
+    "유튜브"
+   ]
+  },
+  "template:yp1-cajas-tecleadas": {
+   "name": "빨간 박스와 흰 박스에 타이핑되는 제목",
+   "tags": [
+    "youtube",
+    "빨강",
+    "타이틀",
+    "심플",
+    "박스",
+    "유튜브"
+   ]
+  },
+  "template:yp1-cita-cajas-grises": {
+   "name": "빨간 따옴표가 있는 회색 박스 인용구",
+   "tags": [
+    "youtube",
+    "빨강",
+    "인용구",
+    "문구",
+    "유튜브"
+   ]
+  },
+  "template:yp1-cita-centrada": {
+   "name": "두 선 사이의 가운데 인용구",
+   "tags": [
+    "youtube",
+    "빨강",
+    "인용구",
+    "문구",
+    "유튜브"
+   ]
+  },
+  "template:yp1-cita-circulo": {
+   "name": "빨간 원 속 인용구",
+   "tags": [
+    "youtube",
+    "빨강",
+    "인용구",
+    "문구",
+    "유튜브"
+   ]
+  },
+  "template:yp1-cita-cuadro-rojo": {
+   "name": "옆 탭이 있는 빨간 사각형 속 인용구",
+   "tags": [
+    "youtube",
+    "빨강",
+    "인용구",
+    "문구",
+    "유튜브"
+   ]
+  },
+  "template:yp1-cita-etiqueta": {
+   "name": "빨간 작성자 태그가 있는 인용구",
+   "tags": [
+    "youtube",
+    "빨강",
+    "인용구",
+    "문구",
+    "유튜브"
+   ]
+  },
+  "template:yp1-cita-marco-fino": {
+   "name": "배지가 있는 가는 빨간 프레임 속 인용구",
+   "tags": [
+    "youtube",
+    "빨강",
+    "인용구",
+    "문구",
+    "유튜브"
+   ]
+  },
+  "template:yp1-cita-marco-rojo": {
+   "name": "빨간 프레임에 타이핑되는 인용구",
+   "tags": [
+    "youtube",
+    "빨강",
+    "인용구",
+    "문구",
+    "유튜브"
+   ]
+  },
+  "template:yp1-cita-panel-rojo": {
+   "name": "빨간 패널 옆 어두운 박스 속 인용구",
+   "tags": [
+    "youtube",
+    "빨강",
+    "인용구",
+    "문구",
+    "유튜브"
+   ]
+  },
+  "template:yp1-columna-suscribir": {
+   "name": "구독: 아바타, 좋아요, 알림 벨이 있는 세로 열",
+   "tags": [
+    "youtube",
+    "빨강",
+    "구독",
+    "좋아요",
+    "알림 벨",
+    "유튜브"
+   ]
+  },
+  "template:yp1-como-un-pro": {
+   "name": "빨간 선 아래 계단식 제목",
+   "tags": [
+    "youtube",
+    "빨강",
+    "타이틀",
+    "심플",
+    "계단식",
+    "유튜브"
+   ]
+  },
+  "template:yp1-design": {
+   "name": "떨어지는 글자가 있는 빨간 제목",
+   "tags": [
+    "youtube",
+    "빨강",
+    "타이틀",
+    "심플",
+    "떨어짐",
+    "유튜브"
+   ]
+  },
+  "template:yp1-fila-suscribir": {
+   "name": "구독: 하단의 좋아요, 구독, 알림 벨",
+   "tags": [
+    "youtube",
+    "빨강",
+    "구독",
+    "좋아요",
+    "알림 벨",
+    "유튜브"
+   ]
+  },
+  "template:yp1-final-banda": {
+   "name": "엔드 스크린: 영상 위 어두운 밴드",
+   "tags": [
+    "youtube",
+    "빨강",
+    "엔드 스크린",
+    "영상",
+    "유튜브"
+   ]
+  },
+  "template:yp1-final-columna": {
+   "name": "엔드 스크린: 색을 입힌 영상 위 어두운 열",
+   "tags": [
+    "youtube",
+    "빨강",
+    "엔드 스크린",
+    "영상",
+    "유튜브"
+   ]
+  },
+  "template:yp1-final-gracias": {
+   "name": "엔드 스크린: 시청 감사와 구독",
+   "tags": [
+    "youtube",
+    "빨강",
+    "엔드 스크린",
+    "감사",
+    "유튜브"
+   ]
+  },
+  "template:yp1-final-like-share": {
+   "name": "엔드 스크린: 추천 영상과 좋아요, 댓글, 공유",
+   "tags": [
+    "youtube",
+    "빨강",
+    "엔드 스크린",
+    "소셜",
+    "유튜브"
+   ]
+  },
+  "template:yp1-fondo-arcos": {
+   "name": "배경: 흩어진 빨간 호와 대시",
+   "tags": [
+    "youtube",
+    "빨강",
+    "배경",
+    "도형",
+    "유튜브"
+   ]
+  },
+  "template:yp1-fondo-bloques": {
+   "name": "배경: 빨간 사각형이 있는 흰 블록",
+   "tags": [
+    "youtube",
+    "빨강",
+    "배경",
+    "블록",
+    "유튜브"
+   ]
+  },
+  "template:yp1-fondo-botones": {
+   "name": "배경: 재생 버튼 줄",
+   "tags": [
+    "youtube",
+    "빨강",
+    "배경",
+    "유튜브"
+   ]
+  },
+  "template:yp1-fondo-capas": {
+   "name": "배경: 겹겹의 빨간 물결",
+   "tags": [
+    "youtube",
+    "빨강",
+    "배경",
+    "물결",
+    "유튜브"
+   ]
+  },
+  "template:yp1-fondo-cruces": {
+   "name": "배경: 분홍과 흰색 십자",
+   "tags": [
+    "youtube",
+    "빨강",
+    "배경",
+    "도형",
+    "유튜브"
+   ]
+  },
+  "template:yp1-fondo-destellos": {
+   "name": "배경: 대각선 빨간 줄기",
+   "tags": [
+    "youtube",
+    "빨강",
+    "배경",
+    "빛",
+    "유튜브"
+   ]
+  },
+  "template:yp1-fondo-espiral": {
+   "name": "배경: 빨강, 흰색, 회색 나선",
+   "tags": [
+    "youtube",
+    "빨강",
+    "배경",
+    "나선",
+    "유튜브"
+   ]
+  },
+  "template:yp1-fondo-flechas": {
+   "name": "배경: 흘러가는 빨간 쉐브론",
+   "tags": [
+    "youtube",
+    "빨강",
+    "배경",
+    "화살표",
+    "유튜브"
+   ]
+  },
+  "template:yp1-fondo-guiones": {
+   "name": "배경: 날아다니는 빨간 대시",
+   "tags": [
+    "youtube",
+    "빨강",
+    "배경",
+    "도형",
+    "유튜브"
+   ]
+  },
+  "template:yp1-fondo-lineas": {
+   "name": "배경: 가는 물결 모양 빨간 선",
+   "tags": [
+    "youtube",
+    "빨강",
+    "배경",
+    "선",
+    "유튜브"
+   ]
+  },
+  "template:yp1-fondo-liquido-azul": {
+   "name": "배경: 파란 액체",
+   "tags": [
+    "youtube",
+    "빨강",
+    "배경",
+    "액체",
+    "유튜브"
+   ]
+  },
+  "template:yp1-fondo-liquido-oscuro": {
+   "name": "배경: 어두운 빨간 액체",
+   "tags": [
+    "youtube",
+    "빨강",
+    "배경",
+    "액체",
+    "유튜브"
+   ]
+  },
+  "template:yp1-fondo-ondas-gruesas": {
+   "name": "배경: 굵은 빨간 물결",
+   "tags": [
+    "youtube",
+    "빨강",
+    "배경",
+    "물결",
+    "유튜브"
+   ]
+  },
+  "template:yp1-fondo-puntos": {
+   "name": "배경: 맥동하는 빨간 점",
+   "tags": [
+    "youtube",
+    "빨강",
+    "배경",
+    "점",
+    "유튜브"
+   ]
+  },
+  "template:yp1-fondo-rayas": {
+   "name": "배경: 대각선 빨간 줄무늬",
+   "tags": [
+    "youtube",
+    "빨강",
+    "배경",
+    "줄무늬",
+    "유튜브"
+   ]
+  },
+  "template:yp1-fondo-rayas-onduladas": {
+   "name": "배경: 물결 모양 빨간 줄무늬",
+   "tags": [
+    "youtube",
+    "빨강",
+    "배경",
+    "물결",
+    "유튜브"
+   ]
+  },
+  "template:yp1-fondo-redes": {
+   "name": "배경: 소셜 미디어 아이콘",
+   "tags": [
+    "youtube",
+    "빨강",
+    "배경",
+    "소셜",
+    "유튜브"
+   ]
+  },
+  "template:yp1-fondo-texto": {
+   "name": "배경: 반복되는 편집 가능한 텍스트",
+   "tags": [
+    "youtube",
+    "빨강",
+    "배경",
+    "텍스트",
+    "유튜브"
+   ]
+  },
+  "template:yp1-frase-ondas-rojas": {
+   "name": "빨간 물결 위의 세 줄 문구",
+   "tags": [
+    "youtube",
+    "빨강",
+    "타이틀",
+    "물결",
+    "문구",
+    "유튜브"
+   ]
+  },
+  "template:yp1-info-anillo": {
+   "name": "인포그래픽: 텍스트가 있는 퍼센트 링",
+   "tags": [
+    "youtube",
+    "빨강",
+    "콜아웃",
+    "포인터",
+    "퍼센트",
+    "카운터"
+   ]
+  },
+  "template:yp1-info-anillo-linea": {
+   "name": "인포그래픽: 선 위의 제목과 퍼센트 링",
+   "tags": [
+    "youtube",
+    "빨강",
+    "콜아웃",
+    "포인터",
+    "퍼센트",
+    "카운터"
+   ]
+  },
+  "template:yp1-info-barra-porcentaje": {
+   "name": "인포그래픽: 회색 박스 속 퍼센트와 빨간 라벨",
+   "tags": [
+    "youtube",
+    "빨강",
+    "콜아웃",
+    "포인터",
+    "퍼센트",
+    "카운터"
+   ]
+  },
+  "template:yp1-info-porcentaje": {
+   "name": "인포그래픽: 라벨이 있는 큰 퍼센트",
+   "tags": [
+    "youtube",
+    "빨강",
+    "콜아웃",
+    "포인터",
+    "퍼센트",
+    "카운터"
+   ]
+  },
+  "template:yp1-insignia-me-gusta": {
+   "name": "구독: 좋아요와 알림 벨로 돌며 바뀌는 배지",
+   "tags": [
+    "youtube",
+    "빨강",
+    "구독",
+    "좋아요",
+    "알림 벨",
+    "유튜브"
+   ]
+  },
+  "template:yp1-liquid-title": {
+   "name": "액체 방울 위 윤곽선 제목",
+   "tags": [
+    "youtube",
+    "빨강",
+    "타이틀",
+    "액체",
+    "윤곽선",
+    "유튜브"
+   ]
+  },
+  "template:yp1-llamada-barra-roja": {
+   "name": "콜아웃: 문단이 있는 빨간 바",
+   "tags": [
+    "youtube",
+    "빨강",
+    "콜아웃",
+    "포인터",
+    "문단",
+    "유튜브"
+   ]
+  },
+  "template:yp1-llamada-dato": {
+   "name": "콜아웃: 빨간 박스 속 헤드라인, 텍스트, 수치",
+   "tags": [
+    "youtube",
+    "빨강",
+    "콜아웃",
+    "포인터",
+    "데이터",
+    "유튜브"
+   ]
+  },
+  "template:yp1-llamada-especificacion": {
+   "name": "콜아웃: 선 위의 빨간 제목",
+   "tags": [
+    "youtube",
+    "빨강",
+    "콜아웃",
+    "포인터",
+    "사양",
+    "유튜브"
+   ]
+  },
+  "template:yp1-llamada-numero": {
+   "name": "콜아웃: 원 속 숫자와 두 텍스트",
+   "tags": [
+    "youtube",
+    "빨강",
+    "콜아웃",
+    "포인터",
+    "숫자",
+    "유튜브"
+   ]
+  },
+  "template:yp1-llamada-numero-cuadro": {
+   "name": "콜아웃: 빨간 사각형 속 숫자와 흰 박스",
+   "tags": [
+    "youtube",
+    "빨강",
+    "콜아웃",
+    "포인터",
+    "숫자",
+    "유튜브"
+   ]
+  },
+  "template:yp1-llamada-pantalla": {
+   "name": "콜아웃: 빨간 라벨과 윤곽선 박스",
+   "tags": [
+    "youtube",
+    "빨강",
+    "콜아웃",
+    "포인터",
+    "태그",
+    "유튜브"
+   ]
+  },
+  "template:yp1-llamada-titular": {
+   "name": "콜아웃: 빨간 윤곽선 속 헤드라인",
+   "tags": [
+    "youtube",
+    "빨강",
+    "콜아웃",
+    "포인터",
+    "헤드라인",
+    "유튜브"
+   ]
+  },
+  "template:yp1-mejor-juego": {
+   "name": "빨간 블록 아래 회색 박스 속 제목",
+   "tags": [
+    "youtube",
+    "빨강",
+    "타이틀",
+    "심플",
+    "박스",
+    "유튜브"
+   ]
+  },
+  "template:yp1-modern-bold": {
+   "name": "분홍 박스 속 윤곽선 제목",
+   "tags": [
+    "youtube",
+    "빨강",
+    "타이틀",
+    "박스",
+    "유튜브"
+   ]
+  },
+  "template:yp1-modern-title": {
+   "name": "빨간 선 사이의 제목",
+   "tags": [
+    "youtube",
+    "빨강",
+    "타이틀",
+    "심플",
+    "줄무늬",
+    "유튜브"
+   ]
+  },
+  "template:yp1-motion-studio": {
+   "name": "교차하는 빨간 바 두 개 위의 제목",
+   "tags": [
+    "youtube",
+    "빨강",
+    "타이틀",
+    "심플",
+    "바",
+    "유튜브"
+   ]
+  },
+  "template:yp1-no-olvides-calificar": {
+   "name": "제목: 빨간 프레임 속 평가를 잊지 마세요",
+   "tags": [
+    "youtube",
+    "빨강",
+    "타이틀",
+    "심플",
+    "프레임",
+    "유튜브"
+   ]
+  },
+  "template:yp1-pila-botones": {
+   "name": "구독: 뒤집히는 좋아요, 구독, 알림 버튼",
+   "tags": [
+    "youtube",
+    "빨강",
+    "구독",
+    "좋아요",
+    "버튼",
+    "유튜브"
+   ]
+  },
+  "template:yp1-red-circulo-barra": {
+   "name": "소셜: 도는 원형 아이콘과 웹사이트 바",
+   "tags": [
+    "youtube",
+    "빨강",
+    "소셜 미디어",
+    "링크",
+    "유튜브"
+   ]
+  },
+  "template:yp1-red-cuadro-follow": {
+   "name": "소셜: 구르는 사각형과 FOLLOW US",
+   "tags": [
+    "youtube",
+    "빨강",
+    "소셜 미디어",
+    "링크",
+    "유튜브"
+   ]
+  },
+  "template:yp1-red-pastilla": {
+   "name": "소셜: 알약 가운데의 아이콘",
+   "tags": [
+    "youtube",
+    "빨강",
+    "소셜 미디어",
+    "링크",
+    "유튜브"
+   ]
+  },
+  "template:yp1-red-rombo": {
+   "name": "소셜: 스스로 그려지는 마름모와 채널 이름",
+   "tags": [
+    "youtube",
+    "빨강",
+    "소셜 미디어",
+    "링크",
+    "유튜브"
+   ]
+  },
+  "template:yp1-strong-titles": {
+   "name": "빨간 물결 아래의 강렬한 제목",
+   "tags": [
+    "youtube",
+    "빨강",
+    "타이틀",
+    "물결",
+    "유튜브"
+   ]
+  },
+  "template:yp1-top-10": {
+   "name": "아래 빨간 선 두 개가 있는 제목",
+   "tags": [
+    "youtube",
+    "빨강",
+    "타이틀",
+    "심플",
+    "목록",
+    "유튜브"
+   ]
+  },
+  "template:yp1-transicion-barras-1": {
+   "name": "트랜지션: 왼쪽으로 가는 빨강, 흰색, 검정 바",
+   "tags": [
+    "youtube",
+    "빨강",
+    "트랜지션",
+    "바",
+    "유튜브"
+   ]
+  },
+  "template:yp1-transicion-barras-2": {
+   "name": "트랜지션: 아래로 가는 빨강, 흰색, 검정 바",
+   "tags": [
+    "youtube",
+    "빨강",
+    "트랜지션",
+    "바",
+    "유튜브"
+   ]
+  },
+  "template:yp1-transicion-bloques-1": {
+   "name": "트랜지션: 빨강, 흰색, 검정 블록",
+   "tags": [
+    "youtube",
+    "빨강",
+    "트랜지션",
+    "블록",
+    "유튜브"
+   ]
+  },
+  "template:yp1-transicion-bloques-2": {
+   "name": "트랜지션: 빨강, 흰색, 검정 블록 2",
+   "tags": [
+    "youtube",
+    "빨강",
+    "트랜지션",
+    "블록",
+    "유튜브"
+   ]
+  },
+  "template:yp1-transicion-capsulas-1": {
+   "name": "트랜지션: 왼쪽으로 가는 캡슐",
+   "tags": [
+    "youtube",
+    "빨강",
+    "트랜지션",
+    "캡슐",
+    "유튜브"
+   ]
+  },
+  "template:yp1-transicion-capsulas-2": {
+   "name": "트랜지션: 아래로 가는 캡슐",
+   "tags": [
+    "youtube",
+    "빨강",
+    "트랜지션",
+    "캡슐",
+    "유튜브"
+   ]
+  },
+  "template:yp1-transicion-circulo": {
+   "name": "트랜지션: 열리는 빨강, 흰색, 검정 원",
+   "tags": [
+    "youtube",
+    "빨강",
+    "트랜지션",
+    "도형",
+    "원",
+    "유튜브"
+   ]
+  },
+  "template:yp1-transicion-cuadrado": {
+   "name": "트랜지션: 열리는 빨강, 흰색, 검정 사각형",
+   "tags": [
+    "youtube",
+    "빨강",
+    "트랜지션",
+    "도형",
+    "사각형",
+    "유튜브"
+   ]
+  },
+  "template:yp1-transicion-estrella": {
+   "name": "트랜지션: 열리는 빨강, 흰색, 검정 별",
+   "tags": [
+    "youtube",
+    "빨강",
+    "트랜지션",
+    "도형",
+    "별",
+    "유튜브"
+   ]
+  },
+  "template:yp1-transicion-flechas-1": {
+   "name": "트랜지션: 왼쪽으로 가는 빨강, 흰색, 검정 쉐브론",
+   "tags": [
+    "youtube",
+    "빨강",
+    "트랜지션",
+    "화살표",
+    "유튜브"
+   ]
+  },
+  "template:yp1-transicion-flechas-2": {
+   "name": "트랜지션: 아래로 가는 빨강, 흰색, 검정 쉐브론",
+   "tags": [
+    "youtube",
+    "빨강",
+    "트랜지션",
+    "화살표",
+    "유튜브"
+   ]
+  },
+  "template:yp1-transicion-flechas-3": {
+   "name": "트랜지션: 위로 가는 빨강, 흰색, 검정 쉐브론",
+   "tags": [
+    "youtube",
+    "빨강",
+    "트랜지션",
+    "화살표",
+    "유튜브"
+   ]
+  },
+  "template:yp1-transicion-flechas-4": {
+   "name": "트랜지션: 오른쪽으로 가는 빨강, 흰색, 검정 쉐브론",
+   "tags": [
+    "youtube",
+    "빨강",
+    "트랜지션",
+    "화살표",
+    "유튜브"
+   ]
+  },
+  "template:yp1-transicion-hexagono": {
+   "name": "트랜지션: 열리는 빨강, 흰색, 검정 육각형",
+   "tags": [
+    "youtube",
+    "빨강",
+    "트랜지션",
+    "도형",
+    "육각형",
+    "유튜브"
+   ]
+  },
+  "template:yp1-transicion-remolino": {
+   "name": "트랜지션: 빨강과 흰색 소용돌이",
+   "tags": [
+    "youtube",
+    "빨강",
+    "트랜지션",
+    "액체",
+    "유튜브"
+   ]
+  },
+  "template:yp1-trazo-rojo": {
+   "name": "빨간 물결 선이 있는 세 줄 제목",
+   "tags": [
+    "youtube",
+    "빨강",
+    "타이틀",
+    "스트로크",
+    "유튜브"
+   ]
+  },
+  "template:yp1-ver-siguiente-caja": {
+   "name": "제목: 흰 박스 속 다음 영상 보기",
+   "tags": [
+    "youtube",
+    "빨강",
+    "타이틀",
+    "심플",
+    "박스",
+    "유튜브"
+   ]
+  },
+  "template:yp1-ver-siguiente-dos-colores": {
+   "name": "제목: 흰색과 빨간색 박스 속 다음 영상 보기",
+   "tags": [
+    "youtube",
+    "빨강",
+    "타이틀",
+    "심플",
+    "박스",
+    "유튜브"
+   ]
+  },
+  "template:yp2-apertura": {
+   "name": "오프닝: 유튜브 버튼이 있는 빨강과 흰색 링",
+   "tags": [
+    "youtube",
+    "빨강",
+    "오프닝",
+    "로고",
+    "링",
+    "유튜브"
+   ]
+  },
+  "template:yp2-aro-canal": {
+   "name": "CHANNEL로 열리는 빨강과 흰색 링",
+   "tags": [
+    "youtube",
+    "빨강",
+    "링",
+    "로고",
+    "채널",
+    "유튜브"
+   ]
+  },
+  "template:yp2-barra-15k": {
+   "name": "바: 좋아요와 구독",
+   "tags": [
+    "youtube",
+    "빨강",
+    "구독",
+    "바",
+    "유튜브"
+   ]
+  },
+  "template:yp2-barra-campana": {
+   "name": "바: 좋아요, 구독, 알림 벨",
+   "tags": [
+    "youtube",
+    "빨강",
+    "구독",
+    "바",
+    "유튜브"
+   ]
+  },
+  "template:yp2-barra-canal": {
+   "name": "사진과 구독이 있는 채널 바",
+   "tags": [
+    "youtube",
+    "빨강",
+    "구독",
+    "바",
+    "유튜브"
+   ]
+  },
+  "template:yp2-barra-contadores": {
+   "name": "바: 좋아요, 카운트, 구독",
+   "tags": [
+    "youtube",
+    "빨강",
+    "구독",
+    "바",
+    "유튜브"
+   ]
+  },
+  "template:yp2-barra-simple": {
+   "name": "바: 좋아요, 싫어요, 구독",
+   "tags": [
+    "youtube",
+    "빨강",
+    "구독",
+    "바",
+    "유튜브"
+   ]
+  },
+  "template:yp2-dos-tarjetas": {
+   "name": "카드: 구독과 좋아요",
+   "tags": [
+    "youtube",
+    "빨강",
+    "구독",
+    "좋아요",
+    "유튜브"
+   ]
+  },
+  "template:yp2-icono-aro-blanco": {
+   "name": "아이콘: 터지는 흰색 링",
+   "tags": [
+    "youtube",
+    "빨강",
+    "아이콘",
+    "애니메이션",
+    "유튜브"
+   ]
+  },
+  "template:yp2-icono-aro-rojo": {
+   "name": "아이콘: 터지는 빨간 링",
+   "tags": [
+    "youtube",
+    "빨강",
+    "아이콘",
+    "애니메이션",
+    "유튜브"
+   ]
+  },
+  "template:yp2-icono-buscador": {
+   "name": "아이콘: 스스로 그려지는 검색창",
+   "tags": [
+    "youtube",
+    "빨강",
+    "아이콘",
+    "애니메이션",
+    "유튜브"
+   ]
+  },
+  "template:yp2-icono-campana": {
+   "name": "아이콘: 빨갛게 울리는 알림 벨",
+   "tags": [
+    "youtube",
+    "빨강",
+    "아이콘",
+    "애니메이션",
+    "유튜브"
+   ]
+  },
+  "template:yp2-icono-cargando": {
+   "name": "아이콘: 도는 로딩 점",
+   "tags": [
+    "youtube",
+    "빨강",
+    "아이콘",
+    "애니메이션",
+    "유튜브"
+   ]
+  },
+  "template:yp2-icono-cursor": {
+   "name": "아이콘: 클릭하는 포인터",
+   "tags": [
+    "youtube",
+    "빨강",
+    "아이콘",
+    "애니메이션",
+    "유튜브"
+   ]
+  },
+  "template:yp2-icono-destello": {
+   "name": "아이콘: 터지는 선",
+   "tags": [
+    "youtube",
+    "빨강",
+    "아이콘",
+    "애니메이션",
+    "유튜브"
+   ]
+  },
+  "template:yp2-icono-flecha": {
+   "name": "아이콘: 아래를 가리키는 화살표",
+   "tags": [
+    "youtube",
+    "빨강",
+    "아이콘",
+    "애니메이션",
+    "유튜브"
+   ]
+  },
+  "template:yp2-icono-me-gusta": {
+   "name": "아이콘: 빨갛게 변하는 좋아요",
+   "tags": [
+    "youtube",
+    "빨강",
+    "아이콘",
+    "애니메이션",
+    "유튜브"
+   ]
+  },
+  "template:yp2-pagina-video": {
+   "name": "시청 페이지: 구독과 알림 벨",
+   "tags": [
+    "youtube",
+    "빨강",
+    "구독",
+    "페이지",
+    "유튜브"
+   ]
+  },
+  "template:yp2-redes-barras": {
+   "name": "소셜 미디어: 아이콘이 있는 12개 바",
+   "tags": [
+    "youtube",
+    "빨강",
+    "소셜",
+    "바",
+    "아이콘",
+    "유튜브"
+   ]
+  },
+  "template:yp2-redes-iconos": {
+   "name": "소셜 미디어: 검색창이 있는 6개 아이콘",
+   "tags": [
+    "youtube",
+    "빨강",
+    "소셜",
+    "아이콘",
+    "검색창",
+    "유튜브"
+   ]
+  },
+  "template:yp2-siguiente-barra": {
+   "name": "엔드 스크린: 빨간 바가 있는 다음 영상",
+   "tags": [
+    "youtube",
+    "빨강",
+    "엔드 스크린",
+    "다음 영상",
+    "유튜브"
+   ]
+  },
+  "template:yp2-siguiente-onda": {
+   "name": "엔드 스크린: 빨간 물결이 있는 다음 영상",
+   "tags": [
+    "youtube",
+    "빨강",
+    "엔드 스크린",
+    "다음 영상",
+    "유튜브"
+   ]
+  },
+  "template:yp2-tarjeta-canal": {
+   "name": "사진과 로고가 있는 채널 카드",
+   "tags": [
+    "youtube",
+    "빨강",
+    "채널",
+    "로고",
+    "사진",
+    "유튜브"
+   ]
+  },
+  "template:yp2-tarjeta-video": {
+   "name": "영상 카드: 구독과 알림 벨",
+   "tags": [
+    "youtube",
+    "빨강",
+    "구독",
+    "카드",
+    "유튜브"
+   ]
+  },
+  "template:yp2-titulo-animation": {
+   "name": "커지는 빨간 박스 속 제목",
+   "tags": [
+    "youtube",
+    "빨강",
+    "타이틀",
+    "태그",
+    "유튜브"
+   ]
+  },
+  "template:yp2-titulo-best": {
+   "name": "태그와 미끄러지는 단어가 있는 제목",
+   "tags": [
+    "youtube",
+    "빨강",
+    "타이틀",
+    "태그",
+    "유튜브"
+   ]
+  },
+  "template:yp2-titulo-brand": {
+   "name": "빨간 선이 있는 큰 제목",
+   "tags": [
+    "youtube",
+    "빨강",
+    "타이틀",
+    "태그",
+    "유튜브"
+   ]
+  },
+  "template:yp2-titulo-clean": {
+   "name": "두 빨간 선 사이의 제목",
+   "tags": [
+    "youtube",
+    "빨강",
+    "타이틀",
+    "태그",
+    "유튜브"
+   ]
+  },
+  "template:yp2-titulo-just-edit": {
+   "name": "프레임 속 제목과 아래 단어",
+   "tags": [
+    "youtube",
+    "빨강",
+    "타이틀",
+    "태그",
+    "유튜브"
+   ]
+  },
+  "template:yp2-titulo-motion-design": {
+   "name": "빨간 태그가 있는 제목",
+   "tags": [
+    "youtube",
+    "빨강",
+    "타이틀",
+    "태그",
+    "유튜브"
+   ]
+  },
+  "template:yp2-titulo-new-project": {
+   "name": "빨간 바가 걷어내는 제목",
+   "tags": [
+    "youtube",
+    "빨강",
+    "타이틀",
+    "태그",
+    "유튜브"
+   ]
+  },
+  "template:yp2-titulo-rendering": {
+   "name": "떨어지는 빨간 선 아래의 제목",
+   "tags": [
+    "youtube",
+    "빨강",
+    "타이틀",
+    "태그",
+    "유튜브"
+   ]
+  },
+  "template:yp2-titulo-simple": {
+   "name": "빨간 사각형에서 미끄러져 나오는 제목",
+   "tags": [
+    "youtube",
+    "빨강",
+    "타이틀",
+    "태그",
+    "유튜브"
+   ]
+  },
+  "template:yp2-titulo-your-channel": {
+   "name": "빨간 프레임 속 제목",
+   "tags": [
+    "youtube",
+    "빨강",
+    "타이틀",
+    "태그",
+    "유튜브"
+   ]
+  },
+  "template:yp2-transicion-diagonal": {
+   "name": "트랜지션: 빨강, 흰색, 회색 대각선 바",
+   "tags": [
+    "youtube",
+    "빨강",
+    "트랜지션",
+    "대각선",
+    "유튜브"
+   ]
+  },
+  "template:yp2-transicion-franjas": {
+   "name": "트랜지션: 도는 빨강과 흰색 줄무늬",
+   "tags": [
+    "youtube",
+    "빨강",
+    "트랜지션",
+    "줄무늬",
+    "유튜브"
+   ]
+  },
+  "template:yp3-avatar-cadena": {
+   "name": "버튼: 좋아요와 알림 벨이 이어진 아바타",
+   "tags": [
+    "youtube",
+    "구독",
+    "버튼",
+    "아바타",
+    "좋아요",
+    "알림 벨"
+   ]
+  },
+  "template:yp3-avatar-rojo": {
+   "name": "버튼: 빨간 구독이 있는 채널 아바타",
+   "tags": [
+    "youtube",
+    "구독",
+    "버튼",
+    "아바타",
+    "알림 벨",
+    "커서"
+   ]
+  },
+  "template:yp3-burbujas-rojas": {
+   "name": "버튼: 알림 벨, 아바타, 좋아요가 있는 빨간 버블",
+   "tags": [
+    "youtube",
+    "구독",
+    "버튼",
+    "아바타",
+    "알림 벨",
+    "좋아요"
+   ]
+  },
+  "template:yp3-caja-me-gusta-campana": {
+   "name": "버튼: 좋아요에서 알림 벨로 바뀌는 빨간 박스",
+   "tags": [
+    "youtube",
+    "구독",
+    "버튼",
+    "좋아요",
+    "알림 벨",
+    "3d"
+   ]
+  },
+  "template:yp3-caja-roja-campana": {
+   "name": "버튼: 알림 벨과 기울어진 \"구독 중\"이 있는 빨간 박스",
+   "tags": [
+    "youtube",
+    "구독",
+    "버튼",
+    "알림 벨",
+    "3d",
+    "유튜브"
+   ]
+  },
+  "template:yp3-campana-redonda": {
+   "name": "버튼: \"구독 중\"으로 바뀌는 둥근 알림 벨",
+   "tags": [
+    "youtube",
+    "구독",
+    "버튼",
+    "알림 벨",
+    "커서",
+    "유튜브"
+   ]
+  },
+  "template:yp3-final-anillos-blancos": {
+   "name": "엔드 스크린: 흰 링 위의 \"클릭하여 구독\"",
+   "tags": [
+    "youtube",
+    "엔드 스크린",
+    "구독",
+    "흰색",
+    "분홍",
+    "유튜브"
+   ]
+  },
+  "template:yp3-final-aro-degradado": {
+   "name": "엔드 스크린: 검은 바탕의 그라데이션 링",
+   "tags": [
+    "youtube",
+    "엔드 스크린",
+    "구독",
+    "검정",
+    "그라데이션",
+    "소셜"
+   ]
+  },
+  "template:yp3-final-banda-azul": {
+   "name": "엔드 스크린: 사진 위 파란 밴드와 영상 두 개",
+   "tags": [
+    "youtube",
+    "엔드 스크린",
+    "구독",
+    "파랑",
+    "사진",
+    "유튜브"
+   ]
+  },
+  "template:yp3-final-capsula-turquesa": {
+   "name": "엔드 스크린: 영상 두 개가 있는 청록 캡슐",
+   "tags": [
+    "youtube",
+    "엔드 스크린",
+    "구독",
+    "청록",
+    "좋아요",
+    "알림 벨"
+   ]
+  },
+  "template:yp3-final-gris": {
+   "name": "엔드 스크린: 영상 두 개와 아바타가 있는 연회색",
+   "tags": [
+    "youtube",
+    "엔드 스크린",
+    "구독",
+    "회색",
+    "뉴모피즘",
+    "유튜브"
+   ]
+  },
+  "template:yp3-final-hexagono": {
+   "name": "엔드 스크린: \"클릭하여 구독\"이 있는 그라데이션 육각형",
+   "tags": [
+    "youtube",
+    "엔드 스크린",
+    "구독",
+    "육각형",
+    "그라데이션",
+    "소셜"
+   ]
+  },
+  "template:yp3-final-manchas-rojas": {
+   "name": "엔드 스크린: 아바타와 다음 영상이 있는 빨간 얼룩",
+   "tags": [
+    "youtube",
+    "엔드 스크린",
+    "구독",
+    "빨강",
+    "소셜",
+    "유튜브"
+   ]
+  },
+  "template:yp3-final-no-olvides": {
+   "name": "엔드 스크린: 파란 사선과 \"구독을 잊지 마세요\"",
+   "tags": [
+    "youtube",
+    "엔드 스크린",
+    "구독",
+    "파랑",
+    "사진",
+    "소셜"
+   ]
+  },
+  "template:yp3-final-olas-turquesa": {
+   "name": "엔드 스크린: 추천 영상이 있는 청록 물결",
+   "tags": [
+    "youtube",
+    "엔드 스크린",
+    "구독",
+    "청록",
+    "물결",
+    "유튜브"
+   ]
+  },
+  "template:yp3-final-rosa": {
+   "name": "엔드 스크린: 분홍 \"시청해 주셔서 감사합니다!\"",
+   "tags": [
+    "youtube",
+    "엔드 스크린",
+    "구독",
+    "분홍",
+    "소셜",
+    "유튜브"
+   ]
+  },
+  "template:yp3-final-rosa-siguiente": {
+   "name": "엔드 스크린: 블록이 있는 분홍 \"다음 영상\"",
+   "tags": [
+    "youtube",
+    "엔드 스크린",
+    "구독",
+    "분홍",
+    "블록",
+    "유튜브"
+   ]
+  },
+  "template:yp3-final-tarjeta-lila": {
+   "name": "엔드 스크린: 연보라 카드 \"구독을 잊지 마세요\"",
+   "tags": [
+    "youtube",
+    "엔드 스크린",
+    "구독",
+    "연보라",
+    "사진",
+    "유튜브"
+   ]
+  },
+  "template:yp3-final-tarjeta-morada": {
+   "name": "엔드 스크린: 영상 두 개가 있는 보라 카드",
+   "tags": [
+    "youtube",
+    "엔드 스크린",
+    "구독",
+    "보라",
+    "유튜브"
+   ]
+  },
+  "template:yp3-me-gusta-redondo": {
+   "name": "버튼: \"좋아요 누름\"과 \"구독 중\"이 있는 둥근 좋아요와 알림 벨",
+   "tags": [
+    "youtube",
+    "구독",
+    "버튼",
+    "좋아요",
+    "알림 벨",
+    "커서"
+   ]
+  },
+  "template:yp3-pestana-degradado": {
+   "name": "버튼: 아바타가 있는 분홍과 보라 탭",
+   "tags": [
+    "youtube",
+    "구독",
+    "버튼",
+    "아바타",
+    "그라데이션",
+    "유튜브"
+   ]
+  },
+  "template:yp3-pildora-burbujas": {
+   "name": "버튼: 아바타가 있는 그라데이션 버블 알약",
+   "tags": [
+    "youtube",
+    "구독",
+    "버튼",
+    "아바타",
+    "그라데이션",
+    "좋아요"
+   ]
+  },
+  "template:yp3-pildora-degradado": {
+   "name": "버튼: 그라데이션 알림 벨이 있는 흰 알약",
+   "tags": [
+    "youtube",
+    "구독",
+    "버튼",
+    "알림 벨",
+    "커서",
+    "그라데이션"
+   ]
+  },
+  "template:yp3-play-contorno": {
+   "name": "버튼: 뒤집히며 \"구독 중\"이 되는 흰 재생 아이콘",
+   "tags": [
+    "youtube",
+    "구독",
+    "버튼",
+    "커서",
+    "흰색",
+    "3d"
+   ]
+  },
+  "template:yp3-suscribirse-rojo": {
+   "name": "버튼: 좋아요와 알림 벨이 있는 빨간 구독",
+   "tags": [
+    "youtube",
+    "구독",
+    "버튼",
+    "좋아요",
+    "알림 벨",
+    "커서"
+   ]
+  },
+  "template:yp3-tarjeta-blanca": {
+   "name": "버튼: 아바타와 좋아요가 있는 흰 카드",
+   "tags": [
+    "youtube",
+    "구독",
+    "버튼",
+    "좋아요",
+    "아바타",
+    "3d"
+   ]
+  },
+  "template:yp4-bienvenida": {
+   "name": "스토리: 빨강과 검정 원반의 환영",
+   "tags": [
+    "스토리",
+    "youtube",
+    "세로",
+    "환영",
+    "원",
+    "유튜브"
+   ]
+  },
+  "template:yp4-canal": {
+   "name": "스토리: 재생 버튼이 있는 CHANNEL",
+   "tags": [
+    "스토리",
+    "youtube",
+    "세로",
+    "채널",
+    "유튜브"
+   ]
+  },
+  "template:yp4-contador": {
+   "name": "스토리: 사진과 노란 프레임이 있는 2/6",
+   "tags": [
+    "스토리",
+    "youtube",
+    "세로",
+    "사진",
+    "노랑",
+    "카운터"
+   ]
+  },
+  "template:yp4-derechos": {
+   "name": "스토리: 노란 바탕의 흰 원",
+   "tags": [
+    "스토리",
+    "youtube",
+    "세로",
+    "노랑",
+    "원",
+    "유튜브"
+   ]
+  },
+  "template:yp4-fundamentos": {
+   "name": "스토리: 사진 위 기울어진 빨간 라벨",
+   "tags": [
+    "스토리",
+    "youtube",
+    "세로",
+    "사진",
+    "태그",
+    "유튜브"
+   ]
+  },
+  "template:yp4-gracias": {
+   "name": "스토리: 사진 두 장과 이름이 있는 감사",
+   "tags": [
+    "스토리",
+    "youtube",
+    "세로",
+    "사진",
+    "감사",
+    "유튜브"
+   ]
+  },
+  "template:yp4-love": {
+   "name": "스토리: 구독 카드가 있는 러브",
+   "tags": [
+    "스토리",
+    "youtube",
+    "세로",
+    "사진",
+    "구독",
+    "유튜브"
+   ]
+  },
+  "template:yp4-mi-plan": {
+   "name": "스토리: 목록과 라벨이 있는 나의 계획",
+   "tags": [
+    "스토리",
+    "youtube",
+    "세로",
+    "사진",
+    "목록",
+    "유튜브"
+   ]
+  },
+  "template:yp4-nombre-blanco": {
+   "name": "스토리: 흰 바탕의 둥근 사진과 이름",
+   "tags": [
+    "스토리",
+    "youtube",
+    "세로",
+    "사진",
+    "이름",
+    "유튜브"
+   ]
+  },
+  "template:yp4-nombre-circulo": {
+   "name": "스토리: 둥근 사진 옆의 이름",
+   "tags": [
+    "스토리",
+    "youtube",
+    "세로",
+    "사진",
+    "이름",
+    "유튜브"
+   ]
+  },
+  "template:yp4-numeros": {
+   "name": "스토리: 슬라이드 01과 02",
+   "tags": [
+    "스토리",
+    "youtube",
+    "세로",
+    "사진",
+    "숫자",
+    "유튜브"
+   ]
+  },
+  "template:yp4-por-ejemplo": {
+   "name": "스토리: 사진과 빨간 바탕의 노란 문구",
+   "tags": [
+    "스토리",
+    "youtube",
+    "세로",
+    "사진",
+    "문구",
+    "유튜브"
+   ]
+  },
+  "template:yp4-seguir": {
+   "name": "스토리: 소셜 카드가 있는 팔로우",
+   "tags": [
+    "스토리",
+    "youtube",
+    "세로",
+    "사진",
+    "팔로우",
+    "소셜"
+   ]
+  },
+  "template:yp4-siguiente": {
+   "name": "스토리: 다음과 시청이 있는 사진 두 장",
+   "tags": [
+    "스토리",
+    "youtube",
+    "세로",
+    "사진",
+    "다음",
+    "유튜브"
+   ]
+  },
+  "template:yp4-social-media": {
+   "name": "스토리: 나를 팔로우하는 소셜 미디어",
+   "tags": [
+    "스토리",
+    "youtube",
+    "세로",
+    "사진",
+    "팔로우",
+    "유튜브"
+   ]
+  },
+  "template:yp4-vlogger": {
+   "name": "스토리: 하트와 구독이 있는 VLOGGER",
+   "tags": [
+    "스토리",
+    "youtube",
+    "세로",
+    "사진",
+    "구독",
+    "하트"
+   ]
+  },
+  "template:yp5-avatar-cycle": {
+   "name": "로어서드: 아바타와 바뀌는 태그",
+   "tags": [
+    "youtube",
+    "아바타",
+    "좋아요",
+    "구독",
+    "유튜브"
+   ]
+  },
+  "template:yp5-best-show": {
+   "name": "로어서드: 버튼, 구분선, 두 줄",
+   "tags": [
+    "youtube",
+    "버튼",
+    "유튜브"
+   ]
+  },
+  "template:yp5-best-solution": {
+   "name": "타이틀: 프레임 속 흰색과 검정 박스",
+   "tags": [
+    "youtube",
+    "박스",
+    "프레임",
+    "유튜브"
+   ]
+  },
+  "template:yp5-best-video": {
+   "name": "타이틀: 빨간 선과 빨간 박스",
+   "tags": [
+    "youtube",
+    "빨강",
+    "유튜브"
+   ]
+  },
+  "template:yp5-big-live-story": {
+   "name": "로어서드: 아래로 확대되는 재생 버튼과 이름",
+   "tags": [
+    "youtube",
+    "버튼",
+    "구독",
+    "유튜브"
+   ]
+  },
+  "template:yp5-box-any-fonts": {
+   "name": "두 개의 가운데 박스 속 제목",
+   "tags": [
+    "youtube",
+    "박스",
+    "타이핑",
+    "유튜브"
+   ]
+  },
+  "template:yp5-box-auto-resized": {
+   "name": "타이핑하면 커지는 박스 제목",
+   "tags": [
+    "youtube",
+    "박스",
+    "타이핑",
+    "유튜브"
+   ]
+  },
+  "template:yp5-box-automatically": {
+   "name": "흰 박스와 검은 박스 속 제목",
+   "tags": [
+    "youtube",
+    "박스",
+    "타이핑",
+    "유튜브"
+   ]
+  },
+  "template:yp5-box-best-choice": {
+   "name": "검은 박스 세 개 속 제목",
+   "tags": [
+    "youtube",
+    "박스",
+    "타이핑",
+    "유튜브"
+   ]
+  },
+  "template:yp5-box-dont-forget": {
+   "name": "흰 박스 세 개에 가운데 정렬된 제목",
+   "tags": [
+    "youtube",
+    "박스",
+    "구독",
+    "유튜브"
+   ]
+  },
+  "template:yp5-box-enjoy": {
+   "name": "흰 윤곽선 박스 속 제목",
+   "tags": [
+    "youtube",
+    "박스",
+    "윤곽선",
+    "유튜브"
+   ]
+  },
+  "template:yp5-box-great-design": {
+   "name": "흰 박스 두 개 속 제목",
+   "tags": [
+    "youtube",
+    "박스",
+    "타이핑",
+    "유튜브"
+   ]
+  },
+  "template:yp5-box-like-that": {
+   "name": "가운데에서 열리는 박스 속 제목",
+   "tags": [
+    "youtube",
+    "박스",
+    "구독",
+    "유튜브"
+   ]
+  },
+  "template:yp5-box-motion-design": {
+   "name": "비스듬한 흰 박스 속 제목",
+   "tags": [
+    "youtube",
+    "박스",
+    "기울임",
+    "유튜브"
+   ]
+  },
+  "template:yp5-box-thank-support": {
+   "name": "타이틀: 흰 박스로 열리는 선",
+   "tags": [
+    "youtube",
+    "박스",
+    "유튜브"
+   ]
+  },
+  "template:yp5-box-we-created": {
+   "name": "타이핑되는 검은 박스 세 개 속 제목",
+   "tags": [
+    "youtube",
+    "박스",
+    "타이핑",
+    "유튜브"
+   ]
+  },
+  "template:yp5-box-write-text": {
+   "name": "윤곽선 박스 하나 속 제목",
+   "tags": [
+    "youtube",
+    "박스",
+    "타이핑",
+    "유튜브"
+   ]
+  },
+  "template:yp5-bubble-swap": {
+   "name": "로어서드: 좋아요에서 구독으로 바뀌는 빨간 버블",
+   "tags": [
+    "youtube",
+    "좋아요",
+    "구독",
+    "말풍선",
+    "유튜브"
+   ]
+  },
+  "template:yp5-callout-brand": {
+   "name": "콜아웃: 브랜드와 가격",
+   "tags": [
+    "youtube",
+    "콜아웃",
+    "가격",
+    "유튜브"
+   ]
+  },
+  "template:yp5-callout-creative": {
+   "name": "콜아웃: 점선과 박스 두 개",
+   "tags": [
+    "youtube",
+    "콜아웃",
+    "빨강",
+    "유튜브"
+   ]
+  },
+  "template:yp5-callout-elbow": {
+   "name": "콜아웃: 꺾인 선과 빨간 텍스트 박스",
+   "tags": [
+    "youtube",
+    "콜아웃",
+    "빨강",
+    "유튜브"
+   ]
+  },
+  "template:yp5-callout-headline": {
+   "name": "콜아웃: 빨간 헤드라인과 검은 박스",
+   "tags": [
+    "youtube",
+    "콜아웃",
+    "빨강",
+    "유튜브"
+   ]
+  },
+  "template:yp5-callout-line-up": {
+   "name": "콜아웃: 검은 박스로 올라가는 선",
+   "tags": [
+    "youtube",
+    "콜아웃",
+    "유튜브"
+   ]
+  },
+  "template:yp5-callout-outline": {
+   "name": "점과 텍스트가 있는 콜아웃 선",
+   "tags": [
+    "youtube",
+    "콜아웃",
+    "유튜브"
+   ]
+  },
+  "template:yp5-callout-product": {
+   "name": "콜아웃: 선과 제품 프레임",
+   "tags": [
+    "youtube",
+    "콜아웃",
+    "제품",
+    "유튜브"
+   ]
+  },
+  "template:yp5-callout-red-box": {
+   "name": "빨간 박스가 있는 콜아웃 선",
+   "tags": [
+    "youtube",
+    "콜아웃",
+    "빨강",
+    "유튜브"
+   ]
+  },
+  "template:yp5-callout-red-line": {
+   "name": "콜아웃: 빨간 선과 빨간 박스",
+   "tags": [
+    "youtube",
+    "콜아웃",
+    "빨강",
+    "유튜브"
+   ]
+  },
+  "template:yp5-callout-title-bar": {
+   "name": "콜아웃: 빨간 바와 제목",
+   "tags": [
+    "youtube",
+    "콜아웃",
+    "빨강",
+    "유튜브"
+   ]
+  },
+  "template:yp5-channel-name": {
+   "name": "로어서드: 줄무늬가 있는 기울어진 채널 이름",
+   "tags": [
+    "youtube",
+    "버튼",
+    "줄무늬",
+    "유튜브"
+   ]
+  },
+  "template:yp5-clean-modern": {
+   "name": "로어서드: 알약 속 숫자와 텍스트",
+   "tags": [
+    "youtube",
+    "숫자",
+    "알약",
+    "유튜브"
+   ]
+  },
+  "template:yp5-clean-titles": {
+   "name": "타이틀: 흰 프레임 속 네 줄",
+   "tags": [
+    "youtube",
+    "프레임",
+    "유튜브"
+   ]
+  },
+  "template:yp5-click-channel": {
+   "name": "로어서드: 버튼 클릭과 빨간 바",
+   "tags": [
+    "youtube",
+    "버튼",
+    "클릭",
+    "유튜브"
+   ]
+  },
+  "template:yp5-counter-bubbles": {
+   "name": "카운터: 알림 버블",
+   "tags": [
+    "youtube",
+    "카운터",
+    "좋아요",
+    "유튜브"
+   ]
+  },
+  "template:yp5-counter-heart": {
+   "name": "하트가 있는 좋아요 카운터",
+   "tags": [
+    "youtube",
+    "카운터",
+    "좋아요",
+    "유튜브"
+   ]
+  },
+  "template:yp5-counter-link": {
+   "name": "설명란 링크",
+   "tags": [
+    "youtube",
+    "링크",
+    "유튜브"
+   ]
+  },
+  "template:yp5-counter-person": {
+   "name": "팔로워 카운터",
+   "tags": [
+    "youtube",
+    "카운터",
+    "유튜브"
+   ]
+  },
+  "template:yp5-counter-subscribers": {
+   "name": "구독자 카운터",
+   "tags": [
+    "youtube",
+    "카운터",
+    "구독",
+    "유튜브"
+   ]
+  },
+  "template:yp5-doodle-channel": {
+   "name": "로어서드: 흰 버튼, 빨간 바, 낙서",
+   "tags": [
+    "youtube",
+    "버튼",
+    "그림",
+    "유튜브"
+   ]
+  },
+  "template:yp5-end-big-arc": {
+   "name": "엔드 스크린: 큰 코랄 호와 영상 두 개",
+   "tags": [
+    "youtube",
+    "감사",
+    "코랄",
+    "유튜브"
+   ]
+  },
+  "template:yp5-end-circle": {
+   "name": "엔드 스크린: 코랄 반원과 추천 영상",
+   "tags": [
+    "youtube",
+    "감사",
+    "코랄",
+    "유튜브"
+   ]
+  },
+  "template:yp5-end-coral": {
+   "name": "코랄 엔드 스크린: 아바타, 영상 두 개, 소셜",
+   "tags": [
+    "youtube",
+    "감사",
+    "코랄",
+    "유튜브"
+   ]
+  },
+  "template:yp5-end-coral-column": {
+   "name": "코랄 엔드 스크린: 영상 두 개, 소셜, 아바타",
+   "tags": [
+    "youtube",
+    "감사",
+    "코랄",
+    "유튜브"
+   ]
+  },
+  "template:yp5-end-diagonal": {
+   "name": "엔드 스크린: 비스듬한 코랄 패널과 다음 영상",
+   "tags": [
+    "youtube",
+    "감사",
+    "코랄",
+    "유튜브"
+   ]
+  },
+  "template:yp5-end-side-panel": {
+   "name": "엔드 스크린: 코랄 패널과 영상 두 개",
+   "tags": [
+    "youtube",
+    "감사",
+    "코랄",
+    "유튜브"
+   ]
+  },
+  "template:yp5-end-subscribe-arrow": {
+   "name": "엔드 스크린: 추천 영상과 큰 SUBSCRIBE",
+   "tags": [
+    "youtube",
+    "감사",
+    "구독",
+    "유튜브"
+   ]
+  },
+  "template:yp5-end-white-arrow": {
+   "name": "엔드 스크린: 빨간 화살표가 있는 흰 삼각형",
+   "tags": [
+    "youtube",
+    "감사",
+    "화살표",
+    "유튜브"
+   ]
+  },
+  "template:yp5-end-white-band": {
+   "name": "엔드 스크린: 영상 두 개가 있는 흰 밴드",
+   "tags": [
+    "youtube",
+    "감사",
+    "흰색",
+    "유튜브"
+   ]
+  },
+  "template:yp5-end-white-curve": {
+   "name": "엔드 스크린: 곡선 흰 패널과 영상 두 개",
+   "tags": [
+    "youtube",
+    "감사",
+    "흰색",
+    "유튜브"
+   ]
+  },
+  "template:yp5-good-design": {
+   "name": "타이틀: 단어별로 나타나는 세 줄",
+   "tags": [
+    "youtube",
+    "미니멀",
+    "유튜브"
+   ]
+  },
+  "template:yp5-hello-welcome": {
+   "name": "타이틀: HELLO! 제 채널에 오신 것을 환영합니다",
+   "tags": [
+    "youtube",
+    "환영",
+    "코랄",
+    "유튜브"
+   ]
+  },
+  "template:yp5-how-do-i": {
+   "name": "로어서드: 흰 박스 속 질문",
+   "tags": [
+    "youtube",
+    "박스",
+    "흰색",
+    "유튜브"
+   ]
+  },
+  "template:yp5-like-card": {
+   "name": "로어서드: 좋아요, 구독, 알림",
+   "tags": [
+    "youtube",
+    "좋아요",
+    "구독",
+    "알림 벨",
+    "유튜브"
+   ]
+  },
+  "template:yp5-like-column": {
+   "name": "로어서드: 태그 세 개가 있는 빨간 열",
+   "tags": [
+    "youtube",
+    "좋아요",
+    "구독",
+    "알림 벨",
+    "유튜브"
+   ]
+  },
+  "template:yp5-like-hand": {
+   "name": "로어서드: 손으로 누르는 영상 좋아요",
+   "tags": [
+    "youtube",
+    "좋아요",
+    "유튜브"
+   ]
+  },
+  "template:yp5-modern-titles": {
+   "name": "타이틀: 흰 프레임과 세 줄",
+   "tags": [
+    "youtube",
+    "프레임",
+    "유튜브"
+   ]
+  },
+  "template:yp5-modern-universal": {
+   "name": "로어서드: 세 줄과 선",
+   "tags": [
+    "youtube",
+    "미니멀",
+    "유튜브"
+   ]
+  },
+  "template:yp5-name-bar": {
+   "name": "로어서드: 흰 바와 미끄러져 나오는 이름",
+   "tags": [
+    "youtube",
+    "이름",
+    "바",
+    "유튜브"
+   ]
+  },
+  "template:yp5-name-red-box": {
+   "name": "로어서드: 빨간 박스 속 이름",
+   "tags": [
+    "youtube",
+    "이름",
+    "빨강",
+    "유튜브"
+   ]
+  },
+  "template:yp5-name-square-line": {
+   "name": "로어서드: 작은 사각형, 선, 이름",
+   "tags": [
+    "youtube",
+    "이름",
+    "선",
+    "유튜브"
+   ]
+  },
+  "template:yp5-name-white-box": {
+   "name": "로어서드: 흰 박스에 타이핑되는 이름",
+   "tags": [
+    "youtube",
+    "이름",
+    "박스",
+    "유튜브"
+   ]
+  },
+  "template:yp5-new-video": {
+   "name": "로어서드: 검은 바 속 새 영상",
+   "tags": [
+    "youtube",
+    "바",
+    "검정",
+    "유튜브"
+   ]
+  },
+  "template:yp5-notify-bell": {
+   "name": "로어서드: 울리는 알림 벨이 있는 알림",
+   "tags": [
+    "youtube",
+    "알림 벨",
+    "유튜브"
+   ]
+  },
+  "template:yp5-opener-boxes": {
+   "name": "빨간 오프너: 검은 박스 속 이름",
+   "tags": [
+    "youtube",
+    "빨강",
+    "박스",
+    "유튜브"
+   ]
+  },
+  "template:yp5-opener-divider": {
+   "name": "빨간 오프너: 버튼, 구분선, 이름",
+   "tags": [
+    "youtube",
+    "빨강",
+    "구독",
+    "유튜브"
+   ]
+  },
+  "template:yp5-opener-fade": {
+   "name": "빨간 오프너: 버튼과 서서히 나타나는 이름",
+   "tags": [
+    "youtube",
+    "빨강",
+    "유튜브"
+   ]
+  },
+  "template:yp5-opener-flip": {
+   "name": "빨간 오프너: 뒤집히는 버튼과 이름",
+   "tags": [
+    "youtube",
+    "빨강",
+    "물결",
+    "유튜브"
+   ]
+  },
+  "template:yp5-opener-typed": {
+   "name": "빨간 오프너: 타이핑되는 이름",
+   "tags": [
+    "youtube",
+    "빨강",
+    "타이핑",
+    "유튜브"
+   ]
+  },
+  "template:yp5-profile-card": {
+   "name": "로어서드: 아바타가 있는 흰 카드",
+   "tags": [
+    "youtube",
+    "아바타",
+    "구독",
+    "유튜브"
+   ]
+  },
+  "template:yp5-promo-pack": {
+   "name": "타이틀: 검은 박스 속 YOUTUBE PROMO",
+   "tags": [
+    "youtube",
+    "박스",
+    "검정",
+    "유튜브"
+   ]
+  },
+  "template:yp5-quote-black-frame": {
+   "name": "태그가 있는 검은 프레임 속 인용구",
+   "tags": [
+    "youtube",
+    "인용구",
+    "프레임",
+    "유튜브"
+   ]
+  },
+  "template:yp5-quote-brackets": {
+   "name": "두 모서리 사이의 인용구",
+   "tags": [
+    "youtube",
+    "인용구",
+    "유튜브"
+   ]
+  },
+  "template:yp5-quote-bubble": {
+   "name": "말풍선 속 인용구",
+   "tags": [
+    "youtube",
+    "인용구",
+    "말풍선",
+    "유튜브"
+   ]
+  },
+  "template:yp5-quote-centred": {
+   "name": "흰 태그가 있는 가운데 인용구",
+   "tags": [
+    "youtube",
+    "인용구",
+    "유튜브"
+   ]
+  },
+  "template:yp5-quote-corners": {
+   "name": "두 흰 모서리 사이의 인용구",
+   "tags": [
+    "youtube",
+    "인용구",
+    "유튜브"
+   ]
+  },
+  "template:yp5-quote-frame": {
+   "name": "검은 태그가 있는 프레임 속 인용구",
+   "tags": [
+    "youtube",
+    "인용구",
+    "프레임",
+    "유튜브"
+   ]
+  },
+  "template:yp5-quote-line": {
+   "name": "인용구: 세로선과 박스 속 따옴표",
+   "tags": [
+    "youtube",
+    "인용구",
+    "유튜브"
+   ]
+  },
+  "template:yp5-quote-split-bar": {
+   "name": "두 바 사이로 열리는 인용구",
+   "tags": [
+    "youtube",
+    "인용구",
+    "유튜브"
+   ]
+  },
+  "template:yp5-quote-two-lines": {
+   "name": "두 선 사이의 인용구",
+   "tags": [
+    "youtube",
+    "인용구",
+    "유튜브"
+   ]
+  },
+  "template:yp5-quote-white-box": {
+   "name": "검은 따옴표가 있는 흰 박스 속 인용구",
+   "tags": [
+    "youtube",
+    "인용구",
+    "박스",
+    "유튜브"
+   ]
+  },
+  "template:yp5-record-iris": {
+   "name": "트랜지션: 열리는 레코드 원",
+   "tags": [
+    "youtube",
+    "트랜지션",
+    "원",
+    "유튜브"
+   ]
+  },
+  "template:yp5-social-baldosa-fb": {
+   "name": "소셜 바: 페이스북 (날아오는 타일)",
+   "tags": [
+    "youtube",
+    "소셜",
+    "페이스북",
+    "유튜브"
+   ]
+  },
+  "template:yp5-social-baldosa-ig": {
+   "name": "소셜 바: 인스타그램 (날아오는 타일)",
+   "tags": [
+    "youtube",
+    "소셜",
+    "인스타그램",
+    "유튜브"
+   ]
+  },
+  "template:yp5-social-baldosa-tw": {
+   "name": "소셜 바: 트위터 (날아오는 타일)",
+   "tags": [
+    "youtube",
+    "소셜",
+    "트위터",
+    "유튜브"
+   ]
+  },
+  "template:yp5-social-baldosa-yt": {
+   "name": "소셜 바: 유튜브 (날아오는 타일)",
+   "tags": [
+    "youtube",
+    "소셜",
+    "유튜브"
+   ]
+  },
+  "template:yp5-social-barras-fb": {
+   "name": "소셜 바: 페이스북 (열리는 두 바)",
+   "tags": [
+    "youtube",
+    "소셜",
+    "페이스북",
+    "유튜브"
+   ]
+  },
+  "template:yp5-social-barras-ig": {
+   "name": "소셜 바: 인스타그램 (열리는 두 바)",
+   "tags": [
+    "youtube",
+    "소셜",
+    "인스타그램",
+    "유튜브"
+   ]
+  },
+  "template:yp5-social-barras-tw": {
+   "name": "소셜 바: 트위터 (열리는 두 바)",
+   "tags": [
+    "youtube",
+    "소셜",
+    "트위터",
+    "유튜브"
+   ]
+  },
+  "template:yp5-social-barras-yt": {
+   "name": "소셜 바: 유튜브 (열리는 두 바)",
+   "tags": [
+    "youtube",
+    "소셜",
+    "유튜브"
+   ]
+  },
+  "template:yp5-social-circulo-fb": {
+   "name": "소셜 바: 페이스북 (원과 알약)",
+   "tags": [
+    "youtube",
+    "소셜",
+    "페이스북",
+    "유튜브"
+   ]
+  },
+  "template:yp5-social-circulo-ig": {
+   "name": "소셜 바: 인스타그램 (원과 알약)",
+   "tags": [
+    "youtube",
+    "소셜",
+    "인스타그램",
+    "유튜브"
+   ]
+  },
+  "template:yp5-social-circulo-tw": {
+   "name": "소셜 바: 트위터 (원과 알약)",
+   "tags": [
+    "youtube",
+    "소셜",
+    "트위터",
+    "유튜브"
+   ]
+  },
+  "template:yp5-social-circulo-yt": {
+   "name": "소셜 바: 유튜브 (원과 알약)",
+   "tags": [
+    "youtube",
+    "소셜",
+    "유튜브"
+   ]
+  },
+  "template:yp5-social-cuadro-fb": {
+   "name": "소셜 바: 페이스북 (뒤집히는 타일)",
+   "tags": [
+    "youtube",
+    "소셜",
+    "페이스북",
+    "유튜브"
+   ]
+  },
+  "template:yp5-social-cuadro-ig": {
+   "name": "소셜 바: 인스타그램 (뒤집히는 타일)",
+   "tags": [
+    "youtube",
+    "소셜",
+    "인스타그램",
+    "유튜브"
+   ]
+  },
+  "template:yp5-social-cuadro-tw": {
+   "name": "소셜 바: 트위터 (뒤집히는 타일)",
+   "tags": [
+    "youtube",
+    "소셜",
+    "트위터",
+    "유튜브"
+   ]
+  },
+  "template:yp5-social-cuadro-yt": {
+   "name": "소셜 바: 유튜브 (뒤집히는 타일)",
+   "tags": [
+    "youtube",
+    "소셜",
+    "유튜브"
+   ]
+  },
+  "template:yp5-social-pincel-fb": {
+   "name": "소셜 바: 페이스북 (붓 터치)",
+   "tags": [
+    "youtube",
+    "소셜",
+    "페이스북",
+    "유튜브"
+   ]
+  },
+  "template:yp5-social-pincel-ig": {
+   "name": "소셜 바: 인스타그램 (붓 터치)",
+   "tags": [
+    "youtube",
+    "소셜",
+    "인스타그램",
+    "유튜브"
+   ]
+  },
+  "template:yp5-social-pincel-tw": {
+   "name": "소셜 바: 트위터 (붓 터치)",
+   "tags": [
+    "youtube",
+    "소셜",
+    "트위터",
+    "유튜브"
+   ]
+  },
+  "template:yp5-social-pincel-yt": {
+   "name": "소셜 바: 유튜브 (붓 터치)",
+   "tags": [
+    "youtube",
+    "소셜",
+    "유튜브"
+   ]
+  },
+  "template:yp5-stacked-channel": {
+   "name": "로어서드: 채팅 버블이 있는 세 줄 이름",
+   "tags": [
+    "youtube",
+    "말풍선",
+    "유튜브"
+   ]
+  },
+  "template:yp5-sub-avatar-pill": {
+   "name": "로어서드: 아바타와 클릭이 있는 구독",
+   "tags": [
+    "youtube",
+    "구독",
+    "아바타",
+    "클릭",
+    "유튜브"
+   ]
+  },
+  "template:yp5-sub-center-avatar": {
+   "name": "로어서드: 알약 가운데의 아바타",
+   "tags": [
+    "youtube",
+    "구독",
+    "아바타",
+    "유튜브"
+   ]
+  },
+  "template:yp5-sub-channel-tag": {
+   "name": "로어서드: 채널 이름이 있는 구독 중",
+   "tags": [
+    "youtube",
+    "구독",
+    "클릭",
+    "유튜브"
+   ]
+  },
+  "template:yp5-sub-grey-bell": {
+   "name": "로어서드: 회색으로 바뀌는 구독과 알림 벨",
+   "tags": [
+    "youtube",
+    "구독",
+    "알림 벨",
+    "클릭",
+    "유튜브"
+   ]
+  },
+  "template:yp5-sub-logo-box": {
+   "name": "로어서드: 흰 박스 속 로고와 구독",
+   "tags": [
+    "youtube",
+    "구독",
+    "버튼",
+    "유튜브"
+   ]
+  },
+  "template:yp5-sub-red-pill": {
+   "name": "로어서드: 구독으로 바뀌는 빨간 알약",
+   "tags": [
+    "youtube",
+    "구독",
+    "클릭",
+    "유튜브"
+   ]
+  },
+  "template:yp5-sub-red-white": {
+   "name": "로어서드: 구독 중으로 바뀌는 구독",
+   "tags": [
+    "youtube",
+    "구독",
+    "알림 벨",
+    "유튜브"
+   ]
+  },
+  "template:yp5-sub-stack": {
+   "name": "로어서드: 아바타와 빨간 태그 세 개",
+   "tags": [
+    "youtube",
+    "구독",
+    "아바타",
+    "유튜브"
+   ]
+  },
+  "template:yp5-subscribe-icon": {
+   "name": "로어서드: 도는 버튼이 있는 구독",
+   "tags": [
+    "youtube",
+    "구독",
+    "버튼",
+    "유튜브"
+   ]
+  },
+  "template:yp5-subscribe-now": {
+   "name": "타이틀: 글자별로 나타나는 지금 구독",
+   "tags": [
+    "youtube",
+    "구독",
+    "유튜브"
+   ]
+  },
+  "template:yp5-subscribe-to": {
+   "name": "타이틀: 흰 박스 속 구독",
+   "tags": [
+    "youtube",
+    "구독",
+    "박스",
+    "유튜브"
+   ]
+  },
+  "template:yp5-subscribed-click": {
+   "name": "로어서드: 클릭이 있는 빨간 구독 바",
+   "tags": [
+    "youtube",
+    "구독",
+    "클릭",
+    "유튜브"
+   ]
+  },
+  "template:yp5-thanks-watching": {
+   "name": "타이틀: 시청해 주셔서 감사합니다",
+   "tags": [
+    "youtube",
+    "감사",
+    "유튜브"
+   ]
+  },
+  "template:yp5-three-icons": {
+   "name": "로어서드: 켜지는 좋아요, 재생, 알림 벨",
+   "tags": [
+    "youtube",
+    "좋아요",
+    "알림 벨",
+    "유튜브"
+   ]
+  },
+  "template:yp5-three-pills": {
+   "name": "로어서드: 한 줄의 버튼 세 개",
+   "tags": [
+    "youtube",
+    "좋아요",
+    "구독",
+    "알림 벨",
+    "유튜브"
+   ]
+  },
+  "template:yp5-tilted-cycle": {
+   "name": "로어서드: 단어가 바뀌는 기울어진 태그",
+   "tags": [
+    "youtube",
+    "좋아요",
+    "구독",
+    "알림 벨",
+    "유튜브"
+   ]
+  },
+  "template:yp5-travel-blog": {
+   "name": "로어서드: 올라오는 버튼과 이름",
+   "tags": [
+    "youtube",
+    "버튼",
+    "유튜브"
+   ]
+  },
+  "template:yp5-triangle-box": {
+   "name": "로어서드: 흰 버튼으로 변하는 삼각형",
+   "tags": [
+    "youtube",
+    "버튼",
+    "흰색",
+    "유튜브"
+   ]
+  },
+  "template:yp5-watch-next": {
+   "name": "로어서드: 흰 박스 속 다음 영상 보기",
+   "tags": [
+    "youtube",
+    "박스",
+    "흰색",
+    "유튜브"
+   ]
+  },
+  "template:yp5-white-opener": {
+   "name": "오프너: 빨간 원반과 흰 바탕의 채널",
+   "tags": [
+    "youtube",
+    "원",
+    "아바타",
+    "유튜브"
+   ]
+  },
+  "template:yp5-your-channel-label": {
+   "name": "로어서드: 버튼과 반짝임이 있는 빨간 라벨",
+   "tags": [
+    "youtube",
+    "버튼",
+    "태그",
+    "유튜브"
+   ]
+  },
+  "template:yp7-apertura-cuadro-rojo": {
+   "name": "오프너: 빨간 사각형과 채널 카드",
+   "tags": [
+    "youtube",
+    "흑백",
+    "패션",
+    "로고",
+    "오프닝",
+    "유튜브"
+   ]
+  },
+  "template:yp7-apertura-foto-perfil": {
+   "name": "오프너: 프로필 사진으로 바뀌는 샷",
+   "tags": [
+    "youtube",
+    "흑백",
+    "패션",
+    "로고",
+    "오프닝",
+    "유튜브"
+   ]
+  },
+  "template:yp7-apertura-palabras": {
+   "name": "오프너: 검은색과 흰색 패널 위의 단어",
+   "tags": [
+    "youtube",
+    "흑백",
+    "패션",
+    "단어",
+    "오프닝",
+    "유튜브"
+   ]
+  },
+  "template:yp7-apertura-youtube": {
+   "name": "오프너: 채워지는 윤곽선 YOUTUBE",
+   "tags": [
+    "youtube",
+    "흑백",
+    "패션",
+    "오프닝",
+    "유튜브"
+   ]
+  },
+  "template:yp7-awesomeness": {
+   "name": "타이포그래피: 흰 프레임 속 단어",
+   "tags": [
+    "youtube",
+    "흑백",
+    "패션",
+    "타이포그래피",
+    "프레임",
+    "유튜브"
+   ]
+  },
+  "template:yp7-be-happy": {
+   "name": "타이포그래피: 정렬되며 색이 바뀌는 문구",
+   "tags": [
+    "youtube",
+    "흑백",
+    "패션",
+    "타이포그래피",
+    "문구",
+    "유튜브"
+   ]
+  },
+  "template:yp7-caja-negra": {
+   "name": "타이포그래피: 검은 박스 속 문구",
+   "tags": [
+    "youtube",
+    "흑백",
+    "패션",
+    "타이포그래피",
+    "박스",
+    "유튜브"
+   ]
+  },
+  "template:yp7-cita-barra": {
+   "name": "타이포그래피: 바 위의 인용구",
+   "tags": [
+    "youtube",
+    "흑백",
+    "패션",
+    "타이포그래피",
+    "인용구",
+    "박스"
+   ]
+  },
+  "template:yp7-cita-barra-2": {
+   "name": "타이포그래피: 사각형 두 개가 있는 인용구 바",
+   "tags": [
+    "youtube",
+    "흑백",
+    "패션",
+    "타이포그래피",
+    "인용구",
+    "박스"
+   ]
+  },
+  "template:yp7-cita-cuadro": {
+   "name": "타이포그래피: 사각 박스 속 인용구",
+   "tags": [
+    "youtube",
+    "흑백",
+    "패션",
+    "타이포그래피",
+    "인용구",
+    "박스"
+   ]
+  },
+  "template:yp7-cita-cuadro-2": {
+   "name": "타이포그래피: 모서리 사각형이 있는 인용구 박스",
+   "tags": [
+    "youtube",
+    "흑백",
+    "패션",
+    "타이포그래피",
+    "인용구",
+    "박스"
+   ]
+  },
+  "template:yp7-cita-cuadro-3": {
+   "name": "타이포그래피: 사각형 두 개가 있는 인용구",
+   "tags": [
+    "youtube",
+    "흑백",
+    "패션",
+    "타이포그래피",
+    "인용구",
+    "박스"
+   ]
+  },
+  "template:yp7-elementos-1": {
+   "name": "요소: 깜박이는 도형과 점",
+   "tags": [
+    "youtube",
+    "흑백",
+    "패션",
+    "오버레이",
+    "글리치",
+    "유튜브"
+   ]
+  },
+  "template:yp7-elementos-2": {
+   "name": "요소: 도형, 링, 도트 화면",
+   "tags": [
+    "youtube",
+    "흑백",
+    "패션",
+    "오버레이",
+    "글리치",
+    "유튜브"
+   ]
+  },
+  "template:yp7-elementos-3": {
+   "name": "요소: 대각선과 도트 마름모",
+   "tags": [
+    "youtube",
+    "흑백",
+    "패션",
+    "오버레이",
+    "글리치",
+    "유튜브"
+   ]
+  },
+  "template:yp7-elementos-4": {
+   "name": "요소: 스캔 라인과 링",
+   "tags": [
+    "youtube",
+    "흑백",
+    "패션",
+    "오버레이",
+    "글리치",
+    "유튜브"
+   ]
+  },
+  "template:yp7-final-1": {
+   "name": "엔드 카드: 영상 한 개",
+   "tags": [
+    "youtube",
+    "흑백",
+    "패션",
+    "엔드 스크린",
+    "영상",
+    "유튜브"
+   ]
+  },
+  "template:yp7-final-2": {
+   "name": "엔드 카드: 위아래로 쌓인 영상 두 개",
+   "tags": [
+    "youtube",
+    "흑백",
+    "패션",
+    "엔드 스크린",
+    "영상",
+    "유튜브"
+   ]
+  },
+  "template:yp7-final-3": {
+   "name": "엔드 카드: 나란히 놓인 영상 두 개",
+   "tags": [
+    "youtube",
+    "흑백",
+    "패션",
+    "엔드 스크린",
+    "영상",
+    "유튜브"
+   ]
+  },
+  "template:yp7-final-4": {
+   "name": "엔드 카드: 영상 네 개",
+   "tags": [
+    "youtube",
+    "흑백",
+    "패션",
+    "엔드 스크린",
+    "영상",
+    "유튜브"
+   ]
+  },
+  "template:yp7-frase-entre-barras": {
+   "name": "타이포그래피: 두 바 사이의 문구",
+   "tags": [
+    "youtube",
+    "흑백",
+    "패션",
+    "타이포그래피",
+    "문구",
+    "유튜브"
+   ]
+  },
+  "template:yp7-frase-inclinada": {
+   "name": "타이포그래피: 선 사이의 기울어진 문구",
+   "tags": [
+    "youtube",
+    "흑백",
+    "패션",
+    "타이포그래피",
+    "문구",
+    "유튜브"
+   ]
+  },
+  "template:yp7-greatness": {
+   "name": "타이포그래피: 제자리로 떨어지는 글자",
+   "tags": [
+    "youtube",
+    "흑백",
+    "패션",
+    "타이포그래피",
+    "유튜브"
+   ]
+  },
+  "template:yp7-icono-campana": {
+   "name": "아이콘: 울리는 알림 벨",
+   "tags": [
+    "youtube",
+    "흑백",
+    "패션",
+    "아이콘",
+    "알림 벨",
+    "유튜브"
+   ]
+  },
+  "template:yp7-icono-compartir": {
+   "name": "아이콘: 공유 버튼",
+   "tags": [
+    "youtube",
+    "흑백",
+    "패션",
+    "아이콘",
+    "공유",
+    "유튜브"
+   ]
+  },
+  "template:yp7-icono-me-gusta": {
+   "name": "아이콘: 좋아요 버튼",
+   "tags": [
+    "youtube",
+    "흑백",
+    "패션",
+    "아이콘",
+    "좋아요",
+    "유튜브"
+   ]
+  },
+  "template:yp7-icono-suscribirse": {
+   "name": "아이콘: 구독 버튼",
+   "tags": [
+    "youtube",
+    "흑백",
+    "패션",
+    "아이콘",
+    "구독",
+    "유튜브"
+   ]
+  },
+  "template:yp7-nota-campana": {
+   "name": "추가: 손글씨 \"알림 벨 아이콘을 클릭하세요\"",
+   "tags": [
+    "youtube",
+    "흑백",
+    "패션",
+    "화살표",
+    "손글씨",
+    "유튜브"
+   ]
+  },
+  "template:yp7-nota-comenta": {
+   "name": "추가: 화살표가 있는 손글씨 \"아래에 댓글 남기기\"",
+   "tags": [
+    "youtube",
+    "흑백",
+    "패션",
+    "화살표",
+    "손글씨",
+    "유튜브"
+   ]
+  },
+  "template:yp7-nota-suscribete": {
+   "name": "추가: 화살표가 있는 손글씨 \"구독하기\"",
+   "tags": [
+    "youtube",
+    "흑백",
+    "패션",
+    "화살표",
+    "손글씨",
+    "유튜브"
+   ]
+  },
+  "template:yp7-nota-video": {
+   "name": "추가: 손글씨 \"여기서 영상을 확인하세요\"",
+   "tags": [
+    "youtube",
+    "흑백",
+    "패션",
+    "화살표",
+    "손글씨",
+    "유튜브"
+   ]
+  },
+  "template:yp7-red-dribbble": {
+   "name": "소셜: 드리블 카드",
+   "tags": [
+    "youtube",
+    "흑백",
+    "패션",
+    "소셜",
+    "드리블",
+    "유튜브"
+   ]
+  },
+  "template:yp7-red-facebook": {
+   "name": "소셜: 페이스북 카드",
+   "tags": [
+    "youtube",
+    "흑백",
+    "패션",
+    "소셜",
+    "페이스북",
+    "유튜브"
+   ]
+  },
+  "template:yp7-red-google-plus": {
+   "name": "소셜: 구글 플러스 카드",
+   "tags": [
+    "youtube",
+    "흑백",
+    "패션",
+    "소셜",
+    "구글 플러스",
+    "유튜브"
+   ]
+  },
+  "template:yp7-red-instagram": {
+   "name": "소셜: 인스타그램 카드",
+   "tags": [
+    "youtube",
+    "흑백",
+    "패션",
+    "소셜",
+    "인스타그램",
+    "유튜브"
+   ]
+  },
+  "template:yp7-red-linkedin": {
+   "name": "소셜: 링크드인 카드",
+   "tags": [
+    "youtube",
+    "흑백",
+    "패션",
+    "소셜",
+    "링크드인",
+    "유튜브"
+   ]
+  },
+  "template:yp7-red-pinterest": {
+   "name": "소셜: 핀터레스트 카드",
+   "tags": [
+    "youtube",
+    "흑백",
+    "패션",
+    "소셜",
+    "핀터레스트",
+    "유튜브"
+   ]
+  },
+  "template:yp7-red-twitter": {
+   "name": "소셜: 트위터 카드",
+   "tags": [
+    "youtube",
+    "흑백",
+    "패션",
+    "소셜",
+    "트위터",
+    "유튜브"
+   ]
+  },
+  "template:yp7-red-whatsapp": {
+   "name": "소셜: 왓츠앱 카드",
+   "tags": [
+    "youtube",
+    "흑백",
+    "패션",
+    "소셜",
+    "왓츠앱",
+    "유튜브"
+   ]
+  },
+  "template:yp7-super-awesome-life": {
+   "name": "타이포그래피: 올라오며 모이는 세 줄",
+   "tags": [
+    "youtube",
+    "흑백",
+    "패션",
+    "타이포그래피",
+    "유튜브"
+   ]
+  },
+  "template:yp7-suscribirse-banda": {
+   "name": "구독: 하단 밴드",
+   "tags": [
+    "youtube",
+    "흑백",
+    "패션",
+    "구독",
+    "밴드",
+    "유튜브"
+   ]
+  },
+  "template:yp7-suscribirse-banda-foto": {
+   "name": "구독: 사진이 있는 하단 밴드",
+   "tags": [
+    "youtube",
+    "흑백",
+    "패션",
+    "구독",
+    "밴드",
+    "유튜브"
+   ]
+  },
+  "template:yp7-suscribirse-barra": {
+   "name": "구독: 아바타가 있는 바",
+   "tags": [
+    "youtube",
+    "흑백",
+    "패션",
+    "구독",
+    "유튜브"
+   ]
+  },
+  "template:yp7-suscribirse-tarjeta": {
+   "name": "구독: 사진이 있는 카드",
+   "tags": [
+    "youtube",
+    "흑백",
+    "패션",
+    "구독",
+    "유튜브"
+   ]
+  },
+  "template:yp7-telefono": {
+   "name": "장면: 좋아요와 구독이 있는 휴대폰",
+   "tags": [
+    "youtube",
+    "흑백",
+    "패션",
+    "휴대폰",
+    "구독",
+    "유튜브"
+   ]
+  },
+  "template:yp7-telefono-izquierda": {
+   "name": "장면: 왼쪽의 휴대폰",
+   "tags": [
+    "youtube",
+    "흑백",
+    "패션",
+    "휴대폰",
+    "구독",
+    "유튜브"
+   ]
+  },
+  "template:yp7-transicion-circulo": {
+   "name": "트랜지션: 중앙에서 시작하는 원",
+   "tags": [
+    "youtube",
+    "흑백",
+    "패션",
+    "트랜지션",
+    "유튜브"
+   ]
+  },
+  "template:yp7-transicion-circulo-arriba": {
+   "name": "트랜지션: 위에서 시작하는 원",
+   "tags": [
+    "youtube",
+    "흑백",
+    "패션",
+    "트랜지션",
+    "유튜브"
+   ]
+  },
+  "template:yp7-transicion-circulo-izquierda": {
+   "name": "트랜지션: 왼쪽에서 시작하는 원",
+   "tags": [
+    "youtube",
+    "흑백",
+    "패션",
+    "트랜지션",
+    "유튜브"
+   ]
+  },
+  "template:yp7-transicion-diagonal": {
+   "name": "트랜지션: 대각선 와이프",
+   "tags": [
+    "youtube",
+    "흑백",
+    "패션",
+    "트랜지션",
+    "유튜브"
+   ]
+  },
+  "template:yp7-transicion-izquierda": {
+   "name": "트랜지션: 왼쪽으로 와이프",
+   "tags": [
+    "youtube",
+    "흑백",
+    "패션",
+    "트랜지션",
+    "유튜브"
+   ]
+  },
+  "template:yp7-transicion-lineas": {
+   "name": "트랜지션: 중앙에서 퍼지는 선",
+   "tags": [
+    "youtube",
+    "흑백",
+    "패션",
+    "트랜지션",
+    "유튜브"
+   ]
+  },
+  "template:yp7-transicion-rectangulo": {
+   "name": "트랜지션: 중앙에서 시작하는 사각형",
+   "tags": [
+    "youtube",
+    "흑백",
+    "패션",
+    "트랜지션",
+    "유튜브"
+   ]
+  },
+  "template:yp7-transicion-sube": {
+   "name": "트랜지션: 올라오는 밴드",
+   "tags": [
+    "youtube",
+    "흑백",
+    "패션",
+    "트랜지션",
+    "유튜브"
    ]
   },
   "template:yt-calle-a-que-te-dedicas": {

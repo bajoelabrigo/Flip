@@ -26376,6 +26376,78 @@
     "itim"
    ]
   },
+  "template:llt16-barra-nombre": {
+   "name": "Lower third: pulang bar at manipis na pangalan",
+   "tags": [
+    "lower third",
+    "flat",
+    "youtube"
+   ]
+  },
+  "template:llt16-cargo-azul": {
+   "name": "Lower third: pangalan at tungkulin sa asul na kahon",
+   "tags": [
+    "lower third",
+    "flat",
+    "youtube"
+   ]
+  },
+  "template:llt16-cargo-rojo": {
+   "name": "Lower third: manipis na pangalan, pulang tungkulin",
+   "tags": [
+    "lower third",
+    "flat",
+    "youtube"
+   ]
+  },
+  "template:llt16-director": {
+   "name": "Lower third: puting tungkulin, pulang pangalan",
+   "tags": [
+    "lower third",
+    "flat",
+    "youtube"
+   ]
+  },
+  "template:llt16-fotografa": {
+   "name": "Lower third: maliit na tungkulin, pangalan sa cyan",
+   "tags": [
+    "lower third",
+    "flat",
+    "youtube"
+   ]
+  },
+  "template:llt16-hora": {
+   "name": "Lower third: oras at petsa",
+   "tags": [
+    "lower third",
+    "flat",
+    "petsa"
+   ]
+  },
+  "template:llt16-show": {
+   "name": "Lower third: pamagat sa pagitan ng dalawang linya",
+   "tags": [
+    "lower third",
+    "flat",
+    "pamagat"
+   ]
+  },
+  "template:llt16-titulo-rojo": {
+   "name": "Lower third: pamagat at pulang subtitle",
+   "tags": [
+    "lower third",
+    "flat",
+    "pamagat"
+   ]
+  },
+  "template:llt16-tu-texto": {
+   "name": "Lower third: kahon na kahel at abo",
+   "tags": [
+    "lower third",
+    "flat",
+    "youtube"
+   ]
+  },
   "template:llt2-barra-etiqueta": {
    "name": "Lower third na may logo: madilim na bar at berdeng tatak",
    "tags": [
@@ -32595,6 +32667,1241 @@
     "retro"
    ]
   },
+  "template:tit1-creative": {
+   "name": "Pamagat: Malikhaing pamagat na may mga doodle",
+   "tags": [
+    "pamagat",
+    "social media",
+    "doodle",
+    "pink"
+   ]
+  },
+  "template:tit1-design": {
+   "name": "Pamagat: Disenyo sa ulap",
+   "tags": [
+    "pamagat",
+    "social media",
+    "ulap",
+    "doodle"
+   ]
+  },
+  "template:tit1-follow": {
+   "name": "Pamagat: Sundan ako gamit ang pink na laso",
+   "tags": [
+    "pamagat",
+    "social media",
+    "instagram",
+    "sundan",
+    "laso"
+   ]
+  },
+  "template:tit1-likecount": {
+   "name": "Pamagat: Like na may counter at WOW",
+   "tags": [
+    "pamagat",
+    "social media",
+    "like",
+    "bilang",
+    "wow",
+    "puso"
+   ]
+  },
+  "template:tit1-likenew": {
+   "name": "Pamagat: Like sa bagong video na may palaso",
+   "tags": [
+    "pamagat",
+    "social media",
+    "like",
+    "bagong video",
+    "palaso"
+   ]
+  },
+  "template:tit1-likethis": {
+   "name": "Pamagat: Like sa video na ito na may bulaklak",
+   "tags": [
+    "pamagat",
+    "social media",
+    "like",
+    "bulaklak"
+   ]
+  },
+  "template:tit1-smile": {
+   "name": "Pamagat: Ngumiti at maging masaya",
+   "tags": [
+    "pamagat",
+    "social media",
+    "masaya",
+    "ngiti",
+    "mukha"
+   ]
+  },
+  "template:tit1-subscribe": {
+   "name": "Pamagat: Mag-subscribe na may mga bulaklak",
+   "tags": [
+    "pamagat",
+    "social media",
+    "mag-subscribe",
+    "mga bulaklak",
+    "youtube"
+   ]
+  },
+  "template:tit2-2022": {
+   "name": "Pamagat: Taon na nakaukit",
+   "tags": [
+    "tipograpiya",
+    "itim at puti",
+    "taon",
+    "nakaukit",
+    "pamagat"
+   ]
+  },
+  "template:tit2-be-awesome": {
+   "name": "Pamagat: Maging kahanga-hanga na may larawan",
+   "tags": [
+    "tipograpiya",
+    "itim at puti",
+    "larawan",
+    "patayo",
+    "pamagat"
+   ]
+  },
+  "template:tit2-big-black": {
+   "name": "Pamagat: MALAKING ITIM na may tatak",
+   "tags": [
+    "tipograpiya",
+    "itim at puti",
+    "itim",
+    "tag",
+    "pamagat"
+   ]
+  },
+  "template:tit2-circulos": {
+   "name": "Pamagat: Anim na bilog",
+   "tags": [
+    "tipograpiya",
+    "itim at puti",
+    "mga bilog",
+    "puti",
+    "pamagat"
+   ]
+  },
+  "template:tit2-ciudad": {
+   "name": "Pamagat: Pamagat ng lungsod na pahilig sa ibabaw ng larawan",
+   "tags": [
+    "tipograpiya",
+    "itim at puti",
+    "larawan",
+    "lungsod",
+    "nakahilig",
+    "pamagat"
+   ]
+  },
+  "template:tit2-creative-inclinado": {
+   "name": "Pamagat: Napakalaking pahilig na salita",
+   "tags": [
+    "tipograpiya",
+    "itim at puti",
+    "nakahilig",
+    "itim",
+    "pamagat"
+   ]
+  },
+  "template:tit2-creative-pack": {
+   "name": "Pamagat: Mga letrang bumabagsak",
+   "tags": [
+    "tipograpiya",
+    "itim at puti",
+    "nakahilig",
+    "puti",
+    "pamagat"
+   ]
+  },
+  "template:tit2-creative-relieve": {
+   "name": "Pamagat: Malikhain na nakaukit",
+   "tags": [
+    "tipograpiya",
+    "itim at puti",
+    "nakaukit",
+    "anino",
+    "puti",
+    "pamagat"
+   ]
+  },
+  "template:tit2-event-music": {
+   "name": "Pamagat: Pamagat ng event, bumababa ang larawan",
+   "tags": [
+    "tipograpiya",
+    "itim at puti",
+    "larawan",
+    "event",
+    "nakahilig",
+    "pamagat"
+   ]
+  },
+  "template:tit2-hello-world": {
+   "name": "Pamagat: Hello World! na nakahilig",
+   "tags": [
+    "tipograpiya",
+    "itim at puti",
+    "nakahilig",
+    "puti",
+    "pamagat"
+   ]
+  },
+  "template:tit2-montserrat-bold": {
+   "name": "Pamagat: Dalawang itim na bar na may mga salita",
+   "tags": [
+    "tipograpiya",
+    "itim at puti",
+    "mga bar",
+    "puti",
+    "pamagat"
+   ]
+  },
+  "template:tit2-new-trend": {
+   "name": "Pamagat: Bagong Trend na bumabaligtad",
+   "tags": [
+    "tipograpiya",
+    "itim at puti",
+    "balangkas",
+    "puti",
+    "pamagat"
+   ]
+  },
+  "template:tit2-new-typography": {
+   "name": "Pamagat: Mga bar na may nakahilig na salita",
+   "tags": [
+    "tipograpiya",
+    "itim at puti",
+    "mga bar",
+    "nakahilig",
+    "puti",
+    "pamagat"
+   ]
+  },
+  "template:tit2-trend": {
+   "name": "Pamagat: Bagong tipograpiya ng uso",
+   "tags": [
+    "tipograpiya",
+    "itim at puti",
+    "itim",
+    "pamagat"
+   ]
+  },
+  "template:tit2-trend-doble": {
+   "name": "Pamagat: Uso sa dalawang kalahati",
+   "tags": [
+    "tipograpiya",
+    "itim at puti",
+    "itim",
+    "puti",
+    "doble",
+    "pamagat"
+   ]
+  },
+  "template:tit2-typo-slide": {
+   "name": "Pamagat: Puting card",
+   "tags": [
+    "tipograpiya",
+    "itim at puti",
+    "card",
+    "itim",
+    "pamagat"
+   ]
+  },
+  "template:tit3-20-animation": {
+   "name": "Pamagat: 20 Animation",
+   "tags": [
+    "pamagat",
+    "sky blue",
+    "pangkorporasyon",
+    "numero"
+   ]
+  },
+  "template:tit3-20-cuadro": {
+   "name": "Pamagat: 20 Animated sa loob ng frame",
+   "tags": [
+    "pamagat",
+    "sky blue",
+    "pangkorporasyon",
+    "frame"
+   ]
+  },
+  "template:tit3-best-day": {
+   "name": "Pamagat: Nakahilig na kahon at frame",
+   "tags": [
+    "pamagat",
+    "sky blue",
+    "pangkorporasyon",
+    "nakahilig"
+   ]
+  },
+  "template:tit3-best-event": {
+   "name": "Pamagat: Pahilig na kahon at palengke",
+   "tags": [
+    "pamagat",
+    "sky blue",
+    "pangkorporasyon",
+    "nakahilig",
+    "event"
+   ]
+  },
+  "template:tit3-circulo": {
+   "name": "Pamagat: Pangalan sa ibabaw ng bilog",
+   "tags": [
+    "pamagat",
+    "sky blue",
+    "pangkorporasyon",
+    "bilog",
+    "pangalan"
+   ]
+  },
+  "template:tit3-design-success": {
+   "name": "Pamagat: Disenyo para sa tagumpay na may bilog",
+   "tags": [
+    "pamagat",
+    "sky blue",
+    "pangkorporasyon",
+    "bilog"
+   ]
+  },
+  "template:tit3-disenador": {
+   "name": "Pamagat: Kahon ng tungkulin at pangalan",
+   "tags": [
+    "pamagat",
+    "sky blue",
+    "pangkorporasyon",
+    "pangalan",
+    "nakahilig"
+   ]
+  },
+  "template:tit3-dos-triangulos": {
+   "name": "Pamagat: Pangalan sa pagitan ng dalawang tatsulok",
+   "tags": [
+    "pamagat",
+    "sky blue",
+    "pangkorporasyon",
+    "tatsulok",
+    "pangalan"
+   ]
+  },
+  "template:tit3-evento": {
+   "name": "Pamagat: Pahilig na event na may mga frame",
+   "tags": [
+    "pamagat",
+    "sky blue",
+    "pangkorporasyon",
+    "event",
+    "frame",
+    "nakahilig"
+   ]
+  },
+  "template:tit3-globo": {
+   "name": "Pamagat: Speech bubble",
+   "tags": [
+    "pamagat",
+    "sky blue",
+    "pangkorporasyon",
+    "bubble",
+    "frame"
+   ]
+  },
+  "template:tit3-holiday": {
+   "name": "Pamagat: Holiday na may petsa",
+   "tags": [
+    "pamagat",
+    "sky blue",
+    "pangkorporasyon",
+    "event",
+    "nakahilig"
+   ]
+  },
+  "template:tit3-life": {
+   "name": "Pamagat: Life is life sa loob ng frame",
+   "tags": [
+    "pamagat",
+    "sky blue",
+    "pangkorporasyon",
+    "frame"
+   ]
+  },
+  "template:tit3-nombre-caja": {
+   "name": "Pamagat: Kahon ng pangalan, dalawang linya",
+   "tags": [
+    "pamagat",
+    "sky blue",
+    "pangkorporasyon",
+    "pangalan"
+   ]
+  },
+  "template:tit3-nombre-cargo-arriba": {
+   "name": "Pamagat: Kahon ng pangalan, tungkulin sa itaas",
+   "tags": [
+    "pamagat",
+    "sky blue",
+    "pangkorporasyon",
+    "pangalan"
+   ]
+  },
+  "template:tit3-nombre-lineas": {
+   "name": "Pamagat: Pangalan sa pagitan ng dalawang linya",
+   "tags": [
+    "pamagat",
+    "sky blue",
+    "pangkorporasyon",
+    "pangalan",
+    "mga linya"
+   ]
+  },
+  "template:tit3-nombre-sombra": {
+   "name": "Pamagat: Kahon na may nakalihis na frame",
+   "tags": [
+    "pamagat",
+    "sky blue",
+    "pangkorporasyon",
+    "pangalan",
+    "frame"
+   ]
+  },
+  "template:tit3-rombo": {
+   "name": "Pamagat: Event sa loob ng diyamante",
+   "tags": [
+    "pamagat",
+    "sky blue",
+    "pangkorporasyon",
+    "diyamante",
+    "event"
+   ]
+  },
+  "template:tit3-titles-pack": {
+   "name": "Pamagat: Dalawang pahilig na frame",
+   "tags": [
+    "pamagat",
+    "sky blue",
+    "pangkorporasyon",
+    "frame",
+    "nakahilig"
+   ]
+  },
+  "template:tit3-triangulo": {
+   "name": "Pamagat: Pangalan sa ibabaw ng tatsulok",
+   "tags": [
+    "pamagat",
+    "sky blue",
+    "pangkorporasyon",
+    "tatsulok",
+    "pangalan"
+   ]
+  },
+  "template:tit3-unique-animated": {
+   "name": "Pamagat: Tatlong nakahilig na bahagi",
+   "tags": [
+    "pamagat",
+    "sky blue",
+    "pangkorporasyon",
+    "nakahilig"
+   ]
+  },
+  "template:tit4-algo-nuevo": {
+   "name": "Pamagat: Kahon na may disenyo at mga salita",
+   "tags": [
+    "pamagat",
+    "dilaw",
+    "itim",
+    "frame"
+   ]
+  },
+  "template:tit4-anio": {
+   "name": "Pamagat: Taon na may parallelogram",
+   "tags": [
+    "pamagat",
+    "dilaw",
+    "itim",
+    "taon"
+   ]
+  },
+  "template:tit4-art-festival": {
+   "name": "Pamagat: Sining, isang kahon at festival",
+   "tags": [
+    "pamagat",
+    "dilaw",
+    "itim",
+    "event"
+   ]
+  },
+  "template:tit4-autumn-event": {
+   "name": "Pamagat: Salitang nasa kahon at isa sa ilalim",
+   "tags": [
+    "pamagat",
+    "dilaw",
+    "itim",
+    "event"
+   ]
+  },
+  "template:tit4-dont-stop": {
+   "name": "Pamagat: Parirala sa loob ng bilog",
+   "tags": [
+    "pamagat",
+    "dilaw",
+    "itim",
+    "bilog"
+   ]
+  },
+  "template:tit4-etiqueta-nombre": {
+   "name": "Pamagat: Tag, pangalan at tungkulin",
+   "tags": [
+    "pamagat",
+    "dilaw",
+    "itim",
+    "pangalan"
+   ]
+  },
+  "template:tit4-facil": {
+   "name": "Pamagat: Mga salita at dilaw na bar",
+   "tags": [
+    "pamagat",
+    "dilaw",
+    "itim",
+    "bar"
+   ]
+  },
+  "template:tit4-fecha-cajas": {
+   "name": "Pamagat: Petsa at oras sa mga kahon",
+   "tags": [
+    "pamagat",
+    "dilaw",
+    "itim",
+    "event",
+    "petsa"
+   ]
+  },
+  "template:tit4-festival-info": {
+   "name": "Pamagat: Petsa at detalye ng festival",
+   "tags": [
+    "pamagat",
+    "dilaw",
+    "itim",
+    "event",
+    "petsa"
+   ]
+  },
+  "template:tit4-informacion": {
+   "name": "Pamagat: Impormasyon sa loob ng bilog",
+   "tags": [
+    "pamagat",
+    "dilaw",
+    "itim",
+    "bilog"
+   ]
+  },
+  "template:tit4-logo-nombre": {
+   "name": "Pamagat: Logo, tag at pangalan",
+   "tags": [
+    "pamagat",
+    "dilaw",
+    "itim",
+    "logo",
+    "pangalan"
+   ]
+  },
+  "template:tit4-nombre-caja": {
+   "name": "Pamagat: Pangalan sa dilaw na kahon",
+   "tags": [
+    "pamagat",
+    "dilaw",
+    "itim",
+    "pangalan"
+   ]
+  },
+  "template:tit4-nombre-cajas": {
+   "name": "Pamagat: Pangalan at tungkulin sa mga kahon",
+   "tags": [
+    "pamagat",
+    "dilaw",
+    "itim",
+    "pangalan"
+   ]
+  },
+  "template:tit4-presents": {
+   "name": "Pamagat: Presents sa loob ng frame",
+   "tags": [
+    "pamagat",
+    "dilaw",
+    "itim",
+    "frame"
+   ]
+  },
+  "template:tit4-productor": {
+   "name": "Pamagat: Pangalan sa frame at isang tag",
+   "tags": [
+    "pamagat",
+    "dilaw",
+    "itim",
+    "frame",
+    "pangalan"
+   ]
+  },
+  "template:tit4-simple-design": {
+   "name": "Pamagat: Dalawang kahon na itinapon",
+   "tags": [
+    "pamagat",
+    "dilaw",
+    "itim",
+    "mga kahon"
+   ]
+  },
+  "template:tit4-speakers": {
+   "name": "Pamagat: Hashtag sa malaking kahon",
+   "tags": [
+    "pamagat",
+    "dilaw",
+    "itim",
+    "event"
+   ]
+  },
+  "template:tit4-triangulo": {
+   "name": "Pamagat: Numero sa loob ng tatsulok",
+   "tags": [
+    "pamagat",
+    "dilaw",
+    "itim",
+    "tatsulok"
+   ]
+  },
+  "template:tit4-twenty": {
+   "name": "Pamagat: Dalawampung malikhaing pamagat",
+   "tags": [
+    "pamagat",
+    "dilaw",
+    "itim",
+    "numero"
+   ]
+  },
+  "template:tit4-ubicacion": {
+   "name": "Pamagat: Lokasyon sa pin",
+   "tags": [
+    "pamagat",
+    "dilaw",
+    "itim",
+    "pin",
+    "lokasyon"
+   ]
+  },
+  "template:tit5-canal-tarjeta": {
+   "name": "Pamagat: Parisukat na umiikot at naglalabas ng salita",
+   "tags": [
+    "pamagat",
+    "channel",
+    "makukulay",
+    "frame"
+   ]
+  },
+  "template:tit5-compartir": {
+   "name": "Pamagat: Lilang tag na nagpapalit ng salita",
+   "tags": [
+    "pamagat",
+    "channel",
+    "makukulay",
+    "tag",
+    "youtube"
+   ]
+  },
+  "template:tit5-condensada": {
+   "name": "Pamagat: Makitid na letra na kusang sumusulat",
+   "tags": [
+    "pamagat",
+    "channel",
+    "makukulay",
+    "makitid na letra"
+   ]
+  },
+  "template:tit5-creative": {
+   "name": "Pamagat: Lilac na salitang tumutuwid",
+   "tags": [
+    "pamagat",
+    "channel",
+    "makukulay",
+    "lila"
+   ]
+  },
+  "template:tit5-dinamico": {
+   "name": "Pamagat: Dobleng kahel na frame na tumutuwid",
+   "tags": [
+    "pamagat",
+    "channel",
+    "makukulay",
+    "frame"
+   ]
+  },
+  "template:tit5-directo": {
+   "name": "Pamagat: Livestream na tumatagilid",
+   "tags": [
+    "pamagat",
+    "channel",
+    "makukulay",
+    "live",
+    "youtube"
+   ]
+  },
+  "template:tit5-etiqueta": {
+   "name": "Pamagat: Label na bumubukas at tumatagilid",
+   "tags": [
+    "pamagat",
+    "channel",
+    "makukulay",
+    "tag"
+   ]
+  },
+  "template:tit5-hashtag": {
+   "name": "Pamagat: Hashtag na tina-type sa dilaw",
+   "tags": [
+    "pamagat",
+    "channel",
+    "makukulay",
+    "hashtag"
+   ]
+  },
+  "template:tit5-logo-canal": {
+   "name": "Pamagat: YouTube button at pangalan ng channel",
+   "tags": [
+    "pamagat",
+    "channel",
+    "makukulay",
+    "logo",
+    "youtube",
+    "button"
+   ]
+  },
+  "template:tit5-logo-negro": {
+   "name": "Pamagat: YouTube button sa itim",
+   "tags": [
+    "pamagat",
+    "channel",
+    "makukulay",
+    "logo",
+    "youtube",
+    "button"
+   ]
+  },
+  "template:tit5-moderno": {
+   "name": "Pamagat: YouTube button na nagiging bilog",
+   "tags": [
+    "pamagat",
+    "channel",
+    "makukulay",
+    "bilog",
+    "youtube",
+    "button"
+   ]
+  },
+  "template:tit5-no-pierdas": {
+   "name": "Pamagat: Parirala sa frame na nagpapalit ng hugis",
+   "tags": [
+    "pamagat",
+    "channel",
+    "makukulay",
+    "frame"
+   ]
+  },
+  "template:tit5-pila": {
+   "name": "Pamagat: Bumabagsak na bloke ng like, share, subscribe",
+   "tags": [
+    "pamagat",
+    "channel",
+    "makukulay",
+    "bloke",
+    "mag-subscribe",
+    "youtube"
+   ]
+  },
+  "template:tit5-rombo": {
+   "name": "Pamagat: Puting diyamante sa pula",
+   "tags": [
+    "pamagat",
+    "channel",
+    "makukulay",
+    "diyamante"
+   ]
+  },
+  "template:tit5-seguinos": {
+   "name": "Pamagat: Umiikot na asul na barya",
+   "tags": [
+    "pamagat",
+    "channel",
+    "makukulay",
+    "bilog"
+   ]
+  },
+  "template:tit5-social-media": {
+   "name": "Pamagat: Umiikot na singsing sa dilaw",
+   "tags": [
+    "pamagat",
+    "channel",
+    "makukulay",
+    "bilog"
+   ]
+  },
+  "template:tit5-soporte": {
+   "name": "Pamagat: Mga hanay ng bloke at isang banda",
+   "tags": [
+    "pamagat",
+    "channel",
+    "makukulay",
+    "banda"
+   ]
+  },
+  "template:tit5-tu-canal": {
+   "name": "Pamagat: Frame na bumabaliktad at nagiging puting kahon",
+   "tags": [
+    "pamagat",
+    "channel",
+    "makukulay",
+    "kahon"
+   ]
+  },
+  "template:tit5-tutorial": {
+   "name": "Pamagat: Tutorial na lumilitaw bawat letra",
+   "tags": [
+    "pamagat",
+    "channel",
+    "makukulay",
+    "tutorial"
+   ]
+  },
+  "template:tit5-verano": {
+   "name": "Pamagat: Kidlat at bumabagsak na salita",
+   "tags": [
+    "pamagat",
+    "channel",
+    "makukulay",
+    "tag-init"
+   ]
+  },
+  "template:tit6-always-strive": {
+   "name": "Pamagat: Bumabagsak na mga letra at tandang padamdam",
+   "tags": [
+    "tipograpiya",
+    "itim at puti",
+    "gumagalaw na teksto",
+    "makitid na letra",
+    "pamagat"
+   ]
+  },
+  "template:tit6-art-always": {
+   "name": "Pamagat: Mga guhit, balangkas at umaakyat na letra",
+   "tags": [
+    "tipograpiya",
+    "itim at puti",
+    "gumagalaw na teksto",
+    "guhit",
+    "balangkas",
+    "pamagat"
+   ]
+  },
+  "template:tit6-awesome": {
+   "name": "Pamagat: Puting kahon at bubble sa ibabaw ng larawan",
+   "tags": [
+    "tipograpiya",
+    "itim at puti",
+    "gumagalaw na teksto",
+    "larawan",
+    "pamagat"
+   ]
+  },
+  "template:tit6-be-strong": {
+   "name": "Pamagat: Parirala na may guhit at bumubukas pabalik",
+   "tags": [
+    "tipograpiya",
+    "itim at puti",
+    "gumagalaw na teksto",
+    "frame",
+    "may guhit",
+    "pamagat"
+   ]
+  },
+  "template:tit6-big": {
+   "name": "Pamagat: Higanteng salita na may anino at itim na panel",
+   "tags": [
+    "tipograpiya",
+    "itim at puti",
+    "gumagalaw na teksto",
+    "anino",
+    "pamagat"
+   ]
+  },
+  "template:tit6-big-text": {
+   "name": "Pamagat: Numero, mga salitang may balangkas at larawan",
+   "tags": [
+    "tipograpiya",
+    "itim at puti",
+    "gumagalaw na teksto",
+    "balangkas",
+    "larawan",
+    "pamagat"
+   ]
+  },
+  "template:tit6-ciencia": {
+   "name": "Pamagat: Panel na bumabaliktad sa parirala, frame at krus",
+   "tags": [
+    "tipograpiya",
+    "itim at puti",
+    "gumagalaw na teksto",
+    "frame",
+    "pamagat"
+   ]
+  },
+  "template:tit6-color-change": {
+   "name": "Pamagat: Salitang may guhit na umiilaw",
+   "tags": [
+    "tipograpiya",
+    "itim at puti",
+    "gumagalaw na teksto",
+    "may guhit",
+    "pamagat"
+   ]
+  },
+  "template:tit6-corporate": {
+   "name": "Pamagat: Itim na bandang lumalaki sa likod ng parirala",
+   "tags": [
+    "tipograpiya",
+    "itim at puti",
+    "gumagalaw na teksto",
+    "larawan",
+    "pamagat"
+   ]
+  },
+  "template:tit6-create-ideas": {
+   "name": "Pamagat: Umaakyat na letra at hash",
+   "tags": [
+    "tipograpiya",
+    "itim at puti",
+    "gumagalaw na teksto",
+    "hashtag",
+    "pamagat"
+   ]
+  },
+  "template:tit6-dynamism": {
+   "name": "Pamagat: Salitang umiilaw sa frame na may krus",
+   "tags": [
+    "tipograpiya",
+    "itim at puti",
+    "gumagalaw na teksto",
+    "frame",
+    "pamagat"
+   ]
+  },
+  "template:tit6-enjoy": {
+   "name": "Pamagat: Umiikot na parisukat at hating salita",
+   "tags": [
+    "tipograpiya",
+    "itim at puti",
+    "gumagalaw na teksto",
+    "parisukat",
+    "pamagat"
+   ]
+  },
+  "template:tit6-fashion": {
+   "name": "Pamagat: Kahon na may tatlong larawan sa likod",
+   "tags": [
+    "tipograpiya",
+    "itim at puti",
+    "gumagalaw na teksto",
+    "larawan",
+    "fashion",
+    "pamagat"
+   ]
+  },
+  "template:tit6-health": {
+   "name": "Pamagat: Guhit ng mga salitang nakabaliktad sa pagitan ng puti at itim",
+   "tags": [
+    "tipograpiya",
+    "itim at puti",
+    "gumagalaw na teksto",
+    "doble",
+    "pamagat"
+   ]
+  },
+  "template:tit6-look": {
+   "name": "Pamagat: Abong kahon sa ibabaw ng higanteng letra",
+   "tags": [
+    "tipograpiya",
+    "itim at puti",
+    "gumagalaw na teksto",
+    "kahon",
+    "pamagat"
+   ]
+  },
+  "template:tit6-never-give-up": {
+   "name": "Pamagat: Parirala na tina-type sa ibabaw ng hanay ng larawan",
+   "tags": [
+    "tipograpiya",
+    "itim at puti",
+    "gumagalaw na teksto",
+    "larawan",
+    "pamagat"
+   ]
+  },
+  "template:tit6-typography": {
+   "name": "Pamagat: Puting kahon na may label sa ibabaw ng larawan",
+   "tags": [
+    "tipograpiya",
+    "itim at puti",
+    "gumagalaw na teksto",
+    "larawan",
+    "pamagat"
+   ]
+  },
+  "template:tit6-visuality": {
+   "name": "Pamagat: Tatlong linyang umiilaw at isang pointer",
+   "tags": [
+    "tipograpiya",
+    "itim at puti",
+    "gumagalaw na teksto",
+    "balangkas",
+    "pamagat"
+   ]
+  },
+  "template:tit6-wonderful": {
+   "name": "Pamagat: Tatlong salitang nagsasara, at mga linya",
+   "tags": [
+    "tipograpiya",
+    "itim at puti",
+    "gumagalaw na teksto",
+    "mga linya",
+    "pamagat"
+   ]
+  },
+  "template:tit6-you": {
+   "name": "Pamagat: Salitang puno ng larawan",
+   "tags": [
+    "tipograpiya",
+    "itim at puti",
+    "gumagalaw na teksto",
+    "larawan",
+    "pamagat"
+   ]
+  },
+  "template:tit7-always-strive": {
+   "name": "Pamagat: Parirala na may pulang anino at karatula",
+   "tags": [
+    "tipograpiya",
+    "makukulay",
+    "gumagalaw na teksto",
+    "anino",
+    "pamagat"
+   ]
+  },
+  "template:tit7-art-always": {
+   "name": "Pamagat: Mga letrang pula, cyan at puti",
+   "tags": [
+    "tipograpiya",
+    "makukulay",
+    "gumagalaw na teksto",
+    "glitch",
+    "pamagat"
+   ]
+  },
+  "template:tit7-big": {
+   "name": "Pamagat: Kahon na may anino at dalawang kulay na parisukat",
+   "tags": [
+    "tipograpiya",
+    "makukulay",
+    "gumagalaw na teksto",
+    "mga parisukat",
+    "pamagat"
+   ]
+  },
+  "template:tit7-ciencia": {
+   "name": "Pamagat: Itim na kahon na may slab na letra",
+   "tags": [
+    "tipograpiya",
+    "makukulay",
+    "gumagalaw na teksto",
+    "slab",
+    "pamagat"
+   ]
+  },
+  "template:tit7-colorful": {
+   "name": "Pamagat: Puting banda na may larawan sa loob ng salita",
+   "tags": [
+    "tipograpiya",
+    "makukulay",
+    "gumagalaw na teksto",
+    "larawan",
+    "pamagat"
+   ]
+  },
+  "template:tit7-concept-azul": {
+   "name": "Pamagat: Malapad na salita sa asul",
+   "tags": [
+    "tipograpiya",
+    "makukulay",
+    "gumagalaw na teksto",
+    "asul",
+    "pamagat"
+   ]
+  },
+  "template:tit7-concept-oscuro": {
+   "name": "Pamagat: Asul na kahon sa ibabaw ng malalaking letra",
+   "tags": [
+    "tipograpiya",
+    "makukulay",
+    "gumagalaw na teksto",
+    "asul",
+    "pamagat"
+   ]
+  },
+  "template:tit7-create": {
+   "name": "Pamagat: Abong mga salita at puting card",
+   "tags": [
+    "tipograpiya",
+    "makukulay",
+    "gumagalaw na teksto",
+    "pamagat"
+   ]
+  },
+  "template:tit7-dynamic": {
+   "name": "Pamagat: Nagsasarang frame at asul na karatula",
+   "tags": [
+    "tipograpiya",
+    "makukulay",
+    "gumagalaw na teksto",
+    "frame",
+    "pamagat"
+   ]
+  },
+  "template:tit7-easy-editing": {
+   "name": "Pamagat: Pulang letra sa dilaw na disenyo",
+   "tags": [
+    "tipograpiya",
+    "makukulay",
+    "gumagalaw na teksto",
+    "dilaw",
+    "pamagat"
+   ]
+  },
+  "template:tit7-enjoy": {
+   "name": "Pamagat: Umiikot na mga parisukat at hating salita",
+   "tags": [
+    "tipograpiya",
+    "makukulay",
+    "gumagalaw na teksto",
+    "parisukat",
+    "pamagat"
+   ]
+  },
+  "template:tit7-fashion": {
+   "name": "Pamagat: Larawan sa loob ng higanteng letra at kahon",
+   "tags": [
+    "tipograpiya",
+    "makukulay",
+    "gumagalaw na teksto",
+    "larawan",
+    "fashion",
+    "pamagat"
+   ]
+  },
+  "template:tit7-health-box": {
+   "name": "Pamagat: Parisukat na may pader ng salita sa pagitan ng dalawang hanay",
+   "tags": [
+    "tipograpiya",
+    "makukulay",
+    "gumagalaw na teksto",
+    "parisukat",
+    "pamagat"
+   ]
+  },
+  "template:tit7-health-wall": {
+   "name": "Pamagat: Pahilis na pader ng mga salita",
+   "tags": [
+    "tipograpiya",
+    "makukulay",
+    "gumagalaw na teksto",
+    "pahilis",
+    "pamagat"
+   ]
+  },
+  "template:tit7-look": {
+   "name": "Pamagat: Higanteng letra at asul na frame",
+   "tags": [
+    "tipograpiya",
+    "makukulay",
+    "gumagalaw na teksto",
+    "frame",
+    "pamagat"
+   ]
+  },
+  "template:tit7-love": {
+   "name": "Pamagat: Salitang dumudulas sa ibabaw ng pink na larawan",
+   "tags": [
+    "tipograpiya",
+    "makukulay",
+    "gumagalaw na teksto",
+    "larawan",
+    "pamagat"
+   ]
+  },
+  "template:tit7-modern": {
+   "name": "Pamagat: Eleganteng serif na may numero",
+   "tags": [
+    "tipograpiya",
+    "makukulay",
+    "gumagalaw na teksto",
+    "serif",
+    "pamagat"
+   ]
+  },
+  "template:tit7-never-give-up": {
+   "name": "Pamagat: Apat na hakbang na larawan at isang parirala",
+   "tags": [
+    "tipograpiya",
+    "makukulay",
+    "gumagalaw na teksto",
+    "larawan",
+    "pamagat"
+   ]
+  },
+  "template:tit7-newest": {
+   "name": "Pamagat: Salitang may balangkas at berdeng bar",
+   "tags": [
+    "tipograpiya",
+    "makukulay",
+    "gumagalaw na teksto",
+    "balangkas",
+    "pamagat"
+   ]
+  },
+  "template:tit7-scene": {
+   "name": "Pamagat: Mga guhit, puting panel at numero sa ibabaw ng larawan",
+   "tags": [
+    "tipograpiya",
+    "makukulay",
+    "gumagalaw na teksto",
+    "guhit",
+    "larawan",
+    "pamagat"
+   ]
+  },
+  "template:tit7-text-animation": {
+   "name": "Pamagat: Mga hanay ng teksto sa ibabaw ng larawan",
+   "tags": [
+    "tipograpiya",
+    "makukulay",
+    "gumagalaw na teksto",
+    "larawan",
+    "pamagat"
+   ]
+  },
+  "template:tit7-typography": {
+   "name": "Pamagat: Pink na card na may mga letra sa paligid",
+   "tags": [
+    "tipograpiya",
+    "makukulay",
+    "gumagalaw na teksto",
+    "larawan",
+    "pamagat"
+   ]
+  },
   "template:top-5-mas-vendidos": {
    "name": "Top 5 best seller",
    "tags": [
@@ -32719,6 +34026,3386 @@
     "kislap",
     "pink",
     "aesthetic"
+   ]
+  },
+  "template:yp0-barra-campana": {
+   "name": "Bar na may like, kampana at subscribe",
+   "tags": [
+    "youtube",
+    "mag-subscribe",
+    "button",
+    "bar",
+    "click",
+    "like"
+   ]
+  },
+  "template:yp0-barra-canal": {
+   "name": "Bar ng channel na may like, subscribe at kampana",
+   "tags": [
+    "youtube",
+    "mag-subscribe",
+    "button",
+    "bar",
+    "click",
+    "like"
+   ]
+  },
+  "template:yp0-barra-me-gusta": {
+   "name": "Bar na may like, dislike at subscribe",
+   "tags": [
+    "youtube",
+    "mag-subscribe",
+    "button",
+    "bar",
+    "click",
+    "like"
+   ]
+  },
+  "template:yp0-barra-seguidores": {
+   "name": "Bar ng channel na may bilang ng followers",
+   "tags": [
+    "youtube",
+    "mag-subscribe",
+    "button",
+    "bar",
+    "bilang",
+    "followers"
+   ]
+  },
+  "template:yp0-fila-grande": {
+   "name": "Malaking like, subscribe at kampana",
+   "tags": [
+    "youtube",
+    "mag-subscribe",
+    "button",
+    "click",
+    "like",
+    "kampana"
+   ]
+  },
+  "template:yp0-redes": {
+   "name": "Mga social bar na may follow",
+   "tags": [
+    "youtube",
+    "mag-subscribe",
+    "button",
+    "social media",
+    "facebook",
+    "instagram"
+   ]
+  },
+  "template:yp0-tarjeta-canal": {
+   "name": "Card ng channel na may subscribe",
+   "tags": [
+    "youtube",
+    "mag-subscribe",
+    "button",
+    "card",
+    "click"
+   ]
+  },
+  "template:yp0-tarjeta-iconos": {
+   "name": "Card na may subscribe, like at kampana",
+   "tags": [
+    "youtube",
+    "mag-subscribe",
+    "button",
+    "card",
+    "click",
+    "like"
+   ]
+  },
+  "template:yp0-tarjeta-mini": {
+   "name": "Maliit na subscribe card",
+   "tags": [
+    "youtube",
+    "mag-subscribe",
+    "button",
+    "card",
+    "click"
+   ]
+  },
+  "template:yp1-apertura-avatar-bandas": {
+   "name": "Pambungad: bumabagsak na avatar at umaakyat na mga banda",
+   "tags": [
+    "youtube",
+    "pula",
+    "pambungad",
+    "avatar"
+   ]
+  },
+  "template:yp1-apertura-avatar-circulo": {
+   "name": "Pambungad: avatar at bumubukas na mga bilog",
+   "tags": [
+    "youtube",
+    "pula",
+    "pambungad",
+    "avatar"
+   ]
+  },
+  "template:yp1-apertura-blanca": {
+   "name": "Pambungad: pahilig na mga banda at button sa puti",
+   "tags": [
+    "youtube",
+    "pula",
+    "pambungad",
+    "logo",
+    "button"
+   ]
+  },
+  "template:yp1-apertura-diana": {
+   "name": "Pambungad: bilog na button sa pulang mga bilog",
+   "tags": [
+    "youtube",
+    "pula",
+    "pambungad",
+    "logo",
+    "button"
+   ]
+  },
+  "template:yp1-apertura-flechas": {
+   "name": "Pambungad: madilim na chevron at gumugulong na button",
+   "tags": [
+    "youtube",
+    "pula",
+    "pambungad",
+    "logo",
+    "button"
+   ]
+  },
+  "template:yp1-apertura-gotas": {
+   "name": "Pambungad: mga blob na bumubuo ng YouTube button",
+   "tags": [
+    "youtube",
+    "pula",
+    "pambungad",
+    "logo",
+    "button"
+   ]
+  },
+  "template:yp1-apertura-logo-vuela": {
+   "name": "Pambungad: logo na lumilipad pabalik at umiikot",
+   "tags": [
+    "youtube",
+    "pula",
+    "pambungad",
+    "logo"
+   ]
+  },
+  "template:yp1-apertura-ondas": {
+   "name": "Pambungad: logo, umiikot na arko at pulang alon",
+   "tags": [
+    "youtube",
+    "pula",
+    "pambungad",
+    "logo",
+    "alon"
+   ]
+  },
+  "template:yp1-apertura-tipografica-gaming": {
+   "name": "Pambungad na tipograpiya: ang pinakamahusay na gaming channel",
+   "tags": [
+    "youtube",
+    "pula",
+    "pambungad",
+    "tipograpiya",
+    "gumagalaw na teksto"
+   ]
+  },
+  "template:yp1-apertura-tipografica-roja": {
+   "name": "Pulang pambungad na tipograpiya: bagong video, like at subscribe",
+   "tags": [
+    "youtube",
+    "pula",
+    "pambungad",
+    "tipograpiya",
+    "gumagalaw na teksto",
+    "mag-subscribe"
+   ]
+  },
+  "template:yp1-apertura-tipografica-suscribete": {
+   "name": "Pambungad na tipograpiya: panoorin ang episode at mag-subscribe",
+   "tags": [
+    "youtube",
+    "pula",
+    "pambungad",
+    "tipograpiya",
+    "gumagalaw na teksto",
+    "mag-subscribe"
+   ]
+  },
+  "template:yp1-barra-suscribir": {
+   "name": "Mag-subscribe: bar na may avatar, like at kampana",
+   "tags": [
+    "youtube",
+    "pula",
+    "mag-subscribe",
+    "like",
+    "kampana"
+   ]
+  },
+  "template:yp1-barra-vertical": {
+   "name": "Pamagat na apat na linya sa ibabaw ng pulang bar",
+   "tags": [
+    "youtube",
+    "pula",
+    "pamagat",
+    "simple",
+    "bar"
+   ]
+  },
+  "template:yp1-best-video": {
+   "name": "Malaking pamagat sa asul na alon",
+   "tags": [
+    "youtube",
+    "pula",
+    "pamagat",
+    "alon"
+   ]
+  },
+  "template:yp1-big-text": {
+   "name": "Malaking pulang teksto sa madilim na silid",
+   "tags": [
+    "youtube",
+    "pula",
+    "pamagat",
+    "malaki"
+   ]
+  },
+  "template:yp1-big-title": {
+   "name": "Malaking pamagat sa pahilig na pulang banda",
+   "tags": [
+    "youtube",
+    "pula",
+    "pamagat",
+    "malaki"
+   ]
+  },
+  "template:yp1-bold-titles": {
+   "name": "Pamagat na may pulang linya at frame na gumuguhit sa sarili",
+   "tags": [
+    "youtube",
+    "pula",
+    "pamagat",
+    "simple",
+    "frame"
+   ]
+  },
+  "template:yp1-cajas-tecleadas": {
+   "name": "Pamagat na tina-type sa pula at puting kahon",
+   "tags": [
+    "youtube",
+    "pula",
+    "pamagat",
+    "simple",
+    "kahon"
+   ]
+  },
+  "template:yp1-cita-cajas-grises": {
+   "name": "Sipi sa abong mga kahon na may pulang panipi",
+   "tags": [
+    "youtube",
+    "pula",
+    "sipi",
+    "parirala"
+   ]
+  },
+  "template:yp1-cita-centrada": {
+   "name": "Sipi sa gitna sa pagitan ng dalawang linya",
+   "tags": [
+    "youtube",
+    "pula",
+    "sipi",
+    "parirala"
+   ]
+  },
+  "template:yp1-cita-circulo": {
+   "name": "Sipi sa pulang bilog",
+   "tags": [
+    "youtube",
+    "pula",
+    "sipi",
+    "parirala"
+   ]
+  },
+  "template:yp1-cita-cuadro-rojo": {
+   "name": "Sipi sa pulang parisukat na may tab sa gilid",
+   "tags": [
+    "youtube",
+    "pula",
+    "sipi",
+    "parirala"
+   ]
+  },
+  "template:yp1-cita-etiqueta": {
+   "name": "Sipi na may pulang tag ng may-akda",
+   "tags": [
+    "youtube",
+    "pula",
+    "sipi",
+    "parirala"
+   ]
+  },
+  "template:yp1-cita-marco-fino": {
+   "name": "Sipi sa manipis na pulang frame na may badge",
+   "tags": [
+    "youtube",
+    "pula",
+    "sipi",
+    "parirala"
+   ]
+  },
+  "template:yp1-cita-marco-rojo": {
+   "name": "Sipi na tina-type na may pulang frame",
+   "tags": [
+    "youtube",
+    "pula",
+    "sipi",
+    "parirala"
+   ]
+  },
+  "template:yp1-cita-panel-rojo": {
+   "name": "Sipi sa madilim na kahon sa tabi ng pulang panel",
+   "tags": [
+    "youtube",
+    "pula",
+    "sipi",
+    "parirala"
+   ]
+  },
+  "template:yp1-columna-suscribir": {
+   "name": "Mag-subscribe: hanay na may avatar, like at kampana",
+   "tags": [
+    "youtube",
+    "pula",
+    "mag-subscribe",
+    "like",
+    "kampana"
+   ]
+  },
+  "template:yp1-como-un-pro": {
+   "name": "Pamagat na nakahagdan sa ilalim ng pulang linya",
+   "tags": [
+    "youtube",
+    "pula",
+    "pamagat",
+    "simple",
+    "hagdan"
+   ]
+  },
+  "template:yp1-design": {
+   "name": "Pulang pamagat na may bumabagsak na letra",
+   "tags": [
+    "youtube",
+    "pula",
+    "pamagat",
+    "simple",
+    "bumabagsak"
+   ]
+  },
+  "template:yp1-fila-suscribir": {
+   "name": "Mag-subscribe: like, subscribe at kampana sa ibaba",
+   "tags": [
+    "youtube",
+    "pula",
+    "mag-subscribe",
+    "like",
+    "kampana"
+   ]
+  },
+  "template:yp1-final-banda": {
+   "name": "Pangwakas na screen: madilim na banda sa ibabaw ng video",
+   "tags": [
+    "youtube",
+    "pula",
+    "pangwakas na screen",
+    "video"
+   ]
+  },
+  "template:yp1-final-columna": {
+   "name": "Pangwakas na screen: madilim na hanay sa ibabaw ng may-kulay na video",
+   "tags": [
+    "youtube",
+    "pula",
+    "pangwakas na screen",
+    "video"
+   ]
+  },
+  "template:yp1-final-gracias": {
+   "name": "Pangwakas na screen: salamat sa panonood at mag-subscribe",
+   "tags": [
+    "youtube",
+    "pula",
+    "pangwakas na screen",
+    "salamat",
+    "mag-subscribe"
+   ]
+  },
+  "template:yp1-final-like-share": {
+   "name": "Pangwakas na screen: inirerekomendang video at like, comment, share",
+   "tags": [
+    "youtube",
+    "pula",
+    "pangwakas na screen",
+    "social media"
+   ]
+  },
+  "template:yp1-fondo-arcos": {
+   "name": "Likuran: kalat na pulang arko at guhit",
+   "tags": [
+    "youtube",
+    "pula",
+    "likuran",
+    "mga hugis"
+   ]
+  },
+  "template:yp1-fondo-bloques": {
+   "name": "Likuran: puting bloke na may pulang parisukat",
+   "tags": [
+    "youtube",
+    "pula",
+    "likuran",
+    "bloke"
+   ]
+  },
+  "template:yp1-fondo-botones": {
+   "name": "Likuran: mga hanay ng play button",
+   "tags": [
+    "youtube",
+    "pula",
+    "likuran",
+    "button"
+   ]
+  },
+  "template:yp1-fondo-capas": {
+   "name": "Likuran: patong-patong na pulang alon",
+   "tags": [
+    "youtube",
+    "pula",
+    "likuran",
+    "alon"
+   ]
+  },
+  "template:yp1-fondo-cruces": {
+   "name": "Likuran: pink at puting krus",
+   "tags": [
+    "youtube",
+    "pula",
+    "likuran",
+    "mga hugis"
+   ]
+  },
+  "template:yp1-fondo-destellos": {
+   "name": "Likuran: pahilis na pulang guhit ng liwanag",
+   "tags": [
+    "youtube",
+    "pula",
+    "likuran",
+    "liwanag"
+   ]
+  },
+  "template:yp1-fondo-espiral": {
+   "name": "Likuran: pula, puti at abong espiral",
+   "tags": [
+    "youtube",
+    "pula",
+    "likuran",
+    "espiral"
+   ]
+  },
+  "template:yp1-fondo-flechas": {
+   "name": "Likuran: pulang chevron na umuusad",
+   "tags": [
+    "youtube",
+    "pula",
+    "likuran",
+    "mga palaso"
+   ]
+  },
+  "template:yp1-fondo-guiones": {
+   "name": "Likuran: lumilipad na pulang guhit",
+   "tags": [
+    "youtube",
+    "pula",
+    "likuran",
+    "mga hugis"
+   ]
+  },
+  "template:yp1-fondo-lineas": {
+   "name": "Likuran: manipis na kulot na pulang linya",
+   "tags": [
+    "youtube",
+    "pula",
+    "likuran",
+    "mga linya"
+   ]
+  },
+  "template:yp1-fondo-liquido-azul": {
+   "name": "Likuran: asul na likido",
+   "tags": [
+    "youtube",
+    "pula",
+    "likuran",
+    "likido"
+   ]
+  },
+  "template:yp1-fondo-liquido-oscuro": {
+   "name": "Likuran: madilim na pulang likido",
+   "tags": [
+    "youtube",
+    "pula",
+    "likuran",
+    "likido"
+   ]
+  },
+  "template:yp1-fondo-ondas-gruesas": {
+   "name": "Likuran: makapal na pulang alon",
+   "tags": [
+    "youtube",
+    "pula",
+    "likuran",
+    "alon"
+   ]
+  },
+  "template:yp1-fondo-puntos": {
+   "name": "Likuran: pumipintig na pulang tuldok",
+   "tags": [
+    "youtube",
+    "pula",
+    "likuran",
+    "mga tuldok"
+   ]
+  },
+  "template:yp1-fondo-rayas": {
+   "name": "Likuran: pahilis na pulang guhit",
+   "tags": [
+    "youtube",
+    "pula",
+    "likuran",
+    "guhit"
+   ]
+  },
+  "template:yp1-fondo-rayas-onduladas": {
+   "name": "Likuran: kulot na pulang guhit",
+   "tags": [
+    "youtube",
+    "pula",
+    "likuran",
+    "alon"
+   ]
+  },
+  "template:yp1-fondo-redes": {
+   "name": "Likuran: mga icon ng social media",
+   "tags": [
+    "youtube",
+    "pula",
+    "likuran",
+    "social media",
+    "icon"
+   ]
+  },
+  "template:yp1-fondo-texto": {
+   "name": "Likuran: paulit-ulit na teksto na maaaring i-edit",
+   "tags": [
+    "youtube",
+    "pula",
+    "likuran",
+    "teksto"
+   ]
+  },
+  "template:yp1-frase-ondas-rojas": {
+   "name": "Parirala na tatlong linya sa pulang alon",
+   "tags": [
+    "youtube",
+    "pula",
+    "pamagat",
+    "alon",
+    "parirala"
+   ]
+  },
+  "template:yp1-info-anillo": {
+   "name": "Infographic: singsing ng porsyento na may teksto",
+   "tags": [
+    "youtube",
+    "pula",
+    "callout",
+    "tagapagturo",
+    "porsyento",
+    "bilang"
+   ]
+  },
+  "template:yp1-info-anillo-linea": {
+   "name": "Infographic: pamagat sa linya at singsing ng porsyento",
+   "tags": [
+    "youtube",
+    "pula",
+    "callout",
+    "tagapagturo",
+    "porsyento",
+    "bilang"
+   ]
+  },
+  "template:yp1-info-barra-porcentaje": {
+   "name": "Infographic: porsyento sa abong kahon at pulang label",
+   "tags": [
+    "youtube",
+    "pula",
+    "callout",
+    "tagapagturo",
+    "porsyento",
+    "bilang"
+   ]
+  },
+  "template:yp1-info-porcentaje": {
+   "name": "Infographic: malaking porsyento na may label",
+   "tags": [
+    "youtube",
+    "pula",
+    "callout",
+    "tagapagturo",
+    "porsyento",
+    "bilang"
+   ]
+  },
+  "template:yp1-insignia-me-gusta": {
+   "name": "Mag-subscribe: badge na umiikot at nagiging like at kampana",
+   "tags": [
+    "youtube",
+    "pula",
+    "mag-subscribe",
+    "like",
+    "kampana"
+   ]
+  },
+  "template:yp1-liquid-title": {
+   "name": "Pamagat na may balangkas sa likidong blob",
+   "tags": [
+    "youtube",
+    "pula",
+    "pamagat",
+    "likido",
+    "balangkas"
+   ]
+  },
+  "template:yp1-llamada-barra-roja": {
+   "name": "Callout: pulang bar na may talata",
+   "tags": [
+    "youtube",
+    "pula",
+    "callout",
+    "tagapagturo",
+    "talata"
+   ]
+  },
+  "template:yp1-llamada-dato": {
+   "name": "Callout: headline, teksto at datos sa pulang kahon",
+   "tags": [
+    "youtube",
+    "pula",
+    "callout",
+    "tagapagturo",
+    "datos"
+   ]
+  },
+  "template:yp1-llamada-especificacion": {
+   "name": "Callout: pulang pamagat sa ibabaw ng linya",
+   "tags": [
+    "youtube",
+    "pula",
+    "callout",
+    "tagapagturo",
+    "detalye",
+    "pamagat"
+   ]
+  },
+  "template:yp1-llamada-numero": {
+   "name": "Callout: numero sa bilog na may dalawang teksto",
+   "tags": [
+    "youtube",
+    "pula",
+    "callout",
+    "tagapagturo",
+    "numero"
+   ]
+  },
+  "template:yp1-llamada-numero-cuadro": {
+   "name": "Callout: numero sa pulang parisukat at puting mga kahon",
+   "tags": [
+    "youtube",
+    "pula",
+    "callout",
+    "tagapagturo",
+    "numero"
+   ]
+  },
+  "template:yp1-llamada-pantalla": {
+   "name": "Callout: pulang label at kahong may balangkas",
+   "tags": [
+    "youtube",
+    "pula",
+    "callout",
+    "tagapagturo",
+    "tag"
+   ]
+  },
+  "template:yp1-llamada-titular": {
+   "name": "Callout: headline sa pulang balangkas",
+   "tags": [
+    "youtube",
+    "pula",
+    "callout",
+    "tagapagturo",
+    "headline"
+   ]
+  },
+  "template:yp1-mejor-juego": {
+   "name": "Pamagat sa abong kahon sa ilalim ng pulang bloke",
+   "tags": [
+    "youtube",
+    "pula",
+    "pamagat",
+    "simple",
+    "kahon"
+   ]
+  },
+  "template:yp1-modern-bold": {
+   "name": "Pamagat na may balangkas sa pink na kahon",
+   "tags": [
+    "youtube",
+    "pula",
+    "pamagat",
+    "kahon"
+   ]
+  },
+  "template:yp1-modern-title": {
+   "name": "Pamagat sa pagitan ng pulang mga linya",
+   "tags": [
+    "youtube",
+    "pula",
+    "pamagat",
+    "simple",
+    "guhit"
+   ]
+  },
+  "template:yp1-motion-studio": {
+   "name": "Pamagat sa dalawang nagkrus na pulang bar",
+   "tags": [
+    "youtube",
+    "pula",
+    "pamagat",
+    "simple",
+    "mga bar"
+   ]
+  },
+  "template:yp1-no-olvides-calificar": {
+   "name": "Pamagat: huwag kalimutang mag-rate, sa pulang frame",
+   "tags": [
+    "youtube",
+    "pula",
+    "pamagat",
+    "simple",
+    "frame"
+   ]
+  },
+  "template:yp1-pila-botones": {
+   "name": "Mag-subscribe: mga button ng like, subscribe at notify na bumabaliktad",
+   "tags": [
+    "youtube",
+    "pula",
+    "mag-subscribe",
+    "like",
+    "mga button",
+    "button"
+   ]
+  },
+  "template:yp1-red-circulo-barra": {
+   "name": "Social: umiikot na bilog na icon at bar na may website",
+   "tags": [
+    "youtube",
+    "pula",
+    "social media",
+    "link",
+    "icon"
+   ]
+  },
+  "template:yp1-red-cuadro-follow": {
+   "name": "Social: gumugulong na parisukat at FOLLOW US",
+   "tags": [
+    "youtube",
+    "pula",
+    "social media",
+    "link"
+   ]
+  },
+  "template:yp1-red-pastilla": {
+   "name": "Social: icon sa gitna ng pill",
+   "tags": [
+    "youtube",
+    "pula",
+    "social media",
+    "link",
+    "icon"
+   ]
+  },
+  "template:yp1-red-rombo": {
+   "name": "Social: diyamanteng gumuguhit sa sarili at pangalan ng channel",
+   "tags": [
+    "youtube",
+    "pula",
+    "social media",
+    "link"
+   ]
+  },
+  "template:yp1-strong-titles": {
+   "name": "Matapang na pamagat sa ilalim ng pulang alon",
+   "tags": [
+    "youtube",
+    "pula",
+    "pamagat",
+    "alon"
+   ]
+  },
+  "template:yp1-top-10": {
+   "name": "Pamagat na may dalawang pulang linya sa ilalim",
+   "tags": [
+    "youtube",
+    "pula",
+    "pamagat",
+    "simple",
+    "listahan"
+   ]
+  },
+  "template:yp1-transicion-barras-1": {
+   "name": "Transisyon: pula, puti at itim na bar papuntang kaliwa",
+   "tags": [
+    "youtube",
+    "pula",
+    "transisyon",
+    "mga bar"
+   ]
+  },
+  "template:yp1-transicion-barras-2": {
+   "name": "Transisyon: pula, puti at itim na bar pababa",
+   "tags": [
+    "youtube",
+    "pula",
+    "transisyon",
+    "mga bar"
+   ]
+  },
+  "template:yp1-transicion-bloques-1": {
+   "name": "Transisyon: pula, puti at itim na bloke",
+   "tags": [
+    "youtube",
+    "pula",
+    "transisyon",
+    "bloke"
+   ]
+  },
+  "template:yp1-transicion-bloques-2": {
+   "name": "Transisyon: pula, puti at itim na bloke",
+   "tags": [
+    "youtube",
+    "pula",
+    "transisyon",
+    "bloke"
+   ]
+  },
+  "template:yp1-transicion-capsulas-1": {
+   "name": "Transisyon: mga kapsula papuntang kaliwa",
+   "tags": [
+    "youtube",
+    "pula",
+    "transisyon",
+    "kapsula"
+   ]
+  },
+  "template:yp1-transicion-capsulas-2": {
+   "name": "Transisyon: mga kapsula pababa",
+   "tags": [
+    "youtube",
+    "pula",
+    "transisyon",
+    "kapsula"
+   ]
+  },
+  "template:yp1-transicion-circulo": {
+   "name": "Transisyon: bumubukas na pula, puti at itim na bilog",
+   "tags": [
+    "youtube",
+    "pula",
+    "transisyon",
+    "mga hugis",
+    "bilog"
+   ]
+  },
+  "template:yp1-transicion-cuadrado": {
+   "name": "Transisyon: bumubukas na pula, puti at itim na parisukat",
+   "tags": [
+    "youtube",
+    "pula",
+    "transisyon",
+    "mga hugis",
+    "parisukat"
+   ]
+  },
+  "template:yp1-transicion-estrella": {
+   "name": "Transisyon: bumubukas na pula, puti at itim na bituin",
+   "tags": [
+    "youtube",
+    "pula",
+    "transisyon",
+    "mga hugis",
+    "bituin"
+   ]
+  },
+  "template:yp1-transicion-flechas-1": {
+   "name": "Transisyon: pula, puti at itim na chevron papuntang kaliwa",
+   "tags": [
+    "youtube",
+    "pula",
+    "transisyon",
+    "mga palaso"
+   ]
+  },
+  "template:yp1-transicion-flechas-2": {
+   "name": "Transisyon: pula, puti at itim na chevron pababa",
+   "tags": [
+    "youtube",
+    "pula",
+    "transisyon",
+    "mga palaso"
+   ]
+  },
+  "template:yp1-transicion-flechas-3": {
+   "name": "Transisyon: pula, puti at itim na chevron pataas",
+   "tags": [
+    "youtube",
+    "pula",
+    "transisyon",
+    "mga palaso"
+   ]
+  },
+  "template:yp1-transicion-flechas-4": {
+   "name": "Transisyon: pula, puti at itim na chevron papuntang kanan",
+   "tags": [
+    "youtube",
+    "pula",
+    "transisyon",
+    "mga palaso"
+   ]
+  },
+  "template:yp1-transicion-hexagono": {
+   "name": "Transisyon: bumubukas na pula, puti at itim na heksagono",
+   "tags": [
+    "youtube",
+    "pula",
+    "transisyon",
+    "mga hugis",
+    "heksagono"
+   ]
+  },
+  "template:yp1-transicion-remolino": {
+   "name": "Transisyon: pula at puting ikot",
+   "tags": [
+    "youtube",
+    "pula",
+    "transisyon",
+    "likido"
+   ]
+  },
+  "template:yp1-trazo-rojo": {
+   "name": "Pamagat na tatlong linya na may pulang kulot na guhit",
+   "tags": [
+    "youtube",
+    "pula",
+    "pamagat",
+    "guhit"
+   ]
+  },
+  "template:yp1-ver-siguiente-caja": {
+   "name": "Pamagat: panoorin ang susunod, sa puting kahon",
+   "tags": [
+    "youtube",
+    "pula",
+    "pamagat",
+    "simple",
+    "kahon"
+   ]
+  },
+  "template:yp1-ver-siguiente-dos-colores": {
+   "name": "Pamagat: panoorin ang susunod, sa puti at pulang kahon",
+   "tags": [
+    "youtube",
+    "pula",
+    "pamagat",
+    "simple",
+    "kahon"
+   ]
+  },
+  "template:yp2-apertura": {
+   "name": "Pambungad: pula at puting singsing na may YouTube button",
+   "tags": [
+    "youtube",
+    "pula",
+    "pambungad",
+    "logo",
+    "singsing",
+    "button"
+   ]
+  },
+  "template:yp2-aro-canal": {
+   "name": "Pula at puting singsing na bumubukas patungong CHANNEL",
+   "tags": [
+    "youtube",
+    "pula",
+    "singsing",
+    "logo",
+    "channel"
+   ]
+  },
+  "template:yp2-barra-15k": {
+   "name": "Bar: mga like at subscribe",
+   "tags": [
+    "youtube",
+    "pula",
+    "mag-subscribe",
+    "bar"
+   ]
+  },
+  "template:yp2-barra-campana": {
+   "name": "Bar: like, subscribe at kampana",
+   "tags": [
+    "youtube",
+    "pula",
+    "mag-subscribe",
+    "bar"
+   ]
+  },
+  "template:yp2-barra-canal": {
+   "name": "Bar ng channel na may larawan at subscribe",
+   "tags": [
+    "youtube",
+    "pula",
+    "mag-subscribe",
+    "bar"
+   ]
+  },
+  "template:yp2-barra-contadores": {
+   "name": "Bar: mga like, bilang at subscribe",
+   "tags": [
+    "youtube",
+    "pula",
+    "mag-subscribe",
+    "bar"
+   ]
+  },
+  "template:yp2-barra-simple": {
+   "name": "Bar: like, dislike at subscribe",
+   "tags": [
+    "youtube",
+    "pula",
+    "mag-subscribe",
+    "bar"
+   ]
+  },
+  "template:yp2-dos-tarjetas": {
+   "name": "Mga card: subscribe at like",
+   "tags": [
+    "youtube",
+    "pula",
+    "mag-subscribe",
+    "like"
+   ]
+  },
+  "template:yp2-icono-aro-blanco": {
+   "name": "Icon: puting singsing na sumasabog",
+   "tags": [
+    "youtube",
+    "pula",
+    "icon",
+    "animated"
+   ]
+  },
+  "template:yp2-icono-aro-rojo": {
+   "name": "Icon: pulang singsing na sumasabog",
+   "tags": [
+    "youtube",
+    "pula",
+    "icon",
+    "animated"
+   ]
+  },
+  "template:yp2-icono-buscador": {
+   "name": "Icon: kahon ng paghahanap na gumuguhit sa sarili",
+   "tags": [
+    "youtube",
+    "pula",
+    "icon",
+    "animated"
+   ]
+  },
+  "template:yp2-icono-campana": {
+   "name": "Icon: pulang kampanang tumutunog",
+   "tags": [
+    "youtube",
+    "pula",
+    "icon",
+    "animated"
+   ]
+  },
+  "template:yp2-icono-cargando": {
+   "name": "Icon: umiikot na mga tuldok ng loading",
+   "tags": [
+    "youtube",
+    "pula",
+    "icon",
+    "animated"
+   ]
+  },
+  "template:yp2-icono-cursor": {
+   "name": "Icon: pointer na nagki-click",
+   "tags": [
+    "youtube",
+    "pula",
+    "icon",
+    "animated"
+   ]
+  },
+  "template:yp2-icono-destello": {
+   "name": "Icon: pagsabog ng mga guhit",
+   "tags": [
+    "youtube",
+    "pula",
+    "icon",
+    "animated"
+   ]
+  },
+  "template:yp2-icono-flecha": {
+   "name": "Icon: palasong nakaturo pababa",
+   "tags": [
+    "youtube",
+    "pula",
+    "icon",
+    "animated"
+   ]
+  },
+  "template:yp2-icono-me-gusta": {
+   "name": "Icon: like na nagiging pula",
+   "tags": [
+    "youtube",
+    "pula",
+    "icon",
+    "animated"
+   ]
+  },
+  "template:yp2-pagina-video": {
+   "name": "Pahina ng panonood: subscribe at kampana",
+   "tags": [
+    "youtube",
+    "pula",
+    "mag-subscribe",
+    "pahina"
+   ]
+  },
+  "template:yp2-redes-barras": {
+   "name": "Social media: 12 bar na may mga icon",
+   "tags": [
+    "youtube",
+    "pula",
+    "social media",
+    "mga bar",
+    "mga icon",
+    "icon"
+   ]
+  },
+  "template:yp2-redes-iconos": {
+   "name": "Social media: 6 na icon na may mga kahon ng paghahanap",
+   "tags": [
+    "youtube",
+    "pula",
+    "social media",
+    "mga icon",
+    "paghahanap",
+    "icon"
+   ]
+  },
+  "template:yp2-siguiente-barra": {
+   "name": "Pangwakas na screen: susunod na video na may pulang bar",
+   "tags": [
+    "youtube",
+    "pula",
+    "pangwakas na screen",
+    "susunod na video"
+   ]
+  },
+  "template:yp2-siguiente-onda": {
+   "name": "Pangwakas na screen: susunod na video na may pulang alon",
+   "tags": [
+    "youtube",
+    "pula",
+    "pangwakas na screen",
+    "susunod na video"
+   ]
+  },
+  "template:yp2-tarjeta-canal": {
+   "name": "Card ng channel na may larawan at logo",
+   "tags": [
+    "youtube",
+    "pula",
+    "channel",
+    "logo",
+    "larawan"
+   ]
+  },
+  "template:yp2-tarjeta-video": {
+   "name": "Video card: subscribe at kampana",
+   "tags": [
+    "youtube",
+    "pula",
+    "mag-subscribe",
+    "card"
+   ]
+  },
+  "template:yp2-titulo-animation": {
+   "name": "Pamagat sa lumalaking pulang kahon",
+   "tags": [
+    "youtube",
+    "pula",
+    "pamagat",
+    "tag"
+   ]
+  },
+  "template:yp2-titulo-best": {
+   "name": "Pamagat na may tag at salitang dumudulas",
+   "tags": [
+    "youtube",
+    "pula",
+    "pamagat",
+    "tag"
+   ]
+  },
+  "template:yp2-titulo-brand": {
+   "name": "Malaking pamagat na may pulang linya",
+   "tags": [
+    "youtube",
+    "pula",
+    "pamagat",
+    "tag"
+   ]
+  },
+  "template:yp2-titulo-clean": {
+   "name": "Pamagat sa pagitan ng dalawang pulang linya",
+   "tags": [
+    "youtube",
+    "pula",
+    "pamagat",
+    "tag"
+   ]
+  },
+  "template:yp2-titulo-just-edit": {
+   "name": "Pamagat sa frame na may salita sa ilalim",
+   "tags": [
+    "youtube",
+    "pula",
+    "pamagat",
+    "tag"
+   ]
+  },
+  "template:yp2-titulo-motion-design": {
+   "name": "Pamagat na may pulang tag",
+   "tags": [
+    "youtube",
+    "pula",
+    "pamagat",
+    "tag"
+   ]
+  },
+  "template:yp2-titulo-new-project": {
+   "name": "Pamagat na inilalantad ng pulang bar",
+   "tags": [
+    "youtube",
+    "pula",
+    "pamagat",
+    "tag"
+   ]
+  },
+  "template:yp2-titulo-rendering": {
+   "name": "Pamagat sa ilalim ng pulang linyang bumababa",
+   "tags": [
+    "youtube",
+    "pula",
+    "pamagat",
+    "tag"
+   ]
+  },
+  "template:yp2-titulo-simple": {
+   "name": "Pamagat na dumudulas palabas ng pulang parisukat",
+   "tags": [
+    "youtube",
+    "pula",
+    "pamagat",
+    "tag"
+   ]
+  },
+  "template:yp2-titulo-your-channel": {
+   "name": "Pamagat sa pulang frame",
+   "tags": [
+    "youtube",
+    "pula",
+    "pamagat",
+    "tag"
+   ]
+  },
+  "template:yp2-transicion-diagonal": {
+   "name": "Transisyon: pula, puti at abong pahilis na bar",
+   "tags": [
+    "youtube",
+    "pula",
+    "transisyon",
+    "pahilis"
+   ]
+  },
+  "template:yp2-transicion-franjas": {
+   "name": "Transisyon: umiikot na pula at puting guhit",
+   "tags": [
+    "youtube",
+    "pula",
+    "transisyon",
+    "guhit"
+   ]
+  },
+  "template:yp3-avatar-cadena": {
+   "name": "Button: avatar na may kadena ng like at kampana",
+   "tags": [
+    "youtube",
+    "mag-subscribe",
+    "button",
+    "avatar",
+    "like",
+    "kampana"
+   ]
+  },
+  "template:yp3-avatar-rojo": {
+   "name": "Button: avatar ng channel na may pulang subscribe",
+   "tags": [
+    "youtube",
+    "mag-subscribe",
+    "button",
+    "avatar",
+    "kampana",
+    "cursor"
+   ]
+  },
+  "template:yp3-burbujas-rojas": {
+   "name": "Button: pulang bubble na may kampana, avatar at like",
+   "tags": [
+    "youtube",
+    "mag-subscribe",
+    "button",
+    "avatar",
+    "kampana",
+    "like"
+   ]
+  },
+  "template:yp3-caja-me-gusta-campana": {
+   "name": "Button: pulang kahon na nagiging kampana mula sa like",
+   "tags": [
+    "youtube",
+    "mag-subscribe",
+    "button",
+    "like",
+    "kampana",
+    "3d"
+   ]
+  },
+  "template:yp3-caja-roja-campana": {
+   "name": "Button: pulang kahon na may kampana at nakahilig na \"Subscribed\"",
+   "tags": [
+    "youtube",
+    "mag-subscribe",
+    "button",
+    "kampana",
+    "3d"
+   ]
+  },
+  "template:yp3-campana-redonda": {
+   "name": "Button: bilog na kampanang nagiging \"Subscribed\"",
+   "tags": [
+    "youtube",
+    "mag-subscribe",
+    "button",
+    "kampana",
+    "cursor"
+   ]
+  },
+  "template:yp3-final-anillos-blancos": {
+   "name": "Pangwakas na screen: \"Click to Subscribe\" sa puting mga singsing",
+   "tags": [
+    "youtube",
+    "pangwakas na screen",
+    "mag-subscribe",
+    "puti",
+    "pink"
+   ]
+  },
+  "template:yp3-final-aro-degradado": {
+   "name": "Pangwakas na screen: gradient na singsing sa itim",
+   "tags": [
+    "youtube",
+    "pangwakas na screen",
+    "mag-subscribe",
+    "itim",
+    "gradient",
+    "social media"
+   ]
+  },
+  "template:yp3-final-banda-azul": {
+   "name": "Pangwakas na screen: asul na banda sa ibabaw ng larawan na may dalawang video",
+   "tags": [
+    "youtube",
+    "pangwakas na screen",
+    "mag-subscribe",
+    "asul",
+    "larawan"
+   ]
+  },
+  "template:yp3-final-capsula-turquesa": {
+   "name": "Pangwakas na screen: teal na kapsula na may dalawang video",
+   "tags": [
+    "youtube",
+    "pangwakas na screen",
+    "mag-subscribe",
+    "teal",
+    "like",
+    "kampana"
+   ]
+  },
+  "template:yp3-final-gris": {
+   "name": "Pangwakas na screen: malambot na abo na may dalawang video at avatar",
+   "tags": [
+    "youtube",
+    "pangwakas na screen",
+    "mag-subscribe",
+    "abo",
+    "neumorphic"
+   ]
+  },
+  "template:yp3-final-hexagono": {
+   "name": "Pangwakas na screen: gradient na heksagono na may \"Click to Subscribe\"",
+   "tags": [
+    "youtube",
+    "pangwakas na screen",
+    "mag-subscribe",
+    "heksagono",
+    "gradient",
+    "social media"
+   ]
+  },
+  "template:yp3-final-manchas-rojas": {
+   "name": "Pangwakas na screen: pulang blob na may avatar at susunod na video",
+   "tags": [
+    "youtube",
+    "pangwakas na screen",
+    "mag-subscribe",
+    "pula",
+    "social media"
+   ]
+  },
+  "template:yp3-final-no-olvides": {
+   "name": "Pangwakas na screen: \"Don't forget to subscribe\" na may asul na hilig",
+   "tags": [
+    "youtube",
+    "pangwakas na screen",
+    "mag-subscribe",
+    "asul",
+    "larawan",
+    "social media"
+   ]
+  },
+  "template:yp3-final-olas-turquesa": {
+   "name": "Pangwakas na screen: teal na alon na may inirerekomendang video",
+   "tags": [
+    "youtube",
+    "pangwakas na screen",
+    "mag-subscribe",
+    "teal",
+    "mga alon"
+   ]
+  },
+  "template:yp3-final-rosa": {
+   "name": "Pangwakas na screen: pink na \"Thanks for Watching!\"",
+   "tags": [
+    "youtube",
+    "pangwakas na screen",
+    "mag-subscribe",
+    "pink",
+    "social media"
+   ]
+  },
+  "template:yp3-final-rosa-siguiente": {
+   "name": "Pangwakas na screen: pink na \"next video\" na may mga bloke",
+   "tags": [
+    "youtube",
+    "pangwakas na screen",
+    "mag-subscribe",
+    "pink",
+    "bloke"
+   ]
+  },
+  "template:yp3-final-tarjeta-lila": {
+   "name": "Pangwakas na screen: lilac na card na \"Please don't forget to subscribe\"",
+   "tags": [
+    "youtube",
+    "pangwakas na screen",
+    "mag-subscribe",
+    "lilac",
+    "larawan"
+   ]
+  },
+  "template:yp3-final-tarjeta-morada": {
+   "name": "Pangwakas na screen: lilang card na may dalawang video",
+   "tags": [
+    "youtube",
+    "pangwakas na screen",
+    "mag-subscribe",
+    "lila"
+   ]
+  },
+  "template:yp3-me-gusta-redondo": {
+   "name": "Button: bilog na like at kampana na may \"Liked\" at \"Subscribed\"",
+   "tags": [
+    "youtube",
+    "mag-subscribe",
+    "button",
+    "like",
+    "kampana",
+    "cursor"
+   ]
+  },
+  "template:yp3-pestana-degradado": {
+   "name": "Button: pink at lilang tab na may avatar",
+   "tags": [
+    "youtube",
+    "mag-subscribe",
+    "button",
+    "avatar",
+    "gradient"
+   ]
+  },
+  "template:yp3-pildora-burbujas": {
+   "name": "Button: gradient na bubble pill na may avatar",
+   "tags": [
+    "youtube",
+    "mag-subscribe",
+    "button",
+    "avatar",
+    "gradient",
+    "like"
+   ]
+  },
+  "template:yp3-pildora-degradado": {
+   "name": "Button: puting pill na may gradient na kampana",
+   "tags": [
+    "youtube",
+    "mag-subscribe",
+    "button",
+    "kampana",
+    "cursor",
+    "gradient"
+   ]
+  },
+  "template:yp3-play-contorno": {
+   "name": "Button: puting play icon na bumabaliktad at \"Subscribed\"",
+   "tags": [
+    "youtube",
+    "mag-subscribe",
+    "button",
+    "cursor",
+    "puti",
+    "3d"
+   ]
+  },
+  "template:yp3-suscribirse-rojo": {
+   "name": "Button: pulang subscribe na may like at kampana",
+   "tags": [
+    "youtube",
+    "mag-subscribe",
+    "button",
+    "like",
+    "kampana",
+    "cursor"
+   ]
+  },
+  "template:yp3-tarjeta-blanca": {
+   "name": "Button: puting card na may avatar at like",
+   "tags": [
+    "youtube",
+    "mag-subscribe",
+    "button",
+    "like",
+    "avatar",
+    "3d"
+   ]
+  },
+  "template:yp4-bienvenida": {
+   "name": "Story: maligayang pagdating na may pula at itim na disc",
+   "tags": [
+    "story",
+    "youtube",
+    "patayo",
+    "pagbati",
+    "bilog"
+   ]
+  },
+  "template:yp4-canal": {
+   "name": "Story: CHANNEL na may play button",
+   "tags": [
+    "story",
+    "youtube",
+    "patayo",
+    "channel",
+    "button"
+   ]
+  },
+  "template:yp4-contador": {
+   "name": "Story: 2/6 na may mga larawan at dilaw na frame",
+   "tags": [
+    "story",
+    "youtube",
+    "patayo",
+    "larawan",
+    "dilaw",
+    "bilang"
+   ]
+  },
+  "template:yp4-derechos": {
+   "name": "Story: puting bilog sa dilaw",
+   "tags": [
+    "story",
+    "youtube",
+    "patayo",
+    "dilaw",
+    "bilog"
+   ]
+  },
+  "template:yp4-fundamentos": {
+   "name": "Story: nakahilig na pulang label sa ibabaw ng larawan",
+   "tags": [
+    "story",
+    "youtube",
+    "patayo",
+    "larawan",
+    "tag"
+   ]
+  },
+  "template:yp4-gracias": {
+   "name": "Story: salamat na may dalawang larawan at pangalan",
+   "tags": [
+    "story",
+    "youtube",
+    "patayo",
+    "larawan",
+    "salamat"
+   ]
+  },
+  "template:yp4-love": {
+   "name": "Story: pag-ibig na may subscribe card",
+   "tags": [
+    "story",
+    "youtube",
+    "patayo",
+    "larawan",
+    "mag-subscribe"
+   ]
+  },
+  "template:yp4-mi-plan": {
+   "name": "Story: plano ko na may listahan at label",
+   "tags": [
+    "story",
+    "youtube",
+    "patayo",
+    "larawan",
+    "listahan"
+   ]
+  },
+  "template:yp4-nombre-blanco": {
+   "name": "Story: pangalan na may bilog na larawan sa puti",
+   "tags": [
+    "story",
+    "youtube",
+    "patayo",
+    "larawan",
+    "pangalan"
+   ]
+  },
+  "template:yp4-nombre-circulo": {
+   "name": "Story: pangalan sa tabi ng bilog na larawan",
+   "tags": [
+    "story",
+    "youtube",
+    "patayo",
+    "larawan",
+    "pangalan"
+   ]
+  },
+  "template:yp4-numeros": {
+   "name": "Story: mga slide 01 at 02",
+   "tags": [
+    "story",
+    "youtube",
+    "patayo",
+    "larawan",
+    "mga numero"
+   ]
+  },
+  "template:yp4-por-ejemplo": {
+   "name": "Story: dilaw na parirala sa pula na may mga larawan",
+   "tags": [
+    "story",
+    "youtube",
+    "patayo",
+    "larawan",
+    "parirala"
+   ]
+  },
+  "template:yp4-seguir": {
+   "name": "Story: Follow na may social card",
+   "tags": [
+    "story",
+    "youtube",
+    "patayo",
+    "larawan",
+    "sundan",
+    "social media"
+   ]
+  },
+  "template:yp4-siguiente": {
+   "name": "Story: dalawang larawan na may next at Watch",
+   "tags": [
+    "story",
+    "youtube",
+    "patayo",
+    "larawan",
+    "susunod"
+   ]
+  },
+  "template:yp4-social-media": {
+   "name": "Story: Social Media na may follow me",
+   "tags": [
+    "story",
+    "youtube",
+    "patayo",
+    "larawan",
+    "sundan",
+    "social media"
+   ]
+  },
+  "template:yp4-vlogger": {
+   "name": "Story: VLOGGER na may mga puso at subscribe",
+   "tags": [
+    "story",
+    "youtube",
+    "patayo",
+    "larawan",
+    "mag-subscribe",
+    "puso"
+   ]
+  },
+  "template:yp5-avatar-cycle": {
+   "name": "Lower third: avatar at nagpapalit na tag",
+   "tags": [
+    "youtube",
+    "avatar",
+    "like",
+    "mag-subscribe",
+    "lower third"
+   ]
+  },
+  "template:yp5-best-show": {
+   "name": "Lower third: button, hati at dalawang linya",
+   "tags": [
+    "youtube",
+    "button",
+    "lower third"
+   ]
+  },
+  "template:yp5-best-solution": {
+   "name": "Pamagat: puti at itim na kahon sa frame",
+   "tags": [
+    "youtube",
+    "kahon",
+    "frame",
+    "pamagat"
+   ]
+  },
+  "template:yp5-best-video": {
+   "name": "Pamagat: pulang linya at pulang kahon",
+   "tags": [
+    "youtube",
+    "pula",
+    "pamagat"
+   ]
+  },
+  "template:yp5-big-live-story": {
+   "name": "Lower third: play button na lumiliit pababa at pangalan",
+   "tags": [
+    "youtube",
+    "button",
+    "mag-subscribe",
+    "lower third"
+   ]
+  },
+  "template:yp5-box-any-fonts": {
+   "name": "Pamagat sa dalawang kahon sa gitna",
+   "tags": [
+    "youtube",
+    "kahon",
+    "tina-type",
+    "pamagat"
+   ]
+  },
+  "template:yp5-box-auto-resized": {
+   "name": "Pamagat sa kahon na lumalaki habang tina-type",
+   "tags": [
+    "youtube",
+    "kahon",
+    "tina-type",
+    "pamagat"
+   ]
+  },
+  "template:yp5-box-automatically": {
+   "name": "Pamagat sa puting kahon at itim na kahon",
+   "tags": [
+    "youtube",
+    "kahon",
+    "tina-type",
+    "pamagat"
+   ]
+  },
+  "template:yp5-box-best-choice": {
+   "name": "Pamagat sa tatlong itim na kahon",
+   "tags": [
+    "youtube",
+    "kahon",
+    "tina-type",
+    "pamagat"
+   ]
+  },
+  "template:yp5-box-dont-forget": {
+   "name": "Pamagat sa gitna ng tatlong puting kahon",
+   "tags": [
+    "youtube",
+    "kahon",
+    "mag-subscribe",
+    "pamagat"
+   ]
+  },
+  "template:yp5-box-enjoy": {
+   "name": "Pamagat sa puting kahon na may balangkas",
+   "tags": [
+    "youtube",
+    "kahon",
+    "balangkas",
+    "pamagat"
+   ]
+  },
+  "template:yp5-box-great-design": {
+   "name": "Pamagat sa dalawang puting kahon",
+   "tags": [
+    "youtube",
+    "kahon",
+    "tina-type",
+    "pamagat"
+   ]
+  },
+  "template:yp5-box-like-that": {
+   "name": "Pamagat sa mga kahong bumubukas mula sa gitna",
+   "tags": [
+    "youtube",
+    "kahon",
+    "mag-subscribe",
+    "pamagat"
+   ]
+  },
+  "template:yp5-box-motion-design": {
+   "name": "Pamagat sa pahilig na puting kahon",
+   "tags": [
+    "youtube",
+    "kahon",
+    "nakahilig",
+    "pamagat"
+   ]
+  },
+  "template:yp5-box-thank-support": {
+   "name": "Pamagat: linyang bumubukas bilang puting kahon",
+   "tags": [
+    "youtube",
+    "kahon",
+    "pamagat"
+   ]
+  },
+  "template:yp5-box-we-created": {
+   "name": "Pamagat sa tatlong itim na kahon na tina-type",
+   "tags": [
+    "youtube",
+    "kahon",
+    "tina-type",
+    "pamagat"
+   ]
+  },
+  "template:yp5-box-write-text": {
+   "name": "Pamagat sa isang kahong may balangkas",
+   "tags": [
+    "youtube",
+    "kahon",
+    "tina-type",
+    "pamagat"
+   ]
+  },
+  "template:yp5-bubble-swap": {
+   "name": "Lower third: pulang bubble mula like hanggang subscribe",
+   "tags": [
+    "youtube",
+    "like",
+    "mag-subscribe",
+    "bubble",
+    "lower third"
+   ]
+  },
+  "template:yp5-callout-brand": {
+   "name": "Callout: brand at presyo",
+   "tags": [
+    "youtube",
+    "callout",
+    "presyo"
+   ]
+  },
+  "template:yp5-callout-creative": {
+   "name": "Callout: tuldok-tuldok na linya at dalawang kahon",
+   "tags": [
+    "youtube",
+    "callout",
+    "pula"
+   ]
+  },
+  "template:yp5-callout-elbow": {
+   "name": "Callout: baluktot na linya at pulang kahon ng teksto",
+   "tags": [
+    "youtube",
+    "callout",
+    "pula"
+   ]
+  },
+  "template:yp5-callout-headline": {
+   "name": "Callout: pulang headline at itim na kahon",
+   "tags": [
+    "youtube",
+    "callout",
+    "pula"
+   ]
+  },
+  "template:yp5-callout-line-up": {
+   "name": "Callout: linyang umaakyat sa itim na kahon",
+   "tags": [
+    "youtube",
+    "callout",
+    "template"
+   ]
+  },
+  "template:yp5-callout-outline": {
+   "name": "Callout na linya na may tuldok at teksto",
+   "tags": [
+    "youtube",
+    "callout",
+    "template"
+   ]
+  },
+  "template:yp5-callout-product": {
+   "name": "Callout: linya at frame ng produkto",
+   "tags": [
+    "youtube",
+    "callout",
+    "produkto"
+   ]
+  },
+  "template:yp5-callout-red-box": {
+   "name": "Callout na linya na may pulang kahon",
+   "tags": [
+    "youtube",
+    "callout",
+    "pula"
+   ]
+  },
+  "template:yp5-callout-red-line": {
+   "name": "Callout: pulang linya at pulang kahon",
+   "tags": [
+    "youtube",
+    "callout",
+    "pula"
+   ]
+  },
+  "template:yp5-callout-title-bar": {
+   "name": "Callout: pulang bar at pamagat",
+   "tags": [
+    "youtube",
+    "callout",
+    "pula",
+    "pamagat"
+   ]
+  },
+  "template:yp5-channel-name": {
+   "name": "Lower third: nakahilig na pangalan ng channel na may guhit",
+   "tags": [
+    "youtube",
+    "button",
+    "guhit",
+    "lower third"
+   ]
+  },
+  "template:yp5-clean-modern": {
+   "name": "Lower third: numero at teksto sa pill",
+   "tags": [
+    "youtube",
+    "numero",
+    "pill",
+    "lower third"
+   ]
+  },
+  "template:yp5-clean-titles": {
+   "name": "Pamagat: apat na linya sa puting frame",
+   "tags": [
+    "youtube",
+    "frame",
+    "pamagat"
+   ]
+  },
+  "template:yp5-click-channel": {
+   "name": "Lower third: i-click ang button at pulang bar",
+   "tags": [
+    "youtube",
+    "button",
+    "click",
+    "lower third"
+   ]
+  },
+  "template:yp5-counter-bubbles": {
+   "name": "Mga bilang: notification bubble",
+   "tags": [
+    "youtube",
+    "bilang",
+    "like"
+   ]
+  },
+  "template:yp5-counter-heart": {
+   "name": "Like counter na may puso",
+   "tags": [
+    "youtube",
+    "bilang",
+    "like"
+   ]
+  },
+  "template:yp5-counter-link": {
+   "name": "Link sa description",
+   "tags": [
+    "youtube",
+    "link",
+    "template"
+   ]
+  },
+  "template:yp5-counter-person": {
+   "name": "Bilang ng followers",
+   "tags": [
+    "youtube",
+    "bilang",
+    "template"
+   ]
+  },
+  "template:yp5-counter-subscribers": {
+   "name": "Bilang ng subscribers",
+   "tags": [
+    "youtube",
+    "bilang",
+    "mag-subscribe"
+   ]
+  },
+  "template:yp5-doodle-channel": {
+   "name": "Lower third: puting button, pulang bar at mga doodle",
+   "tags": [
+    "youtube",
+    "button",
+    "guhit",
+    "lower third"
+   ]
+  },
+  "template:yp5-end-big-arc": {
+   "name": "Pangwakas na screen: malaking coral na arko at dalawang video",
+   "tags": [
+    "youtube",
+    "pasasalamat",
+    "coral",
+    "pangwakas na screen"
+   ]
+  },
+  "template:yp5-end-circle": {
+   "name": "Pangwakas na screen: coral na kalahating bilog at inirerekomendang video",
+   "tags": [
+    "youtube",
+    "pasasalamat",
+    "coral",
+    "pangwakas na screen"
+   ]
+  },
+  "template:yp5-end-coral": {
+   "name": "Coral na pangwakas na screen: avatar, dalawang video at socials",
+   "tags": [
+    "youtube",
+    "pasasalamat",
+    "coral",
+    "pangwakas na screen",
+    "social media"
+   ]
+  },
+  "template:yp5-end-coral-column": {
+   "name": "Coral na pangwakas na screen: dalawang video, socials at avatar",
+   "tags": [
+    "youtube",
+    "pasasalamat",
+    "coral",
+    "pangwakas na screen",
+    "social media"
+   ]
+  },
+  "template:yp5-end-diagonal": {
+   "name": "Pangwakas na screen: pahilig na coral na panel at susunod na video",
+   "tags": [
+    "youtube",
+    "pasasalamat",
+    "coral",
+    "pangwakas na screen"
+   ]
+  },
+  "template:yp5-end-side-panel": {
+   "name": "Pangwakas na screen: coral na panel at dalawang video",
+   "tags": [
+    "youtube",
+    "pasasalamat",
+    "coral",
+    "pangwakas na screen"
+   ]
+  },
+  "template:yp5-end-subscribe-arrow": {
+   "name": "Pangwakas na screen: inirerekomendang video at malaking SUBSCRIBE",
+   "tags": [
+    "youtube",
+    "pasasalamat",
+    "mag-subscribe",
+    "pangwakas na screen"
+   ]
+  },
+  "template:yp5-end-white-arrow": {
+   "name": "Pangwakas na screen: puting tatsulok na may pulang palaso",
+   "tags": [
+    "youtube",
+    "pasasalamat",
+    "palaso",
+    "pangwakas na screen"
+   ]
+  },
+  "template:yp5-end-white-band": {
+   "name": "Pangwakas na screen: puting banda na may dalawang video",
+   "tags": [
+    "youtube",
+    "pasasalamat",
+    "puti",
+    "pangwakas na screen"
+   ]
+  },
+  "template:yp5-end-white-curve": {
+   "name": "Pangwakas na screen: kurbadong puting panel at dalawang video",
+   "tags": [
+    "youtube",
+    "pasasalamat",
+    "puti",
+    "pangwakas na screen"
+   ]
+  },
+  "template:yp5-good-design": {
+   "name": "Pamagat: tatlong linyang lumilitaw salita-salita",
+   "tags": [
+    "youtube",
+    "simple",
+    "pamagat"
+   ]
+  },
+  "template:yp5-hello-welcome": {
+   "name": "Pamagat: HELLO! at maligayang pagdating sa aking channel",
+   "tags": [
+    "youtube",
+    "pagbati",
+    "coral",
+    "pamagat"
+   ]
+  },
+  "template:yp5-how-do-i": {
+   "name": "Lower third: tanong sa puting kahon",
+   "tags": [
+    "youtube",
+    "kahon",
+    "puti",
+    "lower third"
+   ]
+  },
+  "template:yp5-like-card": {
+   "name": "Lower third: like, subscribe at notify",
+   "tags": [
+    "youtube",
+    "like",
+    "mag-subscribe",
+    "kampana",
+    "lower third"
+   ]
+  },
+  "template:yp5-like-column": {
+   "name": "Lower third: pulang hanay na may tatlong tag",
+   "tags": [
+    "youtube",
+    "like",
+    "mag-subscribe",
+    "kampana",
+    "lower third"
+   ]
+  },
+  "template:yp5-like-hand": {
+   "name": "Lower third: i-like ang video gamit ang kamay",
+   "tags": [
+    "youtube",
+    "like",
+    "lower third"
+   ]
+  },
+  "template:yp5-modern-titles": {
+   "name": "Pamagat: puting frame at tatlong linya",
+   "tags": [
+    "youtube",
+    "frame",
+    "pamagat"
+   ]
+  },
+  "template:yp5-modern-universal": {
+   "name": "Lower third: tatlong linya at isang guhit",
+   "tags": [
+    "youtube",
+    "simple",
+    "lower third"
+   ]
+  },
+  "template:yp5-name-bar": {
+   "name": "Lower third: puting bar at pangalang lumalabas",
+   "tags": [
+    "youtube",
+    "pangalan",
+    "bar",
+    "lower third"
+   ]
+  },
+  "template:yp5-name-red-box": {
+   "name": "Lower third: pangalan sa pulang kahon",
+   "tags": [
+    "youtube",
+    "pangalan",
+    "pula",
+    "lower third"
+   ]
+  },
+  "template:yp5-name-square-line": {
+   "name": "Lower third: maliit na parisukat, linya at pangalan",
+   "tags": [
+    "youtube",
+    "pangalan",
+    "linya",
+    "lower third"
+   ]
+  },
+  "template:yp5-name-white-box": {
+   "name": "Lower third: pangalang tina-type sa puting kahon",
+   "tags": [
+    "youtube",
+    "pangalan",
+    "kahon",
+    "lower third"
+   ]
+  },
+  "template:yp5-new-video": {
+   "name": "Lower third: bagong video sa itim na bar",
+   "tags": [
+    "youtube",
+    "bar",
+    "itim",
+    "lower third"
+   ]
+  },
+  "template:yp5-notify-bell": {
+   "name": "Lower third: mga notification na may tumutunog na kampana",
+   "tags": [
+    "youtube",
+    "kampana",
+    "lower third"
+   ]
+  },
+  "template:yp5-opener-boxes": {
+   "name": "Pulang pambungad: pangalan sa mga itim na kahon",
+   "tags": [
+    "youtube",
+    "pula",
+    "mga kahon",
+    "pambungad"
+   ]
+  },
+  "template:yp5-opener-divider": {
+   "name": "Pulang pambungad: button, hati at pangalan",
+   "tags": [
+    "youtube",
+    "pula",
+    "mag-subscribe",
+    "pambungad",
+    "button"
+   ]
+  },
+  "template:yp5-opener-fade": {
+   "name": "Pulang pambungad: button at pangalang unti-unting lumilitaw",
+   "tags": [
+    "youtube",
+    "pula",
+    "pambungad",
+    "button"
+   ]
+  },
+  "template:yp5-opener-flip": {
+   "name": "Pulang pambungad: bumabaliktad na button at pangalan",
+   "tags": [
+    "youtube",
+    "pula",
+    "alon",
+    "pambungad",
+    "button"
+   ]
+  },
+  "template:yp5-opener-typed": {
+   "name": "Pulang pambungad: pangalang tina-type",
+   "tags": [
+    "youtube",
+    "pula",
+    "tina-type",
+    "pambungad"
+   ]
+  },
+  "template:yp5-profile-card": {
+   "name": "Lower third: puting card na may avatar",
+   "tags": [
+    "youtube",
+    "avatar",
+    "mag-subscribe",
+    "lower third"
+   ]
+  },
+  "template:yp5-promo-pack": {
+   "name": "Pamagat: YOUTUBE PROMO sa itim na kahon",
+   "tags": [
+    "youtube",
+    "kahon",
+    "itim",
+    "pamagat"
+   ]
+  },
+  "template:yp5-quote-black-frame": {
+   "name": "Sipi sa itim na frame na may tag",
+   "tags": [
+    "youtube",
+    "sipi",
+    "frame"
+   ]
+  },
+  "template:yp5-quote-brackets": {
+   "name": "Sipi sa pagitan ng dalawang sulok",
+   "tags": [
+    "youtube",
+    "sipi",
+    "template"
+   ]
+  },
+  "template:yp5-quote-bubble": {
+   "name": "Sipi sa speech bubble",
+   "tags": [
+    "youtube",
+    "sipi",
+    "bubble"
+   ]
+  },
+  "template:yp5-quote-centred": {
+   "name": "Sipi sa gitna na may puting tag",
+   "tags": [
+    "youtube",
+    "sipi",
+    "template"
+   ]
+  },
+  "template:yp5-quote-corners": {
+   "name": "Sipi sa pagitan ng dalawang puting sulok",
+   "tags": [
+    "youtube",
+    "sipi",
+    "template"
+   ]
+  },
+  "template:yp5-quote-frame": {
+   "name": "Sipi sa frame na may itim na tag",
+   "tags": [
+    "youtube",
+    "sipi",
+    "frame"
+   ]
+  },
+  "template:yp5-quote-line": {
+   "name": "Sipi: patayong linya at panipi sa mga kahon",
+   "tags": [
+    "youtube",
+    "sipi",
+    "template"
+   ]
+  },
+  "template:yp5-quote-split-bar": {
+   "name": "Sipi na bumubukas sa pagitan ng dalawang bar",
+   "tags": [
+    "youtube",
+    "sipi",
+    "template"
+   ]
+  },
+  "template:yp5-quote-two-lines": {
+   "name": "Sipi sa pagitan ng dalawang linya",
+   "tags": [
+    "youtube",
+    "sipi",
+    "template"
+   ]
+  },
+  "template:yp5-quote-white-box": {
+   "name": "Sipi sa puting kahon na may itim na panipi",
+   "tags": [
+    "youtube",
+    "sipi",
+    "kahon"
+   ]
+  },
+  "template:yp5-record-iris": {
+   "name": "Transisyon: bumubukas na mga bilog ng record",
+   "tags": [
+    "youtube",
+    "transisyon",
+    "mga bilog"
+   ]
+  },
+  "template:yp5-social-baldosa-fb": {
+   "name": "Social bar: Facebook (lumilipad na tile)",
+   "tags": [
+    "youtube",
+    "social media",
+    "facebook"
+   ]
+  },
+  "template:yp5-social-baldosa-ig": {
+   "name": "Social bar: Instagram (lumilipad na tile)",
+   "tags": [
+    "youtube",
+    "social media",
+    "instagram"
+   ]
+  },
+  "template:yp5-social-baldosa-tw": {
+   "name": "Social bar: Twitter (lumilipad na tile)",
+   "tags": [
+    "youtube",
+    "social media",
+    "twitter"
+   ]
+  },
+  "template:yp5-social-baldosa-yt": {
+   "name": "Social bar: YouTube (lumilipad na tile)",
+   "tags": [
+    "youtube",
+    "social media",
+    "template"
+   ]
+  },
+  "template:yp5-social-barras-fb": {
+   "name": "Social bar: Facebook (dalawang bar na bumubukas)",
+   "tags": [
+    "youtube",
+    "social media",
+    "facebook"
+   ]
+  },
+  "template:yp5-social-barras-ig": {
+   "name": "Social bar: Instagram (dalawang bar na bumubukas)",
+   "tags": [
+    "youtube",
+    "social media",
+    "instagram"
+   ]
+  },
+  "template:yp5-social-barras-tw": {
+   "name": "Social bar: Twitter (dalawang bar na bumubukas)",
+   "tags": [
+    "youtube",
+    "social media",
+    "twitter"
+   ]
+  },
+  "template:yp5-social-barras-yt": {
+   "name": "Social bar: YouTube (dalawang bar na bumubukas)",
+   "tags": [
+    "youtube",
+    "social media",
+    "template"
+   ]
+  },
+  "template:yp5-social-circulo-fb": {
+   "name": "Social bar: Facebook (bilog at pill)",
+   "tags": [
+    "youtube",
+    "social media",
+    "facebook"
+   ]
+  },
+  "template:yp5-social-circulo-ig": {
+   "name": "Social bar: Instagram (bilog at pill)",
+   "tags": [
+    "youtube",
+    "social media",
+    "instagram"
+   ]
+  },
+  "template:yp5-social-circulo-tw": {
+   "name": "Social bar: Twitter (bilog at pill)",
+   "tags": [
+    "youtube",
+    "social media",
+    "twitter"
+   ]
+  },
+  "template:yp5-social-circulo-yt": {
+   "name": "Social bar: YouTube (bilog at pill)",
+   "tags": [
+    "youtube",
+    "social media",
+    "template"
+   ]
+  },
+  "template:yp5-social-cuadro-fb": {
+   "name": "Social bar: Facebook (bumabaliktad na tile)",
+   "tags": [
+    "youtube",
+    "social media",
+    "facebook"
+   ]
+  },
+  "template:yp5-social-cuadro-ig": {
+   "name": "Social bar: Instagram (bumabaliktad na tile)",
+   "tags": [
+    "youtube",
+    "social media",
+    "instagram"
+   ]
+  },
+  "template:yp5-social-cuadro-tw": {
+   "name": "Social bar: Twitter (bumabaliktad na tile)",
+   "tags": [
+    "youtube",
+    "social media",
+    "twitter"
+   ]
+  },
+  "template:yp5-social-cuadro-yt": {
+   "name": "Social bar: YouTube (bumabaliktad na tile)",
+   "tags": [
+    "youtube",
+    "social media",
+    "template"
+   ]
+  },
+  "template:yp5-social-pincel-fb": {
+   "name": "Social bar: Facebook (hagod ng brush)",
+   "tags": [
+    "youtube",
+    "social media",
+    "facebook"
+   ]
+  },
+  "template:yp5-social-pincel-ig": {
+   "name": "Social bar: Instagram (hagod ng brush)",
+   "tags": [
+    "youtube",
+    "social media",
+    "instagram"
+   ]
+  },
+  "template:yp5-social-pincel-tw": {
+   "name": "Social bar: Twitter (hagod ng brush)",
+   "tags": [
+    "youtube",
+    "social media",
+    "twitter"
+   ]
+  },
+  "template:yp5-social-pincel-yt": {
+   "name": "Social bar: YouTube (hagod ng brush)",
+   "tags": [
+    "youtube",
+    "social media",
+    "template"
+   ]
+  },
+  "template:yp5-stacked-channel": {
+   "name": "Lower third: pangalang tatlong linya na may chat bubble",
+   "tags": [
+    "youtube",
+    "bubble",
+    "lower third"
+   ]
+  },
+  "template:yp5-sub-avatar-pill": {
+   "name": "Lower third: subscribe na may avatar at click",
+   "tags": [
+    "youtube",
+    "mag-subscribe",
+    "avatar",
+    "click",
+    "lower third"
+   ]
+  },
+  "template:yp5-sub-center-avatar": {
+   "name": "Lower third: avatar sa gitna ng pill",
+   "tags": [
+    "youtube",
+    "mag-subscribe",
+    "avatar",
+    "lower third"
+   ]
+  },
+  "template:yp5-sub-channel-tag": {
+   "name": "Lower third: subscribed na may pangalan ng channel",
+   "tags": [
+    "youtube",
+    "mag-subscribe",
+    "click",
+    "lower third"
+   ]
+  },
+  "template:yp5-sub-grey-bell": {
+   "name": "Lower third: subscribe na nagiging abo at kampana",
+   "tags": [
+    "youtube",
+    "mag-subscribe",
+    "kampana",
+    "click",
+    "lower third"
+   ]
+  },
+  "template:yp5-sub-logo-box": {
+   "name": "Lower third: logo sa puting kahon at subscribe",
+   "tags": [
+    "youtube",
+    "mag-subscribe",
+    "button",
+    "lower third"
+   ]
+  },
+  "template:yp5-sub-red-pill": {
+   "name": "Lower third: pulang pill na nagiging subscribe",
+   "tags": [
+    "youtube",
+    "mag-subscribe",
+    "click",
+    "lower third"
+   ]
+  },
+  "template:yp5-sub-red-white": {
+   "name": "Lower third: subscribe na nagiging subscribed",
+   "tags": [
+    "youtube",
+    "mag-subscribe",
+    "kampana",
+    "lower third"
+   ]
+  },
+  "template:yp5-sub-stack": {
+   "name": "Lower third: avatar at tatlong pulang tag",
+   "tags": [
+    "youtube",
+    "mag-subscribe",
+    "avatar",
+    "lower third"
+   ]
+  },
+  "template:yp5-subscribe-icon": {
+   "name": "Lower third: subscribe na may umiikot na button",
+   "tags": [
+    "youtube",
+    "mag-subscribe",
+    "button",
+    "lower third"
+   ]
+  },
+  "template:yp5-subscribe-now": {
+   "name": "Pamagat: mag-subscribe na ngayon letra por letra",
+   "tags": [
+    "youtube",
+    "mag-subscribe",
+    "pamagat"
+   ]
+  },
+  "template:yp5-subscribe-to": {
+   "name": "Pamagat: subscribe sa puting kahon",
+   "tags": [
+    "youtube",
+    "mag-subscribe",
+    "kahon",
+    "pamagat"
+   ]
+  },
+  "template:yp5-subscribed-click": {
+   "name": "Lower third: pulang subscribe bar na may click",
+   "tags": [
+    "youtube",
+    "mag-subscribe",
+    "click",
+    "lower third"
+   ]
+  },
+  "template:yp5-thanks-watching": {
+   "name": "Pamagat: salamat sa panonood",
+   "tags": [
+    "youtube",
+    "pasasalamat",
+    "pamagat"
+   ]
+  },
+  "template:yp5-three-icons": {
+   "name": "Lower third: umiilaw na like, play at kampana",
+   "tags": [
+    "youtube",
+    "like",
+    "kampana",
+    "lower third"
+   ]
+  },
+  "template:yp5-three-pills": {
+   "name": "Lower third: tatlong button sa isang hanay",
+   "tags": [
+    "youtube",
+    "like",
+    "mag-subscribe",
+    "kampana",
+    "lower third",
+    "button"
+   ]
+  },
+  "template:yp5-tilted-cycle": {
+   "name": "Lower third: nakahilig na tag na nagpapalit ng salita",
+   "tags": [
+    "youtube",
+    "like",
+    "mag-subscribe",
+    "kampana",
+    "lower third"
+   ]
+  },
+  "template:yp5-travel-blog": {
+   "name": "Lower third: umaakyat na button at pangalan",
+   "tags": [
+    "youtube",
+    "button",
+    "lower third"
+   ]
+  },
+  "template:yp5-triangle-box": {
+   "name": "Lower third: tatsulok na nagiging puting button",
+   "tags": [
+    "youtube",
+    "button",
+    "puti",
+    "lower third"
+   ]
+  },
+  "template:yp5-watch-next": {
+   "name": "Lower third: panoorin ang susunod sa puting kahon",
+   "tags": [
+    "youtube",
+    "kahon",
+    "puti",
+    "lower third"
+   ]
+  },
+  "template:yp5-white-opener": {
+   "name": "Pambungad: pulang disc at channel sa puti",
+   "tags": [
+    "youtube",
+    "mga bilog",
+    "avatar",
+    "pambungad"
+   ]
+  },
+  "template:yp5-your-channel-label": {
+   "name": "Lower third: pulang label na may button at kislap",
+   "tags": [
+    "youtube",
+    "button",
+    "tag",
+    "lower third"
+   ]
+  },
+  "template:yp7-apertura-cuadro-rojo": {
+   "name": "Pambungad: pulang parisukat at card ng channel",
+   "tags": [
+    "youtube",
+    "itim at puti",
+    "fashion",
+    "logo",
+    "pambungad"
+   ]
+  },
+  "template:yp7-apertura-foto-perfil": {
+   "name": "Pambungad: kuha na nagiging avatar",
+   "tags": [
+    "youtube",
+    "itim at puti",
+    "fashion",
+    "logo",
+    "pambungad"
+   ]
+  },
+  "template:yp7-apertura-palabras": {
+   "name": "Pambungad: mga salita sa itim at puting panel",
+   "tags": [
+    "youtube",
+    "itim at puti",
+    "fashion",
+    "mga salita",
+    "pambungad"
+   ]
+  },
+  "template:yp7-apertura-youtube": {
+   "name": "Pambungad: YOUTUBE na may balangkas na napupuno",
+   "tags": [
+    "youtube",
+    "itim at puti",
+    "fashion",
+    "pambungad"
+   ]
+  },
+  "template:yp7-awesomeness": {
+   "name": "Tipograpiya: salita sa puting frame",
+   "tags": [
+    "youtube",
+    "itim at puti",
+    "fashion",
+    "tipograpiya",
+    "frame"
+   ]
+  },
+  "template:yp7-be-happy": {
+   "name": "Tipograpiya: parirala na pumipila at nagpapalit ng kulay",
+   "tags": [
+    "youtube",
+    "itim at puti",
+    "fashion",
+    "tipograpiya",
+    "parirala"
+   ]
+  },
+  "template:yp7-caja-negra": {
+   "name": "Tipograpiya: parirala sa itim na kahon",
+   "tags": [
+    "youtube",
+    "itim at puti",
+    "fashion",
+    "tipograpiya",
+    "kahon"
+   ]
+  },
+  "template:yp7-cita-barra": {
+   "name": "Tipograpiya: sipi sa bar",
+   "tags": [
+    "youtube",
+    "itim at puti",
+    "fashion",
+    "tipograpiya",
+    "sipi",
+    "kahon"
+   ]
+  },
+  "template:yp7-cita-barra-2": {
+   "name": "Tipograpiya: bar ng sipi na may dalawang parisukat",
+   "tags": [
+    "youtube",
+    "itim at puti",
+    "fashion",
+    "tipograpiya",
+    "sipi",
+    "kahon"
+   ]
+  },
+  "template:yp7-cita-cuadro": {
+   "name": "Tipograpiya: sipi sa parisukat na kahon",
+   "tags": [
+    "youtube",
+    "itim at puti",
+    "fashion",
+    "tipograpiya",
+    "sipi",
+    "kahon"
+   ]
+  },
+  "template:yp7-cita-cuadro-2": {
+   "name": "Tipograpiya: kahon ng sipi na may parisukat sa sulok",
+   "tags": [
+    "youtube",
+    "itim at puti",
+    "fashion",
+    "tipograpiya",
+    "sipi",
+    "kahon"
+   ]
+  },
+  "template:yp7-cita-cuadro-3": {
+   "name": "Tipograpiya: sipi na may dalawang parisukat",
+   "tags": [
+    "youtube",
+    "itim at puti",
+    "fashion",
+    "tipograpiya",
+    "sipi",
+    "kahon"
+   ]
+  },
+  "template:yp7-elementos-1": {
+   "name": "Mga elemento: kumikislap na hugis at tuldok",
+   "tags": [
+    "youtube",
+    "itim at puti",
+    "fashion",
+    "overlay",
+    "glitch",
+    "mga elemento"
+   ]
+  },
+  "template:yp7-elementos-2": {
+   "name": "Mga elemento: hugis, singsing at screen ng tuldok",
+   "tags": [
+    "youtube",
+    "itim at puti",
+    "fashion",
+    "overlay",
+    "glitch",
+    "mga elemento"
+   ]
+  },
+  "template:yp7-elementos-3": {
+   "name": "Mga elemento: dayagonal at diyamante ng tuldok",
+   "tags": [
+    "youtube",
+    "itim at puti",
+    "fashion",
+    "overlay",
+    "glitch",
+    "mga elemento"
+   ]
+  },
+  "template:yp7-elementos-4": {
+   "name": "Mga elemento: scan line at singsing",
+   "tags": [
+    "youtube",
+    "itim at puti",
+    "fashion",
+    "overlay",
+    "glitch",
+    "mga elemento"
+   ]
+  },
+  "template:yp7-final-1": {
+   "name": "End card: isang video",
+   "tags": [
+    "youtube",
+    "itim at puti",
+    "fashion",
+    "pangwakas na screen",
+    "mga video"
+   ]
+  },
+  "template:yp7-final-2": {
+   "name": "End card: dalawang video na magkapatong",
+   "tags": [
+    "youtube",
+    "itim at puti",
+    "fashion",
+    "pangwakas na screen",
+    "mga video"
+   ]
+  },
+  "template:yp7-final-3": {
+   "name": "End card: dalawang video na magkatabi",
+   "tags": [
+    "youtube",
+    "itim at puti",
+    "fashion",
+    "pangwakas na screen",
+    "mga video"
+   ]
+  },
+  "template:yp7-final-4": {
+   "name": "End card: apat na video",
+   "tags": [
+    "youtube",
+    "itim at puti",
+    "fashion",
+    "pangwakas na screen",
+    "mga video"
+   ]
+  },
+  "template:yp7-frase-entre-barras": {
+   "name": "Tipograpiya: parirala sa pagitan ng dalawang bar",
+   "tags": [
+    "youtube",
+    "itim at puti",
+    "fashion",
+    "tipograpiya",
+    "parirala"
+   ]
+  },
+  "template:yp7-frase-inclinada": {
+   "name": "Tipograpiya: nakahilig na parirala sa pagitan ng mga linya",
+   "tags": [
+    "youtube",
+    "itim at puti",
+    "fashion",
+    "tipograpiya",
+    "parirala"
+   ]
+  },
+  "template:yp7-greatness": {
+   "name": "Tipograpiya: mga letrang bumabagsak sa lugar",
+   "tags": [
+    "youtube",
+    "itim at puti",
+    "fashion",
+    "tipograpiya"
+   ]
+  },
+  "template:yp7-icono-campana": {
+   "name": "Icon: tumutunog na kampana",
+   "tags": [
+    "youtube",
+    "itim at puti",
+    "fashion",
+    "icon",
+    "kampana"
+   ]
+  },
+  "template:yp7-icono-compartir": {
+   "name": "Icon: Share button",
+   "tags": [
+    "youtube",
+    "itim at puti",
+    "fashion",
+    "icon",
+    "ibahagi",
+    "button"
+   ]
+  },
+  "template:yp7-icono-me-gusta": {
+   "name": "Icon: Like button",
+   "tags": [
+    "youtube",
+    "itim at puti",
+    "fashion",
+    "icon",
+    "like",
+    "button"
+   ]
+  },
+  "template:yp7-icono-suscribirse": {
+   "name": "Icon: Subscribe button",
+   "tags": [
+    "youtube",
+    "itim at puti",
+    "fashion",
+    "icon",
+    "mag-subscribe",
+    "button"
+   ]
+  },
+  "template:yp7-nota-campana": {
+   "name": "Dagdag: sulat-kamay na \"Click the bell icon\"",
+   "tags": [
+    "youtube",
+    "itim at puti",
+    "fashion",
+    "palaso",
+    "sulat-kamay",
+    "icon"
+   ]
+  },
+  "template:yp7-nota-comenta": {
+   "name": "Dagdag: sulat-kamay na \"Comment below\" na may palaso",
+   "tags": [
+    "youtube",
+    "itim at puti",
+    "fashion",
+    "palaso",
+    "sulat-kamay"
+   ]
+  },
+  "template:yp7-nota-suscribete": {
+   "name": "Dagdag: sulat-kamay na \"Subscribe us\" na may palaso",
+   "tags": [
+    "youtube",
+    "itim at puti",
+    "fashion",
+    "palaso",
+    "sulat-kamay",
+    "mag-subscribe"
+   ]
+  },
+  "template:yp7-nota-video": {
+   "name": "Dagdag: sulat-kamay na \"Check out the video here\"",
+   "tags": [
+    "youtube",
+    "itim at puti",
+    "fashion",
+    "palaso",
+    "sulat-kamay"
+   ]
+  },
+  "template:yp7-red-dribbble": {
+   "name": "Social: card ng Dribbble",
+   "tags": [
+    "youtube",
+    "itim at puti",
+    "fashion",
+    "social media",
+    "dribbble"
+   ]
+  },
+  "template:yp7-red-facebook": {
+   "name": "Social: card ng Facebook",
+   "tags": [
+    "youtube",
+    "itim at puti",
+    "fashion",
+    "social media",
+    "facebook"
+   ]
+  },
+  "template:yp7-red-google-plus": {
+   "name": "Social: card ng Google Plus",
+   "tags": [
+    "youtube",
+    "itim at puti",
+    "fashion",
+    "social media",
+    "google plus"
+   ]
+  },
+  "template:yp7-red-instagram": {
+   "name": "Social: card ng Instagram",
+   "tags": [
+    "youtube",
+    "itim at puti",
+    "fashion",
+    "social media",
+    "instagram"
+   ]
+  },
+  "template:yp7-red-linkedin": {
+   "name": "Social: card ng LinkedIn",
+   "tags": [
+    "youtube",
+    "itim at puti",
+    "fashion",
+    "social media",
+    "linkedin"
+   ]
+  },
+  "template:yp7-red-pinterest": {
+   "name": "Social: card ng Pinterest",
+   "tags": [
+    "youtube",
+    "itim at puti",
+    "fashion",
+    "social media",
+    "pinterest"
+   ]
+  },
+  "template:yp7-red-twitter": {
+   "name": "Social: card ng Twitter",
+   "tags": [
+    "youtube",
+    "itim at puti",
+    "fashion",
+    "social media",
+    "twitter"
+   ]
+  },
+  "template:yp7-red-whatsapp": {
+   "name": "Social: card ng WhatsApp",
+   "tags": [
+    "youtube",
+    "itim at puti",
+    "fashion",
+    "social media",
+    "whatsapp"
+   ]
+  },
+  "template:yp7-super-awesome-life": {
+   "name": "Tipograpiya: tatlong linyang umaakyat at nagsasara",
+   "tags": [
+    "youtube",
+    "itim at puti",
+    "fashion",
+    "tipograpiya"
+   ]
+  },
+  "template:yp7-suscribirse-banda": {
+   "name": "Mag-subscribe: banda sa ibaba",
+   "tags": [
+    "youtube",
+    "itim at puti",
+    "fashion",
+    "mag-subscribe",
+    "banda"
+   ]
+  },
+  "template:yp7-suscribirse-banda-foto": {
+   "name": "Mag-subscribe: banda sa ibaba na may larawan",
+   "tags": [
+    "youtube",
+    "itim at puti",
+    "fashion",
+    "mag-subscribe",
+    "banda"
+   ]
+  },
+  "template:yp7-suscribirse-barra": {
+   "name": "Mag-subscribe: bar na may avatar",
+   "tags": [
+    "youtube",
+    "itim at puti",
+    "fashion",
+    "mag-subscribe"
+   ]
+  },
+  "template:yp7-suscribirse-tarjeta": {
+   "name": "Mag-subscribe: card na may larawan",
+   "tags": [
+    "youtube",
+    "itim at puti",
+    "fashion",
+    "mag-subscribe"
+   ]
+  },
+  "template:yp7-telefono": {
+   "name": "Eksena: telepono na may like at subscribe",
+   "tags": [
+    "youtube",
+    "itim at puti",
+    "fashion",
+    "telepono",
+    "mag-subscribe",
+    "eksena"
+   ]
+  },
+  "template:yp7-telefono-izquierda": {
+   "name": "Eksena: telepono sa kaliwa",
+   "tags": [
+    "youtube",
+    "itim at puti",
+    "fashion",
+    "telepono",
+    "mag-subscribe",
+    "eksena"
+   ]
+  },
+  "template:yp7-transicion-circulo": {
+   "name": "Transisyon: bilog mula sa gitna",
+   "tags": [
+    "youtube",
+    "itim at puti",
+    "fashion",
+    "transisyon"
+   ]
+  },
+  "template:yp7-transicion-circulo-arriba": {
+   "name": "Transisyon: bilog mula sa itaas",
+   "tags": [
+    "youtube",
+    "itim at puti",
+    "fashion",
+    "transisyon"
+   ]
+  },
+  "template:yp7-transicion-circulo-izquierda": {
+   "name": "Transisyon: bilog mula sa kaliwa",
+   "tags": [
+    "youtube",
+    "itim at puti",
+    "fashion",
+    "transisyon"
+   ]
+  },
+  "template:yp7-transicion-diagonal": {
+   "name": "Transisyon: pahilis na wipe",
+   "tags": [
+    "youtube",
+    "itim at puti",
+    "fashion",
+    "transisyon"
+   ]
+  },
+  "template:yp7-transicion-izquierda": {
+   "name": "Transisyon: wipe papuntang kaliwa",
+   "tags": [
+    "youtube",
+    "itim at puti",
+    "fashion",
+    "transisyon"
+   ]
+  },
+  "template:yp7-transicion-lineas": {
+   "name": "Transisyon: mga linya mula sa gitna",
+   "tags": [
+    "youtube",
+    "itim at puti",
+    "fashion",
+    "transisyon"
+   ]
+  },
+  "template:yp7-transicion-rectangulo": {
+   "name": "Transisyon: parihaba mula sa gitna",
+   "tags": [
+    "youtube",
+    "itim at puti",
+    "fashion",
+    "transisyon"
+   ]
+  },
+  "template:yp7-transicion-sube": {
+   "name": "Transisyon: umaakyat na mga banda",
+   "tags": [
+    "youtube",
+    "itim at puti",
+    "fashion",
+    "transisyon"
    ]
   },
   "template:yt-calle-a-que-te-dedicas": {

@@ -25958,6 +25958,78 @@
     "đen"
    ]
   },
+  "template:llt16-barra-nombre": {
+   "name": "Thanh tên: thanh đỏ và tên mảnh",
+   "tags": [
+    "thanh tên",
+    "phẳng",
+    "youtube"
+   ]
+  },
+  "template:llt16-cargo-azul": {
+   "name": "Thanh tên: tên và chức danh trong khung xanh",
+   "tags": [
+    "thanh tên",
+    "phẳng",
+    "youtube"
+   ]
+  },
+  "template:llt16-cargo-rojo": {
+   "name": "Thanh tên: tên mảnh, chức danh màu đỏ",
+   "tags": [
+    "thanh tên",
+    "phẳng",
+    "youtube"
+   ]
+  },
+  "template:llt16-director": {
+   "name": "Thanh tên: chức danh trắng, tên đỏ",
+   "tags": [
+    "thanh tên",
+    "phẳng",
+    "youtube"
+   ]
+  },
+  "template:llt16-fotografa": {
+   "name": "Thanh tên: chức danh nhỏ, tên trên nền xanh lơ",
+   "tags": [
+    "thanh tên",
+    "phẳng",
+    "youtube"
+   ]
+  },
+  "template:llt16-hora": {
+   "name": "Thanh tên: giờ và ngày",
+   "tags": [
+    "thanh tên",
+    "phẳng",
+    "ngày tháng"
+   ]
+  },
+  "template:llt16-show": {
+   "name": "Thanh tên: tiêu đề giữa hai đường kẻ",
+   "tags": [
+    "thanh tên",
+    "phẳng",
+    "youtube"
+   ]
+  },
+  "template:llt16-titulo-rojo": {
+   "name": "Thanh tên: tiêu đề và phụ đề đỏ",
+   "tags": [
+    "thanh tên",
+    "phẳng",
+    "youtube"
+   ]
+  },
+  "template:llt16-tu-texto": {
+   "name": "Thanh tên: khung cam và xám",
+   "tags": [
+    "thanh tên",
+    "phẳng",
+    "youtube"
+   ]
+  },
   "template:llt2-barra-etiqueta": {
    "name": "Thanh tên có logo: dải tối và nhãn xanh lá",
    "tags": [
@@ -32184,6 +32256,1180 @@
     "retro"
    ]
   },
+  "template:tit1-creative": {
+   "name": "Tiêu đề: tiêu đề sáng tạo với nét vẽ tay",
+   "tags": [
+    "tiêu đề",
+    "mạng xã hội",
+    "nét vẽ nguệch ngoạc",
+    "màu hồng"
+   ]
+  },
+  "template:tit1-design": {
+   "name": "Tiêu đề: thiết kế trong đám mây",
+   "tags": [
+    "tiêu đề",
+    "mạng xã hội",
+    "đám mây",
+    "nét vẽ nguệch ngoạc"
+   ]
+  },
+  "template:tit1-follow": {
+   "name": "Tiêu đề: theo dõi tôi với dải ruy băng hồng",
+   "tags": [
+    "tiêu đề",
+    "mạng xã hội",
+    "instagram",
+    "theo dõi",
+    "ruy băng"
+   ]
+  },
+  "template:tit1-likecount": {
+   "name": "Tiêu đề: thích kèm bộ đếm và WOW",
+   "tags": [
+    "tiêu đề",
+    "mạng xã hội",
+    "like",
+    "bộ đếm",
+    "wow",
+    "trái tim"
+   ]
+  },
+  "template:tit1-likenew": {
+   "name": "Tiêu đề: thích video mới kèm mũi tên",
+   "tags": [
+    "tiêu đề",
+    "mạng xã hội",
+    "like",
+    "video mới",
+    "mũi tên"
+   ]
+  },
+  "template:tit1-likethis": {
+   "name": "Tiêu đề: thích video này với bông hoa",
+   "tags": [
+    "tiêu đề",
+    "mạng xã hội",
+    "like",
+    "hoa"
+   ]
+  },
+  "template:tit1-smile": {
+   "name": "Tiêu đề: cười lên và hạnh phúc",
+   "tags": [
+    "tiêu đề",
+    "mạng xã hội",
+    "vui vẻ",
+    "nụ cười",
+    "mặt cười"
+   ]
+  },
+  "template:tit1-subscribe": {
+   "name": "Tiêu đề: đăng ký kèm những bông hoa",
+   "tags": [
+    "tiêu đề",
+    "mạng xã hội",
+    "đăng ký",
+    "hoa",
+    "youtube"
+   ]
+  },
+  "template:tit2-2022": {
+   "name": "Tiêu đề: năm chữ nổi",
+   "tags": [
+    "kiểu chữ",
+    "trắng đen",
+    "năm",
+    "chữ nổi"
+   ]
+  },
+  "template:tit2-be-awesome": {
+   "name": "Tiêu đề: Be awesome kèm ảnh",
+   "tags": [
+    "kiểu chữ",
+    "trắng đen",
+    "ảnh",
+    "dọc"
+   ]
+  },
+  "template:tit2-big-black": {
+   "name": "Tiêu đề: BIG BLACK kèm nhãn",
+   "tags": [
+    "kiểu chữ",
+    "trắng đen",
+    "màu đen",
+    "nhãn"
+   ]
+  },
+  "template:tit2-circulos": {
+   "name": "Tiêu đề: sáu vòng tròn",
+   "tags": [
+    "kiểu chữ",
+    "trắng đen",
+    "hình tròn",
+    "màu trắng"
+   ]
+  },
+  "template:tit2-ciudad": {
+   "name": "Tiêu đề: tiêu đề thành phố nghiêng trên ảnh",
+   "tags": [
+    "kiểu chữ",
+    "trắng đen",
+    "ảnh",
+    "thành phố",
+    "nghiêng"
+   ]
+  },
+  "template:tit2-creative-inclinado": {
+   "name": "Tiêu đề: từ khổng lồ nghiêng",
+   "tags": [
+    "kiểu chữ",
+    "trắng đen",
+    "nghiêng",
+    "màu đen"
+   ]
+  },
+  "template:tit2-creative-pack": {
+   "name": "Tiêu đề: chữ rơi xuống",
+   "tags": [
+    "kiểu chữ",
+    "trắng đen",
+    "chữ nghiêng",
+    "màu trắng"
+   ]
+  },
+  "template:tit2-creative-relieve": {
+   "name": "Tiêu đề: chữ sáng tạo nổi khối",
+   "tags": [
+    "kiểu chữ",
+    "trắng đen",
+    "chữ nổi",
+    "đổ bóng",
+    "màu trắng"
+   ]
+  },
+  "template:tit2-event-music": {
+   "name": "Tiêu đề: tiêu đề sự kiện, ảnh trượt xuống",
+   "tags": [
+    "kiểu chữ",
+    "trắng đen",
+    "ảnh",
+    "sự kiện",
+    "chữ nghiêng"
+   ]
+  },
+  "template:tit2-hello-world": {
+   "name": "Tiêu đề: Hello World! chữ nghiêng",
+   "tags": [
+    "kiểu chữ",
+    "trắng đen",
+    "chữ nghiêng",
+    "màu trắng"
+   ]
+  },
+  "template:tit2-montserrat-bold": {
+   "name": "Tiêu đề: hai thanh đen với các từ",
+   "tags": [
+    "kiểu chữ",
+    "trắng đen",
+    "thanh",
+    "màu trắng"
+   ]
+  },
+  "template:tit2-new-trend": {
+   "name": "Tiêu đề: New Trend lật từ trong ra ngoài",
+   "tags": [
+    "kiểu chữ",
+    "trắng đen",
+    "viền chữ",
+    "màu trắng"
+   ]
+  },
+  "template:tit2-new-typography": {
+   "name": "Tiêu đề: thanh với các từ in nghiêng",
+   "tags": [
+    "kiểu chữ",
+    "trắng đen",
+    "thanh",
+    "chữ nghiêng",
+    "màu trắng"
+   ]
+  },
+  "template:tit2-trend": {
+   "name": "Tiêu đề: kiểu chữ xu hướng mới",
+   "tags": [
+    "kiểu chữ",
+    "trắng đen",
+    "màu đen"
+   ]
+  },
+  "template:tit2-trend-doble": {
+   "name": "Tiêu đề: xu hướng chia hai nửa",
+   "tags": [
+    "kiểu chữ",
+    "trắng đen",
+    "màu đen",
+    "màu trắng",
+    "đôi"
+   ]
+  },
+  "template:tit2-typo-slide": {
+   "name": "Tiêu đề: thẻ trắng",
+   "tags": [
+    "kiểu chữ",
+    "trắng đen",
+    "thẻ",
+    "màu đen"
+   ]
+  },
+  "template:tit3-20-animation": {
+   "name": "Tiêu đề: 20 Animation",
+   "tags": [
+    "tiêu đề",
+    "xanh lơ",
+    "doanh nghiệp",
+    "con số"
+   ]
+  },
+  "template:tit3-20-cuadro": {
+   "name": "Tiêu đề: 20 Animated trong khung",
+   "tags": [
+    "tiêu đề",
+    "xanh lơ",
+    "doanh nghiệp",
+    "khung viền"
+   ]
+  },
+  "template:tit3-best-day": {
+   "name": "Tiêu đề: khung nghiêng và viền",
+   "tags": [
+    "tiêu đề",
+    "xanh lơ",
+    "doanh nghiệp",
+    "chữ nghiêng"
+   ]
+  },
+  "template:tit3-best-event": {
+   "name": "Tiêu đề: khung nghiêng và chợ",
+   "tags": [
+    "tiêu đề",
+    "xanh lơ",
+    "doanh nghiệp",
+    "nghiêng",
+    "sự kiện"
+   ]
+  },
+  "template:tit3-circulo": {
+   "name": "Tiêu đề: tên trên vòng tròn",
+   "tags": [
+    "tiêu đề",
+    "xanh lơ",
+    "doanh nghiệp",
+    "hình tròn",
+    "tên"
+   ]
+  },
+  "template:tit3-design-success": {
+   "name": "Tiêu đề: Design for success với vòng tròn",
+   "tags": [
+    "tiêu đề",
+    "xanh lơ",
+    "doanh nghiệp",
+    "hình tròn"
+   ]
+  },
+  "template:tit3-disenador": {
+   "name": "Tiêu đề: khung chức danh và tên",
+   "tags": [
+    "tiêu đề",
+    "xanh lơ",
+    "doanh nghiệp",
+    "tên",
+    "nghiêng"
+   ]
+  },
+  "template:tit3-dos-triangulos": {
+   "name": "Tiêu đề: tên giữa hai tam giác",
+   "tags": [
+    "tiêu đề",
+    "xanh lơ",
+    "doanh nghiệp",
+    "tam giác",
+    "tên"
+   ]
+  },
+  "template:tit3-evento": {
+   "name": "Tiêu đề: sự kiện nghiêng kèm khung",
+   "tags": [
+    "tiêu đề",
+    "xanh lơ",
+    "doanh nghiệp",
+    "sự kiện",
+    "khung viền",
+    "nghiêng"
+   ]
+  },
+  "template:tit3-globo": {
+   "name": "Tiêu đề: bong bóng thoại",
+   "tags": [
+    "tiêu đề",
+    "xanh lơ",
+    "doanh nghiệp",
+    "bong bóng thoại",
+    "khung viền"
+   ]
+  },
+  "template:tit3-holiday": {
+   "name": "Tiêu đề: kỳ nghỉ kèm ngày tháng",
+   "tags": [
+    "tiêu đề",
+    "xanh lơ",
+    "doanh nghiệp",
+    "sự kiện",
+    "nghiêng"
+   ]
+  },
+  "template:tit3-life": {
+   "name": "Tiêu đề: Life is life trong khung",
+   "tags": [
+    "tiêu đề",
+    "xanh lơ",
+    "doanh nghiệp",
+    "khung viền"
+   ]
+  },
+  "template:tit3-nombre-caja": {
+   "name": "Tiêu đề: khung tên, hai dòng",
+   "tags": [
+    "tiêu đề",
+    "xanh lơ",
+    "doanh nghiệp",
+    "tên"
+   ]
+  },
+  "template:tit3-nombre-cargo-arriba": {
+   "name": "Tiêu đề: khung tên, chức danh phía trên",
+   "tags": [
+    "tiêu đề",
+    "xanh lơ",
+    "doanh nghiệp",
+    "tên"
+   ]
+  },
+  "template:tit3-nombre-lineas": {
+   "name": "Tiêu đề: tên giữa hai đường kẻ",
+   "tags": [
+    "tiêu đề",
+    "xanh lơ",
+    "doanh nghiệp",
+    "tên",
+    "đường kẻ"
+   ]
+  },
+  "template:tit3-nombre-sombra": {
+   "name": "Tiêu đề: khung có viền lệch",
+   "tags": [
+    "tiêu đề",
+    "xanh lơ",
+    "doanh nghiệp",
+    "tên",
+    "khung viền"
+   ]
+  },
+  "template:tit3-rombo": {
+   "name": "Tiêu đề: sự kiện trong hình thoi",
+   "tags": [
+    "tiêu đề",
+    "xanh lơ",
+    "doanh nghiệp",
+    "hình thoi",
+    "sự kiện"
+   ]
+  },
+  "template:tit3-titles-pack": {
+   "name": "Tiêu đề: hai khung nghiêng",
+   "tags": [
+    "tiêu đề",
+    "xanh lơ",
+    "doanh nghiệp",
+    "khung viền",
+    "nghiêng"
+   ]
+  },
+  "template:tit3-triangulo": {
+   "name": "Tiêu đề: tên trên tam giác",
+   "tags": [
+    "tiêu đề",
+    "xanh lơ",
+    "doanh nghiệp",
+    "tam giác",
+    "tên"
+   ]
+  },
+  "template:tit3-unique-animated": {
+   "name": "Tiêu đề: ba phần chữ nghiêng",
+   "tags": [
+    "tiêu đề",
+    "xanh lơ",
+    "doanh nghiệp",
+    "chữ nghiêng"
+   ]
+  },
+  "template:tit4-algo-nuevo": {
+   "name": "Tiêu đề: khung hoa văn và chữ",
+   "tags": [
+    "tiêu đề",
+    "màu vàng",
+    "màu đen",
+    "khung viền"
+   ]
+  },
+  "template:tit4-anio": {
+   "name": "Tiêu đề: năm với hình bình hành",
+   "tags": [
+    "tiêu đề",
+    "màu vàng",
+    "màu đen",
+    "năm"
+   ]
+  },
+  "template:tit4-art-festival": {
+   "name": "Tiêu đề: nghệ thuật, một khung và lễ hội",
+   "tags": [
+    "tiêu đề",
+    "màu vàng",
+    "màu đen",
+    "sự kiện"
+   ]
+  },
+  "template:tit4-autumn-event": {
+   "name": "Tiêu đề: từ trong khung và một từ bên dưới",
+   "tags": [
+    "tiêu đề",
+    "màu vàng",
+    "màu đen",
+    "sự kiện"
+   ]
+  },
+  "template:tit4-dont-stop": {
+   "name": "Tiêu đề: câu nói trong vòng tròn",
+   "tags": [
+    "tiêu đề",
+    "màu vàng",
+    "màu đen",
+    "hình tròn"
+   ]
+  },
+  "template:tit4-etiqueta-nombre": {
+   "name": "Tiêu đề: nhãn, tên và chức danh",
+   "tags": [
+    "tiêu đề",
+    "màu vàng",
+    "màu đen",
+    "tên"
+   ]
+  },
+  "template:tit4-facil": {
+   "name": "Tiêu đề: chữ và thanh vàng",
+   "tags": [
+    "tiêu đề",
+    "màu vàng",
+    "màu đen",
+    "thanh"
+   ]
+  },
+  "template:tit4-fecha-cajas": {
+   "name": "Tiêu đề: ngày và giờ trong các khung",
+   "tags": [
+    "tiêu đề",
+    "màu vàng",
+    "màu đen",
+    "sự kiện",
+    "ngày tháng"
+   ]
+  },
+  "template:tit4-festival-info": {
+   "name": "Tiêu đề: ngày và chi tiết lễ hội",
+   "tags": [
+    "tiêu đề",
+    "màu vàng",
+    "màu đen",
+    "sự kiện",
+    "ngày tháng"
+   ]
+  },
+  "template:tit4-informacion": {
+   "name": "Tiêu đề: thông tin trong vòng tròn",
+   "tags": [
+    "tiêu đề",
+    "màu vàng",
+    "màu đen",
+    "hình tròn"
+   ]
+  },
+  "template:tit4-logo-nombre": {
+   "name": "Tiêu đề: logo, nhãn và tên",
+   "tags": [
+    "tiêu đề",
+    "màu vàng",
+    "màu đen",
+    "logo",
+    "tên"
+   ]
+  },
+  "template:tit4-nombre-caja": {
+   "name": "Tiêu đề: tên trong khung vàng",
+   "tags": [
+    "tiêu đề",
+    "màu vàng",
+    "màu đen",
+    "tên"
+   ]
+  },
+  "template:tit4-nombre-cajas": {
+   "name": "Tiêu đề: tên và chức danh trong các khung",
+   "tags": [
+    "tiêu đề",
+    "màu vàng",
+    "màu đen",
+    "tên"
+   ]
+  },
+  "template:tit4-presents": {
+   "name": "Tiêu đề: presents trong khung",
+   "tags": [
+    "tiêu đề",
+    "màu vàng",
+    "màu đen",
+    "khung viền"
+   ]
+  },
+  "template:tit4-productor": {
+   "name": "Tiêu đề: tên trong khung và một nhãn",
+   "tags": [
+    "tiêu đề",
+    "màu vàng",
+    "màu đen",
+    "khung viền",
+    "tên"
+   ]
+  },
+  "template:tit4-simple-design": {
+   "name": "Tiêu đề: hai khung rơi vào",
+   "tags": [
+    "tiêu đề",
+    "màu vàng",
+    "màu đen",
+    "khung"
+   ]
+  },
+  "template:tit4-speakers": {
+   "name": "Tiêu đề: hashtag trong khung lớn",
+   "tags": [
+    "tiêu đề",
+    "màu vàng",
+    "màu đen",
+    "sự kiện"
+   ]
+  },
+  "template:tit4-triangulo": {
+   "name": "Tiêu đề: con số trong tam giác",
+   "tags": [
+    "tiêu đề",
+    "màu vàng",
+    "màu đen",
+    "tam giác"
+   ]
+  },
+  "template:tit4-twenty": {
+   "name": "Tiêu đề: Twenty, hai mươi tiêu đề sáng tạo",
+   "tags": [
+    "tiêu đề",
+    "màu vàng",
+    "màu đen",
+    "con số"
+   ]
+  },
+  "template:tit4-ubicacion": {
+   "name": "Tiêu đề: địa điểm trong ghim",
+   "tags": [
+    "tiêu đề",
+    "màu vàng",
+    "màu đen",
+    "ghim",
+    "vị trí"
+   ]
+  },
+  "template:tit5-canal-tarjeta": {
+   "name": "Tiêu đề: hình vuông xoay và thả chữ ra",
+   "tags": [
+    "tiêu đề",
+    "kênh",
+    "nhiều màu",
+    "khung viền"
+   ]
+  },
+  "template:tit5-compartir": {
+   "name": "Tiêu đề: nhãn tím đổi chữ",
+   "tags": [
+    "tiêu đề",
+    "kênh",
+    "nhiều màu",
+    "nhãn",
+    "youtube"
+   ]
+  },
+  "template:tit5-condensada": {
+   "name": "Tiêu đề: chữ cô đặc tự viết",
+   "tags": [
+    "tiêu đề",
+    "kênh",
+    "nhiều màu",
+    "chữ cô đặc"
+   ]
+  },
+  "template:tit5-creative": {
+   "name": "Tiêu đề: chữ tím nhạt dần thẳng lại",
+   "tags": [
+    "tiêu đề",
+    "kênh",
+    "nhiều màu",
+    "màu tím"
+   ]
+  },
+  "template:tit5-dinamico": {
+   "name": "Tiêu đề: khung cam đôi dần thẳng lại",
+   "tags": [
+    "tiêu đề",
+    "kênh",
+    "nhiều màu",
+    "khung viền"
+   ]
+  },
+  "template:tit5-directo": {
+   "name": "Tiêu đề: phát trực tiếp nghiêng",
+   "tags": [
+    "tiêu đề",
+    "kênh",
+    "nhiều màu",
+    "trực tiếp",
+    "youtube"
+   ]
+  },
+  "template:tit5-etiqueta": {
+   "name": "Tiêu đề: nhãn mở ra và nghiêng",
+   "tags": [
+    "tiêu đề",
+    "kênh",
+    "nhiều màu",
+    "nhãn"
+   ]
+  },
+  "template:tit5-hashtag": {
+   "name": "Tiêu đề: hashtag gõ trên nền vàng",
+   "tags": [
+    "tiêu đề",
+    "kênh",
+    "nhiều màu",
+    "hashtag"
+   ]
+  },
+  "template:tit5-logo-canal": {
+   "name": "Tiêu đề: nút YouTube và tên kênh",
+   "tags": [
+    "tiêu đề",
+    "kênh",
+    "nhiều màu",
+    "logo",
+    "youtube"
+   ]
+  },
+  "template:tit5-logo-negro": {
+   "name": "Tiêu đề: nút YouTube trên nền đen",
+   "tags": [
+    "tiêu đề",
+    "kênh",
+    "nhiều màu",
+    "logo",
+    "youtube"
+   ]
+  },
+  "template:tit5-moderno": {
+   "name": "Tiêu đề: nút YouTube biến thành vòng tròn",
+   "tags": [
+    "tiêu đề",
+    "kênh",
+    "nhiều màu",
+    "hình tròn",
+    "youtube"
+   ]
+  },
+  "template:tit5-no-pierdas": {
+   "name": "Tiêu đề: câu nói trong khung biến hình",
+   "tags": [
+    "tiêu đề",
+    "kênh",
+    "nhiều màu",
+    "khung viền"
+   ]
+  },
+  "template:tit5-pila": {
+   "name": "Tiêu đề: các khối rơi: thích, chia sẻ, đăng ký",
+   "tags": [
+    "tiêu đề",
+    "kênh",
+    "nhiều màu",
+    "khối",
+    "đăng ký",
+    "youtube"
+   ]
+  },
+  "template:tit5-rombo": {
+   "name": "Tiêu đề: hình thoi trắng trên nền đỏ",
+   "tags": [
+    "tiêu đề",
+    "kênh",
+    "nhiều màu",
+    "hình thoi"
+   ]
+  },
+  "template:tit5-seguinos": {
+   "name": "Tiêu đề: đồng xu xanh lật",
+   "tags": [
+    "tiêu đề",
+    "kênh",
+    "nhiều màu",
+    "hình tròn"
+   ]
+  },
+  "template:tit5-social-media": {
+   "name": "Tiêu đề: vòng xoay trên nền vàng",
+   "tags": [
+    "tiêu đề",
+    "kênh",
+    "nhiều màu",
+    "hình tròn"
+   ]
+  },
+  "template:tit5-soporte": {
+   "name": "Tiêu đề: các hàng khối và một dải băng",
+   "tags": [
+    "tiêu đề",
+    "kênh",
+    "nhiều màu",
+    "dải băng"
+   ]
+  },
+  "template:tit5-tu-canal": {
+   "name": "Tiêu đề: khung lật thành hộp trắng",
+   "tags": [
+    "tiêu đề",
+    "kênh",
+    "nhiều màu",
+    "khung"
+   ]
+  },
+  "template:tit5-tutorial": {
+   "name": "Tiêu đề: hướng dẫn hiện từng chữ",
+   "tags": [
+    "tiêu đề",
+    "kênh",
+    "nhiều màu",
+    "hướng dẫn"
+   ]
+  },
+  "template:tit5-verano": {
+   "name": "Tiêu đề: tia chớp và chữ rơi xuống",
+   "tags": [
+    "tiêu đề",
+    "kênh",
+    "nhiều màu",
+    "mùa hè"
+   ]
+  },
+  "template:tit6-always-strive": {
+   "name": "Tiêu đề: chữ rơi và dấu chấm than",
+   "tags": [
+    "kiểu chữ",
+    "trắng đen",
+    "chữ động",
+    "chữ cô đặc"
+   ]
+  },
+  "template:tit6-art-always": {
+   "name": "Tiêu đề: sọc, viền và chữ bay lên",
+   "tags": [
+    "kiểu chữ",
+    "trắng đen",
+    "chữ động",
+    "sọc",
+    "viền chữ"
+   ]
+  },
+  "template:tit6-awesome": {
+   "name": "Tiêu đề: khung trắng và bong bóng trên ảnh",
+   "tags": [
+    "kiểu chữ",
+    "trắng đen",
+    "chữ động",
+    "ảnh"
+   ]
+  },
+  "template:tit6-be-strong": {
+   "name": "Tiêu đề: câu bị gạch cuộn ngược",
+   "tags": [
+    "kiểu chữ",
+    "trắng đen",
+    "chữ động",
+    "khung viền",
+    "gạch ngang"
+   ]
+  },
+  "template:tit6-big": {
+   "name": "Tiêu đề: từ khổng lồ có bóng và tấm nền đen",
+   "tags": [
+    "kiểu chữ",
+    "trắng đen",
+    "chữ động",
+    "đổ bóng"
+   ]
+  },
+  "template:tit6-big-text": {
+   "name": "Tiêu đề: con số, chữ viền và một ảnh",
+   "tags": [
+    "kiểu chữ",
+    "trắng đen",
+    "chữ động",
+    "viền chữ",
+    "ảnh"
+   ]
+  },
+  "template:tit6-ciencia": {
+   "name": "Tiêu đề: tấm nền đảo ngược câu, khung và dấu chéo",
+   "tags": [
+    "kiểu chữ",
+    "trắng đen",
+    "chữ động",
+    "khung viền"
+   ]
+  },
+  "template:tit6-color-change": {
+   "name": "Tiêu đề: từ bị gạch sáng lên",
+   "tags": [
+    "kiểu chữ",
+    "trắng đen",
+    "chữ động",
+    "gạch ngang"
+   ]
+  },
+  "template:tit6-corporate": {
+   "name": "Tiêu đề: dải đen mở rộng sau câu",
+   "tags": [
+    "kiểu chữ",
+    "trắng đen",
+    "chữ động",
+    "ảnh"
+   ]
+  },
+  "template:tit6-create-ideas": {
+   "name": "Tiêu đề: chữ bay lên và dấu thăng",
+   "tags": [
+    "kiểu chữ",
+    "trắng đen",
+    "chữ động",
+    "hashtag"
+   ]
+  },
+  "template:tit6-dynamism": {
+   "name": "Tiêu đề: từ sáng lên trong khung có dấu chéo",
+   "tags": [
+    "kiểu chữ",
+    "trắng đen",
+    "chữ động",
+    "khung viền"
+   ]
+  },
+  "template:tit6-enjoy": {
+   "name": "Tiêu đề: hình vuông xoay và từ tách đôi",
+   "tags": [
+    "kiểu chữ",
+    "trắng đen",
+    "chữ động",
+    "ô vuông"
+   ]
+  },
+  "template:tit6-fashion": {
+   "name": "Tiêu đề: khung với ba ảnh phía sau",
+   "tags": [
+    "kiểu chữ",
+    "trắng đen",
+    "chữ động",
+    "ảnh",
+    "thời trang"
+   ]
+  },
+  "template:tit6-health": {
+   "name": "Tiêu đề: dải các từ xoay giữa trắng và đen",
+   "tags": [
+    "kiểu chữ",
+    "trắng đen",
+    "chữ động",
+    "đôi"
+   ]
+  },
+  "template:tit6-look": {
+   "name": "Tiêu đề: khung xám trên chữ khổng lồ",
+   "tags": [
+    "kiểu chữ",
+    "trắng đen",
+    "chữ động",
+    "khung"
+   ]
+  },
+  "template:tit6-never-give-up": {
+   "name": "Tiêu đề: câu gõ trên dải ảnh",
+   "tags": [
+    "kiểu chữ",
+    "trắng đen",
+    "chữ động",
+    "ảnh"
+   ]
+  },
+  "template:tit6-typography": {
+   "name": "Tiêu đề: khung trắng có nhãn trên ảnh",
+   "tags": [
+    "kiểu chữ",
+    "trắng đen",
+    "chữ động",
+    "ảnh"
+   ]
+  },
+  "template:tit6-visuality": {
+   "name": "Tiêu đề: ba dòng sáng lên và con trỏ",
+   "tags": [
+    "kiểu chữ",
+    "trắng đen",
+    "chữ động",
+    "viền chữ"
+   ]
+  },
+  "template:tit6-wonderful": {
+   "name": "Tiêu đề: ba từ khép lại và các đường kẻ",
+   "tags": [
+    "kiểu chữ",
+    "trắng đen",
+    "chữ động",
+    "đường kẻ"
+   ]
+  },
+  "template:tit6-you": {
+   "name": "Tiêu đề: từ lấp đầy bằng ảnh",
+   "tags": [
+    "kiểu chữ",
+    "trắng đen",
+    "chữ động",
+    "ảnh"
+   ]
+  },
+  "template:tit7-always-strive": {
+   "name": "Tiêu đề: câu có bóng đỏ và biển hiệu",
+   "tags": [
+    "kiểu chữ",
+    "nhiều màu",
+    "chữ động",
+    "đổ bóng"
+   ]
+  },
+  "template:tit7-art-always": {
+   "name": "Tiêu đề: chữ đỏ, xanh lơ và trắng",
+   "tags": [
+    "kiểu chữ",
+    "nhiều màu",
+    "chữ động",
+    "glitch"
+   ]
+  },
+  "template:tit7-big": {
+   "name": "Tiêu đề: khung có bóng và hai ô màu",
+   "tags": [
+    "kiểu chữ",
+    "nhiều màu",
+    "chữ động",
+    "ô vuông"
+   ]
+  },
+  "template:tit7-ciencia": {
+   "name": "Tiêu đề: khung đen với chữ slab",
+   "tags": [
+    "kiểu chữ",
+    "nhiều màu",
+    "chữ động",
+    "chữ slab"
+   ]
+  },
+  "template:tit7-colorful": {
+   "name": "Tiêu đề: dải trắng có ảnh bên trong chữ",
+   "tags": [
+    "kiểu chữ",
+    "nhiều màu",
+    "chữ động",
+    "ảnh"
+   ]
+  },
+  "template:tit7-concept-azul": {
+   "name": "Tiêu đề: từ rộng trên nền xanh",
+   "tags": [
+    "kiểu chữ",
+    "nhiều màu",
+    "chữ động",
+    "màu xanh"
+   ]
+  },
+  "template:tit7-concept-oscuro": {
+   "name": "Tiêu đề: khung xanh trên chữ lớn",
+   "tags": [
+    "kiểu chữ",
+    "nhiều màu",
+    "chữ động",
+    "màu xanh"
+   ]
+  },
+  "template:tit7-create": {
+   "name": "Tiêu đề: các từ xám và thẻ trắng",
+   "tags": [
+    "kiểu chữ",
+    "nhiều màu",
+    "chữ động"
+   ]
+  },
+  "template:tit7-dynamic": {
+   "name": "Tiêu đề: khung khép lại và biển hiệu xanh",
+   "tags": [
+    "kiểu chữ",
+    "nhiều màu",
+    "chữ động",
+    "khung viền"
+   ]
+  },
+  "template:tit7-easy-editing": {
+   "name": "Tiêu đề: chữ đỏ trên nền hoa văn vàng",
+   "tags": [
+    "kiểu chữ",
+    "nhiều màu",
+    "chữ động",
+    "màu vàng"
+   ]
+  },
+  "template:tit7-enjoy": {
+   "name": "Tiêu đề: các hình vuông xoay và từ tách đôi",
+   "tags": [
+    "kiểu chữ",
+    "nhiều màu",
+    "chữ động",
+    "ô vuông"
+   ]
+  },
+  "template:tit7-fashion": {
+   "name": "Tiêu đề: ảnh trong chữ khổng lồ và một khung",
+   "tags": [
+    "kiểu chữ",
+    "nhiều màu",
+    "chữ động",
+    "ảnh",
+    "thời trang"
+   ]
+  },
+  "template:tit7-health-box": {
+   "name": "Tiêu đề: hình vuông chứa bức tường chữ giữa hai hàng",
+   "tags": [
+    "kiểu chữ",
+    "nhiều màu",
+    "chữ động",
+    "ô vuông"
+   ]
+  },
+  "template:tit7-health-wall": {
+   "name": "Tiêu đề: bức tường chữ chéo",
+   "tags": [
+    "kiểu chữ",
+    "nhiều màu",
+    "chữ động",
+    "đường chéo"
+   ]
+  },
+  "template:tit7-look": {
+   "name": "Tiêu đề: chữ khổng lồ và khung xanh",
+   "tags": [
+    "kiểu chữ",
+    "nhiều màu",
+    "chữ động",
+    "khung viền"
+   ]
+  },
+  "template:tit7-love": {
+   "name": "Tiêu đề: từ trượt trên ảnh hồng",
+   "tags": [
+    "kiểu chữ",
+    "nhiều màu",
+    "chữ động",
+    "ảnh"
+   ]
+  },
+  "template:tit7-modern": {
+   "name": "Tiêu đề: chữ có chân thanh lịch kèm con số",
+   "tags": [
+    "kiểu chữ",
+    "nhiều màu",
+    "chữ động",
+    "chữ có chân"
+   ]
+  },
+  "template:tit7-never-give-up": {
+   "name": "Tiêu đề: bốn ảnh bậc thang và một câu",
+   "tags": [
+    "kiểu chữ",
+    "nhiều màu",
+    "chữ động",
+    "ảnh"
+   ]
+  },
+  "template:tit7-newest": {
+   "name": "Tiêu đề: từ viền kèm thanh xanh lá",
+   "tags": [
+    "kiểu chữ",
+    "nhiều màu",
+    "chữ động",
+    "viền chữ"
+   ]
+  },
+  "template:tit7-scene": {
+   "name": "Tiêu đề: sọc, tấm trắng và con số trên ảnh",
+   "tags": [
+    "kiểu chữ",
+    "nhiều màu",
+    "chữ động",
+    "sọc",
+    "ảnh"
+   ]
+  },
+  "template:tit7-text-animation": {
+   "name": "Tiêu đề: các hàng chữ trên ảnh",
+   "tags": [
+    "kiểu chữ",
+    "nhiều màu",
+    "chữ động",
+    "ảnh"
+   ]
+  },
+  "template:tit7-typography": {
+   "name": "Tiêu đề: thẻ hồng với chữ xung quanh",
+   "tags": [
+    "kiểu chữ",
+    "nhiều màu",
+    "chữ động",
+    "ảnh"
+   ]
+  },
   "template:top-5-mas-vendidos": {
    "name": "Top 5 bán chạy nhất",
    "tags": [
@@ -32308,6 +33554,3288 @@
     "lấp lánh",
     "hồng",
     "aesthetic"
+   ]
+  },
+  "template:yp0-barra-campana": {
+   "name": "Thanh nút: like, chuông và đăng ký",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "nút bấm",
+    "thanh",
+    "nhấp chuột",
+    "thích"
+   ]
+  },
+  "template:yp0-barra-canal": {
+   "name": "Thanh kênh: like, đăng ký và chuông",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "nút bấm",
+    "thanh",
+    "nhấp chuột",
+    "thích"
+   ]
+  },
+  "template:yp0-barra-me-gusta": {
+   "name": "Thanh: like, dislike và đăng ký",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "nút bấm",
+    "thanh",
+    "nhấp chuột",
+    "thích"
+   ]
+  },
+  "template:yp0-barra-seguidores": {
+   "name": "Thanh kênh với bộ đếm người theo dõi",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "nút bấm",
+    "thanh",
+    "bộ đếm",
+    "người theo dõi"
+   ]
+  },
+  "template:yp0-fila-grande": {
+   "name": "Like, đăng ký và chuông cỡ lớn",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "nút bấm",
+    "nhấp chuột",
+    "thích",
+    "chuông"
+   ]
+  },
+  "template:yp0-redes": {
+   "name": "Thanh mạng xã hội với nút theo dõi",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "nút bấm",
+    "mạng xã hội",
+    "facebook",
+    "instagram"
+   ]
+  },
+  "template:yp0-tarjeta-canal": {
+   "name": "Thẻ kênh với nút đăng ký",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "nút bấm",
+    "thẻ",
+    "nhấp chuột"
+   ]
+  },
+  "template:yp0-tarjeta-iconos": {
+   "name": "Thẻ có đăng ký, like và chuông",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "nút bấm",
+    "thẻ",
+    "nhấp chuột",
+    "thích"
+   ]
+  },
+  "template:yp0-tarjeta-mini": {
+   "name": "Thẻ đăng ký nhỏ",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "nút bấm",
+    "thẻ",
+    "nhấp chuột"
+   ]
+  },
+  "template:yp1-apertura-avatar-bandas": {
+   "name": "Mở đầu: avatar rơi xuống và các dải bay lên",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "mở đầu",
+    "avatar"
+   ]
+  },
+  "template:yp1-apertura-avatar-circulo": {
+   "name": "Mở đầu: avatar và các vòng tròn mở ra",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "mở đầu",
+    "avatar"
+   ]
+  },
+  "template:yp1-apertura-blanca": {
+   "name": "Mở đầu: dải nghiêng và nút trên nền trắng",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "mở đầu",
+    "logo"
+   ]
+  },
+  "template:yp1-apertura-diana": {
+   "name": "Mở đầu: nút tròn trên các vòng tròn đỏ",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "mở đầu",
+    "logo"
+   ]
+  },
+  "template:yp1-apertura-flechas": {
+   "name": "Mở đầu: chevron tối và nút lăn",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "mở đầu",
+    "logo"
+   ]
+  },
+  "template:yp1-apertura-gotas": {
+   "name": "Mở đầu: những giọt tạo thành nút YouTube",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "mở đầu",
+    "logo"
+   ]
+  },
+  "template:yp1-apertura-logo-vuela": {
+   "name": "Mở đầu: logo bay lùi và xoay",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "mở đầu",
+    "logo"
+   ]
+  },
+  "template:yp1-apertura-ondas": {
+   "name": "Mở đầu: logo, cung xoáy và sóng đỏ",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "mở đầu",
+    "logo",
+    "sóng"
+   ]
+  },
+  "template:yp1-apertura-tipografica-gaming": {
+   "name": "Mở đầu chữ động: kênh game hay nhất",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "mở đầu",
+    "kiểu chữ",
+    "chữ động"
+   ]
+  },
+  "template:yp1-apertura-tipografica-roja": {
+   "name": "Mở đầu chữ động đỏ: video mới, like và đăng ký",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "mở đầu",
+    "kiểu chữ",
+    "chữ động"
+   ]
+  },
+  "template:yp1-apertura-tipografica-suscribete": {
+   "name": "Mở đầu chữ động: xem tập này và đăng ký",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "mở đầu",
+    "kiểu chữ",
+    "chữ động"
+   ]
+  },
+  "template:yp1-barra-suscribir": {
+   "name": "Đăng ký: thanh có avatar, like và chuông",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "đăng ký",
+    "thích",
+    "chuông"
+   ]
+  },
+  "template:yp1-barra-vertical": {
+   "name": "Tiêu đề bốn dòng trên thanh đỏ",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "tiêu đề",
+    "đơn giản",
+    "thanh"
+   ]
+  },
+  "template:yp1-best-video": {
+   "name": "Tiêu đề lớn trên sóng xanh",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "tiêu đề",
+    "sóng"
+   ]
+  },
+  "template:yp1-big-text": {
+   "name": "Chữ đỏ lớn trong căn phòng tối",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "tiêu đề",
+    "cỡ lớn"
+   ]
+  },
+  "template:yp1-big-title": {
+   "name": "Tiêu đề lớn trên dải đỏ nghiêng",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "tiêu đề",
+    "cỡ lớn"
+   ]
+  },
+  "template:yp1-bold-titles": {
+   "name": "Tiêu đề với đường đỏ và khung tự vẽ",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "tiêu đề",
+    "đơn giản",
+    "khung viền"
+   ]
+  },
+  "template:yp1-cajas-tecleadas": {
+   "name": "Tiêu đề gõ trong khung đỏ và khung trắng",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "tiêu đề",
+    "đơn giản",
+    "khung"
+   ]
+  },
+  "template:yp1-cita-cajas-grises": {
+   "name": "Trích dẫn trong khung xám với dấu ngoặc đỏ",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "trích dẫn",
+    "câu nói"
+   ]
+  },
+  "template:yp1-cita-centrada": {
+   "name": "Trích dẫn giữa hai đường kẻ, căn giữa",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "trích dẫn",
+    "câu nói"
+   ]
+  },
+  "template:yp1-cita-circulo": {
+   "name": "Trích dẫn trong vòng tròn đỏ",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "trích dẫn",
+    "câu nói"
+   ]
+  },
+  "template:yp1-cita-cuadro-rojo": {
+   "name": "Trích dẫn trong ô vuông đỏ có tab bên",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "trích dẫn",
+    "câu nói"
+   ]
+  },
+  "template:yp1-cita-etiqueta": {
+   "name": "Trích dẫn với nhãn tác giả màu đỏ",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "trích dẫn",
+    "câu nói"
+   ]
+  },
+  "template:yp1-cita-marco-fino": {
+   "name": "Trích dẫn trong khung đỏ mảnh có huy hiệu",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "trích dẫn",
+    "câu nói"
+   ]
+  },
+  "template:yp1-cita-marco-rojo": {
+   "name": "Trích dẫn gõ chữ với khung đỏ",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "trích dẫn",
+    "câu nói"
+   ]
+  },
+  "template:yp1-cita-panel-rojo": {
+   "name": "Trích dẫn trong khung tối cạnh tấm nền đỏ",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "trích dẫn",
+    "câu nói"
+   ]
+  },
+  "template:yp1-columna-suscribir": {
+   "name": "Đăng ký: cột có avatar, like và chuông",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "đăng ký",
+    "thích",
+    "chuông"
+   ]
+  },
+  "template:yp1-como-un-pro": {
+   "name": "Tiêu đề bậc thang dưới đường đỏ",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "tiêu đề",
+    "đơn giản",
+    "bậc thang"
+   ]
+  },
+  "template:yp1-design": {
+   "name": "Tiêu đề đỏ với chữ rơi xuống",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "tiêu đề",
+    "đơn giản",
+    "rơi xuống"
+   ]
+  },
+  "template:yp1-fila-suscribir": {
+   "name": "Đăng ký: like, đăng ký và chuông ở phía dưới",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "đăng ký",
+    "thích",
+    "chuông"
+   ]
+  },
+  "template:yp1-final-banda": {
+   "name": "Màn hình kết thúc: dải tối trên video",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "màn hình kết thúc",
+    "video"
+   ]
+  },
+  "template:yp1-final-columna": {
+   "name": "Màn hình kết thúc: cột tối trên video phủ màu",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "màn hình kết thúc",
+    "video"
+   ]
+  },
+  "template:yp1-final-gracias": {
+   "name": "Màn hình kết thúc: cảm ơn đã xem và đăng ký",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "màn hình kết thúc",
+    "cảm ơn"
+   ]
+  },
+  "template:yp1-final-like-share": {
+   "name": "Màn hình kết thúc: video đề xuất, like, bình luận, chia sẻ",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "màn hình kết thúc",
+    "mạng xã hội"
+   ]
+  },
+  "template:yp1-fondo-arcos": {
+   "name": "Nền: các cung và nét gạch đỏ rải rác",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "nền",
+    "hình khối"
+   ]
+  },
+  "template:yp1-fondo-bloques": {
+   "name": "Nền: khối trắng với ô vuông đỏ",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "nền",
+    "khối"
+   ]
+  },
+  "template:yp1-fondo-botones": {
+   "name": "Nền: các hàng nút phát",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "nền"
+   ]
+  },
+  "template:yp1-fondo-capas": {
+   "name": "Nền: sóng đỏ nhiều lớp",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "nền",
+    "sóng"
+   ]
+  },
+  "template:yp1-fondo-cruces": {
+   "name": "Nền: dấu cộng hồng và trắng",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "nền",
+    "hình khối"
+   ]
+  },
+  "template:yp1-fondo-destellos": {
+   "name": "Nền: vệt đỏ chéo",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "nền",
+    "ánh sáng"
+   ]
+  },
+  "template:yp1-fondo-espiral": {
+   "name": "Nền: xoắn ốc đỏ, trắng và xám",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "nền",
+    "xoắn ốc"
+   ]
+  },
+  "template:yp1-fondo-flechas": {
+   "name": "Nền: chevron đỏ di chuyển",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "nền",
+    "mũi tên"
+   ]
+  },
+  "template:yp1-fondo-guiones": {
+   "name": "Nền: nét gạch đỏ bay",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "nền",
+    "hình khối"
+   ]
+  },
+  "template:yp1-fondo-lineas": {
+   "name": "Nền: đường đỏ mảnh uốn lượn",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "nền",
+    "đường kẻ"
+   ]
+  },
+  "template:yp1-fondo-liquido-azul": {
+   "name": "Nền: chất lỏng xanh",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "nền",
+    "chất lỏng"
+   ]
+  },
+  "template:yp1-fondo-liquido-oscuro": {
+   "name": "Nền: chất lỏng đỏ sẫm",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "nền",
+    "chất lỏng"
+   ]
+  },
+  "template:yp1-fondo-ondas-gruesas": {
+   "name": "Nền: sóng đỏ dày",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "nền",
+    "sóng"
+   ]
+  },
+  "template:yp1-fondo-puntos": {
+   "name": "Nền: chấm đỏ nhấp nháy",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "nền",
+    "chấm"
+   ]
+  },
+  "template:yp1-fondo-rayas": {
+   "name": "Nền: sọc đỏ chéo",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "nền",
+    "sọc"
+   ]
+  },
+  "template:yp1-fondo-rayas-onduladas": {
+   "name": "Nền: sọc đỏ uốn lượn",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "nền",
+    "sóng"
+   ]
+  },
+  "template:yp1-fondo-redes": {
+   "name": "Nền: biểu tượng mạng xã hội",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "nền",
+    "mạng xã hội"
+   ]
+  },
+  "template:yp1-fondo-texto": {
+   "name": "Nền: chữ lặp lại có thể chỉnh sửa",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "nền",
+    "văn bản"
+   ]
+  },
+  "template:yp1-frase-ondas-rojas": {
+   "name": "Câu ba dòng trên sóng đỏ",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "tiêu đề",
+    "sóng",
+    "câu nói"
+   ]
+  },
+  "template:yp1-info-anillo": {
+   "name": "Đồ họa thông tin: vòng phần trăm kèm chữ",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "chú thích",
+    "chỉ dẫn",
+    "phần trăm",
+    "bộ đếm"
+   ]
+  },
+  "template:yp1-info-anillo-linea": {
+   "name": "Đồ họa thông tin: tiêu đề trên đường kẻ và vòng phần trăm",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "chú thích",
+    "chỉ dẫn",
+    "phần trăm",
+    "bộ đếm"
+   ]
+  },
+  "template:yp1-info-barra-porcentaje": {
+   "name": "Đồ họa thông tin: phần trăm trong khung xám và nhãn đỏ",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "chú thích",
+    "chỉ dẫn",
+    "phần trăm",
+    "bộ đếm"
+   ]
+  },
+  "template:yp1-info-porcentaje": {
+   "name": "Đồ họa thông tin: phần trăm lớn kèm nhãn",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "chú thích",
+    "chỉ dẫn",
+    "phần trăm",
+    "bộ đếm"
+   ]
+  },
+  "template:yp1-insignia-me-gusta": {
+   "name": "Đăng ký: huy hiệu xoay thành like và chuông",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "đăng ký",
+    "thích",
+    "chuông"
+   ]
+  },
+  "template:yp1-liquid-title": {
+   "name": "Tiêu đề viền trên khối chất lỏng",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "tiêu đề",
+    "chất lỏng",
+    "viền chữ"
+   ]
+  },
+  "template:yp1-llamada-barra-roja": {
+   "name": "Chú thích: thanh đỏ kèm đoạn văn",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "chú thích",
+    "chỉ dẫn",
+    "đoạn văn"
+   ]
+  },
+  "template:yp1-llamada-dato": {
+   "name": "Chú thích: tiêu đề, văn bản và số liệu trong khung đỏ",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "chú thích",
+    "chỉ dẫn",
+    "số liệu"
+   ]
+  },
+  "template:yp1-llamada-especificacion": {
+   "name": "Chú thích: tiêu đề đỏ trên đường kẻ",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "chú thích",
+    "chỉ dẫn",
+    "thông số"
+   ]
+  },
+  "template:yp1-llamada-numero": {
+   "name": "Chú thích: con số trong vòng tròn kèm hai dòng chữ",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "chú thích",
+    "chỉ dẫn",
+    "con số"
+   ]
+  },
+  "template:yp1-llamada-numero-cuadro": {
+   "name": "Chú thích: con số trong ô vuông đỏ và các khung trắng",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "chú thích",
+    "chỉ dẫn",
+    "con số"
+   ]
+  },
+  "template:yp1-llamada-pantalla": {
+   "name": "Chú thích: nhãn đỏ và khung viền",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "chú thích",
+    "chỉ dẫn",
+    "nhãn"
+   ]
+  },
+  "template:yp1-llamada-titular": {
+   "name": "Chú thích: tiêu đề trong viền đỏ",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "chú thích",
+    "chỉ dẫn",
+    "tiêu đề lớn"
+   ]
+  },
+  "template:yp1-mejor-juego": {
+   "name": "Tiêu đề trong khung xám dưới khối đỏ",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "tiêu đề",
+    "đơn giản",
+    "khung"
+   ]
+  },
+  "template:yp1-modern-bold": {
+   "name": "Tiêu đề viền trong khung hồng",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "tiêu đề",
+    "khung"
+   ]
+  },
+  "template:yp1-modern-title": {
+   "name": "Tiêu đề giữa các đường kẻ đỏ",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "tiêu đề",
+    "đơn giản",
+    "sọc"
+   ]
+  },
+  "template:yp1-motion-studio": {
+   "name": "Tiêu đề trên hai thanh đỏ giao nhau",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "tiêu đề",
+    "đơn giản",
+    "thanh"
+   ]
+  },
+  "template:yp1-no-olvides-calificar": {
+   "name": "Tiêu đề: đừng quên đánh giá, trong khung đỏ",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "tiêu đề",
+    "đơn giản",
+    "khung viền"
+   ]
+  },
+  "template:yp1-pila-botones": {
+   "name": "Đăng ký: các nút like, đăng ký và thông báo lật",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "đăng ký",
+    "thích",
+    "nút bấm"
+   ]
+  },
+  "template:yp1-red-circulo-barra": {
+   "name": "Mạng xã hội: biểu tượng tròn xoay và thanh có trang web",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "mạng xã hội",
+    "liên kết"
+   ]
+  },
+  "template:yp1-red-cuadro-follow": {
+   "name": "Mạng xã hội: ô vuông lộn nhào và FOLLOW US",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "mạng xã hội",
+    "liên kết"
+   ]
+  },
+  "template:yp1-red-pastilla": {
+   "name": "Mạng xã hội: biểu tượng giữa viên thuốc",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "mạng xã hội",
+    "liên kết"
+   ]
+  },
+  "template:yp1-red-rombo": {
+   "name": "Mạng xã hội: hình thoi tự vẽ và tên kênh",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "mạng xã hội",
+    "liên kết"
+   ]
+  },
+  "template:yp1-strong-titles": {
+   "name": "Tiêu đề mạnh dưới làn sóng đỏ",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "tiêu đề",
+    "sóng"
+   ]
+  },
+  "template:yp1-top-10": {
+   "name": "Tiêu đề kèm hai đường đỏ bên dưới",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "tiêu đề",
+    "đơn giản",
+    "danh sách"
+   ]
+  },
+  "template:yp1-transicion-barras-1": {
+   "name": "Chuyển cảnh: thanh đỏ, trắng và đen sang trái",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "chuyển cảnh",
+    "thanh"
+   ]
+  },
+  "template:yp1-transicion-barras-2": {
+   "name": "Chuyển cảnh: thanh đỏ, trắng và đen đi xuống",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "chuyển cảnh",
+    "thanh"
+   ]
+  },
+  "template:yp1-transicion-bloques-1": {
+   "name": "Chuyển cảnh: khối đỏ, trắng và đen",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "chuyển cảnh",
+    "khối"
+   ]
+  },
+  "template:yp1-transicion-bloques-2": {
+   "name": "Chuyển cảnh: khối đỏ, trắng và đen",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "chuyển cảnh",
+    "khối"
+   ]
+  },
+  "template:yp1-transicion-capsulas-1": {
+   "name": "Chuyển cảnh: viên nang sang trái",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "chuyển cảnh",
+    "viên nang"
+   ]
+  },
+  "template:yp1-transicion-capsulas-2": {
+   "name": "Chuyển cảnh: viên nang đi xuống",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "chuyển cảnh",
+    "viên nang"
+   ]
+  },
+  "template:yp1-transicion-circulo": {
+   "name": "Chuyển cảnh: vòng tròn đỏ, trắng và đen mở ra",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "chuyển cảnh",
+    "hình khối",
+    "hình tròn"
+   ]
+  },
+  "template:yp1-transicion-cuadrado": {
+   "name": "Chuyển cảnh: hình vuông đỏ, trắng và đen mở ra",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "chuyển cảnh",
+    "hình khối",
+    "hình vuông"
+   ]
+  },
+  "template:yp1-transicion-estrella": {
+   "name": "Chuyển cảnh: ngôi sao đỏ, trắng và đen mở ra",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "chuyển cảnh",
+    "hình khối",
+    "ngôi sao"
+   ]
+  },
+  "template:yp1-transicion-flechas-1": {
+   "name": "Chuyển cảnh: chevron đỏ, trắng và đen sang trái",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "chuyển cảnh",
+    "mũi tên"
+   ]
+  },
+  "template:yp1-transicion-flechas-2": {
+   "name": "Chuyển cảnh: chevron đỏ, trắng và đen đi xuống",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "chuyển cảnh",
+    "mũi tên"
+   ]
+  },
+  "template:yp1-transicion-flechas-3": {
+   "name": "Chuyển cảnh: chevron đỏ, trắng và đen đi lên",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "chuyển cảnh",
+    "mũi tên"
+   ]
+  },
+  "template:yp1-transicion-flechas-4": {
+   "name": "Chuyển cảnh: chevron đỏ, trắng và đen sang phải",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "chuyển cảnh",
+    "mũi tên"
+   ]
+  },
+  "template:yp1-transicion-hexagono": {
+   "name": "Chuyển cảnh: lục giác đỏ, trắng và đen mở ra",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "chuyển cảnh",
+    "hình khối",
+    "lục giác"
+   ]
+  },
+  "template:yp1-transicion-remolino": {
+   "name": "Chuyển cảnh: xoáy đỏ và trắng",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "chuyển cảnh",
+    "chất lỏng"
+   ]
+  },
+  "template:yp1-trazo-rojo": {
+   "name": "Tiêu đề ba dòng với nét uốn đỏ",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "tiêu đề",
+    "nét vẽ"
+   ]
+  },
+  "template:yp1-ver-siguiente-caja": {
+   "name": "Tiêu đề: xem tiếp, trong khung trắng",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "tiêu đề",
+    "đơn giản",
+    "khung"
+   ]
+  },
+  "template:yp1-ver-siguiente-dos-colores": {
+   "name": "Tiêu đề: xem tiếp, trong khung trắng và đỏ",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "tiêu đề",
+    "đơn giản",
+    "khung"
+   ]
+  },
+  "template:yp2-apertura": {
+   "name": "Mở đầu: vòng đỏ trắng với nút YouTube",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "mở đầu",
+    "logo",
+    "vòng tròn"
+   ]
+  },
+  "template:yp2-aro-canal": {
+   "name": "Vòng đỏ trắng mở ra thành CHANNEL",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "vòng tròn",
+    "logo",
+    "kênh"
+   ]
+  },
+  "template:yp2-barra-15k": {
+   "name": "Thanh: like và đăng ký",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "đăng ký",
+    "thanh"
+   ]
+  },
+  "template:yp2-barra-campana": {
+   "name": "Thanh: like, đăng ký và chuông",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "đăng ký",
+    "thanh"
+   ]
+  },
+  "template:yp2-barra-canal": {
+   "name": "Thanh kênh với ảnh và đăng ký",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "đăng ký",
+    "thanh"
+   ]
+  },
+  "template:yp2-barra-contadores": {
+   "name": "Thanh: like, số đếm và đăng ký",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "đăng ký",
+    "thanh"
+   ]
+  },
+  "template:yp2-barra-simple": {
+   "name": "Thanh: like, dislike và đăng ký",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "đăng ký",
+    "thanh"
+   ]
+  },
+  "template:yp2-dos-tarjetas": {
+   "name": "Thẻ: đăng ký và like",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "đăng ký",
+    "thích"
+   ]
+  },
+  "template:yp2-icono-aro-blanco": {
+   "name": "Biểu tượng: vòng tròn trắng bung ra",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "biểu tượng",
+    "hoạt hình"
+   ]
+  },
+  "template:yp2-icono-aro-rojo": {
+   "name": "Biểu tượng: vòng tròn đỏ bung ra",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "biểu tượng",
+    "hoạt hình"
+   ]
+  },
+  "template:yp2-icono-buscador": {
+   "name": "Biểu tượng: ô tìm kiếm tự vẽ",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "biểu tượng",
+    "hoạt hình"
+   ]
+  },
+  "template:yp2-icono-campana": {
+   "name": "Biểu tượng: chuông reo màu đỏ",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "biểu tượng",
+    "hoạt hình"
+   ]
+  },
+  "template:yp2-icono-cargando": {
+   "name": "Biểu tượng: chấm tải xoay",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "biểu tượng",
+    "hoạt hình"
+   ]
+  },
+  "template:yp2-icono-cursor": {
+   "name": "Biểu tượng: con trỏ nhấp chuột",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "biểu tượng",
+    "hoạt hình"
+   ]
+  },
+  "template:yp2-icono-destello": {
+   "name": "Biểu tượng: tia nét bung ra",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "biểu tượng",
+    "hoạt hình"
+   ]
+  },
+  "template:yp2-icono-flecha": {
+   "name": "Biểu tượng: mũi tên chỉ xuống",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "biểu tượng",
+    "hoạt hình"
+   ]
+  },
+  "template:yp2-icono-me-gusta": {
+   "name": "Biểu tượng: like chuyển đỏ",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "biểu tượng",
+    "hoạt hình"
+   ]
+  },
+  "template:yp2-pagina-video": {
+   "name": "Trang xem video: đăng ký và chuông",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "đăng ký",
+    "trang"
+   ]
+  },
+  "template:yp2-redes-barras": {
+   "name": "Mạng xã hội: 12 thanh với biểu tượng",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "mạng xã hội",
+    "thanh",
+    "biểu tượng"
+   ]
+  },
+  "template:yp2-redes-iconos": {
+   "name": "Mạng xã hội: 6 biểu tượng với ô tìm kiếm",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "mạng xã hội",
+    "biểu tượng",
+    "tìm kiếm"
+   ]
+  },
+  "template:yp2-siguiente-barra": {
+   "name": "Màn hình kết thúc: video tiếp theo với thanh đỏ",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "màn hình kết thúc",
+    "video tiếp theo"
+   ]
+  },
+  "template:yp2-siguiente-onda": {
+   "name": "Màn hình kết thúc: video tiếp theo với sóng đỏ",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "màn hình kết thúc",
+    "video tiếp theo"
+   ]
+  },
+  "template:yp2-tarjeta-canal": {
+   "name": "Thẻ kênh với ảnh và logo",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "kênh",
+    "logo",
+    "ảnh"
+   ]
+  },
+  "template:yp2-tarjeta-video": {
+   "name": "Thẻ video: đăng ký và chuông",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "đăng ký",
+    "thẻ"
+   ]
+  },
+  "template:yp2-titulo-animation": {
+   "name": "Tiêu đề trong khung đỏ lớn dần",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "tiêu đề",
+    "nhãn"
+   ]
+  },
+  "template:yp2-titulo-best": {
+   "name": "Tiêu đề có nhãn và từ trượt",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "tiêu đề",
+    "nhãn"
+   ]
+  },
+  "template:yp2-titulo-brand": {
+   "name": "Tiêu đề lớn với các đường đỏ",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "tiêu đề",
+    "nhãn"
+   ]
+  },
+  "template:yp2-titulo-clean": {
+   "name": "Tiêu đề giữa hai đường đỏ",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "tiêu đề",
+    "nhãn"
+   ]
+  },
+  "template:yp2-titulo-just-edit": {
+   "name": "Tiêu đề trong khung kèm một từ bên dưới",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "tiêu đề",
+    "nhãn"
+   ]
+  },
+  "template:yp2-titulo-motion-design": {
+   "name": "Tiêu đề với nhãn đỏ",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "tiêu đề",
+    "nhãn"
+   ]
+  },
+  "template:yp2-titulo-new-project": {
+   "name": "Tiêu đề được thanh đỏ làm lộ ra",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "tiêu đề",
+    "nhãn"
+   ]
+  },
+  "template:yp2-titulo-rendering": {
+   "name": "Tiêu đề dưới đường đỏ rơi xuống",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "tiêu đề",
+    "nhãn"
+   ]
+  },
+  "template:yp2-titulo-simple": {
+   "name": "Tiêu đề trượt ra từ ô vuông đỏ",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "tiêu đề",
+    "nhãn"
+   ]
+  },
+  "template:yp2-titulo-your-channel": {
+   "name": "Tiêu đề trong khung đỏ",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "tiêu đề",
+    "nhãn"
+   ]
+  },
+  "template:yp2-transicion-diagonal": {
+   "name": "Chuyển cảnh: thanh chéo đỏ, trắng và xám",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "chuyển cảnh",
+    "đường chéo"
+   ]
+  },
+  "template:yp2-transicion-franjas": {
+   "name": "Chuyển cảnh: sọc đỏ và trắng xoay",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "chuyển cảnh",
+    "sọc"
+   ]
+  },
+  "template:yp3-avatar-cadena": {
+   "name": "Nút: avatar với chuỗi like và chuông",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "nút bấm",
+    "avatar",
+    "thích",
+    "chuông"
+   ]
+  },
+  "template:yp3-avatar-rojo": {
+   "name": "Nút: avatar kênh với đăng ký màu đỏ",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "nút bấm",
+    "avatar",
+    "chuông",
+    "con trỏ"
+   ]
+  },
+  "template:yp3-burbujas-rojas": {
+   "name": "Nút: bong bóng đỏ với chuông, avatar và like",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "nút bấm",
+    "avatar",
+    "chuông",
+    "thích"
+   ]
+  },
+  "template:yp3-caja-me-gusta-campana": {
+   "name": "Nút: khung đỏ xoay từ like sang chuông",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "nút bấm",
+    "thích",
+    "chuông",
+    "3d"
+   ]
+  },
+  "template:yp3-caja-roja-campana": {
+   "name": "Nút: khung đỏ có chuông và chữ “Đã đăng ký” nghiêng",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "nút bấm",
+    "chuông",
+    "3d"
+   ]
+  },
+  "template:yp3-campana-redonda": {
+   "name": "Nút: chuông tròn biến thành “Đã đăng ký”",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "nút bấm",
+    "chuông",
+    "con trỏ"
+   ]
+  },
+  "template:yp3-final-anillos-blancos": {
+   "name": "Màn hình kết thúc: “Click to Subscribe” trên các vòng trắng",
+   "tags": [
+    "youtube",
+    "màn hình kết thúc",
+    "đăng ký",
+    "màu trắng",
+    "màu hồng"
+   ]
+  },
+  "template:yp3-final-aro-degradado": {
+   "name": "Màn hình kết thúc: vòng chuyển màu trên nền đen",
+   "tags": [
+    "youtube",
+    "màn hình kết thúc",
+    "đăng ký",
+    "màu đen",
+    "chuyển màu",
+    "mạng xã hội"
+   ]
+  },
+  "template:yp3-final-banda-azul": {
+   "name": "Màn hình kết thúc: dải xanh trên ảnh với hai video",
+   "tags": [
+    "youtube",
+    "màn hình kết thúc",
+    "đăng ký",
+    "màu xanh",
+    "ảnh"
+   ]
+  },
+  "template:yp3-final-capsula-turquesa": {
+   "name": "Màn hình kết thúc: viên nang xanh ngọc với hai video",
+   "tags": [
+    "youtube",
+    "màn hình kết thúc",
+    "đăng ký",
+    "màu xanh ngọc",
+    "thích",
+    "chuông"
+   ]
+  },
+  "template:yp3-final-gris": {
+   "name": "Màn hình kết thúc: xám dịu với hai video và avatar",
+   "tags": [
+    "youtube",
+    "màn hình kết thúc",
+    "đăng ký",
+    "màu xám",
+    "neumorphism"
+   ]
+  },
+  "template:yp3-final-hexagono": {
+   "name": "Màn hình kết thúc: lục giác chuyển màu với “Click to Subscribe”",
+   "tags": [
+    "youtube",
+    "màn hình kết thúc",
+    "đăng ký",
+    "lục giác",
+    "chuyển màu",
+    "mạng xã hội"
+   ]
+  },
+  "template:yp3-final-manchas-rojas": {
+   "name": "Màn hình kết thúc: vệt đỏ với avatar và video tiếp theo",
+   "tags": [
+    "youtube",
+    "màn hình kết thúc",
+    "đăng ký",
+    "màu đỏ",
+    "mạng xã hội"
+   ]
+  },
+  "template:yp3-final-no-olvides": {
+   "name": "Màn hình kết thúc: “Don't forget to subscribe” với nét nghiêng xanh",
+   "tags": [
+    "youtube",
+    "màn hình kết thúc",
+    "đăng ký",
+    "màu xanh",
+    "ảnh",
+    "mạng xã hội"
+   ]
+  },
+  "template:yp3-final-olas-turquesa": {
+   "name": "Màn hình kết thúc: sóng xanh ngọc với video đề xuất",
+   "tags": [
+    "youtube",
+    "màn hình kết thúc",
+    "đăng ký",
+    "màu xanh ngọc",
+    "sóng"
+   ]
+  },
+  "template:yp3-final-rosa": {
+   "name": "Màn hình kết thúc: “Thanks for Watching!” màu hồng",
+   "tags": [
+    "youtube",
+    "màn hình kết thúc",
+    "đăng ký",
+    "màu hồng",
+    "mạng xã hội"
+   ]
+  },
+  "template:yp3-final-rosa-siguiente": {
+   "name": "Màn hình kết thúc: “next video” màu hồng với các khối",
+   "tags": [
+    "youtube",
+    "màn hình kết thúc",
+    "đăng ký",
+    "màu hồng",
+    "khối"
+   ]
+  },
+  "template:yp3-final-tarjeta-lila": {
+   "name": "Màn hình kết thúc: thẻ tím nhạt “Please don't forget to subscribe”",
+   "tags": [
+    "youtube",
+    "màn hình kết thúc",
+    "đăng ký",
+    "màu tím nhạt",
+    "ảnh"
+   ]
+  },
+  "template:yp3-final-tarjeta-morada": {
+   "name": "Màn hình kết thúc: thẻ tím với hai video",
+   "tags": [
+    "youtube",
+    "màn hình kết thúc",
+    "đăng ký",
+    "màu tím"
+   ]
+  },
+  "template:yp3-me-gusta-redondo": {
+   "name": "Nút: like và chuông tròn với “Đã thích” và “Đã đăng ký”",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "nút bấm",
+    "thích",
+    "chuông",
+    "con trỏ"
+   ]
+  },
+  "template:yp3-pestana-degradado": {
+   "name": "Nút: thẻ tab hồng và tím với avatar",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "nút bấm",
+    "avatar",
+    "chuyển màu"
+   ]
+  },
+  "template:yp3-pildora-burbujas": {
+   "name": "Nút: viên thuốc bong bóng chuyển màu với avatar",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "nút bấm",
+    "avatar",
+    "chuyển màu",
+    "thích"
+   ]
+  },
+  "template:yp3-pildora-degradado": {
+   "name": "Nút: viên thuốc trắng với chuông chuyển màu",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "nút bấm",
+    "chuông",
+    "con trỏ",
+    "chuyển màu"
+   ]
+  },
+  "template:yp3-play-contorno": {
+   "name": "Nút: biểu tượng phát trắng lật và “Đã đăng ký”",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "nút bấm",
+    "con trỏ",
+    "màu trắng",
+    "3d"
+   ]
+  },
+  "template:yp3-suscribirse-rojo": {
+   "name": "Nút: đăng ký đỏ với like và chuông",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "nút bấm",
+    "thích",
+    "chuông",
+    "con trỏ"
+   ]
+  },
+  "template:yp3-tarjeta-blanca": {
+   "name": "Nút: thẻ trắng với avatar và like",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "nút bấm",
+    "thích",
+    "avatar",
+    "3d"
+   ]
+  },
+  "template:yp4-bienvenida": {
+   "name": "Story: chào mừng với các đĩa đỏ và đen",
+   "tags": [
+    "story",
+    "youtube",
+    "dọc",
+    "chào mừng",
+    "hình tròn"
+   ]
+  },
+  "template:yp4-canal": {
+   "name": "Story: CHANNEL với nút phát",
+   "tags": [
+    "story",
+    "youtube",
+    "dọc",
+    "kênh"
+   ]
+  },
+  "template:yp4-contador": {
+   "name": "Story: 2/6 với ảnh và khung vàng",
+   "tags": [
+    "story",
+    "youtube",
+    "dọc",
+    "ảnh",
+    "màu vàng",
+    "bộ đếm"
+   ]
+  },
+  "template:yp4-derechos": {
+   "name": "Story: vòng tròn trắng trên nền vàng",
+   "tags": [
+    "story",
+    "youtube",
+    "dọc",
+    "màu vàng",
+    "hình tròn"
+   ]
+  },
+  "template:yp4-fundamentos": {
+   "name": "Story: nhãn đỏ nghiêng trên ảnh",
+   "tags": [
+    "story",
+    "youtube",
+    "dọc",
+    "ảnh",
+    "nhãn"
+   ]
+  },
+  "template:yp4-gracias": {
+   "name": "Story: cảm ơn với hai ảnh và tên",
+   "tags": [
+    "story",
+    "youtube",
+    "dọc",
+    "ảnh",
+    "cảm ơn"
+   ]
+  },
+  "template:yp4-love": {
+   "name": "Story: love với thẻ đăng ký",
+   "tags": [
+    "story",
+    "youtube",
+    "dọc",
+    "ảnh",
+    "đăng ký"
+   ]
+  },
+  "template:yp4-mi-plan": {
+   "name": "Story: kế hoạch của tôi với danh sách và nhãn",
+   "tags": [
+    "story",
+    "youtube",
+    "dọc",
+    "ảnh",
+    "danh sách"
+   ]
+  },
+  "template:yp4-nombre-blanco": {
+   "name": "Story: tên với ảnh tròn trên nền trắng",
+   "tags": [
+    "story",
+    "youtube",
+    "dọc",
+    "ảnh",
+    "tên"
+   ]
+  },
+  "template:yp4-nombre-circulo": {
+   "name": "Story: tên bên cạnh ảnh tròn",
+   "tags": [
+    "story",
+    "youtube",
+    "dọc",
+    "ảnh",
+    "tên"
+   ]
+  },
+  "template:yp4-numeros": {
+   "name": "Story: các trang 01 và 02",
+   "tags": [
+    "story",
+    "youtube",
+    "dọc",
+    "ảnh",
+    "con số"
+   ]
+  },
+  "template:yp4-por-ejemplo": {
+   "name": "Story: câu vàng trên nền đỏ với ảnh",
+   "tags": [
+    "story",
+    "youtube",
+    "dọc",
+    "ảnh",
+    "câu nói"
+   ]
+  },
+  "template:yp4-seguir": {
+   "name": "Story: Follow với thẻ mạng xã hội",
+   "tags": [
+    "story",
+    "youtube",
+    "dọc",
+    "ảnh",
+    "theo dõi",
+    "mạng xã hội"
+   ]
+  },
+  "template:yp4-siguiente": {
+   "name": "Story: hai ảnh với next và Watch",
+   "tags": [
+    "story",
+    "youtube",
+    "dọc",
+    "ảnh",
+    "tiếp theo"
+   ]
+  },
+  "template:yp4-social-media": {
+   "name": "Story: Social Media với follow me",
+   "tags": [
+    "story",
+    "youtube",
+    "dọc",
+    "ảnh",
+    "theo dõi"
+   ]
+  },
+  "template:yp4-vlogger": {
+   "name": "Story: VLOGGER với trái tim và đăng ký",
+   "tags": [
+    "story",
+    "youtube",
+    "dọc",
+    "ảnh",
+    "đăng ký",
+    "trái tim"
+   ]
+  },
+  "template:yp5-avatar-cycle": {
+   "name": "Thanh tên: avatar và nhãn đổi chữ",
+   "tags": [
+    "youtube",
+    "avatar",
+    "thích",
+    "đăng ký"
+   ]
+  },
+  "template:yp5-best-show": {
+   "name": "Thanh tên: nút, vạch ngăn và hai dòng",
+   "tags": [
+    "youtube",
+    "nút bấm",
+    "mẫu"
+   ]
+  },
+  "template:yp5-best-solution": {
+   "name": "Tiêu đề: khung trắng và đen trong một khung",
+   "tags": [
+    "youtube",
+    "khung",
+    "khung viền"
+   ]
+  },
+  "template:yp5-best-video": {
+   "name": "Tiêu đề: đường đỏ và khung đỏ",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "mẫu"
+   ]
+  },
+  "template:yp5-big-live-story": {
+   "name": "Thanh tên: nút phát phóng xuống và tên",
+   "tags": [
+    "youtube",
+    "nút bấm",
+    "đăng ký"
+   ]
+  },
+  "template:yp5-box-any-fonts": {
+   "name": "Tiêu đề trong hai khung căn giữa",
+   "tags": [
+    "youtube",
+    "khung",
+    "gõ chữ"
+   ]
+  },
+  "template:yp5-box-auto-resized": {
+   "name": "Tiêu đề trong khung tự giãn khi gõ chữ",
+   "tags": [
+    "youtube",
+    "khung",
+    "gõ chữ"
+   ]
+  },
+  "template:yp5-box-automatically": {
+   "name": "Tiêu đề trong khung trắng và khung đen",
+   "tags": [
+    "youtube",
+    "khung",
+    "gõ chữ"
+   ]
+  },
+  "template:yp5-box-best-choice": {
+   "name": "Tiêu đề trong ba khung đen",
+   "tags": [
+    "youtube",
+    "khung",
+    "gõ chữ"
+   ]
+  },
+  "template:yp5-box-dont-forget": {
+   "name": "Tiêu đề căn giữa trong ba khung trắng",
+   "tags": [
+    "youtube",
+    "khung",
+    "đăng ký"
+   ]
+  },
+  "template:yp5-box-enjoy": {
+   "name": "Tiêu đề trong các khung viền trắng",
+   "tags": [
+    "youtube",
+    "khung",
+    "viền chữ"
+   ]
+  },
+  "template:yp5-box-great-design": {
+   "name": "Tiêu đề trong hai khung trắng",
+   "tags": [
+    "youtube",
+    "khung",
+    "gõ chữ"
+   ]
+  },
+  "template:yp5-box-like-that": {
+   "name": "Tiêu đề trong các khung mở ra từ giữa",
+   "tags": [
+    "youtube",
+    "khung",
+    "đăng ký"
+   ]
+  },
+  "template:yp5-box-motion-design": {
+   "name": "Tiêu đề trong khung trắng nghiêng",
+   "tags": [
+    "youtube",
+    "khung",
+    "nghiêng"
+   ]
+  },
+  "template:yp5-box-thank-support": {
+   "name": "Tiêu đề: đường kẻ mở ra thành khung trắng",
+   "tags": [
+    "youtube",
+    "khung",
+    "mẫu"
+   ]
+  },
+  "template:yp5-box-we-created": {
+   "name": "Tiêu đề trong ba khung đen gõ chữ",
+   "tags": [
+    "youtube",
+    "khung",
+    "gõ chữ"
+   ]
+  },
+  "template:yp5-box-write-text": {
+   "name": "Tiêu đề trong một khung viền",
+   "tags": [
+    "youtube",
+    "khung",
+    "gõ chữ"
+   ]
+  },
+  "template:yp5-bubble-swap": {
+   "name": "Thanh tên: bong bóng đỏ từ like sang đăng ký",
+   "tags": [
+    "youtube",
+    "thích",
+    "đăng ký",
+    "bong bóng thoại"
+   ]
+  },
+  "template:yp5-callout-brand": {
+   "name": "Chú thích: thương hiệu và giá",
+   "tags": [
+    "youtube",
+    "chú thích",
+    "giá"
+   ]
+  },
+  "template:yp5-callout-creative": {
+   "name": "Chú thích: đường chấm và hai khung",
+   "tags": [
+    "youtube",
+    "chú thích",
+    "màu đỏ"
+   ]
+  },
+  "template:yp5-callout-elbow": {
+   "name": "Chú thích: đường gấp khúc và khung chữ đỏ",
+   "tags": [
+    "youtube",
+    "chú thích",
+    "màu đỏ"
+   ]
+  },
+  "template:yp5-callout-headline": {
+   "name": "Chú thích: tiêu đề đỏ và khung đen",
+   "tags": [
+    "youtube",
+    "chú thích",
+    "màu đỏ"
+   ]
+  },
+  "template:yp5-callout-line-up": {
+   "name": "Chú thích: đường đi lên khung đen",
+   "tags": [
+    "youtube",
+    "chú thích",
+    "mẫu"
+   ]
+  },
+  "template:yp5-callout-outline": {
+   "name": "Chú thích: đường viền với chấm và chữ",
+   "tags": [
+    "youtube",
+    "chú thích",
+    "mẫu"
+   ]
+  },
+  "template:yp5-callout-product": {
+   "name": "Chú thích: đường kẻ và khung sản phẩm",
+   "tags": [
+    "youtube",
+    "chú thích",
+    "sản phẩm"
+   ]
+  },
+  "template:yp5-callout-red-box": {
+   "name": "Chú thích: đường kẻ với khung đỏ",
+   "tags": [
+    "youtube",
+    "chú thích",
+    "màu đỏ"
+   ]
+  },
+  "template:yp5-callout-red-line": {
+   "name": "Chú thích: đường đỏ và khung đỏ",
+   "tags": [
+    "youtube",
+    "chú thích",
+    "màu đỏ"
+   ]
+  },
+  "template:yp5-callout-title-bar": {
+   "name": "Chú thích: thanh đỏ và tiêu đề",
+   "tags": [
+    "youtube",
+    "chú thích",
+    "màu đỏ"
+   ]
+  },
+  "template:yp5-channel-name": {
+   "name": "Thanh tên: tên kênh nghiêng với sọc",
+   "tags": [
+    "youtube",
+    "nút bấm",
+    "sọc"
+   ]
+  },
+  "template:yp5-clean-modern": {
+   "name": "Thanh tên: con số và chữ trong viên thuốc",
+   "tags": [
+    "youtube",
+    "con số",
+    "viên thuốc"
+   ]
+  },
+  "template:yp5-clean-titles": {
+   "name": "Tiêu đề: bốn dòng trong khung trắng",
+   "tags": [
+    "youtube",
+    "khung viền",
+    "mẫu"
+   ]
+  },
+  "template:yp5-click-channel": {
+   "name": "Thanh tên: bấm vào nút và thanh đỏ",
+   "tags": [
+    "youtube",
+    "nút bấm",
+    "nhấp chuột"
+   ]
+  },
+  "template:yp5-counter-bubbles": {
+   "name": "Bộ đếm: bong bóng thông báo",
+   "tags": [
+    "youtube",
+    "bộ đếm",
+    "thích"
+   ]
+  },
+  "template:yp5-counter-heart": {
+   "name": "Bộ đếm like với trái tim",
+   "tags": [
+    "youtube",
+    "bộ đếm",
+    "thích"
+   ]
+  },
+  "template:yp5-counter-link": {
+   "name": "Liên kết trong phần mô tả",
+   "tags": [
+    "youtube",
+    "liên kết",
+    "mẫu"
+   ]
+  },
+  "template:yp5-counter-person": {
+   "name": "Bộ đếm người theo dõi",
+   "tags": [
+    "youtube",
+    "bộ đếm",
+    "mẫu"
+   ]
+  },
+  "template:yp5-counter-subscribers": {
+   "name": "Bộ đếm người đăng ký",
+   "tags": [
+    "youtube",
+    "bộ đếm",
+    "đăng ký"
+   ]
+  },
+  "template:yp5-doodle-channel": {
+   "name": "Thanh tên: nút trắng, thanh đỏ và nét vẽ tay",
+   "tags": [
+    "youtube",
+    "nút bấm",
+    "nét vẽ"
+   ]
+  },
+  "template:yp5-end-big-arc": {
+   "name": "Màn hình kết thúc: cung san hô lớn và hai video",
+   "tags": [
+    "youtube",
+    "cảm ơn",
+    "màu san hô"
+   ]
+  },
+  "template:yp5-end-circle": {
+   "name": "Màn hình kết thúc: nửa vòng tròn san hô và video đề xuất",
+   "tags": [
+    "youtube",
+    "cảm ơn",
+    "màu san hô"
+   ]
+  },
+  "template:yp5-end-coral": {
+   "name": "Màn hình kết thúc san hô: avatar, hai video và mạng xã hội",
+   "tags": [
+    "youtube",
+    "cảm ơn",
+    "màu san hô"
+   ]
+  },
+  "template:yp5-end-coral-column": {
+   "name": "Màn hình kết thúc san hô: hai video, mạng xã hội và avatar",
+   "tags": [
+    "youtube",
+    "cảm ơn",
+    "màu san hô"
+   ]
+  },
+  "template:yp5-end-diagonal": {
+   "name": "Màn hình kết thúc: tấm san hô nghiêng và video tiếp theo",
+   "tags": [
+    "youtube",
+    "cảm ơn",
+    "màu san hô"
+   ]
+  },
+  "template:yp5-end-side-panel": {
+   "name": "Màn hình kết thúc: tấm san hô bên cạnh và hai video",
+   "tags": [
+    "youtube",
+    "cảm ơn",
+    "màu san hô"
+   ]
+  },
+  "template:yp5-end-subscribe-arrow": {
+   "name": "Màn hình kết thúc: video đề xuất và nút SUBSCRIBE lớn",
+   "tags": [
+    "youtube",
+    "cảm ơn",
+    "đăng ký"
+   ]
+  },
+  "template:yp5-end-white-arrow": {
+   "name": "Màn hình kết thúc: tam giác trắng với mũi tên đỏ",
+   "tags": [
+    "youtube",
+    "cảm ơn",
+    "mũi tên"
+   ]
+  },
+  "template:yp5-end-white-band": {
+   "name": "Màn hình kết thúc: dải trắng với hai video",
+   "tags": [
+    "youtube",
+    "cảm ơn",
+    "màu trắng"
+   ]
+  },
+  "template:yp5-end-white-curve": {
+   "name": "Màn hình kết thúc: tấm trắng cong và hai video",
+   "tags": [
+    "youtube",
+    "cảm ơn",
+    "màu trắng"
+   ]
+  },
+  "template:yp5-good-design": {
+   "name": "Tiêu đề: ba dòng hiện dần từng từ",
+   "tags": [
+    "youtube",
+    "tối giản",
+    "mẫu"
+   ]
+  },
+  "template:yp5-hello-welcome": {
+   "name": "Tiêu đề: HELLO! và chào mừng đến kênh của tôi",
+   "tags": [
+    "youtube",
+    "chào mừng",
+    "màu san hô"
+   ]
+  },
+  "template:yp5-how-do-i": {
+   "name": "Thanh tên: câu hỏi trong khung trắng",
+   "tags": [
+    "youtube",
+    "khung",
+    "màu trắng"
+   ]
+  },
+  "template:yp5-like-card": {
+   "name": "Thanh tên: like, đăng ký và thông báo",
+   "tags": [
+    "youtube",
+    "thích",
+    "đăng ký",
+    "chuông"
+   ]
+  },
+  "template:yp5-like-column": {
+   "name": "Thanh tên: cột đỏ với ba nhãn",
+   "tags": [
+    "youtube",
+    "thích",
+    "đăng ký",
+    "chuông"
+   ]
+  },
+  "template:yp5-like-hand": {
+   "name": "Thanh tên: thích video bằng bàn tay",
+   "tags": [
+    "youtube",
+    "thích",
+    "mẫu"
+   ]
+  },
+  "template:yp5-modern-titles": {
+   "name": "Tiêu đề: khung trắng và ba dòng",
+   "tags": [
+    "youtube",
+    "khung viền",
+    "mẫu"
+   ]
+  },
+  "template:yp5-modern-universal": {
+   "name": "Thanh tên: ba dòng và một đường kẻ",
+   "tags": [
+    "youtube",
+    "tối giản",
+    "mẫu"
+   ]
+  },
+  "template:yp5-name-bar": {
+   "name": "Thanh tên: thanh trắng và tên trượt ra",
+   "tags": [
+    "youtube",
+    "tên",
+    "thanh"
+   ]
+  },
+  "template:yp5-name-red-box": {
+   "name": "Thanh tên: tên trong khung đỏ",
+   "tags": [
+    "youtube",
+    "tên",
+    "màu đỏ"
+   ]
+  },
+  "template:yp5-name-square-line": {
+   "name": "Thanh tên: ô vuông nhỏ, đường kẻ và tên",
+   "tags": [
+    "youtube",
+    "tên",
+    "đường kẻ"
+   ]
+  },
+  "template:yp5-name-white-box": {
+   "name": "Thanh tên: tên gõ trong khung trắng",
+   "tags": [
+    "youtube",
+    "tên",
+    "khung"
+   ]
+  },
+  "template:yp5-new-video": {
+   "name": "Thanh tên: video mới trong thanh đen",
+   "tags": [
+    "youtube",
+    "thanh",
+    "màu đen"
+   ]
+  },
+  "template:yp5-notify-bell": {
+   "name": "Thanh tên: thông báo với chuông reo",
+   "tags": [
+    "youtube",
+    "chuông",
+    "mẫu"
+   ]
+  },
+  "template:yp5-opener-boxes": {
+   "name": "Mở đầu đỏ: tên trong các khung đen",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "khung"
+   ]
+  },
+  "template:yp5-opener-divider": {
+   "name": "Mở đầu đỏ: nút, vạch ngăn và tên",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "đăng ký"
+   ]
+  },
+  "template:yp5-opener-fade": {
+   "name": "Mở đầu đỏ: nút và tên hiện dần",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "mẫu"
+   ]
+  },
+  "template:yp5-opener-flip": {
+   "name": "Mở đầu đỏ: nút lật và tên",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "sóng"
+   ]
+  },
+  "template:yp5-opener-typed": {
+   "name": "Mở đầu đỏ: tên gõ chữ",
+   "tags": [
+    "youtube",
+    "màu đỏ",
+    "gõ chữ"
+   ]
+  },
+  "template:yp5-profile-card": {
+   "name": "Thanh tên: thẻ trắng với avatar",
+   "tags": [
+    "youtube",
+    "avatar",
+    "đăng ký"
+   ]
+  },
+  "template:yp5-promo-pack": {
+   "name": "Tiêu đề: YOUTUBE PROMO trong khung đen",
+   "tags": [
+    "youtube",
+    "khung",
+    "màu đen"
+   ]
+  },
+  "template:yp5-quote-black-frame": {
+   "name": "Trích dẫn trong khung đen có nhãn",
+   "tags": [
+    "youtube",
+    "trích dẫn",
+    "khung viền"
+   ]
+  },
+  "template:yp5-quote-brackets": {
+   "name": "Trích dẫn giữa hai góc",
+   "tags": [
+    "youtube",
+    "trích dẫn",
+    "mẫu"
+   ]
+  },
+  "template:yp5-quote-bubble": {
+   "name": "Trích dẫn trong bong bóng thoại",
+   "tags": [
+    "youtube",
+    "trích dẫn",
+    "bong bóng thoại"
+   ]
+  },
+  "template:yp5-quote-centred": {
+   "name": "Trích dẫn căn giữa với nhãn trắng",
+   "tags": [
+    "youtube",
+    "trích dẫn",
+    "mẫu"
+   ]
+  },
+  "template:yp5-quote-corners": {
+   "name": "Trích dẫn giữa hai góc trắng",
+   "tags": [
+    "youtube",
+    "trích dẫn",
+    "mẫu"
+   ]
+  },
+  "template:yp5-quote-frame": {
+   "name": "Trích dẫn trong khung có nhãn đen",
+   "tags": [
+    "youtube",
+    "trích dẫn",
+    "khung viền"
+   ]
+  },
+  "template:yp5-quote-line": {
+   "name": "Trích dẫn: đường dọc và dấu ngoặc trong các khung",
+   "tags": [
+    "youtube",
+    "trích dẫn",
+    "mẫu"
+   ]
+  },
+  "template:yp5-quote-split-bar": {
+   "name": "Trích dẫn mở ra giữa hai thanh",
+   "tags": [
+    "youtube",
+    "trích dẫn",
+    "mẫu"
+   ]
+  },
+  "template:yp5-quote-two-lines": {
+   "name": "Trích dẫn giữa hai đường kẻ",
+   "tags": [
+    "youtube",
+    "trích dẫn",
+    "mẫu"
+   ]
+  },
+  "template:yp5-quote-white-box": {
+   "name": "Trích dẫn trong khung trắng với dấu ngoặc đen",
+   "tags": [
+    "youtube",
+    "trích dẫn",
+    "khung"
+   ]
+  },
+  "template:yp5-record-iris": {
+   "name": "Chuyển cảnh: vòng tròn ghi hình mở ra",
+   "tags": [
+    "youtube",
+    "chuyển cảnh",
+    "hình tròn"
+   ]
+  },
+  "template:yp5-social-baldosa-fb": {
+   "name": "Thanh mạng xã hội: Facebook (ô gạch bay)",
+   "tags": [
+    "youtube",
+    "mạng xã hội",
+    "facebook"
+   ]
+  },
+  "template:yp5-social-baldosa-ig": {
+   "name": "Thanh mạng xã hội: Instagram (ô gạch bay)",
+   "tags": [
+    "youtube",
+    "mạng xã hội",
+    "instagram"
+   ]
+  },
+  "template:yp5-social-baldosa-tw": {
+   "name": "Thanh mạng xã hội: Twitter (ô gạch bay)",
+   "tags": [
+    "youtube",
+    "mạng xã hội",
+    "twitter"
+   ]
+  },
+  "template:yp5-social-baldosa-yt": {
+   "name": "Thanh mạng xã hội: YouTube (ô gạch bay)",
+   "tags": [
+    "youtube",
+    "mạng xã hội",
+    "mẫu"
+   ]
+  },
+  "template:yp5-social-barras-fb": {
+   "name": "Thanh mạng xã hội: Facebook (hai thanh mở ra)",
+   "tags": [
+    "youtube",
+    "mạng xã hội",
+    "facebook"
+   ]
+  },
+  "template:yp5-social-barras-ig": {
+   "name": "Thanh mạng xã hội: Instagram (hai thanh mở ra)",
+   "tags": [
+    "youtube",
+    "mạng xã hội",
+    "instagram"
+   ]
+  },
+  "template:yp5-social-barras-tw": {
+   "name": "Thanh mạng xã hội: Twitter (hai thanh mở ra)",
+   "tags": [
+    "youtube",
+    "mạng xã hội",
+    "twitter"
+   ]
+  },
+  "template:yp5-social-barras-yt": {
+   "name": "Thanh mạng xã hội: YouTube (hai thanh mở ra)",
+   "tags": [
+    "youtube",
+    "mạng xã hội",
+    "mẫu"
+   ]
+  },
+  "template:yp5-social-circulo-fb": {
+   "name": "Thanh mạng xã hội: Facebook (vòng tròn và viên thuốc)",
+   "tags": [
+    "youtube",
+    "mạng xã hội",
+    "facebook"
+   ]
+  },
+  "template:yp5-social-circulo-ig": {
+   "name": "Thanh mạng xã hội: Instagram (vòng tròn và viên thuốc)",
+   "tags": [
+    "youtube",
+    "mạng xã hội",
+    "instagram"
+   ]
+  },
+  "template:yp5-social-circulo-tw": {
+   "name": "Thanh mạng xã hội: Twitter (vòng tròn và viên thuốc)",
+   "tags": [
+    "youtube",
+    "mạng xã hội",
+    "twitter"
+   ]
+  },
+  "template:yp5-social-circulo-yt": {
+   "name": "Thanh mạng xã hội: YouTube (vòng tròn và viên thuốc)",
+   "tags": [
+    "youtube",
+    "mạng xã hội",
+    "mẫu"
+   ]
+  },
+  "template:yp5-social-cuadro-fb": {
+   "name": "Thanh mạng xã hội: Facebook (ô vuông lật)",
+   "tags": [
+    "youtube",
+    "mạng xã hội",
+    "facebook"
+   ]
+  },
+  "template:yp5-social-cuadro-ig": {
+   "name": "Thanh mạng xã hội: Instagram (ô vuông lật)",
+   "tags": [
+    "youtube",
+    "mạng xã hội",
+    "instagram"
+   ]
+  },
+  "template:yp5-social-cuadro-tw": {
+   "name": "Thanh mạng xã hội: Twitter (ô vuông lật)",
+   "tags": [
+    "youtube",
+    "mạng xã hội",
+    "twitter"
+   ]
+  },
+  "template:yp5-social-cuadro-yt": {
+   "name": "Thanh mạng xã hội: YouTube (ô vuông lật)",
+   "tags": [
+    "youtube",
+    "mạng xã hội",
+    "mẫu"
+   ]
+  },
+  "template:yp5-social-pincel-fb": {
+   "name": "Thanh mạng xã hội: Facebook (nét cọ)",
+   "tags": [
+    "youtube",
+    "mạng xã hội",
+    "facebook"
+   ]
+  },
+  "template:yp5-social-pincel-ig": {
+   "name": "Thanh mạng xã hội: Instagram (nét cọ)",
+   "tags": [
+    "youtube",
+    "mạng xã hội",
+    "instagram"
+   ]
+  },
+  "template:yp5-social-pincel-tw": {
+   "name": "Thanh mạng xã hội: Twitter (nét cọ)",
+   "tags": [
+    "youtube",
+    "mạng xã hội",
+    "twitter"
+   ]
+  },
+  "template:yp5-social-pincel-yt": {
+   "name": "Thanh mạng xã hội: YouTube (nét cọ)",
+   "tags": [
+    "youtube",
+    "mạng xã hội",
+    "mẫu"
+   ]
+  },
+  "template:yp5-stacked-channel": {
+   "name": "Thanh tên: tên kênh ba dòng với bong bóng chat",
+   "tags": [
+    "youtube",
+    "bong bóng thoại",
+    "mẫu"
+   ]
+  },
+  "template:yp5-sub-avatar-pill": {
+   "name": "Thanh tên: đăng ký với avatar và cú nhấp",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "avatar",
+    "nhấp chuột"
+   ]
+  },
+  "template:yp5-sub-center-avatar": {
+   "name": "Thanh tên: avatar ở giữa viên thuốc",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "avatar"
+   ]
+  },
+  "template:yp5-sub-channel-tag": {
+   "name": "Thanh tên: đã đăng ký kèm tên kênh",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "nhấp chuột"
+   ]
+  },
+  "template:yp5-sub-grey-bell": {
+   "name": "Thanh tên: đăng ký chuyển xám và chuông",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "chuông",
+    "nhấp chuột"
+   ]
+  },
+  "template:yp5-sub-logo-box": {
+   "name": "Thanh tên: logo trong khung trắng và đăng ký",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "nút bấm"
+   ]
+  },
+  "template:yp5-sub-red-pill": {
+   "name": "Thanh tên: viên thuốc đỏ biến thành đăng ký",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "nhấp chuột"
+   ]
+  },
+  "template:yp5-sub-red-white": {
+   "name": "Thanh tên: đăng ký chuyển thành đã đăng ký",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "chuông"
+   ]
+  },
+  "template:yp5-sub-stack": {
+   "name": "Thanh tên: avatar và ba nhãn đỏ",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "avatar"
+   ]
+  },
+  "template:yp5-subscribe-icon": {
+   "name": "Thanh tên: đăng ký với nút xoay",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "nút bấm"
+   ]
+  },
+  "template:yp5-subscribe-now": {
+   "name": "Tiêu đề: đăng ký ngay từng chữ một",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "mẫu"
+   ]
+  },
+  "template:yp5-subscribe-to": {
+   "name": "Tiêu đề: đăng ký trong khung trắng",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "khung"
+   ]
+  },
+  "template:yp5-subscribed-click": {
+   "name": "Thanh tên: thanh đăng ký đỏ với cú nhấp",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "nhấp chuột"
+   ]
+  },
+  "template:yp5-thanks-watching": {
+   "name": "Tiêu đề: cảm ơn đã xem",
+   "tags": [
+    "youtube",
+    "cảm ơn",
+    "mẫu"
+   ]
+  },
+  "template:yp5-three-icons": {
+   "name": "Thanh tên: like, phát và chuông sáng lên",
+   "tags": [
+    "youtube",
+    "thích",
+    "chuông"
+   ]
+  },
+  "template:yp5-three-pills": {
+   "name": "Thanh tên: ba nút xếp hàng",
+   "tags": [
+    "youtube",
+    "thích",
+    "đăng ký",
+    "chuông"
+   ]
+  },
+  "template:yp5-tilted-cycle": {
+   "name": "Thanh tên: nhãn nghiêng đổi chữ",
+   "tags": [
+    "youtube",
+    "thích",
+    "đăng ký",
+    "chuông"
+   ]
+  },
+  "template:yp5-travel-blog": {
+   "name": "Thanh tên: nút bay lên và tên",
+   "tags": [
+    "youtube",
+    "nút bấm",
+    "mẫu"
+   ]
+  },
+  "template:yp5-triangle-box": {
+   "name": "Thanh tên: tam giác biến thành nút trắng",
+   "tags": [
+    "youtube",
+    "nút bấm",
+    "màu trắng"
+   ]
+  },
+  "template:yp5-watch-next": {
+   "name": "Thanh tên: xem tiếp trong khung trắng",
+   "tags": [
+    "youtube",
+    "khung",
+    "màu trắng"
+   ]
+  },
+  "template:yp5-white-opener": {
+   "name": "Mở đầu: đĩa đỏ và kênh trên nền trắng",
+   "tags": [
+    "youtube",
+    "hình tròn",
+    "avatar"
+   ]
+  },
+  "template:yp5-your-channel-label": {
+   "name": "Thanh tên: nhãn đỏ với nút và tia sáng",
+   "tags": [
+    "youtube",
+    "nút bấm",
+    "nhãn"
+   ]
+  },
+  "template:yp7-apertura-cuadro-rojo": {
+   "name": "Mở đầu: ô vuông đỏ và thẻ kênh",
+   "tags": [
+    "youtube",
+    "trắng đen",
+    "thời trang",
+    "logo",
+    "mở đầu"
+   ]
+  },
+  "template:yp7-apertura-foto-perfil": {
+   "name": "Mở đầu: cảnh quay biến thành avatar",
+   "tags": [
+    "youtube",
+    "trắng đen",
+    "thời trang",
+    "logo",
+    "mở đầu"
+   ]
+  },
+  "template:yp7-apertura-palabras": {
+   "name": "Mở đầu: các từ trên tấm đen và trắng",
+   "tags": [
+    "youtube",
+    "trắng đen",
+    "thời trang",
+    "từ",
+    "mở đầu"
+   ]
+  },
+  "template:yp7-apertura-youtube": {
+   "name": "Mở đầu: chữ YOUTUBE viền được tô đầy",
+   "tags": [
+    "youtube",
+    "trắng đen",
+    "thời trang",
+    "mở đầu"
+   ]
+  },
+  "template:yp7-awesomeness": {
+   "name": "Chữ: từ trong khung trắng",
+   "tags": [
+    "youtube",
+    "trắng đen",
+    "thời trang",
+    "kiểu chữ",
+    "khung viền"
+   ]
+  },
+  "template:yp7-be-happy": {
+   "name": "Chữ: câu xếp hàng và đổi màu",
+   "tags": [
+    "youtube",
+    "trắng đen",
+    "thời trang",
+    "kiểu chữ",
+    "câu nói"
+   ]
+  },
+  "template:yp7-caja-negra": {
+   "name": "Chữ: câu trong khung đen",
+   "tags": [
+    "youtube",
+    "trắng đen",
+    "thời trang",
+    "kiểu chữ",
+    "khung"
+   ]
+  },
+  "template:yp7-cita-barra": {
+   "name": "Chữ: trích dẫn trên thanh",
+   "tags": [
+    "youtube",
+    "trắng đen",
+    "thời trang",
+    "kiểu chữ",
+    "trích dẫn",
+    "khung"
+   ]
+  },
+  "template:yp7-cita-barra-2": {
+   "name": "Chữ: thanh trích dẫn với hai ô vuông",
+   "tags": [
+    "youtube",
+    "trắng đen",
+    "thời trang",
+    "kiểu chữ",
+    "trích dẫn",
+    "khung"
+   ]
+  },
+  "template:yp7-cita-cuadro": {
+   "name": "Chữ: trích dẫn trong khung vuông",
+   "tags": [
+    "youtube",
+    "trắng đen",
+    "thời trang",
+    "kiểu chữ",
+    "trích dẫn",
+    "khung"
+   ]
+  },
+  "template:yp7-cita-cuadro-2": {
+   "name": "Chữ: khung trích dẫn có ô vuông ở góc",
+   "tags": [
+    "youtube",
+    "trắng đen",
+    "thời trang",
+    "kiểu chữ",
+    "trích dẫn",
+    "khung"
+   ]
+  },
+  "template:yp7-cita-cuadro-3": {
+   "name": "Chữ: trích dẫn với hai ô vuông",
+   "tags": [
+    "youtube",
+    "trắng đen",
+    "thời trang",
+    "kiểu chữ",
+    "trích dẫn",
+    "khung"
+   ]
+  },
+  "template:yp7-elementos-1": {
+   "name": "Phần tử: hình khối và chấm nhấp nháy",
+   "tags": [
+    "youtube",
+    "trắng đen",
+    "thời trang",
+    "lớp phủ",
+    "glitch"
+   ]
+  },
+  "template:yp7-elementos-2": {
+   "name": "Phần tử: hình khối, vòng tròn và màn chấm",
+   "tags": [
+    "youtube",
+    "trắng đen",
+    "thời trang",
+    "lớp phủ",
+    "glitch"
+   ]
+  },
+  "template:yp7-elementos-3": {
+   "name": "Phần tử: đường chéo và hình thoi chấm",
+   "tags": [
+    "youtube",
+    "trắng đen",
+    "thời trang",
+    "lớp phủ",
+    "glitch"
+   ]
+  },
+  "template:yp7-elementos-4": {
+   "name": "Phần tử: đường quét và một vòng tròn",
+   "tags": [
+    "youtube",
+    "trắng đen",
+    "thời trang",
+    "lớp phủ",
+    "glitch"
+   ]
+  },
+  "template:yp7-final-1": {
+   "name": "Thẻ kết thúc: một video",
+   "tags": [
+    "youtube",
+    "trắng đen",
+    "thời trang",
+    "màn hình kết thúc",
+    "video"
+   ]
+  },
+  "template:yp7-final-2": {
+   "name": "Thẻ kết thúc: hai video xếp chồng",
+   "tags": [
+    "youtube",
+    "trắng đen",
+    "thời trang",
+    "màn hình kết thúc",
+    "video"
+   ]
+  },
+  "template:yp7-final-3": {
+   "name": "Thẻ kết thúc: hai video cạnh nhau",
+   "tags": [
+    "youtube",
+    "trắng đen",
+    "thời trang",
+    "màn hình kết thúc",
+    "video"
+   ]
+  },
+  "template:yp7-final-4": {
+   "name": "Thẻ kết thúc: bốn video",
+   "tags": [
+    "youtube",
+    "trắng đen",
+    "thời trang",
+    "màn hình kết thúc",
+    "video"
+   ]
+  },
+  "template:yp7-frase-entre-barras": {
+   "name": "Chữ: câu giữa hai thanh",
+   "tags": [
+    "youtube",
+    "trắng đen",
+    "thời trang",
+    "kiểu chữ",
+    "câu nói"
+   ]
+  },
+  "template:yp7-frase-inclinada": {
+   "name": "Chữ: câu nghiêng giữa các đường kẻ",
+   "tags": [
+    "youtube",
+    "trắng đen",
+    "thời trang",
+    "kiểu chữ",
+    "câu nói"
+   ]
+  },
+  "template:yp7-greatness": {
+   "name": "Chữ: các chữ rơi vào vị trí",
+   "tags": [
+    "youtube",
+    "trắng đen",
+    "thời trang",
+    "kiểu chữ"
+   ]
+  },
+  "template:yp7-icono-campana": {
+   "name": "Biểu tượng: chuông reo",
+   "tags": [
+    "youtube",
+    "trắng đen",
+    "thời trang",
+    "biểu tượng",
+    "chuông"
+   ]
+  },
+  "template:yp7-icono-compartir": {
+   "name": "Biểu tượng: nút Chia sẻ",
+   "tags": [
+    "youtube",
+    "trắng đen",
+    "thời trang",
+    "biểu tượng",
+    "chia sẻ"
+   ]
+  },
+  "template:yp7-icono-me-gusta": {
+   "name": "Biểu tượng: nút Like",
+   "tags": [
+    "youtube",
+    "trắng đen",
+    "thời trang",
+    "biểu tượng",
+    "thích"
+   ]
+  },
+  "template:yp7-icono-suscribirse": {
+   "name": "Biểu tượng: nút Đăng ký",
+   "tags": [
+    "youtube",
+    "trắng đen",
+    "thời trang",
+    "biểu tượng",
+    "đăng ký"
+   ]
+  },
+  "template:yp7-nota-campana": {
+   "name": "Phụ trợ: dòng viết tay “Click the bell icon”",
+   "tags": [
+    "youtube",
+    "trắng đen",
+    "thời trang",
+    "mũi tên",
+    "viết tay"
+   ]
+  },
+  "template:yp7-nota-comenta": {
+   "name": "Phụ trợ: dòng viết tay “Comment below” với mũi tên",
+   "tags": [
+    "youtube",
+    "trắng đen",
+    "thời trang",
+    "mũi tên",
+    "viết tay"
+   ]
+  },
+  "template:yp7-nota-suscribete": {
+   "name": "Phụ trợ: dòng viết tay “Subscribe us” với mũi tên",
+   "tags": [
+    "youtube",
+    "trắng đen",
+    "thời trang",
+    "mũi tên",
+    "viết tay"
+   ]
+  },
+  "template:yp7-nota-video": {
+   "name": "Phụ trợ: dòng viết tay “Check out the video here”",
+   "tags": [
+    "youtube",
+    "trắng đen",
+    "thời trang",
+    "mũi tên",
+    "viết tay"
+   ]
+  },
+  "template:yp7-red-dribbble": {
+   "name": "Mạng xã hội: thẻ Dribbble",
+   "tags": [
+    "youtube",
+    "trắng đen",
+    "thời trang",
+    "mạng xã hội",
+    "dribbble"
+   ]
+  },
+  "template:yp7-red-facebook": {
+   "name": "Mạng xã hội: thẻ Facebook",
+   "tags": [
+    "youtube",
+    "trắng đen",
+    "thời trang",
+    "mạng xã hội",
+    "facebook"
+   ]
+  },
+  "template:yp7-red-google-plus": {
+   "name": "Mạng xã hội: thẻ Google Plus",
+   "tags": [
+    "youtube",
+    "trắng đen",
+    "thời trang",
+    "mạng xã hội",
+    "google plus"
+   ]
+  },
+  "template:yp7-red-instagram": {
+   "name": "Mạng xã hội: thẻ Instagram",
+   "tags": [
+    "youtube",
+    "trắng đen",
+    "thời trang",
+    "mạng xã hội",
+    "instagram"
+   ]
+  },
+  "template:yp7-red-linkedin": {
+   "name": "Mạng xã hội: thẻ LinkedIn",
+   "tags": [
+    "youtube",
+    "trắng đen",
+    "thời trang",
+    "mạng xã hội",
+    "linkedin"
+   ]
+  },
+  "template:yp7-red-pinterest": {
+   "name": "Mạng xã hội: thẻ Pinterest",
+   "tags": [
+    "youtube",
+    "trắng đen",
+    "thời trang",
+    "mạng xã hội",
+    "pinterest"
+   ]
+  },
+  "template:yp7-red-twitter": {
+   "name": "Mạng xã hội: thẻ Twitter",
+   "tags": [
+    "youtube",
+    "trắng đen",
+    "thời trang",
+    "mạng xã hội",
+    "twitter"
+   ]
+  },
+  "template:yp7-red-whatsapp": {
+   "name": "Mạng xã hội: thẻ WhatsApp",
+   "tags": [
+    "youtube",
+    "trắng đen",
+    "thời trang",
+    "mạng xã hội",
+    "whatsapp"
+   ]
+  },
+  "template:yp7-super-awesome-life": {
+   "name": "Chữ: ba dòng bay lên và khép lại",
+   "tags": [
+    "youtube",
+    "trắng đen",
+    "thời trang",
+    "kiểu chữ"
+   ]
+  },
+  "template:yp7-suscribirse-banda": {
+   "name": "Đăng ký: dải ở phía dưới",
+   "tags": [
+    "youtube",
+    "trắng đen",
+    "thời trang",
+    "đăng ký",
+    "dải băng"
+   ]
+  },
+  "template:yp7-suscribirse-banda-foto": {
+   "name": "Đăng ký: dải ở phía dưới kèm ảnh",
+   "tags": [
+    "youtube",
+    "trắng đen",
+    "thời trang",
+    "đăng ký",
+    "dải băng"
+   ]
+  },
+  "template:yp7-suscribirse-barra": {
+   "name": "Đăng ký: thanh có avatar",
+   "tags": [
+    "youtube",
+    "trắng đen",
+    "thời trang",
+    "đăng ký"
+   ]
+  },
+  "template:yp7-suscribirse-tarjeta": {
+   "name": "Đăng ký: thẻ có ảnh",
+   "tags": [
+    "youtube",
+    "trắng đen",
+    "thời trang",
+    "đăng ký"
+   ]
+  },
+  "template:yp7-telefono": {
+   "name": "Cảnh: điện thoại với like và đăng ký",
+   "tags": [
+    "youtube",
+    "trắng đen",
+    "thời trang",
+    "điện thoại",
+    "đăng ký"
+   ]
+  },
+  "template:yp7-telefono-izquierda": {
+   "name": "Cảnh: điện thoại ở bên trái",
+   "tags": [
+    "youtube",
+    "trắng đen",
+    "thời trang",
+    "điện thoại",
+    "đăng ký"
+   ]
+  },
+  "template:yp7-transicion-circulo": {
+   "name": "Chuyển cảnh: vòng tròn từ giữa",
+   "tags": [
+    "youtube",
+    "trắng đen",
+    "thời trang",
+    "chuyển cảnh"
+   ]
+  },
+  "template:yp7-transicion-circulo-arriba": {
+   "name": "Chuyển cảnh: vòng tròn từ phía trên",
+   "tags": [
+    "youtube",
+    "trắng đen",
+    "thời trang",
+    "chuyển cảnh"
+   ]
+  },
+  "template:yp7-transicion-circulo-izquierda": {
+   "name": "Chuyển cảnh: vòng tròn từ bên trái",
+   "tags": [
+    "youtube",
+    "trắng đen",
+    "thời trang",
+    "chuyển cảnh"
+   ]
+  },
+  "template:yp7-transicion-diagonal": {
+   "name": "Chuyển cảnh: lau chéo",
+   "tags": [
+    "youtube",
+    "trắng đen",
+    "thời trang",
+    "chuyển cảnh"
+   ]
+  },
+  "template:yp7-transicion-izquierda": {
+   "name": "Chuyển cảnh: lau sang trái",
+   "tags": [
+    "youtube",
+    "trắng đen",
+    "thời trang",
+    "chuyển cảnh"
+   ]
+  },
+  "template:yp7-transicion-lineas": {
+   "name": "Chuyển cảnh: các đường kẻ từ giữa",
+   "tags": [
+    "youtube",
+    "trắng đen",
+    "thời trang",
+    "chuyển cảnh"
+   ]
+  },
+  "template:yp7-transicion-rectangulo": {
+   "name": "Chuyển cảnh: hình chữ nhật từ giữa",
+   "tags": [
+    "youtube",
+    "trắng đen",
+    "thời trang",
+    "chuyển cảnh"
+   ]
+  },
+  "template:yp7-transicion-sube": {
+   "name": "Chuyển cảnh: các dải đi lên",
+   "tags": [
+    "youtube",
+    "trắng đen",
+    "thời trang",
+    "chuyển cảnh"
    ]
   },
   "template:yt-calle-a-que-te-dedicas": {
