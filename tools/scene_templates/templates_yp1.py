@@ -16,7 +16,7 @@ import math
 
 import templates_llt_f as f6
 from kit import Box, wide
-from llt_motion import frames_of, mask_track
+from llt_motion import frames_of
 from scene import keys
 from templates_tit_c import FPS, k
 from templates_tit_e import solid
@@ -128,6 +128,120 @@ def ripple(s, name, cx, cy, at, size=90, colour=WHITE, n=9, width=4):
           base=(size, size))
 
 
+# --- 3D pieces (the engine's 3D layers: a real turn in perspective) -----------------------------------------------
+PERSP = 1600.0
+# Opacity of the 3D pieces: just under 1 so the engine keeps them in track order (it depth-tests only opaque 3D
+# layers, and that drops the soft edges of text and lets a face bleed through the piece riding on it).
+FLAT = 0.998
+BELL_BODY = ("M 50 4 C 55 4 57 8 57 11 C 72 15 80 29 80 47 L 80 66 L 93 80 L 7 80 L 20 66 L 20 47 C 20 29 28 15 43 11 "
+             "C 43 8 45 4 50 4 Z")
+BELL_CLAP = "M 39 78 L 61 78 L 61 85 C 61 98 39 98 39 85 Z"
+
+
+def mix(c0, c1, q):
+    a = [int(c0[i:i + 2], 16) for i in (1, 3, 5)]
+    b = [int(c1[i:i + 2], 16) for i in (1, 3, 5)]
+    return "#%02X%02X%02X" % tuple(round(x + (y - x) * q) for x, y in zip(a, b))
+
+
+def turn3(ox, oy, oz, rx, ry, rot=0.0):
+    """Where a point (ox, oy, oz) of a piece (from its centre, z toward the viewer) goes when the piece spins rot in
+    its plane and tilts ry about its vertical axis, then rx about its horizontal one (the engine's order)."""
+    a = math.radians(rot)
+    ox, oy = ox * math.cos(a) - oy * math.sin(a), ox * math.sin(a) + oy * math.cos(a)
+    ax, ay = math.radians(rx), math.radians(ry)
+    x1 = math.cos(ay) * ox + math.sin(ay) * oz
+    z1 = -math.sin(ay) * ox + math.cos(ay) * oz
+    return x1, math.cos(ax) * oy - math.sin(ax) * z1, math.sin(ax) * oy + math.cos(ax) * z1
+
+
+def g9(geom):
+    """geom(fr, u) = (cx, cy, w, h, rot, op, rx, ry[, z]) with z filled in."""
+    return lambda fr, u: (lambda v: v if len(v) == 9 else (*v, 0.0))(geom(fr, u))
+
+
+def solid3d(s, name, path, face, sides, geom, depth, n=6, back=None, kind="rectangle", radius=0.0, base=None,
+            slab=None, oz=0.0, persp=PERSP, evenodd=False):
+    """A shape with thickness that turns in 3D: geom(fr, u) = (cx, cy, w, h, rot, op, rx, ry[, z]); depth in px at
+    base size. Copies of the shape across the thickness, the sides from sides[0] (near) to sides[1] (far), drawn
+    far to near: when the back turns to the viewer the copies swap ends, and the near face shows `back` (the far
+    end is then the front). slab = (oy, h) in fractions of the box: a plane across the thickness shown while the
+    shape stands edge-on to a turn about its vertical axis. oz shifts the piece along its own depth."""
+    G = g9(geom)
+    bw = (base or (100, 100))[0]
+    facing = lambda v: math.cos(math.radians(v[6])) * math.cos(math.radians(v[7]))  # noqa: E731
+    sgn = lambda v: 1.0 if facing(v) >= 0 else -1.0  # noqa: E731
+
+    def place(z0, show):
+        def where(fr, u):
+            v = G(fr, u)
+            cx, cy, w, h, rot, op, rx, ry, z = v
+            sc = w / bw
+            dx, dy, dz = turn3(0, 0, (sgn(v) * z0 + oz) * sc, rx, ry, rot)
+            return cx + dx, cy + dy, w, h, rot, FLAT if op >= 0.5 and show(v) else 0.0, rx, ry, z + dz
+        return where
+
+    def put(nm, lay, where, kind=kind, path=path, base=base):
+        clip = s.obj(nm, solid(lay) if isinstance(lay, str) else lay, lambda fr, u: where(fr, u)[:6], kind=kind,
+                     path=path, radius=radius, base=base)
+        if path and evenodd:
+            clip["shapeStyle"]["customEvenOdd"] = True
+        s.d3(clip, rx=lambda fr, u: where(fr, u)[6], ry=lambda fr, u: where(fr, u)[7], z=lambda fr, u: where(fr, u)[8],
+             persp=persp)
+    for i in range(n + 1):
+        z0 = depth * (-0.5 + i / (n + 1))
+        put(f"{name} (canto {i + 1})", mix(sides[0], sides[1], 1 - i / (n + 1)), place(z0, lambda v: True))
+    if slab:
+        soy, sh = slab
+
+        def sg(fr, u):
+            v = G(fr, u)
+            cx, cy, w, h, rot, op, rx, ry, z = v
+            sc = w / bw
+            dx, dy, dz = turn3(0, soy * h, oz * sc, rx, ry, 0)
+            on = FLAT if op >= 0.5 and abs(math.cos(math.radians(ry))) < 0.35 else 0.0
+            return cx + dx, cy + dy, 0.9 * depth * sc, sh * h, 0, on, rx, ry + 90, z + dz
+        put(f"{name} (canto)", sides[0], sg, kind="rectangle", path=None, base=(depth, 100))
+    put(name, face, place(depth / 2, lambda v: facing(v) >= 0))
+    put(f"{name} (atrás)", back or face, place(depth / 2, lambda v: facing(v) < 0))
+
+
+def ride(s, clip, geom, centre, oz, rest):
+    """Puts a text or photo clip on the front of a turning piece: geom as solid3d's, centre = the clip's (x, y) when
+    the piece rests at rest = (cx, cy, w); oz = how far in front of the piece's centre."""
+    G = g9(geom)
+    cx0, cy0, w0 = rest
+    ox, oy = centre[0] - cx0, centre[1] - cy0
+
+    def where(fr, u):
+        cx, cy, w, h, rot, op, rx, ry, z = G(fr, u)
+        sc = w / w0
+        dx, dy, dz = turn3(ox * sc, oy * sc, oz * sc, rx, ry, rot)
+        front = math.cos(math.radians(rx)) * math.cos(math.radians(ry)) >= 0
+        return cx + dx - centre[0], cy + dy - centre[1], sc, rot, min(op, FLAT) if front else 0.0, rx, ry, z + dz
+    s.tmove(clip, lambda fr, u: where(fr, u)[:5])
+    s.d3(clip, rx=lambda fr, u: where(fr, u)[5], ry=lambda fr, u: where(fr, u)[6], z=lambda fr, u: where(fr, u)[7],
+         persp=PERSP)
+    return clip
+
+
+def badge3d(s, sample, geom, border=WHITE, bw=10, w=300, h=210, depth=34, sides=("#F2F2F2", "#9A9A9A"), back=None,
+            name="Avatar"):
+    """A photo slot on a rounded plate with thickness that turns in 3D: geom(fr, u) = (cx, cy, scale, rot, opacity,
+    rx, ry); the back of the plate shows `back` (the border colour by default)."""
+    W, H = w + 2 * bw, h + 2 * bw
+
+    def plate(fr, u):
+        cx, cy, sc, rot, op, rx, ry = geom(fr, u)
+        return cx, cy, W * sc, H * sc, rot, op, rx, ry
+    solid3d(s, f"{name} (borde)", None, border, sides, plate, depth, n=6, back=back, radius=H * 0.24, base=(W, H))
+    t = s.t
+    track = t.track("video", name)
+    clip = t.photo(track, sample, 0.0, s.dur, Box(960 - w / 2, 540 - h / 2, w, h), None, label="Tu foto")
+    t.mask(track, clip, "path", pathData=rr_path(w, h, h * 0.22))
+    return ride(s, clip, plate, (960, 540), depth / 2 + 1, (960, 540, W))
+
+
 # --- 1. Subscribe bar over footage: avatar, name, like, SUBSCRIBE and bell; the cursor clicks each ---------------
 def subscribe_bar():
     D = 6.3
@@ -169,7 +283,11 @@ def subscribe_bar():
         size = 80 + 190 * q
         swing = 16 * math.sin(2 * math.pi * (fr - 135) / 9) * k(fr, 135, 3) * (1 - k(fr, 165, 3))
         return cx, cy, size * sc, size * sc, swing, 1
-    icon(s, "Campana", BELL, fs(WHITE, "#555555", 3), bell)
+    # A white bell with thickness, tipped to show its lip; the clapper is a yellow piece behind it (reference 10.2 s).
+    bell3 = lambda fr, u: (*bell(fr, u), 22 * big(fr), 0)  # noqa: E731
+    solid3d(s, "Campana (badajo)", BELL_CLAP, YELLOW, ("#E0A400", "#B07E00"), bell3, 14, n=3, base=(100, 100),
+            oz=-4)
+    solid3d(s, "Campana", BELL_BODY, WHITE, ("#E4E4E4", "#B4B4B4"), bell3, 14, n=4, base=(100, 100))
     for i, a in enumerate((-60, -40, 40, 60)):
         def arc_(fr, u, a=a):
             cx, cy, w, h, rot, _ = bell(fr, u)
@@ -178,20 +296,26 @@ def subscribe_bar():
             on = k(fr, 138, 3) * (1 - k(fr, 165, 3)) * (0.5 + 0.5 * math.sin(2 * math.pi * (fr - 138) / 9))
             return ox, oy, 12, 0.22 * h, a * 0.5, on
         s.obj(f"Campana (onda {i + 1})", solid(YELLOW), arc_, radius=6, base=(12, 66))
-    # The like: a big blue thumb flies out of the small one, turns and goes back.
+    # The like: a big blue thumb with white sides flies out of the small one, turns a whole turn about its vertical
+    # axis (its back shows, mirrored) and goes back (reference 8.3-10.0 s).
     def thumb(fr, u):
         out = k(fr, 69, 9)
         back = k(fr, 108, 12)
         q = out * (1 - back)
         cx, cy = 990 + (960 - 990) * q, 972 + (370 - 972) * q
         size = 66 + 254 * q
-        spin = abs(math.cos(math.pi * lin(fr, 87, 18))) if 87 <= fr < 105 else 1.0
-        return cx, cy, size * max(0.08, spin), size * 0.94, -8 * q * math.sin(math.pi * lin(fr, 69, 18)), \
-            1.0 if 69 <= fr < 120 else 0.0
-    icon(s, "Me gusta (grande, canto)", THUMB, solid("#0D5FB0"), lambda fr, u: (lambda v: (v[0] + 10 * v[2] / 320,
-                                                                                         v[1] + 8 * v[3] / 300, *v[2:]))(
-        thumb(fr, u)))
-    icon(s, "Me gusta (grande)", THUMB, solid("#2E9BF0"), thumb)
+        ry = -28 * k(fr, 69, 12) * (1 - k(fr, 108, 9)) - 332 * k(fr, 84, 27)
+        return cx, cy, size, size * 0.94, -8 * q * math.sin(math.pi * lin(fr, 69, 18)), \
+            1.0 if 69 <= fr < 120 else 0.0, 0, ry
+    solid3d(s, "Me gusta (grande)", THUMB, "#2E9BF0", ("#F4F6F9", "#B4BEC9"), thumb, 52, n=12, back="#4BAAF4",
+            base=(320, 300), slab=(0.1, 0.7))
+    for i, (r, at) in enumerate(((0.62, 87), (0.55, 90))):
+        sw = s.obj(f"Estela {i + 1}", ring(WHITE, 4), lambda fr, u, r=r, at=at: (
+            thumb(fr, u)[0] - 30, thumb(fr, u)[1] + 30 - 40 * i, 320 * r * 2.4, 320 * r * 0.5, -8,
+            k(fr, at, 3) * (1 - k(fr, at + 12, 6))), kind="ellipse", base=(320, 80))
+        sw["shapeStyle"]["trimStart"] = 0.0
+        knob(s, sw, "trimEnd", lambda fr, u, at=at: 15 + 35 * k(fr, at, 12))
+        knob(s, sw, "trimOffset", lambda fr, u, at=at: 160 + 180 * k(fr, at, 15))
     ripple(s, "Clic 1", 990, 972, 66)
     ripple(s, "Clic 2", 1384, 974, 96, 140)
     ripple(s, "Clic 3", 1725, 970, 123)
@@ -200,25 +324,34 @@ def subscribe_bar():
     return t
 
 
-def flip_btn(s, name, rect, states, at, n=9, radius=10, shift=None, op=None):
+def flip_btn(s, name, rect, states, at, n=9, radius=10, shift=None, op=None, icons=()):
     """A button that flips about its horizontal axis at frame `at` (n frames) from states[0] to states[1]; each
-    state = (colour, text, family, weight, text colour, ink). shift(fr, u) = (dx, dy) moves it in."""
+    state = (colour, text, family, weight, text colour, ink). shift(fr, u) = (dx, dy) moves it in. A real 3D flip
+    with thickness: the top comes toward the viewer, the button tilts a little while it turns (reference 14.4 s)."""
     x0, y0, x1, y1 = rect
-    cy = (y0 + y1) / 2
+    cx, cy, w, h = (x0 + x1) / 2, (y0 + y1) / 2, x1 - x0, y1 - y0
     sh = shift or (lambda fr, u: (0, 0))
     opf = op or (lambda fr, u: 1.0)
-    h = lambda fr: abs(math.cos(math.pi * lin(fr, at, n)))  # noqa: E731
-    side = lambda fr: 0 if lin(fr, at, n) < 0.5 else 1  # noqa: E731
+    A = lambda fr: 180 * k(fr, at, n)  # noqa: E731
+    depth = 22
     for i, (colour, text, fam, wt, tc, ink) in enumerate(states):
         nm = name if i == 0 else f"{name} ({i + 1})"
-        on = (lambda fr, u, i=i: opf(fr, u) * (1.0 if side(fr) == i else 0.0))
-        s.rect(nm, solid(colour) if isinstance(colour, str) else colour,
-               lambda fr, u: (x0 + sh(fr, u)[0], cy - (cy - y0) * h(fr) + sh(fr, u)[1], x1 + sh(fr, u)[0],
-                              cy + (y1 - cy) * h(fr) + sh(fr, u)[1]), op=on, radius=radius,
-               base=(x1 - x0, y1 - y0))
-        s.say(text, ink, fam, wt, tc, f"{nm} (texto)",
-              reveal=lambda fr: (0, cy - (cy - y0) * h(fr) + sh(fr, 0)[1], 1920, cy + (y1 - cy) * h(fr) + sh(fr, 0)[1]),
-              shift=lambda fr: sh(fr, 0), op=on)
+
+        def geom(fr, u, i=i):
+            a = A(fr)
+            on = opf(fr, u) * (1.0 if (a < 90) == (i == 0) else 0.0)
+            return (cx + sh(fr, u)[0], cy + sh(fr, u)[1], w, h, -6 * math.sin(math.pi * lin(fr, at, n)), on,
+                    -a if i == 0 else 180 - a, 0)
+        solid3d(s, nm, None, colour, (mix(colour, WHITE, 0.5), mix(colour, BLACK, 0.35)), geom, depth, n=3,
+                radius=radius, base=(w, h))
+        c = s.say(text, ink, fam, wt, tc, f"{nm} (texto)")
+        ride(s, c, geom, ((ink[0] + ink[2]) / 2, (ink[1] + ink[3]) / 2), depth / 2 + 1, (cx, cy, w))
+        for j, (path, ix, iy, size, cols) in enumerate(icons):
+            def ig(fr, u, geom=geom, ix=ix, iy=iy, size=size):
+                bx, by, _, _, rot, on, rx, ry = geom(fr, u)
+                dx, dy, dz = turn3(ix - cx, iy - cy, depth / 2 + 1, rx, ry, rot)
+                return bx + dx, by + dy, size, size, rot, on, rx, ry, dz
+            solid3d(s, f"{nm} (icono {j + 1})", path, cols[i], (cols[i], cols[i]), ig, 1, n=0, base=(size, size))
 
 
 def burst(s, name, cx, cy, at, r0=60, r1=200, n=10, colour=RED, seed=0):
@@ -284,13 +417,12 @@ def like_column():
 
     def thumb(fr, u):
         q = k(fr, 66, 9) * (1 - k(fr, 108, 9))
-        spin = abs(math.cos(math.pi * lin(fr, 72, 15))) if 72 <= fr < 87 else 1.0
         size = 84 + 270 * q
-        return 1536 + (1150 - 1536) * q, 510 + (500 - 510) * q, size * max(0.08, spin), size * 0.95, 0, \
-            1.0 if 66 <= fr < 117 else 0.0
-    icon(s, "Me gusta (grande, canto)", THUMB, solid("#0D5FB0"), lambda fr, u: (lambda v: (v[0] + 12, v[1] + 8,
-                                                                                         *v[2:]))(thumb(fr, u)))
-    icon(s, "Me gusta (grande)", THUMB, solid("#2E9BF0"), thumb)
+        ry = -385 * k(fr, 68, 22) + 25 * k(fr, 90, 18)
+        return 1536 + (1150 - 1536) * q, 510 + (500 - 510) * q, size, size * 0.95, 0, \
+            1.0 if 66 <= fr < 117 else 0.0, 0, ry
+    solid3d(s, "Me gusta (grande)", THUMB, "#2E9BF0", ("#F4F6F9", "#B4BEC9"), thumb, 58, n=12, back="#4BAAF4",
+            base=(354, 336), slab=(0.1, 0.7))
     burst(s, "Chispa", 1150, 500, 90, 140, 260)
     ripple(s, "Clic 1", 1536, 510, 63)
     ripple(s, "Clic 2", 1608, 636, 93, 140)
@@ -311,23 +443,15 @@ def like_stack():
     sl = lambda at: lambda fr, u: (700 * (1 - k(ent(fr, u), at, 7)), 0)  # noqa: E731
     flip_btn(s, "Me gusta", (1262, 252, 1781, 354),
              [("#F4F4F4", "LIKE", M, 800, "#1E5BB8", (1441, 279, 1597, 332)),
-              ("#1E5BB8", "LIKED", M, 800, WHITE, (1425, 279, 1613, 332))], 51, 15, radius=6, shift=sl(0))
+              ("#1E5BB8", "LIKED", M, 800, WHITE, (1425, 279, 1613, 332))], 51, 15, radius=6, shift=sl(0),
+             icons=[(THUMB, x, 303, 44, ("#1E5BB8", WHITE)) for x in (1376, 1668)])
     flip_btn(s, "Suscribirse", (1262, 398, 1781, 500),
              [("#D20F0F", "SUBSCRIBE", M, 800, WHITE, (1330, 422, 1714, 476)),
               ("#3C3C3C", "SUBSCRIBED", M, 800, "#BBBBBB", (1316, 422, 1728, 476))], 75, 15, radius=6, shift=sl(3))
     flip_btn(s, "Notificar", (1262, 540, 1781, 646),
              [("#222222", "NOTIFY", M, 800, "#E6A817", (1414, 566, 1630, 620)),
-              ("#E6A817", "NOTIFIED", M, 800, "#222222", (1400, 566, 1644, 620))], 96, 15, radius=6, shift=sl(9))
-    for i, (y, at, at0) in enumerate(((303, 51, 0), (593, 96, 9))):
-        for j, x in enumerate((1376, 1668)):
-            def g(fr, u, x=x, y=y, at=at, at0=at0, i=i):
-                h = abs(math.cos(math.pi * lin(fr, at, 15)))
-                return x + sl(at0)(fr, u)[0], y, 44, 44 * h, 0, 1.0
-            icon(s, f"Icono {i + 1}.{j + 1}", THUMB if i == 0 else BELL, solid("#1E5BB8" if i == 0 else "#E6A817"),
-                 lambda fr, u, g=g, at=at: (lambda v: (*v[:5], 1.0 if lin(fr, at, 15) < 0.5 else 0.0))(g(fr, u)))
-            icon(s, f"Icono {i + 1}.{j + 1} (después)", THUMB if i == 0 else BELL,
-                 solid(WHITE if i == 0 else "#222222"),
-                 lambda fr, u, g=g, at=at: (lambda v: (*v[:5], 0.0 if lin(fr, at, 15) < 0.5 else 1.0))(g(fr, u)))
+              ("#E6A817", "NOTIFIED", M, 800, "#222222", (1400, 566, 1644, 620))], 96, 15, radius=6, shift=sl(9),
+             icons=[(BELL, x, 593, 44, ("#E6A817", "#222222")) for x in (1376, 1668)])
     s.say("+1", (1180, 210, 1230, 240), M, 800, WHITE, "Más uno",
           geom=lambda fr, u: (0, -60 * k(fr, 63, 30), 1, 0, k(fr, 63, 4)))
     ripple(s, "Clic 1", 1550, 310, 51, 120)
@@ -346,34 +470,38 @@ def like_badge():
     s = O(t, D)
     footage(s, "h-office-02")
     ent = s.e
-    spin1 = lambda fr: abs(math.cos(math.pi * lin(fr, 48, 24)))  # noqa: E731
     grow = lambda fr: 1 + 0.25 * k(fr, 42, 6)  # noqa: E731
+    # One tumble about the horizontal axis (reference 14.0-15.0 s): the badge's bottom comes forward, a red like
+    # passes by, and the blue like lands; the like then turns about its vertical axis into the bell.
+    A = lambda fr: 360 * k(fr, 48, 27)  # noqa: E731
 
     def badge(fr, u):
         sc = k(ent(fr, u), 0, 6) * (1 + 0.15 * math.sin(math.pi * lin(fr, 0, 9))) * grow(fr)
-        return 960, 540, 300 * sc * (spin1(fr) if fr >= 48 else 1), 216 * sc, \
-            -12 * math.sin(math.pi * lin(fr, 48, 24)), 1.0 if fr < 60 else 0.0
-    s.obj("Insignia", solid(YTRED), badge, radius=50, base=(300, 216))
-    avatar(s, "h-portrait-04", lambda fr, u: (960, 540, max(1.0, 168 * k(ent(fr, u), 0, 6) * grow(fr)
-                                                            * (spin1(fr) if fr >= 48 else 1)),
-                                              1.0 if fr < 60 else 0.0))
+        return 960, 540, 300 * sc, 216 * sc, -10 * math.sin(math.pi * lin(fr, 48, 27)), \
+            1.0 if A(fr) < 90 else 0.0, A(fr), 0
+    solid3d(s, "Insignia", None, YTRED, ("#F4F4F4", "#B8B8B8"), badge, 56, n=8, radius=50, base=(300, 216))
+    t_ = s.t
+    track = t_.track("video", "Avatar")
+    ph = t_.photo(track, "h-portrait-04", 0.0, s.dur, Box(876, 456, 168, 168), None, label="Tu foto")
+    t_.mask(track, ph, "ellipse")
+    ride(s, ph, badge, (960, 540), 29, (960, 540, 300))
     burst(s, "Chispa", 960, 540, 3, 120, 300)
     c = s.say("@YOUR CHANNEL", (848, 708, 1072, 730), M, 800, WHITE, "Canal",
               geom=lambda fr, u: (0, 0, 1, 0, 1 - k(fr, 42, 6)))
     s.typed(c, 6, stagger=0.03, duration=0.06, preset="fade", order="random")
 
+    def size(fr):
+        return (440 - 260 * k(fr, 76, 9)) * (1 + 1.6 * k(fr, 90, 9))
+
+    def red_like(fr, u):
+        return 960, 540, size(fr), size(fr) * 0.95, 0, 1.0 if 90 <= A(fr) < 270 else 0.0, A(fr) - 180, 0
+
     def like(fr, u):
-        size = (440 - 260 * k(fr, 76, 9)) * (1 + 1.6 * k(fr, 90, 9))
-        if fr < 72:
-            sp = abs(math.cos(math.pi * (1 - lin(fr, 60, 12)) / 2))
-        elif fr >= 105:
-            sp = abs(math.cos(math.pi * lin(fr, 105, 6) / 2))
-        else:
-            sp = 1.0
-        return 960, 540, size * max(0.05, sp), size * 0.95, 0, 1.0 if 60 <= fr < 111 else 0.0
-    icon(s, "Me gusta (canto)", THUMB, solid("#0D5FB0"), lambda fr, u: (lambda v: (v[0] + 14, v[1] + 10, *v[2:]))(
-        like(fr, u)))
-    icon(s, "Me gusta", THUMB, solid("#2E9BF0"), like)
+        on = 1.0 if A(fr) >= 270 and fr < 105 else 0.0
+        return 960, 540, size(fr), size(fr) * 0.95, 0, on, A(fr) - 360 if fr < 80 else 0, 90 * k(fr, 99, 6)
+    solid3d(s, "Me gusta (rojo)", THUMB, "#E3101E", ("#F4F4F4", "#B8B8B8"), red_like, 60, n=10, base=(440, 418))
+    solid3d(s, "Me gusta", THUMB, "#2E9BF0", ("#F4F6F9", "#B4BEC9"), like, 60, n=10, back="#4BAAF4",
+            base=(440, 418), slab=(0.1, 0.7))
     s.obj("Clic (disco)", solid(WHITE, 0.8), lambda fr, u: (960, 540, 300 * k(fr, 87, 3), 300 * k(fr, 87, 3), 0,
                                                              1 - k(fr, 90, 4)), kind="ellipse")
     s.obj("Clic (aro)", ring(WHITE, 14), lambda fr, u: (960, 540, 480 + 80 * k(fr, 90, 15), 480 + 80 * k(fr, 90, 15),
@@ -381,10 +509,12 @@ def like_badge():
 
     def bell(fr, u):
         size = 440 - 290 * k(fr, 117, 12) + 170 * k(fr, 135, 6)
-        sp = abs(math.cos(math.pi * (1 - lin(fr, 108, 9)) / 2)) if fr < 117 else 1.0
         sw = 14 * math.sin(2 * math.pi * (fr - 141) / 8) * k(fr, 141, 3)
-        return 960, 540, size * max(0.05, sp), size, sw, 1.0 if fr >= 108 else 0.0
-    icon(s, "Campana", BELL, fs("#2E2E2E", WHITE, 4), bell)
+        return 960, 540, size, size, sw, 1.0 if fr >= 105 else 0.0, 0, -90 * (1 - k(fr, 105, 9))
+    solid3d(s, "Campana (badajo)", BELL_CLAP, YELLOW, ("#E0A400", "#B07E00"), bell, 40, n=4, base=(440, 440),
+            oz=-10)
+    solid3d(s, "Campana", BELL_BODY, "#2E2E2E", ("#8C8C8C", "#4A4A4A"), bell, 40, n=6, base=(440, 440),
+            slab=(0.0, 0.6))
     s.obj("Campana (disco)", solid(WHITE, 0.8), lambda fr, u: (960, 540, 300 * k(fr, 132, 3), 300 * k(fr, 132, 3), 0,
                                                                 1 - k(fr, 135, 4)), kind="ellipse")
     s.obj("Campana (aro)", ring(WHITE, 12), lambda fr, u: (960, 540, 380 + 60 * k(fr, 135, 12),
@@ -498,7 +628,7 @@ def letters_in(s, clip, at, stagger=0.04, duration=0.1):
     s.typed(clip, at, stagger=stagger, duration=duration, preset="fade", order="random")
 
 
-YT_LOGO = (rr_path(100, 70, 20).replace("Z", "Z ") + "M 40 24 L 66 35 L 40 46 Z")
+YT_LOGO = (rr_path(100, 72, 20).replace("Z", "Z ") + "M 40 32 L 66 50 L 40 68 Z")
 REDS = ("#B30013", "#8E0010", "#A80012", "#6E000B", "#94000F")
 
 
@@ -594,19 +724,21 @@ def op_logo_fly():
     s.rect("Fondo", solid("#2A2A2A"), lambda fr, u: (-10, -10, 1930, 1090), op=lambda fr, u: k(fr, 15, 3))
     confetti_field(s, 18, seed=4, drift=30)
     x = lambda fr: 960 - 300 * k(fr, 69, 9)  # noqa: E731
+    depth = 70
 
+    # The logo comes out of the camera (huge, shrinking) with the play sign cut out, turns a whole turn
+    # about its vertical axis while it tilts, and settles (reference 19.2-20.8 s).
     def logo(fr, u):
         sc = 1 + 11 * (1 - k(fr, 0, 33)) ** 2
-        spin = abs(math.cos(math.pi * 2 * lin(fr, 12, 36)))
-        w, h = 330 * sc, 240 * sc
-        return x(fr), 540, w * max(0.06, spin if fr >= 12 else 1), h, -25 * (1 - k(fr, 0, 45)), 1
-    s.obj("Logo (canto)", solid("#BDBDBD"), lambda fr, u: (lambda g: (g[0] + 14 * (1 - k(fr, 45, 6)), g[1] + 8,
-                                                                      *g[2:]))(logo(fr, u)),
-          path=rr_path(100, 72, 20))
-    c = s.obj("Logo", grad_("#FF1A2A", "#B5000E", 135), logo, path=YT_LOGO)
-    c["shapeStyle"]["customEvenOdd"] = True
-    s.obj("Logo (play)", solid(WHITE), lambda fr, u: (lambda g: (g[0] + g[2] * 0.03, g[1], g[2] * 0.26, g[3] * 0.32,
-                                                                 g[4], k(fr, 15, 2)))(logo(fr, u)), path=TRIANGLE)
+        return x(fr), 540, 330 * sc, 240 * sc, -32 * (1 - k(fr, 0, 45)), 1, 0, 360 * k(fr, 6, 39)
+
+    def tri(fr, u):
+        cx, cy, w, h, rot, op, rx, ry = logo(fr, u)
+        dx, dy, dz = turn3(w * 0.03, 0, (-depth / 2 + 3) * w / 330, rx, ry, rot)
+        return cx + dx, cy + dy, w * 0.26, h * 0.36, rot, 1.0 if fr >= 15 else 0.0, rx, ry, dz
+    solid3d(s, "Logo (play)", TRIANGLE, WHITE, (WHITE, "#D8D8D8"), tri, 2, n=0, base=(86, 86))
+    solid3d(s, "Logo", YT_LOGO, grad_("#FF1A2A", "#B5000E", 135), ("#F2F2F2", "#9C9C9C"), logo, depth, n=12,
+            base=(330, 240), slab=(0.0, 0.62), evenodd=True)
     c = s.say("@YOUR_CHANNEL", (840, 512, 1440, 556), M, 700, "#E8E8E8", "Canal", align="left")
     s.typed(c, 72, stagger=0.03, duration=0.12, preset="fade", order="random")
     return t
@@ -624,10 +756,17 @@ def op_avatar_iris():
            12113, D, "aperturas", ["apertura", "avatar"], thumb=2.9)
     s = S(t, D)
     footage(s, "h-portrait-03")
-    s.obj("Círculo blanco", solid(WHITE), lambda fr, u: (960, 540, 2600 * k(fr, 30, 9), 2600 * k(fr, 30, 9), 0, 1),
-          kind="ellipse")
-    s.obj("Fondo", grad_("#2E2E2E", "#050505", 180), lambda fr, u: (960, 540, 2600 * k(fr, 35, 10),
-                                                                    2600 * k(fr, 35, 10), 0, 1), kind="ellipse")
+    # Both circles have soft edges (reference 22.4-22.6 s).
+    c = s.obj("Círculo blanco", solid(WHITE), lambda fr, u: (960, 540, 3700 * k(fr, 30, 9), 3700 * k(fr, 30, 9), 0, 1),
+              kind="ellipse")
+    soft(s, c, 9.0)
+    c["shapeStyle"]["kind"] = "custom"
+    c["shapeStyle"]["customPath"] = INSET_DISC
+    c = s.obj("Fondo", grad_("#2E2E2E", "#050505", 180), lambda fr, u: (960, 540, 3700 * k(fr, 35, 10),
+                                                                        3700 * k(fr, 35, 10), 0, 1), kind="ellipse")
+    soft(s, c, 11.0, lambda fr: 1 - k(fr, 42, 6))
+    c["shapeStyle"]["kind"] = "custom"
+    c["shapeStyle"]["customPath"] = INSET_DISC
     import random
     rnd = random.Random(9)
     for j in range(14):
@@ -641,14 +780,15 @@ def op_avatar_iris():
             bx, by - 40 * lin(fr, 45, 60), d * k(fr, 45 + j, 9), d * k(fr, 45 + j, 9), 0, 1), kind="ellipse")
     cx = lambda fr: 960 - 330 * k(fr, 63, 12)  # noqa: E731
 
+    # The avatar tumbles in: it spins in its plane while it tilts in 3D (reference 22.0-22.9 s).
     def g(fr, u):
         q = k(fr, 0, 27)
         x0 = 540 + (960 - 540) * q
         y0 = 600 - 60 * math.sin(math.pi * q)
-        rot = 35 * (1 - q) * math.cos(3 * math.pi * q)
-        sx = abs(math.cos(math.pi * 2 * lin(fr, 0, 21))) if fr < 21 else 1.0
-        return (cx(fr) if fr >= 27 else x0), y0 if fr < 27 else 540, 1.0, max(0.08, sx), rot, k(fr, 0, 2)
-    badge(s, "h-portrait-04", g, border="#F2A7B0", bw=6)
+        rot = 35 * (1 - q) * math.cos(3 * math.pi * q) - 200 * (1 - q)
+        return (cx(fr) if fr >= 27 else x0), y0 if fr < 27 else 540, 1.0, rot, k(fr, 0, 1), \
+            35 * (1 - q), 60 * (1 - q) * math.cos(2 * math.pi * q)
+    badge3d(s, "h-portrait-04", g, border="#F2A7B0", bw=6, depth=18, sides=("#FFFFFF", "#C8C8C8"), back=WHITE)
     s.say("@yourchannel", (810, 494, 1500, 566), ROBOTO, 700, WHITE, "Canal", align="left",
           reveal=lambda fr: (cx(fr) + 170, 0, 1920, 1080), shift=lambda fr: (-500 * (1 - k(fr, 63, 12)), 0),
           op=lambda fr, u: k(fr, 63, 2))
@@ -698,17 +838,19 @@ def op_avatar_bands():
     vee = poly([(0, 30), (50, 0), (100, 30), (100, 100), (0, 100)])
     for i, (col, at) in enumerate(((WHITE, 21), (RED, 25), ("#1C1C1C", 29))):
         layers = solid(col) if i < 2 else grad_("#3A3A3A", "#0A0A0A", 180)
-        s.obj(f"Banda {i + 1}" if i < 2 else "Fondo", layers, lambda fr, u, at=at: (
+        c = s.obj(f"Banda {i + 1}" if i < 2 else "Fondo", layers, lambda fr, u, at=at: (
             960, 1080 + 1400 - 2600 * k(fr, at, 12), 2400, 2600, 0, 1), path=vee)
+        s.mblur(c)
 
+    # The avatar drops in on a thick white plate, tumbles a whole turn about its horizontal axis (its back is red)
+    # and settles small (reference 22.1-23.4 s).
     def g(fr, u):
         q = k(fr, 0, 18)
         y = -300 + (480 + 300) * q
         rot = 40 * (1 - q) - 12 * math.sin(math.pi * lin(fr, 18, 12))
-        spin = abs(math.cos(math.pi * 2 * lin(fr, 30, 15))) if 30 <= fr < 45 else 1.0
         sc = 2.0 - 1.0 * k(fr, 33, 15)
-        return 960, y - 30 * k(fr, 33, 15), sc, max(0.06, spin), rot, 1
-    badge(s, "h-portrait-04", g, border="#D9D9D9", bw=8)
+        return 960, y - 30 * k(fr, 33, 15), sc, rot, 1, 20 * (1 - q) + 360 * k(fr, 24, 18), 0
+    badge3d(s, "h-portrait-04", g, border="#D9D9D9", bw=8, depth=40, back=RED)
     c = s.say("@yourchannel", (850, 556, 1070, 584), M, 700, RED, "Canal")
     letters_in(s, c, 51, 0.04)
     return t
@@ -722,8 +864,9 @@ def op_white():
     s = S(t, D)
     footage(s, "h-portrait-01")
     for i, (col, at) in enumerate((("#F27A86", 0), (RED, 2), ("#1E1E1E", 4), (WHITE, 6))):
-        s.obj(f"Banda {i + 1}" if i < 3 else "Fondo", solid(col), lambda fr, u, at=at: (
+        c = s.obj(f"Banda {i + 1}" if i < 3 else "Fondo", solid(col), lambda fr, u, at=at: (
             960, 1080 + 1300 - 2000 * k(fr, at, 6), 2600, 2000, -5, 1))
+        s.mblur(c)
     for g_, (ox, oy) in enumerate(((180, 160), (1700, 900))):
         for j in range(5):
             col = (RED, "#1E1E1E", "#1E1E1E", RED, "#1E1E1E")[j]
@@ -732,20 +875,25 @@ def op_white():
             s.obj(f"Línea {g_ + 1}.{j + 1}", solid(col), lambda fr, u, ox=ox, oy=oy, ln=ln, off=off, j=j: (
                 ox + off * 0.7 + 60 * math.sin(u * 1.4 + j), oy - off * 0.7 + 60 * math.sin(u * 1.4 + j), ln,
                 6 if j % 2 == 0 else 4, -45, k(fr, 12 + j, 6)))
-    flipf = lambda fr: abs(math.cos(math.pi * lin(fr, 66, 9)))  # noqa: E731
+    depth = 70
 
+    # The button flies in from the lower left tumbling in 3D (seen from below, three quarters of a turn about its
+    # vertical axis), lands; at the end it grows and tips its top back (reference 19.6-21.5 s).
     def btn(fr, u):
         q = k(fr, 6, 27)
-        spin = abs(math.cos(math.pi * 2 * lin(fr, 6, 27)))
-        grow = 1 + 2.1 * k(fr, 66, 12)
+        grow = 1 + 1.5 * k(fr, 57, 12)
         y = 540 - 180 * k(fr, 60, 6) + 260 * k(fr, 66, 12)
-        return 960 + 100 * k(fr, 66, 12) - 420 * (1 - q), y + 300 * (1 - q), 330 * max(0.08, spin) * grow, 240 * grow * (flipf(fr) if fr >= 66 else 1) \
-            * max(0.1, q), -30 * (1 - q), k(fr, 6, 2)
-    s.obj("Botón (canto)", solid("#C9C9C9"), lambda fr, u: (lambda g: (g[0], g[1] + 10 * g[3] / 240, *g[2:]))(
-        btn(fr, u)), path=rr_path(100, 72, 20))
-    s.obj("Botón", grad_("#FF1A2A", "#C0000F", 180), btn, path=rr_path(100, 72, 20))
-    s.obj("Botón (play)", solid(WHITE), lambda fr, u: (lambda g: (g[0] + g[2] * 0.03, g[1], g[2] * 0.27,
-                                                                  g[3] * 0.38, g[4], g[5]))(btn(fr, u)), path=TRIANGLE)
+        return 960 + 100 * k(fr, 66, 12) - 420 * (1 - q), y + 300 * (1 - q), 330 * grow, 240 * grow, \
+            -30 * (1 - q), k(fr, 6, 1), 55 * (1 - q) + 78 * k(fr, 60, 10), -270 * (1 - q)
+
+    def tri(fr, u):
+        cx, cy, w, h, rot, op, rx, ry = btn(fr, u)
+        dx, dy, dz = turn3(w * 0.03, 0, (depth / 2 + 1) * w / 330, rx, ry, rot)
+        front = math.cos(math.radians(rx)) * math.cos(math.radians(ry)) >= 0
+        return cx + dx, cy + dy, w * 0.27, h * 0.38, rot, op if front else 0.0, rx, ry, dz
+    solid3d(s, "Botón", rr_path(100, 72, 20), grad_("#FF1A2A", "#C0000F", 180), ("#F2F2F2", "#A8A8A8"), btn, depth,
+            n=12, base=(330, 240), back=solid("#B0000E"), slab=(0.0, 0.62))
+    solid3d(s, "Botón (play)", TRIANGLE, WHITE, (WHITE, WHITE), tri, 1, n=0, base=(89, 91))
     c = s.say("@yourchannel", (850, 634, 1070, 656), M, 800, "#222222", "Canal")
     s.typed(c, 48, stagger=0.04, duration=0.04)
     cursor(s, [(30, 1100, 700), (45, 980, 560), (60, 980, 400), (78, 1240, 760)])
@@ -758,8 +906,44 @@ SWIRL_BLUE = ("#1E1A70", "#06041C", "#3E1C8A", "#0E0838", "#25368A", "#06041C", 
               "#06041C", "#3A1A80")
 
 
-def swirl(s, at=0, n=22, name="Onda", turn=-58.0, cols=SWIRL_RED, base="#0A0A0A"):
-    """Stripes curving across the frame, drifting (the liquid background)."""
+def adjust_fx(s, name, specs):
+    """An adjustment layer over everything made so far: specs = [(catalog id, {param: fn(fr, u)}, {param: value})]."""
+    from scene import effect
+    effects = []
+    for cid, animated, params in specs:
+        kf = {nm: keys([(u, round(fn(fr, u), 4), "linear") for u, fr in s.each()]) for nm, fn in animated.items()}
+        effects.append(effect(cid, kf or None, **params))
+    return s.t.adjust(effects, name=name)
+
+
+GB = "builtin.effects.gaussian_blur"
+# The engine's blur radius is in pixels of the render, not of the project: the 640 × 360 previews were judged with
+# these radii. When the blur shader scales by u_unitPx (project px), set BLUR_PX = 3 to keep the same look.
+BLUR_PX = 1.0
+# A disc in the middle 70 % of its box: a blurred shape needs room in its box (the blur stops at the box's edge).
+INSET_DISC = ("M 85 50 C 85 69.33 69.33 85 50 85 C 30.67 85 15 69.33 15 50 C 15 30.67 30.67 15 50 15 "
+              "C 69.33 15 85 30.67 85 50 Z")
+
+
+def soft_specs(r, gate=None):
+    """A smooth blur of about r px as three gaussian blurs of r, r/2 and r/4 (one pass of the engine's blur takes 5
+    taps r × 1.4 and r × 3.2 apart: past a few px it doubles the picture instead of softening it). gate(fr) 0..1
+    scales it."""
+    g = gate or (lambda fr: 1.0)
+    return [(GB, {"u_blurRadius": lambda fr, u, q=q: BLUR_PX * r * q * g(fr)}, {}) for q in (1.0, 0.5, 0.25)]
+
+
+def soft(s, clip, r, gate=None):
+    """soft_specs on one clip."""
+    for cid, animated, params in soft_specs(r, gate):
+        s.fx(clip, cid, animated=animated, **params)
+    return clip
+
+
+def swirl(s, at=0, n=22, name="Onda", turn=-58.0, cols=SWIRL_RED, base="#0A0A0A", blur=9.0, twirl=None):
+    """Stripes curving across the frame, drifting, softened by a gaussian blur over them (the silk / liquid
+    background); twirl = angle of a twirl over them too (stylize.twirl, from the build after 0.30.2: without it the
+    stripes stay waves)."""
     s.rect(f"{name} (fondo)", solid(base), lambda fr, u: (-10, -10, 1930, 1090), op=lambda fr, u: k(fr, at, 6))
     for i in range(n):
         y0 = -700 + 2500 * i / n
@@ -771,6 +955,11 @@ def swirl(s, at=0, n=22, name="Onda", turn=-58.0, cols=SWIRL_RED, base="#0A0A0A"
         s.obj(f"{name} {i + 1}", grad_(cols[i % len(cols)], cols[(i + 4) % len(cols)], 90), lambda fr, u, bx0=bx0, by0=by0, bw=bw, bh=bh, i=i: (
             bx0 + bw / 2 - 80 * u, by0 + bh / 2 + 30 * math.sin(u * 1.3 + i), bw, bh, turn, k(fr, at, 6)),
             path=poly(top + bot))
+    specs = soft_specs(blur, lambda fr: 1.0 if fr >= at else 0.0)
+    if twirl:
+        specs.append(("stylize.twirl", {"angle": lambda fr, u: (twirl + 12 * u) * (1.0 if fr >= at else 0.0)},
+                      {"radius": 1.0, "centerX": 0.5, "centerY": 0.5}))
+    adjust_fx(s, f"{name} (suave)", specs)
 
 
 # --- 13. Opener: arcs swirl around a spinning logo; it becomes a window onto red waves; the name slides out -----
@@ -782,34 +971,43 @@ def op_waves():
     footage(s, "h-portrait-01")
     win = lambda fr: k(fr, 54, 6)  # noqa: E731
     full = lambda fr: k(fr, 60, 2)  # noqa: E731
-    swirl(s, 54)
-    # The window: outside it the footage still shows until the waves fill the frame.
-    for i, side in enumerate(("l", "r", "t", "b")):
-        def cover(fr, u, side=side):
-            w, h = 300 + 1700 * win(fr), 210 + 950 * win(fr)
-            x0, x1, y0, y1 = 960 - w / 2, 960 + w / 2, 540 - h / 2, 540 + h / 2
-            if fr < 54 or full(fr) >= 1:
-                return (0, 0, 0, 0)
-            return {"l": (-10, -10, x0, 1090), "r": (x1, -10, 1930, 1090), "t": (x0, -10, x1, y0),
-                    "b": (x0, y1, x1, 1090)}[side]
-        mk = s.t.photo(s.t.track("video", f"Tu video (borde {i + 1})"), "h-portrait-01", 0.0, D, None, None,
-                       reuse=s.t.slots[0].id)
-        mask_track(s.t, mk, Box(0, 0, 1920, 1080), lambda u, cover=cover: cover(s.frame(u), u), D)
+    swirl(s, 54, twirl=70.0)
+    # The window: outside it the footage still shows until the waves fill the frame; its edge is soft
+    # (reference 24.2 s).
+    mk = s.t.photo(s.t.track("video", "Tu video (borde)"), "h-portrait-01", 0.0, D, None, None,
+                   reuse=s.t.slots[0].id)
+    ws = {"x": [], "y": [], "w": [], "h": [], "feather": []}
+    for u, fr in s.each():
+        q = win(fr) if fr >= 54 else 0.0
+        w, h = (300 + 1900 * q) * (1 + 2 * full(fr)), (210 + 1100 * q) * (1 + 2 * full(fr))
+        for key, v in (("x", 0.5), ("y", 0.5), ("w", w / 1920), ("h", h / 1080), ("feather", 10 + 70 * q)):
+            ws[key].append((u, v, "linear"))
+    s.t.mask(next(tr for tr in s.t.tracks if mk in tr.clips), mk, "rectangle", feather=10, x=0.5, y=0.5, w=0.0,
+             h=0.0, invert=True, keyframes={key: keys(v) for key, v in ws.items()})
     for i, (r, col, at, a0) in enumerate(((620, RED, 0, 0), (720, WHITE, 3, 120), (540, BLACK, 6, 240),
                                           (820, RED, 9, 60), (660, WHITE, 12, 200))):
         s.obj(f"Arco {i + 1}", ring(col, 10 + 4 * (i % 2)), lambda fr, u, r=r, at=at, a0=a0: (
             960, 540, r * (0.6 + 0.4 * k(fr, at, 15)), r * (0.6 + 0.4 * k(fr, at, 15)), a0 + 280 * lin(fr, at, 54),
             k(fr, at, 4) * (1 - k(fr, 48, 6))), path="M 50 0 C 80 0 100 20 100 50")
 
+    # The logo pops and turns about its vertical axis in 3D (white sides), tilting, until its red back faces the
+    # camera and opens into the window (reference 22.3-24.1 s).
+    depth = 72
+
     def logo(fr, u):
-        spin = abs(math.cos(math.pi * 3 * lin(fr, 3, 51)))
-        rot = 30 * math.sin(math.pi * 2 * lin(fr, 3, 51))
-        return 960, 540, 360 * k(fr, 3, 6) * max(0.06, spin), 300 * k(fr, 3, 6), rot, 1.0 if fr < 51 else 0.0
-    s.obj("Logo (canto)", solid("#D8D8D8"), lambda fr, u: (lambda g: (g[0] + 10, g[1] + 6, *g[2:]))(logo(fr, u)),
-          path=rr_path(100, 84, 22))
-    s.obj("Logo", grad_("#FF1A2A", "#B5000E", 135), logo, path=rr_path(100, 84, 22))
-    s.obj("Logo (play)", solid(WHITE), lambda fr, u: (lambda g: (g[0], g[1], g[2] * 0.3, g[3] * 0.36, g[4] + 90,
-                                                                 g[5]))(logo(fr, u)), path=TRIANGLE)
+        rot = -40 * math.sin(math.pi * lin(fr, 6, 42))
+        return 960, 540, 360 * k(fr, 3, 6), 300 * k(fr, 3, 6), rot, 1.0 if fr < 54 else 0.0, 0, \
+            360 * k(fr, 3, 20) + 180 * k(fr, 38, 16)
+
+    def tri(fr, u):
+        cx, cy, w, h, rot, op, rx, ry = logo(fr, u)
+        sc = w / 360
+        dx, dy, dz = turn3(w * 0.03, 0, (depth / 2 + 5) * sc, rx, ry, rot)
+        front = math.cos(math.radians(ry)) >= 0
+        return cx + dx, cy + dy, w * 0.3, h * 0.36, rot, op if front else 0.0, rx, ry, dz
+    solid3d(s, "Logo", rr_path(100, 84, 22), grad_("#FF1A2A", "#B5000E", 135), ("#F0F0F0", "#A0A0A0"), logo,
+            depth, n=12, base=(360, 300), back=solid("#C0000F"), slab=(0.0, 0.62))
+    solid3d(s, "Logo (play)", TRIANGLE, WHITE, ("#C8C8C8", "#9A9A9A"), tri, 10, n=2, base=(108, 108))
     s.rect("Ventana (borde)", ring(RED, 14), lambda fr, u: (960 - (150 + 850 * win(fr)), 540 - (105 + 475 * win(fr)),
                                                             960 + (150 + 850 * win(fr)), 540 + (105 + 475 * win(fr))),
            op=lambda fr, u: k(fr, 51, 2) * (1 - full(fr)), radius=40, base=(300, 210))
@@ -1514,6 +1712,9 @@ def bg_spiral():
                                   (1200, WHITE), (900, "#E3061F"), (650, "#5A5A5A"), (420, WHITE), (220, "#C0001A"))):
         s.obj(f"Espiral {i + 1}", ring(col, r * 0.12), lambda fr, u, r=r, i=i: (
             960, 540, r, r, 40 * i + 60 * u * (1 if i % 2 else 0.8), 1), path=arc(0, 200))
+    # The reference (36.6 s) is a soft twirl: the bands blurred and twisted about the centre.
+    adjust_fx(s, "Espiral (suave)", soft_specs(12.0) + [
+        ("stylize.twirl", {"angle": lambda fr, u: 140 + 20 * u}, {"radius": 0.9, "centerX": 0.5, "centerY": 0.5})])
     return t
 
 
@@ -2359,7 +2560,7 @@ def sweep(s, bands, direction="left", kind="chevron", d=420, n=14, name="Banda")
             if direction == "up":
                 return 960, p, W + d, H, 90, 1
             return 960, 1080 - p, W + d, H, -90, 1
-        s.obj(f"{name} {i + 1}", solid(col), geom, path=path)
+        s.mblur(s.obj(f"{name} {i + 1}", solid(col), geom, path=path))
 
 
 def tr_chevrons(direction, order, es_dir, en_dir, idx):
@@ -2410,8 +2611,8 @@ def tr_pills(direction, order, es_dir, en_dir, idx):
                     if direction == "left":
                         return p, c0, W, cross + 4, 0, 1
                     return c0, 1080 - p, cross + 4, W, 0, 1
-                s.obj(f"Cápsula {r + 1}.{j + 1}", solid(col), geom, radius=cross / 2,
-                      base=((v * 22, cross + 4) if horiz else (cross + 4, v * 22)))
+                s.mblur(s.obj(f"Cápsula {r + 1}.{j + 1}", solid(col), geom, radius=cross / 2,
+                              base=((v * 22, cross + 4) if horiz else (cross + 4, v * 22))))
         return t
     make.__name__ = f"tr_pills_{idx}"
     return make
@@ -2439,7 +2640,7 @@ def tr_blocks(seed, order, idx):
                         shrink = k(fr, b_, 5)
                         return (x0 + cw * (1 - grow), y0, x0 + cw * (1 - shrink) + 1, y0 + rh + 1) if fr < b_ else \
                             (x0, y0, x0 + cw * (1 - shrink) + 1, y0 + rh + 1)
-                    s.rect(f"Bloque {r + 1}.{c + 1}.{j + 1}", solid(col), rect)
+                    s.mblur(s.rect(f"Bloque {r + 1}.{c + 1}.{j + 1}", solid(col), rect))
         return t
     make.__name__ = f"tr_blocks_{idx}"
     return make
@@ -2463,13 +2664,13 @@ def tr_shape(key, order):
         two_clips(s, 27)
         turn = 0 if key == "circulo" else 1
         for j, (col, at) in enumerate(((TR_RED, 3), (TR_WHITE, 9), (TR_BLACK, 15))):
-            s.obj(f"Forma {j + 1}", solid(col), lambda fr, u, at=at: (
+            s.mblur(s.obj(f"Forma {j + 1}", solid(col), lambda fr, u, at=at: (
                 960, 540, 3000 * k(fr, at, 15), 3000 * k(fr, at, 15), 40 * turn * k(fr, at, 15),
-                1.0 if fr < 42 else 0.0), kind="ellipse" if kind == "ellipse" else "rectangle", path=path)
+                1.0 if fr < 42 else 0.0), kind="ellipse" if kind == "ellipse" else "rectangle", path=path))
         for j, (col, at) in enumerate(((TR_WHITE, 29), (TR_RED, 33))):
-            s.obj(f"Forma (salida {j + 1})", solid(col), lambda fr, u, at=at: (
+            s.mblur(s.obj(f"Forma (salida {j + 1})", solid(col), lambda fr, u, at=at: (
                 960, 540, 3000 * k(fr, at, 12), 3000 * k(fr, at, 12), -40 * turn * k(fr, at, 12),
-                1.0 if 29 <= fr < 50 else 0.0), kind="ellipse" if kind == "ellipse" else "rectangle", path=path)
+                1.0 if 29 <= fr < 50 else 0.0), kind="ellipse" if kind == "ellipse" else "rectangle", path=path))
         clip = s.t.photo(s.t.track("video", "Video 2 (encima)"), "h-city-03", 0.0, D, None, None,
                          reuse=s.t.slots[1].id)
         track = next(tr for tr in s.t.tracks if clip in tr.clips)
@@ -2498,6 +2699,9 @@ def tr_swirl():
             960 + 600 * (1 - k(fr, at, 12)), 540 - 300 * (1 - k(fr, at, 12)), r * k(fr, at, 15), r * k(fr, at, 15),
             300 * lin(fr, at, 30), 1.0 if fr < 27 else 0.0), path=arc(0, 300))
         wiggle(c, 30, 80, 2, i)
+        s.fx(c, "stylize.twirl", animated={"angle": lambda fr, u, at=at: 160 * k(fr, at, 18)}, radius=0.7,
+             centerX=0.5, centerY=0.5)
+        s.mblur(c)
     c = s.obj("Rojo", solid(TR_RED), lambda fr, u: (960, 540, 2600 * k(fr, 6, 12), 2600 * k(fr, 6, 12), 0,
                                                     1.0 if fr < 30 else 0.0), kind="ellipse")
     wiggle(c, 60, 120, 2, 2)
@@ -2619,6 +2823,8 @@ def typo_gaming():
         c = word(s, text, ink, a, b, "#1A1A1A", f"Palabra {i + 1}", preset="fade" if g else "ibs-scatter-gather",
                  stagger=0.03, duration=0.25, order="random", geom=g)
         greys(c, i + 20, 20, 120)
+        if g:
+            s.mblur(c)
     word(s, "@channel", (560, 450, 1360, 640), 219, D * FPS, "#1A1A1A", "Canal", preset="fade", stagger=0.02,
          duration=0.15)
     return t
