@@ -57,6 +57,19 @@ class T(S):
         return n
 
 
+def art_except(t, keep=("Fondo",)):
+    """In a normal (horizontal) video the story keeps its own shape: every clip is design ("art", scaled and placed
+    together as one column) except the tracks named with `keep` (backgrounds that stretch with the frame). For stories
+    whose big discs and bands the layout guess would stretch apart from the rest (see layoutfit.py)."""
+    for track in t.tracks:
+        for clip in track.clips:
+            if clip.get("type") in ("audio", "adjustment", "composite") or "layoutRole" in clip:
+                continue
+            name = clip.get("name") or track.name
+            clip["layoutRole"] = "backdrop" if name.startswith(tuple(keep)) else "art"
+    return t
+
+
 def bg(s, colour, name="Fondo"):
     return s.rect(name, solid(colour), lambda fr, u: (-10, -10, W + 10, H + 10))
 
@@ -133,16 +146,21 @@ def welcome():
     cy = f6.curve([(40, 960), (51, 960)])
     s.obj("Disco blanco", solid(WHITE), lambda fr, u: (540, cy(fr) + up(fr), f(fr), f(fr), 0, 1.0 if fr >= 12 else 0.0),
           kind="ellipse", base=(2600, 2600))
-    # the red cap where the top disc overlaps the middle one
-    def cap(fr, u):
-        r1, r2, c1, c2 = 500.0, f(fr) / 2, 330 - 600 * (1 - k(fr, 39, 9)), cy(fr)
-        d = c2 - c1
-        if fr < 39 or d >= r1 + r2 or d <= abs(r1 - r2):
-            return 540, c2, 1, 1, 0, 0.0
-        y = (d * d + r1 * r1 - r2 * r2) / (2 * d)
-        half = math.sqrt(max(0.0, r1 * r1 - y * y))
-        return 540, c1 + y + up(fr), 2 * half, (c1 + r1) - (c2 - r2), 0, 1.0
-    s.obj("Casquete", solid(RED), cap, path="M 0 0 Q 50 -100 100 0 Q 50 100 0 0 Z")
+    # the red cap where the top disc overlaps the middle one: a red copy of the middle disc cut by an ellipse mask the
+    # size and place of the top disc (an intersection of the two shapes)
+    top = lambda fr: 330 - 600 * (1 - k(fr, 39, 9))  # noqa: E731
+    cap = s.obj("Casquete", solid(RED), lambda fr, u: (540, cy(fr) + up(fr), f(fr), f(fr), 0, 1.0 if fr >= 39 else 0.0),
+                kind="ellipse", base=(2600, 2600))
+    mk = {"x": [], "y": [], "w": [], "h": []}
+    for u, fr in s.each():
+        d = max(1.0, f(fr))
+        mk["x"].append((u, 0.5, "linear"))
+        mk["y"].append((u, 0.5 + (top(fr) - cy(fr)) / d, "linear"))
+        mk["w"].append((u, 1000 / d, "linear"))
+        mk["h"].append((u, 1000 / d, "linear"))
+    track = next(tr for tr in t.tracks if cap in tr.clips)
+    t.mask(track, cap, "ellipse", x=0.5, y=mk["y"][0][1], w=mk["w"][0][1], h=mk["h"][0][1],
+           keyframes={key: keys(v) for key, v in mk.items()})
     s.obj("Halo", solid(pink), lambda fr, u: (540, 960, 1080 * (1 - k(fr, 21, 9)) + 40, 1080 * (1 - k(fr, 21, 9)) + 40, 0,
                                               1.0 if 15 <= fr < 30 else 0.0), kind="ellipse", base=(1120, 1120))
     rb = f6.curve([(12, 1300), (21, 848), (33, 448), (40, 200), (46, 200)])
@@ -178,7 +196,7 @@ def welcome():
     s.say("TO MY", (280, 970, 820, 1180), ANTON, 400, BLACK, "Título 2", shift=lambda fr: (900 * (1 - k(fr, 87, 9)), 0),
           reveal=lambda fr: (0, 960, W, 1190))
     s.rect("Subrayado", solid(RED), lambda fr, u: (556, 1196, 556 + 252 * k(fr, 99, 9), 1212))
-    return t
+    return art_except(t)
 
 
 def half(bulge=1.0, n=16):
@@ -231,7 +249,7 @@ def human_rights():
     s.rect("Píldora", solid(RED), pill, op=lambda fr, u: 1.0 if fr >= 45 else 0.0)
     s.say("ALL ABOUT FASHION", (420, 1068, 670, 1090), ANTON, 400, WHITE, "Texto 3",
           geom=lambda fr, u: (0, 0, 1, 0, k(fr, 54, 3)))
-    return t
+    return art_except(t)
 
 
 BELL = poly([(50, 4), (63, 10), (72, 28), (73, 58), (88, 76), (12, 76), (27, 58), (28, 28), (37, 10)]) + " " + \
@@ -256,11 +274,13 @@ def love():
     t = _p("love", "Historia: love con tarjeta de suscripción", "Story: love with a subscribe card", 12703, D,
            ["foto", "suscribirse"])
     s = T(t, D)
+    bg(s, WHITE)  # hidden by the photo in the story; the ground beside it in a normal video
     pan = lambda fr: -760 * (1 - k(fr, 0, 72))  # noqa: E731
     photo(s, "fx-face-04", box=(0, 0, W, 2680), geom=lambda fr, u: (0, pan(fr), 1))
     for i, (word, y) in enumerate((("bodily", 2050), ("integrity", 2280))):
+        # cut at the story's right edge (the words run off it), also when a normal video shows the story as a column
         s.say(word, (300, y, 1400, y + 200), ANTON, 400, "#141414", f"Texto {i + 1}", align="left", editable=i == 0,
-              geom=lambda fr, u: (0, pan(fr), 1, 0, 1))
+              shift=lambda fr: (0, pan(fr)), reveal=lambda fr: (0, 0, W, H))
     s.say("love", (94, 146, 972, 724), ANTONIO, 700, "#E3131B", geom=lambda fr, u: (0, -900 * (1 - k(fr, 27, 15)), 1, 0, 1))
     s.rect("Marco", solid(WHITE), lambda fr, u: (441, 877, 972, 1401))
     photo(s, "portrait-02", box=(500, 882, 967, 1344), name="Foto 2")
@@ -270,7 +290,7 @@ def love():
     icon_box(s, "Campana", (689, 1636, 818, 1754), WHITE, BELL, RED, 36)
     icon_box(s, "Me gusta", (844, 1636, 972, 1754), RED, THUMB, WHITE, 42)
     s.rect("Panel", solid(RED), lambda fr, u: (0, 1450 + 462 * k(fr, 0, 18), W, H + 10))
-    return t
+    return art_except(t)
 
 
 # --- 5. 2/6: photos, a yellow frame and red columns, with a like counter that ticks up -------------------------------
@@ -317,23 +337,34 @@ def tag(s, name, text, rect, at, colour=BLACK, back=WHITE):
           geom=lambda fr, u: (0, 0, 1, 0, k(fr, at + 4, 4)))
 
 
-def round_words(s, text, cx, cy, r, size, colour, start, spin, name="Texto circular", op=None):
-    """Words round a circle, each turned to it (no text on a path in the engine): spin(fr) turns them."""
-    f = f6._font(ANTON, 400)
-    words = text.split()
-    widths = [f.getlength(w) / 400 * size * 1.35 for w in words]
-    gap = size * 0.5
-    a = start
-    for i, (w, wd) in enumerate(zip(words, widths)):
-        mid = a + math.degrees((wd / 2) / r)
-        ink = (cx - wd / 2, cy - r - size / 2, cx + wd / 2, cy - r + size / 2)
+def ring_path(r_share):
+    """A closed circle of radius r_share (percent of the box) round the box centre, from the top clockwise (four
+    cubics: the path parser has no arcs), for textStyle pathSvg: the baseline runs round it, letters outward."""
+    p, q = r_share, r_share * 0.5523
+    return (f"M 50 {50 - p:.3f} C {50 + q:.3f} {50 - p:.3f} {50 + p:.3f} {50 - q:.3f} {50 + p:.3f} 50 "
+            f"C {50 + p:.3f} {50 + q:.3f} {50 + q:.3f} {50 + p:.3f} 50 {50 + p:.3f} "
+            f"C {50 - q:.3f} {50 + p:.3f} {50 - p:.3f} {50 + q:.3f} {50 - p:.3f} 50 "
+            f"C {50 - p:.3f} {50 - q:.3f} {50 - q:.3f} {50 - p:.3f} 50 {50 - p:.3f} Z")
 
-        def g(fr, u, mid=mid):
-            ang = mid + spin(fr)
-            nx, ny = rot_pt(cx, cy - r, ang, cx, cy)
-            return nx - cx, ny - (cy - r), 1, ang, op(fr, u) if op else 1
-        s.say(w, ink, ANTON, 400, colour, f"{name} {i + 1}", geom=g, editable=i == 0)
-        a += math.degrees((wd + gap) / r)
+
+def circle_text(s, text, cx, cy, r, cap, colour, span, geom, name="Texto circular"):
+    """One text on a circle (the engine's text on a path): its baseline runs clockwise round (cx, cy) at radius r from
+    the top, the letters spaced to cover `span` degrees; geom(fr, u) = (scale, turn, opacity) grows it about the centre
+    and turns the whole ring (the start of the text sits at `turn` degrees clockwise from the top)."""
+    c = s.say(text, (cx - 300, cy - cap / 2, cx + 300, cy + cap / 2), ANTON, 400, colour, name, align="left")
+    st = c["textStyle"]
+    f = f6._font(ANTON, 400)
+    cap_px = f.getbbox("H")[3] - f.getbbox("H")[1]
+    natural = f.getlength(text) * st["pixelSize"] / f.size if hasattr(f, "size") else f.getlength(text) * cap / cap_px
+    arc_len = math.radians(span) * r
+    st["letterSpacing"] = round(max(0.0, (arc_len - natural) / max(1, len(text) - 1)), 2)
+    st["wordWrap"] = False
+    side = 2 * (r + 3 * cap)
+    st["pathSvg"] = ring_path(100 * r / side)
+    for key, v in (("x", cx - side / 2), ("y", cy - side / 2), ("width", side), ("height", side)):
+        c[key] = keys([(0.0, v, "hold")])
+    s.tmove(c, lambda fr, u: (lambda g: (0, 0, g[0], g[1], g[2]))(geom(fr, u)))
+    return c
 
 
 # --- 6. Anna Martin (a singer's name in the reference): a red panel slides in beside a round photo, the name and its age --------------------------------
@@ -379,14 +410,14 @@ def my_plan():
           path=arc(215, 262))
     pan = s.rect("Panel", solid(RED), lambda fr, u: (370, 90, 1024, 90 + 960 * k(fr, 0, 12)))
     pan["blendMode"] = "multiply"
-    spin = lambda fr: 120 * (1 - k(fr, 0, 30))  # noqa: E731
     sz = lambda fr: k(fr, 3, 9)  # noqa: E731
     s.obj("Pegatina", solid(YELLOW), lambda fr, u: (366, 280, 250 * sz(fr), 250 * sz(fr), 0, 1), kind="ellipse",
           base=(250, 250))
     s.obj("Pegatina (punto)", solid(WHITE), lambda fr, u: (366, 280, 40 * sz(fr), 40 * sz(fr), 0, 1), kind="ellipse",
           base=(40, 40))
-    round_words(s, "WHO DICTATES FASHION?", 366, 280, 82, 24, "#2A1A00", -70, lambda fr: -spin(fr),
-                op=lambda fr, u: k(fr, 9, 6))
+    # the words run round the sticker's edge and the ring keeps turning anticlockwise (fast at first, then steady)
+    circle_text(s, "WHO DICTATES FASHION?", 366, 280, 80, 21, "#2A1A00", 195,
+                lambda fr, u: (max(1e-3, sz(fr)), 24 - 36 * u + 90 * (1 - k(fr, 3, 21)), 1.0 if fr >= 3 else 0.0))
     c = s.say("MY PLAN:", (500, 464, 700, 510), ANTON, 400, WHITE, "Título", align="left")
     s.letters(c, 12, stagger=0.04, duration=0.1, preset="fade")
     s.rect("Línea", solid(WHITE), lambda fr, u: (500, 624, 504, 624 + 240 * k(fr, 18, 9)))
@@ -565,7 +596,7 @@ def numbers():
         s.letters(c, 15 + 4 * i, stagger=0.02, duration=0.08, preset="fade")
     # the wipe to 02
     wipe = lambda fr: W * k(fr, 75, 12)  # noqa: E731
-    s.rect("Rojo", solid(RED), lambda fr, u: (-10, -10, wipe(fr), 857))
+    s.rect("Rojo", solid(RED), lambda fr, u: (0, -10, wipe(fr), 857))
     s.say("02", (103, 280, 843, 1100), ANTONIO, 700, WHITE, "Número 2", align="left",
           reveal=lambda fr: (0, 0, wipe(fr), 857))
     s.say("YOUTUBE - PROMO", (891, 652, 1147, 678), ANTON, 400, YELLOW, "Texto 4", rot=lambda fr, u: 90,
@@ -590,7 +621,7 @@ def numbers():
     s.obj("Aro 2 (play)", solid(WHITE), lambda fr, u: (198, 1247, 22 * k(fr, 102, 4), 26 * k(fr, 102, 4), 0, 1),
           path=TRIANGLE, base=(22, 26))
     s.rect("Línea", solid(RED), lambda fr, u: (320, 1904, 320 + 404 * k(fr, 100, 12), 1912))
-    return t
+    return art_except(t)
 
 
 # --- 13. FOUNDATIONS OF FASHION: a photo, a white half-moon on top, a tilted red pill and a credits line ----------
