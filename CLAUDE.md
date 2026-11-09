@@ -61,6 +61,22 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 
 ## Estado (actualizado 2026-11-04)
 
+### Stock: títulos tit1–tit7, llt16, YouTube Pack yp0–yp7 y llt11 rehecho PUBLICADOS (2026-11-09)
+- Jorge: «al terminar ya subes todo». 494 piezas nuevas + las 20 de `llt11` rehechas, renderizadas con la portable
+  `pruebas\FlipStudio-motor-0109c` (run 42599880672, rama `flip/stock-llt4`), 13 idiomas, delta subido (2154 en vivo).
+  Las nuevas llevan **`minAppVersion` 0.31.0** (`publish.py`): usan el motor posterior a la 0.30.2 (Remolino, desenfoque
+  gaussiano real, orden de profundidad y **emparentado 3D**, contador lineal, roles Short/Video). **Nadie las ve hasta
+  publicar la app 0.31.0** (esa rama, sin versión ni notas todavía).
+- Revisado en ventana (0109b y 0109c): contador, desenfoque, Remolino, ajuste Short/Video de títulos, tercios, yp2 (triángulo
+  hijo 3D de la caja), fondos `cover`, y yp4 vertical en un video horizontal (los discos quedan algo cortados, es el diseño).
+- **Arreglos del motor en esta tanda:** rol `cover` (un fondo entero crece parejo hasta cubrir); emparentado 3D
+  (`clipParentWorld3d`, `GpuLayer::parentWorld`); al insertar una plantilla los ids de mate, carril y padre se remapean en
+  **todas** las pistas (antes por pista: un mate de otra pista quedaba apuntando al id viejo); el ajuste Short/Video mueve
+  `parentRest` con el padre.
+- **Trampa nueva:** `merge.py` de `stock_i18n` salta (y mueve a `merged/`) las claves que todavía no están en los índices de
+  `publicar`: traducir antes de publicar obliga a guardar las tandas aparte y fusionarlas después de `publish.py`.
+- **Trampa nueva:** la plantilla se cataloga al arrancar la app: una copiada a `scene-templates` con la app abierta no sale.
+
 ### Stock: 129 tercios nuevos llt4–llt15 PUBLICADOS (2026-11-07, noche)
 - Todos los videos de `Downloads\EDITAR PARA STOCK\LOWERTHIRDS` rehechos «casi iguales» (`templates_llt_d.py` … `_o.py`,
   rama `flip/stock-llt4`), renderizados de nuevo en `tienda\plantillas\render-llt-final`, copiados a `paquetes`, con
