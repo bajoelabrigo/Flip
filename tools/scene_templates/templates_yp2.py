@@ -176,8 +176,9 @@ def ring_intro(s, centre=BLACK, logo_w=162, logo_cx=651, words=(), end_shrink=Tr
     # Once still, the triangle alone spins three turns back (fast at first) from frame 40.
     tri = lambda fr: -1080 * (1 - (1 - lin(fr, 40, 30)) ** 3)  # noqa: E731
     box, _ = yt_logo(s, "Logo", logo, w=logo_w, h=logo_w * 0.716, tri_rot=tri)
-    # Only the red box turns in 3D: the triangle as a 3D layer vanished while the tilt was strong (it is small and
-    # flat on the box, so it reads the same without it).
+    # Only the red box turns in 3D. The triangle as a 3D layer on the box vanishes on frames 17-21 whatever its depth
+    # (tried positionZ -2, +4, +20 with the engine build of 2026-11-09), so it stays flat: it is small and flat on the
+    # box and reads the same.
     s.d3(box, ry=lambda fr, u: 35 * (1 - k(fr, 14, 24)), rx=lambda fr, u: -12 * (1 - k(fr, 14, 24)), persp=500)
 
     def place(ink):

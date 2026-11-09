@@ -130,9 +130,12 @@ def ripple(s, name, cx, cy, at, size=90, colour=WHITE, n=9, width=4):
 
 # --- 3D pieces (the engine's 3D layers: a real turn in perspective) -----------------------------------------------
 PERSP = 1600.0
-# Opacity of the 3D pieces: just under 1 so the engine keeps them in track order (it depth-tests only opaque 3D
-# layers, and that drops the soft edges of text and lets a face bleed through the piece riding on it).
-FLAT = 0.998
+# Opacity of the 3D pieces while shown (the engine depth-sorts opaque 3D layers; since motor-0109 that keeps soft
+# edges, so they stay fully opaque).
+FLAT = 1.0
+# Text and photos riding on a face stay just under opaque: out of the depth sort, drawn in track order over their
+# face (depth-sorted, the text a few px in front of a tilted face still dropped out on some frames, motor-0109).
+RIDER = 0.998
 BELL_BODY = ("M 50 4 C 55 4 57 8 57 11 C 72 15 80 29 80 47 L 80 66 L 93 80 L 7 80 L 20 66 L 20 47 C 20 29 28 15 43 11 "
              "C 43 8 45 4 50 4 Z")
 BELL_CLAP = "M 39 78 L 61 78 L 61 85 C 61 98 39 98 39 85 Z"
@@ -161,13 +164,14 @@ def g9(geom):
 
 
 def solid3d(s, name, path, face, sides, geom, depth, n=6, back=None, kind="rectangle", radius=0.0, base=None,
-            slab=None, oz=0.0, persp=PERSP, evenodd=False):
+            slab=None, oz=0.0, persp=PERSP, evenodd=False, flat=None):
     """A shape with thickness that turns in 3D: geom(fr, u) = (cx, cy, w, h, rot, op, rx, ry[, z]); depth in px at
     base size. Copies of the shape across the thickness, the sides from sides[0] (near) to sides[1] (far), drawn
     far to near: when the back turns to the viewer the copies swap ends, and the near face shows `back` (the far
     end is then the front). slab = (oy, h) in fractions of the box: a plane across the thickness shown while the
     shape stands edge-on to a turn about its vertical axis. oz shifts the piece along its own depth."""
     G = g9(geom)
+    flat = FLAT if flat is None else flat
     bw = (base or (100, 100))[0]
     facing = lambda v: math.cos(math.radians(v[6])) * math.cos(math.radians(v[7]))  # noqa: E731
     sgn = lambda v: 1.0 if facing(v) >= 0 else -1.0  # noqa: E731
@@ -178,7 +182,7 @@ def solid3d(s, name, path, face, sides, geom, depth, n=6, back=None, kind="recta
             cx, cy, w, h, rot, op, rx, ry, z = v
             sc = w / bw
             dx, dy, dz = turn3(0, 0, (sgn(v) * z0 + oz) * sc, rx, ry, rot)
-            return cx + dx, cy + dy, w, h, rot, FLAT if op >= 0.5 and show(v) else 0.0, rx, ry, z + dz
+            return cx + dx, cy + dy, w, h, rot, flat if op >= 0.5 and show(v) else 0.0, rx, ry, z + dz
         return where
 
     def put(nm, lay, where, kind=kind, path=path, base=base):
@@ -199,7 +203,7 @@ def solid3d(s, name, path, face, sides, geom, depth, n=6, back=None, kind="recta
             cx, cy, w, h, rot, op, rx, ry, z = v
             sc = w / bw
             dx, dy, dz = turn3(0, soy * h, oz * sc, rx, ry, 0)
-            on = FLAT if op >= 0.5 and abs(math.cos(math.radians(ry))) < 0.35 else 0.0
+            on = flat if op >= 0.5 and abs(math.cos(math.radians(ry))) < 0.35 else 0.0
             return cx + dx, cy + dy, 0.9 * depth * sc, sh * h, 0, on, rx, ry + 90, z + dz
         put(f"{name} (canto)", sides[0], sg, kind="rectangle", path=None, base=(depth, 100))
     put(name, face, place(depth / 2, lambda v: facing(v) >= 0))
@@ -218,7 +222,7 @@ def ride(s, clip, geom, centre, oz, rest):
         sc = w / w0
         dx, dy, dz = turn3(ox * sc, oy * sc, oz * sc, rx, ry, rot)
         front = math.cos(math.radians(rx)) * math.cos(math.radians(ry)) >= 0
-        return cx + dx - centre[0], cy + dy - centre[1], sc, rot, min(op, FLAT) if front else 0.0, rx, ry, z + dz
+        return cx + dx - centre[0], cy + dy - centre[1], sc, rot, min(op, RIDER) if front else 0.0, rx, ry, z + dz
     s.tmove(clip, lambda fr, u: where(fr, u)[:5])
     s.d3(clip, rx=lambda fr, u: where(fr, u)[5], ry=lambda fr, u: where(fr, u)[6], z=lambda fr, u: where(fr, u)[7],
          persp=PERSP)
@@ -239,7 +243,7 @@ def badge3d(s, sample, geom, border=WHITE, bw=10, w=300, h=210, depth=34, sides=
     track = t.track("video", name)
     clip = t.photo(track, sample, 0.0, s.dur, Box(960 - w / 2, 540 - h / 2, w, h), None, label="Tu foto")
     t.mask(track, clip, "path", pathData=rr_path(w, h, h * 0.22))
-    return ride(s, clip, plate, (960, 540), depth / 2 + 1, (960, 540, W))
+    return ride(s, clip, plate, (960, 540), depth / 2 + 3, (960, 540, W))
 
 
 # --- 1. Subscribe bar over footage: avatar, name, like, SUBSCRIBE and bell; the cursor clicks each ---------------
@@ -345,13 +349,14 @@ def flip_btn(s, name, rect, states, at, n=9, radius=10, shift=None, op=None, ico
         solid3d(s, nm, None, colour, (mix(colour, WHITE, 0.5), mix(colour, BLACK, 0.35)), geom, depth, n=3,
                 radius=radius, base=(w, h))
         c = s.say(text, ink, fam, wt, tc, f"{nm} (texto)")
-        ride(s, c, geom, ((ink[0] + ink[2]) / 2, (ink[1] + ink[3]) / 2), depth / 2 + 1, (cx, cy, w))
+        ride(s, c, geom, ((ink[0] + ink[2]) / 2, (ink[1] + ink[3]) / 2), depth / 2 + 3, (cx, cy, w))
         for j, (path, ix, iy, size, cols) in enumerate(icons):
             def ig(fr, u, geom=geom, ix=ix, iy=iy, size=size):
                 bx, by, _, _, rot, on, rx, ry = geom(fr, u)
-                dx, dy, dz = turn3(ix - cx, iy - cy, depth / 2 + 1, rx, ry, rot)
+                dx, dy, dz = turn3(ix - cx, iy - cy, depth / 2 + 3, rx, ry, rot)
                 return bx + dx, by + dy, size, size, rot, on, rx, ry, dz
-            solid3d(s, f"{nm} (icono {j + 1})", path, cols[i], (cols[i], cols[i]), ig, 1, n=0, base=(size, size))
+            solid3d(s, f"{nm} (icono {j + 1})", path, cols[i], (cols[i], cols[i]), ig, 1, n=0, base=(size, size),
+                    flat=RIDER)
 
 
 def burst(s, name, cx, cy, at, r0=60, r1=200, n=10, colour=RED, seed=0):
@@ -757,16 +762,12 @@ def op_avatar_iris():
     s = S(t, D)
     footage(s, "h-portrait-03")
     # Both circles have soft edges (reference 22.4-22.6 s).
-    c = s.obj("Círculo blanco", solid(WHITE), lambda fr, u: (960, 540, 3700 * k(fr, 30, 9), 3700 * k(fr, 30, 9), 0, 1),
+    c = s.obj("Círculo blanco", solid(WHITE), lambda fr, u: (960, 540, 2600 * k(fr, 30, 9), 2600 * k(fr, 30, 9), 0, 1),
               kind="ellipse")
     soft(s, c, 9.0)
-    c["shapeStyle"]["kind"] = "custom"
-    c["shapeStyle"]["customPath"] = INSET_DISC
-    c = s.obj("Fondo", grad_("#2E2E2E", "#050505", 180), lambda fr, u: (960, 540, 3700 * k(fr, 35, 10),
-                                                                        3700 * k(fr, 35, 10), 0, 1), kind="ellipse")
+    c = s.obj("Fondo", grad_("#2E2E2E", "#050505", 180), lambda fr, u: (960, 540, 2600 * k(fr, 35, 10),
+                                                                        2600 * k(fr, 35, 10), 0, 1), kind="ellipse")
     soft(s, c, 11.0, lambda fr: 1 - k(fr, 42, 6))
-    c["shapeStyle"]["kind"] = "custom"
-    c["shapeStyle"]["customPath"] = INSET_DISC
     import random
     rnd = random.Random(9)
     for j in range(14):
@@ -917,20 +918,15 @@ def adjust_fx(s, name, specs):
 
 
 GB = "builtin.effects.gaussian_blur"
-# The engine's blur radius is in pixels of the render, not of the project: the 640 × 360 previews were judged with
-# these radii. When the blur shader scales by u_unitPx (project px), set BLUR_PX = 3 to keep the same look.
-BLUR_PX = 1.0
-# A disc in the middle 70 % of its box: a blurred shape needs room in its box (the blur stops at the box's edge).
-INSET_DISC = ("M 85 50 C 85 69.33 69.33 85 50 85 C 30.67 85 15 69.33 15 50 C 15 30.67 30.67 15 50 15 "
-              "C 69.33 15 85 30.67 85 50 Z")
+# The radii below were first judged on 640 x 360 previews when the blur was in render pixels; the blur amount is in
+# project pixels since motor-0109, so they are scaled by 3 (x 1.15: the three chained blurs they were tuned with).
+BLUR_PX = 3.0 * 1.15
 
 
 def soft_specs(r, gate=None):
-    """A smooth blur of about r px as three gaussian blurs of r, r/2 and r/4 (one pass of the engine's blur takes 5
-    taps r × 1.4 and r × 3.2 apart: past a few px it doubles the picture instead of softening it). gate(fr) 0..1
-    scales it."""
+    """One gaussian blur of r (preview px, see BLUR_PX); gate(fr) 0..1 scales it."""
     g = gate or (lambda fr: 1.0)
-    return [(GB, {"u_blurRadius": lambda fr, u, q=q: BLUR_PX * r * q * g(fr)}, {}) for q in (1.0, 0.5, 0.25)]
+    return [(GB, {"u_blurRadius": lambda fr, u: BLUR_PX * r * g(fr)}, {})]
 
 
 def soft(s, clip, r, gate=None):
@@ -1537,7 +1533,7 @@ def bg_blocks():
 def bg_dark_liquid():
     t, s = _bgt("fondo-liquido-oscuro", "Fondo: líquido rojo oscuro", "Background: dark red liquid", 12163,
                 ["líquido"])
-    swirl(s, 0, n=16, turn=-75.0, cols=("#1A0004", "#7A0010", "#0A0A0A", "#C0001A", "#2A2A2A", "#5A0010", "#E0102A",
+    swirl(s, 0, n=16, turn=-75.0, blur=15.0, cols=("#1A0004", "#7A0010", "#0A0A0A", "#C0001A", "#2A2A2A", "#5A0010", "#E0102A",
                                         "#0A0A0A", "#9A9A9A"), base="#0A0A0A")
     return t
 
@@ -1699,7 +1695,7 @@ def bg_dashes():
 
 def bg_blue_liquid():
     t, s = _bgt("fondo-liquido-azul", "Fondo: líquido azul", "Background: blue liquid", 12175, ["líquido"])
-    swirl(s, 0, n=16, turn=-70.0, cols=("#0A1AA0", "#1A4AE0", "#3A0A8A", "#18C0F0", "#0A0A40", "#5A2BD0", "#0A2A90",
+    swirl(s, 0, n=16, turn=-70.0, blur=15.0, cols=("#0A1AA0", "#1A4AE0", "#3A0A8A", "#18C0F0", "#0A0A40", "#5A2BD0", "#0A2A90",
                                         "#2A8AF0"), base="#0A0A40")
     return t
 
@@ -1713,8 +1709,8 @@ def bg_spiral():
         s.obj(f"Espiral {i + 1}", ring(col, r * 0.12), lambda fr, u, r=r, i=i: (
             960, 540, r, r, 40 * i + 60 * u * (1 if i % 2 else 0.8), 1), path=arc(0, 200))
     # The reference (36.6 s) is a soft twirl: the bands blurred and twisted about the centre.
-    adjust_fx(s, "Espiral (suave)", soft_specs(12.0) + [
-        ("stylize.twirl", {"angle": lambda fr, u: 140 + 20 * u}, {"radius": 0.9, "centerX": 0.5, "centerY": 0.5})])
+    adjust_fx(s, "Espiral (suave)", soft_specs(20.0) + [
+        ("stylize.twirl", {"angle": lambda fr, u: 220 + 20 * u}, {"radius": 0.9, "centerX": 0.5, "centerY": 0.5})])
     return t
 
 
