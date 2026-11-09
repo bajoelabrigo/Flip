@@ -46,6 +46,13 @@ QTransform clipWorldPose(const Project &project, const Clip &clip, TimeUs timeli
 QTransform clipParentMatrix(const Project &project, const Clip &clip, TimeUs timelineUs,
                             double renderScale, bool *active = nullptr);
 
+// 3D parenting (2026-11-09, the YouTube pack: an icon riding on a face of a turning box): when some ancestor of
+// `clip` is tilted or pushed in depth, what the parent chain does to the clip in the world (centre origin, y down,
+// +z toward the eye, render px), so the child turns and moves in depth with it. False when the chain is flat, which
+// clipParentMatrix then covers exactly.
+bool clipParentWorld3d(const Project &project, const Clip &clip, TimeUs timelineUs, double renderScale,
+                       QMatrix4x4 *world);
+
 // The clip with that id anywhere on the project's timeline; null when none.
 const Clip *findClipInProject(const Project &project, const QString &clipId);
 

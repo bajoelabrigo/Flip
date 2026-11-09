@@ -1854,9 +1854,23 @@ GpuScene buildGpuScene(const drift::Project &project, drift::TimeUs timelineUs, 
     };
     // A clip's own parent (After Effects' Parent, 0.26) moves it first; the transform layers over
     // its track then carry the result.
-    const auto applyClipParent = [&project, timelineUs, renderScale](GpuLayer &layer, const drift::Clip &clip) {
+    const auto applyClipParent = [&project, timelineUs, renderScale, width, height](GpuLayer &layer, const drift::Clip &clip) {
         if (clip.parentId.isEmpty())
             return;
+        // A tilted parent (3D) carries the child in the world, so it turns and goes in depth with it; a transform
+        // layer over the track then moves the result, when it is flat.
+        QMatrix4x4 world;
+        if (drift::clipParentWorld3d(project, clip, timelineUs, renderScale, &world)) {
+            if (layer.hasParent && !layer.parent.isAffine())
+                return;
+            if (layer.hasParent)
+                world = drift::worldParentFromAffine(layer.parent, QSizeF(width, height)) * world;
+            layer.parentWorld = world;
+            layer.parentIs3d = true;
+            layer.hasParent = false;
+            layer.parent = QTransform();
+            return;
+        }
         bool active = false;
         const QTransform delta = drift::clipParentMatrix(project, clip, timelineUs, renderScale, &active);
         if (!active)
@@ -1952,8 +1966,9 @@ GpuScene buildGpuScene(const drift::Project &project, drift::TimeUs timelineUs, 
         if (layer.hasParent && !layer.parent.isAffine())
             return;
         const QSizeF canvas(width, height);
-        const QMatrix4x4 parent = layer.hasParent ? drift::worldParentFromAffine(layer.parent, canvas)
-                                                  : QMatrix4x4();
+        const QMatrix4x4 parent = layer.parentIs3d ? layer.parentWorld
+                                  : layer.hasParent ? drift::worldParentFromAffine(layer.parent, canvas)
+                                                    : QMatrix4x4();
         if (layer.model3d) {
             const drift::model3d::ModelDrawRequest &model = *layer.model3d;
             guides.hasSelectedQuad = true;
@@ -2198,7 +2213,8 @@ GpuScene buildGpuScene(const drift::Project &project, drift::TimeUs timelineUs, 
                 && !item.layer.model3d && (!item.layer.hasParent || item.layer.parent.isAffine())) {
                 const QSizeF canvas(width, height);
                 const QMatrix4x4 parentWorld =
-                    item.layer.hasParent ? drift::worldParentFromAffine(item.layer.parent, canvas) : QMatrix4x4();
+                    item.layer.parentIs3d ? item.layer.parentWorld
+                    : item.layer.hasParent ? drift::worldParentFromAffine(item.layer.parent, canvas) : QMatrix4x4();
                 item.layer.worldQuad = parentWorld
                                        * drift::clipQuadToWorld(item.layer.rect, item.layer.rotation, item.layer.flipH,
                                                                 item.layer.flipV, item.layer.pose3d, canvas);
