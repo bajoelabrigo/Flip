@@ -160,8 +160,9 @@ def new_trend():
 
 f6._FILES[("Montserrat", 400)] = "fonts.basic/fonts/montserrat/Montserrat-Italic.ttf"
 f6._FILES[("Montserrat", 701)] = "fonts.basic/fonts/montserrat/Montserrat-BoldItalic.ttf"
-SHADOW = {"id": "shadow", "kind": "shadow", "enabled": True, "paint": {"kind": "solid", "color": "#ff5a5a5a"},
-          "offsetX": 6, "offsetY": 9, "blur": 6, "opacity": 0.9}
+# A soft dark drop shadow (it goes before the fill: the first layer is drawn underneath).
+SHADOW = {"id": "shadow", "kind": "shadow", "enabled": True, "paint": {"kind": "solid", "color": "#ff000000"},
+          "offsetX": 8, "offsetY": 12, "blur": 12, "opacity": 0.85}
 
 
 def solid_fill(colour):
@@ -258,10 +259,10 @@ def creative_emboss():
     s = Slide(t, D)
     s.background(WHITE)
     big = s.text("creative", (395, 470, 1530, 645), "Montserrat", 801, WHITE, "Título",
-                 layers=[solid_fill(WHITE), SHADOW])
-    s.letters(big, 6, 0.1, 0.4, "blur-in")
+                 layers=[SHADOW, solid_fill(WHITE)])
+    s.letters(big, 6, 0.1, 0.4, "fade")  # (blur-in lost the italics of this one)
     small = s.text("creative", (660, 512, 1232, 597), "Montserrat", 801, WHITE, "Título 2",
-                   layers=[solid_fill(WHITE), SHADOW])
+                   layers=[SHADOW, solid_fill(WHITE)])
     s.letters(small, 2, 0.05, 0.3, "blur-in")
     return t
 
@@ -291,11 +292,12 @@ def year():
     t = _kit("2022", "Título: año en relieve", "Title: embossed year", D, 8828, ["año", "relieve"], thumb_at=2.5)
     s = Slide(t, D)
     s.background(WHITE)
-    a = s.text("20", (630, 420, 912, 630), "Montserrat", 900, WHITE, "Título", layers=[solid_fill(WHITE), SHADOW])
-    s.fade(a, ease_in(0, 1, 2, 8))
+    # The black «22» is under the white «20» (its «0» covers the first «2»).
     b = s.text("22", (905, 420, 1215, 630), "Montserrat", 900, BLACK, "Título 2")
     s.letters(b, 16, 0.2, 0.3, "slide-up", distance=0.5)
-    y = s.text("Year", (1218, 598, 1326, 628), "Montserrat", 701, BLACK, "Texto", italic=True)
+    a = s.text("20", (635, 425, 975, 625), "Montserrat", 900, WHITE, "Título", layers=[SHADOW, solid_fill(WHITE)])
+    s.fade(a, ease_in(0, 1, 2, 8))
+    y = s.text("Year", (1220, 588, 1325, 625), "Montserrat", 700, WHITE, "Texto", layers=[SHADOW, solid_fill(WHITE)])
     s.fade(y, ease_in(0, 1, 32, 36))
     return t
 
