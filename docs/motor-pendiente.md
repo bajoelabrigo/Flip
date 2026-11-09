@@ -47,3 +47,13 @@ en el panel de Texto (si Jorge lo quiere) y compilar; la plantilla `yp0-barra-se
    (`pathShapes` existe en el motor; el generador no lo usa todavía).
 3. Franjas que se deforman al girar (44,4–45,6 s): hoy, rectas.
 4. Íconos en bucle infinito: hoy, 3,2 s cada uno.
+
+## yp5 (pack youtube 5)
+1. Huecos en formas (máscara invertida en formas, trazados con agujero y esquinas redondeadas): botón de YouTube con
+   triángulo transparente (13,9 s), ventana del iris (183,6 s).
+2. Relleno con patrón (rayas, puntos) dentro de una elipse (discos de la transición, 22,1 s).
+3. Giro 3D real del botón (opener-flip, mosaicos de redes): hoy, ancho que se achica.
+4. Marco en perspectiva (modern-titles, 32,5 s).
+5. Ancho de caja atado al texto tecleado visible (títulos en caja, 107–124 s) y cursor de bloque rojo delante (113 s).
+6. Máscara rectangular animada sobre formas (barrido de pincel, social-pincel 144,4 s).
+7. Huecos de video en pantallas finales (hoy, huecos de foto).
