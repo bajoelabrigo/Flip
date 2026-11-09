@@ -2247,6 +2247,29 @@ void EditorStateTest::sceneTemplateLayoutScalesAndCovers()
     const drift::Clip &fittedTitle = slide.at(0).clips.at(2);
     // The title alone is the art: 1200 px across becomes the free width of the Short (92 %).
     QVERIFY(qAbs(fittedTitle.transformW.evaluateAt(0) - 1080 * 0.92) < 0.5);
+
+    // A template that is all background (2026-11-09, the spiral of the YouTube pack came apart in a Short): its
+    // "cover" pieces grow together, evenly about the middle, until the drawing covers the Short; a 200 px dash
+    // at the centre stays a dash 200 × 1920/1080 px long, still at the centre.
+    drift::Clip wall;
+    wall.type = drift::ClipType::Shape;
+    wall.layoutRole = QStringLiteral("cover");
+    drift::Clip dash;
+    dash.type = drift::ClipType::Shape;
+    dash.layoutRole = QStringLiteral("cover");
+    dash.transformX.setKeyframe(0, 860.0);
+    dash.transformY.setKeyframe(0, 530.0);
+    dash.transformW.setKeyframe(0, 200.0);
+    dash.transformH.setKeyframe(0, 20.0);
+    QList<drift::Track> pattern{drift::Track{.type = drift::TrackType::Video, .clips = {wall, dash}}};
+    drift::fitOverlayLayout(pattern, 1920, 1080, 1080, 1920, drift::OverlayFit::Keep);
+    const double grow = 1920.0 / 1080.0;
+    const drift::Clip &grown = pattern.at(0).clips.at(1);
+    QVERIFY(qAbs(grown.transformW.evaluateAt(0) - 200.0 * grow) < 0.5);
+    QVERIFY(qAbs(grown.transformH.evaluateAt(0) - 20.0 * grow) < 0.5);
+    QVERIFY(qAbs(grown.transformX.evaluateAt(0) + grown.transformW.evaluateAt(0) / 2.0 - 540.0) < 0.5);
+    QVERIFY(qAbs(grown.transformY.evaluateAt(0) + grown.transformH.evaluateAt(0) / 2.0 - 960.0) < 0.5);
+    QVERIFY(qAbs(pattern.at(0).clips.at(0).transformH.evaluateAt(0) - 1920.0) < 0.5);
 }
 
 // A template of one's own: inside a composition a photo becomes a slot and a text an editable text;

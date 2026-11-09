@@ -3,6 +3,7 @@
 #include "core/TimelineOps.h"
 
 #include <QHash>
+#include <algorithm>
 
 #include <tuple>
 
@@ -122,7 +123,7 @@ void fitOverlayLayout(QList<Track> &tracks, int fromW, int fromH, int toW, int t
             if (clip.type == ClipType::Audio || clipBoxIsCanvasReferenced(clip))
                 continue;
             const bool text = clip.type == ClipType::Text || clip.type == ClipType::Subtitle;
-            if (clip.layoutRole == QLatin1String("backdrop")
+            if (clip.layoutRole == QLatin1String("backdrop") || clip.layoutRole == QLatin1String("cover")
                 || (clip.layoutRole.isEmpty() && !text && coversCanvas(clip, fromW, fromH))) {
                 backdrops.append(&clip);
                 continue;
@@ -143,6 +144,16 @@ void fitOverlayLayout(QList<Track> &tracks, int fromW, int fromH, int toW, int t
         }
     }
     if (art.isNull() || art.width() <= 0 || art.height() <= 0) {
+        // A template that is all background (2026-11-09: the spiral, the arcs, the lines of the YouTube pack): the
+        // whole drawing grows evenly about the middle until it covers the frame, like a video put in another shape,
+        // so its pieces stay together. Without a "cover" piece it fits inside the frame as before.
+        const bool cover = std::any_of(backdrops.cbegin(), backdrops.cend(),
+                                       [](const Clip *c) { return c->layoutRole == QLatin1String("cover"); });
+        if (cover && (fromW != toW || fromH != toH)) {
+            const double s = qMax(double(toW) / fromW, double(toH) / fromH);
+            mapLayout(tracks, fromW, fromH, s, (toW - fromW * s) / 2.0, (toH - fromH * s) / 2.0);
+            return;
+        }
         scaleTemplateLayout(tracks, fromW, fromH, toW, toH);
         return;
     }
@@ -195,7 +206,9 @@ void fitOverlayLayout(QList<Track> &tracks, int fromW, int fromH, int toW, int t
         }
         // A band or a panel stretches with the frame; a round shape, a star or a picture would turn into an oval or
         // a squashed photo, so those grow evenly about the middle until they cover as much as before.
-        const bool even = clip->type == ClipType::Image || clip->type == ClipType::Video
+        // A "cover" piece grows evenly whatever it is, so the pieces of one drawing stay together.
+        const bool even = clip->layoutRole == QLatin1String("cover")
+            || clip->type == ClipType::Image || clip->type == ClipType::Video
             || clip->type == ClipType::Vector
             || (clip->type == ClipType::Shape && clip->shapeStyle.kind != ShapeKind::Rectangle
                 && clip->shapeStyle.kind != ShapeKind::RoundedRectangle);
@@ -205,6 +218,10 @@ void fitOverlayLayout(QList<Track> &tracks, int fromW, int fromH, int toW, int t
             mapTrack(clip->transformY, s, (toH - fromH * s) / 2.0, 0.0);
             mapTrack(clip->transformW, s, 0.0, fromW);
             mapTrack(clip->transformH, s, 0.0, fromH);
+            if (clip->type == ClipType::Shape) {
+                clip->shapeStyle.cornerRadius *= s;
+                scaleKeyed(clip->shapeStyle.keyframes, QStringLiteral("cornerRadius"), s);
+            }
             leave.append(clip);
             continue;
         }

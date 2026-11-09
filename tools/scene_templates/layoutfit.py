@@ -154,7 +154,7 @@ def fit_doc(doc, toW, toH, fit="keep"):
             role = clip.get("layoutRole", "")
             text = clip.get("type") in ("text", "subtitle")
             covers = all(w >= W * 0.98 and h >= H * 0.98 for _, _, _, w, h, _ in _boxes(clip, W, H))
-            if role == "backdrop" or (not role and not text and covers):
+            if role in ("backdrop", "cover") or (not role and not text and covers):
                 backdrops.append(clip)
                 continue
             for _, x, y, w, h, _ in _boxes(clip, W, H):
@@ -164,7 +164,10 @@ def fit_doc(doc, toW, toH, fit="keep"):
                 art = (x0, y0, x1, y1) if art is None else (min(art[0], x0), min(art[1], y0), max(art[2], x1),
                                                             max(art[3], y1))
     if art is None:
-        s = min(toW / W, toH / H)
+        # all background: the whole drawing covers the frame when a piece says "cover", else fits inside it
+        cover = any(c.get("layoutRole") == "cover" for c in backdrops)
+        s = max(toW / W, toH / H) if cover else min(toW / W, toH / H)
+        backdrops = []
         scale, ox, oy = s, (toW - W * s) / 2, (toH - H * s) / 2
     else:
         aw, ah = art[2] - art[0], art[3] - art[1]
@@ -196,13 +199,15 @@ def fit_doc(doc, toW, toH, fit="keep"):
             _map_track(clip, "y", 1.0, (sy - 1) * (_value_at(clip, "y", 0, 0.0) + h0 / 2), 0.0)
             continue
         kind = clip.get("shapeStyle", {}).get("kind", "rectangle")
-        if clip.get("type") in ("image", "video", "vector") or (
+        if clip.get("layoutRole") == "cover" or clip.get("type") in ("image", "video", "vector") or (
                 clip.get("type") == "shape" and kind not in ("rectangle", "rounded-rectangle")):
             s = max(sx, sy)
             _map_track(clip, "x", s, (toW - W * s) / 2, 0.0)
             _map_track(clip, "y", s, (toH - H * s) / 2, 0.0)
             _map_track(clip, "width", s, 0, W)
             _map_track(clip, "height", s, 0, H)
+            if clip.get("type") == "shape" and "shapeStyle" in clip:
+                clip["shapeStyle"]["cornerRadius"] = clip["shapeStyle"].get("cornerRadius", 0) * s
             continue
         _map_track(clip, "x", sx, 0, 0.0)
         _map_track(clip, "y", sy, 0, 0.0)

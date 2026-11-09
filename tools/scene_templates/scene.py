@@ -413,6 +413,12 @@ class Template:
                "assets": assets, "tracks": tracks}
         if self.layout_roles:
             from layoutfit import assign_roles
+            if "-fondo-" in self.id:
+                # a whole background: every piece covers the frame together (2026-11-09)
+                for track in tracks:
+                    for clip in track.get("clips", []):
+                        if clip.get("type") not in ("audio", "adjustment", "composite"):
+                            clip["layoutRole"] = "cover"
             assign_roles(doc)
         return doc
 
