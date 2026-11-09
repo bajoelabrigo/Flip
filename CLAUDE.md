@@ -66,7 +66,10 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
   `pruebas\FlipStudio-motor-0109c` (run 42599880672, rama `flip/stock-llt4`), 13 idiomas, delta subido (2154 en vivo).
   Las nuevas llevan **`minAppVersion` 0.31.0** (`publish.py`): usan el motor posterior a la 0.30.2 (Remolino, desenfoque
   gaussiano real, orden de profundidad y **emparentado 3D**, contador lineal, roles Short/Video). **Nadie las ve hasta
-  publicar la app 0.31.0** (esa rama, sin versión ni notas todavía).
+  publicar la app 0.31.0**. Versión 0.31.0, `release-notes/0.31.0.md`, CHANGELOG y notas de la Store ya en la rama; PR
+  [#57](https://github.com/bajoelabrigo/Flip/pull/57) en **borrador**. Jorge (2026-11-09): «mejor vamos a terminar otras
+  carpetas y subimos todo junto»: sin tag, sin MSIX y sin web hasta entonces. La sección de novedades de la web está en
+  `docs/novedades-0.31.0-web.patch` (aplicarla en `flipstudio-web` al publicar; ampliar notas con lo que se sume).
 - Revisado en ventana (0109b y 0109c): contador, desenfoque, Remolino, ajuste Short/Video de títulos, tercios, yp2 (triángulo
   hijo 3D de la caja), fondos `cover`, y yp4 vertical en un video horizontal (los discos quedan algo cortados, es el diseño).
 - **Arreglos del motor en esta tanda:** rol `cover` (un fondo entero crece parejo hasta cubrir); emparentado 3D

@@ -1,0 +1,35 @@
+diff --git a/novedades.html b/novedades.html
+index 7d6bc..8f7bd 100644
+--- a/novedades.html
++++ b/novedades.html
+@@ -28,7 +28,29 @@
+   <main class="legal">
+     <h1>Novedades</h1>
+     <p class="updated">Lo que trae cada versión de Flip Studio, de la más reciente a la más antigua.</p>
+-    <p class="release-toc">Versiones: <a href="#v0.30.2">0.30.2</a> · <a href="#v0.30.1">0.30.1</a> · <a href="#v0.30.0">0.30.0</a> · <a href="#v0.29.0">0.29.0</a> · <a href="#v0.28.0">0.28.0</a> · <a href="#v0.27.0">0.27.0</a> · <a href="#v0.26.0">0.26.0</a> · <a href="#v0.25.0">0.25.0</a> · <a href="#v0.24.0">0.24.0</a> · <a href="#v0.23.0">0.23.0</a> · <a href="#v0.22.0">0.22.0</a> · <a href="#v0.21.0">0.21.0</a> · <a href="#v0.20.1">0.20.1</a> · <a href="#v0.20.0">0.20.0</a> · <a href="#v0.19.0">0.19.0</a> · <a href="#v0.18.3">0.18.3</a> · <a href="#v0.18.2">0.18.2</a> · <a href="#v0.18.1">0.18.1</a> · <a href="#v0.18.0">0.18.0</a> · <a href="#v0.17.0">0.17.0</a> · <a href="#v0.16.0">0.16.0</a> · <a href="#v0.15.0">0.15.0</a> · <a href="#v0.14.0">0.14.0</a> · <a href="#v0.13.0">0.13.0</a> · <a href="#v0.12.0">0.12.0</a> · <a href="#v0.11.0">0.11.0</a> · <a href="#v0.10.0">0.10.0</a> · <a href="#v0.9.9">0.9.9</a> · <a href="#v0.9.8">0.9.8</a> · <a href="#v0.9.7">0.9.7</a> · <a href="#v0.9.6">0.9.6</a> · <a href="#v0.9.5">0.9.5</a> · <a href="#v0.9.4">0.9.4</a> · <a href="#v0.9.3">0.9.3</a> · <a href="#v0.9.2">0.9.2</a> · <a href="#v0.9.1">0.9.1</a> · <a href="#v0.9.0">0.9.0</a> · <a href="#v0.8.3">0.8.3</a> · <a href="#v0.8.2">0.8.2</a> · <a href="#v0.8.1">0.8.1</a> · <a href="#v0.8.0">0.8.0</a></p>
++    <p class="release-toc">Versiones: <a href="#v0.31.0">0.31.0</a> · <a href="#v0.30.2">0.30.2</a> · <a href="#v0.30.1">0.30.1</a> · <a href="#v0.30.0">0.30.0</a> · <a href="#v0.29.0">0.29.0</a> · <a href="#v0.28.0">0.28.0</a> · <a href="#v0.27.0">0.27.0</a> · <a href="#v0.26.0">0.26.0</a> · <a href="#v0.25.0">0.25.0</a> · <a href="#v0.24.0">0.24.0</a> · <a href="#v0.23.0">0.23.0</a> · <a href="#v0.22.0">0.22.0</a> · <a href="#v0.21.0">0.21.0</a> · <a href="#v0.20.1">0.20.1</a> · <a href="#v0.20.0">0.20.0</a> · <a href="#v0.19.0">0.19.0</a> · <a href="#v0.18.3">0.18.3</a> · <a href="#v0.18.2">0.18.2</a> · <a href="#v0.18.1">0.18.1</a> · <a href="#v0.18.0">0.18.0</a> · <a href="#v0.17.0">0.17.0</a> · <a href="#v0.16.0">0.16.0</a> · <a href="#v0.15.0">0.15.0</a> · <a href="#v0.14.0">0.14.0</a> · <a href="#v0.13.0">0.13.0</a> · <a href="#v0.12.0">0.12.0</a> · <a href="#v0.11.0">0.11.0</a> · <a href="#v0.10.0">0.10.0</a> · <a href="#v0.9.9">0.9.9</a> · <a href="#v0.9.8">0.9.8</a> · <a href="#v0.9.7">0.9.7</a> · <a href="#v0.9.6">0.9.6</a> · <a href="#v0.9.5">0.9.5</a> · <a href="#v0.9.4">0.9.4</a> · <a href="#v0.9.3">0.9.3</a> · <a href="#v0.9.2">0.9.2</a> · <a href="#v0.9.1">0.9.1</a> · <a href="#v0.9.0">0.9.0</a> · <a href="#v0.8.3">0.8.3</a> · <a href="#v0.8.2">0.8.2</a> · <a href="#v0.8.1">0.8.1</a> · <a href="#v0.8.0">0.8.0</a></p>
++
++    <section class="release" id="v0.31.0">
++      <h2>Flip Studio 0.31.0 — Kit de YouTube nuevo en Stock y 3D más fiel</h2>
++
++<h3>Novedades</h3>
++<ul>
++<li><strong>Más de 490 plantillas nuevas en Stock › Kit de YouTube</strong>: títulos con estilo, tercios inferiores, botones de suscribirse, pantallas finales, citas, contadores de seguidores, fondos animados, aperturas y transiciones. Todas se adaptan solas a un <strong>Short (9:16)</strong> o a un <strong>video horizontal (16:9)</strong> al insertarlas.</li>
++<li><strong>Emparentado 3D</strong>: una capa hija de una capa 3D gira y se mueve en profundidad con ella, como en After Effects.</li>
++<li><strong>Efecto Remolino</strong> (Efectos › Tendencias): retuerce la imagen alrededor de un centro, con ángulo y radio animables.</li>
++<li><strong>Contador lineal</strong>: un contador de texto puede subir parejo, como los de seguidores en vivo.</li>
++</ul>
++<h3>Mejoras</h3>
++<ul>
++<li>El <strong>Desenfoque gaussiano</strong> es un desenfoque real: suave, igual en la vista previa y al exportar, y ya no se corta en el borde de la capa.</li>
++<li>Las capas 3D en el mismo plano respetan el orden de las pistas y no parpadean; las capas 3D suaves o transparentes ya no desaparecen.</li>
++<li>Al adaptar una plantilla a Short o a horizontal, los círculos y las fotos del fondo ya no se estiran, y un fondo hecho de varias piezas crece entero hasta cubrir el cuadro.</li>
++</ul>
++<h3>Arreglos</h3>
++<ul>
++<li>Una plantilla con un recorte (mate de pista) o un padre en otra pista quedaba desconectada al insertarla.</li>
++</ul>
++    </section>
+ 
+     <section class="release" id="v0.30.2">
+       <h2>Flip Studio 0.30.2 — Arreglos de las curvas</h2>
