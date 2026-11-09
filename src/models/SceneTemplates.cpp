@@ -383,7 +383,9 @@ bool isOverlayTemplate(const SceneTemplateEntry &entry)
 {
     if (entry.tags.contains(QStringLiteral("kit:transiciones")))
         return false;
-    return entry.category == QLatin1String("ytkit") || entry.tags.contains(QStringLiteral("kit:lowerthirds"))
+    // The TikTok and Instagram kits (2026-11-09) are fitted the same way: a story in a wide video, a logo in a Short.
+    return entry.category == QLatin1String("ytkit") || entry.category == QLatin1String("tiktok")
+        || entry.category == QLatin1String("instagram") || entry.tags.contains(QStringLiteral("kit:lowerthirds"))
         || entry.tags.contains(QStringLiteral("tercio"));
 }
 
