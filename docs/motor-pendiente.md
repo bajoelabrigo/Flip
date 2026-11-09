@@ -40,3 +40,10 @@ en el panel de Texto (si Jorge lo quiere) y compilar; la plantilla `yp0-barra-se
 8. Esquinas redondeadas en trazados propios (hexágono).
 9. Trazos con degradado (marco del hexágono, banda azul, aro del avatar).
 10. Estelas en espiral de entrada: hoy, arco/espiral que se dibuja.
+
+## yp2 (pack youtube 2)
+1. Giro 3D en Y del botón con perspectiva (apertura 0–1,5 s, aro-canal 26,8–28,3 s): hoy, giro en el plano.
+2. Barras de la transición diagonal que cambian de ancho y abren líneas (29,3–30,6 s): pediría morph de trazados
+   (`pathShapes` existe en el motor; el generador no lo usa todavía).
+3. Franjas que se deforman al girar (44,4–45,6 s): hoy, rectas.
+4. Íconos en bucle infinito: hoy, 3,2 s cada uno.
