@@ -57,3 +57,13 @@ en el panel de Texto (si Jorge lo quiere) y compilar; la plantilla `yp0-barra-se
 5. Ancho de caja atado al texto tecleado visible (títulos en caja, 107–124 s) y cursor de bloque rojo delante (113 s).
 6. Máscara rectangular animada sobre formas (barrido de pincel, social-pincel 144,4 s).
 7. Huecos de video en pantallas finales (hoy, huecos de foto).
+
+## yp1 (pack youtube 1)
+1. Objetos 3D con grosor que giran en perspectiva (pulgar, campana, insignia, logos que vuelan): hoy, ancho × cos + canto oscuro.
+2. Voltear botones y textos sobre el eje X con perspectiva: hoy, el alto se achica.
+3. Desenfoque gaussiano de formas y efecto remolino (twirl) para fondos de seda/líquido y la espiral.
+4. Desenfoque de movimiento por forma (bordes de transiciones, zooms desde letras gigantes).
+5. Dos rellenos en un mismo trazado (campana gris con badajo amarillo).
+- Ya existe y conviene usar: `pathShapes` + clave `path` (morph), `cornerRadius`/`wiggleSize`/`trimEnd` animables,
+  máscaras `path`, trazos con `dashPattern`, `runs` con color por letra, `letterSpacing` animado, presets
+  `ibs-scatter-gather`, `im-crash-from-big`, `converge`, `blur-in`.
