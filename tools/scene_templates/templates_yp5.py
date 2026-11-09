@@ -141,15 +141,13 @@ def dots_in_circle(n=34, size=0.42):
     return " ".join(out)
 
 
-# Opaque 3D layers on screen together are depth-sorted by the engine. With the 0109 engine a single card (faces, edge
-# behind) sorts cleanly, but a glyph lying on its card still flickers through it while they turn (checked frame by
-# frame, even lifted 2 px): those pieces pass keep_order, just under full opacity, so they keep track order.
-KEEP_ORDER = 0.998
+# Opaque 3D layers on screen together are depth-sorted by the engine; since engine 0109b a layer drawn later wins
+# against one practically in its plane, so a glyph (after its card in track order) stays on top. Lifted 2 px too.
 GLYPH_LIFT = 2.0
 
 
 def card3d(s, name, geom, w, h, rx=None, ry=None, persp=1600, front=None, back=None, edge=None, radius=0.24,
-           tri=True, depth=12.0, z=None, keep_order=False):
+           tri=True, depth=12.0, z=None):
     """A card turned in 3D by the engine: geom(fr, u) = (cx, cy, scale, rot, opacity); rx / ry(fr) in degrees.
     front: layers of the face (with a play-triangle hole when tri); back: layers seen when it faces away; edge: a
     copy `depth` px behind (+z comes toward the eye) that shows as the card's thickness while it turns; z(fr) moves
@@ -165,7 +163,7 @@ def card3d(s, name, geom, w, h, rx=None, ry=None, persp=1600, front=None, back=N
         def f(fr, u):
             cx, cy, sc, rot, op = geom(fr, u)
             show = 1.0 if side is None else (1.0 if facing(fr) == side else 0.0)
-            return cx, cy, w * sc, h * sc, rot, op * show * (KEEP_ORDER if keep_order else 1.0)
+            return cx, cy, w * sc, h * sc, rot, op * show
         return f
     clips = []
     if edge:
@@ -2250,10 +2248,9 @@ def shade(colour, f):
     return "#%02X%02X%02X" % tuple(round(c + (t_ - c) * f) for c in (r, g, b))
 
 
-def glyph3d(s, name, kind, geom, size, colour, back, rx=None, ry=None, persp=1600, show=None, z=None,
-            keep_order=False):
+def glyph3d(s, name, kind, geom, size, colour, back, rx=None, ry=None, persp=1600, show=None, z=None):
     """A glyph that turns with its card: every piece gets the card's 3D pose (they share its centre)."""
-    g = lambda fr, u: (lambda v: (*v[:4], v[4] * (KEEP_ORDER if keep_order else 1.0) * (show(fr) if show else 1.0)))(geom(fr, u))  # noqa: E731
+    g = lambda fr, u: (lambda v: (*v[:4], v[4] * (show(fr) if show else 1.0)))(geom(fr, u))  # noqa: E731
     for c in new_clips(s, lambda: glyph(s, name, kind, g, size, colour, back=back)):
         # a hair in front of its card (+z comes toward the eye), so the depth test keeps it on top
         s.d3(c, rx=(lambda fr, u: rx(fr)) if rx else None, ry=(lambda fr, u: ry(fr)) if ry else None,
@@ -2282,9 +2279,9 @@ def social_tilted(kind, net, colour, handle, order):
           reveal=bar, shift=lambda fr: (-150 * (1 - k(fr, 48, 16)), 0))
     geom = lambda fr, u: (x(fr), y(fr), 1, rz(fr), toggle(fr, 4))  # noqa: E731
     card3d(s, "Ícono", geom, 128, 136, rx=rx, ry=ry, persp=1600, front=solid(colour), back=solid(shade(colour, -0.1)),
-           edge=solid(shade(colour, 0.35)), radius=0.06, tri=False, keep_order=True)
+           edge=solid(shade(colour, 0.35)), radius=0.06, tri=False)
     facing = lambda fr: 1.0 if math.cos(math.radians(rx(fr))) * math.cos(math.radians(ry(fr))) >= 0 else 0.0  # noqa: E731
-    glyph3d(s, "Ícono (glifo)", kind, geom, 96, WHITE, colour, rx=rx, ry=ry, show=facing, keep_order=True)
+    glyph3d(s, "Ícono (glifo)", kind, geom, 96, WHITE, colour, rx=rx, ry=ry, show=facing)
     return t
 
 
@@ -2369,9 +2366,9 @@ def social_tile(kind, net, colour, handle, order):
     geom = lambda fr, u: (*hinge(fr), 1, pose(fr)[2], toggle(fr, 17))  # noqa: E731
     # a long lens: far from the frame's centre a short eye distance pulls the far edge toward the middle
     card3d(s, "Cuadro", geom, w, h, rx=lambda fr: pose(fr)[0], ry=lambda fr: pose(fr)[1], persp=3200,
-           front=solid(WHITE), radius=0.04, tri=False, z=push, keep_order=True)
+           front=solid(WHITE), radius=0.04, tri=False, z=push)
     glyph3d(s, "Ícono", kind, geom, 136, colour, WHITE, rx=lambda fr: pose(fr)[0], ry=lambda fr: pose(fr)[1],
-            persp=3200, z=push, keep_order=True)
+            persp=3200, z=push)
     return t
 
 

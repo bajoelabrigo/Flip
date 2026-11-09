@@ -133,9 +133,11 @@ PERSP = 1600.0
 # Opacity of the 3D pieces while shown (the engine depth-sorts opaque 3D layers; since motor-0109 that keeps soft
 # edges, so they stay fully opaque).
 FLAT = 1.0
-# Text and photos riding on a face stay just under opaque: out of the depth sort, drawn in track order over their
-# face (depth-sorted, the text a few px in front of a tilted face still dropped out on some frames, motor-0109).
-RIDER = 0.998
+# Text, photos and icons riding on a face: depth-sorted like the rest (motor-0109b offsets coplanar layers by draw
+# order). Only the flipping buttons keep theirs just under opaque, out of the depth sort and drawn in track order
+# over their face: there «LIKED» and its left icon still dropped out for a frame or two of the flip (motor-0109b).
+RIDER = 1.0
+RIDER_FLIP = 0.998
 BELL_BODY = ("M 50 4 C 55 4 57 8 57 11 C 72 15 80 29 80 47 L 80 66 L 93 80 L 7 80 L 20 66 L 20 47 C 20 29 28 15 43 11 "
              "C 43 8 45 4 50 4 Z")
 BELL_CLAP = "M 39 78 L 61 78 L 61 85 C 61 98 39 98 39 85 Z"
@@ -210,7 +212,7 @@ def solid3d(s, name, path, face, sides, geom, depth, n=6, back=None, kind="recta
     put(f"{name} (atrás)", back or face, place(depth / 2, lambda v: facing(v) < 0))
 
 
-def ride(s, clip, geom, centre, oz, rest):
+def ride(s, clip, geom, centre, oz, rest, flat=None):
     """Puts a text or photo clip on the front of a turning piece: geom as solid3d's, centre = the clip's (x, y) when
     the piece rests at rest = (cx, cy, w); oz = how far in front of the piece's centre."""
     G = g9(geom)
@@ -222,7 +224,7 @@ def ride(s, clip, geom, centre, oz, rest):
         sc = w / w0
         dx, dy, dz = turn3(ox * sc, oy * sc, oz * sc, rx, ry, rot)
         front = math.cos(math.radians(rx)) * math.cos(math.radians(ry)) >= 0
-        return cx + dx - centre[0], cy + dy - centre[1], sc, rot, min(op, RIDER) if front else 0.0, rx, ry, z + dz
+        return cx + dx - centre[0], cy + dy - centre[1], sc, rot, min(op, RIDER if flat is None else flat) if front else 0.0, rx, ry, z + dz
     s.tmove(clip, lambda fr, u: where(fr, u)[:5])
     s.d3(clip, rx=lambda fr, u: where(fr, u)[5], ry=lambda fr, u: where(fr, u)[6], z=lambda fr, u: where(fr, u)[7],
          persp=PERSP)
@@ -349,14 +351,15 @@ def flip_btn(s, name, rect, states, at, n=9, radius=10, shift=None, op=None, ico
         solid3d(s, nm, None, colour, (mix(colour, WHITE, 0.5), mix(colour, BLACK, 0.35)), geom, depth, n=3,
                 radius=radius, base=(w, h))
         c = s.say(text, ink, fam, wt, tc, f"{nm} (texto)")
-        ride(s, c, geom, ((ink[0] + ink[2]) / 2, (ink[1] + ink[3]) / 2), depth / 2 + 3, (cx, cy, w))
+        ride(s, c, geom, ((ink[0] + ink[2]) / 2, (ink[1] + ink[3]) / 2), depth / 2 + 3, (cx, cy, w),
+             flat=RIDER_FLIP)
         for j, (path, ix, iy, size, cols) in enumerate(icons):
             def ig(fr, u, geom=geom, ix=ix, iy=iy, size=size):
                 bx, by, _, _, rot, on, rx, ry = geom(fr, u)
                 dx, dy, dz = turn3(ix - cx, iy - cy, depth / 2 + 3, rx, ry, rot)
                 return bx + dx, by + dy, size, size, rot, on, rx, ry, dz
             solid3d(s, f"{nm} (icono {j + 1})", path, cols[i], (cols[i], cols[i]), ig, 1, n=0, base=(size, size),
-                    flat=RIDER)
+                    flat=RIDER_FLIP)
 
 
 def burst(s, name, cx, cy, at, r0=60, r1=200, n=10, colour=RED, seed=0):
