@@ -104,3 +104,9 @@ Many «Motor pendiente» notes of the first pass are things the engine already d
   `ibs-scatter-gather`, `im-crash-from-big`; per-letter `random` order.
 - **Counter:** `counter`, `counterFrom`, `counterSeconds`, `counterCurve: "linear"` (NEW, next build).
 - **Short / Video:** slides mark `layoutRole` themselves; check the other shape with `short_check.py`.
+- **Track matte:** `clip["matte"] = {"clip": <id of another clip>, "mode": "alpha"}` shows the clip only through that
+  clip's alpha — letters filled with the video (with their own per-letter animation), lines clipped to a strip that
+  scales with the block. Cleaner than masks when the window moves or fades.
+- **Inline text animators:** a text slot can carry `animators` instead of a preset. Per-letter random amounts = a
+  `stagger` selector × a `wiggle` selector (`wave: "noise"`, `frequencyHz: 0`, `mode: "intersect"`); `seed` picks the
+  pattern (see yp7 `jump()`).

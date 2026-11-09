@@ -17,7 +17,8 @@ en el panel de Texto (si Jorge lo quiere) y compilar; la plantilla `yp0-barra-se
 3. **Intersección de dos formas en otro color** (yp4-bienvenida, 5,2–5,8 s): falta intersección entre capas o modo
    «diferencia»; hoy, una lente aproximada.
 
-## yp7 (pack youtube 7)
+## yp7 (pack youtube 7) — RESUELTO sin tocar el motor (2026-11-09)
+Letras con el video: copia del hueco con `matte` (alfa del texto) y brillo; líneas en su franja: `matte` con una franja que escala con el bloque; salto distinto por letra: animador en línea con `stagger` × `wiggle` (ruido, 0 Hz, `intersect`); tramas de puntos: un rectángulo con `halftone_comic` en modo «screen». Detalle en `estudio-pack-youtube-7/NOTAS.md`. Lo de abajo queda como historia.
 1. **Letras que dejan ver el video de abajo, aclarado** (yp7-apertura-youtube, 0–4 s): hoy, gris claro; falta un relleno de
    texto que muestre la capa de abajo (modo de mezcla del relleno / «knockout»).
 2. **Cada línea sube dentro de su franja recortada mientras el bloque se achica** (tipografía, 140–155 s): falta una

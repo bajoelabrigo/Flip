@@ -18,11 +18,11 @@ import os
 import templates_llt_f as f6
 from kit import Box, label, wide
 from llt_motion import frames_of, mask_track
-from scene import keys, tanim
+from scene import keys, tanim, us
 from templates_tit_c import FPS, k
 from templates_tit_e import solid
 from templates_tit_f import outline_layers
-from templates_tit_h import S, arc, fill, lin, poly, ring, rot_pt
+from templates_tit_h import EXIT, S, arc, fill, lin, poly, ring, rot_pt
 
 WHITE, BLACK, RED = "#FFFFFF", "#000000", "#FF0000"
 DARK, GREY = "#222222", "#9A9A9A"
@@ -177,7 +177,7 @@ def opener_youtube():
     t = _p("apertura-youtube", "Apertura: YOUTUBE en contorno que se rellena", "Opener: outlined YOUTUBE that fills",
            13301, D, "aperturas", ["youtube", "apertura"])
     s = Y(t, D)
-    s.video()
+    shot = s.video()
     end = 126
     shrink = lambda fr: 1 - k(fr, end, 22)  # noqa: E731
     turn = lambda fr: -35 * k(fr, end, 22)  # noqa: E731
@@ -196,8 +196,14 @@ def opener_youtube():
     c = s.say("YOUTUBE", ink, M, 900, GREY, "Título (contorno)", layers=outline_layers("#8C8C8C", 3), geom=geo(),
               editable=False)
     s.typed(c, 0, stagger=0.19, duration=0.25, preset="fade")
-    c = s.say("YOUTUBE", ink, M, 900, "#C9C9C9", "Título", geom=geo())
+    # The filled letters show the shot itself, lightened: a second copy of the «Tu video» slot (same fill) whose
+    # track matte is the word; the word's own per-letter fade-in fills the letters one by one.
+    lit = s.t.photo(s.t.track("video", "Video en las letras"), VIDEO, 0.0, D, None, None,
+                    reuse=shot["placeholderId"])
+    s.fx(lit, "adjust.brightness", brightness=0.14)
+    c = s.say("YOUTUBE", ink, M, 900, WHITE, "Título", geom=geo())
     s.typed(c, 33, stagger=0.12, duration=0.18, preset="fade")
+    lit["matte"] = {"clip": c["id"], "mode": "alpha"}
     sub = (460, 664, 1460, 686)
     s.say("YOUR FAVOURITE YOUTUBE CHANNEL", sub, M, 500, "#A0A0A0", "Texto",
           geom=geo(lambda fr: k(fr, 69, 9), sub))
@@ -538,6 +544,35 @@ def dur_r(entrance, hold=2.4):
     return round(entrance + hold + entrance / 2.5, 1)
 
 
+def _stagger(stagger, duration, order="random", seed=7, ease="easeOut", domain="character"):
+    return {"driver": "stagger", "domain": domain, "staggerUs": us(stagger), "durationUs": us(duration),
+            "ease": ease, "order": order, "seed": seed}
+
+
+def _both(clip, at, slot):
+    """In at frame `at`; out = the same backwards, EXIT times faster (as S.typed)."""
+    clip["textStyle"]["animation"] = {"in": dict(slot(1.0), delayUs=us(at / FPS)),
+                                      "out": dict(slot(1.0 / EXIT), delayUs=us(at / FPS / EXIT))}
+
+
+def jump(clip, at, stagger, fade, settle, amp, seed=7):
+    """Letters in random order, each fading in at a height of its own (±amp px: a noise wiggle with no speed gives
+    every letter a fixed amount; the seed picks the pattern, chosen to match the reference) and settling onto the line."""
+    noise = {"driver": "wiggle", "domain": "character", "mode": "intersect", "wave": "noise", "frequencyHz": 0,
+             "spatialPhaseDeg": 0, "temporalPhaseDeg": 0, "minAmount": -100, "maxAmount": 100, "seed": seed}
+    _both(clip, at, lambda f: {"animators": [
+        {"name": "Aparecer", "selectors": [_stagger(stagger * f, fade * f, seed=seed)], "props": {"opacity": 0}},
+        {"name": "Salto", "selectors": [_stagger(stagger * f, settle * f, seed=seed, ease="easeInOut"), noise],
+         "props": {"position": {"x": 0, "y": amp, "unit": "px"}}}]})
+
+
+def rise_line(clip, at, duration, dist):
+    """The line rises `dist` px into place (no fade): shown only inside its strip by a track matte."""
+    _both(clip, at, lambda f: {"animators": [
+        {"name": "Subir", "selectors": [_stagger(0.0, duration * f, order="forward", domain="line")],
+         "props": {"position": {"x": 0, "y": dist, "unit": "px"}}}]})
+
+
 def para(s, content, x, top, size, colour, name, weight=400, line=0.9, bold=(), family=P, align="left"):
     """A block of lines (newlines) whose first line's top is near `top`."""
     f = f6._font(family, weight)
@@ -567,7 +602,7 @@ def greatness():
     t = _t("greatness", "Tipografía: letras que caen en su lugar", "Typography: letters falling into place", 13310, D)
     s = YR(t, D)
     c = s.say("GREATNESS", (210, 452, 1710, 628), P, 800, WHITE)
-    s.typed(c, 6, stagger=0.07, duration=0.35, preset="rise", order="random")
+    jump(c, 6, stagger=0.07, fade=0.2, settle=0.6, amp=60, seed=1506)
     s.spacing(c, lambda fr: 110 * (1 - k(fr, 6, 42)))
     return t
 
@@ -582,8 +617,15 @@ def super_life():
                                      ("LIFE", (768, 635, 1160, 778)))):
         c = s.say(word, ink, P, 800, WHITE, ["Título", "Texto", "Texto 2"][i],
                   geom=lambda fr, u, ink=ink: (*s.about(ink, 960, 532, sc(fr)), sc(fr), 0, 1))
-        s.typed(c, 9 + 3 * i, stagger=0.0, duration=0.4, preset="rise", unit="line")
+        rise_line(c, 9 + 3 * i, 0.4, (ink[3] - ink[1]) * 1.35 * 1.2)
         s.spacing(c, lambda fr: 40 * (1 - k(fr, 30, 42)))
+
+        # Its strip: the line shows only above its own baseline (track matte), scaled with the block.
+        def strip(fr, u, ink=ink):
+            x0, y0, x1, y1 = ink[0] - 340, ink[1] - 50, ink[2] + 340, ink[3] + 8
+            cx, cy = 960 + ((x0 + x1) / 2 - 960) * sc(fr), 532 + ((y0 + y1) / 2 - 532) * sc(fr)
+            return cx, cy, (x1 - x0) * sc(fr), (y1 - y0) * sc(fr), 0, 1
+        c["matte"] = {"clip": s.obj(f"Franja {i + 1}", solid(WHITE), strip)["id"], "mode": "alpha"}
     return t
 
 
@@ -646,7 +688,7 @@ def awesomeness():
     s.obj("Marco", ring(WHITE, 5), box)
     ink = (400, 508, 1520, 604)
     c = s.say("AWESOMENESS", ink, P, 800, WHITE, geom=lambda fr, u: (*s.about(ink, 960, 556, sc(fr)), sc(fr), 0, 1))
-    s.typed(c, 33, stagger=0.06, duration=0.3, preset="rise", order="random")
+    jump(c, 33, stagger=0.06, fade=0.15, settle=0.55, amp=75, seed=1333)
     s.spacing(c, lambda fr: 30 * (1 - k(fr, 36, 24)))
     s.clipped(c, lambda fr: (960 - box(fr, 0)[2] / 2, 0, 960 + box(fr, 0)[2] / 2, 1080))
     return t
@@ -1014,9 +1056,13 @@ def note_video():
 
 # ==== ELEMENTS: glyphs that pop around, dot grids and scan lines that flash =========================================
 
-def _dots(cols, rows):
-    return " ".join(f"M {100 * (i + 0.3) / cols:.2f} {100 * (j + 0.3) / rows:.2f} h {40 / cols:.2f} v {40 / rows:.2f} "
-                    f"h {-40 / cols:.2f} Z" for i in range(cols) for j in range(rows))
+def dot_screen(s, name, geom, rot=0.0):
+    """A dot screen: one grey rectangle through the comic halftone (grey dots on black) in screen mode, so only
+    the dots add light to what is below."""
+    clip = s.obj(name, solid("#5A5A5A"), lambda fr, u: (*geom(fr, u)[:5], geom(fr, u)[5] * 0.6))
+    s.fx(clip, "halftone_comic", strength=1.0, dotSize=14.0, levels=4.0, angle=rot)
+    clip["blendMode"] = "screen"
+    return clip
 
 
 def _lines(n):
@@ -1044,10 +1090,12 @@ def overlay(id, es, en, order, events, extra=None):
         A, B = a * FPS, b * FPS
         if kind in ("puntos", "rayas"):
             w, h = x[2] - x[0], x[3] - x[1]
-            path = _dots(max(4, int(w / 14)), max(4, int(h / 14))) if kind == "puntos" else _lines(max(4, int(h / 12)))
-            s.obj(f"{kind.capitalize()} {i + 1}", solid(WHITE, 0.35),
-                  lambda fr, u, A=A, B=B, x=x, w=w, h=h: ((x[0] + x[2]) / 2, (x[1] + x[3]) / 2, w, h, 0,
-                                                          1.0 if A <= fr < B else 0.0), path=path)
+            geo = (lambda fr, u, A=A, B=B, x=x, w=w, h=h: ((x[0] + x[2]) / 2, (x[1] + x[3]) / 2, w, h, 0,
+                                                           1.0 if A <= fr < B else 0.0))
+            if kind == "puntos":
+                dot_screen(s, f"Puntos {i + 1}", geo)
+            else:
+                s.obj(f"Rayas {i + 1}", solid(WHITE, 0.35), geo, path=_lines(max(4, int(h / 12))))
             continue
         layers, path, size = GLYPHS[kind]
 
@@ -1093,9 +1141,9 @@ def overlay_3():
                 cx + 120 * math.sin(u * 0.8 + i), 540, 2, 2400, rot, 1.0 if int(u * 2.5 + i) % 3 else 0.0))
         for i in range(4):
             a = 0.6 + 2.2 * i
-            s.obj(f"Rombo de puntos {i + 1}", solid(WHITE, 0.25), lambda fr, u, a=a, i=i: (
+            dot_screen(s, f"Rombo de puntos {i + 1}", lambda fr, u, a=a, i=i: (
                 (500, 1300, 800, 1500)[i], (700, 600, 420, 800)[i], 600, 600, 45,
-                1.0 if a * FPS <= fr < (a + 0.5) * FPS else 0.0), path=_dots(30, 30))
+                1.0 if a * FPS <= fr < (a + 0.5) * FPS else 0.0))
     return overlay("elementos-3", "Elementos: diagonales y rombos de puntos", "Elements: diagonals and dot diamonds",
                    13340, _events(3, 22, ["rombo", "cruz", "cuadro", "onda", "aro"], 0, "puntos"), lines)
 
