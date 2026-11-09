@@ -1,5 +1,19 @@
 # Motor: lo que falta (pedido de Jorge, 2026-11-08)
 
+## Estado 2026-11-09 (segunda pasada de los packs, con lo que el motor ya tenía)
+- **Arreglado en el motor (sin compilar, build 42568155238):** desenfoque gaussiano de verdad (antes 5 muestras: copias
+  dobles), medido en px del proyecto (vista previa = exportación) y con margen para no cortarse en la caja; capas 3D que
+  se tapan: el color se dibuja entero y solo lo sólido escribe profundidad (texto sobre una cara que gira y el triángulo
+  de yp2 desaparecían); Remolino (`stylize.twirl`); contador lineal; `layoutRole` y ajuste parejo de fondos redondos.
+  Cuando la build esté: en `templates_yp1.py` poner `BLUR_PX = 3`, quitar las tres capas de desenfoque encadenadas y el
+  truco `FLAT` (opacidad 0,998).
+- **Sigue faltando de verdad:**
+  1. Un hueco de foto que pida «Quitar fondo» (RVM) al rellenarse, para capas entre el fondo y la persona (yp4).
+  2. `liquid.gooey` sobre un grupo de capas: en una capa de ajuste solo desenfoca (el lienzo ya es opaco); hace falta
+     componer el grupo sobre transparente antes de sus efectos (yp3; hoy el contorno se calcula en el generador).
+  3. Extrusión real por capa (profundidad + color del canto): hoy, copias apiladas (yp1, yp3).
+  4. Humo/partículas en estelas (yp3, 91,3–91,9 s); degradado a lo largo del trazo.
+
 Cada sección: qué hace la referencia, en qué segundos, y qué necesitaría el motor.
 
 ## yp0 (38664567) — contador de seguidores lineal — HECHO en el motor (sin compilar)
