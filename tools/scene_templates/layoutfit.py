@@ -234,6 +234,15 @@ def fit_doc(doc, toW, toH, fit="keep"):
             _map_track(clip, "y", scale, oy, 0.0)
             _map_track(clip, "width", scale, 0, W)
             _map_track(clip, "height", scale, 0, H)
+            if clip.get("positionZ", {}).get("keyframes"):
+                _map_track(clip, "positionZ", scale, 0, 0.0)
+            rest = clip.get("parentRest")
+            if clip.get("parentId") and rest and len(rest) == 9:
+                # the parent's pose at the link moves as the parent does (row vectors: rest · scale+offset)
+                m11, m12, m13, m21, m22, m23, m31, m32, m33 = rest
+                clip["parentRest"] = [m11 * scale + m13 * ox, m12 * scale + m13 * oy, m13,
+                                      m21 * scale + m23 * ox, m22 * scale + m23 * oy, m23,
+                                      m31 * scale + m33 * ox, m32 * scale + m33 * oy, m33]
             if clip.get("type") in ("text", "subtitle") and "textStyle" in clip:
                 _scale_text(clip["textStyle"], scale)
             elif clip.get("type") == "shape" and "shapeStyle" in clip:

@@ -16,7 +16,7 @@ import math
 import templates_llt_f as f6
 from kit import wide
 from scene import gradient, keys, no_stroke, tanim
-from templates_tit_c import k
+from templates_tit_c import FPS, k
 from templates_tit_e import solid
 from templates_tit_h import EXIT, TRIANGLE, S, fill, lin, poly, ring, rot_pt, shadow
 
@@ -104,6 +104,28 @@ def yt_logo(s, name, geom, w=162, h=116, red=RED, tri=WHITE, tri_rot=None, radiu
     return box, s.obj(f"{name} (play)", solid(tri), tg, path=TRIANGLE)
 
 
+def stick_to(s, play, box, geom, w, h, tri_rot, rest_fr, z, persp):
+    """Makes the play triangle `play` a 3D child of the button `box` (both from yt_logo with geom/w/h): its keys
+    become its place on the box when the box stands as at frame rest_fr, turning by tri_rot(fr) on top, and the box's
+    pose at that frame is the link's rest. The engine then carries it with the box (moves, size, turn and 3D tilt)."""
+    u0 = rest_fr / FPS
+    cx, cy, sc, rot, _ = geom(rest_fr, u0)
+    bw, bh = w * sc, h * sc
+    a = math.radians(rot)
+    # QTransform of the box's pose: translate(centre) · rotate(rot) · scale(w, h), as row-vector values.
+    play["parentId"] = box["id"]
+    play["parentRest"] = [bw * math.cos(a), bw * math.sin(a), 0.0, -bh * math.sin(a), bh * math.cos(a), 0.0,
+                          cx, cy, 1.0]
+    ox, oy = rot_pt(cx + w * 0.03 * sc, cy, rot, cx, cy)
+    tw, th = w * 0.27 * sc, h * 0.43 * sc
+    play["x"] = keys([(0.0, round(ox - tw / 2, 3), "hold")])
+    play["y"] = keys([(0.0, round(oy - th / 2, 3), "hold")])
+    play["width"] = keys([(0.0, round(tw, 3), "hold")])
+    play["height"] = keys([(0.0, round(th, 3), "hold")])
+    play["rotation"] = keys([(u, round(rot + (tri_rot(fr) if tri_rot else 0.0), 3), "linear") for u, fr in s.each()])
+    s.d3(play, z=lambda fr, u: z, persp=persp)
+
+
 def _p(id, es, en, order, dur, section, tags=(), thumb=None):
     return wide(f"yp2-{id}", es, en, "ytkit", dur, order=order,
                 tags=[f"kit:{section}", "youtube", "rojo"] + list(tags),
@@ -175,11 +197,11 @@ def ring_intro(s, centre=BLACK, logo_w=162, logo_cx=651, words=(), end_shrink=Tr
         return x, 540, max(1e-3, sc), spin(fr), 1.0 if fr >= 14 else 0.0
     # Once still, the triangle alone spins three turns back (fast at first) from frame 40.
     tri = lambda fr: -1080 * (1 - (1 - lin(fr, 40, 30)) ** 3)  # noqa: E731
-    box, _ = yt_logo(s, "Logo", logo, w=logo_w, h=logo_w * 0.716, tri_rot=tri)
-    # Only the red box turns in 3D. With both box and triangle as 3D layers the box hides the triangle on frames 17-21
-    # whatever its depth (positionZ -2, +2, +4, +20; engine builds 0109 and 0109b), so the triangle stays flat: it is
-    # small and flat on the box and reads the same.
+    box, play = yt_logo(s, "Logo", logo, w=logo_w, h=logo_w * 0.716, tri_rot=tri)
     s.d3(box, ry=lambda fr, u: 35 * (1 - k(fr, 14, 24)), rx=lambda fr, u: -12 * (1 - k(fr, 14, 24)), persp=500)
+    # The triangle is the box's child (the engine's 3D parenting, 2026-11-09): it turns with the box's face and sits
+    # 2 px in front of it. Its own keys are its place on the box at rest (frame 40) plus its extra spin.
+    stick_to(s, play, box, logo, logo_w, logo_w * 0.716, tri, rest_fr=40, z=2.0, persp=500)
 
     def place(ink):
         def g(fr, u):

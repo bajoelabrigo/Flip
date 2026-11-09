@@ -61,6 +61,9 @@ void mapLayout(QList<Track> &tracks, int fromW, int fromH, double scale, double 
             mapTrack(clip.transformH, scale, 0.0, fromH);
             if (!clip.positionZ.isEmpty())
                 mapTrack(clip.positionZ, scale, 0.0, 0.0);
+            // The parent's pose at the link moves the same way as the parent, so the child keeps its place on it.
+            if (!clip.parentId.isEmpty())
+                clip.parentRest = clip.parentRest * QTransform(scale, 0.0, 0.0, scale, offsetX, offsetY);
             if (clip.type == ClipType::Text || clip.type == ClipType::Subtitle) {
                 scaleTextStyle(clip.textStyle, scale);
             } else if (clip.type == ClipType::Shape) {
