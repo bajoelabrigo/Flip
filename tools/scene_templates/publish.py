@@ -115,7 +115,10 @@ def main() -> int:
             # The YouTube kit draws with the 0.26 shape tools (custom outlines, trim paths): older apps don't get it.
             # The lower thirds with a logo and the clean ones (llt*) lean on 0.29: the 3D turn about the anchor.
             # The rebuilt ones from llt4 on were made and checked with the 0.30 app.
-            **({"minAppVersion": "0.30.0"} if re.match(r"llt([4-9]|1\d)-", tid) else
+            # The titles (tit*), llt16 and the YouTube pack (yp*) lean on the engine after 0.30.2: Twirl, the real
+            # Gaussian blur, 3D depth order and parenting, the linear counter and the Short/Video layout roles.
+            **({"minAppVersion": "0.31.0"} if re.match(r"(tit\d|yp\d|llt16)-", tid) else
+               {"minAppVersion": "0.30.0"} if re.match(r"llt([4-9]|1\d)-", tid) else
                {"minAppVersion": "0.29.0"} if tid.startswith("llt") else
                {"minAppVersion": "0.26.0"} if manifest.get("category") == "ytkit" else {}),
             "zip": f"{tid}.zip",
