@@ -23329,6 +23329,18 @@ If playback stutters, try another.</source>
         <translation>유튜버 스타일</translation>
     </message>
     <message>
+        <source>YouTube Kit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>TikTok Kit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Instagram Kit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Other</source>
         <translation>기타</translation>
     </message>

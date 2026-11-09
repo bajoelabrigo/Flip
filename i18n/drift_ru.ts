@@ -23502,6 +23502,18 @@ If playback stutters, try another.</source>
         <translation>В стиле ютубера</translation>
     </message>
     <message>
+        <source>YouTube Kit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>TikTok Kit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Instagram Kit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Other</source>
         <translation>Другое</translation>
     </message>

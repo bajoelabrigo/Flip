@@ -23416,6 +23416,18 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Estilo youtuber</translation>
     </message>
     <message>
+        <source>YouTube Kit</source>
+        <translation>Kit de YouTube</translation>
+    </message>
+    <message>
+        <source>TikTok Kit</source>
+        <translation>Kit de TikTok</translation>
+    </message>
+    <message>
+        <source>Instagram Kit</source>
+        <translation>Kit de Instagram</translation>
+    </message>
+    <message>
         <source>Other</source>
         <translation>Otras</translation>
     </message>
