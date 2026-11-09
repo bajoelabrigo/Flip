@@ -241,8 +241,11 @@ void fitOverlayLayout(QList<Track> &tracks, int fromW, int fromH, int toW, int t
     // A photo that fills the frame behind the design and shows only through a mask (a word, a strip, a window):
     // the photo goes on filling the frame, the window follows the design (it would be stretched with the frame).
     QHash<QString, const Clip *> backdropById;
-    for (const Clip *clip : std::as_const(backdrops))
-        backdropById.insert(clip->id, clip);
+    for (const Clip *clip : std::as_const(backdrops)) {
+        // A "cover" picture grows evenly with its mask (2026-11-09): the mask is in its own box and follows it.
+        if (clip->layoutRole != QLatin1String("cover"))
+            backdropById.insert(clip->id, clip);
+    }
     for (Track &track : tracks) {
         for (Clip &clip : track.clips) {
             if (clip.type != ClipType::Adjustment || clip.adjustmentKind != AdjustmentKind::Mask

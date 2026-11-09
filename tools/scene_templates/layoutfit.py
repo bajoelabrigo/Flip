@@ -213,7 +213,7 @@ def fit_doc(doc, toW, toH, fit="keep"):
         _map_track(clip, "y", sy, 0, 0.0)
         _map_track(clip, "width", sx, 0, W)
         _map_track(clip, "height", sy, 0, H)
-    ids = {c.get("id") for c in backdrops}
+    ids = {c.get("id") for c in backdrops if c.get("layoutRole") != "cover"}  # a cover picture keeps its own mask
     for track in doc["tracks"]:
         for clip in track.get("clips", []):
             if clip.get("type") == "adjustment" and clip.get("adjustmentKind") == "mask" and clip.get("linkedClipId") in ids:
