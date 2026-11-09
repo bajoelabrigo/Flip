@@ -110,6 +110,27 @@ El paquete declara `runFullTrust`. Partner Center pide justificarlo:
 
 > editor de video, editar videos, video editor, reels, shorts, transiciones, subtítulos
 
+**Notas para la Store (0.31.0)**. Lo nuevo desde la 0.30.2. Unos 640/1500 caracteres en español. Si la 0.30.2 no se
+subió, pegar estas primero y las de la 0.30.2 debajo, recortando sus últimas líneas hasta quedar en 1500.
+
+> Novedades de la 0.31.0
+>
+> - Más de 490 plantillas nuevas en Stock › Kit de YouTube: títulos, tercios, botones de suscribirse, pantallas finales, contadores, fondos y aperturas que se adaptan solas a Short o a horizontal.
+> - Emparentado 3D: una capa hija gira y se mueve en profundidad con su padre 3D, como en After Effects.
+> - Nuevo efecto Remolino.
+> - Desenfoque gaussiano más suave, igual en la vista previa y al exportar.
+> - Las capas 3D en el mismo plano ya no parpadean.
+
+En inglés:
+
+> What's new in 0.31.0
+>
+> - Over 490 new templates in Stock › YouTube Kit: titles, lower thirds, subscribe buttons, end screens, counters, backgrounds and openers that fit a Short or a widescreen video on their own.
+> - 3D parenting: a child layer turns and moves in depth with its 3D parent, as in After Effects.
+> - New Twirl effect.
+> - Smoother Gaussian blur, the same in the preview and in the export.
+> - 3D layers on the same plane no longer flicker.
+
 **Notas para la Store (0.30.2, combinadas con la 0.30.1)**. La 0.30.1 no se subió (Jorge, 2026-11-07): estas cubren todo
 desde la 0.30.0. Unos 1100/1500 caracteres en español.
 
