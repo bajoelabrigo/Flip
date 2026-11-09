@@ -147,13 +147,13 @@ def something_new():
     s = Piece4(t, 4.4)
     s.gbar("Caja", (574, 450, 968, 630), 0, 3, "pop", fade=True)
     # The box's pattern: the word over and over in rows, cut to the box (the reference runs them on a slant).
-    for i, y in enumerate((452, 497, 542, 587)):
-        pat = s.text("CREATE CREATE CREATE", (560 - 60 * (i % 2), y, 1000 - 60 * (i % 2), y + 36), NAME, 400, INK,
+    for i, y in enumerate((464, 506, 548, 590)):
+        pat = s.text("CREATE CREATE CREATE", (560 - 60 * (i % 2), y, 1000 - 60 * (i % 2), y + 30), NAME, 400, INK,
                      f"Trama {i + 1}", align="left", reveal=lambda fr: (574, 450, 968, 630), editable=False)
         s.fade(pat, lambda fr, i=i: k(fr, 3 + 2 * i, 9))
     s.outline("Marco", rect_pts(968, 453, 1345, 627, "tl"), 6, YEL, at=15, n=9)
-    s.word("SOMETHING", (973, 477, 1330, 518), SMALL, 700, WHITE, "Texto", at=27, n=9)
-    s.word("REALLY NEW", (975, 537, 1329, 601), NAME, 400, WHITE, at=30, n=9)
+    s.word("SOMETHING", (985, 486, 1318, 520), SMALL, 700, WHITE, "Texto", at=27, n=9)
+    s.word("REALLY NEW", (985, 536, 1318, 596), NAME, 400, WHITE, at=30, n=9)
     return t
 
 
@@ -176,7 +176,7 @@ def tag_name():
     t = _p("etiqueta-nombre", "Título: etiqueta, nombre y cargo", "Title: tag, name and role", 4.3, 8868, ["nombre"])
     s = Piece4(t, 4.3)
     s.gbar("Etiqueta", (694, 415, 1074, 490), 0, 12, "ltr")
-    s.word("#CREATOR", (760, 420, 1060, 486), NAME, 400, INK, "Texto", at=6, n=9, slide=0)
+    s.word("#CREATOR", (775, 430, 1050, 478), NAME, 400, INK, "Texto", at=6, n=9, slide=0)
     s.gbar("Línea", (694, 576, 1074, 586), 9, 6, "ltr")
     s.word("ETHAN HAYES", (694, 512, 1111, 554), SMALL, 600, WHITE, at=12, n=12, slide=-80, align="left")
     s.word("VIDEO ENGINEER", (694, 607, 1018, 632), SMALL, 300, WHITE, "Texto 2", at=15, n=9, align="left")
@@ -189,7 +189,7 @@ def logo_name():
     s = Piece4(t, 4.8)
     s.gbar("Línea", (813, 470, 1192, 478), 0, 9, "mid")
     s.gbar("Etiqueta", (813, 415, 1192, 470), 12, 6, "ltr")
-    s.word("#CREATOR", (900, 419, 1180, 466), NAME, 400, INK, "Texto", at=12, n=6, slide=0)
+    s.word("#CREATOR", (912, 431, 1165, 462), NAME, 400, INK, "Texto", at=12, n=6, slide=0)
     s.word("LUTHER STICKELL", (813, 507, 1381, 559), SMALL, 600, WHITE, at=15, n=9, slide=0, align="left")
     s.word("TECHNO BLOGGER", (813, 603, 1179, 634), SMALL, 300, WHITE, "Texto 2", at=18, n=9, slide=0, align="left")
     frame = s.outline("Marco", rect_pts(578, 420, 787, 628, "tl"), 6, YEL, at=33, n=9)
