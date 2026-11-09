@@ -20,7 +20,7 @@ __all__ = ["SQUARE", "WIDE", "Box", "Template", "anim", "beat", "centered", "eff
            "slides", "ring", "outline", "BLOCKED", "slide_in", "type_style"]
 
 # Sample photos never used: a brand or logo shows (CLAUDE.md) or the scene does not travel.
-BLOCKED = {"h-desk-01", "h-community-03", "h-truck-02", "h-soccer-04", "h-product-02", "h-studio-03",
+BLOCKED = {"tk8-burger-01", "tk8-burger-05", "makeup-03", "y3-phone-04", "kids-01", "h-desk-01", "h-community-03", "h-truck-02", "h-soccer-04", "h-product-02", "h-studio-03",
            "h-gaming-04", "h-tools-01", "bakery-01", "winter-02", "spring-03", "skincare-01", "music-01",
            # reviewed by the coordinator (2026-10-16): sneaker and sportswear brands, sponsors on shirts
            "product-01", "product-02", "product-03", "product-04", "gym-03", "fashion-05", "fashion-06", "family-06",
