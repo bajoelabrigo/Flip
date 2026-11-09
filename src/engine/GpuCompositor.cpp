@@ -442,6 +442,13 @@ void composeOnGlThread(GlRuntime &rt, const GpuScene &scene, GlTarget &canvas,
                        bool *lostVideo = nullptr);
 void bindQuad(GlRuntime &rt, QOpenGLExtraFunctions *gl);
 
+// Depth-tested layers drawn so far in this frame (reset where the depth buffer is cleared). Each one is pulled a hair
+// toward the eye by its place in the order (glPolygonOffset), so two 3D layers lying practically on the same plane — a
+// glyph on its card, a triangle on a tilted button — keep track order instead of fighting through each other, while
+// layers really apart in depth still sort by depth (2026-11-09).
+thread_local int g_depthLayerOrder = 0;
+constexpr float kDepthOrderUnits = 16.f;
+
 constexpr const char *kUnpremultiplyFragShader = R"(#version 330 core
 in vec2 v_texCoord;
 out vec4 fragColor;
@@ -1490,6 +1497,11 @@ void drawLayerOnCanvas(GlRuntime &rt, QOpenGLExtraFunctions *gl, GlTarget &canva
             // none writing it — a soft edge, a fading or half-transparent 3D layer is drawn instead of discarded (text
             // riding on a turning face vanished, a small triangle on a tilted box went missing). Then only the solid
             // part (alpha ≥ ½) writes the depth, with the colour off.
+            ++g_depthLayerOrder;
+            if (!ownDepth) {
+                gl->glEnable(GL_POLYGON_OFFSET_FILL);
+                gl->glPolygonOffset(0.f, -kDepthOrderUnits * float(g_depthLayerOrder));
+            }
             program->setUniformValue("u_depthWrite", 0.f);
             gl->glDepthMask(GL_FALSE);
             bindQuad(rt, gl);
@@ -1498,6 +1510,7 @@ void drawLayerOnCanvas(GlRuntime &rt, QOpenGLExtraFunctions *gl, GlTarget &canva
             gl->glColorMask(GL_FALSE, GL_FALSE, GL_FALSE, GL_FALSE);
             bindQuad(rt, gl);
             gl->glColorMask(GL_TRUE, GL_TRUE, GL_TRUE, GL_TRUE);
+            gl->glDisable(GL_POLYGON_OFFSET_FILL);
         } else {
             bindQuad(rt, gl);
         }
@@ -1763,6 +1776,7 @@ void composeOnGlThread(GlRuntime &rt, const GpuScene &scene, GlTarget &outCanvas
             gl->glDepthMask(GL_TRUE);
             gl->glClearDepthf(1.f);
             gl->glClear(GL_DEPTH_BUFFER_BIT);
+            g_depthLayerOrder = 0;
             depthScratch.fbo->release();
         }
     }
