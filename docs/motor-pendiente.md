@@ -16,3 +16,14 @@ en el panel de Texto (si Jorge lo quiere) y compilar; la plantilla `yp0-barra-se
    pueda pedir «Quitar fondo» al rellenarse, para poner capas detrás de la persona.
 3. **Intersección de dos formas en otro color** (yp4-bienvenida, 5,2–5,8 s): falta intersección entre capas o modo
    «diferencia»; hoy, una lente aproximada.
+
+## yp7 (pack youtube 7)
+1. **Letras que dejan ver el video de abajo, aclarado** (yp7-apertura-youtube, 0–4 s): hoy, gris claro; falta un relleno de
+   texto que muestre la capa de abajo (modo de mezcla del relleno / «knockout»).
+2. **Cada línea sube dentro de su franja recortada mientras el bloque se achica** (tipografía, 140–155 s): falta una
+   animación de texto por línea con recorte propio, o máscaras que no sigan la escala del clip.
+3. **Salto vertical distinto por letra** (yp7-greatness, yp7-awesomeness): falta desplazamiento aleatorio por letra en
+   las animaciones («rise» con amplitud aleatoria).
+4. **Tramas de puntos y líneas de barrido**: hoy, trazados con cientos de cuadritos; falta un relleno con patrón para formas.
+- Trampa: una forma escalada a cientos de miles de px (trazados con hueco par-impar) colgó el render con 5 GB; usar un
+  sólido de cuadro completo con máscara invertida.
