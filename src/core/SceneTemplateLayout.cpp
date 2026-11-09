@@ -4,6 +4,7 @@
 
 #include <QHash>
 #include <algorithm>
+#include <limits>
 
 #include <tuple>
 
@@ -119,18 +120,24 @@ void fitOverlayLayout(QList<Track> &tracks, int fromW, int fromH, int toW, int t
     QRectF art;
     QList<Clip *> backdrops;
     QList<const Clip *> leave;
+    QList<const Clip *> artClips;
+    TimeUs firstStart = std::numeric_limits<TimeUs>::max();
+    TimeUs lastEnd = 0;
     for (Track &track : tracks) {
         if (track.type == TrackType::Audio)
             continue;
         for (Clip &clip : track.clips) {
             if (clip.type == ClipType::Audio || clipBoxIsCanvasReferenced(clip))
                 continue;
+            firstStart = qMin(firstStart, clip.timelineStart);
+            lastEnd = qMax(lastEnd, clip.timelineStart + clip.timelineDuration);
             const bool text = clip.type == ClipType::Text || clip.type == ClipType::Subtitle;
             if (clip.layoutRole == QLatin1String("backdrop") || clip.layoutRole == QLatin1String("cover")
                 || (clip.layoutRole.isEmpty() && !text && coversCanvas(clip, fromW, fromH))) {
                 backdrops.append(&clip);
                 continue;
             }
+            artClips.append(&clip);
             QList<TimeUs> times{0};
             for (const KeyframeTrack<double> *t : {&clip.transformX, &clip.transformY, &clip.transformW, &clip.transformH})
                 for (auto it = t->keyframes().constBegin(); it != t->keyframes().constEnd(); ++it)
@@ -145,6 +152,32 @@ void fitOverlayLayout(QList<Track> &tracks, int fromW, int fromH, int toW, int t
                 art = art.isNull() ? box : art.united(box);
             }
         }
+    }
+    // The design where it holds still (2026-11-09, the LOGO pack: a line flying in from the side, glitch slices
+    // sweeping across, made the design look as wide as the frame and it came out small and off to one side in a
+    // Short): what is on screen at the middle of the piece. Everything it did before or after is left out; with
+    // nothing on screen there, every key counts as before.
+    if (!art.isNull() && lastEnd > firstStart) {
+        QRectF hold;
+        for (const double f : {0.5, 0.6, 0.7}) {
+            const TimeUs at = firstStart + TimeUs(double(lastEnd - firstStart) * f);
+            for (const Clip *clip : std::as_const(artClips)) {
+                if (at < clip->timelineStart || at >= clip->timelineStart + clip->timelineDuration)
+                    continue;
+                const TimeUs rel = at - clip->timelineStart;
+                if (valueAtKey(clip->opacity, rel, 1.0) < 0.02)
+                    continue;
+                QRectF box(valueAtKey(clip->transformX, rel, 0.0), valueAtKey(clip->transformY, rel, 0.0),
+                           valueAtKey(clip->transformW, rel, fromW), valueAtKey(clip->transformH, rel, fromH));
+                box = box.normalized().intersected(canvas);
+                if (box.width() <= 0 || box.height() <= 0
+                    || (box.width() >= fromW * 0.98 && box.height() >= fromH * 0.98))
+                    continue;
+                hold = hold.isNull() ? box : hold.united(box);
+            }
+        }
+        if (!hold.isNull() && hold.width() > 0 && hold.height() > 0)
+            art = hold;
     }
     if (art.isNull() || art.width() <= 0 || art.height() <= 0) {
         // A template that is all background (2026-11-09: the spiral, the arcs, the lines of the YouTube pack): the

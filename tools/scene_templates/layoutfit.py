@@ -146,6 +146,7 @@ def fit_doc(doc, toW, toH, fit="keep"):
     doc = copy.deepcopy(doc)
     W, H = doc["width"], doc["height"]
     art = None
+    art_clips = []
     backdrops = []
     for track in doc["tracks"]:
         for clip in track.get("clips", []):
@@ -157,12 +158,37 @@ def fit_doc(doc, toW, toH, fit="keep"):
             if role in ("backdrop", "cover") or (not role and not text and covers):
                 backdrops.append(clip)
                 continue
+            art_clips.append(clip)
             for _, x, y, w, h, _ in _boxes(clip, W, H):
                 x0, y0, x1, y1 = max(0, min(x, x + w)), max(0, min(y, y + h)), min(W, max(x, x + w)), min(H, max(y, y + h))
                 if x1 <= x0 or y1 <= y0 or (x1 - x0 >= W * 0.98 and y1 - y0 >= H * 0.98):
                     continue
                 art = (x0, y0, x1, y1) if art is None else (min(art[0], x0), min(art[1], y0), max(art[2], x1),
                                                             max(art[3], y1))
+    # the design where it holds still: what is on screen at the middle of the piece (as the app's fitOverlayLayout)
+    spans = [(c.get("timelineStartUs", 0), c.get("timelineStartUs", 0) + c.get("timelineDurationUs", 0))
+             for t in doc["tracks"] for c in t.get("clips", []) if _visual(c)]
+    first, last = (min(a for a, _ in spans), max(b for _, b in spans)) if spans else (0, 0)
+    if art is not None and last > first:
+        hold = None
+        for f in (0.5, 0.6, 0.7):
+            at = first + int((last - first) * f)
+            for c in art_clips:
+                start = c.get("timelineStartUs", 0)
+                if not (start <= at < start + c.get("timelineDurationUs", 0)):
+                    continue
+                rel = at - start
+                if _value_at(c, "opacity", rel, 1.0) < 0.02:
+                    continue
+                x, y = _value_at(c, "x", rel, 0.0), _value_at(c, "y", rel, 0.0)
+                w, h = _value_at(c, "width", rel, W), _value_at(c, "height", rel, H)
+                x0, y0, x1, y1 = max(0, min(x, x + w)), max(0, min(y, y + h)), min(W, max(x, x + w)), min(H, max(y, y + h))
+                if x1 <= x0 or y1 <= y0 or (x1 - x0 >= W * 0.98 and y1 - y0 >= H * 0.98):
+                    continue
+                hold = (x0, y0, x1, y1) if hold is None else (min(hold[0], x0), min(hold[1], y0), max(hold[2], x1),
+                                                              max(hold[3], y1))
+        if hold is not None:
+            art = hold
     if art is None:
         # all background: the whole drawing covers the frame when a piece says "cover", else fits inside it
         cover = any(c.get("layoutRole") == "cover" for c in backdrops)

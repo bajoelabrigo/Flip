@@ -92,8 +92,10 @@ def logo(s, g, name="Logo"):
 
 
 def widen(clip, extra):
-    for kf in clip["width"]["keyframes"]:
-        kf["value"] += extra
+    """Room for a line that grows (letter spacing, typing) without wrapping. The box stays as wide as the ink (the
+    Short / Video fit measures the design by its boxes: 600 px of empty box pushed the logo off to one side) and the
+    line just does not wrap."""
+    clip["textStyle"]["wordWrap"] = False
 
 
 def letters_in(clip, at, stagger, duration, preset="fade"):
