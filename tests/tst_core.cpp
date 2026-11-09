@@ -323,6 +323,9 @@ void CoreTest::counterTextCountsInTheTextsFormat()
     // Half way through the count it has passed half the number (ease out).
     const QString mid = drift::counterTextAt(QStringLiteral("1000"), 0, 0.425);
     QVERIFY(mid.toInt() > 500 && mid.toInt() < 1000);
+    // counterCurve "linear" (2026-11-08): a steady rate, half way = half the number.
+    QCOMPARE(drift::counterTextAt(QStringLiteral("1000"), 0, 0.5, 1.0, true), QStringLiteral("500"));
+    QCOMPARE(drift::counterTextAt(QStringLiteral("129704"), 120240, 0.25, 1.0, true), QStringLiteral("122606"));
     // Leading zeros keep the width ("05:00" of a match clock); `land` moves the landing.
     QCOMPARE(drift::counterTextAt(QStringLiteral("90:00"), 0, 0.0), QStringLiteral("0:00"));
     QCOMPARE(drift::counterTextAt(QStringLiteral("00:90"), 0, 0.0), QStringLiteral("00:90"));

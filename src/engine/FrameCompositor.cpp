@@ -1359,7 +1359,8 @@ QRectF fillTextLayer(GpuLayer &layer, const drift::TextStyle &plainStyle, const 
                                 : 0.85;
         const double progress =
             double(qBound<drift::TimeUs>(0, timelineUs - windowStartUs, windowDurationUs)) / double(windowDurationUs);
-        shown = drift::counterTextAt(text, style.counterFrom, progress, land);
+        shown = drift::counterTextAt(text, style.counterFrom, progress, land,
+                                      style.counterCurve == QLatin1String("linear"));
     }
     request.set = textFragments(style, shown, layoutRect, renderScale, activeWordIndex);
     if (!request.set || request.set->frags.isEmpty())

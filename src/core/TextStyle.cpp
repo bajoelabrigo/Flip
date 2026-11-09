@@ -959,6 +959,7 @@ TextStyle textStyleWithPresetLook(const TextStyle &current, const TextStyle &pre
         out.counter = true;
         out.counterFrom = current.counterFrom;
         out.counterSeconds = current.counterSeconds;
+        out.counterCurve = current.counterCurve;
     }
     if (preset.textCase.isEmpty() || preset.textCase == QLatin1String("none"))
         out.textCase = current.textCase;
@@ -1800,6 +1801,8 @@ QJsonObject textStyleToJson(const TextStyle &s)
         json.insert(QStringLiteral("counterFrom"), s.counterFrom);
         if (s.counterSeconds > 0.0)
             json.insert(QStringLiteral("counterSeconds"), s.counterSeconds);
+        if (s.counterCurve != QLatin1String("easeOut"))
+            json.insert(QStringLiteral("counterCurve"), s.counterCurve);
     }
     if (s.boxStyle != QLatin1String("block"))
         json.insert(QStringLiteral("boxStyle"), s.boxStyle);
@@ -1914,6 +1917,7 @@ TextStyle textStyleFromJson(const QJsonObject &o)
     s.counter = o.value(QStringLiteral("counter")).toBool(s.counter);
     s.counterFrom = o.value(QStringLiteral("counterFrom")).toDouble(s.counterFrom);
     s.counterSeconds = std::max(0.0, o.value(QStringLiteral("counterSeconds")).toDouble(s.counterSeconds));
+    s.counterCurve = o.value(QStringLiteral("counterCurve")).toString(s.counterCurve);
     s.boxStyle = o.value(QStringLiteral("boxStyle")).toString(s.boxStyle);
     s.boxShape = o.value(QStringLiteral("boxShape")).toString(s.boxShape);
     s.boxPaddingX = o.value(QStringLiteral("boxPaddingX")).toDouble(s.boxPaddingX);
@@ -1974,7 +1978,7 @@ TextStyle textStyleFromJson(const QJsonObject &o)
 }
 
 
-QString counterTextAt(const QString &text, double from, double progress, double land)
+QString counterTextAt(const QString &text, double from, double progress, double land, bool linear)
 {
     static const QRegularExpression number(QStringLiteral("[0-9][0-9.,]*[0-9]|[0-9]"));
     const QRegularExpressionMatch m = number.match(text);
@@ -2017,7 +2021,7 @@ QString counterTextAt(const QString &text, double from, double progress, double 
 
     // Ease out, landing at `land` of the clip (85 % by default) so the final number holds on screen.
     const double p = std::clamp(progress / std::clamp(land, 0.01, 1.0), 0.0, 1.0);
-    const double eased = 1.0 - std::pow(1.0 - p, 3.0);
+    const double eased = linear ? p : 1.0 - std::pow(1.0 - p, 3.0);
     const double value = from + (target - from) * eased;
 
     QString digits = QString::number(std::abs(value), 'f', decimals);

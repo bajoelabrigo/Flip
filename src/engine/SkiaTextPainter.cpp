@@ -1837,7 +1837,8 @@ TextPainterResult makeTextPainter(const Clip &clip, const QString &text, const Q
                             ? std::min(1.0, secondsToUs(request.style.counterSeconds) / double(window))
                             : 0.85;
     const QString shown = request.style.counter
-                              ? drift::counterTextAt(text, request.style.counterFrom, double(t) / double(window), land)
+                              ? drift::counterTextAt(text, request.style.counterFrom, double(t) / double(window), land,
+                                                      request.style.counterCurve == QLatin1String("linear"))
                               : text;
     request.set = text::fragmentsFor(shown, request.style, layoutRect.width(), layoutRect.height(), renderScale,
                                      activeWordIndex, text::splitFor(anim.resolved, request.style));
