@@ -21,7 +21,7 @@ from templates_tit_h import EXIT, TRIANGLE, S, arc, fill, grad, lin, poly, regul
 from templates_tit_i import bg  # noqa: F401
 from templates_tit_j import photo  # noqa: F401
 from llt_motion import frames_of
-from scene import keys
+from scene import keys, tanim
 
 M = "Montserrat"
 for _w, _f in ((900, "Black"), (800, "ExtraBold"), (700, "Bold"), (600, "SemiBold"), (500, "Medium"),
@@ -52,6 +52,137 @@ def ytb(s, name, geom, w, h, body=None, tri=WHITE, tri_op=None, tri_rot=None, ra
         r = rot + (tri_rot(fr) if tri_rot else 0)
         return ox, oy, w * 0.3 * sc * ws(fr), h * 0.4 * sc, r, op * (tri_op(fr) if tri_op else 1)
     s.obj(f"{name} (play)", solid(tri), tg, path=TRIANGLE)
+
+
+# --- engine features used by the second pass (2026-11-09): holes, 3D turns, masks, patterns -------------------------
+def track_of(s, clip):
+    return next(tr for tr in s.t.tracks if clip in tr.clips)
+
+
+def new_clips(s, fn):
+    """Runs fn() and returns the clips it added (one per new track)."""
+    n = len(s.t.tracks)
+    fn()
+    return [c for tr in s.t.tracks[n:] for c in tr.clips]
+
+
+def per_frame(s, fn, ease="linear"):
+    return keys([(u, round(fn(fr, u), 5), ease) for u, fr in s.each()])
+
+
+def hole(s, clip, path=TRIANGLE, x=0.53, y=0.5, w=0.3, h=0.4, size=None):
+    """Cuts `path` (0..100 box, laid on x, y, w, h of the clip's own box) out of a clip: an inverted mask, so what is
+    behind shows through. size(fr, u) scales the hole (0 closes it)."""
+    kf = None
+    if size:
+        kf = {"w": per_frame(s, lambda fr, u: w * size(fr, u)), "h": per_frame(s, lambda fr, u: h * size(fr, u))}
+    s.t.mask(track_of(s, clip), clip, "path", x=x, y=y, w=w, h=h, pathData=path, invert=True,
+             **({"keyframes": kf} if kf else {}))
+
+
+def screen_mask(s, clip, box, rect, invert=False):
+    """A rectangle mask on a clip laid out in box = (x0, y0, w, h) on screen, following rect(fr) = screen px."""
+    bx, by, bw, bh = box
+    mk = {"x": [], "y": [], "w": [], "h": []}
+    for u, fr in s.each():
+        x0, y0, x1, y1 = rect(fr)
+        mk["x"].append((u, ((x0 + x1) / 2 - bx) / bw, "linear"))
+        mk["y"].append((u, ((y0 + y1) / 2 - by) / bh, "linear"))
+        mk["w"].append((u, max(0.0, x1 - x0) / bw, "linear"))
+        mk["h"].append((u, max(0.0, y1 - y0) / bh, "linear"))
+    s.t.mask(track_of(s, clip), clip, "rectangle", x=mk["x"][0][1], y=mk["y"][0][1], w=mk["w"][0][1],
+             h=mk["h"][0][1], invert=invert, keyframes={k_: keys(v) for k_, v in mk.items()})
+
+
+def stripes_in_circle(n=22, width=0.42, steps=10):
+    """Diagonal stripes («\\», n across) cut to the circle of a 100 box, as one path: a striped disc."""
+    out = []
+    p = 100.0 * math.sqrt(2) / n  # pitch measured across the stripes
+    for j in range(-n, n + 1):
+        # band between two lines x - y = c0 and x - y = c1 (45°), cut by the circle centred at (50, 50), r = 50
+        c0, c1 = j * p, j * p + width * p
+        pts = []
+        for c, sign in ((c0, 1), (c1, -1)):
+            # chord of x - y = c: points (50 + t + c/2, 50 + t - c/2), |(t + c/2, t - c/2)| <= 50
+            half = 2500 - c * c / 4
+            if half <= 0:
+                pts = []
+                break
+            tmax = math.sqrt(half / 2)
+            a, b = (-tmax, tmax) if sign > 0 else (tmax, -tmax)
+            pts.append((50 + a + c / 2, 50 + a - c / 2))
+            pts.append((50 + b + c / 2, 50 + b - c / 2))
+        if len(pts) == 4:
+            # arcs between the chords' ends so the band follows the circle
+            def ang(pt):
+                return math.atan2(pt[1] - 50, pt[0] - 50)
+
+            def arc_pts(p0, p1):
+                a0, a1 = ang(p0), ang(p1)
+                d = (a1 - a0 + math.pi) % (2 * math.pi) - math.pi
+                return [(50 + 50 * math.cos(a0 + d * i / steps), 50 + 50 * math.sin(a0 + d * i / steps))
+                        for i in range(1, steps)]
+            ring_ = [pts[0], pts[1]] + arc_pts(pts[1], pts[2]) + [pts[2], pts[3]] + arc_pts(pts[3], pts[0])
+            out.append(poly(ring_))
+    return " ".join(out)
+
+
+def dots_in_circle(n=34, size=0.42):
+    """A grid of small squares (n across, `size` of the cell) inside the circle of a 100 box: a dotted disc."""
+    cell = 100.0 / n
+    out = []
+    for i in range(n):
+        for j in range(n):
+            cx, cy = (i + 0.5) * cell, (j + 0.5) * cell
+            if math.hypot(cx - 50, cy - 50) > 50 - cell * 0.6:
+                continue
+            r = cell * size / 2
+            out.append(poly([(cx - r, cy - r), (cx + r, cy - r), (cx + r, cy + r), (cx - r, cy + r)]))
+    return " ".join(out)
+
+
+# Opaque 3D layers on screen together are depth-sorted by the engine (and two in one plane flicker through each
+# other); just under full opacity they keep track order, so a glyph stays on its card and the edge under the face.
+NO_DEPTH = 0.998
+
+
+def card3d(s, name, geom, w, h, rx=None, ry=None, persp=1600, front=None, back=None, edge=None, radius=0.24,
+           tri=True, depth=12.0, z=None):
+    """A card turned in 3D by the engine: geom(fr, u) = (cx, cy, scale, rot, opacity); rx / ry(fr) in degrees.
+    front: layers of the face (with a play-triangle hole when tri); back: layers seen when it faces away; edge: a
+    copy `depth` px behind (+z comes toward the eye) that shows as the card's thickness while it turns; z(fr) moves
+    the whole card in depth."""
+    rx_ = rx or (lambda fr: 0.0)
+    ry_ = ry or (lambda fr: 0.0)
+    z_ = z or (lambda fr: 0.0)
+
+    def facing(fr):
+        return math.cos(math.radians(rx_(fr))) * math.cos(math.radians(ry_(fr))) >= 0
+
+    def g(side):
+        def f(fr, u):
+            cx, cy, sc, rot, op = geom(fr, u)
+            show = 1.0 if side is None else (1.0 if facing(fr) == side else 0.0)
+            return cx, cy, w * sc, h * sc, rot, op * show * NO_DEPTH
+        return f
+    clips = []
+    if edge:
+        c = s.obj(f"{name} (canto)", edge, g(None), radius=h * radius, base=(w, h))
+        s.d3(c, rx=lambda fr, u: rx_(fr), ry=lambda fr, u: ry_(fr), z=lambda fr, u: z_(fr) - depth * geom(fr, u)[2],
+             persp=persp)
+        if tri:
+            hole(s, c)
+        clips.append(c)
+    if back:
+        c = s.obj(f"{name} (dorso)", back, g(False), radius=h * radius, base=(w, h))
+        s.d3(c, rx=lambda fr, u: rx_(fr), ry=lambda fr, u: ry_(fr), z=lambda fr, u: z_(fr), persp=persp)
+        clips.append(c)
+    c = s.obj(name, front, g(True if back else None), radius=h * radius, base=(w, h))
+    s.d3(c, rx=lambda fr, u: rx_(fr), ry=lambda fr, u: ry_(fr), z=lambda fr, u: z_(fr), persp=persp)
+    if tri:
+        hole(s, c)
+    clips.append(c)
+    return clips
 
 
 def hatch(n=24, lean=0.6):
@@ -172,8 +303,11 @@ def big_live_story():
           op=lambda fr, u: 1.0 if fr >= 27 else 0.0)
     s.rect("Barra", solid(WHITE), lambda fr, u: (740, 556, 740 + 460 * k(fr, 33, 9), 612))
     s.say("CHANNEL", (830, 569, 1090, 599), M, 800, LIGHT, "Texto", reveal=lambda fr: (740, 0, 740 + 460 * k(fr, 33, 9), 1080))
-    ytb(s, "Botón", lambda fr, u: (cx(fr), 532 + 8 * (1 - k(fr, 27, 12)), sc(fr), 0, 1.0 if fr >= 2 else 0.0), 260, 184,
-        tri_op=lambda fr: 0.35 + 0.65 * k(fr, 9, 9), tri_rot=lambda fr: 360 * k(fr, 27, 15))
+    # while it is big, the triangle is a hole (the video shows through); it turns white as the button lands
+    body = new_clips(s, lambda: ytb(s, "Botón", lambda fr, u: (cx(fr), 532 + 8 * (1 - k(fr, 27, 12)), sc(fr), 0,
+                                                              1.0 if fr >= 2 else 0.0), 260, 184,
+                                    tri_op=lambda fr: k(fr, 12, 4), tri_rot=lambda fr: 360 * k(fr, 27, 15)))[0]
+    hole(s, body, size=lambda fr, u: 1.0 if fr < 17 else 0.0)
     return t
 
 
@@ -378,14 +512,20 @@ def squares_row(n, size, step, offset=0.0, width=2400.0):
     return " ".join(out)
 
 
-def circles_in(s, at=0, colours=(("#FF0000", 0, 9), ("#F7A9A9", 1, 10), ("#000000", 3, 7), ("#E60000", 3.5, 8),
+def circles_in(s, at=0, colours=(("#FF0000", 0, 9), ("#FF1A1A", 1, 10), ("#000000", 3, 7), ("#E60000", 3.5, 8),
                                   (WHITE, 5, 7)), cx=960, cy=540, reach=2300):
-    """The pack's record transition: concentric discs grow from the centre one after another."""
+    """The pack's record transition: concentric discs grow from the centre one after another; the second is white
+    with red diagonal stripes and the fourth red with a grid of dark dots (patterns cut to the circle, one path)."""
     for i, (colour, lag, n) in enumerate(colours):
         lag, n = 3 * lag, 3 * n  # given at 10 fps
-        s.obj(f"Círculo {i + 1}", solid(colour), lambda fr, u, lag=lag, n=n: (
-            cx, cy, reach * k(fr, at + lag, n), reach * k(fr, at + lag, n), 0, 1.0 if fr >= at + lag else 0.0),
-            kind="ellipse")
+        g = lambda fr, u, lag=lag, n=n: (cx, cy, reach * k(fr, at + lag, n), reach * k(fr, at + lag, n), 0,  # noqa: E731
+                                         1.0 if fr >= at + lag else 0.0)
+        s.obj(f"Círculo {i + 1}", solid(WHITE if i == 1 else colour), g, kind="ellipse", base=(reach, reach))
+        if i == 1:
+            s.obj(f"Círculo {i + 1} (rayas)", solid(colour), g, path=stripes_in_circle(28), base=(reach, reach))
+        elif i == 3:
+            s.obj(f"Círculo {i + 1} (puntos)", solid("#5A0000", 0.85), g, path=dots_in_circle(40, 0.45),
+                  base=(reach, reach))
 
 
 # --- O1 (22.1-26.5 s): red discs open onto a white opener: rows of squares, an avatar, the button and the name ---
@@ -500,18 +640,24 @@ def opener_typed():
 
 
 def opener_divider():
-    D = dur_for(1.4, 2.0)
+    D = dur_for(1.8, 1.8)
     t = _p("opener-divider", "Apertura roja: botón, línea y nombre", "Red opener: button, divider and name", 12912, D,
            "aperturas", ["rojo", "suscribirse"])
     s = S(t, D)
     red_bg(s, "circles")
-    s.rect("Línea", solid(WHITE), lambda fr, u: (625, 536 - 96 * k(fr, 3, 6), 631, 536 + 96 * k(fr, 3, 6)))
-    white_button(s, "Botón", lambda fr, u: (486, 532, pop(fr, 9, 9), -15 * (1 - k(fr, 9, 12)), 1.0 if fr >= 9 else 0.0),
-                 212, 144)
-    s.say("ChannelName", (680, 500, 1560, 588), M, 700, WHITE, align="left", reveal=lambda fr: (634, 0, 1920, 1080),
-          shift=lambda fr: (-900 * (1 - k(fr, 18, 15)), 0))
-    s.obj("Píldora", solid(BLACK), lambda fr, u: (1052, 654, 440 * k(fr, 33, 6), 52, 0, 1), radius=26, base=(440, 52))
-    s.say("SUBSCRIBE", (982, 644, 1122, 666), M, 800, WHITE, "Texto", op=lambda fr, u: k(fr, 36, 4))
+    # 26.5-28.0 s: a line grows in the middle; then it slides left while the button swings out of it like a door
+    # (hinged on the line, a real turn round its vertical axis) and the name slides out of the line to the right
+    lx = lambda fr: 630 + 378 * (1 - k(fr, 22, 15))  # noqa: E731
+    s.rect("Línea", solid(WHITE), lambda fr, u: (lx(fr) - 3, 536 - 96 * k(fr, 3, 6), lx(fr) + 3, 536 + 96 * k(fr, 3, 6)))
+    w, h = 212, 144
+    turn = lambda fr: -90 * (1 - k(fr, 24, 9))  # noqa: E731  (-Y: the hinge side comes forward)
+    card3d(s, "Botón", lambda fr, u: (lx(fr) - 10 - w / 2 * math.cos(math.radians(turn(fr))), 532, 1, 0,
+                                      toggle(fr, 24)), w, h, ry=turn, persp=1400, front=solid(WHITE),
+           z=lambda fr: -w / 2 * abs(math.sin(math.radians(turn(fr)))))
+    s.say("ChannelName", (680, 500, 1560, 588), M, 700, WHITE, align="left",
+          reveal=lambda fr: (lx(fr) + 4, 0, 1920, 1080), shift=lambda fr: (-500 * (1 - k(fr, 23, 14)), 0))
+    s.obj("Píldora", solid(BLACK), lambda fr, u: (1052, 654, 440 * k(fr, 44, 6), 52, 0, 1), radius=26, base=(440, 52))
+    s.say("SUBSCRIBE", (982, 644, 1122, 666), M, 800, WHITE, "Texto", op=lambda fr, u: k(fr, 47, 4))
     return t
 
 
@@ -540,12 +686,19 @@ def opener_flip():
                                          (900, 620, 2600, 380, -4))):
         s.obj(f"Fondo (onda {i + 1})", solid("#D4122E", 0.6), lambda fr, u, x=x, y=y, w=w, h=h, r=r: (
             x - 20 * u, y, w, h, r + 2 * math.sin(u), 1), kind="ellipse")
-    flip = lambda fr: max(0.04, abs(math.cos(math.pi * 1.5 * (1 - k(fr, 3, 18)))))  # noqa: E731
-    bx = lambda fr: 528 + 432 * (1 - k(fr, 30, 15))  # noqa: E731
+    # the button tumbles in from far away: a full turn round its vertical axis (grey back, white front with the
+    # triangle cut out), a little tilt and spin, growing to its size (measured on 29.3-30.1 s at 30 fps)
+    ry = f6.curve([(3, 0), (7, 90), (10, 180), (13, 270), (16, 325), (19, 350), (23, 360)])
+    rx = f6.curve([(4, 30), (10, 20), (16, 8), (21, 0)])
+    rz = f6.curve([(4, -40), (8, -10), (11, -20), (15, -8), (19, -3), (22, 0)])
+    sc = f6.curve([(4, 0.03), (5, 0.1), (6, 0.18), (7, 0.3), (8, 0.45), (9, 0.55), (10, 0.65), (11, 0.8),
+                   (12, 0.92), (15, 1.0)])
+    bx = lambda fr: 528 + 462 * (1 - k(fr, 30, 15))  # noqa: E731
     s.say("YourChannel", (690, 480, 1500, 582), M, 900, WHITE, align="left",
           reveal=lambda fr: (bx(fr) + 100, 0, 1920, 1080), shift=lambda fr: (-800 * (1 - k(fr, 30, 15)), 0),
           op=lambda fr, u: 1.0 if fr >= 30 else 0.0)
-    white_button(s, "Botón", lambda fr, u: (bx(fr), 538, 1, 0, 1.0 if fr >= 3 else 0.0), 216, 144, wscale=flip)
+    card3d(s, "Botón", lambda fr, u: (bx(fr), 532, sc(fr), rz(fr), toggle(fr, 3)), 216, 144, rx=rx, ry=ry,
+           persp=1600, front=solid(WHITE), back=solid("#BDBDBD"), edge=solid("#9E9E9E"))
     c = s.say("@yourchannel", (720, 606, 1100, 652), M, 800, "#FFB3BD", "Texto", align="left")
     s.typed(c, 51, stagger=0.05, duration=0.03)
     return t
@@ -593,13 +746,31 @@ def modern_titles():
     t = _p("modern-titles", "Título: marco blanco y tres líneas", "Title: white frame and three lines", 12917, D,
            "titulos-estilo", ["marco"])
     s = S(t, D)
-    fx = lambda fr: 654 + 306 * (1 - k(fr, 30, 15))  # noqa: E731
-    s.obj("Marco", ring(WHITE, 12), lambda fr, u: (fx(fr), 538, 316, 404 - 100 * (1 - k(fr, 30, 15)), -2,
-                                                   k(fr, 6, 6)), base=(316, 404))
+    # a square frame (388 px, measured at 33.1 s) moves left, turns 44° round its vertical axis and sinks 50 px back,
+    # so it ends with its left side 404 px tall at x 496 and its right side 356 px tall at x 808, as at 35.5 s (fitted
+    # to those four numbers with the engine's projection about the frame's centre, eye 2050 px away)
+    side, persp = 388.0, 2050.0
+    q = lambda fr: k(fr, 28, 16)  # noqa: E731
+    fx = lambda fr: 920 - 245 * q(fr)  # noqa: E731  (fitted 655; +20 measured on the render)
+    turn = lambda fr: 44 * q(fr)  # noqa: E731  (+Y swings the right edge back)
+    sink = lambda fr: -50 * q(fr)  # noqa: E731
+
+    def edges(fr):
+        """The frame's left and right edges on screen (its 3D pose projected about the canvas centre)."""
+        a_, th = side / 2, math.radians(turn(fr))
+        zl, zr = sink(fr) + a_ * math.sin(th), sink(fr) - a_ * math.sin(th)
+        return (960 + (fx(fr) - a_ * math.cos(th) - 960) * persp / (persp - zl),
+                960 + (fx(fr) + a_ * math.cos(th) - 960) * persp / (persp - zr))
+    # it draws itself as a stroke from the top right corner, down, along the bottom, up and back along the top
+    c = s.obj("Marco", ring(WHITE, 22), lambda fr, u: (fx(fr), 538, side, side, 0, toggle(fr, 3)), base=(side, side),
+              path="M 100 0 L 100 100 L 0 100 L 0 0 Z")
+    c["shapeStyle"]["keyframes"] = {"trimEnd": per_frame(s, lambda fr, u: 100 * min(1.0, lin(fr, 3, 12)))}
+    c["shapeStyle"]["trimStart"], c["shapeStyle"]["trimEnd"] = 0.0, 100.0
+    s.d3(c, ry=lambda fr, u: turn(fr), z=lambda fr, u: sink(fr), persp=persp)
     for i, (line, ink) in enumerate((("MODERN TITLES", (540, 400, 1500, 480)), ("FOR YOUR", (540, 504, 1160, 576)),
                                      ("CHANNEL", (540, 592, 1108, 668)))):
         s.say(line, ink, M, 900, "#111111", ["Título", "Texto", "Texto 2"][i], align="left",
-              reveal=lambda fr: (fx(fr) - 158, 0, 1920 if fr >= 45 else fx(fr) + 158, 1080),
+              reveal=lambda fr: (edges(fr)[0] + 11, 0, 1920 if fr >= 45 else edges(fr)[1] - 11, 1080),
               shift=lambda fr, i=i: (420 * (1 - k(fr, 30 + 2 * i, 15)), 0), op=lambda fr, u: 1.0 if fr >= 30 else 0.0)
     return t
 
@@ -1706,9 +1877,81 @@ def end_coral_column():
     return t
 
 
+def typed_count(s, text, at, cps, u):
+    """How many characters of `text` (a prefix, spaces included) the engine's typewriter, as S.typed sets it, shows
+    at clip time u. The unit «character» counts letters only (spaces take no turn); in: letter i from lead + i·stagger;
+    out (backwards, EXIT× faster): while the time left is at least lead/EXIT + i·stagger/EXIT. Same arithmetic as
+    the engine, in microseconds."""
+    letters = [i for i, ch in enumerate(text) if not ch.isspace()]
+    n = len(letters)
+    lead, st = round(at / FPS, 3), 1.0 / cps
+    t_us = round(u * 1e6)
+    e = t_us - round(lead * 1e6)
+    shown_in = 0 if e < 0 else min(n, int(e // (round(st, 4) * 1e6)) + 1)
+    rem = round(s.dur * 1e6) - round(round(lead / EXIT, 3) * 1e6) - t_us
+    shown_out = 0 if rem < 0 else min(n, int(rem // (st / EXIT * 1e6)) + 1)
+    k_ = min(shown_in, shown_out)
+    return 0 if k_ == 0 else letters[k_ - 1] + 1
+
+
 def typed_box(s, name, text, ink, box, at, cps=36.0, border=True, colour=BLACK, ink_colour=WHITE, weight=900,
-              align="left"):
-    """A box title: the line types letter by letter and its box grows with it, a block cursor ahead of the text."""
+              align="left", cursor=None, preset="typewriter"):
+    """A box title: the line types letter by letter and its box hugs the letters already shown (their ink measured
+    with the font, the count taken from the engine's own timing). align="center" keeps the typed part centred (the
+    line slides by half of what is still hidden) and the box grows from its middle; cursor = the colour of a bar at
+    the box's right end while it types."""
+    f = f6._font(M, weight)
+    n = len(text)
+    x0, y0, x1, y1 = box
+    ix0, iy0, ix1, iy1 = ink
+    # the size the slide gives the line: as wide as the ink, but never taller than its capitals (templates_tit_e)
+    bbt, cap = f.getbbox(text), f.getbbox("H")
+    w_eff = min(ix1 - ix0, (iy1 - iy0) * (bbt[2] - bbt[0]) / max(1, cap[3] - cap[1]))
+    size = f6.fit(text, w_eff, M, weight)[0]
+    bb0 = f.getbbox(text)[0]
+    pad_l, pad_r = ix0 - x0, x1 - ix1
+
+    def ink_w(m):
+        """Ink width of the first m characters at the line's size, from the line's ink start (the engine sets these
+        lines without pair kerning: measured on the renders, PIL's plain advances match it)."""
+        p_ = text[:m].rstrip()
+        if not p_:
+            return 0.0
+        return (f.getlength(p_[:-1]) + f.getbbox(p_[-1])[2] - bb0) * size / 400
+
+    def rect(fr, u):
+        m = typed_count(s, text, at, cps, u)
+        if align == "center":
+            cx, half = (ix0 + ix1) / 2, ink_w(m) / 2 + pad_l
+            return cx - half, y0, cx + half, y1
+        return x0, y0, ix0 + ink_w(m) + pad_r, y1
+    layers = [fill(colour), ring(WHITE, 4)[1]] if border else solid(colour)
+    s.rect(name, layers, rect, op=lambda fr, u: 1.0 if typed_count(s, text, at, cps, u) > 0 or fr >= at else 0.0)
+    if cursor:
+        s.rect(f"{name} (cursor)", solid(cursor), lambda fr, u: (rect(fr, u)[2] - 16, y0, rect(fr, u)[2], y1),
+               op=lambda fr, u: 1.0 if 0 < typed_count(s, text, at, cps, u) < n else 0.0)
+    if align == "center":
+        # the typed part stays centred: the line is laid out from the left and slides by half of what is still hidden
+        W = ix1 - ix0
+        c = s.say(text, ink, M, weight, ink_colour, f"{name} (texto)", align="left",
+                  geom=lambda fr, u: ((W - ink_w(typed_count(s, text, at, cps, u))) / 2, 0, 1, 0, 1))
+    else:
+        c = s.say(text, ink, M, weight, ink_colour, f"{name} (texto)", align=align)
+    lead, st = round(at / FPS, 3), round(1 / cps, 4)
+    extra = {"from": 30} if preset == "pop" else {}
+    dur_ = 0.1 if preset == "pop" else 0.02
+    c["textStyle"]["animation"] = {
+        "in": tanim(preset, duration=dur_, unit="character", stagger=st, ease="easeOut", delay=lead, order="forward",
+                    **extra),
+        "out": tanim(preset, duration=dur_ / EXIT, unit="character", stagger=1 / cps / EXIT, ease="easeIn",
+                     delay=round(lead / EXIT, 3), order="backward", **extra)}
+    return c
+
+
+def typed_box_ahead(s, name, text, ink, box, at, cps=36.0, border=True, colour=BLACK, ink_colour=WHITE, weight=900,
+                    align="left"):
+    """The first pass's box title, kept for the pieces whose box runs ahead of the letters (best-choice, any-fonts,
+    great-design): the box leads the text by about 0.7 of its height."""
     f = f6._font(M, weight)
     total = f.getlength(text)
     n = len(text)
@@ -1745,9 +1988,9 @@ def box_best_choice():
     t = _p("box-best-choice", "Título en tres cajas negras", "Title in three black boxes", 12960, D, "titulos-estilo",
            ["caja", "tecleado"])
     s = S(t, D)
-    typed_box(s, "Caja", "BEST CHOICE", (208, 700, 856, 756), (188, 680, 876, 776), 6, border=False)
-    typed_box(s, "Caja 2", "FOR YOUR", (208, 804, 700, 860), (188, 784, 720, 876), 21, border=False)
-    typed_box(s, "Caja 3", "IDEAS", (208, 904, 480, 956), (188, 884, 500, 972), 33, border=False)
+    typed_box_ahead(s, "Caja", "BEST CHOICE", (208, 700, 856, 756), (188, 680, 876, 776), 6, border=False)
+    typed_box_ahead(s, "Caja 2", "FOR YOUR", (208, 804, 700, 860), (188, 784, 720, 876), 21, border=False)
+    typed_box_ahead(s, "Caja 3", "IDEAS", (208, 904, 480, 956), (188, 884, 500, 972), 33, border=False)
     return t
 
 
@@ -1765,8 +2008,8 @@ def box_any_fonts():
     t = _p("box-any-fonts", "Título en dos cajas centradas", "Title in two centred boxes", 12962, D, "titulos-estilo",
            ["caja", "tecleado"])
     s = S(t, D)
-    typed_box(s, "Caja", "BOX TITLES", (708, 484, 1200, 532), (688, 464, 1220, 552), 3, border=False)
-    typed_box(s, "Caja 2", "WORKS WITH ANY FONTS.", (380, 592, 1520, 644), (360, 572, 1540, 664), 18, border=False)
+    typed_box_ahead(s, "Caja", "BOX TITLES", (708, 484, 1200, 532), (688, 464, 1220, 552), 3, border=False)
+    typed_box_ahead(s, "Caja 2", "WORKS WITH ANY FONTS.", (380, 592, 1520, 644), (360, 572, 1540, 664), 18, border=False)
     return t
 
 
@@ -1779,7 +2022,10 @@ def box_we_created():
     for i, (text, ink, box, at) in enumerate((("WE HAVE CREATED", (288, 400, 1088, 456), (264, 384, 1112, 472), 0),
                                               ("A GREAT SOLUTION FOR YOU", (288, 512, 1528, 564), (264, 492, 1552, 584), 5),
                                               ("WANT TO TRY IT?", (288, 620, 1028, 668), (264, 604, 1052, 688), 10))):
-        typed_box(s, ["Caja", "Caja 2", "Caja 3"][i], text, ink, box, at, cps=20, border=False)
+        # lines 1-2 black with a red bar at the end while they type, line 3 white with a black one (113.0 s)
+        typed_box(s, ["Caja", "Caja 2", "Caja 3"][i], text, ink, box, at, cps=20, border=False,
+                  colour=WHITE if i == 2 else BLACK, ink_colour=BLACK if i == 2 else WHITE,
+                  cursor=BLACK if i == 2 else SUBRED, preset="pop")
     return t
 
 
@@ -1788,9 +2034,9 @@ def box_great_design():
     t = _p("box-great-design", "Título en dos cajas blancas", "Title in two white boxes", 12964, D, "titulos-estilo",
            ["caja", "tecleado"])
     s = S(t, D)
-    typed_box(s, "Caja", "GREAT DESIGN", (296, 512, 884, 556), (280, 496, 900, 572), 5, border=False, colour=WHITE,
+    typed_box_ahead(s, "Caja", "GREAT DESIGN", (296, 512, 884, 556), (280, 496, 900, 572), 5, border=False, colour=WHITE,
               ink_colour=BLACK)
-    typed_box(s, "Caja 2", "FOR YOUR YOUTUBE CHANNEL.", (296, 604, 1552, 648), (280, 588, 1572, 664), 20, border=False,
+    typed_box_ahead(s, "Caja 2", "FOR YOUR YOUTUBE CHANNEL.", (296, 604, 1552, 648), (280, 588, 1572, 664), 20, border=False,
               colour=WHITE, ink_colour=BLACK)
     return t
 
@@ -1831,7 +2077,7 @@ def box_dont_forget():
                                               ("SUBSCRIBE", (660, 540, 1284, 596), (640, 520, 1304, 616), 8),
                                               ("AND LIKE", (724, 644, 1220, 700), (704, 624, 1240, 716), 13))):
         typed_box(s, ["Caja", "Caja 2", "Caja 3"][i], text, ink, box, at, cps=18, border=False, colour=WHITE,
-                  ink_colour=BLACK)
+                  ink_colour=BLACK, align="center")
     return t
 
 
@@ -1876,8 +2122,9 @@ def box_automatically():
            "titulos-estilo", ["caja", "tecleado"])
     s = S(t, D)
     typed_box(s, "Caja", "AUTOMATICALLY", (488, 464, 1420, 532), (468, 440, 1440, 552), 3, cps=14, border=False,
-              colour=WHITE, ink_colour=BLACK)
-    typed_box(s, "Caja 2", "DESCRIBE YOUR VIDEO", (596, 580, 1316, 624), (580, 564, 1332, 640), 3, cps=20, border=False)
+              colour=WHITE, ink_colour=BLACK, align="center")
+    typed_box(s, "Caja 2", "DESCRIBE YOUR VIDEO", (596, 580, 1316, 624), (580, 564, 1332, 640), 3, cps=20, border=False,
+              colour=WHITE, ink_colour=BLACK, align="center")
     return t
 
 
@@ -1993,21 +2240,47 @@ def _net_p(design, n, kind, net, es, en, order, D):
               ["redes", net.lower()])
 
 
+def shade(colour, f):
+    """colour mixed with white (f > 0) or black (f < 0)."""
+    r, g, b = (int(colour.lstrip("#")[i:i + 2], 16) for i in (0, 2, 4))
+    t_ = 255 if f > 0 else 0
+    f = abs(f)
+    return "#%02X%02X%02X" % tuple(round(c + (t_ - c) * f) for c in (r, g, b))
+
+
+def glyph3d(s, name, kind, geom, size, colour, back, rx=None, ry=None, persp=1600, show=None, z=None):
+    """A glyph that turns with its card: every piece gets the card's 3D pose (they share its centre)."""
+    g = lambda fr, u: (lambda v: (*v[:4], v[4] * NO_DEPTH * (show(fr) if show else 1.0)))(geom(fr, u))  # noqa: E731
+    for c in new_clips(s, lambda: glyph(s, name, kind, g, size, colour, back=back)):
+        s.d3(c, rx=(lambda fr, u: rx(fr)) if rx else None, ry=(lambda fr, u: ry(fr)) if ry else None,
+             z=(lambda fr, u: z(fr)) if z else None, persp=persp)
+
+
 def social_tilted(kind, net, colour, handle, order):
-    """S1 (129.0 s): the coloured icon tile flies in turning from the bottom left; a white bar with the handle and a
-    small FOLLOW US tab grow out of it."""
-    D = dur_for(2.1, 1.6)
+    """S1 (129.0 s): the coloured tile flies up from below flipping over its horizontal axis (its plain back, then
+    its face with the glyph), lands, then slides left turning a little while a white bar with the handle and a
+    FOLLOW US tab grow out of it (measured at 15 fps on 129.0-131.4 s)."""
+    D = dur_for(2.3, 1.6)
     t = _net_p("baldosa", 1, kind, net, "baldosa que vuela", "flying tile", order, D)
     s = S(t, D)
-    s.rect("Barra", solid(WHITE), lambda fr, u: (320, 824, 320 + 488 * k(fr, 48, 9), 920))
-    s.rect("Seguir", solid(colour), lambda fr, u: (320, 916, 320 + 288 * k(fr, 54, 9), 944))
-    s.say("FOLLOW US", (368, 922, 520, 938), M, 800, WHITE, "Texto", reveal=lambda fr: (320, 0, 320 + 288 * k(fr, 54, 9), 1080))
+    x = f6.curve([(4, 508), (8, 512), (12, 518), (46, 518), (50, 450), (54, 370), (58, 320), (62, 280), (66, 264)])
+    y = f6.curve([(4, 1018), (6, 980), (8, 940), (10, 912), (12, 888), (14, 884)])
+    rx = lambda fr: -200 * (1 - lin(fr, 3, 13)) ** 1.7  # noqa: E731
+    rz = lambda fr: -20 * (1 - k(fr, 3, 13))  # noqa: E731
+    ry = lambda fr: 28 * math.sin(math.pi * lin(fr, 46, 22))  # noqa: E731
+    right = lambda fr: 520 + 288 * k(fr, 46, 18)  # noqa: E731
+    bar = lambda fr: (max(320.0, x(fr)), 824, max(x(fr), right(fr)), 920)  # noqa: E731
+    s.rect("Barra", solid(WHITE), lambda fr, u: bar(fr), op=lambda fr, u: toggle(fr, 47))
+    tab = lambda fr: (max(320.0, x(fr)), 916, max(x(fr), 320 + 288 * k(fr, 56, 9)), 944)  # noqa: E731
+    s.rect("Seguir", solid(colour), lambda fr, u: tab(fr), op=lambda fr, u: toggle(fr, 56))
+    s.say("FOLLOW US", (368, 922, 520, 938), M, 800, WHITE, "Texto", reveal=tab)
     s.say(handle, (356, 848, 356 + 296 * len(handle) / 9, 896), M, 800, colour, align="left",
-          reveal=lambda fr: (320, 0, 320 + 488 * k(fr, 48, 9), 1080))
-    fly = lambda fr: 1 - k(fr, 6, 12)  # noqa: E731
-    geom = lambda fr, u: (256 - 200 * fly(fr), 884 + 220 * fly(fr), 1, -35 * fly(fr), toggle(fr, 6))  # noqa: E731
-    s.obj("Ícono", solid(colour), lambda fr, u: (lambda v: (v[0], v[1], 128, 136, v[3], v[4]))(geom(fr, u)), radius=8)
-    glyph(s, "Ícono (glifo)", kind, geom, 96, WHITE, back=colour)
+          reveal=bar, shift=lambda fr: (-150 * (1 - k(fr, 48, 16)), 0))
+    geom = lambda fr, u: (x(fr), y(fr), 1, rz(fr), toggle(fr, 4))  # noqa: E731
+    card3d(s, "Ícono", geom, 128, 136, rx=rx, ry=ry, persp=1600, front=solid(colour), back=solid(shade(colour, -0.1)),
+           edge=solid(shade(colour, 0.35)), radius=0.06, tri=False)
+    facing = lambda fr: 1.0 if math.cos(math.radians(rx(fr))) * math.cos(math.radians(ry(fr))) >= 0 else 0.0  # noqa: E731
+    glyph3d(s, "Ícono (glifo)", kind, geom, 96, WHITE, colour, rx=rx, ry=ry, show=facing)
     return t
 
 
@@ -2049,9 +2322,20 @@ def social_circle(kind, net, colour, handle, order):
     return t
 
 
+def xyz_of(spin, turn):
+    """(rx, ry, rz) in degrees with Rx·Ry·Rz = Rz(spin)·Ry(turn): a turn round an axis lying in the screen at `spin`
+    degrees, in the engine's order (tilt X, then Y, then the in-plane spin)."""
+    p_, t_ = math.radians(spin), math.radians(turn)
+    cp, sp, ct, st = math.cos(p_), math.sin(p_), math.cos(t_), math.sin(t_)
+    r00, r01, r02, r12, r22 = cp * ct, -sp, cp * st, sp * st, ct  # R = Rz(p)·Ry(t)
+    b = math.asin(max(-1.0, min(1.0, r02)))
+    return math.degrees(math.atan2(-r12, r22)), math.degrees(b), math.degrees(math.atan2(-r01, r00))
+
+
 def social_tile(kind, net, colour, handle, order):
-    """S4 (140.4 s): an outlined square flips into a white tile with the glyph; a white bar with the handle and a
-    FOLLOW US tab grow out of it."""
+    """S4 (140.4 s): an outlined square grows spinning; a white tile swings out of its left edge like a door (a real
+    turn round its vertical axis) and settles upright with the glyph; a white bar with the handle and a FOLLOW US tab
+    grow out of it (measured at 30 fps on 140.4-141.6 s)."""
     D = dur_for(2.4, 1.6)
     t = _net_p("cuadro", 4, kind, net, "cuadro que gira", "flipping tile", order, D)
     s = S(t, D)
@@ -2060,30 +2344,58 @@ def social_tile(kind, net, colour, handle, order):
           reveal=lambda fr: (392, 0, 392 + 596 * k(fr, 48, 9), 1080))
     s.rect("Seguir", solid(WHITE), lambda fr, u: (988 - 300 * k(fr, 63, 8), 924, 988, 964))
     s.say("FOLLOW US", (720, 934, 956, 954), M, 800, colour, "Texto", op=lambda fr, u: k(fr, 66, 4))
-    flip = lambda fr: max(0.05, abs(math.cos(math.pi * (1 - k(fr, 12, 15)))))  # noqa: E731
-    s.obj("Cuadro (borde)", ring(WHITE, 4), lambda fr, u: (296, 852, 120, 120, 0, toggle(fr, 6) * (1 - toggle(fr, 12))))
-    s.obj("Cuadro", solid(WHITE), lambda fr, u: (296, 852, 192 * flip(fr), 200, -20 * (1 - k(fr, 12, 15)), toggle(fr, 12)),
-          radius=8, base=(192, 200))
-    glyph(s, "Ícono", kind, lambda fr, u: (296, 852, 1, -20 * (1 - k(fr, 12, 15)), toggle(fr, 15)), 136, colour)
+    cx, cy, w, h = 296, 852, 192, 200
+    grow = f6.curve([(9, 0.16), (10, 0.33), (11, 0.5), (12, 0.66), (13, 0.75), (14, 0.85), (15, 0.93), (16, 1.0)])
+    rot = f6.curve([(9, 45), (14, 0), (17, -35), (19, -38), (22, -25), (26, -12), (30, -3), (33, 0)])
+    swing = lambda fr: 90 * (1 - k(fr, 17, 11))  # noqa: E731  (+Y: the right edge swings back)
+
+    def hinge(fr):
+        """The tile's centre: its left edge stays on the outline's left edge, turned with it."""
+        off = -w / 2 + w / 2 * math.cos(math.radians(swing(fr)))
+        a = math.radians(rot(fr))
+        return cx + off * math.cos(a), cy + off * math.sin(a)
+    s.obj("Cuadro (borde)", ring(WHITE, 4), lambda fr, u: (cx, cy, w * grow(fr), h * grow(fr), rot(fr), toggle(fr, 9)),
+          radius=8, base=(w, h))
+    # pushed back by half its turned width so the hinge (its left edge, nearer the eye) stays in the screen's plane;
+    # the right edge swings away from the eye (as in the reference)
+    push = lambda fr: -w / 2 * abs(math.sin(math.radians(swing(fr))))  # noqa: E731
+    # the door turns round its own (spun) left edge: the engine tilts X, then Y, then spins, so the turn about a
+    # spun axis, spin(rot) · turnY(swing), is handed over as the equivalent X / Y / spin angles
+    pose = lambda fr: xyz_of(rot(fr), swing(fr))  # noqa: E731
+    geom = lambda fr, u: (*hinge(fr), 1, pose(fr)[2], toggle(fr, 17))  # noqa: E731
+    # a long lens: far from the frame's centre a short eye distance pulls the far edge toward the middle
+    card3d(s, "Cuadro", geom, w, h, rx=lambda fr: pose(fr)[0], ry=lambda fr: pose(fr)[1], persp=3200,
+           front=solid(WHITE), radius=0.04, tri=False, z=push)
+    glyph3d(s, "Ícono", kind, geom, 136, colour, WHITE, rx=lambda fr: pose(fr)[0], ry=lambda fr: pose(fr)[1],
+            persp=3200, z=push)
     return t
 
 
-BRUSH = poly([(0, 46), (6, 30), (14, 26), (10, 16), (24, 12), (40, 6), (60, 4), (78, 0), (92, 6), (88, 14), (100, 18),
-              (92, 30), (98, 40), (86, 48), (96, 60), (84, 66), (90, 78), (70, 86), (52, 92), (36, 100), (24, 94),
-              (30, 86), (12, 84), (18, 72), (4, 66), (10, 56)])
+# The brush stroke of S5 (146.0 s, on 100..1090 × 775..975): a tapered left end, a lump under the words and a dry,
+# streaky right end.
+BRUSH = poly([(0, 38), (5, 25), (15, 14), (28, 8), (40, 2), (60, 0), (80, 6), (90, 10), (95, 12), (100, 16), (94, 20),
+              (99, 26), (93, 30), (100, 36), (92, 40), (98, 48), (90, 52), (97, 60), (88, 64), (94, 72), (86, 76),
+              (90, 84), (82, 88), (70, 98), (55, 100), (37, 96), (36, 80), (25, 70), (12, 62), (3, 50)])
 
 
 def social_brush(kind, net, colour, handle, order):
-    """S5 (144.4 s): a coloured brush stroke wipes in with the glyph, the handle and FOLLOW US."""
+    """S5 (144.4 s): a coloured brush stroke is uncovered from right to left (a moving rectangle mask on the shape),
+    the glyph and the handle with it; FOLLOW US is uncovered the same way a moment later."""
     D = dur_for(0.8, 2.4)
     t = _net_p("pincel", 5, kind, net, "pincelada", "brush stroke", order, D)
     s = S(t, D)
-    wipe = lambda fr: (80, 0, 80 + 1080 * k(fr, 3, 9), 1080)  # noqa: E731
-    s.rect("Pincel", solid(colour), lambda fr, u: (100, 780, 100 + 1020 * k(fr, 3, 9), 1012), path=BRUSH,
-           op=lambda fr, u: toggle(fr, 3))
-    glyph(s, "Ícono", kind, lambda fr, u: (364, 852, 1, 0, toggle(fr, 6)), 68, WHITE, back=colour)
+    x0 = lambda fr: 1110 - 1030 * k(fr, 4, 10)  # noqa: E731
+    wipe = lambda fr: (x0(fr), 0, 1920, 1080)  # noqa: E731
+    box = (100, 775, 990, 200)
+    c = s.rect("Pincel", solid(colour), lambda fr, u: (box[0], box[1], box[0] + box[2], box[1] + box[3]), path=BRUSH,
+               op=lambda fr, u: toggle(fr, 4))
+    screen_mask(s, c, box, lambda fr: (x0(fr), 700, 1200, 1060))
+    # the glyph is uncovered as the wipe passes it (it is narrow: the wipe crosses it in a frame)
+    glyph(s, "Ícono", kind, lambda fr, u: (370, 855, 1, 0, 1.0 if x0(fr) <= 372 and fr >= 4 else 0.0), 68, WHITE,
+          back=colour)
     s.say(handle, (432, 828, 432 + 308 * len(handle) / 9, 880), M, 800, WHITE, align="left", reveal=wipe)
-    s.say("FOLLOW US", (528, 924, 740, 948), M, 800, WHITE, "Texto", reveal=wipe)
+    s.say("FOLLOW US", (528, 924, 740, 948), M, 800, WHITE, "Texto",
+          reveal=lambda fr: (760 - 240 * k(fr, 17, 6), 0, 1920, 1080))
     return t
 
 
@@ -2559,21 +2871,47 @@ def counter_person():
 
 
 # --- R (183.6-185.5 s): the record transition: discs grow from the centre and a window opens in them -------------
+# Radius (px on the 960 source, from the centre) of a disc of the record transition, frame by frame after it starts;
+# every disc follows the same curve, later (measured on 183.0-184.6 s).
+IRIS_R = [5, 12, 22, 36, 53, 73, 97, 124, 154, 187, 222, 258, 296, 334, 370, 406, 440, 472, 502, 530, 556, 580, 602,
+          622, 640, 656, 670, 682, 692, 700]
+# The window that opens in the middle, from the first frame it shows.
+IRIS_HOLE = [4, 14, 23, 33, 48, 66, 88, 116, 150, 192, 238, 289, 341, 390, 433, 470, 505, 535, 560, 580]
+
+
 def record_iris():
+    """183.0-184.6 s: coral, black, white and coral discs grow from the centre one after another; then a window with a
+    thin white rim opens in the middle of all of them (an inverted ellipse mask on each disc) and shows the video."""
     D = 2.0
     t = _p("record-iris", "Transición: círculos de grabar que se abren", "Transition: record circles opening", 13020, D,
            "transiciones", ["transición", "círculos"], thumb=0.7)
     s = S(t, D)
     s.frame = lambda u: u * FPS  # a transition runs once, no exit
-    for i, (colour, lag, n) in enumerate(((CORAL2, 0, 12), (BLACK, 2, 12), (WHITE, 4, 12), (CORAL2, 6, 12))):
-        s.obj(f"Círculo {i + 1}", solid(colour), lambda fr, u, lag=lag, n=n: (
-            960, 540, 2400 * k(fr, lag, n), 2400 * k(fr, lag, n), 0, toggle(fr, lag) * (1 - toggle(fr, 27))),
-            kind="ellipse")
-    hole = lambda fr: 2400 * k(fr, 27, 24)  # noqa: E731
-    s.obj("Aro", ring(CORAL2, 2400), lambda fr, u: (960, 540, 2400 + hole(fr), 2400 + hole(fr), 0,
-                                                    toggle(fr, 27) * (1 - toggle(fr, 56))), kind="ellipse", base=(3600, 3600))
-    s.obj("Borde", ring(WHITE, 10), lambda fr, u: (960, 540, max(1, hole(fr)), max(1, hole(fr)), 0,
-                                                   toggle(fr, 27) * (1 - toggle(fr, 56))), kind="ellipse", base=(2400, 2400))
+
+    def radius(table, fr, lag):
+        q = fr - lag
+        if q < 0:
+            return 0.0
+        i = int(q)
+        if i >= len(table) - 1:
+            return float(table[-1])
+        return table[i] + (table[i + 1] - table[i]) * (q - i)
+    HOLE_AT = 18
+    hole_d = lambda fr: 4 * radius(IRIS_HOLE, fr, HOLE_AT)  # noqa: E731  (diameter on the 1920 frame)
+    big = 4 * IRIS_R[-1]
+    for i, (colour, lag) in enumerate(((CORAL2, 0), (BLACK, 2), (WHITE, 5), (CORAL2, 7))):
+        d = lambda fr, lag=lag: 4 * radius(IRIS_R, fr, lag)  # noqa: E731
+        c = s.obj(f"Círculo {i + 1}", solid(colour), lambda fr, u, d=d, lag=lag: (
+            960, 540, max(1.0, d(fr)), max(1.0, d(fr)), 0, toggle(fr, lag)), kind="ellipse", base=(big, big))
+        size = lambda fr, d=d: min(1.0, hole_d(fr) / max(1.0, d(fr)))  # noqa: E731
+        s.t.mask(track_of(s, c), c, "ellipse", x=0.5, y=0.5, w=0.0, h=0.0, invert=True,
+                 keyframes={"w": per_frame(s, lambda fr, u, size=size: size(fr)),
+                            "h": per_frame(s, lambda fr, u, size=size: size(fr))})
+    # the rim: about 5.7 % of the window's radius, just outside it (a white disc with the window cut out of it)
+    rim = s.obj("Borde", solid(WHITE), lambda fr, u: (960, 540, max(1.0, hole_d(fr) * 1.057),
+                                                      max(1.0, hole_d(fr) * 1.057), 0, toggle(fr, HOLE_AT + 1)),
+                kind="ellipse", base=(big, big))
+    s.t.mask(track_of(s, rim), rim, "ellipse", x=0.5, y=0.5, w=1 / 1.057, h=1 / 1.057, invert=True)
     return t
 
 

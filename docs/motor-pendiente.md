@@ -12,7 +12,9 @@
   2. `liquid.gooey` sobre un grupo de capas: en una capa de ajuste solo desenfoca (el lienzo ya es opaco); hace falta
      componer el grupo sobre transparente antes de sus efectos (yp3; hoy el contorno se calcula en el generador).
   3. Extrusión real por capa (profundidad + color del canto): hoy, copias apiladas (yp1, yp3).
-  4. Humo/partículas en estelas (yp3, 91,3–91,9 s); degradado a lo largo del trazo.
+  4. Caja de fondo del texto que mida solo las letras ya escritas por la máquina de escribir, con cursor de bloque
+     pegado (yp5, títulos en caja: hoy la caja son claves calculadas para el texto de muestra y no sigue si se edita).
+  5. Humo/partículas en estelas (yp3, 91,3–91,9 s); degradado a lo largo del trazo.
 
 Cada sección: qué hace la referencia, en qué segundos, y qué necesitaría el motor.
 
