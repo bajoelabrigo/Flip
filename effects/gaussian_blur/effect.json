@@ -55,5 +55,15 @@
       }
     ]
   },
-  "order": 160
+  "order": 160,
+  "padding": {
+    "params": [
+      "u_blurRadius",
+      "u_blurRadius",
+      "u_blurRadius",
+      "u_blurRadius",
+      "u_blurRadius"
+    ],
+    "extra": 2
+  }
 }

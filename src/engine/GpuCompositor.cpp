@@ -1485,7 +1485,22 @@ void drawLayerOnCanvas(GlRuntime &rt, QOpenGLExtraFunctions *gl, GlTarget &canva
         gl->glBindTexture(GL_TEXTURE_2D, layerTex);
         gl->glActiveTexture(GL_TEXTURE1);
         gl->glBindTexture(GL_TEXTURE_2D, maskTex);
-        bindQuad(rt, gl);
+        if (depthWrite) {
+            // Two passes (2026-11-09): the colour goes down first, every fragment tested against the depth so far but
+            // none writing it — a soft edge, a fading or half-transparent 3D layer is drawn instead of discarded (text
+            // riding on a turning face vanished, a small triangle on a tilted box went missing). Then only the solid
+            // part (alpha ≥ ½) writes the depth, with the colour off.
+            program->setUniformValue("u_depthWrite", 0.f);
+            gl->glDepthMask(GL_FALSE);
+            bindQuad(rt, gl);
+            program->setUniformValue("u_depthWrite", 1.f);
+            gl->glDepthMask(GL_TRUE);
+            gl->glColorMask(GL_FALSE, GL_FALSE, GL_FALSE, GL_FALSE);
+            bindQuad(rt, gl);
+            gl->glColorMask(GL_TRUE, GL_TRUE, GL_TRUE, GL_TRUE);
+        } else {
+            bindQuad(rt, gl);
+        }
         program->release();
         gl->glDisable(GL_BLEND);
         if (depthWrite) {
