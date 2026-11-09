@@ -195,6 +195,15 @@ def fit_doc(doc, toW, toH, fit="keep"):
             _map_track(clip, "x", 1.0, (sx - 1) * (_value_at(clip, "x", 0, 0.0) + w0 / 2), 0.0)
             _map_track(clip, "y", 1.0, (sy - 1) * (_value_at(clip, "y", 0, 0.0) + h0 / 2), 0.0)
             continue
+        kind = clip.get("shapeStyle", {}).get("kind", "rectangle")
+        if clip.get("type") in ("image", "video", "vector") or (
+                clip.get("type") == "shape" and kind not in ("rectangle", "rounded-rectangle")):
+            s = max(sx, sy)
+            _map_track(clip, "x", s, (toW - W * s) / 2, 0.0)
+            _map_track(clip, "y", s, (toH - H * s) / 2, 0.0)
+            _map_track(clip, "width", s, 0, W)
+            _map_track(clip, "height", s, 0, H)
+            continue
         _map_track(clip, "x", sx, 0, 0.0)
         _map_track(clip, "y", sy, 0, 0.0)
         _map_track(clip, "width", sx, 0, W)

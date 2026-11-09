@@ -193,6 +193,21 @@ void fitOverlayLayout(QList<Track> &tracks, int fromW, int fromH, int toW, int t
             leave.append(clip);
             continue;
         }
+        // A band or a panel stretches with the frame; a round shape, a star or a picture would turn into an oval or
+        // a squashed photo, so those grow evenly about the middle until they cover as much as before.
+        const bool even = clip->type == ClipType::Image || clip->type == ClipType::Video
+            || clip->type == ClipType::Vector
+            || (clip->type == ClipType::Shape && clip->shapeStyle.kind != ShapeKind::Rectangle
+                && clip->shapeStyle.kind != ShapeKind::RoundedRectangle);
+        if (even) {
+            const double s = qMax(sx, sy);
+            mapTrack(clip->transformX, s, (toW - fromW * s) / 2.0, 0.0);
+            mapTrack(clip->transformY, s, (toH - fromH * s) / 2.0, 0.0);
+            mapTrack(clip->transformW, s, 0.0, fromW);
+            mapTrack(clip->transformH, s, 0.0, fromH);
+            leave.append(clip);
+            continue;
+        }
         mapTrack(clip->transformX, sx, 0.0, 0.0);
         mapTrack(clip->transformY, sy, 0.0, 0.0);
         mapTrack(clip->transformW, sx, 0.0, fromW);
