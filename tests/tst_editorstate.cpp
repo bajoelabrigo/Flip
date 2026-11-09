@@ -2242,7 +2242,8 @@ void EditorStateTest::sceneTemplateLayoutScalesAndCovers()
     const drift::Clip &behind = slide.at(0).clips.at(1);
     QVERIFY(qAbs(behind.transformW.evaluateAt(0) - 4000.0) < 0.5);
     QCOMPARE(qRound(behind.textStyle.pixelSize), 900);
-    QVERIFY(qAbs(behind.transformX.evaluateAt(0) + 2000.0 - 960.0 * 1080 / 1920) < 0.5);
+    // Its centre (x 1000) goes where the frame takes it (1000 x 1080 / 1920); the box keeps its 4000 px.
+    QVERIFY(qAbs(behind.transformX.evaluateAt(0) + 2000.0 - 1000.0 * 1080 / 1920) < 0.5);
     const drift::Clip &fittedTitle = slide.at(0).clips.at(2);
     // The title alone is the art: 1200 px across becomes the free width of the Short (92 %).
     QVERIFY(qAbs(fittedTitle.transformW.evaluateAt(0) - 1080 * 0.92) < 0.5);
