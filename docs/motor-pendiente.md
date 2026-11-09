@@ -44,7 +44,10 @@ Letras con el video: copia del hueco con `matte` (alfa del texto) y brillo; lín
 9. Trazos con degradado (marco del hexágono, banda azul, aro del avatar).
 10. Estelas en espiral de entrada: hoy, arco/espiral que se dibuja.
 
-## yp2 (pack youtube 2)
+## yp2 (pack youtube 2) — rehecho 2026-11-09 (3D real, transiciones calcadas por fotograma, íconos en bucle)
+**Fallo del motor encontrado:** dos capas 3D casi en el mismo plano con perspectiva corta (persp 500): la de arriba (el
+triángulo del botón) desaparece mientras la caja se inclina mucho (yp2-apertura, fotogramas ~17–22). Hoy el triángulo va
+en 2D. Revisar el orden/recorte de capas 3D coplanares.
 1. Giro 3D en Y del botón con perspectiva (apertura 0–1,5 s, aro-canal 26,8–28,3 s): hoy, giro en el plano.
 2. Barras de la transición diagonal que cambian de ancho y abren líneas (29,3–30,6 s): pediría morph de trazados
    (`pathShapes` existe en el motor; el generador no lo usa todavía).
