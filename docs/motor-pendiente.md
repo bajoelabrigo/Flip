@@ -96,3 +96,16 @@ en 2D. Revisar el orden/recorte de capas 3D coplanares.
 - Ya existe y conviene usar: `pathShapes` + clave `path` (morph), `cornerRadius`/`wiggleSize`/`trimEnd` animables,
   máscaras `path`, trazos con `dashPattern`, `runs` con color por letra, `letterSpacing` animado, presets
   `ibs-scatter-gather`, `im-crash-from-big`, `converge`, `blur-in`.
+
+## LOGO (lg0–lg3), 2026-11-09
+1. **Fallo:** una forma con relleno `radial` y `matte` a otro clip no se dibuja (sólido y lineal sí) — lg1, punto caliente.
+2. Estilos de capa (resplandor) después del mate, como «Preservar transparencia» de AE — lg1.
+3. `pathShapes` con un contorno de un solo punto repetido se dibuja como el rectángulo de la caja — lg3 (se usa un
+   puntito de 0,3 px).
+4. Radio de esquina y grosor de trazo que escalen con la escala de la capa (AE) — lg0 (claves por fotograma).
+5. `spin_blur` más ancho (~120°) y con más muestras — lg2 giro.
+6. Ancla propia por pieza para girar en 3D cada franja sobre su eje — lg2 cintas (ahora se podría con emparentado 3D a
+   un nulo por franja).
+7. `fitOverlayLayout` mide la unión de todas las cajas en el tiempo: una entrada grande achica el diseño en el Short;
+   debería medir el tramo quieto — lg2 giro y glitch.
+8. Deformar un clip a lo largo de una curva animada — lg3 ondas.
