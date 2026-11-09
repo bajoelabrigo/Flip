@@ -2208,6 +2208,44 @@ void EditorStateTest::sceneTemplateLayoutScalesAndCovers()
     const drift::Clip &covering = corner.at(0).clips.at(0);
     QVERIFY(qAbs(covering.transformW.evaluateAt(0) - 1080.0) < 0.5);
     QVERIFY(qAbs(covering.transformH.evaluateAt(0) - 1920.0) < 0.5);
+
+    // A title slide in a Short (2026-11-08, Jorge: every title has to work in a Short): a band marked "backdrop"
+    // (a transition sweeping across, wider than the frame) is stretched with the frame instead of shrinking the
+    // design; a giant word behind marked "backdrop" keeps its size and follows its centre; the title is fitted.
+    drift::Clip sweep;
+    sweep.type = drift::ClipType::Shape;
+    sweep.layoutRole = QStringLiteral("backdrop");
+    sweep.transformX.setKeyframe(0, -2000.0);
+    sweep.transformY.setKeyframe(0, 400.0);
+    sweep.transformW.setKeyframe(0, 6000.0);
+    sweep.transformH.setKeyframe(0, 280.0);
+    drift::Clip ghost;
+    ghost.type = drift::ClipType::Text;
+    ghost.layoutRole = QStringLiteral("backdrop");
+    ghost.textStyle.pixelSize = 900;
+    ghost.transformX.setKeyframe(0, -1000.0);
+    ghost.transformY.setKeyframe(0, 40.0);
+    ghost.transformW.setKeyframe(0, 4000.0);
+    ghost.transformH.setKeyframe(0, 1000.0);
+    drift::Clip title;
+    title.type = drift::ClipType::Text;
+    title.textStyle.pixelSize = 200;
+    title.transformX.setKeyframe(0, 360.0);
+    title.transformY.setKeyframe(0, 440.0);
+    title.transformW.setKeyframe(0, 1200.0);
+    title.transformH.setKeyframe(0, 200.0);
+    QList<drift::Track> slide{drift::Track{.type = drift::TrackType::Video, .clips = {sweep, ghost, title}}};
+    drift::fitOverlayLayout(slide, 1920, 1080, 1080, 1920, drift::OverlayFit::Keep);
+    const drift::Clip &band = slide.at(0).clips.at(0);
+    QVERIFY(qAbs(band.transformW.evaluateAt(0) - 6000.0 * 1080 / 1920) < 0.5);
+    QVERIFY(qAbs(band.transformH.evaluateAt(0) - 280.0 * 1920 / 1080) < 0.5);
+    const drift::Clip &behind = slide.at(0).clips.at(1);
+    QVERIFY(qAbs(behind.transformW.evaluateAt(0) - 4000.0) < 0.5);
+    QCOMPARE(qRound(behind.textStyle.pixelSize), 900);
+    QVERIFY(qAbs(behind.transformX.evaluateAt(0) + 2000.0 - 960.0 * 1080 / 1920) < 0.5);
+    const drift::Clip &fittedTitle = slide.at(0).clips.at(2);
+    // The title alone is the art: 1200 px across becomes the free width of the Short (92 %).
+    QVERIFY(qAbs(fittedTitle.transformW.evaluateAt(0) - 1080 * 0.92) < 0.5);
 }
 
 // A template of one's own: inside a composition a photo becomes a slot and a text an editable text;

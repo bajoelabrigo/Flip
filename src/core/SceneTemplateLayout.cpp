@@ -2,6 +2,10 @@
 
 #include "core/TimelineOps.h"
 
+#include <QHash>
+
+#include <tuple>
+
 namespace drift {
 
 namespace {
@@ -117,7 +121,9 @@ void fitOverlayLayout(QList<Track> &tracks, int fromW, int fromH, int toW, int t
         for (Clip &clip : track.clips) {
             if (clip.type == ClipType::Audio || clipBoxIsCanvasReferenced(clip))
                 continue;
-            if (clip.type != ClipType::Text && clip.type != ClipType::Subtitle && coversCanvas(clip, fromW, fromH)) {
+            const bool text = clip.type == ClipType::Text || clip.type == ClipType::Subtitle;
+            if (clip.layoutRole == QLatin1String("backdrop")
+                || (clip.layoutRole.isEmpty() && !text && coversCanvas(clip, fromW, fromH))) {
                 backdrops.append(&clip);
                 continue;
             }
@@ -173,6 +179,20 @@ void fitOverlayLayout(QList<Track> &tracks, int fromW, int fromH, int toW, int t
     const double sx = double(toW) / fromW;
     const double sy = double(toH) / fromH;
     for (Clip *clip : std::as_const(backdrops)) {
+        if (clip->type == ClipType::Text || clip->type == ClipType::Subtitle) {
+            // A word behind (a giant ghost, a wall of words) keeps its size and moves with the frame: its centre
+            // goes where the frame takes it, so it is not squeezed into another wrap.
+            QList<TimeUs> times{0};
+            for (const KeyframeTrack<double> *t : {&clip->transformX, &clip->transformY, &clip->transformW, &clip->transformH})
+                for (auto it = t->keyframes().constBegin(); it != t->keyframes().constEnd(); ++it)
+                    times.append(it.key());
+            const double w0 = valueAtKey(clip->transformW, 0, fromW);
+            const double h0 = valueAtKey(clip->transformH, 0, fromH);
+            mapTrack(clip->transformX, 1.0, (sx - 1.0) * (valueAtKey(clip->transformX, 0, 0.0) + w0 / 2.0), 0.0);
+            mapTrack(clip->transformY, 1.0, (sy - 1.0) * (valueAtKey(clip->transformY, 0, 0.0) + h0 / 2.0), 0.0);
+            leave.append(clip);
+            continue;
+        }
         mapTrack(clip->transformX, sx, 0.0, 0.0);
         mapTrack(clip->transformY, sy, 0.0, 0.0);
         mapTrack(clip->transformW, sx, 0.0, fromW);
@@ -182,6 +202,41 @@ void fitOverlayLayout(QList<Track> &tracks, int fromW, int fromH, int toW, int t
             scaleKeyed(clip->shapeStyle.keyframes, QStringLiteral("cornerRadius"), qMin(sx, sy));
         }
         leave.append(clip);
+    }
+    // A photo that fills the frame behind the design and shows only through a mask (a word, a strip, a window):
+    // the photo goes on filling the frame, the window follows the design (it would be stretched with the frame).
+    QHash<QString, const Clip *> backdropById;
+    for (const Clip *clip : std::as_const(backdrops))
+        backdropById.insert(clip->id, clip);
+    for (Track &track : tracks) {
+        for (Clip &clip : track.clips) {
+            if (clip.type != ClipType::Adjustment || clip.adjustmentKind != AdjustmentKind::Mask
+                || clip.linkedClipId.isEmpty() || !backdropById.contains(clip.linkedClipId))
+                continue;
+            const auto remap = [&](double norm, bool horizontal, bool size) {
+                const double from = horizontal ? fromW : fromH;
+                const double to = horizontal ? toW : toH;
+                const double offset = horizontal ? offsetX : offsetY;
+                return size ? norm * from * scale / to : (norm * from * scale + offset) / to;
+            };
+            Mask &m = clip.mask;
+            m.x = remap(m.x, true, false);
+            m.y = remap(m.y, false, false);
+            m.w = remap(m.w, true, true);
+            m.h = remap(m.h, false, true);
+            for (const auto &[key, horizontal, size] : {std::tuple{QStringLiteral("x"), true, false},
+                                                       std::tuple{QStringLiteral("y"), false, false},
+                                                       std::tuple{QStringLiteral("w"), true, true},
+                                                       std::tuple{QStringLiteral("h"), false, true}}) {
+                auto it = m.keyframes.find(key);
+                if (it == m.keyframes.end() || it->isEmpty())
+                    continue;
+                const double from = horizontal ? fromW : fromH;
+                const double to = horizontal ? toW : toH;
+                const double offset = horizontal ? offsetX : offsetY;
+                mapTrack(*it, from * scale / to, size ? 0.0 : offset / to, 0.0);
+            }
+        }
     }
     mapLayout(tracks, fromW, fromH, scale, offsetX, offsetY, leave);
 }

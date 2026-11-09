@@ -35,6 +35,7 @@ class Slide:
 
     def __init__(self, t, dur):
         self.t, self.dur = t, dur
+        t.layout_roles = True
 
     def frame(self, u):
         return min(u, self.dur - u) * FPS

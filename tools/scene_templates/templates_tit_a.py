@@ -53,6 +53,7 @@ class Title:
 
     def __init__(self, t, dur, pivot, group=None):
         self.t, self.dur, self.pivot = t, dur, pivot
+        t.layout_roles = True
         self.group = group or S  # how the doodles grow with the title
         self.own_pivot = None
 

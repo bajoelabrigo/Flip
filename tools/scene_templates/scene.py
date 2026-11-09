@@ -270,6 +270,8 @@ class Template:
         self.slots: list[Slot] = []
         self.texts = 0
         self.music: tuple[str, float, float] | None = None  # (music id, start s, volume)
+        # Mark every clip "backdrop" or "art" for the app's Short / Video fit (layoutfit.py); set by the slide helpers.
+        self.layout_roles = False
         self.assets: list[dict] = []
 
     # Tracks are added bottom-up: each new one draws over the ones before it.
@@ -406,9 +408,13 @@ class Template:
                 "id": new_id("c"), "type": "audio", "assetId": asset_id, "path": path,
                 "timelineStartUs": 0, "timelineDurationUs": us(self.duration), "srcInUs": 0,
                 "srcOutUs": us(self.duration), "volume": volume, "fadeOutUs": us(min(1.0, self.duration / 4))}]})
-        return {"version": 14, "projectName": self.names["es"], "width": self.w, "height": self.h, "fps": 30,
-                "sampleRate": 48000, "background": {"kind": "color", "color": argb(self.background)},
-                "assets": assets, "tracks": tracks}
+        doc = {"version": 14, "projectName": self.names["es"], "width": self.w, "height": self.h, "fps": 30,
+               "sampleRate": 48000, "background": {"kind": "color", "color": argb(self.background)},
+               "assets": assets, "tracks": tracks}
+        if self.layout_roles:
+            from layoutfit import assign_roles
+            assign_roles(doc)
+        return doc
 
     def manifest(self) -> dict:
         return {"id": self.id, "displayName": self.names["en"], "names": self.names, "category": self.category,
