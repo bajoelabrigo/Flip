@@ -7,7 +7,14 @@
   de yp2 desaparecían); Remolino (`stylize.twirl`); contador lineal; `layoutRole` y ajuste parejo de fondos redondos.
   Cuando la build esté: en `templates_yp1.py` poner `BLUR_PX = 3`, quitar las tres capas de desenfoque encadenadas y el
   truco `FLAT` (opacidad 0,998).
+- **Arreglado y compilado (build 42584213857, portable `pruebas\FlipStudio-motor-0109b`):** desfase de profundidad por orden de
+  dibujo (capas 3D casi en el mismo plano respetan el orden de pistas): se fue el parpadeo de los íconos sobre las
+  baldosas (yp5) y de las fotos sobre placas (yp1). Remolino sin bandas negras.
 - **Sigue faltando de verdad:**
+  0. **Capa que viaja sobre una cara 3D (emparentar en 3D):** hoy el padre solo pasa su movimiento 2D. Con inclinación
+     fuerte, una capa encima de otra no queda en el mismo plano y la cara la tapa (yp2: triángulo del botón, fotogramas
+     17–21, con Z de −2 a +20; yp1: texto e íconos de los botones que voltean, 2 fotogramas). Hoy: triángulo plano y
+     opacidad 0,998 en esos botones; se ven bien.
   1. Un hueco de foto que pida «Quitar fondo» (RVM) al rellenarse, para capas entre el fondo y la persona (yp4).
   2. `liquid.gooey` sobre un grupo de capas: en una capa de ajuste solo desenfoca (el lienzo ya es opaco); hace falta
      componer el grupo sobre transparente antes de sus efectos (yp3; hoy el contorno se calcula en el generador).
