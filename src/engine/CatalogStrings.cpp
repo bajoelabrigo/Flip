@@ -425,6 +425,7 @@
     QT_TRANSLATE_NOOP("Catalog", "Block height"),
     QT_TRANSLATE_NOOP("Catalog", "Ripple"),
     QT_TRANSLATE_NOOP("Catalog", "Sepia"),
+    QT_TRANSLATE_NOOP("Catalog", "Twirl"),
     QT_TRANSLATE_NOOP("Catalog", "VHS"),
     QT_TRANSLATE_NOOP("Catalog", "Noise"),
     QT_TRANSLATE_NOOP("Catalog", "Chroma shift"),

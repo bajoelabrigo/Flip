@@ -11421,6 +11421,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Twirl</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Fade in</source>
         <translation type="unfinished">Fade in (ක්‍රමිකව මතුවීම)</translation>
     </message>

@@ -11421,6 +11421,10 @@
         <translation>Abombar (%)</translation>
     </message>
     <message>
+        <source>Twirl</source>
+        <translation>Remolino</translation>
+    </message>
+    <message>
         <source>Fade in</source>
         <translation>Aparecer</translation>
     </message>

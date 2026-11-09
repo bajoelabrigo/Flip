@@ -189,6 +189,36 @@ class S(Piece5):
             "out": tanim(preset, duration=duration / EXIT, unit=unit, stagger=stagger / EXIT, ease="easeIn",
                          delay=round(lead / EXIT, 3), order="backward" if order == "forward" else order)}
 
+    # --- engine features the slides use (2026-11-08) ------------------------------------------------------------
+    def d3(self, clip, rx=None, ry=None, z=None, persp=None, occlude=False):
+        """A 3D pose on a clip: rx / ry(fr, u) tilt it in degrees round its horizontal / vertical axis, z(fr, u) its
+        depth in px, persp the eye distance in px (the engine's 3D layer: a real flip in perspective)."""
+        clip["layer3d"] = True
+        for key, fn in (("rotationX", rx), ("rotationY", ry), ("positionZ", z)):
+            if fn is not None:
+                clip[key] = keys([(u, round(fn(fr, u), 3), "linear") for u, fr in self.each()])
+        if persp is not None:
+            clip["perspective"] = keys([(0.0, float(persp), "hold")])
+        if occlude:
+            clip["depthOcclude"] = True
+        return clip
+
+    def fx(self, clip, catalog_id, animated=None, **params):
+        """Adds an effect of the catalog (gaussian_blur → "stylize.blur"…) to a clip; animated = {param: fn(fr, u)}
+        keys it every frame."""
+        from scene import effect
+        kf = None
+        if animated:
+            kf = {name: keys([(u, round(fn(fr, u), 4), "linear") for u, fr in self.each()])
+                  for name, fn in animated.items()}
+        clip.setdefault("effects", []).append(effect(catalog_id, kf, **params))
+        return clip
+
+    def mblur(self, clip):
+        """Motion blur on a clip while it moves (the project's shutter)."""
+        clip["motionBlur"] = True
+        return clip
+
     def url(self, y=1014, colour=WHITE, cx=960, at=15, dashes=False):
         clip = self.say(URL, (cx - 132, y, cx + 132, y + 14), M, 700, colour, "Web",
                         geom=lambda fr, u: (0, 0, 1, 0, k(fr, at, 6)))

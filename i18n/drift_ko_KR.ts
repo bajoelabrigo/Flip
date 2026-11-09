@@ -11371,6 +11371,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Twirl</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Fade in</source>
         <translation>페이드 인</translation>
     </message>

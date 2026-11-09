@@ -11371,6 +11371,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Twirl</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Fade in</source>
         <translation>Hiện dần</translation>
     </message>

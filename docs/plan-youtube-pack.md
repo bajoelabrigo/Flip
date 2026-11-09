@@ -80,3 +80,27 @@ the reference does, the source seconds, and what the engine would need (the lead
 
 `E:\FlipStudio\tienda\plantillas\estudio-<video>\NOTAS.md`: element list with source times, what was made, what was
 skipped and why. Keep it updated as you go so the work can be resumed.
+
+## Engine features that already exist (use them; found after the first pass)
+
+Many «Motor pendiente» notes of the first pass are things the engine already does. Use, in `templates_tit_h.S`:
+- **3D flips in perspective:** `s.d3(clip, rx=fn, ry=fn, z=fn, persp=1400, occlude=False)` (the engine's 3D layer:
+  `layer3d`, `rotationX`, `rotationY`, `positionZ`, `perspective`, `depthOcclude`). Thickness: `layer.bevel` effect or
+  a darker copy at `z` behind.
+- **Effects on any clip:** `s.fx(clip, "<effect id>", animated={param: fn(fr,u)}, **params)`. Useful ids:
+  `builtin.effects.gaussian_blur` (u_blurRadius), `liquid.gooey` (goo, threshold, shine: metaballs / liquid merging),
+  `halftone_comic` (dot screens), `spin_blur`, `wave_warp`, `motion_trail`, `layer.bevel`, `ae.linear_wipe`
+  (completion, angle, feather), `ae.fractal_noise`, `squash.deform`, `stylize.twirl` (NEW: angle, radius, centerX,
+  centerY — needs the next build), `layer.drop_shadow`, `layer.outer_glow`, `layer.stroke`, `rgb_split`…
+  (`effects/*/effect.json` lists every id and parameter).
+- **Motion blur:** `s.mblur(clip)`.
+- **Blend modes:** `clip["blendMode"] = "multiply" | "screen" | "difference" | …` (difference = the colour of an overlap).
+- **Text on a path / circle:** `textStyle["pathSvg"]` (SVG on 0..100 of the text box) or `pathCircle` (percent of the
+  circle), `pathOffset` keyframable (letters slide along); turn the clip to spin it.
+- **Morph between shapes:** `pathShapes` + the `path` key; animatable `cornerRadius`, `wiggleSize`, `trimEnd`.
+- **Masks on any clip** (shapes too): `t.mask(track, clip, "rectangle"|"ellipse"|"path"|"text", invert=…, keyframes=…)`
+  or `llt_motion.mask_track`; inverted masks make holes.
+- **Text:** `runs` (colour per letter), `letterSpacing` keyframes, presets `blur-in`, `converge`,
+  `ibs-scatter-gather`, `im-crash-from-big`; per-letter `random` order.
+- **Counter:** `counter`, `counterFrom`, `counterSeconds`, `counterCurve: "linear"` (NEW, next build).
+- **Short / Video:** slides mark `layoutRole` themselves; check the other shape with `short_check.py`.
