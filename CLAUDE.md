@@ -59,7 +59,20 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 
 ---
 
-## Estado (actualizado 2026-11-04)
+## Estado (actualizado 2026-11-10)
+
+### Kits de LOGO, TikTok e Instagram PUBLICADOS en Stock (2026-11-10) y 0.31.0 en publicación
+- 392 piezas (`lg0`–`lg3` 19 en Kit de YouTube, `tk0`–`tk9` 96 en «Kit de TikTok», `ig0`–`ig14` 277 en «Kit de
+  Instagram»), renderizadas con `pruebas\FlipStudio-motor-0109f` (run 42684960594, commit c8b157f: el ajuste mide el
+  diseño en su tramo quieto), 13 idiomas, `minAppVersion` 0.31.0. En vivo: 2546 plantillas. Planes en
+  `docs/plan-logo.md`, `plan-tiktok.md`, `plan-instagram.md`.
+- Revisado en ventana con la 0109f: historias de Instagram en 16:9 (ig1, ig4, ig7, ig10, ig14), botones ig11 e ig13 en
+  un Short; antes, TikTok en 16:9 y LOGO en Short.
+- **Trampa nueva:** la regla de `minAppVersion` de `publish.py` era `ig\d-` y dejó fuera ig10–ig14: usar `\d+`.
+- **Trampa nueva:** las plantillas están en la fila de categorías después de Stickers; en una ventana angosta hay que
+  correr la fila con la rueda (`click.ps1 -Wheel -120`, que usa coordenadas de pantalla).
+- Jorge: «vamos a terminar otras carpetas y subimos todo junto» → con LOGO, TIKTOK e INSTAGRAM terminadas se publica
+  la 0.31.0 (PR #57).
 
 ### Stock: títulos tit1–tit7, llt16, YouTube Pack yp0–yp7 y llt11 rehecho PUBLICADOS (2026-11-09)
 - Jorge: «al terminar ya subes todo». 494 piezas nuevas + las 20 de `llt11` rehechas, renderizadas con la portable
