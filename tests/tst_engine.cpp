@@ -384,6 +384,7 @@ private slots:
     void nestedTransformLayersCompose();
     void transformParentReachesEveryCoveredLayer();
     void clipParentFollowsFromTheLink();
+    void clipParentCarriesThe3dTilt();
     void clipParentChainsAndRefusesCycles();
     void unparentingKeepsThePlace();
     void parentedClipRendersWhereItsParentTakesIt();
@@ -11711,6 +11712,33 @@ void EngineTest::clipParentFollowsFromTheLink()
         drift::clipParentMatrix(project, linked, drift::secondsToUs(2.0), 0.5).map(QPointF(27, 15));
     QVERIFY2(qAbs(half.x() - 20.0) < 1e-6 && qAbs(half.y() - 27.0) < 1e-6,
              qPrintable(QStringLiteral("%1,%2").arg(half.x()).arg(half.y())));
+}
+
+// 3D parenting (2026-11-09): a card that swings 90° about Y takes what rides on it into depth. The child's centre,
+// 24 px right of the card's centre (30, 30) on a 64 × 64 canvas, ends at the card's centre 24 px away from the eye.
+void EngineTest::clipParentCarriesThe3dTilt()
+{
+    drift::Clip parent = solidShape(QStringLiteral("p"), QRectF(20, 20, 20, 20), Qt::blue);
+    parent.layer3d = true;
+    parent.rotationY.setKeyframe(0, 0.0);
+    parent.rotationY.setKeyframe(drift::secondsToUs(2.0), 90.0);
+    drift::Clip child = solidShape(QStringLiteral("c"), QRectF(50, 26, 8, 8), Qt::red);
+    drift::Project project = clipsProject({child, parent});
+    drift::setClipParentKeepingPlace(project, *clipIn(project, QStringLiteral("c")),
+                                     clipIn(project, QStringLiteral("p")), 0);
+    const drift::Clip &linked = *clipIn(project, QStringLiteral("c"));
+    QMatrix4x4 world;
+    // Flat at 0 s: the 2D parenting covers it.
+    QVERIFY(!drift::clipParentWorld3d(project, linked, 0, 1.0, &world));
+    QVERIFY(drift::clipParentWorld3d(project, linked, drift::secondsToUs(2.0), 1.0, &world));
+    const QVector3D centre = world.map(QVector3D(54.f - 32.f, 30.f - 32.f, 0.f));
+    QVERIFY2(qAbs(centre.x() - (30.f - 32.f)) < 1e-3 && qAbs(centre.y() - (30.f - 32.f)) < 1e-3
+                 && qAbs(centre.z() + 24.f) < 1e-3,
+             qPrintable(QStringLiteral("%1,%2,%3").arg(centre.x()).arg(centre.y()).arg(centre.z())));
+    // Render scale only changes the units.
+    QVERIFY(drift::clipParentWorld3d(project, linked, drift::secondsToUs(2.0), 0.5, &world));
+    const QVector3D half = world.map(QVector3D(11.f, -1.f, 0.f));
+    QVERIFY(qAbs(half.x() + 1.f) < 1e-3 && qAbs(half.z() + 12.f) < 1e-3);
 }
 
 void EngineTest::clipParentChainsAndRefusesCycles()

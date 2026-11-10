@@ -116,6 +116,10 @@ struct GpuLayer
     // Transform layers over this clip's track, in canvas pixels; see drift::transformParentsAt.
     QTransform parent;
     bool hasParent = false;
+    // 3D parenting (2026-11-09): a parent chain with a tilted or deep layer, as a move of the world (centre origin,
+    // canvas px) applied before the eye; see drift::clipParentWorld3d. When set it replaces `parent`.
+    QMatrix4x4 parentWorld;
+    bool parentIs3d = false;
     // Motion blur (0.26): where the layer is at each sub-frame of the shutter. When set, the layer
     // is drawn once per sample at 1/N into a canvas of its own and that average is composited in
     // its place, which is After Effects' 2D motion blur. Empty for a still or unblurred layer.

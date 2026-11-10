@@ -11421,6 +11421,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Twirl</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Fade in</source>
         <translation type="unfinished"></translation>
     </message>
@@ -23398,6 +23402,18 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>YouTuber style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>YouTube Kit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>TikTok Kit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Instagram Kit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

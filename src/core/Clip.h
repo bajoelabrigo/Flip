@@ -112,6 +112,11 @@ struct Clip
     // On a text clip it marks the text the panel offers to edit. Saved only when set.
     QString placeholderId;
     QString placeholderLabel;
+    // How a template fitted into a frame of another shape treats this clip (2026-11-08, Jorge: every title has to
+    // work in a Short and in a normal video): "backdrop" goes on covering the frame (a background, a transition
+    // sweep, a giant word behind), "art" is the design that is scaled and placed; empty = guessed from its box.
+    // Saved only when set.
+    QString layoutRole;
     // After Effects' Essential Graphics (0.26): this clip's properties offered as controls on the
     // composition that holds it ("content", "textColor", "x", "y", "rotation", "opacity",
     // "text.pixelSize"). Saved only when set.

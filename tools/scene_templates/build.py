@@ -107,29 +107,22 @@ def build_package(t, out: Path, work: Path, samples: Path, music_dir: Path) -> P
 CARD = (432, 768)
 
 
-def story_times(t) -> list[float]:
-    """Two more moments for the storyboard card, away from the thumbnail moment."""
-    d = t.duration
-    picks = [x * d for x in (0.22, 0.5, 0.8, 0.95) if abs(x * d - t.thumb_at) > 0.18 * d]
-    return sorted(picks[:2])
-
-
 def wide_card(frames: list[Image.Image]) -> Image.Image:
-    """A 16:9 template on the 9:16 card the Stock and Templates grids draw: a storyboard of three moments
-    stacked edge to edge (the thumbnail moment on top), with a «16:9» chip on it so the grid tells the
-    formats apart."""
+    """A 16:9 template on the 9:16 card the Stock and Templates grids draw: ONE moment (the thumbnail's), edge to
+    edge in the middle of a plain dark card, with a «16:9» chip under it. Three moments stacked did not read well
+    (Jorge, 2026-11-07: «solo debes poner una y no 3»), and a blurred copy behind smudges the lower thirds, which
+    have no background of their own."""
     w, h = CARD
-    card = Image.new("RGB", CARD, (14, 14, 18))
+    frame = frames[0].convert("RGB")
     fh = round(w * 9 / 16)
-    gap = (h - 3 * fh) // 2
-    for i, frame in enumerate(frames[:3]):
-        shot = frame.convert("RGB").resize((w, fh), Image.LANCZOS)
-        card.paste(shot, (0, i * (fh + gap)))
-    chip = ImageDraw.Draw(card)
-    x1, y1 = w - 12, fh - 12
-    chip.rounded_rectangle([x1 - 70, y1 - 28, x1, y1], 14, fill=(255, 255, 255))
-    chip.text((x1 - 35, y1 - 14), "16:9", fill=(20, 20, 24), anchor="mm")
-    return card
+    bg = Image.new("RGB", CARD, (14, 14, 18))
+    y = (h - fh) // 2
+    bg.paste(frame.resize((w, fh), Image.LANCZOS), (0, y))
+    chip = ImageDraw.Draw(bg)
+    cx, cy = w // 2, y + fh + 34
+    chip.rounded_rectangle([cx - 35, cy - 14, cx + 35, cy + 14], 14, fill=(255, 255, 255))
+    chip.text((cx, cy), "16:9", fill=(20, 20, 24), anchor="mm")
+    return bg
 
 
 def square_card(frame: Image.Image) -> Image.Image:
@@ -158,17 +151,10 @@ def square_preview(source: Path, target: Path) -> None:
 
 
 def wide_preview(source: Path, target: Path, duration: float) -> None:
-    """The 640x360 export as a moving storyboard: three copies a third of the loop apart, stacked on the
-    360x640 card like the thumbnail."""
-    fh = 202
-    gap = (640 - 3 * fh) // 2
-    inputs = []
-    for k in range(3):
-        inputs += ["-stream_loop", "-1", "-ss", f"{duration * k / 3:.3f}", "-i", str(source)]
-    # Rows 1 and 2 carry the gap below them as padding, so vstack spaces them.
-    graph =(";".join(f"[{k}:v]scale=360:{fh},setsar=1,pad=360:{fh + (gap if k < 2 else 0)}:0:0:color=0x0e0e12[v{k}]"
-                      for k in range(3)) + ";[v0][v1][v2]vstack=inputs=3,pad=360:640:0:0:color=0x0e0e12[p]")
-    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", *inputs, "-filter_complex", graph, "-map", "[p]",
+    """The 640x360 export on the 360x640 card like the thumbnail: ONE copy, edge to edge in the middle of a plain
+    dark card (three stacked copies did not read well, Jorge 2026-11-07)."""
+    graph = "[0:v]scale=360:202,setsar=1,pad=360:640:0:219:color=0x0e0e12[p]"
+    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(source), "-filter_complex", graph, "-map", "[p]",
                     "-map", "0:a?", "-t", f"{duration:.3f}", "-c:v", "libx264", "-crf", "28", "-preset", "medium",
                     "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "96k", "-movflags", "+faststart", str(target)],
                    check=True)
@@ -213,16 +199,7 @@ def render_all(jobs, exe: Path, work: Path) -> None:
                 elif wide:
                     hero = im.convert("RGB")
                     hero.resize((768, 432), Image.LANCZOS).save(pkg / "thumbnail-wide.png", optimize=True)
-                    frames = [hero]
-                    for at in story_times(t):
-                        extra = payload(bridge.call("capture", {"at": at, "full": True}, wait=120)).get("path")
-                        if extra and Path(extra).exists():
-                            with Image.open(extra) as ex:
-                                frames.append(ex.convert("RGB").resize((768, 432), Image.LANCZOS))
-                            os.remove(extra)
-                    while len(frames) < 3:
-                        frames.append(hero)
-                    wide_card(frames).save(pkg / "thumbnail.png", optimize=True)
+                    wide_card([hero]).save(pkg / "thumbnail.png", optimize=True)
                 else:
                     im.convert("RGB").resize((432, 768), Image.LANCZOS).save(pkg / "thumbnail.png", optimize=True)
             shutil.copy2(path, work / t.id / "frame.png")

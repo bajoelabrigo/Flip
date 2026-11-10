@@ -117,6 +117,7 @@
   "template:collage": "Collage",
   "template:countdown": "Conti alla rovescia",
   "template:counter": "Contatori",
+  "template:instagram": "Kit Instagram",
   "template:intro": "Intro e titoli",
   "template:lowerthird": "Sottopancia",
   "template:outro": "Finali",
@@ -127,6 +128,7 @@
   "template:story15": "Storie da 15 s",
   "template:text": "Testo",
   "template:thumbnail": "Miniature video",
+  "template:tiktok": "Kit TikTok",
   "template:transition": "Transizioni e separatori",
   "template:youtuber": "Stile youtuber",
   "template:ytkit": "Kit YouTube",
@@ -26316,6 +26318,3014 @@
     "festa"
    ]
   },
+  "template:ig0-intro-urbana": {
+   "name": "Intro urbana dinamica: URBAN, STREETS, PROMO… e il tuo logo",
+   "tags": [
+    "instagram",
+    "storia",
+    "apertura",
+    "urbano",
+    "intro dinamica",
+    "presentazione di foto"
+   ]
+  },
+  "template:ig1-alison": {
+   "name": "Storia: nome su una foto con cornice rossa",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "nome",
+    "profilo",
+    "rosso"
+   ]
+  },
+  "template:ig1-anna": {
+   "name": "Storia: nome con foto su sfumatura blu",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "nome",
+    "profilo",
+    "sfumatura"
+   ]
+  },
+  "template:ig1-beautiful": {
+   "name": "Storia: #beautiful con foto e citazione",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "citazione",
+    "foto"
+   ]
+  },
+  "template:ig1-believe": {
+   "name": "Storia: WE MUST BELIEVE con linea divisoria",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "frase",
+    "foto",
+    "nero"
+   ]
+  },
+  "template:ig1-catherine": {
+   "name": "Storia: foto tonda, nome e citazione su sfumatura",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "citazione",
+    "profilo",
+    "sfumatura"
+   ]
+  },
+  "template:ig1-conquer": {
+   "name": "Storia: Conquer from within con carosello di foto",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "carosello",
+    "foto",
+    "bianco"
+   ]
+  },
+  "template:ig1-do-your-best": {
+   "name": "Storia: DO YOUR BEST su un nastro",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "frase",
+    "città",
+    "motivazione"
+   ]
+  },
+  "template:ig1-dog": {
+   "name": "Storia: foto divisa da una banda #photooftheday",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "animale domestico",
+    "foto",
+    "banda"
+   ]
+  },
+  "template:ig1-elegant": {
+   "name": "Storia: ELEGANT TYPO DESIGN con finestra a specchio",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "tipografia",
+    "mare",
+    "elegante"
+   ]
+  },
+  "template:ig1-forty-sale": {
+   "name": "Storia: 40% Sale verticale con foto",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "saldi",
+    "sconto",
+    "moda"
+   ]
+  },
+  "template:ig1-happy-thoughts": {
+   "name": "Storia: polaroid inclinata «happy thoughts»",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "polaroid",
+    "matrimonio",
+    "scritto a mano"
+   ]
+  },
+  "template:ig1-heart": {
+   "name": "Storia: foto a cuore «happy thoughts»",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "cuore",
+    "amore",
+    "pesca"
+   ]
+  },
+  "template:ig1-instalove": {
+   "name": "Storia: #instalove LIVE WHAT YOU LOVE",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "frase",
+    "bosco",
+    "nome"
+   ]
+  },
+  "template:ig1-lifestyle": {
+   "name": "Storia: #lifestyle con mosaico di foto",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "collage",
+    "estate",
+    "mosaico"
+   ]
+  },
+  "template:ig1-live-what": {
+   "name": "Storia: Live what you love con griglia 2×2",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "griglia",
+    "collage",
+    "bianco"
+   ]
+  },
+  "template:ig1-love-friendship": {
+   "name": "Storia: polaroid e «Love is friendship» scritto a mano",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "polaroid",
+    "rosa",
+    "citazione"
+   ]
+  },
+  "template:ig1-love-loves": {
+   "name": "Storia: due polaroid con frecce e frase scritta a mano",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "polaroid",
+    "rosa",
+    "frecce"
+   ]
+  },
+  "template:ig1-must-believe": {
+   "name": "Storia: WE MUST BELIEVE in un cerchio a specchio",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "frase",
+    "cerchio",
+    "paesaggio"
+   ]
+  },
+  "template:ig1-nature": {
+   "name": "Storia: Nature in un riquadro con cornice",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "natura",
+    "cornice",
+    "mare"
+   ]
+  },
+  "template:ig1-neon": {
+   "name": "Storia: NEON CITY in neon turchese",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "neon",
+    "città",
+    "notte"
+   ]
+  },
+  "template:ig1-photo-frame": {
+   "name": "Storia: cartoncino bianco che apre una finestra",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "cornice",
+    "cibo",
+    "foto"
+   ]
+  },
+  "template:ig1-seek": {
+   "name": "Storia: SEEK THE SEEKER con lettere di foto",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "frase",
+    "foglie",
+    "ritaglio"
+   ]
+  },
+  "template:ig1-so-it-goes": {
+   "name": "Storia: So it goes con griglia 2×2",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "griglia",
+    "collage",
+    "rosa"
+   ]
+  },
+  "template:ig1-spring-sale": {
+   "name": "Storia: Spring Sale 30%",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "saldi",
+    "sconto",
+    "moda"
+   ]
+  },
+  "template:ig1-stylish-bike": {
+   "name": "Storia: S T Y L I S H con ritaglio",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "ritaglio",
+    "turchese",
+    "link"
+   ]
+  },
+  "template:ig1-stylish-design": {
+   "name": "Storia: STYLISH DESIGN in cornice sfumata",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "cornice",
+    "sfumatura",
+    "scuro"
+   ]
+  },
+  "template:ig1-stylish-skate": {
+   "name": "Storia: Stylish gigante verticale con motto",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "verticale",
+    "skateboard",
+    "tipografia"
+   ]
+  },
+  "template:ig1-success": {
+   "name": "Storia: citazione su roccia con 01",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "citazione",
+    "frase",
+    "scuro"
+   ]
+  },
+  "template:ig1-work-dream": {
+   "name": "Storia: Work hard. Dream big. verticale con 05",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "frase",
+    "verticale",
+    "numero"
+   ]
+  },
+  "template:ig1-work-hard": {
+   "name": "Storia: WORK HARD. DREAM BIG. su nero",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "frase",
+    "motivazione",
+    "nero"
+   ]
+  },
+  "template:ig10-arco-sube": {
+   "name": "Storia: foto ad arco che sale con MODELS",
+   "tags": [
+    "instagram",
+    "storia",
+    "moda",
+    "modelle",
+    "foto",
+    "arco"
+   ]
+  },
+  "template:ig10-ovalo-abre": {
+   "name": "Storia: foto ovale che si apre da una linea",
+   "tags": [
+    "instagram",
+    "storia",
+    "moda",
+    "modelle",
+    "foto",
+    "ovale"
+   ]
+  },
+  "template:ig10-ovalo-sube": {
+   "name": "Storia: foto ovale che sale con due contorni",
+   "tags": [
+    "instagram",
+    "storia",
+    "moda",
+    "modelle",
+    "foto",
+    "ovale"
+   ]
+  },
+  "template:ig10-u-foto": {
+   "name": "Storia: foto con base tonda e titolo incorniciato",
+   "tags": [
+    "instagram",
+    "storia",
+    "moda",
+    "modelle",
+    "foto",
+    "cornice"
+   ]
+  },
+  "template:ig10-ventana-arco": {
+   "name": "Storia: foto velata con finestra ad arco",
+   "tags": [
+    "instagram",
+    "moda",
+    "modelle",
+    "foto",
+    "arco",
+    "velo"
+   ]
+  },
+  "template:ig11-avatar-seguir": {
+   "name": "Foto profilo con segui",
+   "tags": [
+    "instagram",
+    "elementi",
+    "invito all'azione",
+    "social",
+    "segui",
+    "profilo"
+   ]
+  },
+  "template:ig11-comenta": {
+   "name": "Commenta qui sotto",
+   "tags": [
+    "instagram",
+    "elementi",
+    "invito all'azione",
+    "social",
+    "commenti",
+    "contatore"
+   ]
+  },
+  "template:ig11-compartir": {
+   "name": "Condividi il post con altri",
+   "tags": [
+    "instagram",
+    "elementi",
+    "invito all'azione",
+    "social",
+    "condividi",
+    "post"
+   ]
+  },
+  "template:ig11-doble-toque": {
+   "name": "Dai un doppio tocco",
+   "tags": [
+    "instagram",
+    "elementi",
+    "invito all'azione",
+    "social",
+    "mi piace",
+    "cuore"
+   ]
+  },
+  "template:ig11-enlace-bio": {
+   "name": "Clicca il link in bio",
+   "tags": [
+    "instagram",
+    "elementi",
+    "invito all'azione",
+    "social",
+    "link",
+    "bio"
+   ]
+  },
+  "template:ig11-etiqueta": {
+   "name": "Tagga qualcuno",
+   "tags": [
+    "instagram",
+    "elementi",
+    "invito all'azione",
+    "social",
+    "tag",
+    "chiocciola"
+   ]
+  },
+  "template:ig11-inspiracion": {
+   "name": "Trova la tua ispirazione",
+   "tags": [
+    "instagram",
+    "elementi",
+    "invito all'azione",
+    "social",
+    "cercare",
+    "ricerca"
+   ]
+  },
+  "template:ig11-pastilla-seguir": {
+   "name": "Pillola con nome e segui",
+   "tags": [
+    "instagram",
+    "elementi",
+    "invito all'azione",
+    "social",
+    "segui",
+    "nome"
+   ]
+  },
+  "template:ig11-pastilla-usuario": {
+   "name": "Pillola utente con follower",
+   "tags": [
+    "instagram",
+    "elementi",
+    "invito all'azione",
+    "social",
+    "utente",
+    "follower"
+   ]
+  },
+  "template:ig11-perfil": {
+   "name": "Scheda profilo",
+   "tags": [
+    "instagram",
+    "elementi",
+    "invito all'azione",
+    "social",
+    "profilo",
+    "segui"
+   ]
+  },
+  "template:ig11-publicacion": {
+   "name": "Scheda post",
+   "tags": [
+    "instagram",
+    "elementi",
+    "invito all'azione",
+    "social",
+    "post",
+    "mi piace"
+   ]
+  },
+  "template:ig11-reels": {
+   "name": "Guarda i nostri ultimi reels",
+   "tags": [
+    "instagram",
+    "elementi",
+    "invito all'azione",
+    "social",
+    "visualizzazioni",
+    "contatore"
+   ]
+  },
+  "template:ig11-responder": {
+   "name": "Scheda commento con risposta",
+   "tags": [
+    "instagram",
+    "elementi",
+    "invito all'azione",
+    "social",
+    "commento",
+    "rispondi"
+   ]
+  },
+  "template:ig11-tu-historia": {
+   "name": "Aggiungi la tua storia",
+   "tags": [
+    "instagram",
+    "elementi",
+    "invito all'azione",
+    "social",
+    "storia",
+    "condividi"
+   ]
+  },
+  "template:ig11-ver-historia": {
+   "name": "Tocca per vedere la storia",
+   "tags": [
+    "instagram",
+    "elementi",
+    "invito all'azione",
+    "social",
+    "storia",
+    "tocca"
+   ]
+  },
+  "template:ig12-anillos": {
+   "name": "Storia: anelli con foto tonda e lettere giganti",
+   "tags": [
+    "instagram",
+    "arancione",
+    "rosso",
+    "cerchi",
+    "anelli",
+    "foto"
+   ]
+  },
+  "template:ig12-caja-roja": {
+   "name": "Storia: riquadro rosso con parola verticale e lettere giganti",
+   "tags": [
+    "instagram",
+    "arancione",
+    "rosso",
+    "riquadro",
+    "lettere",
+    "foto"
+   ]
+  },
+  "template:ig12-diagonal": {
+   "name": "Storia: strisce diagonali con parola gigante",
+   "tags": [
+    "instagram",
+    "arancione",
+    "rosso",
+    "diagonale",
+    "bande",
+    "foto"
+   ]
+  },
+  "template:ig12-franjas": {
+   "name": "Storia: bande di colore e parola verticale",
+   "tags": [
+    "instagram",
+    "arancione",
+    "rosso",
+    "bande",
+    "foto",
+    "verticale"
+   ]
+  },
+  "template:ig12-panel-rojo": {
+   "name": "Storia: parola gigante che sale su un pannello rosso",
+   "tags": [
+    "instagram",
+    "arancione",
+    "rosso",
+    "pannello",
+    "lettere",
+    "foto"
+   ]
+  },
+  "template:ig13-amarilla": {
+   "name": "Storia tipografica: gialla",
+   "tags": [
+    "instagram",
+    "storia",
+    "tipografia",
+    "giallo",
+    "nero",
+    "lettere giganti"
+   ]
+  },
+  "template:ig13-caja-negra": {
+   "name": "Storia tipografica: riquadro nero",
+   "tags": [
+    "instagram",
+    "tipografia",
+    "giallo",
+    "nero",
+    "riquadro",
+    "sfere"
+   ]
+  },
+  "template:ig13-filas": {
+   "name": "Storia tipografica: file di lettere",
+   "tags": [
+    "instagram",
+    "tipografia",
+    "giallo",
+    "nero",
+    "lettere giganti",
+    "grigio"
+   ]
+  },
+  "template:ig13-gris-ra": {
+   "name": "Storia tipografica: RA grigia",
+   "tags": [
+    "instagram",
+    "tipografia",
+    "giallo",
+    "nero",
+    "lettere giganti",
+    "grigio"
+   ]
+  },
+  "template:ig13-letras-grises": {
+   "name": "Storia tipografica: lettere gialle",
+   "tags": [
+    "instagram",
+    "tipografia",
+    "giallo",
+    "nero",
+    "lettere giganti",
+    "grigio"
+   ]
+  },
+  "template:ig13-muro-de-fotos": {
+   "name": "Muro di foto con il tuo logo",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "foto",
+    "logo",
+    "profilo"
+   ]
+  },
+  "template:ig13-negra": {
+   "name": "Storia tipografica: diagonale nera",
+   "tags": [
+    "instagram",
+    "storia",
+    "tipografia",
+    "giallo",
+    "nero",
+    "lettere in diagonale"
+   ]
+  },
+  "template:ig13-oscura": {
+   "name": "Storia tipografica: scura con sfere",
+   "tags": [
+    "instagram",
+    "tipografia",
+    "giallo",
+    "nero",
+    "lettere giganti",
+    "sfere"
+   ]
+  },
+  "template:ig14-dinamica": {
+   "name": "Slideshow dinamico: una parola per foto",
+   "tags": [
+    "instagram",
+    "presentazione di foto",
+    "slideshow",
+    "dinamica",
+    "parole",
+    "transizioni"
+   ]
+  },
+  "template:ig14-energia": {
+   "name": "Slideshow energico con logo",
+   "tags": [
+    "instagram",
+    "presentazione di foto",
+    "slideshow",
+    "energia",
+    "parole",
+    "logo"
+   ]
+  },
+  "template:ig14-epica": {
+   "name": "Slideshow epico con glitch",
+   "tags": [
+    "instagram",
+    "presentazione di foto",
+    "slideshow",
+    "epico",
+    "cinematografico",
+    "glitch"
+   ]
+  },
+  "template:ig14-limpia": {
+   "name": "Slideshow pulito con grande tipografia",
+   "tags": [
+    "instagram",
+    "presentazione di foto",
+    "slideshow",
+    "pulita",
+    "tipografia",
+    "foto nelle lettere"
+   ]
+  },
+  "template:ig14-minimal": {
+   "name": "Slideshow minimal su bianco",
+   "tags": [
+    "instagram",
+    "presentazione di foto",
+    "slideshow",
+    "minimalista",
+    "bianco",
+    "elegante"
+   ]
+  },
+  "template:ig14-moda": {
+   "name": "Slideshow di moda con didascalie",
+   "tags": [
+    "instagram",
+    "presentazione di foto",
+    "slideshow",
+    "moda",
+    "frasi",
+    "glitch"
+   ]
+  },
+  "template:ig14-ritmica": {
+   "name": "Slideshow ritmico con anelli",
+   "tags": [
+    "instagram",
+    "presentazione di foto",
+    "slideshow",
+    "ritmo",
+    "frasi",
+    "anelli"
+   ]
+  },
+  "template:ig14-stomp": {
+   "name": "Slideshow stomp: una parola a ogni battito",
+   "tags": [
+    "instagram",
+    "presentazione di foto",
+    "slideshow",
+    "stomp",
+    "ritmo",
+    "parole"
+   ]
+  },
+  "template:ig2-cartel-amarillo": {
+   "name": "Storia: poster giallo Your Stories",
+   "tags": [
+    "instagram",
+    "storia",
+    "colori",
+    "poster",
+    "giallo",
+    "testo"
+   ]
+  },
+  "template:ig2-ciudad-oferta": {
+   "name": "Storia: offerta in città con cerchio %",
+   "tags": [
+    "instagram",
+    "colori",
+    "offerta",
+    "sconto",
+    "città",
+    "nuovo"
+   ]
+  },
+  "template:ig2-cocina": {
+   "name": "Storia: apertura di un programma di cucina",
+   "tags": [
+    "instagram",
+    "storia",
+    "colori",
+    "cucina",
+    "cibo",
+    "apertura"
+   ]
+  },
+  "template:ig2-feliz": {
+   "name": "Storia: HAPPY con lettera gigante e riquadro menta",
+   "tags": [
+    "instagram",
+    "storia",
+    "colori",
+    "felice",
+    "bianco e nero",
+    "lettera"
+   ]
+  },
+  "template:ig2-interior": {
+   "name": "Storia: interior design con cerchi di colore",
+   "tags": [
+    "instagram",
+    "storia",
+    "colori",
+    "interni",
+    "design",
+    "casa"
+   ]
+  },
+  "template:ig2-moda": {
+   "name": "Storia: Fashion su menta e rosso",
+   "tags": [
+    "instagram",
+    "storia",
+    "colori",
+    "moda",
+    "profilo",
+    "azienda"
+   ]
+  },
+  "template:ig2-oscuro": {
+   "name": "Storia: DARK con lettere a griglia",
+   "tags": [
+    "instagram",
+    "storia",
+    "colori",
+    "scuro",
+    "moda",
+    "tipografia"
+   ]
+  },
+  "template:ig2-presentamos": {
+   "name": "Storia: INTRODUCING OUR STORIES con strisce sfumate",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "colori",
+    "presentazione",
+    "sfumatura"
+   ]
+  },
+  "template:ig2-rostro-franjas": {
+   "name": "Storia: volto con bande di colore e cerchi",
+   "tags": [
+    "instagram",
+    "storia",
+    "colori",
+    "ritratto",
+    "brand",
+    "bianco e nero"
+   ]
+  },
+  "template:ig2-tu-mente": {
+   "name": "Storia: Say what's on your mind in viola",
+   "tags": [
+    "instagram",
+    "storia",
+    "colori",
+    "frase",
+    "viola",
+    "domanda"
+   ]
+  },
+  "template:ig2-tu-vida": {
+   "name": "Storia: YOUR LIFE con bande gialle",
+   "tags": [
+    "instagram",
+    "storia",
+    "colori",
+    "vita",
+    "consigli",
+    "giallo"
+   ]
+  },
+  "template:ig2-viaje-verano": {
+   "name": "Storia: GREAT TRIP SUMMER con nuvola di foto",
+   "tags": [
+    "instagram",
+    "storia",
+    "colori",
+    "viaggio",
+    "estate",
+    "nuvola"
+   ]
+  },
+  "template:ig3-arte": {
+   "name": "Storia: art 01 Stories su un dipinto",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "arte",
+    "pittura"
+   ]
+  },
+  "template:ig3-ciencia": {
+   "name": "Storia: A-01 MODERN SCIENCE con cerchi",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "scienza",
+    "cerchio"
+   ]
+  },
+  "template:ig3-city-life": {
+   "name": "Storia: CITY LIFE con pannello rosa",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "città"
+   ]
+  },
+  "template:ig3-comida-circulo": {
+   "name": "Storia: Say what's on your mind in un cerchio",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "cibo",
+    "cerchio"
+   ]
+  },
+  "template:ig3-fashion": {
+   "name": "Storia: FASHION 45$ con lettere piene di foto",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "moda",
+    "offerta"
+   ]
+  },
+  "template:ig3-food": {
+   "name": "Storia: Food sconto 50%",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "cibo",
+    "offerta"
+   ]
+  },
+  "template:ig3-friend": {
+   "name": "Storia: FRIEND GREAT TRIP con cerchio",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "amici",
+    "cerchio"
+   ]
+  },
+  "template:ig3-full": {
+   "name": "Storia: Full 100% in lettering a pennello",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "offerta",
+    "animali domestici"
+   ]
+  },
+  "template:ig3-introducing": {
+   "name": "Storia: INTRODUCING STORIES nel bosco",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "inverno",
+    "presentazione"
+   ]
+  },
+  "template:ig3-models": {
+   "name": "Storia: MODELS FASHION con parentesi",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "moda",
+    "ritratto"
+   ]
+  },
+  "template:ig3-music": {
+   "name": "Storia: MUSIC EXCLUSIVE con anelli",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "musica",
+    "cerchio"
+   ]
+  },
+  "template:ig3-new": {
+   "name": "Storia: viaggi NEW con pennellata",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "viaggi",
+    "pennello"
+   ]
+  },
+  "template:ig3-opener": {
+   "name": "Opener dinamico per un post quadrato",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "opener",
+    "tipografia",
+    "post"
+   ]
+  },
+  "template:ig3-perfil-amarillo": {
+   "name": "Profilo: scheda gialla con foto",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "profilo"
+   ]
+  },
+  "template:ig3-perfil-coral": {
+   "name": "Profilo: scheda corallo con macchie",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "profilo"
+   ]
+  },
+  "template:ig3-perfil-degradado": {
+   "name": "Profilo: scheda sfumata con cerchi",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "profilo"
+   ]
+  },
+  "template:ig3-perfil-oscuro": {
+   "name": "Profilo: scheda scura con nome rosso",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "profilo"
+   ]
+  },
+  "template:ig3-perfil-rojo": {
+   "name": "Profilo: scheda rossa con avatar",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "profilo"
+   ]
+  },
+  "template:ig3-portfolio": {
+   "name": "Storia: PORTFOLIO con un nome",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "portfolio"
+   ]
+  },
+  "template:ig3-programa": {
+   "name": "Storia: V 6 con barre arrotondate",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "tecnologia",
+    "pastello"
+   ]
+  },
+  "template:ig3-promo": {
+   "name": "Storia: Product Promo con disco giallo",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "prodotto",
+    "promozione"
+   ]
+  },
+  "template:ig3-sport": {
+   "name": "Storia: SPORT con badge rosa",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "sport"
+   ]
+  },
+  "template:ig3-tech": {
+   "name": "Storia: TECH con lettere sparse",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "tecnologia"
+   ]
+  },
+  "template:ig3-toys": {
+   "name": "Storia: TOYS con disco sfumato",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "giocattoli",
+    "cerchio"
+   ]
+  },
+  "template:ig3-tv": {
+   "name": "Storia: Media Social con foto tonda",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "social",
+    "cerchio"
+   ]
+  },
+  "template:ig3-your-life": {
+   "name": "Storia: YOUR LIFE e PRO con bande di colore",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "interni"
+   ]
+  },
+  "template:ig4-abstract": {
+   "name": "Storia: ABSTRACT GEOMETRIC STYLE",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "foto",
+    "geometrico",
+    "architettura"
+   ]
+  },
+  "template:ig4-amazing-dream": {
+   "name": "Storia: Amazing dream con due foto",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "foto",
+    "frase",
+    "marrone"
+   ]
+  },
+  "template:ig4-audacious": {
+   "name": "Storia: LET'S DO WHAT WE LOVE #AUDACIOUS",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "motivazione",
+    "nero",
+    "verde"
+   ]
+  },
+  "template:ig4-beauty": {
+   "name": "Storia: There is beauty in simplicity",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "natura",
+    "frase",
+    "calligrafia"
+   ]
+  },
+  "template:ig4-beauty-flowers": {
+   "name": "Storia: Beauty con fiori",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "fiori",
+    "calligrafia",
+    "rosa"
+   ]
+  },
+  "template:ig4-believe": {
+   "name": "Storia: BELIEVE YOU CAN SO YOU ARE HALFWAY THERE",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "foto",
+    "motivazione",
+    "frase"
+   ]
+  },
+  "template:ig4-big": {
+   "name": "Storia: BIG. con cerchio a righe",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "moda",
+    "righe",
+    "cerchio"
+   ]
+  },
+  "template:ig4-born-wild": {
+   "name": "Storia: BORN TO BE WILD",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "avventura",
+    "blu",
+    "deserto"
+   ]
+  },
+  "template:ig4-brand-new-day": {
+   "name": "Storia: brand new day con triangoli",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "foto",
+    "triangoli",
+    "geometrico"
+   ]
+  },
+  "template:ig4-clear": {
+   "name": "Storia: CLEAR INTERIOR in due metà",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "interni",
+    "casa",
+    "decorazione"
+   ]
+  },
+  "template:ig4-cold-wave": {
+   "name": "Storia: COLD WAVE WARM SUN con lettere di foto",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "foto",
+    "mare",
+    "tipografia"
+   ]
+  },
+  "template:ig4-confident": {
+   "name": "Storia: STYLISH & CONFIDENT in tre finestre",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "foto",
+    "moda",
+    "uomo"
+   ]
+  },
+  "template:ig4-control": {
+   "name": "Storia: CONTROL con logo e due foto",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "logo",
+    "yoga",
+    "calma"
+   ]
+  },
+  "template:ig4-courage": {
+   "name": "Storia: #courage con pennellata",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "ritratto",
+    "arancione",
+    "pennello"
+   ]
+  },
+  "template:ig4-culinary": {
+   "name": "Storia: CULINARY ART #cooking",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "cucina",
+    "cibo",
+    "arancione"
+   ]
+  },
+  "template:ig4-deep-breath": {
+   "name": "Storia: ENJOY DEEP BREATH con foglie",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "natura",
+    "verde",
+    "rosa"
+   ]
+  },
+  "template:ig4-delicious": {
+   "name": "Storia: griglia #DELICIOUS",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "cibo",
+    "dolci",
+    "griglia"
+   ]
+  },
+  "template:ig4-dream": {
+   "name": "Storia: DREAM con cornice su una città",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "foto",
+    "città",
+    "cornice"
+   ]
+  },
+  "template:ig4-employee": {
+   "name": "Storia: BEST EMPLOYEE OF THE MONTH",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "azienda",
+    "dipendente",
+    "ritratto"
+   ]
+  },
+  "template:ig4-enjoy-music": {
+   "name": "Storia: ENJOY MY MUSIC blu e rosso",
+   "tags": [
+    "instagram",
+    "foto",
+    "musica",
+    "ballo",
+    "blu",
+    "rosso"
+   ]
+  },
+  "template:ig4-fashion-buy": {
+   "name": "Storia: FASHION IS WHAT YOU BUY su bande",
+   "tags": [
+    "instagram",
+    "foto",
+    "moda",
+    "bande",
+    "rosso",
+    "blu"
+   ]
+  },
+  "template:ig4-fitness": {
+   "name": "Storia: FITNESS BODY ENERGY WORKOUT",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "palestra",
+    "sport",
+    "sfumatura"
+   ]
+  },
+  "template:ig4-fun": {
+   "name": "Storia: #FUN con foto incorniciata",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "foto",
+    "cornice",
+    "rosso"
+   ]
+  },
+  "template:ig4-glam": {
+   "name": "Storia: GLAM ROCK in rosa e nero",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "moda",
+    "rosa",
+    "nero"
+   ]
+  },
+  "template:ig4-instamusic": {
+   "name": "Storia: #instamusic #yourbeat con macchie",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "musica",
+    "neon",
+    "forme"
+   ]
+  },
+  "template:ig4-life-good": {
+   "name": "Storia: LIFE IS SO GOOD JUST BE YOURSELF",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "frase",
+    "neon",
+    "griglia"
+   ]
+  },
+  "template:ig4-lifestyle": {
+   "name": "Storia: my lifestyle #followme",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "stile di vita",
+    "blu",
+    "collage"
+   ]
+  },
+  "template:ig4-look-deep": {
+   "name": "Storia: LOOK DEEP INTO NATURE con esagoni",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "foto",
+    "natura",
+    "esagono"
+   ]
+  },
+  "template:ig4-masterpiece": {
+   "name": "Storia: MAKE EACH DAY YOUR MASTERPIECE",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "frase",
+    "rosa",
+    "motivazione"
+   ]
+  },
+  "template:ig4-meeting": {
+   "name": "Storia: MEETING WITH FRIENDS in colonne",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "amici",
+    "colonne",
+    "caffè"
+   ]
+  },
+  "template:ig4-motion": {
+   "name": "Storia: MOTION con cerchio giallo",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "ballo",
+    "cerchio",
+    "duotone"
+   ]
+  },
+  "template:ig4-moving": {
+   "name": "Storia: Moving con due anelli",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "ballo",
+    "anelli",
+    "blu"
+   ]
+  },
+  "template:ig4-music": {
+   "name": "Storia: MUSIC DANCE ENJOY",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "foto",
+    "musica",
+    "festa"
+   ]
+  },
+  "template:ig4-natural": {
+   "name": "Storia: NATURAL BEAUTY in tre colonne",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "foto",
+    "natura",
+    "colonne"
+   ]
+  },
+  "template:ig4-never-easier": {
+   "name": "Storia: IT NEVER GETS EASIER in rosso",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "palestra",
+    "motivazione",
+    "rosso"
+   ]
+  },
+  "template:ig4-ocean": {
+   "name": "Storia: OCEAN HAPPY RELAX con cornice",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "mare",
+    "cornice",
+    "estate"
+   ]
+  },
+  "template:ig4-pro-fitness": {
+   "name": "Storia: PRO fitness con cornice incrociata",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "sport",
+    "cornice",
+    "pesca"
+   ]
+  },
+  "template:ig4-sale40": {
+   "name": "Storia: SALE 40% in verticale",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "saldi",
+    "offerta",
+    "rosso"
+   ]
+  },
+  "template:ig4-sale75": {
+   "name": "Storia: SALE UP TO 75% OFF",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "saldi",
+    "offerta",
+    "rosso"
+   ]
+  },
+  "template:ig4-secrets": {
+   "name": "Storia: NO MORE SECRETS #IMAGINE",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "rosso",
+    "diagonale",
+    "notte"
+   ]
+  },
+  "template:ig4-shopping-week": {
+   "name": "Storia: #shoppingweek 40% FOR SALE",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "saldi",
+    "shopping",
+    "blu"
+   ]
+  },
+  "template:ig4-simplelife": {
+   "name": "Storia: When you focus on the good #simplelife",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "foto",
+    "frase",
+    "blu"
+   ]
+  },
+  "template:ig4-skate": {
+   "name": "Storia: 0256 #skatelife",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "foto",
+    "skate",
+    "sport"
+   ]
+  },
+  "template:ig4-sport": {
+   "name": "Storia: W SPORT con una linea",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "sport",
+    "corsa",
+    "linea"
+   ]
+  },
+  "template:ig4-spring": {
+   "name": "Storia: SPRING IS IN THE AIR",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "primavera",
+    "fiori",
+    "corallo"
+   ]
+  },
+  "template:ig4-stay-strong": {
+   "name": "Storia: STAY STRONG DON'T GIVE UP",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "motivazione",
+    "rosso",
+    "diagonale"
+   ]
+  },
+  "template:ig4-street-fast": {
+   "name": "Storia: 10/25 #youth street FAST",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "strada",
+    "skate",
+    "giallo"
+   ]
+  },
+  "template:ig4-style": {
+   "name": "Storia: STYLE IS VERY PERSONAL",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "foto",
+    "moda",
+    "rosso"
+   ]
+  },
+  "template:ig4-style-beautiful": {
+   "name": "Storia: STYLE #beautiful con bande",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "foto",
+    "moda",
+    "bande"
+   ]
+  },
+  "template:ig4-stylish": {
+   "name": "Storia: #stylish con disco blu",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "moda",
+    "blu",
+    "arancione"
+   ]
+  },
+  "template:ig4-summer": {
+   "name": "Storia: #SUMMER con rombo da spiaggia",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "spiaggia",
+    "estate",
+    "rombo"
+   ]
+  },
+  "template:ig4-summer-event": {
+   "name": "Storia: summer event con una data",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "estate",
+    "evento",
+    "spiaggia"
+   ]
+  },
+  "template:ig4-summer-look": {
+   "name": "Storia: Summer look #fashion a bande",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "moda",
+    "estate",
+    "beige"
+   ]
+  },
+  "template:ig4-sunshine": {
+   "name": "Storia: SUNSHINE con quattro foto",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "estate",
+    "collage",
+    "spiaggia"
+   ]
+  },
+  "template:ig4-sunshine-tag": {
+   "name": "Storia: #sunshine Relaxing holiday",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "foto",
+    "estate",
+    "blu"
+   ]
+  },
+  "template:ig4-trendy": {
+   "name": "Storia: #TRENDY YOUR STYLE in rosso",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "foto",
+    "rosso",
+    "moda"
+   ]
+  },
+  "template:ig4-tropical": {
+   "name": "Storia: FEELING TROPICAL con tre foto",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "estate",
+    "tropicale",
+    "collage"
+   ]
+  },
+  "template:ig4-winner": {
+   "name": "Storia: THE WINNER NEVER QUITS",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "motivazione",
+    "palestra",
+    "bianco e nero"
+   ]
+  },
+  "template:ig4-young": {
+   "name": "Storia: YOUNG #followus",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "gioventù",
+    "rosso",
+    "colori"
+   ]
+  },
+  "template:ig4-youth": {
+   "name": "Storia: #YOUTH & FREEDOM con triangolo",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "foto",
+    "triangolo",
+    "corallo"
+   ]
+  },
+  "template:ig5-amazing-now": {
+   "name": "Storia: AMAZING NOW",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "bianco e nero",
+    "rosso",
+    "frase"
+   ]
+  },
+  "template:ig5-awesome": {
+   "name": "Storia: AWESOME verticale",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "rosso",
+    "verticale",
+    "ritratto"
+   ]
+  },
+  "template:ig5-be-strong": {
+   "name": "Storia: B STRONG",
+   "tags": [
+    "instagram",
+    "foto",
+    "rosso",
+    "frase",
+    "motivazione",
+    "bianco e nero"
+   ]
+  },
+  "template:ig5-beach-therapy": {
+   "name": "Storia: beach therapy turchese",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "spiaggia",
+    "vacanze",
+    "estate"
+   ]
+  },
+  "template:ig5-beauty-pro": {
+   "name": "Storia: BEAUTY con onda viola",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "bellezza",
+    "viola",
+    "bianco e nero"
+   ]
+  },
+  "template:ig5-best-look": {
+   "name": "Storia: YOUR BEST LOOK incorniciato",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "verde",
+    "moda",
+    "giallo"
+   ]
+  },
+  "template:ig5-choose-glam": {
+   "name": "Storia: 48 choose the glam",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "bellezza",
+    "glamour",
+    "frase"
+   ]
+  },
+  "template:ig5-cold-water": {
+   "name": "Storia: COLD DEEP WATER",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "mare",
+    "giallo",
+    "estate"
+   ]
+  },
+  "template:ig5-creative-studio": {
+   "name": "Storia: CREATIVE DESIGN STUDIO",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "design",
+    "studio",
+    "azienda"
+   ]
+  },
+  "template:ig5-dancing": {
+   "name": "Storia: #DANCING con foto in diagonale",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "ballo",
+    "diagonale",
+    "bokeh"
+   ]
+  },
+  "template:ig5-daring-style": {
+   "name": "Storia: DARING STYLE su giallo",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "giallo",
+    "moda",
+    "bianco e nero"
+   ]
+  },
+  "template:ig5-denim-style": {
+   "name": "Storia: DENIM STYLE incorniciato",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "moda",
+    "riquadro",
+    "collezione"
+   ]
+  },
+  "template:ig5-design-passion": {
+   "name": "Storia: DESIGN IS MY PASSION",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "interni",
+    "design",
+    "persiane"
+   ]
+  },
+  "template:ig5-dont-waste": {
+   "name": "Storia: DON'T WASTE YOUR TIME",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "frase",
+    "verde acqua",
+    "motivazione"
+   ]
+  },
+  "template:ig5-enjoy-movement": {
+   "name": "Storia: enjoy the movement",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "ballo",
+    "nero",
+    "ciano"
+   ]
+  },
+  "template:ig5-flexible-body": {
+   "name": "Storia: FLEXIBLE BODY con banda sfumata",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "fitness",
+    "sfumatura",
+    "bianco e nero"
+   ]
+  },
+  "template:ig5-focus-breathe": {
+   "name": "Storia: FOCUS ON THE BREATHE",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "frase",
+    "tipografia",
+    "arancione"
+   ]
+  },
+  "template:ig5-fondo-ambar": {
+   "name": "Sfondo: cerchi ambra",
+   "tags": [
+    "instagram",
+    "sfondo",
+    "arancione",
+    "marrone",
+    "cerchi",
+    "astratto"
+   ]
+  },
+  "template:ig5-fondo-burbujas-azules": {
+   "name": "Sfondo: bolle blu su rosa",
+   "tags": [
+    "instagram",
+    "sfondo",
+    "rosa",
+    "blu",
+    "bolle",
+    "astratto"
+   ]
+  },
+  "template:ig5-fondo-burbujas-grises": {
+   "name": "Sfondo: bolle grigie su nero",
+   "tags": [
+    "instagram",
+    "sfondo",
+    "nero",
+    "grigio",
+    "cerchi",
+    "bolle"
+   ]
+  },
+  "template:ig5-fondo-chevrones": {
+   "name": "Sfondo: chevron rossi",
+   "tags": [
+    "instagram",
+    "storia",
+    "sfondo",
+    "rosso",
+    "chevron",
+    "astratto"
+   ]
+  },
+  "template:ig5-fondo-cinta-azul": {
+   "name": "Sfondo: nastro blu su rosso",
+   "tags": [
+    "instagram",
+    "sfondo",
+    "sfumatura",
+    "blu",
+    "rosso",
+    "astratto"
+   ]
+  },
+  "template:ig5-fondo-geometrico": {
+   "name": "Sfondo: frammenti geometrici su grigio",
+   "tags": [
+    "instagram",
+    "sfondo",
+    "grigio",
+    "geometrico",
+    "arancione",
+    "minimalista"
+   ]
+  },
+  "template:ig5-fondo-lineas": {
+   "name": "Sfondo: sfumatura con linee neon",
+   "tags": [
+    "instagram",
+    "sfondo",
+    "sfumatura",
+    "rosa",
+    "linee",
+    "neon"
+   ]
+  },
+  "template:ig5-fondo-lineas-cruzadas": {
+   "name": "Sfondo: linee incrociate",
+   "tags": [
+    "instagram",
+    "storia",
+    "sfondo",
+    "sfumatura",
+    "magenta",
+    "linee"
+   ]
+  },
+  "template:ig5-fondo-olas": {
+   "name": "Sfondo: onde arancioni e viola",
+   "tags": [
+    "instagram",
+    "sfondo",
+    "sfumatura",
+    "arancione",
+    "viola",
+    "astratto"
+   ]
+  },
+  "template:ig5-fondo-pildoras": {
+   "name": "Sfondo: pillole rosa",
+   "tags": [
+    "instagram",
+    "sfondo",
+    "rosa",
+    "pastello",
+    "forme",
+    "astratto"
+   ]
+  },
+  "template:ig5-fondo-plata": {
+   "name": "Sfondo: strisce argento",
+   "tags": [
+    "instagram",
+    "sfondo",
+    "argento",
+    "grigio",
+    "righe",
+    "astratto"
+   ]
+  },
+  "template:ig5-fondo-rojo": {
+   "name": "Sfondo: forme rosse arrotondate",
+   "tags": [
+    "instagram",
+    "sfondo",
+    "rosso",
+    "forme",
+    "astratto",
+    "sfumatura"
+   ]
+  },
+  "template:ig5-gentle-soft": {
+   "name": "Storia: scheda GENTLE & SOFT",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "fiori",
+    "scheda",
+    "rosa"
+   ]
+  },
+  "template:ig5-glam": {
+   "name": "Storia: GLAM con scatto di fotocamera",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "rosa",
+    "fotocamera",
+    "bianco e nero"
+   ]
+  },
+  "template:ig5-happiness-love": {
+   "name": "Storia: collage HAPPINESS e LOVE",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "collage",
+    "matrimonio",
+    "dorato"
+   ]
+  },
+  "template:ig5-happy-weekends": {
+   "name": "Storia: Happy weekends",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "fiori",
+    "weekend",
+    "giallo"
+   ]
+  },
+  "template:ig5-inspiration": {
+   "name": "Storia: #pleasure ispirazione",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "rosso",
+    "bianco e nero",
+    "frase"
+   ]
+  },
+  "template:ig5-interior-dream": {
+   "name": "Storia: catalogo INTERIOR OF YOUR DREAM",
+   "tags": [
+    "instagram",
+    "foto",
+    "catalogo",
+    "interni",
+    "prezzo",
+    "negozio"
+   ]
+  },
+  "template:ig5-keep-simple": {
+   "name": "Storia: KEEP IT SIMPLE con un cerchio",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "cerchio",
+    "sfumatura",
+    "frase"
+   ]
+  },
+  "template:ig5-light-easy": {
+   "name": "Storia: scheda LIGHT & EASY",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "moda",
+    "scheda",
+    "blu"
+   ]
+  },
+  "template:ig5-look-deep": {
+   "name": "Storia: LOOK DEEP INTO YOURSELF",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "frase",
+    "neon",
+    "tag"
+   ]
+  },
+  "template:ig5-mindfulness": {
+   "name": "Storia: B/N #mindfulness",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "bianco e nero",
+    "frase",
+    "calma"
+   ]
+  },
+  "template:ig5-modern-office": {
+   "name": "Storia: MODERN OFFICE SPACE",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "ufficio",
+    "azienda",
+    "minimalista"
+   ]
+  },
+  "template:ig5-ocean": {
+   "name": "Storia: OCEAN in un cerchio",
+   "tags": [
+    "instagram",
+    "foto",
+    "cerchio",
+    "mare",
+    "surf",
+    "estate"
+   ]
+  },
+  "template:ig5-pleasure": {
+   "name": "Storia: PLEASURE collage a blocchi",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "collage",
+    "terracotta",
+    "blocchi"
+   ]
+  },
+  "template:ig5-power": {
+   "name": "Storia: #POWER con una foto",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "rosso",
+    "moda",
+    "frase"
+   ]
+  },
+  "template:ig5-relax-home": {
+   "name": "Storia: Relax SWEET HOME",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "casa",
+    "interni",
+    "verde"
+   ]
+  },
+  "template:ig5-sale-70": {
+   "name": "Storia: SALE 70% con bande oblique",
+   "tags": [
+    "instagram",
+    "foto",
+    "saldi",
+    "offerta",
+    "shopping",
+    "rosso"
+   ]
+  },
+  "template:ig5-sensual": {
+   "name": "Storia: SENSUAL con due foto",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "bianco e nero",
+    "collage",
+    "moda"
+   ]
+  },
+  "template:ig5-style-y": {
+   "name": "Storia: STYLE con una grande Y",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "moda",
+    "verde acqua",
+    "cornice"
+   ]
+  },
+  "template:ig5-summer-pause": {
+   "name": "Storia: SUMMER take a pause",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "estate",
+    "vacanze",
+    "giallo"
+   ]
+  },
+  "template:ig5-sunny-day": {
+   "name": "Storia: SUNNY DAY con un cerchio",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "estate",
+    "piscina",
+    "giallo"
+   ]
+  },
+  "template:ig5-titulo-art-design": {
+   "name": "Titolo: ART & DESIGN FORUM",
+   "tags": [
+    "instagram",
+    "titolo",
+    "testo",
+    "arte",
+    "design",
+    "giallo"
+   ]
+  },
+  "template:ig5-titulo-big-sale": {
+   "name": "Titolo: BIG SALE con pennello e carrello",
+   "tags": [
+    "instagram",
+    "titolo",
+    "testo",
+    "saldi",
+    "pennello",
+    "shopping"
+   ]
+  },
+  "template:ig5-titulo-bold-fashion": {
+   "name": "Titolo: BOLD FASHION STYLE inclinato",
+   "tags": [
+    "instagram",
+    "titolo",
+    "testo",
+    "moda",
+    "inclinato",
+    "blu"
+   ]
+  },
+  "template:ig5-titulo-chicle": {
+   "name": "Titolo: BUBBLEGUM STYLE",
+   "tags": [
+    "instagram",
+    "titolo",
+    "testo",
+    "rosa",
+    "giallo",
+    "divertente"
+   ]
+  },
+  "template:ig5-titulo-cita": {
+   "name": "Titolo: citazione con autore",
+   "tags": [
+    "instagram",
+    "titolo",
+    "testo",
+    "citazione",
+    "frase",
+    "elegante"
+   ]
+  },
+  "template:ig5-titulo-do-what": {
+   "name": "Titolo: DO WHAT YOU WANT",
+   "tags": [
+    "instagram",
+    "titolo",
+    "testo",
+    "motivazione",
+    "viola",
+    "giallo"
+   ]
+  },
+  "template:ig5-titulo-formas-abstractas": {
+   "name": "Titolo: ABSTRACT SHAPES DESIGN",
+   "tags": [
+    "instagram",
+    "titolo",
+    "testo",
+    "forme",
+    "corallo",
+    "design"
+   ]
+  },
+  "template:ig5-titulo-glitch": {
+   "name": "Titolo: GLITCH STYLE",
+   "tags": [
+    "instagram",
+    "titolo",
+    "testo",
+    "glitch",
+    "bianco",
+    "digitale"
+   ]
+  },
+  "template:ig5-titulo-neon": {
+   "name": "Titolo: NEON luminoso",
+   "tags": [
+    "instagram",
+    "titolo",
+    "testo",
+    "neon",
+    "brillantezza",
+    "rosa"
+   ]
+  },
+  "template:ig5-titulo-never-give-up": {
+   "name": "Titolo: NEVER GIVE UP a pennello",
+   "tags": [
+    "instagram",
+    "titolo",
+    "testo",
+    "motivazione",
+    "pennello",
+    "rosso"
+   ]
+  },
+  "template:ig5-titulo-retro": {
+   "name": "Titolo: 80s RETROSTYLE",
+   "tags": [
+    "instagram",
+    "titolo",
+    "testo",
+    "retrò",
+    "anni 80",
+    "neon"
+   ]
+  },
+  "template:ig5-titulo-sale": {
+   "name": "Titolo: cartellino SALE",
+   "tags": [
+    "instagram",
+    "titolo",
+    "testo",
+    "saldi",
+    "rosso",
+    "giallo"
+   ]
+  },
+  "template:ig5-wake-up": {
+   "name": "Storia: WAKE UP AND BE AWESOME",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "foto",
+    "rosso",
+    "motivazione"
+   ]
+  },
+  "template:ig5-your-choice": {
+   "name": "Storia: ritratto con puntini gialli",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "giallo",
+    "punti",
+    "bianco e nero"
+   ]
+  },
+  "template:ig5-your-style": {
+   "name": "Storia: collage Your style",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "collage",
+    "interni",
+    "bianco"
+   ]
+  },
+  "template:ig6-arbol-cinta": {
+   "name": "Storia di Natale: albero di nastro dorato",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "natale",
+    "albero"
+   ]
+  },
+  "template:ig6-artista": {
+   "name": "Storia: You are the artist of your life con #YLIFE",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "foto",
+    "blu",
+    "stile di vita"
+   ]
+  },
+  "template:ig6-aventuras": {
+   "name": "Storia: My Adventures con due foto e una montagna verde",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "foto",
+    "viaggi",
+    "avventura"
+   ]
+  },
+  "template:ig6-diseno-pasion": {
+   "name": "Storia: Design is my passion su rosa",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "design",
+    "architettura",
+    "rosa"
+   ]
+  },
+  "template:ig6-feliz-brillante": {
+   "name": "Storia di Natale: Merry & Bright su grigio",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "natale",
+    "feste"
+   ]
+  },
+  "template:ig6-interior": {
+   "name": "Storia: Clear Interior con riquadro nero",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "foto",
+    "casa",
+    "interior design"
+   ]
+  },
+  "template:ig6-luz-calida": {
+   "name": "Storia: Cozy Light con rombi e #WARM",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "casa",
+    "prodotto",
+    "rombo"
+   ]
+  },
+  "template:ig6-pino-rojo": {
+   "name": "Storia di Natale: rami di pino e Merry Christmas su rosso",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "natale",
+    "saldi",
+    "pino"
+   ]
+  },
+  "template:ig6-rebajas-50": {
+   "name": "Storia: SALE con cartellino 50% OFF e strisce blu",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "saldi",
+    "sconto",
+    "moda"
+   ]
+  },
+  "template:ig6-rebajas-invierno": {
+   "name": "Storia di Natale: regalo che si apre su «winter sell XMAS 50%off»",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "natale",
+    "saldi",
+    "sconto"
+   ]
+  },
+  "template:ig6-santa": {
+   "name": "Storia di Natale: volto di Babbo Natale con Merry Xmas",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "natale",
+    "babbo natale"
+   ]
+  },
+  "template:ig6-swipe-bandera": {
+   "name": "Swipe up: bandiera SWIPE UP che esce da un party popper",
+   "tags": [
+    "instagram",
+    "swipe up",
+    "scorri",
+    "freccia",
+    "overlay",
+    "elemento"
+   ]
+  },
+  "template:ig6-swipe-boton": {
+   "name": "Swipe up: pulsante bianco che da quadrato diventa cerchio",
+   "tags": [
+    "instagram",
+    "swipe up",
+    "scorri",
+    "freccia",
+    "overlay",
+    "elemento"
+   ]
+  },
+  "template:ig6-swipe-brillo": {
+   "name": "Swipe up: frecce bianche luminose che salgono",
+   "tags": [
+    "instagram",
+    "swipe up",
+    "scorri",
+    "freccia",
+    "overlay",
+    "elemento"
+   ]
+  },
+  "template:ig6-swipe-chevrones": {
+   "name": "Swipe up: tre chevron blu che salgono",
+   "tags": [
+    "instagram",
+    "swipe up",
+    "scorri",
+    "freccia",
+    "overlay",
+    "elemento"
+   ]
+  },
+  "template:ig6-swipe-circulo": {
+   "name": "Swipe up: cerchio bianco con triangolo che sale e sfuma",
+   "tags": [
+    "instagram",
+    "swipe up",
+    "scorri",
+    "freccia",
+    "overlay",
+    "elemento"
+   ]
+  },
+  "template:ig6-swipe-cuadro": {
+   "name": "Swipe up: riquadro turchese con freccia e riflesso",
+   "tags": [
+    "instagram",
+    "swipe up",
+    "scorri",
+    "freccia",
+    "overlay",
+    "elemento"
+   ]
+  },
+  "template:ig6-swipe-figuras": {
+   "name": "Swipe up: anello verde che diventa triangolo con SWIPE UP",
+   "tags": [
+    "instagram",
+    "swipe up",
+    "scorri",
+    "freccia",
+    "overlay",
+    "elemento"
+   ]
+  },
+  "template:ig6-swipe-flecha": {
+   "name": "Swipe up: freccia blu su una linea pulsante",
+   "tags": [
+    "instagram",
+    "swipe up",
+    "scorri",
+    "freccia",
+    "overlay",
+    "elemento"
+   ]
+  },
+  "template:ig6-swipe-interruptor": {
+   "name": "Swipe up: interruttore con pallino blu che scivola in alto",
+   "tags": [
+    "instagram",
+    "swipe up",
+    "scorri",
+    "freccia",
+    "overlay",
+    "elemento"
+   ]
+  },
+  "template:ig6-swipe-letras": {
+   "name": "Swipe up: lettere SWIPE UP che saltano",
+   "tags": [
+    "instagram",
+    "swipe up",
+    "scorri",
+    "freccia",
+    "overlay",
+    "elemento"
+   ]
+  },
+  "template:ig6-swipe-mano": {
+   "name": "Swipe up: mano che scorre in alto con scia di chevron",
+   "tags": [
+    "instagram",
+    "swipe up",
+    "scorri",
+    "freccia",
+    "overlay",
+    "elemento"
+   ]
+  },
+  "template:ig6-swipe-triangulo": {
+   "name": "Swipe up: triangolo bianco con punto rosso che sale",
+   "tags": [
+    "instagram",
+    "swipe up",
+    "scorri",
+    "freccia",
+    "overlay",
+    "elemento"
+   ]
+  },
+  "template:ig7-awesome": {
+   "name": "Storia tipografica: AWESOME",
+   "tags": [
+    "instagram",
+    "storia",
+    "tipografia",
+    "colori",
+    "bande",
+    "lettera gigante"
+   ]
+  },
+  "template:ig7-big": {
+   "name": "Storia tipografica: BIG",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "tipografia",
+    "colori",
+    "lettera gigante"
+   ]
+  },
+  "template:ig7-brand": {
+   "name": "Storia tipografica: BRAND",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "tipografia",
+    "colori",
+    "lettera a"
+   ]
+  },
+  "template:ig7-color": {
+   "name": "Storia tipografica: COLOR",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "tipografia",
+    "colori",
+    "cornice"
+   ]
+  },
+  "template:ig7-easy-project": {
+   "name": "Storia tipografica: STORIES EASY PROJECT",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "tipografia",
+    "colori",
+    "pixel"
+   ]
+  },
+  "template:ig7-grid": {
+   "name": "Storia tipografica: griglia di colori",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "tipografia",
+    "colori",
+    "griglia"
+   ]
+  },
+  "template:ig7-no-plugins": {
+   "name": "Storia tipografica: NO PLUGINS",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "tipografia",
+    "colori",
+    "rettangoli"
+   ]
+  },
+  "template:ig7-social": {
+   "name": "Storia tipografica: SOCIAL",
+   "tags": [
+    "instagram",
+    "storia",
+    "tipografia",
+    "colori",
+    "schede",
+    "promozione"
+   ]
+  },
+  "template:ig7-stories": {
+   "name": "Storia tipografica: STORIES",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "tipografia",
+    "colori",
+    "lettera gigante"
+   ]
+  },
+  "template:ig7-typo": {
+   "name": "Storia tipografica: TYPO",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "tipografia",
+    "colori",
+    "scheda"
+   ]
+  },
+  "template:ig8-best-sellers": {
+   "name": "Storia urbana: Best Sellers clicca ora",
+   "tags": [
+    "instagram",
+    "storia",
+    "urbano",
+    "blu",
+    "negozio",
+    "novità"
+   ]
+  },
+  "template:ig8-city-vibes": {
+   "name": "Storia urbana: city vibes con due foto",
+   "tags": [
+    "instagram",
+    "storia",
+    "urbano",
+    "blu",
+    "città",
+    "foto"
+   ]
+  },
+  "template:ig8-friends": {
+   "name": "Storia urbana: friends positive con strisce di foto",
+   "tags": [
+    "instagram",
+    "storia",
+    "urbano",
+    "blu",
+    "amici",
+    "banda"
+   ]
+  },
+  "template:ig8-mega-sale": {
+   "name": "Storia urbana: mega sale %50 polaroid",
+   "tags": [
+    "instagram",
+    "urbano",
+    "blu",
+    "saldi",
+    "offerta",
+    "polaroid"
+   ]
+  },
+  "template:ig8-visit-page": {
+   "name": "Storia urbana: visit page con barra blu",
+   "tags": [
+    "instagram",
+    "storia",
+    "urbano",
+    "blu",
+    "web",
+    "saldi"
+   ]
+  },
+  "template:ig9-banda-roja": {
+   "name": "Storia: banda rossa con parola gigante",
+   "tags": [
+    "instagram",
+    "tipografia",
+    "banda",
+    "rosso",
+    "nero",
+    "lettere"
+   ]
+  },
+  "template:ig9-letras-cortadas": {
+   "name": "Storia: parola gigante tagliata e tre link",
+   "tags": [
+    "instagram",
+    "tipografia",
+    "lettere",
+    "link",
+    "grigio",
+    "nero"
+   ]
+  },
+  "template:ig9-letras-rojas": {
+   "name": "Storia: muro di lettere ruotate su rosso",
+   "tags": [
+    "instagram",
+    "storia",
+    "tipografia",
+    "lettere",
+    "rosso",
+    "tag"
+   ]
+  },
+  "template:ig9-palabra-vertical": {
+   "name": "Storia: parola verticale in cornice con nastro rosso",
+   "tags": [
+    "instagram",
+    "tipografia",
+    "verticale",
+    "cornice",
+    "nastro",
+    "grigio"
+   ]
+  },
+  "template:ig9-typo": {
+   "name": "Storia: riquadri TYPO con cornice disegnata",
+   "tags": [
+    "instagram",
+    "storia",
+    "tipografia",
+    "lettere",
+    "cornice",
+    "grigio"
+   ]
+  },
   "template:intro-de-canal": {
    "name": "Intro del canale",
    "tags": [
@@ -26373,6 +29383,204 @@
     "ritmo",
     "festa",
     "parole"
+   ]
+  },
+  "template:lg0-circulo-ambar": {
+   "name": "Logo: due punti disegnano un anello che si chiude in un disco (ambra)",
+   "tags": [
+    "logo",
+    "reveal del logo",
+    "piatto",
+    "ambra",
+    "giallo",
+    "cerchio"
+   ]
+  },
+  "template:lg0-cuadro-blanco": {
+   "name": "Logo: quadrato che rimbalza e si apre (bianco)",
+   "tags": [
+    "logo",
+    "reveal del logo",
+    "piatto",
+    "bianco",
+    "quadrato",
+    "rimbalzo"
+   ]
+  },
+  "template:lg0-disco-azul": {
+   "name": "Logo: punto volante che si apre in un disco (blu)",
+   "tags": [
+    "logo",
+    "reveal del logo",
+    "piatto",
+    "blu",
+    "disco",
+    "punto"
+   ]
+  },
+  "template:lg0-hexagono-coral": {
+   "name": "Logo: linea, cerchio ed esagono che rotola con il tuo brand (corallo)",
+   "tags": [
+    "logo",
+    "reveal del logo",
+    "piatto",
+    "corallo",
+    "esagono",
+    "linea"
+   ]
+  },
+  "template:lg0-iconos-redes": {
+   "name": "Dieci icone social che compaiono (blu)",
+   "tags": [
+    "logo",
+    "reveal del logo",
+    "piatto",
+    "social",
+    "icone",
+    "facebook"
+   ]
+  },
+  "template:lg0-sigueme": {
+   "name": "Logo social: seguimi con una palla in un esagono su una foto",
+   "tags": [
+    "logo",
+    "reveal del logo",
+    "piatto",
+    "seguimi",
+    "utente",
+    "esagono"
+   ]
+  },
+  "template:lg1-luz-dorada": {
+   "name": "Logo: costruito con luce dorata",
+   "tags": [
+    "logo",
+    "intro",
+    "luce",
+    "dorato",
+    "brillantezza",
+    "bande"
+   ]
+  },
+  "template:lg2-cintas": {
+   "name": "Seguimi: logo di nastri che girano",
+   "tags": [
+    "logo",
+    "piatto",
+    "aziendale",
+    "seguimi",
+    "3d"
+   ]
+  },
+  "template:lg2-franjas": {
+   "name": "Seguimi: logo a fette e barre",
+   "tags": [
+    "logo",
+    "piatto",
+    "aziendale",
+    "seguimi",
+    "bande"
+   ]
+  },
+  "template:lg2-giro": {
+   "name": "Logo: rotazione che si srotola",
+   "tags": [
+    "logo",
+    "piatto",
+    "aziendale",
+    "rotazione"
+   ]
+  },
+  "template:lg2-glitch": {
+   "name": "Logo: glitch su verde",
+   "tags": [
+    "logo",
+    "piatto",
+    "aziendale",
+    "glitch"
+   ]
+  },
+  "template:lg2-horizonte": {
+   "name": "Iscriviti: logo che sorge dall'orizzonte",
+   "tags": [
+    "logo",
+    "piatto",
+    "aziendale",
+    "iscriviti",
+    "orizzonte"
+   ]
+  },
+  "template:lg2-mira": {
+   "name": "Iscriviti: mirino che si apre",
+   "tags": [
+    "logo",
+    "piatto",
+    "aziendale",
+    "iscriviti",
+    "mirino"
+   ]
+  },
+  "template:lg2-orbita": {
+   "name": "Iscriviti: logo in orbita",
+   "tags": [
+    "logo",
+    "piatto",
+    "aziendale",
+    "iscriviti",
+    "orbita"
+   ]
+  },
+  "template:lg2-puntos": {
+   "name": "Logo: punti che rotolano",
+   "tags": [
+    "logo",
+    "piatto",
+    "aziendale",
+    "punti"
+   ]
+  },
+  "template:lg3-esfera": {
+   "name": "Logo: sfera a righe che diventa un disco",
+   "tags": [
+    "logo",
+    "reveal del logo",
+    "intro",
+    "sfera",
+    "blu",
+    "aziendale"
+   ]
+  },
+  "template:lg3-ondas": {
+   "name": "Logo: onde di colore che si posano in una linea",
+   "tags": [
+    "logo",
+    "reveal del logo",
+    "intro",
+    "onde",
+    "colori",
+    "linea"
+   ]
+  },
+  "template:lg3-persiana": {
+   "name": "Logo: quadrato a lamelle che si apre",
+   "tags": [
+    "logo",
+    "reveal del logo",
+    "intro",
+    "quadrato",
+    "grigio",
+    "minimalista"
+   ]
+  },
+  "template:lg3-torta-diana": {
+   "name": "Logo: anello tratteggiato, torta di colori e bersaglio",
+   "tags": [
+    "logo",
+    "reveal del logo",
+    "intro",
+    "torta",
+    "cerchio",
+    "pastello"
    ]
   },
   "template:llt-bevan": {
@@ -26623,6 +29831,756 @@
     "anello"
    ]
   },
+  "template:llt10-amanda": {
+   "name": "Sottopancia bianco: nome e ruolo su una scheda",
+   "tags": [
+    "sottopancia",
+    "bianco",
+    "nome"
+   ]
+  },
+  "template:llt10-elena": {
+   "name": "Sottopancia bianco: nome in una scatola",
+   "tags": [
+    "sottopancia",
+    "bianco",
+    "nome"
+   ]
+  },
+  "template:llt10-elizabeth": {
+   "name": "Sottopancia bianco: nome e scheda a destra",
+   "tags": [
+    "sottopancia",
+    "bianco",
+    "destra"
+   ]
+  },
+  "template:llt10-emily": {
+   "name": "Sottopancia bianco: nome diviso tra scatola e fuori",
+   "tags": [
+    "sottopancia",
+    "bianco",
+    "nome"
+   ]
+  },
+  "template:llt10-erica": {
+   "name": "Sottopancia bianco: due schede con il ruolo",
+   "tags": [
+    "sottopancia",
+    "bianco",
+    "nome"
+   ]
+  },
+  "template:llt10-gabriela": {
+   "name": "Sottopancia bianco: a destra con nome lungo",
+   "tags": [
+    "sottopancia",
+    "bianco",
+    "destra"
+   ]
+  },
+  "template:llt10-hanna": {
+   "name": "Sottopancia bianco: cognome in una scatola",
+   "tags": [
+    "sottopancia",
+    "bianco",
+    "nome"
+   ]
+  },
+  "template:llt10-iren": {
+   "name": "Sottopancia bianco: centrato con una scheda",
+   "tags": [
+    "sottopancia",
+    "bianco",
+    "centrato"
+   ]
+  },
+  "template:llt10-kristina": {
+   "name": "Sottopancia bianco: scatola con ruolo su due righe",
+   "tags": [
+    "sottopancia",
+    "bianco",
+    "centrato"
+   ]
+  },
+  "template:llt10-lora": {
+   "name": "Sottopancia bianco: cognome in una scatola a destra",
+   "tags": [
+    "sottopancia",
+    "bianco",
+    "destra"
+   ]
+  },
+  "template:llt10-monica": {
+   "name": "Sottopancia bianco: nome su due righe e scheda",
+   "tags": [
+    "sottopancia",
+    "bianco",
+    "centrato"
+   ]
+  },
+  "template:llt10-monika": {
+   "name": "Sottopancia bianco: linea e ruolo a destra",
+   "tags": [
+    "sottopancia",
+    "bianco",
+    "destra"
+   ]
+  },
+  "template:llt11-1": {
+   "name": "Sottopancia sfumato: cognome sfumato e scheda",
+   "tags": [
+    "sottopancia",
+    "sfumato",
+    "nome"
+   ]
+  },
+  "template:llt11-10": {
+   "name": "Sottopancia sfumato: cognome in una scatola e sottolineatura",
+   "tags": [
+    "sottopancia",
+    "sfumato",
+    "nome"
+   ]
+  },
+  "template:llt11-11": {
+   "name": "Sottopancia sfumato: barra alta e cognome in una scatola",
+   "tags": [
+    "sottopancia",
+    "sfumato",
+    "nome"
+   ]
+  },
+  "template:llt11-12": {
+   "name": "Sottopancia sfumato: scheda sopra, cornice e cognome sfumato",
+   "tags": [
+    "sottopancia",
+    "sfumato",
+    "nome"
+   ]
+  },
+  "template:llt11-13": {
+   "name": "Sottopancia sfumato: etichetta e quadrato",
+   "tags": [
+    "sottopancia",
+    "sfumato",
+    "nome"
+   ]
+  },
+  "template:llt11-14": {
+   "name": "Sottopancia sfumato: sottolineatura e ruolo a destra",
+   "tags": [
+    "sottopancia",
+    "sfumato",
+    "nome"
+   ]
+  },
+  "template:llt11-15": {
+   "name": "Sottopancia sfumato: quadrati e scheda",
+   "tags": [
+    "sottopancia",
+    "sfumato",
+    "nome"
+   ]
+  },
+  "template:llt11-16": {
+   "name": "Sottopancia sfumato con foto: cognome sfumato",
+   "tags": [
+    "sottopancia",
+    "sfumato",
+    "foto"
+   ]
+  },
+  "template:llt11-17": {
+   "name": "Sottopancia sfumato con foto: nome su due righe e scheda",
+   "tags": [
+    "sottopancia",
+    "sfumato",
+    "foto"
+   ]
+  },
+  "template:llt11-18": {
+   "name": "Sottopancia sfumato con foto: barra",
+   "tags": [
+    "sottopancia",
+    "sfumato",
+    "foto"
+   ]
+  },
+  "template:llt11-19": {
+   "name": "Sottopancia sfumato con foto: foto in una cornice",
+   "tags": [
+    "sottopancia",
+    "sfumato",
+    "foto"
+   ]
+  },
+  "template:llt11-2": {
+   "name": "Sottopancia sfumato: sottolineatura",
+   "tags": [
+    "sottopancia",
+    "sfumato",
+    "nome"
+   ]
+  },
+  "template:llt11-20": {
+   "name": "Sottopancia sfumato con foto: foto, cornice e scheda",
+   "tags": [
+    "sottopancia",
+    "sfumato",
+    "foto"
+   ]
+  },
+  "template:llt11-3": {
+   "name": "Sottopancia sfumato: scatola con il ruolo a destra",
+   "tags": [
+    "sottopancia",
+    "sfumato",
+    "nome"
+   ]
+  },
+  "template:llt11-4": {
+   "name": "Sottopancia sfumato: cornice e scheda",
+   "tags": [
+    "sottopancia",
+    "sfumato",
+    "nome"
+   ]
+  },
+  "template:llt11-5": {
+   "name": "Sottopancia sfumato: barra verticale",
+   "tags": [
+    "sottopancia",
+    "sfumato",
+    "nome"
+   ]
+  },
+  "template:llt11-6": {
+   "name": "Sottopancia sfumato: nome su una riga e scheda",
+   "tags": [
+    "sottopancia",
+    "sfumato",
+    "nome"
+   ]
+  },
+  "template:llt11-7": {
+   "name": "Sottopancia sfumato: nome in una scatola e ruolo in una cornice",
+   "tags": [
+    "sottopancia",
+    "sfumato",
+    "nome"
+   ]
+  },
+  "template:llt11-8": {
+   "name": "Sottopancia sfumato: cognome sfumato",
+   "tags": [
+    "sottopancia",
+    "sfumato",
+    "nome"
+   ]
+  },
+  "template:llt11-9": {
+   "name": "Sottopancia sfumato: scheda sopra e cornice",
+   "tags": [
+    "sottopancia",
+    "sfumato",
+    "nome"
+   ]
+  },
+  "template:llt12-alexandra": {
+   "name": "Sottopancia blu: barra che scopre il nome",
+   "tags": [
+    "sottopancia",
+    "blu",
+    "barra",
+    "destra"
+   ]
+  },
+  "template:llt12-cajas": {
+   "name": "Sottopancia blu: tre scatole che crescono",
+   "tags": [
+    "sottopancia",
+    "blu",
+    "scatola"
+   ]
+  },
+  "template:llt12-corchetes": {
+   "name": "Sottopancia blu: due barre che si aprono",
+   "tags": [
+    "sottopancia",
+    "blu",
+    "barra"
+   ]
+  },
+  "template:llt12-corni": {
+   "name": "Sottopancia blu: nome in una scatola e ruolo su scheda bianca",
+   "tags": [
+    "sottopancia",
+    "blu",
+    "scatola"
+   ]
+  },
+  "template:llt12-jacob": {
+   "name": "Sottopancia blu: scatola che si apre con fascia bianca",
+   "tags": [
+    "sottopancia",
+    "blu",
+    "scatola"
+   ]
+  },
+  "template:llt12-jeremi": {
+   "name": "Sottopancia blu: linea che scende e scopre il nome",
+   "tags": [
+    "sottopancia",
+    "blu",
+    "sottolineatura"
+   ]
+  },
+  "template:llt12-jeremy": {
+   "name": "Sottopancia blu: nome su due righe e sottolineatura",
+   "tags": [
+    "sottopancia",
+    "blu",
+    "sottolineatura"
+   ]
+  },
+  "template:llt12-john-rojers": {
+   "name": "Sottopancia blu: nome ruotato in una scatola",
+   "tags": [
+    "sottopancia",
+    "blu",
+    "scatola",
+    "ruotato"
+   ]
+  },
+  "template:llt12-john-watson": {
+   "name": "Sottopancia blu: scatola inclinata che si apre",
+   "tags": [
+    "sottopancia",
+    "blu",
+    "scatola",
+    "inclinato"
+   ]
+  },
+  "template:llt12-marketing": {
+   "name": "Sottopancia blu: lettere che appaiono e barra",
+   "tags": [
+    "sottopancia",
+    "blu",
+    "barra"
+   ]
+  },
+  "template:llt12-minimal": {
+   "name": "Sottopancia blu: scatola che si apre dal centro",
+   "tags": [
+    "sottopancia",
+    "blu",
+    "scatola"
+   ]
+  },
+  "template:llt12-modern": {
+   "name": "Sottopancia blu: due linee che salgono e sottolineatura",
+   "tags": [
+    "sottopancia",
+    "blu",
+    "sottolineatura"
+   ]
+  },
+  "template:llt12-rosanda": {
+   "name": "Sottopancia blu: barra che scorre su un nome ruotato",
+   "tags": [
+    "sottopancia",
+    "blu",
+    "barra",
+    "ruotato"
+   ]
+  },
+  "template:llt12-suzanna": {
+   "name": "Sottopancia blu: lettere che appaiono e zoom",
+   "tags": [
+    "sottopancia",
+    "blu",
+    "destra"
+   ]
+  },
+  "template:llt12-titulos": {
+   "name": "Sottopancia blu: scatola che scende con fascia bianca",
+   "tags": [
+    "sottopancia",
+    "blu",
+    "scatola"
+   ]
+  },
+  "template:llt12-your-text": {
+   "name": "Sottopancia blu: due linee che escono da una barra",
+   "tags": [
+    "sottopancia",
+    "blu",
+    "barra",
+    "ruotato"
+   ]
+  },
+  "template:llt13-clark": {
+   "name": "Sottopancia in corsivo: cognome grassetto e nome sottile",
+   "tags": [
+    "sottopancia",
+    "bianco",
+    "corsivo"
+   ]
+  },
+  "template:llt13-david": {
+   "name": "Sottopancia in corsivo: ruolo, barra e nome",
+   "tags": [
+    "sottopancia",
+    "bianco",
+    "corsivo",
+    "barra"
+   ]
+  },
+  "template:llt13-dominic": {
+   "name": "Sottopancia in corsivo: cognome grande sottolineato",
+   "tags": [
+    "sottopancia",
+    "bianco",
+    "corsivo"
+   ]
+  },
+  "template:llt13-emily": {
+   "name": "Sottopancia in corsivo: nome su due righe e sottolineatura",
+   "tags": [
+    "sottopancia",
+    "bianco",
+    "corsivo"
+   ]
+  },
+  "template:llt13-foster": {
+   "name": "Sottopancia in corsivo: ruolo sopra e linea",
+   "tags": [
+    "sottopancia",
+    "bianco",
+    "corsivo"
+   ]
+  },
+  "template:llt13-james": {
+   "name": "Sottopancia in corsivo: barra e ruolo sotto",
+   "tags": [
+    "sottopancia",
+    "bianco",
+    "corsivo",
+    "barra"
+   ]
+  },
+  "template:llt13-kingsley": {
+   "name": "Sottopancia in corsivo: nome e barra a destra",
+   "tags": [
+    "sottopancia",
+    "bianco",
+    "corsivo",
+    "barra",
+    "destra"
+   ]
+  },
+  "template:llt13-maximilian": {
+   "name": "Sottopancia in corsivo: nome sottolineato e cognome",
+   "tags": [
+    "sottopancia",
+    "bianco",
+    "corsivo"
+   ]
+  },
+  "template:llt13-michael": {
+   "name": "Sottopancia in corsivo: nome sottolineato",
+   "tags": [
+    "sottopancia",
+    "bianco",
+    "corsivo"
+   ]
+  },
+  "template:llt13-nathaniel": {
+   "name": "Sottopancia in corsivo: allineato a destra",
+   "tags": [
+    "sottopancia",
+    "bianco",
+    "corsivo",
+    "destra"
+   ]
+  },
+  "template:llt13-olivia": {
+   "name": "Sottopancia in corsivo: ruolo a sinistra e sottolineatura",
+   "tags": [
+    "sottopancia",
+    "bianco",
+    "corsivo"
+   ]
+  },
+  "template:llt13-sophia": {
+   "name": "Sottopancia in corsivo: barra e ruolo accanto",
+   "tags": [
+    "sottopancia",
+    "bianco",
+    "corsivo",
+    "barra"
+   ]
+  },
+  "template:llt14-barra-azul": {
+   "name": "Sottopancia rosso: logo e barra blu navy",
+   "tags": [
+    "sottopancia",
+    "rosso",
+    "blu navy",
+    "logo",
+    "barra"
+   ]
+  },
+  "template:llt14-barra-gris": {
+   "name": "Sottopancia rosso: logo, barra grigia e scheda",
+   "tags": [
+    "sottopancia",
+    "rosso",
+    "blu navy",
+    "logo",
+    "barra"
+   ]
+  },
+  "template:llt14-caja-alta": {
+   "name": "Sottopancia rosso: scatola alta con bordo rosso",
+   "tags": [
+    "sottopancia",
+    "rosso",
+    "blu navy",
+    "scatola"
+   ]
+  },
+  "template:llt14-caja-grande": {
+   "name": "Sottopancia rosso: grande scatola con titolo e paragrafo",
+   "tags": [
+    "sottopancia",
+    "rosso",
+    "blu navy",
+    "scatola"
+   ]
+  },
+  "template:llt14-disenador": {
+   "name": "Sottopancia rosso: nome in una cornice rossa",
+   "tags": [
+    "sottopancia",
+    "rosso",
+    "blu navy"
+   ]
+  },
+  "template:llt14-dos-cuadros": {
+   "name": "Sottopancia rosso: due quadrati e due linee",
+   "tags": [
+    "sottopancia",
+    "rosso",
+    "blu navy"
+   ]
+  },
+  "template:llt14-hexagono": {
+   "name": "Sottopancia rosso: logo in esagono e scheda bianca",
+   "tags": [
+    "sottopancia",
+    "rosso",
+    "blu navy",
+    "logo"
+   ]
+  },
+  "template:llt14-linea-roja": {
+   "name": "Sottopancia rosso: logo, linea rossa e scatola larga",
+   "tags": [
+    "sottopancia",
+    "rosso",
+    "blu navy",
+    "logo",
+    "scatola"
+   ]
+  },
+  "template:llt14-logo-lineas": {
+   "name": "Sottopancia rosso: logo, linea e due righe",
+   "tags": [
+    "sottopancia",
+    "rosso",
+    "blu navy",
+    "logo"
+   ]
+  },
+  "template:llt14-logo-texto": {
+   "name": "Sottopancia rosso: logo e scatola con paragrafo",
+   "tags": [
+    "sottopancia",
+    "rosso",
+    "blu navy",
+    "logo",
+    "scatola"
+   ]
+  },
+  "template:llt14-marca": {
+   "name": "Sottopancia rosso: logo, barra obliqua e nome",
+   "tags": [
+    "sottopancia",
+    "rosso",
+    "blu navy",
+    "logo"
+   ]
+  },
+  "template:llt14-pestana": {
+   "name": "Sottopancia rosso: logo, linguetta e riquadro di testo",
+   "tags": [
+    "sottopancia",
+    "rosso",
+    "blu navy",
+    "logo",
+    "scatola"
+   ]
+  },
+  "template:llt14-primer-titulo": {
+   "name": "Sottopancia rosso: logo, titolo e riquadro di testo",
+   "tags": [
+    "sottopancia",
+    "rosso",
+    "blu navy",
+    "logo",
+    "scatola"
+   ]
+  },
+  "template:llt15-barra-larga": {
+   "name": "Sottopancia minimalista: barra lunga con logo e data",
+   "tags": [
+    "sottopancia",
+    "minimalista",
+    "nero",
+    "logo",
+    "barra"
+   ]
+  },
+  "template:llt15-descripcion": {
+   "name": "Sottopancia minimalista: nome e descrizione",
+   "tags": [
+    "sottopancia",
+    "minimalista",
+    "nero"
+   ]
+  },
+  "template:llt15-dos-lineas": {
+   "name": "Sottopancia minimalista: nome e ruolo su due righe",
+   "tags": [
+    "sottopancia",
+    "minimalista",
+    "nero"
+   ]
+  },
+  "template:llt15-logo-ficha": {
+   "name": "Sottopancia minimalista: quadrato del logo e due righe",
+   "tags": [
+    "sottopancia",
+    "minimalista",
+    "nero",
+    "logo"
+   ]
+  },
+  "template:llt15-logo-nombre": {
+   "name": "Sottopancia minimalista: blocco del logo e nome",
+   "tags": [
+    "sottopancia",
+    "minimalista",
+    "nero",
+    "logo"
+   ]
+  },
+  "template:llt15-nombre": {
+   "name": "Sottopancia minimalista: nome su una scheda bianca",
+   "tags": [
+    "sottopancia",
+    "minimalista",
+    "nero"
+   ]
+  },
+  "template:llt15-nombre-cargo": {
+   "name": "Sottopancia minimalista: nome e ruolo",
+   "tags": [
+    "sottopancia",
+    "minimalista",
+    "nero"
+   ]
+  },
+  "template:llt16-barra-nombre": {
+   "name": "Terzo inferiore: barra rossa e nome chiaro",
+   "tags": [
+    "terzo inferiore",
+    "rosso",
+    "barra",
+    "nome"
+   ]
+  },
+  "template:llt16-cargo-azul": {
+   "name": "Terzo inferiore: nome e ruolo in un riquadro blu",
+   "tags": [
+    "terzo inferiore",
+    "blu",
+    "riquadro",
+    "nome",
+    "ruolo"
+   ]
+  },
+  "template:llt16-cargo-rojo": {
+   "name": "Terzo inferiore: nome chiaro, ruolo rosso",
+   "tags": [
+    "terzo inferiore",
+    "rosso",
+    "nome",
+    "ruolo"
+   ]
+  },
+  "template:llt16-director": {
+   "name": "Terzo inferiore: ruolo bianco, nome rosso",
+   "tags": [
+    "terzo inferiore",
+    "rosso",
+    "bianco",
+    "nome",
+    "ruolo"
+   ]
+  },
+  "template:llt16-fotografa": {
+   "name": "Terzo inferiore: ruolo piccolo, nome su ciano",
+   "tags": [
+    "terzo inferiore",
+    "nome",
+    "ruolo"
+   ]
+  },
+  "template:llt16-hora": {
+   "name": "Terzo inferiore: ora e data",
+   "tags": [
+    "terzo inferiore",
+    "data",
+    "sottopancia"
+   ]
+  },
+  "template:llt16-show": {
+   "name": "Terzo inferiore: titolo tra due linee",
+   "tags": [
+    "terzo inferiore",
+    "titolo",
+    "linee"
+   ]
+  },
+  "template:llt16-titulo-rojo": {
+   "name": "Terzo inferiore: titolo e sottotitolo rosso",
+   "tags": [
+    "terzo inferiore",
+    "titolo",
+    "rosso"
+   ]
+  },
+  "template:llt16-tu-texto": {
+   "name": "Terzo inferiore: riquadro arancione e grigio",
+   "tags": [
+    "terzo inferiore",
+    "riquadro",
+    "sottopancia"
+   ]
+  },
   "template:llt2-barra-etiqueta": {
    "name": "Sottopancia con logo: barra scura ed etichetta verde",
    "tags": [
@@ -26755,6 +30713,435 @@
     "giallo",
     "bianco",
     "ospite"
+   ]
+  },
+  "template:llt4-cuadro-sube": {
+   "name": "Sottopancia con logo: quadrato scuro e logo che sale",
+   "tags": [
+    "sottopancia",
+    "logo",
+    "nome",
+    "barra",
+    "verde",
+    "quadrato"
+   ]
+  },
+  "template:llt4-ficha-blanca": {
+   "name": "Sottopancia con logo: scheda bianca che si apre",
+   "tags": [
+    "sottopancia",
+    "logo",
+    "nome",
+    "bianco",
+    "scheda"
+   ]
+  },
+  "template:llt4-logo-izquierda": {
+   "name": "Sottopancia con logo: barra scura e logo a sinistra",
+   "tags": [
+    "sottopancia",
+    "logo",
+    "nome",
+    "barra",
+    "verde"
+   ]
+  },
+  "template:llt4-pastilla-barra": {
+   "name": "Sottopancia con logo: pillola che si apre in barra",
+   "tags": [
+    "sottopancia",
+    "logo",
+    "nome",
+    "barra",
+    "verde",
+    "pillola"
+   ]
+  },
+  "template:llt5-adam": {
+   "name": "Sottopancia con foto: foto verticale e nome sopra",
+   "tags": [
+    "sottopancia",
+    "foto",
+    "nome",
+    "grigio",
+    "verticale",
+    "centrato"
+   ]
+  },
+  "template:llt5-eddy": {
+   "name": "Sottopancia con foto: foto rotonda a destra e fascia scura",
+   "tags": [
+    "sottopancia",
+    "foto",
+    "nome",
+    "scuro",
+    "rotonda"
+   ]
+  },
+  "template:llt5-elis": {
+   "name": "Sottopancia con foto: foto rotonda e nome a destra",
+   "tags": [
+    "sottopancia",
+    "foto",
+    "nome",
+    "grigio",
+    "rotonda"
+   ]
+  },
+  "template:llt5-emma": {
+   "name": "Sottopancia con foto: foto verticale con fasce sopra",
+   "tags": [
+    "sottopancia",
+    "foto",
+    "nome",
+    "grigio",
+    "verticale"
+   ]
+  },
+  "template:llt5-kris": {
+   "name": "Sottopancia con foto: foto rotonda sopra e nome sotto",
+   "tags": [
+    "sottopancia",
+    "foto",
+    "nome",
+    "grigio",
+    "rotonda",
+    "centrato"
+   ]
+  },
+  "template:llt5-martin": {
+   "name": "Sottopancia con foto: foto quadrata e nome a destra",
+   "tags": [
+    "sottopancia",
+    "foto",
+    "nome",
+    "grigio"
+   ]
+  },
+  "template:llt5-monika": {
+   "name": "Sottopancia con foto: foto a destra e nome a sinistra",
+   "tags": [
+    "sottopancia",
+    "foto",
+    "nome",
+    "grigio"
+   ]
+  },
+  "template:llt5-rachel": {
+   "name": "Sottopancia con foto: foto verticale a destra e cognome in contorno",
+   "tags": [
+    "sottopancia",
+    "foto",
+    "nome",
+    "scuro",
+    "verticale"
+   ]
+  },
+  "template:llt5-rose": {
+   "name": "Sottopancia con foto: foto sopra e nome sotto",
+   "tags": [
+    "sottopancia",
+    "foto",
+    "nome",
+    "grigio",
+    "centrato"
+   ]
+  },
+  "template:llt6-barra-inclinada": {
+   "name": "Sottopancia: barra bianca inclinata e nome grande",
+   "tags": [
+    "sottopancia",
+    "nome",
+    "bianco",
+    "inclinato"
+   ]
+  },
+  "template:llt6-barrido-rojo": {
+   "name": "Sottopancia: blocco rosso che scorre e scopre il nome",
+   "tags": [
+    "sottopancia",
+    "nome",
+    "rosso"
+   ]
+  },
+  "template:llt6-caja-nombre": {
+   "name": "Sottopancia: nome in una scatola bianca che si restringe",
+   "tags": [
+    "sottopancia",
+    "nome",
+    "bianco",
+    "scatola"
+   ]
+  },
+  "template:llt6-cursor": {
+   "name": "Sottopancia: blocco che diventa cursore e scopre il nome",
+   "tags": [
+    "sottopancia",
+    "nome",
+    "bianco",
+    "cursore"
+   ]
+  },
+  "template:llt6-divisor": {
+   "name": "Sottopancia: linea divisoria con ruolo e nome ai lati",
+   "tags": [
+    "sottopancia",
+    "nome",
+    "linea"
+   ]
+  },
+  "template:llt6-etiqueta-blanca": {
+   "name": "Sottopancia: nome grande ed etichetta bianca con il ruolo",
+   "tags": [
+    "sottopancia",
+    "nome",
+    "bianco",
+    "etichetta"
+   ]
+  },
+  "template:llt6-etiqueta-roja": {
+   "name": "Sottopancia: nome a destra e striscia rossa con il ruolo",
+   "tags": [
+    "sottopancia",
+    "nome",
+    "rosso",
+    "destra"
+   ]
+  },
+  "template:llt6-letras": {
+   "name": "Sottopancia: nome che arriva lettera per lettera",
+   "tags": [
+    "sottopancia",
+    "nome",
+    "lettere"
+   ]
+  },
+  "template:llt6-linea-fina": {
+   "name": "Sottopancia: linea sottile con nome e ruolo ai lati",
+   "tags": [
+    "sottopancia",
+    "nome",
+    "linea"
+   ]
+  },
+  "template:llt6-subrayado-rojo": {
+   "name": "Sottopancia: nome grande e sottolineatura rossa",
+   "tags": [
+    "sottopancia",
+    "nome",
+    "rosso",
+    "sottolineatura"
+   ]
+  },
+  "template:llt7-barra-azul": {
+   "name": "Sottopancia: barra blu con logo e una riga",
+   "tags": [
+    "sottopancia",
+    "logo",
+    "blu"
+   ]
+  },
+  "template:llt7-barra-azul-2": {
+   "name": "Sottopancia: barra blu con logo e due righe",
+   "tags": [
+    "sottopancia",
+    "logo",
+    "blu"
+   ]
+  },
+  "template:llt8-barrett": {
+   "name": "Sottopancia arancione: lunga sottolineatura",
+   "tags": [
+    "sottopancia",
+    "arancione",
+    "nome"
+   ]
+  },
+  "template:llt8-brandon": {
+   "name": "Sottopancia arancione: barra e nome",
+   "tags": [
+    "sottopancia",
+    "arancione",
+    "nome"
+   ]
+  },
+  "template:llt8-cameron": {
+   "name": "Sottopancia arancione: ruolo sopra con segni",
+   "tags": [
+    "sottopancia",
+    "arancione",
+    "nome"
+   ]
+  },
+  "template:llt8-castro": {
+   "name": "Sottopancia arancione: ruolo su due righe",
+   "tags": [
+    "sottopancia",
+    "arancione",
+    "nome"
+   ]
+  },
+  "template:llt8-charley": {
+   "name": "Sottopancia arancione: barra che scende",
+   "tags": [
+    "sottopancia",
+    "arancione",
+    "nome"
+   ]
+  },
+  "template:llt8-daniel": {
+   "name": "Sottopancia arancione: blocco accanto al ruolo",
+   "tags": [
+    "sottopancia",
+    "arancione",
+    "nome"
+   ]
+  },
+  "template:llt8-dodson": {
+   "name": "Sottopancia arancione: linea e ruolo a destra",
+   "tags": [
+    "sottopancia",
+    "arancione",
+    "nome"
+   ]
+  },
+  "template:llt8-hayden": {
+   "name": "Sottopancia arancione: barra alta e ruolo",
+   "tags": [
+    "sottopancia",
+    "arancione",
+    "nome"
+   ]
+  },
+  "template:llt8-jake": {
+   "name": "Sottopancia arancione: lunghe linee ai lati",
+   "tags": [
+    "sottopancia",
+    "arancione",
+    "nome"
+   ]
+  },
+  "template:llt8-james": {
+   "name": "Sottopancia arancione: blocco prima del ruolo",
+   "tags": [
+    "sottopancia",
+    "arancione",
+    "nome"
+   ]
+  },
+  "template:llt8-john": {
+   "name": "Sottopancia arancione: parentesi",
+   "tags": [
+    "sottopancia",
+    "arancione",
+    "nome"
+   ]
+  },
+  "template:llt8-madden": {
+   "name": "Sottopancia arancione: linee ai lati del ruolo",
+   "tags": [
+    "sottopancia",
+    "arancione",
+    "nome"
+   ]
+  },
+  "template:llt8-mason": {
+   "name": "Sottopancia arancione: linea lunga e ruolo a destra",
+   "tags": [
+    "sottopancia",
+    "arancione",
+    "nome"
+   ]
+  },
+  "template:llt8-rason": {
+   "name": "Sottopancia arancione: barra e ruolo sopra",
+   "tags": [
+    "sottopancia",
+    "arancione",
+    "nome"
+   ]
+  },
+  "template:llt8-ryan": {
+   "name": "Sottopancia arancione: linea e ruolo sopra",
+   "tags": [
+    "sottopancia",
+    "arancione",
+    "nome"
+   ]
+  },
+  "template:llt9-benjamin": {
+   "name": "Sottopancia dorato: etichetta sopra e linea",
+   "tags": [
+    "sottopancia",
+    "dorato",
+    "nome"
+   ]
+  },
+  "template:llt9-emily": {
+   "name": "Sottopancia dorato: nome in una scatola bianca ed etichetta",
+   "tags": [
+    "sottopancia",
+    "dorato",
+    "scatola"
+   ]
+  },
+  "template:llt9-katherine": {
+   "name": "Sottopancia dorato: etichetta e punto a destra",
+   "tags": [
+    "sottopancia",
+    "dorato",
+    "corsivo",
+    "destra"
+   ]
+  },
+  "template:llt9-max": {
+   "name": "Sottopancia dorato: nome in una scatola e ruolo su una scheda",
+   "tags": [
+    "sottopancia",
+    "dorato",
+    "corsivo",
+    "scatola"
+   ]
+  },
+  "template:llt9-natalie": {
+   "name": "Sottopancia dorato: linea con un punto",
+   "tags": [
+    "sottopancia",
+    "dorato",
+    "nome"
+   ]
+  },
+  "template:llt9-vanja": {
+   "name": "Sottopancia dorato: corsivo sottile con quadrati",
+   "tags": [
+    "sottopancia",
+    "dorato",
+    "corsivo"
+   ]
+  },
+  "template:llt9-vanja-negrita": {
+   "name": "Sottopancia dorato: corsivo grosso con quadrati",
+   "tags": [
+    "sottopancia",
+    "dorato",
+    "corsivo"
+   ]
+  },
+  "template:llt9-victoria": {
+   "name": "Sottopancia dorato: barra e corsivo grosso",
+   "tags": [
+    "sottopancia",
+    "dorato",
+    "corsivo"
+   ]
+  },
+  "template:llt9-yaroslava": {
+   "name": "Sottopancia dorato: riquadro con ruolo a destra",
+   "tags": [
+    "sottopancia",
+    "dorato",
+    "corsivo",
+    "destra"
    ]
   },
   "template:lt-andy": {
@@ -32901,6 +37288,2090 @@
     "retrò"
    ]
   },
+  "template:tit1-creative": {
+   "name": "Titolo: titoli creativi con scarabocchi",
+   "tags": [
+    "titolo",
+    "tipografia",
+    "testo animato"
+   ]
+  },
+  "template:tit1-design": {
+   "name": "Titolo: Design in una nuvola",
+   "tags": [
+    "titolo",
+    "tipografia",
+    "testo animato"
+   ]
+  },
+  "template:tit1-follow": {
+   "name": "Titolo: Seguimi con un nastro rosa",
+   "tags": [
+    "titolo",
+    "rosa",
+    "tipografia"
+   ]
+  },
+  "template:tit1-likecount": {
+   "name": "Titolo: Mi piace con contatore e WOW",
+   "tags": [
+    "titolo",
+    "mi piace",
+    "contatore"
+   ]
+  },
+  "template:tit1-likenew": {
+   "name": "Titolo: Mi piace al nuovo video con una freccia",
+   "tags": [
+    "titolo",
+    "mi piace",
+    "freccia",
+    "video"
+   ]
+  },
+  "template:tit1-likethis": {
+   "name": "Titolo: Metti mi piace a questo video con un fiore",
+   "tags": [
+    "titolo",
+    "mi piace",
+    "video"
+   ]
+  },
+  "template:tit1-smile": {
+   "name": "Titolo: Sorridi e sii felice",
+   "tags": [
+    "titolo",
+    "tipografia",
+    "testo animato"
+   ]
+  },
+  "template:tit1-subscribe": {
+   "name": "Titolo: Iscriviti con i fiori",
+   "tags": [
+    "titolo",
+    "iscriviti",
+    "tipografia"
+   ]
+  },
+  "template:tit2-2022": {
+   "name": "Titolo: anno in rilievo",
+   "tags": [
+    "titolo",
+    "tipografia",
+    "testo animato"
+   ]
+  },
+  "template:tit2-be-awesome": {
+   "name": "Titolo: Be awesome con una foto",
+   "tags": [
+    "titolo",
+    "foto",
+    "tipografia"
+   ]
+  },
+  "template:tit2-big-black": {
+   "name": "Titolo: BIG BLACK con un'etichetta",
+   "tags": [
+    "titolo",
+    "nero",
+    "tipografia"
+   ]
+  },
+  "template:tit2-circulos": {
+   "name": "Titolo: sei cerchi",
+   "tags": [
+    "titolo",
+    "cerchio",
+    "tipografia"
+   ]
+  },
+  "template:tit2-ciudad": {
+   "name": "Titolo: titolo inclinato della città su una foto",
+   "tags": [
+    "titolo",
+    "foto",
+    "inclinato"
+   ]
+  },
+  "template:tit2-creative-inclinado": {
+   "name": "Titolo: parola enorme inclinata",
+   "tags": [
+    "titolo",
+    "inclinato",
+    "tipografia"
+   ]
+  },
+  "template:tit2-creative-pack": {
+   "name": "Titolo: lettere che cadono",
+   "tags": [
+    "titolo",
+    "lettere",
+    "tipografia"
+   ]
+  },
+  "template:tit2-creative-relieve": {
+   "name": "Titolo: creative in rilievo",
+   "tags": [
+    "titolo",
+    "tipografia",
+    "testo animato"
+   ]
+  },
+  "template:tit2-event-music": {
+   "name": "Titolo: titolo evento, scende una foto",
+   "tags": [
+    "titolo",
+    "foto",
+    "evento"
+   ]
+  },
+  "template:tit2-hello-world": {
+   "name": "Titolo: Hello World! in corsivo",
+   "tags": [
+    "titolo",
+    "corsivo",
+    "benvenuto"
+   ]
+  },
+  "template:tit2-montserrat-bold": {
+   "name": "Titolo: due barre nere con parole",
+   "tags": [
+    "titolo",
+    "nero",
+    "barra"
+   ]
+  },
+  "template:tit2-new-trend": {
+   "name": "Titolo: New Trend che si rovescia",
+   "tags": [
+    "titolo",
+    "tipografia",
+    "testo animato"
+   ]
+  },
+  "template:tit2-new-typography": {
+   "name": "Titolo: barre con parole in corsivo",
+   "tags": [
+    "titolo",
+    "barra",
+    "corsivo"
+   ]
+  },
+  "template:tit2-trend": {
+   "name": "Titolo: nuova tipografia di tendenza",
+   "tags": [
+    "titolo",
+    "tipografia",
+    "testo animato"
+   ]
+  },
+  "template:tit2-trend-doble": {
+   "name": "Titolo: tendenza in due metà",
+   "tags": [
+    "titolo",
+    "tipografia",
+    "testo animato"
+   ]
+  },
+  "template:tit2-typo-slide": {
+   "name": "Titolo: scheda bianca",
+   "tags": [
+    "titolo",
+    "bianco",
+    "tipografia"
+   ]
+  },
+  "template:tit3-20-animation": {
+   "name": "Titolo: 20 Animation",
+   "tags": [
+    "titolo",
+    "tipografia",
+    "testo animato"
+   ]
+  },
+  "template:tit3-20-cuadro": {
+   "name": "Titolo: 20 Animated in un riquadro",
+   "tags": [
+    "titolo",
+    "cornice",
+    "tipografia"
+   ]
+  },
+  "template:tit3-best-day": {
+   "name": "Titolo: riquadro corsivo e cornice",
+   "tags": [
+    "titolo",
+    "cornice",
+    "riquadro",
+    "corsivo"
+   ]
+  },
+  "template:tit3-best-event": {
+   "name": "Titolo: riquadro inclinato e mercato",
+   "tags": [
+    "titolo",
+    "riquadro",
+    "inclinato"
+   ]
+  },
+  "template:tit3-circulo": {
+   "name": "Titolo: nome su un cerchio",
+   "tags": [
+    "titolo",
+    "cerchio",
+    "nome"
+   ]
+  },
+  "template:tit3-design-success": {
+   "name": "Titolo: Design for success con un cerchio",
+   "tags": [
+    "titolo",
+    "cerchio",
+    "tipografia"
+   ]
+  },
+  "template:tit3-disenador": {
+   "name": "Titolo: riquadro del ruolo e nome",
+   "tags": [
+    "titolo",
+    "riquadro",
+    "nome",
+    "ruolo"
+   ]
+  },
+  "template:tit3-dos-triangulos": {
+   "name": "Titolo: nome tra due triangoli",
+   "tags": [
+    "titolo",
+    "nome",
+    "triangolo"
+   ]
+  },
+  "template:tit3-evento": {
+   "name": "Titolo: evento inclinato con cornici",
+   "tags": [
+    "titolo",
+    "cornice",
+    "evento",
+    "inclinato"
+   ]
+  },
+  "template:tit3-globo": {
+   "name": "Titolo: fumetto",
+   "tags": [
+    "titolo",
+    "tipografia",
+    "testo animato"
+   ]
+  },
+  "template:tit3-holiday": {
+   "name": "Titolo: vacanza con una data",
+   "tags": [
+    "titolo",
+    "data",
+    "tipografia"
+   ]
+  },
+  "template:tit3-life": {
+   "name": "Titolo: Life is life in una cornice",
+   "tags": [
+    "titolo",
+    "cornice",
+    "tipografia"
+   ]
+  },
+  "template:tit3-nombre-caja": {
+   "name": "Titolo: riquadro del nome, due righe",
+   "tags": [
+    "titolo",
+    "riquadro",
+    "nome",
+    "linee"
+   ]
+  },
+  "template:tit3-nombre-cargo-arriba": {
+   "name": "Titolo: riquadro del nome, ruolo sopra",
+   "tags": [
+    "titolo",
+    "riquadro",
+    "nome",
+    "ruolo"
+   ]
+  },
+  "template:tit3-nombre-lineas": {
+   "name": "Titolo: nome tra due linee",
+   "tags": [
+    "titolo",
+    "nome",
+    "linee"
+   ]
+  },
+  "template:tit3-nombre-sombra": {
+   "name": "Titolo: riquadro con cornice sfalsata",
+   "tags": [
+    "titolo",
+    "cornice",
+    "riquadro"
+   ]
+  },
+  "template:tit3-rombo": {
+   "name": "Titolo: evento in un rombo",
+   "tags": [
+    "titolo",
+    "evento",
+    "rombo"
+   ]
+  },
+  "template:tit3-titles-pack": {
+   "name": "Titolo: due cornici inclinate",
+   "tags": [
+    "titolo",
+    "cornice",
+    "inclinato"
+   ]
+  },
+  "template:tit3-triangulo": {
+   "name": "Titolo: nome su un triangolo",
+   "tags": [
+    "titolo",
+    "nome",
+    "triangolo"
+   ]
+  },
+  "template:tit3-unique-animated": {
+   "name": "Titolo: tre parti in corsivo",
+   "tags": [
+    "titolo",
+    "corsivo",
+    "tipografia"
+   ]
+  },
+  "template:tit4-algo-nuevo": {
+   "name": "Titolo: riquadro a motivi e parole",
+   "tags": [
+    "titolo",
+    "riquadro",
+    "tipografia"
+   ]
+  },
+  "template:tit4-anio": {
+   "name": "Titolo: anno con un parallelogramma",
+   "tags": [
+    "titolo",
+    "tipografia",
+    "testo animato"
+   ]
+  },
+  "template:tit4-art-festival": {
+   "name": "Titolo: arte, un riquadro e festival",
+   "tags": [
+    "titolo",
+    "riquadro",
+    "evento"
+   ]
+  },
+  "template:tit4-autumn-event": {
+   "name": "Titolo: parola riquadrata e una sotto",
+   "tags": [
+    "titolo",
+    "riquadro",
+    "tipografia"
+   ]
+  },
+  "template:tit4-dont-stop": {
+   "name": "Titolo: frase in un cerchio",
+   "tags": [
+    "titolo",
+    "cerchio",
+    "tipografia"
+   ]
+  },
+  "template:tit4-etiqueta-nombre": {
+   "name": "Titolo: etichetta, nome e ruolo",
+   "tags": [
+    "titolo",
+    "nome",
+    "ruolo"
+   ]
+  },
+  "template:tit4-facil": {
+   "name": "Titolo: parole e una barra gialla",
+   "tags": [
+    "titolo",
+    "giallo",
+    "barra"
+   ]
+  },
+  "template:tit4-fecha-cajas": {
+   "name": "Titolo: data e ora in riquadri",
+   "tags": [
+    "titolo",
+    "riquadro",
+    "data"
+   ]
+  },
+  "template:tit4-festival-info": {
+   "name": "Titolo: data e dettagli del festival",
+   "tags": [
+    "titolo",
+    "evento",
+    "data"
+   ]
+  },
+  "template:tit4-informacion": {
+   "name": "Titolo: informazioni in un cerchio",
+   "tags": [
+    "titolo",
+    "cerchio",
+    "tipografia"
+   ]
+  },
+  "template:tit4-logo-nombre": {
+   "name": "Titolo: logo, etichetta e nome",
+   "tags": [
+    "titolo",
+    "nome",
+    "tipografia"
+   ]
+  },
+  "template:tit4-nombre-caja": {
+   "name": "Titolo: nome in un riquadro giallo",
+   "tags": [
+    "titolo",
+    "giallo",
+    "riquadro",
+    "nome"
+   ]
+  },
+  "template:tit4-nombre-cajas": {
+   "name": "Titolo: nome e ruolo in riquadri",
+   "tags": [
+    "titolo",
+    "riquadro",
+    "nome",
+    "ruolo"
+   ]
+  },
+  "template:tit4-presents": {
+   "name": "Titolo: presents in una cornice",
+   "tags": [
+    "titolo",
+    "cornice",
+    "tipografia"
+   ]
+  },
+  "template:tit4-productor": {
+   "name": "Titolo: nome in una cornice e un'etichetta",
+   "tags": [
+    "titolo",
+    "cornice",
+    "nome"
+   ]
+  },
+  "template:tit4-simple-design": {
+   "name": "Titolo: due riquadri lanciati dentro",
+   "tags": [
+    "titolo",
+    "riquadro",
+    "tipografia"
+   ]
+  },
+  "template:tit4-speakers": {
+   "name": "Titolo: hashtag in un grande riquadro",
+   "tags": [
+    "titolo",
+    "riquadro",
+    "hashtag"
+   ]
+  },
+  "template:tit4-triangulo": {
+   "name": "Titolo: numero in un triangolo",
+   "tags": [
+    "titolo",
+    "triangolo",
+    "tipografia"
+   ]
+  },
+  "template:tit4-twenty": {
+   "name": "Titolo: Twenty titoli creativi",
+   "tags": [
+    "titolo",
+    "tipografia",
+    "testo animato"
+   ]
+  },
+  "template:tit4-ubicacion": {
+   "name": "Titolo: posizione in un segnaposto",
+   "tags": [
+    "titolo",
+    "tipografia",
+    "testo animato"
+   ]
+  },
+  "template:tit5-canal-tarjeta": {
+   "name": "Titolo: quadrato che gira e lascia uscire la parola",
+   "tags": [
+    "titolo",
+    "quadrato",
+    "tipografia"
+   ]
+  },
+  "template:tit5-compartir": {
+   "name": "Titolo: etichetta viola che cambia parole",
+   "tags": [
+    "titolo",
+    "viola",
+    "tipografia"
+   ]
+  },
+  "template:tit5-condensada": {
+   "name": "Titolo: carattere condensato che si scrive da solo",
+   "tags": [
+    "titolo",
+    "tipografia",
+    "testo animato"
+   ]
+  },
+  "template:tit5-creative": {
+   "name": "Titolo: parola lilla che si raddrizza",
+   "tags": [
+    "titolo",
+    "viola",
+    "tipografia"
+   ]
+  },
+  "template:tit5-dinamico": {
+   "name": "Titolo: doppia cornice arancione che si raddrizza",
+   "tags": [
+    "titolo",
+    "cornice",
+    "tipografia"
+   ]
+  },
+  "template:tit5-directo": {
+   "name": "Titolo: diretta che si inclina",
+   "tags": [
+    "titolo",
+    "diretta",
+    "tipografia"
+   ]
+  },
+  "template:tit5-etiqueta": {
+   "name": "Titolo: etichetta che si apre e si inclina",
+   "tags": [
+    "titolo",
+    "tipografia",
+    "testo animato"
+   ]
+  },
+  "template:tit5-hashtag": {
+   "name": "Titolo: hashtag digitato su giallo",
+   "tags": [
+    "titolo",
+    "giallo",
+    "hashtag"
+   ]
+  },
+  "template:tit5-logo-canal": {
+   "name": "Titolo: pulsante YouTube e nome del canale",
+   "tags": [
+    "titolo",
+    "social",
+    "pulsante",
+    "nome"
+   ]
+  },
+  "template:tit5-logo-negro": {
+   "name": "Titolo: pulsante YouTube su nero",
+   "tags": [
+    "titolo",
+    "social",
+    "pulsante",
+    "nero"
+   ]
+  },
+  "template:tit5-moderno": {
+   "name": "Titolo: pulsante YouTube che diventa cerchio",
+   "tags": [
+    "titolo",
+    "social",
+    "pulsante",
+    "cerchio"
+   ]
+  },
+  "template:tit5-no-pierdas": {
+   "name": "Titolo: frase in una cornice che cambia forma",
+   "tags": [
+    "titolo",
+    "cornice",
+    "tipografia"
+   ]
+  },
+  "template:tit5-pila": {
+   "name": "Titolo: blocchi mi piace, condividi, iscriviti che cadono",
+   "tags": [
+    "titolo",
+    "iscriviti",
+    "mi piace"
+   ]
+  },
+  "template:tit5-rombo": {
+   "name": "Titolo: rombo bianco su rosso",
+   "tags": [
+    "titolo",
+    "rosso",
+    "bianco",
+    "rombo"
+   ]
+  },
+  "template:tit5-seguinos": {
+   "name": "Titolo: moneta blu che gira",
+   "tags": [
+    "titolo",
+    "blu",
+    "tipografia"
+   ]
+  },
+  "template:tit5-social-media": {
+   "name": "Titolo: anello rotante su giallo",
+   "tags": [
+    "titolo",
+    "cerchio",
+    "giallo"
+   ]
+  },
+  "template:tit5-soporte": {
+   "name": "Titolo: file di blocchi e una banda",
+   "tags": [
+    "titolo",
+    "barra",
+    "tipografia"
+   ]
+  },
+  "template:tit5-tu-canal": {
+   "name": "Titolo: cornice che si gira in un riquadro bianco",
+   "tags": [
+    "titolo",
+    "bianco",
+    "cornice",
+    "riquadro"
+   ]
+  },
+  "template:tit5-tutorial": {
+   "name": "Titolo: tutorial che appare lettera per lettera",
+   "tags": [
+    "titolo",
+    "lettere",
+    "tipografia"
+   ]
+  },
+  "template:tit5-verano": {
+   "name": "Titolo: fulmine e una parola che cade",
+   "tags": [
+    "titolo",
+    "tipografia",
+    "testo animato"
+   ]
+  },
+  "template:tit6-always-strive": {
+   "name": "Titolo: lettere che cadono e un punto esclamativo",
+   "tags": [
+    "titolo",
+    "lettere",
+    "tipografia"
+   ]
+  },
+  "template:tit6-art-always": {
+   "name": "Titolo: strisce, contorno e lettere che salgono",
+   "tags": [
+    "titolo",
+    "strisce",
+    "lettere",
+    "contorno",
+    "linee"
+   ]
+  },
+  "template:tit6-awesome": {
+   "name": "Titolo: riquadro bianco e un fumetto su una foto",
+   "tags": [
+    "titolo",
+    "foto",
+    "bianco",
+    "riquadro"
+   ]
+  },
+  "template:tit6-be-strong": {
+   "name": "Titolo: frase barrata che si srotola all'indietro",
+   "tags": [
+    "titolo",
+    "tipografia",
+    "testo animato"
+   ]
+  },
+  "template:tit6-big": {
+   "name": "Titolo: parola gigante con ombra e pannello nero",
+   "tags": [
+    "titolo",
+    "nero",
+    "ombra"
+   ]
+  },
+  "template:tit6-big-text": {
+   "name": "Titolo: numero, parole con contorno e una foto",
+   "tags": [
+    "titolo",
+    "foto",
+    "contorno",
+    "linee"
+   ]
+  },
+  "template:tit6-ciencia": {
+   "name": "Titolo: pannello che inverte la frase, cornice e croce",
+   "tags": [
+    "titolo",
+    "cornice",
+    "tipografia"
+   ]
+  },
+  "template:tit6-color-change": {
+   "name": "Titolo: parola barrata che si illumina",
+   "tags": [
+    "titolo",
+    "tipografia",
+    "testo animato"
+   ]
+  },
+  "template:tit6-corporate": {
+   "name": "Titolo: banda nera che cresce dietro la frase",
+   "tags": [
+    "titolo",
+    "nero",
+    "barra"
+   ]
+  },
+  "template:tit6-create-ideas": {
+   "name": "Titolo: lettere che salgono e un cancelletto",
+   "tags": [
+    "titolo",
+    "lettere",
+    "tipografia"
+   ]
+  },
+  "template:tit6-dynamism": {
+   "name": "Titolo: parola che si illumina in una cornice con una croce",
+   "tags": [
+    "titolo",
+    "cornice",
+    "tipografia"
+   ]
+  },
+  "template:tit6-enjoy": {
+   "name": "Titolo: quadrato che gira e una parola divisa",
+   "tags": [
+    "titolo",
+    "quadrato",
+    "tipografia"
+   ]
+  },
+  "template:tit6-fashion": {
+   "name": "Titolo: riquadro con tre foto dietro",
+   "tags": [
+    "titolo",
+    "foto",
+    "riquadro"
+   ]
+  },
+  "template:tit6-health": {
+   "name": "Titolo: striscia di parole girate tra bianco e nero",
+   "tags": [
+    "titolo",
+    "bianco",
+    "nero"
+   ]
+  },
+  "template:tit6-look": {
+   "name": "Titolo: riquadro grigio su lettere giganti",
+   "tags": [
+    "titolo",
+    "riquadro",
+    "lettere"
+   ]
+  },
+  "template:tit6-never-give-up": {
+   "name": "Titolo: frase digitata su una striscia di foto",
+   "tags": [
+    "titolo",
+    "foto",
+    "tipografia"
+   ]
+  },
+  "template:tit6-typography": {
+   "name": "Titolo: riquadro bianco con etichetta su una foto",
+   "tags": [
+    "titolo",
+    "foto",
+    "bianco",
+    "riquadro"
+   ]
+  },
+  "template:tit6-visuality": {
+   "name": "Titolo: tre linee che si illuminano e un puntatore",
+   "tags": [
+    "titolo",
+    "linee",
+    "tipografia"
+   ]
+  },
+  "template:tit6-wonderful": {
+   "name": "Titolo: tre parole che si chiudono e linee",
+   "tags": [
+    "titolo",
+    "linee",
+    "tipografia"
+   ]
+  },
+  "template:tit6-you": {
+   "name": "Titolo: parola riempita con una foto",
+   "tags": [
+    "titolo",
+    "foto",
+    "tipografia"
+   ]
+  },
+  "template:tit7-always-strive": {
+   "name": "Titolo: frase con ombra rossa e un segno",
+   "tags": [
+    "titolo",
+    "rosso",
+    "ombra"
+   ]
+  },
+  "template:tit7-art-always": {
+   "name": "Titolo: lettere in rosso, ciano e bianco",
+   "tags": [
+    "titolo",
+    "rosso",
+    "bianco",
+    "lettere"
+   ]
+  },
+  "template:tit7-big": {
+   "name": "Titolo: riquadro con ombra e due quadrati colorati",
+   "tags": [
+    "titolo",
+    "riquadro",
+    "quadrato",
+    "ombra"
+   ]
+  },
+  "template:tit7-ciencia": {
+   "name": "Titolo: riquadro nero con lettere slab",
+   "tags": [
+    "titolo",
+    "nero",
+    "riquadro",
+    "lettere"
+   ]
+  },
+  "template:tit7-colorful": {
+   "name": "Titolo: banda bianca con la foto dentro la parola",
+   "tags": [
+    "titolo",
+    "foto",
+    "bianco",
+    "barra"
+   ]
+  },
+  "template:tit7-concept-azul": {
+   "name": "Titolo: parola larga su blu",
+   "tags": [
+    "titolo",
+    "blu",
+    "tipografia"
+   ]
+  },
+  "template:tit7-concept-oscuro": {
+   "name": "Titolo: riquadro blu su lettere grandi",
+   "tags": [
+    "titolo",
+    "blu",
+    "riquadro",
+    "lettere"
+   ]
+  },
+  "template:tit7-create": {
+   "name": "Titolo: parole grigie e una scheda bianca",
+   "tags": [
+    "titolo",
+    "bianco",
+    "tipografia"
+   ]
+  },
+  "template:tit7-dynamic": {
+   "name": "Titolo: cornice che si chiude e un segno blu",
+   "tags": [
+    "titolo",
+    "blu",
+    "cornice"
+   ]
+  },
+  "template:tit7-easy-editing": {
+   "name": "Titolo: lettere rosse su un motivo giallo",
+   "tags": [
+    "titolo",
+    "rosso",
+    "giallo",
+    "lettere"
+   ]
+  },
+  "template:tit7-enjoy": {
+   "name": "Titolo: quadrati che girano e una parola divisa",
+   "tags": [
+    "titolo",
+    "quadrato",
+    "tipografia"
+   ]
+  },
+  "template:tit7-fashion": {
+   "name": "Titolo: foto dentro lettere giganti e un riquadro",
+   "tags": [
+    "titolo",
+    "foto",
+    "riquadro",
+    "lettere"
+   ]
+  },
+  "template:tit7-health-box": {
+   "name": "Titolo: quadrato con un muro di parole tra due file",
+   "tags": [
+    "titolo",
+    "quadrato",
+    "tipografia"
+   ]
+  },
+  "template:tit7-health-wall": {
+   "name": "Titolo: muro diagonale di parole",
+   "tags": [
+    "titolo",
+    "tipografia",
+    "testo animato"
+   ]
+  },
+  "template:tit7-look": {
+   "name": "Titolo: lettere giganti e una cornice blu",
+   "tags": [
+    "titolo",
+    "blu",
+    "cornice",
+    "lettere"
+   ]
+  },
+  "template:tit7-love": {
+   "name": "Titolo: parola che scivola su una foto rosa",
+   "tags": [
+    "titolo",
+    "foto",
+    "rosa"
+   ]
+  },
+  "template:tit7-modern": {
+   "name": "Titolo: serif elegante con un numero",
+   "tags": [
+    "titolo",
+    "tipografia",
+    "testo animato"
+   ]
+  },
+  "template:tit7-never-give-up": {
+   "name": "Titolo: quattro foto a gradini e una frase",
+   "tags": [
+    "titolo",
+    "foto",
+    "tipografia"
+   ]
+  },
+  "template:tit7-newest": {
+   "name": "Titolo: parola con contorno e una barra verde",
+   "tags": [
+    "titolo",
+    "barra",
+    "contorno",
+    "linee"
+   ]
+  },
+  "template:tit7-scene": {
+   "name": "Titolo: strisce, pannello bianco e un numero su una foto",
+   "tags": [
+    "titolo",
+    "foto",
+    "bianco",
+    "strisce"
+   ]
+  },
+  "template:tit7-text-animation": {
+   "name": "Titolo: righe di testo su una foto",
+   "tags": [
+    "titolo",
+    "foto",
+    "tipografia"
+   ]
+  },
+  "template:tit7-typography": {
+   "name": "Titolo: scheda rosa con lettere intorno",
+   "tags": [
+    "titolo",
+    "cerchio",
+    "rosa",
+    "lettere"
+   ]
+  },
+  "template:tk0-cintas-telefono": {
+   "name": "Storia: nastri di parole e un telefono",
+   "tags": [
+    "tiktok",
+    "storia",
+    "verticale",
+    "nastri",
+    "telefono",
+    "blu"
+   ]
+  },
+  "template:tk0-collage-azul": {
+   "name": "Storia: collage di tre foto in blu e nero",
+   "tags": [
+    "tiktok",
+    "storia",
+    "verticale",
+    "collage",
+    "foto",
+    "blu"
+   ]
+  },
+  "template:tk0-collage-negro": {
+   "name": "Storia: collage di sei foto con sticker",
+   "tags": [
+    "tiktok",
+    "storia",
+    "verticale",
+    "collage",
+    "foto",
+    "nero"
+   ]
+  },
+  "template:tk0-creas-tendencias": {
+   "name": "Storia: crei tendenze? bolla rossa",
+   "tags": [
+    "tiktok",
+    "storia",
+    "verticale",
+    "domanda",
+    "rosa",
+    "tendenza"
+   ]
+  },
+  "template:tk0-empieza-aqui": {
+   "name": "Storia: le tendenze iniziano qui",
+   "tags": [
+    "tiktok",
+    "storia",
+    "verticale",
+    "tendenza",
+    "blu",
+    "biglietti"
+   ]
+  },
+  "template:tk0-mision": {
+   "name": "Storia: la nostra missione con foto su rosso",
+   "tags": [
+    "tiktok",
+    "storia",
+    "verticale",
+    "missione",
+    "rosso",
+    "foto"
+   ]
+  },
+  "template:tk0-nueva-era": {
+   "name": "Storia: una nuova era del video",
+   "tags": [
+    "tiktok",
+    "storia",
+    "verticale",
+    "video",
+    "rosso",
+    "rosa"
+   ]
+  },
+  "template:tk0-nuevo-video": {
+   "name": "Storia: NEW VIDEO con un telefono",
+   "tags": [
+    "tiktok",
+    "verticale",
+    "video",
+    "nuovo",
+    "rosso",
+    "telefono"
+   ]
+  },
+  "template:tk0-plantilla": {
+   "name": "Storia: modello per tutti con una foto",
+   "tags": [
+    "tiktok",
+    "storia",
+    "verticale",
+    "modello",
+    "blu",
+    "foto"
+   ]
+  },
+  "template:tk0-plataforma": {
+   "name": "Storia: nuova piattaforma con due telefoni",
+   "tags": [
+    "tiktok",
+    "storia",
+    "verticale",
+    "piattaforma",
+    "nero",
+    "telefono"
+   ]
+  },
+  "template:tk0-promo-negro": {
+   "name": "Storia: SUPER PROMO in una bolla blu su nero",
+   "tags": [
+    "tiktok",
+    "storia",
+    "verticale",
+    "promo",
+    "nero",
+    "contatore"
+   ]
+  },
+  "template:tk0-promo-x": {
+   "name": "Storia: PROMO con nastri incrociati",
+   "tags": [
+    "tiktok",
+    "storia",
+    "verticale",
+    "promo",
+    "nero",
+    "nastri"
+   ]
+  },
+  "template:tk0-que-ves": {
+   "name": "Storia: cosa ti piace guardare? chat",
+   "tags": [
+    "tiktok",
+    "storia",
+    "verticale",
+    "chat",
+    "domanda",
+    "blu"
+   ]
+  },
+  "template:tk0-recordatorio": {
+   "name": "Storia: sondaggio promemoria su un video",
+   "tags": [
+    "tiktok",
+    "storia",
+    "verticale",
+    "sondaggio",
+    "promemoria",
+    "video"
+   ]
+  },
+  "template:tk0-tendencias": {
+   "name": "Storia: tendenze virali in rosa e blu",
+   "tags": [
+    "tiktok",
+    "storia",
+    "verticale",
+    "tendenza",
+    "rosa",
+    "blu"
+   ]
+  },
+  "template:tk0-trendy": {
+   "name": "Storia: TRENDY STYLE con bande di colore",
+   "tags": [
+    "tiktok",
+    "storia",
+    "verticale",
+    "tendenza",
+    "blu",
+    "bande"
+   ]
+  },
+  "template:tk1-tipografia": {
+   "name": "Opener tipografico: una parola a ogni battito",
+   "tags": [
+    "tiktok",
+    "storia",
+    "apertura",
+    "tipografia",
+    "parole",
+    "bianco e nero"
+   ]
+  },
+  "template:tk2-alice": {
+   "name": "Storia: Alice Braun con una foto",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "nome",
+    "foto",
+    "blu"
+   ]
+  },
+  "template:tk2-austin": {
+   "name": "Storia: Austin Grant con un nuovo video",
+   "tags": [
+    "tiktok",
+    "storia",
+    "nome",
+    "foto",
+    "nero",
+    "rosso"
+   ]
+  },
+  "template:tk2-baile": {
+   "name": "Storia: Just dance con tre foto",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "ballo",
+    "foto",
+    "blu"
+   ]
+  },
+  "template:tk2-belleza": {
+   "name": "Storia: About Beauty for You",
+   "tags": [
+    "tiktok",
+    "storia",
+    "bellezza",
+    "foto",
+    "nero",
+    "rosso"
+   ]
+  },
+  "template:tk2-blogger": {
+   "name": "Storia: Social blogger con anelli",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "anelli",
+    "foto",
+    "nero"
+   ]
+  },
+  "template:tk2-contenido": {
+   "name": "Storia: contenuti diversi in una griglia",
+   "tags": [
+    "tiktok",
+    "storia",
+    "griglia",
+    "foto",
+    "nero",
+    "rosso"
+   ]
+  },
+  "template:tk2-follow": {
+   "name": "Storia: follow con un cuore",
+   "tags": [
+    "tiktok",
+    "storia",
+    "segui",
+    "cuore",
+    "nero",
+    "rosso"
+   ]
+  },
+  "template:tk2-isabella": {
+   "name": "Storia: Isabella Walker con una foto",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "nome",
+    "foto",
+    "blu"
+   ]
+  },
+  "template:tk2-lifestyle": {
+   "name": "Storia: #lifestyle con un video",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "stile di vita",
+    "video",
+    "rosso"
+   ]
+  },
+  "template:tk2-new": {
+   "name": "Storia: NEW con cuori",
+   "tags": [
+    "tiktok",
+    "storia",
+    "nuovo",
+    "foto",
+    "nero",
+    "cuore"
+   ]
+  },
+  "template:tk2-nuevo-video": {
+   "name": "Storia: nuovo video con una foto",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "nuovo video",
+    "foto",
+    "rosso"
+   ]
+  },
+  "template:tk2-perfil": {
+   "name": "Storia: un profilo con follower",
+   "tags": [
+    "tiktok",
+    "profilo",
+    "follower",
+    "foto",
+    "rosso",
+    "blu"
+   ]
+  },
+  "template:tk2-suscriptores": {
+   "name": "Storia: ottieni nuovi iscritti",
+   "tags": [
+    "tiktok",
+    "storia",
+    "iscritti",
+    "foto",
+    "nero",
+    "rosso"
+   ]
+  },
+  "template:tk2-tarjeta": {
+   "name": "Storia: una scheda con il tuo logo e sticker",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "logo",
+    "sticker",
+    "blu"
+   ]
+  },
+  "template:tk2-tendencias": {
+   "name": "Storia: tendenze con una banda rossa",
+   "tags": [
+    "tiktok",
+    "storia",
+    "tendenze",
+    "foto",
+    "blu",
+    "rosso"
+   ]
+  },
+  "template:tk3-diseno": {
+   "name": "Storia: Fashion Design con linee sottili",
+   "tags": [
+    "tiktok",
+    "storia",
+    "moda",
+    "pastello",
+    "design",
+    "sconto"
+   ]
+  },
+  "template:tk3-estilo-de-vida": {
+   "name": "Storia: Lifestyle con un triangolo che gira",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "moda",
+    "pastello",
+    "stile di vita"
+   ]
+  },
+  "template:tk3-gracias": {
+   "name": "Scheda finale: Thanks For Watching!",
+   "tags": [
+    "tiktok",
+    "storia",
+    "moda",
+    "pastello",
+    "chiusura",
+    "grazie"
+   ]
+  },
+  "template:tk3-rebajas": {
+   "name": "Storia: saldi moda con riquadro 50% OFF",
+   "tags": [
+    "tiktok",
+    "storia",
+    "moda",
+    "pastello",
+    "saldi",
+    "sconto"
+   ]
+  },
+  "template:tk3-rebajas-2": {
+   "name": "Storia: Fashion Sale con 50% sopra la foto",
+   "tags": [
+    "tiktok",
+    "storia",
+    "moda",
+    "pastello",
+    "saldi",
+    "sconto"
+   ]
+  },
+  "template:tk3-siguiente-nivel": {
+   "name": "Storia: The Next Level Of Fashion con 50% OFF verticale",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "moda",
+    "pastello",
+    "sconto"
+   ]
+  },
+  "template:tk3-siguiente-nivel-2": {
+   "name": "Storia: The Next Level Of Fashion con Get 50% OFF",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "moda",
+    "pastello",
+    "sconto"
+   ]
+  },
+  "template:tk3-sorteo": {
+   "name": "Storia: Giveaway!",
+   "tags": [
+    "tiktok",
+    "storia",
+    "moda",
+    "pastello",
+    "giveaway",
+    "concorso"
+   ]
+  },
+  "template:tk3-tendencia": {
+   "name": "Storia: Keep It Trendy con 50%",
+   "tags": [
+    "tiktok",
+    "storia",
+    "moda",
+    "pastello",
+    "tendenza",
+    "sconto"
+   ]
+  },
+  "template:tk4-dynamic": {
+   "name": "Opener dinamico: foto rosse e nere",
+   "tags": [
+    "tiktok",
+    "apertura",
+    "presentazione di foto",
+    "dinamico",
+    "rosso",
+    "duotone"
+   ]
+  },
+  "template:tk4-fast": {
+   "name": "Opener veloce: parole su foto a colori",
+   "tags": [
+    "tiktok",
+    "apertura",
+    "presentazione di foto",
+    "veloce",
+    "colore",
+    "parole"
+   ]
+  },
+  "template:tk4-modern": {
+   "name": "Opener moderno: giallo, oro e griglia",
+   "tags": [
+    "tiktok",
+    "apertura",
+    "presentazione di foto",
+    "moderno",
+    "dorato",
+    "giallo"
+   ]
+  },
+  "template:tk4-rhythm": {
+   "name": "Opener ritmico: parole sfumate",
+   "tags": [
+    "tiktok",
+    "apertura",
+    "presentazione di foto",
+    "ritmo",
+    "sfumatura",
+    "viola"
+   ]
+  },
+  "template:tk4-stomp": {
+   "name": "Opener stomp: una parola a ogni battito con foto",
+   "tags": [
+    "tiktok",
+    "apertura",
+    "presentazione di foto",
+    "stomp",
+    "ritmo",
+    "parole"
+   ]
+  },
+  "template:tk4-typo": {
+   "name": "Opener tipografico: parole nere e foto",
+   "tags": [
+    "tiktok",
+    "apertura",
+    "presentazione di foto",
+    "tipografia",
+    "bianco e nero",
+    "parole"
+   ]
+  },
+  "template:tk5-carefree": {
+   "name": "Storia: CAREFREE LIVING verticale",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "bianco e nero",
+    "foto",
+    "verticale"
+   ]
+  },
+  "template:tk5-endless": {
+   "name": "Storia: ENDLESS LOVING CONVERSATIONS",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "bianco e nero",
+    "testo"
+   ]
+  },
+  "template:tk5-find": {
+   "name": "Storia: FIND HIDDEN GEMS",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "bianco e nero",
+    "testo"
+   ]
+  },
+  "template:tk5-follow": {
+   "name": "Storia: FOLLOW YOUR DREAM",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "bianco e nero",
+    "testo"
+   ]
+  },
+  "template:tk5-foto-cae": {
+   "name": "Storia: foto che cade e risale",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "bianco e nero",
+    "foto"
+   ]
+  },
+  "template:tk5-foto-lado": {
+   "name": "Storia: foto che scivola da lato",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "bianco e nero",
+    "foto"
+   ]
+  },
+  "template:tk5-foto-sube": {
+   "name": "Storia: foto che sale",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "bianco e nero",
+    "foto"
+   ]
+  },
+  "template:tk5-freedom": {
+   "name": "Storia: FREEDOM e PLEASING con due foto",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "bianco e nero",
+    "foto",
+    "collage"
+   ]
+  },
+  "template:tk5-join": {
+   "name": "Storia: JOIN THE JOURNEY con invito all'azione",
+   "tags": [
+    "tiktok",
+    "storia",
+    "bianco e nero",
+    "invito all'azione",
+    "logo",
+    "scorri"
+   ]
+  },
+  "template:tk5-laughter": {
+   "name": "Storia: LAUGHTER OF A LOVED ONE",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "bianco e nero",
+    "foto"
+   ]
+  },
+  "template:tk5-stars": {
+   "name": "Storia: STARS e DREAMS in colonne",
+   "tags": [
+    "tiktok",
+    "storia",
+    "bianco e nero",
+    "foto",
+    "collage",
+    "verticale"
+   ]
+  },
+  "template:tk5-sunshine": {
+   "name": "Storia: SUNSHINE FILLS SKIES con una foto",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "bianco e nero",
+    "foto",
+    "collage"
+   ]
+  },
+  "template:tk6-discovery": {
+   "name": "Storia: collage DISCOVERY e SPACESUIT",
+   "tags": [
+    "tiktok",
+    "storia",
+    "turchese",
+    "foto",
+    "collage",
+    "verticale"
+   ]
+  },
+  "template:tk6-dreams": {
+   "name": "Storia: collage DREAMS",
+   "tags": [
+    "tiktok",
+    "storia",
+    "turchese",
+    "foto",
+    "collage",
+    "verticale"
+   ]
+  },
+  "template:tk6-flower": {
+   "name": "Storia: collage FLOWER BEAUTY",
+   "tags": [
+    "tiktok",
+    "storia",
+    "turchese",
+    "foto",
+    "collage",
+    "verticale"
+   ]
+  },
+  "template:tk6-foto-cae": {
+   "name": "Storia: foto incorniciata che cade dentro",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "turchese",
+    "foto"
+   ]
+  },
+  "template:tk6-foto-lado": {
+   "name": "Storia: foto incorniciata che scivola da lato",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "turchese",
+    "foto"
+   ]
+  },
+  "template:tk6-freedom": {
+   "name": "Storia: colonna FREEDOM",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "turchese",
+    "foto",
+    "verticale"
+   ]
+  },
+  "template:tk6-modern": {
+   "name": "Storia: collage MODERN STORIES",
+   "tags": [
+    "tiktok",
+    "storia",
+    "turchese",
+    "foto",
+    "collage",
+    "verticale"
+   ]
+  },
+  "template:tk6-savor": {
+   "name": "Storia: SAVOR LIFE'S GOODNESS con invito all'azione",
+   "tags": [
+    "tiktok",
+    "storia",
+    "turchese",
+    "invito all'azione",
+    "logo",
+    "scorri"
+   ]
+  },
+  "template:tk6-starry": {
+   "name": "Storia: STARRY NIGHTS che si riduce in un collage",
+   "tags": [
+    "tiktok",
+    "storia",
+    "turchese",
+    "foto",
+    "collage",
+    "verticale"
+   ]
+  },
+  "template:tk6-times-now": {
+   "name": "Storia: TIME'S NOW con due foto",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "turchese",
+    "foto",
+    "verticale"
+   ]
+  },
+  "template:tk6-wind": {
+   "name": "Storia: WIND e AURA con due foto",
+   "tags": [
+    "tiktok",
+    "storia",
+    "turchese",
+    "foto",
+    "collage",
+    "verticale"
+   ]
+  },
+  "template:tk7-blooms": {
+   "name": "Storia: BLOOMS ALL AROUND in rosso",
+   "tags": [
+    "tiktok",
+    "storia",
+    "fiori",
+    "colori",
+    "moda",
+    "testo"
+   ]
+  },
+  "template:tk7-bold": {
+   "name": "Storia: collage BOLD COLORS SWAY",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "fiori",
+    "colori",
+    "moda"
+   ]
+  },
+  "template:tk7-breezy": {
+   "name": "Storia: collage BREEZY SPRING ATTIRE",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "fiori",
+    "colori",
+    "moda"
+   ]
+  },
+  "template:tk7-canvas": {
+   "name": "Storia: collage CANVAS LIFE BODY",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "fiori",
+    "colori",
+    "moda"
+   ]
+  },
+  "template:tk7-characters": {
+   "name": "Storia: COLORFUL CHARACTERS sotto una foto",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "fiori",
+    "colori",
+    "moda"
+   ]
+  },
+  "template:tk7-colorful-and": {
+   "name": "Storia: COLORFUL AND CONFIDENCE tra due foto",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "fiori",
+    "colori",
+    "moda"
+   ]
+  },
+  "template:tk7-discover-more": {
+   "name": "Storia finale: DISCOVER MORE con il tuo logo",
+   "tags": [
+    "tiktok",
+    "fiori",
+    "colori",
+    "moda",
+    "finale",
+    "logo"
+   ]
+  },
+  "template:tk7-embrace": {
+   "name": "Storia: EMBRACE e EXPRESSION attorno a una foto",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "fiori",
+    "colori",
+    "moda"
+   ]
+  },
+  "template:tk7-embrace-your-life": {
+   "name": "Storia: EMBRACE YOUR LIFE con quattro foto",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "fiori",
+    "colori",
+    "moda"
+   ]
+  },
+  "template:tk7-flower": {
+   "name": "Storia: FLOWER PARADISE DELIGHT in blu",
+   "tags": [
+    "tiktok",
+    "storia",
+    "fiori",
+    "colori",
+    "moda",
+    "testo"
+   ]
+  },
+  "template:tk7-sale": {
+   "name": "Storia: SALE SALE SALE con due foto",
+   "tags": [
+    "tiktok",
+    "storia",
+    "fiori",
+    "colori",
+    "moda",
+    "offerta"
+   ]
+  },
+  "template:tk7-savor": {
+   "name": "Storia: SAVOR MOMENTS NOW con colonna di foto",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "fiori",
+    "colori",
+    "moda"
+   ]
+  },
+  "template:tk8-apple-pie": {
+   "name": "Storia: SWEET APPLE PIE e SAVOR EVERY BITE",
+   "tags": [
+    "tiktok",
+    "storia",
+    "cibo",
+    "ristorante",
+    "giallo",
+    "dolce"
+   ]
+  },
+  "template:tk8-bbq": {
+   "name": "Storia: BBQ SMOKE RISING con cinque foto",
+   "tags": [
+    "tiktok",
+    "storia",
+    "cibo",
+    "ristorante",
+    "giallo",
+    "barbecue"
+   ]
+  },
+  "template:tk8-big-sale": {
+   "name": "Storia: BIG -50% SALE con tre foto",
+   "tags": [
+    "tiktok",
+    "storia",
+    "cibo",
+    "ristorante",
+    "giallo",
+    "offerta"
+   ]
+  },
+  "template:tk8-buy-now": {
+   "name": "Storia: BUY NOW con cinque foto",
+   "tags": [
+    "tiktok",
+    "storia",
+    "cibo",
+    "ristorante",
+    "giallo",
+    "offerta"
+   ]
+  },
+  "template:tk8-crispy-fries": {
+   "name": "Storia: CRISPY GOLDEN FRIES con tre foto",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "cibo",
+    "ristorante",
+    "giallo"
+   ]
+  },
+  "template:tk8-discover-flavors": {
+   "name": "Storia finale: DISCOVER NEW FLAVORS con il tuo logo",
+   "tags": [
+    "tiktok",
+    "cibo",
+    "ristorante",
+    "giallo",
+    "finale",
+    "logo"
+   ]
+  },
+  "template:tk8-fast-food": {
+   "name": "Storia: FAST FOOD ADDICTION",
+   "tags": [
+    "tiktok",
+    "storia",
+    "cibo",
+    "ristorante",
+    "giallo",
+    "testo"
+   ]
+  },
+  "template:tk8-food-lovers": {
+   "name": "Storia: FOOD LOVERS UNITE con quattro foto",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "cibo",
+    "ristorante",
+    "giallo"
+   ]
+  },
+  "template:tk8-fried-chicken": {
+   "name": "Storia: FRIED CHICKEN DELIGHT",
+   "tags": [
+    "tiktok",
+    "cibo",
+    "ristorante",
+    "giallo",
+    "testo",
+    "pollo"
+   ]
+  },
+  "template:tk8-hot-dogs": {
+   "name": "Storia: HOT DOGS e CRISPY FRIES",
+   "tags": [
+    "tiktok",
+    "storia",
+    "cibo",
+    "ristorante",
+    "giallo",
+    "hot dog"
+   ]
+  },
+  "template:tk8-lowest-price": {
+   "name": "Storia: THE LOWEST PRICE",
+   "tags": [
+    "tiktok",
+    "storia",
+    "cibo",
+    "ristorante",
+    "giallo",
+    "offerta"
+   ]
+  },
+  "template:tk8-new-york-pizza": {
+   "name": "Storia: NEW YORK PIZZA da schermo intero a collage",
+   "tags": [
+    "tiktok",
+    "storia",
+    "cibo",
+    "ristorante",
+    "giallo",
+    "pizza"
+   ]
+  },
+  "template:tk8-nice-diners": {
+   "name": "Storia: NICE DINERS con una foto alta",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "cibo",
+    "ristorante",
+    "giallo"
+   ]
+  },
+  "template:tk9-limpia": {
+   "name": "Opener pulito: parole e foto a ritmo",
+   "tags": [
+    "tiktok",
+    "apertura",
+    "tipografia",
+    "parole",
+    "foto",
+    "minimalista"
+   ]
+  },
   "template:top-5-mas-vendidos": {
    "name": "Top 5 più venduti",
    "tags": [
@@ -33025,6 +39496,3306 @@
     "brillantini",
     "rosa",
     "aesthetic"
+   ]
+  },
+  "template:yp0-barra-campana": {
+   "name": "Barra con mi piace, campanella e iscriviti",
+   "tags": [
+    "iscriviti",
+    "mi piace",
+    "campanella",
+    "barra",
+    "youtube"
+   ]
+  },
+  "template:yp0-barra-canal": {
+   "name": "Barra del canale con mi piace, iscriviti e campanella",
+   "tags": [
+    "iscriviti",
+    "mi piace",
+    "campanella",
+    "barra",
+    "youtube"
+   ]
+  },
+  "template:yp0-barra-me-gusta": {
+   "name": "Barra con mi piace, non mi piace e iscriviti",
+   "tags": [
+    "iscriviti",
+    "mi piace",
+    "barra",
+    "youtube"
+   ]
+  },
+  "template:yp0-barra-seguidores": {
+   "name": "Barra del canale con contatore di follower",
+   "tags": [
+    "contatore",
+    "barra",
+    "youtube"
+   ]
+  },
+  "template:yp0-fila-grande": {
+   "name": "Mi piace, iscriviti e campanella in grande",
+   "tags": [
+    "iscriviti",
+    "mi piace",
+    "campanella",
+    "youtube"
+   ]
+  },
+  "template:yp0-redes": {
+   "name": "Barre social con segui",
+   "tags": [
+    "social",
+    "barra",
+    "youtube"
+   ]
+  },
+  "template:yp0-tarjeta-canal": {
+   "name": "Scheda del canale con iscriviti",
+   "tags": [
+    "iscriviti",
+    "youtube",
+    "creator"
+   ]
+  },
+  "template:yp0-tarjeta-iconos": {
+   "name": "Scheda con iscriviti, mi piace e campanella",
+   "tags": [
+    "iscriviti",
+    "mi piace",
+    "campanella",
+    "youtube"
+   ]
+  },
+  "template:yp0-tarjeta-mini": {
+   "name": "Piccola scheda iscriviti",
+   "tags": [
+    "iscriviti",
+    "youtube",
+    "creator"
+   ]
+  },
+  "template:yp1-apertura-avatar-bandas": {
+   "name": "Apertura: avatar che cade e bande che salgono",
+   "tags": [
+    "apertura",
+    "avatar",
+    "barra",
+    "youtube"
+   ]
+  },
+  "template:yp1-apertura-avatar-circulo": {
+   "name": "Apertura: avatar e cerchi che si aprono",
+   "tags": [
+    "apertura",
+    "avatar",
+    "cerchio",
+    "youtube"
+   ]
+  },
+  "template:yp1-apertura-blanca": {
+   "name": "Apertura: bande oblique e un pulsante su bianco",
+   "tags": [
+    "apertura",
+    "pulsante",
+    "bianco",
+    "barra",
+    "inclinato",
+    "youtube"
+   ]
+  },
+  "template:yp1-apertura-diana": {
+   "name": "Apertura: pulsante rotondo su cerchi rossi",
+   "tags": [
+    "apertura",
+    "pulsante",
+    "cerchio",
+    "rosso",
+    "youtube"
+   ]
+  },
+  "template:yp1-apertura-flechas": {
+   "name": "Apertura: chevron scuri e un pulsante che rotola",
+   "tags": [
+    "apertura",
+    "pulsante",
+    "freccia",
+    "youtube"
+   ]
+  },
+  "template:yp1-apertura-gotas": {
+   "name": "Apertura: gocce che formano il pulsante YouTube",
+   "tags": [
+    "apertura",
+    "social",
+    "pulsante",
+    "liquido",
+    "youtube"
+   ]
+  },
+  "template:yp1-apertura-logo-vuela": {
+   "name": "Apertura: logo che vola all'indietro e ruota",
+   "tags": [
+    "apertura",
+    "youtube",
+    "creator"
+   ]
+  },
+  "template:yp1-apertura-ondas": {
+   "name": "Apertura: logo, archi vorticosi e onde rosse",
+   "tags": [
+    "apertura",
+    "rosso",
+    "onde",
+    "youtube"
+   ]
+  },
+  "template:yp1-apertura-tipografica-gaming": {
+   "name": "Apertura tipografica: il miglior canale di gaming",
+   "tags": [
+    "apertura",
+    "tipografia",
+    "gaming",
+    "youtube"
+   ]
+  },
+  "template:yp1-apertura-tipografica-roja": {
+   "name": "Apertura tipografica rossa: nuovo video, mi piace e iscriviti",
+   "tags": [
+    "iscriviti",
+    "mi piace",
+    "apertura",
+    "tipografia",
+    "rosso",
+    "video"
+   ]
+  },
+  "template:yp1-apertura-tipografica-suscribete": {
+   "name": "Apertura tipografica: guarda l'episodio e iscriviti",
+   "tags": [
+    "iscriviti",
+    "apertura",
+    "tipografia",
+    "youtube"
+   ]
+  },
+  "template:yp1-barra-suscribir": {
+   "name": "Iscriviti: barra con avatar, mi piace e campanella",
+   "tags": [
+    "iscriviti",
+    "mi piace",
+    "campanella",
+    "avatar",
+    "barra",
+    "youtube"
+   ]
+  },
+  "template:yp1-barra-vertical": {
+   "name": "Titolo di quattro righe su una barra rossa",
+   "tags": [
+    "titolo",
+    "rosso",
+    "barra",
+    "linee",
+    "youtube"
+   ]
+  },
+  "template:yp1-best-video": {
+   "name": "Grande titolo su onde blu",
+   "tags": [
+    "titolo",
+    "blu",
+    "onde",
+    "youtube"
+   ]
+  },
+  "template:yp1-big-text": {
+   "name": "Grande testo rosso in una stanza buia",
+   "tags": [
+    "rosso",
+    "youtube",
+    "creator"
+   ]
+  },
+  "template:yp1-big-title": {
+   "name": "Grande titolo su una banda rossa obliqua",
+   "tags": [
+    "titolo",
+    "rosso",
+    "barra",
+    "inclinato",
+    "youtube"
+   ]
+  },
+  "template:yp1-bold-titles": {
+   "name": "Titolo con una linea rossa e una cornice che si disegna",
+   "tags": [
+    "titolo",
+    "rosso",
+    "cornice",
+    "linee",
+    "youtube"
+   ]
+  },
+  "template:yp1-cajas-tecleadas": {
+   "name": "Titolo digitato in un riquadro rosso e uno bianco",
+   "tags": [
+    "titolo",
+    "rosso",
+    "bianco",
+    "riquadro",
+    "youtube"
+   ]
+  },
+  "template:yp1-cita-cajas-grises": {
+   "name": "Citazione in riquadri grigi con virgolette rosse",
+   "tags": [
+    "citazione",
+    "rosso",
+    "riquadro",
+    "youtube"
+   ]
+  },
+  "template:yp1-cita-centrada": {
+   "name": "Citazione centrata tra due linee",
+   "tags": [
+    "citazione",
+    "rosso",
+    "linee",
+    "youtube"
+   ]
+  },
+  "template:yp1-cita-circulo": {
+   "name": "Citazione in un cerchio rosso",
+   "tags": [
+    "citazione",
+    "cerchio",
+    "rosso",
+    "youtube"
+   ]
+  },
+  "template:yp1-cita-cuadro-rojo": {
+   "name": "Citazione in un quadrato rosso con linguetta laterale",
+   "tags": [
+    "citazione",
+    "rosso",
+    "quadrato",
+    "youtube"
+   ]
+  },
+  "template:yp1-cita-etiqueta": {
+   "name": "Citazione con etichetta rossa dell'autore",
+   "tags": [
+    "citazione",
+    "rosso",
+    "youtube"
+   ]
+  },
+  "template:yp1-cita-marco-fino": {
+   "name": "Citazione in una sottile cornice rossa con distintivo",
+   "tags": [
+    "citazione",
+    "rosso",
+    "cornice",
+    "youtube"
+   ]
+  },
+  "template:yp1-cita-marco-rojo": {
+   "name": "Citazione digitata con cornice rossa",
+   "tags": [
+    "citazione",
+    "rosso",
+    "cornice",
+    "youtube"
+   ]
+  },
+  "template:yp1-cita-panel-rojo": {
+   "name": "Citazione in un riquadro scuro accanto a un pannello rosso",
+   "tags": [
+    "citazione",
+    "rosso",
+    "riquadro",
+    "youtube"
+   ]
+  },
+  "template:yp1-columna-suscribir": {
+   "name": "Iscriviti: colonna con avatar, mi piace e campanella",
+   "tags": [
+    "iscriviti",
+    "mi piace",
+    "campanella",
+    "avatar",
+    "youtube"
+   ]
+  },
+  "template:yp1-como-un-pro": {
+   "name": "Titolo a gradini sotto una linea rossa",
+   "tags": [
+    "titolo",
+    "rosso",
+    "linee",
+    "youtube"
+   ]
+  },
+  "template:yp1-design": {
+   "name": "Titolo rosso con lettere che cadono",
+   "tags": [
+    "titolo",
+    "rosso",
+    "lettere",
+    "youtube"
+   ]
+  },
+  "template:yp1-fila-suscribir": {
+   "name": "Iscriviti: mi piace, iscriviti e campanella in basso",
+   "tags": [
+    "iscriviti",
+    "mi piace",
+    "campanella",
+    "youtube"
+   ]
+  },
+  "template:yp1-final-banda": {
+   "name": "Schermata finale: banda scura sul video",
+   "tags": [
+    "schermata finale",
+    "barra",
+    "video",
+    "youtube"
+   ]
+  },
+  "template:yp1-final-columna": {
+   "name": "Schermata finale: colonna scura su video colorato",
+   "tags": [
+    "schermata finale",
+    "video",
+    "youtube"
+   ]
+  },
+  "template:yp1-final-gracias": {
+   "name": "Schermata finale: grazie per la visione e iscriviti",
+   "tags": [
+    "schermata finale",
+    "iscriviti",
+    "grazie",
+    "youtube"
+   ]
+  },
+  "template:yp1-final-like-share": {
+   "name": "Schermata finale: video consigliato e mi piace, commenta, condividi",
+   "tags": [
+    "schermata finale",
+    "mi piace",
+    "video",
+    "youtube"
+   ]
+  },
+  "template:yp1-fondo-arcos": {
+   "name": "Sfondo: archi e trattini rossi sparsi",
+   "tags": [
+    "sfondo",
+    "cerchio",
+    "rosso",
+    "youtube"
+   ]
+  },
+  "template:yp1-fondo-bloques": {
+   "name": "Sfondo: blocchi bianchi con quadrati rossi",
+   "tags": [
+    "sfondo",
+    "cerchio",
+    "rosso",
+    "bianco",
+    "quadrato",
+    "youtube"
+   ]
+  },
+  "template:yp1-fondo-botones": {
+   "name": "Sfondo: file di pulsanti play",
+   "tags": [
+    "sfondo",
+    "pulsante",
+    "cerchio",
+    "youtube"
+   ]
+  },
+  "template:yp1-fondo-capas": {
+   "name": "Sfondo: onde rosse a strati",
+   "tags": [
+    "sfondo",
+    "cerchio",
+    "rosso",
+    "onde",
+    "youtube"
+   ]
+  },
+  "template:yp1-fondo-cruces": {
+   "name": "Sfondo: croci rosa e bianche",
+   "tags": [
+    "sfondo",
+    "cerchio",
+    "rosa",
+    "bianco",
+    "youtube"
+   ]
+  },
+  "template:yp1-fondo-destellos": {
+   "name": "Sfondo: scie rosse diagonali",
+   "tags": [
+    "sfondo",
+    "cerchio",
+    "rosso",
+    "strisce",
+    "youtube"
+   ]
+  },
+  "template:yp1-fondo-espiral": {
+   "name": "Sfondo: spirale rossa, bianca e grigia",
+   "tags": [
+    "sfondo",
+    "cerchio",
+    "rosso",
+    "bianco",
+    "youtube"
+   ]
+  },
+  "template:yp1-fondo-flechas": {
+   "name": "Sfondo: chevron rossi in movimento",
+   "tags": [
+    "sfondo",
+    "cerchio",
+    "rosso",
+    "freccia",
+    "youtube"
+   ]
+  },
+  "template:yp1-fondo-guiones": {
+   "name": "Sfondo: trattini rossi in volo",
+   "tags": [
+    "sfondo",
+    "cerchio",
+    "rosso",
+    "youtube"
+   ]
+  },
+  "template:yp1-fondo-lineas": {
+   "name": "Sfondo: sottili linee rosse ondulate",
+   "tags": [
+    "sfondo",
+    "cerchio",
+    "rosso",
+    "linee",
+    "youtube"
+   ]
+  },
+  "template:yp1-fondo-liquido-azul": {
+   "name": "Sfondo: liquido blu",
+   "tags": [
+    "sfondo",
+    "cerchio",
+    "blu",
+    "liquido",
+    "youtube"
+   ]
+  },
+  "template:yp1-fondo-liquido-oscuro": {
+   "name": "Sfondo: liquido rosso scuro",
+   "tags": [
+    "sfondo",
+    "cerchio",
+    "rosso",
+    "liquido",
+    "youtube"
+   ]
+  },
+  "template:yp1-fondo-ondas-gruesas": {
+   "name": "Sfondo: onde rosse spesse",
+   "tags": [
+    "sfondo",
+    "cerchio",
+    "rosso",
+    "onde",
+    "youtube"
+   ]
+  },
+  "template:yp1-fondo-puntos": {
+   "name": "Sfondo: punti rossi pulsanti",
+   "tags": [
+    "sfondo",
+    "cerchio",
+    "rosso",
+    "punti",
+    "youtube"
+   ]
+  },
+  "template:yp1-fondo-rayas": {
+   "name": "Sfondo: strisce rosse diagonali",
+   "tags": [
+    "sfondo",
+    "cerchio",
+    "rosso",
+    "strisce",
+    "youtube"
+   ]
+  },
+  "template:yp1-fondo-rayas-onduladas": {
+   "name": "Sfondo: strisce rosse ondulate",
+   "tags": [
+    "sfondo",
+    "cerchio",
+    "rosso",
+    "strisce",
+    "youtube"
+   ]
+  },
+  "template:yp1-fondo-redes": {
+   "name": "Sfondo: icone dei social",
+   "tags": [
+    "sfondo",
+    "icona",
+    "social",
+    "cerchio",
+    "youtube"
+   ]
+  },
+  "template:yp1-fondo-texto": {
+   "name": "Sfondo: testo modificabile ripetuto",
+   "tags": [
+    "sfondo",
+    "cerchio",
+    "youtube"
+   ]
+  },
+  "template:yp1-frase-ondas-rojas": {
+   "name": "Frase di tre righe su onde rosse",
+   "tags": [
+    "rosso",
+    "onde",
+    "linee",
+    "youtube"
+   ]
+  },
+  "template:yp1-info-anillo": {
+   "name": "Infografica: anello percentuale con testo",
+   "tags": [
+    "cerchio",
+    "infografica",
+    "youtube"
+   ]
+  },
+  "template:yp1-info-anillo-linea": {
+   "name": "Infografica: titolo sulla linea e anello percentuale",
+   "tags": [
+    "titolo",
+    "cerchio",
+    "infografica",
+    "linee",
+    "youtube"
+   ]
+  },
+  "template:yp1-info-barra-porcentaje": {
+   "name": "Infografica: percentuale in un riquadro grigio e un'etichetta rossa",
+   "tags": [
+    "rosso",
+    "riquadro",
+    "infografica",
+    "youtube"
+   ]
+  },
+  "template:yp1-info-porcentaje": {
+   "name": "Infografica: grande percentuale con un'etichetta",
+   "tags": [
+    "infografica",
+    "youtube",
+    "creator"
+   ]
+  },
+  "template:yp1-insignia-me-gusta": {
+   "name": "Iscriviti: distintivo che gira in un mi piace e una campanella",
+   "tags": [
+    "iscriviti",
+    "mi piace",
+    "campanella",
+    "youtube"
+   ]
+  },
+  "template:yp1-liquid-title": {
+   "name": "Titolo con contorno su una macchia liquida",
+   "tags": [
+    "titolo",
+    "contorno",
+    "liquido",
+    "linee",
+    "youtube"
+   ]
+  },
+  "template:yp1-llamada-barra-roja": {
+   "name": "Didascalia: barra rossa con un paragrafo",
+   "tags": [
+    "didascalia",
+    "rosso",
+    "barra",
+    "youtube"
+   ]
+  },
+  "template:yp1-llamada-dato": {
+   "name": "Didascalia: titolo, testo e una cifra in un riquadro rosso",
+   "tags": [
+    "didascalia",
+    "rosso",
+    "riquadro",
+    "linee",
+    "youtube"
+   ]
+  },
+  "template:yp1-llamada-especificacion": {
+   "name": "Didascalia: titolo rosso su una linea",
+   "tags": [
+    "titolo",
+    "didascalia",
+    "rosso",
+    "linee",
+    "youtube"
+   ]
+  },
+  "template:yp1-llamada-numero": {
+   "name": "Didascalia: numero in un cerchio con due testi",
+   "tags": [
+    "didascalia",
+    "cerchio",
+    "youtube"
+   ]
+  },
+  "template:yp1-llamada-numero-cuadro": {
+   "name": "Didascalia: numero in un quadrato rosso e riquadri bianchi",
+   "tags": [
+    "didascalia",
+    "rosso",
+    "bianco",
+    "riquadro",
+    "quadrato",
+    "youtube"
+   ]
+  },
+  "template:yp1-llamada-pantalla": {
+   "name": "Didascalia: etichetta rossa e riquadro con contorno",
+   "tags": [
+    "didascalia",
+    "rosso",
+    "riquadro",
+    "contorno",
+    "linee",
+    "youtube"
+   ]
+  },
+  "template:yp1-llamada-titular": {
+   "name": "Didascalia: titolo in un contorno rosso",
+   "tags": [
+    "didascalia",
+    "rosso",
+    "contorno",
+    "linee",
+    "youtube"
+   ]
+  },
+  "template:yp1-mejor-juego": {
+   "name": "Titolo in un riquadro grigio sotto un blocco rosso",
+   "tags": [
+    "titolo",
+    "rosso",
+    "riquadro",
+    "youtube"
+   ]
+  },
+  "template:yp1-modern-bold": {
+   "name": "Titolo con contorno in un riquadro rosa",
+   "tags": [
+    "titolo",
+    "rosa",
+    "riquadro",
+    "contorno",
+    "linee",
+    "youtube"
+   ]
+  },
+  "template:yp1-modern-title": {
+   "name": "Titolo tra linee rosse",
+   "tags": [
+    "titolo",
+    "rosso",
+    "linee",
+    "youtube"
+   ]
+  },
+  "template:yp1-motion-studio": {
+   "name": "Titolo su due barre rosse incrociate",
+   "tags": [
+    "titolo",
+    "rosso",
+    "barra",
+    "youtube"
+   ]
+  },
+  "template:yp1-no-olvides-calificar": {
+   "name": "Titolo: non dimenticare di valutare, in una cornice rossa",
+   "tags": [
+    "titolo",
+    "rosso",
+    "cornice",
+    "youtube"
+   ]
+  },
+  "template:yp1-pila-botones": {
+   "name": "Iscriviti: pulsanti mi piace, iscriviti e notifiche che si girano",
+   "tags": [
+    "iscriviti",
+    "mi piace",
+    "pulsante",
+    "youtube"
+   ]
+  },
+  "template:yp1-red-circulo-barra": {
+   "name": "Social: icona rotonda rotante e una barra con il sito web",
+   "tags": [
+    "icona",
+    "social",
+    "cerchio",
+    "barra",
+    "youtube"
+   ]
+  },
+  "template:yp1-red-cuadro-follow": {
+   "name": "Social: quadrato che rotola e FOLLOW US",
+   "tags": [
+    "social",
+    "quadrato",
+    "youtube"
+   ]
+  },
+  "template:yp1-red-pastilla": {
+   "name": "Social: icona al centro di una pillola",
+   "tags": [
+    "icona",
+    "social",
+    "pulsante",
+    "youtube"
+   ]
+  },
+  "template:yp1-red-rombo": {
+   "name": "Social: rombo che si disegna e il nome del canale",
+   "tags": [
+    "social",
+    "nome",
+    "rombo",
+    "youtube"
+   ]
+  },
+  "template:yp1-strong-titles": {
+   "name": "Titolo forte sotto un'onda rossa",
+   "tags": [
+    "titolo",
+    "rosso",
+    "onde",
+    "youtube"
+   ]
+  },
+  "template:yp1-top-10": {
+   "name": "Titolo con due linee rosse sotto",
+   "tags": [
+    "titolo",
+    "rosso",
+    "linee",
+    "youtube"
+   ]
+  },
+  "template:yp1-transicion-barras-1": {
+   "name": "Transizione: barre rosse, bianche e nere verso sinistra",
+   "tags": [
+    "transizione",
+    "rosso",
+    "bianco",
+    "nero",
+    "barra",
+    "youtube"
+   ]
+  },
+  "template:yp1-transicion-barras-2": {
+   "name": "Transizione: barre rosse, bianche e nere verso il basso",
+   "tags": [
+    "transizione",
+    "rosso",
+    "bianco",
+    "nero",
+    "barra",
+    "youtube"
+   ]
+  },
+  "template:yp1-transicion-bloques-1": {
+   "name": "Transizione: blocchi rossi, bianchi e neri",
+   "tags": [
+    "transizione",
+    "rosso",
+    "bianco",
+    "nero",
+    "youtube"
+   ]
+  },
+  "template:yp1-transicion-bloques-2": {
+   "name": "Transizione: blocchi rossi, bianchi e neri",
+   "tags": [
+    "transizione",
+    "rosso",
+    "bianco",
+    "nero",
+    "youtube"
+   ]
+  },
+  "template:yp1-transicion-capsulas-1": {
+   "name": "Transizione: capsule verso sinistra",
+   "tags": [
+    "transizione",
+    "youtube",
+    "creator"
+   ]
+  },
+  "template:yp1-transicion-capsulas-2": {
+   "name": "Transizione: capsule verso il basso",
+   "tags": [
+    "transizione",
+    "youtube",
+    "creator"
+   ]
+  },
+  "template:yp1-transicion-circulo": {
+   "name": "Transizione: cerchio rosso, bianco e nero che si apre",
+   "tags": [
+    "transizione",
+    "apertura",
+    "cerchio",
+    "rosso",
+    "bianco",
+    "nero"
+   ]
+  },
+  "template:yp1-transicion-cuadrado": {
+   "name": "Transizione: quadrato rosso, bianco e nero che si apre",
+   "tags": [
+    "transizione",
+    "apertura",
+    "rosso",
+    "bianco",
+    "nero",
+    "quadrato"
+   ]
+  },
+  "template:yp1-transicion-estrella": {
+   "name": "Transizione: stella rossa, bianca e nera che si apre",
+   "tags": [
+    "transizione",
+    "apertura",
+    "rosso",
+    "bianco",
+    "nero",
+    "youtube"
+   ]
+  },
+  "template:yp1-transicion-flechas-1": {
+   "name": "Transizione: chevron rossi, bianchi e neri verso sinistra",
+   "tags": [
+    "transizione",
+    "rosso",
+    "bianco",
+    "nero",
+    "freccia",
+    "youtube"
+   ]
+  },
+  "template:yp1-transicion-flechas-2": {
+   "name": "Transizione: chevron rossi, bianchi e neri verso il basso",
+   "tags": [
+    "transizione",
+    "rosso",
+    "bianco",
+    "nero",
+    "freccia",
+    "youtube"
+   ]
+  },
+  "template:yp1-transicion-flechas-3": {
+   "name": "Transizione: chevron rossi, bianchi e neri verso l'alto",
+   "tags": [
+    "transizione",
+    "rosso",
+    "bianco",
+    "nero",
+    "freccia",
+    "youtube"
+   ]
+  },
+  "template:yp1-transicion-flechas-4": {
+   "name": "Transizione: chevron rossi, bianchi e neri verso destra",
+   "tags": [
+    "transizione",
+    "rosso",
+    "bianco",
+    "nero",
+    "freccia",
+    "youtube"
+   ]
+  },
+  "template:yp1-transicion-hexagono": {
+   "name": "Transizione: esagono rosso, bianco e nero che si apre",
+   "tags": [
+    "transizione",
+    "apertura",
+    "rosso",
+    "bianco",
+    "nero",
+    "youtube"
+   ]
+  },
+  "template:yp1-transicion-remolino": {
+   "name": "Transizione: vortice rosso e bianco",
+   "tags": [
+    "transizione",
+    "rosso",
+    "bianco",
+    "youtube"
+   ]
+  },
+  "template:yp1-trazo-rojo": {
+   "name": "Titolo di tre righe con uno scarabocchio rosso",
+   "tags": [
+    "titolo",
+    "rosso",
+    "linee",
+    "youtube"
+   ]
+  },
+  "template:yp1-ver-siguiente-caja": {
+   "name": "Titolo: guarda il prossimo, in un riquadro bianco",
+   "tags": [
+    "titolo",
+    "bianco",
+    "riquadro",
+    "prossimo video",
+    "youtube"
+   ]
+  },
+  "template:yp1-ver-siguiente-dos-colores": {
+   "name": "Titolo: guarda il prossimo, in un riquadro bianco e rosso",
+   "tags": [
+    "titolo",
+    "rosso",
+    "bianco",
+    "riquadro",
+    "prossimo video",
+    "youtube"
+   ]
+  },
+  "template:yp2-apertura": {
+   "name": "Apertura: anello rosso e bianco con un pulsante YouTube",
+   "tags": [
+    "apertura",
+    "social",
+    "pulsante",
+    "cerchio",
+    "rosso",
+    "bianco"
+   ]
+  },
+  "template:yp2-aro-canal": {
+   "name": "Anello rosso e bianco che si apre su CHANNEL",
+   "tags": [
+    "apertura",
+    "cerchio",
+    "rosso",
+    "bianco",
+    "youtube"
+   ]
+  },
+  "template:yp2-barra-15k": {
+   "name": "Barra: mi piace e iscriviti",
+   "tags": [
+    "iscriviti",
+    "barra",
+    "youtube"
+   ]
+  },
+  "template:yp2-barra-campana": {
+   "name": "Barra: mi piace, iscriviti e campanella",
+   "tags": [
+    "iscriviti",
+    "mi piace",
+    "campanella",
+    "barra",
+    "youtube"
+   ]
+  },
+  "template:yp2-barra-canal": {
+   "name": "Barra del canale con foto e iscriviti",
+   "tags": [
+    "iscriviti",
+    "foto",
+    "barra",
+    "youtube"
+   ]
+  },
+  "template:yp2-barra-contadores": {
+   "name": "Barra: mi piace, contatori e iscriviti",
+   "tags": [
+    "iscriviti",
+    "barra",
+    "youtube"
+   ]
+  },
+  "template:yp2-barra-simple": {
+   "name": "Barra: mi piace, non mi piace e iscriviti",
+   "tags": [
+    "iscriviti",
+    "mi piace",
+    "barra",
+    "youtube"
+   ]
+  },
+  "template:yp2-dos-tarjetas": {
+   "name": "Schede: iscriviti e mi piace",
+   "tags": [
+    "iscriviti",
+    "mi piace",
+    "youtube"
+   ]
+  },
+  "template:yp2-icono-aro-blanco": {
+   "name": "Icona: esplosione di anello bianco",
+   "tags": [
+    "icona",
+    "cerchio",
+    "bianco",
+    "youtube"
+   ]
+  },
+  "template:yp2-icono-aro-rojo": {
+   "name": "Icona: esplosione di anello rosso",
+   "tags": [
+    "icona",
+    "cerchio",
+    "rosso",
+    "youtube"
+   ]
+  },
+  "template:yp2-icono-buscador": {
+   "name": "Icona: casella di ricerca che si disegna",
+   "tags": [
+    "icona",
+    "riquadro",
+    "youtube"
+   ]
+  },
+  "template:yp2-icono-campana": {
+   "name": "Icona: campanella che suona in rosso",
+   "tags": [
+    "campanella",
+    "icona",
+    "cerchio",
+    "rosso",
+    "youtube"
+   ]
+  },
+  "template:yp2-icono-cargando": {
+   "name": "Icona: puntini di caricamento rotanti",
+   "tags": [
+    "icona",
+    "punti",
+    "youtube"
+   ]
+  },
+  "template:yp2-icono-cursor": {
+   "name": "Icona: puntatore che clicca",
+   "tags": [
+    "icona",
+    "youtube",
+    "creator"
+   ]
+  },
+  "template:yp2-icono-destello": {
+   "name": "Icona: esplosione di tratti",
+   "tags": [
+    "icona",
+    "youtube",
+    "creator"
+   ]
+  },
+  "template:yp2-icono-flecha": {
+   "name": "Icona: freccia verso il basso",
+   "tags": [
+    "icona",
+    "freccia",
+    "youtube"
+   ]
+  },
+  "template:yp2-icono-me-gusta": {
+   "name": "Icona: mi piace che diventa rosso",
+   "tags": [
+    "mi piace",
+    "icona",
+    "rosso",
+    "youtube"
+   ]
+  },
+  "template:yp2-pagina-video": {
+   "name": "Pagina del video: iscriviti e campanella",
+   "tags": [
+    "iscriviti",
+    "campanella",
+    "youtube"
+   ]
+  },
+  "template:yp2-redes-barras": {
+   "name": "Social: 12 barre con icone",
+   "tags": [
+    "icona",
+    "social",
+    "barra",
+    "youtube"
+   ]
+  },
+  "template:yp2-redes-iconos": {
+   "name": "Social: 6 icone con caselle di ricerca",
+   "tags": [
+    "icona",
+    "social",
+    "riquadro",
+    "youtube"
+   ]
+  },
+  "template:yp2-siguiente-barra": {
+   "name": "Schermata finale: prossimo video con una barra rossa",
+   "tags": [
+    "schermata finale",
+    "rosso",
+    "barra",
+    "prossimo video",
+    "video",
+    "youtube"
+   ]
+  },
+  "template:yp2-siguiente-onda": {
+   "name": "Schermata finale: prossimo video con un'onda rossa",
+   "tags": [
+    "schermata finale",
+    "rosso",
+    "onde",
+    "prossimo video",
+    "video",
+    "youtube"
+   ]
+  },
+  "template:yp2-tarjeta-canal": {
+   "name": "Scheda del canale con foto e logo",
+   "tags": [
+    "foto",
+    "youtube",
+    "creator"
+   ]
+  },
+  "template:yp2-tarjeta-video": {
+   "name": "Scheda video: iscriviti e campanella",
+   "tags": [
+    "iscriviti",
+    "campanella",
+    "video",
+    "youtube"
+   ]
+  },
+  "template:yp2-titulo-animation": {
+   "name": "Titolo in un riquadro rosso che cresce",
+   "tags": [
+    "titolo",
+    "rosso",
+    "riquadro",
+    "youtube"
+   ]
+  },
+  "template:yp2-titulo-best": {
+   "name": "Titolo con un'etichetta e una parola che scivola",
+   "tags": [
+    "titolo",
+    "youtube",
+    "creator"
+   ]
+  },
+  "template:yp2-titulo-brand": {
+   "name": "Grande titolo con linee rosse",
+   "tags": [
+    "titolo",
+    "rosso",
+    "linee",
+    "youtube"
+   ]
+  },
+  "template:yp2-titulo-clean": {
+   "name": "Titolo tra due linee rosse",
+   "tags": [
+    "titolo",
+    "rosso",
+    "linee",
+    "youtube"
+   ]
+  },
+  "template:yp2-titulo-just-edit": {
+   "name": "Titolo in una cornice con una parola sotto",
+   "tags": [
+    "titolo",
+    "cornice",
+    "youtube"
+   ]
+  },
+  "template:yp2-titulo-motion-design": {
+   "name": "Titolo con un'etichetta rossa",
+   "tags": [
+    "titolo",
+    "rosso",
+    "youtube"
+   ]
+  },
+  "template:yp2-titulo-new-project": {
+   "name": "Titolo scoperto da una barra rossa",
+   "tags": [
+    "titolo",
+    "rosso",
+    "barra",
+    "youtube"
+   ]
+  },
+  "template:yp2-titulo-rendering": {
+   "name": "Titolo sotto una linea rossa che scende",
+   "tags": [
+    "titolo",
+    "rosso",
+    "linee",
+    "youtube"
+   ]
+  },
+  "template:yp2-titulo-simple": {
+   "name": "Titolo che esce da un quadrato rosso",
+   "tags": [
+    "titolo",
+    "rosso",
+    "quadrato",
+    "youtube"
+   ]
+  },
+  "template:yp2-titulo-your-channel": {
+   "name": "Titolo in una cornice rossa",
+   "tags": [
+    "titolo",
+    "rosso",
+    "cornice",
+    "youtube"
+   ]
+  },
+  "template:yp2-transicion-diagonal": {
+   "name": "Transizione: barre diagonali rosse, bianche e grigie",
+   "tags": [
+    "transizione",
+    "rosso",
+    "bianco",
+    "barra",
+    "youtube"
+   ]
+  },
+  "template:yp2-transicion-franjas": {
+   "name": "Transizione: strisce rosse e bianche che girano",
+   "tags": [
+    "transizione",
+    "rosso",
+    "bianco",
+    "strisce",
+    "youtube"
+   ]
+  },
+  "template:yp3-avatar-cadena": {
+   "name": "Pulsante: avatar con una catena di mi piace e campanella",
+   "tags": [
+    "mi piace",
+    "campanella",
+    "avatar",
+    "pulsante",
+    "youtube"
+   ]
+  },
+  "template:yp3-avatar-rojo": {
+   "name": "Pulsante: avatar del canale con iscriviti rosso",
+   "tags": [
+    "iscriviti",
+    "avatar",
+    "pulsante",
+    "rosso",
+    "youtube"
+   ]
+  },
+  "template:yp3-burbujas-rojas": {
+   "name": "Pulsante: bolle rosse con campanella, avatar e mi piace",
+   "tags": [
+    "mi piace",
+    "campanella",
+    "avatar",
+    "pulsante",
+    "rosso",
+    "youtube"
+   ]
+  },
+  "template:yp3-caja-me-gusta-campana": {
+   "name": "Pulsante: riquadro rosso che passa da mi piace a campanella",
+   "tags": [
+    "mi piace",
+    "campanella",
+    "pulsante",
+    "rosso",
+    "riquadro",
+    "youtube"
+   ]
+  },
+  "template:yp3-caja-roja-campana": {
+   "name": "Pulsante: riquadro rosso con campanella e «Iscritto» inclinato",
+   "tags": [
+    "iscriviti",
+    "campanella",
+    "pulsante",
+    "rosso",
+    "riquadro",
+    "inclinato"
+   ]
+  },
+  "template:yp3-campana-redonda": {
+   "name": "Pulsante: campanella rotonda che diventa «Iscritto»",
+   "tags": [
+    "iscriviti",
+    "campanella",
+    "pulsante",
+    "cerchio",
+    "youtube"
+   ]
+  },
+  "template:yp3-final-anillos-blancos": {
+   "name": "Schermata finale: «Clicca per iscriverti» su anelli bianchi",
+   "tags": [
+    "schermata finale",
+    "iscriviti",
+    "cerchio",
+    "bianco",
+    "youtube"
+   ]
+  },
+  "template:yp3-final-aro-degradado": {
+   "name": "Schermata finale: anello sfumato su nero",
+   "tags": [
+    "schermata finale",
+    "cerchio",
+    "nero",
+    "youtube"
+   ]
+  },
+  "template:yp3-final-banda-azul": {
+   "name": "Schermata finale: banda blu su una foto con due video",
+   "tags": [
+    "schermata finale",
+    "foto",
+    "blu",
+    "barra",
+    "video",
+    "youtube"
+   ]
+  },
+  "template:yp3-final-capsula-turquesa": {
+   "name": "Schermata finale: capsula turchese con due video",
+   "tags": [
+    "schermata finale",
+    "turchese",
+    "video",
+    "youtube"
+   ]
+  },
+  "template:yp3-final-gris": {
+   "name": "Schermata finale: grigio tenue con due video e avatar",
+   "tags": [
+    "schermata finale",
+    "avatar",
+    "video",
+    "youtube"
+   ]
+  },
+  "template:yp3-final-hexagono": {
+   "name": "Schermata finale: esagono sfumato con «Clicca per iscriverti»",
+   "tags": [
+    "schermata finale",
+    "iscriviti",
+    "youtube"
+   ]
+  },
+  "template:yp3-final-manchas-rojas": {
+   "name": "Schermata finale: macchie rosse con avatar e prossimo video",
+   "tags": [
+    "schermata finale",
+    "avatar",
+    "rosso",
+    "prossimo video",
+    "video",
+    "liquido"
+   ]
+  },
+  "template:yp3-final-no-olvides": {
+   "name": "Schermata finale: «Non dimenticare di iscriverti» con taglio blu",
+   "tags": [
+    "schermata finale",
+    "iscriviti",
+    "blu",
+    "youtube"
+   ]
+  },
+  "template:yp3-final-olas-turquesa": {
+   "name": "Schermata finale: onde turchesi con un video consigliato",
+   "tags": [
+    "schermata finale",
+    "turchese",
+    "onde",
+    "video",
+    "youtube"
+   ]
+  },
+  "template:yp3-final-rosa": {
+   "name": "Schermata finale: rosa «Grazie per la visione!»",
+   "tags": [
+    "schermata finale",
+    "rosa",
+    "grazie",
+    "youtube"
+   ]
+  },
+  "template:yp3-final-rosa-siguiente": {
+   "name": "Schermata finale: rosa «prossimo video» con blocchi",
+   "tags": [
+    "schermata finale",
+    "rosa",
+    "prossimo video",
+    "video",
+    "youtube"
+   ]
+  },
+  "template:yp3-final-tarjeta-lila": {
+   "name": "Schermata finale: scheda lilla «Non dimenticare di iscriverti»",
+   "tags": [
+    "schermata finale",
+    "iscriviti",
+    "viola",
+    "youtube"
+   ]
+  },
+  "template:yp3-final-tarjeta-morada": {
+   "name": "Schermata finale: scheda viola con due video",
+   "tags": [
+    "schermata finale",
+    "viola",
+    "video",
+    "youtube"
+   ]
+  },
+  "template:yp3-me-gusta-redondo": {
+   "name": "Pulsante: mi piace e campanella rotondi con «Piaciuto» e «Iscritto»",
+   "tags": [
+    "iscriviti",
+    "mi piace",
+    "campanella",
+    "pulsante",
+    "cerchio",
+    "youtube"
+   ]
+  },
+  "template:yp3-pestana-degradado": {
+   "name": "Pulsante: linguetta rosa e viola con avatar",
+   "tags": [
+    "avatar",
+    "pulsante",
+    "rosa",
+    "viola",
+    "youtube"
+   ]
+  },
+  "template:yp3-pildora-burbujas": {
+   "name": "Pulsante: pillola a bolle sfumate con avatar",
+   "tags": [
+    "avatar",
+    "pulsante",
+    "youtube"
+   ]
+  },
+  "template:yp3-pildora-degradado": {
+   "name": "Pulsante: pillola bianca con campanella sfumata",
+   "tags": [
+    "campanella",
+    "pulsante",
+    "bianco",
+    "youtube"
+   ]
+  },
+  "template:yp3-play-contorno": {
+   "name": "Pulsante: icona play bianca che si gira e «Iscritto»",
+   "tags": [
+    "iscriviti",
+    "icona",
+    "pulsante",
+    "bianco",
+    "youtube"
+   ]
+  },
+  "template:yp3-suscribirse-rojo": {
+   "name": "Pulsante: iscriviti rosso con mi piace e campanella",
+   "tags": [
+    "iscriviti",
+    "mi piace",
+    "campanella",
+    "pulsante",
+    "rosso",
+    "youtube"
+   ]
+  },
+  "template:yp3-tarjeta-blanca": {
+   "name": "Pulsante: scheda bianca con avatar e mi piace",
+   "tags": [
+    "mi piace",
+    "avatar",
+    "pulsante",
+    "bianco",
+    "youtube"
+   ]
+  },
+  "template:yp4-bienvenida": {
+   "name": "Storia: benvenuto con dischi rossi e neri",
+   "tags": [
+    "rosso",
+    "nero",
+    "storia",
+    "benvenuto",
+    "youtube"
+   ]
+  },
+  "template:yp4-canal": {
+   "name": "Storia: CHANNEL con un pulsante play",
+   "tags": [
+    "pulsante",
+    "storia",
+    "youtube"
+   ]
+  },
+  "template:yp4-contador": {
+   "name": "Storia: 2/6 con foto e una cornice gialla",
+   "tags": [
+    "foto",
+    "giallo",
+    "cornice",
+    "storia",
+    "youtube"
+   ]
+  },
+  "template:yp4-derechos": {
+   "name": "Storia: cerchio bianco su giallo",
+   "tags": [
+    "cerchio",
+    "giallo",
+    "bianco",
+    "storia",
+    "youtube"
+   ]
+  },
+  "template:yp4-fundamentos": {
+   "name": "Storia: etichetta rossa inclinata su una foto",
+   "tags": [
+    "foto",
+    "rosso",
+    "storia",
+    "inclinato",
+    "youtube"
+   ]
+  },
+  "template:yp4-gracias": {
+   "name": "Storia: grazie con due foto e nomi",
+   "tags": [
+    "foto",
+    "storia",
+    "nome",
+    "grazie",
+    "youtube"
+   ]
+  },
+  "template:yp4-love": {
+   "name": "Storia: love con una scheda iscriviti",
+   "tags": [
+    "iscriviti",
+    "storia",
+    "youtube"
+   ]
+  },
+  "template:yp4-mi-plan": {
+   "name": "Storia: il mio piano con un elenco e un'etichetta",
+   "tags": [
+    "storia",
+    "youtube",
+    "creator"
+   ]
+  },
+  "template:yp4-nombre-blanco": {
+   "name": "Storia: nome con foto rotonda su bianco",
+   "tags": [
+    "foto",
+    "cerchio",
+    "bianco",
+    "storia",
+    "nome",
+    "youtube"
+   ]
+  },
+  "template:yp4-nombre-circulo": {
+   "name": "Storia: nome accanto a una foto rotonda",
+   "tags": [
+    "foto",
+    "cerchio",
+    "storia",
+    "nome",
+    "youtube"
+   ]
+  },
+  "template:yp4-numeros": {
+   "name": "Storia: diapositive 01 e 02",
+   "tags": [
+    "storia",
+    "youtube",
+    "creator"
+   ]
+  },
+  "template:yp4-por-ejemplo": {
+   "name": "Storia: frase gialla su rosso con foto",
+   "tags": [
+    "foto",
+    "rosso",
+    "giallo",
+    "storia",
+    "youtube"
+   ]
+  },
+  "template:yp4-seguir": {
+   "name": "Storia: Segui con una scheda social",
+   "tags": [
+    "social",
+    "storia",
+    "youtube"
+   ]
+  },
+  "template:yp4-siguiente": {
+   "name": "Storia: due foto con prossimo e Guarda",
+   "tags": [
+    "foto",
+    "storia",
+    "youtube"
+   ]
+  },
+  "template:yp4-social-media": {
+   "name": "Storia: Social Media con seguimi",
+   "tags": [
+    "social",
+    "storia",
+    "youtube"
+   ]
+  },
+  "template:yp4-vlogger": {
+   "name": "Storia: VLOGGER con cuori e iscriviti",
+   "tags": [
+    "iscriviti",
+    "storia",
+    "youtube"
+   ]
+  },
+  "template:yp5-avatar-cycle": {
+   "name": "Terzo inferiore: avatar e un'etichetta che cambia",
+   "tags": [
+    "terzo inferiore",
+    "avatar",
+    "youtube"
+   ]
+  },
+  "template:yp5-best-show": {
+   "name": "Terzo inferiore: pulsante, divisore e due righe",
+   "tags": [
+    "terzo inferiore",
+    "pulsante",
+    "linee",
+    "youtube"
+   ]
+  },
+  "template:yp5-best-solution": {
+   "name": "Titolo: riquadri bianchi e neri in una cornice",
+   "tags": [
+    "titolo",
+    "bianco",
+    "nero",
+    "cornice",
+    "riquadro",
+    "youtube"
+   ]
+  },
+  "template:yp5-best-video": {
+   "name": "Titolo: linea rossa e riquadro rosso",
+   "tags": [
+    "titolo",
+    "rosso",
+    "riquadro",
+    "linee",
+    "youtube"
+   ]
+  },
+  "template:yp5-big-live-story": {
+   "name": "Terzo inferiore: pulsante play che zooma in basso e un nome",
+   "tags": [
+    "terzo inferiore",
+    "pulsante",
+    "nome",
+    "youtube"
+   ]
+  },
+  "template:yp5-box-any-fonts": {
+   "name": "Titolo in due riquadri centrati",
+   "tags": [
+    "titolo",
+    "rosso",
+    "riquadro",
+    "youtube"
+   ]
+  },
+  "template:yp5-box-auto-resized": {
+   "name": "Titolo in riquadro che cresce mentre si digita",
+   "tags": [
+    "titolo",
+    "riquadro",
+    "youtube"
+   ]
+  },
+  "template:yp5-box-automatically": {
+   "name": "Titolo in un riquadro bianco e uno nero",
+   "tags": [
+    "titolo",
+    "bianco",
+    "nero",
+    "riquadro",
+    "youtube"
+   ]
+  },
+  "template:yp5-box-best-choice": {
+   "name": "Titolo in tre riquadri neri",
+   "tags": [
+    "titolo",
+    "nero",
+    "riquadro",
+    "youtube"
+   ]
+  },
+  "template:yp5-box-dont-forget": {
+   "name": "Titolo centrato in tre riquadri bianchi",
+   "tags": [
+    "titolo",
+    "rosso",
+    "bianco",
+    "riquadro",
+    "youtube"
+   ]
+  },
+  "template:yp5-box-enjoy": {
+   "name": "Titolo in riquadri bianchi con contorno",
+   "tags": [
+    "titolo",
+    "bianco",
+    "riquadro",
+    "contorno",
+    "linee",
+    "youtube"
+   ]
+  },
+  "template:yp5-box-great-design": {
+   "name": "Titolo in due riquadri bianchi",
+   "tags": [
+    "titolo",
+    "bianco",
+    "riquadro",
+    "youtube"
+   ]
+  },
+  "template:yp5-box-like-that": {
+   "name": "Titolo in riquadri che si aprono dal centro",
+   "tags": [
+    "titolo",
+    "apertura",
+    "riquadro",
+    "youtube"
+   ]
+  },
+  "template:yp5-box-motion-design": {
+   "name": "Titolo in un riquadro bianco obliquo",
+   "tags": [
+    "titolo",
+    "bianco",
+    "riquadro",
+    "inclinato",
+    "youtube"
+   ]
+  },
+  "template:yp5-box-thank-support": {
+   "name": "Titolo: una linea che si apre in un riquadro bianco",
+   "tags": [
+    "titolo",
+    "apertura",
+    "bianco",
+    "riquadro",
+    "linee",
+    "youtube"
+   ]
+  },
+  "template:yp5-box-we-created": {
+   "name": "Titolo digitato in tre riquadri neri",
+   "tags": [
+    "titolo",
+    "nero",
+    "riquadro",
+    "youtube"
+   ]
+  },
+  "template:yp5-box-write-text": {
+   "name": "Titolo in un unico riquadro con contorno",
+   "tags": [
+    "titolo",
+    "riquadro",
+    "contorno",
+    "linee",
+    "youtube"
+   ]
+  },
+  "template:yp5-bubble-swap": {
+   "name": "Terzo inferiore: bolla rossa da mi piace a iscriviti",
+   "tags": [
+    "terzo inferiore",
+    "iscriviti",
+    "mi piace",
+    "rosso",
+    "youtube"
+   ]
+  },
+  "template:yp5-callout-brand": {
+   "name": "Didascalia: marca e prezzo",
+   "tags": [
+    "didascalia",
+    "youtube",
+    "creator"
+   ]
+  },
+  "template:yp5-callout-creative": {
+   "name": "Didascalia: linea tratteggiata e due riquadri",
+   "tags": [
+    "didascalia",
+    "riquadro",
+    "punti",
+    "linee",
+    "youtube"
+   ]
+  },
+  "template:yp5-callout-elbow": {
+   "name": "Didascalia: linea a gomito e riquadro di testo rosso",
+   "tags": [
+    "didascalia",
+    "rosso",
+    "riquadro",
+    "linee",
+    "youtube"
+   ]
+  },
+  "template:yp5-callout-headline": {
+   "name": "Didascalia: titolo rosso e riquadro nero",
+   "tags": [
+    "didascalia",
+    "rosso",
+    "nero",
+    "riquadro",
+    "linee",
+    "youtube"
+   ]
+  },
+  "template:yp5-callout-line-up": {
+   "name": "Didascalia: linea che sale verso un riquadro nero",
+   "tags": [
+    "didascalia",
+    "nero",
+    "riquadro",
+    "linee",
+    "youtube"
+   ]
+  },
+  "template:yp5-callout-outline": {
+   "name": "Linea di didascalia con un punto e testo",
+   "tags": [
+    "didascalia",
+    "punti",
+    "linee",
+    "youtube"
+   ]
+  },
+  "template:yp5-callout-product": {
+   "name": "Didascalia: linea e cornice del prodotto",
+   "tags": [
+    "didascalia",
+    "cornice",
+    "linee",
+    "youtube"
+   ]
+  },
+  "template:yp5-callout-red-box": {
+   "name": "Linea di didascalia con un riquadro rosso",
+   "tags": [
+    "didascalia",
+    "rosso",
+    "riquadro",
+    "linee",
+    "youtube"
+   ]
+  },
+  "template:yp5-callout-red-line": {
+   "name": "Didascalia: linea rossa e riquadro rosso",
+   "tags": [
+    "didascalia",
+    "rosso",
+    "riquadro",
+    "linee",
+    "youtube"
+   ]
+  },
+  "template:yp5-callout-title-bar": {
+   "name": "Didascalia: barra rossa e titolo",
+   "tags": [
+    "titolo",
+    "didascalia",
+    "rosso",
+    "barra",
+    "youtube"
+   ]
+  },
+  "template:yp5-channel-name": {
+   "name": "Terzo inferiore: nome del canale inclinato con strisce",
+   "tags": [
+    "terzo inferiore",
+    "nome",
+    "strisce",
+    "inclinato",
+    "youtube"
+   ]
+  },
+  "template:yp5-clean-modern": {
+   "name": "Terzo inferiore: numero e testo in una pillola",
+   "tags": [
+    "terzo inferiore",
+    "pulsante",
+    "youtube"
+   ]
+  },
+  "template:yp5-clean-titles": {
+   "name": "Titolo: quattro righe in una cornice bianca",
+   "tags": [
+    "titolo",
+    "bianco",
+    "cornice",
+    "linee",
+    "youtube"
+   ]
+  },
+  "template:yp5-click-channel": {
+   "name": "Terzo inferiore: clicca sul pulsante e una barra rossa",
+   "tags": [
+    "terzo inferiore",
+    "pulsante",
+    "rosso",
+    "barra",
+    "youtube"
+   ]
+  },
+  "template:yp5-counter-bubbles": {
+   "name": "Contatori: bolle di notifica",
+   "tags": [
+    "contatore",
+    "youtube",
+    "creator"
+   ]
+  },
+  "template:yp5-counter-heart": {
+   "name": "Contatore di mi piace con un cuore",
+   "tags": [
+    "mi piace",
+    "contatore",
+    "youtube"
+   ]
+  },
+  "template:yp5-counter-link": {
+   "name": "Link nella descrizione",
+   "tags": [
+    "youtube",
+    "creator",
+    "video"
+   ]
+  },
+  "template:yp5-counter-person": {
+   "name": "Contatore di follower",
+   "tags": [
+    "contatore",
+    "youtube",
+    "creator"
+   ]
+  },
+  "template:yp5-counter-subscribers": {
+   "name": "Contatore di iscritti",
+   "tags": [
+    "iscriviti",
+    "contatore",
+    "youtube"
+   ]
+  },
+  "template:yp5-doodle-channel": {
+   "name": "Terzo inferiore: pulsante bianco, barra rossa e scarabocchi",
+   "tags": [
+    "terzo inferiore",
+    "pulsante",
+    "rosso",
+    "bianco",
+    "barra",
+    "youtube"
+   ]
+  },
+  "template:yp5-end-big-arc": {
+   "name": "Schermata finale: grande arco corallo e due video",
+   "tags": [
+    "schermata finale",
+    "corallo",
+    "video",
+    "youtube"
+   ]
+  },
+  "template:yp5-end-circle": {
+   "name": "Schermata finale: semicerchio corallo e un video consigliato",
+   "tags": [
+    "schermata finale",
+    "cerchio",
+    "corallo",
+    "video",
+    "youtube"
+   ]
+  },
+  "template:yp5-end-coral": {
+   "name": "Schermata finale corallo: avatar, due video e social",
+   "tags": [
+    "schermata finale",
+    "social",
+    "avatar",
+    "corallo",
+    "video",
+    "youtube"
+   ]
+  },
+  "template:yp5-end-coral-column": {
+   "name": "Schermata finale corallo: due video, social e avatar",
+   "tags": [
+    "schermata finale",
+    "social",
+    "avatar",
+    "corallo",
+    "video",
+    "youtube"
+   ]
+  },
+  "template:yp5-end-diagonal": {
+   "name": "Schermata finale: pannello corallo obliquo e il prossimo video",
+   "tags": [
+    "schermata finale",
+    "corallo",
+    "inclinato",
+    "prossimo video",
+    "video",
+    "youtube"
+   ]
+  },
+  "template:yp5-end-side-panel": {
+   "name": "Schermata finale: pannello corallo e due video",
+   "tags": [
+    "schermata finale",
+    "corallo",
+    "video",
+    "youtube"
+   ]
+  },
+  "template:yp5-end-subscribe-arrow": {
+   "name": "Schermata finale: video consigliato e un grande ISCRIVITI",
+   "tags": [
+    "schermata finale",
+    "iscriviti",
+    "video",
+    "youtube"
+   ]
+  },
+  "template:yp5-end-white-arrow": {
+   "name": "Schermata finale: triangolo bianco con una freccia rossa",
+   "tags": [
+    "schermata finale",
+    "rosso",
+    "bianco",
+    "freccia",
+    "triangolo",
+    "youtube"
+   ]
+  },
+  "template:yp5-end-white-band": {
+   "name": "Schermata finale: banda bianca con due video",
+   "tags": [
+    "schermata finale",
+    "bianco",
+    "barra",
+    "video",
+    "youtube"
+   ]
+  },
+  "template:yp5-end-white-curve": {
+   "name": "Schermata finale: pannello bianco curvo e due video",
+   "tags": [
+    "schermata finale",
+    "bianco",
+    "video",
+    "youtube"
+   ]
+  },
+  "template:yp5-good-design": {
+   "name": "Titolo: tre righe che appaiono parola per parola",
+   "tags": [
+    "titolo",
+    "linee",
+    "youtube"
+   ]
+  },
+  "template:yp5-hello-welcome": {
+   "name": "Titolo: HELLO! e benvenuti nel mio canale",
+   "tags": [
+    "titolo",
+    "benvenuto",
+    "youtube"
+   ]
+  },
+  "template:yp5-how-do-i": {
+   "name": "Terzo inferiore: domanda in un riquadro bianco",
+   "tags": [
+    "terzo inferiore",
+    "bianco",
+    "riquadro",
+    "youtube"
+   ]
+  },
+  "template:yp5-like-card": {
+   "name": "Terzo inferiore: mi piace, iscriviti e notifiche",
+   "tags": [
+    "terzo inferiore",
+    "iscriviti",
+    "mi piace",
+    "youtube"
+   ]
+  },
+  "template:yp5-like-column": {
+   "name": "Terzo inferiore: colonna rossa con tre etichette",
+   "tags": [
+    "terzo inferiore",
+    "rosso",
+    "youtube"
+   ]
+  },
+  "template:yp5-like-hand": {
+   "name": "Terzo inferiore: metti mi piace al video con una mano",
+   "tags": [
+    "terzo inferiore",
+    "mi piace",
+    "video",
+    "youtube"
+   ]
+  },
+  "template:yp5-modern-titles": {
+   "name": "Titolo: cornice bianca e tre righe",
+   "tags": [
+    "titolo",
+    "bianco",
+    "cornice",
+    "linee",
+    "youtube"
+   ]
+  },
+  "template:yp5-modern-universal": {
+   "name": "Terzo inferiore: tre righe e una linea",
+   "tags": [
+    "terzo inferiore",
+    "linee",
+    "youtube"
+   ]
+  },
+  "template:yp5-name-bar": {
+   "name": "Terzo inferiore: barra bianca e un nome che esce",
+   "tags": [
+    "terzo inferiore",
+    "bianco",
+    "barra",
+    "nome",
+    "youtube"
+   ]
+  },
+  "template:yp5-name-red-box": {
+   "name": "Terzo inferiore: nome in un riquadro rosso",
+   "tags": [
+    "terzo inferiore",
+    "rosso",
+    "riquadro",
+    "nome",
+    "youtube"
+   ]
+  },
+  "template:yp5-name-square-line": {
+   "name": "Terzo inferiore: piccolo quadrato, linea e nome",
+   "tags": [
+    "terzo inferiore",
+    "nome",
+    "quadrato",
+    "linee",
+    "youtube"
+   ]
+  },
+  "template:yp5-name-white-box": {
+   "name": "Terzo inferiore: nome digitato in un riquadro bianco",
+   "tags": [
+    "terzo inferiore",
+    "bianco",
+    "riquadro",
+    "nome",
+    "youtube"
+   ]
+  },
+  "template:yp5-new-video": {
+   "name": "Terzo inferiore: nuovo video in una barra nera",
+   "tags": [
+    "terzo inferiore",
+    "nero",
+    "barra",
+    "video",
+    "youtube"
+   ]
+  },
+  "template:yp5-notify-bell": {
+   "name": "Terzo inferiore: notifiche con una campanella che suona",
+   "tags": [
+    "terzo inferiore",
+    "campanella",
+    "cerchio",
+    "youtube"
+   ]
+  },
+  "template:yp5-opener-boxes": {
+   "name": "Apertura rossa: nome in riquadri neri",
+   "tags": [
+    "apertura",
+    "rosso",
+    "nero",
+    "riquadro",
+    "nome",
+    "youtube"
+   ]
+  },
+  "template:yp5-opener-divider": {
+   "name": "Apertura rossa: pulsante, divisore e nome",
+   "tags": [
+    "apertura",
+    "pulsante",
+    "rosso",
+    "nome",
+    "youtube"
+   ]
+  },
+  "template:yp5-opener-fade": {
+   "name": "Apertura rossa: pulsante e nome in dissolvenza",
+   "tags": [
+    "apertura",
+    "pulsante",
+    "rosso",
+    "nome",
+    "youtube"
+   ]
+  },
+  "template:yp5-opener-flip": {
+   "name": "Apertura rossa: pulsante che si gira e nome",
+   "tags": [
+    "apertura",
+    "pulsante",
+    "rosso",
+    "nome",
+    "youtube"
+   ]
+  },
+  "template:yp5-opener-typed": {
+   "name": "Apertura rossa: nome digitato",
+   "tags": [
+    "apertura",
+    "rosso",
+    "nome",
+    "youtube"
+   ]
+  },
+  "template:yp5-profile-card": {
+   "name": "Terzo inferiore: scheda bianca con un avatar",
+   "tags": [
+    "terzo inferiore",
+    "avatar",
+    "bianco",
+    "youtube"
+   ]
+  },
+  "template:yp5-promo-pack": {
+   "name": "Titolo: YOUTUBE PROMO in un riquadro nero",
+   "tags": [
+    "titolo",
+    "social",
+    "nero",
+    "riquadro",
+    "youtube"
+   ]
+  },
+  "template:yp5-quote-black-frame": {
+   "name": "Citazione in una cornice nera con un'etichetta",
+   "tags": [
+    "citazione",
+    "nero",
+    "cornice",
+    "youtube"
+   ]
+  },
+  "template:yp5-quote-brackets": {
+   "name": "Citazione tra due angoli",
+   "tags": [
+    "citazione",
+    "youtube",
+    "creator"
+   ]
+  },
+  "template:yp5-quote-bubble": {
+   "name": "Citazione in un fumetto",
+   "tags": [
+    "citazione",
+    "youtube",
+    "creator"
+   ]
+  },
+  "template:yp5-quote-centred": {
+   "name": "Citazione centrata con un'etichetta bianca",
+   "tags": [
+    "citazione",
+    "rosso",
+    "bianco",
+    "youtube"
+   ]
+  },
+  "template:yp5-quote-corners": {
+   "name": "Citazione tra due angoli bianchi",
+   "tags": [
+    "citazione",
+    "bianco",
+    "youtube"
+   ]
+  },
+  "template:yp5-quote-frame": {
+   "name": "Citazione in una cornice con un'etichetta nera",
+   "tags": [
+    "citazione",
+    "nero",
+    "cornice",
+    "youtube"
+   ]
+  },
+  "template:yp5-quote-line": {
+   "name": "Citazione: linea verticale e virgolette in riquadri",
+   "tags": [
+    "citazione",
+    "riquadro",
+    "linee",
+    "youtube"
+   ]
+  },
+  "template:yp5-quote-split-bar": {
+   "name": "Citazione che si apre tra due barre",
+   "tags": [
+    "citazione",
+    "apertura",
+    "barra",
+    "youtube"
+   ]
+  },
+  "template:yp5-quote-two-lines": {
+   "name": "Citazione tra due linee",
+   "tags": [
+    "citazione",
+    "linee",
+    "youtube"
+   ]
+  },
+  "template:yp5-quote-white-box": {
+   "name": "Citazione in un riquadro bianco con virgolette nere",
+   "tags": [
+    "citazione",
+    "bianco",
+    "nero",
+    "riquadro",
+    "youtube"
+   ]
+  },
+  "template:yp5-record-iris": {
+   "name": "Transizione: cerchi di registrazione che si aprono",
+   "tags": [
+    "transizione",
+    "apertura",
+    "cerchio",
+    "youtube"
+   ]
+  },
+  "template:yp5-social-baldosa-fb": {
+   "name": "Barra social: Facebook (piastrella volante)",
+   "tags": [
+    "social",
+    "barra",
+    "youtube"
+   ]
+  },
+  "template:yp5-social-baldosa-ig": {
+   "name": "Barra social: Instagram (piastrella volante)",
+   "tags": [
+    "social",
+    "barra",
+    "youtube"
+   ]
+  },
+  "template:yp5-social-baldosa-tw": {
+   "name": "Barra social: Twitter (piastrella volante)",
+   "tags": [
+    "social",
+    "barra",
+    "youtube"
+   ]
+  },
+  "template:yp5-social-baldosa-yt": {
+   "name": "Barra social: YouTube (piastrella volante)",
+   "tags": [
+    "social",
+    "barra",
+    "youtube"
+   ]
+  },
+  "template:yp5-social-barras-fb": {
+   "name": "Barra social: Facebook (due barre che si aprono)",
+   "tags": [
+    "apertura",
+    "social",
+    "barra",
+    "youtube"
+   ]
+  },
+  "template:yp5-social-barras-ig": {
+   "name": "Barra social: Instagram (due barre che si aprono)",
+   "tags": [
+    "apertura",
+    "social",
+    "barra",
+    "youtube"
+   ]
+  },
+  "template:yp5-social-barras-tw": {
+   "name": "Barra social: Twitter (due barre che si aprono)",
+   "tags": [
+    "apertura",
+    "social",
+    "barra",
+    "youtube"
+   ]
+  },
+  "template:yp5-social-barras-yt": {
+   "name": "Barra social: YouTube (due barre che si aprono)",
+   "tags": [
+    "apertura",
+    "social",
+    "barra",
+    "youtube"
+   ]
+  },
+  "template:yp5-social-circulo-fb": {
+   "name": "Barra social: Facebook (cerchio e pillola)",
+   "tags": [
+    "social",
+    "pulsante",
+    "cerchio",
+    "barra",
+    "youtube"
+   ]
+  },
+  "template:yp5-social-circulo-ig": {
+   "name": "Barra social: Instagram (cerchio e pillola)",
+   "tags": [
+    "social",
+    "pulsante",
+    "cerchio",
+    "barra",
+    "youtube"
+   ]
+  },
+  "template:yp5-social-circulo-tw": {
+   "name": "Barra social: Twitter (cerchio e pillola)",
+   "tags": [
+    "social",
+    "pulsante",
+    "cerchio",
+    "barra",
+    "youtube"
+   ]
+  },
+  "template:yp5-social-circulo-yt": {
+   "name": "Barra social: YouTube (cerchio e pillola)",
+   "tags": [
+    "social",
+    "pulsante",
+    "cerchio",
+    "barra",
+    "youtube"
+   ]
+  },
+  "template:yp5-social-cuadro-fb": {
+   "name": "Barra social: Facebook (piastrella che si gira)",
+   "tags": [
+    "social",
+    "barra",
+    "youtube"
+   ]
+  },
+  "template:yp5-social-cuadro-ig": {
+   "name": "Barra social: Instagram (piastrella che si gira)",
+   "tags": [
+    "social",
+    "barra",
+    "youtube"
+   ]
+  },
+  "template:yp5-social-cuadro-tw": {
+   "name": "Barra social: Twitter (piastrella che si gira)",
+   "tags": [
+    "social",
+    "barra",
+    "youtube"
+   ]
+  },
+  "template:yp5-social-cuadro-yt": {
+   "name": "Barra social: YouTube (piastrella che si gira)",
+   "tags": [
+    "social",
+    "barra",
+    "youtube"
+   ]
+  },
+  "template:yp5-social-pincel-fb": {
+   "name": "Barra social: Facebook (pennellata)",
+   "tags": [
+    "social",
+    "barra",
+    "youtube"
+   ]
+  },
+  "template:yp5-social-pincel-ig": {
+   "name": "Barra social: Instagram (pennellata)",
+   "tags": [
+    "social",
+    "barra",
+    "youtube"
+   ]
+  },
+  "template:yp5-social-pincel-tw": {
+   "name": "Barra social: Twitter (pennellata)",
+   "tags": [
+    "social",
+    "barra",
+    "youtube"
+   ]
+  },
+  "template:yp5-social-pincel-yt": {
+   "name": "Barra social: YouTube (pennellata)",
+   "tags": [
+    "social",
+    "barra",
+    "youtube"
+   ]
+  },
+  "template:yp5-stacked-channel": {
+   "name": "Terzo inferiore: nome su tre righe con fumetti di chat",
+   "tags": [
+    "terzo inferiore",
+    "nome",
+    "linee",
+    "youtube"
+   ]
+  },
+  "template:yp5-sub-avatar-pill": {
+   "name": "Terzo inferiore: iscriviti con avatar e clic",
+   "tags": [
+    "terzo inferiore",
+    "iscriviti",
+    "avatar",
+    "youtube"
+   ]
+  },
+  "template:yp5-sub-center-avatar": {
+   "name": "Terzo inferiore: avatar al centro della pillola",
+   "tags": [
+    "terzo inferiore",
+    "avatar",
+    "pulsante",
+    "youtube"
+   ]
+  },
+  "template:yp5-sub-channel-tag": {
+   "name": "Terzo inferiore: iscritto con il nome del canale",
+   "tags": [
+    "terzo inferiore",
+    "iscriviti",
+    "nome",
+    "youtube"
+   ]
+  },
+  "template:yp5-sub-grey-bell": {
+   "name": "Terzo inferiore: iscriviti che diventa grigio e una campanella",
+   "tags": [
+    "terzo inferiore",
+    "iscriviti",
+    "campanella",
+    "youtube"
+   ]
+  },
+  "template:yp5-sub-logo-box": {
+   "name": "Terzo inferiore: logo in un riquadro bianco e iscriviti",
+   "tags": [
+    "terzo inferiore",
+    "iscriviti",
+    "bianco",
+    "riquadro",
+    "youtube"
+   ]
+  },
+  "template:yp5-sub-red-pill": {
+   "name": "Terzo inferiore: pillola rossa che diventa iscriviti",
+   "tags": [
+    "terzo inferiore",
+    "iscriviti",
+    "pulsante",
+    "rosso",
+    "youtube"
+   ]
+  },
+  "template:yp5-sub-red-white": {
+   "name": "Terzo inferiore: iscriviti che diventa iscritto",
+   "tags": [
+    "terzo inferiore",
+    "iscriviti",
+    "youtube"
+   ]
+  },
+  "template:yp5-sub-stack": {
+   "name": "Terzo inferiore: avatar e tre etichette rosse",
+   "tags": [
+    "terzo inferiore",
+    "avatar",
+    "rosso",
+    "youtube"
+   ]
+  },
+  "template:yp5-subscribe-icon": {
+   "name": "Terzo inferiore: iscriviti con un pulsante rotante",
+   "tags": [
+    "terzo inferiore",
+    "iscriviti",
+    "pulsante",
+    "youtube"
+   ]
+  },
+  "template:yp5-subscribe-now": {
+   "name": "Titolo: iscriviti ora lettera per lettera",
+   "tags": [
+    "titolo",
+    "iscriviti",
+    "lettere",
+    "youtube"
+   ]
+  },
+  "template:yp5-subscribe-to": {
+   "name": "Titolo: iscriviti in un riquadro bianco",
+   "tags": [
+    "titolo",
+    "iscriviti",
+    "bianco",
+    "riquadro",
+    "youtube"
+   ]
+  },
+  "template:yp5-subscribed-click": {
+   "name": "Terzo inferiore: barra iscriviti rossa con un clic",
+   "tags": [
+    "terzo inferiore",
+    "iscriviti",
+    "rosso",
+    "barra",
+    "youtube"
+   ]
+  },
+  "template:yp5-thanks-watching": {
+   "name": "Titolo: grazie per la visione",
+   "tags": [
+    "titolo",
+    "grazie",
+    "youtube"
+   ]
+  },
+  "template:yp5-three-icons": {
+   "name": "Terzo inferiore: mi piace, play e campanella che si illuminano",
+   "tags": [
+    "terzo inferiore",
+    "mi piace",
+    "campanella",
+    "youtube"
+   ]
+  },
+  "template:yp5-three-pills": {
+   "name": "Terzo inferiore: tre pulsanti in fila",
+   "tags": [
+    "terzo inferiore",
+    "pulsante",
+    "youtube"
+   ]
+  },
+  "template:yp5-tilted-cycle": {
+   "name": "Terzo inferiore: etichetta inclinata che cambia parole",
+   "tags": [
+    "terzo inferiore",
+    "inclinato",
+    "youtube"
+   ]
+  },
+  "template:yp5-travel-blog": {
+   "name": "Terzo inferiore: pulsante che sale e un nome",
+   "tags": [
+    "terzo inferiore",
+    "pulsante",
+    "nome",
+    "youtube"
+   ]
+  },
+  "template:yp5-triangle-box": {
+   "name": "Terzo inferiore: triangolo che diventa un pulsante bianco",
+   "tags": [
+    "terzo inferiore",
+    "pulsante",
+    "bianco",
+    "triangolo",
+    "youtube"
+   ]
+  },
+  "template:yp5-watch-next": {
+   "name": "Terzo inferiore: guarda il prossimo in un riquadro bianco",
+   "tags": [
+    "terzo inferiore",
+    "bianco",
+    "riquadro",
+    "prossimo video",
+    "youtube"
+   ]
+  },
+  "template:yp5-white-opener": {
+   "name": "Apertura: dischi rossi e un canale su bianco",
+   "tags": [
+    "apertura",
+    "rosso",
+    "bianco",
+    "youtube"
+   ]
+  },
+  "template:yp5-your-channel-label": {
+   "name": "Terzo inferiore: etichetta rossa con pulsante e scintille",
+   "tags": [
+    "terzo inferiore",
+    "pulsante",
+    "rosso",
+    "youtube"
+   ]
+  },
+  "template:yp7-apertura-cuadro-rojo": {
+   "name": "Apertura: quadrato rosso e scheda del canale",
+   "tags": [
+    "apertura",
+    "rosso",
+    "quadrato",
+    "youtube"
+   ]
+  },
+  "template:yp7-apertura-foto-perfil": {
+   "name": "Apertura: scatto che diventa l'avatar",
+   "tags": [
+    "apertura",
+    "avatar",
+    "youtube"
+   ]
+  },
+  "template:yp7-apertura-palabras": {
+   "name": "Apertura: parole su pannelli neri e bianchi",
+   "tags": [
+    "apertura",
+    "bianco",
+    "nero",
+    "youtube"
+   ]
+  },
+  "template:yp7-apertura-youtube": {
+   "name": "Apertura: YOUTUBE con contorno che si riempie",
+   "tags": [
+    "apertura",
+    "social",
+    "contorno",
+    "linee",
+    "youtube"
+   ]
+  },
+  "template:yp7-awesomeness": {
+   "name": "Tipografia: parola in una cornice bianca",
+   "tags": [
+    "tipografia",
+    "bianco",
+    "cornice",
+    "youtube"
+   ]
+  },
+  "template:yp7-be-happy": {
+   "name": "Tipografia: frase che si allinea e cambia colore",
+   "tags": [
+    "tipografia",
+    "linee",
+    "youtube"
+   ]
+  },
+  "template:yp7-caja-negra": {
+   "name": "Tipografia: frase in un riquadro nero",
+   "tags": [
+    "tipografia",
+    "nero",
+    "riquadro",
+    "youtube"
+   ]
+  },
+  "template:yp7-cita-barra": {
+   "name": "Tipografia: citazione su una barra",
+   "tags": [
+    "citazione",
+    "tipografia",
+    "barra",
+    "youtube"
+   ]
+  },
+  "template:yp7-cita-barra-2": {
+   "name": "Tipografia: barra di citazione con due quadrati",
+   "tags": [
+    "citazione",
+    "tipografia",
+    "barra",
+    "quadrato",
+    "youtube"
+   ]
+  },
+  "template:yp7-cita-cuadro": {
+   "name": "Tipografia: citazione in un riquadro quadrato",
+   "tags": [
+    "citazione",
+    "tipografia",
+    "riquadro",
+    "quadrato",
+    "youtube"
+   ]
+  },
+  "template:yp7-cita-cuadro-2": {
+   "name": "Tipografia: riquadro di citazione con un quadrato nell'angolo",
+   "tags": [
+    "citazione",
+    "tipografia",
+    "riquadro",
+    "quadrato",
+    "youtube"
+   ]
+  },
+  "template:yp7-cita-cuadro-3": {
+   "name": "Tipografia: citazione con due quadrati",
+   "tags": [
+    "citazione",
+    "tipografia",
+    "quadrato",
+    "youtube"
+   ]
+  },
+  "template:yp7-elementos-1": {
+   "name": "Elementi: forme e punti lampeggianti",
+   "tags": [
+    "punti",
+    "elementi",
+    "youtube"
+   ]
+  },
+  "template:yp7-elementos-2": {
+   "name": "Elementi: forme, anelli e schermi di punti",
+   "tags": [
+    "cerchio",
+    "punti",
+    "elementi",
+    "youtube"
+   ]
+  },
+  "template:yp7-elementos-3": {
+   "name": "Elementi: diagonali e rombi di punti",
+   "tags": [
+    "rombo",
+    "punti",
+    "elementi",
+    "youtube"
+   ]
+  },
+  "template:yp7-elementos-4": {
+   "name": "Elementi: linee di scansione e un anello",
+   "tags": [
+    "cerchio",
+    "linee",
+    "elementi",
+    "youtube"
+   ]
+  },
+  "template:yp7-final-1": {
+   "name": "Scheda finale: un video",
+   "tags": [
+    "schermata finale",
+    "video",
+    "youtube"
+   ]
+  },
+  "template:yp7-final-2": {
+   "name": "Scheda finale: due video impilati",
+   "tags": [
+    "schermata finale",
+    "video",
+    "youtube"
+   ]
+  },
+  "template:yp7-final-3": {
+   "name": "Scheda finale: due video affiancati",
+   "tags": [
+    "schermata finale",
+    "video",
+    "youtube"
+   ]
+  },
+  "template:yp7-final-4": {
+   "name": "Scheda finale: quattro video",
+   "tags": [
+    "schermata finale",
+    "video",
+    "youtube"
+   ]
+  },
+  "template:yp7-frase-entre-barras": {
+   "name": "Tipografia: frase tra due barre",
+   "tags": [
+    "tipografia",
+    "barra",
+    "youtube"
+   ]
+  },
+  "template:yp7-frase-inclinada": {
+   "name": "Tipografia: frase inclinata tra linee",
+   "tags": [
+    "tipografia",
+    "inclinato",
+    "linee",
+    "youtube"
+   ]
+  },
+  "template:yp7-greatness": {
+   "name": "Tipografia: lettere che cadono al loro posto",
+   "tags": [
+    "tipografia",
+    "lettere",
+    "youtube"
+   ]
+  },
+  "template:yp7-icono-campana": {
+   "name": "Icona: campanella che suona",
+   "tags": [
+    "campanella",
+    "icona",
+    "cerchio",
+    "youtube"
+   ]
+  },
+  "template:yp7-icono-compartir": {
+   "name": "Icona: pulsante Condividi",
+   "tags": [
+    "icona",
+    "pulsante",
+    "youtube"
+   ]
+  },
+  "template:yp7-icono-me-gusta": {
+   "name": "Icona: pulsante Mi piace",
+   "tags": [
+    "mi piace",
+    "icona",
+    "pulsante",
+    "youtube"
+   ]
+  },
+  "template:yp7-icono-suscribirse": {
+   "name": "Icona: pulsante Iscriviti",
+   "tags": [
+    "iscriviti",
+    "icona",
+    "pulsante",
+    "youtube"
+   ]
+  },
+  "template:yp7-nota-campana": {
+   "name": "Extra: scritta a mano «Click the bell icon»",
+   "tags": [
+    "campanella",
+    "icona",
+    "scritta a mano",
+    "youtube"
+   ]
+  },
+  "template:yp7-nota-comenta": {
+   "name": "Extra: scritta a mano «Comment below» con una freccia",
+   "tags": [
+    "scritta a mano",
+    "freccia",
+    "youtube"
+   ]
+  },
+  "template:yp7-nota-suscribete": {
+   "name": "Extra: scritta a mano «Subscribe us» con una freccia",
+   "tags": [
+    "iscriviti",
+    "scritta a mano",
+    "freccia",
+    "youtube"
+   ]
+  },
+  "template:yp7-nota-video": {
+   "name": "Extra: scritta a mano «Check out the video here»",
+   "tags": [
+    "scritta a mano",
+    "video",
+    "youtube"
+   ]
+  },
+  "template:yp7-red-dribbble": {
+   "name": "Social: scheda Dribbble",
+   "tags": [
+    "social",
+    "youtube",
+    "creator"
+   ]
+  },
+  "template:yp7-red-facebook": {
+   "name": "Social: scheda Facebook",
+   "tags": [
+    "social",
+    "youtube",
+    "creator"
+   ]
+  },
+  "template:yp7-red-google-plus": {
+   "name": "Social: scheda Google Plus",
+   "tags": [
+    "social",
+    "youtube",
+    "creator"
+   ]
+  },
+  "template:yp7-red-instagram": {
+   "name": "Social: scheda Instagram",
+   "tags": [
+    "social",
+    "youtube",
+    "creator"
+   ]
+  },
+  "template:yp7-red-linkedin": {
+   "name": "Social: scheda LinkedIn",
+   "tags": [
+    "social",
+    "youtube",
+    "creator"
+   ]
+  },
+  "template:yp7-red-pinterest": {
+   "name": "Social: scheda Pinterest",
+   "tags": [
+    "social",
+    "youtube",
+    "creator"
+   ]
+  },
+  "template:yp7-red-twitter": {
+   "name": "Social: scheda Twitter",
+   "tags": [
+    "social",
+    "youtube",
+    "creator"
+   ]
+  },
+  "template:yp7-red-whatsapp": {
+   "name": "Social: scheda WhatsApp",
+   "tags": [
+    "social",
+    "youtube",
+    "creator"
+   ]
+  },
+  "template:yp7-super-awesome-life": {
+   "name": "Tipografia: tre righe che salgono e si chiudono",
+   "tags": [
+    "tipografia",
+    "linee",
+    "youtube"
+   ]
+  },
+  "template:yp7-suscribirse-banda": {
+   "name": "Iscriviti: banda in basso",
+   "tags": [
+    "iscriviti",
+    "barra",
+    "youtube"
+   ]
+  },
+  "template:yp7-suscribirse-banda-foto": {
+   "name": "Iscriviti: banda in basso con foto",
+   "tags": [
+    "iscriviti",
+    "foto",
+    "barra",
+    "youtube"
+   ]
+  },
+  "template:yp7-suscribirse-barra": {
+   "name": "Iscriviti: barra con avatar",
+   "tags": [
+    "iscriviti",
+    "avatar",
+    "barra",
+    "youtube"
+   ]
+  },
+  "template:yp7-suscribirse-tarjeta": {
+   "name": "Iscriviti: scheda con foto",
+   "tags": [
+    "iscriviti",
+    "foto",
+    "youtube"
+   ]
+  },
+  "template:yp7-telefono": {
+   "name": "Scena: telefono con mi piace e iscriviti",
+   "tags": [
+    "iscriviti",
+    "mi piace",
+    "telefono",
+    "youtube"
+   ]
+  },
+  "template:yp7-telefono-izquierda": {
+   "name": "Scena: telefono a sinistra",
+   "tags": [
+    "telefono",
+    "youtube",
+    "creator"
+   ]
+  },
+  "template:yp7-transicion-circulo": {
+   "name": "Transizione: cerchio dal centro",
+   "tags": [
+    "transizione",
+    "cerchio",
+    "youtube"
+   ]
+  },
+  "template:yp7-transicion-circulo-arriba": {
+   "name": "Transizione: cerchio dall'alto",
+   "tags": [
+    "transizione",
+    "cerchio",
+    "youtube"
+   ]
+  },
+  "template:yp7-transicion-circulo-izquierda": {
+   "name": "Transizione: cerchio da sinistra",
+   "tags": [
+    "transizione",
+    "cerchio",
+    "youtube"
+   ]
+  },
+  "template:yp7-transicion-diagonal": {
+   "name": "Transizione: tendina diagonale",
+   "tags": [
+    "transizione",
+    "youtube",
+    "creator"
+   ]
+  },
+  "template:yp7-transicion-izquierda": {
+   "name": "Transizione: tendina verso sinistra",
+   "tags": [
+    "transizione",
+    "youtube",
+    "creator"
+   ]
+  },
+  "template:yp7-transicion-lineas": {
+   "name": "Transizione: linee dal centro",
+   "tags": [
+    "transizione",
+    "linee",
+    "youtube"
+   ]
+  },
+  "template:yp7-transicion-rectangulo": {
+   "name": "Transizione: rettangolo dal centro",
+   "tags": [
+    "transizione",
+    "youtube",
+    "creator"
+   ]
+  },
+  "template:yp7-transicion-sube": {
+   "name": "Transizione: bande che salgono",
+   "tags": [
+    "transizione",
+    "barra",
+    "youtube"
    ]
   },
   "template:yt-calle-a-que-te-dedicas": {

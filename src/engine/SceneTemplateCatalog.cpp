@@ -65,6 +65,12 @@ QString labelForCategory(const QString &slug)
         return QCoreApplication::translate("SceneTemplateCatalog", "Counters");
     if (slug == QLatin1String("youtuber"))
         return QCoreApplication::translate("SceneTemplateCatalog", "YouTuber style");
+    if (slug == QLatin1String("ytkit"))
+        return QCoreApplication::translate("SceneTemplateCatalog", "YouTube Kit");
+    if (slug == QLatin1String("tiktok"))
+        return QCoreApplication::translate("SceneTemplateCatalog", "TikTok Kit");
+    if (slug == QLatin1String("instagram"))
+        return QCoreApplication::translate("SceneTemplateCatalog", "Instagram Kit");
     if (slug.isEmpty())
         return QCoreApplication::translate("SceneTemplateCatalog", "Other");
     QString label = slug;

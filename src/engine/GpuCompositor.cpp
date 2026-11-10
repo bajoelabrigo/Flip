@@ -312,6 +312,21 @@ bool isFixedFunctionBlend(drift::BlendMode mode)
     return mode == drift::BlendMode::Normal || mode == drift::BlendMode::Add;
 }
 
+// A layer under a 3D parent: its own world quad, the parent chain's move of the world, then the eye (the scene
+// camera when one is on, else the layer's own perspective), in homogeneous canvas px.
+QMatrix4x4 parentedWorldQuadToCanvas(const GpuLayer &layer, const QSize &canvas, bool flipH, bool flipV)
+{
+    const QSizeF canvasF = layer.viewActive && !layer.layoutCanvas.isEmpty() ? layer.layoutCanvas : QSizeF(canvas);
+    QMatrix4x4 view = layer.viewProj;
+    if (!layer.viewActive) {
+        drift::SceneCamera3d eye;
+        eye.perspective = layer.pose3d.perspective;
+        view = drift::cameraViewProjection(eye, canvasF);
+    }
+    return view * layer.parentWorld
+           * drift::clipQuadToWorld(layer.rect, layer.rotation, flipH, flipV, layer.pose3d, canvasF);
+}
+
 // Canvas pixels (top-left origin) → clip space. The FBO's v=0 row corresponds to
 // the top of the readback image (see promoteImageToTarget), so y is not flipped.
 QMatrix4x4 modelMatrixFor(const GpuLayer &layer, const QSize &canvas)
@@ -320,6 +335,12 @@ QMatrix4x4 modelMatrixFor(const GpuLayer &layer, const QSize &canvas)
     // model) covers the whole frame: the unit quad is exactly clip space.
     if (layer.screenSpace && !layer.layoutCanvas.isEmpty())
         return QMatrix4x4();
+    if (layer.parentIs3d && !layer.screenSpace) {
+        QMatrix4x4 ndc;
+        ndc.translate(-1.f, -1.f);
+        ndc.scale(2.f / canvas.width(), 2.f / canvas.height());
+        return ndc * parentedWorldQuadToCanvas(layer, canvas, layer.flipH, layer.flipV);
+    }
     if (layer.viewActive && !layer.screenSpace) {
         // One shared rule, so the preview's grips are drawn from the same placement as the pixels.
         const QSizeF canvasF(canvas);
@@ -441,6 +462,13 @@ GLuint maskTexture(GlRuntime &rt, QOpenGLExtraFunctions *gl, const QList<drift::
 void composeOnGlThread(GlRuntime &rt, const GpuScene &scene, GlTarget &canvas,
                        bool *lostVideo = nullptr);
 void bindQuad(GlRuntime &rt, QOpenGLExtraFunctions *gl);
+
+// Depth-tested layers drawn so far in this frame (reset where the depth buffer is cleared). Each one is pulled a hair
+// toward the eye by its place in the order (glPolygonOffset), so two 3D layers lying practically on the same plane — a
+// glyph on its card, a triangle on a tilted button — keep track order instead of fighting through each other, while
+// layers really apart in depth still sort by depth (2026-11-09).
+thread_local int g_depthLayerOrder = 0;
+constexpr float kDepthOrderUnits = 16.f;
 
 constexpr const char *kUnpremultiplyFragShader = R"(#version 330 core
 in vec2 v_texCoord;
@@ -632,7 +660,9 @@ QMatrix4x4 layerViewProjection(const GpuLayer &layer, const QSize &canvas)
         eye.perspective = layer.model3d ? layer.model3d->pose3d.perspective : layer.pose3d.perspective;
         view = drift::cameraViewProjection(eye, canvasF);
     }
-    if (layer.hasParent && layer.parent.isAffine())
+    if (layer.parentIs3d)
+        view = view * layer.parentWorld;
+    else if (layer.hasParent && layer.parent.isAffine())
         view = view * drift::worldParentFromAffine(layer.parent,
                                                    layer.layoutCanvas.isEmpty() ? canvasF : layer.layoutCanvas);
     return view;
@@ -1385,7 +1415,12 @@ void drawLayerOnCanvas(GlRuntime &rt, QOpenGLExtraFunctions *gl, GlTarget &canva
     // single bilinear tap is already exact and the copy would be pure cost.
     QSizeF drawnSize = layer.screenSpace && !layer.layoutCanvas.isEmpty() ? QSizeF(canvasSize)
                                                                            : layer.rect.size();
-    if (layer.hasParent && !layer.screenSpace) {
+    if (layer.parentIs3d && !layer.screenSpace) {
+        const QPolygonF projected = drift::projectedQuad(parentedWorldQuadToCanvas(layer, canvasSize, false, false));
+        if (!projected.isEmpty())
+            drawnSize = QSizeF(QLineF(projected.at(0), projected.at(1)).length(),
+                               QLineF(projected.at(1), projected.at(2)).length());
+    } else if (layer.hasParent && !layer.screenSpace) {
         const QMatrix4x4 quad =
             layer.pose3d.isActive()
                 ? drift::clipQuadToCanvas(layer.rect, layer.rotation, false, false, layer.pose3d,
@@ -1485,7 +1520,28 @@ void drawLayerOnCanvas(GlRuntime &rt, QOpenGLExtraFunctions *gl, GlTarget &canva
         gl->glBindTexture(GL_TEXTURE_2D, layerTex);
         gl->glActiveTexture(GL_TEXTURE1);
         gl->glBindTexture(GL_TEXTURE_2D, maskTex);
-        bindQuad(rt, gl);
+        if (depthWrite) {
+            // Two passes (2026-11-09): the colour goes down first, every fragment tested against the depth so far but
+            // none writing it — a soft edge, a fading or half-transparent 3D layer is drawn instead of discarded (text
+            // riding on a turning face vanished, a small triangle on a tilted box went missing). Then only the solid
+            // part (alpha ≥ ½) writes the depth, with the colour off.
+            ++g_depthLayerOrder;
+            if (!ownDepth) {
+                gl->glEnable(GL_POLYGON_OFFSET_FILL);
+                gl->glPolygonOffset(0.f, -kDepthOrderUnits * float(g_depthLayerOrder));
+            }
+            program->setUniformValue("u_depthWrite", 0.f);
+            gl->glDepthMask(GL_FALSE);
+            bindQuad(rt, gl);
+            program->setUniformValue("u_depthWrite", 1.f);
+            gl->glDepthMask(GL_TRUE);
+            gl->glColorMask(GL_FALSE, GL_FALSE, GL_FALSE, GL_FALSE);
+            bindQuad(rt, gl);
+            gl->glColorMask(GL_TRUE, GL_TRUE, GL_TRUE, GL_TRUE);
+            gl->glDisable(GL_POLYGON_OFFSET_FILL);
+        } else {
+            bindQuad(rt, gl);
+        }
         program->release();
         gl->glDisable(GL_BLEND);
         if (depthWrite) {
@@ -1748,6 +1804,7 @@ void composeOnGlThread(GlRuntime &rt, const GpuScene &scene, GlTarget &outCanvas
             gl->glDepthMask(GL_TRUE);
             gl->glClearDepthf(1.f);
             gl->glClear(GL_DEPTH_BUFFER_BIT);
+            g_depthLayerOrder = 0;
             depthScratch.fbo->release();
         }
     }

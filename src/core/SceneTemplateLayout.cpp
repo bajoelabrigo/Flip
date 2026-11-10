@@ -2,6 +2,12 @@
 
 #include "core/TimelineOps.h"
 
+#include <QHash>
+#include <algorithm>
+#include <limits>
+
+#include <tuple>
+
 namespace drift {
 
 namespace {
@@ -56,6 +62,9 @@ void mapLayout(QList<Track> &tracks, int fromW, int fromH, double scale, double 
             mapTrack(clip.transformH, scale, 0.0, fromH);
             if (!clip.positionZ.isEmpty())
                 mapTrack(clip.positionZ, scale, 0.0, 0.0);
+            // The parent's pose at the link moves the same way as the parent, so the child keeps its place on it.
+            if (!clip.parentId.isEmpty())
+                clip.parentRest = clip.parentRest * QTransform(scale, 0.0, 0.0, scale, offsetX, offsetY);
             if (clip.type == ClipType::Text || clip.type == ClipType::Subtitle) {
                 scaleTextStyle(clip.textStyle, scale);
             } else if (clip.type == ClipType::Shape) {
@@ -111,16 +120,24 @@ void fitOverlayLayout(QList<Track> &tracks, int fromW, int fromH, int toW, int t
     QRectF art;
     QList<Clip *> backdrops;
     QList<const Clip *> leave;
+    QList<const Clip *> artClips;
+    TimeUs firstStart = std::numeric_limits<TimeUs>::max();
+    TimeUs lastEnd = 0;
     for (Track &track : tracks) {
         if (track.type == TrackType::Audio)
             continue;
         for (Clip &clip : track.clips) {
             if (clip.type == ClipType::Audio || clipBoxIsCanvasReferenced(clip))
                 continue;
-            if (clip.type != ClipType::Text && clip.type != ClipType::Subtitle && coversCanvas(clip, fromW, fromH)) {
+            firstStart = qMin(firstStart, clip.timelineStart);
+            lastEnd = qMax(lastEnd, clip.timelineStart + clip.timelineDuration);
+            const bool text = clip.type == ClipType::Text || clip.type == ClipType::Subtitle;
+            if (clip.layoutRole == QLatin1String("backdrop") || clip.layoutRole == QLatin1String("cover")
+                || (clip.layoutRole.isEmpty() && !text && coversCanvas(clip, fromW, fromH))) {
                 backdrops.append(&clip);
                 continue;
             }
+            artClips.append(&clip);
             QList<TimeUs> times{0};
             for (const KeyframeTrack<double> *t : {&clip.transformX, &clip.transformY, &clip.transformW, &clip.transformH})
                 for (auto it = t->keyframes().constBegin(); it != t->keyframes().constEnd(); ++it)
@@ -136,7 +153,43 @@ void fitOverlayLayout(QList<Track> &tracks, int fromW, int fromH, int toW, int t
             }
         }
     }
+    // The design where it holds still (2026-11-09, the LOGO pack: a line flying in from the side, glitch slices
+    // sweeping across, made the design look as wide as the frame and it came out small and off to one side in a
+    // Short): what is on screen at the middle of the piece. Everything it did before or after is left out; with
+    // nothing on screen there, every key counts as before.
+    if (!art.isNull() && lastEnd > firstStart) {
+        QRectF hold;
+        for (const double f : {0.5, 0.6, 0.7}) {
+            const TimeUs at = firstStart + TimeUs(double(lastEnd - firstStart) * f);
+            for (const Clip *clip : std::as_const(artClips)) {
+                if (at < clip->timelineStart || at >= clip->timelineStart + clip->timelineDuration)
+                    continue;
+                const TimeUs rel = at - clip->timelineStart;
+                if (valueAtKey(clip->opacity, rel, 1.0) < 0.02)
+                    continue;
+                QRectF box(valueAtKey(clip->transformX, rel, 0.0), valueAtKey(clip->transformY, rel, 0.0),
+                           valueAtKey(clip->transformW, rel, fromW), valueAtKey(clip->transformH, rel, fromH));
+                box = box.normalized().intersected(canvas);
+                if (box.width() <= 0 || box.height() <= 0
+                    || (box.width() >= fromW * 0.98 && box.height() >= fromH * 0.98))
+                    continue;
+                hold = hold.isNull() ? box : hold.united(box);
+            }
+        }
+        if (!hold.isNull() && hold.width() > 0 && hold.height() > 0)
+            art = hold;
+    }
     if (art.isNull() || art.width() <= 0 || art.height() <= 0) {
+        // A template that is all background (2026-11-09: the spiral, the arcs, the lines of the YouTube pack): the
+        // whole drawing grows evenly about the middle until it covers the frame, like a video put in another shape,
+        // so its pieces stay together. Without a "cover" piece it fits inside the frame as before.
+        const bool cover = std::any_of(backdrops.cbegin(), backdrops.cend(),
+                                       [](const Clip *c) { return c->layoutRole == QLatin1String("cover"); });
+        if (cover && (fromW != toW || fromH != toH)) {
+            const double s = qMax(double(toW) / fromW, double(toH) / fromH);
+            mapLayout(tracks, fromW, fromH, s, (toW - fromW * s) / 2.0, (toH - fromH * s) / 2.0);
+            return;
+        }
         scaleTemplateLayout(tracks, fromW, fromH, toW, toH);
         return;
     }
@@ -173,6 +226,41 @@ void fitOverlayLayout(QList<Track> &tracks, int fromW, int fromH, int toW, int t
     const double sx = double(toW) / fromW;
     const double sy = double(toH) / fromH;
     for (Clip *clip : std::as_const(backdrops)) {
+        if (clip->type == ClipType::Text || clip->type == ClipType::Subtitle) {
+            // A word behind (a giant ghost, a wall of words) keeps its size and moves with the frame: its centre
+            // goes where the frame takes it, so it is not squeezed into another wrap.
+            QList<TimeUs> times{0};
+            for (const KeyframeTrack<double> *t : {&clip->transformX, &clip->transformY, &clip->transformW, &clip->transformH})
+                for (auto it = t->keyframes().constBegin(); it != t->keyframes().constEnd(); ++it)
+                    times.append(it.key());
+            const double w0 = valueAtKey(clip->transformW, 0, fromW);
+            const double h0 = valueAtKey(clip->transformH, 0, fromH);
+            mapTrack(clip->transformX, 1.0, (sx - 1.0) * (valueAtKey(clip->transformX, 0, 0.0) + w0 / 2.0), 0.0);
+            mapTrack(clip->transformY, 1.0, (sy - 1.0) * (valueAtKey(clip->transformY, 0, 0.0) + h0 / 2.0), 0.0);
+            leave.append(clip);
+            continue;
+        }
+        // A band or a panel stretches with the frame; a round shape, a star or a picture would turn into an oval or
+        // a squashed photo, so those grow evenly about the middle until they cover as much as before.
+        // A "cover" piece grows evenly whatever it is, so the pieces of one drawing stay together.
+        const bool even = clip->layoutRole == QLatin1String("cover")
+            || clip->type == ClipType::Image || clip->type == ClipType::Video
+            || clip->type == ClipType::Vector
+            || (clip->type == ClipType::Shape && clip->shapeStyle.kind != ShapeKind::Rectangle
+                && clip->shapeStyle.kind != ShapeKind::RoundedRectangle);
+        if (even) {
+            const double s = qMax(sx, sy);
+            mapTrack(clip->transformX, s, (toW - fromW * s) / 2.0, 0.0);
+            mapTrack(clip->transformY, s, (toH - fromH * s) / 2.0, 0.0);
+            mapTrack(clip->transformW, s, 0.0, fromW);
+            mapTrack(clip->transformH, s, 0.0, fromH);
+            if (clip->type == ClipType::Shape) {
+                clip->shapeStyle.cornerRadius *= s;
+                scaleKeyed(clip->shapeStyle.keyframes, QStringLiteral("cornerRadius"), s);
+            }
+            leave.append(clip);
+            continue;
+        }
         mapTrack(clip->transformX, sx, 0.0, 0.0);
         mapTrack(clip->transformY, sy, 0.0, 0.0);
         mapTrack(clip->transformW, sx, 0.0, fromW);
@@ -182,6 +270,44 @@ void fitOverlayLayout(QList<Track> &tracks, int fromW, int fromH, int toW, int t
             scaleKeyed(clip->shapeStyle.keyframes, QStringLiteral("cornerRadius"), qMin(sx, sy));
         }
         leave.append(clip);
+    }
+    // A photo that fills the frame behind the design and shows only through a mask (a word, a strip, a window):
+    // the photo goes on filling the frame, the window follows the design (it would be stretched with the frame).
+    QHash<QString, const Clip *> backdropById;
+    for (const Clip *clip : std::as_const(backdrops)) {
+        // A "cover" picture grows evenly with its mask (2026-11-09): the mask is in its own box and follows it.
+        if (clip->layoutRole != QLatin1String("cover"))
+            backdropById.insert(clip->id, clip);
+    }
+    for (Track &track : tracks) {
+        for (Clip &clip : track.clips) {
+            if (clip.type != ClipType::Adjustment || clip.adjustmentKind != AdjustmentKind::Mask
+                || clip.linkedClipId.isEmpty() || !backdropById.contains(clip.linkedClipId))
+                continue;
+            const auto remap = [&](double norm, bool horizontal, bool size) {
+                const double from = horizontal ? fromW : fromH;
+                const double to = horizontal ? toW : toH;
+                const double offset = horizontal ? offsetX : offsetY;
+                return size ? norm * from * scale / to : (norm * from * scale + offset) / to;
+            };
+            Mask &m = clip.mask;
+            m.x = remap(m.x, true, false);
+            m.y = remap(m.y, false, false);
+            m.w = remap(m.w, true, true);
+            m.h = remap(m.h, false, true);
+            for (const auto &[key, horizontal, size] : {std::tuple{QStringLiteral("x"), true, false},
+                                                       std::tuple{QStringLiteral("y"), false, false},
+                                                       std::tuple{QStringLiteral("w"), true, true},
+                                                       std::tuple{QStringLiteral("h"), false, true}}) {
+                auto it = m.keyframes.find(key);
+                if (it == m.keyframes.end() || it->isEmpty())
+                    continue;
+                const double from = horizontal ? fromW : fromH;
+                const double to = horizontal ? toW : toH;
+                const double offset = horizontal ? offsetX : offsetY;
+                mapTrack(*it, from * scale / to, size ? 0.0 : offset / to, 0.0);
+            }
+        }
     }
     mapLayout(tracks, fromW, fromH, scale, offsetX, offsetY, leave);
 }

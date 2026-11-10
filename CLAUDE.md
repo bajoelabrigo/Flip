@@ -59,7 +59,59 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 
 ---
 
-## Estado (actualizado 2026-11-04)
+## Estado (actualizado 2026-11-10)
+
+### Kits de LOGO, TikTok e Instagram PUBLICADOS en Stock (2026-11-10) y 0.31.0 en publicación
+- 392 piezas (`lg0`–`lg3` 19 en Kit de YouTube, `tk0`–`tk9` 96 en «Kit de TikTok», `ig0`–`ig14` 277 en «Kit de
+  Instagram»), renderizadas con `pruebas\FlipStudio-motor-0109f` (run 42684960594, commit c8b157f: el ajuste mide el
+  diseño en su tramo quieto), 13 idiomas, `minAppVersion` 0.31.0. En vivo: 2546 plantillas. Planes en
+  `docs/plan-logo.md`, `plan-tiktok.md`, `plan-instagram.md`.
+- Revisado en ventana con la 0109f: historias de Instagram en 16:9 (ig1, ig4, ig7, ig10, ig14), botones ig11 e ig13 en
+  un Short; antes, TikTok en 16:9 y LOGO en Short.
+- **Trampa nueva:** la regla de `minAppVersion` de `publish.py` era `ig\d-` y dejó fuera ig10–ig14: usar `\d+`.
+- **Trampa nueva:** las plantillas están en la fila de categorías después de Stickers; en una ventana angosta hay que
+  correr la fila con la rueda (`click.ps1 -Wheel -120`, que usa coordenadas de pantalla).
+- Jorge: «vamos a terminar otras carpetas y subimos todo junto» → con LOGO, TIKTOK e INSTAGRAM terminadas se publica
+  la 0.31.0 (PR #57).
+
+### Stock: títulos tit1–tit7, llt16, YouTube Pack yp0–yp7 y llt11 rehecho PUBLICADOS (2026-11-09)
+- Jorge: «al terminar ya subes todo». 494 piezas nuevas + las 20 de `llt11` rehechas, renderizadas con la portable
+  `pruebas\FlipStudio-motor-0109c` (run 42599880672, rama `flip/stock-llt4`), 13 idiomas, delta subido (2154 en vivo).
+  Las nuevas llevan **`minAppVersion` 0.31.0** (`publish.py`): usan el motor posterior a la 0.30.2 (Remolino, desenfoque
+  gaussiano real, orden de profundidad y **emparentado 3D**, contador lineal, roles Short/Video). **Nadie las ve hasta
+  publicar la app 0.31.0**. Versión 0.31.0, `release-notes/0.31.0.md`, CHANGELOG y notas de la Store ya en la rama; PR
+  [#57](https://github.com/bajoelabrigo/Flip/pull/57) en **borrador**. Jorge (2026-11-09): «mejor vamos a terminar otras
+  carpetas y subimos todo junto»: sin tag, sin MSIX y sin web hasta entonces. La sección de novedades de la web está en
+  `docs/novedades-0.31.0-web.patch` (aplicarla en `flipstudio-web` al publicar; ampliar notas con lo que se sume).
+- Revisado en ventana (0109b y 0109c): contador, desenfoque, Remolino, ajuste Short/Video de títulos, tercios, yp2 (triángulo
+  hijo 3D de la caja), fondos `cover`, y yp4 vertical en un video horizontal (los discos quedan algo cortados, es el diseño).
+- **Arreglos del motor en esta tanda:** rol `cover` (un fondo entero crece parejo hasta cubrir); emparentado 3D
+  (`clipParentWorld3d`, `GpuLayer::parentWorld`); al insertar una plantilla los ids de mate, carril y padre se remapean en
+  **todas** las pistas (antes por pista: un mate de otra pista quedaba apuntando al id viejo); el ajuste Short/Video mueve
+  `parentRest` con el padre.
+- **Trampa nueva:** `merge.py` de `stock_i18n` salta (y mueve a `merged/`) las claves que todavía no están en los índices de
+  `publicar`: traducir antes de publicar obliga a guardar las tandas aparte y fusionarlas después de `publish.py`.
+- **Trampa nueva:** la plantilla se cataloga al arrancar la app: una copiada a `scene-templates` con la app abierta no sale.
+
+### Stock: 129 tercios nuevos llt4–llt15 PUBLICADOS (2026-11-07, noche)
+- Todos los videos de `Downloads\EDITAR PARA STOCK\LOWERTHIRDS` rehechos «casi iguales» (`templates_llt_d.py` … `_o.py`,
+  rama `flip/stock-llt4`), renderizados de nuevo en `tienda\plantillas\render-llt-final`, copiados a `paquetes`, con
+  `minAppVersion` 0.30.0 y los 13 idiomas. Subidos con `publish.py` + `publish_delta.py` + `apply_delta.sh` (1660 plantillas).
+- Jorge revisó los 12 videos de comparación; corrigió solo Aleix Richard nº 8 (`llt11-8`): palabras en escalera que salen
+  en el mismo orden en que entran (`StepPiece`) y 2,2 s como el original. En todo `llt11` el cargo asomaba una franja al
+  estar fuera: ahora baja `alto + 26` px.
+- **2026-11-08, `llt11` rehecho entero** (Jorge: «eran todas las de esa serie»): cajas que nacen como línea con panel
+  blanco delante, marcos y líneas con punta blanca, foto descubierta por una franja, nombres desde atrás o con fundido, y
+  cada una con la duración del original (`wipe`, `frame`, `words(how=…)`, `photo` en `templates_llt_k.py`). Ya está en
+  `paquetes`, **sin subir**: Jorge quiere subirla junto con el próximo grupo nuevo (en Stock sigue la versión vieja).
+  Comparación: `prototipos-degradado-11\comparacion-serie-corregida.mp4`.
+- **Falta:** ver el formato vertical (Short) de los tercios en la ventana de la app.
+- **Trampa nueva:** varios agentes de traducción en paralelo escriben su script con el mismo nombre en el scratchpad y se
+  pisan: pedir nombres únicos.
+- **2026-11-08, carpeta TITLE entera hecha (Jorge: «al final yo reviso todo»), SIN SUBIR:** `tit1`–`tit7` (`templates_tit_a`…`_g`,
+  126 títulos, orden 8800–8941) y `llt16` (`templates_llt_p`, 9 tercios de 38277673, orden 8760–). Aprobados tit1–tit3;
+  falta que Jorge revise tit4–tit7 y llt16 (`prototipos-titulos-4`…`-8\comparacion-*.mp4`). 3547929 es el logo del
+  sitio de stock: no se hizo. Notas en `estudio-<video>\NOTAS.md`.
 
 ### 0.30.2 PUBLICADA (2026-11-07) — curvas iguales a After Effects (arreglos)
 - PR #56 (`flip/v0.30.2` → `main`), tag `v0.30.2`, release (run 42331235247), MSIX `msstore.yml` run 42331254692 →

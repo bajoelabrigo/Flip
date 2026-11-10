@@ -117,6 +117,7 @@
   "template:collage": "Коллажи",
   "template:countdown": "Обратный отсчёт",
   "template:counter": "Счётчики",
+  "template:instagram": "Набор Instagram",
   "template:intro": "Интро и заголовки",
   "template:lowerthird": "Плашки",
   "template:outro": "Концовки",
@@ -127,6 +128,7 @@
   "template:story15": "Истории 15 секунд",
   "template:text": "Текст",
   "template:thumbnail": "Превью для видео",
+  "template:tiktok": "Набор TikTok",
   "template:transition": "Переходы и разделители",
   "template:youtuber": "Стиль ютубера",
   "template:ytkit": "Набор для YouTube",
@@ -25158,6 +25160,3016 @@
     "вечеринка"
    ]
   },
+  "template:ig0-intro-urbana": {
+   "name": "Динамичное городское интро: URBAN, STREETS, PROMO и ваш логотип",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "открывашка",
+    "городской",
+    "динамичное интро"
+   ]
+  },
+  "template:ig1-alison": {
+   "name": "Сторис: имя на фото в красной рамке",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "имя",
+    "профиль",
+    "красный"
+   ]
+  },
+  "template:ig1-anna": {
+   "name": "Сторис: имя и фото на синем градиенте",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "имя",
+    "профиль",
+    "градиент"
+   ]
+  },
+  "template:ig1-beautiful": {
+   "name": "Сторис: #beautiful с фото и цитатой",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "цитата",
+    "фото"
+   ]
+  },
+  "template:ig1-believe": {
+   "name": "Сторис: WE MUST BELIEVE с разделительной линией",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фраза",
+    "фото",
+    "чёрный"
+   ]
+  },
+  "template:ig1-catherine": {
+   "name": "Сторис: круглое фото, имя и цитата на градиенте",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "цитата",
+    "профиль",
+    "градиент"
+   ]
+  },
+  "template:ig1-conquer": {
+   "name": "Сторис: Conquer from within с каруселью фото",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "карусель",
+    "фото",
+    "белый"
+   ]
+  },
+  "template:ig1-do-your-best": {
+   "name": "Сторис: DO YOUR BEST на ленте",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фраза",
+    "город",
+    "мотивация"
+   ]
+  },
+  "template:ig1-dog": {
+   "name": "Сторис: фото, разрезанное полосой #photooftheday",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "питомец",
+    "фото",
+    "полоса"
+   ]
+  },
+  "template:ig1-elegant": {
+   "name": "Сторис: ELEGANT TYPO DESIGN с зеркальным окном",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "типографика",
+    "море",
+    "элегантный"
+   ]
+  },
+  "template:ig1-forty-sale": {
+   "name": "Сторис: вертикальная распродажа 40% с фото",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "распродажа",
+    "скидка",
+    "мода"
+   ]
+  },
+  "template:ig1-happy-thoughts": {
+   "name": "Сторис: наклонный полароид «happy thoughts»",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "полароид",
+    "свадьба",
+    "рукописный"
+   ]
+  },
+  "template:ig1-heart": {
+   "name": "Сторис: фото в сердце «happy thoughts»",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "сердце",
+    "любовь",
+    "персиковый"
+   ]
+  },
+  "template:ig1-instalove": {
+   "name": "Сторис: #instalove LIVE WHAT YOU LOVE",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фраза",
+    "лес",
+    "имя"
+   ]
+  },
+  "template:ig1-lifestyle": {
+   "name": "Сторис: #lifestyle с мозаикой из фото",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "коллаж",
+    "лето",
+    "мозаика"
+   ]
+  },
+  "template:ig1-live-what": {
+   "name": "Сторис: Live what you love с сеткой 2×2",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "сетка",
+    "коллаж",
+    "белый"
+   ]
+  },
+  "template:ig1-love-friendship": {
+   "name": "Сторис: полароиды и рукописное «Love is friendship»",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "полароид",
+    "розовый",
+    "цитата"
+   ]
+  },
+  "template:ig1-love-loves": {
+   "name": "Сторис: два полароида со стрелками и рукописной строкой",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "полароид",
+    "розовый",
+    "стрелки"
+   ]
+  },
+  "template:ig1-must-believe": {
+   "name": "Сторис: WE MUST BELIEVE в зеркальном круге",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фраза",
+    "круг",
+    "пейзаж"
+   ]
+  },
+  "template:ig1-nature": {
+   "name": "Сторис: Nature в блоке с рамкой",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "природа",
+    "рамка",
+    "море"
+   ]
+  },
+  "template:ig1-neon": {
+   "name": "Сторис: NEON CITY бирюзовым неоном",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "неон",
+    "город",
+    "ночь"
+   ]
+  },
+  "template:ig1-photo-frame": {
+   "name": "Сторис: белая карточка, открывающая окно",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "рамка",
+    "еда",
+    "фото"
+   ]
+  },
+  "template:ig1-seek": {
+   "name": "Сторис: SEEK THE SEEKER с фото в буквах",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фраза",
+    "листья",
+    "вырезка"
+   ]
+  },
+  "template:ig1-so-it-goes": {
+   "name": "Сторис: So it goes с сеткой 2×2",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "сетка",
+    "коллаж",
+    "розовый"
+   ]
+  },
+  "template:ig1-spring-sale": {
+   "name": "Сторис: весенняя распродажа 30%",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "распродажа",
+    "скидка",
+    "мода"
+   ]
+  },
+  "template:ig1-stylish-bike": {
+   "name": "Сторис: S T Y L I S H с вырезанным объектом",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "вырезка",
+    "бирюзовый",
+    "ссылка"
+   ]
+  },
+  "template:ig1-stylish-design": {
+   "name": "Сторис: STYLISH DESIGN в градиентной рамке",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "рамка",
+    "градиент",
+    "тёмный"
+   ]
+  },
+  "template:ig1-stylish-skate": {
+   "name": "Сторис: гигантское вертикальное Stylish с девизом",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "вертикальный",
+    "скейт",
+    "типографика"
+   ]
+  },
+  "template:ig1-success": {
+   "name": "Сторис: цитата на камне с номером 01",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "цитата",
+    "фраза",
+    "тёмный"
+   ]
+  },
+  "template:ig1-work-dream": {
+   "name": "Сторис: вертикальное Work hard. Dream big. с номером 05",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фраза",
+    "вертикальный",
+    "число"
+   ]
+  },
+  "template:ig1-work-hard": {
+   "name": "Сторис: WORK HARD. DREAM BIG. на чёрном",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фраза",
+    "мотивация",
+    "чёрный"
+   ]
+  },
+  "template:ig10-arco-sube": {
+   "name": "Сторис: поднимающееся фото в арке с MODELS",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "мода",
+    "модели",
+    "фото"
+   ]
+  },
+  "template:ig10-ovalo-abre": {
+   "name": "Сторис: овальное фото, раскрывающееся из линии",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "мода",
+    "модели",
+    "фото"
+   ]
+  },
+  "template:ig10-ovalo-sube": {
+   "name": "Сторис: поднимающееся овальное фото с двумя контурами",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "мода",
+    "модели",
+    "фото"
+   ]
+  },
+  "template:ig10-u-foto": {
+   "name": "Сторис: фото со скруглённым низом и заголовок в рамке",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "мода",
+    "модели",
+    "фото"
+   ]
+  },
+  "template:ig10-ventana-arco": {
+   "name": "Сторис: фото под вуалью в арочном окне",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "мода",
+    "модели",
+    "фото"
+   ]
+  },
+  "template:ig11-avatar-seguir": {
+   "name": "Аватар с кнопкой «Подписаться»",
+   "tags": [
+    "instagram",
+    "элементы",
+    "призыв к действию",
+    "соцсети",
+    "подписаться",
+    "сторис"
+   ]
+  },
+  "template:ig11-comenta": {
+   "name": "Комментируйте ниже",
+   "tags": [
+    "instagram",
+    "элементы",
+    "призыв к действию",
+    "соцсети",
+    "комментарии",
+    "счётчик"
+   ]
+  },
+  "template:ig11-compartir": {
+   "name": "Поделитесь публикацией с друзьями",
+   "tags": [
+    "instagram",
+    "элементы",
+    "призыв к действию",
+    "соцсети",
+    "поделиться",
+    "публикация"
+   ]
+  },
+  "template:ig11-doble-toque": {
+   "name": "Дважды нажмите, чтобы поставить лайк",
+   "tags": [
+    "instagram",
+    "элементы",
+    "призыв к действию",
+    "соцсети",
+    "лайк",
+    "сердце"
+   ]
+  },
+  "template:ig11-enlace-bio": {
+   "name": "Ссылка в шапке профиля",
+   "tags": [
+    "instagram",
+    "элементы",
+    "призыв к действию",
+    "соцсети",
+    "ссылка",
+    "био"
+   ]
+  },
+  "template:ig11-etiqueta": {
+   "name": "Отметьте друга",
+   "tags": [
+    "instagram",
+    "элементы",
+    "призыв к действию",
+    "соцсети",
+    "отметка",
+    "упоминание"
+   ]
+  },
+  "template:ig11-inspiracion": {
+   "name": "Найдите своё вдохновение",
+   "tags": [
+    "instagram",
+    "элементы",
+    "призыв к действию",
+    "соцсети",
+    "поиск"
+   ]
+  },
+  "template:ig11-pastilla-seguir": {
+   "name": "Плашка с именем и кнопкой «Подписаться»",
+   "tags": [
+    "instagram",
+    "элементы",
+    "призыв к действию",
+    "соцсети",
+    "подписаться",
+    "имя"
+   ]
+  },
+  "template:ig11-pastilla-usuario": {
+   "name": "Плашка пользователя со счётчиком подписчиков",
+   "tags": [
+    "instagram",
+    "элементы",
+    "призыв к действию",
+    "соцсети",
+    "пользователь",
+    "подписчики"
+   ]
+  },
+  "template:ig11-perfil": {
+   "name": "Карточка профиля",
+   "tags": [
+    "instagram",
+    "элементы",
+    "призыв к действию",
+    "соцсети",
+    "профиль",
+    "подписаться"
+   ]
+  },
+  "template:ig11-publicacion": {
+   "name": "Карточка публикации",
+   "tags": [
+    "instagram",
+    "элементы",
+    "призыв к действию",
+    "соцсети",
+    "публикация",
+    "лайк"
+   ]
+  },
+  "template:ig11-reels": {
+   "name": "Смотрите наши новые reels",
+   "tags": [
+    "instagram",
+    "элементы",
+    "призыв к действию",
+    "соцсети",
+    "reels",
+    "просмотры"
+   ]
+  },
+  "template:ig11-responder": {
+   "name": "Карточка комментария с ответом",
+   "tags": [
+    "instagram",
+    "элементы",
+    "призыв к действию",
+    "соцсети",
+    "комментарий",
+    "ответить"
+   ]
+  },
+  "template:ig11-tu-historia": {
+   "name": "Добавьте свою историю",
+   "tags": [
+    "instagram",
+    "элементы",
+    "призыв к действию",
+    "соцсети",
+    "сторис",
+    "поделиться"
+   ]
+  },
+  "template:ig11-ver-historia": {
+   "name": "Нажмите, чтобы посмотреть историю",
+   "tags": [
+    "instagram",
+    "элементы",
+    "призыв к действию",
+    "соцсети",
+    "сторис",
+    "нажми"
+   ]
+  },
+  "template:ig12-anillos": {
+   "name": "Сторис: кольца с круглым фото и гигантскими буквами",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "оранжевый",
+    "красный",
+    "круги"
+   ]
+  },
+  "template:ig12-caja-roja": {
+   "name": "Сторис: красная коробка с вертикальным словом и гигантскими буквами",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "оранжевый",
+    "красный",
+    "коробка"
+   ]
+  },
+  "template:ig12-diagonal": {
+   "name": "Сторис: диагональные полосы с гигантским словом",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "оранжевый",
+    "красный",
+    "диагональ"
+   ]
+  },
+  "template:ig12-franjas": {
+   "name": "Сторис: цветные полосы и вертикальное слово",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "оранжевый",
+    "красный",
+    "полосы"
+   ]
+  },
+  "template:ig12-panel-rojo": {
+   "name": "Сторис: гигантское слово, скользящее вверх по красной панели",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "оранжевый",
+    "красный",
+    "панель"
+   ]
+  },
+  "template:ig13-amarilla": {
+   "name": "Типографская сторис: жёлтая",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "типографика",
+    "жёлтый",
+    "чёрный"
+   ]
+  },
+  "template:ig13-caja-negra": {
+   "name": "Типографская сторис: чёрный блок",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "типографика",
+    "жёлтый",
+    "чёрный"
+   ]
+  },
+  "template:ig13-filas": {
+   "name": "Типографская сторис: ряды букв",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "типографика",
+    "жёлтый",
+    "чёрный"
+   ]
+  },
+  "template:ig13-gris-ra": {
+   "name": "Типографская сторис: серое RA",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "типографика",
+    "жёлтый",
+    "чёрный"
+   ]
+  },
+  "template:ig13-letras-grises": {
+   "name": "Типографская сторис: жёлтые буквы",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "типографика",
+    "жёлтый",
+    "чёрный"
+   ]
+  },
+  "template:ig13-muro-de-fotos": {
+   "name": "Стена из фото с вашим логотипом",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фотографии",
+    "логотип",
+    "профиль"
+   ]
+  },
+  "template:ig13-negra": {
+   "name": "Типографская сторис: чёрная диагональ",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "типографика",
+    "жёлтый",
+    "чёрный"
+   ]
+  },
+  "template:ig13-oscura": {
+   "name": "Типографская сторис: тёмная со сферами",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "типографика",
+    "жёлтый",
+    "чёрный"
+   ]
+  },
+  "template:ig14-dinamica": {
+   "name": "Динамичное слайд-шоу: по слову на фото",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "слайд-шоу",
+    "динамичный",
+    "слова"
+   ]
+  },
+  "template:ig14-energia": {
+   "name": "Энергичное слайд-шоу с логотипом",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "слайд-шоу",
+    "энергия",
+    "слова"
+   ]
+  },
+  "template:ig14-epica": {
+   "name": "Эпичное слайд-шоу с глитчами",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "слайд-шоу",
+    "эпичный",
+    "кинематографичный"
+   ]
+  },
+  "template:ig14-limpia": {
+   "name": "Чистое слайд-шоу с крупным шрифтом",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "слайд-шоу",
+    "чистый",
+    "типографика"
+   ]
+  },
+  "template:ig14-minimal": {
+   "name": "Минималистичное слайд-шоу на белом",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "слайд-шоу",
+    "минимализм",
+    "белый"
+   ]
+  },
+  "template:ig14-moda": {
+   "name": "Модное слайд-шоу с подписями",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "слайд-шоу",
+    "мода",
+    "фразы"
+   ]
+  },
+  "template:ig14-ritmica": {
+   "name": "Ритмичное слайд-шоу с кольцами",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "слайд-шоу",
+    "ритм",
+    "фразы"
+   ]
+  },
+  "template:ig14-stomp": {
+   "name": "Стомп-слайд-шоу: по слову на каждый удар",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "слайд-шоу",
+    "стомп",
+    "ритм"
+   ]
+  },
+  "template:ig2-cartel-amarillo": {
+   "name": "Сторис: жёлтый плакат Your Stories",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "цвета",
+    "плакат",
+    "жёлтый"
+   ]
+  },
+  "template:ig2-ciudad-oferta": {
+   "name": "Сторис: городская акция с кругом %",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "цвета",
+    "акция",
+    "скидка"
+   ]
+  },
+  "template:ig2-cocina": {
+   "name": "Сторис: заставка кулинарного шоу",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "цвета",
+    "кухня",
+    "еда"
+   ]
+  },
+  "template:ig2-feliz": {
+   "name": "Сторис: HAPPY с гигантской буквой и мятным блоком",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "цвета",
+    "счастье",
+    "чёрно-белый"
+   ]
+  },
+  "template:ig2-interior": {
+   "name": "Сторис: дизайн интерьера с цветными кругами",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "цвета",
+    "интерьеры",
+    "дизайн"
+   ]
+  },
+  "template:ig2-moda": {
+   "name": "Сторис: Fashion на мятном и красном",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "цвета",
+    "мода",
+    "профиль"
+   ]
+  },
+  "template:ig2-oscuro": {
+   "name": "Сторис: DARK с буквами в сетке",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "цвета",
+    "тёмный",
+    "мода"
+   ]
+  },
+  "template:ig2-presentamos": {
+   "name": "Сторис: INTRODUCING OUR STORIES с градиентными полосами",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "цвета",
+    "презентация",
+    "градиент"
+   ]
+  },
+  "template:ig2-rostro-franjas": {
+   "name": "Сторис: лицо с цветными полосами и кругами",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "цвета",
+    "портрет",
+    "бренд"
+   ]
+  },
+  "template:ig2-tu-mente": {
+   "name": "Сторис: Say what's on your mind на фиолетовом",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "цвета",
+    "фраза",
+    "фиолетовый"
+   ]
+  },
+  "template:ig2-tu-vida": {
+   "name": "Сторис: YOUR LIFE с жёлтыми полосами",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "цвета",
+    "жизнь",
+    "советы"
+   ]
+  },
+  "template:ig2-viaje-verano": {
+   "name": "Сторис: GREAT TRIP SUMMER с облаком из фото",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "цвета",
+    "путешествие",
+    "лето"
+   ]
+  },
+  "template:ig3-arte": {
+   "name": "Сторис: art 01 Stories поверх картины",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "искусство",
+    "живопись"
+   ]
+  },
+  "template:ig3-ciencia": {
+   "name": "Сторис: A-01 MODERN SCIENCE с кругами",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "наука",
+    "круг"
+   ]
+  },
+  "template:ig3-city-life": {
+   "name": "Сторис: CITY LIFE с розовой панелью",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "город"
+   ]
+  },
+  "template:ig3-comida-circulo": {
+   "name": "Сторис: Say what's on your mind в круге",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "еда",
+    "круг"
+   ]
+  },
+  "template:ig3-fashion": {
+   "name": "Сторис: FASHION 45$ с фото в буквах",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "мода",
+    "акция"
+   ]
+  },
+  "template:ig3-food": {
+   "name": "Сторис: Food со скидкой 50%",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "еда",
+    "акция"
+   ]
+  },
+  "template:ig3-friend": {
+   "name": "Сторис: FRIEND GREAT TRIP с кругом",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "друзья",
+    "круг"
+   ]
+  },
+  "template:ig3-full": {
+   "name": "Сторис: Full 100% рукописной кистью",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "акция",
+    "питомцы"
+   ]
+  },
+  "template:ig3-introducing": {
+   "name": "Сторис: INTRODUCING STORIES в зимнем лесу",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "зима",
+    "презентация"
+   ]
+  },
+  "template:ig3-models": {
+   "name": "Сторис: MODELS FASHION со скобкой",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "мода",
+    "портрет"
+   ]
+  },
+  "template:ig3-music": {
+   "name": "Сторис: MUSIC EXCLUSIVE с кольцами",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "музыка",
+    "круг"
+   ]
+  },
+  "template:ig3-new": {
+   "name": "Сторис: путешествия NEW с мазком кисти",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "путешествия",
+    "кисть"
+   ]
+  },
+  "template:ig3-opener": {
+   "name": "Динамичный опенер для квадратного поста",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "опенер",
+    "типографика",
+    "публикация"
+   ]
+  },
+  "template:ig3-perfil-amarillo": {
+   "name": "Профиль: жёлтая карточка с фото",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "профиль"
+   ]
+  },
+  "template:ig3-perfil-coral": {
+   "name": "Профиль: коралловая карточка с пятнами",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "профиль"
+   ]
+  },
+  "template:ig3-perfil-degradado": {
+   "name": "Профиль: градиентная карточка с кругами",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "профиль"
+   ]
+  },
+  "template:ig3-perfil-oscuro": {
+   "name": "Профиль: тёмная карточка с красным именем",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "профиль"
+   ]
+  },
+  "template:ig3-perfil-rojo": {
+   "name": "Профиль: красная карточка с аватаром",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "профиль"
+   ]
+  },
+  "template:ig3-portfolio": {
+   "name": "Сторис: PORTFOLIO с именем",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "портфолио"
+   ]
+  },
+  "template:ig3-programa": {
+   "name": "Сторис: V 6 с округлыми столбцами",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "технологии",
+    "пастель"
+   ]
+  },
+  "template:ig3-promo": {
+   "name": "Сторис: Product Promo с жёлтым диском",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "товар",
+    "промоакция"
+   ]
+  },
+  "template:ig3-sport": {
+   "name": "Сторис: SPORT с розовым значком",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "спорт"
+   ]
+  },
+  "template:ig3-tech": {
+   "name": "Сторис: TECH с разбросанными буквами",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "технологии"
+   ]
+  },
+  "template:ig3-toys": {
+   "name": "Сторис: TOYS с градиентным диском",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "игрушки",
+    "круг"
+   ]
+  },
+  "template:ig3-tv": {
+   "name": "Сторис: Media Social с круглым фото",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "соцсети",
+    "круг"
+   ]
+  },
+  "template:ig3-your-life": {
+   "name": "Сторис: YOUR LIFE и PRO с цветными полосами",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "интерьеры"
+   ]
+  },
+  "template:ig4-abstract": {
+   "name": "Сторис: ABSTRACT GEOMETRIC STYLE",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "геометрия",
+    "архитектура"
+   ]
+  },
+  "template:ig4-amazing-dream": {
+   "name": "Сторис: Amazing dream с двумя фото",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "фраза",
+    "коричневый"
+   ]
+  },
+  "template:ig4-audacious": {
+   "name": "Сторис: LET'S DO WHAT WE LOVE #AUDACIOUS",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "мотивация",
+    "чёрный"
+   ]
+  },
+  "template:ig4-beauty": {
+   "name": "Сторис: There is beauty in simplicity",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "природа",
+    "фраза"
+   ]
+  },
+  "template:ig4-beauty-flowers": {
+   "name": "Сторис: Beauty с цветами",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "цветы",
+    "каллиграфия"
+   ]
+  },
+  "template:ig4-believe": {
+   "name": "Сторис: BELIEVE YOU CAN SO YOU ARE HALFWAY THERE",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "мотивация",
+    "фраза"
+   ]
+  },
+  "template:ig4-big": {
+   "name": "Сторис: BIG. с полосатым кругом",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "мода",
+    "полоски"
+   ]
+  },
+  "template:ig4-born-wild": {
+   "name": "Сторис: BORN TO BE WILD",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "приключения",
+    "синий"
+   ]
+  },
+  "template:ig4-brand-new-day": {
+   "name": "Сторис: brand new day с треугольниками",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "треугольники",
+    "геометрия"
+   ]
+  },
+  "template:ig4-clear": {
+   "name": "Сторис: CLEAR INTERIOR из двух половин",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "интерьер",
+    "дом"
+   ]
+  },
+  "template:ig4-cold-wave": {
+   "name": "Сторис: COLD WAVE WARM SUN с фото в буквах",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "море",
+    "типографика"
+   ]
+  },
+  "template:ig4-confident": {
+   "name": "Сторис: STYLISH & CONFIDENT в трёх окнах",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "мода",
+    "мужчина"
+   ]
+  },
+  "template:ig4-control": {
+   "name": "Сторис: CONTROL с логотипом и двумя фото",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "логотип",
+    "йога"
+   ]
+  },
+  "template:ig4-courage": {
+   "name": "Сторис: #courage с мазком кисти",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "портрет",
+    "оранжевый"
+   ]
+  },
+  "template:ig4-culinary": {
+   "name": "Сторис: CULINARY ART #cooking",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "кухня",
+    "еда"
+   ]
+  },
+  "template:ig4-deep-breath": {
+   "name": "Сторис: ENJOY DEEP BREATH с листьями",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "природа",
+    "зелёный"
+   ]
+  },
+  "template:ig4-delicious": {
+   "name": "Сторис: сетка #DELICIOUS",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "еда",
+    "десерты"
+   ]
+  },
+  "template:ig4-dream": {
+   "name": "Сторис: DREAM с рамкой поверх города",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "город",
+    "рамка"
+   ]
+  },
+  "template:ig4-employee": {
+   "name": "Сторис: BEST EMPLOYEE OF THE MONTH",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "бизнес",
+    "сотрудник"
+   ]
+  },
+  "template:ig4-enjoy-music": {
+   "name": "Сторис: сине-красное ENJOY MY MUSIC",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "музыка",
+    "танцы"
+   ]
+  },
+  "template:ig4-fashion-buy": {
+   "name": "Сторис: FASHION IS WHAT YOU BUY на полосах",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "мода",
+    "полосы"
+   ]
+  },
+  "template:ig4-fitness": {
+   "name": "Сторис: FITNESS BODY ENERGY WORKOUT",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "спортзал",
+    "спорт"
+   ]
+  },
+  "template:ig4-fun": {
+   "name": "Сторис: #FUN с фото в рамке",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "рамка",
+    "красный"
+   ]
+  },
+  "template:ig4-glam": {
+   "name": "Сторис: GLAM ROCK в розовом и чёрном",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "мода",
+    "розовый"
+   ]
+  },
+  "template:ig4-instamusic": {
+   "name": "Сторис: #instamusic #yourbeat с пятнами",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "музыка",
+    "неон"
+   ]
+  },
+  "template:ig4-life-good": {
+   "name": "Сторис: LIFE IS SO GOOD JUST BE YOURSELF",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "фраза",
+    "неон"
+   ]
+  },
+  "template:ig4-lifestyle": {
+   "name": "Сторис: my lifestyle #followme",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "образ жизни",
+    "синий"
+   ]
+  },
+  "template:ig4-look-deep": {
+   "name": "Сторис: LOOK DEEP INTO NATURE с шестиугольниками",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "природа",
+    "шестиугольник"
+   ]
+  },
+  "template:ig4-masterpiece": {
+   "name": "Сторис: MAKE EACH DAY YOUR MASTERPIECE",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "фраза",
+    "розовый"
+   ]
+  },
+  "template:ig4-meeting": {
+   "name": "Сторис: MEETING WITH FRIENDS в колонках",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "друзья",
+    "колонки"
+   ]
+  },
+  "template:ig4-motion": {
+   "name": "Сторис: MOTION с жёлтым кругом",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "танцы",
+    "круг"
+   ]
+  },
+  "template:ig4-moving": {
+   "name": "Сторис: Moving с двумя кольцами",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "танцы",
+    "кольца"
+   ]
+  },
+  "template:ig4-music": {
+   "name": "Сторис: MUSIC DANCE ENJOY",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "музыка",
+    "вечеринка"
+   ]
+  },
+  "template:ig4-natural": {
+   "name": "Сторис: NATURAL BEAUTY в трёх колонках",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "природа",
+    "колонки"
+   ]
+  },
+  "template:ig4-never-easier": {
+   "name": "Сторис: красное IT NEVER GETS EASIER",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "спортзал",
+    "мотивация"
+   ]
+  },
+  "template:ig4-ocean": {
+   "name": "Сторис: OCEAN HAPPY RELAX с рамкой",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "море",
+    "рамка"
+   ]
+  },
+  "template:ig4-pro-fitness": {
+   "name": "Сторис: PRO fitness с перекрёстной рамкой",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "спорт",
+    "рамка"
+   ]
+  },
+  "template:ig4-sale40": {
+   "name": "Сторис: вертикальная SALE 40%",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "распродажа",
+    "акция"
+   ]
+  },
+  "template:ig4-sale75": {
+   "name": "Сторис: SALE UP TO 75% OFF",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "распродажа",
+    "акция"
+   ]
+  },
+  "template:ig4-secrets": {
+   "name": "Сторис: NO MORE SECRETS #IMAGINE",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "красный",
+    "диагональ"
+   ]
+  },
+  "template:ig4-shopping-week": {
+   "name": "Сторис: #shoppingweek со скидкой 40%",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "распродажа",
+    "покупки"
+   ]
+  },
+  "template:ig4-simplelife": {
+   "name": "Сторис: When you focus on the good #simplelife",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "фраза",
+    "синий"
+   ]
+  },
+  "template:ig4-skate": {
+   "name": "Сторис: 0256 #skatelife",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "скейт",
+    "спорт"
+   ]
+  },
+  "template:ig4-sport": {
+   "name": "Сторис: W SPORT с линией",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "спорт",
+    "бег"
+   ]
+  },
+  "template:ig4-spring": {
+   "name": "Сторис: SPRING IS IN THE AIR",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "весна",
+    "цветы"
+   ]
+  },
+  "template:ig4-stay-strong": {
+   "name": "Сторис: STAY STRONG DON'T GIVE UP",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "мотивация",
+    "красный"
+   ]
+  },
+  "template:ig4-street-fast": {
+   "name": "Сторис: 10/25 #youth street FAST",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "улица",
+    "скейт"
+   ]
+  },
+  "template:ig4-style": {
+   "name": "Сторис: STYLE IS VERY PERSONAL",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "мода",
+    "красный"
+   ]
+  },
+  "template:ig4-style-beautiful": {
+   "name": "Сторис: STYLE #beautiful с полосами",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "мода",
+    "полосы"
+   ]
+  },
+  "template:ig4-stylish": {
+   "name": "Сторис: #stylish с синим диском",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "мода",
+    "синий"
+   ]
+  },
+  "template:ig4-summer": {
+   "name": "Сторис: #SUMMER с пляжным ромбом",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "пляж",
+    "лето"
+   ]
+  },
+  "template:ig4-summer-event": {
+   "name": "Сторис: летнее событие с датой",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "лето",
+    "событие"
+   ]
+  },
+  "template:ig4-summer-look": {
+   "name": "Сторис: Summer look #fashion на полосах",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "мода",
+    "лето"
+   ]
+  },
+  "template:ig4-sunshine": {
+   "name": "Сторис: SUNSHINE с четырьмя фото",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "лето",
+    "коллаж"
+   ]
+  },
+  "template:ig4-sunshine-tag": {
+   "name": "Сторис: #sunshine Relaxing holiday",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "лето",
+    "синий"
+   ]
+  },
+  "template:ig4-trendy": {
+   "name": "Сторис: красное #TRENDY YOUR STYLE",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "красный",
+    "мода"
+   ]
+  },
+  "template:ig4-tropical": {
+   "name": "Сторис: FEELING TROPICAL с тремя фото",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "лето",
+    "тропики"
+   ]
+  },
+  "template:ig4-winner": {
+   "name": "Сторис: THE WINNER NEVER QUITS",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "мотивация",
+    "спортзал"
+   ]
+  },
+  "template:ig4-young": {
+   "name": "Сторис: YOUNG #followus",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "молодость",
+    "красный"
+   ]
+  },
+  "template:ig4-youth": {
+   "name": "Сторис: #YOUTH & FREEDOM с треугольником",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "треугольник",
+    "коралловый"
+   ]
+  },
+  "template:ig5-amazing-now": {
+   "name": "Сторис: AMAZING NOW",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "чёрно-белый",
+    "красный"
+   ]
+  },
+  "template:ig5-awesome": {
+   "name": "Сторис: вертикальное AWESOME",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "красный",
+    "вертикальный"
+   ]
+  },
+  "template:ig5-be-strong": {
+   "name": "Сторис: B STRONG",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "красный",
+    "фраза"
+   ]
+  },
+  "template:ig5-beach-therapy": {
+   "name": "Сторис: бирюзовая пляжная терапия",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "пляж",
+    "отпуск"
+   ]
+  },
+  "template:ig5-beauty-pro": {
+   "name": "Сторис: BEAUTY на фиолетовой волне",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "красота",
+    "фиолетовый"
+   ]
+  },
+  "template:ig5-best-look": {
+   "name": "Сторис: YOUR BEST LOOK в рамке",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "зелёный",
+    "мода"
+   ]
+  },
+  "template:ig5-choose-glam": {
+   "name": "Сторис: 48 choose the glam",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "красота",
+    "гламур"
+   ]
+  },
+  "template:ig5-cold-water": {
+   "name": "Сторис: COLD DEEP WATER",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "море",
+    "жёлтый"
+   ]
+  },
+  "template:ig5-creative-studio": {
+   "name": "Сторис: CREATIVE DESIGN STUDIO",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "дизайн",
+    "студия"
+   ]
+  },
+  "template:ig5-dancing": {
+   "name": "Сторис: #DANCING с диагональным фото",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "танцы",
+    "диагональ"
+   ]
+  },
+  "template:ig5-daring-style": {
+   "name": "Сторис: DARING STYLE на жёлтом",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "жёлтый",
+    "мода"
+   ]
+  },
+  "template:ig5-denim-style": {
+   "name": "Сторис: DENIM STYLE в рамке",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "мода",
+    "врезка"
+   ]
+  },
+  "template:ig5-design-passion": {
+   "name": "Сторис: DESIGN IS MY PASSION",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "интерьер",
+    "дизайн"
+   ]
+  },
+  "template:ig5-dont-waste": {
+   "name": "Сторис: DON'T WASTE YOUR TIME",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "фраза",
+    "сине-зелёный"
+   ]
+  },
+  "template:ig5-enjoy-movement": {
+   "name": "Сторис: enjoy the movement",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "танцы",
+    "чёрный"
+   ]
+  },
+  "template:ig5-flexible-body": {
+   "name": "Сторис: FLEXIBLE BODY с градиентной полосой",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "фитнес",
+    "градиент"
+   ]
+  },
+  "template:ig5-focus-breathe": {
+   "name": "Сторис: FOCUS ON THE BREATHE",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "фраза",
+    "типографика"
+   ]
+  },
+  "template:ig5-fondo-ambar": {
+   "name": "Фон: янтарные круги",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фон",
+    "оранжевый",
+    "коричневый"
+   ]
+  },
+  "template:ig5-fondo-burbujas-azules": {
+   "name": "Фон: синие пузыри на розовом",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фон",
+    "розовый",
+    "синий"
+   ]
+  },
+  "template:ig5-fondo-burbujas-grises": {
+   "name": "Фон: серые пузыри на чёрном",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фон",
+    "чёрный",
+    "серый"
+   ]
+  },
+  "template:ig5-fondo-chevrones": {
+   "name": "Фон: красные шевроны",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фон",
+    "красный",
+    "шевроны"
+   ]
+  },
+  "template:ig5-fondo-cinta-azul": {
+   "name": "Фон: синяя лента на красном",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фон",
+    "градиент",
+    "синий"
+   ]
+  },
+  "template:ig5-fondo-geometrico": {
+   "name": "Фон: геометрические фигуры на сером",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фон",
+    "серый",
+    "геометрия"
+   ]
+  },
+  "template:ig5-fondo-lineas": {
+   "name": "Фон: градиент с неоновыми линиями",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фон",
+    "градиент",
+    "розовый"
+   ]
+  },
+  "template:ig5-fondo-lineas-cruzadas": {
+   "name": "Фон: пересекающиеся линии",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фон",
+    "градиент",
+    "маджента"
+   ]
+  },
+  "template:ig5-fondo-olas": {
+   "name": "Фон: оранжевые и фиолетовые волны",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фон",
+    "градиент",
+    "оранжевый"
+   ]
+  },
+  "template:ig5-fondo-pildoras": {
+   "name": "Фон: розовые капсулы",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фон",
+    "розовый",
+    "пастель"
+   ]
+  },
+  "template:ig5-fondo-plata": {
+   "name": "Фон: серебристые полосы",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фон",
+    "серебро",
+    "серый"
+   ]
+  },
+  "template:ig5-fondo-rojo": {
+   "name": "Фон: красные скруглённые фигуры",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фон",
+    "красный",
+    "формы"
+   ]
+  },
+  "template:ig5-gentle-soft": {
+   "name": "Сторис: карточка GENTLE & SOFT",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "цветы",
+    "карточка"
+   ]
+  },
+  "template:ig5-glam": {
+   "name": "Сторис: GLAM с кадром камеры",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "розовый",
+    "камера"
+   ]
+  },
+  "template:ig5-happiness-love": {
+   "name": "Сторис: коллаж HAPPINESS и LOVE",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "коллаж",
+    "свадьба"
+   ]
+  },
+  "template:ig5-happy-weekends": {
+   "name": "Сторис: Happy weekends",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "цветы",
+    "выходные"
+   ]
+  },
+  "template:ig5-inspiration": {
+   "name": "Сторис: #pleasure inspiration",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "красный",
+    "чёрно-белый"
+   ]
+  },
+  "template:ig5-interior-dream": {
+   "name": "Сторис: каталог INTERIOR OF YOUR DREAM",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "каталог",
+    "интерьер"
+   ]
+  },
+  "template:ig5-keep-simple": {
+   "name": "Сторис: KEEP IT SIMPLE с кругом",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "круг",
+    "градиент"
+   ]
+  },
+  "template:ig5-light-easy": {
+   "name": "Сторис: карточка LIGHT & EASY",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "мода",
+    "карточка"
+   ]
+  },
+  "template:ig5-look-deep": {
+   "name": "Сторис: LOOK DEEP INTO YOURSELF",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "фраза",
+    "неон"
+   ]
+  },
+  "template:ig5-mindfulness": {
+   "name": "Сторис: чёрно-белая #mindfulness",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "чёрно-белый",
+    "фраза"
+   ]
+  },
+  "template:ig5-modern-office": {
+   "name": "Сторис: MODERN OFFICE SPACE",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "офис",
+    "бизнес"
+   ]
+  },
+  "template:ig5-ocean": {
+   "name": "Сторис: OCEAN в круге",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "круг",
+    "море"
+   ]
+  },
+  "template:ig5-pleasure": {
+   "name": "Сторис: блочный коллаж PLEASURE",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "коллаж",
+    "терракотовый"
+   ]
+  },
+  "template:ig5-power": {
+   "name": "Сторис: #POWER с фото",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "красный",
+    "мода"
+   ]
+  },
+  "template:ig5-relax-home": {
+   "name": "Сторис: Relax SWEET HOME",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "дом",
+    "интерьер"
+   ]
+  },
+  "template:ig5-sale-70": {
+   "name": "Сторис: SALE 70% на косых полосах",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "распродажа",
+    "акция"
+   ]
+  },
+  "template:ig5-sensual": {
+   "name": "Сторис: SENSUAL с двумя фото",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "чёрно-белый",
+    "коллаж"
+   ]
+  },
+  "template:ig5-style-y": {
+   "name": "Сторис: STYLE с большой буквой Y",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "мода",
+    "сине-зелёный"
+   ]
+  },
+  "template:ig5-summer-pause": {
+   "name": "Сторис: SUMMER take a pause",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "лето",
+    "отпуск"
+   ]
+  },
+  "template:ig5-sunny-day": {
+   "name": "Сторис: SUNNY DAY с кругом",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "лето",
+    "бассейн"
+   ]
+  },
+  "template:ig5-titulo-art-design": {
+   "name": "Заголовок: ART & DESIGN FORUM",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "заголовок",
+    "текст",
+    "искусство"
+   ]
+  },
+  "template:ig5-titulo-big-sale": {
+   "name": "Заголовок: BIG SALE с кистью и корзиной",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "заголовок",
+    "текст",
+    "распродажа"
+   ]
+  },
+  "template:ig5-titulo-bold-fashion": {
+   "name": "Заголовок: наклонный BOLD FASHION STYLE",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "заголовок",
+    "текст",
+    "мода"
+   ]
+  },
+  "template:ig5-titulo-chicle": {
+   "name": "Заголовок: BUBBLEGUM STYLE",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "заголовок",
+    "текст",
+    "розовый"
+   ]
+  },
+  "template:ig5-titulo-cita": {
+   "name": "Заголовок: цитата с автором",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "заголовок",
+    "текст",
+    "цитата"
+   ]
+  },
+  "template:ig5-titulo-do-what": {
+   "name": "Заголовок: DO WHAT YOU WANT",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "заголовок",
+    "текст",
+    "мотивация"
+   ]
+  },
+  "template:ig5-titulo-formas-abstractas": {
+   "name": "Заголовок: ABSTRACT SHAPES DESIGN",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "заголовок",
+    "текст",
+    "формы"
+   ]
+  },
+  "template:ig5-titulo-glitch": {
+   "name": "Заголовок: GLITCH STYLE",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "заголовок",
+    "текст",
+    "глитч"
+   ]
+  },
+  "template:ig5-titulo-neon": {
+   "name": "Заголовок: светящийся NEON",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "заголовок",
+    "текст",
+    "неон"
+   ]
+  },
+  "template:ig5-titulo-never-give-up": {
+   "name": "Заголовок: NEVER GIVE UP кистью",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "заголовок",
+    "текст",
+    "мотивация"
+   ]
+  },
+  "template:ig5-titulo-retro": {
+   "name": "Заголовок: 80s RETROSTYLE",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "заголовок",
+    "текст",
+    "ретро"
+   ]
+  },
+  "template:ig5-titulo-sale": {
+   "name": "Заголовок: билет SALE",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "заголовок",
+    "текст",
+    "распродажа"
+   ]
+  },
+  "template:ig5-wake-up": {
+   "name": "Сторис: WAKE UP AND BE AWESOME",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "красный",
+    "мотивация"
+   ]
+  },
+  "template:ig5-your-choice": {
+   "name": "Сторис: портрет с жёлтыми точками",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "жёлтый",
+    "точки"
+   ]
+  },
+  "template:ig5-your-style": {
+   "name": "Сторис: коллаж Your style",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "коллаж",
+    "интерьер"
+   ]
+  },
+  "template:ig6-arbol-cinta": {
+   "name": "Новогодняя сторис: ёлка из золотой ленты",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "новый год",
+    "рождество",
+    "дерево"
+   ]
+  },
+  "template:ig6-artista": {
+   "name": "Сторис: You are the artist of your life с #YLIFE",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "синий",
+    "образ жизни"
+   ]
+  },
+  "template:ig6-aventuras": {
+   "name": "Сторис: My Adventures с двумя фото и зелёной горой",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "путешествия",
+    "приключения"
+   ]
+  },
+  "template:ig6-diseno-pasion": {
+   "name": "Сторис: Design is my passion на розовом",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "дизайн",
+    "архитектура"
+   ]
+  },
+  "template:ig6-feliz-brillante": {
+   "name": "Новогодняя сторис: Merry & Bright на сером",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "новый год",
+    "рождество",
+    "праздники"
+   ]
+  },
+  "template:ig6-interior": {
+   "name": "Сторис: Clear Interior с чёрным блоком",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "дом",
+    "дизайн интерьера"
+   ]
+  },
+  "template:ig6-luz-calida": {
+   "name": "Сторис: Cozy Light с ромбами и #WARM",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "дом",
+    "товар"
+   ]
+  },
+  "template:ig6-pino-rojo": {
+   "name": "Новогодняя сторис: еловые ветки и Merry Christmas на красном",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "новый год",
+    "рождество",
+    "распродажа"
+   ]
+  },
+  "template:ig6-rebajas-50": {
+   "name": "Сторис: SALE с ценником 50% OFF и синими полосами",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "распродажа",
+    "скидка"
+   ]
+  },
+  "template:ig6-rebajas-invierno": {
+   "name": "Новогодняя сторис: подарок, раскрывающийся в «winter sell XMAS 50%off»",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "новый год",
+    "рождество",
+    "распродажа"
+   ]
+  },
+  "template:ig6-santa": {
+   "name": "Новогодняя сторис: лицо Деда Мороза с Merry Xmas",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "новый год",
+    "рождество",
+    "дед мороз"
+   ]
+  },
+  "template:ig6-swipe-bandera": {
+   "name": "Свайп вверх: флажок SWIPE UP из хлопушки",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "свайп вверх",
+    "свайп",
+    "стрелка"
+   ]
+  },
+  "template:ig6-swipe-boton": {
+   "name": "Свайп вверх: белая кнопка, превращающаяся из квадрата в круг",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "свайп вверх",
+    "свайп",
+    "стрелка"
+   ]
+  },
+  "template:ig6-swipe-brillo": {
+   "name": "Свайп вверх: светящиеся белые стрелки, летящие вверх",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "свайп вверх",
+    "свайп",
+    "стрелка"
+   ]
+  },
+  "template:ig6-swipe-chevrones": {
+   "name": "Свайп вверх: три синих шеврона, поднимающихся вверх",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "свайп вверх",
+    "свайп",
+    "стрелка"
+   ]
+  },
+  "template:ig6-swipe-circulo": {
+   "name": "Свайп вверх: белый круг с треугольником, уходящий вверх и размывающийся",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "свайп вверх",
+    "свайп",
+    "стрелка"
+   ]
+  },
+  "template:ig6-swipe-cuadro": {
+   "name": "Свайп вверх: бирюзовый блок со стрелкой и отражением",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "свайп вверх",
+    "свайп",
+    "стрелка"
+   ]
+  },
+  "template:ig6-swipe-figuras": {
+   "name": "Свайп вверх: зелёное кольцо, превращающееся в треугольник с SWIPE UP",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "свайп вверх",
+    "свайп",
+    "стрелка"
+   ]
+  },
+  "template:ig6-swipe-flecha": {
+   "name": "Свайп вверх: синяя стрелка над пульсирующей линией",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "свайп вверх",
+    "свайп",
+    "стрелка"
+   ]
+  },
+  "template:ig6-swipe-interruptor": {
+   "name": "Свайп вверх: переключатель с синим бегунком, скользящим вверх",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "свайп вверх",
+    "свайп",
+    "стрелка"
+   ]
+  },
+  "template:ig6-swipe-letras": {
+   "name": "Свайп вверх: прыгающие буквы SWIPE UP",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "свайп вверх",
+    "свайп",
+    "стрелка"
+   ]
+  },
+  "template:ig6-swipe-mano": {
+   "name": "Свайп вверх: рука, смахивающая вверх, со следом из шевронов",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "свайп вверх",
+    "свайп",
+    "стрелка"
+   ]
+  },
+  "template:ig6-swipe-triangulo": {
+   "name": "Свайп вверх: белый треугольник с красной точкой, летящий вверх",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "свайп вверх",
+    "свайп",
+    "стрелка"
+   ]
+  },
+  "template:ig7-awesome": {
+   "name": "Типографская сторис: AWESOME",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "типографика",
+    "цвета",
+    "полосы"
+   ]
+  },
+  "template:ig7-big": {
+   "name": "Типографская сторис: BIG",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "типографика",
+    "цвета",
+    "гигантская буква"
+   ]
+  },
+  "template:ig7-brand": {
+   "name": "Типографская сторис: BRAND",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "типографика",
+    "цвета",
+    "буква а"
+   ]
+  },
+  "template:ig7-color": {
+   "name": "Типографская сторис: COLOR",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "типографика",
+    "цвета",
+    "рамка"
+   ]
+  },
+  "template:ig7-easy-project": {
+   "name": "Типографская сторис: STORIES EASY PROJECT",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "типографика",
+    "цвета",
+    "пиксели"
+   ]
+  },
+  "template:ig7-grid": {
+   "name": "Типографская сторис: цветная сетка",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "типографика",
+    "цвета",
+    "сетка"
+   ]
+  },
+  "template:ig7-no-plugins": {
+   "name": "Типографская сторис: NO PLUGINS",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "типографика",
+    "цвета",
+    "прямоугольники"
+   ]
+  },
+  "template:ig7-social": {
+   "name": "Типографская сторис: SOCIAL",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "типографика",
+    "цвета",
+    "карточки"
+   ]
+  },
+  "template:ig7-stories": {
+   "name": "Типографская сторис: STORIES",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "типографика",
+    "цвета",
+    "гигантская буква"
+   ]
+  },
+  "template:ig7-typo": {
+   "name": "Типографская сторис: TYPO",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "типографика",
+    "цвета",
+    "карточка"
+   ]
+  },
+  "template:ig8-best-sellers": {
+   "name": "Городская сторис: Best Sellers, нажмите сейчас",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "городской",
+    "синий",
+    "магазин"
+   ]
+  },
+  "template:ig8-city-vibes": {
+   "name": "Городская сторис: city vibes с двумя фото",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "городской",
+    "синий",
+    "город"
+   ]
+  },
+  "template:ig8-friends": {
+   "name": "Городская сторис: friends positive с лентой фото",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "городской",
+    "синий",
+    "друзья"
+   ]
+  },
+  "template:ig8-mega-sale": {
+   "name": "Городская сторис: mega sale %50 на полароиде",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "городской",
+    "синий",
+    "распродажа"
+   ]
+  },
+  "template:ig8-visit-page": {
+   "name": "Городская сторис: visit page с синей полосой",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "городской",
+    "синий",
+    "сайт"
+   ]
+  },
+  "template:ig9-banda-roja": {
+   "name": "Сторис: красная полоса с гигантским словом",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "типографика",
+    "полоса",
+    "красный"
+   ]
+  },
+  "template:ig9-letras-cortadas": {
+   "name": "Сторис: гигантское разрезанное слово и три ссылки",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "типографика",
+    "буквы",
+    "ссылки"
+   ]
+  },
+  "template:ig9-letras-rojas": {
+   "name": "Сторис: стена из повёрнутых букв на красном",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "типографика",
+    "буквы",
+    "красный"
+   ]
+  },
+  "template:ig9-palabra-vertical": {
+   "name": "Сторис: вертикальное слово в рамке с красной лентой",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "типографика",
+    "вертикальный",
+    "рамка"
+   ]
+  },
+  "template:ig9-typo": {
+   "name": "Сторис: плитки TYPO с нарисованной рамкой",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "типографика",
+    "буквы",
+    "рамка"
+   ]
+  },
   "template:intro-de-canal": {
    "name": "Интро для канала",
    "tags": [
@@ -25215,6 +28227,204 @@
     "ритм",
     "вечеринка",
     "слова"
+   ]
+  },
+  "template:lg0-circulo-ambar": {
+   "name": "Логотип: две точки рисуют кольцо, которое замыкается в диск (янтарный)",
+   "tags": [
+    "логотип",
+    "появление логотипа",
+    "плоский",
+    "янтарный",
+    "жёлтый",
+    "круг"
+   ]
+  },
+  "template:lg0-cuadro-blanco": {
+   "name": "Логотип: подпрыгивающий квадрат, который раскрывается (белый)",
+   "tags": [
+    "логотип",
+    "появление логотипа",
+    "плоский",
+    "белый",
+    "квадрат",
+    "отскок"
+   ]
+  },
+  "template:lg0-disco-azul": {
+   "name": "Логотип: летящая точка, раскрывающаяся в диск (синий)",
+   "tags": [
+    "логотип",
+    "появление логотипа",
+    "плоский",
+    "синий",
+    "диск",
+    "точка"
+   ]
+  },
+  "template:lg0-hexagono-coral": {
+   "name": "Логотип: линия, круг и катящийся шестиугольник с вашим брендом (коралловый)",
+   "tags": [
+    "логотип",
+    "появление логотипа",
+    "плоский",
+    "коралловый",
+    "шестиугольник",
+    "линия"
+   ]
+  },
+  "template:lg0-iconos-redes": {
+   "name": "Десять иконок соцсетей, выскакивающих по очереди (синий)",
+   "tags": [
+    "логотип",
+    "появление логотипа",
+    "плоский",
+    "соцсети",
+    "иконки",
+    "facebook"
+   ]
+  },
+  "template:lg0-sigueme": {
+   "name": "Соцлоготип: «подписывайся» с шариком в шестиугольнике над фото",
+   "tags": [
+    "логотип",
+    "появление логотипа",
+    "плоский",
+    "подписывайся",
+    "пользователь",
+    "шестиугольник"
+   ]
+  },
+  "template:lg1-luz-dorada": {
+   "name": "Логотип: собирается из золотого света",
+   "tags": [
+    "логотип",
+    "интро",
+    "свет",
+    "золотой",
+    "блеск",
+    "полосы"
+   ]
+  },
+  "template:lg2-cintas": {
+   "name": "Подписывайся: логотип из вращающихся лент",
+   "tags": [
+    "логотип",
+    "плоский",
+    "корпоративный",
+    "подписывайся",
+    "3d"
+   ]
+  },
+  "template:lg2-franjas": {
+   "name": "Подписывайся: логотип из долек и полос",
+   "tags": [
+    "логотип",
+    "плоский",
+    "корпоративный",
+    "подписывайся",
+    "полосы"
+   ]
+  },
+  "template:lg2-giro": {
+   "name": "Логотип: раскручивающееся вращение",
+   "tags": [
+    "логотип",
+    "плоский",
+    "корпоративный",
+    "вращение"
+   ]
+  },
+  "template:lg2-glitch": {
+   "name": "Логотип: глитч на зелёном",
+   "tags": [
+    "логотип",
+    "плоский",
+    "корпоративный",
+    "глитч"
+   ]
+  },
+  "template:lg2-horizonte": {
+   "name": "Подпишись: логотип, поднимающийся из-за горизонта",
+   "tags": [
+    "логотип",
+    "плоский",
+    "корпоративный",
+    "подпишись",
+    "горизонт"
+   ]
+  },
+  "template:lg2-mira": {
+   "name": "Подпишись: раскрывающийся прицел",
+   "tags": [
+    "логотип",
+    "плоский",
+    "корпоративный",
+    "подпишись",
+    "прицел"
+   ]
+  },
+  "template:lg2-orbita": {
+   "name": "Подпишись: логотип на орбите",
+   "tags": [
+    "логотип",
+    "плоский",
+    "корпоративный",
+    "подпишись",
+    "орбита"
+   ]
+  },
+  "template:lg2-puntos": {
+   "name": "Логотип: катящиеся точки",
+   "tags": [
+    "логотип",
+    "плоский",
+    "корпоративный",
+    "точки"
+   ]
+  },
+  "template:lg3-esfera": {
+   "name": "Логотип: полосатая сфера, превращающаяся в диск",
+   "tags": [
+    "логотип",
+    "появление логотипа",
+    "интро",
+    "сфера",
+    "синий",
+    "корпоративный"
+   ]
+  },
+  "template:lg3-ondas": {
+   "name": "Логотип: цветные волны, оседающие в линию",
+   "tags": [
+    "логотип",
+    "появление логотипа",
+    "интро",
+    "волны",
+    "цвета",
+    "линия"
+   ]
+  },
+  "template:lg3-persiana": {
+   "name": "Логотип: квадрат из жалюзи, который раскрывается",
+   "tags": [
+    "логотип",
+    "появление логотипа",
+    "интро",
+    "квадрат",
+    "серый",
+    "минимализм"
+   ]
+  },
+  "template:lg3-torta-diana": {
+   "name": "Логотип: пунктирное кольцо, цветная диаграмма и мишень",
+   "tags": [
+    "логотип",
+    "появление логотипа",
+    "интро",
+    "круговая диаграмма",
+    "круг",
+    "пастель"
    ]
   },
   "template:llt-bevan": {
@@ -25465,6 +28675,767 @@
     "кольцо"
    ]
   },
+  "template:llt10-amanda": {
+   "name": "Белый титр: имя, должность на плашке",
+   "tags": [
+    "титр",
+    "белый",
+    "имя"
+   ]
+  },
+  "template:llt10-elena": {
+   "name": "Белый титр: имя в коробке",
+   "tags": [
+    "титр",
+    "белый",
+    "имя"
+   ]
+  },
+  "template:llt10-elizabeth": {
+   "name": "Белый титр: имя и плашка справа",
+   "tags": [
+    "титр",
+    "белый",
+    "справа"
+   ]
+  },
+  "template:llt10-emily": {
+   "name": "Белый титр: имя наполовину в коробке",
+   "tags": [
+    "титр",
+    "белый",
+    "имя"
+   ]
+  },
+  "template:llt10-erica": {
+   "name": "Белый титр: две плашки с должностью",
+   "tags": [
+    "титр",
+    "белый",
+    "имя"
+   ]
+  },
+  "template:llt10-gabriela": {
+   "name": "Белый титр: справа, длинное имя",
+   "tags": [
+    "титр",
+    "белый",
+    "справа"
+   ]
+  },
+  "template:llt10-hanna": {
+   "name": "Белый титр: фамилия в коробке",
+   "tags": [
+    "титр",
+    "белый",
+    "имя"
+   ]
+  },
+  "template:llt10-iren": {
+   "name": "Белый титр: по центру с плашкой",
+   "tags": [
+    "титр",
+    "белый",
+    "по центру"
+   ]
+  },
+  "template:llt10-kristina": {
+   "name": "Белый титр: коробка с должностью в две строки",
+   "tags": [
+    "титр",
+    "белый",
+    "по центру"
+   ]
+  },
+  "template:llt10-lora": {
+   "name": "Белый титр: фамилия в коробке справа",
+   "tags": [
+    "титр",
+    "белый",
+    "справа"
+   ]
+  },
+  "template:llt10-monica": {
+   "name": "Белый титр: имя в две строки, плашка",
+   "tags": [
+    "титр",
+    "белый",
+    "по центру"
+   ]
+  },
+  "template:llt10-monika": {
+   "name": "Белый титр: линия, должность справа",
+   "tags": [
+    "титр",
+    "белый",
+    "справа"
+   ]
+  },
+  "template:llt11-1": {
+   "name": "Градиентный титр: фамилия градиентом, плашка",
+   "tags": [
+    "титр",
+    "градиент",
+    "имя"
+   ]
+  },
+  "template:llt11-10": {
+   "name": "Градиентный титр: фамилия в коробке, подчёркивание",
+   "tags": [
+    "титр",
+    "градиент",
+    "имя"
+   ]
+  },
+  "template:llt11-11": {
+   "name": "Градиентный титр: высокая полоса, фамилия в коробке",
+   "tags": [
+    "титр",
+    "градиент",
+    "имя"
+   ]
+  },
+  "template:llt11-12": {
+   "name": "Градиентный титр: плашка, рамка, фамилия градиентом",
+   "tags": [
+    "титр",
+    "градиент",
+    "имя"
+   ]
+  },
+  "template:llt11-13": {
+   "name": "Градиентный титр: плашка и квадрат",
+   "tags": [
+    "титр",
+    "градиент",
+    "имя"
+   ]
+  },
+  "template:llt11-14": {
+   "name": "Градиентный титр: подчёркивание, должность справа",
+   "tags": [
+    "титр",
+    "градиент",
+    "имя"
+   ]
+  },
+  "template:llt11-15": {
+   "name": "Градиентный титр: квадраты и плашка",
+   "tags": [
+    "титр",
+    "градиент",
+    "имя"
+   ]
+  },
+  "template:llt11-16": {
+   "name": "Градиентный титр с фото: фамилия градиентом",
+   "tags": [
+    "титр",
+    "градиент",
+    "фото"
+   ]
+  },
+  "template:llt11-17": {
+   "name": "Градиентный титр с фото: имя в две строки, плашка",
+   "tags": [
+    "титр",
+    "градиент",
+    "фото"
+   ]
+  },
+  "template:llt11-18": {
+   "name": "Градиентный титр с фото и полосой",
+   "tags": [
+    "титр",
+    "градиент",
+    "фото"
+   ]
+  },
+  "template:llt11-19": {
+   "name": "Градиентный титр с фото в рамке",
+   "tags": [
+    "титр",
+    "градиент",
+    "фото"
+   ]
+  },
+  "template:llt11-2": {
+   "name": "Градиентный титр: подчёркивание",
+   "tags": [
+    "титр",
+    "градиент",
+    "имя"
+   ]
+  },
+  "template:llt11-20": {
+   "name": "Градиентный титр с фото, рамкой и плашкой",
+   "tags": [
+    "титр",
+    "градиент",
+    "фото"
+   ]
+  },
+  "template:llt11-3": {
+   "name": "Градиентный титр: коробка с должностью справа",
+   "tags": [
+    "титр",
+    "градиент",
+    "имя"
+   ]
+  },
+  "template:llt11-4": {
+   "name": "Градиентный титр: рамка и плашка",
+   "tags": [
+    "титр",
+    "градиент",
+    "имя"
+   ]
+  },
+  "template:llt11-5": {
+   "name": "Градиентный титр: вертикальная полоса",
+   "tags": [
+    "титр",
+    "градиент",
+    "имя"
+   ]
+  },
+  "template:llt11-6": {
+   "name": "Градиентный титр: имя в одну строку, плашка",
+   "tags": [
+    "титр",
+    "градиент",
+    "имя"
+   ]
+  },
+  "template:llt11-7": {
+   "name": "Градиентный титр: имя в коробке, должность в рамке",
+   "tags": [
+    "титр",
+    "градиент",
+    "имя"
+   ]
+  },
+  "template:llt11-8": {
+   "name": "Градиентный титр: фамилия градиентом",
+   "tags": [
+    "титр",
+    "градиент",
+    "имя"
+   ]
+  },
+  "template:llt11-9": {
+   "name": "Градиентный титр: плашка сверху, рамка",
+   "tags": [
+    "титр",
+    "градиент",
+    "имя"
+   ]
+  },
+  "template:llt12-alexandra": {
+   "name": "Синий титр: полоса открывает имя",
+   "tags": [
+    "титр",
+    "синий",
+    "полоса",
+    "справа"
+   ]
+  },
+  "template:llt12-cajas": {
+   "name": "Синий титр: три растущие коробки",
+   "tags": [
+    "титр",
+    "синий",
+    "коробка"
+   ]
+  },
+  "template:llt12-corchetes": {
+   "name": "Синий титр: две полосы расходятся",
+   "tags": [
+    "титр",
+    "синий",
+    "полоса"
+   ]
+  },
+  "template:llt12-corni": {
+   "name": "Синий титр: имя в коробке, белая плашка",
+   "tags": [
+    "титр",
+    "синий",
+    "коробка"
+   ]
+  },
+  "template:llt12-jacob": {
+   "name": "Синий титр: раскрывающаяся коробка с белой полосой",
+   "tags": [
+    "титр",
+    "синий",
+    "коробка"
+   ]
+  },
+  "template:llt12-jeremi": {
+   "name": "Синий титр: линия опускается и открывает имя",
+   "tags": [
+    "титр",
+    "синий",
+    "подчёркивание"
+   ]
+  },
+  "template:llt12-jeremy": {
+   "name": "Синий титр: имя в две строки, подчёркивание",
+   "tags": [
+    "титр",
+    "синий",
+    "подчёркивание"
+   ]
+  },
+  "template:llt12-john-rojers": {
+   "name": "Синий титр: повёрнутое имя в коробке",
+   "tags": [
+    "титр",
+    "синий",
+    "коробка",
+    "повёрнутый"
+   ]
+  },
+  "template:llt12-john-watson": {
+   "name": "Синий титр: наклонная раскрывающаяся коробка",
+   "tags": [
+    "титр",
+    "синий",
+    "коробка",
+    "наклонный"
+   ]
+  },
+  "template:llt12-marketing": {
+   "name": "Синий титр: буквы проявляются, полоса",
+   "tags": [
+    "титр",
+    "синий",
+    "полоса"
+   ]
+  },
+  "template:llt12-minimal": {
+   "name": "Синий титр: коробка раскрывается из центра",
+   "tags": [
+    "титр",
+    "синий",
+    "коробка"
+   ]
+  },
+  "template:llt12-modern": {
+   "name": "Синий титр: две поднимающиеся линии, подчёркивание",
+   "tags": [
+    "титр",
+    "синий",
+    "подчёркивание"
+   ]
+  },
+  "template:llt12-rosanda": {
+   "name": "Синий титр: полоса смахивает повёрнутое имя",
+   "tags": [
+    "титр",
+    "синий",
+    "полоса",
+    "повёрнутый"
+   ]
+  },
+  "template:llt12-suzanna": {
+   "name": "Синий титр: буквы проявляются и приближаются",
+   "tags": [
+    "титр",
+    "синий",
+    "справа"
+   ]
+  },
+  "template:llt12-titulos": {
+   "name": "Синий титр: коробка опускается, белая полоса",
+   "tags": [
+    "титр",
+    "синий",
+    "коробка"
+   ]
+  },
+  "template:llt12-your-text": {
+   "name": "Синий титр: две линии выходят из полосы",
+   "tags": [
+    "титр",
+    "синий",
+    "полоса",
+    "повёрнутый"
+   ]
+  },
+  "template:llt13-clark": {
+   "name": "Курсивный титр: жирная фамилия, тонкое имя",
+   "tags": [
+    "титр",
+    "белый",
+    "курсив"
+   ]
+  },
+  "template:llt13-david": {
+   "name": "Курсивный титр: должность, полоса и имя",
+   "tags": [
+    "титр",
+    "белый",
+    "курсив",
+    "полоса"
+   ]
+  },
+  "template:llt13-dominic": {
+   "name": "Курсивный титр: крупная подчёркнутая фамилия",
+   "tags": [
+    "титр",
+    "белый",
+    "курсив"
+   ]
+  },
+  "template:llt13-emily": {
+   "name": "Курсивный титр: имя в две строки, подчёркивание",
+   "tags": [
+    "титр",
+    "белый",
+    "курсив"
+   ]
+  },
+  "template:llt13-foster": {
+   "name": "Курсивный титр: должность сверху, линия",
+   "tags": [
+    "титр",
+    "белый",
+    "курсив"
+   ]
+  },
+  "template:llt13-james": {
+   "name": "Курсивный титр: полоса, должность внизу",
+   "tags": [
+    "титр",
+    "белый",
+    "курсив",
+    "полоса"
+   ]
+  },
+  "template:llt13-kingsley": {
+   "name": "Курсивный титр: имя и полоса справа",
+   "tags": [
+    "титр",
+    "белый",
+    "курсив",
+    "полоса",
+    "справа"
+   ]
+  },
+  "template:llt13-maximilian": {
+   "name": "Курсивный титр: подчёркнутое имя и фамилия",
+   "tags": [
+    "титр",
+    "белый",
+    "курсив"
+   ]
+  },
+  "template:llt13-michael": {
+   "name": "Курсивный титр: подчёркнутое имя",
+   "tags": [
+    "титр",
+    "белый",
+    "курсив"
+   ]
+  },
+  "template:llt13-nathaniel": {
+   "name": "Курсивный титр, выровненный вправо",
+   "tags": [
+    "титр",
+    "белый",
+    "курсив",
+    "справа"
+   ]
+  },
+  "template:llt13-olivia": {
+   "name": "Курсивный титр: должность слева, подчёркивание",
+   "tags": [
+    "титр",
+    "белый",
+    "курсив"
+   ]
+  },
+  "template:llt13-sophia": {
+   "name": "Курсивный титр: полоса, должность рядом",
+   "tags": [
+    "титр",
+    "белый",
+    "курсив",
+    "полоса"
+   ]
+  },
+  "template:llt14-barra-azul": {
+   "name": "Красный титр: логотип и тёмно-синяя полоса",
+   "tags": [
+    "титр",
+    "красный",
+    "тёмно-синий",
+    "логотип",
+    "полоса"
+   ]
+  },
+  "template:llt14-barra-gris": {
+   "name": "Красный титр: логотип, серая полоса и плашка",
+   "tags": [
+    "титр",
+    "красный",
+    "тёмно-синий",
+    "логотип",
+    "полоса"
+   ]
+  },
+  "template:llt14-caja-alta": {
+   "name": "Красный титр: высокая коробка с красным краем",
+   "tags": [
+    "титр",
+    "красный",
+    "тёмно-синий",
+    "коробка"
+   ]
+  },
+  "template:llt14-caja-grande": {
+   "name": "Красный титр: большая коробка с заголовком и абзацем",
+   "tags": [
+    "титр",
+    "красный",
+    "тёмно-синий",
+    "коробка"
+   ]
+  },
+  "template:llt14-disenador": {
+   "name": "Красный титр: имя в красной рамке",
+   "tags": [
+    "титр",
+    "красный",
+    "тёмно-синий"
+   ]
+  },
+  "template:llt14-dos-cuadros": {
+   "name": "Красный титр: два квадрата и две строки",
+   "tags": [
+    "титр",
+    "красный",
+    "тёмно-синий"
+   ]
+  },
+  "template:llt14-hexagono": {
+   "name": "Красный титр: логотип в шестиугольнике, белая плашка",
+   "tags": [
+    "титр",
+    "красный",
+    "тёмно-синий",
+    "логотип"
+   ]
+  },
+  "template:llt14-linea-roja": {
+   "name": "Красный титр: логотип, красная линия и широкая коробка",
+   "tags": [
+    "титр",
+    "красный",
+    "тёмно-синий",
+    "логотип",
+    "коробка"
+   ]
+  },
+  "template:llt14-logo-lineas": {
+   "name": "Красный титр: логотип, линия и две строки",
+   "tags": [
+    "титр",
+    "красный",
+    "тёмно-синий",
+    "логотип"
+   ]
+  },
+  "template:llt14-logo-texto": {
+   "name": "Красный титр: логотип и коробка с абзацем",
+   "tags": [
+    "титр",
+    "красный",
+    "тёмно-синий",
+    "логотип",
+    "коробка"
+   ]
+  },
+  "template:llt14-marca": {
+   "name": "Красный титр: логотип, косая черта и имя",
+   "tags": [
+    "титр",
+    "красный",
+    "тёмно-синий",
+    "логотип"
+   ]
+  },
+  "template:llt14-pestana": {
+   "name": "Красный титр: логотип, вкладка и коробка с текстом",
+   "tags": [
+    "титр",
+    "красный",
+    "тёмно-синий",
+    "логотип",
+    "коробка"
+   ]
+  },
+  "template:llt14-primer-titulo": {
+   "name": "Красный титр: логотип, заголовок и коробка с текстом",
+   "tags": [
+    "титр",
+    "красный",
+    "тёмно-синий",
+    "логотип",
+    "коробка"
+   ]
+  },
+  "template:llt15-barra-larga": {
+   "name": "Минималистичный титр: длинная полоса с логотипом и датой",
+   "tags": [
+    "титр",
+    "минимализм",
+    "чёрный",
+    "логотип",
+    "полоса"
+   ]
+  },
+  "template:llt15-descripcion": {
+   "name": "Минималистичный титр: имя и описание",
+   "tags": [
+    "титр",
+    "минимализм",
+    "чёрный"
+   ]
+  },
+  "template:llt15-dos-lineas": {
+   "name": "Минималистичный титр: имя и должность в две строки",
+   "tags": [
+    "титр",
+    "минимализм",
+    "чёрный"
+   ]
+  },
+  "template:llt15-logo-ficha": {
+   "name": "Минималистичный титр: квадрат логотипа и две строки",
+   "tags": [
+    "титр",
+    "минимализм",
+    "чёрный",
+    "логотип"
+   ]
+  },
+  "template:llt15-logo-nombre": {
+   "name": "Минималистичный титр: блок логотипа и имя",
+   "tags": [
+    "титр",
+    "минимализм",
+    "чёрный",
+    "логотип"
+   ]
+  },
+  "template:llt15-nombre": {
+   "name": "Минималистичный титр: имя на белой плашке",
+   "tags": [
+    "титр",
+    "минимализм",
+    "чёрный"
+   ]
+  },
+  "template:llt15-nombre-cargo": {
+   "name": "Минималистичный титр: имя и должность",
+   "tags": [
+    "титр",
+    "минимализм",
+    "чёрный"
+   ]
+  },
+  "template:llt16-barra-nombre": {
+   "name": "Нижняя треть: красная полоса и тонкое имя",
+   "tags": [
+    "нижняя треть",
+    "плашка имени",
+    "подпись",
+    "красный",
+    "полоса",
+    "имя"
+   ]
+  },
+  "template:llt16-cargo-azul": {
+   "name": "Нижняя треть: имя и должность в синем блоке",
+   "tags": [
+    "нижняя треть",
+    "плашка имени",
+    "подпись",
+    "синий",
+    "блок",
+    "имя"
+   ]
+  },
+  "template:llt16-cargo-rojo": {
+   "name": "Нижняя треть: тонкое имя, красная должность",
+   "tags": [
+    "нижняя треть",
+    "плашка имени",
+    "подпись",
+    "красный",
+    "имя"
+   ]
+  },
+  "template:llt16-director": {
+   "name": "Нижняя треть: белая должность, красное имя",
+   "tags": [
+    "нижняя треть",
+    "плашка имени",
+    "подпись",
+    "красный",
+    "белый",
+    "имя"
+   ]
+  },
+  "template:llt16-fotografa": {
+   "name": "Нижняя треть: мелкая должность, имя на бирюзовом",
+   "tags": [
+    "нижняя треть",
+    "плашка имени",
+    "подпись",
+    "имя"
+   ]
+  },
+  "template:llt16-hora": {
+   "name": "Нижняя треть: время и дата",
+   "tags": [
+    "нижняя треть",
+    "плашка имени",
+    "подпись",
+    "дата"
+   ]
+  },
+  "template:llt16-show": {
+   "name": "Нижняя треть: название между двумя линиями",
+   "tags": [
+    "нижняя треть",
+    "плашка имени",
+    "подпись"
+   ]
+  },
+  "template:llt16-titulo-rojo": {
+   "name": "Нижняя треть: заголовок и красный подзаголовок",
+   "tags": [
+    "нижняя треть",
+    "плашка имени",
+    "подпись",
+    "красный"
+   ]
+  },
+  "template:llt16-tu-texto": {
+   "name": "Нижняя треть: оранжевый и серый блок",
+   "tags": [
+    "нижняя треть",
+    "плашка имени",
+    "подпись",
+    "серый",
+    "оранжевый",
+    "блок"
+   ]
+  },
   "template:llt2-barra-etiqueta": {
    "name": "Титр с логотипом: тёмная полоса и зелёная метка",
    "tags": [
@@ -25597,6 +29568,435 @@
     "жёлтый",
     "белый",
     "гость"
+   ]
+  },
+  "template:llt4-cuadro-sube": {
+   "name": "Титр с логотипом: тёмный квадрат, логотип поднимается",
+   "tags": [
+    "титр",
+    "логотип",
+    "имя",
+    "полоса",
+    "зелёный",
+    "квадрат"
+   ]
+  },
+  "template:llt4-ficha-blanca": {
+   "name": "Титр с логотипом: белая карточка раскрывается",
+   "tags": [
+    "титр",
+    "логотип",
+    "имя",
+    "белый",
+    "плашка"
+   ]
+  },
+  "template:llt4-logo-izquierda": {
+   "name": "Титр с логотипом: тёмная полоса, логотип слева",
+   "tags": [
+    "титр",
+    "логотип",
+    "имя",
+    "полоса",
+    "зелёный"
+   ]
+  },
+  "template:llt4-pastilla-barra": {
+   "name": "Титр с логотипом: капсула раскрывается в полосу",
+   "tags": [
+    "титр",
+    "логотип",
+    "имя",
+    "полоса",
+    "зелёный",
+    "капсула"
+   ]
+  },
+  "template:llt5-adam": {
+   "name": "Титр с фото: вертикальное фото, имя поверх",
+   "tags": [
+    "титр",
+    "фото",
+    "имя",
+    "серый",
+    "вертикальный",
+    "по центру"
+   ]
+  },
+  "template:llt5-eddy": {
+   "name": "Титр с фото: круглое фото справа, тёмная полоса",
+   "tags": [
+    "титр",
+    "фото",
+    "имя",
+    "тёмный",
+    "круглый"
+   ]
+  },
+  "template:llt5-elis": {
+   "name": "Титр с фото: круглое фото, имя справа",
+   "tags": [
+    "титр",
+    "фото",
+    "имя",
+    "серый",
+    "круглый"
+   ]
+  },
+  "template:llt5-emma": {
+   "name": "Титр с фото: вертикальное фото с полосами поверх",
+   "tags": [
+    "титр",
+    "фото",
+    "имя",
+    "серый",
+    "вертикальный"
+   ]
+  },
+  "template:llt5-kris": {
+   "name": "Титр с фото: круглое фото сверху, имя снизу",
+   "tags": [
+    "титр",
+    "фото",
+    "имя",
+    "серый",
+    "круглый",
+    "по центру"
+   ]
+  },
+  "template:llt5-martin": {
+   "name": "Титр с фото: квадратное фото, имя справа",
+   "tags": [
+    "титр",
+    "фото",
+    "имя",
+    "серый"
+   ]
+  },
+  "template:llt5-monika": {
+   "name": "Титр с фото: фото справа, имя слева",
+   "tags": [
+    "титр",
+    "фото",
+    "имя",
+    "серый"
+   ]
+  },
+  "template:llt5-rachel": {
+   "name": "Титр с фото: вертикальное фото справа, фамилия контуром",
+   "tags": [
+    "титр",
+    "фото",
+    "имя",
+    "тёмный",
+    "вертикальный"
+   ]
+  },
+  "template:llt5-rose": {
+   "name": "Титр с фото: фото сверху, имя снизу",
+   "tags": [
+    "титр",
+    "фото",
+    "имя",
+    "серый",
+    "по центру"
+   ]
+  },
+  "template:llt6-barra-inclinada": {
+   "name": "Титр: белая наклонная полоса, крупное имя",
+   "tags": [
+    "титр",
+    "имя",
+    "белый",
+    "наклонный"
+   ]
+  },
+  "template:llt6-barrido-rojo": {
+   "name": "Титр: красный блок смахивает и открывает имя",
+   "tags": [
+    "титр",
+    "имя",
+    "красный"
+   ]
+  },
+  "template:llt6-caja-nombre": {
+   "name": "Титр: имя в белой коробке, которая сжимается",
+   "tags": [
+    "титр",
+    "имя",
+    "белый",
+    "коробка"
+   ]
+  },
+  "template:llt6-cursor": {
+   "name": "Титр: блок превращается в курсор и открывает имя",
+   "tags": [
+    "титр",
+    "имя",
+    "белый",
+    "курсор"
+   ]
+  },
+  "template:llt6-divisor": {
+   "name": "Титр: разделительная линия, должность и имя по сторонам",
+   "tags": [
+    "титр",
+    "имя",
+    "линия"
+   ]
+  },
+  "template:llt6-etiqueta-blanca": {
+   "name": "Титр: крупное имя, белая плашка с должностью",
+   "tags": [
+    "титр",
+    "имя",
+    "белый",
+    "этикетка"
+   ]
+  },
+  "template:llt6-etiqueta-roja": {
+   "name": "Титр: имя справа, красная полоса с должностью",
+   "tags": [
+    "титр",
+    "имя",
+    "красный",
+    "справа"
+   ]
+  },
+  "template:llt6-letras": {
+   "name": "Титр: имя появляется по буквам",
+   "tags": [
+    "титр",
+    "имя",
+    "буквы"
+   ]
+  },
+  "template:llt6-linea-fina": {
+   "name": "Титр: тонкая линия, имя и должность по сторонам",
+   "tags": [
+    "титр",
+    "имя",
+    "линия"
+   ]
+  },
+  "template:llt6-subrayado-rojo": {
+   "name": "Титр: крупное имя, красное подчёркивание",
+   "tags": [
+    "титр",
+    "имя",
+    "красный",
+    "подчёркивание"
+   ]
+  },
+  "template:llt7-barra-azul": {
+   "name": "Титр: синяя полоса с логотипом, одна строка",
+   "tags": [
+    "титр",
+    "логотип",
+    "синий"
+   ]
+  },
+  "template:llt7-barra-azul-2": {
+   "name": "Титр: синяя полоса с логотипом, две строки",
+   "tags": [
+    "титр",
+    "логотип",
+    "синий"
+   ]
+  },
+  "template:llt8-barrett": {
+   "name": "Оранжевый титр: длинное подчёркивание",
+   "tags": [
+    "титр",
+    "оранжевый",
+    "имя"
+   ]
+  },
+  "template:llt8-brandon": {
+   "name": "Оранжевый титр: полоса и имя",
+   "tags": [
+    "титр",
+    "оранжевый",
+    "имя"
+   ]
+  },
+  "template:llt8-cameron": {
+   "name": "Оранжевый титр: должность сверху, метки",
+   "tags": [
+    "титр",
+    "оранжевый",
+    "имя"
+   ]
+  },
+  "template:llt8-castro": {
+   "name": "Оранжевый титр: должность в две строки",
+   "tags": [
+    "титр",
+    "оранжевый",
+    "имя"
+   ]
+  },
+  "template:llt8-charley": {
+   "name": "Оранжевый титр: полоса, идущая вниз",
+   "tags": [
+    "титр",
+    "оранжевый",
+    "имя"
+   ]
+  },
+  "template:llt8-daniel": {
+   "name": "Оранжевый титр: блок рядом с должностью",
+   "tags": [
+    "титр",
+    "оранжевый",
+    "имя"
+   ]
+  },
+  "template:llt8-dodson": {
+   "name": "Оранжевый титр: линия, должность справа",
+   "tags": [
+    "титр",
+    "оранжевый",
+    "имя"
+   ]
+  },
+  "template:llt8-hayden": {
+   "name": "Оранжевый титр: высокая полоса и должность",
+   "tags": [
+    "титр",
+    "оранжевый",
+    "имя"
+   ]
+  },
+  "template:llt8-jake": {
+   "name": "Оранжевый титр: длинные линии по сторонам",
+   "tags": [
+    "титр",
+    "оранжевый",
+    "имя"
+   ]
+  },
+  "template:llt8-james": {
+   "name": "Оранжевый титр: блок перед должностью",
+   "tags": [
+    "титр",
+    "оранжевый",
+    "имя"
+   ]
+  },
+  "template:llt8-john": {
+   "name": "Оранжевый титр: скобка",
+   "tags": [
+    "титр",
+    "оранжевый",
+    "имя"
+   ]
+  },
+  "template:llt8-madden": {
+   "name": "Оранжевый титр: линии по бокам от должности",
+   "tags": [
+    "титр",
+    "оранжевый",
+    "имя"
+   ]
+  },
+  "template:llt8-mason": {
+   "name": "Оранжевый титр: длинная линия, должность справа",
+   "tags": [
+    "титр",
+    "оранжевый",
+    "имя"
+   ]
+  },
+  "template:llt8-rason": {
+   "name": "Оранжевый титр: полоса, должность сверху",
+   "tags": [
+    "титр",
+    "оранжевый",
+    "имя"
+   ]
+  },
+  "template:llt8-ryan": {
+   "name": "Оранжевый титр: линия и должность сверху",
+   "tags": [
+    "титр",
+    "оранжевый",
+    "имя"
+   ]
+  },
+  "template:llt9-benjamin": {
+   "name": "Золотой титр: плашка сверху, линия",
+   "tags": [
+    "титр",
+    "золотой",
+    "имя"
+   ]
+  },
+  "template:llt9-emily": {
+   "name": "Золотой титр: имя в белой коробке, плашка",
+   "tags": [
+    "титр",
+    "золотой",
+    "коробка"
+   ]
+  },
+  "template:llt9-katherine": {
+   "name": "Золотой титр: плашка и точка справа",
+   "tags": [
+    "титр",
+    "золотой",
+    "курсив",
+    "справа"
+   ]
+  },
+  "template:llt9-max": {
+   "name": "Золотой титр: имя в коробке, должность на плашке",
+   "tags": [
+    "титр",
+    "золотой",
+    "курсив",
+    "коробка"
+   ]
+  },
+  "template:llt9-natalie": {
+   "name": "Золотой титр: линия с точкой",
+   "tags": [
+    "титр",
+    "золотой",
+    "имя"
+   ]
+  },
+  "template:llt9-vanja": {
+   "name": "Золотой титр: тонкий курсив, квадраты",
+   "tags": [
+    "титр",
+    "золотой",
+    "курсив"
+   ]
+  },
+  "template:llt9-vanja-negrita": {
+   "name": "Золотой титр: жирный курсив, квадраты",
+   "tags": [
+    "титр",
+    "золотой",
+    "курсив"
+   ]
+  },
+  "template:llt9-victoria": {
+   "name": "Золотой титр: полоса, жирный курсив",
+   "tags": [
+    "титр",
+    "золотой",
+    "курсив"
+   ]
+  },
+  "template:llt9-yaroslava": {
+   "name": "Золотой титр: квадрат с должностью справа",
+   "tags": [
+    "титр",
+    "золотой",
+    "курсив",
+    "справа"
    ]
   },
   "template:lt-andy": {
@@ -31292,6 +35692,2337 @@
     "кадры"
    ]
   },
+  "template:tit1-creative": {
+   "name": "Титр: креативные заголовки с каракулями",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация"
+   ]
+  },
+  "template:tit1-design": {
+   "name": "Титр: дизайн в облаке",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация"
+   ]
+  },
+  "template:tit1-follow": {
+   "name": "Титр: подписывайтесь на розовой ленте",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "розовый"
+   ]
+  },
+  "template:tit1-likecount": {
+   "name": "Титр: лайк со счётчиком и WOW",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "лайк",
+    "счётчик"
+   ]
+  },
+  "template:tit1-likenew": {
+   "name": "Титр: лайк новому видео со стрелкой",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "лайк",
+    "видео"
+   ]
+  },
+  "template:tit1-likethis": {
+   "name": "Титр: лайк этому видео с цветком",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "лайк",
+    "видео"
+   ]
+  },
+  "template:tit1-smile": {
+   "name": "Титр: улыбнись и будь счастлив",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация"
+   ]
+  },
+  "template:tit1-subscribe": {
+   "name": "Титр: подписка с цветами",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "подписка"
+   ]
+  },
+  "template:tit2-2022": {
+   "name": "Титр: рельефный год",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "год"
+   ]
+  },
+  "template:tit2-be-awesome": {
+   "name": "Титр: будь крутым с фото",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "фото"
+   ]
+  },
+  "template:tit2-big-black": {
+   "name": "Титр: BIG BLACK с плашкой",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "чёрный"
+   ]
+  },
+  "template:tit2-circulos": {
+   "name": "Титр: шесть кругов",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "круг"
+   ]
+  },
+  "template:tit2-ciudad": {
+   "name": "Титр: наклонный титр города над фото",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "фото"
+   ]
+  },
+  "template:tit2-creative-inclinado": {
+   "name": "Титр: огромное наклонное слово",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация"
+   ]
+  },
+  "template:tit2-creative-pack": {
+   "name": "Титр: падающие буквы",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "падение"
+   ]
+  },
+  "template:tit2-creative-relieve": {
+   "name": "Титр: рельефное слово creative",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация"
+   ]
+  },
+  "template:tit2-event-music": {
+   "name": "Титр: название события, опускается фото",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "фото",
+    "событие"
+   ]
+  },
+  "template:tit2-hello-world": {
+   "name": "Титр: Hello World! курсивом",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация"
+   ]
+  },
+  "template:tit2-montserrat-bold": {
+   "name": "Титр: две чёрные полосы со словами",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "чёрный",
+    "полоса"
+   ]
+  },
+  "template:tit2-new-trend": {
+   "name": "Титр: New Trend, выворачивающийся наизнанку",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация"
+   ]
+  },
+  "template:tit2-new-typography": {
+   "name": "Титр: полосы со словами курсивом",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "полоса"
+   ]
+  },
+  "template:tit2-trend": {
+   "name": "Титр: тренд, новая типографика",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация"
+   ]
+  },
+  "template:tit2-trend-doble": {
+   "name": "Титр: тренд из двух половин",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация"
+   ]
+  },
+  "template:tit2-typo-slide": {
+   "name": "Титр: белая карточка",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "белый"
+   ]
+  },
+  "template:tit3-20-animation": {
+   "name": "Титр: 20 Animation",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация"
+   ]
+  },
+  "template:tit3-20-cuadro": {
+   "name": "Титр: 20 Animated в рамке",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "рамка"
+   ]
+  },
+  "template:tit3-best-day": {
+   "name": "Титр: блок курсивом и рамка",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "рамка",
+    "блок"
+   ]
+  },
+  "template:tit3-best-event": {
+   "name": "Титр: наклонный блок и рынок",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "блок"
+   ]
+  },
+  "template:tit3-circulo": {
+   "name": "Титр: имя над кругом",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "круг",
+    "имя"
+   ]
+  },
+  "template:tit3-design-success": {
+   "name": "Титр: дизайн для успеха с кругом",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "круг"
+   ]
+  },
+  "template:tit3-disenador": {
+   "name": "Титр: блок должности и имя",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "блок",
+    "имя"
+   ]
+  },
+  "template:tit3-dos-triangulos": {
+   "name": "Титр: имя между двумя треугольниками",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "треугольник",
+    "имя"
+   ]
+  },
+  "template:tit3-evento": {
+   "name": "Титр: наклонное событие с рамками",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "рамка",
+    "событие"
+   ]
+  },
+  "template:tit3-globo": {
+   "name": "Титр: речевой пузырь",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "пузырь"
+   ]
+  },
+  "template:tit3-holiday": {
+   "name": "Титр: праздник с датой",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "дата"
+   ]
+  },
+  "template:tit3-life": {
+   "name": "Титр: Life is life в рамке",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "рамка"
+   ]
+  },
+  "template:tit3-nombre-caja": {
+   "name": "Титр: блок с именем, две строки",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "блок",
+    "имя"
+   ]
+  },
+  "template:tit3-nombre-cargo-arriba": {
+   "name": "Титр: блок с именем, должность сверху",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "блок",
+    "имя"
+   ]
+  },
+  "template:tit3-nombre-lineas": {
+   "name": "Титр: имя между двумя линиями",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "имя"
+   ]
+  },
+  "template:tit3-nombre-sombra": {
+   "name": "Титр: блок со смещённой рамкой",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "рамка",
+    "блок"
+   ]
+  },
+  "template:tit3-rombo": {
+   "name": "Титр: событие в ромбе",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "ромб",
+    "событие"
+   ]
+  },
+  "template:tit3-titles-pack": {
+   "name": "Титр: две наклонные рамки",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "рамка"
+   ]
+  },
+  "template:tit3-triangulo": {
+   "name": "Титр: имя над треугольником",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "треугольник",
+    "имя"
+   ]
+  },
+  "template:tit3-unique-animated": {
+   "name": "Титр: три части курсивом",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация"
+   ]
+  },
+  "template:tit4-algo-nuevo": {
+   "name": "Титр: блок с узором и слова",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "блок"
+   ]
+  },
+  "template:tit4-anio": {
+   "name": "Титр: год с параллелограммом",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "год"
+   ]
+  },
+  "template:tit4-art-festival": {
+   "name": "Титр: искусство, блок и фестиваль",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "блок",
+    "фестиваль"
+   ]
+  },
+  "template:tit4-autumn-event": {
+   "name": "Титр: слово в блоке и ещё одно ниже",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "блок"
+   ]
+  },
+  "template:tit4-dont-stop": {
+   "name": "Титр: фраза в круге",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "круг"
+   ]
+  },
+  "template:tit4-etiqueta-nombre": {
+   "name": "Титр: плашка, имя и должность",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "имя"
+   ]
+  },
+  "template:tit4-facil": {
+   "name": "Титр: слова и жёлтая полоса",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "жёлтый",
+    "полоса"
+   ]
+  },
+  "template:tit4-fecha-cajas": {
+   "name": "Титр: дата и время в блоках",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "блок",
+    "дата"
+   ]
+  },
+  "template:tit4-festival-info": {
+   "name": "Титр: дата и подробности фестиваля",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "дата",
+    "фестиваль"
+   ]
+  },
+  "template:tit4-informacion": {
+   "name": "Титр: информация в круге",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "круг"
+   ]
+  },
+  "template:tit4-logo-nombre": {
+   "name": "Титр: логотип, плашка и имя",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "имя"
+   ]
+  },
+  "template:tit4-nombre-caja": {
+   "name": "Титр: имя в жёлтом блоке",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "жёлтый",
+    "блок"
+   ]
+  },
+  "template:tit4-nombre-cajas": {
+   "name": "Титр: имя и должность в блоках",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "блок",
+    "имя"
+   ]
+  },
+  "template:tit4-presents": {
+   "name": "Титр: presents в рамке",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "рамка"
+   ]
+  },
+  "template:tit4-productor": {
+   "name": "Титр: имя в рамке и плашка",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "рамка",
+    "имя"
+   ]
+  },
+  "template:tit4-simple-design": {
+   "name": "Титр: два блока влетают",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "блок"
+   ]
+  },
+  "template:tit4-speakers": {
+   "name": "Титр: хештег в большом блоке",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "блок",
+    "хештег"
+   ]
+  },
+  "template:tit4-triangulo": {
+   "name": "Титр: число в треугольнике",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "треугольник"
+   ]
+  },
+  "template:tit4-twenty": {
+   "name": "Титр: двадцать креативных заголовков",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация"
+   ]
+  },
+  "template:tit4-ubicacion": {
+   "name": "Титр: место на метке",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация"
+   ]
+  },
+  "template:tit5-canal-tarjeta": {
+   "name": "Титр: квадрат поворачивается и выпускает слово",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "квадрат"
+   ]
+  },
+  "template:tit5-compartir": {
+   "name": "Титр: фиолетовая плашка со сменой слов",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "фиолетовый"
+   ]
+  },
+  "template:tit5-condensada": {
+   "name": "Титр: узкий шрифт печатает сам себя",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация"
+   ]
+  },
+  "template:tit5-creative": {
+   "name": "Титр: сиреневое слово выпрямляется",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация"
+   ]
+  },
+  "template:tit5-dinamico": {
+   "name": "Титр: двойная оранжевая рамка выпрямляется",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "оранжевый",
+    "рамка"
+   ]
+  },
+  "template:tit5-directo": {
+   "name": "Титр: прямой эфир с наклоном",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация"
+   ]
+  },
+  "template:tit5-etiqueta": {
+   "name": "Титр: плашка раскрывается и наклоняется",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация"
+   ]
+  },
+  "template:tit5-hashtag": {
+   "name": "Титр: печатаемый хештег на жёлтом",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "жёлтый",
+    "печать"
+   ]
+  },
+  "template:tit5-logo-canal": {
+   "name": "Титр: кнопка YouTube и название канала",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "youtube",
+    "имя"
+   ]
+  },
+  "template:tit5-logo-negro": {
+   "name": "Титр: кнопка YouTube на чёрном",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "youtube",
+    "чёрный"
+   ]
+  },
+  "template:tit5-moderno": {
+   "name": "Титр: кнопка YouTube превращается в круг",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "youtube",
+    "круг"
+   ]
+  },
+  "template:tit5-no-pierdas": {
+   "name": "Титр: фраза в рамке, меняющей форму",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "рамка"
+   ]
+  },
+  "template:tit5-pila": {
+   "name": "Титр: падающие блоки лайк, поделиться, подписка",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "подписка",
+    "лайк"
+   ]
+  },
+  "template:tit5-rombo": {
+   "name": "Титр: белый ромб на красном",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "красный",
+    "белый"
+   ]
+  },
+  "template:tit5-seguinos": {
+   "name": "Титр: переворачивающаяся синяя монета",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "синий"
+   ]
+  },
+  "template:tit5-social-media": {
+   "name": "Титр: вращающееся кольцо на жёлтом",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "жёлтый",
+    "кольцо"
+   ]
+  },
+  "template:tit5-soporte": {
+   "name": "Титр: ряды блоков и полоса",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация"
+   ]
+  },
+  "template:tit5-tu-canal": {
+   "name": "Титр: рамка переворачивается в белый блок",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "белый",
+    "рамка"
+   ]
+  },
+  "template:tit5-tutorial": {
+   "name": "Титр: урок, выскакивающий по буквам",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация"
+   ]
+  },
+  "template:tit5-verano": {
+   "name": "Титр: молния и падающее слово",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "падение"
+   ]
+  },
+  "template:tit6-always-strive": {
+   "name": "Титр: падающие буквы и восклицательный знак",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "падение"
+   ]
+  },
+  "template:tit6-art-always": {
+   "name": "Титр: полосы, контур и поднимающиеся буквы",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "полосы"
+   ]
+  },
+  "template:tit6-awesome": {
+   "name": "Титр: белый блок и пузырь над фото",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "белый",
+    "фото"
+   ]
+  },
+  "template:tit6-be-strong": {
+   "name": "Титр: зачёркнутая фраза разворачивается назад",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация"
+   ]
+  },
+  "template:tit6-big": {
+   "name": "Титр: гигантское слово с тенью и чёрная панель",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "чёрный"
+   ]
+  },
+  "template:tit6-big-text": {
+   "name": "Титр: число, контурные слова и фото",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "фото"
+   ]
+  },
+  "template:tit6-ciencia": {
+   "name": "Титр: панель переворачивает фразу, рамка и крест",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "рамка"
+   ]
+  },
+  "template:tit6-color-change": {
+   "name": "Титр: зачёркнутое слово загорается",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация"
+   ]
+  },
+  "template:tit6-corporate": {
+   "name": "Титр: чёрная полоса растёт за фразой",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "чёрный"
+   ]
+  },
+  "template:tit6-create-ideas": {
+   "name": "Титр: поднимающиеся буквы и решётка",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация"
+   ]
+  },
+  "template:tit6-dynamism": {
+   "name": "Титр: слово загорается в рамке с крестом",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "рамка"
+   ]
+  },
+  "template:tit6-enjoy": {
+   "name": "Титр: вращающийся квадрат и разделённое слово",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "квадрат"
+   ]
+  },
+  "template:tit6-fashion": {
+   "name": "Титр: блок с тремя фото позади",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "фото",
+    "блок"
+   ]
+  },
+  "template:tit6-health": {
+   "name": "Титр: лента перевёрнутых слов между белым и чёрным",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "белый",
+    "чёрный"
+   ]
+  },
+  "template:tit6-look": {
+   "name": "Титр: серый блок над гигантскими буквами",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "серый",
+    "блок"
+   ]
+  },
+  "template:tit6-never-give-up": {
+   "name": "Титр: фраза печатается над лентой фото",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "фото",
+    "печать"
+   ]
+  },
+  "template:tit6-typography": {
+   "name": "Титр: белый блок с плашкой над фото",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "белый",
+    "фото"
+   ]
+  },
+  "template:tit6-visuality": {
+   "name": "Титр: три загорающиеся линии и указатель",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация"
+   ]
+  },
+  "template:tit6-wonderful": {
+   "name": "Титр: три сходящихся слова и линии",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация"
+   ]
+  },
+  "template:tit6-you": {
+   "name": "Титр: слово, заполненное фото",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "фото"
+   ]
+  },
+  "template:tit7-always-strive": {
+   "name": "Титр: фраза с красной тенью и знаком",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "красный"
+   ]
+  },
+  "template:tit7-art-always": {
+   "name": "Титр: красные, голубые и белые буквы",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "красный",
+    "белый"
+   ]
+  },
+  "template:tit7-big": {
+   "name": "Титр: блок с тенью и два цветных квадрата",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "квадрат",
+    "блок"
+   ]
+  },
+  "template:tit7-ciencia": {
+   "name": "Титр: чёрный блок с брусковыми буквами",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "чёрный",
+    "блок"
+   ]
+  },
+  "template:tit7-colorful": {
+   "name": "Титр: белая полоса с фото внутри слова",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "белый",
+    "фото"
+   ]
+  },
+  "template:tit7-concept-azul": {
+   "name": "Титр: широкое слово на синем",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "синий"
+   ]
+  },
+  "template:tit7-concept-oscuro": {
+   "name": "Титр: синий блок над большими буквами",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "синий",
+    "блок"
+   ]
+  },
+  "template:tit7-create": {
+   "name": "Титр: серые слова и белая карточка",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "белый",
+    "серый"
+   ]
+  },
+  "template:tit7-dynamic": {
+   "name": "Титр: смыкающаяся рамка и синий знак",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "синий",
+    "рамка"
+   ]
+  },
+  "template:tit7-easy-editing": {
+   "name": "Титр: красные буквы на жёлтом узоре",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "красный",
+    "жёлтый"
+   ]
+  },
+  "template:tit7-enjoy": {
+   "name": "Титр: вращающиеся квадраты и разделённое слово",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "квадрат"
+   ]
+  },
+  "template:tit7-fashion": {
+   "name": "Титр: фото внутри гигантских букв и блок",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "фото",
+    "блок"
+   ]
+  },
+  "template:tit7-health-box": {
+   "name": "Титр: квадрат со стеной слов между двумя рядами",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "квадрат"
+   ]
+  },
+  "template:tit7-health-wall": {
+   "name": "Титр: диагональная стена слов",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация"
+   ]
+  },
+  "template:tit7-look": {
+   "name": "Титр: гигантские буквы и синяя рамка",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "синий",
+    "рамка"
+   ]
+  },
+  "template:tit7-love": {
+   "name": "Титр: слово скользит по розовому фото",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "розовый",
+    "фото"
+   ]
+  },
+  "template:tit7-modern": {
+   "name": "Титр: элегантная антиква с числом",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация"
+   ]
+  },
+  "template:tit7-never-give-up": {
+   "name": "Титр: четыре фото ступенями и фраза",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "фото"
+   ]
+  },
+  "template:tit7-newest": {
+   "name": "Титр: контурное слово с зелёной полосой",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "полоса"
+   ]
+  },
+  "template:tit7-scene": {
+   "name": "Титр: полосы, белая панель и число над фото",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "белый",
+    "фото"
+   ]
+  },
+  "template:tit7-text-animation": {
+   "name": "Титр: строки текста над фото",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "фото"
+   ]
+  },
+  "template:tit7-typography": {
+   "name": "Титр: розовая карточка с буквами вокруг",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "розовый"
+   ]
+  },
+  "template:tk0-cintas-telefono": {
+   "name": "Сторис: ленты со словами и телефон",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "вертикальный",
+    "ленты",
+    "телефон"
+   ]
+  },
+  "template:tk0-collage-azul": {
+   "name": "Сторис: коллаж из трёх фото в синем и чёрном",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "вертикальный",
+    "коллаж",
+    "фотографии"
+   ]
+  },
+  "template:tk0-collage-negro": {
+   "name": "Сторис: коллаж из шести фото со стикерами",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "вертикальный",
+    "коллаж",
+    "фотографии"
+   ]
+  },
+  "template:tk0-creas-tendencias": {
+   "name": "Сторис: вы создаёте тренды? красный пузырь",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "вертикальный",
+    "вопрос",
+    "розовый"
+   ]
+  },
+  "template:tk0-empieza-aqui": {
+   "name": "Сторис: тренды начинаются здесь",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "вертикальный",
+    "тренд",
+    "синий"
+   ]
+  },
+  "template:tk0-mision": {
+   "name": "Сторис: наша миссия с фото на красном",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "вертикальный",
+    "миссия",
+    "красный"
+   ]
+  },
+  "template:tk0-nueva-era": {
+   "name": "Сторис: новая эра видео",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "вертикальный",
+    "видео",
+    "красный"
+   ]
+  },
+  "template:tk0-nuevo-video": {
+   "name": "Сторис: NEW VIDEO с телефоном",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "вертикальный",
+    "видео",
+    "новое"
+   ]
+  },
+  "template:tk0-plantilla": {
+   "name": "Сторис: шаблон для всех с фото",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "вертикальный",
+    "шаблон",
+    "синий"
+   ]
+  },
+  "template:tk0-plataforma": {
+   "name": "Сторис: новая платформа с двумя телефонами",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "вертикальный",
+    "платформа",
+    "чёрный"
+   ]
+  },
+  "template:tk0-promo-negro": {
+   "name": "Сторис: SUPER PROMO в синем пузыре на чёрном",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "вертикальный",
+    "промо",
+    "чёрный"
+   ]
+  },
+  "template:tk0-promo-x": {
+   "name": "Сторис: PROMO со скрещенными лентами",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "вертикальный",
+    "промо",
+    "чёрный"
+   ]
+  },
+  "template:tk0-que-ves": {
+   "name": "Сторис: что вы любите смотреть? чат",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "вертикальный",
+    "чат",
+    "вопрос"
+   ]
+  },
+  "template:tk0-recordatorio": {
+   "name": "Сторис: опрос-напоминание поверх видео",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "вертикальный",
+    "опрос",
+    "напоминание"
+   ]
+  },
+  "template:tk0-tendencias": {
+   "name": "Сторис: вирусные тренды в розовом и синем",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "вертикальный",
+    "тренд",
+    "розовый"
+   ]
+  },
+  "template:tk0-trendy": {
+   "name": "Сторис: TRENDY STYLE с цветными полосами",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "вертикальный",
+    "тренд",
+    "синий"
+   ]
+  },
+  "template:tk1-tipografia": {
+   "name": "Типографский опенер: по слову на каждый удар",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "открывашка",
+    "типографика",
+    "слова"
+   ]
+  },
+  "template:tk2-alice": {
+   "name": "Сторис: Alice Braun с фото",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "имя",
+    "фото",
+    "синий"
+   ]
+  },
+  "template:tk2-austin": {
+   "name": "Сторис: Austin Grant с новым видео",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "имя",
+    "фото",
+    "чёрный"
+   ]
+  },
+  "template:tk2-baile": {
+   "name": "Сторис: Just dance с тремя фото",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "танцы",
+    "фотографии",
+    "синий"
+   ]
+  },
+  "template:tk2-belleza": {
+   "name": "Сторис: About Beauty for You",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "красота",
+    "фото",
+    "чёрный"
+   ]
+  },
+  "template:tk2-blogger": {
+   "name": "Сторис: Social blogger с кольцами",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "кольца",
+    "фото",
+    "чёрный"
+   ]
+  },
+  "template:tk2-contenido": {
+   "name": "Сторис: разный контент в сетке",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "сетка",
+    "фотографии",
+    "чёрный"
+   ]
+  },
+  "template:tk2-follow": {
+   "name": "Сторис: подписка с сердцем",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "подписаться",
+    "сердце",
+    "чёрный"
+   ]
+  },
+  "template:tk2-isabella": {
+   "name": "Сторис: Isabella Walker с фото",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "имя",
+    "фото",
+    "синий"
+   ]
+  },
+  "template:tk2-lifestyle": {
+   "name": "Сторис: #lifestyle с видео",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "образ жизни",
+    "видео",
+    "красный"
+   ]
+  },
+  "template:tk2-new": {
+   "name": "Сторис: NEW с сердцами",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "новое",
+    "фото",
+    "чёрный"
+   ]
+  },
+  "template:tk2-nuevo-video": {
+   "name": "Сторис: новое видео с фото",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "новое видео",
+    "фото",
+    "красный"
+   ]
+  },
+  "template:tk2-perfil": {
+   "name": "Сторис: профиль с подписчиками",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "профиль",
+    "подписчики",
+    "фото"
+   ]
+  },
+  "template:tk2-suscriptores": {
+   "name": "Сторис: получите новых подписчиков",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "подписчики",
+    "фотографии",
+    "чёрный"
+   ]
+  },
+  "template:tk2-tarjeta": {
+   "name": "Сторис: карточка с вашим логотипом и стикерами",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "логотип",
+    "стикеры",
+    "синий"
+   ]
+  },
+  "template:tk2-tendencias": {
+   "name": "Сторис: тренды с красной полосой",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "тренды",
+    "фото",
+    "синий"
+   ]
+  },
+  "template:tk3-diseno": {
+   "name": "Сторис: Fashion Design с тонкими линиями",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "мода",
+    "пастель",
+    "дизайн"
+   ]
+  },
+  "template:tk3-estilo-de-vida": {
+   "name": "Сторис: Lifestyle с вращающимся треугольником",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "мода",
+    "пастель",
+    "образ жизни"
+   ]
+  },
+  "template:tk3-gracias": {
+   "name": "Заключительная заставка: Thanks For Watching!",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "мода",
+    "пастель",
+    "финал"
+   ]
+  },
+  "template:tk3-rebajas": {
+   "name": "Сторис: модная распродажа с блоком 50% OFF",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "мода",
+    "пастель",
+    "распродажа"
+   ]
+  },
+  "template:tk3-rebajas-2": {
+   "name": "Сторис: Fashion Sale с 50% поверх фото",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "мода",
+    "пастель",
+    "распродажа"
+   ]
+  },
+  "template:tk3-siguiente-nivel": {
+   "name": "Сторис: The Next Level Of Fashion с вертикальным 50% OFF",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "мода",
+    "пастель",
+    "скидка"
+   ]
+  },
+  "template:tk3-siguiente-nivel-2": {
+   "name": "Сторис: The Next Level Of Fashion с Get 50% OFF",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "мода",
+    "пастель",
+    "скидка"
+   ]
+  },
+  "template:tk3-sorteo": {
+   "name": "Сторис: Giveaway!",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "мода",
+    "пастель",
+    "розыгрыш"
+   ]
+  },
+  "template:tk3-tendencia": {
+   "name": "Сторис: Keep It Trendy с 50%",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "мода",
+    "пастель",
+    "тренд"
+   ]
+  },
+  "template:tk4-dynamic": {
+   "name": "Динамичный опенер: красные и чёрные фото",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "открывашка",
+    "слайд-шоу",
+    "динамичный"
+   ]
+  },
+  "template:tk4-fast": {
+   "name": "Быстрый опенер: слова поверх цветных фото",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "открывашка",
+    "слайд-шоу",
+    "быстрый"
+   ]
+  },
+  "template:tk4-modern": {
+   "name": "Современный опенер: жёлтый, золотой и сетка",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "открывашка",
+    "слайд-шоу",
+    "современный"
+   ]
+  },
+  "template:tk4-rhythm": {
+   "name": "Ритмичный опенер: градиентные слова",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "открывашка",
+    "слайд-шоу",
+    "ритм"
+   ]
+  },
+  "template:tk4-stomp": {
+   "name": "Стомп-опенер: по слову на каждый удар с фото",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "открывашка",
+    "слайд-шоу",
+    "стомп"
+   ]
+  },
+  "template:tk4-typo": {
+   "name": "Типографский опенер: чёрные слова и фото",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "открывашка",
+    "слайд-шоу",
+    "типографика"
+   ]
+  },
+  "template:tk5-carefree": {
+   "name": "Сторис: вертикальное CAREFREE LIVING",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "чёрно-белый",
+    "фото",
+    "вертикальный"
+   ]
+  },
+  "template:tk5-endless": {
+   "name": "Сторис: ENDLESS LOVING CONVERSATIONS",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "чёрно-белый",
+    "текст"
+   ]
+  },
+  "template:tk5-find": {
+   "name": "Сторис: FIND HIDDEN GEMS",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "чёрно-белый",
+    "текст"
+   ]
+  },
+  "template:tk5-follow": {
+   "name": "Сторис: FOLLOW YOUR DREAM",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "чёрно-белый",
+    "текст"
+   ]
+  },
+  "template:tk5-foto-cae": {
+   "name": "Сторис: фото, падающее и поднимающееся",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "чёрно-белый",
+    "фото"
+   ]
+  },
+  "template:tk5-foto-lado": {
+   "name": "Сторис: фото, въезжающее сбоку",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "чёрно-белый",
+    "фото"
+   ]
+  },
+  "template:tk5-foto-sube": {
+   "name": "Сторис: поднимающееся фото",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "чёрно-белый",
+    "фото"
+   ]
+  },
+  "template:tk5-freedom": {
+   "name": "Сторис: FREEDOM и PLEASING с двумя фото",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "чёрно-белый",
+    "фото",
+    "коллаж"
+   ]
+  },
+  "template:tk5-join": {
+   "name": "Сторис: JOIN THE JOURNEY, призыв к действию",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "чёрно-белый",
+    "призыв к действию",
+    "логотип"
+   ]
+  },
+  "template:tk5-laughter": {
+   "name": "Сторис: LAUGHTER OF A LOVED ONE",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "чёрно-белый",
+    "фото"
+   ]
+  },
+  "template:tk5-stars": {
+   "name": "Сторис: STARS и DREAMS в колонках",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "чёрно-белый",
+    "фото",
+    "коллаж"
+   ]
+  },
+  "template:tk5-sunshine": {
+   "name": "Сторис: SUNSHINE FILLS SKIES с фото",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "чёрно-белый",
+    "фото",
+    "коллаж"
+   ]
+  },
+  "template:tk6-discovery": {
+   "name": "Сторис: коллаж DISCOVERY и SPACESUIT",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "бирюзовый",
+    "фото",
+    "коллаж"
+   ]
+  },
+  "template:tk6-dreams": {
+   "name": "Сторис: коллаж DREAMS",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "бирюзовый",
+    "фото",
+    "коллаж"
+   ]
+  },
+  "template:tk6-flower": {
+   "name": "Сторис: коллаж FLOWER BEAUTY",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "бирюзовый",
+    "фото",
+    "коллаж"
+   ]
+  },
+  "template:tk6-foto-cae": {
+   "name": "Сторис: фото в рамке, падающее сверху",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "бирюзовый",
+    "фото"
+   ]
+  },
+  "template:tk6-foto-lado": {
+   "name": "Сторис: фото в рамке, въезжающее сбоку",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "бирюзовый",
+    "фото"
+   ]
+  },
+  "template:tk6-freedom": {
+   "name": "Сторис: колонка FREEDOM",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "бирюзовый",
+    "фото",
+    "вертикальный"
+   ]
+  },
+  "template:tk6-modern": {
+   "name": "Сторис: коллаж MODERN STORIES",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "бирюзовый",
+    "фото",
+    "коллаж"
+   ]
+  },
+  "template:tk6-savor": {
+   "name": "Сторис: SAVOR LIFE'S GOODNESS, призыв к действию",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "бирюзовый",
+    "призыв к действию",
+    "логотип"
+   ]
+  },
+  "template:tk6-starry": {
+   "name": "Сторис: STARRY NIGHTS, сжимающиеся в коллаж",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "бирюзовый",
+    "фото",
+    "коллаж"
+   ]
+  },
+  "template:tk6-times-now": {
+   "name": "Сторис: TIME'S NOW с двумя фото",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "бирюзовый",
+    "фото",
+    "вертикальный"
+   ]
+  },
+  "template:tk6-wind": {
+   "name": "Сторис: WIND и AURA с двумя фото",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "бирюзовый",
+    "фото",
+    "коллаж"
+   ]
+  },
+  "template:tk7-blooms": {
+   "name": "Сторис: BLOOMS ALL AROUND в красном",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "цветы",
+    "цвета",
+    "мода"
+   ]
+  },
+  "template:tk7-bold": {
+   "name": "Сторис: коллаж BOLD COLORS SWAY",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "цветы",
+    "цвета",
+    "мода"
+   ]
+  },
+  "template:tk7-breezy": {
+   "name": "Сторис: коллаж BREEZY SPRING ATTIRE",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "цветы",
+    "цвета",
+    "мода"
+   ]
+  },
+  "template:tk7-canvas": {
+   "name": "Сторис: коллаж CANVAS LIFE BODY",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "цветы",
+    "цвета",
+    "мода"
+   ]
+  },
+  "template:tk7-characters": {
+   "name": "Сторис: COLORFUL CHARACTERS под фото",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "цветы",
+    "цвета",
+    "мода"
+   ]
+  },
+  "template:tk7-colorful-and": {
+   "name": "Сторис: COLORFUL AND CONFIDENCE между двумя фото",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "цветы",
+    "цвета",
+    "мода"
+   ]
+  },
+  "template:tk7-discover-more": {
+   "name": "Финальная сторис: DISCOVER MORE с вашим логотипом",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "цветы",
+    "цвета",
+    "мода"
+   ]
+  },
+  "template:tk7-embrace": {
+   "name": "Сторис: EMBRACE и EXPRESSION вокруг фото",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "цветы",
+    "цвета",
+    "мода"
+   ]
+  },
+  "template:tk7-embrace-your-life": {
+   "name": "Сторис: EMBRACE YOUR LIFE с четырьмя фото",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "цветы",
+    "цвета",
+    "мода"
+   ]
+  },
+  "template:tk7-flower": {
+   "name": "Сторис: FLOWER PARADISE DELIGHT в синем",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "цветы",
+    "цвета",
+    "мода"
+   ]
+  },
+  "template:tk7-sale": {
+   "name": "Сторис: SALE SALE SALE с двумя фото",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "цветы",
+    "цвета",
+    "мода"
+   ]
+  },
+  "template:tk7-savor": {
+   "name": "Сторис: SAVOR MOMENTS NOW с колонкой фото",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "цветы",
+    "цвета",
+    "мода"
+   ]
+  },
+  "template:tk8-apple-pie": {
+   "name": "Сторис: SWEET APPLE PIE и SAVOR EVERY BITE",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "еда",
+    "ресторан",
+    "жёлтый"
+   ]
+  },
+  "template:tk8-bbq": {
+   "name": "Сторис: BBQ SMOKE RISING с пятью фото",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "еда",
+    "ресторан",
+    "жёлтый"
+   ]
+  },
+  "template:tk8-big-sale": {
+   "name": "Сторис: BIG -50% SALE с тремя фото",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "еда",
+    "ресторан",
+    "жёлтый"
+   ]
+  },
+  "template:tk8-buy-now": {
+   "name": "Сторис: BUY NOW с пятью фото",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "еда",
+    "ресторан",
+    "жёлтый"
+   ]
+  },
+  "template:tk8-crispy-fries": {
+   "name": "Сторис: CRISPY GOLDEN FRIES с тремя фото",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "еда",
+    "ресторан",
+    "жёлтый"
+   ]
+  },
+  "template:tk8-discover-flavors": {
+   "name": "Финальная сторис: DISCOVER NEW FLAVORS с вашим логотипом",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "еда",
+    "ресторан",
+    "жёлтый"
+   ]
+  },
+  "template:tk8-fast-food": {
+   "name": "Сторис: FAST FOOD ADDICTION",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "еда",
+    "ресторан",
+    "жёлтый"
+   ]
+  },
+  "template:tk8-food-lovers": {
+   "name": "Сторис: FOOD LOVERS UNITE с четырьмя фото",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "еда",
+    "ресторан",
+    "жёлтый"
+   ]
+  },
+  "template:tk8-fried-chicken": {
+   "name": "Сторис: FRIED CHICKEN DELIGHT",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "еда",
+    "ресторан",
+    "жёлтый"
+   ]
+  },
+  "template:tk8-hot-dogs": {
+   "name": "Сторис: HOT DOGS и CRISPY FRIES",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "еда",
+    "ресторан",
+    "жёлтый"
+   ]
+  },
+  "template:tk8-lowest-price": {
+   "name": "Сторис: THE LOWEST PRICE",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "еда",
+    "ресторан",
+    "жёлтый"
+   ]
+  },
+  "template:tk8-new-york-pizza": {
+   "name": "Сторис: NEW YORK PIZZA, от полного экрана до коллажа",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "еда",
+    "ресторан",
+    "жёлтый"
+   ]
+  },
+  "template:tk8-nice-diners": {
+   "name": "Сторис: NICE DINERS с высоким фото",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "еда",
+    "ресторан",
+    "жёлтый"
+   ]
+  },
+  "template:tk9-limpia": {
+   "name": "Чистый опенер: слова и фото в ритм",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "открывашка",
+    "типографика",
+    "слова"
+   ]
+  },
   "template:top-5-mas-vendidos": {
    "name": "Топ-5 хитов продаж",
    "tags": [
@@ -31416,6 +38147,3500 @@
     "блёстки",
     "розовый",
     "эстетика"
+   ]
+  },
+  "template:yp0-barra-campana": {
+   "name": "Панель с лайком, колокольчиком и подпиской",
+   "tags": [
+    "панель",
+    "подписка",
+    "канал",
+    "лайк",
+    "колокольчик",
+    "полоса"
+   ]
+  },
+  "template:yp0-barra-canal": {
+   "name": "Панель канала с лайком, подпиской и колокольчиком",
+   "tags": [
+    "панель",
+    "подписка",
+    "канал",
+    "лайк",
+    "колокольчик",
+    "полоса"
+   ]
+  },
+  "template:yp0-barra-me-gusta": {
+   "name": "Панель с лайком, дизлайком и подпиской",
+   "tags": [
+    "панель",
+    "подписка",
+    "канал",
+    "лайк",
+    "полоса"
+   ]
+  },
+  "template:yp0-barra-seguidores": {
+   "name": "Панель канала со счётчиком подписчиков",
+   "tags": [
+    "панель",
+    "подписка",
+    "канал",
+    "полоса",
+    "счётчик"
+   ]
+  },
+  "template:yp0-fila-grande": {
+   "name": "Большие лайк, подписка и колокольчик",
+   "tags": [
+    "подписка",
+    "лайк",
+    "колокольчик"
+   ]
+  },
+  "template:yp0-redes": {
+   "name": "Панели соцсетей с подпиской",
+   "tags": [
+    "полоса",
+    "youtube",
+    "креатор"
+   ]
+  },
+  "template:yp0-tarjeta-canal": {
+   "name": "Карточка канала с подпиской",
+   "tags": [
+    "карточка",
+    "канал",
+    "подписка"
+   ]
+  },
+  "template:yp0-tarjeta-iconos": {
+   "name": "Карточка с подпиской, лайком и колокольчиком",
+   "tags": [
+    "карточка",
+    "канал",
+    "подписка",
+    "лайк",
+    "колокольчик"
+   ]
+  },
+  "template:yp0-tarjeta-mini": {
+   "name": "Маленькая карточка подписки",
+   "tags": [
+    "подписка",
+    "youtube",
+    "креатор"
+   ]
+  },
+  "template:yp1-apertura-avatar-bandas": {
+   "name": "Заставка: падающий аватар и поднимающиеся полосы",
+   "tags": [
+    "заставка",
+    "интро",
+    "открытие",
+    "аватар",
+    "падение"
+   ]
+  },
+  "template:yp1-apertura-avatar-circulo": {
+   "name": "Заставка: аватар и раскрывающиеся круги",
+   "tags": [
+    "заставка",
+    "интро",
+    "открытие",
+    "аватар",
+    "круг"
+   ]
+  },
+  "template:yp1-apertura-blanca": {
+   "name": "Заставка: косые полосы и кнопка на белом",
+   "tags": [
+    "заставка",
+    "интро",
+    "открытие",
+    "белый"
+   ]
+  },
+  "template:yp1-apertura-diana": {
+   "name": "Заставка: круглая кнопка на красных кругах",
+   "tags": [
+    "заставка",
+    "интро",
+    "открытие",
+    "красный",
+    "круг"
+   ]
+  },
+  "template:yp1-apertura-flechas": {
+   "name": "Заставка: тёмные шевроны и катящаяся кнопка",
+   "tags": [
+    "заставка",
+    "интро",
+    "открытие",
+    "шевроны"
+   ]
+  },
+  "template:yp1-apertura-gotas": {
+   "name": "Заставка: капли складываются в кнопку YouTube",
+   "tags": [
+    "заставка",
+    "интро",
+    "открытие",
+    "youtube"
+   ]
+  },
+  "template:yp1-apertura-logo-vuela": {
+   "name": "Заставка: логотип улетает назад, вращаясь",
+   "tags": [
+    "заставка",
+    "интро",
+    "открытие"
+   ]
+  },
+  "template:yp1-apertura-ondas": {
+   "name": "Заставка: логотип, закрученные дуги и красные волны",
+   "tags": [
+    "заставка",
+    "интро",
+    "открытие",
+    "красный",
+    "волны",
+    "водоворот"
+   ]
+  },
+  "template:yp1-apertura-tipografica-gaming": {
+   "name": "Типографичная заставка: лучший игровой канал",
+   "tags": [
+    "заставка",
+    "интро",
+    "типографика",
+    "канал",
+    "игры"
+   ]
+  },
+  "template:yp1-apertura-tipografica-roja": {
+   "name": "Красная типографичная заставка: новое видео, лайк и подписка",
+   "tags": [
+    "заставка",
+    "интро",
+    "типографика",
+    "подписка",
+    "лайк",
+    "красный"
+   ]
+  },
+  "template:yp1-apertura-tipografica-suscribete": {
+   "name": "Типографичная заставка: смотри серию и подписывайся",
+   "tags": [
+    "заставка",
+    "интро",
+    "типографика",
+    "подписка"
+   ]
+  },
+  "template:yp1-barra-suscribir": {
+   "name": "Подписка: панель с аватаром, лайком и колокольчиком",
+   "tags": [
+    "подписка",
+    "подписаться",
+    "колокольчик",
+    "лайк",
+    "аватар",
+    "полоса"
+   ]
+  },
+  "template:yp1-barra-vertical": {
+   "name": "Заголовок из четырёх строк над красной полосой",
+   "tags": [
+    "заголовок",
+    "титр",
+    "текст",
+    "красный",
+    "полоса"
+   ]
+  },
+  "template:yp1-best-video": {
+   "name": "Большой заголовок на синих волнах",
+   "tags": [
+    "синий",
+    "волны",
+    "youtube"
+   ]
+  },
+  "template:yp1-big-text": {
+   "name": "Большой красный текст в тёмной комнате",
+   "tags": [
+    "красный",
+    "youtube",
+    "креатор"
+   ]
+  },
+  "template:yp1-big-title": {
+   "name": "Большой заголовок на косой красной полосе",
+   "tags": [
+    "красный",
+    "youtube",
+    "креатор"
+   ]
+  },
+  "template:yp1-bold-titles": {
+   "name": "Заголовок с красной линией и самочертящейся рамкой",
+   "tags": [
+    "заголовок",
+    "титр",
+    "текст",
+    "красный",
+    "рамка"
+   ]
+  },
+  "template:yp1-cajas-tecleadas": {
+   "name": "Заголовок печатается в красном и белом блоках",
+   "tags": [
+    "заголовок",
+    "титр",
+    "текст",
+    "красный",
+    "белый",
+    "блок"
+   ]
+  },
+  "template:yp1-cita-cajas-grises": {
+   "name": "Цитата в серых блоках с красными кавычками",
+   "tags": [
+    "цитата",
+    "высказывание",
+    "текст",
+    "красный",
+    "серый",
+    "блок"
+   ]
+  },
+  "template:yp1-cita-centrada": {
+   "name": "Цитата по центру между двумя линиями",
+   "tags": [
+    "цитата",
+    "высказывание",
+    "текст",
+    "красный"
+   ]
+  },
+  "template:yp1-cita-circulo": {
+   "name": "Цитата в красном круге",
+   "tags": [
+    "цитата",
+    "высказывание",
+    "текст",
+    "красный",
+    "круг"
+   ]
+  },
+  "template:yp1-cita-cuadro-rojo": {
+   "name": "Цитата в красном квадрате с боковой плашкой",
+   "tags": [
+    "цитата",
+    "высказывание",
+    "текст",
+    "красный",
+    "квадрат"
+   ]
+  },
+  "template:yp1-cita-etiqueta": {
+   "name": "Цитата с красной плашкой автора",
+   "tags": [
+    "цитата",
+    "высказывание",
+    "текст",
+    "красный"
+   ]
+  },
+  "template:yp1-cita-marco-fino": {
+   "name": "Цитата в тонкой красной рамке со значком",
+   "tags": [
+    "цитата",
+    "высказывание",
+    "текст",
+    "красный",
+    "рамка"
+   ]
+  },
+  "template:yp1-cita-marco-rojo": {
+   "name": "Печатаемая цитата в красной рамке",
+   "tags": [
+    "красный",
+    "рамка",
+    "цитата",
+    "печать"
+   ]
+  },
+  "template:yp1-cita-panel-rojo": {
+   "name": "Цитата в тёмном блоке рядом с красной панелью",
+   "tags": [
+    "цитата",
+    "высказывание",
+    "текст",
+    "красный",
+    "блок"
+   ]
+  },
+  "template:yp1-columna-suscribir": {
+   "name": "Подписка: колонка с аватаром, лайком и колокольчиком",
+   "tags": [
+    "подписка",
+    "подписаться",
+    "колокольчик",
+    "лайк",
+    "аватар"
+   ]
+  },
+  "template:yp1-como-un-pro": {
+   "name": "Ступенчатый заголовок под красной линией",
+   "tags": [
+    "красный",
+    "youtube",
+    "креатор"
+   ]
+  },
+  "template:yp1-design": {
+   "name": "Красный заголовок с падающими буквами",
+   "tags": [
+    "красный",
+    "падение",
+    "youtube"
+   ]
+  },
+  "template:yp1-fila-suscribir": {
+   "name": "Подписка: лайк, подписка и колокольчик внизу",
+   "tags": [
+    "подписка",
+    "подписаться",
+    "колокольчик",
+    "лайк"
+   ]
+  },
+  "template:yp1-final-banda": {
+   "name": "Конечная заставка: тёмная полоса поверх видео",
+   "tags": [
+    "конечная заставка",
+    "финал",
+    "следующее видео",
+    "видео"
+   ]
+  },
+  "template:yp1-final-columna": {
+   "name": "Конечная заставка: тёмная колонка поверх тонированного видео",
+   "tags": [
+    "конечная заставка",
+    "финал",
+    "следующее видео",
+    "видео"
+   ]
+  },
+  "template:yp1-final-gracias": {
+   "name": "Конечная заставка: спасибо за просмотр и подписка",
+   "tags": [
+    "конечная заставка",
+    "финал",
+    "следующее видео",
+    "подписка",
+    "спасибо"
+   ]
+  },
+  "template:yp1-final-like-share": {
+   "name": "Конечная заставка: рекомендуемое видео, лайк, комментарий, поделиться",
+   "tags": [
+    "конечная заставка",
+    "финал",
+    "следующее видео",
+    "лайк",
+    "видео",
+    "поделиться"
+   ]
+  },
+  "template:yp1-fondo-arcos": {
+   "name": "Фон: рассыпанные красные дуги и чёрточки",
+   "tags": [
+    "фон",
+    "задний план",
+    "анимированный фон",
+    "красный"
+   ]
+  },
+  "template:yp1-fondo-bloques": {
+   "name": "Фон: белые блоки с красными квадратами",
+   "tags": [
+    "фон",
+    "задний план",
+    "анимированный фон",
+    "красный",
+    "белый",
+    "квадрат"
+   ]
+  },
+  "template:yp1-fondo-botones": {
+   "name": "Фон: ряды кнопок воспроизведения",
+   "tags": [
+    "фон",
+    "задний план",
+    "анимированный фон"
+   ]
+  },
+  "template:yp1-fondo-capas": {
+   "name": "Фон: слоистые красные волны",
+   "tags": [
+    "фон",
+    "задний план",
+    "анимированный фон",
+    "красный",
+    "волны"
+   ]
+  },
+  "template:yp1-fondo-cruces": {
+   "name": "Фон: розовые и белые крестики",
+   "tags": [
+    "фон",
+    "задний план",
+    "анимированный фон",
+    "белый",
+    "розовый"
+   ]
+  },
+  "template:yp1-fondo-destellos": {
+   "name": "Фон: диагональные красные блики",
+   "tags": [
+    "фон",
+    "задний план",
+    "анимированный фон",
+    "красный"
+   ]
+  },
+  "template:yp1-fondo-espiral": {
+   "name": "Фон: красная, белая и серая спираль",
+   "tags": [
+    "фон",
+    "задний план",
+    "анимированный фон",
+    "красный",
+    "белый",
+    "серый"
+   ]
+  },
+  "template:yp1-fondo-flechas": {
+   "name": "Фон: красные шевроны в движении",
+   "tags": [
+    "фон",
+    "задний план",
+    "анимированный фон",
+    "красный",
+    "шевроны"
+   ]
+  },
+  "template:yp1-fondo-guiones": {
+   "name": "Фон: летящие красные чёрточки",
+   "tags": [
+    "фон",
+    "задний план",
+    "анимированный фон",
+    "красный"
+   ]
+  },
+  "template:yp1-fondo-lineas": {
+   "name": "Фон: тонкие волнистые красные линии",
+   "tags": [
+    "фон",
+    "задний план",
+    "анимированный фон",
+    "красный"
+   ]
+  },
+  "template:yp1-fondo-liquido-azul": {
+   "name": "Фон: синяя жидкость",
+   "tags": [
+    "фон",
+    "задний план",
+    "анимированный фон",
+    "синий",
+    "жидкость"
+   ]
+  },
+  "template:yp1-fondo-liquido-oscuro": {
+   "name": "Фон: тёмно-красная жидкость",
+   "tags": [
+    "фон",
+    "задний план",
+    "анимированный фон",
+    "красный",
+    "жидкость"
+   ]
+  },
+  "template:yp1-fondo-ondas-gruesas": {
+   "name": "Фон: толстые красные волны",
+   "tags": [
+    "фон",
+    "задний план",
+    "анимированный фон",
+    "красный",
+    "волны"
+   ]
+  },
+  "template:yp1-fondo-puntos": {
+   "name": "Фон: пульсирующие красные точки",
+   "tags": [
+    "фон",
+    "задний план",
+    "анимированный фон",
+    "красный",
+    "точки"
+   ]
+  },
+  "template:yp1-fondo-rayas": {
+   "name": "Фон: диагональные красные полосы",
+   "tags": [
+    "фон",
+    "задний план",
+    "анимированный фон",
+    "красный",
+    "полосы"
+   ]
+  },
+  "template:yp1-fondo-rayas-onduladas": {
+   "name": "Фон: волнистые красные полосы",
+   "tags": [
+    "фон",
+    "задний план",
+    "анимированный фон",
+    "красный",
+    "полосы"
+   ]
+  },
+  "template:yp1-fondo-redes": {
+   "name": "Фон: значки соцсетей",
+   "tags": [
+    "фон",
+    "задний план",
+    "анимированный фон"
+   ]
+  },
+  "template:yp1-fondo-texto": {
+   "name": "Фон: повторяющийся редактируемый текст",
+   "tags": [
+    "фон",
+    "задний план",
+    "анимированный фон"
+   ]
+  },
+  "template:yp1-frase-ondas-rojas": {
+   "name": "Фраза из трёх строк на красных волнах",
+   "tags": [
+    "красный",
+    "волны",
+    "youtube"
+   ]
+  },
+  "template:yp1-info-anillo": {
+   "name": "Инфографика: кольцо с процентом и текстом",
+   "tags": [
+    "инфографика",
+    "процент",
+    "данные",
+    "кольцо"
+   ]
+  },
+  "template:yp1-info-anillo-linea": {
+   "name": "Инфографика: заголовок на линии и кольцо с процентом",
+   "tags": [
+    "инфографика",
+    "процент",
+    "данные",
+    "кольцо"
+   ]
+  },
+  "template:yp1-info-barra-porcentaje": {
+   "name": "Инфографика: процент в сером блоке и красная плашка",
+   "tags": [
+    "инфографика",
+    "процент",
+    "данные",
+    "красный",
+    "серый",
+    "блок"
+   ]
+  },
+  "template:yp1-info-porcentaje": {
+   "name": "Инфографика: большой процент с подписью",
+   "tags": [
+    "инфографика",
+    "процент",
+    "данные"
+   ]
+  },
+  "template:yp1-insignia-me-gusta": {
+   "name": "Подписка: значок превращается в лайк и колокольчик",
+   "tags": [
+    "подписка",
+    "подписаться",
+    "колокольчик",
+    "лайк"
+   ]
+  },
+  "template:yp1-liquid-title": {
+   "name": "Контурный заголовок на жидкой капле",
+   "tags": [
+    "жидкость",
+    "youtube",
+    "креатор"
+   ]
+  },
+  "template:yp1-llamada-barra-roja": {
+   "name": "Выноска: красная полоса с абзацем",
+   "tags": [
+    "выноска",
+    "подпись",
+    "указатель",
+    "красный",
+    "полоса"
+   ]
+  },
+  "template:yp1-llamada-dato": {
+   "name": "Выноска: заголовок, текст и цифра в красном блоке",
+   "tags": [
+    "выноска",
+    "подпись",
+    "указатель",
+    "красный",
+    "блок"
+   ]
+  },
+  "template:yp1-llamada-especificacion": {
+   "name": "Выноска: красный заголовок над линией",
+   "tags": [
+    "выноска",
+    "подпись",
+    "указатель",
+    "красный"
+   ]
+  },
+  "template:yp1-llamada-numero": {
+   "name": "Выноска: число в круге и два текста",
+   "tags": [
+    "выноска",
+    "подпись",
+    "указатель",
+    "круг"
+   ]
+  },
+  "template:yp1-llamada-numero-cuadro": {
+   "name": "Выноска: число в красном квадрате и белые блоки",
+   "tags": [
+    "выноска",
+    "подпись",
+    "указатель",
+    "красный",
+    "белый",
+    "квадрат"
+   ]
+  },
+  "template:yp1-llamada-pantalla": {
+   "name": "Выноска: красная плашка и контурный блок",
+   "tags": [
+    "выноска",
+    "подпись",
+    "указатель",
+    "красный",
+    "блок"
+   ]
+  },
+  "template:yp1-llamada-titular": {
+   "name": "Выноска: заголовок в красном контуре",
+   "tags": [
+    "выноска",
+    "подпись",
+    "указатель",
+    "красный"
+   ]
+  },
+  "template:yp1-mejor-juego": {
+   "name": "Заголовок в сером блоке под красным блоком",
+   "tags": [
+    "заголовок",
+    "титр",
+    "текст",
+    "красный",
+    "серый",
+    "блок"
+   ]
+  },
+  "template:yp1-modern-bold": {
+   "name": "Контурный заголовок в розовом блоке",
+   "tags": [
+    "розовый",
+    "блок",
+    "youtube"
+   ]
+  },
+  "template:yp1-modern-title": {
+   "name": "Заголовок между красными линиями",
+   "tags": [
+    "заголовок",
+    "титр",
+    "текст",
+    "красный"
+   ]
+  },
+  "template:yp1-motion-studio": {
+   "name": "Заголовок на двух пересекающихся красных полосах",
+   "tags": [
+    "заголовок",
+    "титр",
+    "текст",
+    "красный",
+    "полоса"
+   ]
+  },
+  "template:yp1-no-olvides-calificar": {
+   "name": "Заголовок: не забудь оценить, в красной рамке",
+   "tags": [
+    "заголовок",
+    "титр",
+    "текст",
+    "красный",
+    "рамка"
+   ]
+  },
+  "template:yp1-pila-botones": {
+   "name": "Подписка: кнопки лайк, подписка и уведомления переворачиваются",
+   "tags": [
+    "подписка",
+    "подписаться",
+    "колокольчик",
+    "лайк"
+   ]
+  },
+  "template:yp1-red-circulo-barra": {
+   "name": "Соцсети: вращающийся круглый значок и панель с сайтом",
+   "tags": [
+    "соцсети",
+    "подписка",
+    "значок",
+    "полоса"
+   ]
+  },
+  "template:yp1-red-cuadro-follow": {
+   "name": "Соцсети: кувыркающийся квадрат и FOLLOW US",
+   "tags": [
+    "соцсети",
+    "подписка",
+    "значок",
+    "квадрат"
+   ]
+  },
+  "template:yp1-red-pastilla": {
+   "name": "Соцсети: значок посередине капсулы",
+   "tags": [
+    "соцсети",
+    "подписка",
+    "значок",
+    "капсула"
+   ]
+  },
+  "template:yp1-red-rombo": {
+   "name": "Соцсети: самочертящийся ромб и название канала",
+   "tags": [
+    "соцсети",
+    "подписка",
+    "значок",
+    "ромб",
+    "имя",
+    "канал"
+   ]
+  },
+  "template:yp1-strong-titles": {
+   "name": "Сильный заголовок под красной волной",
+   "tags": [
+    "красный",
+    "волны",
+    "youtube"
+   ]
+  },
+  "template:yp1-top-10": {
+   "name": "Заголовок с двумя красными линиями под ним",
+   "tags": [
+    "заголовок",
+    "титр",
+    "текст",
+    "красный"
+   ]
+  },
+  "template:yp1-transicion-barras-1": {
+   "name": "Переход: красные, белые и чёрные полосы влево",
+   "tags": [
+    "переход",
+    "анимация перехода",
+    "смена кадра",
+    "красный",
+    "белый",
+    "чёрный"
+   ]
+  },
+  "template:yp1-transicion-barras-2": {
+   "name": "Переход: красные, белые и чёрные полосы вниз",
+   "tags": [
+    "переход",
+    "анимация перехода",
+    "смена кадра",
+    "красный",
+    "белый",
+    "чёрный"
+   ]
+  },
+  "template:yp1-transicion-bloques-1": {
+   "name": "Переход: красные, белые и чёрные блоки",
+   "tags": [
+    "переход",
+    "анимация перехода",
+    "смена кадра",
+    "красный",
+    "белый",
+    "чёрный"
+   ]
+  },
+  "template:yp1-transicion-bloques-2": {
+   "name": "Переход: красные, белые и чёрные блоки",
+   "tags": [
+    "переход",
+    "анимация перехода",
+    "смена кадра",
+    "красный",
+    "белый",
+    "чёрный"
+   ]
+  },
+  "template:yp1-transicion-capsulas-1": {
+   "name": "Переход: капсулы влево",
+   "tags": [
+    "переход",
+    "анимация перехода",
+    "смена кадра",
+    "капсула"
+   ]
+  },
+  "template:yp1-transicion-capsulas-2": {
+   "name": "Переход: капсулы вниз",
+   "tags": [
+    "переход",
+    "анимация перехода",
+    "смена кадра",
+    "капсула"
+   ]
+  },
+  "template:yp1-transicion-circulo": {
+   "name": "Переход: раскрывающийся красный, белый и чёрный круг",
+   "tags": [
+    "переход",
+    "анимация перехода",
+    "смена кадра",
+    "красный",
+    "белый",
+    "чёрный"
+   ]
+  },
+  "template:yp1-transicion-cuadrado": {
+   "name": "Переход: раскрывающийся красный, белый и чёрный квадрат",
+   "tags": [
+    "переход",
+    "анимация перехода",
+    "смена кадра",
+    "красный",
+    "белый",
+    "чёрный"
+   ]
+  },
+  "template:yp1-transicion-estrella": {
+   "name": "Переход: раскрывающаяся красная, белая и чёрная звезда",
+   "tags": [
+    "переход",
+    "анимация перехода",
+    "смена кадра",
+    "красный",
+    "белый",
+    "чёрный"
+   ]
+  },
+  "template:yp1-transicion-flechas-1": {
+   "name": "Переход: красные, белые и чёрные шевроны влево",
+   "tags": [
+    "переход",
+    "анимация перехода",
+    "смена кадра",
+    "красный",
+    "белый",
+    "чёрный"
+   ]
+  },
+  "template:yp1-transicion-flechas-2": {
+   "name": "Переход: красные, белые и чёрные шевроны вниз",
+   "tags": [
+    "переход",
+    "анимация перехода",
+    "смена кадра",
+    "красный",
+    "белый",
+    "чёрный"
+   ]
+  },
+  "template:yp1-transicion-flechas-3": {
+   "name": "Переход: красные, белые и чёрные шевроны вверх",
+   "tags": [
+    "переход",
+    "анимация перехода",
+    "смена кадра",
+    "красный",
+    "белый",
+    "чёрный"
+   ]
+  },
+  "template:yp1-transicion-flechas-4": {
+   "name": "Переход: красные, белые и чёрные шевроны вправо",
+   "tags": [
+    "переход",
+    "анимация перехода",
+    "смена кадра",
+    "красный",
+    "белый",
+    "чёрный"
+   ]
+  },
+  "template:yp1-transicion-hexagono": {
+   "name": "Переход: раскрывающийся красный, белый и чёрный шестиугольник",
+   "tags": [
+    "переход",
+    "анимация перехода",
+    "смена кадра",
+    "красный",
+    "белый",
+    "чёрный"
+   ]
+  },
+  "template:yp1-transicion-remolino": {
+   "name": "Переход: красно-белый водоворот",
+   "tags": [
+    "переход",
+    "анимация перехода",
+    "смена кадра",
+    "красный",
+    "белый",
+    "водоворот"
+   ]
+  },
+  "template:yp1-trazo-rojo": {
+   "name": "Заголовок из трёх строк с красной завитушкой",
+   "tags": [
+    "заголовок",
+    "титр",
+    "текст",
+    "красный"
+   ]
+  },
+  "template:yp1-ver-siguiente-caja": {
+   "name": "Заголовок: смотрите далее, в белом блоке",
+   "tags": [
+    "заголовок",
+    "титр",
+    "текст",
+    "белый",
+    "блок"
+   ]
+  },
+  "template:yp1-ver-siguiente-dos-colores": {
+   "name": "Заголовок: смотрите далее, в бело-красном блоке",
+   "tags": [
+    "заголовок",
+    "титр",
+    "текст",
+    "красный",
+    "белый",
+    "блок"
+   ]
+  },
+  "template:yp2-apertura": {
+   "name": "Открытие: красно-белое кольцо с кнопкой YouTube",
+   "tags": [
+    "заставка",
+    "интро",
+    "открытие",
+    "youtube",
+    "красный",
+    "белый"
+   ]
+  },
+  "template:yp2-aro-canal": {
+   "name": "Красно-белое кольцо раскрывается в CHANNEL",
+   "tags": [
+    "красный",
+    "белый",
+    "канал",
+    "кольцо"
+   ]
+  },
+  "template:yp2-barra-15k": {
+   "name": "Панель: лайки и подписка",
+   "tags": [
+    "панель",
+    "подписка",
+    "канал",
+    "лайк",
+    "полоса"
+   ]
+  },
+  "template:yp2-barra-campana": {
+   "name": "Панель: лайк, подписка и колокольчик",
+   "tags": [
+    "панель",
+    "подписка",
+    "канал",
+    "лайк",
+    "колокольчик",
+    "полоса"
+   ]
+  },
+  "template:yp2-barra-canal": {
+   "name": "Панель канала с фото и подпиской",
+   "tags": [
+    "панель",
+    "подписка",
+    "канал",
+    "фото",
+    "полоса"
+   ]
+  },
+  "template:yp2-barra-contadores": {
+   "name": "Панель: лайки, счётчики и подписка",
+   "tags": [
+    "панель",
+    "подписка",
+    "канал",
+    "лайк",
+    "полоса"
+   ]
+  },
+  "template:yp2-barra-simple": {
+   "name": "Панель: лайк, дизлайк и подписка",
+   "tags": [
+    "панель",
+    "подписка",
+    "канал",
+    "лайк",
+    "полоса"
+   ]
+  },
+  "template:yp2-dos-tarjetas": {
+   "name": "Карточки: подписка и лайк",
+   "tags": [
+    "подписка",
+    "лайк",
+    "youtube"
+   ]
+  },
+  "template:yp2-icono-aro-blanco": {
+   "name": "Иконка: всплеск белого кольца",
+   "tags": [
+    "иконка",
+    "значок",
+    "анимация",
+    "белый",
+    "кольцо"
+   ]
+  },
+  "template:yp2-icono-aro-rojo": {
+   "name": "Иконка: всплеск красного кольца",
+   "tags": [
+    "иконка",
+    "значок",
+    "анимация",
+    "красный",
+    "кольцо"
+   ]
+  },
+  "template:yp2-icono-buscador": {
+   "name": "Иконка: самочертящаяся строка поиска",
+   "tags": [
+    "иконка",
+    "значок",
+    "анимация",
+    "блок"
+   ]
+  },
+  "template:yp2-icono-campana": {
+   "name": "Иконка: звонящий красный колокольчик",
+   "tags": [
+    "иконка",
+    "значок",
+    "анимация",
+    "колокольчик",
+    "красный",
+    "кольцо"
+   ]
+  },
+  "template:yp2-icono-cargando": {
+   "name": "Иконка: вращающиеся точки загрузки",
+   "tags": [
+    "иконка",
+    "значок",
+    "анимация",
+    "точки"
+   ]
+  },
+  "template:yp2-icono-cursor": {
+   "name": "Иконка: нажимающий курсор",
+   "tags": [
+    "иконка",
+    "значок",
+    "анимация"
+   ]
+  },
+  "template:yp2-icono-destello": {
+   "name": "Иконка: вспышка штрихов",
+   "tags": [
+    "иконка",
+    "значок",
+    "анимация"
+   ]
+  },
+  "template:yp2-icono-flecha": {
+   "name": "Иконка: стрелка вниз",
+   "tags": [
+    "иконка",
+    "значок",
+    "анимация",
+    "стрелка"
+   ]
+  },
+  "template:yp2-icono-me-gusta": {
+   "name": "Иконка: лайк краснеет",
+   "tags": [
+    "иконка",
+    "значок",
+    "анимация",
+    "лайк",
+    "красный"
+   ]
+  },
+  "template:yp2-pagina-video": {
+   "name": "Страница видео: подписка и колокольчик",
+   "tags": [
+    "подписка",
+    "колокольчик",
+    "youtube"
+   ]
+  },
+  "template:yp2-redes-barras": {
+   "name": "Соцсети: 12 панелей со значками",
+   "tags": [
+    "соцсети",
+    "подписка",
+    "значок",
+    "полоса"
+   ]
+  },
+  "template:yp2-redes-iconos": {
+   "name": "Соцсети: 6 значков со строками поиска",
+   "tags": [
+    "соцсети",
+    "подписка",
+    "значок",
+    "блок"
+   ]
+  },
+  "template:yp2-siguiente-barra": {
+   "name": "Конечная заставка: следующее видео с красной полосой",
+   "tags": [
+    "конечная заставка",
+    "финал",
+    "следующее видео",
+    "красный",
+    "полоса",
+    "видео"
+   ]
+  },
+  "template:yp2-siguiente-onda": {
+   "name": "Конечная заставка: следующее видео с красной волной",
+   "tags": [
+    "конечная заставка",
+    "финал",
+    "следующее видео",
+    "красный",
+    "волны",
+    "видео"
+   ]
+  },
+  "template:yp2-tarjeta-canal": {
+   "name": "Карточка канала с фото и логотипом",
+   "tags": [
+    "карточка",
+    "канал",
+    "подписка",
+    "фото"
+   ]
+  },
+  "template:yp2-tarjeta-video": {
+   "name": "Карточка видео: подписка и колокольчик",
+   "tags": [
+    "карточка",
+    "канал",
+    "подписка",
+    "колокольчик",
+    "видео"
+   ]
+  },
+  "template:yp2-titulo-animation": {
+   "name": "Заголовок в растущем красном блоке",
+   "tags": [
+    "заголовок",
+    "титр",
+    "текст",
+    "красный",
+    "блок"
+   ]
+  },
+  "template:yp2-titulo-best": {
+   "name": "Заголовок с плашкой и скользящим словом",
+   "tags": [
+    "заголовок",
+    "титр",
+    "текст"
+   ]
+  },
+  "template:yp2-titulo-brand": {
+   "name": "Большой заголовок с красными линиями",
+   "tags": [
+    "красный",
+    "youtube",
+    "креатор"
+   ]
+  },
+  "template:yp2-titulo-clean": {
+   "name": "Заголовок между двумя красными линиями",
+   "tags": [
+    "заголовок",
+    "титр",
+    "текст",
+    "красный"
+   ]
+  },
+  "template:yp2-titulo-just-edit": {
+   "name": "Заголовок в рамке со словом ниже",
+   "tags": [
+    "заголовок",
+    "титр",
+    "текст",
+    "рамка"
+   ]
+  },
+  "template:yp2-titulo-motion-design": {
+   "name": "Заголовок с красной плашкой",
+   "tags": [
+    "заголовок",
+    "титр",
+    "текст",
+    "красный"
+   ]
+  },
+  "template:yp2-titulo-new-project": {
+   "name": "Заголовок, открываемый красной полосой",
+   "tags": [
+    "заголовок",
+    "титр",
+    "текст",
+    "красный",
+    "полоса"
+   ]
+  },
+  "template:yp2-titulo-rendering": {
+   "name": "Заголовок под опускающейся красной линией",
+   "tags": [
+    "заголовок",
+    "титр",
+    "текст",
+    "красный"
+   ]
+  },
+  "template:yp2-titulo-simple": {
+   "name": "Заголовок выезжает из красного квадрата",
+   "tags": [
+    "заголовок",
+    "титр",
+    "текст",
+    "красный",
+    "квадрат"
+   ]
+  },
+  "template:yp2-titulo-your-channel": {
+   "name": "Заголовок в красной рамке",
+   "tags": [
+    "заголовок",
+    "титр",
+    "текст",
+    "красный",
+    "рамка"
+   ]
+  },
+  "template:yp2-transicion-diagonal": {
+   "name": "Переход: красные, белые и серые диагональные полосы",
+   "tags": [
+    "переход",
+    "анимация перехода",
+    "смена кадра",
+    "красный",
+    "белый",
+    "серый"
+   ]
+  },
+  "template:yp2-transicion-franjas": {
+   "name": "Переход: вращающиеся красные и белые полосы",
+   "tags": [
+    "переход",
+    "анимация перехода",
+    "смена кадра",
+    "красный",
+    "белый",
+    "полосы"
+   ]
+  },
+  "template:yp3-avatar-cadena": {
+   "name": "Кнопка: аватар с цепочкой из лайка и колокольчика",
+   "tags": [
+    "кнопка",
+    "подписка",
+    "клик",
+    "лайк",
+    "колокольчик",
+    "аватар"
+   ]
+  },
+  "template:yp3-avatar-rojo": {
+   "name": "Кнопка: аватар канала с красной подпиской",
+   "tags": [
+    "кнопка",
+    "подписка",
+    "клик",
+    "аватар",
+    "красный",
+    "канал"
+   ]
+  },
+  "template:yp3-burbujas-rojas": {
+   "name": "Кнопка: красные пузыри с колокольчиком, аватаром и лайком",
+   "tags": [
+    "кнопка",
+    "подписка",
+    "клик",
+    "лайк",
+    "колокольчик",
+    "аватар"
+   ]
+  },
+  "template:yp3-caja-me-gusta-campana": {
+   "name": "Кнопка: красный блок превращается из лайка в колокольчик",
+   "tags": [
+    "кнопка",
+    "подписка",
+    "клик",
+    "лайк",
+    "колокольчик",
+    "красный"
+   ]
+  },
+  "template:yp3-caja-roja-campana": {
+   "name": "Кнопка: красный блок с колокольчиком и наклонной надписью «Вы подписаны»",
+   "tags": [
+    "кнопка",
+    "подписка",
+    "клик",
+    "колокольчик",
+    "красный",
+    "блок"
+   ]
+  },
+  "template:yp3-campana-redonda": {
+   "name": "Кнопка: круглый колокольчик превращается в «Вы подписаны»",
+   "tags": [
+    "кнопка",
+    "подписка",
+    "клик",
+    "колокольчик"
+   ]
+  },
+  "template:yp3-final-anillos-blancos": {
+   "name": "Конечная заставка: «Нажми, чтобы подписаться» на белых кольцах",
+   "tags": [
+    "конечная заставка",
+    "финал",
+    "следующее видео",
+    "подписка",
+    "белый",
+    "кольцо"
+   ]
+  },
+  "template:yp3-final-aro-degradado": {
+   "name": "Конечная заставка: градиентное кольцо на чёрном",
+   "tags": [
+    "конечная заставка",
+    "финал",
+    "следующее видео",
+    "чёрный",
+    "кольцо"
+   ]
+  },
+  "template:yp3-final-banda-azul": {
+   "name": "Конечная заставка: синяя полоса над фото с двумя видео",
+   "tags": [
+    "конечная заставка",
+    "финал",
+    "следующее видео",
+    "синий",
+    "фото",
+    "видео"
+   ]
+  },
+  "template:yp3-final-capsula-turquesa": {
+   "name": "Конечная заставка: бирюзовая капсула с двумя видео",
+   "tags": [
+    "конечная заставка",
+    "финал",
+    "следующее видео",
+    "бирюзовый",
+    "видео",
+    "капсула"
+   ]
+  },
+  "template:yp3-final-gris": {
+   "name": "Конечная заставка: мягкий серый с двумя видео и аватаром",
+   "tags": [
+    "конечная заставка",
+    "финал",
+    "следующее видео",
+    "аватар",
+    "серый",
+    "видео"
+   ]
+  },
+  "template:yp3-final-hexagono": {
+   "name": "Конечная заставка: градиентный шестиугольник «Нажми, чтобы подписаться»",
+   "tags": [
+    "конечная заставка",
+    "финал",
+    "следующее видео",
+    "подписка",
+    "шестиугольник"
+   ]
+  },
+  "template:yp3-final-manchas-rojas": {
+   "name": "Конечная заставка: красные пятна с аватаром и следующим видео",
+   "tags": [
+    "конечная заставка",
+    "финал",
+    "следующее видео",
+    "аватар",
+    "красный",
+    "видео"
+   ]
+  },
+  "template:yp3-final-no-olvides": {
+   "name": "Конечная заставка: «Не забудь подписаться» с синим наклоном",
+   "tags": [
+    "конечная заставка",
+    "финал",
+    "следующее видео",
+    "подписка",
+    "синий"
+   ]
+  },
+  "template:yp3-final-olas-turquesa": {
+   "name": "Конечная заставка: бирюзовые волны с рекомендуемым видео",
+   "tags": [
+    "конечная заставка",
+    "финал",
+    "следующее видео",
+    "бирюзовый",
+    "волны",
+    "видео"
+   ]
+  },
+  "template:yp3-final-rosa": {
+   "name": "Конечная заставка: розовое «Спасибо за просмотр!»",
+   "tags": [
+    "конечная заставка",
+    "финал",
+    "следующее видео",
+    "розовый",
+    "спасибо"
+   ]
+  },
+  "template:yp3-final-rosa-siguiente": {
+   "name": "Конечная заставка: розовое «следующее видео» с блоками",
+   "tags": [
+    "конечная заставка",
+    "финал",
+    "следующее видео",
+    "розовый",
+    "видео"
+   ]
+  },
+  "template:yp3-final-tarjeta-lila": {
+   "name": "Конечная заставка: сиреневая карточка «Пожалуйста, не забудь подписаться»",
+   "tags": [
+    "конечная заставка",
+    "финал",
+    "следующее видео",
+    "подписка"
+   ]
+  },
+  "template:yp3-final-tarjeta-morada": {
+   "name": "Конечная заставка: фиолетовая карточка с двумя видео",
+   "tags": [
+    "конечная заставка",
+    "финал",
+    "следующее видео",
+    "фиолетовый",
+    "видео"
+   ]
+  },
+  "template:yp3-me-gusta-redondo": {
+   "name": "Кнопка: круглые лайк и колокольчик с «Понравилось» и «Вы подписаны»",
+   "tags": [
+    "кнопка",
+    "подписка",
+    "клик",
+    "лайк",
+    "колокольчик"
+   ]
+  },
+  "template:yp3-pestana-degradado": {
+   "name": "Кнопка: розово-фиолетовая вкладка с аватаром",
+   "tags": [
+    "кнопка",
+    "подписка",
+    "клик",
+    "аватар",
+    "розовый",
+    "фиолетовый"
+   ]
+  },
+  "template:yp3-pildora-burbujas": {
+   "name": "Кнопка: градиентная капсула с пузырями и аватаром",
+   "tags": [
+    "кнопка",
+    "подписка",
+    "клик",
+    "аватар",
+    "капсула",
+    "пузырь"
+   ]
+  },
+  "template:yp3-pildora-degradado": {
+   "name": "Кнопка: белая капсула с градиентным колокольчиком",
+   "tags": [
+    "кнопка",
+    "подписка",
+    "клик",
+    "колокольчик",
+    "белый",
+    "капсула"
+   ]
+  },
+  "template:yp3-play-contorno": {
+   "name": "Кнопка: белый значок play переворачивается в «Вы подписаны»",
+   "tags": [
+    "кнопка",
+    "подписка",
+    "клик",
+    "белый"
+   ]
+  },
+  "template:yp3-suscribirse-rojo": {
+   "name": "Кнопка: красная подписка с лайком и колокольчиком",
+   "tags": [
+    "кнопка",
+    "подписка",
+    "клик",
+    "лайк",
+    "колокольчик",
+    "красный"
+   ]
+  },
+  "template:yp3-tarjeta-blanca": {
+   "name": "Кнопка: белая карточка с аватаром и лайком",
+   "tags": [
+    "кнопка",
+    "подписка",
+    "клик",
+    "лайк",
+    "аватар",
+    "белый"
+   ]
+  },
+  "template:yp4-bienvenida": {
+   "name": "Сторис: приветствие с красными и чёрными дисками",
+   "tags": [
+    "сторис",
+    "вертикальное",
+    "истории",
+    "красный",
+    "чёрный"
+   ]
+  },
+  "template:yp4-canal": {
+   "name": "Сторис: CHANNEL с кнопкой play",
+   "tags": [
+    "сторис",
+    "вертикальное",
+    "истории",
+    "канал"
+   ]
+  },
+  "template:yp4-contador": {
+   "name": "Сторис: 2/6 с фото и жёлтой рамкой",
+   "tags": [
+    "сторис",
+    "вертикальное",
+    "истории",
+    "жёлтый",
+    "фото",
+    "рамка"
+   ]
+  },
+  "template:yp4-derechos": {
+   "name": "Сторис: белый круг на жёлтом",
+   "tags": [
+    "сторис",
+    "вертикальное",
+    "истории",
+    "белый",
+    "жёлтый",
+    "круг"
+   ]
+  },
+  "template:yp4-fundamentos": {
+   "name": "Сторис: наклонная красная плашка над фото",
+   "tags": [
+    "сторис",
+    "вертикальное",
+    "истории",
+    "красный",
+    "фото"
+   ]
+  },
+  "template:yp4-gracias": {
+   "name": "Сторис: спасибо с двумя фото и именами",
+   "tags": [
+    "сторис",
+    "вертикальное",
+    "истории",
+    "фото",
+    "имя",
+    "спасибо"
+   ]
+  },
+  "template:yp4-love": {
+   "name": "Сторис: love с карточкой подписки",
+   "tags": [
+    "сторис",
+    "вертикальное",
+    "истории",
+    "подписка",
+    "любовь"
+   ]
+  },
+  "template:yp4-mi-plan": {
+   "name": "Сторис: мой план со списком и плашкой",
+   "tags": [
+    "сторис",
+    "вертикальное",
+    "истории"
+   ]
+  },
+  "template:yp4-nombre-blanco": {
+   "name": "Сторис: имя с круглым фото на белом",
+   "tags": [
+    "сторис",
+    "вертикальное",
+    "истории",
+    "белый",
+    "фото",
+    "имя"
+   ]
+  },
+  "template:yp4-nombre-circulo": {
+   "name": "Сторис: имя рядом с круглым фото",
+   "tags": [
+    "сторис",
+    "вертикальное",
+    "истории",
+    "фото",
+    "имя"
+   ]
+  },
+  "template:yp4-numeros": {
+   "name": "Сторис: слайды 01 и 02",
+   "tags": [
+    "сторис",
+    "вертикальное",
+    "истории"
+   ]
+  },
+  "template:yp4-por-ejemplo": {
+   "name": "Сторис: жёлтая фраза на красном с фото",
+   "tags": [
+    "сторис",
+    "вертикальное",
+    "истории",
+    "красный",
+    "жёлтый",
+    "фото"
+   ]
+  },
+  "template:yp4-seguir": {
+   "name": "Сторис: Follow с карточкой соцсети",
+   "tags": [
+    "сторис",
+    "вертикальное",
+    "истории"
+   ]
+  },
+  "template:yp4-siguiente": {
+   "name": "Сторис: два фото с «далее» и Watch",
+   "tags": [
+    "сторис",
+    "вертикальное",
+    "истории",
+    "фото"
+   ]
+  },
+  "template:yp4-social-media": {
+   "name": "Сторис: Social Media с follow me",
+   "tags": [
+    "сторис",
+    "вертикальное",
+    "истории"
+   ]
+  },
+  "template:yp4-vlogger": {
+   "name": "Сторис: VLOGGER с сердечками и подпиской",
+   "tags": [
+    "сторис",
+    "вертикальное",
+    "истории",
+    "подписка",
+    "сердце"
+   ]
+  },
+  "template:yp5-avatar-cycle": {
+   "name": "Нижняя треть: аватар и меняющаяся плашка",
+   "tags": [
+    "нижняя треть",
+    "плашка имени",
+    "подпись",
+    "аватар"
+   ]
+  },
+  "template:yp5-best-show": {
+   "name": "Нижняя треть: кнопка, разделитель и две строки",
+   "tags": [
+    "нижняя треть",
+    "плашка имени",
+    "подпись"
+   ]
+  },
+  "template:yp5-best-solution": {
+   "name": "Титр: белый и чёрный блоки в рамке",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "белый",
+    "чёрный"
+   ]
+  },
+  "template:yp5-best-video": {
+   "name": "Титр: красная линия и красный блок",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "красный",
+    "блок"
+   ]
+  },
+  "template:yp5-big-live-story": {
+   "name": "Нижняя треть: кнопка play приближается вниз и имя",
+   "tags": [
+    "нижняя треть",
+    "плашка имени",
+    "подпись",
+    "имя"
+   ]
+  },
+  "template:yp5-box-any-fonts": {
+   "name": "Титр в двух блоках по центру",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "красный",
+    "блок"
+   ]
+  },
+  "template:yp5-box-auto-resized": {
+   "name": "Титр в блоке, растущем по мере печати",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "блок"
+   ]
+  },
+  "template:yp5-box-automatically": {
+   "name": "Титр в белом и чёрном блоках",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "белый",
+    "чёрный"
+   ]
+  },
+  "template:yp5-box-best-choice": {
+   "name": "Титр в трёх чёрных блоках",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "чёрный",
+    "блок"
+   ]
+  },
+  "template:yp5-box-dont-forget": {
+   "name": "Титр по центру в трёх белых блоках",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "красный",
+    "белый"
+   ]
+  },
+  "template:yp5-box-enjoy": {
+   "name": "Титр в белых контурных блоках",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "белый",
+    "блок"
+   ]
+  },
+  "template:yp5-box-great-design": {
+   "name": "Титр в двух белых блоках",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "белый",
+    "блок"
+   ]
+  },
+  "template:yp5-box-like-that": {
+   "name": "Титр в блоках, раскрывающихся от середины",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "блок"
+   ]
+  },
+  "template:yp5-box-motion-design": {
+   "name": "Титр в косом белом блоке",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "белый",
+    "блок"
+   ]
+  },
+  "template:yp5-box-thank-support": {
+   "name": "Титр: линия раскрывается в белый блок",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "белый",
+    "блок"
+   ]
+  },
+  "template:yp5-box-we-created": {
+   "name": "Титр в трёх печатающихся чёрных блоках",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "чёрный",
+    "блок"
+   ]
+  },
+  "template:yp5-box-write-text": {
+   "name": "Титр в одном контурном блоке",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "блок"
+   ]
+  },
+  "template:yp5-bubble-swap": {
+   "name": "Нижняя треть: красный пузырь от лайка к подписке",
+   "tags": [
+    "нижняя треть",
+    "плашка имени",
+    "подпись",
+    "подписка",
+    "лайк",
+    "красный"
+   ]
+  },
+  "template:yp5-callout-brand": {
+   "name": "Выноска: бренд и цена",
+   "tags": [
+    "выноска",
+    "подпись",
+    "указатель"
+   ]
+  },
+  "template:yp5-callout-creative": {
+   "name": "Выноска: пунктирная линия и два блока",
+   "tags": [
+    "выноска",
+    "подпись",
+    "указатель",
+    "блок"
+   ]
+  },
+  "template:yp5-callout-elbow": {
+   "name": "Выноска: ломаная линия и красный текстовый блок",
+   "tags": [
+    "выноска",
+    "подпись",
+    "указатель",
+    "красный",
+    "блок"
+   ]
+  },
+  "template:yp5-callout-headline": {
+   "name": "Выноска: красный заголовок и чёрный блок",
+   "tags": [
+    "выноска",
+    "подпись",
+    "указатель",
+    "красный",
+    "чёрный",
+    "блок"
+   ]
+  },
+  "template:yp5-callout-line-up": {
+   "name": "Выноска: линия поднимается к чёрному блоку",
+   "tags": [
+    "выноска",
+    "подпись",
+    "указатель",
+    "чёрный",
+    "блок"
+   ]
+  },
+  "template:yp5-callout-outline": {
+   "name": "Выноска: линия с точкой и текстом",
+   "tags": [
+    "выноска",
+    "подпись",
+    "указатель"
+   ]
+  },
+  "template:yp5-callout-product": {
+   "name": "Выноска: линия и рамка товара",
+   "tags": [
+    "выноска",
+    "подпись",
+    "указатель",
+    "рамка"
+   ]
+  },
+  "template:yp5-callout-red-box": {
+   "name": "Выноска: линия с красным блоком",
+   "tags": [
+    "выноска",
+    "подпись",
+    "указатель",
+    "красный",
+    "блок"
+   ]
+  },
+  "template:yp5-callout-red-line": {
+   "name": "Выноска: красная линия и красный блок",
+   "tags": [
+    "выноска",
+    "подпись",
+    "указатель",
+    "красный",
+    "блок"
+   ]
+  },
+  "template:yp5-callout-title-bar": {
+   "name": "Выноска: красная полоса и заголовок",
+   "tags": [
+    "выноска",
+    "подпись",
+    "указатель",
+    "красный",
+    "полоса"
+   ]
+  },
+  "template:yp5-channel-name": {
+   "name": "Нижняя треть: наклонное название канала с полосами",
+   "tags": [
+    "нижняя треть",
+    "плашка имени",
+    "подпись",
+    "полосы",
+    "имя",
+    "канал"
+   ]
+  },
+  "template:yp5-clean-modern": {
+   "name": "Нижняя треть: число и текст в капсуле",
+   "tags": [
+    "нижняя треть",
+    "плашка имени",
+    "подпись",
+    "капсула"
+   ]
+  },
+  "template:yp5-clean-titles": {
+   "name": "Титр: четыре строки в белой рамке",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "белый",
+    "рамка"
+   ]
+  },
+  "template:yp5-click-channel": {
+   "name": "Нижняя треть: нажми на кнопку и красная полоса",
+   "tags": [
+    "нижняя треть",
+    "плашка имени",
+    "подпись",
+    "красный",
+    "полоса"
+   ]
+  },
+  "template:yp5-counter-bubbles": {
+   "name": "Счётчики: пузыри уведомлений",
+   "tags": [
+    "счётчик",
+    "подписчики",
+    "статистика",
+    "пузырь"
+   ]
+  },
+  "template:yp5-counter-heart": {
+   "name": "Счётчик лайков с сердечком",
+   "tags": [
+    "счётчик",
+    "подписчики",
+    "статистика",
+    "лайк",
+    "сердце"
+   ]
+  },
+  "template:yp5-counter-link": {
+   "name": "Ссылка в описании",
+   "tags": [
+    "youtube",
+    "креатор",
+    "видео"
+   ]
+  },
+  "template:yp5-counter-person": {
+   "name": "Счётчик подписчиков",
+   "tags": [
+    "счётчик",
+    "подписчики",
+    "статистика"
+   ]
+  },
+  "template:yp5-counter-subscribers": {
+   "name": "Счётчик подписчиков канала",
+   "tags": [
+    "счётчик",
+    "подписчики",
+    "статистика",
+    "подписка"
+   ]
+  },
+  "template:yp5-doodle-channel": {
+   "name": "Нижняя треть: белая кнопка, красная полоса и каракули",
+   "tags": [
+    "нижняя треть",
+    "плашка имени",
+    "подпись",
+    "красный",
+    "белый",
+    "полоса"
+   ]
+  },
+  "template:yp5-end-big-arc": {
+   "name": "Конечная заставка: большая коралловая дуга и два видео",
+   "tags": [
+    "конечная заставка",
+    "финал",
+    "следующее видео",
+    "коралловый",
+    "видео"
+   ]
+  },
+  "template:yp5-end-circle": {
+   "name": "Конечная заставка: коралловый полукруг и рекомендуемое видео",
+   "tags": [
+    "конечная заставка",
+    "финал",
+    "следующее видео",
+    "коралловый",
+    "круг",
+    "видео"
+   ]
+  },
+  "template:yp5-end-coral": {
+   "name": "Коралловая конечная заставка: аватар, два видео и соцсети",
+   "tags": [
+    "конечная заставка",
+    "финал",
+    "коралловый",
+    "аватар",
+    "видео"
+   ]
+  },
+  "template:yp5-end-coral-column": {
+   "name": "Коралловая конечная заставка: два видео, соцсети и аватар",
+   "tags": [
+    "конечная заставка",
+    "финал",
+    "коралловый",
+    "аватар",
+    "видео"
+   ]
+  },
+  "template:yp5-end-diagonal": {
+   "name": "Конечная заставка: косая коралловая панель и следующее видео",
+   "tags": [
+    "конечная заставка",
+    "финал",
+    "следующее видео",
+    "коралловый",
+    "видео"
+   ]
+  },
+  "template:yp5-end-side-panel": {
+   "name": "Конечная заставка: коралловая панель и два видео",
+   "tags": [
+    "конечная заставка",
+    "финал",
+    "следующее видео",
+    "коралловый",
+    "видео"
+   ]
+  },
+  "template:yp5-end-subscribe-arrow": {
+   "name": "Конечная заставка: рекомендуемое видео и большая кнопка SUBSCRIBE",
+   "tags": [
+    "конечная заставка",
+    "финал",
+    "следующее видео",
+    "подписка",
+    "видео"
+   ]
+  },
+  "template:yp5-end-white-arrow": {
+   "name": "Конечная заставка: белый треугольник с красной стрелкой",
+   "tags": [
+    "конечная заставка",
+    "финал",
+    "следующее видео",
+    "красный",
+    "белый",
+    "треугольник"
+   ]
+  },
+  "template:yp5-end-white-band": {
+   "name": "Конечная заставка: белая полоса с двумя видео",
+   "tags": [
+    "конечная заставка",
+    "финал",
+    "следующее видео",
+    "белый",
+    "видео"
+   ]
+  },
+  "template:yp5-end-white-curve": {
+   "name": "Конечная заставка: изогнутая белая панель и два видео",
+   "tags": [
+    "конечная заставка",
+    "финал",
+    "следующее видео",
+    "белый",
+    "видео"
+   ]
+  },
+  "template:yp5-good-design": {
+   "name": "Титр: три строки появляются по словам",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация"
+   ]
+  },
+  "template:yp5-hello-welcome": {
+   "name": "Титр: HELLO! и добро пожаловать на мой канал",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "канал"
+   ]
+  },
+  "template:yp5-how-do-i": {
+   "name": "Нижняя треть: вопрос в белом блоке",
+   "tags": [
+    "нижняя треть",
+    "плашка имени",
+    "подпись",
+    "белый",
+    "блок"
+   ]
+  },
+  "template:yp5-like-card": {
+   "name": "Нижняя треть: лайк, подписка и уведомления",
+   "tags": [
+    "нижняя треть",
+    "плашка имени",
+    "подпись",
+    "подписка",
+    "лайк"
+   ]
+  },
+  "template:yp5-like-column": {
+   "name": "Нижняя треть: красная колонка с тремя плашками",
+   "tags": [
+    "нижняя треть",
+    "плашка имени",
+    "подпись",
+    "красный"
+   ]
+  },
+  "template:yp5-like-hand": {
+   "name": "Нижняя треть: лайк видео с рукой",
+   "tags": [
+    "нижняя треть",
+    "плашка имени",
+    "подпись",
+    "лайк",
+    "видео"
+   ]
+  },
+  "template:yp5-modern-titles": {
+   "name": "Титр: белая рамка и три строки",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "белый",
+    "рамка"
+   ]
+  },
+  "template:yp5-modern-universal": {
+   "name": "Нижняя треть: три строки и линия",
+   "tags": [
+    "нижняя треть",
+    "плашка имени",
+    "подпись"
+   ]
+  },
+  "template:yp5-name-bar": {
+   "name": "Нижняя треть: белая полоса и выезжающее имя",
+   "tags": [
+    "нижняя треть",
+    "плашка имени",
+    "подпись",
+    "белый",
+    "полоса",
+    "имя"
+   ]
+  },
+  "template:yp5-name-red-box": {
+   "name": "Нижняя треть: имя в красном блоке",
+   "tags": [
+    "нижняя треть",
+    "плашка имени",
+    "подпись",
+    "красный",
+    "блок",
+    "имя"
+   ]
+  },
+  "template:yp5-name-square-line": {
+   "name": "Нижняя треть: маленький квадрат, линия и имя",
+   "tags": [
+    "нижняя треть",
+    "плашка имени",
+    "подпись",
+    "квадрат",
+    "имя"
+   ]
+  },
+  "template:yp5-name-white-box": {
+   "name": "Нижняя треть: имя печатается в белом блоке",
+   "tags": [
+    "нижняя треть",
+    "плашка имени",
+    "подпись",
+    "белый",
+    "блок",
+    "имя"
+   ]
+  },
+  "template:yp5-new-video": {
+   "name": "Нижняя треть: новое видео в чёрной полосе",
+   "tags": [
+    "нижняя треть",
+    "плашка имени",
+    "подпись",
+    "чёрный",
+    "полоса",
+    "видео"
+   ]
+  },
+  "template:yp5-notify-bell": {
+   "name": "Нижняя треть: уведомления со звонящим колокольчиком",
+   "tags": [
+    "нижняя треть",
+    "плашка имени",
+    "подпись",
+    "колокольчик",
+    "кольцо"
+   ]
+  },
+  "template:yp5-opener-boxes": {
+   "name": "Красная заставка: имя в чёрных блоках",
+   "tags": [
+    "заставка",
+    "интро",
+    "красный",
+    "чёрный",
+    "блок",
+    "имя"
+   ]
+  },
+  "template:yp5-opener-divider": {
+   "name": "Красная заставка: кнопка, разделитель и имя",
+   "tags": [
+    "заставка",
+    "интро",
+    "красный",
+    "имя"
+   ]
+  },
+  "template:yp5-opener-fade": {
+   "name": "Красная заставка: кнопка и плавно появляющееся имя",
+   "tags": [
+    "заставка",
+    "интро",
+    "красный",
+    "имя"
+   ]
+  },
+  "template:yp5-opener-flip": {
+   "name": "Красная заставка: переворачивающаяся кнопка и имя",
+   "tags": [
+    "заставка",
+    "интро",
+    "красный",
+    "имя"
+   ]
+  },
+  "template:yp5-opener-typed": {
+   "name": "Красная заставка: печатаемое имя",
+   "tags": [
+    "заставка",
+    "интро",
+    "красный",
+    "имя",
+    "печать"
+   ]
+  },
+  "template:yp5-profile-card": {
+   "name": "Нижняя треть: белая карточка с аватаром",
+   "tags": [
+    "нижняя треть",
+    "плашка имени",
+    "подпись",
+    "аватар",
+    "белый"
+   ]
+  },
+  "template:yp5-promo-pack": {
+   "name": "Титр: YOUTUBE PROMO в чёрном блоке",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "youtube",
+    "чёрный"
+   ]
+  },
+  "template:yp5-quote-black-frame": {
+   "name": "Цитата в чёрной рамке с плашкой",
+   "tags": [
+    "цитата",
+    "высказывание",
+    "текст",
+    "чёрный",
+    "рамка"
+   ]
+  },
+  "template:yp5-quote-brackets": {
+   "name": "Цитата между двумя уголками",
+   "tags": [
+    "цитата",
+    "высказывание",
+    "текст"
+   ]
+  },
+  "template:yp5-quote-bubble": {
+   "name": "Цитата в речевом пузыре",
+   "tags": [
+    "цитата",
+    "высказывание",
+    "текст",
+    "пузырь"
+   ]
+  },
+  "template:yp5-quote-centred": {
+   "name": "Цитата по центру с белой плашкой",
+   "tags": [
+    "цитата",
+    "высказывание",
+    "текст",
+    "красный",
+    "белый"
+   ]
+  },
+  "template:yp5-quote-corners": {
+   "name": "Цитата между двумя белыми уголками",
+   "tags": [
+    "цитата",
+    "высказывание",
+    "текст",
+    "белый"
+   ]
+  },
+  "template:yp5-quote-frame": {
+   "name": "Цитата в рамке с чёрной плашкой",
+   "tags": [
+    "цитата",
+    "высказывание",
+    "текст",
+    "чёрный",
+    "рамка"
+   ]
+  },
+  "template:yp5-quote-line": {
+   "name": "Цитата: вертикальная линия и кавычки в блоках",
+   "tags": [
+    "цитата",
+    "высказывание",
+    "текст",
+    "блок"
+   ]
+  },
+  "template:yp5-quote-split-bar": {
+   "name": "Цитата, раскрывающаяся между двумя полосами",
+   "tags": [
+    "цитата",
+    "высказывание",
+    "текст",
+    "полоса"
+   ]
+  },
+  "template:yp5-quote-two-lines": {
+   "name": "Цитата между двумя линиями",
+   "tags": [
+    "цитата",
+    "высказывание",
+    "текст"
+   ]
+  },
+  "template:yp5-quote-white-box": {
+   "name": "Цитата в белом блоке с чёрными кавычками",
+   "tags": [
+    "цитата",
+    "высказывание",
+    "текст",
+    "белый",
+    "чёрный",
+    "блок"
+   ]
+  },
+  "template:yp5-record-iris": {
+   "name": "Переход: раскрывающиеся круги записи",
+   "tags": [
+    "переход",
+    "анимация перехода",
+    "смена кадра",
+    "круг"
+   ]
+  },
+  "template:yp5-social-baldosa-fb": {
+   "name": "Панель соцсети: Facebook (летящая плитка)",
+   "tags": [
+    "соцсети",
+    "панель",
+    "подписка",
+    "полоса",
+    "facebook"
+   ]
+  },
+  "template:yp5-social-baldosa-ig": {
+   "name": "Панель соцсети: Instagram (летящая плитка)",
+   "tags": [
+    "соцсети",
+    "панель",
+    "подписка",
+    "полоса",
+    "instagram"
+   ]
+  },
+  "template:yp5-social-baldosa-tw": {
+   "name": "Панель соцсети: Twitter (летящая плитка)",
+   "tags": [
+    "соцсети",
+    "панель",
+    "подписка",
+    "полоса",
+    "twitter"
+   ]
+  },
+  "template:yp5-social-baldosa-yt": {
+   "name": "Панель соцсети: YouTube (летящая плитка)",
+   "tags": [
+    "соцсети",
+    "панель",
+    "подписка",
+    "youtube",
+    "полоса"
+   ]
+  },
+  "template:yp5-social-barras-fb": {
+   "name": "Панель соцсети: Facebook (две раскрывающиеся полосы)",
+   "tags": [
+    "соцсети",
+    "панель",
+    "подписка",
+    "полоса",
+    "facebook"
+   ]
+  },
+  "template:yp5-social-barras-ig": {
+   "name": "Панель соцсети: Instagram (две раскрывающиеся полосы)",
+   "tags": [
+    "соцсети",
+    "панель",
+    "подписка",
+    "полоса",
+    "instagram"
+   ]
+  },
+  "template:yp5-social-barras-tw": {
+   "name": "Панель соцсети: Twitter (две раскрывающиеся полосы)",
+   "tags": [
+    "соцсети",
+    "панель",
+    "подписка",
+    "полоса",
+    "twitter"
+   ]
+  },
+  "template:yp5-social-barras-yt": {
+   "name": "Панель соцсети: YouTube (две раскрывающиеся полосы)",
+   "tags": [
+    "соцсети",
+    "панель",
+    "подписка",
+    "youtube",
+    "полоса"
+   ]
+  },
+  "template:yp5-social-circulo-fb": {
+   "name": "Панель соцсети: Facebook (круг и капсула)",
+   "tags": [
+    "соцсети",
+    "панель",
+    "подписка",
+    "круг",
+    "полоса",
+    "facebook"
+   ]
+  },
+  "template:yp5-social-circulo-ig": {
+   "name": "Панель соцсети: Instagram (круг и капсула)",
+   "tags": [
+    "соцсети",
+    "панель",
+    "подписка",
+    "круг",
+    "полоса",
+    "instagram"
+   ]
+  },
+  "template:yp5-social-circulo-tw": {
+   "name": "Панель соцсети: Twitter (круг и капсула)",
+   "tags": [
+    "соцсети",
+    "панель",
+    "подписка",
+    "круг",
+    "полоса",
+    "twitter"
+   ]
+  },
+  "template:yp5-social-circulo-yt": {
+   "name": "Панель соцсети: YouTube (круг и капсула)",
+   "tags": [
+    "соцсети",
+    "панель",
+    "подписка",
+    "youtube",
+    "круг",
+    "полоса"
+   ]
+  },
+  "template:yp5-social-cuadro-fb": {
+   "name": "Панель соцсети: Facebook (переворачивающаяся плитка)",
+   "tags": [
+    "соцсети",
+    "панель",
+    "подписка",
+    "полоса",
+    "facebook"
+   ]
+  },
+  "template:yp5-social-cuadro-ig": {
+   "name": "Панель соцсети: Instagram (переворачивающаяся плитка)",
+   "tags": [
+    "соцсети",
+    "панель",
+    "подписка",
+    "полоса",
+    "instagram"
+   ]
+  },
+  "template:yp5-social-cuadro-tw": {
+   "name": "Панель соцсети: Twitter (переворачивающаяся плитка)",
+   "tags": [
+    "соцсети",
+    "панель",
+    "подписка",
+    "полоса",
+    "twitter"
+   ]
+  },
+  "template:yp5-social-cuadro-yt": {
+   "name": "Панель соцсети: YouTube (переворачивающаяся плитка)",
+   "tags": [
+    "соцсети",
+    "панель",
+    "подписка",
+    "youtube",
+    "полоса"
+   ]
+  },
+  "template:yp5-social-pincel-fb": {
+   "name": "Панель соцсети: Facebook (мазок кисти)",
+   "tags": [
+    "соцсети",
+    "панель",
+    "подписка",
+    "полоса",
+    "facebook"
+   ]
+  },
+  "template:yp5-social-pincel-ig": {
+   "name": "Панель соцсети: Instagram (мазок кисти)",
+   "tags": [
+    "соцсети",
+    "панель",
+    "подписка",
+    "полоса",
+    "instagram"
+   ]
+  },
+  "template:yp5-social-pincel-tw": {
+   "name": "Панель соцсети: Twitter (мазок кисти)",
+   "tags": [
+    "соцсети",
+    "панель",
+    "подписка",
+    "полоса",
+    "twitter"
+   ]
+  },
+  "template:yp5-social-pincel-yt": {
+   "name": "Панель соцсети: YouTube (мазок кисти)",
+   "tags": [
+    "соцсети",
+    "панель",
+    "подписка",
+    "youtube",
+    "полоса"
+   ]
+  },
+  "template:yp5-stacked-channel": {
+   "name": "Нижняя треть: имя из трёх строк с чат-пузырями",
+   "tags": [
+    "нижняя треть",
+    "плашка имени",
+    "подпись",
+    "имя",
+    "пузырь"
+   ]
+  },
+  "template:yp5-sub-avatar-pill": {
+   "name": "Нижняя треть: подписка с аватаром и кликом",
+   "tags": [
+    "нижняя треть",
+    "плашка имени",
+    "подпись",
+    "подписка",
+    "аватар"
+   ]
+  },
+  "template:yp5-sub-center-avatar": {
+   "name": "Нижняя треть: аватар посередине капсулы",
+   "tags": [
+    "нижняя треть",
+    "плашка имени",
+    "подпись",
+    "аватар",
+    "капсула"
+   ]
+  },
+  "template:yp5-sub-channel-tag": {
+   "name": "Нижняя треть: подписка с названием канала",
+   "tags": [
+    "нижняя треть",
+    "плашка имени",
+    "подпись",
+    "подписка",
+    "имя",
+    "канал"
+   ]
+  },
+  "template:yp5-sub-grey-bell": {
+   "name": "Нижняя треть: подписка становится серой и колокольчик",
+   "tags": [
+    "нижняя треть",
+    "плашка имени",
+    "подпись",
+    "подписка",
+    "колокольчик",
+    "серый"
+   ]
+  },
+  "template:yp5-sub-logo-box": {
+   "name": "Нижняя треть: логотип в белом блоке и подписка",
+   "tags": [
+    "нижняя треть",
+    "плашка имени",
+    "подпись",
+    "подписка",
+    "белый",
+    "блок"
+   ]
+  },
+  "template:yp5-sub-red-pill": {
+   "name": "Нижняя треть: красная капсула превращается в подписку",
+   "tags": [
+    "нижняя треть",
+    "плашка имени",
+    "подпись",
+    "подписка",
+    "красный",
+    "капсула"
+   ]
+  },
+  "template:yp5-sub-red-white": {
+   "name": "Нижняя треть: подписка превращается в «Вы подписаны»",
+   "tags": [
+    "нижняя треть",
+    "плашка имени",
+    "подпись",
+    "подписка"
+   ]
+  },
+  "template:yp5-sub-stack": {
+   "name": "Нижняя треть: аватар и три красные плашки",
+   "tags": [
+    "нижняя треть",
+    "плашка имени",
+    "подпись",
+    "аватар",
+    "красный"
+   ]
+  },
+  "template:yp5-subscribe-icon": {
+   "name": "Нижняя треть: подписка с вращающейся кнопкой",
+   "tags": [
+    "нижняя треть",
+    "плашка имени",
+    "подпись",
+    "подписка"
+   ]
+  },
+  "template:yp5-subscribe-now": {
+   "name": "Титр: подпишись сейчас по буквам",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "подписка"
+   ]
+  },
+  "template:yp5-subscribe-to": {
+   "name": "Титр: подписка в белом блоке",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "подписка",
+    "белый"
+   ]
+  },
+  "template:yp5-subscribed-click": {
+   "name": "Нижняя треть: красная полоса подписки с кликом",
+   "tags": [
+    "нижняя треть",
+    "плашка имени",
+    "подпись",
+    "подписка",
+    "красный",
+    "полоса"
+   ]
+  },
+  "template:yp5-thanks-watching": {
+   "name": "Титр: спасибо за просмотр",
+   "tags": [
+    "титр",
+    "заголовок",
+    "текст",
+    "анимация",
+    "спасибо"
+   ]
+  },
+  "template:yp5-three-icons": {
+   "name": "Нижняя треть: загорающиеся лайк, play и колокольчик",
+   "tags": [
+    "нижняя треть",
+    "плашка имени",
+    "подпись",
+    "лайк",
+    "колокольчик"
+   ]
+  },
+  "template:yp5-three-pills": {
+   "name": "Нижняя треть: три кнопки в ряд",
+   "tags": [
+    "нижняя треть",
+    "плашка имени",
+    "подпись"
+   ]
+  },
+  "template:yp5-tilted-cycle": {
+   "name": "Нижняя треть: наклонная плашка со сменой слов",
+   "tags": [
+    "нижняя треть",
+    "плашка имени",
+    "подпись"
+   ]
+  },
+  "template:yp5-travel-blog": {
+   "name": "Нижняя треть: поднимающаяся кнопка и имя",
+   "tags": [
+    "нижняя треть",
+    "плашка имени",
+    "подпись",
+    "имя"
+   ]
+  },
+  "template:yp5-triangle-box": {
+   "name": "Нижняя треть: треугольник превращается в белую кнопку",
+   "tags": [
+    "нижняя треть",
+    "плашка имени",
+    "подпись",
+    "белый",
+    "треугольник"
+   ]
+  },
+  "template:yp5-watch-next": {
+   "name": "Нижняя треть: смотрите далее в белом блоке",
+   "tags": [
+    "нижняя треть",
+    "плашка имени",
+    "подпись",
+    "белый",
+    "блок"
+   ]
+  },
+  "template:yp5-white-opener": {
+   "name": "Заставка: красные диски и канал на белом",
+   "tags": [
+    "заставка",
+    "интро",
+    "открытие",
+    "красный",
+    "белый",
+    "канал"
+   ]
+  },
+  "template:yp5-your-channel-label": {
+   "name": "Нижняя треть: красная плашка с кнопкой и искрами",
+   "tags": [
+    "нижняя треть",
+    "плашка имени",
+    "подпись",
+    "красный"
+   ]
+  },
+  "template:yp7-apertura-cuadro-rojo": {
+   "name": "Заставка: красный квадрат и карточка канала",
+   "tags": [
+    "заставка",
+    "интро",
+    "открытие",
+    "красный",
+    "квадрат",
+    "канал"
+   ]
+  },
+  "template:yp7-apertura-foto-perfil": {
+   "name": "Заставка: кадр превращается в аватар",
+   "tags": [
+    "заставка",
+    "интро",
+    "открытие",
+    "аватар"
+   ]
+  },
+  "template:yp7-apertura-palabras": {
+   "name": "Заставка: слова на чёрных и белых панелях",
+   "tags": [
+    "заставка",
+    "интро",
+    "открытие",
+    "белый",
+    "чёрный"
+   ]
+  },
+  "template:yp7-apertura-youtube": {
+   "name": "Заставка: контурный YOUTUBE заполняется",
+   "tags": [
+    "заставка",
+    "интро",
+    "открытие",
+    "youtube"
+   ]
+  },
+  "template:yp7-awesomeness": {
+   "name": "Типографика: слово в белой рамке",
+   "tags": [
+    "типографика",
+    "текст",
+    "фраза",
+    "белый",
+    "рамка"
+   ]
+  },
+  "template:yp7-be-happy": {
+   "name": "Типографика: фраза выстраивается и меняет цвет",
+   "tags": [
+    "типографика",
+    "текст",
+    "фраза"
+   ]
+  },
+  "template:yp7-caja-negra": {
+   "name": "Типографика: фраза в чёрном блоке",
+   "tags": [
+    "типографика",
+    "текст",
+    "фраза",
+    "чёрный",
+    "блок"
+   ]
+  },
+  "template:yp7-cita-barra": {
+   "name": "Типографика: цитата на полосе",
+   "tags": [
+    "типографика",
+    "текст",
+    "фраза",
+    "полоса",
+    "цитата"
+   ]
+  },
+  "template:yp7-cita-barra-2": {
+   "name": "Типографика: полоса цитаты с двумя квадратами",
+   "tags": [
+    "типографика",
+    "текст",
+    "фраза",
+    "квадрат",
+    "полоса",
+    "цитата"
+   ]
+  },
+  "template:yp7-cita-cuadro": {
+   "name": "Типографика: цитата в квадратном блоке",
+   "tags": [
+    "типографика",
+    "текст",
+    "фраза",
+    "квадрат",
+    "блок",
+    "цитата"
+   ]
+  },
+  "template:yp7-cita-cuadro-2": {
+   "name": "Типографика: блок цитаты с угловым квадратом",
+   "tags": [
+    "типографика",
+    "текст",
+    "фраза",
+    "квадрат",
+    "блок",
+    "цитата"
+   ]
+  },
+  "template:yp7-cita-cuadro-3": {
+   "name": "Типографика: цитата с двумя квадратами",
+   "tags": [
+    "типографика",
+    "текст",
+    "фраза",
+    "квадрат",
+    "цитата"
+   ]
+  },
+  "template:yp7-elementos-1": {
+   "name": "Элементы: мигающие фигуры и точки",
+   "tags": [
+    "элементы",
+    "фигуры",
+    "графика",
+    "точки"
+   ]
+  },
+  "template:yp7-elementos-2": {
+   "name": "Элементы: фигуры, кольца и точечные экраны",
+   "tags": [
+    "элементы",
+    "фигуры",
+    "графика",
+    "кольцо"
+   ]
+  },
+  "template:yp7-elementos-3": {
+   "name": "Элементы: диагонали и точечные ромбы",
+   "tags": [
+    "элементы",
+    "фигуры",
+    "графика",
+    "ромб"
+   ]
+  },
+  "template:yp7-elementos-4": {
+   "name": "Элементы: линии развёртки и кольцо",
+   "tags": [
+    "элементы",
+    "фигуры",
+    "графика",
+    "кольцо"
+   ]
+  },
+  "template:yp7-final-1": {
+   "name": "Конечная карточка: одно видео",
+   "tags": [
+    "конечная заставка",
+    "финал",
+    "следующее видео",
+    "видео"
+   ]
+  },
+  "template:yp7-final-2": {
+   "name": "Конечная карточка: два видео друг над другом",
+   "tags": [
+    "конечная заставка",
+    "финал",
+    "следующее видео",
+    "видео"
+   ]
+  },
+  "template:yp7-final-3": {
+   "name": "Конечная карточка: два видео рядом",
+   "tags": [
+    "конечная заставка",
+    "финал",
+    "следующее видео",
+    "видео"
+   ]
+  },
+  "template:yp7-final-4": {
+   "name": "Конечная карточка: четыре видео",
+   "tags": [
+    "конечная заставка",
+    "финал",
+    "следующее видео",
+    "видео"
+   ]
+  },
+  "template:yp7-frase-entre-barras": {
+   "name": "Типографика: фраза между двумя полосами",
+   "tags": [
+    "типографика",
+    "текст",
+    "фраза",
+    "полоса"
+   ]
+  },
+  "template:yp7-frase-inclinada": {
+   "name": "Типографика: наклонная фраза между линиями",
+   "tags": [
+    "типографика",
+    "текст",
+    "фраза"
+   ]
+  },
+  "template:yp7-greatness": {
+   "name": "Типографика: буквы падают на место",
+   "tags": [
+    "типографика",
+    "текст",
+    "фраза",
+    "падение"
+   ]
+  },
+  "template:yp7-icono-campana": {
+   "name": "Иконка: звонящий колокольчик",
+   "tags": [
+    "иконка",
+    "значок",
+    "анимация",
+    "колокольчик",
+    "кольцо"
+   ]
+  },
+  "template:yp7-icono-compartir": {
+   "name": "Иконка: кнопка «Поделиться»",
+   "tags": [
+    "иконка",
+    "значок",
+    "анимация",
+    "поделиться"
+   ]
+  },
+  "template:yp7-icono-me-gusta": {
+   "name": "Иконка: кнопка «Нравится»",
+   "tags": [
+    "иконка",
+    "значок",
+    "анимация",
+    "лайк"
+   ]
+  },
+  "template:yp7-icono-suscribirse": {
+   "name": "Иконка: кнопка «Подписаться»",
+   "tags": [
+    "иконка",
+    "значок",
+    "анимация",
+    "подписка"
+   ]
+  },
+  "template:yp7-nota-campana": {
+   "name": "Доп.: рукописное «Нажми на колокольчик»",
+   "tags": [
+    "рукописный",
+    "надпись",
+    "заметка",
+    "колокольчик"
+   ]
+  },
+  "template:yp7-nota-comenta": {
+   "name": "Доп.: рукописное «Комментируй ниже» со стрелкой",
+   "tags": [
+    "рукописный",
+    "надпись",
+    "заметка",
+    "стрелка",
+    "комментарий"
+   ]
+  },
+  "template:yp7-nota-suscribete": {
+   "name": "Доп.: рукописное «Подписывайся» со стрелкой",
+   "tags": [
+    "рукописный",
+    "надпись",
+    "заметка",
+    "подписка",
+    "стрелка"
+   ]
+  },
+  "template:yp7-nota-video": {
+   "name": "Доп.: рукописное «Смотри видео здесь»",
+   "tags": [
+    "рукописный",
+    "надпись",
+    "заметка",
+    "видео"
+   ]
+  },
+  "template:yp7-red-dribbble": {
+   "name": "Соцсети: карточка Dribbble",
+   "tags": [
+    "соцсети",
+    "подписка",
+    "значок",
+    "dribbble"
+   ]
+  },
+  "template:yp7-red-facebook": {
+   "name": "Соцсети: карточка Facebook",
+   "tags": [
+    "соцсети",
+    "подписка",
+    "значок",
+    "facebook"
+   ]
+  },
+  "template:yp7-red-google-plus": {
+   "name": "Соцсети: карточка Google Plus",
+   "tags": [
+    "соцсети",
+    "подписка",
+    "значок",
+    "google plus"
+   ]
+  },
+  "template:yp7-red-instagram": {
+   "name": "Соцсети: карточка Instagram",
+   "tags": [
+    "соцсети",
+    "подписка",
+    "значок",
+    "instagram"
+   ]
+  },
+  "template:yp7-red-linkedin": {
+   "name": "Соцсети: карточка LinkedIn",
+   "tags": [
+    "соцсети",
+    "подписка",
+    "значок",
+    "linkedin"
+   ]
+  },
+  "template:yp7-red-pinterest": {
+   "name": "Соцсети: карточка Pinterest",
+   "tags": [
+    "соцсети",
+    "подписка",
+    "значок",
+    "pinterest"
+   ]
+  },
+  "template:yp7-red-twitter": {
+   "name": "Соцсети: карточка Twitter",
+   "tags": [
+    "соцсети",
+    "подписка",
+    "значок",
+    "twitter"
+   ]
+  },
+  "template:yp7-red-whatsapp": {
+   "name": "Соцсети: карточка WhatsApp",
+   "tags": [
+    "соцсети",
+    "подписка",
+    "значок",
+    "whatsapp"
+   ]
+  },
+  "template:yp7-super-awesome-life": {
+   "name": "Типографика: три строки поднимаются и смыкаются",
+   "tags": [
+    "типографика",
+    "текст",
+    "фраза"
+   ]
+  },
+  "template:yp7-suscribirse-banda": {
+   "name": "Подписка: нижняя полоса",
+   "tags": [
+    "подписка",
+    "подписаться",
+    "колокольчик"
+   ]
+  },
+  "template:yp7-suscribirse-banda-foto": {
+   "name": "Подписка: нижняя полоса с фото",
+   "tags": [
+    "подписка",
+    "подписаться",
+    "колокольчик",
+    "фото"
+   ]
+  },
+  "template:yp7-suscribirse-barra": {
+   "name": "Подписка: панель с аватаром",
+   "tags": [
+    "подписка",
+    "подписаться",
+    "колокольчик",
+    "аватар",
+    "полоса"
+   ]
+  },
+  "template:yp7-suscribirse-tarjeta": {
+   "name": "Подписка: карточка с фото",
+   "tags": [
+    "подписка",
+    "подписаться",
+    "колокольчик",
+    "фото"
+   ]
+  },
+  "template:yp7-telefono": {
+   "name": "Сцена: телефон с лайком и подпиской",
+   "tags": [
+    "сцена",
+    "телефон",
+    "подписка",
+    "лайк"
+   ]
+  },
+  "template:yp7-telefono-izquierda": {
+   "name": "Сцена: телефон слева",
+   "tags": [
+    "сцена",
+    "телефон",
+    "подписка"
+   ]
+  },
+  "template:yp7-transicion-circulo": {
+   "name": "Переход: круг из центра",
+   "tags": [
+    "переход",
+    "анимация перехода",
+    "смена кадра",
+    "круг"
+   ]
+  },
+  "template:yp7-transicion-circulo-arriba": {
+   "name": "Переход: круг сверху",
+   "tags": [
+    "переход",
+    "анимация перехода",
+    "смена кадра",
+    "круг"
+   ]
+  },
+  "template:yp7-transicion-circulo-izquierda": {
+   "name": "Переход: круг слева",
+   "tags": [
+    "переход",
+    "анимация перехода",
+    "смена кадра",
+    "круг"
+   ]
+  },
+  "template:yp7-transicion-diagonal": {
+   "name": "Переход: диагональная шторка",
+   "tags": [
+    "переход",
+    "анимация перехода",
+    "смена кадра"
+   ]
+  },
+  "template:yp7-transicion-izquierda": {
+   "name": "Переход: шторка влево",
+   "tags": [
+    "переход",
+    "анимация перехода",
+    "смена кадра"
+   ]
+  },
+  "template:yp7-transicion-lineas": {
+   "name": "Переход: линии из центра",
+   "tags": [
+    "переход",
+    "анимация перехода",
+    "смена кадра"
+   ]
+  },
+  "template:yp7-transicion-rectangulo": {
+   "name": "Переход: прямоугольник из центра",
+   "tags": [
+    "переход",
+    "анимация перехода",
+    "смена кадра"
+   ]
+  },
+  "template:yp7-transicion-sube": {
+   "name": "Переход: поднимающиеся полосы",
+   "tags": [
+    "переход",
+    "анимация перехода",
+    "смена кадра"
    ]
   },
   "template:yt-calle-a-que-te-dedicas": {

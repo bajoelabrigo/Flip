@@ -117,6 +117,7 @@
   "template:collage": "كولاج",
   "template:countdown": "عد تنازلي",
   "template:counter": "عدّادات",
+  "template:instagram": "حزمة Instagram",
   "template:intro": "مقدمات وعناوين",
   "template:lowerthird": "أشرطة أسماء",
   "template:outro": "خواتيم",
@@ -127,6 +128,7 @@
   "template:story15": "قصص ١٥ ثانية",
   "template:text": "نصوص",
   "template:thumbnail": "صور مصغرة",
+  "template:tiktok": "حزمة TikTok",
   "template:transition": "انتقالات وفواصل",
   "template:youtuber": "أسلوب يوتيوبر",
   "template:ytkit": "مجموعة YouTube",
@@ -24811,6 +24813,3017 @@
     "حفلة"
    ]
   },
+  "template:ig0-intro-urbana": {
+   "name": "مقدمة حضرية ديناميكية: URBAN وSTREETS وPROMO وشعارك",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "افتتاحية",
+    "حضري",
+    "مقدمة ديناميكية"
+   ]
+  },
+  "template:ig1-alison": {
+   "name": "ستوري: اسم على صورة بإطار أحمر",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "اسم",
+    "ملف شخصي",
+    "أحمر"
+   ]
+  },
+  "template:ig1-anna": {
+   "name": "ستوري: اسم مع صورة على تدرج أزرق",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "اسم",
+    "ملف شخصي",
+    "تدرج"
+   ]
+  },
+  "template:ig1-beautiful": {
+   "name": "ستوري: #beautiful مع صورة واقتباس",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "اقتباس",
+    "صورة"
+   ]
+  },
+  "template:ig1-believe": {
+   "name": "ستوري: عبارة WE MUST BELIEVE مع خط مقسوم",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عبارة",
+    "صورة",
+    "أسود"
+   ]
+  },
+  "template:ig1-catherine": {
+   "name": "ستوري: صورة دائرية واسم واقتباس على تدرج",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "اقتباس",
+    "ملف شخصي",
+    "تدرج"
+   ]
+  },
+  "template:ig1-conquer": {
+   "name": "ستوري: اهزم من الداخل مع كاروسيل صور",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "كاروسيل",
+    "صورة",
+    "أبيض"
+   ]
+  },
+  "template:ig1-do-your-best": {
+   "name": "ستوري: عبارة DO YOUR BEST على شريط",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عبارة",
+    "مدينة",
+    "تحفيز"
+   ]
+  },
+  "template:ig1-dog": {
+   "name": "ستوري: صورة يقسمها شريط #photooftheday",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "حيوان أليف",
+    "صورة",
+    "شريط"
+   ]
+  },
+  "template:ig1-elegant": {
+   "name": "ستوري: تصميم خطوط أنيق مع نافذة معكوسة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خطوط",
+    "بحر",
+    "أنيق"
+   ]
+  },
+  "template:ig1-forty-sale": {
+   "name": "ستوري: تخفيض 40% عمودي مع صورة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "تخفيضات",
+    "خصم",
+    "موضة"
+   ]
+  },
+  "template:ig1-happy-thoughts": {
+   "name": "ستوري: بولارويد مائل «أفكار سعيدة»",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "بولارويد",
+    "زفاف",
+    "خط يدوي"
+   ]
+  },
+  "template:ig1-heart": {
+   "name": "ستوري: صورة على شكل قلب «أفكار سعيدة»",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "قلب",
+    "حب",
+    "خوخي"
+   ]
+  },
+  "template:ig1-instalove": {
+   "name": "ستوري: #instalove عِش ما تحب",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عبارة",
+    "غابة",
+    "اسم"
+   ]
+  },
+  "template:ig1-lifestyle": {
+   "name": "ستوري: #lifestyle مع فسيفساء صور",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "كولاج",
+    "صيف",
+    "فسيفساء"
+   ]
+  },
+  "template:ig1-live-what": {
+   "name": "ستوري: عِش ما تحب مع شبكة 2×2",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "شبكة",
+    "كولاج",
+    "أبيض"
+   ]
+  },
+  "template:ig1-love-friendship": {
+   "name": "ستوري: صور بولارويد وخط يدوي «الحب صداقة»",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "بولارويد",
+    "وردي",
+    "اقتباس"
+   ]
+  },
+  "template:ig1-love-loves": {
+   "name": "ستوري: صورتا بولارويد مع أسهم وسطر بخط اليد",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "بولارويد",
+    "وردي",
+    "أسهم"
+   ]
+  },
+  "template:ig1-must-believe": {
+   "name": "ستوري: عبارة WE MUST BELIEVE في دائرة معكوسة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عبارة",
+    "دائرة",
+    "منظر طبيعي"
+   ]
+  },
+  "template:ig1-nature": {
+   "name": "ستوري: الطبيعة في صندوق مع إطار",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "طبيعة",
+    "إطار",
+    "بحر"
+   ]
+  },
+  "template:ig1-neon": {
+   "name": "ستوري: NEON CITY بنيون فيروزي",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "نيون",
+    "مدينة",
+    "ليل"
+   ]
+  },
+  "template:ig1-photo-frame": {
+   "name": "ستوري: بطاقة بيضاء تفتح نافذة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "إطار",
+    "طعام",
+    "صورة"
+   ]
+  },
+  "template:ig1-seek": {
+   "name": "ستوري: عبارة SEEK THE SEEKER بحروف من الصور",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عبارة",
+    "أوراق",
+    "قصاصة"
+   ]
+  },
+  "template:ig1-so-it-goes": {
+   "name": "ستوري: هكذا تسير الأمور مع شبكة 2×2",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "شبكة",
+    "كولاج",
+    "وردي"
+   ]
+  },
+  "template:ig1-spring-sale": {
+   "name": "ستوري: تخفيضات الربيع 30%",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "تخفيضات",
+    "خصم",
+    "موضة"
+   ]
+  },
+  "template:ig1-stylish-bike": {
+   "name": "ستوري: S T Y L I S H مع قصاصة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "قصاصة",
+    "فيروزي",
+    "رابط"
+   ]
+  },
+  "template:ig1-stylish-design": {
+   "name": "ستوري: STYLISH DESIGN في إطار متدرج",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "إطار",
+    "تدرج",
+    "داكن"
+   ]
+  },
+  "template:ig1-stylish-skate": {
+   "name": "ستوري: كلمة Stylish عمودية ضخمة مع شعار",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عمودي",
+    "لوح تزلج",
+    "خطوط"
+   ]
+  },
+  "template:ig1-success": {
+   "name": "ستوري: اقتباس على صخرة مع 01",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "اقتباس",
+    "عبارة",
+    "داكن"
+   ]
+  },
+  "template:ig1-work-dream": {
+   "name": "ستوري: عبارة Work hard. Dream big. عمودية مع 05",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عبارة",
+    "عمودي",
+    "رقم"
+   ]
+  },
+  "template:ig1-work-hard": {
+   "name": "ستوري: WORK HARD. DREAM BIG. على خلفية سوداء",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عبارة",
+    "تحفيز",
+    "أسود"
+   ]
+  },
+  "template:ig10-arco-sube": {
+   "name": "ستوري: صورة بقوس صاعد مع MODELS",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "موضة",
+    "عارضون",
+    "صورة"
+   ]
+  },
+  "template:ig10-ovalo-abre": {
+   "name": "ستوري: صورة بيضاوية تنفتح من خط",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "موضة",
+    "عارضون",
+    "صورة"
+   ]
+  },
+  "template:ig10-ovalo-sube": {
+   "name": "ستوري: صورة بيضاوية صاعدة بإطارين",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "موضة",
+    "عارضون",
+    "صورة"
+   ]
+  },
+  "template:ig10-u-foto": {
+   "name": "ستوري: صورة بقاع مستدير وعنوان مؤطر",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "موضة",
+    "عارضون",
+    "صورة"
+   ]
+  },
+  "template:ig10-ventana-arco": {
+   "name": "ستوري: صورة بحجاب شفاف مع نافذة مقوسة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "موضة",
+    "عارضون",
+    "صورة"
+   ]
+  },
+  "template:ig11-avatar-seguir": {
+   "name": "صورة الملف الشخصي مع زر متابعة",
+   "tags": [
+    "instagram",
+    "عناصر",
+    "دعوة لاتخاذ إجراء",
+    "شبكات اجتماعية",
+    "متابعة",
+    "ستوري"
+   ]
+  },
+  "template:ig11-comenta": {
+   "name": "علّق في الأسفل",
+   "tags": [
+    "instagram",
+    "عناصر",
+    "دعوة لاتخاذ إجراء",
+    "شبكات اجتماعية",
+    "تعليقات",
+    "عداد"
+   ]
+  },
+  "template:ig11-compartir": {
+   "name": "شارك المنشور مع المزيد",
+   "tags": [
+    "instagram",
+    "عناصر",
+    "دعوة لاتخاذ إجراء",
+    "شبكات اجتماعية",
+    "مشاركة",
+    "منشور"
+   ]
+  },
+  "template:ig11-doble-toque": {
+   "name": "اضغط مرتين للإعجاب",
+   "tags": [
+    "instagram",
+    "عناصر",
+    "دعوة لاتخاذ إجراء",
+    "شبكات اجتماعية",
+    "إعجاب",
+    "قلب"
+   ]
+  },
+  "template:ig11-enlace-bio": {
+   "name": "اضغط على رابط السيرة الذاتية",
+   "tags": [
+    "instagram",
+    "عناصر",
+    "دعوة لاتخاذ إجراء",
+    "شبكات اجتماعية",
+    "رابط",
+    "السيرة الذاتية"
+   ]
+  },
+  "template:ig11-etiqueta": {
+   "name": "اذكر شخصًا",
+   "tags": [
+    "instagram",
+    "عناصر",
+    "دعوة لاتخاذ إجراء",
+    "شبكات اجتماعية",
+    "وسم",
+    "منشن"
+   ]
+  },
+  "template:ig11-inspiracion": {
+   "name": "اعثر على إلهامك",
+   "tags": [
+    "instagram",
+    "عناصر",
+    "دعوة لاتخاذ إجراء",
+    "شبكات اجتماعية",
+    "بحث",
+    "استكشاف"
+   ]
+  },
+  "template:ig11-pastilla-seguir": {
+   "name": "شريط الاسم مع زر متابعة",
+   "tags": [
+    "instagram",
+    "عناصر",
+    "دعوة لاتخاذ إجراء",
+    "شبكات اجتماعية",
+    "متابعة",
+    "اسم"
+   ]
+  },
+  "template:ig11-pastilla-usuario": {
+   "name": "شريط المستخدم مع المتابعين",
+   "tags": [
+    "instagram",
+    "عناصر",
+    "دعوة لاتخاذ إجراء",
+    "شبكات اجتماعية",
+    "مستخدم",
+    "متابعون"
+   ]
+  },
+  "template:ig11-perfil": {
+   "name": "بطاقة الملف الشخصي",
+   "tags": [
+    "instagram",
+    "عناصر",
+    "دعوة لاتخاذ إجراء",
+    "شبكات اجتماعية",
+    "ملف شخصي",
+    "متابعة"
+   ]
+  },
+  "template:ig11-publicacion": {
+   "name": "بطاقة المنشور",
+   "tags": [
+    "instagram",
+    "عناصر",
+    "دعوة لاتخاذ إجراء",
+    "شبكات اجتماعية",
+    "منشور",
+    "إعجاب"
+   ]
+  },
+  "template:ig11-reels": {
+   "name": "شاهد أحدث الريلز",
+   "tags": [
+    "instagram",
+    "عناصر",
+    "دعوة لاتخاذ إجراء",
+    "شبكات اجتماعية",
+    "ريلز",
+    "مشاهدات"
+   ]
+  },
+  "template:ig11-responder": {
+   "name": "بطاقة تعليق مع رد",
+   "tags": [
+    "instagram",
+    "عناصر",
+    "دعوة لاتخاذ إجراء",
+    "شبكات اجتماعية",
+    "تعليق",
+    "رد"
+   ]
+  },
+  "template:ig11-tu-historia": {
+   "name": "أضف ستوريك",
+   "tags": [
+    "instagram",
+    "عناصر",
+    "دعوة لاتخاذ إجراء",
+    "شبكات اجتماعية",
+    "ستوري",
+    "مشاركة"
+   ]
+  },
+  "template:ig11-ver-historia": {
+   "name": "اضغط لمشاهدة الستوري",
+   "tags": [
+    "instagram",
+    "عناصر",
+    "دعوة لاتخاذ إجراء",
+    "شبكات اجتماعية",
+    "ستوري",
+    "اضغط"
+   ]
+  },
+  "template:ig12-anillos": {
+   "name": "ستوري: حلقات مع صورة دائرية وحروف ضخمة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "برتقالي",
+    "أحمر",
+    "دوائر"
+   ]
+  },
+  "template:ig12-caja-roja": {
+   "name": "ستوري: صندوق أحمر مع كلمة عمودية وحروف ضخمة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "برتقالي",
+    "أحمر",
+    "صندوق"
+   ]
+  },
+  "template:ig12-diagonal": {
+   "name": "ستوري: خطوط قطرية مع كلمة ضخمة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "برتقالي",
+    "أحمر",
+    "قطري"
+   ]
+  },
+  "template:ig12-franjas": {
+   "name": "ستوري: أشرطة ملونة وكلمة عمودية",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "برتقالي",
+    "أحمر",
+    "خطوط عريضة"
+   ]
+  },
+  "template:ig12-panel-rojo": {
+   "name": "ستوري: كلمة ضخمة تنزلق على لوحة حمراء",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "برتقالي",
+    "أحمر",
+    "لوحة"
+   ]
+  },
+  "template:ig13-amarilla": {
+   "name": "ستوري طباعي: أصفر",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خطوط",
+    "أصفر",
+    "أسود"
+   ]
+  },
+  "template:ig13-caja-negra": {
+   "name": "ستوري طباعي: صندوق أسود",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خطوط",
+    "أصفر",
+    "أسود"
+   ]
+  },
+  "template:ig13-filas": {
+   "name": "ستوري طباعي: صفوف من الحروف",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خطوط",
+    "أصفر",
+    "أسود"
+   ]
+  },
+  "template:ig13-gris-ra": {
+   "name": "ستوري طباعي: RA رمادي",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خطوط",
+    "أصفر",
+    "أسود"
+   ]
+  },
+  "template:ig13-letras-grises": {
+   "name": "ستوري طباعي: حروف صفراء",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خطوط",
+    "أصفر",
+    "أسود"
+   ]
+  },
+  "template:ig13-muro-de-fotos": {
+   "name": "جدار صور مع شعارك",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صور",
+    "شعار",
+    "ملف شخصي"
+   ]
+  },
+  "template:ig13-negra": {
+   "name": "ستوري طباعي: قطري أسود",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خطوط",
+    "أصفر",
+    "أسود"
+   ]
+  },
+  "template:ig13-oscura": {
+   "name": "ستوري طباعي: داكن مع كرات",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خطوط",
+    "أصفر",
+    "أسود"
+   ]
+  },
+  "template:ig14-dinamica": {
+   "name": "عرض شرائح ديناميكي: كلمة لكل صورة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عرض صور",
+    "عرض شرائح",
+    "ديناميكي"
+   ]
+  },
+  "template:ig14-energia": {
+   "name": "عرض شرائح حيوي مع الشعار",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عرض صور",
+    "عرض شرائح",
+    "طاقة"
+   ]
+  },
+  "template:ig14-epica": {
+   "name": "عرض شرائح ملحمي مع تأثيرات غليتش",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عرض صور",
+    "عرض شرائح",
+    "ملحمي"
+   ]
+  },
+  "template:ig14-limpia": {
+   "name": "عرض شرائح نظيف بخط كبير",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عرض صور",
+    "عرض شرائح",
+    "نظيف"
+   ]
+  },
+  "template:ig14-minimal": {
+   "name": "عرض شرائح بسيط على خلفية بيضاء",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عرض صور",
+    "عرض شرائح",
+    "بسيط"
+   ]
+  },
+  "template:ig14-moda": {
+   "name": "عرض شرائح للموضة مع عبارات",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عرض صور",
+    "عرض شرائح",
+    "موضة"
+   ]
+  },
+  "template:ig14-ritmica": {
+   "name": "عرض شرائح إيقاعي مع حلقات",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عرض صور",
+    "عرض شرائح",
+    "إيقاع"
+   ]
+  },
+  "template:ig14-stomp": {
+   "name": "عرض شرائح ستومب: كلمة لكل نبضة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عرض صور",
+    "عرض شرائح",
+    "ستومب"
+   ]
+  },
+  "template:ig2-cartel-amarillo": {
+   "name": "ستوري: ملصق أصفر Your Stories",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "ألوان",
+    "ملصق",
+    "أصفر"
+   ]
+  },
+  "template:ig2-ciudad-oferta": {
+   "name": "ستوري: عرض المدينة مع دائرة %",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "ألوان",
+    "عرض",
+    "خصم"
+   ]
+  },
+  "template:ig2-cocina": {
+   "name": "ستوري: افتتاحية برنامج طبخ",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "ألوان",
+    "طبخ",
+    "طعام"
+   ]
+  },
+  "template:ig2-feliz": {
+   "name": "ستوري: HAPPY مع حرف ضخم وصندوق نعناعي",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "ألوان",
+    "سعيد",
+    "أبيض وأسود"
+   ]
+  },
+  "template:ig2-interior": {
+   "name": "ستوري: تصميم داخلي مع دوائر ملونة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "ألوان",
+    "ديكور داخلي",
+    "تصميم"
+   ]
+  },
+  "template:ig2-moda": {
+   "name": "ستوري: الموضة على نعناعي وأحمر",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "ألوان",
+    "موضة",
+    "ملف شخصي"
+   ]
+  },
+  "template:ig2-oscuro": {
+   "name": "ستوري: DARK مع حروف في شبكة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "ألوان",
+    "داكن",
+    "موضة"
+   ]
+  },
+  "template:ig2-presentamos": {
+   "name": "ستوري: نقدّم لكم ستورياتنا بخطوط متدرجة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "ألوان",
+    "تقديم",
+    "تدرج"
+   ]
+  },
+  "template:ig2-rostro-franjas": {
+   "name": "ستوري: وجه مع أشرطة ملونة ودوائر",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "ألوان",
+    "بورتريه",
+    "علامة تجارية"
+   ]
+  },
+  "template:ig2-tu-mente": {
+   "name": "ستوري: قل ما يدور في ذهنك بالبنفسجي",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "ألوان",
+    "عبارة",
+    "بنفسجي"
+   ]
+  },
+  "template:ig2-tu-vida": {
+   "name": "ستوري: YOUR LIFE بأشرطة صفراء",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "ألوان",
+    "حياة",
+    "نصائح"
+   ]
+  },
+  "template:ig2-viaje-verano": {
+   "name": "ستوري: رحلة صيفية رائعة مع سحابة صور",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "ألوان",
+    "رحلة",
+    "صيف"
+   ]
+  },
+  "template:ig3-arte": {
+   "name": "ستوري: فن 01 Stories فوق لوحة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "فن",
+    "رسم"
+   ]
+  },
+  "template:ig3-ciencia": {
+   "name": "ستوري: A-01 MODERN SCIENCE مع دوائر",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "علوم",
+    "دائرة"
+   ]
+  },
+  "template:ig3-city-life": {
+   "name": "ستوري: CITY LIFE مع لوحة وردية",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "مدينة"
+   ]
+  },
+  "template:ig3-comida-circulo": {
+   "name": "ستوري: قل ما يدور في ذهنك داخل دائرة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "طعام",
+    "دائرة"
+   ]
+  },
+  "template:ig3-fashion": {
+   "name": "ستوري: FASHION 45$ بحروف مملوءة بالصور",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "موضة",
+    "عرض"
+   ]
+  },
+  "template:ig3-food": {
+   "name": "ستوري: طعام بخصم 50%",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "طعام",
+    "عرض"
+   ]
+  },
+  "template:ig3-friend": {
+   "name": "ستوري: FRIEND GREAT TRIP مع دائرة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "أصدقاء",
+    "دائرة"
+   ]
+  },
+  "template:ig3-full": {
+   "name": "ستوري: Full 100% بخط الفرشاة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عرض",
+    "حيوانات أليفة"
+   ]
+  },
+  "template:ig3-introducing": {
+   "name": "ستوري: INTRODUCING STORIES في الغابة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "شتاء",
+    "تقديم"
+   ]
+  },
+  "template:ig3-models": {
+   "name": "ستوري: MODELS FASHION مع قوس",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "موضة",
+    "بورتريه"
+   ]
+  },
+  "template:ig3-music": {
+   "name": "ستوري: MUSIC EXCLUSIVE مع حلقات",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "موسيقى",
+    "دائرة"
+   ]
+  },
+  "template:ig3-new": {
+   "name": "ستوري: سفر NEW مع ضربة فرشاة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "سفر",
+    "فرشاة"
+   ]
+  },
+  "template:ig3-opener": {
+   "name": "مقدمة ديناميكية لمنشور مربع",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "مقدمة",
+    "خطوط",
+    "منشور"
+   ]
+  },
+  "template:ig3-perfil-amarillo": {
+   "name": "ملف شخصي: بطاقة صفراء مع صورة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "ملف شخصي"
+   ]
+  },
+  "template:ig3-perfil-coral": {
+   "name": "ملف شخصي: بطاقة مرجانية مع بقع",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "ملف شخصي"
+   ]
+  },
+  "template:ig3-perfil-degradado": {
+   "name": "ملف شخصي: بطاقة متدرجة مع دوائر",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "ملف شخصي"
+   ]
+  },
+  "template:ig3-perfil-oscuro": {
+   "name": "ملف شخصي: بطاقة داكنة باسم أحمر",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "ملف شخصي"
+   ]
+  },
+  "template:ig3-perfil-rojo": {
+   "name": "ملف شخصي: بطاقة حمراء مع صورة رمزية",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "ملف شخصي"
+   ]
+  },
+  "template:ig3-portfolio": {
+   "name": "ستوري: PORTFOLIO مع اسم",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "معرض أعمال"
+   ]
+  },
+  "template:ig3-programa": {
+   "name": "ستوري: V 6 مع أعمدة مستديرة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "تقنية",
+    "باستيل"
+   ]
+  },
+  "template:ig3-promo": {
+   "name": "ستوري: ترويج منتج مع قرص أصفر",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "منتج",
+    "ترويج"
+   ]
+  },
+  "template:ig3-sport": {
+   "name": "ستوري: SPORT مع شارة وردية",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "رياضة"
+   ]
+  },
+  "template:ig3-tech": {
+   "name": "ستوري: TECH مع حروف متناثرة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "تقنية"
+   ]
+  },
+  "template:ig3-toys": {
+   "name": "ستوري: TOYS مع قرص متدرج",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "ألعاب",
+    "دائرة"
+   ]
+  },
+  "template:ig3-tv": {
+   "name": "ستوري: Media Social مع صورة دائرية",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "شبكات اجتماعية",
+    "دائرة"
+   ]
+  },
+  "template:ig3-your-life": {
+   "name": "ستوري: YOUR LIFE وPRO بأشرطة ملونة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "ديكور داخلي"
+   ]
+  },
+  "template:ig4-abstract": {
+   "name": "ستوري: ABSTRACT GEOMETRIC STYLE",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "هندسي",
+    "عمارة"
+   ]
+  },
+  "template:ig4-amazing-dream": {
+   "name": "ستوري: حلم مذهل مع صورتين",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "عبارة",
+    "بني"
+   ]
+  },
+  "template:ig4-audacious": {
+   "name": "ستوري: LET'S DO WHAT WE LOVE #AUDACIOUS",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "تحفيز",
+    "أسود"
+   ]
+  },
+  "template:ig4-beauty": {
+   "name": "ستوري: هناك جمال في البساطة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "طبيعة",
+    "عبارة"
+   ]
+  },
+  "template:ig4-beauty-flowers": {
+   "name": "ستوري: الجمال مع الزهور",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "زهور",
+    "خط عربي"
+   ]
+  },
+  "template:ig4-believe": {
+   "name": "ستوري: BELIEVE YOU CAN SO YOU ARE HALFWAY THERE",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "تحفيز",
+    "عبارة"
+   ]
+  },
+  "template:ig4-big": {
+   "name": "ستوري: BIG. مع دائرة مخططة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "موضة",
+    "خطوط"
+   ]
+  },
+  "template:ig4-born-wild": {
+   "name": "ستوري: BORN TO BE WILD",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "مغامرة",
+    "أزرق"
+   ]
+  },
+  "template:ig4-brand-new-day": {
+   "name": "ستوري: يوم جديد كليًا مع مثلثات",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "مثلثات",
+    "هندسي"
+   ]
+  },
+  "template:ig4-clear": {
+   "name": "ستوري: CLEAR INTERIOR بنصفين",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "داخلي",
+    "منزل"
+   ]
+  },
+  "template:ig4-cold-wave": {
+   "name": "ستوري: COLD WAVE WARM SUN بحروف من الصور",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "بحر",
+    "خطوط"
+   ]
+  },
+  "template:ig4-confident": {
+   "name": "ستوري: STYLISH & CONFIDENT في ثلاث نوافذ",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "موضة",
+    "رجل"
+   ]
+  },
+  "template:ig4-control": {
+   "name": "ستوري: CONTROL مع شعار وصورتين",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "شعار",
+    "يوغا"
+   ]
+  },
+  "template:ig4-courage": {
+   "name": "ستوري: #courage مع ضربة فرشاة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "بورتريه",
+    "برتقالي"
+   ]
+  },
+  "template:ig4-culinary": {
+   "name": "ستوري: CULINARY ART #cooking",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "طبخ",
+    "طعام"
+   ]
+  },
+  "template:ig4-deep-breath": {
+   "name": "ستوري: ENJOY DEEP BREATH مع أوراق",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "طبيعة",
+    "أخضر"
+   ]
+  },
+  "template:ig4-delicious": {
+   "name": "ستوري: شبكة #DELICIOUS",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "طعام",
+    "حلويات"
+   ]
+  },
+  "template:ig4-dream": {
+   "name": "ستوري: DREAM مع إطار فوق مدينة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "مدينة",
+    "إطار"
+   ]
+  },
+  "template:ig4-employee": {
+   "name": "ستوري: BEST EMPLOYEE OF THE MONTH",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "شركة",
+    "موظف"
+   ]
+  },
+  "template:ig4-enjoy-music": {
+   "name": "ستوري: ENJOY MY MUSIC بالأزرق والأحمر",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "موسيقى",
+    "رقص"
+   ]
+  },
+  "template:ig4-fashion-buy": {
+   "name": "ستوري: FASHION IS WHAT YOU BUY على أشرطة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "موضة",
+    "خطوط عريضة"
+   ]
+  },
+  "template:ig4-fitness": {
+   "name": "ستوري: FITNESS BODY ENERGY WORKOUT",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "صالة رياضية",
+    "رياضة"
+   ]
+  },
+  "template:ig4-fun": {
+   "name": "ستوري: #FUN مع صورة مؤطرة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "إطار",
+    "أحمر"
+   ]
+  },
+  "template:ig4-glam": {
+   "name": "ستوري: GLAM ROCK بالوردي والأسود",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "موضة",
+    "وردي"
+   ]
+  },
+  "template:ig4-instamusic": {
+   "name": "ستوري: #instamusic #yourbeat مع بقع",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "موسيقى",
+    "نيون"
+   ]
+  },
+  "template:ig4-life-good": {
+   "name": "ستوري: LIFE IS SO GOOD JUST BE YOURSELF",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "عبارة",
+    "نيون"
+   ]
+  },
+  "template:ig4-lifestyle": {
+   "name": "ستوري: أسلوب حياتي #followme",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "نمط حياة",
+    "أزرق"
+   ]
+  },
+  "template:ig4-look-deep": {
+   "name": "ستوري: LOOK DEEP INTO NATURE مع سداسيات",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "طبيعة",
+    "سداسي"
+   ]
+  },
+  "template:ig4-masterpiece": {
+   "name": "ستوري: MAKE EACH DAY YOUR MASTERPIECE",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "عبارة",
+    "وردي"
+   ]
+  },
+  "template:ig4-meeting": {
+   "name": "ستوري: MEETING WITH FRIENDS في أعمدة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "أصدقاء",
+    "أعمدة"
+   ]
+  },
+  "template:ig4-motion": {
+   "name": "ستوري: MOTION مع دائرة صفراء",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "رقص",
+    "دائرة"
+   ]
+  },
+  "template:ig4-moving": {
+   "name": "ستوري: Moving مع حلقتين",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "رقص",
+    "حلقات"
+   ]
+  },
+  "template:ig4-music": {
+   "name": "ستوري: MUSIC DANCE ENJOY",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "موسيقى",
+    "حفلة"
+   ]
+  },
+  "template:ig4-natural": {
+   "name": "ستوري: NATURAL BEAUTY في ثلاثة أعمدة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "طبيعة",
+    "أعمدة"
+   ]
+  },
+  "template:ig4-never-easier": {
+   "name": "ستوري: IT NEVER GETS EASIER بالأحمر",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "صالة رياضية",
+    "تحفيز"
+   ]
+  },
+  "template:ig4-ocean": {
+   "name": "ستوري: OCEAN HAPPY RELAX مع إطار",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "بحر",
+    "إطار"
+   ]
+  },
+  "template:ig4-pro-fitness": {
+   "name": "ستوري: PRO fitness مع إطار متقاطع",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "رياضة",
+    "إطار"
+   ]
+  },
+  "template:ig4-sale40": {
+   "name": "ستوري: تخفيض 40% عمودي",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "تخفيضات",
+    "عرض"
+   ]
+  },
+  "template:ig4-sale75": {
+   "name": "ستوري: SALE UP TO 75% OFF",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "تخفيضات",
+    "عرض"
+   ]
+  },
+  "template:ig4-secrets": {
+   "name": "ستوري: NO MORE SECRETS #IMAGINE",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "أحمر",
+    "قطري"
+   ]
+  },
+  "template:ig4-shopping-week": {
+   "name": "ستوري: #shoppingweek خصم 40% للبيع",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "تخفيضات",
+    "تسوق"
+   ]
+  },
+  "template:ig4-simplelife": {
+   "name": "ستوري: حين تركّز على الخير #simplelife",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "عبارة",
+    "أزرق"
+   ]
+  },
+  "template:ig4-skate": {
+   "name": "ستوري: 0256 #skatelife",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "تزلج",
+    "رياضة"
+   ]
+  },
+  "template:ig4-sport": {
+   "name": "ستوري: W SPORT مع خط",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "رياضة",
+    "جري"
+   ]
+  },
+  "template:ig4-spring": {
+   "name": "ستوري: SPRING IS IN THE AIR",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "ربيع",
+    "زهور"
+   ]
+  },
+  "template:ig4-stay-strong": {
+   "name": "ستوري: STAY STRONG DON'T GIVE UP",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "تحفيز",
+    "أحمر"
+   ]
+  },
+  "template:ig4-street-fast": {
+   "name": "ستوري: 10/25 #youth street FAST",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "شارع",
+    "تزلج"
+   ]
+  },
+  "template:ig4-style": {
+   "name": "ستوري: STYLE IS VERY PERSONAL",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "موضة",
+    "أحمر"
+   ]
+  },
+  "template:ig4-style-beautiful": {
+   "name": "ستوري: STYLE #beautiful مع أشرطة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "موضة",
+    "خطوط عريضة"
+   ]
+  },
+  "template:ig4-stylish": {
+   "name": "ستوري: #stylish مع قرص أزرق",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "موضة",
+    "أزرق"
+   ]
+  },
+  "template:ig4-summer": {
+   "name": "ستوري: #SUMMER مع معين على الشاطئ",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "شاطئ",
+    "صيف"
+   ]
+  },
+  "template:ig4-summer-event": {
+   "name": "ستوري: حدث صيفي مع تاريخ",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "صيف",
+    "حدث"
+   ]
+  },
+  "template:ig4-summer-look": {
+   "name": "ستوري: إطلالة الصيف #fashion على أشرطة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "موضة",
+    "صيف"
+   ]
+  },
+  "template:ig4-sunshine": {
+   "name": "ستوري: SUNSHINE مع أربع صور",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "صيف",
+    "كولاج"
+   ]
+  },
+  "template:ig4-sunshine-tag": {
+   "name": "ستوري: #sunshine عطلة للاسترخاء",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "صيف",
+    "أزرق"
+   ]
+  },
+  "template:ig4-trendy": {
+   "name": "ستوري: #TRENDY YOUR STYLE بالأحمر",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "أحمر",
+    "موضة"
+   ]
+  },
+  "template:ig4-tropical": {
+   "name": "ستوري: FEELING TROPICAL مع ثلاث صور",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "صيف",
+    "استوائي"
+   ]
+  },
+  "template:ig4-winner": {
+   "name": "ستوري: THE WINNER NEVER QUITS",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "تحفيز",
+    "صالة رياضية"
+   ]
+  },
+  "template:ig4-young": {
+   "name": "ستوري: YOUNG #followus",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "شباب",
+    "أحمر"
+   ]
+  },
+  "template:ig4-youth": {
+   "name": "ستوري: #YOUTH & FREEDOM مع مثلث",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "مثلث",
+    "مرجاني"
+   ]
+  },
+  "template:ig5-amazing-now": {
+   "name": "ستوري: AMAZING NOW",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "أبيض وأسود",
+    "أحمر"
+   ]
+  },
+  "template:ig5-awesome": {
+   "name": "ستوري: AWESOME عمودي",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "أحمر",
+    "عمودي"
+   ]
+  },
+  "template:ig5-be-strong": {
+   "name": "ستوري: B STRONG",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "أحمر",
+    "عبارة"
+   ]
+  },
+  "template:ig5-beach-therapy": {
+   "name": "ستوري: علاج الشاطئ بالفيروزي",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "شاطئ",
+    "عطلة"
+   ]
+  },
+  "template:ig5-beauty-pro": {
+   "name": "ستوري: BEAUTY مع موجة أرجوانية",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "جمال",
+    "أرجواني"
+   ]
+  },
+  "template:ig5-best-look": {
+   "name": "ستوري: YOUR BEST LOOK مؤطر",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "أخضر",
+    "موضة"
+   ]
+  },
+  "template:ig5-choose-glam": {
+   "name": "ستوري: 48 choose the glam",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "جمال",
+    "فخامة"
+   ]
+  },
+  "template:ig5-cold-water": {
+   "name": "ستوري: COLD DEEP WATER",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "بحر",
+    "أصفر"
+   ]
+  },
+  "template:ig5-creative-studio": {
+   "name": "ستوري: CREATIVE DESIGN STUDIO",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "تصميم",
+    "استوديو"
+   ]
+  },
+  "template:ig5-dancing": {
+   "name": "ستوري: #DANCING صورة قطرية",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "رقص",
+    "قطري"
+   ]
+  },
+  "template:ig5-daring-style": {
+   "name": "ستوري: DARING STYLE على الأصفر",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "أصفر",
+    "موضة"
+   ]
+  },
+  "template:ig5-denim-style": {
+   "name": "ستوري: DENIM STYLE مؤطر",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "موضة",
+    "مربع"
+   ]
+  },
+  "template:ig5-design-passion": {
+   "name": "ستوري: DESIGN IS MY PASSION",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "داخلي",
+    "تصميم"
+   ]
+  },
+  "template:ig5-dont-waste": {
+   "name": "ستوري: DON'T WASTE YOUR TIME",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "عبارة",
+    "أخضر مزرق"
+   ]
+  },
+  "template:ig5-enjoy-movement": {
+   "name": "ستوري: استمتع بالحركة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "رقص",
+    "أسود"
+   ]
+  },
+  "template:ig5-flexible-body": {
+   "name": "ستوري: FLEXIBLE BODY مع شريط متدرج",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "لياقة",
+    "تدرج"
+   ]
+  },
+  "template:ig5-focus-breathe": {
+   "name": "ستوري: FOCUS ON THE BREATHE",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "عبارة",
+    "خطوط"
+   ]
+  },
+  "template:ig5-fondo-ambar": {
+   "name": "خلفية: دوائر كهرمانية",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خلفية",
+    "برتقالي",
+    "بني"
+   ]
+  },
+  "template:ig5-fondo-burbujas-azules": {
+   "name": "خلفية: فقاعات زرقاء على وردي",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خلفية",
+    "وردي",
+    "أزرق"
+   ]
+  },
+  "template:ig5-fondo-burbujas-grises": {
+   "name": "خلفية: فقاعات رمادية على أسود",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خلفية",
+    "أسود",
+    "رمادي"
+   ]
+  },
+  "template:ig5-fondo-chevrones": {
+   "name": "خلفية: رتب حمراء",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خلفية",
+    "أحمر",
+    "رتب"
+   ]
+  },
+  "template:ig5-fondo-cinta-azul": {
+   "name": "خلفية: شريط أزرق على أحمر",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خلفية",
+    "تدرج",
+    "أزرق"
+   ]
+  },
+  "template:ig5-fondo-geometrico": {
+   "name": "خلفية: قطع هندسية على رمادي",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خلفية",
+    "رمادي",
+    "هندسي"
+   ]
+  },
+  "template:ig5-fondo-lineas": {
+   "name": "خلفية: تدرج مع خطوط نيون",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خلفية",
+    "تدرج",
+    "وردي"
+   ]
+  },
+  "template:ig5-fondo-lineas-cruzadas": {
+   "name": "خلفية: خطوط متقاطعة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خلفية",
+    "تدرج",
+    "أرجواني فاتح"
+   ]
+  },
+  "template:ig5-fondo-olas": {
+   "name": "خلفية: موجات برتقالية وأرجوانية",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خلفية",
+    "تدرج",
+    "برتقالي"
+   ]
+  },
+  "template:ig5-fondo-pildoras": {
+   "name": "خلفية: كبسولات وردية",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خلفية",
+    "وردي",
+    "باستيل"
+   ]
+  },
+  "template:ig5-fondo-plata": {
+   "name": "خلفية: خطوط فضية",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خلفية",
+    "فضي",
+    "رمادي"
+   ]
+  },
+  "template:ig5-fondo-rojo": {
+   "name": "خلفية: أشكال حمراء مستديرة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خلفية",
+    "أحمر",
+    "أشكال"
+   ]
+  },
+  "template:ig5-gentle-soft": {
+   "name": "ستوري: بطاقة GENTLE & SOFT",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "زهور",
+    "بطاقة"
+   ]
+  },
+  "template:ig5-glam": {
+   "name": "ستوري: GLAM لقطة كاميرا",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "وردي",
+    "كاميرا"
+   ]
+  },
+  "template:ig5-happiness-love": {
+   "name": "ستوري: كولاج HAPPINESS وLOVE",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "كولاج",
+    "زفاف"
+   ]
+  },
+  "template:ig5-happy-weekends": {
+   "name": "ستوري: عطلة نهاية أسبوع سعيدة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "زهور",
+    "عطلة نهاية الأسبوع"
+   ]
+  },
+  "template:ig5-inspiration": {
+   "name": "ستوري: #pleasure إلهام",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "أحمر",
+    "أبيض وأسود"
+   ]
+  },
+  "template:ig5-interior-dream": {
+   "name": "ستوري: كتالوج INTERIOR OF YOUR DREAM",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "كتالوج",
+    "داخلي"
+   ]
+  },
+  "template:ig5-keep-simple": {
+   "name": "ستوري: KEEP IT SIMPLE مع دائرة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "دائرة",
+    "تدرج"
+   ]
+  },
+  "template:ig5-light-easy": {
+   "name": "ستوري: بطاقة LIGHT & EASY",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "موضة",
+    "بطاقة"
+   ]
+  },
+  "template:ig5-look-deep": {
+   "name": "ستوري: LOOK DEEP INTO YOURSELF",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "عبارة",
+    "نيون"
+   ]
+  },
+  "template:ig5-mindfulness": {
+   "name": "ستوري: أبيض وأسود #mindfulness",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "أبيض وأسود",
+    "عبارة"
+   ]
+  },
+  "template:ig5-modern-office": {
+   "name": "ستوري: MODERN OFFICE SPACE",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "مكتب",
+    "شركة"
+   ]
+  },
+  "template:ig5-ocean": {
+   "name": "ستوري: OCEAN داخل دائرة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "دائرة",
+    "بحر"
+   ]
+  },
+  "template:ig5-pleasure": {
+   "name": "ستوري: كولاج مربعات PLEASURE",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "كولاج",
+    "تيراكوتا"
+   ]
+  },
+  "template:ig5-power": {
+   "name": "ستوري: #POWER مع صورة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "أحمر",
+    "موضة"
+   ]
+  },
+  "template:ig5-relax-home": {
+   "name": "ستوري: استرخِ SWEET HOME",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "منزل",
+    "داخلي"
+   ]
+  },
+  "template:ig5-sale-70": {
+   "name": "ستوري: تخفيض 70% بأشرطة مائلة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "تخفيضات",
+    "عرض"
+   ]
+  },
+  "template:ig5-sensual": {
+   "name": "ستوري: SENSUAL مع صورتين",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "أبيض وأسود",
+    "كولاج"
+   ]
+  },
+  "template:ig5-style-y": {
+   "name": "ستوري: STYLE مع حرف Y كبير",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "موضة",
+    "أخضر مزرق"
+   ]
+  },
+  "template:ig5-summer-pause": {
+   "name": "ستوري: SUMMER خذ استراحة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "صيف",
+    "عطلة"
+   ]
+  },
+  "template:ig5-sunny-day": {
+   "name": "ستوري: SUNNY DAY مع دائرة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "صيف",
+    "مسبح"
+   ]
+  },
+  "template:ig5-titulo-art-design": {
+   "name": "عنوان: ART & DESIGN FORUM",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عنوان",
+    "نص",
+    "فن"
+   ]
+  },
+  "template:ig5-titulo-big-sale": {
+   "name": "عنوان: BIG SALE مع فرشاة وعربة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عنوان",
+    "نص",
+    "تخفيضات"
+   ]
+  },
+  "template:ig5-titulo-bold-fashion": {
+   "name": "عنوان: BOLD FASHION STYLE مائل",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عنوان",
+    "نص",
+    "موضة"
+   ]
+  },
+  "template:ig5-titulo-chicle": {
+   "name": "عنوان: أسلوب العلكة BUBBLEGUM STYLE",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عنوان",
+    "نص",
+    "وردي"
+   ]
+  },
+  "template:ig5-titulo-cita": {
+   "name": "عنوان: اقتباس مع اسم قائله",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عنوان",
+    "نص",
+    "اقتباس"
+   ]
+  },
+  "template:ig5-titulo-do-what": {
+   "name": "عنوان: DO WHAT YOU WANT",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عنوان",
+    "نص",
+    "تحفيز"
+   ]
+  },
+  "template:ig5-titulo-formas-abstractas": {
+   "name": "عنوان: تصميم بأشكال تجريدية",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عنوان",
+    "نص",
+    "أشكال"
+   ]
+  },
+  "template:ig5-titulo-glitch": {
+   "name": "عنوان: أسلوب الغليتش",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عنوان",
+    "نص",
+    "غليتش"
+   ]
+  },
+  "template:ig5-titulo-neon": {
+   "name": "عنوان: نيون متوهج",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عنوان",
+    "نص",
+    "نيون"
+   ]
+  },
+  "template:ig5-titulo-never-give-up": {
+   "name": "عنوان: NEVER GIVE UP بالفرشاة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عنوان",
+    "نص",
+    "تحفيز"
+   ]
+  },
+  "template:ig5-titulo-retro": {
+   "name": "عنوان: ستايل ريترو الثمانينات",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عنوان",
+    "نص",
+    "ريترو"
+   ]
+  },
+  "template:ig5-titulo-sale": {
+   "name": "عنوان: تذكرة SALE",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عنوان",
+    "نص",
+    "تخفيضات"
+   ]
+  },
+  "template:ig5-wake-up": {
+   "name": "ستوري: WAKE UP AND BE AWESOME",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "أحمر",
+    "تحفيز"
+   ]
+  },
+  "template:ig5-your-choice": {
+   "name": "ستوري: بورتريه مع نقاط صفراء",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "أصفر",
+    "نقاط"
+   ]
+  },
+  "template:ig5-your-style": {
+   "name": "ستوري: كولاج أسلوبك",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "كولاج",
+    "داخلي"
+   ]
+  },
+  "template:ig6-arbol-cinta": {
+   "name": "ستوري عيد الميلاد: شجرة بشريط ذهبي",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عيد الميلاد",
+    "كريسماس",
+    "شجرة"
+   ]
+  },
+  "template:ig6-artista": {
+   "name": "ستوري: أنت فنان حياتك مع #YLIFE",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "أزرق",
+    "نمط حياة"
+   ]
+  },
+  "template:ig6-aventuras": {
+   "name": "ستوري: مغامراتي مع صورتين وجبل أخضر",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "سفر",
+    "مغامرة"
+   ]
+  },
+  "template:ig6-diseno-pasion": {
+   "name": "ستوري: التصميم شغفي على خلفية وردية",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "تصميم",
+    "عمارة"
+   ]
+  },
+  "template:ig6-feliz-brillante": {
+   "name": "ستوري عيد الميلاد: Merry & Bright على الرمادي",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عيد الميلاد",
+    "كريسماس",
+    "أعياد"
+   ]
+  },
+  "template:ig6-interior": {
+   "name": "ستوري: Clear Interior مع صندوق أسود",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "منزل",
+    "تصميم داخلي"
+   ]
+  },
+  "template:ig6-luz-calida": {
+   "name": "ستوري: Cozy Light مع معينات و#WARM",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "منزل",
+    "منتج"
+   ]
+  },
+  "template:ig6-pino-rojo": {
+   "name": "ستوري عيد الميلاد: أغصان الصنوبر وMerry Christmas على الأحمر",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عيد الميلاد",
+    "كريسماس",
+    "تخفيضات"
+   ]
+  },
+  "template:ig6-rebajas-50": {
+   "name": "ستوري: SALE مع ملصق 50% OFF وأشرطة زرقاء",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "تخفيضات",
+    "خصم"
+   ]
+  },
+  "template:ig6-rebajas-invierno": {
+   "name": "ستوري عيد الميلاد: هدية تنفتح على «winter sell XMAS 50%off»",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عيد الميلاد",
+    "كريسماس",
+    "تخفيضات"
+   ]
+  },
+  "template:ig6-santa": {
+   "name": "ستوري عيد الميلاد: وجه بابا نويل مع Merry Xmas",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عيد الميلاد",
+    "كريسماس",
+    "بابا نويل"
+   ]
+  },
+  "template:ig6-swipe-bandera": {
+   "name": "اسحب للأعلى: علم SWIPE UP ينبثق من مفرقعة حفلات",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "اسحب للأعلى",
+    "اسحب",
+    "سهم"
+   ]
+  },
+  "template:ig6-swipe-boton": {
+   "name": "اسحب للأعلى: زر أبيض يتحول من مربع إلى دائرة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "اسحب للأعلى",
+    "اسحب",
+    "سهم"
+   ]
+  },
+  "template:ig6-swipe-brillo": {
+   "name": "اسحب للأعلى: أسهم بيضاء متوهجة ترتفع",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "اسحب للأعلى",
+    "اسحب",
+    "سهم"
+   ]
+  },
+  "template:ig6-swipe-chevrones": {
+   "name": "اسحب للأعلى: ثلاث رتب زرقاء ترتفع",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "اسحب للأعلى",
+    "اسحب",
+    "سهم"
+   ]
+  },
+  "template:ig6-swipe-circulo": {
+   "name": "اسحب للأعلى: دائرة بيضاء بمثلث ترتفع وتتلاشى",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "اسحب للأعلى",
+    "اسحب",
+    "سهم"
+   ]
+  },
+  "template:ig6-swipe-cuadro": {
+   "name": "اسحب للأعلى: مربع فيروزي بسهم وانعكاسه",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "اسحب للأعلى",
+    "اسحب",
+    "سهم"
+   ]
+  },
+  "template:ig6-swipe-figuras": {
+   "name": "اسحب للأعلى: حلقة خضراء تتحول إلى مثلث مع SWIPE UP",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "اسحب للأعلى",
+    "اسحب",
+    "سهم"
+   ]
+  },
+  "template:ig6-swipe-flecha": {
+   "name": "اسحب للأعلى: سهم أزرق فوق خط نابض",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "اسحب للأعلى",
+    "اسحب",
+    "سهم"
+   ]
+  },
+  "template:ig6-swipe-interruptor": {
+   "name": "اسحب للأعلى: مفتاح بمقبض أزرق ينزلق للأعلى",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "اسحب للأعلى",
+    "اسحب",
+    "سهم"
+   ]
+  },
+  "template:ig6-swipe-letras": {
+   "name": "اسحب للأعلى: حروف SWIPE UP تقفز",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "اسحب للأعلى",
+    "اسحب",
+    "سهم"
+   ]
+  },
+  "template:ig6-swipe-mano": {
+   "name": "اسحب للأعلى: يد تسحب للأعلى مع أثر من الرتب",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "اسحب للأعلى",
+    "اسحب",
+    "سهم"
+   ]
+  },
+  "template:ig6-swipe-triangulo": {
+   "name": "اسحب للأعلى: مثلث أبيض بنقطة حمراء يرتفع",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "اسحب للأعلى",
+    "اسحب",
+    "سهم"
+   ]
+  },
+  "template:ig7-awesome": {
+   "name": "ستوري طباعي: AWESOME",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خطوط",
+    "ألوان",
+    "خطوط عريضة"
+   ]
+  },
+  "template:ig7-big": {
+   "name": "ستوري طباعي: BIG",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خطوط",
+    "ألوان",
+    "حرف ضخم"
+   ]
+  },
+  "template:ig7-brand": {
+   "name": "ستوري طباعي: BRAND",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خطوط",
+    "ألوان",
+    "حرف a"
+   ]
+  },
+  "template:ig7-color": {
+   "name": "ستوري طباعي: COLOR",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خطوط",
+    "ألوان",
+    "إطار"
+   ]
+  },
+  "template:ig7-easy-project": {
+   "name": "ستوري طباعي: STORIES EASY PROJECT",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خطوط",
+    "ألوان",
+    "بكسلات"
+   ]
+  },
+  "template:ig7-grid": {
+   "name": "ستوري طباعي: شبكة ألوان",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خطوط",
+    "ألوان",
+    "شبكة"
+   ]
+  },
+  "template:ig7-no-plugins": {
+   "name": "ستوري طباعي: NO PLUGINS",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خطوط",
+    "ألوان",
+    "مستطيلات"
+   ]
+  },
+  "template:ig7-social": {
+   "name": "ستوري طباعي: SOCIAL",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خطوط",
+    "ألوان",
+    "بطاقات"
+   ]
+  },
+  "template:ig7-stories": {
+   "name": "ستوري طباعي: STORIES",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خطوط",
+    "ألوان",
+    "حرف ضخم"
+   ]
+  },
+  "template:ig7-typo": {
+   "name": "ستوري طباعي: TYPO",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خطوط",
+    "ألوان",
+    "بطاقة"
+   ]
+  },
+  "template:ig8-best-sellers": {
+   "name": "ستوري حضري: الأكثر مبيعًا اضغط الآن",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "حضري",
+    "أزرق",
+    "متجر"
+   ]
+  },
+  "template:ig8-city-vibes": {
+   "name": "ستوري حضري: أجواء المدينة مع صورتين",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "حضري",
+    "أزرق",
+    "مدينة"
+   ]
+  },
+  "template:ig8-friends": {
+   "name": "ستوري حضري: أصدقاء إيجابيون مع شريط صور",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "حضري",
+    "أزرق",
+    "أصدقاء"
+   ]
+  },
+  "template:ig8-mega-sale": {
+   "name": "ستوري حضري: تخفيضات ضخمة %50 بولارويد",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "حضري",
+    "أزرق",
+    "تخفيضات"
+   ]
+  },
+  "template:ig8-visit-page": {
+   "name": "ستوري حضري: زر الصفحة مع شريط أزرق",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "حضري",
+    "أزرق",
+    "ويب"
+   ]
+  },
+  "template:ig9-banda-roja": {
+   "name": "ستوري: شريط أحمر مع كلمة ضخمة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خطوط",
+    "شريط",
+    "أحمر"
+   ]
+  },
+  "template:ig9-letras-cortadas": {
+   "name": "ستوري: كلمة ضخمة مقطوعة وثلاثة روابط",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خطوط",
+    "حروف",
+    "روابط"
+   ]
+  },
+  "template:ig9-letras-rojas": {
+   "name": "ستوري: جدار حروف مقلوبة على الأحمر",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خطوط",
+    "حروف",
+    "أحمر"
+   ]
+  },
+  "template:ig9-palabra-vertical": {
+   "name": "ستوري: كلمة عمودية في إطار مع شريط أحمر",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خطوط",
+    "عمودي",
+    "إطار"
+   ]
+  },
+  "template:ig9-typo": {
+   "name": "ستوري: مربعات TYPO مع إطار مرسوم",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خطوط",
+    "حروف",
+    "إطار"
+   ]
+  },
   "template:intro-de-canal": {
    "name": "مقدمة قناة",
    "tags": [
@@ -24863,6 +27876,204 @@
     "اغنية",
     "ايقاع",
     "حفلة"
+   ]
+  },
+  "template:lg0-circulo-ambar": {
+   "name": "شعار: نقطتان ترسمان حلقة تنغلق في قرص (كهرماني)",
+   "tags": [
+    "شعار",
+    "كشف الشعار",
+    "مسطح",
+    "كهرماني",
+    "أصفر",
+    "دائرة"
+   ]
+  },
+  "template:lg0-cuadro-blanco": {
+   "name": "شعار: مربع يرتد وينفتح (أبيض)",
+   "tags": [
+    "شعار",
+    "كشف الشعار",
+    "مسطح",
+    "أبيض",
+    "مربع",
+    "ارتداد"
+   ]
+  },
+  "template:lg0-disco-azul": {
+   "name": "شعار: نقطة طائرة تنفتح إلى قرص (أزرق)",
+   "tags": [
+    "شعار",
+    "كشف الشعار",
+    "مسطح",
+    "أزرق",
+    "قرص",
+    "نقطة"
+   ]
+  },
+  "template:lg0-hexagono-coral": {
+   "name": "شعار: خط ودائرة وسداسي متدحرج مع علامتك (مرجاني)",
+   "tags": [
+    "شعار",
+    "كشف الشعار",
+    "مسطح",
+    "مرجاني",
+    "سداسي",
+    "خط"
+   ]
+  },
+  "template:lg0-iconos-redes": {
+   "name": "عشر أيقونات للتواصل الاجتماعي تظهر فجأة (أزرق)",
+   "tags": [
+    "شعار",
+    "كشف الشعار",
+    "مسطح",
+    "شبكات اجتماعية",
+    "أيقونات",
+    "فيسبوك"
+   ]
+  },
+  "template:lg0-sigueme": {
+   "name": "شعار اجتماعي: تابعني مع كرة في سداسي فوق صورة",
+   "tags": [
+    "شعار",
+    "كشف الشعار",
+    "مسطح",
+    "تابعني",
+    "مستخدم",
+    "سداسي"
+   ]
+  },
+  "template:lg1-luz-dorada": {
+   "name": "شعار: يُبنى بالضوء الذهبي",
+   "tags": [
+    "شعار",
+    "مقدمة",
+    "ضوء",
+    "ذهبي",
+    "لمعان",
+    "خطوط عريضة"
+   ]
+  },
+  "template:lg2-cintas": {
+   "name": "تابعني: شعار بشرائط دوّارة",
+   "tags": [
+    "شعار",
+    "مسطح",
+    "مؤسسي",
+    "تابعني",
+    "ثلاثي الأبعاد"
+   ]
+  },
+  "template:lg2-franjas": {
+   "name": "تابعني: شعار بشرائح وأعمدة",
+   "tags": [
+    "شعار",
+    "مسطح",
+    "مؤسسي",
+    "تابعني",
+    "خطوط عريضة"
+   ]
+  },
+  "template:lg2-giro": {
+   "name": "شعار: دوران ينفرد",
+   "tags": [
+    "شعار",
+    "مسطح",
+    "مؤسسي",
+    "دوران"
+   ]
+  },
+  "template:lg2-glitch": {
+   "name": "شعار: غليتش على الأخضر",
+   "tags": [
+    "شعار",
+    "مسطح",
+    "مؤسسي",
+    "غليتش"
+   ]
+  },
+  "template:lg2-horizonte": {
+   "name": "اشترك: شعار يرتفع من الأفق",
+   "tags": [
+    "شعار",
+    "مسطح",
+    "مؤسسي",
+    "اشترك",
+    "أفق"
+   ]
+  },
+  "template:lg2-mira": {
+   "name": "اشترك: هدف ينفتح",
+   "tags": [
+    "شعار",
+    "مسطح",
+    "مؤسسي",
+    "اشترك",
+    "هدف"
+   ]
+  },
+  "template:lg2-orbita": {
+   "name": "اشترك: شعار في مدار",
+   "tags": [
+    "شعار",
+    "مسطح",
+    "مؤسسي",
+    "اشترك",
+    "مدار"
+   ]
+  },
+  "template:lg2-puntos": {
+   "name": "شعار: نقاط متدحرجة",
+   "tags": [
+    "شعار",
+    "مسطح",
+    "مؤسسي",
+    "نقاط"
+   ]
+  },
+  "template:lg3-esfera": {
+   "name": "شعار: كرة مخططة تصبح قرصًا",
+   "tags": [
+    "شعار",
+    "كشف الشعار",
+    "مقدمة",
+    "كرة",
+    "أزرق",
+    "مؤسسي"
+   ]
+  },
+  "template:lg3-ondas": {
+   "name": "شعار: موجات ملونة تستقر في خط",
+   "tags": [
+    "شعار",
+    "كشف الشعار",
+    "مقدمة",
+    "موجات",
+    "ألوان",
+    "خط"
+   ]
+  },
+  "template:lg3-persiana": {
+   "name": "شعار: مربع بشرائح ينفتح",
+   "tags": [
+    "شعار",
+    "كشف الشعار",
+    "مقدمة",
+    "مربع",
+    "رمادي",
+    "بسيط"
+   ]
+  },
+  "template:lg3-torta-diana": {
+   "name": "شعار: حلقة متقطعة وقطاعات ملونة وهدف",
+   "tags": [
+    "شعار",
+    "كشف الشعار",
+    "مقدمة",
+    "قطاعات دائرية",
+    "دائرة",
+    "باستيل"
    ]
   },
   "template:llt-bevan": {
@@ -25113,6 +28324,750 @@
     "حلقة"
    ]
   },
+  "template:llt10-amanda": {
+   "name": "شريط الاسم الأبيض: الاسم والمنصب في بطاقة",
+   "tags": [
+    "شريط اسم",
+    "أبيض",
+    "اسم"
+   ]
+  },
+  "template:llt10-elena": {
+   "name": "شريط الاسم الأبيض: الاسم في صندوق",
+   "tags": [
+    "شريط اسم",
+    "أبيض",
+    "اسم"
+   ]
+  },
+  "template:llt10-elizabeth": {
+   "name": "شريط الاسم الأبيض: الاسم وبطاقة على اليمين",
+   "tags": [
+    "شريط اسم",
+    "أبيض",
+    "يمين"
+   ]
+  },
+  "template:llt10-emily": {
+   "name": "شريط الاسم الأبيض: الاسم نصفه في صندوق",
+   "tags": [
+    "شريط اسم",
+    "أبيض",
+    "اسم"
+   ]
+  },
+  "template:llt10-erica": {
+   "name": "شريط الاسم الأبيض: بطاقتان مع المنصب",
+   "tags": [
+    "شريط اسم",
+    "أبيض",
+    "اسم"
+   ]
+  },
+  "template:llt10-gabriela": {
+   "name": "شريط الاسم الأبيض: على اليمين مع اسم طويل",
+   "tags": [
+    "شريط اسم",
+    "أبيض",
+    "يمين"
+   ]
+  },
+  "template:llt10-hanna": {
+   "name": "شريط الاسم الأبيض: اللقب في صندوق",
+   "tags": [
+    "شريط اسم",
+    "أبيض",
+    "اسم"
+   ]
+  },
+  "template:llt10-iren": {
+   "name": "شريط الاسم الأبيض: في الوسط مع بطاقة",
+   "tags": [
+    "شريط اسم",
+    "أبيض",
+    "في الوسط"
+   ]
+  },
+  "template:llt10-kristina": {
+   "name": "شريط الاسم الأبيض: صندوق بمنصب من سطرين",
+   "tags": [
+    "شريط اسم",
+    "أبيض",
+    "في الوسط"
+   ]
+  },
+  "template:llt10-lora": {
+   "name": "شريط الاسم الأبيض: اللقب في صندوق على اليمين",
+   "tags": [
+    "شريط اسم",
+    "أبيض",
+    "يمين"
+   ]
+  },
+  "template:llt10-monica": {
+   "name": "شريط الاسم الأبيض: اسم بسطرين وبطاقة",
+   "tags": [
+    "شريط اسم",
+    "أبيض",
+    "في الوسط"
+   ]
+  },
+  "template:llt10-monika": {
+   "name": "شريط الاسم الأبيض: خط والمنصب على اليمين",
+   "tags": [
+    "شريط اسم",
+    "أبيض",
+    "يمين"
+   ]
+  },
+  "template:llt11-1": {
+   "name": "شريط الاسم المتدرج: اللقب بتدرج وبطاقة",
+   "tags": [
+    "شريط اسم",
+    "تدرج",
+    "اسم"
+   ]
+  },
+  "template:llt11-10": {
+   "name": "شريط الاسم المتدرج: اللقب في صندوق وخط سفلي",
+   "tags": [
+    "شريط اسم",
+    "تدرج",
+    "اسم"
+   ]
+  },
+  "template:llt11-11": {
+   "name": "شريط الاسم المتدرج: شريط طويل واللقب في صندوق",
+   "tags": [
+    "شريط اسم",
+    "تدرج",
+    "اسم"
+   ]
+  },
+  "template:llt11-12": {
+   "name": "شريط الاسم المتدرج: بطاقة وإطار واللقب بتدرج",
+   "tags": [
+    "شريط اسم",
+    "تدرج",
+    "اسم"
+   ]
+  },
+  "template:llt11-13": {
+   "name": "شريط الاسم المتدرج: ملصق ومربع",
+   "tags": [
+    "شريط اسم",
+    "تدرج",
+    "اسم"
+   ]
+  },
+  "template:llt11-14": {
+   "name": "شريط الاسم المتدرج: خط سفلي والمنصب على اليمين",
+   "tags": [
+    "شريط اسم",
+    "تدرج",
+    "اسم"
+   ]
+  },
+  "template:llt11-15": {
+   "name": "شريط الاسم المتدرج: مربعات وبطاقة",
+   "tags": [
+    "شريط اسم",
+    "تدرج",
+    "اسم"
+   ]
+  },
+  "template:llt11-16": {
+   "name": "شريط الاسم المتدرج مع صورة: اللقب بتدرج",
+   "tags": [
+    "شريط اسم",
+    "تدرج",
+    "صورة"
+   ]
+  },
+  "template:llt11-17": {
+   "name": "شريط الاسم المتدرج مع صورة: اسم بسطرين وبطاقة",
+   "tags": [
+    "شريط اسم",
+    "تدرج",
+    "صورة"
+   ]
+  },
+  "template:llt11-18": {
+   "name": "شريط الاسم المتدرج مع صورة وشريط",
+   "tags": [
+    "شريط اسم",
+    "تدرج",
+    "صورة"
+   ]
+  },
+  "template:llt11-19": {
+   "name": "شريط الاسم المتدرج مع صورة في إطار",
+   "tags": [
+    "شريط اسم",
+    "تدرج",
+    "صورة"
+   ]
+  },
+  "template:llt11-2": {
+   "name": "شريط الاسم المتدرج: خط سفلي",
+   "tags": [
+    "شريط اسم",
+    "تدرج",
+    "اسم"
+   ]
+  },
+  "template:llt11-20": {
+   "name": "شريط الاسم المتدرج مع صورة وإطار وبطاقة",
+   "tags": [
+    "شريط اسم",
+    "تدرج",
+    "صورة"
+   ]
+  },
+  "template:llt11-3": {
+   "name": "شريط الاسم المتدرج: صندوق المنصب على اليمين",
+   "tags": [
+    "شريط اسم",
+    "تدرج",
+    "اسم"
+   ]
+  },
+  "template:llt11-4": {
+   "name": "شريط الاسم المتدرج: إطار وبطاقة",
+   "tags": [
+    "شريط اسم",
+    "تدرج",
+    "اسم"
+   ]
+  },
+  "template:llt11-5": {
+   "name": "شريط الاسم المتدرج: شريط عمودي",
+   "tags": [
+    "شريط اسم",
+    "تدرج",
+    "اسم"
+   ]
+  },
+  "template:llt11-6": {
+   "name": "شريط الاسم المتدرج: اسم بسطر واحد وبطاقة",
+   "tags": [
+    "شريط اسم",
+    "تدرج",
+    "اسم"
+   ]
+  },
+  "template:llt11-7": {
+   "name": "شريط الاسم المتدرج: الاسم في صندوق والمنصب في إطار",
+   "tags": [
+    "شريط اسم",
+    "تدرج",
+    "اسم"
+   ]
+  },
+  "template:llt11-8": {
+   "name": "شريط الاسم المتدرج: اللقب بتدرج",
+   "tags": [
+    "شريط اسم",
+    "تدرج",
+    "اسم"
+   ]
+  },
+  "template:llt11-9": {
+   "name": "شريط الاسم المتدرج: بطاقة بالأعلى وإطار",
+   "tags": [
+    "شريط اسم",
+    "تدرج",
+    "اسم"
+   ]
+  },
+  "template:llt12-alexandra": {
+   "name": "شريط الاسم الأزرق: شريط يكشف الاسم",
+   "tags": [
+    "شريط اسم",
+    "أزرق",
+    "شريط",
+    "يمين"
+   ]
+  },
+  "template:llt12-cajas": {
+   "name": "شريط الاسم الأزرق: ثلاثة صناديق تكبر",
+   "tags": [
+    "شريط اسم",
+    "أزرق",
+    "صندوق"
+   ]
+  },
+  "template:llt12-corchetes": {
+   "name": "شريط الاسم الأزرق: شريطان ينفتحان",
+   "tags": [
+    "شريط اسم",
+    "أزرق",
+    "شريط"
+   ]
+  },
+  "template:llt12-corni": {
+   "name": "شريط الاسم الأزرق: الاسم في صندوق والمنصب في بطاقة بيضاء",
+   "tags": [
+    "شريط اسم",
+    "أزرق",
+    "صندوق"
+   ]
+  },
+  "template:llt12-jacob": {
+   "name": "شريط الاسم الأزرق: صندوق ينفتح مع شريط أبيض",
+   "tags": [
+    "شريط اسم",
+    "أزرق",
+    "صندوق"
+   ]
+  },
+  "template:llt12-jeremi": {
+   "name": "شريط الاسم الأزرق: خط ينزل ويكشف الاسم",
+   "tags": [
+    "شريط اسم",
+    "أزرق",
+    "خط سفلي"
+   ]
+  },
+  "template:llt12-jeremy": {
+   "name": "شريط الاسم الأزرق: اسم بسطرين وخط سفلي",
+   "tags": [
+    "شريط اسم",
+    "أزرق",
+    "خط سفلي"
+   ]
+  },
+  "template:llt12-john-rojers": {
+   "name": "شريط الاسم الأزرق: اسم مائل داخل صندوق",
+   "tags": [
+    "شريط اسم",
+    "أزرق",
+    "صندوق",
+    "مدور"
+   ]
+  },
+  "template:llt12-john-watson": {
+   "name": "شريط الاسم الأزرق: صندوق مائل ينفتح",
+   "tags": [
+    "شريط اسم",
+    "أزرق",
+    "صندوق",
+    "مائل"
+   ]
+  },
+  "template:llt12-marketing": {
+   "name": "شريط الاسم الأزرق: حروف تظهر تدريجيًا وشريط",
+   "tags": [
+    "شريط اسم",
+    "أزرق",
+    "شريط"
+   ]
+  },
+  "template:llt12-minimal": {
+   "name": "شريط الاسم الأزرق: صندوق ينفتح من المنتصف",
+   "tags": [
+    "شريط اسم",
+    "أزرق",
+    "صندوق"
+   ]
+  },
+  "template:llt12-modern": {
+   "name": "شريط الاسم الأزرق: خطان يرتفعان وخط سفلي",
+   "tags": [
+    "شريط اسم",
+    "أزرق",
+    "خط سفلي"
+   ]
+  },
+  "template:llt12-rosanda": {
+   "name": "شريط الاسم الأزرق: شريط يمسح اسمًا مائلًا",
+   "tags": [
+    "شريط اسم",
+    "أزرق",
+    "شريط",
+    "مدور"
+   ]
+  },
+  "template:llt12-suzanna": {
+   "name": "شريط الاسم الأزرق: حروف تظهر تدريجيًا مع تقريب",
+   "tags": [
+    "شريط اسم",
+    "أزرق",
+    "يمين"
+   ]
+  },
+  "template:llt12-titulos": {
+   "name": "شريط الاسم الأزرق: صندوق ينزل مع شريط أبيض",
+   "tags": [
+    "شريط اسم",
+    "أزرق",
+    "صندوق"
+   ]
+  },
+  "template:llt12-your-text": {
+   "name": "شريط الاسم الأزرق: خطان يخرجان من شريط",
+   "tags": [
+    "شريط اسم",
+    "أزرق",
+    "شريط",
+    "مدور"
+   ]
+  },
+  "template:llt13-clark": {
+   "name": "شريط الاسم المائل: اللقب عريض والاسم رفيع",
+   "tags": [
+    "شريط اسم",
+    "أبيض",
+    "مائل"
+   ]
+  },
+  "template:llt13-david": {
+   "name": "شريط الاسم المائل: المنصب وشريط واسم",
+   "tags": [
+    "شريط اسم",
+    "أبيض",
+    "مائل",
+    "شريط"
+   ]
+  },
+  "template:llt13-dominic": {
+   "name": "شريط الاسم المائل: لقب كبير مسطّر",
+   "tags": [
+    "شريط اسم",
+    "أبيض",
+    "مائل"
+   ]
+  },
+  "template:llt13-emily": {
+   "name": "شريط الاسم المائل: اسم بسطرين وخط سفلي",
+   "tags": [
+    "شريط اسم",
+    "أبيض",
+    "مائل"
+   ]
+  },
+  "template:llt13-foster": {
+   "name": "شريط الاسم المائل: المنصب بالأعلى وخط",
+   "tags": [
+    "شريط اسم",
+    "أبيض",
+    "مائل"
+   ]
+  },
+  "template:llt13-james": {
+   "name": "شريط الاسم المائل: شريط والمنصب بالأسفل",
+   "tags": [
+    "شريط اسم",
+    "أبيض",
+    "مائل",
+    "شريط"
+   ]
+  },
+  "template:llt13-kingsley": {
+   "name": "شريط الاسم المائل: اسم وشريط على اليمين",
+   "tags": [
+    "شريط اسم",
+    "أبيض",
+    "مائل",
+    "شريط",
+    "يمين"
+   ]
+  },
+  "template:llt13-maximilian": {
+   "name": "شريط الاسم المائل: اسم مسطّر ولقب",
+   "tags": [
+    "شريط اسم",
+    "أبيض",
+    "مائل"
+   ]
+  },
+  "template:llt13-michael": {
+   "name": "شريط الاسم المائل: اسم مسطّر",
+   "tags": [
+    "شريط اسم",
+    "أبيض",
+    "مائل"
+   ]
+  },
+  "template:llt13-nathaniel": {
+   "name": "شريط الاسم المائل بمحاذاة لليمين",
+   "tags": [
+    "شريط اسم",
+    "أبيض",
+    "مائل",
+    "يمين"
+   ]
+  },
+  "template:llt13-olivia": {
+   "name": "شريط الاسم المائل: المنصب على اليسار وخط سفلي",
+   "tags": [
+    "شريط اسم",
+    "أبيض",
+    "مائل"
+   ]
+  },
+  "template:llt13-sophia": {
+   "name": "شريط الاسم المائل: شريط والمنصب بجانبه",
+   "tags": [
+    "شريط اسم",
+    "أبيض",
+    "مائل",
+    "شريط"
+   ]
+  },
+  "template:llt14-barra-azul": {
+   "name": "شريط الاسم الأحمر: شعار وشريط كحلي",
+   "tags": [
+    "شريط اسم",
+    "أحمر",
+    "كحلي",
+    "شعار",
+    "شريط"
+   ]
+  },
+  "template:llt14-barra-gris": {
+   "name": "شريط الاسم الأحمر: شعار وشريط رمادي وبطاقة",
+   "tags": [
+    "شريط اسم",
+    "أحمر",
+    "كحلي",
+    "شعار",
+    "شريط"
+   ]
+  },
+  "template:llt14-caja-alta": {
+   "name": "شريط الاسم الأحمر: صندوق طويل بحافة حمراء",
+   "tags": [
+    "شريط اسم",
+    "أحمر",
+    "كحلي",
+    "صندوق"
+   ]
+  },
+  "template:llt14-caja-grande": {
+   "name": "شريط الاسم الأحمر: صندوق كبير مع عنوان ونص",
+   "tags": [
+    "شريط اسم",
+    "أحمر",
+    "كحلي",
+    "صندوق"
+   ]
+  },
+  "template:llt14-disenador": {
+   "name": "شريط الاسم الأحمر: الاسم في إطار أحمر",
+   "tags": [
+    "شريط اسم",
+    "أحمر",
+    "كحلي"
+   ]
+  },
+  "template:llt14-dos-cuadros": {
+   "name": "شريط الاسم الأحمر: مربعان وسطران",
+   "tags": [
+    "شريط اسم",
+    "أحمر",
+    "كحلي"
+   ]
+  },
+  "template:llt14-hexagono": {
+   "name": "شريط الاسم الأحمر: شعار في سداسي وبطاقة بيضاء",
+   "tags": [
+    "شريط اسم",
+    "أحمر",
+    "كحلي",
+    "شعار"
+   ]
+  },
+  "template:llt14-linea-roja": {
+   "name": "شريط الاسم الأحمر: شعار وخط أحمر وصندوق عريض",
+   "tags": [
+    "شريط اسم",
+    "أحمر",
+    "كحلي",
+    "شعار",
+    "صندوق"
+   ]
+  },
+  "template:llt14-logo-lineas": {
+   "name": "شريط الاسم الأحمر: شعار وخط وسطران",
+   "tags": [
+    "شريط اسم",
+    "أحمر",
+    "كحلي",
+    "شعار"
+   ]
+  },
+  "template:llt14-logo-texto": {
+   "name": "شريط الاسم الأحمر: شعار وصندوق فقرة",
+   "tags": [
+    "شريط اسم",
+    "أحمر",
+    "كحلي",
+    "شعار",
+    "صندوق"
+   ]
+  },
+  "template:llt14-marca": {
+   "name": "شريط الاسم الأحمر: شعار وشرطة مائلة واسم",
+   "tags": [
+    "شريط اسم",
+    "أحمر",
+    "كحلي",
+    "شعار"
+   ]
+  },
+  "template:llt14-pestana": {
+   "name": "شريط الاسم الأحمر: شعار وتبويب وصندوق نص",
+   "tags": [
+    "شريط اسم",
+    "أحمر",
+    "كحلي",
+    "شعار",
+    "صندوق"
+   ]
+  },
+  "template:llt14-primer-titulo": {
+   "name": "شريط الاسم الأحمر: شعار وعنوان وصندوق نص",
+   "tags": [
+    "شريط اسم",
+    "أحمر",
+    "كحلي",
+    "شعار",
+    "صندوق"
+   ]
+  },
+  "template:llt15-barra-larga": {
+   "name": "شريط الاسم البسيط: شريط طويل مع شعار وتاريخ",
+   "tags": [
+    "شريط اسم",
+    "بسيط",
+    "أسود",
+    "شعار",
+    "شريط"
+   ]
+  },
+  "template:llt15-descripcion": {
+   "name": "شريط الاسم البسيط: الاسم والوصف",
+   "tags": [
+    "شريط اسم",
+    "بسيط",
+    "أسود"
+   ]
+  },
+  "template:llt15-dos-lineas": {
+   "name": "شريط الاسم البسيط: منصب بسطرين",
+   "tags": [
+    "شريط اسم",
+    "بسيط",
+    "أسود"
+   ]
+  },
+  "template:llt15-logo-ficha": {
+   "name": "شريط الاسم البسيط: مربع الشعار وسطران",
+   "tags": [
+    "شريط اسم",
+    "بسيط",
+    "أسود",
+    "شعار"
+   ]
+  },
+  "template:llt15-logo-nombre": {
+   "name": "شريط الاسم البسيط: كتلة الشعار والاسم",
+   "tags": [
+    "شريط اسم",
+    "بسيط",
+    "أسود",
+    "شعار"
+   ]
+  },
+  "template:llt15-nombre": {
+   "name": "شريط الاسم البسيط: الاسم على بطاقة بيضاء",
+   "tags": [
+    "شريط اسم",
+    "بسيط",
+    "أسود"
+   ]
+  },
+  "template:llt15-nombre-cargo": {
+   "name": "شريط الاسم البسيط: الاسم والمنصب",
+   "tags": [
+    "شريط اسم",
+    "بسيط",
+    "أسود"
+   ]
+  },
+  "template:llt16-barra-nombre": {
+   "name": "ثلث سفلي: شريط أحمر واسم رفيع",
+   "tags": [
+    "ثلث سفلي",
+    "مسطح",
+    "قالب"
+   ]
+  },
+  "template:llt16-cargo-azul": {
+   "name": "ثلث سفلي: الاسم والمنصب في صندوق أزرق",
+   "tags": [
+    "ثلث سفلي",
+    "مسطح",
+    "قالب"
+   ]
+  },
+  "template:llt16-cargo-rojo": {
+   "name": "ثلث سفلي: اسم رفيع ومنصب أحمر",
+   "tags": [
+    "ثلث سفلي",
+    "مسطح",
+    "قالب"
+   ]
+  },
+  "template:llt16-director": {
+   "name": "ثلث سفلي: منصب أبيض واسم أحمر",
+   "tags": [
+    "ثلث سفلي",
+    "مسطح",
+    "قالب"
+   ]
+  },
+  "template:llt16-fotografa": {
+   "name": "ثلث سفلي: منصب صغير واسم على خلفية سماوية",
+   "tags": [
+    "ثلث سفلي",
+    "مسطح",
+    "قالب"
+   ]
+  },
+  "template:llt16-hora": {
+   "name": "ثلث سفلي: الوقت والتاريخ",
+   "tags": [
+    "ثلث سفلي",
+    "مسطح",
+    "تاريخ"
+   ]
+  },
+  "template:llt16-show": {
+   "name": "ثلث سفلي: عنوان بين خطين",
+   "tags": [
+    "ثلث سفلي",
+    "مسطح",
+    "قالب"
+   ]
+  },
+  "template:llt16-titulo-rojo": {
+   "name": "ثلث سفلي: عنوان وعنوان فرعي أحمر",
+   "tags": [
+    "ثلث سفلي",
+    "مسطح",
+    "قالب"
+   ]
+  },
+  "template:llt16-tu-texto": {
+   "name": "ثلث سفلي: صندوق برتقالي ورمادي",
+   "tags": [
+    "ثلث سفلي",
+    "مسطح",
+    "قالب"
+   ]
+  },
   "template:llt2-barra-etiqueta": {
    "name": "شريط الاسم مع شعار: شريط داكن ووسم أخضر",
    "tags": [
@@ -25245,6 +29200,435 @@
     "أصفر",
     "أبيض",
     "ضيف"
+   ]
+  },
+  "template:llt4-cuadro-sube": {
+   "name": "شريط الاسم مع شعار: مربع داكن والشعار يرتفع",
+   "tags": [
+    "شريط اسم",
+    "شعار",
+    "اسم",
+    "شريط",
+    "أخضر",
+    "مربع"
+   ]
+  },
+  "template:llt4-ficha-blanca": {
+   "name": "شريط الاسم مع شعار: بطاقة بيضاء تنفتح",
+   "tags": [
+    "شريط اسم",
+    "شعار",
+    "اسم",
+    "أبيض",
+    "بطاقة"
+   ]
+  },
+  "template:llt4-logo-izquierda": {
+   "name": "شريط الاسم مع شعار: شريط داكن والشعار على اليسار",
+   "tags": [
+    "شريط اسم",
+    "شعار",
+    "اسم",
+    "شريط",
+    "أخضر"
+   ]
+  },
+  "template:llt4-pastilla-barra": {
+   "name": "شريط الاسم مع شعار: كبسولة تتحول إلى شريط",
+   "tags": [
+    "شريط اسم",
+    "شعار",
+    "اسم",
+    "شريط",
+    "أخضر",
+    "كبسولة"
+   ]
+  },
+  "template:llt5-adam": {
+   "name": "شريط الاسم مع صورة: صورة طولية والاسم فوقها",
+   "tags": [
+    "شريط اسم",
+    "صورة",
+    "اسم",
+    "رمادي",
+    "طولي",
+    "في الوسط"
+   ]
+  },
+  "template:llt5-eddy": {
+   "name": "شريط الاسم مع صورة: صورة دائرية على اليمين وشريط داكن",
+   "tags": [
+    "شريط اسم",
+    "صورة",
+    "اسم",
+    "داكن",
+    "دائري"
+   ]
+  },
+  "template:llt5-elis": {
+   "name": "شريط الاسم مع صورة: صورة دائرية والاسم على اليمين",
+   "tags": [
+    "شريط اسم",
+    "صورة",
+    "اسم",
+    "رمادي",
+    "دائري"
+   ]
+  },
+  "template:llt5-emma": {
+   "name": "شريط الاسم مع صورة: صورة طولية مع أشرطة عبرها",
+   "tags": [
+    "شريط اسم",
+    "صورة",
+    "اسم",
+    "رمادي",
+    "طولي"
+   ]
+  },
+  "template:llt5-kris": {
+   "name": "شريط الاسم مع صورة: صورة دائرية بالأعلى والاسم بالأسفل",
+   "tags": [
+    "شريط اسم",
+    "صورة",
+    "اسم",
+    "رمادي",
+    "دائري",
+    "في الوسط"
+   ]
+  },
+  "template:llt5-martin": {
+   "name": "شريط الاسم مع صورة: صورة مربعة والاسم على اليمين",
+   "tags": [
+    "شريط اسم",
+    "صورة",
+    "اسم",
+    "رمادي"
+   ]
+  },
+  "template:llt5-monika": {
+   "name": "شريط الاسم مع صورة: الصورة على اليمين والاسم على اليسار",
+   "tags": [
+    "شريط اسم",
+    "صورة",
+    "اسم",
+    "رمادي"
+   ]
+  },
+  "template:llt5-rachel": {
+   "name": "شريط الاسم مع صورة: صورة طولية على اليمين واللقب بخط مفرغ",
+   "tags": [
+    "شريط اسم",
+    "صورة",
+    "اسم",
+    "داكن",
+    "طولي"
+   ]
+  },
+  "template:llt5-rose": {
+   "name": "شريط الاسم مع صورة: الصورة بالأعلى والاسم بالأسفل",
+   "tags": [
+    "شريط اسم",
+    "صورة",
+    "اسم",
+    "رمادي",
+    "في الوسط"
+   ]
+  },
+  "template:llt6-barra-inclinada": {
+   "name": "شريط الاسم: شريط أبيض مائل واسم كبير",
+   "tags": [
+    "شريط اسم",
+    "اسم",
+    "أبيض",
+    "مائل"
+   ]
+  },
+  "template:llt6-barrido-rojo": {
+   "name": "شريط الاسم: كتلة حمراء تمسح وتكشف الاسم",
+   "tags": [
+    "شريط اسم",
+    "اسم",
+    "أحمر"
+   ]
+  },
+  "template:llt6-caja-nombre": {
+   "name": "شريط الاسم: الاسم في صندوق أبيض ينكمش",
+   "tags": [
+    "شريط اسم",
+    "اسم",
+    "أبيض",
+    "صندوق"
+   ]
+  },
+  "template:llt6-cursor": {
+   "name": "شريط الاسم: كتلة تتحول إلى مؤشر وتكشف الاسم",
+   "tags": [
+    "شريط اسم",
+    "اسم",
+    "أبيض",
+    "مؤشر"
+   ]
+  },
+  "template:llt6-divisor": {
+   "name": "شريط الاسم: خط فاصل مع المنصب والاسم على الجانبين",
+   "tags": [
+    "شريط اسم",
+    "اسم",
+    "خط"
+   ]
+  },
+  "template:llt6-etiqueta-blanca": {
+   "name": "شريط الاسم: اسم كبير وبطاقة بيضاء للمنصب",
+   "tags": [
+    "شريط اسم",
+    "اسم",
+    "أبيض",
+    "ملصق"
+   ]
+  },
+  "template:llt6-etiqueta-roja": {
+   "name": "شريط الاسم: الاسم على اليمين وشريط أحمر للمنصب",
+   "tags": [
+    "شريط اسم",
+    "اسم",
+    "أحمر",
+    "يمين"
+   ]
+  },
+  "template:llt6-letras": {
+   "name": "شريط الاسم: اسم يصل حرفًا بحرف",
+   "tags": [
+    "شريط اسم",
+    "اسم",
+    "حروف"
+   ]
+  },
+  "template:llt6-linea-fina": {
+   "name": "شريط الاسم: خط رفيع مع الاسم والمنصب على الجانبين",
+   "tags": [
+    "شريط اسم",
+    "اسم",
+    "خط"
+   ]
+  },
+  "template:llt6-subrayado-rojo": {
+   "name": "شريط الاسم: اسم كبير وخط أحمر تحته",
+   "tags": [
+    "شريط اسم",
+    "اسم",
+    "أحمر",
+    "خط سفلي"
+   ]
+  },
+  "template:llt7-barra-azul": {
+   "name": "شريط الاسم: شريط أزرق مع شعار وسطر واحد",
+   "tags": [
+    "شريط اسم",
+    "شعار",
+    "أزرق"
+   ]
+  },
+  "template:llt7-barra-azul-2": {
+   "name": "شريط الاسم: شريط أزرق مع شعار وسطرين",
+   "tags": [
+    "شريط اسم",
+    "شعار",
+    "أزرق"
+   ]
+  },
+  "template:llt8-barrett": {
+   "name": "شريط الاسم البرتقالي: خط سفلي طويل",
+   "tags": [
+    "شريط اسم",
+    "برتقالي",
+    "اسم"
+   ]
+  },
+  "template:llt8-brandon": {
+   "name": "شريط الاسم البرتقالي: شريط واسم",
+   "tags": [
+    "شريط اسم",
+    "برتقالي",
+    "اسم"
+   ]
+  },
+  "template:llt8-cameron": {
+   "name": "شريط الاسم البرتقالي: المنصب بالأعلى مع علامات",
+   "tags": [
+    "شريط اسم",
+    "برتقالي",
+    "اسم"
+   ]
+  },
+  "template:llt8-castro": {
+   "name": "شريط الاسم البرتقالي: منصب بسطرين",
+   "tags": [
+    "شريط اسم",
+    "برتقالي",
+    "اسم"
+   ]
+  },
+  "template:llt8-charley": {
+   "name": "شريط الاسم البرتقالي: شريط ينزل للأسفل",
+   "tags": [
+    "شريط اسم",
+    "برتقالي",
+    "اسم"
+   ]
+  },
+  "template:llt8-daniel": {
+   "name": "شريط الاسم البرتقالي: كتلة بجانب المنصب",
+   "tags": [
+    "شريط اسم",
+    "برتقالي",
+    "اسم"
+   ]
+  },
+  "template:llt8-dodson": {
+   "name": "شريط الاسم البرتقالي: خط والمنصب على اليمين",
+   "tags": [
+    "شريط اسم",
+    "برتقالي",
+    "اسم"
+   ]
+  },
+  "template:llt8-hayden": {
+   "name": "شريط الاسم البرتقالي: شريط طويل ومنصب",
+   "tags": [
+    "شريط اسم",
+    "برتقالي",
+    "اسم"
+   ]
+  },
+  "template:llt8-jake": {
+   "name": "شريط الاسم البرتقالي: خطوط طويلة على الجانبين",
+   "tags": [
+    "شريط اسم",
+    "برتقالي",
+    "اسم"
+   ]
+  },
+  "template:llt8-james": {
+   "name": "شريط الاسم البرتقالي: كتلة قبل المنصب",
+   "tags": [
+    "شريط اسم",
+    "برتقالي",
+    "اسم"
+   ]
+  },
+  "template:llt8-john": {
+   "name": "شريط الاسم البرتقالي: قوس معقوف",
+   "tags": [
+    "شريط اسم",
+    "برتقالي",
+    "اسم"
+   ]
+  },
+  "template:llt8-madden": {
+   "name": "شريط الاسم البرتقالي: خطوط على جانبي المنصب",
+   "tags": [
+    "شريط اسم",
+    "برتقالي",
+    "اسم"
+   ]
+  },
+  "template:llt8-mason": {
+   "name": "شريط الاسم البرتقالي: خط طويل والمنصب على اليمين",
+   "tags": [
+    "شريط اسم",
+    "برتقالي",
+    "اسم"
+   ]
+  },
+  "template:llt8-rason": {
+   "name": "شريط الاسم البرتقالي: شريط والمنصب بالأعلى",
+   "tags": [
+    "شريط اسم",
+    "برتقالي",
+    "اسم"
+   ]
+  },
+  "template:llt8-ryan": {
+   "name": "شريط الاسم البرتقالي: خط والمنصب بالأعلى",
+   "tags": [
+    "شريط اسم",
+    "برتقالي",
+    "اسم"
+   ]
+  },
+  "template:llt9-benjamin": {
+   "name": "شريط الاسم الذهبي: بطاقة بالأعلى وخط",
+   "tags": [
+    "شريط اسم",
+    "ذهبي",
+    "اسم"
+   ]
+  },
+  "template:llt9-emily": {
+   "name": "شريط الاسم الذهبي: الاسم في صندوق أبيض وبطاقة",
+   "tags": [
+    "شريط اسم",
+    "ذهبي",
+    "صندوق"
+   ]
+  },
+  "template:llt9-katherine": {
+   "name": "شريط الاسم الذهبي: بطاقة ونقطة على اليمين",
+   "tags": [
+    "شريط اسم",
+    "ذهبي",
+    "مائل",
+    "يمين"
+   ]
+  },
+  "template:llt9-max": {
+   "name": "شريط الاسم الذهبي: الاسم في صندوق وبطاقة للمنصب",
+   "tags": [
+    "شريط اسم",
+    "ذهبي",
+    "مائل",
+    "صندوق"
+   ]
+  },
+  "template:llt9-natalie": {
+   "name": "شريط الاسم الذهبي: خط مع نقطة",
+   "tags": [
+    "شريط اسم",
+    "ذهبي",
+    "اسم"
+   ]
+  },
+  "template:llt9-vanja": {
+   "name": "شريط الاسم الذهبي: خط مائل رفيع مع مربعات",
+   "tags": [
+    "شريط اسم",
+    "ذهبي",
+    "مائل"
+   ]
+  },
+  "template:llt9-vanja-negrita": {
+   "name": "شريط الاسم الذهبي: خط مائل عريض مع مربعات",
+   "tags": [
+    "شريط اسم",
+    "ذهبي",
+    "مائل"
+   ]
+  },
+  "template:llt9-victoria": {
+   "name": "شريط الاسم الذهبي: شريط وخط مائل عريض",
+   "tags": [
+    "شريط اسم",
+    "ذهبي",
+    "مائل"
+   ]
+  },
+  "template:llt9-yaroslava": {
+   "name": "شريط الاسم الذهبي: مربع مع المنصب على اليمين",
+   "tags": [
+    "شريط اسم",
+    "ذهبي",
+    "مائل",
+    "يمين"
    ]
   },
   "template:lt-andy": {
@@ -30657,6 +35041,2227 @@
     "ريترو"
    ]
   },
+  "template:tit1-creative": {
+   "name": "عنوان: عناوين إبداعية مع خربشات",
+   "tags": [
+    "عنوان",
+    "شبكات اجتماعية",
+    "خربشات",
+    "وردي"
+   ]
+  },
+  "template:tit1-design": {
+   "name": "عنوان: تصميم داخل سحابة",
+   "tags": [
+    "عنوان",
+    "شبكات اجتماعية",
+    "سحابة",
+    "خربشات"
+   ]
+  },
+  "template:tit1-follow": {
+   "name": "عنوان: تابعني مع شريط وردي",
+   "tags": [
+    "عنوان",
+    "شبكات اجتماعية",
+    "إنستغرام",
+    "متابعة",
+    "شريط زينة"
+   ]
+  },
+  "template:tit1-likecount": {
+   "name": "عنوان: إعجاب مع عداد وكلمة واو",
+   "tags": [
+    "عنوان",
+    "شبكات اجتماعية",
+    "إعجاب",
+    "عداد",
+    "واو",
+    "قلوب"
+   ]
+  },
+  "template:tit1-likenew": {
+   "name": "عنوان: إعجاب بفيديو جديد مع سهم",
+   "tags": [
+    "عنوان",
+    "شبكات اجتماعية",
+    "إعجاب",
+    "فيديو جديد",
+    "سهم"
+   ]
+  },
+  "template:tit1-likethis": {
+   "name": "عنوان: أعجبك الفيديو مع زهرة",
+   "tags": [
+    "عنوان",
+    "شبكات اجتماعية",
+    "إعجاب",
+    "زهرة"
+   ]
+  },
+  "template:tit1-smile": {
+   "name": "عنوان: ابتسم وكن سعيدًا",
+   "tags": [
+    "عنوان",
+    "شبكات اجتماعية",
+    "سعيد",
+    "ابتسامة",
+    "وجوه مبتسمة"
+   ]
+  },
+  "template:tit1-subscribe": {
+   "name": "عنوان: اشترك مع الزهور",
+   "tags": [
+    "عنوان",
+    "شبكات اجتماعية",
+    "اشتراك",
+    "زهور",
+    "youtube"
+   ]
+  },
+  "template:tit2-2022": {
+   "name": "عنوان: سنة بارزة",
+   "tags": [
+    "طباعة",
+    "أبيض وأسود",
+    "سنة",
+    "بارز"
+   ]
+  },
+  "template:tit2-be-awesome": {
+   "name": "عنوان: كن رائعًا مع صورة",
+   "tags": [
+    "طباعة",
+    "أبيض وأسود",
+    "صورة",
+    "عمودي"
+   ]
+  },
+  "template:tit2-big-black": {
+   "name": "عنوان: أسود كبير مع وسم",
+   "tags": [
+    "طباعة",
+    "أبيض وأسود",
+    "أسود",
+    "وسم"
+   ]
+  },
+  "template:tit2-circulos": {
+   "name": "عنوان: ست دوائر",
+   "tags": [
+    "طباعة",
+    "أبيض وأسود",
+    "دوائر",
+    "أبيض"
+   ]
+  },
+  "template:tit2-ciudad": {
+   "name": "عنوان: عنوان مدينة مائل فوق صورة",
+   "tags": [
+    "طباعة",
+    "أبيض وأسود",
+    "صورة",
+    "مدينة",
+    "مائل"
+   ]
+  },
+  "template:tit2-creative-inclinado": {
+   "name": "عنوان: كلمة ضخمة مائلة",
+   "tags": [
+    "طباعة",
+    "أبيض وأسود",
+    "مائل",
+    "أسود"
+   ]
+  },
+  "template:tit2-creative-pack": {
+   "name": "عنوان: حروف تتساقط",
+   "tags": [
+    "طباعة",
+    "أبيض وأسود",
+    "مائل",
+    "أبيض"
+   ]
+  },
+  "template:tit2-creative-relieve": {
+   "name": "عنوان: كلمة إبداعية بارزة",
+   "tags": [
+    "طباعة",
+    "أبيض وأسود",
+    "بارز",
+    "ظل",
+    "أبيض"
+   ]
+  },
+  "template:tit2-event-music": {
+   "name": "عنوان: عنوان فعالية وصورة تنزل",
+   "tags": [
+    "طباعة",
+    "أبيض وأسود",
+    "صورة",
+    "فعالية",
+    "مائل"
+   ]
+  },
+  "template:tit2-hello-world": {
+   "name": "عنوان: مرحبًا بالعالم بخط مائل",
+   "tags": [
+    "طباعة",
+    "أبيض وأسود",
+    "مائل",
+    "أبيض"
+   ]
+  },
+  "template:tit2-montserrat-bold": {
+   "name": "عنوان: شريطان أسودان مع كلمات",
+   "tags": [
+    "طباعة",
+    "أبيض وأسود",
+    "أشرطة",
+    "أبيض"
+   ]
+  },
+  "template:tit2-new-trend": {
+   "name": "عنوان: اتجاه جديد ينقلب من الداخل للخارج",
+   "tags": [
+    "طباعة",
+    "أبيض وأسود",
+    "محيط",
+    "أبيض"
+   ]
+  },
+  "template:tit2-new-typography": {
+   "name": "عنوان: أشرطة مع كلمات مائلة",
+   "tags": [
+    "طباعة",
+    "أبيض وأسود",
+    "أشرطة",
+    "مائل",
+    "أبيض"
+   ]
+  },
+  "template:tit2-trend": {
+   "name": "عنوان: طباعة اتجاه جديد",
+   "tags": [
+    "طباعة",
+    "أبيض وأسود",
+    "أسود"
+   ]
+  },
+  "template:tit2-trend-doble": {
+   "name": "عنوان: اتجاه بنصفين",
+   "tags": [
+    "طباعة",
+    "أبيض وأسود",
+    "أسود",
+    "أبيض",
+    "مزدوج"
+   ]
+  },
+  "template:tit2-typo-slide": {
+   "name": "عنوان: بطاقة بيضاء",
+   "tags": [
+    "طباعة",
+    "أبيض وأسود",
+    "بطاقة",
+    "أسود"
+   ]
+  },
+  "template:tit3-20-animation": {
+   "name": "عنوان: 20 متحرك",
+   "tags": [
+    "عنوان",
+    "سماوي",
+    "شركات",
+    "رقم"
+   ]
+  },
+  "template:tit3-20-cuadro": {
+   "name": "عنوان: 20 متحرك داخل إطار",
+   "tags": [
+    "عنوان",
+    "سماوي",
+    "شركات",
+    "إطار"
+   ]
+  },
+  "template:tit3-best-day": {
+   "name": "عنوان: صندوق مائل وإطار",
+   "tags": [
+    "عنوان",
+    "سماوي",
+    "شركات",
+    "مائل"
+   ]
+  },
+  "template:tit3-best-event": {
+   "name": "عنوان: صندوق مائل وسوق",
+   "tags": [
+    "عنوان",
+    "سماوي",
+    "شركات",
+    "مائل",
+    "فعالية"
+   ]
+  },
+  "template:tit3-circulo": {
+   "name": "عنوان: اسم فوق دائرة",
+   "tags": [
+    "عنوان",
+    "سماوي",
+    "شركات",
+    "دائرة",
+    "اسم"
+   ]
+  },
+  "template:tit3-design-success": {
+   "name": "عنوان: تصميم من أجل النجاح مع دائرة",
+   "tags": [
+    "عنوان",
+    "سماوي",
+    "شركات",
+    "دائرة"
+   ]
+  },
+  "template:tit3-disenador": {
+   "name": "عنوان: صندوق المنصب والاسم",
+   "tags": [
+    "عنوان",
+    "سماوي",
+    "شركات",
+    "اسم",
+    "مائل"
+   ]
+  },
+  "template:tit3-dos-triangulos": {
+   "name": "عنوان: اسم بين مثلثين",
+   "tags": [
+    "عنوان",
+    "سماوي",
+    "شركات",
+    "مثلث",
+    "اسم"
+   ]
+  },
+  "template:tit3-evento": {
+   "name": "عنوان: فعالية مائلة مع إطارات",
+   "tags": [
+    "عنوان",
+    "سماوي",
+    "شركات",
+    "فعالية",
+    "إطار",
+    "مائل"
+   ]
+  },
+  "template:tit3-globo": {
+   "name": "عنوان: فقاعة حوار",
+   "tags": [
+    "عنوان",
+    "سماوي",
+    "شركات",
+    "فقاعة حوار",
+    "إطار"
+   ]
+  },
+  "template:tit3-holiday": {
+   "name": "عنوان: عطلة مع تاريخ",
+   "tags": [
+    "عنوان",
+    "سماوي",
+    "شركات",
+    "فعالية",
+    "مائل"
+   ]
+  },
+  "template:tit3-life": {
+   "name": "عنوان: الحياة حياة داخل إطار",
+   "tags": [
+    "عنوان",
+    "سماوي",
+    "شركات",
+    "إطار"
+   ]
+  },
+  "template:tit3-nombre-caja": {
+   "name": "عنوان: صندوق اسم بسطرين",
+   "tags": [
+    "عنوان",
+    "سماوي",
+    "شركات",
+    "اسم"
+   ]
+  },
+  "template:tit3-nombre-cargo-arriba": {
+   "name": "عنوان: صندوق اسم والمنصب فوقه",
+   "tags": [
+    "عنوان",
+    "سماوي",
+    "شركات",
+    "اسم"
+   ]
+  },
+  "template:tit3-nombre-lineas": {
+   "name": "عنوان: اسم بين خطين",
+   "tags": [
+    "عنوان",
+    "سماوي",
+    "شركات",
+    "اسم",
+    "خطوط"
+   ]
+  },
+  "template:tit3-nombre-sombra": {
+   "name": "عنوان: صندوق بإطار مزاح",
+   "tags": [
+    "عنوان",
+    "سماوي",
+    "شركات",
+    "اسم",
+    "إطار"
+   ]
+  },
+  "template:tit3-rombo": {
+   "name": "عنوان: فعالية داخل معين",
+   "tags": [
+    "عنوان",
+    "سماوي",
+    "شركات",
+    "معين",
+    "فعالية"
+   ]
+  },
+  "template:tit3-titles-pack": {
+   "name": "عنوان: إطاران مائلان",
+   "tags": [
+    "عنوان",
+    "سماوي",
+    "شركات",
+    "إطار",
+    "مائل"
+   ]
+  },
+  "template:tit3-triangulo": {
+   "name": "عنوان: اسم فوق مثلث",
+   "tags": [
+    "عنوان",
+    "سماوي",
+    "شركات",
+    "مثلث",
+    "اسم"
+   ]
+  },
+  "template:tit3-unique-animated": {
+   "name": "عنوان: ثلاثة أجزاء مائلة",
+   "tags": [
+    "عنوان",
+    "سماوي",
+    "شركات",
+    "مائل"
+   ]
+  },
+  "template:tit4-algo-nuevo": {
+   "name": "عنوان: صندوق منقوش وكلمات",
+   "tags": [
+    "عنوان",
+    "أصفر",
+    "أسود",
+    "إطار"
+   ]
+  },
+  "template:tit4-anio": {
+   "name": "عنوان: سنة مع متوازي أضلاع",
+   "tags": [
+    "عنوان",
+    "أصفر",
+    "أسود",
+    "سنة"
+   ]
+  },
+  "template:tit4-art-festival": {
+   "name": "عنوان: فن وصندوق ومهرجان",
+   "tags": [
+    "عنوان",
+    "أصفر",
+    "أسود",
+    "فعالية"
+   ]
+  },
+  "template:tit4-autumn-event": {
+   "name": "عنوان: كلمة في صندوق وأخرى تحته",
+   "tags": [
+    "عنوان",
+    "أصفر",
+    "أسود",
+    "فعالية"
+   ]
+  },
+  "template:tit4-dont-stop": {
+   "name": "عنوان: عبارة داخل دائرة",
+   "tags": [
+    "عنوان",
+    "أصفر",
+    "أسود",
+    "دائرة"
+   ]
+  },
+  "template:tit4-etiqueta-nombre": {
+   "name": "عنوان: وسم واسم ومنصب",
+   "tags": [
+    "عنوان",
+    "أصفر",
+    "أسود",
+    "اسم"
+   ]
+  },
+  "template:tit4-facil": {
+   "name": "عنوان: كلمات وشريط أصفر",
+   "tags": [
+    "عنوان",
+    "أصفر",
+    "أسود",
+    "شريط"
+   ]
+  },
+  "template:tit4-fecha-cajas": {
+   "name": "عنوان: التاريخ والوقت في صناديق",
+   "tags": [
+    "عنوان",
+    "أصفر",
+    "أسود",
+    "فعالية",
+    "تاريخ"
+   ]
+  },
+  "template:tit4-festival-info": {
+   "name": "عنوان: تاريخ المهرجان وتفاصيله",
+   "tags": [
+    "عنوان",
+    "أصفر",
+    "أسود",
+    "فعالية",
+    "تاريخ"
+   ]
+  },
+  "template:tit4-informacion": {
+   "name": "عنوان: معلومات داخل دائرة",
+   "tags": [
+    "عنوان",
+    "أصفر",
+    "أسود",
+    "دائرة"
+   ]
+  },
+  "template:tit4-logo-nombre": {
+   "name": "عنوان: شعار ووسم واسم",
+   "tags": [
+    "عنوان",
+    "أصفر",
+    "أسود",
+    "شعار",
+    "اسم"
+   ]
+  },
+  "template:tit4-nombre-caja": {
+   "name": "عنوان: اسم في صندوق أصفر",
+   "tags": [
+    "عنوان",
+    "أصفر",
+    "أسود",
+    "اسم"
+   ]
+  },
+  "template:tit4-nombre-cajas": {
+   "name": "عنوان: الاسم والمنصب في صناديق",
+   "tags": [
+    "عنوان",
+    "أصفر",
+    "أسود",
+    "اسم"
+   ]
+  },
+  "template:tit4-presents": {
+   "name": "عنوان: يقدم داخل إطار",
+   "tags": [
+    "عنوان",
+    "أصفر",
+    "أسود",
+    "إطار"
+   ]
+  },
+  "template:tit4-productor": {
+   "name": "عنوان: اسم في إطار ووسم",
+   "tags": [
+    "عنوان",
+    "أصفر",
+    "أسود",
+    "إطار",
+    "اسم"
+   ]
+  },
+  "template:tit4-simple-design": {
+   "name": "عنوان: صندوقان بتصميم بسيط",
+   "tags": [
+    "عنوان",
+    "أصفر",
+    "أسود",
+    "صناديق"
+   ]
+  },
+  "template:tit4-speakers": {
+   "name": "عنوان: هاشتاغ في صندوق كبير",
+   "tags": [
+    "عنوان",
+    "أصفر",
+    "أسود",
+    "فعالية"
+   ]
+  },
+  "template:tit4-triangulo": {
+   "name": "عنوان: رقم داخل مثلث",
+   "tags": [
+    "عنوان",
+    "أصفر",
+    "أسود",
+    "مثلث"
+   ]
+  },
+  "template:tit4-twenty": {
+   "name": "عنوان: عشرون عنوانًا إبداعيًا",
+   "tags": [
+    "عنوان",
+    "أصفر",
+    "أسود",
+    "رقم"
+   ]
+  },
+  "template:tit4-ubicacion": {
+   "name": "عنوان: الموقع داخل دبوس",
+   "tags": [
+    "عنوان",
+    "أصفر",
+    "أسود",
+    "دبوس",
+    "موقع"
+   ]
+  },
+  "template:tit5-canal-tarjeta": {
+   "name": "عنوان: مربع يدور ويُخرج الكلمة",
+   "tags": [
+    "عنوان",
+    "قناة",
+    "ألوان",
+    "إطار"
+   ]
+  },
+  "template:tit5-compartir": {
+   "name": "عنوان: وسم بنفسجي بكلمات متغيرة",
+   "tags": [
+    "عنوان",
+    "قناة",
+    "ألوان",
+    "وسم",
+    "youtube"
+   ]
+  },
+  "template:tit5-condensada": {
+   "name": "عنوان: خط ضيق يكتب نفسه",
+   "tags": [
+    "عنوان",
+    "قناة",
+    "ألوان",
+    "خط ضيق"
+   ]
+  },
+  "template:tit5-creative": {
+   "name": "عنوان: كلمة أرجوانية تستقيم",
+   "tags": [
+    "عنوان",
+    "قناة",
+    "ألوان",
+    "بنفسجي"
+   ]
+  },
+  "template:tit5-dinamico": {
+   "name": "عنوان: إطار برتقالي مزدوج يستقيم",
+   "tags": [
+    "عنوان",
+    "قناة",
+    "ألوان",
+    "إطار"
+   ]
+  },
+  "template:tit5-directo": {
+   "name": "عنوان: بث مباشر يميل",
+   "tags": [
+    "عنوان",
+    "قناة",
+    "ألوان",
+    "بث مباشر",
+    "youtube"
+   ]
+  },
+  "template:tit5-etiqueta": {
+   "name": "عنوان: وسم ينفتح ويميل",
+   "tags": [
+    "عنوان",
+    "قناة",
+    "ألوان",
+    "وسم"
+   ]
+  },
+  "template:tit5-hashtag": {
+   "name": "عنوان: هاشتاغ مكتوب على الأصفر",
+   "tags": [
+    "عنوان",
+    "قناة",
+    "ألوان",
+    "هاشتاغ"
+   ]
+  },
+  "template:tit5-logo-canal": {
+   "name": "عنوان: زر يوتيوب واسم القناة",
+   "tags": [
+    "عنوان",
+    "قناة",
+    "ألوان",
+    "شعار",
+    "youtube"
+   ]
+  },
+  "template:tit5-logo-negro": {
+   "name": "عنوان: زر يوتيوب على الأسود",
+   "tags": [
+    "عنوان",
+    "قناة",
+    "ألوان",
+    "شعار",
+    "youtube"
+   ]
+  },
+  "template:tit5-moderno": {
+   "name": "عنوان: زر يوتيوب يتحول إلى دائرة",
+   "tags": [
+    "عنوان",
+    "قناة",
+    "ألوان",
+    "دائرة",
+    "youtube"
+   ]
+  },
+  "template:tit5-no-pierdas": {
+   "name": "عنوان: عبارة داخل إطار متغير الشكل",
+   "tags": [
+    "عنوان",
+    "قناة",
+    "ألوان",
+    "إطار"
+   ]
+  },
+  "template:tit5-pila": {
+   "name": "عنوان: كتل إعجاب ومشاركة واشتراك تتساقط",
+   "tags": [
+    "عنوان",
+    "قناة",
+    "ألوان",
+    "كتل",
+    "اشتراك",
+    "youtube"
+   ]
+  },
+  "template:tit5-rombo": {
+   "name": "عنوان: معين أبيض على الأحمر",
+   "tags": [
+    "عنوان",
+    "قناة",
+    "ألوان",
+    "معين"
+   ]
+  },
+  "template:tit5-seguinos": {
+   "name": "عنوان: عملة زرقاء تنقلب",
+   "tags": [
+    "عنوان",
+    "قناة",
+    "ألوان",
+    "دائرة"
+   ]
+  },
+  "template:tit5-social-media": {
+   "name": "عنوان: حلقة تدور على الأصفر",
+   "tags": [
+    "عنوان",
+    "قناة",
+    "ألوان",
+    "دائرة"
+   ]
+  },
+  "template:tit5-soporte": {
+   "name": "عنوان: صفوف كتل وشريط",
+   "tags": [
+    "عنوان",
+    "قناة",
+    "ألوان",
+    "شريط"
+   ]
+  },
+  "template:tit5-tu-canal": {
+   "name": "عنوان: إطار ينقلب إلى صندوق أبيض",
+   "tags": [
+    "عنوان",
+    "قناة",
+    "ألوان",
+    "صندوق"
+   ]
+  },
+  "template:tit5-tutorial": {
+   "name": "عنوان: شرح يظهر حرفًا بحرف",
+   "tags": [
+    "عنوان",
+    "قناة",
+    "ألوان",
+    "شرح"
+   ]
+  },
+  "template:tit5-verano": {
+   "name": "عنوان: صاعقة وكلمة تتساقط",
+   "tags": [
+    "عنوان",
+    "قناة",
+    "ألوان",
+    "صيف"
+   ]
+  },
+  "template:tit6-always-strive": {
+   "name": "طباعة: حروف تتساقط وعلامة تعجب",
+   "tags": [
+    "طباعة",
+    "أبيض وأسود",
+    "حركي",
+    "خط ضيق"
+   ]
+  },
+  "template:tit6-art-always": {
+   "name": "طباعة: خطوط وحدود وحروف تصعد",
+   "tags": [
+    "طباعة",
+    "أبيض وأسود",
+    "حركي",
+    "خطوط",
+    "محيط"
+   ]
+  },
+  "template:tit6-awesome": {
+   "name": "طباعة: صندوق أبيض وفقاعة فوق صورة",
+   "tags": [
+    "طباعة",
+    "أبيض وأسود",
+    "حركي",
+    "صورة"
+   ]
+  },
+  "template:tit6-be-strong": {
+   "name": "طباعة: عبارة مشطوبة تنفرد للخلف",
+   "tags": [
+    "طباعة",
+    "أبيض وأسود",
+    "حركي",
+    "إطار",
+    "مشطوب"
+   ]
+  },
+  "template:tit6-big": {
+   "name": "طباعة: كلمة ضخمة بظل ولوحة سوداء",
+   "tags": [
+    "طباعة",
+    "أبيض وأسود",
+    "حركي",
+    "ظل"
+   ]
+  },
+  "template:tit6-big-text": {
+   "name": "طباعة: رقم وكلمات بحدود وصورة",
+   "tags": [
+    "طباعة",
+    "أبيض وأسود",
+    "حركي",
+    "محيط",
+    "صورة"
+   ]
+  },
+  "template:tit6-ciencia": {
+   "name": "طباعة: لوحة تعكس العبارة مع إطار وعلامة ×",
+   "tags": [
+    "طباعة",
+    "أبيض وأسود",
+    "حركي",
+    "إطار"
+   ]
+  },
+  "template:tit6-color-change": {
+   "name": "طباعة: كلمة مشطوبة تضيء",
+   "tags": [
+    "طباعة",
+    "أبيض وأسود",
+    "حركي",
+    "مشطوب"
+   ]
+  },
+  "template:tit6-corporate": {
+   "name": "طباعة: شريط أسود ينمو خلف العبارة",
+   "tags": [
+    "طباعة",
+    "أبيض وأسود",
+    "حركي",
+    "صورة"
+   ]
+  },
+  "template:tit6-create-ideas": {
+   "name": "طباعة: حروف تصعد وعلامة #",
+   "tags": [
+    "طباعة",
+    "أبيض وأسود",
+    "حركي",
+    "هاشتاغ"
+   ]
+  },
+  "template:tit6-dynamism": {
+   "name": "طباعة: كلمة تضيء داخل إطار مع علامة ×",
+   "tags": [
+    "طباعة",
+    "أبيض وأسود",
+    "حركي",
+    "إطار"
+   ]
+  },
+  "template:tit6-enjoy": {
+   "name": "طباعة: مربع يدور وكلمة منقسمة",
+   "tags": [
+    "طباعة",
+    "أبيض وأسود",
+    "حركي",
+    "مربع"
+   ]
+  },
+  "template:tit6-fashion": {
+   "name": "طباعة: صندوق بثلاث صور خلفه",
+   "tags": [
+    "طباعة",
+    "أبيض وأسود",
+    "حركي",
+    "صورة",
+    "موضة"
+   ]
+  },
+  "template:tit6-health": {
+   "name": "طباعة: شريط كلمات مقلوبة بين الأبيض والأسود",
+   "tags": [
+    "طباعة",
+    "أبيض وأسود",
+    "حركي",
+    "مزدوج"
+   ]
+  },
+  "template:tit6-look": {
+   "name": "طباعة: صندوق رمادي فوق حروف ضخمة",
+   "tags": [
+    "طباعة",
+    "أبيض وأسود",
+    "حركي",
+    "صندوق"
+   ]
+  },
+  "template:tit6-never-give-up": {
+   "name": "طباعة: عبارة مكتوبة فوق شريط صور",
+   "tags": [
+    "طباعة",
+    "أبيض وأسود",
+    "حركي",
+    "صورة"
+   ]
+  },
+  "template:tit6-typography": {
+   "name": "طباعة: صندوق أبيض مع وسم فوق صورة",
+   "tags": [
+    "طباعة",
+    "أبيض وأسود",
+    "حركي",
+    "صورة"
+   ]
+  },
+  "template:tit6-visuality": {
+   "name": "طباعة: ثلاثة أسطر تضيء ومؤشر",
+   "tags": [
+    "طباعة",
+    "أبيض وأسود",
+    "حركي",
+    "محيط"
+   ]
+  },
+  "template:tit6-wonderful": {
+   "name": "طباعة: ثلاث كلمات تنغلق مع خطوط",
+   "tags": [
+    "طباعة",
+    "أبيض وأسود",
+    "حركي",
+    "خطوط"
+   ]
+  },
+  "template:tit6-you": {
+   "name": "طباعة: كلمة ممتلئة بصورة",
+   "tags": [
+    "طباعة",
+    "أبيض وأسود",
+    "حركي",
+    "صورة"
+   ]
+  },
+  "template:tit7-always-strive": {
+   "name": "طباعة: عبارة بظل أحمر وعلامة",
+   "tags": [
+    "طباعة",
+    "ألوان",
+    "حركي",
+    "ظل"
+   ]
+  },
+  "template:tit7-art-always": {
+   "name": "طباعة: حروف حمراء وسماوية وبيضاء",
+   "tags": [
+    "طباعة",
+    "ألوان",
+    "حركي",
+    "تشويش"
+   ]
+  },
+  "template:tit7-big": {
+   "name": "طباعة: صندوق بظل ومربعان ملونان",
+   "tags": [
+    "طباعة",
+    "ألوان",
+    "حركي",
+    "مربعات"
+   ]
+  },
+  "template:tit7-ciencia": {
+   "name": "طباعة: صندوق أسود بحروف سميكة",
+   "tags": [
+    "طباعة",
+    "ألوان",
+    "حركي",
+    "خط سميك"
+   ]
+  },
+  "template:tit7-colorful": {
+   "name": "طباعة: شريط أبيض وصورة داخل الكلمة",
+   "tags": [
+    "طباعة",
+    "ألوان",
+    "حركي",
+    "صورة"
+   ]
+  },
+  "template:tit7-concept-azul": {
+   "name": "طباعة: كلمة عريضة على الأزرق",
+   "tags": [
+    "طباعة",
+    "ألوان",
+    "حركي",
+    "أزرق"
+   ]
+  },
+  "template:tit7-concept-oscuro": {
+   "name": "طباعة: صندوق أزرق فوق حروف كبيرة",
+   "tags": [
+    "طباعة",
+    "ألوان",
+    "حركي",
+    "أزرق"
+   ]
+  },
+  "template:tit7-create": {
+   "name": "طباعة: كلمات رمادية وبطاقة بيضاء",
+   "tags": [
+    "طباعة",
+    "ألوان",
+    "حركي"
+   ]
+  },
+  "template:tit7-dynamic": {
+   "name": "طباعة: إطار ينغلق وعلامة زرقاء",
+   "tags": [
+    "طباعة",
+    "ألوان",
+    "حركي",
+    "إطار"
+   ]
+  },
+  "template:tit7-easy-editing": {
+   "name": "طباعة: حروف حمراء على نقش أصفر",
+   "tags": [
+    "طباعة",
+    "ألوان",
+    "حركي",
+    "أصفر"
+   ]
+  },
+  "template:tit7-enjoy": {
+   "name": "طباعة: مربعات تدور وكلمة منقسمة",
+   "tags": [
+    "طباعة",
+    "ألوان",
+    "حركي",
+    "مربع"
+   ]
+  },
+  "template:tit7-fashion": {
+   "name": "طباعة: صورة داخل حروف ضخمة وصندوق",
+   "tags": [
+    "طباعة",
+    "ألوان",
+    "حركي",
+    "صورة",
+    "موضة"
+   ]
+  },
+  "template:tit7-health-box": {
+   "name": "طباعة: مربع يحمل جدار كلمات بين صفين",
+   "tags": [
+    "طباعة",
+    "ألوان",
+    "حركي",
+    "مربع"
+   ]
+  },
+  "template:tit7-health-wall": {
+   "name": "طباعة: جدار كلمات قطري",
+   "tags": [
+    "طباعة",
+    "ألوان",
+    "حركي",
+    "قطري"
+   ]
+  },
+  "template:tit7-look": {
+   "name": "طباعة: حروف ضخمة وإطار أزرق",
+   "tags": [
+    "طباعة",
+    "ألوان",
+    "حركي",
+    "إطار"
+   ]
+  },
+  "template:tit7-love": {
+   "name": "طباعة: كلمة تنزلق فوق صورة وردية",
+   "tags": [
+    "طباعة",
+    "ألوان",
+    "حركي",
+    "صورة"
+   ]
+  },
+  "template:tit7-modern": {
+   "name": "طباعة: خط سيريف أنيق مع رقم",
+   "tags": [
+    "طباعة",
+    "ألوان",
+    "حركي",
+    "خط سيريف"
+   ]
+  },
+  "template:tit7-never-give-up": {
+   "name": "طباعة: أربع صور متدرجة وعبارة",
+   "tags": [
+    "طباعة",
+    "ألوان",
+    "حركي",
+    "صورة"
+   ]
+  },
+  "template:tit7-newest": {
+   "name": "طباعة: كلمة بحدود وشريط أخضر",
+   "tags": [
+    "طباعة",
+    "ألوان",
+    "حركي",
+    "محيط"
+   ]
+  },
+  "template:tit7-scene": {
+   "name": "طباعة: خطوط ولوحة بيضاء ورقم فوق صورة",
+   "tags": [
+    "طباعة",
+    "ألوان",
+    "حركي",
+    "خطوط",
+    "صورة"
+   ]
+  },
+  "template:tit7-text-animation": {
+   "name": "طباعة: صفوف نص فوق صورة",
+   "tags": [
+    "طباعة",
+    "ألوان",
+    "حركي",
+    "صورة"
+   ]
+  },
+  "template:tit7-typography": {
+   "name": "طباعة: بطاقة وردية وحروف حولها",
+   "tags": [
+    "طباعة",
+    "ألوان",
+    "حركي",
+    "صورة"
+   ]
+  },
+  "template:tk0-cintas-telefono": {
+   "name": "ستوري: شرائط كلمات وهاتف",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "عمودي",
+    "شرائط",
+    "هاتف"
+   ]
+  },
+  "template:tk0-collage-azul": {
+   "name": "ستوري: كولاج من ثلاث صور بالأزرق والأسود",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "عمودي",
+    "كولاج",
+    "صور"
+   ]
+  },
+  "template:tk0-collage-negro": {
+   "name": "ستوري: كولاج من ست صور مع ملصقات",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "عمودي",
+    "كولاج",
+    "صور"
+   ]
+  },
+  "template:tk0-creas-tendencias": {
+   "name": "ستوري: هل تصنع الترندات؟ فقاعة حمراء",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "عمودي",
+    "سؤال",
+    "وردي"
+   ]
+  },
+  "template:tk0-empieza-aqui": {
+   "name": "ستوري: الترندات تبدأ من هنا",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "عمودي",
+    "ترند",
+    "أزرق"
+   ]
+  },
+  "template:tk0-mision": {
+   "name": "ستوري: مهمتنا مع صورة على الأحمر",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "عمودي",
+    "مهمة",
+    "أحمر"
+   ]
+  },
+  "template:tk0-nueva-era": {
+   "name": "ستوري: عصر جديد للفيديو",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "عمودي",
+    "فيديو",
+    "أحمر"
+   ]
+  },
+  "template:tk0-nuevo-video": {
+   "name": "ستوري: NEW VIDEO مع هاتف",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "عمودي",
+    "فيديو",
+    "جديد"
+   ]
+  },
+  "template:tk0-plantilla": {
+   "name": "ستوري: قالب للجميع مع صورة",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "عمودي",
+    "قالب",
+    "أزرق"
+   ]
+  },
+  "template:tk0-plataforma": {
+   "name": "ستوري: منصة جديدة مع هاتفين",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "عمودي",
+    "منصة",
+    "أسود"
+   ]
+  },
+  "template:tk0-promo-negro": {
+   "name": "ستوري: SUPER PROMO في فقاعة زرقاء على الأسود",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "عمودي",
+    "عرض ترويجي",
+    "أسود"
+   ]
+  },
+  "template:tk0-promo-x": {
+   "name": "ستوري: PROMO مع شرائط متقاطعة",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "عمودي",
+    "عرض ترويجي",
+    "أسود"
+   ]
+  },
+  "template:tk0-que-ves": {
+   "name": "ستوري: ماذا تحب أن تشاهد؟ دردشة",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "عمودي",
+    "دردشة",
+    "سؤال"
+   ]
+  },
+  "template:tk0-recordatorio": {
+   "name": "ستوري: استطلاع تذكير فوق فيديو",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "عمودي",
+    "استطلاع",
+    "تذكير"
+   ]
+  },
+  "template:tk0-tendencias": {
+   "name": "ستوري: ترندات رائجة بالوردي والأزرق",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "عمودي",
+    "ترند",
+    "وردي"
+   ]
+  },
+  "template:tk0-trendy": {
+   "name": "ستوري: TRENDY STYLE بأشرطة ملونة",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "عمودي",
+    "ترند",
+    "أزرق"
+   ]
+  },
+  "template:tk1-tipografia": {
+   "name": "مقدمة طباعية: كلمة لكل نبضة",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "افتتاحية",
+    "خطوط",
+    "كلمات"
+   ]
+  },
+  "template:tk2-alice": {
+   "name": "ستوري: Alice Braun مع صورة",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "اسم",
+    "صورة",
+    "أزرق"
+   ]
+  },
+  "template:tk2-austin": {
+   "name": "ستوري: Austin Grant مع فيديو جديد",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "اسم",
+    "صورة",
+    "أسود"
+   ]
+  },
+  "template:tk2-baile": {
+   "name": "ستوري: Just dance مع ثلاث صور",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "رقص",
+    "صور",
+    "أزرق"
+   ]
+  },
+  "template:tk2-belleza": {
+   "name": "ستوري: About Beauty for You",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "جمال",
+    "صورة",
+    "أسود"
+   ]
+  },
+  "template:tk2-blogger": {
+   "name": "ستوري: مدوّن اجتماعي مع حلقات",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "حلقات",
+    "صورة",
+    "أسود"
+   ]
+  },
+  "template:tk2-contenido": {
+   "name": "ستوري: محتوى متنوع في شبكة",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "شبكة",
+    "صور",
+    "أسود"
+   ]
+  },
+  "template:tk2-follow": {
+   "name": "ستوري: تابع مع قلب",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "متابعة",
+    "قلب",
+    "أسود"
+   ]
+  },
+  "template:tk2-isabella": {
+   "name": "ستوري: Isabella Walker مع صورة",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "اسم",
+    "صورة",
+    "أزرق"
+   ]
+  },
+  "template:tk2-lifestyle": {
+   "name": "ستوري: #lifestyle مع فيديو",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "نمط حياة",
+    "فيديو",
+    "أحمر"
+   ]
+  },
+  "template:tk2-new": {
+   "name": "ستوري: NEW مع قلوب",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "جديد",
+    "صورة",
+    "أسود"
+   ]
+  },
+  "template:tk2-nuevo-video": {
+   "name": "ستوري: فيديو جديد مع صورة",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "فيديو جديد",
+    "صورة",
+    "أحمر"
+   ]
+  },
+  "template:tk2-perfil": {
+   "name": "ستوري: ملف شخصي مع متابعين",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "ملف شخصي",
+    "متابعون",
+    "صورة"
+   ]
+  },
+  "template:tk2-suscriptores": {
+   "name": "ستوري: احصل على مشتركين جدد",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "مشتركون",
+    "صور",
+    "أسود"
+   ]
+  },
+  "template:tk2-tarjeta": {
+   "name": "ستوري: بطاقة مع شعارك وملصقات",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "شعار",
+    "ملصقات",
+    "أزرق"
+   ]
+  },
+  "template:tk2-tendencias": {
+   "name": "ستوري: ترندات مع شريط أحمر",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "ترندات",
+    "صورة",
+    "أزرق"
+   ]
+  },
+  "template:tk3-diseno": {
+   "name": "ستوري: Fashion Design بخطوط رفيعة",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "موضة",
+    "باستيل",
+    "تصميم"
+   ]
+  },
+  "template:tk3-estilo-de-vida": {
+   "name": "ستوري: Lifestyle مع مثلث دوّار",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "موضة",
+    "باستيل",
+    "نمط حياة"
+   ]
+  },
+  "template:tk3-gracias": {
+   "name": "بطاقة ختامية: Thanks For Watching!",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "موضة",
+    "باستيل",
+    "ختام"
+   ]
+  },
+  "template:tk3-rebajas": {
+   "name": "ستوري: تخفيضات الموضة مع صندوق 50% OFF",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "موضة",
+    "باستيل",
+    "تخفيضات"
+   ]
+  },
+  "template:tk3-rebajas-2": {
+   "name": "ستوري: Fashion Sale مع 50% فوق الصورة",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "موضة",
+    "باستيل",
+    "تخفيضات"
+   ]
+  },
+  "template:tk3-siguiente-nivel": {
+   "name": "ستوري: The Next Level Of Fashion مع 50% OFF عمودي",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "موضة",
+    "باستيل",
+    "خصم"
+   ]
+  },
+  "template:tk3-siguiente-nivel-2": {
+   "name": "ستوري: The Next Level Of Fashion مع Get 50% OFF",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "موضة",
+    "باستيل",
+    "خصم"
+   ]
+  },
+  "template:tk3-sorteo": {
+   "name": "ستوري: Giveaway! سحب على جائزة",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "موضة",
+    "باستيل",
+    "سحب"
+   ]
+  },
+  "template:tk3-tendencia": {
+   "name": "ستوري: Keep It Trendy مع 50%",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "موضة",
+    "باستيل",
+    "ترند"
+   ]
+  },
+  "template:tk4-dynamic": {
+   "name": "مقدمة ديناميكية: صور بالأحمر والأسود",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "افتتاحية",
+    "عرض صور",
+    "ديناميكي"
+   ]
+  },
+  "template:tk4-fast": {
+   "name": "مقدمة سريعة: كلمات فوق صور ملونة",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "افتتاحية",
+    "عرض صور",
+    "سريع"
+   ]
+  },
+  "template:tk4-modern": {
+   "name": "مقدمة عصرية: أصفر وذهبي وشبكة",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "افتتاحية",
+    "عرض صور",
+    "عصري"
+   ]
+  },
+  "template:tk4-rhythm": {
+   "name": "مقدمة إيقاعية: كلمات متدرجة",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "افتتاحية",
+    "عرض صور",
+    "إيقاع"
+   ]
+  },
+  "template:tk4-stomp": {
+   "name": "مقدمة ستومب: كلمة لكل نبضة مع صور",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "افتتاحية",
+    "عرض صور",
+    "ستومب"
+   ]
+  },
+  "template:tk4-typo": {
+   "name": "مقدمة طباعية: كلمات سوداء وصور",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "افتتاحية",
+    "عرض صور",
+    "خطوط"
+   ]
+  },
+  "template:tk5-carefree": {
+   "name": "ستوري: CAREFREE LIVING عمودي",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "أبيض وأسود",
+    "صورة",
+    "عمودي"
+   ]
+  },
+  "template:tk5-endless": {
+   "name": "ستوري: ENDLESS LOVING CONVERSATIONS",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "أبيض وأسود",
+    "نص"
+   ]
+  },
+  "template:tk5-find": {
+   "name": "ستوري: FIND HIDDEN GEMS",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "أبيض وأسود",
+    "نص"
+   ]
+  },
+  "template:tk5-follow": {
+   "name": "ستوري: FOLLOW YOUR DREAM",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "أبيض وأسود",
+    "نص"
+   ]
+  },
+  "template:tk5-foto-cae": {
+   "name": "ستوري: صورة تسقط ثم ترتفع",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "أبيض وأسود",
+    "صورة"
+   ]
+  },
+  "template:tk5-foto-lado": {
+   "name": "ستوري: صورة تنزلق من الجانب",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "أبيض وأسود",
+    "صورة"
+   ]
+  },
+  "template:tk5-foto-sube": {
+   "name": "ستوري: صورة صاعدة",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "أبيض وأسود",
+    "صورة"
+   ]
+  },
+  "template:tk5-freedom": {
+   "name": "ستوري: FREEDOM وPLEASING مع صورتين",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "أبيض وأسود",
+    "صورة",
+    "كولاج"
+   ]
+  },
+  "template:tk5-join": {
+   "name": "ستوري: JOIN THE JOURNEY دعوة لاتخاذ إجراء",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "أبيض وأسود",
+    "دعوة لاتخاذ إجراء",
+    "شعار"
+   ]
+  },
+  "template:tk5-laughter": {
+   "name": "ستوري: LAUGHTER OF A LOVED ONE",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "أبيض وأسود",
+    "صورة"
+   ]
+  },
+  "template:tk5-stars": {
+   "name": "ستوري: STARS وDREAMS في أعمدة",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "أبيض وأسود",
+    "صورة",
+    "كولاج"
+   ]
+  },
+  "template:tk5-sunshine": {
+   "name": "ستوري: SUNSHINE FILLS SKIES مع صورة",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "أبيض وأسود",
+    "صورة",
+    "كولاج"
+   ]
+  },
+  "template:tk6-discovery": {
+   "name": "ستوري: كولاج DISCOVERY وSPACESUIT",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "فيروزي",
+    "صورة",
+    "كولاج"
+   ]
+  },
+  "template:tk6-dreams": {
+   "name": "ستوري: كولاج DREAMS",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "فيروزي",
+    "صورة",
+    "كولاج"
+   ]
+  },
+  "template:tk6-flower": {
+   "name": "ستوري: كولاج FLOWER BEAUTY",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "فيروزي",
+    "صورة",
+    "كولاج"
+   ]
+  },
+  "template:tk6-foto-cae": {
+   "name": "ستوري: صورة مؤطرة تسقط للداخل",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "فيروزي",
+    "صورة"
+   ]
+  },
+  "template:tk6-foto-lado": {
+   "name": "ستوري: صورة مؤطرة تنزلق من الجانب",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "فيروزي",
+    "صورة"
+   ]
+  },
+  "template:tk6-freedom": {
+   "name": "ستوري: عمود FREEDOM",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "فيروزي",
+    "صورة",
+    "عمودي"
+   ]
+  },
+  "template:tk6-modern": {
+   "name": "ستوري: كولاج MODERN STORIES",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "فيروزي",
+    "صورة",
+    "كولاج"
+   ]
+  },
+  "template:tk6-savor": {
+   "name": "ستوري: SAVOR LIFE'S GOODNESS دعوة لاتخاذ إجراء",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "فيروزي",
+    "دعوة لاتخاذ إجراء",
+    "شعار"
+   ]
+  },
+  "template:tk6-starry": {
+   "name": "ستوري: STARRY NIGHTS تتقلص إلى كولاج",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "فيروزي",
+    "صورة",
+    "كولاج"
+   ]
+  },
+  "template:tk6-times-now": {
+   "name": "ستوري: TIME'S NOW مع صورتين",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "فيروزي",
+    "صورة",
+    "عمودي"
+   ]
+  },
+  "template:tk6-wind": {
+   "name": "ستوري: WIND وAURA مع صورتين",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "فيروزي",
+    "صورة",
+    "كولاج"
+   ]
+  },
+  "template:tk7-blooms": {
+   "name": "ستوري: BLOOMS ALL AROUND بالأحمر",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "زهور",
+    "ألوان",
+    "موضة"
+   ]
+  },
+  "template:tk7-bold": {
+   "name": "ستوري: كولاج BOLD COLORS SWAY",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "زهور",
+    "ألوان",
+    "موضة"
+   ]
+  },
+  "template:tk7-breezy": {
+   "name": "ستوري: كولاج BREEZY SPRING ATTIRE",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "زهور",
+    "ألوان",
+    "موضة"
+   ]
+  },
+  "template:tk7-canvas": {
+   "name": "ستوري: كولاج CANVAS LIFE BODY",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "زهور",
+    "ألوان",
+    "موضة"
+   ]
+  },
+  "template:tk7-characters": {
+   "name": "ستوري: COLORFUL CHARACTERS تحت صورة",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "زهور",
+    "ألوان",
+    "موضة"
+   ]
+  },
+  "template:tk7-colorful-and": {
+   "name": "ستوري: COLORFUL AND CONFIDENCE بين صورتين",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "زهور",
+    "ألوان",
+    "موضة"
+   ]
+  },
+  "template:tk7-discover-more": {
+   "name": "ستوري ختامي: DISCOVER MORE مع شعارك",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "زهور",
+    "ألوان",
+    "موضة"
+   ]
+  },
+  "template:tk7-embrace": {
+   "name": "ستوري: EMBRACE وEXPRESSION حول صورة",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "زهور",
+    "ألوان",
+    "موضة"
+   ]
+  },
+  "template:tk7-embrace-your-life": {
+   "name": "ستوري: EMBRACE YOUR LIFE مع أربع صور",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "زهور",
+    "ألوان",
+    "موضة"
+   ]
+  },
+  "template:tk7-flower": {
+   "name": "ستوري: FLOWER PARADISE DELIGHT بالأزرق",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "زهور",
+    "ألوان",
+    "موضة"
+   ]
+  },
+  "template:tk7-sale": {
+   "name": "ستوري: SALE SALE SALE مع صورتين",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "زهور",
+    "ألوان",
+    "موضة"
+   ]
+  },
+  "template:tk7-savor": {
+   "name": "ستوري: SAVOR MOMENTS NOW مع عمود صور",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "زهور",
+    "ألوان",
+    "موضة"
+   ]
+  },
+  "template:tk8-apple-pie": {
+   "name": "ستوري: SWEET APPLE PIE وSAVOR EVERY BITE",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "طعام",
+    "مطعم",
+    "أصفر"
+   ]
+  },
+  "template:tk8-bbq": {
+   "name": "ستوري: BBQ SMOKE RISING مع خمس صور",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "طعام",
+    "مطعم",
+    "أصفر"
+   ]
+  },
+  "template:tk8-big-sale": {
+   "name": "ستوري: BIG -50% SALE مع ثلاث صور",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "طعام",
+    "مطعم",
+    "أصفر"
+   ]
+  },
+  "template:tk8-buy-now": {
+   "name": "ستوري: BUY NOW مع خمس صور",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "طعام",
+    "مطعم",
+    "أصفر"
+   ]
+  },
+  "template:tk8-crispy-fries": {
+   "name": "ستوري: CRISPY GOLDEN FRIES مع ثلاث صور",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "طعام",
+    "مطعم",
+    "أصفر"
+   ]
+  },
+  "template:tk8-discover-flavors": {
+   "name": "ستوري ختامي: DISCOVER NEW FLAVORS مع شعارك",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "طعام",
+    "مطعم",
+    "أصفر"
+   ]
+  },
+  "template:tk8-fast-food": {
+   "name": "ستوري: FAST FOOD ADDICTION",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "طعام",
+    "مطعم",
+    "أصفر"
+   ]
+  },
+  "template:tk8-food-lovers": {
+   "name": "ستوري: FOOD LOVERS UNITE مع أربع صور",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "طعام",
+    "مطعم",
+    "أصفر"
+   ]
+  },
+  "template:tk8-fried-chicken": {
+   "name": "ستوري: FRIED CHICKEN DELIGHT",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "طعام",
+    "مطعم",
+    "أصفر"
+   ]
+  },
+  "template:tk8-hot-dogs": {
+   "name": "ستوري: HOT DOGS وCRISPY FRIES",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "طعام",
+    "مطعم",
+    "أصفر"
+   ]
+  },
+  "template:tk8-lowest-price": {
+   "name": "ستوري: THE LOWEST PRICE",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "طعام",
+    "مطعم",
+    "أصفر"
+   ]
+  },
+  "template:tk8-new-york-pizza": {
+   "name": "ستوري: NEW YORK PIZZA من ملء الشاشة إلى كولاج",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "طعام",
+    "مطعم",
+    "أصفر"
+   ]
+  },
+  "template:tk8-nice-diners": {
+   "name": "ستوري: NICE DINERS مع صورة طويلة",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "طعام",
+    "مطعم",
+    "أصفر"
+   ]
+  },
+  "template:tk9-limpia": {
+   "name": "مقدمة نظيفة: كلمات وصور على الإيقاع",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "افتتاحية",
+    "خطوط",
+    "كلمات"
+   ]
+  },
   "template:top-5-mas-vendidos": {
    "name": "أفضل 5 مبيعًا",
    "tags": [
@@ -30772,6 +37377,3288 @@
     "لمعان",
     "وردي",
     "ستايل"
+   ]
+  },
+  "template:yp0-barra-campana": {
+   "name": "شريط: إعجاب وجرس واشتراك",
+   "tags": [
+    "youtube",
+    "اشترك",
+    "زر",
+    "شريط",
+    "نقرة",
+    "إعجاب"
+   ]
+  },
+  "template:yp0-barra-canal": {
+   "name": "شريط القناة: إعجاب واشتراك وجرس",
+   "tags": [
+    "youtube",
+    "اشترك",
+    "زر",
+    "شريط",
+    "نقرة",
+    "إعجاب"
+   ]
+  },
+  "template:yp0-barra-me-gusta": {
+   "name": "شريط: إعجاب وعدم إعجاب واشتراك",
+   "tags": [
+    "youtube",
+    "اشترك",
+    "زر",
+    "شريط",
+    "نقرة",
+    "إعجاب"
+   ]
+  },
+  "template:yp0-barra-seguidores": {
+   "name": "شريط القناة مع عداد المتابعين",
+   "tags": [
+    "youtube",
+    "اشترك",
+    "زر",
+    "شريط",
+    "عداد",
+    "متابعون"
+   ]
+  },
+  "template:yp0-fila-grande": {
+   "name": "إعجاب واشتراك وجرس بحجم كبير",
+   "tags": [
+    "youtube",
+    "اشترك",
+    "زر",
+    "نقرة",
+    "إعجاب",
+    "جرس"
+   ]
+  },
+  "template:yp0-redes": {
+   "name": "أشرطة التواصل الاجتماعي مع المتابعة",
+   "tags": [
+    "youtube",
+    "اشترك",
+    "زر",
+    "شبكات اجتماعية",
+    "فيسبوك",
+    "إنستغرام"
+   ]
+  },
+  "template:yp0-tarjeta-canal": {
+   "name": "بطاقة القناة مع زر الاشتراك",
+   "tags": [
+    "youtube",
+    "اشترك",
+    "زر",
+    "بطاقة",
+    "نقرة"
+   ]
+  },
+  "template:yp0-tarjeta-iconos": {
+   "name": "بطاقة: اشتراك وإعجاب وجرس",
+   "tags": [
+    "youtube",
+    "اشترك",
+    "زر",
+    "بطاقة",
+    "نقرة",
+    "إعجاب"
+   ]
+  },
+  "template:yp0-tarjeta-mini": {
+   "name": "بطاقة اشتراك صغيرة",
+   "tags": [
+    "youtube",
+    "اشترك",
+    "زر",
+    "بطاقة",
+    "نقرة"
+   ]
+  },
+  "template:yp1-apertura-avatar-bandas": {
+   "name": "افتتاحية: صورة رمزية تسقط وأشرطة تصعد",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "افتتاحية",
+    "صورة رمزية"
+   ]
+  },
+  "template:yp1-apertura-avatar-circulo": {
+   "name": "افتتاحية: صورة رمزية ودوائر تنفتح",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "افتتاحية",
+    "صورة رمزية"
+   ]
+  },
+  "template:yp1-apertura-blanca": {
+   "name": "افتتاحية: أشرطة مائلة وزر على الأبيض",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "افتتاحية",
+    "شعار"
+   ]
+  },
+  "template:yp1-apertura-diana": {
+   "name": "افتتاحية: زر دائري على دوائر حمراء",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "افتتاحية",
+    "شعار"
+   ]
+  },
+  "template:yp1-apertura-flechas": {
+   "name": "افتتاحية: أسهم داكنة وزر يتدحرج",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "افتتاحية",
+    "شعار"
+   ]
+  },
+  "template:yp1-apertura-gotas": {
+   "name": "افتتاحية: قطرات تشكل زر يوتيوب",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "افتتاحية",
+    "شعار"
+   ]
+  },
+  "template:yp1-apertura-logo-vuela": {
+   "name": "افتتاحية: شعار يطير للخلف ويدور",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "افتتاحية",
+    "شعار"
+   ]
+  },
+  "template:yp1-apertura-ondas": {
+   "name": "افتتاحية: شعار وأقواس دوّامة وموجات حمراء",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "افتتاحية",
+    "شعار",
+    "موجات"
+   ]
+  },
+  "template:yp1-apertura-tipografica-gaming": {
+   "name": "افتتاحية طباعية: أفضل قناة ألعاب",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "افتتاحية",
+    "طباعة",
+    "حركي"
+   ]
+  },
+  "template:yp1-apertura-tipografica-roja": {
+   "name": "افتتاحية طباعية حمراء: فيديو جديد وإعجاب واشتراك",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "افتتاحية",
+    "طباعة",
+    "حركي"
+   ]
+  },
+  "template:yp1-apertura-tipografica-suscribete": {
+   "name": "افتتاحية طباعية: شاهد الحلقة واشترك",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "افتتاحية",
+    "طباعة",
+    "حركي"
+   ]
+  },
+  "template:yp1-barra-suscribir": {
+   "name": "اشتراك: شريط بصورة رمزية وإعجاب وجرس",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "اشتراك",
+    "إعجاب",
+    "جرس"
+   ]
+  },
+  "template:yp1-barra-vertical": {
+   "name": "عنوان من أربعة أسطر فوق شريط أحمر",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "عنوان",
+    "بسيط",
+    "شريط"
+   ]
+  },
+  "template:yp1-best-video": {
+   "name": "عنوان كبير على موجات زرقاء",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "عنوان",
+    "موجات"
+   ]
+  },
+  "template:yp1-big-text": {
+   "name": "نص أحمر كبير في غرفة مظلمة",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "عنوان",
+    "كبير"
+   ]
+  },
+  "template:yp1-big-title": {
+   "name": "عنوان كبير على شريط أحمر مائل",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "عنوان",
+    "كبير"
+   ]
+  },
+  "template:yp1-bold-titles": {
+   "name": "عنوان بخط أحمر وإطار يرسم نفسه",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "عنوان",
+    "بسيط",
+    "إطار"
+   ]
+  },
+  "template:yp1-cajas-tecleadas": {
+   "name": "عنوان مكتوب في صندوق أحمر وآخر أبيض",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "عنوان",
+    "بسيط",
+    "صندوق"
+   ]
+  },
+  "template:yp1-cita-cajas-grises": {
+   "name": "اقتباس في صناديق رمادية مع علامات اقتباس حمراء",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "اقتباس",
+    "عبارة"
+   ]
+  },
+  "template:yp1-cita-centrada": {
+   "name": "اقتباس في الوسط بين خطين",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "اقتباس",
+    "عبارة"
+   ]
+  },
+  "template:yp1-cita-circulo": {
+   "name": "اقتباس داخل دائرة حمراء",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "اقتباس",
+    "عبارة"
+   ]
+  },
+  "template:yp1-cita-cuadro-rojo": {
+   "name": "اقتباس في مربع أحمر مع لسان جانبي",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "اقتباس",
+    "عبارة"
+   ]
+  },
+  "template:yp1-cita-etiqueta": {
+   "name": "اقتباس مع وسم أحمر للمؤلف",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "اقتباس",
+    "عبارة"
+   ]
+  },
+  "template:yp1-cita-marco-fino": {
+   "name": "اقتباس في إطار أحمر رفيع مع شارة",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "اقتباس",
+    "عبارة"
+   ]
+  },
+  "template:yp1-cita-marco-rojo": {
+   "name": "اقتباس مكتوب بإطار أحمر",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "اقتباس",
+    "عبارة"
+   ]
+  },
+  "template:yp1-cita-panel-rojo": {
+   "name": "اقتباس في صندوق داكن بجانب لوحة حمراء",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "اقتباس",
+    "عبارة"
+   ]
+  },
+  "template:yp1-columna-suscribir": {
+   "name": "اشتراك: عمود بصورة رمزية وإعجاب وجرس",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "اشتراك",
+    "إعجاب",
+    "جرس"
+   ]
+  },
+  "template:yp1-como-un-pro": {
+   "name": "عنوان متدرج تحت خط أحمر",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "عنوان",
+    "بسيط",
+    "متدرج"
+   ]
+  },
+  "template:yp1-design": {
+   "name": "عنوان أحمر بحروف تتساقط",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "عنوان",
+    "بسيط",
+    "سقوط"
+   ]
+  },
+  "template:yp1-fila-suscribir": {
+   "name": "اشتراك: إعجاب واشتراك وجرس في الأسفل",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "اشتراك",
+    "إعجاب",
+    "جرس"
+   ]
+  },
+  "template:yp1-final-banda": {
+   "name": "شاشة نهائية: شريط داكن فوق الفيديو",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "شاشة نهائية",
+    "فيديو"
+   ]
+  },
+  "template:yp1-final-columna": {
+   "name": "شاشة نهائية: عمود داكن فوق فيديو ملون",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "شاشة نهائية",
+    "فيديو"
+   ]
+  },
+  "template:yp1-final-gracias": {
+   "name": "شاشة نهائية: شكرًا على المشاهدة واشترك",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "شاشة نهائية",
+    "شكرًا"
+   ]
+  },
+  "template:yp1-final-like-share": {
+   "name": "شاشة نهائية: فيديو مقترح وإعجاب وتعليق ومشاركة",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "شاشة نهائية",
+    "شبكات اجتماعية"
+   ]
+  },
+  "template:yp1-fondo-arcos": {
+   "name": "خلفية: أقواس حمراء وشرطات متناثرة",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "خلفية",
+    "أشكال"
+   ]
+  },
+  "template:yp1-fondo-bloques": {
+   "name": "خلفية: كتل بيضاء بمربعات حمراء",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "خلفية",
+    "كتل"
+   ]
+  },
+  "template:yp1-fondo-botones": {
+   "name": "خلفية: صفوف أزرار تشغيل",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "خلفية"
+   ]
+  },
+  "template:yp1-fondo-capas": {
+   "name": "خلفية: موجات حمراء متراكبة",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "خلفية",
+    "موجات"
+   ]
+  },
+  "template:yp1-fondo-cruces": {
+   "name": "خلفية: صلبان وردية وبيضاء",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "خلفية",
+    "أشكال"
+   ]
+  },
+  "template:yp1-fondo-destellos": {
+   "name": "خلفية: خطوط حمراء قطرية لامعة",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "خلفية",
+    "ضوء"
+   ]
+  },
+  "template:yp1-fondo-espiral": {
+   "name": "خلفية: حلزون أحمر وأبيض ورمادي",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "خلفية",
+    "حلزوني"
+   ]
+  },
+  "template:yp1-fondo-flechas": {
+   "name": "خلفية: أسهم حمراء متحركة",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "خلفية",
+    "أسهم"
+   ]
+  },
+  "template:yp1-fondo-guiones": {
+   "name": "خلفية: شرطات حمراء تطير",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "خلفية",
+    "أشكال"
+   ]
+  },
+  "template:yp1-fondo-lineas": {
+   "name": "خلفية: خطوط حمراء رفيعة متموجة",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "خلفية",
+    "خطوط"
+   ]
+  },
+  "template:yp1-fondo-liquido-azul": {
+   "name": "خلفية: سائل أزرق",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "خلفية",
+    "سائل"
+   ]
+  },
+  "template:yp1-fondo-liquido-oscuro": {
+   "name": "خلفية: سائل أحمر داكن",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "خلفية",
+    "سائل"
+   ]
+  },
+  "template:yp1-fondo-ondas-gruesas": {
+   "name": "خلفية: موجات حمراء سميكة",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "خلفية",
+    "موجات"
+   ]
+  },
+  "template:yp1-fondo-puntos": {
+   "name": "خلفية: نقاط حمراء نابضة",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "خلفية",
+    "نقاط"
+   ]
+  },
+  "template:yp1-fondo-rayas": {
+   "name": "خلفية: خطوط حمراء قطرية",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "خلفية",
+    "خطوط"
+   ]
+  },
+  "template:yp1-fondo-rayas-onduladas": {
+   "name": "خلفية: خطوط حمراء متموجة",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "خلفية",
+    "موجات"
+   ]
+  },
+  "template:yp1-fondo-redes": {
+   "name": "خلفية: أيقونات وسائل التواصل",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "خلفية",
+    "شبكات اجتماعية"
+   ]
+  },
+  "template:yp1-fondo-texto": {
+   "name": "خلفية: نص قابل للتعديل متكرر",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "خلفية",
+    "نص"
+   ]
+  },
+  "template:yp1-frase-ondas-rojas": {
+   "name": "عبارة من ثلاثة أسطر على موجات حمراء",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "عنوان",
+    "موجات",
+    "عبارة"
+   ]
+  },
+  "template:yp1-info-anillo": {
+   "name": "رسم معلومات: حلقة نسبة مئوية مع نص",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "تنويه",
+    "مؤشر",
+    "نسبة مئوية",
+    "عداد"
+   ]
+  },
+  "template:yp1-info-anillo-linea": {
+   "name": "رسم معلومات: عنوان على الخط وحلقة نسبة مئوية",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "تنويه",
+    "مؤشر",
+    "نسبة مئوية",
+    "عداد"
+   ]
+  },
+  "template:yp1-info-barra-porcentaje": {
+   "name": "رسم معلومات: نسبة مئوية في صندوق رمادي ووسم أحمر",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "تنويه",
+    "مؤشر",
+    "نسبة مئوية",
+    "عداد"
+   ]
+  },
+  "template:yp1-info-porcentaje": {
+   "name": "رسم معلومات: نسبة مئوية كبيرة مع وسم",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "تنويه",
+    "مؤشر",
+    "نسبة مئوية",
+    "عداد"
+   ]
+  },
+  "template:yp1-insignia-me-gusta": {
+   "name": "اشتراك: شارة تدور وتصبح إعجابًا وجرسًا",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "اشتراك",
+    "إعجاب",
+    "جرس"
+   ]
+  },
+  "template:yp1-liquid-title": {
+   "name": "عنوان بحدود على بقعة سائلة",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "عنوان",
+    "سائل",
+    "محيط"
+   ]
+  },
+  "template:yp1-llamada-barra-roja": {
+   "name": "تنويه: شريط أحمر مع فقرة",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "تنويه",
+    "مؤشر",
+    "فقرة"
+   ]
+  },
+  "template:yp1-llamada-dato": {
+   "name": "تنويه: عنوان رئيسي ونص ورقم في صندوق أحمر",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "تنويه",
+    "مؤشر",
+    "معلومة"
+   ]
+  },
+  "template:yp1-llamada-especificacion": {
+   "name": "تنويه: عنوان أحمر فوق خط",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "تنويه",
+    "مؤشر",
+    "مواصفات"
+   ]
+  },
+  "template:yp1-llamada-numero": {
+   "name": "تنويه: رقم داخل دائرة مع نصين",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "تنويه",
+    "مؤشر",
+    "رقم"
+   ]
+  },
+  "template:yp1-llamada-numero-cuadro": {
+   "name": "تنويه: رقم في مربع أحمر وصناديق بيضاء",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "تنويه",
+    "مؤشر",
+    "رقم"
+   ]
+  },
+  "template:yp1-llamada-pantalla": {
+   "name": "تنويه: وسم أحمر وصندوق بحدود",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "تنويه",
+    "مؤشر",
+    "وسم"
+   ]
+  },
+  "template:yp1-llamada-titular": {
+   "name": "تنويه: عنوان رئيسي بحدود حمراء",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "تنويه",
+    "مؤشر",
+    "عنوان رئيسي"
+   ]
+  },
+  "template:yp1-mejor-juego": {
+   "name": "عنوان في صندوق رمادي تحت كتلة حمراء",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "عنوان",
+    "بسيط",
+    "صندوق"
+   ]
+  },
+  "template:yp1-modern-bold": {
+   "name": "عنوان بحدود في صندوق وردي",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "عنوان",
+    "صندوق"
+   ]
+  },
+  "template:yp1-modern-title": {
+   "name": "عنوان بين خطوط حمراء",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "عنوان",
+    "بسيط",
+    "خطوط"
+   ]
+  },
+  "template:yp1-motion-studio": {
+   "name": "عنوان على شريطين أحمرين متقاطعين",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "عنوان",
+    "بسيط",
+    "أشرطة"
+   ]
+  },
+  "template:yp1-no-olvides-calificar": {
+   "name": "عنوان: لا تنسَ التقييم داخل إطار أحمر",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "عنوان",
+    "بسيط",
+    "إطار"
+   ]
+  },
+  "template:yp1-pila-botones": {
+   "name": "اشتراك: أزرار إعجاب واشتراك وتنبيه تنقلب",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "اشتراك",
+    "إعجاب",
+    "أزرار"
+   ]
+  },
+  "template:yp1-red-circulo-barra": {
+   "name": "تواصل اجتماعي: أيقونة دائرية تدور وشريط بالموقع",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "وسائل التواصل",
+    "رابط"
+   ]
+  },
+  "template:yp1-red-cuadro-follow": {
+   "name": "تواصل اجتماعي: مربع يتقلب وعبارة تابعنا",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "وسائل التواصل",
+    "رابط"
+   ]
+  },
+  "template:yp1-red-pastilla": {
+   "name": "تواصل اجتماعي: أيقونة في وسط حبة",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "وسائل التواصل",
+    "رابط"
+   ]
+  },
+  "template:yp1-red-rombo": {
+   "name": "تواصل اجتماعي: معين يرسم نفسه واسم القناة",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "وسائل التواصل",
+    "رابط"
+   ]
+  },
+  "template:yp1-strong-titles": {
+   "name": "عنوان قوي تحت موجة حمراء",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "عنوان",
+    "موجة"
+   ]
+  },
+  "template:yp1-top-10": {
+   "name": "عنوان مع خطين أحمرين تحته",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "عنوان",
+    "بسيط",
+    "قائمة"
+   ]
+  },
+  "template:yp1-transicion-barras-1": {
+   "name": "انتقال: أشرطة حمراء وبيضاء وسوداء نحو اليسار",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "انتقال",
+    "أشرطة"
+   ]
+  },
+  "template:yp1-transicion-barras-2": {
+   "name": "انتقال: أشرطة حمراء وبيضاء وسوداء نحو الأسفل",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "انتقال",
+    "أشرطة"
+   ]
+  },
+  "template:yp1-transicion-bloques-1": {
+   "name": "انتقال: كتل حمراء وبيضاء وسوداء",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "انتقال",
+    "كتل"
+   ]
+  },
+  "template:yp1-transicion-bloques-2": {
+   "name": "انتقال: كتل حمراء وبيضاء وسوداء",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "انتقال",
+    "كتل"
+   ]
+  },
+  "template:yp1-transicion-capsulas-1": {
+   "name": "انتقال: كبسولات نحو اليسار",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "انتقال",
+    "كبسولات"
+   ]
+  },
+  "template:yp1-transicion-capsulas-2": {
+   "name": "انتقال: كبسولات نحو الأسفل",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "انتقال",
+    "كبسولات"
+   ]
+  },
+  "template:yp1-transicion-circulo": {
+   "name": "انتقال: دائرة حمراء وبيضاء وسوداء تنفتح",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "انتقال",
+    "أشكال",
+    "دائرة"
+   ]
+  },
+  "template:yp1-transicion-cuadrado": {
+   "name": "انتقال: مربع أحمر وأبيض وأسود ينفتح",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "انتقال",
+    "أشكال",
+    "مربع"
+   ]
+  },
+  "template:yp1-transicion-estrella": {
+   "name": "انتقال: نجمة حمراء وبيضاء وسوداء تنفتح",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "انتقال",
+    "أشكال",
+    "نجمة"
+   ]
+  },
+  "template:yp1-transicion-flechas-1": {
+   "name": "انتقال: أسهم حمراء وبيضاء وسوداء نحو اليسار",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "انتقال",
+    "أسهم"
+   ]
+  },
+  "template:yp1-transicion-flechas-2": {
+   "name": "انتقال: أسهم حمراء وبيضاء وسوداء نحو الأسفل",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "انتقال",
+    "أسهم"
+   ]
+  },
+  "template:yp1-transicion-flechas-3": {
+   "name": "انتقال: أسهم حمراء وبيضاء وسوداء نحو الأعلى",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "انتقال",
+    "أسهم"
+   ]
+  },
+  "template:yp1-transicion-flechas-4": {
+   "name": "انتقال: أسهم حمراء وبيضاء وسوداء نحو اليمين",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "انتقال",
+    "أسهم"
+   ]
+  },
+  "template:yp1-transicion-hexagono": {
+   "name": "انتقال: سداسي أحمر وأبيض وأسود ينفتح",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "انتقال",
+    "أشكال",
+    "سداسي"
+   ]
+  },
+  "template:yp1-transicion-remolino": {
+   "name": "انتقال: دوامة حمراء وبيضاء",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "انتقال",
+    "سائل"
+   ]
+  },
+  "template:yp1-trazo-rojo": {
+   "name": "عنوان من ثلاثة أسطر مع خربشة حمراء",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "عنوان",
+    "ضربة فرشاة"
+   ]
+  },
+  "template:yp1-ver-siguiente-caja": {
+   "name": "عنوان: شاهد التالي في صندوق أبيض",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "عنوان",
+    "بسيط",
+    "صندوق"
+   ]
+  },
+  "template:yp1-ver-siguiente-dos-colores": {
+   "name": "عنوان: شاهد التالي في صندوق أبيض وأحمر",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "عنوان",
+    "بسيط",
+    "صندوق"
+   ]
+  },
+  "template:yp2-apertura": {
+   "name": "افتتاحية: حلقة حمراء وبيضاء مع زر يوتيوب",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "افتتاحية",
+    "شعار",
+    "حلقة"
+   ]
+  },
+  "template:yp2-aro-canal": {
+   "name": "حلقة حمراء وبيضاء تنفتح على كلمة القناة",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "حلقة",
+    "شعار",
+    "قناة"
+   ]
+  },
+  "template:yp2-barra-15k": {
+   "name": "شريط: إعجابات واشتراك",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "اشتراك",
+    "شريط"
+   ]
+  },
+  "template:yp2-barra-campana": {
+   "name": "شريط: إعجاب واشتراك وجرس",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "اشتراك",
+    "شريط"
+   ]
+  },
+  "template:yp2-barra-canal": {
+   "name": "شريط القناة بصورة واشتراك",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "اشتراك",
+    "شريط"
+   ]
+  },
+  "template:yp2-barra-contadores": {
+   "name": "شريط: إعجابات وأعداد واشتراك",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "اشتراك",
+    "شريط"
+   ]
+  },
+  "template:yp2-barra-simple": {
+   "name": "شريط: إعجاب وعدم إعجاب واشتراك",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "اشتراك",
+    "شريط"
+   ]
+  },
+  "template:yp2-dos-tarjetas": {
+   "name": "بطاقتان: اشتراك وإعجاب",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "اشتراك",
+    "إعجاب"
+   ]
+  },
+  "template:yp2-icono-aro-blanco": {
+   "name": "أيقونة: حلقة بيضاء تنفجر",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "أيقونة",
+    "متحرك"
+   ]
+  },
+  "template:yp2-icono-aro-rojo": {
+   "name": "أيقونة: حلقة حمراء تنفجر",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "أيقونة",
+    "متحرك"
+   ]
+  },
+  "template:yp2-icono-buscador": {
+   "name": "أيقونة: مربع بحث يرسم نفسه",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "أيقونة",
+    "متحرك"
+   ]
+  },
+  "template:yp2-icono-campana": {
+   "name": "أيقونة: جرس يرن بالأحمر",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "أيقونة",
+    "متحرك"
+   ]
+  },
+  "template:yp2-icono-cargando": {
+   "name": "أيقونة: نقاط تحميل تدور",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "أيقونة",
+    "متحرك"
+   ]
+  },
+  "template:yp2-icono-cursor": {
+   "name": "أيقونة: مؤشر ينقر",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "أيقونة",
+    "متحرك"
+   ]
+  },
+  "template:yp2-icono-destello": {
+   "name": "أيقونة: انفجار من الخطوط",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "أيقونة",
+    "متحرك"
+   ]
+  },
+  "template:yp2-icono-flecha": {
+   "name": "أيقونة: سهم يشير للأسفل",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "أيقونة",
+    "متحرك"
+   ]
+  },
+  "template:yp2-icono-me-gusta": {
+   "name": "أيقونة: إعجاب يتحول للأحمر",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "أيقونة",
+    "متحرك"
+   ]
+  },
+  "template:yp2-pagina-video": {
+   "name": "صفحة المشاهدة: اشتراك وجرس",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "اشتراك",
+    "صفحة"
+   ]
+  },
+  "template:yp2-redes-barras": {
+   "name": "وسائل التواصل: 12 شريطًا بأيقونات",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "شبكات اجتماعية",
+    "أشرطة",
+    "أيقونات"
+   ]
+  },
+  "template:yp2-redes-iconos": {
+   "name": "وسائل التواصل: 6 أيقونات مع مربعات بحث",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "شبكات اجتماعية",
+    "أيقونات",
+    "بحث"
+   ]
+  },
+  "template:yp2-siguiente-barra": {
+   "name": "شاشة نهائية: الفيديو التالي مع شريط أحمر",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "شاشة نهائية",
+    "الفيديو التالي"
+   ]
+  },
+  "template:yp2-siguiente-onda": {
+   "name": "شاشة نهائية: الفيديو التالي مع موجة حمراء",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "شاشة نهائية",
+    "الفيديو التالي"
+   ]
+  },
+  "template:yp2-tarjeta-canal": {
+   "name": "بطاقة القناة بصورة وشعار",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "قناة",
+    "شعار",
+    "صورة"
+   ]
+  },
+  "template:yp2-tarjeta-video": {
+   "name": "بطاقة الفيديو: اشتراك وجرس",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "اشتراك",
+    "بطاقة"
+   ]
+  },
+  "template:yp2-titulo-animation": {
+   "name": "عنوان في صندوق أحمر ينمو",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "عنوان",
+    "وسم"
+   ]
+  },
+  "template:yp2-titulo-best": {
+   "name": "عنوان مع وسم وكلمة تنزلق",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "عنوان",
+    "وسم"
+   ]
+  },
+  "template:yp2-titulo-brand": {
+   "name": "عنوان كبير بخطوط حمراء",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "عنوان",
+    "وسم"
+   ]
+  },
+  "template:yp2-titulo-clean": {
+   "name": "عنوان بين خطين أحمرين",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "عنوان",
+    "وسم"
+   ]
+  },
+  "template:yp2-titulo-just-edit": {
+   "name": "عنوان في إطار وكلمة تحته",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "عنوان",
+    "وسم"
+   ]
+  },
+  "template:yp2-titulo-motion-design": {
+   "name": "عنوان مع وسم أحمر",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "عنوان",
+    "وسم"
+   ]
+  },
+  "template:yp2-titulo-new-project": {
+   "name": "عنوان يكشفه شريط أحمر",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "عنوان",
+    "وسم"
+   ]
+  },
+  "template:yp2-titulo-rendering": {
+   "name": "عنوان تحت خط أحمر يسقط",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "عنوان",
+    "وسم"
+   ]
+  },
+  "template:yp2-titulo-simple": {
+   "name": "عنوان ينزلق من مربع أحمر",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "عنوان",
+    "وسم"
+   ]
+  },
+  "template:yp2-titulo-your-channel": {
+   "name": "عنوان في إطار أحمر",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "عنوان",
+    "وسم"
+   ]
+  },
+  "template:yp2-transicion-diagonal": {
+   "name": "انتقال: أشرطة قطرية حمراء وبيضاء ورمادية",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "انتقال",
+    "قطري"
+   ]
+  },
+  "template:yp2-transicion-franjas": {
+   "name": "انتقال: شرائط حمراء وبيضاء تدور",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "انتقال",
+    "شرائط"
+   ]
+  },
+  "template:yp3-avatar-cadena": {
+   "name": "زر: صورة رمزية مع سلسلة إعجاب وجرس",
+   "tags": [
+    "youtube",
+    "اشتراك",
+    "زر",
+    "صورة رمزية",
+    "إعجاب",
+    "جرس"
+   ]
+  },
+  "template:yp3-avatar-rojo": {
+   "name": "زر: صورة رمزية للقناة مع اشتراك أحمر",
+   "tags": [
+    "youtube",
+    "اشتراك",
+    "زر",
+    "صورة رمزية",
+    "جرس",
+    "مؤشر"
+   ]
+  },
+  "template:yp3-burbujas-rojas": {
+   "name": "زر: فقاعات حمراء مع جرس وصورة رمزية وإعجاب",
+   "tags": [
+    "youtube",
+    "اشتراك",
+    "زر",
+    "صورة رمزية",
+    "جرس",
+    "إعجاب"
+   ]
+  },
+  "template:yp3-caja-me-gusta-campana": {
+   "name": "زر: صندوق أحمر يتحول من إعجاب إلى جرس",
+   "tags": [
+    "youtube",
+    "اشتراك",
+    "زر",
+    "إعجاب",
+    "جرس",
+    "ثلاثي الأبعاد"
+   ]
+  },
+  "template:yp3-caja-roja-campana": {
+   "name": "زر: صندوق أحمر مع جرس و«تم الاشتراك» مائل",
+   "tags": [
+    "youtube",
+    "اشتراك",
+    "زر",
+    "جرس",
+    "ثلاثي الأبعاد"
+   ]
+  },
+  "template:yp3-campana-redonda": {
+   "name": "زر: جرس دائري يتحول إلى «تم الاشتراك»",
+   "tags": [
+    "youtube",
+    "اشتراك",
+    "زر",
+    "جرس",
+    "مؤشر"
+   ]
+  },
+  "template:yp3-final-anillos-blancos": {
+   "name": "شاشة نهائية: «انقر للاشتراك» على حلقات بيضاء",
+   "tags": [
+    "youtube",
+    "شاشة نهائية",
+    "اشتراك",
+    "أبيض",
+    "وردي"
+   ]
+  },
+  "template:yp3-final-aro-degradado": {
+   "name": "شاشة نهائية: حلقة متدرجة على الأسود",
+   "tags": [
+    "youtube",
+    "شاشة نهائية",
+    "اشتراك",
+    "أسود",
+    "تدرج",
+    "شبكات اجتماعية"
+   ]
+  },
+  "template:yp3-final-banda-azul": {
+   "name": "شاشة نهائية: شريط أزرق فوق صورة مع فيديوهين",
+   "tags": [
+    "youtube",
+    "شاشة نهائية",
+    "اشتراك",
+    "أزرق",
+    "صورة"
+   ]
+  },
+  "template:yp3-final-capsula-turquesa": {
+   "name": "شاشة نهائية: كبسولة فيروزية مع فيديوهين",
+   "tags": [
+    "youtube",
+    "شاشة نهائية",
+    "اشتراك",
+    "فيروزي",
+    "إعجاب",
+    "جرس"
+   ]
+  },
+  "template:yp3-final-gris": {
+   "name": "شاشة نهائية: رمادي هادئ مع فيديوهين وصورة رمزية",
+   "tags": [
+    "youtube",
+    "شاشة نهائية",
+    "اشتراك",
+    "رمادي",
+    "نيومورفيك"
+   ]
+  },
+  "template:yp3-final-hexagono": {
+   "name": "شاشة نهائية: سداسي متدرج مع «انقر للاشتراك»",
+   "tags": [
+    "youtube",
+    "شاشة نهائية",
+    "اشتراك",
+    "سداسي",
+    "تدرج",
+    "شبكات اجتماعية"
+   ]
+  },
+  "template:yp3-final-manchas-rojas": {
+   "name": "شاشة نهائية: بقع حمراء مع صورة رمزية والفيديو التالي",
+   "tags": [
+    "youtube",
+    "شاشة نهائية",
+    "اشتراك",
+    "أحمر",
+    "شبكات اجتماعية"
+   ]
+  },
+  "template:yp3-final-no-olvides": {
+   "name": "شاشة نهائية: «لا تنسَ الاشتراك» مع مائل أزرق",
+   "tags": [
+    "youtube",
+    "شاشة نهائية",
+    "اشتراك",
+    "أزرق",
+    "صورة",
+    "شبكات اجتماعية"
+   ]
+  },
+  "template:yp3-final-olas-turquesa": {
+   "name": "شاشة نهائية: موجات فيروزية مع فيديو مقترح",
+   "tags": [
+    "youtube",
+    "شاشة نهائية",
+    "اشتراك",
+    "فيروزي",
+    "موجات"
+   ]
+  },
+  "template:yp3-final-rosa": {
+   "name": "شاشة نهائية: وردي «شكرًا على المشاهدة!»",
+   "tags": [
+    "youtube",
+    "شاشة نهائية",
+    "اشتراك",
+    "وردي",
+    "شبكات اجتماعية"
+   ]
+  },
+  "template:yp3-final-rosa-siguiente": {
+   "name": "شاشة نهائية: «الفيديو التالي» وردي مع كتل",
+   "tags": [
+    "youtube",
+    "شاشة نهائية",
+    "اشتراك",
+    "وردي",
+    "كتل"
+   ]
+  },
+  "template:yp3-final-tarjeta-lila": {
+   "name": "شاشة نهائية: بطاقة أرجوانية «من فضلك لا تنسَ الاشتراك»",
+   "tags": [
+    "youtube",
+    "شاشة نهائية",
+    "اشتراك",
+    "أرجواني فاتح",
+    "صورة"
+   ]
+  },
+  "template:yp3-final-tarjeta-morada": {
+   "name": "شاشة نهائية: بطاقة بنفسجية مع فيديوهين",
+   "tags": [
+    "youtube",
+    "شاشة نهائية",
+    "اشتراك",
+    "بنفسجي"
+   ]
+  },
+  "template:yp3-me-gusta-redondo": {
+   "name": "زر: إعجاب دائري وجرس مع «أعجبني» و«تم الاشتراك»",
+   "tags": [
+    "youtube",
+    "اشتراك",
+    "زر",
+    "إعجاب",
+    "جرس",
+    "مؤشر"
+   ]
+  },
+  "template:yp3-pestana-degradado": {
+   "name": "زر: لسان وردي وبنفسجي مع صورة رمزية",
+   "tags": [
+    "youtube",
+    "اشتراك",
+    "زر",
+    "صورة رمزية",
+    "تدرج"
+   ]
+  },
+  "template:yp3-pildora-burbujas": {
+   "name": "زر: حبة فقاعات متدرجة مع صورة رمزية",
+   "tags": [
+    "youtube",
+    "اشتراك",
+    "زر",
+    "صورة رمزية",
+    "تدرج",
+    "إعجاب"
+   ]
+  },
+  "template:yp3-pildora-degradado": {
+   "name": "زر: حبة بيضاء مع جرس متدرج",
+   "tags": [
+    "youtube",
+    "اشتراك",
+    "زر",
+    "جرس",
+    "مؤشر",
+    "تدرج"
+   ]
+  },
+  "template:yp3-play-contorno": {
+   "name": "زر: أيقونة تشغيل بيضاء تنقلب و«تم الاشتراك»",
+   "tags": [
+    "youtube",
+    "اشتراك",
+    "زر",
+    "مؤشر",
+    "أبيض",
+    "ثلاثي الأبعاد"
+   ]
+  },
+  "template:yp3-suscribirse-rojo": {
+   "name": "زر: اشتراك أحمر مع إعجاب وجرس",
+   "tags": [
+    "youtube",
+    "اشتراك",
+    "زر",
+    "إعجاب",
+    "جرس",
+    "مؤشر"
+   ]
+  },
+  "template:yp3-tarjeta-blanca": {
+   "name": "زر: بطاقة بيضاء بصورة رمزية وإعجاب",
+   "tags": [
+    "youtube",
+    "اشتراك",
+    "زر",
+    "إعجاب",
+    "صورة رمزية",
+    "ثلاثي الأبعاد"
+   ]
+  },
+  "template:yp4-bienvenida": {
+   "name": "ستوري: ترحيب بأقراص حمراء وسوداء",
+   "tags": [
+    "ستوري",
+    "youtube",
+    "عمودي",
+    "ترحيب",
+    "دائرة"
+   ]
+  },
+  "template:yp4-canal": {
+   "name": "ستوري: القناة مع زر تشغيل",
+   "tags": [
+    "ستوري",
+    "youtube",
+    "عمودي",
+    "قناة"
+   ]
+  },
+  "template:yp4-contador": {
+   "name": "ستوري: 2/6 مع صور وإطار أصفر",
+   "tags": [
+    "ستوري",
+    "youtube",
+    "عمودي",
+    "صورة",
+    "أصفر",
+    "عداد"
+   ]
+  },
+  "template:yp4-derechos": {
+   "name": "ستوري: دائرة بيضاء على الأصفر",
+   "tags": [
+    "ستوري",
+    "youtube",
+    "عمودي",
+    "أصفر",
+    "دائرة"
+   ]
+  },
+  "template:yp4-fundamentos": {
+   "name": "ستوري: وسم أحمر مائل فوق صورة",
+   "tags": [
+    "ستوري",
+    "youtube",
+    "عمودي",
+    "صورة",
+    "وسم"
+   ]
+  },
+  "template:yp4-gracias": {
+   "name": "ستوري: شكرًا مع صورتين وأسماء",
+   "tags": [
+    "ستوري",
+    "youtube",
+    "عمودي",
+    "صورة",
+    "شكرًا"
+   ]
+  },
+  "template:yp4-love": {
+   "name": "ستوري: حب مع بطاقة اشتراك",
+   "tags": [
+    "ستوري",
+    "youtube",
+    "عمودي",
+    "صورة",
+    "اشتراك"
+   ]
+  },
+  "template:yp4-mi-plan": {
+   "name": "ستوري: خطتي مع قائمة ووسم",
+   "tags": [
+    "ستوري",
+    "youtube",
+    "عمودي",
+    "صورة",
+    "قائمة"
+   ]
+  },
+  "template:yp4-nombre-blanco": {
+   "name": "ستوري: اسم مع صورة دائرية على الأبيض",
+   "tags": [
+    "ستوري",
+    "youtube",
+    "عمودي",
+    "صورة",
+    "اسم"
+   ]
+  },
+  "template:yp4-nombre-circulo": {
+   "name": "ستوري: اسم بجانب صورة دائرية",
+   "tags": [
+    "ستوري",
+    "youtube",
+    "عمودي",
+    "صورة",
+    "اسم"
+   ]
+  },
+  "template:yp4-numeros": {
+   "name": "ستوري: شريحتان 01 و02",
+   "tags": [
+    "ستوري",
+    "youtube",
+    "عمودي",
+    "صورة",
+    "أرقام"
+   ]
+  },
+  "template:yp4-por-ejemplo": {
+   "name": "ستوري: عبارة صفراء على الأحمر مع صور",
+   "tags": [
+    "ستوري",
+    "youtube",
+    "عمودي",
+    "صورة",
+    "عبارة"
+   ]
+  },
+  "template:yp4-seguir": {
+   "name": "ستوري: متابعة مع بطاقة تواصل",
+   "tags": [
+    "ستوري",
+    "youtube",
+    "عمودي",
+    "صورة",
+    "متابعة",
+    "شبكات اجتماعية"
+   ]
+  },
+  "template:yp4-siguiente": {
+   "name": "ستوري: صورتان مع التالي وشاهد",
+   "tags": [
+    "ستوري",
+    "youtube",
+    "عمودي",
+    "صورة",
+    "التالي"
+   ]
+  },
+  "template:yp4-social-media": {
+   "name": "ستوري: وسائل التواصل مع تابعني",
+   "tags": [
+    "ستوري",
+    "youtube",
+    "عمودي",
+    "صورة",
+    "متابعة"
+   ]
+  },
+  "template:yp4-vlogger": {
+   "name": "ستوري: مدوّن فيديو مع قلوب واشتراك",
+   "tags": [
+    "ستوري",
+    "youtube",
+    "عمودي",
+    "صورة",
+    "اشتراك",
+    "قلوب"
+   ]
+  },
+  "template:yp5-avatar-cycle": {
+   "name": "ثلث سفلي: صورة رمزية ووسم متغير",
+   "tags": [
+    "youtube",
+    "صورة رمزية",
+    "إعجاب",
+    "اشتراك"
+   ]
+  },
+  "template:yp5-best-show": {
+   "name": "ثلث سفلي: زر وفاصل وسطران",
+   "tags": [
+    "youtube",
+    "زر",
+    "قالب"
+   ]
+  },
+  "template:yp5-best-solution": {
+   "name": "عنوان: صناديق بيضاء وسوداء في إطار",
+   "tags": [
+    "youtube",
+    "صندوق",
+    "إطار"
+   ]
+  },
+  "template:yp5-best-video": {
+   "name": "عنوان: خط أحمر وصندوق أحمر",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "قالب"
+   ]
+  },
+  "template:yp5-big-live-story": {
+   "name": "ثلث سفلي: زر تشغيل يكبّر للأسفل واسم",
+   "tags": [
+    "youtube",
+    "زر",
+    "اشتراك"
+   ]
+  },
+  "template:yp5-box-any-fonts": {
+   "name": "عنوان في صندوقين متوسطين",
+   "tags": [
+    "youtube",
+    "صندوق",
+    "كتابة"
+   ]
+  },
+  "template:yp5-box-auto-resized": {
+   "name": "عنوان في صندوق ينمو أثناء الكتابة",
+   "tags": [
+    "youtube",
+    "صندوق",
+    "كتابة"
+   ]
+  },
+  "template:yp5-box-automatically": {
+   "name": "عنوان في صندوق أبيض وآخر أسود",
+   "tags": [
+    "youtube",
+    "صندوق",
+    "كتابة"
+   ]
+  },
+  "template:yp5-box-best-choice": {
+   "name": "عنوان في ثلاثة صناديق سوداء",
+   "tags": [
+    "youtube",
+    "صندوق",
+    "كتابة"
+   ]
+  },
+  "template:yp5-box-dont-forget": {
+   "name": "عنوان في الوسط داخل ثلاثة صناديق بيضاء",
+   "tags": [
+    "youtube",
+    "صندوق",
+    "اشتراك"
+   ]
+  },
+  "template:yp5-box-enjoy": {
+   "name": "عنوان في صناديق بيضاء بحدود",
+   "tags": [
+    "youtube",
+    "صندوق",
+    "محيط"
+   ]
+  },
+  "template:yp5-box-great-design": {
+   "name": "عنوان في صندوقين أبيضين",
+   "tags": [
+    "youtube",
+    "صندوق",
+    "كتابة"
+   ]
+  },
+  "template:yp5-box-like-that": {
+   "name": "عنوان في صناديق تنفتح من المنتصف",
+   "tags": [
+    "youtube",
+    "صندوق",
+    "اشتراك"
+   ]
+  },
+  "template:yp5-box-motion-design": {
+   "name": "عنوان في صندوق أبيض مائل",
+   "tags": [
+    "youtube",
+    "صندوق",
+    "مائل"
+   ]
+  },
+  "template:yp5-box-thank-support": {
+   "name": "عنوان: خط ينفتح إلى صندوق أبيض",
+   "tags": [
+    "youtube",
+    "صندوق",
+    "قالب"
+   ]
+  },
+  "template:yp5-box-we-created": {
+   "name": "عنوان في ثلاثة صناديق سوداء تُكتب",
+   "tags": [
+    "youtube",
+    "صندوق",
+    "كتابة"
+   ]
+  },
+  "template:yp5-box-write-text": {
+   "name": "عنوان في صندوق واحد بحدود",
+   "tags": [
+    "youtube",
+    "صندوق",
+    "كتابة"
+   ]
+  },
+  "template:yp5-bubble-swap": {
+   "name": "ثلث سفلي: فقاعة حمراء من إعجاب إلى اشتراك",
+   "tags": [
+    "youtube",
+    "إعجاب",
+    "اشتراك",
+    "فقاعة حوار"
+   ]
+  },
+  "template:yp5-callout-brand": {
+   "name": "تنويه: العلامة والسعر",
+   "tags": [
+    "youtube",
+    "تنويه",
+    "سعر"
+   ]
+  },
+  "template:yp5-callout-creative": {
+   "name": "تنويه: خط منقط وصندوقان",
+   "tags": [
+    "youtube",
+    "تنويه",
+    "أحمر"
+   ]
+  },
+  "template:yp5-callout-elbow": {
+   "name": "تنويه: خط منكسر وصندوق نص أحمر",
+   "tags": [
+    "youtube",
+    "تنويه",
+    "أحمر"
+   ]
+  },
+  "template:yp5-callout-headline": {
+   "name": "تنويه: عنوان رئيسي أحمر وصندوق أسود",
+   "tags": [
+    "youtube",
+    "تنويه",
+    "أحمر"
+   ]
+  },
+  "template:yp5-callout-line-up": {
+   "name": "تنويه: خط يصعد إلى صندوق أسود",
+   "tags": [
+    "youtube",
+    "تنويه",
+    "قالب"
+   ]
+  },
+  "template:yp5-callout-outline": {
+   "name": "تنويه: خط بنقطة ونص",
+   "tags": [
+    "youtube",
+    "تنويه",
+    "قالب"
+   ]
+  },
+  "template:yp5-callout-product": {
+   "name": "تنويه: خط وإطار منتج",
+   "tags": [
+    "youtube",
+    "تنويه",
+    "منتج"
+   ]
+  },
+  "template:yp5-callout-red-box": {
+   "name": "تنويه: خط مع صندوق أحمر",
+   "tags": [
+    "youtube",
+    "تنويه",
+    "أحمر"
+   ]
+  },
+  "template:yp5-callout-red-line": {
+   "name": "تنويه: خط أحمر وصندوق أحمر",
+   "tags": [
+    "youtube",
+    "تنويه",
+    "أحمر"
+   ]
+  },
+  "template:yp5-callout-title-bar": {
+   "name": "تنويه: شريط أحمر وعنوان",
+   "tags": [
+    "youtube",
+    "تنويه",
+    "أحمر"
+   ]
+  },
+  "template:yp5-channel-name": {
+   "name": "ثلث سفلي: اسم قناة مائل بخطوط",
+   "tags": [
+    "youtube",
+    "زر",
+    "خطوط"
+   ]
+  },
+  "template:yp5-clean-modern": {
+   "name": "ثلث سفلي: رقم ونص داخل حبة",
+   "tags": [
+    "youtube",
+    "رقم",
+    "حبة"
+   ]
+  },
+  "template:yp5-clean-titles": {
+   "name": "عنوان: أربعة أسطر في إطار أبيض",
+   "tags": [
+    "youtube",
+    "إطار",
+    "قالب"
+   ]
+  },
+  "template:yp5-click-channel": {
+   "name": "ثلث سفلي: انقر على الزر وشريط أحمر",
+   "tags": [
+    "youtube",
+    "زر",
+    "نقرة"
+   ]
+  },
+  "template:yp5-counter-bubbles": {
+   "name": "عدادات: فقاعات إشعارات",
+   "tags": [
+    "youtube",
+    "عداد",
+    "إعجاب"
+   ]
+  },
+  "template:yp5-counter-heart": {
+   "name": "عداد إعجابات مع قلب",
+   "tags": [
+    "youtube",
+    "عداد",
+    "إعجاب"
+   ]
+  },
+  "template:yp5-counter-link": {
+   "name": "الرابط في الوصف",
+   "tags": [
+    "youtube",
+    "رابط",
+    "قالب"
+   ]
+  },
+  "template:yp5-counter-person": {
+   "name": "عداد المتابعين",
+   "tags": [
+    "youtube",
+    "عداد",
+    "قالب"
+   ]
+  },
+  "template:yp5-counter-subscribers": {
+   "name": "عداد المشتركين",
+   "tags": [
+    "youtube",
+    "عداد",
+    "اشتراك"
+   ]
+  },
+  "template:yp5-doodle-channel": {
+   "name": "ثلث سفلي: زر أبيض وشريط أحمر وخربشات",
+   "tags": [
+    "youtube",
+    "زر",
+    "رسومات"
+   ]
+  },
+  "template:yp5-end-big-arc": {
+   "name": "شاشة نهائية: قوس مرجاني كبير وفيديوهان",
+   "tags": [
+    "youtube",
+    "شكر",
+    "مرجاني"
+   ]
+  },
+  "template:yp5-end-circle": {
+   "name": "شاشة نهائية: نصف دائرة مرجانية وفيديو مقترح",
+   "tags": [
+    "youtube",
+    "شكر",
+    "مرجاني"
+   ]
+  },
+  "template:yp5-end-coral": {
+   "name": "شاشة نهائية مرجانية: صورة رمزية وفيديوهان وحسابات اجتماعية",
+   "tags": [
+    "youtube",
+    "شكر",
+    "مرجاني"
+   ]
+  },
+  "template:yp5-end-coral-column": {
+   "name": "شاشة نهائية مرجانية: فيديوهان وحسابات اجتماعية وصورة رمزية",
+   "tags": [
+    "youtube",
+    "شكر",
+    "مرجاني"
+   ]
+  },
+  "template:yp5-end-diagonal": {
+   "name": "شاشة نهائية: لوحة مرجانية مائلة والفيديو التالي",
+   "tags": [
+    "youtube",
+    "شكر",
+    "مرجاني"
+   ]
+  },
+  "template:yp5-end-side-panel": {
+   "name": "شاشة نهائية: لوحة جانبية مرجانية وفيديوهان",
+   "tags": [
+    "youtube",
+    "شكر",
+    "مرجاني"
+   ]
+  },
+  "template:yp5-end-subscribe-arrow": {
+   "name": "شاشة نهائية: فيديو مقترح وزر اشترك كبير",
+   "tags": [
+    "youtube",
+    "شكر",
+    "اشتراك"
+   ]
+  },
+  "template:yp5-end-white-arrow": {
+   "name": "شاشة نهائية: مثلث أبيض بسهم أحمر",
+   "tags": [
+    "youtube",
+    "شكر",
+    "سهم"
+   ]
+  },
+  "template:yp5-end-white-band": {
+   "name": "شاشة نهائية: شريط أبيض مع فيديوهين",
+   "tags": [
+    "youtube",
+    "شكر",
+    "أبيض"
+   ]
+  },
+  "template:yp5-end-white-curve": {
+   "name": "شاشة نهائية: لوحة بيضاء منحنية وفيديوهان",
+   "tags": [
+    "youtube",
+    "شكر",
+    "أبيض"
+   ]
+  },
+  "template:yp5-good-design": {
+   "name": "عنوان: ثلاثة أسطر تظهر كلمة بكلمة",
+   "tags": [
+    "youtube",
+    "بسيط",
+    "قالب"
+   ]
+  },
+  "template:yp5-hello-welcome": {
+   "name": "عنوان: مرحبًا! أهلًا بك في قناتي",
+   "tags": [
+    "youtube",
+    "ترحيب",
+    "مرجاني"
+   ]
+  },
+  "template:yp5-how-do-i": {
+   "name": "ثلث سفلي: سؤال في صندوق أبيض",
+   "tags": [
+    "youtube",
+    "صندوق",
+    "أبيض"
+   ]
+  },
+  "template:yp5-like-card": {
+   "name": "ثلث سفلي: إعجاب واشتراك وتنبيه",
+   "tags": [
+    "youtube",
+    "إعجاب",
+    "اشتراك",
+    "جرس"
+   ]
+  },
+  "template:yp5-like-column": {
+   "name": "ثلث سفلي: عمود أحمر بثلاثة وسوم",
+   "tags": [
+    "youtube",
+    "إعجاب",
+    "اشتراك",
+    "جرس"
+   ]
+  },
+  "template:yp5-like-hand": {
+   "name": "ثلث سفلي: أعجبك الفيديو مع يد",
+   "tags": [
+    "youtube",
+    "إعجاب",
+    "قالب"
+   ]
+  },
+  "template:yp5-modern-titles": {
+   "name": "عنوان: إطار أبيض وثلاثة أسطر",
+   "tags": [
+    "youtube",
+    "إطار",
+    "قالب"
+   ]
+  },
+  "template:yp5-modern-universal": {
+   "name": "ثلث سفلي: ثلاثة أسطر وخط",
+   "tags": [
+    "youtube",
+    "بسيط",
+    "قالب"
+   ]
+  },
+  "template:yp5-name-bar": {
+   "name": "ثلث سفلي: شريط أبيض واسم ينزلق",
+   "tags": [
+    "youtube",
+    "اسم",
+    "شريط"
+   ]
+  },
+  "template:yp5-name-red-box": {
+   "name": "ثلث سفلي: اسم في صندوق أحمر",
+   "tags": [
+    "youtube",
+    "اسم",
+    "أحمر"
+   ]
+  },
+  "template:yp5-name-square-line": {
+   "name": "ثلث سفلي: مربع صغير وخط واسم",
+   "tags": [
+    "youtube",
+    "اسم",
+    "خط"
+   ]
+  },
+  "template:yp5-name-white-box": {
+   "name": "ثلث سفلي: اسم يُكتب في صندوق أبيض",
+   "tags": [
+    "youtube",
+    "اسم",
+    "صندوق"
+   ]
+  },
+  "template:yp5-new-video": {
+   "name": "ثلث سفلي: فيديو جديد في شريط أسود",
+   "tags": [
+    "youtube",
+    "شريط",
+    "أسود"
+   ]
+  },
+  "template:yp5-notify-bell": {
+   "name": "ثلث سفلي: إشعارات مع جرس يرن",
+   "tags": [
+    "youtube",
+    "جرس",
+    "قالب"
+   ]
+  },
+  "template:yp5-opener-boxes": {
+   "name": "افتتاحية حمراء: اسم في صناديق سوداء",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "صناديق"
+   ]
+  },
+  "template:yp5-opener-divider": {
+   "name": "افتتاحية حمراء: زر وفاصل واسم",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "اشتراك"
+   ]
+  },
+  "template:yp5-opener-fade": {
+   "name": "افتتاحية حمراء: زر واسم يظهران تدريجيًا",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "قالب"
+   ]
+  },
+  "template:yp5-opener-flip": {
+   "name": "افتتاحية حمراء: زر ينقلب واسم",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "موجات"
+   ]
+  },
+  "template:yp5-opener-typed": {
+   "name": "افتتاحية حمراء: اسم مكتوب",
+   "tags": [
+    "youtube",
+    "أحمر",
+    "كتابة"
+   ]
+  },
+  "template:yp5-profile-card": {
+   "name": "ثلث سفلي: بطاقة بيضاء بصورة رمزية",
+   "tags": [
+    "youtube",
+    "صورة رمزية",
+    "اشتراك"
+   ]
+  },
+  "template:yp5-promo-pack": {
+   "name": "عنوان: ترويج يوتيوب في صندوق أسود",
+   "tags": [
+    "youtube",
+    "صندوق",
+    "أسود"
+   ]
+  },
+  "template:yp5-quote-black-frame": {
+   "name": "اقتباس في إطار أسود مع وسم",
+   "tags": [
+    "youtube",
+    "اقتباس",
+    "إطار"
+   ]
+  },
+  "template:yp5-quote-brackets": {
+   "name": "اقتباس بين زاويتين",
+   "tags": [
+    "youtube",
+    "اقتباس",
+    "قالب"
+   ]
+  },
+  "template:yp5-quote-bubble": {
+   "name": "اقتباس في فقاعة حوار",
+   "tags": [
+    "youtube",
+    "اقتباس",
+    "فقاعة حوار"
+   ]
+  },
+  "template:yp5-quote-centred": {
+   "name": "اقتباس في الوسط مع وسم أبيض",
+   "tags": [
+    "youtube",
+    "اقتباس",
+    "قالب"
+   ]
+  },
+  "template:yp5-quote-corners": {
+   "name": "اقتباس بين زاويتين بيضاوين",
+   "tags": [
+    "youtube",
+    "اقتباس",
+    "قالب"
+   ]
+  },
+  "template:yp5-quote-frame": {
+   "name": "اقتباس في إطار مع وسم أسود",
+   "tags": [
+    "youtube",
+    "اقتباس",
+    "إطار"
+   ]
+  },
+  "template:yp5-quote-line": {
+   "name": "اقتباس: خط عمودي وعلامات اقتباس في صناديق",
+   "tags": [
+    "youtube",
+    "اقتباس",
+    "قالب"
+   ]
+  },
+  "template:yp5-quote-split-bar": {
+   "name": "اقتباس ينفتح بين شريطين",
+   "tags": [
+    "youtube",
+    "اقتباس",
+    "قالب"
+   ]
+  },
+  "template:yp5-quote-two-lines": {
+   "name": "اقتباس بين خطين",
+   "tags": [
+    "youtube",
+    "اقتباس",
+    "قالب"
+   ]
+  },
+  "template:yp5-quote-white-box": {
+   "name": "اقتباس في صندوق أبيض بعلامات سوداء",
+   "tags": [
+    "youtube",
+    "اقتباس",
+    "صندوق"
+   ]
+  },
+  "template:yp5-record-iris": {
+   "name": "انتقال: دوائر تسجيل تنفتح",
+   "tags": [
+    "youtube",
+    "انتقال",
+    "دوائر"
+   ]
+  },
+  "template:yp5-social-baldosa-fb": {
+   "name": "شريط اجتماعي: فيسبوك (بلاطة تطير)",
+   "tags": [
+    "youtube",
+    "شبكات اجتماعية",
+    "فيسبوك"
+   ]
+  },
+  "template:yp5-social-baldosa-ig": {
+   "name": "شريط اجتماعي: إنستغرام (بلاطة تطير)",
+   "tags": [
+    "youtube",
+    "شبكات اجتماعية",
+    "إنستغرام"
+   ]
+  },
+  "template:yp5-social-baldosa-tw": {
+   "name": "شريط اجتماعي: تويتر (بلاطة تطير)",
+   "tags": [
+    "youtube",
+    "شبكات اجتماعية",
+    "تويتر"
+   ]
+  },
+  "template:yp5-social-baldosa-yt": {
+   "name": "شريط اجتماعي: يوتيوب (بلاطة تطير)",
+   "tags": [
+    "youtube",
+    "شبكات اجتماعية",
+    "قالب"
+   ]
+  },
+  "template:yp5-social-barras-fb": {
+   "name": "شريط اجتماعي: فيسبوك (شريطان ينفتحان)",
+   "tags": [
+    "youtube",
+    "شبكات اجتماعية",
+    "فيسبوك"
+   ]
+  },
+  "template:yp5-social-barras-ig": {
+   "name": "شريط اجتماعي: إنستغرام (شريطان ينفتحان)",
+   "tags": [
+    "youtube",
+    "شبكات اجتماعية",
+    "إنستغرام"
+   ]
+  },
+  "template:yp5-social-barras-tw": {
+   "name": "شريط اجتماعي: تويتر (شريطان ينفتحان)",
+   "tags": [
+    "youtube",
+    "شبكات اجتماعية",
+    "تويتر"
+   ]
+  },
+  "template:yp5-social-barras-yt": {
+   "name": "شريط اجتماعي: يوتيوب (شريطان ينفتحان)",
+   "tags": [
+    "youtube",
+    "شبكات اجتماعية",
+    "قالب"
+   ]
+  },
+  "template:yp5-social-circulo-fb": {
+   "name": "شريط اجتماعي: فيسبوك (دائرة وحبة)",
+   "tags": [
+    "youtube",
+    "شبكات اجتماعية",
+    "فيسبوك"
+   ]
+  },
+  "template:yp5-social-circulo-ig": {
+   "name": "شريط اجتماعي: إنستغرام (دائرة وحبة)",
+   "tags": [
+    "youtube",
+    "شبكات اجتماعية",
+    "إنستغرام"
+   ]
+  },
+  "template:yp5-social-circulo-tw": {
+   "name": "شريط اجتماعي: تويتر (دائرة وحبة)",
+   "tags": [
+    "youtube",
+    "شبكات اجتماعية",
+    "تويتر"
+   ]
+  },
+  "template:yp5-social-circulo-yt": {
+   "name": "شريط اجتماعي: يوتيوب (دائرة وحبة)",
+   "tags": [
+    "youtube",
+    "شبكات اجتماعية",
+    "قالب"
+   ]
+  },
+  "template:yp5-social-cuadro-fb": {
+   "name": "شريط اجتماعي: فيسبوك (بلاطة تنقلب)",
+   "tags": [
+    "youtube",
+    "شبكات اجتماعية",
+    "فيسبوك"
+   ]
+  },
+  "template:yp5-social-cuadro-ig": {
+   "name": "شريط اجتماعي: إنستغرام (بلاطة تنقلب)",
+   "tags": [
+    "youtube",
+    "شبكات اجتماعية",
+    "إنستغرام"
+   ]
+  },
+  "template:yp5-social-cuadro-tw": {
+   "name": "شريط اجتماعي: تويتر (بلاطة تنقلب)",
+   "tags": [
+    "youtube",
+    "شبكات اجتماعية",
+    "تويتر"
+   ]
+  },
+  "template:yp5-social-cuadro-yt": {
+   "name": "شريط اجتماعي: يوتيوب (بلاطة تنقلب)",
+   "tags": [
+    "youtube",
+    "شبكات اجتماعية",
+    "قالب"
+   ]
+  },
+  "template:yp5-social-pincel-fb": {
+   "name": "شريط اجتماعي: فيسبوك (ضربة فرشاة)",
+   "tags": [
+    "youtube",
+    "شبكات اجتماعية",
+    "فيسبوك"
+   ]
+  },
+  "template:yp5-social-pincel-ig": {
+   "name": "شريط اجتماعي: إنستغرام (ضربة فرشاة)",
+   "tags": [
+    "youtube",
+    "شبكات اجتماعية",
+    "إنستغرام"
+   ]
+  },
+  "template:yp5-social-pincel-tw": {
+   "name": "شريط اجتماعي: تويتر (ضربة فرشاة)",
+   "tags": [
+    "youtube",
+    "شبكات اجتماعية",
+    "تويتر"
+   ]
+  },
+  "template:yp5-social-pincel-yt": {
+   "name": "شريط اجتماعي: يوتيوب (ضربة فرشاة)",
+   "tags": [
+    "youtube",
+    "شبكات اجتماعية",
+    "قالب"
+   ]
+  },
+  "template:yp5-stacked-channel": {
+   "name": "ثلث سفلي: اسم من ثلاثة أسطر مع فقاعات دردشة",
+   "tags": [
+    "youtube",
+    "فقاعات",
+    "قالب"
+   ]
+  },
+  "template:yp5-sub-avatar-pill": {
+   "name": "ثلث سفلي: اشتراك بصورة رمزية ونقرة",
+   "tags": [
+    "youtube",
+    "اشتراك",
+    "صورة رمزية",
+    "نقرة"
+   ]
+  },
+  "template:yp5-sub-center-avatar": {
+   "name": "ثلث سفلي: صورة رمزية في وسط الحبة",
+   "tags": [
+    "youtube",
+    "اشتراك",
+    "صورة رمزية"
+   ]
+  },
+  "template:yp5-sub-channel-tag": {
+   "name": "ثلث سفلي: تم الاشتراك مع اسم القناة",
+   "tags": [
+    "youtube",
+    "اشتراك",
+    "نقرة"
+   ]
+  },
+  "template:yp5-sub-grey-bell": {
+   "name": "ثلث سفلي: الاشتراك يتحول إلى رمادي مع جرس",
+   "tags": [
+    "youtube",
+    "اشتراك",
+    "جرس",
+    "نقرة"
+   ]
+  },
+  "template:yp5-sub-logo-box": {
+   "name": "ثلث سفلي: شعار في صندوق أبيض واشتراك",
+   "tags": [
+    "youtube",
+    "اشتراك",
+    "زر"
+   ]
+  },
+  "template:yp5-sub-red-pill": {
+   "name": "ثلث سفلي: حبة حمراء تتحول إلى اشتراك",
+   "tags": [
+    "youtube",
+    "اشتراك",
+    "نقرة"
+   ]
+  },
+  "template:yp5-sub-red-white": {
+   "name": "ثلث سفلي: اشتراك يتحول إلى تم الاشتراك",
+   "tags": [
+    "youtube",
+    "اشتراك",
+    "جرس"
+   ]
+  },
+  "template:yp5-sub-stack": {
+   "name": "ثلث سفلي: صورة رمزية وثلاثة وسوم حمراء",
+   "tags": [
+    "youtube",
+    "اشتراك",
+    "صورة رمزية"
+   ]
+  },
+  "template:yp5-subscribe-icon": {
+   "name": "ثلث سفلي: اشتراك مع زر يدور",
+   "tags": [
+    "youtube",
+    "اشتراك",
+    "زر"
+   ]
+  },
+  "template:yp5-subscribe-now": {
+   "name": "عنوان: اشترك الآن حرفًا بحرف",
+   "tags": [
+    "youtube",
+    "اشتراك",
+    "قالب"
+   ]
+  },
+  "template:yp5-subscribe-to": {
+   "name": "عنوان: اشترك في صندوق أبيض",
+   "tags": [
+    "youtube",
+    "اشتراك",
+    "صندوق"
+   ]
+  },
+  "template:yp5-subscribed-click": {
+   "name": "ثلث سفلي: شريط اشتراك أحمر مع نقرة",
+   "tags": [
+    "youtube",
+    "اشتراك",
+    "نقرة"
+   ]
+  },
+  "template:yp5-thanks-watching": {
+   "name": "عنوان: شكرًا على المشاهدة",
+   "tags": [
+    "youtube",
+    "شكر",
+    "قالب"
+   ]
+  },
+  "template:yp5-three-icons": {
+   "name": "ثلث سفلي: إعجاب وتشغيل وجرس تضيء",
+   "tags": [
+    "youtube",
+    "إعجاب",
+    "جرس"
+   ]
+  },
+  "template:yp5-three-pills": {
+   "name": "ثلث سفلي: ثلاثة أزرار في صف",
+   "tags": [
+    "youtube",
+    "إعجاب",
+    "اشتراك",
+    "جرس"
+   ]
+  },
+  "template:yp5-tilted-cycle": {
+   "name": "ثلث سفلي: وسم مائل يغير الكلمات",
+   "tags": [
+    "youtube",
+    "إعجاب",
+    "اشتراك",
+    "جرس"
+   ]
+  },
+  "template:yp5-travel-blog": {
+   "name": "ثلث سفلي: زر يصعد واسم",
+   "tags": [
+    "youtube",
+    "زر",
+    "قالب"
+   ]
+  },
+  "template:yp5-triangle-box": {
+   "name": "ثلث سفلي: مثلث يتحول إلى زر أبيض",
+   "tags": [
+    "youtube",
+    "زر",
+    "أبيض"
+   ]
+  },
+  "template:yp5-watch-next": {
+   "name": "ثلث سفلي: شاهد التالي في صندوق أبيض",
+   "tags": [
+    "youtube",
+    "صندوق",
+    "أبيض"
+   ]
+  },
+  "template:yp5-white-opener": {
+   "name": "افتتاحية: أقراص حمراء وقناة على الأبيض",
+   "tags": [
+    "youtube",
+    "دوائر",
+    "صورة رمزية"
+   ]
+  },
+  "template:yp5-your-channel-label": {
+   "name": "ثلث سفلي: وسم أحمر مع زر وبريق",
+   "tags": [
+    "youtube",
+    "زر",
+    "وسم"
+   ]
+  },
+  "template:yp7-apertura-cuadro-rojo": {
+   "name": "افتتاحية: مربع أحمر وبطاقة القناة",
+   "tags": [
+    "youtube",
+    "أبيض وأسود",
+    "موضة",
+    "شعار",
+    "افتتاحية"
+   ]
+  },
+  "template:yp7-apertura-foto-perfil": {
+   "name": "افتتاحية: لقطة تتحول إلى الصورة الرمزية",
+   "tags": [
+    "youtube",
+    "أبيض وأسود",
+    "موضة",
+    "شعار",
+    "افتتاحية"
+   ]
+  },
+  "template:yp7-apertura-palabras": {
+   "name": "افتتاحية: كلمات على لوحات سوداء وبيضاء",
+   "tags": [
+    "youtube",
+    "أبيض وأسود",
+    "موضة",
+    "كلمات",
+    "افتتاحية"
+   ]
+  },
+  "template:yp7-apertura-youtube": {
+   "name": "افتتاحية: كلمة يوتيوب بحدود تمتلئ",
+   "tags": [
+    "youtube",
+    "أبيض وأسود",
+    "موضة",
+    "افتتاحية"
+   ]
+  },
+  "template:yp7-awesomeness": {
+   "name": "طباعة: كلمة في إطار أبيض",
+   "tags": [
+    "youtube",
+    "أبيض وأسود",
+    "موضة",
+    "طباعة",
+    "إطار"
+   ]
+  },
+  "template:yp7-be-happy": {
+   "name": "طباعة: عبارة تصطف وتغير لونها",
+   "tags": [
+    "youtube",
+    "أبيض وأسود",
+    "موضة",
+    "طباعة",
+    "عبارة"
+   ]
+  },
+  "template:yp7-caja-negra": {
+   "name": "طباعة: عبارة في صندوق أسود",
+   "tags": [
+    "youtube",
+    "أبيض وأسود",
+    "موضة",
+    "طباعة",
+    "صندوق"
+   ]
+  },
+  "template:yp7-cita-barra": {
+   "name": "طباعة: اقتباس على شريط",
+   "tags": [
+    "youtube",
+    "أبيض وأسود",
+    "موضة",
+    "طباعة",
+    "اقتباس",
+    "صندوق"
+   ]
+  },
+  "template:yp7-cita-barra-2": {
+   "name": "طباعة: شريط اقتباس مع مربعين",
+   "tags": [
+    "youtube",
+    "أبيض وأسود",
+    "موضة",
+    "طباعة",
+    "اقتباس",
+    "صندوق"
+   ]
+  },
+  "template:yp7-cita-cuadro": {
+   "name": "طباعة: اقتباس في صندوق مربع",
+   "tags": [
+    "youtube",
+    "أبيض وأسود",
+    "موضة",
+    "طباعة",
+    "اقتباس",
+    "صندوق"
+   ]
+  },
+  "template:yp7-cita-cuadro-2": {
+   "name": "طباعة: صندوق اقتباس بمربع في الزاوية",
+   "tags": [
+    "youtube",
+    "أبيض وأسود",
+    "موضة",
+    "طباعة",
+    "اقتباس",
+    "صندوق"
+   ]
+  },
+  "template:yp7-cita-cuadro-3": {
+   "name": "طباعة: اقتباس مع مربعين",
+   "tags": [
+    "youtube",
+    "أبيض وأسود",
+    "موضة",
+    "طباعة",
+    "اقتباس",
+    "صندوق"
+   ]
+  },
+  "template:yp7-elementos-1": {
+   "name": "عناصر: أشكال ونقاط وامضة",
+   "tags": [
+    "youtube",
+    "أبيض وأسود",
+    "موضة",
+    "تراكب",
+    "تشويش"
+   ]
+  },
+  "template:yp7-elementos-2": {
+   "name": "عناصر: أشكال وحلقات وشاشات نقطية",
+   "tags": [
+    "youtube",
+    "أبيض وأسود",
+    "موضة",
+    "تراكب",
+    "تشويش"
+   ]
+  },
+  "template:yp7-elementos-3": {
+   "name": "عناصر: خطوط قطرية ومعينات منقطة",
+   "tags": [
+    "youtube",
+    "أبيض وأسود",
+    "موضة",
+    "تراكب",
+    "تشويش"
+   ]
+  },
+  "template:yp7-elementos-4": {
+   "name": "عناصر: خطوط مسح وحلقة",
+   "tags": [
+    "youtube",
+    "أبيض وأسود",
+    "موضة",
+    "تراكب",
+    "تشويش"
+   ]
+  },
+  "template:yp7-final-1": {
+   "name": "بطاقة نهائية: فيديو واحد",
+   "tags": [
+    "youtube",
+    "أبيض وأسود",
+    "موضة",
+    "شاشة نهائية",
+    "فيديوهات"
+   ]
+  },
+  "template:yp7-final-2": {
+   "name": "بطاقة نهائية: فيديوهان فوق بعضهما",
+   "tags": [
+    "youtube",
+    "أبيض وأسود",
+    "موضة",
+    "شاشة نهائية",
+    "فيديوهات"
+   ]
+  },
+  "template:yp7-final-3": {
+   "name": "بطاقة نهائية: فيديوهان جنبًا إلى جنب",
+   "tags": [
+    "youtube",
+    "أبيض وأسود",
+    "موضة",
+    "شاشة نهائية",
+    "فيديوهات"
+   ]
+  },
+  "template:yp7-final-4": {
+   "name": "بطاقة نهائية: أربعة فيديوهات",
+   "tags": [
+    "youtube",
+    "أبيض وأسود",
+    "موضة",
+    "شاشة نهائية",
+    "فيديوهات"
+   ]
+  },
+  "template:yp7-frase-entre-barras": {
+   "name": "طباعة: عبارة بين شريطين",
+   "tags": [
+    "youtube",
+    "أبيض وأسود",
+    "موضة",
+    "طباعة",
+    "عبارة"
+   ]
+  },
+  "template:yp7-frase-inclinada": {
+   "name": "طباعة: عبارة مائلة بين خطين",
+   "tags": [
+    "youtube",
+    "أبيض وأسود",
+    "موضة",
+    "طباعة",
+    "عبارة"
+   ]
+  },
+  "template:yp7-greatness": {
+   "name": "طباعة: حروف تسقط في مكانها",
+   "tags": [
+    "youtube",
+    "أبيض وأسود",
+    "موضة",
+    "طباعة"
+   ]
+  },
+  "template:yp7-icono-campana": {
+   "name": "أيقونة: جرس يرن",
+   "tags": [
+    "youtube",
+    "أبيض وأسود",
+    "موضة",
+    "أيقونة",
+    "جرس"
+   ]
+  },
+  "template:yp7-icono-compartir": {
+   "name": "أيقونة: زر المشاركة",
+   "tags": [
+    "youtube",
+    "أبيض وأسود",
+    "موضة",
+    "أيقونة",
+    "مشاركة"
+   ]
+  },
+  "template:yp7-icono-me-gusta": {
+   "name": "أيقونة: زر الإعجاب",
+   "tags": [
+    "youtube",
+    "أبيض وأسود",
+    "موضة",
+    "أيقونة",
+    "إعجاب"
+   ]
+  },
+  "template:yp7-icono-suscribirse": {
+   "name": "أيقونة: زر الاشتراك",
+   "tags": [
+    "youtube",
+    "أبيض وأسود",
+    "موضة",
+    "أيقونة",
+    "اشتراك"
+   ]
+  },
+  "template:yp7-nota-campana": {
+   "name": "إضافة: «انقر على أيقونة الجرس» بخط اليد",
+   "tags": [
+    "youtube",
+    "أبيض وأسود",
+    "موضة",
+    "سهم",
+    "بخط اليد"
+   ]
+  },
+  "template:yp7-nota-comenta": {
+   "name": "إضافة: «علّق في الأسفل» بخط اليد مع سهم",
+   "tags": [
+    "youtube",
+    "أبيض وأسود",
+    "موضة",
+    "سهم",
+    "بخط اليد"
+   ]
+  },
+  "template:yp7-nota-suscribete": {
+   "name": "إضافة: «اشترك معنا» بخط اليد مع سهم",
+   "tags": [
+    "youtube",
+    "أبيض وأسود",
+    "موضة",
+    "سهم",
+    "بخط اليد"
+   ]
+  },
+  "template:yp7-nota-video": {
+   "name": "إضافة: «شاهد الفيديو هنا» بخط اليد",
+   "tags": [
+    "youtube",
+    "أبيض وأسود",
+    "موضة",
+    "سهم",
+    "بخط اليد"
+   ]
+  },
+  "template:yp7-red-dribbble": {
+   "name": "تواصل اجتماعي: بطاقة Dribbble",
+   "tags": [
+    "youtube",
+    "أبيض وأسود",
+    "موضة",
+    "شبكات اجتماعية",
+    "dribbble"
+   ]
+  },
+  "template:yp7-red-facebook": {
+   "name": "تواصل اجتماعي: بطاقة فيسبوك",
+   "tags": [
+    "youtube",
+    "أبيض وأسود",
+    "موضة",
+    "شبكات اجتماعية",
+    "فيسبوك"
+   ]
+  },
+  "template:yp7-red-google-plus": {
+   "name": "تواصل اجتماعي: بطاقة جوجل بلس",
+   "tags": [
+    "youtube",
+    "أبيض وأسود",
+    "موضة",
+    "شبكات اجتماعية",
+    "جوجل بلس"
+   ]
+  },
+  "template:yp7-red-instagram": {
+   "name": "تواصل اجتماعي: بطاقة إنستغرام",
+   "tags": [
+    "youtube",
+    "أبيض وأسود",
+    "موضة",
+    "شبكات اجتماعية",
+    "إنستغرام"
+   ]
+  },
+  "template:yp7-red-linkedin": {
+   "name": "تواصل اجتماعي: بطاقة لينكدإن",
+   "tags": [
+    "youtube",
+    "أبيض وأسود",
+    "موضة",
+    "شبكات اجتماعية",
+    "لينكدإن"
+   ]
+  },
+  "template:yp7-red-pinterest": {
+   "name": "تواصل اجتماعي: بطاقة بنترست",
+   "tags": [
+    "youtube",
+    "أبيض وأسود",
+    "موضة",
+    "شبكات اجتماعية",
+    "بنترست"
+   ]
+  },
+  "template:yp7-red-twitter": {
+   "name": "تواصل اجتماعي: بطاقة تويتر",
+   "tags": [
+    "youtube",
+    "أبيض وأسود",
+    "موضة",
+    "شبكات اجتماعية",
+    "تويتر"
+   ]
+  },
+  "template:yp7-red-whatsapp": {
+   "name": "تواصل اجتماعي: بطاقة واتساب",
+   "tags": [
+    "youtube",
+    "أبيض وأسود",
+    "موضة",
+    "شبكات اجتماعية",
+    "واتساب"
+   ]
+  },
+  "template:yp7-super-awesome-life": {
+   "name": "طباعة: ثلاثة أسطر تصعد وتنغلق",
+   "tags": [
+    "youtube",
+    "أبيض وأسود",
+    "موضة",
+    "طباعة"
+   ]
+  },
+  "template:yp7-suscribirse-banda": {
+   "name": "اشتراك: شريط سفلي",
+   "tags": [
+    "youtube",
+    "أبيض وأسود",
+    "موضة",
+    "اشتراك",
+    "شريط"
+   ]
+  },
+  "template:yp7-suscribirse-banda-foto": {
+   "name": "اشتراك: شريط سفلي مع صورة",
+   "tags": [
+    "youtube",
+    "أبيض وأسود",
+    "موضة",
+    "اشتراك",
+    "شريط"
+   ]
+  },
+  "template:yp7-suscribirse-barra": {
+   "name": "اشتراك: شريط بصورة رمزية",
+   "tags": [
+    "youtube",
+    "أبيض وأسود",
+    "موضة",
+    "اشتراك"
+   ]
+  },
+  "template:yp7-suscribirse-tarjeta": {
+   "name": "اشتراك: بطاقة بصورة",
+   "tags": [
+    "youtube",
+    "أبيض وأسود",
+    "موضة",
+    "اشتراك"
+   ]
+  },
+  "template:yp7-telefono": {
+   "name": "مشهد: هاتف مع إعجاب واشتراك",
+   "tags": [
+    "youtube",
+    "أبيض وأسود",
+    "موضة",
+    "هاتف",
+    "اشتراك"
+   ]
+  },
+  "template:yp7-telefono-izquierda": {
+   "name": "مشهد: هاتف على اليسار",
+   "tags": [
+    "youtube",
+    "أبيض وأسود",
+    "موضة",
+    "هاتف",
+    "اشتراك"
+   ]
+  },
+  "template:yp7-transicion-circulo": {
+   "name": "انتقال: دائرة من المنتصف",
+   "tags": [
+    "youtube",
+    "أبيض وأسود",
+    "موضة",
+    "انتقال"
+   ]
+  },
+  "template:yp7-transicion-circulo-arriba": {
+   "name": "انتقال: دائرة من الأعلى",
+   "tags": [
+    "youtube",
+    "أبيض وأسود",
+    "موضة",
+    "انتقال"
+   ]
+  },
+  "template:yp7-transicion-circulo-izquierda": {
+   "name": "انتقال: دائرة من اليسار",
+   "tags": [
+    "youtube",
+    "أبيض وأسود",
+    "موضة",
+    "انتقال"
+   ]
+  },
+  "template:yp7-transicion-diagonal": {
+   "name": "انتقال: مسح قطري",
+   "tags": [
+    "youtube",
+    "أبيض وأسود",
+    "موضة",
+    "انتقال"
+   ]
+  },
+  "template:yp7-transicion-izquierda": {
+   "name": "انتقال: مسح نحو اليسار",
+   "tags": [
+    "youtube",
+    "أبيض وأسود",
+    "موضة",
+    "انتقال"
+   ]
+  },
+  "template:yp7-transicion-lineas": {
+   "name": "انتقال: خطوط من المنتصف",
+   "tags": [
+    "youtube",
+    "أبيض وأسود",
+    "موضة",
+    "انتقال"
+   ]
+  },
+  "template:yp7-transicion-rectangulo": {
+   "name": "انتقال: مستطيل من المنتصف",
+   "tags": [
+    "youtube",
+    "أبيض وأسود",
+    "موضة",
+    "انتقال"
+   ]
+  },
+  "template:yp7-transicion-sube": {
+   "name": "انتقال: أشرطة تصعد",
+   "tags": [
+    "youtube",
+    "أبيض وأسود",
+    "موضة",
+    "انتقال"
    ]
   },
   "template:yt-calle-a-que-te-dedicas": {

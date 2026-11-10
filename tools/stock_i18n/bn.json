@@ -117,6 +117,7 @@
   "template:collage": "কোলাজ",
   "template:countdown": "কাউন্টডাউন",
   "template:counter": "কাউন্টার",
+  "template:instagram": "Instagram কিট",
   "template:intro": "ইন্ট্রো ও টাইটেল",
   "template:lowerthird": "লোয়ার থার্ড",
   "template:outro": "সমাপ্তি",
@@ -127,6 +128,7 @@
   "template:story15": "১৫ সেকেন্ডের স্টোরি",
   "template:text": "টেক্সট",
   "template:thumbnail": "ভিডিও থাম্বনেইল",
+  "template:tiktok": "TikTok কিট",
   "template:transition": "ট্রানজিশন ও বিভাজক",
   "template:youtuber": "ইউটিউবার স্টাইল",
   "template:ytkit": "YouTube কিট",
@@ -25147,6 +25149,3016 @@
     "পার্টি"
    ]
   },
+  "template:ig0-intro-urbana": {
+   "name": "ডাইনামিক আর্বান ইন্ট্রো: URBAN, STREETS, PROMO ও আপনার লোগো",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ওপেনার",
+    "আর্বান",
+    "ডাইনামিক ইন্ট্রো"
+   ]
+  },
+  "template:ig1-alison": {
+   "name": "স্টোরি: লাল ফ্রেমে ছবির ওপর নাম",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "নাম",
+    "প্রোফাইল",
+    "লাল"
+   ]
+  },
+  "template:ig1-anna": {
+   "name": "স্টোরি: নীল গ্রেডিয়েন্টে ছবিসহ নাম",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "নাম",
+    "প্রোফাইল",
+    "গ্রেডিয়েন্ট"
+   ]
+  },
+  "template:ig1-beautiful": {
+   "name": "স্টোরি: ছবি ও উক্তিসহ #beautiful",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "উক্তি",
+    "ছবি"
+   ]
+  },
+  "template:ig1-believe": {
+   "name": "স্টোরি: বিভক্ত রেখাসহ WE MUST BELIEVE",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "উক্তি",
+    "ছবি",
+    "কালো"
+   ]
+  },
+  "template:ig1-catherine": {
+   "name": "স্টোরি: গ্রেডিয়েন্টে গোল ছবি, নাম ও উক্তি",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "উক্তি",
+    "প্রোফাইল",
+    "গ্রেডিয়েন্ট"
+   ]
+  },
+  "template:ig1-conquer": {
+   "name": "স্টোরি: ছবির ক্যারোসেলসহ Conquer from within",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ক্যারোসেল",
+    "ছবি",
+    "সাদা"
+   ]
+  },
+  "template:ig1-do-your-best": {
+   "name": "স্টোরি: ফিতায় DO YOUR BEST",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "উক্তি",
+    "শহর",
+    "অনুপ্রেরণা"
+   ]
+  },
+  "template:ig1-dog": {
+   "name": "স্টোরি: #photooftheday ব্যান্ডে ভাগ করা ছবি",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "পোষা প্রাণী",
+    "ছবি",
+    "ব্যান্ড"
+   ]
+  },
+  "template:ig1-elegant": {
+   "name": "স্টোরি: আয়না-জানালাসহ ELEGANT TYPO DESIGN",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "টাইপোগ্রাফি",
+    "সমুদ্র",
+    "মার্জিত"
+   ]
+  },
+  "template:ig1-forty-sale": {
+   "name": "স্টোরি: ছবিসহ উল্লম্ব ৪০% সেল",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "সেল",
+    "ছাড়",
+    "ফ্যাশন"
+   ]
+  },
+  "template:ig1-happy-thoughts": {
+   "name": "স্টোরি: হেলানো পোলারয়েডে “happy thoughts”",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "পোলারয়েড",
+    "বিয়ে",
+    "হাতের লেখা"
+   ]
+  },
+  "template:ig1-heart": {
+   "name": "স্টোরি: হৃদয় আকৃতির ছবিতে “happy thoughts”",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "হৃদয়",
+    "ভালোবাসা",
+    "পিচ রঙ"
+   ]
+  },
+  "template:ig1-instalove": {
+   "name": "স্টোরি: #instalove LIVE WHAT YOU LOVE",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "উক্তি",
+    "বন",
+    "নাম"
+   ]
+  },
+  "template:ig1-lifestyle": {
+   "name": "স্টোরি: ছবির মোজাইকসহ #lifestyle",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "কোলাজ",
+    "গ্রীষ্ম",
+    "মোজাইক"
+   ]
+  },
+  "template:ig1-live-what": {
+   "name": "স্টোরি: ২×২ গ্রিডসহ Live what you love",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "গ্রিড",
+    "কোলাজ",
+    "সাদা"
+   ]
+  },
+  "template:ig1-love-friendship": {
+   "name": "স্টোরি: পোলারয়েড ও হাতের লেখায় “Love is friendship”",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "পোলারয়েড",
+    "গোলাপি",
+    "উক্তি"
+   ]
+  },
+  "template:ig1-love-loves": {
+   "name": "স্টোরি: তীরচিহ্ন ও হাতের লেখাসহ দুটি পোলারয়েড",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "পোলারয়েড",
+    "গোলাপি",
+    "তীর"
+   ]
+  },
+  "template:ig1-must-believe": {
+   "name": "স্টোরি: আয়না-বৃত্তে WE MUST BELIEVE",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "উক্তি",
+    "বৃত্ত",
+    "প্রাকৃতিক দৃশ্য"
+   ]
+  },
+  "template:ig1-nature": {
+   "name": "স্টোরি: ফ্রেমের বাক্সে প্রকৃতি",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "প্রকৃতি",
+    "ফ্রেম",
+    "সমুদ্র"
+   ]
+  },
+  "template:ig1-neon": {
+   "name": "স্টোরি: টিল নিয়নে NEON CITY",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "নিয়ন",
+    "শহর",
+    "রাত"
+   ]
+  },
+  "template:ig1-photo-frame": {
+   "name": "স্টোরি: জানালা খোলা সাদা কার্ড",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ফ্রেম",
+    "খাবার",
+    "ছবি"
+   ]
+  },
+  "template:ig1-seek": {
+   "name": "স্টোরি: ছবির অক্ষরে SEEK THE SEEKER",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "উক্তি",
+    "পাতা",
+    "কাট-আউট"
+   ]
+  },
+  "template:ig1-so-it-goes": {
+   "name": "স্টোরি: ২×২ গ্রিডসহ So it goes",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "গ্রিড",
+    "কোলাজ",
+    "গোলাপি"
+   ]
+  },
+  "template:ig1-spring-sale": {
+   "name": "স্টোরি: স্প্রিং সেল ৩০%",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "সেল",
+    "ছাড়",
+    "ফ্যাশন"
+   ]
+  },
+  "template:ig1-stylish-bike": {
+   "name": "স্টোরি: কাট-আউটসহ S T Y L I S H",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "কাট-আউট",
+    "টিল",
+    "লিংক"
+   ]
+  },
+  "template:ig1-stylish-design": {
+   "name": "স্টোরি: গ্রেডিয়েন্ট ফ্রেমে STYLISH DESIGN",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ফ্রেম",
+    "গ্রেডিয়েন্ট",
+    "গাঢ়"
+   ]
+  },
+  "template:ig1-stylish-skate": {
+   "name": "স্টোরি: স্লোগানসহ বিশাল উল্লম্ব Stylish",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "উল্লম্ব",
+    "স্কেটবোর্ড",
+    "টাইপোগ্রাফি"
+   ]
+  },
+  "template:ig1-success": {
+   "name": "স্টোরি: পাথরের ওপর উক্তি ও 01",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "উক্তি",
+    "গাঢ়"
+   ]
+  },
+  "template:ig1-work-dream": {
+   "name": "স্টোরি: ০৫ সহ উল্লম্ব Work hard. Dream big.",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "উক্তি",
+    "উল্লম্ব",
+    "সংখ্যা"
+   ]
+  },
+  "template:ig1-work-hard": {
+   "name": "স্টোরি: কালোতে WORK HARD. DREAM BIG.",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "উক্তি",
+    "অনুপ্রেরণা",
+    "কালো"
+   ]
+  },
+  "template:ig10-arco-sube": {
+   "name": "স্টোরি: MODELS সহ ওপরে ওঠা খিলান ছবি",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ফ্যাশন",
+    "মডেল",
+    "ছবি"
+   ]
+  },
+  "template:ig10-ovalo-abre": {
+   "name": "স্টোরি: রেখা থেকে খুলে যাওয়া ডিম্বাকার ছবি",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ফ্যাশন",
+    "মডেল",
+    "ছবি"
+   ]
+  },
+  "template:ig10-ovalo-sube": {
+   "name": "স্টোরি: দুই আউটলাইনসহ ওপরে ওঠা ডিম্বাকার ছবি",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ফ্যাশন",
+    "মডেল",
+    "ছবি"
+   ]
+  },
+  "template:ig10-u-foto": {
+   "name": "স্টোরি: গোল-তলার ছবি ও ফ্রেমে টাইটেল",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ফ্যাশন",
+    "মডেল",
+    "ছবি"
+   ]
+  },
+  "template:ig10-ventana-arco": {
+   "name": "স্টোরি: খিলান জানালায় পর্দা-ঢাকা ছবি",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ফ্যাশন",
+    "মডেল",
+    "ছবি"
+   ]
+  },
+  "template:ig11-avatar-seguir": {
+   "name": "ফলোসহ প্রোফাইল ছবি",
+   "tags": [
+    "instagram",
+    "উপাদান",
+    "কল টু অ্যাকশন",
+    "সোশ্যাল মিডিয়া",
+    "ফলো",
+    "স্টোরি"
+   ]
+  },
+  "template:ig11-comenta": {
+   "name": "নিচে কমেন্ট করুন",
+   "tags": [
+    "instagram",
+    "উপাদান",
+    "কল টু অ্যাকশন",
+    "সোশ্যাল মিডিয়া",
+    "কমেন্ট",
+    "কাউন্টার"
+   ]
+  },
+  "template:ig11-compartir": {
+   "name": "পোস্টটি আরও অনেকের সঙ্গে শেয়ার করুন",
+   "tags": [
+    "instagram",
+    "উপাদান",
+    "কল টু অ্যাকশন",
+    "সোশ্যাল মিডিয়া",
+    "শেয়ার",
+    "পোস্ট"
+   ]
+  },
+  "template:ig11-doble-toque": {
+   "name": "ডবল ট্যাপ করুন",
+   "tags": [
+    "instagram",
+    "উপাদান",
+    "কল টু অ্যাকশন",
+    "সোশ্যাল মিডিয়া",
+    "লাইক",
+    "হৃদয়"
+   ]
+  },
+  "template:ig11-enlace-bio": {
+   "name": "আমাদের বায়োর লিংকে ক্লিক করুন",
+   "tags": [
+    "instagram",
+    "উপাদান",
+    "কল টু অ্যাকশন",
+    "সোশ্যাল মিডিয়া",
+    "লিংক",
+    "বায়ো"
+   ]
+  },
+  "template:ig11-etiqueta": {
+   "name": "কাউকে ট্যাগ করুন",
+   "tags": [
+    "instagram",
+    "উপাদান",
+    "কল টু অ্যাকশন",
+    "সোশ্যাল মিডিয়া",
+    "ট্যাগ",
+    "অ্যাট চিহ্ন"
+   ]
+  },
+  "template:ig11-inspiracion": {
+   "name": "আপনার অনুপ্রেরণা খুঁজুন",
+   "tags": [
+    "instagram",
+    "উপাদান",
+    "কল টু অ্যাকশন",
+    "সোশ্যাল মিডিয়া",
+    "খোঁজা",
+    "সার্চ"
+   ]
+  },
+  "template:ig11-pastilla-seguir": {
+   "name": "ফলো বোতামসহ নাম-ট্যাগ",
+   "tags": [
+    "instagram",
+    "উপাদান",
+    "কল টু অ্যাকশন",
+    "সোশ্যাল মিডিয়া",
+    "ফলো",
+    "নাম"
+   ]
+  },
+  "template:ig11-pastilla-usuario": {
+   "name": "ফলোয়ারসহ ইউজার-ট্যাগ",
+   "tags": [
+    "instagram",
+    "উপাদান",
+    "কল টু অ্যাকশন",
+    "সোশ্যাল মিডিয়া",
+    "ইউজার",
+    "ফলোয়ার"
+   ]
+  },
+  "template:ig11-perfil": {
+   "name": "প্রোফাইল কার্ড",
+   "tags": [
+    "instagram",
+    "উপাদান",
+    "কল টু অ্যাকশন",
+    "সোশ্যাল মিডিয়া",
+    "প্রোফাইল",
+    "ফলো"
+   ]
+  },
+  "template:ig11-publicacion": {
+   "name": "পোস্ট কার্ড",
+   "tags": [
+    "instagram",
+    "উপাদান",
+    "কল টু অ্যাকশন",
+    "সোশ্যাল মিডিয়া",
+    "পোস্ট",
+    "লাইক"
+   ]
+  },
+  "template:ig11-reels": {
+   "name": "আমাদের নতুন রিলস দেখুন",
+   "tags": [
+    "instagram",
+    "উপাদান",
+    "কল টু অ্যাকশন",
+    "সোশ্যাল মিডিয়া",
+    "রিলস",
+    "ভিউ"
+   ]
+  },
+  "template:ig11-responder": {
+   "name": "রিপ্লাইসহ কমেন্ট কার্ড",
+   "tags": [
+    "instagram",
+    "উপাদান",
+    "কল টু অ্যাকশন",
+    "সোশ্যাল মিডিয়া",
+    "কমেন্ট",
+    "রিপ্লাই"
+   ]
+  },
+  "template:ig11-tu-historia": {
+   "name": "আপনার স্টোরি যোগ করুন",
+   "tags": [
+    "instagram",
+    "উপাদান",
+    "কল টু অ্যাকশন",
+    "সোশ্যাল মিডিয়া",
+    "স্টোরি",
+    "শেয়ার"
+   ]
+  },
+  "template:ig11-ver-historia": {
+   "name": "স্টোরি দেখতে ট্যাপ করুন",
+   "tags": [
+    "instagram",
+    "উপাদান",
+    "কল টু অ্যাকশন",
+    "সোশ্যাল মিডিয়া",
+    "স্টোরি",
+    "ট্যাপ"
+   ]
+  },
+  "template:ig12-anillos": {
+   "name": "স্টোরি: গোল ছবি ও বিশাল অক্ষরসহ বলয়",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "কমলা",
+    "লাল",
+    "বৃত্ত"
+   ]
+  },
+  "template:ig12-caja-roja": {
+   "name": "স্টোরি: উল্লম্ব শব্দ ও বিশাল অক্ষরসহ লাল বাক্স",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "কমলা",
+    "লাল",
+    "বাক্স"
+   ]
+  },
+  "template:ig12-diagonal": {
+   "name": "স্টোরি: বিশাল শব্দসহ কোনাকুনি ডোরা",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "কমলা",
+    "লাল",
+    "কোনাকুনি"
+   ]
+  },
+  "template:ig12-franjas": {
+   "name": "স্টোরি: রঙিন ব্যান্ড ও উল্লম্ব শব্দ",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "কমলা",
+    "লাল",
+    "ডোরা"
+   ]
+  },
+  "template:ig12-panel-rojo": {
+   "name": "স্টোরি: লাল প্যানেলে ওপরে সরে যাওয়া বিশাল শব্দ",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "কমলা",
+    "লাল",
+    "প্যানেল"
+   ]
+  },
+  "template:ig13-amarilla": {
+   "name": "টাইপোগ্রাফি স্টোরি: হলুদ",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "টাইপোগ্রাফি",
+    "হলুদ",
+    "কালো"
+   ]
+  },
+  "template:ig13-caja-negra": {
+   "name": "টাইপোগ্রাফি স্টোরি: কালো বাক্স",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "টাইপোগ্রাফি",
+    "হলুদ",
+    "কালো"
+   ]
+  },
+  "template:ig13-filas": {
+   "name": "টাইপোগ্রাফি স্টোরি: অক্ষরের সারি",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "টাইপোগ্রাফি",
+    "হলুদ",
+    "কালো"
+   ]
+  },
+  "template:ig13-gris-ra": {
+   "name": "টাইপোগ্রাফি স্টোরি: ধূসর RA",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "টাইপোগ্রাফি",
+    "হলুদ",
+    "কালো"
+   ]
+  },
+  "template:ig13-letras-grises": {
+   "name": "টাইপোগ্রাফি স্টোরি: হলুদ অক্ষর",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "টাইপোগ্রাফি",
+    "হলুদ",
+    "কালো"
+   ]
+  },
+  "template:ig13-muro-de-fotos": {
+   "name": "আপনার লোগোসহ ছবির দেয়াল",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "লোগো",
+    "প্রোফাইল"
+   ]
+  },
+  "template:ig13-negra": {
+   "name": "টাইপোগ্রাফি স্টোরি: কালো কোনাকুনি",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "টাইপোগ্রাফি",
+    "হলুদ",
+    "কালো"
+   ]
+  },
+  "template:ig13-oscura": {
+   "name": "টাইপোগ্রাফি স্টোরি: গোলকসহ গাঢ়",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "টাইপোগ্রাফি",
+    "হলুদ",
+    "কালো"
+   ]
+  },
+  "template:ig14-dinamica": {
+   "name": "ডাইনামিক স্লাইডশো: প্রতি ছবিতে একটি শব্দ",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "স্লাইডশো",
+    "ডাইনামিক",
+    "শব্দ"
+   ]
+  },
+  "template:ig14-energia": {
+   "name": "লোগোসহ এনার্জি স্লাইডশো",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "স্লাইডশো",
+    "এনার্জি",
+    "শব্দ"
+   ]
+  },
+  "template:ig14-epica": {
+   "name": "গ্লিচসহ এপিক স্লাইডশো",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "স্লাইডশো",
+    "এপিক",
+    "সিনেমাটিক"
+   ]
+  },
+  "template:ig14-limpia": {
+   "name": "বড় টাইপসহ ক্লিন স্লাইডশো",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "স্লাইডশো",
+    "পরিচ্ছন্ন",
+    "টাইপোগ্রাফি"
+   ]
+  },
+  "template:ig14-minimal": {
+   "name": "সাদা জমিনে মিনিমাল স্লাইডশো",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "স্লাইডশো",
+    "মিনিমাল",
+    "সাদা"
+   ]
+  },
+  "template:ig14-moda": {
+   "name": "ক্যাপশনসহ ফ্যাশন স্লাইডশো",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "স্লাইডশো",
+    "ফ্যাশন",
+    "উক্তি"
+   ]
+  },
+  "template:ig14-ritmica": {
+   "name": "বলয়সহ ছন্দময় স্লাইডশো",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "স্লাইডশো",
+    "ছন্দ",
+    "উক্তি"
+   ]
+  },
+  "template:ig14-stomp": {
+   "name": "স্টম্প স্লাইডশো: প্রতি বিটে একটি শব্দ",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "স্লাইডশো",
+    "স্টম্প",
+    "ছন্দ"
+   ]
+  },
+  "template:ig2-cartel-amarillo": {
+   "name": "স্টোরি: হলুদ Your Stories পোস্টার",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "রঙিন",
+    "পোস্টার",
+    "হলুদ"
+   ]
+  },
+  "template:ig2-ciudad-oferta": {
+   "name": "স্টোরি: % বৃত্তসহ শহরের অফার",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "রঙিন",
+    "অফার",
+    "ছাড়"
+   ]
+  },
+  "template:ig2-cocina": {
+   "name": "স্টোরি: রান্নার শো-এর ওপেনার",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "রঙিন",
+    "রান্না",
+    "খাবার"
+   ]
+  },
+  "template:ig2-feliz": {
+   "name": "স্টোরি: বিশাল অক্ষর ও পুদিনা বাক্সসহ HAPPY",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "রঙিন",
+    "আনন্দ",
+    "সাদা-কালো"
+   ]
+  },
+  "template:ig2-interior": {
+   "name": "স্টোরি: রঙিন বৃত্তসহ ইন্টেরিয়র ডিজাইন",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "রঙিন",
+    "ইন্টেরিয়র",
+    "ডিজাইন"
+   ]
+  },
+  "template:ig2-moda": {
+   "name": "স্টোরি: পুদিনা ও লালে ফ্যাশন",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "রঙিন",
+    "ফ্যাশন",
+    "প্রোফাইল"
+   ]
+  },
+  "template:ig2-oscuro": {
+   "name": "স্টোরি: গ্রিডের অক্ষরসহ DARK",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "রঙিন",
+    "গাঢ়",
+    "ফ্যাশন"
+   ]
+  },
+  "template:ig2-presentamos": {
+   "name": "স্টোরি: গ্রেডিয়েন্ট ডোরাসহ INTRODUCING OUR STORIES",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "রঙিন",
+    "উপস্থাপনা",
+    "গ্রেডিয়েন্ট"
+   ]
+  },
+  "template:ig2-rostro-franjas": {
+   "name": "স্টোরি: রঙিন ব্যান্ড ও বৃত্তসহ মুখ",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "রঙিন",
+    "পোর্ট্রেট",
+    "ব্র্যান্ড"
+   ]
+  },
+  "template:ig2-tu-mente": {
+   "name": "স্টোরি: বেগুনিতে Say what's on your mind",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "রঙিন",
+    "উক্তি",
+    "বেগুনি"
+   ]
+  },
+  "template:ig2-tu-vida": {
+   "name": "স্টোরি: হলুদ ব্যান্ডসহ YOUR LIFE",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "রঙিন",
+    "জীবন",
+    "পরামর্শ"
+   ]
+  },
+  "template:ig2-viaje-verano": {
+   "name": "স্টোরি: ছবির মেঘসহ GREAT TRIP SUMMER",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "রঙিন",
+    "ভ্রমণ",
+    "গ্রীষ্ম"
+   ]
+  },
+  "template:ig3-arte": {
+   "name": "স্টোরি: চিত্রকর্মের ওপর art 01 Stories",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "শিল্প",
+    "চিত্রকর্ম"
+   ]
+  },
+  "template:ig3-ciencia": {
+   "name": "স্টোরি: বৃত্তসহ A-01 MODERN SCIENCE",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "বিজ্ঞান",
+    "বৃত্ত"
+   ]
+  },
+  "template:ig3-city-life": {
+   "name": "স্টোরি: গোলাপি প্যানেলসহ CITY LIFE",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "শহর"
+   ]
+  },
+  "template:ig3-comida-circulo": {
+   "name": "স্টোরি: বৃত্তে Say what's on your mind",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "খাবার",
+    "বৃত্ত"
+   ]
+  },
+  "template:ig3-fashion": {
+   "name": "স্টোরি: ছবিভরা অক্ষরে FASHION 45$",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ফ্যাশন",
+    "অফার"
+   ]
+  },
+  "template:ig3-food": {
+   "name": "স্টোরি: খাবারে ৫০% ছাড়",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "খাবার",
+    "অফার"
+   ]
+  },
+  "template:ig3-friend": {
+   "name": "স্টোরি: বৃত্তসহ FRIEND GREAT TRIP",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "বন্ধু",
+    "বৃত্ত"
+   ]
+  },
+  "template:ig3-full": {
+   "name": "স্টোরি: ব্রাশ-লেটারিংয়ে Full 100%",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "অফার",
+    "পোষা প্রাণী"
+   ]
+  },
+  "template:ig3-introducing": {
+   "name": "স্টোরি: বনে INTRODUCING STORIES",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "শীত",
+    "উপস্থাপনা"
+   ]
+  },
+  "template:ig3-models": {
+   "name": "স্টোরি: বন্ধনীসহ MODELS FASHION",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ফ্যাশন",
+    "পোর্ট্রেট"
+   ]
+  },
+  "template:ig3-music": {
+   "name": "স্টোরি: বলয়সহ MUSIC EXCLUSIVE",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "গান",
+    "বৃত্ত"
+   ]
+  },
+  "template:ig3-new": {
+   "name": "স্টোরি: ব্রাশস্ট্রোকে ভ্রমণ NEW",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ভ্রমণ",
+    "তুলি"
+   ]
+  },
+  "template:ig3-opener": {
+   "name": "বর্গাকার পোস্টের জন্য ডাইনামিক ওপেনার",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ওপেনার",
+    "টাইপোগ্রাফি",
+    "পোস্ট"
+   ]
+  },
+  "template:ig3-perfil-amarillo": {
+   "name": "প্রোফাইল: ছবিসহ হলুদ কার্ড",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "প্রোফাইল"
+   ]
+  },
+  "template:ig3-perfil-coral": {
+   "name": "প্রোফাইল: ব্লবসহ প্রবাল কার্ড",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "প্রোফাইল"
+   ]
+  },
+  "template:ig3-perfil-degradado": {
+   "name": "প্রোফাইল: বৃত্তসহ গ্রেডিয়েন্ট কার্ড",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "প্রোফাইল"
+   ]
+  },
+  "template:ig3-perfil-oscuro": {
+   "name": "প্রোফাইল: লাল নামসহ গাঢ় কার্ড",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "প্রোফাইল"
+   ]
+  },
+  "template:ig3-perfil-rojo": {
+   "name": "প্রোফাইল: অবতারসহ লাল কার্ড",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "প্রোফাইল"
+   ]
+  },
+  "template:ig3-portfolio": {
+   "name": "স্টোরি: নামসহ PORTFOLIO",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "পোর্টফোলিও"
+   ]
+  },
+  "template:ig3-programa": {
+   "name": "স্টোরি: গোল বারসহ V 6",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "প্রযুক্তি",
+    "প্যাস্টেল"
+   ]
+  },
+  "template:ig3-promo": {
+   "name": "স্টোরি: হলুদ চাকতিসহ Product Promo",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "পণ্য",
+    "প্রচার"
+   ]
+  },
+  "template:ig3-sport": {
+   "name": "স্টোরি: গোলাপি ব্যাজসহ SPORT",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "খেলাধুলা"
+   ]
+  },
+  "template:ig3-tech": {
+   "name": "স্টোরি: ছড়ানো অক্ষরে TECH",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "প্রযুক্তি"
+   ]
+  },
+  "template:ig3-toys": {
+   "name": "স্টোরি: গ্রেডিয়েন্ট চাকতিসহ TOYS",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "খেলনা",
+    "বৃত্ত"
+   ]
+  },
+  "template:ig3-tv": {
+   "name": "স্টোরি: গোল ছবিসহ Media Social",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "সোশ্যাল মিডিয়া",
+    "বৃত্ত"
+   ]
+  },
+  "template:ig3-your-life": {
+   "name": "স্টোরি: রঙিন ব্যান্ডসহ YOUR LIFE ও PRO",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ইন্টেরিয়র"
+   ]
+  },
+  "template:ig4-abstract": {
+   "name": "স্টোরি: ABSTRACT GEOMETRIC STYLE",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "জ্যামিতিক",
+    "স্থাপত্য"
+   ]
+  },
+  "template:ig4-amazing-dream": {
+   "name": "স্টোরি: দুটি ছবিসহ Amazing dream",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "উক্তি",
+    "বাদামি"
+   ]
+  },
+  "template:ig4-audacious": {
+   "name": "স্টোরি: LET'S DO WHAT WE LOVE #AUDACIOUS",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "অনুপ্রেরণা",
+    "কালো"
+   ]
+  },
+  "template:ig4-beauty": {
+   "name": "স্টোরি: There is beauty in simplicity",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "প্রকৃতি",
+    "উক্তি"
+   ]
+  },
+  "template:ig4-beauty-flowers": {
+   "name": "স্টোরি: ফুলসহ Beauty",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "ফুল",
+    "ক্যালিগ্রাফি"
+   ]
+  },
+  "template:ig4-believe": {
+   "name": "স্টোরি: BELIEVE YOU CAN SO YOU ARE HALFWAY THERE",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "অনুপ্রেরণা",
+    "উক্তি"
+   ]
+  },
+  "template:ig4-big": {
+   "name": "স্টোরি: ডোরাকাটা বৃত্তসহ BIG.",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "ফ্যাশন",
+    "ডোরা"
+   ]
+  },
+  "template:ig4-born-wild": {
+   "name": "স্টোরি: BORN TO BE WILD",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "অভিযান",
+    "নীল"
+   ]
+  },
+  "template:ig4-brand-new-day": {
+   "name": "স্টোরি: ত্রিভুজসহ brand new day",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "ত্রিভুজ",
+    "জ্যামিতিক"
+   ]
+  },
+  "template:ig4-clear": {
+   "name": "স্টোরি: দুই ভাগে CLEAR INTERIOR",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "ইন্টেরিয়র",
+    "ঘর"
+   ]
+  },
+  "template:ig4-cold-wave": {
+   "name": "স্টোরি: ছবির অক্ষরে COLD WAVE WARM SUN",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "সমুদ্র",
+    "টাইপোগ্রাফি"
+   ]
+  },
+  "template:ig4-confident": {
+   "name": "স্টোরি: তিন জানালায় STYLISH & CONFIDENT",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "ফ্যাশন",
+    "পুরুষ"
+   ]
+  },
+  "template:ig4-control": {
+   "name": "স্টোরি: লোগো ও দুটি ছবিসহ CONTROL",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "লোগো",
+    "যোগব্যায়াম"
+   ]
+  },
+  "template:ig4-courage": {
+   "name": "স্টোরি: ব্রাশস্ট্রোকে #courage",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "পোর্ট্রেট",
+    "কমলা"
+   ]
+  },
+  "template:ig4-culinary": {
+   "name": "স্টোরি: CULINARY ART #cooking",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "রান্না",
+    "খাবার"
+   ]
+  },
+  "template:ig4-deep-breath": {
+   "name": "স্টোরি: পাতাসহ ENJOY DEEP BREATH",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "প্রকৃতি",
+    "সবুজ"
+   ]
+  },
+  "template:ig4-delicious": {
+   "name": "স্টোরি: #DELICIOUS গ্রিড",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "খাবার",
+    "মিষ্টি"
+   ]
+  },
+  "template:ig4-dream": {
+   "name": "স্টোরি: শহরের ওপর ফ্রেমসহ DREAM",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "শহর",
+    "ফ্রেম"
+   ]
+  },
+  "template:ig4-employee": {
+   "name": "স্টোরি: BEST EMPLOYEE OF THE MONTH",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "ব্যবসা",
+    "কর্মী"
+   ]
+  },
+  "template:ig4-enjoy-music": {
+   "name": "স্টোরি: নীল ও লাল ENJOY MY MUSIC",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "গান",
+    "নাচ"
+   ]
+  },
+  "template:ig4-fashion-buy": {
+   "name": "স্টোরি: ব্যান্ডে FASHION IS WHAT YOU BUY",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "ফ্যাশন",
+    "ডোরা"
+   ]
+  },
+  "template:ig4-fitness": {
+   "name": "স্টোরি: FITNESS BODY ENERGY WORKOUT",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "জিম",
+    "খেলাধুলা"
+   ]
+  },
+  "template:ig4-fun": {
+   "name": "স্টোরি: ফ্রেমে ছবিসহ #FUN",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "ফ্রেম",
+    "লাল"
+   ]
+  },
+  "template:ig4-glam": {
+   "name": "স্টোরি: গোলাপি ও কালোতে GLAM ROCK",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "ফ্যাশন",
+    "গোলাপি"
+   ]
+  },
+  "template:ig4-instamusic": {
+   "name": "স্টোরি: ব্লবসহ #instamusic #yourbeat",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "গান",
+    "নিয়ন"
+   ]
+  },
+  "template:ig4-life-good": {
+   "name": "স্টোরি: LIFE IS SO GOOD JUST BE YOURSELF",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "উক্তি",
+    "নিয়ন"
+   ]
+  },
+  "template:ig4-lifestyle": {
+   "name": "স্টোরি: my lifestyle #followme",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "লাইফস্টাইল",
+    "নীল"
+   ]
+  },
+  "template:ig4-look-deep": {
+   "name": "স্টোরি: ষড়ভুজসহ LOOK DEEP INTO NATURE",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "প্রকৃতি",
+    "ষড়ভুজ"
+   ]
+  },
+  "template:ig4-masterpiece": {
+   "name": "স্টোরি: MAKE EACH DAY YOUR MASTERPIECE",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "উক্তি",
+    "গোলাপি"
+   ]
+  },
+  "template:ig4-meeting": {
+   "name": "স্টোরি: কলামে MEETING WITH FRIENDS",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "বন্ধু",
+    "কলাম"
+   ]
+  },
+  "template:ig4-motion": {
+   "name": "স্টোরি: হলুদ বৃত্তসহ MOTION",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "নাচ",
+    "বৃত্ত"
+   ]
+  },
+  "template:ig4-moving": {
+   "name": "স্টোরি: দুই বলয়সহ Moving",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "নাচ",
+    "বলয়"
+   ]
+  },
+  "template:ig4-music": {
+   "name": "স্টোরি: MUSIC DANCE ENJOY",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "গান",
+    "পার্টি"
+   ]
+  },
+  "template:ig4-natural": {
+   "name": "স্টোরি: তিন কলামে NATURAL BEAUTY",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "প্রকৃতি",
+    "কলাম"
+   ]
+  },
+  "template:ig4-never-easier": {
+   "name": "স্টোরি: লাল IT NEVER GETS EASIER",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "জিম",
+    "অনুপ্রেরণা"
+   ]
+  },
+  "template:ig4-ocean": {
+   "name": "স্টোরি: ফ্রেমসহ OCEAN HAPPY RELAX",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "সমুদ্র",
+    "ফ্রেম"
+   ]
+  },
+  "template:ig4-pro-fitness": {
+   "name": "স্টোরি: ক্রস ফ্রেমসহ PRO fitness",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "খেলাধুলা",
+    "ফ্রেম"
+   ]
+  },
+  "template:ig4-sale40": {
+   "name": "স্টোরি: খাড়া SALE 40%",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "সেল",
+    "অফার"
+   ]
+  },
+  "template:ig4-sale75": {
+   "name": "স্টোরি: SALE UP TO 75% OFF",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "সেল",
+    "অফার"
+   ]
+  },
+  "template:ig4-secrets": {
+   "name": "স্টোরি: NO MORE SECRETS #IMAGINE",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "লাল",
+    "কোনাকুনি"
+   ]
+  },
+  "template:ig4-shopping-week": {
+   "name": "স্টোরি: #shoppingweek ৪০% FOR SALE",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "সেল",
+    "কেনাকাটা"
+   ]
+  },
+  "template:ig4-simplelife": {
+   "name": "স্টোরি: When you focus on the good #simplelife",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "উক্তি",
+    "নীল"
+   ]
+  },
+  "template:ig4-skate": {
+   "name": "স্টোরি: 0256 #skatelife",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "স্কেট",
+    "খেলাধুলা"
+   ]
+  },
+  "template:ig4-sport": {
+   "name": "স্টোরি: রেখাসহ W SPORT",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "খেলাধুলা",
+    "দৌড়"
+   ]
+  },
+  "template:ig4-spring": {
+   "name": "স্টোরি: SPRING IS IN THE AIR",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "বসন্ত",
+    "ফুল"
+   ]
+  },
+  "template:ig4-stay-strong": {
+   "name": "স্টোরি: STAY STRONG DON'T GIVE UP",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "অনুপ্রেরণা",
+    "লাল"
+   ]
+  },
+  "template:ig4-street-fast": {
+   "name": "স্টোরি: 10/25 #youth street FAST",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "রাস্তা",
+    "স্কেট"
+   ]
+  },
+  "template:ig4-style": {
+   "name": "স্টোরি: STYLE IS VERY PERSONAL",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "ফ্যাশন",
+    "লাল"
+   ]
+  },
+  "template:ig4-style-beautiful": {
+   "name": "স্টোরি: ব্যান্ডসহ STYLE #beautiful",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "ফ্যাশন",
+    "ডোরা"
+   ]
+  },
+  "template:ig4-stylish": {
+   "name": "স্টোরি: নীল চাকতিসহ #stylish",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "ফ্যাশন",
+    "নীল"
+   ]
+  },
+  "template:ig4-summer": {
+   "name": "স্টোরি: সৈকতের রম্বাসে #SUMMER",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "সৈকত",
+    "গ্রীষ্ম"
+   ]
+  },
+  "template:ig4-summer-event": {
+   "name": "স্টোরি: তারিখসহ সামার ইভেন্ট",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "গ্রীষ্ম",
+    "ইভেন্ট"
+   ]
+  },
+  "template:ig4-summer-look": {
+   "name": "স্টোরি: ব্যান্ডে Summer look #fashion",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "ফ্যাশন",
+    "গ্রীষ্ম"
+   ]
+  },
+  "template:ig4-sunshine": {
+   "name": "স্টোরি: চারটি ছবিসহ SUNSHINE",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "গ্রীষ্ম",
+    "কোলাজ"
+   ]
+  },
+  "template:ig4-sunshine-tag": {
+   "name": "স্টোরি: #sunshine Relaxing holiday",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "গ্রীষ্ম",
+    "নীল"
+   ]
+  },
+  "template:ig4-trendy": {
+   "name": "স্টোরি: লাল #TRENDY YOUR STYLE",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "লাল",
+    "ফ্যাশন"
+   ]
+  },
+  "template:ig4-tropical": {
+   "name": "স্টোরি: তিনটি ছবিসহ FEELING TROPICAL",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "গ্রীষ্ম",
+    "ট্রপিক্যাল"
+   ]
+  },
+  "template:ig4-winner": {
+   "name": "স্টোরি: THE WINNER NEVER QUITS",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "অনুপ্রেরণা",
+    "জিম"
+   ]
+  },
+  "template:ig4-young": {
+   "name": "স্টোরি: YOUNG #followus",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "তারুণ্য",
+    "লাল"
+   ]
+  },
+  "template:ig4-youth": {
+   "name": "স্টোরি: ত্রিভুজসহ #YOUTH & FREEDOM",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "ত্রিভুজ",
+    "প্রবাল"
+   ]
+  },
+  "template:ig5-amazing-now": {
+   "name": "স্টোরি: AMAZING NOW",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "সাদা-কালো",
+    "লাল"
+   ]
+  },
+  "template:ig5-awesome": {
+   "name": "স্টোরি: উল্লম্ব AWESOME",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "লাল",
+    "উল্লম্ব"
+   ]
+  },
+  "template:ig5-be-strong": {
+   "name": "স্টোরি: B STRONG",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "লাল",
+    "উক্তি"
+   ]
+  },
+  "template:ig5-beach-therapy": {
+   "name": "স্টোরি: টিল বিচ থেরাপি",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "সৈকত",
+    "ছুটি"
+   ]
+  },
+  "template:ig5-beauty-pro": {
+   "name": "স্টোরি: বেগুনি ঢেউয়ে BEAUTY",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "সৌন্দর্য",
+    "বেগুনি"
+   ]
+  },
+  "template:ig5-best-look": {
+   "name": "স্টোরি: ফ্রেমে YOUR BEST LOOK",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "সবুজ",
+    "ফ্যাশন"
+   ]
+  },
+  "template:ig5-choose-glam": {
+   "name": "স্টোরি: 48 choose the glam",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "সৌন্দর্য",
+    "গ্ল্যামার"
+   ]
+  },
+  "template:ig5-cold-water": {
+   "name": "স্টোরি: COLD DEEP WATER",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "সমুদ্র",
+    "হলুদ"
+   ]
+  },
+  "template:ig5-creative-studio": {
+   "name": "স্টোরি: CREATIVE DESIGN STUDIO",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "ডিজাইন",
+    "স্টুডিও"
+   ]
+  },
+  "template:ig5-dancing": {
+   "name": "স্টোরি: কোনাকুনি ছবিসহ #DANCING",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "নাচ",
+    "কোনাকুনি"
+   ]
+  },
+  "template:ig5-daring-style": {
+   "name": "স্টোরি: হলুদে DARING STYLE",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "হলুদ",
+    "ফ্যাশন"
+   ]
+  },
+  "template:ig5-denim-style": {
+   "name": "স্টোরি: ফ্রেমে DENIM STYLE",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "ফ্যাশন",
+    "বাক্স"
+   ]
+  },
+  "template:ig5-design-passion": {
+   "name": "স্টোরি: DESIGN IS MY PASSION",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "ইন্টেরিয়র",
+    "ডিজাইন"
+   ]
+  },
+  "template:ig5-dont-waste": {
+   "name": "স্টোরি: DON'T WASTE YOUR TIME",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "উক্তি",
+    "নীলচে সবুজ"
+   ]
+  },
+  "template:ig5-enjoy-movement": {
+   "name": "স্টোরি: enjoy the movement",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "নাচ",
+    "কালো"
+   ]
+  },
+  "template:ig5-flexible-body": {
+   "name": "স্টোরি: গ্রেডিয়েন্ট ব্যান্ডসহ FLEXIBLE BODY",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "ফিটনেস",
+    "গ্রেডিয়েন্ট"
+   ]
+  },
+  "template:ig5-focus-breathe": {
+   "name": "স্টোরি: FOCUS ON THE BREATHE",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "উক্তি",
+    "টাইপোগ্রাফি"
+   ]
+  },
+  "template:ig5-fondo-ambar": {
+   "name": "ব্যাকগ্রাউন্ড: অ্যাম্বার বৃত্ত",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ব্যাকগ্রাউন্ড",
+    "কমলা",
+    "বাদামি"
+   ]
+  },
+  "template:ig5-fondo-burbujas-azules": {
+   "name": "ব্যাকগ্রাউন্ড: গোলাপিতে নীল বুদবুদ",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ব্যাকগ্রাউন্ড",
+    "গোলাপি",
+    "নীল"
+   ]
+  },
+  "template:ig5-fondo-burbujas-grises": {
+   "name": "ব্যাকগ্রাউন্ড: কালোতে ধূসর বুদবুদ",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ব্যাকগ্রাউন্ড",
+    "কালো",
+    "ধূসর"
+   ]
+  },
+  "template:ig5-fondo-chevrones": {
+   "name": "ব্যাকগ্রাউন্ড: লাল শেভরন",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ব্যাকগ্রাউন্ড",
+    "লাল",
+    "শেভরন"
+   ]
+  },
+  "template:ig5-fondo-cinta-azul": {
+   "name": "ব্যাকগ্রাউন্ড: লালে নীল ফিতা",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ব্যাকগ্রাউন্ড",
+    "গ্রেডিয়েন্ট",
+    "নীল"
+   ]
+  },
+  "template:ig5-fondo-geometrico": {
+   "name": "ব্যাকগ্রাউন্ড: ধূসরে জ্যামিতিক টুকরো",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ব্যাকগ্রাউন্ড",
+    "ধূসর",
+    "জ্যামিতিক"
+   ]
+  },
+  "template:ig5-fondo-lineas": {
+   "name": "ব্যাকগ্রাউন্ড: নিয়ন রেখাসহ গ্রেডিয়েন্ট",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ব্যাকগ্রাউন্ড",
+    "গ্রেডিয়েন্ট",
+    "গোলাপি"
+   ]
+  },
+  "template:ig5-fondo-lineas-cruzadas": {
+   "name": "ব্যাকগ্রাউন্ড: আড়াআড়ি রেখা",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ব্যাকগ্রাউন্ড",
+    "গ্রেডিয়েন্ট",
+    "ম্যাজেন্টা"
+   ]
+  },
+  "template:ig5-fondo-olas": {
+   "name": "ব্যাকগ্রাউন্ড: কমলা ও বেগুনি ঢেউ",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ব্যাকগ্রাউন্ড",
+    "গ্রেডিয়েন্ট",
+    "কমলা"
+   ]
+  },
+  "template:ig5-fondo-pildoras": {
+   "name": "ব্যাকগ্রাউন্ড: গোলাপি ক্যাপসুল",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ব্যাকগ্রাউন্ড",
+    "গোলাপি",
+    "প্যাস্টেল"
+   ]
+  },
+  "template:ig5-fondo-plata": {
+   "name": "ব্যাকগ্রাউন্ড: রুপালি ডোরা",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ব্যাকগ্রাউন্ড",
+    "রুপালি",
+    "ধূসর"
+   ]
+  },
+  "template:ig5-fondo-rojo": {
+   "name": "ব্যাকগ্রাউন্ড: গোলাকার লাল আকৃতি",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ব্যাকগ্রাউন্ড",
+    "লাল",
+    "আকৃতি"
+   ]
+  },
+  "template:ig5-gentle-soft": {
+   "name": "স্টোরি: GENTLE & SOFT কার্ড",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "ফুল",
+    "কার্ড"
+   ]
+  },
+  "template:ig5-glam": {
+   "name": "স্টোরি: GLAM ক্যামেরা শট",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "গোলাপি",
+    "ক্যামেরা"
+   ]
+  },
+  "template:ig5-happiness-love": {
+   "name": "স্টোরি: HAPPINESS ও LOVE কোলাজ",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "কোলাজ",
+    "বিয়ে"
+   ]
+  },
+  "template:ig5-happy-weekends": {
+   "name": "স্টোরি: Happy weekends",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "ফুল",
+    "সপ্তাহান্ত"
+   ]
+  },
+  "template:ig5-inspiration": {
+   "name": "স্টোরি: #pleasure অনুপ্রেরণা",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "লাল",
+    "সাদা-কালো"
+   ]
+  },
+  "template:ig5-interior-dream": {
+   "name": "স্টোরি: INTERIOR OF YOUR DREAM ক্যাটালগ",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "ক্যাটালগ",
+    "ইন্টেরিয়র"
+   ]
+  },
+  "template:ig5-keep-simple": {
+   "name": "স্টোরি: বৃত্তসহ KEEP IT SIMPLE",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "বৃত্ত",
+    "গ্রেডিয়েন্ট"
+   ]
+  },
+  "template:ig5-light-easy": {
+   "name": "স্টোরি: LIGHT & EASY কার্ড",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "ফ্যাশন",
+    "কার্ড"
+   ]
+  },
+  "template:ig5-look-deep": {
+   "name": "স্টোরি: LOOK DEEP INTO YOURSELF",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "উক্তি",
+    "নিয়ন"
+   ]
+  },
+  "template:ig5-mindfulness": {
+   "name": "স্টোরি: সাদা-কালো #mindfulness",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "সাদা-কালো",
+    "উক্তি"
+   ]
+  },
+  "template:ig5-modern-office": {
+   "name": "স্টোরি: MODERN OFFICE SPACE",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "অফিস",
+    "ব্যবসা"
+   ]
+  },
+  "template:ig5-ocean": {
+   "name": "স্টোরি: বৃত্তে OCEAN",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "বৃত্ত",
+    "সমুদ্র"
+   ]
+  },
+  "template:ig5-pleasure": {
+   "name": "স্টোরি: PLEASURE ব্লক কোলাজ",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "কোলাজ",
+    "টেরাকোটা"
+   ]
+  },
+  "template:ig5-power": {
+   "name": "স্টোরি: ছবিসহ #POWER",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "লাল",
+    "ফ্যাশন"
+   ]
+  },
+  "template:ig5-relax-home": {
+   "name": "স্টোরি: Relax SWEET HOME",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "ঘর",
+    "ইন্টেরিয়র"
+   ]
+  },
+  "template:ig5-sale-70": {
+   "name": "স্টোরি: তির্যক ব্যান্ডে SALE ৭০%",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "সেল",
+    "অফার"
+   ]
+  },
+  "template:ig5-sensual": {
+   "name": "স্টোরি: দুটি ছবিসহ SENSUAL",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "সাদা-কালো",
+    "কোলাজ"
+   ]
+  },
+  "template:ig5-style-y": {
+   "name": "স্টোরি: বড় Y সহ STYLE",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "ফ্যাশন",
+    "নীলচে সবুজ"
+   ]
+  },
+  "template:ig5-summer-pause": {
+   "name": "স্টোরি: SUMMER take a pause",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "গ্রীষ্ম",
+    "ছুটি"
+   ]
+  },
+  "template:ig5-sunny-day": {
+   "name": "স্টোরি: বৃত্তসহ SUNNY DAY",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "গ্রীষ্ম",
+    "সুইমিং পুল"
+   ]
+  },
+  "template:ig5-titulo-art-design": {
+   "name": "টাইটেল: ART & DESIGN FORUM",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "টাইটেল",
+    "লেখা",
+    "শিল্প"
+   ]
+  },
+  "template:ig5-titulo-big-sale": {
+   "name": "টাইটেল: ব্রাশ ও কার্টসহ BIG SALE",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "টাইটেল",
+    "লেখা",
+    "সেল"
+   ]
+  },
+  "template:ig5-titulo-bold-fashion": {
+   "name": "টাইটেল: তির্যক BOLD FASHION STYLE",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "টাইটেল",
+    "লেখা",
+    "ফ্যাশন"
+   ]
+  },
+  "template:ig5-titulo-chicle": {
+   "name": "টাইটেল: BUBBLEGUM STYLE",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "টাইটেল",
+    "লেখা",
+    "গোলাপি"
+   ]
+  },
+  "template:ig5-titulo-cita": {
+   "name": "টাইটেল: লেখকের নামসহ উক্তি",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "টাইটেল",
+    "লেখা",
+    "উক্তি"
+   ]
+  },
+  "template:ig5-titulo-do-what": {
+   "name": "টাইটেল: DO WHAT YOU WANT",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "টাইটেল",
+    "লেখা",
+    "অনুপ্রেরণা"
+   ]
+  },
+  "template:ig5-titulo-formas-abstractas": {
+   "name": "টাইটেল: ABSTRACT SHAPES DESIGN",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "টাইটেল",
+    "লেখা",
+    "আকৃতি"
+   ]
+  },
+  "template:ig5-titulo-glitch": {
+   "name": "টাইটেল: GLITCH STYLE",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "টাইটেল",
+    "লেখা",
+    "গ্লিচ"
+   ]
+  },
+  "template:ig5-titulo-neon": {
+   "name": "টাইটেল: জ্বলজ্বলে NEON",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "টাইটেল",
+    "লেখা",
+    "নিয়ন"
+   ]
+  },
+  "template:ig5-titulo-never-give-up": {
+   "name": "টাইটেল: ব্রাশে NEVER GIVE UP",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "টাইটেল",
+    "লেখা",
+    "অনুপ্রেরণা"
+   ]
+  },
+  "template:ig5-titulo-retro": {
+   "name": "টাইটেল: ৮০-র দশকের RETROSTYLE",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "টাইটেল",
+    "লেখা",
+    "রেট্রো"
+   ]
+  },
+  "template:ig5-titulo-sale": {
+   "name": "টাইটেল: SALE টিকিট",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "টাইটেল",
+    "লেখা",
+    "সেল"
+   ]
+  },
+  "template:ig5-wake-up": {
+   "name": "স্টোরি: WAKE UP AND BE AWESOME",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "লাল",
+    "অনুপ্রেরণা"
+   ]
+  },
+  "template:ig5-your-choice": {
+   "name": "স্টোরি: হলুদ বিন্দুসহ পোর্ট্রেট",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "হলুদ",
+    "বিন্দু"
+   ]
+  },
+  "template:ig5-your-style": {
+   "name": "স্টোরি: Your style কোলাজ",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "কোলাজ",
+    "ইন্টেরিয়র"
+   ]
+  },
+  "template:ig6-arbol-cinta": {
+   "name": "ক্রিসমাস স্টোরি: সোনালি ফিতার গাছ",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "বড়দিন",
+    "ক্রিসমাস",
+    "গাছ"
+   ]
+  },
+  "template:ig6-artista": {
+   "name": "স্টোরি: #YLIFE সহ You are the artist of your life",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "নীল",
+    "লাইফস্টাইল"
+   ]
+  },
+  "template:ig6-aventuras": {
+   "name": "স্টোরি: দুটি ছবি ও সবুজ পাহাড়সহ My Adventures",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "ভ্রমণ",
+    "অভিযান"
+   ]
+  },
+  "template:ig6-diseno-pasion": {
+   "name": "স্টোরি: গোলাপিতে Design is my passion",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "ডিজাইন",
+    "স্থাপত্য"
+   ]
+  },
+  "template:ig6-feliz-brillante": {
+   "name": "ক্রিসমাস স্টোরি: ধূসরে Merry & Bright",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "বড়দিন",
+    "ক্রিসমাস",
+    "উৎসব"
+   ]
+  },
+  "template:ig6-interior": {
+   "name": "স্টোরি: কালো বাক্সসহ Clear Interior",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "ঘর",
+    "ইন্টেরিয়র ডিজাইন"
+   ]
+  },
+  "template:ig6-luz-calida": {
+   "name": "স্টোরি: রম্বাস ও #WARM সহ Cozy Light",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "ঘর",
+    "পণ্য"
+   ]
+  },
+  "template:ig6-pino-rojo": {
+   "name": "ক্রিসমাস স্টোরি: পাইনের ডাল ও লালে Merry Christmas",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "বড়দিন",
+    "ক্রিসমাস",
+    "সেল"
+   ]
+  },
+  "template:ig6-rebajas-50": {
+   "name": "স্টোরি: ৫০% OFF ট্যাগ ও নীল ডোরাসহ SALE",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "ছবি",
+    "সেল",
+    "ছাড়"
+   ]
+  },
+  "template:ig6-rebajas-invierno": {
+   "name": "ক্রিসমাস স্টোরি: খুলে যাওয়া উপহারে “winter sell XMAS 50%off”",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "বড়দিন",
+    "ক্রিসমাস",
+    "সেল"
+   ]
+  },
+  "template:ig6-santa": {
+   "name": "ক্রিসমাস স্টোরি: Merry Xmas সহ সান্তার মুখ",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "বড়দিন",
+    "ক্রিসমাস",
+    "সান্তা ক্লজ"
+   ]
+  },
+  "template:ig6-swipe-bandera": {
+   "name": "সোয়াইপ আপ: পার্টি পপার থেকে বেরিয়ে আসা SWIPE UP পতাকা",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "সোয়াইপ আপ",
+    "সোয়াইপ",
+    "তীর"
+   ]
+  },
+  "template:ig6-swipe-boton": {
+   "name": "সোয়াইপ আপ: বর্গ থেকে বৃত্তে বদলানো সাদা বোতাম",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "সোয়াইপ আপ",
+    "সোয়াইপ",
+    "তীর"
+   ]
+  },
+  "template:ig6-swipe-brillo": {
+   "name": "সোয়াইপ আপ: ওপরে ওঠা জ্বলজ্বলে সাদা তীর",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "সোয়াইপ আপ",
+    "সোয়াইপ",
+    "তীর"
+   ]
+  },
+  "template:ig6-swipe-chevrones": {
+   "name": "সোয়াইপ আপ: ওপরে ওঠা তিনটি নীল শেভরন",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "সোয়াইপ আপ",
+    "সোয়াইপ",
+    "তীর"
+   ]
+  },
+  "template:ig6-swipe-circulo": {
+   "name": "সোয়াইপ আপ: ত্রিভুজসহ সাদা বৃত্ত যা উঠে ঝাপসা হয়",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "সোয়াইপ আপ",
+    "সোয়াইপ",
+    "তীর"
+   ]
+  },
+  "template:ig6-swipe-cuadro": {
+   "name": "সোয়াইপ আপ: তীর ও প্রতিফলনসহ টিল বাক্স",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "সোয়াইপ আপ",
+    "সোয়াইপ",
+    "তীর"
+   ]
+  },
+  "template:ig6-swipe-figuras": {
+   "name": "সোয়াইপ আপ: সবুজ বলয় ত্রিভুজ হয়ে SWIPE UP",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "সোয়াইপ আপ",
+    "সোয়াইপ",
+    "তীর"
+   ]
+  },
+  "template:ig6-swipe-flecha": {
+   "name": "সোয়াইপ আপ: স্পন্দিত রেখার ওপর নীল তীর",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "সোয়াইপ আপ",
+    "সোয়াইপ",
+    "তীর"
+   ]
+  },
+  "template:ig6-swipe-interruptor": {
+   "name": "সোয়াইপ আপ: নীল নবসহ ওপরে সরে যাওয়া সুইচ",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "সোয়াইপ আপ",
+    "সোয়াইপ",
+    "তীর"
+   ]
+  },
+  "template:ig6-swipe-letras": {
+   "name": "সোয়াইপ আপ: লাফানো SWIPE UP অক্ষর",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "সোয়াইপ আপ",
+    "সোয়াইপ",
+    "তীর"
+   ]
+  },
+  "template:ig6-swipe-mano": {
+   "name": "সোয়াইপ আপ: শেভরনের রেখাসহ ওপরে সোয়াইপ করা হাত",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "সোয়াইপ আপ",
+    "সোয়াইপ",
+    "তীর"
+   ]
+  },
+  "template:ig6-swipe-triangulo": {
+   "name": "সোয়াইপ আপ: লাল বিন্দুসহ ওপরে ওঠা সাদা ত্রিভুজ",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "সোয়াইপ আপ",
+    "সোয়াইপ",
+    "তীর"
+   ]
+  },
+  "template:ig7-awesome": {
+   "name": "টাইপোগ্রাফি স্টোরি: AWESOME",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "টাইপোগ্রাফি",
+    "রঙিন",
+    "ডোরা"
+   ]
+  },
+  "template:ig7-big": {
+   "name": "টাইপোগ্রাফি স্টোরি: BIG",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "টাইপোগ্রাফি",
+    "রঙিন",
+    "বিশাল অক্ষর"
+   ]
+  },
+  "template:ig7-brand": {
+   "name": "টাইপোগ্রাফি স্টোরি: BRAND",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "টাইপোগ্রাফি",
+    "রঙিন",
+    "অক্ষর a"
+   ]
+  },
+  "template:ig7-color": {
+   "name": "টাইপোগ্রাফি স্টোরি: COLOR",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "টাইপোগ্রাফি",
+    "রঙিন",
+    "ফ্রেম"
+   ]
+  },
+  "template:ig7-easy-project": {
+   "name": "টাইপোগ্রাফি স্টোরি: STORIES EASY PROJECT",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "টাইপোগ্রাফি",
+    "রঙিন",
+    "পিক্সেল"
+   ]
+  },
+  "template:ig7-grid": {
+   "name": "টাইপোগ্রাফি স্টোরি: রঙিন গ্রিড",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "টাইপোগ্রাফি",
+    "রঙিন",
+    "গ্রিড"
+   ]
+  },
+  "template:ig7-no-plugins": {
+   "name": "টাইপোগ্রাফি স্টোরি: NO PLUGINS",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "টাইপোগ্রাফি",
+    "রঙিন",
+    "আয়তক্ষেত্র"
+   ]
+  },
+  "template:ig7-social": {
+   "name": "টাইপোগ্রাফি স্টোরি: SOCIAL",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "টাইপোগ্রাফি",
+    "রঙিন",
+    "কার্ড"
+   ]
+  },
+  "template:ig7-stories": {
+   "name": "টাইপোগ্রাফি স্টোরি: STORIES",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "টাইপোগ্রাফি",
+    "রঙিন",
+    "বিশাল অক্ষর"
+   ]
+  },
+  "template:ig7-typo": {
+   "name": "টাইপোগ্রাফি স্টোরি: TYPO",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "টাইপোগ্রাফি",
+    "রঙিন",
+    "কার্ড"
+   ]
+  },
+  "template:ig8-best-sellers": {
+   "name": "আর্বান স্টোরি: Best Sellers, এখনই ক্লিক করুন",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "আর্বান",
+    "নীল",
+    "দোকান"
+   ]
+  },
+  "template:ig8-city-vibes": {
+   "name": "আর্বান স্টোরি: দুটি ছবিসহ city vibes",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "আর্বান",
+    "নীল",
+    "শহর"
+   ]
+  },
+  "template:ig8-friends": {
+   "name": "আর্বান স্টোরি: ছবির স্ট্রিপসহ friends positive",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "আর্বান",
+    "নীল",
+    "বন্ধু"
+   ]
+  },
+  "template:ig8-mega-sale": {
+   "name": "আর্বান স্টোরি: পোলারয়েডে mega sale %50",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "আর্বান",
+    "নীল",
+    "সেল"
+   ]
+  },
+  "template:ig8-visit-page": {
+   "name": "আর্বান স্টোরি: নীল বারসহ visit page",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "আর্বান",
+    "নীল",
+    "ওয়েব"
+   ]
+  },
+  "template:ig9-banda-roja": {
+   "name": "স্টোরি: বিশাল শব্দসহ লাল ব্যান্ড",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "টাইপোগ্রাফি",
+    "ব্যান্ড",
+    "লাল"
+   ]
+  },
+  "template:ig9-letras-cortadas": {
+   "name": "স্টোরি: কাটা বিশাল শব্দ ও তিনটি লিংক",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "টাইপোগ্রাফি",
+    "অক্ষর",
+    "লিংক"
+   ]
+  },
+  "template:ig9-letras-rojas": {
+   "name": "স্টোরি: লালে ঘোরানো অক্ষরের দেয়াল",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "টাইপোগ্রাফি",
+    "অক্ষর",
+    "লাল"
+   ]
+  },
+  "template:ig9-palabra-vertical": {
+   "name": "স্টোরি: লাল ফিতাসহ ফ্রেমে উল্লম্ব শব্দ",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "টাইপোগ্রাফি",
+    "উল্লম্ব",
+    "ফ্রেম"
+   ]
+  },
+  "template:ig9-typo": {
+   "name": "স্টোরি: আঁকা ফ্রেমসহ TYPO টাইল",
+   "tags": [
+    "instagram",
+    "স্টোরি",
+    "রিলস",
+    "টাইপোগ্রাফি",
+    "অক্ষর",
+    "ফ্রেম"
+   ]
+  },
   "template:intro-de-canal": {
    "name": "চ্যানেল ইন্ট্রো",
    "tags": [
@@ -25204,6 +28216,204 @@
     "বিট",
     "পার্টি",
     "শব্দ"
+   ]
+  },
+  "template:lg0-circulo-ambar": {
+   "name": "লোগো: দুটি বিন্দু বলয় এঁকে চাকতিতে বন্ধ হয় (অ্যাম্বার)",
+   "tags": [
+    "লোগো",
+    "লোগো রিভিল",
+    "সমতল",
+    "অ্যাম্বার",
+    "হলুদ",
+    "বৃত্ত"
+   ]
+  },
+  "template:lg0-cuadro-blanco": {
+   "name": "লোগো: লাফিয়ে খুলে যাওয়া বর্গ (সাদা)",
+   "tags": [
+    "লোগো",
+    "লোগো রিভিল",
+    "সমতল",
+    "সাদা",
+    "বর্গ",
+    "লাফানো"
+   ]
+  },
+  "template:lg0-disco-azul": {
+   "name": "লোগো: উড়ন্ত বিন্দু চাকতি হয়ে খুলে যায় (নীল)",
+   "tags": [
+    "লোগো",
+    "লোগো রিভিল",
+    "সমতল",
+    "নীল",
+    "চাকতি",
+    "বিন্দু"
+   ]
+  },
+  "template:lg0-hexagono-coral": {
+   "name": "লোগো: রেখা, বৃত্ত ও গড়ানো ষড়ভুজে আপনার ব্র্যান্ড (প্রবাল)",
+   "tags": [
+    "লোগো",
+    "লোগো রিভিল",
+    "সমতল",
+    "প্রবাল",
+    "ষড়ভুজ",
+    "রেখা"
+   ]
+  },
+  "template:lg0-iconos-redes": {
+   "name": "দশটি সোশ্যাল মিডিয়া আইকনের পপ-ইন (নীল)",
+   "tags": [
+    "লোগো",
+    "লোগো রিভিল",
+    "সমতল",
+    "সোশ্যাল মিডিয়া",
+    "আইকন",
+    "ফেসবুক"
+   ]
+  },
+  "template:lg0-sigueme": {
+   "name": "সোশ্যাল লোগো: ছবির ওপর ষড়ভুজে বলসহ আমাকে ফলো করুন",
+   "tags": [
+    "লোগো",
+    "লোগো রিভিল",
+    "সমতল",
+    "আমাকে ফলো করুন",
+    "ইউজার",
+    "ষড়ভুজ"
+   ]
+  },
+  "template:lg1-luz-dorada": {
+   "name": "লোগো: সোনালি আলোয় গড়ে ওঠা",
+   "tags": [
+    "লোগো",
+    "ইন্ট্রো",
+    "আলো",
+    "সোনালি",
+    "ঝলমলে",
+    "ডোরা"
+   ]
+  },
+  "template:lg2-cintas": {
+   "name": "আমাকে ফলো করুন: ঘূর্ণায়মান ফিতার লোগো",
+   "tags": [
+    "লোগো",
+    "সমতল",
+    "কর্পোরেট",
+    "আমাকে ফলো করুন",
+    "থ্রিডি"
+   ]
+  },
+  "template:lg2-franjas": {
+   "name": "আমাকে ফলো করুন: টুকরো ও বারে লোগো",
+   "tags": [
+    "লোগো",
+    "সমতল",
+    "কর্পোরেট",
+    "আমাকে ফলো করুন",
+    "ডোরা"
+   ]
+  },
+  "template:lg2-giro": {
+   "name": "লোগো: খুলে যাওয়া ঘূর্ণি",
+   "tags": [
+    "লোগো",
+    "সমতল",
+    "কর্পোরেট",
+    "ঘূর্ণি"
+   ]
+  },
+  "template:lg2-glitch": {
+   "name": "লোগো: সবুজে গ্লিচ",
+   "tags": [
+    "লোগো",
+    "সমতল",
+    "কর্পোরেট",
+    "গ্লিচ"
+   ]
+  },
+  "template:lg2-horizonte": {
+   "name": "সাবস্ক্রাইব: দিগন্ত থেকে উঠে আসা লোগো",
+   "tags": [
+    "লোগো",
+    "সমতল",
+    "কর্পোরেট",
+    "সাবস্ক্রাইব",
+    "দিগন্ত"
+   ]
+  },
+  "template:lg2-mira": {
+   "name": "সাবস্ক্রাইব: খুলে যাওয়া লক্ষ্যবিন্দু",
+   "tags": [
+    "লোগো",
+    "সমতল",
+    "কর্পোরেট",
+    "সাবস্ক্রাইব",
+    "লক্ষ্যবিন্দু"
+   ]
+  },
+  "template:lg2-orbita": {
+   "name": "সাবস্ক্রাইব: কক্ষপথে লোগো",
+   "tags": [
+    "লোগো",
+    "সমতল",
+    "কর্পোরেট",
+    "সাবস্ক্রাইব",
+    "কক্ষপথ"
+   ]
+  },
+  "template:lg2-puntos": {
+   "name": "লোগো: গড়ানো বিন্দু",
+   "tags": [
+    "লোগো",
+    "সমতল",
+    "কর্পোরেট",
+    "বিন্দু"
+   ]
+  },
+  "template:lg3-esfera": {
+   "name": "লোগো: ডোরাকাটা গোলক যা চাকতি হয়ে যায়",
+   "tags": [
+    "লোগো",
+    "লোগো রিভিল",
+    "ইন্ট্রো",
+    "গোলক",
+    "নীল",
+    "কর্পোরেট"
+   ]
+  },
+  "template:lg3-ondas": {
+   "name": "লোগো: রঙিন ঢেউ যা রেখায় থিতু হয়",
+   "tags": [
+    "লোগো",
+    "লোগো রিভিল",
+    "ইন্ট্রো",
+    "ঢেউ",
+    "রঙিন",
+    "রেখা"
+   ]
+  },
+  "template:lg3-persiana": {
+   "name": "লোগো: খড়খড়ির বর্গ যা খুলে যায়",
+   "tags": [
+    "লোগো",
+    "লোগো রিভিল",
+    "ইন্ট্রো",
+    "বর্গ",
+    "ধূসর",
+    "মিনিমাল"
+   ]
+  },
+  "template:lg3-torta-diana": {
+   "name": "লোগো: ড্যাশ বলয়, রঙিন পাই ও লক্ষ্যবিন্দু",
+   "tags": [
+    "লোগো",
+    "লোগো রিভিল",
+    "ইন্ট্রো",
+    "পাই চার্ট",
+    "বৃত্ত",
+    "প্যাস্টেল"
    ]
   },
   "template:llt-bevan": {
@@ -25454,6 +28664,750 @@
     "রিং"
    ]
   },
+  "template:llt10-amanda": {
+   "name": "সাদা নেমপ্লেট: নাম, পদ ট্যাগে",
+   "tags": [
+    "নেমপ্লেট",
+    "সাদা",
+    "নাম"
+   ]
+  },
+  "template:llt10-elena": {
+   "name": "সাদা নেমপ্লেট: বাক্সে নাম",
+   "tags": [
+    "নেমপ্লেট",
+    "সাদা",
+    "নাম"
+   ]
+  },
+  "template:llt10-elizabeth": {
+   "name": "সাদা নেমপ্লেট: নাম ও ট্যাগ ডানে",
+   "tags": [
+    "নেমপ্লেট",
+    "সাদা",
+    "ডান"
+   ]
+  },
+  "template:llt10-emily": {
+   "name": "সাদা নেমপ্লেট: নামের অর্ধেক বাক্সে",
+   "tags": [
+    "নেমপ্লেট",
+    "সাদা",
+    "নাম"
+   ]
+  },
+  "template:llt10-erica": {
+   "name": "সাদা নেমপ্লেট: পদসহ দুটি ট্যাগ",
+   "tags": [
+    "নেমপ্লেট",
+    "সাদা",
+    "নাম"
+   ]
+  },
+  "template:llt10-gabriela": {
+   "name": "সাদা নেমপ্লেট: ডানে, লম্বা নাম",
+   "tags": [
+    "নেমপ্লেট",
+    "সাদা",
+    "ডান"
+   ]
+  },
+  "template:llt10-hanna": {
+   "name": "সাদা নেমপ্লেট: বাক্সে পদবি",
+   "tags": [
+    "নেমপ্লেট",
+    "সাদা",
+    "নাম"
+   ]
+  },
+  "template:llt10-iren": {
+   "name": "সাদা নেমপ্লেট: মাঝখানে, ট্যাগসহ",
+   "tags": [
+    "নেমপ্লেট",
+    "সাদা",
+    "মাঝখানে"
+   ]
+  },
+  "template:llt10-kristina": {
+   "name": "সাদা নেমপ্লেট: দুই লাইনের পদসহ বাক্স",
+   "tags": [
+    "নেমপ্লেট",
+    "সাদা",
+    "মাঝখানে"
+   ]
+  },
+  "template:llt10-lora": {
+   "name": "সাদা নেমপ্লেট: পদবি বাক্সে, ডানে",
+   "tags": [
+    "নেমপ্লেট",
+    "সাদা",
+    "ডান"
+   ]
+  },
+  "template:llt10-monica": {
+   "name": "সাদা নেমপ্লেট: দুই লাইনের নাম, ট্যাগ",
+   "tags": [
+    "নেমপ্লেট",
+    "সাদা",
+    "মাঝখানে"
+   ]
+  },
+  "template:llt10-monika": {
+   "name": "সাদা নেমপ্লেট: রেখা, পদ ডানে",
+   "tags": [
+    "নেমপ্লেট",
+    "সাদা",
+    "ডান"
+   ]
+  },
+  "template:llt11-1": {
+   "name": "গ্রেডিয়েন্ট নেমপ্লেট: গ্রেডিয়েন্ট পদবি, ট্যাগ",
+   "tags": [
+    "নেমপ্লেট",
+    "গ্রেডিয়েন্ট",
+    "নাম"
+   ]
+  },
+  "template:llt11-10": {
+   "name": "গ্রেডিয়েন্ট নেমপ্লেট: বাক্সে পদবি, আন্ডারলাইন",
+   "tags": [
+    "নেমপ্লেট",
+    "গ্রেডিয়েন্ট",
+    "নাম"
+   ]
+  },
+  "template:llt11-11": {
+   "name": "গ্রেডিয়েন্ট নেমপ্লেট: লম্বা বার, বাক্সে পদবি",
+   "tags": [
+    "নেমপ্লেট",
+    "গ্রেডিয়েন্ট",
+    "নাম"
+   ]
+  },
+  "template:llt11-12": {
+   "name": "গ্রেডিয়েন্ট নেমপ্লেট: ট্যাগ, ফ্রেম, গ্রেডিয়েন্ট পদবি",
+   "tags": [
+    "নেমপ্লেট",
+    "গ্রেডিয়েন্ট",
+    "নাম"
+   ]
+  },
+  "template:llt11-13": {
+   "name": "গ্রেডিয়েন্ট নেমপ্লেট: লেবেল ও চৌকো",
+   "tags": [
+    "নেমপ্লেট",
+    "গ্রেডিয়েন্ট",
+    "নাম"
+   ]
+  },
+  "template:llt11-14": {
+   "name": "গ্রেডিয়েন্ট নেমপ্লেট: আন্ডারলাইন, পদ ডানে",
+   "tags": [
+    "নেমপ্লেট",
+    "গ্রেডিয়েন্ট",
+    "নাম"
+   ]
+  },
+  "template:llt11-15": {
+   "name": "গ্রেডিয়েন্ট নেমপ্লেট: চৌকো ও ট্যাগ",
+   "tags": [
+    "নেমপ্লেট",
+    "গ্রেডিয়েন্ট",
+    "নাম"
+   ]
+  },
+  "template:llt11-16": {
+   "name": "ছবিসহ গ্রেডিয়েন্ট নেমপ্লেট: গ্রেডিয়েন্ট পদবি",
+   "tags": [
+    "নেমপ্লেট",
+    "গ্রেডিয়েন্ট",
+    "ছবি"
+   ]
+  },
+  "template:llt11-17": {
+   "name": "ছবিসহ গ্রেডিয়েন্ট নেমপ্লেট: দুই লাইনের নাম, ট্যাগ",
+   "tags": [
+    "নেমপ্লেট",
+    "গ্রেডিয়েন্ট",
+    "ছবি"
+   ]
+  },
+  "template:llt11-18": {
+   "name": "ছবি ও বারসহ গ্রেডিয়েন্ট নেমপ্লেট",
+   "tags": [
+    "নেমপ্লেট",
+    "গ্রেডিয়েন্ট",
+    "ছবি"
+   ]
+  },
+  "template:llt11-19": {
+   "name": "ফ্রেমে ছবিসহ গ্রেডিয়েন্ট নেমপ্লেট",
+   "tags": [
+    "নেমপ্লেট",
+    "গ্রেডিয়েন্ট",
+    "ছবি"
+   ]
+  },
+  "template:llt11-2": {
+   "name": "গ্রেডিয়েন্ট নেমপ্লেট: আন্ডারলাইন",
+   "tags": [
+    "নেমপ্লেট",
+    "গ্রেডিয়েন্ট",
+    "নাম"
+   ]
+  },
+  "template:llt11-20": {
+   "name": "ছবি, ফ্রেম ও ট্যাগসহ গ্রেডিয়েন্ট নেমপ্লেট",
+   "tags": [
+    "নেমপ্লেট",
+    "গ্রেডিয়েন্ট",
+    "ছবি"
+   ]
+  },
+  "template:llt11-3": {
+   "name": "গ্রেডিয়েন্ট নেমপ্লেট: পদের বাক্স ডানে",
+   "tags": [
+    "নেমপ্লেট",
+    "গ্রেডিয়েন্ট",
+    "নাম"
+   ]
+  },
+  "template:llt11-4": {
+   "name": "গ্রেডিয়েন্ট নেমপ্লেট: ফ্রেম ও ট্যাগ",
+   "tags": [
+    "নেমপ্লেট",
+    "গ্রেডিয়েন্ট",
+    "নাম"
+   ]
+  },
+  "template:llt11-5": {
+   "name": "গ্রেডিয়েন্ট নেমপ্লেট: খাড়া বার",
+   "tags": [
+    "নেমপ্লেট",
+    "গ্রেডিয়েন্ট",
+    "নাম"
+   ]
+  },
+  "template:llt11-6": {
+   "name": "গ্রেডিয়েন্ট নেমপ্লেট: এক লাইনের নাম, ট্যাগ",
+   "tags": [
+    "নেমপ্লেট",
+    "গ্রেডিয়েন্ট",
+    "নাম"
+   ]
+  },
+  "template:llt11-7": {
+   "name": "গ্রেডিয়েন্ট নেমপ্লেট: বাক্সে নাম, ফ্রেমে পদ",
+   "tags": [
+    "নেমপ্লেট",
+    "গ্রেডিয়েন্ট",
+    "নাম"
+   ]
+  },
+  "template:llt11-8": {
+   "name": "গ্রেডিয়েন্ট নেমপ্লেট: গ্রেডিয়েন্ট পদবি",
+   "tags": [
+    "নেমপ্লেট",
+    "গ্রেডিয়েন্ট",
+    "নাম"
+   ]
+  },
+  "template:llt11-9": {
+   "name": "গ্রেডিয়েন্ট নেমপ্লেট: উপরে ট্যাগ, ফ্রেম",
+   "tags": [
+    "নেমপ্লেট",
+    "গ্রেডিয়েন্ট",
+    "নাম"
+   ]
+  },
+  "template:llt12-alexandra": {
+   "name": "নীল নেমপ্লেট: বার নাম উন্মোচন করে",
+   "tags": [
+    "নেমপ্লেট",
+    "নীল",
+    "বার",
+    "ডান"
+   ]
+  },
+  "template:llt12-cajas": {
+   "name": "নীল নেমপ্লেট: তিনটি বাক্স বড় হয়",
+   "tags": [
+    "নেমপ্লেট",
+    "নীল",
+    "বাক্স"
+   ]
+  },
+  "template:llt12-corchetes": {
+   "name": "নীল নেমপ্লেট: দুটি বার আলাদা হয়ে খোলে",
+   "tags": [
+    "নেমপ্লেট",
+    "নীল",
+    "বার"
+   ]
+  },
+  "template:llt12-corni": {
+   "name": "নীল নেমপ্লেট: বাক্সে নাম, সাদা ট্যাগে পদ",
+   "tags": [
+    "নেমপ্লেট",
+    "নীল",
+    "বাক্স"
+   ]
+  },
+  "template:llt12-jacob": {
+   "name": "নীল নেমপ্লেট: খুলে যাওয়া বাক্স, সাদা ব্যান্ড",
+   "tags": [
+    "নেমপ্লেট",
+    "নীল",
+    "বাক্স"
+   ]
+  },
+  "template:llt12-jeremi": {
+   "name": "নীল নেমপ্লেট: রেখা নেমে নাম দেখায়",
+   "tags": [
+    "নেমপ্লেট",
+    "নীল",
+    "আন্ডারলাইন"
+   ]
+  },
+  "template:llt12-jeremy": {
+   "name": "নীল নেমপ্লেট: দুই লাইনের নাম, আন্ডারলাইন",
+   "tags": [
+    "নেমপ্লেট",
+    "নীল",
+    "আন্ডারলাইন"
+   ]
+  },
+  "template:llt12-john-rojers": {
+   "name": "নীল নেমপ্লেট: বাক্সে ঘোরানো নাম",
+   "tags": [
+    "নেমপ্লেট",
+    "নীল",
+    "বাক্স",
+    "ঘোরানো"
+   ]
+  },
+  "template:llt12-john-watson": {
+   "name": "নীল নেমপ্লেট: বাঁকা বাক্স খুলে যায়",
+   "tags": [
+    "নেমপ্লেট",
+    "নীল",
+    "বাক্স",
+    "বাঁকা"
+   ]
+  },
+  "template:llt12-marketing": {
+   "name": "নীল নেমপ্লেট: অক্ষর ফুটে ওঠে, বার",
+   "tags": [
+    "নেমপ্লেট",
+    "নীল",
+    "বার"
+   ]
+  },
+  "template:llt12-minimal": {
+   "name": "নীল নেমপ্লেট: মাঝখান থেকে খোলা বাক্স",
+   "tags": [
+    "নেমপ্লেট",
+    "নীল",
+    "বাক্স"
+   ]
+  },
+  "template:llt12-modern": {
+   "name": "নীল নেমপ্লেট: দুটি রেখা উঠে আসে, আন্ডারলাইন",
+   "tags": [
+    "নেমপ্লেট",
+    "নীল",
+    "আন্ডারলাইন"
+   ]
+  },
+  "template:llt12-rosanda": {
+   "name": "নীল নেমপ্লেট: বার ঘোরানো নাম মুছে দেখায়",
+   "tags": [
+    "নেমপ্লেট",
+    "নীল",
+    "বার",
+    "ঘোরানো"
+   ]
+  },
+  "template:llt12-suzanna": {
+   "name": "নীল নেমপ্লেট: অক্ষর ফুটে ওঠে, জুম",
+   "tags": [
+    "নেমপ্লেট",
+    "নীল",
+    "ডান"
+   ]
+  },
+  "template:llt12-titulos": {
+   "name": "নীল নেমপ্লেট: নেমে আসা বাক্স, সাদা ব্যান্ড",
+   "tags": [
+    "নেমপ্লেট",
+    "নীল",
+    "বাক্স"
+   ]
+  },
+  "template:llt12-your-text": {
+   "name": "নীল নেমপ্লেট: বার থেকে বেরোনো দুটি রেখা",
+   "tags": [
+    "নেমপ্লেট",
+    "নীল",
+    "বার",
+    "ঘোরানো"
+   ]
+  },
+  "template:llt13-clark": {
+   "name": "ইটালিক নেমপ্লেট: পদবি মোটা, নাম হালকা",
+   "tags": [
+    "নেমপ্লেট",
+    "সাদা",
+    "ইটালিক"
+   ]
+  },
+  "template:llt13-david": {
+   "name": "ইটালিক নেমপ্লেট: পদ, বার ও নাম",
+   "tags": [
+    "নেমপ্লেট",
+    "সাদা",
+    "ইটালিক",
+    "বার"
+   ]
+  },
+  "template:llt13-dominic": {
+   "name": "ইটালিক নেমপ্লেট: বড় আন্ডারলাইন করা পদবি",
+   "tags": [
+    "নেমপ্লেট",
+    "সাদা",
+    "ইটালিক"
+   ]
+  },
+  "template:llt13-emily": {
+   "name": "ইটালিক নেমপ্লেট: দুই লাইনের নাম, আন্ডারলাইন",
+   "tags": [
+    "নেমপ্লেট",
+    "সাদা",
+    "ইটালিক"
+   ]
+  },
+  "template:llt13-foster": {
+   "name": "ইটালিক নেমপ্লেট: উপরে পদ, রেখা",
+   "tags": [
+    "নেমপ্লেট",
+    "সাদা",
+    "ইটালিক"
+   ]
+  },
+  "template:llt13-james": {
+   "name": "ইটালিক নেমপ্লেট: বার, নিচে পদ",
+   "tags": [
+    "নেমপ্লেট",
+    "সাদা",
+    "ইটালিক",
+    "বার"
+   ]
+  },
+  "template:llt13-kingsley": {
+   "name": "ইটালিক নেমপ্লেট: নাম, ডানে বার",
+   "tags": [
+    "নেমপ্লেট",
+    "সাদা",
+    "ইটালিক",
+    "বার",
+    "ডান"
+   ]
+  },
+  "template:llt13-maximilian": {
+   "name": "ইটালিক নেমপ্লেট: আন্ডারলাইন করা নাম ও পদবি",
+   "tags": [
+    "নেমপ্লেট",
+    "সাদা",
+    "ইটালিক"
+   ]
+  },
+  "template:llt13-michael": {
+   "name": "ইটালিক নেমপ্লেট: আন্ডারলাইনসহ নাম",
+   "tags": [
+    "নেমপ্লেট",
+    "সাদা",
+    "ইটালিক"
+   ]
+  },
+  "template:llt13-nathaniel": {
+   "name": "ডানে সাজানো ইটালিক নেমপ্লেট",
+   "tags": [
+    "নেমপ্লেট",
+    "সাদা",
+    "ইটালিক",
+    "ডান"
+   ]
+  },
+  "template:llt13-olivia": {
+   "name": "ইটালিক নেমপ্লেট: পদ বাঁয়ে, আন্ডারলাইন",
+   "tags": [
+    "নেমপ্লেট",
+    "সাদা",
+    "ইটালিক"
+   ]
+  },
+  "template:llt13-sophia": {
+   "name": "ইটালিক নেমপ্লেট: বার, পাশে পদ",
+   "tags": [
+    "নেমপ্লেট",
+    "সাদা",
+    "ইটালিক",
+    "বার"
+   ]
+  },
+  "template:llt14-barra-azul": {
+   "name": "লাল নেমপ্লেট: লোগো ও নেভি বার",
+   "tags": [
+    "নেমপ্লেট",
+    "লাল",
+    "নেভি",
+    "লোগো",
+    "বার"
+   ]
+  },
+  "template:llt14-barra-gris": {
+   "name": "লাল নেমপ্লেট: লোগো, ধূসর বার ও ট্যাগ",
+   "tags": [
+    "নেমপ্লেট",
+    "লাল",
+    "নেভি",
+    "লোগো",
+    "বার"
+   ]
+  },
+  "template:llt14-caja-alta": {
+   "name": "লাল নেমপ্লেট: লম্বা বাক্স, লাল কিনারা",
+   "tags": [
+    "নেমপ্লেট",
+    "লাল",
+    "নেভি",
+    "বাক্স"
+   ]
+  },
+  "template:llt14-caja-grande": {
+   "name": "লাল নেমপ্লেট: বড় বাক্স, শিরোনাম, লেখা",
+   "tags": [
+    "নেমপ্লেট",
+    "লাল",
+    "নেভি",
+    "বাক্স"
+   ]
+  },
+  "template:llt14-disenador": {
+   "name": "লাল নেমপ্লেট: লাল ফ্রেমে নাম",
+   "tags": [
+    "নেমপ্লেট",
+    "লাল",
+    "নেভি"
+   ]
+  },
+  "template:llt14-dos-cuadros": {
+   "name": "লাল নেমপ্লেট: দুটি চৌকো, দুই লাইন",
+   "tags": [
+    "নেমপ্লেট",
+    "লাল",
+    "নেভি"
+   ]
+  },
+  "template:llt14-hexagono": {
+   "name": "লাল নেমপ্লেট: ষড়ভুজে লোগো, সাদা ট্যাগ",
+   "tags": [
+    "নেমপ্লেট",
+    "লাল",
+    "নেভি",
+    "লোগো"
+   ]
+  },
+  "template:llt14-linea-roja": {
+   "name": "লাল নেমপ্লেট: লোগো, লাল রেখা, চওড়া বাক্স",
+   "tags": [
+    "নেমপ্লেট",
+    "লাল",
+    "নেভি",
+    "লোগো",
+    "বাক্স"
+   ]
+  },
+  "template:llt14-logo-lineas": {
+   "name": "লাল নেমপ্লেট: লোগো, রেখা ও দুই লাইন",
+   "tags": [
+    "নেমপ্লেট",
+    "লাল",
+    "নেভি",
+    "লোগো"
+   ]
+  },
+  "template:llt14-logo-texto": {
+   "name": "লাল নেমপ্লেট: লোগো ও অনুচ্ছেদের বাক্স",
+   "tags": [
+    "নেমপ্লেট",
+    "লাল",
+    "নেভি",
+    "লোগো",
+    "বাক্স"
+   ]
+  },
+  "template:llt14-marca": {
+   "name": "লাল নেমপ্লেট: লোগো, বাঁকা দাগ ও নাম",
+   "tags": [
+    "নেমপ্লেট",
+    "লাল",
+    "নেভি",
+    "লোগো"
+   ]
+  },
+  "template:llt14-pestana": {
+   "name": "লাল নেমপ্লেট: লোগো, ট্যাব ও লেখার বাক্স",
+   "tags": [
+    "নেমপ্লেট",
+    "লাল",
+    "নেভি",
+    "লোগো",
+    "বাক্স"
+   ]
+  },
+  "template:llt14-primer-titulo": {
+   "name": "লাল নেমপ্লেট: লোগো, শিরোনাম, লেখার বাক্স",
+   "tags": [
+    "নেমপ্লেট",
+    "লাল",
+    "নেভি",
+    "লোগো",
+    "বাক্স"
+   ]
+  },
+  "template:llt15-barra-larga": {
+   "name": "মিনিমাল নেমপ্লেট: লম্বা বার, লোগো ও তারিখ",
+   "tags": [
+    "নেমপ্লেট",
+    "মিনিমাল",
+    "কালো",
+    "লোগো",
+    "বার"
+   ]
+  },
+  "template:llt15-descripcion": {
+   "name": "মিনিমাল নেমপ্লেট: নাম ও বিবরণ",
+   "tags": [
+    "নেমপ্লেট",
+    "মিনিমাল",
+    "কালো"
+   ]
+  },
+  "template:llt15-dos-lineas": {
+   "name": "মিনিমাল নেমপ্লেট: দুই লাইনের পদ",
+   "tags": [
+    "নেমপ্লেট",
+    "মিনিমাল",
+    "কালো"
+   ]
+  },
+  "template:llt15-logo-ficha": {
+   "name": "মিনিমাল নেমপ্লেট: লোগো চৌকো, দুই লাইন",
+   "tags": [
+    "নেমপ্লেট",
+    "মিনিমাল",
+    "কালো",
+    "লোগো"
+   ]
+  },
+  "template:llt15-logo-nombre": {
+   "name": "মিনিমাল নেমপ্লেট: লোগো ব্লক ও নাম",
+   "tags": [
+    "নেমপ্লেট",
+    "মিনিমাল",
+    "কালো",
+    "লোগো"
+   ]
+  },
+  "template:llt15-nombre": {
+   "name": "মিনিমাল নেমপ্লেট: সাদা ট্যাগে নাম",
+   "tags": [
+    "নেমপ্লেট",
+    "মিনিমাল",
+    "কালো"
+   ]
+  },
+  "template:llt15-nombre-cargo": {
+   "name": "মিনিমাল নেমপ্লেট: নাম ও পদ",
+   "tags": [
+    "নেমপ্লেট",
+    "মিনিমাল",
+    "কালো"
+   ]
+  },
+  "template:llt16-barra-nombre": {
+   "name": "লোয়ার থার্ড: লাল বার ও হালকা নাম",
+   "tags": [
+    "লোয়ার থার্ড",
+    "সমতল",
+    "ইউটিউব"
+   ]
+  },
+  "template:llt16-cargo-azul": {
+   "name": "লোয়ার থার্ড: নীল বক্সে নাম ও পদবি",
+   "tags": [
+    "লোয়ার থার্ড",
+    "সমতল",
+    "ইউটিউব"
+   ]
+  },
+  "template:llt16-cargo-rojo": {
+   "name": "লোয়ার থার্ড: হালকা নাম, লাল পদবি",
+   "tags": [
+    "লোয়ার থার্ড",
+    "সমতল",
+    "ইউটিউব"
+   ]
+  },
+  "template:llt16-director": {
+   "name": "লোয়ার থার্ড: সাদা পদবি, লাল নাম",
+   "tags": [
+    "লোয়ার থার্ড",
+    "সমতল",
+    "ইউটিউব"
+   ]
+  },
+  "template:llt16-fotografa": {
+   "name": "লোয়ার থার্ড: ছোট পদবি, সায়ান নাম",
+   "tags": [
+    "লোয়ার থার্ড",
+    "সমতল",
+    "ইউটিউব"
+   ]
+  },
+  "template:llt16-hora": {
+   "name": "লোয়ার থার্ড: সময় ও তারিখ",
+   "tags": [
+    "লোয়ার থার্ড",
+    "সমতল",
+    "তারিখ"
+   ]
+  },
+  "template:llt16-show": {
+   "name": "লোয়ার থার্ড: দুই লাইনের মাঝে শিরোনাম",
+   "tags": [
+    "লোয়ার থার্ড",
+    "সমতল",
+    "ইউটিউব"
+   ]
+  },
+  "template:llt16-titulo-rojo": {
+   "name": "লোয়ার থার্ড: শিরোনাম ও লাল সাবটাইটেল",
+   "tags": [
+    "লোয়ার থার্ড",
+    "সমতল",
+    "ইউটিউব"
+   ]
+  },
+  "template:llt16-tu-texto": {
+   "name": "লোয়ার থার্ড: কমলা ও ধূসর বক্স",
+   "tags": [
+    "লোয়ার থার্ড",
+    "সমতল",
+    "ইউটিউব"
+   ]
+  },
   "template:llt2-barra-etiqueta": {
    "name": "লোগোসহ নেমপ্লেট: গাঢ় বার ও সবুজ ট্যাগ",
    "tags": [
@@ -25586,6 +29540,435 @@
     "হলুদ",
     "সাদা",
     "অতিথি"
+   ]
+  },
+  "template:llt4-cuadro-sube": {
+   "name": "লোগোসহ নেমপ্লেট: গাঢ় চৌকো, লোগো উপরে ওঠে",
+   "tags": [
+    "নেমপ্লেট",
+    "লোগো",
+    "নাম",
+    "বার",
+    "সবুজ",
+    "চৌকো"
+   ]
+  },
+  "template:llt4-ficha-blanca": {
+   "name": "লোগোসহ নেমপ্লেট: সাদা কার্ড যা খুলে যায়",
+   "tags": [
+    "নেমপ্লেট",
+    "লোগো",
+    "নাম",
+    "সাদা",
+    "ট্যাগ"
+   ]
+  },
+  "template:llt4-logo-izquierda": {
+   "name": "লোগোসহ নেমপ্লেট: গাঢ় বার, লোগো বাঁয়ে",
+   "tags": [
+    "নেমপ্লেট",
+    "লোগো",
+    "নাম",
+    "বার",
+    "সবুজ"
+   ]
+  },
+  "template:llt4-pastilla-barra": {
+   "name": "লোগোসহ নেমপ্লেট: ক্যাপসুল যা বারে খুলে যায়",
+   "tags": [
+    "নেমপ্লেট",
+    "লোগো",
+    "নাম",
+    "বার",
+    "সবুজ",
+    "ক্যাপসুল"
+   ]
+  },
+  "template:llt5-adam": {
+   "name": "ছবিসহ নেমপ্লেট: লম্বা ছবি, তার ওপর নাম",
+   "tags": [
+    "নেমপ্লেট",
+    "ছবি",
+    "নাম",
+    "ধূসর",
+    "লম্বা",
+    "মাঝখানে"
+   ]
+  },
+  "template:llt5-eddy": {
+   "name": "ছবিসহ নেমপ্লেট: গোল ছবি ডানে, গাঢ় ব্যান্ড",
+   "tags": [
+    "নেমপ্লেট",
+    "ছবি",
+    "নাম",
+    "গাঢ়",
+    "গোল"
+   ]
+  },
+  "template:llt5-elis": {
+   "name": "ছবিসহ নেমপ্লেট: গোল ছবি, নাম ডানে",
+   "tags": [
+    "নেমপ্লেট",
+    "ছবি",
+    "নাম",
+    "ধূসর",
+    "গোল"
+   ]
+  },
+  "template:llt5-emma": {
+   "name": "ছবিসহ নেমপ্লেট: লম্বা ছবি, আড়াআড়ি ব্যান্ড",
+   "tags": [
+    "নেমপ্লেট",
+    "ছবি",
+    "নাম",
+    "ধূসর",
+    "লম্বা"
+   ]
+  },
+  "template:llt5-kris": {
+   "name": "ছবিসহ নেমপ্লেট: গোল ছবি উপরে, নাম নিচে",
+   "tags": [
+    "নেমপ্লেট",
+    "ছবি",
+    "নাম",
+    "ধূসর",
+    "গোল",
+    "মাঝখানে"
+   ]
+  },
+  "template:llt5-martin": {
+   "name": "ছবিসহ নেমপ্লেট: চৌকো ছবি, নাম ডানে",
+   "tags": [
+    "নেমপ্লেট",
+    "ছবি",
+    "নাম",
+    "ধূসর"
+   ]
+  },
+  "template:llt5-monika": {
+   "name": "ছবিসহ নেমপ্লেট: ছবি ডানে, নাম বাঁয়ে",
+   "tags": [
+    "নেমপ্লেট",
+    "ছবি",
+    "নাম",
+    "ধূসর"
+   ]
+  },
+  "template:llt5-rachel": {
+   "name": "ছবিসহ নেমপ্লেট: লম্বা ছবি ডানে, পদবি আউটলাইনে",
+   "tags": [
+    "নেমপ্লেট",
+    "ছবি",
+    "নাম",
+    "গাঢ়",
+    "লম্বা"
+   ]
+  },
+  "template:llt5-rose": {
+   "name": "ছবিসহ নেমপ্লেট: ছবি উপরে, নাম নিচে",
+   "tags": [
+    "নেমপ্লেট",
+    "ছবি",
+    "নাম",
+    "ধূসর",
+    "মাঝখানে"
+   ]
+  },
+  "template:llt6-barra-inclinada": {
+   "name": "নেমপ্লেট: সাদা বাঁকা বার, বড় নাম",
+   "tags": [
+    "নেমপ্লেট",
+    "নাম",
+    "সাদা",
+    "বাঁকা"
+   ]
+  },
+  "template:llt6-barrido-rojo": {
+   "name": "নেমপ্লেট: লাল ব্লক সরে গিয়ে নাম দেখায়",
+   "tags": [
+    "নেমপ্লেট",
+    "নাম",
+    "লাল"
+   ]
+  },
+  "template:llt6-caja-nombre": {
+   "name": "নেমপ্লেট: সাদা বাক্সে নাম, বাক্স ছোট হয়",
+   "tags": [
+    "নেমপ্লেট",
+    "নাম",
+    "সাদা",
+    "বাক্স"
+   ]
+  },
+  "template:llt6-cursor": {
+   "name": "নেমপ্লেট: ব্লক কার্সর হয়ে নাম দেখায়",
+   "tags": [
+    "নেমপ্লেট",
+    "নাম",
+    "সাদা",
+    "কার্সর"
+   ]
+  },
+  "template:llt6-divisor": {
+   "name": "নেমপ্লেট: বিভাজক রেখা, দুই পাশে পদ ও নাম",
+   "tags": [
+    "নেমপ্লেট",
+    "নাম",
+    "রেখা"
+   ]
+  },
+  "template:llt6-etiqueta-blanca": {
+   "name": "নেমপ্লেট: বড় নাম, পদের জন্য সাদা ট্যাগ",
+   "tags": [
+    "নেমপ্লেট",
+    "নাম",
+    "সাদা",
+    "লেবেল"
+   ]
+  },
+  "template:llt6-etiqueta-roja": {
+   "name": "নেমপ্লেট: নাম ডানে, পদের জন্য লাল ফিতা",
+   "tags": [
+    "নেমপ্লেট",
+    "নাম",
+    "লাল",
+    "ডান"
+   ]
+  },
+  "template:llt6-letras": {
+   "name": "নেমপ্লেট: অক্ষরে অক্ষরে আসা নাম",
+   "tags": [
+    "নেমপ্লেট",
+    "নাম",
+    "অক্ষর"
+   ]
+  },
+  "template:llt6-linea-fina": {
+   "name": "নেমপ্লেট: সরু রেখা, দুই পাশে নাম ও পদ",
+   "tags": [
+    "নেমপ্লেট",
+    "নাম",
+    "রেখা"
+   ]
+  },
+  "template:llt6-subrayado-rojo": {
+   "name": "নেমপ্লেট: বড় নাম, লাল আন্ডারলাইন",
+   "tags": [
+    "নেমপ্লেট",
+    "নাম",
+    "লাল",
+    "আন্ডারলাইন"
+   ]
+  },
+  "template:llt7-barra-azul": {
+   "name": "নেমপ্লেট: লোগোসহ নীল বার, এক লাইন",
+   "tags": [
+    "নেমপ্লেট",
+    "লোগো",
+    "নীল"
+   ]
+  },
+  "template:llt7-barra-azul-2": {
+   "name": "নেমপ্লেট: লোগোসহ নীল বার, দুই লাইন",
+   "tags": [
+    "নেমপ্লেট",
+    "লোগো",
+    "নীল"
+   ]
+  },
+  "template:llt8-barrett": {
+   "name": "কমলা নেমপ্লেট: লম্বা আন্ডারলাইন",
+   "tags": [
+    "নেমপ্লেট",
+    "কমলা",
+    "নাম"
+   ]
+  },
+  "template:llt8-brandon": {
+   "name": "কমলা নেমপ্লেট: বার ও নাম",
+   "tags": [
+    "নেমপ্লেট",
+    "কমলা",
+    "নাম"
+   ]
+  },
+  "template:llt8-cameron": {
+   "name": "কমলা নেমপ্লেট: পদ উপরে, চিহ্নসহ",
+   "tags": [
+    "নেমপ্লেট",
+    "কমলা",
+    "নাম"
+   ]
+  },
+  "template:llt8-castro": {
+   "name": "কমলা নেমপ্লেট: দুই লাইনের পদ",
+   "tags": [
+    "নেমপ্লেট",
+    "কমলা",
+    "নাম"
+   ]
+  },
+  "template:llt8-charley": {
+   "name": "কমলা নেমপ্লেট: নিচে নামা বার",
+   "tags": [
+    "নেমপ্লেট",
+    "কমলা",
+    "নাম"
+   ]
+  },
+  "template:llt8-daniel": {
+   "name": "কমলা নেমপ্লেট: পদের পাশে ব্লক",
+   "tags": [
+    "নেমপ্লেট",
+    "কমলা",
+    "নাম"
+   ]
+  },
+  "template:llt8-dodson": {
+   "name": "কমলা নেমপ্লেট: রেখা, পদ ডানে",
+   "tags": [
+    "নেমপ্লেট",
+    "কমলা",
+    "নাম"
+   ]
+  },
+  "template:llt8-hayden": {
+   "name": "কমলা নেমপ্লেট: লম্বা বার ও পদ",
+   "tags": [
+    "নেমপ্লেট",
+    "কমলা",
+    "নাম"
+   ]
+  },
+  "template:llt8-jake": {
+   "name": "কমলা নেমপ্লেট: দুই পাশে লম্বা রেখা",
+   "tags": [
+    "নেমপ্লেট",
+    "কমলা",
+    "নাম"
+   ]
+  },
+  "template:llt8-james": {
+   "name": "কমলা নেমপ্লেট: পদের আগে ব্লক",
+   "tags": [
+    "নেমপ্লেট",
+    "কমলা",
+    "নাম"
+   ]
+  },
+  "template:llt8-john": {
+   "name": "কমলা নেমপ্লেট: ব্র্যাকেট",
+   "tags": [
+    "নেমপ্লেট",
+    "কমলা",
+    "নাম"
+   ]
+  },
+  "template:llt8-madden": {
+   "name": "কমলা নেমপ্লেট: পদের দুই পাশে রেখা",
+   "tags": [
+    "নেমপ্লেট",
+    "কমলা",
+    "নাম"
+   ]
+  },
+  "template:llt8-mason": {
+   "name": "কমলা নেমপ্লেট: লম্বা রেখা, পদ ডানে",
+   "tags": [
+    "নেমপ্লেট",
+    "কমলা",
+    "নাম"
+   ]
+  },
+  "template:llt8-rason": {
+   "name": "কমলা নেমপ্লেট: বার, উপরে পদ",
+   "tags": [
+    "নেমপ্লেট",
+    "কমলা",
+    "নাম"
+   ]
+  },
+  "template:llt8-ryan": {
+   "name": "কমলা নেমপ্লেট: রেখা ও উপরে পদ",
+   "tags": [
+    "নেমপ্লেট",
+    "কমলা",
+    "নাম"
+   ]
+  },
+  "template:llt9-benjamin": {
+   "name": "সোনালি নেমপ্লেট: উপরে ট্যাগ ও রেখা",
+   "tags": [
+    "নেমপ্লেট",
+    "সোনালি",
+    "নাম"
+   ]
+  },
+  "template:llt9-emily": {
+   "name": "সোনালি নেমপ্লেট: সাদা বাক্সে নাম, ট্যাগ",
+   "tags": [
+    "নেমপ্লেট",
+    "সোনালি",
+    "বাক্স"
+   ]
+  },
+  "template:llt9-katherine": {
+   "name": "সোনালি নেমপ্লেট: ট্যাগ ও বিন্দু ডানে",
+   "tags": [
+    "নেমপ্লেট",
+    "সোনালি",
+    "ইটালিক",
+    "ডান"
+   ]
+  },
+  "template:llt9-max": {
+   "name": "সোনালি নেমপ্লেট: বাক্সে নাম, পদের ট্যাগ",
+   "tags": [
+    "নেমপ্লেট",
+    "সোনালি",
+    "ইটালিক",
+    "বাক্স"
+   ]
+  },
+  "template:llt9-natalie": {
+   "name": "সোনালি নেমপ্লেট: বিন্দুসহ রেখা",
+   "tags": [
+    "নেমপ্লেট",
+    "সোনালি",
+    "নাম"
+   ]
+  },
+  "template:llt9-vanja": {
+   "name": "সোনালি নেমপ্লেট: হালকা ইটালিক, চৌকো",
+   "tags": [
+    "নেমপ্লেট",
+    "সোনালি",
+    "ইটালিক"
+   ]
+  },
+  "template:llt9-vanja-negrita": {
+   "name": "সোনালি নেমপ্লেট: মোটা ইটালিক, চৌকো",
+   "tags": [
+    "নেমপ্লেট",
+    "সোনালি",
+    "ইটালিক"
+   ]
+  },
+  "template:llt9-victoria": {
+   "name": "সোনালি নেমপ্লেট: বার ও মোটা ইটালিক",
+   "tags": [
+    "নেমপ্লেট",
+    "সোনালি",
+    "ইটালিক"
+   ]
+  },
+  "template:llt9-yaroslava": {
+   "name": "সোনালি নেমপ্লেট: চৌকো বাক্স, পদ ডানে",
+   "tags": [
+    "নেমপ্লেট",
+    "সোনালি",
+    "ইটালিক",
+    "ডান"
    ]
   },
   "template:lt-andy": {
@@ -31306,6 +35689,2285 @@
     "রেট্রো"
    ]
   },
+  "template:tit1-creative": {
+   "name": "শিরোনাম: আঁকিবুকি সহ সৃজনশীল শিরোনাম",
+   "tags": [
+    "শিরোনাম",
+    "সোশ্যাল মিডিয়া",
+    "আঁকিবুকি",
+    "গোলাপি"
+   ]
+  },
+  "template:tit1-design": {
+   "name": "শিরোনাম: মেঘের মধ্যে ডিজাইন",
+   "tags": [
+    "শিরোনাম",
+    "সোশ্যাল মিডিয়া",
+    "মেঘ",
+    "আঁকিবুকি"
+   ]
+  },
+  "template:tit1-follow": {
+   "name": "শিরোনাম: গোলাপি ফিতায় আমাকে ফলো করুন",
+   "tags": [
+    "শিরোনাম",
+    "সোশ্যাল মিডিয়া",
+    "instagram",
+    "ফলো",
+    "ফিতা"
+   ]
+  },
+  "template:tit1-likecount": {
+   "name": "শিরোনাম: কাউন্টার ও WOW সহ লাইক",
+   "tags": [
+    "শিরোনাম",
+    "সোশ্যাল মিডিয়া",
+    "লাইক",
+    "কাউন্টার",
+    "wow",
+    "হৃদয়"
+   ]
+  },
+  "template:tit1-likenew": {
+   "name": "শিরোনাম: তীর চিহ্ন সহ নতুন ভিডিওতে লাইক",
+   "tags": [
+    "শিরোনাম",
+    "সোশ্যাল মিডিয়া",
+    "লাইক",
+    "নতুন ভিডিও",
+    "তীর"
+   ]
+  },
+  "template:tit1-likethis": {
+   "name": "শিরোনাম: ফুল সহ এই ভিডিওতে লাইক",
+   "tags": [
+    "শিরোনাম",
+    "সোশ্যাল মিডিয়া",
+    "লাইক",
+    "ফুল"
+   ]
+  },
+  "template:tit1-smile": {
+   "name": "শিরোনাম: হাসুন ও খুশি থাকুন",
+   "tags": [
+    "শিরোনাম",
+    "সোশ্যাল মিডিয়া",
+    "খুশি",
+    "হাসি",
+    "ইমোজি"
+   ]
+  },
+  "template:tit1-subscribe": {
+   "name": "শিরোনাম: ফুল সহ সাবস্ক্রাইব",
+   "tags": [
+    "শিরোনাম",
+    "সোশ্যাল মিডিয়া",
+    "সাবস্ক্রাইব",
+    "ফুল",
+    "youtube"
+   ]
+  },
+  "template:tit2-2022": {
+   "name": "শিরোনাম: উঁচু করা বছর",
+   "tags": [
+    "শিরোনাম",
+    "টাইপোগ্রাফি",
+    "সাদা-কালো",
+    "বছর",
+    "উঁচু করা"
+   ]
+  },
+  "template:tit2-be-awesome": {
+   "name": "শিরোনাম: ছবি সহ দারুণ হোন",
+   "tags": [
+    "শিরোনাম",
+    "টাইপোগ্রাফি",
+    "সাদা-কালো",
+    "ছবি",
+    "খাড়া"
+   ]
+  },
+  "template:tit2-big-black": {
+   "name": "শিরোনাম: লেবেল সহ বিশাল কালো",
+   "tags": [
+    "শিরোনাম",
+    "টাইপোগ্রাফি",
+    "সাদা-কালো",
+    "কালো",
+    "ট্যাগ"
+   ]
+  },
+  "template:tit2-circulos": {
+   "name": "শিরোনাম: ছয়টি বৃত্ত",
+   "tags": [
+    "শিরোনাম",
+    "টাইপোগ্রাফি",
+    "সাদা-কালো",
+    "বৃত্ত",
+    "সাদা"
+   ]
+  },
+  "template:tit2-ciudad": {
+   "name": "শিরোনাম: ছবির ওপর হেলানো শহরের শিরোনাম",
+   "tags": [
+    "শিরোনাম",
+    "টাইপোগ্রাফি",
+    "সাদা-কালো",
+    "ছবি",
+    "শহর",
+    "হেলানো"
+   ]
+  },
+  "template:tit2-creative-inclinado": {
+   "name": "শিরোনাম: বিশাল হেলানো শব্দ",
+   "tags": [
+    "শিরোনাম",
+    "টাইপোগ্রাফি",
+    "সাদা-কালো",
+    "হেলানো",
+    "কালো"
+   ]
+  },
+  "template:tit2-creative-pack": {
+   "name": "শিরোনাম: ঝরে পড়া অক্ষর",
+   "tags": [
+    "শিরোনাম",
+    "টাইপোগ্রাফি",
+    "সাদা-কালো",
+    "ইটালিক",
+    "সাদা"
+   ]
+  },
+  "template:tit2-creative-relieve": {
+   "name": "শিরোনাম: উঁচু করা সৃজনশীল লেখা",
+   "tags": [
+    "শিরোনাম",
+    "টাইপোগ্রাফি",
+    "সাদা-কালো",
+    "উঁচু করা",
+    "ছায়া",
+    "সাদা"
+   ]
+  },
+  "template:tit2-event-music": {
+   "name": "শিরোনাম: ইভেন্টের শিরোনাম, নিচে নেমে আসে ছবি",
+   "tags": [
+    "শিরোনাম",
+    "টাইপোগ্রাফি",
+    "সাদা-কালো",
+    "ছবি",
+    "ইভেন্ট",
+    "ইটালিক"
+   ]
+  },
+  "template:tit2-hello-world": {
+   "name": "শিরোনাম: ইটালিকে Hello World!",
+   "tags": [
+    "শিরোনাম",
+    "টাইপোগ্রাফি",
+    "সাদা-কালো",
+    "ইটালিক",
+    "সাদা"
+   ]
+  },
+  "template:tit2-montserrat-bold": {
+   "name": "শিরোনাম: শব্দ সহ দুটি কালো বার",
+   "tags": [
+    "শিরোনাম",
+    "টাইপোগ্রাফি",
+    "সাদা-কালো",
+    "বার",
+    "সাদা"
+   ]
+  },
+  "template:tit2-new-trend": {
+   "name": "শিরোনাম: উল্টে যাওয়া নতুন ট্রেন্ড",
+   "tags": [
+    "শিরোনাম",
+    "টাইপোগ্রাফি",
+    "সাদা-কালো",
+    "আউটলাইন",
+    "সাদা"
+   ]
+  },
+  "template:tit2-new-typography": {
+   "name": "শিরোনাম: ইটালিক শব্দ সহ বার",
+   "tags": [
+    "শিরোনাম",
+    "টাইপোগ্রাফি",
+    "সাদা-কালো",
+    "বার",
+    "ইটালিক",
+    "সাদা"
+   ]
+  },
+  "template:tit2-trend": {
+   "name": "শিরোনাম: ট্রেন্ড নতুন টাইপোগ্রাফি",
+   "tags": [
+    "শিরোনাম",
+    "টাইপোগ্রাফি",
+    "সাদা-কালো",
+    "কালো"
+   ]
+  },
+  "template:tit2-trend-doble": {
+   "name": "শিরোনাম: দুই ভাগে ট্রেন্ড",
+   "tags": [
+    "শিরোনাম",
+    "টাইপোগ্রাফি",
+    "সাদা-কালো",
+    "কালো",
+    "সাদা",
+    "দ্বিগুণ"
+   ]
+  },
+  "template:tit2-typo-slide": {
+   "name": "শিরোনাম: সাদা কার্ড",
+   "tags": [
+    "শিরোনাম",
+    "টাইপোগ্রাফি",
+    "সাদা-কালো",
+    "কার্ড",
+    "কালো"
+   ]
+  },
+  "template:tit3-20-animation": {
+   "name": "শিরোনাম: ২০ অ্যানিমেশন",
+   "tags": [
+    "শিরোনাম",
+    "আকাশি",
+    "কর্পোরেট",
+    "সংখ্যা"
+   ]
+  },
+  "template:tit3-20-cuadro": {
+   "name": "শিরোনাম: ফ্রেমে ২০ অ্যানিমেটেড",
+   "tags": [
+    "শিরোনাম",
+    "আকাশি",
+    "কর্পোরেট",
+    "ফ্রেম"
+   ]
+  },
+  "template:tit3-best-day": {
+   "name": "শিরোনাম: ইটালিক বক্স ও ফ্রেম",
+   "tags": [
+    "শিরোনাম",
+    "আকাশি",
+    "কর্পোরেট",
+    "ইটালিক"
+   ]
+  },
+  "template:tit3-best-event": {
+   "name": "শিরোনাম: হেলানো বক্স ও মার্কেট",
+   "tags": [
+    "শিরোনাম",
+    "আকাশি",
+    "কর্পোরেট",
+    "হেলানো",
+    "ইভেন্ট"
+   ]
+  },
+  "template:tit3-circulo": {
+   "name": "শিরোনাম: বৃত্তের ওপর নাম",
+   "tags": [
+    "শিরোনাম",
+    "আকাশি",
+    "কর্পোরেট",
+    "বৃত্ত",
+    "নাম"
+   ]
+  },
+  "template:tit3-design-success": {
+   "name": "শিরোনাম: বৃত্ত সহ সাফল্যের ডিজাইন",
+   "tags": [
+    "শিরোনাম",
+    "আকাশি",
+    "কর্পোরেট",
+    "বৃত্ত"
+   ]
+  },
+  "template:tit3-disenador": {
+   "name": "শিরোনাম: পদবির বক্স ও নাম",
+   "tags": [
+    "শিরোনাম",
+    "আকাশি",
+    "কর্পোরেট",
+    "নাম",
+    "হেলানো"
+   ]
+  },
+  "template:tit3-dos-triangulos": {
+   "name": "শিরোনাম: দুই ত্রিভুজের মাঝে নাম",
+   "tags": [
+    "শিরোনাম",
+    "আকাশি",
+    "কর্পোরেট",
+    "ত্রিভুজ",
+    "নাম"
+   ]
+  },
+  "template:tit3-evento": {
+   "name": "শিরোনাম: ফ্রেম সহ হেলানো ইভেন্ট",
+   "tags": [
+    "শিরোনাম",
+    "আকাশি",
+    "কর্পোরেট",
+    "ইভেন্ট",
+    "ফ্রেম",
+    "হেলানো"
+   ]
+  },
+  "template:tit3-globo": {
+   "name": "শিরোনাম: কথার বুদবুদ",
+   "tags": [
+    "শিরোনাম",
+    "আকাশি",
+    "কর্পোরেট",
+    "বুদবুদ",
+    "ফ্রেম"
+   ]
+  },
+  "template:tit3-holiday": {
+   "name": "শিরোনাম: তারিখ সহ ছুটির দিন",
+   "tags": [
+    "শিরোনাম",
+    "আকাশি",
+    "কর্পোরেট",
+    "ইভেন্ট",
+    "হেলানো"
+   ]
+  },
+  "template:tit3-life": {
+   "name": "শিরোনাম: ফ্রেমে জীবন মানে জীবন",
+   "tags": [
+    "শিরোনাম",
+    "আকাশি",
+    "কর্পোরেট",
+    "ফ্রেম"
+   ]
+  },
+  "template:tit3-nombre-caja": {
+   "name": "শিরোনাম: নামের বক্স, দুই লাইন",
+   "tags": [
+    "শিরোনাম",
+    "আকাশি",
+    "কর্পোরেট",
+    "নাম"
+   ]
+  },
+  "template:tit3-nombre-cargo-arriba": {
+   "name": "শিরোনাম: নামের বক্স, ওপরে পদবি",
+   "tags": [
+    "শিরোনাম",
+    "আকাশি",
+    "কর্পোরেট",
+    "নাম"
+   ]
+  },
+  "template:tit3-nombre-lineas": {
+   "name": "শিরোনাম: দুই লাইনের মাঝে নাম",
+   "tags": [
+    "শিরোনাম",
+    "আকাশি",
+    "কর্পোরেট",
+    "নাম",
+    "রেখা"
+   ]
+  },
+  "template:tit3-nombre-sombra": {
+   "name": "শিরোনাম: সরানো ফ্রেম সহ বক্স",
+   "tags": [
+    "শিরোনাম",
+    "আকাশি",
+    "কর্পোরেট",
+    "নাম",
+    "ফ্রেম"
+   ]
+  },
+  "template:tit3-rombo": {
+   "name": "শিরোনাম: রম্বসে ইভেন্ট",
+   "tags": [
+    "শিরোনাম",
+    "আকাশি",
+    "কর্পোরেট",
+    "রম্বস",
+    "ইভেন্ট"
+   ]
+  },
+  "template:tit3-titles-pack": {
+   "name": "শিরোনাম: দুটি হেলানো ফ্রেম",
+   "tags": [
+    "শিরোনাম",
+    "আকাশি",
+    "কর্পোরেট",
+    "ফ্রেম",
+    "হেলানো"
+   ]
+  },
+  "template:tit3-triangulo": {
+   "name": "শিরোনাম: ত্রিভুজের ওপর নাম",
+   "tags": [
+    "শিরোনাম",
+    "আকাশি",
+    "কর্পোরেট",
+    "ত্রিভুজ",
+    "নাম"
+   ]
+  },
+  "template:tit3-unique-animated": {
+   "name": "শিরোনাম: তিন অংশের ইটালিক",
+   "tags": [
+    "শিরোনাম",
+    "আকাশি",
+    "কর্পোরেট",
+    "ইটালিক"
+   ]
+  },
+  "template:tit4-algo-nuevo": {
+   "name": "শিরোনাম: নকশাদার বক্স ও শব্দ",
+   "tags": [
+    "শিরোনাম",
+    "হলুদ",
+    "কালো",
+    "ফ্রেম"
+   ]
+  },
+  "template:tit4-anio": {
+   "name": "শিরোনাম: সামন্তরিক সহ বছর",
+   "tags": [
+    "শিরোনাম",
+    "হলুদ",
+    "কালো",
+    "বছর"
+   ]
+  },
+  "template:tit4-art-festival": {
+   "name": "শিরোনাম: আর্ট, একটি বক্স ও ফেস্টিভ্যাল",
+   "tags": [
+    "শিরোনাম",
+    "হলুদ",
+    "কালো",
+    "ইভেন্ট"
+   ]
+  },
+  "template:tit4-autumn-event": {
+   "name": "শিরোনাম: বক্সে শব্দ ও নিচে আরেকটি",
+   "tags": [
+    "শিরোনাম",
+    "হলুদ",
+    "কালো",
+    "ইভেন্ট"
+   ]
+  },
+  "template:tit4-dont-stop": {
+   "name": "শিরোনাম: বৃত্তে বাক্য",
+   "tags": [
+    "শিরোনাম",
+    "হলুদ",
+    "কালো",
+    "বৃত্ত"
+   ]
+  },
+  "template:tit4-etiqueta-nombre": {
+   "name": "শিরোনাম: ট্যাগ, নাম ও পদবি",
+   "tags": [
+    "শিরোনাম",
+    "হলুদ",
+    "কালো",
+    "নাম"
+   ]
+  },
+  "template:tit4-facil": {
+   "name": "শিরোনাম: শব্দ ও হলুদ বার",
+   "tags": [
+    "শিরোনাম",
+    "হলুদ",
+    "কালো",
+    "বার"
+   ]
+  },
+  "template:tit4-fecha-cajas": {
+   "name": "শিরোনাম: বক্সে তারিখ ও সময়",
+   "tags": [
+    "শিরোনাম",
+    "হলুদ",
+    "কালো",
+    "ইভেন্ট",
+    "তারিখ"
+   ]
+  },
+  "template:tit4-festival-info": {
+   "name": "শিরোনাম: ফেস্টিভ্যালের তারিখ ও বিবরণ",
+   "tags": [
+    "শিরোনাম",
+    "হলুদ",
+    "কালো",
+    "ইভেন্ট",
+    "তারিখ"
+   ]
+  },
+  "template:tit4-informacion": {
+   "name": "শিরোনাম: বৃত্তে তথ্য",
+   "tags": [
+    "শিরোনাম",
+    "হলুদ",
+    "কালো",
+    "বৃত্ত"
+   ]
+  },
+  "template:tit4-logo-nombre": {
+   "name": "শিরোনাম: লোগো, ট্যাগ ও নাম",
+   "tags": [
+    "শিরোনাম",
+    "হলুদ",
+    "কালো",
+    "লোগো",
+    "নাম"
+   ]
+  },
+  "template:tit4-nombre-caja": {
+   "name": "শিরোনাম: হলুদ বক্সে নাম",
+   "tags": [
+    "শিরোনাম",
+    "হলুদ",
+    "কালো",
+    "নাম"
+   ]
+  },
+  "template:tit4-nombre-cajas": {
+   "name": "শিরোনাম: বক্সে নাম ও পদবি",
+   "tags": [
+    "শিরোনাম",
+    "হলুদ",
+    "কালো",
+    "নাম"
+   ]
+  },
+  "template:tit4-presents": {
+   "name": "শিরোনাম: ফ্রেমে উপস্থাপন করছে",
+   "tags": [
+    "শিরোনাম",
+    "হলুদ",
+    "কালো",
+    "ফ্রেম"
+   ]
+  },
+  "template:tit4-productor": {
+   "name": "শিরোনাম: ফ্রেমে নাম ও একটি ট্যাগ",
+   "tags": [
+    "শিরোনাম",
+    "হলুদ",
+    "কালো",
+    "ফ্রেম",
+    "নাম"
+   ]
+  },
+  "template:tit4-simple-design": {
+   "name": "শিরোনাম: ছুড়ে দেওয়া দুটি বক্স",
+   "tags": [
+    "শিরোনাম",
+    "হলুদ",
+    "কালো",
+    "বক্স"
+   ]
+  },
+  "template:tit4-speakers": {
+   "name": "শিরোনাম: বড় বক্সে হ্যাশট্যাগ",
+   "tags": [
+    "শিরোনাম",
+    "হলুদ",
+    "কালো",
+    "ইভেন্ট"
+   ]
+  },
+  "template:tit4-triangulo": {
+   "name": "শিরোনাম: ত্রিভুজে সংখ্যা",
+   "tags": [
+    "শিরোনাম",
+    "হলুদ",
+    "কালো",
+    "ত্রিভুজ"
+   ]
+  },
+  "template:tit4-twenty": {
+   "name": "শিরোনাম: বিশটি সৃজনশীল শিরোনাম",
+   "tags": [
+    "শিরোনাম",
+    "হলুদ",
+    "কালো",
+    "সংখ্যা"
+   ]
+  },
+  "template:tit4-ubicacion": {
+   "name": "শিরোনাম: পিনে অবস্থান",
+   "tags": [
+    "শিরোনাম",
+    "হলুদ",
+    "কালো",
+    "পিন",
+    "অবস্থান"
+   ]
+  },
+  "template:tit5-canal-tarjeta": {
+   "name": "শিরোনাম: ঘুরে শব্দ বের করে দেওয়া বর্গ",
+   "tags": [
+    "শিরোনাম",
+    "চ্যানেল",
+    "রঙিন",
+    "ফ্রেম"
+   ]
+  },
+  "template:tit5-compartir": {
+   "name": "শিরোনাম: শব্দ বদলানো বেগুনি ট্যাগ",
+   "tags": [
+    "শিরোনাম",
+    "চ্যানেল",
+    "রঙিন",
+    "ট্যাগ",
+    "youtube"
+   ]
+  },
+  "template:tit5-condensada": {
+   "name": "শিরোনাম: নিজে নিজে লেখা সরু অক্ষর",
+   "tags": [
+    "শিরোনাম",
+    "চ্যানেল",
+    "রঙিন",
+    "সরু অক্ষর"
+   ]
+  },
+  "template:tit5-creative": {
+   "name": "শিরোনাম: সোজা হয়ে ওঠা লিলাক শব্দ",
+   "tags": [
+    "শিরোনাম",
+    "চ্যানেল",
+    "রঙিন",
+    "বেগুনি"
+   ]
+  },
+  "template:tit5-dinamico": {
+   "name": "শিরোনাম: সোজা হয়ে ওঠা দ্বিগুণ কমলা ফ্রেম",
+   "tags": [
+    "শিরোনাম",
+    "চ্যানেল",
+    "রঙিন",
+    "ফ্রেম"
+   ]
+  },
+  "template:tit5-directo": {
+   "name": "শিরোনাম: হেলে যাওয়া লাইভস্ট্রিম",
+   "tags": [
+    "শিরোনাম",
+    "চ্যানেল",
+    "রঙিন",
+    "লাইভ",
+    "youtube"
+   ]
+  },
+  "template:tit5-etiqueta": {
+   "name": "শিরোনাম: খুলে হেলে যাওয়া লেবেল",
+   "tags": [
+    "শিরোনাম",
+    "চ্যানেল",
+    "রঙিন",
+    "ট্যাগ"
+   ]
+  },
+  "template:tit5-hashtag": {
+   "name": "শিরোনাম: হলুদের ওপর টাইপ করা হ্যাশট্যাগ",
+   "tags": [
+    "শিরোনাম",
+    "চ্যানেল",
+    "রঙিন",
+    "হ্যাশট্যাগ"
+   ]
+  },
+  "template:tit5-logo-canal": {
+   "name": "শিরোনাম: YouTube বাটন ও চ্যানেলের নাম",
+   "tags": [
+    "শিরোনাম",
+    "চ্যানেল",
+    "রঙিন",
+    "লোগো",
+    "youtube"
+   ]
+  },
+  "template:tit5-logo-negro": {
+   "name": "শিরোনাম: কালোর ওপর YouTube বাটন",
+   "tags": [
+    "শিরোনাম",
+    "চ্যানেল",
+    "রঙিন",
+    "লোগো",
+    "youtube"
+   ]
+  },
+  "template:tit5-moderno": {
+   "name": "শিরোনাম: বৃত্ত হয়ে যাওয়া YouTube বাটন",
+   "tags": [
+    "শিরোনাম",
+    "চ্যানেল",
+    "রঙিন",
+    "বৃত্ত",
+    "youtube"
+   ]
+  },
+  "template:tit5-no-pierdas": {
+   "name": "শিরোনাম: আকার বদলানো ফ্রেমে বাক্য",
+   "tags": [
+    "শিরোনাম",
+    "চ্যানেল",
+    "রঙিন",
+    "ফ্রেম"
+   ]
+  },
+  "template:tit5-pila": {
+   "name": "শিরোনাম: ঝরে পড়া লাইক, শেয়ার, সাবস্ক্রাইব ব্লক",
+   "tags": [
+    "শিরোনাম",
+    "চ্যানেল",
+    "রঙিন",
+    "ব্লক",
+    "সাবস্ক্রাইব",
+    "youtube"
+   ]
+  },
+  "template:tit5-rombo": {
+   "name": "শিরোনাম: লালের ওপর সাদা রম্বস",
+   "tags": [
+    "শিরোনাম",
+    "চ্যানেল",
+    "রঙিন",
+    "রম্বস"
+   ]
+  },
+  "template:tit5-seguinos": {
+   "name": "শিরোনাম: উল্টে যাওয়া নীল মুদ্রা",
+   "tags": [
+    "শিরোনাম",
+    "চ্যানেল",
+    "রঙিন",
+    "বৃত্ত"
+   ]
+  },
+  "template:tit5-social-media": {
+   "name": "শিরোনাম: হলুদের ওপর ঘুরন্ত বলয়",
+   "tags": [
+    "শিরোনাম",
+    "চ্যানেল",
+    "রঙিন",
+    "বৃত্ত"
+   ]
+  },
+  "template:tit5-soporte": {
+   "name": "শিরোনাম: ব্লকের সারি ও একটি ব্যান্ড",
+   "tags": [
+    "শিরোনাম",
+    "চ্যানেল",
+    "রঙিন",
+    "ব্যান্ড"
+   ]
+  },
+  "template:tit5-tu-canal": {
+   "name": "শিরোনাম: উল্টে সাদা বক্স হয়ে যাওয়া ফ্রেম",
+   "tags": [
+    "শিরোনাম",
+    "চ্যানেল",
+    "রঙিন",
+    "বক্স"
+   ]
+  },
+  "template:tit5-tutorial": {
+   "name": "শিরোনাম: অক্ষরে অক্ষরে ফুটে ওঠা টিউটোরিয়াল",
+   "tags": [
+    "শিরোনাম",
+    "চ্যানেল",
+    "রঙিন",
+    "টিউটোরিয়াল"
+   ]
+  },
+  "template:tit5-verano": {
+   "name": "শিরোনাম: বজ্র ও ঝরে পড়া শব্দ",
+   "tags": [
+    "শিরোনাম",
+    "চ্যানেল",
+    "রঙিন",
+    "গ্রীষ্ম"
+   ]
+  },
+  "template:tit6-always-strive": {
+   "name": "শিরোনাম: ঝরে পড়া অক্ষর ও বিস্ময়চিহ্ন",
+   "tags": [
+    "শিরোনাম",
+    "টাইপোগ্রাফি",
+    "সাদা-কালো",
+    "কাইনেটিক",
+    "সরু অক্ষর"
+   ]
+  },
+  "template:tit6-art-always": {
+   "name": "শিরোনাম: ডোরা, আউটলাইন ও ওপরে ওঠা অক্ষর",
+   "tags": [
+    "শিরোনাম",
+    "টাইপোগ্রাফি",
+    "সাদা-কালো",
+    "কাইনেটিক",
+    "ডোরা",
+    "আউটলাইন"
+   ]
+  },
+  "template:tit6-awesome": {
+   "name": "শিরোনাম: ছবির ওপর সাদা বক্স ও বুদবুদ",
+   "tags": [
+    "শিরোনাম",
+    "টাইপোগ্রাফি",
+    "সাদা-কালো",
+    "কাইনেটিক",
+    "ছবি"
+   ]
+  },
+  "template:tit6-be-strong": {
+   "name": "শিরোনাম: পেছনে গুটিয়ে খোলা কাটা বাক্য",
+   "tags": [
+    "শিরোনাম",
+    "টাইপোগ্রাফি",
+    "সাদা-কালো",
+    "কাইনেটিক",
+    "ফ্রেম",
+    "কাটা"
+   ]
+  },
+  "template:tit6-big": {
+   "name": "শিরোনাম: ছায়া সহ বিশাল শব্দ ও কালো প্যানেল",
+   "tags": [
+    "শিরোনাম",
+    "টাইপোগ্রাফি",
+    "সাদা-কালো",
+    "কাইনেটিক",
+    "ছায়া"
+   ]
+  },
+  "template:tit6-big-text": {
+   "name": "শিরোনাম: সংখ্যা, আউটলাইন শব্দ ও একটি ছবি",
+   "tags": [
+    "শিরোনাম",
+    "টাইপোগ্রাফি",
+    "সাদা-কালো",
+    "কাইনেটিক",
+    "আউটলাইন",
+    "ছবি"
+   ]
+  },
+  "template:tit6-ciencia": {
+   "name": "শিরোনাম: বাক্য উল্টে দেওয়া প্যানেল, ফ্রেম ও ক্রস",
+   "tags": [
+    "শিরোনাম",
+    "টাইপোগ্রাফি",
+    "সাদা-কালো",
+    "কাইনেটিক",
+    "ফ্রেম"
+   ]
+  },
+  "template:tit6-color-change": {
+   "name": "শিরোনাম: জ্বলে ওঠা কাটা শব্দ",
+   "tags": [
+    "শিরোনাম",
+    "টাইপোগ্রাফি",
+    "সাদা-কালো",
+    "কাইনেটিক",
+    "কাটা"
+   ]
+  },
+  "template:tit6-corporate": {
+   "name": "শিরোনাম: বাক্যের পেছনে বেড়ে ওঠা কালো ব্যান্ড",
+   "tags": [
+    "শিরোনাম",
+    "টাইপোগ্রাফি",
+    "সাদা-কালো",
+    "কাইনেটিক",
+    "ছবি"
+   ]
+  },
+  "template:tit6-create-ideas": {
+   "name": "শিরোনাম: ওপরে ওঠা অক্ষর ও হ্যাশ",
+   "tags": [
+    "শিরোনাম",
+    "টাইপোগ্রাফি",
+    "সাদা-কালো",
+    "কাইনেটিক",
+    "হ্যাশট্যাগ"
+   ]
+  },
+  "template:tit6-dynamism": {
+   "name": "শিরোনাম: ক্রস সহ ফ্রেমে জ্বলে ওঠা শব্দ",
+   "tags": [
+    "শিরোনাম",
+    "টাইপোগ্রাফি",
+    "সাদা-কালো",
+    "কাইনেটিক",
+    "ফ্রেম"
+   ]
+  },
+  "template:tit6-enjoy": {
+   "name": "শিরোনাম: ঘুরন্ত বর্গ ও ভাঙা শব্দ",
+   "tags": [
+    "শিরোনাম",
+    "টাইপোগ্রাফি",
+    "সাদা-কালো",
+    "কাইনেটিক",
+    "বর্গ"
+   ]
+  },
+  "template:tit6-fashion": {
+   "name": "শিরোনাম: পেছনে তিনটি ছবি সহ বক্স",
+   "tags": [
+    "শিরোনাম",
+    "টাইপোগ্রাফি",
+    "সাদা-কালো",
+    "কাইনেটিক",
+    "ছবি",
+    "ফ্যাশন"
+   ]
+  },
+  "template:tit6-health": {
+   "name": "শিরোনাম: সাদা ও কালোর মাঝে ঘোরানো শব্দের ফালি",
+   "tags": [
+    "শিরোনাম",
+    "টাইপোগ্রাফি",
+    "সাদা-কালো",
+    "কাইনেটিক",
+    "দ্বিগুণ"
+   ]
+  },
+  "template:tit6-look": {
+   "name": "শিরোনাম: বিশাল অক্ষরের ওপর ধূসর বক্স",
+   "tags": [
+    "শিরোনাম",
+    "টাইপোগ্রাফি",
+    "সাদা-কালো",
+    "কাইনেটিক",
+    "বক্স"
+   ]
+  },
+  "template:tit6-never-give-up": {
+   "name": "শিরোনাম: ছবির ফালির ওপর টাইপ করা বাক্য",
+   "tags": [
+    "শিরোনাম",
+    "টাইপোগ্রাফি",
+    "সাদা-কালো",
+    "কাইনেটিক",
+    "ছবি"
+   ]
+  },
+  "template:tit6-typography": {
+   "name": "শিরোনাম: ছবির ওপর লেবেল সহ সাদা বক্স",
+   "tags": [
+    "শিরোনাম",
+    "টাইপোগ্রাফি",
+    "সাদা-কালো",
+    "কাইনেটিক",
+    "ছবি"
+   ]
+  },
+  "template:tit6-visuality": {
+   "name": "শিরোনাম: জ্বলে ওঠা তিন লাইন ও একটি পয়েন্টার",
+   "tags": [
+    "শিরোনাম",
+    "টাইপোগ্রাফি",
+    "সাদা-কালো",
+    "কাইনেটিক",
+    "আউটলাইন"
+   ]
+  },
+  "template:tit6-wonderful": {
+   "name": "শিরোনাম: কাছে আসা তিন শব্দ ও লাইন",
+   "tags": [
+    "শিরোনাম",
+    "টাইপোগ্রাফি",
+    "সাদা-কালো",
+    "কাইনেটিক",
+    "রেখা"
+   ]
+  },
+  "template:tit6-you": {
+   "name": "শিরোনাম: ছবি দিয়ে ভরা শব্দ",
+   "tags": [
+    "শিরোনাম",
+    "টাইপোগ্রাফি",
+    "সাদা-কালো",
+    "কাইনেটিক",
+    "ছবি"
+   ]
+  },
+  "template:tit7-always-strive": {
+   "name": "শিরোনাম: লাল ছায়া ও চিহ্ন সহ বাক্য",
+   "tags": [
+    "শিরোনাম",
+    "টাইপোগ্রাফি",
+    "রঙিন",
+    "কাইনেটিক",
+    "ছায়া"
+   ]
+  },
+  "template:tit7-art-always": {
+   "name": "শিরোনাম: লাল, সায়ান ও সাদা অক্ষর",
+   "tags": [
+    "শিরোনাম",
+    "টাইপোগ্রাফি",
+    "রঙিন",
+    "কাইনেটিক",
+    "গ্লিচ"
+   ]
+  },
+  "template:tit7-big": {
+   "name": "শিরোনাম: ছায়া ও দুটি রঙিন বর্গ সহ বক্স",
+   "tags": [
+    "শিরোনাম",
+    "টাইপোগ্রাফি",
+    "রঙিন",
+    "কাইনেটিক",
+    "বর্গ"
+   ]
+  },
+  "template:tit7-ciencia": {
+   "name": "শিরোনাম: স্ল্যাব অক্ষর সহ কালো বক্স",
+   "tags": [
+    "শিরোনাম",
+    "টাইপোগ্রাফি",
+    "রঙিন",
+    "কাইনেটিক",
+    "স্ল্যাব"
+   ]
+  },
+  "template:tit7-colorful": {
+   "name": "শিরোনাম: শব্দের ভেতরে ছবি সহ সাদা ব্যান্ড",
+   "tags": [
+    "শিরোনাম",
+    "টাইপোগ্রাফি",
+    "রঙিন",
+    "কাইনেটিক",
+    "ছবি"
+   ]
+  },
+  "template:tit7-concept-azul": {
+   "name": "শিরোনাম: নীলের ওপর চওড়া শব্দ",
+   "tags": [
+    "শিরোনাম",
+    "টাইপোগ্রাফি",
+    "রঙিন",
+    "কাইনেটিক",
+    "নীল"
+   ]
+  },
+  "template:tit7-concept-oscuro": {
+   "name": "শিরোনাম: বড় অক্ষরের ওপর নীল বক্স",
+   "tags": [
+    "শিরোনাম",
+    "টাইপোগ্রাফি",
+    "রঙিন",
+    "কাইনেটিক",
+    "নীল"
+   ]
+  },
+  "template:tit7-create": {
+   "name": "শিরোনাম: ধূসর শব্দ ও সাদা কার্ড",
+   "tags": [
+    "শিরোনাম",
+    "টাইপোগ্রাফি",
+    "রঙিন",
+    "কাইনেটিক"
+   ]
+  },
+  "template:tit7-dynamic": {
+   "name": "শিরোনাম: কাছে আসা ফ্রেম ও নীল চিহ্ন",
+   "tags": [
+    "শিরোনাম",
+    "টাইপোগ্রাফি",
+    "রঙিন",
+    "কাইনেটিক",
+    "ফ্রেম"
+   ]
+  },
+  "template:tit7-easy-editing": {
+   "name": "শিরোনাম: হলুদ নকশার ওপর লাল অক্ষর",
+   "tags": [
+    "শিরোনাম",
+    "টাইপোগ্রাফি",
+    "রঙিন",
+    "কাইনেটিক",
+    "হলুদ"
+   ]
+  },
+  "template:tit7-enjoy": {
+   "name": "শিরোনাম: ঘুরন্ত বর্গ ও ভাঙা শব্দ",
+   "tags": [
+    "শিরোনাম",
+    "টাইপোগ্রাফি",
+    "রঙিন",
+    "কাইনেটিক",
+    "বর্গ"
+   ]
+  },
+  "template:tit7-fashion": {
+   "name": "শিরোনাম: বিশাল অক্ষরের ভেতরে ছবি ও একটি বক্স",
+   "tags": [
+    "শিরোনাম",
+    "টাইপোগ্রাফি",
+    "রঙিন",
+    "কাইনেটিক",
+    "ছবি",
+    "ফ্যাশন"
+   ]
+  },
+  "template:tit7-health-box": {
+   "name": "শিরোনাম: দুই সারির মাঝে শব্দের দেয়াল ধরা বর্গ",
+   "tags": [
+    "শিরোনাম",
+    "টাইপোগ্রাফি",
+    "রঙিন",
+    "কাইনেটিক",
+    "বর্গ"
+   ]
+  },
+  "template:tit7-health-wall": {
+   "name": "শিরোনাম: শব্দের তির্যক দেয়াল",
+   "tags": [
+    "শিরোনাম",
+    "টাইপোগ্রাফি",
+    "রঙিন",
+    "কাইনেটিক",
+    "তির্যক"
+   ]
+  },
+  "template:tit7-look": {
+   "name": "শিরোনাম: বিশাল অক্ষর ও নীল ফ্রেম",
+   "tags": [
+    "শিরোনাম",
+    "টাইপোগ্রাফি",
+    "রঙিন",
+    "কাইনেটিক",
+    "ফ্রেম"
+   ]
+  },
+  "template:tit7-love": {
+   "name": "শিরোনাম: গোলাপি ছবির ওপর সরে যাওয়া শব্দ",
+   "tags": [
+    "শিরোনাম",
+    "টাইপোগ্রাফি",
+    "রঙিন",
+    "কাইনেটিক",
+    "ছবি"
+   ]
+  },
+  "template:tit7-modern": {
+   "name": "শিরোনাম: সংখ্যা সহ মার্জিত সেরিফ",
+   "tags": [
+    "শিরোনাম",
+    "টাইপোগ্রাফি",
+    "রঙিন",
+    "কাইনেটিক",
+    "সেরিফ"
+   ]
+  },
+  "template:tit7-never-give-up": {
+   "name": "শিরোনাম: চারটি ধাপে ছবি ও একটি বাক্য",
+   "tags": [
+    "শিরোনাম",
+    "টাইপোগ্রাফি",
+    "রঙিন",
+    "কাইনেটিক",
+    "ছবি"
+   ]
+  },
+  "template:tit7-newest": {
+   "name": "শিরোনাম: সবুজ বার সহ আউটলাইন শব্দ",
+   "tags": [
+    "শিরোনাম",
+    "টাইপোগ্রাফি",
+    "রঙিন",
+    "কাইনেটিক",
+    "আউটলাইন"
+   ]
+  },
+  "template:tit7-scene": {
+   "name": "শিরোনাম: ছবির ওপর ডোরা, সাদা প্যানেল ও সংখ্যা",
+   "tags": [
+    "শিরোনাম",
+    "টাইপোগ্রাফি",
+    "রঙিন",
+    "কাইনেটিক",
+    "ডোরা",
+    "ছবি"
+   ]
+  },
+  "template:tit7-text-animation": {
+   "name": "শিরোনাম: ছবির ওপর লেখার সারি",
+   "tags": [
+    "শিরোনাম",
+    "টাইপোগ্রাফি",
+    "রঙিন",
+    "কাইনেটিক",
+    "ছবি"
+   ]
+  },
+  "template:tit7-typography": {
+   "name": "শিরোনাম: চারপাশে অক্ষর সহ গোলাপি কার্ড",
+   "tags": [
+    "শিরোনাম",
+    "টাইপোগ্রাফি",
+    "রঙিন",
+    "কাইনেটিক",
+    "ছবি"
+   ]
+  },
+  "template:tk0-cintas-telefono": {
+   "name": "স্টোরি: শব্দের ফিতা ও একটি ফোন",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "উল্লম্ব",
+    "ফিতা",
+    "ফোন"
+   ]
+  },
+  "template:tk0-collage-azul": {
+   "name": "স্টোরি: নীল ও কালোতে তিন ছবির কোলাজ",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "উল্লম্ব",
+    "কোলাজ",
+    "ছবি"
+   ]
+  },
+  "template:tk0-collage-negro": {
+   "name": "স্টোরি: স্টিকারসহ ছয় ছবির কোলাজ",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "উল্লম্ব",
+    "কোলাজ",
+    "ছবি"
+   ]
+  },
+  "template:tk0-creas-tendencias": {
+   "name": "স্টোরি: আপনি কি ট্রেন্ড তৈরি করেন? লাল বুদবুদ",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "উল্লম্ব",
+    "প্রশ্ন",
+    "গোলাপি"
+   ]
+  },
+  "template:tk0-empieza-aqui": {
+   "name": "স্টোরি: ট্রেন্ড শুরু হয় এখান থেকে",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "উল্লম্ব",
+    "ট্রেন্ড",
+    "নীল"
+   ]
+  },
+  "template:tk0-mision": {
+   "name": "স্টোরি: লালে ছবিসহ আমাদের লক্ষ্য",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "উল্লম্ব",
+    "লক্ষ্য",
+    "লাল"
+   ]
+  },
+  "template:tk0-nueva-era": {
+   "name": "স্টোরি: ভিডিওর নতুন যুগ",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "উল্লম্ব",
+    "ভিডিও",
+    "লাল"
+   ]
+  },
+  "template:tk0-nuevo-video": {
+   "name": "স্টোরি: ফোনসহ NEW VIDEO",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "উল্লম্ব",
+    "ভিডিও",
+    "নতুন"
+   ]
+  },
+  "template:tk0-plantilla": {
+   "name": "স্টোরি: ছবিসহ সবার জন্য টেমপ্লেট",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "উল্লম্ব",
+    "টেমপ্লেট",
+    "নীল"
+   ]
+  },
+  "template:tk0-plataforma": {
+   "name": "স্টোরি: দুটি ফোনসহ নতুন প্ল্যাটফর্ম",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "উল্লম্ব",
+    "প্ল্যাটফর্ম",
+    "কালো"
+   ]
+  },
+  "template:tk0-promo-negro": {
+   "name": "স্টোরি: কালোতে নীল বুদবুদে SUPER PROMO",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "উল্লম্ব",
+    "প্রোমো",
+    "কালো"
+   ]
+  },
+  "template:tk0-promo-x": {
+   "name": "স্টোরি: ক্রস করা ফিতায় PROMO",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "উল্লম্ব",
+    "প্রোমো",
+    "কালো"
+   ]
+  },
+  "template:tk0-que-ves": {
+   "name": "স্টোরি: কী দেখতে ভালো লাগে? চ্যাট",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "উল্লম্ব",
+    "চ্যাট",
+    "প্রশ্ন"
+   ]
+  },
+  "template:tk0-recordatorio": {
+   "name": "স্টোরি: ভিডিওর ওপর রিমাইন্ডার পোল",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "উল্লম্ব",
+    "পোল",
+    "রিমাইন্ডার"
+   ]
+  },
+  "template:tk0-tendencias": {
+   "name": "স্টোরি: গোলাপি ও নীলে ভাইরাল ট্রেন্ড",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "উল্লম্ব",
+    "ট্রেন্ড",
+    "গোলাপি"
+   ]
+  },
+  "template:tk0-trendy": {
+   "name": "স্টোরি: রঙিন ব্যান্ডসহ TRENDY STYLE",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "উল্লম্ব",
+    "ট্রেন্ড",
+    "নীল"
+   ]
+  },
+  "template:tk1-tipografia": {
+   "name": "টাইপোগ্রাফি ওপেনার: প্রতি বিটে একটি শব্দ",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "ওপেনার",
+    "টাইপোগ্রাফি",
+    "শব্দ"
+   ]
+  },
+  "template:tk2-alice": {
+   "name": "স্টোরি: ছবিসহ Alice Braun",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "নাম",
+    "ছবি",
+    "নীল"
+   ]
+  },
+  "template:tk2-austin": {
+   "name": "স্টোরি: নতুন ভিডিওসহ Austin Grant",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "নাম",
+    "ছবি",
+    "কালো"
+   ]
+  },
+  "template:tk2-baile": {
+   "name": "স্টোরি: তিনটি ছবিসহ Just dance",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "নাচ",
+    "ছবি",
+    "নীল"
+   ]
+  },
+  "template:tk2-belleza": {
+   "name": "স্টোরি: About Beauty for You",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "সৌন্দর্য",
+    "ছবি",
+    "কালো"
+   ]
+  },
+  "template:tk2-blogger": {
+   "name": "স্টোরি: বলয়সহ Social blogger",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "বলয়",
+    "ছবি",
+    "কালো"
+   ]
+  },
+  "template:tk2-contenido": {
+   "name": "স্টোরি: গ্রিডে বিভিন্ন কনটেন্ট",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "গ্রিড",
+    "ছবি",
+    "কালো"
+   ]
+  },
+  "template:tk2-follow": {
+   "name": "স্টোরি: হৃদয়সহ ফলো",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "ফলো",
+    "হৃদয়",
+    "কালো"
+   ]
+  },
+  "template:tk2-isabella": {
+   "name": "স্টোরি: ছবিসহ Isabella Walker",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "নাম",
+    "ছবি",
+    "নীল"
+   ]
+  },
+  "template:tk2-lifestyle": {
+   "name": "স্টোরি: ভিডিওসহ #lifestyle",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "লাইফস্টাইল",
+    "ভিডিও",
+    "লাল"
+   ]
+  },
+  "template:tk2-new": {
+   "name": "স্টোরি: হৃদয়সহ NEW",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "নতুন",
+    "ছবি",
+    "কালো"
+   ]
+  },
+  "template:tk2-nuevo-video": {
+   "name": "স্টোরি: ছবিসহ নতুন ভিডিও",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "নতুন ভিডিও",
+    "ছবি",
+    "লাল"
+   ]
+  },
+  "template:tk2-perfil": {
+   "name": "স্টোরি: ফলোয়ারসহ একটি প্রোফাইল",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "প্রোফাইল",
+    "ফলোয়ার",
+    "ছবি"
+   ]
+  },
+  "template:tk2-suscriptores": {
+   "name": "স্টোরি: নতুন সাবস্ক্রাইবার পান",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "সাবস্ক্রাইবার",
+    "ছবি",
+    "কালো"
+   ]
+  },
+  "template:tk2-tarjeta": {
+   "name": "স্টোরি: আপনার লোগো ও স্টিকারসহ কার্ড",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "লোগো",
+    "স্টিকার",
+    "নীল"
+   ]
+  },
+  "template:tk2-tendencias": {
+   "name": "স্টোরি: লাল ব্যান্ডসহ ট্রেন্ড",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "ট্রেন্ড",
+    "ছবি",
+    "নীল"
+   ]
+  },
+  "template:tk3-diseno": {
+   "name": "স্টোরি: সরু রেখাসহ Fashion Design",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "ফ্যাশন",
+    "প্যাস্টেল",
+    "ডিজাইন"
+   ]
+  },
+  "template:tk3-estilo-de-vida": {
+   "name": "স্টোরি: ঘূর্ণায়মান ত্রিভুজসহ Lifestyle",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "ফ্যাশন",
+    "প্যাস্টেল",
+    "লাইফস্টাইল"
+   ]
+  },
+  "template:tk3-gracias": {
+   "name": "এন্ড কার্ড: Thanks For Watching!",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "ফ্যাশন",
+    "প্যাস্টেল",
+    "সমাপ্তি"
+   ]
+  },
+  "template:tk3-rebajas": {
+   "name": "স্টোরি: ৫০% OFF বাক্সসহ ফ্যাশন সেল",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "ফ্যাশন",
+    "প্যাস্টেল",
+    "সেল"
+   ]
+  },
+  "template:tk3-rebajas-2": {
+   "name": "স্টোরি: ছবির ওপর ৫০% সহ Fashion Sale",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "ফ্যাশন",
+    "প্যাস্টেল",
+    "সেল"
+   ]
+  },
+  "template:tk3-siguiente-nivel": {
+   "name": "স্টোরি: উল্লম্ব ৫০% OFF সহ The Next Level Of Fashion",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "ফ্যাশন",
+    "প্যাস্টেল",
+    "ছাড়"
+   ]
+  },
+  "template:tk3-siguiente-nivel-2": {
+   "name": "স্টোরি: Get 50% OFF সহ The Next Level Of Fashion",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "ফ্যাশন",
+    "প্যাস্টেল",
+    "ছাড়"
+   ]
+  },
+  "template:tk3-sorteo": {
+   "name": "স্টোরি: Giveaway!",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "ফ্যাশন",
+    "প্যাস্টেল",
+    "গিভঅ্যাওয়ে"
+   ]
+  },
+  "template:tk3-tendencia": {
+   "name": "স্টোরি: ৫০% সহ Keep It Trendy",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "ফ্যাশন",
+    "প্যাস্টেল",
+    "ট্রেন্ড"
+   ]
+  },
+  "template:tk4-dynamic": {
+   "name": "ডাইনামিক ওপেনার: লাল ও কালো ছবি",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "ওপেনার",
+    "স্লাইডশো",
+    "ডাইনামিক"
+   ]
+  },
+  "template:tk4-fast": {
+   "name": "ফাস্ট ওপেনার: রঙিন ছবির ওপর শব্দ",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "ওপেনার",
+    "স্লাইডশো",
+    "দ্রুত"
+   ]
+  },
+  "template:tk4-modern": {
+   "name": "মডার্ন ওপেনার: হলুদ, সোনালি ও গ্রিড",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "ওপেনার",
+    "স্লাইডশো",
+    "আধুনিক"
+   ]
+  },
+  "template:tk4-rhythm": {
+   "name": "রিদম ওপেনার: গ্রেডিয়েন্ট শব্দ",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "ওপেনার",
+    "স্লাইডশো",
+    "ছন্দ"
+   ]
+  },
+  "template:tk4-stomp": {
+   "name": "স্টম্প ওপেনার: ছবিসহ প্রতি বিটে একটি শব্দ",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "ওপেনার",
+    "স্লাইডশো",
+    "স্টম্প"
+   ]
+  },
+  "template:tk4-typo": {
+   "name": "টাইপো ওপেনার: কালো শব্দ ও ছবি",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "ওপেনার",
+    "স্লাইডশো",
+    "টাইপোগ্রাফি"
+   ]
+  },
+  "template:tk5-carefree": {
+   "name": "স্টোরি: উল্লম্ব CAREFREE LIVING",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "সাদা-কালো",
+    "ছবি",
+    "উল্লম্ব"
+   ]
+  },
+  "template:tk5-endless": {
+   "name": "স্টোরি: ENDLESS LOVING CONVERSATIONS",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "সাদা-কালো",
+    "লেখা"
+   ]
+  },
+  "template:tk5-find": {
+   "name": "স্টোরি: FIND HIDDEN GEMS",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "সাদা-কালো",
+    "লেখা"
+   ]
+  },
+  "template:tk5-follow": {
+   "name": "স্টোরি: FOLLOW YOUR DREAM",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "সাদা-কালো",
+    "লেখা"
+   ]
+  },
+  "template:tk5-foto-cae": {
+   "name": "স্টোরি: নেমে ও উঠে আসা ছবি",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "সাদা-কালো",
+    "ছবি"
+   ]
+  },
+  "template:tk5-foto-lado": {
+   "name": "স্টোরি: পাশ থেকে সরে আসা ছবি",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "সাদা-কালো",
+    "ছবি"
+   ]
+  },
+  "template:tk5-foto-sube": {
+   "name": "স্টোরি: ওপরে ওঠা ছবি",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "সাদা-কালো",
+    "ছবি"
+   ]
+  },
+  "template:tk5-freedom": {
+   "name": "স্টোরি: দুটি ছবিসহ FREEDOM ও PLEASING",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "সাদা-কালো",
+    "ছবি",
+    "কোলাজ"
+   ]
+  },
+  "template:tk5-join": {
+   "name": "স্টোরি: JOIN THE JOURNEY কল টু অ্যাকশন",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "সাদা-কালো",
+    "কল টু অ্যাকশন",
+    "লোগো"
+   ]
+  },
+  "template:tk5-laughter": {
+   "name": "স্টোরি: LAUGHTER OF A LOVED ONE",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "সাদা-কালো",
+    "ছবি"
+   ]
+  },
+  "template:tk5-stars": {
+   "name": "স্টোরি: কলামে STARS ও DREAMS",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "সাদা-কালো",
+    "ছবি",
+    "কোলাজ"
+   ]
+  },
+  "template:tk5-sunshine": {
+   "name": "স্টোরি: ছবিসহ SUNSHINE FILLS SKIES",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "সাদা-কালো",
+    "ছবি",
+    "কোলাজ"
+   ]
+  },
+  "template:tk6-discovery": {
+   "name": "স্টোরি: DISCOVERY ও SPACESUIT কোলাজ",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "টিল",
+    "ছবি",
+    "কোলাজ"
+   ]
+  },
+  "template:tk6-dreams": {
+   "name": "স্টোরি: DREAMS কোলাজ",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "টিল",
+    "ছবি",
+    "কোলাজ"
+   ]
+  },
+  "template:tk6-flower": {
+   "name": "স্টোরি: FLOWER BEAUTY কোলাজ",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "টিল",
+    "ছবি",
+    "কোলাজ"
+   ]
+  },
+  "template:tk6-foto-cae": {
+   "name": "স্টোরি: ফ্রেমে নেমে আসা ছবি",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "টিল",
+    "ছবি"
+   ]
+  },
+  "template:tk6-foto-lado": {
+   "name": "স্টোরি: ফ্রেমে পাশ থেকে সরে আসা ছবি",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "টিল",
+    "ছবি"
+   ]
+  },
+  "template:tk6-freedom": {
+   "name": "স্টোরি: FREEDOM কলাম",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "টিল",
+    "ছবি",
+    "উল্লম্ব"
+   ]
+  },
+  "template:tk6-modern": {
+   "name": "স্টোরি: MODERN STORIES কোলাজ",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "টিল",
+    "ছবি",
+    "কোলাজ"
+   ]
+  },
+  "template:tk6-savor": {
+   "name": "স্টোরি: SAVOR LIFE'S GOODNESS কল টু অ্যাকশন",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "টিল",
+    "কল টু অ্যাকশন",
+    "লোগো"
+   ]
+  },
+  "template:tk6-starry": {
+   "name": "স্টোরি: কোলাজে ছোট হয়ে যাওয়া STARRY NIGHTS",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "টিল",
+    "ছবি",
+    "কোলাজ"
+   ]
+  },
+  "template:tk6-times-now": {
+   "name": "স্টোরি: দুটি ছবিসহ TIME'S NOW",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "টিল",
+    "ছবি",
+    "উল্লম্ব"
+   ]
+  },
+  "template:tk6-wind": {
+   "name": "স্টোরি: দুটি ছবিসহ WIND ও AURA",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "টিল",
+    "ছবি",
+    "কোলাজ"
+   ]
+  },
+  "template:tk7-blooms": {
+   "name": "স্টোরি: লালে BLOOMS ALL AROUND",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "ফুল",
+    "রঙিন",
+    "ফ্যাশন"
+   ]
+  },
+  "template:tk7-bold": {
+   "name": "স্টোরি: BOLD COLORS SWAY কোলাজ",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "ফুল",
+    "রঙিন",
+    "ফ্যাশন"
+   ]
+  },
+  "template:tk7-breezy": {
+   "name": "স্টোরি: BREEZY SPRING ATTIRE কোলাজ",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "ফুল",
+    "রঙিন",
+    "ফ্যাশন"
+   ]
+  },
+  "template:tk7-canvas": {
+   "name": "স্টোরি: CANVAS LIFE BODY কোলাজ",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "ফুল",
+    "রঙিন",
+    "ফ্যাশন"
+   ]
+  },
+  "template:tk7-characters": {
+   "name": "স্টোরি: ছবির নিচে COLORFUL CHARACTERS",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "ফুল",
+    "রঙিন",
+    "ফ্যাশন"
+   ]
+  },
+  "template:tk7-colorful-and": {
+   "name": "স্টোরি: দুই ছবির মাঝে COLORFUL AND CONFIDENCE",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "ফুল",
+    "রঙিন",
+    "ফ্যাশন"
+   ]
+  },
+  "template:tk7-discover-more": {
+   "name": "এন্ড স্টোরি: আপনার লোগোসহ DISCOVER MORE",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "ফুল",
+    "রঙিন",
+    "ফ্যাশন"
+   ]
+  },
+  "template:tk7-embrace": {
+   "name": "স্টোরি: ছবিকে ঘিরে EMBRACE ও EXPRESSION",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "ফুল",
+    "রঙিন",
+    "ফ্যাশন"
+   ]
+  },
+  "template:tk7-embrace-your-life": {
+   "name": "স্টোরি: চারটি ছবিসহ EMBRACE YOUR LIFE",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "ফুল",
+    "রঙিন",
+    "ফ্যাশন"
+   ]
+  },
+  "template:tk7-flower": {
+   "name": "স্টোরি: নীলে FLOWER PARADISE DELIGHT",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "ফুল",
+    "রঙিন",
+    "ফ্যাশন"
+   ]
+  },
+  "template:tk7-sale": {
+   "name": "স্টোরি: দুটি ছবিসহ SALE SALE SALE",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "ফুল",
+    "রঙিন",
+    "ফ্যাশন"
+   ]
+  },
+  "template:tk7-savor": {
+   "name": "স্টোরি: ছবির কলামসহ SAVOR MOMENTS NOW",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "ফুল",
+    "রঙিন",
+    "ফ্যাশন"
+   ]
+  },
+  "template:tk8-apple-pie": {
+   "name": "স্টোরি: SWEET APPLE PIE ও SAVOR EVERY BITE",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "খাবার",
+    "রেস্তোরাঁ",
+    "হলুদ"
+   ]
+  },
+  "template:tk8-bbq": {
+   "name": "স্টোরি: পাঁচটি ছবিসহ BBQ SMOKE RISING",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "খাবার",
+    "রেস্তোরাঁ",
+    "হলুদ"
+   ]
+  },
+  "template:tk8-big-sale": {
+   "name": "স্টোরি: তিনটি ছবিসহ BIG -50% SALE",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "খাবার",
+    "রেস্তোরাঁ",
+    "হলুদ"
+   ]
+  },
+  "template:tk8-buy-now": {
+   "name": "স্টোরি: পাঁচটি ছবিসহ BUY NOW",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "খাবার",
+    "রেস্তোরাঁ",
+    "হলুদ"
+   ]
+  },
+  "template:tk8-crispy-fries": {
+   "name": "স্টোরি: তিনটি ছবিসহ CRISPY GOLDEN FRIES",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "খাবার",
+    "রেস্তোরাঁ",
+    "হলুদ"
+   ]
+  },
+  "template:tk8-discover-flavors": {
+   "name": "এন্ড স্টোরি: আপনার লোগোসহ DISCOVER NEW FLAVORS",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "খাবার",
+    "রেস্তোরাঁ",
+    "হলুদ"
+   ]
+  },
+  "template:tk8-fast-food": {
+   "name": "স্টোরি: FAST FOOD ADDICTION",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "খাবার",
+    "রেস্তোরাঁ",
+    "হলুদ"
+   ]
+  },
+  "template:tk8-food-lovers": {
+   "name": "স্টোরি: চারটি ছবিসহ FOOD LOVERS UNITE",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "খাবার",
+    "রেস্তোরাঁ",
+    "হলুদ"
+   ]
+  },
+  "template:tk8-fried-chicken": {
+   "name": "স্টোরি: FRIED CHICKEN DELIGHT",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "খাবার",
+    "রেস্তোরাঁ",
+    "হলুদ"
+   ]
+  },
+  "template:tk8-hot-dogs": {
+   "name": "স্টোরি: HOT DOGS ও CRISPY FRIES",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "খাবার",
+    "রেস্তোরাঁ",
+    "হলুদ"
+   ]
+  },
+  "template:tk8-lowest-price": {
+   "name": "স্টোরি: THE LOWEST PRICE",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "খাবার",
+    "রেস্তোরাঁ",
+    "হলুদ"
+   ]
+  },
+  "template:tk8-new-york-pizza": {
+   "name": "স্টোরি: ফুল স্ক্রিন থেকে কোলাজে NEW YORK PIZZA",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "খাবার",
+    "রেস্তোরাঁ",
+    "হলুদ"
+   ]
+  },
+  "template:tk8-nice-diners": {
+   "name": "স্টোরি: লম্বা ছবিসহ NICE DINERS",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "খাবার",
+    "রেস্তোরাঁ",
+    "হলুদ"
+   ]
+  },
+  "template:tk9-limpia": {
+   "name": "ক্লিন ওপেনার: বিটে শব্দ ও ছবি",
+   "tags": [
+    "tiktok",
+    "স্টোরি",
+    "রিলস",
+    "ওপেনার",
+    "টাইপোগ্রাফি",
+    "শব্দ"
+   ]
+  },
   "template:top-5-mas-vendidos": {
    "name": "সেরা ৫ বেস্টসেলার",
    "tags": [
@@ -31430,6 +38092,3341 @@
     "ঝিকিমিকি",
     "গোলাপি",
     "অ্যাস্থেটিক"
+   ]
+  },
+  "template:yp0-barra-campana": {
+   "name": "লাইক, বেল ও সাবস্ক্রাইব সহ বার",
+   "tags": [
+    "youtube",
+    "সাবস্ক্রাইব",
+    "বাটন",
+    "বার",
+    "ক্লিক",
+    "লাইক"
+   ]
+  },
+  "template:yp0-barra-canal": {
+   "name": "লাইক, সাবস্ক্রাইব ও বেল সহ চ্যানেল বার",
+   "tags": [
+    "youtube",
+    "সাবস্ক্রাইব",
+    "বাটন",
+    "বার",
+    "ক্লিক",
+    "লাইক"
+   ]
+  },
+  "template:yp0-barra-me-gusta": {
+   "name": "লাইক, ডিসলাইক ও সাবস্ক্রাইব সহ বার",
+   "tags": [
+    "youtube",
+    "সাবস্ক্রাইব",
+    "বাটন",
+    "বার",
+    "ক্লিক",
+    "লাইক"
+   ]
+  },
+  "template:yp0-barra-seguidores": {
+   "name": "ফলোয়ার কাউন্টার সহ চ্যানেল বার",
+   "tags": [
+    "youtube",
+    "সাবস্ক্রাইব",
+    "বাটন",
+    "বার",
+    "কাউন্টার",
+    "ফলোয়ার"
+   ]
+  },
+  "template:yp0-fila-grande": {
+   "name": "বড় লাইক, সাবস্ক্রাইব ও বেল",
+   "tags": [
+    "youtube",
+    "সাবস্ক্রাইব",
+    "বাটন",
+    "ক্লিক",
+    "লাইক",
+    "বেল"
+   ]
+  },
+  "template:yp0-redes": {
+   "name": "ফলো বাটন সহ সোশ্যাল বার",
+   "tags": [
+    "youtube",
+    "সাবস্ক্রাইব",
+    "বাটন",
+    "সোশ্যাল মিডিয়া",
+    "facebook",
+    "instagram"
+   ]
+  },
+  "template:yp0-tarjeta-canal": {
+   "name": "সাবস্ক্রাইব সহ চ্যানেল কার্ড",
+   "tags": [
+    "youtube",
+    "সাবস্ক্রাইব",
+    "বাটন",
+    "কার্ড",
+    "ক্লিক"
+   ]
+  },
+  "template:yp0-tarjeta-iconos": {
+   "name": "সাবস্ক্রাইব, লাইক ও বেল সহ কার্ড",
+   "tags": [
+    "youtube",
+    "সাবস্ক্রাইব",
+    "বাটন",
+    "কার্ড",
+    "ক্লিক",
+    "লাইক"
+   ]
+  },
+  "template:yp0-tarjeta-mini": {
+   "name": "ছোট সাবস্ক্রাইব কার্ড",
+   "tags": [
+    "youtube",
+    "সাবস্ক্রাইব",
+    "বাটন",
+    "কার্ড",
+    "ক্লিক"
+   ]
+  },
+  "template:yp1-apertura-avatar-bandas": {
+   "name": "ওপেনার: নেমে আসা অ্যাভাটার ও ওপরে ওঠা ব্যান্ড",
+   "tags": [
+    "youtube",
+    "লাল",
+    "ওপেনার",
+    "অ্যাভাটার"
+   ]
+  },
+  "template:yp1-apertura-avatar-circulo": {
+   "name": "ওপেনার: অ্যাভাটার ও খুলে যাওয়া বৃত্ত",
+   "tags": [
+    "youtube",
+    "লাল",
+    "ওপেনার",
+    "অ্যাভাটার"
+   ]
+  },
+  "template:yp1-apertura-blanca": {
+   "name": "ওপেনার: সাদার ওপর হেলানো ব্যান্ড ও একটি বাটন",
+   "tags": [
+    "youtube",
+    "লাল",
+    "ওপেনার",
+    "লোগো"
+   ]
+  },
+  "template:yp1-apertura-diana": {
+   "name": "ওপেনার: লাল বৃত্তের ওপর গোল বাটন",
+   "tags": [
+    "youtube",
+    "লাল",
+    "ওপেনার",
+    "লোগো"
+   ]
+  },
+  "template:yp1-apertura-flechas": {
+   "name": "ওপেনার: গাঢ় শেভরন ও গড়িয়ে চলা বাটন",
+   "tags": [
+    "youtube",
+    "লাল",
+    "ওপেনার",
+    "লোগো"
+   ]
+  },
+  "template:yp1-apertura-gotas": {
+   "name": "ওপেনার: YouTube বাটন গড়ে তোলা ফোঁটা",
+   "tags": [
+    "youtube",
+    "লাল",
+    "ওপেনার",
+    "লোগো"
+   ]
+  },
+  "template:yp1-apertura-logo-vuela": {
+   "name": "ওপেনার: পেছনে উড়ে ঘুরতে থাকা লোগো",
+   "tags": [
+    "youtube",
+    "লাল",
+    "ওপেনার",
+    "লোগো"
+   ]
+  },
+  "template:yp1-apertura-ondas": {
+   "name": "ওপেনার: লোগো, ঘূর্ণি চাপ ও লাল ঢেউ",
+   "tags": [
+    "youtube",
+    "লাল",
+    "ওপেনার",
+    "লোগো",
+    "ঢেউ"
+   ]
+  },
+  "template:yp1-apertura-tipografica-gaming": {
+   "name": "টাইপোগ্রাফিক ওপেনার: সেরা গেমিং চ্যানেল",
+   "tags": [
+    "youtube",
+    "লাল",
+    "ওপেনার",
+    "টাইপোগ্রাফি",
+    "কাইনেটিক"
+   ]
+  },
+  "template:yp1-apertura-tipografica-roja": {
+   "name": "লাল টাইপোগ্রাফিক ওপেনার: নতুন ভিডিও, লাইক ও সাবস্ক্রাইব",
+   "tags": [
+    "youtube",
+    "লাল",
+    "ওপেনার",
+    "টাইপোগ্রাফি",
+    "কাইনেটিক"
+   ]
+  },
+  "template:yp1-apertura-tipografica-suscribete": {
+   "name": "টাইপোগ্রাফিক ওপেনার: পর্বটি দেখুন ও সাবস্ক্রাইব করুন",
+   "tags": [
+    "youtube",
+    "লাল",
+    "ওপেনার",
+    "টাইপোগ্রাফি",
+    "কাইনেটিক"
+   ]
+  },
+  "template:yp1-barra-suscribir": {
+   "name": "সাবস্ক্রাইব: অ্যাভাটার, লাইক ও বেল সহ বার",
+   "tags": [
+    "youtube",
+    "লাল",
+    "সাবস্ক্রাইব",
+    "লাইক",
+    "বেল"
+   ]
+  },
+  "template:yp1-barra-vertical": {
+   "name": "লাল বারের ওপর চার লাইনের শিরোনাম",
+   "tags": [
+    "youtube",
+    "লাল",
+    "শিরোনাম",
+    "সাধারণ",
+    "বার"
+   ]
+  },
+  "template:yp1-best-video": {
+   "name": "নীল ঢেউয়ের ওপর বড় শিরোনাম",
+   "tags": [
+    "youtube",
+    "লাল",
+    "শিরোনাম",
+    "ঢেউ"
+   ]
+  },
+  "template:yp1-big-text": {
+   "name": "অন্ধকার ঘরে বড় লাল লেখা",
+   "tags": [
+    "youtube",
+    "লাল",
+    "শিরোনাম",
+    "বড়"
+   ]
+  },
+  "template:yp1-big-title": {
+   "name": "হেলানো লাল ব্যান্ডে বড় শিরোনাম",
+   "tags": [
+    "youtube",
+    "লাল",
+    "শিরোনাম",
+    "বড়"
+   ]
+  },
+  "template:yp1-bold-titles": {
+   "name": "লাল রেখা ও নিজে আঁকা ফ্রেম সহ শিরোনাম",
+   "tags": [
+    "youtube",
+    "লাল",
+    "শিরোনাম",
+    "সাধারণ",
+    "ফ্রেম"
+   ]
+  },
+  "template:yp1-cajas-tecleadas": {
+   "name": "লাল ও সাদা বক্সে টাইপ করা শিরোনাম",
+   "tags": [
+    "youtube",
+    "লাল",
+    "শিরোনাম",
+    "সাধারণ",
+    "বক্স"
+   ]
+  },
+  "template:yp1-cita-cajas-grises": {
+   "name": "লাল উদ্ধৃতিচিহ্ন সহ ধূসর বক্সে উদ্ধৃতি",
+   "tags": [
+    "youtube",
+    "লাল",
+    "উদ্ধৃতি",
+    "বাক্য"
+   ]
+  },
+  "template:yp1-cita-centrada": {
+   "name": "দুই লাইনের মাঝে মাঝখানে উদ্ধৃতি",
+   "tags": [
+    "youtube",
+    "লাল",
+    "উদ্ধৃতি",
+    "বাক্য"
+   ]
+  },
+  "template:yp1-cita-circulo": {
+   "name": "লাল বৃত্তে উদ্ধৃতি",
+   "tags": [
+    "youtube",
+    "লাল",
+    "উদ্ধৃতি",
+    "বাক্য"
+   ]
+  },
+  "template:yp1-cita-cuadro-rojo": {
+   "name": "পাশের ট্যাব সহ লাল বর্গে উদ্ধৃতি",
+   "tags": [
+    "youtube",
+    "লাল",
+    "উদ্ধৃতি",
+    "বাক্য"
+   ]
+  },
+  "template:yp1-cita-etiqueta": {
+   "name": "লাল লেখক ট্যাগ সহ উদ্ধৃতি",
+   "tags": [
+    "youtube",
+    "লাল",
+    "উদ্ধৃতি",
+    "বাক্য"
+   ]
+  },
+  "template:yp1-cita-marco-fino": {
+   "name": "ব্যাজ সহ সরু লাল ফ্রেমে উদ্ধৃতি",
+   "tags": [
+    "youtube",
+    "লাল",
+    "উদ্ধৃতি",
+    "বাক্য"
+   ]
+  },
+  "template:yp1-cita-marco-rojo": {
+   "name": "লাল ফ্রেম সহ টাইপ করা উদ্ধৃতি",
+   "tags": [
+    "youtube",
+    "লাল",
+    "উদ্ধৃতি",
+    "বাক্য"
+   ]
+  },
+  "template:yp1-cita-panel-rojo": {
+   "name": "লাল প্যানেলের পাশে গাঢ় বক্সে উদ্ধৃতি",
+   "tags": [
+    "youtube",
+    "লাল",
+    "উদ্ধৃতি",
+    "বাক্য"
+   ]
+  },
+  "template:yp1-columna-suscribir": {
+   "name": "সাবস্ক্রাইব: অ্যাভাটার, লাইক ও বেল সহ কলাম",
+   "tags": [
+    "youtube",
+    "লাল",
+    "সাবস্ক্রাইব",
+    "লাইক",
+    "বেল"
+   ]
+  },
+  "template:yp1-como-un-pro": {
+   "name": "লাল রেখার নিচে ধাপে ধাপে শিরোনাম",
+   "tags": [
+    "youtube",
+    "লাল",
+    "শিরোনাম",
+    "সাধারণ",
+    "ধাপে ধাপে"
+   ]
+  },
+  "template:yp1-design": {
+   "name": "ঝরে পড়া অক্ষর সহ লাল শিরোনাম",
+   "tags": [
+    "youtube",
+    "লাল",
+    "শিরোনাম",
+    "সাধারণ",
+    "ঝরে পড়া"
+   ]
+  },
+  "template:yp1-fila-suscribir": {
+   "name": "সাবস্ক্রাইব: নিচে লাইক, সাবস্ক্রাইব ও বেল",
+   "tags": [
+    "youtube",
+    "লাল",
+    "সাবস্ক্রাইব",
+    "লাইক",
+    "বেল"
+   ]
+  },
+  "template:yp1-final-banda": {
+   "name": "এন্ড স্ক্রিন: ভিডিওর ওপর গাঢ় ব্যান্ড",
+   "tags": [
+    "youtube",
+    "লাল",
+    "এন্ড স্ক্রিন",
+    "ভিডিও"
+   ]
+  },
+  "template:yp1-final-columna": {
+   "name": "এন্ড স্ক্রিন: রঙিন ভিডিওর ওপর গাঢ় কলাম",
+   "tags": [
+    "youtube",
+    "লাল",
+    "এন্ড স্ক্রিন",
+    "ভিডিও"
+   ]
+  },
+  "template:yp1-final-gracias": {
+   "name": "এন্ড স্ক্রিন: দেখার জন্য ধন্যবাদ ও সাবস্ক্রাইব",
+   "tags": [
+    "youtube",
+    "লাল",
+    "এন্ড স্ক্রিন",
+    "ধন্যবাদ"
+   ]
+  },
+  "template:yp1-final-like-share": {
+   "name": "এন্ড স্ক্রিন: প্রস্তাবিত ভিডিও এবং লাইক, কমেন্ট, শেয়ার",
+   "tags": [
+    "youtube",
+    "লাল",
+    "এন্ড স্ক্রিন",
+    "সোশ্যাল মিডিয়া"
+   ]
+  },
+  "template:yp1-fondo-arcos": {
+   "name": "ব্যাকগ্রাউন্ড: ছড়ানো লাল চাপ ও ড্যাশ",
+   "tags": [
+    "youtube",
+    "লাল",
+    "ব্যাকগ্রাউন্ড",
+    "আকার"
+   ]
+  },
+  "template:yp1-fondo-bloques": {
+   "name": "ব্যাকগ্রাউন্ড: লাল বর্গ সহ সাদা ব্লক",
+   "tags": [
+    "youtube",
+    "লাল",
+    "ব্যাকগ্রাউন্ড",
+    "ব্লক"
+   ]
+  },
+  "template:yp1-fondo-botones": {
+   "name": "ব্যাকগ্রাউন্ড: প্লে বাটনের সারি",
+   "tags": [
+    "youtube",
+    "লাল",
+    "ব্যাকগ্রাউন্ড"
+   ]
+  },
+  "template:yp1-fondo-capas": {
+   "name": "ব্যাকগ্রাউন্ড: স্তরে স্তরে লাল ঢেউ",
+   "tags": [
+    "youtube",
+    "লাল",
+    "ব্যাকগ্রাউন্ড",
+    "ঢেউ"
+   ]
+  },
+  "template:yp1-fondo-cruces": {
+   "name": "ব্যাকগ্রাউন্ড: গোলাপি ও সাদা ক্রস",
+   "tags": [
+    "youtube",
+    "লাল",
+    "ব্যাকগ্রাউন্ড",
+    "আকার"
+   ]
+  },
+  "template:yp1-fondo-destellos": {
+   "name": "ব্যাকগ্রাউন্ড: তির্যক লাল দাগ",
+   "tags": [
+    "youtube",
+    "লাল",
+    "ব্যাকগ্রাউন্ড",
+    "আলো"
+   ]
+  },
+  "template:yp1-fondo-espiral": {
+   "name": "ব্যাকগ্রাউন্ড: লাল, সাদা ও ধূসর সর্পিল",
+   "tags": [
+    "youtube",
+    "লাল",
+    "ব্যাকগ্রাউন্ড",
+    "সর্পিল"
+   ]
+  },
+  "template:yp1-fondo-flechas": {
+   "name": "ব্যাকগ্রাউন্ড: এগিয়ে চলা লাল শেভরন",
+   "tags": [
+    "youtube",
+    "লাল",
+    "ব্যাকগ্রাউন্ড",
+    "তীর"
+   ]
+  },
+  "template:yp1-fondo-guiones": {
+   "name": "ব্যাকগ্রাউন্ড: উড়ন্ত লাল ড্যাশ",
+   "tags": [
+    "youtube",
+    "লাল",
+    "ব্যাকগ্রাউন্ড",
+    "আকার"
+   ]
+  },
+  "template:yp1-fondo-lineas": {
+   "name": "ব্যাকগ্রাউন্ড: সরু ঢেউখেলানো লাল রেখা",
+   "tags": [
+    "youtube",
+    "লাল",
+    "ব্যাকগ্রাউন্ড",
+    "রেখা"
+   ]
+  },
+  "template:yp1-fondo-liquido-azul": {
+   "name": "ব্যাকগ্রাউন্ড: নীল তরল",
+   "tags": [
+    "youtube",
+    "লাল",
+    "ব্যাকগ্রাউন্ড",
+    "তরল"
+   ]
+  },
+  "template:yp1-fondo-liquido-oscuro": {
+   "name": "ব্যাকগ্রাউন্ড: গাঢ় লাল তরল",
+   "tags": [
+    "youtube",
+    "লাল",
+    "ব্যাকগ্রাউন্ড",
+    "তরল"
+   ]
+  },
+  "template:yp1-fondo-ondas-gruesas": {
+   "name": "ব্যাকগ্রাউন্ড: মোটা লাল ঢেউ",
+   "tags": [
+    "youtube",
+    "লাল",
+    "ব্যাকগ্রাউন্ড",
+    "ঢেউ"
+   ]
+  },
+  "template:yp1-fondo-puntos": {
+   "name": "ব্যাকগ্রাউন্ড: স্পন্দিত লাল বিন্দু",
+   "tags": [
+    "youtube",
+    "লাল",
+    "ব্যাকগ্রাউন্ড",
+    "বিন্দু"
+   ]
+  },
+  "template:yp1-fondo-rayas": {
+   "name": "ব্যাকগ্রাউন্ড: তির্যক লাল ডোরা",
+   "tags": [
+    "youtube",
+    "লাল",
+    "ব্যাকগ্রাউন্ড",
+    "ডোরা"
+   ]
+  },
+  "template:yp1-fondo-rayas-onduladas": {
+   "name": "ব্যাকগ্রাউন্ড: ঢেউখেলানো লাল ডোরা",
+   "tags": [
+    "youtube",
+    "লাল",
+    "ব্যাকগ্রাউন্ড",
+    "ঢেউ"
+   ]
+  },
+  "template:yp1-fondo-redes": {
+   "name": "ব্যাকগ্রাউন্ড: সোশ্যাল মিডিয়া আইকন",
+   "tags": [
+    "youtube",
+    "লাল",
+    "ব্যাকগ্রাউন্ড",
+    "সোশ্যাল মিডিয়া"
+   ]
+  },
+  "template:yp1-fondo-texto": {
+   "name": "ব্যাকগ্রাউন্ড: বারবার সম্পাদনাযোগ্য লেখা",
+   "tags": [
+    "youtube",
+    "লাল",
+    "ব্যাকগ্রাউন্ড",
+    "লেখা"
+   ]
+  },
+  "template:yp1-frase-ondas-rojas": {
+   "name": "লাল ঢেউয়ের ওপর তিন লাইনের বাক্য",
+   "tags": [
+    "youtube",
+    "লাল",
+    "শিরোনাম",
+    "ঢেউ",
+    "বাক্য"
+   ]
+  },
+  "template:yp1-info-anillo": {
+   "name": "ইনফো গ্রাফিক: লেখা সহ শতাংশের বলয়",
+   "tags": [
+    "ইনফোগ্রাফিক",
+    "youtube",
+    "লাল",
+    "কলআউট",
+    "পয়েন্টার",
+    "শতাংশ"
+   ]
+  },
+  "template:yp1-info-anillo-linea": {
+   "name": "ইনফো গ্রাফিক: রেখার ওপর শিরোনাম ও শতাংশের বলয়",
+   "tags": [
+    "ইনফোগ্রাফিক",
+    "youtube",
+    "লাল",
+    "কলআউট",
+    "পয়েন্টার",
+    "শতাংশ"
+   ]
+  },
+  "template:yp1-info-barra-porcentaje": {
+   "name": "ইনফো গ্রাফিক: ধূসর বক্সে শতাংশ ও লাল লেবেল",
+   "tags": [
+    "ইনফোগ্রাফিক",
+    "youtube",
+    "লাল",
+    "কলআউট",
+    "পয়েন্টার",
+    "শতাংশ"
+   ]
+  },
+  "template:yp1-info-porcentaje": {
+   "name": "ইনফো গ্রাফিক: লেবেল সহ বড় শতাংশ",
+   "tags": [
+    "ইনফোগ্রাফিক",
+    "youtube",
+    "লাল",
+    "কলআউট",
+    "পয়েন্টার",
+    "শতাংশ"
+   ]
+  },
+  "template:yp1-insignia-me-gusta": {
+   "name": "সাবস্ক্রাইব: ঘুরে লাইক ও বেল হয়ে যাওয়া ব্যাজ",
+   "tags": [
+    "youtube",
+    "লাল",
+    "সাবস্ক্রাইব",
+    "লাইক",
+    "বেল"
+   ]
+  },
+  "template:yp1-liquid-title": {
+   "name": "তরল ফোঁটার ওপর আউটলাইন শিরোনাম",
+   "tags": [
+    "youtube",
+    "লাল",
+    "শিরোনাম",
+    "তরল",
+    "আউটলাইন"
+   ]
+  },
+  "template:yp1-llamada-barra-roja": {
+   "name": "কলআউট: অনুচ্ছেদ সহ লাল বার",
+   "tags": [
+    "youtube",
+    "লাল",
+    "কলআউট",
+    "পয়েন্টার",
+    "অনুচ্ছেদ"
+   ]
+  },
+  "template:yp1-llamada-dato": {
+   "name": "কলআউট: শিরোনাম, লেখা ও লাল বক্সে সংখ্যা",
+   "tags": [
+    "youtube",
+    "লাল",
+    "কলআউট",
+    "পয়েন্টার",
+    "তথ্য"
+   ]
+  },
+  "template:yp1-llamada-especificacion": {
+   "name": "কলআউট: রেখার ওপর লাল শিরোনাম",
+   "tags": [
+    "youtube",
+    "লাল",
+    "কলআউট",
+    "পয়েন্টার",
+    "বিবরণ"
+   ]
+  },
+  "template:yp1-llamada-numero": {
+   "name": "কলআউট: বৃত্তে সংখ্যা ও দুটি লেখা",
+   "tags": [
+    "youtube",
+    "লাল",
+    "কলআউট",
+    "পয়েন্টার",
+    "সংখ্যা"
+   ]
+  },
+  "template:yp1-llamada-numero-cuadro": {
+   "name": "কলআউট: লাল বর্গে সংখ্যা ও সাদা বক্স",
+   "tags": [
+    "youtube",
+    "লাল",
+    "কলআউট",
+    "পয়েন্টার",
+    "সংখ্যা"
+   ]
+  },
+  "template:yp1-llamada-pantalla": {
+   "name": "কলআউট: লাল লেবেল ও আউটলাইন বক্স",
+   "tags": [
+    "youtube",
+    "লাল",
+    "কলআউট",
+    "পয়েন্টার",
+    "ট্যাগ"
+   ]
+  },
+  "template:yp1-llamada-titular": {
+   "name": "কলআউট: লাল আউটলাইনে শিরোনাম",
+   "tags": [
+    "youtube",
+    "লাল",
+    "কলআউট",
+    "পয়েন্টার",
+    "শিরোনাম"
+   ]
+  },
+  "template:yp1-mejor-juego": {
+   "name": "লাল ব্লকের নিচে ধূসর বক্সে শিরোনাম",
+   "tags": [
+    "youtube",
+    "লাল",
+    "শিরোনাম",
+    "সাধারণ",
+    "বক্স"
+   ]
+  },
+  "template:yp1-modern-bold": {
+   "name": "গোলাপি বক্সে আউটলাইন শিরোনাম",
+   "tags": [
+    "youtube",
+    "লাল",
+    "শিরোনাম",
+    "বক্স"
+   ]
+  },
+  "template:yp1-modern-title": {
+   "name": "লাল রেখার মাঝে শিরোনাম",
+   "tags": [
+    "youtube",
+    "লাল",
+    "শিরোনাম",
+    "সাধারণ",
+    "ডোরা"
+   ]
+  },
+  "template:yp1-motion-studio": {
+   "name": "দুটি আড়াআড়ি লাল বারে শিরোনাম",
+   "tags": [
+    "youtube",
+    "লাল",
+    "শিরোনাম",
+    "সাধারণ",
+    "বার"
+   ]
+  },
+  "template:yp1-no-olvides-calificar": {
+   "name": "শিরোনাম: লাল ফ্রেমে রেটিং দিতে ভুলবেন না",
+   "tags": [
+    "youtube",
+    "লাল",
+    "শিরোনাম",
+    "সাধারণ",
+    "ফ্রেম"
+   ]
+  },
+  "template:yp1-pila-botones": {
+   "name": "সাবস্ক্রাইব: উল্টে যাওয়া লাইক, সাবস্ক্রাইব ও নোটিফিকেশন বাটন",
+   "tags": [
+    "youtube",
+    "লাল",
+    "সাবস্ক্রাইব",
+    "লাইক",
+    "বাটন"
+   ]
+  },
+  "template:yp1-red-circulo-barra": {
+   "name": "সোশ্যাল: ঘুরন্ত গোল আইকন ও ওয়েবসাইট সহ বার",
+   "tags": [
+    "youtube",
+    "লাল",
+    "সোশ্যাল মিডিয়া",
+    "লিংক"
+   ]
+  },
+  "template:yp1-red-cuadro-follow": {
+   "name": "সোশ্যাল: গড়িয়ে পড়া বর্গ ও FOLLOW US",
+   "tags": [
+    "youtube",
+    "লাল",
+    "সোশ্যাল মিডিয়া",
+    "লিংক"
+   ]
+  },
+  "template:yp1-red-pastilla": {
+   "name": "সোশ্যাল: ক্যাপসুলের মাঝে আইকন",
+   "tags": [
+    "youtube",
+    "লাল",
+    "সোশ্যাল মিডিয়া",
+    "লিংক"
+   ]
+  },
+  "template:yp1-red-rombo": {
+   "name": "সোশ্যাল: নিজে আঁকা রম্বস ও চ্যানেলের নাম",
+   "tags": [
+    "youtube",
+    "লাল",
+    "সোশ্যাল মিডিয়া",
+    "লিংক"
+   ]
+  },
+  "template:yp1-strong-titles": {
+   "name": "লাল ঢেউয়ের নিচে জোরালো শিরোনাম",
+   "tags": [
+    "youtube",
+    "লাল",
+    "শিরোনাম",
+    "ঢেউ"
+   ]
+  },
+  "template:yp1-top-10": {
+   "name": "নিচে দুটি লাল রেখা সহ শিরোনাম",
+   "tags": [
+    "youtube",
+    "লাল",
+    "শিরোনাম",
+    "সাধারণ",
+    "তালিকা"
+   ]
+  },
+  "template:yp1-transicion-barras-1": {
+   "name": "ট্রানজিশন: বাঁ দিকে লাল, সাদা ও কালো বার",
+   "tags": [
+    "youtube",
+    "লাল",
+    "ট্রানজিশন",
+    "বার"
+   ]
+  },
+  "template:yp1-transicion-barras-2": {
+   "name": "ট্রানজিশন: নিচের দিকে লাল, সাদা ও কালো বার",
+   "tags": [
+    "youtube",
+    "লাল",
+    "ট্রানজিশন",
+    "বার"
+   ]
+  },
+  "template:yp1-transicion-bloques-1": {
+   "name": "ট্রানজিশন: লাল, সাদা ও কালো ব্লক",
+   "tags": [
+    "youtube",
+    "লাল",
+    "ট্রানজিশন",
+    "ব্লক"
+   ]
+  },
+  "template:yp1-transicion-bloques-2": {
+   "name": "ট্রানজিশন: লাল, সাদা ও কালো ব্লক",
+   "tags": [
+    "youtube",
+    "লাল",
+    "ট্রানজিশন",
+    "ব্লক"
+   ]
+  },
+  "template:yp1-transicion-capsulas-1": {
+   "name": "ট্রানজিশন: বাঁ দিকে ক্যাপসুল",
+   "tags": [
+    "youtube",
+    "লাল",
+    "ট্রানজিশন",
+    "ক্যাপসুল"
+   ]
+  },
+  "template:yp1-transicion-capsulas-2": {
+   "name": "ট্রানজিশন: নিচের দিকে ক্যাপসুল",
+   "tags": [
+    "youtube",
+    "লাল",
+    "ট্রানজিশন",
+    "ক্যাপসুল"
+   ]
+  },
+  "template:yp1-transicion-circulo": {
+   "name": "ট্রানজিশন: খুলে যাওয়া লাল, সাদা ও কালো বৃত্ত",
+   "tags": [
+    "youtube",
+    "লাল",
+    "ট্রানজিশন",
+    "আকার",
+    "বৃত্ত"
+   ]
+  },
+  "template:yp1-transicion-cuadrado": {
+   "name": "ট্রানজিশন: খুলে যাওয়া লাল, সাদা ও কালো বর্গ",
+   "tags": [
+    "youtube",
+    "লাল",
+    "ট্রানজিশন",
+    "আকার",
+    "বর্গ"
+   ]
+  },
+  "template:yp1-transicion-estrella": {
+   "name": "ট্রানজিশন: খুলে যাওয়া লাল, সাদা ও কালো তারা",
+   "tags": [
+    "youtube",
+    "লাল",
+    "ট্রানজিশন",
+    "আকার",
+    "তারা"
+   ]
+  },
+  "template:yp1-transicion-flechas-1": {
+   "name": "ট্রানজিশন: বাঁ দিকে লাল, সাদা ও কালো শেভরন",
+   "tags": [
+    "youtube",
+    "লাল",
+    "ট্রানজিশন",
+    "তীর"
+   ]
+  },
+  "template:yp1-transicion-flechas-2": {
+   "name": "ট্রানজিশন: নিচের দিকে লাল, সাদা ও কালো শেভরন",
+   "tags": [
+    "youtube",
+    "লাল",
+    "ট্রানজিশন",
+    "তীর"
+   ]
+  },
+  "template:yp1-transicion-flechas-3": {
+   "name": "ট্রানজিশন: ওপরের দিকে লাল, সাদা ও কালো শেভরন",
+   "tags": [
+    "youtube",
+    "লাল",
+    "ট্রানজিশন",
+    "তীর"
+   ]
+  },
+  "template:yp1-transicion-flechas-4": {
+   "name": "ট্রানজিশন: ডান দিকে লাল, সাদা ও কালো শেভরন",
+   "tags": [
+    "youtube",
+    "লাল",
+    "ট্রানজিশন",
+    "তীর"
+   ]
+  },
+  "template:yp1-transicion-hexagono": {
+   "name": "ট্রানজিশন: খুলে যাওয়া লাল, সাদা ও কালো ষড়ভুজ",
+   "tags": [
+    "youtube",
+    "লাল",
+    "ট্রানজিশন",
+    "আকার",
+    "ষড়ভুজ"
+   ]
+  },
+  "template:yp1-transicion-remolino": {
+   "name": "ট্রানজিশন: লাল ও সাদা ঘূর্ণি",
+   "tags": [
+    "youtube",
+    "লাল",
+    "ট্রানজিশন",
+    "তরল"
+   ]
+  },
+  "template:yp1-trazo-rojo": {
+   "name": "লাল আঁকাবাঁকা দাগ সহ তিন লাইনের শিরোনাম",
+   "tags": [
+    "youtube",
+    "লাল",
+    "শিরোনাম",
+    "তুলির টান"
+   ]
+  },
+  "template:yp1-ver-siguiente-caja": {
+   "name": "শিরোনাম: সাদা বক্সে পরেরটি দেখুন",
+   "tags": [
+    "youtube",
+    "লাল",
+    "শিরোনাম",
+    "সাধারণ",
+    "বক্স"
+   ]
+  },
+  "template:yp1-ver-siguiente-dos-colores": {
+   "name": "শিরোনাম: সাদা ও লাল বক্সে পরেরটি দেখুন",
+   "tags": [
+    "youtube",
+    "লাল",
+    "শিরোনাম",
+    "সাধারণ",
+    "বক্স"
+   ]
+  },
+  "template:yp2-apertura": {
+   "name": "ওপেনিং: YouTube বাটন সহ লাল ও সাদা বলয়",
+   "tags": [
+    "youtube",
+    "লাল",
+    "ওপেনার",
+    "লোগো",
+    "বলয়"
+   ]
+  },
+  "template:yp2-aro-canal": {
+   "name": "CHANNEL-এ খুলে যাওয়া লাল ও সাদা বলয়",
+   "tags": [
+    "youtube",
+    "লাল",
+    "বলয়",
+    "লোগো",
+    "চ্যানেল"
+   ]
+  },
+  "template:yp2-barra-15k": {
+   "name": "বার: লাইক ও সাবস্ক্রাইব",
+   "tags": [
+    "youtube",
+    "লাল",
+    "সাবস্ক্রাইব",
+    "বার"
+   ]
+  },
+  "template:yp2-barra-campana": {
+   "name": "বার: লাইক, সাবস্ক্রাইব ও বেল",
+   "tags": [
+    "youtube",
+    "লাল",
+    "সাবস্ক্রাইব",
+    "বার"
+   ]
+  },
+  "template:yp2-barra-canal": {
+   "name": "ছবি ও সাবস্ক্রাইব সহ চ্যানেল বার",
+   "tags": [
+    "youtube",
+    "লাল",
+    "সাবস্ক্রাইব",
+    "বার"
+   ]
+  },
+  "template:yp2-barra-contadores": {
+   "name": "বার: লাইক, সংখ্যা ও সাবস্ক্রাইব",
+   "tags": [
+    "youtube",
+    "লাল",
+    "সাবস্ক্রাইব",
+    "বার"
+   ]
+  },
+  "template:yp2-barra-simple": {
+   "name": "বার: লাইক, ডিসলাইক ও সাবস্ক্রাইব",
+   "tags": [
+    "youtube",
+    "লাল",
+    "সাবস্ক্রাইব",
+    "বার"
+   ]
+  },
+  "template:yp2-dos-tarjetas": {
+   "name": "কার্ড: সাবস্ক্রাইব ও লাইক",
+   "tags": [
+    "youtube",
+    "লাল",
+    "সাবস্ক্রাইব",
+    "লাইক"
+   ]
+  },
+  "template:yp2-icono-aro-blanco": {
+   "name": "আইকন: সাদা বলয়ের বিস্ফোরণ",
+   "tags": [
+    "youtube",
+    "লাল",
+    "আইকন",
+    "অ্যানিমেটেড"
+   ]
+  },
+  "template:yp2-icono-aro-rojo": {
+   "name": "আইকন: লাল বলয়ের বিস্ফোরণ",
+   "tags": [
+    "youtube",
+    "লাল",
+    "আইকন",
+    "অ্যানিমেটেড"
+   ]
+  },
+  "template:yp2-icono-buscador": {
+   "name": "আইকন: নিজে আঁকা সার্চ বক্স",
+   "tags": [
+    "youtube",
+    "লাল",
+    "আইকন",
+    "অ্যানিমেটেড"
+   ]
+  },
+  "template:yp2-icono-campana": {
+   "name": "আইকন: লাল হয়ে বেজে ওঠা বেল",
+   "tags": [
+    "youtube",
+    "লাল",
+    "আইকন",
+    "অ্যানিমেটেড"
+   ]
+  },
+  "template:yp2-icono-cargando": {
+   "name": "আইকন: ঘুরন্ত লোডিং বিন্দু",
+   "tags": [
+    "youtube",
+    "লাল",
+    "আইকন",
+    "অ্যানিমেটেড"
+   ]
+  },
+  "template:yp2-icono-cursor": {
+   "name": "আইকন: ক্লিক করা পয়েন্টার",
+   "tags": [
+    "youtube",
+    "লাল",
+    "আইকন",
+    "অ্যানিমেটেড"
+   ]
+  },
+  "template:yp2-icono-destello": {
+   "name": "আইকন: দাগের বিস্ফোরণ",
+   "tags": [
+    "youtube",
+    "লাল",
+    "আইকন",
+    "অ্যানিমেটেড"
+   ]
+  },
+  "template:yp2-icono-flecha": {
+   "name": "আইকন: নিচে নির্দেশ করা তীর",
+   "tags": [
+    "youtube",
+    "লাল",
+    "আইকন",
+    "অ্যানিমেটেড"
+   ]
+  },
+  "template:yp2-icono-me-gusta": {
+   "name": "আইকন: লাল হয়ে যাওয়া লাইক",
+   "tags": [
+    "youtube",
+    "লাল",
+    "আইকন",
+    "অ্যানিমেটেড"
+   ]
+  },
+  "template:yp2-pagina-video": {
+   "name": "ভিডিও পেজ: সাবস্ক্রাইব ও বেল",
+   "tags": [
+    "youtube",
+    "লাল",
+    "সাবস্ক্রাইব",
+    "পেজ"
+   ]
+  },
+  "template:yp2-redes-barras": {
+   "name": "সোশ্যাল মিডিয়া: আইকন সহ ১২টি বার",
+   "tags": [
+    "youtube",
+    "লাল",
+    "সোশ্যাল মিডিয়া",
+    "বার",
+    "আইকন"
+   ]
+  },
+  "template:yp2-redes-iconos": {
+   "name": "সোশ্যাল মিডিয়া: সার্চ বক্স সহ ৬টি আইকন",
+   "tags": [
+    "youtube",
+    "লাল",
+    "সোশ্যাল মিডিয়া",
+    "আইকন",
+    "সার্চ"
+   ]
+  },
+  "template:yp2-siguiente-barra": {
+   "name": "এন্ড স্ক্রিন: লাল বার সহ পরের ভিডিও",
+   "tags": [
+    "youtube",
+    "লাল",
+    "এন্ড স্ক্রিন",
+    "পরের ভিডিও"
+   ]
+  },
+  "template:yp2-siguiente-onda": {
+   "name": "এন্ড স্ক্রিন: লাল ঢেউ সহ পরের ভিডিও",
+   "tags": [
+    "youtube",
+    "লাল",
+    "এন্ড স্ক্রিন",
+    "পরের ভিডিও"
+   ]
+  },
+  "template:yp2-tarjeta-canal": {
+   "name": "ছবি ও লোগো সহ চ্যানেল কার্ড",
+   "tags": [
+    "youtube",
+    "লাল",
+    "চ্যানেল",
+    "লোগো",
+    "ছবি"
+   ]
+  },
+  "template:yp2-tarjeta-video": {
+   "name": "ভিডিও কার্ড: সাবস্ক্রাইব ও বেল",
+   "tags": [
+    "youtube",
+    "লাল",
+    "সাবস্ক্রাইব",
+    "কার্ড"
+   ]
+  },
+  "template:yp2-titulo-animation": {
+   "name": "বেড়ে ওঠা লাল বক্সে শিরোনাম",
+   "tags": [
+    "youtube",
+    "লাল",
+    "শিরোনাম",
+    "ট্যাগ"
+   ]
+  },
+  "template:yp2-titulo-best": {
+   "name": "ট্যাগ ও সরে যাওয়া শব্দ সহ শিরোনাম",
+   "tags": [
+    "youtube",
+    "লাল",
+    "শিরোনাম",
+    "ট্যাগ"
+   ]
+  },
+  "template:yp2-titulo-brand": {
+   "name": "লাল রেখা সহ বড় শিরোনাম",
+   "tags": [
+    "youtube",
+    "লাল",
+    "শিরোনাম",
+    "ট্যাগ"
+   ]
+  },
+  "template:yp2-titulo-clean": {
+   "name": "দুটি লাল রেখার মাঝে শিরোনাম",
+   "tags": [
+    "youtube",
+    "লাল",
+    "শিরোনাম",
+    "ট্যাগ"
+   ]
+  },
+  "template:yp2-titulo-just-edit": {
+   "name": "ফ্রেমে শিরোনাম ও নিচে একটি শব্দ",
+   "tags": [
+    "youtube",
+    "লাল",
+    "শিরোনাম",
+    "ট্যাগ"
+   ]
+  },
+  "template:yp2-titulo-motion-design": {
+   "name": "লাল ট্যাগ সহ শিরোনাম",
+   "tags": [
+    "youtube",
+    "লাল",
+    "শিরোনাম",
+    "ট্যাগ"
+   ]
+  },
+  "template:yp2-titulo-new-project": {
+   "name": "লাল বার সরিয়ে প্রকাশ পাওয়া শিরোনাম",
+   "tags": [
+    "youtube",
+    "লাল",
+    "শিরোনাম",
+    "ট্যাগ"
+   ]
+  },
+  "template:yp2-titulo-rendering": {
+   "name": "নেমে আসা লাল রেখার নিচে শিরোনাম",
+   "tags": [
+    "youtube",
+    "লাল",
+    "শিরোনাম",
+    "ট্যাগ"
+   ]
+  },
+  "template:yp2-titulo-simple": {
+   "name": "লাল বর্গ থেকে সরে আসা শিরোনাম",
+   "tags": [
+    "youtube",
+    "লাল",
+    "শিরোনাম",
+    "ট্যাগ"
+   ]
+  },
+  "template:yp2-titulo-your-channel": {
+   "name": "লাল ফ্রেমে শিরোনাম",
+   "tags": [
+    "youtube",
+    "লাল",
+    "শিরোনাম",
+    "ট্যাগ"
+   ]
+  },
+  "template:yp2-transicion-diagonal": {
+   "name": "ট্রানজিশন: লাল, সাদা ও ধূসর তির্যক বার",
+   "tags": [
+    "youtube",
+    "লাল",
+    "ট্রানজিশন",
+    "তির্যক"
+   ]
+  },
+  "template:yp2-transicion-franjas": {
+   "name": "ট্রানজিশন: ঘুরন্ত লাল ও সাদা ডোরা",
+   "tags": [
+    "youtube",
+    "লাল",
+    "ট্রানজিশন",
+    "ডোরা"
+   ]
+  },
+  "template:yp3-avatar-cadena": {
+   "name": "বাটন: লাইক ও বেলের শিকল সহ অ্যাভাটার",
+   "tags": [
+    "youtube",
+    "সাবস্ক্রাইব",
+    "বাটন",
+    "অ্যাভাটার",
+    "লাইক",
+    "বেল"
+   ]
+  },
+  "template:yp3-avatar-rojo": {
+   "name": "বাটন: লাল সাবস্ক্রাইব সহ চ্যানেল অ্যাভাটার",
+   "tags": [
+    "youtube",
+    "সাবস্ক্রাইব",
+    "বাটন",
+    "অ্যাভাটার",
+    "বেল",
+    "কার্সার"
+   ]
+  },
+  "template:yp3-burbujas-rojas": {
+   "name": "বাটন: বেল, অ্যাভাটার ও লাইক সহ লাল বুদবুদ",
+   "tags": [
+    "youtube",
+    "সাবস্ক্রাইব",
+    "বাটন",
+    "অ্যাভাটার",
+    "বেল",
+    "লাইক"
+   ]
+  },
+  "template:yp3-caja-me-gusta-campana": {
+   "name": "বাটন: লাইক থেকে বেলে বদলানো লাল বক্স",
+   "tags": [
+    "youtube",
+    "সাবস্ক্রাইব",
+    "বাটন",
+    "লাইক",
+    "বেল",
+    "থ্রিডি"
+   ]
+  },
+  "template:yp3-caja-roja-campana": {
+   "name": "বাটন: বেল ও হেলানো «Subscribed» সহ লাল বক্স",
+   "tags": [
+    "youtube",
+    "সাবস্ক্রাইব",
+    "বাটন",
+    "বেল",
+    "থ্রিডি"
+   ]
+  },
+  "template:yp3-campana-redonda": {
+   "name": "বাটন: «Subscribed» হয়ে যাওয়া গোল বেল",
+   "tags": [
+    "youtube",
+    "সাবস্ক্রাইব",
+    "বাটন",
+    "বেল",
+    "কার্সার"
+   ]
+  },
+  "template:yp3-final-anillos-blancos": {
+   "name": "এন্ড স্ক্রিন: সাদা বলয়ে «Click to Subscribe»",
+   "tags": [
+    "youtube",
+    "এন্ড স্ক্রিন",
+    "সাবস্ক্রাইব",
+    "সাদা",
+    "গোলাপি"
+   ]
+  },
+  "template:yp3-final-aro-degradado": {
+   "name": "এন্ড স্ক্রিন: কালোর ওপর গ্রেডিয়েন্ট বলয়",
+   "tags": [
+    "youtube",
+    "এন্ড স্ক্রিন",
+    "সাবস্ক্রাইব",
+    "কালো",
+    "গ্রেডিয়েন্ট",
+    "সোশ্যাল মিডিয়া"
+   ]
+  },
+  "template:yp3-final-banda-azul": {
+   "name": "এন্ড স্ক্রিন: ছবির ওপর নীল ব্যান্ড ও দুটি ভিডিও",
+   "tags": [
+    "youtube",
+    "এন্ড স্ক্রিন",
+    "সাবস্ক্রাইব",
+    "নীল",
+    "ছবি"
+   ]
+  },
+  "template:yp3-final-capsula-turquesa": {
+   "name": "এন্ড স্ক্রিন: দুটি ভিডিও সহ ফিরোজা ক্যাপসুল",
+   "tags": [
+    "youtube",
+    "এন্ড স্ক্রিন",
+    "সাবস্ক্রাইব",
+    "ফিরোজা",
+    "লাইক",
+    "বেল"
+   ]
+  },
+  "template:yp3-final-gris": {
+   "name": "এন্ড স্ক্রিন: দুটি ভিডিও ও অ্যাভাটার সহ কোমল ধূসর",
+   "tags": [
+    "youtube",
+    "এন্ড স্ক্রিন",
+    "সাবস্ক্রাইব",
+    "ধূসর",
+    "নিউমরফিক"
+   ]
+  },
+  "template:yp3-final-hexagono": {
+   "name": "এন্ড স্ক্রিন: «Click to Subscribe» সহ গ্রেডিয়েন্ট ষড়ভুজ",
+   "tags": [
+    "youtube",
+    "এন্ড স্ক্রিন",
+    "সাবস্ক্রাইব",
+    "ষড়ভুজ",
+    "গ্রেডিয়েন্ট",
+    "সোশ্যাল মিডিয়া"
+   ]
+  },
+  "template:yp3-final-manchas-rojas": {
+   "name": "এন্ড স্ক্রিন: অ্যাভাটার ও পরের ভিডিও সহ লাল ফোঁটা",
+   "tags": [
+    "youtube",
+    "এন্ড স্ক্রিন",
+    "সাবস্ক্রাইব",
+    "লাল",
+    "সোশ্যাল মিডিয়া"
+   ]
+  },
+  "template:yp3-final-no-olvides": {
+   "name": "এন্ড স্ক্রিন: নীল তির্যক সহ «Don't forget to subscribe»",
+   "tags": [
+    "youtube",
+    "এন্ড স্ক্রিন",
+    "সাবস্ক্রাইব",
+    "নীল",
+    "ছবি",
+    "সোশ্যাল মিডিয়া"
+   ]
+  },
+  "template:yp3-final-olas-turquesa": {
+   "name": "এন্ড স্ক্রিন: প্রস্তাবিত ভিডিও সহ ফিরোজা ঢেউ",
+   "tags": [
+    "youtube",
+    "এন্ড স্ক্রিন",
+    "সাবস্ক্রাইব",
+    "ফিরোজা",
+    "ঢেউ"
+   ]
+  },
+  "template:yp3-final-rosa": {
+   "name": "এন্ড স্ক্রিন: গোলাপি «Thanks for Watching!»",
+   "tags": [
+    "youtube",
+    "এন্ড স্ক্রিন",
+    "সাবস্ক্রাইব",
+    "গোলাপি",
+    "সোশ্যাল মিডিয়া"
+   ]
+  },
+  "template:yp3-final-rosa-siguiente": {
+   "name": "এন্ড স্ক্রিন: ব্লক সহ গোলাপি «next video»",
+   "tags": [
+    "youtube",
+    "এন্ড স্ক্রিন",
+    "সাবস্ক্রাইব",
+    "গোলাপি",
+    "ব্লক"
+   ]
+  },
+  "template:yp3-final-tarjeta-lila": {
+   "name": "এন্ড স্ক্রিন: লিলাক কার্ড «Please don't forget to subscribe»",
+   "tags": [
+    "youtube",
+    "এন্ড স্ক্রিন",
+    "সাবস্ক্রাইব",
+    "লিলাক",
+    "ছবি"
+   ]
+  },
+  "template:yp3-final-tarjeta-morada": {
+   "name": "এন্ড স্ক্রিন: দুটি ভিডিও সহ বেগুনি কার্ড",
+   "tags": [
+    "youtube",
+    "এন্ড স্ক্রিন",
+    "সাবস্ক্রাইব",
+    "বেগুনি"
+   ]
+  },
+  "template:yp3-me-gusta-redondo": {
+   "name": "বাটন: «Liked» ও «Subscribed» সহ গোল লাইক ও বেল",
+   "tags": [
+    "youtube",
+    "সাবস্ক্রাইব",
+    "বাটন",
+    "লাইক",
+    "বেল",
+    "কার্সার"
+   ]
+  },
+  "template:yp3-pestana-degradado": {
+   "name": "বাটন: অ্যাভাটার সহ গোলাপি ও বেগুনি ট্যাব",
+   "tags": [
+    "youtube",
+    "সাবস্ক্রাইব",
+    "বাটন",
+    "অ্যাভাটার",
+    "গ্রেডিয়েন্ট"
+   ]
+  },
+  "template:yp3-pildora-burbujas": {
+   "name": "বাটন: অ্যাভাটার সহ গ্রেডিয়েন্ট বুদবুদ ক্যাপসুল",
+   "tags": [
+    "youtube",
+    "সাবস্ক্রাইব",
+    "বাটন",
+    "অ্যাভাটার",
+    "গ্রেডিয়েন্ট",
+    "লাইক"
+   ]
+  },
+  "template:yp3-pildora-degradado": {
+   "name": "বাটন: গ্রেডিয়েন্ট বেল সহ সাদা ক্যাপসুল",
+   "tags": [
+    "youtube",
+    "সাবস্ক্রাইব",
+    "বাটন",
+    "বেল",
+    "কার্সার",
+    "গ্রেডিয়েন্ট"
+   ]
+  },
+  "template:yp3-play-contorno": {
+   "name": "বাটন: উল্টে «Subscribed» হয়ে যাওয়া সাদা প্লে আইকন",
+   "tags": [
+    "youtube",
+    "সাবস্ক্রাইব",
+    "বাটন",
+    "কার্সার",
+    "সাদা",
+    "থ্রিডি"
+   ]
+  },
+  "template:yp3-suscribirse-rojo": {
+   "name": "বাটন: লাইক ও বেল সহ লাল সাবস্ক্রাইব",
+   "tags": [
+    "youtube",
+    "সাবস্ক্রাইব",
+    "বাটন",
+    "লাইক",
+    "বেল",
+    "কার্সার"
+   ]
+  },
+  "template:yp3-tarjeta-blanca": {
+   "name": "বাটন: অ্যাভাটার ও লাইক সহ সাদা কার্ড",
+   "tags": [
+    "youtube",
+    "সাবস্ক্রাইব",
+    "বাটন",
+    "লাইক",
+    "অ্যাভাটার",
+    "থ্রিডি"
+   ]
+  },
+  "template:yp4-bienvenida": {
+   "name": "স্টোরি: লাল ও কালো চাকতি সহ স্বাগতম",
+   "tags": [
+    "স্টোরি",
+    "youtube",
+    "খাড়া",
+    "স্বাগতম",
+    "বৃত্ত"
+   ]
+  },
+  "template:yp4-canal": {
+   "name": "স্টোরি: প্লে বাটন সহ CHANNEL",
+   "tags": [
+    "স্টোরি",
+    "youtube",
+    "খাড়া",
+    "চ্যানেল"
+   ]
+  },
+  "template:yp4-contador": {
+   "name": "স্টোরি: ছবি ও হলুদ ফ্রেম সহ ২/৬",
+   "tags": [
+    "স্টোরি",
+    "youtube",
+    "খাড়া",
+    "ছবি",
+    "হলুদ",
+    "কাউন্টার"
+   ]
+  },
+  "template:yp4-derechos": {
+   "name": "স্টোরি: হলুদের ওপর সাদা বৃত্ত",
+   "tags": [
+    "স্টোরি",
+    "youtube",
+    "খাড়া",
+    "হলুদ",
+    "বৃত্ত"
+   ]
+  },
+  "template:yp4-fundamentos": {
+   "name": "স্টোরি: ছবির ওপর হেলানো লাল লেবেল",
+   "tags": [
+    "স্টোরি",
+    "youtube",
+    "খাড়া",
+    "ছবি",
+    "ট্যাগ"
+   ]
+  },
+  "template:yp4-gracias": {
+   "name": "স্টোরি: দুটি ছবি ও নাম সহ ধন্যবাদ",
+   "tags": [
+    "স্টোরি",
+    "youtube",
+    "খাড়া",
+    "ছবি",
+    "ধন্যবাদ"
+   ]
+  },
+  "template:yp4-love": {
+   "name": "স্টোরি: সাবস্ক্রাইব কার্ড সহ ভালোবাসা",
+   "tags": [
+    "স্টোরি",
+    "youtube",
+    "খাড়া",
+    "ছবি",
+    "সাবস্ক্রাইব"
+   ]
+  },
+  "template:yp4-mi-plan": {
+   "name": "স্টোরি: তালিকা ও লেবেল সহ আমার পরিকল্পনা",
+   "tags": [
+    "স্টোরি",
+    "youtube",
+    "খাড়া",
+    "ছবি",
+    "তালিকা"
+   ]
+  },
+  "template:yp4-nombre-blanco": {
+   "name": "স্টোরি: সাদার ওপর গোল ছবি সহ নাম",
+   "tags": [
+    "স্টোরি",
+    "youtube",
+    "খাড়া",
+    "ছবি",
+    "নাম"
+   ]
+  },
+  "template:yp4-nombre-circulo": {
+   "name": "স্টোরি: গোল ছবির পাশে নাম",
+   "tags": [
+    "স্টোরি",
+    "youtube",
+    "খাড়া",
+    "ছবি",
+    "নাম"
+   ]
+  },
+  "template:yp4-numeros": {
+   "name": "স্টোরি: ০১ ও ০২ স্লাইড",
+   "tags": [
+    "স্টোরি",
+    "youtube",
+    "খাড়া",
+    "ছবি",
+    "সংখ্যা"
+   ]
+  },
+  "template:yp4-por-ejemplo": {
+   "name": "স্টোরি: ছবি সহ লালের ওপর হলুদ বাক্য",
+   "tags": [
+    "স্টোরি",
+    "youtube",
+    "খাড়া",
+    "ছবি",
+    "বাক্য"
+   ]
+  },
+  "template:yp4-seguir": {
+   "name": "স্টোরি: সোশ্যাল কার্ড সহ ফলো",
+   "tags": [
+    "স্টোরি",
+    "youtube",
+    "খাড়া",
+    "ছবি",
+    "ফলো",
+    "সোশ্যাল মিডিয়া"
+   ]
+  },
+  "template:yp4-siguiente": {
+   "name": "স্টোরি: পরবর্তী ও Watch সহ দুটি ছবি",
+   "tags": [
+    "স্টোরি",
+    "youtube",
+    "খাড়া",
+    "ছবি",
+    "পরবর্তী"
+   ]
+  },
+  "template:yp4-social-media": {
+   "name": "স্টোরি: ফলো মি সহ সোশ্যাল মিডিয়া",
+   "tags": [
+    "স্টোরি",
+    "youtube",
+    "খাড়া",
+    "ছবি",
+    "ফলো"
+   ]
+  },
+  "template:yp4-vlogger": {
+   "name": "স্টোরি: হৃদয় ও সাবস্ক্রাইব সহ VLOGGER",
+   "tags": [
+    "স্টোরি",
+    "youtube",
+    "খাড়া",
+    "ছবি",
+    "সাবস্ক্রাইব",
+    "হৃদয়"
+   ]
+  },
+  "template:yp5-avatar-cycle": {
+   "name": "লোয়ার থার্ড: অ্যাভাটার ও বদলাতে থাকা ট্যাগ",
+   "tags": [
+    "লোয়ার থার্ড",
+    "youtube",
+    "অ্যাভাটার",
+    "লাইক",
+    "সাবস্ক্রাইব"
+   ]
+  },
+  "template:yp5-best-show": {
+   "name": "লোয়ার থার্ড: বাটন, বিভাজক ও দুই লাইন",
+   "tags": [
+    "লোয়ার থার্ড",
+    "youtube",
+    "বাটন"
+   ]
+  },
+  "template:yp5-best-solution": {
+   "name": "শিরোনাম: ফ্রেমে সাদা ও কালো বক্স",
+   "tags": [
+    "শিরোনাম",
+    "youtube",
+    "বক্স",
+    "ফ্রেম"
+   ]
+  },
+  "template:yp5-best-video": {
+   "name": "শিরোনাম: লাল রেখা ও লাল বক্স",
+   "tags": [
+    "শিরোনাম",
+    "youtube",
+    "লাল"
+   ]
+  },
+  "template:yp5-big-live-story": {
+   "name": "লোয়ার থার্ড: নিচে ঝুঁকে আসা প্লে বাটন ও একটি নাম",
+   "tags": [
+    "লোয়ার থার্ড",
+    "youtube",
+    "বাটন",
+    "সাবস্ক্রাইব"
+   ]
+  },
+  "template:yp5-box-any-fonts": {
+   "name": "মাঝখানে দুটি বক্সে শিরোনাম",
+   "tags": [
+    "youtube",
+    "বক্স",
+    "টাইপ করা"
+   ]
+  },
+  "template:yp5-box-auto-resized": {
+   "name": "টাইপ করার সাথে বেড়ে ওঠা বক্সের শিরোনাম",
+   "tags": [
+    "youtube",
+    "বক্স",
+    "টাইপ করা"
+   ]
+  },
+  "template:yp5-box-automatically": {
+   "name": "একটি সাদা ও একটি কালো বক্সে শিরোনাম",
+   "tags": [
+    "youtube",
+    "বক্স",
+    "টাইপ করা"
+   ]
+  },
+  "template:yp5-box-best-choice": {
+   "name": "তিনটি কালো বক্সে শিরোনাম",
+   "tags": [
+    "youtube",
+    "বক্স",
+    "টাইপ করা"
+   ]
+  },
+  "template:yp5-box-dont-forget": {
+   "name": "তিনটি সাদা বক্সে মাঝখানে শিরোনাম",
+   "tags": [
+    "youtube",
+    "বক্স",
+    "সাবস্ক্রাইব"
+   ]
+  },
+  "template:yp5-box-enjoy": {
+   "name": "সাদা আউটলাইন বক্সে শিরোনাম",
+   "tags": [
+    "youtube",
+    "বক্স",
+    "আউটলাইন"
+   ]
+  },
+  "template:yp5-box-great-design": {
+   "name": "দুটি সাদা বক্সে শিরোনাম",
+   "tags": [
+    "youtube",
+    "বক্স",
+    "টাইপ করা"
+   ]
+  },
+  "template:yp5-box-like-that": {
+   "name": "মাঝখান থেকে খুলে যাওয়া বক্সে শিরোনাম",
+   "tags": [
+    "youtube",
+    "বক্স",
+    "সাবস্ক্রাইব"
+   ]
+  },
+  "template:yp5-box-motion-design": {
+   "name": "হেলানো সাদা বক্সে শিরোনাম",
+   "tags": [
+    "youtube",
+    "বক্স",
+    "হেলানো"
+   ]
+  },
+  "template:yp5-box-thank-support": {
+   "name": "শিরোনাম: সাদা বক্সে খুলে যাওয়া একটি রেখা",
+   "tags": [
+    "শিরোনাম",
+    "youtube",
+    "বক্স"
+   ]
+  },
+  "template:yp5-box-we-created": {
+   "name": "টাইপ হওয়া তিনটি কালো বক্সে শিরোনাম",
+   "tags": [
+    "youtube",
+    "বক্স",
+    "টাইপ করা"
+   ]
+  },
+  "template:yp5-box-write-text": {
+   "name": "একটি আউটলাইন বক্সে শিরোনাম",
+   "tags": [
+    "youtube",
+    "বক্স",
+    "টাইপ করা"
+   ]
+  },
+  "template:yp5-bubble-swap": {
+   "name": "লোয়ার থার্ড: লাইক থেকে সাবস্ক্রাইব হওয়া লাল বুদবুদ",
+   "tags": [
+    "লোয়ার থার্ড",
+    "youtube",
+    "লাইক",
+    "সাবস্ক্রাইব",
+    "বুদবুদ"
+   ]
+  },
+  "template:yp5-callout-brand": {
+   "name": "কলআউট: ব্র্যান্ড ও দাম",
+   "tags": [
+    "youtube",
+    "কলআউট",
+    "দাম"
+   ]
+  },
+  "template:yp5-callout-creative": {
+   "name": "কলআউট: ডটেড রেখা ও দুটি বক্স",
+   "tags": [
+    "youtube",
+    "কলআউট",
+    "লাল"
+   ]
+  },
+  "template:yp5-callout-elbow": {
+   "name": "কলআউট: কনুই রেখা ও লাল লেখার বক্স",
+   "tags": [
+    "youtube",
+    "কলআউট",
+    "লাল"
+   ]
+  },
+  "template:yp5-callout-headline": {
+   "name": "কলআউট: লাল শিরোনাম ও কালো বক্স",
+   "tags": [
+    "youtube",
+    "কলআউট",
+    "লাল"
+   ]
+  },
+  "template:yp5-callout-line-up": {
+   "name": "কলআউট: কালো বক্সের দিকে ওঠা রেখা",
+   "tags": [
+    "youtube",
+    "কলআউট",
+    "ইউটিউব"
+   ]
+  },
+  "template:yp5-callout-outline": {
+   "name": "কলআউট: বিন্দু ও লেখা সহ রেখা",
+   "tags": [
+    "youtube",
+    "কলআউট",
+    "ইউটিউব"
+   ]
+  },
+  "template:yp5-callout-product": {
+   "name": "কলআউট: রেখা ও পণ্যের ফ্রেম",
+   "tags": [
+    "youtube",
+    "কলআউট",
+    "পণ্য"
+   ]
+  },
+  "template:yp5-callout-red-box": {
+   "name": "লাল বক্স সহ কলআউট রেখা",
+   "tags": [
+    "youtube",
+    "কলআউট",
+    "লাল"
+   ]
+  },
+  "template:yp5-callout-red-line": {
+   "name": "কলআউট: লাল রেখা ও লাল বক্স",
+   "tags": [
+    "youtube",
+    "কলআউট",
+    "লাল"
+   ]
+  },
+  "template:yp5-callout-title-bar": {
+   "name": "কলআউট: লাল বার ও শিরোনাম",
+   "tags": [
+    "youtube",
+    "কলআউট",
+    "লাল"
+   ]
+  },
+  "template:yp5-channel-name": {
+   "name": "লোয়ার থার্ড: ডোরা সহ হেলানো চ্যানেলের নাম",
+   "tags": [
+    "লোয়ার থার্ড",
+    "youtube",
+    "বাটন",
+    "ডোরা"
+   ]
+  },
+  "template:yp5-clean-modern": {
+   "name": "লোয়ার থার্ড: ক্যাপসুলে সংখ্যা ও লেখা",
+   "tags": [
+    "লোয়ার থার্ড",
+    "youtube",
+    "সংখ্যা",
+    "ক্যাপসুল"
+   ]
+  },
+  "template:yp5-clean-titles": {
+   "name": "শিরোনাম: সাদা ফ্রেমে চার লাইন",
+   "tags": [
+    "শিরোনাম",
+    "youtube",
+    "ফ্রেম"
+   ]
+  },
+  "template:yp5-click-channel": {
+   "name": "লোয়ার থার্ড: বাটনে ক্লিক ও একটি লাল বার",
+   "tags": [
+    "লোয়ার থার্ড",
+    "youtube",
+    "বাটন",
+    "ক্লিক"
+   ]
+  },
+  "template:yp5-counter-bubbles": {
+   "name": "কাউন্টার: নোটিফিকেশন বুদবুদ",
+   "tags": [
+    "youtube",
+    "কাউন্টার",
+    "লাইক"
+   ]
+  },
+  "template:yp5-counter-heart": {
+   "name": "হৃদয় সহ লাইক কাউন্টার",
+   "tags": [
+    "youtube",
+    "কাউন্টার",
+    "লাইক"
+   ]
+  },
+  "template:yp5-counter-link": {
+   "name": "বর্ণনায় লিংক",
+   "tags": [
+    "youtube",
+    "লিংক",
+    "ইউটিউব"
+   ]
+  },
+  "template:yp5-counter-person": {
+   "name": "ফলোয়ার কাউন্টার",
+   "tags": [
+    "youtube",
+    "কাউন্টার",
+    "ইউটিউব"
+   ]
+  },
+  "template:yp5-counter-subscribers": {
+   "name": "সাবস্ক্রাইবার কাউন্টার",
+   "tags": [
+    "youtube",
+    "কাউন্টার",
+    "সাবস্ক্রাইব"
+   ]
+  },
+  "template:yp5-doodle-channel": {
+   "name": "লোয়ার থার্ড: সাদা বাটন, লাল বার ও আঁকিবুকি",
+   "tags": [
+    "লোয়ার থার্ড",
+    "youtube",
+    "বাটন",
+    "আঁকা"
+   ]
+  },
+  "template:yp5-end-big-arc": {
+   "name": "এন্ড স্ক্রিন: বড় প্রবাল চাপ ও দুটি ভিডিও",
+   "tags": [
+    "এন্ড স্ক্রিন",
+    "youtube",
+    "কৃতজ্ঞতা",
+    "প্রবাল"
+   ]
+  },
+  "template:yp5-end-circle": {
+   "name": "এন্ড স্ক্রিন: প্রবাল অর্ধবৃত্ত ও একটি প্রস্তাবিত ভিডিও",
+   "tags": [
+    "এন্ড স্ক্রিন",
+    "youtube",
+    "কৃতজ্ঞতা",
+    "প্রবাল"
+   ]
+  },
+  "template:yp5-end-coral": {
+   "name": "প্রবাল এন্ড স্ক্রিন: অ্যাভাটার, দুটি ভিডিও ও সোশ্যাল",
+   "tags": [
+    "youtube",
+    "কৃতজ্ঞতা",
+    "প্রবাল"
+   ]
+  },
+  "template:yp5-end-coral-column": {
+   "name": "প্রবাল এন্ড স্ক্রিন: দুটি ভিডিও, সোশ্যাল ও অ্যাভাটার",
+   "tags": [
+    "youtube",
+    "কৃতজ্ঞতা",
+    "প্রবাল"
+   ]
+  },
+  "template:yp5-end-diagonal": {
+   "name": "এন্ড স্ক্রিন: হেলানো প্রবাল প্যানেল ও পরের ভিডিও",
+   "tags": [
+    "এন্ড স্ক্রিন",
+    "youtube",
+    "কৃতজ্ঞতা",
+    "প্রবাল"
+   ]
+  },
+  "template:yp5-end-side-panel": {
+   "name": "এন্ড স্ক্রিন: প্রবাল প্যানেল ও দুটি ভিডিও",
+   "tags": [
+    "এন্ড স্ক্রিন",
+    "youtube",
+    "কৃতজ্ঞতা",
+    "প্রবাল"
+   ]
+  },
+  "template:yp5-end-subscribe-arrow": {
+   "name": "এন্ড স্ক্রিন: প্রস্তাবিত ভিডিও ও বড় SUBSCRIBE",
+   "tags": [
+    "এন্ড স্ক্রিন",
+    "youtube",
+    "কৃতজ্ঞতা",
+    "সাবস্ক্রাইব"
+   ]
+  },
+  "template:yp5-end-white-arrow": {
+   "name": "এন্ড স্ক্রিন: লাল তীর সহ সাদা ত্রিভুজ",
+   "tags": [
+    "এন্ড স্ক্রিন",
+    "youtube",
+    "কৃতজ্ঞতা",
+    "তীর"
+   ]
+  },
+  "template:yp5-end-white-band": {
+   "name": "এন্ড স্ক্রিন: দুটি ভিডিও সহ সাদা ব্যান্ড",
+   "tags": [
+    "এন্ড স্ক্রিন",
+    "youtube",
+    "কৃতজ্ঞতা",
+    "সাদা"
+   ]
+  },
+  "template:yp5-end-white-curve": {
+   "name": "এন্ড স্ক্রিন: বাঁকা সাদা প্যানেল ও দুটি ভিডিও",
+   "tags": [
+    "এন্ড স্ক্রিন",
+    "youtube",
+    "কৃতজ্ঞতা",
+    "সাদা"
+   ]
+  },
+  "template:yp5-good-design": {
+   "name": "শিরোনাম: শব্দে শব্দে ফুটে ওঠা তিন লাইন",
+   "tags": [
+    "শিরোনাম",
+    "youtube",
+    "মিনিমাল"
+   ]
+  },
+  "template:yp5-hello-welcome": {
+   "name": "শিরোনাম: HELLO! আমার চ্যানেলে স্বাগতম",
+   "tags": [
+    "শিরোনাম",
+    "youtube",
+    "স্বাগতম",
+    "প্রবাল"
+   ]
+  },
+  "template:yp5-how-do-i": {
+   "name": "লোয়ার থার্ড: সাদা বক্সে প্রশ্ন",
+   "tags": [
+    "লোয়ার থার্ড",
+    "youtube",
+    "বক্স",
+    "সাদা"
+   ]
+  },
+  "template:yp5-like-card": {
+   "name": "লোয়ার থার্ড: লাইক, সাবস্ক্রাইব ও নোটিফাই",
+   "tags": [
+    "লোয়ার থার্ড",
+    "youtube",
+    "লাইক",
+    "সাবস্ক্রাইব",
+    "বেল"
+   ]
+  },
+  "template:yp5-like-column": {
+   "name": "লোয়ার থার্ড: তিনটি ট্যাগ সহ লাল কলাম",
+   "tags": [
+    "লোয়ার থার্ড",
+    "youtube",
+    "লাইক",
+    "সাবস্ক্রাইব",
+    "বেল"
+   ]
+  },
+  "template:yp5-like-hand": {
+   "name": "লোয়ার থার্ড: হাত দিয়ে ভিডিওতে লাইক",
+   "tags": [
+    "লোয়ার থার্ড",
+    "youtube",
+    "লাইক"
+   ]
+  },
+  "template:yp5-modern-titles": {
+   "name": "শিরোনাম: সাদা ফ্রেম ও তিন লাইন",
+   "tags": [
+    "শিরোনাম",
+    "youtube",
+    "ফ্রেম"
+   ]
+  },
+  "template:yp5-modern-universal": {
+   "name": "লোয়ার থার্ড: তিন লাইন ও একটি রেখা",
+   "tags": [
+    "লোয়ার থার্ড",
+    "youtube",
+    "মিনিমাল"
+   ]
+  },
+  "template:yp5-name-bar": {
+   "name": "লোয়ার থার্ড: সাদা বার ও সরে আসা নাম",
+   "tags": [
+    "লোয়ার থার্ড",
+    "youtube",
+    "নাম",
+    "বার"
+   ]
+  },
+  "template:yp5-name-red-box": {
+   "name": "লোয়ার থার্ড: লাল বক্সে নাম",
+   "tags": [
+    "লোয়ার থার্ড",
+    "youtube",
+    "নাম",
+    "লাল"
+   ]
+  },
+  "template:yp5-name-square-line": {
+   "name": "লোয়ার থার্ড: ছোট বর্গ, রেখা ও নাম",
+   "tags": [
+    "লোয়ার থার্ড",
+    "youtube",
+    "নাম",
+    "রেখা"
+   ]
+  },
+  "template:yp5-name-white-box": {
+   "name": "লোয়ার থার্ড: সাদা বক্সে টাইপ হওয়া নাম",
+   "tags": [
+    "লোয়ার থার্ড",
+    "youtube",
+    "নাম",
+    "বক্স"
+   ]
+  },
+  "template:yp5-new-video": {
+   "name": "লোয়ার থার্ড: কালো বারে নতুন ভিডিও",
+   "tags": [
+    "লোয়ার থার্ড",
+    "youtube",
+    "বার",
+    "কালো"
+   ]
+  },
+  "template:yp5-notify-bell": {
+   "name": "লোয়ার থার্ড: বেজে ওঠা বেল সহ নোটিফিকেশন",
+   "tags": [
+    "লোয়ার থার্ড",
+    "youtube",
+    "বেল"
+   ]
+  },
+  "template:yp5-opener-boxes": {
+   "name": "লাল ওপেনার: কালো বক্সে নাম",
+   "tags": [
+    "youtube",
+    "লাল",
+    "বক্স"
+   ]
+  },
+  "template:yp5-opener-divider": {
+   "name": "লাল ওপেনার: বাটন, বিভাজক ও নাম",
+   "tags": [
+    "youtube",
+    "লাল",
+    "সাবস্ক্রাইব"
+   ]
+  },
+  "template:yp5-opener-fade": {
+   "name": "লাল ওপেনার: ফুটে ওঠা বাটন ও নাম",
+   "tags": [
+    "youtube",
+    "লাল",
+    "ইউটিউব"
+   ]
+  },
+  "template:yp5-opener-flip": {
+   "name": "লাল ওপেনার: উল্টে যাওয়া বাটন ও নাম",
+   "tags": [
+    "youtube",
+    "লাল",
+    "ঢেউ"
+   ]
+  },
+  "template:yp5-opener-typed": {
+   "name": "লাল ওপেনার: টাইপ করা নাম",
+   "tags": [
+    "youtube",
+    "লাল",
+    "টাইপ করা"
+   ]
+  },
+  "template:yp5-profile-card": {
+   "name": "লোয়ার থার্ড: অ্যাভাটার সহ সাদা কার্ড",
+   "tags": [
+    "লোয়ার থার্ড",
+    "youtube",
+    "অ্যাভাটার",
+    "সাবস্ক্রাইব"
+   ]
+  },
+  "template:yp5-promo-pack": {
+   "name": "শিরোনাম: কালো বক্সে YOUTUBE PROMO",
+   "tags": [
+    "শিরোনাম",
+    "youtube",
+    "বক্স",
+    "কালো"
+   ]
+  },
+  "template:yp5-quote-black-frame": {
+   "name": "ট্যাগ সহ কালো ফ্রেমে উদ্ধৃতি",
+   "tags": [
+    "youtube",
+    "উদ্ধৃতি",
+    "ফ্রেম"
+   ]
+  },
+  "template:yp5-quote-brackets": {
+   "name": "দুই কোণের মাঝে উদ্ধৃতি",
+   "tags": [
+    "youtube",
+    "উদ্ধৃতি",
+    "ইউটিউব"
+   ]
+  },
+  "template:yp5-quote-bubble": {
+   "name": "কথার বুদবুদে উদ্ধৃতি",
+   "tags": [
+    "youtube",
+    "উদ্ধৃতি",
+    "বুদবুদ"
+   ]
+  },
+  "template:yp5-quote-centred": {
+   "name": "সাদা ট্যাগ সহ মাঝখানে উদ্ধৃতি",
+   "tags": [
+    "youtube",
+    "উদ্ধৃতি",
+    "ইউটিউব"
+   ]
+  },
+  "template:yp5-quote-corners": {
+   "name": "দুটি সাদা কোণের মাঝে উদ্ধৃতি",
+   "tags": [
+    "youtube",
+    "উদ্ধৃতি",
+    "ইউটিউব"
+   ]
+  },
+  "template:yp5-quote-frame": {
+   "name": "কালো ট্যাগ সহ ফ্রেমে উদ্ধৃতি",
+   "tags": [
+    "youtube",
+    "উদ্ধৃতি",
+    "ফ্রেম"
+   ]
+  },
+  "template:yp5-quote-line": {
+   "name": "উদ্ধৃতি: খাড়া রেখা ও বক্সে উদ্ধৃতিচিহ্ন",
+   "tags": [
+    "youtube",
+    "উদ্ধৃতি",
+    "ইউটিউব"
+   ]
+  },
+  "template:yp5-quote-split-bar": {
+   "name": "দুই বারের মাঝে খুলে যাওয়া উদ্ধৃতি",
+   "tags": [
+    "youtube",
+    "উদ্ধৃতি",
+    "ইউটিউব"
+   ]
+  },
+  "template:yp5-quote-two-lines": {
+   "name": "দুই রেখার মাঝে উদ্ধৃতি",
+   "tags": [
+    "youtube",
+    "উদ্ধৃতি",
+    "ইউটিউব"
+   ]
+  },
+  "template:yp5-quote-white-box": {
+   "name": "কালো চিহ্ন সহ সাদা বক্সে উদ্ধৃতি",
+   "tags": [
+    "youtube",
+    "উদ্ধৃতি",
+    "বক্স"
+   ]
+  },
+  "template:yp5-record-iris": {
+   "name": "ট্রানজিশন: খুলে যাওয়া রেকর্ড বৃত্ত",
+   "tags": [
+    "youtube",
+    "ট্রানজিশন",
+    "বৃত্ত"
+   ]
+  },
+  "template:yp5-social-baldosa-fb": {
+   "name": "সোশ্যাল বার: Facebook (উড়ন্ত টাইল)",
+   "tags": [
+    "youtube",
+    "সোশ্যাল মিডিয়া",
+    "facebook"
+   ]
+  },
+  "template:yp5-social-baldosa-ig": {
+   "name": "সোশ্যাল বার: Instagram (উড়ন্ত টাইল)",
+   "tags": [
+    "youtube",
+    "সোশ্যাল মিডিয়া",
+    "instagram"
+   ]
+  },
+  "template:yp5-social-baldosa-tw": {
+   "name": "সোশ্যাল বার: Twitter (উড়ন্ত টাইল)",
+   "tags": [
+    "youtube",
+    "সোশ্যাল মিডিয়া",
+    "twitter"
+   ]
+  },
+  "template:yp5-social-baldosa-yt": {
+   "name": "সোশ্যাল বার: YouTube (উড়ন্ত টাইল)",
+   "tags": [
+    "youtube",
+    "সোশ্যাল মিডিয়া",
+    "ইউটিউব"
+   ]
+  },
+  "template:yp5-social-barras-fb": {
+   "name": "সোশ্যাল বার: Facebook (খুলে যাওয়া দুই বার)",
+   "tags": [
+    "youtube",
+    "সোশ্যাল মিডিয়া",
+    "facebook"
+   ]
+  },
+  "template:yp5-social-barras-ig": {
+   "name": "সোশ্যাল বার: Instagram (খুলে যাওয়া দুই বার)",
+   "tags": [
+    "youtube",
+    "সোশ্যাল মিডিয়া",
+    "instagram"
+   ]
+  },
+  "template:yp5-social-barras-tw": {
+   "name": "সোশ্যাল বার: Twitter (খুলে যাওয়া দুই বার)",
+   "tags": [
+    "youtube",
+    "সোশ্যাল মিডিয়া",
+    "twitter"
+   ]
+  },
+  "template:yp5-social-barras-yt": {
+   "name": "সোশ্যাল বার: YouTube (খুলে যাওয়া দুই বার)",
+   "tags": [
+    "youtube",
+    "সোশ্যাল মিডিয়া",
+    "ইউটিউব"
+   ]
+  },
+  "template:yp5-social-circulo-fb": {
+   "name": "সোশ্যাল বার: Facebook (বৃত্ত ও ক্যাপসুল)",
+   "tags": [
+    "youtube",
+    "সোশ্যাল মিডিয়া",
+    "facebook"
+   ]
+  },
+  "template:yp5-social-circulo-ig": {
+   "name": "সোশ্যাল বার: Instagram (বৃত্ত ও ক্যাপসুল)",
+   "tags": [
+    "youtube",
+    "সোশ্যাল মিডিয়া",
+    "instagram"
+   ]
+  },
+  "template:yp5-social-circulo-tw": {
+   "name": "সোশ্যাল বার: Twitter (বৃত্ত ও ক্যাপসুল)",
+   "tags": [
+    "youtube",
+    "সোশ্যাল মিডিয়া",
+    "twitter"
+   ]
+  },
+  "template:yp5-social-circulo-yt": {
+   "name": "সোশ্যাল বার: YouTube (বৃত্ত ও ক্যাপসুল)",
+   "tags": [
+    "youtube",
+    "সোশ্যাল মিডিয়া",
+    "ইউটিউব"
+   ]
+  },
+  "template:yp5-social-cuadro-fb": {
+   "name": "সোশ্যাল বার: Facebook (উল্টে যাওয়া টাইল)",
+   "tags": [
+    "youtube",
+    "সোশ্যাল মিডিয়া",
+    "facebook"
+   ]
+  },
+  "template:yp5-social-cuadro-ig": {
+   "name": "সোশ্যাল বার: Instagram (উল্টে যাওয়া টাইল)",
+   "tags": [
+    "youtube",
+    "সোশ্যাল মিডিয়া",
+    "instagram"
+   ]
+  },
+  "template:yp5-social-cuadro-tw": {
+   "name": "সোশ্যাল বার: Twitter (উল্টে যাওয়া টাইল)",
+   "tags": [
+    "youtube",
+    "সোশ্যাল মিডিয়া",
+    "twitter"
+   ]
+  },
+  "template:yp5-social-cuadro-yt": {
+   "name": "সোশ্যাল বার: YouTube (উল্টে যাওয়া টাইল)",
+   "tags": [
+    "youtube",
+    "সোশ্যাল মিডিয়া",
+    "ইউটিউব"
+   ]
+  },
+  "template:yp5-social-pincel-fb": {
+   "name": "সোশ্যাল বার: Facebook (তুলির টান)",
+   "tags": [
+    "youtube",
+    "সোশ্যাল মিডিয়া",
+    "facebook"
+   ]
+  },
+  "template:yp5-social-pincel-ig": {
+   "name": "সোশ্যাল বার: Instagram (তুলির টান)",
+   "tags": [
+    "youtube",
+    "সোশ্যাল মিডিয়া",
+    "instagram"
+   ]
+  },
+  "template:yp5-social-pincel-tw": {
+   "name": "সোশ্যাল বার: Twitter (তুলির টান)",
+   "tags": [
+    "youtube",
+    "সোশ্যাল মিডিয়া",
+    "twitter"
+   ]
+  },
+  "template:yp5-social-pincel-yt": {
+   "name": "সোশ্যাল বার: YouTube (তুলির টান)",
+   "tags": [
+    "youtube",
+    "সোশ্যাল মিডিয়া",
+    "ইউটিউব"
+   ]
+  },
+  "template:yp5-stacked-channel": {
+   "name": "লোয়ার থার্ড: চ্যাট বুদবুদ সহ তিন লাইনের নাম",
+   "tags": [
+    "লোয়ার থার্ড",
+    "youtube",
+    "বেলুন"
+   ]
+  },
+  "template:yp5-sub-avatar-pill": {
+   "name": "লোয়ার থার্ড: অ্যাভাটার ও ক্লিক সহ সাবস্ক্রাইব",
+   "tags": [
+    "লোয়ার থার্ড",
+    "youtube",
+    "সাবস্ক্রাইব",
+    "অ্যাভাটার",
+    "ক্লিক"
+   ]
+  },
+  "template:yp5-sub-center-avatar": {
+   "name": "লোয়ার থার্ড: ক্যাপসুলের মাঝে অ্যাভাটার",
+   "tags": [
+    "লোয়ার থার্ড",
+    "youtube",
+    "সাবস্ক্রাইব",
+    "অ্যাভাটার"
+   ]
+  },
+  "template:yp5-sub-channel-tag": {
+   "name": "লোয়ার থার্ড: চ্যানেলের নাম সহ সাবস্ক্রাইবড",
+   "tags": [
+    "লোয়ার থার্ড",
+    "youtube",
+    "সাবস্ক্রাইব",
+    "ক্লিক"
+   ]
+  },
+  "template:yp5-sub-grey-bell": {
+   "name": "লোয়ার থার্ড: ধূসর হয়ে যাওয়া সাবস্ক্রাইব ও একটি বেল",
+   "tags": [
+    "লোয়ার থার্ড",
+    "youtube",
+    "সাবস্ক্রাইব",
+    "বেল",
+    "ক্লিক"
+   ]
+  },
+  "template:yp5-sub-logo-box": {
+   "name": "লোয়ার থার্ড: সাদা বক্সে লোগো ও সাবস্ক্রাইব",
+   "tags": [
+    "লোয়ার থার্ড",
+    "youtube",
+    "সাবস্ক্রাইব",
+    "বাটন"
+   ]
+  },
+  "template:yp5-sub-red-pill": {
+   "name": "লোয়ার থার্ড: সাবস্ক্রাইব হয়ে যাওয়া লাল ক্যাপসুল",
+   "tags": [
+    "লোয়ার থার্ড",
+    "youtube",
+    "সাবস্ক্রাইব",
+    "ক্লিক"
+   ]
+  },
+  "template:yp5-sub-red-white": {
+   "name": "লোয়ার থার্ড: সাবস্ক্রাইবড হয়ে যাওয়া সাবস্ক্রাইব",
+   "tags": [
+    "লোয়ার থার্ড",
+    "youtube",
+    "সাবস্ক্রাইব",
+    "বেল"
+   ]
+  },
+  "template:yp5-sub-stack": {
+   "name": "লোয়ার থার্ড: অ্যাভাটার ও তিনটি লাল ট্যাগ",
+   "tags": [
+    "লোয়ার থার্ড",
+    "youtube",
+    "সাবস্ক্রাইব",
+    "অ্যাভাটার"
+   ]
+  },
+  "template:yp5-subscribe-icon": {
+   "name": "লোয়ার থার্ড: ঘুরন্ত বাটন সহ সাবস্ক্রাইব",
+   "tags": [
+    "লোয়ার থার্ড",
+    "youtube",
+    "সাবস্ক্রাইব",
+    "বাটন"
+   ]
+  },
+  "template:yp5-subscribe-now": {
+   "name": "শিরোনাম: অক্ষরে অক্ষরে এখনই সাবস্ক্রাইব",
+   "tags": [
+    "শিরোনাম",
+    "youtube",
+    "সাবস্ক্রাইব"
+   ]
+  },
+  "template:yp5-subscribe-to": {
+   "name": "শিরোনাম: সাদা বক্সে সাবস্ক্রাইব",
+   "tags": [
+    "শিরোনাম",
+    "youtube",
+    "সাবস্ক্রাইব",
+    "বক্স"
+   ]
+  },
+  "template:yp5-subscribed-click": {
+   "name": "লোয়ার থার্ড: ক্লিক সহ লাল সাবস্ক্রাইব বার",
+   "tags": [
+    "লোয়ার থার্ড",
+    "youtube",
+    "সাবস্ক্রাইব",
+    "ক্লিক"
+   ]
+  },
+  "template:yp5-thanks-watching": {
+   "name": "শিরোনাম: দেখার জন্য ধন্যবাদ",
+   "tags": [
+    "শিরোনাম",
+    "youtube",
+    "কৃতজ্ঞতা"
+   ]
+  },
+  "template:yp5-three-icons": {
+   "name": "লোয়ার থার্ড: জ্বলে ওঠা লাইক, প্লে ও বেল",
+   "tags": [
+    "লোয়ার থার্ড",
+    "youtube",
+    "লাইক",
+    "বেল"
+   ]
+  },
+  "template:yp5-three-pills": {
+   "name": "লোয়ার থার্ড: এক সারিতে তিনটি বাটন",
+   "tags": [
+    "লোয়ার থার্ড",
+    "youtube",
+    "লাইক",
+    "সাবস্ক্রাইব",
+    "বেল"
+   ]
+  },
+  "template:yp5-tilted-cycle": {
+   "name": "লোয়ার থার্ড: শব্দ বদলানো হেলানো ট্যাগ",
+   "tags": [
+    "লোয়ার থার্ড",
+    "youtube",
+    "লাইক",
+    "সাবস্ক্রাইব",
+    "বেল"
+   ]
+  },
+  "template:yp5-travel-blog": {
+   "name": "লোয়ার থার্ড: ওপরে ওঠা বাটন ও একটি নাম",
+   "tags": [
+    "লোয়ার থার্ড",
+    "youtube",
+    "বাটন"
+   ]
+  },
+  "template:yp5-triangle-box": {
+   "name": "লোয়ার থার্ড: সাদা বাটন হয়ে যাওয়া ত্রিভুজ",
+   "tags": [
+    "লোয়ার থার্ড",
+    "youtube",
+    "বাটন",
+    "সাদা"
+   ]
+  },
+  "template:yp5-watch-next": {
+   "name": "লোয়ার থার্ড: সাদা বক্সে পরেরটি দেখুন",
+   "tags": [
+    "লোয়ার থার্ড",
+    "youtube",
+    "বক্স",
+    "সাদা"
+   ]
+  },
+  "template:yp5-white-opener": {
+   "name": "ওপেনার: সাদার ওপর লাল চাকতি ও একটি চ্যানেল",
+   "tags": [
+    "ওপেনার",
+    "youtube",
+    "বৃত্ত",
+    "অ্যাভাটার"
+   ]
+  },
+  "template:yp5-your-channel-label": {
+   "name": "লোয়ার থার্ড: বাটন ও ঝিকিমিকি সহ লাল লেবেল",
+   "tags": [
+    "লোয়ার থার্ড",
+    "youtube",
+    "বাটন",
+    "ট্যাগ"
+   ]
+  },
+  "template:yp7-apertura-cuadro-rojo": {
+   "name": "ওপেনার: লাল বর্গ ও চ্যানেল কার্ড",
+   "tags": [
+    "youtube",
+    "সাদা-কালো",
+    "ফ্যাশন",
+    "লোগো",
+    "ওপেনার"
+   ]
+  },
+  "template:yp7-apertura-foto-perfil": {
+   "name": "ওপেনার: অ্যাভাটার হয়ে যাওয়া ছবি",
+   "tags": [
+    "youtube",
+    "সাদা-কালো",
+    "ফ্যাশন",
+    "লোগো",
+    "ওপেনার"
+   ]
+  },
+  "template:yp7-apertura-palabras": {
+   "name": "ওপেনার: কালো ও সাদা প্যানেলে শব্দ",
+   "tags": [
+    "youtube",
+    "সাদা-কালো",
+    "ফ্যাশন",
+    "শব্দ",
+    "ওপেনার"
+   ]
+  },
+  "template:yp7-apertura-youtube": {
+   "name": "ওপেনার: ভরাট হয়ে ওঠা আউটলাইন YOUTUBE",
+   "tags": [
+    "youtube",
+    "সাদা-কালো",
+    "ফ্যাশন",
+    "ওপেনার"
+   ]
+  },
+  "template:yp7-awesomeness": {
+   "name": "টাইপোগ্রাফি: সাদা ফ্রেমে শব্দ",
+   "tags": [
+    "youtube",
+    "সাদা-কালো",
+    "ফ্যাশন",
+    "টাইপোগ্রাফি",
+    "ফ্রেম"
+   ]
+  },
+  "template:yp7-be-happy": {
+   "name": "টাইপোগ্রাফি: সারিবদ্ধ হয়ে রং বদলানো বাক্য",
+   "tags": [
+    "youtube",
+    "সাদা-কালো",
+    "ফ্যাশন",
+    "টাইপোগ্রাফি",
+    "বাক্য"
+   ]
+  },
+  "template:yp7-caja-negra": {
+   "name": "টাইপোগ্রাফি: কালো বক্সে বাক্য",
+   "tags": [
+    "youtube",
+    "সাদা-কালো",
+    "ফ্যাশন",
+    "টাইপোগ্রাফি",
+    "বক্স"
+   ]
+  },
+  "template:yp7-cita-barra": {
+   "name": "টাইপোগ্রাফি: বারে উদ্ধৃতি",
+   "tags": [
+    "youtube",
+    "সাদা-কালো",
+    "ফ্যাশন",
+    "টাইপোগ্রাফি",
+    "উদ্ধৃতি",
+    "বক্স"
+   ]
+  },
+  "template:yp7-cita-barra-2": {
+   "name": "টাইপোগ্রাফি: দুটি বর্গ সহ উদ্ধৃতির বার",
+   "tags": [
+    "youtube",
+    "সাদা-কালো",
+    "ফ্যাশন",
+    "টাইপোগ্রাফি",
+    "উদ্ধৃতি",
+    "বক্স"
+   ]
+  },
+  "template:yp7-cita-cuadro": {
+   "name": "টাইপোগ্রাফি: বর্গাকার বক্সে উদ্ধৃতি",
+   "tags": [
+    "youtube",
+    "সাদা-কালো",
+    "ফ্যাশন",
+    "টাইপোগ্রাফি",
+    "উদ্ধৃতি",
+    "বক্স"
+   ]
+  },
+  "template:yp7-cita-cuadro-2": {
+   "name": "টাইপোগ্রাফি: কোণে বর্গ সহ উদ্ধৃতির বক্স",
+   "tags": [
+    "youtube",
+    "সাদা-কালো",
+    "ফ্যাশন",
+    "টাইপোগ্রাফি",
+    "উদ্ধৃতি",
+    "বক্স"
+   ]
+  },
+  "template:yp7-cita-cuadro-3": {
+   "name": "টাইপোগ্রাফি: দুটি বর্গ সহ উদ্ধৃতি",
+   "tags": [
+    "youtube",
+    "সাদা-কালো",
+    "ফ্যাশন",
+    "টাইপোগ্রাফি",
+    "উদ্ধৃতি",
+    "বক্স"
+   ]
+  },
+  "template:yp7-elementos-1": {
+   "name": "এলিমেন্ট: ঝলকানো আকার ও বিন্দু",
+   "tags": [
+    "এলিমেন্ট",
+    "youtube",
+    "সাদা-কালো",
+    "ফ্যাশন",
+    "ওভারলে",
+    "গ্লিচ"
+   ]
+  },
+  "template:yp7-elementos-2": {
+   "name": "এলিমেন্ট: আকার, বলয় ও বিন্দুর পর্দা",
+   "tags": [
+    "এলিমেন্ট",
+    "youtube",
+    "সাদা-কালো",
+    "ফ্যাশন",
+    "ওভারলে",
+    "গ্লিচ"
+   ]
+  },
+  "template:yp7-elementos-3": {
+   "name": "এলিমেন্ট: তির্যক রেখা ও বিন্দুর রম্বস",
+   "tags": [
+    "এলিমেন্ট",
+    "youtube",
+    "সাদা-কালো",
+    "ফ্যাশন",
+    "ওভারলে",
+    "গ্লিচ"
+   ]
+  },
+  "template:yp7-elementos-4": {
+   "name": "এলিমেন্ট: স্ক্যান রেখা ও একটি বলয়",
+   "tags": [
+    "এলিমেন্ট",
+    "youtube",
+    "সাদা-কালো",
+    "ফ্যাশন",
+    "ওভারলে",
+    "গ্লিচ"
+   ]
+  },
+  "template:yp7-final-1": {
+   "name": "এন্ড কার্ড: একটি ভিডিও",
+   "tags": [
+    "youtube",
+    "সাদা-কালো",
+    "ফ্যাশন",
+    "এন্ড স্ক্রিন",
+    "ভিডিও"
+   ]
+  },
+  "template:yp7-final-2": {
+   "name": "এন্ড কার্ড: ওপর-নিচে দুটি ভিডিও",
+   "tags": [
+    "youtube",
+    "সাদা-কালো",
+    "ফ্যাশন",
+    "এন্ড স্ক্রিন",
+    "ভিডিও"
+   ]
+  },
+  "template:yp7-final-3": {
+   "name": "এন্ড কার্ড: পাশাপাশি দুটি ভিডিও",
+   "tags": [
+    "youtube",
+    "সাদা-কালো",
+    "ফ্যাশন",
+    "এন্ড স্ক্রিন",
+    "ভিডিও"
+   ]
+  },
+  "template:yp7-final-4": {
+   "name": "এন্ড কার্ড: চারটি ভিডিও",
+   "tags": [
+    "youtube",
+    "সাদা-কালো",
+    "ফ্যাশন",
+    "এন্ড স্ক্রিন",
+    "ভিডিও"
+   ]
+  },
+  "template:yp7-frase-entre-barras": {
+   "name": "টাইপোগ্রাফি: দুই বারের মাঝে বাক্য",
+   "tags": [
+    "youtube",
+    "সাদা-কালো",
+    "ফ্যাশন",
+    "টাইপোগ্রাফি",
+    "বাক্য"
+   ]
+  },
+  "template:yp7-frase-inclinada": {
+   "name": "টাইপোগ্রাফি: রেখার মাঝে হেলানো বাক্য",
+   "tags": [
+    "youtube",
+    "সাদা-কালো",
+    "ফ্যাশন",
+    "টাইপোগ্রাফি",
+    "বাক্য"
+   ]
+  },
+  "template:yp7-greatness": {
+   "name": "টাইপোগ্রাফি: জায়গায় এসে পড়া অক্ষর",
+   "tags": [
+    "youtube",
+    "সাদা-কালো",
+    "ফ্যাশন",
+    "টাইপোগ্রাফি"
+   ]
+  },
+  "template:yp7-icono-campana": {
+   "name": "আইকন: বেজে ওঠা বেল",
+   "tags": [
+    "youtube",
+    "সাদা-কালো",
+    "ফ্যাশন",
+    "আইকন",
+    "বেল"
+   ]
+  },
+  "template:yp7-icono-compartir": {
+   "name": "আইকন: শেয়ার বাটন",
+   "tags": [
+    "youtube",
+    "সাদা-কালো",
+    "ফ্যাশন",
+    "আইকন",
+    "শেয়ার"
+   ]
+  },
+  "template:yp7-icono-me-gusta": {
+   "name": "আইকন: লাইক বাটন",
+   "tags": [
+    "youtube",
+    "সাদা-কালো",
+    "ফ্যাশন",
+    "আইকন",
+    "লাইক"
+   ]
+  },
+  "template:yp7-icono-suscribirse": {
+   "name": "আইকন: সাবস্ক্রাইব বাটন",
+   "tags": [
+    "youtube",
+    "সাদা-কালো",
+    "ফ্যাশন",
+    "আইকন",
+    "সাবস্ক্রাইব"
+   ]
+  },
+  "template:yp7-nota-campana": {
+   "name": "এক্সট্রা: হাতে লেখা «Click the bell icon»",
+   "tags": [
+    "এক্সট্রা",
+    "youtube",
+    "সাদা-কালো",
+    "ফ্যাশন",
+    "তীর",
+    "হাতে লেখা"
+   ]
+  },
+  "template:yp7-nota-comenta": {
+   "name": "এক্সট্রা: তীর সহ হাতে লেখা «Comment below»",
+   "tags": [
+    "এক্সট্রা",
+    "youtube",
+    "সাদা-কালো",
+    "ফ্যাশন",
+    "তীর",
+    "হাতে লেখা"
+   ]
+  },
+  "template:yp7-nota-suscribete": {
+   "name": "এক্সট্রা: তীর সহ হাতে লেখা «Subscribe us»",
+   "tags": [
+    "এক্সট্রা",
+    "youtube",
+    "সাদা-কালো",
+    "ফ্যাশন",
+    "তীর",
+    "হাতে লেখা"
+   ]
+  },
+  "template:yp7-nota-video": {
+   "name": "এক্সট্রা: হাতে লেখা «Check out the video here»",
+   "tags": [
+    "এক্সট্রা",
+    "youtube",
+    "সাদা-কালো",
+    "ফ্যাশন",
+    "তীর",
+    "হাতে লেখা"
+   ]
+  },
+  "template:yp7-red-dribbble": {
+   "name": "সোশ্যাল: Dribbble কার্ড",
+   "tags": [
+    "youtube",
+    "সাদা-কালো",
+    "ফ্যাশন",
+    "সোশ্যাল মিডিয়া",
+    "dribbble"
+   ]
+  },
+  "template:yp7-red-facebook": {
+   "name": "সোশ্যাল: Facebook কার্ড",
+   "tags": [
+    "youtube",
+    "সাদা-কালো",
+    "ফ্যাশন",
+    "সোশ্যাল মিডিয়া",
+    "facebook"
+   ]
+  },
+  "template:yp7-red-google-plus": {
+   "name": "সোশ্যাল: Google Plus কার্ড",
+   "tags": [
+    "youtube",
+    "সাদা-কালো",
+    "ফ্যাশন",
+    "সোশ্যাল মিডিয়া",
+    "google plus"
+   ]
+  },
+  "template:yp7-red-instagram": {
+   "name": "সোশ্যাল: Instagram কার্ড",
+   "tags": [
+    "youtube",
+    "সাদা-কালো",
+    "ফ্যাশন",
+    "সোশ্যাল মিডিয়া",
+    "instagram"
+   ]
+  },
+  "template:yp7-red-linkedin": {
+   "name": "সোশ্যাল: LinkedIn কার্ড",
+   "tags": [
+    "youtube",
+    "সাদা-কালো",
+    "ফ্যাশন",
+    "সোশ্যাল মিডিয়া",
+    "linkedin"
+   ]
+  },
+  "template:yp7-red-pinterest": {
+   "name": "সোশ্যাল: Pinterest কার্ড",
+   "tags": [
+    "youtube",
+    "সাদা-কালো",
+    "ফ্যাশন",
+    "সোশ্যাল মিডিয়া",
+    "pinterest"
+   ]
+  },
+  "template:yp7-red-twitter": {
+   "name": "সোশ্যাল: Twitter কার্ড",
+   "tags": [
+    "youtube",
+    "সাদা-কালো",
+    "ফ্যাশন",
+    "সোশ্যাল মিডিয়া",
+    "twitter"
+   ]
+  },
+  "template:yp7-red-whatsapp": {
+   "name": "সোশ্যাল: WhatsApp কার্ড",
+   "tags": [
+    "youtube",
+    "সাদা-কালো",
+    "ফ্যাশন",
+    "সোশ্যাল মিডিয়া",
+    "whatsapp"
+   ]
+  },
+  "template:yp7-super-awesome-life": {
+   "name": "টাইপোগ্রাফি: ওপরে উঠে কাছে আসা তিন লাইন",
+   "tags": [
+    "youtube",
+    "সাদা-কালো",
+    "ফ্যাশন",
+    "টাইপোগ্রাফি"
+   ]
+  },
+  "template:yp7-suscribirse-banda": {
+   "name": "সাবস্ক্রাইব: নিচের ব্যান্ড",
+   "tags": [
+    "youtube",
+    "সাদা-কালো",
+    "ফ্যাশন",
+    "সাবস্ক্রাইব",
+    "ব্যান্ড"
+   ]
+  },
+  "template:yp7-suscribirse-banda-foto": {
+   "name": "সাবস্ক্রাইব: ছবি সহ নিচের ব্যান্ড",
+   "tags": [
+    "youtube",
+    "সাদা-কালো",
+    "ফ্যাশন",
+    "সাবস্ক্রাইব",
+    "ব্যান্ড"
+   ]
+  },
+  "template:yp7-suscribirse-barra": {
+   "name": "সাবস্ক্রাইব: অ্যাভাটার সহ বার",
+   "tags": [
+    "youtube",
+    "সাদা-কালো",
+    "ফ্যাশন",
+    "সাবস্ক্রাইব"
+   ]
+  },
+  "template:yp7-suscribirse-tarjeta": {
+   "name": "সাবস্ক্রাইব: ছবি সহ কার্ড",
+   "tags": [
+    "youtube",
+    "সাদা-কালো",
+    "ফ্যাশন",
+    "সাবস্ক্রাইব"
+   ]
+  },
+  "template:yp7-telefono": {
+   "name": "দৃশ্য: লাইক ও সাবস্ক্রাইব সহ ফোন",
+   "tags": [
+    "youtube",
+    "সাদা-কালো",
+    "ফ্যাশন",
+    "ফোন",
+    "সাবস্ক্রাইব"
+   ]
+  },
+  "template:yp7-telefono-izquierda": {
+   "name": "দৃশ্য: বাঁ দিকে ফোন",
+   "tags": [
+    "youtube",
+    "সাদা-কালো",
+    "ফ্যাশন",
+    "ফোন",
+    "সাবস্ক্রাইব"
+   ]
+  },
+  "template:yp7-transicion-circulo": {
+   "name": "ট্রানজিশন: কেন্দ্র থেকে বৃত্ত",
+   "tags": [
+    "youtube",
+    "সাদা-কালো",
+    "ফ্যাশন",
+    "ট্রানজিশন"
+   ]
+  },
+  "template:yp7-transicion-circulo-arriba": {
+   "name": "ট্রানজিশন: ওপর থেকে বৃত্ত",
+   "tags": [
+    "youtube",
+    "সাদা-কালো",
+    "ফ্যাশন",
+    "ট্রানজিশন"
+   ]
+  },
+  "template:yp7-transicion-circulo-izquierda": {
+   "name": "ট্রানজিশন: বাঁ দিক থেকে বৃত্ত",
+   "tags": [
+    "youtube",
+    "সাদা-কালো",
+    "ফ্যাশন",
+    "ট্রানজিশন"
+   ]
+  },
+  "template:yp7-transicion-diagonal": {
+   "name": "ট্রানজিশন: তির্যক ওয়াইপ",
+   "tags": [
+    "youtube",
+    "সাদা-কালো",
+    "ফ্যাশন",
+    "ট্রানজিশন"
+   ]
+  },
+  "template:yp7-transicion-izquierda": {
+   "name": "ট্রানজিশন: বাঁ দিকে ওয়াইপ",
+   "tags": [
+    "youtube",
+    "সাদা-কালো",
+    "ফ্যাশন",
+    "ট্রানজিশন"
+   ]
+  },
+  "template:yp7-transicion-lineas": {
+   "name": "ট্রানজিশন: কেন্দ্র থেকে রেখা",
+   "tags": [
+    "youtube",
+    "সাদা-কালো",
+    "ফ্যাশন",
+    "ট্রানজিশন"
+   ]
+  },
+  "template:yp7-transicion-rectangulo": {
+   "name": "ট্রানজিশন: কেন্দ্র থেকে আয়তক্ষেত্র",
+   "tags": [
+    "youtube",
+    "সাদা-কালো",
+    "ফ্যাশন",
+    "ট্রানজিশন"
+   ]
+  },
+  "template:yp7-transicion-sube": {
+   "name": "ট্রানজিশন: ওপরে ওঠা ব্যান্ড",
+   "tags": [
+    "youtube",
+    "সাদা-কালো",
+    "ফ্যাশন",
+    "ট্রানজিশন"
    ]
   },
   "template:yt-calle-a-que-te-dedicas": {

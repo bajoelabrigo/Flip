@@ -383,7 +383,9 @@ bool isOverlayTemplate(const SceneTemplateEntry &entry)
 {
     if (entry.tags.contains(QStringLiteral("kit:transiciones")))
         return false;
-    return entry.category == QLatin1String("ytkit") || entry.tags.contains(QStringLiteral("kit:lowerthirds"))
+    // The TikTok and Instagram kits (2026-11-09) are fitted the same way: a story in a wide video, a logo in a Short.
+    return entry.category == QLatin1String("ytkit") || entry.category == QLatin1String("tiktok")
+        || entry.category == QLatin1String("instagram") || entry.tags.contains(QStringLiteral("kit:lowerthirds"))
         || entry.tags.contains(QStringLiteral("tercio"));
 }
 
@@ -543,10 +545,12 @@ QString AppController::placeSceneTemplate(const QString &templateId, bool record
     }
     const int slotNumber = int(slotNumbers.size());
     QHash<QString, QString> standIns; // placeholderId -> its stand-in picture
+    // Old clip id -> new, across every track: a matte, a lane's clip or a parent can live on another track
+    // (2026-11-09: a track matte or a parent in a Stock template pointed at the old ids once placed).
+    QHash<QString, QString> clipIds;
     for (drift::Track &track : tracks) {
         track.id = QUuid::createUuid().toString(QUuid::WithoutBraces);
         track.locked = false;
-        QHash<QString, QString> clipIds;
         for (drift::Clip &clip : track.clips) {
             const QString newId = QUuid::createUuid().toString(QUuid::WithoutBraces);
             clipIds.insert(clip.id, newId);
@@ -604,9 +608,15 @@ QString AppController::placeSceneTemplate(const QString &templateId, bool record
             transition.fromClipId = clipIds.value(transition.fromClipId, transition.fromClipId);
             transition.toClipId = clipIds.value(transition.toClipId, transition.toClipId);
         }
+    }
+    for (drift::Track &track : tracks) {
         for (drift::Clip &clip : track.clips) {
             if (!clip.linkedClipId.isEmpty())
                 clip.linkedClipId = clipIds.value(clip.linkedClipId, clip.linkedClipId);
+            if (!clip.matteClipId.isEmpty())
+                clip.matteClipId = clipIds.value(clip.matteClipId, clip.matteClipId);
+            if (!clip.parentId.isEmpty())
+                clip.parentId = clipIds.value(clip.parentId, clip.parentId);
         }
     }
     // Lanes point at their parent by track id; keep that pairing under the new ids.

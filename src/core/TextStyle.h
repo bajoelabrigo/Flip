@@ -207,6 +207,9 @@ struct TextStyle
     // Seconds the count takes from the clip's start (0.18, for templates that time a flash to the
     // landing); 0 keeps the 85 % of the clip.
     double counterSeconds = 0.0;
+    // How the count moves (2026-11-08): "easeOut" (the default, slows down into the number) or
+    // "linear" (a steady rate, like a live followers counter).
+    QString counterCurve = QStringLiteral("easeOut");
 
     bool boxEnabled = false; // filled background behind the whole block
     QColor boxColor = QColor(0, 0, 0, 128);
@@ -270,7 +273,7 @@ QString applyTextCase(const QString &text, const QString &textCase);
 // The animated counter's text at `progress` (0..1 of the clip): the first number in `text` replaced
 // by its value counting from `from`, in the text's own format, reaching it at `land` (0..1) of the
 // clip. A number written with leading zeros ("05:00") keeps its width. `text` unchanged if it has none.
-QString counterTextAt(const QString &text, double from, double progress, double land = 0.85);
+QString counterTextAt(const QString &text, double from, double progress, double land = 0.85, bool linear = false);
 // The background shapes a text box can take besides "rect", in gallery order.
 QStringList textBubbleShapes();
 

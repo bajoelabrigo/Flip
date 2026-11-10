@@ -2073,6 +2073,9 @@ QVariantMap textStyleToMap(const drift::TextStyle &s, drift::TimeUs timelineStar
         {QStringLiteral("accent"), wordAccentToMap(s.accent)},
         {QStringLiteral("animation"), textAnimationSetToMap(s.animation)},
     };
+    // Only when it is not the default, so every text's row stays as short as before (MCP inspect).
+    if (s.counterCurve != QLatin1String("easeOut"))
+        map.insert(QStringLiteral("counterCurve"), s.counterCurve);
 
     // Read-only mirrors of the flat v6 look, kept one release for the inspector rows and agents
     // that still read them.
@@ -19918,6 +19921,8 @@ void AppController::applyTextStylePatch(drift::TextStyle &s, const QVariantMap &
         s.counterFrom = m.value(QStringLiteral("counterFrom")).toDouble();
     if (m.contains(QStringLiteral("counterSeconds")))
         s.counterSeconds = std::max(0.0, m.value(QStringLiteral("counterSeconds")).toDouble());
+    if (m.contains(QStringLiteral("counterCurve")))
+        s.counterCurve = m.value(QStringLiteral("counterCurve")).toString();
     if (m.contains(QStringLiteral("underlineEnabled")))
         s.underlineEnabled = m.value(QStringLiteral("underlineEnabled")).toBool();
     if (m.contains(QStringLiteral("underlineColor")))

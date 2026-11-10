@@ -11421,6 +11421,10 @@
         <translation>Abombar (%)</translation>
     </message>
     <message>
+        <source>Twirl</source>
+        <translation>Remolino</translation>
+    </message>
+    <message>
         <source>Fade in</source>
         <translation>Aparecer</translation>
     </message>
@@ -23410,6 +23414,18 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>YouTuber style</source>
         <translation>Estilo youtuber</translation>
+    </message>
+    <message>
+        <source>YouTube Kit</source>
+        <translation>Kit de YouTube</translation>
+    </message>
+    <message>
+        <source>TikTok Kit</source>
+        <translation>Kit de TikTok</translation>
+    </message>
+    <message>
+        <source>Instagram Kit</source>
+        <translation>Kit de Instagram</translation>
     </message>
     <message>
         <source>Other</source>

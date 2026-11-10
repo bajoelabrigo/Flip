@@ -5,6 +5,7 @@
 #include "core/Project.h"
 #include "core/TimelineOps.h"
 #include "engine/ClipTransform3d.h"
+#include "engine/SceneCamera3d.h"
 
 #include <QVector4D>
 
@@ -272,6 +273,83 @@ QTransform clipParentMatrix(const Project &project, const Clip &clip, TimeUs tim
     if (active)
         *active = false;
     return {};
+}
+
+namespace {
+
+// The clip's 3D tilt and depth as a move of the world (centre origin, project px): what turns its flat place into
+// the tilted one. Identity, with *tilted false, for a flat clip. Mirrors clipQuadToWorld: the tilt pivots on the
+// anchor (turned with the in-plane spin) about the rect centre, which sits positionZ toward the eye.
+QMatrix4x4 tiltOfClip(const Clip &clip, TimeUs timelineUs, const QSize &projectSize, bool *tilted)
+{
+    const TimeUs relative = timelineUs - clip.timelineStart;
+    const double rx = valueAt(clip.rotationX, relative, 0.0);
+    const double ry = valueAt(clip.rotationY, relative, 0.0);
+    const double z = valueAt(clip.positionZ, relative, 0.0);
+    *tilted = !qFuzzyIsNull(rx) || !qFuzzyIsNull(ry) || !qFuzzyIsNull(z);
+    if (!*tilted)
+        return {};
+    const QTransform own = ownPose(clip, timelineUs, projectSize);
+    const QPointF centre = own.map(QPointF(0, 0)) - QPointF(projectSize.width() / 2.0, projectSize.height() / 2.0);
+    const double w = valueAt(clip.transformW, relative, projectSize.width());
+    const double h = valueAt(clip.transformH, relative, projectSize.height());
+    const double rotation = valueAt(clip.rotation, relative, 0.0) + clip.autoOrientDegrees(relative);
+    QPointF pivot;
+    if (!clip.anchorX.isEmpty() || !clip.anchorY.isEmpty())
+        pivot = clipPivot(valueAt(clip.anchorX, relative, 0.5), valueAt(clip.anchorY, relative, 0.5), w, h, rotation);
+    QMatrix4x4 m;
+    m.translate(float(centre.x() + pivot.x()), float(centre.y() + pivot.y()), float(z));
+    m.rotate(float(rx), 1.f, 0.f, 0.f);
+    m.rotate(float(ry), 0.f, 1.f, 0.f);
+    m.translate(float(-centre.x() - pivot.x()), float(-centre.y() - pivot.y()));
+    return m;
+}
+
+// What the parent chain does to `clip` in the world (centre origin, project px), the 3D tilts included;
+// *tilted is set when some ancestor is tilted (else the 2D parenting says the same).
+QMatrix4x4 parentWorldDelta(const Project &project, const Clip &clip, TimeUs timelineUs, int depth, bool *tilted)
+{
+    *tilted = false;
+    if (clip.parentId.isEmpty() || depth > 32)
+        return {};
+    const Clip *parent = findClipInProject(project, clip.parentId);
+    if (!parent || parent == &clip)
+        return {};
+    bool invertible = false;
+    const QTransform restInverse = clip.parentRest.inverted(&invertible);
+    if (!invertible)
+        return {};
+    const QSize size(project.width(), project.height());
+    const QSizeF sizeF(size);
+    bool above = false;
+    const QMatrix4x4 grand = parentWorldDelta(project, *parent, timelineUs, depth + 1, &above);
+    bool own = false;
+    const QMatrix4x4 tilt = tiltOfClip(*parent, timelineUs, size, &own);
+    *tilted = above || own;
+    // The parent's world now (its chain, its tilt, its flat place) against its flat place when the link was made.
+    return grand * tilt * worldParentFromAffine(restInverse * ownPose(*parent, timelineUs, size), sizeF);
+}
+
+} // namespace
+
+bool clipParentWorld3d(const Project &project, const Clip &clip, TimeUs timelineUs, double renderScale,
+                       QMatrix4x4 *world)
+{
+    if (clip.parentId.isEmpty() || parentLinkMakesCycle(project, clip.id, clip.parentId))
+        return false;
+    bool tilted = false;
+    QMatrix4x4 m = parentWorldDelta(project, clip, timelineUs, 0, &tilted);
+    if (!tilted)
+        return false;
+    if (renderScale != 1.0 && renderScale > 0.0) {
+        // Project px → render px: the world is centred, so it is a plain scale (depth included).
+        QMatrix4x4 up, down;
+        up.scale(float(renderScale));
+        down.scale(float(1.0 / renderScale));
+        m = up * m * down;
+    }
+    *world = m;
+    return true;
 }
 
 void bakeMatrixIntoClipLayout(Clip &clip, const QTransform &delta, const QSize &projectSize)

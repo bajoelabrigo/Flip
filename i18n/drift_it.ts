@@ -11421,6 +11421,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Twirl</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Fade in</source>
         <translation>Comparsa</translation>
     </message>
@@ -23410,6 +23414,18 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     <message>
         <source>YouTuber style</source>
         <translation>Stile youtuber</translation>
+    </message>
+    <message>
+        <source>YouTube Kit</source>
+        <translation>Kit YouTube</translation>
+    </message>
+    <message>
+        <source>TikTok Kit</source>
+        <translation>Kit TikTok</translation>
+    </message>
+    <message>
+        <source>Instagram Kit</source>
+        <translation>Kit Instagram</translation>
     </message>
     <message>
         <source>Other</source>

@@ -117,6 +117,7 @@
   "template:collage": "කොලාජ්",
   "template:countdown": "කවුන්ට්ඩවුන්",
   "template:counter": "ගණක",
+  "template:instagram": "Instagram කට්ටලය",
   "template:intro": "ඉන්ට්‍රෝ සහ මාතෘකා",
   "template:lowerthird": "නාම තීරු",
   "template:outro": "අවසාන",
@@ -127,6 +128,7 @@
   "template:story15": "තත්පර 15 කතන්දර",
   "template:text": "අකුරු",
   "template:thumbnail": "වීඩියෝ කුඩා රූ",
+  "template:tiktok": "TikTok කට්ටලය",
   "template:transition": "ට්‍රාන්සිෂන් සහ බෙදුම්",
   "template:youtuber": "යූටියුබර් විලාසය",
   "template:ytkit": "YouTube කට්ටලය",
@@ -25139,6 +25141,3014 @@
     "පාටි"
    ]
   },
+  "template:ig0-intro-urbana": {
+   "name": "ගතික නාගරික හැඳින්වීම: URBAN, STREETS, PROMO සහ ඔබේ ලාංඡනය",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ආරම්භය",
+    "නාගරික",
+    "ගතික හැඳින්වීම"
+   ]
+  },
+  "template:ig1-alison": {
+   "name": "කතාව: රතු රාමුවක් සහිත ඡායාරූපයක් මත නම",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "නම",
+    "පැතිකඩ",
+    "රතු"
+   ]
+  },
+  "template:ig1-anna": {
+   "name": "කතාව: නිල් ශ්‍රේණිගත පසුබිමක ඡායාරූපයක් සමඟ නම",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "නම",
+    "පැතිකඩ",
+    "ශ්‍රේණිගත වර්ණ"
+   ]
+  },
+  "template:ig1-beautiful": {
+   "name": "කතාව: #beautiful ඡායාරූපයක් සහ උද්ධෘතයක් සමඟ",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "උද්ධෘතය",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:ig1-believe": {
+   "name": "කතාව: WE MUST BELIEVE බෙදන රේඛාවක් සමඟ",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "වාක්‍ය ඛණ්ඩය",
+    "ඡායාරූපය",
+    "කළු"
+   ]
+  },
+  "template:ig1-catherine": {
+   "name": "කතාව: ශ්‍රේණිගත පසුබිමක වටකුරු ඡායාරූපය, නම සහ උද්ධෘතය",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "උද්ධෘතය",
+    "පැතිකඩ",
+    "ශ්‍රේණිගත වර්ණ"
+   ]
+  },
+  "template:ig1-conquer": {
+   "name": "කතාව: Conquer from within ඡායාරූප කැරොසලයක් සමඟ",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "කැරොසලය",
+    "ඡායාරූපය",
+    "සුදු"
+   ]
+  },
+  "template:ig1-do-your-best": {
+   "name": "කතාව: රිබනයක DO YOUR BEST",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "වාක්‍ය ඛණ්ඩය",
+    "නගරය",
+    "ප්‍රේරණය"
+   ]
+  },
+  "template:ig1-dog": {
+   "name": "කතාව: #photooftheday පටියකින් බෙදූ ඡායාරූපය",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "සුරතල් සතා",
+    "ඡායාරූපය",
+    "පටිය"
+   ]
+  },
+  "template:ig1-elegant": {
+   "name": "කතාව: ELEGANT TYPO DESIGN දර්පණ කවුළුවක් සමඟ",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "අකුරු සැලසුම",
+    "මුහුද",
+    "සුහද"
+   ]
+  },
+  "template:ig1-forty-sale": {
+   "name": "කතාව: ඡායාරූපයක් සමඟ සිරස් 40% Sale",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "වට්ටම් විකුණුම",
+    "වට්ටම",
+    "විලාසිතා"
+   ]
+  },
+  "template:ig1-happy-thoughts": {
+   "name": "කතාව: ඇල පොලරොයිඩ් ඡායාරූපයක «happy thoughts»",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "පොලරොයිඩ්",
+    "මංගල",
+    "අතින් ලියූ"
+   ]
+  },
+  "template:ig1-heart": {
+   "name": "කතාව: හදවත් හැඩැති ඡායාරූපයක «happy thoughts»",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "හදවත",
+    "ආදරය",
+    "පීච්"
+   ]
+  },
+  "template:ig1-instalove": {
+   "name": "කතාව: #instalove LIVE WHAT YOU LOVE",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "වාක්‍ය ඛණ්ඩය",
+    "වනාන්තරය",
+    "නම"
+   ]
+  },
+  "template:ig1-lifestyle": {
+   "name": "කතාව: #lifestyle ඡායාරූප මොසෙයික් එකක් සමඟ",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "කොලාජ්",
+    "ගිම්හානය",
+    "මොසෙයික්"
+   ]
+  },
+  "template:ig1-live-what": {
+   "name": "කතාව: Live what you love 2×2 ජාලකයක් සමඟ",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ජාලකය",
+    "කොලාජ්",
+    "සුදු"
+   ]
+  },
+  "template:ig1-love-friendship": {
+   "name": "කතාව: පොලරොයිඩ් සහ අතින් ලියූ «Love is friendship»",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "පොලරොයිඩ්",
+    "රෝස",
+    "උද්ධෘතය"
+   ]
+  },
+  "template:ig1-love-loves": {
+   "name": "කතාව: ඊතල සහිත පොලරොයිඩ් දෙකක් සහ අතින් ලියූ පේළියක්",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "පොලරොයිඩ්",
+    "රෝස",
+    "ඊතල"
+   ]
+  },
+  "template:ig1-must-believe": {
+   "name": "කතාව: දර්පණ කවයක WE MUST BELIEVE",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "වාක්‍ය ඛණ්ඩය",
+    "කවය",
+    "භූ දර්ශනය"
+   ]
+  },
+  "template:ig1-nature": {
+   "name": "කතාව: රාමුවක් සහිත පෙට්ටියක Nature",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ස්වභාවධර්මය",
+    "රාමුව",
+    "මුහුද"
+   ]
+  },
+  "template:ig1-neon": {
+   "name": "කතාව: නිල් කොළ නියෝන් වලින් NEON CITY",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "නියෝන්",
+    "නගරය",
+    "රාත්‍රිය"
+   ]
+  },
+  "template:ig1-photo-frame": {
+   "name": "කතාව: කවුළුවක් විවෘත කරන සුදු කාඩ්පත",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "රාමුව",
+    "ආහාර",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:ig1-seek": {
+   "name": "කතාව: ඡායාරූප අකුරු සහිත SEEK THE SEEKER",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "වාක්‍ය ඛණ්ඩය",
+    "කොළ",
+    "කපා ගැනීම"
+   ]
+  },
+  "template:ig1-so-it-goes": {
+   "name": "කතාව: So it goes 2×2 ජාලකයක් සමඟ",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ජාලකය",
+    "කොලාජ්",
+    "රෝස"
+   ]
+  },
+  "template:ig1-spring-sale": {
+   "name": "කතාව: Spring Sale 30%",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "වට්ටම් විකුණුම",
+    "වට්ටම",
+    "විලාසිතා"
+   ]
+  },
+  "template:ig1-stylish-bike": {
+   "name": "කතාව: කපා ගත් රූපයක් සහිත S T Y L I S H",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "කපා ගැනීම",
+    "ටර්කොයිස්",
+    "සබැඳිය"
+   ]
+  },
+  "template:ig1-stylish-design": {
+   "name": "කතාව: ශ්‍රේණිගත රාමුවක STYLISH DESIGN",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "රාමුව",
+    "ශ්‍රේණිගත වර්ණ",
+    "අඳුරු"
+   ]
+  },
+  "template:ig1-stylish-skate": {
+   "name": "කතාව: පාඨයක් සහිත දැවැන්ත සිරස් Stylish",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "සිරස්",
+    "ස්කේට්බෝඩ්",
+    "අකුරු සැලසුම"
+   ]
+  },
+  "template:ig1-success": {
+   "name": "කතාව: ගලක් මත උද්ධෘතයක් සහ 01",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "උද්ධෘතය",
+    "වාක්‍ය ඛණ්ඩය",
+    "අඳුරු"
+   ]
+  },
+  "template:ig1-work-dream": {
+   "name": "කතාව: සිරස් Work hard. Dream big. සහ 05",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "වාක්‍ය ඛණ්ඩය",
+    "සිරස්",
+    "අංකය"
+   ]
+  },
+  "template:ig1-work-hard": {
+   "name": "කතාව: කළු පසුබිමක WORK HARD. DREAM BIG.",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "වාක්‍ය ඛණ්ඩය",
+    "ප්‍රේරණය",
+    "කළු"
+   ]
+  },
+  "template:ig10-arco-sube": {
+   "name": "කතාව: MODELS සමඟ ඉහළට නගින චාප ඡායාරූපය",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "විලාසිතා",
+    "ආකෘති",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:ig10-ovalo-abre": {
+   "name": "කතාව: රේඛාවකින් විවෘත වන ඕවල ඡායාරූපය",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "විලාසිතා",
+    "ආකෘති",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:ig10-ovalo-sube": {
+   "name": "කතාව: දළ සටහන් දෙකක් සහිත ඉහළට නගින ඕවල ඡායාරූපය",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "විලාසිතා",
+    "ආකෘති",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:ig10-u-foto": {
+   "name": "කතාව: පහළ වටකුරු ඡායාරූපය සහ රාමු කළ මාතෘකාව",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "විලාසිතා",
+    "ආකෘති",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:ig10-ventana-arco": {
+   "name": "කතාව: චාප කවුළුවක් සහිත වැස්මක් යට ඡායාරූපය",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "විලාසිතා",
+    "ආකෘති",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:ig11-avatar-seguir": {
+   "name": "පැතිකඩ රූපය සහ අනුගමනය බොත්තම",
+   "tags": [
+    "instagram",
+    "අංග",
+    "llamada a la acción",
+    "සමාජ මාධ්‍ය",
+    "අනුගමනය",
+    "කතාව"
+   ]
+  },
+  "template:ig11-comenta": {
+   "name": "පහළින් අදහසක් දක්වන්න",
+   "tags": [
+    "instagram",
+    "අංග",
+    "llamada a la acción",
+    "සමාජ මාධ්‍ය",
+    "අදහස්",
+    "කවුන්ටරය"
+   ]
+  },
+  "template:ig11-compartir": {
+   "name": "පළ කිරීම තවත් අයට බෙදාගන්න",
+   "tags": [
+    "instagram",
+    "අංග",
+    "llamada a la acción",
+    "සමාජ මාධ්‍ය",
+    "බෙදාගැනීම",
+    "පළ කිරීම"
+   ]
+  },
+  "template:ig11-doble-toque": {
+   "name": "දෙවරක් තට්ටු කර ලයික් කරන්න",
+   "tags": [
+    "instagram",
+    "අංග",
+    "llamada a la acción",
+    "සමාජ මාධ්‍ය",
+    "ලයික්",
+    "හදවත"
+   ]
+  },
+  "template:ig11-enlace-bio": {
+   "name": "අපගේ බයෝ සබැඳිය ක්ලික් කරන්න",
+   "tags": [
+    "instagram",
+    "අංග",
+    "llamada a la acción",
+    "සමාජ මාධ්‍ය",
+    "සබැඳිය",
+    "බයෝ"
+   ]
+  },
+  "template:ig11-etiqueta": {
+   "name": "යමෙකු ටැග් කරන්න",
+   "tags": [
+    "instagram",
+    "අංග",
+    "llamada a la acción",
+    "සමාජ මාධ්‍ය",
+    "ටැගය",
+    "@ සලකුණ"
+   ]
+  },
+  "template:ig11-inspiracion": {
+   "name": "ඔබේ ආභාසය සොයාගන්න",
+   "tags": [
+    "instagram",
+    "අංග",
+    "llamada a la acción",
+    "සමාජ මාධ්‍ය",
+    "සෙවීම",
+    "සෙවුම"
+   ]
+  },
+  "template:ig11-pastilla-seguir": {
+   "name": "නම සහිත පෙති හැඩයක් සහ අනුගමනය",
+   "tags": [
+    "instagram",
+    "අංග",
+    "llamada a la acción",
+    "සමාජ මාධ්‍ය",
+    "අනුගමනය",
+    "නම"
+   ]
+  },
+  "template:ig11-pastilla-usuario": {
+   "name": "පරිශීලක පෙති හැඩයක් සහ අනුගාමිකයන්",
+   "tags": [
+    "instagram",
+    "අංග",
+    "llamada a la acción",
+    "සමාජ මාධ්‍ය",
+    "පරිශීලක",
+    "අනුගාමිකයන්"
+   ]
+  },
+  "template:ig11-perfil": {
+   "name": "පැතිකඩ කාඩ්පත",
+   "tags": [
+    "instagram",
+    "අංග",
+    "llamada a la acción",
+    "සමාජ මාධ්‍ය",
+    "පැතිකඩ",
+    "අනුගමනය"
+   ]
+  },
+  "template:ig11-publicacion": {
+   "name": "පළ කිරීමේ කාඩ්පත",
+   "tags": [
+    "instagram",
+    "අංග",
+    "llamada a la acción",
+    "සමාජ මාධ්‍ය",
+    "පළ කිරීම",
+    "ලයික්"
+   ]
+  },
+  "template:ig11-reels": {
+   "name": "අපගේ නවතම රීල්ස් නරඹන්න",
+   "tags": [
+    "instagram",
+    "අංග",
+    "llamada a la acción",
+    "සමාජ මාධ්‍ය",
+    "රීල්ස්",
+    "බැලීම්"
+   ]
+  },
+  "template:ig11-responder": {
+   "name": "පිළිතුරු බොත්තම සහිත අදහස් කාඩ්පත",
+   "tags": [
+    "instagram",
+    "අංග",
+    "llamada a la acción",
+    "සමාජ මාධ්‍ය",
+    "අදහස",
+    "පිළිතුරු දීම"
+   ]
+  },
+  "template:ig11-tu-historia": {
+   "name": "ඔබේ කතාව එක් කරන්න",
+   "tags": [
+    "instagram",
+    "අංග",
+    "llamada a la acción",
+    "සමාජ මාධ්‍ය",
+    "කතාව",
+    "බෙදාගැනීම"
+   ]
+  },
+  "template:ig11-ver-historia": {
+   "name": "කතාව බැලීමට ස්පර්ශ කරන්න",
+   "tags": [
+    "instagram",
+    "අංග",
+    "llamada a la acción",
+    "සමාජ මාධ්‍ය",
+    "කතාව",
+    "ස්පර්ශ කරන්න"
+   ]
+  },
+  "template:ig12-anillos": {
+   "name": "කතාව: වටකුරු ඡායාරූපයක් සහ දැවැන්ත අකුරු සහිත මුදු",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "තැඹිලි",
+    "රතු",
+    "කව"
+   ]
+  },
+  "template:ig12-caja-roja": {
+   "name": "කතාව: සිරස් වචනයක් සහ දැවැන්ත අකුරු සහිත රතු පෙට්ටිය",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "තැඹිලි",
+    "රතු",
+    "පෙට්ටිය"
+   ]
+  },
+  "template:ig12-diagonal": {
+   "name": "කතාව: දැවැන්ත වචනයක් සහිත විකර්ණ ඉරි",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "තැඹිලි",
+    "රතු",
+    "විකර්ණ"
+   ]
+  },
+  "template:ig12-franjas": {
+   "name": "කතාව: වර්ණ පටි සහ සිරස් වචනයක්",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "තැඹිලි",
+    "රතු",
+    "රේඛා පටි"
+   ]
+  },
+  "template:ig12-panel-rojo": {
+   "name": "කතාව: රතු පැනලයක් දිගේ ඉහළට ලිස්සන දැවැන්ත වචනය",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "තැඹිලි",
+    "රතු",
+    "පැනලය"
+   ]
+  },
+  "template:ig13-amarilla": {
+   "name": "අකුරු සැලසුම් කතාව: කහ",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "අකුරු සැලසුම",
+    "කහ",
+    "කළු"
+   ]
+  },
+  "template:ig13-caja-negra": {
+   "name": "අකුරු සැලසුම් කතාව: කළු පෙට්ටිය",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "අකුරු සැලසුම",
+    "කහ",
+    "කළු"
+   ]
+  },
+  "template:ig13-filas": {
+   "name": "අකුරු සැලසුම් කතාව: අකුරු පේළි",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "අකුරු සැලසුම",
+    "කහ",
+    "කළු"
+   ]
+  },
+  "template:ig13-gris-ra": {
+   "name": "අකුරු සැලසුම් කතාව: අළු RA",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "අකුරු සැලසුම",
+    "කහ",
+    "කළු"
+   ]
+  },
+  "template:ig13-letras-grises": {
+   "name": "අකුරු සැලසුම් කතාව: කහ අකුරු",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "අකුරු සැලසුම",
+    "කහ",
+    "කළු"
+   ]
+  },
+  "template:ig13-muro-de-fotos": {
+   "name": "ඔබේ ලාංඡනය සහිත ඡායාරූප බිත්තිය",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූප",
+    "ලාංඡනය",
+    "පැතිකඩ"
+   ]
+  },
+  "template:ig13-negra": {
+   "name": "අකුරු සැලසුම් කතාව: කළු විකර්ණය",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "අකුරු සැලසුම",
+    "කහ",
+    "කළු"
+   ]
+  },
+  "template:ig13-oscura": {
+   "name": "අකුරු සැලසුම් කතාව: ගෝල සහිත අඳුරු",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "අකුරු සැලසුම",
+    "කහ",
+    "කළු"
+   ]
+  },
+  "template:ig14-dinamica": {
+   "name": "ගතික ස්ලයිඩ් ෂෝ: ඡායාරූපයකට වචනයක්",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූප ස්ලයිඩ්",
+    "ස්ලයිඩ් ෂෝ",
+    "ගතික"
+   ]
+  },
+  "template:ig14-energia": {
+   "name": "ලාංඡනයක් සහිත ශක්තිමත් ස්ලයිඩ් ෂෝ",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූප ස්ලයිඩ්",
+    "ස්ලයිඩ් ෂෝ",
+    "ශක්තිය"
+   ]
+  },
+  "template:ig14-epica": {
+   "name": "ග්ලිච් සහිත වීර ස්ලයිඩ් ෂෝ",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූප ස්ලයිඩ්",
+    "ස්ලයිඩ් ෂෝ",
+    "වීර"
+   ]
+  },
+  "template:ig14-limpia": {
+   "name": "විශාල අකුරු සහිත පිරිසිදු ස්ලයිඩ් ෂෝ",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූප ස්ලයිඩ්",
+    "ස්ලයිඩ් ෂෝ",
+    "පිරිසිදු"
+   ]
+  },
+  "template:ig14-minimal": {
+   "name": "සුදු පසුබිමක අවම ස්ලයිඩ් ෂෝ",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූප ස්ලයිඩ්",
+    "ස්ලයිඩ් ෂෝ",
+    "අවම"
+   ]
+  },
+  "template:ig14-moda": {
+   "name": "සිරස්තල සහිත විලාසිතා ස්ලයිඩ් ෂෝ",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූප ස්ලයිඩ්",
+    "ස්ලයිඩ් ෂෝ",
+    "විලාසිතා"
+   ]
+  },
+  "template:ig14-ritmica": {
+   "name": "මුදු සහිත රිද්මයානුකූල ස්ලයිඩ් ෂෝ",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූප ස්ලයිඩ්",
+    "ස්ලයිඩ් ෂෝ",
+    "රිද්මය"
+   ]
+  },
+  "template:ig14-stomp": {
+   "name": "ස්ටොම්ප් ස්ලයිඩ් ෂෝ: රිද්ම තාලයකට වචනයක්",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූප ස්ලයිඩ්",
+    "ස්ලයිඩ් ෂෝ",
+    "ස්ටොම්ප්"
+   ]
+  },
+  "template:ig2-cartel-amarillo": {
+   "name": "කතාව: කහ Your Stories පෝස්ටරය",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "වර්ණ",
+    "පෝස්ටරය",
+    "කහ"
+   ]
+  },
+  "template:ig2-ciudad-oferta": {
+   "name": "කතාව: % කවයක් සහිත නගර දීමනාව",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "වර්ණ",
+    "දීමනාව",
+    "වට්ටම"
+   ]
+  },
+  "template:ig2-cocina": {
+   "name": "කතාව: ආහාර පිසීමේ වැඩසටහනක ආරම්භය",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "වර්ණ",
+    "ආහාර පිසීම",
+    "ආහාර"
+   ]
+  },
+  "template:ig2-feliz": {
+   "name": "කතාව: දැවැන්ත අකුරක් සහ මින්ට් පෙට්ටියක් සහිත HAPPY",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "වර්ණ",
+    "සතුටු",
+    "කළු සහ සුදු"
+   ]
+  },
+  "template:ig2-interior": {
+   "name": "කතාව: වර්ණ කව සහිත අභ්‍යන්තර නිර්මාණය",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "වර්ණ",
+    "අභ්‍යන්තර",
+    "නිර්මාණය"
+   ]
+  },
+  "template:ig2-moda": {
+   "name": "කතාව: මින්ට් සහ රතු පැහැයෙන් Fashion",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "වර්ණ",
+    "විලාසිතා",
+    "පැතිකඩ"
+   ]
+  },
+  "template:ig2-oscuro": {
+   "name": "කතාව: ජාලක අකුරු සහිත DARK",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "වර්ණ",
+    "අඳුරු",
+    "විලාසිතා"
+   ]
+  },
+  "template:ig2-presentamos": {
+   "name": "කතාව: ශ්‍රේණිගත ඉරි සහිත INTRODUCING OUR STORIES",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "වර්ණ",
+    "හඳුන්වාදීම",
+    "ශ්‍රේණිගත වර්ණ"
+   ]
+  },
+  "template:ig2-rostro-franjas": {
+   "name": "කතාව: වර්ණ පටි සහ කව සහිත මුහුණ",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "වර්ණ",
+    "ඡායාරූපය",
+    "වෙළඳ නාමය"
+   ]
+  },
+  "template:ig2-tu-mente": {
+   "name": "කතාව: දම් පැහැයෙන් Say what's on your mind",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "වර්ණ",
+    "වාක්‍ය ඛණ්ඩය",
+    "දම්"
+   ]
+  },
+  "template:ig2-tu-vida": {
+   "name": "කතාව: කහ පටි සහිත YOUR LIFE",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "වර්ණ",
+    "ජීවිතය",
+    "උපදෙස්"
+   ]
+  },
+  "template:ig2-viaje-verano": {
+   "name": "කතාව: ඡායාරූප වලාකුළක් සහිත GREAT TRIP SUMMER",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "වර්ණ",
+    "ගමන",
+    "ගිම්හානය"
+   ]
+  },
+  "template:ig3-arte": {
+   "name": "කතාව: චිත්‍රයක් මත art 01 Stories",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "කලාව",
+    "චිත්‍ර"
+   ]
+  },
+  "template:ig3-ciencia": {
+   "name": "කතාව: කව සහිත A-01 MODERN SCIENCE",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "විද්‍යාව",
+    "කවය"
+   ]
+  },
+  "template:ig3-city-life": {
+   "name": "කතාව: රෝස පැනලයක් සහිත CITY LIFE",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "නගරය"
+   ]
+  },
+  "template:ig3-comida-circulo": {
+   "name": "කතාව: කවයක Say what's on your mind",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ආහාර",
+    "කවය"
+   ]
+  },
+  "template:ig3-fashion": {
+   "name": "කතාව: ඡායාරූප පිරවූ අකුරු සහිත FASHION 45$",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "විලාසිතා",
+    "දීමනාව"
+   ]
+  },
+  "template:ig3-food": {
+   "name": "කතාව: Food 50% discount",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ආහාර",
+    "දීමනාව"
+   ]
+  },
+  "template:ig3-friend": {
+   "name": "කතාව: කවයක් සහිත FRIEND GREAT TRIP",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "මිතුරන්",
+    "කවය"
+   ]
+  },
+  "template:ig3-full": {
+   "name": "කතාව: බුරුසු අකුරින් Full 100%",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "දීමනාව",
+    "සුරතල් සතුන්"
+   ]
+  },
+  "template:ig3-introducing": {
+   "name": "කතාව: වනාන්තරයේ INTRODUCING STORIES",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ශීත",
+    "හඳුන්වාදීම"
+   ]
+  },
+  "template:ig3-models": {
+   "name": "කතාව: වරහනක් සහිත MODELS FASHION",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "විලාසිතා",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:ig3-music": {
+   "name": "කතාව: මුදු සහිත MUSIC EXCLUSIVE",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "සංගීතය",
+    "කවය"
+   ]
+  },
+  "template:ig3-new": {
+   "name": "කතාව: බුරුසු පහරක් සහිත travel NEW",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "සංචාර",
+    "තීන්ත බුරුසුව"
+   ]
+  },
+  "template:ig3-opener": {
+   "name": "චතුරස්‍ර පළ කිරීමකට ගතික ආරම්භයක්",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ආරම්භක",
+    "අකුරු සැලසුම",
+    "පළ කිරීම"
+   ]
+  },
+  "template:ig3-perfil-amarillo": {
+   "name": "පැතිකඩ: ඡායාරූපයක් සහිත කහ කාඩ්පත",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "පැතිකඩ"
+   ]
+  },
+  "template:ig3-perfil-coral": {
+   "name": "පැතිකඩ: බිංදු සහිත කොරල් කාඩ්පත",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "පැතිකඩ"
+   ]
+  },
+  "template:ig3-perfil-degradado": {
+   "name": "පැතිකඩ: කව සහිත ශ්‍රේණිගත වර්ණ කාඩ්පත",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "පැතිකඩ"
+   ]
+  },
+  "template:ig3-perfil-oscuro": {
+   "name": "පැතිකඩ: රතු නමක් සහිත අඳුරු කාඩ්පත",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "පැතිකඩ"
+   ]
+  },
+  "template:ig3-perfil-rojo": {
+   "name": "පැතිකඩ: අවතාරයක් සහිත රතු කාඩ්පත",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "පැතිකඩ"
+   ]
+  },
+  "template:ig3-portfolio": {
+   "name": "කතාව: නමක් සහිත PORTFOLIO",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "පෝට්ෆෝලියෝ"
+   ]
+  },
+  "template:ig3-programa": {
+   "name": "කතාව: වටකුරු තීරු සහිත V 6",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "තාක්ෂණය",
+    "පැස්ටල්"
+   ]
+  },
+  "template:ig3-promo": {
+   "name": "කතාව: කහ තැටියක් සහිත Product Promo",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "නිෂ්පාදනය",
+    "ප්‍රවර්ධනය"
+   ]
+  },
+  "template:ig3-sport": {
+   "name": "කතාව: රෝස ලාංඡනයක් සහිත SPORT",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ක්‍රීඩා"
+   ]
+  },
+  "template:ig3-tech": {
+   "name": "කතාව: විසිරුණු අකුරු සහිත TECH",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "තාක්ෂණය"
+   ]
+  },
+  "template:ig3-toys": {
+   "name": "කතාව: ශ්‍රේණිගත වර්ණ තැටියක් සහිත TOYS",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "සෙල්ලම් බඩු",
+    "කවය"
+   ]
+  },
+  "template:ig3-tv": {
+   "name": "කතාව: වටකුරු ඡායාරූපයක් සහිත Media Social",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "සමාජ මාධ්‍ය",
+    "කවය"
+   ]
+  },
+  "template:ig3-your-life": {
+   "name": "කතාව: වර්ණ පටි සහිත YOUR LIFE සහ PRO",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "අභ්‍යන්තර"
+   ]
+  },
+  "template:ig4-abstract": {
+   "name": "කතාව: ABSTRACT GEOMETRIC STYLE",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "ජ්‍යාමිතික",
+    "ගෘහ නිර්මාණ"
+   ]
+  },
+  "template:ig4-amazing-dream": {
+   "name": "කතාව: ඡායාරූප දෙකක් සහිත Amazing dream",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "වාක්‍ය ඛණ්ඩය",
+    "දුඹුරු"
+   ]
+  },
+  "template:ig4-audacious": {
+   "name": "කතාව: LET'S DO WHAT WE LOVE #AUDACIOUS",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "ප්‍රේරණය",
+    "කළු"
+   ]
+  },
+  "template:ig4-beauty": {
+   "name": "කතාව: There is beauty in simplicity",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "ස්වභාවධර්මය",
+    "වාක්‍ය ඛණ්ඩය"
+   ]
+  },
+  "template:ig4-beauty-flowers": {
+   "name": "කතාව: මල් සහිත Beauty",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "මල්",
+    "අත් අකුරු"
+   ]
+  },
+  "template:ig4-believe": {
+   "name": "කතාව: BELIEVE YOU CAN SO YOU ARE HALFWAY THERE",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "ප්‍රේරණය",
+    "වාක්‍ය ඛණ්ඩය"
+   ]
+  },
+  "template:ig4-big": {
+   "name": "කතාව: ඉරි සහිත කවයක් සමඟ BIG.",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "විලාසිතා",
+    "ඉරි"
+   ]
+  },
+  "template:ig4-born-wild": {
+   "name": "කතාව: BORN TO BE WILD",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "වික්‍රමය",
+    "නිල්"
+   ]
+  },
+  "template:ig4-brand-new-day": {
+   "name": "කතාව: ත්‍රිකෝණ සහිත brand new day",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "ත්‍රිකෝණ",
+    "ජ්‍යාමිතික"
+   ]
+  },
+  "template:ig4-clear": {
+   "name": "කතාව: අඩ දෙකකින් CLEAR INTERIOR",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "අභ්‍යන්තර",
+    "නිවස"
+   ]
+  },
+  "template:ig4-cold-wave": {
+   "name": "කතාව: ඡායාරූප අකුරු සහිත COLD WAVE WARM SUN",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "මුහුද",
+    "අකුරු සැලසුම"
+   ]
+  },
+  "template:ig4-confident": {
+   "name": "කතාව: කවුළු තුනක STYLISH & CONFIDENT",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "විලාසිතා",
+    "පිරිමි"
+   ]
+  },
+  "template:ig4-control": {
+   "name": "කතාව: ලාංඡනයක් සහ ඡායාරූප දෙකක් සහිත CONTROL",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "ලාංඡනය",
+    "යෝග"
+   ]
+  },
+  "template:ig4-courage": {
+   "name": "කතාව: බුරුසු පහරක් සහිත #courage",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "තැඹිලි",
+    "තීන්ත බුරුසුව"
+   ]
+  },
+  "template:ig4-culinary": {
+   "name": "කතාව: CULINARY ART #cooking",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "ආහාර පිසීම",
+    "ආහාර"
+   ]
+  },
+  "template:ig4-deep-breath": {
+   "name": "කතාව: කොළ සහිත ENJOY DEEP BREATH",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "ස්වභාවධර්මය",
+    "කොළ"
+   ]
+  },
+  "template:ig4-delicious": {
+   "name": "කතාව: #DELICIOUS ජාලකය",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "ආහාර",
+    "අතුරුපස"
+   ]
+  },
+  "template:ig4-dream": {
+   "name": "කතාව: නගරයක් මත රාමුවක් සහිත DREAM",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "නගරය",
+    "රාමුව"
+   ]
+  },
+  "template:ig4-employee": {
+   "name": "කතාව: BEST EMPLOYEE OF THE MONTH",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "ව්‍යාපාරය",
+    "සේවකයා"
+   ]
+  },
+  "template:ig4-enjoy-music": {
+   "name": "කතාව: නිල් සහ රතු ENJOY MY MUSIC",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "සංගීතය",
+    "නැටුම"
+   ]
+  },
+  "template:ig4-fashion-buy": {
+   "name": "කතාව: පටි මත FASHION IS WHAT YOU BUY",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "විලාසිතා",
+    "රේඛා පටි"
+   ]
+  },
+  "template:ig4-fitness": {
+   "name": "කතාව: FITNESS BODY ENERGY WORKOUT",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "ව්‍යායාමශාලාව",
+    "ක්‍රීඩා"
+   ]
+  },
+  "template:ig4-fun": {
+   "name": "කතාව: රාමු කළ ඡායාරූපයක් සහිත #FUN",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "රාමුව",
+    "රතු"
+   ]
+  },
+  "template:ig4-glam": {
+   "name": "කතාව: රෝස සහ කළු පැහැයෙන් GLAM ROCK",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "විලාසිතා",
+    "රෝස"
+   ]
+  },
+  "template:ig4-instamusic": {
+   "name": "කතාව: බිංදු සහිත #instamusic #yourbeat",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "සංගීතය",
+    "නියෝන්"
+   ]
+  },
+  "template:ig4-life-good": {
+   "name": "කතාව: LIFE IS SO GOOD JUST BE YOURSELF",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "වාක්‍ය ඛණ්ඩය",
+    "නියෝන්"
+   ]
+  },
+  "template:ig4-lifestyle": {
+   "name": "කතාව: my lifestyle #followme",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "ජීවන රටාව",
+    "නිල්"
+   ]
+  },
+  "template:ig4-look-deep": {
+   "name": "කතාව: ෂඩාස්‍ර සහිත LOOK DEEP INTO NATURE",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "ස්වභාවධර්මය",
+    "ෂඩාස්‍රය"
+   ]
+  },
+  "template:ig4-masterpiece": {
+   "name": "කතාව: MAKE EACH DAY YOUR MASTERPIECE",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "වාක්‍ය ඛණ්ඩය",
+    "රෝස"
+   ]
+  },
+  "template:ig4-meeting": {
+   "name": "කතාව: තීරු වල MEETING WITH FRIENDS",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "මිතුරන්",
+    "තීරු"
+   ]
+  },
+  "template:ig4-motion": {
+   "name": "කතාව: කහ කවයක් සහිත MOTION",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "නැටුම",
+    "කවය"
+   ]
+  },
+  "template:ig4-moving": {
+   "name": "කතාව: මුදු දෙකක් සහිත Moving",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "නැටුම",
+    "වළලු"
+   ]
+  },
+  "template:ig4-music": {
+   "name": "කතාව: MUSIC DANCE ENJOY",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "සංගීතය",
+    "සාදය"
+   ]
+  },
+  "template:ig4-natural": {
+   "name": "කතාව: තීරු තුනක NATURAL BEAUTY",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "ස්වභාවධර්මය",
+    "තීරු"
+   ]
+  },
+  "template:ig4-never-easier": {
+   "name": "කතාව: රතු IT NEVER GETS EASIER",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "ව්‍යායාමශාලාව",
+    "ප්‍රේරණය"
+   ]
+  },
+  "template:ig4-ocean": {
+   "name": "කතාව: රාමුවක් සහිත OCEAN HAPPY RELAX",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "මුහුද",
+    "රාමුව"
+   ]
+  },
+  "template:ig4-pro-fitness": {
+   "name": "කතාව: හරස් රාමුවක් සහිත PRO fitness",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "ක්‍රීඩා",
+    "රාමුව"
+   ]
+  },
+  "template:ig4-sale40": {
+   "name": "කතාව: සිරස් SALE 40%",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "වට්ටම් විකුණුම",
+    "දීමනාව"
+   ]
+  },
+  "template:ig4-sale75": {
+   "name": "කතාව: SALE UP TO 75% OFF",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "වට්ටම් විකුණුම",
+    "දීමනාව"
+   ]
+  },
+  "template:ig4-secrets": {
+   "name": "කතාව: NO MORE SECRETS #IMAGINE",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "රතු",
+    "විකර්ණ"
+   ]
+  },
+  "template:ig4-shopping-week": {
+   "name": "කතාව: #shoppingweek 40% FOR SALE",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "වට්ටම් විකුණුම",
+    "සාප්පු සවාරි"
+   ]
+  },
+  "template:ig4-simplelife": {
+   "name": "කතාව: When you focus on the good #simplelife",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "වාක්‍ය ඛණ්ඩය",
+    "නිල්"
+   ]
+  },
+  "template:ig4-skate": {
+   "name": "කතාව: 0256 #skatelife",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "ස්කේට්",
+    "ක්‍රීඩා"
+   ]
+  },
+  "template:ig4-sport": {
+   "name": "කතාව: රේඛාවක් සහිත W SPORT",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "ක්‍රීඩා",
+    "ධාවනය"
+   ]
+  },
+  "template:ig4-spring": {
+   "name": "කතාව: SPRING IS IN THE AIR",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "වසන්තය",
+    "මල්"
+   ]
+  },
+  "template:ig4-stay-strong": {
+   "name": "කතාව: STAY STRONG DON'T GIVE UP",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "ප්‍රේරණය",
+    "රතු"
+   ]
+  },
+  "template:ig4-street-fast": {
+   "name": "කතාව: 10/25 #youth street FAST",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "වීදිය",
+    "ස්කේට්"
+   ]
+  },
+  "template:ig4-style": {
+   "name": "කතාව: STYLE IS VERY PERSONAL",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "විලාසිතා",
+    "රතු"
+   ]
+  },
+  "template:ig4-style-beautiful": {
+   "name": "කතාව: පටි සහිත STYLE #beautiful",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "විලාසිතා",
+    "රේඛා පටි"
+   ]
+  },
+  "template:ig4-stylish": {
+   "name": "කතාව: නිල් තැටියක් සහිත #stylish",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "විලාසිතා",
+    "නිල්"
+   ]
+  },
+  "template:ig4-summer": {
+   "name": "කතාව: වෙරළ දියමන්තියක් සහිත #SUMMER",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "වෙරළ",
+    "ගිම්හානය"
+   ]
+  },
+  "template:ig4-summer-event": {
+   "name": "කතාව: දිනයක් සහිත ගිම්හාන උත්සවය",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "ගිම්හානය",
+    "උත්සවය"
+   ]
+  },
+  "template:ig4-summer-look": {
+   "name": "කතාව: පටි වල Summer look #fashion",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "විලාසිතා",
+    "ගිම්හානය"
+   ]
+  },
+  "template:ig4-sunshine": {
+   "name": "කතාව: ඡායාරූප හතරක් සහිත SUNSHINE",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "ගිම්හානය",
+    "කොලාජ්"
+   ]
+  },
+  "template:ig4-sunshine-tag": {
+   "name": "කතාව: #sunshine Relaxing holiday",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "ගිම්හානය",
+    "නිල්"
+   ]
+  },
+  "template:ig4-trendy": {
+   "name": "කතාව: රතු #TRENDY YOUR STYLE",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "රතු",
+    "විලාසිතා"
+   ]
+  },
+  "template:ig4-tropical": {
+   "name": "කතාව: ඡායාරූප තුනක් සහිත FEELING TROPICAL",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "ගිම්හානය",
+    "නිවර්තන"
+   ]
+  },
+  "template:ig4-winner": {
+   "name": "කතාව: THE WINNER NEVER QUITS",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "ප්‍රේරණය",
+    "ව්‍යායාමශාලාව"
+   ]
+  },
+  "template:ig4-young": {
+   "name": "කතාව: YOUNG #followus",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "තරුණ",
+    "රතු"
+   ]
+  },
+  "template:ig4-youth": {
+   "name": "කතාව: ත්‍රිකෝණයක් සහිත #YOUTH & FREEDOM",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "ත්‍රිකෝණය",
+    "කොරල්"
+   ]
+  },
+  "template:ig5-amazing-now": {
+   "name": "කතාව: AMAZING NOW",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "කළු සහ සුදු",
+    "රතු"
+   ]
+  },
+  "template:ig5-awesome": {
+   "name": "කතාව: සිරස් AWESOME",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "රතු",
+    "සිරස්"
+   ]
+  },
+  "template:ig5-be-strong": {
+   "name": "කතාව: B STRONG",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "රතු",
+    "වාක්‍ය ඛණ්ඩය"
+   ]
+  },
+  "template:ig5-beach-therapy": {
+   "name": "කතාව: නිල් කොළ පැහැති beach therapy",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "වෙරළ",
+    "නිවාඩුව"
+   ]
+  },
+  "template:ig5-beauty-pro": {
+   "name": "කතාව: දම් රැල්ලක් සහිත BEAUTY",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "රූපලාවණ්‍ය",
+    "දම්"
+   ]
+  },
+  "template:ig5-best-look": {
+   "name": "කතාව: රාමු කළ YOUR BEST LOOK",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "කොළ",
+    "විලාසිතා"
+   ]
+  },
+  "template:ig5-choose-glam": {
+   "name": "කතාව: 48 choose the glam",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "රූපලාවණ්‍ය",
+    "දීප්තිමත් රූපලාවණ්‍ය"
+   ]
+  },
+  "template:ig5-cold-water": {
+   "name": "කතාව: COLD DEEP WATER",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "මුහුද",
+    "කහ"
+   ]
+  },
+  "template:ig5-creative-studio": {
+   "name": "කතාව: CREATIVE DESIGN STUDIO",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "නිර්මාණය",
+    "ස්ටුඩියෝ"
+   ]
+  },
+  "template:ig5-dancing": {
+   "name": "කතාව: විකර්ණ ඡායාරූපයක් සහිත #DANCING",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "නැටුම",
+    "විකර්ණ"
+   ]
+  },
+  "template:ig5-daring-style": {
+   "name": "කතාව: කහ පසුබිමක DARING STYLE",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "කහ",
+    "විලාසිතා"
+   ]
+  },
+  "template:ig5-denim-style": {
+   "name": "කතාව: රාමු කළ DENIM STYLE",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "විලාසිතා",
+    "කොටුව"
+   ]
+  },
+  "template:ig5-design-passion": {
+   "name": "කතාව: DESIGN IS MY PASSION",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "අභ්‍යන්තර",
+    "නිර්මාණය"
+   ]
+  },
+  "template:ig5-dont-waste": {
+   "name": "කතාව: DON'T WASTE YOUR TIME",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "වාක්‍ය ඛණ්ඩය",
+    "නිල් කොළ"
+   ]
+  },
+  "template:ig5-enjoy-movement": {
+   "name": "කතාව: enjoy the movement",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "නැටුම",
+    "කළු"
+   ]
+  },
+  "template:ig5-flexible-body": {
+   "name": "කතාව: ශ්‍රේණිගත වර්ණ පටියක් සහිත FLEXIBLE BODY",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "ශරීර සුවතාව",
+    "ශ්‍රේණිගත වර්ණ"
+   ]
+  },
+  "template:ig5-focus-breathe": {
+   "name": "කතාව: FOCUS ON THE BREATHE",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "වාක්‍ය ඛණ්ඩය",
+    "අකුරු සැලසුම"
+   ]
+  },
+  "template:ig5-fondo-ambar": {
+   "name": "පසුබිම: ඇම්බර් කව",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "පසුබිම",
+    "තැඹිලි",
+    "දුඹුරු"
+   ]
+  },
+  "template:ig5-fondo-burbujas-azules": {
+   "name": "පසුබිම: රෝස පැහැයක් මත නිල් බුබුළු",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "පසුබිම",
+    "රෝස",
+    "නිල්"
+   ]
+  },
+  "template:ig5-fondo-burbujas-grises": {
+   "name": "පසුබිම: කළු පැහැයක් මත අළු බුබුළු",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "පසුබිම",
+    "කළු",
+    "අළු"
+   ]
+  },
+  "template:ig5-fondo-chevrones": {
+   "name": "පසුබිම: රතු ඊතල ආකාර",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "පසුබිම",
+    "රතු",
+    "ඊතල ආකාර"
+   ]
+  },
+  "template:ig5-fondo-cinta-azul": {
+   "name": "පසුබිම: රතු පැහැයක් මත නිල් රිබනය",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "පසුබිම",
+    "ශ්‍රේණිගත වර්ණ",
+    "නිල්"
+   ]
+  },
+  "template:ig5-fondo-geometrico": {
+   "name": "පසුබිම: අළු පැහැයක් මත ජ්‍යාමිතික කොටස්",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "පසුබිම",
+    "අළු",
+    "ජ්‍යාමිතික"
+   ]
+  },
+  "template:ig5-fondo-lineas": {
+   "name": "පසුබිම: නියෝන් රේඛා සහිත ශ්‍රේණිගත වර්ණ",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "පසුබිම",
+    "ශ්‍රේණිගත වර්ණ",
+    "රෝස"
+   ]
+  },
+  "template:ig5-fondo-lineas-cruzadas": {
+   "name": "පසුබිම: හරස් වන රේඛා",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "පසුබිම",
+    "ශ්‍රේණිගත වර්ණ",
+    "මැජෙන්ටා"
+   ]
+  },
+  "template:ig5-fondo-olas": {
+   "name": "පසුබිම: තැඹිලි සහ දම් රැල්ල",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "පසුබිම",
+    "ශ්‍රේණිගත වර්ණ",
+    "තැඹිලි"
+   ]
+  },
+  "template:ig5-fondo-pildoras": {
+   "name": "පසුබිම: රෝස පෙති",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "පසුබිම",
+    "රෝස",
+    "පැස්ටල්"
+   ]
+  },
+  "template:ig5-fondo-plata": {
+   "name": "පසුබිම: රිදී ඉරි",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "පසුබිම",
+    "රිදී",
+    "අළු"
+   ]
+  },
+  "template:ig5-fondo-rojo": {
+   "name": "පසුබිම: වටකුරු රතු හැඩතල",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "පසුබිම",
+    "රතු",
+    "හැඩතල"
+   ]
+  },
+  "template:ig5-gentle-soft": {
+   "name": "කතාව: GENTLE & SOFT කාඩ්පත",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "මල්",
+    "කාඩ්පත"
+   ]
+  },
+  "template:ig5-glam": {
+   "name": "කතාව: GLAM කැමරා රූපය",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "රෝස",
+    "කැමරාව"
+   ]
+  },
+  "template:ig5-happiness-love": {
+   "name": "කතාව: HAPPINESS සහ LOVE කොලාජ්",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "කොලාජ්",
+    "මංගල"
+   ]
+  },
+  "template:ig5-happy-weekends": {
+   "name": "කතාව: Happy weekends",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "මල්",
+    "සති අන්තය"
+   ]
+  },
+  "template:ig5-inspiration": {
+   "name": "කතාව: #pleasure inspiration",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "රතු",
+    "කළු සහ සුදු"
+   ]
+  },
+  "template:ig5-interior-dream": {
+   "name": "කතාව: INTERIOR OF YOUR DREAM නාමාවලිය",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "නාමාවලිය",
+    "අභ්‍යන්තර"
+   ]
+  },
+  "template:ig5-keep-simple": {
+   "name": "කතාව: කවයක් සහිත KEEP IT SIMPLE",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "කවය",
+    "ශ්‍රේණිගත වර්ණ"
+   ]
+  },
+  "template:ig5-light-easy": {
+   "name": "කතාව: LIGHT & EASY කාඩ්පත",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "විලාසිතා",
+    "කාඩ්පත"
+   ]
+  },
+  "template:ig5-look-deep": {
+   "name": "කතාව: LOOK DEEP INTO YOURSELF",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "වාක්‍ය ඛණ්ඩය",
+    "නියෝන්"
+   ]
+  },
+  "template:ig5-mindfulness": {
+   "name": "කතාව: කළු සුදු #mindfulness",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "කළු සහ සුදු",
+    "වාක්‍ය ඛණ්ඩය"
+   ]
+  },
+  "template:ig5-modern-office": {
+   "name": "කතාව: MODERN OFFICE SPACE",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "කාර්යාලය",
+    "ව්‍යාපාරය"
+   ]
+  },
+  "template:ig5-ocean": {
+   "name": "කතාව: කවයක OCEAN",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "කවය",
+    "මුහුද"
+   ]
+  },
+  "template:ig5-pleasure": {
+   "name": "කතාව: PLEASURE කුට්ටි කොලාජ්",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "කොලාජ්",
+    "ටෙරකොටා"
+   ]
+  },
+  "template:ig5-power": {
+   "name": "කතාව: ඡායාරූපයක් සහිත #POWER",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "රතු",
+    "විලාසිතා"
+   ]
+  },
+  "template:ig5-relax-home": {
+   "name": "කතාව: Relax SWEET HOME",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "නිවස",
+    "අභ්‍යන්තර"
+   ]
+  },
+  "template:ig5-sale-70": {
+   "name": "කතාව: ඇල පටි සහිත SALE 70%",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "වට්ටම් විකුණුම",
+    "දීමනාව"
+   ]
+  },
+  "template:ig5-sensual": {
+   "name": "කතාව: ඡායාරූප දෙකක් සහිත SENSUAL",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "කළු සහ සුදු",
+    "කොලාජ්"
+   ]
+  },
+  "template:ig5-style-y": {
+   "name": "කතාව: විශාල Y අකුරක් සහිත STYLE",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "විලාසිතා",
+    "නිල් කොළ"
+   ]
+  },
+  "template:ig5-summer-pause": {
+   "name": "කතාව: SUMMER take a pause",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "ගිම්හානය",
+    "නිවාඩුව"
+   ]
+  },
+  "template:ig5-sunny-day": {
+   "name": "කතාව: කවයක් සහිත SUNNY DAY",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "ගිම්හානය",
+    "පිහිනුම් තටාකය"
+   ]
+  },
+  "template:ig5-titulo-art-design": {
+   "name": "මාතෘකාව: ART & DESIGN FORUM",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "මාතෘකාව",
+    "පෙළ",
+    "කලාව"
+   ]
+  },
+  "template:ig5-titulo-big-sale": {
+   "name": "මාතෘකාව: බුරුසුවක් සහ කරත්තයක් සහිත BIG SALE",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "මාතෘකාව",
+    "පෙළ",
+    "වට්ටම් විකුණුම"
+   ]
+  },
+  "template:ig5-titulo-bold-fashion": {
+   "name": "මාතෘකාව: ඇල BOLD FASHION STYLE",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "මාතෘකාව",
+    "පෙළ",
+    "විලාසිතා"
+   ]
+  },
+  "template:ig5-titulo-chicle": {
+   "name": "මාතෘකාව: BUBBLEGUM STYLE",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "මාතෘකාව",
+    "පෙළ",
+    "රෝස"
+   ]
+  },
+  "template:ig5-titulo-cita": {
+   "name": "මාතෘකාව: කතුවරයා සහිත උද්ධෘතයක්",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "මාතෘකාව",
+    "පෙළ",
+    "උද්ධෘතය"
+   ]
+  },
+  "template:ig5-titulo-do-what": {
+   "name": "මාතෘකාව: DO WHAT YOU WANT",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "මාතෘකාව",
+    "පෙළ",
+    "ප්‍රේරණය"
+   ]
+  },
+  "template:ig5-titulo-formas-abstractas": {
+   "name": "මාතෘකාව: ABSTRACT SHAPES DESIGN",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "මාතෘකාව",
+    "පෙළ",
+    "හැඩතල"
+   ]
+  },
+  "template:ig5-titulo-glitch": {
+   "name": "මාතෘකාව: GLITCH STYLE",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "මාතෘකාව",
+    "පෙළ",
+    "ග්ලිච්"
+   ]
+  },
+  "template:ig5-titulo-neon": {
+   "name": "මාතෘකාව: දිලිසෙන NEON",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "මාතෘකාව",
+    "පෙළ",
+    "නියෝන්"
+   ]
+  },
+  "template:ig5-titulo-never-give-up": {
+   "name": "මාතෘකාව: බුරුසු අකුරින් NEVER GIVE UP",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "මාතෘකාව",
+    "පෙළ",
+    "ප්‍රේරණය"
+   ]
+  },
+  "template:ig5-titulo-retro": {
+   "name": "මාතෘකාව: 80s RETROSTYLE",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "මාතෘකාව",
+    "පෙළ",
+    "රෙට්‍රෝ"
+   ]
+  },
+  "template:ig5-titulo-sale": {
+   "name": "මාතෘකාව: SALE ටිකට්පත",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "මාතෘකාව",
+    "පෙළ",
+    "වට්ටම් විකුණුම"
+   ]
+  },
+  "template:ig5-wake-up": {
+   "name": "කතාව: WAKE UP AND BE AWESOME",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "රතු",
+    "ප්‍රේරණය"
+   ]
+  },
+  "template:ig5-your-choice": {
+   "name": "කතාව: කහ තිත් සහිත ඡායාරූපයක්",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "කහ",
+    "තිත්"
+   ]
+  },
+  "template:ig5-your-style": {
+   "name": "කතාව: Your style කොලාජ්",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "කොලාජ්",
+    "අභ්‍යන්තර"
+   ]
+  },
+  "template:ig6-arbol-cinta": {
+   "name": "නත්තල් කතාව: රන්වන් රිබන් ගසක්",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "නත්තල",
+    "ගස"
+   ]
+  },
+  "template:ig6-artista": {
+   "name": "කතාව: You are the artist of your life #YLIFE සමඟ",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "නිල්",
+    "ජීවන රටාව"
+   ]
+  },
+  "template:ig6-aventuras": {
+   "name": "කතාව: ඡායාරූප දෙකක් සහ කොළ කන්දක් සහිත My Adventures",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "සංචාර",
+    "වික්‍රමය"
+   ]
+  },
+  "template:ig6-diseno-pasion": {
+   "name": "කතාව: රෝස පැහැයෙන් Design is my passion",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "නිර්මාණය",
+    "ගෘහ නිර්මාණ"
+   ]
+  },
+  "template:ig6-feliz-brillante": {
+   "name": "නත්තල් කතාව: අළු පැහැයෙන් Merry & Bright",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "නත්තල",
+    "සාද"
+   ]
+  },
+  "template:ig6-interior": {
+   "name": "කතාව: කළු පෙට්ටියක් සහිත Clear Interior",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "නිවස",
+    "අභ්‍යන්තර සැරසිලි"
+   ]
+  },
+  "template:ig6-luz-calida": {
+   "name": "කතාව: දියමන්ති සහ #WARM සහිත Cozy Light",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "නිවස",
+    "නිෂ්පාදනය"
+   ]
+  },
+  "template:ig6-pino-rojo": {
+   "name": "නත්තල් කතාව: රතු පැහැයෙන් පයින් අතු සහ Merry Christmas",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "නත්තල",
+    "වට්ටම් විකුණුම",
+    "පයින් ගස"
+   ]
+  },
+  "template:ig6-rebajas-50": {
+   "name": "කතාව: 50% OFF ටැගයක් සහ නිල් ඉරි සහිත SALE",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "වට්ටම් විකුණුම",
+    "වට්ටම"
+   ]
+  },
+  "template:ig6-rebajas-invierno": {
+   "name": "නත්තල් කතාව: «winter sell XMAS 50%off» බවට විවෘත වන තෑග්ග",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "නත්තල",
+    "වට්ටම් විකුණුම",
+    "වට්ටම"
+   ]
+  },
+  "template:ig6-santa": {
+   "name": "නත්තල් කතාව: Merry Xmas සමඟ නත්තල් සීයාගේ මුහුණ",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "නත්තල",
+    "නත්තල් සීයා"
+   ]
+  },
+  "template:ig6-swipe-bandera": {
+   "name": "ඉහළට ස්වයිප්: සාද පොපරයකින් පිපිරෙන SWIPE UP කොඩිය",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඉහළට ස්වයිප්",
+    "ස්වයිප්",
+    "ඊතලය"
+   ]
+  },
+  "template:ig6-swipe-boton": {
+   "name": "ඉහළට ස්වයිප්: චතුරස්‍රයක සිට කවයක් බවට හැඩය වෙනස් වන සුදු බොත්තම",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඉහළට ස්වයිප්",
+    "ස්වයිප්",
+    "ඊතලය"
+   ]
+  },
+  "template:ig6-swipe-brillo": {
+   "name": "ඉහළට ස්වයිප්: ඉහළට නගින දිලිසෙන සුදු ඊතල",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඉහළට ස්වයිප්",
+    "ස්වයිප්",
+    "ඊතලය"
+   ]
+  },
+  "template:ig6-swipe-chevrones": {
+   "name": "ඉහළට ස්වයිප්: ඉහළට නගින නිල් ඊතල ආකාර තුනක්",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඉහළට ස්වයිප්",
+    "ස්වයිප්",
+    "ඊතලය"
+   ]
+  },
+  "template:ig6-swipe-circulo": {
+   "name": "ඉහළට ස්වයිප්: ත්‍රිකෝණයක් සහිත ඉහළට නගිමින් බොඳ වන සුදු කවය",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඉහළට ස්වයිප්",
+    "ස්වයිප්",
+    "ඊතලය"
+   ]
+  },
+  "template:ig6-swipe-cuadro": {
+   "name": "ඉහළට ස්වයිප්: ඊතලයක් සහ එහි පරාවර්තනය සහිත නිල් කොළ පෙට්ටිය",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඉහළට ස්වයිප්",
+    "ස්වයිප්",
+    "ඊතලය"
+   ]
+  },
+  "template:ig6-swipe-figuras": {
+   "name": "ඉහළට ස්වයිප්: SWIPE UP සමඟ ත්‍රිකෝණයක් බවට හැරෙන කොළ මුද්ද",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඉහළට ස්වයිප්",
+    "ස්වයිප්",
+    "ඊතලය"
+   ]
+  },
+  "template:ig6-swipe-flecha": {
+   "name": "ඉහළට ස්වයිප්: ස්පන්දනය වන රේඛාවක් මත නිල් ඊතලය",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඉහළට ස්වයිප්",
+    "ස්වයිප්",
+    "ඊතලය"
+   ]
+  },
+  "template:ig6-swipe-interruptor": {
+   "name": "ඉහළට ස්වයිප්: ඉහළට ලිස්සන නිල් හැඳියක් සහිත ස්විචය",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඉහළට ස්වයිප්",
+    "ස්වයිප්",
+    "ඊතලය"
+   ]
+  },
+  "template:ig6-swipe-letras": {
+   "name": "ඉහළට ස්වයිප්: පනින SWIPE UP අකුරු",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඉහළට ස්වයිප්",
+    "ස්වයිප්",
+    "ඊතලය"
+   ]
+  },
+  "template:ig6-swipe-mano": {
+   "name": "ඉහළට ස්වයිප්: ඊතල පෙළක් සහිතව ඉහළට ස්වයිප් කරන අත",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඉහළට ස්වයිප්",
+    "ස්වයිප්",
+    "ඊතලය"
+   ]
+  },
+  "template:ig6-swipe-triangulo": {
+   "name": "ඉහළට ස්වයිප්: රතු තිතක් සහිතව ඉහළට නගින සුදු ත්‍රිකෝණය",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඉහළට ස්වයිප්",
+    "ස්වයිප්",
+    "ඊතලය"
+   ]
+  },
+  "template:ig7-awesome": {
+   "name": "අකුරු සැලසුම් කතාව: AWESOME",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "අකුරු සැලසුම",
+    "වර්ණ",
+    "රේඛා පටි"
+   ]
+  },
+  "template:ig7-big": {
+   "name": "අකුරු සැලසුම් කතාව: BIG",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "අකුරු සැලසුම",
+    "වර්ණ",
+    "දැවැන්ත අකුර"
+   ]
+  },
+  "template:ig7-brand": {
+   "name": "අකුරු සැලසුම් කතාව: BRAND",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "අකුරු සැලසුම",
+    "වර්ණ",
+    "a අකුර"
+   ]
+  },
+  "template:ig7-color": {
+   "name": "අකුරු සැලසුම් කතාව: COLOR",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "අකුරු සැලසුම",
+    "වර්ණ",
+    "රාමුව"
+   ]
+  },
+  "template:ig7-easy-project": {
+   "name": "අකුරු සැලසුම් කතාව: STORIES EASY PROJECT",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "අකුරු සැලසුම",
+    "වර්ණ",
+    "පික්සල්"
+   ]
+  },
+  "template:ig7-grid": {
+   "name": "අකුරු සැලසුම් කතාව: වර්ණ ජාලකය",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "අකුරු සැලසුම",
+    "වර්ණ",
+    "ජාලකය"
+   ]
+  },
+  "template:ig7-no-plugins": {
+   "name": "අකුරු සැලසුම් කතාව: NO PLUGINS",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "අකුරු සැලසුම",
+    "වර්ණ",
+    "සෘජුකෝණාස්‍ර"
+   ]
+  },
+  "template:ig7-social": {
+   "name": "අකුරු සැලසුම් කතාව: SOCIAL",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "අකුරු සැලසුම",
+    "වර්ණ",
+    "කාඩ්පත්"
+   ]
+  },
+  "template:ig7-stories": {
+   "name": "අකුරු සැලසුම් කතාව: STORIES",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "අකුරු සැලසුම",
+    "වර්ණ",
+    "දැවැන්ත අකුර"
+   ]
+  },
+  "template:ig7-typo": {
+   "name": "අකුරු සැලසුම් කතාව: TYPO",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "අකුරු සැලසුම",
+    "වර්ණ",
+    "කාඩ්පත"
+   ]
+  },
+  "template:ig8-best-sellers": {
+   "name": "නාගරික කතාව: Best Sellers click now",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "නාගරික",
+    "නිල්",
+    "වෙළඳසැල"
+   ]
+  },
+  "template:ig8-city-vibes": {
+   "name": "නාගරික කතාව: ඡායාරූප දෙකක් සහිත city vibes",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "නාගරික",
+    "නිල්",
+    "නගරය"
+   ]
+  },
+  "template:ig8-friends": {
+   "name": "නාගරික කතාව: ඡායාරූප තීරුවක් සහිත friends positive",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "නාගරික",
+    "නිල්",
+    "මිතුරන්"
+   ]
+  },
+  "template:ig8-mega-sale": {
+   "name": "නාගරික කතාව: පොලරොයිඩ් mega sale %50",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "නාගරික",
+    "නිල්",
+    "වට්ටම් විකුණුම"
+   ]
+  },
+  "template:ig8-visit-page": {
+   "name": "නාගරික කතාව: නිල් තීරුවක් සහිත visit page",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "නාගරික",
+    "නිල්",
+    "වෙබ්"
+   ]
+  },
+  "template:ig9-banda-roja": {
+   "name": "කතාව: දැවැන්ත වචනයක් සහිත රතු පටිය",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "අකුරු සැලසුම",
+    "පටිය",
+    "රතු"
+   ]
+  },
+  "template:ig9-letras-cortadas": {
+   "name": "කතාව: කැපූ දැවැන්ත වචනයක් සහ සබැඳි තුනක්",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "අකුරු සැලසුම",
+    "අකුරු",
+    "සබැඳි"
+   ]
+  },
+  "template:ig9-letras-rojas": {
+   "name": "කතාව: රතු පැහැයක් මත හැරවූ අකුරු බිත්තියක්",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "අකුරු සැලසුම",
+    "අකුරු",
+    "රතු"
+   ]
+  },
+  "template:ig9-palabra-vertical": {
+   "name": "කතාව: රතු රිබනයක් සහිත රාමුවක සිරස් වචනයක්",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "අකුරු සැලසුම",
+    "සිරස්",
+    "රාමුව"
+   ]
+  },
+  "template:ig9-typo": {
+   "name": "කතාව: අඳින ලද රාමුවක් සහිත TYPO ටයිල්",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "අකුරු සැලසුම",
+    "අකුරු",
+    "රාමුව"
+   ]
+  },
   "template:intro-de-canal": {
    "name": "චැනල් ඉන්ට්‍රෝ",
    "tags": [
@@ -25196,6 +28206,204 @@
     "බීට්",
     "පාටි",
     "වචන"
+   ]
+  },
+  "template:lg0-circulo-ambar": {
+   "name": "ලාංඡනය: තිත් දෙකක් මුද්දක් අඳින අතර එය තැටියක් බවට වැසේ (ඇම්බර්)",
+   "tags": [
+    "ලාංඡනය",
+    "ලාංඡන එළිදැක්වීම",
+    "පැතලි",
+    "ඇම්බර්",
+    "කහ",
+    "කවය"
+   ]
+  },
+  "template:lg0-cuadro-blanco": {
+   "name": "ලාංඡනය: විවෘත වන පනින චතුරස්‍රය (සුදු)",
+   "tags": [
+    "ලාංඡනය",
+    "ලාංඡන එළිදැක්වීම",
+    "පැතලි",
+    "සුදු",
+    "සමචතුරස්‍රය",
+    "පිම්මීම"
+   ]
+  },
+  "template:lg0-disco-azul": {
+   "name": "ලාංඡනය: තැටියක් බවට විවෘත වන පියාසර කරන තිත (නිල්)",
+   "tags": [
+    "ලාංඡනය",
+    "ලාංඡන එළිදැක්වීම",
+    "පැතලි",
+    "නිල්",
+    "තැටිය",
+    "තිතය"
+   ]
+  },
+  "template:lg0-hexagono-coral": {
+   "name": "ලාංඡනය: ඔබේ වෙළඳ නාමය සහිත රේඛාව, කවය සහ පෙරළෙන ෂඩාස්‍රය (කොරල්)",
+   "tags": [
+    "ලාංඡනය",
+    "ලාංඡන එළිදැක්වීම",
+    "පැතලි",
+    "කොරල්",
+    "ෂඩාස්‍රය",
+    "රේඛාව"
+   ]
+  },
+  "template:lg0-iconos-redes": {
+   "name": "පිපිරෙන සමාජ මාධ්‍ය අයිකන දහයක් (නිල්)",
+   "tags": [
+    "ලාංඡනය",
+    "ලාංඡන එළිදැක්වීම",
+    "පැතලි",
+    "සමාජ මාධ්‍ය",
+    "අයිකන",
+    "ෆේස්බුක්"
+   ]
+  },
+  "template:lg0-sigueme": {
+   "name": "සමාජ ලාංඡනය: ඡායාරූපයක් මත ෂඩාස්‍රයක බෝලයක් සහිත මාව අනුගමනය කරන්න",
+   "tags": [
+    "ලාංඡනය",
+    "ලාංඡන එළිදැක්වීම",
+    "පැතලි",
+    "මාව අනුගමනය කරන්න",
+    "පරිශීලක",
+    "ෂඩාස්‍රය"
+   ]
+  },
+  "template:lg1-luz-dorada": {
+   "name": "ලාංඡනය: රන්වන් ආලෝකයෙන් ගොඩනැගූ",
+   "tags": [
+    "ලාංඡනය",
+    "හැඳින්වීම",
+    "ආලෝකය",
+    "රන්වන්",
+    "දිලිසීම",
+    "රේඛා පටි"
+   ]
+  },
+  "template:lg2-cintas": {
+   "name": "මාව අනුගමනය කරන්න: හැරෙන රිබන් වලින් ලාංඡනය",
+   "tags": [
+    "ලාංඡනය",
+    "පැතලි",
+    "ආයතනික",
+    "මාව අනුගමනය කරන්න",
+    "ත්‍රිමාණ"
+   ]
+  },
+  "template:lg2-franjas": {
+   "name": "මාව අනුගමනය කරන්න: පෙති සහ තීරු වලින් ලාංඡනය",
+   "tags": [
+    "ලාංඡනය",
+    "පැතලි",
+    "ආයතනික",
+    "මාව අනුගමනය කරන්න",
+    "රේඛා පටි"
+   ]
+  },
+  "template:lg2-giro": {
+   "name": "ලාංඡනය: ඇරෙන භ්‍රමණය",
+   "tags": [
+    "ලාංඡනය",
+    "පැතලි",
+    "ආයතනික",
+    "භ්‍රමණය"
+   ]
+  },
+  "template:lg2-glitch": {
+   "name": "ලාංඡනය: කොළ පැහැයෙන් ග්ලිච්",
+   "tags": [
+    "ලාංඡනය",
+    "පැතලි",
+    "ආයතනික",
+    "ග්ලිච්"
+   ]
+  },
+  "template:lg2-horizonte": {
+   "name": "දායක වන්න: ක්ෂිතිජයෙන් ඉහළට නගින ලාංඡනය",
+   "tags": [
+    "ලාංඡනය",
+    "පැතලි",
+    "ආයතනික",
+    "දායක වන්න",
+    "ක්ෂිතිජය"
+   ]
+  },
+  "template:lg2-mira": {
+   "name": "දායක වන්න: විවෘත වන ඉලක්කය",
+   "tags": [
+    "ලාංඡනය",
+    "පැතලි",
+    "ආයතනික",
+    "දායක වන්න",
+    "ඉලක්කය"
+   ]
+  },
+  "template:lg2-orbita": {
+   "name": "දායක වන්න: කක්ෂයේ ලාංඡනය",
+   "tags": [
+    "ලාංඡනය",
+    "පැතලි",
+    "ආයතනික",
+    "දායක වන්න",
+    "කක්ෂය"
+   ]
+  },
+  "template:lg2-puntos": {
+   "name": "ලාංඡනය: පෙරළෙන තිත්",
+   "tags": [
+    "ලාංඡනය",
+    "පැතලි",
+    "ආයතනික",
+    "තිත්"
+   ]
+  },
+  "template:lg3-esfera": {
+   "name": "ලාංඡනය: තැටියක් බවට පත්වන ඉරි සහිත ගෝලය",
+   "tags": [
+    "ලාංඡනය",
+    "ලාංඡන එළිදැක්වීම",
+    "හැඳින්වීම",
+    "ගෝලය",
+    "නිල්",
+    "ආයතනික"
+   ]
+  },
+  "template:lg3-ondas": {
+   "name": "ලාංඡනය: රේඛාවක් බවට තැන්පත් වන වර්ණ රැල්ල",
+   "tags": [
+    "ලාංඡනය",
+    "ලාංඡන එළිදැක්වීම",
+    "හැඳින්වීම",
+    "රැල්ල",
+    "වර්ණ",
+    "රේඛාව"
+   ]
+  },
+  "template:lg3-persiana": {
+   "name": "ලාංඡනය: විවෘත වන පටි සහිත චතුරස්‍රය",
+   "tags": [
+    "ලාංඡනය",
+    "ලාංඡන එළිදැක්වීම",
+    "හැඳින්වීම",
+    "සමචතුරස්‍රය",
+    "අළු",
+    "අවම"
+   ]
+  },
+  "template:lg3-torta-diana": {
+   "name": "ලාංඡනය: ඉරි මුද්ද, වර්ණ පයි සහ ඉලක්කය",
+   "tags": [
+    "ලාංඡනය",
+    "ලාංඡන එළිදැක්වීම",
+    "හැඳින්වීම",
+    "කේක්",
+    "කවය",
+    "පැස්ටල්"
    ]
   },
   "template:llt-bevan": {
@@ -25446,6 +28654,750 @@
     "වළල්ල"
    ]
   },
+  "template:llt10-amanda": {
+   "name": "සුදු නම් පටිය: නම, ටැගයක තනතුර",
+   "tags": [
+    "නම් පටිය",
+    "සුදු",
+    "සැකිල්ල"
+   ]
+  },
+  "template:llt10-elena": {
+   "name": "සුදු නම් පටිය: පෙට්ටියක නම",
+   "tags": [
+    "නම් පටිය",
+    "සුදු",
+    "සැකිල්ල"
+   ]
+  },
+  "template:llt10-elizabeth": {
+   "name": "සුදු නම් පටිය: නම සහ ටැගය, දකුණේ",
+   "tags": [
+    "නම් පටිය",
+    "සුදු",
+    "දකුණ"
+   ]
+  },
+  "template:llt10-emily": {
+   "name": "සුදු නම් පටිය: අඩක් පෙට්ටියේ ඇති නම",
+   "tags": [
+    "නම් පටිය",
+    "සුදු",
+    "සැකිල්ල"
+   ]
+  },
+  "template:llt10-erica": {
+   "name": "සුදු නම් පටිය: තනතුර සහිත ටැග දෙකක්",
+   "tags": [
+    "නම් පටිය",
+    "සුදු",
+    "සැකිල්ල"
+   ]
+  },
+  "template:llt10-gabriela": {
+   "name": "සුදු නම් පටිය: දකුණේ, දිග නම",
+   "tags": [
+    "නම් පටිය",
+    "සුදු",
+    "දකුණ"
+   ]
+  },
+  "template:llt10-hanna": {
+   "name": "සුදු නම් පටිය: පෙට්ටියක වාසගම",
+   "tags": [
+    "නම් පටිය",
+    "සුදු",
+    "සැකිල්ල"
+   ]
+  },
+  "template:llt10-iren": {
+   "name": "සුදු නම් පටිය: මධ්‍යගත, ටැගයක් සමඟ",
+   "tags": [
+    "නම් පටිය",
+    "සුදු",
+    "මධ්‍යගත"
+   ]
+  },
+  "template:llt10-kristina": {
+   "name": "සුදු නම් පටිය: පේළි දෙකක තනතුරක් සහිත පෙට්ටිය",
+   "tags": [
+    "නම් පටිය",
+    "සුදු",
+    "මධ්‍යගත"
+   ]
+  },
+  "template:llt10-lora": {
+   "name": "සුදු නම් පටිය: පෙට්ටියක වාසගම, දකුණේ",
+   "tags": [
+    "නම් පටිය",
+    "සුදු",
+    "දකුණ"
+   ]
+  },
+  "template:llt10-monica": {
+   "name": "සුදු නම් පටිය: පේළි දෙකක නම, ටැගය",
+   "tags": [
+    "නම් පටිය",
+    "සුදු",
+    "මධ්‍යගත"
+   ]
+  },
+  "template:llt10-monika": {
+   "name": "සුදු නම් පටිය: ඉර, තනතුර දකුණේ",
+   "tags": [
+    "නම් පටිය",
+    "සුදු",
+    "දකුණ"
+   ]
+  },
+  "template:llt11-1": {
+   "name": "වර්ණ අනුක්‍රමණ නම් පටිය: වර්ණ අනුක්‍රමණ වාසගම, ටැගය",
+   "tags": [
+    "නම් පටිය",
+    "වර්ණ අනුක්‍රමණය",
+    "සැකිල්ල"
+   ]
+  },
+  "template:llt11-10": {
+   "name": "වර්ණ අනුක්‍රමණ නම් පටිය: වාසගම් පෙට්ටිය, යටි ඉර",
+   "tags": [
+    "නම් පටිය",
+    "වර්ණ අනුක්‍රමණය",
+    "සැකිල්ල"
+   ]
+  },
+  "template:llt11-11": {
+   "name": "වර්ණ අනුක්‍රමණ නම් පටිය: උස තීරුව, වාසගම් පෙට්ටිය",
+   "tags": [
+    "නම් පටිය",
+    "වර්ණ අනුක්‍රමණය",
+    "සැකිල්ල"
+   ]
+  },
+  "template:llt11-12": {
+   "name": "වර්ණ අනුක්‍රමණ නම් පටිය: ටැගය, රාමුව, වර්ණ අනුක්‍රමණ වාසගම",
+   "tags": [
+    "නම් පටිය",
+    "වර්ණ අනුක්‍රමණය",
+    "සැකිල්ල"
+   ]
+  },
+  "template:llt11-13": {
+   "name": "වර්ණ අනුක්‍රමණ නම් පටිය: ටැගය සහ සතරැස",
+   "tags": [
+    "නම් පටිය",
+    "වර්ණ අනුක්‍රමණය",
+    "සැකිල්ල"
+   ]
+  },
+  "template:llt11-14": {
+   "name": "වර්ණ අනුක්‍රමණ නම් පටිය: යටි ඉර, තනතුර දකුණේ",
+   "tags": [
+    "නම් පටිය",
+    "වර්ණ අනුක්‍රමණය",
+    "සැකිල්ල"
+   ]
+  },
+  "template:llt11-15": {
+   "name": "වර්ණ අනුක්‍රමණ නම් පටිය: සතරැස් සහ ටැගය",
+   "tags": [
+    "නම් පටිය",
+    "වර්ණ අනුක්‍රමණය",
+    "සැකිල්ල"
+   ]
+  },
+  "template:llt11-16": {
+   "name": "වර්ණ අනුක්‍රමණ නම් පටිය: ඡායාරූපය සමඟ",
+   "tags": [
+    "නම් පටිය",
+    "වර්ණ අනුක්‍රමණය",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:llt11-17": {
+   "name": "වර්ණ අනුක්‍රමණ නම් පටිය: ඡායාරූපය සහ ටැගය සමඟ",
+   "tags": [
+    "නම් පටිය",
+    "වර්ණ අනුක්‍රමණය",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:llt11-18": {
+   "name": "වර්ණ අනුක්‍රමණ නම් පටිය: ඡායාරූපය සහ තීරුව සමඟ",
+   "tags": [
+    "නම් පටිය",
+    "වර්ණ අනුක්‍රමණය",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:llt11-19": {
+   "name": "වර්ණ අනුක්‍රමණ නම් පටිය: රාමුවක ඡායාරූපය සමඟ",
+   "tags": [
+    "නම් පටිය",
+    "වර්ණ අනුක්‍රමණය",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:llt11-2": {
+   "name": "වර්ණ අනුක්‍රමණ නම් පටිය: යටි ඉර",
+   "tags": [
+    "නම් පටිය",
+    "වර්ණ අනුක්‍රමණය",
+    "සැකිල්ල"
+   ]
+  },
+  "template:llt11-20": {
+   "name": "වර්ණ අනුක්‍රමණ නම් පටිය: ඡායාරූපය, රාමුව සහ ටැගය සමඟ",
+   "tags": [
+    "නම් පටිය",
+    "වර්ණ අනුක්‍රමණය",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:llt11-3": {
+   "name": "වර්ණ අනුක්‍රමණ නම් පටිය: දකුණේ තනතුරු පෙට්ටිය",
+   "tags": [
+    "නම් පටිය",
+    "වර්ණ අනුක්‍රමණය",
+    "සැකිල්ල"
+   ]
+  },
+  "template:llt11-4": {
+   "name": "වර්ණ අනුක්‍රමණ නම් පටිය: රාමුව සහ ටැගය",
+   "tags": [
+    "නම් පටිය",
+    "වර්ණ අනුක්‍රමණය",
+    "සැකිල්ල"
+   ]
+  },
+  "template:llt11-5": {
+   "name": "වර්ණ අනුක්‍රමණ නම් පටිය: සිරස් තීරුව",
+   "tags": [
+    "නම් පටිය",
+    "වර්ණ අනුක්‍රමණය",
+    "සැකිල්ල"
+   ]
+  },
+  "template:llt11-6": {
+   "name": "වර්ණ අනුක්‍රමණ නම් පටිය: එක් පේළියේ නම, ටැගය",
+   "tags": [
+    "නම් පටිය",
+    "වර්ණ අනුක්‍රමණය",
+    "සැකිල්ල"
+   ]
+  },
+  "template:llt11-7": {
+   "name": "වර්ණ අනුක්‍රමණ නම් පටිය: නම් පෙට්ටිය, තනතුරු රාමුව",
+   "tags": [
+    "නම් පටිය",
+    "වර්ණ අනුක්‍රමණය",
+    "සැකිල්ල"
+   ]
+  },
+  "template:llt11-8": {
+   "name": "වර්ණ අනුක්‍රමණ නම් පටිය: වර්ණ අනුක්‍රමණ වාසගම",
+   "tags": [
+    "නම් පටිය",
+    "වර්ණ අනුක්‍රමණය",
+    "සැකිල්ල"
+   ]
+  },
+  "template:llt11-9": {
+   "name": "වර්ණ අනුක්‍රමණ නම් පටිය: ටැගය ඉහළ, රාමුව",
+   "tags": [
+    "නම් පටිය",
+    "වර්ණ අනුක්‍රමණය",
+    "සැකිල්ල"
+   ]
+  },
+  "template:llt12-alexandra": {
+   "name": "නිල් නම් පටිය: තීරුව නම හෙළි කරයි",
+   "tags": [
+    "නම් පටිය",
+    "නිල්",
+    "තීරුව",
+    "දකුණ"
+   ]
+  },
+  "template:llt12-cajas": {
+   "name": "නිල් නම් පටිය: වර්ධනය වන පෙට්ටි තුනක්",
+   "tags": [
+    "නම් පටිය",
+    "නිල්",
+    "පෙට්ටිය"
+   ]
+  },
+  "template:llt12-corchetes": {
+   "name": "නිල් නම් පටිය: තීරු දෙකක් වෙන්ව විවෘත වේ",
+   "tags": [
+    "නම් පටිය",
+    "නිල්",
+    "තීරුව"
+   ]
+  },
+  "template:llt12-corni": {
+   "name": "නිල් නම් පටිය: නම් පෙට්ටිය, සුදු ටැගය",
+   "tags": [
+    "නම් පටිය",
+    "නිල්",
+    "පෙට්ටිය"
+   ]
+  },
+  "template:llt12-jacob": {
+   "name": "නිල් නම් පටිය: විවෘත වන පෙට්ටිය, සුදු පටිය",
+   "tags": [
+    "නම් පටිය",
+    "නිල්",
+    "පෙට්ටිය"
+   ]
+  },
+  "template:llt12-jeremi": {
+   "name": "නිල් නම් පටිය: ඉර පහළට ලිස්සයි, නම",
+   "tags": [
+    "නම් පටිය",
+    "නිල්",
+    "යටි ඉර"
+   ]
+  },
+  "template:llt12-jeremy": {
+   "name": "නිල් නම් පටිය: පේළි දෙකක නම, යටි ඉර",
+   "tags": [
+    "නම් පටිය",
+    "නිල්",
+    "යටි ඉර"
+   ]
+  },
+  "template:llt12-john-rojers": {
+   "name": "නිල් නම් පටිය: පෙට්ටියක කරකැවූ නම",
+   "tags": [
+    "නම් පටිය",
+    "නිල්",
+    "පෙට්ටිය",
+    "කරකැවූ"
+   ]
+  },
+  "template:llt12-john-watson": {
+   "name": "නිල් නම් පටිය: ඇලව විවෘත වන පෙට්ටිය",
+   "tags": [
+    "නම් පටිය",
+    "නිල්",
+    "පෙට්ටිය",
+    "ඇල"
+   ]
+  },
+  "template:llt12-marketing": {
+   "name": "නිල් නම් පටිය: අකුරු මැකී පෙනේ, තීරුව",
+   "tags": [
+    "නම් පටිය",
+    "නිල්",
+    "තීරුව"
+   ]
+  },
+  "template:llt12-minimal": {
+   "name": "නිල් නම් පටිය: මැදින් එන පෙට්ටිය",
+   "tags": [
+    "නම් පටිය",
+    "නිල්",
+    "පෙට්ටිය"
+   ]
+  },
+  "template:llt12-modern": {
+   "name": "නිල් නම් පටිය: ඉහළ යන ඉරි දෙකක්, යටි ඉර",
+   "tags": [
+    "නම් පටිය",
+    "නිල්",
+    "යටි ඉර"
+   ]
+  },
+  "template:llt12-rosanda": {
+   "name": "නිල් නම් පටිය: තීරුව කරකැවූ නම අතුරයි",
+   "tags": [
+    "නම් පටිය",
+    "නිල්",
+    "තීරුව",
+    "කරකැවූ"
+   ]
+  },
+  "template:llt12-suzanna": {
+   "name": "නිල් නම් පටිය: අකුරු මැකී පෙනේ, විශාලනය",
+   "tags": [
+    "නම් පටිය",
+    "නිල්",
+    "දකුණ"
+   ]
+  },
+  "template:llt12-titulos": {
+   "name": "නිල් නම් පටිය: පහළට පෙට්ටිය, සුදු පටිය",
+   "tags": [
+    "නම් පටිය",
+    "නිල්",
+    "පෙට්ටිය"
+   ]
+  },
+  "template:llt12-your-text": {
+   "name": "නිල් නම් පටිය: තීරුවකින් එන ඉරි",
+   "tags": [
+    "නම් පටිය",
+    "නිල්",
+    "තීරුව",
+    "කරකැවූ"
+   ]
+  },
+  "template:llt13-clark": {
+   "name": "ඇල අකුරු නම් පටිය: ඝන වාසගම, සැහැල්ලු මුල් නම",
+   "tags": [
+    "නම් පටිය",
+    "සුදු",
+    "ඇල අකුරු"
+   ]
+  },
+  "template:llt13-david": {
+   "name": "ඇල අකුරු නම් පටිය: තනතුර, තීරුව සහ නම",
+   "tags": [
+    "නම් පටිය",
+    "සුදු",
+    "ඇල අකුරු",
+    "තීරුව"
+   ]
+  },
+  "template:llt13-dominic": {
+   "name": "ඇල අකුරු නම් පටිය: විශාල යටි ඉර සහිත වාසගම",
+   "tags": [
+    "නම් පටිය",
+    "සුදු",
+    "ඇල අකුරු"
+   ]
+  },
+  "template:llt13-emily": {
+   "name": "ඇල අකුරු නම් පටිය: පේළි දෙකක නම, යටි ඉර",
+   "tags": [
+    "නම් පටිය",
+    "සුදු",
+    "ඇල අකුරු"
+   ]
+  },
+  "template:llt13-foster": {
+   "name": "ඇල අකුරු නම් පටිය: තනතුර ඉහළ, ඉර",
+   "tags": [
+    "නම් පටිය",
+    "සුදු",
+    "ඇල අකුරු"
+   ]
+  },
+  "template:llt13-james": {
+   "name": "ඇල අකුරු නම් පටිය: තීරුව, තනතුර පහළ දකුණේ",
+   "tags": [
+    "නම් පටිය",
+    "සුදු",
+    "ඇල අකුරු",
+    "තීරුව"
+   ]
+  },
+  "template:llt13-kingsley": {
+   "name": "ඇල අකුරු නම් පටිය: නම, තීරුව දකුණේ",
+   "tags": [
+    "නම් පටිය",
+    "සුදු",
+    "ඇල අකුරු",
+    "තීරුව",
+    "දකුණ"
+   ]
+  },
+  "template:llt13-maximilian": {
+   "name": "ඇල අකුරු නම් පටිය: යටි ඉර සහිත නම, අගින්",
+   "tags": [
+    "නම් පටිය",
+    "සුදු",
+    "ඇල අකුරු"
+   ]
+  },
+  "template:llt13-michael": {
+   "name": "ඇල අකුරු නම් පටිය: යටි ඉරක් සහිත නම",
+   "tags": [
+    "නම් පටිය",
+    "සුදු",
+    "ඇල අකුරු"
+   ]
+  },
+  "template:llt13-nathaniel": {
+   "name": "ඇල අකුරු නම් පටිය: දකුණට පෙළගැසූ",
+   "tags": [
+    "නම් පටිය",
+    "සුදු",
+    "ඇල අකුරු",
+    "දකුණ"
+   ]
+  },
+  "template:llt13-olivia": {
+   "name": "ඇල අකුරු නම් පටිය: තනතුර වමේ, යටි ඉර",
+   "tags": [
+    "නම් පටිය",
+    "සුදු",
+    "ඇල අකුරු"
+   ]
+  },
+  "template:llt13-sophia": {
+   "name": "ඇල අකුරු නම් පටිය: තීරුව, අසල තනතුර",
+   "tags": [
+    "නම් පටිය",
+    "සුදු",
+    "ඇල අකුරු",
+    "තීරුව"
+   ]
+  },
+  "template:llt14-barra-azul": {
+   "name": "රතු නම් පටිය: ලාංඡනය සහ නේවි නිල් තීරුව",
+   "tags": [
+    "නම් පටිය",
+    "රතු",
+    "නේවි නිල්",
+    "ලාංඡනය",
+    "තීරුව"
+   ]
+  },
+  "template:llt14-barra-gris": {
+   "name": "රතු නම් පටිය: ලාංඡනය, අළු තීරුව සහ ටැගය",
+   "tags": [
+    "නම් පටිය",
+    "රතු",
+    "නේවි නිල්",
+    "ලාංඡනය",
+    "තීරුව"
+   ]
+  },
+  "template:llt14-caja-alta": {
+   "name": "රතු නම් පටිය: උස පෙට්ටිය, රතු දාරය",
+   "tags": [
+    "නම් පටිය",
+    "රතු",
+    "නේවි නිල්",
+    "පෙට්ටිය"
+   ]
+  },
+  "template:llt14-caja-grande": {
+   "name": "රතු නම් පටිය: විශාල පෙට්ටිය, මාතෘකාව, පෙළ",
+   "tags": [
+    "නම් පටිය",
+    "රතු",
+    "නේවි නිල්",
+    "පෙට්ටිය"
+   ]
+  },
+  "template:llt14-disenador": {
+   "name": "රතු නම් පටිය: රතු රාමුවක නම",
+   "tags": [
+    "නම් පටිය",
+    "රතු",
+    "නේවි නිල්"
+   ]
+  },
+  "template:llt14-dos-cuadros": {
+   "name": "රතු නම් පටිය: සතරැස් දෙකක්, පේළි දෙකක්",
+   "tags": [
+    "නම් පටිය",
+    "රතු",
+    "නේවි නිල්"
+   ]
+  },
+  "template:llt14-hexagono": {
+   "name": "රතු නම් පටිය: ෂඩ්භුජ ලාංඡනය, සුදු ටැගය",
+   "tags": [
+    "නම් පටිය",
+    "රතු",
+    "නේවි නිල්",
+    "ලාංඡනය"
+   ]
+  },
+  "template:llt14-linea-roja": {
+   "name": "රතු නම් පටිය: ලාංඡනය, රතු ඉර, පළල පෙට්ටිය",
+   "tags": [
+    "නම් පටිය",
+    "රතු",
+    "නේවි නිල්",
+    "ලාංඡනය",
+    "පෙට්ටිය"
+   ]
+  },
+  "template:llt14-logo-lineas": {
+   "name": "රතු නම් පටිය: ලාංඡනය, ඉර සහ පේළි දෙකක්",
+   "tags": [
+    "නම් පටිය",
+    "රතු",
+    "නේවි නිල්",
+    "ලාංඡනය"
+   ]
+  },
+  "template:llt14-logo-texto": {
+   "name": "රතු නම් පටිය: ලාංඡනය සහ ඡේද පෙට්ටියක්",
+   "tags": [
+    "නම් පටිය",
+    "රතු",
+    "නේවි නිල්",
+    "ලාංඡනය",
+    "පෙට්ටිය"
+   ]
+  },
+  "template:llt14-marca": {
+   "name": "රතු නම් පටිය: ලාංඡනය, ඇල ඉර සහ නම",
+   "tags": [
+    "නම් පටිය",
+    "රතු",
+    "නේවි නිල්",
+    "ලාංඡනය"
+   ]
+  },
+  "template:llt14-pestana": {
+   "name": "රතු නම් පටිය: ලාංඡනය, ටැබය සහ පෙළ පෙට්ටිය",
+   "tags": [
+    "නම් පටිය",
+    "රතු",
+    "නේවි නිල්",
+    "ලාංඡනය",
+    "පෙට්ටිය"
+   ]
+  },
+  "template:llt14-primer-titulo": {
+   "name": "රතු නම් පටිය: ලාංඡනය, මාතෘකාව, පෙළ පෙට්ටිය",
+   "tags": [
+    "නම් පටිය",
+    "රතු",
+    "නේවි නිල්",
+    "ලාංඡනය",
+    "පෙට්ටිය"
+   ]
+  },
+  "template:llt15-barra-larga": {
+   "name": "සරල නම් පටිය: දිග තීරුව, ලාංඡනය, දිනය",
+   "tags": [
+    "නම් පටිය",
+    "සරල",
+    "කළු",
+    "ලාංඡනය",
+    "තීරුව"
+   ]
+  },
+  "template:llt15-descripcion": {
+   "name": "සරල නම් පටිය: නම සහ විස්තරය",
+   "tags": [
+    "නම් පටිය",
+    "සරල",
+    "කළු"
+   ]
+  },
+  "template:llt15-dos-lineas": {
+   "name": "සරල නම් පටිය: පේළි දෙකක තනතුර",
+   "tags": [
+    "නම් පටිය",
+    "සරල",
+    "කළු"
+   ]
+  },
+  "template:llt15-logo-ficha": {
+   "name": "සරල නම් පටිය: ලාංඡන සතරැස, පේළි දෙකක්",
+   "tags": [
+    "නම් පටිය",
+    "සරල",
+    "කළු",
+    "ලාංඡනය"
+   ]
+  },
+  "template:llt15-logo-nombre": {
+   "name": "සරල නම් පටිය: ලාංඡන කොටස, නම",
+   "tags": [
+    "නම් පටිය",
+    "සරල",
+    "කළු",
+    "ලාංඡනය"
+   ]
+  },
+  "template:llt15-nombre": {
+   "name": "සරල නම් පටිය: සුදු ටැගයක නම",
+   "tags": [
+    "නම් පටිය",
+    "සරල",
+    "කළු"
+   ]
+  },
+  "template:llt15-nombre-cargo": {
+   "name": "සරල නම් පටිය: නම සහ තනතුර",
+   "tags": [
+    "නම් පටිය",
+    "සරල",
+    "කළු"
+   ]
+  },
+  "template:llt16-barra-nombre": {
+   "name": "පහළ තෙවැන්න: රතු තීරුව සහ ලා නමක්",
+   "tags": [
+    "පහළ තෙවැන්න",
+    "සරල",
+    "වීඩියෝ සැකිල්ල"
+   ]
+  },
+  "template:llt16-cargo-azul": {
+   "name": "පහළ තෙවැන්න: නිල් පෙට්ටියක නම සහ තනතුර",
+   "tags": [
+    "පහළ තෙවැන්න",
+    "සරල",
+    "වීඩියෝ සැකිල්ල"
+   ]
+  },
+  "template:llt16-cargo-rojo": {
+   "name": "පහළ තෙවැන්න: ලා නම, රතු තනතුර",
+   "tags": [
+    "පහළ තෙවැන්න",
+    "සරල",
+    "වීඩියෝ සැකිල්ල"
+   ]
+  },
+  "template:llt16-director": {
+   "name": "පහළ තෙවැන්න: සුදු තනතුර, රතු නම",
+   "tags": [
+    "පහළ තෙවැන්න",
+    "සරල",
+    "වීඩියෝ සැකිල්ල"
+   ]
+  },
+  "template:llt16-fotografa": {
+   "name": "පහළ තෙවැන්න: කුඩා තනතුර, සියාන් පැහැති නම",
+   "tags": [
+    "පහළ තෙවැන්න",
+    "සරල",
+    "වීඩියෝ සැකිල්ල"
+   ]
+  },
+  "template:llt16-hora": {
+   "name": "පහළ තෙවැන්න: වේලාව සහ දිනය",
+   "tags": [
+    "පහළ තෙවැන්න",
+    "සරල",
+    "දිනය"
+   ]
+  },
+  "template:llt16-show": {
+   "name": "පහළ තෙවැන්න: රේඛා දෙකක් අතර මාතෘකාව",
+   "tags": [
+    "පහළ තෙවැන්න",
+    "සරල",
+    "වීඩියෝ සැකිල්ල"
+   ]
+  },
+  "template:llt16-titulo-rojo": {
+   "name": "පහළ තෙවැන්න: මාතෘකාව සහ රතු උපමාතෘකාව",
+   "tags": [
+    "පහළ තෙවැන්න",
+    "සරල",
+    "වීඩියෝ සැකිල්ල"
+   ]
+  },
+  "template:llt16-tu-texto": {
+   "name": "පහළ තෙවැන්න: තැඹිලි සහ අළු පෙට්ටිය",
+   "tags": [
+    "පහළ තෙවැන්න",
+    "සරල",
+    "වීඩියෝ සැකිල්ල"
+   ]
+  },
   "template:llt2-barra-etiqueta": {
    "name": "ලාංඡන නම් පටිය: අඳුරු තීරුව සහ කොළ ලේබලය",
    "tags": [
@@ -25578,6 +29530,435 @@
     "කහ",
     "සුදු",
     "අමුත්තා"
+   ]
+  },
+  "template:llt4-cuadro-sube": {
+   "name": "ලාංඡන නම් පටිය: අඳුරු සතරැස, ලාංඡනය ඉහළට එයි",
+   "tags": [
+    "නම් පටිය",
+    "ලාංඡනය",
+    "නම",
+    "තීරුව",
+    "කොළ",
+    "සතරැස"
+   ]
+  },
+  "template:llt4-ficha-blanca": {
+   "name": "ලාංඡන නම් පටිය: විවෘත වන සුදු කාඩ්පත",
+   "tags": [
+    "නම් පටිය",
+    "ලාංඡනය",
+    "නම",
+    "සුදු",
+    "කාඩ්පත"
+   ]
+  },
+  "template:llt4-logo-izquierda": {
+   "name": "ලාංඡන නම් පටිය: අඳුරු තීරුව, ලාංඡනය වමේ",
+   "tags": [
+    "නම් පටිය",
+    "ලාංඡනය",
+    "නම",
+    "තීරුව",
+    "කොළ"
+   ]
+  },
+  "template:llt4-pastilla-barra": {
+   "name": "ලාංඡන නම් පටිය: බාරයක් බවට විවෘත වන කැප්සියුලය",
+   "tags": [
+    "නම් පටිය",
+    "ලාංඡනය",
+    "නම",
+    "තීරුව",
+    "කොළ",
+    "කැප්සියුලය"
+   ]
+  },
+  "template:llt5-adam": {
+   "name": "ඡායාරූප නම් පටිය: උස ඡායාරූපය, නම ඒ හරහා",
+   "tags": [
+    "නම් පටිය",
+    "ඡායාරූපය",
+    "නම",
+    "අළු",
+    "සිරස්",
+    "මධ්‍යගත"
+   ]
+  },
+  "template:llt5-eddy": {
+   "name": "ඡායාරූප නම් පටිය: වෘත්තාකාර ඡායාරූපය දකුණේ, අඳුරු පටිය",
+   "tags": [
+    "නම් පටිය",
+    "ඡායාරූපය",
+    "නම",
+    "අඳුරු",
+    "වෘත්තාකාර"
+   ]
+  },
+  "template:llt5-elis": {
+   "name": "ඡායාරූප නම් පටිය: වෘත්තාකාර ඡායාරූපය, නම දකුණේ",
+   "tags": [
+    "නම් පටිය",
+    "ඡායාරූපය",
+    "නම",
+    "අළු",
+    "වෘත්තාකාර"
+   ]
+  },
+  "template:llt5-emma": {
+   "name": "ඡායාරූප නම් පටිය: උස ඡායාරූපය, හරහා පටි",
+   "tags": [
+    "නම් පටිය",
+    "ඡායාරූපය",
+    "නම",
+    "අළු",
+    "සිරස්"
+   ]
+  },
+  "template:llt5-kris": {
+   "name": "ඡායාරූප නම් පටිය: වෘත්තාකාර ඡායාරූපය ඉහළ, නම පහළ",
+   "tags": [
+    "නම් පටිය",
+    "ඡායාරූපය",
+    "නම",
+    "අළු",
+    "වෘත්තාකාර",
+    "මධ්‍යගත"
+   ]
+  },
+  "template:llt5-martin": {
+   "name": "ඡායාරූප නම් පටිය: සතරැස් ඡායාරූපය, නම දකුණේ",
+   "tags": [
+    "නම් පටිය",
+    "ඡායාරූපය",
+    "නම",
+    "අළු"
+   ]
+  },
+  "template:llt5-monika": {
+   "name": "ඡායාරූප නම් පටිය: ඡායාරූපය දකුණේ, නම වමේ",
+   "tags": [
+    "නම් පටිය",
+    "ඡායාරූපය",
+    "නම",
+    "අළු"
+   ]
+  },
+  "template:llt5-rachel": {
+   "name": "ඡායාරූප නම් පටිය: උස ඡායාරූපය දකුණේ, මායිම් ඇති වාසගම",
+   "tags": [
+    "නම් පටිය",
+    "ඡායාරූපය",
+    "නම",
+    "අඳුරු",
+    "සිරස්"
+   ]
+  },
+  "template:llt5-rose": {
+   "name": "ඡායාරූප නම් පටිය: ඡායාරූපය ඉහළ, නම පහළ",
+   "tags": [
+    "නම් පටිය",
+    "ඡායාරූපය",
+    "නම",
+    "අළු",
+    "මධ්‍යගත"
+   ]
+  },
+  "template:llt6-barra-inclinada": {
+   "name": "නම් පටිය: ඇල සුදු තීරුව, විශාල නම",
+   "tags": [
+    "නම් පටිය",
+    "නම",
+    "සුදු",
+    "ඇල"
+   ]
+  },
+  "template:llt6-barrido-rojo": {
+   "name": "නම් පටිය: රතු කොටස අතුරා නම හෙළි කරයි",
+   "tags": [
+    "නම් පටිය",
+    "නම",
+    "රතු"
+   ]
+  },
+  "template:llt6-caja-nombre": {
+   "name": "නම් පටිය: හැකිළෙන සුදු පෙට්ටියක නම",
+   "tags": [
+    "නම් පටිය",
+    "නම",
+    "සුදු",
+    "පෙට්ටිය"
+   ]
+  },
+  "template:llt6-cursor": {
+   "name": "නම් පටිය: කොටස කර්සරයක් බවට පත්ව නම හෙළි කරයි",
+   "tags": [
+    "නම් පටිය",
+    "නම",
+    "සුදු",
+    "කර්සරය"
+   ]
+  },
+  "template:llt6-divisor": {
+   "name": "නම් පටිය: බෙදුම් ඉර, තනතුර සහ නම දෙපැත්තේ",
+   "tags": [
+    "නම් පටිය",
+    "නම",
+    "ඉර"
+   ]
+  },
+  "template:llt6-etiqueta-blanca": {
+   "name": "නම් පටිය: විශාල නම, තනතුර සහිත සුදු ලේබලය",
+   "tags": [
+    "නම් පටිය",
+    "නම",
+    "සුදු",
+    "ලේබලය"
+   ]
+  },
+  "template:llt6-etiqueta-roja": {
+   "name": "නම් පටිය: නම දකුණේ, තනතුර සහිත රතු තීරුව",
+   "tags": [
+    "නම් පටිය",
+    "නම",
+    "රතු",
+    "දකුණ"
+   ]
+  },
+  "template:llt6-letras": {
+   "name": "නම් පටිය: නම අකුරින් අකුර පැමිණේ",
+   "tags": [
+    "නම් පටිය",
+    "නම",
+    "අකුරු"
+   ]
+  },
+  "template:llt6-linea-fina": {
+   "name": "නම් පටිය: සිහින් ඉර, නම සහ තනතුර දෙපැත්තේ",
+   "tags": [
+    "නම් පටිය",
+    "නම",
+    "ඉර"
+   ]
+  },
+  "template:llt6-subrayado-rojo": {
+   "name": "නම් පටිය: විශාල නම, රතු යටි ඉර",
+   "tags": [
+    "නම් පටිය",
+    "නම",
+    "රතු",
+    "යටි ඉර"
+   ]
+  },
+  "template:llt7-barra-azul": {
+   "name": "නම් පටිය: නිල් තීරුව, ලාංඡනය සමඟ, එක් පේළියක්",
+   "tags": [
+    "නම් පටිය",
+    "ලාංඡනය",
+    "නිල්"
+   ]
+  },
+  "template:llt7-barra-azul-2": {
+   "name": "නම් පටිය: නිල් තීරුව, ලාංඡනය සමඟ, පේළි දෙකක්",
+   "tags": [
+    "නම් පටිය",
+    "ලාංඡනය",
+    "නිල්"
+   ]
+  },
+  "template:llt8-barrett": {
+   "name": "තැඹිලි නම් පටිය: දිග යටි ඉර",
+   "tags": [
+    "නම් පටිය",
+    "තැඹිලි",
+    "සැකිල්ල"
+   ]
+  },
+  "template:llt8-brandon": {
+   "name": "තැඹිලි නම් පටිය: තීරුව සහ නම",
+   "tags": [
+    "නම් පටිය",
+    "තැඹිලි",
+    "සැකිල්ල"
+   ]
+  },
+  "template:llt8-cameron": {
+   "name": "තැඹිලි නම් පටිය: තනතුර ඉහළ, සලකුණු",
+   "tags": [
+    "නම් පටිය",
+    "තැඹිලි",
+    "සැකිල්ල"
+   ]
+  },
+  "template:llt8-castro": {
+   "name": "තැඹිලි නම් පටිය: පේළි දෙකක තනතුර",
+   "tags": [
+    "නම් පටිය",
+    "තැඹිලි",
+    "සැකිල්ල"
+   ]
+  },
+  "template:llt8-charley": {
+   "name": "තැඹිලි නම් පටිය: පහළට දිවෙන තීරුව",
+   "tags": [
+    "නම් පටිය",
+    "තැඹිලි",
+    "සැකිල්ල"
+   ]
+  },
+  "template:llt8-daniel": {
+   "name": "තැඹිලි නම් පටිය: තනතුර අසල කොටස",
+   "tags": [
+    "නම් පටිය",
+    "තැඹිලි",
+    "සැකිල්ල"
+   ]
+  },
+  "template:llt8-dodson": {
+   "name": "තැඹිලි නම් පටිය: ඉර, තනතුර දකුණේ",
+   "tags": [
+    "නම් පටිය",
+    "තැඹිලි",
+    "සැකිල්ල"
+   ]
+  },
+  "template:llt8-hayden": {
+   "name": "තැඹිලි නම් පටිය: උස තීරුව සහ තනතුර",
+   "tags": [
+    "නම් පටිය",
+    "තැඹිලි",
+    "සැකිල්ල"
+   ]
+  },
+  "template:llt8-jake": {
+   "name": "තැඹිලි නම් පටිය: දෙපැත්තේ දිග ඉර",
+   "tags": [
+    "නම් පටිය",
+    "තැඹිලි",
+    "සැකිල්ල"
+   ]
+  },
+  "template:llt8-james": {
+   "name": "තැඹිලි නම් පටිය: තනතුරට පෙර කොටස",
+   "tags": [
+    "නම් පටිය",
+    "තැඹිලි",
+    "සැකිල්ල"
+   ]
+  },
+  "template:llt8-john": {
+   "name": "තැඹිලි නම් පටිය: වරහන",
+   "tags": [
+    "නම් පටිය",
+    "තැඹිලි",
+    "සැකිල්ල"
+   ]
+  },
+  "template:llt8-madden": {
+   "name": "තැඹිලි නම් පටිය: තනතුර අසල ඉර",
+   "tags": [
+    "නම් පටිය",
+    "තැඹිලි",
+    "සැකිල්ල"
+   ]
+  },
+  "template:llt8-mason": {
+   "name": "තැඹිලි නම් පටිය: දිග ඉර, තනතුර දකුණේ",
+   "tags": [
+    "නම් පටිය",
+    "තැඹිලි",
+    "සැකිල්ල"
+   ]
+  },
+  "template:llt8-rason": {
+   "name": "තැඹිලි නම් පටිය: තීරුව, තනතුර ඉහළ",
+   "tags": [
+    "නම් පටිය",
+    "තැඹිලි",
+    "සැකිල්ල"
+   ]
+  },
+  "template:llt8-ryan": {
+   "name": "තැඹිලි නම් පටිය: ඉර සහ ඉහළ තනතුර",
+   "tags": [
+    "නම් පටිය",
+    "තැඹිලි",
+    "සැකිල්ල"
+   ]
+  },
+  "template:llt9-benjamin": {
+   "name": "රන්වන් නම් පටිය: ටැගය ඉහළ, ඉර",
+   "tags": [
+    "නම් පටිය",
+    "රන්වන්",
+    "සැකිල්ල"
+   ]
+  },
+  "template:llt9-emily": {
+   "name": "රන්වන් නම් පටිය: සුදු පෙට්ටියක නම, ටැගය",
+   "tags": [
+    "නම් පටිය",
+    "රන්වන්",
+    "පෙට්ටිය"
+   ]
+  },
+  "template:llt9-katherine": {
+   "name": "රන්වන් නම් පටිය: ටැගය සහ තිත, දකුණේ",
+   "tags": [
+    "නම් පටිය",
+    "රන්වන්",
+    "ඇල අකුරු",
+    "දකුණ"
+   ]
+  },
+  "template:llt9-max": {
+   "name": "රන්වන් නම් පටිය: පෙට්ටියක නම, තනතුරු ටැගය",
+   "tags": [
+    "නම් පටිය",
+    "රන්වන්",
+    "ඇල අකුරු",
+    "පෙට්ටිය"
+   ]
+  },
+  "template:llt9-natalie": {
+   "name": "රන්වන් නම් පටිය: තිතක් සහිත ඉර",
+   "tags": [
+    "නම් පටිය",
+    "රන්වන්",
+    "සැකිල්ල"
+   ]
+  },
+  "template:llt9-vanja": {
+   "name": "රන්වන් නම් පටිය: සැහැල්ලු ඇල අකුරු, සතරැස්",
+   "tags": [
+    "නම් පටිය",
+    "රන්වන්",
+    "ඇල අකුරු"
+   ]
+  },
+  "template:llt9-vanja-negrita": {
+   "name": "රන්වන් නම් පටිය: ඝන ඇල අකුරු, සතරැස්",
+   "tags": [
+    "නම් පටිය",
+    "රන්වන්",
+    "ඇල අකුරු"
+   ]
+  },
+  "template:llt9-victoria": {
+   "name": "රන්වන් නම් පටිය: තීරුව, ඝන ඇල අකුරු",
+   "tags": [
+    "නම් පටිය",
+    "රන්වන්",
+    "ඇල අකුරු"
+   ]
+  },
+  "template:llt9-yaroslava": {
+   "name": "රන්වන් නම් පටිය: තනතුර සහිත පෙට්ටිය, දකුණේ",
+   "tags": [
+    "නම් පටිය",
+    "රන්වන්",
+    "ඇල අකුරු",
+    "දකුණ"
    ]
   },
   "template:lt-andy": {
@@ -31226,6 +35607,2227 @@
     "රෙට්‍රෝ"
    ]
   },
+  "template:tit1-creative": {
+   "name": "මාතෘකාව: ඩූඩල් සහිත නිර්මාණශීලී මාතෘකා",
+   "tags": [
+    "මාතෘකාව",
+    "සමාජ මාධ්‍ය",
+    "ඩූඩල්",
+    "රෝස"
+   ]
+  },
+  "template:tit1-design": {
+   "name": "මාතෘකාව: වලාකුළක නිර්මාණය",
+   "tags": [
+    "මාතෘකාව",
+    "සමාජ මාධ්‍ය",
+    "වලාකුළ",
+    "ඩූඩල්"
+   ]
+  },
+  "template:tit1-follow": {
+   "name": "මාතෘකාව: රෝස රිබනයක් සහිත මාව අනුගමනය කරන්න",
+   "tags": [
+    "මාතෘකාව",
+    "සමාජ මාධ්‍ය",
+    "instagram",
+    "අනුගමනය",
+    "රිබනය"
+   ]
+  },
+  "template:tit1-likecount": {
+   "name": "මාතෘකාව: කවුන්ටරයක් සහ WOW සහිත ලයික්",
+   "tags": [
+    "මාතෘකාව",
+    "සමාජ මාධ්‍ය",
+    "ලයික්",
+    "කවුන්ටරය",
+    "wow",
+    "හදවත්"
+   ]
+  },
+  "template:tit1-likenew": {
+   "name": "මාතෘකාව: ඊතලයක් සහිත නව වීඩියෝවට ලයික් කරන්න",
+   "tags": [
+    "මාතෘකාව",
+    "සමාජ මාධ්‍ය",
+    "ලයික්",
+    "නව වීඩියෝව",
+    "ඊතලය"
+   ]
+  },
+  "template:tit1-likethis": {
+   "name": "මාතෘකාව: මලක් සහිත මෙම වීඩියෝවට ලයික් කරන්න",
+   "tags": [
+    "මාතෘකාව",
+    "සමාජ මාධ්‍ය",
+    "ලයික්",
+    "මල"
+   ]
+  },
+  "template:tit1-smile": {
+   "name": "මාතෘකාව: සිනහසී සතුටින් සිටින්න",
+   "tags": [
+    "මාතෘකාව",
+    "සමාජ මාධ්‍ය",
+    "සතුටු",
+    "සිනහව",
+    "මුහුණු"
+   ]
+  },
+  "template:tit1-subscribe": {
+   "name": "මාතෘකාව: මල් සහිත දායක වන්න",
+   "tags": [
+    "මාතෘකාව",
+    "සමාජ මාධ්‍ය",
+    "දායක වන්න",
+    "මල්",
+    "youtube"
+   ]
+  },
+  "template:tit2-2022": {
+   "name": "මාතෘකාව: කැපී පෙනෙන වසර",
+   "tags": [
+    "අකුරු",
+    "කළු සහ සුදු",
+    "වසර",
+    "කැපී පෙනෙන"
+   ]
+  },
+  "template:tit2-be-awesome": {
+   "name": "මාතෘකාව: ඡායාරූපයක් සහිත විස්මිත වන්න",
+   "tags": [
+    "අකුරු",
+    "කළු සහ සුදු",
+    "ඡායාරූපය",
+    "සිරස්"
+   ]
+  },
+  "template:tit2-big-black": {
+   "name": "මාතෘකාව: ටැගයක් සහිත විශාල කළු",
+   "tags": [
+    "අකුරු",
+    "කළු සහ සුදු",
+    "කළු",
+    "ටැගය"
+   ]
+  },
+  "template:tit2-circulos": {
+   "name": "මාතෘකාව: රවුම් හයක්",
+   "tags": [
+    "අකුරු",
+    "කළු සහ සුදු",
+    "රවුම්",
+    "සුදු"
+   ]
+  },
+  "template:tit2-ciudad": {
+   "name": "මාතෘකාව: ඡායාරූපයක් මත ඇල නගර මාතෘකාව",
+   "tags": [
+    "අකුරු",
+    "කළු සහ සුදු",
+    "ඡායාරූපය",
+    "නගරය",
+    "ඇල"
+   ]
+  },
+  "template:tit2-creative-inclinado": {
+   "name": "මාතෘකාව: විශාල ඇල වචනයක්",
+   "tags": [
+    "අකුරු",
+    "කළු සහ සුදු",
+    "ඇල",
+    "කළු"
+   ]
+  },
+  "template:tit2-creative-pack": {
+   "name": "මාතෘකාව: වැටෙන අකුරු",
+   "tags": [
+    "අකුරු",
+    "කළු සහ සුදු",
+    "ඇල අකුරු",
+    "සුදු"
+   ]
+  },
+  "template:tit2-creative-relieve": {
+   "name": "මාතෘකාව: කැපී පෙනෙන නිර්මාණශීලී",
+   "tags": [
+    "අකුරු",
+    "කළු සහ සුදු",
+    "කැපී පෙනෙන",
+    "සෙවනැල්ල",
+    "සුදු"
+   ]
+  },
+  "template:tit2-event-music": {
+   "name": "මාතෘකාව: උත්සව මාතෘකාව, ඡායාරූපයක් බැස එයි",
+   "tags": [
+    "අකුරු",
+    "කළු සහ සුදු",
+    "ඡායාරූපය",
+    "උත්සවය",
+    "ඇල අකුරු"
+   ]
+  },
+  "template:tit2-hello-world": {
+   "name": "මාතෘකාව: ඇල අකුරින් Hello World!",
+   "tags": [
+    "අකුරු",
+    "කළු සහ සුදු",
+    "ඇල අකුරු",
+    "සුදු"
+   ]
+  },
+  "template:tit2-montserrat-bold": {
+   "name": "මාතෘකාව: වචන සහිත කළු තීරු දෙකක්",
+   "tags": [
+    "අකුරු",
+    "කළු සහ සුදු",
+    "තීරු",
+    "සුදු"
+   ]
+  },
+  "template:tit2-new-trend": {
+   "name": "මාතෘකාව: අභ්‍යන්තරය පිටතට හැරෙන New Trend",
+   "tags": [
+    "අකුරු",
+    "කළු සහ සුදු",
+    "දළ සටහන",
+    "සුදු"
+   ]
+  },
+  "template:tit2-new-typography": {
+   "name": "මාතෘකාව: ඇල අකුරු වචන සහිත තීරු",
+   "tags": [
+    "අකුරු",
+    "කළු සහ සුදු",
+    "තීරු",
+    "ඇල අකුරු",
+    "සුදු"
+   ]
+  },
+  "template:tit2-trend": {
+   "name": "මාතෘකාව: නව අකුරු ප්‍රවණතාව",
+   "tags": [
+    "අකුරු",
+    "කළු සහ සුදු",
+    "කළු"
+   ]
+  },
+  "template:tit2-trend-doble": {
+   "name": "මාතෘකාව: භාග දෙකකට බෙදූ ප්‍රවණතාව",
+   "tags": [
+    "අකුරු",
+    "කළු සහ සුදු",
+    "කළු",
+    "සුදු",
+    "ද්විත්ව"
+   ]
+  },
+  "template:tit2-typo-slide": {
+   "name": "මාතෘකාව: සුදු කාඩ්පත",
+   "tags": [
+    "අකුරු",
+    "කළු සහ සුදු",
+    "කාඩ්පත",
+    "කළු"
+   ]
+  },
+  "template:tit3-20-animation": {
+   "name": "මාතෘකාව: 20 සජීවීකරණය",
+   "tags": [
+    "මාතෘකාව",
+    "ලා නිල්",
+    "ආයතනික",
+    "අංකය"
+   ]
+  },
+  "template:tit3-20-cuadro": {
+   "name": "මාතෘකාව: රාමුවක සජීවී 20",
+   "tags": [
+    "මාතෘකාව",
+    "ලා නිල්",
+    "ආයතනික",
+    "රාමුව"
+   ]
+  },
+  "template:tit3-best-day": {
+   "name": "මාතෘකාව: ඇල අකුරු පෙට්ටිය සහ රාමුව",
+   "tags": [
+    "මාතෘකාව",
+    "ලා නිල්",
+    "ආයතනික",
+    "ඇල අකුරු"
+   ]
+  },
+  "template:tit3-best-event": {
+   "name": "මාතෘකාව: ඇල පෙට්ටිය සහ වෙළඳපොළ",
+   "tags": [
+    "මාතෘකාව",
+    "ලා නිල්",
+    "ආයතනික",
+    "ඇල",
+    "උත්සවය"
+   ]
+  },
+  "template:tit3-circulo": {
+   "name": "මාතෘකාව: රවුමක් මත නම",
+   "tags": [
+    "මාතෘකාව",
+    "ලා නිල්",
+    "ආයතනික",
+    "රවුම",
+    "නම"
+   ]
+  },
+  "template:tit3-design-success": {
+   "name": "මාතෘකාව: රවුමක් සහිත සාර්ථකත්වය සඳහා නිර්මාණය",
+   "tags": [
+    "මාතෘකාව",
+    "ලා නිල්",
+    "ආයතනික",
+    "රවුම"
+   ]
+  },
+  "template:tit3-disenador": {
+   "name": "මාතෘකාව: තනතුර පෙට්ටිය සහ නම",
+   "tags": [
+    "මාතෘකාව",
+    "ලා නිල්",
+    "ආයතනික",
+    "නම",
+    "ඇල"
+   ]
+  },
+  "template:tit3-dos-triangulos": {
+   "name": "මාතෘකාව: ත්‍රිකෝණ දෙකක් අතර නම",
+   "tags": [
+    "මාතෘකාව",
+    "ලා නිල්",
+    "ආයතනික",
+    "ත්‍රිකෝණය",
+    "නම"
+   ]
+  },
+  "template:tit3-evento": {
+   "name": "මාතෘකාව: රාමු සහිත ඇල උත්සවය",
+   "tags": [
+    "මාතෘකාව",
+    "ලා නිල්",
+    "ආයතනික",
+    "උත්සවය",
+    "රාමුව",
+    "ඇල"
+   ]
+  },
+  "template:tit3-globo": {
+   "name": "මාතෘකාව: කතා බුබුල",
+   "tags": [
+    "මාතෘකාව",
+    "ලා නිල්",
+    "ආයතනික",
+    "කතා බුබුල",
+    "රාමුව"
+   ]
+  },
+  "template:tit3-holiday": {
+   "name": "මාතෘකාව: දිනයක් සහිත නිවාඩුව",
+   "tags": [
+    "මාතෘකාව",
+    "ලා නිල්",
+    "ආයතනික",
+    "උත්සවය",
+    "ඇල"
+   ]
+  },
+  "template:tit3-life": {
+   "name": "මාතෘකාව: රාමුවක Life is life",
+   "tags": [
+    "මාතෘකාව",
+    "ලා නිල්",
+    "ආයතනික",
+    "රාමුව"
+   ]
+  },
+  "template:tit3-nombre-caja": {
+   "name": "මාතෘකාව: නම් පෙට්ටිය, පේළි දෙකක්",
+   "tags": [
+    "මාතෘකාව",
+    "ලා නිල්",
+    "ආයතනික",
+    "නම"
+   ]
+  },
+  "template:tit3-nombre-cargo-arriba": {
+   "name": "මාතෘකාව: නම් පෙට්ටිය, ඉහළින් තනතුර",
+   "tags": [
+    "මාතෘකාව",
+    "ලා නිල්",
+    "ආයතනික",
+    "නම"
+   ]
+  },
+  "template:tit3-nombre-lineas": {
+   "name": "මාතෘකාව: රේඛා දෙකක් අතර නම",
+   "tags": [
+    "මාතෘකාව",
+    "ලා නිල්",
+    "ආයතනික",
+    "නම",
+    "රේඛා"
+   ]
+  },
+  "template:tit3-nombre-sombra": {
+   "name": "මාතෘකාව: ඉවතට වූ රාමුවක් සහිත පෙට්ටිය",
+   "tags": [
+    "මාතෘකාව",
+    "ලා නිල්",
+    "ආයතනික",
+    "නම",
+    "රාමුව"
+   ]
+  },
+  "template:tit3-rombo": {
+   "name": "මාතෘකාව: රොම්බසයක උත්සවය",
+   "tags": [
+    "මාතෘකාව",
+    "ලා නිල්",
+    "ආයතනික",
+    "රොම්බසය",
+    "උත්සවය"
+   ]
+  },
+  "template:tit3-titles-pack": {
+   "name": "මාතෘකාව: ඇල රාමු දෙකක්",
+   "tags": [
+    "මාතෘකාව",
+    "ලා නිල්",
+    "ආයතනික",
+    "රාමුව",
+    "ඇල"
+   ]
+  },
+  "template:tit3-triangulo": {
+   "name": "මාතෘකාව: ත්‍රිකෝණයක් මත නම",
+   "tags": [
+    "මාතෘකාව",
+    "ලා නිල්",
+    "ආයතනික",
+    "ත්‍රිකෝණය",
+    "නම"
+   ]
+  },
+  "template:tit3-unique-animated": {
+   "name": "මාතෘකාව: ඇල අකුරු කොටස් තුනක්",
+   "tags": [
+    "මාතෘකාව",
+    "ලා නිල්",
+    "ආයතනික",
+    "ඇල අකුරු"
+   ]
+  },
+  "template:tit4-algo-nuevo": {
+   "name": "මාතෘකාව: රටා සහිත පෙට්ටිය සහ වචන",
+   "tags": [
+    "මාතෘකාව",
+    "කහ",
+    "කළු",
+    "රාමුව"
+   ]
+  },
+  "template:tit4-anio": {
+   "name": "මාතෘකාව: සමාන්තරාස්‍රයක් සහිත වසර",
+   "tags": [
+    "මාතෘකාව",
+    "කහ",
+    "කළු",
+    "වසර"
+   ]
+  },
+  "template:tit4-art-festival": {
+   "name": "මාතෘකාව: කලාව, පෙට්ටියක් සහ උත්සවය",
+   "tags": [
+    "මාතෘකාව",
+    "කහ",
+    "කළු",
+    "උත්සවය"
+   ]
+  },
+  "template:tit4-autumn-event": {
+   "name": "මාතෘකාව: පෙට්ටියක වචනයක් සහ යටින් තවත් එකක්",
+   "tags": [
+    "මාතෘකාව",
+    "කහ",
+    "කළු",
+    "උත්සවය"
+   ]
+  },
+  "template:tit4-dont-stop": {
+   "name": "මාතෘකාව: රවුමක වාක්‍ය ඛණ්ඩයක්",
+   "tags": [
+    "මාතෘකාව",
+    "කහ",
+    "කළු",
+    "රවුම"
+   ]
+  },
+  "template:tit4-etiqueta-nombre": {
+   "name": "මාතෘකාව: ටැගය, නම සහ තනතුර",
+   "tags": [
+    "මාතෘකාව",
+    "කහ",
+    "කළු",
+    "නම"
+   ]
+  },
+  "template:tit4-facil": {
+   "name": "මාතෘකාව: වචන සහ කහ තීරුවක්",
+   "tags": [
+    "මාතෘකාව",
+    "කහ",
+    "කළු",
+    "තීරුව"
+   ]
+  },
+  "template:tit4-fecha-cajas": {
+   "name": "මාතෘකාව: පෙට්ටිවල දිනය සහ වේලාව",
+   "tags": [
+    "මාතෘකාව",
+    "කහ",
+    "කළු",
+    "උත්සවය",
+    "දිනය"
+   ]
+  },
+  "template:tit4-festival-info": {
+   "name": "මාතෘකාව: උත්සව දිනය සහ විස්තර",
+   "tags": [
+    "මාතෘකාව",
+    "කහ",
+    "කළු",
+    "උත්සවය",
+    "දිනය"
+   ]
+  },
+  "template:tit4-informacion": {
+   "name": "මාතෘකාව: රවුමක තොරතුරු",
+   "tags": [
+    "මාතෘකාව",
+    "කහ",
+    "කළු",
+    "රවුම"
+   ]
+  },
+  "template:tit4-logo-nombre": {
+   "name": "මාතෘකාව: ලාංඡනය, ටැගය සහ නම",
+   "tags": [
+    "මාතෘකාව",
+    "කහ",
+    "කළු",
+    "ලාංඡනය",
+    "නම"
+   ]
+  },
+  "template:tit4-nombre-caja": {
+   "name": "මාතෘකාව: කහ පෙට්ටියක නම",
+   "tags": [
+    "මාතෘකාව",
+    "කහ",
+    "කළු",
+    "නම"
+   ]
+  },
+  "template:tit4-nombre-cajas": {
+   "name": "මාතෘකාව: පෙට්ටිවල නම සහ තනතුර",
+   "tags": [
+    "මාතෘකාව",
+    "කහ",
+    "කළු",
+    "නම"
+   ]
+  },
+  "template:tit4-presents": {
+   "name": "මාතෘකාව: රාමුවක presents",
+   "tags": [
+    "මාතෘකාව",
+    "කහ",
+    "කළු",
+    "රාමුව"
+   ]
+  },
+  "template:tit4-productor": {
+   "name": "මාතෘකාව: රාමුවක නම සහ ටැගයක්",
+   "tags": [
+    "මාතෘකාව",
+    "කහ",
+    "කළු",
+    "රාමුව",
+    "නම"
+   ]
+  },
+  "template:tit4-simple-design": {
+   "name": "මාතෘකාව: විසිකළ පෙට්ටි දෙකක්",
+   "tags": [
+    "මාතෘකාව",
+    "කහ",
+    "කළු",
+    "පෙට්ටි"
+   ]
+  },
+  "template:tit4-speakers": {
+   "name": "මාතෘකාව: විශාල පෙට්ටියක හෑෂ්ටැගය",
+   "tags": [
+    "මාතෘකාව",
+    "කහ",
+    "කළු",
+    "උත්සවය"
+   ]
+  },
+  "template:tit4-triangulo": {
+   "name": "මාතෘකාව: ත්‍රිකෝණයක අංකය",
+   "tags": [
+    "මාතෘකාව",
+    "කහ",
+    "කළු",
+    "ත්‍රිකෝණය"
+   ]
+  },
+  "template:tit4-twenty": {
+   "name": "මාතෘකාව: නිර්මාණශීලී මාතෘකා විස්සක්",
+   "tags": [
+    "මාතෘකාව",
+    "කහ",
+    "කළු",
+    "අංකය"
+   ]
+  },
+  "template:tit4-ubicacion": {
+   "name": "මාතෘකාව: පින් එකක ස්ථානය",
+   "tags": [
+    "මාතෘකාව",
+    "කහ",
+    "කළු",
+    "පින්",
+    "ස්ථානය"
+   ]
+  },
+  "template:tit5-canal-tarjeta": {
+   "name": "මාතෘකාව: හැරී වචනය නිදහස් කරන චතුරස්‍රය",
+   "tags": [
+    "මාතෘකාව",
+    "නාලිකාව",
+    "වර්ණ",
+    "රාමුව"
+   ]
+  },
+  "template:tit5-compartir": {
+   "name": "මාතෘකාව: වචන වෙනස් වන දම් ටැගය",
+   "tags": [
+    "මාතෘකාව",
+    "නාලිකාව",
+    "වර්ණ",
+    "ටැගය",
+    "youtube"
+   ]
+  },
+  "template:tit5-condensada": {
+   "name": "මාතෘකාව: තමන්ම ලියවෙන සංකුචිත අකුරු",
+   "tags": [
+    "මාතෘකාව",
+    "නාලිකාව",
+    "වර්ණ",
+    "සංකුචිත"
+   ]
+  },
+  "template:tit5-creative": {
+   "name": "මාතෘකාව: කෙළින් වන ලා දම් වචනය",
+   "tags": [
+    "මාතෘකාව",
+    "නාලිකාව",
+    "වර්ණ",
+    "දම්"
+   ]
+  },
+  "template:tit5-dinamico": {
+   "name": "මාතෘකාව: කෙළින් වන ද්විත්ව තැඹිලි රාමුව",
+   "tags": [
+    "මාතෘකාව",
+    "නාලිකාව",
+    "වර්ණ",
+    "රාමුව"
+   ]
+  },
+  "template:tit5-directo": {
+   "name": "මාතෘකාව: ඇලවන සජීවී විකාශය",
+   "tags": [
+    "මාතෘකාව",
+    "නාලිකාව",
+    "වර්ණ",
+    "සජීවී විකාශය",
+    "youtube"
+   ]
+  },
+  "template:tit5-etiqueta": {
+   "name": "මාතෘකාව: විවෘත වී ඇලවන ලේබලය",
+   "tags": [
+    "මාතෘකාව",
+    "නාලිකාව",
+    "වර්ණ",
+    "ටැගය"
+   ]
+  },
+  "template:tit5-hashtag": {
+   "name": "මාතෘකාව: කහ පාටින් ටයිප් වන හෑෂ්ටැගය",
+   "tags": [
+    "මාතෘකාව",
+    "නාලිකාව",
+    "වර්ණ",
+    "හෑෂ්ටැගය"
+   ]
+  },
+  "template:tit5-logo-canal": {
+   "name": "මාතෘකාව: YouTube බොත්තම සහ නාලිකා නම",
+   "tags": [
+    "මාතෘකාව",
+    "නාලිකාව",
+    "වර්ණ",
+    "ලාංඡනය",
+    "youtube"
+   ]
+  },
+  "template:tit5-logo-negro": {
+   "name": "මාතෘකාව: කළු මත YouTube බොත්තම",
+   "tags": [
+    "මාතෘකාව",
+    "නාලිකාව",
+    "වර්ණ",
+    "ලාංඡනය",
+    "youtube"
+   ]
+  },
+  "template:tit5-moderno": {
+   "name": "මාතෘකාව: රවුමක් බවට හැරෙන YouTube බොත්තම",
+   "tags": [
+    "මාතෘකාව",
+    "නාලිකාව",
+    "වර්ණ",
+    "රවුම",
+    "youtube"
+   ]
+  },
+  "template:tit5-no-pierdas": {
+   "name": "මාතෘකාව: හැඩය වෙනස් වන රාමුවක වාක්‍ය ඛණ්ඩය",
+   "tags": [
+    "මාතෘකාව",
+    "නාලිකාව",
+    "වර්ණ",
+    "රාමුව"
+   ]
+  },
+  "template:tit5-pila": {
+   "name": "මාතෘකාව: වැටෙන ලයික්, බෙදාගන්න, දායක වන්න කුට්ටි",
+   "tags": [
+    "මාතෘකාව",
+    "නාලිකාව",
+    "වර්ණ",
+    "කුට්ටි",
+    "දායක වන්න",
+    "youtube"
+   ]
+  },
+  "template:tit5-rombo": {
+   "name": "මාතෘකාව: රතු මත සුදු රොම්බසය",
+   "tags": [
+    "මාතෘකාව",
+    "නාලිකාව",
+    "වර්ණ",
+    "රොම්බසය"
+   ]
+  },
+  "template:tit5-seguinos": {
+   "name": "මාතෘකාව: පෙරළෙන නිල් කාසිය",
+   "tags": [
+    "මාතෘකාව",
+    "නාලිකාව",
+    "වර්ණ",
+    "රවුම"
+   ]
+  },
+  "template:tit5-social-media": {
+   "name": "මාතෘකාව: කහ මත කැරකෙන වළල්ල",
+   "tags": [
+    "මාතෘකාව",
+    "නාලිකාව",
+    "වර්ණ",
+    "රවුම"
+   ]
+  },
+  "template:tit5-soporte": {
+   "name": "මාතෘකාව: කුට්ටි පේළි සහ පටියක්",
+   "tags": [
+    "මාතෘකාව",
+    "නාලිකාව",
+    "වර්ණ",
+    "පටිය"
+   ]
+  },
+  "template:tit5-tu-canal": {
+   "name": "මාතෘකාව: සුදු පෙට්ටියක් බවට පෙරළෙන රාමුව",
+   "tags": [
+    "මාතෘකාව",
+    "නාලිකාව",
+    "වර්ණ",
+    "පෙට්ටිය"
+   ]
+  },
+  "template:tit5-tutorial": {
+   "name": "මාතෘකාව: අකුරෙන් අකුර මතු වන නිබන්ධනය",
+   "tags": [
+    "මාතෘකාව",
+    "නාලිකාව",
+    "වර්ණ",
+    "නිබන්ධනය"
+   ]
+  },
+  "template:tit5-verano": {
+   "name": "මාතෘකාව: අකුණු ගෙඩියක් සහ වැටෙන වචනයක්",
+   "tags": [
+    "මාතෘකාව",
+    "නාලිකාව",
+    "වර්ණ",
+    "ගිම්හානය"
+   ]
+  },
+  "template:tit6-always-strive": {
+   "name": "මාතෘකාව: වැටෙන අකුරු සහ විස්මයාර්ථ ලකුණක්",
+   "tags": [
+    "අකුරු",
+    "කළු සහ සුදු",
+    "චලන අකුරු",
+    "සංකුචිත"
+   ]
+  },
+  "template:tit6-art-always": {
+   "name": "මාතෘකාව: ඉරි, දළ සටහන සහ නැඟෙන අකුරු",
+   "tags": [
+    "අකුරු",
+    "කළු සහ සුදු",
+    "චලන අකුරු",
+    "ඉරි",
+    "දළ සටහන"
+   ]
+  },
+  "template:tit6-awesome": {
+   "name": "මාතෘකාව: ඡායාරූපයක් මත සුදු පෙට්ටියක් සහ බුබුලක්",
+   "tags": [
+    "අකුරු",
+    "කළු සහ සුදු",
+    "චලන අකුරු",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:tit6-be-strong": {
+   "name": "මාතෘකාව: පසුපසට දිග හැරෙන කැපූ වාක්‍ය ඛණ්ඩය",
+   "tags": [
+    "අකුරු",
+    "කළු සහ සුදු",
+    "චලන අකුරු",
+    "රාමුව",
+    "කැපූ"
+   ]
+  },
+  "template:tit6-big": {
+   "name": "මාතෘකාව: සෙවනැල්ලක් සහ කළු පුවරුවක් සහිත යෝධ වචනය",
+   "tags": [
+    "අකුරු",
+    "කළු සහ සුදු",
+    "චලන අකුරු",
+    "සෙවනැල්ල"
+   ]
+  },
+  "template:tit6-big-text": {
+   "name": "මාතෘකාව: අංකය, දළ සටහන් වචන සහ ඡායාරූපයක්",
+   "tags": [
+    "අකුරු",
+    "කළු සහ සුදු",
+    "චලන අකුරු",
+    "දළ සටහන",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:tit6-ciencia": {
+   "name": "මාතෘකාව: වාක්‍ය ඛණ්ඩය, රාමුව සහ කතිරය පෙරළන පුවරුව",
+   "tags": [
+    "අකුරු",
+    "කළු සහ සුදු",
+    "චලන අකුරු",
+    "රාමුව"
+   ]
+  },
+  "template:tit6-color-change": {
+   "name": "මාතෘකාව: දැල්වෙන කැපූ වචනය",
+   "tags": [
+    "අකුරු",
+    "කළු සහ සුදු",
+    "චලන අකුරු",
+    "කැපූ"
+   ]
+  },
+  "template:tit6-corporate": {
+   "name": "මාතෘකාව: වාක්‍ය ඛණ්ඩය පිටුපස වර්ධනය වන කළු පටිය",
+   "tags": [
+    "අකුරු",
+    "කළු සහ සුදු",
+    "චලන අකුරු",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:tit6-create-ideas": {
+   "name": "මාතෘකාව: නැඟෙන අකුරු සහ හැෂ් ලකුණ",
+   "tags": [
+    "අකුරු",
+    "කළු සහ සුදු",
+    "චලන අකුරු",
+    "හෑෂ්ටැගය"
+   ]
+  },
+  "template:tit6-dynamism": {
+   "name": "මාතෘකාව: කතිරයක් සහිත රාමුවක දැල්වෙන වචනය",
+   "tags": [
+    "අකුරු",
+    "කළු සහ සුදු",
+    "චලන අකුරු",
+    "රාමුව"
+   ]
+  },
+  "template:tit6-enjoy": {
+   "name": "මාතෘකාව: කැරකෙන චතුරස්‍රය සහ බෙදූ වචනය",
+   "tags": [
+    "අකුරු",
+    "කළු සහ සුදු",
+    "චලන අකුරු",
+    "චතුරස්‍රය"
+   ]
+  },
+  "template:tit6-fashion": {
+   "name": "මාතෘකාව: පිටුපස ඡායාරූප තුනක් සහිත පෙට්ටිය",
+   "tags": [
+    "අකුරු",
+    "කළු සහ සුදු",
+    "චලන අකුරු",
+    "ඡායාරූපය",
+    "විලාසිතා"
+   ]
+  },
+  "template:tit6-health": {
+   "name": "මාතෘකාව: සුදු සහ කළු අතර හැරවූ වචන තීරුව",
+   "tags": [
+    "අකුරු",
+    "කළු සහ සුදු",
+    "චලන අකුරු",
+    "ද්විත්ව"
+   ]
+  },
+  "template:tit6-look": {
+   "name": "මාතෘකාව: යෝධ අකුරු මත අළු පෙට්ටිය",
+   "tags": [
+    "අකුරු",
+    "කළු සහ සුදු",
+    "චලන අකුරු",
+    "පෙට්ටිය"
+   ]
+  },
+  "template:tit6-never-give-up": {
+   "name": "මාතෘකාව: ඡායාරූප තීරුවක් මත ටයිප් වන වාක්‍ය ඛණ්ඩය",
+   "tags": [
+    "අකුරු",
+    "කළු සහ සුදු",
+    "චලන අකුරු",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:tit6-typography": {
+   "name": "මාතෘකාව: ඡායාරූපයක් මත ලේබලයක් සහිත සුදු පෙට්ටිය",
+   "tags": [
+    "අකුරු",
+    "කළු සහ සුදු",
+    "චලන අකුරු",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:tit6-visuality": {
+   "name": "මාතෘකාව: දැල්වෙන රේඛා තුනක් සහ දර්ශකයක්",
+   "tags": [
+    "අකුරු",
+    "කළු සහ සුදු",
+    "චලන අකුරු",
+    "දළ සටහන"
+   ]
+  },
+  "template:tit6-wonderful": {
+   "name": "මාතෘකාව: වසා දමන වචන තුනක් සහ රේඛා",
+   "tags": [
+    "අකුරු",
+    "කළු සහ සුදු",
+    "චලන අකුරු",
+    "රේඛා"
+   ]
+  },
+  "template:tit6-you": {
+   "name": "මාතෘකාව: ඡායාරූපයෙන් පිරවූ වචනය",
+   "tags": [
+    "අකුරු",
+    "කළු සහ සුදු",
+    "චලන අකුරු",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:tit7-always-strive": {
+   "name": "මාතෘකාව: රතු සෙවනැල්ලක් සහ ලකුණක් සහිත වාක්‍ය ඛණ්ඩය",
+   "tags": [
+    "අකුරු",
+    "වර්ණ",
+    "චලන අකුරු",
+    "සෙවනැල්ල"
+   ]
+  },
+  "template:tit7-art-always": {
+   "name": "මාතෘකාව: රතු, සියාන් සහ සුදු අකුරු",
+   "tags": [
+    "අකුරු",
+    "වර්ණ",
+    "චලන අකුරු",
+    "ග්ලිච්"
+   ]
+  },
+  "template:tit7-big": {
+   "name": "මාතෘකාව: සෙවනැල්ලක් සහ වර්ණ චතුරස්‍ර දෙකක් සහිත පෙට්ටිය",
+   "tags": [
+    "අකුරු",
+    "වර්ණ",
+    "චලන අකුරු",
+    "චතුරස්‍ර"
+   ]
+  },
+  "template:tit7-ciencia": {
+   "name": "මාතෘකාව: slab අකුරු සහිත කළු පෙට්ටිය",
+   "tags": [
+    "අකුරු",
+    "වර්ණ",
+    "චලන අකුරු",
+    "slab"
+   ]
+  },
+  "template:tit7-colorful": {
+   "name": "මාතෘකාව: වචනය තුළ ඡායාරූපය සහිත සුදු පටිය",
+   "tags": [
+    "අකුරු",
+    "වර්ණ",
+    "චලන අකුරු",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:tit7-concept-azul": {
+   "name": "මාතෘකාව: නිල් මත පුළුල් වචනය",
+   "tags": [
+    "අකුරු",
+    "වර්ණ",
+    "චලන අකුරු",
+    "නිල්"
+   ]
+  },
+  "template:tit7-concept-oscuro": {
+   "name": "මාතෘකාව: විශාල අකුරු මත නිල් පෙට්ටිය",
+   "tags": [
+    "අකුරු",
+    "වර්ණ",
+    "චලන අකුරු",
+    "නිල්"
+   ]
+  },
+  "template:tit7-create": {
+   "name": "මාතෘකාව: අළු වචන සහ සුදු කාඩ්පතක්",
+   "tags": [
+    "අකුරු",
+    "වර්ණ",
+    "චලන අකුරු"
+   ]
+  },
+  "template:tit7-dynamic": {
+   "name": "මාතෘකාව: වැසෙන රාමුවක් සහ නිල් ලකුණක්",
+   "tags": [
+    "අකුරු",
+    "වර්ණ",
+    "චලන අකුරු",
+    "රාමුව"
+   ]
+  },
+  "template:tit7-easy-editing": {
+   "name": "මාතෘකාව: කහ රටාවක් මත රතු අකුරු",
+   "tags": [
+    "අකුරු",
+    "වර්ණ",
+    "චලන අකුරු",
+    "කහ"
+   ]
+  },
+  "template:tit7-enjoy": {
+   "name": "මාතෘකාව: කැරකෙන චතුරස්‍ර සහ බෙදූ වචනය",
+   "tags": [
+    "අකුරු",
+    "වර්ණ",
+    "චලන අකුරු",
+    "චතුරස්‍රය"
+   ]
+  },
+  "template:tit7-fashion": {
+   "name": "මාතෘකාව: යෝධ අකුරු තුළ ඡායාරූපය සහ පෙට්ටියක්",
+   "tags": [
+    "අකුරු",
+    "වර්ණ",
+    "චලන අකුරු",
+    "ඡායාරූපය",
+    "විලාසිතා"
+   ]
+  },
+  "template:tit7-health-box": {
+   "name": "මාතෘකාව: පේළි දෙකක් අතර වචන බිත්තියක් දරන චතුරස්‍රය",
+   "tags": [
+    "අකුරු",
+    "වර්ණ",
+    "චලන අකුරු",
+    "චතුරස්‍රය"
+   ]
+  },
+  "template:tit7-health-wall": {
+   "name": "මාතෘකාව: වචනවල විකර්ණ බිත්තිය",
+   "tags": [
+    "අකුරු",
+    "වර්ණ",
+    "චලන අකුරු",
+    "විකර්ණ"
+   ]
+  },
+  "template:tit7-look": {
+   "name": "මාතෘකාව: යෝධ අකුරු සහ නිල් රාමුවක්",
+   "tags": [
+    "අකුරු",
+    "වර්ණ",
+    "චලන අකුරු",
+    "රාමුව"
+   ]
+  },
+  "template:tit7-love": {
+   "name": "මාතෘකාව: රෝස ඡායාරූපයක් මත ලිස්සන වචනය",
+   "tags": [
+    "අකුරු",
+    "වර්ණ",
+    "චලන අකුරු",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:tit7-modern": {
+   "name": "මාතෘකාව: අංකයක් සහිත අලංකාර සෙරිෆ් අකුරු",
+   "tags": [
+    "අකුරු",
+    "වර්ණ",
+    "චලන අකුරු",
+    "සෙරිෆ්"
+   ]
+  },
+  "template:tit7-never-give-up": {
+   "name": "මාතෘකාව: පියවර ආකාර ඡායාරූප හතරක් සහ වාක්‍ය ඛණ්ඩයක්",
+   "tags": [
+    "අකුරු",
+    "වර්ණ",
+    "චලන අකුරු",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:tit7-newest": {
+   "name": "මාතෘකාව: කොළ තීරුවක් සහිත දළ සටහන් වචනය",
+   "tags": [
+    "අකුරු",
+    "වර්ණ",
+    "චලන අකුරු",
+    "දළ සටහන"
+   ]
+  },
+  "template:tit7-scene": {
+   "name": "මාතෘකාව: ඡායාරූපයක් මත ඉරි, සුදු පුවරුවක් සහ අංකයක්",
+   "tags": [
+    "අකුරු",
+    "වර්ණ",
+    "චලන අකුරු",
+    "ඉරි",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:tit7-text-animation": {
+   "name": "මාතෘකාව: ඡායාරූපයක් මත පෙළ පේළි",
+   "tags": [
+    "අකුරු",
+    "වර්ණ",
+    "චලන අකුරු",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:tit7-typography": {
+   "name": "මාතෘකාව: වටේට අකුරු සහිත රෝස කාඩ්පත",
+   "tags": [
+    "අකුරු",
+    "වර්ණ",
+    "චලන අකුරු",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:tk0-cintas-telefono": {
+   "name": "කතාව: වචන පටි සහ දුරකථනයක්",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "සිරස්",
+    "රිබන්",
+    "දුරකථනය"
+   ]
+  },
+  "template:tk0-collage-azul": {
+   "name": "කතාව: නිල් සහ කළු පැහැයෙන් ඡායාරූප තුනේ කොලාජ්",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "සිරස්",
+    "කොලාජ්",
+    "ඡායාරූප"
+   ]
+  },
+  "template:tk0-collage-negro": {
+   "name": "කතාව: ස්ටිකර් සහිත ඡායාරූප හයේ කොලාජ්",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "සිරස්",
+    "කොලාජ්",
+    "ඡායාරූප"
+   ]
+  },
+  "template:tk0-creas-tendencias": {
+   "name": "කතාව: ඔබ ප්‍රවණතා නිර්මාණය කරනවාද? රතු බුබුල",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "සිරස්",
+    "ප්‍රශ්නය",
+    "රෝස"
+   ]
+  },
+  "template:tk0-empieza-aqui": {
+   "name": "කතාව: ප්‍රවණතා ආරම්භ වන්නේ මෙතැනින්",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "සිරස්",
+    "ප්‍රවණතාව",
+    "නිල්"
+   ]
+  },
+  "template:tk0-mision": {
+   "name": "කතාව: රතු පැහැයක් මත ඡායාරූපයක් සහිත අපගේ මෙහෙවර",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "සිරස්",
+    "මෙහෙවර",
+    "රතු"
+   ]
+  },
+  "template:tk0-nueva-era": {
+   "name": "කතාව: නව වීඩියෝ යුගයක්",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "සිරස්",
+    "වීඩියෝව",
+    "රතු"
+   ]
+  },
+  "template:tk0-nuevo-video": {
+   "name": "කතාව: දුරකථනයක් සහිත NEW VIDEO",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "සිරස්",
+    "වීඩියෝව",
+    "අලුත්"
+   ]
+  },
+  "template:tk0-plantilla": {
+   "name": "කතාව: ඡායාරූපයක් සහිත සැමට අච්චුවක්",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "සිරස්",
+    "අච්චුව",
+    "නිල්"
+   ]
+  },
+  "template:tk0-plataforma": {
+   "name": "කතාව: දුරකථන දෙකක් සහිත නව වේදිකාව",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "සිරස්",
+    "වේදිකාව",
+    "කළු"
+   ]
+  },
+  "template:tk0-promo-negro": {
+   "name": "කතාව: කළු පැහැයක් මත නිල් බුබුලක SUPER PROMO",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "සිරස්",
+    "ප්‍රවර්ධනය",
+    "කළු"
+   ]
+  },
+  "template:tk0-promo-x": {
+   "name": "කතාව: හරස් වූ පටි සහිත PROMO",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "සිරස්",
+    "ප්‍රවර්ධනය",
+    "කළු"
+   ]
+  },
+  "template:tk0-que-ves": {
+   "name": "කතාව: ඔබ බැලීමට කැමති මොනවාද? චැට්",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "සිරස්",
+    "චැට්",
+    "ප්‍රශ්නය"
+   ]
+  },
+  "template:tk0-recordatorio": {
+   "name": "කතාව: වීඩියෝවක් මත සිහිකැඳවීමේ මත විමසුම",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "සිරස්",
+    "මත විමසුම",
+    "සිහිකැඳවීම"
+   ]
+  },
+  "template:tk0-tendencias": {
+   "name": "කතාව: රෝස සහ නිල් පැහැයෙන් වයිරල් ප්‍රවණතා",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "සිරස්",
+    "ප්‍රවණතාව",
+    "රෝස"
+   ]
+  },
+  "template:tk0-trendy": {
+   "name": "කතාව: වර්ණ පටි සහිත TRENDY STYLE",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "සිරස්",
+    "ප්‍රවණතාව",
+    "නිල්"
+   ]
+  },
+  "template:tk1-tipografia": {
+   "name": "අකුරු ආරම්භය: රිද්ම තාලයකට වචනයක්",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ආරම්භය",
+    "අකුරු සැලසුම",
+    "වචන"
+   ]
+  },
+  "template:tk2-alice": {
+   "name": "කතාව: ඡායාරූපයක් සහිත Alice Braun",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "නම",
+    "ඡායාරූපය",
+    "නිල්"
+   ]
+  },
+  "template:tk2-austin": {
+   "name": "කතාව: නව වීඩියෝවක් සහිත Austin Grant",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "නම",
+    "ඡායාරූපය",
+    "කළු"
+   ]
+  },
+  "template:tk2-baile": {
+   "name": "කතාව: ඡායාරූප තුනක් සහිත Just dance",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "නැටුම",
+    "ඡායාරූප",
+    "නිල්"
+   ]
+  },
+  "template:tk2-belleza": {
+   "name": "කතාව: About Beauty for You",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "රූපලාවණ්‍ය",
+    "ඡායාරූපය",
+    "කළු"
+   ]
+  },
+  "template:tk2-blogger": {
+   "name": "කතාව: මුදු සහිත Social blogger",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "මුදු",
+    "ඡායාරූපය",
+    "කළු"
+   ]
+  },
+  "template:tk2-contenido": {
+   "name": "කතාව: ජාලකයක විවිධ අන්තර්ගතය",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ජාලකය",
+    "ඡායාරූප",
+    "කළු"
+   ]
+  },
+  "template:tk2-follow": {
+   "name": "කතාව: හදවතක් සහිත follow",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "අනුගමනය",
+    "හදවත",
+    "කළු"
+   ]
+  },
+  "template:tk2-isabella": {
+   "name": "කතාව: ඡායාරූපයක් සහිත Isabella Walker",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "නම",
+    "ඡායාරූපය",
+    "නිල්"
+   ]
+  },
+  "template:tk2-lifestyle": {
+   "name": "කතාව: වීඩියෝවක් සහිත #lifestyle",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ජීවන රටාව",
+    "වීඩියෝව",
+    "රතු"
+   ]
+  },
+  "template:tk2-new": {
+   "name": "කතාව: හදවත් සහිත NEW",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "අලුත්",
+    "ඡායාරූපය",
+    "කළු"
+   ]
+  },
+  "template:tk2-nuevo-video": {
+   "name": "කතාව: ඡායාරූපයක් සහිත නව වීඩියෝව",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "අලුත් වීඩියෝව",
+    "ඡායාරූපය",
+    "රතු"
+   ]
+  },
+  "template:tk2-perfil": {
+   "name": "කතාව: අනුගාමිකයන් සහිත පැතිකඩක්",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "පැතිකඩ",
+    "අනුගාමිකයන්",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:tk2-suscriptores": {
+   "name": "කතාව: නව දායකයන් ලබාගන්න",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "දායකයන්",
+    "ඡායාරූප",
+    "කළු"
+   ]
+  },
+  "template:tk2-tarjeta": {
+   "name": "කතාව: ඔබේ ලාංඡනය සහ ස්ටිකර් සහිත කාඩ්පතක්",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ලාංඡනය",
+    "ස්ටිකර්",
+    "නිල්"
+   ]
+  },
+  "template:tk2-tendencias": {
+   "name": "කතාව: රතු පටියක් සහිත ප්‍රවණතා",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ප්‍රවණතා",
+    "ඡායාරූපය",
+    "නිල්"
+   ]
+  },
+  "template:tk3-diseno": {
+   "name": "කතාව: සිහින් රේඛා සහිත Fashion Design",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "විලාසිතා",
+    "පැස්ටල්",
+    "නිර්මාණය"
+   ]
+  },
+  "template:tk3-estilo-de-vida": {
+   "name": "කතාව: හැරෙන ත්‍රිකෝණයක් සහිත Lifestyle",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "විලාසිතා",
+    "පැස්ටල්",
+    "ජීවන රටාව"
+   ]
+  },
+  "template:tk3-gracias": {
+   "name": "අවසන් කාඩ්පත: Thanks For Watching!",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "විලාසිතා",
+    "පැස්ටල්",
+    "අවසානය"
+   ]
+  },
+  "template:tk3-rebajas": {
+   "name": "කතාව: 50% OFF පෙට්ටියක් සහිත විලාසිතා වට්ටම් විකුණුම",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "විලාසිතා",
+    "පැස්ටල්",
+    "වට්ටම් විකුණුම"
+   ]
+  },
+  "template:tk3-rebajas-2": {
+   "name": "කතාව: ඡායාරූපය මත 50% සහිත Fashion Sale",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "විලාසිතා",
+    "පැස්ටල්",
+    "වට්ටම් විකුණුම"
+   ]
+  },
+  "template:tk3-siguiente-nivel": {
+   "name": "කතාව: සිරස් 50% OFF සහිත The Next Level Of Fashion",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "විලාසිතා",
+    "පැස්ටල්",
+    "වට්ටම"
+   ]
+  },
+  "template:tk3-siguiente-nivel-2": {
+   "name": "කතාව: Get 50% OFF සහිත The Next Level Of Fashion",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "විලාසිතා",
+    "පැස්ටල්",
+    "වට්ටම"
+   ]
+  },
+  "template:tk3-sorteo": {
+   "name": "කතාව: Giveaway!",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "විලාසිතා",
+    "පැස්ටල්",
+    "ත්‍යාග දිනුම"
+   ]
+  },
+  "template:tk3-tendencia": {
+   "name": "කතාව: 50% සහිත Keep It Trendy",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "විලාසිතා",
+    "පැස්ටල්",
+    "ප්‍රවණතාව"
+   ]
+  },
+  "template:tk4-dynamic": {
+   "name": "ගතික ආරම්භය: රතු සහ කළු ඡායාරූප",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ආරම්භය",
+    "ඡායාරූප ස්ලයිඩ්",
+    "ගතික"
+   ]
+  },
+  "template:tk4-fast": {
+   "name": "වේගවත් ආරම්භය: වර්ණවත් ඡායාරූප මත වචන",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ආරම්භය",
+    "ඡායාරූප ස්ලයිඩ්",
+    "වේගවත්"
+   ]
+  },
+  "template:tk4-modern": {
+   "name": "නවීන ආරම්භය: කහ, රන්වන් සහ ජාලකය",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ආරම්භය",
+    "ඡායාරූප ස්ලයිඩ්",
+    "නවීන"
+   ]
+  },
+  "template:tk4-rhythm": {
+   "name": "රිද්ම ආරම්භය: ශ්‍රේණිගත වර්ණ වචන",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ආරම්භය",
+    "ඡායාරූප ස්ලයිඩ්",
+    "රිද්මය"
+   ]
+  },
+  "template:tk4-stomp": {
+   "name": "ස්ටොම්ප් ආරම්භය: රිද්ම තාලයකට වචනයක් සහ ඡායාරූප",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ආරම්භය",
+    "ඡායාරූප ස්ලයිඩ්",
+    "ස්ටොම්ප්"
+   ]
+  },
+  "template:tk4-typo": {
+   "name": "අකුරු ආරම්භය: කළු වචන සහ ඡායාරූප",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ආරම්භය",
+    "ඡායාරූප ස්ලයිඩ්",
+    "අකුරු සැලසුම"
+   ]
+  },
+  "template:tk5-carefree": {
+   "name": "කතාව: සිරස් CAREFREE LIVING",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "කළු සහ සුදු",
+    "ඡායාරූපය",
+    "සිරස්"
+   ]
+  },
+  "template:tk5-endless": {
+   "name": "කතාව: ENDLESS LOVING CONVERSATIONS",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "කළු සහ සුදු",
+    "පෙළ"
+   ]
+  },
+  "template:tk5-find": {
+   "name": "කතාව: FIND HIDDEN GEMS",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "කළු සහ සුදු",
+    "පෙළ"
+   ]
+  },
+  "template:tk5-follow": {
+   "name": "කතාව: FOLLOW YOUR DREAM",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "කළු සහ සුදු",
+    "පෙළ"
+   ]
+  },
+  "template:tk5-foto-cae": {
+   "name": "කතාව: වැටී ඉහළට නගින ඡායාරූපය",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "කළු සහ සුදු",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:tk5-foto-lado": {
+   "name": "කතාව: පැත්තකින් ලිස්සා එන ඡායාරූපය",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "කළු සහ සුදු",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:tk5-foto-sube": {
+   "name": "කතාව: ඉහළට නගින ඡායාරූපය",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "කළු සහ සුදු",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:tk5-freedom": {
+   "name": "කතාව: ඡායාරූප දෙකක් සහිත FREEDOM සහ PLEASING",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "කළු සහ සුදු",
+    "ඡායාරූපය",
+    "කොලාජ්"
+   ]
+  },
+  "template:tk5-join": {
+   "name": "කතාව: JOIN THE JOURNEY ක්‍රියාවට අමතන පණිවුඩය",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "කළු සහ සුදු",
+    "llamada a la acción",
+    "ලාංඡනය"
+   ]
+  },
+  "template:tk5-laughter": {
+   "name": "කතාව: LAUGHTER OF A LOVED ONE",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "කළු සහ සුදු",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:tk5-stars": {
+   "name": "කතාව: තීරු වල STARS සහ DREAMS",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "කළු සහ සුදු",
+    "ඡායාරූපය",
+    "කොලාජ්"
+   ]
+  },
+  "template:tk5-sunshine": {
+   "name": "කතාව: ඡායාරූපයක් සහිත SUNSHINE FILLS SKIES",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "කළු සහ සුදු",
+    "ඡායාරූපය",
+    "කොලාජ්"
+   ]
+  },
+  "template:tk6-discovery": {
+   "name": "කතාව: DISCOVERY සහ SPACESUIT කොලාජ්",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ටර්කොයිස්",
+    "ඡායාරූපය",
+    "කොලාජ්"
+   ]
+  },
+  "template:tk6-dreams": {
+   "name": "කතාව: DREAMS කොලාජ්",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ටර්කොයිස්",
+    "ඡායාරූපය",
+    "කොලාජ්"
+   ]
+  },
+  "template:tk6-flower": {
+   "name": "කතාව: FLOWER BEAUTY කොලාජ්",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ටර්කොයිස්",
+    "ඡායාරූපය",
+    "කොලාජ්"
+   ]
+  },
+  "template:tk6-foto-cae": {
+   "name": "කතාව: රාමු කළ ඡායාරූපයක් වැටී එයි",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ටර්කොයිස්",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:tk6-foto-lado": {
+   "name": "කතාව: රාමු කළ ඡායාරූපයක් පැත්තකින් ලිස්සා එයි",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ටර්කොයිස්",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:tk6-freedom": {
+   "name": "කතාව: FREEDOM තීරුව",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ටර්කොයිස්",
+    "ඡායාරූපය",
+    "සිරස්"
+   ]
+  },
+  "template:tk6-modern": {
+   "name": "කතාව: MODERN STORIES කොලාජ්",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ටර්කොයිස්",
+    "ඡායාරූපය",
+    "කොලාජ්"
+   ]
+  },
+  "template:tk6-savor": {
+   "name": "කතාව: SAVOR LIFE'S GOODNESS ක්‍රියාවට අමතන පණිවුඩය",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ටර්කොයිස්",
+    "llamada a la acción",
+    "ලාංඡනය"
+   ]
+  },
+  "template:tk6-starry": {
+   "name": "කතාව: කොලාජ් එකක් බවට හැකිළෙන STARRY NIGHTS",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ටර්කොයිස්",
+    "ඡායාරූපය",
+    "කොලාජ්"
+   ]
+  },
+  "template:tk6-times-now": {
+   "name": "කතාව: ඡායාරූප දෙකක් සහිත TIME'S NOW",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ටර්කොයිස්",
+    "ඡායාරූපය",
+    "සිරස්"
+   ]
+  },
+  "template:tk6-wind": {
+   "name": "කතාව: ඡායාරූප දෙකක් සහිත WIND සහ AURA",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ටර්කොයිස්",
+    "ඡායාරූපය",
+    "කොලාජ්"
+   ]
+  },
+  "template:tk7-blooms": {
+   "name": "කතාව: රතු පැහැයෙන් BLOOMS ALL AROUND",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "මල්",
+    "වර්ණ",
+    "විලාසිතා"
+   ]
+  },
+  "template:tk7-bold": {
+   "name": "කතාව: BOLD COLORS SWAY කොලාජ්",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "මල්",
+    "වර්ණ",
+    "විලාසිතා"
+   ]
+  },
+  "template:tk7-breezy": {
+   "name": "කතාව: BREEZY SPRING ATTIRE කොලාජ්",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "මල්",
+    "වර්ණ",
+    "විලාසිතා"
+   ]
+  },
+  "template:tk7-canvas": {
+   "name": "කතාව: CANVAS LIFE BODY කොලාජ්",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "මල්",
+    "වර්ණ",
+    "විලාසිතා"
+   ]
+  },
+  "template:tk7-characters": {
+   "name": "කතාව: ඡායාරූපයක් යට COLORFUL CHARACTERS",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "මල්",
+    "වර්ණ",
+    "විලාසිතා"
+   ]
+  },
+  "template:tk7-colorful-and": {
+   "name": "කතාව: ඡායාරූප දෙකක් අතර COLORFUL AND CONFIDENCE",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "මල්",
+    "වර්ණ",
+    "විලාසිතා"
+   ]
+  },
+  "template:tk7-discover-more": {
+   "name": "අවසන් කතාව: ඔබේ ලාංඡනය සහිත DISCOVER MORE",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "මල්",
+    "වර්ණ",
+    "විලාසිතා"
+   ]
+  },
+  "template:tk7-embrace": {
+   "name": "කතාව: ඡායාරූපයක් වටා EMBRACE සහ EXPRESSION",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "මල්",
+    "වර්ණ",
+    "විලාසිතා"
+   ]
+  },
+  "template:tk7-embrace-your-life": {
+   "name": "කතාව: ඡායාරූප හතරක් සහිත EMBRACE YOUR LIFE",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "මල්",
+    "වර්ණ",
+    "විලාසිතා"
+   ]
+  },
+  "template:tk7-flower": {
+   "name": "කතාව: නිල් පැහැයෙන් FLOWER PARADISE DELIGHT",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "මල්",
+    "වර්ණ",
+    "විලාසිතා"
+   ]
+  },
+  "template:tk7-sale": {
+   "name": "කතාව: ඡායාරූප දෙකක් සහිත SALE SALE SALE",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "මල්",
+    "වර්ණ",
+    "විලාසිතා"
+   ]
+  },
+  "template:tk7-savor": {
+   "name": "කතාව: ඡායාරූප තීරුවක් සහිත SAVOR MOMENTS NOW",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "මල්",
+    "වර්ණ",
+    "විලාසිතා"
+   ]
+  },
+  "template:tk8-apple-pie": {
+   "name": "කතාව: SWEET APPLE PIE සහ SAVOR EVERY BITE",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ආහාර",
+    "අවන්හල",
+    "කහ"
+   ]
+  },
+  "template:tk8-bbq": {
+   "name": "කතාව: ඡායාරූප පහක් සහිත BBQ SMOKE RISING",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ආහාර",
+    "අවන්හල",
+    "කහ"
+   ]
+  },
+  "template:tk8-big-sale": {
+   "name": "කතාව: ඡායාරූප තුනක් සහිත BIG -50% SALE",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ආහාර",
+    "අවන්හල",
+    "කහ"
+   ]
+  },
+  "template:tk8-buy-now": {
+   "name": "කතාව: ඡායාරූප පහක් සහිත BUY NOW",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ආහාර",
+    "අවන්හල",
+    "කහ"
+   ]
+  },
+  "template:tk8-crispy-fries": {
+   "name": "කතාව: ඡායාරූප තුනක් සහිත CRISPY GOLDEN FRIES",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ආහාර",
+    "අවන්හල",
+    "කහ"
+   ]
+  },
+  "template:tk8-discover-flavors": {
+   "name": "අවසන් කතාව: ඔබේ ලාංඡනය සහිත DISCOVER NEW FLAVORS",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ආහාර",
+    "අවන්හල",
+    "කහ"
+   ]
+  },
+  "template:tk8-fast-food": {
+   "name": "කතාව: FAST FOOD ADDICTION",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ආහාර",
+    "අවන්හල",
+    "කහ"
+   ]
+  },
+  "template:tk8-food-lovers": {
+   "name": "කතාව: ඡායාරූප හතරක් සහිත FOOD LOVERS UNITE",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ආහාර",
+    "අවන්හල",
+    "කහ"
+   ]
+  },
+  "template:tk8-fried-chicken": {
+   "name": "කතාව: FRIED CHICKEN DELIGHT",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ආහාර",
+    "අවන්හල",
+    "කහ"
+   ]
+  },
+  "template:tk8-hot-dogs": {
+   "name": "කතාව: HOT DOGS සහ CRISPY FRIES",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ආහාර",
+    "අවන්හල",
+    "කහ"
+   ]
+  },
+  "template:tk8-lowest-price": {
+   "name": "කතාව: THE LOWEST PRICE",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ආහාර",
+    "අවන්හල",
+    "කහ"
+   ]
+  },
+  "template:tk8-new-york-pizza": {
+   "name": "කතාව: සම්පූර්ණ තිරයේ සිට කොලාජ් එකක් දක්වා NEW YORK PIZZA",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ආහාර",
+    "අවන්හල",
+    "කහ"
+   ]
+  },
+  "template:tk8-nice-diners": {
+   "name": "කතාව: උස ඡායාරූපයක් සහිත NICE DINERS",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ආහාර",
+    "අවන්හල",
+    "කහ"
+   ]
+  },
+  "template:tk9-limpia": {
+   "name": "පිරිසිදු ආරම්භය: රිද්ම තාලයට වචන සහ ඡායාරූප",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ආරම්භය",
+    "අකුරු සැලසුම",
+    "වචන"
+   ]
+  },
   "template:top-5-mas-vendidos": {
    "name": "වැඩියෙන්ම විකිණෙන 5",
    "tags": [
@@ -31350,6 +37952,3288 @@
     "දිලිසීම්",
     "රෝස",
     "ඇස්ථෙටික්"
+   ]
+  },
+  "template:yp0-barra-campana": {
+   "name": "ලයික්, සීනුව සහ දායක වන්න සහිත තීරුව",
+   "tags": [
+    "youtube",
+    "දායක වන්න",
+    "බොත්තම",
+    "තීරුව",
+    "ක්ලික්",
+    "ලයික්"
+   ]
+  },
+  "template:yp0-barra-canal": {
+   "name": "ලයික්, දායක වන්න සහ සීනුව සහිත නාලිකා තීරුව",
+   "tags": [
+    "youtube",
+    "දායක වන්න",
+    "බොත්තම",
+    "තීරුව",
+    "ක්ලික්",
+    "ලයික්"
+   ]
+  },
+  "template:yp0-barra-me-gusta": {
+   "name": "ලයික්, ඩිස්ලයික් සහ දායක වන්න සහිත තීරුව",
+   "tags": [
+    "youtube",
+    "දායක වන්න",
+    "බොත්තම",
+    "තීරුව",
+    "ක්ලික්",
+    "ලයික්"
+   ]
+  },
+  "template:yp0-barra-seguidores": {
+   "name": "අනුගාමික කවුන්ටරයක් සහිත නාලිකා තීරුව",
+   "tags": [
+    "youtube",
+    "දායක වන්න",
+    "බොත්තම",
+    "තීරුව",
+    "කවුන්ටරය",
+    "අනුගාමිකයන්"
+   ]
+  },
+  "template:yp0-fila-grande": {
+   "name": "විශාල ලයික්, දායක වන්න සහ සීනුව",
+   "tags": [
+    "youtube",
+    "දායක වන්න",
+    "බොත්තම",
+    "ක්ලික්",
+    "ලයික්",
+    "සීනුව"
+   ]
+  },
+  "template:yp0-redes": {
+   "name": "අනුගමනය සහිත සමාජ මාධ්‍ය තීරු",
+   "tags": [
+    "youtube",
+    "දායක වන්න",
+    "බොත්තම",
+    "සමාජ මාධ්‍ය",
+    "facebook",
+    "instagram"
+   ]
+  },
+  "template:yp0-tarjeta-canal": {
+   "name": "දායක වන්න සහිත නාලිකා කාඩ්පත",
+   "tags": [
+    "youtube",
+    "දායක වන්න",
+    "බොත්තම",
+    "කාඩ්පත",
+    "ක්ලික්"
+   ]
+  },
+  "template:yp0-tarjeta-iconos": {
+   "name": "දායක වන්න, ලයික් සහ සීනුව සහිත කාඩ්පත",
+   "tags": [
+    "youtube",
+    "දායක වන්න",
+    "බොත්තම",
+    "කාඩ්පත",
+    "ක්ලික්",
+    "ලයික්"
+   ]
+  },
+  "template:yp0-tarjeta-mini": {
+   "name": "කුඩා දායක වන්න කාඩ්පත",
+   "tags": [
+    "youtube",
+    "දායක වන්න",
+    "බොත්තම",
+    "කාඩ්පත",
+    "ක්ලික්"
+   ]
+  },
+  "template:yp1-apertura-avatar-bandas": {
+   "name": "ආරම්භය: වැටෙන අවතාරය සහ නැඟෙන පටි",
+   "tags": [
+    "youtube",
+    "රතු",
+    "ආරම්භය",
+    "අවතාරය"
+   ]
+  },
+  "template:yp1-apertura-avatar-circulo": {
+   "name": "ආරම්භය: අවතාරය සහ විවෘත වන රවුම්",
+   "tags": [
+    "youtube",
+    "රතු",
+    "ආරම්භය",
+    "අවතාරය"
+   ]
+  },
+  "template:yp1-apertura-blanca": {
+   "name": "ආරම්භය: සුදු මත ඇල පටි සහ බොත්තමක්",
+   "tags": [
+    "youtube",
+    "රතු",
+    "ආරම්භය",
+    "ලාංඡනය"
+   ]
+  },
+  "template:yp1-apertura-diana": {
+   "name": "ආරම්භය: රතු රවුම් මත රවුම් බොත්තම",
+   "tags": [
+    "youtube",
+    "රතු",
+    "ආරම්භය",
+    "ලාංඡනය"
+   ]
+  },
+  "template:yp1-apertura-flechas": {
+   "name": "ආරම්භය: අඳුරු ඊතල සහ පෙරළෙන බොත්තම",
+   "tags": [
+    "youtube",
+    "රතු",
+    "ආරම්භය",
+    "ලාංඡනය"
+   ]
+  },
+  "template:yp1-apertura-gotas": {
+   "name": "ආරම්භය: YouTube බොත්තම සාදන බිංදු",
+   "tags": [
+    "youtube",
+    "රතු",
+    "ආරම්භය",
+    "ලාංඡනය"
+   ]
+  },
+  "template:yp1-apertura-logo-vuela": {
+   "name": "ආරම්භය: පසුපසට පියාසර කර කැරකෙන ලාංඡනය",
+   "tags": [
+    "youtube",
+    "රතු",
+    "ආරම්භය",
+    "ලාංඡනය"
+   ]
+  },
+  "template:yp1-apertura-ondas": {
+   "name": "ආරම්භය: ලාංඡනය, සුළි චාප සහ රතු රැලි",
+   "tags": [
+    "youtube",
+    "රතු",
+    "ආරම්භය",
+    "ලාංඡනය",
+    "රැලි"
+   ]
+  },
+  "template:yp1-apertura-tipografica-gaming": {
+   "name": "අකුරු ආරම්භය: හොඳම ගේමිං නාලිකාව",
+   "tags": [
+    "youtube",
+    "රතු",
+    "ආරම්භය",
+    "අකුරු",
+    "චලන අකුරු"
+   ]
+  },
+  "template:yp1-apertura-tipografica-roja": {
+   "name": "රතු අකුරු ආරම්භය: නව වීඩියෝව, ලයික් සහ දායක වන්න",
+   "tags": [
+    "youtube",
+    "රතු",
+    "ආරම්භය",
+    "අකුරු",
+    "චලන අකුරු"
+   ]
+  },
+  "template:yp1-apertura-tipografica-suscribete": {
+   "name": "අකුරු ආරම්භය: කථාංගය බලන්න සහ දායක වන්න",
+   "tags": [
+    "youtube",
+    "රතු",
+    "ආරම්භය",
+    "අකුරු",
+    "චලන අකුරු"
+   ]
+  },
+  "template:yp1-barra-suscribir": {
+   "name": "දායක වන්න: අවතාරය, ලයික් සහ සීනුව සහිත තීරුව",
+   "tags": [
+    "youtube",
+    "රතු",
+    "දායක වන්න",
+    "ලයික්",
+    "සීනුව"
+   ]
+  },
+  "template:yp1-barra-vertical": {
+   "name": "රතු තීරුවක් මත පේළි හතරක මාතෘකාව",
+   "tags": [
+    "youtube",
+    "රතු",
+    "මාතෘකාව",
+    "සරල",
+    "තීරුව"
+   ]
+  },
+  "template:yp1-best-video": {
+   "name": "නිල් රැලි මත විශාල මාතෘකාව",
+   "tags": [
+    "youtube",
+    "රතු",
+    "මාතෘකාව",
+    "රැලි"
+   ]
+  },
+  "template:yp1-big-text": {
+   "name": "අඳුරු කාමරයක විශාල රතු පෙළ",
+   "tags": [
+    "youtube",
+    "රතු",
+    "මාතෘකාව",
+    "විශාල"
+   ]
+  },
+  "template:yp1-big-title": {
+   "name": "ඇල රතු පටියක විශාල මාතෘකාව",
+   "tags": [
+    "youtube",
+    "රතු",
+    "මාතෘකාව",
+    "විශාල"
+   ]
+  },
+  "template:yp1-bold-titles": {
+   "name": "රතු රේඛාවක් සහ තමන්ම ඇඳෙන රාමුවක් සහිත මාතෘකාව",
+   "tags": [
+    "youtube",
+    "රතු",
+    "මාතෘකාව",
+    "සරල",
+    "රාමුව"
+   ]
+  },
+  "template:yp1-cajas-tecleadas": {
+   "name": "රතු සහ සුදු පෙට්ටියක ටයිප් වන මාතෘකාව",
+   "tags": [
+    "youtube",
+    "රතු",
+    "මාතෘකාව",
+    "සරල",
+    "පෙට්ටිය"
+   ]
+  },
+  "template:yp1-cita-cajas-grises": {
+   "name": "රතු උද්ධෘත ලකුණු සහිත අළු පෙට්ටිවල උද්ධෘතය",
+   "tags": [
+    "youtube",
+    "රතු",
+    "උද්ධෘතය",
+    "වාක්‍ය ඛණ්ඩය"
+   ]
+  },
+  "template:yp1-cita-centrada": {
+   "name": "රේඛා දෙකක් අතර මධ්‍යගත උද්ධෘතය",
+   "tags": [
+    "youtube",
+    "රතු",
+    "උද්ධෘතය",
+    "වාක්‍ය ඛණ්ඩය"
+   ]
+  },
+  "template:yp1-cita-circulo": {
+   "name": "රතු රවුමක උද්ධෘතය",
+   "tags": [
+    "youtube",
+    "රතු",
+    "උද්ධෘතය",
+    "වාක්‍ය ඛණ්ඩය"
+   ]
+  },
+  "template:yp1-cita-cuadro-rojo": {
+   "name": "පැති ටැබයක් සහිත රතු චතුරස්‍රයක උද්ධෘතය",
+   "tags": [
+    "youtube",
+    "රතු",
+    "උද්ධෘතය",
+    "වාක්‍ය ඛණ්ඩය"
+   ]
+  },
+  "template:yp1-cita-etiqueta": {
+   "name": "රතු කර්තෘ ටැගයක් සහිත උද්ධෘතය",
+   "tags": [
+    "youtube",
+    "රතු",
+    "උද්ධෘතය",
+    "වාක්‍ය ඛණ්ඩය"
+   ]
+  },
+  "template:yp1-cita-marco-fino": {
+   "name": "බැජයක් සහිත තුනී රතු රාමුවක උද්ධෘතය",
+   "tags": [
+    "youtube",
+    "රතු",
+    "උද්ධෘතය",
+    "වාක්‍ය ඛණ්ඩය"
+   ]
+  },
+  "template:yp1-cita-marco-rojo": {
+   "name": "රතු රාමුවක් සහිත ටයිප් වන උද්ධෘතය",
+   "tags": [
+    "youtube",
+    "රතු",
+    "උද්ධෘතය",
+    "වාක්‍ය ඛණ්ඩය"
+   ]
+  },
+  "template:yp1-cita-panel-rojo": {
+   "name": "රතු පුවරුවක් අසල අඳුරු පෙට්ටියක උද්ධෘතය",
+   "tags": [
+    "youtube",
+    "රතු",
+    "උද්ධෘතය",
+    "වාක්‍ය ඛණ්ඩය"
+   ]
+  },
+  "template:yp1-columna-suscribir": {
+   "name": "දායක වන්න: අවතාරය, ලයික් සහ සීනුව සහිත තීරුව",
+   "tags": [
+    "youtube",
+    "රතු",
+    "දායක වන්න",
+    "ලයික්",
+    "සීනුව"
+   ]
+  },
+  "template:yp1-como-un-pro": {
+   "name": "රතු රේඛාවක් යට පියවර ආකාර මාතෘකාව",
+   "tags": [
+    "youtube",
+    "රතු",
+    "මාතෘකාව",
+    "සරල",
+    "පියවර ආකාර"
+   ]
+  },
+  "template:yp1-design": {
+   "name": "වැටෙන අකුරු සහිත රතු මාතෘකාව",
+   "tags": [
+    "youtube",
+    "රතු",
+    "මාතෘකාව",
+    "සරල",
+    "වැටීම"
+   ]
+  },
+  "template:yp1-fila-suscribir": {
+   "name": "දායක වන්න: පහළින් ලයික්, දායක වන්න සහ සීනුව",
+   "tags": [
+    "youtube",
+    "රතු",
+    "දායක වන්න",
+    "ලයික්",
+    "සීනුව"
+   ]
+  },
+  "template:yp1-final-banda": {
+   "name": "අවසාන තිරය: වීඩියෝව මත අඳුරු පටිය",
+   "tags": [
+    "youtube",
+    "රතු",
+    "අවසාන තිරය",
+    "වීඩියෝව"
+   ]
+  },
+  "template:yp1-final-columna": {
+   "name": "අවසාන තිරය: වර්ණ ගැන්වූ වීඩියෝව මත අඳුරු තීරුව",
+   "tags": [
+    "youtube",
+    "රතු",
+    "අවසාන තිරය",
+    "වීඩියෝව"
+   ]
+  },
+  "template:yp1-final-gracias": {
+   "name": "අවසාන තිරය: නැරඹුවාට ස්තූතියි සහ දායක වන්න",
+   "tags": [
+    "youtube",
+    "රතු",
+    "අවසාන තිරය",
+    "ස්තූතියි"
+   ]
+  },
+  "template:yp1-final-like-share": {
+   "name": "අවසාන තිරය: නිර්දේශිත වීඩියෝව සහ ලයික්, අදහස්, බෙදාගැනීම",
+   "tags": [
+    "youtube",
+    "රතු",
+    "අවසාන තිරය",
+    "සමාජ මාධ්‍ය"
+   ]
+  },
+  "template:yp1-fondo-arcos": {
+   "name": "පසුබිම: විසිරුණු රතු චාප සහ ඉරි",
+   "tags": [
+    "youtube",
+    "රතු",
+    "පසුබිම",
+    "හැඩතල"
+   ]
+  },
+  "template:yp1-fondo-bloques": {
+   "name": "පසුබිම: රතු චතුරස්‍ර සහිත සුදු කුට්ටි",
+   "tags": [
+    "youtube",
+    "රතු",
+    "පසුබිම",
+    "කුට්ටි"
+   ]
+  },
+  "template:yp1-fondo-botones": {
+   "name": "පසුබිම: ප්ලේ බොත්තම් පේළි",
+   "tags": [
+    "youtube",
+    "රතු",
+    "පසුබිම"
+   ]
+  },
+  "template:yp1-fondo-capas": {
+   "name": "පසුබිම: ස්තර වූ රතු රැලි",
+   "tags": [
+    "youtube",
+    "රතු",
+    "පසුබිම",
+    "රැලි"
+   ]
+  },
+  "template:yp1-fondo-cruces": {
+   "name": "පසුබිම: රෝස සහ සුදු කතිර",
+   "tags": [
+    "youtube",
+    "රතු",
+    "පසුබිම",
+    "හැඩතල"
+   ]
+  },
+  "template:yp1-fondo-destellos": {
+   "name": "පසුබිම: විකර්ණ රතු ඉරි",
+   "tags": [
+    "youtube",
+    "රතු",
+    "පසුබිම",
+    "ආලෝකය"
+   ]
+  },
+  "template:yp1-fondo-espiral": {
+   "name": "පසුබිම: රතු, සුදු සහ අළු සර්පිලාකාරය",
+   "tags": [
+    "youtube",
+    "රතු",
+    "පසුබිම",
+    "සර්පිලාකාර"
+   ]
+  },
+  "template:yp1-fondo-flechas": {
+   "name": "පසුබිම: ඉදිරියට යන රතු ඊතල",
+   "tags": [
+    "youtube",
+    "රතු",
+    "පසුබිම",
+    "ඊතල"
+   ]
+  },
+  "template:yp1-fondo-guiones": {
+   "name": "පසුබිම: පියාසර කරන රතු ඉරි",
+   "tags": [
+    "youtube",
+    "රතු",
+    "පසුබිම",
+    "හැඩතල"
+   ]
+  },
+  "template:yp1-fondo-lineas": {
+   "name": "පසුබිම: තුනී රැලි රතු රේඛා",
+   "tags": [
+    "youtube",
+    "රතු",
+    "පසුබිම",
+    "රේඛා"
+   ]
+  },
+  "template:yp1-fondo-liquido-azul": {
+   "name": "පසුබිම: නිල් ද්‍රවය",
+   "tags": [
+    "youtube",
+    "රතු",
+    "පසුබිම",
+    "ද්‍රව"
+   ]
+  },
+  "template:yp1-fondo-liquido-oscuro": {
+   "name": "පසුබිම: අඳුරු රතු ද්‍රවය",
+   "tags": [
+    "youtube",
+    "රතු",
+    "පසුබිම",
+    "ද්‍රව"
+   ]
+  },
+  "template:yp1-fondo-ondas-gruesas": {
+   "name": "පසුබිම: ඝන රතු රැලි",
+   "tags": [
+    "youtube",
+    "රතු",
+    "පසුබිම",
+    "රැලි"
+   ]
+  },
+  "template:yp1-fondo-puntos": {
+   "name": "පසුබිම: ස්පන්දනය වන රතු තිත්",
+   "tags": [
+    "youtube",
+    "රතු",
+    "පසුබිම",
+    "තිත්"
+   ]
+  },
+  "template:yp1-fondo-rayas": {
+   "name": "පසුබිම: විකර්ණ රතු ඉරි",
+   "tags": [
+    "youtube",
+    "රතු",
+    "පසුබිම",
+    "ඉරි"
+   ]
+  },
+  "template:yp1-fondo-rayas-onduladas": {
+   "name": "පසුබිම: රැලි රතු ඉරි",
+   "tags": [
+    "youtube",
+    "රතු",
+    "පසුබිම",
+    "රැලි"
+   ]
+  },
+  "template:yp1-fondo-redes": {
+   "name": "පසුබිම: සමාජ මාධ්‍ය අයිකන",
+   "tags": [
+    "youtube",
+    "රතු",
+    "පසුබිම",
+    "සමාජ මාධ්‍ය"
+   ]
+  },
+  "template:yp1-fondo-texto": {
+   "name": "පසුබිම: නැවත නැවත එන සංස්කරණය කළ හැකි පෙළ",
+   "tags": [
+    "youtube",
+    "රතු",
+    "පසුබිම",
+    "පෙළ"
+   ]
+  },
+  "template:yp1-frase-ondas-rojas": {
+   "name": "රතු රැලි මත පේළි තුනක වාක්‍ය ඛණ්ඩය",
+   "tags": [
+    "youtube",
+    "රතු",
+    "මාතෘකාව",
+    "රැලි",
+    "වාක්‍ය ඛණ්ඩය"
+   ]
+  },
+  "template:yp1-info-anillo": {
+   "name": "තොරතුරු ග්‍රැෆික්: පෙළ සහිත ප්‍රතිශත වළල්ල",
+   "tags": [
+    "youtube",
+    "රතු",
+    "ඇමතුම් සටහන",
+    "දර්ශකය",
+    "ප්‍රතිශතය",
+    "කවුන්ටරය"
+   ]
+  },
+  "template:yp1-info-anillo-linea": {
+   "name": "තොරතුරු ග්‍රැෆික්: රේඛාවේ මාතෘකාව සහ ප්‍රතිශත වළල්ල",
+   "tags": [
+    "youtube",
+    "රතු",
+    "ඇමතුම් සටහන",
+    "දර්ශකය",
+    "ප්‍රතිශතය",
+    "කවුන්ටරය"
+   ]
+  },
+  "template:yp1-info-barra-porcentaje": {
+   "name": "තොරතුරු ග්‍රැෆික්: අළු පෙට්ටියක ප්‍රතිශතය සහ රතු ලේබලය",
+   "tags": [
+    "youtube",
+    "රතු",
+    "ඇමතුම් සටහන",
+    "දර්ශකය",
+    "ප්‍රතිශතය",
+    "කවුන්ටරය"
+   ]
+  },
+  "template:yp1-info-porcentaje": {
+   "name": "තොරතුරු ග්‍රැෆික්: ලේබලයක් සහිත විශාල ප්‍රතිශතය",
+   "tags": [
+    "youtube",
+    "රතු",
+    "ඇමතුම් සටහන",
+    "දර්ශකය",
+    "ප්‍රතිශතය",
+    "කවුන්ටරය"
+   ]
+  },
+  "template:yp1-insignia-me-gusta": {
+   "name": "දායක වන්න: ලයික් සහ සීනුවක් බවට කැරකෙන බැජය",
+   "tags": [
+    "youtube",
+    "රතු",
+    "දායක වන්න",
+    "ලයික්",
+    "සීනුව"
+   ]
+  },
+  "template:yp1-liquid-title": {
+   "name": "ද්‍රව බිංදුවක් මත දළ සටහන් මාතෘකාව",
+   "tags": [
+    "youtube",
+    "රතු",
+    "මාතෘකාව",
+    "ද්‍රව",
+    "දළ සටහන"
+   ]
+  },
+  "template:yp1-llamada-barra-roja": {
+   "name": "ඇමතුම් සටහන: ඡේදයක් සහිත රතු තීරුව",
+   "tags": [
+    "youtube",
+    "රතු",
+    "ඇමතුම් සටහන",
+    "දර්ශකය",
+    "ඡේදය"
+   ]
+  },
+  "template:yp1-llamada-dato": {
+   "name": "ඇමතුම් සටහන: රතු පෙට්ටියක සිරස්තලය, පෙළ සහ සංඛ්‍යාව",
+   "tags": [
+    "youtube",
+    "රතු",
+    "ඇමතුම් සටහන",
+    "දර්ශකය",
+    "දත්ත"
+   ]
+  },
+  "template:yp1-llamada-especificacion": {
+   "name": "ඇමතුම් සටහන: රේඛාවක් මත රතු මාතෘකාව",
+   "tags": [
+    "youtube",
+    "රතු",
+    "ඇමතුම් සටහන",
+    "දර්ශකය",
+    "පිරිවිතර"
+   ]
+  },
+  "template:yp1-llamada-numero": {
+   "name": "ඇමතුම් සටහන: රවුමක අංකය සහ පෙළ දෙකක්",
+   "tags": [
+    "youtube",
+    "රතු",
+    "ඇමතුම් සටහන",
+    "දර්ශකය",
+    "අංකය"
+   ]
+  },
+  "template:yp1-llamada-numero-cuadro": {
+   "name": "ඇමතුම් සටහන: රතු චතුරස්‍රයක අංකය සහ සුදු පෙට්ටි",
+   "tags": [
+    "youtube",
+    "රතු",
+    "ඇමතුම් සටහන",
+    "දර්ශකය",
+    "අංකය"
+   ]
+  },
+  "template:yp1-llamada-pantalla": {
+   "name": "ඇමතුම් සටහන: රතු ලේබලය සහ දළ සටහන් පෙට්ටිය",
+   "tags": [
+    "youtube",
+    "රතු",
+    "ඇමතුම් සටහන",
+    "දර්ශකය",
+    "ටැගය"
+   ]
+  },
+  "template:yp1-llamada-titular": {
+   "name": "ඇමතුම් සටහන: රතු දළ සටහනක සිරස්තලය",
+   "tags": [
+    "youtube",
+    "රතු",
+    "ඇමතුම් සටහන",
+    "දර්ශකය",
+    "සිරස්තලය"
+   ]
+  },
+  "template:yp1-mejor-juego": {
+   "name": "රතු කුට්ටියක් යට අළු පෙට්ටියක මාතෘකාව",
+   "tags": [
+    "youtube",
+    "රතු",
+    "මාතෘකාව",
+    "සරල",
+    "පෙට්ටිය"
+   ]
+  },
+  "template:yp1-modern-bold": {
+   "name": "රෝස පෙට්ටියක දළ සටහන් මාතෘකාව",
+   "tags": [
+    "youtube",
+    "රතු",
+    "මාතෘකාව",
+    "පෙට්ටිය"
+   ]
+  },
+  "template:yp1-modern-title": {
+   "name": "රතු රේඛා අතර මාතෘකාව",
+   "tags": [
+    "youtube",
+    "රතු",
+    "මාතෘකාව",
+    "සරල",
+    "ඉරි"
+   ]
+  },
+  "template:yp1-motion-studio": {
+   "name": "හරස් වූ රතු තීරු දෙකක් මත මාතෘකාව",
+   "tags": [
+    "youtube",
+    "රතු",
+    "මාතෘකාව",
+    "සරල",
+    "තීරු"
+   ]
+  },
+  "template:yp1-no-olvides-calificar": {
+   "name": "මාතෘකාව: රතු රාමුවක ශ්‍රේණිගත කිරීමට අමතක නොකරන්න",
+   "tags": [
+    "youtube",
+    "රතු",
+    "මාතෘකාව",
+    "සරල",
+    "රාමුව"
+   ]
+  },
+  "template:yp1-pila-botones": {
+   "name": "දායක වන්න: පෙරළෙන ලයික්, දායක වන්න සහ දැනුම්දීම් බොත්තම්",
+   "tags": [
+    "youtube",
+    "රතු",
+    "දායක වන්න",
+    "ලයික්",
+    "බොත්තම්"
+   ]
+  },
+  "template:yp1-red-circulo-barra": {
+   "name": "සමාජ: කැරකෙන රවුම් අයිකනය සහ වෙබ් අඩවිය සහිත තීරුව",
+   "tags": [
+    "youtube",
+    "රතු",
+    "සමාජ මාධ්‍ය",
+    "සබැඳිය"
+   ]
+  },
+  "template:yp1-red-cuadro-follow": {
+   "name": "සමාජ: පෙරළෙන චතුරස්‍රය සහ FOLLOW US",
+   "tags": [
+    "youtube",
+    "රතු",
+    "සමාජ මාධ්‍ය",
+    "සබැඳිය"
+   ]
+  },
+  "template:yp1-red-pastilla": {
+   "name": "සමාජ: පෙති ආකාරයේ මැද අයිකනය",
+   "tags": [
+    "youtube",
+    "රතු",
+    "සමාජ මාධ්‍ය",
+    "සබැඳිය"
+   ]
+  },
+  "template:yp1-red-rombo": {
+   "name": "සමාජ: තමන්ම ඇඳෙන රොම්බසය සහ නාලිකා නම",
+   "tags": [
+    "youtube",
+    "රතු",
+    "සමාජ මාධ්‍ය",
+    "සබැඳිය"
+   ]
+  },
+  "template:yp1-strong-titles": {
+   "name": "රතු රැල්ලක් යට ශක්තිමත් මාතෘකාව",
+   "tags": [
+    "youtube",
+    "රතු",
+    "මාතෘකාව",
+    "රැල්ල"
+   ]
+  },
+  "template:yp1-top-10": {
+   "name": "යට රතු රේඛා දෙකක් සහිත මාතෘකාව",
+   "tags": [
+    "youtube",
+    "රතු",
+    "මාතෘකාව",
+    "සරල",
+    "ලැයිස්තුව"
+   ]
+  },
+  "template:yp1-transicion-barras-1": {
+   "name": "සංක්‍රාන්තිය: වමට රතු, සුදු සහ කළු තීරු",
+   "tags": [
+    "youtube",
+    "රතු",
+    "සංක්‍රාන්තිය",
+    "තීරු"
+   ]
+  },
+  "template:yp1-transicion-barras-2": {
+   "name": "සංක්‍රාන්තිය: පහළට රතු, සුදු සහ කළු තීරු",
+   "tags": [
+    "youtube",
+    "රතු",
+    "සංක්‍රාන්තිය",
+    "තීරු"
+   ]
+  },
+  "template:yp1-transicion-bloques-1": {
+   "name": "සංක්‍රාන්තිය: රතු, සුදු සහ කළු කුට්ටි",
+   "tags": [
+    "youtube",
+    "රතු",
+    "සංක්‍රාන්තිය",
+    "කුට්ටි"
+   ]
+  },
+  "template:yp1-transicion-bloques-2": {
+   "name": "සංක්‍රාන්තිය: රතු, සුදු සහ කළු කුට්ටි",
+   "tags": [
+    "youtube",
+    "රතු",
+    "සංක්‍රාන්තිය",
+    "කුට්ටි"
+   ]
+  },
+  "template:yp1-transicion-capsulas-1": {
+   "name": "සංක්‍රාන්තිය: වමට කැප්සියුල",
+   "tags": [
+    "youtube",
+    "රතු",
+    "සංක්‍රාන්තිය",
+    "කැප්සියුල"
+   ]
+  },
+  "template:yp1-transicion-capsulas-2": {
+   "name": "සංක්‍රාන්තිය: පහළට කැප්සියුල",
+   "tags": [
+    "youtube",
+    "රතු",
+    "සංක්‍රාන්තිය",
+    "කැප්සියුල"
+   ]
+  },
+  "template:yp1-transicion-circulo": {
+   "name": "සංක්‍රාන්තිය: විවෘත වන රතු, සුදු සහ කළු රවුම",
+   "tags": [
+    "youtube",
+    "රතු",
+    "සංක්‍රාන්තිය",
+    "හැඩතල",
+    "රවුම"
+   ]
+  },
+  "template:yp1-transicion-cuadrado": {
+   "name": "සංක්‍රාන්තිය: විවෘත වන රතු, සුදු සහ කළු චතුරස්‍රය",
+   "tags": [
+    "youtube",
+    "රතු",
+    "සංක්‍රාන්තිය",
+    "හැඩතල",
+    "චතුරස්‍රය"
+   ]
+  },
+  "template:yp1-transicion-estrella": {
+   "name": "සංක්‍රාන්තිය: විවෘත වන රතු, සුදු සහ කළු තරුව",
+   "tags": [
+    "youtube",
+    "රතු",
+    "සංක්‍රාන්තිය",
+    "හැඩතල",
+    "තරුව"
+   ]
+  },
+  "template:yp1-transicion-flechas-1": {
+   "name": "සංක්‍රාන්තිය: වමට රතු, සුදු සහ කළු ඊතල",
+   "tags": [
+    "youtube",
+    "රතු",
+    "සංක්‍රාන්තිය",
+    "ඊතල"
+   ]
+  },
+  "template:yp1-transicion-flechas-2": {
+   "name": "සංක්‍රාන්තිය: පහළට රතු, සුදු සහ කළු ඊතල",
+   "tags": [
+    "youtube",
+    "රතු",
+    "සංක්‍රාන්තිය",
+    "ඊතල"
+   ]
+  },
+  "template:yp1-transicion-flechas-3": {
+   "name": "සංක්‍රාන්තිය: ඉහළට රතු, සුදු සහ කළු ඊතල",
+   "tags": [
+    "youtube",
+    "රතු",
+    "සංක්‍රාන්තිය",
+    "ඊතල"
+   ]
+  },
+  "template:yp1-transicion-flechas-4": {
+   "name": "සංක්‍රාන්තිය: දකුණට රතු, සුදු සහ කළු ඊතල",
+   "tags": [
+    "youtube",
+    "රතු",
+    "සංක්‍රාන්තිය",
+    "ඊතල"
+   ]
+  },
+  "template:yp1-transicion-hexagono": {
+   "name": "සංක්‍රාන්තිය: විවෘත වන රතු, සුදු සහ කළු ෂඩාස්‍රය",
+   "tags": [
+    "youtube",
+    "රතු",
+    "සංක්‍රාන්තිය",
+    "හැඩතල",
+    "ෂඩාස්‍රය"
+   ]
+  },
+  "template:yp1-transicion-remolino": {
+   "name": "සංක්‍රාන්තිය: රතු සහ සුදු සුළිය",
+   "tags": [
+    "youtube",
+    "රතු",
+    "සංක්‍රාන්තිය",
+    "ද්‍රව"
+   ]
+  },
+  "template:yp1-trazo-rojo": {
+   "name": "රතු රැළි ඉරක් සහිත පේළි තුනක මාතෘකාව",
+   "tags": [
+    "youtube",
+    "රතු",
+    "මාතෘකාව",
+    "පහර"
+   ]
+  },
+  "template:yp1-ver-siguiente-caja": {
+   "name": "මාතෘකාව: ඊළඟට නරඹන්න, සුදු පෙට්ටියක",
+   "tags": [
+    "youtube",
+    "රතු",
+    "මාතෘකාව",
+    "සරල",
+    "පෙට්ටිය"
+   ]
+  },
+  "template:yp1-ver-siguiente-dos-colores": {
+   "name": "මාතෘකාව: ඊළඟට නරඹන්න, සුදු සහ රතු පෙට්ටියක",
+   "tags": [
+    "youtube",
+    "රතු",
+    "මාතෘකාව",
+    "සරල",
+    "පෙට්ටිය"
+   ]
+  },
+  "template:yp2-apertura": {
+   "name": "ආරම්භය: YouTube බොත්තමක් සහිත රතු සහ සුදු වළල්ල",
+   "tags": [
+    "youtube",
+    "රතු",
+    "ආරම්භය",
+    "ලාංඡනය",
+    "වළල්ල"
+   ]
+  },
+  "template:yp2-aro-canal": {
+   "name": "CHANNEL බවට විවෘත වන රතු සහ සුදු වළල්ල",
+   "tags": [
+    "youtube",
+    "රතු",
+    "වළල්ල",
+    "ලාංඡනය",
+    "නාලිකාව"
+   ]
+  },
+  "template:yp2-barra-15k": {
+   "name": "තීරුව: ලයික් සහ දායක වන්න",
+   "tags": [
+    "youtube",
+    "රතු",
+    "දායක වන්න",
+    "තීරුව"
+   ]
+  },
+  "template:yp2-barra-campana": {
+   "name": "තීරුව: ලයික්, දායක වන්න සහ සීනුව",
+   "tags": [
+    "youtube",
+    "රතු",
+    "දායක වන්න",
+    "තීරුව"
+   ]
+  },
+  "template:yp2-barra-canal": {
+   "name": "ඡායාරූපය සහ දායක වන්න සහිත නාලිකා තීරුව",
+   "tags": [
+    "youtube",
+    "රතු",
+    "දායක වන්න",
+    "තීරුව"
+   ]
+  },
+  "template:yp2-barra-contadores": {
+   "name": "තීරුව: ලයික්, ගණන් සහ දායක වන්න",
+   "tags": [
+    "youtube",
+    "රතු",
+    "දායක වන්න",
+    "තීරුව"
+   ]
+  },
+  "template:yp2-barra-simple": {
+   "name": "තීරුව: ලයික්, ඩිස්ලයික් සහ දායක වන්න",
+   "tags": [
+    "youtube",
+    "රතු",
+    "දායක වන්න",
+    "තීරුව"
+   ]
+  },
+  "template:yp2-dos-tarjetas": {
+   "name": "කාඩ්පත්: දායක වන්න සහ ලයික්",
+   "tags": [
+    "youtube",
+    "රතු",
+    "දායක වන්න",
+    "ලයික්"
+   ]
+  },
+  "template:yp2-icono-aro-blanco": {
+   "name": "අයිකනය: සුදු වළල්ලක් පිපිරීම",
+   "tags": [
+    "youtube",
+    "රතු",
+    "අයිකනය",
+    "සජීවීකරණ"
+   ]
+  },
+  "template:yp2-icono-aro-rojo": {
+   "name": "අයිකනය: රතු වළල්ලක් පිපිරීම",
+   "tags": [
+    "youtube",
+    "රතු",
+    "අයිකනය",
+    "සජීවීකරණ"
+   ]
+  },
+  "template:yp2-icono-buscador": {
+   "name": "අයිකනය: තමන්ම ඇඳෙන සෙවුම් පෙට්ටිය",
+   "tags": [
+    "youtube",
+    "රතු",
+    "අයිකනය",
+    "සජීවීකරණ"
+   ]
+  },
+  "template:yp2-icono-campana": {
+   "name": "අයිකනය: රතු පාටින් නාද වන සීනුව",
+   "tags": [
+    "youtube",
+    "රතු",
+    "අයිකනය",
+    "සජීවීකරණ"
+   ]
+  },
+  "template:yp2-icono-cargando": {
+   "name": "අයිකනය: කැරකෙන පූරණ තිත්",
+   "tags": [
+    "youtube",
+    "රතු",
+    "අයිකනය",
+    "සජීවීකරණ"
+   ]
+  },
+  "template:yp2-icono-cursor": {
+   "name": "අයිකනය: ක්ලික් කරන දර්ශකය",
+   "tags": [
+    "youtube",
+    "රතු",
+    "අයිකනය",
+    "සජීවීකරණ"
+   ]
+  },
+  "template:yp2-icono-destello": {
+   "name": "අයිකනය: ඉරි පිපිරීමක්",
+   "tags": [
+    "youtube",
+    "රතු",
+    "අයිකනය",
+    "සජීවීකරණ"
+   ]
+  },
+  "template:yp2-icono-flecha": {
+   "name": "අයිකනය: පහළට යොමු වූ ඊතලය",
+   "tags": [
+    "youtube",
+    "රතු",
+    "අයිකනය",
+    "සජීවීකරණ"
+   ]
+  },
+  "template:yp2-icono-me-gusta": {
+   "name": "අයිකනය: රතු බවට හැරෙන ලයික්",
+   "tags": [
+    "youtube",
+    "රතු",
+    "අයිකනය",
+    "සජීවීකරණ"
+   ]
+  },
+  "template:yp2-pagina-video": {
+   "name": "නැරඹුම් පිටුව: දායක වන්න සහ සීනුව",
+   "tags": [
+    "youtube",
+    "රතු",
+    "දායක වන්න",
+    "පිටුව"
+   ]
+  },
+  "template:yp2-redes-barras": {
+   "name": "සමාජ මාධ්‍ය: අයිකන සහිත තීරු 12ක්",
+   "tags": [
+    "youtube",
+    "රතු",
+    "සමාජ මාධ්‍ය",
+    "තීරු",
+    "අයිකන"
+   ]
+  },
+  "template:yp2-redes-iconos": {
+   "name": "සමාජ මාධ්‍ය: සෙවුම් පෙට්ටි සහිත අයිකන 6ක්",
+   "tags": [
+    "youtube",
+    "රතු",
+    "සමාජ මාධ්‍ය",
+    "අයිකන",
+    "සෙවුම"
+   ]
+  },
+  "template:yp2-siguiente-barra": {
+   "name": "අවසාන තිරය: රතු තීරුවක් සහිත ඊළඟ වීඩියෝව",
+   "tags": [
+    "youtube",
+    "රතු",
+    "අවසාන තිරය",
+    "ඊළඟ වීඩියෝව"
+   ]
+  },
+  "template:yp2-siguiente-onda": {
+   "name": "අවසාන තිරය: රතු රැල්ලක් සහිත ඊළඟ වීඩියෝව",
+   "tags": [
+    "youtube",
+    "රතු",
+    "අවසාන තිරය",
+    "ඊළඟ වීඩියෝව"
+   ]
+  },
+  "template:yp2-tarjeta-canal": {
+   "name": "ඡායාරූපය සහ ලාංඡනය සහිත නාලිකා කාඩ්පත",
+   "tags": [
+    "youtube",
+    "රතු",
+    "නාලිකාව",
+    "ලාංඡනය",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:yp2-tarjeta-video": {
+   "name": "වීඩියෝ කාඩ්පත: දායක වන්න සහ සීනුව",
+   "tags": [
+    "youtube",
+    "රතු",
+    "දායක වන්න",
+    "කාඩ්පත"
+   ]
+  },
+  "template:yp2-titulo-animation": {
+   "name": "වර්ධනය වන රතු පෙට්ටියක මාතෘකාව",
+   "tags": [
+    "youtube",
+    "රතු",
+    "මාතෘකාව",
+    "ටැගය"
+   ]
+  },
+  "template:yp2-titulo-best": {
+   "name": "ටැගයක් සහ ලිස්සන වචනයක් සහිත මාතෘකාව",
+   "tags": [
+    "youtube",
+    "රතු",
+    "මාතෘකාව",
+    "ටැගය"
+   ]
+  },
+  "template:yp2-titulo-brand": {
+   "name": "රතු රේඛා සහිත විශාල මාතෘකාව",
+   "tags": [
+    "youtube",
+    "රතු",
+    "මාතෘකාව",
+    "ටැගය"
+   ]
+  },
+  "template:yp2-titulo-clean": {
+   "name": "රතු රේඛා දෙකක් අතර මාතෘකාව",
+   "tags": [
+    "youtube",
+    "රතු",
+    "මාතෘකාව",
+    "ටැගය"
+   ]
+  },
+  "template:yp2-titulo-just-edit": {
+   "name": "රාමුවක මාතෘකාව සහ යටින් වචනයක්",
+   "tags": [
+    "youtube",
+    "රතු",
+    "මාතෘකාව",
+    "ටැගය"
+   ]
+  },
+  "template:yp2-titulo-motion-design": {
+   "name": "රතු ටැගයක් සහිත මාතෘකාව",
+   "tags": [
+    "youtube",
+    "රතු",
+    "මාතෘකාව",
+    "ටැගය"
+   ]
+  },
+  "template:yp2-titulo-new-project": {
+   "name": "රතු තීරුවකින් අනාවරණය වන මාතෘකාව",
+   "tags": [
+    "youtube",
+    "රතු",
+    "මාතෘකාව",
+    "ටැගය"
+   ]
+  },
+  "template:yp2-titulo-rendering": {
+   "name": "පහළට වැටෙන රතු රේඛාවක් යට මාතෘකාව",
+   "tags": [
+    "youtube",
+    "රතු",
+    "මාතෘකාව",
+    "ටැගය"
+   ]
+  },
+  "template:yp2-titulo-simple": {
+   "name": "රතු චතුරස්‍රයකින් ලිස්සා එන මාතෘකාව",
+   "tags": [
+    "youtube",
+    "රතු",
+    "මාතෘකාව",
+    "ටැගය"
+   ]
+  },
+  "template:yp2-titulo-your-channel": {
+   "name": "රතු රාමුවක මාතෘකාව",
+   "tags": [
+    "youtube",
+    "රතු",
+    "මාතෘකාව",
+    "ටැගය"
+   ]
+  },
+  "template:yp2-transicion-diagonal": {
+   "name": "සංක්‍රාන්තිය: රතු, සුදු සහ අළු විකර්ණ තීරු",
+   "tags": [
+    "youtube",
+    "රතු",
+    "සංක්‍රාන්තිය",
+    "විකර්ණ"
+   ]
+  },
+  "template:yp2-transicion-franjas": {
+   "name": "සංක්‍රාන්තිය: කැරකෙන රතු සහ සුදු ඉරි",
+   "tags": [
+    "youtube",
+    "රතු",
+    "සංක්‍රාන්තිය",
+    "ඉරි"
+   ]
+  },
+  "template:yp3-avatar-cadena": {
+   "name": "බොත්තම: ලයික් සහ සීනුව දාමයක් සහිත අවතාරය",
+   "tags": [
+    "youtube",
+    "දායක වන්න",
+    "බොත්තම",
+    "අවතාරය",
+    "ලයික්",
+    "සීනුව"
+   ]
+  },
+  "template:yp3-avatar-rojo": {
+   "name": "බොත්තම: රතු දායක වන්න සහිත නාලිකා අවතාරය",
+   "tags": [
+    "youtube",
+    "දායක වන්න",
+    "බොත්තම",
+    "අවතාරය",
+    "සීනුව",
+    "දර්ශකය"
+   ]
+  },
+  "template:yp3-burbujas-rojas": {
+   "name": "බොත්තම: සීනුව, අවතාරය සහ ලයික් සහිත රතු බුබුළු",
+   "tags": [
+    "youtube",
+    "දායක වන්න",
+    "බොත්තම",
+    "අවතාරය",
+    "සීනුව",
+    "ලයික්"
+   ]
+  },
+  "template:yp3-caja-me-gusta-campana": {
+   "name": "බොත්තම: ලයික් සිට සීනුවට හැරෙන රතු පෙට්ටිය",
+   "tags": [
+    "youtube",
+    "දායක වන්න",
+    "බොත්තම",
+    "ලයික්",
+    "සීනුව",
+    "3d"
+   ]
+  },
+  "template:yp3-caja-roja-campana": {
+   "name": "බොත්තම: සීනුවක් සහ ඇල “Subscribed” සහිත රතු පෙට්ටිය",
+   "tags": [
+    "youtube",
+    "දායක වන්න",
+    "බොත්තම",
+    "සීනුව",
+    "3d"
+   ]
+  },
+  "template:yp3-campana-redonda": {
+   "name": "බොත්තම: “Subscribed” බවට හැරෙන රවුම් සීනුව",
+   "tags": [
+    "youtube",
+    "දායක වන්න",
+    "බොත්තම",
+    "සීනුව",
+    "දර්ශකය"
+   ]
+  },
+  "template:yp3-final-anillos-blancos": {
+   "name": "අවසාන තිරය: සුදු වළලු මත “Click to Subscribe”",
+   "tags": [
+    "youtube",
+    "අවසාන තිරය",
+    "දායක වන්න",
+    "සුදු",
+    "රෝස"
+   ]
+  },
+  "template:yp3-final-aro-degradado": {
+   "name": "අවසාන තිරය: කළු මත අනුක්‍රමණ වළල්ල",
+   "tags": [
+    "youtube",
+    "අවසාන තිරය",
+    "දායක වන්න",
+    "කළු",
+    "අනුක්‍රමණය",
+    "සමාජ මාධ්‍ය"
+   ]
+  },
+  "template:yp3-final-banda-azul": {
+   "name": "අවසාන තිරය: ඡායාරූපයක් මත නිල් පටිය සහ වීඩියෝ දෙකක්",
+   "tags": [
+    "youtube",
+    "අවසාන තිරය",
+    "දායක වන්න",
+    "නිල්",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:yp3-final-capsula-turquesa": {
+   "name": "අවසාන තිරය: වීඩියෝ දෙකක් සහිත ටර්කොයිස් කැප්සියුලය",
+   "tags": [
+    "youtube",
+    "අවසාන තිරය",
+    "දායක වන්න",
+    "ටර්කොයිස්",
+    "ලයික්",
+    "සීනුව"
+   ]
+  },
+  "template:yp3-final-gris": {
+   "name": "අවසාන තිරය: වීඩියෝ දෙකක් සහ අවතාරයක් සහිත මෘදු අළු",
+   "tags": [
+    "youtube",
+    "අවසාන තිරය",
+    "දායක වන්න",
+    "අළු",
+    "නියුමෝෆික්"
+   ]
+  },
+  "template:yp3-final-hexagono": {
+   "name": "අවසාන තිරය: “Click to Subscribe” සහිත අනුක්‍රමණ ෂඩාස්‍රය",
+   "tags": [
+    "youtube",
+    "අවසාන තිරය",
+    "දායක වන්න",
+    "ෂඩාස්‍රය",
+    "අනුක්‍රමණය",
+    "සමාජ මාධ්‍ය"
+   ]
+  },
+  "template:yp3-final-manchas-rojas": {
+   "name": "අවසාන තිරය: අවතාරය සහ ඊළඟ වීඩියෝව සහිත රතු පැල්ලම්",
+   "tags": [
+    "youtube",
+    "අවසාන තිරය",
+    "දායක වන්න",
+    "රතු",
+    "සමාජ මාධ්‍ය"
+   ]
+  },
+  "template:yp3-final-no-olvides": {
+   "name": "අවසාන තිරය: නිල් ඇලයක් සහිත “Don't forget to subscribe”",
+   "tags": [
+    "youtube",
+    "අවසාන තිරය",
+    "දායක වන්න",
+    "නිල්",
+    "ඡායාරූපය",
+    "සමාජ මාධ්‍ය"
+   ]
+  },
+  "template:yp3-final-olas-turquesa": {
+   "name": "අවසාන තිරය: නිර්දේශිත වීඩියෝවක් සහිත ටර්කොයිස් රැලි",
+   "tags": [
+    "youtube",
+    "අවසාන තිරය",
+    "දායක වන්න",
+    "ටර්කොයිස්",
+    "රැලි"
+   ]
+  },
+  "template:yp3-final-rosa": {
+   "name": "අවසාන තිරය: රෝස “Thanks for Watching!”",
+   "tags": [
+    "youtube",
+    "අවසාන තිරය",
+    "දායක වන්න",
+    "රෝස",
+    "සමාජ මාධ්‍ය"
+   ]
+  },
+  "template:yp3-final-rosa-siguiente": {
+   "name": "අවසාන තිරය: කුට්ටි සහිත රෝස “next video”",
+   "tags": [
+    "youtube",
+    "අවසාන තිරය",
+    "දායක වන්න",
+    "රෝස",
+    "කුට්ටි"
+   ]
+  },
+  "template:yp3-final-tarjeta-lila": {
+   "name": "අවසාන තිරය: ලා දම් කාඩ්පත “Please don't forget to subscribe”",
+   "tags": [
+    "youtube",
+    "අවසාන තිරය",
+    "දායක වන්න",
+    "ලා දම්",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:yp3-final-tarjeta-morada": {
+   "name": "අවසාන තිරය: වීඩියෝ දෙකක් සහිත දම් කාඩ්පත",
+   "tags": [
+    "youtube",
+    "අවසාන තිරය",
+    "දායක වන්න",
+    "දම්"
+   ]
+  },
+  "template:yp3-me-gusta-redondo": {
+   "name": "බොත්තම: “Liked” සහ “Subscribed” සහිත රවුම් ලයික් සහ සීනුව",
+   "tags": [
+    "youtube",
+    "දායක වන්න",
+    "බොත්තම",
+    "ලයික්",
+    "සීනුව",
+    "දර්ශකය"
+   ]
+  },
+  "template:yp3-pestana-degradado": {
+   "name": "බොත්තම: අවතාරයක් සහිත රෝස සහ දම් ටැබය",
+   "tags": [
+    "youtube",
+    "දායක වන්න",
+    "බොත්තම",
+    "අවතාරය",
+    "අනුක්‍රමණය"
+   ]
+  },
+  "template:yp3-pildora-burbujas": {
+   "name": "බොත්තම: අවතාරයක් සහිත අනුක්‍රමණ බුබුළු පෙති",
+   "tags": [
+    "youtube",
+    "දායක වන්න",
+    "බොත්තම",
+    "අවතාරය",
+    "අනුක්‍රමණය",
+    "ලයික්"
+   ]
+  },
+  "template:yp3-pildora-degradado": {
+   "name": "බොත්තම: අනුක්‍රමණ සීනුවක් සහිත සුදු පෙති",
+   "tags": [
+    "youtube",
+    "දායක වන්න",
+    "බොත්තම",
+    "සීනුව",
+    "දර්ශකය",
+    "අනුක්‍රමණය"
+   ]
+  },
+  "template:yp3-play-contorno": {
+   "name": "බොත්තම: පෙරළෙන සුදු ප්ලේ අයිකනය සහ “Subscribed”",
+   "tags": [
+    "youtube",
+    "දායක වන්න",
+    "බොත්තම",
+    "දර්ශකය",
+    "සුදු",
+    "3d"
+   ]
+  },
+  "template:yp3-suscribirse-rojo": {
+   "name": "බොත්තම: ලයික් සහ සීනුව සහිත රතු දායක වන්න",
+   "tags": [
+    "youtube",
+    "දායක වන්න",
+    "බොත්තම",
+    "ලයික්",
+    "සීනුව",
+    "දර්ශකය"
+   ]
+  },
+  "template:yp3-tarjeta-blanca": {
+   "name": "බොත්තම: අවතාරය සහ ලයික් සහිත සුදු කාඩ්පත",
+   "tags": [
+    "youtube",
+    "දායක වන්න",
+    "බොත්තම",
+    "ලයික්",
+    "අවතාරය",
+    "3d"
+   ]
+  },
+  "template:yp4-bienvenida": {
+   "name": "කතාව: රතු සහ කළු තැටි සහිත සාදරයෙන් පිළිගැනීම",
+   "tags": [
+    "කතාව",
+    "youtube",
+    "සිරස්",
+    "සාදරයෙන් පිළිගැනීම",
+    "රවුම"
+   ]
+  },
+  "template:yp4-canal": {
+   "name": "කතාව: ප්ලේ බොත්තමක් සහිත CHANNEL",
+   "tags": [
+    "කතාව",
+    "youtube",
+    "සිරස්",
+    "නාලිකාව"
+   ]
+  },
+  "template:yp4-contador": {
+   "name": "කතාව: ඡායාරූප සහ කහ රාමුවක් සහිත 2/6",
+   "tags": [
+    "කතාව",
+    "youtube",
+    "සිරස්",
+    "ඡායාරූපය",
+    "කහ",
+    "කවුන්ටරය"
+   ]
+  },
+  "template:yp4-derechos": {
+   "name": "කතාව: කහ මත සුදු රවුම",
+   "tags": [
+    "කතාව",
+    "youtube",
+    "සිරස්",
+    "කහ",
+    "රවුම"
+   ]
+  },
+  "template:yp4-fundamentos": {
+   "name": "කතාව: ඡායාරූපයක් මත ඇල රතු ලේබලය",
+   "tags": [
+    "කතාව",
+    "youtube",
+    "සිරස්",
+    "ඡායාරූපය",
+    "ටැගය"
+   ]
+  },
+  "template:yp4-gracias": {
+   "name": "කතාව: ඡායාරූප දෙකක් සහ නම් සහිත ස්තූතියි",
+   "tags": [
+    "කතාව",
+    "youtube",
+    "සිරස්",
+    "ඡායාරූපය",
+    "ස්තූතියි"
+   ]
+  },
+  "template:yp4-love": {
+   "name": "කතාව: දායක වන්න කාඩ්පතක් සහිත love",
+   "tags": [
+    "කතාව",
+    "youtube",
+    "සිරස්",
+    "ඡායාරූපය",
+    "දායක වන්න"
+   ]
+  },
+  "template:yp4-mi-plan": {
+   "name": "කතාව: ලැයිස්තුවක් සහ ලේබලයක් සහිත මගේ සැලැස්ම",
+   "tags": [
+    "කතාව",
+    "youtube",
+    "සිරස්",
+    "ඡායාරූපය",
+    "ලැයිස්තුව"
+   ]
+  },
+  "template:yp4-nombre-blanco": {
+   "name": "කතාව: සුදු මත රවුම් ඡායාරූපයක් සහිත නම",
+   "tags": [
+    "කතාව",
+    "youtube",
+    "සිරස්",
+    "ඡායාරූපය",
+    "නම"
+   ]
+  },
+  "template:yp4-nombre-circulo": {
+   "name": "කතාව: රවුම් ඡායාරූපයක් අසල නම",
+   "tags": [
+    "කතාව",
+    "youtube",
+    "සිරස්",
+    "ඡායාරූපය",
+    "නම"
+   ]
+  },
+  "template:yp4-numeros": {
+   "name": "කතාව: 01 සහ 02 ස්ලයිඩ",
+   "tags": [
+    "කතාව",
+    "youtube",
+    "සිරස්",
+    "ඡායාරූපය",
+    "අංක"
+   ]
+  },
+  "template:yp4-por-ejemplo": {
+   "name": "කතාව: ඡායාරූප සහිත රතු මත කහ වාක්‍ය ඛණ්ඩය",
+   "tags": [
+    "කතාව",
+    "youtube",
+    "සිරස්",
+    "ඡායාරූපය",
+    "වාක්‍ය ඛණ්ඩය"
+   ]
+  },
+  "template:yp4-seguir": {
+   "name": "කතාව: සමාජ කාඩ්පතක් සහිත Follow",
+   "tags": [
+    "කතාව",
+    "youtube",
+    "සිරස්",
+    "ඡායාරූපය",
+    "අනුගමනය",
+    "සමාජ මාධ්‍ය"
+   ]
+  },
+  "template:yp4-siguiente": {
+   "name": "කතාව: ඊළඟට සහ Watch සහිත ඡායාරූප දෙකක්",
+   "tags": [
+    "කතාව",
+    "youtube",
+    "සිරස්",
+    "ඡායාරූපය",
+    "ඊළඟ"
+   ]
+  },
+  "template:yp4-social-media": {
+   "name": "කතාව: follow me සහිත Social Media",
+   "tags": [
+    "කතාව",
+    "youtube",
+    "සිරස්",
+    "ඡායාරූපය",
+    "අනුගමනය"
+   ]
+  },
+  "template:yp4-vlogger": {
+   "name": "කතාව: හදවත් සහ දායක වන්න සහිත VLOGGER",
+   "tags": [
+    "කතාව",
+    "youtube",
+    "සිරස්",
+    "ඡායාරූපය",
+    "දායක වන්න",
+    "හදවත්"
+   ]
+  },
+  "template:yp5-avatar-cycle": {
+   "name": "පහළ තෙවැන්න: අවතාරය සහ වෙනස් වන ටැගය",
+   "tags": [
+    "youtube",
+    "අවතාරය",
+    "ලයික්",
+    "දායක වන්න"
+   ]
+  },
+  "template:yp5-best-show": {
+   "name": "පහළ තෙවැන්න: බොත්තම, බෙදුම් රේඛාව සහ පේළි දෙකක්",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "වීඩියෝ සැකිල්ල"
+   ]
+  },
+  "template:yp5-best-solution": {
+   "name": "මාතෘකාව: රාමුවක සුදු සහ කළු පෙට්ටි",
+   "tags": [
+    "youtube",
+    "පෙට්ටිය",
+    "රාමුව"
+   ]
+  },
+  "template:yp5-best-video": {
+   "name": "මාතෘකාව: රතු රේඛාව සහ රතු පෙට්ටිය",
+   "tags": [
+    "youtube",
+    "රතු",
+    "වීඩියෝ සැකිල්ල"
+   ]
+  },
+  "template:yp5-big-live-story": {
+   "name": "පහළ තෙවැන්න: විශාල වී පහළට එන ප්ලේ බොත්තම සහ නමක්",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "දායක වන්න"
+   ]
+  },
+  "template:yp5-box-any-fonts": {
+   "name": "මධ්‍යගත පෙට්ටි දෙකක මාතෘකාව",
+   "tags": [
+    "youtube",
+    "පෙට්ටිය",
+    "ටයිප් වන"
+   ]
+  },
+  "template:yp5-box-auto-resized": {
+   "name": "ටයිප් කරන විට වර්ධනය වන පෙට්ටි මාතෘකාව",
+   "tags": [
+    "youtube",
+    "පෙට්ටිය",
+    "ටයිප් වන"
+   ]
+  },
+  "template:yp5-box-automatically": {
+   "name": "සුදු පෙට්ටියක සහ කළු පෙට්ටියක මාතෘකාව",
+   "tags": [
+    "youtube",
+    "පෙට්ටිය",
+    "ටයිප් වන"
+   ]
+  },
+  "template:yp5-box-best-choice": {
+   "name": "කළු පෙට්ටි තුනක මාතෘකාව",
+   "tags": [
+    "youtube",
+    "පෙට්ටිය",
+    "ටයිප් වන"
+   ]
+  },
+  "template:yp5-box-dont-forget": {
+   "name": "සුදු පෙට්ටි තුනක මැද මාතෘකාව",
+   "tags": [
+    "youtube",
+    "පෙට්ටිය",
+    "දායක වන්න"
+   ]
+  },
+  "template:yp5-box-enjoy": {
+   "name": "සුදු දළ සටහන් පෙට්ටිවල මාතෘකාව",
+   "tags": [
+    "youtube",
+    "පෙට්ටිය",
+    "දළ සටහන"
+   ]
+  },
+  "template:yp5-box-great-design": {
+   "name": "සුදු පෙට්ටි දෙකක මාතෘකාව",
+   "tags": [
+    "youtube",
+    "පෙට්ටිය",
+    "ටයිප් වන"
+   ]
+  },
+  "template:yp5-box-like-that": {
+   "name": "මැදින් විවෘත වන පෙට්ටිවල මාතෘකාව",
+   "tags": [
+    "youtube",
+    "පෙට්ටිය",
+    "දායක වන්න"
+   ]
+  },
+  "template:yp5-box-motion-design": {
+   "name": "ඇල සුදු පෙට්ටියක මාතෘකාව",
+   "tags": [
+    "youtube",
+    "පෙට්ටිය",
+    "ඇල"
+   ]
+  },
+  "template:yp5-box-thank-support": {
+   "name": "මාතෘකාව: සුදු පෙට්ටියක් බවට විවෘත වන රේඛාවක්",
+   "tags": [
+    "youtube",
+    "පෙට්ටිය",
+    "වීඩියෝ සැකිල්ල"
+   ]
+  },
+  "template:yp5-box-we-created": {
+   "name": "ටයිප් වන කළු පෙට්ටි තුනක මාතෘකාව",
+   "tags": [
+    "youtube",
+    "පෙට්ටිය",
+    "ටයිප් වන"
+   ]
+  },
+  "template:yp5-box-write-text": {
+   "name": "දළ සටහන් පෙට්ටියක මාතෘකාව",
+   "tags": [
+    "youtube",
+    "පෙට්ටිය",
+    "ටයිප් වන"
+   ]
+  },
+  "template:yp5-bubble-swap": {
+   "name": "පහළ තෙවැන්න: ලයික් සිට දායක වන්නට රතු බුබුල",
+   "tags": [
+    "youtube",
+    "ලයික්",
+    "දායක වන්න",
+    "කතා බුබුල"
+   ]
+  },
+  "template:yp5-callout-brand": {
+   "name": "ඇමතුම් සටහන: වෙළඳ නාමය සහ මිල",
+   "tags": [
+    "youtube",
+    "ඇමතුම් සටහන",
+    "මිල"
+   ]
+  },
+  "template:yp5-callout-creative": {
+   "name": "ඇමතුම් සටහන: තිත් රේඛාව සහ පෙට්ටි දෙකක්",
+   "tags": [
+    "youtube",
+    "ඇමතුම් සටහන",
+    "රතු"
+   ]
+  },
+  "template:yp5-callout-elbow": {
+   "name": "ඇමතුම් සටහන: වක්‍ර රේඛාව සහ රතු පෙළ පෙට්ටිය",
+   "tags": [
+    "youtube",
+    "ඇමතුම් සටහන",
+    "රතු"
+   ]
+  },
+  "template:yp5-callout-headline": {
+   "name": "ඇමතුම් සටහන: රතු සිරස්තලය සහ කළු පෙට්ටිය",
+   "tags": [
+    "youtube",
+    "ඇමතුම් සටහන",
+    "රතු"
+   ]
+  },
+  "template:yp5-callout-line-up": {
+   "name": "ඇමතුම් සටහන: කළු පෙට්ටියකට නැඟෙන රේඛාව",
+   "tags": [
+    "youtube",
+    "ඇමතුම් සටහන",
+    "වීඩියෝ සැකිල්ල"
+   ]
+  },
+  "template:yp5-callout-outline": {
+   "name": "තිතක් සහ පෙළක් සහිත ඇමතුම් රේඛාව",
+   "tags": [
+    "youtube",
+    "ඇමතුම් සටහන",
+    "වීඩියෝ සැකිල්ල"
+   ]
+  },
+  "template:yp5-callout-product": {
+   "name": "ඇමතුම් සටහන: රේඛාව සහ නිෂ්පාදන රාමුව",
+   "tags": [
+    "youtube",
+    "ඇමතුම් සටහන",
+    "නිෂ්පාදනය"
+   ]
+  },
+  "template:yp5-callout-red-box": {
+   "name": "රතු පෙට්ටියක් සහිත ඇමතුම් රේඛාව",
+   "tags": [
+    "youtube",
+    "ඇමතුම් සටහන",
+    "රතු"
+   ]
+  },
+  "template:yp5-callout-red-line": {
+   "name": "ඇමතුම් සටහන: රතු රේඛාව සහ රතු පෙට්ටිය",
+   "tags": [
+    "youtube",
+    "ඇමතුම් සටහන",
+    "රතු"
+   ]
+  },
+  "template:yp5-callout-title-bar": {
+   "name": "ඇමතුම් සටහන: රතු තීරුව සහ මාතෘකාව",
+   "tags": [
+    "youtube",
+    "ඇමතුම් සටහන",
+    "රතු"
+   ]
+  },
+  "template:yp5-channel-name": {
+   "name": "පහළ තෙවැන්න: ඉරි සහිත ඇල නාලිකා නම",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "ඉරි"
+   ]
+  },
+  "template:yp5-clean-modern": {
+   "name": "පහළ තෙවැන්න: පෙති ආකාරයක අංකය සහ පෙළ",
+   "tags": [
+    "youtube",
+    "අංකය",
+    "පෙති"
+   ]
+  },
+  "template:yp5-clean-titles": {
+   "name": "මාතෘකාව: සුදු රාමුවක පේළි හතරක්",
+   "tags": [
+    "youtube",
+    "රාමුව",
+    "වීඩියෝ සැකිල්ල"
+   ]
+  },
+  "template:yp5-click-channel": {
+   "name": "පහළ තෙවැන්න: බොත්තම මත ක්ලික් කිරීම සහ රතු තීරුව",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "ක්ලික්"
+   ]
+  },
+  "template:yp5-counter-bubbles": {
+   "name": "කවුන්ටර: දැනුම්දීම් බුබුළු",
+   "tags": [
+    "youtube",
+    "කවුන්ටරය",
+    "ලයික්"
+   ]
+  },
+  "template:yp5-counter-heart": {
+   "name": "හදවතක් සහිත ලයික් කවුන්ටරය",
+   "tags": [
+    "youtube",
+    "කවුන්ටරය",
+    "ලයික්"
+   ]
+  },
+  "template:yp5-counter-link": {
+   "name": "විස්තරයේ සබැඳිය",
+   "tags": [
+    "youtube",
+    "සබැඳිය",
+    "වීඩියෝ සැකිල්ල"
+   ]
+  },
+  "template:yp5-counter-person": {
+   "name": "අනුගාමික කවුන්ටරය",
+   "tags": [
+    "youtube",
+    "කවුන්ටරය",
+    "වීඩියෝ සැකිල්ල"
+   ]
+  },
+  "template:yp5-counter-subscribers": {
+   "name": "දායක කවුන්ටරය",
+   "tags": [
+    "youtube",
+    "කවුන්ටරය",
+    "දායක වන්න"
+   ]
+  },
+  "template:yp5-doodle-channel": {
+   "name": "පහළ තෙවැන්න: සුදු බොත්තම, රතු තීරුව සහ ඩූඩල්",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "ඇඳීම්"
+   ]
+  },
+  "template:yp5-end-big-arc": {
+   "name": "අවසාන තිරය: විශාල කොරල් චාපය සහ වීඩියෝ දෙකක්",
+   "tags": [
+    "youtube",
+    "ස්තූතිය",
+    "කොරල්"
+   ]
+  },
+  "template:yp5-end-circle": {
+   "name": "අවසාන තිරය: කොරල් අර්ධ රවුම සහ නිර්දේශිත වීඩියෝවක්",
+   "tags": [
+    "youtube",
+    "ස්තූතිය",
+    "කොරල්"
+   ]
+  },
+  "template:yp5-end-coral": {
+   "name": "කොරල් අවසාන තිරය: අවතාරය, වීඩියෝ දෙකක් සහ සමාජ මාධ්‍ය",
+   "tags": [
+    "youtube",
+    "ස්තූතිය",
+    "කොරල්"
+   ]
+  },
+  "template:yp5-end-coral-column": {
+   "name": "කොරල් අවසාන තිරය: වීඩියෝ දෙකක්, සමාජ මාධ්‍ය සහ අවතාරය",
+   "tags": [
+    "youtube",
+    "ස්තූතිය",
+    "කොරල්"
+   ]
+  },
+  "template:yp5-end-diagonal": {
+   "name": "අවසාන තිරය: ඇල කොරල් පුවරුව සහ ඊළඟ වීඩියෝව",
+   "tags": [
+    "youtube",
+    "ස්තූතිය",
+    "කොරල්"
+   ]
+  },
+  "template:yp5-end-side-panel": {
+   "name": "අවසාන තිරය: කොරල් පුවරුව සහ වීඩියෝ දෙකක්",
+   "tags": [
+    "youtube",
+    "ස්තූතිය",
+    "කොරල්"
+   ]
+  },
+  "template:yp5-end-subscribe-arrow": {
+   "name": "අවසාන තිරය: නිර්දේශිත වීඩියෝව සහ විශාල SUBSCRIBE",
+   "tags": [
+    "youtube",
+    "ස්තූතිය",
+    "දායක වන්න"
+   ]
+  },
+  "template:yp5-end-white-arrow": {
+   "name": "අවසාන තිරය: රතු ඊතලයක් සහිත සුදු ත්‍රිකෝණය",
+   "tags": [
+    "youtube",
+    "ස්තූතිය",
+    "ඊතලය"
+   ]
+  },
+  "template:yp5-end-white-band": {
+   "name": "අවසාන තිරය: වීඩියෝ දෙකක් සහිත සුදු පටිය",
+   "tags": [
+    "youtube",
+    "ස්තූතිය",
+    "සුදු"
+   ]
+  },
+  "template:yp5-end-white-curve": {
+   "name": "අවසාන තිරය: වක්‍ර සුදු පුවරුව සහ වීඩියෝ දෙකක්",
+   "tags": [
+    "youtube",
+    "ස්තූතිය",
+    "සුදු"
+   ]
+  },
+  "template:yp5-good-design": {
+   "name": "මාතෘකාව: වචනයෙන් වචනය මැකී පෙනෙන පේළි තුනක්",
+   "tags": [
+    "youtube",
+    "අවම",
+    "වීඩියෝ සැකිල්ල"
+   ]
+  },
+  "template:yp5-hello-welcome": {
+   "name": "මාතෘකාව: HELLO! සහ මගේ නාලිකාවට සාදරයෙන් පිළිගනිමු",
+   "tags": [
+    "youtube",
+    "සාදරයෙන් පිළිගැනීම",
+    "කොරල්"
+   ]
+  },
+  "template:yp5-how-do-i": {
+   "name": "පහළ තෙවැන්න: සුදු පෙට්ටියක ප්‍රශ්නය",
+   "tags": [
+    "youtube",
+    "පෙට්ටිය",
+    "සුදු"
+   ]
+  },
+  "template:yp5-like-card": {
+   "name": "පහළ තෙවැන්න: ලයික්, දායක වන්න සහ දැනුම් දෙන්න",
+   "tags": [
+    "youtube",
+    "ලයික්",
+    "දායක වන්න",
+    "සීනුව"
+   ]
+  },
+  "template:yp5-like-column": {
+   "name": "පහළ තෙවැන්න: ටැග් තුනක් සහිත රතු තීරුව",
+   "tags": [
+    "youtube",
+    "ලයික්",
+    "දායක වන්න",
+    "සීනුව"
+   ]
+  },
+  "template:yp5-like-hand": {
+   "name": "පහළ තෙවැන්න: අතකින් වීඩියෝවට ලයික් කරන්න",
+   "tags": [
+    "youtube",
+    "ලයික්",
+    "වීඩියෝ සැකිල්ල"
+   ]
+  },
+  "template:yp5-modern-titles": {
+   "name": "මාතෘකාව: සුදු රාමුව සහ පේළි තුනක්",
+   "tags": [
+    "youtube",
+    "රාමුව",
+    "වීඩියෝ සැකිල්ල"
+   ]
+  },
+  "template:yp5-modern-universal": {
+   "name": "පහළ තෙවැන්න: පේළි තුනක් සහ රේඛාවක්",
+   "tags": [
+    "youtube",
+    "අවම",
+    "වීඩියෝ සැකිල්ල"
+   ]
+  },
+  "template:yp5-name-bar": {
+   "name": "පහළ තෙවැන්න: සුදු තීරුව සහ ලිස්සා එන නම",
+   "tags": [
+    "youtube",
+    "නම",
+    "තීරුව"
+   ]
+  },
+  "template:yp5-name-red-box": {
+   "name": "පහළ තෙවැන්න: රතු පෙට්ටියක නම",
+   "tags": [
+    "youtube",
+    "නම",
+    "රතු"
+   ]
+  },
+  "template:yp5-name-square-line": {
+   "name": "පහළ තෙවැන්න: කුඩා චතුරස්‍රය, රේඛාව සහ නම",
+   "tags": [
+    "youtube",
+    "නම",
+    "රේඛාව"
+   ]
+  },
+  "template:yp5-name-white-box": {
+   "name": "පහළ තෙවැන්න: සුදු පෙට්ටියක ටයිප් වන නම",
+   "tags": [
+    "youtube",
+    "නම",
+    "පෙට්ටිය"
+   ]
+  },
+  "template:yp5-new-video": {
+   "name": "පහළ තෙවැන්න: කළු තීරුවක නව වීඩියෝව",
+   "tags": [
+    "youtube",
+    "තීරුව",
+    "කළු"
+   ]
+  },
+  "template:yp5-notify-bell": {
+   "name": "පහළ තෙවැන්න: නාද වන සීනුවක් සහිත දැනුම්දීම්",
+   "tags": [
+    "youtube",
+    "සීනුව",
+    "වීඩියෝ සැකිල්ල"
+   ]
+  },
+  "template:yp5-opener-boxes": {
+   "name": "රතු ආරම්භය: කළු පෙට්ටිවල නම",
+   "tags": [
+    "youtube",
+    "රතු",
+    "පෙට්ටි"
+   ]
+  },
+  "template:yp5-opener-divider": {
+   "name": "රතු ආරම්භය: බොත්තම, බෙදුම් රේඛාව සහ නම",
+   "tags": [
+    "youtube",
+    "රතු",
+    "දායක වන්න"
+   ]
+  },
+  "template:yp5-opener-fade": {
+   "name": "රතු ආරම්භය: මැකී පෙනෙන බොත්තම සහ නම",
+   "tags": [
+    "youtube",
+    "රතු",
+    "වීඩියෝ සැකිල්ල"
+   ]
+  },
+  "template:yp5-opener-flip": {
+   "name": "රතු ආරම්භය: පෙරළෙන බොත්තම සහ නම",
+   "tags": [
+    "youtube",
+    "රතු",
+    "රැලි"
+   ]
+  },
+  "template:yp5-opener-typed": {
+   "name": "රතු ආරම්භය: ටයිප් වන නම",
+   "tags": [
+    "youtube",
+    "රතු",
+    "ටයිප් වන"
+   ]
+  },
+  "template:yp5-profile-card": {
+   "name": "පහළ තෙවැන්න: අවතාරයක් සහිත සුදු කාඩ්පත",
+   "tags": [
+    "youtube",
+    "අවතාරය",
+    "දායක වන්න"
+   ]
+  },
+  "template:yp5-promo-pack": {
+   "name": "මාතෘකාව: කළු පෙට්ටියක YOUTUBE PROMO",
+   "tags": [
+    "youtube",
+    "පෙට්ටිය",
+    "කළු"
+   ]
+  },
+  "template:yp5-quote-black-frame": {
+   "name": "ටැගයක් සහිත කළු රාමුවක උද්ධෘතය",
+   "tags": [
+    "youtube",
+    "උද්ධෘතය",
+    "රාමුව"
+   ]
+  },
+  "template:yp5-quote-brackets": {
+   "name": "කොන් දෙකක් අතර උද්ධෘතය",
+   "tags": [
+    "youtube",
+    "උද්ධෘතය",
+    "වීඩියෝ සැකිල්ල"
+   ]
+  },
+  "template:yp5-quote-bubble": {
+   "name": "කතා බුබුලක උද්ධෘතය",
+   "tags": [
+    "youtube",
+    "උද්ධෘතය",
+    "කතා බුබුල"
+   ]
+  },
+  "template:yp5-quote-centred": {
+   "name": "සුදු ටැගයක් සහිත මධ්‍යගත උද්ධෘතය",
+   "tags": [
+    "youtube",
+    "උද්ධෘතය",
+    "වීඩියෝ සැකිල්ල"
+   ]
+  },
+  "template:yp5-quote-corners": {
+   "name": "සුදු කොන් දෙකක් අතර උද්ධෘතය",
+   "tags": [
+    "youtube",
+    "උද්ධෘතය",
+    "වීඩියෝ සැකිල්ල"
+   ]
+  },
+  "template:yp5-quote-frame": {
+   "name": "කළු ටැගයක් සහිත රාමුවක උද්ධෘතය",
+   "tags": [
+    "youtube",
+    "උද්ධෘතය",
+    "රාමුව"
+   ]
+  },
+  "template:yp5-quote-line": {
+   "name": "උද්ධෘතය: සිරස් රේඛාව සහ පෙට්ටිවල උද්ධෘත ලකුණු",
+   "tags": [
+    "youtube",
+    "උද්ධෘතය",
+    "වීඩියෝ සැකිල්ල"
+   ]
+  },
+  "template:yp5-quote-split-bar": {
+   "name": "තීරු දෙකක් අතර විවෘත වන උද්ධෘතය",
+   "tags": [
+    "youtube",
+    "උද්ධෘතය",
+    "වීඩියෝ සැකිල්ල"
+   ]
+  },
+  "template:yp5-quote-two-lines": {
+   "name": "රේඛා දෙකක් අතර උද්ධෘතය",
+   "tags": [
+    "youtube",
+    "උද්ධෘතය",
+    "වීඩියෝ සැකිල්ල"
+   ]
+  },
+  "template:yp5-quote-white-box": {
+   "name": "කළු ලකුණු සහිත සුදු පෙට්ටියක උද්ධෘතය",
+   "tags": [
+    "youtube",
+    "උද්ධෘතය",
+    "පෙට්ටිය"
+   ]
+  },
+  "template:yp5-record-iris": {
+   "name": "සංක්‍රාන්තිය: විවෘත වන රෙකෝඩ් රවුම්",
+   "tags": [
+    "youtube",
+    "සංක්‍රාන්තිය",
+    "රවුම්"
+   ]
+  },
+  "template:yp5-social-baldosa-fb": {
+   "name": "සමාජ තීරුව: Facebook (පියාසර කරන ටයිලය)",
+   "tags": [
+    "youtube",
+    "සමාජ මාධ්‍ය",
+    "facebook"
+   ]
+  },
+  "template:yp5-social-baldosa-ig": {
+   "name": "සමාජ තීරුව: Instagram (පියාසර කරන ටයිලය)",
+   "tags": [
+    "youtube",
+    "සමාජ මාධ්‍ය",
+    "instagram"
+   ]
+  },
+  "template:yp5-social-baldosa-tw": {
+   "name": "සමාජ තීරුව: Twitter (පියාසර කරන ටයිලය)",
+   "tags": [
+    "youtube",
+    "සමාජ මාධ්‍ය",
+    "twitter"
+   ]
+  },
+  "template:yp5-social-baldosa-yt": {
+   "name": "සමාජ තීරුව: YouTube (පියාසර කරන ටයිලය)",
+   "tags": [
+    "youtube",
+    "සමාජ මාධ්‍ය",
+    "වීඩියෝ සැකිල්ල"
+   ]
+  },
+  "template:yp5-social-barras-fb": {
+   "name": "සමාජ තීරුව: Facebook (විවෘත වන තීරු දෙකක්)",
+   "tags": [
+    "youtube",
+    "සමාජ මාධ්‍ය",
+    "facebook"
+   ]
+  },
+  "template:yp5-social-barras-ig": {
+   "name": "සමාජ තීරුව: Instagram (විවෘත වන තීරු දෙකක්)",
+   "tags": [
+    "youtube",
+    "සමාජ මාධ්‍ය",
+    "instagram"
+   ]
+  },
+  "template:yp5-social-barras-tw": {
+   "name": "සමාජ තීරුව: Twitter (විවෘත වන තීරු දෙකක්)",
+   "tags": [
+    "youtube",
+    "සමාජ මාධ්‍ය",
+    "twitter"
+   ]
+  },
+  "template:yp5-social-barras-yt": {
+   "name": "සමාජ තීරුව: YouTube (විවෘත වන තීරු දෙකක්)",
+   "tags": [
+    "youtube",
+    "සමාජ මාධ්‍ය",
+    "වීඩියෝ සැකිල්ල"
+   ]
+  },
+  "template:yp5-social-circulo-fb": {
+   "name": "සමාජ තීරුව: Facebook (රවුම සහ පෙති)",
+   "tags": [
+    "youtube",
+    "සමාජ මාධ්‍ය",
+    "facebook"
+   ]
+  },
+  "template:yp5-social-circulo-ig": {
+   "name": "සමාජ තීරුව: Instagram (රවුම සහ පෙති)",
+   "tags": [
+    "youtube",
+    "සමාජ මාධ්‍ය",
+    "instagram"
+   ]
+  },
+  "template:yp5-social-circulo-tw": {
+   "name": "සමාජ තීරුව: Twitter (රවුම සහ පෙති)",
+   "tags": [
+    "youtube",
+    "සමාජ මාධ්‍ය",
+    "twitter"
+   ]
+  },
+  "template:yp5-social-circulo-yt": {
+   "name": "සමාජ තීරුව: YouTube (රවුම සහ පෙති)",
+   "tags": [
+    "youtube",
+    "සමාජ මාධ්‍ය",
+    "වීඩියෝ සැකිල්ල"
+   ]
+  },
+  "template:yp5-social-cuadro-fb": {
+   "name": "සමාජ තීරුව: Facebook (පෙරළෙන ටයිලය)",
+   "tags": [
+    "youtube",
+    "සමාජ මාධ්‍ය",
+    "facebook"
+   ]
+  },
+  "template:yp5-social-cuadro-ig": {
+   "name": "සමාජ තීරුව: Instagram (පෙරළෙන ටයිලය)",
+   "tags": [
+    "youtube",
+    "සමාජ මාධ්‍ය",
+    "instagram"
+   ]
+  },
+  "template:yp5-social-cuadro-tw": {
+   "name": "සමාජ තීරුව: Twitter (පෙරළෙන ටයිලය)",
+   "tags": [
+    "youtube",
+    "සමාජ මාධ්‍ය",
+    "twitter"
+   ]
+  },
+  "template:yp5-social-cuadro-yt": {
+   "name": "සමාජ තීරුව: YouTube (පෙරළෙන ටයිලය)",
+   "tags": [
+    "youtube",
+    "සමාජ මාධ්‍ය",
+    "වීඩියෝ සැකිල්ල"
+   ]
+  },
+  "template:yp5-social-pincel-fb": {
+   "name": "සමාජ තීරුව: Facebook (බුරුසු පහර)",
+   "tags": [
+    "youtube",
+    "සමාජ මාධ්‍ය",
+    "facebook"
+   ]
+  },
+  "template:yp5-social-pincel-ig": {
+   "name": "සමාජ තීරුව: Instagram (බුරුසු පහර)",
+   "tags": [
+    "youtube",
+    "සමාජ මාධ්‍ය",
+    "instagram"
+   ]
+  },
+  "template:yp5-social-pincel-tw": {
+   "name": "සමාජ තීරුව: Twitter (බුරුසු පහර)",
+   "tags": [
+    "youtube",
+    "සමාජ මාධ්‍ය",
+    "twitter"
+   ]
+  },
+  "template:yp5-social-pincel-yt": {
+   "name": "සමාජ තීරුව: YouTube (බුරුසු පහර)",
+   "tags": [
+    "youtube",
+    "සමාජ මාධ්‍ය",
+    "වීඩියෝ සැකිල්ල"
+   ]
+  },
+  "template:yp5-stacked-channel": {
+   "name": "පහළ තෙවැන්න: චැට් බුබුළු සහිත පේළි තුනක නම",
+   "tags": [
+    "youtube",
+    "කතා බුබුළු",
+    "වීඩියෝ සැකිල්ල"
+   ]
+  },
+  "template:yp5-sub-avatar-pill": {
+   "name": "පහළ තෙවැන්න: අවතාරය සහ ක්ලික් සහිත දායක වන්න",
+   "tags": [
+    "youtube",
+    "දායක වන්න",
+    "අවතාරය",
+    "ක්ලික්"
+   ]
+  },
+  "template:yp5-sub-center-avatar": {
+   "name": "පහළ තෙවැන්න: පෙතියේ මැද අවතාරය",
+   "tags": [
+    "youtube",
+    "දායක වන්න",
+    "අවතාරය"
+   ]
+  },
+  "template:yp5-sub-channel-tag": {
+   "name": "පහළ තෙවැන්න: නාලිකා නම සහිත දායක විය",
+   "tags": [
+    "youtube",
+    "දායක වන්න",
+    "ක්ලික්"
+   ]
+  },
+  "template:yp5-sub-grey-bell": {
+   "name": "පහළ තෙවැන්න: අළු බවට හැරෙන දායක වන්න සහ සීනුව",
+   "tags": [
+    "youtube",
+    "දායක වන්න",
+    "සීනුව",
+    "ක්ලික්"
+   ]
+  },
+  "template:yp5-sub-logo-box": {
+   "name": "පහළ තෙවැන්න: සුදු පෙට්ටියක ලාංඡනය සහ දායක වන්න",
+   "tags": [
+    "youtube",
+    "දායක වන්න",
+    "බොත්තම"
+   ]
+  },
+  "template:yp5-sub-red-pill": {
+   "name": "පහළ තෙවැන්න: දායක වන්න බවට හැරෙන රතු පෙති",
+   "tags": [
+    "youtube",
+    "දායක වන්න",
+    "ක්ලික්"
+   ]
+  },
+  "template:yp5-sub-red-white": {
+   "name": "පහළ තෙවැන්න: දායක විය බවට හැරෙන දායක වන්න",
+   "tags": [
+    "youtube",
+    "දායක වන්න",
+    "සීනුව"
+   ]
+  },
+  "template:yp5-sub-stack": {
+   "name": "පහළ තෙවැන්න: අවතාරය සහ රතු ටැග් තුනක්",
+   "tags": [
+    "youtube",
+    "දායක වන්න",
+    "අවතාරය"
+   ]
+  },
+  "template:yp5-subscribe-icon": {
+   "name": "පහළ තෙවැන්න: කැරකෙන බොත්තමක් සහිත දායක වන්න",
+   "tags": [
+    "youtube",
+    "දායක වන්න",
+    "බොත්තම"
+   ]
+  },
+  "template:yp5-subscribe-now": {
+   "name": "මාතෘකාව: අකුරෙන් අකුර දැන් දායක වන්න",
+   "tags": [
+    "youtube",
+    "දායක වන්න",
+    "වීඩියෝ සැකිල්ල"
+   ]
+  },
+  "template:yp5-subscribe-to": {
+   "name": "මාතෘකාව: සුදු පෙට්ටියක දායක වන්න",
+   "tags": [
+    "youtube",
+    "දායක වන්න",
+    "පෙට්ටිය"
+   ]
+  },
+  "template:yp5-subscribed-click": {
+   "name": "පහළ තෙවැන්න: ක්ලික් එකක් සහිත රතු දායක වන්න තීරුව",
+   "tags": [
+    "youtube",
+    "දායක වන්න",
+    "ක්ලික්"
+   ]
+  },
+  "template:yp5-thanks-watching": {
+   "name": "මාතෘකාව: නැරඹුවාට ස්තූතියි",
+   "tags": [
+    "youtube",
+    "ස්තූතිය",
+    "වීඩියෝ සැකිල්ල"
+   ]
+  },
+  "template:yp5-three-icons": {
+   "name": "පහළ තෙවැන්න: දැල්වෙන ලයික්, ප්ලේ සහ සීනුව",
+   "tags": [
+    "youtube",
+    "ලයික්",
+    "සීනුව"
+   ]
+  },
+  "template:yp5-three-pills": {
+   "name": "පහළ තෙවැන්න: පේළියක බොත්තම් තුනක්",
+   "tags": [
+    "youtube",
+    "ලයික්",
+    "දායක වන්න",
+    "සීනුව"
+   ]
+  },
+  "template:yp5-tilted-cycle": {
+   "name": "පහළ තෙවැන්න: වචන වෙනස් වන ඇල ටැගය",
+   "tags": [
+    "youtube",
+    "ලයික්",
+    "දායක වන්න",
+    "සීනුව"
+   ]
+  },
+  "template:yp5-travel-blog": {
+   "name": "පහළ තෙවැන්න: නැඟෙන බොත්තම සහ නමක්",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "වීඩියෝ සැකිල්ල"
+   ]
+  },
+  "template:yp5-triangle-box": {
+   "name": "පහළ තෙවැන්න: සුදු බොත්තමක් බවට හැරෙන ත්‍රිකෝණය",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "සුදු"
+   ]
+  },
+  "template:yp5-watch-next": {
+   "name": "පහළ තෙවැන්න: සුදු පෙට්ටියක ඊළඟට නරඹන්න",
+   "tags": [
+    "youtube",
+    "පෙට්ටිය",
+    "සුදු"
+   ]
+  },
+  "template:yp5-white-opener": {
+   "name": "ආරම්භය: සුදු මත රතු තැටි සහ නාලිකාවක්",
+   "tags": [
+    "youtube",
+    "රවුම්",
+    "අවතාරය"
+   ]
+  },
+  "template:yp5-your-channel-label": {
+   "name": "පහළ තෙවැන්න: බොත්තමක් සහ දිලිසීම් සහිත රතු ලේබලය",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "ටැගය"
+   ]
+  },
+  "template:yp7-apertura-cuadro-rojo": {
+   "name": "ආරම්භය: රතු චතුරස්‍රය සහ නාලිකා කාඩ්පත",
+   "tags": [
+    "youtube",
+    "කළු සහ සුදු",
+    "විලාසිතා",
+    "ලාංඡනය",
+    "ආරම්භය"
+   ]
+  },
+  "template:yp7-apertura-foto-perfil": {
+   "name": "ආරම්භය: අවතාරය බවට හැරෙන රූපය",
+   "tags": [
+    "youtube",
+    "කළු සහ සුදු",
+    "විලාසිතා",
+    "ලාංඡනය",
+    "ආරම්භය"
+   ]
+  },
+  "template:yp7-apertura-palabras": {
+   "name": "ආරම්භය: කළු සහ සුදු පුවරු මත වචන",
+   "tags": [
+    "youtube",
+    "කළු සහ සුදු",
+    "විලාසිතා",
+    "වචන",
+    "ආරම්භය"
+   ]
+  },
+  "template:yp7-apertura-youtube": {
+   "name": "ආරම්භය: පිරෙන දළ සටහන් YOUTUBE",
+   "tags": [
+    "youtube",
+    "කළු සහ සුදු",
+    "විලාසිතා",
+    "ආරම්භය"
+   ]
+  },
+  "template:yp7-awesomeness": {
+   "name": "අකුරු: සුදු රාමුවක වචනය",
+   "tags": [
+    "youtube",
+    "කළු සහ සුදු",
+    "විලාසිතා",
+    "අකුරු",
+    "රාමුව"
+   ]
+  },
+  "template:yp7-be-happy": {
+   "name": "අකුරු: පෙළගැසී වර්ණය වෙනස් වන වාක්‍ය ඛණ්ඩය",
+   "tags": [
+    "youtube",
+    "කළු සහ සුදු",
+    "විලාසිතා",
+    "අකුරු",
+    "වාක්‍ය ඛණ්ඩය"
+   ]
+  },
+  "template:yp7-caja-negra": {
+   "name": "අකුරු: කළු පෙට්ටියක වාක්‍ය ඛණ්ඩය",
+   "tags": [
+    "youtube",
+    "කළු සහ සුදු",
+    "විලාසිතා",
+    "අකුරු",
+    "පෙට්ටිය"
+   ]
+  },
+  "template:yp7-cita-barra": {
+   "name": "අකුරු: තීරුවක උද්ධෘතය",
+   "tags": [
+    "youtube",
+    "කළු සහ සුදු",
+    "විලාසිතා",
+    "අකුරු",
+    "උද්ධෘතය",
+    "පෙට්ටිය"
+   ]
+  },
+  "template:yp7-cita-barra-2": {
+   "name": "අකුරු: චතුරස්‍ර දෙකක් සහිත උද්ධෘත තීරුව",
+   "tags": [
+    "youtube",
+    "කළු සහ සුදු",
+    "විලාසිතා",
+    "අකුරු",
+    "උද්ධෘතය",
+    "පෙට්ටිය"
+   ]
+  },
+  "template:yp7-cita-cuadro": {
+   "name": "අකුරු: චතුරස්‍ර පෙට්ටියක උද්ධෘතය",
+   "tags": [
+    "youtube",
+    "කළු සහ සුදු",
+    "විලාසිතා",
+    "අකුරු",
+    "උද්ධෘතය",
+    "පෙට්ටිය"
+   ]
+  },
+  "template:yp7-cita-cuadro-2": {
+   "name": "අකුරු: කොනක චතුරස්‍රයක් සහිත උද්ධෘත පෙට්ටිය",
+   "tags": [
+    "youtube",
+    "කළු සහ සුදු",
+    "විලාසිතා",
+    "අකුරු",
+    "උද්ධෘතය",
+    "පෙට්ටිය"
+   ]
+  },
+  "template:yp7-cita-cuadro-3": {
+   "name": "අකුරු: චතුරස්‍ර දෙකක් සහිත උද්ධෘතය",
+   "tags": [
+    "youtube",
+    "කළු සහ සුදු",
+    "විලාසිතා",
+    "අකුරු",
+    "උද්ධෘතය",
+    "පෙට්ටිය"
+   ]
+  },
+  "template:yp7-elementos-1": {
+   "name": "මූලද්‍රව්‍ය: දිලිසෙන හැඩතල සහ තිත්",
+   "tags": [
+    "youtube",
+    "කළු සහ සුදු",
+    "විලාසිතා",
+    "උඩින් තබන",
+    "ග්ලිච්"
+   ]
+  },
+  "template:yp7-elementos-2": {
+   "name": "මූලද්‍රව්‍ය: හැඩතල, වළලු සහ තිත් තිර",
+   "tags": [
+    "youtube",
+    "කළු සහ සුදු",
+    "විලාසිතා",
+    "උඩින් තබන",
+    "ග්ලිච්"
+   ]
+  },
+  "template:yp7-elementos-3": {
+   "name": "මූලද්‍රව්‍ය: විකර්ණ සහ තිත් රොම්බස",
+   "tags": [
+    "youtube",
+    "කළු සහ සුදු",
+    "විලාසිතා",
+    "උඩින් තබන",
+    "ග්ලිච්"
+   ]
+  },
+  "template:yp7-elementos-4": {
+   "name": "මූලද්‍රව්‍ය: ස්කෑන් රේඛා සහ වළල්ලක්",
+   "tags": [
+    "youtube",
+    "කළු සහ සුදු",
+    "විලාසිතා",
+    "උඩින් තබන",
+    "ග්ලිච්"
+   ]
+  },
+  "template:yp7-final-1": {
+   "name": "අවසන් කාඩ්පත: එක් වීඩියෝවක්",
+   "tags": [
+    "youtube",
+    "කළු සහ සුදු",
+    "විලාසිතා",
+    "අවසාන තිරය",
+    "වීඩියෝ"
+   ]
+  },
+  "template:yp7-final-2": {
+   "name": "අවසන් කාඩ්පත: ගොඩගැසූ වීඩියෝ දෙකක්",
+   "tags": [
+    "youtube",
+    "කළු සහ සුදු",
+    "විලාසිතා",
+    "අවසාන තිරය",
+    "වීඩියෝ"
+   ]
+  },
+  "template:yp7-final-3": {
+   "name": "අවසන් කාඩ්පත: පැත්තෙන් පැත්තට වීඩියෝ දෙකක්",
+   "tags": [
+    "youtube",
+    "කළු සහ සුදු",
+    "විලාසිතා",
+    "අවසාන තිරය",
+    "වීඩියෝ"
+   ]
+  },
+  "template:yp7-final-4": {
+   "name": "අවසන් කාඩ්පත: වීඩියෝ හතරක්",
+   "tags": [
+    "youtube",
+    "කළු සහ සුදු",
+    "විලාසිතා",
+    "අවසාන තිරය",
+    "වීඩියෝ"
+   ]
+  },
+  "template:yp7-frase-entre-barras": {
+   "name": "අකුරු: තීරු දෙකක් අතර වාක්‍ය ඛණ්ඩය",
+   "tags": [
+    "youtube",
+    "කළු සහ සුදු",
+    "විලාසිතා",
+    "අකුරු",
+    "වාක්‍ය ඛණ්ඩය"
+   ]
+  },
+  "template:yp7-frase-inclinada": {
+   "name": "අකුරු: රේඛා අතර ඇල වාක්‍ය ඛණ්ඩය",
+   "tags": [
+    "youtube",
+    "කළු සහ සුදු",
+    "විලාසිතා",
+    "අකුරු",
+    "වාක්‍ය ඛණ්ඩය"
+   ]
+  },
+  "template:yp7-greatness": {
+   "name": "අකුරු: ස්ථානයට වැටෙන අකුරු",
+   "tags": [
+    "youtube",
+    "කළු සහ සුදු",
+    "විලාසිතා",
+    "අකුරු"
+   ]
+  },
+  "template:yp7-icono-campana": {
+   "name": "අයිකනය: නාද වන සීනුව",
+   "tags": [
+    "youtube",
+    "කළු සහ සුදු",
+    "විලාසිතා",
+    "අයිකනය",
+    "සීනුව"
+   ]
+  },
+  "template:yp7-icono-compartir": {
+   "name": "අයිකනය: බෙදාගන්න බොත්තම",
+   "tags": [
+    "youtube",
+    "කළු සහ සුදු",
+    "විලාසිතා",
+    "අයිකනය",
+    "බෙදාගන්න"
+   ]
+  },
+  "template:yp7-icono-me-gusta": {
+   "name": "අයිකනය: ලයික් බොත්තම",
+   "tags": [
+    "youtube",
+    "කළු සහ සුදු",
+    "විලාසිතා",
+    "අයිකනය",
+    "ලයික්"
+   ]
+  },
+  "template:yp7-icono-suscribirse": {
+   "name": "අයිකනය: දායක වන්න බොත්තම",
+   "tags": [
+    "youtube",
+    "කළු සහ සුදු",
+    "විලාසිතා",
+    "අයිකනය",
+    "දායක වන්න"
+   ]
+  },
+  "template:yp7-nota-campana": {
+   "name": "අමතර: අතින් ලියූ “Click the bell icon”",
+   "tags": [
+    "youtube",
+    "කළු සහ සුදු",
+    "විලාසිතා",
+    "ඊතලය",
+    "අතින් ලියූ"
+   ]
+  },
+  "template:yp7-nota-comenta": {
+   "name": "අමතර: ඊතලයක් සහිත අතින් ලියූ “Comment below”",
+   "tags": [
+    "youtube",
+    "කළු සහ සුදු",
+    "විලාසිතා",
+    "ඊතලය",
+    "අතින් ලියූ"
+   ]
+  },
+  "template:yp7-nota-suscribete": {
+   "name": "අමතර: ඊතලයක් සහිත අතින් ලියූ “Subscribe us”",
+   "tags": [
+    "youtube",
+    "කළු සහ සුදු",
+    "විලාසිතා",
+    "ඊතලය",
+    "අතින් ලියූ"
+   ]
+  },
+  "template:yp7-nota-video": {
+   "name": "අමතර: අතින් ලියූ “Check out the video here”",
+   "tags": [
+    "youtube",
+    "කළු සහ සුදු",
+    "විලාසිතා",
+    "ඊතලය",
+    "අතින් ලියූ"
+   ]
+  },
+  "template:yp7-red-dribbble": {
+   "name": "සමාජ: Dribbble කාඩ්පත",
+   "tags": [
+    "youtube",
+    "කළු සහ සුදු",
+    "විලාසිතා",
+    "සමාජ මාධ්‍ය",
+    "dribbble"
+   ]
+  },
+  "template:yp7-red-facebook": {
+   "name": "සමාජ: Facebook කාඩ්පත",
+   "tags": [
+    "youtube",
+    "කළු සහ සුදු",
+    "විලාසිතා",
+    "සමාජ මාධ්‍ය",
+    "facebook"
+   ]
+  },
+  "template:yp7-red-google-plus": {
+   "name": "සමාජ: Google Plus කාඩ්පත",
+   "tags": [
+    "youtube",
+    "කළු සහ සුදු",
+    "විලාසිතා",
+    "සමාජ මාධ්‍ය",
+    "google plus"
+   ]
+  },
+  "template:yp7-red-instagram": {
+   "name": "සමාජ: Instagram කාඩ්පත",
+   "tags": [
+    "youtube",
+    "කළු සහ සුදු",
+    "විලාසිතා",
+    "සමාජ මාධ්‍ය",
+    "instagram"
+   ]
+  },
+  "template:yp7-red-linkedin": {
+   "name": "සමාජ: LinkedIn කාඩ්පත",
+   "tags": [
+    "youtube",
+    "කළු සහ සුදු",
+    "විලාසිතා",
+    "සමාජ මාධ්‍ය",
+    "linkedin"
+   ]
+  },
+  "template:yp7-red-pinterest": {
+   "name": "සමාජ: Pinterest කාඩ්පත",
+   "tags": [
+    "youtube",
+    "කළු සහ සුදු",
+    "විලාසිතා",
+    "සමාජ මාධ්‍ය",
+    "pinterest"
+   ]
+  },
+  "template:yp7-red-twitter": {
+   "name": "සමාජ: Twitter කාඩ්පත",
+   "tags": [
+    "youtube",
+    "කළු සහ සුදු",
+    "විලාසිතා",
+    "සමාජ මාධ්‍ය",
+    "twitter"
+   ]
+  },
+  "template:yp7-red-whatsapp": {
+   "name": "සමාජ: WhatsApp කාඩ්පත",
+   "tags": [
+    "youtube",
+    "කළු සහ සුදු",
+    "විලාසිතා",
+    "සමාජ මාධ්‍ය",
+    "whatsapp"
+   ]
+  },
+  "template:yp7-super-awesome-life": {
+   "name": "අකුරු: නැඟී සිට ළං වන පේළි තුනක්",
+   "tags": [
+    "youtube",
+    "කළු සහ සුදු",
+    "විලාසිතා",
+    "අකුරු"
+   ]
+  },
+  "template:yp7-suscribirse-banda": {
+   "name": "දායක වන්න: පහළ පටිය",
+   "tags": [
+    "youtube",
+    "කළු සහ සුදු",
+    "විලාසිතා",
+    "දායක වන්න",
+    "පටිය"
+   ]
+  },
+  "template:yp7-suscribirse-banda-foto": {
+   "name": "දායක වන්න: ඡායාරූපයක් සහිත පහළ පටිය",
+   "tags": [
+    "youtube",
+    "කළු සහ සුදු",
+    "විලාසිතා",
+    "දායක වන්න",
+    "පටිය"
+   ]
+  },
+  "template:yp7-suscribirse-barra": {
+   "name": "දායක වන්න: අවතාරයක් සහිත තීරුව",
+   "tags": [
+    "youtube",
+    "කළු සහ සුදු",
+    "විලාසිතා",
+    "දායක වන්න"
+   ]
+  },
+  "template:yp7-suscribirse-tarjeta": {
+   "name": "දායක වන්න: ඡායාරූපයක් සහිත කාඩ්පත",
+   "tags": [
+    "youtube",
+    "කළු සහ සුදු",
+    "විලාසිතා",
+    "දායක වන්න"
+   ]
+  },
+  "template:yp7-telefono": {
+   "name": "දර්ශනය: ලයික් සහ දායක වන්න සහිත දුරකථනය",
+   "tags": [
+    "youtube",
+    "කළු සහ සුදු",
+    "විලාසිතා",
+    "දුරකථනය",
+    "දායක වන්න"
+   ]
+  },
+  "template:yp7-telefono-izquierda": {
+   "name": "දර්ශනය: වමේ දුරකථනය",
+   "tags": [
+    "youtube",
+    "කළු සහ සුදු",
+    "විලාසිතා",
+    "දුරකථනය",
+    "දායක වන්න"
+   ]
+  },
+  "template:yp7-transicion-circulo": {
+   "name": "සංක්‍රාන්තිය: මැදින් රවුම",
+   "tags": [
+    "youtube",
+    "කළු සහ සුදු",
+    "විලාසිතා",
+    "සංක්‍රාන්තිය"
+   ]
+  },
+  "template:yp7-transicion-circulo-arriba": {
+   "name": "සංක්‍රාන්තිය: ඉහළින් රවුම",
+   "tags": [
+    "youtube",
+    "කළු සහ සුදු",
+    "විලාසිතා",
+    "සංක්‍රාන්තිය"
+   ]
+  },
+  "template:yp7-transicion-circulo-izquierda": {
+   "name": "සංක්‍රාන්තිය: වමෙන් රවුම",
+   "tags": [
+    "youtube",
+    "කළු සහ සුදු",
+    "විලාසිතා",
+    "සංක්‍රාන්තිය"
+   ]
+  },
+  "template:yp7-transicion-diagonal": {
+   "name": "සංක්‍රාන්තිය: විකර්ණ පිසදැමීම",
+   "tags": [
+    "youtube",
+    "කළු සහ සුදු",
+    "විලාසිතා",
+    "සංක්‍රාන්තිය"
+   ]
+  },
+  "template:yp7-transicion-izquierda": {
+   "name": "සංක්‍රාන්තිය: වමට පිසදැමීම",
+   "tags": [
+    "youtube",
+    "කළු සහ සුදු",
+    "විලාසිතා",
+    "සංක්‍රාන්තිය"
+   ]
+  },
+  "template:yp7-transicion-lineas": {
+   "name": "සංක්‍රාන්තිය: මැදින් රේඛා",
+   "tags": [
+    "youtube",
+    "කළු සහ සුදු",
+    "විලාසිතා",
+    "සංක්‍රාන්තිය"
+   ]
+  },
+  "template:yp7-transicion-rectangulo": {
+   "name": "සංක්‍රාන්තිය: මැදින් සෘජුකෝණාස්‍රය",
+   "tags": [
+    "youtube",
+    "කළු සහ සුදු",
+    "විලාසිතා",
+    "සංක්‍රාන්තිය"
+   ]
+  },
+  "template:yp7-transicion-sube": {
+   "name": "සංක්‍රාන්තිය: නැඟෙන පටි",
+   "tags": [
+    "youtube",
+    "කළු සහ සුදු",
+    "විලාසිතා",
+    "සංක්‍රාන්තිය"
    ]
   },
   "template:yt-calle-a-que-te-dedicas": {

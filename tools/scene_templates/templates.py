@@ -229,6 +229,65 @@ import templates_lt_b  # noqa: E402
 import templates_llt_a  # noqa: E402
 import templates_llt_b  # noqa: E402
 import templates_llt_c  # noqa: E402
+import templates_llt_d  # noqa: E402
+import templates_llt_e  # noqa: E402
+import templates_llt_f  # noqa: E402
+import templates_llt_g  # noqa: E402
+import templates_llt_h  # noqa: E402
+import templates_llt_i  # noqa: E402
+import templates_llt_j  # noqa: E402
+import templates_llt_k  # noqa: E402
+import templates_llt_l  # noqa: E402
+import templates_llt_m  # noqa: E402
+import templates_llt_n  # noqa: E402
+import templates_llt_o  # noqa: E402
+import templates_llt_p  # noqa: E402
+import templates_tit_a  # noqa: E402
+import templates_tit_b  # noqa: E402
+import templates_tit_c  # noqa: E402
+import templates_tit_d  # noqa: E402
+import templates_tit_e  # noqa: E402
+import templates_tit_f  # noqa: E402
+import templates_tit_g  # noqa: E402
+import templates_tit_h  # noqa: E402
+import templates_tit_i  # noqa: E402
+import templates_tit_j  # noqa: E402
+import templates_yp7  # noqa: E402
+import templates_yp5  # noqa: E402
+import templates_lg0  # noqa: E402
+import templates_lg1  # noqa: E402
+import templates_lg2  # noqa: E402
+import templates_lg3  # noqa: E402
+import templates_tk0  # noqa: E402
+import templates_tk1  # noqa: E402
+import templates_tk2  # noqa: E402
+import templates_tk3  # noqa: E402
+import templates_tk4  # noqa: E402
+import templates_tk5  # noqa: E402
+import templates_tk6  # noqa: E402
+import templates_tk7  # noqa: E402
+import templates_tk8  # noqa: E402
+import templates_tk9  # noqa: E402
+import templates_ig0  # noqa: E402
+import templates_ig1  # noqa: E402
+import templates_ig2  # noqa: E402
+import templates_ig3  # noqa: E402
+import templates_ig4  # noqa: E402
+import templates_ig5  # noqa: E402
+import templates_ig6  # noqa: E402
+import templates_ig7  # noqa: E402
+import templates_ig8  # noqa: E402
+import templates_ig9  # noqa: E402
+import templates_ig10  # noqa: E402
+import templates_ig11  # noqa: E402
+import templates_ig12  # noqa: E402
+import templates_ig13  # noqa: E402
+import templates_ig14  # noqa: E402
+import templates_yp4  # noqa: E402
+import templates_yp3  # noqa: E402
+import templates_yp2  # noqa: E402
+import templates_yp1  # noqa: E402
+import templates_yp0  # noqa: E402
 import templates_igkit  # noqa: E402
 
 TEMPLATES = ([photo_dump_ritmo, feliz_cumple, collage_2x2, frase_del_dia] + templates_reels.TEMPLATES
@@ -245,4 +304,4 @@ TEMPLATES = ([photo_dump_ritmo, feliz_cumple, collage_2x2, frase_del_dia] + temp
              + templates_c1.TEMPLATES + templates_c2.TEMPLATES
              + templates_y2.TEMPLATES + templates_y3.TEMPLATES + templates_y4.TEMPLATES + templates_y5.TEMPLATES + templates_y6.TEMPLATES + templates_y7.TEMPLATES
              + templates_ytkit.TEMPLATES
-             + templates_ytkit_a.TEMPLATES + templates_ytkit_b.TEMPLATES + templates_ytkit_c.TEMPLATES + templates_ytkit_d.TEMPLATES + templates_ytkit_e.TEMPLATES + templates_ytkit_f.TEMPLATES + templates_ytkit_g.TEMPLATES + templates_ytkit_h.TEMPLATES + templates_ytkit_i.TEMPLATES + templates_ytkit_j.TEMPLATES + templates_ytkit_k.TEMPLATES + templates_ytkit_l.TEMPLATES + templates_ytkit_m.TEMPLATES + templates_ytkit_n.TEMPLATES + templates_ytkit_o.TEMPLATES + templates_ytkit_p.TEMPLATES + templates_lt_a.TEMPLATES + templates_lt_b.TEMPLATES + templates_llt_a.TEMPLATES + templates_llt_b.TEMPLATES + templates_llt_c.TEMPLATES + templates_igkit.TEMPLATES)
+             + templates_ytkit_a.TEMPLATES + templates_ytkit_b.TEMPLATES + templates_ytkit_c.TEMPLATES + templates_ytkit_d.TEMPLATES + templates_ytkit_e.TEMPLATES + templates_ytkit_f.TEMPLATES + templates_ytkit_g.TEMPLATES + templates_ytkit_h.TEMPLATES + templates_ytkit_i.TEMPLATES + templates_ytkit_j.TEMPLATES + templates_ytkit_k.TEMPLATES + templates_ytkit_l.TEMPLATES + templates_ytkit_m.TEMPLATES + templates_ytkit_n.TEMPLATES + templates_ytkit_o.TEMPLATES + templates_ytkit_p.TEMPLATES + templates_lt_a.TEMPLATES + templates_lt_b.TEMPLATES + templates_llt_a.TEMPLATES + templates_llt_b.TEMPLATES + templates_llt_c.TEMPLATES + templates_llt_d.TEMPLATES + templates_llt_e.TEMPLATES + templates_llt_f.TEMPLATES + templates_llt_g.TEMPLATES + templates_llt_h.TEMPLATES + templates_llt_i.TEMPLATES + templates_llt_j.TEMPLATES + templates_llt_k.TEMPLATES + templates_llt_l.TEMPLATES + templates_llt_m.TEMPLATES + templates_llt_n.TEMPLATES + templates_llt_o.TEMPLATES + templates_llt_p.TEMPLATES + templates_tit_a.TEMPLATES + templates_tit_b.TEMPLATES + templates_tit_c.TEMPLATES + templates_tit_d.TEMPLATES + templates_tit_h.TEMPLATES + templates_tit_i.TEMPLATES + templates_tit_j.TEMPLATES + templates_yp0.TEMPLATES + templates_yp1.TEMPLATES + templates_yp2.TEMPLATES + templates_yp3.TEMPLATES + templates_yp4.TEMPLATES + templates_yp5.TEMPLATES + templates_yp7.TEMPLATES + templates_igkit.TEMPLATES + templates_lg0.TEMPLATES + templates_lg1.TEMPLATES + templates_lg2.TEMPLATES + templates_lg3.TEMPLATES + templates_tk0.TEMPLATES + templates_tk1.TEMPLATES + templates_tk2.TEMPLATES + templates_tk3.TEMPLATES + templates_tk4.TEMPLATES + templates_tk5.TEMPLATES + templates_tk6.TEMPLATES + templates_tk7.TEMPLATES + templates_tk8.TEMPLATES + templates_tk9.TEMPLATES + templates_ig0.TEMPLATES + templates_ig1.TEMPLATES + templates_ig2.TEMPLATES + templates_ig3.TEMPLATES + templates_ig4.TEMPLATES + templates_ig5.TEMPLATES + templates_ig6.TEMPLATES + templates_ig7.TEMPLATES + templates_ig8.TEMPLATES + templates_ig9.TEMPLATES + templates_ig10.TEMPLATES + templates_ig11.TEMPLATES + templates_ig12.TEMPLATES + templates_ig13.TEMPLATES + templates_ig14.TEMPLATES)
