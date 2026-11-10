@@ -65,8 +65,7 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 - PR #57 (`flip/stock-llt4` → `main`), tag `v0.31.0`, release (run 42854143614); copia en `versiones\FlipStudio-0.31.0`
   (hashes comprobados). MSIX: `msstore.yml` run 42854218829 → `tienda\FlipStudio-Store\paquete-0.31.0` y copia en
   `OneDrive\FlipStudio\tienda\FlipStudio-Store\paquete-0.31.0`. Novedades en la web (`flipstudio-web` `166d9`, desplegado).
-- **Falta (Jorge):** subir el MSIX con «Notas para la Store (0.31.0)» de `docs/store-listing.md` (si la 0.30.2 no se subió,
-  sumar sus notas) y, al aprobarse, TXT `version` = 0.31.0. Desde ahora se ven en Stock las ~900 piezas con `minAppVersion` 0.31.0.
+- **Jorge subió el MSIX de la 0.31.0 a la Store (2026-11-10).** Falta: cuando la aprueben, TXT `version` = 0.31.0.
 
 ### Kits de LOGO, TikTok e Instagram PUBLICADOS en Stock (2026-11-10)
 - 392 piezas (`lg0`–`lg3` 19 en Kit de YouTube, `tk0`–`tk9` 96 en «Kit de TikTok», `ig0`–`ig14` 277 en «Kit de
