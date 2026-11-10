@@ -117,6 +117,7 @@
   "template:collage": "කොලාජ්",
   "template:countdown": "කවුන්ට්ඩවුන්",
   "template:counter": "ගණක",
+  "template:instagram": "Instagram කට්ටලය",
   "template:intro": "ඉන්ට්‍රෝ සහ මාතෘකා",
   "template:lowerthird": "නාම තීරු",
   "template:outro": "අවසාන",
@@ -127,6 +128,7 @@
   "template:story15": "තත්පර 15 කතන්දර",
   "template:text": "අකුරු",
   "template:thumbnail": "වීඩියෝ කුඩා රූ",
+  "template:tiktok": "TikTok කට්ටලය",
   "template:transition": "ට්‍රාන්සිෂන් සහ බෙදුම්",
   "template:youtuber": "යූටියුබර් විලාසය",
   "template:ytkit": "YouTube කට්ටලය",
@@ -25139,6 +25141,3014 @@
     "පාටි"
    ]
   },
+  "template:ig0-intro-urbana": {
+   "name": "ගතික නාගරික හැඳින්වීම: URBAN, STREETS, PROMO සහ ඔබේ ලාංඡනය",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ආරම්භය",
+    "නාගරික",
+    "ගතික හැඳින්වීම"
+   ]
+  },
+  "template:ig1-alison": {
+   "name": "කතාව: රතු රාමුවක් සහිත ඡායාරූපයක් මත නම",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "නම",
+    "පැතිකඩ",
+    "රතු"
+   ]
+  },
+  "template:ig1-anna": {
+   "name": "කතාව: නිල් ශ්‍රේණිගත පසුබිමක ඡායාරූපයක් සමඟ නම",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "නම",
+    "පැතිකඩ",
+    "ශ්‍රේණිගත වර්ණ"
+   ]
+  },
+  "template:ig1-beautiful": {
+   "name": "කතාව: #beautiful ඡායාරූපයක් සහ උද්ධෘතයක් සමඟ",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "උද්ධෘතය",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:ig1-believe": {
+   "name": "කතාව: WE MUST BELIEVE බෙදන රේඛාවක් සමඟ",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "වාක්‍ය ඛණ්ඩය",
+    "ඡායාරූපය",
+    "කළු"
+   ]
+  },
+  "template:ig1-catherine": {
+   "name": "කතාව: ශ්‍රේණිගත පසුබිමක වටකුරු ඡායාරූපය, නම සහ උද්ධෘතය",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "උද්ධෘතය",
+    "පැතිකඩ",
+    "ශ්‍රේණිගත වර්ණ"
+   ]
+  },
+  "template:ig1-conquer": {
+   "name": "කතාව: Conquer from within ඡායාරූප කැරොසලයක් සමඟ",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "කැරොසලය",
+    "ඡායාරූපය",
+    "සුදු"
+   ]
+  },
+  "template:ig1-do-your-best": {
+   "name": "කතාව: රිබනයක DO YOUR BEST",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "වාක්‍ය ඛණ්ඩය",
+    "නගරය",
+    "ප්‍රේරණය"
+   ]
+  },
+  "template:ig1-dog": {
+   "name": "කතාව: #photooftheday පටියකින් බෙදූ ඡායාරූපය",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "සුරතල් සතා",
+    "ඡායාරූපය",
+    "පටිය"
+   ]
+  },
+  "template:ig1-elegant": {
+   "name": "කතාව: ELEGANT TYPO DESIGN දර්පණ කවුළුවක් සමඟ",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "අකුරු සැලසුම",
+    "මුහුද",
+    "සුහද"
+   ]
+  },
+  "template:ig1-forty-sale": {
+   "name": "කතාව: ඡායාරූපයක් සමඟ සිරස් 40% Sale",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "වට්ටම් විකුණුම",
+    "වට්ටම",
+    "විලාසිතා"
+   ]
+  },
+  "template:ig1-happy-thoughts": {
+   "name": "කතාව: ඇල පොලරොයිඩ් ඡායාරූපයක «happy thoughts»",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "පොලරොයිඩ්",
+    "මංගල",
+    "අතින් ලියූ"
+   ]
+  },
+  "template:ig1-heart": {
+   "name": "කතාව: හදවත් හැඩැති ඡායාරූපයක «happy thoughts»",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "හදවත",
+    "ආදරය",
+    "පීච්"
+   ]
+  },
+  "template:ig1-instalove": {
+   "name": "කතාව: #instalove LIVE WHAT YOU LOVE",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "වාක්‍ය ඛණ්ඩය",
+    "වනාන්තරය",
+    "නම"
+   ]
+  },
+  "template:ig1-lifestyle": {
+   "name": "කතාව: #lifestyle ඡායාරූප මොසෙයික් එකක් සමඟ",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "කොලාජ්",
+    "ගිම්හානය",
+    "මොසෙයික්"
+   ]
+  },
+  "template:ig1-live-what": {
+   "name": "කතාව: Live what you love 2×2 ජාලකයක් සමඟ",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ජාලකය",
+    "කොලාජ්",
+    "සුදු"
+   ]
+  },
+  "template:ig1-love-friendship": {
+   "name": "කතාව: පොලරොයිඩ් සහ අතින් ලියූ «Love is friendship»",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "පොලරොයිඩ්",
+    "රෝස",
+    "උද්ධෘතය"
+   ]
+  },
+  "template:ig1-love-loves": {
+   "name": "කතාව: ඊතල සහිත පොලරොයිඩ් දෙකක් සහ අතින් ලියූ පේළියක්",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "පොලරොයිඩ්",
+    "රෝස",
+    "ඊතල"
+   ]
+  },
+  "template:ig1-must-believe": {
+   "name": "කතාව: දර්පණ කවයක WE MUST BELIEVE",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "වාක්‍ය ඛණ්ඩය",
+    "කවය",
+    "භූ දර්ශනය"
+   ]
+  },
+  "template:ig1-nature": {
+   "name": "කතාව: රාමුවක් සහිත පෙට්ටියක Nature",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ස්වභාවධර්මය",
+    "රාමුව",
+    "මුහුද"
+   ]
+  },
+  "template:ig1-neon": {
+   "name": "කතාව: නිල් කොළ නියෝන් වලින් NEON CITY",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "නියෝන්",
+    "නගරය",
+    "රාත්‍රිය"
+   ]
+  },
+  "template:ig1-photo-frame": {
+   "name": "කතාව: කවුළුවක් විවෘත කරන සුදු කාඩ්පත",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "රාමුව",
+    "ආහාර",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:ig1-seek": {
+   "name": "කතාව: ඡායාරූප අකුරු සහිත SEEK THE SEEKER",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "වාක්‍ය ඛණ්ඩය",
+    "කොළ",
+    "කපා ගැනීම"
+   ]
+  },
+  "template:ig1-so-it-goes": {
+   "name": "කතාව: So it goes 2×2 ජාලකයක් සමඟ",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ජාලකය",
+    "කොලාජ්",
+    "රෝස"
+   ]
+  },
+  "template:ig1-spring-sale": {
+   "name": "කතාව: Spring Sale 30%",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "වට්ටම් විකුණුම",
+    "වට්ටම",
+    "විලාසිතා"
+   ]
+  },
+  "template:ig1-stylish-bike": {
+   "name": "කතාව: කපා ගත් රූපයක් සහිත S T Y L I S H",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "කපා ගැනීම",
+    "ටර්කොයිස්",
+    "සබැඳිය"
+   ]
+  },
+  "template:ig1-stylish-design": {
+   "name": "කතාව: ශ්‍රේණිගත රාමුවක STYLISH DESIGN",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "රාමුව",
+    "ශ්‍රේණිගත වර්ණ",
+    "අඳුරු"
+   ]
+  },
+  "template:ig1-stylish-skate": {
+   "name": "කතාව: පාඨයක් සහිත දැවැන්ත සිරස් Stylish",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "සිරස්",
+    "ස්කේට්බෝඩ්",
+    "අකුරු සැලසුම"
+   ]
+  },
+  "template:ig1-success": {
+   "name": "කතාව: ගලක් මත උද්ධෘතයක් සහ 01",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "උද්ධෘතය",
+    "වාක්‍ය ඛණ්ඩය",
+    "අඳුරු"
+   ]
+  },
+  "template:ig1-work-dream": {
+   "name": "කතාව: සිරස් Work hard. Dream big. සහ 05",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "වාක්‍ය ඛණ්ඩය",
+    "සිරස්",
+    "අංකය"
+   ]
+  },
+  "template:ig1-work-hard": {
+   "name": "කතාව: කළු පසුබිමක WORK HARD. DREAM BIG.",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "වාක්‍ය ඛණ්ඩය",
+    "ප්‍රේරණය",
+    "කළු"
+   ]
+  },
+  "template:ig10-arco-sube": {
+   "name": "කතාව: MODELS සමඟ ඉහළට නගින චාප ඡායාරූපය",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "විලාසිතා",
+    "ආකෘති",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:ig10-ovalo-abre": {
+   "name": "කතාව: රේඛාවකින් විවෘත වන ඕවල ඡායාරූපය",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "විලාසිතා",
+    "ආකෘති",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:ig10-ovalo-sube": {
+   "name": "කතාව: දළ සටහන් දෙකක් සහිත ඉහළට නගින ඕවල ඡායාරූපය",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "විලාසිතා",
+    "ආකෘති",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:ig10-u-foto": {
+   "name": "කතාව: පහළ වටකුරු ඡායාරූපය සහ රාමු කළ මාතෘකාව",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "විලාසිතා",
+    "ආකෘති",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:ig10-ventana-arco": {
+   "name": "කතාව: චාප කවුළුවක් සහිත වැස්මක් යට ඡායාරූපය",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "විලාසිතා",
+    "ආකෘති",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:ig11-avatar-seguir": {
+   "name": "පැතිකඩ රූපය සහ අනුගමනය බොත්තම",
+   "tags": [
+    "instagram",
+    "අංග",
+    "llamada a la acción",
+    "සමාජ මාධ්‍ය",
+    "අනුගමනය",
+    "කතාව"
+   ]
+  },
+  "template:ig11-comenta": {
+   "name": "පහළින් අදහසක් දක්වන්න",
+   "tags": [
+    "instagram",
+    "අංග",
+    "llamada a la acción",
+    "සමාජ මාධ්‍ය",
+    "අදහස්",
+    "කවුන්ටරය"
+   ]
+  },
+  "template:ig11-compartir": {
+   "name": "පළ කිරීම තවත් අයට බෙදාගන්න",
+   "tags": [
+    "instagram",
+    "අංග",
+    "llamada a la acción",
+    "සමාජ මාධ්‍ය",
+    "බෙදාගැනීම",
+    "පළ කිරීම"
+   ]
+  },
+  "template:ig11-doble-toque": {
+   "name": "දෙවරක් තට්ටු කර ලයික් කරන්න",
+   "tags": [
+    "instagram",
+    "අංග",
+    "llamada a la acción",
+    "සමාජ මාධ්‍ය",
+    "ලයික්",
+    "හදවත"
+   ]
+  },
+  "template:ig11-enlace-bio": {
+   "name": "අපගේ බයෝ සබැඳිය ක්ලික් කරන්න",
+   "tags": [
+    "instagram",
+    "අංග",
+    "llamada a la acción",
+    "සමාජ මාධ්‍ය",
+    "සබැඳිය",
+    "බයෝ"
+   ]
+  },
+  "template:ig11-etiqueta": {
+   "name": "යමෙකු ටැග් කරන්න",
+   "tags": [
+    "instagram",
+    "අංග",
+    "llamada a la acción",
+    "සමාජ මාධ්‍ය",
+    "ටැගය",
+    "@ සලකුණ"
+   ]
+  },
+  "template:ig11-inspiracion": {
+   "name": "ඔබේ ආභාසය සොයාගන්න",
+   "tags": [
+    "instagram",
+    "අංග",
+    "llamada a la acción",
+    "සමාජ මාධ්‍ය",
+    "සෙවීම",
+    "සෙවුම"
+   ]
+  },
+  "template:ig11-pastilla-seguir": {
+   "name": "නම සහිත පෙති හැඩයක් සහ අනුගමනය",
+   "tags": [
+    "instagram",
+    "අංග",
+    "llamada a la acción",
+    "සමාජ මාධ්‍ය",
+    "අනුගමනය",
+    "නම"
+   ]
+  },
+  "template:ig11-pastilla-usuario": {
+   "name": "පරිශීලක පෙති හැඩයක් සහ අනුගාමිකයන්",
+   "tags": [
+    "instagram",
+    "අංග",
+    "llamada a la acción",
+    "සමාජ මාධ්‍ය",
+    "පරිශීලක",
+    "අනුගාමිකයන්"
+   ]
+  },
+  "template:ig11-perfil": {
+   "name": "පැතිකඩ කාඩ්පත",
+   "tags": [
+    "instagram",
+    "අංග",
+    "llamada a la acción",
+    "සමාජ මාධ්‍ය",
+    "පැතිකඩ",
+    "අනුගමනය"
+   ]
+  },
+  "template:ig11-publicacion": {
+   "name": "පළ කිරීමේ කාඩ්පත",
+   "tags": [
+    "instagram",
+    "අංග",
+    "llamada a la acción",
+    "සමාජ මාධ්‍ය",
+    "පළ කිරීම",
+    "ලයික්"
+   ]
+  },
+  "template:ig11-reels": {
+   "name": "අපගේ නවතම රීල්ස් නරඹන්න",
+   "tags": [
+    "instagram",
+    "අංග",
+    "llamada a la acción",
+    "සමාජ මාධ්‍ය",
+    "රීල්ස්",
+    "බැලීම්"
+   ]
+  },
+  "template:ig11-responder": {
+   "name": "පිළිතුරු බොත්තම සහිත අදහස් කාඩ්පත",
+   "tags": [
+    "instagram",
+    "අංග",
+    "llamada a la acción",
+    "සමාජ මාධ්‍ය",
+    "අදහස",
+    "පිළිතුරු දීම"
+   ]
+  },
+  "template:ig11-tu-historia": {
+   "name": "ඔබේ කතාව එක් කරන්න",
+   "tags": [
+    "instagram",
+    "අංග",
+    "llamada a la acción",
+    "සමාජ මාධ්‍ය",
+    "කතාව",
+    "බෙදාගැනීම"
+   ]
+  },
+  "template:ig11-ver-historia": {
+   "name": "කතාව බැලීමට ස්පර්ශ කරන්න",
+   "tags": [
+    "instagram",
+    "අංග",
+    "llamada a la acción",
+    "සමාජ මාධ්‍ය",
+    "කතාව",
+    "ස්පර්ශ කරන්න"
+   ]
+  },
+  "template:ig12-anillos": {
+   "name": "කතාව: වටකුරු ඡායාරූපයක් සහ දැවැන්ත අකුරු සහිත මුදු",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "තැඹිලි",
+    "රතු",
+    "කව"
+   ]
+  },
+  "template:ig12-caja-roja": {
+   "name": "කතාව: සිරස් වචනයක් සහ දැවැන්ත අකුරු සහිත රතු පෙට්ටිය",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "තැඹිලි",
+    "රතු",
+    "පෙට්ටිය"
+   ]
+  },
+  "template:ig12-diagonal": {
+   "name": "කතාව: දැවැන්ත වචනයක් සහිත විකර්ණ ඉරි",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "තැඹිලි",
+    "රතු",
+    "විකර්ණ"
+   ]
+  },
+  "template:ig12-franjas": {
+   "name": "කතාව: වර්ණ පටි සහ සිරස් වචනයක්",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "තැඹිලි",
+    "රතු",
+    "රේඛා පටි"
+   ]
+  },
+  "template:ig12-panel-rojo": {
+   "name": "කතාව: රතු පැනලයක් දිගේ ඉහළට ලිස්සන දැවැන්ත වචනය",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "තැඹිලි",
+    "රතු",
+    "පැනලය"
+   ]
+  },
+  "template:ig13-amarilla": {
+   "name": "අකුරු සැලසුම් කතාව: කහ",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "අකුරු සැලසුම",
+    "කහ",
+    "කළු"
+   ]
+  },
+  "template:ig13-caja-negra": {
+   "name": "අකුරු සැලසුම් කතාව: කළු පෙට්ටිය",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "අකුරු සැලසුම",
+    "කහ",
+    "කළු"
+   ]
+  },
+  "template:ig13-filas": {
+   "name": "අකුරු සැලසුම් කතාව: අකුරු පේළි",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "අකුරු සැලසුම",
+    "කහ",
+    "කළු"
+   ]
+  },
+  "template:ig13-gris-ra": {
+   "name": "අකුරු සැලසුම් කතාව: අළු RA",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "අකුරු සැලසුම",
+    "කහ",
+    "කළු"
+   ]
+  },
+  "template:ig13-letras-grises": {
+   "name": "අකුරු සැලසුම් කතාව: කහ අකුරු",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "අකුරු සැලසුම",
+    "කහ",
+    "කළු"
+   ]
+  },
+  "template:ig13-muro-de-fotos": {
+   "name": "ඔබේ ලාංඡනය සහිත ඡායාරූප බිත්තිය",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූප",
+    "ලාංඡනය",
+    "පැතිකඩ"
+   ]
+  },
+  "template:ig13-negra": {
+   "name": "අකුරු සැලසුම් කතාව: කළු විකර්ණය",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "අකුරු සැලසුම",
+    "කහ",
+    "කළු"
+   ]
+  },
+  "template:ig13-oscura": {
+   "name": "අකුරු සැලසුම් කතාව: ගෝල සහිත අඳුරු",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "අකුරු සැලසුම",
+    "කහ",
+    "කළු"
+   ]
+  },
+  "template:ig14-dinamica": {
+   "name": "ගතික ස්ලයිඩ් ෂෝ: ඡායාරූපයකට වචනයක්",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූප ස්ලයිඩ්",
+    "ස්ලයිඩ් ෂෝ",
+    "ගතික"
+   ]
+  },
+  "template:ig14-energia": {
+   "name": "ලාංඡනයක් සහිත ශක්තිමත් ස්ලයිඩ් ෂෝ",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූප ස්ලයිඩ්",
+    "ස්ලයිඩ් ෂෝ",
+    "ශක්තිය"
+   ]
+  },
+  "template:ig14-epica": {
+   "name": "ග්ලිච් සහිත වීර ස්ලයිඩ් ෂෝ",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූප ස්ලයිඩ්",
+    "ස්ලයිඩ් ෂෝ",
+    "වීර"
+   ]
+  },
+  "template:ig14-limpia": {
+   "name": "විශාල අකුරු සහිත පිරිසිදු ස්ලයිඩ් ෂෝ",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූප ස්ලයිඩ්",
+    "ස්ලයිඩ් ෂෝ",
+    "පිරිසිදු"
+   ]
+  },
+  "template:ig14-minimal": {
+   "name": "සුදු පසුබිමක අවම ස්ලයිඩ් ෂෝ",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූප ස්ලයිඩ්",
+    "ස්ලයිඩ් ෂෝ",
+    "අවම"
+   ]
+  },
+  "template:ig14-moda": {
+   "name": "සිරස්තල සහිත විලාසිතා ස්ලයිඩ් ෂෝ",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූප ස්ලයිඩ්",
+    "ස්ලයිඩ් ෂෝ",
+    "විලාසිතා"
+   ]
+  },
+  "template:ig14-ritmica": {
+   "name": "මුදු සහිත රිද්මයානුකූල ස්ලයිඩ් ෂෝ",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූප ස්ලයිඩ්",
+    "ස්ලයිඩ් ෂෝ",
+    "රිද්මය"
+   ]
+  },
+  "template:ig14-stomp": {
+   "name": "ස්ටොම්ප් ස්ලයිඩ් ෂෝ: රිද්ම තාලයකට වචනයක්",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූප ස්ලයිඩ්",
+    "ස්ලයිඩ් ෂෝ",
+    "ස්ටොම්ප්"
+   ]
+  },
+  "template:ig2-cartel-amarillo": {
+   "name": "කතාව: කහ Your Stories පෝස්ටරය",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "වර්ණ",
+    "පෝස්ටරය",
+    "කහ"
+   ]
+  },
+  "template:ig2-ciudad-oferta": {
+   "name": "කතාව: % කවයක් සහිත නගර දීමනාව",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "වර්ණ",
+    "දීමනාව",
+    "වට්ටම"
+   ]
+  },
+  "template:ig2-cocina": {
+   "name": "කතාව: ආහාර පිසීමේ වැඩසටහනක ආරම්භය",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "වර්ණ",
+    "ආහාර පිසීම",
+    "ආහාර"
+   ]
+  },
+  "template:ig2-feliz": {
+   "name": "කතාව: දැවැන්ත අකුරක් සහ මින්ට් පෙට්ටියක් සහිත HAPPY",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "වර්ණ",
+    "සතුටු",
+    "කළු සහ සුදු"
+   ]
+  },
+  "template:ig2-interior": {
+   "name": "කතාව: වර්ණ කව සහිත අභ්‍යන්තර නිර්මාණය",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "වර්ණ",
+    "අභ්‍යන්තර",
+    "නිර්මාණය"
+   ]
+  },
+  "template:ig2-moda": {
+   "name": "කතාව: මින්ට් සහ රතු පැහැයෙන් Fashion",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "වර්ණ",
+    "විලාසිතා",
+    "පැතිකඩ"
+   ]
+  },
+  "template:ig2-oscuro": {
+   "name": "කතාව: ජාලක අකුරු සහිත DARK",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "වර්ණ",
+    "අඳුරු",
+    "විලාසිතා"
+   ]
+  },
+  "template:ig2-presentamos": {
+   "name": "කතාව: ශ්‍රේණිගත ඉරි සහිත INTRODUCING OUR STORIES",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "වර්ණ",
+    "හඳුන්වාදීම",
+    "ශ්‍රේණිගත වර්ණ"
+   ]
+  },
+  "template:ig2-rostro-franjas": {
+   "name": "කතාව: වර්ණ පටි සහ කව සහිත මුහුණ",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "වර්ණ",
+    "ඡායාරූපය",
+    "වෙළඳ නාමය"
+   ]
+  },
+  "template:ig2-tu-mente": {
+   "name": "කතාව: දම් පැහැයෙන් Say what's on your mind",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "වර්ණ",
+    "වාක්‍ය ඛණ්ඩය",
+    "දම්"
+   ]
+  },
+  "template:ig2-tu-vida": {
+   "name": "කතාව: කහ පටි සහිත YOUR LIFE",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "වර්ණ",
+    "ජීවිතය",
+    "උපදෙස්"
+   ]
+  },
+  "template:ig2-viaje-verano": {
+   "name": "කතාව: ඡායාරූප වලාකුළක් සහිත GREAT TRIP SUMMER",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "වර්ණ",
+    "ගමන",
+    "ගිම්හානය"
+   ]
+  },
+  "template:ig3-arte": {
+   "name": "කතාව: චිත්‍රයක් මත art 01 Stories",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "කලාව",
+    "චිත්‍ර"
+   ]
+  },
+  "template:ig3-ciencia": {
+   "name": "කතාව: කව සහිත A-01 MODERN SCIENCE",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "විද්‍යාව",
+    "කවය"
+   ]
+  },
+  "template:ig3-city-life": {
+   "name": "කතාව: රෝස පැනලයක් සහිත CITY LIFE",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "නගරය"
+   ]
+  },
+  "template:ig3-comida-circulo": {
+   "name": "කතාව: කවයක Say what's on your mind",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ආහාර",
+    "කවය"
+   ]
+  },
+  "template:ig3-fashion": {
+   "name": "කතාව: ඡායාරූප පිරවූ අකුරු සහිත FASHION 45$",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "විලාසිතා",
+    "දීමනාව"
+   ]
+  },
+  "template:ig3-food": {
+   "name": "කතාව: Food 50% discount",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ආහාර",
+    "දීමනාව"
+   ]
+  },
+  "template:ig3-friend": {
+   "name": "කතාව: කවයක් සහිත FRIEND GREAT TRIP",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "මිතුරන්",
+    "කවය"
+   ]
+  },
+  "template:ig3-full": {
+   "name": "කතාව: බුරුසු අකුරින් Full 100%",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "දීමනාව",
+    "සුරතල් සතුන්"
+   ]
+  },
+  "template:ig3-introducing": {
+   "name": "කතාව: වනාන්තරයේ INTRODUCING STORIES",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ශීත",
+    "හඳුන්වාදීම"
+   ]
+  },
+  "template:ig3-models": {
+   "name": "කතාව: වරහනක් සහිත MODELS FASHION",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "විලාසිතා",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:ig3-music": {
+   "name": "කතාව: මුදු සහිත MUSIC EXCLUSIVE",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "සංගීතය",
+    "කවය"
+   ]
+  },
+  "template:ig3-new": {
+   "name": "කතාව: බුරුසු පහරක් සහිත travel NEW",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "සංචාර",
+    "තීන්ත බුරුසුව"
+   ]
+  },
+  "template:ig3-opener": {
+   "name": "චතුරස්‍ර පළ කිරීමකට ගතික ආරම්භයක්",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ආරම්භක",
+    "අකුරු සැලසුම",
+    "පළ කිරීම"
+   ]
+  },
+  "template:ig3-perfil-amarillo": {
+   "name": "පැතිකඩ: ඡායාරූපයක් සහිත කහ කාඩ්පත",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "පැතිකඩ"
+   ]
+  },
+  "template:ig3-perfil-coral": {
+   "name": "පැතිකඩ: බිංදු සහිත කොරල් කාඩ්පත",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "පැතිකඩ"
+   ]
+  },
+  "template:ig3-perfil-degradado": {
+   "name": "පැතිකඩ: කව සහිත ශ්‍රේණිගත වර්ණ කාඩ්පත",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "පැතිකඩ"
+   ]
+  },
+  "template:ig3-perfil-oscuro": {
+   "name": "පැතිකඩ: රතු නමක් සහිත අඳුරු කාඩ්පත",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "පැතිකඩ"
+   ]
+  },
+  "template:ig3-perfil-rojo": {
+   "name": "පැතිකඩ: අවතාරයක් සහිත රතු කාඩ්පත",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "පැතිකඩ"
+   ]
+  },
+  "template:ig3-portfolio": {
+   "name": "කතාව: නමක් සහිත PORTFOLIO",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "පෝට්ෆෝලියෝ"
+   ]
+  },
+  "template:ig3-programa": {
+   "name": "කතාව: වටකුරු තීරු සහිත V 6",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "තාක්ෂණය",
+    "පැස්ටල්"
+   ]
+  },
+  "template:ig3-promo": {
+   "name": "කතාව: කහ තැටියක් සහිත Product Promo",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "නිෂ්පාදනය",
+    "ප්‍රවර්ධනය"
+   ]
+  },
+  "template:ig3-sport": {
+   "name": "කතාව: රෝස ලාංඡනයක් සහිත SPORT",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ක්‍රීඩා"
+   ]
+  },
+  "template:ig3-tech": {
+   "name": "කතාව: විසිරුණු අකුරු සහිත TECH",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "තාක්ෂණය"
+   ]
+  },
+  "template:ig3-toys": {
+   "name": "කතාව: ශ්‍රේණිගත වර්ණ තැටියක් සහිත TOYS",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "සෙල්ලම් බඩු",
+    "කවය"
+   ]
+  },
+  "template:ig3-tv": {
+   "name": "කතාව: වටකුරු ඡායාරූපයක් සහිත Media Social",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "සමාජ මාධ්‍ය",
+    "කවය"
+   ]
+  },
+  "template:ig3-your-life": {
+   "name": "කතාව: වර්ණ පටි සහිත YOUR LIFE සහ PRO",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "අභ්‍යන්තර"
+   ]
+  },
+  "template:ig4-abstract": {
+   "name": "කතාව: ABSTRACT GEOMETRIC STYLE",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "ජ්‍යාමිතික",
+    "ගෘහ නිර්මාණ"
+   ]
+  },
+  "template:ig4-amazing-dream": {
+   "name": "කතාව: ඡායාරූප දෙකක් සහිත Amazing dream",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "වාක්‍ය ඛණ්ඩය",
+    "දුඹුරු"
+   ]
+  },
+  "template:ig4-audacious": {
+   "name": "කතාව: LET'S DO WHAT WE LOVE #AUDACIOUS",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "ප්‍රේරණය",
+    "කළු"
+   ]
+  },
+  "template:ig4-beauty": {
+   "name": "කතාව: There is beauty in simplicity",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "ස්වභාවධර්මය",
+    "වාක්‍ය ඛණ්ඩය"
+   ]
+  },
+  "template:ig4-beauty-flowers": {
+   "name": "කතාව: මල් සහිත Beauty",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "මල්",
+    "අත් අකුරු"
+   ]
+  },
+  "template:ig4-believe": {
+   "name": "කතාව: BELIEVE YOU CAN SO YOU ARE HALFWAY THERE",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "ප්‍රේරණය",
+    "වාක්‍ය ඛණ්ඩය"
+   ]
+  },
+  "template:ig4-big": {
+   "name": "කතාව: ඉරි සහිත කවයක් සමඟ BIG.",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "විලාසිතා",
+    "ඉරි"
+   ]
+  },
+  "template:ig4-born-wild": {
+   "name": "කතාව: BORN TO BE WILD",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "වික්‍රමය",
+    "නිල්"
+   ]
+  },
+  "template:ig4-brand-new-day": {
+   "name": "කතාව: ත්‍රිකෝණ සහිත brand new day",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "ත්‍රිකෝණ",
+    "ජ්‍යාමිතික"
+   ]
+  },
+  "template:ig4-clear": {
+   "name": "කතාව: අඩ දෙකකින් CLEAR INTERIOR",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "අභ්‍යන්තර",
+    "නිවස"
+   ]
+  },
+  "template:ig4-cold-wave": {
+   "name": "කතාව: ඡායාරූප අකුරු සහිත COLD WAVE WARM SUN",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "මුහුද",
+    "අකුරු සැලසුම"
+   ]
+  },
+  "template:ig4-confident": {
+   "name": "කතාව: කවුළු තුනක STYLISH & CONFIDENT",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "විලාසිතා",
+    "පිරිමි"
+   ]
+  },
+  "template:ig4-control": {
+   "name": "කතාව: ලාංඡනයක් සහ ඡායාරූප දෙකක් සහිත CONTROL",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "ලාංඡනය",
+    "යෝග"
+   ]
+  },
+  "template:ig4-courage": {
+   "name": "කතාව: බුරුසු පහරක් සහිත #courage",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "තැඹිලි",
+    "තීන්ත බුරුසුව"
+   ]
+  },
+  "template:ig4-culinary": {
+   "name": "කතාව: CULINARY ART #cooking",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "ආහාර පිසීම",
+    "ආහාර"
+   ]
+  },
+  "template:ig4-deep-breath": {
+   "name": "කතාව: කොළ සහිත ENJOY DEEP BREATH",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "ස්වභාවධර්මය",
+    "කොළ"
+   ]
+  },
+  "template:ig4-delicious": {
+   "name": "කතාව: #DELICIOUS ජාලකය",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "ආහාර",
+    "අතුරුපස"
+   ]
+  },
+  "template:ig4-dream": {
+   "name": "කතාව: නගරයක් මත රාමුවක් සහිත DREAM",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "නගරය",
+    "රාමුව"
+   ]
+  },
+  "template:ig4-employee": {
+   "name": "කතාව: BEST EMPLOYEE OF THE MONTH",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "ව්‍යාපාරය",
+    "සේවකයා"
+   ]
+  },
+  "template:ig4-enjoy-music": {
+   "name": "කතාව: නිල් සහ රතු ENJOY MY MUSIC",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "සංගීතය",
+    "නැටුම"
+   ]
+  },
+  "template:ig4-fashion-buy": {
+   "name": "කතාව: පටි මත FASHION IS WHAT YOU BUY",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "විලාසිතා",
+    "රේඛා පටි"
+   ]
+  },
+  "template:ig4-fitness": {
+   "name": "කතාව: FITNESS BODY ENERGY WORKOUT",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "ව්‍යායාමශාලාව",
+    "ක්‍රීඩා"
+   ]
+  },
+  "template:ig4-fun": {
+   "name": "කතාව: රාමු කළ ඡායාරූපයක් සහිත #FUN",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "රාමුව",
+    "රතු"
+   ]
+  },
+  "template:ig4-glam": {
+   "name": "කතාව: රෝස සහ කළු පැහැයෙන් GLAM ROCK",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "විලාසිතා",
+    "රෝස"
+   ]
+  },
+  "template:ig4-instamusic": {
+   "name": "කතාව: බිංදු සහිත #instamusic #yourbeat",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "සංගීතය",
+    "නියෝන්"
+   ]
+  },
+  "template:ig4-life-good": {
+   "name": "කතාව: LIFE IS SO GOOD JUST BE YOURSELF",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "වාක්‍ය ඛණ්ඩය",
+    "නියෝන්"
+   ]
+  },
+  "template:ig4-lifestyle": {
+   "name": "කතාව: my lifestyle #followme",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "ජීවන රටාව",
+    "නිල්"
+   ]
+  },
+  "template:ig4-look-deep": {
+   "name": "කතාව: ෂඩාස්‍ර සහිත LOOK DEEP INTO NATURE",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "ස්වභාවධර්මය",
+    "ෂඩාස්‍රය"
+   ]
+  },
+  "template:ig4-masterpiece": {
+   "name": "කතාව: MAKE EACH DAY YOUR MASTERPIECE",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "වාක්‍ය ඛණ්ඩය",
+    "රෝස"
+   ]
+  },
+  "template:ig4-meeting": {
+   "name": "කතාව: තීරු වල MEETING WITH FRIENDS",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "මිතුරන්",
+    "තීරු"
+   ]
+  },
+  "template:ig4-motion": {
+   "name": "කතාව: කහ කවයක් සහිත MOTION",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "නැටුම",
+    "කවය"
+   ]
+  },
+  "template:ig4-moving": {
+   "name": "කතාව: මුදු දෙකක් සහිත Moving",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "නැටුම",
+    "වළලු"
+   ]
+  },
+  "template:ig4-music": {
+   "name": "කතාව: MUSIC DANCE ENJOY",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "සංගීතය",
+    "සාදය"
+   ]
+  },
+  "template:ig4-natural": {
+   "name": "කතාව: තීරු තුනක NATURAL BEAUTY",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "ස්වභාවධර්මය",
+    "තීරු"
+   ]
+  },
+  "template:ig4-never-easier": {
+   "name": "කතාව: රතු IT NEVER GETS EASIER",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "ව්‍යායාමශාලාව",
+    "ප්‍රේරණය"
+   ]
+  },
+  "template:ig4-ocean": {
+   "name": "කතාව: රාමුවක් සහිත OCEAN HAPPY RELAX",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "මුහුද",
+    "රාමුව"
+   ]
+  },
+  "template:ig4-pro-fitness": {
+   "name": "කතාව: හරස් රාමුවක් සහිත PRO fitness",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "ක්‍රීඩා",
+    "රාමුව"
+   ]
+  },
+  "template:ig4-sale40": {
+   "name": "කතාව: සිරස් SALE 40%",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "වට්ටම් විකුණුම",
+    "දීමනාව"
+   ]
+  },
+  "template:ig4-sale75": {
+   "name": "කතාව: SALE UP TO 75% OFF",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "වට්ටම් විකුණුම",
+    "දීමනාව"
+   ]
+  },
+  "template:ig4-secrets": {
+   "name": "කතාව: NO MORE SECRETS #IMAGINE",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "රතු",
+    "විකර්ණ"
+   ]
+  },
+  "template:ig4-shopping-week": {
+   "name": "කතාව: #shoppingweek 40% FOR SALE",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "වට්ටම් විකුණුම",
+    "සාප්පු සවාරි"
+   ]
+  },
+  "template:ig4-simplelife": {
+   "name": "කතාව: When you focus on the good #simplelife",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "වාක්‍ය ඛණ්ඩය",
+    "නිල්"
+   ]
+  },
+  "template:ig4-skate": {
+   "name": "කතාව: 0256 #skatelife",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "ස්කේට්",
+    "ක්‍රීඩා"
+   ]
+  },
+  "template:ig4-sport": {
+   "name": "කතාව: රේඛාවක් සහිත W SPORT",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "ක්‍රීඩා",
+    "ධාවනය"
+   ]
+  },
+  "template:ig4-spring": {
+   "name": "කතාව: SPRING IS IN THE AIR",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "වසන්තය",
+    "මල්"
+   ]
+  },
+  "template:ig4-stay-strong": {
+   "name": "කතාව: STAY STRONG DON'T GIVE UP",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "ප්‍රේරණය",
+    "රතු"
+   ]
+  },
+  "template:ig4-street-fast": {
+   "name": "කතාව: 10/25 #youth street FAST",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "වීදිය",
+    "ස්කේට්"
+   ]
+  },
+  "template:ig4-style": {
+   "name": "කතාව: STYLE IS VERY PERSONAL",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "විලාසිතා",
+    "රතු"
+   ]
+  },
+  "template:ig4-style-beautiful": {
+   "name": "කතාව: පටි සහිත STYLE #beautiful",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "විලාසිතා",
+    "රේඛා පටි"
+   ]
+  },
+  "template:ig4-stylish": {
+   "name": "කතාව: නිල් තැටියක් සහිත #stylish",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "විලාසිතා",
+    "නිල්"
+   ]
+  },
+  "template:ig4-summer": {
+   "name": "කතාව: වෙරළ දියමන්තියක් සහිත #SUMMER",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "වෙරළ",
+    "ගිම්හානය"
+   ]
+  },
+  "template:ig4-summer-event": {
+   "name": "කතාව: දිනයක් සහිත ගිම්හාන උත්සවය",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "ගිම්හානය",
+    "උත්සවය"
+   ]
+  },
+  "template:ig4-summer-look": {
+   "name": "කතාව: පටි වල Summer look #fashion",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "විලාසිතා",
+    "ගිම්හානය"
+   ]
+  },
+  "template:ig4-sunshine": {
+   "name": "කතාව: ඡායාරූප හතරක් සහිත SUNSHINE",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "ගිම්හානය",
+    "කොලාජ්"
+   ]
+  },
+  "template:ig4-sunshine-tag": {
+   "name": "කතාව: #sunshine Relaxing holiday",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "ගිම්හානය",
+    "නිල්"
+   ]
+  },
+  "template:ig4-trendy": {
+   "name": "කතාව: රතු #TRENDY YOUR STYLE",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "රතු",
+    "විලාසිතා"
+   ]
+  },
+  "template:ig4-tropical": {
+   "name": "කතාව: ඡායාරූප තුනක් සහිත FEELING TROPICAL",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "ගිම්හානය",
+    "නිවර්තන"
+   ]
+  },
+  "template:ig4-winner": {
+   "name": "කතාව: THE WINNER NEVER QUITS",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "ප්‍රේරණය",
+    "ව්‍යායාමශාලාව"
+   ]
+  },
+  "template:ig4-young": {
+   "name": "කතාව: YOUNG #followus",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "තරුණ",
+    "රතු"
+   ]
+  },
+  "template:ig4-youth": {
+   "name": "කතාව: ත්‍රිකෝණයක් සහිත #YOUTH & FREEDOM",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "ත්‍රිකෝණය",
+    "කොරල්"
+   ]
+  },
+  "template:ig5-amazing-now": {
+   "name": "කතාව: AMAZING NOW",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "කළු සහ සුදු",
+    "රතු"
+   ]
+  },
+  "template:ig5-awesome": {
+   "name": "කතාව: සිරස් AWESOME",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "රතු",
+    "සිරස්"
+   ]
+  },
+  "template:ig5-be-strong": {
+   "name": "කතාව: B STRONG",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "රතු",
+    "වාක්‍ය ඛණ්ඩය"
+   ]
+  },
+  "template:ig5-beach-therapy": {
+   "name": "කතාව: නිල් කොළ පැහැති beach therapy",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "වෙරළ",
+    "නිවාඩුව"
+   ]
+  },
+  "template:ig5-beauty-pro": {
+   "name": "කතාව: දම් රැල්ලක් සහිත BEAUTY",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "රූපලාවණ්‍ය",
+    "දම්"
+   ]
+  },
+  "template:ig5-best-look": {
+   "name": "කතාව: රාමු කළ YOUR BEST LOOK",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "කොළ",
+    "විලාසිතා"
+   ]
+  },
+  "template:ig5-choose-glam": {
+   "name": "කතාව: 48 choose the glam",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "රූපලාවණ්‍ය",
+    "දීප්තිමත් රූපලාවණ්‍ය"
+   ]
+  },
+  "template:ig5-cold-water": {
+   "name": "කතාව: COLD DEEP WATER",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "මුහුද",
+    "කහ"
+   ]
+  },
+  "template:ig5-creative-studio": {
+   "name": "කතාව: CREATIVE DESIGN STUDIO",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "නිර්මාණය",
+    "ස්ටුඩියෝ"
+   ]
+  },
+  "template:ig5-dancing": {
+   "name": "කතාව: විකර්ණ ඡායාරූපයක් සහිත #DANCING",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "නැටුම",
+    "විකර්ණ"
+   ]
+  },
+  "template:ig5-daring-style": {
+   "name": "කතාව: කහ පසුබිමක DARING STYLE",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "කහ",
+    "විලාසිතා"
+   ]
+  },
+  "template:ig5-denim-style": {
+   "name": "කතාව: රාමු කළ DENIM STYLE",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "විලාසිතා",
+    "කොටුව"
+   ]
+  },
+  "template:ig5-design-passion": {
+   "name": "කතාව: DESIGN IS MY PASSION",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "අභ්‍යන්තර",
+    "නිර්මාණය"
+   ]
+  },
+  "template:ig5-dont-waste": {
+   "name": "කතාව: DON'T WASTE YOUR TIME",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "වාක්‍ය ඛණ්ඩය",
+    "නිල් කොළ"
+   ]
+  },
+  "template:ig5-enjoy-movement": {
+   "name": "කතාව: enjoy the movement",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "නැටුම",
+    "කළු"
+   ]
+  },
+  "template:ig5-flexible-body": {
+   "name": "කතාව: ශ්‍රේණිගත වර්ණ පටියක් සහිත FLEXIBLE BODY",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "ශරීර සුවතාව",
+    "ශ්‍රේණිගත වර්ණ"
+   ]
+  },
+  "template:ig5-focus-breathe": {
+   "name": "කතාව: FOCUS ON THE BREATHE",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "වාක්‍ය ඛණ්ඩය",
+    "අකුරු සැලසුම"
+   ]
+  },
+  "template:ig5-fondo-ambar": {
+   "name": "පසුබිම: ඇම්බර් කව",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "පසුබිම",
+    "තැඹිලි",
+    "දුඹුරු"
+   ]
+  },
+  "template:ig5-fondo-burbujas-azules": {
+   "name": "පසුබිම: රෝස පැහැයක් මත නිල් බුබුළු",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "පසුබිම",
+    "රෝස",
+    "නිල්"
+   ]
+  },
+  "template:ig5-fondo-burbujas-grises": {
+   "name": "පසුබිම: කළු පැහැයක් මත අළු බුබුළු",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "පසුබිම",
+    "කළු",
+    "අළු"
+   ]
+  },
+  "template:ig5-fondo-chevrones": {
+   "name": "පසුබිම: රතු ඊතල ආකාර",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "පසුබිම",
+    "රතු",
+    "ඊතල ආකාර"
+   ]
+  },
+  "template:ig5-fondo-cinta-azul": {
+   "name": "පසුබිම: රතු පැහැයක් මත නිල් රිබනය",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "පසුබිම",
+    "ශ්‍රේණිගත වර්ණ",
+    "නිල්"
+   ]
+  },
+  "template:ig5-fondo-geometrico": {
+   "name": "පසුබිම: අළු පැහැයක් මත ජ්‍යාමිතික කොටස්",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "පසුබිම",
+    "අළු",
+    "ජ්‍යාමිතික"
+   ]
+  },
+  "template:ig5-fondo-lineas": {
+   "name": "පසුබිම: නියෝන් රේඛා සහිත ශ්‍රේණිගත වර්ණ",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "පසුබිම",
+    "ශ්‍රේණිගත වර්ණ",
+    "රෝස"
+   ]
+  },
+  "template:ig5-fondo-lineas-cruzadas": {
+   "name": "පසුබිම: හරස් වන රේඛා",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "පසුබිම",
+    "ශ්‍රේණිගත වර්ණ",
+    "මැජෙන්ටා"
+   ]
+  },
+  "template:ig5-fondo-olas": {
+   "name": "පසුබිම: තැඹිලි සහ දම් රැල්ල",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "පසුබිම",
+    "ශ්‍රේණිගත වර්ණ",
+    "තැඹිලි"
+   ]
+  },
+  "template:ig5-fondo-pildoras": {
+   "name": "පසුබිම: රෝස පෙති",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "පසුබිම",
+    "රෝස",
+    "පැස්ටල්"
+   ]
+  },
+  "template:ig5-fondo-plata": {
+   "name": "පසුබිම: රිදී ඉරි",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "පසුබිම",
+    "රිදී",
+    "අළු"
+   ]
+  },
+  "template:ig5-fondo-rojo": {
+   "name": "පසුබිම: වටකුරු රතු හැඩතල",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "පසුබිම",
+    "රතු",
+    "හැඩතල"
+   ]
+  },
+  "template:ig5-gentle-soft": {
+   "name": "කතාව: GENTLE & SOFT කාඩ්පත",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "මල්",
+    "කාඩ්පත"
+   ]
+  },
+  "template:ig5-glam": {
+   "name": "කතාව: GLAM කැමරා රූපය",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "රෝස",
+    "කැමරාව"
+   ]
+  },
+  "template:ig5-happiness-love": {
+   "name": "කතාව: HAPPINESS සහ LOVE කොලාජ්",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "කොලාජ්",
+    "මංගල"
+   ]
+  },
+  "template:ig5-happy-weekends": {
+   "name": "කතාව: Happy weekends",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "මල්",
+    "සති අන්තය"
+   ]
+  },
+  "template:ig5-inspiration": {
+   "name": "කතාව: #pleasure inspiration",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "රතු",
+    "කළු සහ සුදු"
+   ]
+  },
+  "template:ig5-interior-dream": {
+   "name": "කතාව: INTERIOR OF YOUR DREAM නාමාවලිය",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "නාමාවලිය",
+    "අභ්‍යන්තර"
+   ]
+  },
+  "template:ig5-keep-simple": {
+   "name": "කතාව: කවයක් සහිත KEEP IT SIMPLE",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "කවය",
+    "ශ්‍රේණිගත වර්ණ"
+   ]
+  },
+  "template:ig5-light-easy": {
+   "name": "කතාව: LIGHT & EASY කාඩ්පත",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "විලාසිතා",
+    "කාඩ්පත"
+   ]
+  },
+  "template:ig5-look-deep": {
+   "name": "කතාව: LOOK DEEP INTO YOURSELF",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "වාක්‍ය ඛණ්ඩය",
+    "නියෝන්"
+   ]
+  },
+  "template:ig5-mindfulness": {
+   "name": "කතාව: කළු සුදු #mindfulness",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "කළු සහ සුදු",
+    "වාක්‍ය ඛණ්ඩය"
+   ]
+  },
+  "template:ig5-modern-office": {
+   "name": "කතාව: MODERN OFFICE SPACE",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "කාර්යාලය",
+    "ව්‍යාපාරය"
+   ]
+  },
+  "template:ig5-ocean": {
+   "name": "කතාව: කවයක OCEAN",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "කවය",
+    "මුහුද"
+   ]
+  },
+  "template:ig5-pleasure": {
+   "name": "කතාව: PLEASURE කුට්ටි කොලාජ්",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "කොලාජ්",
+    "ටෙරකොටා"
+   ]
+  },
+  "template:ig5-power": {
+   "name": "කතාව: ඡායාරූපයක් සහිත #POWER",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "රතු",
+    "විලාසිතා"
+   ]
+  },
+  "template:ig5-relax-home": {
+   "name": "කතාව: Relax SWEET HOME",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "නිවස",
+    "අභ්‍යන්තර"
+   ]
+  },
+  "template:ig5-sale-70": {
+   "name": "කතාව: ඇල පටි සහිත SALE 70%",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "වට්ටම් විකුණුම",
+    "දීමනාව"
+   ]
+  },
+  "template:ig5-sensual": {
+   "name": "කතාව: ඡායාරූප දෙකක් සහිත SENSUAL",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "කළු සහ සුදු",
+    "කොලාජ්"
+   ]
+  },
+  "template:ig5-style-y": {
+   "name": "කතාව: විශාල Y අකුරක් සහිත STYLE",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "විලාසිතා",
+    "නිල් කොළ"
+   ]
+  },
+  "template:ig5-summer-pause": {
+   "name": "කතාව: SUMMER take a pause",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "ගිම්හානය",
+    "නිවාඩුව"
+   ]
+  },
+  "template:ig5-sunny-day": {
+   "name": "කතාව: කවයක් සහිත SUNNY DAY",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "ගිම්හානය",
+    "පිහිනුම් තටාකය"
+   ]
+  },
+  "template:ig5-titulo-art-design": {
+   "name": "මාතෘකාව: ART & DESIGN FORUM",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "මාතෘකාව",
+    "පෙළ",
+    "කලාව"
+   ]
+  },
+  "template:ig5-titulo-big-sale": {
+   "name": "මාතෘකාව: බුරුසුවක් සහ කරත්තයක් සහිත BIG SALE",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "මාතෘකාව",
+    "පෙළ",
+    "වට්ටම් විකුණුම"
+   ]
+  },
+  "template:ig5-titulo-bold-fashion": {
+   "name": "මාතෘකාව: ඇල BOLD FASHION STYLE",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "මාතෘකාව",
+    "පෙළ",
+    "විලාසිතා"
+   ]
+  },
+  "template:ig5-titulo-chicle": {
+   "name": "මාතෘකාව: BUBBLEGUM STYLE",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "මාතෘකාව",
+    "පෙළ",
+    "රෝස"
+   ]
+  },
+  "template:ig5-titulo-cita": {
+   "name": "මාතෘකාව: කතුවරයා සහිත උද්ධෘතයක්",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "මාතෘකාව",
+    "පෙළ",
+    "උද්ධෘතය"
+   ]
+  },
+  "template:ig5-titulo-do-what": {
+   "name": "මාතෘකාව: DO WHAT YOU WANT",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "මාතෘකාව",
+    "පෙළ",
+    "ප්‍රේරණය"
+   ]
+  },
+  "template:ig5-titulo-formas-abstractas": {
+   "name": "මාතෘකාව: ABSTRACT SHAPES DESIGN",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "මාතෘකාව",
+    "පෙළ",
+    "හැඩතල"
+   ]
+  },
+  "template:ig5-titulo-glitch": {
+   "name": "මාතෘකාව: GLITCH STYLE",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "මාතෘකාව",
+    "පෙළ",
+    "ග්ලිච්"
+   ]
+  },
+  "template:ig5-titulo-neon": {
+   "name": "මාතෘකාව: දිලිසෙන NEON",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "මාතෘකාව",
+    "පෙළ",
+    "නියෝන්"
+   ]
+  },
+  "template:ig5-titulo-never-give-up": {
+   "name": "මාතෘකාව: බුරුසු අකුරින් NEVER GIVE UP",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "මාතෘකාව",
+    "පෙළ",
+    "ප්‍රේරණය"
+   ]
+  },
+  "template:ig5-titulo-retro": {
+   "name": "මාතෘකාව: 80s RETROSTYLE",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "මාතෘකාව",
+    "පෙළ",
+    "රෙට්‍රෝ"
+   ]
+  },
+  "template:ig5-titulo-sale": {
+   "name": "මාතෘකාව: SALE ටිකට්පත",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "මාතෘකාව",
+    "පෙළ",
+    "වට්ටම් විකුණුම"
+   ]
+  },
+  "template:ig5-wake-up": {
+   "name": "කතාව: WAKE UP AND BE AWESOME",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "රතු",
+    "ප්‍රේරණය"
+   ]
+  },
+  "template:ig5-your-choice": {
+   "name": "කතාව: කහ තිත් සහිත ඡායාරූපයක්",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "කහ",
+    "තිත්"
+   ]
+  },
+  "template:ig5-your-style": {
+   "name": "කතාව: Your style කොලාජ්",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "කොලාජ්",
+    "අභ්‍යන්තර"
+   ]
+  },
+  "template:ig6-arbol-cinta": {
+   "name": "නත්තල් කතාව: රන්වන් රිබන් ගසක්",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "නත්තල",
+    "ගස"
+   ]
+  },
+  "template:ig6-artista": {
+   "name": "කතාව: You are the artist of your life #YLIFE සමඟ",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "නිල්",
+    "ජීවන රටාව"
+   ]
+  },
+  "template:ig6-aventuras": {
+   "name": "කතාව: ඡායාරූප දෙකක් සහ කොළ කන්දක් සහිත My Adventures",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "සංචාර",
+    "වික්‍රමය"
+   ]
+  },
+  "template:ig6-diseno-pasion": {
+   "name": "කතාව: රෝස පැහැයෙන් Design is my passion",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "නිර්මාණය",
+    "ගෘහ නිර්මාණ"
+   ]
+  },
+  "template:ig6-feliz-brillante": {
+   "name": "නත්තල් කතාව: අළු පැහැයෙන් Merry & Bright",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "නත්තල",
+    "සාද"
+   ]
+  },
+  "template:ig6-interior": {
+   "name": "කතාව: කළු පෙට්ටියක් සහිත Clear Interior",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "නිවස",
+    "අභ්‍යන්තර සැරසිලි"
+   ]
+  },
+  "template:ig6-luz-calida": {
+   "name": "කතාව: දියමන්ති සහ #WARM සහිත Cozy Light",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "නිවස",
+    "නිෂ්පාදනය"
+   ]
+  },
+  "template:ig6-pino-rojo": {
+   "name": "නත්තල් කතාව: රතු පැහැයෙන් පයින් අතු සහ Merry Christmas",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "නත්තල",
+    "වට්ටම් විකුණුම",
+    "පයින් ගස"
+   ]
+  },
+  "template:ig6-rebajas-50": {
+   "name": "කතාව: 50% OFF ටැගයක් සහ නිල් ඉරි සහිත SALE",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඡායාරූපය",
+    "වට්ටම් විකුණුම",
+    "වට්ටම"
+   ]
+  },
+  "template:ig6-rebajas-invierno": {
+   "name": "නත්තල් කතාව: «winter sell XMAS 50%off» බවට විවෘත වන තෑග්ග",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "නත්තල",
+    "වට්ටම් විකුණුම",
+    "වට්ටම"
+   ]
+  },
+  "template:ig6-santa": {
+   "name": "නත්තල් කතාව: Merry Xmas සමඟ නත්තල් සීයාගේ මුහුණ",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "නත්තල",
+    "නත්තල් සීයා"
+   ]
+  },
+  "template:ig6-swipe-bandera": {
+   "name": "ඉහළට ස්වයිප්: සාද පොපරයකින් පිපිරෙන SWIPE UP කොඩිය",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඉහළට ස්වයිප්",
+    "ස්වයිප්",
+    "ඊතලය"
+   ]
+  },
+  "template:ig6-swipe-boton": {
+   "name": "ඉහළට ස්වයිප්: චතුරස්‍රයක සිට කවයක් බවට හැඩය වෙනස් වන සුදු බොත්තම",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඉහළට ස්වයිප්",
+    "ස්වයිප්",
+    "ඊතලය"
+   ]
+  },
+  "template:ig6-swipe-brillo": {
+   "name": "ඉහළට ස්වයිප්: ඉහළට නගින දිලිසෙන සුදු ඊතල",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඉහළට ස්වයිප්",
+    "ස්වයිප්",
+    "ඊතලය"
+   ]
+  },
+  "template:ig6-swipe-chevrones": {
+   "name": "ඉහළට ස්වයිප්: ඉහළට නගින නිල් ඊතල ආකාර තුනක්",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඉහළට ස්වයිප්",
+    "ස්වයිප්",
+    "ඊතලය"
+   ]
+  },
+  "template:ig6-swipe-circulo": {
+   "name": "ඉහළට ස්වයිප්: ත්‍රිකෝණයක් සහිත ඉහළට නගිමින් බොඳ වන සුදු කවය",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඉහළට ස්වයිප්",
+    "ස්වයිප්",
+    "ඊතලය"
+   ]
+  },
+  "template:ig6-swipe-cuadro": {
+   "name": "ඉහළට ස්වයිප්: ඊතලයක් සහ එහි පරාවර්තනය සහිත නිල් කොළ පෙට්ටිය",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඉහළට ස්වයිප්",
+    "ස්වයිප්",
+    "ඊතලය"
+   ]
+  },
+  "template:ig6-swipe-figuras": {
+   "name": "ඉහළට ස්වයිප්: SWIPE UP සමඟ ත්‍රිකෝණයක් බවට හැරෙන කොළ මුද්ද",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඉහළට ස්වයිප්",
+    "ස්වයිප්",
+    "ඊතලය"
+   ]
+  },
+  "template:ig6-swipe-flecha": {
+   "name": "ඉහළට ස්වයිප්: ස්පන්දනය වන රේඛාවක් මත නිල් ඊතලය",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඉහළට ස්වයිප්",
+    "ස්වයිප්",
+    "ඊතලය"
+   ]
+  },
+  "template:ig6-swipe-interruptor": {
+   "name": "ඉහළට ස්වයිප්: ඉහළට ලිස්සන නිල් හැඳියක් සහිත ස්විචය",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඉහළට ස්වයිප්",
+    "ස්වයිප්",
+    "ඊතලය"
+   ]
+  },
+  "template:ig6-swipe-letras": {
+   "name": "ඉහළට ස්වයිප්: පනින SWIPE UP අකුරු",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඉහළට ස්වයිප්",
+    "ස්වයිප්",
+    "ඊතලය"
+   ]
+  },
+  "template:ig6-swipe-mano": {
+   "name": "ඉහළට ස්වයිප්: ඊතල පෙළක් සහිතව ඉහළට ස්වයිප් කරන අත",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඉහළට ස්වයිප්",
+    "ස්වයිප්",
+    "ඊතලය"
+   ]
+  },
+  "template:ig6-swipe-triangulo": {
+   "name": "ඉහළට ස්වයිප්: රතු තිතක් සහිතව ඉහළට නගින සුදු ත්‍රිකෝණය",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "ඉහළට ස්වයිප්",
+    "ස්වයිප්",
+    "ඊතලය"
+   ]
+  },
+  "template:ig7-awesome": {
+   "name": "අකුරු සැලසුම් කතාව: AWESOME",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "අකුරු සැලසුම",
+    "වර්ණ",
+    "රේඛා පටි"
+   ]
+  },
+  "template:ig7-big": {
+   "name": "අකුරු සැලසුම් කතාව: BIG",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "අකුරු සැලසුම",
+    "වර්ණ",
+    "දැවැන්ත අකුර"
+   ]
+  },
+  "template:ig7-brand": {
+   "name": "අකුරු සැලසුම් කතාව: BRAND",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "අකුරු සැලසුම",
+    "වර්ණ",
+    "a අකුර"
+   ]
+  },
+  "template:ig7-color": {
+   "name": "අකුරු සැලසුම් කතාව: COLOR",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "අකුරු සැලසුම",
+    "වර්ණ",
+    "රාමුව"
+   ]
+  },
+  "template:ig7-easy-project": {
+   "name": "අකුරු සැලසුම් කතාව: STORIES EASY PROJECT",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "අකුරු සැලසුම",
+    "වර්ණ",
+    "පික්සල්"
+   ]
+  },
+  "template:ig7-grid": {
+   "name": "අකුරු සැලසුම් කතාව: වර්ණ ජාලකය",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "අකුරු සැලසුම",
+    "වර්ණ",
+    "ජාලකය"
+   ]
+  },
+  "template:ig7-no-plugins": {
+   "name": "අකුරු සැලසුම් කතාව: NO PLUGINS",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "අකුරු සැලසුම",
+    "වර්ණ",
+    "සෘජුකෝණාස්‍ර"
+   ]
+  },
+  "template:ig7-social": {
+   "name": "අකුරු සැලසුම් කතාව: SOCIAL",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "අකුරු සැලසුම",
+    "වර්ණ",
+    "කාඩ්පත්"
+   ]
+  },
+  "template:ig7-stories": {
+   "name": "අකුරු සැලසුම් කතාව: STORIES",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "අකුරු සැලසුම",
+    "වර්ණ",
+    "දැවැන්ත අකුර"
+   ]
+  },
+  "template:ig7-typo": {
+   "name": "අකුරු සැලසුම් කතාව: TYPO",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "අකුරු සැලසුම",
+    "වර්ණ",
+    "කාඩ්පත"
+   ]
+  },
+  "template:ig8-best-sellers": {
+   "name": "නාගරික කතාව: Best Sellers click now",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "නාගරික",
+    "නිල්",
+    "වෙළඳසැල"
+   ]
+  },
+  "template:ig8-city-vibes": {
+   "name": "නාගරික කතාව: ඡායාරූප දෙකක් සහිත city vibes",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "නාගරික",
+    "නිල්",
+    "නගරය"
+   ]
+  },
+  "template:ig8-friends": {
+   "name": "නාගරික කතාව: ඡායාරූප තීරුවක් සහිත friends positive",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "නාගරික",
+    "නිල්",
+    "මිතුරන්"
+   ]
+  },
+  "template:ig8-mega-sale": {
+   "name": "නාගරික කතාව: පොලරොයිඩ් mega sale %50",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "නාගරික",
+    "නිල්",
+    "වට්ටම් විකුණුම"
+   ]
+  },
+  "template:ig8-visit-page": {
+   "name": "නාගරික කතාව: නිල් තීරුවක් සහිත visit page",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "නාගරික",
+    "නිල්",
+    "වෙබ්"
+   ]
+  },
+  "template:ig9-banda-roja": {
+   "name": "කතාව: දැවැන්ත වචනයක් සහිත රතු පටිය",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "අකුරු සැලසුම",
+    "පටිය",
+    "රතු"
+   ]
+  },
+  "template:ig9-letras-cortadas": {
+   "name": "කතාව: කැපූ දැවැන්ත වචනයක් සහ සබැඳි තුනක්",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "අකුරු සැලසුම",
+    "අකුරු",
+    "සබැඳි"
+   ]
+  },
+  "template:ig9-letras-rojas": {
+   "name": "කතාව: රතු පැහැයක් මත හැරවූ අකුරු බිත්තියක්",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "අකුරු සැලසුම",
+    "අකුරු",
+    "රතු"
+   ]
+  },
+  "template:ig9-palabra-vertical": {
+   "name": "කතාව: රතු රිබනයක් සහිත රාමුවක සිරස් වචනයක්",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "අකුරු සැලසුම",
+    "සිරස්",
+    "රාමුව"
+   ]
+  },
+  "template:ig9-typo": {
+   "name": "කතාව: අඳින ලද රාමුවක් සහිත TYPO ටයිල්",
+   "tags": [
+    "instagram",
+    "කතාව",
+    "රීල්ස්",
+    "අකුරු සැලසුම",
+    "අකුරු",
+    "රාමුව"
+   ]
+  },
   "template:intro-de-canal": {
    "name": "චැනල් ඉන්ට්‍රෝ",
    "tags": [
@@ -25196,6 +28206,204 @@
     "බීට්",
     "පාටි",
     "වචන"
+   ]
+  },
+  "template:lg0-circulo-ambar": {
+   "name": "ලාංඡනය: තිත් දෙකක් මුද්දක් අඳින අතර එය තැටියක් බවට වැසේ (ඇම්බර්)",
+   "tags": [
+    "ලාංඡනය",
+    "ලාංඡන එළිදැක්වීම",
+    "පැතලි",
+    "ඇම්බර්",
+    "කහ",
+    "කවය"
+   ]
+  },
+  "template:lg0-cuadro-blanco": {
+   "name": "ලාංඡනය: විවෘත වන පනින චතුරස්‍රය (සුදු)",
+   "tags": [
+    "ලාංඡනය",
+    "ලාංඡන එළිදැක්වීම",
+    "පැතලි",
+    "සුදු",
+    "සමචතුරස්‍රය",
+    "පිම්මීම"
+   ]
+  },
+  "template:lg0-disco-azul": {
+   "name": "ලාංඡනය: තැටියක් බවට විවෘත වන පියාසර කරන තිත (නිල්)",
+   "tags": [
+    "ලාංඡනය",
+    "ලාංඡන එළිදැක්වීම",
+    "පැතලි",
+    "නිල්",
+    "තැටිය",
+    "තිතය"
+   ]
+  },
+  "template:lg0-hexagono-coral": {
+   "name": "ලාංඡනය: ඔබේ වෙළඳ නාමය සහිත රේඛාව, කවය සහ පෙරළෙන ෂඩාස්‍රය (කොරල්)",
+   "tags": [
+    "ලාංඡනය",
+    "ලාංඡන එළිදැක්වීම",
+    "පැතලි",
+    "කොරල්",
+    "ෂඩාස්‍රය",
+    "රේඛාව"
+   ]
+  },
+  "template:lg0-iconos-redes": {
+   "name": "පිපිරෙන සමාජ මාධ්‍ය අයිකන දහයක් (නිල්)",
+   "tags": [
+    "ලාංඡනය",
+    "ලාංඡන එළිදැක්වීම",
+    "පැතලි",
+    "සමාජ මාධ්‍ය",
+    "අයිකන",
+    "ෆේස්බුක්"
+   ]
+  },
+  "template:lg0-sigueme": {
+   "name": "සමාජ ලාංඡනය: ඡායාරූපයක් මත ෂඩාස්‍රයක බෝලයක් සහිත මාව අනුගමනය කරන්න",
+   "tags": [
+    "ලාංඡනය",
+    "ලාංඡන එළිදැක්වීම",
+    "පැතලි",
+    "මාව අනුගමනය කරන්න",
+    "පරිශීලක",
+    "ෂඩාස්‍රය"
+   ]
+  },
+  "template:lg1-luz-dorada": {
+   "name": "ලාංඡනය: රන්වන් ආලෝකයෙන් ගොඩනැගූ",
+   "tags": [
+    "ලාංඡනය",
+    "හැඳින්වීම",
+    "ආලෝකය",
+    "රන්වන්",
+    "දිලිසීම",
+    "රේඛා පටි"
+   ]
+  },
+  "template:lg2-cintas": {
+   "name": "මාව අනුගමනය කරන්න: හැරෙන රිබන් වලින් ලාංඡනය",
+   "tags": [
+    "ලාංඡනය",
+    "පැතලි",
+    "ආයතනික",
+    "මාව අනුගමනය කරන්න",
+    "ත්‍රිමාණ"
+   ]
+  },
+  "template:lg2-franjas": {
+   "name": "මාව අනුගමනය කරන්න: පෙති සහ තීරු වලින් ලාංඡනය",
+   "tags": [
+    "ලාංඡනය",
+    "පැතලි",
+    "ආයතනික",
+    "මාව අනුගමනය කරන්න",
+    "රේඛා පටි"
+   ]
+  },
+  "template:lg2-giro": {
+   "name": "ලාංඡනය: ඇරෙන භ්‍රමණය",
+   "tags": [
+    "ලාංඡනය",
+    "පැතලි",
+    "ආයතනික",
+    "භ්‍රමණය"
+   ]
+  },
+  "template:lg2-glitch": {
+   "name": "ලාංඡනය: කොළ පැහැයෙන් ග්ලිච්",
+   "tags": [
+    "ලාංඡනය",
+    "පැතලි",
+    "ආයතනික",
+    "ග්ලිච්"
+   ]
+  },
+  "template:lg2-horizonte": {
+   "name": "දායක වන්න: ක්ෂිතිජයෙන් ඉහළට නගින ලාංඡනය",
+   "tags": [
+    "ලාංඡනය",
+    "පැතලි",
+    "ආයතනික",
+    "දායක වන්න",
+    "ක්ෂිතිජය"
+   ]
+  },
+  "template:lg2-mira": {
+   "name": "දායක වන්න: විවෘත වන ඉලක්කය",
+   "tags": [
+    "ලාංඡනය",
+    "පැතලි",
+    "ආයතනික",
+    "දායක වන්න",
+    "ඉලක්කය"
+   ]
+  },
+  "template:lg2-orbita": {
+   "name": "දායක වන්න: කක්ෂයේ ලාංඡනය",
+   "tags": [
+    "ලාංඡනය",
+    "පැතලි",
+    "ආයතනික",
+    "දායක වන්න",
+    "කක්ෂය"
+   ]
+  },
+  "template:lg2-puntos": {
+   "name": "ලාංඡනය: පෙරළෙන තිත්",
+   "tags": [
+    "ලාංඡනය",
+    "පැතලි",
+    "ආයතනික",
+    "තිත්"
+   ]
+  },
+  "template:lg3-esfera": {
+   "name": "ලාංඡනය: තැටියක් බවට පත්වන ඉරි සහිත ගෝලය",
+   "tags": [
+    "ලාංඡනය",
+    "ලාංඡන එළිදැක්වීම",
+    "හැඳින්වීම",
+    "ගෝලය",
+    "නිල්",
+    "ආයතනික"
+   ]
+  },
+  "template:lg3-ondas": {
+   "name": "ලාංඡනය: රේඛාවක් බවට තැන්පත් වන වර්ණ රැල්ල",
+   "tags": [
+    "ලාංඡනය",
+    "ලාංඡන එළිදැක්වීම",
+    "හැඳින්වීම",
+    "රැල්ල",
+    "වර්ණ",
+    "රේඛාව"
+   ]
+  },
+  "template:lg3-persiana": {
+   "name": "ලාංඡනය: විවෘත වන පටි සහිත චතුරස්‍රය",
+   "tags": [
+    "ලාංඡනය",
+    "ලාංඡන එළිදැක්වීම",
+    "හැඳින්වීම",
+    "සමචතුරස්‍රය",
+    "අළු",
+    "අවම"
+   ]
+  },
+  "template:lg3-torta-diana": {
+   "name": "ලාංඡනය: ඉරි මුද්ද, වර්ණ පයි සහ ඉලක්කය",
+   "tags": [
+    "ලාංඡනය",
+    "ලාංඡන එළිදැක්වීම",
+    "හැඳින්වීම",
+    "කේක්",
+    "කවය",
+    "පැස්ටල්"
    ]
   },
   "template:llt-bevan": {
@@ -33571,6 +36779,1053 @@
     "වර්ණ",
     "චලන අකුරු",
     "ඡායාරූපය"
+   ]
+  },
+  "template:tk0-cintas-telefono": {
+   "name": "කතාව: වචන පටි සහ දුරකථනයක්",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "සිරස්",
+    "රිබන්",
+    "දුරකථනය"
+   ]
+  },
+  "template:tk0-collage-azul": {
+   "name": "කතාව: නිල් සහ කළු පැහැයෙන් ඡායාරූප තුනේ කොලාජ්",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "සිරස්",
+    "කොලාජ්",
+    "ඡායාරූප"
+   ]
+  },
+  "template:tk0-collage-negro": {
+   "name": "කතාව: ස්ටිකර් සහිත ඡායාරූප හයේ කොලාජ්",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "සිරස්",
+    "කොලාජ්",
+    "ඡායාරූප"
+   ]
+  },
+  "template:tk0-creas-tendencias": {
+   "name": "කතාව: ඔබ ප්‍රවණතා නිර්මාණය කරනවාද? රතු බුබුල",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "සිරස්",
+    "ප්‍රශ්නය",
+    "රෝස"
+   ]
+  },
+  "template:tk0-empieza-aqui": {
+   "name": "කතාව: ප්‍රවණතා ආරම්භ වන්නේ මෙතැනින්",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "සිරස්",
+    "ප්‍රවණතාව",
+    "නිල්"
+   ]
+  },
+  "template:tk0-mision": {
+   "name": "කතාව: රතු පැහැයක් මත ඡායාරූපයක් සහිත අපගේ මෙහෙවර",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "සිරස්",
+    "මෙහෙවර",
+    "රතු"
+   ]
+  },
+  "template:tk0-nueva-era": {
+   "name": "කතාව: නව වීඩියෝ යුගයක්",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "සිරස්",
+    "වීඩියෝව",
+    "රතු"
+   ]
+  },
+  "template:tk0-nuevo-video": {
+   "name": "කතාව: දුරකථනයක් සහිත NEW VIDEO",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "සිරස්",
+    "වීඩියෝව",
+    "අලුත්"
+   ]
+  },
+  "template:tk0-plantilla": {
+   "name": "කතාව: ඡායාරූපයක් සහිත සැමට අච්චුවක්",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "සිරස්",
+    "අච්චුව",
+    "නිල්"
+   ]
+  },
+  "template:tk0-plataforma": {
+   "name": "කතාව: දුරකථන දෙකක් සහිත නව වේදිකාව",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "සිරස්",
+    "වේදිකාව",
+    "කළු"
+   ]
+  },
+  "template:tk0-promo-negro": {
+   "name": "කතාව: කළු පැහැයක් මත නිල් බුබුලක SUPER PROMO",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "සිරස්",
+    "ප්‍රවර්ධනය",
+    "කළු"
+   ]
+  },
+  "template:tk0-promo-x": {
+   "name": "කතාව: හරස් වූ පටි සහිත PROMO",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "සිරස්",
+    "ප්‍රවර්ධනය",
+    "කළු"
+   ]
+  },
+  "template:tk0-que-ves": {
+   "name": "කතාව: ඔබ බැලීමට කැමති මොනවාද? චැට්",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "සිරස්",
+    "චැට්",
+    "ප්‍රශ්නය"
+   ]
+  },
+  "template:tk0-recordatorio": {
+   "name": "කතාව: වීඩියෝවක් මත සිහිකැඳවීමේ මත විමසුම",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "සිරස්",
+    "මත විමසුම",
+    "සිහිකැඳවීම"
+   ]
+  },
+  "template:tk0-tendencias": {
+   "name": "කතාව: රෝස සහ නිල් පැහැයෙන් වයිරල් ප්‍රවණතා",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "සිරස්",
+    "ප්‍රවණතාව",
+    "රෝස"
+   ]
+  },
+  "template:tk0-trendy": {
+   "name": "කතාව: වර්ණ පටි සහිත TRENDY STYLE",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "සිරස්",
+    "ප්‍රවණතාව",
+    "නිල්"
+   ]
+  },
+  "template:tk1-tipografia": {
+   "name": "අකුරු ආරම්භය: රිද්ම තාලයකට වචනයක්",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ආරම්භය",
+    "අකුරු සැලසුම",
+    "වචන"
+   ]
+  },
+  "template:tk2-alice": {
+   "name": "කතාව: ඡායාරූපයක් සහිත Alice Braun",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "නම",
+    "ඡායාරූපය",
+    "නිල්"
+   ]
+  },
+  "template:tk2-austin": {
+   "name": "කතාව: නව වීඩියෝවක් සහිත Austin Grant",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "නම",
+    "ඡායාරූපය",
+    "කළු"
+   ]
+  },
+  "template:tk2-baile": {
+   "name": "කතාව: ඡායාරූප තුනක් සහිත Just dance",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "නැටුම",
+    "ඡායාරූප",
+    "නිල්"
+   ]
+  },
+  "template:tk2-belleza": {
+   "name": "කතාව: About Beauty for You",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "රූපලාවණ්‍ය",
+    "ඡායාරූපය",
+    "කළු"
+   ]
+  },
+  "template:tk2-blogger": {
+   "name": "කතාව: මුදු සහිත Social blogger",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "මුදු",
+    "ඡායාරූපය",
+    "කළු"
+   ]
+  },
+  "template:tk2-contenido": {
+   "name": "කතාව: ජාලකයක විවිධ අන්තර්ගතය",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ජාලකය",
+    "ඡායාරූප",
+    "කළු"
+   ]
+  },
+  "template:tk2-follow": {
+   "name": "කතාව: හදවතක් සහිත follow",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "අනුගමනය",
+    "හදවත",
+    "කළු"
+   ]
+  },
+  "template:tk2-isabella": {
+   "name": "කතාව: ඡායාරූපයක් සහිත Isabella Walker",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "නම",
+    "ඡායාරූපය",
+    "නිල්"
+   ]
+  },
+  "template:tk2-lifestyle": {
+   "name": "කතාව: වීඩියෝවක් සහිත #lifestyle",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ජීවන රටාව",
+    "වීඩියෝව",
+    "රතු"
+   ]
+  },
+  "template:tk2-new": {
+   "name": "කතාව: හදවත් සහිත NEW",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "අලුත්",
+    "ඡායාරූපය",
+    "කළු"
+   ]
+  },
+  "template:tk2-nuevo-video": {
+   "name": "කතාව: ඡායාරූපයක් සහිත නව වීඩියෝව",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "අලුත් වීඩියෝව",
+    "ඡායාරූපය",
+    "රතු"
+   ]
+  },
+  "template:tk2-perfil": {
+   "name": "කතාව: අනුගාමිකයන් සහිත පැතිකඩක්",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "පැතිකඩ",
+    "අනුගාමිකයන්",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:tk2-suscriptores": {
+   "name": "කතාව: නව දායකයන් ලබාගන්න",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "දායකයන්",
+    "ඡායාරූප",
+    "කළු"
+   ]
+  },
+  "template:tk2-tarjeta": {
+   "name": "කතාව: ඔබේ ලාංඡනය සහ ස්ටිකර් සහිත කාඩ්පතක්",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ලාංඡනය",
+    "ස්ටිකර්",
+    "නිල්"
+   ]
+  },
+  "template:tk2-tendencias": {
+   "name": "කතාව: රතු පටියක් සහිත ප්‍රවණතා",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ප්‍රවණතා",
+    "ඡායාරූපය",
+    "නිල්"
+   ]
+  },
+  "template:tk3-diseno": {
+   "name": "කතාව: සිහින් රේඛා සහිත Fashion Design",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "විලාසිතා",
+    "පැස්ටල්",
+    "නිර්මාණය"
+   ]
+  },
+  "template:tk3-estilo-de-vida": {
+   "name": "කතාව: හැරෙන ත්‍රිකෝණයක් සහිත Lifestyle",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "විලාසිතා",
+    "පැස්ටල්",
+    "ජීවන රටාව"
+   ]
+  },
+  "template:tk3-gracias": {
+   "name": "අවසන් කාඩ්පත: Thanks For Watching!",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "විලාසිතා",
+    "පැස්ටල්",
+    "අවසානය"
+   ]
+  },
+  "template:tk3-rebajas": {
+   "name": "කතාව: 50% OFF පෙට්ටියක් සහිත විලාසිතා වට්ටම් විකුණුම",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "විලාසිතා",
+    "පැස්ටල්",
+    "වට්ටම් විකුණුම"
+   ]
+  },
+  "template:tk3-rebajas-2": {
+   "name": "කතාව: ඡායාරූපය මත 50% සහිත Fashion Sale",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "විලාසිතා",
+    "පැස්ටල්",
+    "වට්ටම් විකුණුම"
+   ]
+  },
+  "template:tk3-siguiente-nivel": {
+   "name": "කතාව: සිරස් 50% OFF සහිත The Next Level Of Fashion",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "විලාසිතා",
+    "පැස්ටල්",
+    "වට්ටම"
+   ]
+  },
+  "template:tk3-siguiente-nivel-2": {
+   "name": "කතාව: Get 50% OFF සහිත The Next Level Of Fashion",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "විලාසිතා",
+    "පැස්ටල්",
+    "වට්ටම"
+   ]
+  },
+  "template:tk3-sorteo": {
+   "name": "කතාව: Giveaway!",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "විලාසිතා",
+    "පැස්ටල්",
+    "ත්‍යාග දිනුම"
+   ]
+  },
+  "template:tk3-tendencia": {
+   "name": "කතාව: 50% සහිත Keep It Trendy",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "විලාසිතා",
+    "පැස්ටල්",
+    "ප්‍රවණතාව"
+   ]
+  },
+  "template:tk4-dynamic": {
+   "name": "ගතික ආරම්භය: රතු සහ කළු ඡායාරූප",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ආරම්භය",
+    "ඡායාරූප ස්ලයිඩ්",
+    "ගතික"
+   ]
+  },
+  "template:tk4-fast": {
+   "name": "වේගවත් ආරම්භය: වර්ණවත් ඡායාරූප මත වචන",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ආරම්භය",
+    "ඡායාරූප ස්ලයිඩ්",
+    "වේගවත්"
+   ]
+  },
+  "template:tk4-modern": {
+   "name": "නවීන ආරම්භය: කහ, රන්වන් සහ ජාලකය",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ආරම්භය",
+    "ඡායාරූප ස්ලයිඩ්",
+    "නවීන"
+   ]
+  },
+  "template:tk4-rhythm": {
+   "name": "රිද්ම ආරම්භය: ශ්‍රේණිගත වර්ණ වචන",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ආරම්භය",
+    "ඡායාරූප ස්ලයිඩ්",
+    "රිද්මය"
+   ]
+  },
+  "template:tk4-stomp": {
+   "name": "ස්ටොම්ප් ආරම්භය: රිද්ම තාලයකට වචනයක් සහ ඡායාරූප",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ආරම්භය",
+    "ඡායාරූප ස්ලයිඩ්",
+    "ස්ටොම්ප්"
+   ]
+  },
+  "template:tk4-typo": {
+   "name": "අකුරු ආරම්භය: කළු වචන සහ ඡායාරූප",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ආරම්භය",
+    "ඡායාරූප ස්ලයිඩ්",
+    "අකුරු සැලසුම"
+   ]
+  },
+  "template:tk5-carefree": {
+   "name": "කතාව: සිරස් CAREFREE LIVING",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "කළු සහ සුදු",
+    "ඡායාරූපය",
+    "සිරස්"
+   ]
+  },
+  "template:tk5-endless": {
+   "name": "කතාව: ENDLESS LOVING CONVERSATIONS",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "කළු සහ සුදු",
+    "පෙළ"
+   ]
+  },
+  "template:tk5-find": {
+   "name": "කතාව: FIND HIDDEN GEMS",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "කළු සහ සුදු",
+    "පෙළ"
+   ]
+  },
+  "template:tk5-follow": {
+   "name": "කතාව: FOLLOW YOUR DREAM",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "කළු සහ සුදු",
+    "පෙළ"
+   ]
+  },
+  "template:tk5-foto-cae": {
+   "name": "කතාව: වැටී ඉහළට නගින ඡායාරූපය",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "කළු සහ සුදු",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:tk5-foto-lado": {
+   "name": "කතාව: පැත්තකින් ලිස්සා එන ඡායාරූපය",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "කළු සහ සුදු",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:tk5-foto-sube": {
+   "name": "කතාව: ඉහළට නගින ඡායාරූපය",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "කළු සහ සුදු",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:tk5-freedom": {
+   "name": "කතාව: ඡායාරූප දෙකක් සහිත FREEDOM සහ PLEASING",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "කළු සහ සුදු",
+    "ඡායාරූපය",
+    "කොලාජ්"
+   ]
+  },
+  "template:tk5-join": {
+   "name": "කතාව: JOIN THE JOURNEY ක්‍රියාවට අමතන පණිවුඩය",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "කළු සහ සුදු",
+    "llamada a la acción",
+    "ලාංඡනය"
+   ]
+  },
+  "template:tk5-laughter": {
+   "name": "කතාව: LAUGHTER OF A LOVED ONE",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "කළු සහ සුදු",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:tk5-stars": {
+   "name": "කතාව: තීරු වල STARS සහ DREAMS",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "කළු සහ සුදු",
+    "ඡායාරූපය",
+    "කොලාජ්"
+   ]
+  },
+  "template:tk5-sunshine": {
+   "name": "කතාව: ඡායාරූපයක් සහිත SUNSHINE FILLS SKIES",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "කළු සහ සුදු",
+    "ඡායාරූපය",
+    "කොලාජ්"
+   ]
+  },
+  "template:tk6-discovery": {
+   "name": "කතාව: DISCOVERY සහ SPACESUIT කොලාජ්",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ටර්කොයිස්",
+    "ඡායාරූපය",
+    "කොලාජ්"
+   ]
+  },
+  "template:tk6-dreams": {
+   "name": "කතාව: DREAMS කොලාජ්",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ටර්කොයිස්",
+    "ඡායාරූපය",
+    "කොලාජ්"
+   ]
+  },
+  "template:tk6-flower": {
+   "name": "කතාව: FLOWER BEAUTY කොලාජ්",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ටර්කොයිස්",
+    "ඡායාරූපය",
+    "කොලාජ්"
+   ]
+  },
+  "template:tk6-foto-cae": {
+   "name": "කතාව: රාමු කළ ඡායාරූපයක් වැටී එයි",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ටර්කොයිස්",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:tk6-foto-lado": {
+   "name": "කතාව: රාමු කළ ඡායාරූපයක් පැත්තකින් ලිස්සා එයි",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ටර්කොයිස්",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:tk6-freedom": {
+   "name": "කතාව: FREEDOM තීරුව",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ටර්කොයිස්",
+    "ඡායාරූපය",
+    "සිරස්"
+   ]
+  },
+  "template:tk6-modern": {
+   "name": "කතාව: MODERN STORIES කොලාජ්",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ටර්කොයිස්",
+    "ඡායාරූපය",
+    "කොලාජ්"
+   ]
+  },
+  "template:tk6-savor": {
+   "name": "කතාව: SAVOR LIFE'S GOODNESS ක්‍රියාවට අමතන පණිවුඩය",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ටර්කොයිස්",
+    "llamada a la acción",
+    "ලාංඡනය"
+   ]
+  },
+  "template:tk6-starry": {
+   "name": "කතාව: කොලාජ් එකක් බවට හැකිළෙන STARRY NIGHTS",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ටර්කොයිස්",
+    "ඡායාරූපය",
+    "කොලාජ්"
+   ]
+  },
+  "template:tk6-times-now": {
+   "name": "කතාව: ඡායාරූප දෙකක් සහිත TIME'S NOW",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ටර්කොයිස්",
+    "ඡායාරූපය",
+    "සිරස්"
+   ]
+  },
+  "template:tk6-wind": {
+   "name": "කතාව: ඡායාරූප දෙකක් සහිත WIND සහ AURA",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ටර්කොයිස්",
+    "ඡායාරූපය",
+    "කොලාජ්"
+   ]
+  },
+  "template:tk7-blooms": {
+   "name": "කතාව: රතු පැහැයෙන් BLOOMS ALL AROUND",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "මල්",
+    "වර්ණ",
+    "විලාසිතා"
+   ]
+  },
+  "template:tk7-bold": {
+   "name": "කතාව: BOLD COLORS SWAY කොලාජ්",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "මල්",
+    "වර්ණ",
+    "විලාසිතා"
+   ]
+  },
+  "template:tk7-breezy": {
+   "name": "කතාව: BREEZY SPRING ATTIRE කොලාජ්",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "මල්",
+    "වර්ණ",
+    "විලාසිතා"
+   ]
+  },
+  "template:tk7-canvas": {
+   "name": "කතාව: CANVAS LIFE BODY කොලාජ්",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "මල්",
+    "වර්ණ",
+    "විලාසිතා"
+   ]
+  },
+  "template:tk7-characters": {
+   "name": "කතාව: ඡායාරූපයක් යට COLORFUL CHARACTERS",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "මල්",
+    "වර්ණ",
+    "විලාසිතා"
+   ]
+  },
+  "template:tk7-colorful-and": {
+   "name": "කතාව: ඡායාරූප දෙකක් අතර COLORFUL AND CONFIDENCE",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "මල්",
+    "වර්ණ",
+    "විලාසිතා"
+   ]
+  },
+  "template:tk7-discover-more": {
+   "name": "අවසන් කතාව: ඔබේ ලාංඡනය සහිත DISCOVER MORE",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "මල්",
+    "වර්ණ",
+    "විලාසිතා"
+   ]
+  },
+  "template:tk7-embrace": {
+   "name": "කතාව: ඡායාරූපයක් වටා EMBRACE සහ EXPRESSION",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "මල්",
+    "වර්ණ",
+    "විලාසිතා"
+   ]
+  },
+  "template:tk7-embrace-your-life": {
+   "name": "කතාව: ඡායාරූප හතරක් සහිත EMBRACE YOUR LIFE",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "මල්",
+    "වර්ණ",
+    "විලාසිතා"
+   ]
+  },
+  "template:tk7-flower": {
+   "name": "කතාව: නිල් පැහැයෙන් FLOWER PARADISE DELIGHT",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "මල්",
+    "වර්ණ",
+    "විලාසිතා"
+   ]
+  },
+  "template:tk7-sale": {
+   "name": "කතාව: ඡායාරූප දෙකක් සහිත SALE SALE SALE",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "මල්",
+    "වර්ණ",
+    "විලාසිතා"
+   ]
+  },
+  "template:tk7-savor": {
+   "name": "කතාව: ඡායාරූප තීරුවක් සහිත SAVOR MOMENTS NOW",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "මල්",
+    "වර්ණ",
+    "විලාසිතා"
+   ]
+  },
+  "template:tk8-apple-pie": {
+   "name": "කතාව: SWEET APPLE PIE සහ SAVOR EVERY BITE",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ආහාර",
+    "අවන්හල",
+    "කහ"
+   ]
+  },
+  "template:tk8-bbq": {
+   "name": "කතාව: ඡායාරූප පහක් සහිත BBQ SMOKE RISING",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ආහාර",
+    "අවන්හල",
+    "කහ"
+   ]
+  },
+  "template:tk8-big-sale": {
+   "name": "කතාව: ඡායාරූප තුනක් සහිත BIG -50% SALE",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ආහාර",
+    "අවන්හල",
+    "කහ"
+   ]
+  },
+  "template:tk8-buy-now": {
+   "name": "කතාව: ඡායාරූප පහක් සහිත BUY NOW",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ආහාර",
+    "අවන්හල",
+    "කහ"
+   ]
+  },
+  "template:tk8-crispy-fries": {
+   "name": "කතාව: ඡායාරූප තුනක් සහිත CRISPY GOLDEN FRIES",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ආහාර",
+    "අවන්හල",
+    "කහ"
+   ]
+  },
+  "template:tk8-discover-flavors": {
+   "name": "අවසන් කතාව: ඔබේ ලාංඡනය සහිත DISCOVER NEW FLAVORS",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ආහාර",
+    "අවන්හල",
+    "කහ"
+   ]
+  },
+  "template:tk8-fast-food": {
+   "name": "කතාව: FAST FOOD ADDICTION",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ආහාර",
+    "අවන්හල",
+    "කහ"
+   ]
+  },
+  "template:tk8-food-lovers": {
+   "name": "කතාව: ඡායාරූප හතරක් සහිත FOOD LOVERS UNITE",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ආහාර",
+    "අවන්හල",
+    "කහ"
+   ]
+  },
+  "template:tk8-fried-chicken": {
+   "name": "කතාව: FRIED CHICKEN DELIGHT",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ආහාර",
+    "අවන්හල",
+    "කහ"
+   ]
+  },
+  "template:tk8-hot-dogs": {
+   "name": "කතාව: HOT DOGS සහ CRISPY FRIES",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ආහාර",
+    "අවන්හල",
+    "කහ"
+   ]
+  },
+  "template:tk8-lowest-price": {
+   "name": "කතාව: THE LOWEST PRICE",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ආහාර",
+    "අවන්හල",
+    "කහ"
+   ]
+  },
+  "template:tk8-new-york-pizza": {
+   "name": "කතාව: සම්පූර්ණ තිරයේ සිට කොලාජ් එකක් දක්වා NEW YORK PIZZA",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ආහාර",
+    "අවන්හල",
+    "කහ"
+   ]
+  },
+  "template:tk8-nice-diners": {
+   "name": "කතාව: උස ඡායාරූපයක් සහිත NICE DINERS",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ආහාර",
+    "අවන්හල",
+    "කහ"
+   ]
+  },
+  "template:tk9-limpia": {
+   "name": "පිරිසිදු ආරම්භය: රිද්ම තාලයට වචන සහ ඡායාරූප",
+   "tags": [
+    "tiktok",
+    "කතාව",
+    "රීල්ස්",
+    "ආරම්භය",
+    "අකුරු සැලසුම",
+    "වචන"
    ]
   },
   "template:top-5-mas-vendidos": {

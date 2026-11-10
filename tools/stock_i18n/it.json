@@ -117,6 +117,7 @@
   "template:collage": "Collage",
   "template:countdown": "Conti alla rovescia",
   "template:counter": "Contatori",
+  "template:instagram": "Kit Instagram",
   "template:intro": "Intro e titoli",
   "template:lowerthird": "Sottopancia",
   "template:outro": "Finali",
@@ -127,6 +128,7 @@
   "template:story15": "Storie da 15 s",
   "template:text": "Testo",
   "template:thumbnail": "Miniature video",
+  "template:tiktok": "Kit TikTok",
   "template:transition": "Transizioni e separatori",
   "template:youtuber": "Stile youtuber",
   "template:ytkit": "Kit YouTube",
@@ -26316,6 +26318,3014 @@
     "festa"
    ]
   },
+  "template:ig0-intro-urbana": {
+   "name": "Intro urbana dinamica: URBAN, STREETS, PROMO… e il tuo logo",
+   "tags": [
+    "instagram",
+    "storia",
+    "apertura",
+    "urbano",
+    "intro dinamica",
+    "presentazione di foto"
+   ]
+  },
+  "template:ig1-alison": {
+   "name": "Storia: nome su una foto con cornice rossa",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "nome",
+    "profilo",
+    "rosso"
+   ]
+  },
+  "template:ig1-anna": {
+   "name": "Storia: nome con foto su sfumatura blu",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "nome",
+    "profilo",
+    "sfumatura"
+   ]
+  },
+  "template:ig1-beautiful": {
+   "name": "Storia: #beautiful con foto e citazione",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "citazione",
+    "foto"
+   ]
+  },
+  "template:ig1-believe": {
+   "name": "Storia: WE MUST BELIEVE con linea divisoria",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "frase",
+    "foto",
+    "nero"
+   ]
+  },
+  "template:ig1-catherine": {
+   "name": "Storia: foto tonda, nome e citazione su sfumatura",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "citazione",
+    "profilo",
+    "sfumatura"
+   ]
+  },
+  "template:ig1-conquer": {
+   "name": "Storia: Conquer from within con carosello di foto",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "carosello",
+    "foto",
+    "bianco"
+   ]
+  },
+  "template:ig1-do-your-best": {
+   "name": "Storia: DO YOUR BEST su un nastro",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "frase",
+    "città",
+    "motivazione"
+   ]
+  },
+  "template:ig1-dog": {
+   "name": "Storia: foto divisa da una banda #photooftheday",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "animale domestico",
+    "foto",
+    "banda"
+   ]
+  },
+  "template:ig1-elegant": {
+   "name": "Storia: ELEGANT TYPO DESIGN con finestra a specchio",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "tipografia",
+    "mare",
+    "elegante"
+   ]
+  },
+  "template:ig1-forty-sale": {
+   "name": "Storia: 40% Sale verticale con foto",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "saldi",
+    "sconto",
+    "moda"
+   ]
+  },
+  "template:ig1-happy-thoughts": {
+   "name": "Storia: polaroid inclinata «happy thoughts»",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "polaroid",
+    "matrimonio",
+    "scritto a mano"
+   ]
+  },
+  "template:ig1-heart": {
+   "name": "Storia: foto a cuore «happy thoughts»",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "cuore",
+    "amore",
+    "pesca"
+   ]
+  },
+  "template:ig1-instalove": {
+   "name": "Storia: #instalove LIVE WHAT YOU LOVE",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "frase",
+    "bosco",
+    "nome"
+   ]
+  },
+  "template:ig1-lifestyle": {
+   "name": "Storia: #lifestyle con mosaico di foto",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "collage",
+    "estate",
+    "mosaico"
+   ]
+  },
+  "template:ig1-live-what": {
+   "name": "Storia: Live what you love con griglia 2×2",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "griglia",
+    "collage",
+    "bianco"
+   ]
+  },
+  "template:ig1-love-friendship": {
+   "name": "Storia: polaroid e «Love is friendship» scritto a mano",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "polaroid",
+    "rosa",
+    "citazione"
+   ]
+  },
+  "template:ig1-love-loves": {
+   "name": "Storia: due polaroid con frecce e frase scritta a mano",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "polaroid",
+    "rosa",
+    "frecce"
+   ]
+  },
+  "template:ig1-must-believe": {
+   "name": "Storia: WE MUST BELIEVE in un cerchio a specchio",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "frase",
+    "cerchio",
+    "paesaggio"
+   ]
+  },
+  "template:ig1-nature": {
+   "name": "Storia: Nature in un riquadro con cornice",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "natura",
+    "cornice",
+    "mare"
+   ]
+  },
+  "template:ig1-neon": {
+   "name": "Storia: NEON CITY in neon turchese",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "neon",
+    "città",
+    "notte"
+   ]
+  },
+  "template:ig1-photo-frame": {
+   "name": "Storia: cartoncino bianco che apre una finestra",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "cornice",
+    "cibo",
+    "foto"
+   ]
+  },
+  "template:ig1-seek": {
+   "name": "Storia: SEEK THE SEEKER con lettere di foto",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "frase",
+    "foglie",
+    "ritaglio"
+   ]
+  },
+  "template:ig1-so-it-goes": {
+   "name": "Storia: So it goes con griglia 2×2",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "griglia",
+    "collage",
+    "rosa"
+   ]
+  },
+  "template:ig1-spring-sale": {
+   "name": "Storia: Spring Sale 30%",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "saldi",
+    "sconto",
+    "moda"
+   ]
+  },
+  "template:ig1-stylish-bike": {
+   "name": "Storia: S T Y L I S H con ritaglio",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "ritaglio",
+    "turchese",
+    "link"
+   ]
+  },
+  "template:ig1-stylish-design": {
+   "name": "Storia: STYLISH DESIGN in cornice sfumata",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "cornice",
+    "sfumatura",
+    "scuro"
+   ]
+  },
+  "template:ig1-stylish-skate": {
+   "name": "Storia: Stylish gigante verticale con motto",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "verticale",
+    "skateboard",
+    "tipografia"
+   ]
+  },
+  "template:ig1-success": {
+   "name": "Storia: citazione su roccia con 01",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "citazione",
+    "frase",
+    "scuro"
+   ]
+  },
+  "template:ig1-work-dream": {
+   "name": "Storia: Work hard. Dream big. verticale con 05",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "frase",
+    "verticale",
+    "numero"
+   ]
+  },
+  "template:ig1-work-hard": {
+   "name": "Storia: WORK HARD. DREAM BIG. su nero",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "frase",
+    "motivazione",
+    "nero"
+   ]
+  },
+  "template:ig10-arco-sube": {
+   "name": "Storia: foto ad arco che sale con MODELS",
+   "tags": [
+    "instagram",
+    "storia",
+    "moda",
+    "modelle",
+    "foto",
+    "arco"
+   ]
+  },
+  "template:ig10-ovalo-abre": {
+   "name": "Storia: foto ovale che si apre da una linea",
+   "tags": [
+    "instagram",
+    "storia",
+    "moda",
+    "modelle",
+    "foto",
+    "ovale"
+   ]
+  },
+  "template:ig10-ovalo-sube": {
+   "name": "Storia: foto ovale che sale con due contorni",
+   "tags": [
+    "instagram",
+    "storia",
+    "moda",
+    "modelle",
+    "foto",
+    "ovale"
+   ]
+  },
+  "template:ig10-u-foto": {
+   "name": "Storia: foto con base tonda e titolo incorniciato",
+   "tags": [
+    "instagram",
+    "storia",
+    "moda",
+    "modelle",
+    "foto",
+    "cornice"
+   ]
+  },
+  "template:ig10-ventana-arco": {
+   "name": "Storia: foto velata con finestra ad arco",
+   "tags": [
+    "instagram",
+    "moda",
+    "modelle",
+    "foto",
+    "arco",
+    "velo"
+   ]
+  },
+  "template:ig11-avatar-seguir": {
+   "name": "Foto profilo con segui",
+   "tags": [
+    "instagram",
+    "elementi",
+    "invito all'azione",
+    "social",
+    "segui",
+    "profilo"
+   ]
+  },
+  "template:ig11-comenta": {
+   "name": "Commenta qui sotto",
+   "tags": [
+    "instagram",
+    "elementi",
+    "invito all'azione",
+    "social",
+    "commenti",
+    "contatore"
+   ]
+  },
+  "template:ig11-compartir": {
+   "name": "Condividi il post con altri",
+   "tags": [
+    "instagram",
+    "elementi",
+    "invito all'azione",
+    "social",
+    "condividi",
+    "post"
+   ]
+  },
+  "template:ig11-doble-toque": {
+   "name": "Dai un doppio tocco",
+   "tags": [
+    "instagram",
+    "elementi",
+    "invito all'azione",
+    "social",
+    "mi piace",
+    "cuore"
+   ]
+  },
+  "template:ig11-enlace-bio": {
+   "name": "Clicca il link in bio",
+   "tags": [
+    "instagram",
+    "elementi",
+    "invito all'azione",
+    "social",
+    "link",
+    "bio"
+   ]
+  },
+  "template:ig11-etiqueta": {
+   "name": "Tagga qualcuno",
+   "tags": [
+    "instagram",
+    "elementi",
+    "invito all'azione",
+    "social",
+    "tag",
+    "chiocciola"
+   ]
+  },
+  "template:ig11-inspiracion": {
+   "name": "Trova la tua ispirazione",
+   "tags": [
+    "instagram",
+    "elementi",
+    "invito all'azione",
+    "social",
+    "cercare",
+    "ricerca"
+   ]
+  },
+  "template:ig11-pastilla-seguir": {
+   "name": "Pillola con nome e segui",
+   "tags": [
+    "instagram",
+    "elementi",
+    "invito all'azione",
+    "social",
+    "segui",
+    "nome"
+   ]
+  },
+  "template:ig11-pastilla-usuario": {
+   "name": "Pillola utente con follower",
+   "tags": [
+    "instagram",
+    "elementi",
+    "invito all'azione",
+    "social",
+    "utente",
+    "follower"
+   ]
+  },
+  "template:ig11-perfil": {
+   "name": "Scheda profilo",
+   "tags": [
+    "instagram",
+    "elementi",
+    "invito all'azione",
+    "social",
+    "profilo",
+    "segui"
+   ]
+  },
+  "template:ig11-publicacion": {
+   "name": "Scheda post",
+   "tags": [
+    "instagram",
+    "elementi",
+    "invito all'azione",
+    "social",
+    "post",
+    "mi piace"
+   ]
+  },
+  "template:ig11-reels": {
+   "name": "Guarda i nostri ultimi reels",
+   "tags": [
+    "instagram",
+    "elementi",
+    "invito all'azione",
+    "social",
+    "visualizzazioni",
+    "contatore"
+   ]
+  },
+  "template:ig11-responder": {
+   "name": "Scheda commento con risposta",
+   "tags": [
+    "instagram",
+    "elementi",
+    "invito all'azione",
+    "social",
+    "commento",
+    "rispondi"
+   ]
+  },
+  "template:ig11-tu-historia": {
+   "name": "Aggiungi la tua storia",
+   "tags": [
+    "instagram",
+    "elementi",
+    "invito all'azione",
+    "social",
+    "storia",
+    "condividi"
+   ]
+  },
+  "template:ig11-ver-historia": {
+   "name": "Tocca per vedere la storia",
+   "tags": [
+    "instagram",
+    "elementi",
+    "invito all'azione",
+    "social",
+    "storia",
+    "tocca"
+   ]
+  },
+  "template:ig12-anillos": {
+   "name": "Storia: anelli con foto tonda e lettere giganti",
+   "tags": [
+    "instagram",
+    "arancione",
+    "rosso",
+    "cerchi",
+    "anelli",
+    "foto"
+   ]
+  },
+  "template:ig12-caja-roja": {
+   "name": "Storia: riquadro rosso con parola verticale e lettere giganti",
+   "tags": [
+    "instagram",
+    "arancione",
+    "rosso",
+    "riquadro",
+    "lettere",
+    "foto"
+   ]
+  },
+  "template:ig12-diagonal": {
+   "name": "Storia: strisce diagonali con parola gigante",
+   "tags": [
+    "instagram",
+    "arancione",
+    "rosso",
+    "diagonale",
+    "bande",
+    "foto"
+   ]
+  },
+  "template:ig12-franjas": {
+   "name": "Storia: bande di colore e parola verticale",
+   "tags": [
+    "instagram",
+    "arancione",
+    "rosso",
+    "bande",
+    "foto",
+    "verticale"
+   ]
+  },
+  "template:ig12-panel-rojo": {
+   "name": "Storia: parola gigante che sale su un pannello rosso",
+   "tags": [
+    "instagram",
+    "arancione",
+    "rosso",
+    "pannello",
+    "lettere",
+    "foto"
+   ]
+  },
+  "template:ig13-amarilla": {
+   "name": "Storia tipografica: gialla",
+   "tags": [
+    "instagram",
+    "storia",
+    "tipografia",
+    "giallo",
+    "nero",
+    "lettere giganti"
+   ]
+  },
+  "template:ig13-caja-negra": {
+   "name": "Storia tipografica: riquadro nero",
+   "tags": [
+    "instagram",
+    "tipografia",
+    "giallo",
+    "nero",
+    "riquadro",
+    "sfere"
+   ]
+  },
+  "template:ig13-filas": {
+   "name": "Storia tipografica: file di lettere",
+   "tags": [
+    "instagram",
+    "tipografia",
+    "giallo",
+    "nero",
+    "lettere giganti",
+    "grigio"
+   ]
+  },
+  "template:ig13-gris-ra": {
+   "name": "Storia tipografica: RA grigia",
+   "tags": [
+    "instagram",
+    "tipografia",
+    "giallo",
+    "nero",
+    "lettere giganti",
+    "grigio"
+   ]
+  },
+  "template:ig13-letras-grises": {
+   "name": "Storia tipografica: lettere gialle",
+   "tags": [
+    "instagram",
+    "tipografia",
+    "giallo",
+    "nero",
+    "lettere giganti",
+    "grigio"
+   ]
+  },
+  "template:ig13-muro-de-fotos": {
+   "name": "Muro di foto con il tuo logo",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "foto",
+    "logo",
+    "profilo"
+   ]
+  },
+  "template:ig13-negra": {
+   "name": "Storia tipografica: diagonale nera",
+   "tags": [
+    "instagram",
+    "storia",
+    "tipografia",
+    "giallo",
+    "nero",
+    "lettere in diagonale"
+   ]
+  },
+  "template:ig13-oscura": {
+   "name": "Storia tipografica: scura con sfere",
+   "tags": [
+    "instagram",
+    "tipografia",
+    "giallo",
+    "nero",
+    "lettere giganti",
+    "sfere"
+   ]
+  },
+  "template:ig14-dinamica": {
+   "name": "Slideshow dinamico: una parola per foto",
+   "tags": [
+    "instagram",
+    "presentazione di foto",
+    "slideshow",
+    "dinamica",
+    "parole",
+    "transizioni"
+   ]
+  },
+  "template:ig14-energia": {
+   "name": "Slideshow energico con logo",
+   "tags": [
+    "instagram",
+    "presentazione di foto",
+    "slideshow",
+    "energia",
+    "parole",
+    "logo"
+   ]
+  },
+  "template:ig14-epica": {
+   "name": "Slideshow epico con glitch",
+   "tags": [
+    "instagram",
+    "presentazione di foto",
+    "slideshow",
+    "epico",
+    "cinematografico",
+    "glitch"
+   ]
+  },
+  "template:ig14-limpia": {
+   "name": "Slideshow pulito con grande tipografia",
+   "tags": [
+    "instagram",
+    "presentazione di foto",
+    "slideshow",
+    "pulita",
+    "tipografia",
+    "foto nelle lettere"
+   ]
+  },
+  "template:ig14-minimal": {
+   "name": "Slideshow minimal su bianco",
+   "tags": [
+    "instagram",
+    "presentazione di foto",
+    "slideshow",
+    "minimalista",
+    "bianco",
+    "elegante"
+   ]
+  },
+  "template:ig14-moda": {
+   "name": "Slideshow di moda con didascalie",
+   "tags": [
+    "instagram",
+    "presentazione di foto",
+    "slideshow",
+    "moda",
+    "frasi",
+    "glitch"
+   ]
+  },
+  "template:ig14-ritmica": {
+   "name": "Slideshow ritmico con anelli",
+   "tags": [
+    "instagram",
+    "presentazione di foto",
+    "slideshow",
+    "ritmo",
+    "frasi",
+    "anelli"
+   ]
+  },
+  "template:ig14-stomp": {
+   "name": "Slideshow stomp: una parola a ogni battito",
+   "tags": [
+    "instagram",
+    "presentazione di foto",
+    "slideshow",
+    "stomp",
+    "ritmo",
+    "parole"
+   ]
+  },
+  "template:ig2-cartel-amarillo": {
+   "name": "Storia: poster giallo Your Stories",
+   "tags": [
+    "instagram",
+    "storia",
+    "colori",
+    "poster",
+    "giallo",
+    "testo"
+   ]
+  },
+  "template:ig2-ciudad-oferta": {
+   "name": "Storia: offerta in città con cerchio %",
+   "tags": [
+    "instagram",
+    "colori",
+    "offerta",
+    "sconto",
+    "città",
+    "nuovo"
+   ]
+  },
+  "template:ig2-cocina": {
+   "name": "Storia: apertura di un programma di cucina",
+   "tags": [
+    "instagram",
+    "storia",
+    "colori",
+    "cucina",
+    "cibo",
+    "apertura"
+   ]
+  },
+  "template:ig2-feliz": {
+   "name": "Storia: HAPPY con lettera gigante e riquadro menta",
+   "tags": [
+    "instagram",
+    "storia",
+    "colori",
+    "felice",
+    "bianco e nero",
+    "lettera"
+   ]
+  },
+  "template:ig2-interior": {
+   "name": "Storia: interior design con cerchi di colore",
+   "tags": [
+    "instagram",
+    "storia",
+    "colori",
+    "interni",
+    "design",
+    "casa"
+   ]
+  },
+  "template:ig2-moda": {
+   "name": "Storia: Fashion su menta e rosso",
+   "tags": [
+    "instagram",
+    "storia",
+    "colori",
+    "moda",
+    "profilo",
+    "azienda"
+   ]
+  },
+  "template:ig2-oscuro": {
+   "name": "Storia: DARK con lettere a griglia",
+   "tags": [
+    "instagram",
+    "storia",
+    "colori",
+    "scuro",
+    "moda",
+    "tipografia"
+   ]
+  },
+  "template:ig2-presentamos": {
+   "name": "Storia: INTRODUCING OUR STORIES con strisce sfumate",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "colori",
+    "presentazione",
+    "sfumatura"
+   ]
+  },
+  "template:ig2-rostro-franjas": {
+   "name": "Storia: volto con bande di colore e cerchi",
+   "tags": [
+    "instagram",
+    "storia",
+    "colori",
+    "ritratto",
+    "brand",
+    "bianco e nero"
+   ]
+  },
+  "template:ig2-tu-mente": {
+   "name": "Storia: Say what's on your mind in viola",
+   "tags": [
+    "instagram",
+    "storia",
+    "colori",
+    "frase",
+    "viola",
+    "domanda"
+   ]
+  },
+  "template:ig2-tu-vida": {
+   "name": "Storia: YOUR LIFE con bande gialle",
+   "tags": [
+    "instagram",
+    "storia",
+    "colori",
+    "vita",
+    "consigli",
+    "giallo"
+   ]
+  },
+  "template:ig2-viaje-verano": {
+   "name": "Storia: GREAT TRIP SUMMER con nuvola di foto",
+   "tags": [
+    "instagram",
+    "storia",
+    "colori",
+    "viaggio",
+    "estate",
+    "nuvola"
+   ]
+  },
+  "template:ig3-arte": {
+   "name": "Storia: art 01 Stories su un dipinto",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "arte",
+    "pittura"
+   ]
+  },
+  "template:ig3-ciencia": {
+   "name": "Storia: A-01 MODERN SCIENCE con cerchi",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "scienza",
+    "cerchio"
+   ]
+  },
+  "template:ig3-city-life": {
+   "name": "Storia: CITY LIFE con pannello rosa",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "città"
+   ]
+  },
+  "template:ig3-comida-circulo": {
+   "name": "Storia: Say what's on your mind in un cerchio",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "cibo",
+    "cerchio"
+   ]
+  },
+  "template:ig3-fashion": {
+   "name": "Storia: FASHION 45$ con lettere piene di foto",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "moda",
+    "offerta"
+   ]
+  },
+  "template:ig3-food": {
+   "name": "Storia: Food sconto 50%",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "cibo",
+    "offerta"
+   ]
+  },
+  "template:ig3-friend": {
+   "name": "Storia: FRIEND GREAT TRIP con cerchio",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "amici",
+    "cerchio"
+   ]
+  },
+  "template:ig3-full": {
+   "name": "Storia: Full 100% in lettering a pennello",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "offerta",
+    "animali domestici"
+   ]
+  },
+  "template:ig3-introducing": {
+   "name": "Storia: INTRODUCING STORIES nel bosco",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "inverno",
+    "presentazione"
+   ]
+  },
+  "template:ig3-models": {
+   "name": "Storia: MODELS FASHION con parentesi",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "moda",
+    "ritratto"
+   ]
+  },
+  "template:ig3-music": {
+   "name": "Storia: MUSIC EXCLUSIVE con anelli",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "musica",
+    "cerchio"
+   ]
+  },
+  "template:ig3-new": {
+   "name": "Storia: viaggi NEW con pennellata",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "viaggi",
+    "pennello"
+   ]
+  },
+  "template:ig3-opener": {
+   "name": "Opener dinamico per un post quadrato",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "opener",
+    "tipografia",
+    "post"
+   ]
+  },
+  "template:ig3-perfil-amarillo": {
+   "name": "Profilo: scheda gialla con foto",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "profilo"
+   ]
+  },
+  "template:ig3-perfil-coral": {
+   "name": "Profilo: scheda corallo con macchie",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "profilo"
+   ]
+  },
+  "template:ig3-perfil-degradado": {
+   "name": "Profilo: scheda sfumata con cerchi",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "profilo"
+   ]
+  },
+  "template:ig3-perfil-oscuro": {
+   "name": "Profilo: scheda scura con nome rosso",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "profilo"
+   ]
+  },
+  "template:ig3-perfil-rojo": {
+   "name": "Profilo: scheda rossa con avatar",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "profilo"
+   ]
+  },
+  "template:ig3-portfolio": {
+   "name": "Storia: PORTFOLIO con un nome",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "portfolio"
+   ]
+  },
+  "template:ig3-programa": {
+   "name": "Storia: V 6 con barre arrotondate",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "tecnologia",
+    "pastello"
+   ]
+  },
+  "template:ig3-promo": {
+   "name": "Storia: Product Promo con disco giallo",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "prodotto",
+    "promozione"
+   ]
+  },
+  "template:ig3-sport": {
+   "name": "Storia: SPORT con badge rosa",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "sport"
+   ]
+  },
+  "template:ig3-tech": {
+   "name": "Storia: TECH con lettere sparse",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "tecnologia"
+   ]
+  },
+  "template:ig3-toys": {
+   "name": "Storia: TOYS con disco sfumato",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "giocattoli",
+    "cerchio"
+   ]
+  },
+  "template:ig3-tv": {
+   "name": "Storia: Media Social con foto tonda",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "social",
+    "cerchio"
+   ]
+  },
+  "template:ig3-your-life": {
+   "name": "Storia: YOUR LIFE e PRO con bande di colore",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "interni"
+   ]
+  },
+  "template:ig4-abstract": {
+   "name": "Storia: ABSTRACT GEOMETRIC STYLE",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "foto",
+    "geometrico",
+    "architettura"
+   ]
+  },
+  "template:ig4-amazing-dream": {
+   "name": "Storia: Amazing dream con due foto",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "foto",
+    "frase",
+    "marrone"
+   ]
+  },
+  "template:ig4-audacious": {
+   "name": "Storia: LET'S DO WHAT WE LOVE #AUDACIOUS",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "motivazione",
+    "nero",
+    "verde"
+   ]
+  },
+  "template:ig4-beauty": {
+   "name": "Storia: There is beauty in simplicity",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "natura",
+    "frase",
+    "calligrafia"
+   ]
+  },
+  "template:ig4-beauty-flowers": {
+   "name": "Storia: Beauty con fiori",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "fiori",
+    "calligrafia",
+    "rosa"
+   ]
+  },
+  "template:ig4-believe": {
+   "name": "Storia: BELIEVE YOU CAN SO YOU ARE HALFWAY THERE",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "foto",
+    "motivazione",
+    "frase"
+   ]
+  },
+  "template:ig4-big": {
+   "name": "Storia: BIG. con cerchio a righe",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "moda",
+    "righe",
+    "cerchio"
+   ]
+  },
+  "template:ig4-born-wild": {
+   "name": "Storia: BORN TO BE WILD",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "avventura",
+    "blu",
+    "deserto"
+   ]
+  },
+  "template:ig4-brand-new-day": {
+   "name": "Storia: brand new day con triangoli",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "foto",
+    "triangoli",
+    "geometrico"
+   ]
+  },
+  "template:ig4-clear": {
+   "name": "Storia: CLEAR INTERIOR in due metà",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "interni",
+    "casa",
+    "decorazione"
+   ]
+  },
+  "template:ig4-cold-wave": {
+   "name": "Storia: COLD WAVE WARM SUN con lettere di foto",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "foto",
+    "mare",
+    "tipografia"
+   ]
+  },
+  "template:ig4-confident": {
+   "name": "Storia: STYLISH & CONFIDENT in tre finestre",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "foto",
+    "moda",
+    "uomo"
+   ]
+  },
+  "template:ig4-control": {
+   "name": "Storia: CONTROL con logo e due foto",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "logo",
+    "yoga",
+    "calma"
+   ]
+  },
+  "template:ig4-courage": {
+   "name": "Storia: #courage con pennellata",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "ritratto",
+    "arancione",
+    "pennello"
+   ]
+  },
+  "template:ig4-culinary": {
+   "name": "Storia: CULINARY ART #cooking",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "cucina",
+    "cibo",
+    "arancione"
+   ]
+  },
+  "template:ig4-deep-breath": {
+   "name": "Storia: ENJOY DEEP BREATH con foglie",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "natura",
+    "verde",
+    "rosa"
+   ]
+  },
+  "template:ig4-delicious": {
+   "name": "Storia: griglia #DELICIOUS",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "cibo",
+    "dolci",
+    "griglia"
+   ]
+  },
+  "template:ig4-dream": {
+   "name": "Storia: DREAM con cornice su una città",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "foto",
+    "città",
+    "cornice"
+   ]
+  },
+  "template:ig4-employee": {
+   "name": "Storia: BEST EMPLOYEE OF THE MONTH",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "azienda",
+    "dipendente",
+    "ritratto"
+   ]
+  },
+  "template:ig4-enjoy-music": {
+   "name": "Storia: ENJOY MY MUSIC blu e rosso",
+   "tags": [
+    "instagram",
+    "foto",
+    "musica",
+    "ballo",
+    "blu",
+    "rosso"
+   ]
+  },
+  "template:ig4-fashion-buy": {
+   "name": "Storia: FASHION IS WHAT YOU BUY su bande",
+   "tags": [
+    "instagram",
+    "foto",
+    "moda",
+    "bande",
+    "rosso",
+    "blu"
+   ]
+  },
+  "template:ig4-fitness": {
+   "name": "Storia: FITNESS BODY ENERGY WORKOUT",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "palestra",
+    "sport",
+    "sfumatura"
+   ]
+  },
+  "template:ig4-fun": {
+   "name": "Storia: #FUN con foto incorniciata",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "foto",
+    "cornice",
+    "rosso"
+   ]
+  },
+  "template:ig4-glam": {
+   "name": "Storia: GLAM ROCK in rosa e nero",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "moda",
+    "rosa",
+    "nero"
+   ]
+  },
+  "template:ig4-instamusic": {
+   "name": "Storia: #instamusic #yourbeat con macchie",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "musica",
+    "neon",
+    "forme"
+   ]
+  },
+  "template:ig4-life-good": {
+   "name": "Storia: LIFE IS SO GOOD JUST BE YOURSELF",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "frase",
+    "neon",
+    "griglia"
+   ]
+  },
+  "template:ig4-lifestyle": {
+   "name": "Storia: my lifestyle #followme",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "stile di vita",
+    "blu",
+    "collage"
+   ]
+  },
+  "template:ig4-look-deep": {
+   "name": "Storia: LOOK DEEP INTO NATURE con esagoni",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "foto",
+    "natura",
+    "esagono"
+   ]
+  },
+  "template:ig4-masterpiece": {
+   "name": "Storia: MAKE EACH DAY YOUR MASTERPIECE",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "frase",
+    "rosa",
+    "motivazione"
+   ]
+  },
+  "template:ig4-meeting": {
+   "name": "Storia: MEETING WITH FRIENDS in colonne",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "amici",
+    "colonne",
+    "caffè"
+   ]
+  },
+  "template:ig4-motion": {
+   "name": "Storia: MOTION con cerchio giallo",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "ballo",
+    "cerchio",
+    "duotone"
+   ]
+  },
+  "template:ig4-moving": {
+   "name": "Storia: Moving con due anelli",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "ballo",
+    "anelli",
+    "blu"
+   ]
+  },
+  "template:ig4-music": {
+   "name": "Storia: MUSIC DANCE ENJOY",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "foto",
+    "musica",
+    "festa"
+   ]
+  },
+  "template:ig4-natural": {
+   "name": "Storia: NATURAL BEAUTY in tre colonne",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "foto",
+    "natura",
+    "colonne"
+   ]
+  },
+  "template:ig4-never-easier": {
+   "name": "Storia: IT NEVER GETS EASIER in rosso",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "palestra",
+    "motivazione",
+    "rosso"
+   ]
+  },
+  "template:ig4-ocean": {
+   "name": "Storia: OCEAN HAPPY RELAX con cornice",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "mare",
+    "cornice",
+    "estate"
+   ]
+  },
+  "template:ig4-pro-fitness": {
+   "name": "Storia: PRO fitness con cornice incrociata",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "sport",
+    "cornice",
+    "pesca"
+   ]
+  },
+  "template:ig4-sale40": {
+   "name": "Storia: SALE 40% in verticale",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "saldi",
+    "offerta",
+    "rosso"
+   ]
+  },
+  "template:ig4-sale75": {
+   "name": "Storia: SALE UP TO 75% OFF",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "saldi",
+    "offerta",
+    "rosso"
+   ]
+  },
+  "template:ig4-secrets": {
+   "name": "Storia: NO MORE SECRETS #IMAGINE",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "rosso",
+    "diagonale",
+    "notte"
+   ]
+  },
+  "template:ig4-shopping-week": {
+   "name": "Storia: #shoppingweek 40% FOR SALE",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "saldi",
+    "shopping",
+    "blu"
+   ]
+  },
+  "template:ig4-simplelife": {
+   "name": "Storia: When you focus on the good #simplelife",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "foto",
+    "frase",
+    "blu"
+   ]
+  },
+  "template:ig4-skate": {
+   "name": "Storia: 0256 #skatelife",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "foto",
+    "skate",
+    "sport"
+   ]
+  },
+  "template:ig4-sport": {
+   "name": "Storia: W SPORT con una linea",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "sport",
+    "corsa",
+    "linea"
+   ]
+  },
+  "template:ig4-spring": {
+   "name": "Storia: SPRING IS IN THE AIR",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "primavera",
+    "fiori",
+    "corallo"
+   ]
+  },
+  "template:ig4-stay-strong": {
+   "name": "Storia: STAY STRONG DON'T GIVE UP",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "motivazione",
+    "rosso",
+    "diagonale"
+   ]
+  },
+  "template:ig4-street-fast": {
+   "name": "Storia: 10/25 #youth street FAST",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "strada",
+    "skate",
+    "giallo"
+   ]
+  },
+  "template:ig4-style": {
+   "name": "Storia: STYLE IS VERY PERSONAL",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "foto",
+    "moda",
+    "rosso"
+   ]
+  },
+  "template:ig4-style-beautiful": {
+   "name": "Storia: STYLE #beautiful con bande",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "foto",
+    "moda",
+    "bande"
+   ]
+  },
+  "template:ig4-stylish": {
+   "name": "Storia: #stylish con disco blu",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "moda",
+    "blu",
+    "arancione"
+   ]
+  },
+  "template:ig4-summer": {
+   "name": "Storia: #SUMMER con rombo da spiaggia",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "spiaggia",
+    "estate",
+    "rombo"
+   ]
+  },
+  "template:ig4-summer-event": {
+   "name": "Storia: summer event con una data",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "estate",
+    "evento",
+    "spiaggia"
+   ]
+  },
+  "template:ig4-summer-look": {
+   "name": "Storia: Summer look #fashion a bande",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "moda",
+    "estate",
+    "beige"
+   ]
+  },
+  "template:ig4-sunshine": {
+   "name": "Storia: SUNSHINE con quattro foto",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "estate",
+    "collage",
+    "spiaggia"
+   ]
+  },
+  "template:ig4-sunshine-tag": {
+   "name": "Storia: #sunshine Relaxing holiday",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "foto",
+    "estate",
+    "blu"
+   ]
+  },
+  "template:ig4-trendy": {
+   "name": "Storia: #TRENDY YOUR STYLE in rosso",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "foto",
+    "rosso",
+    "moda"
+   ]
+  },
+  "template:ig4-tropical": {
+   "name": "Storia: FEELING TROPICAL con tre foto",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "estate",
+    "tropicale",
+    "collage"
+   ]
+  },
+  "template:ig4-winner": {
+   "name": "Storia: THE WINNER NEVER QUITS",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "motivazione",
+    "palestra",
+    "bianco e nero"
+   ]
+  },
+  "template:ig4-young": {
+   "name": "Storia: YOUNG #followus",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "gioventù",
+    "rosso",
+    "colori"
+   ]
+  },
+  "template:ig4-youth": {
+   "name": "Storia: #YOUTH & FREEDOM con triangolo",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "foto",
+    "triangolo",
+    "corallo"
+   ]
+  },
+  "template:ig5-amazing-now": {
+   "name": "Storia: AMAZING NOW",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "bianco e nero",
+    "rosso",
+    "frase"
+   ]
+  },
+  "template:ig5-awesome": {
+   "name": "Storia: AWESOME verticale",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "rosso",
+    "verticale",
+    "ritratto"
+   ]
+  },
+  "template:ig5-be-strong": {
+   "name": "Storia: B STRONG",
+   "tags": [
+    "instagram",
+    "foto",
+    "rosso",
+    "frase",
+    "motivazione",
+    "bianco e nero"
+   ]
+  },
+  "template:ig5-beach-therapy": {
+   "name": "Storia: beach therapy turchese",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "spiaggia",
+    "vacanze",
+    "estate"
+   ]
+  },
+  "template:ig5-beauty-pro": {
+   "name": "Storia: BEAUTY con onda viola",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "bellezza",
+    "viola",
+    "bianco e nero"
+   ]
+  },
+  "template:ig5-best-look": {
+   "name": "Storia: YOUR BEST LOOK incorniciato",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "verde",
+    "moda",
+    "giallo"
+   ]
+  },
+  "template:ig5-choose-glam": {
+   "name": "Storia: 48 choose the glam",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "bellezza",
+    "glamour",
+    "frase"
+   ]
+  },
+  "template:ig5-cold-water": {
+   "name": "Storia: COLD DEEP WATER",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "mare",
+    "giallo",
+    "estate"
+   ]
+  },
+  "template:ig5-creative-studio": {
+   "name": "Storia: CREATIVE DESIGN STUDIO",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "design",
+    "studio",
+    "azienda"
+   ]
+  },
+  "template:ig5-dancing": {
+   "name": "Storia: #DANCING con foto in diagonale",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "ballo",
+    "diagonale",
+    "bokeh"
+   ]
+  },
+  "template:ig5-daring-style": {
+   "name": "Storia: DARING STYLE su giallo",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "giallo",
+    "moda",
+    "bianco e nero"
+   ]
+  },
+  "template:ig5-denim-style": {
+   "name": "Storia: DENIM STYLE incorniciato",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "moda",
+    "riquadro",
+    "collezione"
+   ]
+  },
+  "template:ig5-design-passion": {
+   "name": "Storia: DESIGN IS MY PASSION",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "interni",
+    "design",
+    "persiane"
+   ]
+  },
+  "template:ig5-dont-waste": {
+   "name": "Storia: DON'T WASTE YOUR TIME",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "frase",
+    "verde acqua",
+    "motivazione"
+   ]
+  },
+  "template:ig5-enjoy-movement": {
+   "name": "Storia: enjoy the movement",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "ballo",
+    "nero",
+    "ciano"
+   ]
+  },
+  "template:ig5-flexible-body": {
+   "name": "Storia: FLEXIBLE BODY con banda sfumata",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "fitness",
+    "sfumatura",
+    "bianco e nero"
+   ]
+  },
+  "template:ig5-focus-breathe": {
+   "name": "Storia: FOCUS ON THE BREATHE",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "frase",
+    "tipografia",
+    "arancione"
+   ]
+  },
+  "template:ig5-fondo-ambar": {
+   "name": "Sfondo: cerchi ambra",
+   "tags": [
+    "instagram",
+    "sfondo",
+    "arancione",
+    "marrone",
+    "cerchi",
+    "astratto"
+   ]
+  },
+  "template:ig5-fondo-burbujas-azules": {
+   "name": "Sfondo: bolle blu su rosa",
+   "tags": [
+    "instagram",
+    "sfondo",
+    "rosa",
+    "blu",
+    "bolle",
+    "astratto"
+   ]
+  },
+  "template:ig5-fondo-burbujas-grises": {
+   "name": "Sfondo: bolle grigie su nero",
+   "tags": [
+    "instagram",
+    "sfondo",
+    "nero",
+    "grigio",
+    "cerchi",
+    "bolle"
+   ]
+  },
+  "template:ig5-fondo-chevrones": {
+   "name": "Sfondo: chevron rossi",
+   "tags": [
+    "instagram",
+    "storia",
+    "sfondo",
+    "rosso",
+    "chevron",
+    "astratto"
+   ]
+  },
+  "template:ig5-fondo-cinta-azul": {
+   "name": "Sfondo: nastro blu su rosso",
+   "tags": [
+    "instagram",
+    "sfondo",
+    "sfumatura",
+    "blu",
+    "rosso",
+    "astratto"
+   ]
+  },
+  "template:ig5-fondo-geometrico": {
+   "name": "Sfondo: frammenti geometrici su grigio",
+   "tags": [
+    "instagram",
+    "sfondo",
+    "grigio",
+    "geometrico",
+    "arancione",
+    "minimalista"
+   ]
+  },
+  "template:ig5-fondo-lineas": {
+   "name": "Sfondo: sfumatura con linee neon",
+   "tags": [
+    "instagram",
+    "sfondo",
+    "sfumatura",
+    "rosa",
+    "linee",
+    "neon"
+   ]
+  },
+  "template:ig5-fondo-lineas-cruzadas": {
+   "name": "Sfondo: linee incrociate",
+   "tags": [
+    "instagram",
+    "storia",
+    "sfondo",
+    "sfumatura",
+    "magenta",
+    "linee"
+   ]
+  },
+  "template:ig5-fondo-olas": {
+   "name": "Sfondo: onde arancioni e viola",
+   "tags": [
+    "instagram",
+    "sfondo",
+    "sfumatura",
+    "arancione",
+    "viola",
+    "astratto"
+   ]
+  },
+  "template:ig5-fondo-pildoras": {
+   "name": "Sfondo: pillole rosa",
+   "tags": [
+    "instagram",
+    "sfondo",
+    "rosa",
+    "pastello",
+    "forme",
+    "astratto"
+   ]
+  },
+  "template:ig5-fondo-plata": {
+   "name": "Sfondo: strisce argento",
+   "tags": [
+    "instagram",
+    "sfondo",
+    "argento",
+    "grigio",
+    "righe",
+    "astratto"
+   ]
+  },
+  "template:ig5-fondo-rojo": {
+   "name": "Sfondo: forme rosse arrotondate",
+   "tags": [
+    "instagram",
+    "sfondo",
+    "rosso",
+    "forme",
+    "astratto",
+    "sfumatura"
+   ]
+  },
+  "template:ig5-gentle-soft": {
+   "name": "Storia: scheda GENTLE & SOFT",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "fiori",
+    "scheda",
+    "rosa"
+   ]
+  },
+  "template:ig5-glam": {
+   "name": "Storia: GLAM con scatto di fotocamera",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "rosa",
+    "fotocamera",
+    "bianco e nero"
+   ]
+  },
+  "template:ig5-happiness-love": {
+   "name": "Storia: collage HAPPINESS e LOVE",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "collage",
+    "matrimonio",
+    "dorato"
+   ]
+  },
+  "template:ig5-happy-weekends": {
+   "name": "Storia: Happy weekends",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "fiori",
+    "weekend",
+    "giallo"
+   ]
+  },
+  "template:ig5-inspiration": {
+   "name": "Storia: #pleasure ispirazione",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "rosso",
+    "bianco e nero",
+    "frase"
+   ]
+  },
+  "template:ig5-interior-dream": {
+   "name": "Storia: catalogo INTERIOR OF YOUR DREAM",
+   "tags": [
+    "instagram",
+    "foto",
+    "catalogo",
+    "interni",
+    "prezzo",
+    "negozio"
+   ]
+  },
+  "template:ig5-keep-simple": {
+   "name": "Storia: KEEP IT SIMPLE con un cerchio",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "cerchio",
+    "sfumatura",
+    "frase"
+   ]
+  },
+  "template:ig5-light-easy": {
+   "name": "Storia: scheda LIGHT & EASY",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "moda",
+    "scheda",
+    "blu"
+   ]
+  },
+  "template:ig5-look-deep": {
+   "name": "Storia: LOOK DEEP INTO YOURSELF",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "frase",
+    "neon",
+    "tag"
+   ]
+  },
+  "template:ig5-mindfulness": {
+   "name": "Storia: B/N #mindfulness",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "bianco e nero",
+    "frase",
+    "calma"
+   ]
+  },
+  "template:ig5-modern-office": {
+   "name": "Storia: MODERN OFFICE SPACE",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "ufficio",
+    "azienda",
+    "minimalista"
+   ]
+  },
+  "template:ig5-ocean": {
+   "name": "Storia: OCEAN in un cerchio",
+   "tags": [
+    "instagram",
+    "foto",
+    "cerchio",
+    "mare",
+    "surf",
+    "estate"
+   ]
+  },
+  "template:ig5-pleasure": {
+   "name": "Storia: PLEASURE collage a blocchi",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "collage",
+    "terracotta",
+    "blocchi"
+   ]
+  },
+  "template:ig5-power": {
+   "name": "Storia: #POWER con una foto",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "rosso",
+    "moda",
+    "frase"
+   ]
+  },
+  "template:ig5-relax-home": {
+   "name": "Storia: Relax SWEET HOME",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "casa",
+    "interni",
+    "verde"
+   ]
+  },
+  "template:ig5-sale-70": {
+   "name": "Storia: SALE 70% con bande oblique",
+   "tags": [
+    "instagram",
+    "foto",
+    "saldi",
+    "offerta",
+    "shopping",
+    "rosso"
+   ]
+  },
+  "template:ig5-sensual": {
+   "name": "Storia: SENSUAL con due foto",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "bianco e nero",
+    "collage",
+    "moda"
+   ]
+  },
+  "template:ig5-style-y": {
+   "name": "Storia: STYLE con una grande Y",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "moda",
+    "verde acqua",
+    "cornice"
+   ]
+  },
+  "template:ig5-summer-pause": {
+   "name": "Storia: SUMMER take a pause",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "estate",
+    "vacanze",
+    "giallo"
+   ]
+  },
+  "template:ig5-sunny-day": {
+   "name": "Storia: SUNNY DAY con un cerchio",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "estate",
+    "piscina",
+    "giallo"
+   ]
+  },
+  "template:ig5-titulo-art-design": {
+   "name": "Titolo: ART & DESIGN FORUM",
+   "tags": [
+    "instagram",
+    "titolo",
+    "testo",
+    "arte",
+    "design",
+    "giallo"
+   ]
+  },
+  "template:ig5-titulo-big-sale": {
+   "name": "Titolo: BIG SALE con pennello e carrello",
+   "tags": [
+    "instagram",
+    "titolo",
+    "testo",
+    "saldi",
+    "pennello",
+    "shopping"
+   ]
+  },
+  "template:ig5-titulo-bold-fashion": {
+   "name": "Titolo: BOLD FASHION STYLE inclinato",
+   "tags": [
+    "instagram",
+    "titolo",
+    "testo",
+    "moda",
+    "inclinato",
+    "blu"
+   ]
+  },
+  "template:ig5-titulo-chicle": {
+   "name": "Titolo: BUBBLEGUM STYLE",
+   "tags": [
+    "instagram",
+    "titolo",
+    "testo",
+    "rosa",
+    "giallo",
+    "divertente"
+   ]
+  },
+  "template:ig5-titulo-cita": {
+   "name": "Titolo: citazione con autore",
+   "tags": [
+    "instagram",
+    "titolo",
+    "testo",
+    "citazione",
+    "frase",
+    "elegante"
+   ]
+  },
+  "template:ig5-titulo-do-what": {
+   "name": "Titolo: DO WHAT YOU WANT",
+   "tags": [
+    "instagram",
+    "titolo",
+    "testo",
+    "motivazione",
+    "viola",
+    "giallo"
+   ]
+  },
+  "template:ig5-titulo-formas-abstractas": {
+   "name": "Titolo: ABSTRACT SHAPES DESIGN",
+   "tags": [
+    "instagram",
+    "titolo",
+    "testo",
+    "forme",
+    "corallo",
+    "design"
+   ]
+  },
+  "template:ig5-titulo-glitch": {
+   "name": "Titolo: GLITCH STYLE",
+   "tags": [
+    "instagram",
+    "titolo",
+    "testo",
+    "glitch",
+    "bianco",
+    "digitale"
+   ]
+  },
+  "template:ig5-titulo-neon": {
+   "name": "Titolo: NEON luminoso",
+   "tags": [
+    "instagram",
+    "titolo",
+    "testo",
+    "neon",
+    "brillantezza",
+    "rosa"
+   ]
+  },
+  "template:ig5-titulo-never-give-up": {
+   "name": "Titolo: NEVER GIVE UP a pennello",
+   "tags": [
+    "instagram",
+    "titolo",
+    "testo",
+    "motivazione",
+    "pennello",
+    "rosso"
+   ]
+  },
+  "template:ig5-titulo-retro": {
+   "name": "Titolo: 80s RETROSTYLE",
+   "tags": [
+    "instagram",
+    "titolo",
+    "testo",
+    "retrò",
+    "anni 80",
+    "neon"
+   ]
+  },
+  "template:ig5-titulo-sale": {
+   "name": "Titolo: cartellino SALE",
+   "tags": [
+    "instagram",
+    "titolo",
+    "testo",
+    "saldi",
+    "rosso",
+    "giallo"
+   ]
+  },
+  "template:ig5-wake-up": {
+   "name": "Storia: WAKE UP AND BE AWESOME",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "foto",
+    "rosso",
+    "motivazione"
+   ]
+  },
+  "template:ig5-your-choice": {
+   "name": "Storia: ritratto con puntini gialli",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "giallo",
+    "punti",
+    "bianco e nero"
+   ]
+  },
+  "template:ig5-your-style": {
+   "name": "Storia: collage Your style",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "collage",
+    "interni",
+    "bianco"
+   ]
+  },
+  "template:ig6-arbol-cinta": {
+   "name": "Storia di Natale: albero di nastro dorato",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "natale",
+    "albero"
+   ]
+  },
+  "template:ig6-artista": {
+   "name": "Storia: You are the artist of your life con #YLIFE",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "foto",
+    "blu",
+    "stile di vita"
+   ]
+  },
+  "template:ig6-aventuras": {
+   "name": "Storia: My Adventures con due foto e una montagna verde",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "foto",
+    "viaggi",
+    "avventura"
+   ]
+  },
+  "template:ig6-diseno-pasion": {
+   "name": "Storia: Design is my passion su rosa",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "design",
+    "architettura",
+    "rosa"
+   ]
+  },
+  "template:ig6-feliz-brillante": {
+   "name": "Storia di Natale: Merry & Bright su grigio",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "natale",
+    "feste"
+   ]
+  },
+  "template:ig6-interior": {
+   "name": "Storia: Clear Interior con riquadro nero",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "foto",
+    "casa",
+    "interior design"
+   ]
+  },
+  "template:ig6-luz-calida": {
+   "name": "Storia: Cozy Light con rombi e #WARM",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "casa",
+    "prodotto",
+    "rombo"
+   ]
+  },
+  "template:ig6-pino-rojo": {
+   "name": "Storia di Natale: rami di pino e Merry Christmas su rosso",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "natale",
+    "saldi",
+    "pino"
+   ]
+  },
+  "template:ig6-rebajas-50": {
+   "name": "Storia: SALE con cartellino 50% OFF e strisce blu",
+   "tags": [
+    "instagram",
+    "storia",
+    "foto",
+    "saldi",
+    "sconto",
+    "moda"
+   ]
+  },
+  "template:ig6-rebajas-invierno": {
+   "name": "Storia di Natale: regalo che si apre su «winter sell XMAS 50%off»",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "natale",
+    "saldi",
+    "sconto"
+   ]
+  },
+  "template:ig6-santa": {
+   "name": "Storia di Natale: volto di Babbo Natale con Merry Xmas",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "natale",
+    "babbo natale"
+   ]
+  },
+  "template:ig6-swipe-bandera": {
+   "name": "Swipe up: bandiera SWIPE UP che esce da un party popper",
+   "tags": [
+    "instagram",
+    "swipe up",
+    "scorri",
+    "freccia",
+    "overlay",
+    "elemento"
+   ]
+  },
+  "template:ig6-swipe-boton": {
+   "name": "Swipe up: pulsante bianco che da quadrato diventa cerchio",
+   "tags": [
+    "instagram",
+    "swipe up",
+    "scorri",
+    "freccia",
+    "overlay",
+    "elemento"
+   ]
+  },
+  "template:ig6-swipe-brillo": {
+   "name": "Swipe up: frecce bianche luminose che salgono",
+   "tags": [
+    "instagram",
+    "swipe up",
+    "scorri",
+    "freccia",
+    "overlay",
+    "elemento"
+   ]
+  },
+  "template:ig6-swipe-chevrones": {
+   "name": "Swipe up: tre chevron blu che salgono",
+   "tags": [
+    "instagram",
+    "swipe up",
+    "scorri",
+    "freccia",
+    "overlay",
+    "elemento"
+   ]
+  },
+  "template:ig6-swipe-circulo": {
+   "name": "Swipe up: cerchio bianco con triangolo che sale e sfuma",
+   "tags": [
+    "instagram",
+    "swipe up",
+    "scorri",
+    "freccia",
+    "overlay",
+    "elemento"
+   ]
+  },
+  "template:ig6-swipe-cuadro": {
+   "name": "Swipe up: riquadro turchese con freccia e riflesso",
+   "tags": [
+    "instagram",
+    "swipe up",
+    "scorri",
+    "freccia",
+    "overlay",
+    "elemento"
+   ]
+  },
+  "template:ig6-swipe-figuras": {
+   "name": "Swipe up: anello verde che diventa triangolo con SWIPE UP",
+   "tags": [
+    "instagram",
+    "swipe up",
+    "scorri",
+    "freccia",
+    "overlay",
+    "elemento"
+   ]
+  },
+  "template:ig6-swipe-flecha": {
+   "name": "Swipe up: freccia blu su una linea pulsante",
+   "tags": [
+    "instagram",
+    "swipe up",
+    "scorri",
+    "freccia",
+    "overlay",
+    "elemento"
+   ]
+  },
+  "template:ig6-swipe-interruptor": {
+   "name": "Swipe up: interruttore con pallino blu che scivola in alto",
+   "tags": [
+    "instagram",
+    "swipe up",
+    "scorri",
+    "freccia",
+    "overlay",
+    "elemento"
+   ]
+  },
+  "template:ig6-swipe-letras": {
+   "name": "Swipe up: lettere SWIPE UP che saltano",
+   "tags": [
+    "instagram",
+    "swipe up",
+    "scorri",
+    "freccia",
+    "overlay",
+    "elemento"
+   ]
+  },
+  "template:ig6-swipe-mano": {
+   "name": "Swipe up: mano che scorre in alto con scia di chevron",
+   "tags": [
+    "instagram",
+    "swipe up",
+    "scorri",
+    "freccia",
+    "overlay",
+    "elemento"
+   ]
+  },
+  "template:ig6-swipe-triangulo": {
+   "name": "Swipe up: triangolo bianco con punto rosso che sale",
+   "tags": [
+    "instagram",
+    "swipe up",
+    "scorri",
+    "freccia",
+    "overlay",
+    "elemento"
+   ]
+  },
+  "template:ig7-awesome": {
+   "name": "Storia tipografica: AWESOME",
+   "tags": [
+    "instagram",
+    "storia",
+    "tipografia",
+    "colori",
+    "bande",
+    "lettera gigante"
+   ]
+  },
+  "template:ig7-big": {
+   "name": "Storia tipografica: BIG",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "tipografia",
+    "colori",
+    "lettera gigante"
+   ]
+  },
+  "template:ig7-brand": {
+   "name": "Storia tipografica: BRAND",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "tipografia",
+    "colori",
+    "lettera a"
+   ]
+  },
+  "template:ig7-color": {
+   "name": "Storia tipografica: COLOR",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "tipografia",
+    "colori",
+    "cornice"
+   ]
+  },
+  "template:ig7-easy-project": {
+   "name": "Storia tipografica: STORIES EASY PROJECT",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "tipografia",
+    "colori",
+    "pixel"
+   ]
+  },
+  "template:ig7-grid": {
+   "name": "Storia tipografica: griglia di colori",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "tipografia",
+    "colori",
+    "griglia"
+   ]
+  },
+  "template:ig7-no-plugins": {
+   "name": "Storia tipografica: NO PLUGINS",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "tipografia",
+    "colori",
+    "rettangoli"
+   ]
+  },
+  "template:ig7-social": {
+   "name": "Storia tipografica: SOCIAL",
+   "tags": [
+    "instagram",
+    "storia",
+    "tipografia",
+    "colori",
+    "schede",
+    "promozione"
+   ]
+  },
+  "template:ig7-stories": {
+   "name": "Storia tipografica: STORIES",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "tipografia",
+    "colori",
+    "lettera gigante"
+   ]
+  },
+  "template:ig7-typo": {
+   "name": "Storia tipografica: TYPO",
+   "tags": [
+    "instagram",
+    "storia",
+    "reels",
+    "tipografia",
+    "colori",
+    "scheda"
+   ]
+  },
+  "template:ig8-best-sellers": {
+   "name": "Storia urbana: Best Sellers clicca ora",
+   "tags": [
+    "instagram",
+    "storia",
+    "urbano",
+    "blu",
+    "negozio",
+    "novità"
+   ]
+  },
+  "template:ig8-city-vibes": {
+   "name": "Storia urbana: city vibes con due foto",
+   "tags": [
+    "instagram",
+    "storia",
+    "urbano",
+    "blu",
+    "città",
+    "foto"
+   ]
+  },
+  "template:ig8-friends": {
+   "name": "Storia urbana: friends positive con strisce di foto",
+   "tags": [
+    "instagram",
+    "storia",
+    "urbano",
+    "blu",
+    "amici",
+    "banda"
+   ]
+  },
+  "template:ig8-mega-sale": {
+   "name": "Storia urbana: mega sale %50 polaroid",
+   "tags": [
+    "instagram",
+    "urbano",
+    "blu",
+    "saldi",
+    "offerta",
+    "polaroid"
+   ]
+  },
+  "template:ig8-visit-page": {
+   "name": "Storia urbana: visit page con barra blu",
+   "tags": [
+    "instagram",
+    "storia",
+    "urbano",
+    "blu",
+    "web",
+    "saldi"
+   ]
+  },
+  "template:ig9-banda-roja": {
+   "name": "Storia: banda rossa con parola gigante",
+   "tags": [
+    "instagram",
+    "tipografia",
+    "banda",
+    "rosso",
+    "nero",
+    "lettere"
+   ]
+  },
+  "template:ig9-letras-cortadas": {
+   "name": "Storia: parola gigante tagliata e tre link",
+   "tags": [
+    "instagram",
+    "tipografia",
+    "lettere",
+    "link",
+    "grigio",
+    "nero"
+   ]
+  },
+  "template:ig9-letras-rojas": {
+   "name": "Storia: muro di lettere ruotate su rosso",
+   "tags": [
+    "instagram",
+    "storia",
+    "tipografia",
+    "lettere",
+    "rosso",
+    "tag"
+   ]
+  },
+  "template:ig9-palabra-vertical": {
+   "name": "Storia: parola verticale in cornice con nastro rosso",
+   "tags": [
+    "instagram",
+    "tipografia",
+    "verticale",
+    "cornice",
+    "nastro",
+    "grigio"
+   ]
+  },
+  "template:ig9-typo": {
+   "name": "Storia: riquadri TYPO con cornice disegnata",
+   "tags": [
+    "instagram",
+    "storia",
+    "tipografia",
+    "lettere",
+    "cornice",
+    "grigio"
+   ]
+  },
   "template:intro-de-canal": {
    "name": "Intro del canale",
    "tags": [
@@ -26373,6 +29383,204 @@
     "ritmo",
     "festa",
     "parole"
+   ]
+  },
+  "template:lg0-circulo-ambar": {
+   "name": "Logo: due punti disegnano un anello che si chiude in un disco (ambra)",
+   "tags": [
+    "logo",
+    "reveal del logo",
+    "piatto",
+    "ambra",
+    "giallo",
+    "cerchio"
+   ]
+  },
+  "template:lg0-cuadro-blanco": {
+   "name": "Logo: quadrato che rimbalza e si apre (bianco)",
+   "tags": [
+    "logo",
+    "reveal del logo",
+    "piatto",
+    "bianco",
+    "quadrato",
+    "rimbalzo"
+   ]
+  },
+  "template:lg0-disco-azul": {
+   "name": "Logo: punto volante che si apre in un disco (blu)",
+   "tags": [
+    "logo",
+    "reveal del logo",
+    "piatto",
+    "blu",
+    "disco",
+    "punto"
+   ]
+  },
+  "template:lg0-hexagono-coral": {
+   "name": "Logo: linea, cerchio ed esagono che rotola con il tuo brand (corallo)",
+   "tags": [
+    "logo",
+    "reveal del logo",
+    "piatto",
+    "corallo",
+    "esagono",
+    "linea"
+   ]
+  },
+  "template:lg0-iconos-redes": {
+   "name": "Dieci icone social che compaiono (blu)",
+   "tags": [
+    "logo",
+    "reveal del logo",
+    "piatto",
+    "social",
+    "icone",
+    "facebook"
+   ]
+  },
+  "template:lg0-sigueme": {
+   "name": "Logo social: seguimi con una palla in un esagono su una foto",
+   "tags": [
+    "logo",
+    "reveal del logo",
+    "piatto",
+    "seguimi",
+    "utente",
+    "esagono"
+   ]
+  },
+  "template:lg1-luz-dorada": {
+   "name": "Logo: costruito con luce dorata",
+   "tags": [
+    "logo",
+    "intro",
+    "luce",
+    "dorato",
+    "brillantezza",
+    "bande"
+   ]
+  },
+  "template:lg2-cintas": {
+   "name": "Seguimi: logo di nastri che girano",
+   "tags": [
+    "logo",
+    "piatto",
+    "aziendale",
+    "seguimi",
+    "3d"
+   ]
+  },
+  "template:lg2-franjas": {
+   "name": "Seguimi: logo a fette e barre",
+   "tags": [
+    "logo",
+    "piatto",
+    "aziendale",
+    "seguimi",
+    "bande"
+   ]
+  },
+  "template:lg2-giro": {
+   "name": "Logo: rotazione che si srotola",
+   "tags": [
+    "logo",
+    "piatto",
+    "aziendale",
+    "rotazione"
+   ]
+  },
+  "template:lg2-glitch": {
+   "name": "Logo: glitch su verde",
+   "tags": [
+    "logo",
+    "piatto",
+    "aziendale",
+    "glitch"
+   ]
+  },
+  "template:lg2-horizonte": {
+   "name": "Iscriviti: logo che sorge dall'orizzonte",
+   "tags": [
+    "logo",
+    "piatto",
+    "aziendale",
+    "iscriviti",
+    "orizzonte"
+   ]
+  },
+  "template:lg2-mira": {
+   "name": "Iscriviti: mirino che si apre",
+   "tags": [
+    "logo",
+    "piatto",
+    "aziendale",
+    "iscriviti",
+    "mirino"
+   ]
+  },
+  "template:lg2-orbita": {
+   "name": "Iscriviti: logo in orbita",
+   "tags": [
+    "logo",
+    "piatto",
+    "aziendale",
+    "iscriviti",
+    "orbita"
+   ]
+  },
+  "template:lg2-puntos": {
+   "name": "Logo: punti che rotolano",
+   "tags": [
+    "logo",
+    "piatto",
+    "aziendale",
+    "punti"
+   ]
+  },
+  "template:lg3-esfera": {
+   "name": "Logo: sfera a righe che diventa un disco",
+   "tags": [
+    "logo",
+    "reveal del logo",
+    "intro",
+    "sfera",
+    "blu",
+    "aziendale"
+   ]
+  },
+  "template:lg3-ondas": {
+   "name": "Logo: onde di colore che si posano in una linea",
+   "tags": [
+    "logo",
+    "reveal del logo",
+    "intro",
+    "onde",
+    "colori",
+    "linea"
+   ]
+  },
+  "template:lg3-persiana": {
+   "name": "Logo: quadrato a lamelle che si apre",
+   "tags": [
+    "logo",
+    "reveal del logo",
+    "intro",
+    "quadrato",
+    "grigio",
+    "minimalista"
+   ]
+  },
+  "template:lg3-torta-diana": {
+   "name": "Logo: anello tratteggiato, torta di colori e bersaglio",
+   "tags": [
+    "logo",
+    "reveal del logo",
+    "intro",
+    "torta",
+    "cerchio",
+    "pastello"
    ]
   },
   "template:llt-bevan": {
@@ -35115,6 +38323,1053 @@
     "cerchio",
     "rosa",
     "lettere"
+   ]
+  },
+  "template:tk0-cintas-telefono": {
+   "name": "Storia: nastri di parole e un telefono",
+   "tags": [
+    "tiktok",
+    "storia",
+    "verticale",
+    "nastri",
+    "telefono",
+    "blu"
+   ]
+  },
+  "template:tk0-collage-azul": {
+   "name": "Storia: collage di tre foto in blu e nero",
+   "tags": [
+    "tiktok",
+    "storia",
+    "verticale",
+    "collage",
+    "foto",
+    "blu"
+   ]
+  },
+  "template:tk0-collage-negro": {
+   "name": "Storia: collage di sei foto con sticker",
+   "tags": [
+    "tiktok",
+    "storia",
+    "verticale",
+    "collage",
+    "foto",
+    "nero"
+   ]
+  },
+  "template:tk0-creas-tendencias": {
+   "name": "Storia: crei tendenze? bolla rossa",
+   "tags": [
+    "tiktok",
+    "storia",
+    "verticale",
+    "domanda",
+    "rosa",
+    "tendenza"
+   ]
+  },
+  "template:tk0-empieza-aqui": {
+   "name": "Storia: le tendenze iniziano qui",
+   "tags": [
+    "tiktok",
+    "storia",
+    "verticale",
+    "tendenza",
+    "blu",
+    "biglietti"
+   ]
+  },
+  "template:tk0-mision": {
+   "name": "Storia: la nostra missione con foto su rosso",
+   "tags": [
+    "tiktok",
+    "storia",
+    "verticale",
+    "missione",
+    "rosso",
+    "foto"
+   ]
+  },
+  "template:tk0-nueva-era": {
+   "name": "Storia: una nuova era del video",
+   "tags": [
+    "tiktok",
+    "storia",
+    "verticale",
+    "video",
+    "rosso",
+    "rosa"
+   ]
+  },
+  "template:tk0-nuevo-video": {
+   "name": "Storia: NEW VIDEO con un telefono",
+   "tags": [
+    "tiktok",
+    "verticale",
+    "video",
+    "nuovo",
+    "rosso",
+    "telefono"
+   ]
+  },
+  "template:tk0-plantilla": {
+   "name": "Storia: modello per tutti con una foto",
+   "tags": [
+    "tiktok",
+    "storia",
+    "verticale",
+    "modello",
+    "blu",
+    "foto"
+   ]
+  },
+  "template:tk0-plataforma": {
+   "name": "Storia: nuova piattaforma con due telefoni",
+   "tags": [
+    "tiktok",
+    "storia",
+    "verticale",
+    "piattaforma",
+    "nero",
+    "telefono"
+   ]
+  },
+  "template:tk0-promo-negro": {
+   "name": "Storia: SUPER PROMO in una bolla blu su nero",
+   "tags": [
+    "tiktok",
+    "storia",
+    "verticale",
+    "promo",
+    "nero",
+    "contatore"
+   ]
+  },
+  "template:tk0-promo-x": {
+   "name": "Storia: PROMO con nastri incrociati",
+   "tags": [
+    "tiktok",
+    "storia",
+    "verticale",
+    "promo",
+    "nero",
+    "nastri"
+   ]
+  },
+  "template:tk0-que-ves": {
+   "name": "Storia: cosa ti piace guardare? chat",
+   "tags": [
+    "tiktok",
+    "storia",
+    "verticale",
+    "chat",
+    "domanda",
+    "blu"
+   ]
+  },
+  "template:tk0-recordatorio": {
+   "name": "Storia: sondaggio promemoria su un video",
+   "tags": [
+    "tiktok",
+    "storia",
+    "verticale",
+    "sondaggio",
+    "promemoria",
+    "video"
+   ]
+  },
+  "template:tk0-tendencias": {
+   "name": "Storia: tendenze virali in rosa e blu",
+   "tags": [
+    "tiktok",
+    "storia",
+    "verticale",
+    "tendenza",
+    "rosa",
+    "blu"
+   ]
+  },
+  "template:tk0-trendy": {
+   "name": "Storia: TRENDY STYLE con bande di colore",
+   "tags": [
+    "tiktok",
+    "storia",
+    "verticale",
+    "tendenza",
+    "blu",
+    "bande"
+   ]
+  },
+  "template:tk1-tipografia": {
+   "name": "Opener tipografico: una parola a ogni battito",
+   "tags": [
+    "tiktok",
+    "storia",
+    "apertura",
+    "tipografia",
+    "parole",
+    "bianco e nero"
+   ]
+  },
+  "template:tk2-alice": {
+   "name": "Storia: Alice Braun con una foto",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "nome",
+    "foto",
+    "blu"
+   ]
+  },
+  "template:tk2-austin": {
+   "name": "Storia: Austin Grant con un nuovo video",
+   "tags": [
+    "tiktok",
+    "storia",
+    "nome",
+    "foto",
+    "nero",
+    "rosso"
+   ]
+  },
+  "template:tk2-baile": {
+   "name": "Storia: Just dance con tre foto",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "ballo",
+    "foto",
+    "blu"
+   ]
+  },
+  "template:tk2-belleza": {
+   "name": "Storia: About Beauty for You",
+   "tags": [
+    "tiktok",
+    "storia",
+    "bellezza",
+    "foto",
+    "nero",
+    "rosso"
+   ]
+  },
+  "template:tk2-blogger": {
+   "name": "Storia: Social blogger con anelli",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "anelli",
+    "foto",
+    "nero"
+   ]
+  },
+  "template:tk2-contenido": {
+   "name": "Storia: contenuti diversi in una griglia",
+   "tags": [
+    "tiktok",
+    "storia",
+    "griglia",
+    "foto",
+    "nero",
+    "rosso"
+   ]
+  },
+  "template:tk2-follow": {
+   "name": "Storia: follow con un cuore",
+   "tags": [
+    "tiktok",
+    "storia",
+    "segui",
+    "cuore",
+    "nero",
+    "rosso"
+   ]
+  },
+  "template:tk2-isabella": {
+   "name": "Storia: Isabella Walker con una foto",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "nome",
+    "foto",
+    "blu"
+   ]
+  },
+  "template:tk2-lifestyle": {
+   "name": "Storia: #lifestyle con un video",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "stile di vita",
+    "video",
+    "rosso"
+   ]
+  },
+  "template:tk2-new": {
+   "name": "Storia: NEW con cuori",
+   "tags": [
+    "tiktok",
+    "storia",
+    "nuovo",
+    "foto",
+    "nero",
+    "cuore"
+   ]
+  },
+  "template:tk2-nuevo-video": {
+   "name": "Storia: nuovo video con una foto",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "nuovo video",
+    "foto",
+    "rosso"
+   ]
+  },
+  "template:tk2-perfil": {
+   "name": "Storia: un profilo con follower",
+   "tags": [
+    "tiktok",
+    "profilo",
+    "follower",
+    "foto",
+    "rosso",
+    "blu"
+   ]
+  },
+  "template:tk2-suscriptores": {
+   "name": "Storia: ottieni nuovi iscritti",
+   "tags": [
+    "tiktok",
+    "storia",
+    "iscritti",
+    "foto",
+    "nero",
+    "rosso"
+   ]
+  },
+  "template:tk2-tarjeta": {
+   "name": "Storia: una scheda con il tuo logo e sticker",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "logo",
+    "sticker",
+    "blu"
+   ]
+  },
+  "template:tk2-tendencias": {
+   "name": "Storia: tendenze con una banda rossa",
+   "tags": [
+    "tiktok",
+    "storia",
+    "tendenze",
+    "foto",
+    "blu",
+    "rosso"
+   ]
+  },
+  "template:tk3-diseno": {
+   "name": "Storia: Fashion Design con linee sottili",
+   "tags": [
+    "tiktok",
+    "storia",
+    "moda",
+    "pastello",
+    "design",
+    "sconto"
+   ]
+  },
+  "template:tk3-estilo-de-vida": {
+   "name": "Storia: Lifestyle con un triangolo che gira",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "moda",
+    "pastello",
+    "stile di vita"
+   ]
+  },
+  "template:tk3-gracias": {
+   "name": "Scheda finale: Thanks For Watching!",
+   "tags": [
+    "tiktok",
+    "storia",
+    "moda",
+    "pastello",
+    "chiusura",
+    "grazie"
+   ]
+  },
+  "template:tk3-rebajas": {
+   "name": "Storia: saldi moda con riquadro 50% OFF",
+   "tags": [
+    "tiktok",
+    "storia",
+    "moda",
+    "pastello",
+    "saldi",
+    "sconto"
+   ]
+  },
+  "template:tk3-rebajas-2": {
+   "name": "Storia: Fashion Sale con 50% sopra la foto",
+   "tags": [
+    "tiktok",
+    "storia",
+    "moda",
+    "pastello",
+    "saldi",
+    "sconto"
+   ]
+  },
+  "template:tk3-siguiente-nivel": {
+   "name": "Storia: The Next Level Of Fashion con 50% OFF verticale",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "moda",
+    "pastello",
+    "sconto"
+   ]
+  },
+  "template:tk3-siguiente-nivel-2": {
+   "name": "Storia: The Next Level Of Fashion con Get 50% OFF",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "moda",
+    "pastello",
+    "sconto"
+   ]
+  },
+  "template:tk3-sorteo": {
+   "name": "Storia: Giveaway!",
+   "tags": [
+    "tiktok",
+    "storia",
+    "moda",
+    "pastello",
+    "giveaway",
+    "concorso"
+   ]
+  },
+  "template:tk3-tendencia": {
+   "name": "Storia: Keep It Trendy con 50%",
+   "tags": [
+    "tiktok",
+    "storia",
+    "moda",
+    "pastello",
+    "tendenza",
+    "sconto"
+   ]
+  },
+  "template:tk4-dynamic": {
+   "name": "Opener dinamico: foto rosse e nere",
+   "tags": [
+    "tiktok",
+    "apertura",
+    "presentazione di foto",
+    "dinamico",
+    "rosso",
+    "duotone"
+   ]
+  },
+  "template:tk4-fast": {
+   "name": "Opener veloce: parole su foto a colori",
+   "tags": [
+    "tiktok",
+    "apertura",
+    "presentazione di foto",
+    "veloce",
+    "colore",
+    "parole"
+   ]
+  },
+  "template:tk4-modern": {
+   "name": "Opener moderno: giallo, oro e griglia",
+   "tags": [
+    "tiktok",
+    "apertura",
+    "presentazione di foto",
+    "moderno",
+    "dorato",
+    "giallo"
+   ]
+  },
+  "template:tk4-rhythm": {
+   "name": "Opener ritmico: parole sfumate",
+   "tags": [
+    "tiktok",
+    "apertura",
+    "presentazione di foto",
+    "ritmo",
+    "sfumatura",
+    "viola"
+   ]
+  },
+  "template:tk4-stomp": {
+   "name": "Opener stomp: una parola a ogni battito con foto",
+   "tags": [
+    "tiktok",
+    "apertura",
+    "presentazione di foto",
+    "stomp",
+    "ritmo",
+    "parole"
+   ]
+  },
+  "template:tk4-typo": {
+   "name": "Opener tipografico: parole nere e foto",
+   "tags": [
+    "tiktok",
+    "apertura",
+    "presentazione di foto",
+    "tipografia",
+    "bianco e nero",
+    "parole"
+   ]
+  },
+  "template:tk5-carefree": {
+   "name": "Storia: CAREFREE LIVING verticale",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "bianco e nero",
+    "foto",
+    "verticale"
+   ]
+  },
+  "template:tk5-endless": {
+   "name": "Storia: ENDLESS LOVING CONVERSATIONS",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "bianco e nero",
+    "testo"
+   ]
+  },
+  "template:tk5-find": {
+   "name": "Storia: FIND HIDDEN GEMS",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "bianco e nero",
+    "testo"
+   ]
+  },
+  "template:tk5-follow": {
+   "name": "Storia: FOLLOW YOUR DREAM",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "bianco e nero",
+    "testo"
+   ]
+  },
+  "template:tk5-foto-cae": {
+   "name": "Storia: foto che cade e risale",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "bianco e nero",
+    "foto"
+   ]
+  },
+  "template:tk5-foto-lado": {
+   "name": "Storia: foto che scivola da lato",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "bianco e nero",
+    "foto"
+   ]
+  },
+  "template:tk5-foto-sube": {
+   "name": "Storia: foto che sale",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "bianco e nero",
+    "foto"
+   ]
+  },
+  "template:tk5-freedom": {
+   "name": "Storia: FREEDOM e PLEASING con due foto",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "bianco e nero",
+    "foto",
+    "collage"
+   ]
+  },
+  "template:tk5-join": {
+   "name": "Storia: JOIN THE JOURNEY con invito all'azione",
+   "tags": [
+    "tiktok",
+    "storia",
+    "bianco e nero",
+    "invito all'azione",
+    "logo",
+    "scorri"
+   ]
+  },
+  "template:tk5-laughter": {
+   "name": "Storia: LAUGHTER OF A LOVED ONE",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "bianco e nero",
+    "foto"
+   ]
+  },
+  "template:tk5-stars": {
+   "name": "Storia: STARS e DREAMS in colonne",
+   "tags": [
+    "tiktok",
+    "storia",
+    "bianco e nero",
+    "foto",
+    "collage",
+    "verticale"
+   ]
+  },
+  "template:tk5-sunshine": {
+   "name": "Storia: SUNSHINE FILLS SKIES con una foto",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "bianco e nero",
+    "foto",
+    "collage"
+   ]
+  },
+  "template:tk6-discovery": {
+   "name": "Storia: collage DISCOVERY e SPACESUIT",
+   "tags": [
+    "tiktok",
+    "storia",
+    "turchese",
+    "foto",
+    "collage",
+    "verticale"
+   ]
+  },
+  "template:tk6-dreams": {
+   "name": "Storia: collage DREAMS",
+   "tags": [
+    "tiktok",
+    "storia",
+    "turchese",
+    "foto",
+    "collage",
+    "verticale"
+   ]
+  },
+  "template:tk6-flower": {
+   "name": "Storia: collage FLOWER BEAUTY",
+   "tags": [
+    "tiktok",
+    "storia",
+    "turchese",
+    "foto",
+    "collage",
+    "verticale"
+   ]
+  },
+  "template:tk6-foto-cae": {
+   "name": "Storia: foto incorniciata che cade dentro",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "turchese",
+    "foto"
+   ]
+  },
+  "template:tk6-foto-lado": {
+   "name": "Storia: foto incorniciata che scivola da lato",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "turchese",
+    "foto"
+   ]
+  },
+  "template:tk6-freedom": {
+   "name": "Storia: colonna FREEDOM",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "turchese",
+    "foto",
+    "verticale"
+   ]
+  },
+  "template:tk6-modern": {
+   "name": "Storia: collage MODERN STORIES",
+   "tags": [
+    "tiktok",
+    "storia",
+    "turchese",
+    "foto",
+    "collage",
+    "verticale"
+   ]
+  },
+  "template:tk6-savor": {
+   "name": "Storia: SAVOR LIFE'S GOODNESS con invito all'azione",
+   "tags": [
+    "tiktok",
+    "storia",
+    "turchese",
+    "invito all'azione",
+    "logo",
+    "scorri"
+   ]
+  },
+  "template:tk6-starry": {
+   "name": "Storia: STARRY NIGHTS che si riduce in un collage",
+   "tags": [
+    "tiktok",
+    "storia",
+    "turchese",
+    "foto",
+    "collage",
+    "verticale"
+   ]
+  },
+  "template:tk6-times-now": {
+   "name": "Storia: TIME'S NOW con due foto",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "turchese",
+    "foto",
+    "verticale"
+   ]
+  },
+  "template:tk6-wind": {
+   "name": "Storia: WIND e AURA con due foto",
+   "tags": [
+    "tiktok",
+    "storia",
+    "turchese",
+    "foto",
+    "collage",
+    "verticale"
+   ]
+  },
+  "template:tk7-blooms": {
+   "name": "Storia: BLOOMS ALL AROUND in rosso",
+   "tags": [
+    "tiktok",
+    "storia",
+    "fiori",
+    "colori",
+    "moda",
+    "testo"
+   ]
+  },
+  "template:tk7-bold": {
+   "name": "Storia: collage BOLD COLORS SWAY",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "fiori",
+    "colori",
+    "moda"
+   ]
+  },
+  "template:tk7-breezy": {
+   "name": "Storia: collage BREEZY SPRING ATTIRE",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "fiori",
+    "colori",
+    "moda"
+   ]
+  },
+  "template:tk7-canvas": {
+   "name": "Storia: collage CANVAS LIFE BODY",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "fiori",
+    "colori",
+    "moda"
+   ]
+  },
+  "template:tk7-characters": {
+   "name": "Storia: COLORFUL CHARACTERS sotto una foto",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "fiori",
+    "colori",
+    "moda"
+   ]
+  },
+  "template:tk7-colorful-and": {
+   "name": "Storia: COLORFUL AND CONFIDENCE tra due foto",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "fiori",
+    "colori",
+    "moda"
+   ]
+  },
+  "template:tk7-discover-more": {
+   "name": "Storia finale: DISCOVER MORE con il tuo logo",
+   "tags": [
+    "tiktok",
+    "fiori",
+    "colori",
+    "moda",
+    "finale",
+    "logo"
+   ]
+  },
+  "template:tk7-embrace": {
+   "name": "Storia: EMBRACE e EXPRESSION attorno a una foto",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "fiori",
+    "colori",
+    "moda"
+   ]
+  },
+  "template:tk7-embrace-your-life": {
+   "name": "Storia: EMBRACE YOUR LIFE con quattro foto",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "fiori",
+    "colori",
+    "moda"
+   ]
+  },
+  "template:tk7-flower": {
+   "name": "Storia: FLOWER PARADISE DELIGHT in blu",
+   "tags": [
+    "tiktok",
+    "storia",
+    "fiori",
+    "colori",
+    "moda",
+    "testo"
+   ]
+  },
+  "template:tk7-sale": {
+   "name": "Storia: SALE SALE SALE con due foto",
+   "tags": [
+    "tiktok",
+    "storia",
+    "fiori",
+    "colori",
+    "moda",
+    "offerta"
+   ]
+  },
+  "template:tk7-savor": {
+   "name": "Storia: SAVOR MOMENTS NOW con colonna di foto",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "fiori",
+    "colori",
+    "moda"
+   ]
+  },
+  "template:tk8-apple-pie": {
+   "name": "Storia: SWEET APPLE PIE e SAVOR EVERY BITE",
+   "tags": [
+    "tiktok",
+    "storia",
+    "cibo",
+    "ristorante",
+    "giallo",
+    "dolce"
+   ]
+  },
+  "template:tk8-bbq": {
+   "name": "Storia: BBQ SMOKE RISING con cinque foto",
+   "tags": [
+    "tiktok",
+    "storia",
+    "cibo",
+    "ristorante",
+    "giallo",
+    "barbecue"
+   ]
+  },
+  "template:tk8-big-sale": {
+   "name": "Storia: BIG -50% SALE con tre foto",
+   "tags": [
+    "tiktok",
+    "storia",
+    "cibo",
+    "ristorante",
+    "giallo",
+    "offerta"
+   ]
+  },
+  "template:tk8-buy-now": {
+   "name": "Storia: BUY NOW con cinque foto",
+   "tags": [
+    "tiktok",
+    "storia",
+    "cibo",
+    "ristorante",
+    "giallo",
+    "offerta"
+   ]
+  },
+  "template:tk8-crispy-fries": {
+   "name": "Storia: CRISPY GOLDEN FRIES con tre foto",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "cibo",
+    "ristorante",
+    "giallo"
+   ]
+  },
+  "template:tk8-discover-flavors": {
+   "name": "Storia finale: DISCOVER NEW FLAVORS con il tuo logo",
+   "tags": [
+    "tiktok",
+    "cibo",
+    "ristorante",
+    "giallo",
+    "finale",
+    "logo"
+   ]
+  },
+  "template:tk8-fast-food": {
+   "name": "Storia: FAST FOOD ADDICTION",
+   "tags": [
+    "tiktok",
+    "storia",
+    "cibo",
+    "ristorante",
+    "giallo",
+    "testo"
+   ]
+  },
+  "template:tk8-food-lovers": {
+   "name": "Storia: FOOD LOVERS UNITE con quattro foto",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "cibo",
+    "ristorante",
+    "giallo"
+   ]
+  },
+  "template:tk8-fried-chicken": {
+   "name": "Storia: FRIED CHICKEN DELIGHT",
+   "tags": [
+    "tiktok",
+    "cibo",
+    "ristorante",
+    "giallo",
+    "testo",
+    "pollo"
+   ]
+  },
+  "template:tk8-hot-dogs": {
+   "name": "Storia: HOT DOGS e CRISPY FRIES",
+   "tags": [
+    "tiktok",
+    "storia",
+    "cibo",
+    "ristorante",
+    "giallo",
+    "hot dog"
+   ]
+  },
+  "template:tk8-lowest-price": {
+   "name": "Storia: THE LOWEST PRICE",
+   "tags": [
+    "tiktok",
+    "storia",
+    "cibo",
+    "ristorante",
+    "giallo",
+    "offerta"
+   ]
+  },
+  "template:tk8-new-york-pizza": {
+   "name": "Storia: NEW YORK PIZZA da schermo intero a collage",
+   "tags": [
+    "tiktok",
+    "storia",
+    "cibo",
+    "ristorante",
+    "giallo",
+    "pizza"
+   ]
+  },
+  "template:tk8-nice-diners": {
+   "name": "Storia: NICE DINERS con una foto alta",
+   "tags": [
+    "tiktok",
+    "storia",
+    "reels",
+    "cibo",
+    "ristorante",
+    "giallo"
+   ]
+  },
+  "template:tk9-limpia": {
+   "name": "Opener pulito: parole e foto a ritmo",
+   "tags": [
+    "tiktok",
+    "apertura",
+    "tipografia",
+    "parole",
+    "foto",
+    "minimalista"
    ]
   },
   "template:top-5-mas-vendidos": {

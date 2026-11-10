@@ -119,7 +119,7 @@ def main() -> int:
             # The rebuilt ones from llt4 on were made and checked with the 0.30 app.
             # The titles (tit*), llt16 and the YouTube pack (yp*) lean on the engine after 0.30.2: Twirl, the real
             # Gaussian blur, 3D depth order and parenting, the linear counter and the Short/Video layout roles.
-            **({"minAppVersion": "0.31.0"} if re.match(r"(tit\d|yp\d|llt16|lg\d|tk\d|ig\d)-", tid) else
+            **({"minAppVersion": "0.31.0"} if re.match(r"(tit\d+|yp\d+|llt16|lg\d+|tk\d+|ig\d+)-", tid) else
                {"minAppVersion": "0.30.0"} if re.match(r"llt([4-9]|1\d)-", tid) else
                {"minAppVersion": "0.29.0"} if tid.startswith("llt") else
                {"minAppVersion": "0.26.0"} if manifest.get("category") == "ytkit" else {}),

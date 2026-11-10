@@ -117,6 +117,7 @@
   "template:collage": "Collage",
   "template:countdown": "Countdown",
   "template:counter": "Mga pambilang",
+  "template:instagram": "Instagram Kit",
   "template:intro": "Intro at title",
   "template:lowerthird": "Lower third",
   "template:outro": "Pangwakas",
@@ -127,6 +128,7 @@
   "template:story15": "15-segundong story",
   "template:text": "Teksto",
   "template:thumbnail": "Thumbnail ng video",
+  "template:tiktok": "TikTok Kit",
   "template:transition": "Transition at separator",
   "template:youtuber": "Istilong youtuber",
   "template:ytkit": "YouTube Kit",
@@ -25397,6 +25399,3014 @@
     "party"
    ]
   },
+  "template:ig0-intro-urbana": {
+   "name": "Dynamic na urban intro: URBAN, STREETS, PROMO at ang logo mo",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "pambungad",
+    "urban",
+    "dynamic na intro"
+   ]
+  },
+  "template:ig1-alison": {
+   "name": "Kuwento: pangalan sa larawan na may pulang frame",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "pangalan",
+    "profile",
+    "pula"
+   ]
+  },
+  "template:ig1-anna": {
+   "name": "Kuwento: pangalan at larawan sa asul na gradient",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "pangalan",
+    "profile",
+    "gradient"
+   ]
+  },
+  "template:ig1-beautiful": {
+   "name": "Kuwento: #beautiful na may larawan at quote",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "quote",
+    "larawan"
+   ]
+  },
+  "template:ig1-believe": {
+   "name": "Kuwento: WE MUST BELIEVE na may hating linya",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "parirala",
+    "larawan",
+    "itim"
+   ]
+  },
+  "template:ig1-catherine": {
+   "name": "Kuwento: bilog na larawan, pangalan at quote sa gradient",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "quote",
+    "profile",
+    "gradient"
+   ]
+  },
+  "template:ig1-conquer": {
+   "name": "Kuwento: Conquer from within na may carousel ng larawan",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "carousel",
+    "larawan",
+    "puti"
+   ]
+  },
+  "template:ig1-do-your-best": {
+   "name": "Kuwento: DO YOUR BEST sa isang laso",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "parirala",
+    "lungsod",
+    "motibasyon"
+   ]
+  },
+  "template:ig1-dog": {
+   "name": "Kuwento: larawang hinati ng #photooftheday na banda",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "alagang hayop",
+    "larawan",
+    "banda"
+   ]
+  },
+  "template:ig1-elegant": {
+   "name": "Kuwento: ELEGANT TYPO DESIGN na may salaming bintana",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "tipograpiya",
+    "dagat",
+    "elegante"
+   ]
+  },
+  "template:ig1-forty-sale": {
+   "name": "Kuwento: patayong 40% Sale na may larawan",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "sale",
+    "diskwento",
+    "fashion"
+   ]
+  },
+  "template:ig1-happy-thoughts": {
+   "name": "Kuwento: nakatagilid na polaroid na \"happy thoughts\"",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "polaroid",
+    "kasal",
+    "sulat-kamay"
+   ]
+  },
+  "template:ig1-heart": {
+   "name": "Kuwento: larawang hugis-puso na \"happy thoughts\"",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "puso",
+    "pag-ibig",
+    "peach"
+   ]
+  },
+  "template:ig1-instalove": {
+   "name": "Kuwento: #instalove LIVE WHAT YOU LOVE",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "parirala",
+    "kagubatan",
+    "pangalan"
+   ]
+  },
+  "template:ig1-lifestyle": {
+   "name": "Kuwento: #lifestyle na may mosaic ng larawan",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "collage",
+    "tag-init",
+    "mosaic"
+   ]
+  },
+  "template:ig1-live-what": {
+   "name": "Kuwento: Live what you love na may 2×2 na grid",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "grid",
+    "collage",
+    "puti"
+   ]
+  },
+  "template:ig1-love-friendship": {
+   "name": "Kuwento: mga polaroid at sulat-kamay na \"Love is friendship\"",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "polaroid",
+    "rosas",
+    "quote"
+   ]
+  },
+  "template:ig1-love-loves": {
+   "name": "Kuwento: dalawang polaroid na may mga palaso at sulat-kamay na linya",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "polaroid",
+    "rosas",
+    "mga palaso"
+   ]
+  },
+  "template:ig1-must-believe": {
+   "name": "Kuwento: WE MUST BELIEVE sa salaming bilog",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "parirala",
+    "bilog",
+    "tanawin"
+   ]
+  },
+  "template:ig1-nature": {
+   "name": "Kuwento: Nature sa kahon na may frame",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "kalikasan",
+    "frame",
+    "dagat"
+   ]
+  },
+  "template:ig1-neon": {
+   "name": "Kuwento: NEON CITY sa teal na neon",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "neon",
+    "lungsod",
+    "gabi"
+   ]
+  },
+  "template:ig1-photo-frame": {
+   "name": "Kuwento: puting card na nagbubukas ng bintana",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "frame",
+    "pagkain",
+    "larawan"
+   ]
+  },
+  "template:ig1-seek": {
+   "name": "Kuwento: SEEK THE SEEKER na may mga letrang may larawan",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "parirala",
+    "mga dahon",
+    "cut-out"
+   ]
+  },
+  "template:ig1-so-it-goes": {
+   "name": "Kuwento: So it goes na may 2×2 na grid",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "grid",
+    "collage",
+    "rosas"
+   ]
+  },
+  "template:ig1-spring-sale": {
+   "name": "Kuwento: Spring Sale 30%",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "sale",
+    "diskwento",
+    "fashion"
+   ]
+  },
+  "template:ig1-stylish-bike": {
+   "name": "Kuwento: S T Y L I S H na may cut-out",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "cut-out",
+    "turquoise",
+    "link"
+   ]
+  },
+  "template:ig1-stylish-design": {
+   "name": "Kuwento: STYLISH DESIGN sa gradient na frame",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "frame",
+    "gradient",
+    "madilim"
+   ]
+  },
+  "template:ig1-stylish-skate": {
+   "name": "Kuwento: higanteng patayong Stylish na may motto",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "patayo",
+    "skateboard",
+    "tipograpiya"
+   ]
+  },
+  "template:ig1-success": {
+   "name": "Kuwento: quote sa bato na may 01",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "quote",
+    "parirala",
+    "madilim"
+   ]
+  },
+  "template:ig1-work-dream": {
+   "name": "Kuwento: patayong Work hard. Dream big. na may 05",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "parirala",
+    "patayo",
+    "numero"
+   ]
+  },
+  "template:ig1-work-hard": {
+   "name": "Kuwento: WORK HARD. DREAM BIG. sa itim",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "parirala",
+    "motibasyon",
+    "itim"
+   ]
+  },
+  "template:ig10-arco-sube": {
+   "name": "Kuwento: umaakyat na larawang arko na may MODELS",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "fashion",
+    "mga modelo",
+    "larawan"
+   ]
+  },
+  "template:ig10-ovalo-abre": {
+   "name": "Kuwento: oval na larawang bumubukas mula sa linya",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "fashion",
+    "mga modelo",
+    "larawan"
+   ]
+  },
+  "template:ig10-ovalo-sube": {
+   "name": "Kuwento: umaakyat na oval na larawan na may dalawang balangkas",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "fashion",
+    "mga modelo",
+    "larawan"
+   ]
+  },
+  "template:ig10-u-foto": {
+   "name": "Kuwento: larawang bilog ang ilalim at may frame na pamagat",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "fashion",
+    "mga modelo",
+    "larawan"
+   ]
+  },
+  "template:ig10-ventana-arco": {
+   "name": "Kuwento: larawang may belo at bintanang arko",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "fashion",
+    "mga modelo",
+    "larawan"
+   ]
+  },
+  "template:ig11-avatar-seguir": {
+   "name": "Profile picture na may follow",
+   "tags": [
+    "instagram",
+    "mga elemento",
+    "call to action",
+    "social media",
+    "mag-follow",
+    "kuwento"
+   ]
+  },
+  "template:ig11-comenta": {
+   "name": "Mag-comment sa ibaba",
+   "tags": [
+    "instagram",
+    "mga elemento",
+    "call to action",
+    "social media",
+    "mga komento",
+    "bilang"
+   ]
+  },
+  "template:ig11-compartir": {
+   "name": "I-share ang post sa iba",
+   "tags": [
+    "instagram",
+    "mga elemento",
+    "call to action",
+    "social media",
+    "ibahagi",
+    "post"
+   ]
+  },
+  "template:ig11-doble-toque": {
+   "name": "Mag-double tap",
+   "tags": [
+    "instagram",
+    "mga elemento",
+    "call to action",
+    "social media",
+    "like",
+    "puso"
+   ]
+  },
+  "template:ig11-enlace-bio": {
+   "name": "I-click ang link sa aming bio",
+   "tags": [
+    "instagram",
+    "mga elemento",
+    "call to action",
+    "social media",
+    "link",
+    "bio"
+   ]
+  },
+  "template:ig11-etiqueta": {
+   "name": "Mag-tag ng kaibigan",
+   "tags": [
+    "instagram",
+    "mga elemento",
+    "call to action",
+    "social media",
+    "tag",
+    "at sign"
+   ]
+  },
+  "template:ig11-inspiracion": {
+   "name": "Hanapin ang inspirasyon mo",
+   "tags": [
+    "instagram",
+    "mga elemento",
+    "call to action",
+    "social media",
+    "maghanap",
+    "paghahanap"
+   ]
+  },
+  "template:ig11-pastilla-seguir": {
+   "name": "Pill ng pangalan na may follow",
+   "tags": [
+    "instagram",
+    "mga elemento",
+    "call to action",
+    "social media",
+    "mag-follow",
+    "pangalan"
+   ]
+  },
+  "template:ig11-pastilla-usuario": {
+   "name": "Pill ng user na may mga follower",
+   "tags": [
+    "instagram",
+    "mga elemento",
+    "call to action",
+    "social media",
+    "user",
+    "mga follower"
+   ]
+  },
+  "template:ig11-perfil": {
+   "name": "Profile card",
+   "tags": [
+    "instagram",
+    "mga elemento",
+    "call to action",
+    "social media",
+    "profile",
+    "mag-follow"
+   ]
+  },
+  "template:ig11-publicacion": {
+   "name": "Post card",
+   "tags": [
+    "instagram",
+    "mga elemento",
+    "call to action",
+    "social media",
+    "post",
+    "like"
+   ]
+  },
+  "template:ig11-reels": {
+   "name": "Panoorin ang aming pinakabagong reels",
+   "tags": [
+    "instagram",
+    "mga elemento",
+    "call to action",
+    "social media",
+    "reels",
+    "mga view"
+   ]
+  },
+  "template:ig11-responder": {
+   "name": "Comment card na may sagot",
+   "tags": [
+    "instagram",
+    "mga elemento",
+    "call to action",
+    "social media",
+    "komento",
+    "sumagot"
+   ]
+  },
+  "template:ig11-tu-historia": {
+   "name": "Idagdag ang iyong kuwento",
+   "tags": [
+    "instagram",
+    "mga elemento",
+    "call to action",
+    "social media",
+    "kuwento",
+    "ibahagi"
+   ]
+  },
+  "template:ig11-ver-historia": {
+   "name": "I-tap para makita ang kuwento",
+   "tags": [
+    "instagram",
+    "mga elemento",
+    "call to action",
+    "social media",
+    "kuwento",
+    "i-tap"
+   ]
+  },
+  "template:ig12-anillos": {
+   "name": "Kuwento: mga singsing na may bilog na larawan at higanteng letra",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "kahel",
+    "pula",
+    "mga bilog"
+   ]
+  },
+  "template:ig12-caja-roja": {
+   "name": "Kuwento: pulang kahon na may patayong salita at higanteng letra",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "kahel",
+    "pula",
+    "kahon"
+   ]
+  },
+  "template:ig12-diagonal": {
+   "name": "Kuwento: mga dayagonal na guhit na may higanteng salita",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "kahel",
+    "pula",
+    "dayagonal"
+   ]
+  },
+  "template:ig12-franjas": {
+   "name": "Kuwento: mga banda ng kulay at patayong salita",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "kahel",
+    "pula",
+    "mga guhit"
+   ]
+  },
+  "template:ig12-panel-rojo": {
+   "name": "Kuwento: higanteng salitang dumudulas pataas sa pulang panel",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "kahel",
+    "pula",
+    "panel"
+   ]
+  },
+  "template:ig13-amarilla": {
+   "name": "Kuwentong tipograpiya: dilaw",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "tipograpiya",
+    "dilaw",
+    "itim"
+   ]
+  },
+  "template:ig13-caja-negra": {
+   "name": "Kuwentong tipograpiya: itim na kahon",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "tipograpiya",
+    "dilaw",
+    "itim"
+   ]
+  },
+  "template:ig13-filas": {
+   "name": "Kuwentong tipograpiya: mga hanay ng letra",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "tipograpiya",
+    "dilaw",
+    "itim"
+   ]
+  },
+  "template:ig13-gris-ra": {
+   "name": "Kuwentong tipograpiya: abong RA",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "tipograpiya",
+    "dilaw",
+    "itim"
+   ]
+  },
+  "template:ig13-letras-grises": {
+   "name": "Kuwentong tipograpiya: dilaw na mga letra",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "tipograpiya",
+    "dilaw",
+    "itim"
+   ]
+  },
+  "template:ig13-muro-de-fotos": {
+   "name": "Dingding ng mga larawan na may logo mo",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "mga larawan",
+    "logo",
+    "profile"
+   ]
+  },
+  "template:ig13-negra": {
+   "name": "Kuwentong tipograpiya: itim na dayagonal",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "tipograpiya",
+    "dilaw",
+    "itim"
+   ]
+  },
+  "template:ig13-oscura": {
+   "name": "Kuwentong tipograpiya: madilim na may mga sphere",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "tipograpiya",
+    "dilaw",
+    "itim"
+   ]
+  },
+  "template:ig14-dinamica": {
+   "name": "Dynamic na slideshow: isang salita bawat larawan",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "slideshow ng larawan",
+    "slideshow",
+    "dinamiko"
+   ]
+  },
+  "template:ig14-energia": {
+   "name": "Energetic na slideshow na may logo",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "slideshow ng larawan",
+    "slideshow",
+    "enerhiya"
+   ]
+  },
+  "template:ig14-epica": {
+   "name": "Epic na slideshow na may mga glitch",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "slideshow ng larawan",
+    "slideshow",
+    "epic"
+   ]
+  },
+  "template:ig14-limpia": {
+   "name": "Malinis na slideshow na may malalaking letra",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "slideshow ng larawan",
+    "slideshow",
+    "malinis"
+   ]
+  },
+  "template:ig14-minimal": {
+   "name": "Minimal na slideshow sa puti",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "slideshow ng larawan",
+    "slideshow",
+    "minimalista"
+   ]
+  },
+  "template:ig14-moda": {
+   "name": "Fashion na slideshow na may mga caption",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "slideshow ng larawan",
+    "slideshow",
+    "fashion"
+   ]
+  },
+  "template:ig14-ritmica": {
+   "name": "Maindayog na slideshow na may mga singsing",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "slideshow ng larawan",
+    "slideshow",
+    "ritmo"
+   ]
+  },
+  "template:ig14-stomp": {
+   "name": "Stomp na slideshow: isang salita bawat beat",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "slideshow ng larawan",
+    "slideshow",
+    "stomp"
+   ]
+  },
+  "template:ig2-cartel-amarillo": {
+   "name": "Kuwento: dilaw na poster na Your Stories",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "mga kulay",
+    "poster",
+    "dilaw"
+   ]
+  },
+  "template:ig2-ciudad-oferta": {
+   "name": "Kuwento: alok sa lungsod na may % na bilog",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "mga kulay",
+    "alok",
+    "diskwento"
+   ]
+  },
+  "template:ig2-cocina": {
+   "name": "Kuwento: pambungad ng cooking show",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "mga kulay",
+    "pagluluto",
+    "pagkain"
+   ]
+  },
+  "template:ig2-feliz": {
+   "name": "Kuwento: HAPPY na may higanteng letra at mint na kahon",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "mga kulay",
+    "masaya",
+    "itim at puti"
+   ]
+  },
+  "template:ig2-interior": {
+   "name": "Kuwento: interior design na may mga bilog na kulay",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "mga kulay",
+    "mga interior",
+    "disenyo"
+   ]
+  },
+  "template:ig2-moda": {
+   "name": "Kuwento: Fashion sa mint at pula",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "mga kulay",
+    "fashion",
+    "profile"
+   ]
+  },
+  "template:ig2-oscuro": {
+   "name": "Kuwento: DARK na may mga letra sa grid",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "mga kulay",
+    "madilim",
+    "fashion"
+   ]
+  },
+  "template:ig2-presentamos": {
+   "name": "Kuwento: INTRODUCING OUR STORIES na may gradient na mga guhit",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "mga kulay",
+    "presentasyon",
+    "gradient"
+   ]
+  },
+  "template:ig2-rostro-franjas": {
+   "name": "Kuwento: mukha na may mga banda ng kulay at bilog",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "mga kulay",
+    "portrait",
+    "brand"
+   ]
+  },
+  "template:ig2-tu-mente": {
+   "name": "Kuwento: Say what's on your mind sa lila",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "mga kulay",
+    "parirala",
+    "violet"
+   ]
+  },
+  "template:ig2-tu-vida": {
+   "name": "Kuwento: YOUR LIFE na may dilaw na mga banda",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "mga kulay",
+    "buhay",
+    "mga tip"
+   ]
+  },
+  "template:ig2-viaje-verano": {
+   "name": "Kuwento: GREAT TRIP SUMMER na may ulap ng mga larawan",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "mga kulay",
+    "paglalakbay",
+    "tag-init"
+   ]
+  },
+  "template:ig3-arte": {
+   "name": "Kuwento: art 01 Stories sa ibabaw ng painting",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "sining",
+    "painting"
+   ]
+  },
+  "template:ig3-ciencia": {
+   "name": "Kuwento: A-01 MODERN SCIENCE na may mga bilog",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "agham",
+    "bilog"
+   ]
+  },
+  "template:ig3-city-life": {
+   "name": "Kuwento: CITY LIFE na may rosas na panel",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "lungsod"
+   ]
+  },
+  "template:ig3-comida-circulo": {
+   "name": "Kuwento: Say what's on your mind sa bilog",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "pagkain",
+    "bilog"
+   ]
+  },
+  "template:ig3-fashion": {
+   "name": "Kuwento: FASHION 45$ na may mga letrang puno ng larawan",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "fashion",
+    "alok"
+   ]
+  },
+  "template:ig3-food": {
+   "name": "Kuwento: Food 50% discount",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "pagkain",
+    "alok"
+   ]
+  },
+  "template:ig3-friend": {
+   "name": "Kuwento: FRIEND GREAT TRIP na may bilog",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "mga kaibigan",
+    "bilog"
+   ]
+  },
+  "template:ig3-full": {
+   "name": "Kuwento: Full 100% sa brush lettering",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "alok",
+    "mga alagang hayop"
+   ]
+  },
+  "template:ig3-introducing": {
+   "name": "Kuwento: INTRODUCING STORIES sa kagubatan",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "taglamig",
+    "presentasyon"
+   ]
+  },
+  "template:ig3-models": {
+   "name": "Kuwento: MODELS FASHION na may bracket",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "fashion",
+    "portrait"
+   ]
+  },
+  "template:ig3-music": {
+   "name": "Kuwento: MUSIC EXCLUSIVE na may mga singsing",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "musika",
+    "bilog"
+   ]
+  },
+  "template:ig3-new": {
+   "name": "Kuwento: travel NEW na may guhit ng brush",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "mga paglalakbay",
+    "brush"
+   ]
+  },
+  "template:ig3-opener": {
+   "name": "Dynamic na pambungad para sa square post",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "pambungad",
+    "tipograpiya",
+    "post"
+   ]
+  },
+  "template:ig3-perfil-amarillo": {
+   "name": "Profile: dilaw na card na may larawan",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "profile"
+   ]
+  },
+  "template:ig3-perfil-coral": {
+   "name": "Profile: coral na card na may mga blob",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "profile"
+   ]
+  },
+  "template:ig3-perfil-degradado": {
+   "name": "Profile: gradient na card na may mga bilog",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "profile"
+   ]
+  },
+  "template:ig3-perfil-oscuro": {
+   "name": "Profile: madilim na card na may pulang pangalan",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "profile"
+   ]
+  },
+  "template:ig3-perfil-rojo": {
+   "name": "Profile: pulang card na may avatar",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "profile"
+   ]
+  },
+  "template:ig3-portfolio": {
+   "name": "Kuwento: PORTFOLIO na may pangalan",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "portfolio"
+   ]
+  },
+  "template:ig3-programa": {
+   "name": "Kuwento: V 6 na may mga bilugang bar",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "teknolohiya",
+    "pastel"
+   ]
+  },
+  "template:ig3-promo": {
+   "name": "Kuwento: Product Promo na may dilaw na disc",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "produkto",
+    "promosyon"
+   ]
+  },
+  "template:ig3-sport": {
+   "name": "Kuwento: SPORT na may rosas na badge",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "palakasan"
+   ]
+  },
+  "template:ig3-tech": {
+   "name": "Kuwento: TECH na may nakakalat na mga letra",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "teknolohiya"
+   ]
+  },
+  "template:ig3-toys": {
+   "name": "Kuwento: TOYS na may gradient na disc",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "mga laruan",
+    "bilog"
+   ]
+  },
+  "template:ig3-tv": {
+   "name": "Kuwento: Media Social na may bilog na larawan",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "social media",
+    "bilog"
+   ]
+  },
+  "template:ig3-your-life": {
+   "name": "Kuwento: YOUR LIFE at PRO na may mga banda ng kulay",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "mga interior"
+   ]
+  },
+  "template:ig4-abstract": {
+   "name": "Kuwento: ABSTRACT GEOMETRIC STYLE",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "geometric",
+    "arkitektura"
+   ]
+  },
+  "template:ig4-amazing-dream": {
+   "name": "Kuwento: Amazing dream na may dalawang larawan",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "parirala",
+    "kayumanggi"
+   ]
+  },
+  "template:ig4-audacious": {
+   "name": "Kuwento: LET'S DO WHAT WE LOVE #AUDACIOUS",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "motibasyon",
+    "itim"
+   ]
+  },
+  "template:ig4-beauty": {
+   "name": "Kuwento: There is beauty in simplicity",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "kalikasan",
+    "parirala"
+   ]
+  },
+  "template:ig4-beauty-flowers": {
+   "name": "Kuwento: Beauty na may mga bulaklak",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "mga bulaklak",
+    "kaligrapiya"
+   ]
+  },
+  "template:ig4-believe": {
+   "name": "Kuwento: BELIEVE YOU CAN SO YOU ARE HALFWAY THERE",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "motibasyon",
+    "parirala"
+   ]
+  },
+  "template:ig4-big": {
+   "name": "Kuwento: BIG. na may guhit-guhit na bilog",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "fashion",
+    "mga guhit"
+   ]
+  },
+  "template:ig4-born-wild": {
+   "name": "Kuwento: BORN TO BE WILD",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "pakikipagsapalaran",
+    "asul"
+   ]
+  },
+  "template:ig4-brand-new-day": {
+   "name": "Kuwento: brand new day na may mga tatsulok",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "mga tatsulok",
+    "geometric"
+   ]
+  },
+  "template:ig4-clear": {
+   "name": "Kuwento: CLEAR INTERIOR sa dalawang kalahati",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "interior",
+    "tahanan"
+   ]
+  },
+  "template:ig4-cold-wave": {
+   "name": "Kuwento: COLD WAVE WARM SUN na may mga letrang may larawan",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "dagat",
+    "tipograpiya"
+   ]
+  },
+  "template:ig4-confident": {
+   "name": "Kuwento: STYLISH & CONFIDENT sa tatlong bintana",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "fashion",
+    "lalaki"
+   ]
+  },
+  "template:ig4-control": {
+   "name": "Kuwento: CONTROL na may logo at dalawang larawan",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "logo",
+    "yoga"
+   ]
+  },
+  "template:ig4-courage": {
+   "name": "Kuwento: #courage na may guhit ng brush",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "portrait",
+    "kahel"
+   ]
+  },
+  "template:ig4-culinary": {
+   "name": "Kuwento: CULINARY ART #cooking",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "pagluluto",
+    "pagkain"
+   ]
+  },
+  "template:ig4-deep-breath": {
+   "name": "Kuwento: ENJOY DEEP BREATH na may mga dahon",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "kalikasan",
+    "berde"
+   ]
+  },
+  "template:ig4-delicious": {
+   "name": "Kuwento: #DELICIOUS na grid",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "pagkain",
+    "mga panghimagas"
+   ]
+  },
+  "template:ig4-dream": {
+   "name": "Kuwento: DREAM na may frame sa ibabaw ng lungsod",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "lungsod",
+    "frame"
+   ]
+  },
+  "template:ig4-employee": {
+   "name": "Kuwento: BEST EMPLOYEE OF THE MONTH",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "negosyo",
+    "empleyado"
+   ]
+  },
+  "template:ig4-enjoy-music": {
+   "name": "Kuwento: asul at pulang ENJOY MY MUSIC",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "musika",
+    "sayaw"
+   ]
+  },
+  "template:ig4-fashion-buy": {
+   "name": "Kuwento: FASHION IS WHAT YOU BUY sa mga banda",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "fashion",
+    "mga guhit"
+   ]
+  },
+  "template:ig4-fitness": {
+   "name": "Kuwento: FITNESS BODY ENERGY WORKOUT",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "gym",
+    "palakasan"
+   ]
+  },
+  "template:ig4-fun": {
+   "name": "Kuwento: #FUN na may larawang naka-frame",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "frame",
+    "pula"
+   ]
+  },
+  "template:ig4-glam": {
+   "name": "Kuwento: GLAM ROCK sa rosas at itim",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "fashion",
+    "rosas"
+   ]
+  },
+  "template:ig4-instamusic": {
+   "name": "Kuwento: #instamusic #yourbeat na may mga blob",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "musika",
+    "neon"
+   ]
+  },
+  "template:ig4-life-good": {
+   "name": "Kuwento: LIFE IS SO GOOD JUST BE YOURSELF",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "parirala",
+    "neon"
+   ]
+  },
+  "template:ig4-lifestyle": {
+   "name": "Kuwento: my lifestyle #followme",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "pamumuhay",
+    "asul"
+   ]
+  },
+  "template:ig4-look-deep": {
+   "name": "Kuwento: LOOK DEEP INTO NATURE na may mga heksagono",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "kalikasan",
+    "heksagono"
+   ]
+  },
+  "template:ig4-masterpiece": {
+   "name": "Kuwento: MAKE EACH DAY YOUR MASTERPIECE",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "parirala",
+    "rosas"
+   ]
+  },
+  "template:ig4-meeting": {
+   "name": "Kuwento: MEETING WITH FRIENDS sa mga hanay",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "mga kaibigan",
+    "mga hanay"
+   ]
+  },
+  "template:ig4-motion": {
+   "name": "Kuwento: MOTION na may dilaw na bilog",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "sayaw",
+    "bilog"
+   ]
+  },
+  "template:ig4-moving": {
+   "name": "Kuwento: Moving na may dalawang singsing",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "sayaw",
+    "mga singsing"
+   ]
+  },
+  "template:ig4-music": {
+   "name": "Kuwento: MUSIC DANCE ENJOY",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "musika",
+    "handaan"
+   ]
+  },
+  "template:ig4-natural": {
+   "name": "Kuwento: NATURAL BEAUTY sa tatlong hanay",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "kalikasan",
+    "mga hanay"
+   ]
+  },
+  "template:ig4-never-easier": {
+   "name": "Kuwento: pulang IT NEVER GETS EASIER",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "gym",
+    "motibasyon"
+   ]
+  },
+  "template:ig4-ocean": {
+   "name": "Kuwento: OCEAN HAPPY RELAX na may frame",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "dagat",
+    "frame"
+   ]
+  },
+  "template:ig4-pro-fitness": {
+   "name": "Kuwento: PRO fitness na may magkakrus na frame",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "palakasan",
+    "frame"
+   ]
+  },
+  "template:ig4-sale40": {
+   "name": "Kuwento: patayong SALE 40%",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "sale",
+    "alok"
+   ]
+  },
+  "template:ig4-sale75": {
+   "name": "Kuwento: SALE UP TO 75% OFF",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "sale",
+    "alok"
+   ]
+  },
+  "template:ig4-secrets": {
+   "name": "Kuwento: NO MORE SECRETS #IMAGINE",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "pula",
+    "dayagonal"
+   ]
+  },
+  "template:ig4-shopping-week": {
+   "name": "Kuwento: #shoppingweek 40% FOR SALE",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "sale",
+    "pamimili"
+   ]
+  },
+  "template:ig4-simplelife": {
+   "name": "Kuwento: When you focus on the good #simplelife",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "parirala",
+    "asul"
+   ]
+  },
+  "template:ig4-skate": {
+   "name": "Kuwento: 0256 #skatelife",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "skate",
+    "palakasan"
+   ]
+  },
+  "template:ig4-sport": {
+   "name": "Kuwento: W SPORT na may linya",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "palakasan",
+    "pagtakbo"
+   ]
+  },
+  "template:ig4-spring": {
+   "name": "Kuwento: SPRING IS IN THE AIR",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "tagsibol",
+    "mga bulaklak"
+   ]
+  },
+  "template:ig4-stay-strong": {
+   "name": "Kuwento: STAY STRONG DON'T GIVE UP",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "motibasyon",
+    "pula"
+   ]
+  },
+  "template:ig4-street-fast": {
+   "name": "Kuwento: 10/25 #youth street FAST",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "kalye",
+    "skate"
+   ]
+  },
+  "template:ig4-style": {
+   "name": "Kuwento: STYLE IS VERY PERSONAL",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "fashion",
+    "pula"
+   ]
+  },
+  "template:ig4-style-beautiful": {
+   "name": "Kuwento: STYLE #beautiful na may mga banda",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "fashion",
+    "mga guhit"
+   ]
+  },
+  "template:ig4-stylish": {
+   "name": "Kuwento: #stylish na may asul na disc",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "fashion",
+    "asul"
+   ]
+  },
+  "template:ig4-summer": {
+   "name": "Kuwento: #SUMMER na may diamante sa dalampasigan",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "dalampasigan",
+    "tag-init"
+   ]
+  },
+  "template:ig4-summer-event": {
+   "name": "Kuwento: summer event na may petsa",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "tag-init",
+    "event"
+   ]
+  },
+  "template:ig4-summer-look": {
+   "name": "Kuwento: Summer look #fashion sa mga banda",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "fashion",
+    "tag-init"
+   ]
+  },
+  "template:ig4-sunshine": {
+   "name": "Kuwento: SUNSHINE na may apat na larawan",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "tag-init",
+    "collage"
+   ]
+  },
+  "template:ig4-sunshine-tag": {
+   "name": "Kuwento: #sunshine Relaxing holiday",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "tag-init",
+    "asul"
+   ]
+  },
+  "template:ig4-trendy": {
+   "name": "Kuwento: pulang #TRENDY YOUR STYLE",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "pula",
+    "fashion"
+   ]
+  },
+  "template:ig4-tropical": {
+   "name": "Kuwento: FEELING TROPICAL na may tatlong larawan",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "tag-init",
+    "tropikal"
+   ]
+  },
+  "template:ig4-winner": {
+   "name": "Kuwento: THE WINNER NEVER QUITS",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "motibasyon",
+    "gym"
+   ]
+  },
+  "template:ig4-young": {
+   "name": "Kuwento: YOUNG #followus",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "kabataan",
+    "pula"
+   ]
+  },
+  "template:ig4-youth": {
+   "name": "Kuwento: #YOUTH & FREEDOM na may tatsulok",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "tatsulok",
+    "coral"
+   ]
+  },
+  "template:ig5-amazing-now": {
+   "name": "Kuwento: AMAZING NOW",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "itim at puti",
+    "pula"
+   ]
+  },
+  "template:ig5-awesome": {
+   "name": "Kuwento: patayong AWESOME",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "pula",
+    "patayo"
+   ]
+  },
+  "template:ig5-be-strong": {
+   "name": "Kuwento: B STRONG",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "pula",
+    "parirala"
+   ]
+  },
+  "template:ig5-beach-therapy": {
+   "name": "Kuwento: teal na beach therapy",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "dalampasigan",
+    "bakasyon"
+   ]
+  },
+  "template:ig5-beauty-pro": {
+   "name": "Kuwento: BEAUTY na lilang alon",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "kagandahan",
+    "lila"
+   ]
+  },
+  "template:ig5-best-look": {
+   "name": "Kuwento: YOUR BEST LOOK na naka-frame",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "berde",
+    "fashion"
+   ]
+  },
+  "template:ig5-choose-glam": {
+   "name": "Kuwento: 48 choose the glam",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "kagandahan",
+    "glamour"
+   ]
+  },
+  "template:ig5-cold-water": {
+   "name": "Kuwento: COLD DEEP WATER",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "dagat",
+    "dilaw"
+   ]
+  },
+  "template:ig5-creative-studio": {
+   "name": "Kuwento: CREATIVE DESIGN STUDIO",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "disenyo",
+    "studio"
+   ]
+  },
+  "template:ig5-dancing": {
+   "name": "Kuwento: #DANCING na dayagonal na larawan",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "sayaw",
+    "dayagonal"
+   ]
+  },
+  "template:ig5-daring-style": {
+   "name": "Kuwento: DARING STYLE sa dilaw",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "dilaw",
+    "fashion"
+   ]
+  },
+  "template:ig5-denim-style": {
+   "name": "Kuwento: DENIM STYLE na naka-frame",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "fashion",
+    "kahon"
+   ]
+  },
+  "template:ig5-design-passion": {
+   "name": "Kuwento: DESIGN IS MY PASSION",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "interior",
+    "disenyo"
+   ]
+  },
+  "template:ig5-dont-waste": {
+   "name": "Kuwento: DON'T WASTE YOUR TIME",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "parirala",
+    "teal"
+   ]
+  },
+  "template:ig5-enjoy-movement": {
+   "name": "Kuwento: enjoy the movement",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "sayaw",
+    "itim"
+   ]
+  },
+  "template:ig5-flexible-body": {
+   "name": "Kuwento: FLEXIBLE BODY na gradient na banda",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "fitness",
+    "gradient"
+   ]
+  },
+  "template:ig5-focus-breathe": {
+   "name": "Kuwento: FOCUS ON THE BREATHE",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "parirala",
+    "tipograpiya"
+   ]
+  },
+  "template:ig5-fondo-ambar": {
+   "name": "Background: mga bilog na amber",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "background",
+    "kahel",
+    "kayumanggi"
+   ]
+  },
+  "template:ig5-fondo-burbujas-azules": {
+   "name": "Background: asul na mga bula sa rosas",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "background",
+    "rosas",
+    "asul"
+   ]
+  },
+  "template:ig5-fondo-burbujas-grises": {
+   "name": "Background: abong mga bula sa itim",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "background",
+    "itim",
+    "abo"
+   ]
+  },
+  "template:ig5-fondo-chevrones": {
+   "name": "Background: pulang mga chevron",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "background",
+    "pula",
+    "chevron"
+   ]
+  },
+  "template:ig5-fondo-cinta-azul": {
+   "name": "Background: asul na laso sa pula",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "background",
+    "gradient",
+    "asul"
+   ]
+  },
+  "template:ig5-fondo-geometrico": {
+   "name": "Background: geometric na piraso sa abo",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "background",
+    "abo",
+    "geometric"
+   ]
+  },
+  "template:ig5-fondo-lineas": {
+   "name": "Background: gradient na may neon na mga linya",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "background",
+    "gradient",
+    "rosas"
+   ]
+  },
+  "template:ig5-fondo-lineas-cruzadas": {
+   "name": "Background: nagkakrusang mga linya",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "background",
+    "gradient",
+    "magenta"
+   ]
+  },
+  "template:ig5-fondo-olas": {
+   "name": "Background: kahel at lilang mga alon",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "background",
+    "gradient",
+    "kahel"
+   ]
+  },
+  "template:ig5-fondo-pildoras": {
+   "name": "Background: rosas na mga kapsula",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "background",
+    "rosas",
+    "pastel"
+   ]
+  },
+  "template:ig5-fondo-plata": {
+   "name": "Background: pilak na mga guhit",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "background",
+    "pilak",
+    "abo"
+   ]
+  },
+  "template:ig5-fondo-rojo": {
+   "name": "Background: pulang bilugang mga hugis",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "background",
+    "pula",
+    "mga hugis"
+   ]
+  },
+  "template:ig5-gentle-soft": {
+   "name": "Kuwento: GENTLE & SOFT na card",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "mga bulaklak",
+    "card"
+   ]
+  },
+  "template:ig5-glam": {
+   "name": "Kuwento: GLAM na kuha ng kamera",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "rosas",
+    "kamera"
+   ]
+  },
+  "template:ig5-happiness-love": {
+   "name": "Kuwento: HAPPINESS at LOVE na collage",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "collage",
+    "kasal"
+   ]
+  },
+  "template:ig5-happy-weekends": {
+   "name": "Kuwento: Happy weekends",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "mga bulaklak",
+    "weekend"
+   ]
+  },
+  "template:ig5-inspiration": {
+   "name": "Kuwento: #pleasure na inspirasyon",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "pula",
+    "itim at puti"
+   ]
+  },
+  "template:ig5-interior-dream": {
+   "name": "Kuwento: INTERIOR OF YOUR DREAM na katalogo",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "katalogo",
+    "interior"
+   ]
+  },
+  "template:ig5-keep-simple": {
+   "name": "Kuwento: KEEP IT SIMPLE na may bilog",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "bilog",
+    "gradient"
+   ]
+  },
+  "template:ig5-light-easy": {
+   "name": "Kuwento: LIGHT & EASY na card",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "fashion",
+    "card"
+   ]
+  },
+  "template:ig5-look-deep": {
+   "name": "Kuwento: LOOK DEEP INTO YOURSELF",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "parirala",
+    "neon"
+   ]
+  },
+  "template:ig5-mindfulness": {
+   "name": "Kuwento: B/W #mindfulness",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "itim at puti",
+    "parirala"
+   ]
+  },
+  "template:ig5-modern-office": {
+   "name": "Kuwento: MODERN OFFICE SPACE",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "opisina",
+    "negosyo"
+   ]
+  },
+  "template:ig5-ocean": {
+   "name": "Kuwento: OCEAN sa bilog",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "bilog",
+    "dagat"
+   ]
+  },
+  "template:ig5-pleasure": {
+   "name": "Kuwento: PLEASURE na collage ng mga bloke",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "collage",
+    "terracotta"
+   ]
+  },
+  "template:ig5-power": {
+   "name": "Kuwento: #POWER na may larawan",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "pula",
+    "fashion"
+   ]
+  },
+  "template:ig5-relax-home": {
+   "name": "Kuwento: Relax SWEET HOME",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "tahanan",
+    "interior"
+   ]
+  },
+  "template:ig5-sale-70": {
+   "name": "Kuwento: SALE 70% na pahilig na mga banda",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "sale",
+    "alok"
+   ]
+  },
+  "template:ig5-sensual": {
+   "name": "Kuwento: SENSUAL na dalawang larawan",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "itim at puti",
+    "collage"
+   ]
+  },
+  "template:ig5-style-y": {
+   "name": "Kuwento: STYLE na may malaking Y",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "fashion",
+    "teal"
+   ]
+  },
+  "template:ig5-summer-pause": {
+   "name": "Kuwento: SUMMER take a pause",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "tag-init",
+    "bakasyon"
+   ]
+  },
+  "template:ig5-sunny-day": {
+   "name": "Kuwento: SUNNY DAY na may bilog",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "tag-init",
+    "swimming pool"
+   ]
+  },
+  "template:ig5-titulo-art-design": {
+   "name": "Pamagat: ART & DESIGN FORUM",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "pamagat",
+    "teksto",
+    "sining"
+   ]
+  },
+  "template:ig5-titulo-big-sale": {
+   "name": "Pamagat: BIG SALE na brush at cart",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "pamagat",
+    "teksto",
+    "sale"
+   ]
+  },
+  "template:ig5-titulo-bold-fashion": {
+   "name": "Pamagat: pahilig na BOLD FASHION STYLE",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "pamagat",
+    "teksto",
+    "fashion"
+   ]
+  },
+  "template:ig5-titulo-chicle": {
+   "name": "Pamagat: BUBBLEGUM STYLE",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "pamagat",
+    "teksto",
+    "rosas"
+   ]
+  },
+  "template:ig5-titulo-cita": {
+   "name": "Pamagat: quote na may may-akda",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "pamagat",
+    "teksto",
+    "quote"
+   ]
+  },
+  "template:ig5-titulo-do-what": {
+   "name": "Pamagat: DO WHAT YOU WANT",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "pamagat",
+    "teksto",
+    "motibasyon"
+   ]
+  },
+  "template:ig5-titulo-formas-abstractas": {
+   "name": "Pamagat: ABSTRACT SHAPES DESIGN",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "pamagat",
+    "teksto",
+    "mga hugis"
+   ]
+  },
+  "template:ig5-titulo-glitch": {
+   "name": "Pamagat: GLITCH STYLE",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "pamagat",
+    "teksto",
+    "glitch"
+   ]
+  },
+  "template:ig5-titulo-neon": {
+   "name": "Pamagat: kumikinang na NEON",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "pamagat",
+    "teksto",
+    "neon"
+   ]
+  },
+  "template:ig5-titulo-never-give-up": {
+   "name": "Pamagat: NEVER GIVE UP na brush",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "pamagat",
+    "teksto",
+    "motibasyon"
+   ]
+  },
+  "template:ig5-titulo-retro": {
+   "name": "Pamagat: 80s RETROSTYLE",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "pamagat",
+    "teksto",
+    "retro"
+   ]
+  },
+  "template:ig5-titulo-sale": {
+   "name": "Pamagat: SALE na tiket",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "pamagat",
+    "teksto",
+    "sale"
+   ]
+  },
+  "template:ig5-wake-up": {
+   "name": "Kuwento: WAKE UP AND BE AWESOME",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "pula",
+    "motibasyon"
+   ]
+  },
+  "template:ig5-your-choice": {
+   "name": "Kuwento: portrait na may dilaw na mga tuldok",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "dilaw",
+    "mga tuldok"
+   ]
+  },
+  "template:ig5-your-style": {
+   "name": "Kuwento: Your style na collage",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "collage",
+    "interior"
+   ]
+  },
+  "template:ig6-arbol-cinta": {
+   "name": "Kuwentong Pasko: puno na gawa sa gintong laso",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "pasko",
+    "puno"
+   ]
+  },
+  "template:ig6-artista": {
+   "name": "Kuwento: You are the artist of your life na may #YLIFE",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "asul",
+    "pamumuhay"
+   ]
+  },
+  "template:ig6-aventuras": {
+   "name": "Kuwento: My Adventures na may dalawang larawan at berdeng bundok",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "mga paglalakbay",
+    "pakikipagsapalaran"
+   ]
+  },
+  "template:ig6-diseno-pasion": {
+   "name": "Kuwento: Design is my passion sa rosas",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "disenyo",
+    "arkitektura"
+   ]
+  },
+  "template:ig6-feliz-brillante": {
+   "name": "Kuwentong Pasko: Merry & Bright sa abo",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "pasko",
+    "mga pagdiriwang"
+   ]
+  },
+  "template:ig6-interior": {
+   "name": "Kuwento: Clear Interior na may itim na kahon",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "tahanan",
+    "interior design"
+   ]
+  },
+  "template:ig6-luz-calida": {
+   "name": "Kuwento: Cozy Light na may mga diamante at #WARM",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "tahanan",
+    "produkto"
+   ]
+  },
+  "template:ig6-pino-rojo": {
+   "name": "Kuwentong Pasko: mga sanga ng pino at Merry Christmas sa pula",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "pasko",
+    "sale",
+    "pino"
+   ]
+  },
+  "template:ig6-rebajas-50": {
+   "name": "Kuwento: SALE na may 50% OFF na tag at asul na mga guhit",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "larawan",
+    "sale",
+    "diskwento"
+   ]
+  },
+  "template:ig6-rebajas-invierno": {
+   "name": "Kuwentong Pasko: regalong bumubukas patungo sa \"winter sell XMAS 50%off\"",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "pasko",
+    "sale",
+    "diskwento"
+   ]
+  },
+  "template:ig6-santa": {
+   "name": "Kuwentong Pasko: mukha ni Santa na may Merry Xmas",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "pasko",
+    "santa claus"
+   ]
+  },
+  "template:ig6-swipe-bandera": {
+   "name": "Swipe up: SWIPE UP na watawat na lumalabas sa party popper",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "swipe up",
+    "mag-swipe",
+    "palaso"
+   ]
+  },
+  "template:ig6-swipe-boton": {
+   "name": "Swipe up: puting button na nagiging bilog mula sa parisukat",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "swipe up",
+    "mag-swipe",
+    "palaso"
+   ]
+  },
+  "template:ig6-swipe-brillo": {
+   "name": "Swipe up: kumikinang na puting mga palaso na umaakyat",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "swipe up",
+    "mag-swipe",
+    "palaso"
+   ]
+  },
+  "template:ig6-swipe-chevrones": {
+   "name": "Swipe up: tatlong asul na chevron na umaakyat",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "swipe up",
+    "mag-swipe",
+    "palaso"
+   ]
+  },
+  "template:ig6-swipe-circulo": {
+   "name": "Swipe up: puting bilog na may tatsulok na umaakyat at nagla-blur",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "swipe up",
+    "mag-swipe",
+    "palaso"
+   ]
+  },
+  "template:ig6-swipe-cuadro": {
+   "name": "Swipe up: teal na kahon na may palaso at repleksyon nito",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "swipe up",
+    "mag-swipe",
+    "palaso"
+   ]
+  },
+  "template:ig6-swipe-figuras": {
+   "name": "Swipe up: berdeng singsing na nagiging tatsulok na may SWIPE UP",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "swipe up",
+    "mag-swipe",
+    "palaso"
+   ]
+  },
+  "template:ig6-swipe-flecha": {
+   "name": "Swipe up: asul na palaso sa ibabaw ng pumipintig na linya",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "swipe up",
+    "mag-swipe",
+    "palaso"
+   ]
+  },
+  "template:ig6-swipe-interruptor": {
+   "name": "Swipe up: toggle na may asul na knob na dumudulas pataas",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "swipe up",
+    "mag-swipe",
+    "palaso"
+   ]
+  },
+  "template:ig6-swipe-letras": {
+   "name": "Swipe up: tumatalbog na mga letrang SWIPE UP",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "swipe up",
+    "mag-swipe",
+    "palaso"
+   ]
+  },
+  "template:ig6-swipe-mano": {
+   "name": "Swipe up: kamay na nag-i-swipe pataas na may bakas ng chevron",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "swipe up",
+    "mag-swipe",
+    "palaso"
+   ]
+  },
+  "template:ig6-swipe-triangulo": {
+   "name": "Swipe up: puting tatsulok na may pulang tuldok na umaakyat",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "swipe up",
+    "mag-swipe",
+    "palaso"
+   ]
+  },
+  "template:ig7-awesome": {
+   "name": "Kuwentong tipograpiya: AWESOME",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "tipograpiya",
+    "mga kulay",
+    "mga guhit"
+   ]
+  },
+  "template:ig7-big": {
+   "name": "Kuwentong tipograpiya: BIG",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "tipograpiya",
+    "mga kulay",
+    "higanteng letra"
+   ]
+  },
+  "template:ig7-brand": {
+   "name": "Kuwentong tipograpiya: BRAND",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "tipograpiya",
+    "mga kulay",
+    "letrang a"
+   ]
+  },
+  "template:ig7-color": {
+   "name": "Kuwentong tipograpiya: COLOR",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "tipograpiya",
+    "mga kulay",
+    "frame"
+   ]
+  },
+  "template:ig7-easy-project": {
+   "name": "Kuwentong tipograpiya: STORIES EASY PROJECT",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "tipograpiya",
+    "mga kulay",
+    "mga pixel"
+   ]
+  },
+  "template:ig7-grid": {
+   "name": "Kuwentong tipograpiya: grid ng kulay",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "tipograpiya",
+    "mga kulay",
+    "grid"
+   ]
+  },
+  "template:ig7-no-plugins": {
+   "name": "Kuwentong tipograpiya: NO PLUGINS",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "tipograpiya",
+    "mga kulay",
+    "mga parihaba"
+   ]
+  },
+  "template:ig7-social": {
+   "name": "Kuwentong tipograpiya: SOCIAL",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "tipograpiya",
+    "mga kulay",
+    "mga card"
+   ]
+  },
+  "template:ig7-stories": {
+   "name": "Kuwentong tipograpiya: STORIES",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "tipograpiya",
+    "mga kulay",
+    "higanteng letra"
+   ]
+  },
+  "template:ig7-typo": {
+   "name": "Kuwentong tipograpiya: TYPO",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "tipograpiya",
+    "mga kulay",
+    "card"
+   ]
+  },
+  "template:ig8-best-sellers": {
+   "name": "Urban na kuwento: Best Sellers click now",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "urban",
+    "asul",
+    "tindahan"
+   ]
+  },
+  "template:ig8-city-vibes": {
+   "name": "Urban na kuwento: city vibes na may dalawang larawan",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "urban",
+    "asul",
+    "lungsod"
+   ]
+  },
+  "template:ig8-friends": {
+   "name": "Urban na kuwento: friends positive na may hilera ng larawan",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "urban",
+    "asul",
+    "mga kaibigan"
+   ]
+  },
+  "template:ig8-mega-sale": {
+   "name": "Urban na kuwento: mega sale %50 na polaroid",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "urban",
+    "asul",
+    "sale"
+   ]
+  },
+  "template:ig8-visit-page": {
+   "name": "Urban na kuwento: visit page na may asul na bar",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "urban",
+    "asul",
+    "web"
+   ]
+  },
+  "template:ig9-banda-roja": {
+   "name": "Kuwento: pulang banda na may higanteng salita",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "tipograpiya",
+    "banda",
+    "pula"
+   ]
+  },
+  "template:ig9-letras-cortadas": {
+   "name": "Kuwento: higanteng pinutol na salita at tatlong link",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "tipograpiya",
+    "mga letra",
+    "mga link"
+   ]
+  },
+  "template:ig9-letras-rojas": {
+   "name": "Kuwento: dingding ng nakatagilid na letra sa pula",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "tipograpiya",
+    "mga letra",
+    "pula"
+   ]
+  },
+  "template:ig9-palabra-vertical": {
+   "name": "Kuwento: patayong salita sa frame na may pulang laso",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "tipograpiya",
+    "patayo",
+    "frame"
+   ]
+  },
+  "template:ig9-typo": {
+   "name": "Kuwento: TYPO na mga tile na may iginuhit na frame",
+   "tags": [
+    "instagram",
+    "kuwento",
+    "reels",
+    "tipograpiya",
+    "mga letra",
+    "frame"
+   ]
+  },
   "template:intro-de-canal": {
    "name": "Intro ng channel",
    "tags": [
@@ -25454,6 +28464,204 @@
     "beat",
     "party",
     "salita"
+   ]
+  },
+  "template:lg0-circulo-ambar": {
+   "name": "Logo: dalawang tuldok na gumuguhit ng singsing na nagsasara bilang disc (amber)",
+   "tags": [
+    "logo",
+    "logo reveal",
+    "flat",
+    "amber",
+    "dilaw",
+    "bilog"
+   ]
+  },
+  "template:lg0-cuadro-blanco": {
+   "name": "Logo: tumatalbog na parisukat na bumubukas (puti)",
+   "tags": [
+    "logo",
+    "logo reveal",
+    "flat",
+    "puti",
+    "parisukat",
+    "talbog"
+   ]
+  },
+  "template:lg0-disco-azul": {
+   "name": "Logo: lumilipad na tuldok na bumubukas bilang disc (asul)",
+   "tags": [
+    "logo",
+    "logo reveal",
+    "flat",
+    "asul",
+    "disc",
+    "tuldok"
+   ]
+  },
+  "template:lg0-hexagono-coral": {
+   "name": "Logo: linya, bilog at gumugulong na heksagono na may brand mo (coral)",
+   "tags": [
+    "logo",
+    "logo reveal",
+    "flat",
+    "coral",
+    "heksagono",
+    "linya"
+   ]
+  },
+  "template:lg0-iconos-redes": {
+   "name": "Sampung social media icon na lumilitaw (asul)",
+   "tags": [
+    "logo",
+    "logo reveal",
+    "flat",
+    "social media",
+    "mga icon",
+    "facebook"
+   ]
+  },
+  "template:lg0-sigueme": {
+   "name": "Social logo: follow me na may bola sa heksagono sa ibabaw ng larawan",
+   "tags": [
+    "logo",
+    "logo reveal",
+    "flat",
+    "follow me",
+    "user",
+    "heksagono"
+   ]
+  },
+  "template:lg1-luz-dorada": {
+   "name": "Logo: binuo ng gintong liwanag",
+   "tags": [
+    "logo",
+    "intro",
+    "liwanag",
+    "ginto",
+    "kinang",
+    "mga guhit"
+   ]
+  },
+  "template:lg2-cintas": {
+   "name": "Follow me: logo ng umiikot na mga laso",
+   "tags": [
+    "logo",
+    "flat",
+    "pangkorporasyon",
+    "follow me",
+    "3d"
+   ]
+  },
+  "template:lg2-franjas": {
+   "name": "Follow me: logo sa mga hiwa at bar",
+   "tags": [
+    "logo",
+    "flat",
+    "pangkorporasyon",
+    "follow me",
+    "mga guhit"
+   ]
+  },
+  "template:lg2-giro": {
+   "name": "Logo: umiikot na pagbubukas",
+   "tags": [
+    "logo",
+    "flat",
+    "pangkorporasyon",
+    "ikot"
+   ]
+  },
+  "template:lg2-glitch": {
+   "name": "Logo: glitch sa berde",
+   "tags": [
+    "logo",
+    "flat",
+    "pangkorporasyon",
+    "glitch"
+   ]
+  },
+  "template:lg2-horizonte": {
+   "name": "Subscribe: logo na umaahon mula sa abot-tanaw",
+   "tags": [
+    "logo",
+    "flat",
+    "pangkorporasyon",
+    "mag-subscribe",
+    "abot-tanaw"
+   ]
+  },
+  "template:lg2-mira": {
+   "name": "Subscribe: bumubukas na target",
+   "tags": [
+    "logo",
+    "flat",
+    "pangkorporasyon",
+    "mag-subscribe",
+    "target"
+   ]
+  },
+  "template:lg2-orbita": {
+   "name": "Subscribe: logo sa orbit",
+   "tags": [
+    "logo",
+    "flat",
+    "pangkorporasyon",
+    "mag-subscribe",
+    "orbit"
+   ]
+  },
+  "template:lg2-puntos": {
+   "name": "Logo: gumugulong na mga tuldok",
+   "tags": [
+    "logo",
+    "flat",
+    "pangkorporasyon",
+    "mga tuldok"
+   ]
+  },
+  "template:lg3-esfera": {
+   "name": "Logo: guhit-guhit na sphere na nagiging disc",
+   "tags": [
+    "logo",
+    "logo reveal",
+    "intro",
+    "sphere",
+    "asul",
+    "pangkorporasyon"
+   ]
+  },
+  "template:lg3-ondas": {
+   "name": "Logo: makukulay na alon na humuhupa bilang linya",
+   "tags": [
+    "logo",
+    "logo reveal",
+    "intro",
+    "mga alon",
+    "mga kulay",
+    "linya"
+   ]
+  },
+  "template:lg3-persiana": {
+   "name": "Logo: parisukat na may slats na bumubukas",
+   "tags": [
+    "logo",
+    "logo reveal",
+    "intro",
+    "parisukat",
+    "abo",
+    "minimalista"
+   ]
+  },
+  "template:lg3-torta-diana": {
+   "name": "Logo: singsing na may gatlang, makulay na pie at target",
+   "tags": [
+    "logo",
+    "logo reveal",
+    "intro",
+    "pie",
+    "bilog",
+    "pastel"
    ]
   },
   "template:llt-bevan": {
@@ -33900,6 +37108,1053 @@
     "gumagalaw na teksto",
     "larawan",
     "pamagat"
+   ]
+  },
+  "template:tk0-cintas-telefono": {
+   "name": "Kuwento: mga tape ng salita at isang telepono",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "patayo",
+    "mga laso",
+    "telepono"
+   ]
+  },
+  "template:tk0-collage-azul": {
+   "name": "Kuwento: collage ng tatlong larawan sa asul at itim",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "patayo",
+    "collage",
+    "mga larawan"
+   ]
+  },
+  "template:tk0-collage-negro": {
+   "name": "Kuwento: collage ng anim na larawan na may mga sticker",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "patayo",
+    "collage",
+    "mga larawan"
+   ]
+  },
+  "template:tk0-creas-tendencias": {
+   "name": "Kuwento: gumagawa ka ba ng mga trend? pulang bula",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "patayo",
+    "tanong",
+    "rosas"
+   ]
+  },
+  "template:tk0-empieza-aqui": {
+   "name": "Kuwento: dito nagsisimula ang mga trend",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "patayo",
+    "trend",
+    "asul"
+   ]
+  },
+  "template:tk0-mision": {
+   "name": "Kuwento: ang aming misyon na may larawan sa pula",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "patayo",
+    "misyon",
+    "pula"
+   ]
+  },
+  "template:tk0-nueva-era": {
+   "name": "Kuwento: bagong panahon ng video",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "patayo",
+    "video",
+    "pula"
+   ]
+  },
+  "template:tk0-nuevo-video": {
+   "name": "Kuwento: NEW VIDEO na may telepono",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "patayo",
+    "video",
+    "bago"
+   ]
+  },
+  "template:tk0-plantilla": {
+   "name": "Kuwento: template para sa lahat na may larawan",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "patayo",
+    "template",
+    "asul"
+   ]
+  },
+  "template:tk0-plataforma": {
+   "name": "Kuwento: bagong platform na may dalawang telepono",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "patayo",
+    "platform",
+    "itim"
+   ]
+  },
+  "template:tk0-promo-negro": {
+   "name": "Kuwento: SUPER PROMO sa asul na bula sa itim",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "patayo",
+    "promo",
+    "itim"
+   ]
+  },
+  "template:tk0-promo-x": {
+   "name": "Kuwento: PROMO na may magkakrus na tape",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "patayo",
+    "promo",
+    "itim"
+   ]
+  },
+  "template:tk0-que-ves": {
+   "name": "Kuwento: ano ang gusto mong panoorin? chat",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "patayo",
+    "chat",
+    "tanong"
+   ]
+  },
+  "template:tk0-recordatorio": {
+   "name": "Kuwento: paalala na poll sa ibabaw ng video",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "patayo",
+    "poll",
+    "paalala"
+   ]
+  },
+  "template:tk0-tendencias": {
+   "name": "Kuwento: viral na mga trend sa rosas at asul",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "patayo",
+    "trend",
+    "rosas"
+   ]
+  },
+  "template:tk0-trendy": {
+   "name": "Kuwento: TRENDY STYLE na may mga banda ng kulay",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "patayo",
+    "trend",
+    "asul"
+   ]
+  },
+  "template:tk1-tipografia": {
+   "name": "Pambungad na tipograpiya: isang salita bawat beat",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "pambungad",
+    "tipograpiya",
+    "mga salita"
+   ]
+  },
+  "template:tk2-alice": {
+   "name": "Kuwento: Alice Braun na may larawan",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "pangalan",
+    "larawan",
+    "asul"
+   ]
+  },
+  "template:tk2-austin": {
+   "name": "Kuwento: Austin Grant na may bagong video",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "pangalan",
+    "larawan",
+    "itim"
+   ]
+  },
+  "template:tk2-baile": {
+   "name": "Kuwento: Just dance na may tatlong larawan",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "sayaw",
+    "mga larawan",
+    "asul"
+   ]
+  },
+  "template:tk2-belleza": {
+   "name": "Kuwento: About Beauty for You",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "kagandahan",
+    "larawan",
+    "itim"
+   ]
+  },
+  "template:tk2-blogger": {
+   "name": "Kuwento: Social blogger na may mga singsing",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "mga singsing",
+    "larawan",
+    "itim"
+   ]
+  },
+  "template:tk2-contenido": {
+   "name": "Kuwento: iba't ibang content sa grid",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "grid",
+    "mga larawan",
+    "itim"
+   ]
+  },
+  "template:tk2-follow": {
+   "name": "Kuwento: follow na may puso",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "mag-follow",
+    "puso",
+    "itim"
+   ]
+  },
+  "template:tk2-isabella": {
+   "name": "Kuwento: Isabella Walker na may larawan",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "pangalan",
+    "larawan",
+    "asul"
+   ]
+  },
+  "template:tk2-lifestyle": {
+   "name": "Kuwento: #lifestyle na may video",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "pamumuhay",
+    "video",
+    "pula"
+   ]
+  },
+  "template:tk2-new": {
+   "name": "Kuwento: NEW na may mga puso",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "bago",
+    "larawan",
+    "itim"
+   ]
+  },
+  "template:tk2-nuevo-video": {
+   "name": "Kuwento: bagong video na may larawan",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "bagong video",
+    "larawan",
+    "pula"
+   ]
+  },
+  "template:tk2-perfil": {
+   "name": "Kuwento: isang profile na may mga follower",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "profile",
+    "mga follower",
+    "larawan"
+   ]
+  },
+  "template:tk2-suscriptores": {
+   "name": "Kuwento: kumuha ng mga bagong subscriber",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "mga subscriber",
+    "mga larawan",
+    "itim"
+   ]
+  },
+  "template:tk2-tarjeta": {
+   "name": "Kuwento: card na may logo mo at mga sticker",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "logo",
+    "mga sticker",
+    "asul"
+   ]
+  },
+  "template:tk2-tendencias": {
+   "name": "Kuwento: mga trend na may pulang banda",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "mga trend",
+    "larawan",
+    "asul"
+   ]
+  },
+  "template:tk3-diseno": {
+   "name": "Kuwento: Fashion Design na may manipis na mga linya",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "fashion",
+    "pastel",
+    "disenyo"
+   ]
+  },
+  "template:tk3-estilo-de-vida": {
+   "name": "Kuwento: Lifestyle na may umiikot na tatsulok",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "fashion",
+    "pastel",
+    "pamumuhay"
+   ]
+  },
+  "template:tk3-gracias": {
+   "name": "End card: Thanks For Watching!",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "fashion",
+    "pastel",
+    "pangwakas"
+   ]
+  },
+  "template:tk3-rebajas": {
+   "name": "Kuwento: fashion sale na may 50% OFF na kahon",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "fashion",
+    "pastel",
+    "sale"
+   ]
+  },
+  "template:tk3-rebajas-2": {
+   "name": "Kuwento: Fashion Sale na may 50% sa ibabaw ng larawan",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "fashion",
+    "pastel",
+    "sale"
+   ]
+  },
+  "template:tk3-siguiente-nivel": {
+   "name": "Kuwento: The Next Level Of Fashion na may patayong 50% OFF",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "fashion",
+    "pastel",
+    "diskwento"
+   ]
+  },
+  "template:tk3-siguiente-nivel-2": {
+   "name": "Kuwento: The Next Level Of Fashion na may Get 50% OFF",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "fashion",
+    "pastel",
+    "diskwento"
+   ]
+  },
+  "template:tk3-sorteo": {
+   "name": "Kuwento: Giveaway!",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "fashion",
+    "pastel",
+    "giveaway"
+   ]
+  },
+  "template:tk3-tendencia": {
+   "name": "Kuwento: Keep It Trendy na may 50%",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "fashion",
+    "pastel",
+    "trend"
+   ]
+  },
+  "template:tk4-dynamic": {
+   "name": "Dynamic na pambungad: pula at itim na mga larawan",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "pambungad",
+    "slideshow ng larawan",
+    "dinamiko"
+   ]
+  },
+  "template:tk4-fast": {
+   "name": "Mabilis na pambungad: mga salita sa ibabaw ng makukulay na larawan",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "pambungad",
+    "slideshow ng larawan",
+    "mabilis"
+   ]
+  },
+  "template:tk4-modern": {
+   "name": "Modernong pambungad: dilaw, ginto at grid",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "pambungad",
+    "slideshow ng larawan",
+    "moderno"
+   ]
+  },
+  "template:tk4-rhythm": {
+   "name": "Pambungad na may ritmo: gradient na mga salita",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "pambungad",
+    "slideshow ng larawan",
+    "ritmo"
+   ]
+  },
+  "template:tk4-stomp": {
+   "name": "Stomp na pambungad: isang salita bawat beat na may mga larawan",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "pambungad",
+    "slideshow ng larawan",
+    "stomp"
+   ]
+  },
+  "template:tk4-typo": {
+   "name": "Typo na pambungad: itim na mga salita at larawan",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "pambungad",
+    "slideshow ng larawan",
+    "tipograpiya"
+   ]
+  },
+  "template:tk5-carefree": {
+   "name": "Kuwento: patayong CAREFREE LIVING",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "itim at puti",
+    "larawan",
+    "patayo"
+   ]
+  },
+  "template:tk5-endless": {
+   "name": "Kuwento: ENDLESS LOVING CONVERSATIONS",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "itim at puti",
+    "teksto"
+   ]
+  },
+  "template:tk5-find": {
+   "name": "Kuwento: FIND HIDDEN GEMS",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "itim at puti",
+    "teksto"
+   ]
+  },
+  "template:tk5-follow": {
+   "name": "Kuwento: FOLLOW YOUR DREAM",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "itim at puti",
+    "teksto"
+   ]
+  },
+  "template:tk5-foto-cae": {
+   "name": "Kuwento: larawang bumababa at umaakyat",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "itim at puti",
+    "larawan"
+   ]
+  },
+  "template:tk5-foto-lado": {
+   "name": "Kuwento: larawang pumapasok mula sa gilid",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "itim at puti",
+    "larawan"
+   ]
+  },
+  "template:tk5-foto-sube": {
+   "name": "Kuwento: umaakyat na larawan",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "itim at puti",
+    "larawan"
+   ]
+  },
+  "template:tk5-freedom": {
+   "name": "Kuwento: FREEDOM at PLEASING na may dalawang larawan",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "itim at puti",
+    "larawan",
+    "collage"
+   ]
+  },
+  "template:tk5-join": {
+   "name": "Kuwento: JOIN THE JOURNEY na call to action",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "itim at puti",
+    "call to action",
+    "logo"
+   ]
+  },
+  "template:tk5-laughter": {
+   "name": "Kuwento: LAUGHTER OF A LOVED ONE",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "itim at puti",
+    "larawan"
+   ]
+  },
+  "template:tk5-stars": {
+   "name": "Kuwento: STARS at DREAMS sa mga hanay",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "itim at puti",
+    "larawan",
+    "collage"
+   ]
+  },
+  "template:tk5-sunshine": {
+   "name": "Kuwento: SUNSHINE FILLS SKIES na may larawan",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "itim at puti",
+    "larawan",
+    "collage"
+   ]
+  },
+  "template:tk6-discovery": {
+   "name": "Kuwento: DISCOVERY at SPACESUIT na collage",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "turquoise",
+    "larawan",
+    "collage"
+   ]
+  },
+  "template:tk6-dreams": {
+   "name": "Kuwento: DREAMS na collage",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "turquoise",
+    "larawan",
+    "collage"
+   ]
+  },
+  "template:tk6-flower": {
+   "name": "Kuwento: FLOWER BEAUTY na collage",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "turquoise",
+    "larawan",
+    "collage"
+   ]
+  },
+  "template:tk6-foto-cae": {
+   "name": "Kuwento: naka-frame na larawang bumababa papasok",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "turquoise",
+    "larawan"
+   ]
+  },
+  "template:tk6-foto-lado": {
+   "name": "Kuwento: naka-frame na larawang pumapasok mula sa gilid",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "turquoise",
+    "larawan"
+   ]
+  },
+  "template:tk6-freedom": {
+   "name": "Kuwento: FREEDOM na hanay",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "turquoise",
+    "larawan",
+    "patayo"
+   ]
+  },
+  "template:tk6-modern": {
+   "name": "Kuwento: MODERN STORIES na collage",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "turquoise",
+    "larawan",
+    "collage"
+   ]
+  },
+  "template:tk6-savor": {
+   "name": "Kuwento: SAVOR LIFE'S GOODNESS na call to action",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "turquoise",
+    "call to action",
+    "logo"
+   ]
+  },
+  "template:tk6-starry": {
+   "name": "Kuwento: STARRY NIGHTS na lumiliit bilang collage",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "turquoise",
+    "larawan",
+    "collage"
+   ]
+  },
+  "template:tk6-times-now": {
+   "name": "Kuwento: TIME'S NOW na may dalawang larawan",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "turquoise",
+    "larawan",
+    "patayo"
+   ]
+  },
+  "template:tk6-wind": {
+   "name": "Kuwento: WIND at AURA na may dalawang larawan",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "turquoise",
+    "larawan",
+    "collage"
+   ]
+  },
+  "template:tk7-blooms": {
+   "name": "Kuwento: BLOOMS ALL AROUND sa pula",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "mga bulaklak",
+    "mga kulay",
+    "fashion"
+   ]
+  },
+  "template:tk7-bold": {
+   "name": "Kuwento: BOLD COLORS SWAY na collage",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "mga bulaklak",
+    "mga kulay",
+    "fashion"
+   ]
+  },
+  "template:tk7-breezy": {
+   "name": "Kuwento: BREEZY SPRING ATTIRE na collage",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "mga bulaklak",
+    "mga kulay",
+    "fashion"
+   ]
+  },
+  "template:tk7-canvas": {
+   "name": "Kuwento: CANVAS LIFE BODY na collage",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "mga bulaklak",
+    "mga kulay",
+    "fashion"
+   ]
+  },
+  "template:tk7-characters": {
+   "name": "Kuwento: COLORFUL CHARACTERS sa ilalim ng larawan",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "mga bulaklak",
+    "mga kulay",
+    "fashion"
+   ]
+  },
+  "template:tk7-colorful-and": {
+   "name": "Kuwento: COLORFUL AND CONFIDENCE sa pagitan ng dalawang larawan",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "mga bulaklak",
+    "mga kulay",
+    "fashion"
+   ]
+  },
+  "template:tk7-discover-more": {
+   "name": "Pangwakas na kuwento: DISCOVER MORE na may logo mo",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "mga bulaklak",
+    "mga kulay",
+    "fashion"
+   ]
+  },
+  "template:tk7-embrace": {
+   "name": "Kuwento: EMBRACE at EXPRESSION sa paligid ng larawan",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "mga bulaklak",
+    "mga kulay",
+    "fashion"
+   ]
+  },
+  "template:tk7-embrace-your-life": {
+   "name": "Kuwento: EMBRACE YOUR LIFE na may apat na larawan",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "mga bulaklak",
+    "mga kulay",
+    "fashion"
+   ]
+  },
+  "template:tk7-flower": {
+   "name": "Kuwento: FLOWER PARADISE DELIGHT sa asul",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "mga bulaklak",
+    "mga kulay",
+    "fashion"
+   ]
+  },
+  "template:tk7-sale": {
+   "name": "Kuwento: SALE SALE SALE na may dalawang larawan",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "mga bulaklak",
+    "mga kulay",
+    "fashion"
+   ]
+  },
+  "template:tk7-savor": {
+   "name": "Kuwento: SAVOR MOMENTS NOW na may hanay ng mga larawan",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "mga bulaklak",
+    "mga kulay",
+    "fashion"
+   ]
+  },
+  "template:tk8-apple-pie": {
+   "name": "Kuwento: SWEET APPLE PIE at SAVOR EVERY BITE",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "pagkain",
+    "restawran",
+    "dilaw"
+   ]
+  },
+  "template:tk8-bbq": {
+   "name": "Kuwento: BBQ SMOKE RISING na may limang larawan",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "pagkain",
+    "restawran",
+    "dilaw"
+   ]
+  },
+  "template:tk8-big-sale": {
+   "name": "Kuwento: BIG -50% SALE na may tatlong larawan",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "pagkain",
+    "restawran",
+    "dilaw"
+   ]
+  },
+  "template:tk8-buy-now": {
+   "name": "Kuwento: BUY NOW na may limang larawan",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "pagkain",
+    "restawran",
+    "dilaw"
+   ]
+  },
+  "template:tk8-crispy-fries": {
+   "name": "Kuwento: CRISPY GOLDEN FRIES na may tatlong larawan",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "pagkain",
+    "restawran",
+    "dilaw"
+   ]
+  },
+  "template:tk8-discover-flavors": {
+   "name": "Pangwakas na kuwento: DISCOVER NEW FLAVORS na may logo mo",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "pagkain",
+    "restawran",
+    "dilaw"
+   ]
+  },
+  "template:tk8-fast-food": {
+   "name": "Kuwento: FAST FOOD ADDICTION",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "pagkain",
+    "restawran",
+    "dilaw"
+   ]
+  },
+  "template:tk8-food-lovers": {
+   "name": "Kuwento: FOOD LOVERS UNITE na may apat na larawan",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "pagkain",
+    "restawran",
+    "dilaw"
+   ]
+  },
+  "template:tk8-fried-chicken": {
+   "name": "Kuwento: FRIED CHICKEN DELIGHT",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "pagkain",
+    "restawran",
+    "dilaw"
+   ]
+  },
+  "template:tk8-hot-dogs": {
+   "name": "Kuwento: HOT DOGS at CRISPY FRIES",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "pagkain",
+    "restawran",
+    "dilaw"
+   ]
+  },
+  "template:tk8-lowest-price": {
+   "name": "Kuwento: THE LOWEST PRICE",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "pagkain",
+    "restawran",
+    "dilaw"
+   ]
+  },
+  "template:tk8-new-york-pizza": {
+   "name": "Kuwento: NEW YORK PIZZA mula full screen hanggang collage",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "pagkain",
+    "restawran",
+    "dilaw"
+   ]
+  },
+  "template:tk8-nice-diners": {
+   "name": "Kuwento: NICE DINERS na may matangkad na larawan",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "pagkain",
+    "restawran",
+    "dilaw"
+   ]
+  },
+  "template:tk9-limpia": {
+   "name": "Malinis na pambungad: mga salita at larawan sa beat",
+   "tags": [
+    "tiktok",
+    "kuwento",
+    "reels",
+    "pambungad",
+    "tipograpiya",
+    "mga salita"
    ]
   },
   "template:top-5-mas-vendidos": {

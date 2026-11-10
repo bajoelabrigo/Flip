@@ -117,6 +117,7 @@
   "template:collage": "콜라주",
   "template:countdown": "카운트다운",
   "template:counter": "카운터",
+  "template:instagram": "인스타그램 키트",
   "template:intro": "인트로와 타이틀",
   "template:lowerthird": "하단 자막",
   "template:outro": "엔딩",
@@ -127,6 +128,7 @@
   "template:story15": "15초 스토리",
   "template:text": "텍스트",
   "template:thumbnail": "썸네일",
+  "template:tiktok": "틱톡 키트",
   "template:transition": "전환과 구분 화면",
   "template:youtuber": "유튜버 스타일",
   "template:ytkit": "YouTube 키트",
@@ -24360,6 +24362,3013 @@
     "파티"
    ]
   },
+  "template:ig0-intro-urbana": {
+   "name": "어반 다이내믹 인트로: URBAN, STREETS, PROMO와 내 로고",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "오프닝",
+    "어반",
+    "다이내믹 인트로"
+   ]
+  },
+  "template:ig1-alison": {
+   "name": "스토리: 빨간 프레임 사진 위 이름",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "이름",
+    "프로필",
+    "빨강"
+   ]
+  },
+  "template:ig1-anna": {
+   "name": "스토리: 파란 그라데이션 위 사진과 이름",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "이름",
+    "프로필",
+    "그라데이션"
+   ]
+  },
+  "template:ig1-beautiful": {
+   "name": "스토리: 사진과 명언이 있는 #beautiful",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "인용구",
+    "사진"
+   ]
+  },
+  "template:ig1-believe": {
+   "name": "스토리: 분할선이 있는 WE MUST BELIEVE",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "문구",
+    "사진",
+    "검정"
+   ]
+  },
+  "template:ig1-catherine": {
+   "name": "스토리: 그라데이션 위 원형 사진, 이름, 명언",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "인용구",
+    "프로필",
+    "그라데이션"
+   ]
+  },
+  "template:ig1-conquer": {
+   "name": "스토리: 사진 캐러셀이 있는 Conquer from within",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "캐러셀",
+    "사진",
+    "흰색"
+   ]
+  },
+  "template:ig1-do-your-best": {
+   "name": "스토리: 리본 속 DO YOUR BEST",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "문구",
+    "도시",
+    "동기부여"
+   ]
+  },
+  "template:ig1-dog": {
+   "name": "스토리: #photooftheday 밴드로 나뉜 사진",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "반려동물",
+    "사진",
+    "밴드"
+   ]
+  },
+  "template:ig1-elegant": {
+   "name": "스토리: 거울 창이 있는 ELEGANT TYPO DESIGN",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "타이포그래피",
+    "바다",
+    "우아한"
+   ]
+  },
+  "template:ig1-forty-sale": {
+   "name": "스토리: 사진이 있는 세로 40% 세일",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "세일",
+    "할인",
+    "패션"
+   ]
+  },
+  "template:ig1-happy-thoughts": {
+   "name": "스토리: 기울어진 폴라로이드 'happy thoughts'",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "폴라로이드",
+    "웨딩",
+    "손글씨"
+   ]
+  },
+  "template:ig1-heart": {
+   "name": "스토리: 하트 사진 'happy thoughts'",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "하트",
+    "사랑",
+    "피치"
+   ]
+  },
+  "template:ig1-instalove": {
+   "name": "스토리: #instalove LIVE WHAT YOU LOVE",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "문구",
+    "숲",
+    "이름"
+   ]
+  },
+  "template:ig1-lifestyle": {
+   "name": "스토리: 사진 모자이크가 있는 #lifestyle",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "콜라주",
+    "여름",
+    "모자이크"
+   ]
+  },
+  "template:ig1-live-what": {
+   "name": "스토리: 2×2 그리드의 Live what you love",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "그리드",
+    "콜라주",
+    "흰색"
+   ]
+  },
+  "template:ig1-love-friendship": {
+   "name": "스토리: 폴라로이드와 손글씨 'Love is friendship'",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "폴라로이드",
+    "분홍",
+    "인용구"
+   ]
+  },
+  "template:ig1-love-loves": {
+   "name": "스토리: 화살표와 손글씨가 있는 폴라로이드 두 장",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "폴라로이드",
+    "분홍",
+    "화살표"
+   ]
+  },
+  "template:ig1-must-believe": {
+   "name": "스토리: 거울 원 속 WE MUST BELIEVE",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "문구",
+    "원",
+    "풍경"
+   ]
+  },
+  "template:ig1-nature": {
+   "name": "스토리: 프레임 박스 속 Nature",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "자연",
+    "프레임",
+    "바다"
+   ]
+  },
+  "template:ig1-neon": {
+   "name": "스토리: 청록 네온 NEON CITY",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "네온",
+    "도시",
+    "밤"
+   ]
+  },
+  "template:ig1-photo-frame": {
+   "name": "스토리: 창이 열리는 흰색 카드",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "프레임",
+    "음식",
+    "사진"
+   ]
+  },
+  "template:ig1-seek": {
+   "name": "스토리: 사진 글자가 있는 SEEK THE SEEKER",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "문구",
+    "나뭇잎",
+    "컷아웃"
+   ]
+  },
+  "template:ig1-so-it-goes": {
+   "name": "스토리: 2×2 그리드의 So it goes",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "그리드",
+    "콜라주",
+    "분홍"
+   ]
+  },
+  "template:ig1-spring-sale": {
+   "name": "스토리: 봄맞이 세일 30%",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "세일",
+    "할인",
+    "패션"
+   ]
+  },
+  "template:ig1-stylish-bike": {
+   "name": "스토리: 누끼 사진이 있는 S T Y L I S H",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "컷아웃",
+    "청록",
+    "링크"
+   ]
+  },
+  "template:ig1-stylish-design": {
+   "name": "스토리: 그라데이션 프레임 속 STYLISH DESIGN",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "프레임",
+    "그라데이션",
+    "다크"
+   ]
+  },
+  "template:ig1-stylish-skate": {
+   "name": "스토리: 슬로건이 있는 거대한 세로 Stylish",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "세로",
+    "스케이트보드",
+    "타이포그래피"
+   ]
+  },
+  "template:ig1-success": {
+   "name": "스토리: 01이 있는 바위 위 명언",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "인용구",
+    "문구",
+    "다크"
+   ]
+  },
+  "template:ig1-work-dream": {
+   "name": "스토리: 05가 있는 세로 Work hard. Dream big.",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "문구",
+    "세로",
+    "숫자"
+   ]
+  },
+  "template:ig1-work-hard": {
+   "name": "스토리: 검정 배경의 WORK HARD. DREAM BIG.",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "문구",
+    "동기부여",
+    "검정"
+   ]
+  },
+  "template:ig10-arco-sube": {
+   "name": "스토리: MODELS와 함께 올라오는 아치 사진",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "패션",
+    "모델",
+    "사진"
+   ]
+  },
+  "template:ig10-ovalo-abre": {
+   "name": "스토리: 선에서 열리는 타원 사진",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "패션",
+    "모델",
+    "사진"
+   ]
+  },
+  "template:ig10-ovalo-sube": {
+   "name": "스토리: 윤곽선 두 개와 올라오는 타원 사진",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "패션",
+    "모델",
+    "사진"
+   ]
+  },
+  "template:ig10-u-foto": {
+   "name": "스토리: 아래가 둥근 사진과 프레임 타이틀",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "패션",
+    "모델",
+    "사진"
+   ]
+  },
+  "template:ig10-ventana-arco": {
+   "name": "스토리: 아치 창이 있는 베일 사진",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "패션",
+    "모델",
+    "사진"
+   ]
+  },
+  "template:ig11-avatar-seguir": {
+   "name": "팔로우가 있는 프로필 사진",
+   "tags": [
+    "인스타그램",
+    "요소",
+    "콜투액션",
+    "소셜",
+    "팔로우",
+    "스토리"
+   ]
+  },
+  "template:ig11-comenta": {
+   "name": "아래에 댓글 남기기",
+   "tags": [
+    "인스타그램",
+    "요소",
+    "콜투액션",
+    "소셜",
+    "댓글",
+    "카운터"
+   ]
+  },
+  "template:ig11-compartir": {
+   "name": "게시물 더 공유하기",
+   "tags": [
+    "인스타그램",
+    "요소",
+    "콜투액션",
+    "소셜",
+    "공유",
+    "게시물"
+   ]
+  },
+  "template:ig11-doble-toque": {
+   "name": "더블 탭 하기",
+   "tags": [
+    "인스타그램",
+    "요소",
+    "콜투액션",
+    "소셜",
+    "좋아요",
+    "하트"
+   ]
+  },
+  "template:ig11-enlace-bio": {
+   "name": "프로필 링크 클릭하기",
+   "tags": [
+    "인스타그램",
+    "요소",
+    "콜투액션",
+    "소셜",
+    "링크",
+    "프로필 링크"
+   ]
+  },
+  "template:ig11-etiqueta": {
+   "name": "누군가 태그하기",
+   "tags": [
+    "인스타그램",
+    "요소",
+    "콜투액션",
+    "소셜",
+    "태그",
+    "멘션"
+   ]
+  },
+  "template:ig11-inspiracion": {
+   "name": "영감을 찾아보세요",
+   "tags": [
+    "인스타그램",
+    "요소",
+    "콜투액션",
+    "소셜",
+    "검색"
+   ]
+  },
+  "template:ig11-pastilla-seguir": {
+   "name": "팔로우가 있는 이름 알약",
+   "tags": [
+    "인스타그램",
+    "요소",
+    "콜투액션",
+    "소셜",
+    "팔로우",
+    "이름"
+   ]
+  },
+  "template:ig11-pastilla-usuario": {
+   "name": "팔로워 수가 있는 사용자 알약",
+   "tags": [
+    "인스타그램",
+    "요소",
+    "콜투액션",
+    "소셜",
+    "사용자",
+    "팔로워"
+   ]
+  },
+  "template:ig11-perfil": {
+   "name": "프로필 카드",
+   "tags": [
+    "인스타그램",
+    "요소",
+    "콜투액션",
+    "소셜",
+    "프로필",
+    "팔로우"
+   ]
+  },
+  "template:ig11-publicacion": {
+   "name": "게시물 카드",
+   "tags": [
+    "인스타그램",
+    "요소",
+    "콜투액션",
+    "소셜",
+    "게시물",
+    "좋아요"
+   ]
+  },
+  "template:ig11-reels": {
+   "name": "최신 릴스 보기",
+   "tags": [
+    "인스타그램",
+    "요소",
+    "콜투액션",
+    "소셜",
+    "릴스",
+    "조회수"
+   ]
+  },
+  "template:ig11-responder": {
+   "name": "답글이 있는 댓글 카드",
+   "tags": [
+    "인스타그램",
+    "요소",
+    "콜투액션",
+    "소셜",
+    "댓글",
+    "답글"
+   ]
+  },
+  "template:ig11-tu-historia": {
+   "name": "내 스토리에 추가",
+   "tags": [
+    "인스타그램",
+    "요소",
+    "콜투액션",
+    "소셜",
+    "스토리",
+    "공유"
+   ]
+  },
+  "template:ig11-ver-historia": {
+   "name": "탭해서 스토리 보기",
+   "tags": [
+    "인스타그램",
+    "요소",
+    "콜투액션",
+    "소셜",
+    "스토리",
+    "탭"
+   ]
+  },
+  "template:ig12-anillos": {
+   "name": "스토리: 둥근 사진과 거대한 글자가 있는 링",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "주황",
+    "빨강",
+    "원"
+   ]
+  },
+  "template:ig12-caja-roja": {
+   "name": "스토리: 세로 단어와 거대한 글자가 있는 빨간 박스",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "주황",
+    "빨강",
+    "박스"
+   ]
+  },
+  "template:ig12-diagonal": {
+   "name": "스토리: 거대한 단어가 있는 대각선 줄무늬",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "주황",
+    "빨강",
+    "대각선"
+   ]
+  },
+  "template:ig12-franjas": {
+   "name": "스토리: 컬러 밴드와 세로 단어",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "주황",
+    "빨강",
+    "줄무늬"
+   ]
+  },
+  "template:ig12-panel-rojo": {
+   "name": "스토리: 빨간 패널 위로 올라오는 거대한 단어",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "주황",
+    "빨강",
+    "패널"
+   ]
+  },
+  "template:ig13-amarilla": {
+   "name": "타이포 스토리: 노랑",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "타이포그래피",
+    "노랑",
+    "검정"
+   ]
+  },
+  "template:ig13-caja-negra": {
+   "name": "타이포 스토리: 블랙 박스",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "타이포그래피",
+    "노랑",
+    "검정"
+   ]
+  },
+  "template:ig13-filas": {
+   "name": "타이포 스토리: 글자 행",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "타이포그래피",
+    "노랑",
+    "검정"
+   ]
+  },
+  "template:ig13-gris-ra": {
+   "name": "타이포 스토리: 회색 RA",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "타이포그래피",
+    "노랑",
+    "검정"
+   ]
+  },
+  "template:ig13-letras-grises": {
+   "name": "타이포 스토리: 노란 글자",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "타이포그래피",
+    "노랑",
+    "검정"
+   ]
+  },
+  "template:ig13-muro-de-fotos": {
+   "name": "내 로고가 있는 포토 월",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "로고",
+    "프로필"
+   ]
+  },
+  "template:ig13-negra": {
+   "name": "타이포 스토리: 검정 대각선",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "타이포그래피",
+    "노랑",
+    "검정"
+   ]
+  },
+  "template:ig13-oscura": {
+   "name": "타이포 스토리: 어두운 구체",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "타이포그래피",
+    "노랑",
+    "검정"
+   ]
+  },
+  "template:ig14-dinamica": {
+   "name": "다이내믹 슬라이드쇼: 사진 한 장에 단어 하나",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "슬라이드쇼",
+    "다이내믹",
+    "단어"
+   ]
+  },
+  "template:ig14-energia": {
+   "name": "로고가 있는 에너지 슬라이드쇼",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "슬라이드쇼",
+    "에너지",
+    "단어"
+   ]
+  },
+  "template:ig14-epica": {
+   "name": "글리치가 있는 에픽 슬라이드쇼",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "슬라이드쇼",
+    "에픽",
+    "시네마틱"
+   ]
+  },
+  "template:ig14-limpia": {
+   "name": "큰 타이포의 깔끔한 슬라이드쇼",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "슬라이드쇼",
+    "깔끔한",
+    "타이포그래피"
+   ]
+  },
+  "template:ig14-minimal": {
+   "name": "흰 배경의 미니멀 슬라이드쇼",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "슬라이드쇼",
+    "미니멀",
+    "흰색"
+   ]
+  },
+  "template:ig14-moda": {
+   "name": "자막이 있는 패션 슬라이드쇼",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "슬라이드쇼",
+    "패션",
+    "명언"
+   ]
+  },
+  "template:ig14-ritmica": {
+   "name": "링이 있는 리드미컬 슬라이드쇼",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "슬라이드쇼",
+    "리듬",
+    "명언"
+   ]
+  },
+  "template:ig14-stomp": {
+   "name": "스톰프 슬라이드쇼: 비트마다 단어 하나",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "슬라이드쇼",
+    "스톰프",
+    "리듬"
+   ]
+  },
+  "template:ig2-cartel-amarillo": {
+   "name": "스토리: 노란 Your Stories 포스터",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "컬러",
+    "포스터",
+    "노랑"
+   ]
+  },
+  "template:ig2-ciudad-oferta": {
+   "name": "스토리: % 원이 있는 도시 특가",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "컬러",
+    "특가",
+    "할인"
+   ]
+  },
+  "template:ig2-cocina": {
+   "name": "스토리: 쿠킹 쇼 오프너",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "컬러",
+    "요리",
+    "음식"
+   ]
+  },
+  "template:ig2-feliz": {
+   "name": "스토리: 거대한 글자와 민트 박스가 있는 HAPPY",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "컬러",
+    "행복",
+    "흑백"
+   ]
+  },
+  "template:ig2-interior": {
+   "name": "스토리: 컬러 원이 있는 인테리어 디자인",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "컬러",
+    "인테리어",
+    "디자인"
+   ]
+  },
+  "template:ig2-moda": {
+   "name": "스토리: 민트와 레드의 Fashion",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "컬러",
+    "패션",
+    "프로필"
+   ]
+  },
+  "template:ig2-oscuro": {
+   "name": "스토리: 그리드 글자가 있는 DARK",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "컬러",
+    "다크",
+    "패션"
+   ]
+  },
+  "template:ig2-presentamos": {
+   "name": "스토리: 그라데이션 줄무늬의 INTRODUCING OUR STORIES",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "컬러",
+    "소개",
+    "그라데이션"
+   ]
+  },
+  "template:ig2-rostro-franjas": {
+   "name": "스토리: 컬러 밴드와 원이 있는 얼굴",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "컬러",
+    "인물",
+    "브랜드"
+   ]
+  },
+  "template:ig2-tu-mente": {
+   "name": "스토리: 보라색 Say what's on your mind",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "컬러",
+    "문구",
+    "보라"
+   ]
+  },
+  "template:ig2-tu-vida": {
+   "name": "스토리: 노란 밴드가 있는 YOUR LIFE",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "컬러",
+    "라이프",
+    "팁"
+   ]
+  },
+  "template:ig2-viaje-verano": {
+   "name": "스토리: 사진 구름이 있는 GREAT TRIP SUMMER",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "컬러",
+    "여행",
+    "여름"
+   ]
+  },
+  "template:ig3-arte": {
+   "name": "스토리: 그림 위 art 01 Stories",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "아트",
+    "그림"
+   ]
+  },
+  "template:ig3-ciencia": {
+   "name": "스토리: 원이 있는 A-01 MODERN SCIENCE",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "과학",
+    "원"
+   ]
+  },
+  "template:ig3-city-life": {
+   "name": "스토리: 분홍 패널의 CITY LIFE",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "도시"
+   ]
+  },
+  "template:ig3-comida-circulo": {
+   "name": "스토리: 원 속 Say what's on your mind",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "음식",
+    "원"
+   ]
+  },
+  "template:ig3-fashion": {
+   "name": "스토리: 사진으로 채운 글자의 FASHION 45$",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "패션",
+    "특가"
+   ]
+  },
+  "template:ig3-food": {
+   "name": "스토리: Food 50% 할인",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "음식",
+    "특가"
+   ]
+  },
+  "template:ig3-friend": {
+   "name": "스토리: 원이 있는 FRIEND GREAT TRIP",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "친구",
+    "원"
+   ]
+  },
+  "template:ig3-full": {
+   "name": "스토리: 붓글씨 Full 100%",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "특가",
+    "반려동물"
+   ]
+  },
+  "template:ig3-introducing": {
+   "name": "스토리: 숲속 INTRODUCING STORIES",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "겨울",
+    "소개"
+   ]
+  },
+  "template:ig3-models": {
+   "name": "스토리: 대괄호가 있는 MODELS FASHION",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "패션",
+    "인물"
+   ]
+  },
+  "template:ig3-music": {
+   "name": "스토리: 링이 있는 MUSIC EXCLUSIVE",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "음악",
+    "원"
+   ]
+  },
+  "template:ig3-new": {
+   "name": "스토리: 붓 터치가 있는 여행 NEW",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "여행",
+    "붓"
+   ]
+  },
+  "template:ig3-opener": {
+   "name": "정사각형 게시물용 다이내믹 오프너",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "오프너",
+    "타이포그래피",
+    "게시물"
+   ]
+  },
+  "template:ig3-perfil-amarillo": {
+   "name": "프로필: 사진이 있는 노란 카드",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "프로필"
+   ]
+  },
+  "template:ig3-perfil-coral": {
+   "name": "프로필: 블롭이 있는 코랄 카드",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "프로필"
+   ]
+  },
+  "template:ig3-perfil-degradado": {
+   "name": "프로필: 원이 있는 그라데이션 카드",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "프로필"
+   ]
+  },
+  "template:ig3-perfil-oscuro": {
+   "name": "프로필: 빨간 이름의 다크 카드",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "프로필"
+   ]
+  },
+  "template:ig3-perfil-rojo": {
+   "name": "프로필: 아바타가 있는 빨간 카드",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "프로필"
+   ]
+  },
+  "template:ig3-portfolio": {
+   "name": "스토리: 이름이 있는 PORTFOLIO",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "포트폴리오"
+   ]
+  },
+  "template:ig3-programa": {
+   "name": "스토리: 둥근 바가 있는 V 6",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "테크",
+    "파스텔"
+   ]
+  },
+  "template:ig3-promo": {
+   "name": "스토리: 노란 원반의 Product Promo",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "제품",
+    "프로모션"
+   ]
+  },
+  "template:ig3-sport": {
+   "name": "스토리: 분홍 배지의 SPORT",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "스포츠"
+   ]
+  },
+  "template:ig3-tech": {
+   "name": "스토리: 흩어진 글자의 TECH",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "테크"
+   ]
+  },
+  "template:ig3-toys": {
+   "name": "스토리: 그라데이션 원반의 TOYS",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "장난감",
+    "원"
+   ]
+  },
+  "template:ig3-tv": {
+   "name": "스토리: 둥근 사진의 Media Social",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "소셜",
+    "원"
+   ]
+  },
+  "template:ig3-your-life": {
+   "name": "스토리: 컬러 밴드의 YOUR LIFE와 PRO",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "인테리어"
+   ]
+  },
+  "template:ig4-abstract": {
+   "name": "스토리: ABSTRACT GEOMETRIC STYLE",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "기하학",
+    "건축"
+   ]
+  },
+  "template:ig4-amazing-dream": {
+   "name": "스토리: 사진 두 장의 Amazing dream",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "문구",
+    "갈색"
+   ]
+  },
+  "template:ig4-audacious": {
+   "name": "스토리: LET'S DO WHAT WE LOVE #AUDACIOUS",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "동기부여",
+    "검정"
+   ]
+  },
+  "template:ig4-beauty": {
+   "name": "스토리: There is beauty in simplicity",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "자연",
+    "문구"
+   ]
+  },
+  "template:ig4-beauty-flowers": {
+   "name": "스토리: 꽃이 있는 Beauty",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "꽃",
+    "캘리그라피"
+   ]
+  },
+  "template:ig4-believe": {
+   "name": "스토리: BELIEVE YOU CAN SO YOU ARE HALFWAY THERE",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "동기부여",
+    "문구"
+   ]
+  },
+  "template:ig4-big": {
+   "name": "스토리: 줄무늬 원이 있는 BIG.",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "패션",
+    "줄무늬"
+   ]
+  },
+  "template:ig4-born-wild": {
+   "name": "스토리: BORN TO BE WILD",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "모험",
+    "파랑"
+   ]
+  },
+  "template:ig4-brand-new-day": {
+   "name": "스토리: 삼각형이 있는 brand new day",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "삼각형",
+    "기하학"
+   ]
+  },
+  "template:ig4-clear": {
+   "name": "스토리: 두 쪽으로 나뉜 CLEAR INTERIOR",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "인테리어",
+    "홈"
+   ]
+  },
+  "template:ig4-cold-wave": {
+   "name": "스토리: 사진 글자의 COLD WAVE WARM SUN",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "바다",
+    "타이포그래피"
+   ]
+  },
+  "template:ig4-confident": {
+   "name": "스토리: 창 세 개의 STYLISH & CONFIDENT",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "패션",
+    "남성"
+   ]
+  },
+  "template:ig4-control": {
+   "name": "스토리: 로고와 사진 두 장의 CONTROL",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "로고",
+    "요가"
+   ]
+  },
+  "template:ig4-courage": {
+   "name": "스토리: 붓 터치가 있는 #courage",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "인물",
+    "주황"
+   ]
+  },
+  "template:ig4-culinary": {
+   "name": "스토리: CULINARY ART #cooking",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "요리",
+    "음식"
+   ]
+  },
+  "template:ig4-deep-breath": {
+   "name": "스토리: 나뭇잎이 있는 ENJOY DEEP BREATH",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "자연",
+    "초록"
+   ]
+  },
+  "template:ig4-delicious": {
+   "name": "스토리: #DELICIOUS 그리드",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "음식",
+    "디저트"
+   ]
+  },
+  "template:ig4-dream": {
+   "name": "스토리: 도시 위 프레임의 DREAM",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "도시",
+    "프레임"
+   ]
+  },
+  "template:ig4-employee": {
+   "name": "스토리: 이달의 우수 직원 BEST EMPLOYEE OF THE MONTH",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "비즈니스",
+    "직원"
+   ]
+  },
+  "template:ig4-enjoy-music": {
+   "name": "스토리: 파랑과 빨강 ENJOY MY MUSIC",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "음악",
+    "댄스"
+   ]
+  },
+  "template:ig4-fashion-buy": {
+   "name": "스토리: 밴드 위 FASHION IS WHAT YOU BUY",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "패션",
+    "줄무늬"
+   ]
+  },
+  "template:ig4-fitness": {
+   "name": "스토리: FITNESS BODY ENERGY WORKOUT",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "헬스장",
+    "스포츠"
+   ]
+  },
+  "template:ig4-fun": {
+   "name": "스토리: 프레임 사진이 있는 #FUN",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "프레임",
+    "빨강"
+   ]
+  },
+  "template:ig4-glam": {
+   "name": "스토리: 핑크와 블랙의 GLAM ROCK",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "패션",
+    "분홍"
+   ]
+  },
+  "template:ig4-instamusic": {
+   "name": "스토리: 블롭이 있는 #instamusic #yourbeat",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "음악",
+    "네온"
+   ]
+  },
+  "template:ig4-life-good": {
+   "name": "스토리: LIFE IS SO GOOD JUST BE YOURSELF",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "문구",
+    "네온"
+   ]
+  },
+  "template:ig4-lifestyle": {
+   "name": "스토리: my lifestyle #followme",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "라이프스타일",
+    "파랑"
+   ]
+  },
+  "template:ig4-look-deep": {
+   "name": "스토리: 육각형이 있는 LOOK DEEP INTO NATURE",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "자연",
+    "육각형"
+   ]
+  },
+  "template:ig4-masterpiece": {
+   "name": "스토리: MAKE EACH DAY YOUR MASTERPIECE",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "문구",
+    "분홍"
+   ]
+  },
+  "template:ig4-meeting": {
+   "name": "스토리: 열 구성의 MEETING WITH FRIENDS",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "친구",
+    "열"
+   ]
+  },
+  "template:ig4-motion": {
+   "name": "스토리: 노란 원이 있는 MOTION",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "댄스",
+    "원"
+   ]
+  },
+  "template:ig4-moving": {
+   "name": "스토리: 링 두 개의 Moving",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "댄스",
+    "링"
+   ]
+  },
+  "template:ig4-music": {
+   "name": "스토리: MUSIC DANCE ENJOY",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "음악",
+    "파티"
+   ]
+  },
+  "template:ig4-natural": {
+   "name": "스토리: 세 열 구성의 NATURAL BEAUTY",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "자연",
+    "열"
+   ]
+  },
+  "template:ig4-never-easier": {
+   "name": "스토리: 빨강 IT NEVER GETS EASIER",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "헬스장",
+    "동기부여"
+   ]
+  },
+  "template:ig4-ocean": {
+   "name": "스토리: 프레임이 있는 OCEAN HAPPY RELAX",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "바다",
+    "프레임"
+   ]
+  },
+  "template:ig4-pro-fitness": {
+   "name": "스토리: 교차 프레임의 PRO fitness",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "스포츠",
+    "프레임"
+   ]
+  },
+  "template:ig4-sale40": {
+   "name": "스토리: 세워진 SALE 40%",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "세일",
+    "특가"
+   ]
+  },
+  "template:ig4-sale75": {
+   "name": "스토리: SALE UP TO 75% OFF",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "세일",
+    "특가"
+   ]
+  },
+  "template:ig4-secrets": {
+   "name": "스토리: NO MORE SECRETS #IMAGINE",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "빨강",
+    "대각선"
+   ]
+  },
+  "template:ig4-shopping-week": {
+   "name": "스토리: #shoppingweek 40% FOR SALE",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "세일",
+    "쇼핑"
+   ]
+  },
+  "template:ig4-simplelife": {
+   "name": "스토리: When you focus on the good #simplelife",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "문구",
+    "파랑"
+   ]
+  },
+  "template:ig4-skate": {
+   "name": "스토리: 0256 #skatelife",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "스케이트",
+    "스포츠"
+   ]
+  },
+  "template:ig4-sport": {
+   "name": "스토리: 선이 있는 W SPORT",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "스포츠",
+    "달리기"
+   ]
+  },
+  "template:ig4-spring": {
+   "name": "스토리: SPRING IS IN THE AIR",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "봄",
+    "꽃"
+   ]
+  },
+  "template:ig4-stay-strong": {
+   "name": "스토리: STAY STRONG DON'T GIVE UP",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "동기부여",
+    "빨강"
+   ]
+  },
+  "template:ig4-street-fast": {
+   "name": "스토리: 10/25 #youth street FAST",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "거리",
+    "스케이트"
+   ]
+  },
+  "template:ig4-style": {
+   "name": "스토리: STYLE IS VERY PERSONAL",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "패션",
+    "빨강"
+   ]
+  },
+  "template:ig4-style-beautiful": {
+   "name": "스토리: 밴드가 있는 STYLE #beautiful",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "패션",
+    "줄무늬"
+   ]
+  },
+  "template:ig4-stylish": {
+   "name": "스토리: 파란 원반의 #stylish",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "패션",
+    "파랑"
+   ]
+  },
+  "template:ig4-summer": {
+   "name": "스토리: 해변 다이아몬드의 #SUMMER",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "해변",
+    "여름"
+   ]
+  },
+  "template:ig4-summer-event": {
+   "name": "스토리: 날짜가 있는 여름 이벤트",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "여름",
+    "이벤트"
+   ]
+  },
+  "template:ig4-summer-look": {
+   "name": "스토리: 밴드 속 Summer look #fashion",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "패션",
+    "여름"
+   ]
+  },
+  "template:ig4-sunshine": {
+   "name": "스토리: 사진 네 장의 SUNSHINE",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "여름",
+    "콜라주"
+   ]
+  },
+  "template:ig4-sunshine-tag": {
+   "name": "스토리: #sunshine Relaxing holiday",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "여름",
+    "파랑"
+   ]
+  },
+  "template:ig4-trendy": {
+   "name": "스토리: 빨강 #TRENDY YOUR STYLE",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "빨강",
+    "패션"
+   ]
+  },
+  "template:ig4-tropical": {
+   "name": "스토리: 사진 세 장의 FEELING TROPICAL",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "여름",
+    "트로피컬"
+   ]
+  },
+  "template:ig4-winner": {
+   "name": "스토리: THE WINNER NEVER QUITS",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "동기부여",
+    "헬스장"
+   ]
+  },
+  "template:ig4-young": {
+   "name": "스토리: YOUNG #followus",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "청춘",
+    "빨강"
+   ]
+  },
+  "template:ig4-youth": {
+   "name": "스토리: 삼각형이 있는 #YOUTH & FREEDOM",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "삼각형",
+    "코랄"
+   ]
+  },
+  "template:ig5-amazing-now": {
+   "name": "스토리: AMAZING NOW",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "흑백",
+    "빨강"
+   ]
+  },
+  "template:ig5-awesome": {
+   "name": "스토리: 세로 AWESOME",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "빨강",
+    "세로"
+   ]
+  },
+  "template:ig5-be-strong": {
+   "name": "스토리: B STRONG",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "빨강",
+    "문구"
+   ]
+  },
+  "template:ig5-beach-therapy": {
+   "name": "스토리: 청록 beach therapy",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "해변",
+    "휴가"
+   ]
+  },
+  "template:ig5-beauty-pro": {
+   "name": "스토리: 보라색 웨이브의 BEAUTY",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "뷰티",
+    "보라"
+   ]
+  },
+  "template:ig5-best-look": {
+   "name": "스토리: 프레임 속 YOUR BEST LOOK",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "초록",
+    "패션"
+   ]
+  },
+  "template:ig5-choose-glam": {
+   "name": "스토리: 48 choose the glam",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "뷰티",
+    "글래머"
+   ]
+  },
+  "template:ig5-cold-water": {
+   "name": "스토리: COLD DEEP WATER",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "바다",
+    "노랑"
+   ]
+  },
+  "template:ig5-creative-studio": {
+   "name": "스토리: CREATIVE DESIGN STUDIO",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "디자인",
+    "스튜디오"
+   ]
+  },
+  "template:ig5-dancing": {
+   "name": "스토리: 대각선 사진의 #DANCING",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "댄스",
+    "대각선"
+   ]
+  },
+  "template:ig5-daring-style": {
+   "name": "스토리: 노랑 위 DARING STYLE",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "노랑",
+    "패션"
+   ]
+  },
+  "template:ig5-denim-style": {
+   "name": "스토리: 프레임 속 DENIM STYLE",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "패션",
+    "박스"
+   ]
+  },
+  "template:ig5-design-passion": {
+   "name": "스토리: DESIGN IS MY PASSION",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "인테리어",
+    "디자인"
+   ]
+  },
+  "template:ig5-dont-waste": {
+   "name": "스토리: DON'T WASTE YOUR TIME",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "문구",
+    "청록"
+   ]
+  },
+  "template:ig5-enjoy-movement": {
+   "name": "스토리: enjoy the movement",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "댄스",
+    "검정"
+   ]
+  },
+  "template:ig5-flexible-body": {
+   "name": "스토리: 그라데이션 밴드의 FLEXIBLE BODY",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "피트니스",
+    "그라데이션"
+   ]
+  },
+  "template:ig5-focus-breathe": {
+   "name": "스토리: FOCUS ON THE BREATHE",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "문구",
+    "타이포그래피"
+   ]
+  },
+  "template:ig5-fondo-ambar": {
+   "name": "배경: 앰버 원",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "배경",
+    "주황",
+    "갈색"
+   ]
+  },
+  "template:ig5-fondo-burbujas-azules": {
+   "name": "배경: 분홍 위 파란 버블",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "배경",
+    "분홍",
+    "파랑"
+   ]
+  },
+  "template:ig5-fondo-burbujas-grises": {
+   "name": "배경: 검정 위 회색 버블",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "배경",
+    "검정",
+    "회색"
+   ]
+  },
+  "template:ig5-fondo-chevrones": {
+   "name": "배경: 빨간 쉐브론",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "배경",
+    "빨강",
+    "쉐브론"
+   ]
+  },
+  "template:ig5-fondo-cinta-azul": {
+   "name": "배경: 빨강 위 파란 리본",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "배경",
+    "그라데이션",
+    "파랑"
+   ]
+  },
+  "template:ig5-fondo-geometrico": {
+   "name": "배경: 회색 위 기하학 조각",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "배경",
+    "회색",
+    "기하학"
+   ]
+  },
+  "template:ig5-fondo-lineas": {
+   "name": "배경: 네온 라인이 있는 그라데이션",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "배경",
+    "그라데이션",
+    "분홍"
+   ]
+  },
+  "template:ig5-fondo-lineas-cruzadas": {
+   "name": "배경: 교차하는 선",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "배경",
+    "그라데이션",
+    "마젠타"
+   ]
+  },
+  "template:ig5-fondo-olas": {
+   "name": "배경: 주황과 보라 웨이브",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "배경",
+    "그라데이션",
+    "주황"
+   ]
+  },
+  "template:ig5-fondo-pildoras": {
+   "name": "배경: 분홍 알약",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "배경",
+    "분홍",
+    "파스텔"
+   ]
+  },
+  "template:ig5-fondo-plata": {
+   "name": "배경: 실버 줄무늬",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "배경",
+    "실버",
+    "회색"
+   ]
+  },
+  "template:ig5-fondo-rojo": {
+   "name": "배경: 둥근 빨간 도형",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "배경",
+    "빨강",
+    "도형"
+   ]
+  },
+  "template:ig5-gentle-soft": {
+   "name": "스토리: GENTLE & SOFT 카드",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "꽃",
+    "카드"
+   ]
+  },
+  "template:ig5-glam": {
+   "name": "스토리: GLAM 카메라 샷",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "분홍",
+    "카메라"
+   ]
+  },
+  "template:ig5-happiness-love": {
+   "name": "스토리: HAPPINESS와 LOVE 콜라주",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "콜라주",
+    "웨딩"
+   ]
+  },
+  "template:ig5-happy-weekends": {
+   "name": "스토리: Happy weekends",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "꽃",
+    "주말"
+   ]
+  },
+  "template:ig5-inspiration": {
+   "name": "스토리: #pleasure inspiration",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "빨강",
+    "흑백"
+   ]
+  },
+  "template:ig5-interior-dream": {
+   "name": "스토리: INTERIOR OF YOUR DREAM 카탈로그",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "카탈로그",
+    "인테리어"
+   ]
+  },
+  "template:ig5-keep-simple": {
+   "name": "스토리: 원이 있는 KEEP IT SIMPLE",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "원",
+    "그라데이션"
+   ]
+  },
+  "template:ig5-light-easy": {
+   "name": "스토리: LIGHT & EASY 카드",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "패션",
+    "카드"
+   ]
+  },
+  "template:ig5-look-deep": {
+   "name": "스토리: LOOK DEEP INTO YOURSELF",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "문구",
+    "네온"
+   ]
+  },
+  "template:ig5-mindfulness": {
+   "name": "스토리: 흑백 #mindfulness",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "흑백",
+    "문구"
+   ]
+  },
+  "template:ig5-modern-office": {
+   "name": "스토리: MODERN OFFICE SPACE",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "사무실",
+    "비즈니스"
+   ]
+  },
+  "template:ig5-ocean": {
+   "name": "스토리: 원 속 OCEAN",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "원",
+    "바다"
+   ]
+  },
+  "template:ig5-pleasure": {
+   "name": "스토리: PLEASURE 블록 콜라주",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "콜라주",
+    "테라코타"
+   ]
+  },
+  "template:ig5-power": {
+   "name": "스토리: 사진이 있는 #POWER",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "빨강",
+    "패션"
+   ]
+  },
+  "template:ig5-relax-home": {
+   "name": "스토리: Relax SWEET HOME",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "홈",
+    "인테리어"
+   ]
+  },
+  "template:ig5-sale-70": {
+   "name": "스토리: 비스듬한 밴드의 SALE 70%",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "세일",
+    "특가"
+   ]
+  },
+  "template:ig5-sensual": {
+   "name": "스토리: 사진 두 장의 SENSUAL",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "흑백",
+    "콜라주"
+   ]
+  },
+  "template:ig5-style-y": {
+   "name": "스토리: 큰 Y가 있는 STYLE",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "패션",
+    "청록"
+   ]
+  },
+  "template:ig5-summer-pause": {
+   "name": "스토리: SUMMER take a pause",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "여름",
+    "휴가"
+   ]
+  },
+  "template:ig5-sunny-day": {
+   "name": "스토리: 원이 있는 SUNNY DAY",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "여름",
+    "수영장"
+   ]
+  },
+  "template:ig5-titulo-art-design": {
+   "name": "타이틀: ART & DESIGN FORUM",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "타이틀",
+    "텍스트",
+    "아트"
+   ]
+  },
+  "template:ig5-titulo-big-sale": {
+   "name": "타이틀: 붓과 카트의 BIG SALE",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "타이틀",
+    "텍스트",
+    "세일"
+   ]
+  },
+  "template:ig5-titulo-bold-fashion": {
+   "name": "타이틀: 기울어진 BOLD FASHION STYLE",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "타이틀",
+    "텍스트",
+    "패션"
+   ]
+  },
+  "template:ig5-titulo-chicle": {
+   "name": "타이틀: BUBBLEGUM STYLE",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "타이틀",
+    "텍스트",
+    "분홍"
+   ]
+  },
+  "template:ig5-titulo-cita": {
+   "name": "타이틀: 작성자가 있는 명언",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "타이틀",
+    "텍스트",
+    "인용구"
+   ]
+  },
+  "template:ig5-titulo-do-what": {
+   "name": "타이틀: DO WHAT YOU WANT",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "타이틀",
+    "텍스트",
+    "동기부여"
+   ]
+  },
+  "template:ig5-titulo-formas-abstractas": {
+   "name": "타이틀: ABSTRACT SHAPES DESIGN",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "타이틀",
+    "텍스트",
+    "도형"
+   ]
+  },
+  "template:ig5-titulo-glitch": {
+   "name": "타이틀: GLITCH STYLE",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "타이틀",
+    "텍스트",
+    "글리치"
+   ]
+  },
+  "template:ig5-titulo-neon": {
+   "name": "타이틀: 빛나는 NEON",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "타이틀",
+    "텍스트",
+    "네온"
+   ]
+  },
+  "template:ig5-titulo-never-give-up": {
+   "name": "타이틀: 붓글씨 NEVER GIVE UP",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "타이틀",
+    "텍스트",
+    "동기부여"
+   ]
+  },
+  "template:ig5-titulo-retro": {
+   "name": "타이틀: 80s RETROSTYLE",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "타이틀",
+    "텍스트",
+    "레트로"
+   ]
+  },
+  "template:ig5-titulo-sale": {
+   "name": "타이틀: SALE 티켓",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "타이틀",
+    "텍스트",
+    "세일"
+   ]
+  },
+  "template:ig5-wake-up": {
+   "name": "스토리: WAKE UP AND BE AWESOME",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "빨강",
+    "동기부여"
+   ]
+  },
+  "template:ig5-your-choice": {
+   "name": "스토리: 노란 점이 있는 인물 사진",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "노랑",
+    "점"
+   ]
+  },
+  "template:ig5-your-style": {
+   "name": "스토리: Your style 콜라주",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "콜라주",
+    "인테리어"
+   ]
+  },
+  "template:ig6-arbol-cinta": {
+   "name": "크리스마스 스토리: 황금 리본 트리",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "크리스마스",
+    "트리"
+   ]
+  },
+  "template:ig6-artista": {
+   "name": "스토리: #YLIFE의 You are the artist of your life",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "파랑",
+    "라이프스타일"
+   ]
+  },
+  "template:ig6-aventuras": {
+   "name": "스토리: 사진 두 장과 초록 산의 My Adventures",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "여행",
+    "모험"
+   ]
+  },
+  "template:ig6-diseno-pasion": {
+   "name": "스토리: 분홍 위 Design is my passion",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "디자인",
+    "건축"
+   ]
+  },
+  "template:ig6-feliz-brillante": {
+   "name": "크리스마스 스토리: 회색 위 Merry & Bright",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "크리스마스",
+    "연휴"
+   ]
+  },
+  "template:ig6-interior": {
+   "name": "스토리: 블랙 박스의 Clear Interior",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "홈",
+    "인테리어"
+   ]
+  },
+  "template:ig6-luz-calida": {
+   "name": "스토리: 다이아몬드와 #WARM이 있는 Cozy Light",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "홈",
+    "제품"
+   ]
+  },
+  "template:ig6-pino-rojo": {
+   "name": "크리스마스 스토리: 빨강 위 소나무 가지와 Merry Christmas",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "크리스마스",
+    "세일",
+    "소나무"
+   ]
+  },
+  "template:ig6-rebajas-50": {
+   "name": "스토리: 50% OFF 태그와 파란 줄무늬의 SALE",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "사진",
+    "세일",
+    "할인"
+   ]
+  },
+  "template:ig6-rebajas-invierno": {
+   "name": "크리스마스 스토리: 선물이 열리며 'winter sell XMAS 50%off'",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "크리스마스",
+    "세일",
+    "할인"
+   ]
+  },
+  "template:ig6-santa": {
+   "name": "크리스마스 스토리: Merry Xmas와 산타 얼굴",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "크리스마스",
+    "산타"
+   ]
+  },
+  "template:ig6-swipe-bandera": {
+   "name": "스와이프 업: 파티 폭죽에서 튀어나오는 SWIPE UP 깃발",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "스와이프 업",
+    "스와이프",
+    "화살표"
+   ]
+  },
+  "template:ig6-swipe-boton": {
+   "name": "스와이프 업: 사각형에서 원으로 변하는 흰색 버튼",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "스와이프 업",
+    "스와이프",
+    "화살표"
+   ]
+  },
+  "template:ig6-swipe-brillo": {
+   "name": "스와이프 업: 위로 올라가는 빛나는 흰색 화살표",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "스와이프 업",
+    "스와이프",
+    "화살표"
+   ]
+  },
+  "template:ig6-swipe-chevrones": {
+   "name": "스와이프 업: 위로 올라가는 파란 쉐브론 세 개",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "스와이프 업",
+    "스와이프",
+    "화살표"
+   ]
+  },
+  "template:ig6-swipe-circulo": {
+   "name": "스와이프 업: 삼각형이 있는 흰 원이 올라가며 흐려짐",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "스와이프 업",
+    "스와이프",
+    "화살표"
+   ]
+  },
+  "template:ig6-swipe-cuadro": {
+   "name": "스와이프 업: 화살표와 반사가 있는 청록 박스",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "스와이프 업",
+    "스와이프",
+    "화살표"
+   ]
+  },
+  "template:ig6-swipe-figuras": {
+   "name": "스와이프 업: SWIPE UP과 함께 삼각형이 되는 초록 링",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "스와이프 업",
+    "스와이프",
+    "화살표"
+   ]
+  },
+  "template:ig6-swipe-flecha": {
+   "name": "스와이프 업: 맥박 치는 선 위의 파란 화살표",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "스와이프 업",
+    "스와이프",
+    "화살표"
+   ]
+  },
+  "template:ig6-swipe-interruptor": {
+   "name": "스와이프 업: 파란 노브가 위로 밀리는 토글",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "스와이프 업",
+    "스와이프",
+    "화살표"
+   ]
+  },
+  "template:ig6-swipe-letras": {
+   "name": "스와이프 업: 튀어 오르는 SWIPE UP 글자",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "스와이프 업",
+    "스와이프",
+    "화살표"
+   ]
+  },
+  "template:ig6-swipe-mano": {
+   "name": "스와이프 업: 쉐브론 궤적과 함께 위로 스와이프하는 손",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "스와이프 업",
+    "스와이프",
+    "화살표"
+   ]
+  },
+  "template:ig6-swipe-triangulo": {
+   "name": "스와이프 업: 빨간 점과 함께 올라가는 흰 삼각형",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "스와이프 업",
+    "스와이프",
+    "화살표"
+   ]
+  },
+  "template:ig7-awesome": {
+   "name": "타이포 스토리: AWESOME",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "타이포그래피",
+    "컬러",
+    "줄무늬"
+   ]
+  },
+  "template:ig7-big": {
+   "name": "타이포 스토리: BIG",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "타이포그래피",
+    "컬러",
+    "거대한 글자"
+   ]
+  },
+  "template:ig7-brand": {
+   "name": "타이포 스토리: BRAND",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "타이포그래피",
+    "컬러",
+    "글자"
+   ]
+  },
+  "template:ig7-color": {
+   "name": "타이포 스토리: COLOR",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "타이포그래피",
+    "컬러",
+    "프레임"
+   ]
+  },
+  "template:ig7-easy-project": {
+   "name": "타이포 스토리: STORIES EASY PROJECT",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "타이포그래피",
+    "컬러",
+    "픽셀"
+   ]
+  },
+  "template:ig7-grid": {
+   "name": "타이포 스토리: 컬러 그리드",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "타이포그래피",
+    "컬러",
+    "그리드"
+   ]
+  },
+  "template:ig7-no-plugins": {
+   "name": "타이포 스토리: NO PLUGINS",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "타이포그래피",
+    "컬러",
+    "직사각형"
+   ]
+  },
+  "template:ig7-social": {
+   "name": "타이포 스토리: SOCIAL",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "타이포그래피",
+    "컬러",
+    "카드"
+   ]
+  },
+  "template:ig7-stories": {
+   "name": "타이포 스토리: STORIES",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "타이포그래피",
+    "컬러",
+    "거대한 글자"
+   ]
+  },
+  "template:ig7-typo": {
+   "name": "타이포 스토리: TYPO",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "타이포그래피",
+    "컬러",
+    "카드"
+   ]
+  },
+  "template:ig8-best-sellers": {
+   "name": "어반 스토리: Best Sellers click now",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "어반",
+    "파랑",
+    "쇼핑몰"
+   ]
+  },
+  "template:ig8-city-vibes": {
+   "name": "어반 스토리: 사진 두 장의 city vibes",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "어반",
+    "파랑",
+    "도시"
+   ]
+  },
+  "template:ig8-friends": {
+   "name": "어반 스토리: 사진 스트립이 있는 friends positive",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "어반",
+    "파랑",
+    "친구"
+   ]
+  },
+  "template:ig8-mega-sale": {
+   "name": "어반 스토리: mega sale %50 폴라로이드",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "어반",
+    "파랑",
+    "세일"
+   ]
+  },
+  "template:ig8-visit-page": {
+   "name": "어반 스토리: 파란 바가 있는 visit page",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "어반",
+    "파랑",
+    "웹"
+   ]
+  },
+  "template:ig9-banda-roja": {
+   "name": "스토리: 거대한 단어가 있는 빨간 밴드",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "타이포그래피",
+    "밴드",
+    "빨강"
+   ]
+  },
+  "template:ig9-letras-cortadas": {
+   "name": "스토리: 잘린 거대한 단어와 링크 세 개",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "타이포그래피",
+    "글자",
+    "링크"
+   ]
+  },
+  "template:ig9-letras-rojas": {
+   "name": "스토리: 빨강 위 돌아간 글자 벽",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "타이포그래피",
+    "글자",
+    "빨강"
+   ]
+  },
+  "template:ig9-palabra-vertical": {
+   "name": "스토리: 빨간 리본이 있는 프레임 속 세로 단어",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "타이포그래피",
+    "세로",
+    "프레임"
+   ]
+  },
+  "template:ig9-typo": {
+   "name": "스토리: 그려진 프레임이 있는 TYPO 타일",
+   "tags": [
+    "인스타그램",
+    "스토리",
+    "릴스",
+    "타이포그래피",
+    "글자",
+    "프레임"
+   ]
+  },
   "template:intro-de-canal": {
    "name": "채널 인트로",
    "tags": [
@@ -24417,6 +27426,204 @@
     "비트",
     "파티",
     "단어"
+   ]
+  },
+  "template:lg0-circulo-ambar": {
+   "name": "로고: 점 두 개가 링을 그려 원반으로 닫힘 (앰버)",
+   "tags": [
+    "로고",
+    "로고 리빌",
+    "플랫",
+    "앰버",
+    "노랑",
+    "원"
+   ]
+  },
+  "template:lg0-cuadro-blanco": {
+   "name": "로고: 통통 튀다 열리는 사각형 (흰색)",
+   "tags": [
+    "로고",
+    "로고 리빌",
+    "플랫",
+    "흰색",
+    "사각형",
+    "바운스"
+   ]
+  },
+  "template:lg0-disco-azul": {
+   "name": "로고: 날아온 점이 원반으로 열림 (파랑)",
+   "tags": [
+    "로고",
+    "로고 리빌",
+    "플랫",
+    "파랑",
+    "원반",
+    "점"
+   ]
+  },
+  "template:lg0-hexagono-coral": {
+   "name": "로고: 선, 원, 굴러가는 육각형과 내 브랜드 (코랄)",
+   "tags": [
+    "로고",
+    "로고 리빌",
+    "플랫",
+    "코랄",
+    "육각형",
+    "선"
+   ]
+  },
+  "template:lg0-iconos-redes": {
+   "name": "튀어나오는 SNS 아이콘 10개 (파랑)",
+   "tags": [
+    "로고",
+    "로고 리빌",
+    "플랫",
+    "소셜",
+    "아이콘",
+    "페이스북"
+   ]
+  },
+  "template:lg0-sigueme": {
+   "name": "소셜 로고: 사진 위 육각형 속 공과 팔로우 미",
+   "tags": [
+    "로고",
+    "로고 리빌",
+    "플랫",
+    "팔로우 미",
+    "사용자",
+    "육각형"
+   ]
+  },
+  "template:lg1-luz-dorada": {
+   "name": "로고: 황금빛으로 만들어짐",
+   "tags": [
+    "로고",
+    "인트로",
+    "빛",
+    "골드",
+    "글로우",
+    "줄무늬"
+   ]
+  },
+  "template:lg2-cintas": {
+   "name": "팔로우 미: 돌아가는 리본 로고",
+   "tags": [
+    "로고",
+    "플랫",
+    "기업",
+    "팔로우 미",
+    "3d"
+   ]
+  },
+  "template:lg2-franjas": {
+   "name": "팔로우 미: 조각과 바로 이뤄진 로고",
+   "tags": [
+    "로고",
+    "플랫",
+    "기업",
+    "팔로우 미",
+    "줄무늬"
+   ]
+  },
+  "template:lg2-giro": {
+   "name": "로고: 풀리는 회전",
+   "tags": [
+    "로고",
+    "플랫",
+    "기업",
+    "회전"
+   ]
+  },
+  "template:lg2-glitch": {
+   "name": "로고: 초록 글리치",
+   "tags": [
+    "로고",
+    "플랫",
+    "기업",
+    "글리치"
+   ]
+  },
+  "template:lg2-horizonte": {
+   "name": "구독: 수평선에서 떠오르는 로고",
+   "tags": [
+    "로고",
+    "플랫",
+    "기업",
+    "구독",
+    "수평선"
+   ]
+  },
+  "template:lg2-mira": {
+   "name": "구독: 열리는 타깃",
+   "tags": [
+    "로고",
+    "플랫",
+    "기업",
+    "구독",
+    "타깃"
+   ]
+  },
+  "template:lg2-orbita": {
+   "name": "구독: 궤도를 도는 로고",
+   "tags": [
+    "로고",
+    "플랫",
+    "기업",
+    "구독",
+    "궤도"
+   ]
+  },
+  "template:lg2-puntos": {
+   "name": "로고: 굴러가는 점",
+   "tags": [
+    "로고",
+    "플랫",
+    "기업",
+    "점"
+   ]
+  },
+  "template:lg3-esfera": {
+   "name": "로고: 줄무늬 구가 원반이 됨",
+   "tags": [
+    "로고",
+    "로고 리빌",
+    "인트로",
+    "구체",
+    "파랑",
+    "기업"
+   ]
+  },
+  "template:lg3-ondas": {
+   "name": "로고: 선으로 가라앉는 컬러 웨이브",
+   "tags": [
+    "로고",
+    "로고 리빌",
+    "인트로",
+    "물결",
+    "컬러",
+    "선"
+   ]
+  },
+  "template:lg3-persiana": {
+   "name": "로고: 블라인드 사각형이 열림",
+   "tags": [
+    "로고",
+    "로고 리빌",
+    "인트로",
+    "사각형",
+    "회색",
+    "미니멀"
+   ]
+  },
+  "template:lg3-torta-diana": {
+   "name": "로고: 점선 링, 컬러 파이, 타깃",
+   "tags": [
+    "로고",
+    "로고 리빌",
+    "인트로",
+    "파이",
+    "원",
+    "파스텔"
    ]
   },
   "template:llt-bevan": {
@@ -32789,6 +35996,1053 @@
     "키네틱",
     "사진",
     "타이틀"
+   ]
+  },
+  "template:tk0-cintas-telefono": {
+   "name": "스토리: 단어 테이프와 휴대폰",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "세로",
+    "테이프",
+    "휴대폰"
+   ]
+  },
+  "template:tk0-collage-azul": {
+   "name": "스토리: 파랑과 검정의 사진 세 장 콜라주",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "세로",
+    "콜라주",
+    "사진"
+   ]
+  },
+  "template:tk0-collage-negro": {
+   "name": "스토리: 스티커가 있는 사진 여섯 장 콜라주",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "세로",
+    "콜라주",
+    "사진"
+   ]
+  },
+  "template:tk0-creas-tendencias": {
+   "name": "스토리: 트렌드를 만드시나요? 빨간 버블",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "세로",
+    "질문",
+    "분홍"
+   ]
+  },
+  "template:tk0-empieza-aqui": {
+   "name": "스토리: 트렌드는 여기서 시작",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "세로",
+    "트렌드",
+    "파랑"
+   ]
+  },
+  "template:tk0-mision": {
+   "name": "스토리: 빨강 위 사진이 있는 우리의 미션",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "세로",
+    "미션",
+    "빨강"
+   ]
+  },
+  "template:tk0-nueva-era": {
+   "name": "스토리: 새로운 영상의 시대",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "세로",
+    "영상",
+    "빨강"
+   ]
+  },
+  "template:tk0-nuevo-video": {
+   "name": "스토리: 휴대폰이 있는 NEW VIDEO",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "세로",
+    "영상",
+    "신규"
+   ]
+  },
+  "template:tk0-plantilla": {
+   "name": "스토리: 사진이 있는 모두를 위한 템플릿",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "세로",
+    "템플릿",
+    "파랑"
+   ]
+  },
+  "template:tk0-plataforma": {
+   "name": "스토리: 휴대폰 두 대의 새 플랫폼",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "세로",
+    "플랫폼",
+    "검정"
+   ]
+  },
+  "template:tk0-promo-negro": {
+   "name": "스토리: 검정 위 파란 버블의 SUPER PROMO",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "세로",
+    "프로모",
+    "검정"
+   ]
+  },
+  "template:tk0-promo-x": {
+   "name": "스토리: 교차 테이프의 PROMO",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "세로",
+    "프로모",
+    "검정"
+   ]
+  },
+  "template:tk0-que-ves": {
+   "name": "스토리: 무엇을 보고 싶나요? 채팅",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "세로",
+    "채팅",
+    "질문"
+   ]
+  },
+  "template:tk0-recordatorio": {
+   "name": "스토리: 영상 위 리마인더 투표",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "세로",
+    "투표",
+    "리마인더"
+   ]
+  },
+  "template:tk0-tendencias": {
+   "name": "스토리: 분홍과 파랑의 바이럴 트렌드",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "세로",
+    "트렌드",
+    "분홍"
+   ]
+  },
+  "template:tk0-trendy": {
+   "name": "스토리: 컬러 밴드의 TRENDY STYLE",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "세로",
+    "트렌드",
+    "파랑"
+   ]
+  },
+  "template:tk1-tipografia": {
+   "name": "타이포 오프너: 비트마다 단어 하나",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "오프닝",
+    "타이포그래피",
+    "단어"
+   ]
+  },
+  "template:tk2-alice": {
+   "name": "스토리: 사진이 있는 Alice Braun",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "이름",
+    "사진",
+    "파랑"
+   ]
+  },
+  "template:tk2-austin": {
+   "name": "스토리: 새 영상이 있는 Austin Grant",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "이름",
+    "사진",
+    "검정"
+   ]
+  },
+  "template:tk2-baile": {
+   "name": "스토리: 사진 세 장의 Just dance",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "댄스",
+    "사진",
+    "파랑"
+   ]
+  },
+  "template:tk2-belleza": {
+   "name": "스토리: About Beauty for You",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "뷰티",
+    "사진",
+    "검정"
+   ]
+  },
+  "template:tk2-blogger": {
+   "name": "스토리: 링이 있는 Social blogger",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "링",
+    "사진",
+    "검정"
+   ]
+  },
+  "template:tk2-contenido": {
+   "name": "스토리: 그리드 속 다양한 콘텐츠",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "그리드",
+    "사진",
+    "검정"
+   ]
+  },
+  "template:tk2-follow": {
+   "name": "스토리: 하트가 있는 follow",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "팔로우",
+    "하트",
+    "검정"
+   ]
+  },
+  "template:tk2-isabella": {
+   "name": "스토리: 사진이 있는 Isabella Walker",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "이름",
+    "사진",
+    "파랑"
+   ]
+  },
+  "template:tk2-lifestyle": {
+   "name": "스토리: 영상이 있는 #lifestyle",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "라이프스타일",
+    "영상",
+    "빨강"
+   ]
+  },
+  "template:tk2-new": {
+   "name": "스토리: 하트가 있는 NEW",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "신규",
+    "사진",
+    "검정"
+   ]
+  },
+  "template:tk2-nuevo-video": {
+   "name": "스토리: 사진이 있는 새 영상",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "새 영상",
+    "사진",
+    "빨강"
+   ]
+  },
+  "template:tk2-perfil": {
+   "name": "스토리: 팔로워가 있는 프로필",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "프로필",
+    "팔로워",
+    "사진"
+   ]
+  },
+  "template:tk2-suscriptores": {
+   "name": "스토리: 새 구독자 모으기",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "구독자",
+    "사진",
+    "검정"
+   ]
+  },
+  "template:tk2-tarjeta": {
+   "name": "스토리: 로고와 스티커가 있는 카드",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "로고",
+    "스티커",
+    "파랑"
+   ]
+  },
+  "template:tk2-tendencias": {
+   "name": "스토리: 빨간 밴드의 트렌드",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "트렌드",
+    "사진",
+    "파랑"
+   ]
+  },
+  "template:tk3-diseno": {
+   "name": "스토리: 가는 선이 있는 Fashion Design",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "패션",
+    "파스텔",
+    "디자인"
+   ]
+  },
+  "template:tk3-estilo-de-vida": {
+   "name": "스토리: 돌아가는 삼각형의 Lifestyle",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "패션",
+    "파스텔",
+    "라이프스타일"
+   ]
+  },
+  "template:tk3-gracias": {
+   "name": "엔딩 카드: Thanks For Watching!",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "패션",
+    "파스텔",
+    "엔딩"
+   ]
+  },
+  "template:tk3-rebajas": {
+   "name": "스토리: 50% OFF 박스가 있는 패션 세일",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "패션",
+    "파스텔",
+    "세일"
+   ]
+  },
+  "template:tk3-rebajas-2": {
+   "name": "스토리: 사진 위 50%의 Fashion Sale",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "패션",
+    "파스텔",
+    "세일"
+   ]
+  },
+  "template:tk3-siguiente-nivel": {
+   "name": "스토리: 세로 50% OFF의 The Next Level Of Fashion",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "패션",
+    "파스텔",
+    "할인"
+   ]
+  },
+  "template:tk3-siguiente-nivel-2": {
+   "name": "스토리: Get 50% OFF가 있는 The Next Level Of Fashion",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "패션",
+    "파스텔",
+    "할인"
+   ]
+  },
+  "template:tk3-sorteo": {
+   "name": "스토리: Giveaway!",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "패션",
+    "파스텔",
+    "이벤트 추첨"
+   ]
+  },
+  "template:tk3-tendencia": {
+   "name": "스토리: 50%가 있는 Keep It Trendy",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "패션",
+    "파스텔",
+    "트렌드"
+   ]
+  },
+  "template:tk4-dynamic": {
+   "name": "다이내믹 오프너: 빨강과 검정 사진",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "오프닝",
+    "슬라이드쇼",
+    "다이내믹"
+   ]
+  },
+  "template:tk4-fast": {
+   "name": "패스트 오프너: 컬러 사진 위 단어",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "오프닝",
+    "슬라이드쇼",
+    "빠른"
+   ]
+  },
+  "template:tk4-modern": {
+   "name": "모던 오프너: 노랑, 골드, 그리드",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "오프닝",
+    "슬라이드쇼",
+    "모던"
+   ]
+  },
+  "template:tk4-rhythm": {
+   "name": "리듬 오프너: 그라데이션 단어",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "오프닝",
+    "슬라이드쇼",
+    "리듬"
+   ]
+  },
+  "template:tk4-stomp": {
+   "name": "스톰프 오프너: 사진과 비트마다 단어 하나",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "오프닝",
+    "슬라이드쇼",
+    "스톰프"
+   ]
+  },
+  "template:tk4-typo": {
+   "name": "타이포 오프너: 검정 단어와 사진",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "오프닝",
+    "슬라이드쇼",
+    "타이포그래피"
+   ]
+  },
+  "template:tk5-carefree": {
+   "name": "스토리: 세로 CAREFREE LIVING",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "흑백",
+    "사진",
+    "세로"
+   ]
+  },
+  "template:tk5-endless": {
+   "name": "스토리: ENDLESS LOVING CONVERSATIONS",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "흑백",
+    "텍스트"
+   ]
+  },
+  "template:tk5-find": {
+   "name": "스토리: FIND HIDDEN GEMS",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "흑백",
+    "텍스트"
+   ]
+  },
+  "template:tk5-follow": {
+   "name": "스토리: FOLLOW YOUR DREAM",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "흑백",
+    "텍스트"
+   ]
+  },
+  "template:tk5-foto-cae": {
+   "name": "스토리: 떨어졌다 올라오는 사진",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "흑백",
+    "사진"
+   ]
+  },
+  "template:tk5-foto-lado": {
+   "name": "스토리: 옆에서 미끄러져 들어오는 사진",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "흑백",
+    "사진"
+   ]
+  },
+  "template:tk5-foto-sube": {
+   "name": "스토리: 올라오는 사진",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "흑백",
+    "사진"
+   ]
+  },
+  "template:tk5-freedom": {
+   "name": "스토리: 사진 두 장의 FREEDOM과 PLEASING",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "흑백",
+    "사진",
+    "콜라주"
+   ]
+  },
+  "template:tk5-join": {
+   "name": "스토리: JOIN THE JOURNEY 콜투액션",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "흑백",
+    "콜투액션",
+    "로고"
+   ]
+  },
+  "template:tk5-laughter": {
+   "name": "스토리: LAUGHTER OF A LOVED ONE",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "흑백",
+    "사진"
+   ]
+  },
+  "template:tk5-stars": {
+   "name": "스토리: 열 구성의 STARS와 DREAMS",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "흑백",
+    "사진",
+    "콜라주"
+   ]
+  },
+  "template:tk5-sunshine": {
+   "name": "스토리: 사진이 있는 SUNSHINE FILLS SKIES",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "흑백",
+    "사진",
+    "콜라주"
+   ]
+  },
+  "template:tk6-discovery": {
+   "name": "스토리: DISCOVERY와 SPACESUIT 콜라주",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "청록",
+    "사진",
+    "콜라주"
+   ]
+  },
+  "template:tk6-dreams": {
+   "name": "스토리: DREAMS 콜라주",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "청록",
+    "사진",
+    "콜라주"
+   ]
+  },
+  "template:tk6-flower": {
+   "name": "스토리: FLOWER BEAUTY 콜라주",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "청록",
+    "사진",
+    "콜라주"
+   ]
+  },
+  "template:tk6-foto-cae": {
+   "name": "스토리: 프레임 사진이 떨어져 들어옴",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "청록",
+    "사진"
+   ]
+  },
+  "template:tk6-foto-lado": {
+   "name": "스토리: 프레임 사진이 미끄러져 들어옴",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "청록",
+    "사진"
+   ]
+  },
+  "template:tk6-freedom": {
+   "name": "스토리: FREEDOM 열",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "청록",
+    "사진",
+    "세로"
+   ]
+  },
+  "template:tk6-modern": {
+   "name": "스토리: MODERN STORIES 콜라주",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "청록",
+    "사진",
+    "콜라주"
+   ]
+  },
+  "template:tk6-savor": {
+   "name": "스토리: SAVOR LIFE'S GOODNESS 콜투액션",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "청록",
+    "콜투액션",
+    "로고"
+   ]
+  },
+  "template:tk6-starry": {
+   "name": "스토리: 콜라주로 줄어드는 STARRY NIGHTS",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "청록",
+    "사진",
+    "콜라주"
+   ]
+  },
+  "template:tk6-times-now": {
+   "name": "스토리: 사진 두 장의 TIME'S NOW",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "청록",
+    "사진",
+    "세로"
+   ]
+  },
+  "template:tk6-wind": {
+   "name": "스토리: 사진 두 장의 WIND와 AURA",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "청록",
+    "사진",
+    "콜라주"
+   ]
+  },
+  "template:tk7-blooms": {
+   "name": "스토리: 빨강 BLOOMS ALL AROUND",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "꽃",
+    "컬러",
+    "패션"
+   ]
+  },
+  "template:tk7-bold": {
+   "name": "스토리: BOLD COLORS SWAY 콜라주",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "꽃",
+    "컬러",
+    "패션"
+   ]
+  },
+  "template:tk7-breezy": {
+   "name": "스토리: BREEZY SPRING ATTIRE 콜라주",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "꽃",
+    "컬러",
+    "패션"
+   ]
+  },
+  "template:tk7-canvas": {
+   "name": "스토리: CANVAS LIFE BODY 콜라주",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "꽃",
+    "컬러",
+    "패션"
+   ]
+  },
+  "template:tk7-characters": {
+   "name": "스토리: 사진 아래 COLORFUL CHARACTERS",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "꽃",
+    "컬러",
+    "패션"
+   ]
+  },
+  "template:tk7-colorful-and": {
+   "name": "스토리: 사진 두 장 사이 COLORFUL AND CONFIDENCE",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "꽃",
+    "컬러",
+    "패션"
+   ]
+  },
+  "template:tk7-discover-more": {
+   "name": "엔딩 스토리: 내 로고가 있는 DISCOVER MORE",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "꽃",
+    "컬러",
+    "패션"
+   ]
+  },
+  "template:tk7-embrace": {
+   "name": "스토리: 사진을 둘러싼 EMBRACE와 EXPRESSION",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "꽃",
+    "컬러",
+    "패션"
+   ]
+  },
+  "template:tk7-embrace-your-life": {
+   "name": "스토리: 사진 네 장의 EMBRACE YOUR LIFE",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "꽃",
+    "컬러",
+    "패션"
+   ]
+  },
+  "template:tk7-flower": {
+   "name": "스토리: 파랑 FLOWER PARADISE DELIGHT",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "꽃",
+    "컬러",
+    "패션"
+   ]
+  },
+  "template:tk7-sale": {
+   "name": "스토리: 사진 두 장의 SALE SALE SALE",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "꽃",
+    "컬러",
+    "패션"
+   ]
+  },
+  "template:tk7-savor": {
+   "name": "스토리: 사진 열이 있는 SAVOR MOMENTS NOW",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "꽃",
+    "컬러",
+    "패션"
+   ]
+  },
+  "template:tk8-apple-pie": {
+   "name": "스토리: SWEET APPLE PIE와 SAVOR EVERY BITE",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "음식",
+    "레스토랑",
+    "노랑"
+   ]
+  },
+  "template:tk8-bbq": {
+   "name": "스토리: 사진 다섯 장의 BBQ SMOKE RISING",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "음식",
+    "레스토랑",
+    "노랑"
+   ]
+  },
+  "template:tk8-big-sale": {
+   "name": "스토리: 사진 세 장의 BIG -50% SALE",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "음식",
+    "레스토랑",
+    "노랑"
+   ]
+  },
+  "template:tk8-buy-now": {
+   "name": "스토리: 사진 다섯 장의 BUY NOW",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "음식",
+    "레스토랑",
+    "노랑"
+   ]
+  },
+  "template:tk8-crispy-fries": {
+   "name": "스토리: 사진 세 장의 CRISPY GOLDEN FRIES",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "음식",
+    "레스토랑",
+    "노랑"
+   ]
+  },
+  "template:tk8-discover-flavors": {
+   "name": "엔딩 스토리: 내 로고가 있는 DISCOVER NEW FLAVORS",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "음식",
+    "레스토랑",
+    "노랑"
+   ]
+  },
+  "template:tk8-fast-food": {
+   "name": "스토리: FAST FOOD ADDICTION",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "음식",
+    "레스토랑",
+    "노랑"
+   ]
+  },
+  "template:tk8-food-lovers": {
+   "name": "스토리: 사진 네 장의 FOOD LOVERS UNITE",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "음식",
+    "레스토랑",
+    "노랑"
+   ]
+  },
+  "template:tk8-fried-chicken": {
+   "name": "스토리: FRIED CHICKEN DELIGHT",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "음식",
+    "레스토랑",
+    "노랑"
+   ]
+  },
+  "template:tk8-hot-dogs": {
+   "name": "스토리: HOT DOGS와 CRISPY FRIES",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "음식",
+    "레스토랑",
+    "노랑"
+   ]
+  },
+  "template:tk8-lowest-price": {
+   "name": "스토리: THE LOWEST PRICE",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "음식",
+    "레스토랑",
+    "노랑"
+   ]
+  },
+  "template:tk8-new-york-pizza": {
+   "name": "스토리: 전체 화면에서 콜라주로 바뀌는 NEW YORK PIZZA",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "음식",
+    "레스토랑",
+    "노랑"
+   ]
+  },
+  "template:tk8-nice-diners": {
+   "name": "스토리: 키 큰 사진의 NICE DINERS",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "음식",
+    "레스토랑",
+    "노랑"
+   ]
+  },
+  "template:tk9-limpia": {
+   "name": "클린 오프너: 비트에 맞춘 단어와 사진",
+   "tags": [
+    "tiktok",
+    "스토리",
+    "릴스",
+    "오프닝",
+    "타이포그래피",
+    "단어"
    ]
   },
   "template:top-5-mas-vendidos": {

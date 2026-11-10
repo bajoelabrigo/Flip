@@ -117,6 +117,7 @@
   "template:collage": "拼图",
   "template:countdown": "倒计时",
   "template:counter": "计数器",
+  "template:instagram": "Instagram 套装",
   "template:intro": "片头与标题",
   "template:lowerthird": "字幕条",
   "template:outro": "片尾",
@@ -127,6 +128,7 @@
   "template:story15": "15秒故事",
   "template:text": "文字",
   "template:thumbnail": "视频封面",
+  "template:tiktok": "TikTok 套装",
   "template:transition": "转场与分隔",
   "template:youtuber": "视频博主风格",
   "template:ytkit": "YouTube 套件",
@@ -25272,6 +25274,3013 @@
     "派对"
    ]
   },
+  "template:ig0-intro-urbana": {
+   "name": "都市动感开场：URBAN、STREETS、PROMO 与你的标志",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "开场",
+    "都市",
+    "动感片头"
+   ]
+  },
+  "template:ig1-alison": {
+   "name": "快拍：红框照片上的姓名",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "姓名",
+    "个人资料",
+    "红色"
+   ]
+  },
+  "template:ig1-anna": {
+   "name": "快拍：蓝色渐变上的照片与姓名",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "姓名",
+    "个人资料",
+    "渐变"
+   ]
+  },
+  "template:ig1-beautiful": {
+   "name": "快拍：#beautiful 照片与名言",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "名言",
+    "照片"
+   ]
+  },
+  "template:ig1-believe": {
+   "name": "快拍：WE MUST BELIEVE 分割线",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "短句",
+    "照片",
+    "黑色"
+   ]
+  },
+  "template:ig1-catherine": {
+   "name": "快拍：渐变背景圆形照片、姓名与名言",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "名言",
+    "个人资料",
+    "渐变"
+   ]
+  },
+  "template:ig1-conquer": {
+   "name": "快拍：Conquer from within 照片轮播",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "轮播",
+    "照片",
+    "白色"
+   ]
+  },
+  "template:ig1-do-your-best": {
+   "name": "快拍：丝带上的 DO YOUR BEST",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "短句",
+    "城市",
+    "励志"
+   ]
+  },
+  "template:ig1-dog": {
+   "name": "快拍：#photooftheday 色带分割照片",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "宠物",
+    "照片",
+    "色带"
+   ]
+  },
+  "template:ig1-elegant": {
+   "name": "快拍：ELEGANT TYPO DESIGN 镜像窗口",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "字体排版",
+    "大海",
+    "优雅"
+   ]
+  },
+  "template:ig1-forty-sale": {
+   "name": "快拍：竖排 40% Sale 与照片",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "打折",
+    "折扣",
+    "时尚"
+   ]
+  },
+  "template:ig1-happy-thoughts": {
+   "name": "快拍：倾斜拍立得“happy thoughts”",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "拍立得",
+    "婚礼",
+    "手写"
+   ]
+  },
+  "template:ig1-heart": {
+   "name": "快拍：爱心照片“happy thoughts”",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "爱心",
+    "爱情",
+    "蜜桃色"
+   ]
+  },
+  "template:ig1-instalove": {
+   "name": "快拍：#instalove LIVE WHAT YOU LOVE",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "短句",
+    "森林",
+    "姓名"
+   ]
+  },
+  "template:ig1-lifestyle": {
+   "name": "快拍：#lifestyle 照片马赛克",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "拼贴",
+    "夏日",
+    "马赛克"
+   ]
+  },
+  "template:ig1-live-what": {
+   "name": "快拍：Live what you love 2×2 网格",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "网格",
+    "拼贴",
+    "白色"
+   ]
+  },
+  "template:ig1-love-friendship": {
+   "name": "快拍：拍立得与手写“Love is friendship”",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "拍立得",
+    "粉色",
+    "名言"
+   ]
+  },
+  "template:ig1-love-loves": {
+   "name": "快拍：两张拍立得、箭头与手写句子",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "拍立得",
+    "粉色",
+    "箭头"
+   ]
+  },
+  "template:ig1-must-believe": {
+   "name": "快拍：镜像圆形中的 WE MUST BELIEVE",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "短句",
+    "圆形",
+    "风景"
+   ]
+  },
+  "template:ig1-nature": {
+   "name": "快拍：方框中的 Nature 与边框",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "自然",
+    "边框",
+    "大海"
+   ]
+  },
+  "template:ig1-neon": {
+   "name": "快拍：青色霓虹 NEON CITY",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "霓虹",
+    "城市",
+    "夜晚"
+   ]
+  },
+  "template:ig1-photo-frame": {
+   "name": "快拍：白色卡片开启窗口",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "边框",
+    "美食",
+    "照片"
+   ]
+  },
+  "template:ig1-seek": {
+   "name": "快拍：SEEK THE SEEKER 照片字母",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "短句",
+    "树叶",
+    "抠图"
+   ]
+  },
+  "template:ig1-so-it-goes": {
+   "name": "快拍：So it goes 2×2 网格",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "网格",
+    "拼贴",
+    "粉色"
+   ]
+  },
+  "template:ig1-spring-sale": {
+   "name": "快拍：春季促销 30%",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "打折",
+    "折扣",
+    "时尚"
+   ]
+  },
+  "template:ig1-stylish-bike": {
+   "name": "快拍：S T Y L I S H 抠图",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "抠图",
+    "青绿色",
+    "链接"
+   ]
+  },
+  "template:ig1-stylish-design": {
+   "name": "快拍：渐变边框中的 STYLISH DESIGN",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "边框",
+    "渐变",
+    "深色"
+   ]
+  },
+  "template:ig1-stylish-skate": {
+   "name": "快拍：竖排巨大 Stylish 与格言",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "竖版",
+    "滑板",
+    "字体排版"
+   ]
+  },
+  "template:ig1-success": {
+   "name": "快拍：岩石上的名言与 01",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "名言",
+    "短句",
+    "深色"
+   ]
+  },
+  "template:ig1-work-dream": {
+   "name": "快拍：竖排 Work hard. Dream big. 与 05",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "短句",
+    "竖版",
+    "数字"
+   ]
+  },
+  "template:ig1-work-hard": {
+   "name": "快拍：黑底 WORK HARD. DREAM BIG.",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "短句",
+    "励志",
+    "黑色"
+   ]
+  },
+  "template:ig10-arco-sube": {
+   "name": "快拍：升起的拱形照片与 MODELS",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "时尚",
+    "模特",
+    "照片"
+   ]
+  },
+  "template:ig10-ovalo-abre": {
+   "name": "快拍：从一条线展开的椭圆照片",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "时尚",
+    "模特",
+    "照片"
+   ]
+  },
+  "template:ig10-ovalo-sube": {
+   "name": "快拍：带两道轮廓的升起椭圆照片",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "时尚",
+    "模特",
+    "照片"
+   ]
+  },
+  "template:ig10-u-foto": {
+   "name": "快拍：圆底照片与框内标题",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "时尚",
+    "模特",
+    "照片"
+   ]
+  },
+  "template:ig10-ventana-arco": {
+   "name": "快拍：拱形窗口中的薄纱照片",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "时尚",
+    "模特",
+    "照片"
+   ]
+  },
+  "template:ig11-avatar-seguir": {
+   "name": "头像与关注",
+   "tags": [
+    "instagram",
+    "行动号召",
+    "社交媒体",
+    "元素",
+    "关注",
+    "快拍"
+   ]
+  },
+  "template:ig11-comenta": {
+   "name": "在下方评论",
+   "tags": [
+    "instagram",
+    "行动号召",
+    "社交媒体",
+    "元素",
+    "评论",
+    "计数器"
+   ]
+  },
+  "template:ig11-compartir": {
+   "name": "分享帖子给更多人",
+   "tags": [
+    "instagram",
+    "行动号召",
+    "社交媒体",
+    "元素",
+    "分享",
+    "帖子"
+   ]
+  },
+  "template:ig11-doble-toque": {
+   "name": "双击点赞",
+   "tags": [
+    "instagram",
+    "行动号召",
+    "社交媒体",
+    "元素",
+    "点赞",
+    "爱心"
+   ]
+  },
+  "template:ig11-enlace-bio": {
+   "name": "点击简介链接",
+   "tags": [
+    "instagram",
+    "行动号召",
+    "社交媒体",
+    "元素",
+    "链接",
+    "简介"
+   ]
+  },
+  "template:ig11-etiqueta": {
+   "name": "标记某人",
+   "tags": [
+    "instagram",
+    "行动号召",
+    "社交媒体",
+    "元素",
+    "标记",
+    "@符号"
+   ]
+  },
+  "template:ig11-inspiracion": {
+   "name": "寻找你的灵感",
+   "tags": [
+    "instagram",
+    "行动号召",
+    "社交媒体",
+    "元素",
+    "搜索"
+   ]
+  },
+  "template:ig11-pastilla-seguir": {
+   "name": "姓名胶囊与关注",
+   "tags": [
+    "instagram",
+    "行动号召",
+    "社交媒体",
+    "元素",
+    "关注",
+    "姓名"
+   ]
+  },
+  "template:ig11-pastilla-usuario": {
+   "name": "用户胶囊与粉丝数",
+   "tags": [
+    "instagram",
+    "行动号召",
+    "社交媒体",
+    "元素",
+    "用户",
+    "粉丝"
+   ]
+  },
+  "template:ig11-perfil": {
+   "name": "个人资料卡",
+   "tags": [
+    "instagram",
+    "行动号召",
+    "社交媒体",
+    "元素",
+    "个人资料",
+    "关注"
+   ]
+  },
+  "template:ig11-publicacion": {
+   "name": "帖子卡片",
+   "tags": [
+    "instagram",
+    "行动号召",
+    "社交媒体",
+    "元素",
+    "帖子",
+    "点赞"
+   ]
+  },
+  "template:ig11-reels": {
+   "name": "观看我们最新的 Reels",
+   "tags": [
+    "instagram",
+    "行动号召",
+    "社交媒体",
+    "元素",
+    "reels",
+    "观看"
+   ]
+  },
+  "template:ig11-responder": {
+   "name": "评论卡片与回复",
+   "tags": [
+    "instagram",
+    "行动号召",
+    "社交媒体",
+    "元素",
+    "评论",
+    "回复"
+   ]
+  },
+  "template:ig11-tu-historia": {
+   "name": "添加你的快拍",
+   "tags": [
+    "instagram",
+    "行动号召",
+    "社交媒体",
+    "元素",
+    "快拍",
+    "分享"
+   ]
+  },
+  "template:ig11-ver-historia": {
+   "name": "点按查看快拍",
+   "tags": [
+    "instagram",
+    "行动号召",
+    "社交媒体",
+    "元素",
+    "快拍",
+    "点按"
+   ]
+  },
+  "template:ig12-anillos": {
+   "name": "快拍：圆环、圆形照片与巨大字母",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "橙色",
+    "红色",
+    "圆圈"
+   ]
+  },
+  "template:ig12-caja-roja": {
+   "name": "快拍：红框、竖排单词与巨大字母",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "橙色",
+    "红色",
+    "方框"
+   ]
+  },
+  "template:ig12-diagonal": {
+   "name": "快拍：斜纹与巨大单词",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "橙色",
+    "红色",
+    "斜向"
+   ]
+  },
+  "template:ig12-franjas": {
+   "name": "快拍：彩色色带与竖排单词",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "橙色",
+    "红色",
+    "条纹"
+   ]
+  },
+  "template:ig12-panel-rojo": {
+   "name": "快拍：巨大单词滑过红色面板",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "橙色",
+    "红色",
+    "面板"
+   ]
+  },
+  "template:ig13-amarilla": {
+   "name": "字体快拍：黄色",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "字体排版",
+    "黄色",
+    "黑色"
+   ]
+  },
+  "template:ig13-caja-negra": {
+   "name": "字体快拍：黑色方框",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "字体排版",
+    "黄色",
+    "黑色"
+   ]
+  },
+  "template:ig13-filas": {
+   "name": "字体快拍：字母行列",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "字体排版",
+    "黄色",
+    "黑色"
+   ]
+  },
+  "template:ig13-gris-ra": {
+   "name": "字体快拍：灰色 RA",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "字体排版",
+    "黄色",
+    "黑色"
+   ]
+  },
+  "template:ig13-letras-grises": {
+   "name": "字体快拍：黄色字母",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "字体排版",
+    "黄色",
+    "黑色"
+   ]
+  },
+  "template:ig13-muro-de-fotos": {
+   "name": "照片墙与你的标志",
+   "tags": [
+    "instagram",
+    "照片墙",
+    "reels",
+    "快拍",
+    "照片",
+    "标志"
+   ]
+  },
+  "template:ig13-negra": {
+   "name": "字体快拍：黑色斜线",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "字体排版",
+    "黄色",
+    "黑色"
+   ]
+  },
+  "template:ig13-oscura": {
+   "name": "字体快拍：深色与球体",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "字体排版",
+    "黄色",
+    "黑色"
+   ]
+  },
+  "template:ig14-dinamica": {
+   "name": "动感幻灯片：每张照片一个单词",
+   "tags": [
+    "instagram",
+    "幻灯片",
+    "reels",
+    "快拍",
+    "照片幻灯片",
+    "动感"
+   ]
+  },
+  "template:ig14-energia": {
+   "name": "活力幻灯片与标志",
+   "tags": [
+    "instagram",
+    "幻灯片",
+    "reels",
+    "快拍",
+    "照片幻灯片",
+    "活力"
+   ]
+  },
+  "template:ig14-epica": {
+   "name": "带故障效果的史诗幻灯片",
+   "tags": [
+    "instagram",
+    "幻灯片",
+    "reels",
+    "快拍",
+    "照片幻灯片",
+    "史诗"
+   ]
+  },
+  "template:ig14-limpia": {
+   "name": "大字体简洁幻灯片",
+   "tags": [
+    "instagram",
+    "幻灯片",
+    "reels",
+    "快拍",
+    "照片幻灯片",
+    "简洁"
+   ]
+  },
+  "template:ig14-minimal": {
+   "name": "白底极简幻灯片",
+   "tags": [
+    "instagram",
+    "幻灯片",
+    "reels",
+    "快拍",
+    "照片幻灯片",
+    "极简"
+   ]
+  },
+  "template:ig14-moda": {
+   "name": "带字幕的时尚幻灯片",
+   "tags": [
+    "instagram",
+    "幻灯片",
+    "reels",
+    "快拍",
+    "照片幻灯片",
+    "时尚"
+   ]
+  },
+  "template:ig14-ritmica": {
+   "name": "圆环节奏幻灯片",
+   "tags": [
+    "instagram",
+    "幻灯片",
+    "reels",
+    "快拍",
+    "照片幻灯片",
+    "节奏"
+   ]
+  },
+  "template:ig14-stomp": {
+   "name": "踩点幻灯片：每拍一个单词",
+   "tags": [
+    "instagram",
+    "幻灯片",
+    "reels",
+    "快拍",
+    "照片幻灯片",
+    "踩点"
+   ]
+  },
+  "template:ig2-cartel-amarillo": {
+   "name": "快拍：黄色 Your Stories 海报",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "多彩",
+    "海报",
+    "黄色"
+   ]
+  },
+  "template:ig2-ciudad-oferta": {
+   "name": "快拍：城市优惠与百分比圆圈",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "多彩",
+    "优惠",
+    "折扣"
+   ]
+  },
+  "template:ig2-cocina": {
+   "name": "快拍：烹饪节目开场",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "多彩",
+    "烹饪",
+    "美食"
+   ]
+  },
+  "template:ig2-feliz": {
+   "name": "快拍：HAPPY 巨大字母与薄荷色方框",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "多彩",
+    "快乐",
+    "黑白"
+   ]
+  },
+  "template:ig2-interior": {
+   "name": "快拍：室内设计与彩色圆圈",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "多彩",
+    "室内",
+    "设计"
+   ]
+  },
+  "template:ig2-moda": {
+   "name": "快拍：薄荷与红色的时尚",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "多彩",
+    "时尚",
+    "个人资料"
+   ]
+  },
+  "template:ig2-oscuro": {
+   "name": "快拍：DARK 网格字母",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "多彩",
+    "深色",
+    "时尚"
+   ]
+  },
+  "template:ig2-presentamos": {
+   "name": "快拍：INTRODUCING OUR STORIES 渐变条纹",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "多彩",
+    "介绍",
+    "渐变"
+   ]
+  },
+  "template:ig2-rostro-franjas": {
+   "name": "快拍：人脸、彩色色带与圆圈",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "多彩",
+    "人像",
+    "品牌"
+   ]
+  },
+  "template:ig2-tu-mente": {
+   "name": "快拍：紫色 Say what's on your mind",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "多彩",
+    "短句",
+    "紫罗兰"
+   ]
+  },
+  "template:ig2-tu-vida": {
+   "name": "快拍：YOUR LIFE 黄色色带",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "多彩",
+    "生活",
+    "小贴士"
+   ]
+  },
+  "template:ig2-viaje-verano": {
+   "name": "快拍：GREAT TRIP SUMMER 照片云",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "多彩",
+    "旅行",
+    "夏日"
+   ]
+  },
+  "template:ig3-arte": {
+   "name": "快拍：画作上的艺术 01 Stories",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "艺术",
+    "绘画"
+   ]
+  },
+  "template:ig3-ciencia": {
+   "name": "快拍：A-01 MODERN SCIENCE 圆圈",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "科学",
+    "圆形"
+   ]
+  },
+  "template:ig3-city-life": {
+   "name": "快拍：CITY LIFE 粉色面板",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "城市"
+   ]
+  },
+  "template:ig3-comida-circulo": {
+   "name": "快拍：圆圈中的 Say what's on your mind",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "美食",
+    "圆形"
+   ]
+  },
+  "template:ig3-fashion": {
+   "name": "快拍：FASHION 45$ 照片填充字母",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "时尚",
+    "优惠"
+   ]
+  },
+  "template:ig3-food": {
+   "name": "快拍：美食 50% 折扣",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "美食",
+    "优惠"
+   ]
+  },
+  "template:ig3-friend": {
+   "name": "快拍：FRIEND GREAT TRIP 圆圈",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "朋友",
+    "圆形"
+   ]
+  },
+  "template:ig3-full": {
+   "name": "快拍：毛笔字 Full 100%",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "优惠",
+    "宠物"
+   ]
+  },
+  "template:ig3-introducing": {
+   "name": "快拍：森林中的 INTRODUCING STORIES",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "冬季",
+    "介绍"
+   ]
+  },
+  "template:ig3-models": {
+   "name": "快拍：MODELS FASHION 括号",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "时尚",
+    "人像"
+   ]
+  },
+  "template:ig3-music": {
+   "name": "快拍：MUSIC EXCLUSIVE 圆环",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "音乐",
+    "圆形"
+   ]
+  },
+  "template:ig3-new": {
+   "name": "快拍：旅行 NEW 与笔触",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "旅行",
+    "笔触"
+   ]
+  },
+  "template:ig3-opener": {
+   "name": "方形帖子的动感开场",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "开场",
+    "字体排版",
+    "帖子"
+   ]
+  },
+  "template:ig3-perfil-amarillo": {
+   "name": "个人资料：黄色卡片与照片",
+   "tags": [
+    "instagram",
+    "个人资料",
+    "快拍",
+    "reels"
+   ]
+  },
+  "template:ig3-perfil-coral": {
+   "name": "个人资料：珊瑚色卡片与色块",
+   "tags": [
+    "instagram",
+    "个人资料",
+    "快拍",
+    "reels"
+   ]
+  },
+  "template:ig3-perfil-degradado": {
+   "name": "个人资料：渐变卡片与圆圈",
+   "tags": [
+    "instagram",
+    "个人资料",
+    "快拍",
+    "reels"
+   ]
+  },
+  "template:ig3-perfil-oscuro": {
+   "name": "个人资料：深色卡片与红色姓名",
+   "tags": [
+    "instagram",
+    "个人资料",
+    "快拍",
+    "reels"
+   ]
+  },
+  "template:ig3-perfil-rojo": {
+   "name": "个人资料：红色卡片与头像",
+   "tags": [
+    "instagram",
+    "个人资料",
+    "快拍",
+    "reels"
+   ]
+  },
+  "template:ig3-portfolio": {
+   "name": "快拍：PORTFOLIO 与姓名",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "作品集"
+   ]
+  },
+  "template:ig3-programa": {
+   "name": "快拍：V 6 圆角条",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "科技",
+    "柔和色"
+   ]
+  },
+  "template:ig3-promo": {
+   "name": "快拍：产品促销与黄色圆盘",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "产品",
+    "促销"
+   ]
+  },
+  "template:ig3-sport": {
+   "name": "快拍：SPORT 粉色徽章",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "运动"
+   ]
+  },
+  "template:ig3-tech": {
+   "name": "快拍：TECH 散落字母",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "科技"
+   ]
+  },
+  "template:ig3-toys": {
+   "name": "快拍：TOYS 渐变圆盘",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "玩具",
+    "圆形"
+   ]
+  },
+  "template:ig3-tv": {
+   "name": "快拍：Media Social 圆形照片",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "社交媒体",
+    "圆形"
+   ]
+  },
+  "template:ig3-your-life": {
+   "name": "快拍：YOUR LIFE 与 PRO 彩色色带",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "室内"
+   ]
+  },
+  "template:ig4-abstract": {
+   "name": "快拍：ABSTRACT GEOMETRIC STYLE",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "几何",
+    "建筑"
+   ]
+  },
+  "template:ig4-amazing-dream": {
+   "name": "快拍：Amazing dream 双照片",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "短句",
+    "棕色"
+   ]
+  },
+  "template:ig4-audacious": {
+   "name": "快拍：LET'S DO WHAT WE LOVE #AUDACIOUS",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "励志",
+    "黑色"
+   ]
+  },
+  "template:ig4-beauty": {
+   "name": "快拍：There is beauty in simplicity",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "自然",
+    "短句"
+   ]
+  },
+  "template:ig4-beauty-flowers": {
+   "name": "快拍：Beauty 与鲜花",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "鲜花",
+    "书法"
+   ]
+  },
+  "template:ig4-believe": {
+   "name": "快拍：BELIEVE YOU CAN SO YOU ARE HALFWAY THERE",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "励志",
+    "短句"
+   ]
+  },
+  "template:ig4-big": {
+   "name": "快拍：BIG. 条纹圆圈",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "时尚",
+    "条纹"
+   ]
+  },
+  "template:ig4-born-wild": {
+   "name": "快拍：BORN TO BE WILD",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "冒险",
+    "蓝色"
+   ]
+  },
+  "template:ig4-brand-new-day": {
+   "name": "快拍：brand new day 三角形",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "三角形",
+    "几何"
+   ]
+  },
+  "template:ig4-clear": {
+   "name": "快拍：CLEAR INTERIOR 左右两半",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "室内",
+    "家居"
+   ]
+  },
+  "template:ig4-cold-wave": {
+   "name": "快拍：COLD WAVE WARM SUN 照片字母",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "大海",
+    "字体排版"
+   ]
+  },
+  "template:ig4-confident": {
+   "name": "快拍：STYLISH & CONFIDENT 三窗口",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "时尚",
+    "男士"
+   ]
+  },
+  "template:ig4-control": {
+   "name": "快拍：CONTROL 标志与两张照片",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "标志",
+    "瑜伽"
+   ]
+  },
+  "template:ig4-courage": {
+   "name": "快拍：#courage 笔触",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "人像",
+    "橙色"
+   ]
+  },
+  "template:ig4-culinary": {
+   "name": "快拍：CULINARY ART #cooking",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "烹饪",
+    "美食"
+   ]
+  },
+  "template:ig4-deep-breath": {
+   "name": "快拍：ENJOY DEEP BREATH 树叶",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "自然",
+    "绿色"
+   ]
+  },
+  "template:ig4-delicious": {
+   "name": "快拍：#DELICIOUS 网格",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "美食",
+    "甜点"
+   ]
+  },
+  "template:ig4-dream": {
+   "name": "快拍：城市上方边框 DREAM",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "城市",
+    "边框"
+   ]
+  },
+  "template:ig4-employee": {
+   "name": "快拍：BEST EMPLOYEE OF THE MONTH",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "公司",
+    "员工"
+   ]
+  },
+  "template:ig4-enjoy-music": {
+   "name": "快拍：蓝红 ENJOY MY MUSIC",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "音乐",
+    "舞蹈"
+   ]
+  },
+  "template:ig4-fashion-buy": {
+   "name": "快拍：色带上的 FASHION IS WHAT YOU BUY",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "时尚",
+    "条纹"
+   ]
+  },
+  "template:ig4-fitness": {
+   "name": "快拍：FITNESS BODY ENERGY WORKOUT",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "健身房",
+    "运动"
+   ]
+  },
+  "template:ig4-fun": {
+   "name": "快拍：#FUN 边框照片",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "边框",
+    "红色"
+   ]
+  },
+  "template:ig4-glam": {
+   "name": "快拍：粉黑 GLAM ROCK",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "时尚",
+    "粉色"
+   ]
+  },
+  "template:ig4-instamusic": {
+   "name": "快拍：#instamusic #yourbeat 色块",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "音乐",
+    "霓虹"
+   ]
+  },
+  "template:ig4-life-good": {
+   "name": "快拍：LIFE IS SO GOOD JUST BE YOURSELF",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "短句",
+    "霓虹"
+   ]
+  },
+  "template:ig4-lifestyle": {
+   "name": "快拍：my lifestyle #followme",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "生活方式",
+    "蓝色"
+   ]
+  },
+  "template:ig4-look-deep": {
+   "name": "快拍：LOOK DEEP INTO NATURE 六边形",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "自然",
+    "六边形"
+   ]
+  },
+  "template:ig4-masterpiece": {
+   "name": "快拍：MAKE EACH DAY YOUR MASTERPIECE",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "短句",
+    "粉色"
+   ]
+  },
+  "template:ig4-meeting": {
+   "name": "快拍：MEETING WITH FRIENDS 分栏",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "朋友",
+    "分栏"
+   ]
+  },
+  "template:ig4-motion": {
+   "name": "快拍：MOTION 黄色圆圈",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "舞蹈",
+    "圆形"
+   ]
+  },
+  "template:ig4-moving": {
+   "name": "快拍：Moving 双圆环",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "舞蹈",
+    "圆环"
+   ]
+  },
+  "template:ig4-music": {
+   "name": "快拍：MUSIC DANCE ENJOY",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "音乐",
+    "派对"
+   ]
+  },
+  "template:ig4-natural": {
+   "name": "快拍：NATURAL BEAUTY 三栏",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "自然",
+    "分栏"
+   ]
+  },
+  "template:ig4-never-easier": {
+   "name": "快拍：红色 IT NEVER GETS EASIER",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "健身房",
+    "励志"
+   ]
+  },
+  "template:ig4-ocean": {
+   "name": "快拍：OCEAN HAPPY RELAX 边框",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "大海",
+    "边框"
+   ]
+  },
+  "template:ig4-pro-fitness": {
+   "name": "快拍：PRO fitness 交叉边框",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "运动",
+    "边框"
+   ]
+  },
+  "template:ig4-sale40": {
+   "name": "快拍：直立 SALE 40%",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "打折",
+    "优惠"
+   ]
+  },
+  "template:ig4-sale75": {
+   "name": "快拍：SALE UP TO 75% OFF",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "打折",
+    "优惠"
+   ]
+  },
+  "template:ig4-secrets": {
+   "name": "快拍：NO MORE SECRETS #IMAGINE",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "红色",
+    "斜向"
+   ]
+  },
+  "template:ig4-shopping-week": {
+   "name": "快拍：#shoppingweek 40% FOR SALE",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "打折",
+    "购物"
+   ]
+  },
+  "template:ig4-simplelife": {
+   "name": "快拍：When you focus on the good #simplelife",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "短句",
+    "蓝色"
+   ]
+  },
+  "template:ig4-skate": {
+   "name": "快拍：0256 #skatelife",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "滑板",
+    "运动"
+   ]
+  },
+  "template:ig4-sport": {
+   "name": "快拍：W SPORT 与线条",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "运动",
+    "跑步"
+   ]
+  },
+  "template:ig4-spring": {
+   "name": "快拍：SPRING IS IN THE AIR",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "春天",
+    "鲜花"
+   ]
+  },
+  "template:ig4-stay-strong": {
+   "name": "快拍：STAY STRONG DON'T GIVE UP",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "励志",
+    "红色"
+   ]
+  },
+  "template:ig4-street-fast": {
+   "name": "快拍：10/25 #youth street FAST",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "街头",
+    "滑板"
+   ]
+  },
+  "template:ig4-style": {
+   "name": "快拍：STYLE IS VERY PERSONAL",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "时尚",
+    "红色"
+   ]
+  },
+  "template:ig4-style-beautiful": {
+   "name": "快拍：STYLE #beautiful 色带",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "时尚",
+    "条纹"
+   ]
+  },
+  "template:ig4-stylish": {
+   "name": "快拍：#stylish 蓝色圆盘",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "时尚",
+    "蓝色"
+   ]
+  },
+  "template:ig4-summer": {
+   "name": "快拍：#SUMMER 海滩菱形",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "海滩",
+    "夏日"
+   ]
+  },
+  "template:ig4-summer-event": {
+   "name": "快拍：夏日活动与日期",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "夏日",
+    "活动"
+   ]
+  },
+  "template:ig4-summer-look": {
+   "name": "快拍：色带中的 Summer look #fashion",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "时尚",
+    "夏日"
+   ]
+  },
+  "template:ig4-sunshine": {
+   "name": "快拍：SUNSHINE 四张照片",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "夏日",
+    "拼贴"
+   ]
+  },
+  "template:ig4-sunshine-tag": {
+   "name": "快拍：#sunshine Relaxing holiday",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "夏日",
+    "蓝色"
+   ]
+  },
+  "template:ig4-trendy": {
+   "name": "快拍：红色 #TRENDY YOUR STYLE",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "红色",
+    "时尚"
+   ]
+  },
+  "template:ig4-tropical": {
+   "name": "快拍：FEELING TROPICAL 三张照片",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "夏日",
+    "热带"
+   ]
+  },
+  "template:ig4-winner": {
+   "name": "快拍：THE WINNER NEVER QUITS",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "励志",
+    "健身房"
+   ]
+  },
+  "template:ig4-young": {
+   "name": "快拍：YOUNG #followus",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "青春",
+    "红色"
+   ]
+  },
+  "template:ig4-youth": {
+   "name": "快拍：#YOUTH & FREEDOM 三角形",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "三角形",
+    "珊瑚色"
+   ]
+  },
+  "template:ig5-amazing-now": {
+   "name": "快拍：AMAZING NOW",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "黑白",
+    "红色"
+   ]
+  },
+  "template:ig5-awesome": {
+   "name": "快拍：竖排 AWESOME",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "红色",
+    "竖版"
+   ]
+  },
+  "template:ig5-be-strong": {
+   "name": "快拍：B STRONG",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "红色",
+    "短句"
+   ]
+  },
+  "template:ig5-beach-therapy": {
+   "name": "快拍：青色 beach therapy",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "海滩",
+    "假期"
+   ]
+  },
+  "template:ig5-beauty-pro": {
+   "name": "快拍：BEAUTY 紫色波浪",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "美妆",
+    "紫色"
+   ]
+  },
+  "template:ig5-best-look": {
+   "name": "快拍：边框中的 YOUR BEST LOOK",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "绿色",
+    "时尚"
+   ]
+  },
+  "template:ig5-choose-glam": {
+   "name": "快拍：48 choose the glam",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "美妆",
+    "魅力"
+   ]
+  },
+  "template:ig5-cold-water": {
+   "name": "快拍：COLD DEEP WATER",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "大海",
+    "黄色"
+   ]
+  },
+  "template:ig5-creative-studio": {
+   "name": "快拍：CREATIVE DESIGN STUDIO",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "设计",
+    "工作室"
+   ]
+  },
+  "template:ig5-dancing": {
+   "name": "快拍：#DANCING 斜向照片",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "舞蹈",
+    "斜向"
+   ]
+  },
+  "template:ig5-daring-style": {
+   "name": "快拍：黄底 DARING STYLE",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "黄色",
+    "时尚"
+   ]
+  },
+  "template:ig5-denim-style": {
+   "name": "快拍：边框中的 DENIM STYLE",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "时尚",
+    "方框"
+   ]
+  },
+  "template:ig5-design-passion": {
+   "name": "快拍：DESIGN IS MY PASSION",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "室内",
+    "设计"
+   ]
+  },
+  "template:ig5-dont-waste": {
+   "name": "快拍：DON'T WASTE YOUR TIME",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "短句",
+    "蓝绿色"
+   ]
+  },
+  "template:ig5-enjoy-movement": {
+   "name": "快拍：enjoy the movement",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "舞蹈",
+    "黑色"
+   ]
+  },
+  "template:ig5-flexible-body": {
+   "name": "快拍：FLEXIBLE BODY 渐变色带",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "健身",
+    "渐变"
+   ]
+  },
+  "template:ig5-focus-breathe": {
+   "name": "快拍：FOCUS ON THE BREATHE",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "短句",
+    "字体排版"
+   ]
+  },
+  "template:ig5-fondo-ambar": {
+   "name": "背景：琥珀色圆圈",
+   "tags": [
+    "instagram",
+    "背景",
+    "快拍",
+    "reels",
+    "橙色",
+    "棕色"
+   ]
+  },
+  "template:ig5-fondo-burbujas-azules": {
+   "name": "背景：粉底蓝色气泡",
+   "tags": [
+    "instagram",
+    "背景",
+    "快拍",
+    "reels",
+    "粉色",
+    "蓝色"
+   ]
+  },
+  "template:ig5-fondo-burbujas-grises": {
+   "name": "背景：黑底灰色气泡",
+   "tags": [
+    "instagram",
+    "背景",
+    "快拍",
+    "reels",
+    "黑色",
+    "灰色"
+   ]
+  },
+  "template:ig5-fondo-chevrones": {
+   "name": "背景：红色人字纹",
+   "tags": [
+    "instagram",
+    "背景",
+    "快拍",
+    "reels",
+    "红色",
+    "箭头"
+   ]
+  },
+  "template:ig5-fondo-cinta-azul": {
+   "name": "背景：红底蓝色丝带",
+   "tags": [
+    "instagram",
+    "背景",
+    "快拍",
+    "reels",
+    "渐变",
+    "蓝色"
+   ]
+  },
+  "template:ig5-fondo-geometrico": {
+   "name": "背景：灰底几何碎片",
+   "tags": [
+    "instagram",
+    "背景",
+    "快拍",
+    "reels",
+    "灰色",
+    "几何"
+   ]
+  },
+  "template:ig5-fondo-lineas": {
+   "name": "背景：渐变与霓虹线条",
+   "tags": [
+    "instagram",
+    "背景",
+    "快拍",
+    "reels",
+    "渐变",
+    "粉色"
+   ]
+  },
+  "template:ig5-fondo-lineas-cruzadas": {
+   "name": "背景：交叉线条",
+   "tags": [
+    "instagram",
+    "背景",
+    "快拍",
+    "reels",
+    "渐变",
+    "洋红色"
+   ]
+  },
+  "template:ig5-fondo-olas": {
+   "name": "背景：橙紫波浪",
+   "tags": [
+    "instagram",
+    "背景",
+    "快拍",
+    "reels",
+    "渐变",
+    "橙色"
+   ]
+  },
+  "template:ig5-fondo-pildoras": {
+   "name": "背景：粉色药丸形",
+   "tags": [
+    "instagram",
+    "背景",
+    "快拍",
+    "reels",
+    "粉色",
+    "柔和色"
+   ]
+  },
+  "template:ig5-fondo-plata": {
+   "name": "背景：银色条纹",
+   "tags": [
+    "instagram",
+    "背景",
+    "快拍",
+    "reels",
+    "银色",
+    "灰色"
+   ]
+  },
+  "template:ig5-fondo-rojo": {
+   "name": "背景：红色圆角图形",
+   "tags": [
+    "instagram",
+    "背景",
+    "快拍",
+    "reels",
+    "红色",
+    "图形"
+   ]
+  },
+  "template:ig5-gentle-soft": {
+   "name": "快拍：GENTLE & SOFT 卡片",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "鲜花",
+    "卡片"
+   ]
+  },
+  "template:ig5-glam": {
+   "name": "快拍：GLAM 相机拍摄",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "粉色",
+    "相机"
+   ]
+  },
+  "template:ig5-happiness-love": {
+   "name": "快拍：HAPPINESS 与 LOVE 拼贴",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "拼贴",
+    "婚礼"
+   ]
+  },
+  "template:ig5-happy-weekends": {
+   "name": "快拍：Happy weekends",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "鲜花",
+    "周末"
+   ]
+  },
+  "template:ig5-inspiration": {
+   "name": "快拍：#pleasure inspiration",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "红色",
+    "黑白"
+   ]
+  },
+  "template:ig5-interior-dream": {
+   "name": "快拍：INTERIOR OF YOUR DREAM 画册",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "画册",
+    "室内"
+   ]
+  },
+  "template:ig5-keep-simple": {
+   "name": "快拍：KEEP IT SIMPLE 圆圈",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "圆形",
+    "渐变"
+   ]
+  },
+  "template:ig5-light-easy": {
+   "name": "快拍：LIGHT & EASY 卡片",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "时尚",
+    "卡片"
+   ]
+  },
+  "template:ig5-look-deep": {
+   "name": "快拍：LOOK DEEP INTO YOURSELF",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "短句",
+    "霓虹"
+   ]
+  },
+  "template:ig5-mindfulness": {
+   "name": "快拍：黑白 #mindfulness",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "黑白",
+    "短句"
+   ]
+  },
+  "template:ig5-modern-office": {
+   "name": "快拍：MODERN OFFICE SPACE",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "办公室",
+    "公司"
+   ]
+  },
+  "template:ig5-ocean": {
+   "name": "快拍：圆圈中的 OCEAN",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "圆形",
+    "大海"
+   ]
+  },
+  "template:ig5-pleasure": {
+   "name": "快拍：PLEASURE 方块拼贴",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "拼贴",
+    "赤陶色"
+   ]
+  },
+  "template:ig5-power": {
+   "name": "快拍：#POWER 与照片",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "红色",
+    "时尚"
+   ]
+  },
+  "template:ig5-relax-home": {
+   "name": "快拍：Relax SWEET HOME",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "家居",
+    "室内"
+   ]
+  },
+  "template:ig5-sale-70": {
+   "name": "快拍：SALE 70% 斜向色带",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "打折",
+    "优惠"
+   ]
+  },
+  "template:ig5-sensual": {
+   "name": "快拍：SENSUAL 双照片",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "黑白",
+    "拼贴"
+   ]
+  },
+  "template:ig5-style-y": {
+   "name": "快拍：STYLE 与大 Y",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "时尚",
+    "蓝绿色"
+   ]
+  },
+  "template:ig5-summer-pause": {
+   "name": "快拍：SUMMER take a pause",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "夏日",
+    "假期"
+   ]
+  },
+  "template:ig5-sunny-day": {
+   "name": "快拍：SUNNY DAY 圆圈",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "夏日",
+    "泳池"
+   ]
+  },
+  "template:ig5-titulo-art-design": {
+   "name": "标题：ART & DESIGN FORUM",
+   "tags": [
+    "instagram",
+    "标题",
+    "文字",
+    "快拍",
+    "reels",
+    "艺术"
+   ]
+  },
+  "template:ig5-titulo-big-sale": {
+   "name": "标题：BIG SALE 毛笔与购物车",
+   "tags": [
+    "instagram",
+    "标题",
+    "文字",
+    "快拍",
+    "reels",
+    "打折"
+   ]
+  },
+  "template:ig5-titulo-bold-fashion": {
+   "name": "标题：倾斜 BOLD FASHION STYLE",
+   "tags": [
+    "instagram",
+    "标题",
+    "文字",
+    "快拍",
+    "reels",
+    "时尚"
+   ]
+  },
+  "template:ig5-titulo-chicle": {
+   "name": "标题：泡泡糖风格 BUBBLEGUM STYLE",
+   "tags": [
+    "instagram",
+    "标题",
+    "文字",
+    "快拍",
+    "reels",
+    "粉色"
+   ]
+  },
+  "template:ig5-titulo-cita": {
+   "name": "标题：带作者的名言",
+   "tags": [
+    "instagram",
+    "标题",
+    "文字",
+    "快拍",
+    "reels",
+    "名言"
+   ]
+  },
+  "template:ig5-titulo-do-what": {
+   "name": "标题：DO WHAT YOU WANT",
+   "tags": [
+    "instagram",
+    "标题",
+    "文字",
+    "快拍",
+    "reels",
+    "励志"
+   ]
+  },
+  "template:ig5-titulo-formas-abstractas": {
+   "name": "标题：ABSTRACT SHAPES DESIGN",
+   "tags": [
+    "instagram",
+    "标题",
+    "文字",
+    "快拍",
+    "reels",
+    "图形"
+   ]
+  },
+  "template:ig5-titulo-glitch": {
+   "name": "标题：故障风格 GLITCH STYLE",
+   "tags": [
+    "instagram",
+    "标题",
+    "文字",
+    "快拍",
+    "reels",
+    "故障"
+   ]
+  },
+  "template:ig5-titulo-neon": {
+   "name": "标题：发光 NEON",
+   "tags": [
+    "instagram",
+    "标题",
+    "文字",
+    "快拍",
+    "reels",
+    "霓虹"
+   ]
+  },
+  "template:ig5-titulo-never-give-up": {
+   "name": "标题：NEVER GIVE UP 毛笔",
+   "tags": [
+    "instagram",
+    "标题",
+    "文字",
+    "快拍",
+    "reels",
+    "励志"
+   ]
+  },
+  "template:ig5-titulo-retro": {
+   "name": "标题：80 年代 RETROSTYLE",
+   "tags": [
+    "instagram",
+    "标题",
+    "文字",
+    "快拍",
+    "reels",
+    "复古"
+   ]
+  },
+  "template:ig5-titulo-sale": {
+   "name": "标题：SALE 票券",
+   "tags": [
+    "instagram",
+    "标题",
+    "文字",
+    "快拍",
+    "reels",
+    "打折"
+   ]
+  },
+  "template:ig5-wake-up": {
+   "name": "快拍：WAKE UP AND BE AWESOME",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "红色",
+    "励志"
+   ]
+  },
+  "template:ig5-your-choice": {
+   "name": "快拍：黄色圆点人像",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "黄色",
+    "圆点"
+   ]
+  },
+  "template:ig5-your-style": {
+   "name": "快拍：Your style 拼贴",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "拼贴",
+    "室内"
+   ]
+  },
+  "template:ig6-arbol-cinta": {
+   "name": "圣诞快拍：金色丝带圣诞树",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "圣诞",
+    "树"
+   ]
+  },
+  "template:ig6-artista": {
+   "name": "快拍：You are the artist of your life 与 #YLIFE",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "蓝色",
+    "生活方式"
+   ]
+  },
+  "template:ig6-aventuras": {
+   "name": "快拍：My Adventures 双照片与绿色山峦",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "旅行",
+    "冒险"
+   ]
+  },
+  "template:ig6-diseno-pasion": {
+   "name": "快拍：粉底 Design is my passion",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "设计",
+    "建筑"
+   ]
+  },
+  "template:ig6-feliz-brillante": {
+   "name": "圣诞快拍：灰底 Merry & Bright",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "圣诞",
+    "节日"
+   ]
+  },
+  "template:ig6-interior": {
+   "name": "快拍：Clear Interior 黑色方框",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "家居",
+    "室内设计"
+   ]
+  },
+  "template:ig6-luz-calida": {
+   "name": "快拍：Cozy Light 菱形与 #WARM",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "家居",
+    "产品"
+   ]
+  },
+  "template:ig6-pino-rojo": {
+   "name": "圣诞快拍：红底松枝与 Merry Christmas",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "圣诞",
+    "打折",
+    "松树"
+   ]
+  },
+  "template:ig6-rebajas-50": {
+   "name": "快拍：SALE 50% OFF 标签与蓝色条纹",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "照片",
+    "打折",
+    "折扣"
+   ]
+  },
+  "template:ig6-rebajas-invierno": {
+   "name": "圣诞快拍：礼物打开成“winter sell XMAS 50%off”",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "圣诞",
+    "打折",
+    "折扣"
+   ]
+  },
+  "template:ig6-santa": {
+   "name": "圣诞快拍：圣诞老人脸与 Merry Xmas",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "圣诞",
+    "圣诞老人"
+   ]
+  },
+  "template:ig6-swipe-bandera": {
+   "name": "上滑：派对礼炮中弹出 SWIPE UP 旗帜",
+   "tags": [
+    "instagram",
+    "上滑",
+    "快拍",
+    "reels",
+    "箭头",
+    "叠加"
+   ]
+  },
+  "template:ig6-swipe-boton": {
+   "name": "上滑：白色按钮由方变圆",
+   "tags": [
+    "instagram",
+    "上滑",
+    "快拍",
+    "reels",
+    "箭头",
+    "叠加"
+   ]
+  },
+  "template:ig6-swipe-brillo": {
+   "name": "上滑：发光白色箭头上升",
+   "tags": [
+    "instagram",
+    "上滑",
+    "快拍",
+    "reels",
+    "箭头",
+    "叠加"
+   ]
+  },
+  "template:ig6-swipe-chevrones": {
+   "name": "上滑：三个蓝色箭头上升",
+   "tags": [
+    "instagram",
+    "上滑",
+    "快拍",
+    "reels",
+    "箭头",
+    "叠加"
+   ]
+  },
+  "template:ig6-swipe-circulo": {
+   "name": "上滑：白色圆圈与三角形上升并虚化",
+   "tags": [
+    "instagram",
+    "上滑",
+    "快拍",
+    "reels",
+    "箭头",
+    "叠加"
+   ]
+  },
+  "template:ig6-swipe-cuadro": {
+   "name": "上滑：青色方框、箭头及其倒影",
+   "tags": [
+    "instagram",
+    "上滑",
+    "快拍",
+    "reels",
+    "箭头",
+    "叠加"
+   ]
+  },
+  "template:ig6-swipe-figuras": {
+   "name": "上滑：绿色圆环变成三角形与 SWIPE UP",
+   "tags": [
+    "instagram",
+    "上滑",
+    "快拍",
+    "reels",
+    "箭头",
+    "叠加"
+   ]
+  },
+  "template:ig6-swipe-flecha": {
+   "name": "上滑：脉动线条上的蓝色箭头",
+   "tags": [
+    "instagram",
+    "上滑",
+    "快拍",
+    "reels",
+    "箭头",
+    "叠加"
+   ]
+  },
+  "template:ig6-swipe-interruptor": {
+   "name": "上滑：蓝色圆钮开关向上滑动",
+   "tags": [
+    "instagram",
+    "上滑",
+    "快拍",
+    "reels",
+    "箭头",
+    "叠加"
+   ]
+  },
+  "template:ig6-swipe-letras": {
+   "name": "上滑：跳动的 SWIPE UP 字母",
+   "tags": [
+    "instagram",
+    "上滑",
+    "快拍",
+    "reels",
+    "箭头",
+    "叠加"
+   ]
+  },
+  "template:ig6-swipe-mano": {
+   "name": "上滑：手向上滑动与箭头轨迹",
+   "tags": [
+    "instagram",
+    "上滑",
+    "快拍",
+    "reels",
+    "箭头",
+    "叠加"
+   ]
+  },
+  "template:ig6-swipe-triangulo": {
+   "name": "上滑：白色三角形与红点上升",
+   "tags": [
+    "instagram",
+    "上滑",
+    "快拍",
+    "reels",
+    "箭头",
+    "叠加"
+   ]
+  },
+  "template:ig7-awesome": {
+   "name": "字体快拍：AWESOME",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "字体排版",
+    "多彩",
+    "条纹"
+   ]
+  },
+  "template:ig7-big": {
+   "name": "字体快拍：BIG",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "字体排版",
+    "多彩",
+    "巨大字母"
+   ]
+  },
+  "template:ig7-brand": {
+   "name": "字体快拍：BRAND",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "字体排版",
+    "多彩",
+    "字母a"
+   ]
+  },
+  "template:ig7-color": {
+   "name": "字体快拍：COLOR",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "字体排版",
+    "多彩",
+    "边框"
+   ]
+  },
+  "template:ig7-easy-project": {
+   "name": "字体快拍：STORIES EASY PROJECT",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "字体排版",
+    "多彩",
+    "像素"
+   ]
+  },
+  "template:ig7-grid": {
+   "name": "字体快拍：彩色网格",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "字体排版",
+    "多彩",
+    "网格"
+   ]
+  },
+  "template:ig7-no-plugins": {
+   "name": "字体快拍：NO PLUGINS",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "字体排版",
+    "多彩",
+    "矩形"
+   ]
+  },
+  "template:ig7-social": {
+   "name": "字体快拍：SOCIAL",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "字体排版",
+    "多彩",
+    "卡片"
+   ]
+  },
+  "template:ig7-stories": {
+   "name": "字体快拍：STORIES",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "字体排版",
+    "多彩",
+    "巨大字母"
+   ]
+  },
+  "template:ig7-typo": {
+   "name": "字体快拍：TYPO",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "字体排版",
+    "多彩",
+    "卡片"
+   ]
+  },
+  "template:ig8-best-sellers": {
+   "name": "都市快拍：Best Sellers 立即点击",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "都市",
+    "蓝色",
+    "商店"
+   ]
+  },
+  "template:ig8-city-vibes": {
+   "name": "都市快拍：city vibes 双照片",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "都市",
+    "蓝色",
+    "城市"
+   ]
+  },
+  "template:ig8-friends": {
+   "name": "都市快拍：friends positive 照片条",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "都市",
+    "蓝色",
+    "朋友"
+   ]
+  },
+  "template:ig8-mega-sale": {
+   "name": "都市快拍：mega sale %50 拍立得",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "都市",
+    "蓝色",
+    "打折"
+   ]
+  },
+  "template:ig8-visit-page": {
+   "name": "都市快拍：visit page 蓝色横条",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "都市",
+    "蓝色",
+    "网页"
+   ]
+  },
+  "template:ig9-banda-roja": {
+   "name": "快拍：红色色带与巨大单词",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "字体排版",
+    "色带",
+    "红色"
+   ]
+  },
+  "template:ig9-letras-cortadas": {
+   "name": "快拍：被切开的巨大单词与三个链接",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "字体排版",
+    "字母",
+    "链接"
+   ]
+  },
+  "template:ig9-letras-rojas": {
+   "name": "快拍：红底旋转字母墙",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "字体排版",
+    "字母",
+    "红色"
+   ]
+  },
+  "template:ig9-palabra-vertical": {
+   "name": "快拍：边框中的竖排单词与红丝带",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "字体排版",
+    "竖版",
+    "边框"
+   ]
+  },
+  "template:ig9-typo": {
+   "name": "快拍：TYPO 方块与手绘边框",
+   "tags": [
+    "instagram",
+    "快拍",
+    "reels",
+    "字体排版",
+    "字母",
+    "边框"
+   ]
+  },
   "template:intro-de-canal": {
    "name": "频道片头",
    "tags": [
@@ -25327,6 +28336,212 @@
     "卡点",
     "派对",
     "文字"
+   ]
+  },
+  "template:lg0-circulo-ambar": {
+   "name": "标志：两点画出圆环并合成圆盘（琥珀色）",
+   "tags": [
+    "标志",
+    "标志揭示",
+    "扁平",
+    "琥珀色",
+    "黄色",
+    "圆形"
+   ]
+  },
+  "template:lg0-cuadro-blanco": {
+   "name": "标志：弹跳方块展开（白色）",
+   "tags": [
+    "标志",
+    "标志揭示",
+    "扁平",
+    "白色",
+    "方形",
+    "弹跳"
+   ]
+  },
+  "template:lg0-disco-azul": {
+   "name": "标志：飞行圆点展开成圆盘（蓝色）",
+   "tags": [
+    "标志",
+    "标志揭示",
+    "扁平",
+    "蓝色",
+    "圆盘",
+    "圆点"
+   ]
+  },
+  "template:lg0-hexagono-coral": {
+   "name": "标志：线条、圆圈与滚动六边形配品牌（珊瑚色）",
+   "tags": [
+    "标志",
+    "标志揭示",
+    "扁平",
+    "珊瑚色",
+    "六边形",
+    "线条"
+   ]
+  },
+  "template:lg0-iconos-redes": {
+   "name": "十个社交媒体图标弹出（蓝色）",
+   "tags": [
+    "标志",
+    "标志揭示",
+    "扁平",
+    "社交媒体",
+    "图标",
+    "facebook"
+   ]
+  },
+  "template:lg0-sigueme": {
+   "name": "社交标志：照片上六边形里的小球与关注我",
+   "tags": [
+    "标志",
+    "标志揭示",
+    "扁平",
+    "关注我",
+    "用户",
+    "六边形"
+   ]
+  },
+  "template:lg1-luz-dorada": {
+   "name": "标志：金色光线构成",
+   "tags": [
+    "标志",
+    "标志揭示",
+    "片头",
+    "光线",
+    "金色",
+    "闪光"
+   ]
+  },
+  "template:lg2-cintas": {
+   "name": "关注我：旋转丝带标志",
+   "tags": [
+    "标志",
+    "标志揭示",
+    "扁平",
+    "企业",
+    "关注我",
+    "3d"
+   ]
+  },
+  "template:lg2-franjas": {
+   "name": "关注我：切片与条纹标志",
+   "tags": [
+    "标志",
+    "标志揭示",
+    "扁平",
+    "企业",
+    "关注我",
+    "条纹"
+   ]
+  },
+  "template:lg2-giro": {
+   "name": "标志：展开旋转",
+   "tags": [
+    "标志",
+    "标志揭示",
+    "扁平",
+    "企业",
+    "旋转"
+   ]
+  },
+  "template:lg2-glitch": {
+   "name": "标志：绿色故障效果",
+   "tags": [
+    "标志",
+    "标志揭示",
+    "扁平",
+    "企业",
+    "故障"
+   ]
+  },
+  "template:lg2-horizonte": {
+   "name": "订阅：标志从地平线升起",
+   "tags": [
+    "标志",
+    "标志揭示",
+    "扁平",
+    "企业",
+    "订阅",
+    "地平线"
+   ]
+  },
+  "template:lg2-mira": {
+   "name": "订阅：展开的靶心",
+   "tags": [
+    "标志",
+    "标志揭示",
+    "扁平",
+    "企业",
+    "订阅",
+    "靶心"
+   ]
+  },
+  "template:lg2-orbita": {
+   "name": "订阅：轨道中的标志",
+   "tags": [
+    "标志",
+    "标志揭示",
+    "扁平",
+    "企业",
+    "订阅",
+    "轨道"
+   ]
+  },
+  "template:lg2-puntos": {
+   "name": "标志：滚动圆点",
+   "tags": [
+    "标志",
+    "标志揭示",
+    "扁平",
+    "企业",
+    "圆点"
+   ]
+  },
+  "template:lg3-esfera": {
+   "name": "标志：条纹球体变成圆盘",
+   "tags": [
+    "标志",
+    "标志揭示",
+    "片头",
+    "球体",
+    "蓝色",
+    "企业"
+   ]
+  },
+  "template:lg3-ondas": {
+   "name": "标志：彩色波浪落定成线",
+   "tags": [
+    "标志",
+    "标志揭示",
+    "片头",
+    "波浪",
+    "多彩",
+    "线条"
+   ]
+  },
+  "template:lg3-persiana": {
+   "name": "标志：百叶方块展开",
+   "tags": [
+    "标志",
+    "标志揭示",
+    "片头",
+    "方形",
+    "灰色",
+    "极简"
+   ]
+  },
+  "template:lg3-torta-diana": {
+   "name": "标志：虚线圆环、彩色饼图与靶心",
+   "tags": [
+    "标志",
+    "标志揭示",
+    "片头",
+    "饼图",
+    "圆形",
+    "柔和色"
    ]
   },
   "template:llt-bevan": {
@@ -33708,6 +36923,1062 @@
     "彩色",
     "动态文字",
     "照片"
+   ]
+  },
+  "template:tk0-cintas-telefono": {
+   "name": "快拍：文字胶带与手机",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "丝带",
+    "手机"
+   ]
+  },
+  "template:tk0-collage-azul": {
+   "name": "快拍：蓝黑三照片拼贴",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "拼贴",
+    "照片"
+   ]
+  },
+  "template:tk0-collage-negro": {
+   "name": "快拍：带贴纸的六照片拼贴",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "拼贴",
+    "照片"
+   ]
+  },
+  "template:tk0-creas-tendencias": {
+   "name": "快拍：你在创造潮流吗？红色气泡",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "提问",
+    "粉色"
+   ]
+  },
+  "template:tk0-empieza-aqui": {
+   "name": "快拍：潮流从这里开始",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "潮流",
+    "蓝色"
+   ]
+  },
+  "template:tk0-mision": {
+   "name": "快拍：我们的使命与红底照片",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "使命",
+    "红色"
+   ]
+  },
+  "template:tk0-nueva-era": {
+   "name": "快拍：视频新时代",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "视频",
+    "红色"
+   ]
+  },
+  "template:tk0-nuevo-video": {
+   "name": "快拍：NEW VIDEO 与手机",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "视频",
+    "新品"
+   ]
+  },
+  "template:tk0-plantilla": {
+   "name": "快拍：人人可用的模板与照片",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "模板",
+    "蓝色"
+   ]
+  },
+  "template:tk0-plataforma": {
+   "name": "快拍：新平台与两部手机",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "平台",
+    "黑色"
+   ]
+  },
+  "template:tk0-promo-negro": {
+   "name": "快拍：黑底蓝色气泡 SUPER PROMO",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "促销",
+    "黑色"
+   ]
+  },
+  "template:tk0-promo-x": {
+   "name": "快拍：PROMO 交叉胶带",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "促销",
+    "黑色"
+   ]
+  },
+  "template:tk0-que-ves": {
+   "name": "快拍：你喜欢看什么？聊天",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "聊天",
+    "提问"
+   ]
+  },
+  "template:tk0-recordatorio": {
+   "name": "快拍：视频上的提醒投票",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "投票",
+    "提醒"
+   ]
+  },
+  "template:tk0-tendencias": {
+   "name": "快拍：粉蓝色热门潮流",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "潮流",
+    "粉色"
+   ]
+  },
+  "template:tk0-trendy": {
+   "name": "快拍：TRENDY STYLE 彩色色带",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "潮流",
+    "蓝色"
+   ]
+  },
+  "template:tk1-tipografia": {
+   "name": "字体开场：每拍一个单词",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "开场",
+    "快拍",
+    "reels",
+    "字体排版"
+   ]
+  },
+  "template:tk2-alice": {
+   "name": "快拍：Alice Braun 与照片",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "姓名",
+    "照片"
+   ]
+  },
+  "template:tk2-austin": {
+   "name": "快拍：Austin Grant 与新视频",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "姓名",
+    "照片"
+   ]
+  },
+  "template:tk2-baile": {
+   "name": "快拍：Just dance 三张照片",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "舞蹈",
+    "照片"
+   ]
+  },
+  "template:tk2-belleza": {
+   "name": "快拍：About Beauty for You",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "美妆",
+    "照片"
+   ]
+  },
+  "template:tk2-blogger": {
+   "name": "快拍：Social blogger 圆环",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "圆环",
+    "照片"
+   ]
+  },
+  "template:tk2-contenido": {
+   "name": "快拍：网格中的多样内容",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "网格",
+    "照片"
+   ]
+  },
+  "template:tk2-follow": {
+   "name": "快拍：follow 与爱心",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "关注",
+    "爱心"
+   ]
+  },
+  "template:tk2-isabella": {
+   "name": "快拍：Isabella Walker 与照片",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "姓名",
+    "照片"
+   ]
+  },
+  "template:tk2-lifestyle": {
+   "name": "快拍：#lifestyle 与视频",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "生活方式",
+    "视频"
+   ]
+  },
+  "template:tk2-new": {
+   "name": "快拍：NEW 与爱心",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "新品",
+    "照片"
+   ]
+  },
+  "template:tk2-nuevo-video": {
+   "name": "快拍：新视频与照片",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "新视频",
+    "照片"
+   ]
+  },
+  "template:tk2-perfil": {
+   "name": "快拍：带粉丝数的个人资料",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "个人资料",
+    "粉丝"
+   ]
+  },
+  "template:tk2-suscriptores": {
+   "name": "快拍：获得新订阅者",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "订阅者",
+    "照片"
+   ]
+  },
+  "template:tk2-tarjeta": {
+   "name": "快拍：带标志与贴纸的卡片",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "标志",
+    "贴纸"
+   ]
+  },
+  "template:tk2-tendencias": {
+   "name": "快拍：潮流与红色色带",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "潮流",
+    "照片"
+   ]
+  },
+  "template:tk3-diseno": {
+   "name": "快拍：Fashion Design 细线条",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "时尚",
+    "柔和色"
+   ]
+  },
+  "template:tk3-estilo-de-vida": {
+   "name": "快拍：Lifestyle 旋转三角形",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "时尚",
+    "柔和色"
+   ]
+  },
+  "template:tk3-gracias": {
+   "name": "片尾卡：Thanks For Watching!",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "时尚",
+    "柔和色"
+   ]
+  },
+  "template:tk3-rebajas": {
+   "name": "快拍：时尚促销 50% OFF 方框",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "时尚",
+    "柔和色"
+   ]
+  },
+  "template:tk3-rebajas-2": {
+   "name": "快拍：时尚促销 50% 覆盖照片",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "时尚",
+    "柔和色"
+   ]
+  },
+  "template:tk3-siguiente-nivel": {
+   "name": "快拍：The Next Level Of Fashion 竖排 50% OFF",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "时尚",
+    "柔和色"
+   ]
+  },
+  "template:tk3-siguiente-nivel-2": {
+   "name": "快拍：The Next Level Of Fashion 与 Get 50% OFF",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "时尚",
+    "柔和色"
+   ]
+  },
+  "template:tk3-sorteo": {
+   "name": "快拍：抽奖 Giveaway!",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "时尚",
+    "柔和色"
+   ]
+  },
+  "template:tk3-tendencia": {
+   "name": "快拍：Keep It Trendy 与 50%",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "时尚",
+    "柔和色"
+   ]
+  },
+  "template:tk4-dynamic": {
+   "name": "动感开场：红黑照片",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "开场",
+    "快拍",
+    "reels",
+    "照片幻灯片"
+   ]
+  },
+  "template:tk4-fast": {
+   "name": "快节奏开场：彩色照片上的文字",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "开场",
+    "快拍",
+    "reels",
+    "照片幻灯片"
+   ]
+  },
+  "template:tk4-modern": {
+   "name": "现代开场：黄色、金色与网格",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "开场",
+    "快拍",
+    "reels",
+    "照片幻灯片"
+   ]
+  },
+  "template:tk4-rhythm": {
+   "name": "节奏开场：渐变文字",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "开场",
+    "快拍",
+    "reels",
+    "照片幻灯片"
+   ]
+  },
+  "template:tk4-stomp": {
+   "name": "踩点开场：每拍一个单词配照片",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "开场",
+    "快拍",
+    "reels",
+    "照片幻灯片"
+   ]
+  },
+  "template:tk4-typo": {
+   "name": "字体开场：黑色文字与照片",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "开场",
+    "快拍",
+    "reels",
+    "照片幻灯片"
+   ]
+  },
+  "template:tk5-carefree": {
+   "name": "快拍：竖排 CAREFREE LIVING",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "黑白",
+    "照片"
+   ]
+  },
+  "template:tk5-endless": {
+   "name": "快拍：ENDLESS LOVING CONVERSATIONS",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "黑白",
+    "文字"
+   ]
+  },
+  "template:tk5-find": {
+   "name": "快拍：FIND HIDDEN GEMS",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "黑白",
+    "文字"
+   ]
+  },
+  "template:tk5-follow": {
+   "name": "快拍：FOLLOW YOUR DREAM",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "黑白",
+    "文字"
+   ]
+  },
+  "template:tk5-foto-cae": {
+   "name": "快拍：照片落下再升起",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "黑白",
+    "照片"
+   ]
+  },
+  "template:tk5-foto-lado": {
+   "name": "快拍：照片从侧面滑入",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "黑白",
+    "照片"
+   ]
+  },
+  "template:tk5-foto-sube": {
+   "name": "快拍：照片升起",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "黑白",
+    "照片"
+   ]
+  },
+  "template:tk5-freedom": {
+   "name": "快拍：FREEDOM 与 PLEASING 双照片",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "黑白",
+    "照片"
+   ]
+  },
+  "template:tk5-join": {
+   "name": "快拍：JOIN THE JOURNEY 行动号召",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "黑白",
+    "行动号召"
+   ]
+  },
+  "template:tk5-laughter": {
+   "name": "快拍：LAUGHTER OF A LOVED ONE",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "黑白",
+    "照片"
+   ]
+  },
+  "template:tk5-stars": {
+   "name": "快拍：STARS 与 DREAMS 分栏",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "黑白",
+    "照片"
+   ]
+  },
+  "template:tk5-sunshine": {
+   "name": "快拍：SUNSHINE FILLS SKIES 与照片",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "黑白",
+    "照片"
+   ]
+  },
+  "template:tk6-discovery": {
+   "name": "快拍：DISCOVERY 与 SPACESUIT 拼贴",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "青绿色",
+    "照片"
+   ]
+  },
+  "template:tk6-dreams": {
+   "name": "快拍：DREAMS 拼贴",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "青绿色",
+    "照片"
+   ]
+  },
+  "template:tk6-flower": {
+   "name": "快拍：FLOWER BEAUTY 拼贴",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "青绿色",
+    "照片"
+   ]
+  },
+  "template:tk6-foto-cae": {
+   "name": "快拍：带框照片落入",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "青绿色",
+    "照片"
+   ]
+  },
+  "template:tk6-foto-lado": {
+   "name": "快拍：带框照片滑入",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "青绿色",
+    "照片"
+   ]
+  },
+  "template:tk6-freedom": {
+   "name": "快拍：FREEDOM 单栏",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "青绿色",
+    "照片"
+   ]
+  },
+  "template:tk6-modern": {
+   "name": "快拍：MODERN STORIES 拼贴",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "青绿色",
+    "照片"
+   ]
+  },
+  "template:tk6-savor": {
+   "name": "快拍：SAVOR LIFE'S GOODNESS 行动号召",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "青绿色",
+    "行动号召"
+   ]
+  },
+  "template:tk6-starry": {
+   "name": "快拍：STARRY NIGHTS 缩小成拼贴",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "青绿色",
+    "照片"
+   ]
+  },
+  "template:tk6-times-now": {
+   "name": "快拍：TIME'S NOW 双照片",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "青绿色",
+    "照片"
+   ]
+  },
+  "template:tk6-wind": {
+   "name": "快拍：WIND 与 AURA 双照片",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "青绿色",
+    "照片"
+   ]
+  },
+  "template:tk7-blooms": {
+   "name": "快拍：红色 BLOOMS ALL AROUND",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "鲜花",
+    "多彩"
+   ]
+  },
+  "template:tk7-bold": {
+   "name": "快拍：BOLD COLORS SWAY 拼贴",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "鲜花",
+    "多彩"
+   ]
+  },
+  "template:tk7-breezy": {
+   "name": "快拍：BREEZY SPRING ATTIRE 拼贴",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "鲜花",
+    "多彩"
+   ]
+  },
+  "template:tk7-canvas": {
+   "name": "快拍：CANVAS LIFE BODY 拼贴",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "鲜花",
+    "多彩"
+   ]
+  },
+  "template:tk7-characters": {
+   "name": "快拍：照片下的 COLORFUL CHARACTERS",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "鲜花",
+    "多彩"
+   ]
+  },
+  "template:tk7-colorful-and": {
+   "name": "快拍：两张照片之间的 COLORFUL AND CONFIDENCE",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "鲜花",
+    "多彩"
+   ]
+  },
+  "template:tk7-discover-more": {
+   "name": "片尾快拍：DISCOVER MORE 与你的标志",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "鲜花",
+    "多彩"
+   ]
+  },
+  "template:tk7-embrace": {
+   "name": "快拍：照片周围的 EMBRACE 与 EXPRESSION",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "鲜花",
+    "多彩"
+   ]
+  },
+  "template:tk7-embrace-your-life": {
+   "name": "快拍：EMBRACE YOUR LIFE 四张照片",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "鲜花",
+    "多彩"
+   ]
+  },
+  "template:tk7-flower": {
+   "name": "快拍：蓝色 FLOWER PARADISE DELIGHT",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "鲜花",
+    "多彩"
+   ]
+  },
+  "template:tk7-sale": {
+   "name": "快拍：SALE SALE SALE 双照片",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "鲜花",
+    "多彩"
+   ]
+  },
+  "template:tk7-savor": {
+   "name": "快拍：SAVOR MOMENTS NOW 照片栏",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "鲜花",
+    "多彩"
+   ]
+  },
+  "template:tk8-apple-pie": {
+   "name": "快拍：SWEET APPLE PIE 与 SAVOR EVERY BITE",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "美食",
+    "餐厅"
+   ]
+  },
+  "template:tk8-bbq": {
+   "name": "快拍：BBQ SMOKE RISING 五张照片",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "美食",
+    "餐厅"
+   ]
+  },
+  "template:tk8-big-sale": {
+   "name": "快拍：BIG -50% SALE 三张照片",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "美食",
+    "餐厅"
+   ]
+  },
+  "template:tk8-buy-now": {
+   "name": "快拍：BUY NOW 五张照片",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "美食",
+    "餐厅"
+   ]
+  },
+  "template:tk8-crispy-fries": {
+   "name": "快拍：CRISPY GOLDEN FRIES 三张照片",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "美食",
+    "餐厅"
+   ]
+  },
+  "template:tk8-discover-flavors": {
+   "name": "片尾快拍：DISCOVER NEW FLAVORS 与你的标志",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "美食",
+    "餐厅"
+   ]
+  },
+  "template:tk8-fast-food": {
+   "name": "快拍：FAST FOOD ADDICTION",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "美食",
+    "餐厅"
+   ]
+  },
+  "template:tk8-food-lovers": {
+   "name": "快拍：FOOD LOVERS UNITE 四张照片",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "美食",
+    "餐厅"
+   ]
+  },
+  "template:tk8-fried-chicken": {
+   "name": "快拍：FRIED CHICKEN DELIGHT",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "美食",
+    "餐厅"
+   ]
+  },
+  "template:tk8-hot-dogs": {
+   "name": "快拍：HOT DOGS 与 CRISPY FRIES",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "美食",
+    "餐厅"
+   ]
+  },
+  "template:tk8-lowest-price": {
+   "name": "快拍：THE LOWEST PRICE",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "美食",
+    "餐厅"
+   ]
+  },
+  "template:tk8-new-york-pizza": {
+   "name": "快拍：NEW YORK PIZZA 从全屏到拼贴",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "美食",
+    "餐厅"
+   ]
+  },
+  "template:tk8-nice-diners": {
+   "name": "快拍：NICE DINERS 竖长照片",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "快拍",
+    "reels",
+    "美食",
+    "餐厅"
+   ]
+  },
+  "template:tk9-limpia": {
+   "name": "简洁开场：踩点的文字与照片",
+   "tags": [
+    "tiktok",
+    "竖版",
+    "开场",
+    "快拍",
+    "reels",
+    "字体排版"
    ]
   },
   "template:top-5-mas-vendidos": {

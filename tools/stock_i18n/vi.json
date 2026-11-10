@@ -117,6 +117,7 @@
   "template:collage": "Ghép ảnh",
   "template:countdown": "Đếm ngược",
   "template:counter": "Bộ đếm",
+  "template:instagram": "Bộ Instagram",
   "template:intro": "Intro và tiêu đề",
   "template:lowerthird": "Chú thích cuối màn hình",
   "template:outro": "Kết thúc",
@@ -127,6 +128,7 @@
   "template:story15": "Tin 15 giây",
   "template:text": "Văn bản",
   "template:thumbnail": "Ảnh thu nhỏ video",
+  "template:tiktok": "Bộ TikTok",
   "template:transition": "Chuyển cảnh và phân cách",
   "template:youtuber": "Phong cách youtuber",
   "template:ytkit": "Bộ công cụ YouTube",
@@ -24979,6 +24981,3013 @@
     "tiệc"
    ]
   },
+  "template:ig0-intro-urbana": {
+   "name": "Intro đô thị sôi động: URBAN, STREETS, PROMO… và logo của bạn",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "mở đầu",
+    "đô thị",
+    "intro sôi động"
+   ]
+  },
+  "template:ig1-alison": {
+   "name": "Story: tên trên ảnh với khung đỏ",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "tên",
+    "trang cá nhân",
+    "đỏ"
+   ]
+  },
+  "template:ig1-anna": {
+   "name": "Story: tên cùng ảnh trên nền chuyển màu xanh dương",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "tên",
+    "trang cá nhân",
+    "chuyển màu"
+   ]
+  },
+  "template:ig1-beautiful": {
+   "name": "Story: #beautiful với ảnh và câu trích dẫn",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "trích dẫn",
+    "ảnh"
+   ]
+  },
+  "template:ig1-believe": {
+   "name": "Story: WE MUST BELIEVE với đường chia đôi",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "câu nói",
+    "ảnh",
+    "đen"
+   ]
+  },
+  "template:ig1-catherine": {
+   "name": "Story: ảnh tròn, tên và câu trích dẫn trên nền chuyển màu",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "trích dẫn",
+    "trang cá nhân",
+    "chuyển màu"
+   ]
+  },
+  "template:ig1-conquer": {
+   "name": "Story: Conquer from within với băng chuyền ảnh",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "băng chuyền",
+    "ảnh",
+    "trắng"
+   ]
+  },
+  "template:ig1-do-your-best": {
+   "name": "Story: DO YOUR BEST trong dải ruy băng",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "câu nói",
+    "thành phố",
+    "động lực"
+   ]
+  },
+  "template:ig1-dog": {
+   "name": "Story: ảnh chia đôi bởi dải #photooftheday",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "thú cưng",
+    "ảnh",
+    "dải"
+   ]
+  },
+  "template:ig1-elegant": {
+   "name": "Story: ELEGANT TYPO DESIGN với ô cửa phản chiếu",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "chữ nghệ thuật",
+    "biển",
+    "sang trọng"
+   ]
+  },
+  "template:ig1-forty-sale": {
+   "name": "Story: giảm giá 40% dọc kèm ảnh",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "giảm giá",
+    "khuyến mãi",
+    "thời trang"
+   ]
+  },
+  "template:ig1-happy-thoughts": {
+   "name": "Story: ảnh polaroid nghiêng «happy thoughts»",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "polaroid",
+    "đám cưới",
+    "viết tay"
+   ]
+  },
+  "template:ig1-heart": {
+   "name": "Story: ảnh hình trái tim «happy thoughts»",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "trái tim",
+    "tình yêu",
+    "màu đào"
+   ]
+  },
+  "template:ig1-instalove": {
+   "name": "Story: #instalove LIVE WHAT YOU LOVE",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "câu nói",
+    "rừng",
+    "tên"
+   ]
+  },
+  "template:ig1-lifestyle": {
+   "name": "Story: #lifestyle với mosaic ảnh",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "collage",
+    "mùa hè",
+    "mosaic"
+   ]
+  },
+  "template:ig1-live-what": {
+   "name": "Story: Live what you love với lưới 2×2",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "lưới",
+    "collage",
+    "trắng"
+   ]
+  },
+  "template:ig1-love-friendship": {
+   "name": "Story: polaroid và dòng chữ viết tay «Love is friendship»",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "polaroid",
+    "hồng",
+    "trích dẫn"
+   ]
+  },
+  "template:ig1-love-loves": {
+   "name": "Story: hai ảnh polaroid với mũi tên và dòng chữ viết tay",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "polaroid",
+    "hồng",
+    "mũi tên"
+   ]
+  },
+  "template:ig1-must-believe": {
+   "name": "Story: WE MUST BELIEVE trong vòng tròn phản chiếu",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "câu nói",
+    "hình tròn",
+    "phong cảnh"
+   ]
+  },
+  "template:ig1-nature": {
+   "name": "Story: Nature trong hộp có khung",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "thiên nhiên",
+    "khung",
+    "biển"
+   ]
+  },
+  "template:ig1-neon": {
+   "name": "Story: NEON CITY với neon xanh ngọc",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "neon",
+    "thành phố",
+    "ban đêm"
+   ]
+  },
+  "template:ig1-photo-frame": {
+   "name": "Story: thẻ trắng mở ra một ô cửa",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "khung",
+    "ẩm thực",
+    "ảnh"
+   ]
+  },
+  "template:ig1-seek": {
+   "name": "Story: SEEK THE SEEKER với chữ lồng ảnh",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "câu nói",
+    "lá cây",
+    "cắt tách nền"
+   ]
+  },
+  "template:ig1-so-it-goes": {
+   "name": "Story: So it goes với lưới 2×2",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "lưới",
+    "collage",
+    "hồng"
+   ]
+  },
+  "template:ig1-spring-sale": {
+   "name": "Story: Spring Sale giảm 30%",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "giảm giá",
+    "khuyến mãi",
+    "thời trang"
+   ]
+  },
+  "template:ig1-stylish-bike": {
+   "name": "Story: S T Y L I S H với ảnh cắt tách nền",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "cắt tách nền",
+    "xanh ngọc",
+    "liên kết"
+   ]
+  },
+  "template:ig1-stylish-design": {
+   "name": "Story: STYLISH DESIGN trong khung chuyển màu",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "khung",
+    "chuyển màu",
+    "tối"
+   ]
+  },
+  "template:ig1-stylish-skate": {
+   "name": "Story: chữ Stylish dọc khổng lồ kèm khẩu hiệu",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "dọc",
+    "ván trượt",
+    "chữ nghệ thuật"
+   ]
+  },
+  "template:ig1-success": {
+   "name": "Story: câu trích dẫn trên đá kèm số 01",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "trích dẫn",
+    "câu nói",
+    "tối"
+   ]
+  },
+  "template:ig1-work-dream": {
+   "name": "Story: Work hard. Dream big. dọc kèm số 05",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "câu nói",
+    "dọc",
+    "số"
+   ]
+  },
+  "template:ig1-work-hard": {
+   "name": "Story: WORK HARD. DREAM BIG. trên nền đen",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "câu nói",
+    "động lực",
+    "đen"
+   ]
+  },
+  "template:ig10-arco-sube": {
+   "name": "Story: ảnh vòm trồi lên kèm MODELS",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "thời trang",
+    "người mẫu",
+    "ảnh"
+   ]
+  },
+  "template:ig10-ovalo-abre": {
+   "name": "Story: ảnh hình oval mở ra từ một đường kẻ",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "thời trang",
+    "người mẫu",
+    "ảnh"
+   ]
+  },
+  "template:ig10-ovalo-sube": {
+   "name": "Story: ảnh oval trồi lên với hai đường viền",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "thời trang",
+    "người mẫu",
+    "ảnh"
+   ]
+  },
+  "template:ig10-u-foto": {
+   "name": "Story: ảnh đáy tròn và tiêu đề có khung",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "thời trang",
+    "người mẫu",
+    "ảnh"
+   ]
+  },
+  "template:ig10-ventana-arco": {
+   "name": "Story: ảnh phủ voan với ô cửa vòm",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "thời trang",
+    "người mẫu",
+    "ảnh"
+   ]
+  },
+  "template:ig11-avatar-seguir": {
+   "name": "Ảnh đại diện kèm nút theo dõi",
+   "tags": [
+    "instagram",
+    "thành phần",
+    "kêu gọi hành động",
+    "mạng xã hội",
+    "theo dõi",
+    "story"
+   ]
+  },
+  "template:ig11-comenta": {
+   "name": "Bình luận bên dưới",
+   "tags": [
+    "instagram",
+    "thành phần",
+    "kêu gọi hành động",
+    "mạng xã hội",
+    "bình luận",
+    "bộ đếm"
+   ]
+  },
+  "template:ig11-compartir": {
+   "name": "Chia sẻ bài viết cho nhiều người hơn",
+   "tags": [
+    "instagram",
+    "thành phần",
+    "kêu gọi hành động",
+    "mạng xã hội",
+    "chia sẻ",
+    "bài đăng"
+   ]
+  },
+  "template:ig11-doble-toque": {
+   "name": "Nhấn đúp để thích",
+   "tags": [
+    "instagram",
+    "thành phần",
+    "kêu gọi hành động",
+    "mạng xã hội",
+    "thích",
+    "trái tim"
+   ]
+  },
+  "template:ig11-enlace-bio": {
+   "name": "Nhấn vào liên kết trong tiểu sử",
+   "tags": [
+    "instagram",
+    "thành phần",
+    "kêu gọi hành động",
+    "mạng xã hội",
+    "liên kết",
+    "tiểu sử"
+   ]
+  },
+  "template:ig11-etiqueta": {
+   "name": "Gắn thẻ một người bạn",
+   "tags": [
+    "instagram",
+    "thành phần",
+    "kêu gọi hành động",
+    "mạng xã hội",
+    "gắn thẻ",
+    "tên người dùng"
+   ]
+  },
+  "template:ig11-inspiracion": {
+   "name": "Tìm cảm hứng của bạn",
+   "tags": [
+    "instagram",
+    "thành phần",
+    "kêu gọi hành động",
+    "mạng xã hội",
+    "tìm kiếm"
+   ]
+  },
+  "template:ig11-pastilla-seguir": {
+   "name": "Thanh tên kèm nút theo dõi",
+   "tags": [
+    "instagram",
+    "thành phần",
+    "kêu gọi hành động",
+    "mạng xã hội",
+    "theo dõi",
+    "tên"
+   ]
+  },
+  "template:ig11-pastilla-usuario": {
+   "name": "Thanh người dùng kèm số người theo dõi",
+   "tags": [
+    "instagram",
+    "thành phần",
+    "kêu gọi hành động",
+    "mạng xã hội",
+    "người dùng",
+    "người theo dõi"
+   ]
+  },
+  "template:ig11-perfil": {
+   "name": "Thẻ trang cá nhân",
+   "tags": [
+    "instagram",
+    "thành phần",
+    "kêu gọi hành động",
+    "mạng xã hội",
+    "trang cá nhân",
+    "theo dõi"
+   ]
+  },
+  "template:ig11-publicacion": {
+   "name": "Thẻ bài đăng",
+   "tags": [
+    "instagram",
+    "thành phần",
+    "kêu gọi hành động",
+    "mạng xã hội",
+    "bài đăng",
+    "thích"
+   ]
+  },
+  "template:ig11-reels": {
+   "name": "Xem các reels mới nhất của chúng tôi",
+   "tags": [
+    "instagram",
+    "thành phần",
+    "kêu gọi hành động",
+    "mạng xã hội",
+    "reels",
+    "lượt xem"
+   ]
+  },
+  "template:ig11-responder": {
+   "name": "Thẻ bình luận kèm trả lời",
+   "tags": [
+    "instagram",
+    "thành phần",
+    "kêu gọi hành động",
+    "mạng xã hội",
+    "bình luận",
+    "trả lời"
+   ]
+  },
+  "template:ig11-tu-historia": {
+   "name": "Thêm vào story của bạn",
+   "tags": [
+    "instagram",
+    "thành phần",
+    "kêu gọi hành động",
+    "mạng xã hội",
+    "story",
+    "chia sẻ"
+   ]
+  },
+  "template:ig11-ver-historia": {
+   "name": "Chạm để xem story",
+   "tags": [
+    "instagram",
+    "thành phần",
+    "kêu gọi hành động",
+    "mạng xã hội",
+    "story",
+    "chạm"
+   ]
+  },
+  "template:ig12-anillos": {
+   "name": "Story: các vòng tròn với ảnh tròn và chữ khổng lồ",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "cam",
+    "đỏ",
+    "hình tròn"
+   ]
+  },
+  "template:ig12-caja-roja": {
+   "name": "Story: hộp đỏ với chữ dọc và chữ khổng lồ",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "cam",
+    "đỏ",
+    "hộp"
+   ]
+  },
+  "template:ig12-diagonal": {
+   "name": "Story: sọc chéo với một từ khổng lồ",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "cam",
+    "đỏ",
+    "đường chéo"
+   ]
+  },
+  "template:ig12-franjas": {
+   "name": "Story: các dải màu và một từ dọc",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "cam",
+    "đỏ",
+    "dải màu"
+   ]
+  },
+  "template:ig12-panel-rojo": {
+   "name": "Story: từ khổng lồ trượt lên trên tấm nền đỏ",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "cam",
+    "đỏ",
+    "bảng nền"
+   ]
+  },
+  "template:ig13-amarilla": {
+   "name": "Story chữ nghệ thuật: màu vàng",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "chữ nghệ thuật",
+    "vàng",
+    "đen"
+   ]
+  },
+  "template:ig13-caja-negra": {
+   "name": "Story chữ nghệ thuật: hộp đen",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "chữ nghệ thuật",
+    "vàng",
+    "đen"
+   ]
+  },
+  "template:ig13-filas": {
+   "name": "Story chữ nghệ thuật: các hàng chữ",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "chữ nghệ thuật",
+    "vàng",
+    "đen"
+   ]
+  },
+  "template:ig13-gris-ra": {
+   "name": "Story chữ nghệ thuật: RA màu xám",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "chữ nghệ thuật",
+    "vàng",
+    "đen"
+   ]
+  },
+  "template:ig13-letras-grises": {
+   "name": "Story chữ nghệ thuật: chữ vàng",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "chữ nghệ thuật",
+    "vàng",
+    "đen"
+   ]
+  },
+  "template:ig13-muro-de-fotos": {
+   "name": "Tường ảnh kèm logo của bạn",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "logo",
+    "trang cá nhân"
+   ]
+  },
+  "template:ig13-negra": {
+   "name": "Story chữ nghệ thuật: đường chéo đen",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "chữ nghệ thuật",
+    "vàng",
+    "đen"
+   ]
+  },
+  "template:ig13-oscura": {
+   "name": "Story chữ nghệ thuật: nền tối với các quả cầu",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "chữ nghệ thuật",
+    "vàng",
+    "đen"
+   ]
+  },
+  "template:ig14-dinamica": {
+   "name": "Slideshow sôi động: mỗi ảnh một từ",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "trình chiếu ảnh",
+    "slideshow",
+    "sôi động"
+   ]
+  },
+  "template:ig14-energia": {
+   "name": "Slideshow năng lượng kèm logo",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "trình chiếu ảnh",
+    "slideshow",
+    "năng lượng"
+   ]
+  },
+  "template:ig14-epica": {
+   "name": "Slideshow hoành tráng với hiệu ứng glitch",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "trình chiếu ảnh",
+    "slideshow",
+    "hoành tráng"
+   ]
+  },
+  "template:ig14-limpia": {
+   "name": "Slideshow gọn gàng với chữ lớn",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "trình chiếu ảnh",
+    "slideshow",
+    "gọn gàng"
+   ]
+  },
+  "template:ig14-minimal": {
+   "name": "Slideshow tối giản trên nền trắng",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "trình chiếu ảnh",
+    "slideshow",
+    "tối giản"
+   ]
+  },
+  "template:ig14-moda": {
+   "name": "Slideshow thời trang kèm chú thích",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "trình chiếu ảnh",
+    "slideshow",
+    "thời trang"
+   ]
+  },
+  "template:ig14-ritmica": {
+   "name": "Slideshow theo nhịp với các vòng tròn",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "trình chiếu ảnh",
+    "slideshow",
+    "nhịp điệu"
+   ]
+  },
+  "template:ig14-stomp": {
+   "name": "Slideshow stomp: mỗi nhịp một từ",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "trình chiếu ảnh",
+    "slideshow",
+    "stomp"
+   ]
+  },
+  "template:ig2-cartel-amarillo": {
+   "name": "Story: áp phích vàng Your Stories",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "màu sắc",
+    "áp phích",
+    "vàng"
+   ]
+  },
+  "template:ig2-ciudad-oferta": {
+   "name": "Story: ưu đãi thành phố với vòng tròn %",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "màu sắc",
+    "ưu đãi",
+    "khuyến mãi"
+   ]
+  },
+  "template:ig2-cocina": {
+   "name": "Story: mở đầu chương trình nấu ăn",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "màu sắc",
+    "nấu ăn",
+    "ẩm thực"
+   ]
+  },
+  "template:ig2-feliz": {
+   "name": "Story: HAPPY với chữ cái khổng lồ và hộp xanh bạc hà",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "màu sắc",
+    "vui vẻ",
+    "đen trắng"
+   ]
+  },
+  "template:ig2-interior": {
+   "name": "Story: thiết kế nội thất với các vòng tròn màu",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "màu sắc",
+    "nội thất",
+    "thiết kế"
+   ]
+  },
+  "template:ig2-moda": {
+   "name": "Story: Fashion trên nền xanh bạc hà và đỏ",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "màu sắc",
+    "thời trang",
+    "trang cá nhân"
+   ]
+  },
+  "template:ig2-oscuro": {
+   "name": "Story: DARK với chữ xếp lưới",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "màu sắc",
+    "tối",
+    "thời trang"
+   ]
+  },
+  "template:ig2-presentamos": {
+   "name": "Story: INTRODUCING OUR STORIES với các dải chuyển màu",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "màu sắc",
+    "giới thiệu",
+    "chuyển màu"
+   ]
+  },
+  "template:ig2-rostro-franjas": {
+   "name": "Story: khuôn mặt với dải màu và vòng tròn",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "màu sắc",
+    "chân dung",
+    "thương hiệu"
+   ]
+  },
+  "template:ig2-tu-mente": {
+   "name": "Story: Say what's on your mind màu tím",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "màu sắc",
+    "câu nói",
+    "tím"
+   ]
+  },
+  "template:ig2-tu-vida": {
+   "name": "Story: YOUR LIFE với các dải vàng",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "màu sắc",
+    "cuộc sống",
+    "mẹo hay"
+   ]
+  },
+  "template:ig2-viaje-verano": {
+   "name": "Story: GREAT TRIP SUMMER với đám mây ảnh",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "màu sắc",
+    "du lịch",
+    "mùa hè"
+   ]
+  },
+  "template:ig3-arte": {
+   "name": "Story: art 01 Stories trên bức tranh",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "nghệ thuật",
+    "hội họa"
+   ]
+  },
+  "template:ig3-ciencia": {
+   "name": "Story: A-01 MODERN SCIENCE với các vòng tròn",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "khoa học",
+    "hình tròn"
+   ]
+  },
+  "template:ig3-city-life": {
+   "name": "Story: CITY LIFE với tấm nền hồng",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "thành phố"
+   ]
+  },
+  "template:ig3-comida-circulo": {
+   "name": "Story: Say what's on your mind trong vòng tròn",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ẩm thực",
+    "hình tròn"
+   ]
+  },
+  "template:ig3-fashion": {
+   "name": "Story: FASHION 45$ với chữ lồng ảnh",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "thời trang",
+    "ưu đãi"
+   ]
+  },
+  "template:ig3-food": {
+   "name": "Story: Food giảm 50%",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ẩm thực",
+    "ưu đãi"
+   ]
+  },
+  "template:ig3-friend": {
+   "name": "Story: FRIEND GREAT TRIP với vòng tròn",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "bạn bè",
+    "hình tròn"
+   ]
+  },
+  "template:ig3-full": {
+   "name": "Story: Full 100% chữ cọ",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ưu đãi",
+    "thú cưng"
+   ]
+  },
+  "template:ig3-introducing": {
+   "name": "Story: INTRODUCING STORIES trong rừng",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "mùa đông",
+    "giới thiệu"
+   ]
+  },
+  "template:ig3-models": {
+   "name": "Story: MODELS FASHION với dấu ngoặc",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "thời trang",
+    "chân dung"
+   ]
+  },
+  "template:ig3-music": {
+   "name": "Story: MUSIC EXCLUSIVE với các vòng tròn",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "âm nhạc",
+    "hình tròn"
+   ]
+  },
+  "template:ig3-new": {
+   "name": "Story: du lịch NEW với nét cọ",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "du lịch",
+    "nét cọ"
+   ]
+  },
+  "template:ig3-opener": {
+   "name": "Mở đầu sôi động cho bài đăng vuông",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "mở đầu",
+    "chữ nghệ thuật",
+    "bài đăng"
+   ]
+  },
+  "template:ig3-perfil-amarillo": {
+   "name": "Trang cá nhân: thẻ vàng kèm ảnh",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "trang cá nhân"
+   ]
+  },
+  "template:ig3-perfil-coral": {
+   "name": "Trang cá nhân: thẻ san hô với các mảng màu",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "trang cá nhân"
+   ]
+  },
+  "template:ig3-perfil-degradado": {
+   "name": "Trang cá nhân: thẻ chuyển màu với vòng tròn",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "trang cá nhân"
+   ]
+  },
+  "template:ig3-perfil-oscuro": {
+   "name": "Trang cá nhân: thẻ tối với tên màu đỏ",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "trang cá nhân"
+   ]
+  },
+  "template:ig3-perfil-rojo": {
+   "name": "Trang cá nhân: thẻ đỏ với ảnh đại diện",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "trang cá nhân"
+   ]
+  },
+  "template:ig3-portfolio": {
+   "name": "Story: PORTFOLIO kèm tên",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "portfolio"
+   ]
+  },
+  "template:ig3-programa": {
+   "name": "Story: V 6 với các thanh bo tròn",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "công nghệ",
+    "pastel"
+   ]
+  },
+  "template:ig3-promo": {
+   "name": "Story: Product Promo với đĩa vàng",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "sản phẩm",
+    "quảng bá"
+   ]
+  },
+  "template:ig3-sport": {
+   "name": "Story: SPORT với huy hiệu hồng",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "thể thao"
+   ]
+  },
+  "template:ig3-tech": {
+   "name": "Story: TECH với các chữ cái rải rác",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "công nghệ"
+   ]
+  },
+  "template:ig3-toys": {
+   "name": "Story: TOYS với đĩa chuyển màu",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "đồ chơi",
+    "hình tròn"
+   ]
+  },
+  "template:ig3-tv": {
+   "name": "Story: Media Social với ảnh tròn",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "mạng xã hội",
+    "hình tròn"
+   ]
+  },
+  "template:ig3-your-life": {
+   "name": "Story: YOUR LIFE và PRO với các dải màu",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "nội thất"
+   ]
+  },
+  "template:ig4-abstract": {
+   "name": "Story: ABSTRACT GEOMETRIC STYLE",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "hình học",
+    "kiến trúc"
+   ]
+  },
+  "template:ig4-amazing-dream": {
+   "name": "Story: Amazing dream với hai ảnh",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "câu nói",
+    "nâu"
+   ]
+  },
+  "template:ig4-audacious": {
+   "name": "Story: LET'S DO WHAT WE LOVE #AUDACIOUS",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "động lực",
+    "đen"
+   ]
+  },
+  "template:ig4-beauty": {
+   "name": "Story: There is beauty in simplicity",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "thiên nhiên",
+    "câu nói"
+   ]
+  },
+  "template:ig4-beauty-flowers": {
+   "name": "Story: Beauty với hoa",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "hoa",
+    "thư pháp"
+   ]
+  },
+  "template:ig4-believe": {
+   "name": "Story: BELIEVE YOU CAN SO YOU ARE HALFWAY THERE",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "động lực",
+    "câu nói"
+   ]
+  },
+  "template:ig4-big": {
+   "name": "Story: BIG. với vòng tròn sọc",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "thời trang",
+    "sọc"
+   ]
+  },
+  "template:ig4-born-wild": {
+   "name": "Story: BORN TO BE WILD",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "phiêu lưu",
+    "xanh dương"
+   ]
+  },
+  "template:ig4-brand-new-day": {
+   "name": "Story: brand new day với các hình tam giác",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "hình tam giác",
+    "hình học"
+   ]
+  },
+  "template:ig4-clear": {
+   "name": "Story: CLEAR INTERIOR chia làm hai nửa",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "nội thất",
+    "nhà cửa"
+   ]
+  },
+  "template:ig4-cold-wave": {
+   "name": "Story: COLD WAVE WARM SUN với chữ lồng ảnh",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "biển",
+    "chữ nghệ thuật"
+   ]
+  },
+  "template:ig4-confident": {
+   "name": "Story: STYLISH & CONFIDENT trong ba ô cửa",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "thời trang",
+    "nam giới"
+   ]
+  },
+  "template:ig4-control": {
+   "name": "Story: CONTROL với logo và hai ảnh",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "logo",
+    "yoga"
+   ]
+  },
+  "template:ig4-courage": {
+   "name": "Story: #courage với nét cọ",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "chân dung",
+    "cam"
+   ]
+  },
+  "template:ig4-culinary": {
+   "name": "Story: CULINARY ART #cooking",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "nấu ăn",
+    "ẩm thực"
+   ]
+  },
+  "template:ig4-deep-breath": {
+   "name": "Story: ENJOY DEEP BREATH với lá cây",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "thiên nhiên",
+    "xanh lá"
+   ]
+  },
+  "template:ig4-delicious": {
+   "name": "Story: lưới #DELICIOUS",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "ẩm thực",
+    "tráng miệng"
+   ]
+  },
+  "template:ig4-dream": {
+   "name": "Story: DREAM với khung trên nền thành phố",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "thành phố",
+    "khung"
+   ]
+  },
+  "template:ig4-employee": {
+   "name": "Story: BEST EMPLOYEE OF THE MONTH",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "doanh nghiệp",
+    "nhân viên"
+   ]
+  },
+  "template:ig4-enjoy-music": {
+   "name": "Story: ENJOY MY MUSIC xanh dương và đỏ",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "âm nhạc",
+    "nhảy múa"
+   ]
+  },
+  "template:ig4-fashion-buy": {
+   "name": "Story: FASHION IS WHAT YOU BUY trên các dải màu",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "thời trang",
+    "dải màu"
+   ]
+  },
+  "template:ig4-fitness": {
+   "name": "Story: FITNESS BODY ENERGY WORKOUT",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "phòng gym",
+    "thể thao"
+   ]
+  },
+  "template:ig4-fun": {
+   "name": "Story: #FUN với ảnh có khung",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "khung",
+    "đỏ"
+   ]
+  },
+  "template:ig4-glam": {
+   "name": "Story: GLAM ROCK hồng và đen",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "thời trang",
+    "hồng"
+   ]
+  },
+  "template:ig4-instamusic": {
+   "name": "Story: #instamusic #yourbeat với các mảng màu",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "âm nhạc",
+    "neon"
+   ]
+  },
+  "template:ig4-life-good": {
+   "name": "Story: LIFE IS SO GOOD JUST BE YOURSELF",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "câu nói",
+    "neon"
+   ]
+  },
+  "template:ig4-lifestyle": {
+   "name": "Story: my lifestyle #followme",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "phong cách sống",
+    "xanh dương"
+   ]
+  },
+  "template:ig4-look-deep": {
+   "name": "Story: LOOK DEEP INTO NATURE với các hình lục giác",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "thiên nhiên",
+    "lục giác"
+   ]
+  },
+  "template:ig4-masterpiece": {
+   "name": "Story: MAKE EACH DAY YOUR MASTERPIECE",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "câu nói",
+    "hồng"
+   ]
+  },
+  "template:ig4-meeting": {
+   "name": "Story: MEETING WITH FRIENDS theo các cột",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "bạn bè",
+    "cột"
+   ]
+  },
+  "template:ig4-motion": {
+   "name": "Story: MOTION với vòng tròn vàng",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "nhảy múa",
+    "hình tròn"
+   ]
+  },
+  "template:ig4-moving": {
+   "name": "Story: Moving với hai chiếc vòng",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "nhảy múa",
+    "vòng"
+   ]
+  },
+  "template:ig4-music": {
+   "name": "Story: MUSIC DANCE ENJOY",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "âm nhạc",
+    "tiệc tùng"
+   ]
+  },
+  "template:ig4-natural": {
+   "name": "Story: NATURAL BEAUTY trong ba cột",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "thiên nhiên",
+    "cột"
+   ]
+  },
+  "template:ig4-never-easier": {
+   "name": "Story: IT NEVER GETS EASIER màu đỏ",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "phòng gym",
+    "động lực"
+   ]
+  },
+  "template:ig4-ocean": {
+   "name": "Story: OCEAN HAPPY RELAX với khung",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "biển",
+    "khung"
+   ]
+  },
+  "template:ig4-pro-fitness": {
+   "name": "Story: PRO fitness với khung chéo",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "thể thao",
+    "khung"
+   ]
+  },
+  "template:ig4-sale40": {
+   "name": "Story: SALE 40% dựng đứng",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "giảm giá",
+    "ưu đãi"
+   ]
+  },
+  "template:ig4-sale75": {
+   "name": "Story: SALE UP TO 75% OFF",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "giảm giá",
+    "ưu đãi"
+   ]
+  },
+  "template:ig4-secrets": {
+   "name": "Story: NO MORE SECRETS #IMAGINE",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "đỏ",
+    "đường chéo"
+   ]
+  },
+  "template:ig4-shopping-week": {
+   "name": "Story: #shoppingweek 40% FOR SALE",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "giảm giá",
+    "mua sắm"
+   ]
+  },
+  "template:ig4-simplelife": {
+   "name": "Story: When you focus on the good #simplelife",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "câu nói",
+    "xanh dương"
+   ]
+  },
+  "template:ig4-skate": {
+   "name": "Story: 0256 #skatelife",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "trượt ván",
+    "thể thao"
+   ]
+  },
+  "template:ig4-sport": {
+   "name": "Story: W SPORT với đường kẻ",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "thể thao",
+    "chạy bộ"
+   ]
+  },
+  "template:ig4-spring": {
+   "name": "Story: SPRING IS IN THE AIR",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "mùa xuân",
+    "hoa"
+   ]
+  },
+  "template:ig4-stay-strong": {
+   "name": "Story: STAY STRONG DON'T GIVE UP",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "động lực",
+    "đỏ"
+   ]
+  },
+  "template:ig4-street-fast": {
+   "name": "Story: 10/25 #youth street FAST",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "đường phố",
+    "trượt ván"
+   ]
+  },
+  "template:ig4-style": {
+   "name": "Story: STYLE IS VERY PERSONAL",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "thời trang",
+    "đỏ"
+   ]
+  },
+  "template:ig4-style-beautiful": {
+   "name": "Story: STYLE #beautiful với các dải màu",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "thời trang",
+    "dải màu"
+   ]
+  },
+  "template:ig4-stylish": {
+   "name": "Story: #stylish với đĩa xanh dương",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "thời trang",
+    "xanh dương"
+   ]
+  },
+  "template:ig4-summer": {
+   "name": "Story: #SUMMER với hình thoi bãi biển",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "bãi biển",
+    "mùa hè"
+   ]
+  },
+  "template:ig4-summer-event": {
+   "name": "Story: sự kiện mùa hè kèm ngày tháng",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "mùa hè",
+    "sự kiện"
+   ]
+  },
+  "template:ig4-summer-look": {
+   "name": "Story: Summer look #fashion trên các dải màu",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "thời trang",
+    "mùa hè"
+   ]
+  },
+  "template:ig4-sunshine": {
+   "name": "Story: SUNSHINE với bốn ảnh",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "mùa hè",
+    "collage"
+   ]
+  },
+  "template:ig4-sunshine-tag": {
+   "name": "Story: #sunshine Relaxing holiday",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "mùa hè",
+    "xanh dương"
+   ]
+  },
+  "template:ig4-trendy": {
+   "name": "Story: #TRENDY YOUR STYLE màu đỏ",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "đỏ",
+    "thời trang"
+   ]
+  },
+  "template:ig4-tropical": {
+   "name": "Story: FEELING TROPICAL với ba ảnh",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "mùa hè",
+    "nhiệt đới"
+   ]
+  },
+  "template:ig4-winner": {
+   "name": "Story: THE WINNER NEVER QUITS",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "động lực",
+    "phòng gym"
+   ]
+  },
+  "template:ig4-young": {
+   "name": "Story: YOUNG #followus",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "giới trẻ",
+    "đỏ"
+   ]
+  },
+  "template:ig4-youth": {
+   "name": "Story: #YOUTH & FREEDOM với hình tam giác",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "tam giác",
+    "san hô"
+   ]
+  },
+  "template:ig5-amazing-now": {
+   "name": "Story: AMAZING NOW",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "đen trắng",
+    "đỏ"
+   ]
+  },
+  "template:ig5-awesome": {
+   "name": "Story: AWESOME dọc",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "đỏ",
+    "dọc"
+   ]
+  },
+  "template:ig5-be-strong": {
+   "name": "Story: B STRONG",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "đỏ",
+    "câu nói"
+   ]
+  },
+  "template:ig5-beach-therapy": {
+   "name": "Story: beach therapy tông xanh ngọc",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "bãi biển",
+    "kỳ nghỉ"
+   ]
+  },
+  "template:ig5-beauty-pro": {
+   "name": "Story: BEAUTY làn sóng tím",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "làm đẹp",
+    "tím"
+   ]
+  },
+  "template:ig5-best-look": {
+   "name": "Story: YOUR BEST LOOK có khung",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "xanh lá",
+    "thời trang"
+   ]
+  },
+  "template:ig5-choose-glam": {
+   "name": "Story: 48 choose the glam",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "làm đẹp",
+    "quyến rũ"
+   ]
+  },
+  "template:ig5-cold-water": {
+   "name": "Story: COLD DEEP WATER",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "biển",
+    "vàng"
+   ]
+  },
+  "template:ig5-creative-studio": {
+   "name": "Story: CREATIVE DESIGN STUDIO",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "thiết kế",
+    "studio"
+   ]
+  },
+  "template:ig5-dancing": {
+   "name": "Story: #DANCING ảnh chéo",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "nhảy múa",
+    "đường chéo"
+   ]
+  },
+  "template:ig5-daring-style": {
+   "name": "Story: DARING STYLE trên nền vàng",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "vàng",
+    "thời trang"
+   ]
+  },
+  "template:ig5-denim-style": {
+   "name": "Story: DENIM STYLE có khung",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "thời trang",
+    "ô khung"
+   ]
+  },
+  "template:ig5-design-passion": {
+   "name": "Story: DESIGN IS MY PASSION",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "nội thất",
+    "thiết kế"
+   ]
+  },
+  "template:ig5-dont-waste": {
+   "name": "Story: DON'T WASTE YOUR TIME",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "câu nói",
+    "xanh lam lục"
+   ]
+  },
+  "template:ig5-enjoy-movement": {
+   "name": "Story: enjoy the movement",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "nhảy múa",
+    "đen"
+   ]
+  },
+  "template:ig5-flexible-body": {
+   "name": "Story: FLEXIBLE BODY với dải chuyển màu",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "thể hình",
+    "chuyển màu"
+   ]
+  },
+  "template:ig5-focus-breathe": {
+   "name": "Story: FOCUS ON THE BREATHE",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "câu nói",
+    "chữ nghệ thuật"
+   ]
+  },
+  "template:ig5-fondo-ambar": {
+   "name": "Nền: các vòng tròn màu hổ phách",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "nền",
+    "cam",
+    "nâu"
+   ]
+  },
+  "template:ig5-fondo-burbujas-azules": {
+   "name": "Nền: bong bóng xanh dương trên nền hồng",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "nền",
+    "hồng",
+    "xanh dương"
+   ]
+  },
+  "template:ig5-fondo-burbujas-grises": {
+   "name": "Nền: bong bóng xám trên nền đen",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "nền",
+    "đen",
+    "xám"
+   ]
+  },
+  "template:ig5-fondo-chevrones": {
+   "name": "Nền: các hình chữ V màu đỏ",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "nền",
+    "đỏ",
+    "chữ v"
+   ]
+  },
+  "template:ig5-fondo-cinta-azul": {
+   "name": "Nền: dải ruy băng xanh dương trên nền đỏ",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "nền",
+    "chuyển màu",
+    "xanh dương"
+   ]
+  },
+  "template:ig5-fondo-geometrico": {
+   "name": "Nền: mảnh hình học trên nền xám",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "nền",
+    "xám",
+    "hình học"
+   ]
+  },
+  "template:ig5-fondo-lineas": {
+   "name": "Nền: chuyển màu với các đường neon",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "nền",
+    "chuyển màu",
+    "hồng"
+   ]
+  },
+  "template:ig5-fondo-lineas-cruzadas": {
+   "name": "Nền: các đường giao nhau",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "nền",
+    "chuyển màu",
+    "magenta"
+   ]
+  },
+  "template:ig5-fondo-olas": {
+   "name": "Nền: sóng cam và tím",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "nền",
+    "chuyển màu",
+    "cam"
+   ]
+  },
+  "template:ig5-fondo-pildoras": {
+   "name": "Nền: các viên thuốc màu hồng",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "nền",
+    "hồng",
+    "pastel"
+   ]
+  },
+  "template:ig5-fondo-plata": {
+   "name": "Nền: sọc bạc",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "nền",
+    "bạc",
+    "xám"
+   ]
+  },
+  "template:ig5-fondo-rojo": {
+   "name": "Nền: các hình bo tròn màu đỏ",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "nền",
+    "đỏ",
+    "hình khối"
+   ]
+  },
+  "template:ig5-gentle-soft": {
+   "name": "Story: thẻ GENTLE & SOFT",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "hoa",
+    "thẻ"
+   ]
+  },
+  "template:ig5-glam": {
+   "name": "Story: GLAM ảnh chụp máy ảnh",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "hồng",
+    "máy ảnh"
+   ]
+  },
+  "template:ig5-happiness-love": {
+   "name": "Story: collage HAPPINESS và LOVE",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "collage",
+    "đám cưới"
+   ]
+  },
+  "template:ig5-happy-weekends": {
+   "name": "Story: Happy weekends",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "hoa",
+    "cuối tuần"
+   ]
+  },
+  "template:ig5-inspiration": {
+   "name": "Story: #pleasure inspiration",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "đỏ",
+    "đen trắng"
+   ]
+  },
+  "template:ig5-interior-dream": {
+   "name": "Story: catalogue INTERIOR OF YOUR DREAM",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "catalogue",
+    "nội thất"
+   ]
+  },
+  "template:ig5-keep-simple": {
+   "name": "Story: KEEP IT SIMPLE với vòng tròn",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "hình tròn",
+    "chuyển màu"
+   ]
+  },
+  "template:ig5-light-easy": {
+   "name": "Story: thẻ LIGHT & EASY",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "thời trang",
+    "thẻ"
+   ]
+  },
+  "template:ig5-look-deep": {
+   "name": "Story: LOOK DEEP INTO YOURSELF",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "câu nói",
+    "neon"
+   ]
+  },
+  "template:ig5-mindfulness": {
+   "name": "Story: #mindfulness đen trắng",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "đen trắng",
+    "câu nói"
+   ]
+  },
+  "template:ig5-modern-office": {
+   "name": "Story: MODERN OFFICE SPACE",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "văn phòng",
+    "doanh nghiệp"
+   ]
+  },
+  "template:ig5-ocean": {
+   "name": "Story: OCEAN trong vòng tròn",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "hình tròn",
+    "biển"
+   ]
+  },
+  "template:ig5-pleasure": {
+   "name": "Story: collage khối PLEASURE",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "collage",
+    "đất nung"
+   ]
+  },
+  "template:ig5-power": {
+   "name": "Story: #POWER với ảnh",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "đỏ",
+    "thời trang"
+   ]
+  },
+  "template:ig5-relax-home": {
+   "name": "Story: Relax SWEET HOME",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "nhà cửa",
+    "nội thất"
+   ]
+  },
+  "template:ig5-sale-70": {
+   "name": "Story: SALE 70% với các dải xiên",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "giảm giá",
+    "ưu đãi"
+   ]
+  },
+  "template:ig5-sensual": {
+   "name": "Story: SENSUAL hai ảnh",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "đen trắng",
+    "collage"
+   ]
+  },
+  "template:ig5-style-y": {
+   "name": "Story: STYLE với chữ Y lớn",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "thời trang",
+    "xanh lam lục"
+   ]
+  },
+  "template:ig5-summer-pause": {
+   "name": "Story: SUMMER take a pause",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "mùa hè",
+    "kỳ nghỉ"
+   ]
+  },
+  "template:ig5-sunny-day": {
+   "name": "Story: SUNNY DAY với vòng tròn",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "mùa hè",
+    "hồ bơi"
+   ]
+  },
+  "template:ig5-titulo-art-design": {
+   "name": "Tiêu đề: ART & DESIGN FORUM",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "tiêu đề",
+    "văn bản",
+    "nghệ thuật"
+   ]
+  },
+  "template:ig5-titulo-big-sale": {
+   "name": "Tiêu đề: BIG SALE nét cọ và giỏ hàng",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "tiêu đề",
+    "văn bản",
+    "giảm giá"
+   ]
+  },
+  "template:ig5-titulo-bold-fashion": {
+   "name": "Tiêu đề: BOLD FASHION STYLE nghiêng",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "tiêu đề",
+    "văn bản",
+    "thời trang"
+   ]
+  },
+  "template:ig5-titulo-chicle": {
+   "name": "Tiêu đề: BUBBLEGUM STYLE",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "tiêu đề",
+    "văn bản",
+    "hồng"
+   ]
+  },
+  "template:ig5-titulo-cita": {
+   "name": "Tiêu đề: câu trích dẫn kèm tác giả",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "tiêu đề",
+    "văn bản",
+    "trích dẫn"
+   ]
+  },
+  "template:ig5-titulo-do-what": {
+   "name": "Tiêu đề: DO WHAT YOU WANT",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "tiêu đề",
+    "văn bản",
+    "động lực"
+   ]
+  },
+  "template:ig5-titulo-formas-abstractas": {
+   "name": "Tiêu đề: ABSTRACT SHAPES DESIGN",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "tiêu đề",
+    "văn bản",
+    "hình khối"
+   ]
+  },
+  "template:ig5-titulo-glitch": {
+   "name": "Tiêu đề: GLITCH STYLE",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "tiêu đề",
+    "văn bản",
+    "glitch"
+   ]
+  },
+  "template:ig5-titulo-neon": {
+   "name": "Tiêu đề: NEON phát sáng",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "tiêu đề",
+    "văn bản",
+    "neon"
+   ]
+  },
+  "template:ig5-titulo-never-give-up": {
+   "name": "Tiêu đề: NEVER GIVE UP nét cọ",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "tiêu đề",
+    "văn bản",
+    "động lực"
+   ]
+  },
+  "template:ig5-titulo-retro": {
+   "name": "Tiêu đề: 80s RETROSTYLE",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "tiêu đề",
+    "văn bản",
+    "retro"
+   ]
+  },
+  "template:ig5-titulo-sale": {
+   "name": "Tiêu đề: tấm vé SALE",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "tiêu đề",
+    "văn bản",
+    "giảm giá"
+   ]
+  },
+  "template:ig5-wake-up": {
+   "name": "Story: WAKE UP AND BE AWESOME",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "đỏ",
+    "động lực"
+   ]
+  },
+  "template:ig5-your-choice": {
+   "name": "Story: chân dung với các chấm vàng",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "vàng",
+    "chấm"
+   ]
+  },
+  "template:ig5-your-style": {
+   "name": "Story: collage Your style",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "collage",
+    "nội thất"
+   ]
+  },
+  "template:ig6-arbol-cinta": {
+   "name": "Story Giáng sinh: cây thông ruy băng vàng",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "giáng sinh",
+    "cây thông"
+   ]
+  },
+  "template:ig6-artista": {
+   "name": "Story: You are the artist of your life với #YLIFE",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "xanh dương",
+    "phong cách sống"
+   ]
+  },
+  "template:ig6-aventuras": {
+   "name": "Story: My Adventures với hai ảnh và ngọn núi xanh",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "du lịch",
+    "phiêu lưu"
+   ]
+  },
+  "template:ig6-diseno-pasion": {
+   "name": "Story: Design is my passion trên nền hồng",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "thiết kế",
+    "kiến trúc"
+   ]
+  },
+  "template:ig6-feliz-brillante": {
+   "name": "Story Giáng sinh: Merry & Bright trên nền xám",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "giáng sinh",
+    "lễ hội"
+   ]
+  },
+  "template:ig6-interior": {
+   "name": "Story: Clear Interior với hộp đen",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "nhà cửa",
+    "thiết kế nội thất"
+   ]
+  },
+  "template:ig6-luz-calida": {
+   "name": "Story: Cozy Light với hình thoi và #WARM",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "nhà cửa",
+    "sản phẩm"
+   ]
+  },
+  "template:ig6-pino-rojo": {
+   "name": "Story Giáng sinh: cành thông và Merry Christmas trên nền đỏ",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "giáng sinh",
+    "giảm giá",
+    "cây thông"
+   ]
+  },
+  "template:ig6-rebajas-50": {
+   "name": "Story: SALE với thẻ giảm 50% và các dải xanh",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "ảnh",
+    "giảm giá",
+    "khuyến mãi"
+   ]
+  },
+  "template:ig6-rebajas-invierno": {
+   "name": "Story Giáng sinh: hộp quà mở ra «winter sell XMAS 50%off»",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "giáng sinh",
+    "giảm giá",
+    "khuyến mãi"
+   ]
+  },
+  "template:ig6-santa": {
+   "name": "Story Giáng sinh: khuôn mặt ông già Noel với Merry Xmas",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "giáng sinh",
+    "ông già noel"
+   ]
+  },
+  "template:ig6-swipe-bandera": {
+   "name": "Vuốt lên: lá cờ SWIPE UP bật ra từ pháo giấy",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "vuốt lên",
+    "vuốt",
+    "mũi tên"
+   ]
+  },
+  "template:ig6-swipe-boton": {
+   "name": "Vuốt lên: nút trắng biến từ hình vuông thành hình tròn",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "vuốt lên",
+    "vuốt",
+    "mũi tên"
+   ]
+  },
+  "template:ig6-swipe-brillo": {
+   "name": "Vuốt lên: các mũi tên trắng phát sáng bay lên",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "vuốt lên",
+    "vuốt",
+    "mũi tên"
+   ]
+  },
+  "template:ig6-swipe-chevrones": {
+   "name": "Vuốt lên: ba dấu chữ V xanh bay lên",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "vuốt lên",
+    "vuốt",
+    "mũi tên"
+   ]
+  },
+  "template:ig6-swipe-circulo": {
+   "name": "Vuốt lên: vòng tròn trắng với hình tam giác bay lên và nhòe dần",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "vuốt lên",
+    "vuốt",
+    "mũi tên"
+   ]
+  },
+  "template:ig6-swipe-cuadro": {
+   "name": "Vuốt lên: ô xanh ngọc với mũi tên và hình phản chiếu",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "vuốt lên",
+    "vuốt",
+    "mũi tên"
+   ]
+  },
+  "template:ig6-swipe-figuras": {
+   "name": "Vuốt lên: vòng xanh lá biến thành tam giác kèm SWIPE UP",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "vuốt lên",
+    "vuốt",
+    "mũi tên"
+   ]
+  },
+  "template:ig6-swipe-flecha": {
+   "name": "Vuốt lên: mũi tên xanh trên đường kẻ nhấp nháy",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "vuốt lên",
+    "vuốt",
+    "mũi tên"
+   ]
+  },
+  "template:ig6-swipe-interruptor": {
+   "name": "Vuốt lên: công tắc với nút xanh trượt lên",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "vuốt lên",
+    "vuốt",
+    "mũi tên"
+   ]
+  },
+  "template:ig6-swipe-letras": {
+   "name": "Vuốt lên: các chữ SWIPE UP nhảy nhót",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "vuốt lên",
+    "vuốt",
+    "mũi tên"
+   ]
+  },
+  "template:ig6-swipe-mano": {
+   "name": "Vuốt lên: bàn tay vuốt lên với vệt chữ V",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "vuốt lên",
+    "vuốt",
+    "mũi tên"
+   ]
+  },
+  "template:ig6-swipe-triangulo": {
+   "name": "Vuốt lên: tam giác trắng với chấm đỏ bay lên",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "vuốt lên",
+    "vuốt",
+    "mũi tên"
+   ]
+  },
+  "template:ig7-awesome": {
+   "name": "Story chữ nghệ thuật: AWESOME",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "chữ nghệ thuật",
+    "màu sắc",
+    "dải màu"
+   ]
+  },
+  "template:ig7-big": {
+   "name": "Story chữ nghệ thuật: BIG",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "chữ nghệ thuật",
+    "màu sắc",
+    "chữ khổng lồ"
+   ]
+  },
+  "template:ig7-brand": {
+   "name": "Story chữ nghệ thuật: BRAND",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "chữ nghệ thuật",
+    "màu sắc",
+    "chữ a"
+   ]
+  },
+  "template:ig7-color": {
+   "name": "Story chữ nghệ thuật: COLOR",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "chữ nghệ thuật",
+    "màu sắc",
+    "khung"
+   ]
+  },
+  "template:ig7-easy-project": {
+   "name": "Story chữ nghệ thuật: STORIES EASY PROJECT",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "chữ nghệ thuật",
+    "màu sắc",
+    "điểm ảnh"
+   ]
+  },
+  "template:ig7-grid": {
+   "name": "Story chữ nghệ thuật: lưới màu",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "chữ nghệ thuật",
+    "màu sắc",
+    "lưới"
+   ]
+  },
+  "template:ig7-no-plugins": {
+   "name": "Story chữ nghệ thuật: NO PLUGINS",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "chữ nghệ thuật",
+    "màu sắc",
+    "hình chữ nhật"
+   ]
+  },
+  "template:ig7-social": {
+   "name": "Story chữ nghệ thuật: SOCIAL",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "chữ nghệ thuật",
+    "màu sắc",
+    "thẻ"
+   ]
+  },
+  "template:ig7-stories": {
+   "name": "Story chữ nghệ thuật: STORIES",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "chữ nghệ thuật",
+    "màu sắc",
+    "chữ khổng lồ"
+   ]
+  },
+  "template:ig7-typo": {
+   "name": "Story chữ nghệ thuật: TYPO",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "chữ nghệ thuật",
+    "màu sắc",
+    "thẻ"
+   ]
+  },
+  "template:ig8-best-sellers": {
+   "name": "Story đường phố: Best Sellers click now",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "đô thị",
+    "xanh dương",
+    "cửa hàng"
+   ]
+  },
+  "template:ig8-city-vibes": {
+   "name": "Story đường phố: city vibes với hai ảnh",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "đô thị",
+    "xanh dương",
+    "thành phố"
+   ]
+  },
+  "template:ig8-friends": {
+   "name": "Story đường phố: friends positive với dải ảnh",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "đô thị",
+    "xanh dương",
+    "bạn bè"
+   ]
+  },
+  "template:ig8-mega-sale": {
+   "name": "Story đường phố: mega sale %50 polaroid",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "đô thị",
+    "xanh dương",
+    "giảm giá"
+   ]
+  },
+  "template:ig8-visit-page": {
+   "name": "Story đường phố: visit page với thanh xanh dương",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "đô thị",
+    "xanh dương",
+    "web"
+   ]
+  },
+  "template:ig9-banda-roja": {
+   "name": "Story: dải đỏ với một từ khổng lồ",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "chữ nghệ thuật",
+    "dải",
+    "đỏ"
+   ]
+  },
+  "template:ig9-letras-cortadas": {
+   "name": "Story: từ khổng lồ bị cắt và ba liên kết",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "chữ nghệ thuật",
+    "chữ cái",
+    "liên kết"
+   ]
+  },
+  "template:ig9-letras-rojas": {
+   "name": "Story: bức tường chữ xoay trên nền đỏ",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "chữ nghệ thuật",
+    "chữ cái",
+    "đỏ"
+   ]
+  },
+  "template:ig9-palabra-vertical": {
+   "name": "Story: từ dọc trong khung với ruy băng đỏ",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "chữ nghệ thuật",
+    "dọc",
+    "khung"
+   ]
+  },
+  "template:ig9-typo": {
+   "name": "Story: các ô chữ TYPO với khung vẽ tay",
+   "tags": [
+    "instagram",
+    "story",
+    "reels",
+    "chữ nghệ thuật",
+    "chữ cái",
+    "khung"
+   ]
+  },
   "template:intro-de-canal": {
    "name": "Intro kênh",
    "tags": [
@@ -25036,6 +28045,204 @@
     "theo nhịp",
     "tiệc",
     "chữ"
+   ]
+  },
+  "template:lg0-circulo-ambar": {
+   "name": "Logo: hai chấm vẽ nên vòng tròn khép lại thành đĩa (hổ phách)",
+   "tags": [
+    "logo",
+    "hiện logo",
+    "phẳng",
+    "hổ phách",
+    "vàng",
+    "hình tròn"
+   ]
+  },
+  "template:lg0-cuadro-blanco": {
+   "name": "Logo: hình vuông nảy lên rồi mở ra (trắng)",
+   "tags": [
+    "logo",
+    "hiện logo",
+    "phẳng",
+    "trắng",
+    "hình vuông",
+    "nảy"
+   ]
+  },
+  "template:lg0-disco-azul": {
+   "name": "Logo: chấm bay mở ra thành đĩa (xanh dương)",
+   "tags": [
+    "logo",
+    "hiện logo",
+    "phẳng",
+    "xanh dương",
+    "đĩa",
+    "chấm"
+   ]
+  },
+  "template:lg0-hexagono-coral": {
+   "name": "Logo: đường kẻ, hình tròn và lục giác lăn cùng thương hiệu của bạn (san hô)",
+   "tags": [
+    "logo",
+    "hiện logo",
+    "phẳng",
+    "san hô",
+    "lục giác",
+    "đường kẻ"
+   ]
+  },
+  "template:lg0-iconos-redes": {
+   "name": "Mười biểu tượng mạng xã hội bật ra (xanh dương)",
+   "tags": [
+    "logo",
+    "hiện logo",
+    "phẳng",
+    "mạng xã hội",
+    "biểu tượng",
+    "facebook"
+   ]
+  },
+  "template:lg0-sigueme": {
+   "name": "Logo mạng xã hội: follow me với quả bóng trong lục giác trên nền ảnh",
+   "tags": [
+    "logo",
+    "hiện logo",
+    "phẳng",
+    "theo dõi tôi",
+    "người dùng",
+    "lục giác"
+   ]
+  },
+  "template:lg1-luz-dorada": {
+   "name": "Logo: dựng nên từ ánh sáng vàng",
+   "tags": [
+    "logo",
+    "intro",
+    "ánh sáng",
+    "vàng kim",
+    "dải màu",
+    "sang trọng"
+   ]
+  },
+  "template:lg2-cintas": {
+   "name": "Follow me: logo từ những dải ruy băng xoay",
+   "tags": [
+    "logo",
+    "phẳng",
+    "doanh nghiệp",
+    "theo dõi tôi",
+    "3d"
+   ]
+  },
+  "template:lg2-franjas": {
+   "name": "Follow me: logo từ các lát cắt và thanh",
+   "tags": [
+    "logo",
+    "phẳng",
+    "doanh nghiệp",
+    "theo dõi tôi",
+    "dải màu"
+   ]
+  },
+  "template:lg2-giro": {
+   "name": "Logo: xoay tháo cuộn",
+   "tags": [
+    "logo",
+    "phẳng",
+    "doanh nghiệp",
+    "xoay"
+   ]
+  },
+  "template:lg2-glitch": {
+   "name": "Logo: glitch trên nền xanh lá",
+   "tags": [
+    "logo",
+    "phẳng",
+    "doanh nghiệp",
+    "glitch"
+   ]
+  },
+  "template:lg2-horizonte": {
+   "name": "Subscribe: logo nhô lên từ đường chân trời",
+   "tags": [
+    "logo",
+    "phẳng",
+    "doanh nghiệp",
+    "đăng ký kênh",
+    "đường chân trời"
+   ]
+  },
+  "template:lg2-mira": {
+   "name": "Subscribe: tâm ngắm mở ra",
+   "tags": [
+    "logo",
+    "phẳng",
+    "doanh nghiệp",
+    "đăng ký kênh",
+    "tâm ngắm"
+   ]
+  },
+  "template:lg2-orbita": {
+   "name": "Subscribe: logo trên quỹ đạo",
+   "tags": [
+    "logo",
+    "phẳng",
+    "doanh nghiệp",
+    "đăng ký kênh",
+    "quỹ đạo"
+   ]
+  },
+  "template:lg2-puntos": {
+   "name": "Logo: các chấm lăn",
+   "tags": [
+    "logo",
+    "phẳng",
+    "doanh nghiệp",
+    "chấm"
+   ]
+  },
+  "template:lg3-esfera": {
+   "name": "Logo: quả cầu sọc biến thành đĩa",
+   "tags": [
+    "logo",
+    "hiện logo",
+    "intro",
+    "quả cầu",
+    "xanh dương",
+    "doanh nghiệp"
+   ]
+  },
+  "template:lg3-ondas": {
+   "name": "Logo: sóng màu lắng xuống thành một đường kẻ",
+   "tags": [
+    "logo",
+    "hiện logo",
+    "intro",
+    "sóng",
+    "màu sắc",
+    "đường kẻ"
+   ]
+  },
+  "template:lg3-persiana": {
+   "name": "Logo: hình vuông nan lá mở ra",
+   "tags": [
+    "logo",
+    "hiện logo",
+    "intro",
+    "hình vuông",
+    "xám",
+    "tối giản"
+   ]
+  },
+  "template:lg3-torta-diana": {
+   "name": "Logo: vòng nét đứt, biểu đồ tròn màu và tâm bia",
+   "tags": [
+    "logo",
+    "hiện logo",
+    "intro",
+    "biểu đồ tròn",
+    "hình tròn",
+    "pastel"
    ]
   },
   "template:llt-bevan": {
@@ -33428,6 +36635,1053 @@
     "nhiều màu",
     "chữ động",
     "ảnh"
+   ]
+  },
+  "template:tk0-cintas-telefono": {
+   "name": "Story: dải băng chữ và chiếc điện thoại",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "dọc",
+    "dải băng",
+    "điện thoại"
+   ]
+  },
+  "template:tk0-collage-azul": {
+   "name": "Story: collage ba ảnh tông xanh dương và đen",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "dọc",
+    "collage",
+    "ảnh"
+   ]
+  },
+  "template:tk0-collage-negro": {
+   "name": "Story: collage sáu ảnh kèm sticker",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "dọc",
+    "collage",
+    "ảnh"
+   ]
+  },
+  "template:tk0-creas-tendencias": {
+   "name": "Story: bạn có tạo ra xu hướng? bong bóng đỏ",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "dọc",
+    "câu hỏi",
+    "hồng"
+   ]
+  },
+  "template:tk0-empieza-aqui": {
+   "name": "Story: xu hướng bắt đầu từ đây",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "dọc",
+    "xu hướng",
+    "xanh dương"
+   ]
+  },
+  "template:tk0-mision": {
+   "name": "Story: sứ mệnh của chúng tôi với ảnh trên nền đỏ",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "dọc",
+    "sứ mệnh",
+    "đỏ"
+   ]
+  },
+  "template:tk0-nueva-era": {
+   "name": "Story: kỷ nguyên video mới",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "dọc",
+    "video",
+    "đỏ"
+   ]
+  },
+  "template:tk0-nuevo-video": {
+   "name": "Story: NEW VIDEO với chiếc điện thoại",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "dọc",
+    "video",
+    "mới"
+   ]
+  },
+  "template:tk0-plantilla": {
+   "name": "Story: mẫu dành cho mọi người kèm ảnh",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "dọc",
+    "mẫu",
+    "xanh dương"
+   ]
+  },
+  "template:tk0-plataforma": {
+   "name": "Story: nền tảng mới với hai chiếc điện thoại",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "dọc",
+    "nền tảng",
+    "đen"
+   ]
+  },
+  "template:tk0-promo-negro": {
+   "name": "Story: SUPER PROMO trong bong bóng xanh trên nền đen",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "dọc",
+    "khuyến mãi",
+    "đen"
+   ]
+  },
+  "template:tk0-promo-x": {
+   "name": "Story: PROMO với các dải băng chéo nhau",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "dọc",
+    "khuyến mãi",
+    "đen"
+   ]
+  },
+  "template:tk0-que-ves": {
+   "name": "Story: bạn thích xem gì? khung chat",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "dọc",
+    "trò chuyện",
+    "câu hỏi"
+   ]
+  },
+  "template:tk0-recordatorio": {
+   "name": "Story: khảo sát nhắc nhở trên video",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "dọc",
+    "khảo sát",
+    "nhắc nhở"
+   ]
+  },
+  "template:tk0-tendencias": {
+   "name": "Story: xu hướng viral tông hồng và xanh dương",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "dọc",
+    "xu hướng",
+    "hồng"
+   ]
+  },
+  "template:tk0-trendy": {
+   "name": "Story: TRENDY STYLE với các dải màu",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "dọc",
+    "xu hướng",
+    "xanh dương"
+   ]
+  },
+  "template:tk1-tipografia": {
+   "name": "Mở đầu chữ nghệ thuật: mỗi nhịp một từ",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "mở đầu",
+    "chữ nghệ thuật",
+    "từ ngữ"
+   ]
+  },
+  "template:tk2-alice": {
+   "name": "Story: Alice Braun kèm ảnh",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "tên",
+    "ảnh",
+    "xanh dương"
+   ]
+  },
+  "template:tk2-austin": {
+   "name": "Story: Austin Grant với video mới",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "tên",
+    "ảnh",
+    "đen"
+   ]
+  },
+  "template:tk2-baile": {
+   "name": "Story: Just dance với ba ảnh",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "nhảy múa",
+    "ảnh",
+    "xanh dương"
+   ]
+  },
+  "template:tk2-belleza": {
+   "name": "Story: About Beauty for You",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "làm đẹp",
+    "ảnh",
+    "đen"
+   ]
+  },
+  "template:tk2-blogger": {
+   "name": "Story: Social blogger với các vòng tròn",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "vòng tròn",
+    "ảnh",
+    "đen"
+   ]
+  },
+  "template:tk2-contenido": {
+   "name": "Story: nội dung đa dạng trong lưới",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "lưới",
+    "ảnh",
+    "đen"
+   ]
+  },
+  "template:tk2-follow": {
+   "name": "Story: follow với trái tim",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "theo dõi",
+    "trái tim",
+    "đen"
+   ]
+  },
+  "template:tk2-isabella": {
+   "name": "Story: Isabella Walker kèm ảnh",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "tên",
+    "ảnh",
+    "xanh dương"
+   ]
+  },
+  "template:tk2-lifestyle": {
+   "name": "Story: #lifestyle với video",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "phong cách sống",
+    "video",
+    "đỏ"
+   ]
+  },
+  "template:tk2-new": {
+   "name": "Story: NEW với các trái tim",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "mới",
+    "ảnh",
+    "đen"
+   ]
+  },
+  "template:tk2-nuevo-video": {
+   "name": "Story: video mới kèm ảnh",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "video mới",
+    "ảnh",
+    "đỏ"
+   ]
+  },
+  "template:tk2-perfil": {
+   "name": "Story: trang cá nhân với người theo dõi",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "trang cá nhân",
+    "người theo dõi",
+    "ảnh"
+   ]
+  },
+  "template:tk2-suscriptores": {
+   "name": "Story: có thêm người đăng ký mới",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "người đăng ký",
+    "ảnh",
+    "đen"
+   ]
+  },
+  "template:tk2-tarjeta": {
+   "name": "Story: thẻ với logo của bạn và sticker",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "logo",
+    "sticker",
+    "xanh dương"
+   ]
+  },
+  "template:tk2-tendencias": {
+   "name": "Story: xu hướng với dải đỏ",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "xu hướng",
+    "ảnh",
+    "xanh dương"
+   ]
+  },
+  "template:tk3-diseno": {
+   "name": "Story: Fashion Design với các đường kẻ mảnh",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "thời trang",
+    "pastel",
+    "thiết kế"
+   ]
+  },
+  "template:tk3-estilo-de-vida": {
+   "name": "Story: Lifestyle với hình tam giác xoay",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "thời trang",
+    "pastel",
+    "phong cách sống"
+   ]
+  },
+  "template:tk3-gracias": {
+   "name": "Màn kết: Thanks For Watching!",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "thời trang",
+    "pastel",
+    "màn kết"
+   ]
+  },
+  "template:tk3-rebajas": {
+   "name": "Story: giảm giá thời trang với hộp 50% OFF",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "thời trang",
+    "pastel",
+    "giảm giá"
+   ]
+  },
+  "template:tk3-rebajas-2": {
+   "name": "Story: Fashion Sale với 50% trên ảnh",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "thời trang",
+    "pastel",
+    "giảm giá"
+   ]
+  },
+  "template:tk3-siguiente-nivel": {
+   "name": "Story: The Next Level Of Fashion với 50% OFF dọc",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "thời trang",
+    "pastel",
+    "khuyến mãi"
+   ]
+  },
+  "template:tk3-siguiente-nivel-2": {
+   "name": "Story: The Next Level Of Fashion với Get 50% OFF",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "thời trang",
+    "pastel",
+    "khuyến mãi"
+   ]
+  },
+  "template:tk3-sorteo": {
+   "name": "Story: Giveaway! tặng quà",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "thời trang",
+    "pastel",
+    "tặng quà"
+   ]
+  },
+  "template:tk3-tendencia": {
+   "name": "Story: Keep It Trendy với 50%",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "thời trang",
+    "pastel",
+    "xu hướng"
+   ]
+  },
+  "template:tk4-dynamic": {
+   "name": "Mở đầu sôi động: ảnh đỏ và đen",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "mở đầu",
+    "trình chiếu ảnh",
+    "sôi động"
+   ]
+  },
+  "template:tk4-fast": {
+   "name": "Mở đầu nhanh: chữ trên ảnh nhiều màu",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "mở đầu",
+    "trình chiếu ảnh",
+    "nhanh"
+   ]
+  },
+  "template:tk4-modern": {
+   "name": "Mở đầu hiện đại: vàng, vàng kim và lưới",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "mở đầu",
+    "trình chiếu ảnh",
+    "hiện đại"
+   ]
+  },
+  "template:tk4-rhythm": {
+   "name": "Mở đầu theo nhịp: chữ chuyển màu",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "mở đầu",
+    "trình chiếu ảnh",
+    "nhịp điệu"
+   ]
+  },
+  "template:tk4-stomp": {
+   "name": "Mở đầu stomp: mỗi nhịp một từ kèm ảnh",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "mở đầu",
+    "trình chiếu ảnh",
+    "stomp"
+   ]
+  },
+  "template:tk4-typo": {
+   "name": "Mở đầu chữ nghệ thuật: chữ đen và ảnh",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "mở đầu",
+    "trình chiếu ảnh",
+    "chữ nghệ thuật"
+   ]
+  },
+  "template:tk5-carefree": {
+   "name": "Story: CAREFREE LIVING dọc",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "đen trắng",
+    "ảnh",
+    "dọc"
+   ]
+  },
+  "template:tk5-endless": {
+   "name": "Story: ENDLESS LOVING CONVERSATIONS",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "đen trắng",
+    "văn bản"
+   ]
+  },
+  "template:tk5-find": {
+   "name": "Story: FIND HIDDEN GEMS",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "đen trắng",
+    "văn bản"
+   ]
+  },
+  "template:tk5-follow": {
+   "name": "Story: FOLLOW YOUR DREAM",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "đen trắng",
+    "văn bản"
+   ]
+  },
+  "template:tk5-foto-cae": {
+   "name": "Story: ảnh rơi xuống rồi trồi lên",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "đen trắng",
+    "ảnh"
+   ]
+  },
+  "template:tk5-foto-lado": {
+   "name": "Story: ảnh trượt vào từ bên cạnh",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "đen trắng",
+    "ảnh"
+   ]
+  },
+  "template:tk5-foto-sube": {
+   "name": "Story: ảnh trồi lên",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "đen trắng",
+    "ảnh"
+   ]
+  },
+  "template:tk5-freedom": {
+   "name": "Story: FREEDOM và PLEASING với hai ảnh",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "đen trắng",
+    "ảnh",
+    "collage"
+   ]
+  },
+  "template:tk5-join": {
+   "name": "Story: kêu gọi hành động JOIN THE JOURNEY",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "đen trắng",
+    "kêu gọi hành động",
+    "logo"
+   ]
+  },
+  "template:tk5-laughter": {
+   "name": "Story: LAUGHTER OF A LOVED ONE",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "đen trắng",
+    "ảnh"
+   ]
+  },
+  "template:tk5-stars": {
+   "name": "Story: STARS và DREAMS theo các cột",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "đen trắng",
+    "ảnh",
+    "collage"
+   ]
+  },
+  "template:tk5-sunshine": {
+   "name": "Story: SUNSHINE FILLS SKIES với ảnh",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "đen trắng",
+    "ảnh",
+    "collage"
+   ]
+  },
+  "template:tk6-discovery": {
+   "name": "Story: collage DISCOVERY và SPACESUIT",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "xanh ngọc",
+    "ảnh",
+    "collage"
+   ]
+  },
+  "template:tk6-dreams": {
+   "name": "Story: collage DREAMS",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "xanh ngọc",
+    "ảnh",
+    "collage"
+   ]
+  },
+  "template:tk6-flower": {
+   "name": "Story: collage FLOWER BEAUTY",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "xanh ngọc",
+    "ảnh",
+    "collage"
+   ]
+  },
+  "template:tk6-foto-cae": {
+   "name": "Story: ảnh có khung rơi vào",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "xanh ngọc",
+    "ảnh"
+   ]
+  },
+  "template:tk6-foto-lado": {
+   "name": "Story: ảnh có khung trượt vào",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "xanh ngọc",
+    "ảnh"
+   ]
+  },
+  "template:tk6-freedom": {
+   "name": "Story: cột FREEDOM",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "xanh ngọc",
+    "ảnh",
+    "dọc"
+   ]
+  },
+  "template:tk6-modern": {
+   "name": "Story: collage MODERN STORIES",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "xanh ngọc",
+    "ảnh",
+    "collage"
+   ]
+  },
+  "template:tk6-savor": {
+   "name": "Story: kêu gọi hành động SAVOR LIFE'S GOODNESS",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "xanh ngọc",
+    "kêu gọi hành động",
+    "logo"
+   ]
+  },
+  "template:tk6-starry": {
+   "name": "Story: STARRY NIGHTS thu nhỏ thành collage",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "xanh ngọc",
+    "ảnh",
+    "collage"
+   ]
+  },
+  "template:tk6-times-now": {
+   "name": "Story: TIME'S NOW với hai ảnh",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "xanh ngọc",
+    "ảnh",
+    "dọc"
+   ]
+  },
+  "template:tk6-wind": {
+   "name": "Story: WIND và AURA với hai ảnh",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "xanh ngọc",
+    "ảnh",
+    "collage"
+   ]
+  },
+  "template:tk7-blooms": {
+   "name": "Story: BLOOMS ALL AROUND tông đỏ",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "hoa",
+    "màu sắc",
+    "thời trang"
+   ]
+  },
+  "template:tk7-bold": {
+   "name": "Story: collage BOLD COLORS SWAY",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "hoa",
+    "màu sắc",
+    "thời trang"
+   ]
+  },
+  "template:tk7-breezy": {
+   "name": "Story: collage BREEZY SPRING ATTIRE",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "hoa",
+    "màu sắc",
+    "thời trang"
+   ]
+  },
+  "template:tk7-canvas": {
+   "name": "Story: collage CANVAS LIFE BODY",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "hoa",
+    "màu sắc",
+    "thời trang"
+   ]
+  },
+  "template:tk7-characters": {
+   "name": "Story: COLORFUL CHARACTERS dưới ảnh",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "hoa",
+    "màu sắc",
+    "thời trang"
+   ]
+  },
+  "template:tk7-colorful-and": {
+   "name": "Story: COLORFUL AND CONFIDENCE giữa hai ảnh",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "hoa",
+    "màu sắc",
+    "thời trang"
+   ]
+  },
+  "template:tk7-discover-more": {
+   "name": "Story kết: DISCOVER MORE kèm logo của bạn",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "hoa",
+    "màu sắc",
+    "thời trang"
+   ]
+  },
+  "template:tk7-embrace": {
+   "name": "Story: EMBRACE và EXPRESSION quanh một ảnh",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "hoa",
+    "màu sắc",
+    "thời trang"
+   ]
+  },
+  "template:tk7-embrace-your-life": {
+   "name": "Story: EMBRACE YOUR LIFE với bốn ảnh",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "hoa",
+    "màu sắc",
+    "thời trang"
+   ]
+  },
+  "template:tk7-flower": {
+   "name": "Story: FLOWER PARADISE DELIGHT tông xanh dương",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "hoa",
+    "màu sắc",
+    "thời trang"
+   ]
+  },
+  "template:tk7-sale": {
+   "name": "Story: SALE SALE SALE với hai ảnh",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "hoa",
+    "màu sắc",
+    "thời trang"
+   ]
+  },
+  "template:tk7-savor": {
+   "name": "Story: SAVOR MOMENTS NOW với cột ảnh",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "hoa",
+    "màu sắc",
+    "thời trang"
+   ]
+  },
+  "template:tk8-apple-pie": {
+   "name": "Story: SWEET APPLE PIE và SAVOR EVERY BITE",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "ẩm thực",
+    "nhà hàng",
+    "vàng"
+   ]
+  },
+  "template:tk8-bbq": {
+   "name": "Story: BBQ SMOKE RISING với năm ảnh",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "ẩm thực",
+    "nhà hàng",
+    "vàng"
+   ]
+  },
+  "template:tk8-big-sale": {
+   "name": "Story: BIG -50% SALE với ba ảnh",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "ẩm thực",
+    "nhà hàng",
+    "vàng"
+   ]
+  },
+  "template:tk8-buy-now": {
+   "name": "Story: BUY NOW với năm ảnh",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "ẩm thực",
+    "nhà hàng",
+    "vàng"
+   ]
+  },
+  "template:tk8-crispy-fries": {
+   "name": "Story: CRISPY GOLDEN FRIES với ba ảnh",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "ẩm thực",
+    "nhà hàng",
+    "vàng"
+   ]
+  },
+  "template:tk8-discover-flavors": {
+   "name": "Story kết: DISCOVER NEW FLAVORS kèm logo của bạn",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "ẩm thực",
+    "nhà hàng",
+    "vàng"
+   ]
+  },
+  "template:tk8-fast-food": {
+   "name": "Story: FAST FOOD ADDICTION",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "ẩm thực",
+    "nhà hàng",
+    "vàng"
+   ]
+  },
+  "template:tk8-food-lovers": {
+   "name": "Story: FOOD LOVERS UNITE với bốn ảnh",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "ẩm thực",
+    "nhà hàng",
+    "vàng"
+   ]
+  },
+  "template:tk8-fried-chicken": {
+   "name": "Story: FRIED CHICKEN DELIGHT",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "ẩm thực",
+    "nhà hàng",
+    "vàng"
+   ]
+  },
+  "template:tk8-hot-dogs": {
+   "name": "Story: HOT DOGS và CRISPY FRIES",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "ẩm thực",
+    "nhà hàng",
+    "vàng"
+   ]
+  },
+  "template:tk8-lowest-price": {
+   "name": "Story: THE LOWEST PRICE",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "ẩm thực",
+    "nhà hàng",
+    "vàng"
+   ]
+  },
+  "template:tk8-new-york-pizza": {
+   "name": "Story: NEW YORK PIZZA từ toàn màn hình thành collage",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "ẩm thực",
+    "nhà hàng",
+    "vàng"
+   ]
+  },
+  "template:tk8-nice-diners": {
+   "name": "Story: NICE DINERS với ảnh dọc cao",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "ẩm thực",
+    "nhà hàng",
+    "vàng"
+   ]
+  },
+  "template:tk9-limpia": {
+   "name": "Mở đầu gọn gàng: chữ và ảnh theo nhịp",
+   "tags": [
+    "tiktok",
+    "story",
+    "reels",
+    "mở đầu",
+    "chữ nghệ thuật",
+    "từ ngữ"
    ]
   },
   "template:top-5-mas-vendidos": {

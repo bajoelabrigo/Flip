@@ -117,6 +117,7 @@
   "template:collage": "Коллажи",
   "template:countdown": "Обратный отсчёт",
   "template:counter": "Счётчики",
+  "template:instagram": "Набор Instagram",
   "template:intro": "Интро и заголовки",
   "template:lowerthird": "Плашки",
   "template:outro": "Концовки",
@@ -127,6 +128,7 @@
   "template:story15": "Истории 15 секунд",
   "template:text": "Текст",
   "template:thumbnail": "Превью для видео",
+  "template:tiktok": "Набор TikTok",
   "template:transition": "Переходы и разделители",
   "template:youtuber": "Стиль ютубера",
   "template:ytkit": "Набор для YouTube",
@@ -25158,6 +25160,3016 @@
     "вечеринка"
    ]
   },
+  "template:ig0-intro-urbana": {
+   "name": "Динамичное городское интро: URBAN, STREETS, PROMO и ваш логотип",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "открывашка",
+    "городской",
+    "динамичное интро"
+   ]
+  },
+  "template:ig1-alison": {
+   "name": "Сторис: имя на фото в красной рамке",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "имя",
+    "профиль",
+    "красный"
+   ]
+  },
+  "template:ig1-anna": {
+   "name": "Сторис: имя и фото на синем градиенте",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "имя",
+    "профиль",
+    "градиент"
+   ]
+  },
+  "template:ig1-beautiful": {
+   "name": "Сторис: #beautiful с фото и цитатой",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "цитата",
+    "фото"
+   ]
+  },
+  "template:ig1-believe": {
+   "name": "Сторис: WE MUST BELIEVE с разделительной линией",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фраза",
+    "фото",
+    "чёрный"
+   ]
+  },
+  "template:ig1-catherine": {
+   "name": "Сторис: круглое фото, имя и цитата на градиенте",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "цитата",
+    "профиль",
+    "градиент"
+   ]
+  },
+  "template:ig1-conquer": {
+   "name": "Сторис: Conquer from within с каруселью фото",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "карусель",
+    "фото",
+    "белый"
+   ]
+  },
+  "template:ig1-do-your-best": {
+   "name": "Сторис: DO YOUR BEST на ленте",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фраза",
+    "город",
+    "мотивация"
+   ]
+  },
+  "template:ig1-dog": {
+   "name": "Сторис: фото, разрезанное полосой #photooftheday",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "питомец",
+    "фото",
+    "полоса"
+   ]
+  },
+  "template:ig1-elegant": {
+   "name": "Сторис: ELEGANT TYPO DESIGN с зеркальным окном",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "типографика",
+    "море",
+    "элегантный"
+   ]
+  },
+  "template:ig1-forty-sale": {
+   "name": "Сторис: вертикальная распродажа 40% с фото",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "распродажа",
+    "скидка",
+    "мода"
+   ]
+  },
+  "template:ig1-happy-thoughts": {
+   "name": "Сторис: наклонный полароид «happy thoughts»",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "полароид",
+    "свадьба",
+    "рукописный"
+   ]
+  },
+  "template:ig1-heart": {
+   "name": "Сторис: фото в сердце «happy thoughts»",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "сердце",
+    "любовь",
+    "персиковый"
+   ]
+  },
+  "template:ig1-instalove": {
+   "name": "Сторис: #instalove LIVE WHAT YOU LOVE",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фраза",
+    "лес",
+    "имя"
+   ]
+  },
+  "template:ig1-lifestyle": {
+   "name": "Сторис: #lifestyle с мозаикой из фото",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "коллаж",
+    "лето",
+    "мозаика"
+   ]
+  },
+  "template:ig1-live-what": {
+   "name": "Сторис: Live what you love с сеткой 2×2",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "сетка",
+    "коллаж",
+    "белый"
+   ]
+  },
+  "template:ig1-love-friendship": {
+   "name": "Сторис: полароиды и рукописное «Love is friendship»",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "полароид",
+    "розовый",
+    "цитата"
+   ]
+  },
+  "template:ig1-love-loves": {
+   "name": "Сторис: два полароида со стрелками и рукописной строкой",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "полароид",
+    "розовый",
+    "стрелки"
+   ]
+  },
+  "template:ig1-must-believe": {
+   "name": "Сторис: WE MUST BELIEVE в зеркальном круге",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фраза",
+    "круг",
+    "пейзаж"
+   ]
+  },
+  "template:ig1-nature": {
+   "name": "Сторис: Nature в блоке с рамкой",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "природа",
+    "рамка",
+    "море"
+   ]
+  },
+  "template:ig1-neon": {
+   "name": "Сторис: NEON CITY бирюзовым неоном",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "неон",
+    "город",
+    "ночь"
+   ]
+  },
+  "template:ig1-photo-frame": {
+   "name": "Сторис: белая карточка, открывающая окно",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "рамка",
+    "еда",
+    "фото"
+   ]
+  },
+  "template:ig1-seek": {
+   "name": "Сторис: SEEK THE SEEKER с фото в буквах",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фраза",
+    "листья",
+    "вырезка"
+   ]
+  },
+  "template:ig1-so-it-goes": {
+   "name": "Сторис: So it goes с сеткой 2×2",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "сетка",
+    "коллаж",
+    "розовый"
+   ]
+  },
+  "template:ig1-spring-sale": {
+   "name": "Сторис: весенняя распродажа 30%",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "распродажа",
+    "скидка",
+    "мода"
+   ]
+  },
+  "template:ig1-stylish-bike": {
+   "name": "Сторис: S T Y L I S H с вырезанным объектом",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "вырезка",
+    "бирюзовый",
+    "ссылка"
+   ]
+  },
+  "template:ig1-stylish-design": {
+   "name": "Сторис: STYLISH DESIGN в градиентной рамке",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "рамка",
+    "градиент",
+    "тёмный"
+   ]
+  },
+  "template:ig1-stylish-skate": {
+   "name": "Сторис: гигантское вертикальное Stylish с девизом",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "вертикальный",
+    "скейт",
+    "типографика"
+   ]
+  },
+  "template:ig1-success": {
+   "name": "Сторис: цитата на камне с номером 01",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "цитата",
+    "фраза",
+    "тёмный"
+   ]
+  },
+  "template:ig1-work-dream": {
+   "name": "Сторис: вертикальное Work hard. Dream big. с номером 05",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фраза",
+    "вертикальный",
+    "число"
+   ]
+  },
+  "template:ig1-work-hard": {
+   "name": "Сторис: WORK HARD. DREAM BIG. на чёрном",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фраза",
+    "мотивация",
+    "чёрный"
+   ]
+  },
+  "template:ig10-arco-sube": {
+   "name": "Сторис: поднимающееся фото в арке с MODELS",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "мода",
+    "модели",
+    "фото"
+   ]
+  },
+  "template:ig10-ovalo-abre": {
+   "name": "Сторис: овальное фото, раскрывающееся из линии",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "мода",
+    "модели",
+    "фото"
+   ]
+  },
+  "template:ig10-ovalo-sube": {
+   "name": "Сторис: поднимающееся овальное фото с двумя контурами",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "мода",
+    "модели",
+    "фото"
+   ]
+  },
+  "template:ig10-u-foto": {
+   "name": "Сторис: фото со скруглённым низом и заголовок в рамке",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "мода",
+    "модели",
+    "фото"
+   ]
+  },
+  "template:ig10-ventana-arco": {
+   "name": "Сторис: фото под вуалью в арочном окне",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "мода",
+    "модели",
+    "фото"
+   ]
+  },
+  "template:ig11-avatar-seguir": {
+   "name": "Аватар с кнопкой «Подписаться»",
+   "tags": [
+    "instagram",
+    "элементы",
+    "призыв к действию",
+    "соцсети",
+    "подписаться",
+    "сторис"
+   ]
+  },
+  "template:ig11-comenta": {
+   "name": "Комментируйте ниже",
+   "tags": [
+    "instagram",
+    "элементы",
+    "призыв к действию",
+    "соцсети",
+    "комментарии",
+    "счётчик"
+   ]
+  },
+  "template:ig11-compartir": {
+   "name": "Поделитесь публикацией с друзьями",
+   "tags": [
+    "instagram",
+    "элементы",
+    "призыв к действию",
+    "соцсети",
+    "поделиться",
+    "публикация"
+   ]
+  },
+  "template:ig11-doble-toque": {
+   "name": "Дважды нажмите, чтобы поставить лайк",
+   "tags": [
+    "instagram",
+    "элементы",
+    "призыв к действию",
+    "соцсети",
+    "лайк",
+    "сердце"
+   ]
+  },
+  "template:ig11-enlace-bio": {
+   "name": "Ссылка в шапке профиля",
+   "tags": [
+    "instagram",
+    "элементы",
+    "призыв к действию",
+    "соцсети",
+    "ссылка",
+    "био"
+   ]
+  },
+  "template:ig11-etiqueta": {
+   "name": "Отметьте друга",
+   "tags": [
+    "instagram",
+    "элементы",
+    "призыв к действию",
+    "соцсети",
+    "отметка",
+    "упоминание"
+   ]
+  },
+  "template:ig11-inspiracion": {
+   "name": "Найдите своё вдохновение",
+   "tags": [
+    "instagram",
+    "элементы",
+    "призыв к действию",
+    "соцсети",
+    "поиск"
+   ]
+  },
+  "template:ig11-pastilla-seguir": {
+   "name": "Плашка с именем и кнопкой «Подписаться»",
+   "tags": [
+    "instagram",
+    "элементы",
+    "призыв к действию",
+    "соцсети",
+    "подписаться",
+    "имя"
+   ]
+  },
+  "template:ig11-pastilla-usuario": {
+   "name": "Плашка пользователя со счётчиком подписчиков",
+   "tags": [
+    "instagram",
+    "элементы",
+    "призыв к действию",
+    "соцсети",
+    "пользователь",
+    "подписчики"
+   ]
+  },
+  "template:ig11-perfil": {
+   "name": "Карточка профиля",
+   "tags": [
+    "instagram",
+    "элементы",
+    "призыв к действию",
+    "соцсети",
+    "профиль",
+    "подписаться"
+   ]
+  },
+  "template:ig11-publicacion": {
+   "name": "Карточка публикации",
+   "tags": [
+    "instagram",
+    "элементы",
+    "призыв к действию",
+    "соцсети",
+    "публикация",
+    "лайк"
+   ]
+  },
+  "template:ig11-reels": {
+   "name": "Смотрите наши новые reels",
+   "tags": [
+    "instagram",
+    "элементы",
+    "призыв к действию",
+    "соцсети",
+    "reels",
+    "просмотры"
+   ]
+  },
+  "template:ig11-responder": {
+   "name": "Карточка комментария с ответом",
+   "tags": [
+    "instagram",
+    "элементы",
+    "призыв к действию",
+    "соцсети",
+    "комментарий",
+    "ответить"
+   ]
+  },
+  "template:ig11-tu-historia": {
+   "name": "Добавьте свою историю",
+   "tags": [
+    "instagram",
+    "элементы",
+    "призыв к действию",
+    "соцсети",
+    "сторис",
+    "поделиться"
+   ]
+  },
+  "template:ig11-ver-historia": {
+   "name": "Нажмите, чтобы посмотреть историю",
+   "tags": [
+    "instagram",
+    "элементы",
+    "призыв к действию",
+    "соцсети",
+    "сторис",
+    "нажми"
+   ]
+  },
+  "template:ig12-anillos": {
+   "name": "Сторис: кольца с круглым фото и гигантскими буквами",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "оранжевый",
+    "красный",
+    "круги"
+   ]
+  },
+  "template:ig12-caja-roja": {
+   "name": "Сторис: красная коробка с вертикальным словом и гигантскими буквами",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "оранжевый",
+    "красный",
+    "коробка"
+   ]
+  },
+  "template:ig12-diagonal": {
+   "name": "Сторис: диагональные полосы с гигантским словом",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "оранжевый",
+    "красный",
+    "диагональ"
+   ]
+  },
+  "template:ig12-franjas": {
+   "name": "Сторис: цветные полосы и вертикальное слово",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "оранжевый",
+    "красный",
+    "полосы"
+   ]
+  },
+  "template:ig12-panel-rojo": {
+   "name": "Сторис: гигантское слово, скользящее вверх по красной панели",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "оранжевый",
+    "красный",
+    "панель"
+   ]
+  },
+  "template:ig13-amarilla": {
+   "name": "Типографская сторис: жёлтая",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "типографика",
+    "жёлтый",
+    "чёрный"
+   ]
+  },
+  "template:ig13-caja-negra": {
+   "name": "Типографская сторис: чёрный блок",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "типографика",
+    "жёлтый",
+    "чёрный"
+   ]
+  },
+  "template:ig13-filas": {
+   "name": "Типографская сторис: ряды букв",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "типографика",
+    "жёлтый",
+    "чёрный"
+   ]
+  },
+  "template:ig13-gris-ra": {
+   "name": "Типографская сторис: серое RA",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "типографика",
+    "жёлтый",
+    "чёрный"
+   ]
+  },
+  "template:ig13-letras-grises": {
+   "name": "Типографская сторис: жёлтые буквы",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "типографика",
+    "жёлтый",
+    "чёрный"
+   ]
+  },
+  "template:ig13-muro-de-fotos": {
+   "name": "Стена из фото с вашим логотипом",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фотографии",
+    "логотип",
+    "профиль"
+   ]
+  },
+  "template:ig13-negra": {
+   "name": "Типографская сторис: чёрная диагональ",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "типографика",
+    "жёлтый",
+    "чёрный"
+   ]
+  },
+  "template:ig13-oscura": {
+   "name": "Типографская сторис: тёмная со сферами",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "типографика",
+    "жёлтый",
+    "чёрный"
+   ]
+  },
+  "template:ig14-dinamica": {
+   "name": "Динамичное слайд-шоу: по слову на фото",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "слайд-шоу",
+    "динамичный",
+    "слова"
+   ]
+  },
+  "template:ig14-energia": {
+   "name": "Энергичное слайд-шоу с логотипом",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "слайд-шоу",
+    "энергия",
+    "слова"
+   ]
+  },
+  "template:ig14-epica": {
+   "name": "Эпичное слайд-шоу с глитчами",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "слайд-шоу",
+    "эпичный",
+    "кинематографичный"
+   ]
+  },
+  "template:ig14-limpia": {
+   "name": "Чистое слайд-шоу с крупным шрифтом",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "слайд-шоу",
+    "чистый",
+    "типографика"
+   ]
+  },
+  "template:ig14-minimal": {
+   "name": "Минималистичное слайд-шоу на белом",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "слайд-шоу",
+    "минимализм",
+    "белый"
+   ]
+  },
+  "template:ig14-moda": {
+   "name": "Модное слайд-шоу с подписями",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "слайд-шоу",
+    "мода",
+    "фразы"
+   ]
+  },
+  "template:ig14-ritmica": {
+   "name": "Ритмичное слайд-шоу с кольцами",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "слайд-шоу",
+    "ритм",
+    "фразы"
+   ]
+  },
+  "template:ig14-stomp": {
+   "name": "Стомп-слайд-шоу: по слову на каждый удар",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "слайд-шоу",
+    "стомп",
+    "ритм"
+   ]
+  },
+  "template:ig2-cartel-amarillo": {
+   "name": "Сторис: жёлтый плакат Your Stories",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "цвета",
+    "плакат",
+    "жёлтый"
+   ]
+  },
+  "template:ig2-ciudad-oferta": {
+   "name": "Сторис: городская акция с кругом %",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "цвета",
+    "акция",
+    "скидка"
+   ]
+  },
+  "template:ig2-cocina": {
+   "name": "Сторис: заставка кулинарного шоу",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "цвета",
+    "кухня",
+    "еда"
+   ]
+  },
+  "template:ig2-feliz": {
+   "name": "Сторис: HAPPY с гигантской буквой и мятным блоком",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "цвета",
+    "счастье",
+    "чёрно-белый"
+   ]
+  },
+  "template:ig2-interior": {
+   "name": "Сторис: дизайн интерьера с цветными кругами",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "цвета",
+    "интерьеры",
+    "дизайн"
+   ]
+  },
+  "template:ig2-moda": {
+   "name": "Сторис: Fashion на мятном и красном",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "цвета",
+    "мода",
+    "профиль"
+   ]
+  },
+  "template:ig2-oscuro": {
+   "name": "Сторис: DARK с буквами в сетке",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "цвета",
+    "тёмный",
+    "мода"
+   ]
+  },
+  "template:ig2-presentamos": {
+   "name": "Сторис: INTRODUCING OUR STORIES с градиентными полосами",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "цвета",
+    "презентация",
+    "градиент"
+   ]
+  },
+  "template:ig2-rostro-franjas": {
+   "name": "Сторис: лицо с цветными полосами и кругами",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "цвета",
+    "портрет",
+    "бренд"
+   ]
+  },
+  "template:ig2-tu-mente": {
+   "name": "Сторис: Say what's on your mind на фиолетовом",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "цвета",
+    "фраза",
+    "фиолетовый"
+   ]
+  },
+  "template:ig2-tu-vida": {
+   "name": "Сторис: YOUR LIFE с жёлтыми полосами",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "цвета",
+    "жизнь",
+    "советы"
+   ]
+  },
+  "template:ig2-viaje-verano": {
+   "name": "Сторис: GREAT TRIP SUMMER с облаком из фото",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "цвета",
+    "путешествие",
+    "лето"
+   ]
+  },
+  "template:ig3-arte": {
+   "name": "Сторис: art 01 Stories поверх картины",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "искусство",
+    "живопись"
+   ]
+  },
+  "template:ig3-ciencia": {
+   "name": "Сторис: A-01 MODERN SCIENCE с кругами",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "наука",
+    "круг"
+   ]
+  },
+  "template:ig3-city-life": {
+   "name": "Сторис: CITY LIFE с розовой панелью",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "город"
+   ]
+  },
+  "template:ig3-comida-circulo": {
+   "name": "Сторис: Say what's on your mind в круге",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "еда",
+    "круг"
+   ]
+  },
+  "template:ig3-fashion": {
+   "name": "Сторис: FASHION 45$ с фото в буквах",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "мода",
+    "акция"
+   ]
+  },
+  "template:ig3-food": {
+   "name": "Сторис: Food со скидкой 50%",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "еда",
+    "акция"
+   ]
+  },
+  "template:ig3-friend": {
+   "name": "Сторис: FRIEND GREAT TRIP с кругом",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "друзья",
+    "круг"
+   ]
+  },
+  "template:ig3-full": {
+   "name": "Сторис: Full 100% рукописной кистью",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "акция",
+    "питомцы"
+   ]
+  },
+  "template:ig3-introducing": {
+   "name": "Сторис: INTRODUCING STORIES в зимнем лесу",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "зима",
+    "презентация"
+   ]
+  },
+  "template:ig3-models": {
+   "name": "Сторис: MODELS FASHION со скобкой",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "мода",
+    "портрет"
+   ]
+  },
+  "template:ig3-music": {
+   "name": "Сторис: MUSIC EXCLUSIVE с кольцами",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "музыка",
+    "круг"
+   ]
+  },
+  "template:ig3-new": {
+   "name": "Сторис: путешествия NEW с мазком кисти",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "путешествия",
+    "кисть"
+   ]
+  },
+  "template:ig3-opener": {
+   "name": "Динамичный опенер для квадратного поста",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "опенер",
+    "типографика",
+    "публикация"
+   ]
+  },
+  "template:ig3-perfil-amarillo": {
+   "name": "Профиль: жёлтая карточка с фото",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "профиль"
+   ]
+  },
+  "template:ig3-perfil-coral": {
+   "name": "Профиль: коралловая карточка с пятнами",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "профиль"
+   ]
+  },
+  "template:ig3-perfil-degradado": {
+   "name": "Профиль: градиентная карточка с кругами",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "профиль"
+   ]
+  },
+  "template:ig3-perfil-oscuro": {
+   "name": "Профиль: тёмная карточка с красным именем",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "профиль"
+   ]
+  },
+  "template:ig3-perfil-rojo": {
+   "name": "Профиль: красная карточка с аватаром",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "профиль"
+   ]
+  },
+  "template:ig3-portfolio": {
+   "name": "Сторис: PORTFOLIO с именем",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "портфолио"
+   ]
+  },
+  "template:ig3-programa": {
+   "name": "Сторис: V 6 с округлыми столбцами",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "технологии",
+    "пастель"
+   ]
+  },
+  "template:ig3-promo": {
+   "name": "Сторис: Product Promo с жёлтым диском",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "товар",
+    "промоакция"
+   ]
+  },
+  "template:ig3-sport": {
+   "name": "Сторис: SPORT с розовым значком",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "спорт"
+   ]
+  },
+  "template:ig3-tech": {
+   "name": "Сторис: TECH с разбросанными буквами",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "технологии"
+   ]
+  },
+  "template:ig3-toys": {
+   "name": "Сторис: TOYS с градиентным диском",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "игрушки",
+    "круг"
+   ]
+  },
+  "template:ig3-tv": {
+   "name": "Сторис: Media Social с круглым фото",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "соцсети",
+    "круг"
+   ]
+  },
+  "template:ig3-your-life": {
+   "name": "Сторис: YOUR LIFE и PRO с цветными полосами",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "интерьеры"
+   ]
+  },
+  "template:ig4-abstract": {
+   "name": "Сторис: ABSTRACT GEOMETRIC STYLE",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "геометрия",
+    "архитектура"
+   ]
+  },
+  "template:ig4-amazing-dream": {
+   "name": "Сторис: Amazing dream с двумя фото",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "фраза",
+    "коричневый"
+   ]
+  },
+  "template:ig4-audacious": {
+   "name": "Сторис: LET'S DO WHAT WE LOVE #AUDACIOUS",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "мотивация",
+    "чёрный"
+   ]
+  },
+  "template:ig4-beauty": {
+   "name": "Сторис: There is beauty in simplicity",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "природа",
+    "фраза"
+   ]
+  },
+  "template:ig4-beauty-flowers": {
+   "name": "Сторис: Beauty с цветами",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "цветы",
+    "каллиграфия"
+   ]
+  },
+  "template:ig4-believe": {
+   "name": "Сторис: BELIEVE YOU CAN SO YOU ARE HALFWAY THERE",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "мотивация",
+    "фраза"
+   ]
+  },
+  "template:ig4-big": {
+   "name": "Сторис: BIG. с полосатым кругом",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "мода",
+    "полоски"
+   ]
+  },
+  "template:ig4-born-wild": {
+   "name": "Сторис: BORN TO BE WILD",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "приключения",
+    "синий"
+   ]
+  },
+  "template:ig4-brand-new-day": {
+   "name": "Сторис: brand new day с треугольниками",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "треугольники",
+    "геометрия"
+   ]
+  },
+  "template:ig4-clear": {
+   "name": "Сторис: CLEAR INTERIOR из двух половин",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "интерьер",
+    "дом"
+   ]
+  },
+  "template:ig4-cold-wave": {
+   "name": "Сторис: COLD WAVE WARM SUN с фото в буквах",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "море",
+    "типографика"
+   ]
+  },
+  "template:ig4-confident": {
+   "name": "Сторис: STYLISH & CONFIDENT в трёх окнах",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "мода",
+    "мужчина"
+   ]
+  },
+  "template:ig4-control": {
+   "name": "Сторис: CONTROL с логотипом и двумя фото",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "логотип",
+    "йога"
+   ]
+  },
+  "template:ig4-courage": {
+   "name": "Сторис: #courage с мазком кисти",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "портрет",
+    "оранжевый"
+   ]
+  },
+  "template:ig4-culinary": {
+   "name": "Сторис: CULINARY ART #cooking",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "кухня",
+    "еда"
+   ]
+  },
+  "template:ig4-deep-breath": {
+   "name": "Сторис: ENJOY DEEP BREATH с листьями",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "природа",
+    "зелёный"
+   ]
+  },
+  "template:ig4-delicious": {
+   "name": "Сторис: сетка #DELICIOUS",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "еда",
+    "десерты"
+   ]
+  },
+  "template:ig4-dream": {
+   "name": "Сторис: DREAM с рамкой поверх города",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "город",
+    "рамка"
+   ]
+  },
+  "template:ig4-employee": {
+   "name": "Сторис: BEST EMPLOYEE OF THE MONTH",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "бизнес",
+    "сотрудник"
+   ]
+  },
+  "template:ig4-enjoy-music": {
+   "name": "Сторис: сине-красное ENJOY MY MUSIC",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "музыка",
+    "танцы"
+   ]
+  },
+  "template:ig4-fashion-buy": {
+   "name": "Сторис: FASHION IS WHAT YOU BUY на полосах",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "мода",
+    "полосы"
+   ]
+  },
+  "template:ig4-fitness": {
+   "name": "Сторис: FITNESS BODY ENERGY WORKOUT",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "спортзал",
+    "спорт"
+   ]
+  },
+  "template:ig4-fun": {
+   "name": "Сторис: #FUN с фото в рамке",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "рамка",
+    "красный"
+   ]
+  },
+  "template:ig4-glam": {
+   "name": "Сторис: GLAM ROCK в розовом и чёрном",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "мода",
+    "розовый"
+   ]
+  },
+  "template:ig4-instamusic": {
+   "name": "Сторис: #instamusic #yourbeat с пятнами",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "музыка",
+    "неон"
+   ]
+  },
+  "template:ig4-life-good": {
+   "name": "Сторис: LIFE IS SO GOOD JUST BE YOURSELF",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "фраза",
+    "неон"
+   ]
+  },
+  "template:ig4-lifestyle": {
+   "name": "Сторис: my lifestyle #followme",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "образ жизни",
+    "синий"
+   ]
+  },
+  "template:ig4-look-deep": {
+   "name": "Сторис: LOOK DEEP INTO NATURE с шестиугольниками",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "природа",
+    "шестиугольник"
+   ]
+  },
+  "template:ig4-masterpiece": {
+   "name": "Сторис: MAKE EACH DAY YOUR MASTERPIECE",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "фраза",
+    "розовый"
+   ]
+  },
+  "template:ig4-meeting": {
+   "name": "Сторис: MEETING WITH FRIENDS в колонках",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "друзья",
+    "колонки"
+   ]
+  },
+  "template:ig4-motion": {
+   "name": "Сторис: MOTION с жёлтым кругом",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "танцы",
+    "круг"
+   ]
+  },
+  "template:ig4-moving": {
+   "name": "Сторис: Moving с двумя кольцами",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "танцы",
+    "кольца"
+   ]
+  },
+  "template:ig4-music": {
+   "name": "Сторис: MUSIC DANCE ENJOY",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "музыка",
+    "вечеринка"
+   ]
+  },
+  "template:ig4-natural": {
+   "name": "Сторис: NATURAL BEAUTY в трёх колонках",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "природа",
+    "колонки"
+   ]
+  },
+  "template:ig4-never-easier": {
+   "name": "Сторис: красное IT NEVER GETS EASIER",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "спортзал",
+    "мотивация"
+   ]
+  },
+  "template:ig4-ocean": {
+   "name": "Сторис: OCEAN HAPPY RELAX с рамкой",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "море",
+    "рамка"
+   ]
+  },
+  "template:ig4-pro-fitness": {
+   "name": "Сторис: PRO fitness с перекрёстной рамкой",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "спорт",
+    "рамка"
+   ]
+  },
+  "template:ig4-sale40": {
+   "name": "Сторис: вертикальная SALE 40%",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "распродажа",
+    "акция"
+   ]
+  },
+  "template:ig4-sale75": {
+   "name": "Сторис: SALE UP TO 75% OFF",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "распродажа",
+    "акция"
+   ]
+  },
+  "template:ig4-secrets": {
+   "name": "Сторис: NO MORE SECRETS #IMAGINE",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "красный",
+    "диагональ"
+   ]
+  },
+  "template:ig4-shopping-week": {
+   "name": "Сторис: #shoppingweek со скидкой 40%",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "распродажа",
+    "покупки"
+   ]
+  },
+  "template:ig4-simplelife": {
+   "name": "Сторис: When you focus on the good #simplelife",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "фраза",
+    "синий"
+   ]
+  },
+  "template:ig4-skate": {
+   "name": "Сторис: 0256 #skatelife",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "скейт",
+    "спорт"
+   ]
+  },
+  "template:ig4-sport": {
+   "name": "Сторис: W SPORT с линией",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "спорт",
+    "бег"
+   ]
+  },
+  "template:ig4-spring": {
+   "name": "Сторис: SPRING IS IN THE AIR",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "весна",
+    "цветы"
+   ]
+  },
+  "template:ig4-stay-strong": {
+   "name": "Сторис: STAY STRONG DON'T GIVE UP",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "мотивация",
+    "красный"
+   ]
+  },
+  "template:ig4-street-fast": {
+   "name": "Сторис: 10/25 #youth street FAST",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "улица",
+    "скейт"
+   ]
+  },
+  "template:ig4-style": {
+   "name": "Сторис: STYLE IS VERY PERSONAL",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "мода",
+    "красный"
+   ]
+  },
+  "template:ig4-style-beautiful": {
+   "name": "Сторис: STYLE #beautiful с полосами",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "мода",
+    "полосы"
+   ]
+  },
+  "template:ig4-stylish": {
+   "name": "Сторис: #stylish с синим диском",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "мода",
+    "синий"
+   ]
+  },
+  "template:ig4-summer": {
+   "name": "Сторис: #SUMMER с пляжным ромбом",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "пляж",
+    "лето"
+   ]
+  },
+  "template:ig4-summer-event": {
+   "name": "Сторис: летнее событие с датой",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "лето",
+    "событие"
+   ]
+  },
+  "template:ig4-summer-look": {
+   "name": "Сторис: Summer look #fashion на полосах",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "мода",
+    "лето"
+   ]
+  },
+  "template:ig4-sunshine": {
+   "name": "Сторис: SUNSHINE с четырьмя фото",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "лето",
+    "коллаж"
+   ]
+  },
+  "template:ig4-sunshine-tag": {
+   "name": "Сторис: #sunshine Relaxing holiday",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "лето",
+    "синий"
+   ]
+  },
+  "template:ig4-trendy": {
+   "name": "Сторис: красное #TRENDY YOUR STYLE",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "красный",
+    "мода"
+   ]
+  },
+  "template:ig4-tropical": {
+   "name": "Сторис: FEELING TROPICAL с тремя фото",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "лето",
+    "тропики"
+   ]
+  },
+  "template:ig4-winner": {
+   "name": "Сторис: THE WINNER NEVER QUITS",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "мотивация",
+    "спортзал"
+   ]
+  },
+  "template:ig4-young": {
+   "name": "Сторис: YOUNG #followus",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "молодость",
+    "красный"
+   ]
+  },
+  "template:ig4-youth": {
+   "name": "Сторис: #YOUTH & FREEDOM с треугольником",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "треугольник",
+    "коралловый"
+   ]
+  },
+  "template:ig5-amazing-now": {
+   "name": "Сторис: AMAZING NOW",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "чёрно-белый",
+    "красный"
+   ]
+  },
+  "template:ig5-awesome": {
+   "name": "Сторис: вертикальное AWESOME",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "красный",
+    "вертикальный"
+   ]
+  },
+  "template:ig5-be-strong": {
+   "name": "Сторис: B STRONG",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "красный",
+    "фраза"
+   ]
+  },
+  "template:ig5-beach-therapy": {
+   "name": "Сторис: бирюзовая пляжная терапия",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "пляж",
+    "отпуск"
+   ]
+  },
+  "template:ig5-beauty-pro": {
+   "name": "Сторис: BEAUTY на фиолетовой волне",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "красота",
+    "фиолетовый"
+   ]
+  },
+  "template:ig5-best-look": {
+   "name": "Сторис: YOUR BEST LOOK в рамке",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "зелёный",
+    "мода"
+   ]
+  },
+  "template:ig5-choose-glam": {
+   "name": "Сторис: 48 choose the glam",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "красота",
+    "гламур"
+   ]
+  },
+  "template:ig5-cold-water": {
+   "name": "Сторис: COLD DEEP WATER",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "море",
+    "жёлтый"
+   ]
+  },
+  "template:ig5-creative-studio": {
+   "name": "Сторис: CREATIVE DESIGN STUDIO",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "дизайн",
+    "студия"
+   ]
+  },
+  "template:ig5-dancing": {
+   "name": "Сторис: #DANCING с диагональным фото",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "танцы",
+    "диагональ"
+   ]
+  },
+  "template:ig5-daring-style": {
+   "name": "Сторис: DARING STYLE на жёлтом",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "жёлтый",
+    "мода"
+   ]
+  },
+  "template:ig5-denim-style": {
+   "name": "Сторис: DENIM STYLE в рамке",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "мода",
+    "врезка"
+   ]
+  },
+  "template:ig5-design-passion": {
+   "name": "Сторис: DESIGN IS MY PASSION",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "интерьер",
+    "дизайн"
+   ]
+  },
+  "template:ig5-dont-waste": {
+   "name": "Сторис: DON'T WASTE YOUR TIME",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "фраза",
+    "сине-зелёный"
+   ]
+  },
+  "template:ig5-enjoy-movement": {
+   "name": "Сторис: enjoy the movement",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "танцы",
+    "чёрный"
+   ]
+  },
+  "template:ig5-flexible-body": {
+   "name": "Сторис: FLEXIBLE BODY с градиентной полосой",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "фитнес",
+    "градиент"
+   ]
+  },
+  "template:ig5-focus-breathe": {
+   "name": "Сторис: FOCUS ON THE BREATHE",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "фраза",
+    "типографика"
+   ]
+  },
+  "template:ig5-fondo-ambar": {
+   "name": "Фон: янтарные круги",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фон",
+    "оранжевый",
+    "коричневый"
+   ]
+  },
+  "template:ig5-fondo-burbujas-azules": {
+   "name": "Фон: синие пузыри на розовом",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фон",
+    "розовый",
+    "синий"
+   ]
+  },
+  "template:ig5-fondo-burbujas-grises": {
+   "name": "Фон: серые пузыри на чёрном",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фон",
+    "чёрный",
+    "серый"
+   ]
+  },
+  "template:ig5-fondo-chevrones": {
+   "name": "Фон: красные шевроны",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фон",
+    "красный",
+    "шевроны"
+   ]
+  },
+  "template:ig5-fondo-cinta-azul": {
+   "name": "Фон: синяя лента на красном",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фон",
+    "градиент",
+    "синий"
+   ]
+  },
+  "template:ig5-fondo-geometrico": {
+   "name": "Фон: геометрические фигуры на сером",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фон",
+    "серый",
+    "геометрия"
+   ]
+  },
+  "template:ig5-fondo-lineas": {
+   "name": "Фон: градиент с неоновыми линиями",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фон",
+    "градиент",
+    "розовый"
+   ]
+  },
+  "template:ig5-fondo-lineas-cruzadas": {
+   "name": "Фон: пересекающиеся линии",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фон",
+    "градиент",
+    "маджента"
+   ]
+  },
+  "template:ig5-fondo-olas": {
+   "name": "Фон: оранжевые и фиолетовые волны",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фон",
+    "градиент",
+    "оранжевый"
+   ]
+  },
+  "template:ig5-fondo-pildoras": {
+   "name": "Фон: розовые капсулы",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фон",
+    "розовый",
+    "пастель"
+   ]
+  },
+  "template:ig5-fondo-plata": {
+   "name": "Фон: серебристые полосы",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фон",
+    "серебро",
+    "серый"
+   ]
+  },
+  "template:ig5-fondo-rojo": {
+   "name": "Фон: красные скруглённые фигуры",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фон",
+    "красный",
+    "формы"
+   ]
+  },
+  "template:ig5-gentle-soft": {
+   "name": "Сторис: карточка GENTLE & SOFT",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "цветы",
+    "карточка"
+   ]
+  },
+  "template:ig5-glam": {
+   "name": "Сторис: GLAM с кадром камеры",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "розовый",
+    "камера"
+   ]
+  },
+  "template:ig5-happiness-love": {
+   "name": "Сторис: коллаж HAPPINESS и LOVE",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "коллаж",
+    "свадьба"
+   ]
+  },
+  "template:ig5-happy-weekends": {
+   "name": "Сторис: Happy weekends",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "цветы",
+    "выходные"
+   ]
+  },
+  "template:ig5-inspiration": {
+   "name": "Сторис: #pleasure inspiration",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "красный",
+    "чёрно-белый"
+   ]
+  },
+  "template:ig5-interior-dream": {
+   "name": "Сторис: каталог INTERIOR OF YOUR DREAM",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "каталог",
+    "интерьер"
+   ]
+  },
+  "template:ig5-keep-simple": {
+   "name": "Сторис: KEEP IT SIMPLE с кругом",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "круг",
+    "градиент"
+   ]
+  },
+  "template:ig5-light-easy": {
+   "name": "Сторис: карточка LIGHT & EASY",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "мода",
+    "карточка"
+   ]
+  },
+  "template:ig5-look-deep": {
+   "name": "Сторис: LOOK DEEP INTO YOURSELF",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "фраза",
+    "неон"
+   ]
+  },
+  "template:ig5-mindfulness": {
+   "name": "Сторис: чёрно-белая #mindfulness",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "чёрно-белый",
+    "фраза"
+   ]
+  },
+  "template:ig5-modern-office": {
+   "name": "Сторис: MODERN OFFICE SPACE",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "офис",
+    "бизнес"
+   ]
+  },
+  "template:ig5-ocean": {
+   "name": "Сторис: OCEAN в круге",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "круг",
+    "море"
+   ]
+  },
+  "template:ig5-pleasure": {
+   "name": "Сторис: блочный коллаж PLEASURE",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "коллаж",
+    "терракотовый"
+   ]
+  },
+  "template:ig5-power": {
+   "name": "Сторис: #POWER с фото",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "красный",
+    "мода"
+   ]
+  },
+  "template:ig5-relax-home": {
+   "name": "Сторис: Relax SWEET HOME",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "дом",
+    "интерьер"
+   ]
+  },
+  "template:ig5-sale-70": {
+   "name": "Сторис: SALE 70% на косых полосах",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "распродажа",
+    "акция"
+   ]
+  },
+  "template:ig5-sensual": {
+   "name": "Сторис: SENSUAL с двумя фото",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "чёрно-белый",
+    "коллаж"
+   ]
+  },
+  "template:ig5-style-y": {
+   "name": "Сторис: STYLE с большой буквой Y",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "мода",
+    "сине-зелёный"
+   ]
+  },
+  "template:ig5-summer-pause": {
+   "name": "Сторис: SUMMER take a pause",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "лето",
+    "отпуск"
+   ]
+  },
+  "template:ig5-sunny-day": {
+   "name": "Сторис: SUNNY DAY с кругом",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "лето",
+    "бассейн"
+   ]
+  },
+  "template:ig5-titulo-art-design": {
+   "name": "Заголовок: ART & DESIGN FORUM",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "заголовок",
+    "текст",
+    "искусство"
+   ]
+  },
+  "template:ig5-titulo-big-sale": {
+   "name": "Заголовок: BIG SALE с кистью и корзиной",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "заголовок",
+    "текст",
+    "распродажа"
+   ]
+  },
+  "template:ig5-titulo-bold-fashion": {
+   "name": "Заголовок: наклонный BOLD FASHION STYLE",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "заголовок",
+    "текст",
+    "мода"
+   ]
+  },
+  "template:ig5-titulo-chicle": {
+   "name": "Заголовок: BUBBLEGUM STYLE",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "заголовок",
+    "текст",
+    "розовый"
+   ]
+  },
+  "template:ig5-titulo-cita": {
+   "name": "Заголовок: цитата с автором",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "заголовок",
+    "текст",
+    "цитата"
+   ]
+  },
+  "template:ig5-titulo-do-what": {
+   "name": "Заголовок: DO WHAT YOU WANT",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "заголовок",
+    "текст",
+    "мотивация"
+   ]
+  },
+  "template:ig5-titulo-formas-abstractas": {
+   "name": "Заголовок: ABSTRACT SHAPES DESIGN",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "заголовок",
+    "текст",
+    "формы"
+   ]
+  },
+  "template:ig5-titulo-glitch": {
+   "name": "Заголовок: GLITCH STYLE",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "заголовок",
+    "текст",
+    "глитч"
+   ]
+  },
+  "template:ig5-titulo-neon": {
+   "name": "Заголовок: светящийся NEON",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "заголовок",
+    "текст",
+    "неон"
+   ]
+  },
+  "template:ig5-titulo-never-give-up": {
+   "name": "Заголовок: NEVER GIVE UP кистью",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "заголовок",
+    "текст",
+    "мотивация"
+   ]
+  },
+  "template:ig5-titulo-retro": {
+   "name": "Заголовок: 80s RETROSTYLE",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "заголовок",
+    "текст",
+    "ретро"
+   ]
+  },
+  "template:ig5-titulo-sale": {
+   "name": "Заголовок: билет SALE",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "заголовок",
+    "текст",
+    "распродажа"
+   ]
+  },
+  "template:ig5-wake-up": {
+   "name": "Сторис: WAKE UP AND BE AWESOME",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "красный",
+    "мотивация"
+   ]
+  },
+  "template:ig5-your-choice": {
+   "name": "Сторис: портрет с жёлтыми точками",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "жёлтый",
+    "точки"
+   ]
+  },
+  "template:ig5-your-style": {
+   "name": "Сторис: коллаж Your style",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "коллаж",
+    "интерьер"
+   ]
+  },
+  "template:ig6-arbol-cinta": {
+   "name": "Новогодняя сторис: ёлка из золотой ленты",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "новый год",
+    "рождество",
+    "дерево"
+   ]
+  },
+  "template:ig6-artista": {
+   "name": "Сторис: You are the artist of your life с #YLIFE",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "синий",
+    "образ жизни"
+   ]
+  },
+  "template:ig6-aventuras": {
+   "name": "Сторис: My Adventures с двумя фото и зелёной горой",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "путешествия",
+    "приключения"
+   ]
+  },
+  "template:ig6-diseno-pasion": {
+   "name": "Сторис: Design is my passion на розовом",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "дизайн",
+    "архитектура"
+   ]
+  },
+  "template:ig6-feliz-brillante": {
+   "name": "Новогодняя сторис: Merry & Bright на сером",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "новый год",
+    "рождество",
+    "праздники"
+   ]
+  },
+  "template:ig6-interior": {
+   "name": "Сторис: Clear Interior с чёрным блоком",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "дом",
+    "дизайн интерьера"
+   ]
+  },
+  "template:ig6-luz-calida": {
+   "name": "Сторис: Cozy Light с ромбами и #WARM",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "дом",
+    "товар"
+   ]
+  },
+  "template:ig6-pino-rojo": {
+   "name": "Новогодняя сторис: еловые ветки и Merry Christmas на красном",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "новый год",
+    "рождество",
+    "распродажа"
+   ]
+  },
+  "template:ig6-rebajas-50": {
+   "name": "Сторис: SALE с ценником 50% OFF и синими полосами",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "фото",
+    "распродажа",
+    "скидка"
+   ]
+  },
+  "template:ig6-rebajas-invierno": {
+   "name": "Новогодняя сторис: подарок, раскрывающийся в «winter sell XMAS 50%off»",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "новый год",
+    "рождество",
+    "распродажа"
+   ]
+  },
+  "template:ig6-santa": {
+   "name": "Новогодняя сторис: лицо Деда Мороза с Merry Xmas",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "новый год",
+    "рождество",
+    "дед мороз"
+   ]
+  },
+  "template:ig6-swipe-bandera": {
+   "name": "Свайп вверх: флажок SWIPE UP из хлопушки",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "свайп вверх",
+    "свайп",
+    "стрелка"
+   ]
+  },
+  "template:ig6-swipe-boton": {
+   "name": "Свайп вверх: белая кнопка, превращающаяся из квадрата в круг",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "свайп вверх",
+    "свайп",
+    "стрелка"
+   ]
+  },
+  "template:ig6-swipe-brillo": {
+   "name": "Свайп вверх: светящиеся белые стрелки, летящие вверх",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "свайп вверх",
+    "свайп",
+    "стрелка"
+   ]
+  },
+  "template:ig6-swipe-chevrones": {
+   "name": "Свайп вверх: три синих шеврона, поднимающихся вверх",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "свайп вверх",
+    "свайп",
+    "стрелка"
+   ]
+  },
+  "template:ig6-swipe-circulo": {
+   "name": "Свайп вверх: белый круг с треугольником, уходящий вверх и размывающийся",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "свайп вверх",
+    "свайп",
+    "стрелка"
+   ]
+  },
+  "template:ig6-swipe-cuadro": {
+   "name": "Свайп вверх: бирюзовый блок со стрелкой и отражением",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "свайп вверх",
+    "свайп",
+    "стрелка"
+   ]
+  },
+  "template:ig6-swipe-figuras": {
+   "name": "Свайп вверх: зелёное кольцо, превращающееся в треугольник с SWIPE UP",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "свайп вверх",
+    "свайп",
+    "стрелка"
+   ]
+  },
+  "template:ig6-swipe-flecha": {
+   "name": "Свайп вверх: синяя стрелка над пульсирующей линией",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "свайп вверх",
+    "свайп",
+    "стрелка"
+   ]
+  },
+  "template:ig6-swipe-interruptor": {
+   "name": "Свайп вверх: переключатель с синим бегунком, скользящим вверх",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "свайп вверх",
+    "свайп",
+    "стрелка"
+   ]
+  },
+  "template:ig6-swipe-letras": {
+   "name": "Свайп вверх: прыгающие буквы SWIPE UP",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "свайп вверх",
+    "свайп",
+    "стрелка"
+   ]
+  },
+  "template:ig6-swipe-mano": {
+   "name": "Свайп вверх: рука, смахивающая вверх, со следом из шевронов",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "свайп вверх",
+    "свайп",
+    "стрелка"
+   ]
+  },
+  "template:ig6-swipe-triangulo": {
+   "name": "Свайп вверх: белый треугольник с красной точкой, летящий вверх",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "свайп вверх",
+    "свайп",
+    "стрелка"
+   ]
+  },
+  "template:ig7-awesome": {
+   "name": "Типографская сторис: AWESOME",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "типографика",
+    "цвета",
+    "полосы"
+   ]
+  },
+  "template:ig7-big": {
+   "name": "Типографская сторис: BIG",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "типографика",
+    "цвета",
+    "гигантская буква"
+   ]
+  },
+  "template:ig7-brand": {
+   "name": "Типографская сторис: BRAND",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "типографика",
+    "цвета",
+    "буква а"
+   ]
+  },
+  "template:ig7-color": {
+   "name": "Типографская сторис: COLOR",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "типографика",
+    "цвета",
+    "рамка"
+   ]
+  },
+  "template:ig7-easy-project": {
+   "name": "Типографская сторис: STORIES EASY PROJECT",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "типографика",
+    "цвета",
+    "пиксели"
+   ]
+  },
+  "template:ig7-grid": {
+   "name": "Типографская сторис: цветная сетка",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "типографика",
+    "цвета",
+    "сетка"
+   ]
+  },
+  "template:ig7-no-plugins": {
+   "name": "Типографская сторис: NO PLUGINS",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "типографика",
+    "цвета",
+    "прямоугольники"
+   ]
+  },
+  "template:ig7-social": {
+   "name": "Типографская сторис: SOCIAL",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "типографика",
+    "цвета",
+    "карточки"
+   ]
+  },
+  "template:ig7-stories": {
+   "name": "Типографская сторис: STORIES",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "типографика",
+    "цвета",
+    "гигантская буква"
+   ]
+  },
+  "template:ig7-typo": {
+   "name": "Типографская сторис: TYPO",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "типографика",
+    "цвета",
+    "карточка"
+   ]
+  },
+  "template:ig8-best-sellers": {
+   "name": "Городская сторис: Best Sellers, нажмите сейчас",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "городской",
+    "синий",
+    "магазин"
+   ]
+  },
+  "template:ig8-city-vibes": {
+   "name": "Городская сторис: city vibes с двумя фото",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "городской",
+    "синий",
+    "город"
+   ]
+  },
+  "template:ig8-friends": {
+   "name": "Городская сторис: friends positive с лентой фото",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "городской",
+    "синий",
+    "друзья"
+   ]
+  },
+  "template:ig8-mega-sale": {
+   "name": "Городская сторис: mega sale %50 на полароиде",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "городской",
+    "синий",
+    "распродажа"
+   ]
+  },
+  "template:ig8-visit-page": {
+   "name": "Городская сторис: visit page с синей полосой",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "городской",
+    "синий",
+    "сайт"
+   ]
+  },
+  "template:ig9-banda-roja": {
+   "name": "Сторис: красная полоса с гигантским словом",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "типографика",
+    "полоса",
+    "красный"
+   ]
+  },
+  "template:ig9-letras-cortadas": {
+   "name": "Сторис: гигантское разрезанное слово и три ссылки",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "типографика",
+    "буквы",
+    "ссылки"
+   ]
+  },
+  "template:ig9-letras-rojas": {
+   "name": "Сторис: стена из повёрнутых букв на красном",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "типографика",
+    "буквы",
+    "красный"
+   ]
+  },
+  "template:ig9-palabra-vertical": {
+   "name": "Сторис: вертикальное слово в рамке с красной лентой",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "типографика",
+    "вертикальный",
+    "рамка"
+   ]
+  },
+  "template:ig9-typo": {
+   "name": "Сторис: плитки TYPO с нарисованной рамкой",
+   "tags": [
+    "instagram",
+    "сторис",
+    "reels",
+    "типографика",
+    "буквы",
+    "рамка"
+   ]
+  },
   "template:intro-de-canal": {
    "name": "Интро для канала",
    "tags": [
@@ -25215,6 +28227,204 @@
     "ритм",
     "вечеринка",
     "слова"
+   ]
+  },
+  "template:lg0-circulo-ambar": {
+   "name": "Логотип: две точки рисуют кольцо, которое замыкается в диск (янтарный)",
+   "tags": [
+    "логотип",
+    "появление логотипа",
+    "плоский",
+    "янтарный",
+    "жёлтый",
+    "круг"
+   ]
+  },
+  "template:lg0-cuadro-blanco": {
+   "name": "Логотип: подпрыгивающий квадрат, который раскрывается (белый)",
+   "tags": [
+    "логотип",
+    "появление логотипа",
+    "плоский",
+    "белый",
+    "квадрат",
+    "отскок"
+   ]
+  },
+  "template:lg0-disco-azul": {
+   "name": "Логотип: летящая точка, раскрывающаяся в диск (синий)",
+   "tags": [
+    "логотип",
+    "появление логотипа",
+    "плоский",
+    "синий",
+    "диск",
+    "точка"
+   ]
+  },
+  "template:lg0-hexagono-coral": {
+   "name": "Логотип: линия, круг и катящийся шестиугольник с вашим брендом (коралловый)",
+   "tags": [
+    "логотип",
+    "появление логотипа",
+    "плоский",
+    "коралловый",
+    "шестиугольник",
+    "линия"
+   ]
+  },
+  "template:lg0-iconos-redes": {
+   "name": "Десять иконок соцсетей, выскакивающих по очереди (синий)",
+   "tags": [
+    "логотип",
+    "появление логотипа",
+    "плоский",
+    "соцсети",
+    "иконки",
+    "facebook"
+   ]
+  },
+  "template:lg0-sigueme": {
+   "name": "Соцлоготип: «подписывайся» с шариком в шестиугольнике над фото",
+   "tags": [
+    "логотип",
+    "появление логотипа",
+    "плоский",
+    "подписывайся",
+    "пользователь",
+    "шестиугольник"
+   ]
+  },
+  "template:lg1-luz-dorada": {
+   "name": "Логотип: собирается из золотого света",
+   "tags": [
+    "логотип",
+    "интро",
+    "свет",
+    "золотой",
+    "блеск",
+    "полосы"
+   ]
+  },
+  "template:lg2-cintas": {
+   "name": "Подписывайся: логотип из вращающихся лент",
+   "tags": [
+    "логотип",
+    "плоский",
+    "корпоративный",
+    "подписывайся",
+    "3d"
+   ]
+  },
+  "template:lg2-franjas": {
+   "name": "Подписывайся: логотип из долек и полос",
+   "tags": [
+    "логотип",
+    "плоский",
+    "корпоративный",
+    "подписывайся",
+    "полосы"
+   ]
+  },
+  "template:lg2-giro": {
+   "name": "Логотип: раскручивающееся вращение",
+   "tags": [
+    "логотип",
+    "плоский",
+    "корпоративный",
+    "вращение"
+   ]
+  },
+  "template:lg2-glitch": {
+   "name": "Логотип: глитч на зелёном",
+   "tags": [
+    "логотип",
+    "плоский",
+    "корпоративный",
+    "глитч"
+   ]
+  },
+  "template:lg2-horizonte": {
+   "name": "Подпишись: логотип, поднимающийся из-за горизонта",
+   "tags": [
+    "логотип",
+    "плоский",
+    "корпоративный",
+    "подпишись",
+    "горизонт"
+   ]
+  },
+  "template:lg2-mira": {
+   "name": "Подпишись: раскрывающийся прицел",
+   "tags": [
+    "логотип",
+    "плоский",
+    "корпоративный",
+    "подпишись",
+    "прицел"
+   ]
+  },
+  "template:lg2-orbita": {
+   "name": "Подпишись: логотип на орбите",
+   "tags": [
+    "логотип",
+    "плоский",
+    "корпоративный",
+    "подпишись",
+    "орбита"
+   ]
+  },
+  "template:lg2-puntos": {
+   "name": "Логотип: катящиеся точки",
+   "tags": [
+    "логотип",
+    "плоский",
+    "корпоративный",
+    "точки"
+   ]
+  },
+  "template:lg3-esfera": {
+   "name": "Логотип: полосатая сфера, превращающаяся в диск",
+   "tags": [
+    "логотип",
+    "появление логотипа",
+    "интро",
+    "сфера",
+    "синий",
+    "корпоративный"
+   ]
+  },
+  "template:lg3-ondas": {
+   "name": "Логотип: цветные волны, оседающие в линию",
+   "tags": [
+    "логотип",
+    "появление логотипа",
+    "интро",
+    "волны",
+    "цвета",
+    "линия"
+   ]
+  },
+  "template:lg3-persiana": {
+   "name": "Логотип: квадрат из жалюзи, который раскрывается",
+   "tags": [
+    "логотип",
+    "появление логотипа",
+    "интро",
+    "квадрат",
+    "серый",
+    "минимализм"
+   ]
+  },
+  "template:lg3-torta-diana": {
+   "name": "Логотип: пунктирное кольцо, цветная диаграмма и мишень",
+   "tags": [
+    "логотип",
+    "появление логотипа",
+    "интро",
+    "круговая диаграмма",
+    "круг",
+    "пастель"
    ]
   },
   "template:llt-bevan": {
@@ -33764,6 +36974,1053 @@
     "текст",
     "анимация",
     "розовый"
+   ]
+  },
+  "template:tk0-cintas-telefono": {
+   "name": "Сторис: ленты со словами и телефон",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "вертикальный",
+    "ленты",
+    "телефон"
+   ]
+  },
+  "template:tk0-collage-azul": {
+   "name": "Сторис: коллаж из трёх фото в синем и чёрном",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "вертикальный",
+    "коллаж",
+    "фотографии"
+   ]
+  },
+  "template:tk0-collage-negro": {
+   "name": "Сторис: коллаж из шести фото со стикерами",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "вертикальный",
+    "коллаж",
+    "фотографии"
+   ]
+  },
+  "template:tk0-creas-tendencias": {
+   "name": "Сторис: вы создаёте тренды? красный пузырь",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "вертикальный",
+    "вопрос",
+    "розовый"
+   ]
+  },
+  "template:tk0-empieza-aqui": {
+   "name": "Сторис: тренды начинаются здесь",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "вертикальный",
+    "тренд",
+    "синий"
+   ]
+  },
+  "template:tk0-mision": {
+   "name": "Сторис: наша миссия с фото на красном",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "вертикальный",
+    "миссия",
+    "красный"
+   ]
+  },
+  "template:tk0-nueva-era": {
+   "name": "Сторис: новая эра видео",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "вертикальный",
+    "видео",
+    "красный"
+   ]
+  },
+  "template:tk0-nuevo-video": {
+   "name": "Сторис: NEW VIDEO с телефоном",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "вертикальный",
+    "видео",
+    "новое"
+   ]
+  },
+  "template:tk0-plantilla": {
+   "name": "Сторис: шаблон для всех с фото",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "вертикальный",
+    "шаблон",
+    "синий"
+   ]
+  },
+  "template:tk0-plataforma": {
+   "name": "Сторис: новая платформа с двумя телефонами",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "вертикальный",
+    "платформа",
+    "чёрный"
+   ]
+  },
+  "template:tk0-promo-negro": {
+   "name": "Сторис: SUPER PROMO в синем пузыре на чёрном",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "вертикальный",
+    "промо",
+    "чёрный"
+   ]
+  },
+  "template:tk0-promo-x": {
+   "name": "Сторис: PROMO со скрещенными лентами",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "вертикальный",
+    "промо",
+    "чёрный"
+   ]
+  },
+  "template:tk0-que-ves": {
+   "name": "Сторис: что вы любите смотреть? чат",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "вертикальный",
+    "чат",
+    "вопрос"
+   ]
+  },
+  "template:tk0-recordatorio": {
+   "name": "Сторис: опрос-напоминание поверх видео",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "вертикальный",
+    "опрос",
+    "напоминание"
+   ]
+  },
+  "template:tk0-tendencias": {
+   "name": "Сторис: вирусные тренды в розовом и синем",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "вертикальный",
+    "тренд",
+    "розовый"
+   ]
+  },
+  "template:tk0-trendy": {
+   "name": "Сторис: TRENDY STYLE с цветными полосами",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "вертикальный",
+    "тренд",
+    "синий"
+   ]
+  },
+  "template:tk1-tipografia": {
+   "name": "Типографский опенер: по слову на каждый удар",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "открывашка",
+    "типографика",
+    "слова"
+   ]
+  },
+  "template:tk2-alice": {
+   "name": "Сторис: Alice Braun с фото",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "имя",
+    "фото",
+    "синий"
+   ]
+  },
+  "template:tk2-austin": {
+   "name": "Сторис: Austin Grant с новым видео",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "имя",
+    "фото",
+    "чёрный"
+   ]
+  },
+  "template:tk2-baile": {
+   "name": "Сторис: Just dance с тремя фото",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "танцы",
+    "фотографии",
+    "синий"
+   ]
+  },
+  "template:tk2-belleza": {
+   "name": "Сторис: About Beauty for You",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "красота",
+    "фото",
+    "чёрный"
+   ]
+  },
+  "template:tk2-blogger": {
+   "name": "Сторис: Social blogger с кольцами",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "кольца",
+    "фото",
+    "чёрный"
+   ]
+  },
+  "template:tk2-contenido": {
+   "name": "Сторис: разный контент в сетке",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "сетка",
+    "фотографии",
+    "чёрный"
+   ]
+  },
+  "template:tk2-follow": {
+   "name": "Сторис: подписка с сердцем",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "подписаться",
+    "сердце",
+    "чёрный"
+   ]
+  },
+  "template:tk2-isabella": {
+   "name": "Сторис: Isabella Walker с фото",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "имя",
+    "фото",
+    "синий"
+   ]
+  },
+  "template:tk2-lifestyle": {
+   "name": "Сторис: #lifestyle с видео",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "образ жизни",
+    "видео",
+    "красный"
+   ]
+  },
+  "template:tk2-new": {
+   "name": "Сторис: NEW с сердцами",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "новое",
+    "фото",
+    "чёрный"
+   ]
+  },
+  "template:tk2-nuevo-video": {
+   "name": "Сторис: новое видео с фото",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "новое видео",
+    "фото",
+    "красный"
+   ]
+  },
+  "template:tk2-perfil": {
+   "name": "Сторис: профиль с подписчиками",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "профиль",
+    "подписчики",
+    "фото"
+   ]
+  },
+  "template:tk2-suscriptores": {
+   "name": "Сторис: получите новых подписчиков",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "подписчики",
+    "фотографии",
+    "чёрный"
+   ]
+  },
+  "template:tk2-tarjeta": {
+   "name": "Сторис: карточка с вашим логотипом и стикерами",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "логотип",
+    "стикеры",
+    "синий"
+   ]
+  },
+  "template:tk2-tendencias": {
+   "name": "Сторис: тренды с красной полосой",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "тренды",
+    "фото",
+    "синий"
+   ]
+  },
+  "template:tk3-diseno": {
+   "name": "Сторис: Fashion Design с тонкими линиями",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "мода",
+    "пастель",
+    "дизайн"
+   ]
+  },
+  "template:tk3-estilo-de-vida": {
+   "name": "Сторис: Lifestyle с вращающимся треугольником",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "мода",
+    "пастель",
+    "образ жизни"
+   ]
+  },
+  "template:tk3-gracias": {
+   "name": "Заключительная заставка: Thanks For Watching!",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "мода",
+    "пастель",
+    "финал"
+   ]
+  },
+  "template:tk3-rebajas": {
+   "name": "Сторис: модная распродажа с блоком 50% OFF",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "мода",
+    "пастель",
+    "распродажа"
+   ]
+  },
+  "template:tk3-rebajas-2": {
+   "name": "Сторис: Fashion Sale с 50% поверх фото",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "мода",
+    "пастель",
+    "распродажа"
+   ]
+  },
+  "template:tk3-siguiente-nivel": {
+   "name": "Сторис: The Next Level Of Fashion с вертикальным 50% OFF",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "мода",
+    "пастель",
+    "скидка"
+   ]
+  },
+  "template:tk3-siguiente-nivel-2": {
+   "name": "Сторис: The Next Level Of Fashion с Get 50% OFF",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "мода",
+    "пастель",
+    "скидка"
+   ]
+  },
+  "template:tk3-sorteo": {
+   "name": "Сторис: Giveaway!",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "мода",
+    "пастель",
+    "розыгрыш"
+   ]
+  },
+  "template:tk3-tendencia": {
+   "name": "Сторис: Keep It Trendy с 50%",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "мода",
+    "пастель",
+    "тренд"
+   ]
+  },
+  "template:tk4-dynamic": {
+   "name": "Динамичный опенер: красные и чёрные фото",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "открывашка",
+    "слайд-шоу",
+    "динамичный"
+   ]
+  },
+  "template:tk4-fast": {
+   "name": "Быстрый опенер: слова поверх цветных фото",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "открывашка",
+    "слайд-шоу",
+    "быстрый"
+   ]
+  },
+  "template:tk4-modern": {
+   "name": "Современный опенер: жёлтый, золотой и сетка",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "открывашка",
+    "слайд-шоу",
+    "современный"
+   ]
+  },
+  "template:tk4-rhythm": {
+   "name": "Ритмичный опенер: градиентные слова",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "открывашка",
+    "слайд-шоу",
+    "ритм"
+   ]
+  },
+  "template:tk4-stomp": {
+   "name": "Стомп-опенер: по слову на каждый удар с фото",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "открывашка",
+    "слайд-шоу",
+    "стомп"
+   ]
+  },
+  "template:tk4-typo": {
+   "name": "Типографский опенер: чёрные слова и фото",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "открывашка",
+    "слайд-шоу",
+    "типографика"
+   ]
+  },
+  "template:tk5-carefree": {
+   "name": "Сторис: вертикальное CAREFREE LIVING",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "чёрно-белый",
+    "фото",
+    "вертикальный"
+   ]
+  },
+  "template:tk5-endless": {
+   "name": "Сторис: ENDLESS LOVING CONVERSATIONS",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "чёрно-белый",
+    "текст"
+   ]
+  },
+  "template:tk5-find": {
+   "name": "Сторис: FIND HIDDEN GEMS",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "чёрно-белый",
+    "текст"
+   ]
+  },
+  "template:tk5-follow": {
+   "name": "Сторис: FOLLOW YOUR DREAM",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "чёрно-белый",
+    "текст"
+   ]
+  },
+  "template:tk5-foto-cae": {
+   "name": "Сторис: фото, падающее и поднимающееся",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "чёрно-белый",
+    "фото"
+   ]
+  },
+  "template:tk5-foto-lado": {
+   "name": "Сторис: фото, въезжающее сбоку",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "чёрно-белый",
+    "фото"
+   ]
+  },
+  "template:tk5-foto-sube": {
+   "name": "Сторис: поднимающееся фото",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "чёрно-белый",
+    "фото"
+   ]
+  },
+  "template:tk5-freedom": {
+   "name": "Сторис: FREEDOM и PLEASING с двумя фото",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "чёрно-белый",
+    "фото",
+    "коллаж"
+   ]
+  },
+  "template:tk5-join": {
+   "name": "Сторис: JOIN THE JOURNEY, призыв к действию",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "чёрно-белый",
+    "призыв к действию",
+    "логотип"
+   ]
+  },
+  "template:tk5-laughter": {
+   "name": "Сторис: LAUGHTER OF A LOVED ONE",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "чёрно-белый",
+    "фото"
+   ]
+  },
+  "template:tk5-stars": {
+   "name": "Сторис: STARS и DREAMS в колонках",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "чёрно-белый",
+    "фото",
+    "коллаж"
+   ]
+  },
+  "template:tk5-sunshine": {
+   "name": "Сторис: SUNSHINE FILLS SKIES с фото",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "чёрно-белый",
+    "фото",
+    "коллаж"
+   ]
+  },
+  "template:tk6-discovery": {
+   "name": "Сторис: коллаж DISCOVERY и SPACESUIT",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "бирюзовый",
+    "фото",
+    "коллаж"
+   ]
+  },
+  "template:tk6-dreams": {
+   "name": "Сторис: коллаж DREAMS",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "бирюзовый",
+    "фото",
+    "коллаж"
+   ]
+  },
+  "template:tk6-flower": {
+   "name": "Сторис: коллаж FLOWER BEAUTY",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "бирюзовый",
+    "фото",
+    "коллаж"
+   ]
+  },
+  "template:tk6-foto-cae": {
+   "name": "Сторис: фото в рамке, падающее сверху",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "бирюзовый",
+    "фото"
+   ]
+  },
+  "template:tk6-foto-lado": {
+   "name": "Сторис: фото в рамке, въезжающее сбоку",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "бирюзовый",
+    "фото"
+   ]
+  },
+  "template:tk6-freedom": {
+   "name": "Сторис: колонка FREEDOM",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "бирюзовый",
+    "фото",
+    "вертикальный"
+   ]
+  },
+  "template:tk6-modern": {
+   "name": "Сторис: коллаж MODERN STORIES",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "бирюзовый",
+    "фото",
+    "коллаж"
+   ]
+  },
+  "template:tk6-savor": {
+   "name": "Сторис: SAVOR LIFE'S GOODNESS, призыв к действию",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "бирюзовый",
+    "призыв к действию",
+    "логотип"
+   ]
+  },
+  "template:tk6-starry": {
+   "name": "Сторис: STARRY NIGHTS, сжимающиеся в коллаж",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "бирюзовый",
+    "фото",
+    "коллаж"
+   ]
+  },
+  "template:tk6-times-now": {
+   "name": "Сторис: TIME'S NOW с двумя фото",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "бирюзовый",
+    "фото",
+    "вертикальный"
+   ]
+  },
+  "template:tk6-wind": {
+   "name": "Сторис: WIND и AURA с двумя фото",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "бирюзовый",
+    "фото",
+    "коллаж"
+   ]
+  },
+  "template:tk7-blooms": {
+   "name": "Сторис: BLOOMS ALL AROUND в красном",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "цветы",
+    "цвета",
+    "мода"
+   ]
+  },
+  "template:tk7-bold": {
+   "name": "Сторис: коллаж BOLD COLORS SWAY",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "цветы",
+    "цвета",
+    "мода"
+   ]
+  },
+  "template:tk7-breezy": {
+   "name": "Сторис: коллаж BREEZY SPRING ATTIRE",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "цветы",
+    "цвета",
+    "мода"
+   ]
+  },
+  "template:tk7-canvas": {
+   "name": "Сторис: коллаж CANVAS LIFE BODY",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "цветы",
+    "цвета",
+    "мода"
+   ]
+  },
+  "template:tk7-characters": {
+   "name": "Сторис: COLORFUL CHARACTERS под фото",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "цветы",
+    "цвета",
+    "мода"
+   ]
+  },
+  "template:tk7-colorful-and": {
+   "name": "Сторис: COLORFUL AND CONFIDENCE между двумя фото",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "цветы",
+    "цвета",
+    "мода"
+   ]
+  },
+  "template:tk7-discover-more": {
+   "name": "Финальная сторис: DISCOVER MORE с вашим логотипом",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "цветы",
+    "цвета",
+    "мода"
+   ]
+  },
+  "template:tk7-embrace": {
+   "name": "Сторис: EMBRACE и EXPRESSION вокруг фото",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "цветы",
+    "цвета",
+    "мода"
+   ]
+  },
+  "template:tk7-embrace-your-life": {
+   "name": "Сторис: EMBRACE YOUR LIFE с четырьмя фото",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "цветы",
+    "цвета",
+    "мода"
+   ]
+  },
+  "template:tk7-flower": {
+   "name": "Сторис: FLOWER PARADISE DELIGHT в синем",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "цветы",
+    "цвета",
+    "мода"
+   ]
+  },
+  "template:tk7-sale": {
+   "name": "Сторис: SALE SALE SALE с двумя фото",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "цветы",
+    "цвета",
+    "мода"
+   ]
+  },
+  "template:tk7-savor": {
+   "name": "Сторис: SAVOR MOMENTS NOW с колонкой фото",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "цветы",
+    "цвета",
+    "мода"
+   ]
+  },
+  "template:tk8-apple-pie": {
+   "name": "Сторис: SWEET APPLE PIE и SAVOR EVERY BITE",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "еда",
+    "ресторан",
+    "жёлтый"
+   ]
+  },
+  "template:tk8-bbq": {
+   "name": "Сторис: BBQ SMOKE RISING с пятью фото",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "еда",
+    "ресторан",
+    "жёлтый"
+   ]
+  },
+  "template:tk8-big-sale": {
+   "name": "Сторис: BIG -50% SALE с тремя фото",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "еда",
+    "ресторан",
+    "жёлтый"
+   ]
+  },
+  "template:tk8-buy-now": {
+   "name": "Сторис: BUY NOW с пятью фото",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "еда",
+    "ресторан",
+    "жёлтый"
+   ]
+  },
+  "template:tk8-crispy-fries": {
+   "name": "Сторис: CRISPY GOLDEN FRIES с тремя фото",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "еда",
+    "ресторан",
+    "жёлтый"
+   ]
+  },
+  "template:tk8-discover-flavors": {
+   "name": "Финальная сторис: DISCOVER NEW FLAVORS с вашим логотипом",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "еда",
+    "ресторан",
+    "жёлтый"
+   ]
+  },
+  "template:tk8-fast-food": {
+   "name": "Сторис: FAST FOOD ADDICTION",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "еда",
+    "ресторан",
+    "жёлтый"
+   ]
+  },
+  "template:tk8-food-lovers": {
+   "name": "Сторис: FOOD LOVERS UNITE с четырьмя фото",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "еда",
+    "ресторан",
+    "жёлтый"
+   ]
+  },
+  "template:tk8-fried-chicken": {
+   "name": "Сторис: FRIED CHICKEN DELIGHT",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "еда",
+    "ресторан",
+    "жёлтый"
+   ]
+  },
+  "template:tk8-hot-dogs": {
+   "name": "Сторис: HOT DOGS и CRISPY FRIES",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "еда",
+    "ресторан",
+    "жёлтый"
+   ]
+  },
+  "template:tk8-lowest-price": {
+   "name": "Сторис: THE LOWEST PRICE",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "еда",
+    "ресторан",
+    "жёлтый"
+   ]
+  },
+  "template:tk8-new-york-pizza": {
+   "name": "Сторис: NEW YORK PIZZA, от полного экрана до коллажа",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "еда",
+    "ресторан",
+    "жёлтый"
+   ]
+  },
+  "template:tk8-nice-diners": {
+   "name": "Сторис: NICE DINERS с высоким фото",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "еда",
+    "ресторан",
+    "жёлтый"
+   ]
+  },
+  "template:tk9-limpia": {
+   "name": "Чистый опенер: слова и фото в ритм",
+   "tags": [
+    "tiktok",
+    "сторис",
+    "reels",
+    "открывашка",
+    "типографика",
+    "слова"
    ]
   },
   "template:top-5-mas-vendidos": {

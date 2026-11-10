@@ -117,6 +117,7 @@
   "template:collage": "Kolaże",
   "template:countdown": "Odliczania",
   "template:counter": "Liczniki",
+  "template:instagram": "Zestaw Instagram",
   "template:intro": "Intra i tytuły",
   "template:lowerthird": "Belki dolne",
   "template:outro": "Zakończenia",
@@ -127,6 +128,7 @@
   "template:story15": "Relacje 15 s",
   "template:text": "Tekst",
   "template:thumbnail": "Miniatury filmów",
+  "template:tiktok": "Zestaw TikTok",
   "template:transition": "Przejścia i przerywniki",
   "template:youtuber": "Styl youtubera",
   "template:ytkit": "Zestaw YouTube",
@@ -25519,6 +25521,3016 @@
     "impreza"
    ]
   },
+  "template:ig0-intro-urbana": {
+   "name": "Dynamiczne intro miejskie: URBAN, STREETS, PROMO… i Twoje logo",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "otwarcie",
+    "miejski",
+    "dynamiczne intro"
+   ]
+  },
+  "template:ig1-alison": {
+   "name": "Relacja: imię na zdjęciu z czerwoną ramką",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "imię",
+    "profil",
+    "czerwony"
+   ]
+  },
+  "template:ig1-anna": {
+   "name": "Relacja: imię i zdjęcie na niebieskim gradiencie",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "imię",
+    "profil",
+    "gradient"
+   ]
+  },
+  "template:ig1-beautiful": {
+   "name": "Relacja: #beautiful ze zdjęciem i cytatem",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "cytat",
+    "zdjęcie"
+   ]
+  },
+  "template:ig1-believe": {
+   "name": "Relacja: WE MUST BELIEVE z dzieloną linią",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "cytat",
+    "zdjęcie",
+    "czarny"
+   ]
+  },
+  "template:ig1-catherine": {
+   "name": "Relacja: okrągłe zdjęcie, imię i cytat na gradiencie",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "cytat",
+    "profil",
+    "gradient"
+   ]
+  },
+  "template:ig1-conquer": {
+   "name": "Relacja: Conquer from within z karuzelą zdjęć",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "karuzela",
+    "zdjęcie",
+    "biały"
+   ]
+  },
+  "template:ig1-do-your-best": {
+   "name": "Relacja: DO YOUR BEST na wstędze",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "cytat",
+    "miasto",
+    "motywacja"
+   ]
+  },
+  "template:ig1-dog": {
+   "name": "Relacja: zdjęcie przecięte wstęgą #photooftheday",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zwierzak",
+    "zdjęcie",
+    "pas"
+   ]
+  },
+  "template:ig1-elegant": {
+   "name": "Relacja: ELEGANT TYPO DESIGN z lustrzanym oknem",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "typografia",
+    "morze",
+    "elegancki"
+   ]
+  },
+  "template:ig1-forty-sale": {
+   "name": "Relacja: pionowe 40% Sale ze zdjęciem",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "wyprzedaż",
+    "rabat",
+    "moda"
+   ]
+  },
+  "template:ig1-happy-thoughts": {
+   "name": "Relacja: pochylony polaroid «happy thoughts»",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "polaroid",
+    "ślub",
+    "pismo odręczne"
+   ]
+  },
+  "template:ig1-heart": {
+   "name": "Relacja: zdjęcie w sercu «happy thoughts»",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "serce",
+    "miłość",
+    "brzoskwiniowy"
+   ]
+  },
+  "template:ig1-instalove": {
+   "name": "Relacja: #instalove LIVE WHAT YOU LOVE",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "cytat",
+    "las",
+    "imię"
+   ]
+  },
+  "template:ig1-lifestyle": {
+   "name": "Relacja: #lifestyle z mozaiką zdjęć",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "kolaż",
+    "lato",
+    "mozaika"
+   ]
+  },
+  "template:ig1-live-what": {
+   "name": "Relacja: Live what you love z siatką 2×2",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "siatka",
+    "kolaż",
+    "biały"
+   ]
+  },
+  "template:ig1-love-friendship": {
+   "name": "Relacja: polaroidy i odręczne «Love is friendship»",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "polaroid",
+    "różowy",
+    "cytat"
+   ]
+  },
+  "template:ig1-love-loves": {
+   "name": "Relacja: dwa polaroidy ze strzałkami i odręczną linią",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "polaroid",
+    "różowy",
+    "strzałki"
+   ]
+  },
+  "template:ig1-must-believe": {
+   "name": "Relacja: WE MUST BELIEVE w lustrzanym kole",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "cytat",
+    "koło",
+    "krajobraz"
+   ]
+  },
+  "template:ig1-nature": {
+   "name": "Relacja: Nature w pudełku z ramką",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "natura",
+    "ramka",
+    "morze"
+   ]
+  },
+  "template:ig1-neon": {
+   "name": "Relacja: NEON CITY w turkusowym neonie",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "neon",
+    "miasto",
+    "noc"
+   ]
+  },
+  "template:ig1-photo-frame": {
+   "name": "Relacja: biała karta otwierająca okno",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "ramka",
+    "jedzenie",
+    "zdjęcie"
+   ]
+  },
+  "template:ig1-seek": {
+   "name": "Relacja: SEEK THE SEEKER z literami ze zdjęć",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "cytat",
+    "liście",
+    "wycinek"
+   ]
+  },
+  "template:ig1-so-it-goes": {
+   "name": "Relacja: So it goes z siatką 2×2",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "siatka",
+    "kolaż",
+    "różowy"
+   ]
+  },
+  "template:ig1-spring-sale": {
+   "name": "Relacja: Spring Sale 30%",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "wyprzedaż",
+    "rabat",
+    "moda"
+   ]
+  },
+  "template:ig1-stylish-bike": {
+   "name": "Relacja: S T Y L I S H z wycinkiem",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "wycinek",
+    "turkusowy",
+    "link"
+   ]
+  },
+  "template:ig1-stylish-design": {
+   "name": "Relacja: STYLISH DESIGN w ramce z gradientem",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "ramka",
+    "gradient",
+    "ciemny"
+   ]
+  },
+  "template:ig1-stylish-skate": {
+   "name": "Relacja: gigantyczny pionowy napis Stylish z hasłem",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "pionowy",
+    "deskorolka",
+    "typografia"
+   ]
+  },
+  "template:ig1-success": {
+   "name": "Relacja: cytat na skale z numerem 01",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "cytat",
+    "ciemny"
+   ]
+  },
+  "template:ig1-work-dream": {
+   "name": "Relacja: pionowe Work hard. Dream big. z numerem 05",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "cytat",
+    "pionowy",
+    "numer"
+   ]
+  },
+  "template:ig1-work-hard": {
+   "name": "Relacja: WORK HARD. DREAM BIG. na czerni",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "cytat",
+    "motywacja",
+    "czarny"
+   ]
+  },
+  "template:ig10-arco-sube": {
+   "name": "Relacja: zdjęcie w łuku wznoszące się, MODELS",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "moda",
+    "modele",
+    "zdjęcie"
+   ]
+  },
+  "template:ig10-ovalo-abre": {
+   "name": "Relacja: zdjęcie w owalu otwierające się z linii",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "moda",
+    "modele",
+    "zdjęcie"
+   ]
+  },
+  "template:ig10-ovalo-sube": {
+   "name": "Relacja: wznoszące się zdjęcie w owalu z dwoma konturami",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "moda",
+    "modele",
+    "zdjęcie"
+   ]
+  },
+  "template:ig10-u-foto": {
+   "name": "Relacja: zdjęcie z zaokrąglonym dołem i tytuł w ramce",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "moda",
+    "modele",
+    "zdjęcie"
+   ]
+  },
+  "template:ig10-ventana-arco": {
+   "name": "Relacja: zdjęcie pod woalką z oknem w kształcie łuku",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "moda",
+    "modele",
+    "zdjęcie"
+   ]
+  },
+  "template:ig11-avatar-seguir": {
+   "name": "Zdjęcie profilowe z przyciskiem obserwuj",
+   "tags": [
+    "instagram",
+    "elementy",
+    "wezwanie do działania",
+    "social media",
+    "obserwuj",
+    "relacja"
+   ]
+  },
+  "template:ig11-comenta": {
+   "name": "Skomentuj poniżej",
+   "tags": [
+    "instagram",
+    "elementy",
+    "wezwanie do działania",
+    "social media",
+    "komentarze",
+    "licznik"
+   ]
+  },
+  "template:ig11-compartir": {
+   "name": "Udostępnij post dalej",
+   "tags": [
+    "instagram",
+    "elementy",
+    "wezwanie do działania",
+    "social media",
+    "udostępnij",
+    "post"
+   ]
+  },
+  "template:ig11-doble-toque": {
+   "name": "Dotknij dwa razy",
+   "tags": [
+    "instagram",
+    "elementy",
+    "wezwanie do działania",
+    "social media",
+    "polubienie",
+    "serce"
+   ]
+  },
+  "template:ig11-enlace-bio": {
+   "name": "Kliknij link w bio",
+   "tags": [
+    "instagram",
+    "elementy",
+    "wezwanie do działania",
+    "social media",
+    "link",
+    "bio"
+   ]
+  },
+  "template:ig11-etiqueta": {
+   "name": "Oznacz kogoś",
+   "tags": [
+    "instagram",
+    "elementy",
+    "wezwanie do działania",
+    "social media",
+    "oznacz",
+    "małpa"
+   ]
+  },
+  "template:ig11-inspiracion": {
+   "name": "Znajdź swoją inspirację",
+   "tags": [
+    "instagram",
+    "elementy",
+    "wezwanie do działania",
+    "social media",
+    "szukaj",
+    "wyszukiwanie"
+   ]
+  },
+  "template:ig11-pastilla-seguir": {
+   "name": "Plakietka z imieniem i obserwuj",
+   "tags": [
+    "instagram",
+    "elementy",
+    "wezwanie do działania",
+    "social media",
+    "obserwuj",
+    "imię"
+   ]
+  },
+  "template:ig11-pastilla-usuario": {
+   "name": "Plakietka użytkownika z obserwującymi",
+   "tags": [
+    "instagram",
+    "elementy",
+    "wezwanie do działania",
+    "social media",
+    "użytkownik",
+    "obserwujący"
+   ]
+  },
+  "template:ig11-perfil": {
+   "name": "Karta profilu",
+   "tags": [
+    "instagram",
+    "elementy",
+    "wezwanie do działania",
+    "social media",
+    "profil",
+    "obserwuj"
+   ]
+  },
+  "template:ig11-publicacion": {
+   "name": "Karta posta",
+   "tags": [
+    "instagram",
+    "elementy",
+    "wezwanie do działania",
+    "social media",
+    "post",
+    "polubienie"
+   ]
+  },
+  "template:ig11-reels": {
+   "name": "Zobacz nasze najnowsze reels",
+   "tags": [
+    "instagram",
+    "elementy",
+    "wezwanie do działania",
+    "social media",
+    "reels",
+    "wyświetlenia"
+   ]
+  },
+  "template:ig11-responder": {
+   "name": "Karta komentarza z odpowiedzią",
+   "tags": [
+    "instagram",
+    "elementy",
+    "wezwanie do działania",
+    "social media",
+    "komentarz",
+    "odpowiedz"
+   ]
+  },
+  "template:ig11-tu-historia": {
+   "name": "Dodaj swoją relację",
+   "tags": [
+    "instagram",
+    "elementy",
+    "wezwanie do działania",
+    "social media",
+    "relacja",
+    "udostępnij"
+   ]
+  },
+  "template:ig11-ver-historia": {
+   "name": "Dotknij, by zobaczyć relację",
+   "tags": [
+    "instagram",
+    "elementy",
+    "wezwanie do działania",
+    "social media",
+    "relacja",
+    "dotknij"
+   ]
+  },
+  "template:ig12-anillos": {
+   "name": "Relacja: pierścienie z okrągłym zdjęciem i wielkimi literami",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "pomarańczowy",
+    "czerwony",
+    "koła"
+   ]
+  },
+  "template:ig12-caja-roja": {
+   "name": "Relacja: czerwone pudełko z pionowym słowem i wielkimi literami",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "pomarańczowy",
+    "czerwony",
+    "pudełko"
+   ]
+  },
+  "template:ig12-diagonal": {
+   "name": "Relacja: ukośne pasy z gigantycznym słowem",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "pomarańczowy",
+    "czerwony",
+    "ukośny"
+   ]
+  },
+  "template:ig12-franjas": {
+   "name": "Relacja: kolorowe pasy i pionowe słowo",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "pomarańczowy",
+    "czerwony",
+    "pasy"
+   ]
+  },
+  "template:ig12-panel-rojo": {
+   "name": "Relacja: gigantyczne słowo wjeżdżające po czerwonym panelu",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "pomarańczowy",
+    "czerwony",
+    "panel"
+   ]
+  },
+  "template:ig13-amarilla": {
+   "name": "Relacja typograficzna: żółta",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "typografia",
+    "żółty",
+    "czarny"
+   ]
+  },
+  "template:ig13-caja-negra": {
+   "name": "Relacja typograficzna: czarne pudełko",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "typografia",
+    "żółty",
+    "czarny"
+   ]
+  },
+  "template:ig13-filas": {
+   "name": "Relacja typograficzna: rzędy liter",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "typografia",
+    "żółty",
+    "czarny"
+   ]
+  },
+  "template:ig13-gris-ra": {
+   "name": "Relacja typograficzna: szare RA",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "typografia",
+    "żółty",
+    "czarny"
+   ]
+  },
+  "template:ig13-letras-grises": {
+   "name": "Relacja typograficzna: żółte litery",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "typografia",
+    "żółty",
+    "czarny"
+   ]
+  },
+  "template:ig13-muro-de-fotos": {
+   "name": "Ściana zdjęć z Twoim logo",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcia",
+    "logo",
+    "profil"
+   ]
+  },
+  "template:ig13-negra": {
+   "name": "Relacja typograficzna: czarna ukośna",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "typografia",
+    "żółty",
+    "czarny"
+   ]
+  },
+  "template:ig13-oscura": {
+   "name": "Relacja typograficzna: ciemna z kulami",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "typografia",
+    "żółty",
+    "czarny"
+   ]
+  },
+  "template:ig14-dinamica": {
+   "name": "Dynamiczny pokaz zdjęć: jedno słowo na zdjęcie",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "pokaz zdjęć",
+    "pokaz slajdów",
+    "dynamiczny"
+   ]
+  },
+  "template:ig14-energia": {
+   "name": "Energiczny pokaz zdjęć z logo",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "pokaz zdjęć",
+    "pokaz slajdów",
+    "energia"
+   ]
+  },
+  "template:ig14-epica": {
+   "name": "Epicki pokaz zdjęć z glitchami",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "pokaz zdjęć",
+    "pokaz slajdów",
+    "epicki"
+   ]
+  },
+  "template:ig14-limpia": {
+   "name": "Czysty pokaz zdjęć z dużym napisem",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "pokaz zdjęć",
+    "pokaz slajdów",
+    "czysty"
+   ]
+  },
+  "template:ig14-minimal": {
+   "name": "Minimalistyczny pokaz zdjęć na bieli",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "pokaz zdjęć",
+    "pokaz slajdów",
+    "minimalistyczny"
+   ]
+  },
+  "template:ig14-moda": {
+   "name": "Modowy pokaz zdjęć z podpisami",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "pokaz zdjęć",
+    "pokaz slajdów",
+    "moda"
+   ]
+  },
+  "template:ig14-ritmica": {
+   "name": "Rytmiczny pokaz zdjęć z pierścieniami",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "pokaz zdjęć",
+    "pokaz slajdów",
+    "rytm"
+   ]
+  },
+  "template:ig14-stomp": {
+   "name": "Pokaz zdjęć stomp: jedno słowo na uderzenie",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "pokaz zdjęć",
+    "pokaz slajdów",
+    "stomp"
+   ]
+  },
+  "template:ig2-cartel-amarillo": {
+   "name": "Relacja: żółty plakat Your Stories",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "kolory",
+    "plakat",
+    "żółty"
+   ]
+  },
+  "template:ig2-ciudad-oferta": {
+   "name": "Relacja: oferta miejska z kołem %",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "kolory",
+    "oferta",
+    "rabat"
+   ]
+  },
+  "template:ig2-cocina": {
+   "name": "Relacja: otwarcie programu kulinarnego",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "kolory",
+    "kuchnia",
+    "jedzenie"
+   ]
+  },
+  "template:ig2-feliz": {
+   "name": "Relacja: HAPPY z gigantyczną literą i miętowym pudełkiem",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "kolory",
+    "szczęśliwy",
+    "czarno-biały"
+   ]
+  },
+  "template:ig2-interior": {
+   "name": "Relacja: aranżacja wnętrz z kolorowymi kołami",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "kolory",
+    "wnętrza",
+    "projekt"
+   ]
+  },
+  "template:ig2-moda": {
+   "name": "Relacja: Fashion na mięcie i czerwieni",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "kolory",
+    "moda",
+    "profil"
+   ]
+  },
+  "template:ig2-oscuro": {
+   "name": "Relacja: DARK z literami w siatce",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "kolory",
+    "ciemny",
+    "moda"
+   ]
+  },
+  "template:ig2-presentamos": {
+   "name": "Relacja: INTRODUCING OUR STORIES z gradientowymi pasami",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "kolory",
+    "prezentacja",
+    "gradient"
+   ]
+  },
+  "template:ig2-rostro-franjas": {
+   "name": "Relacja: twarz z kolorowymi pasami i kołami",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "kolory",
+    "portret",
+    "marka"
+   ]
+  },
+  "template:ig2-tu-mente": {
+   "name": "Relacja: Say what's on your mind na fiolecie",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "kolory",
+    "cytat",
+    "fioletowy"
+   ]
+  },
+  "template:ig2-tu-vida": {
+   "name": "Relacja: YOUR LIFE z żółtymi pasami",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "kolory",
+    "życie",
+    "porady"
+   ]
+  },
+  "template:ig2-viaje-verano": {
+   "name": "Relacja: GREAT TRIP SUMMER z chmurą zdjęć",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "kolory",
+    "podróż",
+    "lato"
+   ]
+  },
+  "template:ig3-arte": {
+   "name": "Relacja: art 01 Stories na obrazie",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "sztuka",
+    "obraz"
+   ]
+  },
+  "template:ig3-ciencia": {
+   "name": "Relacja: A-01 MODERN SCIENCE z kołami",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "nauka",
+    "koło"
+   ]
+  },
+  "template:ig3-city-life": {
+   "name": "Relacja: CITY LIFE z różowym panelem",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "miasto"
+   ]
+  },
+  "template:ig3-comida-circulo": {
+   "name": "Relacja: Say what's on your mind w kole",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "jedzenie",
+    "koło"
+   ]
+  },
+  "template:ig3-fashion": {
+   "name": "Relacja: FASHION 45$ z literami wypełnionymi zdjęciem",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "moda",
+    "oferta"
+   ]
+  },
+  "template:ig3-food": {
+   "name": "Relacja: Food 50% rabatu",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "jedzenie",
+    "oferta"
+   ]
+  },
+  "template:ig3-friend": {
+   "name": "Relacja: FRIEND GREAT TRIP z kołem",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "przyjaciele",
+    "koło"
+   ]
+  },
+  "template:ig3-full": {
+   "name": "Relacja: Full 100% pismem pędzlem",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "oferta",
+    "zwierzaki"
+   ]
+  },
+  "template:ig3-introducing": {
+   "name": "Relacja: INTRODUCING STORIES w lesie",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zima",
+    "prezentacja"
+   ]
+  },
+  "template:ig3-models": {
+   "name": "Relacja: MODELS FASHION z nawiasem",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "moda",
+    "portret"
+   ]
+  },
+  "template:ig3-music": {
+   "name": "Relacja: MUSIC EXCLUSIVE z pierścieniami",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "muzyka",
+    "koło"
+   ]
+  },
+  "template:ig3-new": {
+   "name": "Relacja: podróże NEW z pociągnięciem pędzla",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "podróże",
+    "pędzel"
+   ]
+  },
+  "template:ig3-opener": {
+   "name": "Dynamiczny opener do kwadratowego posta",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "opener",
+    "typografia",
+    "post"
+   ]
+  },
+  "template:ig3-perfil-amarillo": {
+   "name": "Profil: żółta karta ze zdjęciem",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "profil"
+   ]
+  },
+  "template:ig3-perfil-coral": {
+   "name": "Profil: koralowa karta z plamami",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "profil"
+   ]
+  },
+  "template:ig3-perfil-degradado": {
+   "name": "Profil: karta z gradientem i kołami",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "profil"
+   ]
+  },
+  "template:ig3-perfil-oscuro": {
+   "name": "Profil: ciemna karta z czerwonym imieniem",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "profil"
+   ]
+  },
+  "template:ig3-perfil-rojo": {
+   "name": "Profil: czerwona karta z awatarem",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "profil"
+   ]
+  },
+  "template:ig3-portfolio": {
+   "name": "Relacja: PORTFOLIO z imieniem",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "portfolio"
+   ]
+  },
+  "template:ig3-programa": {
+   "name": "Relacja: V 6 z zaokrąglonymi słupkami",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "technologia",
+    "pastelowy"
+   ]
+  },
+  "template:ig3-promo": {
+   "name": "Relacja: Product Promo z żółtym dyskiem",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "produkt",
+    "promocja"
+   ]
+  },
+  "template:ig3-sport": {
+   "name": "Relacja: SPORT z różową plakietką",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "sport"
+   ]
+  },
+  "template:ig3-tech": {
+   "name": "Relacja: TECH z rozsypanymi literami",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "technologia"
+   ]
+  },
+  "template:ig3-toys": {
+   "name": "Relacja: TOYS z gradientowym dyskiem",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zabawki",
+    "koło"
+   ]
+  },
+  "template:ig3-tv": {
+   "name": "Relacja: Media Social z okrągłym zdjęciem",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "social media",
+    "koło"
+   ]
+  },
+  "template:ig3-your-life": {
+   "name": "Relacja: YOUR LIFE i PRO z kolorowymi pasami",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "wnętrza"
+   ]
+  },
+  "template:ig4-abstract": {
+   "name": "Relacja: ABSTRACT GEOMETRIC STYLE",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "geometryczny",
+    "architektura"
+   ]
+  },
+  "template:ig4-amazing-dream": {
+   "name": "Relacja: Amazing dream z dwoma zdjęciami",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "cytat",
+    "brązowy"
+   ]
+  },
+  "template:ig4-audacious": {
+   "name": "Relacja: LET'S DO WHAT WE LOVE #AUDACIOUS",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "motywacja",
+    "czarny"
+   ]
+  },
+  "template:ig4-beauty": {
+   "name": "Relacja: There is beauty in simplicity",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "natura",
+    "cytat"
+   ]
+  },
+  "template:ig4-beauty-flowers": {
+   "name": "Relacja: Beauty z kwiatami",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "kwiaty",
+    "kaligrafia"
+   ]
+  },
+  "template:ig4-believe": {
+   "name": "Relacja: BELIEVE YOU CAN SO YOU ARE HALFWAY THERE",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "motywacja",
+    "cytat"
+   ]
+  },
+  "template:ig4-big": {
+   "name": "Relacja: BIG. z kołem w paski",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "moda",
+    "paski"
+   ]
+  },
+  "template:ig4-born-wild": {
+   "name": "Relacja: BORN TO BE WILD",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "przygoda",
+    "niebieski"
+   ]
+  },
+  "template:ig4-brand-new-day": {
+   "name": "Relacja: brand new day z trójkątami",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "trójkąty",
+    "geometryczny"
+   ]
+  },
+  "template:ig4-clear": {
+   "name": "Relacja: CLEAR INTERIOR w dwóch połówkach",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "wnętrza",
+    "dom"
+   ]
+  },
+  "template:ig4-cold-wave": {
+   "name": "Relacja: COLD WAVE WARM SUN z literami ze zdjęć",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "morze",
+    "typografia"
+   ]
+  },
+  "template:ig4-confident": {
+   "name": "Relacja: STYLISH & CONFIDENT w trzech oknach",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "moda",
+    "mężczyzna"
+   ]
+  },
+  "template:ig4-control": {
+   "name": "Relacja: CONTROL z logo i dwoma zdjęciami",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "logo",
+    "joga"
+   ]
+  },
+  "template:ig4-courage": {
+   "name": "Relacja: #courage z pociągnięciem pędzla",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "portret",
+    "pomarańczowy"
+   ]
+  },
+  "template:ig4-culinary": {
+   "name": "Relacja: CULINARY ART #cooking",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "kuchnia",
+    "jedzenie"
+   ]
+  },
+  "template:ig4-deep-breath": {
+   "name": "Relacja: ENJOY DEEP BREATH z liśćmi",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "natura",
+    "zielony"
+   ]
+  },
+  "template:ig4-delicious": {
+   "name": "Relacja: siatka #DELICIOUS",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "jedzenie",
+    "desery"
+   ]
+  },
+  "template:ig4-dream": {
+   "name": "Relacja: DREAM z ramką nad miastem",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "miasto",
+    "ramka"
+   ]
+  },
+  "template:ig4-employee": {
+   "name": "Relacja: BEST EMPLOYEE OF THE MONTH",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "firma",
+    "pracownik"
+   ]
+  },
+  "template:ig4-enjoy-music": {
+   "name": "Relacja: niebiesko-czerwone ENJOY MY MUSIC",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "muzyka",
+    "taniec"
+   ]
+  },
+  "template:ig4-fashion-buy": {
+   "name": "Relacja: FASHION IS WHAT YOU BUY na pasach",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "moda",
+    "pasy"
+   ]
+  },
+  "template:ig4-fitness": {
+   "name": "Relacja: FITNESS BODY ENERGY WORKOUT",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "siłownia",
+    "sport"
+   ]
+  },
+  "template:ig4-fun": {
+   "name": "Relacja: #FUN ze zdjęciem w ramce",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "ramka",
+    "czerwony"
+   ]
+  },
+  "template:ig4-glam": {
+   "name": "Relacja: GLAM ROCK w różu i czerni",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "moda",
+    "różowy"
+   ]
+  },
+  "template:ig4-instamusic": {
+   "name": "Relacja: #instamusic #yourbeat z plamami",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "muzyka",
+    "neon"
+   ]
+  },
+  "template:ig4-life-good": {
+   "name": "Relacja: LIFE IS SO GOOD JUST BE YOURSELF",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "cytat",
+    "neon"
+   ]
+  },
+  "template:ig4-lifestyle": {
+   "name": "Relacja: my lifestyle #followme",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "styl życia",
+    "niebieski"
+   ]
+  },
+  "template:ig4-look-deep": {
+   "name": "Relacja: LOOK DEEP INTO NATURE z sześciokątami",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "natura",
+    "sześciokąt"
+   ]
+  },
+  "template:ig4-masterpiece": {
+   "name": "Relacja: MAKE EACH DAY YOUR MASTERPIECE",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "cytat",
+    "różowy"
+   ]
+  },
+  "template:ig4-meeting": {
+   "name": "Relacja: MEETING WITH FRIENDS w kolumnach",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "przyjaciele",
+    "kolumny"
+   ]
+  },
+  "template:ig4-motion": {
+   "name": "Relacja: MOTION z żółtym kołem",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "taniec",
+    "koło"
+   ]
+  },
+  "template:ig4-moving": {
+   "name": "Relacja: Moving z dwoma pierścieniami",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "taniec",
+    "obręcze"
+   ]
+  },
+  "template:ig4-music": {
+   "name": "Relacja: MUSIC DANCE ENJOY",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "muzyka",
+    "impreza"
+   ]
+  },
+  "template:ig4-natural": {
+   "name": "Relacja: NATURAL BEAUTY w trzech kolumnach",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "natura",
+    "kolumny"
+   ]
+  },
+  "template:ig4-never-easier": {
+   "name": "Relacja: czerwone IT NEVER GETS EASIER",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "siłownia",
+    "motywacja"
+   ]
+  },
+  "template:ig4-ocean": {
+   "name": "Relacja: OCEAN HAPPY RELAX z ramką",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "morze",
+    "ramka"
+   ]
+  },
+  "template:ig4-pro-fitness": {
+   "name": "Relacja: PRO fitness ze skrzyżowaną ramką",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "sport",
+    "ramka"
+   ]
+  },
+  "template:ig4-sale40": {
+   "name": "Relacja: stojące SALE 40%",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "wyprzedaż",
+    "oferta"
+   ]
+  },
+  "template:ig4-sale75": {
+   "name": "Relacja: SALE UP TO 75% OFF",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "wyprzedaż",
+    "oferta"
+   ]
+  },
+  "template:ig4-secrets": {
+   "name": "Relacja: NO MORE SECRETS #IMAGINE",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "czerwony",
+    "ukośny"
+   ]
+  },
+  "template:ig4-shopping-week": {
+   "name": "Relacja: #shoppingweek 40% FOR SALE",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "wyprzedaż",
+    "zakupy"
+   ]
+  },
+  "template:ig4-simplelife": {
+   "name": "Relacja: When you focus on the good #simplelife",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "cytat",
+    "niebieski"
+   ]
+  },
+  "template:ig4-skate": {
+   "name": "Relacja: 0256 #skatelife",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "skate",
+    "sport"
+   ]
+  },
+  "template:ig4-sport": {
+   "name": "Relacja: W SPORT z linią",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "sport",
+    "bieganie"
+   ]
+  },
+  "template:ig4-spring": {
+   "name": "Relacja: SPRING IS IN THE AIR",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "wiosna",
+    "kwiaty"
+   ]
+  },
+  "template:ig4-stay-strong": {
+   "name": "Relacja: STAY STRONG DON'T GIVE UP",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "motywacja",
+    "czerwony"
+   ]
+  },
+  "template:ig4-street-fast": {
+   "name": "Relacja: 10/25 #youth street FAST",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "ulica",
+    "skate"
+   ]
+  },
+  "template:ig4-style": {
+   "name": "Relacja: STYLE IS VERY PERSONAL",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "moda",
+    "czerwony"
+   ]
+  },
+  "template:ig4-style-beautiful": {
+   "name": "Relacja: STYLE #beautiful z pasami",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "moda",
+    "pasy"
+   ]
+  },
+  "template:ig4-stylish": {
+   "name": "Relacja: #stylish z niebieskim dyskiem",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "moda",
+    "niebieski"
+   ]
+  },
+  "template:ig4-summer": {
+   "name": "Relacja: #SUMMER z plażowym rombem",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "plaża",
+    "lato"
+   ]
+  },
+  "template:ig4-summer-event": {
+   "name": "Relacja: letnie wydarzenie z datą",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "lato",
+    "wydarzenie"
+   ]
+  },
+  "template:ig4-summer-look": {
+   "name": "Relacja: Summer look #fashion na pasach",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "moda",
+    "lato"
+   ]
+  },
+  "template:ig4-sunshine": {
+   "name": "Relacja: SUNSHINE z czterema zdjęciami",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "lato",
+    "kolaż"
+   ]
+  },
+  "template:ig4-sunshine-tag": {
+   "name": "Relacja: #sunshine Relaxing holiday",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "lato",
+    "niebieski"
+   ]
+  },
+  "template:ig4-trendy": {
+   "name": "Relacja: czerwone #TRENDY YOUR STYLE",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "czerwony",
+    "moda"
+   ]
+  },
+  "template:ig4-tropical": {
+   "name": "Relacja: FEELING TROPICAL z trzema zdjęciami",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "lato",
+    "tropikalny"
+   ]
+  },
+  "template:ig4-winner": {
+   "name": "Relacja: THE WINNER NEVER QUITS",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "motywacja",
+    "siłownia"
+   ]
+  },
+  "template:ig4-young": {
+   "name": "Relacja: YOUNG #followus",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "młodość",
+    "czerwony"
+   ]
+  },
+  "template:ig4-youth": {
+   "name": "Relacja: #YOUTH & FREEDOM z trójkątem",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "trójkąt",
+    "koralowy"
+   ]
+  },
+  "template:ig5-amazing-now": {
+   "name": "Relacja: AMAZING NOW",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "czarno-biały",
+    "czerwony"
+   ]
+  },
+  "template:ig5-awesome": {
+   "name": "Relacja: pionowe AWESOME",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "czerwony",
+    "pionowy"
+   ]
+  },
+  "template:ig5-be-strong": {
+   "name": "Relacja: B STRONG",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "czerwony",
+    "cytat"
+   ]
+  },
+  "template:ig5-beach-therapy": {
+   "name": "Relacja: turkusowa beach therapy",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "plaża",
+    "wakacje"
+   ]
+  },
+  "template:ig5-beauty-pro": {
+   "name": "Relacja: BEAUTY z fioletową falą",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "uroda",
+    "fioletowy"
+   ]
+  },
+  "template:ig5-best-look": {
+   "name": "Relacja: YOUR BEST LOOK w ramce",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "zielony",
+    "moda"
+   ]
+  },
+  "template:ig5-choose-glam": {
+   "name": "Relacja: 48 choose the glam",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "uroda",
+    "glamour"
+   ]
+  },
+  "template:ig5-cold-water": {
+   "name": "Relacja: COLD DEEP WATER",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "morze",
+    "żółty"
+   ]
+  },
+  "template:ig5-creative-studio": {
+   "name": "Relacja: CREATIVE DESIGN STUDIO",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "projekt",
+    "studio"
+   ]
+  },
+  "template:ig5-dancing": {
+   "name": "Relacja: #DANCING ze zdjęciem po przekątnej",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "taniec",
+    "ukośny"
+   ]
+  },
+  "template:ig5-daring-style": {
+   "name": "Relacja: DARING STYLE na żółtym",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "żółty",
+    "moda"
+   ]
+  },
+  "template:ig5-denim-style": {
+   "name": "Relacja: DENIM STYLE w ramce",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "moda",
+    "ramka"
+   ]
+  },
+  "template:ig5-design-passion": {
+   "name": "Relacja: DESIGN IS MY PASSION",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "wnętrza",
+    "projekt"
+   ]
+  },
+  "template:ig5-dont-waste": {
+   "name": "Relacja: DON'T WASTE YOUR TIME",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "cytat",
+    "morski"
+   ]
+  },
+  "template:ig5-enjoy-movement": {
+   "name": "Relacja: enjoy the movement",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "taniec",
+    "czarny"
+   ]
+  },
+  "template:ig5-flexible-body": {
+   "name": "Relacja: FLEXIBLE BODY z gradientowym pasem",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "fitness",
+    "gradient"
+   ]
+  },
+  "template:ig5-focus-breathe": {
+   "name": "Relacja: FOCUS ON THE BREATHE",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "cytat",
+    "typografia"
+   ]
+  },
+  "template:ig5-fondo-ambar": {
+   "name": "Tło: bursztynowe koła",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "tło",
+    "pomarańczowy",
+    "brązowy"
+   ]
+  },
+  "template:ig5-fondo-burbujas-azules": {
+   "name": "Tło: niebieskie bąbelki na różu",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "tło",
+    "różowy",
+    "niebieski"
+   ]
+  },
+  "template:ig5-fondo-burbujas-grises": {
+   "name": "Tło: szare bąbelki na czerni",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "tło",
+    "czarny",
+    "szary"
+   ]
+  },
+  "template:ig5-fondo-chevrones": {
+   "name": "Tło: czerwone szewrony",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "tło",
+    "czerwony",
+    "szewrony"
+   ]
+  },
+  "template:ig5-fondo-cinta-azul": {
+   "name": "Tło: niebieska wstążka na czerwieni",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "tło",
+    "gradient",
+    "niebieski"
+   ]
+  },
+  "template:ig5-fondo-geometrico": {
+   "name": "Tło: geometryczne kawałki na szarości",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "tło",
+    "szary",
+    "geometryczny"
+   ]
+  },
+  "template:ig5-fondo-lineas": {
+   "name": "Tło: gradient z neonowymi liniami",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "tło",
+    "gradient",
+    "różowy"
+   ]
+  },
+  "template:ig5-fondo-lineas-cruzadas": {
+   "name": "Tło: przecinające się linie",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "tło",
+    "gradient",
+    "magenta"
+   ]
+  },
+  "template:ig5-fondo-olas": {
+   "name": "Tło: pomarańczowe i fioletowe fale",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "tło",
+    "gradient",
+    "pomarańczowy"
+   ]
+  },
+  "template:ig5-fondo-pildoras": {
+   "name": "Tło: różowe pigułki",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "tło",
+    "różowy",
+    "pastelowy"
+   ]
+  },
+  "template:ig5-fondo-plata": {
+   "name": "Tło: srebrne pasy",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "tło",
+    "srebrny",
+    "szary"
+   ]
+  },
+  "template:ig5-fondo-rojo": {
+   "name": "Tło: zaokrąglone czerwone kształty",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "tło",
+    "czerwony",
+    "kształty"
+   ]
+  },
+  "template:ig5-gentle-soft": {
+   "name": "Relacja: karta GENTLE & SOFT",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "kwiaty",
+    "karta"
+   ]
+  },
+  "template:ig5-glam": {
+   "name": "Relacja: GLAM ze zdjęciem z aparatu",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "różowy",
+    "aparat"
+   ]
+  },
+  "template:ig5-happiness-love": {
+   "name": "Relacja: kolaż HAPPINESS i LOVE",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "kolaż",
+    "ślub"
+   ]
+  },
+  "template:ig5-happy-weekends": {
+   "name": "Relacja: Happy weekends",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "kwiaty",
+    "weekend"
+   ]
+  },
+  "template:ig5-inspiration": {
+   "name": "Relacja: #pleasure inspiration",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "czerwony",
+    "czarno-biały"
+   ]
+  },
+  "template:ig5-interior-dream": {
+   "name": "Relacja: katalog INTERIOR OF YOUR DREAM",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "katalog",
+    "wnętrza"
+   ]
+  },
+  "template:ig5-keep-simple": {
+   "name": "Relacja: KEEP IT SIMPLE z kołem",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "koło",
+    "gradient"
+   ]
+  },
+  "template:ig5-light-easy": {
+   "name": "Relacja: karta LIGHT & EASY",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "moda",
+    "karta"
+   ]
+  },
+  "template:ig5-look-deep": {
+   "name": "Relacja: LOOK DEEP INTO YOURSELF",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "cytat",
+    "neon"
+   ]
+  },
+  "template:ig5-mindfulness": {
+   "name": "Relacja: czarno-białe #mindfulness",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "czarno-biały",
+    "cytat"
+   ]
+  },
+  "template:ig5-modern-office": {
+   "name": "Relacja: MODERN OFFICE SPACE",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "biuro",
+    "firma"
+   ]
+  },
+  "template:ig5-ocean": {
+   "name": "Relacja: OCEAN w kole",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "koło",
+    "morze"
+   ]
+  },
+  "template:ig5-pleasure": {
+   "name": "Relacja: kolaż z bloków PLEASURE",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "kolaż",
+    "terakota"
+   ]
+  },
+  "template:ig5-power": {
+   "name": "Relacja: #POWER ze zdjęciem",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "czerwony",
+    "moda"
+   ]
+  },
+  "template:ig5-relax-home": {
+   "name": "Relacja: Relax SWEET HOME",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "dom",
+    "wnętrza"
+   ]
+  },
+  "template:ig5-sale-70": {
+   "name": "Relacja: SALE 70% na ukośnych pasach",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "wyprzedaż",
+    "oferta"
+   ]
+  },
+  "template:ig5-sensual": {
+   "name": "Relacja: SENSUAL z dwoma zdjęciami",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "czarno-biały",
+    "kolaż"
+   ]
+  },
+  "template:ig5-style-y": {
+   "name": "Relacja: STYLE z wielkim Y",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "moda",
+    "morski"
+   ]
+  },
+  "template:ig5-summer-pause": {
+   "name": "Relacja: SUMMER take a pause",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "lato",
+    "wakacje"
+   ]
+  },
+  "template:ig5-sunny-day": {
+   "name": "Relacja: SUNNY DAY z kołem",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "lato",
+    "basen"
+   ]
+  },
+  "template:ig5-titulo-art-design": {
+   "name": "Tytuł: ART & DESIGN FORUM",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "tytuł",
+    "tekst",
+    "sztuka"
+   ]
+  },
+  "template:ig5-titulo-big-sale": {
+   "name": "Tytuł: BIG SALE z pędzlem i koszykiem",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "tytuł",
+    "tekst",
+    "wyprzedaż"
+   ]
+  },
+  "template:ig5-titulo-bold-fashion": {
+   "name": "Tytuł: pochylone BOLD FASHION STYLE",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "tytuł",
+    "tekst",
+    "moda"
+   ]
+  },
+  "template:ig5-titulo-chicle": {
+   "name": "Tytuł: BUBBLEGUM STYLE",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "tytuł",
+    "tekst",
+    "różowy"
+   ]
+  },
+  "template:ig5-titulo-cita": {
+   "name": "Tytuł: cytat z autorem",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "tytuł",
+    "tekst",
+    "cytat"
+   ]
+  },
+  "template:ig5-titulo-do-what": {
+   "name": "Tytuł: DO WHAT YOU WANT",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "tytuł",
+    "tekst",
+    "motywacja"
+   ]
+  },
+  "template:ig5-titulo-formas-abstractas": {
+   "name": "Tytuł: ABSTRACT SHAPES DESIGN",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "tytuł",
+    "tekst",
+    "kształty"
+   ]
+  },
+  "template:ig5-titulo-glitch": {
+   "name": "Tytuł: GLITCH STYLE",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "tytuł",
+    "tekst",
+    "glitch"
+   ]
+  },
+  "template:ig5-titulo-neon": {
+   "name": "Tytuł: świecący NEON",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "tytuł",
+    "tekst",
+    "neon"
+   ]
+  },
+  "template:ig5-titulo-never-give-up": {
+   "name": "Tytuł: NEVER GIVE UP pędzlem",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "tytuł",
+    "tekst",
+    "motywacja"
+   ]
+  },
+  "template:ig5-titulo-retro": {
+   "name": "Tytuł: 80s RETROSTYLE",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "tytuł",
+    "tekst",
+    "retro"
+   ]
+  },
+  "template:ig5-titulo-sale": {
+   "name": "Tytuł: bilet SALE",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "tytuł",
+    "tekst",
+    "wyprzedaż"
+   ]
+  },
+  "template:ig5-wake-up": {
+   "name": "Relacja: WAKE UP AND BE AWESOME",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "czerwony",
+    "motywacja"
+   ]
+  },
+  "template:ig5-your-choice": {
+   "name": "Relacja: portret z żółtymi kropkami",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "żółty",
+    "kropki"
+   ]
+  },
+  "template:ig5-your-style": {
+   "name": "Relacja: kolaż Your style",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "kolaż",
+    "wnętrza"
+   ]
+  },
+  "template:ig6-arbol-cinta": {
+   "name": "Relacja świąteczna: choinka ze złotej wstążki",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "boże narodzenie",
+    "christmas",
+    "drzewo"
+   ]
+  },
+  "template:ig6-artista": {
+   "name": "Relacja: You are the artist of your life z #YLIFE",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "niebieski",
+    "styl życia"
+   ]
+  },
+  "template:ig6-aventuras": {
+   "name": "Relacja: My Adventures z dwoma zdjęciami i zieloną górą",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "podróże",
+    "przygoda"
+   ]
+  },
+  "template:ig6-diseno-pasion": {
+   "name": "Relacja: Design is my passion na różu",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "projekt",
+    "architektura"
+   ]
+  },
+  "template:ig6-feliz-brillante": {
+   "name": "Relacja świąteczna: Merry & Bright na szarości",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "boże narodzenie",
+    "christmas",
+    "święta"
+   ]
+  },
+  "template:ig6-interior": {
+   "name": "Relacja: Clear Interior z czarnym pudełkiem",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "dom",
+    "aranżacja wnętrz"
+   ]
+  },
+  "template:ig6-luz-calida": {
+   "name": "Relacja: Cozy Light z rombami i #WARM",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "dom",
+    "produkt"
+   ]
+  },
+  "template:ig6-pino-rojo": {
+   "name": "Relacja świąteczna: gałązki sosny i Merry Christmas na czerwieni",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "boże narodzenie",
+    "christmas",
+    "wyprzedaż"
+   ]
+  },
+  "template:ig6-rebajas-50": {
+   "name": "Relacja: SALE z metką 50% OFF i niebieskimi pasami",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "zdjęcie",
+    "wyprzedaż",
+    "rabat"
+   ]
+  },
+  "template:ig6-rebajas-invierno": {
+   "name": "Relacja świąteczna: prezent zamieniający się w «winter sell XMAS 50%off»",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "boże narodzenie",
+    "christmas",
+    "wyprzedaż"
+   ]
+  },
+  "template:ig6-santa": {
+   "name": "Relacja świąteczna: twarz Mikołaja z Merry Xmas",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "boże narodzenie",
+    "christmas",
+    "święty mikołaj"
+   ]
+  },
+  "template:ig6-swipe-bandera": {
+   "name": "Swipe up: flaga SWIPE UP wyskakująca z konfetti",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "swipe up",
+    "przesuń",
+    "strzałka"
+   ]
+  },
+  "template:ig6-swipe-boton": {
+   "name": "Swipe up: biały przycisk zmieniający się z kwadratu w koło",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "swipe up",
+    "przesuń",
+    "strzałka"
+   ]
+  },
+  "template:ig6-swipe-brillo": {
+   "name": "Swipe up: świecące białe strzałki unoszące się w górę",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "swipe up",
+    "przesuń",
+    "strzałka"
+   ]
+  },
+  "template:ig6-swipe-chevrones": {
+   "name": "Swipe up: trzy niebieskie szewrony unoszące się w górę",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "swipe up",
+    "przesuń",
+    "strzałka"
+   ]
+  },
+  "template:ig6-swipe-circulo": {
+   "name": "Swipe up: białe koło z trójkątem unoszące się i rozmywające",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "swipe up",
+    "przesuń",
+    "strzałka"
+   ]
+  },
+  "template:ig6-swipe-cuadro": {
+   "name": "Swipe up: turkusowy kwadrat ze strzałką i jej odbiciem",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "swipe up",
+    "przesuń",
+    "strzałka"
+   ]
+  },
+  "template:ig6-swipe-figuras": {
+   "name": "Swipe up: zielony pierścień zamieniający się w trójkąt z SWIPE UP",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "swipe up",
+    "przesuń",
+    "strzałka"
+   ]
+  },
+  "template:ig6-swipe-flecha": {
+   "name": "Swipe up: niebieska strzałka nad pulsującą linią",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "swipe up",
+    "przesuń",
+    "strzałka"
+   ]
+  },
+  "template:ig6-swipe-interruptor": {
+   "name": "Swipe up: przełącznik z niebieską gałką jadącą w górę",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "swipe up",
+    "przesuń",
+    "strzałka"
+   ]
+  },
+  "template:ig6-swipe-letras": {
+   "name": "Swipe up: podskakujące litery SWIPE UP",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "swipe up",
+    "przesuń",
+    "strzałka"
+   ]
+  },
+  "template:ig6-swipe-mano": {
+   "name": "Swipe up: dłoń przesuwająca w górę ze smugą szewronów",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "swipe up",
+    "przesuń",
+    "strzałka"
+   ]
+  },
+  "template:ig6-swipe-triangulo": {
+   "name": "Swipe up: biały trójkąt z czerwoną kropką unoszący się w górę",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "swipe up",
+    "przesuń",
+    "strzałka"
+   ]
+  },
+  "template:ig7-awesome": {
+   "name": "Relacja typograficzna: AWESOME",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "typografia",
+    "kolory",
+    "pasy"
+   ]
+  },
+  "template:ig7-big": {
+   "name": "Relacja typograficzna: BIG",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "typografia",
+    "kolory",
+    "wielka litera"
+   ]
+  },
+  "template:ig7-brand": {
+   "name": "Relacja typograficzna: BRAND",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "typografia",
+    "kolory",
+    "litera a"
+   ]
+  },
+  "template:ig7-color": {
+   "name": "Relacja typograficzna: COLOR",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "typografia",
+    "kolory",
+    "ramka"
+   ]
+  },
+  "template:ig7-easy-project": {
+   "name": "Relacja typograficzna: STORIES EASY PROJECT",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "typografia",
+    "kolory",
+    "piksele"
+   ]
+  },
+  "template:ig7-grid": {
+   "name": "Relacja typograficzna: kolorowa siatka",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "typografia",
+    "kolory",
+    "siatka"
+   ]
+  },
+  "template:ig7-no-plugins": {
+   "name": "Relacja typograficzna: NO PLUGINS",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "typografia",
+    "kolory",
+    "prostokąty"
+   ]
+  },
+  "template:ig7-social": {
+   "name": "Relacja typograficzna: SOCIAL",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "typografia",
+    "kolory",
+    "karty"
+   ]
+  },
+  "template:ig7-stories": {
+   "name": "Relacja typograficzna: STORIES",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "typografia",
+    "kolory",
+    "wielka litera"
+   ]
+  },
+  "template:ig7-typo": {
+   "name": "Relacja typograficzna: TYPO",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "typografia",
+    "kolory",
+    "karta"
+   ]
+  },
+  "template:ig8-best-sellers": {
+   "name": "Relacja miejska: Best Sellers click now",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "miejski",
+    "niebieski",
+    "sklep"
+   ]
+  },
+  "template:ig8-city-vibes": {
+   "name": "Relacja miejska: city vibes z dwoma zdjęciami",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "miejski",
+    "niebieski",
+    "miasto"
+   ]
+  },
+  "template:ig8-friends": {
+   "name": "Relacja miejska: friends positive z paskiem zdjęć",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "miejski",
+    "niebieski",
+    "przyjaciele"
+   ]
+  },
+  "template:ig8-mega-sale": {
+   "name": "Relacja miejska: mega sale %50 polaroid",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "miejski",
+    "niebieski",
+    "wyprzedaż"
+   ]
+  },
+  "template:ig8-visit-page": {
+   "name": "Relacja miejska: visit page z niebieskim paskiem",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "miejski",
+    "niebieski",
+    "strona www"
+   ]
+  },
+  "template:ig9-banda-roja": {
+   "name": "Relacja: czerwony pas z gigantycznym słowem",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "typografia",
+    "pas",
+    "czerwony"
+   ]
+  },
+  "template:ig9-letras-cortadas": {
+   "name": "Relacja: gigantyczne przecięte słowo i trzy linki",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "typografia",
+    "litery",
+    "linki"
+   ]
+  },
+  "template:ig9-letras-rojas": {
+   "name": "Relacja: ściana obróconych liter na czerwieni",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "typografia",
+    "litery",
+    "czerwony"
+   ]
+  },
+  "template:ig9-palabra-vertical": {
+   "name": "Relacja: pionowe słowo w ramce z czerwoną wstążką",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "typografia",
+    "pionowy",
+    "ramka"
+   ]
+  },
+  "template:ig9-typo": {
+   "name": "Relacja: kafelki TYPO z narysowaną ramką",
+   "tags": [
+    "instagram",
+    "relacja",
+    "reels",
+    "typografia",
+    "litery",
+    "ramka"
+   ]
+  },
   "template:intro-de-canal": {
    "name": "Intro kanału",
    "tags": [
@@ -25576,6 +28588,204 @@
     "rytm",
     "impreza",
     "słowa"
+   ]
+  },
+  "template:lg0-circulo-ambar": {
+   "name": "Logo: dwie kropki rysują pierścień, który zamyka się w dysk (bursztynowy)",
+   "tags": [
+    "logo",
+    "odsłonięcie logo",
+    "płaski",
+    "bursztynowy",
+    "żółty",
+    "koło"
+   ]
+  },
+  "template:lg0-cuadro-blanco": {
+   "name": "Logo: podskakujący kwadrat, który się otwiera (biały)",
+   "tags": [
+    "logo",
+    "odsłonięcie logo",
+    "płaski",
+    "biały",
+    "kwadrat",
+    "odbicie"
+   ]
+  },
+  "template:lg0-disco-azul": {
+   "name": "Logo: lecąca kropka rozwijająca się w dysk (niebieski)",
+   "tags": [
+    "logo",
+    "odsłonięcie logo",
+    "płaski",
+    "niebieski",
+    "dysk",
+    "kropka"
+   ]
+  },
+  "template:lg0-hexagono-coral": {
+   "name": "Logo: linia, koło i toczący się sześciokąt z Twoją marką (koralowy)",
+   "tags": [
+    "logo",
+    "odsłonięcie logo",
+    "płaski",
+    "koralowy",
+    "sześciokąt",
+    "linia"
+   ]
+  },
+  "template:lg0-iconos-redes": {
+   "name": "Dziesięć ikon social media wyskakujących na ekran (niebieskie)",
+   "tags": [
+    "logo",
+    "odsłonięcie logo",
+    "płaski",
+    "social media",
+    "ikony",
+    "facebook"
+   ]
+  },
+  "template:lg0-sigueme": {
+   "name": "Logo social media: obserwuj mnie, z kulą w sześciokącie nad zdjęciem",
+   "tags": [
+    "logo",
+    "odsłonięcie logo",
+    "płaski",
+    "obserwuj mnie",
+    "użytkownik",
+    "sześciokąt"
+   ]
+  },
+  "template:lg1-luz-dorada": {
+   "name": "Logo: zbudowane ze złotego światła",
+   "tags": [
+    "logo",
+    "intro",
+    "światło",
+    "złoty",
+    "blask",
+    "pasy"
+   ]
+  },
+  "template:lg2-cintas": {
+   "name": "Obserwuj mnie: logo z obracających się wstążek",
+   "tags": [
+    "logo",
+    "płaski",
+    "firmowy",
+    "obserwuj mnie",
+    "3d"
+   ]
+  },
+  "template:lg2-franjas": {
+   "name": "Obserwuj mnie: logo w plastrach i słupkach",
+   "tags": [
+    "logo",
+    "płaski",
+    "firmowy",
+    "obserwuj mnie",
+    "pasy"
+   ]
+  },
+  "template:lg2-giro": {
+   "name": "Logo: rozwijający się obrót",
+   "tags": [
+    "logo",
+    "płaski",
+    "firmowy",
+    "obrót"
+   ]
+  },
+  "template:lg2-glitch": {
+   "name": "Logo: glitch na zieleni",
+   "tags": [
+    "logo",
+    "płaski",
+    "firmowy",
+    "glitch"
+   ]
+  },
+  "template:lg2-horizonte": {
+   "name": "Subskrybuj: logo wznoszące się z horyzontu",
+   "tags": [
+    "logo",
+    "płaski",
+    "firmowy",
+    "subskrybuj",
+    "horyzont"
+   ]
+  },
+  "template:lg2-mira": {
+   "name": "Subskrybuj: otwierający się celownik",
+   "tags": [
+    "logo",
+    "płaski",
+    "firmowy",
+    "subskrybuj",
+    "celownik"
+   ]
+  },
+  "template:lg2-orbita": {
+   "name": "Subskrybuj: logo na orbicie",
+   "tags": [
+    "logo",
+    "płaski",
+    "firmowy",
+    "subskrybuj",
+    "orbita"
+   ]
+  },
+  "template:lg2-puntos": {
+   "name": "Logo: toczące się kropki",
+   "tags": [
+    "logo",
+    "płaski",
+    "firmowy",
+    "kropki"
+   ]
+  },
+  "template:lg3-esfera": {
+   "name": "Logo: kula w paski zamieniająca się w dysk",
+   "tags": [
+    "logo",
+    "odsłonięcie logo",
+    "intro",
+    "kula",
+    "niebieski",
+    "firmowy"
+   ]
+  },
+  "template:lg3-ondas": {
+   "name": "Logo: kolorowe fale układające się w linię",
+   "tags": [
+    "logo",
+    "odsłonięcie logo",
+    "intro",
+    "fale",
+    "kolory",
+    "linia"
+   ]
+  },
+  "template:lg3-persiana": {
+   "name": "Logo: kwadrat z żaluzjami, który się otwiera",
+   "tags": [
+    "logo",
+    "odsłonięcie logo",
+    "intro",
+    "kwadrat",
+    "szary",
+    "minimalistyczny"
+   ]
+  },
+  "template:lg3-torta-diana": {
+   "name": "Logo: przerywany pierścień, kolorowy wykres kołowy i tarcza",
+   "tags": [
+    "logo",
+    "odsłonięcie logo",
+    "intro",
+    "wykres kołowy",
+    "koło",
+    "pastelowy"
    ]
   },
   "template:llt-bevan": {
@@ -34080,6 +37290,1053 @@
     "typografia",
     "kolory",
     "kinetyczny"
+   ]
+  },
+  "template:tk0-cintas-telefono": {
+   "name": "Relacja: wstęgi ze słowami i telefon",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "pionowy",
+    "wstążki",
+    "telefon"
+   ]
+  },
+  "template:tk0-collage-azul": {
+   "name": "Relacja: kolaż z trzech zdjęć w błękicie i czerni",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "pionowy",
+    "kolaż",
+    "zdjęcia"
+   ]
+  },
+  "template:tk0-collage-negro": {
+   "name": "Relacja: kolaż z sześciu zdjęć z naklejkami",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "pionowy",
+    "kolaż",
+    "zdjęcia"
+   ]
+  },
+  "template:tk0-creas-tendencias": {
+   "name": "Relacja: tworzysz trendy? czerwony bąbel",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "pionowy",
+    "pytanie",
+    "różowy"
+   ]
+  },
+  "template:tk0-empieza-aqui": {
+   "name": "Relacja: trendy zaczynają się tutaj",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "pionowy",
+    "trend",
+    "niebieski"
+   ]
+  },
+  "template:tk0-mision": {
+   "name": "Relacja: nasza misja ze zdjęciem na czerwieni",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "pionowy",
+    "misja",
+    "czerwony"
+   ]
+  },
+  "template:tk0-nueva-era": {
+   "name": "Relacja: nowa era wideo",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "pionowy",
+    "wideo",
+    "czerwony"
+   ]
+  },
+  "template:tk0-nuevo-video": {
+   "name": "Relacja: NEW VIDEO z telefonem",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "pionowy",
+    "wideo",
+    "nowość"
+   ]
+  },
+  "template:tk0-plantilla": {
+   "name": "Relacja: szablon dla każdego ze zdjęciem",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "pionowy",
+    "szablon",
+    "niebieski"
+   ]
+  },
+  "template:tk0-plataforma": {
+   "name": "Relacja: nowa platforma z dwoma telefonami",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "pionowy",
+    "platforma",
+    "czarny"
+   ]
+  },
+  "template:tk0-promo-negro": {
+   "name": "Relacja: SUPER PROMO w niebieskim bąblu na czerni",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "pionowy",
+    "promo",
+    "czarny"
+   ]
+  },
+  "template:tk0-promo-x": {
+   "name": "Relacja: PROMO ze skrzyżowanymi wstęgami",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "pionowy",
+    "promo",
+    "czarny"
+   ]
+  },
+  "template:tk0-que-ves": {
+   "name": "Relacja: co lubisz oglądać? czat",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "pionowy",
+    "czat",
+    "pytanie"
+   ]
+  },
+  "template:tk0-recordatorio": {
+   "name": "Relacja: ankieta z przypomnieniem nad wideo",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "pionowy",
+    "ankieta",
+    "przypomnienie"
+   ]
+  },
+  "template:tk0-tendencias": {
+   "name": "Relacja: viralowe trendy w różu i błękicie",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "pionowy",
+    "trend",
+    "różowy"
+   ]
+  },
+  "template:tk0-trendy": {
+   "name": "Relacja: TRENDY STYLE z kolorowymi pasami",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "pionowy",
+    "trend",
+    "niebieski"
+   ]
+  },
+  "template:tk1-tipografia": {
+   "name": "Opener typograficzny: jedno słowo na uderzenie",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "otwarcie",
+    "typografia",
+    "słowa"
+   ]
+  },
+  "template:tk2-alice": {
+   "name": "Relacja: Alice Braun ze zdjęciem",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "imię",
+    "zdjęcie",
+    "niebieski"
+   ]
+  },
+  "template:tk2-austin": {
+   "name": "Relacja: Austin Grant z nowym filmem",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "imię",
+    "zdjęcie",
+    "czarny"
+   ]
+  },
+  "template:tk2-baile": {
+   "name": "Relacja: Just dance z trzema zdjęciami",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "taniec",
+    "zdjęcia",
+    "niebieski"
+   ]
+  },
+  "template:tk2-belleza": {
+   "name": "Relacja: About Beauty for You",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "uroda",
+    "zdjęcie",
+    "czarny"
+   ]
+  },
+  "template:tk2-blogger": {
+   "name": "Relacja: Social blogger z pierścieniami",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "pierścienie",
+    "zdjęcie",
+    "czarny"
+   ]
+  },
+  "template:tk2-contenido": {
+   "name": "Relacja: różne treści w siatce",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "siatka",
+    "zdjęcia",
+    "czarny"
+   ]
+  },
+  "template:tk2-follow": {
+   "name": "Relacja: follow z sercem",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "obserwuj",
+    "serce",
+    "czarny"
+   ]
+  },
+  "template:tk2-isabella": {
+   "name": "Relacja: Isabella Walker ze zdjęciem",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "imię",
+    "zdjęcie",
+    "niebieski"
+   ]
+  },
+  "template:tk2-lifestyle": {
+   "name": "Relacja: #lifestyle z wideo",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "styl życia",
+    "wideo",
+    "czerwony"
+   ]
+  },
+  "template:tk2-new": {
+   "name": "Relacja: NEW z serduszkami",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "nowość",
+    "zdjęcie",
+    "czarny"
+   ]
+  },
+  "template:tk2-nuevo-video": {
+   "name": "Relacja: nowy film ze zdjęciem",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "nowy film",
+    "zdjęcie",
+    "czerwony"
+   ]
+  },
+  "template:tk2-perfil": {
+   "name": "Relacja: profil z obserwującymi",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "profil",
+    "obserwujący",
+    "zdjęcie"
+   ]
+  },
+  "template:tk2-suscriptores": {
+   "name": "Relacja: zdobądź nowych subskrybentów",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "subskrybenci",
+    "zdjęcia",
+    "czarny"
+   ]
+  },
+  "template:tk2-tarjeta": {
+   "name": "Relacja: karta z Twoim logo i naklejkami",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "logo",
+    "naklejki",
+    "niebieski"
+   ]
+  },
+  "template:tk2-tendencias": {
+   "name": "Relacja: trendy z czerwonym pasem",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "trendy",
+    "zdjęcie",
+    "niebieski"
+   ]
+  },
+  "template:tk3-diseno": {
+   "name": "Relacja: Fashion Design z cienkimi liniami",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "moda",
+    "pastelowy",
+    "projekt"
+   ]
+  },
+  "template:tk3-estilo-de-vida": {
+   "name": "Relacja: Lifestyle z obracającym się trójkątem",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "moda",
+    "pastelowy",
+    "styl życia"
+   ]
+  },
+  "template:tk3-gracias": {
+   "name": "Plansza końcowa: Thanks For Watching!",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "moda",
+    "pastelowy",
+    "zakończenie"
+   ]
+  },
+  "template:tk3-rebajas": {
+   "name": "Relacja: wyprzedaż mody z pudełkiem 50% OFF",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "moda",
+    "pastelowy",
+    "wyprzedaż"
+   ]
+  },
+  "template:tk3-rebajas-2": {
+   "name": "Relacja: Fashion Sale z 50% na zdjęciu",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "moda",
+    "pastelowy",
+    "wyprzedaż"
+   ]
+  },
+  "template:tk3-siguiente-nivel": {
+   "name": "Relacja: The Next Level Of Fashion z pionowym 50% OFF",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "moda",
+    "pastelowy",
+    "rabat"
+   ]
+  },
+  "template:tk3-siguiente-nivel-2": {
+   "name": "Relacja: The Next Level Of Fashion z Get 50% OFF",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "moda",
+    "pastelowy",
+    "rabat"
+   ]
+  },
+  "template:tk3-sorteo": {
+   "name": "Relacja: Giveaway!",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "moda",
+    "pastelowy",
+    "konkurs"
+   ]
+  },
+  "template:tk3-tendencia": {
+   "name": "Relacja: Keep It Trendy z 50%",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "moda",
+    "pastelowy",
+    "trend"
+   ]
+  },
+  "template:tk4-dynamic": {
+   "name": "Dynamiczny opener: czerwone i czarne zdjęcia",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "otwarcie",
+    "pokaz zdjęć",
+    "dynamiczny"
+   ]
+  },
+  "template:tk4-fast": {
+   "name": "Szybki opener: słowa nad kolorowymi zdjęciami",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "otwarcie",
+    "pokaz zdjęć",
+    "szybki"
+   ]
+  },
+  "template:tk4-modern": {
+   "name": "Nowoczesny opener: żółć, złoto i siatka",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "otwarcie",
+    "pokaz zdjęć",
+    "nowoczesny"
+   ]
+  },
+  "template:tk4-rhythm": {
+   "name": "Rytmiczny opener: słowa z gradientem",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "otwarcie",
+    "pokaz zdjęć",
+    "rytm"
+   ]
+  },
+  "template:tk4-stomp": {
+   "name": "Opener stomp: jedno słowo na uderzenie ze zdjęciami",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "otwarcie",
+    "pokaz zdjęć",
+    "stomp"
+   ]
+  },
+  "template:tk4-typo": {
+   "name": "Opener typograficzny: czarne słowa i zdjęcia",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "otwarcie",
+    "pokaz zdjęć",
+    "typografia"
+   ]
+  },
+  "template:tk5-carefree": {
+   "name": "Relacja: pionowe CAREFREE LIVING",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "czarno-biały",
+    "zdjęcie",
+    "pionowy"
+   ]
+  },
+  "template:tk5-endless": {
+   "name": "Relacja: ENDLESS LOVING CONVERSATIONS",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "czarno-biały",
+    "tekst"
+   ]
+  },
+  "template:tk5-find": {
+   "name": "Relacja: FIND HIDDEN GEMS",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "czarno-biały",
+    "tekst"
+   ]
+  },
+  "template:tk5-follow": {
+   "name": "Relacja: FOLLOW YOUR DREAM",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "czarno-biały",
+    "tekst"
+   ]
+  },
+  "template:tk5-foto-cae": {
+   "name": "Relacja: zdjęcie opadające i unoszące się",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "czarno-biały",
+    "zdjęcie"
+   ]
+  },
+  "template:tk5-foto-lado": {
+   "name": "Relacja: zdjęcie wjeżdżające z boku",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "czarno-biały",
+    "zdjęcie"
+   ]
+  },
+  "template:tk5-foto-sube": {
+   "name": "Relacja: unoszące się zdjęcie",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "czarno-biały",
+    "zdjęcie"
+   ]
+  },
+  "template:tk5-freedom": {
+   "name": "Relacja: FREEDOM i PLEASING z dwoma zdjęciami",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "czarno-biały",
+    "zdjęcie",
+    "kolaż"
+   ]
+  },
+  "template:tk5-join": {
+   "name": "Relacja: JOIN THE JOURNEY z wezwaniem do działania",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "czarno-biały",
+    "wezwanie do działania",
+    "logo"
+   ]
+  },
+  "template:tk5-laughter": {
+   "name": "Relacja: LAUGHTER OF A LOVED ONE",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "czarno-biały",
+    "zdjęcie"
+   ]
+  },
+  "template:tk5-stars": {
+   "name": "Relacja: STARS i DREAMS w kolumnach",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "czarno-biały",
+    "zdjęcie",
+    "kolaż"
+   ]
+  },
+  "template:tk5-sunshine": {
+   "name": "Relacja: SUNSHINE FILLS SKIES ze zdjęciem",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "czarno-biały",
+    "zdjęcie",
+    "kolaż"
+   ]
+  },
+  "template:tk6-discovery": {
+   "name": "Relacja: kolaż DISCOVERY i SPACESUIT",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "turkusowy",
+    "zdjęcie",
+    "kolaż"
+   ]
+  },
+  "template:tk6-dreams": {
+   "name": "Relacja: kolaż DREAMS",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "turkusowy",
+    "zdjęcie",
+    "kolaż"
+   ]
+  },
+  "template:tk6-flower": {
+   "name": "Relacja: kolaż FLOWER BEAUTY",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "turkusowy",
+    "zdjęcie",
+    "kolaż"
+   ]
+  },
+  "template:tk6-foto-cae": {
+   "name": "Relacja: zdjęcie w ramce opadające na miejsce",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "turkusowy",
+    "zdjęcie"
+   ]
+  },
+  "template:tk6-foto-lado": {
+   "name": "Relacja: zdjęcie w ramce wjeżdżające z boku",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "turkusowy",
+    "zdjęcie"
+   ]
+  },
+  "template:tk6-freedom": {
+   "name": "Relacja: kolumna FREEDOM",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "turkusowy",
+    "zdjęcie",
+    "pionowy"
+   ]
+  },
+  "template:tk6-modern": {
+   "name": "Relacja: kolaż MODERN STORIES",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "turkusowy",
+    "zdjęcie",
+    "kolaż"
+   ]
+  },
+  "template:tk6-savor": {
+   "name": "Relacja: SAVOR LIFE'S GOODNESS z wezwaniem do działania",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "turkusowy",
+    "wezwanie do działania",
+    "logo"
+   ]
+  },
+  "template:tk6-starry": {
+   "name": "Relacja: STARRY NIGHTS zmniejszające się do kolażu",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "turkusowy",
+    "zdjęcie",
+    "kolaż"
+   ]
+  },
+  "template:tk6-times-now": {
+   "name": "Relacja: TIME'S NOW z dwoma zdjęciami",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "turkusowy",
+    "zdjęcie",
+    "pionowy"
+   ]
+  },
+  "template:tk6-wind": {
+   "name": "Relacja: WIND i AURA z dwoma zdjęciami",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "turkusowy",
+    "zdjęcie",
+    "kolaż"
+   ]
+  },
+  "template:tk7-blooms": {
+   "name": "Relacja: BLOOMS ALL AROUND w czerwieni",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "kwiaty",
+    "kolory",
+    "moda"
+   ]
+  },
+  "template:tk7-bold": {
+   "name": "Relacja: kolaż BOLD COLORS SWAY",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "kwiaty",
+    "kolory",
+    "moda"
+   ]
+  },
+  "template:tk7-breezy": {
+   "name": "Relacja: kolaż BREEZY SPRING ATTIRE",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "kwiaty",
+    "kolory",
+    "moda"
+   ]
+  },
+  "template:tk7-canvas": {
+   "name": "Relacja: kolaż CANVAS LIFE BODY",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "kwiaty",
+    "kolory",
+    "moda"
+   ]
+  },
+  "template:tk7-characters": {
+   "name": "Relacja: COLORFUL CHARACTERS pod zdjęciem",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "kwiaty",
+    "kolory",
+    "moda"
+   ]
+  },
+  "template:tk7-colorful-and": {
+   "name": "Relacja: COLORFUL AND CONFIDENCE między dwoma zdjęciami",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "kwiaty",
+    "kolory",
+    "moda"
+   ]
+  },
+  "template:tk7-discover-more": {
+   "name": "Relacja końcowa: DISCOVER MORE z Twoim logo",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "kwiaty",
+    "kolory",
+    "moda"
+   ]
+  },
+  "template:tk7-embrace": {
+   "name": "Relacja: EMBRACE i EXPRESSION wokół zdjęcia",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "kwiaty",
+    "kolory",
+    "moda"
+   ]
+  },
+  "template:tk7-embrace-your-life": {
+   "name": "Relacja: EMBRACE YOUR LIFE z czterema zdjęciami",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "kwiaty",
+    "kolory",
+    "moda"
+   ]
+  },
+  "template:tk7-flower": {
+   "name": "Relacja: FLOWER PARADISE DELIGHT w błękicie",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "kwiaty",
+    "kolory",
+    "moda"
+   ]
+  },
+  "template:tk7-sale": {
+   "name": "Relacja: SALE SALE SALE z dwoma zdjęciami",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "kwiaty",
+    "kolory",
+    "moda"
+   ]
+  },
+  "template:tk7-savor": {
+   "name": "Relacja: SAVOR MOMENTS NOW z kolumną zdjęć",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "kwiaty",
+    "kolory",
+    "moda"
+   ]
+  },
+  "template:tk8-apple-pie": {
+   "name": "Relacja: SWEET APPLE PIE i SAVOR EVERY BITE",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "jedzenie",
+    "restauracja",
+    "żółty"
+   ]
+  },
+  "template:tk8-bbq": {
+   "name": "Relacja: BBQ SMOKE RISING z pięcioma zdjęciami",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "jedzenie",
+    "restauracja",
+    "żółty"
+   ]
+  },
+  "template:tk8-big-sale": {
+   "name": "Relacja: BIG -50% SALE z trzema zdjęciami",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "jedzenie",
+    "restauracja",
+    "żółty"
+   ]
+  },
+  "template:tk8-buy-now": {
+   "name": "Relacja: BUY NOW z pięcioma zdjęciami",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "jedzenie",
+    "restauracja",
+    "żółty"
+   ]
+  },
+  "template:tk8-crispy-fries": {
+   "name": "Relacja: CRISPY GOLDEN FRIES z trzema zdjęciami",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "jedzenie",
+    "restauracja",
+    "żółty"
+   ]
+  },
+  "template:tk8-discover-flavors": {
+   "name": "Relacja końcowa: DISCOVER NEW FLAVORS z Twoim logo",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "jedzenie",
+    "restauracja",
+    "żółty"
+   ]
+  },
+  "template:tk8-fast-food": {
+   "name": "Relacja: FAST FOOD ADDICTION",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "jedzenie",
+    "restauracja",
+    "żółty"
+   ]
+  },
+  "template:tk8-food-lovers": {
+   "name": "Relacja: FOOD LOVERS UNITE z czterema zdjęciami",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "jedzenie",
+    "restauracja",
+    "żółty"
+   ]
+  },
+  "template:tk8-fried-chicken": {
+   "name": "Relacja: FRIED CHICKEN DELIGHT",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "jedzenie",
+    "restauracja",
+    "żółty"
+   ]
+  },
+  "template:tk8-hot-dogs": {
+   "name": "Relacja: HOT DOGS i CRISPY FRIES",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "jedzenie",
+    "restauracja",
+    "żółty"
+   ]
+  },
+  "template:tk8-lowest-price": {
+   "name": "Relacja: THE LOWEST PRICE",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "jedzenie",
+    "restauracja",
+    "żółty"
+   ]
+  },
+  "template:tk8-new-york-pizza": {
+   "name": "Relacja: NEW YORK PIZZA od pełnego ekranu do kolażu",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "jedzenie",
+    "restauracja",
+    "żółty"
+   ]
+  },
+  "template:tk8-nice-diners": {
+   "name": "Relacja: NICE DINERS z wysokim zdjęciem",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "jedzenie",
+    "restauracja",
+    "żółty"
+   ]
+  },
+  "template:tk9-limpia": {
+   "name": "Czysty opener: słowa i zdjęcia w rytmie",
+   "tags": [
+    "tiktok",
+    "relacja",
+    "reels",
+    "otwarcie",
+    "typografia",
+    "słowa"
    ]
   },
   "template:top-5-mas-vendidos": {

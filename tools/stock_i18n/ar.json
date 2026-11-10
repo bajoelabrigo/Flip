@@ -117,6 +117,7 @@
   "template:collage": "كولاج",
   "template:countdown": "عد تنازلي",
   "template:counter": "عدّادات",
+  "template:instagram": "حزمة Instagram",
   "template:intro": "مقدمات وعناوين",
   "template:lowerthird": "أشرطة أسماء",
   "template:outro": "خواتيم",
@@ -127,6 +128,7 @@
   "template:story15": "قصص ١٥ ثانية",
   "template:text": "نصوص",
   "template:thumbnail": "صور مصغرة",
+  "template:tiktok": "حزمة TikTok",
   "template:transition": "انتقالات وفواصل",
   "template:youtuber": "أسلوب يوتيوبر",
   "template:ytkit": "مجموعة YouTube",
@@ -24811,6 +24813,3017 @@
     "حفلة"
    ]
   },
+  "template:ig0-intro-urbana": {
+   "name": "مقدمة حضرية ديناميكية: URBAN وSTREETS وPROMO وشعارك",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "افتتاحية",
+    "حضري",
+    "مقدمة ديناميكية"
+   ]
+  },
+  "template:ig1-alison": {
+   "name": "ستوري: اسم على صورة بإطار أحمر",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "اسم",
+    "ملف شخصي",
+    "أحمر"
+   ]
+  },
+  "template:ig1-anna": {
+   "name": "ستوري: اسم مع صورة على تدرج أزرق",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "اسم",
+    "ملف شخصي",
+    "تدرج"
+   ]
+  },
+  "template:ig1-beautiful": {
+   "name": "ستوري: #beautiful مع صورة واقتباس",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "اقتباس",
+    "صورة"
+   ]
+  },
+  "template:ig1-believe": {
+   "name": "ستوري: عبارة WE MUST BELIEVE مع خط مقسوم",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عبارة",
+    "صورة",
+    "أسود"
+   ]
+  },
+  "template:ig1-catherine": {
+   "name": "ستوري: صورة دائرية واسم واقتباس على تدرج",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "اقتباس",
+    "ملف شخصي",
+    "تدرج"
+   ]
+  },
+  "template:ig1-conquer": {
+   "name": "ستوري: اهزم من الداخل مع كاروسيل صور",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "كاروسيل",
+    "صورة",
+    "أبيض"
+   ]
+  },
+  "template:ig1-do-your-best": {
+   "name": "ستوري: عبارة DO YOUR BEST على شريط",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عبارة",
+    "مدينة",
+    "تحفيز"
+   ]
+  },
+  "template:ig1-dog": {
+   "name": "ستوري: صورة يقسمها شريط #photooftheday",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "حيوان أليف",
+    "صورة",
+    "شريط"
+   ]
+  },
+  "template:ig1-elegant": {
+   "name": "ستوري: تصميم خطوط أنيق مع نافذة معكوسة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خطوط",
+    "بحر",
+    "أنيق"
+   ]
+  },
+  "template:ig1-forty-sale": {
+   "name": "ستوري: تخفيض 40% عمودي مع صورة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "تخفيضات",
+    "خصم",
+    "موضة"
+   ]
+  },
+  "template:ig1-happy-thoughts": {
+   "name": "ستوري: بولارويد مائل «أفكار سعيدة»",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "بولارويد",
+    "زفاف",
+    "خط يدوي"
+   ]
+  },
+  "template:ig1-heart": {
+   "name": "ستوري: صورة على شكل قلب «أفكار سعيدة»",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "قلب",
+    "حب",
+    "خوخي"
+   ]
+  },
+  "template:ig1-instalove": {
+   "name": "ستوري: #instalove عِش ما تحب",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عبارة",
+    "غابة",
+    "اسم"
+   ]
+  },
+  "template:ig1-lifestyle": {
+   "name": "ستوري: #lifestyle مع فسيفساء صور",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "كولاج",
+    "صيف",
+    "فسيفساء"
+   ]
+  },
+  "template:ig1-live-what": {
+   "name": "ستوري: عِش ما تحب مع شبكة 2×2",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "شبكة",
+    "كولاج",
+    "أبيض"
+   ]
+  },
+  "template:ig1-love-friendship": {
+   "name": "ستوري: صور بولارويد وخط يدوي «الحب صداقة»",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "بولارويد",
+    "وردي",
+    "اقتباس"
+   ]
+  },
+  "template:ig1-love-loves": {
+   "name": "ستوري: صورتا بولارويد مع أسهم وسطر بخط اليد",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "بولارويد",
+    "وردي",
+    "أسهم"
+   ]
+  },
+  "template:ig1-must-believe": {
+   "name": "ستوري: عبارة WE MUST BELIEVE في دائرة معكوسة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عبارة",
+    "دائرة",
+    "منظر طبيعي"
+   ]
+  },
+  "template:ig1-nature": {
+   "name": "ستوري: الطبيعة في صندوق مع إطار",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "طبيعة",
+    "إطار",
+    "بحر"
+   ]
+  },
+  "template:ig1-neon": {
+   "name": "ستوري: NEON CITY بنيون فيروزي",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "نيون",
+    "مدينة",
+    "ليل"
+   ]
+  },
+  "template:ig1-photo-frame": {
+   "name": "ستوري: بطاقة بيضاء تفتح نافذة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "إطار",
+    "طعام",
+    "صورة"
+   ]
+  },
+  "template:ig1-seek": {
+   "name": "ستوري: عبارة SEEK THE SEEKER بحروف من الصور",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عبارة",
+    "أوراق",
+    "قصاصة"
+   ]
+  },
+  "template:ig1-so-it-goes": {
+   "name": "ستوري: هكذا تسير الأمور مع شبكة 2×2",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "شبكة",
+    "كولاج",
+    "وردي"
+   ]
+  },
+  "template:ig1-spring-sale": {
+   "name": "ستوري: تخفيضات الربيع 30%",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "تخفيضات",
+    "خصم",
+    "موضة"
+   ]
+  },
+  "template:ig1-stylish-bike": {
+   "name": "ستوري: S T Y L I S H مع قصاصة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "قصاصة",
+    "فيروزي",
+    "رابط"
+   ]
+  },
+  "template:ig1-stylish-design": {
+   "name": "ستوري: STYLISH DESIGN في إطار متدرج",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "إطار",
+    "تدرج",
+    "داكن"
+   ]
+  },
+  "template:ig1-stylish-skate": {
+   "name": "ستوري: كلمة Stylish عمودية ضخمة مع شعار",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عمودي",
+    "لوح تزلج",
+    "خطوط"
+   ]
+  },
+  "template:ig1-success": {
+   "name": "ستوري: اقتباس على صخرة مع 01",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "اقتباس",
+    "عبارة",
+    "داكن"
+   ]
+  },
+  "template:ig1-work-dream": {
+   "name": "ستوري: عبارة Work hard. Dream big. عمودية مع 05",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عبارة",
+    "عمودي",
+    "رقم"
+   ]
+  },
+  "template:ig1-work-hard": {
+   "name": "ستوري: WORK HARD. DREAM BIG. على خلفية سوداء",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عبارة",
+    "تحفيز",
+    "أسود"
+   ]
+  },
+  "template:ig10-arco-sube": {
+   "name": "ستوري: صورة بقوس صاعد مع MODELS",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "موضة",
+    "عارضون",
+    "صورة"
+   ]
+  },
+  "template:ig10-ovalo-abre": {
+   "name": "ستوري: صورة بيضاوية تنفتح من خط",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "موضة",
+    "عارضون",
+    "صورة"
+   ]
+  },
+  "template:ig10-ovalo-sube": {
+   "name": "ستوري: صورة بيضاوية صاعدة بإطارين",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "موضة",
+    "عارضون",
+    "صورة"
+   ]
+  },
+  "template:ig10-u-foto": {
+   "name": "ستوري: صورة بقاع مستدير وعنوان مؤطر",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "موضة",
+    "عارضون",
+    "صورة"
+   ]
+  },
+  "template:ig10-ventana-arco": {
+   "name": "ستوري: صورة بحجاب شفاف مع نافذة مقوسة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "موضة",
+    "عارضون",
+    "صورة"
+   ]
+  },
+  "template:ig11-avatar-seguir": {
+   "name": "صورة الملف الشخصي مع زر متابعة",
+   "tags": [
+    "instagram",
+    "عناصر",
+    "دعوة لاتخاذ إجراء",
+    "شبكات اجتماعية",
+    "متابعة",
+    "ستوري"
+   ]
+  },
+  "template:ig11-comenta": {
+   "name": "علّق في الأسفل",
+   "tags": [
+    "instagram",
+    "عناصر",
+    "دعوة لاتخاذ إجراء",
+    "شبكات اجتماعية",
+    "تعليقات",
+    "عداد"
+   ]
+  },
+  "template:ig11-compartir": {
+   "name": "شارك المنشور مع المزيد",
+   "tags": [
+    "instagram",
+    "عناصر",
+    "دعوة لاتخاذ إجراء",
+    "شبكات اجتماعية",
+    "مشاركة",
+    "منشور"
+   ]
+  },
+  "template:ig11-doble-toque": {
+   "name": "اضغط مرتين للإعجاب",
+   "tags": [
+    "instagram",
+    "عناصر",
+    "دعوة لاتخاذ إجراء",
+    "شبكات اجتماعية",
+    "إعجاب",
+    "قلب"
+   ]
+  },
+  "template:ig11-enlace-bio": {
+   "name": "اضغط على رابط السيرة الذاتية",
+   "tags": [
+    "instagram",
+    "عناصر",
+    "دعوة لاتخاذ إجراء",
+    "شبكات اجتماعية",
+    "رابط",
+    "السيرة الذاتية"
+   ]
+  },
+  "template:ig11-etiqueta": {
+   "name": "اذكر شخصًا",
+   "tags": [
+    "instagram",
+    "عناصر",
+    "دعوة لاتخاذ إجراء",
+    "شبكات اجتماعية",
+    "وسم",
+    "منشن"
+   ]
+  },
+  "template:ig11-inspiracion": {
+   "name": "اعثر على إلهامك",
+   "tags": [
+    "instagram",
+    "عناصر",
+    "دعوة لاتخاذ إجراء",
+    "شبكات اجتماعية",
+    "بحث",
+    "استكشاف"
+   ]
+  },
+  "template:ig11-pastilla-seguir": {
+   "name": "شريط الاسم مع زر متابعة",
+   "tags": [
+    "instagram",
+    "عناصر",
+    "دعوة لاتخاذ إجراء",
+    "شبكات اجتماعية",
+    "متابعة",
+    "اسم"
+   ]
+  },
+  "template:ig11-pastilla-usuario": {
+   "name": "شريط المستخدم مع المتابعين",
+   "tags": [
+    "instagram",
+    "عناصر",
+    "دعوة لاتخاذ إجراء",
+    "شبكات اجتماعية",
+    "مستخدم",
+    "متابعون"
+   ]
+  },
+  "template:ig11-perfil": {
+   "name": "بطاقة الملف الشخصي",
+   "tags": [
+    "instagram",
+    "عناصر",
+    "دعوة لاتخاذ إجراء",
+    "شبكات اجتماعية",
+    "ملف شخصي",
+    "متابعة"
+   ]
+  },
+  "template:ig11-publicacion": {
+   "name": "بطاقة المنشور",
+   "tags": [
+    "instagram",
+    "عناصر",
+    "دعوة لاتخاذ إجراء",
+    "شبكات اجتماعية",
+    "منشور",
+    "إعجاب"
+   ]
+  },
+  "template:ig11-reels": {
+   "name": "شاهد أحدث الريلز",
+   "tags": [
+    "instagram",
+    "عناصر",
+    "دعوة لاتخاذ إجراء",
+    "شبكات اجتماعية",
+    "ريلز",
+    "مشاهدات"
+   ]
+  },
+  "template:ig11-responder": {
+   "name": "بطاقة تعليق مع رد",
+   "tags": [
+    "instagram",
+    "عناصر",
+    "دعوة لاتخاذ إجراء",
+    "شبكات اجتماعية",
+    "تعليق",
+    "رد"
+   ]
+  },
+  "template:ig11-tu-historia": {
+   "name": "أضف ستوريك",
+   "tags": [
+    "instagram",
+    "عناصر",
+    "دعوة لاتخاذ إجراء",
+    "شبكات اجتماعية",
+    "ستوري",
+    "مشاركة"
+   ]
+  },
+  "template:ig11-ver-historia": {
+   "name": "اضغط لمشاهدة الستوري",
+   "tags": [
+    "instagram",
+    "عناصر",
+    "دعوة لاتخاذ إجراء",
+    "شبكات اجتماعية",
+    "ستوري",
+    "اضغط"
+   ]
+  },
+  "template:ig12-anillos": {
+   "name": "ستوري: حلقات مع صورة دائرية وحروف ضخمة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "برتقالي",
+    "أحمر",
+    "دوائر"
+   ]
+  },
+  "template:ig12-caja-roja": {
+   "name": "ستوري: صندوق أحمر مع كلمة عمودية وحروف ضخمة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "برتقالي",
+    "أحمر",
+    "صندوق"
+   ]
+  },
+  "template:ig12-diagonal": {
+   "name": "ستوري: خطوط قطرية مع كلمة ضخمة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "برتقالي",
+    "أحمر",
+    "قطري"
+   ]
+  },
+  "template:ig12-franjas": {
+   "name": "ستوري: أشرطة ملونة وكلمة عمودية",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "برتقالي",
+    "أحمر",
+    "خطوط عريضة"
+   ]
+  },
+  "template:ig12-panel-rojo": {
+   "name": "ستوري: كلمة ضخمة تنزلق على لوحة حمراء",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "برتقالي",
+    "أحمر",
+    "لوحة"
+   ]
+  },
+  "template:ig13-amarilla": {
+   "name": "ستوري طباعي: أصفر",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خطوط",
+    "أصفر",
+    "أسود"
+   ]
+  },
+  "template:ig13-caja-negra": {
+   "name": "ستوري طباعي: صندوق أسود",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خطوط",
+    "أصفر",
+    "أسود"
+   ]
+  },
+  "template:ig13-filas": {
+   "name": "ستوري طباعي: صفوف من الحروف",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خطوط",
+    "أصفر",
+    "أسود"
+   ]
+  },
+  "template:ig13-gris-ra": {
+   "name": "ستوري طباعي: RA رمادي",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خطوط",
+    "أصفر",
+    "أسود"
+   ]
+  },
+  "template:ig13-letras-grises": {
+   "name": "ستوري طباعي: حروف صفراء",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خطوط",
+    "أصفر",
+    "أسود"
+   ]
+  },
+  "template:ig13-muro-de-fotos": {
+   "name": "جدار صور مع شعارك",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صور",
+    "شعار",
+    "ملف شخصي"
+   ]
+  },
+  "template:ig13-negra": {
+   "name": "ستوري طباعي: قطري أسود",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خطوط",
+    "أصفر",
+    "أسود"
+   ]
+  },
+  "template:ig13-oscura": {
+   "name": "ستوري طباعي: داكن مع كرات",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خطوط",
+    "أصفر",
+    "أسود"
+   ]
+  },
+  "template:ig14-dinamica": {
+   "name": "عرض شرائح ديناميكي: كلمة لكل صورة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عرض صور",
+    "عرض شرائح",
+    "ديناميكي"
+   ]
+  },
+  "template:ig14-energia": {
+   "name": "عرض شرائح حيوي مع الشعار",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عرض صور",
+    "عرض شرائح",
+    "طاقة"
+   ]
+  },
+  "template:ig14-epica": {
+   "name": "عرض شرائح ملحمي مع تأثيرات غليتش",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عرض صور",
+    "عرض شرائح",
+    "ملحمي"
+   ]
+  },
+  "template:ig14-limpia": {
+   "name": "عرض شرائح نظيف بخط كبير",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عرض صور",
+    "عرض شرائح",
+    "نظيف"
+   ]
+  },
+  "template:ig14-minimal": {
+   "name": "عرض شرائح بسيط على خلفية بيضاء",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عرض صور",
+    "عرض شرائح",
+    "بسيط"
+   ]
+  },
+  "template:ig14-moda": {
+   "name": "عرض شرائح للموضة مع عبارات",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عرض صور",
+    "عرض شرائح",
+    "موضة"
+   ]
+  },
+  "template:ig14-ritmica": {
+   "name": "عرض شرائح إيقاعي مع حلقات",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عرض صور",
+    "عرض شرائح",
+    "إيقاع"
+   ]
+  },
+  "template:ig14-stomp": {
+   "name": "عرض شرائح ستومب: كلمة لكل نبضة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عرض صور",
+    "عرض شرائح",
+    "ستومب"
+   ]
+  },
+  "template:ig2-cartel-amarillo": {
+   "name": "ستوري: ملصق أصفر Your Stories",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "ألوان",
+    "ملصق",
+    "أصفر"
+   ]
+  },
+  "template:ig2-ciudad-oferta": {
+   "name": "ستوري: عرض المدينة مع دائرة %",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "ألوان",
+    "عرض",
+    "خصم"
+   ]
+  },
+  "template:ig2-cocina": {
+   "name": "ستوري: افتتاحية برنامج طبخ",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "ألوان",
+    "طبخ",
+    "طعام"
+   ]
+  },
+  "template:ig2-feliz": {
+   "name": "ستوري: HAPPY مع حرف ضخم وصندوق نعناعي",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "ألوان",
+    "سعيد",
+    "أبيض وأسود"
+   ]
+  },
+  "template:ig2-interior": {
+   "name": "ستوري: تصميم داخلي مع دوائر ملونة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "ألوان",
+    "ديكور داخلي",
+    "تصميم"
+   ]
+  },
+  "template:ig2-moda": {
+   "name": "ستوري: الموضة على نعناعي وأحمر",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "ألوان",
+    "موضة",
+    "ملف شخصي"
+   ]
+  },
+  "template:ig2-oscuro": {
+   "name": "ستوري: DARK مع حروف في شبكة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "ألوان",
+    "داكن",
+    "موضة"
+   ]
+  },
+  "template:ig2-presentamos": {
+   "name": "ستوري: نقدّم لكم ستورياتنا بخطوط متدرجة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "ألوان",
+    "تقديم",
+    "تدرج"
+   ]
+  },
+  "template:ig2-rostro-franjas": {
+   "name": "ستوري: وجه مع أشرطة ملونة ودوائر",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "ألوان",
+    "بورتريه",
+    "علامة تجارية"
+   ]
+  },
+  "template:ig2-tu-mente": {
+   "name": "ستوري: قل ما يدور في ذهنك بالبنفسجي",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "ألوان",
+    "عبارة",
+    "بنفسجي"
+   ]
+  },
+  "template:ig2-tu-vida": {
+   "name": "ستوري: YOUR LIFE بأشرطة صفراء",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "ألوان",
+    "حياة",
+    "نصائح"
+   ]
+  },
+  "template:ig2-viaje-verano": {
+   "name": "ستوري: رحلة صيفية رائعة مع سحابة صور",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "ألوان",
+    "رحلة",
+    "صيف"
+   ]
+  },
+  "template:ig3-arte": {
+   "name": "ستوري: فن 01 Stories فوق لوحة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "فن",
+    "رسم"
+   ]
+  },
+  "template:ig3-ciencia": {
+   "name": "ستوري: A-01 MODERN SCIENCE مع دوائر",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "علوم",
+    "دائرة"
+   ]
+  },
+  "template:ig3-city-life": {
+   "name": "ستوري: CITY LIFE مع لوحة وردية",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "مدينة"
+   ]
+  },
+  "template:ig3-comida-circulo": {
+   "name": "ستوري: قل ما يدور في ذهنك داخل دائرة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "طعام",
+    "دائرة"
+   ]
+  },
+  "template:ig3-fashion": {
+   "name": "ستوري: FASHION 45$ بحروف مملوءة بالصور",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "موضة",
+    "عرض"
+   ]
+  },
+  "template:ig3-food": {
+   "name": "ستوري: طعام بخصم 50%",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "طعام",
+    "عرض"
+   ]
+  },
+  "template:ig3-friend": {
+   "name": "ستوري: FRIEND GREAT TRIP مع دائرة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "أصدقاء",
+    "دائرة"
+   ]
+  },
+  "template:ig3-full": {
+   "name": "ستوري: Full 100% بخط الفرشاة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عرض",
+    "حيوانات أليفة"
+   ]
+  },
+  "template:ig3-introducing": {
+   "name": "ستوري: INTRODUCING STORIES في الغابة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "شتاء",
+    "تقديم"
+   ]
+  },
+  "template:ig3-models": {
+   "name": "ستوري: MODELS FASHION مع قوس",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "موضة",
+    "بورتريه"
+   ]
+  },
+  "template:ig3-music": {
+   "name": "ستوري: MUSIC EXCLUSIVE مع حلقات",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "موسيقى",
+    "دائرة"
+   ]
+  },
+  "template:ig3-new": {
+   "name": "ستوري: سفر NEW مع ضربة فرشاة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "سفر",
+    "فرشاة"
+   ]
+  },
+  "template:ig3-opener": {
+   "name": "مقدمة ديناميكية لمنشور مربع",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "مقدمة",
+    "خطوط",
+    "منشور"
+   ]
+  },
+  "template:ig3-perfil-amarillo": {
+   "name": "ملف شخصي: بطاقة صفراء مع صورة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "ملف شخصي"
+   ]
+  },
+  "template:ig3-perfil-coral": {
+   "name": "ملف شخصي: بطاقة مرجانية مع بقع",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "ملف شخصي"
+   ]
+  },
+  "template:ig3-perfil-degradado": {
+   "name": "ملف شخصي: بطاقة متدرجة مع دوائر",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "ملف شخصي"
+   ]
+  },
+  "template:ig3-perfil-oscuro": {
+   "name": "ملف شخصي: بطاقة داكنة باسم أحمر",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "ملف شخصي"
+   ]
+  },
+  "template:ig3-perfil-rojo": {
+   "name": "ملف شخصي: بطاقة حمراء مع صورة رمزية",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "ملف شخصي"
+   ]
+  },
+  "template:ig3-portfolio": {
+   "name": "ستوري: PORTFOLIO مع اسم",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "معرض أعمال"
+   ]
+  },
+  "template:ig3-programa": {
+   "name": "ستوري: V 6 مع أعمدة مستديرة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "تقنية",
+    "باستيل"
+   ]
+  },
+  "template:ig3-promo": {
+   "name": "ستوري: ترويج منتج مع قرص أصفر",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "منتج",
+    "ترويج"
+   ]
+  },
+  "template:ig3-sport": {
+   "name": "ستوري: SPORT مع شارة وردية",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "رياضة"
+   ]
+  },
+  "template:ig3-tech": {
+   "name": "ستوري: TECH مع حروف متناثرة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "تقنية"
+   ]
+  },
+  "template:ig3-toys": {
+   "name": "ستوري: TOYS مع قرص متدرج",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "ألعاب",
+    "دائرة"
+   ]
+  },
+  "template:ig3-tv": {
+   "name": "ستوري: Media Social مع صورة دائرية",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "شبكات اجتماعية",
+    "دائرة"
+   ]
+  },
+  "template:ig3-your-life": {
+   "name": "ستوري: YOUR LIFE وPRO بأشرطة ملونة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "ديكور داخلي"
+   ]
+  },
+  "template:ig4-abstract": {
+   "name": "ستوري: ABSTRACT GEOMETRIC STYLE",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "هندسي",
+    "عمارة"
+   ]
+  },
+  "template:ig4-amazing-dream": {
+   "name": "ستوري: حلم مذهل مع صورتين",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "عبارة",
+    "بني"
+   ]
+  },
+  "template:ig4-audacious": {
+   "name": "ستوري: LET'S DO WHAT WE LOVE #AUDACIOUS",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "تحفيز",
+    "أسود"
+   ]
+  },
+  "template:ig4-beauty": {
+   "name": "ستوري: هناك جمال في البساطة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "طبيعة",
+    "عبارة"
+   ]
+  },
+  "template:ig4-beauty-flowers": {
+   "name": "ستوري: الجمال مع الزهور",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "زهور",
+    "خط عربي"
+   ]
+  },
+  "template:ig4-believe": {
+   "name": "ستوري: BELIEVE YOU CAN SO YOU ARE HALFWAY THERE",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "تحفيز",
+    "عبارة"
+   ]
+  },
+  "template:ig4-big": {
+   "name": "ستوري: BIG. مع دائرة مخططة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "موضة",
+    "خطوط"
+   ]
+  },
+  "template:ig4-born-wild": {
+   "name": "ستوري: BORN TO BE WILD",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "مغامرة",
+    "أزرق"
+   ]
+  },
+  "template:ig4-brand-new-day": {
+   "name": "ستوري: يوم جديد كليًا مع مثلثات",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "مثلثات",
+    "هندسي"
+   ]
+  },
+  "template:ig4-clear": {
+   "name": "ستوري: CLEAR INTERIOR بنصفين",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "داخلي",
+    "منزل"
+   ]
+  },
+  "template:ig4-cold-wave": {
+   "name": "ستوري: COLD WAVE WARM SUN بحروف من الصور",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "بحر",
+    "خطوط"
+   ]
+  },
+  "template:ig4-confident": {
+   "name": "ستوري: STYLISH & CONFIDENT في ثلاث نوافذ",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "موضة",
+    "رجل"
+   ]
+  },
+  "template:ig4-control": {
+   "name": "ستوري: CONTROL مع شعار وصورتين",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "شعار",
+    "يوغا"
+   ]
+  },
+  "template:ig4-courage": {
+   "name": "ستوري: #courage مع ضربة فرشاة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "بورتريه",
+    "برتقالي"
+   ]
+  },
+  "template:ig4-culinary": {
+   "name": "ستوري: CULINARY ART #cooking",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "طبخ",
+    "طعام"
+   ]
+  },
+  "template:ig4-deep-breath": {
+   "name": "ستوري: ENJOY DEEP BREATH مع أوراق",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "طبيعة",
+    "أخضر"
+   ]
+  },
+  "template:ig4-delicious": {
+   "name": "ستوري: شبكة #DELICIOUS",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "طعام",
+    "حلويات"
+   ]
+  },
+  "template:ig4-dream": {
+   "name": "ستوري: DREAM مع إطار فوق مدينة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "مدينة",
+    "إطار"
+   ]
+  },
+  "template:ig4-employee": {
+   "name": "ستوري: BEST EMPLOYEE OF THE MONTH",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "شركة",
+    "موظف"
+   ]
+  },
+  "template:ig4-enjoy-music": {
+   "name": "ستوري: ENJOY MY MUSIC بالأزرق والأحمر",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "موسيقى",
+    "رقص"
+   ]
+  },
+  "template:ig4-fashion-buy": {
+   "name": "ستوري: FASHION IS WHAT YOU BUY على أشرطة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "موضة",
+    "خطوط عريضة"
+   ]
+  },
+  "template:ig4-fitness": {
+   "name": "ستوري: FITNESS BODY ENERGY WORKOUT",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "صالة رياضية",
+    "رياضة"
+   ]
+  },
+  "template:ig4-fun": {
+   "name": "ستوري: #FUN مع صورة مؤطرة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "إطار",
+    "أحمر"
+   ]
+  },
+  "template:ig4-glam": {
+   "name": "ستوري: GLAM ROCK بالوردي والأسود",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "موضة",
+    "وردي"
+   ]
+  },
+  "template:ig4-instamusic": {
+   "name": "ستوري: #instamusic #yourbeat مع بقع",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "موسيقى",
+    "نيون"
+   ]
+  },
+  "template:ig4-life-good": {
+   "name": "ستوري: LIFE IS SO GOOD JUST BE YOURSELF",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "عبارة",
+    "نيون"
+   ]
+  },
+  "template:ig4-lifestyle": {
+   "name": "ستوري: أسلوب حياتي #followme",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "نمط حياة",
+    "أزرق"
+   ]
+  },
+  "template:ig4-look-deep": {
+   "name": "ستوري: LOOK DEEP INTO NATURE مع سداسيات",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "طبيعة",
+    "سداسي"
+   ]
+  },
+  "template:ig4-masterpiece": {
+   "name": "ستوري: MAKE EACH DAY YOUR MASTERPIECE",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "عبارة",
+    "وردي"
+   ]
+  },
+  "template:ig4-meeting": {
+   "name": "ستوري: MEETING WITH FRIENDS في أعمدة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "أصدقاء",
+    "أعمدة"
+   ]
+  },
+  "template:ig4-motion": {
+   "name": "ستوري: MOTION مع دائرة صفراء",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "رقص",
+    "دائرة"
+   ]
+  },
+  "template:ig4-moving": {
+   "name": "ستوري: Moving مع حلقتين",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "رقص",
+    "حلقات"
+   ]
+  },
+  "template:ig4-music": {
+   "name": "ستوري: MUSIC DANCE ENJOY",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "موسيقى",
+    "حفلة"
+   ]
+  },
+  "template:ig4-natural": {
+   "name": "ستوري: NATURAL BEAUTY في ثلاثة أعمدة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "طبيعة",
+    "أعمدة"
+   ]
+  },
+  "template:ig4-never-easier": {
+   "name": "ستوري: IT NEVER GETS EASIER بالأحمر",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "صالة رياضية",
+    "تحفيز"
+   ]
+  },
+  "template:ig4-ocean": {
+   "name": "ستوري: OCEAN HAPPY RELAX مع إطار",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "بحر",
+    "إطار"
+   ]
+  },
+  "template:ig4-pro-fitness": {
+   "name": "ستوري: PRO fitness مع إطار متقاطع",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "رياضة",
+    "إطار"
+   ]
+  },
+  "template:ig4-sale40": {
+   "name": "ستوري: تخفيض 40% عمودي",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "تخفيضات",
+    "عرض"
+   ]
+  },
+  "template:ig4-sale75": {
+   "name": "ستوري: SALE UP TO 75% OFF",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "تخفيضات",
+    "عرض"
+   ]
+  },
+  "template:ig4-secrets": {
+   "name": "ستوري: NO MORE SECRETS #IMAGINE",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "أحمر",
+    "قطري"
+   ]
+  },
+  "template:ig4-shopping-week": {
+   "name": "ستوري: #shoppingweek خصم 40% للبيع",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "تخفيضات",
+    "تسوق"
+   ]
+  },
+  "template:ig4-simplelife": {
+   "name": "ستوري: حين تركّز على الخير #simplelife",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "عبارة",
+    "أزرق"
+   ]
+  },
+  "template:ig4-skate": {
+   "name": "ستوري: 0256 #skatelife",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "تزلج",
+    "رياضة"
+   ]
+  },
+  "template:ig4-sport": {
+   "name": "ستوري: W SPORT مع خط",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "رياضة",
+    "جري"
+   ]
+  },
+  "template:ig4-spring": {
+   "name": "ستوري: SPRING IS IN THE AIR",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "ربيع",
+    "زهور"
+   ]
+  },
+  "template:ig4-stay-strong": {
+   "name": "ستوري: STAY STRONG DON'T GIVE UP",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "تحفيز",
+    "أحمر"
+   ]
+  },
+  "template:ig4-street-fast": {
+   "name": "ستوري: 10/25 #youth street FAST",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "شارع",
+    "تزلج"
+   ]
+  },
+  "template:ig4-style": {
+   "name": "ستوري: STYLE IS VERY PERSONAL",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "موضة",
+    "أحمر"
+   ]
+  },
+  "template:ig4-style-beautiful": {
+   "name": "ستوري: STYLE #beautiful مع أشرطة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "موضة",
+    "خطوط عريضة"
+   ]
+  },
+  "template:ig4-stylish": {
+   "name": "ستوري: #stylish مع قرص أزرق",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "موضة",
+    "أزرق"
+   ]
+  },
+  "template:ig4-summer": {
+   "name": "ستوري: #SUMMER مع معين على الشاطئ",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "شاطئ",
+    "صيف"
+   ]
+  },
+  "template:ig4-summer-event": {
+   "name": "ستوري: حدث صيفي مع تاريخ",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "صيف",
+    "حدث"
+   ]
+  },
+  "template:ig4-summer-look": {
+   "name": "ستوري: إطلالة الصيف #fashion على أشرطة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "موضة",
+    "صيف"
+   ]
+  },
+  "template:ig4-sunshine": {
+   "name": "ستوري: SUNSHINE مع أربع صور",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "صيف",
+    "كولاج"
+   ]
+  },
+  "template:ig4-sunshine-tag": {
+   "name": "ستوري: #sunshine عطلة للاسترخاء",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "صيف",
+    "أزرق"
+   ]
+  },
+  "template:ig4-trendy": {
+   "name": "ستوري: #TRENDY YOUR STYLE بالأحمر",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "أحمر",
+    "موضة"
+   ]
+  },
+  "template:ig4-tropical": {
+   "name": "ستوري: FEELING TROPICAL مع ثلاث صور",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "صيف",
+    "استوائي"
+   ]
+  },
+  "template:ig4-winner": {
+   "name": "ستوري: THE WINNER NEVER QUITS",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "تحفيز",
+    "صالة رياضية"
+   ]
+  },
+  "template:ig4-young": {
+   "name": "ستوري: YOUNG #followus",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "شباب",
+    "أحمر"
+   ]
+  },
+  "template:ig4-youth": {
+   "name": "ستوري: #YOUTH & FREEDOM مع مثلث",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "مثلث",
+    "مرجاني"
+   ]
+  },
+  "template:ig5-amazing-now": {
+   "name": "ستوري: AMAZING NOW",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "أبيض وأسود",
+    "أحمر"
+   ]
+  },
+  "template:ig5-awesome": {
+   "name": "ستوري: AWESOME عمودي",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "أحمر",
+    "عمودي"
+   ]
+  },
+  "template:ig5-be-strong": {
+   "name": "ستوري: B STRONG",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "أحمر",
+    "عبارة"
+   ]
+  },
+  "template:ig5-beach-therapy": {
+   "name": "ستوري: علاج الشاطئ بالفيروزي",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "شاطئ",
+    "عطلة"
+   ]
+  },
+  "template:ig5-beauty-pro": {
+   "name": "ستوري: BEAUTY مع موجة أرجوانية",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "جمال",
+    "أرجواني"
+   ]
+  },
+  "template:ig5-best-look": {
+   "name": "ستوري: YOUR BEST LOOK مؤطر",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "أخضر",
+    "موضة"
+   ]
+  },
+  "template:ig5-choose-glam": {
+   "name": "ستوري: 48 choose the glam",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "جمال",
+    "فخامة"
+   ]
+  },
+  "template:ig5-cold-water": {
+   "name": "ستوري: COLD DEEP WATER",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "بحر",
+    "أصفر"
+   ]
+  },
+  "template:ig5-creative-studio": {
+   "name": "ستوري: CREATIVE DESIGN STUDIO",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "تصميم",
+    "استوديو"
+   ]
+  },
+  "template:ig5-dancing": {
+   "name": "ستوري: #DANCING صورة قطرية",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "رقص",
+    "قطري"
+   ]
+  },
+  "template:ig5-daring-style": {
+   "name": "ستوري: DARING STYLE على الأصفر",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "أصفر",
+    "موضة"
+   ]
+  },
+  "template:ig5-denim-style": {
+   "name": "ستوري: DENIM STYLE مؤطر",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "موضة",
+    "مربع"
+   ]
+  },
+  "template:ig5-design-passion": {
+   "name": "ستوري: DESIGN IS MY PASSION",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "داخلي",
+    "تصميم"
+   ]
+  },
+  "template:ig5-dont-waste": {
+   "name": "ستوري: DON'T WASTE YOUR TIME",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "عبارة",
+    "أخضر مزرق"
+   ]
+  },
+  "template:ig5-enjoy-movement": {
+   "name": "ستوري: استمتع بالحركة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "رقص",
+    "أسود"
+   ]
+  },
+  "template:ig5-flexible-body": {
+   "name": "ستوري: FLEXIBLE BODY مع شريط متدرج",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "لياقة",
+    "تدرج"
+   ]
+  },
+  "template:ig5-focus-breathe": {
+   "name": "ستوري: FOCUS ON THE BREATHE",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "عبارة",
+    "خطوط"
+   ]
+  },
+  "template:ig5-fondo-ambar": {
+   "name": "خلفية: دوائر كهرمانية",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خلفية",
+    "برتقالي",
+    "بني"
+   ]
+  },
+  "template:ig5-fondo-burbujas-azules": {
+   "name": "خلفية: فقاعات زرقاء على وردي",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خلفية",
+    "وردي",
+    "أزرق"
+   ]
+  },
+  "template:ig5-fondo-burbujas-grises": {
+   "name": "خلفية: فقاعات رمادية على أسود",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خلفية",
+    "أسود",
+    "رمادي"
+   ]
+  },
+  "template:ig5-fondo-chevrones": {
+   "name": "خلفية: رتب حمراء",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خلفية",
+    "أحمر",
+    "رتب"
+   ]
+  },
+  "template:ig5-fondo-cinta-azul": {
+   "name": "خلفية: شريط أزرق على أحمر",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خلفية",
+    "تدرج",
+    "أزرق"
+   ]
+  },
+  "template:ig5-fondo-geometrico": {
+   "name": "خلفية: قطع هندسية على رمادي",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خلفية",
+    "رمادي",
+    "هندسي"
+   ]
+  },
+  "template:ig5-fondo-lineas": {
+   "name": "خلفية: تدرج مع خطوط نيون",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خلفية",
+    "تدرج",
+    "وردي"
+   ]
+  },
+  "template:ig5-fondo-lineas-cruzadas": {
+   "name": "خلفية: خطوط متقاطعة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خلفية",
+    "تدرج",
+    "أرجواني فاتح"
+   ]
+  },
+  "template:ig5-fondo-olas": {
+   "name": "خلفية: موجات برتقالية وأرجوانية",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خلفية",
+    "تدرج",
+    "برتقالي"
+   ]
+  },
+  "template:ig5-fondo-pildoras": {
+   "name": "خلفية: كبسولات وردية",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خلفية",
+    "وردي",
+    "باستيل"
+   ]
+  },
+  "template:ig5-fondo-plata": {
+   "name": "خلفية: خطوط فضية",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خلفية",
+    "فضي",
+    "رمادي"
+   ]
+  },
+  "template:ig5-fondo-rojo": {
+   "name": "خلفية: أشكال حمراء مستديرة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خلفية",
+    "أحمر",
+    "أشكال"
+   ]
+  },
+  "template:ig5-gentle-soft": {
+   "name": "ستوري: بطاقة GENTLE & SOFT",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "زهور",
+    "بطاقة"
+   ]
+  },
+  "template:ig5-glam": {
+   "name": "ستوري: GLAM لقطة كاميرا",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "وردي",
+    "كاميرا"
+   ]
+  },
+  "template:ig5-happiness-love": {
+   "name": "ستوري: كولاج HAPPINESS وLOVE",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "كولاج",
+    "زفاف"
+   ]
+  },
+  "template:ig5-happy-weekends": {
+   "name": "ستوري: عطلة نهاية أسبوع سعيدة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "زهور",
+    "عطلة نهاية الأسبوع"
+   ]
+  },
+  "template:ig5-inspiration": {
+   "name": "ستوري: #pleasure إلهام",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "أحمر",
+    "أبيض وأسود"
+   ]
+  },
+  "template:ig5-interior-dream": {
+   "name": "ستوري: كتالوج INTERIOR OF YOUR DREAM",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "كتالوج",
+    "داخلي"
+   ]
+  },
+  "template:ig5-keep-simple": {
+   "name": "ستوري: KEEP IT SIMPLE مع دائرة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "دائرة",
+    "تدرج"
+   ]
+  },
+  "template:ig5-light-easy": {
+   "name": "ستوري: بطاقة LIGHT & EASY",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "موضة",
+    "بطاقة"
+   ]
+  },
+  "template:ig5-look-deep": {
+   "name": "ستوري: LOOK DEEP INTO YOURSELF",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "عبارة",
+    "نيون"
+   ]
+  },
+  "template:ig5-mindfulness": {
+   "name": "ستوري: أبيض وأسود #mindfulness",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "أبيض وأسود",
+    "عبارة"
+   ]
+  },
+  "template:ig5-modern-office": {
+   "name": "ستوري: MODERN OFFICE SPACE",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "مكتب",
+    "شركة"
+   ]
+  },
+  "template:ig5-ocean": {
+   "name": "ستوري: OCEAN داخل دائرة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "دائرة",
+    "بحر"
+   ]
+  },
+  "template:ig5-pleasure": {
+   "name": "ستوري: كولاج مربعات PLEASURE",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "كولاج",
+    "تيراكوتا"
+   ]
+  },
+  "template:ig5-power": {
+   "name": "ستوري: #POWER مع صورة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "أحمر",
+    "موضة"
+   ]
+  },
+  "template:ig5-relax-home": {
+   "name": "ستوري: استرخِ SWEET HOME",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "منزل",
+    "داخلي"
+   ]
+  },
+  "template:ig5-sale-70": {
+   "name": "ستوري: تخفيض 70% بأشرطة مائلة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "تخفيضات",
+    "عرض"
+   ]
+  },
+  "template:ig5-sensual": {
+   "name": "ستوري: SENSUAL مع صورتين",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "أبيض وأسود",
+    "كولاج"
+   ]
+  },
+  "template:ig5-style-y": {
+   "name": "ستوري: STYLE مع حرف Y كبير",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "موضة",
+    "أخضر مزرق"
+   ]
+  },
+  "template:ig5-summer-pause": {
+   "name": "ستوري: SUMMER خذ استراحة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "صيف",
+    "عطلة"
+   ]
+  },
+  "template:ig5-sunny-day": {
+   "name": "ستوري: SUNNY DAY مع دائرة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "صيف",
+    "مسبح"
+   ]
+  },
+  "template:ig5-titulo-art-design": {
+   "name": "عنوان: ART & DESIGN FORUM",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عنوان",
+    "نص",
+    "فن"
+   ]
+  },
+  "template:ig5-titulo-big-sale": {
+   "name": "عنوان: BIG SALE مع فرشاة وعربة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عنوان",
+    "نص",
+    "تخفيضات"
+   ]
+  },
+  "template:ig5-titulo-bold-fashion": {
+   "name": "عنوان: BOLD FASHION STYLE مائل",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عنوان",
+    "نص",
+    "موضة"
+   ]
+  },
+  "template:ig5-titulo-chicle": {
+   "name": "عنوان: أسلوب العلكة BUBBLEGUM STYLE",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عنوان",
+    "نص",
+    "وردي"
+   ]
+  },
+  "template:ig5-titulo-cita": {
+   "name": "عنوان: اقتباس مع اسم قائله",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عنوان",
+    "نص",
+    "اقتباس"
+   ]
+  },
+  "template:ig5-titulo-do-what": {
+   "name": "عنوان: DO WHAT YOU WANT",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عنوان",
+    "نص",
+    "تحفيز"
+   ]
+  },
+  "template:ig5-titulo-formas-abstractas": {
+   "name": "عنوان: تصميم بأشكال تجريدية",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عنوان",
+    "نص",
+    "أشكال"
+   ]
+  },
+  "template:ig5-titulo-glitch": {
+   "name": "عنوان: أسلوب الغليتش",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عنوان",
+    "نص",
+    "غليتش"
+   ]
+  },
+  "template:ig5-titulo-neon": {
+   "name": "عنوان: نيون متوهج",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عنوان",
+    "نص",
+    "نيون"
+   ]
+  },
+  "template:ig5-titulo-never-give-up": {
+   "name": "عنوان: NEVER GIVE UP بالفرشاة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عنوان",
+    "نص",
+    "تحفيز"
+   ]
+  },
+  "template:ig5-titulo-retro": {
+   "name": "عنوان: ستايل ريترو الثمانينات",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عنوان",
+    "نص",
+    "ريترو"
+   ]
+  },
+  "template:ig5-titulo-sale": {
+   "name": "عنوان: تذكرة SALE",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عنوان",
+    "نص",
+    "تخفيضات"
+   ]
+  },
+  "template:ig5-wake-up": {
+   "name": "ستوري: WAKE UP AND BE AWESOME",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "أحمر",
+    "تحفيز"
+   ]
+  },
+  "template:ig5-your-choice": {
+   "name": "ستوري: بورتريه مع نقاط صفراء",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "أصفر",
+    "نقاط"
+   ]
+  },
+  "template:ig5-your-style": {
+   "name": "ستوري: كولاج أسلوبك",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "كولاج",
+    "داخلي"
+   ]
+  },
+  "template:ig6-arbol-cinta": {
+   "name": "ستوري عيد الميلاد: شجرة بشريط ذهبي",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عيد الميلاد",
+    "كريسماس",
+    "شجرة"
+   ]
+  },
+  "template:ig6-artista": {
+   "name": "ستوري: أنت فنان حياتك مع #YLIFE",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "أزرق",
+    "نمط حياة"
+   ]
+  },
+  "template:ig6-aventuras": {
+   "name": "ستوري: مغامراتي مع صورتين وجبل أخضر",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "سفر",
+    "مغامرة"
+   ]
+  },
+  "template:ig6-diseno-pasion": {
+   "name": "ستوري: التصميم شغفي على خلفية وردية",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "تصميم",
+    "عمارة"
+   ]
+  },
+  "template:ig6-feliz-brillante": {
+   "name": "ستوري عيد الميلاد: Merry & Bright على الرمادي",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عيد الميلاد",
+    "كريسماس",
+    "أعياد"
+   ]
+  },
+  "template:ig6-interior": {
+   "name": "ستوري: Clear Interior مع صندوق أسود",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "منزل",
+    "تصميم داخلي"
+   ]
+  },
+  "template:ig6-luz-calida": {
+   "name": "ستوري: Cozy Light مع معينات و#WARM",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "منزل",
+    "منتج"
+   ]
+  },
+  "template:ig6-pino-rojo": {
+   "name": "ستوري عيد الميلاد: أغصان الصنوبر وMerry Christmas على الأحمر",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عيد الميلاد",
+    "كريسماس",
+    "تخفيضات"
+   ]
+  },
+  "template:ig6-rebajas-50": {
+   "name": "ستوري: SALE مع ملصق 50% OFF وأشرطة زرقاء",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "صورة",
+    "تخفيضات",
+    "خصم"
+   ]
+  },
+  "template:ig6-rebajas-invierno": {
+   "name": "ستوري عيد الميلاد: هدية تنفتح على «winter sell XMAS 50%off»",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عيد الميلاد",
+    "كريسماس",
+    "تخفيضات"
+   ]
+  },
+  "template:ig6-santa": {
+   "name": "ستوري عيد الميلاد: وجه بابا نويل مع Merry Xmas",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "عيد الميلاد",
+    "كريسماس",
+    "بابا نويل"
+   ]
+  },
+  "template:ig6-swipe-bandera": {
+   "name": "اسحب للأعلى: علم SWIPE UP ينبثق من مفرقعة حفلات",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "اسحب للأعلى",
+    "اسحب",
+    "سهم"
+   ]
+  },
+  "template:ig6-swipe-boton": {
+   "name": "اسحب للأعلى: زر أبيض يتحول من مربع إلى دائرة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "اسحب للأعلى",
+    "اسحب",
+    "سهم"
+   ]
+  },
+  "template:ig6-swipe-brillo": {
+   "name": "اسحب للأعلى: أسهم بيضاء متوهجة ترتفع",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "اسحب للأعلى",
+    "اسحب",
+    "سهم"
+   ]
+  },
+  "template:ig6-swipe-chevrones": {
+   "name": "اسحب للأعلى: ثلاث رتب زرقاء ترتفع",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "اسحب للأعلى",
+    "اسحب",
+    "سهم"
+   ]
+  },
+  "template:ig6-swipe-circulo": {
+   "name": "اسحب للأعلى: دائرة بيضاء بمثلث ترتفع وتتلاشى",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "اسحب للأعلى",
+    "اسحب",
+    "سهم"
+   ]
+  },
+  "template:ig6-swipe-cuadro": {
+   "name": "اسحب للأعلى: مربع فيروزي بسهم وانعكاسه",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "اسحب للأعلى",
+    "اسحب",
+    "سهم"
+   ]
+  },
+  "template:ig6-swipe-figuras": {
+   "name": "اسحب للأعلى: حلقة خضراء تتحول إلى مثلث مع SWIPE UP",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "اسحب للأعلى",
+    "اسحب",
+    "سهم"
+   ]
+  },
+  "template:ig6-swipe-flecha": {
+   "name": "اسحب للأعلى: سهم أزرق فوق خط نابض",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "اسحب للأعلى",
+    "اسحب",
+    "سهم"
+   ]
+  },
+  "template:ig6-swipe-interruptor": {
+   "name": "اسحب للأعلى: مفتاح بمقبض أزرق ينزلق للأعلى",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "اسحب للأعلى",
+    "اسحب",
+    "سهم"
+   ]
+  },
+  "template:ig6-swipe-letras": {
+   "name": "اسحب للأعلى: حروف SWIPE UP تقفز",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "اسحب للأعلى",
+    "اسحب",
+    "سهم"
+   ]
+  },
+  "template:ig6-swipe-mano": {
+   "name": "اسحب للأعلى: يد تسحب للأعلى مع أثر من الرتب",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "اسحب للأعلى",
+    "اسحب",
+    "سهم"
+   ]
+  },
+  "template:ig6-swipe-triangulo": {
+   "name": "اسحب للأعلى: مثلث أبيض بنقطة حمراء يرتفع",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "اسحب للأعلى",
+    "اسحب",
+    "سهم"
+   ]
+  },
+  "template:ig7-awesome": {
+   "name": "ستوري طباعي: AWESOME",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خطوط",
+    "ألوان",
+    "خطوط عريضة"
+   ]
+  },
+  "template:ig7-big": {
+   "name": "ستوري طباعي: BIG",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خطوط",
+    "ألوان",
+    "حرف ضخم"
+   ]
+  },
+  "template:ig7-brand": {
+   "name": "ستوري طباعي: BRAND",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خطوط",
+    "ألوان",
+    "حرف a"
+   ]
+  },
+  "template:ig7-color": {
+   "name": "ستوري طباعي: COLOR",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خطوط",
+    "ألوان",
+    "إطار"
+   ]
+  },
+  "template:ig7-easy-project": {
+   "name": "ستوري طباعي: STORIES EASY PROJECT",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خطوط",
+    "ألوان",
+    "بكسلات"
+   ]
+  },
+  "template:ig7-grid": {
+   "name": "ستوري طباعي: شبكة ألوان",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خطوط",
+    "ألوان",
+    "شبكة"
+   ]
+  },
+  "template:ig7-no-plugins": {
+   "name": "ستوري طباعي: NO PLUGINS",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خطوط",
+    "ألوان",
+    "مستطيلات"
+   ]
+  },
+  "template:ig7-social": {
+   "name": "ستوري طباعي: SOCIAL",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خطوط",
+    "ألوان",
+    "بطاقات"
+   ]
+  },
+  "template:ig7-stories": {
+   "name": "ستوري طباعي: STORIES",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خطوط",
+    "ألوان",
+    "حرف ضخم"
+   ]
+  },
+  "template:ig7-typo": {
+   "name": "ستوري طباعي: TYPO",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خطوط",
+    "ألوان",
+    "بطاقة"
+   ]
+  },
+  "template:ig8-best-sellers": {
+   "name": "ستوري حضري: الأكثر مبيعًا اضغط الآن",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "حضري",
+    "أزرق",
+    "متجر"
+   ]
+  },
+  "template:ig8-city-vibes": {
+   "name": "ستوري حضري: أجواء المدينة مع صورتين",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "حضري",
+    "أزرق",
+    "مدينة"
+   ]
+  },
+  "template:ig8-friends": {
+   "name": "ستوري حضري: أصدقاء إيجابيون مع شريط صور",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "حضري",
+    "أزرق",
+    "أصدقاء"
+   ]
+  },
+  "template:ig8-mega-sale": {
+   "name": "ستوري حضري: تخفيضات ضخمة %50 بولارويد",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "حضري",
+    "أزرق",
+    "تخفيضات"
+   ]
+  },
+  "template:ig8-visit-page": {
+   "name": "ستوري حضري: زر الصفحة مع شريط أزرق",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "حضري",
+    "أزرق",
+    "ويب"
+   ]
+  },
+  "template:ig9-banda-roja": {
+   "name": "ستوري: شريط أحمر مع كلمة ضخمة",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خطوط",
+    "شريط",
+    "أحمر"
+   ]
+  },
+  "template:ig9-letras-cortadas": {
+   "name": "ستوري: كلمة ضخمة مقطوعة وثلاثة روابط",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خطوط",
+    "حروف",
+    "روابط"
+   ]
+  },
+  "template:ig9-letras-rojas": {
+   "name": "ستوري: جدار حروف مقلوبة على الأحمر",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خطوط",
+    "حروف",
+    "أحمر"
+   ]
+  },
+  "template:ig9-palabra-vertical": {
+   "name": "ستوري: كلمة عمودية في إطار مع شريط أحمر",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خطوط",
+    "عمودي",
+    "إطار"
+   ]
+  },
+  "template:ig9-typo": {
+   "name": "ستوري: مربعات TYPO مع إطار مرسوم",
+   "tags": [
+    "instagram",
+    "ستوري",
+    "ريلز",
+    "خطوط",
+    "حروف",
+    "إطار"
+   ]
+  },
   "template:intro-de-canal": {
    "name": "مقدمة قناة",
    "tags": [
@@ -24863,6 +27876,204 @@
     "اغنية",
     "ايقاع",
     "حفلة"
+   ]
+  },
+  "template:lg0-circulo-ambar": {
+   "name": "شعار: نقطتان ترسمان حلقة تنغلق في قرص (كهرماني)",
+   "tags": [
+    "شعار",
+    "كشف الشعار",
+    "مسطح",
+    "كهرماني",
+    "أصفر",
+    "دائرة"
+   ]
+  },
+  "template:lg0-cuadro-blanco": {
+   "name": "شعار: مربع يرتد وينفتح (أبيض)",
+   "tags": [
+    "شعار",
+    "كشف الشعار",
+    "مسطح",
+    "أبيض",
+    "مربع",
+    "ارتداد"
+   ]
+  },
+  "template:lg0-disco-azul": {
+   "name": "شعار: نقطة طائرة تنفتح إلى قرص (أزرق)",
+   "tags": [
+    "شعار",
+    "كشف الشعار",
+    "مسطح",
+    "أزرق",
+    "قرص",
+    "نقطة"
+   ]
+  },
+  "template:lg0-hexagono-coral": {
+   "name": "شعار: خط ودائرة وسداسي متدحرج مع علامتك (مرجاني)",
+   "tags": [
+    "شعار",
+    "كشف الشعار",
+    "مسطح",
+    "مرجاني",
+    "سداسي",
+    "خط"
+   ]
+  },
+  "template:lg0-iconos-redes": {
+   "name": "عشر أيقونات للتواصل الاجتماعي تظهر فجأة (أزرق)",
+   "tags": [
+    "شعار",
+    "كشف الشعار",
+    "مسطح",
+    "شبكات اجتماعية",
+    "أيقونات",
+    "فيسبوك"
+   ]
+  },
+  "template:lg0-sigueme": {
+   "name": "شعار اجتماعي: تابعني مع كرة في سداسي فوق صورة",
+   "tags": [
+    "شعار",
+    "كشف الشعار",
+    "مسطح",
+    "تابعني",
+    "مستخدم",
+    "سداسي"
+   ]
+  },
+  "template:lg1-luz-dorada": {
+   "name": "شعار: يُبنى بالضوء الذهبي",
+   "tags": [
+    "شعار",
+    "مقدمة",
+    "ضوء",
+    "ذهبي",
+    "لمعان",
+    "خطوط عريضة"
+   ]
+  },
+  "template:lg2-cintas": {
+   "name": "تابعني: شعار بشرائط دوّارة",
+   "tags": [
+    "شعار",
+    "مسطح",
+    "مؤسسي",
+    "تابعني",
+    "ثلاثي الأبعاد"
+   ]
+  },
+  "template:lg2-franjas": {
+   "name": "تابعني: شعار بشرائح وأعمدة",
+   "tags": [
+    "شعار",
+    "مسطح",
+    "مؤسسي",
+    "تابعني",
+    "خطوط عريضة"
+   ]
+  },
+  "template:lg2-giro": {
+   "name": "شعار: دوران ينفرد",
+   "tags": [
+    "شعار",
+    "مسطح",
+    "مؤسسي",
+    "دوران"
+   ]
+  },
+  "template:lg2-glitch": {
+   "name": "شعار: غليتش على الأخضر",
+   "tags": [
+    "شعار",
+    "مسطح",
+    "مؤسسي",
+    "غليتش"
+   ]
+  },
+  "template:lg2-horizonte": {
+   "name": "اشترك: شعار يرتفع من الأفق",
+   "tags": [
+    "شعار",
+    "مسطح",
+    "مؤسسي",
+    "اشترك",
+    "أفق"
+   ]
+  },
+  "template:lg2-mira": {
+   "name": "اشترك: هدف ينفتح",
+   "tags": [
+    "شعار",
+    "مسطح",
+    "مؤسسي",
+    "اشترك",
+    "هدف"
+   ]
+  },
+  "template:lg2-orbita": {
+   "name": "اشترك: شعار في مدار",
+   "tags": [
+    "شعار",
+    "مسطح",
+    "مؤسسي",
+    "اشترك",
+    "مدار"
+   ]
+  },
+  "template:lg2-puntos": {
+   "name": "شعار: نقاط متدحرجة",
+   "tags": [
+    "شعار",
+    "مسطح",
+    "مؤسسي",
+    "نقاط"
+   ]
+  },
+  "template:lg3-esfera": {
+   "name": "شعار: كرة مخططة تصبح قرصًا",
+   "tags": [
+    "شعار",
+    "كشف الشعار",
+    "مقدمة",
+    "كرة",
+    "أزرق",
+    "مؤسسي"
+   ]
+  },
+  "template:lg3-ondas": {
+   "name": "شعار: موجات ملونة تستقر في خط",
+   "tags": [
+    "شعار",
+    "كشف الشعار",
+    "مقدمة",
+    "موجات",
+    "ألوان",
+    "خط"
+   ]
+  },
+  "template:lg3-persiana": {
+   "name": "شعار: مربع بشرائح ينفتح",
+   "tags": [
+    "شعار",
+    "كشف الشعار",
+    "مقدمة",
+    "مربع",
+    "رمادي",
+    "بسيط"
+   ]
+  },
+  "template:lg3-torta-diana": {
+   "name": "شعار: حلقة متقطعة وقطاعات ملونة وهدف",
+   "tags": [
+    "شعار",
+    "كشف الشعار",
+    "مقدمة",
+    "قطاعات دائرية",
+    "دائرة",
+    "باستيل"
    ]
   },
   "template:llt-bevan": {
@@ -33002,6 +36213,1053 @@
     "ألوان",
     "حركي",
     "صورة"
+   ]
+  },
+  "template:tk0-cintas-telefono": {
+   "name": "ستوري: شرائط كلمات وهاتف",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "عمودي",
+    "شرائط",
+    "هاتف"
+   ]
+  },
+  "template:tk0-collage-azul": {
+   "name": "ستوري: كولاج من ثلاث صور بالأزرق والأسود",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "عمودي",
+    "كولاج",
+    "صور"
+   ]
+  },
+  "template:tk0-collage-negro": {
+   "name": "ستوري: كولاج من ست صور مع ملصقات",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "عمودي",
+    "كولاج",
+    "صور"
+   ]
+  },
+  "template:tk0-creas-tendencias": {
+   "name": "ستوري: هل تصنع الترندات؟ فقاعة حمراء",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "عمودي",
+    "سؤال",
+    "وردي"
+   ]
+  },
+  "template:tk0-empieza-aqui": {
+   "name": "ستوري: الترندات تبدأ من هنا",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "عمودي",
+    "ترند",
+    "أزرق"
+   ]
+  },
+  "template:tk0-mision": {
+   "name": "ستوري: مهمتنا مع صورة على الأحمر",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "عمودي",
+    "مهمة",
+    "أحمر"
+   ]
+  },
+  "template:tk0-nueva-era": {
+   "name": "ستوري: عصر جديد للفيديو",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "عمودي",
+    "فيديو",
+    "أحمر"
+   ]
+  },
+  "template:tk0-nuevo-video": {
+   "name": "ستوري: NEW VIDEO مع هاتف",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "عمودي",
+    "فيديو",
+    "جديد"
+   ]
+  },
+  "template:tk0-plantilla": {
+   "name": "ستوري: قالب للجميع مع صورة",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "عمودي",
+    "قالب",
+    "أزرق"
+   ]
+  },
+  "template:tk0-plataforma": {
+   "name": "ستوري: منصة جديدة مع هاتفين",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "عمودي",
+    "منصة",
+    "أسود"
+   ]
+  },
+  "template:tk0-promo-negro": {
+   "name": "ستوري: SUPER PROMO في فقاعة زرقاء على الأسود",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "عمودي",
+    "عرض ترويجي",
+    "أسود"
+   ]
+  },
+  "template:tk0-promo-x": {
+   "name": "ستوري: PROMO مع شرائط متقاطعة",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "عمودي",
+    "عرض ترويجي",
+    "أسود"
+   ]
+  },
+  "template:tk0-que-ves": {
+   "name": "ستوري: ماذا تحب أن تشاهد؟ دردشة",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "عمودي",
+    "دردشة",
+    "سؤال"
+   ]
+  },
+  "template:tk0-recordatorio": {
+   "name": "ستوري: استطلاع تذكير فوق فيديو",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "عمودي",
+    "استطلاع",
+    "تذكير"
+   ]
+  },
+  "template:tk0-tendencias": {
+   "name": "ستوري: ترندات رائجة بالوردي والأزرق",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "عمودي",
+    "ترند",
+    "وردي"
+   ]
+  },
+  "template:tk0-trendy": {
+   "name": "ستوري: TRENDY STYLE بأشرطة ملونة",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "عمودي",
+    "ترند",
+    "أزرق"
+   ]
+  },
+  "template:tk1-tipografia": {
+   "name": "مقدمة طباعية: كلمة لكل نبضة",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "افتتاحية",
+    "خطوط",
+    "كلمات"
+   ]
+  },
+  "template:tk2-alice": {
+   "name": "ستوري: Alice Braun مع صورة",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "اسم",
+    "صورة",
+    "أزرق"
+   ]
+  },
+  "template:tk2-austin": {
+   "name": "ستوري: Austin Grant مع فيديو جديد",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "اسم",
+    "صورة",
+    "أسود"
+   ]
+  },
+  "template:tk2-baile": {
+   "name": "ستوري: Just dance مع ثلاث صور",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "رقص",
+    "صور",
+    "أزرق"
+   ]
+  },
+  "template:tk2-belleza": {
+   "name": "ستوري: About Beauty for You",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "جمال",
+    "صورة",
+    "أسود"
+   ]
+  },
+  "template:tk2-blogger": {
+   "name": "ستوري: مدوّن اجتماعي مع حلقات",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "حلقات",
+    "صورة",
+    "أسود"
+   ]
+  },
+  "template:tk2-contenido": {
+   "name": "ستوري: محتوى متنوع في شبكة",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "شبكة",
+    "صور",
+    "أسود"
+   ]
+  },
+  "template:tk2-follow": {
+   "name": "ستوري: تابع مع قلب",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "متابعة",
+    "قلب",
+    "أسود"
+   ]
+  },
+  "template:tk2-isabella": {
+   "name": "ستوري: Isabella Walker مع صورة",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "اسم",
+    "صورة",
+    "أزرق"
+   ]
+  },
+  "template:tk2-lifestyle": {
+   "name": "ستوري: #lifestyle مع فيديو",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "نمط حياة",
+    "فيديو",
+    "أحمر"
+   ]
+  },
+  "template:tk2-new": {
+   "name": "ستوري: NEW مع قلوب",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "جديد",
+    "صورة",
+    "أسود"
+   ]
+  },
+  "template:tk2-nuevo-video": {
+   "name": "ستوري: فيديو جديد مع صورة",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "فيديو جديد",
+    "صورة",
+    "أحمر"
+   ]
+  },
+  "template:tk2-perfil": {
+   "name": "ستوري: ملف شخصي مع متابعين",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "ملف شخصي",
+    "متابعون",
+    "صورة"
+   ]
+  },
+  "template:tk2-suscriptores": {
+   "name": "ستوري: احصل على مشتركين جدد",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "مشتركون",
+    "صور",
+    "أسود"
+   ]
+  },
+  "template:tk2-tarjeta": {
+   "name": "ستوري: بطاقة مع شعارك وملصقات",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "شعار",
+    "ملصقات",
+    "أزرق"
+   ]
+  },
+  "template:tk2-tendencias": {
+   "name": "ستوري: ترندات مع شريط أحمر",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "ترندات",
+    "صورة",
+    "أزرق"
+   ]
+  },
+  "template:tk3-diseno": {
+   "name": "ستوري: Fashion Design بخطوط رفيعة",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "موضة",
+    "باستيل",
+    "تصميم"
+   ]
+  },
+  "template:tk3-estilo-de-vida": {
+   "name": "ستوري: Lifestyle مع مثلث دوّار",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "موضة",
+    "باستيل",
+    "نمط حياة"
+   ]
+  },
+  "template:tk3-gracias": {
+   "name": "بطاقة ختامية: Thanks For Watching!",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "موضة",
+    "باستيل",
+    "ختام"
+   ]
+  },
+  "template:tk3-rebajas": {
+   "name": "ستوري: تخفيضات الموضة مع صندوق 50% OFF",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "موضة",
+    "باستيل",
+    "تخفيضات"
+   ]
+  },
+  "template:tk3-rebajas-2": {
+   "name": "ستوري: Fashion Sale مع 50% فوق الصورة",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "موضة",
+    "باستيل",
+    "تخفيضات"
+   ]
+  },
+  "template:tk3-siguiente-nivel": {
+   "name": "ستوري: The Next Level Of Fashion مع 50% OFF عمودي",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "موضة",
+    "باستيل",
+    "خصم"
+   ]
+  },
+  "template:tk3-siguiente-nivel-2": {
+   "name": "ستوري: The Next Level Of Fashion مع Get 50% OFF",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "موضة",
+    "باستيل",
+    "خصم"
+   ]
+  },
+  "template:tk3-sorteo": {
+   "name": "ستوري: Giveaway! سحب على جائزة",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "موضة",
+    "باستيل",
+    "سحب"
+   ]
+  },
+  "template:tk3-tendencia": {
+   "name": "ستوري: Keep It Trendy مع 50%",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "موضة",
+    "باستيل",
+    "ترند"
+   ]
+  },
+  "template:tk4-dynamic": {
+   "name": "مقدمة ديناميكية: صور بالأحمر والأسود",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "افتتاحية",
+    "عرض صور",
+    "ديناميكي"
+   ]
+  },
+  "template:tk4-fast": {
+   "name": "مقدمة سريعة: كلمات فوق صور ملونة",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "افتتاحية",
+    "عرض صور",
+    "سريع"
+   ]
+  },
+  "template:tk4-modern": {
+   "name": "مقدمة عصرية: أصفر وذهبي وشبكة",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "افتتاحية",
+    "عرض صور",
+    "عصري"
+   ]
+  },
+  "template:tk4-rhythm": {
+   "name": "مقدمة إيقاعية: كلمات متدرجة",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "افتتاحية",
+    "عرض صور",
+    "إيقاع"
+   ]
+  },
+  "template:tk4-stomp": {
+   "name": "مقدمة ستومب: كلمة لكل نبضة مع صور",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "افتتاحية",
+    "عرض صور",
+    "ستومب"
+   ]
+  },
+  "template:tk4-typo": {
+   "name": "مقدمة طباعية: كلمات سوداء وصور",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "افتتاحية",
+    "عرض صور",
+    "خطوط"
+   ]
+  },
+  "template:tk5-carefree": {
+   "name": "ستوري: CAREFREE LIVING عمودي",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "أبيض وأسود",
+    "صورة",
+    "عمودي"
+   ]
+  },
+  "template:tk5-endless": {
+   "name": "ستوري: ENDLESS LOVING CONVERSATIONS",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "أبيض وأسود",
+    "نص"
+   ]
+  },
+  "template:tk5-find": {
+   "name": "ستوري: FIND HIDDEN GEMS",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "أبيض وأسود",
+    "نص"
+   ]
+  },
+  "template:tk5-follow": {
+   "name": "ستوري: FOLLOW YOUR DREAM",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "أبيض وأسود",
+    "نص"
+   ]
+  },
+  "template:tk5-foto-cae": {
+   "name": "ستوري: صورة تسقط ثم ترتفع",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "أبيض وأسود",
+    "صورة"
+   ]
+  },
+  "template:tk5-foto-lado": {
+   "name": "ستوري: صورة تنزلق من الجانب",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "أبيض وأسود",
+    "صورة"
+   ]
+  },
+  "template:tk5-foto-sube": {
+   "name": "ستوري: صورة صاعدة",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "أبيض وأسود",
+    "صورة"
+   ]
+  },
+  "template:tk5-freedom": {
+   "name": "ستوري: FREEDOM وPLEASING مع صورتين",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "أبيض وأسود",
+    "صورة",
+    "كولاج"
+   ]
+  },
+  "template:tk5-join": {
+   "name": "ستوري: JOIN THE JOURNEY دعوة لاتخاذ إجراء",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "أبيض وأسود",
+    "دعوة لاتخاذ إجراء",
+    "شعار"
+   ]
+  },
+  "template:tk5-laughter": {
+   "name": "ستوري: LAUGHTER OF A LOVED ONE",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "أبيض وأسود",
+    "صورة"
+   ]
+  },
+  "template:tk5-stars": {
+   "name": "ستوري: STARS وDREAMS في أعمدة",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "أبيض وأسود",
+    "صورة",
+    "كولاج"
+   ]
+  },
+  "template:tk5-sunshine": {
+   "name": "ستوري: SUNSHINE FILLS SKIES مع صورة",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "أبيض وأسود",
+    "صورة",
+    "كولاج"
+   ]
+  },
+  "template:tk6-discovery": {
+   "name": "ستوري: كولاج DISCOVERY وSPACESUIT",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "فيروزي",
+    "صورة",
+    "كولاج"
+   ]
+  },
+  "template:tk6-dreams": {
+   "name": "ستوري: كولاج DREAMS",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "فيروزي",
+    "صورة",
+    "كولاج"
+   ]
+  },
+  "template:tk6-flower": {
+   "name": "ستوري: كولاج FLOWER BEAUTY",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "فيروزي",
+    "صورة",
+    "كولاج"
+   ]
+  },
+  "template:tk6-foto-cae": {
+   "name": "ستوري: صورة مؤطرة تسقط للداخل",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "فيروزي",
+    "صورة"
+   ]
+  },
+  "template:tk6-foto-lado": {
+   "name": "ستوري: صورة مؤطرة تنزلق من الجانب",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "فيروزي",
+    "صورة"
+   ]
+  },
+  "template:tk6-freedom": {
+   "name": "ستوري: عمود FREEDOM",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "فيروزي",
+    "صورة",
+    "عمودي"
+   ]
+  },
+  "template:tk6-modern": {
+   "name": "ستوري: كولاج MODERN STORIES",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "فيروزي",
+    "صورة",
+    "كولاج"
+   ]
+  },
+  "template:tk6-savor": {
+   "name": "ستوري: SAVOR LIFE'S GOODNESS دعوة لاتخاذ إجراء",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "فيروزي",
+    "دعوة لاتخاذ إجراء",
+    "شعار"
+   ]
+  },
+  "template:tk6-starry": {
+   "name": "ستوري: STARRY NIGHTS تتقلص إلى كولاج",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "فيروزي",
+    "صورة",
+    "كولاج"
+   ]
+  },
+  "template:tk6-times-now": {
+   "name": "ستوري: TIME'S NOW مع صورتين",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "فيروزي",
+    "صورة",
+    "عمودي"
+   ]
+  },
+  "template:tk6-wind": {
+   "name": "ستوري: WIND وAURA مع صورتين",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "فيروزي",
+    "صورة",
+    "كولاج"
+   ]
+  },
+  "template:tk7-blooms": {
+   "name": "ستوري: BLOOMS ALL AROUND بالأحمر",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "زهور",
+    "ألوان",
+    "موضة"
+   ]
+  },
+  "template:tk7-bold": {
+   "name": "ستوري: كولاج BOLD COLORS SWAY",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "زهور",
+    "ألوان",
+    "موضة"
+   ]
+  },
+  "template:tk7-breezy": {
+   "name": "ستوري: كولاج BREEZY SPRING ATTIRE",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "زهور",
+    "ألوان",
+    "موضة"
+   ]
+  },
+  "template:tk7-canvas": {
+   "name": "ستوري: كولاج CANVAS LIFE BODY",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "زهور",
+    "ألوان",
+    "موضة"
+   ]
+  },
+  "template:tk7-characters": {
+   "name": "ستوري: COLORFUL CHARACTERS تحت صورة",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "زهور",
+    "ألوان",
+    "موضة"
+   ]
+  },
+  "template:tk7-colorful-and": {
+   "name": "ستوري: COLORFUL AND CONFIDENCE بين صورتين",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "زهور",
+    "ألوان",
+    "موضة"
+   ]
+  },
+  "template:tk7-discover-more": {
+   "name": "ستوري ختامي: DISCOVER MORE مع شعارك",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "زهور",
+    "ألوان",
+    "موضة"
+   ]
+  },
+  "template:tk7-embrace": {
+   "name": "ستوري: EMBRACE وEXPRESSION حول صورة",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "زهور",
+    "ألوان",
+    "موضة"
+   ]
+  },
+  "template:tk7-embrace-your-life": {
+   "name": "ستوري: EMBRACE YOUR LIFE مع أربع صور",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "زهور",
+    "ألوان",
+    "موضة"
+   ]
+  },
+  "template:tk7-flower": {
+   "name": "ستوري: FLOWER PARADISE DELIGHT بالأزرق",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "زهور",
+    "ألوان",
+    "موضة"
+   ]
+  },
+  "template:tk7-sale": {
+   "name": "ستوري: SALE SALE SALE مع صورتين",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "زهور",
+    "ألوان",
+    "موضة"
+   ]
+  },
+  "template:tk7-savor": {
+   "name": "ستوري: SAVOR MOMENTS NOW مع عمود صور",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "زهور",
+    "ألوان",
+    "موضة"
+   ]
+  },
+  "template:tk8-apple-pie": {
+   "name": "ستوري: SWEET APPLE PIE وSAVOR EVERY BITE",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "طعام",
+    "مطعم",
+    "أصفر"
+   ]
+  },
+  "template:tk8-bbq": {
+   "name": "ستوري: BBQ SMOKE RISING مع خمس صور",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "طعام",
+    "مطعم",
+    "أصفر"
+   ]
+  },
+  "template:tk8-big-sale": {
+   "name": "ستوري: BIG -50% SALE مع ثلاث صور",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "طعام",
+    "مطعم",
+    "أصفر"
+   ]
+  },
+  "template:tk8-buy-now": {
+   "name": "ستوري: BUY NOW مع خمس صور",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "طعام",
+    "مطعم",
+    "أصفر"
+   ]
+  },
+  "template:tk8-crispy-fries": {
+   "name": "ستوري: CRISPY GOLDEN FRIES مع ثلاث صور",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "طعام",
+    "مطعم",
+    "أصفر"
+   ]
+  },
+  "template:tk8-discover-flavors": {
+   "name": "ستوري ختامي: DISCOVER NEW FLAVORS مع شعارك",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "طعام",
+    "مطعم",
+    "أصفر"
+   ]
+  },
+  "template:tk8-fast-food": {
+   "name": "ستوري: FAST FOOD ADDICTION",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "طعام",
+    "مطعم",
+    "أصفر"
+   ]
+  },
+  "template:tk8-food-lovers": {
+   "name": "ستوري: FOOD LOVERS UNITE مع أربع صور",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "طعام",
+    "مطعم",
+    "أصفر"
+   ]
+  },
+  "template:tk8-fried-chicken": {
+   "name": "ستوري: FRIED CHICKEN DELIGHT",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "طعام",
+    "مطعم",
+    "أصفر"
+   ]
+  },
+  "template:tk8-hot-dogs": {
+   "name": "ستوري: HOT DOGS وCRISPY FRIES",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "طعام",
+    "مطعم",
+    "أصفر"
+   ]
+  },
+  "template:tk8-lowest-price": {
+   "name": "ستوري: THE LOWEST PRICE",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "طعام",
+    "مطعم",
+    "أصفر"
+   ]
+  },
+  "template:tk8-new-york-pizza": {
+   "name": "ستوري: NEW YORK PIZZA من ملء الشاشة إلى كولاج",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "طعام",
+    "مطعم",
+    "أصفر"
+   ]
+  },
+  "template:tk8-nice-diners": {
+   "name": "ستوري: NICE DINERS مع صورة طويلة",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "طعام",
+    "مطعم",
+    "أصفر"
+   ]
+  },
+  "template:tk9-limpia": {
+   "name": "مقدمة نظيفة: كلمات وصور على الإيقاع",
+   "tags": [
+    "tiktok",
+    "ستوري",
+    "ريلز",
+    "افتتاحية",
+    "خطوط",
+    "كلمات"
    ]
   },
   "template:top-5-mas-vendidos": {

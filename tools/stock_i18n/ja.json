@@ -117,6 +117,7 @@
   "template:collage": "コラージュ",
   "template:countdown": "カウントダウン",
   "template:counter": "カウンター",
+  "template:instagram": "Instagramキット",
   "template:intro": "オープニング・タイトル",
   "template:lowerthird": "テロップ",
   "template:outro": "エンディング",
@@ -127,6 +128,7 @@
   "template:story15": "15秒のストーリー",
   "template:text": "テキスト",
   "template:thumbnail": "動画サムネイル",
+  "template:tiktok": "TikTokキット",
   "template:transition": "トランジション・区切り",
   "template:youtuber": "ユーチューバー風",
   "template:ytkit": "YouTubeキット",
@@ -24911,6 +24913,3013 @@
     "パーティー"
    ]
   },
+  "template:ig0-intro-urbana": {
+   "name": "ダイナミックなアーバンイントロ：URBAN・STREETS・PROMOとロゴ",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "オープニング",
+    "アーバン",
+    "ダイナミックイントロ"
+   ]
+  },
+  "template:ig1-alison": {
+   "name": "ストーリー：赤いフレームの写真に名前",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "名前",
+    "プロフィール",
+    "赤"
+   ]
+  },
+  "template:ig1-anna": {
+   "name": "ストーリー：青いグラデーションに写真と名前",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "名前",
+    "プロフィール",
+    "グラデーション"
+   ]
+  },
+  "template:ig1-beautiful": {
+   "name": "ストーリー：#beautifulと写真・名言",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "名言",
+    "写真"
+   ]
+  },
+  "template:ig1-believe": {
+   "name": "ストーリー：分割ラインのWE MUST BELIEVE",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "フレーズ",
+    "写真",
+    "黒"
+   ]
+  },
+  "template:ig1-catherine": {
+   "name": "ストーリー：グラデーションに丸い写真・名前・名言",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "名言",
+    "プロフィール",
+    "グラデーション"
+   ]
+  },
+  "template:ig1-conquer": {
+   "name": "ストーリー：フォトカルーセルのConquer from within",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "カルーセル",
+    "写真",
+    "白"
+   ]
+  },
+  "template:ig1-do-your-best": {
+   "name": "ストーリー：リボンのDO YOUR BEST",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "フレーズ",
+    "都会",
+    "モチベーション"
+   ]
+  },
+  "template:ig1-dog": {
+   "name": "ストーリー：#photoofthedayバンドで分割した写真",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "ペット",
+    "写真",
+    "バンド"
+   ]
+  },
+  "template:ig1-elegant": {
+   "name": "ストーリー：ミラーウィンドウのELEGANT TYPO DESIGN",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "タイポグラフィ",
+    "海",
+    "エレガント"
+   ]
+  },
+  "template:ig1-forty-sale": {
+   "name": "ストーリー：写真と縦書き40%セール",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "セール",
+    "割引",
+    "ファッション"
+   ]
+  },
+  "template:ig1-happy-thoughts": {
+   "name": "ストーリー：傾いたポラロイドの「happy thoughts」",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "ポラロイド",
+    "ウェディング",
+    "手書き"
+   ]
+  },
+  "template:ig1-heart": {
+   "name": "ストーリー：ハート形の写真「happy thoughts」",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "ハート",
+    "愛",
+    "ピーチ"
+   ]
+  },
+  "template:ig1-instalove": {
+   "name": "ストーリー：#instalove LIVE WHAT YOU LOVE",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "フレーズ",
+    "森",
+    "名前"
+   ]
+  },
+  "template:ig1-lifestyle": {
+   "name": "ストーリー：フォトモザイクの#lifestyle",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "コラージュ",
+    "夏",
+    "モザイク"
+   ]
+  },
+  "template:ig1-live-what": {
+   "name": "ストーリー：2×2グリッドのLive what you love",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "グリッド",
+    "コラージュ",
+    "白"
+   ]
+  },
+  "template:ig1-love-friendship": {
+   "name": "ストーリー：ポラロイドと手書きの「Love is friendship」",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "ポラロイド",
+    "ピンク",
+    "名言"
+   ]
+  },
+  "template:ig1-love-loves": {
+   "name": "ストーリー：矢印と手書き文字つきポラロイド2枚",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "ポラロイド",
+    "ピンク",
+    "矢印"
+   ]
+  },
+  "template:ig1-must-believe": {
+   "name": "ストーリー：ミラーサークルのWE MUST BELIEVE",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "フレーズ",
+    "円",
+    "風景"
+   ]
+  },
+  "template:ig1-nature": {
+   "name": "ストーリー：フレーム付きボックスのNature",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "自然",
+    "フレーム",
+    "海"
+   ]
+  },
+  "template:ig1-neon": {
+   "name": "ストーリー：ティールのネオンでNEON CITY",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "ネオン",
+    "都会",
+    "夜"
+   ]
+  },
+  "template:ig1-photo-frame": {
+   "name": "ストーリー：窓が開く白いカード",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "フレーム",
+    "フード",
+    "写真"
+   ]
+  },
+  "template:ig1-seek": {
+   "name": "ストーリー：写真入り文字のSEEK THE SEEKER",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "フレーズ",
+    "葉",
+    "切り抜き"
+   ]
+  },
+  "template:ig1-so-it-goes": {
+   "name": "ストーリー：2×2グリッドのSo it goes",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "グリッド",
+    "コラージュ",
+    "ピンク"
+   ]
+  },
+  "template:ig1-spring-sale": {
+   "name": "ストーリー：スプリングセール30%",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "セール",
+    "割引",
+    "ファッション"
+   ]
+  },
+  "template:ig1-stylish-bike": {
+   "name": "ストーリー：切り抜き付きS T Y L I S H",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "切り抜き",
+    "ターコイズ",
+    "リンク"
+   ]
+  },
+  "template:ig1-stylish-design": {
+   "name": "ストーリー：グラデーションフレームのSTYLISH DESIGN",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "フレーム",
+    "グラデーション",
+    "ダーク"
+   ]
+  },
+  "template:ig1-stylish-skate": {
+   "name": "ストーリー：標語つき特大縦書きStylish",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "縦型",
+    "スケートボード",
+    "タイポグラフィ"
+   ]
+  },
+  "template:ig1-success": {
+   "name": "ストーリー：岩の上の名言と01",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "名言",
+    "フレーズ",
+    "ダーク"
+   ]
+  },
+  "template:ig1-work-dream": {
+   "name": "ストーリー：縦書きWork hard. Dream big.と05",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "フレーズ",
+    "縦型",
+    "数字"
+   ]
+  },
+  "template:ig1-work-hard": {
+   "name": "ストーリー：黒背景のWORK HARD. DREAM BIG.",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "フレーズ",
+    "モチベーション",
+    "黒"
+   ]
+  },
+  "template:ig10-arco-sube": {
+   "name": "ストーリー：せり上がるアーチ写真とMODELS",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "ファッション",
+    "モデル",
+    "写真"
+   ]
+  },
+  "template:ig10-ovalo-abre": {
+   "name": "ストーリー：ラインから開く楕円の写真",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "ファッション",
+    "モデル",
+    "写真"
+   ]
+  },
+  "template:ig10-ovalo-sube": {
+   "name": "ストーリー：二重の輪郭でせり上がる楕円の写真",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "ファッション",
+    "モデル",
+    "写真"
+   ]
+  },
+  "template:ig10-u-foto": {
+   "name": "ストーリー：下が丸い写真とフレーム付きタイトル",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "ファッション",
+    "モデル",
+    "写真"
+   ]
+  },
+  "template:ig10-ventana-arco": {
+   "name": "ストーリー：ベール越しの写真とアーチ窓",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "ファッション",
+    "モデル",
+    "写真"
+   ]
+  },
+  "template:ig11-avatar-seguir": {
+   "name": "プロフィール画像とフォローボタン",
+   "tags": [
+    "instagram",
+    "エレメント",
+    "行動喚起",
+    "sns",
+    "フォロー",
+    "ストーリー"
+   ]
+  },
+  "template:ig11-comenta": {
+   "name": "下にコメントしてね",
+   "tags": [
+    "instagram",
+    "エレメント",
+    "行動喚起",
+    "sns",
+    "コメント",
+    "カウンター"
+   ]
+  },
+  "template:ig11-compartir": {
+   "name": "投稿をシェアしよう",
+   "tags": [
+    "instagram",
+    "エレメント",
+    "行動喚起",
+    "sns",
+    "シェア",
+    "投稿"
+   ]
+  },
+  "template:ig11-doble-toque": {
+   "name": "ダブルタップでいいね",
+   "tags": [
+    "instagram",
+    "エレメント",
+    "行動喚起",
+    "sns",
+    "いいね",
+    "ハート"
+   ]
+  },
+  "template:ig11-enlace-bio": {
+   "name": "プロフィールのリンクをクリック",
+   "tags": [
+    "instagram",
+    "エレメント",
+    "行動喚起",
+    "sns",
+    "リンク",
+    "プロフィール欄"
+   ]
+  },
+  "template:ig11-etiqueta": {
+   "name": "誰かをタグ付けしよう",
+   "tags": [
+    "instagram",
+    "エレメント",
+    "行動喚起",
+    "sns",
+    "タグ付け",
+    "アットマーク"
+   ]
+  },
+  "template:ig11-inspiracion": {
+   "name": "インスピレーションを見つけよう",
+   "tags": [
+    "instagram",
+    "エレメント",
+    "行動喚起",
+    "sns",
+    "検索"
+   ]
+  },
+  "template:ig11-pastilla-seguir": {
+   "name": "名前ピルとフォローボタン",
+   "tags": [
+    "instagram",
+    "エレメント",
+    "行動喚起",
+    "sns",
+    "フォロー",
+    "名前"
+   ]
+  },
+  "template:ig11-pastilla-usuario": {
+   "name": "フォロワー数つきユーザーピル",
+   "tags": [
+    "instagram",
+    "エレメント",
+    "行動喚起",
+    "sns",
+    "ユーザー",
+    "フォロワー"
+   ]
+  },
+  "template:ig11-perfil": {
+   "name": "プロフィールカード",
+   "tags": [
+    "instagram",
+    "エレメント",
+    "行動喚起",
+    "sns",
+    "プロフィール",
+    "フォロー"
+   ]
+  },
+  "template:ig11-publicacion": {
+   "name": "投稿カード",
+   "tags": [
+    "instagram",
+    "エレメント",
+    "行動喚起",
+    "sns",
+    "投稿",
+    "いいね"
+   ]
+  },
+  "template:ig11-reels": {
+   "name": "最新のリールをチェック",
+   "tags": [
+    "instagram",
+    "エレメント",
+    "行動喚起",
+    "sns",
+    "リール",
+    "再生数"
+   ]
+  },
+  "template:ig11-responder": {
+   "name": "返信ボタン付きコメントカード",
+   "tags": [
+    "instagram",
+    "エレメント",
+    "行動喚起",
+    "sns",
+    "コメント",
+    "返信"
+   ]
+  },
+  "template:ig11-tu-historia": {
+   "name": "ストーリーに追加",
+   "tags": [
+    "instagram",
+    "エレメント",
+    "行動喚起",
+    "sns",
+    "ストーリー",
+    "シェア"
+   ]
+  },
+  "template:ig11-ver-historia": {
+   "name": "タップしてストーリーを見る",
+   "tags": [
+    "instagram",
+    "エレメント",
+    "行動喚起",
+    "sns",
+    "ストーリー",
+    "タップ"
+   ]
+  },
+  "template:ig12-anillos": {
+   "name": "ストーリー：丸い写真と特大文字のリング",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "オレンジ",
+    "赤",
+    "円"
+   ]
+  },
+  "template:ig12-caja-roja": {
+   "name": "ストーリー：縦書きの言葉と特大文字の赤いボックス",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "オレンジ",
+    "赤",
+    "ボックス"
+   ]
+  },
+  "template:ig12-diagonal": {
+   "name": "ストーリー：特大ワードと斜めストライプ",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "オレンジ",
+    "赤",
+    "斜め"
+   ]
+  },
+  "template:ig12-franjas": {
+   "name": "ストーリー：カラーバンドと縦書きの言葉",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "オレンジ",
+    "赤",
+    "ストライプ"
+   ]
+  },
+  "template:ig12-panel-rojo": {
+   "name": "ストーリー：赤いパネルを上るジャイアントワード",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "オレンジ",
+    "赤",
+    "パネル"
+   ]
+  },
+  "template:ig13-amarilla": {
+   "name": "タイポグラフィストーリー：イエロー",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "タイポグラフィ",
+    "黄色",
+    "黒"
+   ]
+  },
+  "template:ig13-caja-negra": {
+   "name": "タイポグラフィストーリー：ブラックボックス",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "タイポグラフィ",
+    "黄色",
+    "黒"
+   ]
+  },
+  "template:ig13-filas": {
+   "name": "タイポグラフィストーリー：文字の列",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "タイポグラフィ",
+    "黄色",
+    "黒"
+   ]
+  },
+  "template:ig13-gris-ra": {
+   "name": "タイポグラフィストーリー：グレーのRA",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "タイポグラフィ",
+    "黄色",
+    "黒"
+   ]
+  },
+  "template:ig13-letras-grises": {
+   "name": "タイポグラフィストーリー：黄色い文字",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "タイポグラフィ",
+    "黄色",
+    "黒"
+   ]
+  },
+  "template:ig13-muro-de-fotos": {
+   "name": "ロゴ入りフォトウォール",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "ロゴ",
+    "プロフィール"
+   ]
+  },
+  "template:ig13-negra": {
+   "name": "タイポグラフィストーリー：黒の斜めレイアウト",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "タイポグラフィ",
+    "黄色",
+    "黒"
+   ]
+  },
+  "template:ig13-oscura": {
+   "name": "タイポグラフィストーリー：スフィアのあるダーク",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "タイポグラフィ",
+    "黄色",
+    "黒"
+   ]
+  },
+  "template:ig14-dinamica": {
+   "name": "ダイナミックスライドショー：写真ごとに一語",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "フォトスライドショー",
+    "スライドショー",
+    "ダイナミック"
+   ]
+  },
+  "template:ig14-energia": {
+   "name": "ロゴ入りエネルギッシュスライドショー",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "フォトスライドショー",
+    "スライドショー",
+    "エネルギー"
+   ]
+  },
+  "template:ig14-epica": {
+   "name": "グリッチ入りエピックスライドショー",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "フォトスライドショー",
+    "スライドショー",
+    "エピック"
+   ]
+  },
+  "template:ig14-limpia": {
+   "name": "大きな文字のクリーンスライドショー",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "フォトスライドショー",
+    "スライドショー",
+    "クリーン"
+   ]
+  },
+  "template:ig14-minimal": {
+   "name": "白背景のミニマルスライドショー",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "フォトスライドショー",
+    "スライドショー",
+    "ミニマル"
+   ]
+  },
+  "template:ig14-moda": {
+   "name": "キャプション付きファッションスライドショー",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "フォトスライドショー",
+    "スライドショー",
+    "ファッション"
+   ]
+  },
+  "template:ig14-ritmica": {
+   "name": "リング入りリズミカルスライドショー",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "フォトスライドショー",
+    "スライドショー",
+    "リズム"
+   ]
+  },
+  "template:ig14-stomp": {
+   "name": "ストンプスライドショー：ビートごとに一語",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "フォトスライドショー",
+    "スライドショー",
+    "ストンプ"
+   ]
+  },
+  "template:ig2-cartel-amarillo": {
+   "name": "ストーリー：黄色いYour Storiesポスター",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "カラフル",
+    "ポスター",
+    "黄色"
+   ]
+  },
+  "template:ig2-ciudad-oferta": {
+   "name": "ストーリー：%の円がある都会のセール",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "カラフル",
+    "セール",
+    "割引"
+   ]
+  },
+  "template:ig2-cocina": {
+   "name": "ストーリー：料理番組オープナー",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "カラフル",
+    "料理",
+    "フード"
+   ]
+  },
+  "template:ig2-feliz": {
+   "name": "ストーリー：特大文字とミントボックスのHAPPY",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "カラフル",
+    "ハッピー",
+    "白黒"
+   ]
+  },
+  "template:ig2-interior": {
+   "name": "ストーリー：カラーサークルのインテリアデザイン",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "カラフル",
+    "インテリア",
+    "デザイン"
+   ]
+  },
+  "template:ig2-moda": {
+   "name": "ストーリー：ミントと赤のFashion",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "カラフル",
+    "ファッション",
+    "プロフィール"
+   ]
+  },
+  "template:ig2-oscuro": {
+   "name": "ストーリー：グリッド文字のDARK",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "カラフル",
+    "ダーク",
+    "ファッション"
+   ]
+  },
+  "template:ig2-presentamos": {
+   "name": "ストーリー：グラデーションストライプのINTRODUCING OUR STORIES",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "カラフル",
+    "紹介",
+    "グラデーション"
+   ]
+  },
+  "template:ig2-rostro-franjas": {
+   "name": "ストーリー：カラーバンドと円のある顔",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "カラフル",
+    "ポートレート",
+    "ブランド"
+   ]
+  },
+  "template:ig2-tu-mente": {
+   "name": "ストーリー：紫のSay what's on your mind",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "カラフル",
+    "フレーズ",
+    "バイオレット"
+   ]
+  },
+  "template:ig2-tu-vida": {
+   "name": "ストーリー：黄色いバンドのYOUR LIFE",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "カラフル",
+    "ライフ",
+    "ヒント"
+   ]
+  },
+  "template:ig2-viaje-verano": {
+   "name": "ストーリー：フォトクラウドのGREAT TRIP SUMMER",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "カラフル",
+    "旅行",
+    "夏"
+   ]
+  },
+  "template:ig3-arte": {
+   "name": "ストーリー：絵画の上のart 01 Stories",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "アート",
+    "絵画"
+   ]
+  },
+  "template:ig3-ciencia": {
+   "name": "ストーリー：円で見せるA-01 MODERN SCIENCE",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "サイエンス",
+    "円"
+   ]
+  },
+  "template:ig3-city-life": {
+   "name": "ストーリー：ピンクのパネルのCITY LIFE",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "都会"
+   ]
+  },
+  "template:ig3-comida-circulo": {
+   "name": "ストーリー：円の中のSay what's on your mind",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "フード",
+    "円"
+   ]
+  },
+  "template:ig3-fashion": {
+   "name": "ストーリー：写真入り文字のFASHION 45$",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "ファッション",
+    "セール"
+   ]
+  },
+  "template:ig3-food": {
+   "name": "ストーリー：Food 50%割引",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "フード",
+    "セール"
+   ]
+  },
+  "template:ig3-friend": {
+   "name": "ストーリー：円つきFRIEND GREAT TRIP",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "友達",
+    "円"
+   ]
+  },
+  "template:ig3-full": {
+   "name": "ストーリー：筆文字のFull 100%",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "セール",
+    "ペット"
+   ]
+  },
+  "template:ig3-introducing": {
+   "name": "ストーリー：森のINTRODUCING STORIES",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "冬",
+    "紹介"
+   ]
+  },
+  "template:ig3-models": {
+   "name": "ストーリー：ブラケット付きMODELS FASHION",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "ファッション",
+    "ポートレート"
+   ]
+  },
+  "template:ig3-music": {
+   "name": "ストーリー：リングのMUSIC EXCLUSIVE",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "音楽",
+    "円"
+   ]
+  },
+  "template:ig3-new": {
+   "name": "ストーリー：筆のストロークで旅行NEW",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "旅行",
+    "筆"
+   ]
+  },
+  "template:ig3-opener": {
+   "name": "正方形投稿用ダイナミックオープナー",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "オープナー",
+    "タイポグラフィ",
+    "投稿"
+   ]
+  },
+  "template:ig3-perfil-amarillo": {
+   "name": "プロフィール：写真つき黄色いカード",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "プロフィール"
+   ]
+  },
+  "template:ig3-perfil-coral": {
+   "name": "プロフィール：ブロブ模様のコーラルカード",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "プロフィール"
+   ]
+  },
+  "template:ig3-perfil-degradado": {
+   "name": "プロフィール：円のあるグラデーションカード",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "プロフィール"
+   ]
+  },
+  "template:ig3-perfil-oscuro": {
+   "name": "プロフィール：赤い名前のダークカード",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "プロフィール"
+   ]
+  },
+  "template:ig3-perfil-rojo": {
+   "name": "プロフィール：アバター付き赤いカード",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "プロフィール"
+   ]
+  },
+  "template:ig3-portfolio": {
+   "name": "ストーリー：名前入りPORTFOLIO",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "ポートフォリオ"
+   ]
+  },
+  "template:ig3-programa": {
+   "name": "ストーリー：丸いバーのV 6",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "テクノロジー",
+    "パステル"
+   ]
+  },
+  "template:ig3-promo": {
+   "name": "ストーリー：黄色いディスクのProduct Promo",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "商品",
+    "プロモーション"
+   ]
+  },
+  "template:ig3-sport": {
+   "name": "ストーリー：ピンクのバッジのSPORT",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "スポーツ"
+   ]
+  },
+  "template:ig3-tech": {
+   "name": "ストーリー：散らばる文字のTECH",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "テクノロジー"
+   ]
+  },
+  "template:ig3-toys": {
+   "name": "ストーリー：グラデーションディスクのTOYS",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "おもちゃ",
+    "円"
+   ]
+  },
+  "template:ig3-tv": {
+   "name": "ストーリー：丸い写真のMedia Social",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "sns",
+    "円"
+   ]
+  },
+  "template:ig3-your-life": {
+   "name": "ストーリー：カラーバンドのYOUR LIFEとPRO",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "インテリア"
+   ]
+  },
+  "template:ig4-abstract": {
+   "name": "ストーリー：ABSTRACT GEOMETRIC STYLE",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "幾何学",
+    "建築"
+   ]
+  },
+  "template:ig4-amazing-dream": {
+   "name": "ストーリー：写真2枚のAmazing dream",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "フレーズ",
+    "ブラウン"
+   ]
+  },
+  "template:ig4-audacious": {
+   "name": "ストーリー：LET'S DO WHAT WE LOVE #AUDACIOUS",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "モチベーション",
+    "黒"
+   ]
+  },
+  "template:ig4-beauty": {
+   "name": "ストーリー：There is beauty in simplicity",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "自然",
+    "フレーズ"
+   ]
+  },
+  "template:ig4-beauty-flowers": {
+   "name": "ストーリー：花のBeauty",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "花",
+    "カリグラフィー"
+   ]
+  },
+  "template:ig4-believe": {
+   "name": "ストーリー：BELIEVE YOU CAN SO YOU ARE HALFWAY THERE",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "モチベーション",
+    "フレーズ"
+   ]
+  },
+  "template:ig4-big": {
+   "name": "ストーリー：ストライプの円のBIG.",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "ファッション",
+    "ストライプ"
+   ]
+  },
+  "template:ig4-born-wild": {
+   "name": "ストーリー：BORN TO BE WILD",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "冒険",
+    "青"
+   ]
+  },
+  "template:ig4-brand-new-day": {
+   "name": "ストーリー：三角形のbrand new day",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "三角形",
+    "幾何学"
+   ]
+  },
+  "template:ig4-clear": {
+   "name": "ストーリー：2分割のCLEAR INTERIOR",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "インテリア",
+    "ホーム"
+   ]
+  },
+  "template:ig4-cold-wave": {
+   "name": "ストーリー：写真入り文字のCOLD WAVE WARM SUN",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "海",
+    "タイポグラフィ"
+   ]
+  },
+  "template:ig4-confident": {
+   "name": "ストーリー：3つの窓のSTYLISH & CONFIDENT",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "ファッション",
+    "メンズ"
+   ]
+  },
+  "template:ig4-control": {
+   "name": "ストーリー：ロゴと写真2枚のCONTROL",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "ロゴ",
+    "ヨガ"
+   ]
+  },
+  "template:ig4-courage": {
+   "name": "ストーリー：筆のストロークの#courage",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "ポートレート",
+    "オレンジ"
+   ]
+  },
+  "template:ig4-culinary": {
+   "name": "ストーリー：CULINARY ART #cooking",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "料理",
+    "フード"
+   ]
+  },
+  "template:ig4-deep-breath": {
+   "name": "ストーリー：葉のENJOY DEEP BREATH",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "自然",
+    "緑"
+   ]
+  },
+  "template:ig4-delicious": {
+   "name": "ストーリー：#DELICIOUSグリッド",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "フード",
+    "デザート"
+   ]
+  },
+  "template:ig4-dream": {
+   "name": "ストーリー：街の上のフレーム付きDREAM",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "都会",
+    "フレーム"
+   ]
+  },
+  "template:ig4-employee": {
+   "name": "ストーリー：BEST EMPLOYEE OF THE MONTH",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "ビジネス",
+    "従業員"
+   ]
+  },
+  "template:ig4-enjoy-music": {
+   "name": "ストーリー：青と赤のENJOY MY MUSIC",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "音楽",
+    "ダンス"
+   ]
+  },
+  "template:ig4-fashion-buy": {
+   "name": "ストーリー：バンド上のFASHION IS WHAT YOU BUY",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "ファッション",
+    "ストライプ"
+   ]
+  },
+  "template:ig4-fitness": {
+   "name": "ストーリー：FITNESS BODY ENERGY WORKOUT",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "ジム",
+    "スポーツ"
+   ]
+  },
+  "template:ig4-fun": {
+   "name": "ストーリー：フレーム写真の#FUN",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "フレーム",
+    "赤"
+   ]
+  },
+  "template:ig4-glam": {
+   "name": "ストーリー：ピンクと黒のGLAM ROCK",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "ファッション",
+    "ピンク"
+   ]
+  },
+  "template:ig4-instamusic": {
+   "name": "ストーリー：ブロブの#instamusic #yourbeat",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "音楽",
+    "ネオン"
+   ]
+  },
+  "template:ig4-life-good": {
+   "name": "ストーリー：LIFE IS SO GOOD JUST BE YOURSELF",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "フレーズ",
+    "ネオン"
+   ]
+  },
+  "template:ig4-lifestyle": {
+   "name": "ストーリー：my lifestyle #followme",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "ライフスタイル",
+    "青"
+   ]
+  },
+  "template:ig4-look-deep": {
+   "name": "ストーリー：六角形のLOOK DEEP INTO NATURE",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "自然",
+    "六角形"
+   ]
+  },
+  "template:ig4-masterpiece": {
+   "name": "ストーリー：MAKE EACH DAY YOUR MASTERPIECE",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "フレーズ",
+    "ピンク"
+   ]
+  },
+  "template:ig4-meeting": {
+   "name": "ストーリー：縦列のMEETING WITH FRIENDS",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "友達",
+    "縦列"
+   ]
+  },
+  "template:ig4-motion": {
+   "name": "ストーリー：黄色い円のMOTION",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "ダンス",
+    "円"
+   ]
+  },
+  "template:ig4-moving": {
+   "name": "ストーリー：2つのリングのMoving",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "ダンス",
+    "リング"
+   ]
+  },
+  "template:ig4-music": {
+   "name": "ストーリー：MUSIC DANCE ENJOY",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "音楽",
+    "パーティー"
+   ]
+  },
+  "template:ig4-natural": {
+   "name": "ストーリー：3列のNATURAL BEAUTY",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "自然",
+    "縦列"
+   ]
+  },
+  "template:ig4-never-easier": {
+   "name": "ストーリー：赤のIT NEVER GETS EASIER",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "ジム",
+    "モチベーション"
+   ]
+  },
+  "template:ig4-ocean": {
+   "name": "ストーリー：フレーム付きOCEAN HAPPY RELAX",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "海",
+    "フレーム"
+   ]
+  },
+  "template:ig4-pro-fitness": {
+   "name": "ストーリー：クロスフレームのPROフィットネス",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "スポーツ",
+    "フレーム"
+   ]
+  },
+  "template:ig4-sale40": {
+   "name": "ストーリー：縦置きSALE 40%",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "セール",
+    "赤"
+   ]
+  },
+  "template:ig4-sale75": {
+   "name": "ストーリー：SALE UP TO 75% OFF",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "セール",
+    "赤"
+   ]
+  },
+  "template:ig4-secrets": {
+   "name": "ストーリー：NO MORE SECRETS #IMAGINE",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "赤",
+    "斜め"
+   ]
+  },
+  "template:ig4-shopping-week": {
+   "name": "ストーリー：#shoppingweek 40% FOR SALE",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "セール",
+    "ショッピング"
+   ]
+  },
+  "template:ig4-simplelife": {
+   "name": "ストーリー：When you focus on the good #simplelife",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "フレーズ",
+    "青"
+   ]
+  },
+  "template:ig4-skate": {
+   "name": "ストーリー：0256 #skatelife",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "スケート",
+    "スポーツ"
+   ]
+  },
+  "template:ig4-sport": {
+   "name": "ストーリー：ライン入りW SPORT",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "スポーツ",
+    "ランニング"
+   ]
+  },
+  "template:ig4-spring": {
+   "name": "ストーリー：SPRING IS IN THE AIR",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "春",
+    "花"
+   ]
+  },
+  "template:ig4-stay-strong": {
+   "name": "ストーリー：STAY STRONG DON'T GIVE UP",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "モチベーション",
+    "赤"
+   ]
+  },
+  "template:ig4-street-fast": {
+   "name": "ストーリー：10/25 #youth street FAST",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "ストリート",
+    "スケート"
+   ]
+  },
+  "template:ig4-style": {
+   "name": "ストーリー：STYLE IS VERY PERSONAL",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "ファッション",
+    "赤"
+   ]
+  },
+  "template:ig4-style-beautiful": {
+   "name": "ストーリー：バンドの#beautiful STYLE",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "ファッション",
+    "ストライプ"
+   ]
+  },
+  "template:ig4-stylish": {
+   "name": "ストーリー：青いディスクの#stylish",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "ファッション",
+    "青"
+   ]
+  },
+  "template:ig4-summer": {
+   "name": "ストーリー：ビーチのひし形の#SUMMER",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "ビーチ",
+    "夏"
+   ]
+  },
+  "template:ig4-summer-event": {
+   "name": "ストーリー：日付入りサマーイベント",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "夏",
+    "イベント"
+   ]
+  },
+  "template:ig4-summer-look": {
+   "name": "ストーリー：バンドのSummer look #fashion",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "ファッション",
+    "夏"
+   ]
+  },
+  "template:ig4-sunshine": {
+   "name": "ストーリー：写真4枚のSUNSHINE",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "夏",
+    "コラージュ"
+   ]
+  },
+  "template:ig4-sunshine-tag": {
+   "name": "ストーリー：#sunshine Relaxing holiday",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "夏",
+    "青"
+   ]
+  },
+  "template:ig4-trendy": {
+   "name": "ストーリー：赤の#TRENDY YOUR STYLE",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "赤",
+    "ファッション"
+   ]
+  },
+  "template:ig4-tropical": {
+   "name": "ストーリー：写真3枚のFEELING TROPICAL",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "夏",
+    "トロピカル"
+   ]
+  },
+  "template:ig4-winner": {
+   "name": "ストーリー：THE WINNER NEVER QUITS",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "モチベーション",
+    "ジム"
+   ]
+  },
+  "template:ig4-young": {
+   "name": "ストーリー：YOUNG #followus",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "ユース",
+    "赤"
+   ]
+  },
+  "template:ig4-youth": {
+   "name": "ストーリー：三角形の#YOUTH & FREEDOM",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "三角形",
+    "コーラル"
+   ]
+  },
+  "template:ig5-amazing-now": {
+   "name": "ストーリー：AMAZING NOW",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "白黒",
+    "赤"
+   ]
+  },
+  "template:ig5-awesome": {
+   "name": "ストーリー：縦書きAWESOME",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "赤",
+    "縦型"
+   ]
+  },
+  "template:ig5-be-strong": {
+   "name": "ストーリー：B STRONG",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "赤",
+    "フレーズ"
+   ]
+  },
+  "template:ig5-beach-therapy": {
+   "name": "ストーリー：ティールのbeach therapy",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "ビーチ",
+    "休暇"
+   ]
+  },
+  "template:ig5-beauty-pro": {
+   "name": "ストーリー：紫のウェーブのBEAUTY",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "ビューティー",
+    "紫"
+   ]
+  },
+  "template:ig5-best-look": {
+   "name": "ストーリー：フレーム付きYOUR BEST LOOK",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "緑",
+    "ファッション"
+   ]
+  },
+  "template:ig5-choose-glam": {
+   "name": "ストーリー：48 choose the glam",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "ビューティー",
+    "グラマー"
+   ]
+  },
+  "template:ig5-cold-water": {
+   "name": "ストーリー：COLD DEEP WATER",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "海",
+    "黄色"
+   ]
+  },
+  "template:ig5-creative-studio": {
+   "name": "ストーリー：CREATIVE DESIGN STUDIO",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "デザイン",
+    "スタジオ"
+   ]
+  },
+  "template:ig5-dancing": {
+   "name": "ストーリー：斜め写真の#DANCING",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "ダンス",
+    "斜め"
+   ]
+  },
+  "template:ig5-daring-style": {
+   "name": "ストーリー：黄色のDARING STYLE",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "黄色",
+    "ファッション"
+   ]
+  },
+  "template:ig5-denim-style": {
+   "name": "ストーリー：フレーム付きDENIM STYLE",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "ファッション",
+    "枠"
+   ]
+  },
+  "template:ig5-design-passion": {
+   "name": "ストーリー：DESIGN IS MY PASSION",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "インテリア",
+    "デザイン"
+   ]
+  },
+  "template:ig5-dont-waste": {
+   "name": "ストーリー：DON'T WASTE YOUR TIME",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "フレーズ",
+    "ティール"
+   ]
+  },
+  "template:ig5-enjoy-movement": {
+   "name": "ストーリー：enjoy the movement",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "ダンス",
+    "黒"
+   ]
+  },
+  "template:ig5-flexible-body": {
+   "name": "ストーリー：グラデーションバンドのFLEXIBLE BODY",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "フィットネス",
+    "グラデーション"
+   ]
+  },
+  "template:ig5-focus-breathe": {
+   "name": "ストーリー：FOCUS ON THE BREATHE",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "フレーズ",
+    "タイポグラフィ"
+   ]
+  },
+  "template:ig5-fondo-ambar": {
+   "name": "背景：アンバーの円",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "背景",
+    "オレンジ",
+    "ブラウン"
+   ]
+  },
+  "template:ig5-fondo-burbujas-azules": {
+   "name": "背景：ピンクの上の青いバブル",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "背景",
+    "ピンク",
+    "青"
+   ]
+  },
+  "template:ig5-fondo-burbujas-grises": {
+   "name": "背景：黒の上のグレーのバブル",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "背景",
+    "黒",
+    "グレー"
+   ]
+  },
+  "template:ig5-fondo-chevrones": {
+   "name": "背景：赤いシェブロン",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "背景",
+    "赤",
+    "シェブロン"
+   ]
+  },
+  "template:ig5-fondo-cinta-azul": {
+   "name": "背景：赤の上の青いリボン",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "背景",
+    "グラデーション",
+    "青"
+   ]
+  },
+  "template:ig5-fondo-geometrico": {
+   "name": "背景：グレーの幾何学パーツ",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "背景",
+    "グレー",
+    "幾何学"
+   ]
+  },
+  "template:ig5-fondo-lineas": {
+   "name": "背景：ネオンラインのグラデーション",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "背景",
+    "グラデーション",
+    "ピンク"
+   ]
+  },
+  "template:ig5-fondo-lineas-cruzadas": {
+   "name": "背景：交差するライン",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "背景",
+    "グラデーション",
+    "マゼンタ"
+   ]
+  },
+  "template:ig5-fondo-olas": {
+   "name": "背景：オレンジと紫のウェーブ",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "背景",
+    "グラデーション",
+    "オレンジ"
+   ]
+  },
+  "template:ig5-fondo-pildoras": {
+   "name": "背景：ピンクのピル型",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "背景",
+    "ピンク",
+    "パステル"
+   ]
+  },
+  "template:ig5-fondo-plata": {
+   "name": "背景：シルバーのストライプ",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "背景",
+    "シルバー",
+    "グレー"
+   ]
+  },
+  "template:ig5-fondo-rojo": {
+   "name": "背景：丸みのある赤いシェイプ",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "背景",
+    "赤",
+    "シェイプ"
+   ]
+  },
+  "template:ig5-gentle-soft": {
+   "name": "ストーリー：GENTLE & SOFTカード",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "花",
+    "カード"
+   ]
+  },
+  "template:ig5-glam": {
+   "name": "ストーリー：GLAMカメラショット",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "ピンク",
+    "カメラ"
+   ]
+  },
+  "template:ig5-happiness-love": {
+   "name": "ストーリー：HAPPINESSとLOVEのコラージュ",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "コラージュ",
+    "ウェディング"
+   ]
+  },
+  "template:ig5-happy-weekends": {
+   "name": "ストーリー：Happy weekends",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "花",
+    "週末"
+   ]
+  },
+  "template:ig5-inspiration": {
+   "name": "ストーリー：#pleasure inspiration",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "赤",
+    "白黒"
+   ]
+  },
+  "template:ig5-interior-dream": {
+   "name": "ストーリー：カタログ風INTERIOR OF YOUR DREAM",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "カタログ",
+    "インテリア"
+   ]
+  },
+  "template:ig5-keep-simple": {
+   "name": "ストーリー：円のKEEP IT SIMPLE",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "円",
+    "グラデーション"
+   ]
+  },
+  "template:ig5-light-easy": {
+   "name": "ストーリー：LIGHT & EASYカード",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "ファッション",
+    "カード"
+   ]
+  },
+  "template:ig5-look-deep": {
+   "name": "ストーリー：LOOK DEEP INTO YOURSELF",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "フレーズ",
+    "ネオン"
+   ]
+  },
+  "template:ig5-mindfulness": {
+   "name": "ストーリー：白黒の#mindfulness",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "白黒",
+    "フレーズ"
+   ]
+  },
+  "template:ig5-modern-office": {
+   "name": "ストーリー：MODERN OFFICE SPACE",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "オフィス",
+    "ビジネス"
+   ]
+  },
+  "template:ig5-ocean": {
+   "name": "ストーリー：円の中のOCEAN",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "円",
+    "海"
+   ]
+  },
+  "template:ig5-pleasure": {
+   "name": "ストーリー：ブロックコラージュのPLEASURE",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "コラージュ",
+    "テラコッタ"
+   ]
+  },
+  "template:ig5-power": {
+   "name": "ストーリー：写真つき#POWER",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "赤",
+    "ファッション"
+   ]
+  },
+  "template:ig5-relax-home": {
+   "name": "ストーリー：Relax SWEET HOME",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "ホーム",
+    "インテリア"
+   ]
+  },
+  "template:ig5-sale-70": {
+   "name": "ストーリー：斜めバンドのSALE 70%",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "セール",
+    "ショッピング"
+   ]
+  },
+  "template:ig5-sensual": {
+   "name": "ストーリー：写真2枚のSENSUAL",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "白黒",
+    "コラージュ"
+   ]
+  },
+  "template:ig5-style-y": {
+   "name": "ストーリー：大きなYのSTYLE",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "ファッション",
+    "ティール"
+   ]
+  },
+  "template:ig5-summer-pause": {
+   "name": "ストーリー：SUMMER take a pause",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "夏",
+    "休暇"
+   ]
+  },
+  "template:ig5-sunny-day": {
+   "name": "ストーリー：円のSUNNY DAY",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "夏",
+    "プール"
+   ]
+  },
+  "template:ig5-titulo-art-design": {
+   "name": "タイトル：ART & DESIGN FORUM",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "タイトル",
+    "テキスト",
+    "アート"
+   ]
+  },
+  "template:ig5-titulo-big-sale": {
+   "name": "タイトル：筆とカートのBIG SALE",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "タイトル",
+    "テキスト",
+    "セール"
+   ]
+  },
+  "template:ig5-titulo-bold-fashion": {
+   "name": "タイトル：斜めのBOLD FASHION STYLE",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "タイトル",
+    "テキスト",
+    "ファッション"
+   ]
+  },
+  "template:ig5-titulo-chicle": {
+   "name": "タイトル：BUBBLEGUM STYLE",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "タイトル",
+    "テキスト",
+    "ピンク"
+   ]
+  },
+  "template:ig5-titulo-cita": {
+   "name": "タイトル：著者名つきの名言",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "タイトル",
+    "テキスト",
+    "名言"
+   ]
+  },
+  "template:ig5-titulo-do-what": {
+   "name": "タイトル：DO WHAT YOU WANT",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "タイトル",
+    "テキスト",
+    "モチベーション"
+   ]
+  },
+  "template:ig5-titulo-formas-abstractas": {
+   "name": "タイトル：ABSTRACT SHAPES DESIGN",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "タイトル",
+    "テキスト",
+    "シェイプ"
+   ]
+  },
+  "template:ig5-titulo-glitch": {
+   "name": "タイトル：GLITCH STYLE",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "タイトル",
+    "テキスト",
+    "グリッチ"
+   ]
+  },
+  "template:ig5-titulo-neon": {
+   "name": "タイトル：光るNEON",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "タイトル",
+    "テキスト",
+    "ネオン"
+   ]
+  },
+  "template:ig5-titulo-never-give-up": {
+   "name": "タイトル：筆文字のNEVER GIVE UP",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "タイトル",
+    "テキスト",
+    "モチベーション"
+   ]
+  },
+  "template:ig5-titulo-retro": {
+   "name": "タイトル：80s RETROSTYLE",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "タイトル",
+    "テキスト",
+    "レトロ"
+   ]
+  },
+  "template:ig5-titulo-sale": {
+   "name": "タイトル：SALEチケット",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "タイトル",
+    "テキスト",
+    "セール"
+   ]
+  },
+  "template:ig5-wake-up": {
+   "name": "ストーリー：WAKE UP AND BE AWESOME",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "赤",
+    "モチベーション"
+   ]
+  },
+  "template:ig5-your-choice": {
+   "name": "ストーリー：黄色いドットのポートレート",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "黄色",
+    "ドット"
+   ]
+  },
+  "template:ig5-your-style": {
+   "name": "ストーリー：Your styleコラージュ",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "コラージュ",
+    "インテリア"
+   ]
+  },
+  "template:ig6-arbol-cinta": {
+   "name": "クリスマスストーリー：金のリボンのツリー",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "クリスマス",
+    "ツリー"
+   ]
+  },
+  "template:ig6-artista": {
+   "name": "ストーリー：#YLIFEのYou are the artist of your life",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "青",
+    "ライフスタイル"
+   ]
+  },
+  "template:ig6-aventuras": {
+   "name": "ストーリー：写真2枚と緑の山のMy Adventures",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "旅行",
+    "冒険"
+   ]
+  },
+  "template:ig6-diseno-pasion": {
+   "name": "ストーリー：ピンクのDesign is my passion",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "デザイン",
+    "建築"
+   ]
+  },
+  "template:ig6-feliz-brillante": {
+   "name": "クリスマスストーリー：グレーのMerry & Bright",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "クリスマス",
+    "ホリデー"
+   ]
+  },
+  "template:ig6-interior": {
+   "name": "ストーリー：黒いボックスのClear Interior",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "ホーム",
+    "インテリアデザイン"
+   ]
+  },
+  "template:ig6-luz-calida": {
+   "name": "ストーリー：ダイヤ形と#WARMのCozy Light",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "ホーム",
+    "商品"
+   ]
+  },
+  "template:ig6-pino-rojo": {
+   "name": "クリスマスストーリー：赤背景の松の枝とMerry Christmas",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "クリスマス",
+    "セール",
+    "松"
+   ]
+  },
+  "template:ig6-rebajas-50": {
+   "name": "ストーリー：50% OFFタグと青いストライプのSALE",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "写真",
+    "セール",
+    "割引"
+   ]
+  },
+  "template:ig6-rebajas-invierno": {
+   "name": "クリスマスストーリー：ギフトが開く「winter sell XMAS 50%off」",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "クリスマス",
+    "セール",
+    "割引"
+   ]
+  },
+  "template:ig6-santa": {
+   "name": "クリスマスストーリー：サンタの顔とMerry Xmas",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "クリスマス",
+    "サンタクロース"
+   ]
+  },
+  "template:ig6-swipe-bandera": {
+   "name": "スワイプアップ：クラッカーから飛び出すSWIPE UPフラッグ",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "スワイプアップ",
+    "スワイプ",
+    "矢印"
+   ]
+  },
+  "template:ig6-swipe-boton": {
+   "name": "スワイプアップ：四角から円に変わる白いボタン",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "スワイプアップ",
+    "スワイプ",
+    "矢印"
+   ]
+  },
+  "template:ig6-swipe-brillo": {
+   "name": "スワイプアップ：上昇する光る白い矢印",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "スワイプアップ",
+    "スワイプ",
+    "矢印"
+   ]
+  },
+  "template:ig6-swipe-chevrones": {
+   "name": "スワイプアップ：上昇する3つの青いシェブロン",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "スワイプアップ",
+    "スワイプ",
+    "矢印"
+   ]
+  },
+  "template:ig6-swipe-circulo": {
+   "name": "スワイプアップ：三角形入りの白い円が上昇してぼやける",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "スワイプアップ",
+    "スワイプ",
+    "矢印"
+   ]
+  },
+  "template:ig6-swipe-cuadro": {
+   "name": "スワイプアップ：矢印と反射のあるティールのボックス",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "スワイプアップ",
+    "スワイプ",
+    "矢印"
+   ]
+  },
+  "template:ig6-swipe-figuras": {
+   "name": "スワイプアップ：三角形に変わる緑のリングとSWIPE UP",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "スワイプアップ",
+    "スワイプ",
+    "矢印"
+   ]
+  },
+  "template:ig6-swipe-flecha": {
+   "name": "スワイプアップ：脈打つラインの上の青い矢印",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "スワイプアップ",
+    "スワイプ",
+    "矢印"
+   ]
+  },
+  "template:ig6-swipe-interruptor": {
+   "name": "スワイプアップ：青いつまみが上にスライドするトグル",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "スワイプアップ",
+    "スワイプ",
+    "矢印"
+   ]
+  },
+  "template:ig6-swipe-letras": {
+   "name": "スワイプアップ：跳ねるSWIPE UPの文字",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "スワイプアップ",
+    "スワイプ",
+    "矢印"
+   ]
+  },
+  "template:ig6-swipe-mano": {
+   "name": "スワイプアップ：シェブロンの軌跡を残して上にスワイプする手",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "スワイプアップ",
+    "スワイプ",
+    "矢印"
+   ]
+  },
+  "template:ig6-swipe-triangulo": {
+   "name": "スワイプアップ：赤い点と上昇する白い三角形",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "スワイプアップ",
+    "スワイプ",
+    "矢印"
+   ]
+  },
+  "template:ig7-awesome": {
+   "name": "タイポグラフィストーリー：AWESOME",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "タイポグラフィ",
+    "カラフル",
+    "ストライプ"
+   ]
+  },
+  "template:ig7-big": {
+   "name": "タイポグラフィストーリー：BIG",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "タイポグラフィ",
+    "カラフル",
+    "特大文字"
+   ]
+  },
+  "template:ig7-brand": {
+   "name": "タイポグラフィストーリー：BRAND",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "タイポグラフィ",
+    "カラフル",
+    "文字"
+   ]
+  },
+  "template:ig7-color": {
+   "name": "タイポグラフィストーリー：COLOR",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "タイポグラフィ",
+    "カラフル",
+    "フレーム"
+   ]
+  },
+  "template:ig7-easy-project": {
+   "name": "タイポグラフィストーリー：STORIES EASY PROJECT",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "タイポグラフィ",
+    "カラフル",
+    "ピクセル"
+   ]
+  },
+  "template:ig7-grid": {
+   "name": "タイポグラフィストーリー：カラーグリッド",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "タイポグラフィ",
+    "カラフル",
+    "グリッド"
+   ]
+  },
+  "template:ig7-no-plugins": {
+   "name": "タイポグラフィストーリー：NO PLUGINS",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "タイポグラフィ",
+    "カラフル",
+    "長方形"
+   ]
+  },
+  "template:ig7-social": {
+   "name": "タイポグラフィストーリー：SOCIAL",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "タイポグラフィ",
+    "カラフル",
+    "カード"
+   ]
+  },
+  "template:ig7-stories": {
+   "name": "タイポグラフィストーリー：STORIES",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "タイポグラフィ",
+    "カラフル",
+    "特大文字"
+   ]
+  },
+  "template:ig7-typo": {
+   "name": "タイポグラフィストーリー：TYPO",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "タイポグラフィ",
+    "カラフル",
+    "カード"
+   ]
+  },
+  "template:ig8-best-sellers": {
+   "name": "アーバンストーリー：Best Sellers click now",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "アーバン",
+    "青",
+    "ショップ"
+   ]
+  },
+  "template:ig8-city-vibes": {
+   "name": "アーバンストーリー：写真2枚のcity vibes",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "アーバン",
+    "青",
+    "都会"
+   ]
+  },
+  "template:ig8-friends": {
+   "name": "アーバンストーリー：フォトストリップのfriends positive",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "アーバン",
+    "青",
+    "友達"
+   ]
+  },
+  "template:ig8-mega-sale": {
+   "name": "アーバンストーリー：ポラロイドのmega sale %50",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "アーバン",
+    "青",
+    "セール"
+   ]
+  },
+  "template:ig8-visit-page": {
+   "name": "アーバンストーリー：青いバーのvisit page",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "アーバン",
+    "青",
+    "ウェブ"
+   ]
+  },
+  "template:ig9-banda-roja": {
+   "name": "ストーリー：赤いバンドと特大ワード",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "タイポグラフィ",
+    "バンド",
+    "赤"
+   ]
+  },
+  "template:ig9-letras-cortadas": {
+   "name": "ストーリー：カットされた特大ワードと3つのリンク",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "タイポグラフィ",
+    "文字",
+    "リンク"
+   ]
+  },
+  "template:ig9-letras-rojas": {
+   "name": "ストーリー：赤背景の回転する文字の壁",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "タイポグラフィ",
+    "文字",
+    "赤"
+   ]
+  },
+  "template:ig9-palabra-vertical": {
+   "name": "ストーリー：フレーム内の縦書きワードと赤いリボン",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "タイポグラフィ",
+    "縦型",
+    "フレーム"
+   ]
+  },
+  "template:ig9-typo": {
+   "name": "ストーリー：手描きフレームのTYPOタイル",
+   "tags": [
+    "instagram",
+    "ストーリー",
+    "リール",
+    "タイポグラフィ",
+    "文字",
+    "フレーム"
+   ]
+  },
   "template:intro-de-canal": {
    "name": "チャンネルのオープニング",
    "tags": [
@@ -24966,6 +27975,204 @@
     "ビート",
     "パーティー",
     "文字"
+   ]
+  },
+  "template:lg0-circulo-ambar": {
+   "name": "ロゴ：2つの点がリングを描いてディスクに閉じる（アンバー）",
+   "tags": [
+    "ロゴ",
+    "ロゴ公開",
+    "フラット",
+    "アンバー",
+    "黄色",
+    "円"
+   ]
+  },
+  "template:lg0-cuadro-blanco": {
+   "name": "ロゴ：弾んで開くスクエア（白）",
+   "tags": [
+    "ロゴ",
+    "ロゴ公開",
+    "フラット",
+    "白",
+    "スクエア",
+    "バウンス"
+   ]
+  },
+  "template:lg0-disco-azul": {
+   "name": "ロゴ：飛んできた点がディスクに開く（青）",
+   "tags": [
+    "ロゴ",
+    "ロゴ公開",
+    "フラット",
+    "青",
+    "ディスク",
+    "ドット"
+   ]
+  },
+  "template:lg0-hexagono-coral": {
+   "name": "ロゴ：ライン・円・転がる六角形とブランド名（コーラル）",
+   "tags": [
+    "ロゴ",
+    "ロゴ公開",
+    "フラット",
+    "コーラル",
+    "六角形",
+    "ライン"
+   ]
+  },
+  "template:lg0-iconos-redes": {
+   "name": "ポップアップする10個のSNSアイコン（青）",
+   "tags": [
+    "ロゴ",
+    "ロゴ公開",
+    "フラット",
+    "sns",
+    "アイコン",
+    "facebook"
+   ]
+  },
+  "template:lg0-sigueme": {
+   "name": "SNSロゴ：写真の上で六角形のボールがフォローを案内",
+   "tags": [
+    "ロゴ",
+    "ロゴ公開",
+    "フラット",
+    "フォローして",
+    "ユーザー",
+    "六角形"
+   ]
+  },
+  "template:lg1-luz-dorada": {
+   "name": "ロゴ：金色の光で組み上がる",
+   "tags": [
+    "ロゴ",
+    "イントロ",
+    "光",
+    "ゴールド",
+    "輝き",
+    "ストライプ"
+   ]
+  },
+  "template:lg2-cintas": {
+   "name": "フォローして：回転するリボンのロゴ",
+   "tags": [
+    "ロゴ",
+    "フラット",
+    "コーポレート",
+    "フォローして",
+    "3d"
+   ]
+  },
+  "template:lg2-franjas": {
+   "name": "フォローして：スライスとバーのロゴ",
+   "tags": [
+    "ロゴ",
+    "フラット",
+    "コーポレート",
+    "フォローして",
+    "ストライプ"
+   ]
+  },
+  "template:lg2-giro": {
+   "name": "ロゴ：ほどけるように回転",
+   "tags": [
+    "ロゴ",
+    "フラット",
+    "コーポレート",
+    "回転"
+   ]
+  },
+  "template:lg2-glitch": {
+   "name": "ロゴ：グリーンのグリッチ",
+   "tags": [
+    "ロゴ",
+    "フラット",
+    "コーポレート",
+    "グリッチ"
+   ]
+  },
+  "template:lg2-horizonte": {
+   "name": "チャンネル登録：水平線から昇るロゴ",
+   "tags": [
+    "ロゴ",
+    "フラット",
+    "コーポレート",
+    "チャンネル登録",
+    "水平線"
+   ]
+  },
+  "template:lg2-mira": {
+   "name": "チャンネル登録：開くターゲット",
+   "tags": [
+    "ロゴ",
+    "フラット",
+    "コーポレート",
+    "チャンネル登録",
+    "ターゲット"
+   ]
+  },
+  "template:lg2-orbita": {
+   "name": "チャンネル登録：軌道を回るロゴ",
+   "tags": [
+    "ロゴ",
+    "フラット",
+    "コーポレート",
+    "チャンネル登録",
+    "軌道"
+   ]
+  },
+  "template:lg2-puntos": {
+   "name": "ロゴ：転がるドット",
+   "tags": [
+    "ロゴ",
+    "フラット",
+    "コーポレート",
+    "ドット"
+   ]
+  },
+  "template:lg3-esfera": {
+   "name": "ロゴ：ストライプのスフィアがディスクになる",
+   "tags": [
+    "ロゴ",
+    "ロゴ公開",
+    "イントロ",
+    "スフィア",
+    "青",
+    "コーポレート"
+   ]
+  },
+  "template:lg3-ondas": {
+   "name": "ロゴ：カラーウェーブがラインに収まる",
+   "tags": [
+    "ロゴ",
+    "ロゴ公開",
+    "イントロ",
+    "ウェーブ",
+    "カラフル",
+    "ライン"
+   ]
+  },
+  "template:lg3-persiana": {
+   "name": "ロゴ：ブラインド状のスクエアが開く",
+   "tags": [
+    "ロゴ",
+    "ロゴ公開",
+    "イントロ",
+    "スクエア",
+    "グレー",
+    "ミニマル"
+   ]
+  },
+  "template:lg3-torta-diana": {
+   "name": "ロゴ：破線リング・円グラフ・ターゲット",
+   "tags": [
+    "ロゴ",
+    "ロゴ公開",
+    "イントロ",
+    "円グラフ",
+    "円",
+    "パステル"
    ]
   },
   "template:llt-bevan": {
@@ -33338,6 +36545,1053 @@
     "カラフル",
     "キネティック",
     "写真"
+   ]
+  },
+  "template:tk0-cintas-telefono": {
+   "name": "ストーリー：ワードテープとスマホ",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "縦型",
+    "リボン",
+    "スマホ"
+   ]
+  },
+  "template:tk0-collage-azul": {
+   "name": "ストーリー：青と黒の3枚フォトコラージュ",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "縦型",
+    "コラージュ",
+    "写真"
+   ]
+  },
+  "template:tk0-collage-negro": {
+   "name": "ストーリー：ステッカー付き6枚フォトコラージュ",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "縦型",
+    "コラージュ",
+    "写真"
+   ]
+  },
+  "template:tk0-creas-tendencias": {
+   "name": "ストーリー：トレンドをつくる？赤いバブル",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "縦型",
+    "質問",
+    "ピンク"
+   ]
+  },
+  "template:tk0-empieza-aqui": {
+   "name": "ストーリー：トレンドはここから",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "縦型",
+    "トレンド",
+    "青"
+   ]
+  },
+  "template:tk0-mision": {
+   "name": "ストーリー：赤背景に写真とミッション",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "縦型",
+    "ミッション",
+    "赤"
+   ]
+  },
+  "template:tk0-nueva-era": {
+   "name": "ストーリー：新しい動画の時代",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "縦型",
+    "動画",
+    "赤"
+   ]
+  },
+  "template:tk0-nuevo-video": {
+   "name": "ストーリー：スマホ付きNEW VIDEO",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "縦型",
+    "動画",
+    "新着"
+   ]
+  },
+  "template:tk0-plantilla": {
+   "name": "ストーリー：写真つき みんなのテンプレート",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "縦型",
+    "テンプレート",
+    "青"
+   ]
+  },
+  "template:tk0-plataforma": {
+   "name": "ストーリー：スマホ2台の新プラットフォーム",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "縦型",
+    "プラットフォーム",
+    "黒"
+   ]
+  },
+  "template:tk0-promo-negro": {
+   "name": "ストーリー：黒背景の青いバブルのSUPER PROMO",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "縦型",
+    "プロモ",
+    "黒"
+   ]
+  },
+  "template:tk0-promo-x": {
+   "name": "ストーリー：クロステープのPROMO",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "縦型",
+    "プロモ",
+    "黒"
+   ]
+  },
+  "template:tk0-que-ves": {
+   "name": "ストーリー：何を見るのが好き？チャット",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "縦型",
+    "チャット",
+    "質問"
+   ]
+  },
+  "template:tk0-recordatorio": {
+   "name": "ストーリー：動画に重ねるリマインダーアンケート",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "縦型",
+    "アンケート",
+    "リマインダー"
+   ]
+  },
+  "template:tk0-tendencias": {
+   "name": "ストーリー：ピンクと青のバイラルトレンド",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "縦型",
+    "トレンド",
+    "ピンク"
+   ]
+  },
+  "template:tk0-trendy": {
+   "name": "ストーリー：カラーバンドのTRENDY STYLE",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "縦型",
+    "トレンド",
+    "青"
+   ]
+  },
+  "template:tk1-tipografia": {
+   "name": "タイポグラフィオープナー：ビートごとに一語",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "オープニング",
+    "タイポグラフィ",
+    "ワード"
+   ]
+  },
+  "template:tk2-alice": {
+   "name": "ストーリー：写真つきAlice Braun",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "名前",
+    "写真",
+    "青"
+   ]
+  },
+  "template:tk2-austin": {
+   "name": "ストーリー：新着動画つきAustin Grant",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "名前",
+    "写真",
+    "黒"
+   ]
+  },
+  "template:tk2-baile": {
+   "name": "ストーリー：写真3枚のJust dance",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "ダンス",
+    "写真",
+    "青"
+   ]
+  },
+  "template:tk2-belleza": {
+   "name": "ストーリー：About Beauty for You",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "ビューティー",
+    "写真",
+    "黒"
+   ]
+  },
+  "template:tk2-blogger": {
+   "name": "ストーリー：リングのSocial blogger",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "リング",
+    "写真",
+    "黒"
+   ]
+  },
+  "template:tk2-contenido": {
+   "name": "ストーリー：グリッドで見せる多彩なコンテンツ",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "グリッド",
+    "写真",
+    "黒"
+   ]
+  },
+  "template:tk2-follow": {
+   "name": "ストーリー：ハートのfollow",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "フォロー",
+    "ハート",
+    "黒"
+   ]
+  },
+  "template:tk2-isabella": {
+   "name": "ストーリー：写真つきIsabella Walker",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "名前",
+    "写真",
+    "青"
+   ]
+  },
+  "template:tk2-lifestyle": {
+   "name": "ストーリー：動画つき#lifestyle",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "ライフスタイル",
+    "動画",
+    "赤"
+   ]
+  },
+  "template:tk2-new": {
+   "name": "ストーリー：ハートのNEW",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "新着",
+    "写真",
+    "黒"
+   ]
+  },
+  "template:tk2-nuevo-video": {
+   "name": "ストーリー：写真つき新着動画",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "新着動画",
+    "写真",
+    "赤"
+   ]
+  },
+  "template:tk2-perfil": {
+   "name": "ストーリー：フォロワー数つきプロフィール",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "プロフィール",
+    "フォロワー",
+    "写真"
+   ]
+  },
+  "template:tk2-suscriptores": {
+   "name": "ストーリー：新しい登録者を獲得",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "登録者",
+    "写真",
+    "黒"
+   ]
+  },
+  "template:tk2-tarjeta": {
+   "name": "ストーリー：ロゴとステッカーのカード",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "ロゴ",
+    "ステッカー",
+    "青"
+   ]
+  },
+  "template:tk2-tendencias": {
+   "name": "ストーリー：赤いバンドのトレンド",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "トレンド",
+    "写真",
+    "青"
+   ]
+  },
+  "template:tk3-diseno": {
+   "name": "ストーリー：細いラインのFashion Design",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "ファッション",
+    "パステル",
+    "デザイン"
+   ]
+  },
+  "template:tk3-estilo-de-vida": {
+   "name": "ストーリー：回転する三角形のLifestyle",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "ファッション",
+    "パステル",
+    "ライフスタイル"
+   ]
+  },
+  "template:tk3-gracias": {
+   "name": "エンドカード：Thanks For Watching!",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "ファッション",
+    "パステル",
+    "エンディング"
+   ]
+  },
+  "template:tk3-rebajas": {
+   "name": "ストーリー：50% OFFボックスのファッションセール",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "ファッション",
+    "パステル",
+    "セール"
+   ]
+  },
+  "template:tk3-rebajas-2": {
+   "name": "ストーリー：写真に重ねた50%のFashion Sale",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "ファッション",
+    "パステル",
+    "セール"
+   ]
+  },
+  "template:tk3-siguiente-nivel": {
+   "name": "ストーリー：縦書き50% OFFのThe Next Level Of Fashion",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "ファッション",
+    "パステル",
+    "割引"
+   ]
+  },
+  "template:tk3-siguiente-nivel-2": {
+   "name": "ストーリー：Get 50% OFFのThe Next Level Of Fashion",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "ファッション",
+    "パステル",
+    "割引"
+   ]
+  },
+  "template:tk3-sorteo": {
+   "name": "ストーリー：Giveaway!",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "ファッション",
+    "パステル",
+    "プレゼント企画"
+   ]
+  },
+  "template:tk3-tendencia": {
+   "name": "ストーリー：50%のKeep It Trendy",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "ファッション",
+    "パステル",
+    "トレンド"
+   ]
+  },
+  "template:tk4-dynamic": {
+   "name": "ダイナミックオープナー：赤と黒の写真",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "オープニング",
+    "フォトスライドショー",
+    "ダイナミック"
+   ]
+  },
+  "template:tk4-fast": {
+   "name": "ファストオープナー：カラー写真の上のワード",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "オープニング",
+    "フォトスライドショー",
+    "高速"
+   ]
+  },
+  "template:tk4-modern": {
+   "name": "モダンオープナー：黄色・ゴールド・グリッド",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "オープニング",
+    "フォトスライドショー",
+    "モダン"
+   ]
+  },
+  "template:tk4-rhythm": {
+   "name": "リズムオープナー：グラデーションのワード",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "オープニング",
+    "フォトスライドショー",
+    "リズム"
+   ]
+  },
+  "template:tk4-stomp": {
+   "name": "ストンプオープナー：写真つきでビートごとに一語",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "オープニング",
+    "フォトスライドショー",
+    "ストンプ"
+   ]
+  },
+  "template:tk4-typo": {
+   "name": "タイポオープナー：黒いワードと写真",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "オープニング",
+    "フォトスライドショー",
+    "タイポグラフィ"
+   ]
+  },
+  "template:tk5-carefree": {
+   "name": "ストーリー：縦書きCAREFREE LIVING",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "白黒",
+    "写真",
+    "縦型"
+   ]
+  },
+  "template:tk5-endless": {
+   "name": "ストーリー：ENDLESS LOVING CONVERSATIONS",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "白黒",
+    "テキスト"
+   ]
+  },
+  "template:tk5-find": {
+   "name": "ストーリー：FIND HIDDEN GEMS",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "白黒",
+    "テキスト"
+   ]
+  },
+  "template:tk5-follow": {
+   "name": "ストーリー：FOLLOW YOUR DREAM",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "白黒",
+    "テキスト"
+   ]
+  },
+  "template:tk5-foto-cae": {
+   "name": "ストーリー：落ちて上がる写真",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "白黒",
+    "写真"
+   ]
+  },
+  "template:tk5-foto-lado": {
+   "name": "ストーリー：横からスライドインする写真",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "白黒",
+    "写真"
+   ]
+  },
+  "template:tk5-foto-sube": {
+   "name": "ストーリー：せり上がる写真",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "白黒",
+    "写真"
+   ]
+  },
+  "template:tk5-freedom": {
+   "name": "ストーリー：写真2枚のFREEDOMとPLEASING",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "白黒",
+    "写真",
+    "コラージュ"
+   ]
+  },
+  "template:tk5-join": {
+   "name": "ストーリー：行動喚起のJOIN THE JOURNEY",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "白黒",
+    "行動喚起",
+    "ロゴ"
+   ]
+  },
+  "template:tk5-laughter": {
+   "name": "ストーリー：LAUGHTER OF A LOVED ONE",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "白黒",
+    "写真"
+   ]
+  },
+  "template:tk5-stars": {
+   "name": "ストーリー：縦列のSTARSとDREAMS",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "白黒",
+    "写真",
+    "コラージュ"
+   ]
+  },
+  "template:tk5-sunshine": {
+   "name": "ストーリー：写真つきSUNSHINE FILLS SKIES",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "白黒",
+    "写真",
+    "コラージュ"
+   ]
+  },
+  "template:tk6-discovery": {
+   "name": "ストーリー：DISCOVERYとSPACESUITのコラージュ",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "ターコイズ",
+    "写真",
+    "コラージュ"
+   ]
+  },
+  "template:tk6-dreams": {
+   "name": "ストーリー：DREAMSコラージュ",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "ターコイズ",
+    "写真",
+    "コラージュ"
+   ]
+  },
+  "template:tk6-flower": {
+   "name": "ストーリー：FLOWER BEAUTYコラージュ",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "ターコイズ",
+    "写真",
+    "コラージュ"
+   ]
+  },
+  "template:tk6-foto-cae": {
+   "name": "ストーリー：落ちてくるフレーム付き写真",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "ターコイズ",
+    "写真"
+   ]
+  },
+  "template:tk6-foto-lado": {
+   "name": "ストーリー：スライドインするフレーム付き写真",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "ターコイズ",
+    "写真"
+   ]
+  },
+  "template:tk6-freedom": {
+   "name": "ストーリー：FREEDOMの縦列",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "ターコイズ",
+    "写真",
+    "縦型"
+   ]
+  },
+  "template:tk6-modern": {
+   "name": "ストーリー：MODERN STORIESコラージュ",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "ターコイズ",
+    "写真",
+    "コラージュ"
+   ]
+  },
+  "template:tk6-savor": {
+   "name": "ストーリー：行動喚起のSAVOR LIFE'S GOODNESS",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "ターコイズ",
+    "行動喚起",
+    "ロゴ"
+   ]
+  },
+  "template:tk6-starry": {
+   "name": "ストーリー：コラージュに縮むSTARRY NIGHTS",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "ターコイズ",
+    "写真",
+    "コラージュ"
+   ]
+  },
+  "template:tk6-times-now": {
+   "name": "ストーリー：写真2枚のTIME'S NOW",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "ターコイズ",
+    "写真",
+    "縦型"
+   ]
+  },
+  "template:tk6-wind": {
+   "name": "ストーリー：写真2枚のWINDとAURA",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "ターコイズ",
+    "写真",
+    "コラージュ"
+   ]
+  },
+  "template:tk7-blooms": {
+   "name": "ストーリー：赤のBLOOMS ALL AROUND",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "花",
+    "カラフル",
+    "ファッション"
+   ]
+  },
+  "template:tk7-bold": {
+   "name": "ストーリー：BOLD COLORS SWAYコラージュ",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "花",
+    "カラフル",
+    "ファッション"
+   ]
+  },
+  "template:tk7-breezy": {
+   "name": "ストーリー：BREEZY SPRING ATTIREコラージュ",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "花",
+    "カラフル",
+    "ファッション"
+   ]
+  },
+  "template:tk7-canvas": {
+   "name": "ストーリー：CANVAS LIFE BODYコラージュ",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "花",
+    "カラフル",
+    "ファッション"
+   ]
+  },
+  "template:tk7-characters": {
+   "name": "ストーリー：写真の下のCOLORFUL CHARACTERS",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "花",
+    "カラフル",
+    "ファッション"
+   ]
+  },
+  "template:tk7-colorful-and": {
+   "name": "ストーリー：写真2枚の間のCOLORFUL AND CONFIDENCE",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "花",
+    "カラフル",
+    "ファッション"
+   ]
+  },
+  "template:tk7-discover-more": {
+   "name": "エンドストーリー：ロゴつきDISCOVER MORE",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "花",
+    "カラフル",
+    "ファッション"
+   ]
+  },
+  "template:tk7-embrace": {
+   "name": "ストーリー：写真を囲むEMBRACEとEXPRESSION",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "花",
+    "カラフル",
+    "ファッション"
+   ]
+  },
+  "template:tk7-embrace-your-life": {
+   "name": "ストーリー：写真4枚のEMBRACE YOUR LIFE",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "花",
+    "カラフル",
+    "ファッション"
+   ]
+  },
+  "template:tk7-flower": {
+   "name": "ストーリー：青のFLOWER PARADISE DELIGHT",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "花",
+    "カラフル",
+    "ファッション"
+   ]
+  },
+  "template:tk7-sale": {
+   "name": "ストーリー：写真2枚のSALE SALE SALE",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "花",
+    "カラフル",
+    "ファッション"
+   ]
+  },
+  "template:tk7-savor": {
+   "name": "ストーリー：写真の縦列のSAVOR MOMENTS NOW",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "花",
+    "カラフル",
+    "ファッション"
+   ]
+  },
+  "template:tk8-apple-pie": {
+   "name": "ストーリー：SWEET APPLE PIEとSAVOR EVERY BITE",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "フード",
+    "レストラン",
+    "黄色"
+   ]
+  },
+  "template:tk8-bbq": {
+   "name": "ストーリー：写真5枚のBBQ SMOKE RISING",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "フード",
+    "レストラン",
+    "黄色"
+   ]
+  },
+  "template:tk8-big-sale": {
+   "name": "ストーリー：写真3枚のBIG -50% SALE",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "フード",
+    "レストラン",
+    "黄色"
+   ]
+  },
+  "template:tk8-buy-now": {
+   "name": "ストーリー：写真5枚のBUY NOW",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "フード",
+    "レストラン",
+    "黄色"
+   ]
+  },
+  "template:tk8-crispy-fries": {
+   "name": "ストーリー：写真3枚のCRISPY GOLDEN FRIES",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "フード",
+    "レストラン",
+    "黄色"
+   ]
+  },
+  "template:tk8-discover-flavors": {
+   "name": "エンドストーリー：ロゴつきDISCOVER NEW FLAVORS",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "フード",
+    "レストラン",
+    "黄色"
+   ]
+  },
+  "template:tk8-fast-food": {
+   "name": "ストーリー：FAST FOOD ADDICTION",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "フード",
+    "レストラン",
+    "黄色"
+   ]
+  },
+  "template:tk8-food-lovers": {
+   "name": "ストーリー：写真4枚のFOOD LOVERS UNITE",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "フード",
+    "レストラン",
+    "黄色"
+   ]
+  },
+  "template:tk8-fried-chicken": {
+   "name": "ストーリー：FRIED CHICKEN DELIGHT",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "フード",
+    "レストラン",
+    "黄色"
+   ]
+  },
+  "template:tk8-hot-dogs": {
+   "name": "ストーリー：HOT DOGSとCRISPY FRIES",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "フード",
+    "レストラン",
+    "黄色"
+   ]
+  },
+  "template:tk8-lowest-price": {
+   "name": "ストーリー：THE LOWEST PRICE",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "フード",
+    "レストラン",
+    "黄色"
+   ]
+  },
+  "template:tk8-new-york-pizza": {
+   "name": "ストーリー：全画面からコラージュになるNEW YORK PIZZA",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "フード",
+    "レストラン",
+    "黄色"
+   ]
+  },
+  "template:tk8-nice-diners": {
+   "name": "ストーリー：縦長写真のNICE DINERS",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "フード",
+    "レストラン",
+    "黄色"
+   ]
+  },
+  "template:tk9-limpia": {
+   "name": "クリーンオープナー：ビートに合わせたワードと写真",
+   "tags": [
+    "tiktok",
+    "ストーリー",
+    "リール",
+    "オープニング",
+    "タイポグラフィ",
+    "ワード"
    ]
   },
   "template:top-5-mas-vendidos": {
