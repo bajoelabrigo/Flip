@@ -3,7 +3,7 @@
 Flip Studio es un fork de Drift. Esta sección lista lo que Flip Studio cambia respecto a Drift; debajo sigue el
 registro heredado de Drift.
 
-## 0.31.0 — Kit de YouTube en Stock y 3D más fiel
+## 0.31.0 — Kits de YouTube, TikTok, Instagram y logos en Stock, y 3D más fiel
 
 - Motor: emparentado 3D (`clipParentWorld3d`, `GpuLayer::parentWorld`: el hijo va en el mundo del padre inclinado antes
   del ojo); efecto Remolino (`stylize.twirl`, con espejo en los bordes); desenfoque gaussiano real en píxeles del
@@ -11,7 +11,10 @@ registro heredado de Drift.
   solo donde la capa es opaca; contador lineal (`TextStyle::counterCurve`).
 - Plantillas: `Clip::layoutRole` (backdrop | art | cover) en `fitOverlayLayout`; fondos y fotos que crecen parejos; el
   ajuste mueve `parentRest`; al insertar se remapean los ids de mate, carril y padre en todas las pistas.
-- Stock: 494 plantillas nuevas (tit1–tit7, llt16, yp0–yp7) con `minAppVersion` 0.31.0, en 13 idiomas.
+- Plantillas: el ajuste mide el diseño en su tramo quieto (no la unión de cajas en el tiempo); los clips `cover` no
+  remapean sus máscaras; `isOverlayTemplate` incluye `tiktok` e `instagram`.
+- Stock: 494 plantillas nuevas (tit1–tit7, llt16, yp0–yp7) y 392 de los kits de logos (lg0–lg3), TikTok (tk0–tk9) e
+  Instagram (ig0–ig14), con `minAppVersion` 0.31.0, en 13 idiomas.
 
 ## 0.30.0 — Subtítulos y voz como las apps grandes, y la línea de tiempo de After Effects
 

@@ -116,6 +116,7 @@ subió, pegar estas primero y las de la 0.30.2 debajo, recortando sus últimas l
 > Novedades de la 0.31.0
 >
 > - Más de 490 plantillas nuevas en Stock › Kit de YouTube: títulos, tercios, botones de suscribirse, pantallas finales, contadores, fondos y aperturas que se adaptan solas a Short o a horizontal.
+> - Kits nuevos en Stock: TikTok, Instagram y logos animados, con historias, aperturas, publicaciones y botones para seguir o comentar.
 > - Emparentado 3D: una capa hija gira y se mueve en profundidad con su padre 3D, como en After Effects.
 > - Nuevo efecto Remolino.
 > - Desenfoque gaussiano más suave, igual en la vista previa y al exportar.
@@ -126,6 +127,7 @@ En inglés:
 > What's new in 0.31.0
 >
 > - Over 490 new templates in Stock › YouTube Kit: titles, lower thirds, subscribe buttons, end screens, counters, backgrounds and openers that fit a Short or a widescreen video on their own.
+> - New Stock kits: TikTok, Instagram and animated logos, with stories, openers, posts and follow or comment buttons.
 > - 3D parenting: a child layer turns and moves in depth with its 3D parent, as in After Effects.
 > - New Twirl effect.
 > - Smoother Gaussian blur, the same in the preview and in the export.
