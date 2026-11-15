@@ -273,6 +273,20 @@ Item {
                     onActivated: index => EditorState.setShapePartBlend(EditorState.selectedTrack, EditorState.selectedClip,
                                                                        root.part.id, modes[index])
                 }
+                // After Effects' Merge Paths in a group (0.32), live: the parts stay editable and animated.
+                ThemedLabel {
+                    visible: !!root.part && root.part.group === true
+                    text: qsTr("Merge the parts of the group")
+                }
+                ThemedComboBox {
+                    visible: !!root.part && root.part.group === true
+                    width: parent.width
+                    tooltip: qsTr("The bottom part is the base; the parts above are added to it, cut out of it, and so on. They stay animated.")
+                    model: [qsTr("Off"), qsTr("Add"), qsTr("Subtract"), qsTr("Intersect"), qsTr("Exclude intersections")]
+                    currentIndex: Math.round(Number(root.part ? root.part.mergeMode || 0 : 0))
+                    onActivated: index => EditorState.setShapeGroupMerge(EditorState.selectedTrack, EditorState.selectedClip,
+                                                                        root.part.id, index)
+                }
                 // After Effects' Wiggle Transform (0.28): the part jitters on its own; nothing moves while the
                 // amounts are 0.
                 CollapsibleSection {
@@ -470,6 +484,7 @@ Item {
                         ThemedMenuItem { text: qsTr("Shadow"); onTriggered: root.addLayer("shadow") }
                         ThemedMenuItem { text: qsTr("Glow"); onTriggered: root.addLayer("glow") }
                         ThemedMenuItem { text: qsTr("Extrude"); onTriggered: root.addLayer("extrude") }
+                        ThemedMenuItem { text: qsTr("Inner tone"); onTriggered: root.addLayer("innerTone") }
                     }
                 }
             }
@@ -913,6 +928,24 @@ Item {
                     checked: Number(root.shapeStyle.smoothMorph || 0) >= 0.5
                     onToggled: root.setShapeKey("smoothMorph", checked ? 1 : 0)
                 }
+                ThemedSwitch {
+                    width: parent.width
+                    visible: root.shapeStyle.kind === "custom" && parent.pathState.animated === true
+                             && Number(root.shapeStyle.smoothMorph || 0) >= 0.5
+                    text: qsTr("Keep sharp corners")
+                    tooltip: qsTr("Points where the path turns sharply (the tip of a flame, a spark) stay pointed while the rest blends smoothly")
+                    checked: Number(root.shapeStyle.morphCorners || 0) > 0
+                    onToggled: root.setShapeKey("morphCorners", checked ? 40 : 0)
+                }
+                ThemedSwitch {
+                    width: parent.width
+                    visible: root.shapeStyle.kind === "custom" && parent.pathState.animated === true
+                             && Number(root.shapeStyle.smoothMorph || 0) >= 0.5
+                    text: qsTr("New contours grow from their centre")
+                    tooltip: qsTr("A hole or a drop that only one key has opens from (or closes into) its own centre")
+                    checked: Number(root.shapeStyle.morphFromCentre || 0) >= 0.5
+                    onToggled: root.setShapeKey("morphFromCentre", checked ? 1 : 0)
+                }
                 ThemedLabel {
                     width: parent.width
                     visible: parent.pathState.animated === true
@@ -1151,6 +1184,16 @@ Item {
                         inputTo: 1000
                     }
                 }
+                // «On twos» (0.32): a new random wobble a few times a second, held in between, as hand-drawn boil.
+                PropertyKeyframeRow {
+                    width: parent.width
+                    propDef: root.knob("wiggleStepRate", qsTr("Drawings per second (0 = smooth)"), 0)
+                    keyframeList: root.knobKeyframes("wiggleStepRate")
+                    useSlider: true
+                    sliderFrom: 0
+                    sliderTo: 30
+                    inputTo: 60
+                }
             }
         }
         // ----- Several shapes in one layer, Merge / Offset / Zig zag / Twist (0.26, stage G) --------
@@ -1259,6 +1302,29 @@ Item {
                     checked: Number(root.shapeStyle.zigzagSmooth || 0) >= 0.5
                     onToggled: root.setShapeKey("zigzagSmooth", checked ? 1 : 0)
                 }
+                // An uneven, broken zig zag redrawn on twos (0.32): electricity.
+                Row {
+                    width: parent.width
+                    spacing: 8
+                    PropertyKeyframeRow {
+                        width: (parent.width - parent.spacing) / 2
+                        propDef: root.knob("zigzagJitter", qsTr("Randomness"), 0)
+                        keyframeList: root.knobKeyframes("zigzagJitter")
+                        useSlider: true
+                        sliderFrom: 0
+                        sliderTo: 100
+                        unit: "%"
+                    }
+                    PropertyKeyframeRow {
+                        width: (parent.width - parent.spacing) / 2
+                        propDef: root.knob("zigzagStepRate", qsTr("Drawings per second"), 0)
+                        keyframeList: root.knobKeyframes("zigzagStepRate")
+                        useSlider: true
+                        sliderFrom: 0
+                        sliderTo: 30
+                        inputTo: 60
+                    }
+                }
                 PropertyKeyframeRow {
                     width: parent.width
                     propDef: root.knob("twistAngle", qsTr("Twist"), 0)
@@ -1269,6 +1335,82 @@ Item {
                     inputFrom: -3600
                     inputTo: 3600
                     unit: "°"
+                }
+            }
+        }
+
+        // ----- Break apart (0.32, cartoon VFX): holes open from inside until nothing is left ----------
+        CollapsibleSection {
+            visible: root.showShapeSections
+            width: parent.width
+            title: qsTr("Break apart")
+            expanded: Number((root.shapeStyle || {}).erodeAmount || 0) > 0
+
+            Column {
+                width: parent.width
+                spacing: Theme.spacingMd
+
+                ThemedLabel {
+                    width: parent.width
+                    opacity: 0.8
+                    text: qsTr("Holes open inside the shape and grow until it is gone: animate Amount from 0 to 100 % so an effect dies by breaking up instead of fading. Stretch turns the holes into strips along the angle.")
+                }
+                PropertyKeyframeRow {
+                    width: parent.width
+                    propDef: root.knob("erodeAmount", qsTr("Amount"), 0)
+                    keyframeList: root.knobKeyframes("erodeAmount")
+                    useSlider: true
+                    sliderFrom: 0
+                    sliderTo: 100
+                    unit: "%"
+                }
+                Row {
+                    width: parent.width
+                    spacing: 8
+                    PropertyKeyframeRow {
+                        width: (parent.width - parent.spacing) / 2
+                        propDef: root.knob("erodeSize", qsTr("Hole size"), 0)
+                        keyframeList: root.knobKeyframes("erodeSize")
+                        useSlider: true
+                        sliderFrom: 4
+                        sliderTo: 300
+                        inputTo: 2000
+                        unit: "px"
+                    }
+                    PropertyKeyframeRow {
+                        width: (parent.width - parent.spacing) / 2
+                        propDef: root.knob("erodeStretch", qsTr("Stretch"), 1)
+                        keyframeList: root.knobKeyframes("erodeStretch")
+                        useSlider: true
+                        sliderFrom: 1
+                        sliderTo: 10
+                        inputFrom: 1
+                        inputTo: 20
+                    }
+                }
+                Row {
+                    width: parent.width
+                    spacing: 8
+                    PropertyKeyframeRow {
+                        width: (parent.width - parent.spacing) / 2
+                        propDef: root.knob("erodeAngle", qsTr("Angle"), 0)
+                        keyframeList: root.knobKeyframes("erodeAngle")
+                        useSlider: true
+                        sliderFrom: -180
+                        sliderTo: 180
+                        inputFrom: -3600
+                        inputTo: 3600
+                        unit: "°"
+                    }
+                    PropertyKeyframeRow {
+                        width: (parent.width - parent.spacing) / 2
+                        propDef: root.knob("erodeSeed", qsTr("Random seed"), 0)
+                        keyframeList: root.knobKeyframes("erodeSeed")
+                        useSlider: true
+                        sliderFrom: 0
+                        sliderTo: 100
+                        inputTo: 1000
+                    }
                 }
             }
         }

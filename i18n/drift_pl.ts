@@ -5790,6 +5790,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Posterize time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Translating the captions…</source>
         <translation>Tłumaczenie napisów…</translation>
     </message>
@@ -20328,6 +20332,22 @@ ZOBACZENIA</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Posterize time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Draws the layer fewer times a second and holds each drawing, like hand-drawn animation on twos</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>fps</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Drawings per second</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Motion blur</source>
         <translation type="unfinished"></translation>
     </message>
@@ -24786,6 +24806,10 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
         <translation>Rozwiń warstwę</translation>
     </message>
     <message>
+        <source>Inner tone</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Bring forward</source>
         <translation>Przenieś do przodu</translation>
     </message>
@@ -25004,6 +25028,22 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     <message>
         <source>Offset Y</source>
         <translation>Przesunięcie Y</translation>
+    </message>
+    <message>
+        <source>The tone fills the shape where a copy moved by the offset does not reach: offset up for a band along the bottom.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy scale</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy rotation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Paint where the copy reaches</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Radius</source>
@@ -25395,6 +25435,14 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
         <translation>Jaśniej</translation>
     </message>
     <message>
+        <source>Merge the parts of the group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The bottom part is the base; the parts above are added to it, cut out of it, and so on. They stay animated.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Wiggle</source>
         <translation type="unfinished"></translation>
     </message>
@@ -25457,6 +25505,10 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     <message>
         <source>Extrude</source>
         <translation>Wytłoczenie</translation>
+    </message>
+    <message>
+        <source>Inner tone</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>No layers. Add a fill to start.</source>
@@ -25567,6 +25619,30 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
         <translation>Rozmiar ogona</translation>
     </message>
     <message>
+        <source>Break apart</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Holes open inside the shape and grow until it is gone: animate Amount from 0 to 100 % so an effect dies by breaking up instead of fading. Stretch turns the holes into strips along the angle.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Amount</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hole size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stretch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Angle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Path</source>
         <translation type="unfinished"></translation>
     </message>
@@ -25620,6 +25696,22 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     </message>
     <message>
         <source>Keys whose paths have different points still blend smoothly: a blob grows, wobbles or splits into drops</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keep sharp corners</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Points where the path turns sharply (the tip of a flame, a spark) stay pointed while the rest blends smoothly</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New contours grow from their centre</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A hole or a drop that only one key has opens from (or closes into) its own centre</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -25759,6 +25851,10 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Drawings per second (0 = smooth)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Offset, pucker, zig zag and twist</source>
         <translation type="unfinished"></translation>
     </message>
@@ -25780,6 +25876,14 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     </message>
     <message>
         <source>Smooth zig zag</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Randomness</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Drawings per second</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -26070,6 +26174,50 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     </message>
     <message>
         <source>Smooth morph</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keep corners sharper than</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New contours grow from their centre</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wiggle drawings per second</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Zig zag randomness</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Zig zag drawings per second</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Zig zag seed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Break apart</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Break apart: hole size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Break apart: seed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Break apart: angle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Break apart: stretch</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -30989,6 +31137,14 @@ Jeśli odtwarzanie się zacina, wypróbuj inny.</translation>
     <message>
         <source>Sketch deviation</source>
         <translation>Odchylenie szkicu</translation>
+    </message>
+    <message>
+        <source>Inner tone: scale</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Inner tone: rotation</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Red</source>

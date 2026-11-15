@@ -5766,6 +5766,10 @@
         <translation>Máscara fija en la pantalla</translation>
     </message>
     <message>
+        <source>Posterize time</source>
+        <translation>Posterizar tiempo</translation>
+    </message>
+    <message>
         <source>Translating the captions…</source>
         <translation>Traduciendo los subtítulos…</translation>
     </message>
@@ -20244,6 +20248,22 @@ LA PRÓXIMA</translation>
         <translation>Apagado, la máscara queda fija en la pantalla y esta capa pasa a través de ella</translation>
     </message>
     <message>
+        <source>Posterize time</source>
+        <translation>Posterizar tiempo</translation>
+    </message>
+    <message>
+        <source>Draws the layer fewer times a second and holds each drawing, like hand-drawn animation on twos</source>
+        <translation>Dibuja la capa menos veces por segundo y mantiene cada dibujo, como la animación a mano «en dos»</translation>
+    </message>
+    <message>
+        <source>fps</source>
+        <translation>fps</translation>
+    </message>
+    <message>
+        <source>Drawings per second</source>
+        <translation>Dibujos por segundo</translation>
+    </message>
+    <message>
         <source>Motion blur</source>
         <translation>Desenfoque de movimiento</translation>
     </message>
@@ -24689,6 +24709,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Expandir capa</translation>
     </message>
     <message>
+        <source>Inner tone</source>
+        <translation>Tono interior</translation>
+    </message>
+    <message>
         <source>Bring forward</source>
         <translation>Traer adelante</translation>
     </message>
@@ -24907,6 +24931,22 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Offset Y</source>
         <translation>Desplazamiento Y</translation>
+    </message>
+    <message>
+        <source>The tone fills the shape where a copy moved by the offset does not reach: offset up for a band along the bottom.</source>
+        <translation>El tono rellena la forma donde no llega una copia movida por el desplazamiento: desplázala hacia arriba para una franja abajo.</translation>
+    </message>
+    <message>
+        <source>Copy scale</source>
+        <translation>Escala de la copia</translation>
+    </message>
+    <message>
+        <source>Copy rotation</source>
+        <translation>Rotación de la copia</translation>
+    </message>
+    <message>
+        <source>Paint where the copy reaches</source>
+        <translation>Pintar donde llega la copia</translation>
     </message>
     <message>
         <source>Radius</source>
@@ -25298,6 +25338,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Aclarar</translation>
     </message>
     <message>
+        <source>Merge the parts of the group</source>
+        <translation>Combinar las partes del grupo</translation>
+    </message>
+    <message>
+        <source>The bottom part is the base; the parts above are added to it, cut out of it, and so on. They stay animated.</source>
+        <translation>La parte de abajo es la base; las de arriba se le suman, se le recortan, etc. Siguen animadas.</translation>
+    </message>
+    <message>
         <source>Wiggle</source>
         <translation>Transformación ondulada</translation>
     </message>
@@ -25360,6 +25408,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Extrude</source>
         <translation>Extrusión</translation>
+    </message>
+    <message>
+        <source>Inner tone</source>
+        <translation>Tono interior</translation>
     </message>
     <message>
         <source>No layers. Add a fill to start.</source>
@@ -25470,6 +25522,30 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Tamaño de la cola</translation>
     </message>
     <message>
+        <source>Break apart</source>
+        <translation>Romperse</translation>
+    </message>
+    <message>
+        <source>Holes open inside the shape and grow until it is gone: animate Amount from 0 to 100 % so an effect dies by breaking up instead of fading. Stretch turns the holes into strips along the angle.</source>
+        <translation>Se abren huecos dentro de la forma y crecen hasta que desaparece: anima Cantidad de 0 a 100 % para que un efecto muera rompiéndose en vez de desvanecerse. Estirar convierte los huecos en tiras a lo largo del ángulo.</translation>
+    </message>
+    <message>
+        <source>Amount</source>
+        <translation>Cantidad</translation>
+    </message>
+    <message>
+        <source>Hole size</source>
+        <translation>Tamaño de los huecos</translation>
+    </message>
+    <message>
+        <source>Stretch</source>
+        <translation>Estirar</translation>
+    </message>
+    <message>
+        <source>Angle</source>
+        <translation>Ángulo</translation>
+    </message>
+    <message>
         <source>Path</source>
         <translation>Trazado</translation>
     </message>
@@ -25524,6 +25600,22 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Keys whose paths have different points still blend smoothly: a blob grows, wobbles or splits into drops</source>
         <translation>Las claves con trazados de distintos puntos también se mezclan suave: una mancha crece, ondula o se parte en gotas</translation>
+    </message>
+    <message>
+        <source>Keep sharp corners</source>
+        <translation>Conservar las esquinas en punta</translation>
+    </message>
+    <message>
+        <source>Points where the path turns sharply (the tip of a flame, a spark) stay pointed while the rest blends smoothly</source>
+        <translation>Los puntos donde el trazado gira de golpe (la punta de una llama, una chispa) siguen en punta mientras el resto se mezcla suave</translation>
+    </message>
+    <message>
+        <source>New contours grow from their centre</source>
+        <translation>Los contornos nuevos crecen desde su centro</translation>
+    </message>
+    <message>
+        <source>A hole or a drop that only one key has opens from (or closes into) its own centre</source>
+        <translation>Un hueco o una gota que solo tiene una clave se abre desde su propio centro (o se cierra en él)</translation>
     </message>
     <message>
         <source>Editing the key at the playhead.</source>
@@ -25662,6 +25754,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Excluir intersecciones</translation>
     </message>
     <message>
+        <source>Drawings per second (0 = smooth)</source>
+        <translation>Dibujos por segundo (0 = suave)</translation>
+    </message>
+    <message>
         <source>Offset, pucker, zig zag and twist</source>
         <translation>Desplazar, fruncir, zigzag y torcer</translation>
     </message>
@@ -25684,6 +25780,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Smooth zig zag</source>
         <translation>Zigzag suave</translation>
+    </message>
+    <message>
+        <source>Randomness</source>
+        <translation>Azar</translation>
+    </message>
+    <message>
+        <source>Drawings per second</source>
+        <translation>Dibujos por segundo</translation>
     </message>
     <message>
         <source>Twist</source>
@@ -25974,6 +26078,50 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Smooth morph</source>
         <translation>Transformación suave</translation>
+    </message>
+    <message>
+        <source>Keep corners sharper than</source>
+        <translation>Conservar esquinas más agudas que</translation>
+    </message>
+    <message>
+        <source>New contours grow from their centre</source>
+        <translation>Los contornos nuevos crecen desde su centro</translation>
+    </message>
+    <message>
+        <source>Wiggle drawings per second</source>
+        <translation>Dibujos por segundo del temblor</translation>
+    </message>
+    <message>
+        <source>Zig zag randomness</source>
+        <translation>Azar del zigzag</translation>
+    </message>
+    <message>
+        <source>Zig zag drawings per second</source>
+        <translation>Dibujos por segundo del zigzag</translation>
+    </message>
+    <message>
+        <source>Zig zag seed</source>
+        <translation>Semilla del zigzag</translation>
+    </message>
+    <message>
+        <source>Break apart</source>
+        <translation>Romperse</translation>
+    </message>
+    <message>
+        <source>Break apart: hole size</source>
+        <translation>Romperse: tamaño de los huecos</translation>
+    </message>
+    <message>
+        <source>Break apart: seed</source>
+        <translation>Romperse: semilla</translation>
+    </message>
+    <message>
+        <source>Break apart: angle</source>
+        <translation>Romperse: ángulo</translation>
+    </message>
+    <message>
+        <source>Break apart: stretch</source>
+        <translation>Romperse: estirar</translation>
     </message>
     <message>
         <source>Points</source>
@@ -30885,6 +31033,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Sketch deviation</source>
         <translation>Desviación del boceto</translation>
+    </message>
+    <message>
+        <source>Inner tone: scale</source>
+        <translation>Tono interior: escala</translation>
+    </message>
+    <message>
+        <source>Inner tone: rotation</source>
+        <translation>Tono interior: rotación</translation>
     </message>
     <message>
         <source>Red</source>

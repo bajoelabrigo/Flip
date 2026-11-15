@@ -418,6 +418,26 @@ Column {
                                              root.trackIndex, root.clipIndex, checked)
     }
 
+    // After Effects' Posterize Time (0.32): the layer drawn fewer times a second, held in between.
+    ThemedSwitch {
+        width: parent.width
+        text: qsTr("Posterize time")
+        tooltip: qsTr("Draws the layer fewer times a second and holds each drawing, like hand-drawn animation on twos")
+        checked: !!root.info && Number(root.info.posterizeFps || 0) > 0
+        onToggled: EditorState.setClipPosterizeFps(root.trackIndex, root.clipIndex, checked ? 12 : 0)
+    }
+    ThemedNumberField {
+        width: parent.width
+        visible: !!root.info && Number(root.info.posterizeFps || 0) > 0
+        from: 1
+        to: 60
+        step: 1
+        unit: qsTr("fps")
+        value: !!root.info ? Number(root.info.posterizeFps || 12) : 12
+        placeholderText: qsTr("Drawings per second")
+        onEdited: v => EditorState.setClipPosterizeFps(root.trackIndex, root.clipIndex, v)
+    }
+
     ThemedSwitch {
         width: parent.width
         text: qsTr("Motion blur")

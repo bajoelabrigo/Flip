@@ -768,6 +768,8 @@ public:
     Q_INVOKABLE void renameShapePart(int trackIndex, int clipIndex, const QString &partId, const QString &name);
     Q_INVOKABLE void setShapePartVisible(int trackIndex, int clipIndex, const QString &partId, bool visible);
     Q_INVOKABLE void setShapePartBlend(int trackIndex, int clipIndex, const QString &partId, const QString &mode);
+    // After Effects' Merge Paths inside a group, live (0.32): 0 off, 1 add, 2 subtract, 3 intersect, 4 exclude.
+    Q_INVOKABLE void setShapeGroupMerge(int trackIndex, int clipIndex, const QString &groupId, int mode);
     // where: "before" / "after" the target, or "inside" a target group (first in it).
     Q_INVOKABLE void moveShapePart(int trackIndex, int clipIndex, const QString &partId, const QString &targetId,
                                    const QString &where);
@@ -916,6 +918,9 @@ public:
     // Motion blur (0.26): the switch on a clip (and the other selected clips), and the project's
     // shutter {shutterDeg, samples}.
     Q_INVOKABLE void setClipMotionBlur(int trackIndex, int clipIndex, bool on);
+    // After Effects' Posterize Time (0.32): the clip (and the other selected clips) drawn at `fps` frames a
+    // second, held in between; 0 = off. clipMotionInfo reports it (posterizeFps).
+    Q_INVOKABLE void setClipPosterizeFps(int trackIndex, int clipIndex, double fps);
     // After Effects' Time Remap (0.26): on puts a key at each end holding the material the clip
     // shows there now (so nothing changes until a key moves); off removes them. And Auto-Orient
     // along the motion path. clipMotionInfo reports both (timeRemap, autoOrient).

@@ -26,6 +26,8 @@ Column {
     readonly property var paint: (layerData && layerData.paint) || ({})
     readonly property string paintKind: paint.kind || "solid"
     readonly property bool layerEnabled: !!layerData && layerData.enabled !== false
+    // A shape's inner tone (0.32): a fill drawn inside only, where a moved copy of the outline does not reach.
+    readonly property bool innerTone: row.kind === "fill" && !!layerData && layerData.innerTone === true
     readonly property var kindLabels: ({ "fill": qsTr("Fill"), "stroke": qsTr("Stroke"), "shadow": qsTr("Shadow"),
                                          "glow": qsTr("Glow"), "extrude": qsTr("Extrude") })
     readonly property var paintLabels: ({ "solid": qsTr("Solid"), "gradient": qsTr("Gradient"),
@@ -107,7 +109,8 @@ Column {
                 anchors.verticalCenter: parent.verticalCenter
             }
             Text {
-                text: (row.kindLabels[row.kind] || row.kind) + " · " + (row.paintLabels[row.paintKind] || row.paintKind)
+                text: (row.innerTone ? qsTr("Inner tone") : (row.kindLabels[row.kind] || row.kind)) + " · "
+                      + (row.paintLabels[row.paintKind] || row.paintKind)
                 color: row.layerEnabled ? Theme.panelForeground : Theme.mutedForeground
                 font.family: Theme.fontFamily
                 font.pixelSize: Theme.fontSizeSm
@@ -735,6 +738,47 @@ Column {
                 sliderTo: 500
                 unit: "px"
             }
+        }
+
+        Text {
+            width: parent.width - parent.leftPadding - parent.rightPadding
+            visible: row.innerTone
+            wrapMode: Text.WordWrap
+            text: qsTr("The tone fills the shape where a copy moved by the offset does not reach: offset up for a band along the bottom.")
+            color: Theme.mutedForeground
+            font.family: Theme.fontFamily
+            font.pixelSize: Theme.fontSizeXs
+        }
+        Row {
+            width: parent.width - parent.leftPadding - parent.rightPadding
+            spacing: 8
+            visible: row.innerTone
+
+            PropertyKeyframeRow {
+                width: (parent.width - parent.spacing) / 2
+                propDef: row.propWithDefault("toneScale", qsTr("Copy scale"), 0, 100)
+                keyframeList: row.keyframes("toneScale")
+                useSlider: true
+                sliderFrom: 50
+                sliderTo: 150
+                unit: "%"
+            }
+            PropertyKeyframeRow {
+                width: (parent.width - parent.spacing) / 2
+                propDef: row.prop("toneRotation", qsTr("Copy rotation"), 0)
+                keyframeList: row.keyframes("toneRotation")
+                useSlider: true
+                sliderFrom: -180
+                sliderTo: 180
+                unit: "°"
+            }
+        }
+        ThemedSwitch {
+            width: parent.width - parent.leftPadding - parent.rightPadding
+            visible: row.innerTone
+            text: qsTr("Paint where the copy reaches")
+            checked: !!row.layerData && row.layerData.toneInvert === true
+            onToggled: row.setLayer({ "toneInvert": checked })
         }
 
         Row {

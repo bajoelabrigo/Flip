@@ -2192,7 +2192,9 @@ QVariantMap shapeStyleToMap(const drift::ShapeStyle &s, drift::TimeUs timelineSt
     for (const char *key : {"skew", "trimStart", "trimEnd", "trimOffset", "repeatCopies", "repeatOffset", "repeatX",
                             "repeatY", "repeatScale", "repeatRotation", "repeatStartOpacity", "repeatEndOpacity",
                             "wiggleSize", "wiggleDetail", "wiggleSpeed", "wiggleSeed", "mergeMode", "offsetPath",
-                            "zigzagSize", "zigzagRidges", "zigzagSmooth", "twistAngle", "puckerBloat", "smoothMorph"}) {
+                            "zigzagSize", "zigzagRidges", "zigzagSmooth", "twistAngle", "puckerBloat", "smoothMorph",
+                            "morphCorners", "morphFromCentre", "wiggleStepRate", "zigzagJitter", "zigzagStepRate",
+                            "zigzagSeed", "erodeAmount", "erodeSize", "erodeSeed", "erodeAngle", "erodeStretch"}) {
         double value = 0.0;
         if (drift::shapeStyleScalar(s, QLatin1String(key), &value))
             map.insert(QLatin1String(key), value);
@@ -5984,6 +5986,7 @@ QVariantMap AppController::selectedClipData() const
                     {QStringLiteral("group"), part->group},
                     {QStringLiteral("visible"), part->visible},
                     {QStringLiteral("blend"), drift::blendModeToString(part->blend)},
+                    {QStringLiteral("mergeMode"), part->mergeMode},
                 };
                 for (const QString &field : drift::shapePartKeyframeFields(*part)) {
                     double value = 0.0;
@@ -14903,6 +14906,21 @@ void AppController::setShapePartBlend(int trackIndex, int clipIndex, const QStri
     finishEdit(tr("Blend mode changed"));
 }
 
+void AppController::setShapeGroupMerge(int trackIndex, int clipIndex, const QString &groupId, int mode)
+{
+    if (isTrackLocked(trackIndex) || !isValidClipIndex(trackIndex, clipIndex))
+        return;
+    const drift::Project before = m_project;
+    drift::ShapePart *part =
+        drift::findShapePart(m_project.tracks()[trackIndex].clips[clipIndex].shapeStyle.parts, groupId);
+    mode = qBound(0, mode, 4);
+    if (!part || !part->group || qRound(part->mergeMode) == mode)
+        return;
+    part->mergeMode = mode;
+    pushProjectEdit(before, tr("Merge paths"));
+    finishEdit(tr("Merge paths"));
+}
+
 void AppController::moveShapePart(int trackIndex, int clipIndex, const QString &partId, const QString &targetId,
                                   const QString &where)
 {
@@ -15383,6 +15401,7 @@ QVariantMap AppController::clipMotionInfo(int trackIndex, int clipIndex) const
                     {QStringLiteral("layer3d"), clip.layer3d},
                     {QStringLiteral("acceptsLights"), clip.acceptsLights},
                     {QStringLiteral("motionBlur"), clip.motionBlur},
+                    {QStringLiteral("posterizeFps"), clip.posterizeFps},
                     {QStringLiteral("matteMode"), QLatin1String(matteModes[int(clip.matteMode)])},
                     {QStringLiteral("matteId"), clip.matteClipId},
                     {QStringLiteral("timeRemap"), !clip.timeRemap.isEmpty()},
@@ -15663,6 +15682,33 @@ void AppController::setClipMotionBlur(int trackIndex, int clipIndex, bool on)
         return;
     pushProjectEdit(before, tr("Motion blur"));
     finishEdit(tr("Motion blur"));
+}
+
+void AppController::setClipPosterizeFps(int trackIndex, int clipIndex, double fps)
+{
+    if (!isValidClipIndex(trackIndex, clipIndex))
+        return;
+    fps = fps > 0.0 ? qBound(1.0, fps, 240.0) : 0.0;
+    QList<QPair<int, int>> targets{{trackIndex, clipIndex}};
+    if (m_selection.contains(qMakePair(trackIndex, clipIndex))) {
+        for (const QPair<int, int> &pair : m_selection) {
+            if (!targets.contains(pair) && isValidClipIndex(pair.first, pair.second))
+                targets.append(pair);
+        }
+    }
+    const drift::Project before = m_project;
+    bool changed = false;
+    for (const QPair<int, int> &pair : targets) {
+        drift::Clip &clip = m_project.tracks()[pair.first].clips[pair.second];
+        if (!qFuzzyCompare(clip.posterizeFps + 1.0, fps + 1.0)) {
+            clip.posterizeFps = fps;
+            changed = true;
+        }
+    }
+    if (!changed)
+        return;
+    pushProjectEdit(before, tr("Posterize time"));
+    finishEdit(tr("Posterize time"));
 }
 
 void AppController::setClipTimeRemap(int trackIndex, int clipIndex, bool on)
@@ -23041,7 +23087,9 @@ static void applyShapeStylePatch(drift::ShapeStyle &s, const QVariantMap &m)
     for (const char *key : {"skew", "trimStart", "trimEnd", "trimOffset", "repeatCopies", "repeatOffset", "repeatX",
                             "repeatY", "repeatScale", "repeatRotation", "repeatStartOpacity", "repeatEndOpacity",
                             "wiggleSize", "wiggleDetail", "wiggleSpeed", "wiggleSeed", "mergeMode", "offsetPath",
-                            "zigzagSize", "zigzagRidges", "zigzagSmooth", "twistAngle", "puckerBloat", "smoothMorph"}) {
+                            "zigzagSize", "zigzagRidges", "zigzagSmooth", "twistAngle", "puckerBloat", "smoothMorph",
+                            "morphCorners", "morphFromCentre", "wiggleStepRate", "zigzagJitter", "zigzagStepRate",
+                            "zigzagSeed", "erodeAmount", "erodeSize", "erodeSeed", "erodeAngle", "erodeStretch"}) {
         if (m.contains(QLatin1String(key)))
             drift::setShapeStyleScalar(s, QLatin1String(key), m.value(QLatin1String(key)).toDouble());
     }
@@ -36678,7 +36726,9 @@ QString AppController::addStyleLayer(int trackIndex, int clipIndex, const QStrin
     QList<drift::TextShadingLayer> rangeStack =
         ranged ? textRangeLayers(*clip, rangeStart) : QList<drift::TextShadingLayer>();
     QList<drift::TextShadingLayer> &layers = ranged ? rangeStack : *stack.layers;
-    const drift::TextLayerKind layerKind = drift::textLayerKindFromString(kind);
+    // Inner tone (0.32, shapes): a fill drawn inside only, the cel second tone.
+    const bool innerTone = shape && kind == QLatin1String("innerTone");
+    const drift::TextLayerKind layerKind = innerTone ? drift::TextLayerKind::Fill : drift::textLayerKindFromString(kind);
     drift::TextShadingLayer layer;
     switch (layerKind) {
     case drift::TextLayerKind::Fill:
@@ -36706,7 +36756,15 @@ QString AppController::addStyleLayer(int trackIndex, int clipIndex, const QStrin
         break;
     }
     }
-    const int index = atIndex < 0 || atIndex > layers.size() ? naturalLayerIndex(layers, layerKind) : atIndex;
+    if (innerTone) {
+        const QColor base = stack.primaryColor.isValid() ? stack.primaryColor : QColor(200, 200, 200);
+        layer.paint.color = base.darker(150);
+        layer.innerTone = true;
+        layer.offsetY = -12.0; // the copy moved up: the tone along the bottom edge
+    }
+    const int index = atIndex < 0 || atIndex > layers.size()
+                          ? (innerTone ? int(layers.size()) : naturalLayerIndex(layers, layerKind))
+                          : atIndex;
     layers.insert(index, layer);
     QString id = layer.id;
     if (ranged)
