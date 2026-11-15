@@ -452,6 +452,8 @@ quint64 textLayersHash(const QList<TextShadingLayer> &layers)
                        static_cast<int>(l.scope));
         h = qHashMulti(h, l.miterLimit, l.taperStartLength, l.taperEndLength, l.taperStartWidth, l.taperEndWidth,
                        l.taperEase, l.waveAmount, l.waveLength, l.wavePhase, l.arrowStart, l.arrowEnd, l.arrowSize);
+        if (l.innerTone)
+            h = qHashMulti(h, l.innerTone, l.toneScale, l.toneRotation, l.toneInvert);
         // The Dash / Gap pairs (0.30): without them a changed pattern kept the cached drawing.
         for (const double run : l.dashPattern)
             h = qHashMulti(h, run);
@@ -642,6 +644,16 @@ QJsonObject textShadingLayerToJson(const TextShadingLayer &l)
     }
     if (l.knockout)
         o.insert(QStringLiteral("knockout"), true);
+    // Inner tone (0.32), only when set.
+    if (l.innerTone) {
+        o.insert(QStringLiteral("innerTone"), true);
+        if (!qFuzzyCompare(l.toneScale, 100.0))
+            o.insert(QStringLiteral("toneScale"), l.toneScale);
+        if (!qFuzzyIsNull(l.toneRotation))
+            o.insert(QStringLiteral("toneRotation"), l.toneRotation);
+        if (l.toneInvert)
+            o.insert(QStringLiteral("toneInvert"), true);
+    }
     if (!qFuzzyIsNull(l.trimStart) || !qFuzzyCompare(l.trimEnd, 1.0)) {
         o.insert(QStringLiteral("trimStart"), l.trimStart);
         o.insert(QStringLiteral("trimEnd"), l.trimEnd);
@@ -704,6 +716,10 @@ TextShadingLayer textShadingLayerFromJson(const QJsonObject &o)
     l.sketchDeviation = o.value(QStringLiteral("sketchDeviation")).toDouble(0.0);
     l.sketchSeed = o.value(QStringLiteral("sketchSeed")).toInt(0);
     l.knockout = o.value(QStringLiteral("knockout")).toBool(false);
+    l.innerTone = o.value(QStringLiteral("innerTone")).toBool(false);
+    l.toneScale = qBound(1.0, o.value(QStringLiteral("toneScale")).toDouble(100.0), 1000.0);
+    l.toneRotation = o.value(QStringLiteral("toneRotation")).toDouble(0.0);
+    l.toneInvert = o.value(QStringLiteral("toneInvert")).toBool(false);
     l.trimStart = o.value(QStringLiteral("trimStart")).toDouble(0.0);
     l.trimEnd = o.value(QStringLiteral("trimEnd")).toDouble(1.0);
     l.trimSegments = qBound(1, o.value(QStringLiteral("trimSegments")).toInt(1), 64);
@@ -746,6 +762,8 @@ QStringList shadingLayerKeyframeFields(const TextShadingLayer &layer)
                << QStringLiteral("waveLength") << QStringLiteral("wavePhase");
     if (layer.kind == TextLayerKind::Stroke || layer.kind == TextLayerKind::Fill)
         fields << QStringLiteral("sketchLength") << QStringLiteral("sketchDeviation");
+    if (layer.kind == TextLayerKind::Fill && layer.innerTone)
+        fields << QStringLiteral("toneScale") << QStringLiteral("toneRotation");
     switch (layer.paint.kind) {
     case TextPaintKind::Solid:
     case TextPaintKind::Texture:
@@ -831,6 +849,10 @@ bool shadingLayerScalar(const TextShadingLayer &l, const QString &field, double 
         *out = l.sketchLength;
     else if (field == QLatin1String("sketchDeviation"))
         *out = l.sketchDeviation;
+    else if (field == QLatin1String("toneScale"))
+        *out = l.toneScale;
+    else if (field == QLatin1String("toneRotation"))
+        *out = l.toneRotation;
     else if (field == QLatin1String("color.r"))
         *out = l.paint.color.redF();
     else if (field == QLatin1String("color.g"))
@@ -911,6 +933,10 @@ bool setShadingLayerScalar(TextShadingLayer &l, const QString &field, double val
         l.sketchLength = qMax(0.0, value);
     else if (field == QLatin1String("sketchDeviation"))
         l.sketchDeviation = qMax(0.0, value);
+    else if (field == QLatin1String("toneScale"))
+        l.toneScale = qBound(1.0, value, 1000.0);
+    else if (field == QLatin1String("toneRotation"))
+        l.toneRotation = value;
     else if (field == QLatin1String("color.r"))
         l.paint.color.setRedF(qBound(0.0, value, 1.0));
     else if (field == QLatin1String("color.g"))
@@ -969,6 +995,8 @@ QString shadingLayerFieldLabel(const QString &field)
         {QStringLiteral("dashOffset"), QCoreApplication::translate("TextStyle", "Dash offset")},
         {QStringLiteral("sketchLength"), QCoreApplication::translate("TextStyle", "Sketch length")},
         {QStringLiteral("sketchDeviation"), QCoreApplication::translate("TextStyle", "Sketch deviation")},
+        {QStringLiteral("toneScale"), QCoreApplication::translate("TextStyle", "Inner tone: scale")},
+        {QStringLiteral("toneRotation"), QCoreApplication::translate("TextStyle", "Inner tone: rotation")},
         {QStringLiteral("color.r"), QCoreApplication::translate("TextStyle", "Red")},
         {QStringLiteral("color.g"), QCoreApplication::translate("TextStyle", "Green")},
         {QStringLiteral("color.b"), QCoreApplication::translate("TextStyle", "Blue")},

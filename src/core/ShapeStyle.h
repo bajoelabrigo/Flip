@@ -138,6 +138,24 @@ struct ShapeStyle
     // Pucker & Bloat (0.26): percent, -100..100. Vertices towards the centre and handles away
     // (positive, bloat) or the other way (negative, pucker), as After Effects.
     double puckerBloat = 0.0;
+    // Cartoon VFX (0.32, docs/plan-vfx.md E): Wiggle Paths and Zig Zag «on twos». wiggleStepRate > 0 draws a fresh
+    // wobble that many times a second (a new random draw each time, held in between: jumps, not a smooth drift);
+    // 0 keeps the smooth wiggle. zigzagJitter (%) gives each point of the zig zag its own random size and a nudge
+    // along the outline (a broken, uneven bolt instead of even teeth), from zigzagSeed, redrawn zigzagStepRate times
+    // a second (0 = still).
+    double wiggleStepRate = 0.0;
+    double zigzagJitter = 0.0;
+    double zigzagStepRate = 0.0;
+    double zigzagSeed = 0.0;
+    // Break apart (0.32, plan-vfx D): holes open from their own centres inside the outline and grow until nothing is
+    // left (erodeAmount, 0..100 %), so an effect dies by breaking up instead of fading. The holes sit on a jittered
+    // grid of erodeSize px cells (from erodeSeed), each opening at its own moment; erodeStretch > 1 draws them as
+    // strips that long along erodeAngle degrees (fire breaking into diagonal tongues).
+    double erodeAmount = 0.0;
+    double erodeSize = 40.0;
+    double erodeSeed = 0.0;
+    double erodeAngle = 0.0;
+    double erodeStretch = 1.0;
 
     // After Effects' animated Path (0.26), on a custom shape: the "path" keyframe track holds, at
     // each key, the index of that key's outline in pathShapes. Between two keys the outlines
@@ -150,6 +168,13 @@ struct ShapeStyle
     // so a blob grows, wobbles and splits from a few keys. 0 (projects before 0.32) holds the first outline, as
     // before. Keys that do match always blend point for point.
     double smoothMorph = 0.0;
+    // With the smooth morph (0.32, plan-vfx A): vertices where the outline turns by more than morphCorners degrees
+    // (a cusp, the tip of a flame tongue, a spark's point) stay sharp, and the corners of two keys pair up in order
+    // when both have the same count; 0 = every point rounded, as before.
+    double morphCorners = 0.0;
+    // With the smooth morph (plan-vfx D): a contour with no partner in the other key (a hole opening in smoke, a drop
+    // that pops) grows from or shrinks into its own centre instead of the nearest point of the other outline.
+    double morphFromCentre = 0.0;
 
     // After Effects' Contents (0.28): the layer is made of parts, each a whole shape of its own
     // (outline, fills, strokes, operators, keys) placed by its own transform, or a group of parts.
@@ -165,6 +190,7 @@ struct ShapeStyle
     bool hasTrim() const { return trimStart > 0.0 || trimEnd < 100.0 || qRound(trimSegments) > 1 || trimReverse > 0.5; }
     bool hasRepeater() const { return qRound(repeatCopies) > 1 || qAbs(repeatOffset) > 1e-9; }
     bool hasWiggle() const { return wiggleSize > 0.0; }
+    bool hasErode() const { return erodeAmount > 0.0; }
 
     // Keyed by shapeKeyframeProperties() names ("cornerRadius", "layer.<id>.<field>", …); times
     // are relative to the clip start.
@@ -215,6 +241,10 @@ struct ShapePart
     bool visible = true;
     BlendMode blend = BlendMode::Normal;
     bool group = false;
+    // A group only (0.32, After Effects' Merge Paths in a group): its shape parts' outlines are combined into one
+    // (1 add, 2 subtract, 3 intersect, 4 exclude; the bottom part is the base and each part above is merged onto it)
+    // and painted with the bottom part's paint layers. 0 = each part painted on its own, as before.
+    double mergeMode = 0.0;
     // A shape part: its outline fills width × height (project px) centred on its origin, drawn by
     // `shape` exactly as a plain shape layer of that size would be. A group: `children` instead.
     double width = 100.0;

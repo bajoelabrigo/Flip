@@ -583,6 +583,17 @@ constexpr KnobField kKnobs[] = {
     {"twistAngle", QT_TRANSLATE_NOOP("ShapeStyle", "Twist"), &ShapeStyle::twistAngle, -3600.0, 3600.0},
     {"puckerBloat", QT_TRANSLATE_NOOP("ShapeStyle", "Pucker & Bloat"), &ShapeStyle::puckerBloat, -100.0, 100.0},
     {"smoothMorph", QT_TRANSLATE_NOOP("ShapeStyle", "Smooth morph"), &ShapeStyle::smoothMorph, 0.0, 1.0},
+    {"morphCorners", QT_TRANSLATE_NOOP("ShapeStyle", "Keep corners sharper than"), &ShapeStyle::morphCorners, 0.0, 180.0},
+    {"morphFromCentre", QT_TRANSLATE_NOOP("ShapeStyle", "New contours grow from their centre"), &ShapeStyle::morphFromCentre, 0.0, 1.0},
+    {"wiggleStepRate", QT_TRANSLATE_NOOP("ShapeStyle", "Wiggle drawings per second"), &ShapeStyle::wiggleStepRate, 0.0, 60.0},
+    {"zigzagJitter", QT_TRANSLATE_NOOP("ShapeStyle", "Zig zag randomness"), &ShapeStyle::zigzagJitter, 0.0, 100.0},
+    {"zigzagStepRate", QT_TRANSLATE_NOOP("ShapeStyle", "Zig zag drawings per second"), &ShapeStyle::zigzagStepRate, 0.0, 60.0},
+    {"zigzagSeed", QT_TRANSLATE_NOOP("ShapeStyle", "Zig zag seed"), &ShapeStyle::zigzagSeed, 0.0, 1000.0},
+    {"erodeAmount", QT_TRANSLATE_NOOP("ShapeStyle", "Break apart"), &ShapeStyle::erodeAmount, 0.0, 100.0},
+    {"erodeSize", QT_TRANSLATE_NOOP("ShapeStyle", "Break apart: hole size"), &ShapeStyle::erodeSize, 2.0, 2000.0},
+    {"erodeSeed", QT_TRANSLATE_NOOP("ShapeStyle", "Break apart: seed"), &ShapeStyle::erodeSeed, 0.0, 1000.0},
+    {"erodeAngle", QT_TRANSLATE_NOOP("ShapeStyle", "Break apart: angle"), &ShapeStyle::erodeAngle, -3600.0, 3600.0},
+    {"erodeStretch", QT_TRANSLATE_NOOP("ShapeStyle", "Break apart: stretch"), &ShapeStyle::erodeStretch, 1.0, 20.0},
 };
 
 const KnobField *knobFor(const QString &key)
@@ -719,8 +730,12 @@ QString shapePathAt(const ShapeStyle &style, TimeUs clipTimeUs)
     const QString from = outline(v0), to = outline(v1);
     const QString pointwise = morphSvgPaths(from, to, t);
     // Smooth morph (0.32): where the pointwise blend holds `from` (the outlines do not match), the resampled one.
-    if (style.smoothMorph >= 0.5 && pointwise == from && from != to)
-        return morphSvgPathsResampled(from, to, t);
+    if (style.smoothMorph >= 0.5 && pointwise == from && from != to) {
+        SmoothMorphOptions options;
+        options.cornerAngle = style.morphCorners;
+        options.fromCentre = style.morphFromCentre >= 0.5;
+        return morphSvgPathsResampled(from, to, t, options);
+    }
     return pointwise;
 }
 
@@ -773,6 +788,9 @@ quint64 shapeStyleHash(const ShapeStyle &style)
            ^ qHashMulti(2, style.wiggleSize, style.wiggleDetail, style.wiggleSpeed, style.wiggleSeed)
            ^ qHashMulti(3, style.mergeMode, style.offsetPath, style.zigzagSize, style.zigzagRidges,
                         style.zigzagSmooth, style.twistAngle, style.puckerBloat, style.smoothMorph)
+           ^ qHashMulti(4, style.morphCorners, style.morphFromCentre, style.wiggleStepRate, style.zigzagJitter,
+                        style.zigzagStepRate, style.zigzagSeed, style.erodeAmount, style.erodeSize, style.erodeSeed,
+                        style.erodeAngle, style.erodeStretch)
            ^ qHash(style.pathShapes) ^ shapePartsHash(style);
 }
 
@@ -790,7 +808,10 @@ bool shapeTimeDrivenPaint(const ShapeStyle &style)
         }
     }
     // A wiggle that moves redraws every frame.
-    if (style.hasWiggle() && style.wiggleSpeed > 0.0)
+    if (style.hasWiggle() && (style.wiggleSpeed > 0.0 || style.wiggleStepRate > 0.0))
+        return true;
+    // A zig zag redrawn on twos (0.32) changes with time too.
+    if (style.zigzagSize > 0.0 && style.zigzagJitter > 0.0 && style.zigzagStepRate > 0.0)
         return true;
     for (const TextShadingLayer &layer : style.layers) {
         if (!layer.enabled)
@@ -1005,6 +1026,8 @@ quint64 shapePartHash(const ShapePart &part)
     if (part.group) {
         for (const ShapePart &child : part.children)
             h = h * 31 + shapePartHash(child);
+        if (part.mergeMode >= 0.5)
+            h ^= qHashMulti(11, part.mergeMode);
     } else {
         h ^= shapeStyleHash(part.shape) * 1099511628211ULL;
     }
@@ -1183,6 +1206,8 @@ QJsonObject shapePartToJson(const ShapePart &part)
         o.insert(QStringLiteral("transform"), transform);
     if (part.group) {
         o.insert(QStringLiteral("group"), true);
+        if (part.mergeMode >= 0.5)
+            o.insert(QStringLiteral("merge"), qRound(part.mergeMode));
         QJsonArray children;
         for (const ShapePart &child : part.children)
             children.append(shapePartToJson(child));
@@ -1218,6 +1243,7 @@ ShapePart shapePartFromJson(const QJsonObject &o)
     if (part.group) {
         for (const QJsonValue &v : o.value(QStringLiteral("children")).toArray())
             part.children.push_back(shapePartFromJson(v.toObject()));
+        part.mergeMode = qBound(0, o.value(QStringLiteral("merge")).toInt(0), 4);
     } else {
         part.width = qBound(0.0, o.value(QStringLiteral("width")).toDouble(100.0), 100000.0);
         part.height = qBound(0.0, o.value(QStringLiteral("height")).toDouble(100.0), 100000.0);

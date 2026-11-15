@@ -6,6 +6,9 @@
 #include <QPainterPath>
 #include <QRectF>
 
+#include <QtMath>
+
+#include <algorithm>
 #include <cmath>
 #include <limits>
 #include <vector>
@@ -195,10 +198,13 @@ QPointF cubicPoint(const QPointF &p0, const QPointF &c0, const QPointF &c1, cons
 }
 
 // A contour as a dense polyline (a closed one without repeating its first point).
-std::vector<QPointF> flattenContour(const PathContour &contour)
+// The contour as a polyline; `vertexAt`, when given, gets the index of each vertex's point in it.
+std::vector<QPointF> flattenContour(const PathContour &contour, std::vector<int> *vertexAt = nullptr)
 {
     std::vector<QPointF> out;
     const QList<PathVertex> &v = contour.vertices;
+    if (vertexAt)
+        vertexAt->assign(size_t(v.size()), 0);
     if (v.isEmpty())
         return out;
     out.push_back(v.first().point);
@@ -210,6 +216,8 @@ std::vector<QPointF> flattenContour(const PathContour &contour)
         const int steps = straight ? 1 : 16;
         for (int k = 1; k <= steps; ++k)
             out.push_back(straight ? b.point : cubicPoint(a.point, a.out, b.in, b.point, double(k) / steps));
+        if (vertexAt && i + 1 < v.size())
+            (*vertexAt)[size_t(i + 1)] = int(out.size()) - 1;
     }
     if (contour.closed && out.size() > 1)
         out.pop_back(); // back at the first point
@@ -335,8 +343,9 @@ QPointF nearestOn(const std::vector<std::vector<QPointF>> &outline, const QPoint
     return best;
 }
 
-// Points back to a smooth contour: each vertex gets Catmull-Rom handles, (next - previous) / 6.
-PathContour smoothContour(const std::vector<QPointF> &pts, bool closed)
+// Points back to a smooth contour: each vertex gets Catmull-Rom handles, (next - previous) / 6; a corner (0.32) none,
+// so it stays a sharp point.
+PathContour smoothContour(const std::vector<QPointF> &pts, bool closed, const std::vector<bool> &corner = {})
 {
     PathContour c;
     c.closed = closed;
@@ -344,7 +353,8 @@ PathContour smoothContour(const std::vector<QPointF> &pts, bool closed)
     for (int i = 0; i < n; ++i) {
         const QPointF prev = closed ? pts[size_t((i - 1 + n) % n)] : pts[size_t(qMax(0, i - 1))];
         const QPointF next = closed ? pts[size_t((i + 1) % n)] : pts[size_t(qMin(n - 1, i + 1))];
-        const QPointF m = (next - prev) / 6.0;
+        const bool sharp = size_t(i) < corner.size() && corner[size_t(i)];
+        const QPointF m = sharp ? QPointF() : (next - prev) / 6.0;
         c.vertices.append({pts[size_t(i)], pts[size_t(i)] - m, pts[size_t(i)] + m});
     }
     if (!closed && n > 0) {
@@ -354,9 +364,192 @@ PathContour smoothContour(const std::vector<QPointF> &pts, bool closed)
     return c;
 }
 
+// The flat index of each corner of `contour` (see pathContourCorners), in order.
+std::vector<int> flatCorners(const PathContour &contour, const std::vector<int> &vertexAt, double angleDeg)
+{
+    std::vector<int> out;
+    if (angleDeg <= 0.0)
+        return out;
+    for (const int v : pathContourCorners(contour, angleDeg))
+        out.push_back(vertexAt[size_t(v)]);
+    return out;
+}
+
+// The stretch of a closed polyline from flat index `from` round to `to` (both included).
+std::vector<QPointF> stretchOf(const std::vector<QPointF> &pts, int from, int to)
+{
+    std::vector<QPointF> out;
+    const int n = int(pts.size());
+    if (n == 0)
+        return out;
+    int i = from;
+    out.push_back(pts[size_t(i)]);
+    while (i != to) {
+        i = (i + 1) % n;
+        out.push_back(pts[size_t(i)]);
+    }
+    return out;
+}
+
+// Turns a polyline round, its corner indices with it.
+void reverseWithCorners(std::vector<QPointF> &pts, std::vector<int> &corners)
+{
+    const int last = int(pts.size()) - 1;
+    std::reverse(pts.begin(), pts.end());
+    std::reverse(corners.begin(), corners.end());
+    for (int &c : corners)
+        c = last - c;
+}
+
+// Each stretch resampled on its own to the same count in both outlines, its share of `n` the larger of its share of
+// either outline's length; the first sample of every stretch but the open contour's first is a corner. `whole`: the
+// last stretch keeps its end point (an open contour's end).
+void resampleStretches(const std::vector<std::vector<QPointF>> &stA, const std::vector<std::vector<QPointF>> &stB, int n,
+                       bool open, std::vector<QPointF> *pa, std::vector<QPointF> *pb, std::vector<bool> *corner)
+{
+    double totA = 0.0, totB = 0.0;
+    for (size_t j = 0; j < stA.size(); ++j) {
+        totA += polylineLength(stA[j], false);
+        totB += polylineLength(stB[j], false);
+    }
+    pa->clear();
+    pb->clear();
+    corner->clear();
+    for (size_t j = 0; j < stA.size(); ++j) {
+        const double share = qMax(totA > 0.0 ? polylineLength(stA[j], false) / totA : 0.0,
+                                  totB > 0.0 ? polylineLength(stB[j], false) / totB : 0.0);
+        const int m = qMax(2, int(std::lround(share * n)) + 1);
+        const std::vector<QPointF> ra = resampleEven(stA[j], false, m), rb = resampleEven(stB[j], false, m);
+        const bool keepEnd = open && j + 1 == stA.size();
+        for (int q = 0; q < (keepEnd ? m : m - 1); ++q) { // a stretch's end is the next one's corner
+            pa->push_back(ra[size_t(q)]);
+            pb->push_back(rb[size_t(q)]);
+            corner->push_back(q == 0 && (!open || j > 0));
+        }
+    }
+}
+
+// Corner-paired resampling (0.32): both contours have the same corner count k > 0. The corners of `b` are matched to
+// those of `a` in order (on a closed contour the same winding and the cyclic shift that brings them closest; an open
+// one turned round when that fits better), and each stretch between two corners is resampled on its own, so a corner
+// lands on a corner. Returns false when it cannot (the caller then resamples evenly).
+bool resampleByCorners(const std::vector<QPointF> &fa, const std::vector<int> &ca, std::vector<QPointF> fb,
+                       std::vector<int> cb, bool closed, int n, std::vector<QPointF> *pa, std::vector<QPointF> *pb,
+                       std::vector<bool> *corner)
+{
+    const size_t k = ca.size();
+    if (k == 0 || cb.size() != k || fa.size() < 2 || fb.size() < 2)
+        return false;
+    std::vector<std::vector<QPointF>> stA, stB;
+    if (!closed) {
+        const auto d2 = [](const QPointF &p, const QPointF &q) {
+            return (p.x() - q.x()) * (p.x() - q.x()) + (p.y() - q.y()) * (p.y() - q.y());
+        };
+        if (d2(fa.front(), fb.back()) + d2(fa.back(), fb.front()) < d2(fa.front(), fb.front()) + d2(fa.back(), fb.back()))
+            reverseWithCorners(fb, cb);
+        std::vector<int> sa{0}, sb{0};
+        sa.insert(sa.end(), ca.begin(), ca.end());
+        sb.insert(sb.end(), cb.begin(), cb.end());
+        sa.push_back(int(fa.size()) - 1);
+        sb.push_back(int(fb.size()) - 1);
+        for (size_t j = 0; j + 1 < sa.size(); ++j) {
+            stA.emplace_back(fa.begin() + sa[j], fa.begin() + sa[j + 1] + 1);
+            stB.emplace_back(fb.begin() + sb[j], fb.begin() + sb[j + 1] + 1);
+        }
+        resampleStretches(stA, stB, n, true, pa, pb, corner);
+        return true;
+    }
+    const double areaA = signedArea(fa), areaB = signedArea(fb);
+    if (std::abs(areaA) > 1e-9 && std::abs(areaB) > 1e-9 && (areaA > 0.0) != (areaB > 0.0))
+        reverseWithCorners(fb, cb);
+    size_t best = 0;
+    double bestCost = std::numeric_limits<double>::max();
+    for (size_t shift = 0; shift < k; ++shift) {
+        double cost = 0.0;
+        for (size_t j = 0; j < k; ++j) {
+            const QPointF d = fa[size_t(ca[j])] - fb[size_t(cb[(j + shift) % k])];
+            cost += d.x() * d.x() + d.y() * d.y();
+        }
+        if (cost < bestCost) {
+            bestCost = cost;
+            best = shift;
+        }
+    }
+    std::vector<int> turned(k);
+    for (size_t j = 0; j < k; ++j)
+        turned[j] = cb[(j + best) % k];
+    cb = turned;
+    const int na = int(fa.size()), nb = int(fb.size());
+    for (size_t j = 0; j < k; ++j) {
+        if (k == 1) {
+            // One corner: the stretch runs all the way round, back to it.
+            stA.push_back(stretchOf(fa, ca[0], (ca[0] - 1 + na) % na));
+            stA.back().push_back(fa[size_t(ca[0])]);
+            stB.push_back(stretchOf(fb, cb[0], (cb[0] - 1 + nb) % nb));
+            stB.back().push_back(fb[size_t(cb[0])]);
+        } else {
+            stA.push_back(stretchOf(fa, ca[j], ca[(j + 1) % k]));
+            stB.push_back(stretchOf(fb, cb[j], cb[(j + 1) % k]));
+        }
+    }
+    resampleStretches(stA, stB, n, false, pa, pb, corner);
+    return true;
+}
+
+// The sample of `pts` nearest `p`.
+size_t nearestIndex(const std::vector<QPointF> &pts, const QPointF &p)
+{
+    size_t best = 0;
+    double bestD = std::numeric_limits<double>::max();
+    for (size_t i = 0; i < pts.size(); ++i) {
+        const double d = (pts[i].x() - p.x()) * (pts[i].x() - p.x()) + (pts[i].y() - p.y()) * (pts[i].y() - p.y());
+        if (d < bestD) {
+            bestD = d;
+            best = i;
+        }
+    }
+    return best;
+}
+
 } // namespace
 
-QString morphSvgPathsResampled(const QString &a, const QString &b, double t)
+QList<int> pathContourCorners(const PathContour &contour, double angleDeg)
+{
+    QList<int> corners;
+    const QList<PathVertex> &v = contour.vertices;
+    const int n = int(v.size());
+    if (angleDeg <= 0.0 || n < (contour.closed ? 2 : 3))
+        return corners;
+    const double limit = qDegreesToRadians(qBound(0.0, angleDeg, 180.0));
+    const auto length = [](const QPointF &p) { return std::hypot(p.x(), p.y()); };
+    for (int i = 0; i < n; ++i) {
+        if (!contour.closed && (i == 0 || i == n - 1))
+            continue;
+        const PathVertex &prev = v.at((i - 1 + n) % n);
+        const PathVertex &here = v.at(i);
+        const PathVertex &next = v.at((i + 1) % n);
+        // The direction the curve arrives in (from the nearest distinct control point behind) and leaves along.
+        QPointF in = here.point - here.in;
+        if (length(in) < 1e-6)
+            in = here.point - prev.out;
+        if (length(in) < 1e-6)
+            in = here.point - prev.point;
+        QPointF out = here.out - here.point;
+        if (length(out) < 1e-6)
+            out = next.in - here.point;
+        if (length(out) < 1e-6)
+            out = next.point - here.point;
+        const double li = length(in), lo = length(out);
+        if (li < 1e-6 || lo < 1e-6)
+            continue;
+        const double cosA = qBound(-1.0, (in.x() * out.x() + in.y() * out.y()) / (li * lo), 1.0);
+        if (std::acos(cosA) > limit)
+            corners.append(i);
+    }
+    return corners;
+}
+
+QString morphSvgPathsResampled(const QString &a, const QString &b, double t, const SmoothMorphOptions &options)
 {
     if (t <= 0.0 || a == b)
         return a;
@@ -367,10 +560,18 @@ QString morphSvgPathsResampled(const QString &a, const QString &b, double t)
     if (ca.isEmpty() && cb.isEmpty())
         return t < 0.5 ? a : b;
     std::vector<std::vector<QPointF>> fa, fb;
-    for (const PathContour &c : ca)
-        fa.push_back(flattenContour(c));
-    for (const PathContour &c : cb)
-        fb.push_back(flattenContour(c));
+    std::vector<std::vector<int>> cornersA, cornersB;
+    for (const PathContour &c : ca) {
+        std::vector<int> at;
+        fa.push_back(flattenContour(c, &at));
+        cornersA.push_back(flatCorners(c, at, options.cornerAngle));
+    }
+    for (const PathContour &c : cb) {
+        std::vector<int> at;
+        fb.push_back(flattenContour(c, &at));
+        cornersB.push_back(flatCorners(c, at, options.cornerAngle));
+    }
+    const std::vector<int> noCorners;
     QList<PathContour> mixed;
     const int count = int(qMax(ca.size(), cb.size()));
     for (int i = 0; i < count; ++i) {
@@ -384,21 +585,38 @@ QString morphSvgPathsResampled(const QString &a, const QString &b, double t)
         const double lenB = hasB ? polylineLength(fb[size_t(i)], closed) : 0.0;
         // Coordinates are a 0..100 box: a point every ~2 units, enough for a round blob, bounded for speed.
         const int n = qBound(closed ? 12 : 6, int(std::ceil(qMax(lenA, lenB) / 2.0)), 160);
+        const std::vector<int> &cA = hasA ? cornersA[size_t(i)] : noCorners;
+        const std::vector<int> &cB = hasB ? cornersB[size_t(i)] : noCorners;
         std::vector<QPointF> pa, pb;
-        if (hasA)
-            pa = resampleEven(fa[size_t(i)], closed, n);
-        if (hasB)
-            pb = resampleEven(fb[size_t(i)], closed, n);
-        if (!hasA)
-            pa.assign(size_t(n), nearestOn(fa, centroidOf(pb)));
-        else if (!hasB)
-            pb.assign(size_t(n), nearestOn(fb, centroidOf(pa)));
-        else
-            alignTo(pa, pb, closed);
-        std::vector<QPointF> blend(static_cast<size_t>(n));
-        for (int k = 0; k < n; ++k)
-            blend[size_t(k)] = lerp(pa[size_t(k)], pb[size_t(k)], t);
-        mixed.append(smoothContour(blend, closed));
+        std::vector<bool> corner;
+        const bool paired = hasA && hasB && resampleByCorners(fa[size_t(i)], cA, fb[size_t(i)], cB, closed, n, &pa, &pb, &corner);
+        if (!paired) {
+            if (hasA)
+                pa = resampleEven(fa[size_t(i)], closed, n);
+            if (hasB)
+                pb = resampleEven(fb[size_t(i)], closed, n);
+            if (!hasA)
+                pa.assign(size_t(n), options.fromCentre ? centroidOf(pb) : nearestOn(fa, centroidOf(pb)));
+            else if (!hasB)
+                pb.assign(size_t(n), options.fromCentre ? centroidOf(pa) : nearestOn(fb, centroidOf(pa)));
+            else
+                alignTo(pa, pb, closed);
+            // Corners that do not pair (other counts): the nearer key's own, snapped onto their samples.
+            corner.assign(size_t(n), false);
+            const bool useA = hasA && (!hasB || t < 0.5);
+            const std::vector<QPointF> &flat = useA ? fa[size_t(i)] : fb[size_t(i)];
+            std::vector<QPointF> &samples = useA ? pa : pb;
+            for (const int c : useA ? cA : cB) {
+                const size_t at = nearestIndex(samples, flat[size_t(c)]);
+                samples[at] = flat[size_t(c)];
+                corner[at] = true;
+            }
+        }
+        const size_t m = pa.size();
+        std::vector<QPointF> blend(m);
+        for (size_t k = 0; k < m; ++k)
+            blend[k] = lerp(pa[k], pb[k], t);
+        mixed.append(smoothContour(blend, closed, corner));
     }
     return svgFromPathContours(mixed);
 }

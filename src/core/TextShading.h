@@ -149,6 +149,14 @@ struct TextShadingLayer
     double waveLength = 40.0;
     double wavePhase = 0.0;
     bool knockout = false;     // a fill that punches through the layers beneath (hollow text)
+    // Inner tone (0.32, the cartoon VFX: the grey belly of smoke, the dark side of a liquid): shapes only, a fill
+    // drawn hard-edged inside the outline only, where a copy of the outline moved by (offsetX, offsetY), scaled by
+    // toneScale % and turned toneRotation degrees about the box centre does not reach (a crescent along the side
+    // away from the offset, as an inner shadow without blur). toneInvert paints where the copy does reach instead.
+    bool innerTone = false;
+    double toneScale = 100.0;
+    double toneRotation = 0.0;
+    bool toneInvert = false;
     double trimStart = 0.0;    // stroke write-on
     double trimEnd = 1.0;
     int trimSegments = 1;      // Equal-in / Equal-out (0.26): the trim in this many equal stretches

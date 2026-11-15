@@ -40,7 +40,21 @@ QString morphSvgPaths(const QString &a, const QString &b, double t);
 // chosen to sit closest to the first, and the blend is drawn back as a smooth curve (Catmull-Rom). A contour with
 // no partner grows from (or shrinks into) the nearest point of the other outline, so a drop can split off a blob.
 // t <= 0 and t >= 1 give a and b exactly.
-QString morphSvgPathsResampled(const QString &a, const QString &b, double t);
+//
+// Options (0.32, docs/plan-vfx.md A and D): with cornerAngle > 0, a vertex where the outline turns by more than that
+// many degrees is a corner (the tip of a flame tongue): it stays sharp in the blend, and when both contours have the
+// same number of corners they pair up in order, each stretch between two corners resampled on its own, so a tip
+// travels to its partner instead of sliding along the edge. fromCentre: a contour with no partner grows from (or
+// shrinks into) its own centre (a hole opening inside smoke) instead of the nearest point of the other outline.
+struct SmoothMorphOptions
+{
+    double cornerAngle = 0.0;
+    bool fromCentre = false;
+};
+QString morphSvgPathsResampled(const QString &a, const QString &b, double t, const SmoothMorphOptions &options = {});
+// The vertices of `contour` where its outline turns by more than `angleDeg` degrees (comparing the direction the
+// curve arrives in with the one it leaves along), in vertex order. The ends of an open contour are not corners.
+QList<int> pathContourCorners(const PathContour &contour, double angleDeg);
 
 // The box the vertices and their handles span (which holds the whole curve).
 QRectF pathContoursBounds(const QList<PathContour> &contours);

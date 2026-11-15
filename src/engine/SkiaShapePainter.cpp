@@ -8,6 +8,7 @@
 #include <QtMath>
 
 #include <cmath>
+#include <utility>
 
 #include "include/core/SkCanvas.h"
 #include "include/core/SkClipOp.h"
@@ -354,10 +355,20 @@ SkPath puckerBloated(const SkPath &path, double amount)
     return result;
 }
 
+// A repeatable 0..1 value for (a, b) (0.32): the zig zag's and the break-apart's random draws.
+double hash01(double a, double b)
+{
+    const double v = std::sin(a * 12.9898 + b * 78.233) * 43758.5453;
+    return v - std::floor(v);
+}
+
 // Zig Zag and Twist (0.26): every contour resampled, each point pushed alternately either side of
 // the outline (zig zag), then turned about `centre` by twist × its distance from the centre over
 // the farthest one.
-SkPath zigzagTwisted(const SkPath &path, double size, int ridges, bool smooth, double twistDeg, SkPoint centre)
+// `jitter` (0..1, 0.32): each point of the zig zag gets its own size (down to 1 - jitter of it) and a nudge along the
+// outline of up to half a step, from `seed`: an uneven, broken bolt instead of even teeth.
+SkPath zigzagTwisted(const SkPath &path, double size, int ridges, bool smooth, double twistDeg, SkPoint centre,
+                     double jitter = 0.0, double seed = 0.0)
 {
     const bool zig = size > 0.0;
     const bool twist = qAbs(twistDeg) > 1e-6;
@@ -384,10 +395,13 @@ SkPath zigzagTwisted(const SkPath &path, double size, int ridges, bool smooth, d
         for (int i = 0; i <= last; ++i) {
             SkPoint pos;
             SkVector tan;
-            if (!measure.getPosTan(float(length * i / count), &pos, &tan))
+            const bool pinned = !closed && (i == 0 || i == last);
+            const double nudge = zig && jitter > 0.0 && !pinned ? jitter * 0.45 * (hash01(i + 0.5, seed + 3.1) * 2.0 - 1.0) : 0.0;
+            if (!measure.getPosTan(float(length * (i + nudge) / count), &pos, &tan))
                 continue;
             if (zig) {
-                const double side = (i % 2 == 0 ? 1.0 : -1.0) * size;
+                const double amount = jitter > 0.0 ? 1.0 - jitter * hash01(i + 0.25, seed) : 1.0;
+                const double side = (i % 2 == 0 ? 1.0 : -1.0) * size * amount;
                 pos = {float(pos.x() - tan.y() * side), float(pos.y() + tan.x() * side)};
             }
             if (twist) {
@@ -427,6 +441,61 @@ SkPath zigzagTwisted(const SkPath &path, double size, int ridges, bool smooth, d
     } while (measure.nextContour());
     SkPath result = out.detach();
     result.setFillType(path.getFillType());
+    return result;
+}
+
+// Break apart (0.32, plan-vfx D): holes on a jittered grid of `cell` px cells (strips `stretch` times as long along
+// `angleDeg`) cut out of the outline, each opening from its own centre at its own moment as `amount` goes 0 → 1;
+// at 1 nothing is left. The same seed gives the same holes in preview and export.
+SkPath erodedPath(const SkPath &path, double amount, double cell, double seed, double angleDeg, double stretch)
+{
+    if (amount <= 0.0 || path.isEmpty())
+        return path;
+    if (amount >= 1.0) {
+        SkPath none;
+        none.setFillType(path.getFillType());
+        return none;
+    }
+    const SkRect b = path.getBounds();
+    // The grid lives in a frame turned by the angle: the outline's box measured there.
+    SkMatrix toLocal;
+    toLocal.setRotate(float(-angleDeg));
+    const SkRect local = toLocal.mapRect(b);
+    double cw = qMax(1.0, cell * qMax(1.0, stretch));
+    double ch = qMax(1.0, cell);
+    // At most ~900 holes: a tiny cell on a big shape grows instead.
+    const double cells = (local.width() / cw + 2.0) * (local.height() / ch + 2.0);
+    if (cells > 900.0) {
+        const double k = std::sqrt(cells / 900.0);
+        cw *= k;
+        ch *= k;
+    }
+    const int cols = int(std::ceil(local.width() / cw)) + 1;
+    const int rows = int(std::ceil(local.height() / ch)) + 1;
+    SkPathBuilder holes;
+    for (int gy = -1; gy < rows; ++gy) {
+        // Every other row shifted half a cell, so the strips do not line up in a lattice.
+        const double rowShift = (gy & 1) ? 0.5 : 0.0;
+        for (int gx = -1; gx < cols; ++gx) {
+            const double key = gx * 131.0 + gy * 17.0;
+            const double delay = hash01(key, seed + 5.0) * 0.6;
+            const double grow = qBound(0.0, (amount - delay) / 0.4, 1.0);
+            if (grow <= 0.0)
+                continue;
+            const double cx = local.left() + (gx + 0.5 + rowShift + (hash01(key, seed + 1.0) - 0.5) * 0.6) * cw;
+            const double cy = local.top() + (gy + 0.5 + (hash01(key, seed + 2.0) - 0.5) * 0.6) * ch;
+            // Round off the opening so a hole starts as a dot and swells (ease out).
+            const double r = 1.0 - (1.0 - grow) * (1.0 - grow);
+            const double rx = r * cw * 0.8, ry = r * ch * 0.8;
+            holes.addOval(SkRect::MakeLTRB(float(cx - rx), float(cy - ry), float(cx + rx), float(cy + ry)));
+        }
+    }
+    SkMatrix toCanvas;
+    toCanvas.setRotate(float(angleDeg));
+    const SkPath cut = holes.detach().makeTransform(toCanvas);
+    SkPath result;
+    if (!Op(path, cut, kDifference_SkPathOp, &result))
+        return path;
     return result;
 }
 
@@ -613,20 +682,56 @@ public:
             m_path = offsetOutline(m_path, m_style.offsetPath * m_scale);
         if (qAbs(m_style.puckerBloat) > 1e-6)
             m_path = puckerBloated(m_path, m_style.puckerBloat);
-        if (m_style.zigzagSize > 0.0 || qAbs(m_style.twistAngle) > 1e-6)
+        if (m_style.zigzagSize > 0.0 || qAbs(m_style.twistAngle) > 1e-6) {
+            // On twos (0.32): a fresh draw of the uneven zig zag zigzagStepRate times a second.
+            const double jitter = qBound(0.0, m_style.zigzagJitter / 100.0, 1.0);
+            double seed = m_style.zigzagSeed;
+            if (jitter > 0.0 && m_style.zigzagStepRate > 0.0)
+                seed += std::floor(m_timeSec * m_style.zigzagStepRate + 1e-6) * 31.7;
             m_path = zigzagTwisted(m_path, m_style.zigzagSize * m_scale, qRound(m_style.zigzagRidges),
                                    m_style.zigzagSmooth >= 0.5, m_style.twistAngle,
-                                   SkPoint{float(width / 2.0), float(height / 2.0)});
-        if (m_style.hasWiggle())
-            m_path = wiggledPath(m_path, m_style.wiggleSize * m_scale, m_style.wiggleDetail * m_scale,
-                                 m_timeSec * m_style.wiggleSpeed, m_style.wiggleSeed);
+                                   SkPoint{float(width / 2.0), float(height / 2.0)}, jitter, seed);
+        }
+        if (m_style.hasWiggle()) {
+            // Stepped (0.32, «on twos»): a new random wobble wiggleStepRate times a second, held in between.
+            double phase = m_timeSec * m_style.wiggleSpeed;
+            double seed = m_style.wiggleSeed;
+            if (m_style.wiggleStepRate > 0.0) {
+                seed += std::floor(m_timeSec * m_style.wiggleStepRate + 1e-6) * 17.17;
+                phase = 0.0;
+            }
+            m_path = wiggledPath(m_path, m_style.wiggleSize * m_scale, m_style.wiggleDetail * m_scale, phase, seed);
+        }
+        if (m_style.hasErode())
+            m_path = erodedPath(m_path, m_style.erodeAmount / 100.0, m_style.erodeSize * m_scale, m_style.erodeSeed,
+                                m_style.erodeAngle, m_style.erodeStretch);
         if (m_style.hasTrim() || !qFuzzyIsNull(m_style.trimOffset))
             m_path = trimmedPath(m_path, m_style.trimStart, m_style.trimEnd, m_style.trimOffset,
                                  qRound(m_style.trimSegments), m_style.trimReverse > 0.5);
     }
 
+    // Merge Paths in a group (0.32): an outline already built (the group's parts combined, in the layer's canvas px)
+    // painted with `style`'s layers at `renderScale`. Its repeater is not drawn.
+    ShapePainter(const ShapeStyle &style, const SkPath &outline, double renderScale, double timeSec)
+        : m_style(style), m_scale(renderScale), m_timeSec(timeSec), m_bleed(0.0), m_path(outline)
+    {
+        m_style.keyframes.clear();
+        m_style.repeatCopies = 1.0;
+        m_style.repeatOffset = 0.0;
+        m_silhouetteStrokePx = widestOutwardStroke(style) * m_scale * 2.0;
+        const SkRect b = outline.getBounds();
+        m_boxW = b.width();
+        m_boxH = b.height();
+        m_size = QSize(qMax(1, int(std::ceil(b.right()))), qMax(1, int(std::ceil(b.bottom()))));
+    }
+
     QSize size() const override { return m_size; }
     quint64 cacheKey() const override { return m_key; }
+    // The final outline, operators applied, in the painter's own px (before its bleed margin).
+    const SkPath &outline() const { return m_path; }
+    double bleed() const { return m_bleed; }
+    double renderScale() const { return m_scale; }
+    const ShapeStyle &style() const { return m_style; }
 
     void paint(SkCanvas &canvas) const override
     {
@@ -665,11 +770,38 @@ private:
                 continue;
             const ShadingLayerGroup group = beginShadingLayer(canvas, layer, m_scale);
             canvas.save();
-            canvas.translate(float(layer.offsetX * m_scale), float(layer.offsetY * m_scale));
-            drawLayer(canvas, layer, box);
+            if (layer.kind == TextLayerKind::Fill && layer.innerTone) {
+                drawInnerTone(canvas, layer, box);
+            } else {
+                canvas.translate(float(layer.offsetX * m_scale), float(layer.offsetY * m_scale));
+                drawLayer(canvas, layer, box);
+            }
             canvas.restore();
             endShadingLayer(canvas, group);
         }
+    }
+
+    // Inner tone (0.32, plan-vfx C): the cel second tone. Inside the outline only, hard-edged: where a copy of the
+    // outline moved by the layer's offset (scaled and turned about the box centre) does not reach — or, inverted,
+    // where it does. It follows the outline as it morphs, wiggles or breaks apart.
+    void drawInnerTone(SkCanvas &canvas, const TextShadingLayer &layer, const QRectF &box) const
+    {
+        const SkPoint c{float(box.center().x()), float(box.center().y())};
+        SkMatrix m;
+        m.setTranslate(-c.x(), -c.y());
+        const float k = float(qMax(0.01, layer.toneScale / 100.0));
+        m.postScale(k, k);
+        m.postRotate(float(layer.toneRotation));
+        m.postTranslate(c.x() + float(layer.offsetX * m_scale), c.y() + float(layer.offsetY * m_scale));
+        const SkPath copy = m_path.makeTransform(m);
+        SkPath tone;
+        if (!Op(m_path, copy, layer.toneInvert ? kIntersect_SkPathOp : kDifference_SkPathOp, &tone))
+            return;
+        SkPaint paint;
+        paint.setAntiAlias(true);
+        applyShadingPaint(paint, layer.paint, box, m_timeSec, 1.0);
+        paint.setPathEffect(fillPathEffectFor(layer, m_scale));
+        canvas.drawPath(tone, paint);
     }
 
     void drawLayer(SkCanvas &canvas, const TextShadingLayer &layer, const QRectF &box) const
@@ -887,6 +1019,60 @@ struct PartNode
 };
 
 void buildPartNodes(const std::vector<ShapePart> &parts, const SkMatrix &parent, double timeSec,
+                    std::vector<PartNode> &out, SkRect &bounds);
+
+// Every shape part under `nodes`, top first, as (its outline in the layer's canvas px, its node).
+void collectPartOutlines(const std::vector<PartNode> &nodes, std::vector<std::pair<SkPath, const PartNode *>> &out)
+{
+    for (const PartNode &node : nodes) {
+        if (node.group) {
+            collectPartOutlines(node.children, out);
+            continue;
+        }
+        if (!node.painter)
+            continue;
+        SkMatrix m = node.toCanvas;
+        m.preTranslate(float(node.painter->bleed()), float(node.painter->bleed()));
+        out.emplace_back(node.painter->outline().makeTransform(m), &node);
+    }
+}
+
+// Merge Paths in a group (0.32, After Effects): the group's parts combined into one outline, the bottom part the
+// base and each part above merged onto it with `mode` (1 add, 2 subtract, 3 intersect, 4 exclude), painted with the
+// bottom part's layers. Returns false (the parts are painted one by one) when there is nothing to merge.
+bool mergeGroupNode(PartNode &node, int mode, double timeSec, SkRect &bounds)
+{
+    std::vector<std::pair<SkPath, const PartNode *>> outlines;
+    collectPartOutlines(node.children, outlines);
+    if (outlines.size() < 2 || mode <= 0)
+        return false;
+    const SkPathOp op = mode == 2 ? kDifference_SkPathOp : mode == 3 ? kIntersect_SkPathOp
+                      : mode == 4 ? kXOR_SkPathOp : kUnion_SkPathOp;
+    SkPath merged = outlines.back().first;
+    for (auto it = std::next(outlines.rbegin()); it != outlines.rend(); ++it) {
+        SkPath next;
+        if (Op(merged, it->first, op, &next))
+            merged = next;
+    }
+    const PartNode &base = *outlines.back().second;
+    // The base's px per canvas px: its strokes and offsets keep the width they had on the base part.
+    const double r = base.painter->renderScale() * std::sqrt(std::abs(double(base.toCanvas.getScaleX()) * base.toCanvas.getScaleY()
+                                                                      - double(base.toCanvas.getSkewX()) * base.toCanvas.getSkewY()));
+    PartNode leaf;
+    leaf.alpha = base.alpha;
+    leaf.blend = base.blend;
+    leaf.painter = std::make_shared<ShapePainter>(base.painter->style(), merged, qMax(0.01, r), timeSec);
+    leaf.toCanvas = SkMatrix::I();
+    SkRect b = merged.getBounds();
+    const float reach = float(shapeBleedFor(base.painter->style()) * r);
+    b.outset(reach, reach);
+    bounds.join(b);
+    node.children.clear();
+    node.children.push_back(std::move(leaf));
+    return true;
+}
+
+void buildPartNodes(const std::vector<ShapePart> &parts, const SkMatrix &parent, double timeSec,
                     std::vector<PartNode> &out, SkRect &bounds)
 {
     for (const ShapePart &part : parts) {
@@ -899,9 +1085,12 @@ void buildPartNodes(const std::vector<ShapePart> &parts, const SkMatrix &parent,
         SkMatrix m = parent;
         m.preConcat(partMatrix(wiggledTransform(part.transform, timeSec)));
         if (part.group) {
-            buildPartNodes(part.children, m, timeSec, node.children, bounds);
+            SkRect childBounds = SkRect::MakeEmpty();
+            buildPartNodes(part.children, m, timeSec, node.children, childBounds);
             if (node.children.empty())
                 continue;
+            if (!(part.mergeMode >= 0.5 && mergeGroupNode(node, qRound(part.mergeMode), timeSec, bounds)))
+                bounds.join(childBounds);
             out.push_back(std::move(node));
             continue;
         }
