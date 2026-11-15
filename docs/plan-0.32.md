@@ -46,6 +46,17 @@ Pedidos de Jorge del 2026-11-15. La versión sigue en 0.31.0 en `CMakeLists.txt`
   (`SessionFlags.qml`, singleton nuevo); el aviso del panel pasa arriba (antes centrado y en una laptop no se veía).
 - `StockPanelCards.qml`: el «Iniciar sesión» de Tendencias abre el mismo diálogo.
 
+## 4. Máscaras de las capas de ajuste al pasar Short ⇄ Video — HECHO (código)
+
+- `src/core/SceneTemplateLayout.cpp` (`mapCanvasMask`, dentro de `mapLayout`): una capa de ajuste suelta (sobre
+  todo lo de abajo, no un carril de un clip) mide sus máscaras en el lienzo; al adaptar la plantilla a la otra
+  forma, sus máscaras (`mask` y `extraMasks`: centro, tamaño, puntos libres, `pathKeys`, claves x/y/w/h, desenfoque
+  del borde y `expand`) se mueven igual que el diseño. Caso: tercios de vidrio (`templates_yp15.py`/`yp16`,
+  `GLASS_BLUR`), el desenfoque bajo el vidrio quedaba fuera de lugar.
+- Igual en `tools/scene_templates/layoutfit.py` (`fit_doc` → `_map_loose_adjustment_masks`). La copia del checkout
+  principal la porta quien coordina.
+- Prueba: `EditorStateTest::sceneTemplateLayoutMovesLooseAdjustmentMasks`.
+
 ## Compilación y pruebas
 
 - `pwsh tools/precheck.ps1`: OK (traducciones al español hechas en `drift_es.ts`).
