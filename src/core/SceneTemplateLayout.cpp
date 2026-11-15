@@ -39,14 +39,70 @@ void scaleKeyed(QMap<QString, KeyframeTrack<double>> &keyframes, const QString &
         mapTrack(*it, scale, 0.0, 0.0);
 }
 
+// A mask measured on the canvas (0..1 of fromW×fromH) moved with the art, px → px * scale + offset, and
+// measured again on the toW×toH canvas: centre, size, outline points and their keys, and the feather (px) and
+// expand (a fraction of the short side) grown the same.
+void mapCanvasMask(Mask &m, int fromW, int fromH, int toW, int toH, double scale, double offsetX, double offsetY)
+{
+    const double ax = fromW * scale / toW;
+    const double ay = fromH * scale / toH;
+    const double bx = offsetX / toW;
+    const double by = offsetY / toH;
+    const double expandScale = double(qMin(fromW, fromH)) * scale / qMax(1, qMin(toW, toH));
+    m.x = m.x * ax + bx;
+    m.y = m.y * ay + by;
+    m.w *= ax;
+    m.h *= ay;
+    m.feather *= scale;
+    m.expand *= expandScale;
+    const auto mapPoint = [&](QPointF &p) { p = QPointF(p.x() * ax + bx, p.y() * ay + by); };
+    for (QPointF &p : m.points)
+        mapPoint(p);
+    for (auto it = m.pathKeys.begin(); it != m.pathKeys.end(); ++it) {
+        for (QPointF &p : it.value())
+            mapPoint(p);
+    }
+    for (auto it = m.keyframes.begin(); it != m.keyframes.end(); ++it) {
+        if (it->isEmpty())
+            continue;
+        if (it.key() == QLatin1String("x"))
+            mapTrack(*it, ax, bx, 0.0);
+        else if (it.key() == QLatin1String("y"))
+            mapTrack(*it, ay, by, 0.0);
+        else if (it.key() == QLatin1String("w"))
+            mapTrack(*it, ax, 0.0, 0.0);
+        else if (it.key() == QLatin1String("h"))
+            mapTrack(*it, ay, 0.0, 0.0);
+        else if (it.key() == QLatin1String("feather"))
+            mapTrack(*it, scale, 0.0, 0.0);
+        else if (it.key() == QLatin1String("expand"))
+            mapTrack(*it, expandScale, 0.0, 0.0);
+    }
+}
+
 } // namespace
 
 namespace {
 
-// Every visual clip's box, value → value * scale + offset.
-void mapLayout(QList<Track> &tracks, int fromW, int fromH, double scale, double offsetX, double offsetY,
-               const QList<const Clip *> &leave = {})
+// Every visual clip's box, value → value * scale + offset. A loose adjustment layer (over everything below, not
+// a lane of one clip) measures its masks on the canvas: they move with the art too (0.32, the glass lower
+// thirds: the blur under the glass stayed where the glass had been).
+void mapLayout(QList<Track> &tracks, int fromW, int fromH, int toW, int toH, double scale, double offsetX,
+               double offsetY, const QList<const Clip *> &leave = {})
 {
+    for (Track &track : tracks) {
+        if (track.type == TrackType::Audio || track.isAdjustmentLane())
+            continue;
+        for (Clip &clip : track.clips) {
+            // Its own box does not matter (it may be stretched with the backdrops); one pinned to a clip measures
+            // its masks on that clip instead.
+            if (clip.type != ClipType::Adjustment || !clip.linkedClipId.isEmpty())
+                continue;
+            mapCanvasMask(clip.mask, fromW, fromH, toW, toH, scale, offsetX, offsetY);
+            for (Mask &extra : clip.extraMasks)
+                mapCanvasMask(extra, fromW, fromH, toW, toH, scale, offsetX, offsetY);
+        }
+    }
     for (Track &track : tracks) {
         if (track.type == TrackType::Audio)
             continue;
@@ -87,7 +143,7 @@ void scaleTemplateLayout(QList<Track> &tracks, int fromW, int fromH, int toW, in
     if (fromW <= 0 || fromH <= 0 || toW <= 0 || toH <= 0 || (fromW == toW && fromH == toH))
         return;
     const double scale = qMin(double(toW) / fromW, double(toH) / fromH);
-    mapLayout(tracks, fromW, fromH, scale, (toW - fromW * scale) / 2.0, (toH - fromH * scale) / 2.0);
+    mapLayout(tracks, fromW, fromH, toW, toH, scale, (toW - fromW * scale) / 2.0, (toH - fromH * scale) / 2.0);
 }
 
 namespace {
@@ -187,7 +243,7 @@ void fitOverlayLayout(QList<Track> &tracks, int fromW, int fromH, int toW, int t
                                        [](const Clip *c) { return c->layoutRole == QLatin1String("cover"); });
         if (cover && (fromW != toW || fromH != toH)) {
             const double s = qMax(double(toW) / fromW, double(toH) / fromH);
-            mapLayout(tracks, fromW, fromH, s, (toW - fromW * s) / 2.0, (toH - fromH * s) / 2.0);
+            mapLayout(tracks, fromW, fromH, toW, toH, s, (toW - fromW * s) / 2.0, (toH - fromH * s) / 2.0);
             return;
         }
         scaleTemplateLayout(tracks, fromW, fromH, toW, toH);
@@ -309,7 +365,7 @@ void fitOverlayLayout(QList<Track> &tracks, int fromW, int fromH, int toW, int t
             }
         }
     }
-    mapLayout(tracks, fromW, fromH, scale, offsetX, offsetY, leave);
+    mapLayout(tracks, fromW, fromH, toW, toH, scale, offsetX, offsetY, leave);
 }
 
 void fitLowerThirdLayout(QList<Track> &tracks, int fromW, int fromH, int toW, int toH)

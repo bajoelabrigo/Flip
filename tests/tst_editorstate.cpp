@@ -362,6 +362,7 @@ private slots:
     void trackHeadersPickGroupAndDelete();
     void sceneTemplateInsertsAndFillsSlots();
     void sceneTemplateLayoutScalesAndCovers();
+    void sceneTemplateLayoutMovesLooseAdjustmentMasks();
     void sceneTemplateSwapKeepsTheFill();
     void userTemplateSavesFromComposition();
     void trackRowHeightsForAdjustmentsAndLanes();
@@ -2270,6 +2271,57 @@ void EditorStateTest::sceneTemplateLayoutScalesAndCovers()
     QVERIFY(qAbs(grown.transformX.evaluateAt(0) + grown.transformW.evaluateAt(0) / 2.0 - 540.0) < 0.5);
     QVERIFY(qAbs(grown.transformY.evaluateAt(0) + grown.transformH.evaluateAt(0) / 2.0 - 960.0) < 0.5);
     QVERIFY(qAbs(pattern.at(0).clips.at(0).transformH.evaluateAt(0) - 1920.0) < 0.5);
+}
+
+// The glass lower thirds (0.32): a blur adjustment layer over everything below, limited by a freeform mask that
+// follows the glass, has to land on the glass when a 16:9 template is fitted into a Short: its points (and their
+// keys), centre, size and feather move with the art, measured on the new canvas.
+void EditorStateTest::sceneTemplateLayoutMovesLooseAdjustmentMasks()
+{
+    const QRectF glass(100.0, 800.0, 600.0, 200.0);
+    drift::Clip panel;
+    panel.type = drift::ClipType::Shape;
+    panel.transformX.setKeyframe(0, glass.x());
+    panel.transformY.setKeyframe(0, glass.y());
+    panel.transformW.setKeyframe(0, glass.width());
+    panel.transformH.setKeyframe(0, glass.height());
+    const auto norm = [](QPointF p) { return QPointF(p.x() / 1920.0, p.y() / 1080.0); };
+    drift::Clip blur;
+    blur.type = drift::ClipType::Adjustment;
+    blur.adjustmentKind = drift::AdjustmentKind::VideoEffects;
+    blur.mask.shape = drift::MaskShape::Freeform;
+    blur.mask.points = {norm(glass.topLeft()), norm(glass.topRight()), norm(glass.bottomRight()), norm(glass.bottomLeft())};
+    blur.mask.pathKeys.insert(0, blur.mask.points);
+    blur.mask.pathKeys.insert(500000, {norm(glass.center()), norm(glass.topRight()), norm(glass.bottomRight())});
+    blur.mask.x = norm(glass.center()).x();
+    blur.mask.y = norm(glass.center()).y();
+    blur.mask.w = glass.width() / 1920.0;
+    blur.mask.h = glass.height() / 1080.0;
+    blur.mask.feather = 10.0;
+    blur.mask.keyframes[QStringLiteral("x")].setKeyframe(0, blur.mask.x);
+    QList<drift::Track> tracks{
+        drift::Track{.type = drift::TrackType::Adjustment, .clips = {blur}},
+        drift::Track{.type = drift::TrackType::Shape, .clips = {panel}},
+    };
+    drift::fitLowerThirdLayout(tracks, 1920, 1080, 1080, 1920);
+
+    const drift::Clip &fitted = tracks.at(1).clips.at(0);
+    const QRectF moved(fitted.transformX.evaluateAt(0), fitted.transformY.evaluateAt(0),
+                       fitted.transformW.evaluateAt(0), fitted.transformH.evaluateAt(0));
+    const double scale = moved.width() / glass.width();
+    QVERIFY(scale > 1.0);
+    const auto onCanvas = [](QPointF p) { return QPointF(p.x() * 1080.0, p.y() * 1920.0); };
+    const auto near = [](QPointF a, QPointF b) { return qAbs(a.x() - b.x()) < 0.5 && qAbs(a.y() - b.y()) < 0.5; };
+    const drift::Mask &m = tracks.at(0).clips.at(0).mask;
+    QVERIFY(near(onCanvas(m.points.at(0)), moved.topLeft()));
+    QVERIFY(near(onCanvas(m.points.at(2)), moved.bottomRight()));
+    QVERIFY(near(onCanvas(m.pathKeys.value(0).at(1)), moved.topRight()));
+    QVERIFY(near(onCanvas(m.pathKeys.value(500000).at(0)), moved.center()));
+    QVERIFY(near(onCanvas(QPointF(m.x, m.y)), moved.center()));
+    QVERIFY(qAbs(m.w * 1080.0 - moved.width()) < 0.5);
+    QVERIFY(qAbs(m.h * 1920.0 - moved.height()) < 0.5);
+    QVERIFY(qAbs(m.keyframes.value(QStringLiteral("x")).evaluateAt(0) * 1080.0 - moved.center().x()) < 0.5);
+    QVERIFY(qAbs(m.feather - 10.0 * scale) < 1e-6);
 }
 
 // A template of one's own: inside a composition a photo becomes a slot and a text an editable text;
