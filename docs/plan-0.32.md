@@ -91,6 +91,12 @@ quebrados y salpicaduras en anillos de puntos). Lo nuevo:
 
 - `AddonManager.cpp` usaba `QApplication`/`QSystemTrayIcon` y las pruebas no enlazan QtWidgets: la bandeja se compila
   solo en la app (`FLIP_ADDON_TRAY`, definido en `CMakeLists.txt` para `drift`).
+- La prueba de Colores comparaba un canal de `QColor` (float) con un double exacto: ahora con tolerancia.
+- **Trampa nueva:** vcpkg se clonaba sin fijar y su actualización de zlib 1.4 (2026-11-13) dejó a Skia enlazando un
+  `zs.lib` que no existe (todo Windows en rojo al enlazar). `package.yml` y `msstore.yml` fijan vcpkg en
+  `fe8e78fac7` (el commit anterior). Para actualizar vcpkg, cambiar ese commit a propósito.
+- Compilación con todo lo de arriba: run 43738406085 (Windows) en verde; Tests (Linux) run 43733676879 en verde.
+  Portable en `E:\FlipStudio\pruebas\FlipStudio-0.32-liquido` (con ella se renderizó la yp10 nueva).
 
 ## Compilación y pruebas
 
