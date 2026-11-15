@@ -35,3 +35,8 @@ well placed); fix roles or layout when it does not fit. **Trap:** `short_check.p
 - 2026-11-15: modules created and registered; one agent per video studying and building.
 - 2026-11-15: five more videos (yp13–yp17) added; both formats required.
 - yp12 done: 13 pieces, `prototipos-yp12\comparacion-yp12.mp4` (Video + Short).
+- yp8 (21), yp9 (33), yp10 (15), yp11 (20), yp12 (13), yp15 (12), yp16 (11), yp17 (10) done with comparison videos
+  (Video + Short); yp13 and yp14 still building.
+- Glass blur (yp15/yp16, `GLASS_BLUR`): off because 0.31's Short fit does not move adjustment-layer masks. Jorge
+  approved the engine fix for 0.32 (branch `flip/v0.32`). After it: port `layoutfit.py`, set `GLASS_BLUR = True`,
+  re-render yp15/yp16 with the 0.32 build and give those ids `minAppVersion` 0.32.0 in `publish.py`.
