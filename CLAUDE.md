@@ -75,6 +75,11 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
   `flipstudio-api` `1e0c5` (desplegado, `src/services/socialkits.ts`): tipos `tiktok` (Historias/Aperturas/Reels) e `instagram`
   (Historias/Tipografía/Presentaciones/Elementos) justo después de `ytkit`, secciones por el número de tanda del id; siguen
   también en Plantillas. Solo los ve la 0.31.0 o más nueva. Una tanda nueva `tkN`/`igN` hay que sumarla a `BATCHES`.
+- **2026-11-15, reparto de Stock ordenado** (`flipstudio-api` `30505`, desplegado): las 230 Historias de Instagram se
+  reparten por etiquetas (`instagramStory`): Historias con fotos 113, Frases 31, Moda 23, Ofertas 13, Perfiles 9, Fondos y
+  títulos 24, Fechas especiales 5, y los «Swipe up» van a Elementos (27). VFX › Electricidad (1 pieza) entra en Energía
+  (`MERGED_CATEGORIES` en `templates.ts`). Plantillas › «Estilo youtuber» se llama «Ideas para videos» en los 15 idiomas
+  (`RENAMED_CATEGORIES` en `i18n.ts`, gana a los `categoryNames` del índice).
 - **Trampa nueva:** al subir una tanda grande a Stock, mirar la **primera página** de su tipo con la versión nueva.
 
 ### Kits de LOGO, TikTok e Instagram PUBLICADOS en Stock (2026-11-10)
