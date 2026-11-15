@@ -80,6 +80,13 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
   títulos 24, Fechas especiales 5, y los «Swipe up» van a Elementos (27). VFX › Electricidad (1 pieza) entra en Energía
   (`MERGED_CATEGORIES` en `templates.ts`). Plantillas › «Estilo youtuber» se llama «Ideas para videos» en los 15 idiomas
   (`RENAMED_CATEGORIES` en `i18n.ts`, gana a los `categoryNames` del índice).
+- **2026-11-15, editor web:** los kits (YouTube, TikTok, Instagram) se ven en Stock con la insignia «app» pero solo se
+  usan en el escritorio (y en la APK cuando exista): `DESKTOP_ONLY` en `flipstudio-app/src/stock/stock.ts`, rama
+  `web/kits-escritorio` (sale de `web/auditoria`), **desplegada**. Es la rama viva de la web desde ahora.
+- **0.32 en curso** (`flip/v0.32`, worktree `codigo\Flip-032`, `docs/plan-0.32.md`): Colores en el panel Plantilla,
+  «Instalar todo» de extras en segundo plano (sigue al cerrar la app), ventana de inicio de sesión de Stock, y el
+  desenfoque del cristal (máscara de capa de ajuste) en el ajuste Short/Video.
+- **Segundo grupo del Kit de YouTube** (yp8–yp17, `docs/plan-youtube-pack-2.md`), sin subir.
 - **Trampa nueva:** al subir una tanda grande a Stock, mirar la **primera página** de su tipo con la versión nueva.
 
 ### Kits de LOGO, TikTok e Instagram PUBLICADOS en Stock (2026-11-10)
