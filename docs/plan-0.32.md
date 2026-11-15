@@ -100,3 +100,48 @@ quebrados y salpicaduras en anillos de puntos). Lo nuevo:
   y `Flip-032\.qtmingw\6.10.3\mingw_64\bin` es una unión a esa carpeta.
 - CI: (ver abajo).
 - En ventana: pendiente.
+
+## 7. Motor VFX (A–E) — rama `flip/v0.32-vfx` (worktree `codigo\Flip-032-vfx`), para unir a `flip/v0.32`
+
+Lo que pedía `docs/plan-vfx.md` (checkout principal) para los efectos dibujados a mano tipo RTFX. Todo es opcional en
+el JSON: si falta, se dibuja como antes.
+
+- **A. Esquinas en la transformación suave** (`ShapeStyle::morphCorners`, grados; 0 = todo redondo como antes). Con
+  la transformación suave encendida, los vértices donde el trazado gira más que ese ángulo (una cúspide: punta de
+  llama, chispa) quedan en punta; si las dos claves tienen el mismo número de esquinas, se emparejan en orden y cada
+  tramo entre esquinas se remuestrea por separado (la punta viaja a su pareja). `drift::pathContourCorners`,
+  `SmoothMorphOptions` en `src/core/ShapePathEdit.*`. Inspector › Trazado: «Conservar las esquinas en punta» (40°).
+- **B. Posterizar tiempo** (`Clip::posterizeFps`, JSON `posterizeFps`; 0 = apagado). Todo el clip (transformación,
+  claves, trazado, temblor, efectos, el cuadro del video, el padre que sigue y el desenfoque de movimiento) se calcula
+  a esos cuadros por segundo y se mantiene entre medio, como «Posterize Time» de AE. `Clip::posterizedTimelineUs`,
+  aplicado en `buildGpuLayer`, `clipGeometryAt` y el padre (`FrameCompositor.cpp`). Inspector › Movimiento (donde
+  está «Desenfoque de movimiento»): «Posterizar tiempo» + fps (12 por defecto). `setClipPosterizeFps`.
+- **C. Tono interior** (capa de relleno con `innerTone`, `toneScale` %, `toneRotation` °, `toneInvert`). Pinta, con
+  borde duro y solo dentro de la forma, donde no llega una copia del contorno movida por su desplazamiento (o donde sí
+  llega, invertido): la panza gris del humo, el lado oscuro del líquido. Sigue al trazado animado. «Añadir capa ›
+  Tono interior» (desplazamiento Y −12, color más oscuro). `drawInnerTone` en `SkiaShapePainter.cpp`.
+- **D. Nacer y morir por dentro.** (1) `morphFromCentre`: en la transformación suave, un contorno que solo tiene una
+  clave (un hueco, una gota) nace/muere en su propio centro. Inspector › Trazado: «Los contornos nuevos crecen desde
+  su centro». (2) Operador **Romperse** (`erodeAmount` 0–100 %, `erodeSize` px, `erodeSeed`, `erodeAngle`,
+  `erodeStretch`): huecos en una cuadrícula con azar que se abren desde su centro, cada uno a su momento, hasta que no
+  queda nada (100 % = vacío); con Estirar > 1 son tiras a lo largo del ángulo (el fuego que se corta en tiras).
+  Sección nueva «Romperse» en el inspector. `erodedPath`.
+- **E. A saltos.** `wiggleStepRate` (dibujos por segundo; 0 = el temblor suave de siempre): un sorteo nuevo cada
+  dibujo, quieto entre medio. Zig Zag: `zigzagJitter` % (cada punta con su tamaño y corrida a lo largo), `zigzagSeed`,
+  `zigzagStepRate` (redibujo por segundo): la electricidad. En las secciones de Wiggle y Zig Zag.
+- **H. Comprobado.** Merge Paths solo combinaba los contornos de un mismo trazado, y «Combinar» de la 0.30 hornea las
+  partes en un trazado fijo. Ahora un **grupo** tiene `ShapePart::mergeMode` (JSON `merge`): sus partes se combinan
+  en vivo (la de abajo es la base y pinta el resultado; las de arriba se suman, restan…), siguen animadas.
+  `mergeGroupNode` en `SkiaShapePainter.cpp`; inspector de un grupo: «Combinar las partes del grupo». El Brillo
+  exterior (`layer.outer_glow`) se compone **debajo** de la capa (`composite.frag`): con la forma opaca no se ve por
+  dentro; sí asoma si la capa es semitransparente (como en AE). No se tocó.
+- **Short ⇄ Video:** `erodeSize` se escala con el diseño (`scaleShapeStyle`).
+- **Plantillas:** `tools/scene_templates/vfx.py` (en esta rama; el `liquid.py` del checkout principal no se tocó):
+  `smooth_path` con esquinas (índices o `corner_angle`), `smooth_morph`, `posterize`, `inner_tone`, `break_apart`,
+  `stepped_wiggle`, `jagged_zigzag`, `MERGE`. `tools/scene_templates/vfx_demo.py` arma y renderiza los videos de
+  prueba en `E:\FlipStudio\tienda\vfx-estudio\motor\`. Lo que use esto pide la versión que traiga el motor.
+- **Pruebas:** `CoreTest::shapePathSmoothMorphKeepsCornersAndGrowsFromCentre`, `CoreTest::cartoonVfxFieldsRoundTrip`
+  (todos los campos, posterizar, guardar/abrir), `SkiaTest::shapeCartoonVfxOperators` (tono, romperse, saltos) y
+  `SkiaTest::shapeGroupMergePaths`.
+- **Falta:** verlo en ventana (paneles nuevos) y que Jorge vea los videos; el MCP (`set_shape`) no lista los campos
+  nuevos (presupuesto del catálogo), se pueden poner por JSON de proyecto.
