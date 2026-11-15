@@ -25518,6 +25518,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>El cronómetro de Trazado de After Effects: una clave con este contorno en el cabezal</translation>
     </message>
     <message>
+        <source>Smooth morph between different paths</source>
+        <translation>Transformación suave entre trazados distintos</translation>
+    </message>
+    <message>
+        <source>Keys whose paths have different points still blend smoothly: a blob grows, wobbles or splits into drops</source>
+        <translation>Las claves con trazados de distintos puntos también se mezclan suave: una mancha crece, ondula o se parte en gotas</translation>
+    </message>
+    <message>
         <source>Editing the key at the playhead.</source>
         <translation>Editas la clave del cabezal.</translation>
     </message>
@@ -25962,6 +25970,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Pucker &amp; Bloat</source>
         <translation>Fruncir e inflar</translation>
+    </message>
+    <message>
+        <source>Smooth morph</source>
+        <translation>Transformación suave</translation>
     </message>
     <message>
         <source>Points</source>

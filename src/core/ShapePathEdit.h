@@ -35,6 +35,13 @@ QString svgFromPathContours(const QList<PathContour> &contours);
 // 1 = b); any other pair holds `a` until `t` reaches 1, as a path key without a match would.
 QString morphSvgPaths(const QString &a, const QString &b, double t);
 
+// Smooth morph (0.32, the cartoon packs): any two outlines blend, whatever their contours and vertex counts. Each
+// contour is resampled by arc length to the same number of points, the start and direction of the second are
+// chosen to sit closest to the first, and the blend is drawn back as a smooth curve (Catmull-Rom). A contour with
+// no partner grows from (or shrinks into) the nearest point of the other outline, so a drop can split off a blob.
+// t <= 0 and t >= 1 give a and b exactly.
+QString morphSvgPathsResampled(const QString &a, const QString &b, double t);
+
 // The box the vertices and their handles span (which holds the whole curve).
 QRectF pathContoursBounds(const QList<PathContour> &contours);
 

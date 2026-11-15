@@ -156,6 +156,7 @@ private slots:
     void shapeStyleSerialization();
     void shapePathContoursRoundTrip();
     void shapePathMorphsBetweenKeys();
+    void shapePathSmoothMorph();
     void trackBehaviorsLoopWiggleAndSpeed();
     void timeRemapAndAutoOrient();
     void legacyShapeStyleLoadsWithDefaults();
@@ -1986,6 +1987,50 @@ void CoreTest::shapePathContoursRoundTrip()
     }
     const QRectF box = drift::pathContoursBounds(contours);
     QCOMPARE(box, QRectF(0, 0, 100, 100));
+}
+
+// Smooth morph (0.32): outlines that do not match point for point still blend, as smooth curves; a contour with no
+// partner grows from the nearest point of the other outline; the switch is off in older projects and is saved.
+void CoreTest::shapePathSmoothMorph()
+{
+    const QString square = QStringLiteral("M 0 0 L 100 0 L 100 100 L 0 100 Z");
+    const QString triangle = QStringLiteral("M 50 0 L 100 100 L 0 100 Z");
+    QCOMPARE(drift::morphSvgPathsResampled(square, triangle, 0.0), square);
+    QCOMPARE(drift::morphSvgPathsResampled(square, triangle, 1.0), triangle);
+    const QList<drift::PathContour> half = drift::pathContoursFromSvg(drift::morphSvgPathsResampled(square, triangle, 0.5));
+    QCOMPARE(half.size(), 1);
+    QVERIFY(half.at(0).closed);
+    QVERIFY(half.at(0).vertices.size() >= 12);
+    // Halfway: the top is between the square's flat top and the triangle's point, the bottom stays put.
+    const QRectF box = drift::pathContoursBounds(half);
+    QVERIFY2(box.top() > -3.0 && box.top() < 3.0, qPrintable(QString::number(box.top())));
+    QVERIFY2(box.bottom() > 97.0 && box.bottom() < 103.0, qPrintable(QString::number(box.bottom())));
+    // The top-left corner has moved halfway towards the triangle's side (x 0 → ~25 at y 0..10).
+    bool leftOfQuarter = false;
+    for (const drift::PathVertex &v : half.at(0).vertices)
+        leftOfQuarter = leftOfQuarter || (v.point.y() < 5.0 && v.point.x() < 10.0);
+    QVERIFY(!leftOfQuarter);
+
+    // One drop splits into two: the new contour grows from the first one's edge.
+    const QString one = QStringLiteral("M 10 50 C 10 30 40 30 40 50 C 40 70 10 70 10 50 Z");
+    const QString two = one + QStringLiteral(" M 70 50 C 70 40 90 40 90 50 C 90 60 70 60 70 50 Z");
+    const QList<drift::PathContour> split = drift::pathContoursFromSvg(drift::morphSvgPathsResampled(one, two, 0.5));
+    QCOMPARE(split.size(), 2);
+    const QRectF drop = drift::pathContoursBounds({split.at(1)});
+    QVERIFY2(drop.width() > 4.0 && drop.width() < 16.0, qPrintable(QString::number(drop.width())));
+    QVERIFY2(drop.left() > 35.0 && drop.right() < 70.0, qPrintable(QString::number(drop.left())));
+
+    // On the Path stopwatch: off (as before 0.32) holds the square, on blends; saved and read back.
+    drift::ShapeStyle style;
+    style.kind = drift::ShapeKind::Custom;
+    style.customPath = square;
+    drift::setShapePathAnimated(style, true, 0);
+    drift::setShapePathAt(style, drift::secondsToUs(2.0), triangle, 1000);
+    QCOMPARE(drift::shapePathAt(style, drift::secondsToUs(1.0)), square);
+    style.smoothMorph = 1.0;
+    QVERIFY(drift::shapePathAt(style, drift::secondsToUs(1.0)) != square);
+    QCOMPARE(drift::shapeStyleFromJson(drift::shapeStyleToJson(style)).smoothMorph, 1.0);
+    QVERIFY(!drift::shapeStyleToJson(drift::ShapeStyle()).contains(QStringLiteral("smoothMorph")));
 }
 
 // Two outlines with the same vertices blend; a pair that does not match holds the first.

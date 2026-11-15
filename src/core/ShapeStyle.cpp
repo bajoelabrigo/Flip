@@ -582,6 +582,7 @@ constexpr KnobField kKnobs[] = {
     {"zigzagSmooth", QT_TRANSLATE_NOOP("ShapeStyle", "Smooth points"), &ShapeStyle::zigzagSmooth, 0.0, 1.0},
     {"twistAngle", QT_TRANSLATE_NOOP("ShapeStyle", "Twist"), &ShapeStyle::twistAngle, -3600.0, 3600.0},
     {"puckerBloat", QT_TRANSLATE_NOOP("ShapeStyle", "Pucker & Bloat"), &ShapeStyle::puckerBloat, -100.0, 100.0},
+    {"smoothMorph", QT_TRANSLATE_NOOP("ShapeStyle", "Smooth morph"), &ShapeStyle::smoothMorph, 0.0, 1.0},
 };
 
 const KnobField *knobFor(const QString &key)
@@ -715,7 +716,12 @@ QString shapePathAt(const ShapeStyle &style, TimeUs clipTimeUs)
     if (prev->hold || qFuzzyCompare(v0 + 1.0, v1 + 1.0))
         return outline(v0);
     const double t = qBound(0.0, (it->evaluateAt(clipTimeUs) - v0) / (v1 - v0), 1.0);
-    return morphSvgPaths(outline(v0), outline(v1), t);
+    const QString from = outline(v0), to = outline(v1);
+    const QString pointwise = morphSvgPaths(from, to, t);
+    // Smooth morph (0.32): where the pointwise blend holds `from` (the outlines do not match), the resampled one.
+    if (style.smoothMorph >= 0.5 && pointwise == from && from != to)
+        return morphSvgPathsResampled(from, to, t);
+    return pointwise;
 }
 
 void setShapePathAt(ShapeStyle &style, TimeUs clipTimeUs, const QString &svg, TimeUs toleranceUs)
@@ -766,7 +772,7 @@ quint64 shapeStyleHash(const ShapeStyle &style)
                         style.repeatStartOpacity, style.repeatEndOpacity)
            ^ qHashMulti(2, style.wiggleSize, style.wiggleDetail, style.wiggleSpeed, style.wiggleSeed)
            ^ qHashMulti(3, style.mergeMode, style.offsetPath, style.zigzagSize, style.zigzagRidges,
-                        style.zigzagSmooth, style.twistAngle, style.puckerBloat)
+                        style.zigzagSmooth, style.twistAngle, style.puckerBloat, style.smoothMorph)
            ^ qHash(style.pathShapes) ^ shapePartsHash(style);
 }
 

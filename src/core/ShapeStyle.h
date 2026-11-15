@@ -145,6 +145,11 @@ struct ShapeStyle
     // easing and handles shape the morph. Indices are unique per key; editing the path at a key
     // replaces its entry.
     QStringList pathShapes;
+    // Smooth morph (0.32, cartoon / liquid motion): 1 = two path keys whose outlines do not match point for point
+    // (other contour or vertex counts) still blend, resampled along their length and drawn back as smooth curves,
+    // so a blob grows, wobbles and splits from a few keys. 0 (projects before 0.32) holds the first outline, as
+    // before. Keys that do match always blend point for point.
+    double smoothMorph = 0.0;
 
     // After Effects' Contents (0.28): the layer is made of parts, each a whole shape of its own
     // (outline, fills, strokes, operators, keys) placed by its own transform, or a group of parts.

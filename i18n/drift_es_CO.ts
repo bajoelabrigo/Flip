@@ -25514,6 +25514,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Smooth morph between different paths</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keys whose paths have different points still blend smoothly: a blob grows, wobbles or splits into drops</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Editing the key at the playhead.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -25957,6 +25965,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     </message>
     <message>
         <source>Pucker &amp; Bloat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Smooth morph</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

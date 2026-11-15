@@ -905,6 +905,14 @@ Item {
                     checked: parent.pathState.animated === true
                     onToggled: EditorState.setShapePathAnimated(EditorState.selectedTrack, EditorState.selectedClip, checked)
                 }
+                ThemedSwitch {
+                    width: parent.width
+                    visible: root.shapeStyle.kind === "custom" && parent.pathState.animated === true
+                    text: qsTr("Smooth morph between different paths")
+                    tooltip: qsTr("Keys whose paths have different points still blend smoothly: a blob grows, wobbles or splits into drops")
+                    checked: Number(root.shapeStyle.smoothMorph || 0) >= 0.5
+                    onToggled: root.setShapeKey("smoothMorph", checked ? 1 : 0)
+                }
                 ThemedLabel {
                     width: parent.width
                     visible: parent.pathState.animated === true
