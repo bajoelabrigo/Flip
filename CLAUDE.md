@@ -71,6 +71,10 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
   palabras, lo más nuevo primero (`newestFirst`, por `addedAt`); y Plantillas (lista y categorías) también oculta a una app
   vieja lo que pide una versión mayor (TikTok e Instagram se colaban en la 0.30). Comprobado: 886 piezas con sus archivos,
   hashes y 13 idiomas; Novedades da 1015 a la 0.31.0 y 129 a la 0.30.2.
+- **2026-11-14, Jorge: «Kit de Instagram y TikTok deberían aparecer abajo de Kit de YouTube… y los dejas ahí donde están también».**
+  `flipstudio-api` `1e0c5` (desplegado, `src/services/socialkits.ts`): tipos `tiktok` (Historias/Aperturas/Reels) e `instagram`
+  (Historias/Tipografía/Presentaciones/Elementos) justo después de `ytkit`, secciones por el número de tanda del id; siguen
+  también en Plantillas. Solo los ve la 0.31.0 o más nueva. Una tanda nueva `tkN`/`igN` hay que sumarla a `BATCHES`.
 - **Trampa nueva:** al subir una tanda grande a Stock, mirar la **primera página** de su tipo con la versión nueva.
 
 ### Kits de LOGO, TikTok e Instagram PUBLICADOS en Stock (2026-11-10)
