@@ -157,6 +157,8 @@ private slots:
     void shapePathContoursRoundTrip();
     void shapePathMorphsBetweenKeys();
     void shapePathSmoothMorph();
+    void shapePathSmoothMorphKeepsCornersAndGrowsFromCentre();
+    void cartoonVfxFieldsRoundTrip();
     void trackBehaviorsLoopWiggleAndSpeed();
     void timeRemapAndAutoOrient();
     void legacyShapeStyleLoadsWithDefaults();
@@ -2031,6 +2033,151 @@ void CoreTest::shapePathSmoothMorph()
     QVERIFY(drift::shapePathAt(style, drift::secondsToUs(1.0)) != square);
     QCOMPARE(drift::shapeStyleFromJson(drift::shapeStyleToJson(style)).smoothMorph, 1.0);
     QVERIFY(!drift::shapeStyleToJson(drift::ShapeStyle()).contains(QStringLiteral("smoothMorph")));
+}
+
+// plan-vfx A and D (0.32): the smooth morph keeps the sharp points of its keys and pairs them; a contour only one key
+// has can grow from its own centre.
+void CoreTest::shapePathSmoothMorphKeepsCornersAndGrowsFromCentre()
+{
+    const QString square = QStringLiteral("M 0 0 L 100 0 L 100 100 L 0 100 Z");
+    const QString round = QStringLiteral("M 10 50 C 10 30 40 30 40 50 C 40 70 10 70 10 50 Z");
+    QCOMPARE(drift::pathContourCorners(drift::pathContoursFromSvg(square).at(0), 40.0).size(), 4);
+    QCOMPARE(drift::pathContourCorners(drift::pathContoursFromSvg(round).at(0), 40.0).size(), 0);
+    QCOMPARE(drift::pathContourCorners(drift::pathContoursFromSvg(square).at(0), 0.0).size(), 0);
+
+    // A flame tongue: a triangle whose tip moves, morphed into one with a fourth (smooth) point on a side. The
+    // tip stays a tip with the corners on, and is rounded off without them.
+    const QString a = QStringLiteral("M 50 0 L 100 100 L 0 100 Z");
+    const QString b = QStringLiteral("M 70 0 L 100 100 L 0 100 C 10 60 20 40 30 30 C 40 20 60 10 70 0 Z");
+    drift::SmoothMorphOptions sharp;
+    sharp.cornerAngle = 40.0;
+    const QList<drift::PathContour> kept = drift::pathContoursFromSvg(drift::morphSvgPathsResampled(a, b, 0.5, sharp));
+    QCOMPARE(kept.size(), 1);
+    bool tip = false;
+    for (const drift::PathVertex &v : kept.at(0).vertices) {
+        const bool atTip = std::hypot(v.point.x() - 60.0, v.point.y()) < 2.0;
+        const bool noHandles = std::hypot(v.in.x() - v.point.x(), v.in.y() - v.point.y()) < 1e-3
+                               && std::hypot(v.out.x() - v.point.x(), v.out.y() - v.point.y()) < 1e-3;
+        tip = tip || (atTip && noHandles);
+    }
+    QVERIFY2(tip, qPrintable(drift::morphSvgPathsResampled(a, b, 0.5, sharp)));
+    QVERIFY(drift::pathContourCorners(kept.at(0), 40.0).size() >= 2);
+    const QList<drift::PathContour> soft = drift::pathContoursFromSvg(drift::morphSvgPathsResampled(a, b, 0.5));
+    QCOMPARE(drift::pathContourCorners(soft.at(0), 40.0).size(), 0);
+
+    // Same corner count: each corner travels to its partner (a square turned into a diamond keeps four points).
+    const QString diamond = QStringLiteral("M 50 0 L 100 50 L 50 100 L 0 50 Z");
+    const QList<drift::PathContour> turned =
+        drift::pathContoursFromSvg(drift::morphSvgPathsResampled(square, diamond, 0.5, sharp));
+    QCOMPARE(drift::pathContourCorners(turned.at(0), 20.0).size(), 4);
+
+    // A drop that only the second key has: from the nearest point of the first (as before), or from its own centre.
+    const QString two = round + QStringLiteral(" M 70 50 C 70 40 90 40 90 50 C 90 60 70 60 70 50 Z");
+    drift::SmoothMorphOptions centre;
+    centre.fromCentre = true;
+    const QList<drift::PathContour> grown = drift::pathContoursFromSvg(drift::morphSvgPathsResampled(round, two, 0.5, centre));
+    QCOMPARE(grown.size(), 2);
+    const QRectF drop = drift::pathContoursBounds({grown.at(1)});
+    QVERIFY2(qAbs(drop.center().x() - 80.0) < 2.0 && qAbs(drop.center().y() - 50.0) < 2.0,
+             qPrintable(QStringLiteral("%1,%2").arg(drop.center().x()).arg(drop.center().y())));
+    QVERIFY2(drop.width() > 6.0 && drop.width() < 14.0, qPrintable(QString::number(drop.width())));
+
+    // Through the Path stopwatch: the style's knobs reach the morph.
+    drift::ShapeStyle style;
+    style.kind = drift::ShapeKind::Custom;
+    style.customPath = a;
+    drift::setShapePathAnimated(style, true, 0);
+    drift::setShapePathAt(style, drift::secondsToUs(2.0), b, 1000);
+    style.smoothMorph = 1.0;
+    QCOMPARE(drift::pathContourCorners(drift::pathContoursFromSvg(drift::shapePathAt(style, drift::secondsToUs(1.0))).at(0), 40.0).size(), 0);
+    style.morphCorners = 40.0;
+    QVERIFY(drift::pathContourCorners(drift::pathContoursFromSvg(drift::shapePathAt(style, drift::secondsToUs(1.0))).at(0), 40.0).size() >= 2);
+}
+
+// The cartoon VFX fields (0.32, plan-vfx A–E and H) save and load, and a project without them writes none of them.
+void CoreTest::cartoonVfxFieldsRoundTrip()
+{
+    const QJsonObject plain = drift::shapeStyleToJson(drift::ShapeStyle());
+    for (const char *key : {"morphCorners", "morphFromCentre", "wiggleStepRate", "zigzagJitter", "zigzagStepRate",
+                            "zigzagSeed", "erodeAmount", "erodeSize", "erodeSeed", "erodeAngle", "erodeStretch"})
+        QVERIFY2(!plain.contains(QLatin1String(key)), key);
+
+    drift::ShapeStyle style;
+    style.morphCorners = 35.0;
+    style.morphFromCentre = 1.0;
+    style.wiggleStepRate = 12.0;
+    style.zigzagJitter = 70.0;
+    style.zigzagStepRate = 24.0;
+    style.zigzagSeed = 5.0;
+    style.erodeAmount = 40.0;
+    style.erodeSize = 25.0;
+    style.erodeSeed = 3.0;
+    style.erodeAngle = -30.0;
+    style.erodeStretch = 4.0;
+    drift::TextShadingLayer tone = drift::solidFillLayer(Qt::gray, QStringLiteral("tone"));
+    tone.innerTone = true;
+    tone.offsetY = -12.0;
+    tone.toneScale = 90.0;
+    tone.toneRotation = 15.0;
+    tone.toneInvert = true;
+    style.layers.append(tone);
+    const drift::ShapeStyle back = drift::shapeStyleFromJson(drift::shapeStyleToJson(style));
+    QCOMPARE(back.morphCorners, 35.0);
+    QCOMPARE(back.morphFromCentre, 1.0);
+    QCOMPARE(back.wiggleStepRate, 12.0);
+    QCOMPARE(back.zigzagJitter, 70.0);
+    QCOMPARE(back.zigzagStepRate, 24.0);
+    QCOMPARE(back.zigzagSeed, 5.0);
+    QCOMPARE(back.erodeAmount, 40.0);
+    QCOMPARE(back.erodeSize, 25.0);
+    QCOMPARE(back.erodeSeed, 3.0);
+    QCOMPARE(back.erodeAngle, -30.0);
+    QCOMPARE(back.erodeStretch, 4.0);
+    const drift::TextShadingLayer *toneBack = drift::findTextLayer(back.layers, QStringLiteral("tone"));
+    QVERIFY(toneBack);
+    QVERIFY(toneBack->innerTone);
+    QVERIFY(toneBack->toneInvert);
+    QCOMPARE(toneBack->toneScale, 90.0);
+    QCOMPARE(toneBack->toneRotation, 15.0);
+    QVERIFY(drift::shapeStyleHash(back) != drift::shapeStyleHash(drift::ShapeStyle()));
+    // A plain fill writes none of the tone fields; the tone's scale and turn are keyframable.
+    QVERIFY(!drift::textShadingLayerToJson(drift::solidFillLayer(Qt::red)).contains(QStringLiteral("innerTone")));
+    QVERIFY(drift::shadingLayerKeyframeFields(tone).contains(QStringLiteral("toneScale")));
+    QVERIFY(!drift::shadingLayerKeyframeFields(drift::solidFillLayer(Qt::red)).contains(QStringLiteral("toneScale")));
+    // Break apart is a keyframable knob.
+    QVERIFY(drift::shapeKeyframeProperties(style).contains(QStringLiteral("erodeAmount")));
+
+    // Merge Paths in a group (H).
+    drift::ShapePart group;
+    group.id = QStringLiteral("g1");
+    group.group = true;
+    group.mergeMode = 2.0;
+    QCOMPARE(drift::shapePartFromJson(drift::shapePartToJson(group)).mergeMode, 2.0);
+    group.mergeMode = 0.0;
+    QVERIFY(!drift::shapePartToJson(group).contains(QStringLiteral("merge")));
+
+    // Posterize Time (B): held at the start of each 1/12 s step from the clip's start, saved with the clip.
+    drift::Clip clip;
+    clip.id = QStringLiteral("clip-poster");
+    clip.type = drift::ClipType::Shape;
+    clip.timelineStart = drift::secondsToUs(1.0);
+    clip.timelineDuration = drift::secondsToUs(2.0);
+    QCOMPARE(clip.posterizedTimelineUs(drift::secondsToUs(1.05)), drift::secondsToUs(1.05)); // off
+    clip.posterizeFps = 12.0;
+    QCOMPARE(clip.posterizedTimelineUs(drift::secondsToUs(1.05)), drift::secondsToUs(1.0));
+    QCOMPARE(clip.posterizedTimelineUs(drift::secondsToUs(1.1)), drift::secondsToUs(1.0) + 83333);
+    QCOMPARE(clip.posterizedTimelineUs(drift::secondsToUs(1.0) + 83333), drift::secondsToUs(1.0) + 83333);
+    QCOMPARE(clip.posterizedTimelineUs(drift::secondsToUs(0.5)), drift::secondsToUs(0.5));
+    drift::Project project;
+    project.tracks().clear();
+    project.tracks().append(drift::Track{.type = drift::TrackType::Video});
+    project.tracks()[0].clips.append(clip);
+    QString error;
+    const drift::Project loaded = drift::Project::fromJson(project.toJson(), &error);
+    QVERIFY2(error.isEmpty(), qPrintable(error));
+    QCOMPARE(loaded.tracks().at(0).clips.at(0).posterizeFps, 12.0);
+    project.tracks()[0].clips[0].posterizeFps = 0.0;
+    QVERIFY(!QJsonDocument(project.toJson()).toJson().contains("posterizeFps"));
 }
 
 // Two outlines with the same vertices blend; a pair that does not match holds the first.

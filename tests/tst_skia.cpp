@@ -304,6 +304,8 @@ private slots:
     void shapePartsSaveAndAnimate();
     void shapeRepeaterDrawsCopies();
     void shapeWigglePathsMovesTheOutline();
+    void shapeCartoonVfxOperators();
+    void shapeGroupMergePaths();
     void compositorDrawsShapeThroughSkia();
     void textPainterCacheKeys();
     void keyframedTextGrowsOverTime();
@@ -960,6 +962,105 @@ void SkiaTest::shapeWigglePathsMovesTheOutline()
     style.wiggleSpeed = 0.0;
     QVERIFY(!shapeTimeDrivenPaint(style));
     QCOMPARE(rasterShape(style, 100, 100, 1.0, 0.0), rasterShape(style, 100, 100, 1.0, 0.7));
+}
+
+// plan-vfx C, D, E (0.32): the inner tone, break apart and the stepped wiggle / zig zag.
+void SkiaTest::shapeCartoonVfxOperators()
+{
+    // C. Inner tone: a copy moved up 20 px leaves a blue band along the bottom inside the red disc, hard-edged.
+    ShapeStyle disc = shapeStyleWith(ShapeKind::Ellipse, Qt::red, 0.0);
+    TextShadingLayer tone = solidFillLayer(Qt::blue, QStringLiteral("tone"));
+    tone.innerTone = true;
+    tone.offsetY = -20.0;
+    disc.layers.append(tone);
+    const QImage toned = placed(skia::makeShapePainter(disc, 100, 100, 1.0), 300, 300, 100);
+    QVERIFY2(pixelAt(toned, 150, 100 + 92).blue() > 200, qPrintable(pixelAt(toned, 150, 192).name()));
+    QVERIFY(pixelAt(toned, 150, 100 + 50).red() > 200);
+    QVERIFY(pixelAt(toned, 150, 100 + 8).red() > 200);
+    QCOMPARE(pixelAt(toned, 150, 100 + 115).alpha(), 0); // nothing below the disc
+    disc.layers.last().toneInvert = true;                 // where the copy reaches: the upper part
+    const QImage inverted = placed(skia::makeShapePainter(disc, 100, 100, 1.0), 300, 300, 100);
+    QVERIFY(pixelAt(inverted, 150, 100 + 50).blue() > 200);
+    QVERIFY(pixelAt(inverted, 150, 100 + 92).red() > 200);
+
+    // D. Break apart: holes open inside and the shape is gone at 100 %.
+    ShapeStyle blob = shapeStyleWith(ShapeKind::Ellipse, Qt::red, 0.0);
+    blob.erodeSize = 30.0;
+    const double whole = massInside(rasterShape(blob, 200, 200), QRect(0, 0, 400, 400));
+    blob.erodeAmount = 35.0;
+    const QImage early = rasterShape(blob, 200, 200);
+    const double partly = massInside(early, early.rect());
+    blob.erodeAmount = 75.0;
+    const double most = massInside(rasterShape(blob, 200, 200), early.rect());
+    blob.erodeAmount = 100.0;
+    const double gone = massInside(rasterShape(blob, 200, 200), early.rect());
+    QVERIFY2(partly < whole * 0.97 && partly > whole * 0.3, qPrintable(QStringLiteral("%1 / %2").arg(partly).arg(whole)));
+    QVERIFY2(most < partly, qPrintable(QStringLiteral("%1 / %2").arg(most).arg(partly)));
+    QCOMPARE(gone, 0.0);
+    // Strips: stretched holes still eat the shape.
+    blob.erodeAmount = 50.0;
+    blob.erodeStretch = 5.0;
+    blob.erodeAngle = 45.0;
+    QVERIFY(massInside(rasterShape(blob, 200, 200), early.rect()) < whole * 0.97);
+
+    // E. Stepped wiggle: held within a drawing (12 a second), a fresh one at the next.
+    ShapeStyle wobbly = shapeStyleWith(ShapeKind::Ellipse, Qt::red, 0.0);
+    wobbly.wiggleSize = 8.0;
+    wobbly.wiggleDetail = 10.0;
+    wobbly.wiggleStepRate = 12.0;
+    QVERIFY(shapeTimeDrivenPaint(wobbly));
+    QCOMPARE(rasterShape(wobbly, 100, 100, 1.0, 0.0), rasterShape(wobbly, 100, 100, 1.0, 0.07));
+    QVERIFY(rasterShape(wobbly, 100, 100, 1.0, 0.0) != rasterShape(wobbly, 100, 100, 1.0, 0.09));
+
+    // E. Uneven zig zag, redrawn 10 times a second.
+    ShapeStyle bolt = shapeStyleWith(ShapeKind::Rectangle, Qt::red, 0.0);
+    bolt.zigzagSize = 10.0;
+    bolt.zigzagRidges = 12.0;
+    const QImage even = rasterShape(bolt, 200, 60);
+    bolt.zigzagJitter = 80.0;
+    QVERIFY(!shapeTimeDrivenPaint(bolt));
+    const QImage uneven = rasterShape(bolt, 200, 60);
+    QVERIFY(even != uneven);
+    bolt.zigzagStepRate = 10.0;
+    QVERIFY(shapeTimeDrivenPaint(bolt));
+    QCOMPARE(rasterShape(bolt, 200, 60, 1.0, 0.0), rasterShape(bolt, 200, 60, 1.0, 0.05));
+    QVERIFY(rasterShape(bolt, 200, 60, 1.0, 0.0) != rasterShape(bolt, 200, 60, 1.0, 0.15));
+}
+
+// plan-vfx H (0.32): Merge Paths between the parts of a group, live; the bottom part is the base and its paint draws
+// the result.
+void SkiaTest::shapeGroupMergePaths()
+{
+    ShapeStyle style;
+    style.layers.clear();
+    style.partsRefWidth = 200.0;
+    style.partsRefHeight = 200.0;
+    ShapePart group;
+    group.id = QStringLiteral("g1");
+    group.group = true;
+    group.children.push_back(rectPart(QStringLiteral("p1"), Qt::red, 40.0, 40.0));    // top: the hole
+    group.children.push_back(rectPart(QStringLiteral("p2"), Qt::blue, 120.0, 120.0)); // bottom: the base
+    style.parts.push_back(group);
+    const QImage separate = placed(skia::makeShapePainter(style, 200, 200, 1.0), 400, 400, 100);
+    QCOMPARE(pixelAt(separate, 200, 200).red(), 255);
+
+    style.parts[0].mergeMode = 2.0; // subtract
+    const QImage cut = placed(skia::makeShapePainter(style, 200, 200, 1.0), 400, 400, 100);
+    QCOMPARE(pixelAt(cut, 200, 200).alpha(), 0);
+    QCOMPARE(pixelAt(cut, 200 + 40, 200).blue(), 255);
+    QCOMPARE(pixelAt(cut, 200 + 40, 200).red(), 0);
+
+    style.parts[0].mergeMode = 3.0; // intersect: only the small square, in the base's blue
+    const QImage both = placed(skia::makeShapePainter(style, 200, 200, 1.0), 400, 400, 100);
+    QCOMPARE(pixelAt(both, 200, 200).blue(), 255);
+    QCOMPARE(pixelAt(both, 200 + 40, 200).alpha(), 0);
+
+    // An animated hole keeps cutting: the top part moves and the hole moves with it.
+    style.parts[0].mergeMode = 2.0;
+    style.parts[0].children[0].transform.x = 30.0;
+    const QImage moved = placed(skia::makeShapePainter(style, 200, 200, 1.0), 400, 400, 100);
+    QCOMPARE(pixelAt(moved, 200 + 30, 200).alpha(), 0);
+    QCOMPARE(pixelAt(moved, 200 - 30, 200).blue(), 255);
 }
 
 void SkiaTest::shapePainterCacheKey()
