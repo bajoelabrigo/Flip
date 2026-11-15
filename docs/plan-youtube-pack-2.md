@@ -27,9 +27,11 @@ Exe for renders: `E:/FlipStudio/pruebas/FlipStudio-motor-0109f/Flip Studio/flips
 
 Every piece must work as **Video (16:9) and Short (9:16)**: the app fits the design into the other shape
 (`layoutfit.fit_doc`, `layoutRole`). Render the other shape with `short_check.py` and look at it (nothing cut, readable,
-well placed); fix roles or layout when it does not fit. The comparison video shows both renders under the original.
+well placed); fix roles or layout when it does not fit. **Trap:** `short_check.py` rebuilds each template folder in
+`--out` and deletes `preview-wide.mp4` and the thumbnails: give it its own `--out` folder or run it before `build.py`. The comparison video shows both renders under the original.
 
 ## Status
 
 - 2026-11-15: modules created and registered; one agent per video studying and building.
 - 2026-11-15: five more videos (yp13–yp17) added; both formats required.
+- yp12 done: 13 pieces, `prototipos-yp12\comparacion-yp12.mp4` (Video + Short).
