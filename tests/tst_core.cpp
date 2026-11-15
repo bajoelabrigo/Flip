@@ -7919,7 +7919,8 @@ void CoreTest::sceneTemplateColoursAreListedAndReplaced()
     QCOMPARE(out.at(2).textStyle.boxColor, QColor(0, 0, 0, 128)); // other colours stay, alpha too
     // The red key turned green, the blue one stayed.
     const auto &keys = out.at(3).shapeStyle.keyframes;
-    QCOMPARE(keys.value(base + QStringLiteral(".g")).keyframes().value(0).value, 200 / 255.0);
+    // QColor keeps its channels as floats: compare to a float's precision.
+    QVERIFY(qAbs(keys.value(base + QStringLiteral(".g")).keyframes().value(0).value - 200 / 255.0) < 1e-6);
     QCOMPARE(keys.value(base + QStringLiteral(".b")).keyframes().value(1000000).value, 1.0);
 }
 
