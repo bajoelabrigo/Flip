@@ -21,6 +21,11 @@ Item {
     readonly property var slots: info.slots || []
     readonly property var texts: info.texts || []
     readonly property int filled: slots.length - (info.emptySlots || 0)
+    readonly property var colours: {
+        void revision
+        void localRevision
+        return assetId.length > 0 ? EditorState.templateColours(assetId) : []
+    }
 
     height: contentCol.height
     implicitHeight: contentCol.height
@@ -281,6 +286,53 @@ Item {
                 text: textForm.draftCount > 0 ? qsTr("Apply %n text(s)", "", textForm.draftCount) : qsTr("Apply texts")
                 tooltip: qsTr("Changes every text you edited at once (one undo step)")
                 onClicked: textForm.apply()
+            }
+        }
+
+        // Colours (0.32, as CapCut and Canva): every colour the template paints with, most used
+        // first; picking another one repaints it everywhere at once (one undo step).
+        Column {
+            width: parent.width
+            spacing: Theme.spacingSm
+            visible: root.colours.length > 0
+
+            Text {
+                text: qsTr("Colours")
+                color: Theme.panelForeground
+                font.family: Theme.fontFamily
+                font.pixelSize: Theme.fontSizeSm
+                font.weight: Font.DemiBold
+            }
+            Text {
+                width: parent.width
+                text: qsTr("Click a colour to change it everywhere in the template")
+                color: Theme.mutedForeground
+                font.family: Theme.fontFamily
+                font.pixelSize: Theme.fontSizeXs
+                wrapMode: Text.WordWrap
+            }
+            Flow {
+                width: parent.width
+                spacing: Theme.spacingSm
+
+                Repeater {
+                    model: root.colours
+
+                    delegate: ColorSwatchField {
+                        required property var modelData
+                        showHex: false
+                        swatchSize: 30
+                        hex: modelData.hex
+                        tooltip: qsTr("%1 — used %n time(s). Click to change it", "", modelData.uses)
+                                     .arg(String(modelData.hex).toUpperCase())
+                        // After the picker has closed: the edit rebuilds this list (and maybe the panel).
+                        onEdited: value => {
+                            const asset = root.assetId
+                            const from = modelData.hex
+                            Qt.callLater(() => EditorState.replaceTemplateColour(asset, from, value))
+                        }
+                    }
+                }
             }
         }
 

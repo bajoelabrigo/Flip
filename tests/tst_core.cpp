@@ -63,6 +63,7 @@ private slots:
     void sceneTemplateCutsSnapToBeats();
     void sceneTemplateTextFieldsAreGuessed();
     void sceneTemplateBrandKitFollowsRolesAndFallsBack();
+    void sceneTemplateColoursAreListedAndReplaced();
     void cubeLutReadsTheFormatAndRefusesBrokenFiles();
     void cubeLutLooksUpTrilinearlyAndMixesByIntensity();
     void cubeLutIsFoundByNameAfterTheProjectMoves();
@@ -7815,6 +7816,66 @@ void CoreTest::sceneTemplateBrandKitFollowsRolesAndFallsBack()
     QCOMPARE(r.refonted, 1);
     QCOMPARE(plain.at(0).clips.at(0).textStyle.fontFamily, QStringLiteral("Brand Sans"));
     QVERIFY(plain.at(0).clips.at(1).textStyle.fontFamily != QStringLiteral("Brand Sans"));
+}
+
+void CoreTest::sceneTemplateColoursAreListedAndReplaced()
+{
+    // Two red shapes (one a hair off), a red title with a half-transparent black box, a keyed fill
+    // that goes from red to blue, and a photo that has no colours of its own.
+    drift::Clip a;
+    a.type = drift::ClipType::Shape;
+    a.shapeStyle.setSolidFill(QColor(230, 20, 20));
+    drift::Clip b = a;
+    b.shapeStyle.setSolidFill(QColor(232, 22, 19));
+    drift::Clip title;
+    title.type = drift::ClipType::Text;
+    drift::setSolidFill(title.textStyle, QColor(230, 20, 20));
+    title.textStyle.boxEnabled = true;
+    title.textStyle.boxColor = QColor(0, 0, 0, 128);
+    drift::Clip keyed = a;
+    keyed.shapeStyle.setSolidFill(QColor(230, 20, 20));
+    const QString fillId = drift::firstTextLayerOfKind(keyed.shapeStyle.layers, drift::TextLayerKind::Fill)->id;
+    const QString base = QStringLiteral("layer.%1.color").arg(fillId);
+    const double red[3] = {230 / 255.0, 20 / 255.0, 20 / 255.0};
+    const double blue[3] = {0.0, 0.0, 1.0};
+    const char *channels[3] = {".r", ".g", ".b"};
+    for (int i = 0; i < 3; ++i) {
+        keyed.shapeStyle.keyframes[base + QLatin1String(channels[i])].setKeyframe(0, red[i]);
+        keyed.shapeStyle.keyframes[base + QLatin1String(channels[i])].setKeyframe(1000000, blue[i]);
+    }
+    drift::Clip photo;
+    photo.type = drift::ClipType::Image;
+    QList<drift::Track> tracks{drift::Track{.type = drift::TrackType::Shape, .clips = {a, b, title, keyed, photo}}};
+
+    const QList<drift::TemplateColour> colours = drift::templateColours({&tracks});
+    QVERIFY(colours.size() >= 2);
+    QCOMPARE(colours.first().color.rgb(), QColor(230, 20, 20).rgb()); // merged with the near one, most used
+    bool hasBlack = false;
+    bool hasBlue = false;
+    for (const drift::TemplateColour &c : colours) {
+        hasBlack = hasBlack || c.color.rgb() == QColor(Qt::black).rgb();
+        hasBlue = hasBlue || c.color.rgb() == QColor(Qt::blue).rgb();
+    }
+    QVERIFY(hasBlack);
+    QVERIFY(hasBlue);
+
+    const int changed = drift::replaceTemplateColour({&tracks}, QColor(230, 20, 20), QColor(0, 200, 0));
+    QVERIFY(changed >= 5);
+    const auto fillOf = [](const drift::Clip &clip) {
+        return drift::firstTextLayerOfKind(clip.type == drift::ClipType::Shape ? clip.shapeStyle.layers
+                                                                               : clip.textStyle.layers,
+                                           drift::TextLayerKind::Fill)
+            ->paint.color;
+    };
+    const QList<drift::Clip> &out = tracks.at(0).clips;
+    QCOMPARE(fillOf(out.at(0)).rgb(), QColor(0, 200, 0).rgb());
+    QCOMPARE(fillOf(out.at(1)).rgb(), QColor(0, 200, 0).rgb());
+    QCOMPARE(fillOf(out.at(2)).rgb(), QColor(0, 200, 0).rgb());
+    QCOMPARE(out.at(2).textStyle.boxColor, QColor(0, 0, 0, 128)); // other colours stay, alpha too
+    // The red key turned green, the blue one stayed.
+    const auto &keys = out.at(3).shapeStyle.keyframes;
+    QCOMPARE(keys.value(base + QStringLiteral(".g")).keyframes().value(0).value, 200 / 255.0);
+    QCOMPARE(keys.value(base + QStringLiteral(".b")).keyframes().value(1000000).value, 1.0);
 }
 
 // Ejercicio del rebote (0.30): squashing a ball with its anchor at the bottom keeps the bottom on the floor.

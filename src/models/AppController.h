@@ -2036,6 +2036,11 @@ public:
     Q_INVOKABLE QVariantMap brandKit() const;
     Q_INVOKABLE bool setBrandKit(const QVariantMap &values);
     Q_INVOKABLE bool applyBrandKitToTemplate(const QString &compositeAssetId);
+    // Colours (0.32, as CapCut): the template's colours, most used first, as [{hex "#rrggbb", uses}],
+    // from every layer of the template and the compositions inside it; and one of them painted
+    // another colour everywhere it is used (each paint keeps its alpha), as one undo step.
+    Q_INVOKABLE QVariantList templateColours(const QString &compositeAssetId) const;
+    Q_INVOKABLE bool replaceTemplateColour(const QString &compositeAssetId, const QString &fromHex, const QString &toHex);
     // The window owns these dialogs (a panel that asks may be unloaded by the edit it starts):
     // mode "photos" with the chosen files, or "swap" with the composition to replace.
     Q_INVOKABLE void requestTemplatePicker(const QString &mode, const QString &compositeAssetId,

@@ -5,6 +5,7 @@
 #include <QHash>
 #include <QRegularExpression>
 #include <QSet>
+#include <QVariant>
 
 #include <algorithm>
 #include <cmath>
@@ -471,6 +472,279 @@ BrandApplyResult applyBrandKit(QList<Track> &tracks, const BrandKit &kit)
         }
     }
     return result;
+}
+
+// --- Template colours ------------------------------------------------------------------------
+
+namespace {
+
+double colourDistance(const QColor &a, const QColor &b)
+{
+    const double dr = a.red() - b.red();
+    const double dg = a.green() - b.green();
+    const double db = a.blue() - b.blue();
+    return std::sqrt(dr * dr + dg * dg + db * db);
+}
+
+// Walks every colour a clip paints with. `paint` gets a colour it may change (rgb only matters);
+// `keyed` gets a set of channel tracks "<base>.r/.g/.b" (0..1) with the static colour they animate.
+struct ColourVisitor
+{
+    std::function<void(QColor &)> paint;
+    std::function<void(QMap<QString, KeyframeTrack<double>> &, const QString &, const QColor &)> keyed;
+
+    void layers(QList<TextShadingLayer> &stack, QMap<QString, KeyframeTrack<double>> *keys)
+    {
+        for (TextShadingLayer &layer : stack) {
+            if (!layer.enabled)
+                continue;
+            switch (layer.paint.kind) {
+            case TextPaintKind::Solid:
+            case TextPaintKind::Effect:
+                if (keys)
+                    keyed(*keys, QStringLiteral("layer.%1.color").arg(layer.id), layer.paint.color);
+                paint(layer.paint.color);
+                break;
+            case TextPaintKind::Gradient:
+                for (TextGradientStop &stop : layer.paint.gradient.stops)
+                    paint(stop.color);
+                break;
+            case TextPaintKind::Texture:
+                break;
+            }
+            if (layer.paint.kind == TextPaintKind::Effect) {
+                for (auto it = layer.paint.effect.params.begin(); it != layer.paint.effect.params.end(); ++it) {
+                    if (it->type == VectorSlotValue::Type::Color)
+                        paint(it->color);
+                }
+            }
+        }
+    }
+
+    void shape(ShapeStyle &style)
+    {
+        layers(style.layers, &style.keyframes);
+        for (ShapePart &part : style.parts)
+            shapePart(part);
+    }
+
+    void shapePart(ShapePart &part)
+    {
+        if (!part.visible)
+            return;
+        if (part.group) {
+            for (ShapePart &child : part.children)
+                shapePart(child);
+        } else {
+            shape(part.shape);
+        }
+    }
+
+    void text(TextStyle &style)
+    {
+        layers(style.layers, &style.keyframes);
+        if (style.boxEnabled) {
+            paint(style.boxColor);
+            if (style.boxBorderWidth > 0.0)
+                paint(style.boxBorderColor);
+        }
+        if (style.wordHighlight.enabled)
+            paint(style.wordHighlight.color);
+        if (style.underlineEnabled)
+            paint(style.underlineColor);
+        if (style.accent.rule != WordAccentRule::None) {
+            if (style.accent.colorEnabled)
+                paint(style.accent.color);
+            if (style.accent.outlineEnabled)
+                paint(style.accent.outlineColor);
+            if (style.accent.highlight.enabled)
+                paint(style.accent.highlight.color);
+        }
+        for (TextRun &run : style.runs) {
+            if (run.colorEnabled)
+                paint(run.color);
+            if (run.layersEnabled)
+                layers(run.layers, nullptr);
+            if (run.boxEnabled) {
+                paint(run.boxColor);
+                if (run.boxBorderWidth > 0.0)
+                    paint(run.boxBorderColor);
+            }
+        }
+    }
+
+    // Effect colours are "#rrggbb" or "#rrggbbaa" strings (or a QColor), animated as channel tracks.
+    void effects(QList<Effect> &list)
+    {
+        static const QRegularExpression hexColour(QStringLiteral("^#[0-9a-fA-F]{6}([0-9a-fA-F]{2})?$"));
+        for (Effect &effect : list) {
+            if (!effect.enabled)
+                continue;
+            for (auto it = effect.parameters.begin(); it != effect.parameters.end(); ++it) {
+                QColor colour;
+                QString tail;
+                const bool isColour = it->metaType() == QMetaType::fromType<QColor>();
+                if (isColour) {
+                    colour = it->value<QColor>();
+                } else if (it->metaType() == QMetaType::fromType<QString>()) {
+                    const QString value = it->toString();
+                    if (!hexColour.match(value).hasMatch())
+                        continue;
+                    colour = QColor(value.left(7));
+                    tail = value.mid(7);
+                } else {
+                    continue;
+                }
+                const QColor before = colour;
+                paint(colour);
+                if (colour.rgb() != before.rgb())
+                    *it = isColour ? QVariant(colour) : QVariant(colour.name(QColor::HexRgb) + tail);
+                if (effect.paramKeyframes.contains(it.key() + QLatin1String(".r")))
+                    keyed(effect.paramKeyframes, it.key(), before);
+            }
+        }
+    }
+
+    void clip(Clip &c)
+    {
+        if (c.type == ClipType::Shape)
+            shape(c.shapeStyle);
+        else if (c.type == ClipType::Text || c.type == ClipType::Subtitle)
+            text(c.textStyle);
+        effects(c.effects);
+    }
+
+    void tracks(QList<Track> &list)
+    {
+        for (Track &track : list) {
+            for (Clip &c : track.clips)
+                clip(c);
+        }
+    }
+};
+
+// The times any of the three channel tracks has a key at.
+QList<TimeUs> channelKeyTimes(const QMap<QString, KeyframeTrack<double>> &keys, const QString &base)
+{
+    QSet<TimeUs> times;
+    for (const char *suffix : {".r", ".g", ".b"}) {
+        const auto it = keys.constFind(base + QLatin1String(suffix));
+        if (it == keys.constEnd() || it->isEmpty())
+            continue;
+        for (auto k = it->keyframes().constBegin(); k != it->keyframes().constEnd(); ++k)
+            times.insert(k.key());
+    }
+    QList<TimeUs> out(times.begin(), times.end());
+    std::sort(out.begin(), out.end());
+    return out;
+}
+
+QColor channelColourAt(const QMap<QString, KeyframeTrack<double>> &keys, const QString &base, const QColor &fallback,
+                       TimeUs at)
+{
+    const auto channel = [&](const char *suffix, double value) {
+        const auto it = keys.constFind(base + QLatin1String(suffix));
+        if (it == keys.constEnd() || it->isEmpty())
+            return value;
+        const auto key = it->keyframes().constFind(at);
+        return key != it->keyframes().constEnd() ? key->value : double(it->evaluateKeys(at));
+    };
+    QColor c;
+    c.setRgbF(float(qBound(0.0, channel(".r", fallback.redF()), 1.0)),
+              float(qBound(0.0, channel(".g", fallback.greenF()), 1.0)),
+              float(qBound(0.0, channel(".b", fallback.blueF()), 1.0)));
+    c.setAlphaF(fallback.alphaF());
+    return c;
+}
+
+} // namespace
+
+QList<TemplateColour> templateColours(const QList<const QList<Track> *> &lists, int maxCount)
+{
+    QHash<QRgb, int> counts;
+    const auto count = [&](const QColor &c) {
+        if (c.isValid() && c.alphaF() >= 0.05)
+            counts[c.rgb() | 0xff000000u] += 1;
+    };
+    ColourVisitor visitor;
+    visitor.paint = [&](QColor &c) { count(c); };
+    visitor.keyed = [&](QMap<QString, KeyframeTrack<double>> &keys, const QString &base, const QColor &fallback) {
+        for (const TimeUs at : channelKeyTimes(keys, base))
+            count(channelColourAt(keys, base, fallback, at));
+    };
+    for (const QList<Track> *list : lists) {
+        if (!list)
+            continue;
+        // The visitor only reads here; a copy keeps the caller's tracks const.
+        QList<Track> copy = *list;
+        visitor.tracks(copy);
+    }
+
+    QList<QPair<QRgb, int>> sorted;
+    for (auto it = counts.constBegin(); it != counts.constEnd(); ++it)
+        sorted.append({it.key(), it.value()});
+    std::sort(sorted.begin(), sorted.end(), [](const auto &a, const auto &b) {
+        return a.second != b.second ? a.second > b.second : a.first < b.first;
+    });
+    QList<TemplateColour> groups;
+    for (const auto &entry : sorted) {
+        const QColor c = QColor::fromRgb(entry.first);
+        bool merged = false;
+        for (TemplateColour &group : groups) {
+            if (colourDistance(group.color, c) < kTemplateColourMerge) {
+                group.uses += entry.second;
+                merged = true;
+                break;
+            }
+        }
+        if (!merged)
+            groups.append({c, entry.second});
+    }
+    std::stable_sort(groups.begin(), groups.end(),
+                     [](const TemplateColour &a, const TemplateColour &b) { return a.uses > b.uses; });
+    if (maxCount > 0 && groups.size() > maxCount)
+        groups.resize(maxCount);
+    return groups;
+}
+
+int replaceTemplateColour(const QList<QList<Track> *> &lists, const QColor &from, const QColor &to)
+{
+    if (!from.isValid() || !to.isValid())
+        return 0;
+    int changed = 0;
+    const auto matches = [&](const QColor &c) {
+        return c.isValid() && c.alphaF() >= 0.05 && colourDistance(c, from) < kTemplateColourMerge;
+    };
+    ColourVisitor visitor;
+    visitor.paint = [&](QColor &c) {
+        if (!matches(c))
+            return;
+        c = QColor(to.red(), to.green(), to.blue(), c.alpha());
+        ++changed;
+    };
+    visitor.keyed = [&](QMap<QString, KeyframeTrack<double>> &keys, const QString &base, const QColor &fallback) {
+        // `fallback` may already be the new colour (the visitor painted it first): the keys are
+        // matched on their own values.
+        for (const TimeUs at : channelKeyTimes(keys, base)) {
+            if (!matches(channelColourAt(keys, base, fallback, at)))
+                continue;
+            const double values[3] = {to.redF(), to.greenF(), to.blueF()};
+            const char *suffixes[3] = {".r", ".g", ".b"};
+            for (int i = 0; i < 3; ++i) {
+                auto it = keys.find(base + QLatin1String(suffixes[i]));
+                if (it == keys.end())
+                    continue;
+                if (Keyframe<double> *key = it->keyframeRef(at))
+                    key->value = values[i];
+            }
+            ++changed;
+        }
+    };
+    for (QList<Track> *list : lists) {
+        if (list)
+            visitor.tracks(*list);
+    }
+    return changed;
 }
 
 } // namespace drift

@@ -84,4 +84,26 @@ struct BrandApplyResult
 // the font on its title texts (the largest editable texts).
 BrandApplyResult applyBrandKit(QList<Track> &tracks, const BrandKit &kit);
 
+// --- Template colours (0.32, as CapCut and Canva) ---------------------------------------------
+
+struct TemplateColour
+{
+    QColor color; // opaque, the most used shade of the group
+    int uses = 0; // how many fills, strokes, stops, boxes and effect colours have it
+};
+
+// Two colours closer than this (RGB distance, 0..441) count as one swatch.
+constexpr double kTemplateColourMerge = 14.0;
+
+// The colours a template paints with, over every track list it is made of (its own and those of
+// the compositions inside it): shape and text fills, strokes, shadows and glows, gradient stops,
+// text boxes, highlights and runs, and the colour parameters of effects, keyframed values too.
+// Photos and videos have none. Near-identical shades are merged and the list is sorted by use,
+// at most maxCount long. Fully transparent paints are left out.
+QList<TemplateColour> templateColours(const QList<const QList<Track> *> &lists, int maxCount = 10);
+
+// Paints every colour within kTemplateColourMerge of `from` with `to`, keeping each paint's own
+// alpha (keyframed values included). Returns how many values changed.
+int replaceTemplateColour(const QList<QList<Track> *> &lists, const QColor &from, const QColor &to);
+
 } // namespace drift

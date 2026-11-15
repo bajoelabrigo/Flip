@@ -2069,6 +2069,71 @@ bool AppController::applyBrandKitToTemplate(const QString &compositeAssetId)
     return true;
 }
 
+namespace {
+
+// The template's timeline and those of the compositions inside it, each once.
+QStringList templateSequenceIds(const drift::Project &project, const QString &sequenceId)
+{
+    QStringList ids{sequenceId};
+    for (int i = 0; i < ids.size(); ++i) {
+        if (!project.hasSequence(ids.at(i)))
+            continue;
+        for (const drift::Track &track : project.sequenceTracks(ids.at(i))) {
+            for (const drift::Clip &clip : track.clips) {
+                if (clip.type != drift::ClipType::Composite)
+                    continue;
+                const drift::MediaAsset *inner = project.asset(clip.assetId);
+                if (inner && !inner->sequenceId.isEmpty() && !ids.contains(inner->sequenceId))
+                    ids.append(inner->sequenceId);
+            }
+        }
+    }
+    return ids;
+}
+
+} // namespace
+
+QVariantList AppController::templateColours(const QString &compositeAssetId) const
+{
+    const drift::MediaAsset *asset = m_project.asset(compositeAssetId);
+    if (!asset || sceneGenerator(*asset).isEmpty())
+        return {};
+    QList<const QList<drift::Track> *> lists;
+    for (const QString &id : templateSequenceIds(m_project, asset->sequenceId)) {
+        if (m_project.hasSequence(id))
+            lists.append(&m_project.sequenceTracks(id));
+    }
+    QVariantList out;
+    for (const drift::TemplateColour &colour : drift::templateColours(lists, 10)) {
+        out.append(QVariantMap{{QStringLiteral("hex"), colour.color.name(QColor::HexRgb)},
+                               {QStringLiteral("uses"), colour.uses}});
+    }
+    return out;
+}
+
+bool AppController::replaceTemplateColour(const QString &compositeAssetId, const QString &fromHex, const QString &toHex)
+{
+    const drift::MediaAsset *asset = m_project.asset(compositeAssetId);
+    const QColor from(fromHex);
+    const QColor to(toHex);
+    if (!asset || sceneGenerator(*asset).isEmpty() || !from.isValid() || !to.isValid())
+        return false;
+    if (from.rgb() == to.rgb())
+        return false;
+    const QStringList ids = templateSequenceIds(m_project, asset->sequenceId);
+    const drift::Project before = m_project.detachedCopy();
+    QList<QList<drift::Track> *> lists;
+    for (const QString &id : ids) {
+        if (QList<drift::Track> *tracks = writableSequenceTracks(m_project, id))
+            lists.append(tracks);
+    }
+    if (drift::replaceTemplateColour(lists, from, to) == 0)
+        return false;
+    pushProjectEdit(before, tr("Change a template colour"));
+    finishEdit(QString());
+    return true;
+}
+
 int AppController::fillLogoSlots(const QString &sequenceId, const QStringList &placeholderIds)
 {
     const drift::BrandKit kit = currentBrandKit();
