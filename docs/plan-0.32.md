@@ -57,6 +57,41 @@ Pedidos de Jorge del 2026-11-15. La versión sigue en 0.31.0 en `CMakeLists.txt`
   principal la porta quien coordina.
 - Prueba: `EditorStateTest::sceneTemplateLayoutMovesLooseAdjustmentMasks`.
 
+## 5. Motor para animación líquida / de dibujo animado — HECHO (código), falta probar en ventana
+
+Pedido de Jorge (2026-11-15, yp10): «la animación líquida está fea; si tienes que corregir tu motor hazlo para que nos
+quede para próximas animaciones que van a ser así». Lo que había ya servía a medias (Trim Paths, Taper, Wiggle Paths,
+claves de trazado, `liquid.gooey`); la yp10 no lo usaba: dibujaba cada cuadro como un polígono (gordo, con bordes
+quebrados y salpicaduras en anillos de puntos). Lo nuevo:
+
+- **Transformación suave entre trazados distintos** (`ShapeStyle::smoothMorph`, JSON `smoothMorph`, 0/1): dos claves
+  de «Trazado» con distinto número de puntos o de contornos se mezclan igual: cada contorno se remuestrea por su
+  largo, se elige el inicio y el sentido más cercanos y se dibuja de vuelta con curvas suaves (Catmull-Rom). Un
+  contorno sin pareja nace del punto más cercano del otro (una gota que se separa de una mancha).
+  `drift::morphSvgPathsResampled` (`src/core/ShapePathEdit.*`); `shapePathAt` lo usa solo con el interruptor encendido
+  y solo cuando la mezcla punto a punto no sirve (los proyectos de antes no cambian). Interruptor en el inspector de
+  la forma, bajo «Animar el trazado»: «Transformación suave entre trazados distintos».
+- **Puntas redondas en un trazo con Taper** (`SkiaShapePainter.cpp` `profiledStroke`): con remate redondo (el de
+  siempre) cada punta de un trazo abierto se cierra con media circunferencia de su ancho: la cabeza redonda de una
+  pincelada. Antes terminaba plano. Además el relleno del trazo es «non-zero» con los lados de un anillo en sentidos
+  opuestos: un trazo grueso en una curva cerrada se doblaba sobre sí mismo y el par-impar le abría un hueco.
+- **Wiggle Paths en un trazado abierto** se une por los puntos medios (antes una polilínea quebrada).
+- **Short ⇄ Video:** el ajuste de la plantilla escala también el ancho de los trazos, desplazamientos y desenfoques de
+  las capas de pintura de una forma y los px de los operadores (Wiggle, Offset, Zig Zag, Repetidor), con sus claves
+  (`scaleShapeStyle` en `SceneTemplateLayout.cpp`; igual en `tools/scene_templates/layoutfit.py` `_scale_shape`).
+  Antes un trazo quedaba con su ancho completo en un Short mientras el dibujo se achicaba.
+- Pruebas: `CoreTest::shapePathSmoothMorph`, `SkiaTest::taperedStrokeRoundCaps`, y
+  `EditorStateTest::sceneTemplateLayoutScalesAndCovers` (trazo, clave de ancho y wiggle a la mitad).
+- Plantillas: `tools/scene_templates/liquid.py` (checkout principal): `brush` (trazo que se dibuja solo: Trim +
+  Taper + punta redonda + Wiggle), `rays`, `splash` (gotas que salen estiradas por su velocidad) y `morph_keys`
+  (manchas con claves cada dos cuadros y transformación suave). Las yp10 piden la 0.32 (`publish.py`).
+- Queda para otra vez: animar la curvatura del camino de un texto (`pathSvg`) y la escala X/Y separada de un texto.
+
+## 6. Arreglos de CI
+
+- `AddonManager.cpp` usaba `QApplication`/`QSystemTrayIcon` y las pruebas no enlazan QtWidgets: la bandeja se compila
+  solo en la app (`FLIP_ADDON_TRAY`, definido en `CMakeLists.txt` para `drift`).
+
 ## Compilación y pruebas
 
 - `pwsh tools/precheck.ps1`: OK (traducciones al español hechas en `drift_es.ts`).
