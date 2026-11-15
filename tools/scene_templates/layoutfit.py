@@ -141,6 +141,49 @@ def _scale_text(style, f):
             k["value"] *= f
 
 
+def _map_canvas_mask(m, W, H, toW, toH, scale, ox, oy):
+    """A mask measured on the canvas (0..1) moved with the art and measured on the new canvas, as the app's
+    mapCanvasMask: centre, size, points and their keys, feather (px) and expand (a fraction of the short side)."""
+    ax, ay = W * scale / toW, H * scale / toH
+    bx, by = ox / toW, oy / toH
+    grow = min(W, H) * scale / max(1, min(toW, toH))
+    m["x"] = m.get("x", 0.5) * ax + bx
+    m["y"] = m.get("y", 0.5) * ay + by
+    m["w"] = m.get("w", 0.6) * ax
+    m["h"] = m.get("h", 0.6) * ay
+    if "feather" in m:
+        m["feather"] *= scale
+    if "expand" in m:
+        m["expand"] *= grow
+    m["points"] = [[p[0] * ax + bx, p[1] * ay + by] for p in m.get("points", []) or []]
+    for entry in m.get("pathKeys", []) or []:
+        entry[1] = [[p[0] * ax + bx, p[1] * ay + by] for p in entry[1]]
+    for key, (a, b) in (("x", (ax, bx)), ("y", (ay, by)), ("w", (ax, 0.0)), ("h", (ay, 0.0)),
+                        ("feather", (scale, 0.0)), ("expand", (grow, 0.0))):
+        kf = (m.get("keyframes") or {}).get(key)
+        if kf and kf.get("keyframes"):
+            for k in kf["keyframes"]:
+                k["value"] = k["value"] * a + b
+                for d in ("inDy", "outDy"):
+                    if d in k:
+                        k[d] *= a
+
+
+def _map_loose_adjustment_masks(doc, W, H, toW, toH, scale, ox, oy):
+    """A loose adjustment layer (over everything below, not a lane of one clip) measures its masks on the canvas:
+    they move with the art (0.32, the glass lower thirds' blur)."""
+    for track in doc["tracks"]:
+        if track.get("type") == "audio" or track.get("adjustmentScope") == "parentTrack":
+            continue
+        for clip in track.get("clips", []):
+            if clip.get("type") != "adjustment" or clip.get("linkedClipId"):
+                continue
+            if clip.get("mask"):
+                _map_canvas_mask(clip["mask"], W, H, toW, toH, scale, ox, oy)
+            for extra in clip.get("extraMasks", []) or []:
+                _map_canvas_mask(extra, W, H, toW, toH, scale, ox, oy)
+
+
 def fit_doc(doc, toW, toH, fit="keep"):
     """A copy of doc fitted into toW×toH as the app fits a kit overlay (fit "keep" or "lowerthird")."""
     doc = copy.deepcopy(doc)
@@ -273,5 +316,6 @@ def fit_doc(doc, toW, toH, fit="keep"):
                 _scale_text(clip["textStyle"], scale)
             elif clip.get("type") == "shape" and "shapeStyle" in clip:
                 clip["shapeStyle"]["cornerRadius"] = clip["shapeStyle"].get("cornerRadius", 0) * scale
+    _map_loose_adjustment_masks(doc, W, H, toW, toH, scale, ox, oy)
     doc["width"], doc["height"] = toW, toH
     return doc
