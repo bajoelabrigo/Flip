@@ -555,7 +555,7 @@ SkPath profiledStroke(const SkPath &path, double width, const TextShadingLayer &
         } else {
             // A round cap (0.32, the cartoon packs) closes each end with a half circle of the width there, as After
             // Effects draws a tapered stroke with round caps: a brush stroke gets its round head and a soft tail.
-            const bool round = layer.cap == StrokeCap::Round;
+            const bool roundCap = layer.cap == StrokeCap::Round;
             const auto cap = [](std::vector<SkPoint> &band, SkPoint c, SkVector tan, double half, double sign) {
                 if (half <= 0.05)
                     return;
@@ -568,10 +568,10 @@ SkPath profiledStroke(const SkPath &path, double width, const TextShadingLayer &
                 }
             };
             std::vector<SkPoint> band(left);
-            if (round)
+            if (roundCap)
                 cap(band, lastP, lastT, lastHalf, 1.0);
             band.insert(band.end(), right.rbegin(), right.rend());
-            if (round)
+            if (roundCap)
                 cap(band, firstP, firstT, firstHalf, -1.0);
             out.addPolygon({band.data(), band.size()}, true);
         }
