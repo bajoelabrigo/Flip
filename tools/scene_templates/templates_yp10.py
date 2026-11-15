@@ -13,6 +13,7 @@ Korean lines of the reference are Spanish words of the same layout.
 
 from __future__ import annotations
 
+import functools
 import math
 import os
 import random
@@ -238,7 +239,7 @@ def _svg(polys, box):
 
 
 def morph(s, name, colour, fn, evenodd=False, alpha=1.0):
-    """Outlines that change shape: fn(fr) → polygons (screen px), keyed every other frame and blended with the
+    """Outlines that change shape: fn(fr) → polygons (screen px), keyed every frame and blended with the
     0.32 smooth morph (liquid.morph_keys). Strokes, splashes and rays in the list become native pieces
     (_Native: tapered strokes with Trim keys, drops), one clip each. Returns the outline clip (None without one)."""
     natives = {}
@@ -359,10 +360,11 @@ def like_yellow():
         sc = 432 * pop(fr, R(447), 9) * (1 - k(fr, R(471), 4))
         sq = R(470) <= fr < R(474)
         return dcx, dcy, sc * (1.05 if sq else 1), sc * (0.85 if sq else 1) * wob(fr, 14, 0.02), 0, 1
-    s.obj("Disco", solid(red), disc, kind="ellipse", base=(432, 432))
+    # «art», not the guessed «backdrop»: a backdrop grows to cover the Short and the disc came out huge.
+    s.obj("Disco", solid(red), disc, kind="ellipse", base=(432, 432))["layoutRole"] = "art"
     s.obj("Disco (borde)", ring(yellow, 14), lambda fr, u: (dcx, dcy, 440 * (1 - k(fr, R(471), 4)),
                                                             440 * (1 - k(fr, R(471), 4)), 0, k(fr, R(465), 3)),
-          kind="ellipse", base=(440, 440))
+          kind="ellipse", base=(440, 440))["layoutRole"] = "art"
     hand = poly(chaikin([(5, 48), (28, 44), (36, 20), (42, 3), (55, 0), (62, 10), (58, 32), (56, 42), (92, 44),
                          (100, 54), (94, 62), (100, 72), (93, 80), (97, 90), (86, 100), (5, 100)], 2))
     grow = lambda fr: pop(fr, R(471), 9, 0.1)  # noqa: E731
@@ -411,7 +413,12 @@ def social_title():
         sc = pop(fr, R(175), 9, 0.08) * (1 - k(fr, R(228), 8))
         return (958, 543 + 40 * k(fr, R(228), 8), 630 * sc * (1 - 0.3 * k(fr, R(228), 8)),
                 330 * sc * wob(fr, 20, 0.025), 0, 1)
-    s.obj("Óvalo", solid(red), oval, kind="ellipse", base=(630, 330))
+    # «art», not the guessed «backdrop» (a backdrop grows to cover the Short: the oval was cut).
+    s.obj("Óvalo", solid(red), oval, kind="ellipse", base=(630, 330))["layoutRole"] = "art"
+    # The oval is gone by the middle of the piece, where the Short/Video fit measures the design: this clear box keeps
+    # its room so the oval is not cut in a Short.
+    area = s.obj("Área del diseño", solid(red, 0.0), lambda fr, u: (958, 543, 680, 360, 0, 1), base=(680, 360))
+    area["layoutRole"] = "art"
     morph(s, "Remolinos", WHITE, lambda fr: (
         swoosh(arc_pts(958, 543, 380, 230, 110, 260, 30), fr, R(174), 10, 26)
         + swoosh(arc_pts(958, 560, 320, 170, 20, 160, 24), fr, R(177), 9, 22)
@@ -1007,6 +1014,12 @@ def your_logo():
     blue = "#3B9BF5"
     ly = lambda fr: step(fr, [(R(792), 574), (R(801), 353)])  # noqa: E731
     lsc = lambda fr: pop(fr, R(762), 5) * step(fr, [(R(890), 1.0), (R(893), 1.15), (R(897), 0.0)])  # noqa: E731
+    # Blue ink wells up under the logo and runs down from it (it drips: DRIPS), then dries away. Shapes draw above
+    # the logo slot, so the ink sits below the logo, not over it.
+    isc = lambda fr: pop(fr, R(776), 6, 0.1) * (1 - k(fr, R(798), 7))  # noqa: E731
+    s.obj("Tinta (gota)", solid(blue), lambda fr, u: (955, ly(fr) + 150, max(0.01, 200 * isc(fr)),
+                                                      max(0.01, 70 * isc(fr)), 0, 1 if isc(fr) > 0.01 else 0),
+          kind="ellipse", base=(200, 70))
     s.pic("Tu logo", "logo-flip", lambda fr, u: (955, ly(fr), 300 * lsc(fr), 300 * lsc(fr), 0,
                                                  1 if lsc(fr) > 0.01 else 0),
           label="Tu logo", base=(300, 300), brandRole="logo")
@@ -1139,8 +1152,29 @@ def podcast():
     return t
 
 
-TEMPLATES = [like_yellow, social_title, account, subscribe_dots, new_video_purple, my_channel, subscribe_sticker,
-             red_box_lines, subscribe_arrows, new_video_pink, moon_thumb, check_video, your_logo, thumb_lines, podcast]
+# The element that comes in and opens the text drips like thick liquid (Jorge, 2026-11-15: «viene como chorreando
+# líquido»): 0.32's Drip operator plus the Liquid effect, timed to when it first shows (liquid.liquefy).
+DRIPS = {
+    "like_yellow": ["Disco"], "social_title": ["Óvalo"], "account": ["Gota"],
+    "subscribe_dots": ["Botón", "Botón (rojo)"], "new_video_purple": ["Caja"], "my_channel": ["Selección"],
+    "subscribe_sticker": ["Botón", "Pestaña"], "red_box_lines": ["Caja", "Salpicadura roja"],
+    "subscribe_arrows": ["Botón", "Pintura"], "new_video_pink": ["Mancha"], "moon_thumb": ["Luna"],
+    "check_video": ["Visto"], "your_logo": ["Tinta (gota)"], "thumb_lines": ["Pulgar"], "podcast": ["Gota roja"],
+}
+
+
+def _liquefied(fn):
+    @functools.wraps(fn)
+    def make():
+        t = fn()
+        lq.liquefy(t, DRIPS.get(fn.__name__, []))
+        return t
+    return make
+
+
+TEMPLATES = [_liquefied(f) for f in
+             (like_yellow, social_title, account, subscribe_dots, new_video_purple, my_channel, subscribe_sticker,
+              red_box_lines, subscribe_arrows, new_video_pink, moon_thumb, check_video, your_logo, thumb_lines, podcast)]
 
 _ONLY = os.environ.get("YP10_ONLY")
 if _ONLY:

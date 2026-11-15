@@ -5,7 +5,7 @@ Native pieces instead of outlines drawn anew every frame:
 - `brush`: a stroke that draws itself along a path (Trim Paths keys), thin at its tail and with a round head
   (Taper + round caps, 0.32), wobbling a little (Wiggle Paths). One small outline, a handful of keys.
 - `rays`: short tapered strokes that shoot out from a point (a click, a sparkle), one shape, trimmed per contour.
-- `splash`: drops that fly out, stretch along their speed and shrink away (path keys every other frame with the
+- `splash`: drops that fly out, stretch along their speed and shrink away (path keys every frame with the
   0.32 smooth morph, so the shape stays round between keys).
 - `smooth_path`: points → a smooth closed or open SVG path (Catmull-Rom → cubic Béziers) in a 0..100 box.
 
@@ -152,7 +152,7 @@ def _drop(cx, cy, r, vx, vy, stretch):
     return pts
 
 
-def splash(s, name, colour, cx, cy, at, n, count, r0, r1, size, seed=3, spread=360.0, a0=0.0, ry=1.0, every=2,
+def splash(s, name, colour, cx, cy, at, n, count, r0, r1, size, seed=3, spread=360.0, a0=0.0, ry=1.0, every=1,
            gravity=0.0, goo=0.7):
     """count drops thrown out from (cx, cy) between r0 and r1 (px), size px radius, decelerating and shrinking
     away over n frames; ry squashes the throw vertically, gravity (px) pulls them down by the end."""
@@ -202,7 +202,7 @@ def splash(s, name, colour, cx, cy, at, n, count, r0, r1, size, seed=3, spread=3
 
 # ==== outlines that change shape ======================================================================================
 
-def morph_keys(s, name, colour, frames_fn, every=2, evenodd=False, alpha=1.0, smooth=True):
+def morph_keys(s, name, colour, frames_fn, every=1, evenodd=False, alpha=1.0, smooth=True):
     """A shape whose outline is frames_fn(fr) → [points (closed, screen px)] (empty = hidden), keyed every
     `every` frames and blended between keys (smooth morph): blobs that grow, wobble and split."""
     each = [(u, fr) for u, fr in s.each()]
@@ -244,3 +244,60 @@ def morph_keys(s, name, colour, frames_fn, every=2, evenodd=False, alpha=1.0, sm
     st["smoothMorph"] = 1.0
     st.setdefault("keyframes", {})["path"] = keys(kf)
     return clip
+
+
+# ==== drips (0.32 Drip operator) =====================================================================================
+
+def _track_at(clip, key, i, default):
+    kf = (clip.get(key) or {}).get("keyframes") if isinstance(clip.get(key), dict) else None
+    if not kf:
+        return default
+    return kf[min(i, len(kf) - 1)]["value"]
+
+
+def drip(clip, at, length, width, count, seed=1, fall=None, goo=True):
+    """Thick liquid that runs down from the bottom of a shape clip as it comes in (the 0.32 Drip operator): fingers
+    grow to `length` px in ~7 frames from frame `at`, sag back, their bulbs let go and fall (`fall` px) while they
+    shrink away. goo adds the Liquid effect so the necks melt into the body."""
+    from scene import effect
+    st = clip["shapeStyle"]
+    fall = length * 0.9 if fall is None else fall
+    a = max(0.0, at)
+    st.update(dripLength=0.0, dripWidth=round(width, 2), dripCount=float(count), dripSeed=float(seed))
+    kf = st.setdefault("keyframes", {})
+    kf["dripLength"] = keys([(a / FPS, 0.0, "out"), ((a + 7) / FPS, length, "smooth"),
+                             ((a + 16) / FPS, length * 0.7, "smooth"), ((a + 26) / FPS, length * 0.2)])
+    kf["dripFall"] = keys([((a + 9) / FPS, 0.0, "in"), ((a + 24) / FPS, fall)])
+    kf["dripWidth"] = keys([((a + 17) / FPS, width, "in"), ((a + 27) / FPS, 0.0)])
+    if goo:
+        clip.setdefault("effects", []).append(effect("liquid.gooey", goo=round(min(16.0, width * 0.5), 1),
+                                                     threshold=0.5, shine=0.0))
+    return clip
+
+
+def liquefy(t, names, seed=1):
+    """Every shape clip of template t named in `names` drips as it comes in: the frame it first shows (box over 4 px,
+    opacity over 5 %) starts the drip; length, width and count follow its size."""
+    for track in t.tracks:
+        for clip in track.clips:
+            if clip.get("type") != "shape" or clip.get("name") not in names:
+                continue
+            n = len((clip.get("width") or {}).get("keyframes") or [1])
+            appear, w_max, h_max = None, 0.0, 0.0
+            for i in range(n):
+                w, h = _track_at(clip, "width", i, 0.0), _track_at(clip, "height", i, 0.0)
+                op = _track_at(clip, "opacity", i, 1.0)
+                if op > 0.05 and w > 4 and h > 4:
+                    if appear is None:
+                        appear = i
+                    w_max, h_max = max(w_max, w), max(h_max, h)
+            if appear is None:
+                continue
+            kfw = (clip.get("width") or {}).get("keyframes") or [{"timeUs": 0}]
+            at = kfw[min(appear, len(kfw) - 1)]["timeUs"] / 1e6 * FPS
+            side = min(w_max, h_max)
+            width = max(10.0, min(34.0, side * 0.09))
+            length = max(40.0, min(170.0, h_max * 0.5))
+            count = max(3, min(8, round(w_max / 110)))
+            seed += 1
+            drip(clip, at, length, width, count, seed=seed)

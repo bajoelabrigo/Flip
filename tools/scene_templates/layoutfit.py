@@ -147,11 +147,14 @@ def _scale_shape(style, f):
     if f <= 0 or abs(f - 1) < 1e-12:
         return
     kfs = style.get("keyframes", {}) or {}
-    for key in ("cornerRadius", "wiggleSize", "wiggleDetail", "offsetPath", "zigzagSize", "repeatX", "repeatY"):
+    for key in ("cornerRadius", "wiggleSize", "wiggleDetail", "offsetPath", "zigzagSize", "repeatX", "repeatY",
+                "dripLength", "dripWidth", "dripFall"):
         if key in style:
             style[key] *= f
         elif key == "wiggleDetail" and style.get("wiggleSize"):
             style[key] = 20.0 * f
+        elif key == "dripWidth" and (style.get("dripLength") or style.get("dripFall") or "dripLength" in kfs):
+            style[key] = 24.0 * f
     for layer in style.get("layers", []) or []:
         for key in ("offsetX", "offsetY", "blur", "width", "spread", "sketchLength", "sketchDeviation"):
             if key in layer:
@@ -159,7 +162,7 @@ def _scale_shape(style, f):
     for name, kf in kfs.items():
         field = name.split(".")[-1]
         scaled = name in ("cornerRadius", "wiggleSize", "wiggleDetail", "offsetPath", "zigzagSize", "repeatX",
-                          "repeatY") or (name.startswith("layer.") and field in ("width", "offsetX", "offsetY", "blur"))
+                          "repeatY", "dripLength", "dripWidth", "dripFall") or (name.startswith("layer.") and field in ("width", "offsetX", "offsetY", "blur"))
         if scaled and kf and kf.get("keyframes"):
             for k in kf["keyframes"]:
                 k["value"] *= f

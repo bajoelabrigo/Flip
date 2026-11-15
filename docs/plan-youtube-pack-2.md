@@ -41,6 +41,11 @@ well placed); fix roles or layout when it does not fit. **Trap:** `short_check.p
   strokes with Trim + Taper + round caps, rays, splashes, smooth-morph outlines); rendered with
   `pruebas\FlipStudio-0.32-liquido` (run 43738406085), comparison `prototipos-yp10\comparacion-yp10-v2.mp4`.
   yp10/yp15/yp16 get `minAppVersion` 0.32.0 in `publish.py`. `layoutfit.py` scales shape stroke widths like 0.32.
+- 2026-11-15 (v3, Jorge: «viene como chorreando líquido… y la animación de ellos es también más fluida»): the element
+  that opens the text in each of the 15 drips (0.32 Drip operator + Liquid effect, `liquid.drip`/`liquefy`, list
+  `DRIPS` in `templates_yp10.py`); outline keys every frame; Disco and Óvalo marked `art` (guessed `backdrop` grew
+  them in the Short) and a clear «Área del diseño» keeps the oval's room. Portable `pruebas\FlipStudio-0.32-liquido2`
+  (run 43752534514), comparison `prototipos-yp10\comparacion-yp10-v3.mp4`.
 - **Trap:** `build.py --no-render` with `mod:` rebuilds every folder in `--out` and deletes finished previews: only with
   single ids.
 - Glass blur (yp15/yp16, `GLASS_BLUR`): off because 0.31's Short fit does not move adjustment-layer masks. Jorge
