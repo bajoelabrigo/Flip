@@ -2171,6 +2171,26 @@ void EditorStateTest::sceneTemplateLayoutScalesAndCovers()
     const double s = 1080.0 / 1920.0;
     QVERIFY(qFuzzyCompare(wide.at(0).clips.at(0).transformX.evaluateAt(0), 120.0 * s + (1920 - 1080 * s) / 2.0));
 
+    // A shape's stroke (and its keyed width) and wiggle grow with the art (0.32: brush strokes stayed full width in
+    // a Short while the drawing shrank).
+    drift::Clip brush;
+    brush.type = drift::ClipType::Shape;
+    brush.shapeStyle.kind = drift::ShapeKind::Custom;
+    brush.shapeStyle.customPath = QStringLiteral("M 0 50 L 100 50");
+    brush.shapeStyle.layers.clear();
+    brush.shapeStyle.setStroke(60.0, Qt::white);
+    brush.shapeStyle.wiggleSize = 10.0;
+    const QString strokeId = brush.shapeStyle.layers.last().id;
+    drift::KeyframeTrack<double> widthKeys;
+    widthKeys.setKeyframe(0, 30.0);
+    brush.shapeStyle.keyframes.insert(QStringLiteral("layer.%1.width").arg(strokeId), widthKeys);
+    QList<drift::Track> drawn{drift::Track{.type = drift::TrackType::Video, .clips = {brush}}};
+    drift::scaleTemplateLayout(drawn, 1080, 1920, 540, 960);
+    const drift::ShapeStyle &halved = drawn.at(0).clips.at(0).shapeStyle;
+    QVERIFY(qFuzzyCompare(halved.layers.last().width, 30.0));
+    QVERIFY(qFuzzyCompare(halved.wiggleSize, 5.0));
+    QVERIFY(qFuzzyCompare(halved.keyframes.value(QStringLiteral("layer.%1.width").arg(strokeId)).evaluateAt(0), 15.0));
+
     // Cover: a square picture in a tall slot keeps its middle, full height.
     QCOMPARE(drift::coverSourceFrame(QSizeF(1000, 1000), QSizeF(500, 1000)), QRectF(0.25, 0, 0.5, 1));
 

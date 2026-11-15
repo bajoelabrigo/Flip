@@ -39,6 +39,33 @@ void scaleKeyed(QMap<QString, KeyframeTrack<double>> &keyframes, const QString &
         mapTrack(*it, scale, 0.0, 0.0);
 }
 
+// A shape's lengths in project px grown with its box (0.32, the cartoon packs: a brush stroke in a Short kept its
+// full width while the drawing shrank). Corner radius, the paint stack's widths, offsets and blurs (as a text's),
+// and the operators measured in px, their keys too.
+void scaleShapeStyle(ShapeStyle &s, double f)
+{
+    if (!(f > 0.0) || qFuzzyCompare(f, 1.0))
+        return;
+    for (double ShapeStyle::*field : {&ShapeStyle::cornerRadius, &ShapeStyle::wiggleSize, &ShapeStyle::wiggleDetail,
+                                      &ShapeStyle::offsetPath, &ShapeStyle::zigzagSize, &ShapeStyle::repeatX,
+                                      &ShapeStyle::repeatY})
+        s.*field *= f;
+    for (const char *key : {"cornerRadius", "wiggleSize", "wiggleDetail", "offsetPath", "zigzagSize", "repeatX",
+                            "repeatY"})
+        scaleKeyed(s.keyframes, QLatin1String(key), f);
+    for (TextShadingLayer &layer : s.layers) {
+        layer.offsetX *= f;
+        layer.offsetY *= f;
+        layer.blur *= f;
+        layer.width *= f;
+        layer.spread *= f;
+        layer.sketchLength *= f;
+        layer.sketchDeviation *= f;
+        for (const char *field : {"width", "offsetX", "offsetY", "blur"})
+            scaleKeyed(s.keyframes, QStringLiteral("layer.%1.%2").arg(layer.id, QLatin1String(field)), f);
+    }
+}
+
 // A mask measured on the canvas (0..1 of fromW×fromH) moved with the art, px → px * scale + offset, and
 // measured again on the toW×toH canvas: centre, size, outline points and their keys, and the feather (px) and
 // expand (a fraction of the short side) grown the same.
@@ -124,8 +151,7 @@ void mapLayout(QList<Track> &tracks, int fromW, int fromH, int toW, int toH, dou
             if (clip.type == ClipType::Text || clip.type == ClipType::Subtitle) {
                 scaleTextStyle(clip.textStyle, scale);
             } else if (clip.type == ClipType::Shape) {
-                clip.shapeStyle.cornerRadius *= scale;
-                scaleKeyed(clip.shapeStyle.keyframes, QStringLiteral("cornerRadius"), scale);
+                scaleShapeStyle(clip.shapeStyle, scale);
             }
         }
     }
@@ -310,10 +336,8 @@ void fitOverlayLayout(QList<Track> &tracks, int fromW, int fromH, int toW, int t
             mapTrack(clip->transformY, s, (toH - fromH * s) / 2.0, 0.0);
             mapTrack(clip->transformW, s, 0.0, fromW);
             mapTrack(clip->transformH, s, 0.0, fromH);
-            if (clip->type == ClipType::Shape) {
-                clip->shapeStyle.cornerRadius *= s;
-                scaleKeyed(clip->shapeStyle.keyframes, QStringLiteral("cornerRadius"), s);
-            }
+            if (clip->type == ClipType::Shape)
+                scaleShapeStyle(clip->shapeStyle, s);
             leave.append(clip);
             continue;
         }
@@ -321,10 +345,8 @@ void fitOverlayLayout(QList<Track> &tracks, int fromW, int fromH, int toW, int t
         mapTrack(clip->transformY, sy, 0.0, 0.0);
         mapTrack(clip->transformW, sx, 0.0, fromW);
         mapTrack(clip->transformH, sy, 0.0, fromH);
-        if (clip->type == ClipType::Shape) {
-            clip->shapeStyle.cornerRadius *= qMin(sx, sy);
-            scaleKeyed(clip->shapeStyle.keyframes, QStringLiteral("cornerRadius"), qMin(sx, sy));
-        }
+        if (clip->type == ClipType::Shape)
+            scaleShapeStyle(clip->shapeStyle, qMin(sx, sy));
         leave.append(clip);
     }
     // A photo that fills the frame behind the design and shows only through a mask (a word, a strip, a window):
