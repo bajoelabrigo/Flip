@@ -2192,7 +2192,8 @@ QVariantMap shapeStyleToMap(const drift::ShapeStyle &s, drift::TimeUs timelineSt
     for (const char *key : {"skew", "trimStart", "trimEnd", "trimOffset", "repeatCopies", "repeatOffset", "repeatX",
                             "repeatY", "repeatScale", "repeatRotation", "repeatStartOpacity", "repeatEndOpacity",
                             "wiggleSize", "wiggleDetail", "wiggleSpeed", "wiggleSeed", "mergeMode", "offsetPath",
-                            "zigzagSize", "zigzagRidges", "zigzagSmooth", "twistAngle", "puckerBloat", "smoothMorph"}) {
+                            "zigzagSize", "zigzagRidges", "zigzagSmooth", "twistAngle", "puckerBloat", "smoothMorph", "dripLength", "dripCount", "dripWidth",
+                            "dripFall", "dripSeed"}) {
         double value = 0.0;
         if (drift::shapeStyleScalar(s, QLatin1String(key), &value))
             map.insert(QLatin1String(key), value);
@@ -23041,7 +23042,8 @@ static void applyShapeStylePatch(drift::ShapeStyle &s, const QVariantMap &m)
     for (const char *key : {"skew", "trimStart", "trimEnd", "trimOffset", "repeatCopies", "repeatOffset", "repeatX",
                             "repeatY", "repeatScale", "repeatRotation", "repeatStartOpacity", "repeatEndOpacity",
                             "wiggleSize", "wiggleDetail", "wiggleSpeed", "wiggleSeed", "mergeMode", "offsetPath",
-                            "zigzagSize", "zigzagRidges", "zigzagSmooth", "twistAngle", "puckerBloat", "smoothMorph"}) {
+                            "zigzagSize", "zigzagRidges", "zigzagSmooth", "twistAngle", "puckerBloat", "smoothMorph", "dripLength", "dripCount", "dripWidth",
+                            "dripFall", "dripSeed"}) {
         if (m.contains(QLatin1String(key)))
             drift::setShapeStyleScalar(s, QLatin1String(key), m.value(QLatin1String(key)).toDouble());
     }

@@ -48,10 +48,11 @@ void scaleShapeStyle(ShapeStyle &s, double f)
         return;
     for (double ShapeStyle::*field : {&ShapeStyle::cornerRadius, &ShapeStyle::wiggleSize, &ShapeStyle::wiggleDetail,
                                       &ShapeStyle::offsetPath, &ShapeStyle::zigzagSize, &ShapeStyle::repeatX,
-                                      &ShapeStyle::repeatY})
+                                      &ShapeStyle::repeatY, &ShapeStyle::dripLength, &ShapeStyle::dripWidth,
+                                      &ShapeStyle::dripFall})
         s.*field *= f;
     for (const char *key : {"cornerRadius", "wiggleSize", "wiggleDetail", "offsetPath", "zigzagSize", "repeatX",
-                            "repeatY"})
+                            "repeatY", "dripLength", "dripWidth", "dripFall"})
         scaleKeyed(s.keyframes, QLatin1String(key), f);
     for (TextShadingLayer &layer : s.layers) {
         layer.offsetX *= f;

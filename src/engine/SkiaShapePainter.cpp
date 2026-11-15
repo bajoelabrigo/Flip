@@ -579,6 +579,89 @@ SkPath profiledStroke(const SkPath &path, double width, const TextShadingLayer &
     return out.detach();
 }
 
+// Drip (0.32, the cartoon packs): thick liquid running down from the outline. Each closed contour hangs `count` drips
+// from the parts of its edge that face down: a finger `length` px long and about `width` px wide (each drip a little
+// longer or thinner than the next, from `seed`), ending in a round bulb a bit wider than the finger. `fall` px lets
+// the bulbs go: each one leaves its finger as a drop that falls that far and shrinks a little, the finger keeps a
+// smaller tip. Fingers and body are joined (path union) so the fill is one liquid shape; a gooey effect on top melts
+// the necks. Lengths in box px (already scaled for the render).
+SkPath drippedPath(const SkPath &path, double length, int count, double width, double fall, double seed)
+{
+    if ((length <= 0.05 && fall <= 0.05) || width <= 0.05 || count < 1)
+        return path;
+    const auto hash = [seed](int i, int salt) {
+        const double v = std::sin((i + 1) * 12.9898 + salt * 78.233 + seed * 37.719) * 43758.5453;
+        return v - std::floor(v);
+    };
+    SkPathBuilder drips;
+    drips.setFillType(SkPathFillType::kWinding);
+    SkContourMeasureIter iter(path, false, 1.0f);
+    int contour = 0;
+    while (sk_sp<SkContourMeasure> cm = iter.next()) {
+        ++contour;
+        const double len = cm->length();
+        if (len <= 1.0 || !cm->isClosed())
+            continue;
+        // Sample the edge, keep the places that face down (outward normal pointing down), away from the corners.
+        const int samples = qBound(24, int(len / 3.0), 2000);
+        std::vector<SkPoint> pos(static_cast<size_t>(samples));
+        std::vector<SkVector> tan(static_cast<size_t>(samples));
+        double cx = 0.0, cy = 0.0;
+        for (int i = 0; i < samples; ++i) {
+            cm->getPosTan(float(len * i / samples), &pos[size_t(i)], &tan[size_t(i)]);
+            cx += pos[size_t(i)].x();
+            cy += pos[size_t(i)].y();
+        }
+        cx /= samples;
+        cy /= samples;
+        std::vector<int> down;
+        for (int i = 0; i < samples; ++i) {
+            SkVector n{-tan[size_t(i)].y(), tan[size_t(i)].x()};
+            if (n.x() * (pos[size_t(i)].x() - cx) + n.y() * (pos[size_t(i)].y() - cy) < 0.0)
+                n = SkVector{-n.x(), -n.y()};
+            if (n.y() > 0.6)
+                down.push_back(i);
+        }
+        if (down.empty())
+            continue;
+        const int hang = qMin(count, int(down.size()));
+        for (int k = 0; k < hang; ++k) {
+            // Spread along the downward edge, each one nudged off its slot.
+            const double slot = (k + 0.5 + (hash(k + contour * 97, 1) - 0.5) * 0.7) / hang;
+            const SkPoint at = pos[size_t(down[size_t(qBound(0, int(slot * down.size()), int(down.size()) - 1))])];
+            const double w = width * (0.6 + 0.6 * hash(k + contour * 97, 2));
+            const double l = length * (0.35 + 0.65 * hash(k + contour * 97, 3));
+            const double bulb = w * 0.62;
+            const double top = at.y() - w * 0.8; // starts inside the body
+            const double end = at.y() + l;
+            const double x = at.x();
+            const double halfTop = w * 0.5, halfEnd = w * 0.36;
+            if (l > 0.5) {
+                // The finger: a little narrower towards its end, so the bulb reads as a hanging drop.
+                const SkPoint finger[4] = {{float(x - halfTop), float(top)}, {float(x + halfTop), float(top)},
+                                           {float(x + halfEnd), float(end)}, {float(x - halfEnd), float(end)}};
+                drips.addPolygon({finger, 4}, true);
+            }
+            const double drop = fall * (0.6 + 0.4 * hash(k + contour * 97, 4));
+            if (drop <= 0.5) {
+                drips.addCircle(float(x), float(end), float(bulb));
+            } else {
+                // The drop has let go: a smaller tip stays on the finger, the drop falls and shrinks a little.
+                drips.addCircle(float(x), float(end), float(halfEnd));
+                const double r = bulb * (1.0 - 0.25 * qMin(1.0, drop / qMax(1.0, l + drop)));
+                drips.addCircle(float(x), float(end + drop + bulb * 0.4), float(r));
+            }
+        }
+    }
+    SkPath extra = drips.detach();
+    if (extra.isEmpty())
+        return path;
+    SkPath result;
+    if (!Op(path, extra, kUnion_SkPathOp, &result))
+        return path;
+    return result;
+}
+
 class ShapePainter final : public VectorPainter
 {
 public:
@@ -606,7 +689,7 @@ public:
         m_silhouetteStrokePx = widestOutwardStroke(style) * m_scale * 2.0;
         m_boxW = width;
         m_boxH = height;
-        // After Effects' order down the stack: merge, offset, pucker & bloat, zig zag / twist, wiggle, trim.
+        // After Effects' order down the stack: merge, offset, pucker & bloat, zig zag / twist, (drip,) wiggle, trim.
         if (m_style.mergeMode >= 0.5)
             m_path = mergedPath(m_path, qRound(m_style.mergeMode));
         if (qAbs(m_style.offsetPath) >= 0.01)
@@ -617,6 +700,9 @@ public:
             m_path = zigzagTwisted(m_path, m_style.zigzagSize * m_scale, qRound(m_style.zigzagRidges),
                                    m_style.zigzagSmooth >= 0.5, m_style.twistAngle,
                                    SkPoint{float(width / 2.0), float(height / 2.0)});
+        if (m_style.hasDrip())
+            m_path = drippedPath(m_path, m_style.dripLength * m_scale, qRound(m_style.dripCount),
+                                 m_style.dripWidth * m_scale, m_style.dripFall * m_scale, m_style.dripSeed);
         if (m_style.hasWiggle())
             m_path = wiggledPath(m_path, m_style.wiggleSize * m_scale, m_style.wiggleDetail * m_scale,
                                  m_timeSec * m_style.wiggleSpeed, m_style.wiggleSeed);
@@ -819,6 +905,9 @@ double painterBleed(const ShapeStyle &style, int w, int h, double renderScale)
     // box, capped so a runaway repeater cannot ask for a texture the GPU will not hold.
     double operators = (style.wiggleSize + qMax(0.0, style.offsetPath) + style.zigzagSize) * renderScale
                        + qMin(4096.0, repeaterReach(style, w, h, renderScale));
+    // Drips hang below the outline: their length, the fallen drops and a bulb.
+    if (style.hasDrip())
+        operators += qMin(4096.0, (style.dripLength + style.dripFall + style.dripWidth * 1.5) * renderScale);
     // A custom outline edited past its box (a vertex or handle dragged out, a morph between keys)
     // is still drawn whole.
     if (style.kind == ShapeKind::Custom) {

@@ -1153,6 +1153,80 @@ Item {
                 }
             }
         }
+        // ----- Drip (0.32, cartoon / liquid motion) ------------------------------------------------
+        CollapsibleSection {
+            visible: root.showShapeSections
+            width: parent.width
+            title: qsTr("Drip")
+            expanded: Number((root.shapeStyle || {}).dripLength || 0) > 0 || Number((root.shapeStyle || {}).dripFall || 0) > 0
+
+            Column {
+                width: parent.width
+                spacing: Theme.spacingMd
+
+                ThemedLabel {
+                    width: parent.width
+                    opacity: 0.8
+                    text: qsTr("Thick liquid runs down from the bottom of the shape. Animate Length to let it drip and Drop fall to let the drops go; the Liquid effect melts them together.")
+                }
+                Row {
+                    width: parent.width
+                    spacing: 8
+                    PropertyKeyframeRow {
+                        width: (parent.width - parent.spacing) / 2
+                        propDef: root.knob("dripLength", qsTr("Length"), 0)
+                        keyframeList: root.knobKeyframes("dripLength")
+                        useSlider: true
+                        sliderFrom: 0
+                        sliderTo: 400
+                        inputTo: 4000
+                        unit: "px"
+                    }
+                    PropertyKeyframeRow {
+                        width: (parent.width - parent.spacing) / 2
+                        propDef: root.knob("dripFall", qsTr("Drop fall"), 0)
+                        keyframeList: root.knobKeyframes("dripFall")
+                        useSlider: true
+                        sliderFrom: 0
+                        sliderTo: 400
+                        inputTo: 4000
+                        unit: "px"
+                    }
+                }
+                Row {
+                    width: parent.width
+                    spacing: 8
+                    PropertyKeyframeRow {
+                        width: (parent.width - parent.spacing) / 3 * 1 - 4
+                        propDef: root.knob("dripCount", qsTr("Drips"), 0)
+                        keyframeList: root.knobKeyframes("dripCount")
+                        useSlider: true
+                        sliderFrom: 1
+                        sliderTo: 20
+                        inputTo: 64
+                    }
+                    PropertyKeyframeRow {
+                        width: (parent.width - parent.spacing) / 3 * 1 - 4
+                        propDef: root.knob("dripWidth", qsTr("Width"), 0)
+                        keyframeList: root.knobKeyframes("dripWidth")
+                        useSlider: true
+                        sliderFrom: 1
+                        sliderTo: 120
+                        inputTo: 1000
+                        unit: "px"
+                    }
+                    PropertyKeyframeRow {
+                        width: (parent.width - parent.spacing) / 3 * 1 - 4
+                        propDef: root.knob("dripSeed", qsTr("Random seed"), 0)
+                        keyframeList: root.knobKeyframes("dripSeed")
+                        useSlider: true
+                        sliderFrom: 0
+                        sliderTo: 100
+                        inputTo: 1000
+                    }
+                }
+            }
+        }
         // ----- Several shapes in one layer, Merge / Offset / Zig zag / Twist (0.26, stage G) --------
         CollapsibleSection {
             visible: root.showShapeSections && !root.proMode && !root.hasParts
