@@ -1149,6 +1149,7 @@ void applyEffectPadding(GpuLayer &layer, double renderScale)
 void clipGeometryAt(const drift::Clip &clip, drift::TimeUs timelineUs, int projectWidth, int projectHeight,
                     double renderScale, QRectF *rect, double *rotation)
 {
+    timelineUs = clip.posterizedTimelineUs(timelineUs); // Posterize Time (0.32): held between its steps
     double x = 0.0, y = 0.0, w = 0.0, h = 0.0, rot = 0.0;
     layoutRectForClip(clip, timelineUs, projectWidth, projectHeight, renderScale, 1.0, &x, &y, &w, &h, &rot);
     QRectF box(x, y, w, h);
@@ -1470,6 +1471,8 @@ GpuLayer buildGpuLayer(const drift::Project &project, const drift::Clip &clip,
                        bool editingText = false)
 {
     GpuLayer layer;
+    // Posterize Time (0.32): the whole clip — transform, keys, shape, effects, media — at its own lower rate.
+    timelineUs = clip.posterizedTimelineUs(timelineUs);
 
     const drift::TimeUs clipTimeUs = timelineUs - clip.timelineStart;
 
@@ -1860,7 +1863,9 @@ GpuScene buildGpuScene(const drift::Project &project, drift::TimeUs timelineUs, 
         // A tilted parent (3D) carries the child in the world, so it turns and goes in depth with it; a transform
         // layer over the track then moves the result, when it is flat.
         QMatrix4x4 world;
-        if (drift::clipParentWorld3d(project, clip, timelineUs, renderScale, &world)) {
+        // A posterized child (0.32) follows its parent at its own steps too.
+        const drift::TimeUs at = clip.posterizedTimelineUs(timelineUs);
+        if (drift::clipParentWorld3d(project, clip, at, renderScale, &world)) {
             if (layer.hasParent && !layer.parent.isAffine())
                 return;
             if (layer.hasParent)
@@ -1872,7 +1877,7 @@ GpuScene buildGpuScene(const drift::Project &project, drift::TimeUs timelineUs, 
             return;
         }
         bool active = false;
-        const QTransform delta = drift::clipParentMatrix(project, clip, timelineUs, renderScale, &active);
+        const QTransform delta = drift::clipParentMatrix(project, clip, at, renderScale, &active);
         if (!active)
             return;
         layer.parent = layer.hasParent ? delta * layer.parent : delta;

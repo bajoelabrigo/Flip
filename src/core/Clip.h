@@ -175,6 +175,19 @@ struct Clip
     // After Effects' Motion Blur switch (0.26): the frame is averaged over the shutter the project
     // sets (Project::motionBlurShutterDeg / motionBlurSamples) while the clip moves.
     bool motionBlur = false;
+    // After Effects' Posterize Time (0.32, cartoon VFX: «animated on twos»): everything the clip animates — its
+    // transform, keys, path morph, wiggles, effects and the media frame — is sampled at posterizeFps frames a second
+    // and held in between, whatever the project's rate. 0 = off (every frame, as before).
+    double posterizeFps = 0.0;
+    // The timeline time the clip is drawn at for `timelineUs`: with Posterize Time, the start of the
+    // 1/posterizeFps-second step it falls in (counted from the clip's start); else `timelineUs` itself.
+    TimeUs posterizedTimelineUs(TimeUs timelineUs) const
+    {
+        if (!(posterizeFps > 0.0) || timelineUs <= timelineStart)
+            return timelineUs;
+        const double steps = std::floor(double(timelineUs - timelineStart) * posterizeFps / 1e6 + 1e-4);
+        return timelineStart + static_cast<TimeUs>(std::llround(steps * 1e6 / posterizeFps));
+    }
     // After Effects' Track Matte (0.26): this clip shows only where `matteClipId` (any clip on
     // the same timeline) covers it, by its alpha or its luma, straight or inverted. The matte
     // clip itself is not drawn while it is one. Empty id = no matte.

@@ -390,6 +390,8 @@ QJsonObject clipToJson(const Clip &clip)
         json.insert(QStringLiteral("acceptsLights"), false);
     if (clip.motionBlur)
         json.insert(QStringLiteral("motionBlur"), true);
+    if (clip.posterizeFps > 0.0)
+        json.insert(QStringLiteral("posterizeFps"), clip.posterizeFps);
     if (clip.matteMode != Clip::TrackMatte::None && !clip.matteClipId.isEmpty()) {
         static const char *const modes[] = {"none", "alpha", "alphaInverted", "luma", "lumaInverted"};
         QJsonObject matte{{QStringLiteral("clip"), clip.matteClipId},
@@ -561,6 +563,7 @@ Clip clipFromJsonV2(const QJsonObject &object, int canvasW = 1920, int canvasH =
     }
     clip.acceptsLights = object.value(QStringLiteral("acceptsLights")).toBool(true);
     clip.motionBlur = object.value(QStringLiteral("motionBlur")).toBool(false);
+    clip.posterizeFps = qBound(0.0, object.value(QStringLiteral("posterizeFps")).toDouble(0.0), 240.0);
     if (object.contains(QStringLiteral("matte"))) {
         const QJsonObject matte = object.value(QStringLiteral("matte")).toObject();
         const QString mode = matte.value(QStringLiteral("mode")).toString();
