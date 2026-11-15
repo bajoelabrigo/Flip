@@ -183,9 +183,14 @@ SkPath wiggledPath(const SkPath &path, double size, double detail, double phase,
                 out.quadTo(pts[i], mid(pts[i], pts[(i + 1) % n]));
             out.close();
         } else {
+            // Through the midpoints too (0.32): a wiggled open stroke stays round instead of a polyline.
             out.moveTo(pts.front());
-            for (size_t i = 1; i < pts.size(); ++i)
-                out.lineTo(pts[i]);
+            const auto mid = [](const SkPoint &a, const SkPoint &b) {
+                return SkPoint{(a.x() + b.x()) * 0.5f, (a.y() + b.y()) * 0.5f};
+            };
+            for (size_t i = 1; i + 1 < pts.size(); ++i)
+                out.quadTo(pts[i], mid(pts[i], pts[i + 1]));
+            out.lineTo(pts.back());
         }
     } while (measure.nextContour());
     SkPath result = out.detach();
@@ -485,8 +490,10 @@ bool strokeHasProfile(const TextShadingLayer &layer)
 
 SkPath profiledStroke(const SkPath &path, double width, const TextShadingLayer &layer, double scale)
 {
+    // Non-zero, with a ring's two sides wound opposite ways (0.32): a thick band round a tight bend folds over
+    // itself on the inside, and even-odd punched a hole there.
     SkPathBuilder out;
-    out.setFillType(SkPathFillType::kEvenOdd);
+    out.setFillType(SkPathFillType::kWinding);
     SkContourMeasureIter iter(path, false, 1.0f);
     const double ease = qBound(0.0, layer.taperEase / 100.0, 1.0);
     const auto shape = [ease](double t) {
@@ -508,6 +515,10 @@ SkPath profiledStroke(const SkPath &path, double width, const TextShadingLayer &
         std::vector<SkPoint> left, right;
         left.reserve(size_t(steps) + 1);
         right.reserve(size_t(steps) + 1);
+        // The ends of an open band (centre, direction, half width) for its round caps.
+        SkPoint firstP{}, lastP{};
+        SkVector firstT{}, lastT{};
+        double firstHalf = 0.0, lastHalf = 0.0;
         for (int i = 0; i <= steps; ++i) {
             const double d = len * i / steps;
             const double f = d / len;
@@ -524,6 +535,14 @@ SkPath profiledStroke(const SkPath &path, double width, const TextShadingLayer &
             if (!cm->getPosTan(float(d), &p, &tan))
                 continue;
             const SkVector n{-tan.y(), tan.x()};
+            if (left.empty()) {
+                firstP = p;
+                firstT = tan;
+                firstHalf = half;
+            }
+            lastP = p;
+            lastT = tan;
+            lastHalf = half;
             left.push_back({p.x() + n.x() * float(half), p.y() + n.y() * float(half)});
             right.push_back({p.x() - n.x() * float(half), p.y() - n.y() * float(half)});
         }
@@ -531,10 +550,29 @@ SkPath profiledStroke(const SkPath &path, double width, const TextShadingLayer &
             continue;
         if (cm->isClosed()) {
             out.addPolygon({left.data(), left.size()}, true);
-            out.addPolygon({right.data(), right.size()}, true);
+            const std::vector<SkPoint> inner(right.rbegin(), right.rend());
+            out.addPolygon({inner.data(), inner.size()}, true);
         } else {
+            // A round cap (0.32, the cartoon packs) closes each end with a half circle of the width there, as After
+            // Effects draws a tapered stroke with round caps: a brush stroke gets its round head and a soft tail.
+            const bool round = layer.cap == StrokeCap::Round;
+            const auto cap = [](std::vector<SkPoint> &band, SkPoint c, SkVector tan, double half, double sign) {
+                if (half <= 0.05)
+                    return;
+                const SkVector n{-tan.y(), tan.x()};
+                const int segs = qBound(4, int(std::ceil(half)), 24);
+                for (int k = 1; k < segs; ++k) {
+                    const double a = M_PI * k / segs;
+                    const double cn = std::cos(a) * half * sign, ct = std::sin(a) * half * sign;
+                    band.push_back({float(c.x() + n.x() * cn + tan.x() * ct), float(c.y() + n.y() * cn + tan.y() * ct)});
+                }
+            };
             std::vector<SkPoint> band(left);
+            if (round)
+                cap(band, lastP, lastT, lastHalf, 1.0);
             band.insert(band.end(), right.rbegin(), right.rend());
+            if (round)
+                cap(band, firstP, firstT, firstHalf, -1.0);
             out.addPolygon({band.data(), band.size()}, true);
         }
     }

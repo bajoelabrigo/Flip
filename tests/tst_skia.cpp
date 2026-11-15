@@ -299,6 +299,7 @@ private slots:
     void shapeWithOnePartDrawsTheSame();
     void shapeLandsOnItsFractionalBox();
     void strokeTaperWaveAndRoundness();
+    void taperedStrokeRoundCaps();
     void shapePartsStackMoveAndGroup();
     void shapePartsSaveAndAnimate();
     void shapeRepeaterDrawsCopies();
@@ -733,6 +734,43 @@ void SkiaTest::strokeTaperWaveAndRoundness()
     const int round = greenPixels(placed(skia::makeShapePainter(star, 300, 300, 1.0), 500, 500, 100));
     QVERIFY2(qAbs(round - sharp) > sharp / 50, qPrintable(QStringLiteral("%1 vs %2").arg(round).arg(sharp)));
     QCOMPARE(shapeStyleFromJson(shapeStyleToJson(star)).outerRoundness, 100.0);
+}
+
+// 0.32 (cartoon packs): a tapered open stroke with round caps ends in half circles of its width (a brush's round
+// head), butt caps stop flat; a thick band round a tight bend has no hole punched on the inside.
+void SkiaTest::taperedStrokeRoundCaps()
+{
+    const auto greenPixels = [](const QImage &img) {
+        int n = 0;
+        for (int y = 0; y < img.height(); ++y)
+            for (int x = 0; x < img.width(); ++x) {
+                const QColor c = img.pixelColor(x, y);
+                n += (c.green() > 128 && c.red() < 100 && c.alpha() > 128) ? 1 : 0;
+            }
+        return n;
+    };
+    ShapeStyle brush;
+    brush.kind = ShapeKind::Custom;
+    brush.customPath = QStringLiteral("M 0 50 L 100 50");
+    brush.layers = {strokeLayer(40.0, QColor(0, 255, 0))};
+    brush.layers[0].strokeAlign = StrokeAlign::Center;
+    brush.layers[0].taperStartLength = 30.0;
+    brush.layers[0].cap = StrokeCap::Butt;
+    const int butt = greenPixels(placed(skia::makeShapePainter(brush, 300, 300, 1.0), 500, 500, 100));
+    brush.layers[0].cap = StrokeCap::Round;
+    const QImage roundImg = placed(skia::makeShapePainter(brush, 300, 300, 1.0), 500, 500, 100);
+    const int round = greenPixels(roundImg);
+    // The head's half circle: π · 20² / 2 ≈ 628 px more.
+    QVERIFY2(round - butt > 400 && round - butt < 900, qPrintable(QStringLiteral("%1 vs %2").arg(round).arg(butt)));
+    QVERIFY(roundImg.pixelColor(100 + 300 + 12, 100 + 150).green() > 128);
+
+    // A tight U, much thicker than its bend: filled through, no hole at the inside of the bend.
+    ShapeStyle bend = brush;
+    bend.customPath = QStringLiteral("M 30 0 L 30 60 C 30 75 40 75 40 60 L 40 0");
+    bend.layers[0].width = 60.0;
+    bend.layers[0].taperStartLength = 10.0;
+    const QImage bent = placed(skia::makeShapePainter(bend, 300, 300, 1.0), 500, 500, 100);
+    QVERIFY(bent.pixelColor(100 + 105, 100 + 100).green() > 128);
 }
 
 void SkiaTest::shapeLandsOnItsFractionalBox()
