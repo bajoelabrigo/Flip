@@ -464,7 +464,10 @@ jobs:
             }
           }
           if (-not (Test-Path vcpkg\vcpkg.exe)) {
-            git clone --depth 1 https://github.com/microsoft/vcpkg.git vcpkg
+            # Pinned (2026-11-15): vcpkg's zlib 1.4 update (98d7375b79, 2026-11-13) left Skia linking a
+            # «zs.lib» that does not exist. This is the commit just before it.
+            git clone https://github.com/microsoft/vcpkg.git vcpkg
+            git -C vcpkg checkout --quiet fe8e78fac7df2793f9848ed0d27aa59d9c035998
             Retry { .\vcpkg\bootstrap-vcpkg.bat }
           }
           Retry { .\vcpkg\vcpkg.exe install zstd openssl soundtouch --triplet x64-windows }
