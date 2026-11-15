@@ -595,12 +595,14 @@ SkPath drippedPath(const SkPath &path, double length, int count, double width, d
     };
     SkPathBuilder drips;
     drips.setFillType(SkPathFillType::kWinding);
-    SkContourMeasureIter iter(path, false, 1.0f);
+    // Forced closed: a filled outline whose last point merely returns to its first (an ellipse from QPainterPath)
+    // is not marked closed, and a fill closes every contour anyway.
+    SkContourMeasureIter iter(path, true, 1.0f);
     int contour = 0;
     while (sk_sp<SkContourMeasure> cm = iter.next()) {
         ++contour;
         const double len = cm->length();
-        if (len <= 1.0 || !cm->isClosed())
+        if (len <= 1.0)
             continue;
         // Sample the edge, keep the places that face down (outward normal pointing down), away from the corners.
         const int samples = qBound(24, int(len / 3.0), 2000);
