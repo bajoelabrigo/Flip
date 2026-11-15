@@ -83,6 +83,7 @@ Column {
     function use(item) {
         if (!Market.authenticated) {
             signInLoader.active = true
+            signInLoader.item.reason = "trends"
             signInLoader.item.openFor(() => root.use(item))
             return
         }
@@ -155,9 +156,12 @@ Column {
         actionText: root.signedOut ? (Account.busy ? qsTr("Waiting for the browser…") : qsTr("Sign in"))
                                    : root.failed ? qsTr("Retry") : ""
         onActionTriggered: {
-            if (root.signedOut)
-                Account.signIn()
-            else
+            if (root.signedOut) {
+                // The same popup as Stock's (0.32): what it is, that it is free, and the button.
+                signInLoader.active = true
+                signInLoader.item.reason = "stock"
+                signInLoader.item.openFor(null)
+            } else
                 Market.fetchPanelList(root.type, root.categories || [], false)
         }
     }

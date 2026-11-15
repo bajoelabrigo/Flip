@@ -21,6 +21,7 @@
 #include "engine/TransitionCatalog.h"
 #include "core/ZipArchive.h"
 
+#include <QApplication>
 #include <QDateTime>
 #include <QDir>
 #include <QFile>
@@ -28,14 +29,19 @@
 #include <QFutureWatcher>
 #include <QJsonArray>
 #include <QJsonDocument>
+#include <QLockFile>
+#include <QMenu>
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QNetworkRequest>
 #include <QSaveFile>
 #include <QSettings>
 #include <QStandardPaths>
+#include <QSystemTrayIcon>
+#include <QTimer>
 #include <QtConcurrent>
 
+#include <algorithm>
 #include <atomic>
 #include <tuple>
 #include <utility>
@@ -106,6 +112,18 @@ AddonManager::AddonManager(QObject *parent)
     QFile cached(cachedIndexPath());
     if (cached.open(QIODevice::ReadOnly))
         applyIndex(cached.readAll(), true);
+
+    // Install all follows every transfer it started, whichever way it ends.
+    connect(this, &AddonManager::transferSucceeded, this, [this](const QString &id) { settleBulk(id, true); });
+    connect(this, &AddonManager::transferFailed, this, [this](const QString &id, const QString &) {
+        settleBulk(id, false);
+    });
+    connect(this, &AddonManager::progressChanged, this, [this](const QString &id, double fraction, const QString &phase) {
+        if (!m_bulkRunning || !m_bulkFraction.contains(id))
+            return;
+        m_bulkFraction.insert(id, phase == QLatin1String("Installing") ? 1.0 : fraction);
+        emitBulkChanged(false);
+    });
 
     refresh();
 }
@@ -512,6 +530,7 @@ void AddonManager::startDownload(const QString &id)
     if (!transfer->file.open(QIODevice::WriteOnly | QIODevice::Append)) {
         m_failures.insert(id, QStringLiteral("Cannot write to the download cache"));
         emit catalogChanged();
+        emit transferFailed(id, m_failures.value(id));
         return;
     }
 
@@ -685,6 +704,20 @@ void AddonManager::cancel(const QString &id)
     const auto transfer = m_transfers.value(id);
     if (!transfer)
         return;
+
+    // One pack of Install all stopped by hand: the queue goes on without it (a cancelled download
+    // reports nothing, so it would wait for it forever).
+    if (m_bulkRunning && m_bulkActive.contains(id)) {
+        m_bulkActive.removeAll(id);
+        m_bulkFraction.remove(id);
+        m_bulkTotal = qMax(0, m_bulkTotal - 1);
+        m_bulkBytesTotal = qMax(0.0, m_bulkBytesTotal - m_bulkSize.value(id));
+        QTimer::singleShot(0, this, [this] {
+            savePendingBulk();
+            pumpBulk();
+            emitBulkChanged(true);
+        });
+    }
 
     transfer->cancelled = true;
     if (transfer->reply)
@@ -1128,10 +1161,335 @@ void AddonManager::sweepDownloadCache()
 {
     // Completed .driftpkg files are removed after a successful install, so anything left here is
     // from a crash. Half-finished .part files are kept — the next install resumes them.
+    // Not while another Flip Studio (one closed but still finishing Install all) is installing them.
+    if (installAllRunningElsewhere())
+        return;
     QDir cache(addonDownloadCacheDir());
     const QStringList stale = cache.entryList({QStringLiteral("*.driftpkg"), QStringLiteral("*.driftfx"),
                                                QStringLiteral("*.zip")},
                                               QDir::Files);
     for (const QString &name : stale)
         QFile::remove(cache.filePath(name));
+}
+
+// --- Install all (0.32) ---------------------------------------------------------------------
+
+namespace {
+
+constexpr int kBulkParallel = 2;
+
+QString bulkLockPath()
+{
+    return QDir(addonDownloadCacheDir()).filePath(QStringLiteral("install-all.lock"));
+}
+
+QString pendingBulkKey()
+{
+    return QStringLiteral("addons/installAllPending");
+}
+
+} // namespace
+
+QVariantMap AddonManager::installAllPlan(const QStringList &only) const
+{
+    QStringList names;
+    double bytes = 0.0;
+    int count = 0;
+    for (const QVariant &value : catalog()) {
+        const QVariantMap row = value.toMap();
+        const QString id = row.value(QStringLiteral("id")).toString();
+        const QString state = row.value(QStringLiteral("state")).toString();
+        if (row.value(QStringLiteral("custom")).toBool() || (!only.isEmpty() && !only.contains(id)))
+            continue;
+        if (state != QLatin1String("available") && state != QLatin1String("update-available")
+            && state != QLatin1String("failed"))
+            continue;
+        ++count;
+        bytes += row.value(QStringLiteral("downloadSize")).toDouble();
+        names.append(row.value(QStringLiteral("name")).toString());
+    }
+    return QVariantMap{{QStringLiteral("count"), count},
+                       {QStringLiteral("bytes"), bytes},
+                       {QStringLiteral("names"), names}};
+}
+
+bool AddonManager::installAllRunningElsewhere() const
+{
+    if (m_bulkRunning)
+        return false;
+    QLockFile probe(bulkLockPath());
+    probe.setStaleLockTime(0);
+    if (probe.tryLock(0)) {
+        probe.unlock();
+        return false;
+    }
+    return probe.error() == QLockFile::LockFailedError;
+}
+
+bool AddonManager::installAll(const QStringList &only)
+{
+    if (m_bulkRunning || !addonServiceConfigured())
+        return false;
+    QList<QPair<double, QVariantMap>> rows;
+    for (const QVariant &value : catalog()) {
+        const QVariantMap row = value.toMap();
+        const QString id = row.value(QStringLiteral("id")).toString();
+        const QString state = row.value(QStringLiteral("state")).toString();
+        if (row.value(QStringLiteral("custom")).toBool() || (!only.isEmpty() && !only.contains(id)))
+            continue;
+        if (state != QLatin1String("available") && state != QLatin1String("update-available")
+            && state != QLatin1String("failed"))
+            continue;
+        rows.append({row.value(QStringLiteral("downloadSize")).toDouble(), row});
+    }
+    if (rows.isEmpty())
+        return false;
+
+    // Two Flip Studios installing the same packs would write the same .part files.
+    m_bulkLock = std::make_unique<QLockFile>(bulkLockPath());
+    m_bulkLock->setStaleLockTime(0);
+    if (!m_bulkLock->tryLock(0)) {
+        m_bulkLock.reset();
+        setStatus(tr("Another Flip Studio window is already installing the extras."));
+        return false;
+    }
+
+    // Smallest first: most of the list is ready within a minute, the big AI models come last.
+    std::stable_sort(rows.begin(), rows.end(), [](const auto &a, const auto &b) { return a.first < b.first; });
+    m_bulkQueue.clear();
+    m_bulkActive.clear();
+    m_bulkIds.clear();
+    m_bulkSize.clear();
+    m_bulkFraction.clear();
+    m_bulkName.clear();
+    m_bulkFailedNames.clear();
+    m_bulkInstalled = 0;
+    m_bulkBytesTotal = 0.0;
+    m_bulkBytesSettled = 0.0;
+    for (const auto &[size, row] : rows) {
+        const QString id = row.value(QStringLiteral("id")).toString();
+        m_bulkQueue.append(id);
+        m_bulkIds.insert(id);
+        m_bulkSize.insert(id, size);
+        m_bulkName.insert(id, row.value(QStringLiteral("name")).toString());
+        m_bulkBytesTotal += size;
+    }
+    m_bulkTotal = int(m_bulkQueue.size());
+    m_bulkRunning = true;
+    savePendingBulk();
+    pumpBulk();
+    emitBulkChanged(true);
+    return true;
+}
+
+void AddonManager::pumpBulk()
+{
+    while (m_bulkRunning && m_bulkActive.size() < kBulkParallel && !m_bulkQueue.isEmpty()) {
+        const QString id = m_bulkQueue.takeFirst();
+        m_bulkActive.append(id);
+        m_bulkFraction.insert(id, 0.0);
+        if (!m_transfers.contains(id))
+            install(id);
+    }
+    if (m_bulkRunning && m_bulkActive.isEmpty() && m_bulkQueue.isEmpty())
+        endBulk(false);
+}
+
+void AddonManager::settleBulk(const QString &id, bool ok)
+{
+    if (!m_bulkRunning || !m_bulkActive.contains(id))
+        return;
+    m_bulkActive.removeAll(id);
+    m_bulkFraction.remove(id);
+    m_bulkBytesSettled += m_bulkSize.value(id);
+    if (ok)
+        ++m_bulkInstalled;
+    else
+        m_bulkFailedNames.append(m_bulkName.value(id, id));
+    savePendingBulk();
+    pumpBulk();
+    emitBulkChanged(true);
+}
+
+void AddonManager::cancelInstallAll()
+{
+    if (!m_bulkRunning)
+        return;
+    m_bulkQueue.clear();
+    const QStringList active = std::exchange(m_bulkActive, {});
+    for (const QString &id : active)
+        cancel(id);
+    endBulk(true);
+}
+
+void AddonManager::endBulk(bool cancelled)
+{
+    if (!m_bulkRunning)
+        return;
+    m_bulkRunning = false;
+    m_bulkQueue.clear();
+    m_bulkActive.clear();
+    QSettings().remove(pendingBulkKey());
+    if (m_bulkLock) {
+        m_bulkLock->unlock();
+        m_bulkLock.reset();
+    }
+    emitBulkChanged(true);
+    emit bulkFinished(m_bulkInstalled, int(m_bulkFailedNames.size()), m_bulkFailedNames, cancelled);
+
+    if (!m_background)
+        return;
+    // The window was closed: say how it went from the tray, then finish the quit.
+    QString message;
+    if (cancelled)
+        message = tr("Installing the extras was cancelled.");
+    else if (m_bulkFailedNames.isEmpty())
+        message = tr("Done: %n extra(s) installed.", "", m_bulkInstalled);
+    else
+        message = tr("%n installed, ", "", m_bulkInstalled)
+                  + tr("%n failed: %1", "", int(m_bulkFailedNames.size())).arg(m_bulkFailedNames.join(QStringLiteral(", ")));
+#if QT_CONFIG(systemtrayicon)
+    if (m_tray && !cancelled) {
+        m_tray->setToolTip(message);
+        m_tray->showMessage(QStringLiteral("Flip Studio"), message,
+                            m_bulkFailedNames.isEmpty() ? QSystemTrayIcon::Information : QSystemTrayIcon::Warning,
+                            8000);
+        // Long enough for the notification to be read before the icon (and the process) goes.
+        QTimer::singleShot(8000, qApp, [] { QCoreApplication::quit(); });
+        return;
+    }
+#endif
+    QTimer::singleShot(0, qApp, [] { QCoreApplication::quit(); });
+}
+
+QVariantMap AddonManager::bulk() const
+{
+    double done = m_bulkBytesSettled;
+    for (auto it = m_bulkFraction.constBegin(); it != m_bulkFraction.constEnd(); ++it)
+        done += it.value() * m_bulkSize.value(it.key());
+    const QString current = m_bulkActive.isEmpty() ? QString() : m_bulkName.value(m_bulkActive.first());
+    return QVariantMap{
+        {QStringLiteral("active"), m_bulkRunning},
+        {QStringLiteral("total"), m_bulkTotal},
+        {QStringLiteral("done"), m_bulkInstalled + int(m_bulkFailedNames.size())},
+        {QStringLiteral("installed"), m_bulkInstalled},
+        {QStringLiteral("failed"), int(m_bulkFailedNames.size())},
+        {QStringLiteral("failedNames"), m_bulkFailedNames},
+        {QStringLiteral("current"), current},
+        {QStringLiteral("bytesDone"), qMin(done, m_bulkBytesTotal)},
+        {QStringLiteral("bytesTotal"), m_bulkBytesTotal},
+    };
+}
+
+bool AddonManager::isBulkItem(const QString &id) const
+{
+    return m_bulkIds.contains(id);
+}
+
+void AddonManager::savePendingBulk() const
+{
+    QStringList pending = m_bulkActive + m_bulkQueue;
+    QSettings settings;
+    if (pending.isEmpty())
+        settings.remove(pendingBulkKey());
+    else
+        settings.setValue(pendingBulkKey(), pending);
+}
+
+QStringList AddonManager::pendingInstallAll() const
+{
+    if (m_bulkRunning)
+        return {};
+    const QStringList saved = QSettings().value(pendingBulkKey()).toStringList();
+    if (saved.isEmpty())
+        return {};
+    QStringList still;
+    for (const QVariant &value : catalog()) {
+        const QVariantMap row = value.toMap();
+        const QString id = row.value(QStringLiteral("id")).toString();
+        const QString state = row.value(QStringLiteral("state")).toString();
+        if (saved.contains(id)
+            && (state == QLatin1String("available") || state == QLatin1String("update-available")
+                || state == QLatin1String("failed")))
+            still.append(id);
+    }
+    return still;
+}
+
+void AddonManager::forgetPendingInstallAll()
+{
+    QSettings().remove(pendingBulkKey());
+}
+
+void AddonManager::emitBulkChanged(bool force)
+{
+    // Download progress ticks many times a second; the strip and the tray need a few.
+    if (!force && m_bulkEmitClock.isValid() && m_bulkEmitClock.elapsed() < 250)
+        return;
+    m_bulkEmitClock.restart();
+    emit bulkChanged();
+    updateTray();
+}
+
+void AddonManager::updateTray()
+{
+#if QT_CONFIG(systemtrayicon)
+    if (!m_tray || !m_bulkRunning)
+        return;
+    const QVariantMap state = bulk();
+    m_tray->setToolTip(tr("Installing extras: %1 of %2").arg(qMin(state.value(QStringLiteral("done")).toInt() + 1, m_bulkTotal))
+                           .arg(m_bulkTotal));
+#endif
+}
+
+void AddonManager::continueInBackground()
+{
+    if (!m_bulkRunning) {
+        QCoreApplication::quit();
+        return;
+    }
+    m_background = true;
+    // Hiding the window is not closing it, but nothing else may quit the app under the queue.
+    QGuiApplication::setQuitOnLastWindowClosed(false);
+#if QT_CONFIG(systemtrayicon)
+    if (!m_tray && QSystemTrayIcon::isSystemTrayAvailable()) {
+        m_tray = new QSystemTrayIcon(QApplication::windowIcon());
+        auto *menu = new QMenu;
+        menu->addAction(tr("Open Flip Studio"), this, [this] {
+            m_background = false;
+            QGuiApplication::setQuitOnLastWindowClosed(true);
+            if (m_tray)
+                m_tray->hide();
+            emit showWindowRequested();
+        });
+        menu->addAction(tr("Cancel and quit"), this, [this] {
+            cancelInstallAll(); // m_background is still set: this quits
+        });
+        m_tray->setContextMenu(menu);
+        connect(m_tray, &QSystemTrayIcon::activated, this, [this](QSystemTrayIcon::ActivationReason reason) {
+            if (reason == QSystemTrayIcon::DoubleClick || reason == QSystemTrayIcon::Trigger) {
+                m_background = false;
+                QGuiApplication::setQuitOnLastWindowClosed(true);
+                if (m_tray)
+                    m_tray->hide();
+                emit showWindowRequested();
+            }
+        });
+        // The manager is a static that outlives QApplication; the icon and its menu must not.
+        connect(qApp, &QCoreApplication::aboutToQuit, this, [this] {
+            if (!m_tray)
+                return;
+            delete m_tray->contextMenu();
+            delete m_tray;
+            m_tray = nullptr;
+        });
+    }
+    if (m_tray) {
+        m_tray->show();
+        updateTray();
+        m_tray->showMessage(QStringLiteral("Flip Studio"),
+                            tr("Flip Studio will finish installing the extras and then close by itself."),
+                            QSystemTrayIcon::Information, 5000);
+    }
+#endif
 }

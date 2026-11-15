@@ -1267,6 +1267,7 @@ set_source_files_properties(src/qml/ValueMath.qml PROPERTIES QT_QML_SINGLETON_TY
 # AndroidBottomSheet and the drop is performed by AndroidTimeline.
 set_source_files_properties(src/qml/TouchDrag.qml PROPERTIES QT_QML_SINGLETON_TYPE true)
 set_source_files_properties(src/qml/AssetDrag.qml PROPERTIES QT_QML_SINGLETON_TYPE true)
+set_source_files_properties(src/qml/SessionFlags.qml PROPERTIES QT_QML_SINGLETON_TYPE true)
 
 # Lucide icons: use the original scalable SVG sources in QML.
 file(GLOB DRIFT_LUCIDE_ICONS RELATIVE "${CMAKE_SOURCE_DIR}" CONFIGURE_DEPENDS
@@ -1308,6 +1309,7 @@ qt_add_qml_module(drift
         src/qml/ValueMath.qml
         src/qml/TouchDrag.qml
         src/qml/AssetDrag.qml
+        src/qml/SessionFlags.qml
         src/qml/EditorHeader.qml
         src/qml/AppMenuBar.qml
         src/qml/AssetsPanel.qml
@@ -1523,6 +1525,8 @@ qt_add_qml_module(drift
         src/qml/components/AndroidLifecycle.qml
         src/qml/components/AddonManagerDialog.qml
         src/qml/components/AddonStartupDialog.qml
+        src/qml/components/AddonInstallAllDialog.qml
+        src/qml/components/AddonBulkStrip.qml
         src/qml/components/MissingAddonsDialog.qml
         src/qml/components/MissingMediaDialog.qml
         src/qml/components/AboutDialog.qml

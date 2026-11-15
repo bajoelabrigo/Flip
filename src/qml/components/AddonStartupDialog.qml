@@ -289,6 +289,22 @@ ThemedDialog {
                 onToggled: root.dontRemindUpdates = checked
             }
 
+            // Everything at once (0.32), not only the basic packs: AI tools, subtitles, voices…
+            ThemedButton {
+                id: installEverything
+                width: parent.width
+                readonly property var plan: {
+                    void Addons.catalog
+                    return Addons.installAllPlan([])
+                }
+                visible: !root.installing && !Addons.bulk.active && plan.count > root.actionIds.length
+                variant: "secondary"
+                glyph: Theme.icons.download
+                text: qsTr("Install all the extras (%1)").arg(root.formatSize(plan.bytes))
+                tooltip: qsTr("Also the AI tools, subtitles, voices and the rest: %n extra(s)", "", plan.count)
+                onClicked: everythingDialog.ask([])
+            }
+
             Item {
                 width: parent.width
                 height: installButton.height
@@ -320,6 +336,22 @@ ThemedDialog {
                     onClicked: root.installListed()
                 }
             }
+        }
+    }
+
+    function formatSize(bytes) {
+        if (bytes >= 1e9)
+            return (bytes / 1e9).toFixed(1) + " GB"
+        if (bytes >= 1e6)
+            return Math.round(bytes / 1e6) + " MB"
+        return Math.max(1, Math.round(bytes / 1e3)) + " KB"
+    }
+
+    AddonInstallAllDialog {
+        id: everythingDialog
+        onAccepted: {
+            root.persistReminders()
+            root.close()
         }
     }
 

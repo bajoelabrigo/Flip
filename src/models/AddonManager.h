@@ -5,11 +5,17 @@
 #include <QObject>
 #include <QUrl>
 #include <QPointer>
+#include <QElapsedTimer>
+#include <QSet>
+#include <QStringList>
 #include <QVariantList>
+#include <QVariantMap>
 
 #include <memory>
 
+class QLockFile;
 class QNetworkAccessManager;
+class QSystemTrayIcon;
 
 // Downloads and installs addons. Lives in the app layer, not driftengine, so tools/ and tests/
 // keep working with no network stack — they read the registry (drift::addon::AddonRegistry) and
@@ -33,6 +39,11 @@ class AddonManager : public QObject
     // Header attention nudge: mention installed packs that have a newer version on the store.
     Q_PROPERTY(bool remindUpdates READ remindUpdates WRITE setRemindUpdates
                    NOTIFY remindUpdatesChanged)
+    // «Install all» (0.32): one queue for every extra not installed yet (and the outdated ones),
+    // kept here so it goes on with the Extras dialog closed, across projects, and even after the
+    // window is closed (continueInBackground). {active, total, done, installed, failed, current,
+    // bytesDone, bytesTotal, failedNames}.
+    Q_PROPERTY(QVariantMap bulk READ bulk NOTIFY bulkChanged)
 
 public:
     explicit AddonManager(QObject *parent = nullptr);
@@ -57,6 +68,27 @@ public:
     Q_INVOKABLE void refresh(bool force = false);
 
     Q_INVOKABLE void install(const QString &id);
+
+    // --- Install all ------------------------------------------------------------------------
+    // What «Install all» would download now: {count, bytes, names}. `only` limits it to those ids
+    // (resuming a queue a closed app left half done).
+    Q_INVOKABLE QVariantMap installAllPlan(const QStringList &only = {}) const;
+    // Starts the queue (two at a time, smallest first). False when there is nothing to install,
+    // or another Flip Studio is already installing them (a lock file in the download cache).
+    Q_INVOKABLE bool installAll(const QStringList &only = {});
+    Q_INVOKABLE void cancelInstallAll();
+    QVariantMap bulk() const;
+    // True for an extra the current (or last) queue was installing: its failures are reported
+    // once, at the end, instead of one notice each.
+    Q_INVOKABLE bool isBulkItem(const QString &id) const;
+    // The extras a queue that never finished (the app was killed) left to install, still missing.
+    Q_INVOKABLE QStringList pendingInstallAll() const;
+    Q_INVOKABLE void forgetPendingInstallAll();
+    // True while another Flip Studio process holds the install-all lock.
+    Q_INVOKABLE bool installAllRunningElsewhere() const;
+    // The window was closed while the queue runs: the process stays alive with a tray icon
+    // showing the progress, and quits on its own when the queue ends.
+    Q_INVOKABLE void continueInBackground();
     Q_INVOKABLE void cancel(const QString &id);
     Q_INVOKABLE void uninstall(const QString &id);
 
@@ -136,6 +168,11 @@ signals:
     // The file from inspectAddonFile() is not signed by the Drift team; the UI asks before
     // calling installAddonFile(true) or discardAddonFile().
     void addonFileNeedsConfirmation();
+    void bulkChanged();
+    // The queue ended: how many installed, how many failed (and their names), or was cancelled.
+    void bulkFinished(int installed, int failed, const QStringList &failedNames, bool cancelled);
+    // «Open Flip Studio» from the tray icon while the window is hidden.
+    void showWindowRequested();
 
 private:
     struct Transfer;
@@ -148,6 +185,12 @@ private:
     void beginExtract(const QString &id, const QString &packagePath);
     void failTransfer(const QString &id, const QString &message);
     void sweepDownloadCache();
+    void pumpBulk();
+    void settleBulk(const QString &id, bool ok);
+    void endBulk(bool cancelled);
+    void emitBulkChanged(bool force);
+    void updateTray();
+    void savePendingBulk() const;
 
     QString m_status;
     bool m_refreshing = false;
@@ -171,4 +214,21 @@ private:
     bool m_addonFileOwned = false;
     bool m_addonFileBusy = false;
     QNetworkAccessManager *m_network = nullptr;
+
+    bool m_bulkRunning = false;
+    QStringList m_bulkQueue;
+    QStringList m_bulkActive;
+    QSet<QString> m_bulkIds;
+    QHash<QString, double> m_bulkSize;
+    QHash<QString, double> m_bulkFraction;
+    QHash<QString, QString> m_bulkName;
+    int m_bulkTotal = 0;
+    int m_bulkInstalled = 0;
+    QStringList m_bulkFailedNames;
+    double m_bulkBytesTotal = 0.0;
+    double m_bulkBytesSettled = 0.0;
+    QElapsedTimer m_bulkEmitClock;
+    std::unique_ptr<QLockFile> m_bulkLock;
+    bool m_background = false;
+    QSystemTrayIcon *m_tray = nullptr;
 };

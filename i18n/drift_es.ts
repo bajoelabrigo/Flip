@@ -417,6 +417,67 @@
     </message>
 </context>
 <context>
+    <name>AddonBulkStrip</name>
+    <message>
+        <source>Click to see the extras</source>
+        <translation>Haz clic para ver los extras</translation>
+    </message>
+    <message>
+        <source>Installing extras: %1 of %2</source>
+        <translation>Instalando extras: %1 de %2</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Cancelar</translation>
+    </message>
+    <message>
+        <source>Stop installing the extras that are left</source>
+        <translation>Dejar de instalar los extras que faltan</translation>
+    </message>
+    <message>
+        <source>%1 of %2</source>
+        <translation>%1 de %2</translation>
+    </message>
+</context>
+<context>
+    <name>AddonInstallAllDialog</name>
+    <message>
+        <source>Install all the extras?</source>
+        <translation>¿Instalar todos los extras?</translation>
+    </message>
+    <message>
+        <source>Install all</source>
+        <translation>Instalar todo</translation>
+    </message>
+    <message>
+        <source>The extras are already being installed.</source>
+        <translation>Los extras ya se están instalando.</translation>
+    </message>
+    <message>
+        <source>You already have every extra.</source>
+        <translation>Ya tienes todos los extras.</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n extra(s) will be downloaded and installed: %1 in total.</source>
+        <translation>
+            <numerusform>Se descargará e instalará %n extra: %1 en total.</numerusform>
+            <numerusform>Se descargarán e instalarán %n extras: %1 en total.</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>You can keep editing while they install: the progress shows at the bottom of the window. If you close Flip Studio, it finishes first and then closes by itself.</source>
+        <translation>Puedes seguir editando mientras se instalan: el avance se ve abajo, en la ventana. Si cierras Flip Studio, termina primero y luego se cierra solo.</translation>
+    </message>
+    <message>
+        <source>Another Flip Studio window is already installing the extras.</source>
+        <translation>Otra ventana de Flip Studio ya está instalando los extras.</translation>
+    </message>
+    <message>
+        <source>Nothing to install right now.</source>
+        <translation>No hay nada que instalar ahora.</translation>
+    </message>
+</context>
+<context>
     <name>AddonManager</name>
     <message>
         <source>Automatic (recommended)</source>
@@ -449,6 +510,51 @@
     <message>
         <source>Could not use this addon (%1).</source>
         <translation>No se pudo usar este complemento (%1).</translation>
+    </message>
+    <message>
+        <source>Another Flip Studio window is already installing the extras.</source>
+        <translation>Otra ventana de Flip Studio ya está instalando los extras.</translation>
+    </message>
+    <message>
+        <source>Installing the extras was cancelled.</source>
+        <translation>Se canceló la instalación de los extras.</translation>
+    </message>
+    <message numerus="yes">
+        <source>Done: %n extra(s) installed.</source>
+        <translation>
+            <numerusform>Listo: se instaló %n extra.</numerusform>
+            <numerusform>Listo: se instalaron %n extras.</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n installed, </source>
+        <translation>
+            <numerusform>%n instalado, </numerusform>
+            <numerusform>%n instalados, </numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n failed: %1</source>
+        <translation>
+            <numerusform>%n falló: %1</numerusform>
+            <numerusform>%n fallaron: %1</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Installing extras: %1 of %2</source>
+        <translation>Instalando extras: %1 de %2</translation>
+    </message>
+    <message>
+        <source>Open Flip Studio</source>
+        <translation>Abrir Flip Studio</translation>
+    </message>
+    <message>
+        <source>Cancel and quit</source>
+        <translation>Cancelar y salir</translation>
+    </message>
+    <message>
+        <source>Flip Studio will finish installing the extras and then close by itself.</source>
+        <translation>Flip Studio terminará de instalar los extras y se cerrará solo.</translation>
     </message>
     <message>
         <source>This is not a Flip Studio effect file (%1).</source>
@@ -556,6 +662,18 @@
     <message>
         <source>AI engine</source>
         <translation>Motor de IA</translation>
+    </message>
+    <message>
+        <source>Installing all…</source>
+        <translation>Instalando todo…</translation>
+    </message>
+    <message>
+        <source>Install all (%1)</source>
+        <translation>Instalar todo (%1)</translation>
+    </message>
+    <message>
+        <source>Downloads every extra you don&apos;t have yet, and the updates. You can keep editing meanwhile.</source>
+        <translation>Descarga todos los extras que todavía no tienes y las actualizaciones. Mientras tanto puedes seguir editando.</translation>
     </message>
     <message>
         <source>Checking for extras…</source>
@@ -723,6 +841,17 @@
     <message>
         <source>Don&apos;t remind me of future addon updates</source>
         <translation>No recordarme futuras actualizaciones de complementos</translation>
+    </message>
+    <message>
+        <source>Install all the extras (%1)</source>
+        <translation>Instalar todos los extras (%1)</translation>
+    </message>
+    <message numerus="yes">
+        <source>Also the AI tools, subtitles, voices and the rest: %n extra(s)</source>
+        <translation>
+            <numerusform>También las herramientas de IA, los subtítulos, las voces y el resto: %n extra</numerusform>
+            <numerusform>También las herramientas de IA, los subtítulos, las voces y el resto: %n extras</numerusform>
+        </translation>
     </message>
     <message>
         <source>Hide</source>
@@ -7111,6 +7240,10 @@
     <message>
         <source>My brand applied</source>
         <translation>Mi marca aplicada</translation>
+    </message>
+    <message>
+        <source>Change a template colour</source>
+        <translation>Cambiar un color de la plantilla</translation>
     </message>
     <message>
         <source>My logo</source>
@@ -18232,6 +18365,40 @@ LA PRÓXIMA</translation>
         <translation>Mostrar u ocultar guías</translation>
     </message>
     <message>
+        <source>Installing the extras was cancelled.</source>
+        <translation>Se canceló la instalación de los extras.</translation>
+    </message>
+    <message numerus="yes">
+        <source>Done: %n extra(s) installed.</source>
+        <translation>
+            <numerusform>Listo: se instaló %n extra.</numerusform>
+            <numerusform>Listo: se instalaron %n extras.</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>%1 installed, %2 could not be installed: %3</source>
+        <translation>Se instalaron %1, %2 no se pudieron instalar: %3</translation>
+    </message>
+    <message>
+        <source>Retry</source>
+        <translation>Reintentar</translation>
+    </message>
+    <message>
+        <source>Flip Studio is still finishing installing the extras in the background.</source>
+        <translation>Flip Studio todavía está terminando de instalar los extras en segundo plano.</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n extra(s) were left to install last time.</source>
+        <translation>
+            <numerusform>La última vez quedó %n extra por instalar.</numerusform>
+            <numerusform>La última vez quedaron %n extras por instalar.</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Install them</source>
+        <translation>Instalarlos</translation>
+    </message>
+    <message>
         <source>Your example is ready. Try this:</source>
         <translation>Tu ejemplo está listo. Prueba esto:</translation>
     </message>
@@ -25976,6 +26143,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Inicia sesión para usar las tendencias</translation>
     </message>
     <message>
+        <source>Sign in to use Stock</source>
+        <translation>Inicia sesión para usar Stock</translation>
+    </message>
+    <message>
         <source>Sign in to use this voice</source>
         <translation>Inicia sesión para usar esta voz</translation>
     </message>
@@ -25986,6 +26157,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Flip Studio is free: exporting, Stock and every template cost nothing.</source>
         <translation>Flip Studio es gratis: exportar, Stock y todas las plantillas no cuestan nada.</translation>
+    </message>
+    <message>
+        <source>Stock&apos;s templates, music, stickers and effects are all free. You only need to sign in with your Google account: it takes a moment and it is done once.</source>
+        <translation>Las plantillas, la música, los stickers y los efectos de Stock son todos gratis. Solo tienes que iniciar sesión con tu cuenta de Google: toma un momento y se hace una sola vez.</translation>
     </message>
     <message>
         <source>Trending animations are for signed-in users. You only need to sign in with your Google account: it takes a moment, it is done once, and your project stays just as it is.</source>
@@ -28192,6 +28367,21 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Changes every text you edited at once (one undo step)</source>
         <translation>Cambia de una vez todos los textos que editaste (un solo deshacer)</translation>
+    </message>
+    <message>
+        <source>Colours</source>
+        <translation>Colores</translation>
+    </message>
+    <message>
+        <source>Click a colour to change it everywhere in the template</source>
+        <translation>Haz clic en un color para cambiarlo en toda la plantilla</translation>
+    </message>
+    <message numerus="yes">
+        <source>%1 — used %n time(s). Click to change it</source>
+        <translation>
+            <numerusform>%1: se usa %n vez. Haz clic para cambiarlo</numerusform>
+            <numerusform>%1: se usa %n veces. Haz clic para cambiarlo</numerusform>
+        </translation>
     </message>
     <message>
         <source>Music</source>

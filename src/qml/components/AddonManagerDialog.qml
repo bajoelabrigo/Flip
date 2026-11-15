@@ -23,6 +23,12 @@ ThemedDialog {
     property string detailsBody: ""
     property string detailsMeta: ""
 
+    AddonInstallAllDialog {
+        id: installAllDialog
+        // The progress is at the bottom of the window: out of the way of it.
+        onAccepted: root.close()
+    }
+
     ThemedDialog {
         id: confirmRemoval
         title: qsTr("Remove this pack?")
@@ -282,6 +288,23 @@ ThemedDialog {
                         root.kindFilterKinds = modelData.kinds
                     }
                 }
+            }
+
+            // Install all (0.32): every extra not installed yet, and the updates, in one go.
+            ThemedButton {
+                id: installAllButton
+                readonly property var plan: {
+                    void Addons.catalog
+                    return Addons.installAllPlan([])
+                }
+                visible: Addons.serviceAvailable && (Addons.bulk.active || plan.count > 0)
+                enabled: !Addons.bulk.active
+                variant: "primary"
+                glyph: Theme.icons.download
+                text: Addons.bulk.active ? qsTr("Installing all…")
+                                         : qsTr("Install all (%1)").arg(root.formatSize(plan.bytes))
+                tooltip: qsTr("Downloads every extra you don't have yet, and the updates. You can keep editing meanwhile.")
+                onClicked: installAllDialog.ask([])
             }
 
             ThemedButton {

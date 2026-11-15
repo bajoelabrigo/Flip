@@ -10,10 +10,12 @@ ThemedDialog {
 
     // What to do once signed in; null to just close.
     property var afterSignIn: null
-    // What asked: "export", or "trends" (a trending animation picked while signed out).
+    // What asked: "export", "trends" (a trending animation picked while signed out), "voices", "hd",
+    // or "stock" (Stock opened, or one of its buttons pressed, while signed out).
     property string reason: "export"
 
-    title: root.reason === "trends" ? qsTr("Sign in to use what's trending")
+    title: root.reason === "stock" ? qsTr("Sign in to use Stock")
+         : root.reason === "trends" ? qsTr("Sign in to use what's trending")
          : root.reason === "voices" ? qsTr("Sign in to use this voice")
          : root.reason === "hd" ? qsTr("Sign in to export in 2K, 4K or 8K")
          : qsTr("Sign in to export")
@@ -76,7 +78,9 @@ ThemedDialog {
         ThemedLabel {
             width: parent.width
             wrapMode: Text.WordWrap
-            text: root.reason === "trends"
+            text: root.reason === "stock"
+                  ? qsTr("Stock's templates, music, stickers and effects are all free. You only need to sign in with your Google account: it takes a moment and it is done once.")
+                  : root.reason === "trends"
                   ? qsTr("Trending animations are for signed-in users. You only need to sign in with your Google account: it takes a moment, it is done once, and your project stays just as it is.")
                   : root.reason === "voices"
                   ? qsTr("The voices with the flame are for signed-in users. You only need to sign in with your Google account: it takes a moment, it is done once, and your project stays just as it is.")

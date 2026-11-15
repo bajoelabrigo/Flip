@@ -69,6 +69,24 @@ Item {
     Component.onCompleted: {
         root.ensureCatalog()
         root.syncActiveCategory()
+        Qt.callLater(root.offerSignIn)
+    }
+
+    // Signed out, opening Stock asks to sign in with a popup (0.32), once per run of the app: the
+    // wall in the panel stays for whoever closes it.
+    readonly property bool wantsSignIn: visible && Market.configured && root.stockSection && !Market.authenticated
+    onWantsSignInChanged: Qt.callLater(root.offerSignIn)
+    function offerSignIn() {
+        if (!root.wantsSignIn || !Account.available || Account.busy || SessionFlags.stockSignInOffered)
+            return
+        SessionFlags.stockSignInOffered = true
+        stockSignIn.active = true
+        stockSignIn.item.openFor(null)
+    }
+    Loader {
+        id: stockSignIn
+        active: false
+        sourceComponent: Component { SignInRequiredDialog { reason: "stock" } }
     }
 
     // Android Back, forwarded by its host.
@@ -285,9 +303,12 @@ Item {
         }
 
         // Signed out: Stock needs the Flip Studio account. Everything in it is free, and the panel
-        // says so first (Jorge, 2026-10-18).
+        // says so first (Jorge, 2026-10-18). At the top, not centred (0.32): on a laptop the button
+        // sat below the fold.
         Column {
-            anchors.centerIn: parent
+            anchors.top: parent.top
+            anchors.topMargin: Theme.spacingXl
+            anchors.horizontalCenter: parent.horizontalCenter
             width: Math.min(parent.width - root.sidePadding * 2, 360)
             spacing: Theme.spacingLg
             visible: root.stockSection && !Market.authenticated

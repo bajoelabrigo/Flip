@@ -423,6 +423,15 @@ ApplicationWindow {
             window.requestCloseProject()
             return
         }
+        // Install all still running (0.32): the project is closed as always, then the window hides
+        // and the process finishes the extras from the tray, quitting on its own when they are in.
+        if (Addons.bulk.active && (window.forceClose || !EditorState.projectFile.hasUnsavedChanges)) {
+            close.accepted = false
+            window.forceClose = false
+            window.hide()
+            Addons.continueInBackground()
+            return
+        }
         if (window.forceClose || !EditorState.projectFile.hasUnsavedChanges)
             return
         close.accepted = false
@@ -907,6 +916,70 @@ ApplicationWindow {
 
     AddonStartupDialog {
         id: addonStartupDialog
+    }
+
+    // «Install all» (0.32): the confirmation, the progress card at the bottom left, and what the
+    // queue says when it ends. The queue lives in Addons, so none of this has to stay open.
+    AddonInstallAllDialog {
+        id: addonInstallAllDialog
+    }
+
+    function askInstallAllAddons(only) {
+        addonInstallAllDialog.ask(only || [])
+    }
+
+    AddonBulkStrip {
+        id: addonBulkStrip
+        z: 999
+        anchors.left: parent.left
+        anchors.bottom: parent.bottom
+        anchors.leftMargin: Theme.spacing3xl
+        anchors.bottomMargin: Theme.spacing3xl
+        onOpenRequested: window.openAddonManager()
+    }
+
+    Connections {
+        target: Addons
+        function onBulkFinished(installed, failed, failedNames, cancelled) {
+            if (cancelled)
+                Toasts.info(qsTr("Installing the extras was cancelled."))
+            else if (failed === 0)
+                Toasts.post("success", qsTr("Done: %n extra(s) installed.", "", installed), 8000)
+            else
+                Toasts.post("warning", qsTr("%1 installed, %2 could not be installed: %3")
+                                           .arg(installed).arg(failed).arg(failedNames.join(", ")),
+                            15000, qsTr("Retry"), () => window.askInstallAllAddons([]))
+            // In the background, the taskbar button flashes until the window is looked at.
+            if (!window.active)
+                window.alert(0)
+        }
+        function onShowWindowRequested() {
+            window.show()
+            window.raise()
+            window.requestActivate()
+        }
+    }
+
+    // A queue the app was killed in the middle of: offer the rest once, a moment after start.
+    Timer {
+        interval: 5000
+        running: true
+        onTriggered: {
+            if (Addons.bulk.active)
+                return
+            if (Addons.installAllRunningElsewhere()) {
+                Toasts.info(qsTr("Flip Studio is still finishing installing the extras in the background."))
+                return
+            }
+            const pending = Addons.pendingInstallAll()
+            if (pending.length === 0) {
+                if (Addons.catalog.length > 0)
+                    Addons.forgetPendingInstallAll()
+                return
+            }
+            Toasts.post("info", qsTr("%n extra(s) were left to install last time.", "", pending.length), 20000,
+                        qsTr("Install them"), () => window.askInstallAllAddons(pending))
+        }
     }
 
     LazyLoader {
@@ -1817,6 +1890,9 @@ ApplicationWindow {
         // — the normal case for the attention nudge — failed completely silently.
         function onTransferFailed(id, reason) {
             if (reason === "Cancelled")
+                return
+            // Install all reports its failures together when it ends.
+            if (Addons.isBulkItem(id))
                 return
             Toasts.error(qsTr("Couldn’t install “%1”: %2").arg(id).arg(reason))
         }

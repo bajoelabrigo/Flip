@@ -417,6 +417,67 @@
     </message>
 </context>
 <context>
+    <name>AddonBulkStrip</name>
+    <message>
+        <source>Click to see the extras</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Installing extras: %1 of %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stop installing the extras that are left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 of %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AddonInstallAllDialog</name>
+    <message>
+        <source>Install all the extras?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install all</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The extras are already being installed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You already have every extra.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n extra(s) will be downloaded and installed: %1 in total.</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>You can keep editing while they install: the progress shows at the bottom of the window. If you close Flip Studio, it finishes first and then closes by itself.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Another Flip Studio window is already installing the extras.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Nothing to install right now.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>AddonManager</name>
     <message>
         <source>Automatic (recommended)</source>
@@ -449,6 +510,51 @@
     <message>
         <source>Could not use this addon (%1).</source>
         <translation>Não foi possível usar este suplemento (%1).</translation>
+    </message>
+    <message>
+        <source>Another Flip Studio window is already installing the extras.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Installing the extras was cancelled.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>Done: %n extra(s) installed.</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n installed, </source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n failed: %1</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Installing extras: %1 of %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open Flip Studio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel and quit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flip Studio will finish installing the extras and then close by itself.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>This is not a Flip Studio effect file (%1).</source>
@@ -556,6 +662,18 @@
     <message>
         <source>AI engine</source>
         <translation>Motor de IA</translation>
+    </message>
+    <message>
+        <source>Installing all…</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install all (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Downloads every extra you don&apos;t have yet, and the updates. You can keep editing meanwhile.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Checking for extras…</source>
@@ -723,6 +841,17 @@
     <message>
         <source>Don&apos;t remind me of future addon updates</source>
         <translation>Não me lembrar de futuras atualizações de complementos</translation>
+    </message>
+    <message>
+        <source>Install all the extras (%1)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>Also the AI tools, subtitles, voices and the rest: %n extra(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
     </message>
     <message>
         <source>Hide</source>
@@ -7111,6 +7240,10 @@
     <message>
         <source>My brand applied</source>
         <translation>A minha marca foi aplicada</translation>
+    </message>
+    <message>
+        <source>Change a template colour</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>My logo</source>
@@ -18232,6 +18365,40 @@ PRÓXIMA</translation>
         <translation>Mostrar ou ocultar guias</translation>
     </message>
     <message>
+        <source>Installing the extras was cancelled.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>Done: %n extra(s) installed.</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>%1 installed, %2 could not be installed: %3</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Retry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Flip Studio is still finishing installing the extras in the background.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n extra(s) were left to install last time.</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Install them</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Your example is ready. Try this:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -25976,6 +26143,10 @@ Se a reprodução falhar, experimente outra opção.</translation>
         <translation>Inicie sessão para usar as tendências</translation>
     </message>
     <message>
+        <source>Sign in to use Stock</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Sign in to use this voice</source>
         <translation>Inicie sessão para usar esta voz</translation>
     </message>
@@ -25986,6 +26157,10 @@ Se a reprodução falhar, experimente outra opção.</translation>
     <message>
         <source>Flip Studio is free: exporting, Stock and every template cost nothing.</source>
         <translation>O Flip Studio é gratuito: exportar, o Stock e todos os modelos não custam nada.</translation>
+    </message>
+    <message>
+        <source>Stock&apos;s templates, music, stickers and effects are all free. You only need to sign in with your Google account: it takes a moment and it is done once.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Trending animations are for signed-in users. You only need to sign in with your Google account: it takes a moment, it is done once, and your project stays just as it is.</source>
@@ -28192,6 +28367,21 @@ Se a reprodução falhar, experimente outra opção.</translation>
     <message>
         <source>Changes every text you edited at once (one undo step)</source>
         <translation>Altera de uma vez todos os textos que editou (um único desfazer)</translation>
+    </message>
+    <message>
+        <source>Colours</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Click a colour to change it everywhere in the template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <source>%1 — used %n time(s). Click to change it</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
     </message>
     <message>
         <source>Music</source>
