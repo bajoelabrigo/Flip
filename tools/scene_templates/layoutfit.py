@@ -141,6 +141,33 @@ def _scale_text(style, f):
             k["value"] *= f
 
 
+def _scale_shape(style, f):
+    """As the app's scaleShapeStyle (0.32): a shape's px lengths grow with its box (corner radius, the paint
+    stack's widths/offsets/blurs, the px operators), their keys too."""
+    if f <= 0 or abs(f - 1) < 1e-12:
+        return
+    kfs = style.get("keyframes", {}) or {}
+    for key in ("cornerRadius", "wiggleSize", "wiggleDetail", "offsetPath", "zigzagSize", "repeatX", "repeatY"):
+        if key in style:
+            style[key] *= f
+        elif key == "wiggleDetail" and style.get("wiggleSize"):
+            style[key] = 20.0 * f
+    for layer in style.get("layers", []) or []:
+        for key in ("offsetX", "offsetY", "blur", "width", "spread", "sketchLength", "sketchDeviation"):
+            if key in layer:
+                layer[key] *= f
+    for name, kf in kfs.items():
+        field = name.split(".")[-1]
+        scaled = name in ("cornerRadius", "wiggleSize", "wiggleDetail", "offsetPath", "zigzagSize", "repeatX",
+                          "repeatY") or (name.startswith("layer.") and field in ("width", "offsetX", "offsetY", "blur"))
+        if scaled and kf and kf.get("keyframes"):
+            for k in kf["keyframes"]:
+                k["value"] *= f
+                for d in ("inDy", "outDy"):
+                    if d in k:
+                        k[d] *= f
+
+
 def _map_canvas_mask(m, W, H, toW, toH, scale, ox, oy):
     """A mask measured on the canvas (0..1) moved with the art and measured on the new canvas, as the app's
     mapCanvasMask: centre, size, points and their keys, feather (px) and expand (a fraction of the short side)."""
@@ -276,12 +303,14 @@ def fit_doc(doc, toW, toH, fit="keep"):
             _map_track(clip, "width", s, 0, W)
             _map_track(clip, "height", s, 0, H)
             if clip.get("type") == "shape" and "shapeStyle" in clip:
-                clip["shapeStyle"]["cornerRadius"] = clip["shapeStyle"].get("cornerRadius", 0) * s
+                _scale_shape(clip["shapeStyle"], s)
             continue
         _map_track(clip, "x", sx, 0, 0.0)
         _map_track(clip, "y", sy, 0, 0.0)
         _map_track(clip, "width", sx, 0, W)
         _map_track(clip, "height", sy, 0, H)
+        if clip.get("type") == "shape" and "shapeStyle" in clip:
+            _scale_shape(clip["shapeStyle"], min(sx, sy))
     ids = {c.get("id") for c in backdrops if c.get("layoutRole") != "cover"}  # a cover picture keeps its own mask
     for track in doc["tracks"]:
         for clip in track.get("clips", []):
@@ -315,7 +344,7 @@ def fit_doc(doc, toW, toH, fit="keep"):
             if clip.get("type") in ("text", "subtitle") and "textStyle" in clip:
                 _scale_text(clip["textStyle"], scale)
             elif clip.get("type") == "shape" and "shapeStyle" in clip:
-                clip["shapeStyle"]["cornerRadius"] = clip["shapeStyle"].get("cornerRadius", 0) * scale
+                _scale_shape(clip["shapeStyle"], scale)
     _map_loose_adjustment_masks(doc, W, H, toW, toH, scale, ox, oy)
     doc["width"], doc["height"] = toW, toH
     return doc

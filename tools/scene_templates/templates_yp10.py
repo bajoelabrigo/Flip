@@ -17,6 +17,7 @@ import math
 import os
 import random
 
+import liquid as lq
 import templates_llt_f as f6
 from kit import wide
 from scene import keys, tanim
@@ -159,46 +160,45 @@ def ribbon(pts, w, profile="lens"):
     return left + right[::-1]
 
 
+class _Native:
+    """A liquid piece the 0.32 engine draws itself (see liquid.py); swoosh / burst / rays hand these to morph(),
+    which makes one clip per distinct piece instead of an outline per frame."""
+
+    def __init__(self, kind, **args):
+        self.kind, self.args = kind, args
+        self.key = (kind,) + tuple(sorted((k, tuple(map(tuple, v)) if k == "path" else v) for k, v in args.items()))
+
+    def make(self, s, name, colour):
+        a = self.args
+        if self.kind == "brush":
+            w = a["w"]
+            return lq.brush(s, name, colour, a["path"], a["at"], a["n"], min(1.3 * w, 30 + 0.6 * w), lag=a["lag"],
+                            profile=a["profile"], seed=int(a["at"]) % 97)
+        if self.kind == "splash":
+            # Fewer, bigger, uneven drops that fall a little, as the hand-drawn splashes (not a ring of dots).
+            return lq.splash(s, name, colour, a["cx"], a["cy"], a["at"], a["n"], max(4, round(a["count"] * 0.55)),
+                             a["r0"], a["r1"], a["size"] * 1.25, seed=a["seed"], spread=a["spread"], a0=a["a0"],
+                             ry=a["ry"], gravity=0.2 * (a["r1"] - a["r0"]))
+        return lq.rays(s, name, colour, a["cx"], a["cy"], a["at"], a["n"], a["count"], a["r0"], a["r1"] + a["length"],
+                       1.6 * a["w"], a0=a["a0"], spread=a["spread"], profile="lens")
+
+
 def swoosh(path, fr, at, n, w, lag=0.45, profile="lens"):
     """A liquid stroke running along path: its head goes 0→1 over n frames from at, its tail follows lag later."""
-    head = lin(fr, at, n)
-    tail = lin(fr, at + n * lag, n)
-    head, tail = 1 - (1 - head) ** 2, 1 - (1 - tail) ** 2
-    if head <= 0 or tail >= 1:
-        return []
-    return [ribbon(sub(path, tail, head), w, profile)]
+    return [_Native("brush", path=[(round(x, 1), round(y, 1)) for x, y in path], at=at, n=n, w=w, lag=lag,
+                    profile=profile)]
 
 
 def burst(cx, cy, fr, at, n, count, r0, r1, size, seed=3, spread=360.0, a0=0.0, ry=1.0):
     """Drops flying out from (cx, cy) and shrinking away."""
-    if fr < at or fr > at + n:
-        return []
-    rnd = random.Random(seed)
-    q = lin(fr, at, n)
-    out = []
-    for i in range(count):
-        a = math.radians(a0 + spread * (i + rnd.uniform(-0.3, 0.3)) / count)
-        far = r0 + (r1 - r0) * rnd.uniform(0.6, 1.0) * (1 - (1 - q) ** 2)
-        s = size * rnd.uniform(0.5, 1.0) * (1 - q)
-        if s < 1:
-            continue
-        out.append(ell(cx + far * math.cos(a), cy + far * math.sin(a) * ry, s, s * rnd.uniform(0.7, 1.3), n=10))
-    return out
+    return [_Native("splash", cx=cx, cy=cy, at=at, n=n, count=count, r0=r0, r1=r1, size=size, seed=seed,
+                    spread=spread, a0=a0, ry=ry)]
 
 
 def rays(cx, cy, fr, at, n, count, r0, r1, length, w, a0=0.0, spread=360.0):
-    """Short strokes shooting outwards (a click)."""
-    if fr < at or fr > at + n:
-        return []
-    q = lin(fr, at, n)
-    out = []
-    for i in range(count):
-        a = math.radians(a0 + spread * i / count)
-        d0 = r0 + (r1 - r0) * q
-        d1 = d0 + length * (1 - q)
-        out.append(ribbon([(cx + d0 * math.cos(a), cy + d0 * math.sin(a)),
-                           (cx + d1 * math.cos(a), cy + d1 * math.sin(a))], w * (1 - q * 0.5), "lens"))
-    return out
+    """Short tapered strokes shooting outwards (a click)."""
+    return [_Native("rays", cx=cx, cy=cy, at=at, n=n, count=count, r0=r0, r1=r1, length=length, w=w, a0=a0,
+                    spread=spread)]
 
 
 def heart(cx, cy, s, rot=0.0):
@@ -238,34 +238,25 @@ def _svg(polys, box):
 
 
 def morph(s, name, colour, fn, evenodd=False, alpha=1.0):
-    """A shape drawn anew every frame: fn(fr) → list of polygons (screen px). Hidden on frames without any."""
-    frames = [(u, fr, [p for p in fn(fr) if len(p) > 2 and max(x for x, _ in p) - min(x for x, _ in p) > 1.5
-                        and max(y for _, y in p) - min(y for _, y in p) > 1.5]) for u, fr in s.each()]
-    xs = [x for _, _, ps in frames for p in ps for x, _ in p]
-    ys = [y for _, _, ps in frames for p in ps for _, y in p]
-    if not xs:
-        return None
-    box = (min(xs) - 2, min(ys) - 2, max(xs) - min(xs) + 4, max(ys) - min(ys) + 4)
-    paths, index, kf, ops = [EMPTY], {EMPTY: 0}, [], []
-    last = None
-    for u, fr, ps in frames:
-        p = _svg(ps, box) or EMPTY
-        i = index.setdefault(p, len(paths))
-        if i == len(paths):
-            paths.append(p)
-        if i != last:
-            kf.append((u, i, "hold"))
-            ops.append((u, 0.0 if i == 0 else 1.0, "hold"))
-            last = i
-    cx, cy = box[0] + box[2] / 2, box[1] + box[3] / 2
-    clip = s.obj(name, solid(colour, alpha), lambda fr, u: (cx, cy, box[2], box[3], 0, 1), path=paths[1])
-    st = clip["shapeStyle"]
-    st["customPath"] = paths[kf[0][1]] if kf[0][1] else EMPTY
-    st["pathShapes"] = paths
-    st["customEvenOdd"] = evenodd
-    st.setdefault("keyframes", {})["path"] = keys(kf)
-    clip["opacity"] = keys(ops)
-    clip["layoutRole"] = "art"
+    """Outlines that change shape: fn(fr) → polygons (screen px), keyed every other frame and blended with the
+    0.32 smooth morph (liquid.morph_keys). Strokes, splashes and rays in the list become native pieces
+    (_Native: tapered strokes with Trim keys, drops), one clip each. Returns the outline clip (None without one)."""
+    natives = {}
+
+    def polys(fr):
+        out = []
+        for p in fn(fr):
+            if isinstance(p, _Native):
+                natives.setdefault(p.key, p)
+            elif len(p) > 2 and max(x for x, _ in p) - min(x for x, _ in p) > 1.5 \
+                    and max(y for _, y in p) - min(y for _, y in p) > 1.5:
+                out.append(p)
+        return out
+    for _, fr in s.each():
+        polys(fr)  # every frame once, so no piece is missed between keys
+    clip = lq.morph_keys(s, name, colour, polys, evenodd=evenodd, alpha=alpha)
+    for i, piece in enumerate(natives.values()):
+        piece.make(s, name if clip is None and i == 0 else f"{name} {i + 1}", colour)
     return clip
 
 
@@ -466,25 +457,32 @@ def social_title():
 
 def drop_with_notch(s, name, colour, geom, hole=True):
     """The pack's drop (white on a button) with its bite; geom(fr) → (cx, cy, h, rot, opacity)."""
-    def g(fr):
+    path = lq.smooth_path([(DROP, True)], (0, 0, 100, 100))
+    if hole:
+        path += " " + poly(ribbon(arc_pts(50, 58, 26, 30, 110, 230, 10), 7, "lens"))
+
+    def g(fr, u):
         cx, cy, h, rot, op = geom(fr)
-        if h < 2 or op <= 0.01:
-            return []
-        return [drop(cx, cy, h, rot)] + ([notch(cx, cy, h, rot)] if hole else [])
-    return morph(s, name, colour, g, evenodd=True)
+        return cx, cy, max(0.01, h), max(0.01, h), rot, op if h >= 2 else 0.0
+    clip = s.obj(name, solid(colour), g, path=path, base=(100, 100))
+    clip["shapeStyle"]["customEvenOdd"] = hole
+    clip["layoutRole"] = "art"
+    return clip
 
 
 def arrow(s, name, colour, edge, geom):
     """A chunky arrow with a coloured edge offset behind; geom(fr) → (cx, cy, size, rot, scale)."""
+    path = poly(chaikin([(50, 0), (100, 48), (68, 48), (68, 100), (32, 100), (32, 48), (0, 48)], 1))
+
     def g(off):
-        def f(fr):
+        def f(fr, u):
             cx, cy, sz, rot, sc = geom(fr)
-            if sc <= 0.01:
-                return []
-            return [arrow_pts(cx + off, cy + off, sz * sc, rot)]
+            sc = max(0.0, sc)
+            return cx + off, cy + off, max(0.01, sz * sc * 0.8), max(0.01, sz * sc), rot, 1.0 if sc > 0.01 else 0.0
         return f
-    morph(s, f"{name} (borde)", edge, g(7))
-    morph(s, name, colour, g(0))
+    for nm, col, off in ((f"{name} (borde)", edge, 7), (name, colour, 0)):
+        c = s.obj(nm, solid(col), g(off), path=path, base=(80, 100))
+        c["layoutRole"] = "art"
 
 
 # ==== 3. @YOURACCOUNT: a blue drop, a white smear writes «Social», which turns into the account name ============

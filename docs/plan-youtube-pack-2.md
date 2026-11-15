@@ -37,6 +37,10 @@ well placed); fix roles or layout when it does not fit. **Trap:** `short_check.p
 - yp12 done: 13 pieces, `prototipos-yp12\comparacion-yp12.mp4` (Video + Short).
 - yp8 (21), yp9 (33), yp10 (15), yp11 (20), yp12 (13), yp15 (12), yp16 (11), yp17 (10) done with comparison videos
   (Video + Short); yp13 (80) and yp14 (84) done too: 299 pieces in the group.
+- 2026-11-15: yp10 redone with the 0.32 liquid engine (Jorge: «la animación líquida está fea»): `liquid.py` (brush
+  strokes with Trim + Taper + round caps, rays, splashes, smooth-morph outlines); rendered with
+  `pruebas\FlipStudio-0.32-liquido` (run 43738406085), comparison `prototipos-yp10\comparacion-yp10-v2.mp4`.
+  yp10/yp15/yp16 get `minAppVersion` 0.32.0 in `publish.py`. `layoutfit.py` scales shape stroke widths like 0.32.
 - **Trap:** `build.py --no-render` with `mod:` rebuilds every folder in `--out` and deletes finished previews: only with
   single ids.
 - Glass blur (yp15/yp16, `GLASS_BLUR`): off because 0.31's Short fit does not move adjustment-layer masks. Jorge
