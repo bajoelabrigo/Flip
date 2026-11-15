@@ -21,7 +21,6 @@
 #include "engine/TransitionCatalog.h"
 #include "core/ZipArchive.h"
 
-#include <QApplication>
 #include <QDateTime>
 #include <QDir>
 #include <QFile>
@@ -30,16 +29,26 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QLockFile>
-#include <QMenu>
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QNetworkRequest>
 #include <QSaveFile>
 #include <QSettings>
 #include <QStandardPaths>
-#include <QSystemTrayIcon>
 #include <QTimer>
 #include <QtConcurrent>
+#include <QGuiApplication>
+
+// The tray icon is the app's only use of QtWidgets here; the test targets build this file without QtWidgets, so the
+// tray is compiled only where the app target defines FLIP_ADDON_TRAY (CMakeLists.txt).
+#if defined(FLIP_ADDON_TRAY)
+#include <QApplication>
+#include <QMenu>
+#include <QSystemTrayIcon>
+#if QT_CONFIG(systemtrayicon)
+#define FLIP_HAS_TRAY 1
+#endif
+#endif
 
 #include <algorithm>
 #include <atomic>
@@ -1348,7 +1357,7 @@ void AddonManager::endBulk(bool cancelled)
     else
         message = tr("%n installed, ", "", m_bulkInstalled)
                   + tr("%n failed: %1", "", int(m_bulkFailedNames.size())).arg(m_bulkFailedNames.join(QStringLiteral(", ")));
-#if QT_CONFIG(systemtrayicon)
+#if defined(FLIP_HAS_TRAY)
     if (m_tray && !cancelled) {
         m_tray->setToolTip(message);
         m_tray->showMessage(QStringLiteral("Flip Studio"), message,
@@ -1433,7 +1442,7 @@ void AddonManager::emitBulkChanged(bool force)
 
 void AddonManager::updateTray()
 {
-#if QT_CONFIG(systemtrayicon)
+#if defined(FLIP_HAS_TRAY)
     if (!m_tray || !m_bulkRunning)
         return;
     const QVariantMap state = bulk();
@@ -1451,7 +1460,7 @@ void AddonManager::continueInBackground()
     m_background = true;
     // Hiding the window is not closing it, but nothing else may quit the app under the queue.
     QGuiApplication::setQuitOnLastWindowClosed(false);
-#if QT_CONFIG(systemtrayicon)
+#if defined(FLIP_HAS_TRAY)
     if (!m_tray && QSystemTrayIcon::isSystemTrayAvailable()) {
         m_tray = new QSystemTrayIcon(QApplication::windowIcon());
         auto *menu = new QMenu;

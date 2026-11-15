@@ -395,7 +395,7 @@ QString morphSvgPathsResampled(const QString &a, const QString &b, double t)
             pb.assign(size_t(n), nearestOn(fb, centroidOf(pa)));
         else
             alignTo(pa, pb, closed);
-        std::vector<QPointF> blend(size_t(n));
+        std::vector<QPointF> blend(static_cast<size_t>(n));
         for (int k = 0; k < n; ++k)
             blend[size_t(k)] = lerp(pa[size_t(k)], pb[size_t(k)], t);
         mixed.append(smoothContour(blend, closed));

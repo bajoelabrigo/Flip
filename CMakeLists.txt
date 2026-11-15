@@ -1821,6 +1821,7 @@ endif()
 
 # Defined here rather than in the header so there is exactly one place to change them.
 target_compile_definitions(drift PRIVATE
+    FLIP_ADDON_TRAY
     DRIFT_ADDON_INDEX_URL="${DRIFT_ADDON_INDEX_URL}"
     DRIFT_ADDON_CLIENT_TOKEN="${DRIFT_ADDON_CLIENT_TOKEN}"
     DRIFT_MARKET_API_URL="${DRIFT_MARKET_API_URL}"
