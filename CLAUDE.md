@@ -66,6 +66,12 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
   (hashes comprobados). MSIX: `msstore.yml` run 42854218829 → `tienda\FlipStudio-Store\paquete-0.31.0` y copia en
   `OneDrive\FlipStudio\tienda\FlipStudio-Store\paquete-0.31.0`. Novedades en la web (`flipstudio-web` `166d9`, desplegado).
 - **Jorge subió el MSIX de la 0.31.0 a la Store (2026-11-10).** TXT `version` = 0.31.0 (Jorge, comprobado en DNS el 2026-11-10).
+- **2026-11-14, Jorge: «no aparece nada de lo nuevo en Stock».** Estaba, pero al final: sin búsqueda la lista iba en el orden del
+  índice y el Kit de YouTube nuevo empezaba en la página 15. `flipstudio-api` rama `traduccion` `cb97f` (desplegado): sin
+  palabras, lo más nuevo primero (`newestFirst`, por `addedAt`); y Plantillas (lista y categorías) también oculta a una app
+  vieja lo que pide una versión mayor (TikTok e Instagram se colaban en la 0.30). Comprobado: 886 piezas con sus archivos,
+  hashes y 13 idiomas; Novedades da 1015 a la 0.31.0 y 129 a la 0.30.2.
+- **Trampa nueva:** al subir una tanda grande a Stock, mirar la **primera página** de su tipo con la versión nueva.
 
 ### Kits de LOGO, TikTok e Instagram PUBLICADOS en Stock (2026-11-10)
 - 392 piezas (`lg0`–`lg3` 19 en Kit de YouTube, `tk0`–`tk9` 96 en «Kit de TikTok», `ig0`–`ig14` 277 en «Kit de
