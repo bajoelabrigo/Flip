@@ -40,6 +40,7 @@ EMPTY = "M 0 0 L 0.01 0 L 0.01 0.01 Z"
 # racimo follows the page: (w, h, x, y at the anchor frame), anchor frame, first, last
 ELEMENTS = {name: (crop, f0, f1, es, None) for name, (crop, f0, f1, es) in V1.items()}
 ELEMENTS["salpicadura"] = ((446, 340, 837, 460), 54, 75, "Salpicadura doble", None)
+ELEMENTS["gota"] = ((110, 250, 822, 290), 35, 52, "Gota que sube y se parte", None)
 ELEMENTS["racimo"] = ((290, 210, 1255, 785), 142, 155, "Racimo que se separa", 152)
 
 
@@ -109,7 +110,8 @@ def outlines(mask, min_area, eps_frac, round_small=True):
             pts = [(cx + r * math.cos(2 * math.pi * i / 8), cy + r * math.sin(2 * math.pi * i / 8)) for i in range(8)]
             out.append((pts, []))
             continue
-        eps = max(0.5, eps_frac * cv2.arcLength(c, True))
+        # Small pieces are only a few pixels tall in the reference: a coarser outline, or ours follows the pixel steps.
+        eps = max(0.5, eps_frac * cv2.arcLength(c, True)) if area >= 600 else max(0.9, 0.014 * cv2.arcLength(c, True))
         pts = [tuple(map(float, p)) for p in cv2.approxPolyDP(c, eps, True).reshape(-1, 2)]
         if len(pts) < 3:
             continue

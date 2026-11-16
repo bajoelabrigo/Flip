@@ -1131,10 +1131,13 @@ void SkiaTest::shapeClippingGroupAndToneByPiece()
     QCOMPARE(pixelAt(free, 200 + 60, 200).red(), 255);
     QCOMPARE(shapePartFromJson(shapePartToJson(group)).clipChildren, true);
 
-    // Per piece: a big and a small disc in one outline, offset 25 % up; each gets a band at its own bottom.
+    // Per piece: a big and a small disc in one outline (it spans its 0..100 box edge to edge), offset 25 % up; each
+    // gets a band at its own bottom, as tall as a quarter of its own height.
     ShapeStyle two;
     two.kind = ShapeKind::Custom;
-    two.customPath = QStringLiteral("M 0 20 C 0 -6 60 -6 60 20 C 60 46 0 46 0 20 Z M 80 80 C 80 74 92 74 92 80 C 92 86 80 86 80 80 Z");
+    two.customPath = QStringLiteral("M 0 20 C 0 8.95 13.43 0 30 0 C 46.57 0 60 8.95 60 20 C 60 31.05 46.57 40 30 40 "
+                                    "C 13.43 40 0 31.05 0 20 Z M 80 90 C 80 84.48 84.48 80 90 80 C 95.52 80 100 84.48 "
+                                    "100 90 C 100 95.52 95.52 100 90 100 C 84.48 100 80 95.52 80 90 Z");
     two.layers = {solidFillLayer(Qt::red)};
     TextShadingLayer tone = solidFillLayer(Qt::blue, QStringLiteral("tone"));
     tone.innerTone = true;
@@ -1142,11 +1145,12 @@ void SkiaTest::shapeClippingGroupAndToneByPiece()
     tone.offsetY = -25.0;
     two.layers.append(tone);
     const QImage toned = placed(skia::makeShapePainter(two, 200, 200, 1.0), 400, 400, 100);
-    // Big disc (0..60 % of the box → 0..120 px, centre y 40 px): blue at its bottom, red at its top.
-    QVERIFY2(pixelAt(toned, 100 + 60, 100 + 40 + 30).blue() > 200, qPrintable(pixelAt(toned, 160, 170).name()));
-    QVERIFY(pixelAt(toned, 100 + 60, 100 + 40 - 30).red() > 200);
-    // Small disc (160..184 px, centre y 160): blue near its bottom as well.
-    QVERIFY2(pixelAt(toned, 100 + 172, 100 + 160 + 8).blue() > 150, qPrintable(pixelAt(toned, 272, 268).name()));
+    // Big disc: centre (60, 40), 80 px tall → a 20 px band at its bottom.
+    QVERIFY2(pixelAt(toned, 100 + 60, 100 + 72).blue() > 200, qPrintable(pixelAt(toned, 160, 172).name()));
+    QVERIFY2(pixelAt(toned, 100 + 60, 100 + 20).red() > 200, qPrintable(pixelAt(toned, 160, 120).name()));
+    // Small disc: centre (180, 180), 40 px tall → a 10 px band at its bottom, red above it.
+    QVERIFY2(pixelAt(toned, 100 + 180, 100 + 196).blue() > 150, qPrintable(pixelAt(toned, 280, 296).name()));
+    QVERIFY2(pixelAt(toned, 100 + 180, 100 + 172).red() > 200, qPrintable(pixelAt(toned, 280, 272).name()));
     QVERIFY(textShadingLayerFromJson(textShadingLayerToJson(tone)).tonePerContour);
 }
 
