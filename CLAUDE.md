@@ -101,6 +101,11 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
   0.32 1314 (yp10/15/16 piden 0.32.0). **Pendiente (Jorge):** el cristal de yp15/yp16 NO desenfoca el video de abajo:
   la plantilla entra como composición y su capa de ajuste solo alcanza lo de dentro. Propuesta: modo «Pasar a
   través» de las composiciones en la 0.32 (como los grupos de Photoshop).
+- **2026-11-16 (tarde): «Pasar a través» HECHO** en `flip/v0.32` (`docs/plan-0.32.md` § 8), probado en ventana con
+  `pruebas\FlipStudio-0.32-pasar`: el cristal de yp15/yp16 ya esmerila el video; yp15/yp16 vueltas a subir con
+  `passThrough` en `template.json`. VFX: Jorge rechazó publicar los calcados de RTFX; se hacen propios con
+  `vfx_liquid_gen.py` (`flip/v0.32-vfx`, `docs/plan-vfx.md` › Líquidos propios): chorro y goteo APROBADOS; faltan
+  salpicadura, racimo, anillo y gota.
 - **Trampa nueva:** `X-Cutwire-App` tiene que decir `FlipStudio/0.31.0`, no solo `0.31.0` (si no, el servidor no
   filtra por versión). Y `build.py` daba por fallado un video de vista previa de menos de 10 kB: ahora 2 kB.
 - **Segundo grupo del Kit de YouTube** (yp8–yp17, `docs/plan-youtube-pack-2.md`): publicado el 2026-11-16.
