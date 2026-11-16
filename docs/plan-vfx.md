@@ -230,3 +230,8 @@ cada familia **vista en ventana** antes de subir nada a Stock.
   - Sigue distinto: el borde de la referencia es borroso (video comprimido y ampliado) y el nuestro nítido; en **gota**
     no sale la astilla fina del primer cuadro; algún cuello muy fino del goteo se pierde en uno o dos cuadros; los
     últimos puntitos del anillo, apenas visibles en la referencia, salen menos.
+- **Jorge aprobó la segunda vuelta de los líquidos (2026-11-16): «me convenció».** Nada en Stock todavía.
+  - **Siguiente:** la próxima familia según «Orden propuesto» (humo, después fuego…), con el mismo método:
+    medir cuadro a cuadro la referencia, redibujar con nuestras formas y grupos de recorte, comparar lado a lado.
+  - Antes de subir cualquier VFX a Stock: decidir con Jorge la licencia (las siluetas siguen muy de cerca el arte de
+    RTFX, que él tiene solo para estudiar) y la entrega (plantilla nativa encima del video).
