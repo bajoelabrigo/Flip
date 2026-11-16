@@ -159,3 +159,7 @@ el JSON: si falta, se dibuja como antes.
   `SkiaTest::shapeGroupMergePaths`.
 - **Falta:** verlo en ventana (paneles nuevos) y que Jorge vea los videos; el MCP (`set_shape`) no lista los campos
   nuevos (presupuesto del catálogo), se pueden poner por JSON de proyecto.
+- **Unión (2026-11-16):** `flip/v0.32-vfx` unida a `flip/v0.32` junto con el Goteo (`dripLength`…) y las claves por
+  cuadro; hash del estilo con grupos 4 (VFX) y 5 (Goteo); orden en el pintor: Zig Zag → Goteo → Wiggle → Romperse →
+  Trim. Compilación 43786419000 y pruebas 43786410473 en verde; portable en `pruebas\FlipStudio-0.32-todo`; comprobado
+  sin ventana con D/C del motor y `yp10-caja-roja` (`pruebas\FlipStudio-0.32-todo-comprobacion`).

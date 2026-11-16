@@ -206,46 +206,32 @@ def payload(reply) -> dict:
     return {"error": reply.get("error") or reply}
 
 
-def main() -> int:
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--exe", required=True)
-    ap.add_argument("--out", default=r"E:\FlipStudio\tienda\vfx-estudio\motor")
-    ap.add_argument("--only", default="")
-    args = ap.parse_args()
-    out = Path(args.out)
-    out.mkdir(parents=True, exist_ok=True)
+def render(jobs, exe, out: Path, capture_at: float = 1.4) -> None:
+    """jobs: [(name, project json path, duration s)] → <out>/<name>.mp4 and <name>.png (a frame at capture_at), with
+    one headless app session; the registry, the Google session and the app's project folders are put back."""
     work = out / "_proyectos"
-    work.mkdir(exist_ok=True)
-    jobs = []
-    for name, fn in DEMOS.items():
-        if args.only and name not in args.only.split(","):
-            continue
-        doc = fn().document(render=True, photo_size=lambda s: (1, 1), sample_path=lambda s: s, media_root=None)
-        path = work / f"{name}.json"
-        path.write_text(json.dumps(doc, ensure_ascii=False, indent=1), encoding="utf-8")
-        jobs.append((name, path))
-
+    work.mkdir(parents=True, exist_ok=True)
     backup = Path(tempfile.gettempdir()) / f"flip-reg-vfx-{os.getpid()}.reg"
     subprocess.run(["reg", "export", REG_KEY, str(backup), "/y"], check=True, capture_output=True)
     autosave = APPDATA / "recovery" / "autosave.json"
     had_autosave = autosave.exists()
     projects_before = set(os.listdir(APPDATA / "projects")) if (APPDATA / "projects").exists() else set()
     stage = Path(os.environ["USERPROFILE"]) / "Downloads" / "FlipStudio" / "codigo" / "flip-addons" / "build" / "stage"
-    bridge = Bridge(args.exe, "", str(work / "_mcp"), str(stage))
+    bridge = Bridge(str(exe), "", str(work / "_mcp"), str(stage))
     try:
         time.sleep(3)
-        for name, path in jobs:
+        for name, path, dur in jobs:
             print("render", name, flush=True)
             loaded = payload(bridge.call("load_project", {"path": str(path)}, wait=120))
             if loaded.get("error") or loaded.get("ok") is False:
                 print("  load failed:", loaded, flush=True)
                 continue
-            shot = payload(bridge.call("capture", {"at": 1.4, "full": True}, wait=120))
+            shot = payload(bridge.call("capture", {"at": min(capture_at, dur * 0.5), "full": True}, wait=120))
             if shot.get("path") and Path(shot["path"]).exists():
                 shutil.move(shot["path"], out / f"{name}.png")
             target = out / f"{name}.mp4"
             exported = payload(bridge.call("export_video", {
-                "path": str(target), "in": 0, "out": DUR, "video": "h264", "audio": "aac", "rate": "crf",
+                "path": str(target), "in": 0, "out": dur, "video": "h264", "audio": "aac", "rate": "crf",
                 "crf": 20, "fps": 30, "height": 720}, wait=900))
             deadline = time.time() + 900
             while time.time() < deadline:
@@ -271,6 +257,35 @@ def main() -> int:
         if (APPDATA / "projects").exists():
             for n in set(os.listdir(APPDATA / "projects")) - projects_before:
                 shutil.rmtree(APPDATA / "projects" / n, ignore_errors=True)
+
+
+def write_doc(template, work: Path, name: str) -> Path:
+    doc = template.document(render=True, photo_size=lambda s: (1, 1), sample_path=lambda s: s, media_root=None)
+    path = work / f"{name}.json"
+    path.write_text(json.dumps(doc, ensure_ascii=False, indent=1), encoding="utf-8")
+    return path
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--exe", required=True)
+    ap.add_argument("--out", default=r"E:\FlipStudio\tienda\vfx-estudio\motor")
+    ap.add_argument("--only", default="")
+    ap.add_argument("--also", nargs="*", default=[], help="other project .json files to render as they are (NAME=PATH:SECONDS)")
+    args = ap.parse_args()
+    out = Path(args.out)
+    work = out / "_proyectos"
+    work.mkdir(parents=True, exist_ok=True)
+    jobs = []
+    for name, fn in DEMOS.items():
+        if args.only and name not in args.only.split(","):
+            continue
+        jobs.append((name, write_doc(fn(), work, name), DUR))
+    for spec in args.also:
+        name, rest = spec.split("=", 1)
+        path, secs = rest.rsplit(":", 1)
+        jobs.append((name, Path(path), float(secs)))
+    render(jobs, args.exe, out)
     return 0
 
 
