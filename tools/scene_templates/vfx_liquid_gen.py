@@ -93,7 +93,8 @@ class Sim:
     drops: list = field(default_factory=list)
     threads: list = field(default_factory=list)
     hooks: list = field(default_factory=list)   # f(sim, frame) run before each step
-    ones_until: int = 0          # drawn on ones (every frame) before this frame, on twos after
+    ones_until: int = 0          # drawn on ones (every frame) from ones_from to before this frame, on twos else
+    ones_from: int = 0
     rng: np.random.Generator = field(default_factory=lambda: np.random.default_rng(0))
 
     def add(self, *a, **k) -> int:
@@ -334,79 +335,108 @@ def goteo(rng: np.random.Generator):
     return s
 
 
-def salpicadura(rng: np.random.Generator):
-    """A splash from the ground: two sheets thrown out sideways from one point in a couple of frames (on ones), their
-    thick rim tearing into droplets, the sheets falling back, splashing on the ground and fading away."""
-    s = Sim(440, 320, 30, gravity=0.7, floor=305.0, ones_until=4, rng=rng)
-    cx = 220 + rng.uniform(-10, 10)
+def _splash_sheets(s: Sim, cx: float, floor: float, f: int, rng: np.random.Generator, power: float = 1.0):
+    """The splash itself: two sheets thrown out sideways from where the drop hit, their thick rim tearing into
+    droplets, a few droplets flung off at once (prompt splash), a short bump in the middle."""
     for side in (-1, 1):
         prev = None
         n = 9
         for i in range(n):
-            u = i / (n - 1)                       # 0 at the foot of the sheet, 1 at its rim
+            u = i / (n - 1)
             ang = math.radians(90 - side * (8 + 32 * u) + rng.uniform(-3, 3))
-            sp = (9.0 + 8.0 * u) * rng.uniform(0.92, 1.08)
-            r = (9.5 + 6.0 * u * u) * rng.uniform(0.85, 1.1) if i < n - 1 else rng.uniform(13, 16)
-            idx = s.add(cx + side * 6 * u, 300 - 4 * u, sp * math.cos(ang), -sp * math.sin(ang), r, born=i // 4,
-                        hold=7 + i // 3, fade=0.93, drag=0.035)
+            sp = (9.0 + 8.0 * u) * rng.uniform(0.92, 1.08) * power
+            r = ((9.5 + 6.0 * u * u) * rng.uniform(0.85, 1.1) if i < n - 1 else rng.uniform(13, 16)) * power
+            idx = s.add(cx + side * 6 * u, floor - 5 - 4 * u, sp * math.cos(ang), -sp * math.sin(ang), r,
+                        born=f + i // 4, hold=7 + i // 3, fade=0.93, drag=0.035)
             if prev is not None:
                 s.link(prev, idx, snap=rng.uniform(1.5, 2.1), pull=0.02, recoil=1.2)
             prev = idx
-        # A few droplets flung off the rim straight away (prompt splash).
         for k in range(3):
             ang = math.radians(90 - side * rng.uniform(40, 60))
-            sp = rng.uniform(13, 17)
-            s.add(cx + side * 8, 296, sp * math.cos(ang), -sp * math.sin(ang), rng.uniform(4, 6.5), born=1,
-                  hold=6, fade=0.92, drag=0.02)
-    # The foot: a short bump in the middle that sinks into the ground.
-    s.add(cx, 300, 0, -3.0, 16, hold=3, fade=0.88, drag=0.2)
+            sp = rng.uniform(13, 17) * power
+            s.add(cx + side * 8, floor - 9, sp * math.cos(ang), -sp * math.sin(ang), rng.uniform(4, 6.5) * power,
+                  born=f + 1, hold=6, fade=0.92, drag=0.02)
+    s.add(cx, floor - 5, 0, -3.0, 16 * power, born=f, hold=3, fade=0.88, drag=0.2)
+
+
+def salpicadura(rng: np.random.Generator):
+    """A drop falls from above, hits the ground, and the splash opens there: two sheets thrown out sideways, their
+    rims tearing into droplets that fall back, splash in turn and fade away (a story: cause, splash, the end)."""
+    floor = 305.0
+    s = Sim(440, 360, 42, gravity=0.7, floor=floor, rng=rng)
+    cx = 220 + rng.uniform(-10, 10)
+    # The cause: a drop falling into the frame, stretched by its speed.
+    drop = s.add(cx, 20, 0, 9.0, 13.0, drag=0.0)
+    s.drops[drop].weight = 1.4
+    state = {"done": False}
+
+    def hit(sim, f):
+        d = sim.drops[drop]
+        if not state["done"] and d.y + d.r * d.sy >= floor - 4:
+            state["done"] = True
+            d.r = 0.0                                   # it becomes the splash
+            sim.ones_from, sim.ones_until = f, f + 4    # the burst drawn on ones
+            _splash_sheets(sim, d.x, floor, f, rng)
+    s.hooks.append(hit)
     return s
 
 
 def racimo(rng: np.random.Generator):
-    """A cluster of lobes joined by thick necks (a Y) that pull apart slowly: the necks stretch thin like elastic
-    and snap (a satellite in each), the lobes drift on, round up and shrink away."""
-    s = Sim(260, 220, 24, gravity=-0.04, rng=rng)
-    cx, cy = 125 + rng.uniform(-6, 6), 120 + rng.uniform(-6, 6)
-    core = s.add(cx, cy, 0, -0.6, rng.uniform(24, 27), hold=8, fade=0.92, drag=0.06)
+    """A lump of liquid thrown in from one side: as it flies its lobes pull apart (a Y), the necks stretch thin and
+    snap, and the drops fly on in an arc, round up and shrink away."""
+    s = Sim(320, 240, 30, gravity=0.18, rng=rng)
+    cx, cy = 40.0, 150 + rng.uniform(-6, 6)
+    throw_x, throw_y = rng.uniform(7.0, 8.0), rng.uniform(-4.2, -3.6)
+    core = s.add(cx, cy, throw_x, throw_y, rng.uniform(24, 27), hold=12, fade=0.92, drag=0.025)
     base = rng.uniform(0, 2 * math.pi)
     for i in range(3):
         a = base + i * 2 * math.pi / 3 + rng.uniform(-0.25, 0.25)
-        dist, sp = rng.uniform(34, 40), rng.uniform(2.2, 3.0)
-        lobe = s.add(cx + dist * math.cos(a), cy + dist * math.sin(a), sp * math.cos(a), sp * math.sin(a),
-                     rng.uniform(15, 20), hold=8, fade=0.92, drag=0.04)
-        # The neck: two thinner drops between the core and the lobe.
+        dist, sp = rng.uniform(26, 32), rng.uniform(1.9, 2.6)
+        lobe = s.add(cx + dist * math.cos(a), cy + dist * math.sin(a), throw_x + sp * math.cos(a),
+                     throw_y + sp * math.sin(a), rng.uniform(15, 20), hold=12, fade=0.92, drag=0.025)
         prev = core
         for j, u in enumerate((0.38, 0.68)):
-            nk = s.add(cx + u * dist * math.cos(a), cy + u * dist * math.sin(a), u * sp * math.cos(a),
-                       u * sp * math.sin(a), rng.uniform(9, 11) * (1 - 0.2 * j), hold=6, fade=0.9, drag=0.05)
+            nk = s.add(cx + u * dist * math.cos(a), cy + u * dist * math.sin(a), throw_x + u * sp * math.cos(a),
+                       throw_y + u * sp * math.sin(a), rng.uniform(9, 11) * (1 - 0.2 * j), hold=10, fade=0.9,
+                       drag=0.025)
             s.link(prev, nk, snap=rng.uniform(1.5, 1.8), pull=0.03, recoil=1.4)
             prev = nk
         s.link(prev, lobe, snap=rng.uniform(1.5, 1.8), pull=0.03, recoil=1.4)
-    # A small loose drop off to one side, as the cluster was thrown.
-    a = base + math.pi / 3
-    s.add(cx + 80 * math.cos(a), cy + 80 * math.sin(a), 1.8 * math.cos(a), 1.8 * math.sin(a), rng.uniform(7, 9),
-          hold=8, fade=0.9, drag=0.03)
     return s
 
 
 def anillo(rng: np.random.Generator):
-    """A thin ring of liquid, thicker in places, that bursts outward and tears into arcs, the arcs into dashes and
-    specks, all within a few frames (the fastest of the family)."""
-    s = Sim(280, 280, 20, gravity=0.0, ones_until=4, rng=rng)
-    n = 40
-    ids = []
-    spin = rng.uniform(0.01, 0.03) * (1 if rng.random() < 0.5 else -1)
-    phase1, phase2 = rng.uniform(0, 2 * math.pi), rng.uniform(0, 2 * math.pi)
-    for i in range(n):
-        a = 2 * math.pi * i / n
-        # Thickness waves round the ring: a few fat places and thin ones in between.
-        thick = 4.2 + 2.0 * math.sin(3 * a + phase1) + 1.2 * math.sin(5 * a + phase2)
-        r0, out = 44.0, rng.uniform(8.0, 9.5)
-        ids.append(s.add(140 + r0 * math.cos(a), 140 + r0 * math.sin(a), out * math.cos(a) - spin * r0 * math.sin(a),
-                         out * math.sin(a) + spin * r0 * math.cos(a), max(2.2, thick), hold=4, fade=0.88, drag=0.16))
-    for i in range(n):
-        s.link(ids[i], ids[(i + 1) % n], snap=rng.uniform(1.25, 1.7), pull=0.01, recoil=0.6, satellite=False)
+    """Seen from above: a drop falls toward the ground (it grows as it comes closer), hits a thin film of water and
+    the impact throws out a ring, thicker in places, that tears into arcs, dashes and specks; a little of the drop
+    stays in the middle and fades."""
+    s = Sim(280, 280, 30, gravity=0.0, rng=rng)
+    cx, cy = 140.0, 140.0
+    drop = s.add(cx, cy, 0, 0, 5.0, grow=1.6, grow_until=7, drag=0.0)
+    state = {"done": False}
+
+    def hit(sim, f):
+        if state["done"] or f < 7:
+            return
+        state["done"] = True
+        d = sim.drops[drop]
+        r_hit = d.r
+        d.r, d.grow = 0.62 * r_hit, 0.0
+        d.hold, d.fade = 0, 0.9                       # what is left in the middle shrinks away
+        sim.ones_from, sim.ones_until = f, f + 4
+        n = 40
+        ids = []
+        spin = rng.uniform(0.01, 0.03) * (1 if rng.random() < 0.5 else -1)
+        p1, p2 = rng.uniform(0, 2 * math.pi), rng.uniform(0, 2 * math.pi)
+        for i in range(n):
+            a = 2 * math.pi * i / n
+            thick = 4.2 + 2.0 * math.sin(3 * a + p1) + 1.2 * math.sin(5 * a + p2)
+            r0, out = r_hit * 0.9, rng.uniform(8.0, 9.5)
+            ids.append(sim.add(cx + r0 * math.cos(a), cy + r0 * math.sin(a),
+                               out * math.cos(a) - spin * r0 * math.sin(a), out * math.sin(a) + spin * r0 * math.cos(a),
+                               max(2.2, thick), born=f, hold=4, fade=0.88, drag=0.16))
+        for i in range(n):
+            sim.link(ids[i], ids[(i + 1) % n], snap=rng.uniform(1.25, 1.7), pull=0.01, recoil=0.6, satellite=False)
+    s.hooks.append(hit)
     return s
 
 
@@ -452,9 +482,9 @@ def gota(rng: np.random.Generator):
 
 RECIPES = {"chorro": (chorro, "Chorro que se parte en gotas", "columna"),
            "goteo": (goteo, "Goteo", "goteo"),
-           "salpicadura": (salpicadura, "Salpicadura doble", "salpicadura"),
-           "racimo": (racimo, "Racimo que se separa", "racimo"),
-           "anillo": (anillo, "Anillo que se rompe en gotas", "anillo"),
+           "salpicadura": (salpicadura, "Gota que cae y salpica", "salpicadura"),
+           "racimo": (racimo, "Racimo lanzado que se separa", "racimo"),
+           "anillo": (anillo, "Gota que cae y abre un anillo", "anillo"),
            "gota": (gota, "Gota que salta del charco", "gota")}
 
 
@@ -501,7 +531,7 @@ def masks_at(sim: Sim, f: int):
 
 def drawn_frames(sim: Sim, n: int) -> list[int]:
     """The frames that get a drawing: every one while it is fast (sim.ones_until), every ON after (on twos)."""
-    return [i for i in range(n) if i < sim.ones_until or (i - sim.ones_until) % ON == 0]
+    return [i for i in range(n) if sim.ones_from <= i < sim.ones_until or i % ON == 0]
 
 
 def simulate(name: str, seed: int):

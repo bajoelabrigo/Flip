@@ -309,3 +309,7 @@ Medido en el video de estudio (solo el comportamiento, no las formas; `vfx_liqui
   de Worthington: sale de un charco visible desde el primer cuadro, sube redonda (sin aplastarse) y vuelve a caer en el
   charco. **APROBADA:** «ahora sí me gusta, **tiene que tener una historia**». Regla para todos los VFX: causa → acción →
   consecuencia → se apaga; la fuente se ve en el cuadro; nada aparece de la nada ni se aplasta sin contra qué chocar.
+- 2026-11-16: con la regla de la historia, las otras tres tienen causa: **salpicadura** = una gota cae y al tocar el
+  suelo se abren las hojas; **racimo** = un bulto entra lanzado desde un costado y se abre en lóbulos al volar; **anillo**
+  = vista desde arriba, la gota se acerca (crece) y al golpear se abre el aro y queda un resto en el centro. Arreglado el
+  ritmo: «en unos» es una ventana (`ones_from`–`ones_until`), no todo lo anterior. Sin ver por Jorge todavía.
