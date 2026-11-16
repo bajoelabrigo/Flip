@@ -411,35 +411,42 @@ def anillo(rng: np.random.Generator):
 
 
 def gota(rng: np.random.Generator):
-    """A drop shot up from the ground as a thin needle: the head fills while the tail empties into it, it slows at
-    the top and flattens, splits into three that drift apart, and they fall back, splash and fade."""
-    s = Sim(150, 280, 34, gravity=0.55, floor=270.0, ones_until=4, rng=rng)
-    v = rng.uniform(12.5, 13.5)
+    """A drop thrown up out of a little puddle (Jorge, 2026-11-16: «no entiendo si el agua cae o si la tiran de
+    abajo a arriba», and at the top it looked like it hit something): the puddle is there from the start, a jet rises
+    out of it still joined to it (a Worthington jet), lets go of the puddle, its round head slows to a stop at the top
+    — no flattening, nothing up there — and falls back speeding up, the tail breaking into droplets on the way, all of
+    it landing in the puddle with a small splash and fading away."""
+    floor = 268.0
+    s = Sim(150, 290, 50, gravity=1.15, floor=floor, ones_until=4, rng=rng)
+    # The puddle: flat drops on the ground from the first frame.
+    puddle = []
+    for dx, r in ((-22, 9.0), (0, 12.0), (22, 9.0)):
+        d = s.add(75 + dx + rng.uniform(-2, 2), floor - 0.3 * r, 0, 0, r, hold=36, fade=0.93)
+        s.drops[d].on_floor, s.drops[d].spread = True, 1.0
+        puddle.append(d)
+    # The jet: stacked on the puddle, the top one fastest; its foot stays in the puddle for a few frames.
+    v = rng.uniform(18.5, 19.5)
     ids = []
-    for i in range(5):
-        # Thin at first; the head grows and the tail thins as the liquid runs up into it.
-        r = 8.5 if i == 0 else 7.0 - 0.7 * i
-        d = s.add(75 + rng.uniform(-0.6, 0.6), 262 - 10 * (4 - i), rng.uniform(-0.2, 0.2), -(v - 1.1 * i), r,
-                  hold=10 if i else 10**6, fade=0.9, drag=0.01)
+    for i in range(6):
+        r = 9.5 if i == 0 else 7.2 - 0.6 * i
+        d = s.add(75 + rng.uniform(-0.5, 0.5), floor - 14 - 7 * (5 - i), rng.uniform(-0.15, 0.15),
+                  -(v - 2.3 * i), r, hold=20 if i else 10**6, fade=0.92, drag=0.008)
         ids.append(d)
         if i:
-            s.link(ids[i - 1], d, snap=rng.uniform(2.6, 3.2), pull=0.02, recoil=1.0)
+            s.link(ids[i - 1], d, snap=rng.uniform(2.4, 2.9), pull=0.025, recoil=1.0)
+    foot = ids[-1]
+    s.drops[foot].pinned = True
+    s.link(puddle[1], foot, snap=9.0, pull=0.05, satellite=False)
     head = s.drops[ids[0]]
-    head.grow, head.grow_until = 1.8, 10
+    head.grow, head.grow_until = 0.55, 8
 
-    def split(sim, f):
-        # At the top of its flight the head flattens (wobble) and splits in three.
-        if f == 18 and head.r > 4:
-            head.wobble, head.wobble_t = -0.35, f
-        if f == 21 and head.r > 4:
-            r = head.r
-            head.r = 0.72 * r
-            head.hold, head.fade = f - head.born + 2, 0.93
-            for side in (-1, 1):
-                sim.drops.append(Drop(head.x + side * 0.7 * r, head.y + 0.25 * r, head.vx + side * 1.6,
-                                      head.vy + 0.6, 0.48 * r * rng.uniform(0.9, 1.1), born=f, hold=4, fade=0.92,
-                                      drag=0.02))
-    s.hooks.append(split)
+    def lift(sim, f):
+        # The foot lets go of the puddle once the jet has stretched out of it.
+        if f == 5:
+            sim.drops[foot].pinned = False
+            sim.drops[foot].vy = -4.0
+        # The head fades only after it has fallen back into the puddle (on_floor turns its fade on).
+    s.hooks.append(lift)
     return s
 
 
@@ -448,7 +455,7 @@ RECIPES = {"chorro": (chorro, "Chorro que se parte en gotas", "columna"),
            "salpicadura": (salpicadura, "Salpicadura doble", "salpicadura"),
            "racimo": (racimo, "Racimo que se separa", "racimo"),
            "anillo": (anillo, "Anillo que se rompe en gotas", "anillo"),
-           "gota": (gota, "Gota que salta y se parte", "gota")}
+           "gota": (gota, "Gota que salta del charco", "gota")}
 
 
 # ----------------------------------------------------------------------------------------- masks per frame
