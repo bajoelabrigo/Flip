@@ -2194,7 +2194,8 @@ QVariantMap shapeStyleToMap(const drift::ShapeStyle &s, drift::TimeUs timelineSt
                             "wiggleSize", "wiggleDetail", "wiggleSpeed", "wiggleSeed", "mergeMode", "offsetPath",
                             "zigzagSize", "zigzagRidges", "zigzagSmooth", "twistAngle", "puckerBloat", "smoothMorph",
                             "morphCorners", "morphFromCentre", "wiggleStepRate", "zigzagJitter", "zigzagStepRate",
-                            "zigzagSeed", "erodeAmount", "erodeSize", "erodeSeed", "erodeAngle", "erodeStretch"}) {
+                            "zigzagSeed", "erodeAmount", "erodeSize", "erodeSeed", "erodeAngle", "erodeStretch",
+                            "dripLength", "dripCount", "dripWidth", "dripFall", "dripSeed"}) {
         double value = 0.0;
         if (drift::shapeStyleScalar(s, QLatin1String(key), &value))
             map.insert(QLatin1String(key), value);
@@ -23089,7 +23090,8 @@ static void applyShapeStylePatch(drift::ShapeStyle &s, const QVariantMap &m)
                             "wiggleSize", "wiggleDetail", "wiggleSpeed", "wiggleSeed", "mergeMode", "offsetPath",
                             "zigzagSize", "zigzagRidges", "zigzagSmooth", "twistAngle", "puckerBloat", "smoothMorph",
                             "morphCorners", "morphFromCentre", "wiggleStepRate", "zigzagJitter", "zigzagStepRate",
-                            "zigzagSeed", "erodeAmount", "erodeSize", "erodeSeed", "erodeAngle", "erodeStretch"}) {
+                            "zigzagSeed", "erodeAmount", "erodeSize", "erodeSeed", "erodeAngle", "erodeStretch",
+                            "dripLength", "dripCount", "dripWidth", "dripFall", "dripSeed"}) {
         if (m.contains(QLatin1String(key)))
             drift::setShapeStyleScalar(s, QLatin1String(key), m.value(QLatin1String(key)).toDouble());
     }

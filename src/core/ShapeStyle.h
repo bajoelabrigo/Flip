@@ -156,6 +156,15 @@ struct ShapeStyle
     double erodeSeed = 0.0;
     double erodeAngle = 0.0;
     double erodeStretch = 1.0;
+    // Drip (0.32, cartoon / liquid motion): thick liquid running down from the parts of the outline that face down.
+    // dripCount fingers (rounded) about dripWidth px wide and up to dripLength px long, each ending in a round bulb;
+    // dripFall px lets the bulbs go as drops that fall that far. dripSeed varies them. Keyframe dripLength to grow
+    // the drips and dripFall to drop them; a gooey effect on the layer melts the necks.
+    double dripLength = 0.0;
+    double dripCount = 6.0;
+    double dripWidth = 24.0;
+    double dripFall = 0.0;
+    double dripSeed = 0.0;
 
     // After Effects' animated Path (0.26), on a custom shape: the "path" keyframe track holds, at
     // each key, the index of that key's outline in pathShapes. Between two keys the outlines
@@ -191,6 +200,7 @@ struct ShapeStyle
     bool hasRepeater() const { return qRound(repeatCopies) > 1 || qAbs(repeatOffset) > 1e-9; }
     bool hasWiggle() const { return wiggleSize > 0.0; }
     bool hasErode() const { return erodeAmount > 0.0; }
+    bool hasDrip() const { return (dripLength > 0.0 || dripFall > 0.0) && dripWidth > 0.0 && qRound(dripCount) >= 1; }
 
     // Keyed by shapeKeyframeProperties() names ("cornerRadius", "layer.<id>.<field>", …); times
     // are relative to the clip start.

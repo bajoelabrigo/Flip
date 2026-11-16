@@ -594,6 +594,11 @@ constexpr KnobField kKnobs[] = {
     {"erodeSeed", QT_TRANSLATE_NOOP("ShapeStyle", "Break apart: seed"), &ShapeStyle::erodeSeed, 0.0, 1000.0},
     {"erodeAngle", QT_TRANSLATE_NOOP("ShapeStyle", "Break apart: angle"), &ShapeStyle::erodeAngle, -3600.0, 3600.0},
     {"erodeStretch", QT_TRANSLATE_NOOP("ShapeStyle", "Break apart: stretch"), &ShapeStyle::erodeStretch, 1.0, 20.0},
+    {"dripLength", QT_TRANSLATE_NOOP("ShapeStyle", "Drip length"), &ShapeStyle::dripLength, 0.0, 4000.0},
+    {"dripCount", QT_TRANSLATE_NOOP("ShapeStyle", "Drips"), &ShapeStyle::dripCount, 1.0, 64.0},
+    {"dripWidth", QT_TRANSLATE_NOOP("ShapeStyle", "Drip width"), &ShapeStyle::dripWidth, 1.0, 1000.0},
+    {"dripFall", QT_TRANSLATE_NOOP("ShapeStyle", "Drop fall"), &ShapeStyle::dripFall, 0.0, 4000.0},
+    {"dripSeed", QT_TRANSLATE_NOOP("ShapeStyle", "Drip seed"), &ShapeStyle::dripSeed, 0.0, 1000.0},
 };
 
 const KnobField *knobFor(const QString &key)
@@ -791,6 +796,7 @@ quint64 shapeStyleHash(const ShapeStyle &style)
            ^ qHashMulti(4, style.morphCorners, style.morphFromCentre, style.wiggleStepRate, style.zigzagJitter,
                         style.zigzagStepRate, style.zigzagSeed, style.erodeAmount, style.erodeSize, style.erodeSeed,
                         style.erodeAngle, style.erodeStretch)
+           ^ qHashMulti(5, style.dripLength, style.dripCount, style.dripWidth, style.dripFall, style.dripSeed)
            ^ qHash(style.pathShapes) ^ shapePartsHash(style);
 }
 

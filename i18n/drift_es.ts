@@ -25742,6 +25742,26 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Sumar</translation>
     </message>
     <message>
+        <source>Drip</source>
+        <translation>Goteo</translation>
+    </message>
+    <message>
+        <source>Thick liquid runs down from the bottom of the shape. Animate Length to let it drip and Drop fall to let the drops go; the Liquid effect melts them together.</source>
+        <translation>Un líquido espeso chorrea desde la parte de abajo de la forma. Anima Largo para que gotee y Caída de gotas para que las gotas se suelten; el efecto Líquido las funde entre sí.</translation>
+    </message>
+    <message>
+        <source>Length</source>
+        <translation>Largo</translation>
+    </message>
+    <message>
+        <source>Drop fall</source>
+        <translation>Caída de gotas</translation>
+    </message>
+    <message>
+        <source>Drips</source>
+        <translation>Chorros</translation>
+    </message>
+    <message>
         <source>Subtract</source>
         <translation>Restar</translation>
     </message>
@@ -26122,6 +26142,26 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>Break apart: stretch</source>
         <translation>Romperse: estirar</translation>
+    </message>
+    <message>
+        <source>Drip length</source>
+        <translation>Largo del goteo</translation>
+    </message>
+    <message>
+        <source>Drips</source>
+        <translation>Chorros</translation>
+    </message>
+    <message>
+        <source>Drip width</source>
+        <translation>Ancho del goteo</translation>
+    </message>
+    <message>
+        <source>Drop fall</source>
+        <translation>Caída de gotas</translation>
+    </message>
+    <message>
+        <source>Drip seed</source>
+        <translation>Semilla del goteo</translation>
     </message>
     <message>
         <source>Points</source>

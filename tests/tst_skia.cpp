@@ -300,6 +300,7 @@ private slots:
     void shapeLandsOnItsFractionalBox();
     void strokeTaperWaveAndRoundness();
     void taperedStrokeRoundCaps();
+    void dripHangsBelowTheShape();
     void shapePartsStackMoveAndGroup();
     void shapePartsSaveAndAnimate();
     void shapeRepeaterDrawsCopies();
@@ -773,6 +774,47 @@ void SkiaTest::taperedStrokeRoundCaps()
     bend.layers[0].taperStartLength = 10.0;
     const QImage bent = placed(skia::makeShapePainter(bend, 300, 300, 1.0), 500, 500, 100);
     QVERIFY(bent.pixelColor(100 + 105, 100 + 100).green() > 128);
+}
+
+// 0.32 (cartoon packs): Drip hangs fingers of liquid below a shape (none above it), Drop fall moves their bulbs
+// further down as separate drops, and the values survive saving.
+void SkiaTest::dripHangsBelowTheShape()
+{
+    const auto greenIn = [](const QImage &img, int y0, int y1) {
+        int n = 0;
+        for (int y = qMax(0, y0); y < qMin(img.height(), y1); ++y)
+            for (int x = 0; x < img.width(); ++x) {
+                const QColor c = img.pixelColor(x, y);
+                n += (c.green() > 128 && c.red() < 100 && c.alpha() > 128) ? 1 : 0;
+            }
+        return n;
+    };
+    ShapeStyle blob;
+    blob.kind = ShapeKind::Ellipse;
+    blob.layers = {solidFillLayer(QColor(0, 255, 0))};
+    // Box 200×200 at (100, 100) on a 500×600 canvas: the shape ends at y 300.
+    const QImage plain = placed(skia::makeShapePainter(blob, 200, 200, 1.0), 500, 600, 100);
+    QCOMPARE(greenIn(plain, 305, 600), 0);
+
+    ShapeStyle dripping = blob;
+    dripping.dripLength = 120.0;
+    dripping.dripCount = 4.0;
+    dripping.dripWidth = 24.0;
+    QVERIFY(dripping.hasDrip());
+    const QImage hung = placed(skia::makeShapePainter(dripping, 200, 200, 1.0), 500, 600, 100);
+    QVERIFY2(greenIn(hung, 305, 600) > 1000, qPrintable(QString::number(greenIn(hung, 305, 600))));
+    QCOMPARE(greenIn(hung, 0, 95), 0); // nothing drips upwards
+    QVERIFY(greenIn(hung, 445, 600) == 0); // no finger is longer than its length plus its bulb
+
+    dripping.dripFall = 160.0;
+    const QImage fallen = placed(skia::makeShapePainter(dripping, 200, 200, 1.0), 500, 600, 100);
+    QVERIFY2(greenIn(fallen, 445, 600) > 100, qPrintable(QString::number(greenIn(fallen, 445, 600))));
+
+    const ShapeStyle back = shapeStyleFromJson(shapeStyleToJson(dripping));
+    QCOMPARE(back.dripLength, 120.0);
+    QCOMPARE(back.dripCount, 4.0);
+    QCOMPARE(back.dripFall, 160.0);
+    QVERIFY(!shapeStyleToJson(blob).contains(QStringLiteral("dripLength")));
 }
 
 void SkiaTest::shapeLandsOnItsFractionalBox()

@@ -85,12 +85,26 @@ quebrados y salpicaduras en anillos de puntos). Lo nuevo:
 - Plantillas: `tools/scene_templates/liquid.py` (checkout principal): `brush` (trazo que se dibuja solo: Trim +
   Taper + punta redonda + Wiggle), `rays`, `splash` (gotas que salen estiradas por su velocidad) y `morph_keys`
   (manchas con claves cada dos cuadros y transformación suave). Las yp10 piden la 0.32 (`publish.py`).
+- **Goteo** (2026-11-15, segunda vuelta; Jorge: «viene como chorreando líquido, el nuestro en algunos logos no lo
+  hace»): operador nuevo de forma (`dripLength`, `dripCount`, `dripWidth`, `dripFall`, `dripSeed`, todos con claves).
+  De la parte de abajo de cada contorno cuelgan chorros de líquido espeso con una gota redonda en la punta; «Caída de
+  gotas» suelta las gotas y las deja caer. Se une al cuerpo (unión de trazados) y con el efecto Líquido (`liquid.gooey`)
+  los cuellos se funden. `drippedPath` en `SkiaShapePainter.cpp` (después de Zig Zag y antes de Wiggle); sección
+  «Goteo» en el inspector; el ajuste Short/Video escala sus px. Prueba `SkiaTest::dripHangsBelowTheShape`.
+  **Trampa:** un óvalo hecho con `QPainterPath` no queda marcado como cerrado al medirlo: el goteo mide todo contorno
+  como cerrado.
 - Queda para otra vez: animar la curvatura del camino de un texto (`pathSvg`) y la escala X/Y separada de un texto.
 
 ## 6. Arreglos de CI
 
 - `AddonManager.cpp` usaba `QApplication`/`QSystemTrayIcon` y las pruebas no enlazan QtWidgets: la bandeja se compila
   solo en la app (`FLIP_ADDON_TRAY`, definido en `CMakeLists.txt` para `drift`).
+- La prueba de Colores comparaba un canal de `QColor` (float) con un double exacto: ahora con tolerancia.
+- **Trampa nueva:** vcpkg se clonaba sin fijar y su actualización de zlib 1.4 (2026-11-13) dejó a Skia enlazando un
+  `zs.lib` que no existe (todo Windows en rojo al enlazar). `package.yml` y `msstore.yml` fijan vcpkg en
+  `fe8e78fac7` (el commit anterior). Para actualizar vcpkg, cambiar ese commit a propósito.
+- Compilación con todo lo de arriba: run 43738406085 (Windows) en verde; Tests (Linux) run 43733676879 en verde.
+  Portable en `E:\FlipStudio\pruebas\FlipStudio-0.32-liquido` (con ella se renderizó la yp10 nueva).
 
 ## Compilación y pruebas
 

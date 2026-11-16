@@ -26130,6 +26130,26 @@ If playback stutters, try another.</source>
         <translation>إضافة</translation>
     </message>
     <message>
+        <source>Drip</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Thick liquid runs down from the bottom of the shape. Animate Length to let it drip and Drop fall to let the drops go; the Liquid effect melts them together.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Length</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Drop fall</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Drips</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Subtract</source>
         <translation type="unfinished"></translation>
     </message>
@@ -26509,6 +26529,26 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>Break apart: stretch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Drip length</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Drips</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Drip width</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Drop fall</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Drip seed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
