@@ -68,6 +68,7 @@ class Drop:
     wobble_t: int = 0
     on_floor: bool = False
     spread: float = 0.0    # puddle: how far it has flattened
+    weight: float = 1.0    # gravity multiplier: a heavy tip stretches the thread it hangs from like elastic
 
 
 @dataclass
@@ -79,6 +80,7 @@ class Thread:
     pull: float = 0.06     # how hard it pulls the drops back together
     alive: bool = True
     satellite: bool = True  # a small drop is left in the neck when it snaps
+    recoil: float = 0.9     # how hard both ends spring back when it snaps (elastic: more)
 
 
 @dataclass
@@ -121,8 +123,8 @@ class Sim:
         dist = math.hypot(dx, dy) or 1.0
         for i, d, s in ((t.a, a, -1.0), (t.b, b, 1.0)):
             if not d.pinned:
-                d.vx += s * 0.9 * dx / dist
-                d.vy += s * 0.9 * dy / dist
+                d.vx += s * t.recoil * dx / dist
+                d.vy += s * t.recoil * dy / dist
             if not self.threads_of(i):
                 d.wobble, d.wobble_t = 0.28, f
 
@@ -175,7 +177,7 @@ class Sim:
                 d.x += d.vx
                 d.vx *= 0.8
                 continue
-            d.vy += self.gravity
+            d.vy += self.gravity * d.weight
             d.vx *= 1.0 - d.drag
             d.vy *= 1.0 - d.drag
             d.x += d.vx
@@ -188,6 +190,8 @@ class Sim:
                 d.r += d.grow
             if age > d.hold:
                 d.r = max(0.0, d.r * d.fade - d.shrink)
+                if d.r < 3.0:
+                    d.r *= 0.82   # the last specks go quicker: they read as dust, not water
             # The shape: stretched along a fast fall, wobbling after letting go, flat on the ground.
             if d.on_floor:
                 d.sx = 1.0 + 1.3 * d.spread * (0.6 + 0.4 * min(1.0, d.r / 8.0))
@@ -251,38 +255,62 @@ def chorro(rng: np.random.Generator):
 
 
 def goteo(rng: np.random.Generator):
-    """A lip of liquid on top: a drop fills up hanging from it and stretches its neck, the neck snaps (a satellite,
-    the rest springs back up), the drop falls wobbling, splashes on the ground into a puddle that throws droplets,
-    and everything fades little by little; a second drop does the same a beat later."""
-    s = Sim(240, 520, 72, gravity=0.85, floor=505.0, rng=rng)
-    lip = []
-    for i in range(10):
-        idx = s.add(30 + i * 20 + rng.uniform(-2, 2), 64 + rng.uniform(-3, 3), 0, 0, 13.5 + rng.uniform(-2, 2.5),
-                    pinned=True, hold=46, fade=0.93)
-        if lip:
-            s.link(lip[-1], idx, snap=9.0, satellite=False)
-        lip.append(idx)
-    first, second = (3, 7) if rng.random() < 0.5 else (6, 2)
-    pulls = []
-    for start, src, big in ((0, first, 1.0), (22, second, 0.8)):
-        top = s.drops[lip[src]]
-        # The neck (a thin drop) and the hanging drop, filling up.
-        neck = s.add(top.x, top.y + 12, 0, 0, 8.0 * big, born=start, drag=0.05, hold=start + 34, fade=0.92)
-        drop = s.add(top.x, top.y + 22, 0, 0, 7.0 * big, born=start, grow=0.62 * big, grow_until=24, drag=0.01,
-                     hold=10**6, fade=0.95)
-        s.link(lip[src], neck, snap=2.6, pull=0.2)
-        s.link(neck, drop, snap=2.0, pull=0.2)
-        pulls.append((start, len(s.threads) - 2, len(s.threads) - 1))
+    """Liquid that drips like elastic (Jorge, 2026-11-16: «que caiga como elástico y se rompa»): a thin tongue with a
+    heavy bulb at its tip stretches far down from the body before the bulb lets go and the rest springs back up; then
+    the body itself lets go and falls, stretching into a string of bulbs with thin necks that part into drops, while
+    the two ends left on top stretch into arms that snap and draw back to their sides. Drops splash on the ground;
+    everything shrinks away little by little."""
+    s = Sim(240, 520, 94, gravity=0.62, floor=505.0, rng=rng)
+    cx = 120 + rng.uniform(-12, 12)
+    # The body: a fat lump of liquid on top, its middle over the drip.
+    body = []
+    for i in range(9):
+        x = cx - 64 + i * 16 + rng.uniform(-1.5, 1.5)
+        centre = abs(i - 4) <= 1
+        body.append(s.add(x, 70 + (8 if centre else 0) + rng.uniform(-2, 2), 0, 0,
+                          (17.0 if centre else 12.5) + rng.uniform(-1.5, 1.5), pinned=True, hold=66, fade=0.93,
+                          drag=0.06))
+    for a, b in zip(body, body[1:]):
+        s.link(a, b, snap=3.2, pull=0.05, recoil=2.2)
+    # Hidden in the middle of the body: drops stacked under one another, heavier toward the bottom. When the body
+    # lets go they pull apart like elastic into a string of bulbs and necks that part one by one.
+    column, prev_c = [], body[4]
+    for i, (r, w) in enumerate(((14.5, 1.0), (13.0, 1.12), (12.0, 1.25), (11.0, 1.4), (10.0, 1.6))):
+        idx = s.add(s.drops[body[4]].x + rng.uniform(-1, 1), 80 + 5 * i, 0, 0, r + rng.uniform(-0.8, 0.8),
+                    pinned=True, drag=0.03, hold=10**6, fade=0.95)
+        s.drops[idx].weight = w
+        s.link(prev_c, idx, snap=3.4 + 0.3 * rng.random(), pull=0.05, recoil=2.0)
+        column.append(idx)
+        prev_c = idx
+    # The tongue: a string of thin drops hanging from the middle, a bulb at its tip that fills up and pulls.
+    prev = body[4]
+    tongue = []
+    for i in range(7):
+        r = 7.5 - 0.35 * i
+        idx = s.add(s.drops[body[4]].x + rng.uniform(-0.8, 0.8), 92 + 7 * i, 0, 0, r, drag=0.08, hold=60, fade=0.93)
+        s.link(prev, idx, snap=4.2, pull=0.32 - 0.03 * i, recoil=2.0, satellite=i > 3)
+        tongue.append(idx)
+        prev = idx
+    tip = s.add(s.drops[body[4]].x, 142, 0, 0, 8.0, grow=0.36, grow_until=18, weight=1.6, drag=0.02, hold=10**6,
+                fade=0.95)
+    s.link(prev, tip, snap=3.0, pull=0.12, recoil=2.4)
 
-    def weaken(sim, f):
-        # The hanging drop gets heavier: its neck holds less and less, stretches, and lets go about a second in.
-        for start, t1, t2 in pulls:
-            age = f - start
-            if 0 <= age <= 30:
-                k = 0.2 * (1.0 - age / 30.0) + 0.012
-                sim.threads[t1].pull = k
-                sim.threads[t2].pull = k * 0.8
-    s.hooks.append(weaken)
+    def let_go(sim, f):
+        # A beat after the bulb has gone, the middle of the body lets go too and falls stretching; its ends stay.
+        if f == 30:
+            sim.drops[body[4]].pinned = False
+            for i in column:
+                sim.drops[i].pinned = False
+            # The falling middle thins into bulbs and necks: its threads to the ends become long elastic arms.
+            for t in sim.threads:
+                if t.a in body and t.b in body:
+                    t.snap, t.pull = 3.6, 0.03
+            for i in tongue:
+                sim.drops[i].weight = 1.15
+        if f == 54:
+            for i in (2, 3, 5, 6):
+                sim.drops[body[i]].pinned = False
+    s.hooks.append(let_go)
     return s
 
 

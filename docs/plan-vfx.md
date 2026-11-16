@@ -291,3 +291,8 @@ Medido en el video de estudio (solo el comportamiento, no las formas; `vfx_liqui
 - **Trampa:** `outlines()` de rtfx2 descarta las piezas que tocan el borde del cuadro (en el estudio eran celdas
   vecinas): dejar margen (el borde del goteo se perdía en el render de la app pero no en la vista previa).
 - Pendiente: rehacer con lo mismo salpicadura (corona desde el suelo), racimo, anillo y gota, si Jorge aprueba esto.
+- 2026-11-16, Jorge: chorro aprobado («el primero está ok»); el goteo tenía que **caer como elástico y romperse**
+  como en RTFX. Goteo v3: lengua fina con bulbo pesado (`weight`) que se estira con hilos elásticos (`snap` 3–4×,
+  `recoil` fuerte) y se rompe en cuentas; después el cuerpo se suelta: una columna escondida en su centro (gotas
+  apiladas, más pesadas abajo) se estira en bultos y cuellos; los costados quedan como brazos en V que se cortan;
+  las motas muy chicas se apagan más rápido. Sin ver por Jorge todavía.
