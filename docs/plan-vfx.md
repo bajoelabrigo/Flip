@@ -313,3 +313,7 @@ Medido en el video de estudio (solo el comportamiento, no las formas; `vfx_liqui
   suelo se abren las hojas; **racimo** = un bulto entra lanzado desde un costado y se abre en lóbulos al volar; **anillo**
   = vista desde arriba, la gota se acerca (crece) y al golpear se abre el aro y queda un resto en el centro. Arreglado el
   ritmo: «en unos» es una ventana (`ones_from`–`ones_until`), no todo lo anterior. Sin ver por Jorge todavía.
+- **2026-11-16: las seis APROBADAS** (salpicadura, racimo y anillo con historia: «sí, mejoró bastante»). Líquidos
+  propios terminados en `vfx_liquid_gen.py` (semilla = otra pieza de la misma familia). Falta decidir con Jorge la
+  entrega en Stock (plantilla nativa, `minAppVersion` 0.32.0 porque usan grupos de recorte) y seguir con la próxima
+  familia (humo) con el mismo método: estudio → física → historia.
