@@ -39446,6 +39446,2329 @@
     "caixa"
    ]
   },
+  "template:yp10-boton-suscribete": {
+   "name": "Botão SUBSCRIBE MY CHANNEL com setas",
+   "tags": [
+    "youtube",
+    "à mão",
+    "inscreva-se",
+    "botão",
+    "setas"
+   ]
+  },
+  "template:yp10-caja-roja": {
+   "name": "SUSCRÍBETE YA em caixa vermelha",
+   "tags": [
+    "youtube",
+    "à mão",
+    "desenho",
+    "inscreva-se",
+    "espanhol"
+   ]
+  },
+  "template:yp10-check": {
+   "name": "Check New Video com visto verde",
+   "tags": [
+    "youtube",
+    "à mão",
+    "desenho",
+    "visto",
+    "novo vídeo"
+   ]
+  },
+  "template:yp10-cuenta": {
+   "name": "@youraccount com gota azul",
+   "tags": [
+    "youtube",
+    "à mão",
+    "desenho",
+    "conta",
+    "gota"
+   ]
+  },
+  "template:yp10-luna": {
+   "name": "SUBSCRIBE com lua e Like New Video",
+   "tags": [
+    "youtube",
+    "à mão",
+    "inscreva-se",
+    "lua",
+    "curtir"
+   ]
+  },
+  "template:yp10-me-gusta-amarillo": {
+   "name": "Like New Video com joinha amarelo",
+   "tags": [
+    "youtube",
+    "à mão",
+    "desenho",
+    "curtir",
+    "joinha"
+   ]
+  },
+  "template:yp10-mi-canal": {
+   "name": "My Channel que é selecionado e cresce",
+   "tags": [
+    "youtube",
+    "à mão",
+    "desenho",
+    "canal",
+    "seleção"
+   ]
+  },
+  "template:yp10-nuevo-video-morado": {
+   "name": "NEW VIDEO em caixa roxa com Like",
+   "tags": [
+    "youtube",
+    "à mão",
+    "desenho",
+    "novo vídeo",
+    "caixa"
+   ]
+  },
+  "template:yp10-nuevo-video-rosa": {
+   "name": "New Video com mancha rosa e corações",
+   "tags": [
+    "youtube",
+    "à mão",
+    "desenho",
+    "novo vídeo",
+    "corações"
+   ]
+  },
+  "template:yp10-podcast": {
+   "name": "NEW PODCAST com respingo",
+   "tags": [
+    "youtube",
+    "à mão",
+    "desenho",
+    "podcast",
+    "respingo"
+   ]
+  },
+  "template:yp10-pulgar-beige": {
+   "name": "NUEVO VIDEO AQUÍ com joinha",
+   "tags": [
+    "youtube",
+    "à mão",
+    "desenho",
+    "joinha",
+    "espanhol"
+   ]
+  },
+  "template:yp10-social-media": {
+   "name": "Social Media Title com oval vermelho",
+   "tags": [
+    "youtube",
+    "à mão",
+    "desenho",
+    "título",
+    "oval"
+   ]
+  },
+  "template:yp10-suscribete-flechas": {
+   "name": "Botão Subscribe vermelho com setas",
+   "tags": [
+    "youtube",
+    "à mão",
+    "inscreva-se",
+    "botão",
+    "setas"
+   ]
+  },
+  "template:yp10-suscribete-puntos": {
+   "name": "Subscribe com pontos coloridos e @yourchannel",
+   "tags": [
+    "youtube",
+    "à mão",
+    "desenho",
+    "inscreva-se",
+    "botão"
+   ]
+  },
+  "template:yp10-tu-logo": {
+   "name": "Your Logo com tinta azul",
+   "tags": [
+    "youtube",
+    "à mão",
+    "desenho",
+    "logo",
+    "tinta"
+   ]
+  },
+  "template:yp11-amazing": {
+   "name": "Texto: AMAZING com arco-íris",
+   "tags": [
+    "youtube",
+    "arco-íris",
+    "incrível",
+    "texto"
+   ]
+  },
+  "template:yp11-any-language": {
+   "name": "Texto: Use Any Language em círculo",
+   "tags": [
+    "youtube",
+    "círculo",
+    "idioma",
+    "texto"
+   ]
+  },
+  "template:yp11-brand-new-year": {
+   "name": "Título: ano 2026 Brand New",
+   "tags": [
+    "youtube",
+    "ano",
+    "novo",
+    "título"
+   ]
+  },
+  "template:yp11-channel-name": {
+   "name": "Botão: nome do canal",
+   "tags": [
+    "youtube",
+    "canal",
+    "botão",
+    "seta"
+   ]
+  },
+  "template:yp11-click": {
+   "name": "Botão: CLICK com mão",
+   "tags": [
+    "youtube",
+    "clique",
+    "mão",
+    "botão"
+   ]
+  },
+  "template:yp11-comment": {
+   "name": "Texto: Comment com seta",
+   "tags": [
+    "youtube",
+    "comentar",
+    "seta",
+    "texto"
+   ]
+  },
+  "template:yp11-follow-me": {
+   "name": "Botão: siga-me com interruptor",
+   "tags": [
+    "youtube",
+    "seguir",
+    "interruptor",
+    "botão"
+   ]
+  },
+  "template:yp11-high-quality": {
+   "name": "Botão: alta qualidade com ponteiro",
+   "tags": [
+    "youtube",
+    "qualidade",
+    "botão",
+    "ponteiro"
+   ]
+  },
+  "template:yp11-like-heart": {
+   "name": "Texto: Like com coração",
+   "tags": [
+    "youtube",
+    "curtir",
+    "coração",
+    "texto"
+   ]
+  },
+  "template:yp11-like-my-video": {
+   "name": "Texto: Like my video com joinha",
+   "tags": [
+    "youtube",
+    "curtir",
+    "joinha",
+    "texto"
+   ]
+  },
+  "template:yp11-looking-perfect": {
+   "name": "Texto: Looking Perfect com pontos",
+   "tags": [
+    "youtube",
+    "pontos",
+    "texto",
+    "tipografia"
+   ]
+  },
+  "template:yp11-new-video": {
+   "name": "Etiqueta: New Video com carinha",
+   "tags": [
+    "youtube",
+    "novo vídeo",
+    "carinha",
+    "etiqueta"
+   ]
+  },
+  "template:yp11-play": {
+   "name": "Botão: play vermelho",
+   "tags": [
+    "youtube",
+    "play",
+    "botão",
+    "vermelho"
+   ]
+  },
+  "template:yp11-rate-us": {
+   "name": "Texto: Rate Us com coração",
+   "tags": [
+    "youtube",
+    "avaliar",
+    "coração",
+    "texto"
+   ]
+  },
+  "template:yp11-share": {
+   "name": "Texto: SHARE com seta",
+   "tags": [
+    "youtube",
+    "compartilhar",
+    "seta",
+    "texto"
+   ]
+  },
+  "template:yp11-subscribe-bell": {
+   "name": "Texto: Subscribe com sininho",
+   "tags": [
+    "youtube",
+    "inscreva-se",
+    "sininho",
+    "texto"
+   ]
+  },
+  "template:yp11-thanks-watching": {
+   "name": "Texto: obrigado por assistir com olho",
+   "tags": [
+    "youtube",
+    "obrigado",
+    "olho",
+    "agradecimento"
+   ]
+  },
+  "template:yp11-titles-smiley": {
+   "name": "Título: TITLES & BUTTONS com carinha",
+   "tags": [
+    "youtube",
+    "carinha",
+    "título",
+    "tipografia"
+   ]
+  },
+  "template:yp11-trendy-style": {
+   "name": "Texto: Trendy Style com raios",
+   "tags": [
+    "youtube",
+    "raio",
+    "tendência",
+    "texto"
+   ]
+  },
+  "template:yp11-watch-now": {
+   "name": "Texto: assista agora com flores",
+   "tags": [
+    "youtube",
+    "assistir",
+    "novo vídeo",
+    "flores"
+   ]
+  },
+  "template:yp12-barra-profesora": {
+   "name": "Barra com foto, curtir, sininho e inscrição",
+   "tags": [
+    "youtube",
+    "inscreva-se",
+    "barra",
+    "curtir",
+    "sininho"
+   ]
+  },
+  "template:yp12-foto-burbujas": {
+   "name": "Foto com bolhas e ícones",
+   "tags": [
+    "youtube",
+    "inscreva-se",
+    "foto",
+    "bolhas",
+    "sininho"
+   ]
+  },
+  "template:yp12-foto-iconos": {
+   "name": "Foto com ícones saindo dela",
+   "tags": [
+    "youtube",
+    "inscreva-se",
+    "foto",
+    "curtir",
+    "sininho"
+   ]
+  },
+  "template:yp12-foto-lados": {
+   "name": "Foto com ícones dos lados",
+   "tags": [
+    "youtube",
+    "inscreva-se",
+    "foto",
+    "curtir",
+    "sininho"
+   ]
+  },
+  "template:yp12-foto-liquida": {
+   "name": "Foto com ícones líquidos",
+   "tags": [
+    "youtube",
+    "inscreva-se",
+    "foto",
+    "líquido",
+    "sininho"
+   ]
+  },
+  "template:yp12-foto-orbita": {
+   "name": "Foto redonda com ícones girando",
+   "tags": [
+    "youtube",
+    "inscreva-se",
+    "foto",
+    "círculo",
+    "sininho"
+   ]
+  },
+  "template:yp12-lista-botones": {
+   "name": "Lista: curtir, inscrever-se e ativar notificações",
+   "tags": [
+    "youtube",
+    "inscreva-se",
+    "lista",
+    "curtir",
+    "sininho"
+   ]
+  },
+  "template:yp12-lista-capsula": {
+   "name": "Lista em cápsula: curtir, inscrever-se e notificações",
+   "tags": [
+    "youtube",
+    "inscreva-se",
+    "lista",
+    "curtir",
+    "sininho"
+   ]
+  },
+  "template:yp12-nombre-suscrito": {
+   "name": "Canal com nome, inscrito e sininho",
+   "tags": [
+    "youtube",
+    "inscreva-se",
+    "botão",
+    "nome",
+    "sininho"
+   ]
+  },
+  "template:yp12-tarjeta-gris": {
+   "name": "Cartão cinza com foto grande",
+   "tags": [
+    "youtube",
+    "inscreva-se",
+    "cartão",
+    "curtir",
+    "sininho"
+   ]
+  },
+  "template:yp12-tarjeta-lista": {
+   "name": "Nome do canal que se abre em cartão",
+   "tags": [
+    "youtube",
+    "inscreva-se",
+    "cartão",
+    "lista",
+    "curtir"
+   ]
+  },
+  "template:yp12-tarjeta-rosa": {
+   "name": "Cartão com foto e inscrição rosa",
+   "tags": [
+    "youtube",
+    "inscreva-se",
+    "botão",
+    "cartão",
+    "rosa"
+   ]
+  },
+  "template:yp12-tres-botones": {
+   "name": "Três botões redondos",
+   "tags": [
+    "youtube",
+    "inscreva-se",
+    "botão",
+    "curtir",
+    "sininho"
+   ]
+  },
+  "template:yp13-aconseja-amigos": {
+   "name": "Recomende aos amigos: joinhas",
+   "tags": [
+    "youtube",
+    "avaliação",
+    "curtir",
+    "joinha",
+    "cursor"
+   ]
+  },
+  "template:yp13-agregar-comentario": {
+   "name": "Botão adicionar comentário que publica",
+   "tags": [
+    "youtube",
+    "comentário",
+    "botão",
+    "cursor"
+   ]
+  },
+  "template:yp13-avatar-comentario": {
+   "name": "Avatar com aviso que abre um comentário",
+   "tags": [
+    "youtube",
+    "comentário",
+    "avatar",
+    "cursor"
+   ]
+  },
+  "template:yp13-aviso-cafe": {
+   "name": "Janela de alerta com OK",
+   "tags": [
+    "youtube",
+    "alerta",
+    "janela",
+    "cursor"
+   ]
+  },
+  "template:yp13-aviso-comentarios": {
+   "name": "Notificação de comentários",
+   "tags": [
+    "youtube",
+    "notificação",
+    "comentários",
+    "contador"
+   ]
+  },
+  "template:yp13-aviso-doble": {
+   "name": "Notificação de curtidas e seguidores",
+   "tags": [
+    "youtube",
+    "notificação",
+    "curtidas",
+    "seguidores"
+   ]
+  },
+  "template:yp13-aviso-me-gusta": {
+   "name": "Notificação de curtidas",
+   "tags": [
+    "youtube",
+    "notificação",
+    "curtidas",
+    "contador"
+   ]
+  },
+  "template:yp13-aviso-seguidores": {
+   "name": "Notificação de seguidores",
+   "tags": [
+    "youtube",
+    "notificação",
+    "seguidores",
+    "contador"
+   ]
+  },
+  "template:yp13-barra-suscribir": {
+   "name": "Barra: curtir, inscrever-se e sininho",
+   "tags": [
+    "youtube",
+    "inscreva-se",
+    "curtir",
+    "sininho",
+    "cursor"
+   ]
+  },
+  "template:yp13-buscar-boton": {
+   "name": "Campo de busca com botão SEARCH",
+   "tags": [
+    "youtube",
+    "busca",
+    "botão",
+    "cursor"
+   ]
+  },
+  "template:yp13-buscar-cargando": {
+   "name": "Barra de busca que passa a «carregando»",
+   "tags": [
+    "youtube",
+    "busca",
+    "carregando",
+    "cursor",
+    "web"
+   ]
+  },
+  "template:yp13-buscar-lupa": {
+   "name": "Campo de busca com lupa quadrada",
+   "tags": [
+    "youtube",
+    "busca",
+    "lupa",
+    "cursor"
+   ]
+  },
+  "template:yp13-buscar-mapa": {
+   "name": "Mapa com busca e alfinete",
+   "tags": [
+    "youtube",
+    "mapa",
+    "busca",
+    "localização",
+    "cursor"
+   ]
+  },
+  "template:yp13-caras-valorar": {
+   "name": "Gostou do vídeo? Carinhas",
+   "tags": [
+    "youtube",
+    "avaliação",
+    "carinhas",
+    "cursor"
+   ]
+  },
+  "template:yp13-carrito-precio": {
+   "name": "Botão de carrinho com preço",
+   "tags": [
+    "youtube",
+    "carrinho",
+    "compra",
+    "preço",
+    "cursor"
+   ]
+  },
+  "template:yp13-casilla-marcada": {
+   "name": "Caixa marcada CHECKED",
+   "tags": [
+    "youtube",
+    "caixa de seleção",
+    "marcado",
+    "cursor"
+   ]
+  },
+  "template:yp13-chat-dos": {
+   "name": "Chat a dois com hora e resposta",
+   "tags": [
+    "youtube",
+    "chat",
+    "mensagem",
+    "cursor"
+   ]
+  },
+  "template:yp13-chat-nombres": {
+   "name": "Chat com nomes e resposta",
+   "tags": [
+    "youtube",
+    "chat",
+    "mensagem",
+    "nomes",
+    "cursor"
+   ]
+  },
+  "template:yp13-chat-ventana-amarilla": {
+   "name": "Janela de chat amarela com nomes",
+   "tags": [
+    "youtube",
+    "chat",
+    "mensagem",
+    "janela",
+    "nomes"
+   ]
+  },
+  "template:yp13-chat-ventana-azul": {
+   "name": "Janela de chat azul",
+   "tags": [
+    "youtube",
+    "chat",
+    "mensagem",
+    "janela"
+   ]
+  },
+  "template:yp13-chat-ventana-grande": {
+   "name": "Janela de chat sobre o vídeo",
+   "tags": [
+    "youtube",
+    "chat",
+    "mensagem",
+    "janela"
+   ]
+  },
+  "template:yp13-comentario-like": {
+   "name": "Comentário com LIKE e REPLY",
+   "tags": [
+    "youtube",
+    "comentário",
+    "curtir",
+    "cursor"
+   ]
+  },
+  "template:yp13-comentario-votos": {
+   "name": "Comentário com curtir e responder",
+   "tags": [
+    "youtube",
+    "comentário",
+    "curtir",
+    "responder",
+    "cursor"
+   ]
+  },
+  "template:yp13-comprar-gracias": {
+   "name": "Botão de compra que diz obrigado",
+   "tags": [
+    "youtube",
+    "botão",
+    "compra",
+    "cursor"
+   ]
+  },
+  "template:yp13-contador-comentarios": {
+   "name": "Balão com contador de comentários",
+   "tags": [
+    "youtube",
+    "contador",
+    "comentários",
+    "balão",
+    "cursor"
+   ]
+  },
+  "template:yp13-contador-corazon": {
+   "name": "Coração com contador de curtidas",
+   "tags": [
+    "youtube",
+    "contador",
+    "curtidas",
+    "coração",
+    "cursor"
+   ]
+  },
+  "template:yp13-contador-pulgar": {
+   "name": "Joinha com contador de curtidas",
+   "tags": [
+    "youtube",
+    "contador",
+    "curtidas",
+    "joinha",
+    "cursor"
+   ]
+  },
+  "template:yp13-contador-seguidores": {
+   "name": "Pessoa com contador de seguidores",
+   "tags": [
+    "youtube",
+    "contador",
+    "seguidores",
+    "cursor"
+   ]
+  },
+  "template:yp13-descargar-anillo": {
+   "name": "Botão de download com anel de progresso",
+   "tags": [
+    "youtube",
+    "download",
+    "progresso",
+    "cursor"
+   ]
+  },
+  "template:yp13-descargar-barra": {
+   "name": "Botão de download com barra de progresso",
+   "tags": [
+    "youtube",
+    "download",
+    "progresso",
+    "cursor"
+   ]
+  },
+  "template:yp13-enviar-comentario": {
+   "name": "Campo de comentário com enviar",
+   "tags": [
+    "youtube",
+    "comentário",
+    "chat",
+    "enviar",
+    "cursor"
+   ]
+  },
+  "template:yp13-insignia-camara": {
+   "name": "Botão redondo com câmera",
+   "tags": [
+    "youtube",
+    "selo",
+    "câmera",
+    "cursor"
+   ]
+  },
+  "template:yp13-insignia-click-here": {
+   "name": "Quadrado CLICK HERE que vira GOOD JOB!",
+   "tags": [
+    "youtube",
+    "botão",
+    "clique",
+    "cursor"
+   ]
+  },
+  "template:yp13-insignia-foto": {
+   "name": "Foto quadrada com toque",
+   "tags": [
+    "youtube",
+    "foto",
+    "avatar",
+    "cursor"
+   ]
+  },
+  "template:yp13-insignia-get-ready": {
+   "name": "Selo GET READY com foto",
+   "tags": [
+    "youtube",
+    "selo",
+    "foto",
+    "cursor"
+   ]
+  },
+  "template:yp13-insignia-like-this": {
+   "name": "Selo com foto que vira LIKE THIS!",
+   "tags": [
+    "youtube",
+    "selo",
+    "curtir",
+    "foto",
+    "cursor"
+   ]
+  },
+  "template:yp13-insignia-pajaro": {
+   "name": "Botão redondo com pássaro",
+   "tags": [
+    "youtube",
+    "selo",
+    "redes sociais",
+    "cursor"
+   ]
+  },
+  "template:yp13-insignia-seguir": {
+   "name": "Selo que vira FOLLOW",
+   "tags": [
+    "youtube",
+    "selo",
+    "seguir",
+    "cursor"
+   ]
+  },
+  "template:yp13-insignia-unete": {
+   "name": "Selo JOIN US com clique",
+   "tags": [
+    "youtube",
+    "selo",
+    "junte-se",
+    "cursor"
+   ]
+  },
+  "template:yp13-interruptor-encender": {
+   "name": "Interruptor TURN ON",
+   "tags": [
+    "youtube",
+    "interruptor",
+    "ligar",
+    "cursor"
+   ]
+  },
+  "template:yp13-interruptor-on-off": {
+   "name": "Interruptor START KEY ON/OFF",
+   "tags": [
+    "youtube",
+    "interruptor",
+    "ligar",
+    "cursor"
+   ]
+  },
+  "template:yp13-lista-bienvenida": {
+   "name": "Lista de botões «bem-vindo ao meu canal»",
+   "tags": [
+    "youtube",
+    "lista",
+    "inscreva-se",
+    "boas-vindas",
+    "cursor"
+   ]
+  },
+  "template:yp13-lista-canal-grande": {
+   "name": "Lista do canal sobre o vídeo",
+   "tags": [
+    "youtube",
+    "lista",
+    "inscreva-se",
+    "cursor"
+   ]
+  },
+  "template:yp13-lista-interruptores": {
+   "name": "Lista com interruptores",
+   "tags": [
+    "youtube",
+    "lista",
+    "interruptor",
+    "cursor"
+   ]
+  },
+  "template:yp13-lista-no-olvides": {
+   "name": "Lista «não esqueça»: inscreva-se, notificações, curtir",
+   "tags": [
+    "youtube",
+    "lista",
+    "inscreva-se",
+    "cursor"
+   ]
+  },
+  "template:yp13-lista-tareas": {
+   "name": "Lista de tarefas de hoje",
+   "tags": [
+    "youtube",
+    "lista",
+    "tarefas",
+    "cursor"
+   ]
+  },
+  "template:yp13-mensaje-abrir": {
+   "name": "Botão de mensagem que se abre",
+   "tags": [
+    "youtube",
+    "mensagem",
+    "chat",
+    "cursor"
+   ]
+  },
+  "template:yp13-opcion-seleccionar": {
+   "name": "Opção SELECT",
+   "tags": [
+    "youtube",
+    "opção",
+    "seleção",
+    "cursor"
+   ]
+  },
+  "template:yp13-perfil-seguir": {
+   "name": "Perfil com fotos e botão seguir",
+   "tags": [
+    "youtube",
+    "perfil",
+    "seguir",
+    "cursor",
+    "fotos"
+   ]
+  },
+  "template:yp13-post-botones": {
+   "name": "Post com botões arredondados",
+   "tags": [
+    "youtube",
+    "post",
+    "curtir",
+    "cursor",
+    "botões"
+   ]
+  },
+  "template:yp13-post-insta": {
+   "name": "Post com foto grande e curtida",
+   "tags": [
+    "youtube",
+    "post",
+    "curtir",
+    "cursor",
+    "foto"
+   ]
+  },
+  "template:yp13-post-muro": {
+   "name": "Post de mural com Curtir, Comentar e Compartilhar",
+   "tags": [
+    "youtube",
+    "post",
+    "curtir",
+    "cursor"
+   ]
+  },
+  "template:yp13-post-noticia": {
+   "name": "Post com nome azul e curtida",
+   "tags": [
+    "youtube",
+    "post",
+    "curtir",
+    "cursor"
+   ]
+  },
+  "template:yp13-post-texto": {
+   "name": "Post de texto com curtida",
+   "tags": [
+    "youtube",
+    "post",
+    "curtir",
+    "cursor"
+   ]
+  },
+  "template:yp13-post-tuit": {
+   "name": "Post estilo tweet com curtida",
+   "tags": [
+    "youtube",
+    "post",
+    "curtir",
+    "cursor"
+   ]
+  },
+  "template:yp13-post-tuit-enlace": {
+   "name": "Tweet com cartão de link e curtida",
+   "tags": [
+    "youtube",
+    "post",
+    "curtir",
+    "cursor",
+    "link"
+   ]
+  },
+  "template:yp13-post-tuit-foto": {
+   "name": "Tweet com foto e curtida",
+   "tags": [
+    "youtube",
+    "post",
+    "curtir",
+    "cursor",
+    "foto"
+   ]
+  },
+  "template:yp13-post-vertical": {
+   "name": "Post vertical com curtida",
+   "tags": [
+    "youtube",
+    "post",
+    "curtir",
+    "cursor",
+    "vertical"
+   ]
+  },
+  "template:yp13-post-video-campana": {
+   "name": "Post de vídeo: inscrição e sininho",
+   "tags": [
+    "youtube",
+    "post",
+    "inscreva-se",
+    "sininho",
+    "cursor"
+   ]
+  },
+  "template:yp13-post-video-suscribir": {
+   "name": "Post de vídeo com botão de inscrição",
+   "tags": [
+    "youtube",
+    "post",
+    "inscreva-se",
+    "cursor"
+   ]
+  },
+  "template:yp13-post-video-votos": {
+   "name": "Post de vídeo com gostei e não gostei",
+   "tags": [
+    "youtube",
+    "post",
+    "curtir",
+    "cursor"
+   ]
+  },
+  "template:yp13-reaccion-corazones": {
+   "name": "Botão LOVE IT! com corações subindo",
+   "tags": [
+    "youtube",
+    "reação",
+    "corações",
+    "botão",
+    "cursor"
+   ]
+  },
+  "template:yp13-reaccion-estrellas": {
+   "name": "Botão com estrelas verdes subindo",
+   "tags": [
+    "youtube",
+    "reação",
+    "estrelas",
+    "botão",
+    "cursor"
+   ]
+  },
+  "template:yp13-reaccion-monedas": {
+   "name": "Botão DONATE com moedas subindo",
+   "tags": [
+    "youtube",
+    "reação",
+    "doação",
+    "moedas",
+    "botão"
+   ]
+  },
+  "template:yp13-reaccion-pulgares": {
+   "name": "Botão LIKE THIS com joinhas subindo",
+   "tags": [
+    "youtube",
+    "reação",
+    "curtir",
+    "botão",
+    "cursor"
+   ]
+  },
+  "template:yp13-recomiendo": {
+   "name": "Recomendo: cinco corações",
+   "tags": [
+    "youtube",
+    "avaliação",
+    "corações",
+    "recomendo",
+    "cursor"
+   ]
+  },
+  "template:yp13-reproductor-amarillo": {
+   "name": "Botões amarelos de player",
+   "tags": [
+    "youtube",
+    "player",
+    "botões",
+    "cursor"
+   ]
+  },
+  "template:yp13-reproductor-azul": {
+   "name": "Botões azuis de player",
+   "tags": [
+    "youtube",
+    "player",
+    "botões",
+    "cursor"
+   ]
+  },
+  "template:yp13-reproductor-cuadrado": {
+   "name": "Botões quadrados de player",
+   "tags": [
+    "youtube",
+    "player",
+    "botões",
+    "cursor"
+   ]
+  },
+  "template:yp13-reproductor-redondo": {
+   "name": "Botões redondos de player",
+   "tags": [
+    "youtube",
+    "player",
+    "botões",
+    "cursor"
+   ]
+  },
+  "template:yp13-tarjeta-canal": {
+   "name": "Cartão do canal que se abre",
+   "tags": [
+    "youtube",
+    "canal",
+    "inscreva-se",
+    "avatar",
+    "cursor"
+   ]
+  },
+  "template:yp13-tarjeta-suscribir-grande": {
+   "name": "Cartão grande do canal com inscrição",
+   "tags": [
+    "youtube",
+    "canal",
+    "inscreva-se",
+    "avatar",
+    "tarja"
+   ]
+  },
+  "template:yp13-tuit-texto": {
+   "name": "Tweet de texto com curtida",
+   "tags": [
+    "youtube",
+    "post",
+    "curtir",
+    "cursor",
+    "comentário"
+   ]
+  },
+  "template:yp13-valoranos": {
+   "name": "Avalie-nos: lista de estrelas",
+   "tags": [
+    "youtube",
+    "avaliação",
+    "estrelas",
+    "cursor"
+   ]
+  },
+  "template:yp13-valorar-10": {
+   "name": "Avaliação 10/10 com estrelas",
+   "tags": [
+    "youtube",
+    "avaliação",
+    "estrelas",
+    "cursor"
+   ]
+  },
+  "template:yp13-valorar-articulo": {
+   "name": "Avaliar com cinco estrelas",
+   "tags": [
+    "youtube",
+    "avaliação",
+    "estrelas",
+    "cursor"
+   ]
+  },
+  "template:yp13-valorar-genial": {
+   "name": "Botão avaliar que dá estrelas",
+   "tags": [
+    "youtube",
+    "avaliação",
+    "estrelas",
+    "cursor",
+    "botão"
+   ]
+  },
+  "template:yp13-valorar-plantilla": {
+   "name": "Cartão de avaliação com estrelas",
+   "tags": [
+    "youtube",
+    "avaliação",
+    "estrelas",
+    "cursor",
+    "logo"
+   ]
+  },
+  "template:yp13-video-suscribir-campana": {
+   "name": "Cartão de vídeo com inscrição e sininho",
+   "tags": [
+    "youtube",
+    "post",
+    "inscreva-se",
+    "sininho",
+    "cursor"
+   ]
+  },
+  "template:yp13-volumen": {
+   "name": "Controle de volume MAKE SOME NOISE",
+   "tags": [
+    "youtube",
+    "volume",
+    "controle deslizante",
+    "cursor"
+   ]
+  },
+  "template:yp14-barra-abajo-acciones": {
+   "name": "Barra do vídeo embaixo: curtir, compartilhar, baixar e salvar",
+   "tags": [
+    "youtube",
+    "barra",
+    "canal",
+    "curtir",
+    "compartilhar"
+   ]
+  },
+  "template:yp14-barra-abajo-campana": {
+   "name": "Barra do canal embaixo com inscrito e sininho",
+   "tags": [
+    "youtube",
+    "barra",
+    "canal",
+    "inscreva-se",
+    "sininho"
+   ]
+  },
+  "template:yp14-barra-abajo-me-gusta": {
+   "name": "Barra do canal embaixo com curtidas e inscrição",
+   "tags": [
+    "youtube",
+    "barra",
+    "canal",
+    "inscreva-se",
+    "curtir"
+   ]
+  },
+  "template:yp14-barra-arriba": {
+   "name": "Barra do canal no topo empurrando a foto",
+   "tags": [
+    "youtube",
+    "barra",
+    "canal",
+    "inscreva-se",
+    "foto"
+   ]
+  },
+  "template:yp14-barra-valoracion-arriba": {
+   "name": "Barra do canal no topo com gostei, não gostei e avaliação",
+   "tags": [
+    "youtube",
+    "barra",
+    "canal",
+    "avaliação",
+    "curtir"
+   ]
+  },
+  "template:yp14-barra-video-suscribirse": {
+   "name": "Barra branca embaixo sobre o vídeo: avatar, nome e inscrição",
+   "tags": [
+    "youtube",
+    "barra",
+    "canal",
+    "inscreva-se",
+    "avatar"
+   ]
+  },
+  "template:yp14-boton-redondo-campana": {
+   "name": "Botão redondo vermelho: sininho e «Get notified»",
+   "tags": [
+    "youtube",
+    "botão",
+    "texto",
+    "sininho"
+   ]
+  },
+  "template:yp14-boton-redondo-compartir": {
+   "name": "Botão redondo vermelho: compartilhar e «Share this»",
+   "tags": [
+    "youtube",
+    "botão",
+    "texto",
+    "compartilhar"
+   ]
+  },
+  "template:yp14-boton-redondo-me-gusta": {
+   "name": "Botão redondo vermelho: curtir e «Like the video»",
+   "tags": [
+    "youtube",
+    "botão",
+    "texto",
+    "curtir"
+   ]
+  },
+  "template:yp14-boton-redondo-suscribirse": {
+   "name": "Botão redondo vermelho: play e «Subscribe»",
+   "tags": [
+    "youtube",
+    "botão",
+    "texto",
+    "play",
+    "inscreva-se"
+   ]
+  },
+  "template:yp14-campana-compartir-redondos": {
+   "name": "Dois botões vermelhos: sininho e compartilhar",
+   "tags": [
+    "youtube",
+    "botão",
+    "sininho",
+    "compartilhar"
+   ]
+  },
+  "template:yp14-canal-avatar-arriba": {
+   "name": "Botão vertical do canal com avatar no topo",
+   "tags": [
+    "youtube",
+    "botão",
+    "inscreva-se",
+    "avatar"
+   ]
+  },
+  "template:yp14-canal-avatar-centro": {
+   "name": "Botão do canal com avatar no centro, compartilhar e sininho",
+   "tags": [
+    "youtube",
+    "botão",
+    "inscreva-se",
+    "avatar"
+   ]
+  },
+  "template:yp14-canal-avatar-esquina": {
+   "name": "Botão do canal com avatar no canto, compartilhar e sininho",
+   "tags": [
+    "youtube",
+    "botão",
+    "inscreva-se",
+    "avatar"
+   ]
+  },
+  "template:yp14-canal-circulo": {
+   "name": "Canal em círculo com sininho, curtir e compartilhar",
+   "tags": [
+    "youtube",
+    "botão",
+    "sininho",
+    "curtir",
+    "círculo"
+   ]
+  },
+  "template:yp14-canal-foto-campana": {
+   "name": "Botão do canal: foto, inscrição e sininho",
+   "tags": [
+    "youtube",
+    "botão",
+    "inscreva-se",
+    "sininho"
+   ]
+  },
+  "template:yp14-canal-foto-vertical": {
+   "name": "Botão vertical do canal: foto, inscrição, curtir e sininho",
+   "tags": [
+    "youtube",
+    "botão",
+    "inscreva-se",
+    "vertical"
+   ]
+  },
+  "template:yp14-canal-horizontal": {
+   "name": "Botão horizontal do canal: foto, inscritos, inscrição e sininho",
+   "tags": [
+    "youtube",
+    "botão",
+    "inscreva-se",
+    "horizontal"
+   ]
+  },
+  "template:yp14-canal-iconos-columna": {
+   "name": "Canal com coluna de ícones: sininho, curtir e compartilhar",
+   "tags": [
+    "youtube",
+    "botão",
+    "inscreva-se",
+    "ícones"
+   ]
+  },
+  "template:yp14-canal-nombre-largo": {
+   "name": "Botão do canal: foto, nome em três linhas, curtir e sininho",
+   "tags": [
+    "youtube",
+    "botão",
+    "inscreva-se",
+    "nome"
+   ]
+  },
+  "template:yp14-canal-sin-tarjeta": {
+   "name": "Canal: avatar, nome, inscritos e inscrição",
+   "tags": [
+    "youtube",
+    "botão",
+    "inscreva-se",
+    "avatar"
+   ]
+  },
+  "template:yp14-canal-sobre-video": {
+   "name": "Botão do canal sobre o vídeo: foto, inscritos e inscrição",
+   "tags": [
+    "youtube",
+    "botão",
+    "inscreva-se",
+    "canal"
+   ]
+  },
+  "template:yp14-canal-tarjeta-vertical": {
+   "name": "Cartão vertical do canal: nome, foto e inscrição",
+   "tags": [
+    "youtube",
+    "cartão",
+    "inscreva-se",
+    "vertical"
+   ]
+  },
+  "template:yp14-columna-botones": {
+   "name": "Coluna de botões redondos: inscrição, curtir e sininho",
+   "tags": [
+    "youtube",
+    "botão",
+    "coluna",
+    "inscreva-se"
+   ]
+  },
+  "template:yp14-columna-botones-etiquetas": {
+   "name": "Coluna de botões redondos com rótulos: inscrição, notificações, curtir",
+   "tags": [
+    "youtube",
+    "botão",
+    "texto",
+    "coluna"
+   ]
+  },
+  "template:yp14-comentario-abajo": {
+   "name": "Comentário embaixo com curtida",
+   "tags": [
+    "youtube",
+    "comentário",
+    "canal",
+    "curtir",
+    "foto"
+   ]
+  },
+  "template:yp14-comentario-arriba": {
+   "name": "Comentário no topo com gostei e não gostei",
+   "tags": [
+    "youtube",
+    "comentário",
+    "canal",
+    "curtir",
+    "foto"
+   ]
+  },
+  "template:yp14-comentario-me-gusta": {
+   "name": "Comentário com curtida clicada",
+   "tags": [
+    "youtube",
+    "comentário",
+    "comentários",
+    "curtir"
+   ]
+  },
+  "template:yp14-comentario-no-me-gusta": {
+   "name": "Comentário com não gostei clicado",
+   "tags": [
+    "youtube",
+    "comentário",
+    "comentários",
+    "não gostei"
+   ]
+  },
+  "template:yp14-comentario-respuesta": {
+   "name": "Comentário com resposta sendo digitada",
+   "tags": [
+    "youtube",
+    "comentário",
+    "comentários",
+    "resposta"
+   ]
+  },
+  "template:yp14-comentario-respuesta-2": {
+   "name": "Comentário com resposta (2)",
+   "tags": [
+    "youtube",
+    "comentário",
+    "comentários",
+    "resposta"
+   ]
+  },
+  "template:yp14-comentario-sobre-video": {
+   "name": "Comentário de uma linha sobre o vídeo",
+   "tags": [
+    "youtube",
+    "comentário",
+    "comentários",
+    "vídeo"
+   ]
+  },
+  "template:yp14-compartir-esto": {
+   "name": "Botão «Share This» de vermelho para branco",
+   "tags": [
+    "youtube",
+    "botão",
+    "texto",
+    "compartilhar"
+   ]
+  },
+  "template:yp14-fila-botones": {
+   "name": "Fileira de botões redondos: inscrição, sininho, compartilhar e curtir",
+   "tags": [
+    "youtube",
+    "botão",
+    "fileira",
+    "inscreva-se"
+   ]
+  },
+  "template:yp14-fila-me-gusta-suscribirse": {
+   "name": "Fileira: curtir, inscrever-se e sininho",
+   "tags": [
+    "youtube",
+    "botão",
+    "inscreva-se",
+    "curtir",
+    "sininho"
+   ]
+  },
+  "template:yp14-fila-suscribirse": {
+   "name": "Fileira: curtir, inscrever-se, compartilhar e sininho",
+   "tags": [
+    "youtube",
+    "botão",
+    "fileira",
+    "inscreva-se"
+   ]
+  },
+  "template:yp14-lista-suscribirse": {
+   "name": "Lista: inscreva-se, ative as notificações e curta",
+   "tags": [
+    "youtube",
+    "botão",
+    "inscreva-se",
+    "lista"
+   ]
+  },
+  "template:yp14-lista-ver-mas-tarde": {
+   "name": "Lista de vídeos: «Salvo em Assistir mais tarde»",
+   "tags": [
+    "youtube",
+    "lista",
+    "vídeos",
+    "assistir mais tarde"
+   ]
+  },
+  "template:yp14-lista-videos-abrir": {
+   "name": "Lista de vídeos: clique em um e ele ocupa a tela",
+   "tags": [
+    "youtube",
+    "lista",
+    "vídeos",
+    "clique"
+   ]
+  },
+  "template:yp14-logo-arriba-suscribirse": {
+   "name": "Logo em cima e inscrição",
+   "tags": [
+    "youtube",
+    "botão",
+    "inscreva-se",
+    "logo"
+   ]
+  },
+  "template:yp14-logo-suscribirse": {
+   "name": "Logo do canal com inscrição",
+   "tags": [
+    "youtube",
+    "botão",
+    "inscreva-se",
+    "logo"
+   ]
+  },
+  "template:yp14-logo-tarjeta": {
+   "name": "Logo do canal em cartão com inscrição, sininho e compartilhar",
+   "tags": [
+    "youtube",
+    "cartão",
+    "inscreva-se",
+    "logo"
+   ]
+  },
+  "template:yp14-logo-tarjeta-vertical": {
+   "name": "Logo do canal em cartão vertical com sininho e compartilhar",
+   "tags": [
+    "youtube",
+    "cartão",
+    "inscreva-se",
+    "logo"
+   ]
+  },
+  "template:yp14-me-gusta-avisos": {
+   "name": "Curtir e sininho com «Like this / Notified»",
+   "tags": [
+    "youtube",
+    "botão",
+    "texto",
+    "curtir",
+    "sininho"
+   ]
+  },
+  "template:yp14-me-gusta-barra": {
+   "name": "«Like this» com barra de avaliação",
+   "tags": [
+    "youtube",
+    "botão",
+    "texto",
+    "curtir",
+    "avaliação"
+   ]
+  },
+  "template:yp14-me-gusta-boton": {
+   "name": "Botão «Like it!» soltando joinhas",
+   "tags": [
+    "youtube",
+    "botão",
+    "texto",
+    "curtir"
+   ]
+  },
+  "template:yp14-me-gusta-campana-redondos": {
+   "name": "Dois botões vermelhos: curtir e sininho",
+   "tags": [
+    "youtube",
+    "botão",
+    "curtir",
+    "sininho"
+   ]
+  },
+  "template:yp14-me-gusta-compartir-botones": {
+   "name": "Botões «Like it» e «Share» de vermelho para branco",
+   "tags": [
+    "youtube",
+    "botão",
+    "texto",
+    "curtir",
+    "compartilhar"
+   ]
+  },
+  "template:yp14-me-gusta-compartir-redondos": {
+   "name": "Dois botões vermelhos: curtir e compartilhar",
+   "tags": [
+    "youtube",
+    "botão",
+    "curtir",
+    "compartilhar"
+   ]
+  },
+  "template:yp14-me-gusta-contador": {
+   "name": "Curtida grande com contador",
+   "tags": [
+    "youtube",
+    "botão",
+    "curtir",
+    "contador"
+   ]
+  },
+  "template:yp14-me-gusta-suscribirse": {
+   "name": "Curtir e inscrever-se sem cartão",
+   "tags": [
+    "youtube",
+    "botão",
+    "inscreva-se",
+    "curtir"
+   ]
+  },
+  "template:yp14-me-gusta-suscribirse-campana": {
+   "name": "Curtir, inscrever-se e sininho sem cartão",
+   "tags": [
+    "youtube",
+    "botão",
+    "inscreva-se",
+    "curtir",
+    "sininho"
+   ]
+  },
+  "template:yp14-no-me-gusta-boton": {
+   "name": "Botão «Dislike!» soltando polegares",
+   "tags": [
+    "youtube",
+    "botão",
+    "texto",
+    "não gostei"
+   ]
+  },
+  "template:yp14-no-me-gusta-contador": {
+   "name": "Não gostei grande com contador",
+   "tags": [
+    "youtube",
+    "botão",
+    "não gostei",
+    "contador"
+   ]
+  },
+  "template:yp14-no-recomendar": {
+   "name": "«Don't recommend» com cinco polegares sendo marcados",
+   "tags": [
+    "youtube",
+    "botão",
+    "texto",
+    "avaliação",
+    "não gostei"
+   ]
+  },
+  "template:yp14-nombre-suscrito-campana": {
+   "name": "Nome do canal com inscrito e sininho",
+   "tags": [
+    "youtube",
+    "botão",
+    "inscreva-se",
+    "sininho"
+   ]
+  },
+  "template:yp14-nombre-suscrito-me-gusta": {
+   "name": "Nome do canal com inscrito, gostei e não gostei",
+   "tags": [
+    "youtube",
+    "botão",
+    "inscreva-se",
+    "curtir"
+   ]
+  },
+  "template:yp14-pildora-me-gusta": {
+   "name": "Pílula vermelha gostei / não gostei: clique em gostei",
+   "tags": [
+    "youtube",
+    "botão",
+    "curtir",
+    "não gostei"
+   ]
+  },
+  "template:yp14-pildora-no-me-gusta": {
+   "name": "Pílula vermelha gostei / não gostei: clique em não gostei",
+   "tags": [
+    "youtube",
+    "botão",
+    "curtir",
+    "não gostei"
+   ]
+  },
+  "template:yp14-recomendar-amigos": {
+   "name": "«Advise friends» com cinco joinhas sendo marcados",
+   "tags": [
+    "youtube",
+    "botão",
+    "texto",
+    "avaliação",
+    "curtir"
+   ]
+  },
+  "template:yp14-suscribirse-campana": {
+   "name": "Inscrever-se e sininho sem cartão",
+   "tags": [
+    "youtube",
+    "botão",
+    "inscreva-se",
+    "sininho"
+   ]
+  },
+  "template:yp14-suscribirse-casilla": {
+   "name": "Caixa marcada com «Subscribe Youtube Channel»",
+   "tags": [
+    "youtube",
+    "botão",
+    "texto",
+    "inscreva-se",
+    "caixa de seleção"
+   ]
+  },
+  "template:yp14-suscribirse-contador": {
+   "name": "Inscrição com contador de 19999 a 20000",
+   "tags": [
+    "youtube",
+    "botão",
+    "inscreva-se",
+    "contador"
+   ]
+  },
+  "template:yp14-suscribirse-hecho": {
+   "name": "«Subscribe Channel» com «DO IT!» que vira «DONE»",
+   "tags": [
+    "youtube",
+    "botão",
+    "texto",
+    "inscreva-se"
+   ]
+  },
+  "template:yp14-suscribirse-play": {
+   "name": "Botão vermelho «SUBSCRIBE» com play que vira «SUBSCRIBED»",
+   "tags": [
+    "youtube",
+    "botão",
+    "texto",
+    "inscreva-se",
+    "play"
+   ]
+  },
+  "template:yp14-suscrito-iconos": {
+   "name": "Inscrito com curtir, sininho e compartilhar",
+   "tags": [
+    "youtube",
+    "botão",
+    "inscreva-se",
+    "ícones"
+   ]
+  },
+  "template:yp14-tarjeta-campana": {
+   "name": "Cartão do canal com inscrição e sininho",
+   "tags": [
+    "youtube",
+    "cartão",
+    "canal",
+    "inscreva-se",
+    "sininho"
+   ]
+  },
+  "template:yp14-tarjeta-comentario": {
+   "name": "Cartão de vídeo com não gostei e comentário",
+   "tags": [
+    "youtube",
+    "cartão",
+    "canal",
+    "comentário"
+   ]
+  },
+  "template:yp14-tarjeta-comentario-2": {
+   "name": "Cartão de vídeo com curtida e comentário",
+   "tags": [
+    "youtube",
+    "cartão",
+    "canal",
+    "comentário",
+    "curtir"
+   ]
+  },
+  "template:yp14-tarjeta-cristal": {
+   "name": "Cartão do canal: vidro sobre a foto com sininho",
+   "tags": [
+    "youtube",
+    "cartão",
+    "canal",
+    "inscreva-se",
+    "vidro"
+   ]
+  },
+  "template:yp14-tarjeta-cristal-inclinada": {
+   "name": "Cartão do canal: vidro inclinado sobre a foto",
+   "tags": [
+    "youtube",
+    "cartão",
+    "canal",
+    "inscreva-se",
+    "vidro"
+   ]
+  },
+  "template:yp14-tarjeta-foto-inclinada": {
+   "name": "Cartão do canal: foto inclinada com inscrição e sininho",
+   "tags": [
+    "youtube",
+    "cartão",
+    "canal",
+    "inscreva-se",
+    "foto"
+   ]
+  },
+  "template:yp14-tarjeta-foto-marco": {
+   "name": "Cartão do canal: foto em moldura branca com barra de progresso",
+   "tags": [
+    "youtube",
+    "cartão",
+    "canal",
+    "inscreva-se",
+    "foto"
+   ]
+  },
+  "template:yp14-tarjeta-foto-progreso": {
+   "name": "Cartão do canal: foto com barra de progresso e curtidas",
+   "tags": [
+    "youtube",
+    "cartão",
+    "canal",
+    "inscreva-se",
+    "foto"
+   ]
+  },
+  "template:yp14-tarjeta-foto-recta": {
+   "name": "Cartão do canal: foto emoldurada com curtir, inscrição e sininho",
+   "tags": [
+    "youtube",
+    "cartão",
+    "canal",
+    "inscreva-se",
+    "foto"
+   ]
+  },
+  "template:yp14-tarjeta-marco": {
+   "name": "Cartão do canal: moldura branca sobre a foto com barra de progresso",
+   "tags": [
+    "youtube",
+    "cartão",
+    "canal",
+    "inscreva-se",
+    "foto"
+   ]
+  },
+  "template:yp14-tarjeta-marco-inclinado": {
+   "name": "Cartão do canal: moldura branca inclinada sobre a foto",
+   "tags": [
+    "youtube",
+    "cartão",
+    "canal",
+    "inscreva-se",
+    "foto"
+   ]
+  },
+  "template:yp14-tarjeta-video-compartir": {
+   "name": "Cartão de vídeo com curtir, compartilhar e inscrição",
+   "tags": [
+    "youtube",
+    "cartão",
+    "canal",
+    "compartilhar",
+    "inscreva-se"
+   ]
+  },
+  "template:yp14-tarjeta-video-cuadrada": {
+   "name": "Cartão de vídeo inclinado com avatar quadrado e botão vermelho",
+   "tags": [
+    "youtube",
+    "cartão",
+    "vídeo",
+    "inscreva-se",
+    "avatar"
+   ]
+  },
+  "template:yp14-tarjeta-video-play": {
+   "name": "Cartão de vídeo: clique no play e o vídeo ocupa a tela",
+   "tags": [
+    "youtube",
+    "cartão",
+    "vídeo",
+    "play"
+   ]
+  },
+  "template:yp14-tarjeta-video-titulo": {
+   "name": "Cartão de vídeo com canal no topo e título: clique no play",
+   "tags": [
+    "youtube",
+    "cartão",
+    "vídeo",
+    "play",
+    "título"
+   ]
+  },
+  "template:yp14-tres-botones-blancos": {
+   "name": "Três botões brancos: curtir, sininho e compartilhar, clicados juntos",
+   "tags": [
+    "youtube",
+    "botão",
+    "fileira",
+    "branco"
+   ]
+  },
+  "template:yp14-valoracion-abajo": {
+   "name": "Barra do canal embaixo com gostei, não gostei e avaliação",
+   "tags": [
+    "youtube",
+    "barra",
+    "canal",
+    "avaliação",
+    "curtir"
+   ]
+  },
+  "template:yp14-youtube-channel": {
+   "name": "«YOUTUBE CHANNEL» que fica vermelho ao clicar",
+   "tags": [
+    "youtube",
+    "botão",
+    "texto",
+    "título"
+   ]
+  },
+  "template:yp15-cargo-verde": {
+   "name": "Tarja de vidro com cargo em verde",
+   "tags": [
+    "youtube",
+    "tarja",
+    "vidro",
+    "nome",
+    "cargo"
+   ]
+  },
+  "template:yp15-centrado": {
+   "name": "Tarja de vidro centralizada com inscrição",
+   "tags": [
+    "youtube",
+    "tarja",
+    "vidro",
+    "inscreva-se"
+   ]
+  },
+  "template:yp15-dos-nombres": {
+   "name": "Tarja de vidro: dois nomes",
+   "tags": [
+    "youtube",
+    "tarja",
+    "vidro",
+    "nome",
+    "duas pessoas"
+   ]
+  },
+  "template:yp15-foto-redonda": {
+   "name": "Tarja de vidro com foto redonda",
+   "tags": [
+    "youtube",
+    "tarja",
+    "vidro",
+    "foto",
+    "avatar"
+   ]
+  },
+  "template:yp15-foto-suscribete": {
+   "name": "Tarja de vidro com foto e inscrição",
+   "tags": [
+    "youtube",
+    "tarja",
+    "vidro",
+    "inscreva-se",
+    "foto"
+   ]
+  },
+  "template:yp15-linea-fina": {
+   "name": "Tarja de vidro fina",
+   "tags": [
+    "youtube",
+    "tarja",
+    "vidro",
+    "nome",
+    "fina"
+   ]
+  },
+  "template:yp15-logo-nombre": {
+   "name": "Tarja de vidro com logo",
+   "tags": [
+    "youtube",
+    "tarja",
+    "vidro",
+    "nome",
+    "logo"
+   ]
+  },
+  "template:yp15-logo-suscribete": {
+   "name": "Tarja de vidro com logo e inscrição",
+   "tags": [
+    "youtube",
+    "tarja",
+    "vidro",
+    "inscreva-se",
+    "logo"
+   ]
+  },
+  "template:yp15-nombre-suscribete": {
+   "name": "Tarja de vidro com inscrição",
+   "tags": [
+    "youtube",
+    "tarja",
+    "vidro",
+    "nome",
+    "inscreva-se"
+   ]
+  },
+  "template:yp15-pareja": {
+   "name": "Tarja de vidro: casal com foto",
+   "tags": [
+    "youtube",
+    "tarja",
+    "vidro",
+    "casal",
+    "foto"
+   ]
+  },
+  "template:yp15-tarjeta-foto": {
+   "name": "Cartão de vidro com foto e logo",
+   "tags": [
+    "youtube",
+    "tarja",
+    "vidro",
+    "foto",
+    "logo"
+   ]
+  },
+  "template:yp15-una-linea": {
+   "name": "Tarja de vidro de uma linha",
+   "tags": [
+    "youtube",
+    "tarja",
+    "vidro",
+    "nome"
+   ]
+  },
+  "template:yp16-barra-nombre": {
+   "name": "Barra de vidro com nome e inscrição",
+   "tags": [
+    "youtube",
+    "vidro",
+    "inscreva-se",
+    "clique",
+    "foto"
+   ]
+  },
+  "template:yp16-barra-suscribete": {
+   "name": "Barra de vidro com foto e inscrição",
+   "tags": [
+    "youtube",
+    "vidro",
+    "inscreva-se",
+    "clique",
+    "foto"
+   ]
+  },
+  "template:yp16-burbuja-canal": {
+   "name": "Bolha de vidro com foto e canal",
+   "tags": [
+    "youtube",
+    "vidro",
+    "canal",
+    "foto",
+    "bolha"
+   ]
+  },
+  "template:yp16-circulo": {
+   "name": "Círculo de vidro com foto e inscrição",
+   "tags": [
+    "youtube",
+    "vidro",
+    "inscreva-se",
+    "foto",
+    "círculo"
+   ]
+  },
+  "template:yp16-join-us": {
+   "name": "Pílula de vidro escura: join us now",
+   "tags": [
+    "youtube",
+    "vidro",
+    "junte-se",
+    "escura"
+   ]
+  },
+  "template:yp16-pildora-canal": {
+   "name": "Pílula de vidro com foto no meio",
+   "tags": [
+    "youtube",
+    "vidro",
+    "canal",
+    "foto"
+   ]
+  },
+  "template:yp16-stay-tuned": {
+   "name": "Círculo de vidro: stay tuned",
+   "tags": [
+    "youtube",
+    "vidro",
+    "círculo",
+    "fique ligado"
+   ]
+  },
+  "template:yp16-tarjeta-cuadrada": {
+   "name": "Cartão de vidro quadrado com inscrição",
+   "tags": [
+    "youtube",
+    "vidro",
+    "inscreva-se",
+    "clique",
+    "foto"
+   ]
+  },
+  "template:yp16-tarjeta-nombre": {
+   "name": "Cartão de vidro com nome e inscrição",
+   "tags": [
+    "youtube",
+    "vidro",
+    "inscreva-se",
+    "clique",
+    "foto"
+   ]
+  },
+  "template:yp16-tarjeta-vertical": {
+   "name": "Cartão de vidro vertical com inscrição",
+   "tags": [
+    "youtube",
+    "vidro",
+    "inscreva-se",
+    "clique",
+    "foto"
+   ]
+  },
+  "template:yp16-watch-more": {
+   "name": "Bolha de vidro: watch more",
+   "tags": [
+    "youtube",
+    "vidro",
+    "assista mais",
+    "bolha"
+   ]
+  },
+  "template:yp17-barra-canal": {
+   "name": "Barra plana com foto e inscrição",
+   "tags": [
+    "youtube",
+    "cartão",
+    "plano",
+    "inscreva-se",
+    "foto"
+   ]
+  },
+  "template:yp17-barra-foto": {
+   "name": "Barra plana com foto no meio",
+   "tags": [
+    "youtube",
+    "cartão",
+    "plano",
+    "inscreva-se",
+    "foto"
+   ]
+  },
+  "template:yp17-barra-titulo": {
+   "name": "Barra plana com foto e título",
+   "tags": [
+    "youtube",
+    "cartão",
+    "plano",
+    "título",
+    "foto"
+   ]
+  },
+  "template:yp17-boton-youtube": {
+   "name": "Cartão plano com o botão do YouTube",
+   "tags": [
+    "youtube",
+    "cartão",
+    "plano",
+    "botão",
+    "play"
+   ]
+  },
+  "template:yp17-foto-arriba": {
+   "name": "Foto redonda sobre cartão de inscrição",
+   "tags": [
+    "youtube",
+    "cartão",
+    "plano",
+    "inscreva-se",
+    "foto"
+   ]
+  },
+  "template:yp17-foto-cuadrada": {
+   "name": "Foto quadrada e barra de inscrição",
+   "tags": [
+    "youtube",
+    "cartão",
+    "plano",
+    "inscreva-se",
+    "foto"
+   ]
+  },
+  "template:yp17-join-us": {
+   "name": "Cartão plano: join us com YouTube",
+   "tags": [
+    "youtube",
+    "cartão",
+    "plano",
+    "junte-se"
+   ]
+  },
+  "template:yp17-tarjeta-nombre": {
+   "name": "Cartão plano com foto, YouTube e inscrição",
+   "tags": [
+    "youtube",
+    "cartão",
+    "plano",
+    "inscreva-se",
+    "foto"
+   ]
+  },
+  "template:yp17-tarjeta-vertical": {
+   "name": "Cartão plano vertical com inscrição",
+   "tags": [
+    "youtube",
+    "cartão",
+    "plano",
+    "inscreva-se",
+    "foto"
+   ]
+  },
+  "template:yp17-watch-more": {
+   "name": "Cartão plano: watch more",
+   "tags": [
+    "youtube",
+    "cartão",
+    "plano",
+    "assista mais"
+   ]
+  },
   "template:yp2-apertura": {
    "name": "Abertura: anel vermelho e branco com botão do YouTube",
    "tags": [
@@ -41794,6 +44117,500 @@
     "preto e branco",
     "moda",
     "transição"
+   ]
+  },
+  "template:yp8-disfruta": {
+   "name": "Encerramento: enjoy",
+   "tags": [
+    "youtube",
+    "encerramento",
+    "texto",
+    "tipografia"
+   ]
+  },
+  "template:yp8-logo-formas-claro": {
+   "name": "Abertura: formas laranja que revelam seu logo",
+   "tags": [
+    "youtube",
+    "logo",
+    "abertura",
+    "formas",
+    "laranja"
+   ]
+  },
+  "template:yp8-logo-formas-oscuro": {
+   "name": "Abertura: formas que revelam seu logo (escura)",
+   "tags": [
+    "youtube",
+    "logo",
+    "abertura",
+    "formas"
+   ]
+  },
+  "template:yp8-logo-formas-video": {
+   "name": "Abertura: formas brancas e seu logo sobre o vídeo",
+   "tags": [
+    "youtube",
+    "logo",
+    "abertura",
+    "formas"
+   ]
+  },
+  "template:yp8-logo-youtube-claro": {
+   "name": "Logo do YouTube que se monta (fundo branco)",
+   "tags": [
+    "youtube",
+    "logo",
+    "abertura",
+    "branco"
+   ]
+  },
+  "template:yp8-logo-youtube-oscuro": {
+   "name": "Logo do YouTube que se monta (fundo escuro)",
+   "tags": [
+    "youtube",
+    "logo",
+    "abertura",
+    "escuro"
+   ]
+  },
+  "template:yp8-logo-youtube-video": {
+   "name": "Logo branco do YouTube sobre seu vídeo",
+   "tags": [
+    "youtube",
+    "logo",
+    "abertura",
+    "branco"
+   ]
+  },
+  "template:yp8-me-gusta-blanco": {
+   "name": "Curtir em círculo branco",
+   "tags": [
+    "youtube",
+    "curtir",
+    "botão",
+    "círculo"
+   ]
+  },
+  "template:yp8-me-gusta-oscuro": {
+   "name": "Curtir em círculo escuro",
+   "tags": [
+    "youtube",
+    "curtir",
+    "botão",
+    "círculo"
+   ]
+  },
+  "template:yp8-redes-tercios": {
+   "name": "Sete tarjas de redes sociais",
+   "tags": [
+    "youtube",
+    "tarja",
+    "redes sociais",
+    "instagram",
+    "facebook"
+   ]
+  },
+  "template:yp8-suscribirse-blanco": {
+   "name": "Barra de inscrição com clique e sininho",
+   "tags": [
+    "youtube",
+    "inscreva-se",
+    "botão",
+    "clique",
+    "sininho"
+   ]
+  },
+  "template:yp8-suscribirse-oscuro": {
+   "name": "Barra de inscrição com clique e sininho (escura)",
+   "tags": [
+    "youtube",
+    "inscreva-se",
+    "botão",
+    "clique",
+    "sininho"
+   ]
+  },
+  "template:yp8-tercio-facebook": {
+   "name": "Tarja: siga-nos no Facebook",
+   "tags": [
+    "youtube",
+    "tarja",
+    "facebook",
+    "redes sociais"
+   ]
+  },
+  "template:yp8-tercio-instagram": {
+   "name": "Tarja: usuário do Instagram",
+   "tags": [
+    "youtube",
+    "tarja",
+    "instagram",
+    "redes sociais"
+   ]
+  },
+  "template:yp8-tercio-nombre": {
+   "name": "Tarja: nome e cargo",
+   "tags": [
+    "youtube",
+    "tarja",
+    "nome",
+    "redes sociais"
+   ]
+  },
+  "template:yp8-tercio-twitter": {
+   "name": "Tarja: usuário do Twitter",
+   "tags": [
+    "youtube",
+    "tarja",
+    "twitter",
+    "redes sociais"
+   ]
+  },
+  "template:yp8-tercio-youtube": {
+   "name": "Tarja: inscreva-se no meu canal",
+   "tags": [
+    "youtube",
+    "tarja",
+    "inscreva-se",
+    "canal"
+   ]
+  },
+  "template:yp8-tercio-yt-blanco": {
+   "name": "Tarja: usuário do YouTube",
+   "tags": [
+    "youtube",
+    "tarja",
+    "canal",
+    "redes sociais"
+   ]
+  },
+  "template:yp8-tercio-yt-oscuro": {
+   "name": "Tarja: inscreva-se no YouTube (escura)",
+   "tags": [
+    "youtube",
+    "tarja",
+    "inscreva-se",
+    "escura"
+   ]
+  },
+  "template:yp8-transicion-ola": {
+   "name": "Transição: onda azul e verde",
+   "tags": [
+    "youtube",
+    "transição",
+    "onda",
+    "degradê"
+   ]
+  },
+  "template:yp8-transicion-rombo": {
+   "name": "Transição: losango azul e verde que sobe",
+   "tags": [
+    "youtube",
+    "transição",
+    "losango",
+    "degradê"
+   ]
+  },
+  "template:yp9-barra-canal": {
+   "name": "Barra do canal com sininho",
+   "tags": [
+    "youtube",
+    "barra",
+    "canal",
+    "sininho",
+    "inscreva-se"
+   ]
+  },
+  "template:yp9-bloques-glitch": {
+   "name": "Blocos coloridos com glitch",
+   "tags": [
+    "youtube",
+    "glitch",
+    "cores",
+    "falha"
+   ]
+  },
+  "template:yp9-boton-suscribirse": {
+   "name": "Botão de inscrição que se preenche e é clicado",
+   "tags": [
+    "youtube",
+    "inscreva-se",
+    "botão",
+    "clique",
+    "cursor"
+   ]
+  },
+  "template:yp9-boton-ventana": {
+   "name": "Botão de play que se abre em janela de vídeo",
+   "tags": [
+    "youtube",
+    "play",
+    "janela",
+    "transição"
+   ]
+  },
+  "template:yp9-cinta-tendencia": {
+   "name": "Fita amarela de tendência com título",
+   "tags": [
+    "youtube",
+    "fita",
+    "tendência",
+    "título"
+   ]
+  },
+  "template:yp9-corazones-flotando": {
+   "name": "Corações subindo sobre o vídeo",
+   "tags": [
+    "youtube",
+    "corações",
+    "amor",
+    "vídeo"
+   ]
+  },
+  "template:yp9-destello-a": {
+   "name": "Explosão de rabiscos A",
+   "tags": [
+    "youtube",
+    "brilho",
+    "rabiscos",
+    "explosão"
+   ]
+  },
+  "template:yp9-destello-b": {
+   "name": "Explosão de rabiscos B",
+   "tags": [
+    "youtube",
+    "brilho",
+    "rabiscos",
+    "explosão"
+   ]
+  },
+  "template:yp9-destello-c": {
+   "name": "Explosão de rabiscos C",
+   "tags": [
+    "youtube",
+    "brilho",
+    "rabiscos",
+    "explosão"
+   ]
+  },
+  "template:yp9-enlace-behance": {
+   "name": "Barra de link: behance",
+   "tags": [
+    "youtube",
+    "link",
+    "barra",
+    "behance"
+   ]
+  },
+  "template:yp9-enlace-dribbble": {
+   "name": "Barra de link: dribbble",
+   "tags": [
+    "youtube",
+    "link",
+    "barra",
+    "dribbble"
+   ]
+  },
+  "template:yp9-enlace-facebook": {
+   "name": "Barra de link: facebook",
+   "tags": [
+    "youtube",
+    "link",
+    "barra",
+    "facebook"
+   ]
+  },
+  "template:yp9-enlace-google": {
+   "name": "Barra de link: google",
+   "tags": [
+    "youtube",
+    "link",
+    "barra",
+    "google"
+   ]
+  },
+  "template:yp9-enlace-instagram": {
+   "name": "Barra de link: instagram",
+   "tags": [
+    "youtube",
+    "link",
+    "barra",
+    "instagram"
+   ]
+  },
+  "template:yp9-enlace-itunes": {
+   "name": "Barra de link: itunes",
+   "tags": [
+    "youtube",
+    "link",
+    "barra",
+    "itunes"
+   ]
+  },
+  "template:yp9-enlace-patreon": {
+   "name": "Barra de link: patreon",
+   "tags": [
+    "youtube",
+    "link",
+    "barra",
+    "patreon"
+   ]
+  },
+  "template:yp9-enlace-soundcloud": {
+   "name": "Barra de link: soundcloud",
+   "tags": [
+    "youtube",
+    "link",
+    "barra",
+    "soundcloud"
+   ]
+  },
+  "template:yp9-enlace-spotify": {
+   "name": "Barra de link: spotify",
+   "tags": [
+    "youtube",
+    "link",
+    "barra",
+    "spotify"
+   ]
+  },
+  "template:yp9-enlace-telegram": {
+   "name": "Barra de link: telegram",
+   "tags": [
+    "youtube",
+    "link",
+    "barra",
+    "telegram"
+   ]
+  },
+  "template:yp9-enlace-twitter": {
+   "name": "Barra de link: twitter",
+   "tags": [
+    "youtube",
+    "link",
+    "barra",
+    "twitter"
+   ]
+  },
+  "template:yp9-enlace-vimeo": {
+   "name": "Barra de link: vimeo",
+   "tags": [
+    "youtube",
+    "link",
+    "barra",
+    "vimeo"
+   ]
+  },
+  "template:yp9-etiqueta-usuario": {
+   "name": "Etiqueta com ícone e @usuário",
+   "tags": [
+    "youtube",
+    "usuário",
+    "etiqueta",
+    "redes sociais"
+   ]
+  },
+  "template:yp9-live-stream-blanco": {
+   "name": "Título LIVE STREAM branco com botão",
+   "tags": [
+    "youtube",
+    "ao vivo",
+    "transmissão",
+    "live"
+   ]
+  },
+  "template:yp9-live-stream-rojo": {
+   "name": "Título LIVE STREAM em caixas vermelha e preta",
+   "tags": [
+    "youtube",
+    "ao vivo",
+    "transmissão",
+    "live"
+   ]
+  },
+  "template:yp9-me-gusta-cursor": {
+   "name": "Curtida que o cursor deixa azul",
+   "tags": [
+    "youtube",
+    "curtir",
+    "clique",
+    "cursor"
+   ]
+  },
+  "template:yp9-me-gusta-destello": {
+   "name": "Curtida que brilha e explode com um clique",
+   "tags": [
+    "youtube",
+    "curtir",
+    "clique",
+    "brilho"
+   ]
+  },
+  "template:yp9-perfil": {
+   "name": "Perfil com foto, seguir e contadores",
+   "tags": [
+    "youtube",
+    "perfil",
+    "seguir",
+    "contador"
+   ]
+  },
+  "template:yp9-rayo": {
+   "name": "Raio que se forma a partir de uma linha",
+   "tags": [
+    "youtube",
+    "raio",
+    "abertura",
+    "linha"
+   ]
+  },
+  "template:yp9-redes-enlaces": {
+   "name": "Doze barras de redes com link",
+   "tags": [
+    "youtube",
+    "redes sociais",
+    "link",
+    "barra",
+    "instagram"
+   ]
+  },
+  "template:yp9-sticker-suscrito": {
+   "name": "Botão de play que vira figurinha de inscrito",
+   "tags": [
+    "youtube",
+    "inscreva-se",
+    "figurinha",
+    "clique"
+   ]
+  },
+  "template:yp9-tarjeta-canal": {
+   "name": "Cartão do canal com foto redonda e inscrição",
+   "tags": [
+    "youtube",
+    "cartão",
+    "canal",
+    "inscreva-se",
+    "clique"
+   ]
+  },
+  "template:yp9-telefono-feed": {
+   "name": "Celular com vídeo vertical e botões",
+   "tags": [
+    "youtube",
+    "celular",
+    "vertical",
+    "curtir"
+   ]
+  },
+  "template:yp9-telefono-reacciones": {
+   "name": "Celular com corações e curtidas",
+   "tags": [
+    "youtube",
+    "celular",
+    "curtir",
+    "corações"
    ]
   },
   "template:yt-calle-a-que-te-dedicas": {

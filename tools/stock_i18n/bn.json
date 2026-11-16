@@ -39096,6 +39096,2298 @@
     "বক্স"
    ]
   },
+  "template:yp10-boton-suscribete": {
+   "name": "তীরচিহ্নসহ SUBSCRIBE MY CHANNEL বোতাম",
+   "tags": [
+    "youtube",
+    "হাতে আঁকা",
+    "আঁকা",
+    "সোশ্যাল মিডিয়া",
+    "সাবস্ক্রাইব",
+    "বোতাম"
+   ]
+  },
+  "template:yp10-caja-roja": {
+   "name": "লাল বাক্সে SUSCRÍBETE YA",
+   "tags": [
+    "youtube",
+    "হাতে আঁকা",
+    "আঁকা",
+    "সোশ্যাল মিডিয়া",
+    "সাবস্ক্রাইব",
+    "বাক্স"
+   ]
+  },
+  "template:yp10-check": {
+   "name": "সবুজ টিক চিহ্নসহ Check New Video",
+   "tags": [
+    "youtube",
+    "হাতে আঁকা",
+    "আঁকা",
+    "সোশ্যাল মিডিয়া",
+    "টিক চিহ্ন",
+    "নতুন ভিডিও"
+   ]
+  },
+  "template:yp10-cuenta": {
+   "name": "নীল ফোঁটাসহ @youraccount",
+   "tags": [
+    "youtube",
+    "হাতে আঁকা",
+    "আঁকা",
+    "সোশ্যাল মিডিয়া",
+    "অ্যাকাউন্ট",
+    "ফোঁটা"
+   ]
+  },
+  "template:yp10-luna": {
+   "name": "চাঁদ ও Like New Video সহ SUBSCRIBE",
+   "tags": [
+    "youtube",
+    "হাতে আঁকা",
+    "আঁকা",
+    "সোশ্যাল মিডিয়া",
+    "সাবস্ক্রাইব",
+    "চাঁদ"
+   ]
+  },
+  "template:yp10-me-gusta-amarillo": {
+   "name": "হলুদ বুড়ো আঙুলসহ Like New Video",
+   "tags": [
+    "youtube",
+    "হাতে আঁকা",
+    "আঁকা",
+    "সোশ্যাল মিডিয়া",
+    "লাইক",
+    "বুড়ো আঙুল"
+   ]
+  },
+  "template:yp10-mi-canal": {
+   "name": "নির্বাচিত হয়ে বড় হওয়া My Channel",
+   "tags": [
+    "youtube",
+    "হাতে আঁকা",
+    "আঁকা",
+    "সোশ্যাল মিডিয়া",
+    "চ্যানেল",
+    "নির্বাচন"
+   ]
+  },
+  "template:yp10-nuevo-video-morado": {
+   "name": "Like সহ বেগুনি বাক্সে NEW VIDEO",
+   "tags": [
+    "youtube",
+    "হাতে আঁকা",
+    "আঁকা",
+    "সোশ্যাল মিডিয়া",
+    "নতুন ভিডিও",
+    "বাক্স"
+   ]
+  },
+  "template:yp10-nuevo-video-rosa": {
+   "name": "গোলাপি ছোপ ও হার্টসহ New Video",
+   "tags": [
+    "youtube",
+    "হাতে আঁকা",
+    "আঁকা",
+    "সোশ্যাল মিডিয়া",
+    "নতুন ভিডিও",
+    "হার্ট"
+   ]
+  },
+  "template:yp10-podcast": {
+   "name": "ছিটেসহ NEW PODCAST",
+   "tags": [
+    "youtube",
+    "হাতে আঁকা",
+    "আঁকা",
+    "সোশ্যাল মিডিয়া",
+    "podcast"
+   ]
+  },
+  "template:yp10-pulgar-beige": {
+   "name": "বুড়ো আঙুলসহ NUEVO VIDEO AQUÍ",
+   "tags": [
+    "youtube",
+    "হাতে আঁকা",
+    "আঁকা",
+    "সোশ্যাল মিডিয়া",
+    "বুড়ো আঙুল",
+    "স্প্যানিশ"
+   ]
+  },
+  "template:yp10-social-media": {
+   "name": "লাল ডিম্বাকারের চারপাশে Social Media Title",
+   "tags": [
+    "youtube",
+    "হাতে আঁকা",
+    "আঁকা",
+    "সোশ্যাল মিডিয়া",
+    "শিরোনাম",
+    "ডিম্বাকার"
+   ]
+  },
+  "template:yp10-suscribete-flechas": {
+   "name": "তীরচিহ্নসহ লাল Subscribe বোতাম",
+   "tags": [
+    "youtube",
+    "হাতে আঁকা",
+    "আঁকা",
+    "সোশ্যাল মিডিয়া",
+    "সাবস্ক্রাইব",
+    "বোতাম"
+   ]
+  },
+  "template:yp10-suscribete-puntos": {
+   "name": "রঙিন বিন্দু ও @yourchannel সহ Subscribe",
+   "tags": [
+    "youtube",
+    "হাতে আঁকা",
+    "আঁকা",
+    "সোশ্যাল মিডিয়া",
+    "সাবস্ক্রাইব",
+    "বোতাম"
+   ]
+  },
+  "template:yp10-tu-logo": {
+   "name": "নীল কালিতে Your Logo",
+   "tags": [
+    "youtube",
+    "হাতে আঁকা",
+    "আঁকা",
+    "সোশ্যাল মিডিয়া",
+    "লোগো",
+    "কালি"
+   ]
+  },
+  "template:yp11-amazing": {
+   "name": "লেখা: রংধনুসহ AMAZING",
+   "tags": [
+    "youtube",
+    "রংধনু",
+    "অসাধারণ"
+   ]
+  },
+  "template:yp11-any-language": {
+   "name": "লেখা: বৃত্তের উপর Use Any Language",
+   "tags": [
+    "youtube",
+    "বৃত্ত",
+    "ভাষা"
+   ]
+  },
+  "template:yp11-brand-new-year": {
+   "name": "শিরোনাম: ২০২৬ সাল Brand New",
+   "tags": [
+    "youtube",
+    "বছর",
+    "নতুন"
+   ]
+  },
+  "template:yp11-channel-name": {
+   "name": "বোতাম: চ্যানেলের নাম",
+   "tags": [
+    "youtube",
+    "চ্যানেল",
+    "বোতাম",
+    "তীর"
+   ]
+  },
+  "template:yp11-click": {
+   "name": "বোতাম: হাতসহ CLICK",
+   "tags": [
+    "youtube",
+    "ক্লিক",
+    "হাত"
+   ]
+  },
+  "template:yp11-comment": {
+   "name": "লেখা: তীরসহ Comment",
+   "tags": [
+    "youtube",
+    "মন্তব্য",
+    "তীর"
+   ]
+  },
+  "template:yp11-follow-me": {
+   "name": "বোতাম: সুইচসহ আমাকে ফলো করুন",
+   "tags": [
+    "youtube",
+    "ফলো",
+    "সুইচ"
+   ]
+  },
+  "template:yp11-high-quality": {
+   "name": "বোতাম: পয়েন্টারসহ উচ্চ মান",
+   "tags": [
+    "youtube",
+    "গুণমান",
+    "বোতাম",
+    "পয়েন্টার"
+   ]
+  },
+  "template:yp11-like-heart": {
+   "name": "লেখা: হার্টসহ Like",
+   "tags": [
+    "youtube",
+    "লাইক",
+    "হার্ট"
+   ]
+  },
+  "template:yp11-like-my-video": {
+   "name": "লেখা: বুড়ো আঙুলসহ Like my video",
+   "tags": [
+    "youtube",
+    "লাইক",
+    "বুড়ো আঙুল"
+   ]
+  },
+  "template:yp11-looking-perfect": {
+   "name": "লেখা: বিন্দুসহ Looking Perfect",
+   "tags": [
+    "youtube",
+    "বিন্দু",
+    "টেমপ্লেট"
+   ]
+  },
+  "template:yp11-new-video": {
+   "name": "লেবেল: হাসিমুখসহ New Video",
+   "tags": [
+    "youtube",
+    "নতুন ভিডিও",
+    "হাসিমুখ"
+   ]
+  },
+  "template:yp11-play": {
+   "name": "বোতাম: লাল প্লে",
+   "tags": [
+    "youtube",
+    "প্লে",
+    "বোতাম"
+   ]
+  },
+  "template:yp11-rate-us": {
+   "name": "লেখা: হার্টসহ Rate Us",
+   "tags": [
+    "youtube",
+    "রেটিং",
+    "হার্ট"
+   ]
+  },
+  "template:yp11-share": {
+   "name": "লেখা: তীরসহ SHARE",
+   "tags": [
+    "youtube",
+    "শেয়ার",
+    "তীর"
+   ]
+  },
+  "template:yp11-subscribe-bell": {
+   "name": "লেখা: ঘণ্টাসহ Subscribe",
+   "tags": [
+    "youtube",
+    "সাবস্ক্রাইব",
+    "ঘণ্টা"
+   ]
+  },
+  "template:yp11-thanks-watching": {
+   "name": "লেখা: চোখসহ দেখার জন্য ধন্যবাদ",
+   "tags": [
+    "youtube",
+    "ধন্যবাদ",
+    "চোখ",
+    "কৃতজ্ঞতা"
+   ]
+  },
+  "template:yp11-titles-smiley": {
+   "name": "শিরোনাম: হাসিমুখসহ TITLES & BUTTONS",
+   "tags": [
+    "youtube",
+    "হাসিমুখ",
+    "শিরোনাম"
+   ]
+  },
+  "template:yp11-trendy-style": {
+   "name": "লেখা: বজ্রসহ Trendy Style",
+   "tags": [
+    "youtube",
+    "বজ্র",
+    "ট্রেন্ড"
+   ]
+  },
+  "template:yp11-watch-now": {
+   "name": "লেখা: ফুলসহ এখনই দেখুন",
+   "tags": [
+    "youtube",
+    "দেখুন",
+    "নতুন ভিডিও"
+   ]
+  },
+  "template:yp12-barra-profesora": {
+   "name": "ছবি, লাইক, ঘণ্টা ও সাবস্ক্রাইবসহ বার",
+   "tags": [
+    "youtube",
+    "সাবস্ক্রাইব",
+    "বোতাম",
+    "বার",
+    "লাইক",
+    "ঘণ্টা"
+   ]
+  },
+  "template:yp12-foto-burbujas": {
+   "name": "বুদবুদ ও আইকনসহ ছবি",
+   "tags": [
+    "youtube",
+    "সাবস্ক্রাইব",
+    "বোতাম",
+    "ছবি",
+    "বুদবুদ",
+    "লাইক"
+   ]
+  },
+  "template:yp12-foto-iconos": {
+   "name": "ছবি থেকে বেরিয়ে আসা আইকন",
+   "tags": [
+    "youtube",
+    "সাবস্ক্রাইব",
+    "বোতাম",
+    "ছবি",
+    "বৃত্ত",
+    "লাইক"
+   ]
+  },
+  "template:yp12-foto-lados": {
+   "name": "দুই পাশে আইকনসহ ছবি",
+   "tags": [
+    "youtube",
+    "সাবস্ক্রাইব",
+    "বোতাম",
+    "ছবি",
+    "লাইক",
+    "ঘণ্টা"
+   ]
+  },
+  "template:yp12-foto-liquida": {
+   "name": "তরল আইকনসহ ছবি",
+   "tags": [
+    "youtube",
+    "সাবস্ক্রাইব",
+    "বোতাম",
+    "ছবি",
+    "তরল",
+    "লাইক"
+   ]
+  },
+  "template:yp12-foto-orbita": {
+   "name": "চারপাশে ঘোরা আইকনসহ গোল ছবি",
+   "tags": [
+    "youtube",
+    "সাবস্ক্রাইব",
+    "বোতাম",
+    "ছবি",
+    "বৃত্ত",
+    "লাইক"
+   ]
+  },
+  "template:yp12-lista-botones": {
+   "name": "লাইক, সাবস্ক্রাইব ও নোটিফিকেশনের তালিকা",
+   "tags": [
+    "youtube",
+    "সাবস্ক্রাইব",
+    "বোতাম",
+    "তালিকা",
+    "লাইক",
+    "ঘণ্টা"
+   ]
+  },
+  "template:yp12-lista-capsula": {
+   "name": "ক্যাপসুল তালিকা: লাইক, সাবস্ক্রাইব ও নোটিফিকেশন",
+   "tags": [
+    "youtube",
+    "সাবস্ক্রাইব",
+    "বোতাম",
+    "তালিকা",
+    "লাইক",
+    "ঘণ্টা"
+   ]
+  },
+  "template:yp12-nombre-suscrito": {
+   "name": "নাম, সাবস্ক্রাইবড ও ঘণ্টাসহ চ্যানেল",
+   "tags": [
+    "youtube",
+    "সাবস্ক্রাইব",
+    "বোতাম",
+    "নাম",
+    "ঘণ্টা",
+    "ক্লিক"
+   ]
+  },
+  "template:yp12-tarjeta-gris": {
+   "name": "বড় ছবিসহ ধূসর কার্ড",
+   "tags": [
+    "youtube",
+    "সাবস্ক্রাইব",
+    "বোতাম",
+    "কার্ড",
+    "লাইক",
+    "ঘণ্টা"
+   ]
+  },
+  "template:yp12-tarjeta-lista": {
+   "name": "চ্যানেলের নাম যা কার্ডে খোলে",
+   "tags": [
+    "youtube",
+    "সাবস্ক্রাইব",
+    "বোতাম",
+    "কার্ড",
+    "তালিকা",
+    "লাইক"
+   ]
+  },
+  "template:yp12-tarjeta-rosa": {
+   "name": "ছবি ও গোলাপি সাবস্ক্রাইবসহ কার্ড",
+   "tags": [
+    "youtube",
+    "সাবস্ক্রাইব",
+    "বোতাম",
+    "কার্ড",
+    "গোলাপি"
+   ]
+  },
+  "template:yp12-tres-botones": {
+   "name": "তিনটি গোল বোতাম",
+   "tags": [
+    "youtube",
+    "সাবস্ক্রাইব",
+    "বোতাম",
+    "লাইক",
+    "ঘণ্টা",
+    "ক্লিক"
+   ]
+  },
+  "template:yp13-aconseja-amigos": {
+   "name": "বন্ধুদের বলুন: থাম্বস আপ",
+   "tags": [
+    "youtube",
+    "রেটিং",
+    "লাইক",
+    "কার্সর"
+   ]
+  },
+  "template:yp13-agregar-comentario": {
+   "name": "পোস্ট হয়ে যাওয়া মন্তব্য যোগের বোতাম",
+   "tags": [
+    "youtube",
+    "মন্তব্য",
+    "বোতাম",
+    "কার্সর"
+   ]
+  },
+  "template:yp13-avatar-comentario": {
+   "name": "ব্যাজসহ অবতার যা মন্তব্য খোলে",
+   "tags": [
+    "youtube",
+    "মন্তব্য",
+    "অবতার",
+    "কার্সর"
+   ]
+  },
+  "template:yp13-aviso-cafe": {
+   "name": "OK সহ সতর্কবার্তার উইন্ডো",
+   "tags": [
+    "youtube",
+    "সতর্কবার্তা",
+    "উইন্ডো",
+    "কার্সর"
+   ]
+  },
+  "template:yp13-aviso-comentarios": {
+   "name": "মন্তব্যের নোটিফিকেশন",
+   "tags": [
+    "youtube",
+    "নোটিফিকেশন",
+    "মন্তব্যসমূহ",
+    "কাউন্টার",
+    "কার্সর"
+   ]
+  },
+  "template:yp13-aviso-doble": {
+   "name": "লাইক ও ফলোয়ারের নোটিফিকেশন",
+   "tags": [
+    "youtube",
+    "নোটিফিকেশন",
+    "লাইক",
+    "ফলোয়ার",
+    "কার্সর"
+   ]
+  },
+  "template:yp13-aviso-me-gusta": {
+   "name": "লাইকের নোটিফিকেশন",
+   "tags": [
+    "youtube",
+    "নোটিফিকেশন",
+    "লাইক",
+    "কাউন্টার",
+    "কার্সর"
+   ]
+  },
+  "template:yp13-aviso-seguidores": {
+   "name": "ফলোয়ারের নোটিফিকেশন",
+   "tags": [
+    "youtube",
+    "নোটিফিকেশন",
+    "ফলোয়ার",
+    "কাউন্টার",
+    "কার্সর"
+   ]
+  },
+  "template:yp13-barra-suscribir": {
+   "name": "লাইক, সাবস্ক্রাইব ও ঘণ্টার বার",
+   "tags": [
+    "youtube",
+    "সাবস্ক্রাইব",
+    "লাইক",
+    "ঘণ্টা",
+    "কার্সর"
+   ]
+  },
+  "template:yp13-buscar-boton": {
+   "name": "SEARCH বোতামসহ সার্চ ঘর",
+   "tags": [
+    "youtube",
+    "সার্চ",
+    "কার্সর",
+    "বোতাম"
+   ]
+  },
+  "template:yp13-buscar-cargando": {
+   "name": "লোডিং-এ বদলে যাওয়া সার্চ বার",
+   "tags": [
+    "youtube",
+    "সার্চ",
+    "কার্সর",
+    "ওয়েব"
+   ]
+  },
+  "template:yp13-buscar-lupa": {
+   "name": "চৌকো ম্যাগনিফায়ারসহ সার্চ ঘর",
+   "tags": [
+    "youtube",
+    "সার্চ",
+    "কার্সর"
+   ]
+  },
+  "template:yp13-buscar-mapa": {
+   "name": "সার্চ ঘর ও পিনসহ মানচিত্র",
+   "tags": [
+    "youtube",
+    "মানচিত্র",
+    "সার্চ",
+    "কার্সর",
+    "অবস্থান"
+   ]
+  },
+  "template:yp13-caras-valorar": {
+   "name": "ভিডিওটি ভালো লেগেছে? মুখ",
+   "tags": [
+    "youtube",
+    "রেটিং",
+    "মুখ",
+    "কার্সর"
+   ]
+  },
+  "template:yp13-carrito-precio": {
+   "name": "দামসহ কার্ট বোতাম",
+   "tags": [
+    "youtube",
+    "কার্ট",
+    "কেনাকাটা",
+    "কার্সর"
+   ]
+  },
+  "template:yp13-casilla-marcada": {
+   "name": "CHECKED চেকবক্স",
+   "tags": [
+    "youtube",
+    "চেকবক্স",
+    "কার্সর"
+   ]
+  },
+  "template:yp13-chat-dos": {
+   "name": "সময় ও উত্তরসহ দুজনের চ্যাট",
+   "tags": [
+    "youtube",
+    "চ্যাট",
+    "বার্তা",
+    "কার্সর"
+   ]
+  },
+  "template:yp13-chat-nombres": {
+   "name": "নাম ও উত্তরসহ চ্যাট",
+   "tags": [
+    "youtube",
+    "চ্যাট",
+    "বার্তা",
+    "কার্সর"
+   ]
+  },
+  "template:yp13-chat-ventana-amarilla": {
+   "name": "নামসহ হলুদ চ্যাট উইন্ডো",
+   "tags": [
+    "youtube",
+    "চ্যাট",
+    "বার্তা",
+    "উইন্ডো"
+   ]
+  },
+  "template:yp13-chat-ventana-azul": {
+   "name": "নীল চ্যাট উইন্ডো",
+   "tags": [
+    "youtube",
+    "চ্যাট",
+    "বার্তা",
+    "উইন্ডো"
+   ]
+  },
+  "template:yp13-chat-ventana-grande": {
+   "name": "ভিডিওর উপর চ্যাট উইন্ডো",
+   "tags": [
+    "youtube",
+    "চ্যাট",
+    "বার্তা",
+    "উইন্ডো"
+   ]
+  },
+  "template:yp13-comentario-like": {
+   "name": "LIKE ও REPLY সহ মন্তব্য",
+   "tags": [
+    "youtube",
+    "মন্তব্য",
+    "লাইক",
+    "কার্সর"
+   ]
+  },
+  "template:yp13-comentario-votos": {
+   "name": "লাইক ও উত্তরসহ মন্তব্য",
+   "tags": [
+    "youtube",
+    "মন্তব্য",
+    "লাইক",
+    "কার্সর"
+   ]
+  },
+  "template:yp13-comprar-gracias": {
+   "name": "ধন্যবাদ জানানো কেনার বোতাম",
+   "tags": [
+    "youtube",
+    "বোতাম",
+    "কেনাকাটা",
+    "কার্সর"
+   ]
+  },
+  "template:yp13-contador-comentarios": {
+   "name": "মন্তব্য কাউন্টারসহ বুদবুদ",
+   "tags": [
+    "youtube",
+    "কাউন্টার",
+    "মন্তব্যসমূহ",
+    "কার্সর"
+   ]
+  },
+  "template:yp13-contador-corazon": {
+   "name": "লাইক কাউন্টারসহ হার্ট",
+   "tags": [
+    "youtube",
+    "কাউন্টার",
+    "লাইক",
+    "হার্ট",
+    "কার্সর"
+   ]
+  },
+  "template:yp13-contador-pulgar": {
+   "name": "লাইক কাউন্টারসহ বুড়ো আঙুল",
+   "tags": [
+    "youtube",
+    "কাউন্টার",
+    "লাইক",
+    "কার্সর"
+   ]
+  },
+  "template:yp13-contador-seguidores": {
+   "name": "ফলোয়ার কাউন্টারসহ ব্যক্তি",
+   "tags": [
+    "youtube",
+    "কাউন্টার",
+    "ফলোয়ার",
+    "কার্সর"
+   ]
+  },
+  "template:yp13-descargar-anillo": {
+   "name": "প্রগ্রেস রিংসহ ডাউনলোড বোতাম",
+   "tags": [
+    "youtube",
+    "ডাউনলোড",
+    "অগ্রগতি",
+    "কার্সর"
+   ]
+  },
+  "template:yp13-descargar-barra": {
+   "name": "প্রগ্রেস বারসহ ডাউনলোড বোতাম",
+   "tags": [
+    "youtube",
+    "ডাউনলোড",
+    "অগ্রগতি",
+    "কার্সর"
+   ]
+  },
+  "template:yp13-enviar-comentario": {
+   "name": "পাঠানোর বোতামসহ মন্তব্যের ঘর",
+   "tags": [
+    "youtube",
+    "মন্তব্য",
+    "চ্যাট",
+    "কার্সর"
+   ]
+  },
+  "template:yp13-insignia-camara": {
+   "name": "ক্যামেরার গোল বোতাম",
+   "tags": [
+    "youtube",
+    "ব্যাজ",
+    "সোশ্যাল মিডিয়া",
+    "কার্সর"
+   ]
+  },
+  "template:yp13-insignia-click-here": {
+   "name": "GOOD JOB!-এ বদলে যাওয়া CLICK HERE চৌকো",
+   "tags": [
+    "youtube",
+    "বোতাম",
+    "কার্সর"
+   ]
+  },
+  "template:yp13-insignia-foto": {
+   "name": "ট্যাপসহ চৌকো ছবি",
+   "tags": [
+    "youtube",
+    "ছবি",
+    "অবতার",
+    "কার্সর"
+   ]
+  },
+  "template:yp13-insignia-get-ready": {
+   "name": "ছবিসহ GET READY ব্যাজ",
+   "tags": [
+    "youtube",
+    "ব্যাজ",
+    "কার্সর",
+    "ছবি"
+   ]
+  },
+  "template:yp13-insignia-like-this": {
+   "name": "LIKE THIS!-এ বদলে যাওয়া ছবির ব্যাজ",
+   "tags": [
+    "youtube",
+    "ব্যাজ",
+    "লাইক",
+    "কার্সর",
+    "ছবি"
+   ]
+  },
+  "template:yp13-insignia-pajaro": {
+   "name": "পাখির গোল বোতাম",
+   "tags": [
+    "youtube",
+    "ব্যাজ",
+    "সোশ্যাল মিডিয়া",
+    "কার্সর"
+   ]
+  },
+  "template:yp13-insignia-seguir": {
+   "name": "FOLLOW-এ বদলে যাওয়া ব্যাজ",
+   "tags": [
+    "youtube",
+    "ব্যাজ",
+    "ফলো",
+    "কার্সর"
+   ]
+  },
+  "template:yp13-insignia-unete": {
+   "name": "ক্লিকসহ JOIN US ব্যাজ",
+   "tags": [
+    "youtube",
+    "ব্যাজ",
+    "যোগ দিন",
+    "কার্সর"
+   ]
+  },
+  "template:yp13-interruptor-encender": {
+   "name": "TURN ON সুইচ",
+   "tags": [
+    "youtube",
+    "সুইচ",
+    "কার্সর"
+   ]
+  },
+  "template:yp13-interruptor-on-off": {
+   "name": "START KEY ON/OFF সুইচ",
+   "tags": [
+    "youtube",
+    "সুইচ",
+    "কার্সর"
+   ]
+  },
+  "template:yp13-lista-bienvenida": {
+   "name": "«আমার চ্যানেলে স্বাগতম» বোতামের তালিকা",
+   "tags": [
+    "youtube",
+    "তালিকা",
+    "সাবস্ক্রাইব",
+    "কার্সর",
+    "স্বাগতম"
+   ]
+  },
+  "template:yp13-lista-canal-grande": {
+   "name": "ভিডিওর উপর চ্যানেলের তালিকা",
+   "tags": [
+    "youtube",
+    "তালিকা",
+    "সাবস্ক্রাইব",
+    "কার্সর"
+   ]
+  },
+  "template:yp13-lista-interruptores": {
+   "name": "সুইচসহ তালিকা",
+   "tags": [
+    "youtube",
+    "তালিকা",
+    "সুইচ",
+    "কার্সর"
+   ]
+  },
+  "template:yp13-lista-no-olvides": {
+   "name": "«ভুলবেন না» তালিকা: সাবস্ক্রাইব, নোটিফিকেশন, লাইক",
+   "tags": [
+    "youtube",
+    "তালিকা",
+    "সাবস্ক্রাইব",
+    "কার্সর"
+   ]
+  },
+  "template:yp13-lista-tareas": {
+   "name": "আজকের কাজের তালিকা",
+   "tags": [
+    "youtube",
+    "তালিকা",
+    "কাজ",
+    "কার্সর"
+   ]
+  },
+  "template:yp13-mensaje-abrir": {
+   "name": "খুলে যাওয়া বার্তার বোতাম",
+   "tags": [
+    "youtube",
+    "বার্তা",
+    "চ্যাট",
+    "কার্সর"
+   ]
+  },
+  "template:yp13-opcion-seleccionar": {
+   "name": "SELECT অপশন",
+   "tags": [
+    "youtube",
+    "অপশন",
+    "কার্সর"
+   ]
+  },
+  "template:yp13-perfil-seguir": {
+   "name": "ছবি ও ফলো বোতামসহ প্রোফাইল",
+   "tags": [
+    "youtube",
+    "প্রোফাইল",
+    "ফলো",
+    "কার্সর",
+    "ছবিগুলো"
+   ]
+  },
+  "template:yp13-post-botones": {
+   "name": "গোলাকার কোণের বোতামসহ পোস্ট",
+   "tags": [
+    "youtube",
+    "পোস্ট",
+    "লাইক",
+    "কার্সর"
+   ]
+  },
+  "template:yp13-post-insta": {
+   "name": "লাইকসহ ছবির পোস্ট",
+   "tags": [
+    "youtube",
+    "পোস্ট",
+    "লাইক",
+    "কার্সর"
+   ]
+  },
+  "template:yp13-post-muro": {
+   "name": "লাইক, মন্তব্য ও শেয়ারসহ ওয়াল পোস্ট",
+   "tags": [
+    "youtube",
+    "পোস্ট",
+    "লাইক",
+    "কার্সর"
+   ]
+  },
+  "template:yp13-post-noticia": {
+   "name": "নীল নাম ও লাইকসহ পোস্ট",
+   "tags": [
+    "youtube",
+    "পোস্ট",
+    "লাইক",
+    "কার্সর"
+   ]
+  },
+  "template:yp13-post-texto": {
+   "name": "লাইকসহ লেখার পোস্ট",
+   "tags": [
+    "youtube",
+    "পোস্ট",
+    "লাইক",
+    "কার্সর"
+   ]
+  },
+  "template:yp13-post-tuit": {
+   "name": "লাইকসহ টুইট ধাঁচের পোস্ট",
+   "tags": [
+    "youtube",
+    "পোস্ট",
+    "লাইক",
+    "কার্সর"
+   ]
+  },
+  "template:yp13-post-tuit-enlace": {
+   "name": "লিংক কার্ড ও লাইকসহ টুইট",
+   "tags": [
+    "youtube",
+    "পোস্ট",
+    "লাইক",
+    "কার্সর"
+   ]
+  },
+  "template:yp13-post-tuit-foto": {
+   "name": "লিংক করা ছবি ও লাইকসহ টুইট",
+   "tags": [
+    "youtube",
+    "পোস্ট",
+    "লাইক",
+    "কার্সর"
+   ]
+  },
+  "template:yp13-post-vertical": {
+   "name": "লাইকসহ উল্লম্ব পোস্ট",
+   "tags": [
+    "youtube",
+    "পোস্ট",
+    "লাইক",
+    "কার্সর"
+   ]
+  },
+  "template:yp13-post-video-campana": {
+   "name": "ভিডিও পোস্ট: সাবস্ক্রাইব ও ঘণ্টা",
+   "tags": [
+    "youtube",
+    "পোস্ট",
+    "সাবস্ক্রাইব",
+    "ঘণ্টা",
+    "কার্সর"
+   ]
+  },
+  "template:yp13-post-video-suscribir": {
+   "name": "সাবস্ক্রাইব বোতামসহ ভিডিও পোস্ট",
+   "tags": [
+    "youtube",
+    "পোস্ট",
+    "সাবস্ক্রাইব",
+    "কার্সর"
+   ]
+  },
+  "template:yp13-post-video-votos": {
+   "name": "লাইক ও ডিসলাইকসহ ভিডিও পোস্ট",
+   "tags": [
+    "youtube",
+    "পোস্ট",
+    "লাইক",
+    "কার্সর"
+   ]
+  },
+  "template:yp13-reaccion-corazones": {
+   "name": "উপরে ওঠা হার্টসহ LOVE IT! বোতাম",
+   "tags": [
+    "youtube",
+    "রিঅ্যাকশন",
+    "হার্ট",
+    "কার্সর",
+    "বোতাম"
+   ]
+  },
+  "template:yp13-reaccion-estrellas": {
+   "name": "উপরে ওঠা সবুজ তারাসহ বোতাম",
+   "tags": [
+    "youtube",
+    "রিঅ্যাকশন",
+    "তারা",
+    "কার্সর",
+    "বোতাম"
+   ]
+  },
+  "template:yp13-reaccion-monedas": {
+   "name": "উপরে ওঠা কয়েনসহ DONATE বোতাম",
+   "tags": [
+    "youtube",
+    "রিঅ্যাকশন",
+    "দান",
+    "কার্সর",
+    "বোতাম"
+   ]
+  },
+  "template:yp13-reaccion-pulgares": {
+   "name": "উপরে ওঠা থাম্বসসহ LIKE THIS বোতাম",
+   "tags": [
+    "youtube",
+    "রিঅ্যাকশন",
+    "লাইক",
+    "কার্সর",
+    "বোতাম"
+   ]
+  },
+  "template:yp13-recomiendo": {
+   "name": "আমি সুপারিশ করি: পাঁচটি হার্ট",
+   "tags": [
+    "youtube",
+    "রেটিং",
+    "হার্ট",
+    "কার্সর"
+   ]
+  },
+  "template:yp13-reproductor-amarillo": {
+   "name": "হলুদ প্লেয়ার বোতাম",
+   "tags": [
+    "youtube",
+    "প্লেয়ার",
+    "বোতাম",
+    "কার্সর"
+   ]
+  },
+  "template:yp13-reproductor-azul": {
+   "name": "নীল প্লেয়ার বোতাম",
+   "tags": [
+    "youtube",
+    "প্লেয়ার",
+    "বোতাম",
+    "কার্সর"
+   ]
+  },
+  "template:yp13-reproductor-cuadrado": {
+   "name": "চৌকো প্লেয়ার বোতাম",
+   "tags": [
+    "youtube",
+    "প্লেয়ার",
+    "বোতাম",
+    "কার্সর"
+   ]
+  },
+  "template:yp13-reproductor-redondo": {
+   "name": "গোল প্লেয়ার বোতাম",
+   "tags": [
+    "youtube",
+    "প্লেয়ার",
+    "বোতাম",
+    "কার্সর"
+   ]
+  },
+  "template:yp13-tarjeta-canal": {
+   "name": "খুলে যাওয়া চ্যানেল কার্ড",
+   "tags": [
+    "youtube",
+    "চ্যানেল",
+    "সাবস্ক্রাইব",
+    "কার্সর",
+    "অবতার"
+   ]
+  },
+  "template:yp13-tarjeta-suscribir-grande": {
+   "name": "সাবস্ক্রাইবসহ বড় চ্যানেল কার্ড",
+   "tags": [
+    "youtube",
+    "চ্যানেল",
+    "সাবস্ক্রাইব",
+    "কার্সর",
+    "অবতার",
+    "লোয়ার থার্ড"
+   ]
+  },
+  "template:yp13-tuit-texto": {
+   "name": "লাইকসহ লেখার টুইট",
+   "tags": [
+    "youtube",
+    "পোস্ট",
+    "লাইক",
+    "কার্সর",
+    "মন্তব্য"
+   ]
+  },
+  "template:yp13-valoranos": {
+   "name": "আমাদের রেটিং দিন: তারার তালিকা",
+   "tags": [
+    "youtube",
+    "রেটিং",
+    "তারা",
+    "কার্সর"
+   ]
+  },
+  "template:yp13-valorar-10": {
+   "name": "তারাসহ ১০/১০ রেটিং",
+   "tags": [
+    "youtube",
+    "রেটিং",
+    "তারা",
+    "কার্সর"
+   ]
+  },
+  "template:yp13-valorar-articulo": {
+   "name": "পাঁচ তারায় রেটিং",
+   "tags": [
+    "youtube",
+    "রেটিং",
+    "তারা",
+    "কার্সর"
+   ]
+  },
+  "template:yp13-valorar-genial": {
+   "name": "তারা দেওয়া রেটিং বোতাম",
+   "tags": [
+    "youtube",
+    "রেটিং",
+    "তারা",
+    "কার্সর",
+    "বোতাম"
+   ]
+  },
+  "template:yp13-valorar-plantilla": {
+   "name": "তারাসহ রেটিং কার্ড",
+   "tags": [
+    "youtube",
+    "রেটিং",
+    "তারা",
+    "কার্সর",
+    "লোগো"
+   ]
+  },
+  "template:yp13-video-suscribir-campana": {
+   "name": "সাবস্ক্রাইব ও ঘণ্টাসহ ভিডিও কার্ড",
+   "tags": [
+    "youtube",
+    "পোস্ট",
+    "সাবস্ক্রাইব",
+    "ঘণ্টা",
+    "কার্সর"
+   ]
+  },
+  "template:yp13-volumen": {
+   "name": "MAKE SOME NOISE ভলিউম স্লাইডার",
+   "tags": [
+    "youtube",
+    "ভলিউম",
+    "স্লাইডার",
+    "কার্সর"
+   ]
+  },
+  "template:yp14-barra-abajo-acciones": {
+   "name": "নিচে ভিডিও বার: লাইক, শেয়ার, ডাউনলোড ও সেভ",
+   "tags": [
+    "youtube",
+    "বার",
+    "চ্যানেল",
+    "সাবস্ক্রাইব",
+    "ছবি"
+   ]
+  },
+  "template:yp14-barra-abajo-campana": {
+   "name": "নিচে সাবস্ক্রাইবড ও ঘণ্টাসহ চ্যানেল বার",
+   "tags": [
+    "youtube",
+    "বার",
+    "চ্যানেল",
+    "সাবস্ক্রাইব",
+    "ছবি"
+   ]
+  },
+  "template:yp14-barra-abajo-me-gusta": {
+   "name": "নিচে লাইক ও সাবস্ক্রাইবসহ চ্যানেল বার",
+   "tags": [
+    "youtube",
+    "বার",
+    "চ্যানেল",
+    "সাবস্ক্রাইব",
+    "ছবি"
+   ]
+  },
+  "template:yp14-barra-arriba": {
+   "name": "উপরে চ্যানেল বার যা ছবিকে ঠেলে দেয়",
+   "tags": [
+    "youtube",
+    "বার",
+    "চ্যানেল",
+    "সাবস্ক্রাইব",
+    "ছবি"
+   ]
+  },
+  "template:yp14-barra-valoracion-arriba": {
+   "name": "উপরে লাইক, ডিসলাইক ও রেটিংসহ চ্যানেল বার",
+   "tags": [
+    "youtube",
+    "বার",
+    "চ্যানেল",
+    "সাবস্ক্রাইব",
+    "ছবি"
+   ]
+  },
+  "template:yp14-barra-video-suscribirse": {
+   "name": "ভিডিওর নিচে সাদা বার: অবতার, নাম ও সাবস্ক্রাইব",
+   "tags": [
+    "youtube",
+    "বার",
+    "চ্যানেল",
+    "সাবস্ক্রাইব",
+    "ছবি"
+   ]
+  },
+  "template:yp14-boton-redondo-campana": {
+   "name": "লাল গোল বোতাম: ঘণ্টা ও «Get notified»",
+   "tags": [
+    "youtube",
+    "বোতাম",
+    "লেখা",
+    "ঘণ্টা"
+   ]
+  },
+  "template:yp14-boton-redondo-compartir": {
+   "name": "লাল গোল বোতাম: শেয়ার ও «Share this»",
+   "tags": [
+    "youtube",
+    "বোতাম",
+    "লেখা",
+    "শেয়ার"
+   ]
+  },
+  "template:yp14-boton-redondo-me-gusta": {
+   "name": "লাল গোল বোতাম: লাইক ও «Like the video»",
+   "tags": [
+    "youtube",
+    "বোতাম",
+    "লেখা",
+    "লাইক"
+   ]
+  },
+  "template:yp14-boton-redondo-suscribirse": {
+   "name": "লাল গোল বোতাম: প্লে ও «Subscribe»",
+   "tags": [
+    "youtube",
+    "বোতাম",
+    "লেখা",
+    "প্লে"
+   ]
+  },
+  "template:yp14-campana-compartir-redondos": {
+   "name": "দুটি লাল বোতাম: ঘণ্টা ও শেয়ার",
+   "tags": [
+    "youtube",
+    "বোতাম",
+    "লেখা",
+    "সারি"
+   ]
+  },
+  "template:yp14-canal-avatar-arriba": {
+   "name": "উপরে অবতারসহ উল্লম্ব চ্যানেল বোতাম",
+   "tags": [
+    "youtube",
+    "বোতাম",
+    "সাবস্ক্রাইব"
+   ]
+  },
+  "template:yp14-canal-avatar-centro": {
+   "name": "মাঝে অবতার, শেয়ার ও ঘণ্টাসহ চ্যানেল বোতাম",
+   "tags": [
+    "youtube",
+    "বোতাম",
+    "সাবস্ক্রাইব"
+   ]
+  },
+  "template:yp14-canal-avatar-esquina": {
+   "name": "কোণে অবতার, শেয়ার ও ঘণ্টাসহ চ্যানেল বোতাম",
+   "tags": [
+    "youtube",
+    "বোতাম",
+    "সাবস্ক্রাইব"
+   ]
+  },
+  "template:yp14-canal-circulo": {
+   "name": "ঘণ্টা, লাইক ও শেয়ারসহ বৃত্তে চ্যানেল",
+   "tags": [
+    "youtube",
+    "বোতাম",
+    "ঘণ্টা",
+    "লাইক"
+   ]
+  },
+  "template:yp14-canal-foto-campana": {
+   "name": "চ্যানেল বোতাম: ছবি, সাবস্ক্রাইব ও ঘণ্টা",
+   "tags": [
+    "youtube",
+    "বোতাম",
+    "সাবস্ক্রাইব"
+   ]
+  },
+  "template:yp14-canal-foto-vertical": {
+   "name": "উল্লম্ব চ্যানেল বোতাম: ছবি, সাবস্ক্রাইব, লাইক ও ঘণ্টা",
+   "tags": [
+    "youtube",
+    "বোতাম",
+    "সাবস্ক্রাইব"
+   ]
+  },
+  "template:yp14-canal-horizontal": {
+   "name": "আনুভূমিক চ্যানেল বোতাম: ছবি, সাবস্ক্রাইবার, সাবস্ক্রাইব ও ঘণ্টা",
+   "tags": [
+    "youtube",
+    "বোতাম",
+    "সাবস্ক্রাইব"
+   ]
+  },
+  "template:yp14-canal-iconos-columna": {
+   "name": "আইকনের কলামসহ চ্যানেল: ঘণ্টা, লাইক ও শেয়ার",
+   "tags": [
+    "youtube",
+    "বোতাম",
+    "সাবস্ক্রাইব"
+   ]
+  },
+  "template:yp14-canal-nombre-largo": {
+   "name": "চ্যানেল বোতাম: ছবি, তিন লাইনের নাম, লাইক ও ঘণ্টা",
+   "tags": [
+    "youtube",
+    "বোতাম",
+    "সাবস্ক্রাইব"
+   ]
+  },
+  "template:yp14-canal-sin-tarjeta": {
+   "name": "চ্যানেল: অবতার, নাম, সাবস্ক্রাইবার ও সাবস্ক্রাইব",
+   "tags": [
+    "youtube",
+    "বোতাম",
+    "সাবস্ক্রাইব"
+   ]
+  },
+  "template:yp14-canal-sobre-video": {
+   "name": "ভিডিওর উপর চ্যানেল বোতাম: ছবি, সাবস্ক্রাইবার ও সাবস্ক্রাইব",
+   "tags": [
+    "youtube",
+    "বোতাম",
+    "সাবস্ক্রাইব"
+   ]
+  },
+  "template:yp14-canal-tarjeta-vertical": {
+   "name": "উল্লম্ব চ্যানেল কার্ড: নাম, ছবি ও সাবস্ক্রাইব",
+   "tags": [
+    "youtube",
+    "বোতাম",
+    "সাবস্ক্রাইব"
+   ]
+  },
+  "template:yp14-columna-botones": {
+   "name": "গোল বোতামের কলাম: সাবস্ক্রাইব, লাইক ও ঘণ্টা",
+   "tags": [
+    "youtube",
+    "বোতাম",
+    "লেখা",
+    "কলাম"
+   ]
+  },
+  "template:yp14-columna-botones-etiquetas": {
+   "name": "লেবেলসহ গোল বোতামের কলাম: সাবস্ক্রাইব, নোটিফিকেশন, লাইক",
+   "tags": [
+    "youtube",
+    "বোতাম",
+    "লেখা",
+    "কলাম"
+   ]
+  },
+  "template:yp14-comentario-abajo": {
+   "name": "নিচে লাইকসহ মন্তব্য",
+   "tags": [
+    "youtube",
+    "বার",
+    "চ্যানেল",
+    "সাবস্ক্রাইব",
+    "ছবি"
+   ]
+  },
+  "template:yp14-comentario-arriba": {
+   "name": "উপরে লাইক ও ডিসলাইকসহ মন্তব্য",
+   "tags": [
+    "youtube",
+    "বার",
+    "চ্যানেল",
+    "সাবস্ক্রাইব",
+    "ছবি"
+   ]
+  },
+  "template:yp14-comentario-me-gusta": {
+   "name": "লাইক ক্লিক করা মন্তব্য",
+   "tags": [
+    "youtube",
+    "মন্তব্য",
+    "মন্তব্যসমূহ"
+   ]
+  },
+  "template:yp14-comentario-no-me-gusta": {
+   "name": "ডিসলাইক ক্লিক করা মন্তব্য",
+   "tags": [
+    "youtube",
+    "মন্তব্য",
+    "মন্তব্যসমূহ"
+   ]
+  },
+  "template:yp14-comentario-respuesta": {
+   "name": "উত্তর লেখা হচ্ছে এমন মন্তব্য",
+   "tags": [
+    "youtube",
+    "মন্তব্য",
+    "মন্তব্যসমূহ"
+   ]
+  },
+  "template:yp14-comentario-respuesta-2": {
+   "name": "উত্তরসহ মন্তব্য (২)",
+   "tags": [
+    "youtube",
+    "মন্তব্য",
+    "মন্তব্যসমূহ"
+   ]
+  },
+  "template:yp14-comentario-sobre-video": {
+   "name": "ভিডিওর উপর এক লাইনের মন্তব্য",
+   "tags": [
+    "youtube",
+    "মন্তব্য",
+    "মন্তব্যসমূহ"
+   ]
+  },
+  "template:yp14-compartir-esto": {
+   "name": "লাল থেকে সাদা হওয়া «Share This» বোতাম",
+   "tags": [
+    "youtube",
+    "বোতাম",
+    "লেখা",
+    "শেয়ার"
+   ]
+  },
+  "template:yp14-fila-botones": {
+   "name": "গোল বোতামের সারি: সাবস্ক্রাইব, ঘণ্টা, শেয়ার ও লাইক",
+   "tags": [
+    "youtube",
+    "বোতাম",
+    "লেখা",
+    "সারি"
+   ]
+  },
+  "template:yp14-fila-me-gusta-suscribirse": {
+   "name": "সারি: লাইক, সাবস্ক্রাইব ও ঘণ্টা",
+   "tags": [
+    "youtube",
+    "বোতাম",
+    "সাবস্ক্রাইব"
+   ]
+  },
+  "template:yp14-fila-suscribirse": {
+   "name": "সারি: লাইক, সাবস্ক্রাইব, শেয়ার ও ঘণ্টা",
+   "tags": [
+    "youtube",
+    "বোতাম",
+    "লেখা",
+    "সারি",
+    "সাবস্ক্রাইব"
+   ]
+  },
+  "template:yp14-lista-suscribirse": {
+   "name": "তালিকা: সাবস্ক্রাইব, নোটিফিকেশন ও লাইক",
+   "tags": [
+    "youtube",
+    "বোতাম",
+    "সাবস্ক্রাইব",
+    "তালিকা"
+   ]
+  },
+  "template:yp14-lista-ver-mas-tarde": {
+   "name": "ভিডিও তালিকা: «পরে দেখার জন্য সেভ হয়েছে»",
+   "tags": [
+    "youtube",
+    "তালিকা",
+    "ভিডিওগুলো"
+   ]
+  },
+  "template:yp14-lista-videos-abrir": {
+   "name": "ভিডিও তালিকা: একটি ক্লিক করলে পুরো ফ্রেম জুড়ে",
+   "tags": [
+    "youtube",
+    "তালিকা",
+    "ভিডিওগুলো"
+   ]
+  },
+  "template:yp14-logo-arriba-suscribirse": {
+   "name": "উপরে লোগো ও সাবস্ক্রাইব",
+   "tags": [
+    "youtube",
+    "বোতাম",
+    "সাবস্ক্রাইব",
+    "লোগো"
+   ]
+  },
+  "template:yp14-logo-suscribirse": {
+   "name": "সাবস্ক্রাইবসহ চ্যানেলের লোগো",
+   "tags": [
+    "youtube",
+    "বোতাম",
+    "সাবস্ক্রাইব"
+   ]
+  },
+  "template:yp14-logo-tarjeta": {
+   "name": "সাবস্ক্রাইব, ঘণ্টা ও শেয়ারসহ কার্ডে চ্যানেলের লোগো",
+   "tags": [
+    "youtube",
+    "বোতাম",
+    "সাবস্ক্রাইব"
+   ]
+  },
+  "template:yp14-logo-tarjeta-vertical": {
+   "name": "ঘণ্টা ও শেয়ারসহ উল্লম্ব কার্ডে চ্যানেলের লোগো",
+   "tags": [
+    "youtube",
+    "বোতাম",
+    "সাবস্ক্রাইব"
+   ]
+  },
+  "template:yp14-me-gusta-avisos": {
+   "name": "«Like this / Notified» সহ লাইক ও ঘণ্টা",
+   "tags": [
+    "youtube",
+    "বোতাম",
+    "লেখা",
+    "লাইক",
+    "ঘণ্টা"
+   ]
+  },
+  "template:yp14-me-gusta-barra": {
+   "name": "রেটিং বারসহ «Like this»",
+   "tags": [
+    "youtube",
+    "বোতাম",
+    "লেখা",
+    "লাইক",
+    "রেটিং"
+   ]
+  },
+  "template:yp14-me-gusta-boton": {
+   "name": "থাম্বস ছড়ানো «Like it!» বোতাম",
+   "tags": [
+    "youtube",
+    "বোতাম",
+    "লেখা",
+    "লাইক"
+   ]
+  },
+  "template:yp14-me-gusta-campana-redondos": {
+   "name": "দুটি লাল বোতাম: লাইক ও ঘণ্টা",
+   "tags": [
+    "youtube",
+    "বোতাম",
+    "লেখা",
+    "সারি"
+   ]
+  },
+  "template:yp14-me-gusta-compartir-botones": {
+   "name": "লাল থেকে সাদা হওয়া «Like it» ও «Share» বোতাম",
+   "tags": [
+    "youtube",
+    "বোতাম",
+    "লেখা",
+    "লাইক",
+    "শেয়ার"
+   ]
+  },
+  "template:yp14-me-gusta-compartir-redondos": {
+   "name": "দুটি লাল বোতাম: লাইক ও শেয়ার",
+   "tags": [
+    "youtube",
+    "বোতাম",
+    "লেখা",
+    "সারি"
+   ]
+  },
+  "template:yp14-me-gusta-contador": {
+   "name": "কাউন্টারসহ বড় লাইক",
+   "tags": [
+    "youtube",
+    "বোতাম",
+    "লেখা",
+    "লাইক",
+    "কাউন্টার"
+   ]
+  },
+  "template:yp14-me-gusta-suscribirse": {
+   "name": "কার্ড ছাড়া লাইক ও সাবস্ক্রাইব",
+   "tags": [
+    "youtube",
+    "বোতাম",
+    "লেখা",
+    "সাবস্ক্রাইব"
+   ]
+  },
+  "template:yp14-me-gusta-suscribirse-campana": {
+   "name": "কার্ড ছাড়া লাইক, সাবস্ক্রাইব ও ঘণ্টা",
+   "tags": [
+    "youtube",
+    "বোতাম",
+    "লেখা",
+    "সাবস্ক্রাইব"
+   ]
+  },
+  "template:yp14-no-me-gusta-boton": {
+   "name": "থাম্বস ছড়ানো «Dislike!» বোতাম",
+   "tags": [
+    "youtube",
+    "বোতাম",
+    "লেখা",
+    "ডিসলাইক"
+   ]
+  },
+  "template:yp14-no-me-gusta-contador": {
+   "name": "কাউন্টারসহ বড় ডিসলাইক",
+   "tags": [
+    "youtube",
+    "বোতাম",
+    "লেখা",
+    "ডিসলাইক",
+    "কাউন্টার"
+   ]
+  },
+  "template:yp14-no-recomendar": {
+   "name": "পাঁচটি থাম্বস চিহ্নিত হওয়া «Don't recommend»",
+   "tags": [
+    "youtube",
+    "বোতাম",
+    "লেখা",
+    "রেটিং",
+    "ডিসলাইক"
+   ]
+  },
+  "template:yp14-nombre-suscrito-campana": {
+   "name": "সাবস্ক্রাইবড ও ঘণ্টাসহ চ্যানেলের নাম",
+   "tags": [
+    "youtube",
+    "বোতাম",
+    "সাবস্ক্রাইব"
+   ]
+  },
+  "template:yp14-nombre-suscrito-me-gusta": {
+   "name": "সাবস্ক্রাইবড, লাইক ও ডিসলাইকসহ চ্যানেলের নাম",
+   "tags": [
+    "youtube",
+    "বোতাম",
+    "সাবস্ক্রাইব"
+   ]
+  },
+  "template:yp14-pildora-me-gusta": {
+   "name": "লাল লাইক/ডিসলাইক পিল: লাইকে ক্লিক",
+   "tags": [
+    "youtube",
+    "বোতাম",
+    "লেখা",
+    "লাইক",
+    "ডিসলাইক"
+   ]
+  },
+  "template:yp14-pildora-no-me-gusta": {
+   "name": "লাল লাইক/ডিসলাইক পিল: ডিসলাইকে ক্লিক",
+   "tags": [
+    "youtube",
+    "বোতাম",
+    "লেখা",
+    "লাইক",
+    "ডিসলাইক"
+   ]
+  },
+  "template:yp14-recomendar-amigos": {
+   "name": "পাঁচটি থাম্বস চিহ্নিত হওয়া «Advise friends»",
+   "tags": [
+    "youtube",
+    "বোতাম",
+    "লেখা",
+    "রেটিং",
+    "লাইক"
+   ]
+  },
+  "template:yp14-suscribirse-campana": {
+   "name": "কার্ড ছাড়া সাবস্ক্রাইব ও ঘণ্টা",
+   "tags": [
+    "youtube",
+    "বোতাম",
+    "লেখা",
+    "সাবস্ক্রাইব"
+   ]
+  },
+  "template:yp14-suscribirse-casilla": {
+   "name": "«Subscribe Youtube Channel» সহ টিক দেওয়া বক্স",
+   "tags": [
+    "youtube",
+    "বোতাম",
+    "লেখা",
+    "সাবস্ক্রাইব",
+    "চেকবক্স"
+   ]
+  },
+  "template:yp14-suscribirse-contador": {
+   "name": "১৯৯৯৯ থেকে ২০০০০-এ যাওয়া কাউন্টারসহ সাবস্ক্রাইব",
+   "tags": [
+    "youtube",
+    "বোতাম",
+    "লেখা",
+    "সাবস্ক্রাইব",
+    "কাউন্টার"
+   ]
+  },
+  "template:yp14-suscribirse-hecho": {
+   "name": "«DO IT!» থেকে «DONE» হওয়া «Subscribe Channel»",
+   "tags": [
+    "youtube",
+    "বোতাম",
+    "লেখা",
+    "সাবস্ক্রাইব"
+   ]
+  },
+  "template:yp14-suscribirse-play": {
+   "name": "প্লেসহ লাল «SUBSCRIBE» বোতাম যা «SUBSCRIBED» হয়",
+   "tags": [
+    "youtube",
+    "বোতাম",
+    "লেখা",
+    "সাবস্ক্রাইব"
+   ]
+  },
+  "template:yp14-suscrito-iconos": {
+   "name": "লাইক, ঘণ্টা ও শেয়ারসহ সাবস্ক্রাইবড",
+   "tags": [
+    "youtube",
+    "বোতাম",
+    "সাবস্ক্রাইব"
+   ]
+  },
+  "template:yp14-tarjeta-campana": {
+   "name": "সাবস্ক্রাইব ও ঘণ্টাসহ চ্যানেল কার্ড",
+   "tags": [
+    "youtube",
+    "কার্ড",
+    "চ্যানেল"
+   ]
+  },
+  "template:yp14-tarjeta-comentario": {
+   "name": "ডিসলাইক ও মন্তব্যসহ ভিডিও কার্ড",
+   "tags": [
+    "youtube",
+    "কার্ড",
+    "চ্যানেল"
+   ]
+  },
+  "template:yp14-tarjeta-comentario-2": {
+   "name": "লাইক ও মন্তব্যসহ ভিডিও কার্ড",
+   "tags": [
+    "youtube",
+    "কার্ড",
+    "চ্যানেল"
+   ]
+  },
+  "template:yp14-tarjeta-cristal": {
+   "name": "চ্যানেল কার্ড: ঘণ্টাসহ ছবির উপর কাচ",
+   "tags": [
+    "youtube",
+    "কার্ড",
+    "চ্যানেল",
+    "সাবস্ক্রাইব",
+    "ছবি"
+   ]
+  },
+  "template:yp14-tarjeta-cristal-inclinada": {
+   "name": "চ্যানেল কার্ড: ছবির উপর হেলানো কাচ",
+   "tags": [
+    "youtube",
+    "কার্ড",
+    "চ্যানেল",
+    "সাবস্ক্রাইব",
+    "ছবি"
+   ]
+  },
+  "template:yp14-tarjeta-foto-inclinada": {
+   "name": "চ্যানেল কার্ড: সাবস্ক্রাইব ও ঘণ্টাসহ হেলানো ছবি",
+   "tags": [
+    "youtube",
+    "কার্ড",
+    "চ্যানেল",
+    "সাবস্ক্রাইব",
+    "ছবি"
+   ]
+  },
+  "template:yp14-tarjeta-foto-marco": {
+   "name": "চ্যানেল কার্ড: প্রগ্রেস বারসহ সাদা ফ্রেমে ছবি",
+   "tags": [
+    "youtube",
+    "কার্ড",
+    "চ্যানেল",
+    "সাবস্ক্রাইব",
+    "ছবি"
+   ]
+  },
+  "template:yp14-tarjeta-foto-progreso": {
+   "name": "চ্যানেল কার্ড: প্রগ্রেস বার ও লাইকসহ ছবি",
+   "tags": [
+    "youtube",
+    "কার্ড",
+    "চ্যানেল",
+    "সাবস্ক্রাইব",
+    "ছবি"
+   ]
+  },
+  "template:yp14-tarjeta-foto-recta": {
+   "name": "চ্যানেল কার্ড: লাইক, সাবস্ক্রাইব ও ঘণ্টাসহ ফ্রেমবন্দি ছবি",
+   "tags": [
+    "youtube",
+    "কার্ড",
+    "চ্যানেল",
+    "সাবস্ক্রাইব",
+    "ছবি"
+   ]
+  },
+  "template:yp14-tarjeta-marco": {
+   "name": "চ্যানেল কার্ড: প্রগ্রেস বারসহ ছবির উপর সাদা ফ্রেম",
+   "tags": [
+    "youtube",
+    "কার্ড",
+    "চ্যানেল",
+    "সাবস্ক্রাইব",
+    "ছবি"
+   ]
+  },
+  "template:yp14-tarjeta-marco-inclinado": {
+   "name": "চ্যানেল কার্ড: ছবির উপর হেলানো সাদা ফ্রেম",
+   "tags": [
+    "youtube",
+    "কার্ড",
+    "চ্যানেল",
+    "সাবস্ক্রাইব",
+    "ছবি"
+   ]
+  },
+  "template:yp14-tarjeta-video-compartir": {
+   "name": "লাইক, শেয়ার ও সাবস্ক্রাইবসহ ভিডিও কার্ড",
+   "tags": [
+    "youtube",
+    "কার্ড",
+    "চ্যানেল"
+   ]
+  },
+  "template:yp14-tarjeta-video-cuadrada": {
+   "name": "চৌকো অবতার ও লাল বোতামসহ হেলানো ভিডিও কার্ড",
+   "tags": [
+    "youtube",
+    "কার্ড",
+    "ভিডিও",
+    "সাবস্ক্রাইব",
+    "ছবি"
+   ]
+  },
+  "template:yp14-tarjeta-video-play": {
+   "name": "ভিডিও কার্ড: প্লে ক্লিক করলে ভিডিও পুরো ফ্রেম জুড়ে",
+   "tags": [
+    "youtube",
+    "কার্ড",
+    "ভিডিও",
+    "প্লে"
+   ]
+  },
+  "template:yp14-tarjeta-video-titulo": {
+   "name": "উপরে চ্যানেল ও শিরোনামসহ ভিডিও কার্ড: প্লে ক্লিক",
+   "tags": [
+    "youtube",
+    "কার্ড",
+    "ভিডিও",
+    "প্লে"
+   ]
+  },
+  "template:yp14-tres-botones-blancos": {
+   "name": "তিনটি সাদা বোতাম: লাইক, ঘণ্টা ও শেয়ার একসাথে ক্লিক",
+   "tags": [
+    "youtube",
+    "বোতাম",
+    "লেখা",
+    "সারি"
+   ]
+  },
+  "template:yp14-valoracion-abajo": {
+   "name": "নিচে লাইক, ডিসলাইক ও রেটিংসহ চ্যানেল বার",
+   "tags": [
+    "youtube",
+    "বার",
+    "চ্যানেল",
+    "সাবস্ক্রাইব",
+    "ছবি"
+   ]
+  },
+  "template:yp14-youtube-channel": {
+   "name": "ক্লিকে লাল হওয়া «YOUTUBE CHANNEL»",
+   "tags": [
+    "youtube",
+    "বোতাম",
+    "লেখা",
+    "শিরোনাম"
+   ]
+  },
+  "template:yp15-cargo-verde": {
+   "name": "কাচের লোয়ার থার্ড, সবুজে পদবি",
+   "tags": [
+    "youtube",
+    "লোয়ার থার্ড",
+    "কাচ",
+    "নাম"
+   ]
+  },
+  "template:yp15-centrado": {
+   "name": "সাবস্ক্রাইবসহ মাঝখানে কাচের লোয়ার থার্ড",
+   "tags": [
+    "youtube",
+    "লোয়ার থার্ড",
+    "কাচ",
+    "নাম",
+    "সাবস্ক্রাইব"
+   ]
+  },
+  "template:yp15-dos-nombres": {
+   "name": "কাচের লোয়ার থার্ড: দুটি নাম",
+   "tags": [
+    "youtube",
+    "লোয়ার থার্ড",
+    "কাচ",
+    "নাম",
+    "দুজন"
+   ]
+  },
+  "template:yp15-foto-redonda": {
+   "name": "গোল ছবিসহ কাচের লোয়ার থার্ড",
+   "tags": [
+    "youtube",
+    "লোয়ার থার্ড",
+    "কাচ",
+    "নাম",
+    "ছবি",
+    "অবতার"
+   ]
+  },
+  "template:yp15-foto-suscribete": {
+   "name": "ছবি ও সাবস্ক্রাইবসহ কাচের লোয়ার থার্ড",
+   "tags": [
+    "youtube",
+    "লোয়ার থার্ড",
+    "কাচ",
+    "নাম",
+    "সাবস্ক্রাইব",
+    "ছবি"
+   ]
+  },
+  "template:yp15-linea-fina": {
+   "name": "সরু কাচের লোয়ার থার্ড",
+   "tags": [
+    "youtube",
+    "লোয়ার থার্ড",
+    "কাচ",
+    "নাম"
+   ]
+  },
+  "template:yp15-logo-nombre": {
+   "name": "লোগোসহ কাচের লোয়ার থার্ড",
+   "tags": [
+    "youtube",
+    "লোয়ার থার্ড",
+    "কাচ",
+    "নাম",
+    "লোগো"
+   ]
+  },
+  "template:yp15-logo-suscribete": {
+   "name": "লোগো ও সাবস্ক্রাইবসহ কাচের লোয়ার থার্ড",
+   "tags": [
+    "youtube",
+    "লোয়ার থার্ড",
+    "কাচ",
+    "নাম",
+    "সাবস্ক্রাইব",
+    "লোগো"
+   ]
+  },
+  "template:yp15-nombre-suscribete": {
+   "name": "সাবস্ক্রাইবসহ কাচের লোয়ার থার্ড",
+   "tags": [
+    "youtube",
+    "লোয়ার থার্ড",
+    "কাচ",
+    "নাম",
+    "সাবস্ক্রাইব"
+   ]
+  },
+  "template:yp15-pareja": {
+   "name": "কাচের লোয়ার থার্ড: ছবিসহ জুটি",
+   "tags": [
+    "youtube",
+    "লোয়ার থার্ড",
+    "কাচ",
+    "নাম",
+    "দুজন",
+    "ছবি"
+   ]
+  },
+  "template:yp15-tarjeta-foto": {
+   "name": "ছবি ও লোগোসহ কাচের কার্ড",
+   "tags": [
+    "youtube",
+    "লোয়ার থার্ড",
+    "কাচ",
+    "নাম",
+    "ছবি",
+    "লোগো"
+   ]
+  },
+  "template:yp15-una-linea": {
+   "name": "এক লাইনের কাচের লোয়ার থার্ড",
+   "tags": [
+    "youtube",
+    "লোয়ার থার্ড",
+    "কাচ",
+    "নাম"
+   ]
+  },
+  "template:yp16-barra-nombre": {
+   "name": "নাম ও সাবস্ক্রাইবসহ কাচের বার",
+   "tags": [
+    "youtube",
+    "কাচ",
+    "সাবস্ক্রাইব",
+    "ক্লিক",
+    "ছবি"
+   ]
+  },
+  "template:yp16-barra-suscribete": {
+   "name": "ছবি ও সাবস্ক্রাইবসহ কাচের বার",
+   "tags": [
+    "youtube",
+    "কাচ",
+    "সাবস্ক্রাইব",
+    "ক্লিক",
+    "ছবি"
+   ]
+  },
+  "template:yp16-burbuja-canal": {
+   "name": "ছবি ও চ্যানেলসহ কাচের বুদবুদ",
+   "tags": [
+    "youtube",
+    "কাচ",
+    "চ্যানেল",
+    "ছবি"
+   ]
+  },
+  "template:yp16-circulo": {
+   "name": "ছবি ও সাবস্ক্রাইবসহ কাচের বৃত্ত",
+   "tags": [
+    "youtube",
+    "কাচ",
+    "সাবস্ক্রাইব",
+    "ক্লিক",
+    "ছবি",
+    "বৃত্ত"
+   ]
+  },
+  "template:yp16-join-us": {
+   "name": "গাঢ় কাচের পিল: এখনই যোগ দিন",
+   "tags": [
+    "youtube",
+    "কাচ",
+    "যোগ দিন"
+   ]
+  },
+  "template:yp16-pildora-canal": {
+   "name": "মাঝে ছবিসহ কাচের পিল",
+   "tags": [
+    "youtube",
+    "কাচ",
+    "চ্যানেল",
+    "ছবি"
+   ]
+  },
+  "template:yp16-stay-tuned": {
+   "name": "কাচের বৃত্ত: সাথেই থাকুন",
+   "tags": [
+    "youtube",
+    "কাচ",
+    "বৃত্ত"
+   ]
+  },
+  "template:yp16-tarjeta-cuadrada": {
+   "name": "সাবস্ক্রাইবসহ চৌকো কাচের কার্ড",
+   "tags": [
+    "youtube",
+    "কাচ",
+    "সাবস্ক্রাইব",
+    "ক্লিক",
+    "ছবি"
+   ]
+  },
+  "template:yp16-tarjeta-nombre": {
+   "name": "নাম ও সাবস্ক্রাইবসহ কাচের কার্ড",
+   "tags": [
+    "youtube",
+    "কাচ",
+    "সাবস্ক্রাইব",
+    "ক্লিক",
+    "ছবি"
+   ]
+  },
+  "template:yp16-tarjeta-vertical": {
+   "name": "সাবস্ক্রাইবসহ উল্লম্ব কাচের কার্ড",
+   "tags": [
+    "youtube",
+    "কাচ",
+    "সাবস্ক্রাইব",
+    "ক্লিক",
+    "ছবি"
+   ]
+  },
+  "template:yp16-watch-more": {
+   "name": "কাচের বুদবুদ: আরও দেখুন",
+   "tags": [
+    "youtube",
+    "কাচ",
+    "আরও দেখুন"
+   ]
+  },
+  "template:yp17-barra-canal": {
+   "name": "ছবি ও সাবস্ক্রাইবসহ ফ্ল্যাট বার",
+   "tags": [
+    "youtube",
+    "কার্ড",
+    "ফ্ল্যাট",
+    "সাবস্ক্রাইব",
+    "ক্লিক",
+    "ছবি"
+   ]
+  },
+  "template:yp17-barra-foto": {
+   "name": "মাঝে ছবিসহ ফ্ল্যাট বার",
+   "tags": [
+    "youtube",
+    "কার্ড",
+    "ফ্ল্যাট",
+    "সাবস্ক্রাইব",
+    "ক্লিক",
+    "ছবি"
+   ]
+  },
+  "template:yp17-barra-titulo": {
+   "name": "ছবি ও শিরোনামসহ ফ্ল্যাট বার",
+   "tags": [
+    "youtube",
+    "কার্ড",
+    "ফ্ল্যাট",
+    "সাবস্ক্রাইব",
+    "ক্লিক",
+    "ছবি"
+   ]
+  },
+  "template:yp17-boton-youtube": {
+   "name": "YouTube বোতামসহ ফ্ল্যাট কার্ড",
+   "tags": [
+    "youtube",
+    "কার্ড",
+    "ফ্ল্যাট",
+    "বোতাম",
+    "প্লে"
+   ]
+  },
+  "template:yp17-foto-arriba": {
+   "name": "সাবস্ক্রাইব কার্ডের উপরে গোল ছবি",
+   "tags": [
+    "youtube",
+    "কার্ড",
+    "ফ্ল্যাট",
+    "সাবস্ক্রাইব",
+    "ক্লিক",
+    "ছবি"
+   ]
+  },
+  "template:yp17-foto-cuadrada": {
+   "name": "চৌকো ছবি ও সাবস্ক্রাইব বার",
+   "tags": [
+    "youtube",
+    "কার্ড",
+    "ফ্ল্যাট",
+    "সাবস্ক্রাইব",
+    "ক্লিক",
+    "ছবি"
+   ]
+  },
+  "template:yp17-join-us": {
+   "name": "ফ্ল্যাট কার্ড: YouTube-সহ যোগ দিন",
+   "tags": [
+    "youtube",
+    "কার্ড",
+    "ফ্ল্যাট",
+    "যোগ দিন"
+   ]
+  },
+  "template:yp17-tarjeta-nombre": {
+   "name": "ছবি, YouTube ও সাবস্ক্রাইবসহ ফ্ল্যাট কার্ড",
+   "tags": [
+    "youtube",
+    "কার্ড",
+    "ফ্ল্যাট",
+    "সাবস্ক্রাইব",
+    "ক্লিক",
+    "ছবি"
+   ]
+  },
+  "template:yp17-tarjeta-vertical": {
+   "name": "সাবস্ক্রাইবসহ উল্লম্ব ফ্ল্যাট কার্ড",
+   "tags": [
+    "youtube",
+    "কার্ড",
+    "ফ্ল্যাট",
+    "সাবস্ক্রাইব",
+    "ক্লিক",
+    "ছবি"
+   ]
+  },
+  "template:yp17-watch-more": {
+   "name": "ফ্ল্যাট কার্ড: আরও দেখুন",
+   "tags": [
+    "youtube",
+    "কার্ড",
+    "ফ্ল্যাট",
+    "আরও দেখুন"
+   ]
+  },
   "template:yp2-apertura": {
    "name": "ওপেনিং: YouTube বাটন সহ লাল ও সাদা বলয়",
    "tags": [
@@ -41427,6 +43719,505 @@
     "সাদা-কালো",
     "ফ্যাশন",
     "ট্রানজিশন"
+   ]
+  },
+  "template:yp8-disfruta": {
+   "name": "সমাপ্তি: enjoy",
+   "tags": [
+    "youtube",
+    "সমাপ্তি",
+    "লেখা"
+   ]
+  },
+  "template:yp8-logo-formas-claro": {
+   "name": "ওপেনার: কমলা আকৃতি দিয়ে আপনার লোগো প্রকাশ",
+   "tags": [
+    "youtube",
+    "লোগো",
+    "ওপেনার",
+    "আকৃতি"
+   ]
+  },
+  "template:yp8-logo-formas-oscuro": {
+   "name": "ওপেনার: আকৃতি দিয়ে আপনার লোগো প্রকাশ (গাঢ়)",
+   "tags": [
+    "youtube",
+    "লোগো",
+    "ওপেনার",
+    "আকৃতি"
+   ]
+  },
+  "template:yp8-logo-formas-video": {
+   "name": "ওপেনার: আপনার ভিডিওর উপর সাদা আকৃতি ও লোগো",
+   "tags": [
+    "youtube",
+    "লোগো",
+    "ওপেনার",
+    "আকৃতি"
+   ]
+  },
+  "template:yp8-logo-youtube-claro": {
+   "name": "নিজে থেকে গড়ে ওঠা YouTube লোগো (সাদা)",
+   "tags": [
+    "youtube",
+    "লোগো",
+    "ওপেনার",
+    "সাদা"
+   ]
+  },
+  "template:yp8-logo-youtube-oscuro": {
+   "name": "নিজে থেকে গড়ে ওঠা YouTube লোগো (গাঢ়)",
+   "tags": [
+    "youtube",
+    "লোগো",
+    "ওপেনার",
+    "গাঢ়"
+   ]
+  },
+  "template:yp8-logo-youtube-video": {
+   "name": "আপনার ভিডিওর উপর সাদা YouTube লোগো",
+   "tags": [
+    "youtube",
+    "লোগো",
+    "ওপেনার",
+    "সাদা"
+   ]
+  },
+  "template:yp8-me-gusta-blanco": {
+   "name": "সাদা বৃত্তে লাইক",
+   "tags": [
+    "youtube",
+    "লাইক",
+    "বোতাম",
+    "বৃত্ত"
+   ]
+  },
+  "template:yp8-me-gusta-oscuro": {
+   "name": "গাঢ় বৃত্তে লাইক",
+   "tags": [
+    "youtube",
+    "লাইক",
+    "বোতাম",
+    "বৃত্ত"
+   ]
+  },
+  "template:yp8-redes-tercios": {
+   "name": "সোশ্যাল মিডিয়ার সাতটি লোয়ার থার্ড",
+   "tags": [
+    "youtube",
+    "সোশ্যাল মিডিয়া",
+    "লোয়ার থার্ড",
+    "instagram",
+    "twitter",
+    "facebook"
+   ]
+  },
+  "template:yp8-suscribirse-blanco": {
+   "name": "ক্লিক ও ঘণ্টাসহ সাবস্ক্রাইব বার",
+   "tags": [
+    "youtube",
+    "সাবস্ক্রাইব",
+    "বোতাম",
+    "ক্লিক",
+    "ঘণ্টা"
+   ]
+  },
+  "template:yp8-suscribirse-oscuro": {
+   "name": "ক্লিক ও ঘণ্টাসহ সাবস্ক্রাইব বার (গাঢ়)",
+   "tags": [
+    "youtube",
+    "সাবস্ক্রাইব",
+    "বোতাম",
+    "ক্লিক",
+    "ঘণ্টা"
+   ]
+  },
+  "template:yp8-tercio-facebook": {
+   "name": "লোয়ার থার্ড: Facebook-এ আমাদের ফলো করুন",
+   "tags": [
+    "youtube",
+    "লোয়ার থার্ড",
+    "সোশ্যাল মিডিয়া"
+   ]
+  },
+  "template:yp8-tercio-instagram": {
+   "name": "লোয়ার থার্ড: Instagram ইউজারনেম",
+   "tags": [
+    "youtube",
+    "লোয়ার থার্ড",
+    "সোশ্যাল মিডিয়া"
+   ]
+  },
+  "template:yp8-tercio-nombre": {
+   "name": "লোয়ার থার্ড: নাম ও পদবি",
+   "tags": [
+    "youtube",
+    "লোয়ার থার্ড",
+    "সোশ্যাল মিডিয়া"
+   ]
+  },
+  "template:yp8-tercio-twitter": {
+   "name": "লোয়ার থার্ড: Twitter ইউজারনেম",
+   "tags": [
+    "youtube",
+    "লোয়ার থার্ড",
+    "সোশ্যাল মিডিয়া"
+   ]
+  },
+  "template:yp8-tercio-youtube": {
+   "name": "লোয়ার থার্ড: আমার চ্যানেলে সাবস্ক্রাইব করুন",
+   "tags": [
+    "youtube",
+    "লোয়ার থার্ড",
+    "সোশ্যাল মিডিয়া"
+   ]
+  },
+  "template:yp8-tercio-yt-blanco": {
+   "name": "লোয়ার থার্ড: YouTube ইউজারনেম",
+   "tags": [
+    "youtube",
+    "লোয়ার থার্ড",
+    "সোশ্যাল মিডিয়া"
+   ]
+  },
+  "template:yp8-tercio-yt-oscuro": {
+   "name": "লোয়ার থার্ড: YouTube-এ সাবস্ক্রাইব করুন (গাঢ়)",
+   "tags": [
+    "youtube",
+    "লোয়ার থার্ড",
+    "সোশ্যাল মিডিয়া"
+   ]
+  },
+  "template:yp8-transicion-ola": {
+   "name": "ট্রানজিশন: নীল-সবুজ ঢেউ",
+   "tags": [
+    "youtube",
+    "ট্রানজিশন",
+    "গ্রেডিয়েন্ট"
+   ]
+  },
+  "template:yp8-transicion-rombo": {
+   "name": "ট্রানজিশন: উপরে ওঠা নীল-সবুজ রম্বস",
+   "tags": [
+    "youtube",
+    "ট্রানজিশন",
+    "গ্রেডিয়েন্ট"
+   ]
+  },
+  "template:yp9-barra-canal": {
+   "name": "ঘণ্টাসহ চ্যানেলের নামের বার",
+   "tags": [
+    "youtube",
+    "বার",
+    "চ্যানেল",
+    "ঘণ্টা",
+    "সাবস্ক্রাইব"
+   ]
+  },
+  "template:yp9-bloques-glitch": {
+   "name": "গ্লিচ রঙের ব্লক",
+   "tags": [
+    "youtube",
+    "গ্লিচ",
+    "রং",
+    "ত্রুটি"
+   ]
+  },
+  "template:yp9-boton-suscribirse": {
+   "name": "ভরে উঠে ক্লিক হওয়া সাবস্ক্রাইব বোতাম",
+   "tags": [
+    "youtube",
+    "সাবস্ক্রাইব",
+    "বোতাম",
+    "ক্লিক",
+    "কার্সর"
+   ]
+  },
+  "template:yp9-boton-ventana": {
+   "name": "প্লে বোতাম যা ভিডিও উইন্ডোতে খোলে",
+   "tags": [
+    "youtube",
+    "প্লে",
+    "উইন্ডো",
+    "ট্রানজিশন"
+   ]
+  },
+  "template:yp9-cinta-tendencia": {
+   "name": "শিরোনামসহ হলুদ ট্রেন্ড টেপ",
+   "tags": [
+    "youtube",
+    "টেপ",
+    "ট্রেন্ড",
+    "শিরোনাম"
+   ]
+  },
+  "template:yp9-corazones-flotando": {
+   "name": "ভিডিওর উপর ভেসে ওঠা হার্ট",
+   "tags": [
+    "youtube",
+    "হার্ট",
+    "ভালোবাসা",
+    "ভিডিও"
+   ]
+  },
+  "template:yp9-destello-a": {
+   "name": "আঁকিবুঁকির ঝলক A",
+   "tags": [
+    "youtube",
+    "ঝলকানি",
+    "আঁকিবুঁকি",
+    "ঝলক"
+   ]
+  },
+  "template:yp9-destello-b": {
+   "name": "আঁকিবুঁকির ঝলক B",
+   "tags": [
+    "youtube",
+    "ঝলকানি",
+    "আঁকিবুঁকি",
+    "ঝলক"
+   ]
+  },
+  "template:yp9-destello-c": {
+   "name": "আঁকিবুঁকির ঝলক C",
+   "tags": [
+    "youtube",
+    "ঝলকানি",
+    "আঁকিবুঁকি",
+    "ঝলক"
+   ]
+  },
+  "template:yp9-enlace-behance": {
+   "name": "লিংক বার: behance",
+   "tags": [
+    "youtube",
+    "সোশ্যাল মিডিয়া",
+    "লিংক",
+    "বার",
+    "behance"
+   ]
+  },
+  "template:yp9-enlace-dribbble": {
+   "name": "লিংক বার: dribbble",
+   "tags": [
+    "youtube",
+    "সোশ্যাল মিডিয়া",
+    "লিংক",
+    "বার",
+    "dribbble"
+   ]
+  },
+  "template:yp9-enlace-facebook": {
+   "name": "লিংক বার: facebook",
+   "tags": [
+    "youtube",
+    "সোশ্যাল মিডিয়া",
+    "লিংক",
+    "বার",
+    "facebook"
+   ]
+  },
+  "template:yp9-enlace-google": {
+   "name": "লিংক বার: google",
+   "tags": [
+    "youtube",
+    "সোশ্যাল মিডিয়া",
+    "লিংক",
+    "বার",
+    "google"
+   ]
+  },
+  "template:yp9-enlace-instagram": {
+   "name": "লিংক বার: instagram",
+   "tags": [
+    "youtube",
+    "সোশ্যাল মিডিয়া",
+    "লিংক",
+    "বার",
+    "instagram"
+   ]
+  },
+  "template:yp9-enlace-itunes": {
+   "name": "লিংক বার: itunes",
+   "tags": [
+    "youtube",
+    "সোশ্যাল মিডিয়া",
+    "লিংক",
+    "বার",
+    "itunes"
+   ]
+  },
+  "template:yp9-enlace-patreon": {
+   "name": "লিংক বার: patreon",
+   "tags": [
+    "youtube",
+    "সোশ্যাল মিডিয়া",
+    "লিংক",
+    "বার",
+    "patreon"
+   ]
+  },
+  "template:yp9-enlace-soundcloud": {
+   "name": "লিংক বার: soundcloud",
+   "tags": [
+    "youtube",
+    "সোশ্যাল মিডিয়া",
+    "লিংক",
+    "বার",
+    "soundcloud"
+   ]
+  },
+  "template:yp9-enlace-spotify": {
+   "name": "লিংক বার: spotify",
+   "tags": [
+    "youtube",
+    "সোশ্যাল মিডিয়া",
+    "লিংক",
+    "বার",
+    "spotify"
+   ]
+  },
+  "template:yp9-enlace-telegram": {
+   "name": "লিংক বার: telegram",
+   "tags": [
+    "youtube",
+    "সোশ্যাল মিডিয়া",
+    "লিংক",
+    "বার",
+    "telegram"
+   ]
+  },
+  "template:yp9-enlace-twitter": {
+   "name": "লিংক বার: twitter",
+   "tags": [
+    "youtube",
+    "সোশ্যাল মিডিয়া",
+    "লিংক",
+    "বার",
+    "twitter"
+   ]
+  },
+  "template:yp9-enlace-vimeo": {
+   "name": "লিংক বার: vimeo",
+   "tags": [
+    "youtube",
+    "সোশ্যাল মিডিয়া",
+    "লিংক",
+    "বার",
+    "vimeo"
+   ]
+  },
+  "template:yp9-etiqueta-usuario": {
+   "name": "আইকন ও @ইউজারনেমসহ ব্যাজ",
+   "tags": [
+    "youtube",
+    "ইউজারনেম",
+    "সোশ্যাল মিডিয়া",
+    "লেবেল"
+   ]
+  },
+  "template:yp9-live-stream-blanco": {
+   "name": "বোতামসহ সাদা LIVE STREAM শিরোনাম",
+   "tags": [
+    "youtube",
+    "লাইভ",
+    "লাইভ স্ট্রিম",
+    "সম্প্রচার"
+   ]
+  },
+  "template:yp9-live-stream-rojo": {
+   "name": "লাল-কালো বাক্সে LIVE STREAM শিরোনাম",
+   "tags": [
+    "youtube",
+    "লাইভ",
+    "লাইভ স্ট্রিম",
+    "সম্প্রচার"
+   ]
+  },
+  "template:yp9-me-gusta-cursor": {
+   "name": "কার্সরে নীল হয়ে যাওয়া লাইক",
+   "tags": [
+    "youtube",
+    "লাইক",
+    "ক্লিক",
+    "কার্সর"
+   ]
+  },
+  "template:yp9-me-gusta-destello": {
+   "name": "ক্লিকে ঝলমলে লাইকের বিস্ফোরণ",
+   "tags": [
+    "youtube",
+    "লাইক",
+    "ক্লিক",
+    "ঝলকানি"
+   ]
+  },
+  "template:yp9-perfil": {
+   "name": "ছবি, ফলো বোতাম ও কাউন্টারসহ প্রোফাইল",
+   "tags": [
+    "youtube",
+    "প্রোফাইল",
+    "ফলো",
+    "কাউন্টার",
+    "সোশ্যাল মিডিয়া"
+   ]
+  },
+  "template:yp9-rayo": {
+   "name": "একটি রেখা থেকে গড়ে ওঠা বজ্র",
+   "tags": [
+    "youtube",
+    "বজ্র",
+    "ইন্ট্রো"
+   ]
+  },
+  "template:yp9-redes-enlaces": {
+   "name": "সোশ্যাল লিংকের বারোটি বার",
+   "tags": [
+    "youtube",
+    "সোশ্যাল মিডিয়া",
+    "লিংক",
+    "বার",
+    "behance",
+    "instagram"
+   ]
+  },
+  "template:yp9-sticker-suscrito": {
+   "name": "প্লে বোতাম থেকে সাবস্ক্রাইবড স্টিকার",
+   "tags": [
+    "youtube",
+    "সাবস্ক্রাইব",
+    "স্টিকার",
+    "ক্লিক"
+   ]
+  },
+  "template:yp9-tarjeta-canal": {
+   "name": "গোল ছবি ও সাবস্ক্রাইবসহ চ্যানেল কার্ড",
+   "tags": [
+    "youtube",
+    "কার্ড",
+    "চ্যানেল",
+    "সাবস্ক্রাইব",
+    "ক্লিক"
+   ]
+  },
+  "template:yp9-telefono-feed": {
+   "name": "উল্লম্ব ভিডিও ও বোতামসহ ফোন",
+   "tags": [
+    "youtube",
+    "ফোন",
+    "উল্লম্ব",
+    "সোশ্যাল মিডিয়া",
+    "লাইক"
+   ]
+  },
+  "template:yp9-telefono-reacciones": {
+   "name": "হার্ট ও লাইকসহ ফোন",
+   "tags": [
+    "youtube",
+    "ফোন",
+    "লাইক",
+    "হার্ট",
+    "সোশ্যাল মিডিয়া"
    ]
   },
   "template:yt-calle-a-que-te-dedicas": {

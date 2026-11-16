@@ -39105,6 +39105,2298 @@
     "方框"
    ]
   },
+  "template:yp10-boton-suscribete": {
+   "name": "带箭头的SUBSCRIBE MY CHANNEL按钮",
+   "tags": [
+    "youtube",
+    "手绘",
+    "绘画",
+    "社交媒体",
+    "订阅",
+    "按钮"
+   ]
+  },
+  "template:yp10-caja-roja": {
+   "name": "红色方框里的SUSCRÍBETE YA",
+   "tags": [
+    "youtube",
+    "手绘",
+    "绘画",
+    "社交媒体",
+    "订阅",
+    "方框"
+   ]
+  },
+  "template:yp10-check": {
+   "name": "绿色对勾的Check New Video",
+   "tags": [
+    "youtube",
+    "手绘",
+    "绘画",
+    "社交媒体",
+    "对勾",
+    "新视频"
+   ]
+  },
+  "template:yp10-cuenta": {
+   "name": "带蓝色水滴的@youraccount",
+   "tags": [
+    "youtube",
+    "手绘",
+    "绘画",
+    "社交媒体",
+    "账号",
+    "水滴"
+   ]
+  },
+  "template:yp10-luna": {
+   "name": "带月亮的SUBSCRIBE与Like New Video",
+   "tags": [
+    "youtube",
+    "手绘",
+    "绘画",
+    "社交媒体",
+    "订阅",
+    "月亮"
+   ]
+  },
+  "template:yp10-me-gusta-amarillo": {
+   "name": "黄色大拇指的Like New Video",
+   "tags": [
+    "youtube",
+    "手绘",
+    "绘画",
+    "社交媒体",
+    "点赞",
+    "大拇指"
+   ]
+  },
+  "template:yp10-mi-canal": {
+   "name": "被选中并放大的My Channel",
+   "tags": [
+    "youtube",
+    "手绘",
+    "绘画",
+    "社交媒体",
+    "频道",
+    "选中"
+   ]
+  },
+  "template:yp10-nuevo-video-morado": {
+   "name": "紫色方框里的NEW VIDEO与Like",
+   "tags": [
+    "youtube",
+    "手绘",
+    "绘画",
+    "社交媒体",
+    "新视频",
+    "方框"
+   ]
+  },
+  "template:yp10-nuevo-video-rosa": {
+   "name": "粉色色块和爱心的New Video",
+   "tags": [
+    "youtube",
+    "手绘",
+    "绘画",
+    "社交媒体",
+    "新视频",
+    "爱心"
+   ]
+  },
+  "template:yp10-podcast": {
+   "name": "带泼溅效果的NEW PODCAST",
+   "tags": [
+    "youtube",
+    "手绘",
+    "绘画",
+    "社交媒体",
+    "podcast"
+   ]
+  },
+  "template:yp10-pulgar-beige": {
+   "name": "带大拇指的NUEVO VIDEO AQUÍ",
+   "tags": [
+    "youtube",
+    "手绘",
+    "绘画",
+    "社交媒体",
+    "大拇指",
+    "西班牙语"
+   ]
+  },
+  "template:yp10-social-media": {
+   "name": "红色椭圆环绕的Social Media Title",
+   "tags": [
+    "youtube",
+    "手绘",
+    "绘画",
+    "社交媒体",
+    "标题",
+    "椭圆"
+   ]
+  },
+  "template:yp10-suscribete-flechas": {
+   "name": "带箭头的红色订阅按钮",
+   "tags": [
+    "youtube",
+    "手绘",
+    "绘画",
+    "社交媒体",
+    "订阅",
+    "按钮"
+   ]
+  },
+  "template:yp10-suscribete-puntos": {
+   "name": "彩色圆点订阅与@yourchannel",
+   "tags": [
+    "youtube",
+    "手绘",
+    "绘画",
+    "社交媒体",
+    "订阅",
+    "按钮"
+   ]
+  },
+  "template:yp10-tu-logo": {
+   "name": "蓝色墨水的Your Logo",
+   "tags": [
+    "youtube",
+    "手绘",
+    "绘画",
+    "社交媒体",
+    "标志",
+    "墨水"
+   ]
+  },
+  "template:yp11-amazing": {
+   "name": "文字：带彩虹的AMAZING",
+   "tags": [
+    "youtube",
+    "彩虹",
+    "惊艳"
+   ]
+  },
+  "template:yp11-any-language": {
+   "name": "文字：圆盘上的Use Any Language",
+   "tags": [
+    "youtube",
+    "圆形",
+    "语言"
+   ]
+  },
+  "template:yp11-brand-new-year": {
+   "name": "标题：2026年Brand New",
+   "tags": [
+    "youtube",
+    "年份",
+    "新"
+   ]
+  },
+  "template:yp11-channel-name": {
+   "name": "按钮：频道名称",
+   "tags": [
+    "youtube",
+    "频道",
+    "按钮",
+    "箭头"
+   ]
+  },
+  "template:yp11-click": {
+   "name": "按钮：带手势的CLICK",
+   "tags": [
+    "youtube",
+    "点击",
+    "手势"
+   ]
+  },
+  "template:yp11-comment": {
+   "name": "文字：带箭头的Comment",
+   "tags": [
+    "youtube",
+    "评论",
+    "箭头"
+   ]
+  },
+  "template:yp11-follow-me": {
+   "name": "按钮：带开关的关注我",
+   "tags": [
+    "youtube",
+    "关注",
+    "开关"
+   ]
+  },
+  "template:yp11-high-quality": {
+   "name": "按钮：带指针的高画质",
+   "tags": [
+    "youtube",
+    "高画质",
+    "按钮",
+    "指针"
+   ]
+  },
+  "template:yp11-like-heart": {
+   "name": "文字：带爱心的Like",
+   "tags": [
+    "youtube",
+    "点赞",
+    "爱心"
+   ]
+  },
+  "template:yp11-like-my-video": {
+   "name": "文字：带大拇指的Like my video",
+   "tags": [
+    "youtube",
+    "点赞",
+    "大拇指"
+   ]
+  },
+  "template:yp11-looking-perfect": {
+   "name": "文字：带圆点的Looking Perfect",
+   "tags": [
+    "youtube",
+    "圆点",
+    "社交媒体"
+   ]
+  },
+  "template:yp11-new-video": {
+   "name": "标签：带笑脸的New Video",
+   "tags": [
+    "youtube",
+    "新视频",
+    "笑脸"
+   ]
+  },
+  "template:yp11-play": {
+   "name": "按钮：红色播放",
+   "tags": [
+    "youtube",
+    "播放",
+    "按钮"
+   ]
+  },
+  "template:yp11-rate-us": {
+   "name": "文字：带爱心的Rate Us",
+   "tags": [
+    "youtube",
+    "评分",
+    "爱心"
+   ]
+  },
+  "template:yp11-share": {
+   "name": "文字：带箭头的SHARE",
+   "tags": [
+    "youtube",
+    "分享",
+    "箭头"
+   ]
+  },
+  "template:yp11-subscribe-bell": {
+   "name": "文字：带小铃铛的订阅",
+   "tags": [
+    "youtube",
+    "订阅",
+    "小铃铛"
+   ]
+  },
+  "template:yp11-thanks-watching": {
+   "name": "文字：带眼睛的感谢观看",
+   "tags": [
+    "youtube",
+    "感谢",
+    "眼睛",
+    "致谢"
+   ]
+  },
+  "template:yp11-titles-smiley": {
+   "name": "标题：带笑脸的TITLES & BUTTONS",
+   "tags": [
+    "youtube",
+    "笑脸",
+    "标题"
+   ]
+  },
+  "template:yp11-trendy-style": {
+   "name": "文字：带闪电的Trendy Style",
+   "tags": [
+    "youtube",
+    "闪电",
+    "潮流"
+   ]
+  },
+  "template:yp11-watch-now": {
+   "name": "文字：带花朵的立即观看",
+   "tags": [
+    "youtube",
+    "观看",
+    "新视频"
+   ]
+  },
+  "template:yp12-barra-profesora": {
+   "name": "带头像、点赞、小铃铛和订阅的横条",
+   "tags": [
+    "youtube",
+    "订阅",
+    "按钮",
+    "横条",
+    "点赞",
+    "小铃铛"
+   ]
+  },
+  "template:yp12-foto-burbujas": {
+   "name": "带气泡和图标的头像",
+   "tags": [
+    "youtube",
+    "订阅",
+    "按钮",
+    "照片",
+    "气泡",
+    "点赞"
+   ]
+  },
+  "template:yp12-foto-iconos": {
+   "name": "图标迸出的头像",
+   "tags": [
+    "youtube",
+    "订阅",
+    "按钮",
+    "照片",
+    "圆形",
+    "点赞"
+   ]
+  },
+  "template:yp12-foto-lados": {
+   "name": "两侧带图标的头像",
+   "tags": [
+    "youtube",
+    "订阅",
+    "按钮",
+    "照片",
+    "点赞",
+    "小铃铛"
+   ]
+  },
+  "template:yp12-foto-liquida": {
+   "name": "带液体图标的头像",
+   "tags": [
+    "youtube",
+    "订阅",
+    "按钮",
+    "照片",
+    "液体",
+    "点赞"
+   ]
+  },
+  "template:yp12-foto-orbita": {
+   "name": "图标环绕的圆形头像",
+   "tags": [
+    "youtube",
+    "订阅",
+    "按钮",
+    "照片",
+    "圆形",
+    "点赞"
+   ]
+  },
+  "template:yp12-lista-botones": {
+   "name": "点赞、订阅、开启通知列表",
+   "tags": [
+    "youtube",
+    "订阅",
+    "按钮",
+    "列表",
+    "点赞",
+    "小铃铛"
+   ]
+  },
+  "template:yp12-lista-capsula": {
+   "name": "胶囊式点赞、订阅、开启通知列表",
+   "tags": [
+    "youtube",
+    "订阅",
+    "按钮",
+    "列表",
+    "点赞",
+    "小铃铛"
+   ]
+  },
+  "template:yp12-nombre-suscrito": {
+   "name": "频道名称、已订阅和小铃铛",
+   "tags": [
+    "youtube",
+    "订阅",
+    "按钮",
+    "名字",
+    "小铃铛",
+    "点击"
+   ]
+  },
+  "template:yp12-tarjeta-gris": {
+   "name": "带大头像的灰色卡片",
+   "tags": [
+    "youtube",
+    "订阅",
+    "按钮",
+    "卡片",
+    "点赞",
+    "小铃铛"
+   ]
+  },
+  "template:yp12-tarjeta-lista": {
+   "name": "展开成卡片的频道名称",
+   "tags": [
+    "youtube",
+    "订阅",
+    "按钮",
+    "卡片",
+    "列表",
+    "点赞"
+   ]
+  },
+  "template:yp12-tarjeta-rosa": {
+   "name": "带头像和粉色订阅的卡片",
+   "tags": [
+    "youtube",
+    "订阅",
+    "按钮",
+    "卡片",
+    "粉色"
+   ]
+  },
+  "template:yp12-tres-botones": {
+   "name": "三个圆形按钮",
+   "tags": [
+    "youtube",
+    "订阅",
+    "按钮",
+    "点赞",
+    "小铃铛",
+    "点击"
+   ]
+  },
+  "template:yp13-aconseja-amigos": {
+   "name": "推荐给朋友：点赞",
+   "tags": [
+    "youtube",
+    "评分",
+    "点赞",
+    "光标"
+   ]
+  },
+  "template:yp13-agregar-comentario": {
+   "name": "发布评论的添加评论按钮",
+   "tags": [
+    "youtube",
+    "评论",
+    "按钮",
+    "光标"
+   ]
+  },
+  "template:yp13-avatar-comentario": {
+   "name": "带徽标并展开评论的头像",
+   "tags": [
+    "youtube",
+    "评论",
+    "头像",
+    "光标"
+   ]
+  },
+  "template:yp13-aviso-cafe": {
+   "name": "带OK的提示窗口",
+   "tags": [
+    "youtube",
+    "提示",
+    "窗口",
+    "光标"
+   ]
+  },
+  "template:yp13-aviso-comentarios": {
+   "name": "评论通知",
+   "tags": [
+    "youtube",
+    "通知",
+    "评论",
+    "计数器",
+    "光标"
+   ]
+  },
+  "template:yp13-aviso-doble": {
+   "name": "点赞和粉丝通知",
+   "tags": [
+    "youtube",
+    "通知",
+    "点赞",
+    "粉丝",
+    "光标"
+   ]
+  },
+  "template:yp13-aviso-me-gusta": {
+   "name": "点赞通知",
+   "tags": [
+    "youtube",
+    "通知",
+    "点赞",
+    "计数器",
+    "光标"
+   ]
+  },
+  "template:yp13-aviso-seguidores": {
+   "name": "粉丝通知",
+   "tags": [
+    "youtube",
+    "通知",
+    "粉丝",
+    "计数器",
+    "光标"
+   ]
+  },
+  "template:yp13-barra-suscribir": {
+   "name": "点赞、订阅和小铃铛横条",
+   "tags": [
+    "youtube",
+    "订阅",
+    "点赞",
+    "小铃铛",
+    "光标"
+   ]
+  },
+  "template:yp13-buscar-boton": {
+   "name": "带SEARCH按钮的搜索框",
+   "tags": [
+    "youtube",
+    "搜索栏",
+    "光标",
+    "按钮"
+   ]
+  },
+  "template:yp13-buscar-cargando": {
+   "name": "变成加载中的搜索栏",
+   "tags": [
+    "youtube",
+    "搜索栏",
+    "光标",
+    "网页"
+   ]
+  },
+  "template:yp13-buscar-lupa": {
+   "name": "带方形放大镜的搜索框",
+   "tags": [
+    "youtube",
+    "搜索栏",
+    "光标"
+   ]
+  },
+  "template:yp13-buscar-mapa": {
+   "name": "带搜索框和定位针的地图",
+   "tags": [
+    "youtube",
+    "地图",
+    "搜索栏",
+    "光标",
+    "位置"
+   ]
+  },
+  "template:yp13-caras-valorar": {
+   "name": "喜欢这个视频吗？表情评分",
+   "tags": [
+    "youtube",
+    "评分",
+    "表情",
+    "光标"
+   ]
+  },
+  "template:yp13-carrito-precio": {
+   "name": "带价格的购物车按钮",
+   "tags": [
+    "youtube",
+    "购物车",
+    "购买",
+    "光标"
+   ]
+  },
+  "template:yp13-casilla-marcada": {
+   "name": "CHECKED复选框",
+   "tags": [
+    "youtube",
+    "复选框",
+    "光标"
+   ]
+  },
+  "template:yp13-chat-dos": {
+   "name": "带时间和回复的双人聊天",
+   "tags": [
+    "youtube",
+    "聊天",
+    "消息",
+    "光标"
+   ]
+  },
+  "template:yp13-chat-nombres": {
+   "name": "带名字和回复的聊天",
+   "tags": [
+    "youtube",
+    "聊天",
+    "消息",
+    "光标"
+   ]
+  },
+  "template:yp13-chat-ventana-amarilla": {
+   "name": "带名字的黄色聊天窗口",
+   "tags": [
+    "youtube",
+    "聊天",
+    "消息",
+    "窗口"
+   ]
+  },
+  "template:yp13-chat-ventana-azul": {
+   "name": "蓝色聊天窗口",
+   "tags": [
+    "youtube",
+    "聊天",
+    "消息",
+    "窗口"
+   ]
+  },
+  "template:yp13-chat-ventana-grande": {
+   "name": "视频上的聊天窗口",
+   "tags": [
+    "youtube",
+    "聊天",
+    "消息",
+    "窗口"
+   ]
+  },
+  "template:yp13-comentario-like": {
+   "name": "带LIKE和REPLY的评论",
+   "tags": [
+    "youtube",
+    "评论",
+    "点赞",
+    "光标"
+   ]
+  },
+  "template:yp13-comentario-votos": {
+   "name": "带点赞和回复的评论",
+   "tags": [
+    "youtube",
+    "评论",
+    "点赞",
+    "光标"
+   ]
+  },
+  "template:yp13-comprar-gracias": {
+   "name": "显示感谢的购买按钮",
+   "tags": [
+    "youtube",
+    "按钮",
+    "购买",
+    "光标"
+   ]
+  },
+  "template:yp13-contador-comentarios": {
+   "name": "带评论计数的气泡",
+   "tags": [
+    "youtube",
+    "计数器",
+    "评论",
+    "光标"
+   ]
+  },
+  "template:yp13-contador-corazon": {
+   "name": "带点赞计数的爱心",
+   "tags": [
+    "youtube",
+    "计数器",
+    "点赞",
+    "爱心",
+    "光标"
+   ]
+  },
+  "template:yp13-contador-pulgar": {
+   "name": "带点赞计数的大拇指",
+   "tags": [
+    "youtube",
+    "计数器",
+    "点赞",
+    "光标"
+   ]
+  },
+  "template:yp13-contador-seguidores": {
+   "name": "带粉丝计数的人像",
+   "tags": [
+    "youtube",
+    "计数器",
+    "粉丝",
+    "光标"
+   ]
+  },
+  "template:yp13-descargar-anillo": {
+   "name": "带进度环的下载按钮",
+   "tags": [
+    "youtube",
+    "下载",
+    "进度条",
+    "光标"
+   ]
+  },
+  "template:yp13-descargar-barra": {
+   "name": "带进度条的下载按钮",
+   "tags": [
+    "youtube",
+    "下载",
+    "进度条",
+    "光标"
+   ]
+  },
+  "template:yp13-enviar-comentario": {
+   "name": "带发送按钮的评论框",
+   "tags": [
+    "youtube",
+    "评论",
+    "聊天",
+    "光标"
+   ]
+  },
+  "template:yp13-insignia-camara": {
+   "name": "圆形相机按钮",
+   "tags": [
+    "youtube",
+    "徽章",
+    "社交媒体",
+    "光标"
+   ]
+  },
+  "template:yp13-insignia-click-here": {
+   "name": "变成GOOD JOB!的CLICK HERE方块",
+   "tags": [
+    "youtube",
+    "按钮",
+    "光标"
+   ]
+  },
+  "template:yp13-insignia-foto": {
+   "name": "轻点的方形头像",
+   "tags": [
+    "youtube",
+    "照片",
+    "头像",
+    "光标"
+   ]
+  },
+  "template:yp13-insignia-get-ready": {
+   "name": "带头像的GET READY徽章",
+   "tags": [
+    "youtube",
+    "徽章",
+    "光标",
+    "照片"
+   ]
+  },
+  "template:yp13-insignia-like-this": {
+   "name": "变成LIKE THIS!的头像徽章",
+   "tags": [
+    "youtube",
+    "徽章",
+    "点赞",
+    "光标",
+    "照片"
+   ]
+  },
+  "template:yp13-insignia-pajaro": {
+   "name": "圆形小鸟按钮",
+   "tags": [
+    "youtube",
+    "徽章",
+    "社交媒体",
+    "光标"
+   ]
+  },
+  "template:yp13-insignia-seguir": {
+   "name": "变成FOLLOW的徽章",
+   "tags": [
+    "youtube",
+    "徽章",
+    "关注",
+    "光标"
+   ]
+  },
+  "template:yp13-insignia-unete": {
+   "name": "点击的JOIN US徽章",
+   "tags": [
+    "youtube",
+    "徽章",
+    "加入",
+    "光标"
+   ]
+  },
+  "template:yp13-interruptor-encender": {
+   "name": "TURN ON开关",
+   "tags": [
+    "youtube",
+    "开关",
+    "光标"
+   ]
+  },
+  "template:yp13-interruptor-on-off": {
+   "name": "START KEY ON/OFF开关",
+   "tags": [
+    "youtube",
+    "开关",
+    "光标"
+   ]
+  },
+  "template:yp13-lista-bienvenida": {
+   "name": "欢迎来到我的频道按钮列表",
+   "tags": [
+    "youtube",
+    "列表",
+    "订阅",
+    "光标",
+    "欢迎"
+   ]
+  },
+  "template:yp13-lista-canal-grande": {
+   "name": "视频上的频道列表",
+   "tags": [
+    "youtube",
+    "列表",
+    "订阅",
+    "光标"
+   ]
+  },
+  "template:yp13-lista-interruptores": {
+   "name": "带开关的列表",
+   "tags": [
+    "youtube",
+    "列表",
+    "开关",
+    "光标"
+   ]
+  },
+  "template:yp13-lista-no-olvides": {
+   "name": "别忘了清单：订阅、通知、点赞",
+   "tags": [
+    "youtube",
+    "列表",
+    "订阅",
+    "光标"
+   ]
+  },
+  "template:yp13-lista-tareas": {
+   "name": "今日待办清单",
+   "tags": [
+    "youtube",
+    "列表",
+    "待办",
+    "光标"
+   ]
+  },
+  "template:yp13-mensaje-abrir": {
+   "name": "展开的消息按钮",
+   "tags": [
+    "youtube",
+    "消息",
+    "聊天",
+    "光标"
+   ]
+  },
+  "template:yp13-opcion-seleccionar": {
+   "name": "SELECT选项",
+   "tags": [
+    "youtube",
+    "选项",
+    "光标"
+   ]
+  },
+  "template:yp13-perfil-seguir": {
+   "name": "带照片和关注按钮的个人主页",
+   "tags": [
+    "youtube",
+    "个人主页",
+    "关注",
+    "光标",
+    "照片"
+   ]
+  },
+  "template:yp13-post-botones": {
+   "name": "带圆角按钮的帖子",
+   "tags": [
+    "youtube",
+    "帖子",
+    "点赞",
+    "光标"
+   ]
+  },
+  "template:yp13-post-insta": {
+   "name": "图片帖子与点赞",
+   "tags": [
+    "youtube",
+    "帖子",
+    "点赞",
+    "光标"
+   ]
+  },
+  "template:yp13-post-muro": {
+   "name": "带点赞、评论和分享的动态帖子",
+   "tags": [
+    "youtube",
+    "帖子",
+    "点赞",
+    "光标"
+   ]
+  },
+  "template:yp13-post-noticia": {
+   "name": "蓝色名字的帖子与点赞",
+   "tags": [
+    "youtube",
+    "帖子",
+    "点赞",
+    "光标"
+   ]
+  },
+  "template:yp13-post-texto": {
+   "name": "纯文字帖子与点赞",
+   "tags": [
+    "youtube",
+    "帖子",
+    "点赞",
+    "光标"
+   ]
+  },
+  "template:yp13-post-tuit": {
+   "name": "推文样式帖子与点赞",
+   "tags": [
+    "youtube",
+    "帖子",
+    "点赞",
+    "光标"
+   ]
+  },
+  "template:yp13-post-tuit-enlace": {
+   "name": "带链接卡片和点赞的推文",
+   "tags": [
+    "youtube",
+    "帖子",
+    "点赞",
+    "光标"
+   ]
+  },
+  "template:yp13-post-tuit-foto": {
+   "name": "带链接图片和点赞的推文",
+   "tags": [
+    "youtube",
+    "帖子",
+    "点赞",
+    "光标"
+   ]
+  },
+  "template:yp13-post-vertical": {
+   "name": "竖版帖子与点赞",
+   "tags": [
+    "youtube",
+    "帖子",
+    "点赞",
+    "光标"
+   ]
+  },
+  "template:yp13-post-video-campana": {
+   "name": "视频帖子：订阅和小铃铛",
+   "tags": [
+    "youtube",
+    "帖子",
+    "订阅",
+    "小铃铛",
+    "光标"
+   ]
+  },
+  "template:yp13-post-video-suscribir": {
+   "name": "带订阅按钮的视频帖子",
+   "tags": [
+    "youtube",
+    "帖子",
+    "订阅",
+    "光标"
+   ]
+  },
+  "template:yp13-post-video-votos": {
+   "name": "带点赞和点踩的视频帖子",
+   "tags": [
+    "youtube",
+    "帖子",
+    "点赞",
+    "光标"
+   ]
+  },
+  "template:yp13-reaccion-corazones": {
+   "name": "飘出爱心的LOVE IT!按钮",
+   "tags": [
+    "youtube",
+    "互动",
+    "爱心",
+    "光标",
+    "按钮"
+   ]
+  },
+  "template:yp13-reaccion-estrellas": {
+   "name": "飘出绿色星星的按钮",
+   "tags": [
+    "youtube",
+    "互动",
+    "星星",
+    "光标",
+    "按钮"
+   ]
+  },
+  "template:yp13-reaccion-monedas": {
+   "name": "飘出金币的DONATE按钮",
+   "tags": [
+    "youtube",
+    "互动",
+    "打赏",
+    "光标",
+    "按钮"
+   ]
+  },
+  "template:yp13-reaccion-pulgares": {
+   "name": "飘出点赞的LIKE THIS按钮",
+   "tags": [
+    "youtube",
+    "互动",
+    "点赞",
+    "光标",
+    "按钮"
+   ]
+  },
+  "template:yp13-recomiendo": {
+   "name": "我推荐：五颗爱心",
+   "tags": [
+    "youtube",
+    "评分",
+    "爱心",
+    "光标"
+   ]
+  },
+  "template:yp13-reproductor-amarillo": {
+   "name": "黄色播放器按钮",
+   "tags": [
+    "youtube",
+    "播放器",
+    "按钮",
+    "光标"
+   ]
+  },
+  "template:yp13-reproductor-azul": {
+   "name": "蓝色播放器按钮",
+   "tags": [
+    "youtube",
+    "播放器",
+    "按钮",
+    "光标"
+   ]
+  },
+  "template:yp13-reproductor-cuadrado": {
+   "name": "方形播放器按钮",
+   "tags": [
+    "youtube",
+    "播放器",
+    "按钮",
+    "光标"
+   ]
+  },
+  "template:yp13-reproductor-redondo": {
+   "name": "圆形播放器按钮",
+   "tags": [
+    "youtube",
+    "播放器",
+    "按钮",
+    "光标"
+   ]
+  },
+  "template:yp13-tarjeta-canal": {
+   "name": "展开的频道卡片",
+   "tags": [
+    "youtube",
+    "频道",
+    "订阅",
+    "光标",
+    "头像"
+   ]
+  },
+  "template:yp13-tarjeta-suscribir-grande": {
+   "name": "带订阅的大号频道卡片",
+   "tags": [
+    "youtube",
+    "频道",
+    "订阅",
+    "光标",
+    "头像",
+    "字幕条"
+   ]
+  },
+  "template:yp13-tuit-texto": {
+   "name": "纯文字推文与点赞",
+   "tags": [
+    "youtube",
+    "帖子",
+    "点赞",
+    "光标",
+    "评论"
+   ]
+  },
+  "template:yp13-valoranos": {
+   "name": "给我们评分：星星列表",
+   "tags": [
+    "youtube",
+    "评分",
+    "星星",
+    "光标"
+   ]
+  },
+  "template:yp13-valorar-10": {
+   "name": "10/10星级评分",
+   "tags": [
+    "youtube",
+    "评分",
+    "星星",
+    "光标"
+   ]
+  },
+  "template:yp13-valorar-articulo": {
+   "name": "五星评分",
+   "tags": [
+    "youtube",
+    "评分",
+    "星星",
+    "光标"
+   ]
+  },
+  "template:yp13-valorar-genial": {
+   "name": "给出星星的评分按钮",
+   "tags": [
+    "youtube",
+    "评分",
+    "星星",
+    "光标",
+    "按钮"
+   ]
+  },
+  "template:yp13-valorar-plantilla": {
+   "name": "星级评分卡片",
+   "tags": [
+    "youtube",
+    "评分",
+    "星星",
+    "光标",
+    "标志"
+   ]
+  },
+  "template:yp13-video-suscribir-campana": {
+   "name": "带订阅和小铃铛的视频卡片",
+   "tags": [
+    "youtube",
+    "帖子",
+    "订阅",
+    "小铃铛",
+    "光标"
+   ]
+  },
+  "template:yp13-volumen": {
+   "name": "MAKE SOME NOISE音量滑块",
+   "tags": [
+    "youtube",
+    "音量",
+    "滑块",
+    "光标"
+   ]
+  },
+  "template:yp14-barra-abajo-acciones": {
+   "name": "底部视频条：点赞、分享、下载和保存",
+   "tags": [
+    "youtube",
+    "横条",
+    "频道",
+    "订阅",
+    "照片"
+   ]
+  },
+  "template:yp14-barra-abajo-campana": {
+   "name": "底部频道条：已订阅和小铃铛",
+   "tags": [
+    "youtube",
+    "横条",
+    "频道",
+    "订阅",
+    "照片"
+   ]
+  },
+  "template:yp14-barra-abajo-me-gusta": {
+   "name": "底部频道条：点赞和订阅",
+   "tags": [
+    "youtube",
+    "横条",
+    "频道",
+    "订阅",
+    "照片"
+   ]
+  },
+  "template:yp14-barra-arriba": {
+   "name": "顶部推开照片的频道条",
+   "tags": [
+    "youtube",
+    "横条",
+    "频道",
+    "订阅",
+    "照片"
+   ]
+  },
+  "template:yp14-barra-valoracion-arriba": {
+   "name": "顶部频道条：点赞、点踩和评分",
+   "tags": [
+    "youtube",
+    "横条",
+    "频道",
+    "订阅",
+    "照片"
+   ]
+  },
+  "template:yp14-barra-video-suscribirse": {
+   "name": "视频底部白色横条：头像、名称和订阅",
+   "tags": [
+    "youtube",
+    "横条",
+    "频道",
+    "订阅",
+    "照片"
+   ]
+  },
+  "template:yp14-boton-redondo-campana": {
+   "name": "红色圆形按钮：小铃铛和«Get notified»",
+   "tags": [
+    "youtube",
+    "按钮",
+    "文字",
+    "小铃铛"
+   ]
+  },
+  "template:yp14-boton-redondo-compartir": {
+   "name": "红色圆形按钮：分享和«Share this»",
+   "tags": [
+    "youtube",
+    "按钮",
+    "文字",
+    "分享"
+   ]
+  },
+  "template:yp14-boton-redondo-me-gusta": {
+   "name": "红色圆形按钮：点赞和«Like the video»",
+   "tags": [
+    "youtube",
+    "按钮",
+    "文字",
+    "点赞"
+   ]
+  },
+  "template:yp14-boton-redondo-suscribirse": {
+   "name": "红色圆形按钮：播放和«Subscribe»",
+   "tags": [
+    "youtube",
+    "按钮",
+    "文字",
+    "播放"
+   ]
+  },
+  "template:yp14-campana-compartir-redondos": {
+   "name": "两个红色按钮：小铃铛和分享",
+   "tags": [
+    "youtube",
+    "按钮",
+    "文字",
+    "横排"
+   ]
+  },
+  "template:yp14-canal-avatar-arriba": {
+   "name": "头像在上的竖版频道按钮",
+   "tags": [
+    "youtube",
+    "按钮",
+    "订阅"
+   ]
+  },
+  "template:yp14-canal-avatar-centro": {
+   "name": "居中头像的频道按钮，配分享和小铃铛",
+   "tags": [
+    "youtube",
+    "按钮",
+    "订阅"
+   ]
+  },
+  "template:yp14-canal-avatar-esquina": {
+   "name": "角落头像的频道按钮，配分享和小铃铛",
+   "tags": [
+    "youtube",
+    "按钮",
+    "订阅"
+   ]
+  },
+  "template:yp14-canal-circulo": {
+   "name": "圆形频道配小铃铛、点赞和分享",
+   "tags": [
+    "youtube",
+    "按钮",
+    "小铃铛",
+    "点赞"
+   ]
+  },
+  "template:yp14-canal-foto-campana": {
+   "name": "频道按钮：照片、订阅和小铃铛",
+   "tags": [
+    "youtube",
+    "按钮",
+    "订阅"
+   ]
+  },
+  "template:yp14-canal-foto-vertical": {
+   "name": "竖版频道按钮：照片、订阅、点赞和小铃铛",
+   "tags": [
+    "youtube",
+    "按钮",
+    "订阅"
+   ]
+  },
+  "template:yp14-canal-horizontal": {
+   "name": "横版频道按钮：照片、订阅数、订阅和小铃铛",
+   "tags": [
+    "youtube",
+    "按钮",
+    "订阅"
+   ]
+  },
+  "template:yp14-canal-iconos-columna": {
+   "name": "竖排图标的频道：小铃铛、点赞和分享",
+   "tags": [
+    "youtube",
+    "按钮",
+    "订阅"
+   ]
+  },
+  "template:yp14-canal-nombre-largo": {
+   "name": "频道按钮：照片、三行名称、点赞和小铃铛",
+   "tags": [
+    "youtube",
+    "按钮",
+    "订阅"
+   ]
+  },
+  "template:yp14-canal-sin-tarjeta": {
+   "name": "频道：头像、名称、订阅数和订阅",
+   "tags": [
+    "youtube",
+    "按钮",
+    "订阅"
+   ]
+  },
+  "template:yp14-canal-sobre-video": {
+   "name": "视频上的频道按钮：照片、订阅数和订阅",
+   "tags": [
+    "youtube",
+    "按钮",
+    "订阅"
+   ]
+  },
+  "template:yp14-canal-tarjeta-vertical": {
+   "name": "竖版频道卡片：名称、照片和订阅",
+   "tags": [
+    "youtube",
+    "按钮",
+    "订阅"
+   ]
+  },
+  "template:yp14-columna-botones": {
+   "name": "竖排圆形按钮：订阅、点赞和小铃铛",
+   "tags": [
+    "youtube",
+    "按钮",
+    "文字",
+    "竖排"
+   ]
+  },
+  "template:yp14-columna-botones-etiquetas": {
+   "name": "带标签的竖排圆形按钮：订阅、通知、点赞",
+   "tags": [
+    "youtube",
+    "按钮",
+    "文字",
+    "竖排"
+   ]
+  },
+  "template:yp14-comentario-abajo": {
+   "name": "底部评论：点赞",
+   "tags": [
+    "youtube",
+    "横条",
+    "频道",
+    "订阅",
+    "照片"
+   ]
+  },
+  "template:yp14-comentario-arriba": {
+   "name": "顶部评论：点赞和点踩",
+   "tags": [
+    "youtube",
+    "横条",
+    "频道",
+    "订阅",
+    "照片"
+   ]
+  },
+  "template:yp14-comentario-me-gusta": {
+   "name": "被点赞的评论",
+   "tags": [
+    "youtube",
+    "评论",
+    "社交媒体"
+   ]
+  },
+  "template:yp14-comentario-no-me-gusta": {
+   "name": "被点踩的评论",
+   "tags": [
+    "youtube",
+    "评论",
+    "社交媒体"
+   ]
+  },
+  "template:yp14-comentario-respuesta": {
+   "name": "正在输入回复的评论",
+   "tags": [
+    "youtube",
+    "评论",
+    "社交媒体"
+   ]
+  },
+  "template:yp14-comentario-respuesta-2": {
+   "name": "带回复的评论（2）",
+   "tags": [
+    "youtube",
+    "评论",
+    "社交媒体"
+   ]
+  },
+  "template:yp14-comentario-sobre-video": {
+   "name": "视频上的单行评论",
+   "tags": [
+    "youtube",
+    "评论",
+    "社交媒体"
+   ]
+  },
+  "template:yp14-compartir-esto": {
+   "name": "由红变白的«Share This»按钮",
+   "tags": [
+    "youtube",
+    "按钮",
+    "文字",
+    "分享"
+   ]
+  },
+  "template:yp14-fila-botones": {
+   "name": "横排圆形按钮：订阅、小铃铛、分享和点赞",
+   "tags": [
+    "youtube",
+    "按钮",
+    "文字",
+    "横排"
+   ]
+  },
+  "template:yp14-fila-me-gusta-suscribirse": {
+   "name": "横排：点赞、订阅和小铃铛",
+   "tags": [
+    "youtube",
+    "按钮",
+    "订阅"
+   ]
+  },
+  "template:yp14-fila-suscribirse": {
+   "name": "横排：点赞、订阅、分享和小铃铛",
+   "tags": [
+    "youtube",
+    "按钮",
+    "文字",
+    "横排",
+    "订阅"
+   ]
+  },
+  "template:yp14-lista-suscribirse": {
+   "name": "列表：订阅、开启通知和点赞",
+   "tags": [
+    "youtube",
+    "按钮",
+    "订阅",
+    "列表"
+   ]
+  },
+  "template:yp14-lista-ver-mas-tarde": {
+   "name": "视频列表：«已保存到稍后观看»",
+   "tags": [
+    "youtube",
+    "列表",
+    "视频"
+   ]
+  },
+  "template:yp14-lista-videos-abrir": {
+   "name": "视频列表：点击一个后铺满画面",
+   "tags": [
+    "youtube",
+    "列表",
+    "视频"
+   ]
+  },
+  "template:yp14-logo-arriba-suscribirse": {
+   "name": "上方标志与订阅",
+   "tags": [
+    "youtube",
+    "按钮",
+    "订阅",
+    "标志"
+   ]
+  },
+  "template:yp14-logo-suscribirse": {
+   "name": "频道标志与订阅",
+   "tags": [
+    "youtube",
+    "按钮",
+    "订阅"
+   ]
+  },
+  "template:yp14-logo-tarjeta": {
+   "name": "卡片上的频道标志，配订阅、小铃铛和分享",
+   "tags": [
+    "youtube",
+    "按钮",
+    "订阅"
+   ]
+  },
+  "template:yp14-logo-tarjeta-vertical": {
+   "name": "竖版卡片上的频道标志，配小铃铛和分享",
+   "tags": [
+    "youtube",
+    "按钮",
+    "订阅"
+   ]
+  },
+  "template:yp14-me-gusta-avisos": {
+   "name": "点赞和小铃铛配«Like this / Notified»",
+   "tags": [
+    "youtube",
+    "按钮",
+    "文字",
+    "点赞",
+    "小铃铛"
+   ]
+  },
+  "template:yp14-me-gusta-barra": {
+   "name": "带评分条的«Like this»",
+   "tags": [
+    "youtube",
+    "按钮",
+    "文字",
+    "点赞",
+    "评分"
+   ]
+  },
+  "template:yp14-me-gusta-boton": {
+   "name": "飘出大拇指的«Like it!»按钮",
+   "tags": [
+    "youtube",
+    "按钮",
+    "文字",
+    "点赞"
+   ]
+  },
+  "template:yp14-me-gusta-campana-redondos": {
+   "name": "两个红色按钮：点赞和小铃铛",
+   "tags": [
+    "youtube",
+    "按钮",
+    "文字",
+    "横排"
+   ]
+  },
+  "template:yp14-me-gusta-compartir-botones": {
+   "name": "由红变白的«Like it»和«Share»按钮",
+   "tags": [
+    "youtube",
+    "按钮",
+    "文字",
+    "点赞",
+    "分享"
+   ]
+  },
+  "template:yp14-me-gusta-compartir-redondos": {
+   "name": "两个红色按钮：点赞和分享",
+   "tags": [
+    "youtube",
+    "按钮",
+    "文字",
+    "横排"
+   ]
+  },
+  "template:yp14-me-gusta-contador": {
+   "name": "带计数的大号点赞",
+   "tags": [
+    "youtube",
+    "按钮",
+    "文字",
+    "点赞",
+    "计数器"
+   ]
+  },
+  "template:yp14-me-gusta-suscribirse": {
+   "name": "无卡片的点赞和订阅",
+   "tags": [
+    "youtube",
+    "按钮",
+    "文字",
+    "订阅"
+   ]
+  },
+  "template:yp14-me-gusta-suscribirse-campana": {
+   "name": "无卡片的点赞、订阅和小铃铛",
+   "tags": [
+    "youtube",
+    "按钮",
+    "文字",
+    "订阅"
+   ]
+  },
+  "template:yp14-no-me-gusta-boton": {
+   "name": "飘出倒拇指的«Dislike!»按钮",
+   "tags": [
+    "youtube",
+    "按钮",
+    "文字",
+    "点踩"
+   ]
+  },
+  "template:yp14-no-me-gusta-contador": {
+   "name": "带计数的大号点踩",
+   "tags": [
+    "youtube",
+    "按钮",
+    "文字",
+    "点踩",
+    "计数器"
+   ]
+  },
+  "template:yp14-no-recomendar": {
+   "name": "«Don't recommend»逐个点亮五个倒拇指",
+   "tags": [
+    "youtube",
+    "按钮",
+    "文字",
+    "评分",
+    "点踩"
+   ]
+  },
+  "template:yp14-nombre-suscrito-campana": {
+   "name": "频道名称配已订阅和小铃铛",
+   "tags": [
+    "youtube",
+    "按钮",
+    "订阅"
+   ]
+  },
+  "template:yp14-nombre-suscrito-me-gusta": {
+   "name": "频道名称配已订阅、点赞和点踩",
+   "tags": [
+    "youtube",
+    "按钮",
+    "订阅"
+   ]
+  },
+  "template:yp14-pildora-me-gusta": {
+   "name": "红色点赞/点踩胶囊：点击点赞",
+   "tags": [
+    "youtube",
+    "按钮",
+    "文字",
+    "点赞",
+    "点踩"
+   ]
+  },
+  "template:yp14-pildora-no-me-gusta": {
+   "name": "红色点赞/点踩胶囊：点击点踩",
+   "tags": [
+    "youtube",
+    "按钮",
+    "文字",
+    "点赞",
+    "点踩"
+   ]
+  },
+  "template:yp14-recomendar-amigos": {
+   "name": "«Advise friends»逐个点亮五个大拇指",
+   "tags": [
+    "youtube",
+    "按钮",
+    "文字",
+    "评分",
+    "点赞"
+   ]
+  },
+  "template:yp14-suscribirse-campana": {
+   "name": "无卡片的订阅和小铃铛",
+   "tags": [
+    "youtube",
+    "按钮",
+    "文字",
+    "订阅"
+   ]
+  },
+  "template:yp14-suscribirse-casilla": {
+   "name": "勾选框与«Subscribe Youtube Channel»",
+   "tags": [
+    "youtube",
+    "按钮",
+    "文字",
+    "订阅",
+    "复选框"
+   ]
+  },
+  "template:yp14-suscribirse-contador": {
+   "name": "订阅数从19999跳到20000",
+   "tags": [
+    "youtube",
+    "按钮",
+    "文字",
+    "订阅",
+    "计数器"
+   ]
+  },
+  "template:yp14-suscribirse-hecho": {
+   "name": "«Subscribe Channel»配«DO IT!»变成«DONE»",
+   "tags": [
+    "youtube",
+    "按钮",
+    "文字",
+    "订阅"
+   ]
+  },
+  "template:yp14-suscribirse-play": {
+   "name": "带播放的红色«SUBSCRIBE»按钮变成«SUBSCRIBED»",
+   "tags": [
+    "youtube",
+    "按钮",
+    "文字",
+    "订阅"
+   ]
+  },
+  "template:yp14-suscrito-iconos": {
+   "name": "已订阅配点赞、小铃铛和分享",
+   "tags": [
+    "youtube",
+    "按钮",
+    "订阅"
+   ]
+  },
+  "template:yp14-tarjeta-campana": {
+   "name": "带订阅和小铃铛的频道卡片",
+   "tags": [
+    "youtube",
+    "卡片",
+    "频道"
+   ]
+  },
+  "template:yp14-tarjeta-comentario": {
+   "name": "带点踩和评论的视频卡片",
+   "tags": [
+    "youtube",
+    "卡片",
+    "频道"
+   ]
+  },
+  "template:yp14-tarjeta-comentario-2": {
+   "name": "带点赞和评论的视频卡片",
+   "tags": [
+    "youtube",
+    "卡片",
+    "频道"
+   ]
+  },
+  "template:yp14-tarjeta-cristal": {
+   "name": "频道卡片：照片上的毛玻璃配小铃铛",
+   "tags": [
+    "youtube",
+    "卡片",
+    "频道",
+    "订阅",
+    "照片"
+   ]
+  },
+  "template:yp14-tarjeta-cristal-inclinada": {
+   "name": "频道卡片：照片上的倾斜毛玻璃",
+   "tags": [
+    "youtube",
+    "卡片",
+    "频道",
+    "订阅",
+    "照片"
+   ]
+  },
+  "template:yp14-tarjeta-foto-inclinada": {
+   "name": "频道卡片：倾斜照片配订阅和小铃铛",
+   "tags": [
+    "youtube",
+    "卡片",
+    "频道",
+    "订阅",
+    "照片"
+   ]
+  },
+  "template:yp14-tarjeta-foto-marco": {
+   "name": "频道卡片：白框照片配进度条",
+   "tags": [
+    "youtube",
+    "卡片",
+    "频道",
+    "订阅",
+    "照片"
+   ]
+  },
+  "template:yp14-tarjeta-foto-progreso": {
+   "name": "频道卡片：照片配进度条和点赞",
+   "tags": [
+    "youtube",
+    "卡片",
+    "频道",
+    "订阅",
+    "照片"
+   ]
+  },
+  "template:yp14-tarjeta-foto-recta": {
+   "name": "频道卡片：带框照片配点赞、订阅和小铃铛",
+   "tags": [
+    "youtube",
+    "卡片",
+    "频道",
+    "订阅",
+    "照片"
+   ]
+  },
+  "template:yp14-tarjeta-marco": {
+   "name": "频道卡片：照片上的白框配进度条",
+   "tags": [
+    "youtube",
+    "卡片",
+    "频道",
+    "订阅",
+    "照片"
+   ]
+  },
+  "template:yp14-tarjeta-marco-inclinado": {
+   "name": "频道卡片：照片上的倾斜白框",
+   "tags": [
+    "youtube",
+    "卡片",
+    "频道",
+    "订阅",
+    "照片"
+   ]
+  },
+  "template:yp14-tarjeta-video-compartir": {
+   "name": "带点赞、分享和订阅的视频卡片",
+   "tags": [
+    "youtube",
+    "卡片",
+    "频道"
+   ]
+  },
+  "template:yp14-tarjeta-video-cuadrada": {
+   "name": "带方形头像和红色按钮的倾斜视频卡片",
+   "tags": [
+    "youtube",
+    "卡片",
+    "视频",
+    "订阅",
+    "照片"
+   ]
+  },
+  "template:yp14-tarjeta-video-play": {
+   "name": "视频卡片：点击播放后视频铺满画面",
+   "tags": [
+    "youtube",
+    "卡片",
+    "视频",
+    "播放"
+   ]
+  },
+  "template:yp14-tarjeta-video-titulo": {
+   "name": "顶部频道和标题的视频卡片：点击播放",
+   "tags": [
+    "youtube",
+    "卡片",
+    "视频",
+    "播放"
+   ]
+  },
+  "template:yp14-tres-botones-blancos": {
+   "name": "同时点击的三个白色按钮：点赞、小铃铛和分享",
+   "tags": [
+    "youtube",
+    "按钮",
+    "文字",
+    "横排"
+   ]
+  },
+  "template:yp14-valoracion-abajo": {
+   "name": "底部频道条：点赞、点踩和评分",
+   "tags": [
+    "youtube",
+    "横条",
+    "频道",
+    "订阅",
+    "照片"
+   ]
+  },
+  "template:yp14-youtube-channel": {
+   "name": "点击后变红的«YOUTUBE CHANNEL»",
+   "tags": [
+    "youtube",
+    "按钮",
+    "文字",
+    "标题"
+   ]
+  },
+  "template:yp15-cargo-verde": {
+   "name": "毛玻璃字幕条：绿色职位",
+   "tags": [
+    "youtube",
+    "字幕条",
+    "毛玻璃",
+    "名字"
+   ]
+  },
+  "template:yp15-centrado": {
+   "name": "居中毛玻璃字幕条配订阅",
+   "tags": [
+    "youtube",
+    "字幕条",
+    "毛玻璃",
+    "名字",
+    "订阅"
+   ]
+  },
+  "template:yp15-dos-nombres": {
+   "name": "毛玻璃字幕条：两个名字",
+   "tags": [
+    "youtube",
+    "字幕条",
+    "毛玻璃",
+    "名字",
+    "双人"
+   ]
+  },
+  "template:yp15-foto-redonda": {
+   "name": "带圆形照片的毛玻璃字幕条",
+   "tags": [
+    "youtube",
+    "字幕条",
+    "毛玻璃",
+    "名字",
+    "照片",
+    "头像"
+   ]
+  },
+  "template:yp15-foto-suscribete": {
+   "name": "毛玻璃字幕条：照片和订阅",
+   "tags": [
+    "youtube",
+    "字幕条",
+    "毛玻璃",
+    "名字",
+    "订阅",
+    "照片"
+   ]
+  },
+  "template:yp15-linea-fina": {
+   "name": "纤细毛玻璃字幕条",
+   "tags": [
+    "youtube",
+    "字幕条",
+    "毛玻璃",
+    "名字"
+   ]
+  },
+  "template:yp15-logo-nombre": {
+   "name": "带标志的毛玻璃字幕条",
+   "tags": [
+    "youtube",
+    "字幕条",
+    "毛玻璃",
+    "名字",
+    "标志"
+   ]
+  },
+  "template:yp15-logo-suscribete": {
+   "name": "毛玻璃字幕条：标志和订阅",
+   "tags": [
+    "youtube",
+    "字幕条",
+    "毛玻璃",
+    "名字",
+    "订阅",
+    "标志"
+   ]
+  },
+  "template:yp15-nombre-suscribete": {
+   "name": "带订阅的毛玻璃字幕条",
+   "tags": [
+    "youtube",
+    "字幕条",
+    "毛玻璃",
+    "名字",
+    "订阅"
+   ]
+  },
+  "template:yp15-pareja": {
+   "name": "毛玻璃字幕条：双人配照片",
+   "tags": [
+    "youtube",
+    "字幕条",
+    "毛玻璃",
+    "名字",
+    "双人",
+    "照片"
+   ]
+  },
+  "template:yp15-tarjeta-foto": {
+   "name": "带照片和标志的毛玻璃卡片",
+   "tags": [
+    "youtube",
+    "字幕条",
+    "毛玻璃",
+    "名字",
+    "照片",
+    "标志"
+   ]
+  },
+  "template:yp15-una-linea": {
+   "name": "单行毛玻璃字幕条",
+   "tags": [
+    "youtube",
+    "字幕条",
+    "毛玻璃",
+    "名字"
+   ]
+  },
+  "template:yp16-barra-nombre": {
+   "name": "带名字和订阅的毛玻璃横条",
+   "tags": [
+    "youtube",
+    "毛玻璃",
+    "订阅",
+    "点击",
+    "照片"
+   ]
+  },
+  "template:yp16-barra-suscribete": {
+   "name": "带照片和订阅的毛玻璃横条",
+   "tags": [
+    "youtube",
+    "毛玻璃",
+    "订阅",
+    "点击",
+    "照片"
+   ]
+  },
+  "template:yp16-burbuja-canal": {
+   "name": "带照片和频道的毛玻璃气泡",
+   "tags": [
+    "youtube",
+    "毛玻璃",
+    "频道",
+    "照片"
+   ]
+  },
+  "template:yp16-circulo": {
+   "name": "带照片和订阅的毛玻璃圆圈",
+   "tags": [
+    "youtube",
+    "毛玻璃",
+    "订阅",
+    "点击",
+    "照片",
+    "圆形"
+   ]
+  },
+  "template:yp16-join-us": {
+   "name": "深色毛玻璃胶囊：join us now",
+   "tags": [
+    "youtube",
+    "毛玻璃",
+    "加入"
+   ]
+  },
+  "template:yp16-pildora-canal": {
+   "name": "中间带照片的毛玻璃胶囊",
+   "tags": [
+    "youtube",
+    "毛玻璃",
+    "频道",
+    "照片"
+   ]
+  },
+  "template:yp16-stay-tuned": {
+   "name": "毛玻璃圆圈：stay tuned",
+   "tags": [
+    "youtube",
+    "毛玻璃",
+    "圆形"
+   ]
+  },
+  "template:yp16-tarjeta-cuadrada": {
+   "name": "带订阅的方形毛玻璃卡片",
+   "tags": [
+    "youtube",
+    "毛玻璃",
+    "订阅",
+    "点击",
+    "照片"
+   ]
+  },
+  "template:yp16-tarjeta-nombre": {
+   "name": "带名字和订阅的毛玻璃卡片",
+   "tags": [
+    "youtube",
+    "毛玻璃",
+    "订阅",
+    "点击",
+    "照片"
+   ]
+  },
+  "template:yp16-tarjeta-vertical": {
+   "name": "带订阅的竖版毛玻璃卡片",
+   "tags": [
+    "youtube",
+    "毛玻璃",
+    "订阅",
+    "点击",
+    "照片"
+   ]
+  },
+  "template:yp16-watch-more": {
+   "name": "毛玻璃气泡：watch more",
+   "tags": [
+    "youtube",
+    "毛玻璃",
+    "更多视频"
+   ]
+  },
+  "template:yp17-barra-canal": {
+   "name": "带照片和订阅的扁平横条",
+   "tags": [
+    "youtube",
+    "卡片",
+    "扁平",
+    "订阅",
+    "点击",
+    "照片"
+   ]
+  },
+  "template:yp17-barra-foto": {
+   "name": "中间带照片的扁平横条",
+   "tags": [
+    "youtube",
+    "卡片",
+    "扁平",
+    "订阅",
+    "点击",
+    "照片"
+   ]
+  },
+  "template:yp17-barra-titulo": {
+   "name": "带照片和标题的扁平横条",
+   "tags": [
+    "youtube",
+    "卡片",
+    "扁平",
+    "订阅",
+    "点击",
+    "照片"
+   ]
+  },
+  "template:yp17-boton-youtube": {
+   "name": "带YouTube按钮的扁平卡片",
+   "tags": [
+    "youtube",
+    "卡片",
+    "扁平",
+    "按钮",
+    "播放"
+   ]
+  },
+  "template:yp17-foto-arriba": {
+   "name": "订阅卡片上方的圆形照片",
+   "tags": [
+    "youtube",
+    "卡片",
+    "扁平",
+    "订阅",
+    "点击",
+    "照片"
+   ]
+  },
+  "template:yp17-foto-cuadrada": {
+   "name": "方形照片与订阅条",
+   "tags": [
+    "youtube",
+    "卡片",
+    "扁平",
+    "订阅",
+    "点击",
+    "照片"
+   ]
+  },
+  "template:yp17-join-us": {
+   "name": "扁平卡片：join us 配YouTube",
+   "tags": [
+    "youtube",
+    "卡片",
+    "扁平",
+    "加入"
+   ]
+  },
+  "template:yp17-tarjeta-nombre": {
+   "name": "带照片、YouTube和订阅的扁平卡片",
+   "tags": [
+    "youtube",
+    "卡片",
+    "扁平",
+    "订阅",
+    "点击",
+    "照片"
+   ]
+  },
+  "template:yp17-tarjeta-vertical": {
+   "name": "带订阅的扁平竖版卡片",
+   "tags": [
+    "youtube",
+    "卡片",
+    "扁平",
+    "订阅",
+    "点击",
+    "照片"
+   ]
+  },
+  "template:yp17-watch-more": {
+   "name": "扁平卡片：watch more",
+   "tags": [
+    "youtube",
+    "卡片",
+    "扁平",
+    "更多视频"
+   ]
+  },
   "template:yp2-apertura": {
    "name": "片头：红白圆环与 YouTube 按钮",
    "tags": [
@@ -41377,6 +43669,503 @@
     "黑白",
     "时尚",
     "转场"
+   ]
+  },
+  "template:yp8-disfruta": {
+   "name": "片尾：enjoy",
+   "tags": [
+    "youtube",
+    "片尾",
+    "文字"
+   ]
+  },
+  "template:yp8-logo-formas-claro": {
+   "name": "片头：橙色形状揭示标志",
+   "tags": [
+    "youtube",
+    "标志",
+    "片头",
+    "形状"
+   ]
+  },
+  "template:yp8-logo-formas-oscuro": {
+   "name": "片头：形状揭示标志（深色）",
+   "tags": [
+    "youtube",
+    "标志",
+    "片头",
+    "形状"
+   ]
+  },
+  "template:yp8-logo-formas-video": {
+   "name": "片头：视频上的白色形状与标志",
+   "tags": [
+    "youtube",
+    "标志",
+    "片头",
+    "形状"
+   ]
+  },
+  "template:yp8-logo-youtube-claro": {
+   "name": "自动拼合的YouTube标志（白色）",
+   "tags": [
+    "youtube",
+    "标志",
+    "片头",
+    "白色"
+   ]
+  },
+  "template:yp8-logo-youtube-oscuro": {
+   "name": "自动拼合的YouTube标志（深色）",
+   "tags": [
+    "youtube",
+    "标志",
+    "片头",
+    "深色"
+   ]
+  },
+  "template:yp8-logo-youtube-video": {
+   "name": "视频上的白色YouTube标志",
+   "tags": [
+    "youtube",
+    "标志",
+    "片头",
+    "白色"
+   ]
+  },
+  "template:yp8-me-gusta-blanco": {
+   "name": "白色圆形点赞",
+   "tags": [
+    "youtube",
+    "点赞",
+    "按钮",
+    "圆形"
+   ]
+  },
+  "template:yp8-me-gusta-oscuro": {
+   "name": "深色圆形点赞",
+   "tags": [
+    "youtube",
+    "点赞",
+    "按钮",
+    "圆形"
+   ]
+  },
+  "template:yp8-redes-tercios": {
+   "name": "七款社交媒体字幕条",
+   "tags": [
+    "youtube",
+    "社交媒体",
+    "字幕条",
+    "instagram",
+    "twitter",
+    "facebook"
+   ]
+  },
+  "template:yp8-suscribirse-blanco": {
+   "name": "带点击和小铃铛的订阅条",
+   "tags": [
+    "youtube",
+    "订阅",
+    "按钮",
+    "点击",
+    "小铃铛"
+   ]
+  },
+  "template:yp8-suscribirse-oscuro": {
+   "name": "带点击和小铃铛的订阅条（深色）",
+   "tags": [
+    "youtube",
+    "订阅",
+    "按钮",
+    "点击",
+    "小铃铛"
+   ]
+  },
+  "template:yp8-tercio-facebook": {
+   "name": "字幕条：在Facebook关注我们",
+   "tags": [
+    "youtube",
+    "字幕条",
+    "社交媒体"
+   ]
+  },
+  "template:yp8-tercio-instagram": {
+   "name": "字幕条：Instagram账号",
+   "tags": [
+    "youtube",
+    "字幕条",
+    "社交媒体"
+   ]
+  },
+  "template:yp8-tercio-nombre": {
+   "name": "字幕条：姓名和职位",
+   "tags": [
+    "youtube",
+    "字幕条",
+    "社交媒体"
+   ]
+  },
+  "template:yp8-tercio-twitter": {
+   "name": "字幕条：Twitter账号",
+   "tags": [
+    "youtube",
+    "字幕条",
+    "社交媒体"
+   ]
+  },
+  "template:yp8-tercio-youtube": {
+   "name": "字幕条：订阅我的频道",
+   "tags": [
+    "youtube",
+    "字幕条",
+    "社交媒体"
+   ]
+  },
+  "template:yp8-tercio-yt-blanco": {
+   "name": "字幕条：YouTube账号",
+   "tags": [
+    "youtube",
+    "字幕条",
+    "社交媒体"
+   ]
+  },
+  "template:yp8-tercio-yt-oscuro": {
+   "name": "字幕条：在YouTube订阅（深色）",
+   "tags": [
+    "youtube",
+    "字幕条",
+    "社交媒体"
+   ]
+  },
+  "template:yp8-transicion-ola": {
+   "name": "转场：蓝绿波浪",
+   "tags": [
+    "youtube",
+    "转场",
+    "渐变"
+   ]
+  },
+  "template:yp8-transicion-rombo": {
+   "name": "转场：升起的蓝绿菱形",
+   "tags": [
+    "youtube",
+    "转场",
+    "渐变"
+   ]
+  },
+  "template:yp9-barra-canal": {
+   "name": "带小铃铛的频道名称条",
+   "tags": [
+    "youtube",
+    "横条",
+    "频道",
+    "小铃铛",
+    "订阅"
+   ]
+  },
+  "template:yp9-bloques-glitch": {
+   "name": "故障风彩色色块",
+   "tags": [
+    "youtube",
+    "故障风",
+    "色彩",
+    "故障"
+   ]
+  },
+  "template:yp9-boton-suscribirse": {
+   "name": "填色并被点击的订阅按钮",
+   "tags": [
+    "youtube",
+    "订阅",
+    "按钮",
+    "点击",
+    "光标"
+   ]
+  },
+  "template:yp9-boton-ventana": {
+   "name": "播放按钮展开成视频窗口",
+   "tags": [
+    "youtube",
+    "播放",
+    "窗口",
+    "转场"
+   ]
+  },
+  "template:yp9-cinta-tendencia": {
+   "name": "带标题的黄色潮流胶带",
+   "tags": [
+    "youtube",
+    "胶带",
+    "潮流",
+    "标题"
+   ]
+  },
+  "template:yp9-corazones-flotando": {
+   "name": "视频上飘起的爱心",
+   "tags": [
+    "youtube",
+    "爱心",
+    "爱",
+    "视频"
+   ]
+  },
+  "template:yp9-destello-a": {
+   "name": "涂鸦闪光 A",
+   "tags": [
+    "youtube",
+    "闪光",
+    "涂鸦",
+    "亮光"
+   ]
+  },
+  "template:yp9-destello-b": {
+   "name": "涂鸦闪光 B",
+   "tags": [
+    "youtube",
+    "闪光",
+    "涂鸦",
+    "亮光"
+   ]
+  },
+  "template:yp9-destello-c": {
+   "name": "涂鸦闪光 C",
+   "tags": [
+    "youtube",
+    "闪光",
+    "涂鸦",
+    "亮光"
+   ]
+  },
+  "template:yp9-enlace-behance": {
+   "name": "链接条：behance",
+   "tags": [
+    "youtube",
+    "社交媒体",
+    "链接",
+    "横条",
+    "behance"
+   ]
+  },
+  "template:yp9-enlace-dribbble": {
+   "name": "链接条：dribbble",
+   "tags": [
+    "youtube",
+    "社交媒体",
+    "链接",
+    "横条",
+    "dribbble"
+   ]
+  },
+  "template:yp9-enlace-facebook": {
+   "name": "链接条：facebook",
+   "tags": [
+    "youtube",
+    "社交媒体",
+    "链接",
+    "横条",
+    "facebook"
+   ]
+  },
+  "template:yp9-enlace-google": {
+   "name": "链接条：google",
+   "tags": [
+    "youtube",
+    "社交媒体",
+    "链接",
+    "横条",
+    "google"
+   ]
+  },
+  "template:yp9-enlace-instagram": {
+   "name": "链接条：instagram",
+   "tags": [
+    "youtube",
+    "社交媒体",
+    "链接",
+    "横条",
+    "instagram"
+   ]
+  },
+  "template:yp9-enlace-itunes": {
+   "name": "链接条：itunes",
+   "tags": [
+    "youtube",
+    "社交媒体",
+    "链接",
+    "横条",
+    "itunes"
+   ]
+  },
+  "template:yp9-enlace-patreon": {
+   "name": "链接条：patreon",
+   "tags": [
+    "youtube",
+    "社交媒体",
+    "链接",
+    "横条",
+    "patreon"
+   ]
+  },
+  "template:yp9-enlace-soundcloud": {
+   "name": "链接条：soundcloud",
+   "tags": [
+    "youtube",
+    "社交媒体",
+    "链接",
+    "横条",
+    "soundcloud"
+   ]
+  },
+  "template:yp9-enlace-spotify": {
+   "name": "链接条：spotify",
+   "tags": [
+    "youtube",
+    "社交媒体",
+    "链接",
+    "横条",
+    "spotify"
+   ]
+  },
+  "template:yp9-enlace-telegram": {
+   "name": "链接条：telegram",
+   "tags": [
+    "youtube",
+    "社交媒体",
+    "链接",
+    "横条",
+    "telegram"
+   ]
+  },
+  "template:yp9-enlace-twitter": {
+   "name": "链接条：twitter",
+   "tags": [
+    "youtube",
+    "社交媒体",
+    "链接",
+    "横条",
+    "twitter"
+   ]
+  },
+  "template:yp9-enlace-vimeo": {
+   "name": "链接条：vimeo",
+   "tags": [
+    "youtube",
+    "社交媒体",
+    "链接",
+    "横条",
+    "vimeo"
+   ]
+  },
+  "template:yp9-etiqueta-usuario": {
+   "name": "带图标和@用户名的标签",
+   "tags": [
+    "youtube",
+    "用户名",
+    "社交媒体",
+    "标签"
+   ]
+  },
+  "template:yp9-live-stream-blanco": {
+   "name": "带按钮的白色LIVE STREAM标题",
+   "tags": [
+    "youtube",
+    "直播",
+    "推流"
+   ]
+  },
+  "template:yp9-live-stream-rojo": {
+   "name": "红黑方框LIVE STREAM标题",
+   "tags": [
+    "youtube",
+    "直播",
+    "推流"
+   ]
+  },
+  "template:yp9-me-gusta-cursor": {
+   "name": "被光标点亮成蓝色的点赞",
+   "tags": [
+    "youtube",
+    "点赞",
+    "点击",
+    "光标"
+   ]
+  },
+  "template:yp9-me-gusta-destello": {
+   "name": "点击后迸发的发光点赞",
+   "tags": [
+    "youtube",
+    "点赞",
+    "点击",
+    "闪光"
+   ]
+  },
+  "template:yp9-perfil": {
+   "name": "带头像、关注按钮和计数的个人主页",
+   "tags": [
+    "youtube",
+    "个人主页",
+    "关注",
+    "计数器",
+    "社交媒体"
+   ]
+  },
+  "template:yp9-rayo": {
+   "name": "由线条组成的闪电",
+   "tags": [
+    "youtube",
+    "闪电",
+    "开场"
+   ]
+  },
+  "template:yp9-redes-enlaces": {
+   "name": "十二款社交链接条",
+   "tags": [
+    "youtube",
+    "社交媒体",
+    "链接",
+    "横条",
+    "behance",
+    "instagram"
+   ]
+  },
+  "template:yp9-sticker-suscrito": {
+   "name": "播放按钮变成已订阅贴纸",
+   "tags": [
+    "youtube",
+    "订阅",
+    "贴纸",
+    "点击"
+   ]
+  },
+  "template:yp9-tarjeta-canal": {
+   "name": "带圆形头像和订阅的频道卡片",
+   "tags": [
+    "youtube",
+    "卡片",
+    "频道",
+    "订阅",
+    "点击"
+   ]
+  },
+  "template:yp9-telefono-feed": {
+   "name": "带竖屏视频和按钮的手机",
+   "tags": [
+    "youtube",
+    "手机",
+    "竖屏",
+    "社交媒体",
+    "点赞"
+   ]
+  },
+  "template:yp9-telefono-reacciones": {
+   "name": "带爱心和点赞的手机",
+   "tags": [
+    "youtube",
+    "手机",
+    "点赞",
+    "爱心",
+    "社交媒体"
    ]
   },
   "template:yt-calle-a-que-te-dedicas": {

@@ -39298,6 +39298,2416 @@
     "kahon"
    ]
   },
+  "template:yp10-boton-suscribete": {
+   "name": "SUBSCRIBE MY CHANNEL na pindutan na may mga palaso",
+   "tags": [
+    "youtube",
+    "guhit-kamay",
+    "mag-subscribe",
+    "pindutan",
+    "palaso"
+   ]
+  },
+  "template:yp10-caja-roja": {
+   "name": "SUSCRÍBETE YA sa pulang kahon",
+   "tags": [
+    "youtube",
+    "guhit-kamay",
+    "mag-subscribe",
+    "kahon",
+    "espanyol"
+   ]
+  },
+  "template:yp10-check": {
+   "name": "Check New Video na may berdeng tsek",
+   "tags": [
+    "youtube",
+    "guhit-kamay",
+    "social media",
+    "tsek",
+    "bagong video"
+   ]
+  },
+  "template:yp10-cuenta": {
+   "name": "@youraccount na may asul na patak",
+   "tags": [
+    "youtube",
+    "guhit-kamay",
+    "social media",
+    "account",
+    "patak"
+   ]
+  },
+  "template:yp10-luna": {
+   "name": "SUBSCRIBE na may buwan at Like New Video",
+   "tags": [
+    "youtube",
+    "guhit-kamay",
+    "mag-subscribe",
+    "buwan",
+    "like"
+   ]
+  },
+  "template:yp10-me-gusta-amarillo": {
+   "name": "Like New Video na may dilaw na hinlalaki",
+   "tags": [
+    "youtube",
+    "guhit-kamay",
+    "social media",
+    "like",
+    "hinlalaki"
+   ]
+  },
+  "template:yp10-mi-canal": {
+   "name": "My Channel na napipili at lumalaki",
+   "tags": [
+    "youtube",
+    "guhit-kamay",
+    "social media",
+    "channel",
+    "pagpili"
+   ]
+  },
+  "template:yp10-nuevo-video-morado": {
+   "name": "NEW VIDEO sa lilang kahon na may Like",
+   "tags": [
+    "youtube",
+    "guhit-kamay",
+    "social media",
+    "bagong video",
+    "kahon"
+   ]
+  },
+  "template:yp10-nuevo-video-rosa": {
+   "name": "New Video na may rosas na mantsa at mga puso",
+   "tags": [
+    "youtube",
+    "guhit-kamay",
+    "social media",
+    "bagong video",
+    "puso"
+   ]
+  },
+  "template:yp10-podcast": {
+   "name": "NEW PODCAST na may talsik",
+   "tags": [
+    "youtube",
+    "guhit-kamay",
+    "podcast",
+    "talsik"
+   ]
+  },
+  "template:yp10-pulgar-beige": {
+   "name": "NUEVO VIDEO AQUÍ na may hinlalaki",
+   "tags": [
+    "youtube",
+    "guhit-kamay",
+    "hinlalaki",
+    "espanyol",
+    "bagong video"
+   ]
+  },
+  "template:yp10-social-media": {
+   "name": "Social Media Title sa paligid ng pulang hugis-itlog",
+   "tags": [
+    "youtube",
+    "guhit-kamay",
+    "social media",
+    "pamagat",
+    "hugis-itlog"
+   ]
+  },
+  "template:yp10-suscribete-flechas": {
+   "name": "Pulang Subscribe na pindutan na may mga palaso",
+   "tags": [
+    "youtube",
+    "guhit-kamay",
+    "mag-subscribe",
+    "pindutan",
+    "palaso"
+   ]
+  },
+  "template:yp10-suscribete-puntos": {
+   "name": "Subscribe na may makukulay na tuldok at @yourchannel",
+   "tags": [
+    "youtube",
+    "guhit-kamay",
+    "social media",
+    "mag-subscribe",
+    "pindutan"
+   ]
+  },
+  "template:yp10-tu-logo": {
+   "name": "Your Logo na may asul na tinta",
+   "tags": [
+    "youtube",
+    "guhit-kamay",
+    "logo",
+    "tinta",
+    "pambungad"
+   ]
+  },
+  "template:yp11-amazing": {
+   "name": "Teksto: AMAZING na may bahaghari",
+   "tags": [
+    "youtube",
+    "bahaghari",
+    "kahanga-hanga",
+    "teksto"
+   ]
+  },
+  "template:yp11-any-language": {
+   "name": "Teksto: Use Any Language sa isang bilog",
+   "tags": [
+    "youtube",
+    "bilog",
+    "wika",
+    "teksto"
+   ]
+  },
+  "template:yp11-brand-new-year": {
+   "name": "Pamagat: taong 2026 Brand New",
+   "tags": [
+    "youtube",
+    "taon",
+    "bago",
+    "pamagat"
+   ]
+  },
+  "template:yp11-channel-name": {
+   "name": "Pindutan: pangalan ng channel",
+   "tags": [
+    "youtube",
+    "channel",
+    "pindutan",
+    "palaso"
+   ]
+  },
+  "template:yp11-click": {
+   "name": "Pindutan: CLICK na may kamay",
+   "tags": [
+    "youtube",
+    "pindot",
+    "kamay",
+    "pindutan"
+   ]
+  },
+  "template:yp11-comment": {
+   "name": "Teksto: Comment na may palaso",
+   "tags": [
+    "youtube",
+    "komento",
+    "palaso",
+    "teksto"
+   ]
+  },
+  "template:yp11-follow-me": {
+   "name": "Pindutan: sundan ako na may switch",
+   "tags": [
+    "youtube",
+    "sundan",
+    "switch",
+    "pindutan"
+   ]
+  },
+  "template:yp11-high-quality": {
+   "name": "Pindutan: mataas na kalidad na may pointer",
+   "tags": [
+    "youtube",
+    "kalidad",
+    "pindutan",
+    "pointer"
+   ]
+  },
+  "template:yp11-like-heart": {
+   "name": "Teksto: Like na may puso",
+   "tags": [
+    "youtube",
+    "like",
+    "puso",
+    "teksto"
+   ]
+  },
+  "template:yp11-like-my-video": {
+   "name": "Teksto: Like my video na may hinlalaki",
+   "tags": [
+    "youtube",
+    "like",
+    "hinlalaki",
+    "teksto"
+   ]
+  },
+  "template:yp11-looking-perfect": {
+   "name": "Teksto: Looking Perfect na may mga tuldok",
+   "tags": [
+    "youtube",
+    "tuldok",
+    "teksto",
+    "pamagat"
+   ]
+  },
+  "template:yp11-new-video": {
+   "name": "Label: New Video na may smiley",
+   "tags": [
+    "youtube",
+    "bagong video",
+    "smiley",
+    "label"
+   ]
+  },
+  "template:yp11-play": {
+   "name": "Pindutan: pulang play",
+   "tags": [
+    "youtube",
+    "play",
+    "pindutan",
+    "pula"
+   ]
+  },
+  "template:yp11-rate-us": {
+   "name": "Teksto: Rate Us na may puso",
+   "tags": [
+    "youtube",
+    "i-rate",
+    "puso",
+    "teksto"
+   ]
+  },
+  "template:yp11-share": {
+   "name": "Teksto: SHARE na may palaso",
+   "tags": [
+    "youtube",
+    "ibahagi",
+    "palaso",
+    "teksto"
+   ]
+  },
+  "template:yp11-subscribe-bell": {
+   "name": "Teksto: Subscribe na may kampana",
+   "tags": [
+    "youtube",
+    "mag-subscribe",
+    "kampana",
+    "teksto"
+   ]
+  },
+  "template:yp11-thanks-watching": {
+   "name": "Teksto: salamat sa panonood na may mata",
+   "tags": [
+    "youtube",
+    "salamat",
+    "mata",
+    "pasasalamat"
+   ]
+  },
+  "template:yp11-titles-smiley": {
+   "name": "Pamagat: TITLES & BUTTONS na may smiley",
+   "tags": [
+    "youtube",
+    "smiley",
+    "pamagat",
+    "ngiti"
+   ]
+  },
+  "template:yp11-trendy-style": {
+   "name": "Teksto: Trendy Style na may mga kidlat",
+   "tags": [
+    "youtube",
+    "kidlat",
+    "trending",
+    "teksto"
+   ]
+  },
+  "template:yp11-watch-now": {
+   "name": "Teksto: panoorin na ngayon na may mga bulaklak",
+   "tags": [
+    "youtube",
+    "panoorin",
+    "bagong video",
+    "bulaklak"
+   ]
+  },
+  "template:yp12-barra-profesora": {
+   "name": "Bar na may larawan, like, kampana at mag-subscribe",
+   "tags": [
+    "youtube",
+    "mag-subscribe",
+    "bar",
+    "like",
+    "kampana",
+    "pindot"
+   ]
+  },
+  "template:yp12-foto-burbujas": {
+   "name": "Larawan na may mga bula at icon",
+   "tags": [
+    "youtube",
+    "mag-subscribe",
+    "larawan",
+    "bula",
+    "like",
+    "kampana"
+   ]
+  },
+  "template:yp12-foto-iconos": {
+   "name": "Larawan na may mga icon na lumalabas mula rito",
+   "tags": [
+    "youtube",
+    "mag-subscribe",
+    "larawan",
+    "bilog",
+    "like",
+    "kampana"
+   ]
+  },
+  "template:yp12-foto-lados": {
+   "name": "Larawan na may mga icon sa magkabilang gilid",
+   "tags": [
+    "youtube",
+    "mag-subscribe",
+    "larawan",
+    "like",
+    "kampana",
+    "pindot"
+   ]
+  },
+  "template:yp12-foto-liquida": {
+   "name": "Larawan na may malalabnaw na icon",
+   "tags": [
+    "youtube",
+    "mag-subscribe",
+    "larawan",
+    "likido",
+    "like",
+    "kampana"
+   ]
+  },
+  "template:yp12-foto-orbita": {
+   "name": "Bilog na larawan na may umiikot na mga icon",
+   "tags": [
+    "youtube",
+    "mag-subscribe",
+    "larawan",
+    "bilog",
+    "like",
+    "kampana"
+   ]
+  },
+  "template:yp12-lista-botones": {
+   "name": "Listahan: like, mag-subscribe at maabisuhan",
+   "tags": [
+    "youtube",
+    "mag-subscribe",
+    "listahan",
+    "like",
+    "kampana",
+    "pindot"
+   ]
+  },
+  "template:yp12-lista-capsula": {
+   "name": "Listahang kapsula: like, mag-subscribe at maabisuhan",
+   "tags": [
+    "youtube",
+    "mag-subscribe",
+    "listahan",
+    "like",
+    "kampana",
+    "pindot"
+   ]
+  },
+  "template:yp12-nombre-suscrito": {
+   "name": "Pangalan ng channel, naka-subscribe at kampana",
+   "tags": [
+    "youtube",
+    "mag-subscribe",
+    "pindutan",
+    "pangalan",
+    "kampana",
+    "pindot"
+   ]
+  },
+  "template:yp12-tarjeta-gris": {
+   "name": "Kulay-abong kard na may malaking larawan",
+   "tags": [
+    "youtube",
+    "mag-subscribe",
+    "kard",
+    "like",
+    "kampana",
+    "pindot"
+   ]
+  },
+  "template:yp12-tarjeta-lista": {
+   "name": "Pangalan ng channel na bumubukas bilang kard",
+   "tags": [
+    "youtube",
+    "mag-subscribe",
+    "kard",
+    "listahan",
+    "like",
+    "kampana"
+   ]
+  },
+  "template:yp12-tarjeta-rosa": {
+   "name": "Kard na may larawan at rosas na mag-subscribe",
+   "tags": [
+    "youtube",
+    "mag-subscribe",
+    "pindutan",
+    "kard",
+    "rosas"
+   ]
+  },
+  "template:yp12-tres-botones": {
+   "name": "Tatlong bilog na pindutan",
+   "tags": [
+    "youtube",
+    "mag-subscribe",
+    "pindutan",
+    "like",
+    "kampana",
+    "malaki"
+   ]
+  },
+  "template:yp13-aconseja-amigos": {
+   "name": "Irekomenda sa mga kaibigan: mga hinlalaki",
+   "tags": [
+    "youtube",
+    "rating",
+    "like",
+    "cursor",
+    "kaibigan"
+   ]
+  },
+  "template:yp13-agregar-comentario": {
+   "name": "Pindutang magdagdag ng komento na nagpo-post",
+   "tags": [
+    "youtube",
+    "komento",
+    "pindutan",
+    "cursor"
+   ]
+  },
+  "template:yp13-avatar-comentario": {
+   "name": "Avatar na may badge na nagbubukas ng komento",
+   "tags": [
+    "youtube",
+    "komento",
+    "avatar",
+    "cursor"
+   ]
+  },
+  "template:yp13-aviso-cafe": {
+   "name": "Window ng alerto na may OK",
+   "tags": [
+    "youtube",
+    "alerto",
+    "window",
+    "cursor"
+   ]
+  },
+  "template:yp13-aviso-comentarios": {
+   "name": "Abiso ng mga komento",
+   "tags": [
+    "youtube",
+    "abiso",
+    "komento",
+    "bilang",
+    "cursor"
+   ]
+  },
+  "template:yp13-aviso-doble": {
+   "name": "Abiso ng mga like at tagasunod",
+   "tags": [
+    "youtube",
+    "abiso",
+    "like",
+    "tagasunod",
+    "cursor"
+   ]
+  },
+  "template:yp13-aviso-me-gusta": {
+   "name": "Abiso ng mga like",
+   "tags": [
+    "youtube",
+    "abiso",
+    "like",
+    "bilang",
+    "cursor"
+   ]
+  },
+  "template:yp13-aviso-seguidores": {
+   "name": "Abiso ng mga tagasunod",
+   "tags": [
+    "youtube",
+    "abiso",
+    "tagasunod",
+    "bilang",
+    "cursor"
+   ]
+  },
+  "template:yp13-barra-suscribir": {
+   "name": "Bar ng like, mag-subscribe at kampana",
+   "tags": [
+    "youtube",
+    "mag-subscribe",
+    "like",
+    "kampana",
+    "cursor"
+   ]
+  },
+  "template:yp13-buscar-boton": {
+   "name": "Search field na may SEARCH na pindutan",
+   "tags": [
+    "youtube",
+    "paghahanap",
+    "cursor",
+    "pindutan"
+   ]
+  },
+  "template:yp13-buscar-cargando": {
+   "name": "Search bar na nagiging «naglo-load»",
+   "tags": [
+    "youtube",
+    "paghahanap",
+    "cursor",
+    "web",
+    "naglo-load"
+   ]
+  },
+  "template:yp13-buscar-lupa": {
+   "name": "Search field na may parisukat na magnifier",
+   "tags": [
+    "youtube",
+    "paghahanap",
+    "cursor",
+    "magnifier"
+   ]
+  },
+  "template:yp13-buscar-mapa": {
+   "name": "Mapa na may search field at pin",
+   "tags": [
+    "youtube",
+    "mapa",
+    "paghahanap",
+    "cursor",
+    "lokasyon"
+   ]
+  },
+  "template:yp13-caras-valorar": {
+   "name": "Nagustuhan mo ba ang video? Mga mukha",
+   "tags": [
+    "youtube",
+    "rating",
+    "mukha",
+    "cursor"
+   ]
+  },
+  "template:yp13-carrito-precio": {
+   "name": "Pindutan ng cart na may presyo",
+   "tags": [
+    "youtube",
+    "cart",
+    "pagbili",
+    "cursor",
+    "presyo"
+   ]
+  },
+  "template:yp13-casilla-marcada": {
+   "name": "CHECKED na kahon na may tsek",
+   "tags": [
+    "youtube",
+    "checkbox",
+    "cursor",
+    "tsek"
+   ]
+  },
+  "template:yp13-chat-dos": {
+   "name": "Chat ng dalawa na may oras at sagot",
+   "tags": [
+    "youtube",
+    "chat",
+    "mensahe",
+    "cursor",
+    "sagot"
+   ]
+  },
+  "template:yp13-chat-nombres": {
+   "name": "Chat na may mga pangalan at sagot",
+   "tags": [
+    "youtube",
+    "chat",
+    "mensahe",
+    "cursor",
+    "pangalan"
+   ]
+  },
+  "template:yp13-chat-ventana-amarilla": {
+   "name": "Dilaw na chat window na may mga pangalan",
+   "tags": [
+    "youtube",
+    "chat",
+    "mensahe",
+    "window",
+    "dilaw"
+   ]
+  },
+  "template:yp13-chat-ventana-azul": {
+   "name": "Asul na chat window",
+   "tags": [
+    "youtube",
+    "chat",
+    "mensahe",
+    "window",
+    "asul"
+   ]
+  },
+  "template:yp13-chat-ventana-grande": {
+   "name": "Chat window sa ibabaw ng video",
+   "tags": [
+    "youtube",
+    "chat",
+    "mensahe",
+    "window"
+   ]
+  },
+  "template:yp13-comentario-like": {
+   "name": "Komento na may LIKE at REPLY",
+   "tags": [
+    "youtube",
+    "komento",
+    "like",
+    "cursor",
+    "sagot"
+   ]
+  },
+  "template:yp13-comentario-votos": {
+   "name": "Komento na may like at sagot",
+   "tags": [
+    "youtube",
+    "komento",
+    "like",
+    "cursor",
+    "sagot"
+   ]
+  },
+  "template:yp13-comprar-gracias": {
+   "name": "Pindutang bumili na nagsasabing salamat",
+   "tags": [
+    "youtube",
+    "pindutan",
+    "pagbili",
+    "cursor",
+    "salamat"
+   ]
+  },
+  "template:yp13-contador-comentarios": {
+   "name": "Bula na may bilang ng komento",
+   "tags": [
+    "youtube",
+    "bilang",
+    "komento",
+    "cursor"
+   ]
+  },
+  "template:yp13-contador-corazon": {
+   "name": "Puso na may bilang ng like",
+   "tags": [
+    "youtube",
+    "bilang",
+    "like",
+    "puso",
+    "cursor"
+   ]
+  },
+  "template:yp13-contador-pulgar": {
+   "name": "Hinlalaki na may bilang ng like",
+   "tags": [
+    "youtube",
+    "bilang",
+    "like",
+    "cursor",
+    "hinlalaki"
+   ]
+  },
+  "template:yp13-contador-seguidores": {
+   "name": "Tao na may bilang ng tagasunod",
+   "tags": [
+    "youtube",
+    "bilang",
+    "tagasunod",
+    "cursor"
+   ]
+  },
+  "template:yp13-descargar-anillo": {
+   "name": "Pindutang i-download na may singsing ng progreso",
+   "tags": [
+    "youtube",
+    "download",
+    "progreso",
+    "cursor"
+   ]
+  },
+  "template:yp13-descargar-barra": {
+   "name": "Pindutang i-download na may progress bar",
+   "tags": [
+    "youtube",
+    "download",
+    "progreso",
+    "cursor"
+   ]
+  },
+  "template:yp13-enviar-comentario": {
+   "name": "Field ng komento na may pindutang ipadala",
+   "tags": [
+    "youtube",
+    "komento",
+    "chat",
+    "cursor",
+    "ipadala"
+   ]
+  },
+  "template:yp13-insignia-camara": {
+   "name": "Bilog na pindutan na may kamera",
+   "tags": [
+    "youtube",
+    "badge",
+    "social media",
+    "cursor",
+    "kamera"
+   ]
+  },
+  "template:yp13-insignia-click-here": {
+   "name": "CLICK HERE na parisukat na nagiging GOOD JOB!",
+   "tags": [
+    "youtube",
+    "pindutan",
+    "cursor",
+    "pindot"
+   ]
+  },
+  "template:yp13-insignia-foto": {
+   "name": "Parisukat na larawan na tinatapik",
+   "tags": [
+    "youtube",
+    "larawan",
+    "avatar",
+    "cursor"
+   ]
+  },
+  "template:yp13-insignia-get-ready": {
+   "name": "GET READY na badge na may larawan",
+   "tags": [
+    "youtube",
+    "badge",
+    "cursor",
+    "larawan"
+   ]
+  },
+  "template:yp13-insignia-like-this": {
+   "name": "Badge na may larawan na nagiging LIKE THIS!",
+   "tags": [
+    "youtube",
+    "badge",
+    "like",
+    "cursor",
+    "larawan"
+   ]
+  },
+  "template:yp13-insignia-pajaro": {
+   "name": "Bilog na pindutan na may ibon",
+   "tags": [
+    "youtube",
+    "badge",
+    "social media",
+    "cursor",
+    "ibon"
+   ]
+  },
+  "template:yp13-insignia-seguir": {
+   "name": "Badge na nagiging FOLLOW",
+   "tags": [
+    "youtube",
+    "badge",
+    "sundan",
+    "cursor"
+   ]
+  },
+  "template:yp13-insignia-unete": {
+   "name": "JOIN US na badge na may pindot",
+   "tags": [
+    "youtube",
+    "badge",
+    "sumali",
+    "cursor"
+   ]
+  },
+  "template:yp13-interruptor-encender": {
+   "name": "TURN ON na switch",
+   "tags": [
+    "youtube",
+    "switch",
+    "cursor",
+    "buksan"
+   ]
+  },
+  "template:yp13-interruptor-on-off": {
+   "name": "START KEY ON/OFF na switch",
+   "tags": [
+    "youtube",
+    "switch",
+    "cursor",
+    "on off"
+   ]
+  },
+  "template:yp13-lista-bienvenida": {
+   "name": "Listahan ng pindutan: Welcome to my channel",
+   "tags": [
+    "youtube",
+    "listahan",
+    "mag-subscribe",
+    "cursor",
+    "pagbati"
+   ]
+  },
+  "template:yp13-lista-canal-grande": {
+   "name": "Listahan ng channel sa ibabaw ng video",
+   "tags": [
+    "youtube",
+    "listahan",
+    "mag-subscribe",
+    "cursor",
+    "channel"
+   ]
+  },
+  "template:yp13-lista-interruptores": {
+   "name": "Listahan na may mga switch",
+   "tags": [
+    "youtube",
+    "listahan",
+    "switch",
+    "cursor"
+   ]
+  },
+  "template:yp13-lista-no-olvides": {
+   "name": "Listahang Please don't forget: mag-subscribe, abiso, like",
+   "tags": [
+    "youtube",
+    "listahan",
+    "mag-subscribe",
+    "cursor",
+    "like"
+   ]
+  },
+  "template:yp13-lista-tareas": {
+   "name": "Listahan ng gagawin ngayong araw",
+   "tags": [
+    "youtube",
+    "listahan",
+    "gawain",
+    "cursor"
+   ]
+  },
+  "template:yp13-mensaje-abrir": {
+   "name": "Pindutan ng mensahe na bumubukas",
+   "tags": [
+    "youtube",
+    "mensahe",
+    "chat",
+    "cursor"
+   ]
+  },
+  "template:yp13-opcion-seleccionar": {
+   "name": "SELECT na pagpipilian",
+   "tags": [
+    "youtube",
+    "pagpipilian",
+    "cursor",
+    "piliin"
+   ]
+  },
+  "template:yp13-perfil-seguir": {
+   "name": "Profile na may mga larawan at follow button",
+   "tags": [
+    "youtube",
+    "profile",
+    "sundan",
+    "cursor",
+    "mga larawan"
+   ]
+  },
+  "template:yp13-post-botones": {
+   "name": "Post na may mga bilugang pindutan",
+   "tags": [
+    "youtube",
+    "post",
+    "like",
+    "cursor",
+    "pindutan"
+   ]
+  },
+  "template:yp13-post-insta": {
+   "name": "Post na may malaking larawan at like",
+   "tags": [
+    "youtube",
+    "post",
+    "like",
+    "cursor",
+    "larawan"
+   ]
+  },
+  "template:yp13-post-muro": {
+   "name": "Post sa wall na may Like, Comment at Share",
+   "tags": [
+    "youtube",
+    "post",
+    "like",
+    "komento",
+    "ibahagi"
+   ]
+  },
+  "template:yp13-post-noticia": {
+   "name": "Post na may asul na pangalan at like",
+   "tags": [
+    "youtube",
+    "post",
+    "like",
+    "cursor"
+   ]
+  },
+  "template:yp13-post-texto": {
+   "name": "Post na teksto na may like",
+   "tags": [
+    "youtube",
+    "post",
+    "like",
+    "cursor",
+    "teksto"
+   ]
+  },
+  "template:yp13-post-tuit": {
+   "name": "Post na parang tweet na may like",
+   "tags": [
+    "youtube",
+    "post",
+    "like",
+    "cursor",
+    "tweet"
+   ]
+  },
+  "template:yp13-post-tuit-enlace": {
+   "name": "Tweet na may link card at like",
+   "tags": [
+    "youtube",
+    "post",
+    "like",
+    "cursor",
+    "link"
+   ]
+  },
+  "template:yp13-post-tuit-foto": {
+   "name": "Tweet na may naka-link na larawan at like",
+   "tags": [
+    "youtube",
+    "post",
+    "like",
+    "cursor",
+    "larawan"
+   ]
+  },
+  "template:yp13-post-vertical": {
+   "name": "Patayong post na may like",
+   "tags": [
+    "youtube",
+    "post",
+    "like",
+    "cursor",
+    "patayo"
+   ]
+  },
+  "template:yp13-post-video-campana": {
+   "name": "Video post: mag-subscribe at kampana",
+   "tags": [
+    "youtube",
+    "post",
+    "mag-subscribe",
+    "kampana",
+    "cursor"
+   ]
+  },
+  "template:yp13-post-video-suscribir": {
+   "name": "Video post na may subscribe button",
+   "tags": [
+    "youtube",
+    "post",
+    "mag-subscribe",
+    "cursor"
+   ]
+  },
+  "template:yp13-post-video-votos": {
+   "name": "Video post na may like at dislike",
+   "tags": [
+    "youtube",
+    "post",
+    "like",
+    "dislike",
+    "cursor"
+   ]
+  },
+  "template:yp13-reaccion-corazones": {
+   "name": "LOVE IT! na pindutan na may umaakyat na mga puso",
+   "tags": [
+    "youtube",
+    "reaksyon",
+    "puso",
+    "cursor",
+    "pindutan"
+   ]
+  },
+  "template:yp13-reaccion-estrellas": {
+   "name": "Pindutan na may umaakyat na berdeng bituin",
+   "tags": [
+    "youtube",
+    "reaksyon",
+    "bituin",
+    "cursor",
+    "pindutan"
+   ]
+  },
+  "template:yp13-reaccion-monedas": {
+   "name": "DONATE na pindutan na may umaakyat na mga barya",
+   "tags": [
+    "youtube",
+    "reaksyon",
+    "donasyon",
+    "cursor",
+    "pindutan",
+    "barya"
+   ]
+  },
+  "template:yp13-reaccion-pulgares": {
+   "name": "LIKE THIS na pindutan na may umaakyat na mga hinlalaki",
+   "tags": [
+    "youtube",
+    "reaksyon",
+    "like",
+    "cursor",
+    "pindutan"
+   ]
+  },
+  "template:yp13-recomiendo": {
+   "name": "Inirerekomenda ko: limang puso",
+   "tags": [
+    "youtube",
+    "rating",
+    "puso",
+    "cursor",
+    "rekomendasyon"
+   ]
+  },
+  "template:yp13-reproductor-amarillo": {
+   "name": "Dilaw na mga pindutan ng player",
+   "tags": [
+    "youtube",
+    "player",
+    "mga pindutan",
+    "cursor",
+    "dilaw"
+   ]
+  },
+  "template:yp13-reproductor-azul": {
+   "name": "Asul na mga pindutan ng player",
+   "tags": [
+    "youtube",
+    "player",
+    "mga pindutan",
+    "cursor",
+    "asul"
+   ]
+  },
+  "template:yp13-reproductor-cuadrado": {
+   "name": "Parisukat na mga pindutan ng player",
+   "tags": [
+    "youtube",
+    "player",
+    "mga pindutan",
+    "cursor",
+    "parisukat"
+   ]
+  },
+  "template:yp13-reproductor-redondo": {
+   "name": "Bilog na mga pindutan ng player",
+   "tags": [
+    "youtube",
+    "player",
+    "mga pindutan",
+    "cursor",
+    "bilog"
+   ]
+  },
+  "template:yp13-tarjeta-canal": {
+   "name": "Kard ng channel na bumubukas",
+   "tags": [
+    "youtube",
+    "channel",
+    "mag-subscribe",
+    "cursor",
+    "avatar"
+   ]
+  },
+  "template:yp13-tarjeta-suscribir-grande": {
+   "name": "Malaking kard ng channel na may mag-subscribe",
+   "tags": [
+    "youtube",
+    "channel",
+    "mag-subscribe",
+    "cursor",
+    "avatar",
+    "banner sa ibaba"
+   ]
+  },
+  "template:yp13-tuit-texto": {
+   "name": "Tweet na teksto lang na may like",
+   "tags": [
+    "youtube",
+    "post",
+    "like",
+    "cursor",
+    "komento"
+   ]
+  },
+  "template:yp13-valoranos": {
+   "name": "I-rate kami: listahan ng mga bituin",
+   "tags": [
+    "youtube",
+    "rating",
+    "bituin",
+    "cursor",
+    "listahan"
+   ]
+  },
+  "template:yp13-valorar-10": {
+   "name": "Rating na 10/10 na may mga bituin",
+   "tags": [
+    "youtube",
+    "rating",
+    "bituin",
+    "cursor"
+   ]
+  },
+  "template:yp13-valorar-articulo": {
+   "name": "I-rate gamit ang limang bituin",
+   "tags": [
+    "youtube",
+    "rating",
+    "bituin",
+    "cursor"
+   ]
+  },
+  "template:yp13-valorar-genial": {
+   "name": "Rate button na nagbibigay ng mga bituin",
+   "tags": [
+    "youtube",
+    "rating",
+    "bituin",
+    "cursor",
+    "pindutan"
+   ]
+  },
+  "template:yp13-valorar-plantilla": {
+   "name": "Rating card na may mga bituin",
+   "tags": [
+    "youtube",
+    "rating",
+    "bituin",
+    "cursor",
+    "logo"
+   ]
+  },
+  "template:yp13-video-suscribir-campana": {
+   "name": "Kard ng video na may mag-subscribe at kampana",
+   "tags": [
+    "youtube",
+    "post",
+    "mag-subscribe",
+    "kampana",
+    "cursor"
+   ]
+  },
+  "template:yp13-volumen": {
+   "name": "MAKE SOME NOISE na slider ng lakas ng tunog",
+   "tags": [
+    "youtube",
+    "volume",
+    "slider",
+    "cursor",
+    "tunog"
+   ]
+  },
+  "template:yp14-barra-abajo-acciones": {
+   "name": "Bar ng video sa ibaba na may like, ibahagi, i-download at i-save",
+   "tags": [
+    "youtube",
+    "bar",
+    "channel",
+    "like",
+    "ibahagi",
+    "download"
+   ]
+  },
+  "template:yp14-barra-abajo-campana": {
+   "name": "Bar ng channel sa ibaba na may naka-subscribe at kampana",
+   "tags": [
+    "youtube",
+    "bar",
+    "channel",
+    "mag-subscribe",
+    "kampana"
+   ]
+  },
+  "template:yp14-barra-abajo-me-gusta": {
+   "name": "Bar ng channel sa ibaba na may mga like at mag-subscribe",
+   "tags": [
+    "youtube",
+    "bar",
+    "channel",
+    "mag-subscribe",
+    "like"
+   ]
+  },
+  "template:yp14-barra-arriba": {
+   "name": "Bar ng channel sa itaas na tumutulak sa larawan",
+   "tags": [
+    "youtube",
+    "bar",
+    "channel",
+    "mag-subscribe",
+    "larawan"
+   ]
+  },
+  "template:yp14-barra-valoracion-arriba": {
+   "name": "Bar ng channel sa itaas na may like, dislike at rating",
+   "tags": [
+    "youtube",
+    "bar",
+    "channel",
+    "mag-subscribe",
+    "rating"
+   ]
+  },
+  "template:yp14-barra-video-suscribirse": {
+   "name": "Puting bar sa ibaba ng video: avatar, pangalan at mag-subscribe",
+   "tags": [
+    "youtube",
+    "bar",
+    "channel",
+    "mag-subscribe",
+    "larawan"
+   ]
+  },
+  "template:yp14-boton-redondo-campana": {
+   "name": "Bilog na pulang pindutan: kampana at «Get notified»",
+   "tags": [
+    "youtube",
+    "pindutan",
+    "teksto",
+    "kampana",
+    "abiso"
+   ]
+  },
+  "template:yp14-boton-redondo-compartir": {
+   "name": "Bilog na pulang pindutan: ibahagi at «Share this»",
+   "tags": [
+    "youtube",
+    "pindutan",
+    "teksto",
+    "ibahagi"
+   ]
+  },
+  "template:yp14-boton-redondo-me-gusta": {
+   "name": "Bilog na pulang pindutan: like at «Like the video»",
+   "tags": [
+    "youtube",
+    "pindutan",
+    "teksto",
+    "like"
+   ]
+  },
+  "template:yp14-boton-redondo-suscribirse": {
+   "name": "Bilog na pulang pindutan: play at «Subscribe»",
+   "tags": [
+    "youtube",
+    "pindutan",
+    "teksto",
+    "play",
+    "mag-subscribe"
+   ]
+  },
+  "template:yp14-campana-compartir-redondos": {
+   "name": "Dalawang pulang pindutan: kampana at ibahagi",
+   "tags": [
+    "youtube",
+    "pindutan",
+    "teksto",
+    "kampana",
+    "ibahagi"
+   ]
+  },
+  "template:yp14-canal-avatar-arriba": {
+   "name": "Patayong pindutan ng channel na may avatar sa itaas",
+   "tags": [
+    "youtube",
+    "pindutan",
+    "mag-subscribe",
+    "avatar",
+    "patayo"
+   ]
+  },
+  "template:yp14-canal-avatar-centro": {
+   "name": "Pindutan ng channel na may avatar sa gitna, ibahagi at kampana",
+   "tags": [
+    "youtube",
+    "pindutan",
+    "mag-subscribe",
+    "avatar",
+    "ibahagi"
+   ]
+  },
+  "template:yp14-canal-avatar-esquina": {
+   "name": "Pindutan ng channel na may avatar sa sulok, ibahagi at kampana",
+   "tags": [
+    "youtube",
+    "pindutan",
+    "mag-subscribe",
+    "avatar",
+    "ibahagi"
+   ]
+  },
+  "template:yp14-canal-circulo": {
+   "name": "Channel sa bilog na may kampana, like at ibahagi",
+   "tags": [
+    "youtube",
+    "pindutan",
+    "kampana",
+    "like",
+    "bilog"
+   ]
+  },
+  "template:yp14-canal-foto-campana": {
+   "name": "Pindutan ng channel: larawan, mag-subscribe at kampana",
+   "tags": [
+    "youtube",
+    "pindutan",
+    "mag-subscribe",
+    "kampana",
+    "larawan"
+   ]
+  },
+  "template:yp14-canal-foto-vertical": {
+   "name": "Patayong pindutan ng channel: larawan, mag-subscribe, like at kampana",
+   "tags": [
+    "youtube",
+    "pindutan",
+    "mag-subscribe",
+    "patayo",
+    "like"
+   ]
+  },
+  "template:yp14-canal-horizontal": {
+   "name": "Pahalang na pindutan ng channel: larawan, subscriber, mag-subscribe at kampana",
+   "tags": [
+    "youtube",
+    "pindutan",
+    "mag-subscribe",
+    "pahalang",
+    "kampana"
+   ]
+  },
+  "template:yp14-canal-iconos-columna": {
+   "name": "Channel na may hanay ng icon: kampana, like at ibahagi",
+   "tags": [
+    "youtube",
+    "pindutan",
+    "mag-subscribe",
+    "kampana",
+    "like"
+   ]
+  },
+  "template:yp14-canal-nombre-largo": {
+   "name": "Pindutan ng channel: larawan, pangalang may tatlong linya, like at kampana",
+   "tags": [
+    "youtube",
+    "pindutan",
+    "mag-subscribe",
+    "pangalan",
+    "kampana"
+   ]
+  },
+  "template:yp14-canal-sin-tarjeta": {
+   "name": "Channel: avatar, pangalan, subscriber at mag-subscribe",
+   "tags": [
+    "youtube",
+    "pindutan",
+    "mag-subscribe",
+    "avatar",
+    "channel"
+   ]
+  },
+  "template:yp14-canal-sobre-video": {
+   "name": "Pindutan ng channel sa ibabaw ng video: larawan, subscriber at mag-subscribe",
+   "tags": [
+    "youtube",
+    "pindutan",
+    "mag-subscribe",
+    "video",
+    "larawan"
+   ]
+  },
+  "template:yp14-canal-tarjeta-vertical": {
+   "name": "Patayong kard ng channel: pangalan, larawan at mag-subscribe",
+   "tags": [
+    "youtube",
+    "pindutan",
+    "mag-subscribe",
+    "kard",
+    "patayo"
+   ]
+  },
+  "template:yp14-columna-botones": {
+   "name": "Hanay ng bilog na pindutan: mag-subscribe, like at kampana",
+   "tags": [
+    "youtube",
+    "pindutan",
+    "teksto",
+    "hanay",
+    "mag-subscribe"
+   ]
+  },
+  "template:yp14-columna-botones-etiquetas": {
+   "name": "Hanay ng bilog na pindutan na may label: mag-subscribe, abiso, like",
+   "tags": [
+    "youtube",
+    "pindutan",
+    "teksto",
+    "hanay",
+    "label"
+   ]
+  },
+  "template:yp14-comentario-abajo": {
+   "name": "Komento sa ibaba na may like",
+   "tags": [
+    "youtube",
+    "komento",
+    "channel",
+    "like"
+   ]
+  },
+  "template:yp14-comentario-arriba": {
+   "name": "Komento sa itaas na may like at dislike",
+   "tags": [
+    "youtube",
+    "komento",
+    "channel",
+    "like",
+    "dislike"
+   ]
+  },
+  "template:yp14-comentario-me-gusta": {
+   "name": "Komento na may pinindot na like",
+   "tags": [
+    "youtube",
+    "komento",
+    "mga komento",
+    "like"
+   ]
+  },
+  "template:yp14-comentario-no-me-gusta": {
+   "name": "Komento na may pinindot na dislike",
+   "tags": [
+    "youtube",
+    "komento",
+    "mga komento",
+    "dislike"
+   ]
+  },
+  "template:yp14-comentario-respuesta": {
+   "name": "Komento na may sagot na tinitipa",
+   "tags": [
+    "youtube",
+    "komento",
+    "mga komento",
+    "sagot"
+   ]
+  },
+  "template:yp14-comentario-respuesta-2": {
+   "name": "Komento na may sagot (2)",
+   "tags": [
+    "youtube",
+    "komento",
+    "mga komento",
+    "sagot"
+   ]
+  },
+  "template:yp14-comentario-sobre-video": {
+   "name": "Isang linyang komento sa ibabaw ng video",
+   "tags": [
+    "youtube",
+    "komento",
+    "mga komento",
+    "video"
+   ]
+  },
+  "template:yp14-compartir-esto": {
+   "name": "Pindutang «Share This» na nagiging puti mula sa pula",
+   "tags": [
+    "youtube",
+    "pindutan",
+    "teksto",
+    "ibahagi"
+   ]
+  },
+  "template:yp14-fila-botones": {
+   "name": "Hilera ng bilog na pindutan: mag-subscribe, kampana, ibahagi at like",
+   "tags": [
+    "youtube",
+    "pindutan",
+    "teksto",
+    "hilera",
+    "mag-subscribe"
+   ]
+  },
+  "template:yp14-fila-me-gusta-suscribirse": {
+   "name": "Hanay: like, mag-subscribe at kampana",
+   "tags": [
+    "youtube",
+    "pindutan",
+    "mag-subscribe",
+    "like",
+    "kampana"
+   ]
+  },
+  "template:yp14-fila-suscribirse": {
+   "name": "Hilera: like, mag-subscribe, ibahagi at kampana",
+   "tags": [
+    "youtube",
+    "pindutan",
+    "teksto",
+    "hilera",
+    "mag-subscribe"
+   ]
+  },
+  "template:yp14-lista-suscribirse": {
+   "name": "Listahan: mag-subscribe, maabisuhan at like",
+   "tags": [
+    "youtube",
+    "pindutan",
+    "mag-subscribe",
+    "listahan",
+    "like"
+   ]
+  },
+  "template:yp14-lista-ver-mas-tarde": {
+   "name": "Listahan ng video: «Saved to Watch Later»",
+   "tags": [
+    "youtube",
+    "listahan",
+    "mga video",
+    "panoorin mamaya"
+   ]
+  },
+  "template:yp14-lista-videos-abrir": {
+   "name": "Listahan ng video: i-click ang isa at pupunuin nito ang frame",
+   "tags": [
+    "youtube",
+    "listahan",
+    "mga video",
+    "pindot"
+   ]
+  },
+  "template:yp14-logo-arriba-suscribirse": {
+   "name": "Logo sa itaas at mag-subscribe",
+   "tags": [
+    "youtube",
+    "pindutan",
+    "mag-subscribe",
+    "logo"
+   ]
+  },
+  "template:yp14-logo-suscribirse": {
+   "name": "Logo ng channel na may mag-subscribe",
+   "tags": [
+    "youtube",
+    "pindutan",
+    "mag-subscribe",
+    "logo"
+   ]
+  },
+  "template:yp14-logo-tarjeta": {
+   "name": "Logo ng channel sa kard na may mag-subscribe, kampana at ibahagi",
+   "tags": [
+    "youtube",
+    "pindutan",
+    "mag-subscribe",
+    "logo",
+    "kard"
+   ]
+  },
+  "template:yp14-logo-tarjeta-vertical": {
+   "name": "Logo ng channel sa patayong kard na may kampana at ibahagi",
+   "tags": [
+    "youtube",
+    "pindutan",
+    "mag-subscribe",
+    "logo",
+    "kard"
+   ]
+  },
+  "template:yp14-me-gusta-avisos": {
+   "name": "Like at kampana na may «Like this / Notified»",
+   "tags": [
+    "youtube",
+    "pindutan",
+    "teksto",
+    "like",
+    "kampana"
+   ]
+  },
+  "template:yp14-me-gusta-barra": {
+   "name": "«Like this» na may bar ng rating",
+   "tags": [
+    "youtube",
+    "pindutan",
+    "teksto",
+    "like",
+    "rating"
+   ]
+  },
+  "template:yp14-me-gusta-boton": {
+   "name": "Pindutang «Like it!» na nagpapakawala ng mga hinlalaki",
+   "tags": [
+    "youtube",
+    "pindutan",
+    "teksto",
+    "like",
+    "hinlalaki"
+   ]
+  },
+  "template:yp14-me-gusta-campana-redondos": {
+   "name": "Dalawang pulang pindutan: like at kampana",
+   "tags": [
+    "youtube",
+    "pindutan",
+    "teksto",
+    "like",
+    "kampana"
+   ]
+  },
+  "template:yp14-me-gusta-compartir-botones": {
+   "name": "Mga pindutang «Like it» at «Share» na nagiging puti mula sa pula",
+   "tags": [
+    "youtube",
+    "pindutan",
+    "teksto",
+    "like",
+    "ibahagi"
+   ]
+  },
+  "template:yp14-me-gusta-compartir-redondos": {
+   "name": "Dalawang pulang pindutan: like at ibahagi",
+   "tags": [
+    "youtube",
+    "pindutan",
+    "teksto",
+    "like",
+    "ibahagi"
+   ]
+  },
+  "template:yp14-me-gusta-contador": {
+   "name": "Malaking like na may bilang",
+   "tags": [
+    "youtube",
+    "pindutan",
+    "teksto",
+    "like",
+    "bilang"
+   ]
+  },
+  "template:yp14-me-gusta-suscribirse": {
+   "name": "Like at mag-subscribe nang walang kard",
+   "tags": [
+    "youtube",
+    "pindutan",
+    "teksto",
+    "mag-subscribe",
+    "like"
+   ]
+  },
+  "template:yp14-me-gusta-suscribirse-campana": {
+   "name": "Like, mag-subscribe at kampana nang walang kard",
+   "tags": [
+    "youtube",
+    "pindutan",
+    "teksto",
+    "mag-subscribe",
+    "kampana"
+   ]
+  },
+  "template:yp14-no-me-gusta-boton": {
+   "name": "Pindutang «Dislike!» na nagpapakawala ng mga hinlalaki",
+   "tags": [
+    "youtube",
+    "pindutan",
+    "teksto",
+    "dislike",
+    "hinlalaki"
+   ]
+  },
+  "template:yp14-no-me-gusta-contador": {
+   "name": "Malaking dislike na may bilang",
+   "tags": [
+    "youtube",
+    "pindutan",
+    "teksto",
+    "dislike",
+    "bilang"
+   ]
+  },
+  "template:yp14-no-recomendar": {
+   "name": "«Don't recommend» na may limang hinlalaking minamarkahan",
+   "tags": [
+    "youtube",
+    "pindutan",
+    "teksto",
+    "rating",
+    "dislike"
+   ]
+  },
+  "template:yp14-nombre-suscrito-campana": {
+   "name": "Pangalan ng channel na may naka-subscribe at kampana",
+   "tags": [
+    "youtube",
+    "pindutan",
+    "mag-subscribe",
+    "pangalan",
+    "kampana"
+   ]
+  },
+  "template:yp14-nombre-suscrito-me-gusta": {
+   "name": "Pangalan ng channel na may naka-subscribe, like at dislike",
+   "tags": [
+    "youtube",
+    "pindutan",
+    "mag-subscribe",
+    "like",
+    "dislike"
+   ]
+  },
+  "template:yp14-pildora-me-gusta": {
+   "name": "Pulang kapsula ng like / dislike: pindot sa like",
+   "tags": [
+    "youtube",
+    "pindutan",
+    "teksto",
+    "like",
+    "dislike"
+   ]
+  },
+  "template:yp14-pildora-no-me-gusta": {
+   "name": "Pulang kapsula ng like / dislike: pindot sa dislike",
+   "tags": [
+    "youtube",
+    "pindutan",
+    "teksto",
+    "like",
+    "dislike"
+   ]
+  },
+  "template:yp14-recomendar-amigos": {
+   "name": "«Advise friends» na may limang hinlalaking minamarkahan",
+   "tags": [
+    "youtube",
+    "pindutan",
+    "teksto",
+    "rating",
+    "like"
+   ]
+  },
+  "template:yp14-suscribirse-campana": {
+   "name": "Mag-subscribe at kampana nang walang kard",
+   "tags": [
+    "youtube",
+    "pindutan",
+    "teksto",
+    "mag-subscribe",
+    "kampana"
+   ]
+  },
+  "template:yp14-suscribirse-casilla": {
+   "name": "Kahong may tsek na may «Subscribe Youtube Channel»",
+   "tags": [
+    "youtube",
+    "pindutan",
+    "teksto",
+    "mag-subscribe",
+    "checkbox"
+   ]
+  },
+  "template:yp14-suscribirse-contador": {
+   "name": "Mag-subscribe na may bilang mula 19999 hanggang 20000",
+   "tags": [
+    "youtube",
+    "pindutan",
+    "teksto",
+    "mag-subscribe",
+    "bilang"
+   ]
+  },
+  "template:yp14-suscribirse-hecho": {
+   "name": "«Subscribe Channel» na may «DO IT!» na nagiging «DONE»",
+   "tags": [
+    "youtube",
+    "pindutan",
+    "teksto",
+    "mag-subscribe"
+   ]
+  },
+  "template:yp14-suscribirse-play": {
+   "name": "Pulang pindutang «SUBSCRIBE» na may play na nagiging «SUBSCRIBED»",
+   "tags": [
+    "youtube",
+    "pindutan",
+    "teksto",
+    "mag-subscribe",
+    "play"
+   ]
+  },
+  "template:yp14-suscrito-iconos": {
+   "name": "Naka-subscribe na may like, kampana at ibahagi",
+   "tags": [
+    "youtube",
+    "pindutan",
+    "mag-subscribe",
+    "like",
+    "kampana"
+   ]
+  },
+  "template:yp14-tarjeta-campana": {
+   "name": "Kard ng channel na may mag-subscribe at kampana",
+   "tags": [
+    "youtube",
+    "kard",
+    "channel",
+    "mag-subscribe",
+    "kampana"
+   ]
+  },
+  "template:yp14-tarjeta-comentario": {
+   "name": "Kard ng video na may dislike at komento",
+   "tags": [
+    "youtube",
+    "kard",
+    "channel",
+    "komento",
+    "dislike"
+   ]
+  },
+  "template:yp14-tarjeta-comentario-2": {
+   "name": "Kard ng video na may like at komento",
+   "tags": [
+    "youtube",
+    "kard",
+    "channel",
+    "komento",
+    "like"
+   ]
+  },
+  "template:yp14-tarjeta-cristal": {
+   "name": "Kard ng channel: salamin sa ibabaw ng larawan na may kampana",
+   "tags": [
+    "youtube",
+    "kard",
+    "channel",
+    "mag-subscribe",
+    "larawan",
+    "salamin"
+   ]
+  },
+  "template:yp14-tarjeta-cristal-inclinada": {
+   "name": "Kard ng channel: nakahilig na salamin sa ibabaw ng larawan",
+   "tags": [
+    "youtube",
+    "kard",
+    "channel",
+    "mag-subscribe",
+    "larawan",
+    "salamin"
+   ]
+  },
+  "template:yp14-tarjeta-foto-inclinada": {
+   "name": "Kard ng channel: nakahilig na larawan na may mag-subscribe at kampana",
+   "tags": [
+    "youtube",
+    "kard",
+    "channel",
+    "mag-subscribe",
+    "larawan"
+   ]
+  },
+  "template:yp14-tarjeta-foto-marco": {
+   "name": "Kard ng channel: larawan sa puting frame na may progress bar",
+   "tags": [
+    "youtube",
+    "kard",
+    "channel",
+    "mag-subscribe",
+    "larawan"
+   ]
+  },
+  "template:yp14-tarjeta-foto-progreso": {
+   "name": "Kard ng channel: larawan na may progress bar at mga like",
+   "tags": [
+    "youtube",
+    "kard",
+    "channel",
+    "mag-subscribe",
+    "larawan"
+   ]
+  },
+  "template:yp14-tarjeta-foto-recta": {
+   "name": "Kard ng channel: larawang naka-frame na may like, mag-subscribe at kampana",
+   "tags": [
+    "youtube",
+    "kard",
+    "channel",
+    "mag-subscribe",
+    "larawan"
+   ]
+  },
+  "template:yp14-tarjeta-marco": {
+   "name": "Kard ng channel: puting frame sa larawan na may progress bar",
+   "tags": [
+    "youtube",
+    "kard",
+    "channel",
+    "mag-subscribe",
+    "larawan"
+   ]
+  },
+  "template:yp14-tarjeta-marco-inclinado": {
+   "name": "Kard ng channel: nakahilig na puting frame sa ibabaw ng larawan",
+   "tags": [
+    "youtube",
+    "kard",
+    "channel",
+    "mag-subscribe",
+    "larawan"
+   ]
+  },
+  "template:yp14-tarjeta-video-compartir": {
+   "name": "Kard ng video na may like, ibahagi at mag-subscribe",
+   "tags": [
+    "youtube",
+    "kard",
+    "channel",
+    "ibahagi",
+    "like"
+   ]
+  },
+  "template:yp14-tarjeta-video-cuadrada": {
+   "name": "Nakahilig na kard ng video na may parisukat na avatar at pulang pindutan",
+   "tags": [
+    "youtube",
+    "kard",
+    "video",
+    "mag-subscribe",
+    "larawan"
+   ]
+  },
+  "template:yp14-tarjeta-video-play": {
+   "name": "Kard ng video: i-click ang play at pupunuin ng video ang frame",
+   "tags": [
+    "youtube",
+    "kard",
+    "video",
+    "play"
+   ]
+  },
+  "template:yp14-tarjeta-video-titulo": {
+   "name": "Kard ng video na may channel sa itaas at pamagat: i-click ang play",
+   "tags": [
+    "youtube",
+    "kard",
+    "video",
+    "play",
+    "pamagat"
+   ]
+  },
+  "template:yp14-tres-botones-blancos": {
+   "name": "Tatlong puting pindutan: like, kampana at ibahagi, sabay na pinindot",
+   "tags": [
+    "youtube",
+    "pindutan",
+    "teksto",
+    "hilera",
+    "puti"
+   ]
+  },
+  "template:yp14-valoracion-abajo": {
+   "name": "Bar ng channel sa ibaba na may like, dislike at rating",
+   "tags": [
+    "youtube",
+    "bar",
+    "channel",
+    "mag-subscribe",
+    "rating"
+   ]
+  },
+  "template:yp14-youtube-channel": {
+   "name": "«YOUTUBE CHANNEL» na nagiging pula kapag pinindot",
+   "tags": [
+    "youtube",
+    "pindutan",
+    "teksto",
+    "pamagat",
+    "pula"
+   ]
+  },
+  "template:yp15-cargo-verde": {
+   "name": "Salaming banner sa ibaba, trabaho sa berde",
+   "tags": [
+    "youtube",
+    "banner sa ibaba",
+    "salamin",
+    "pangalan",
+    "berde"
+   ]
+  },
+  "template:yp15-centrado": {
+   "name": "Salaming banner sa ibaba sa gitna na may mag-subscribe",
+   "tags": [
+    "youtube",
+    "banner sa ibaba",
+    "salamin",
+    "pangalan",
+    "mag-subscribe"
+   ]
+  },
+  "template:yp15-dos-nombres": {
+   "name": "Salaming banner sa ibaba: dalawang pangalan",
+   "tags": [
+    "youtube",
+    "banner sa ibaba",
+    "salamin",
+    "pangalan",
+    "dalawang tao"
+   ]
+  },
+  "template:yp15-foto-redonda": {
+   "name": "Salaming banner sa ibaba na may bilog na larawan",
+   "tags": [
+    "youtube",
+    "banner sa ibaba",
+    "salamin",
+    "pangalan",
+    "larawan",
+    "avatar"
+   ]
+  },
+  "template:yp15-foto-suscribete": {
+   "name": "Salaming banner sa ibaba, larawan at mag-subscribe",
+   "tags": [
+    "youtube",
+    "banner sa ibaba",
+    "salamin",
+    "pangalan",
+    "mag-subscribe",
+    "larawan"
+   ]
+  },
+  "template:yp15-linea-fina": {
+   "name": "Manipis na salaming banner sa ibaba",
+   "tags": [
+    "youtube",
+    "banner sa ibaba",
+    "salamin",
+    "pangalan",
+    "manipis"
+   ]
+  },
+  "template:yp15-logo-nombre": {
+   "name": "Salaming banner sa ibaba na may logo",
+   "tags": [
+    "youtube",
+    "banner sa ibaba",
+    "salamin",
+    "pangalan",
+    "logo"
+   ]
+  },
+  "template:yp15-logo-suscribete": {
+   "name": "Salaming banner sa ibaba, logo at mag-subscribe",
+   "tags": [
+    "youtube",
+    "banner sa ibaba",
+    "salamin",
+    "pangalan",
+    "mag-subscribe",
+    "logo"
+   ]
+  },
+  "template:yp15-nombre-suscribete": {
+   "name": "Salaming banner sa ibaba na may mag-subscribe",
+   "tags": [
+    "youtube",
+    "banner sa ibaba",
+    "salamin",
+    "pangalan",
+    "mag-subscribe"
+   ]
+  },
+  "template:yp15-pareja": {
+   "name": "Salaming banner sa ibaba: magkapareha na may larawan",
+   "tags": [
+    "youtube",
+    "banner sa ibaba",
+    "salamin",
+    "pangalan",
+    "dalawang tao",
+    "larawan"
+   ]
+  },
+  "template:yp15-tarjeta-foto": {
+   "name": "Salaming kard na may larawan at logo",
+   "tags": [
+    "youtube",
+    "banner sa ibaba",
+    "salamin",
+    "pangalan",
+    "larawan",
+    "logo"
+   ]
+  },
+  "template:yp15-una-linea": {
+   "name": "Isang linyang salaming banner sa ibaba",
+   "tags": [
+    "youtube",
+    "banner sa ibaba",
+    "salamin",
+    "pangalan"
+   ]
+  },
+  "template:yp16-barra-nombre": {
+   "name": "Salaming bar na may pangalan at mag-subscribe",
+   "tags": [
+    "youtube",
+    "salamin",
+    "mag-subscribe",
+    "pindot",
+    "larawan"
+   ]
+  },
+  "template:yp16-barra-suscribete": {
+   "name": "Salaming bar na may larawan at mag-subscribe",
+   "tags": [
+    "youtube",
+    "salamin",
+    "mag-subscribe",
+    "pindot",
+    "larawan"
+   ]
+  },
+  "template:yp16-burbuja-canal": {
+   "name": "Salaming bula na may larawan at channel",
+   "tags": [
+    "youtube",
+    "salamin",
+    "channel",
+    "larawan",
+    "bula"
+   ]
+  },
+  "template:yp16-circulo": {
+   "name": "Salaming bilog na may larawan at mag-subscribe",
+   "tags": [
+    "youtube",
+    "salamin",
+    "mag-subscribe",
+    "pindot",
+    "larawan",
+    "bilog"
+   ]
+  },
+  "template:yp16-join-us": {
+   "name": "Madilim na salaming kapsula: join us now",
+   "tags": [
+    "youtube",
+    "salamin",
+    "sumali",
+    "madilim"
+   ]
+  },
+  "template:yp16-pildora-canal": {
+   "name": "Salaming kapsula na may larawan sa gitna",
+   "tags": [
+    "youtube",
+    "salamin",
+    "channel",
+    "larawan"
+   ]
+  },
+  "template:yp16-stay-tuned": {
+   "name": "Salaming bilog: stay tuned",
+   "tags": [
+    "youtube",
+    "salamin",
+    "bilog",
+    "abangan"
+   ]
+  },
+  "template:yp16-tarjeta-cuadrada": {
+   "name": "Parisukat na salaming kard na may mag-subscribe",
+   "tags": [
+    "youtube",
+    "salamin",
+    "mag-subscribe",
+    "pindot",
+    "larawan"
+   ]
+  },
+  "template:yp16-tarjeta-nombre": {
+   "name": "Salaming kard na may pangalan at mag-subscribe",
+   "tags": [
+    "youtube",
+    "salamin",
+    "mag-subscribe",
+    "pindot",
+    "larawan"
+   ]
+  },
+  "template:yp16-tarjeta-vertical": {
+   "name": "Patayong salaming kard na may mag-subscribe",
+   "tags": [
+    "youtube",
+    "salamin",
+    "mag-subscribe",
+    "pindot",
+    "larawan"
+   ]
+  },
+  "template:yp16-watch-more": {
+   "name": "Salaming bula: watch more",
+   "tags": [
+    "youtube",
+    "salamin",
+    "manood pa",
+    "bula"
+   ]
+  },
+  "template:yp17-barra-canal": {
+   "name": "Patag na bar na may larawan at mag-subscribe",
+   "tags": [
+    "youtube",
+    "kard",
+    "patag",
+    "mag-subscribe",
+    "pindot",
+    "larawan"
+   ]
+  },
+  "template:yp17-barra-foto": {
+   "name": "Patag na bar na may larawan sa gitna",
+   "tags": [
+    "youtube",
+    "kard",
+    "patag",
+    "mag-subscribe",
+    "pindot",
+    "larawan"
+   ]
+  },
+  "template:yp17-barra-titulo": {
+   "name": "Patag na bar na may larawan at pamagat",
+   "tags": [
+    "youtube",
+    "kard",
+    "patag",
+    "mag-subscribe",
+    "pamagat",
+    "larawan"
+   ]
+  },
+  "template:yp17-boton-youtube": {
+   "name": "Patag na kard na may YouTube button",
+   "tags": [
+    "youtube",
+    "kard",
+    "patag",
+    "pindutan",
+    "play"
+   ]
+  },
+  "template:yp17-foto-arriba": {
+   "name": "Bilog na larawan sa itaas ng kard ng mag-subscribe",
+   "tags": [
+    "youtube",
+    "kard",
+    "patag",
+    "mag-subscribe",
+    "pindot",
+    "larawan"
+   ]
+  },
+  "template:yp17-foto-cuadrada": {
+   "name": "Parisukat na larawan at bar ng mag-subscribe",
+   "tags": [
+    "youtube",
+    "kard",
+    "patag",
+    "mag-subscribe",
+    "pindot",
+    "larawan"
+   ]
+  },
+  "template:yp17-join-us": {
+   "name": "Patag na kard: join us na may YouTube",
+   "tags": [
+    "youtube",
+    "kard",
+    "patag",
+    "sumali"
+   ]
+  },
+  "template:yp17-tarjeta-nombre": {
+   "name": "Patag na kard na may larawan, YouTube at mag-subscribe",
+   "tags": [
+    "youtube",
+    "kard",
+    "patag",
+    "mag-subscribe",
+    "pindot",
+    "larawan"
+   ]
+  },
+  "template:yp17-tarjeta-vertical": {
+   "name": "Patag na patayong kard na may mag-subscribe",
+   "tags": [
+    "youtube",
+    "kard",
+    "patag",
+    "mag-subscribe",
+    "pindot",
+    "larawan"
+   ]
+  },
+  "template:yp17-watch-more": {
+   "name": "Patag na kard: watch more",
+   "tags": [
+    "youtube",
+    "kard",
+    "patag",
+    "manood pa"
+   ]
+  },
   "template:yp2-apertura": {
    "name": "Pambungad: pula at puting singsing na may YouTube button",
    "tags": [
@@ -41661,6 +44071,506 @@
     "itim at puti",
     "fashion",
     "transisyon"
+   ]
+  },
+  "template:yp8-disfruta": {
+   "name": "Pangwakas: enjoy",
+   "tags": [
+    "youtube",
+    "pangwakas",
+    "teksto"
+   ]
+  },
+  "template:yp8-logo-formas-claro": {
+   "name": "Pambungad: mga kahel na hugis na naglalantad ng iyong logo",
+   "tags": [
+    "youtube",
+    "logo",
+    "pambungad",
+    "mga hugis",
+    "kahel"
+   ]
+  },
+  "template:yp8-logo-formas-oscuro": {
+   "name": "Pambungad: mga hugis na naglalantad ng iyong logo (madilim)",
+   "tags": [
+    "youtube",
+    "logo",
+    "pambungad",
+    "mga hugis"
+   ]
+  },
+  "template:yp8-logo-formas-video": {
+   "name": "Pambungad: mga puting hugis at iyong logo sa ibabaw ng video",
+   "tags": [
+    "youtube",
+    "logo",
+    "pambungad",
+    "mga hugis",
+    "video"
+   ]
+  },
+  "template:yp8-logo-youtube-claro": {
+   "name": "Logo ng YouTube na kusang nabubuo (puti)",
+   "tags": [
+    "youtube",
+    "logo",
+    "pambungad",
+    "puti"
+   ]
+  },
+  "template:yp8-logo-youtube-oscuro": {
+   "name": "Logo ng YouTube na kusang nabubuo (madilim)",
+   "tags": [
+    "youtube",
+    "logo",
+    "pambungad",
+    "madilim"
+   ]
+  },
+  "template:yp8-logo-youtube-video": {
+   "name": "Puting logo ng YouTube sa ibabaw ng iyong video",
+   "tags": [
+    "youtube",
+    "logo",
+    "pambungad",
+    "puti",
+    "video"
+   ]
+  },
+  "template:yp8-me-gusta-blanco": {
+   "name": "Like sa puting bilog",
+   "tags": [
+    "youtube",
+    "like",
+    "pindutan",
+    "bilog"
+   ]
+  },
+  "template:yp8-me-gusta-oscuro": {
+   "name": "Like sa madilim na bilog",
+   "tags": [
+    "youtube",
+    "like",
+    "pindutan",
+    "bilog"
+   ]
+  },
+  "template:yp8-redes-tercios": {
+   "name": "Pitong banner sa ibaba para sa social media",
+   "tags": [
+    "youtube",
+    "social media",
+    "banner sa ibaba",
+    "instagram",
+    "twitter",
+    "facebook"
+   ]
+  },
+  "template:yp8-suscribirse-blanco": {
+   "name": "Bar ng pag-subscribe na may pindot at kampana",
+   "tags": [
+    "youtube",
+    "mag-subscribe",
+    "pindutan",
+    "pindot",
+    "kampana"
+   ]
+  },
+  "template:yp8-suscribirse-oscuro": {
+   "name": "Bar ng pag-subscribe na may pindot at kampana (madilim)",
+   "tags": [
+    "youtube",
+    "mag-subscribe",
+    "pindutan",
+    "pindot",
+    "kampana"
+   ]
+  },
+  "template:yp8-tercio-facebook": {
+   "name": "Banner sa ibaba: sundan kami sa Facebook",
+   "tags": [
+    "youtube",
+    "banner sa ibaba",
+    "facebook",
+    "social media"
+   ]
+  },
+  "template:yp8-tercio-instagram": {
+   "name": "Banner sa ibaba: username sa Instagram",
+   "tags": [
+    "youtube",
+    "banner sa ibaba",
+    "instagram",
+    "social media"
+   ]
+  },
+  "template:yp8-tercio-nombre": {
+   "name": "Banner sa ibaba: pangalan at trabaho",
+   "tags": [
+    "youtube",
+    "banner sa ibaba",
+    "pangalan",
+    "social media"
+   ]
+  },
+  "template:yp8-tercio-twitter": {
+   "name": "Banner sa ibaba: username sa Twitter",
+   "tags": [
+    "youtube",
+    "banner sa ibaba",
+    "twitter",
+    "social media"
+   ]
+  },
+  "template:yp8-tercio-youtube": {
+   "name": "Banner sa ibaba: mag-subscribe sa aking channel",
+   "tags": [
+    "youtube",
+    "banner sa ibaba",
+    "mag-subscribe",
+    "channel"
+   ]
+  },
+  "template:yp8-tercio-yt-blanco": {
+   "name": "Banner sa ibaba: username sa YouTube",
+   "tags": [
+    "youtube",
+    "banner sa ibaba",
+    "username",
+    "social media"
+   ]
+  },
+  "template:yp8-tercio-yt-oscuro": {
+   "name": "Banner sa ibaba: mag-subscribe sa YouTube (madilim)",
+   "tags": [
+    "youtube",
+    "banner sa ibaba",
+    "mag-subscribe",
+    "madilim"
+   ]
+  },
+  "template:yp8-transicion-ola": {
+   "name": "Paglipat: asul at berdeng alon",
+   "tags": [
+    "youtube",
+    "paglipat",
+    "alon",
+    "gradient"
+   ]
+  },
+  "template:yp8-transicion-rombo": {
+   "name": "Paglipat: pataas na asul at berdeng diyamante",
+   "tags": [
+    "youtube",
+    "paglipat",
+    "diyamante",
+    "gradient"
+   ]
+  },
+  "template:yp9-barra-canal": {
+   "name": "Bar ng pangalan ng channel na may kampana",
+   "tags": [
+    "youtube",
+    "bar",
+    "channel",
+    "kampana",
+    "mag-subscribe"
+   ]
+  },
+  "template:yp9-bloques-glitch": {
+   "name": "Mga makukulay na bloke na may glitch",
+   "tags": [
+    "youtube",
+    "glitch",
+    "kulay",
+    "sira"
+   ]
+  },
+  "template:yp9-boton-suscribirse": {
+   "name": "Subscribe button na napupuno at pinipindot",
+   "tags": [
+    "youtube",
+    "mag-subscribe",
+    "pindutan",
+    "pindot",
+    "cursor"
+   ]
+  },
+  "template:yp9-boton-ventana": {
+   "name": "Play button na bumubukas sa isang window ng video",
+   "tags": [
+    "youtube",
+    "play",
+    "window",
+    "paglipat"
+   ]
+  },
+  "template:yp9-cinta-tendencia": {
+   "name": "Dilaw na trending na tape na may pamagat",
+   "tags": [
+    "youtube",
+    "tape",
+    "trending",
+    "pamagat"
+   ]
+  },
+  "template:yp9-corazones-flotando": {
+   "name": "Mga pusong umaakyat sa ibabaw ng video",
+   "tags": [
+    "youtube",
+    "puso",
+    "pag-ibig",
+    "video"
+   ]
+  },
+  "template:yp9-destello-a": {
+   "name": "Kislap ng mga guhit-kamay A",
+   "tags": [
+    "youtube",
+    "kislap",
+    "guhit",
+    "kinang"
+   ]
+  },
+  "template:yp9-destello-b": {
+   "name": "Kislap ng mga guhit-kamay B",
+   "tags": [
+    "youtube",
+    "kislap",
+    "guhit",
+    "kinang"
+   ]
+  },
+  "template:yp9-destello-c": {
+   "name": "Kislap ng mga guhit-kamay C",
+   "tags": [
+    "youtube",
+    "kislap",
+    "guhit",
+    "kinang"
+   ]
+  },
+  "template:yp9-enlace-behance": {
+   "name": "Bar ng link: behance",
+   "tags": [
+    "youtube",
+    "social media",
+    "link",
+    "behance"
+   ]
+  },
+  "template:yp9-enlace-dribbble": {
+   "name": "Bar ng link: dribbble",
+   "tags": [
+    "youtube",
+    "social media",
+    "link",
+    "dribbble"
+   ]
+  },
+  "template:yp9-enlace-facebook": {
+   "name": "Bar ng link: facebook",
+   "tags": [
+    "youtube",
+    "social media",
+    "link",
+    "facebook"
+   ]
+  },
+  "template:yp9-enlace-google": {
+   "name": "Bar ng link: google",
+   "tags": [
+    "youtube",
+    "social media",
+    "link",
+    "google"
+   ]
+  },
+  "template:yp9-enlace-instagram": {
+   "name": "Bar ng link: instagram",
+   "tags": [
+    "youtube",
+    "social media",
+    "link",
+    "instagram"
+   ]
+  },
+  "template:yp9-enlace-itunes": {
+   "name": "Bar ng link: itunes",
+   "tags": [
+    "youtube",
+    "social media",
+    "link",
+    "itunes"
+   ]
+  },
+  "template:yp9-enlace-patreon": {
+   "name": "Bar ng link: patreon",
+   "tags": [
+    "youtube",
+    "social media",
+    "link",
+    "patreon"
+   ]
+  },
+  "template:yp9-enlace-soundcloud": {
+   "name": "Bar ng link: soundcloud",
+   "tags": [
+    "youtube",
+    "social media",
+    "link",
+    "soundcloud"
+   ]
+  },
+  "template:yp9-enlace-spotify": {
+   "name": "Bar ng link: spotify",
+   "tags": [
+    "youtube",
+    "social media",
+    "link",
+    "spotify"
+   ]
+  },
+  "template:yp9-enlace-telegram": {
+   "name": "Bar ng link: telegram",
+   "tags": [
+    "youtube",
+    "social media",
+    "link",
+    "telegram"
+   ]
+  },
+  "template:yp9-enlace-twitter": {
+   "name": "Bar ng link: twitter",
+   "tags": [
+    "youtube",
+    "social media",
+    "link",
+    "twitter"
+   ]
+  },
+  "template:yp9-enlace-vimeo": {
+   "name": "Bar ng link: vimeo",
+   "tags": [
+    "youtube",
+    "social media",
+    "link",
+    "vimeo"
+   ]
+  },
+  "template:yp9-etiqueta-usuario": {
+   "name": "Badge na may icon at @username",
+   "tags": [
+    "youtube",
+    "username",
+    "social media",
+    "badge"
+   ]
+  },
+  "template:yp9-live-stream-blanco": {
+   "name": "Puting pamagat na LIVE STREAM na may pindutan",
+   "tags": [
+    "youtube",
+    "live",
+    "live stream",
+    "pamagat"
+   ]
+  },
+  "template:yp9-live-stream-rojo": {
+   "name": "Pamagat na LIVE STREAM sa pula at itim na kahon",
+   "tags": [
+    "youtube",
+    "live",
+    "live stream",
+    "pamagat"
+   ]
+  },
+  "template:yp9-me-gusta-cursor": {
+   "name": "Like na nagiging asul dahil sa cursor",
+   "tags": [
+    "youtube",
+    "like",
+    "pindot",
+    "cursor"
+   ]
+  },
+  "template:yp9-me-gusta-destello": {
+   "name": "Kumikinang na like na sumasabog sa isang pindot",
+   "tags": [
+    "youtube",
+    "like",
+    "pindot",
+    "kislap"
+   ]
+  },
+  "template:yp9-perfil": {
+   "name": "Profile na may larawan, follow button at mga bilang",
+   "tags": [
+    "youtube",
+    "profile",
+    "sundan",
+    "bilang",
+    "social media"
+   ]
+  },
+  "template:yp9-rayo": {
+   "name": "Kidlat na nabubuo mula sa isang linya",
+   "tags": [
+    "youtube",
+    "kidlat",
+    "intro",
+    "linya"
+   ]
+  },
+  "template:yp9-redes-enlaces": {
+   "name": "Labindalawang bar ng link sa social media",
+   "tags": [
+    "youtube",
+    "social media",
+    "link",
+    "bar",
+    "instagram",
+    "facebook"
+   ]
+  },
+  "template:yp9-sticker-suscrito": {
+   "name": "Play button na nagiging sticker ng naka-subscribe",
+   "tags": [
+    "youtube",
+    "mag-subscribe",
+    "sticker",
+    "pindot"
+   ]
+  },
+  "template:yp9-tarjeta-canal": {
+   "name": "Kard ng channel na may bilog na larawan at mag-subscribe",
+   "tags": [
+    "youtube",
+    "kard",
+    "channel",
+    "mag-subscribe",
+    "pindot"
+   ]
+  },
+  "template:yp9-telefono-feed": {
+   "name": "Telepono na may patayong video at mga pindutan",
+   "tags": [
+    "youtube",
+    "telepono",
+    "patayo",
+    "social media",
+    "like"
+   ]
+  },
+  "template:yp9-telefono-reacciones": {
+   "name": "Telepono na may mga puso at like",
+   "tags": [
+    "youtube",
+    "telepono",
+    "like",
+    "puso",
+    "social media"
    ]
   },
   "template:yt-calle-a-que-te-dedicas": {

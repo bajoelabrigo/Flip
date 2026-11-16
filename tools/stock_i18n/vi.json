@@ -38812,6 +38812,2416 @@
     "khung"
    ]
   },
+  "template:yp10-boton-suscribete": {
+   "name": "Nút SUBSCRIBE MY CHANNEL có mũi tên",
+   "tags": [
+    "youtube",
+    "vẽ tay",
+    "đăng ký",
+    "nút",
+    "mũi tên"
+   ]
+  },
+  "template:yp10-caja-roja": {
+   "name": "SUSCRÍBETE YA trong hộp đỏ",
+   "tags": [
+    "youtube",
+    "vẽ tay",
+    "đăng ký",
+    "hộp",
+    "tiếng tây ban nha"
+   ]
+  },
+  "template:yp10-check": {
+   "name": "Check New Video với dấu tích xanh",
+   "tags": [
+    "youtube",
+    "vẽ tay",
+    "mạng xã hội",
+    "dấu tích",
+    "video mới"
+   ]
+  },
+  "template:yp10-cuenta": {
+   "name": "@youraccount với giọt nước xanh",
+   "tags": [
+    "youtube",
+    "vẽ tay",
+    "mạng xã hội",
+    "tài khoản",
+    "giọt nước"
+   ]
+  },
+  "template:yp10-luna": {
+   "name": "SUBSCRIBE với mặt trăng và Like New Video",
+   "tags": [
+    "youtube",
+    "vẽ tay",
+    "đăng ký",
+    "mặt trăng",
+    "thích"
+   ]
+  },
+  "template:yp10-me-gusta-amarillo": {
+   "name": "Like New Video với ngón cái vàng",
+   "tags": [
+    "youtube",
+    "vẽ tay",
+    "mạng xã hội",
+    "thích",
+    "ngón cái"
+   ]
+  },
+  "template:yp10-mi-canal": {
+   "name": "My Channel được chọn và phóng to",
+   "tags": [
+    "youtube",
+    "vẽ tay",
+    "mạng xã hội",
+    "kênh",
+    "chọn"
+   ]
+  },
+  "template:yp10-nuevo-video-morado": {
+   "name": "NEW VIDEO trong hộp tím có Like",
+   "tags": [
+    "youtube",
+    "vẽ tay",
+    "mạng xã hội",
+    "video mới",
+    "hộp"
+   ]
+  },
+  "template:yp10-nuevo-video-rosa": {
+   "name": "New Video với vệt hồng và trái tim",
+   "tags": [
+    "youtube",
+    "vẽ tay",
+    "mạng xã hội",
+    "video mới",
+    "tim"
+   ]
+  },
+  "template:yp10-podcast": {
+   "name": "NEW PODCAST với vệt bắn tung tóe",
+   "tags": [
+    "youtube",
+    "vẽ tay",
+    "podcast",
+    "vệt bắn"
+   ]
+  },
+  "template:yp10-pulgar-beige": {
+   "name": "NUEVO VIDEO AQUÍ với ngón cái",
+   "tags": [
+    "youtube",
+    "vẽ tay",
+    "ngón cái",
+    "tiếng tây ban nha",
+    "video mới"
+   ]
+  },
+  "template:yp10-social-media": {
+   "name": "Social Media Title quanh hình bầu dục đỏ",
+   "tags": [
+    "youtube",
+    "vẽ tay",
+    "mạng xã hội",
+    "tiêu đề",
+    "bầu dục"
+   ]
+  },
+  "template:yp10-suscribete-flechas": {
+   "name": "Nút Subscribe đỏ có mũi tên",
+   "tags": [
+    "youtube",
+    "vẽ tay",
+    "đăng ký",
+    "nút",
+    "mũi tên"
+   ]
+  },
+  "template:yp10-suscribete-puntos": {
+   "name": "Subscribe với chấm màu và @yourchannel",
+   "tags": [
+    "youtube",
+    "vẽ tay",
+    "mạng xã hội",
+    "đăng ký",
+    "nút"
+   ]
+  },
+  "template:yp10-tu-logo": {
+   "name": "Your Logo với mực xanh",
+   "tags": [
+    "youtube",
+    "vẽ tay",
+    "logo",
+    "mực",
+    "mở đầu"
+   ]
+  },
+  "template:yp11-amazing": {
+   "name": "Chữ: AMAZING với cầu vồng",
+   "tags": [
+    "youtube",
+    "cầu vồng",
+    "tuyệt vời",
+    "chữ"
+   ]
+  },
+  "template:yp11-any-language": {
+   "name": "Chữ: Use Any Language trên hình tròn",
+   "tags": [
+    "youtube",
+    "hình tròn",
+    "ngôn ngữ",
+    "chữ"
+   ]
+  },
+  "template:yp11-brand-new-year": {
+   "name": "Tiêu đề: năm 2026 Brand New",
+   "tags": [
+    "youtube",
+    "năm",
+    "mới",
+    "tiêu đề"
+   ]
+  },
+  "template:yp11-channel-name": {
+   "name": "Nút: tên kênh",
+   "tags": [
+    "youtube",
+    "kênh",
+    "nút",
+    "mũi tên"
+   ]
+  },
+  "template:yp11-click": {
+   "name": "Nút: CLICK với bàn tay",
+   "tags": [
+    "youtube",
+    "nhấp",
+    "bàn tay",
+    "nút"
+   ]
+  },
+  "template:yp11-comment": {
+   "name": "Chữ: Comment với mũi tên",
+   "tags": [
+    "youtube",
+    "bình luận",
+    "mũi tên",
+    "chữ"
+   ]
+  },
+  "template:yp11-follow-me": {
+   "name": "Nút: theo dõi tôi với công tắc",
+   "tags": [
+    "youtube",
+    "theo dõi",
+    "công tắc",
+    "nút"
+   ]
+  },
+  "template:yp11-high-quality": {
+   "name": "Nút: chất lượng cao với con trỏ",
+   "tags": [
+    "youtube",
+    "chất lượng",
+    "nút",
+    "con trỏ"
+   ]
+  },
+  "template:yp11-like-heart": {
+   "name": "Chữ: Like với trái tim",
+   "tags": [
+    "youtube",
+    "thích",
+    "tim",
+    "chữ"
+   ]
+  },
+  "template:yp11-like-my-video": {
+   "name": "Chữ: Like my video với ngón cái",
+   "tags": [
+    "youtube",
+    "thích",
+    "ngón cái",
+    "chữ"
+   ]
+  },
+  "template:yp11-looking-perfect": {
+   "name": "Chữ: Looking Perfect với chấm tròn",
+   "tags": [
+    "youtube",
+    "chấm tròn",
+    "chữ",
+    "tiêu đề"
+   ]
+  },
+  "template:yp11-new-video": {
+   "name": "Nhãn: New Video với mặt cười",
+   "tags": [
+    "youtube",
+    "video mới",
+    "mặt cười",
+    "nhãn"
+   ]
+  },
+  "template:yp11-play": {
+   "name": "Nút: nút phát màu đỏ",
+   "tags": [
+    "youtube",
+    "nút phát",
+    "nút",
+    "đỏ"
+   ]
+  },
+  "template:yp11-rate-us": {
+   "name": "Chữ: Rate Us với trái tim",
+   "tags": [
+    "youtube",
+    "đánh giá",
+    "tim",
+    "chữ"
+   ]
+  },
+  "template:yp11-share": {
+   "name": "Chữ: SHARE với mũi tên",
+   "tags": [
+    "youtube",
+    "chia sẻ",
+    "mũi tên",
+    "chữ"
+   ]
+  },
+  "template:yp11-subscribe-bell": {
+   "name": "Chữ: Subscribe với chuông",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "chuông",
+    "chữ"
+   ]
+  },
+  "template:yp11-thanks-watching": {
+   "name": "Chữ: cảm ơn đã xem với con mắt",
+   "tags": [
+    "youtube",
+    "cảm ơn",
+    "con mắt",
+    "lời cảm ơn"
+   ]
+  },
+  "template:yp11-titles-smiley": {
+   "name": "Tiêu đề: TITLES & BUTTONS với mặt cười",
+   "tags": [
+    "youtube",
+    "mặt cười",
+    "tiêu đề",
+    "nút"
+   ]
+  },
+  "template:yp11-trendy-style": {
+   "name": "Chữ: Trendy Style với tia sét",
+   "tags": [
+    "youtube",
+    "tia sét",
+    "xu hướng",
+    "chữ"
+   ]
+  },
+  "template:yp11-watch-now": {
+   "name": "Chữ: xem ngay với hoa",
+   "tags": [
+    "youtube",
+    "xem",
+    "video mới",
+    "hoa"
+   ]
+  },
+  "template:yp12-barra-profesora": {
+   "name": "Thanh có ảnh, thích, chuông và đăng ký",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "thanh",
+    "thích",
+    "chuông",
+    "nhấp"
+   ]
+  },
+  "template:yp12-foto-burbujas": {
+   "name": "Ảnh với bong bóng và biểu tượng",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "ảnh",
+    "bong bóng",
+    "thích",
+    "chuông"
+   ]
+  },
+  "template:yp12-foto-iconos": {
+   "name": "Ảnh với biểu tượng bung ra",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "ảnh",
+    "vòng tròn",
+    "thích",
+    "chuông"
+   ]
+  },
+  "template:yp12-foto-lados": {
+   "name": "Ảnh với biểu tượng ở hai bên",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "ảnh",
+    "thích",
+    "chuông",
+    "nhấp"
+   ]
+  },
+  "template:yp12-foto-liquida": {
+   "name": "Ảnh với biểu tượng dạng chất lỏng",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "ảnh",
+    "chất lỏng",
+    "thích",
+    "chuông"
+   ]
+  },
+  "template:yp12-foto-orbita": {
+   "name": "Ảnh tròn với biểu tượng xoay quanh",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "ảnh",
+    "vòng tròn",
+    "thích",
+    "chuông"
+   ]
+  },
+  "template:yp12-lista-botones": {
+   "name": "Danh sách thích, đăng ký và nhận thông báo",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "danh sách",
+    "thích",
+    "chuông",
+    "nhấp"
+   ]
+  },
+  "template:yp12-lista-capsula": {
+   "name": "Danh sách hình viên nang: thích, đăng ký và thông báo",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "danh sách",
+    "thích",
+    "chuông",
+    "nhấp"
+   ]
+  },
+  "template:yp12-nombre-suscrito": {
+   "name": "Tên kênh, đã đăng ký và chuông",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "nút",
+    "tên",
+    "chuông",
+    "nhấp"
+   ]
+  },
+  "template:yp12-tarjeta-gris": {
+   "name": "Thẻ xám với ảnh lớn",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "thẻ",
+    "thích",
+    "chuông",
+    "nhấp"
+   ]
+  },
+  "template:yp12-tarjeta-lista": {
+   "name": "Tên kênh mở ra thành thẻ",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "thẻ",
+    "danh sách",
+    "thích",
+    "chuông"
+   ]
+  },
+  "template:yp12-tarjeta-rosa": {
+   "name": "Thẻ có ảnh và nút đăng ký màu hồng",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "nút",
+    "thẻ",
+    "hồng"
+   ]
+  },
+  "template:yp12-tres-botones": {
+   "name": "Ba nút tròn",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "nút",
+    "thích",
+    "chuông",
+    "lớn"
+   ]
+  },
+  "template:yp13-aconseja-amigos": {
+   "name": "Giới thiệu cho bạn bè: ngón cái",
+   "tags": [
+    "youtube",
+    "đánh giá",
+    "thích",
+    "con trỏ",
+    "bạn bè"
+   ]
+  },
+  "template:yp13-agregar-comentario": {
+   "name": "Nút thêm bình luận rồi đăng",
+   "tags": [
+    "youtube",
+    "bình luận",
+    "nút",
+    "con trỏ"
+   ]
+  },
+  "template:yp13-avatar-comentario": {
+   "name": "Ảnh đại diện có huy hiệu mở bình luận",
+   "tags": [
+    "youtube",
+    "bình luận",
+    "ảnh đại diện",
+    "con trỏ"
+   ]
+  },
+  "template:yp13-aviso-cafe": {
+   "name": "Cửa sổ cảnh báo có nút OK",
+   "tags": [
+    "youtube",
+    "cảnh báo",
+    "cửa sổ",
+    "con trỏ"
+   ]
+  },
+  "template:yp13-aviso-comentarios": {
+   "name": "Thông báo bình luận",
+   "tags": [
+    "youtube",
+    "thông báo",
+    "bình luận",
+    "bộ đếm",
+    "con trỏ"
+   ]
+  },
+  "template:yp13-aviso-doble": {
+   "name": "Thông báo lượt thích và người theo dõi",
+   "tags": [
+    "youtube",
+    "thông báo",
+    "thích",
+    "người theo dõi",
+    "con trỏ"
+   ]
+  },
+  "template:yp13-aviso-me-gusta": {
+   "name": "Thông báo lượt thích",
+   "tags": [
+    "youtube",
+    "thông báo",
+    "thích",
+    "bộ đếm",
+    "con trỏ"
+   ]
+  },
+  "template:yp13-aviso-seguidores": {
+   "name": "Thông báo người theo dõi",
+   "tags": [
+    "youtube",
+    "thông báo",
+    "người theo dõi",
+    "bộ đếm",
+    "con trỏ"
+   ]
+  },
+  "template:yp13-barra-suscribir": {
+   "name": "Thanh thích, đăng ký và chuông",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "thích",
+    "chuông",
+    "con trỏ"
+   ]
+  },
+  "template:yp13-buscar-boton": {
+   "name": "Ô tìm kiếm có nút SEARCH",
+   "tags": [
+    "youtube",
+    "tìm kiếm",
+    "con trỏ",
+    "nút"
+   ]
+  },
+  "template:yp13-buscar-cargando": {
+   "name": "Thanh tìm kiếm chuyển sang «đang tải»",
+   "tags": [
+    "youtube",
+    "tìm kiếm",
+    "con trỏ",
+    "web",
+    "đang tải"
+   ]
+  },
+  "template:yp13-buscar-lupa": {
+   "name": "Ô tìm kiếm có kính lúp vuông",
+   "tags": [
+    "youtube",
+    "tìm kiếm",
+    "con trỏ",
+    "kính lúp"
+   ]
+  },
+  "template:yp13-buscar-mapa": {
+   "name": "Bản đồ có ô tìm kiếm và ghim",
+   "tags": [
+    "youtube",
+    "bản đồ",
+    "tìm kiếm",
+    "con trỏ",
+    "vị trí"
+   ]
+  },
+  "template:yp13-caras-valorar": {
+   "name": "Bạn thích video chứ? Biểu cảm khuôn mặt",
+   "tags": [
+    "youtube",
+    "đánh giá",
+    "khuôn mặt",
+    "con trỏ"
+   ]
+  },
+  "template:yp13-carrito-precio": {
+   "name": "Nút giỏ hàng có giá",
+   "tags": [
+    "youtube",
+    "giỏ hàng",
+    "mua hàng",
+    "con trỏ",
+    "giá"
+   ]
+  },
+  "template:yp13-casilla-marcada": {
+   "name": "Ô đánh dấu CHECKED",
+   "tags": [
+    "youtube",
+    "ô đánh dấu",
+    "con trỏ",
+    "dấu tích"
+   ]
+  },
+  "template:yp13-chat-dos": {
+   "name": "Trò chuyện hai người có giờ và trả lời",
+   "tags": [
+    "youtube",
+    "trò chuyện",
+    "tin nhắn",
+    "con trỏ",
+    "trả lời"
+   ]
+  },
+  "template:yp13-chat-nombres": {
+   "name": "Trò chuyện có tên và trả lời",
+   "tags": [
+    "youtube",
+    "trò chuyện",
+    "tin nhắn",
+    "con trỏ",
+    "tên"
+   ]
+  },
+  "template:yp13-chat-ventana-amarilla": {
+   "name": "Cửa sổ trò chuyện vàng có tên",
+   "tags": [
+    "youtube",
+    "trò chuyện",
+    "tin nhắn",
+    "cửa sổ",
+    "vàng"
+   ]
+  },
+  "template:yp13-chat-ventana-azul": {
+   "name": "Cửa sổ trò chuyện xanh dương",
+   "tags": [
+    "youtube",
+    "trò chuyện",
+    "tin nhắn",
+    "cửa sổ",
+    "xanh dương"
+   ]
+  },
+  "template:yp13-chat-ventana-grande": {
+   "name": "Cửa sổ trò chuyện trên video",
+   "tags": [
+    "youtube",
+    "trò chuyện",
+    "tin nhắn",
+    "cửa sổ"
+   ]
+  },
+  "template:yp13-comentario-like": {
+   "name": "Bình luận có LIKE và REPLY",
+   "tags": [
+    "youtube",
+    "bình luận",
+    "thích",
+    "con trỏ",
+    "trả lời"
+   ]
+  },
+  "template:yp13-comentario-votos": {
+   "name": "Bình luận có thích và trả lời",
+   "tags": [
+    "youtube",
+    "bình luận",
+    "thích",
+    "con trỏ",
+    "trả lời"
+   ]
+  },
+  "template:yp13-comprar-gracias": {
+   "name": "Nút mua hàng nói lời cảm ơn",
+   "tags": [
+    "youtube",
+    "nút",
+    "mua hàng",
+    "con trỏ",
+    "cảm ơn"
+   ]
+  },
+  "template:yp13-contador-comentarios": {
+   "name": "Bong bóng có bộ đếm bình luận",
+   "tags": [
+    "youtube",
+    "bộ đếm",
+    "bình luận",
+    "con trỏ"
+   ]
+  },
+  "template:yp13-contador-corazon": {
+   "name": "Trái tim có bộ đếm lượt thích",
+   "tags": [
+    "youtube",
+    "bộ đếm",
+    "thích",
+    "tim",
+    "con trỏ"
+   ]
+  },
+  "template:yp13-contador-pulgar": {
+   "name": "Ngón cái có bộ đếm lượt thích",
+   "tags": [
+    "youtube",
+    "bộ đếm",
+    "thích",
+    "con trỏ",
+    "ngón cái"
+   ]
+  },
+  "template:yp13-contador-seguidores": {
+   "name": "Người với bộ đếm người theo dõi",
+   "tags": [
+    "youtube",
+    "bộ đếm",
+    "người theo dõi",
+    "con trỏ"
+   ]
+  },
+  "template:yp13-descargar-anillo": {
+   "name": "Nút tải xuống có vòng tiến trình",
+   "tags": [
+    "youtube",
+    "tải xuống",
+    "tiến trình",
+    "con trỏ"
+   ]
+  },
+  "template:yp13-descargar-barra": {
+   "name": "Nút tải xuống có thanh tiến trình",
+   "tags": [
+    "youtube",
+    "tải xuống",
+    "tiến trình",
+    "con trỏ"
+   ]
+  },
+  "template:yp13-enviar-comentario": {
+   "name": "Ô bình luận có nút gửi",
+   "tags": [
+    "youtube",
+    "bình luận",
+    "trò chuyện",
+    "con trỏ",
+    "gửi"
+   ]
+  },
+  "template:yp13-insignia-camara": {
+   "name": "Nút tròn hình máy ảnh",
+   "tags": [
+    "youtube",
+    "huy hiệu",
+    "mạng xã hội",
+    "con trỏ",
+    "máy ảnh"
+   ]
+  },
+  "template:yp13-insignia-click-here": {
+   "name": "Ô vuông CLICK HERE chuyển thành GOOD JOB!",
+   "tags": [
+    "youtube",
+    "nút",
+    "con trỏ",
+    "nhấp"
+   ]
+  },
+  "template:yp13-insignia-foto": {
+   "name": "Ảnh vuông được chạm vào",
+   "tags": [
+    "youtube",
+    "ảnh",
+    "ảnh đại diện",
+    "con trỏ"
+   ]
+  },
+  "template:yp13-insignia-get-ready": {
+   "name": "Huy hiệu GET READY có ảnh",
+   "tags": [
+    "youtube",
+    "huy hiệu",
+    "con trỏ",
+    "ảnh"
+   ]
+  },
+  "template:yp13-insignia-like-this": {
+   "name": "Huy hiệu ảnh chuyển thành LIKE THIS!",
+   "tags": [
+    "youtube",
+    "huy hiệu",
+    "thích",
+    "con trỏ",
+    "ảnh"
+   ]
+  },
+  "template:yp13-insignia-pajaro": {
+   "name": "Nút tròn hình chú chim",
+   "tags": [
+    "youtube",
+    "huy hiệu",
+    "mạng xã hội",
+    "con trỏ",
+    "chim"
+   ]
+  },
+  "template:yp13-insignia-seguir": {
+   "name": "Huy hiệu chuyển thành FOLLOW",
+   "tags": [
+    "youtube",
+    "huy hiệu",
+    "theo dõi",
+    "con trỏ"
+   ]
+  },
+  "template:yp13-insignia-unete": {
+   "name": "Huy hiệu JOIN US có cú nhấp",
+   "tags": [
+    "youtube",
+    "huy hiệu",
+    "tham gia",
+    "con trỏ"
+   ]
+  },
+  "template:yp13-interruptor-encender": {
+   "name": "Công tắc TURN ON",
+   "tags": [
+    "youtube",
+    "công tắc",
+    "con trỏ",
+    "bật"
+   ]
+  },
+  "template:yp13-interruptor-on-off": {
+   "name": "Công tắc START KEY ON/OFF",
+   "tags": [
+    "youtube",
+    "công tắc",
+    "con trỏ",
+    "bật tắt"
+   ]
+  },
+  "template:yp13-lista-bienvenida": {
+   "name": "Danh sách nút Welcome to my channel",
+   "tags": [
+    "youtube",
+    "danh sách",
+    "đăng ký",
+    "con trỏ",
+    "chào mừng"
+   ]
+  },
+  "template:yp13-lista-canal-grande": {
+   "name": "Danh sách kênh trên video",
+   "tags": [
+    "youtube",
+    "danh sách",
+    "đăng ký",
+    "con trỏ",
+    "kênh"
+   ]
+  },
+  "template:yp13-lista-interruptores": {
+   "name": "Danh sách có công tắc",
+   "tags": [
+    "youtube",
+    "danh sách",
+    "công tắc",
+    "con trỏ"
+   ]
+  },
+  "template:yp13-lista-no-olvides": {
+   "name": "Danh sách Please don't forget: đăng ký, thông báo, thích",
+   "tags": [
+    "youtube",
+    "danh sách",
+    "đăng ký",
+    "con trỏ",
+    "thích"
+   ]
+  },
+  "template:yp13-lista-tareas": {
+   "name": "Danh sách việc cần làm hôm nay",
+   "tags": [
+    "youtube",
+    "danh sách",
+    "việc cần làm",
+    "con trỏ"
+   ]
+  },
+  "template:yp13-mensaje-abrir": {
+   "name": "Nút tin nhắn mở ra",
+   "tags": [
+    "youtube",
+    "tin nhắn",
+    "trò chuyện",
+    "con trỏ"
+   ]
+  },
+  "template:yp13-opcion-seleccionar": {
+   "name": "Tùy chọn SELECT",
+   "tags": [
+    "youtube",
+    "tùy chọn",
+    "con trỏ",
+    "chọn"
+   ]
+  },
+  "template:yp13-perfil-seguir": {
+   "name": "Hồ sơ có ảnh và nút theo dõi",
+   "tags": [
+    "youtube",
+    "hồ sơ",
+    "theo dõi",
+    "con trỏ",
+    "ảnh"
+   ]
+  },
+  "template:yp13-post-botones": {
+   "name": "Bài đăng có nút bo tròn",
+   "tags": [
+    "youtube",
+    "bài đăng",
+    "thích",
+    "con trỏ",
+    "nút"
+   ]
+  },
+  "template:yp13-post-insta": {
+   "name": "Bài đăng ảnh lớn có lượt thích",
+   "tags": [
+    "youtube",
+    "bài đăng",
+    "thích",
+    "con trỏ",
+    "ảnh"
+   ]
+  },
+  "template:yp13-post-muro": {
+   "name": "Bài đăng tường có Thích, Bình luận và Chia sẻ",
+   "tags": [
+    "youtube",
+    "bài đăng",
+    "thích",
+    "bình luận",
+    "chia sẻ"
+   ]
+  },
+  "template:yp13-post-noticia": {
+   "name": "Bài đăng có tên màu xanh và lượt thích",
+   "tags": [
+    "youtube",
+    "bài đăng",
+    "thích",
+    "con trỏ"
+   ]
+  },
+  "template:yp13-post-texto": {
+   "name": "Bài đăng chữ có lượt thích",
+   "tags": [
+    "youtube",
+    "bài đăng",
+    "thích",
+    "con trỏ",
+    "chữ"
+   ]
+  },
+  "template:yp13-post-tuit": {
+   "name": "Bài đăng kiểu tweet có lượt thích",
+   "tags": [
+    "youtube",
+    "bài đăng",
+    "thích",
+    "con trỏ",
+    "tweet"
+   ]
+  },
+  "template:yp13-post-tuit-enlace": {
+   "name": "Tweet có thẻ liên kết và lượt thích",
+   "tags": [
+    "youtube",
+    "bài đăng",
+    "thích",
+    "con trỏ",
+    "liên kết"
+   ]
+  },
+  "template:yp13-post-tuit-foto": {
+   "name": "Tweet có ảnh liên kết và lượt thích",
+   "tags": [
+    "youtube",
+    "bài đăng",
+    "thích",
+    "con trỏ",
+    "ảnh"
+   ]
+  },
+  "template:yp13-post-vertical": {
+   "name": "Bài đăng dọc có lượt thích",
+   "tags": [
+    "youtube",
+    "bài đăng",
+    "thích",
+    "con trỏ",
+    "dọc"
+   ]
+  },
+  "template:yp13-post-video-campana": {
+   "name": "Bài đăng video: đăng ký và chuông",
+   "tags": [
+    "youtube",
+    "bài đăng",
+    "đăng ký",
+    "chuông",
+    "con trỏ"
+   ]
+  },
+  "template:yp13-post-video-suscribir": {
+   "name": "Bài đăng video có nút đăng ký",
+   "tags": [
+    "youtube",
+    "bài đăng",
+    "đăng ký",
+    "con trỏ"
+   ]
+  },
+  "template:yp13-post-video-votos": {
+   "name": "Bài đăng video có thích và không thích",
+   "tags": [
+    "youtube",
+    "bài đăng",
+    "thích",
+    "không thích",
+    "con trỏ"
+   ]
+  },
+  "template:yp13-reaccion-corazones": {
+   "name": "Nút LOVE IT! với trái tim bay lên",
+   "tags": [
+    "youtube",
+    "cảm xúc",
+    "tim",
+    "con trỏ",
+    "nút"
+   ]
+  },
+  "template:yp13-reaccion-estrellas": {
+   "name": "Nút với ngôi sao xanh lá bay lên",
+   "tags": [
+    "youtube",
+    "cảm xúc",
+    "ngôi sao",
+    "con trỏ",
+    "nút"
+   ]
+  },
+  "template:yp13-reaccion-monedas": {
+   "name": "Nút DONATE với đồng xu bay lên",
+   "tags": [
+    "youtube",
+    "cảm xúc",
+    "ủng hộ",
+    "con trỏ",
+    "nút",
+    "đồng xu"
+   ]
+  },
+  "template:yp13-reaccion-pulgares": {
+   "name": "Nút LIKE THIS với ngón cái bay lên",
+   "tags": [
+    "youtube",
+    "cảm xúc",
+    "thích",
+    "con trỏ",
+    "nút"
+   ]
+  },
+  "template:yp13-recomiendo": {
+   "name": "Tôi giới thiệu: năm trái tim",
+   "tags": [
+    "youtube",
+    "đánh giá",
+    "tim",
+    "con trỏ",
+    "giới thiệu"
+   ]
+  },
+  "template:yp13-reproductor-amarillo": {
+   "name": "Nút trình phát màu vàng",
+   "tags": [
+    "youtube",
+    "trình phát",
+    "nút",
+    "con trỏ",
+    "vàng"
+   ]
+  },
+  "template:yp13-reproductor-azul": {
+   "name": "Nút trình phát màu xanh",
+   "tags": [
+    "youtube",
+    "trình phát",
+    "nút",
+    "con trỏ",
+    "xanh dương"
+   ]
+  },
+  "template:yp13-reproductor-cuadrado": {
+   "name": "Nút trình phát hình vuông",
+   "tags": [
+    "youtube",
+    "trình phát",
+    "nút",
+    "con trỏ",
+    "vuông"
+   ]
+  },
+  "template:yp13-reproductor-redondo": {
+   "name": "Nút trình phát hình tròn",
+   "tags": [
+    "youtube",
+    "trình phát",
+    "nút",
+    "con trỏ",
+    "tròn"
+   ]
+  },
+  "template:yp13-tarjeta-canal": {
+   "name": "Thẻ kênh mở ra",
+   "tags": [
+    "youtube",
+    "kênh",
+    "đăng ký",
+    "con trỏ",
+    "ảnh đại diện"
+   ]
+  },
+  "template:yp13-tarjeta-suscribir-grande": {
+   "name": "Thẻ kênh lớn có nút đăng ký",
+   "tags": [
+    "youtube",
+    "kênh",
+    "đăng ký",
+    "con trỏ",
+    "ảnh đại diện",
+    "thanh chữ dưới"
+   ]
+  },
+  "template:yp13-tuit-texto": {
+   "name": "Tweet chữ có lượt thích",
+   "tags": [
+    "youtube",
+    "bài đăng",
+    "thích",
+    "con trỏ",
+    "bình luận"
+   ]
+  },
+  "template:yp13-valoranos": {
+   "name": "Đánh giá chúng tôi: danh sách sao",
+   "tags": [
+    "youtube",
+    "đánh giá",
+    "ngôi sao",
+    "con trỏ",
+    "danh sách"
+   ]
+  },
+  "template:yp13-valorar-10": {
+   "name": "Đánh giá 10/10 với ngôi sao",
+   "tags": [
+    "youtube",
+    "đánh giá",
+    "ngôi sao",
+    "con trỏ"
+   ]
+  },
+  "template:yp13-valorar-articulo": {
+   "name": "Đánh giá năm sao",
+   "tags": [
+    "youtube",
+    "đánh giá",
+    "ngôi sao",
+    "con trỏ"
+   ]
+  },
+  "template:yp13-valorar-genial": {
+   "name": "Nút đánh giá cho sao",
+   "tags": [
+    "youtube",
+    "đánh giá",
+    "ngôi sao",
+    "con trỏ",
+    "nút"
+   ]
+  },
+  "template:yp13-valorar-plantilla": {
+   "name": "Thẻ đánh giá có ngôi sao",
+   "tags": [
+    "youtube",
+    "đánh giá",
+    "ngôi sao",
+    "con trỏ",
+    "logo"
+   ]
+  },
+  "template:yp13-video-suscribir-campana": {
+   "name": "Thẻ video có đăng ký và chuông",
+   "tags": [
+    "youtube",
+    "bài đăng",
+    "đăng ký",
+    "chuông",
+    "con trỏ"
+   ]
+  },
+  "template:yp13-volumen": {
+   "name": "Thanh trượt âm lượng MAKE SOME NOISE",
+   "tags": [
+    "youtube",
+    "âm lượng",
+    "thanh trượt",
+    "con trỏ",
+    "âm thanh"
+   ]
+  },
+  "template:yp14-barra-abajo-acciones": {
+   "name": "Thanh video phía dưới có thích, chia sẻ, tải xuống và lưu",
+   "tags": [
+    "youtube",
+    "thanh",
+    "kênh",
+    "thích",
+    "chia sẻ",
+    "tải xuống"
+   ]
+  },
+  "template:yp14-barra-abajo-campana": {
+   "name": "Thanh kênh phía dưới có đã đăng ký và chuông",
+   "tags": [
+    "youtube",
+    "thanh",
+    "kênh",
+    "đăng ký",
+    "chuông"
+   ]
+  },
+  "template:yp14-barra-abajo-me-gusta": {
+   "name": "Thanh kênh phía dưới có lượt thích và đăng ký",
+   "tags": [
+    "youtube",
+    "thanh",
+    "kênh",
+    "đăng ký",
+    "thích"
+   ]
+  },
+  "template:yp14-barra-arriba": {
+   "name": "Thanh kênh phía trên đẩy ảnh xuống",
+   "tags": [
+    "youtube",
+    "thanh",
+    "kênh",
+    "đăng ký",
+    "ảnh"
+   ]
+  },
+  "template:yp14-barra-valoracion-arriba": {
+   "name": "Thanh kênh phía trên có thích, không thích và đánh giá",
+   "tags": [
+    "youtube",
+    "thanh",
+    "kênh",
+    "đăng ký",
+    "đánh giá"
+   ]
+  },
+  "template:yp14-barra-video-suscribirse": {
+   "name": "Thanh trắng phía dưới trên video: ảnh đại diện, tên và đăng ký",
+   "tags": [
+    "youtube",
+    "thanh",
+    "kênh",
+    "đăng ký",
+    "ảnh"
+   ]
+  },
+  "template:yp14-boton-redondo-campana": {
+   "name": "Nút tròn đỏ: chuông và «Get notified»",
+   "tags": [
+    "youtube",
+    "nút",
+    "chữ",
+    "chuông",
+    "thông báo"
+   ]
+  },
+  "template:yp14-boton-redondo-compartir": {
+   "name": "Nút tròn đỏ: chia sẻ và «Share this»",
+   "tags": [
+    "youtube",
+    "nút",
+    "chữ",
+    "chia sẻ"
+   ]
+  },
+  "template:yp14-boton-redondo-me-gusta": {
+   "name": "Nút tròn đỏ: thích và «Like the video»",
+   "tags": [
+    "youtube",
+    "nút",
+    "chữ",
+    "thích"
+   ]
+  },
+  "template:yp14-boton-redondo-suscribirse": {
+   "name": "Nút tròn đỏ: phát và «Subscribe»",
+   "tags": [
+    "youtube",
+    "nút",
+    "chữ",
+    "nút phát",
+    "đăng ký"
+   ]
+  },
+  "template:yp14-campana-compartir-redondos": {
+   "name": "Hai nút đỏ: chuông và chia sẻ",
+   "tags": [
+    "youtube",
+    "nút",
+    "chữ",
+    "chuông",
+    "chia sẻ"
+   ]
+  },
+  "template:yp14-canal-avatar-arriba": {
+   "name": "Nút kênh dọc có ảnh đại diện ở trên",
+   "tags": [
+    "youtube",
+    "nút",
+    "đăng ký",
+    "ảnh đại diện",
+    "dọc"
+   ]
+  },
+  "template:yp14-canal-avatar-centro": {
+   "name": "Nút kênh có ảnh đại diện ở giữa, chia sẻ và chuông",
+   "tags": [
+    "youtube",
+    "nút",
+    "đăng ký",
+    "ảnh đại diện",
+    "chia sẻ"
+   ]
+  },
+  "template:yp14-canal-avatar-esquina": {
+   "name": "Nút kênh có ảnh đại diện ở góc, chia sẻ và chuông",
+   "tags": [
+    "youtube",
+    "nút",
+    "đăng ký",
+    "ảnh đại diện",
+    "chia sẻ"
+   ]
+  },
+  "template:yp14-canal-circulo": {
+   "name": "Kênh trong vòng tròn có chuông, thích và chia sẻ",
+   "tags": [
+    "youtube",
+    "nút",
+    "chuông",
+    "thích",
+    "vòng tròn"
+   ]
+  },
+  "template:yp14-canal-foto-campana": {
+   "name": "Nút kênh: ảnh, đăng ký và chuông",
+   "tags": [
+    "youtube",
+    "nút",
+    "đăng ký",
+    "chuông",
+    "ảnh"
+   ]
+  },
+  "template:yp14-canal-foto-vertical": {
+   "name": "Nút kênh dọc: ảnh, đăng ký, thích và chuông",
+   "tags": [
+    "youtube",
+    "nút",
+    "đăng ký",
+    "dọc",
+    "thích"
+   ]
+  },
+  "template:yp14-canal-horizontal": {
+   "name": "Nút kênh ngang: ảnh, người đăng ký, đăng ký và chuông",
+   "tags": [
+    "youtube",
+    "nút",
+    "đăng ký",
+    "ngang",
+    "chuông"
+   ]
+  },
+  "template:yp14-canal-iconos-columna": {
+   "name": "Kênh với cột biểu tượng: chuông, thích và chia sẻ",
+   "tags": [
+    "youtube",
+    "nút",
+    "đăng ký",
+    "chuông",
+    "thích"
+   ]
+  },
+  "template:yp14-canal-nombre-largo": {
+   "name": "Nút kênh: ảnh, tên ba dòng, thích và chuông",
+   "tags": [
+    "youtube",
+    "nút",
+    "đăng ký",
+    "tên",
+    "chuông"
+   ]
+  },
+  "template:yp14-canal-sin-tarjeta": {
+   "name": "Kênh: ảnh đại diện, tên, người đăng ký và đăng ký",
+   "tags": [
+    "youtube",
+    "nút",
+    "đăng ký",
+    "ảnh đại diện",
+    "kênh"
+   ]
+  },
+  "template:yp14-canal-sobre-video": {
+   "name": "Nút kênh trên video: ảnh, người đăng ký và đăng ký",
+   "tags": [
+    "youtube",
+    "nút",
+    "đăng ký",
+    "video",
+    "ảnh"
+   ]
+  },
+  "template:yp14-canal-tarjeta-vertical": {
+   "name": "Thẻ kênh dọc: tên, ảnh và đăng ký",
+   "tags": [
+    "youtube",
+    "nút",
+    "đăng ký",
+    "thẻ",
+    "dọc"
+   ]
+  },
+  "template:yp14-columna-botones": {
+   "name": "Cột nút tròn: đăng ký, thích và chuông",
+   "tags": [
+    "youtube",
+    "nút",
+    "chữ",
+    "cột",
+    "đăng ký"
+   ]
+  },
+  "template:yp14-columna-botones-etiquetas": {
+   "name": "Cột nút tròn có nhãn: đăng ký, thông báo, thích",
+   "tags": [
+    "youtube",
+    "nút",
+    "chữ",
+    "cột",
+    "nhãn"
+   ]
+  },
+  "template:yp14-comentario-abajo": {
+   "name": "Bình luận phía dưới có lượt thích",
+   "tags": [
+    "youtube",
+    "bình luận",
+    "kênh",
+    "thích"
+   ]
+  },
+  "template:yp14-comentario-arriba": {
+   "name": "Bình luận phía trên có thích và không thích",
+   "tags": [
+    "youtube",
+    "bình luận",
+    "kênh",
+    "thích",
+    "không thích"
+   ]
+  },
+  "template:yp14-comentario-me-gusta": {
+   "name": "Bình luận được nhấp thích",
+   "tags": [
+    "youtube",
+    "bình luận",
+    "thích",
+    "nhấp"
+   ]
+  },
+  "template:yp14-comentario-no-me-gusta": {
+   "name": "Bình luận được nhấp không thích",
+   "tags": [
+    "youtube",
+    "bình luận",
+    "không thích",
+    "nhấp"
+   ]
+  },
+  "template:yp14-comentario-respuesta": {
+   "name": "Bình luận với câu trả lời đang được gõ",
+   "tags": [
+    "youtube",
+    "bình luận",
+    "trả lời",
+    "gõ chữ"
+   ]
+  },
+  "template:yp14-comentario-respuesta-2": {
+   "name": "Bình luận có trả lời (2)",
+   "tags": [
+    "youtube",
+    "bình luận",
+    "trả lời",
+    "gõ chữ"
+   ]
+  },
+  "template:yp14-comentario-sobre-video": {
+   "name": "Bình luận một dòng trên video",
+   "tags": [
+    "youtube",
+    "bình luận",
+    "video",
+    "một dòng"
+   ]
+  },
+  "template:yp14-compartir-esto": {
+   "name": "Nút «Share This» chuyển từ đỏ sang trắng",
+   "tags": [
+    "youtube",
+    "nút",
+    "chữ",
+    "chia sẻ"
+   ]
+  },
+  "template:yp14-fila-botones": {
+   "name": "Hàng nút tròn: đăng ký, chuông, chia sẻ và thích",
+   "tags": [
+    "youtube",
+    "nút",
+    "chữ",
+    "hàng",
+    "đăng ký"
+   ]
+  },
+  "template:yp14-fila-me-gusta-suscribirse": {
+   "name": "Hàng: thích, đăng ký và chuông",
+   "tags": [
+    "youtube",
+    "nút",
+    "đăng ký",
+    "thích",
+    "chuông"
+   ]
+  },
+  "template:yp14-fila-suscribirse": {
+   "name": "Hàng: thích, đăng ký, chia sẻ và chuông",
+   "tags": [
+    "youtube",
+    "nút",
+    "chữ",
+    "hàng",
+    "đăng ký"
+   ]
+  },
+  "template:yp14-lista-suscribirse": {
+   "name": "Danh sách: đăng ký, nhận thông báo và thích",
+   "tags": [
+    "youtube",
+    "nút",
+    "đăng ký",
+    "danh sách",
+    "thích"
+   ]
+  },
+  "template:yp14-lista-ver-mas-tarde": {
+   "name": "Danh sách video: «Saved to Watch Later»",
+   "tags": [
+    "youtube",
+    "danh sách",
+    "video",
+    "xem sau"
+   ]
+  },
+  "template:yp14-lista-videos-abrir": {
+   "name": "Danh sách video: nhấp một video và nó lấp đầy khung hình",
+   "tags": [
+    "youtube",
+    "danh sách",
+    "video",
+    "nhấp"
+   ]
+  },
+  "template:yp14-logo-arriba-suscribirse": {
+   "name": "Logo phía trên và nút đăng ký",
+   "tags": [
+    "youtube",
+    "nút",
+    "đăng ký",
+    "logo"
+   ]
+  },
+  "template:yp14-logo-suscribirse": {
+   "name": "Logo kênh có nút đăng ký",
+   "tags": [
+    "youtube",
+    "nút",
+    "đăng ký",
+    "logo"
+   ]
+  },
+  "template:yp14-logo-tarjeta": {
+   "name": "Logo kênh trên thẻ có đăng ký, chuông và chia sẻ",
+   "tags": [
+    "youtube",
+    "nút",
+    "đăng ký",
+    "logo",
+    "thẻ"
+   ]
+  },
+  "template:yp14-logo-tarjeta-vertical": {
+   "name": "Logo kênh trên thẻ dọc có chuông và chia sẻ",
+   "tags": [
+    "youtube",
+    "nút",
+    "đăng ký",
+    "logo",
+    "thẻ"
+   ]
+  },
+  "template:yp14-me-gusta-avisos": {
+   "name": "Thích và chuông với «Like this / Notified»",
+   "tags": [
+    "youtube",
+    "nút",
+    "chữ",
+    "thích",
+    "chuông"
+   ]
+  },
+  "template:yp14-me-gusta-barra": {
+   "name": "«Like this» với thanh đánh giá",
+   "tags": [
+    "youtube",
+    "nút",
+    "chữ",
+    "thích",
+    "đánh giá"
+   ]
+  },
+  "template:yp14-me-gusta-boton": {
+   "name": "Nút «Like it!» tung ra ngón cái",
+   "tags": [
+    "youtube",
+    "nút",
+    "chữ",
+    "thích",
+    "ngón cái"
+   ]
+  },
+  "template:yp14-me-gusta-campana-redondos": {
+   "name": "Hai nút đỏ: thích và chuông",
+   "tags": [
+    "youtube",
+    "nút",
+    "chữ",
+    "thích",
+    "chuông"
+   ]
+  },
+  "template:yp14-me-gusta-compartir-botones": {
+   "name": "Nút «Like it» và «Share» chuyển từ đỏ sang trắng",
+   "tags": [
+    "youtube",
+    "nút",
+    "chữ",
+    "thích",
+    "chia sẻ"
+   ]
+  },
+  "template:yp14-me-gusta-compartir-redondos": {
+   "name": "Hai nút đỏ: thích và chia sẻ",
+   "tags": [
+    "youtube",
+    "nút",
+    "chữ",
+    "thích",
+    "chia sẻ"
+   ]
+  },
+  "template:yp14-me-gusta-contador": {
+   "name": "Nút thích lớn có bộ đếm",
+   "tags": [
+    "youtube",
+    "nút",
+    "chữ",
+    "thích",
+    "bộ đếm"
+   ]
+  },
+  "template:yp14-me-gusta-suscribirse": {
+   "name": "Thích và đăng ký không có thẻ",
+   "tags": [
+    "youtube",
+    "nút",
+    "chữ",
+    "đăng ký",
+    "thích"
+   ]
+  },
+  "template:yp14-me-gusta-suscribirse-campana": {
+   "name": "Thích, đăng ký và chuông không có thẻ",
+   "tags": [
+    "youtube",
+    "nút",
+    "chữ",
+    "đăng ký",
+    "chuông"
+   ]
+  },
+  "template:yp14-no-me-gusta-boton": {
+   "name": "Nút «Dislike!» tung ra ngón cái",
+   "tags": [
+    "youtube",
+    "nút",
+    "chữ",
+    "không thích",
+    "ngón cái"
+   ]
+  },
+  "template:yp14-no-me-gusta-contador": {
+   "name": "Nút không thích lớn có bộ đếm",
+   "tags": [
+    "youtube",
+    "nút",
+    "chữ",
+    "không thích",
+    "bộ đếm"
+   ]
+  },
+  "template:yp14-no-recomendar": {
+   "name": "«Don't recommend» với năm ngón cái được đánh dấu",
+   "tags": [
+    "youtube",
+    "nút",
+    "chữ",
+    "đánh giá",
+    "không thích"
+   ]
+  },
+  "template:yp14-nombre-suscrito-campana": {
+   "name": "Tên kênh có đã đăng ký và chuông",
+   "tags": [
+    "youtube",
+    "nút",
+    "đăng ký",
+    "tên",
+    "chuông"
+   ]
+  },
+  "template:yp14-nombre-suscrito-me-gusta": {
+   "name": "Tên kênh có đã đăng ký, thích và không thích",
+   "tags": [
+    "youtube",
+    "nút",
+    "đăng ký",
+    "thích",
+    "không thích"
+   ]
+  },
+  "template:yp14-pildora-me-gusta": {
+   "name": "Viên nang đỏ thích / không thích: nhấp vào thích",
+   "tags": [
+    "youtube",
+    "nút",
+    "chữ",
+    "thích",
+    "không thích"
+   ]
+  },
+  "template:yp14-pildora-no-me-gusta": {
+   "name": "Viên nang đỏ thích / không thích: nhấp vào không thích",
+   "tags": [
+    "youtube",
+    "nút",
+    "chữ",
+    "thích",
+    "không thích"
+   ]
+  },
+  "template:yp14-recomendar-amigos": {
+   "name": "«Advise friends» với năm ngón cái được đánh dấu",
+   "tags": [
+    "youtube",
+    "nút",
+    "chữ",
+    "đánh giá",
+    "thích"
+   ]
+  },
+  "template:yp14-suscribirse-campana": {
+   "name": "Đăng ký và chuông không có thẻ",
+   "tags": [
+    "youtube",
+    "nút",
+    "chữ",
+    "đăng ký",
+    "chuông"
+   ]
+  },
+  "template:yp14-suscribirse-casilla": {
+   "name": "Ô đã đánh dấu với «Subscribe Youtube Channel»",
+   "tags": [
+    "youtube",
+    "nút",
+    "chữ",
+    "đăng ký",
+    "ô đánh dấu"
+   ]
+  },
+  "template:yp14-suscribirse-contador": {
+   "name": "Đăng ký với bộ đếm từ 19999 lên 20000",
+   "tags": [
+    "youtube",
+    "nút",
+    "chữ",
+    "đăng ký",
+    "bộ đếm"
+   ]
+  },
+  "template:yp14-suscribirse-hecho": {
+   "name": "«Subscribe Channel» với «DO IT!» chuyển thành «DONE»",
+   "tags": [
+    "youtube",
+    "nút",
+    "chữ",
+    "đăng ký"
+   ]
+  },
+  "template:yp14-suscribirse-play": {
+   "name": "Nút đỏ «SUBSCRIBE» có nút phát chuyển thành «SUBSCRIBED»",
+   "tags": [
+    "youtube",
+    "nút",
+    "chữ",
+    "đăng ký",
+    "nút phát"
+   ]
+  },
+  "template:yp14-suscrito-iconos": {
+   "name": "Đã đăng ký với thích, chuông và chia sẻ",
+   "tags": [
+    "youtube",
+    "nút",
+    "đăng ký",
+    "thích",
+    "chuông"
+   ]
+  },
+  "template:yp14-tarjeta-campana": {
+   "name": "Thẻ kênh có đăng ký và chuông",
+   "tags": [
+    "youtube",
+    "thẻ",
+    "kênh",
+    "đăng ký",
+    "chuông"
+   ]
+  },
+  "template:yp14-tarjeta-comentario": {
+   "name": "Thẻ video có không thích và bình luận",
+   "tags": [
+    "youtube",
+    "thẻ",
+    "kênh",
+    "bình luận",
+    "không thích"
+   ]
+  },
+  "template:yp14-tarjeta-comentario-2": {
+   "name": "Thẻ video có thích và bình luận",
+   "tags": [
+    "youtube",
+    "thẻ",
+    "kênh",
+    "bình luận",
+    "thích"
+   ]
+  },
+  "template:yp14-tarjeta-cristal": {
+   "name": "Thẻ kênh: kính mờ trên ảnh có chuông",
+   "tags": [
+    "youtube",
+    "thẻ",
+    "kênh",
+    "đăng ký",
+    "ảnh",
+    "kính mờ"
+   ]
+  },
+  "template:yp14-tarjeta-cristal-inclinada": {
+   "name": "Thẻ kênh: kính mờ nghiêng trên ảnh",
+   "tags": [
+    "youtube",
+    "thẻ",
+    "kênh",
+    "đăng ký",
+    "ảnh",
+    "kính mờ"
+   ]
+  },
+  "template:yp14-tarjeta-foto-inclinada": {
+   "name": "Thẻ kênh: ảnh nghiêng có đăng ký và chuông",
+   "tags": [
+    "youtube",
+    "thẻ",
+    "kênh",
+    "đăng ký",
+    "ảnh"
+   ]
+  },
+  "template:yp14-tarjeta-foto-marco": {
+   "name": "Thẻ kênh: ảnh trong khung trắng có thanh tiến trình",
+   "tags": [
+    "youtube",
+    "thẻ",
+    "kênh",
+    "đăng ký",
+    "ảnh"
+   ]
+  },
+  "template:yp14-tarjeta-foto-progreso": {
+   "name": "Thẻ kênh: ảnh có thanh tiến trình và lượt thích",
+   "tags": [
+    "youtube",
+    "thẻ",
+    "kênh",
+    "đăng ký",
+    "ảnh"
+   ]
+  },
+  "template:yp14-tarjeta-foto-recta": {
+   "name": "Thẻ kênh: ảnh có khung với thích, đăng ký và chuông",
+   "tags": [
+    "youtube",
+    "thẻ",
+    "kênh",
+    "đăng ký",
+    "ảnh"
+   ]
+  },
+  "template:yp14-tarjeta-marco": {
+   "name": "Thẻ kênh: khung trắng trên ảnh có thanh tiến trình",
+   "tags": [
+    "youtube",
+    "thẻ",
+    "kênh",
+    "đăng ký",
+    "ảnh"
+   ]
+  },
+  "template:yp14-tarjeta-marco-inclinado": {
+   "name": "Thẻ kênh: khung trắng nghiêng trên ảnh",
+   "tags": [
+    "youtube",
+    "thẻ",
+    "kênh",
+    "đăng ký",
+    "ảnh"
+   ]
+  },
+  "template:yp14-tarjeta-video-compartir": {
+   "name": "Thẻ video có thích, chia sẻ và đăng ký",
+   "tags": [
+    "youtube",
+    "thẻ",
+    "kênh",
+    "chia sẻ",
+    "thích"
+   ]
+  },
+  "template:yp14-tarjeta-video-cuadrada": {
+   "name": "Thẻ video nghiêng có ảnh đại diện vuông và nút đỏ",
+   "tags": [
+    "youtube",
+    "thẻ",
+    "video",
+    "đăng ký",
+    "ảnh"
+   ]
+  },
+  "template:yp14-tarjeta-video-play": {
+   "name": "Thẻ video: nhấp phát và video lấp đầy khung hình",
+   "tags": [
+    "youtube",
+    "thẻ",
+    "video",
+    "nút phát"
+   ]
+  },
+  "template:yp14-tarjeta-video-titulo": {
+   "name": "Thẻ video có kênh phía trên và tiêu đề: nhấp phát",
+   "tags": [
+    "youtube",
+    "thẻ",
+    "video",
+    "nút phát",
+    "tiêu đề"
+   ]
+  },
+  "template:yp14-tres-botones-blancos": {
+   "name": "Ba nút trắng: thích, chuông và chia sẻ, nhấp cùng lúc",
+   "tags": [
+    "youtube",
+    "nút",
+    "chữ",
+    "hàng",
+    "trắng"
+   ]
+  },
+  "template:yp14-valoracion-abajo": {
+   "name": "Thanh kênh phía dưới có thích, không thích và đánh giá",
+   "tags": [
+    "youtube",
+    "thanh",
+    "kênh",
+    "đăng ký",
+    "đánh giá"
+   ]
+  },
+  "template:yp14-youtube-channel": {
+   "name": "«YOUTUBE CHANNEL» chuyển đỏ khi nhấp",
+   "tags": [
+    "youtube",
+    "nút",
+    "chữ",
+    "tiêu đề",
+    "đỏ"
+   ]
+  },
+  "template:yp15-cargo-verde": {
+   "name": "Thanh chữ dưới kính mờ, chức danh màu xanh lá",
+   "tags": [
+    "youtube",
+    "thanh chữ dưới",
+    "kính mờ",
+    "tên",
+    "xanh lá"
+   ]
+  },
+  "template:yp15-centrado": {
+   "name": "Thanh chữ dưới kính mờ căn giữa có đăng ký",
+   "tags": [
+    "youtube",
+    "thanh chữ dưới",
+    "kính mờ",
+    "tên",
+    "đăng ký"
+   ]
+  },
+  "template:yp15-dos-nombres": {
+   "name": "Thanh chữ dưới kính mờ: hai tên",
+   "tags": [
+    "youtube",
+    "thanh chữ dưới",
+    "kính mờ",
+    "tên",
+    "hai người"
+   ]
+  },
+  "template:yp15-foto-redonda": {
+   "name": "Thanh chữ dưới kính mờ có ảnh tròn",
+   "tags": [
+    "youtube",
+    "thanh chữ dưới",
+    "kính mờ",
+    "tên",
+    "ảnh",
+    "ảnh đại diện"
+   ]
+  },
+  "template:yp15-foto-suscribete": {
+   "name": "Thanh chữ dưới kính mờ, ảnh và đăng ký",
+   "tags": [
+    "youtube",
+    "thanh chữ dưới",
+    "kính mờ",
+    "tên",
+    "đăng ký",
+    "ảnh"
+   ]
+  },
+  "template:yp15-linea-fina": {
+   "name": "Thanh chữ dưới kính mờ mảnh",
+   "tags": [
+    "youtube",
+    "thanh chữ dưới",
+    "kính mờ",
+    "tên",
+    "mảnh"
+   ]
+  },
+  "template:yp15-logo-nombre": {
+   "name": "Thanh chữ dưới kính mờ có logo",
+   "tags": [
+    "youtube",
+    "thanh chữ dưới",
+    "kính mờ",
+    "tên",
+    "logo"
+   ]
+  },
+  "template:yp15-logo-suscribete": {
+   "name": "Thanh chữ dưới kính mờ, logo và đăng ký",
+   "tags": [
+    "youtube",
+    "thanh chữ dưới",
+    "kính mờ",
+    "tên",
+    "đăng ký",
+    "logo"
+   ]
+  },
+  "template:yp15-nombre-suscribete": {
+   "name": "Thanh chữ dưới kính mờ có đăng ký",
+   "tags": [
+    "youtube",
+    "thanh chữ dưới",
+    "kính mờ",
+    "tên",
+    "đăng ký"
+   ]
+  },
+  "template:yp15-pareja": {
+   "name": "Thanh chữ dưới kính mờ: cặp đôi có ảnh",
+   "tags": [
+    "youtube",
+    "thanh chữ dưới",
+    "kính mờ",
+    "tên",
+    "hai người",
+    "ảnh"
+   ]
+  },
+  "template:yp15-tarjeta-foto": {
+   "name": "Thẻ kính mờ có ảnh và logo",
+   "tags": [
+    "youtube",
+    "thanh chữ dưới",
+    "kính mờ",
+    "tên",
+    "ảnh",
+    "logo"
+   ]
+  },
+  "template:yp15-una-linea": {
+   "name": "Thanh chữ dưới kính mờ một dòng",
+   "tags": [
+    "youtube",
+    "thanh chữ dưới",
+    "kính mờ",
+    "tên"
+   ]
+  },
+  "template:yp16-barra-nombre": {
+   "name": "Thanh kính mờ có tên và đăng ký",
+   "tags": [
+    "youtube",
+    "kính mờ",
+    "đăng ký",
+    "nhấp",
+    "ảnh"
+   ]
+  },
+  "template:yp16-barra-suscribete": {
+   "name": "Thanh kính mờ có ảnh và đăng ký",
+   "tags": [
+    "youtube",
+    "kính mờ",
+    "đăng ký",
+    "nhấp",
+    "ảnh"
+   ]
+  },
+  "template:yp16-burbuja-canal": {
+   "name": "Bong bóng kính mờ có ảnh và kênh",
+   "tags": [
+    "youtube",
+    "kính mờ",
+    "kênh",
+    "ảnh",
+    "bong bóng"
+   ]
+  },
+  "template:yp16-circulo": {
+   "name": "Vòng tròn kính mờ có ảnh và đăng ký",
+   "tags": [
+    "youtube",
+    "kính mờ",
+    "đăng ký",
+    "nhấp",
+    "ảnh",
+    "vòng tròn"
+   ]
+  },
+  "template:yp16-join-us": {
+   "name": "Viên nang kính mờ tối: join us now",
+   "tags": [
+    "youtube",
+    "kính mờ",
+    "tham gia",
+    "tối"
+   ]
+  },
+  "template:yp16-pildora-canal": {
+   "name": "Viên nang kính mờ có ảnh ở giữa",
+   "tags": [
+    "youtube",
+    "kính mờ",
+    "kênh",
+    "ảnh"
+   ]
+  },
+  "template:yp16-stay-tuned": {
+   "name": "Vòng tròn kính mờ: stay tuned",
+   "tags": [
+    "youtube",
+    "kính mờ",
+    "vòng tròn",
+    "đón xem"
+   ]
+  },
+  "template:yp16-tarjeta-cuadrada": {
+   "name": "Thẻ kính mờ vuông có đăng ký",
+   "tags": [
+    "youtube",
+    "kính mờ",
+    "đăng ký",
+    "nhấp",
+    "ảnh"
+   ]
+  },
+  "template:yp16-tarjeta-nombre": {
+   "name": "Thẻ kính mờ có tên và đăng ký",
+   "tags": [
+    "youtube",
+    "kính mờ",
+    "đăng ký",
+    "nhấp",
+    "ảnh"
+   ]
+  },
+  "template:yp16-tarjeta-vertical": {
+   "name": "Thẻ kính mờ dọc có đăng ký",
+   "tags": [
+    "youtube",
+    "kính mờ",
+    "đăng ký",
+    "nhấp",
+    "ảnh"
+   ]
+  },
+  "template:yp16-watch-more": {
+   "name": "Bong bóng kính mờ: watch more",
+   "tags": [
+    "youtube",
+    "kính mờ",
+    "xem thêm",
+    "bong bóng"
+   ]
+  },
+  "template:yp17-barra-canal": {
+   "name": "Thanh phẳng có ảnh và đăng ký",
+   "tags": [
+    "youtube",
+    "thẻ",
+    "phẳng",
+    "đăng ký",
+    "nhấp",
+    "ảnh"
+   ]
+  },
+  "template:yp17-barra-foto": {
+   "name": "Thanh phẳng có ảnh ở giữa",
+   "tags": [
+    "youtube",
+    "thẻ",
+    "phẳng",
+    "đăng ký",
+    "nhấp",
+    "ảnh"
+   ]
+  },
+  "template:yp17-barra-titulo": {
+   "name": "Thanh phẳng có ảnh và tiêu đề",
+   "tags": [
+    "youtube",
+    "thẻ",
+    "phẳng",
+    "đăng ký",
+    "tiêu đề",
+    "ảnh"
+   ]
+  },
+  "template:yp17-boton-youtube": {
+   "name": "Thẻ phẳng có nút YouTube",
+   "tags": [
+    "youtube",
+    "thẻ",
+    "phẳng",
+    "nút",
+    "nút phát"
+   ]
+  },
+  "template:yp17-foto-arriba": {
+   "name": "Ảnh tròn phía trên thẻ đăng ký",
+   "tags": [
+    "youtube",
+    "thẻ",
+    "phẳng",
+    "đăng ký",
+    "nhấp",
+    "ảnh"
+   ]
+  },
+  "template:yp17-foto-cuadrada": {
+   "name": "Ảnh vuông và thanh đăng ký",
+   "tags": [
+    "youtube",
+    "thẻ",
+    "phẳng",
+    "đăng ký",
+    "nhấp",
+    "ảnh"
+   ]
+  },
+  "template:yp17-join-us": {
+   "name": "Thẻ phẳng: join us với YouTube",
+   "tags": [
+    "youtube",
+    "thẻ",
+    "phẳng",
+    "tham gia"
+   ]
+  },
+  "template:yp17-tarjeta-nombre": {
+   "name": "Thẻ phẳng có ảnh, YouTube và đăng ký",
+   "tags": [
+    "youtube",
+    "thẻ",
+    "phẳng",
+    "đăng ký",
+    "nhấp",
+    "ảnh"
+   ]
+  },
+  "template:yp17-tarjeta-vertical": {
+   "name": "Thẻ phẳng dọc có đăng ký",
+   "tags": [
+    "youtube",
+    "thẻ",
+    "phẳng",
+    "đăng ký",
+    "nhấp",
+    "ảnh"
+   ]
+  },
+  "template:yp17-watch-more": {
+   "name": "Thẻ phẳng: watch more",
+   "tags": [
+    "youtube",
+    "thẻ",
+    "phẳng",
+    "xem thêm"
+   ]
+  },
   "template:yp2-apertura": {
    "name": "Mở đầu: vòng đỏ trắng với nút YouTube",
    "tags": [
@@ -41090,6 +43500,506 @@
     "trắng đen",
     "thời trang",
     "chuyển cảnh"
+   ]
+  },
+  "template:yp8-disfruta": {
+   "name": "Kết thúc: enjoy",
+   "tags": [
+    "youtube",
+    "kết thúc",
+    "chữ"
+   ]
+  },
+  "template:yp8-logo-formas-claro": {
+   "name": "Mở đầu: hình khối màu cam hé lộ logo của bạn",
+   "tags": [
+    "youtube",
+    "logo",
+    "mở đầu",
+    "hình khối",
+    "cam"
+   ]
+  },
+  "template:yp8-logo-formas-oscuro": {
+   "name": "Mở đầu: các hình khối hé lộ logo của bạn (tối)",
+   "tags": [
+    "youtube",
+    "logo",
+    "mở đầu",
+    "hình khối"
+   ]
+  },
+  "template:yp8-logo-formas-video": {
+   "name": "Mở đầu: hình khối trắng và logo trên video của bạn",
+   "tags": [
+    "youtube",
+    "logo",
+    "mở đầu",
+    "hình khối",
+    "video"
+   ]
+  },
+  "template:yp8-logo-youtube-claro": {
+   "name": "Logo YouTube tự hình thành (nền trắng)",
+   "tags": [
+    "youtube",
+    "logo",
+    "mở đầu",
+    "trắng"
+   ]
+  },
+  "template:yp8-logo-youtube-oscuro": {
+   "name": "Logo YouTube tự hình thành (nền tối)",
+   "tags": [
+    "youtube",
+    "logo",
+    "mở đầu",
+    "tối"
+   ]
+  },
+  "template:yp8-logo-youtube-video": {
+   "name": "Logo YouTube trắng trên video của bạn",
+   "tags": [
+    "youtube",
+    "logo",
+    "mở đầu",
+    "trắng",
+    "video"
+   ]
+  },
+  "template:yp8-me-gusta-blanco": {
+   "name": "Nút thích trong vòng tròn trắng",
+   "tags": [
+    "youtube",
+    "thích",
+    "nút",
+    "vòng tròn"
+   ]
+  },
+  "template:yp8-me-gusta-oscuro": {
+   "name": "Nút thích trong vòng tròn tối",
+   "tags": [
+    "youtube",
+    "thích",
+    "nút",
+    "vòng tròn"
+   ]
+  },
+  "template:yp8-redes-tercios": {
+   "name": "Bảy thanh chữ dưới cho mạng xã hội",
+   "tags": [
+    "youtube",
+    "mạng xã hội",
+    "thanh chữ dưới",
+    "instagram",
+    "twitter",
+    "facebook"
+   ]
+  },
+  "template:yp8-suscribirse-blanco": {
+   "name": "Thanh đăng ký có cú nhấp và chuông",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "nút",
+    "nhấp",
+    "chuông"
+   ]
+  },
+  "template:yp8-suscribirse-oscuro": {
+   "name": "Thanh đăng ký có cú nhấp và chuông (tối)",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "nút",
+    "nhấp",
+    "chuông"
+   ]
+  },
+  "template:yp8-tercio-facebook": {
+   "name": "Thanh chữ dưới: theo dõi chúng tôi trên Facebook",
+   "tags": [
+    "youtube",
+    "thanh chữ dưới",
+    "facebook",
+    "mạng xã hội"
+   ]
+  },
+  "template:yp8-tercio-instagram": {
+   "name": "Thanh chữ dưới: tên người dùng Instagram",
+   "tags": [
+    "youtube",
+    "thanh chữ dưới",
+    "instagram",
+    "mạng xã hội"
+   ]
+  },
+  "template:yp8-tercio-nombre": {
+   "name": "Thanh chữ dưới: tên và chức danh",
+   "tags": [
+    "youtube",
+    "thanh chữ dưới",
+    "tên",
+    "mạng xã hội"
+   ]
+  },
+  "template:yp8-tercio-twitter": {
+   "name": "Thanh chữ dưới: tên người dùng Twitter",
+   "tags": [
+    "youtube",
+    "thanh chữ dưới",
+    "twitter",
+    "mạng xã hội"
+   ]
+  },
+  "template:yp8-tercio-youtube": {
+   "name": "Thanh chữ dưới: đăng ký kênh của tôi",
+   "tags": [
+    "youtube",
+    "thanh chữ dưới",
+    "đăng ký",
+    "kênh"
+   ]
+  },
+  "template:yp8-tercio-yt-blanco": {
+   "name": "Thanh chữ dưới: tên người dùng YouTube",
+   "tags": [
+    "youtube",
+    "thanh chữ dưới",
+    "tên người dùng",
+    "mạng xã hội"
+   ]
+  },
+  "template:yp8-tercio-yt-oscuro": {
+   "name": "Thanh chữ dưới: đăng ký trên YouTube (tối)",
+   "tags": [
+    "youtube",
+    "thanh chữ dưới",
+    "đăng ký",
+    "tối"
+   ]
+  },
+  "template:yp8-transicion-ola": {
+   "name": "Chuyển cảnh: sóng xanh dương và xanh lá",
+   "tags": [
+    "youtube",
+    "chuyển cảnh",
+    "sóng",
+    "chuyển màu"
+   ]
+  },
+  "template:yp8-transicion-rombo": {
+   "name": "Chuyển cảnh: hình thoi xanh dương và xanh lá đi lên",
+   "tags": [
+    "youtube",
+    "chuyển cảnh",
+    "hình thoi",
+    "chuyển màu"
+   ]
+  },
+  "template:yp9-barra-canal": {
+   "name": "Thanh tên kênh có chuông",
+   "tags": [
+    "youtube",
+    "thanh",
+    "kênh",
+    "chuông",
+    "đăng ký"
+   ]
+  },
+  "template:yp9-bloques-glitch": {
+   "name": "Khối màu hiệu ứng nhiễu glitch",
+   "tags": [
+    "youtube",
+    "glitch",
+    "màu sắc",
+    "nhiễu"
+   ]
+  },
+  "template:yp9-boton-suscribirse": {
+   "name": "Nút đăng ký tự lấp đầy và được nhấp",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "nút",
+    "nhấp",
+    "con trỏ"
+   ]
+  },
+  "template:yp9-boton-ventana": {
+   "name": "Nút phát mở ra thành cửa sổ video",
+   "tags": [
+    "youtube",
+    "nút phát",
+    "cửa sổ",
+    "chuyển cảnh"
+   ]
+  },
+  "template:yp9-cinta-tendencia": {
+   "name": "Băng vàng xu hướng có tiêu đề",
+   "tags": [
+    "youtube",
+    "băng dính",
+    "xu hướng",
+    "tiêu đề"
+   ]
+  },
+  "template:yp9-corazones-flotando": {
+   "name": "Trái tim bay lên trên video",
+   "tags": [
+    "youtube",
+    "tim",
+    "tình yêu",
+    "video"
+   ]
+  },
+  "template:yp9-destello-a": {
+   "name": "Tia sáng nét vẽ tay A",
+   "tags": [
+    "youtube",
+    "tia sáng",
+    "nét vẽ",
+    "lấp lánh"
+   ]
+  },
+  "template:yp9-destello-b": {
+   "name": "Tia sáng nét vẽ tay B",
+   "tags": [
+    "youtube",
+    "tia sáng",
+    "nét vẽ",
+    "lấp lánh"
+   ]
+  },
+  "template:yp9-destello-c": {
+   "name": "Tia sáng nét vẽ tay C",
+   "tags": [
+    "youtube",
+    "tia sáng",
+    "nét vẽ",
+    "lấp lánh"
+   ]
+  },
+  "template:yp9-enlace-behance": {
+   "name": "Thanh liên kết: behance",
+   "tags": [
+    "youtube",
+    "mạng xã hội",
+    "liên kết",
+    "behance"
+   ]
+  },
+  "template:yp9-enlace-dribbble": {
+   "name": "Thanh liên kết: dribbble",
+   "tags": [
+    "youtube",
+    "mạng xã hội",
+    "liên kết",
+    "dribbble"
+   ]
+  },
+  "template:yp9-enlace-facebook": {
+   "name": "Thanh liên kết: facebook",
+   "tags": [
+    "youtube",
+    "mạng xã hội",
+    "liên kết",
+    "facebook"
+   ]
+  },
+  "template:yp9-enlace-google": {
+   "name": "Thanh liên kết: google",
+   "tags": [
+    "youtube",
+    "mạng xã hội",
+    "liên kết",
+    "google"
+   ]
+  },
+  "template:yp9-enlace-instagram": {
+   "name": "Thanh liên kết: instagram",
+   "tags": [
+    "youtube",
+    "mạng xã hội",
+    "liên kết",
+    "instagram"
+   ]
+  },
+  "template:yp9-enlace-itunes": {
+   "name": "Thanh liên kết: itunes",
+   "tags": [
+    "youtube",
+    "mạng xã hội",
+    "liên kết",
+    "itunes"
+   ]
+  },
+  "template:yp9-enlace-patreon": {
+   "name": "Thanh liên kết: patreon",
+   "tags": [
+    "youtube",
+    "mạng xã hội",
+    "liên kết",
+    "patreon"
+   ]
+  },
+  "template:yp9-enlace-soundcloud": {
+   "name": "Thanh liên kết: soundcloud",
+   "tags": [
+    "youtube",
+    "mạng xã hội",
+    "liên kết",
+    "soundcloud"
+   ]
+  },
+  "template:yp9-enlace-spotify": {
+   "name": "Thanh liên kết: spotify",
+   "tags": [
+    "youtube",
+    "mạng xã hội",
+    "liên kết",
+    "spotify"
+   ]
+  },
+  "template:yp9-enlace-telegram": {
+   "name": "Thanh liên kết: telegram",
+   "tags": [
+    "youtube",
+    "mạng xã hội",
+    "liên kết",
+    "telegram"
+   ]
+  },
+  "template:yp9-enlace-twitter": {
+   "name": "Thanh liên kết: twitter",
+   "tags": [
+    "youtube",
+    "mạng xã hội",
+    "liên kết",
+    "twitter"
+   ]
+  },
+  "template:yp9-enlace-vimeo": {
+   "name": "Thanh liên kết: vimeo",
+   "tags": [
+    "youtube",
+    "mạng xã hội",
+    "liên kết",
+    "vimeo"
+   ]
+  },
+  "template:yp9-etiqueta-usuario": {
+   "name": "Nhãn có biểu tượng và @tênngườidùng",
+   "tags": [
+    "youtube",
+    "tên người dùng",
+    "mạng xã hội",
+    "nhãn"
+   ]
+  },
+  "template:yp9-live-stream-blanco": {
+   "name": "Tiêu đề LIVE STREAM trắng có nút",
+   "tags": [
+    "youtube",
+    "trực tiếp",
+    "phát trực tiếp",
+    "tiêu đề"
+   ]
+  },
+  "template:yp9-live-stream-rojo": {
+   "name": "Tiêu đề LIVE STREAM trong hộp đỏ và đen",
+   "tags": [
+    "youtube",
+    "trực tiếp",
+    "phát trực tiếp",
+    "tiêu đề"
+   ]
+  },
+  "template:yp9-me-gusta-cursor": {
+   "name": "Nút thích chuyển xanh khi con trỏ nhấp",
+   "tags": [
+    "youtube",
+    "thích",
+    "nhấp",
+    "con trỏ"
+   ]
+  },
+  "template:yp9-me-gusta-destello": {
+   "name": "Nút thích phát sáng bùng nổ khi nhấp",
+   "tags": [
+    "youtube",
+    "thích",
+    "nhấp",
+    "lấp lánh"
+   ]
+  },
+  "template:yp9-perfil": {
+   "name": "Hồ sơ có ảnh, nút theo dõi và bộ đếm",
+   "tags": [
+    "youtube",
+    "hồ sơ",
+    "theo dõi",
+    "bộ đếm",
+    "mạng xã hội"
+   ]
+  },
+  "template:yp9-rayo": {
+   "name": "Tia sét hình thành từ một đường kẻ",
+   "tags": [
+    "youtube",
+    "tia sét",
+    "mở đầu",
+    "đường kẻ"
+   ]
+  },
+  "template:yp9-redes-enlaces": {
+   "name": "Mười hai thanh liên kết mạng xã hội",
+   "tags": [
+    "youtube",
+    "mạng xã hội",
+    "liên kết",
+    "thanh",
+    "instagram",
+    "facebook"
+   ]
+  },
+  "template:yp9-sticker-suscrito": {
+   "name": "Nút phát biến thành nhãn dán đã đăng ký",
+   "tags": [
+    "youtube",
+    "đăng ký",
+    "nhãn dán",
+    "nhấp"
+   ]
+  },
+  "template:yp9-tarjeta-canal": {
+   "name": "Thẻ kênh với ảnh tròn và nút đăng ký",
+   "tags": [
+    "youtube",
+    "thẻ",
+    "kênh",
+    "đăng ký",
+    "nhấp"
+   ]
+  },
+  "template:yp9-telefono-feed": {
+   "name": "Điện thoại với video dọc và các nút",
+   "tags": [
+    "youtube",
+    "điện thoại",
+    "video dọc",
+    "mạng xã hội",
+    "thích"
+   ]
+  },
+  "template:yp9-telefono-reacciones": {
+   "name": "Điện thoại với tim và lượt thích",
+   "tags": [
+    "youtube",
+    "điện thoại",
+    "thích",
+    "tim",
+    "mạng xã hội"
    ]
   },
   "template:yt-calle-a-que-te-dedicas": {

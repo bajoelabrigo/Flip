@@ -39162,6 +39162,2318 @@
     "блок"
    ]
   },
+  "template:yp10-boton-suscribete": {
+   "name": "Кнопка SUBSCRIBE MY CHANNEL со стрелками",
+   "tags": [
+    "youtube",
+    "от руки",
+    "рисунок",
+    "подписка",
+    "стрелки"
+   ]
+  },
+  "template:yp10-caja-roja": {
+   "name": "SUSCRÍBETE YA в красной рамке",
+   "tags": [
+    "youtube",
+    "от руки",
+    "рисунок",
+    "подписка",
+    "испанский"
+   ]
+  },
+  "template:yp10-check": {
+   "name": "Check New Video с зелёной галочкой",
+   "tags": [
+    "youtube",
+    "от руки",
+    "рисунок",
+    "галочка",
+    "новое видео"
+   ]
+  },
+  "template:yp10-cuenta": {
+   "name": "@youraccount с синей каплей",
+   "tags": [
+    "youtube",
+    "от руки",
+    "рисунок",
+    "аккаунт",
+    "капля"
+   ]
+  },
+  "template:yp10-luna": {
+   "name": "SUBSCRIBE с луной и Like New Video",
+   "tags": [
+    "youtube",
+    "от руки",
+    "рисунок",
+    "подписка",
+    "луна"
+   ]
+  },
+  "template:yp10-me-gusta-amarillo": {
+   "name": "Like New Video с жёлтым пальцем вверх",
+   "tags": [
+    "youtube",
+    "от руки",
+    "рисунок",
+    "лайк",
+    "палец вверх"
+   ]
+  },
+  "template:yp10-mi-canal": {
+   "name": "My Channel, который выделяется и растёт",
+   "tags": [
+    "youtube",
+    "от руки",
+    "рисунок",
+    "канал",
+    "выделение"
+   ]
+  },
+  "template:yp10-nuevo-video-morado": {
+   "name": "NEW VIDEO в фиолетовой рамке с Like",
+   "tags": [
+    "youtube",
+    "от руки",
+    "рисунок",
+    "новое видео",
+    "рамка"
+   ]
+  },
+  "template:yp10-nuevo-video-rosa": {
+   "name": "New Video с розовым пятном и сердечками",
+   "tags": [
+    "youtube",
+    "от руки",
+    "рисунок",
+    "новое видео",
+    "сердечки"
+   ]
+  },
+  "template:yp10-podcast": {
+   "name": "NEW PODCAST с брызгами",
+   "tags": [
+    "youtube",
+    "от руки",
+    "рисунок",
+    "podcast",
+    "брызги"
+   ]
+  },
+  "template:yp10-pulgar-beige": {
+   "name": "NUEVO VIDEO AQUÍ с пальцем вверх",
+   "tags": [
+    "youtube",
+    "от руки",
+    "рисунок",
+    "палец вверх",
+    "испанский"
+   ]
+  },
+  "template:yp10-social-media": {
+   "name": "Social Media Title в красном овале",
+   "tags": [
+    "youtube",
+    "от руки",
+    "рисунок",
+    "заголовок",
+    "овал"
+   ]
+  },
+  "template:yp10-suscribete-flechas": {
+   "name": "Красная кнопка Subscribe со стрелками",
+   "tags": [
+    "youtube",
+    "от руки",
+    "рисунок",
+    "подписка",
+    "стрелки"
+   ]
+  },
+  "template:yp10-suscribete-puntos": {
+   "name": "Subscribe с цветными точками и @yourchannel",
+   "tags": [
+    "youtube",
+    "от руки",
+    "рисунок",
+    "подписка",
+    "кнопка"
+   ]
+  },
+  "template:yp10-tu-logo": {
+   "name": "Your Logo синими чернилами",
+   "tags": [
+    "youtube",
+    "от руки",
+    "рисунок",
+    "логотип",
+    "чернила"
+   ]
+  },
+  "template:yp11-amazing": {
+   "name": "Текст: AMAZING с радугой",
+   "tags": [
+    "youtube",
+    "радуга",
+    "потрясающе",
+    "текст"
+   ]
+  },
+  "template:yp11-any-language": {
+   "name": "Текст: Use Any Language в круге",
+   "tags": [
+    "youtube",
+    "круг",
+    "язык",
+    "текст"
+   ]
+  },
+  "template:yp11-brand-new-year": {
+   "name": "Заголовок: 2026 год Brand New",
+   "tags": [
+    "youtube",
+    "год",
+    "новый",
+    "заголовок"
+   ]
+  },
+  "template:yp11-channel-name": {
+   "name": "Кнопка: название канала",
+   "tags": [
+    "youtube",
+    "канал",
+    "кнопка",
+    "стрелка"
+   ]
+  },
+  "template:yp11-click": {
+   "name": "Кнопка: CLICK с рукой",
+   "tags": [
+    "youtube",
+    "клик",
+    "рука",
+    "кнопка"
+   ]
+  },
+  "template:yp11-comment": {
+   "name": "Текст: Comment со стрелкой",
+   "tags": [
+    "youtube",
+    "комментарий",
+    "стрелка",
+    "текст"
+   ]
+  },
+  "template:yp11-follow-me": {
+   "name": "Кнопка: подписывайтесь с переключателем",
+   "tags": [
+    "youtube",
+    "подписаться",
+    "переключатель",
+    "кнопка"
+   ]
+  },
+  "template:yp11-high-quality": {
+   "name": "Кнопка: высокое качество с указателем",
+   "tags": [
+    "youtube",
+    "качество",
+    "кнопка",
+    "указатель"
+   ]
+  },
+  "template:yp11-like-heart": {
+   "name": "Текст: Like с сердечком",
+   "tags": [
+    "youtube",
+    "лайк",
+    "сердце",
+    "текст"
+   ]
+  },
+  "template:yp11-like-my-video": {
+   "name": "Текст: Like my video с пальцем вверх",
+   "tags": [
+    "youtube",
+    "лайк",
+    "палец вверх",
+    "текст"
+   ]
+  },
+  "template:yp11-looking-perfect": {
+   "name": "Текст: Looking Perfect с точками",
+   "tags": [
+    "youtube",
+    "точки",
+    "текст"
+   ]
+  },
+  "template:yp11-new-video": {
+   "name": "Ярлык: New Video со смайликом",
+   "tags": [
+    "youtube",
+    "новое видео",
+    "смайлик",
+    "ярлык"
+   ]
+  },
+  "template:yp11-play": {
+   "name": "Кнопка: красная play",
+   "tags": [
+    "youtube",
+    "play",
+    "кнопка",
+    "красный"
+   ]
+  },
+  "template:yp11-rate-us": {
+   "name": "Текст: Rate Us с сердечком",
+   "tags": [
+    "youtube",
+    "оценка",
+    "сердце",
+    "текст"
+   ]
+  },
+  "template:yp11-share": {
+   "name": "Текст: SHARE со стрелкой",
+   "tags": [
+    "youtube",
+    "поделиться",
+    "стрелка",
+    "текст"
+   ]
+  },
+  "template:yp11-subscribe-bell": {
+   "name": "Текст: Subscribe с колокольчиком",
+   "tags": [
+    "youtube",
+    "подписка",
+    "колокольчик",
+    "текст"
+   ]
+  },
+  "template:yp11-thanks-watching": {
+   "name": "Текст: спасибо за просмотр с глазом",
+   "tags": [
+    "youtube",
+    "спасибо",
+    "глаз",
+    "благодарность"
+   ]
+  },
+  "template:yp11-titles-smiley": {
+   "name": "Заголовок: TITLES & BUTTONS со смайликом",
+   "tags": [
+    "youtube",
+    "смайлик",
+    "заголовок"
+   ]
+  },
+  "template:yp11-trendy-style": {
+   "name": "Текст: Trendy Style с молниями",
+   "tags": [
+    "youtube",
+    "молния",
+    "тренд",
+    "текст"
+   ]
+  },
+  "template:yp11-watch-now": {
+   "name": "Текст: смотрите сейчас с цветами",
+   "tags": [
+    "youtube",
+    "смотреть",
+    "новое видео",
+    "цветы"
+   ]
+  },
+  "template:yp12-barra-profesora": {
+   "name": "Плашка с фото, лайком, колокольчиком и подпиской",
+   "tags": [
+    "youtube",
+    "подписка",
+    "плашка",
+    "лайк",
+    "колокольчик"
+   ]
+  },
+  "template:yp12-foto-burbujas": {
+   "name": "Фото с пузырями и иконками",
+   "tags": [
+    "youtube",
+    "подписка",
+    "фото",
+    "пузыри",
+    "иконки"
+   ]
+  },
+  "template:yp12-foto-iconos": {
+   "name": "Фото, из которого вылетают иконки",
+   "tags": [
+    "youtube",
+    "подписка",
+    "фото",
+    "круг",
+    "иконки"
+   ]
+  },
+  "template:yp12-foto-lados": {
+   "name": "Фото с иконками по бокам",
+   "tags": [
+    "youtube",
+    "подписка",
+    "фото",
+    "иконки",
+    "клик"
+   ]
+  },
+  "template:yp12-foto-liquida": {
+   "name": "Фото с жидкими иконками",
+   "tags": [
+    "youtube",
+    "подписка",
+    "фото",
+    "жидкость",
+    "иконки"
+   ]
+  },
+  "template:yp12-foto-orbita": {
+   "name": "Круглое фото с вращающимися иконками",
+   "tags": [
+    "youtube",
+    "подписка",
+    "фото",
+    "круг",
+    "иконки"
+   ]
+  },
+  "template:yp12-lista-botones": {
+   "name": "Список: лайк, подписка и уведомления",
+   "tags": [
+    "youtube",
+    "подписка",
+    "список",
+    "лайк",
+    "колокольчик"
+   ]
+  },
+  "template:yp12-lista-capsula": {
+   "name": "Список-капсула: лайк, подписка и уведомления",
+   "tags": [
+    "youtube",
+    "подписка",
+    "список",
+    "капсула",
+    "лайк"
+   ]
+  },
+  "template:yp12-nombre-suscrito": {
+   "name": "Название канала, подписка и колокольчик",
+   "tags": [
+    "youtube",
+    "подписка",
+    "кнопка",
+    "колокольчик",
+    "клик"
+   ]
+  },
+  "template:yp12-tarjeta-gris": {
+   "name": "Серая карточка с большим фото",
+   "tags": [
+    "youtube",
+    "подписка",
+    "карточка",
+    "фото",
+    "серый"
+   ]
+  },
+  "template:yp12-tarjeta-lista": {
+   "name": "Название канала, раскрывающееся в карточку",
+   "tags": [
+    "youtube",
+    "подписка",
+    "карточка",
+    "список",
+    "клик"
+   ]
+  },
+  "template:yp12-tarjeta-rosa": {
+   "name": "Карточка с фото и розовой кнопкой подписки",
+   "tags": [
+    "youtube",
+    "подписка",
+    "карточка",
+    "розовый"
+   ]
+  },
+  "template:yp12-tres-botones": {
+   "name": "Три круглые кнопки",
+   "tags": [
+    "youtube",
+    "подписка",
+    "кнопка",
+    "лайк",
+    "колокольчик"
+   ]
+  },
+  "template:yp13-aconseja-amigos": {
+   "name": "Посоветуйте друзьям: пальцы вверх",
+   "tags": [
+    "youtube",
+    "оценка",
+    "лайк",
+    "друзья",
+    "курсор"
+   ]
+  },
+  "template:yp13-agregar-comentario": {
+   "name": "Кнопка «Добавить комментарий» с публикацией",
+   "tags": [
+    "youtube",
+    "комментарий",
+    "кнопка",
+    "курсор"
+   ]
+  },
+  "template:yp13-avatar-comentario": {
+   "name": "Аватар со значком, открывающим комментарий",
+   "tags": [
+    "youtube",
+    "комментарий",
+    "аватар",
+    "курсор"
+   ]
+  },
+  "template:yp13-aviso-cafe": {
+   "name": "Окно уведомления с кнопкой OK",
+   "tags": [
+    "youtube",
+    "уведомление",
+    "окно",
+    "курсор"
+   ]
+  },
+  "template:yp13-aviso-comentarios": {
+   "name": "Уведомление о комментариях",
+   "tags": [
+    "youtube",
+    "уведомление",
+    "комментарии",
+    "счётчик"
+   ]
+  },
+  "template:yp13-aviso-doble": {
+   "name": "Уведомление о лайках и подписчиках",
+   "tags": [
+    "youtube",
+    "уведомление",
+    "лайк",
+    "подписчики"
+   ]
+  },
+  "template:yp13-aviso-me-gusta": {
+   "name": "Уведомление о лайках",
+   "tags": [
+    "youtube",
+    "уведомление",
+    "лайк",
+    "счётчик"
+   ]
+  },
+  "template:yp13-aviso-seguidores": {
+   "name": "Уведомление о подписчиках",
+   "tags": [
+    "youtube",
+    "уведомление",
+    "подписчики",
+    "счётчик"
+   ]
+  },
+  "template:yp13-barra-suscribir": {
+   "name": "Плашка: лайк, подписка и колокольчик",
+   "tags": [
+    "youtube",
+    "подписка",
+    "лайк",
+    "колокольчик",
+    "курсор"
+   ]
+  },
+  "template:yp13-buscar-boton": {
+   "name": "Поле поиска с кнопкой SEARCH",
+   "tags": [
+    "youtube",
+    "поиск",
+    "кнопка",
+    "курсор"
+   ]
+  },
+  "template:yp13-buscar-cargando": {
+   "name": "Строка поиска, которая переходит в загрузку",
+   "tags": [
+    "youtube",
+    "поиск",
+    "загрузка",
+    "веб",
+    "курсор"
+   ]
+  },
+  "template:yp13-buscar-lupa": {
+   "name": "Поле поиска с квадратной лупой",
+   "tags": [
+    "youtube",
+    "поиск",
+    "лупа",
+    "курсор"
+   ]
+  },
+  "template:yp13-buscar-mapa": {
+   "name": "Карта с поиском и меткой",
+   "tags": [
+    "youtube",
+    "карта",
+    "поиск",
+    "местоположение",
+    "курсор"
+   ]
+  },
+  "template:yp13-caras-valorar": {
+   "name": "Понравилось видео? Смайлики",
+   "tags": [
+    "youtube",
+    "оценка",
+    "смайлики",
+    "курсор"
+   ]
+  },
+  "template:yp13-carrito-precio": {
+   "name": "Кнопка корзины с ценой",
+   "tags": [
+    "youtube",
+    "корзина",
+    "покупка",
+    "цена",
+    "курсор"
+   ]
+  },
+  "template:yp13-casilla-marcada": {
+   "name": "Флажок CHECKED",
+   "tags": [
+    "youtube",
+    "флажок",
+    "галочка",
+    "курсор"
+   ]
+  },
+  "template:yp13-chat-dos": {
+   "name": "Чат двоих со временем и ответом",
+   "tags": [
+    "youtube",
+    "чат",
+    "сообщение",
+    "ответ",
+    "курсор"
+   ]
+  },
+  "template:yp13-chat-nombres": {
+   "name": "Чат с именами и ответом",
+   "tags": [
+    "youtube",
+    "чат",
+    "сообщение",
+    "имена",
+    "курсор"
+   ]
+  },
+  "template:yp13-chat-ventana-amarilla": {
+   "name": "Жёлтое окно чата с именами",
+   "tags": [
+    "youtube",
+    "чат",
+    "сообщение",
+    "окно"
+   ]
+  },
+  "template:yp13-chat-ventana-azul": {
+   "name": "Синее окно чата",
+   "tags": [
+    "youtube",
+    "чат",
+    "сообщение",
+    "окно"
+   ]
+  },
+  "template:yp13-chat-ventana-grande": {
+   "name": "Окно чата поверх видео",
+   "tags": [
+    "youtube",
+    "чат",
+    "сообщение",
+    "окно"
+   ]
+  },
+  "template:yp13-comentario-like": {
+   "name": "Комментарий с LIKE и REPLY",
+   "tags": [
+    "youtube",
+    "комментарий",
+    "лайк",
+    "курсор"
+   ]
+  },
+  "template:yp13-comentario-votos": {
+   "name": "Комментарий с лайком и ответом",
+   "tags": [
+    "youtube",
+    "комментарий",
+    "лайк",
+    "ответ",
+    "курсор"
+   ]
+  },
+  "template:yp13-comprar-gracias": {
+   "name": "Кнопка покупки, которая говорит спасибо",
+   "tags": [
+    "youtube",
+    "кнопка",
+    "покупка",
+    "курсор"
+   ]
+  },
+  "template:yp13-contador-comentarios": {
+   "name": "Облачко со счётчиком комментариев",
+   "tags": [
+    "youtube",
+    "счётчик",
+    "комментарии",
+    "курсор"
+   ]
+  },
+  "template:yp13-contador-corazon": {
+   "name": "Сердце со счётчиком лайков",
+   "tags": [
+    "youtube",
+    "счётчик",
+    "лайк",
+    "сердце",
+    "курсор"
+   ]
+  },
+  "template:yp13-contador-pulgar": {
+   "name": "Палец вверх со счётчиком лайков",
+   "tags": [
+    "youtube",
+    "счётчик",
+    "лайк",
+    "курсор"
+   ]
+  },
+  "template:yp13-contador-seguidores": {
+   "name": "Человечек со счётчиком подписчиков",
+   "tags": [
+    "youtube",
+    "счётчик",
+    "подписчики",
+    "курсор"
+   ]
+  },
+  "template:yp13-descargar-anillo": {
+   "name": "Кнопка загрузки с кольцом прогресса",
+   "tags": [
+    "youtube",
+    "загрузка",
+    "прогресс",
+    "курсор"
+   ]
+  },
+  "template:yp13-descargar-barra": {
+   "name": "Кнопка загрузки с полосой прогресса",
+   "tags": [
+    "youtube",
+    "загрузка",
+    "прогресс",
+    "курсор"
+   ]
+  },
+  "template:yp13-enviar-comentario": {
+   "name": "Поле комментария с кнопкой отправки",
+   "tags": [
+    "youtube",
+    "комментарий",
+    "чат",
+    "отправить",
+    "курсор"
+   ]
+  },
+  "template:yp13-insignia-camara": {
+   "name": "Круглая кнопка с камерой",
+   "tags": [
+    "youtube",
+    "значок",
+    "соцсети",
+    "камера"
+   ]
+  },
+  "template:yp13-insignia-click-here": {
+   "name": "Квадрат CLICK HERE, превращающийся в GOOD JOB!",
+   "tags": [
+    "youtube",
+    "кнопка",
+    "клик",
+    "курсор"
+   ]
+  },
+  "template:yp13-insignia-foto": {
+   "name": "Квадратное фото с касанием",
+   "tags": [
+    "youtube",
+    "фото",
+    "аватар",
+    "курсор"
+   ]
+  },
+  "template:yp13-insignia-get-ready": {
+   "name": "Значок GET READY с фото",
+   "tags": [
+    "youtube",
+    "значок",
+    "фото",
+    "курсор"
+   ]
+  },
+  "template:yp13-insignia-like-this": {
+   "name": "Значок с фото, превращающийся в LIKE THIS!",
+   "tags": [
+    "youtube",
+    "значок",
+    "лайк",
+    "фото",
+    "курсор"
+   ]
+  },
+  "template:yp13-insignia-pajaro": {
+   "name": "Круглая кнопка с птичкой",
+   "tags": [
+    "youtube",
+    "значок",
+    "соцсети",
+    "курсор"
+   ]
+  },
+  "template:yp13-insignia-seguir": {
+   "name": "Значок, превращающийся в FOLLOW",
+   "tags": [
+    "youtube",
+    "значок",
+    "подписаться",
+    "курсор"
+   ]
+  },
+  "template:yp13-insignia-unete": {
+   "name": "Значок JOIN US с кликом",
+   "tags": [
+    "youtube",
+    "значок",
+    "присоединяйтесь",
+    "курсор"
+   ]
+  },
+  "template:yp13-interruptor-encender": {
+   "name": "Переключатель TURN ON",
+   "tags": [
+    "youtube",
+    "переключатель",
+    "включить",
+    "курсор"
+   ]
+  },
+  "template:yp13-interruptor-on-off": {
+   "name": "Переключатель START KEY ON/OFF",
+   "tags": [
+    "youtube",
+    "переключатель",
+    "курсор"
+   ]
+  },
+  "template:yp13-lista-bienvenida": {
+   "name": "Список кнопок «Добро пожаловать на мой канал»",
+   "tags": [
+    "youtube",
+    "список",
+    "подписка",
+    "приветствие",
+    "курсор"
+   ]
+  },
+  "template:yp13-lista-canal-grande": {
+   "name": "Список канала поверх видео",
+   "tags": [
+    "youtube",
+    "список",
+    "подписка",
+    "курсор"
+   ]
+  },
+  "template:yp13-lista-interruptores": {
+   "name": "Список с переключателями",
+   "tags": [
+    "youtube",
+    "список",
+    "переключатель",
+    "курсор"
+   ]
+  },
+  "template:yp13-lista-no-olvides": {
+   "name": "Список «Не забудьте»: подписка, уведомления, лайк",
+   "tags": [
+    "youtube",
+    "список",
+    "подписка",
+    "курсор"
+   ]
+  },
+  "template:yp13-lista-tareas": {
+   "name": "Список дел на сегодня",
+   "tags": [
+    "youtube",
+    "список",
+    "задачи",
+    "курсор"
+   ]
+  },
+  "template:yp13-mensaje-abrir": {
+   "name": "Открывающаяся кнопка сообщения",
+   "tags": [
+    "youtube",
+    "сообщение",
+    "чат",
+    "курсор"
+   ]
+  },
+  "template:yp13-opcion-seleccionar": {
+   "name": "Вариант SELECT",
+   "tags": [
+    "youtube",
+    "вариант",
+    "выбор",
+    "курсор"
+   ]
+  },
+  "template:yp13-perfil-seguir": {
+   "name": "Профиль с фото и кнопкой «Подписаться»",
+   "tags": [
+    "youtube",
+    "профиль",
+    "подписаться",
+    "фото",
+    "курсор"
+   ]
+  },
+  "template:yp13-post-botones": {
+   "name": "Пост с закруглёнными кнопками",
+   "tags": [
+    "youtube",
+    "пост",
+    "лайк",
+    "кнопки",
+    "курсор"
+   ]
+  },
+  "template:yp13-post-insta": {
+   "name": "Пост с большим фото и лайком",
+   "tags": [
+    "youtube",
+    "пост",
+    "фото",
+    "лайк",
+    "курсор"
+   ]
+  },
+  "template:yp13-post-muro": {
+   "name": "Пост на стене с «Нравится», «Комментарий» и «Поделиться»",
+   "tags": [
+    "youtube",
+    "пост",
+    "лайк",
+    "комментарий",
+    "поделиться"
+   ]
+  },
+  "template:yp13-post-noticia": {
+   "name": "Пост с синим именем и лайком",
+   "tags": [
+    "youtube",
+    "пост",
+    "лайк",
+    "курсор"
+   ]
+  },
+  "template:yp13-post-texto": {
+   "name": "Текстовый пост с лайком",
+   "tags": [
+    "youtube",
+    "пост",
+    "текст",
+    "лайк",
+    "курсор"
+   ]
+  },
+  "template:yp13-post-tuit": {
+   "name": "Пост в стиле твита с лайком",
+   "tags": [
+    "youtube",
+    "пост",
+    "твит",
+    "лайк",
+    "курсор"
+   ]
+  },
+  "template:yp13-post-tuit-enlace": {
+   "name": "Твит с карточкой ссылки и лайком",
+   "tags": [
+    "youtube",
+    "пост",
+    "твит",
+    "ссылка",
+    "лайк"
+   ]
+  },
+  "template:yp13-post-tuit-foto": {
+   "name": "Твит с фото по ссылке и лайком",
+   "tags": [
+    "youtube",
+    "пост",
+    "твит",
+    "фото",
+    "лайк"
+   ]
+  },
+  "template:yp13-post-vertical": {
+   "name": "Вертикальный пост с лайком",
+   "tags": [
+    "youtube",
+    "пост",
+    "вертикальный",
+    "лайк",
+    "курсор"
+   ]
+  },
+  "template:yp13-post-video-campana": {
+   "name": "Видеопост: подписка и колокольчик",
+   "tags": [
+    "youtube",
+    "пост",
+    "видео",
+    "подписка",
+    "колокольчик"
+   ]
+  },
+  "template:yp13-post-video-suscribir": {
+   "name": "Видеопост с кнопкой подписки",
+   "tags": [
+    "youtube",
+    "пост",
+    "видео",
+    "подписка",
+    "курсор"
+   ]
+  },
+  "template:yp13-post-video-votos": {
+   "name": "Видеопост с лайком и дизлайком",
+   "tags": [
+    "youtube",
+    "пост",
+    "видео",
+    "лайк",
+    "дизлайк"
+   ]
+  },
+  "template:yp13-reaccion-corazones": {
+   "name": "Кнопка LOVE IT! с летящими сердечками",
+   "tags": [
+    "youtube",
+    "реакция",
+    "сердечки",
+    "кнопка",
+    "курсор"
+   ]
+  },
+  "template:yp13-reaccion-estrellas": {
+   "name": "Кнопка с летящими зелёными звёздами",
+   "tags": [
+    "youtube",
+    "реакция",
+    "звёзды",
+    "кнопка",
+    "курсор"
+   ]
+  },
+  "template:yp13-reaccion-monedas": {
+   "name": "Кнопка DONATE с летящими монетами",
+   "tags": [
+    "youtube",
+    "реакция",
+    "донат",
+    "монеты",
+    "кнопка"
+   ]
+  },
+  "template:yp13-reaccion-pulgares": {
+   "name": "Кнопка LIKE THIS с летящими пальцами вверх",
+   "tags": [
+    "youtube",
+    "реакция",
+    "лайк",
+    "кнопка",
+    "курсор"
+   ]
+  },
+  "template:yp13-recomiendo": {
+   "name": "Рекомендую: пять сердечек",
+   "tags": [
+    "youtube",
+    "оценка",
+    "сердечки",
+    "курсор"
+   ]
+  },
+  "template:yp13-reproductor-amarillo": {
+   "name": "Жёлтые кнопки плеера",
+   "tags": [
+    "youtube",
+    "плеер",
+    "кнопки",
+    "курсор"
+   ]
+  },
+  "template:yp13-reproductor-azul": {
+   "name": "Синие кнопки плеера",
+   "tags": [
+    "youtube",
+    "плеер",
+    "кнопки",
+    "курсор"
+   ]
+  },
+  "template:yp13-reproductor-cuadrado": {
+   "name": "Квадратные кнопки плеера",
+   "tags": [
+    "youtube",
+    "плеер",
+    "кнопки",
+    "курсор"
+   ]
+  },
+  "template:yp13-reproductor-redondo": {
+   "name": "Круглые кнопки плеера",
+   "tags": [
+    "youtube",
+    "плеер",
+    "кнопки",
+    "курсор"
+   ]
+  },
+  "template:yp13-tarjeta-canal": {
+   "name": "Открывающаяся карточка канала",
+   "tags": [
+    "youtube",
+    "канал",
+    "подписка",
+    "аватар",
+    "курсор"
+   ]
+  },
+  "template:yp13-tarjeta-suscribir-grande": {
+   "name": "Большая карточка канала с подпиской",
+   "tags": [
+    "youtube",
+    "канал",
+    "подписка",
+    "аватар",
+    "нижняя плашка"
+   ]
+  },
+  "template:yp13-tuit-texto": {
+   "name": "Текстовый твит с лайком",
+   "tags": [
+    "youtube",
+    "твит",
+    "лайк",
+    "комментарий",
+    "курсор"
+   ]
+  },
+  "template:yp13-valoranos": {
+   "name": "Оцените нас: список звёзд",
+   "tags": [
+    "youtube",
+    "оценка",
+    "звёзды",
+    "список",
+    "курсор"
+   ]
+  },
+  "template:yp13-valorar-10": {
+   "name": "Оценка 10/10 со звёздами",
+   "tags": [
+    "youtube",
+    "оценка",
+    "звёзды",
+    "курсор"
+   ]
+  },
+  "template:yp13-valorar-articulo": {
+   "name": "Оценка пятью звёздами",
+   "tags": [
+    "youtube",
+    "оценка",
+    "звёзды",
+    "курсор"
+   ]
+  },
+  "template:yp13-valorar-genial": {
+   "name": "Кнопка оценки, которая ставит звёзды",
+   "tags": [
+    "youtube",
+    "оценка",
+    "звёзды",
+    "кнопка",
+    "курсор"
+   ]
+  },
+  "template:yp13-valorar-plantilla": {
+   "name": "Карточка оценки со звёздами",
+   "tags": [
+    "youtube",
+    "оценка",
+    "звёзды",
+    "карточка",
+    "логотип"
+   ]
+  },
+  "template:yp13-video-suscribir-campana": {
+   "name": "Карточка видео с подпиской и колокольчиком",
+   "tags": [
+    "youtube",
+    "пост",
+    "подписка",
+    "колокольчик",
+    "курсор"
+   ]
+  },
+  "template:yp13-volumen": {
+   "name": "Ползунок громкости MAKE SOME NOISE",
+   "tags": [
+    "youtube",
+    "громкость",
+    "ползунок",
+    "курсор"
+   ]
+  },
+  "template:yp14-barra-abajo-acciones": {
+   "name": "Плашка видео снизу: лайк, поделиться, скачать и сохранить",
+   "tags": [
+    "youtube",
+    "плашка",
+    "канал",
+    "лайк",
+    "поделиться"
+   ]
+  },
+  "template:yp14-barra-abajo-campana": {
+   "name": "Плашка канала снизу с подпиской и колокольчиком",
+   "tags": [
+    "youtube",
+    "плашка",
+    "канал",
+    "подписка",
+    "колокольчик"
+   ]
+  },
+  "template:yp14-barra-abajo-me-gusta": {
+   "name": "Плашка канала снизу с лайками и подпиской",
+   "tags": [
+    "youtube",
+    "плашка",
+    "канал",
+    "подписка",
+    "лайк"
+   ]
+  },
+  "template:yp14-barra-arriba": {
+   "name": "Плашка канала сверху, сдвигающая фото",
+   "tags": [
+    "youtube",
+    "плашка",
+    "канал",
+    "подписка",
+    "фото"
+   ]
+  },
+  "template:yp14-barra-valoracion-arriba": {
+   "name": "Плашка канала сверху с лайком, дизлайком и рейтингом",
+   "tags": [
+    "youtube",
+    "плашка",
+    "канал",
+    "лайк",
+    "рейтинг"
+   ]
+  },
+  "template:yp14-barra-video-suscribirse": {
+   "name": "Белая плашка снизу поверх видео: аватар, название и подписка",
+   "tags": [
+    "youtube",
+    "плашка",
+    "канал",
+    "подписка",
+    "фото"
+   ]
+  },
+  "template:yp14-boton-redondo-campana": {
+   "name": "Круглая красная кнопка: колокольчик и «Get notified»",
+   "tags": [
+    "youtube",
+    "кнопка",
+    "текст",
+    "колокольчик"
+   ]
+  },
+  "template:yp14-boton-redondo-compartir": {
+   "name": "Круглая красная кнопка: «Поделиться» и «Share this»",
+   "tags": [
+    "youtube",
+    "кнопка",
+    "текст",
+    "поделиться"
+   ]
+  },
+  "template:yp14-boton-redondo-me-gusta": {
+   "name": "Круглая красная кнопка: лайк и «Like the video»",
+   "tags": [
+    "youtube",
+    "кнопка",
+    "текст",
+    "лайк"
+   ]
+  },
+  "template:yp14-boton-redondo-suscribirse": {
+   "name": "Круглая красная кнопка: play и «Subscribe»",
+   "tags": [
+    "youtube",
+    "кнопка",
+    "текст",
+    "play",
+    "подписка"
+   ]
+  },
+  "template:yp14-campana-compartir-redondos": {
+   "name": "Две красные кнопки: колокольчик и «Поделиться»",
+   "tags": [
+    "youtube",
+    "кнопка",
+    "текст",
+    "ряд"
+   ]
+  },
+  "template:yp14-canal-avatar-arriba": {
+   "name": "Вертикальная кнопка канала с аватаром сверху",
+   "tags": [
+    "youtube",
+    "кнопка",
+    "подписка",
+    "аватар"
+   ]
+  },
+  "template:yp14-canal-avatar-centro": {
+   "name": "Кнопка канала с аватаром по центру, «Поделиться» и колокольчиком",
+   "tags": [
+    "youtube",
+    "кнопка",
+    "подписка",
+    "аватар"
+   ]
+  },
+  "template:yp14-canal-avatar-esquina": {
+   "name": "Кнопка канала с аватаром в углу, «Поделиться» и колокольчиком",
+   "tags": [
+    "youtube",
+    "кнопка",
+    "подписка",
+    "аватар"
+   ]
+  },
+  "template:yp14-canal-circulo": {
+   "name": "Канал в круге с колокольчиком, лайком и «Поделиться»",
+   "tags": [
+    "youtube",
+    "кнопка",
+    "колокольчик",
+    "лайк",
+    "круг"
+   ]
+  },
+  "template:yp14-canal-foto-campana": {
+   "name": "Кнопка канала: фото, подписка и колокольчик",
+   "tags": [
+    "youtube",
+    "кнопка",
+    "подписка",
+    "колокольчик"
+   ]
+  },
+  "template:yp14-canal-foto-vertical": {
+   "name": "Вертикальная кнопка канала: фото, подписка, лайк и колокольчик",
+   "tags": [
+    "youtube",
+    "кнопка",
+    "подписка",
+    "вертикальный"
+   ]
+  },
+  "template:yp14-canal-horizontal": {
+   "name": "Горизонтальная кнопка канала: фото, подписчики, подписка и колокольчик",
+   "tags": [
+    "youtube",
+    "кнопка",
+    "подписка",
+    "подписчики"
+   ]
+  },
+  "template:yp14-canal-iconos-columna": {
+   "name": "Канал со столбцом иконок: колокольчик, лайк и «Поделиться»",
+   "tags": [
+    "youtube",
+    "кнопка",
+    "подписка",
+    "иконки"
+   ]
+  },
+  "template:yp14-canal-nombre-largo": {
+   "name": "Кнопка канала: фото, название в три строки, лайк и колокольчик",
+   "tags": [
+    "youtube",
+    "кнопка",
+    "подписка",
+    "канал"
+   ]
+  },
+  "template:yp14-canal-sin-tarjeta": {
+   "name": "Канал: аватар, название, подписчики и подписка",
+   "tags": [
+    "youtube",
+    "кнопка",
+    "подписка",
+    "подписчики"
+   ]
+  },
+  "template:yp14-canal-sobre-video": {
+   "name": "Кнопка канала поверх видео: фото, подписчики и подписка",
+   "tags": [
+    "youtube",
+    "кнопка",
+    "подписка",
+    "видео"
+   ]
+  },
+  "template:yp14-canal-tarjeta-vertical": {
+   "name": "Вертикальная карточка канала: название, фото и подписка",
+   "tags": [
+    "youtube",
+    "кнопка",
+    "подписка",
+    "карточка"
+   ]
+  },
+  "template:yp14-columna-botones": {
+   "name": "Столбец круглых кнопок: подписка, лайк и колокольчик",
+   "tags": [
+    "youtube",
+    "кнопка",
+    "текст",
+    "столбец"
+   ]
+  },
+  "template:yp14-columna-botones-etiquetas": {
+   "name": "Столбец круглых кнопок с подписями: подписка, уведомления, лайк",
+   "tags": [
+    "youtube",
+    "кнопка",
+    "текст",
+    "столбец"
+   ]
+  },
+  "template:yp14-comentario-abajo": {
+   "name": "Комментарий снизу с лайком",
+   "tags": [
+    "youtube",
+    "комментарий",
+    "лайк",
+    "фото"
+   ]
+  },
+  "template:yp14-comentario-arriba": {
+   "name": "Комментарий сверху с лайком и дизлайком",
+   "tags": [
+    "youtube",
+    "комментарий",
+    "лайк",
+    "дизлайк",
+    "фото"
+   ]
+  },
+  "template:yp14-comentario-me-gusta": {
+   "name": "Комментарий с нажатым лайком",
+   "tags": [
+    "youtube",
+    "комментарий",
+    "лайк",
+    "комментарии"
+   ]
+  },
+  "template:yp14-comentario-no-me-gusta": {
+   "name": "Комментарий с нажатым дизлайком",
+   "tags": [
+    "youtube",
+    "комментарий",
+    "дизлайк",
+    "комментарии"
+   ]
+  },
+  "template:yp14-comentario-respuesta": {
+   "name": "Комментарий с набираемым ответом",
+   "tags": [
+    "youtube",
+    "комментарий",
+    "ответ",
+    "комментарии"
+   ]
+  },
+  "template:yp14-comentario-respuesta-2": {
+   "name": "Комментарий с ответом (2)",
+   "tags": [
+    "youtube",
+    "комментарий",
+    "ответ",
+    "комментарии"
+   ]
+  },
+  "template:yp14-comentario-sobre-video": {
+   "name": "Комментарий в одну строку поверх видео",
+   "tags": [
+    "youtube",
+    "комментарий",
+    "комментарии",
+    "видео"
+   ]
+  },
+  "template:yp14-compartir-esto": {
+   "name": "Кнопка «Share This», меняющая красный на белый",
+   "tags": [
+    "youtube",
+    "кнопка",
+    "текст",
+    "поделиться"
+   ]
+  },
+  "template:yp14-fila-botones": {
+   "name": "Ряд круглых кнопок: подписка, колокольчик, «Поделиться» и лайк",
+   "tags": [
+    "youtube",
+    "кнопка",
+    "текст",
+    "ряд"
+   ]
+  },
+  "template:yp14-fila-me-gusta-suscribirse": {
+   "name": "Ряд: лайк, подписка и колокольчик",
+   "tags": [
+    "youtube",
+    "кнопка",
+    "подписка",
+    "лайк"
+   ]
+  },
+  "template:yp14-fila-suscribirse": {
+   "name": "Ряд: лайк, подписка, «Поделиться» и колокольчик",
+   "tags": [
+    "youtube",
+    "кнопка",
+    "текст",
+    "ряд",
+    "подписка"
+   ]
+  },
+  "template:yp14-lista-suscribirse": {
+   "name": "Список: подписка, уведомления и лайк",
+   "tags": [
+    "youtube",
+    "кнопка",
+    "подписка",
+    "список"
+   ]
+  },
+  "template:yp14-lista-ver-mas-tarde": {
+   "name": "Список видео: «Добавлено в Смотреть позже»",
+   "tags": [
+    "youtube",
+    "список",
+    "видео",
+    "смотреть позже"
+   ]
+  },
+  "template:yp14-lista-videos-abrir": {
+   "name": "Список видео: нажмите на одно, и оно заполнит кадр",
+   "tags": [
+    "youtube",
+    "список",
+    "видео",
+    "клик"
+   ]
+  },
+  "template:yp14-logo-arriba-suscribirse": {
+   "name": "Логотип сверху и подписка",
+   "tags": [
+    "youtube",
+    "кнопка",
+    "подписка",
+    "логотип"
+   ]
+  },
+  "template:yp14-logo-suscribirse": {
+   "name": "Логотип канала с подпиской",
+   "tags": [
+    "youtube",
+    "кнопка",
+    "подписка",
+    "логотип"
+   ]
+  },
+  "template:yp14-logo-tarjeta": {
+   "name": "Логотип канала на карточке с подпиской, колокольчиком и «Поделиться»",
+   "tags": [
+    "youtube",
+    "кнопка",
+    "подписка",
+    "логотип"
+   ]
+  },
+  "template:yp14-logo-tarjeta-vertical": {
+   "name": "Логотип канала на вертикальной карточке с колокольчиком и «Поделиться»",
+   "tags": [
+    "youtube",
+    "кнопка",
+    "подписка",
+    "логотип"
+   ]
+  },
+  "template:yp14-me-gusta-avisos": {
+   "name": "Лайк и колокольчик с «Like this / Notified»",
+   "tags": [
+    "youtube",
+    "кнопка",
+    "текст",
+    "лайк",
+    "колокольчик"
+   ]
+  },
+  "template:yp14-me-gusta-barra": {
+   "name": "«Like this» с полосой рейтинга",
+   "tags": [
+    "youtube",
+    "кнопка",
+    "текст",
+    "лайк",
+    "рейтинг"
+   ]
+  },
+  "template:yp14-me-gusta-boton": {
+   "name": "Кнопка «Like it!», выпускающая пальцы вверх",
+   "tags": [
+    "youtube",
+    "кнопка",
+    "текст",
+    "лайк"
+   ]
+  },
+  "template:yp14-me-gusta-campana-redondos": {
+   "name": "Две красные кнопки: лайк и колокольчик",
+   "tags": [
+    "youtube",
+    "кнопка",
+    "текст",
+    "ряд"
+   ]
+  },
+  "template:yp14-me-gusta-compartir-botones": {
+   "name": "Кнопки «Like it» и «Share», меняющие красный на белый",
+   "tags": [
+    "youtube",
+    "кнопка",
+    "текст",
+    "лайк",
+    "поделиться"
+   ]
+  },
+  "template:yp14-me-gusta-compartir-redondos": {
+   "name": "Две красные кнопки: лайк и «Поделиться»",
+   "tags": [
+    "youtube",
+    "кнопка",
+    "текст",
+    "ряд"
+   ]
+  },
+  "template:yp14-me-gusta-contador": {
+   "name": "Большой лайк со счётчиком",
+   "tags": [
+    "youtube",
+    "кнопка",
+    "лайк",
+    "счётчик"
+   ]
+  },
+  "template:yp14-me-gusta-suscribirse": {
+   "name": "Лайк и подписка без карточки",
+   "tags": [
+    "youtube",
+    "кнопка",
+    "текст",
+    "подписка"
+   ]
+  },
+  "template:yp14-me-gusta-suscribirse-campana": {
+   "name": "Лайк, подписка и колокольчик без карточки",
+   "tags": [
+    "youtube",
+    "кнопка",
+    "текст",
+    "подписка"
+   ]
+  },
+  "template:yp14-no-me-gusta-boton": {
+   "name": "Кнопка «Dislike!», выпускающая пальцы вниз",
+   "tags": [
+    "youtube",
+    "кнопка",
+    "текст",
+    "дизлайк"
+   ]
+  },
+  "template:yp14-no-me-gusta-contador": {
+   "name": "Большой дизлайк со счётчиком",
+   "tags": [
+    "youtube",
+    "кнопка",
+    "дизлайк",
+    "счётчик"
+   ]
+  },
+  "template:yp14-no-recomendar": {
+   "name": "«Don't recommend»: отмечаются пять пальцев вниз",
+   "tags": [
+    "youtube",
+    "кнопка",
+    "текст",
+    "оценка",
+    "дизлайк"
+   ]
+  },
+  "template:yp14-nombre-suscrito-campana": {
+   "name": "Название канала с подпиской и колокольчиком",
+   "tags": [
+    "youtube",
+    "кнопка",
+    "подписка",
+    "колокольчик"
+   ]
+  },
+  "template:yp14-nombre-suscrito-me-gusta": {
+   "name": "Название канала с подпиской, лайком и дизлайком",
+   "tags": [
+    "youtube",
+    "кнопка",
+    "подписка",
+    "лайк"
+   ]
+  },
+  "template:yp14-pildora-me-gusta": {
+   "name": "Красная капсула лайк / дизлайк: клик по лайку",
+   "tags": [
+    "youtube",
+    "кнопка",
+    "лайк",
+    "дизлайк"
+   ]
+  },
+  "template:yp14-pildora-no-me-gusta": {
+   "name": "Красная капсула лайк / дизлайк: клик по дизлайку",
+   "tags": [
+    "youtube",
+    "кнопка",
+    "лайк",
+    "дизлайк"
+   ]
+  },
+  "template:yp14-recomendar-amigos": {
+   "name": "«Advise friends»: отмечаются пять пальцев вверх",
+   "tags": [
+    "youtube",
+    "кнопка",
+    "текст",
+    "оценка",
+    "лайк"
+   ]
+  },
+  "template:yp14-suscribirse-campana": {
+   "name": "Подписка и колокольчик без карточки",
+   "tags": [
+    "youtube",
+    "кнопка",
+    "текст",
+    "подписка"
+   ]
+  },
+  "template:yp14-suscribirse-casilla": {
+   "name": "Флажок с «Subscribe Youtube Channel»",
+   "tags": [
+    "youtube",
+    "кнопка",
+    "текст",
+    "подписка",
+    "флажок"
+   ]
+  },
+  "template:yp14-suscribirse-contador": {
+   "name": "Подписка со счётчиком от 19999 до 20000",
+   "tags": [
+    "youtube",
+    "кнопка",
+    "текст",
+    "подписка",
+    "счётчик"
+   ]
+  },
+  "template:yp14-suscribirse-hecho": {
+   "name": "«Subscribe Channel» с «DO IT!», превращающимся в «DONE»",
+   "tags": [
+    "youtube",
+    "кнопка",
+    "текст",
+    "подписка"
+   ]
+  },
+  "template:yp14-suscribirse-play": {
+   "name": "Красная кнопка «SUBSCRIBE» с play, превращающаяся в «SUBSCRIBED»",
+   "tags": [
+    "youtube",
+    "кнопка",
+    "текст",
+    "подписка"
+   ]
+  },
+  "template:yp14-suscrito-iconos": {
+   "name": "«Вы подписаны» с лайком, колокольчиком и «Поделиться»",
+   "tags": [
+    "youtube",
+    "кнопка",
+    "подписка",
+    "колокольчик"
+   ]
+  },
+  "template:yp14-tarjeta-campana": {
+   "name": "Карточка канала с подпиской и колокольчиком",
+   "tags": [
+    "youtube",
+    "карточка",
+    "канал",
+    "колокольчик"
+   ]
+  },
+  "template:yp14-tarjeta-comentario": {
+   "name": "Карточка видео с дизлайком и комментарием",
+   "tags": [
+    "youtube",
+    "карточка",
+    "канал",
+    "комментарий"
+   ]
+  },
+  "template:yp14-tarjeta-comentario-2": {
+   "name": "Карточка видео с лайком и комментарием",
+   "tags": [
+    "youtube",
+    "карточка",
+    "канал",
+    "комментарий"
+   ]
+  },
+  "template:yp14-tarjeta-cristal": {
+   "name": "Карточка канала: стекло поверх фото с колокольчиком",
+   "tags": [
+    "youtube",
+    "карточка",
+    "канал",
+    "подписка",
+    "стекло"
+   ]
+  },
+  "template:yp14-tarjeta-cristal-inclinada": {
+   "name": "Карточка канала: наклонённое стекло поверх фото",
+   "tags": [
+    "youtube",
+    "карточка",
+    "канал",
+    "подписка",
+    "стекло"
+   ]
+  },
+  "template:yp14-tarjeta-foto-inclinada": {
+   "name": "Карточка канала: наклонённое фото с подпиской и колокольчиком",
+   "tags": [
+    "youtube",
+    "карточка",
+    "канал",
+    "подписка",
+    "фото"
+   ]
+  },
+  "template:yp14-tarjeta-foto-marco": {
+   "name": "Карточка канала: фото в белой рамке с полосой прогресса",
+   "tags": [
+    "youtube",
+    "карточка",
+    "канал",
+    "подписка",
+    "фото"
+   ]
+  },
+  "template:yp14-tarjeta-foto-progreso": {
+   "name": "Карточка канала: фото с полосой прогресса и лайками",
+   "tags": [
+    "youtube",
+    "карточка",
+    "канал",
+    "подписка",
+    "фото"
+   ]
+  },
+  "template:yp14-tarjeta-foto-recta": {
+   "name": "Карточка канала: фото в рамке с лайком, подпиской и колокольчиком",
+   "tags": [
+    "youtube",
+    "карточка",
+    "канал",
+    "подписка",
+    "фото"
+   ]
+  },
+  "template:yp14-tarjeta-marco": {
+   "name": "Карточка канала: белая рамка поверх фото с полосой прогресса",
+   "tags": [
+    "youtube",
+    "карточка",
+    "канал",
+    "подписка",
+    "фото"
+   ]
+  },
+  "template:yp14-tarjeta-marco-inclinado": {
+   "name": "Карточка канала: наклонённая белая рамка поверх фото",
+   "tags": [
+    "youtube",
+    "карточка",
+    "канал",
+    "подписка",
+    "фото"
+   ]
+  },
+  "template:yp14-tarjeta-video-compartir": {
+   "name": "Карточка видео с лайком, «Поделиться» и подпиской",
+   "tags": [
+    "youtube",
+    "карточка",
+    "канал",
+    "поделиться"
+   ]
+  },
+  "template:yp14-tarjeta-video-cuadrada": {
+   "name": "Наклонённая карточка видео с квадратным аватаром и красной кнопкой",
+   "tags": [
+    "youtube",
+    "карточка",
+    "видео",
+    "подписка",
+    "фото"
+   ]
+  },
+  "template:yp14-tarjeta-video-play": {
+   "name": "Карточка видео: нажмите play, и видео заполнит кадр",
+   "tags": [
+    "youtube",
+    "карточка",
+    "видео",
+    "play"
+   ]
+  },
+  "template:yp14-tarjeta-video-titulo": {
+   "name": "Карточка видео с каналом сверху и заголовком: нажмите play",
+   "tags": [
+    "youtube",
+    "карточка",
+    "видео",
+    "play",
+    "заголовок"
+   ]
+  },
+  "template:yp14-tres-botones-blancos": {
+   "name": "Три белые кнопки: лайк, колокольчик и «Поделиться», нажатые разом",
+   "tags": [
+    "youtube",
+    "кнопка",
+    "текст",
+    "ряд"
+   ]
+  },
+  "template:yp14-valoracion-abajo": {
+   "name": "Плашка канала снизу с лайком, дизлайком и рейтингом",
+   "tags": [
+    "youtube",
+    "плашка",
+    "канал",
+    "лайк",
+    "рейтинг"
+   ]
+  },
+  "template:yp14-youtube-channel": {
+   "name": "«YOUTUBE CHANNEL», краснеющий от клика",
+   "tags": [
+    "youtube",
+    "кнопка",
+    "текст",
+    "заголовок"
+   ]
+  },
+  "template:yp15-cargo-verde": {
+   "name": "Стеклянная нижняя плашка с должностью зелёным",
+   "tags": [
+    "youtube",
+    "нижняя плашка",
+    "стекло",
+    "имя",
+    "зелёный"
+   ]
+  },
+  "template:yp15-centrado": {
+   "name": "Стеклянная плашка по центру с подпиской",
+   "tags": [
+    "youtube",
+    "нижняя плашка",
+    "стекло",
+    "подписка"
+   ]
+  },
+  "template:yp15-dos-nombres": {
+   "name": "Стеклянная нижняя плашка: два имени",
+   "tags": [
+    "youtube",
+    "нижняя плашка",
+    "стекло",
+    "имя",
+    "двое"
+   ]
+  },
+  "template:yp15-foto-redonda": {
+   "name": "Стеклянная нижняя плашка с круглым фото",
+   "tags": [
+    "youtube",
+    "нижняя плашка",
+    "стекло",
+    "фото",
+    "аватар"
+   ]
+  },
+  "template:yp15-foto-suscribete": {
+   "name": "Стеклянная нижняя плашка с фото и подпиской",
+   "tags": [
+    "youtube",
+    "нижняя плашка",
+    "стекло",
+    "подписка",
+    "фото"
+   ]
+  },
+  "template:yp15-linea-fina": {
+   "name": "Тонкая стеклянная нижняя плашка",
+   "tags": [
+    "youtube",
+    "нижняя плашка",
+    "стекло",
+    "имя"
+   ]
+  },
+  "template:yp15-logo-nombre": {
+   "name": "Стеклянная нижняя плашка с логотипом",
+   "tags": [
+    "youtube",
+    "нижняя плашка",
+    "стекло",
+    "имя",
+    "логотип"
+   ]
+  },
+  "template:yp15-logo-suscribete": {
+   "name": "Стеклянная нижняя плашка с логотипом и подпиской",
+   "tags": [
+    "youtube",
+    "нижняя плашка",
+    "стекло",
+    "подписка",
+    "логотип"
+   ]
+  },
+  "template:yp15-nombre-suscribete": {
+   "name": "Стеклянная нижняя плашка с подпиской",
+   "tags": [
+    "youtube",
+    "нижняя плашка",
+    "стекло",
+    "имя",
+    "подписка"
+   ]
+  },
+  "template:yp15-pareja": {
+   "name": "Стеклянная нижняя плашка: пара с фото",
+   "tags": [
+    "youtube",
+    "нижняя плашка",
+    "стекло",
+    "имя",
+    "фото"
+   ]
+  },
+  "template:yp15-tarjeta-foto": {
+   "name": "Стеклянная карточка с фото и логотипом",
+   "tags": [
+    "youtube",
+    "нижняя плашка",
+    "стекло",
+    "фото",
+    "логотип"
+   ]
+  },
+  "template:yp15-una-linea": {
+   "name": "Стеклянная нижняя плашка в одну строку",
+   "tags": [
+    "youtube",
+    "нижняя плашка",
+    "стекло",
+    "имя"
+   ]
+  },
+  "template:yp16-barra-nombre": {
+   "name": "Стеклянная плашка с именем и подпиской",
+   "tags": [
+    "youtube",
+    "стекло",
+    "подписка",
+    "клик",
+    "фото"
+   ]
+  },
+  "template:yp16-barra-suscribete": {
+   "name": "Стеклянная плашка с фото и подпиской",
+   "tags": [
+    "youtube",
+    "стекло",
+    "подписка",
+    "клик",
+    "фото"
+   ]
+  },
+  "template:yp16-burbuja-canal": {
+   "name": "Стеклянный пузырь с фото и каналом",
+   "tags": [
+    "youtube",
+    "стекло",
+    "канал",
+    "фото"
+   ]
+  },
+  "template:yp16-circulo": {
+   "name": "Стеклянный круг с фото и подпиской",
+   "tags": [
+    "youtube",
+    "стекло",
+    "подписка",
+    "фото",
+    "круг"
+   ]
+  },
+  "template:yp16-join-us": {
+   "name": "Тёмная стеклянная капсула: join us now",
+   "tags": [
+    "youtube",
+    "стекло",
+    "присоединяйтесь"
+   ]
+  },
+  "template:yp16-pildora-canal": {
+   "name": "Стеклянная капсула с фото посередине",
+   "tags": [
+    "youtube",
+    "стекло",
+    "канал",
+    "фото"
+   ]
+  },
+  "template:yp16-stay-tuned": {
+   "name": "Стеклянный круг: stay tuned",
+   "tags": [
+    "youtube",
+    "стекло",
+    "круг"
+   ]
+  },
+  "template:yp16-tarjeta-cuadrada": {
+   "name": "Квадратная стеклянная карточка с подпиской",
+   "tags": [
+    "youtube",
+    "стекло",
+    "подписка",
+    "клик",
+    "фото"
+   ]
+  },
+  "template:yp16-tarjeta-nombre": {
+   "name": "Стеклянная карточка с именем и подпиской",
+   "tags": [
+    "youtube",
+    "стекло",
+    "подписка",
+    "клик",
+    "фото"
+   ]
+  },
+  "template:yp16-tarjeta-vertical": {
+   "name": "Вертикальная стеклянная карточка с подпиской",
+   "tags": [
+    "youtube",
+    "стекло",
+    "подписка",
+    "клик",
+    "фото"
+   ]
+  },
+  "template:yp16-watch-more": {
+   "name": "Стеклянный пузырь: watch more",
+   "tags": [
+    "youtube",
+    "стекло",
+    "смотреть ещё"
+   ]
+  },
+  "template:yp17-barra-canal": {
+   "name": "Плоская плашка с фото и подпиской",
+   "tags": [
+    "youtube",
+    "карточка",
+    "плоский",
+    "подписка",
+    "фото"
+   ]
+  },
+  "template:yp17-barra-foto": {
+   "name": "Плоская плашка с фото посередине",
+   "tags": [
+    "youtube",
+    "карточка",
+    "плоский",
+    "подписка",
+    "фото"
+   ]
+  },
+  "template:yp17-barra-titulo": {
+   "name": "Плоская плашка с фото и заголовком",
+   "tags": [
+    "youtube",
+    "карточка",
+    "плоский",
+    "подписка",
+    "заголовок"
+   ]
+  },
+  "template:yp17-boton-youtube": {
+   "name": "Плоская карточка с кнопкой YouTube",
+   "tags": [
+    "youtube",
+    "карточка",
+    "плоский",
+    "кнопка",
+    "play"
+   ]
+  },
+  "template:yp17-foto-arriba": {
+   "name": "Круглое фото над карточкой подписки",
+   "tags": [
+    "youtube",
+    "карточка",
+    "плоский",
+    "подписка",
+    "фото"
+   ]
+  },
+  "template:yp17-foto-cuadrada": {
+   "name": "Квадратное фото и плашка подписки",
+   "tags": [
+    "youtube",
+    "карточка",
+    "плоский",
+    "подписка",
+    "фото"
+   ]
+  },
+  "template:yp17-join-us": {
+   "name": "Плоская карточка: join us с YouTube",
+   "tags": [
+    "youtube",
+    "карточка",
+    "плоский",
+    "присоединяйтесь"
+   ]
+  },
+  "template:yp17-tarjeta-nombre": {
+   "name": "Плоская карточка с фото, YouTube и подпиской",
+   "tags": [
+    "youtube",
+    "карточка",
+    "плоский",
+    "подписка",
+    "фото"
+   ]
+  },
+  "template:yp17-tarjeta-vertical": {
+   "name": "Плоская вертикальная карточка с подпиской",
+   "tags": [
+    "youtube",
+    "карточка",
+    "плоский",
+    "подписка",
+    "фото"
+   ]
+  },
+  "template:yp17-watch-more": {
+   "name": "Плоская карточка: watch more",
+   "tags": [
+    "youtube",
+    "карточка",
+    "плоский",
+    "смотреть ещё"
+   ]
+  },
   "template:yp2-apertura": {
    "name": "Открытие: красно-белое кольцо с кнопкой YouTube",
    "tags": [
@@ -41641,6 +43953,496 @@
     "переход",
     "анимация перехода",
     "смена кадра"
+   ]
+  },
+  "template:yp8-disfruta": {
+   "name": "Концовка: enjoy",
+   "tags": [
+    "youtube",
+    "концовка",
+    "текст"
+   ]
+  },
+  "template:yp8-logo-formas-claro": {
+   "name": "Заставка: оранжевые фигуры открывают ваш логотип",
+   "tags": [
+    "youtube",
+    "логотип",
+    "заставка",
+    "фигуры"
+   ]
+  },
+  "template:yp8-logo-formas-oscuro": {
+   "name": "Заставка: фигуры открывают ваш логотип (тёмная)",
+   "tags": [
+    "youtube",
+    "логотип",
+    "заставка",
+    "фигуры"
+   ]
+  },
+  "template:yp8-logo-formas-video": {
+   "name": "Заставка: белые фигуры и логотип поверх видео",
+   "tags": [
+    "youtube",
+    "логотип",
+    "заставка",
+    "фигуры"
+   ]
+  },
+  "template:yp8-logo-youtube-claro": {
+   "name": "Собирающийся логотип YouTube (белый фон)",
+   "tags": [
+    "youtube",
+    "логотип",
+    "заставка",
+    "белый"
+   ]
+  },
+  "template:yp8-logo-youtube-oscuro": {
+   "name": "Собирающийся логотип YouTube (тёмный фон)",
+   "tags": [
+    "youtube",
+    "логотип",
+    "заставка",
+    "тёмный"
+   ]
+  },
+  "template:yp8-logo-youtube-video": {
+   "name": "Белый логотип YouTube поверх видео",
+   "tags": [
+    "youtube",
+    "логотип",
+    "заставка",
+    "белый"
+   ]
+  },
+  "template:yp8-me-gusta-blanco": {
+   "name": "Лайк в белом круге",
+   "tags": [
+    "youtube",
+    "лайк",
+    "кнопка",
+    "круг"
+   ]
+  },
+  "template:yp8-me-gusta-oscuro": {
+   "name": "Лайк в тёмном круге",
+   "tags": [
+    "youtube",
+    "лайк",
+    "кнопка",
+    "круг"
+   ]
+  },
+  "template:yp8-redes-tercios": {
+   "name": "Семь плашек соцсетей",
+   "tags": [
+    "youtube",
+    "соцсети",
+    "нижняя плашка",
+    "instagram",
+    "facebook"
+   ]
+  },
+  "template:yp8-suscribirse-blanco": {
+   "name": "Плашка подписки с кликом и колокольчиком",
+   "tags": [
+    "youtube",
+    "подписка",
+    "кнопка",
+    "клик",
+    "колокольчик"
+   ]
+  },
+  "template:yp8-suscribirse-oscuro": {
+   "name": "Плашка подписки с кликом и колокольчиком (тёмная)",
+   "tags": [
+    "youtube",
+    "подписка",
+    "кнопка",
+    "клик",
+    "колокольчик"
+   ]
+  },
+  "template:yp8-tercio-facebook": {
+   "name": "Нижняя плашка: подписывайтесь в Facebook",
+   "tags": [
+    "youtube",
+    "нижняя плашка",
+    "facebook",
+    "соцсети"
+   ]
+  },
+  "template:yp8-tercio-instagram": {
+   "name": "Нижняя плашка: ник в Instagram",
+   "tags": [
+    "youtube",
+    "нижняя плашка",
+    "instagram",
+    "соцсети"
+   ]
+  },
+  "template:yp8-tercio-nombre": {
+   "name": "Нижняя плашка: имя и должность",
+   "tags": [
+    "youtube",
+    "нижняя плашка",
+    "титр",
+    "имя"
+   ]
+  },
+  "template:yp8-tercio-twitter": {
+   "name": "Нижняя плашка: ник в Twitter",
+   "tags": [
+    "youtube",
+    "нижняя плашка",
+    "twitter",
+    "соцсети"
+   ]
+  },
+  "template:yp8-tercio-youtube": {
+   "name": "Нижняя плашка: подпишись на мой канал",
+   "tags": [
+    "youtube",
+    "нижняя плашка",
+    "подписка",
+    "канал"
+   ]
+  },
+  "template:yp8-tercio-yt-blanco": {
+   "name": "Нижняя плашка: ник в YouTube",
+   "tags": [
+    "youtube",
+    "нижняя плашка",
+    "ник",
+    "соцсети"
+   ]
+  },
+  "template:yp8-tercio-yt-oscuro": {
+   "name": "Нижняя плашка: подпишись на YouTube (тёмная)",
+   "tags": [
+    "youtube",
+    "нижняя плашка",
+    "подписка",
+    "тёмный"
+   ]
+  },
+  "template:yp8-transicion-ola": {
+   "name": "Переход: сине-зелёная волна",
+   "tags": [
+    "youtube",
+    "переход",
+    "градиент",
+    "волна"
+   ]
+  },
+  "template:yp8-transicion-rombo": {
+   "name": "Переход: поднимающийся сине-зелёный ромб",
+   "tags": [
+    "youtube",
+    "переход",
+    "градиент",
+    "ромб"
+   ]
+  },
+  "template:yp9-barra-canal": {
+   "name": "Плашка с названием канала и колокольчиком",
+   "tags": [
+    "youtube",
+    "плашка",
+    "канал",
+    "колокольчик"
+   ]
+  },
+  "template:yp9-bloques-glitch": {
+   "name": "Цветные блоки с глитчем",
+   "tags": [
+    "youtube",
+    "глитч",
+    "цвета",
+    "сбой"
+   ]
+  },
+  "template:yp9-boton-suscribirse": {
+   "name": "Кнопка подписки, которая заполняется и нажимается",
+   "tags": [
+    "youtube",
+    "подписка",
+    "кнопка",
+    "клик",
+    "курсор"
+   ]
+  },
+  "template:yp9-boton-ventana": {
+   "name": "Кнопка play, открывающая окно с видео",
+   "tags": [
+    "youtube",
+    "play",
+    "окно",
+    "переход"
+   ]
+  },
+  "template:yp9-cinta-tendencia": {
+   "name": "Жёлтая лента тренда с заголовком",
+   "tags": [
+    "youtube",
+    "лента",
+    "тренд",
+    "заголовок"
+   ]
+  },
+  "template:yp9-corazones-flotando": {
+   "name": "Сердечки, поднимающиеся над видео",
+   "tags": [
+    "youtube",
+    "сердечки",
+    "любовь",
+    "видео"
+   ]
+  },
+  "template:yp9-destello-a": {
+   "name": "Вспышка из каракулей A",
+   "tags": [
+    "youtube",
+    "вспышка",
+    "каракули",
+    "блеск"
+   ]
+  },
+  "template:yp9-destello-b": {
+   "name": "Вспышка из каракулей B",
+   "tags": [
+    "youtube",
+    "вспышка",
+    "каракули",
+    "блеск"
+   ]
+  },
+  "template:yp9-destello-c": {
+   "name": "Вспышка из каракулей C",
+   "tags": [
+    "youtube",
+    "вспышка",
+    "каракули",
+    "блеск"
+   ]
+  },
+  "template:yp9-enlace-behance": {
+   "name": "Плашка со ссылкой: behance",
+   "tags": [
+    "youtube",
+    "соцсети",
+    "ссылка",
+    "behance"
+   ]
+  },
+  "template:yp9-enlace-dribbble": {
+   "name": "Плашка со ссылкой: dribbble",
+   "tags": [
+    "youtube",
+    "соцсети",
+    "ссылка",
+    "dribbble"
+   ]
+  },
+  "template:yp9-enlace-facebook": {
+   "name": "Плашка со ссылкой: facebook",
+   "tags": [
+    "youtube",
+    "соцсети",
+    "ссылка",
+    "facebook"
+   ]
+  },
+  "template:yp9-enlace-google": {
+   "name": "Плашка со ссылкой: google",
+   "tags": [
+    "youtube",
+    "соцсети",
+    "ссылка",
+    "google"
+   ]
+  },
+  "template:yp9-enlace-instagram": {
+   "name": "Плашка со ссылкой: instagram",
+   "tags": [
+    "youtube",
+    "соцсети",
+    "ссылка",
+    "instagram"
+   ]
+  },
+  "template:yp9-enlace-itunes": {
+   "name": "Плашка со ссылкой: itunes",
+   "tags": [
+    "youtube",
+    "соцсети",
+    "ссылка",
+    "itunes"
+   ]
+  },
+  "template:yp9-enlace-patreon": {
+   "name": "Плашка со ссылкой: patreon",
+   "tags": [
+    "youtube",
+    "соцсети",
+    "ссылка",
+    "patreon"
+   ]
+  },
+  "template:yp9-enlace-soundcloud": {
+   "name": "Плашка со ссылкой: soundcloud",
+   "tags": [
+    "youtube",
+    "соцсети",
+    "ссылка",
+    "soundcloud"
+   ]
+  },
+  "template:yp9-enlace-spotify": {
+   "name": "Плашка со ссылкой: spotify",
+   "tags": [
+    "youtube",
+    "соцсети",
+    "ссылка",
+    "spotify"
+   ]
+  },
+  "template:yp9-enlace-telegram": {
+   "name": "Плашка со ссылкой: telegram",
+   "tags": [
+    "youtube",
+    "соцсети",
+    "ссылка",
+    "telegram"
+   ]
+  },
+  "template:yp9-enlace-twitter": {
+   "name": "Плашка со ссылкой: twitter",
+   "tags": [
+    "youtube",
+    "соцсети",
+    "ссылка",
+    "twitter"
+   ]
+  },
+  "template:yp9-enlace-vimeo": {
+   "name": "Плашка со ссылкой: vimeo",
+   "tags": [
+    "youtube",
+    "соцсети",
+    "ссылка",
+    "vimeo"
+   ]
+  },
+  "template:yp9-etiqueta-usuario": {
+   "name": "Значок с иконкой и @ником",
+   "tags": [
+    "youtube",
+    "ник",
+    "соцсети",
+    "значок"
+   ]
+  },
+  "template:yp9-live-stream-blanco": {
+   "name": "Белый заголовок LIVE STREAM с кнопкой",
+   "tags": [
+    "youtube",
+    "прямой эфир",
+    "live",
+    "трансляция"
+   ]
+  },
+  "template:yp9-live-stream-rojo": {
+   "name": "Заголовок LIVE STREAM в красной и чёрной плашках",
+   "tags": [
+    "youtube",
+    "прямой эфир",
+    "live",
+    "трансляция"
+   ]
+  },
+  "template:yp9-me-gusta-cursor": {
+   "name": "Лайк, который курсор делает синим",
+   "tags": [
+    "youtube",
+    "лайк",
+    "клик",
+    "курсор"
+   ]
+  },
+  "template:yp9-me-gusta-destello": {
+   "name": "Светящийся лайк, вспыхивающий от клика",
+   "tags": [
+    "youtube",
+    "лайк",
+    "клик",
+    "вспышка"
+   ]
+  },
+  "template:yp9-perfil": {
+   "name": "Профиль с фото, кнопкой подписки и счётчиками",
+   "tags": [
+    "youtube",
+    "профиль",
+    "подписаться",
+    "счётчик"
+   ]
+  },
+  "template:yp9-rayo": {
+   "name": "Молния, которая рисуется из линии",
+   "tags": [
+    "youtube",
+    "молния",
+    "интро",
+    "линия"
+   ]
+  },
+  "template:yp9-redes-enlaces": {
+   "name": "Двенадцать плашек со ссылками на соцсети",
+   "tags": [
+    "youtube",
+    "соцсети",
+    "ссылка",
+    "плашка"
+   ]
+  },
+  "template:yp9-sticker-suscrito": {
+   "name": "Кнопка play превращается в стикер подписки",
+   "tags": [
+    "youtube",
+    "подписка",
+    "стикер",
+    "клик"
+   ]
+  },
+  "template:yp9-tarjeta-canal": {
+   "name": "Карточка канала с круглым фото и подпиской",
+   "tags": [
+    "youtube",
+    "карточка",
+    "канал",
+    "подписка",
+    "клик"
+   ]
+  },
+  "template:yp9-telefono-feed": {
+   "name": "Телефон с вертикальным видео и кнопками",
+   "tags": [
+    "youtube",
+    "телефон",
+    "вертикальное видео",
+    "лайк"
+   ]
+  },
+  "template:yp9-telefono-reacciones": {
+   "name": "Телефон с сердечками и лайками",
+   "tags": [
+    "youtube",
+    "телефон",
+    "лайк",
+    "сердечки"
    ]
   },
   "template:yt-calle-a-que-te-dedicas": {

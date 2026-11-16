@@ -38719,6 +38719,2298 @@
     "ボックス"
    ]
   },
+  "template:yp10-boton-suscribete": {
+   "name": "矢印付きSUBSCRIBE MY CHANNELボタン",
+   "tags": [
+    "youtube",
+    "手描き",
+    "イラスト",
+    "sns",
+    "チャンネル登録",
+    "ボタン"
+   ]
+  },
+  "template:yp10-caja-roja": {
+   "name": "赤いボックスのSUSCRÍBETE YA",
+   "tags": [
+    "youtube",
+    "手描き",
+    "イラスト",
+    "sns",
+    "チャンネル登録",
+    "ボックス"
+   ]
+  },
+  "template:yp10-check": {
+   "name": "緑のチェックのCheck New Video",
+   "tags": [
+    "youtube",
+    "手描き",
+    "イラスト",
+    "sns",
+    "チェック",
+    "新着動画"
+   ]
+  },
+  "template:yp10-cuenta": {
+   "name": "青いしずくの@youraccount",
+   "tags": [
+    "youtube",
+    "手描き",
+    "イラスト",
+    "sns",
+    "アカウント",
+    "しずく"
+   ]
+  },
+  "template:yp10-luna": {
+   "name": "月のSUBSCRIBEとLike New Video",
+   "tags": [
+    "youtube",
+    "手描き",
+    "イラスト",
+    "sns",
+    "チャンネル登録",
+    "月"
+   ]
+  },
+  "template:yp10-me-gusta-amarillo": {
+   "name": "黄色い親指のLike New Video",
+   "tags": [
+    "youtube",
+    "手描き",
+    "イラスト",
+    "sns",
+    "いいね",
+    "親指"
+   ]
+  },
+  "template:yp10-mi-canal": {
+   "name": "選択されて大きくなるMy Channel",
+   "tags": [
+    "youtube",
+    "手描き",
+    "イラスト",
+    "sns",
+    "チャンネル",
+    "選択"
+   ]
+  },
+  "template:yp10-nuevo-video-morado": {
+   "name": "紫のボックスにNEW VIDEOとLike",
+   "tags": [
+    "youtube",
+    "手描き",
+    "イラスト",
+    "sns",
+    "新着動画",
+    "ボックス"
+   ]
+  },
+  "template:yp10-nuevo-video-rosa": {
+   "name": "ピンクのしみとハートのNew Video",
+   "tags": [
+    "youtube",
+    "手描き",
+    "イラスト",
+    "sns",
+    "新着動画",
+    "ハート"
+   ]
+  },
+  "template:yp10-podcast": {
+   "name": "しぶき付きNEW PODCAST",
+   "tags": [
+    "youtube",
+    "手描き",
+    "イラスト",
+    "sns",
+    "podcast"
+   ]
+  },
+  "template:yp10-pulgar-beige": {
+   "name": "親指付きNUEVO VIDEO AQUÍ",
+   "tags": [
+    "youtube",
+    "手描き",
+    "イラスト",
+    "sns",
+    "親指",
+    "スペイン語"
+   ]
+  },
+  "template:yp10-social-media": {
+   "name": "赤い楕円のSocial Media Title",
+   "tags": [
+    "youtube",
+    "手描き",
+    "イラスト",
+    "sns",
+    "タイトル",
+    "楕円"
+   ]
+  },
+  "template:yp10-suscribete-flechas": {
+   "name": "矢印付き赤いSubscribeボタン",
+   "tags": [
+    "youtube",
+    "手描き",
+    "イラスト",
+    "sns",
+    "チャンネル登録",
+    "ボタン"
+   ]
+  },
+  "template:yp10-suscribete-puntos": {
+   "name": "カラードットと@yourchannelのSubscribe",
+   "tags": [
+    "youtube",
+    "手描き",
+    "イラスト",
+    "sns",
+    "チャンネル登録",
+    "ボタン"
+   ]
+  },
+  "template:yp10-tu-logo": {
+   "name": "青いインクのYour Logo",
+   "tags": [
+    "youtube",
+    "手描き",
+    "イラスト",
+    "sns",
+    "ロゴ",
+    "インク"
+   ]
+  },
+  "template:yp11-amazing": {
+   "name": "テキスト：虹のAMAZING",
+   "tags": [
+    "youtube",
+    "虹",
+    "すごい"
+   ]
+  },
+  "template:yp11-any-language": {
+   "name": "テキスト：円のUse Any Language",
+   "tags": [
+    "youtube",
+    "円",
+    "言語"
+   ]
+  },
+  "template:yp11-brand-new-year": {
+   "name": "タイトル：2026年 Brand New",
+   "tags": [
+    "youtube",
+    "年",
+    "新しい"
+   ]
+  },
+  "template:yp11-channel-name": {
+   "name": "ボタン：チャンネル名",
+   "tags": [
+    "youtube",
+    "チャンネル",
+    "ボタン",
+    "矢印"
+   ]
+  },
+  "template:yp11-click": {
+   "name": "ボタン：手のCLICK",
+   "tags": [
+    "youtube",
+    "クリック",
+    "手"
+   ]
+  },
+  "template:yp11-comment": {
+   "name": "テキスト：矢印付きComment",
+   "tags": [
+    "youtube",
+    "コメント",
+    "矢印"
+   ]
+  },
+  "template:yp11-follow-me": {
+   "name": "ボタン：スイッチ付きフォロー",
+   "tags": [
+    "youtube",
+    "フォロー",
+    "スイッチ"
+   ]
+  },
+  "template:yp11-high-quality": {
+   "name": "ボタン：ポインター付き高画質",
+   "tags": [
+    "youtube",
+    "高画質",
+    "ボタン",
+    "ポインター"
+   ]
+  },
+  "template:yp11-like-heart": {
+   "name": "テキスト：ハート付きLike",
+   "tags": [
+    "youtube",
+    "いいね",
+    "ハート"
+   ]
+  },
+  "template:yp11-like-my-video": {
+   "name": "テキスト：親指付きLike my video",
+   "tags": [
+    "youtube",
+    "いいね",
+    "親指"
+   ]
+  },
+  "template:yp11-looking-perfect": {
+   "name": "テキスト：ドット付きLooking Perfect",
+   "tags": [
+    "youtube",
+    "ドット",
+    "テンプレート"
+   ]
+  },
+  "template:yp11-new-video": {
+   "name": "ラベル：スマイル付きNew Video",
+   "tags": [
+    "youtube",
+    "新着動画",
+    "スマイル"
+   ]
+  },
+  "template:yp11-play": {
+   "name": "ボタン：赤い再生",
+   "tags": [
+    "youtube",
+    "再生",
+    "ボタン"
+   ]
+  },
+  "template:yp11-rate-us": {
+   "name": "テキスト：ハート付きRate Us",
+   "tags": [
+    "youtube",
+    "評価",
+    "ハート"
+   ]
+  },
+  "template:yp11-share": {
+   "name": "テキスト：矢印付きSHARE",
+   "tags": [
+    "youtube",
+    "シェア",
+    "矢印"
+   ]
+  },
+  "template:yp11-subscribe-bell": {
+   "name": "テキスト：ベル付きSubscribe",
+   "tags": [
+    "youtube",
+    "チャンネル登録",
+    "ベル"
+   ]
+  },
+  "template:yp11-thanks-watching": {
+   "name": "テキスト：目のアイコン付き「ご視聴ありがとう」",
+   "tags": [
+    "youtube",
+    "ありがとう",
+    "目",
+    "感謝"
+   ]
+  },
+  "template:yp11-titles-smiley": {
+   "name": "タイトル：スマイル付きTITLES & BUTTONS",
+   "tags": [
+    "youtube",
+    "スマイル",
+    "タイトル"
+   ]
+  },
+  "template:yp11-trendy-style": {
+   "name": "テキスト：稲妻のTrendy Style",
+   "tags": [
+    "youtube",
+    "稲妻",
+    "トレンド"
+   ]
+  },
+  "template:yp11-watch-now": {
+   "name": "テキスト：花付き「今すぐ見る」",
+   "tags": [
+    "youtube",
+    "視聴",
+    "新着動画"
+   ]
+  },
+  "template:yp12-barra-profesora": {
+   "name": "写真・いいね・ベル・登録のバー",
+   "tags": [
+    "youtube",
+    "チャンネル登録",
+    "ボタン",
+    "バー",
+    "いいね",
+    "ベル"
+   ]
+  },
+  "template:yp12-foto-burbujas": {
+   "name": "バブルとアイコン付き写真",
+   "tags": [
+    "youtube",
+    "チャンネル登録",
+    "ボタン",
+    "写真",
+    "バブル",
+    "いいね"
+   ]
+  },
+  "template:yp12-foto-iconos": {
+   "name": "アイコンが飛び出す写真",
+   "tags": [
+    "youtube",
+    "チャンネル登録",
+    "ボタン",
+    "写真",
+    "円",
+    "いいね"
+   ]
+  },
+  "template:yp12-foto-lados": {
+   "name": "両側にアイコンが並ぶ写真",
+   "tags": [
+    "youtube",
+    "チャンネル登録",
+    "ボタン",
+    "写真",
+    "いいね",
+    "ベル"
+   ]
+  },
+  "template:yp12-foto-liquida": {
+   "name": "リキッドアイコン付き写真",
+   "tags": [
+    "youtube",
+    "チャンネル登録",
+    "ボタン",
+    "写真",
+    "リキッド",
+    "いいね"
+   ]
+  },
+  "template:yp12-foto-orbita": {
+   "name": "アイコンが周りを回る丸い写真",
+   "tags": [
+    "youtube",
+    "チャンネル登録",
+    "ボタン",
+    "写真",
+    "円",
+    "いいね"
+   ]
+  },
+  "template:yp12-lista-botones": {
+   "name": "いいね・登録・通知のリスト",
+   "tags": [
+    "youtube",
+    "チャンネル登録",
+    "ボタン",
+    "リスト",
+    "いいね",
+    "ベル"
+   ]
+  },
+  "template:yp12-lista-capsula": {
+   "name": "カプセル型リスト：いいね・登録・通知",
+   "tags": [
+    "youtube",
+    "チャンネル登録",
+    "ボタン",
+    "リスト",
+    "いいね",
+    "ベル"
+   ]
+  },
+  "template:yp12-nombre-suscrito": {
+   "name": "チャンネル名・登録済み・ベル",
+   "tags": [
+    "youtube",
+    "チャンネル登録",
+    "ボタン",
+    "名前",
+    "ベル",
+    "クリック"
+   ]
+  },
+  "template:yp12-tarjeta-gris": {
+   "name": "大きな写真のグレーカード",
+   "tags": [
+    "youtube",
+    "チャンネル登録",
+    "ボタン",
+    "カード",
+    "いいね",
+    "ベル"
+   ]
+  },
+  "template:yp12-tarjeta-lista": {
+   "name": "カードに開くチャンネル名",
+   "tags": [
+    "youtube",
+    "チャンネル登録",
+    "ボタン",
+    "カード",
+    "リスト",
+    "いいね"
+   ]
+  },
+  "template:yp12-tarjeta-rosa": {
+   "name": "写真とピンクの登録ボタンのカード",
+   "tags": [
+    "youtube",
+    "チャンネル登録",
+    "ボタン",
+    "カード",
+    "ピンク"
+   ]
+  },
+  "template:yp12-tres-botones": {
+   "name": "丸いボタン3つ",
+   "tags": [
+    "youtube",
+    "チャンネル登録",
+    "ボタン",
+    "いいね",
+    "ベル",
+    "クリック"
+   ]
+  },
+  "template:yp13-aconseja-amigos": {
+   "name": "友達にすすめる：親指アップ",
+   "tags": [
+    "youtube",
+    "評価",
+    "いいね",
+    "カーソル"
+   ]
+  },
+  "template:yp13-agregar-comentario": {
+   "name": "投稿されるコメント追加ボタン",
+   "tags": [
+    "youtube",
+    "コメント",
+    "ボタン",
+    "カーソル"
+   ]
+  },
+  "template:yp13-avatar-comentario": {
+   "name": "コメントが開くバッジ付きアバター",
+   "tags": [
+    "youtube",
+    "コメント",
+    "アバター",
+    "カーソル"
+   ]
+  },
+  "template:yp13-aviso-cafe": {
+   "name": "OK付きアラートウィンドウ",
+   "tags": [
+    "youtube",
+    "アラート",
+    "ウィンドウ",
+    "カーソル"
+   ]
+  },
+  "template:yp13-aviso-comentarios": {
+   "name": "コメントの通知",
+   "tags": [
+    "youtube",
+    "通知",
+    "コメント",
+    "カウンター",
+    "カーソル"
+   ]
+  },
+  "template:yp13-aviso-doble": {
+   "name": "いいねとフォロワーの通知",
+   "tags": [
+    "youtube",
+    "通知",
+    "いいね",
+    "フォロワー",
+    "カーソル"
+   ]
+  },
+  "template:yp13-aviso-me-gusta": {
+   "name": "いいねの通知",
+   "tags": [
+    "youtube",
+    "通知",
+    "いいね",
+    "カウンター",
+    "カーソル"
+   ]
+  },
+  "template:yp13-aviso-seguidores": {
+   "name": "フォロワーの通知",
+   "tags": [
+    "youtube",
+    "通知",
+    "フォロワー",
+    "カウンター",
+    "カーソル"
+   ]
+  },
+  "template:yp13-barra-suscribir": {
+   "name": "いいね・登録・ベルのバー",
+   "tags": [
+    "youtube",
+    "チャンネル登録",
+    "いいね",
+    "ベル",
+    "カーソル"
+   ]
+  },
+  "template:yp13-buscar-boton": {
+   "name": "SEARCHボタン付き検索欄",
+   "tags": [
+    "youtube",
+    "検索バー",
+    "カーソル",
+    "ボタン"
+   ]
+  },
+  "template:yp13-buscar-cargando": {
+   "name": "読み込み中に変わる検索バー",
+   "tags": [
+    "youtube",
+    "検索バー",
+    "カーソル",
+    "ウェブ"
+   ]
+  },
+  "template:yp13-buscar-lupa": {
+   "name": "四角い虫めがね付き検索欄",
+   "tags": [
+    "youtube",
+    "検索バー",
+    "カーソル"
+   ]
+  },
+  "template:yp13-buscar-mapa": {
+   "name": "検索欄とピン付き地図",
+   "tags": [
+    "youtube",
+    "地図",
+    "検索バー",
+    "カーソル",
+    "位置"
+   ]
+  },
+  "template:yp13-caras-valorar": {
+   "name": "動画は気に入った？顔で評価",
+   "tags": [
+    "youtube",
+    "評価",
+    "顔",
+    "カーソル"
+   ]
+  },
+  "template:yp13-carrito-precio": {
+   "name": "価格付きカートボタン",
+   "tags": [
+    "youtube",
+    "カート",
+    "購入",
+    "カーソル"
+   ]
+  },
+  "template:yp13-casilla-marcada": {
+   "name": "CHECKEDチェックボックス",
+   "tags": [
+    "youtube",
+    "チェックボックス",
+    "カーソル"
+   ]
+  },
+  "template:yp13-chat-dos": {
+   "name": "時刻と返信付き2人チャット",
+   "tags": [
+    "youtube",
+    "チャット",
+    "メッセージ",
+    "カーソル"
+   ]
+  },
+  "template:yp13-chat-nombres": {
+   "name": "名前と返信付きチャット",
+   "tags": [
+    "youtube",
+    "チャット",
+    "メッセージ",
+    "カーソル"
+   ]
+  },
+  "template:yp13-chat-ventana-amarilla": {
+   "name": "名前付き黄色いチャットウィンドウ",
+   "tags": [
+    "youtube",
+    "チャット",
+    "メッセージ",
+    "ウィンドウ"
+   ]
+  },
+  "template:yp13-chat-ventana-azul": {
+   "name": "青いチャットウィンドウ",
+   "tags": [
+    "youtube",
+    "チャット",
+    "メッセージ",
+    "ウィンドウ"
+   ]
+  },
+  "template:yp13-chat-ventana-grande": {
+   "name": "動画に重ねるチャットウィンドウ",
+   "tags": [
+    "youtube",
+    "チャット",
+    "メッセージ",
+    "ウィンドウ"
+   ]
+  },
+  "template:yp13-comentario-like": {
+   "name": "LIKEとREPLY付きコメント",
+   "tags": [
+    "youtube",
+    "コメント",
+    "いいね",
+    "カーソル"
+   ]
+  },
+  "template:yp13-comentario-votos": {
+   "name": "いいねと返信付きコメント",
+   "tags": [
+    "youtube",
+    "コメント",
+    "いいね",
+    "カーソル"
+   ]
+  },
+  "template:yp13-comprar-gracias": {
+   "name": "お礼を表示する購入ボタン",
+   "tags": [
+    "youtube",
+    "ボタン",
+    "購入",
+    "カーソル"
+   ]
+  },
+  "template:yp13-contador-comentarios": {
+   "name": "コメントカウンター付き吹き出し",
+   "tags": [
+    "youtube",
+    "カウンター",
+    "コメント",
+    "カーソル"
+   ]
+  },
+  "template:yp13-contador-corazon": {
+   "name": "いいねカウンター付きハート",
+   "tags": [
+    "youtube",
+    "カウンター",
+    "いいね",
+    "ハート",
+    "カーソル"
+   ]
+  },
+  "template:yp13-contador-pulgar": {
+   "name": "いいねカウンター付き親指",
+   "tags": [
+    "youtube",
+    "カウンター",
+    "いいね",
+    "カーソル"
+   ]
+  },
+  "template:yp13-contador-seguidores": {
+   "name": "フォロワーカウンター付き人物アイコン",
+   "tags": [
+    "youtube",
+    "カウンター",
+    "フォロワー",
+    "カーソル"
+   ]
+  },
+  "template:yp13-descargar-anillo": {
+   "name": "進行リング付きダウンロードボタン",
+   "tags": [
+    "youtube",
+    "ダウンロード",
+    "進行状況",
+    "カーソル"
+   ]
+  },
+  "template:yp13-descargar-barra": {
+   "name": "進行バー付きダウンロードボタン",
+   "tags": [
+    "youtube",
+    "ダウンロード",
+    "進行状況",
+    "カーソル"
+   ]
+  },
+  "template:yp13-enviar-comentario": {
+   "name": "送信ボタン付きコメント欄",
+   "tags": [
+    "youtube",
+    "コメント",
+    "チャット",
+    "カーソル"
+   ]
+  },
+  "template:yp13-insignia-camara": {
+   "name": "丸いカメラボタン",
+   "tags": [
+    "youtube",
+    "バッジ",
+    "sns",
+    "カーソル"
+   ]
+  },
+  "template:yp13-insignia-click-here": {
+   "name": "GOOD JOB!に変わるCLICK HEREボックス",
+   "tags": [
+    "youtube",
+    "ボタン",
+    "カーソル"
+   ]
+  },
+  "template:yp13-insignia-foto": {
+   "name": "タップする四角い写真",
+   "tags": [
+    "youtube",
+    "写真",
+    "アバター",
+    "カーソル"
+   ]
+  },
+  "template:yp13-insignia-get-ready": {
+   "name": "写真付きGET READYバッジ",
+   "tags": [
+    "youtube",
+    "バッジ",
+    "カーソル",
+    "写真"
+   ]
+  },
+  "template:yp13-insignia-like-this": {
+   "name": "LIKE THIS!に変わる写真バッジ",
+   "tags": [
+    "youtube",
+    "バッジ",
+    "いいね",
+    "カーソル",
+    "写真"
+   ]
+  },
+  "template:yp13-insignia-pajaro": {
+   "name": "丸い鳥のボタン",
+   "tags": [
+    "youtube",
+    "バッジ",
+    "sns",
+    "カーソル"
+   ]
+  },
+  "template:yp13-insignia-seguir": {
+   "name": "FOLLOWに変わるバッジ",
+   "tags": [
+    "youtube",
+    "バッジ",
+    "フォロー",
+    "カーソル"
+   ]
+  },
+  "template:yp13-insignia-unete": {
+   "name": "クリックで押すJOIN USバッジ",
+   "tags": [
+    "youtube",
+    "バッジ",
+    "参加",
+    "カーソル"
+   ]
+  },
+  "template:yp13-interruptor-encender": {
+   "name": "TURN ONスイッチ",
+   "tags": [
+    "youtube",
+    "スイッチ",
+    "カーソル"
+   ]
+  },
+  "template:yp13-interruptor-on-off": {
+   "name": "START KEY ON/OFFスイッチ",
+   "tags": [
+    "youtube",
+    "スイッチ",
+    "カーソル"
+   ]
+  },
+  "template:yp13-lista-bienvenida": {
+   "name": "「チャンネルへようこそ」ボタンリスト",
+   "tags": [
+    "youtube",
+    "リスト",
+    "チャンネル登録",
+    "カーソル",
+    "ようこそ"
+   ]
+  },
+  "template:yp13-lista-canal-grande": {
+   "name": "動画に重ねるチャンネルリスト",
+   "tags": [
+    "youtube",
+    "リスト",
+    "チャンネル登録",
+    "カーソル"
+   ]
+  },
+  "template:yp13-lista-interruptores": {
+   "name": "スイッチ付きリスト",
+   "tags": [
+    "youtube",
+    "リスト",
+    "スイッチ",
+    "カーソル"
+   ]
+  },
+  "template:yp13-lista-no-olvides": {
+   "name": "忘れずにリスト：登録・通知・いいね",
+   "tags": [
+    "youtube",
+    "リスト",
+    "チャンネル登録",
+    "カーソル"
+   ]
+  },
+  "template:yp13-lista-tareas": {
+   "name": "今日のやることリスト",
+   "tags": [
+    "youtube",
+    "リスト",
+    "やること",
+    "カーソル"
+   ]
+  },
+  "template:yp13-mensaje-abrir": {
+   "name": "開くメッセージボタン",
+   "tags": [
+    "youtube",
+    "メッセージ",
+    "チャット",
+    "カーソル"
+   ]
+  },
+  "template:yp13-opcion-seleccionar": {
+   "name": "SELECTオプション",
+   "tags": [
+    "youtube",
+    "オプション",
+    "カーソル"
+   ]
+  },
+  "template:yp13-perfil-seguir": {
+   "name": "写真とフォローボタン付きプロフィール",
+   "tags": [
+    "youtube",
+    "プロフィール",
+    "フォロー",
+    "カーソル",
+    "写真"
+   ]
+  },
+  "template:yp13-post-botones": {
+   "name": "角丸ボタン付き投稿",
+   "tags": [
+    "youtube",
+    "投稿",
+    "いいね",
+    "カーソル"
+   ]
+  },
+  "template:yp13-post-insta": {
+   "name": "いいね付き写真投稿",
+   "tags": [
+    "youtube",
+    "投稿",
+    "いいね",
+    "カーソル"
+   ]
+  },
+  "template:yp13-post-muro": {
+   "name": "いいね・コメント・シェア付きウォール投稿",
+   "tags": [
+    "youtube",
+    "投稿",
+    "いいね",
+    "カーソル"
+   ]
+  },
+  "template:yp13-post-noticia": {
+   "name": "青い名前といいね付き投稿",
+   "tags": [
+    "youtube",
+    "投稿",
+    "いいね",
+    "カーソル"
+   ]
+  },
+  "template:yp13-post-texto": {
+   "name": "いいね付きテキスト投稿",
+   "tags": [
+    "youtube",
+    "投稿",
+    "いいね",
+    "カーソル"
+   ]
+  },
+  "template:yp13-post-tuit": {
+   "name": "いいね付きツイート風投稿",
+   "tags": [
+    "youtube",
+    "投稿",
+    "いいね",
+    "カーソル"
+   ]
+  },
+  "template:yp13-post-tuit-enlace": {
+   "name": "リンクカードといいね付きツイート",
+   "tags": [
+    "youtube",
+    "投稿",
+    "いいね",
+    "カーソル"
+   ]
+  },
+  "template:yp13-post-tuit-foto": {
+   "name": "リンク写真といいね付きツイート",
+   "tags": [
+    "youtube",
+    "投稿",
+    "いいね",
+    "カーソル"
+   ]
+  },
+  "template:yp13-post-vertical": {
+   "name": "いいね付き縦型投稿",
+   "tags": [
+    "youtube",
+    "投稿",
+    "いいね",
+    "カーソル"
+   ]
+  },
+  "template:yp13-post-video-campana": {
+   "name": "動画投稿：登録とベル",
+   "tags": [
+    "youtube",
+    "投稿",
+    "チャンネル登録",
+    "ベル",
+    "カーソル"
+   ]
+  },
+  "template:yp13-post-video-suscribir": {
+   "name": "登録ボタン付き動画投稿",
+   "tags": [
+    "youtube",
+    "投稿",
+    "チャンネル登録",
+    "カーソル"
+   ]
+  },
+  "template:yp13-post-video-votos": {
+   "name": "高評価と低評価付き動画投稿",
+   "tags": [
+    "youtube",
+    "投稿",
+    "いいね",
+    "カーソル"
+   ]
+  },
+  "template:yp13-reaccion-corazones": {
+   "name": "ハートが舞い上がるLOVE IT!ボタン",
+   "tags": [
+    "youtube",
+    "リアクション",
+    "ハート",
+    "カーソル",
+    "ボタン"
+   ]
+  },
+  "template:yp13-reaccion-estrellas": {
+   "name": "緑の星が舞い上がるボタン",
+   "tags": [
+    "youtube",
+    "リアクション",
+    "星",
+    "カーソル",
+    "ボタン"
+   ]
+  },
+  "template:yp13-reaccion-monedas": {
+   "name": "コインが舞い上がるDONATEボタン",
+   "tags": [
+    "youtube",
+    "リアクション",
+    "寄付",
+    "カーソル",
+    "ボタン"
+   ]
+  },
+  "template:yp13-reaccion-pulgares": {
+   "name": "親指が舞い上がるLIKE THISボタン",
+   "tags": [
+    "youtube",
+    "リアクション",
+    "いいね",
+    "カーソル",
+    "ボタン"
+   ]
+  },
+  "template:yp13-recomiendo": {
+   "name": "おすすめ：5つのハート",
+   "tags": [
+    "youtube",
+    "評価",
+    "ハート",
+    "カーソル"
+   ]
+  },
+  "template:yp13-reproductor-amarillo": {
+   "name": "黄色いプレーヤーボタン",
+   "tags": [
+    "youtube",
+    "プレーヤー",
+    "ボタン",
+    "カーソル"
+   ]
+  },
+  "template:yp13-reproductor-azul": {
+   "name": "青いプレーヤーボタン",
+   "tags": [
+    "youtube",
+    "プレーヤー",
+    "ボタン",
+    "カーソル"
+   ]
+  },
+  "template:yp13-reproductor-cuadrado": {
+   "name": "四角いプレーヤーボタン",
+   "tags": [
+    "youtube",
+    "プレーヤー",
+    "ボタン",
+    "カーソル"
+   ]
+  },
+  "template:yp13-reproductor-redondo": {
+   "name": "丸いプレーヤーボタン",
+   "tags": [
+    "youtube",
+    "プレーヤー",
+    "ボタン",
+    "カーソル"
+   ]
+  },
+  "template:yp13-tarjeta-canal": {
+   "name": "開くチャンネルカード",
+   "tags": [
+    "youtube",
+    "チャンネル",
+    "チャンネル登録",
+    "カーソル",
+    "アバター"
+   ]
+  },
+  "template:yp13-tarjeta-suscribir-grande": {
+   "name": "登録ボタン付き大きなチャンネルカード",
+   "tags": [
+    "youtube",
+    "チャンネル",
+    "チャンネル登録",
+    "カーソル",
+    "アバター",
+    "テロップ"
+   ]
+  },
+  "template:yp13-tuit-texto": {
+   "name": "いいね付きテキストツイート",
+   "tags": [
+    "youtube",
+    "投稿",
+    "いいね",
+    "カーソル",
+    "コメント"
+   ]
+  },
+  "template:yp13-valoranos": {
+   "name": "評価してね：星のリスト",
+   "tags": [
+    "youtube",
+    "評価",
+    "星",
+    "カーソル"
+   ]
+  },
+  "template:yp13-valorar-10": {
+   "name": "星付き10/10評価",
+   "tags": [
+    "youtube",
+    "評価",
+    "星",
+    "カーソル"
+   ]
+  },
+  "template:yp13-valorar-articulo": {
+   "name": "5つ星で評価",
+   "tags": [
+    "youtube",
+    "評価",
+    "星",
+    "カーソル"
+   ]
+  },
+  "template:yp13-valorar-genial": {
+   "name": "星を付ける評価ボタン",
+   "tags": [
+    "youtube",
+    "評価",
+    "星",
+    "カーソル",
+    "ボタン"
+   ]
+  },
+  "template:yp13-valorar-plantilla": {
+   "name": "星で評価するカード",
+   "tags": [
+    "youtube",
+    "評価",
+    "星",
+    "カーソル",
+    "ロゴ"
+   ]
+  },
+  "template:yp13-video-suscribir-campana": {
+   "name": "登録とベル付き動画カード",
+   "tags": [
+    "youtube",
+    "投稿",
+    "チャンネル登録",
+    "ベル",
+    "カーソル"
+   ]
+  },
+  "template:yp13-volumen": {
+   "name": "MAKE SOME NOISE音量スライダー",
+   "tags": [
+    "youtube",
+    "音量",
+    "スライダー",
+    "カーソル"
+   ]
+  },
+  "template:yp14-barra-abajo-acciones": {
+   "name": "下部動画バー：いいね・シェア・ダウンロード・保存",
+   "tags": [
+    "youtube",
+    "バー",
+    "チャンネル",
+    "チャンネル登録",
+    "写真"
+   ]
+  },
+  "template:yp14-barra-abajo-campana": {
+   "name": "下部チャンネルバー：登録済みとベル",
+   "tags": [
+    "youtube",
+    "バー",
+    "チャンネル",
+    "チャンネル登録",
+    "写真"
+   ]
+  },
+  "template:yp14-barra-abajo-me-gusta": {
+   "name": "下部チャンネルバー：いいねと登録",
+   "tags": [
+    "youtube",
+    "バー",
+    "チャンネル",
+    "チャンネル登録",
+    "写真"
+   ]
+  },
+  "template:yp14-barra-arriba": {
+   "name": "写真を押し下げる上部チャンネルバー",
+   "tags": [
+    "youtube",
+    "バー",
+    "チャンネル",
+    "チャンネル登録",
+    "写真"
+   ]
+  },
+  "template:yp14-barra-valoracion-arriba": {
+   "name": "上部チャンネルバー：高評価・低評価・評価",
+   "tags": [
+    "youtube",
+    "バー",
+    "チャンネル",
+    "チャンネル登録",
+    "写真"
+   ]
+  },
+  "template:yp14-barra-video-suscribirse": {
+   "name": "動画下部の白いバー：アバター・名前・登録",
+   "tags": [
+    "youtube",
+    "バー",
+    "チャンネル",
+    "チャンネル登録",
+    "写真"
+   ]
+  },
+  "template:yp14-boton-redondo-campana": {
+   "name": "赤い丸ボタン：ベルと「Get notified」",
+   "tags": [
+    "youtube",
+    "ボタン",
+    "テキスト",
+    "ベル"
+   ]
+  },
+  "template:yp14-boton-redondo-compartir": {
+   "name": "赤い丸ボタン：シェアと「Share this」",
+   "tags": [
+    "youtube",
+    "ボタン",
+    "テキスト",
+    "シェア"
+   ]
+  },
+  "template:yp14-boton-redondo-me-gusta": {
+   "name": "赤い丸ボタン：いいねと「Like the video」",
+   "tags": [
+    "youtube",
+    "ボタン",
+    "テキスト",
+    "いいね"
+   ]
+  },
+  "template:yp14-boton-redondo-suscribirse": {
+   "name": "赤い丸ボタン：再生と「Subscribe」",
+   "tags": [
+    "youtube",
+    "ボタン",
+    "テキスト",
+    "再生"
+   ]
+  },
+  "template:yp14-campana-compartir-redondos": {
+   "name": "赤いボタン2つ：ベルとシェア",
+   "tags": [
+    "youtube",
+    "ボタン",
+    "テキスト",
+    "横並び"
+   ]
+  },
+  "template:yp14-canal-avatar-arriba": {
+   "name": "上にアバターのある縦型チャンネルボタン",
+   "tags": [
+    "youtube",
+    "ボタン",
+    "チャンネル登録"
+   ]
+  },
+  "template:yp14-canal-avatar-centro": {
+   "name": "中央にアバター、シェアとベル付きチャンネルボタン",
+   "tags": [
+    "youtube",
+    "ボタン",
+    "チャンネル登録"
+   ]
+  },
+  "template:yp14-canal-avatar-esquina": {
+   "name": "角にアバター、シェアとベル付きチャンネルボタン",
+   "tags": [
+    "youtube",
+    "ボタン",
+    "チャンネル登録"
+   ]
+  },
+  "template:yp14-canal-circulo": {
+   "name": "ベル・いいね・シェア付き円形チャンネル",
+   "tags": [
+    "youtube",
+    "ボタン",
+    "ベル",
+    "いいね"
+   ]
+  },
+  "template:yp14-canal-foto-campana": {
+   "name": "チャンネルボタン：写真・登録・ベル",
+   "tags": [
+    "youtube",
+    "ボタン",
+    "チャンネル登録"
+   ]
+  },
+  "template:yp14-canal-foto-vertical": {
+   "name": "縦型チャンネルボタン：写真・登録・いいね・ベル",
+   "tags": [
+    "youtube",
+    "ボタン",
+    "チャンネル登録"
+   ]
+  },
+  "template:yp14-canal-horizontal": {
+   "name": "横型チャンネルボタン：写真・登録者数・登録・ベル",
+   "tags": [
+    "youtube",
+    "ボタン",
+    "チャンネル登録"
+   ]
+  },
+  "template:yp14-canal-iconos-columna": {
+   "name": "アイコン縦並びのチャンネル：ベル・いいね・シェア",
+   "tags": [
+    "youtube",
+    "ボタン",
+    "チャンネル登録"
+   ]
+  },
+  "template:yp14-canal-nombre-largo": {
+   "name": "チャンネルボタン：写真・3行の名前・いいね・ベル",
+   "tags": [
+    "youtube",
+    "ボタン",
+    "チャンネル登録"
+   ]
+  },
+  "template:yp14-canal-sin-tarjeta": {
+   "name": "チャンネル：アバター・名前・登録者数・登録",
+   "tags": [
+    "youtube",
+    "ボタン",
+    "チャンネル登録"
+   ]
+  },
+  "template:yp14-canal-sobre-video": {
+   "name": "動画に重ねるチャンネルボタン：写真・登録者数・登録",
+   "tags": [
+    "youtube",
+    "ボタン",
+    "チャンネル登録"
+   ]
+  },
+  "template:yp14-canal-tarjeta-vertical": {
+   "name": "縦型チャンネルカード：名前・写真・登録",
+   "tags": [
+    "youtube",
+    "ボタン",
+    "チャンネル登録"
+   ]
+  },
+  "template:yp14-columna-botones": {
+   "name": "丸ボタンの縦並び：登録・いいね・ベル",
+   "tags": [
+    "youtube",
+    "ボタン",
+    "テキスト",
+    "縦並び"
+   ]
+  },
+  "template:yp14-columna-botones-etiquetas": {
+   "name": "ラベル付き丸ボタンの縦並び：登録・通知・いいね",
+   "tags": [
+    "youtube",
+    "ボタン",
+    "テキスト",
+    "縦並び"
+   ]
+  },
+  "template:yp14-comentario-abajo": {
+   "name": "下部コメント：いいね付き",
+   "tags": [
+    "youtube",
+    "バー",
+    "チャンネル",
+    "チャンネル登録",
+    "写真"
+   ]
+  },
+  "template:yp14-comentario-arriba": {
+   "name": "上部コメント：高評価と低評価",
+   "tags": [
+    "youtube",
+    "バー",
+    "チャンネル",
+    "チャンネル登録",
+    "写真"
+   ]
+  },
+  "template:yp14-comentario-me-gusta": {
+   "name": "いいねを押したコメント",
+   "tags": [
+    "youtube",
+    "コメント",
+    "テンプレート"
+   ]
+  },
+  "template:yp14-comentario-no-me-gusta": {
+   "name": "低評価を押したコメント",
+   "tags": [
+    "youtube",
+    "コメント",
+    "テンプレート"
+   ]
+  },
+  "template:yp14-comentario-respuesta": {
+   "name": "返信を入力中のコメント",
+   "tags": [
+    "youtube",
+    "コメント",
+    "テンプレート"
+   ]
+  },
+  "template:yp14-comentario-respuesta-2": {
+   "name": "返信付きコメント（2）",
+   "tags": [
+    "youtube",
+    "コメント",
+    "テンプレート"
+   ]
+  },
+  "template:yp14-comentario-sobre-video": {
+   "name": "動画に重ねる1行コメント",
+   "tags": [
+    "youtube",
+    "コメント",
+    "テンプレート"
+   ]
+  },
+  "template:yp14-compartir-esto": {
+   "name": "赤から白に変わる「Share This」ボタン",
+   "tags": [
+    "youtube",
+    "ボタン",
+    "テキスト",
+    "シェア"
+   ]
+  },
+  "template:yp14-fila-botones": {
+   "name": "丸ボタンの横並び：登録・ベル・シェア・いいね",
+   "tags": [
+    "youtube",
+    "ボタン",
+    "テキスト",
+    "横並び"
+   ]
+  },
+  "template:yp14-fila-me-gusta-suscribirse": {
+   "name": "横並び：いいね・登録・ベル",
+   "tags": [
+    "youtube",
+    "ボタン",
+    "チャンネル登録"
+   ]
+  },
+  "template:yp14-fila-suscribirse": {
+   "name": "横並び：いいね・登録・シェア・ベル",
+   "tags": [
+    "youtube",
+    "ボタン",
+    "テキスト",
+    "横並び",
+    "チャンネル登録"
+   ]
+  },
+  "template:yp14-lista-suscribirse": {
+   "name": "リスト：登録・通知・いいね",
+   "tags": [
+    "youtube",
+    "ボタン",
+    "チャンネル登録",
+    "リスト"
+   ]
+  },
+  "template:yp14-lista-ver-mas-tarde": {
+   "name": "動画リスト：「後で見る」に保存",
+   "tags": [
+    "youtube",
+    "リスト",
+    "動画"
+   ]
+  },
+  "template:yp14-lista-videos-abrir": {
+   "name": "動画リスト：クリックで全画面に",
+   "tags": [
+    "youtube",
+    "リスト",
+    "動画"
+   ]
+  },
+  "template:yp14-logo-arriba-suscribirse": {
+   "name": "上にロゴ、下に登録ボタン",
+   "tags": [
+    "youtube",
+    "ボタン",
+    "チャンネル登録",
+    "ロゴ"
+   ]
+  },
+  "template:yp14-logo-suscribirse": {
+   "name": "登録ボタン付きチャンネルロゴ",
+   "tags": [
+    "youtube",
+    "ボタン",
+    "チャンネル登録"
+   ]
+  },
+  "template:yp14-logo-tarjeta": {
+   "name": "カードのチャンネルロゴ：登録・ベル・シェア",
+   "tags": [
+    "youtube",
+    "ボタン",
+    "チャンネル登録"
+   ]
+  },
+  "template:yp14-logo-tarjeta-vertical": {
+   "name": "縦型カードのチャンネルロゴ：ベルとシェア",
+   "tags": [
+    "youtube",
+    "ボタン",
+    "チャンネル登録"
+   ]
+  },
+  "template:yp14-me-gusta-avisos": {
+   "name": "いいねとベル：「Like this / Notified」",
+   "tags": [
+    "youtube",
+    "ボタン",
+    "テキスト",
+    "いいね",
+    "ベル"
+   ]
+  },
+  "template:yp14-me-gusta-barra": {
+   "name": "評価バー付き「Like this」",
+   "tags": [
+    "youtube",
+    "ボタン",
+    "テキスト",
+    "いいね",
+    "評価"
+   ]
+  },
+  "template:yp14-me-gusta-boton": {
+   "name": "親指が飛び出す「Like it!」ボタン",
+   "tags": [
+    "youtube",
+    "ボタン",
+    "テキスト",
+    "いいね"
+   ]
+  },
+  "template:yp14-me-gusta-campana-redondos": {
+   "name": "赤いボタン2つ：いいねとベル",
+   "tags": [
+    "youtube",
+    "ボタン",
+    "テキスト",
+    "横並び"
+   ]
+  },
+  "template:yp14-me-gusta-compartir-botones": {
+   "name": "赤から白に変わる「Like it」と「Share」ボタン",
+   "tags": [
+    "youtube",
+    "ボタン",
+    "テキスト",
+    "いいね",
+    "シェア"
+   ]
+  },
+  "template:yp14-me-gusta-compartir-redondos": {
+   "name": "赤いボタン2つ：いいねとシェア",
+   "tags": [
+    "youtube",
+    "ボタン",
+    "テキスト",
+    "横並び"
+   ]
+  },
+  "template:yp14-me-gusta-contador": {
+   "name": "カウンター付き大きないいね",
+   "tags": [
+    "youtube",
+    "ボタン",
+    "テキスト",
+    "いいね",
+    "カウンター"
+   ]
+  },
+  "template:yp14-me-gusta-suscribirse": {
+   "name": "カードなしのいいねと登録",
+   "tags": [
+    "youtube",
+    "ボタン",
+    "テキスト",
+    "チャンネル登録"
+   ]
+  },
+  "template:yp14-me-gusta-suscribirse-campana": {
+   "name": "カードなしのいいね・登録・ベル",
+   "tags": [
+    "youtube",
+    "ボタン",
+    "テキスト",
+    "チャンネル登録"
+   ]
+  },
+  "template:yp14-no-me-gusta-boton": {
+   "name": "親指が飛び出す「Dislike!」ボタン",
+   "tags": [
+    "youtube",
+    "ボタン",
+    "テキスト",
+    "低評価"
+   ]
+  },
+  "template:yp14-no-me-gusta-contador": {
+   "name": "カウンター付き大きな低評価",
+   "tags": [
+    "youtube",
+    "ボタン",
+    "テキスト",
+    "低評価",
+    "カウンター"
+   ]
+  },
+  "template:yp14-no-recomendar": {
+   "name": "5つの親指が付く「Don't recommend」",
+   "tags": [
+    "youtube",
+    "ボタン",
+    "テキスト",
+    "評価",
+    "低評価"
+   ]
+  },
+  "template:yp14-nombre-suscrito-campana": {
+   "name": "チャンネル名：登録済みとベル",
+   "tags": [
+    "youtube",
+    "ボタン",
+    "チャンネル登録"
+   ]
+  },
+  "template:yp14-nombre-suscrito-me-gusta": {
+   "name": "チャンネル名：登録済み・高評価・低評価",
+   "tags": [
+    "youtube",
+    "ボタン",
+    "チャンネル登録"
+   ]
+  },
+  "template:yp14-pildora-me-gusta": {
+   "name": "赤い高評価／低評価ピル：高評価をクリック",
+   "tags": [
+    "youtube",
+    "ボタン",
+    "テキスト",
+    "いいね",
+    "低評価"
+   ]
+  },
+  "template:yp14-pildora-no-me-gusta": {
+   "name": "赤い高評価／低評価ピル：低評価をクリック",
+   "tags": [
+    "youtube",
+    "ボタン",
+    "テキスト",
+    "いいね",
+    "低評価"
+   ]
+  },
+  "template:yp14-recomendar-amigos": {
+   "name": "5つの親指が付く「Advise friends」",
+   "tags": [
+    "youtube",
+    "ボタン",
+    "テキスト",
+    "評価",
+    "いいね"
+   ]
+  },
+  "template:yp14-suscribirse-campana": {
+   "name": "カードなしの登録とベル",
+   "tags": [
+    "youtube",
+    "ボタン",
+    "テキスト",
+    "チャンネル登録"
+   ]
+  },
+  "template:yp14-suscribirse-casilla": {
+   "name": "チェック付き「Subscribe Youtube Channel」",
+   "tags": [
+    "youtube",
+    "ボタン",
+    "テキスト",
+    "チャンネル登録",
+    "チェックボックス"
+   ]
+  },
+  "template:yp14-suscribirse-contador": {
+   "name": "19999から20000になる登録カウンター",
+   "tags": [
+    "youtube",
+    "ボタン",
+    "テキスト",
+    "チャンネル登録",
+    "カウンター"
+   ]
+  },
+  "template:yp14-suscribirse-hecho": {
+   "name": "「DO IT!」が「DONE」になる「Subscribe Channel」",
+   "tags": [
+    "youtube",
+    "ボタン",
+    "テキスト",
+    "チャンネル登録"
+   ]
+  },
+  "template:yp14-suscribirse-play": {
+   "name": "「SUBSCRIBED」に変わる再生付き赤い「SUBSCRIBE」ボタン",
+   "tags": [
+    "youtube",
+    "ボタン",
+    "テキスト",
+    "チャンネル登録"
+   ]
+  },
+  "template:yp14-suscrito-iconos": {
+   "name": "登録済み：いいね・ベル・シェア",
+   "tags": [
+    "youtube",
+    "ボタン",
+    "チャンネル登録"
+   ]
+  },
+  "template:yp14-tarjeta-campana": {
+   "name": "登録とベル付きチャンネルカード",
+   "tags": [
+    "youtube",
+    "カード",
+    "チャンネル"
+   ]
+  },
+  "template:yp14-tarjeta-comentario": {
+   "name": "低評価とコメント付き動画カード",
+   "tags": [
+    "youtube",
+    "カード",
+    "チャンネル"
+   ]
+  },
+  "template:yp14-tarjeta-comentario-2": {
+   "name": "いいねとコメント付き動画カード",
+   "tags": [
+    "youtube",
+    "カード",
+    "チャンネル"
+   ]
+  },
+  "template:yp14-tarjeta-cristal": {
+   "name": "チャンネルカード：写真にガラスとベル",
+   "tags": [
+    "youtube",
+    "カード",
+    "チャンネル",
+    "チャンネル登録",
+    "写真"
+   ]
+  },
+  "template:yp14-tarjeta-cristal-inclinada": {
+   "name": "チャンネルカード：写真に傾いたガラス",
+   "tags": [
+    "youtube",
+    "カード",
+    "チャンネル",
+    "チャンネル登録",
+    "写真"
+   ]
+  },
+  "template:yp14-tarjeta-foto-inclinada": {
+   "name": "チャンネルカード：傾いた写真と登録・ベル",
+   "tags": [
+    "youtube",
+    "カード",
+    "チャンネル",
+    "チャンネル登録",
+    "写真"
+   ]
+  },
+  "template:yp14-tarjeta-foto-marco": {
+   "name": "チャンネルカード：白枠の写真と進行バー",
+   "tags": [
+    "youtube",
+    "カード",
+    "チャンネル",
+    "チャンネル登録",
+    "写真"
+   ]
+  },
+  "template:yp14-tarjeta-foto-progreso": {
+   "name": "チャンネルカード：進行バーといいね付き写真",
+   "tags": [
+    "youtube",
+    "カード",
+    "チャンネル",
+    "チャンネル登録",
+    "写真"
+   ]
+  },
+  "template:yp14-tarjeta-foto-recta": {
+   "name": "チャンネルカード：枠付き写真といいね・登録・ベル",
+   "tags": [
+    "youtube",
+    "カード",
+    "チャンネル",
+    "チャンネル登録",
+    "写真"
+   ]
+  },
+  "template:yp14-tarjeta-marco": {
+   "name": "チャンネルカード：写真に白枠と進行バー",
+   "tags": [
+    "youtube",
+    "カード",
+    "チャンネル",
+    "チャンネル登録",
+    "写真"
+   ]
+  },
+  "template:yp14-tarjeta-marco-inclinado": {
+   "name": "チャンネルカード：写真に傾いた白枠",
+   "tags": [
+    "youtube",
+    "カード",
+    "チャンネル",
+    "チャンネル登録",
+    "写真"
+   ]
+  },
+  "template:yp14-tarjeta-video-compartir": {
+   "name": "いいね・シェア・登録付き動画カード",
+   "tags": [
+    "youtube",
+    "カード",
+    "チャンネル"
+   ]
+  },
+  "template:yp14-tarjeta-video-cuadrada": {
+   "name": "四角いアバターと赤いボタンの傾いた動画カード",
+   "tags": [
+    "youtube",
+    "カード",
+    "動画",
+    "チャンネル登録",
+    "写真"
+   ]
+  },
+  "template:yp14-tarjeta-video-play": {
+   "name": "動画カード：再生を押すと全画面に",
+   "tags": [
+    "youtube",
+    "カード",
+    "動画",
+    "再生"
+   ]
+  },
+  "template:yp14-tarjeta-video-titulo": {
+   "name": "チャンネルとタイトル付き動画カード：再生をクリック",
+   "tags": [
+    "youtube",
+    "カード",
+    "動画",
+    "再生"
+   ]
+  },
+  "template:yp14-tres-botones-blancos": {
+   "name": "同時に押される白いボタン3つ：いいね・ベル・シェア",
+   "tags": [
+    "youtube",
+    "ボタン",
+    "テキスト",
+    "横並び"
+   ]
+  },
+  "template:yp14-valoracion-abajo": {
+   "name": "下部チャンネルバー：高評価・低評価・評価",
+   "tags": [
+    "youtube",
+    "バー",
+    "チャンネル",
+    "チャンネル登録",
+    "写真"
+   ]
+  },
+  "template:yp14-youtube-channel": {
+   "name": "クリックで赤くなる「YOUTUBE CHANNEL」",
+   "tags": [
+    "youtube",
+    "ボタン",
+    "テキスト",
+    "タイトル"
+   ]
+  },
+  "template:yp15-cargo-verde": {
+   "name": "ガラスのテロップ：緑の肩書き",
+   "tags": [
+    "youtube",
+    "テロップ",
+    "ガラス",
+    "名前"
+   ]
+  },
+  "template:yp15-centrado": {
+   "name": "登録付き中央のガラスのテロップ",
+   "tags": [
+    "youtube",
+    "テロップ",
+    "ガラス",
+    "名前",
+    "チャンネル登録"
+   ]
+  },
+  "template:yp15-dos-nombres": {
+   "name": "ガラスのテロップ：2人の名前",
+   "tags": [
+    "youtube",
+    "テロップ",
+    "ガラス",
+    "名前",
+    "2人"
+   ]
+  },
+  "template:yp15-foto-redonda": {
+   "name": "丸い写真付きガラスのテロップ",
+   "tags": [
+    "youtube",
+    "テロップ",
+    "ガラス",
+    "名前",
+    "写真",
+    "アバター"
+   ]
+  },
+  "template:yp15-foto-suscribete": {
+   "name": "ガラスのテロップ：写真と登録",
+   "tags": [
+    "youtube",
+    "テロップ",
+    "ガラス",
+    "名前",
+    "チャンネル登録",
+    "写真"
+   ]
+  },
+  "template:yp15-linea-fina": {
+   "name": "細いガラスのテロップ",
+   "tags": [
+    "youtube",
+    "テロップ",
+    "ガラス",
+    "名前"
+   ]
+  },
+  "template:yp15-logo-nombre": {
+   "name": "ロゴ付きガラスのテロップ",
+   "tags": [
+    "youtube",
+    "テロップ",
+    "ガラス",
+    "名前",
+    "ロゴ"
+   ]
+  },
+  "template:yp15-logo-suscribete": {
+   "name": "ガラスのテロップ：ロゴと登録",
+   "tags": [
+    "youtube",
+    "テロップ",
+    "ガラス",
+    "名前",
+    "チャンネル登録",
+    "ロゴ"
+   ]
+  },
+  "template:yp15-nombre-suscribete": {
+   "name": "登録付きガラスのテロップ",
+   "tags": [
+    "youtube",
+    "テロップ",
+    "ガラス",
+    "名前",
+    "チャンネル登録"
+   ]
+  },
+  "template:yp15-pareja": {
+   "name": "ガラスのテロップ：写真付きの2人",
+   "tags": [
+    "youtube",
+    "テロップ",
+    "ガラス",
+    "名前",
+    "2人",
+    "写真"
+   ]
+  },
+  "template:yp15-tarjeta-foto": {
+   "name": "写真とロゴのガラスカード",
+   "tags": [
+    "youtube",
+    "テロップ",
+    "ガラス",
+    "名前",
+    "写真",
+    "ロゴ"
+   ]
+  },
+  "template:yp15-una-linea": {
+   "name": "1行のガラスのテロップ",
+   "tags": [
+    "youtube",
+    "テロップ",
+    "ガラス",
+    "名前"
+   ]
+  },
+  "template:yp16-barra-nombre": {
+   "name": "名前と登録のガラスバー",
+   "tags": [
+    "youtube",
+    "ガラス",
+    "チャンネル登録",
+    "クリック",
+    "写真"
+   ]
+  },
+  "template:yp16-barra-suscribete": {
+   "name": "写真と登録のガラスバー",
+   "tags": [
+    "youtube",
+    "ガラス",
+    "チャンネル登録",
+    "クリック",
+    "写真"
+   ]
+  },
+  "template:yp16-burbuja-canal": {
+   "name": "写真とチャンネルのガラスバブル",
+   "tags": [
+    "youtube",
+    "ガラス",
+    "チャンネル",
+    "写真"
+   ]
+  },
+  "template:yp16-circulo": {
+   "name": "写真と登録のガラスの円",
+   "tags": [
+    "youtube",
+    "ガラス",
+    "チャンネル登録",
+    "クリック",
+    "写真",
+    "円"
+   ]
+  },
+  "template:yp16-join-us": {
+   "name": "ダークなガラスピル：join us now",
+   "tags": [
+    "youtube",
+    "ガラス",
+    "参加"
+   ]
+  },
+  "template:yp16-pildora-canal": {
+   "name": "中央に写真のガラスピル",
+   "tags": [
+    "youtube",
+    "ガラス",
+    "チャンネル",
+    "写真"
+   ]
+  },
+  "template:yp16-stay-tuned": {
+   "name": "ガラスの円：stay tuned",
+   "tags": [
+    "youtube",
+    "ガラス",
+    "円"
+   ]
+  },
+  "template:yp16-tarjeta-cuadrada": {
+   "name": "登録付き四角いガラスカード",
+   "tags": [
+    "youtube",
+    "ガラス",
+    "チャンネル登録",
+    "クリック",
+    "写真"
+   ]
+  },
+  "template:yp16-tarjeta-nombre": {
+   "name": "名前と登録のガラスカード",
+   "tags": [
+    "youtube",
+    "ガラス",
+    "チャンネル登録",
+    "クリック",
+    "写真"
+   ]
+  },
+  "template:yp16-tarjeta-vertical": {
+   "name": "登録付き縦型ガラスカード",
+   "tags": [
+    "youtube",
+    "ガラス",
+    "チャンネル登録",
+    "クリック",
+    "写真"
+   ]
+  },
+  "template:yp16-watch-more": {
+   "name": "ガラスの吹き出し：watch more",
+   "tags": [
+    "youtube",
+    "ガラス",
+    "もっと見る"
+   ]
+  },
+  "template:yp17-barra-canal": {
+   "name": "写真と登録のフラットバー",
+   "tags": [
+    "youtube",
+    "カード",
+    "フラット",
+    "チャンネル登録",
+    "クリック",
+    "写真"
+   ]
+  },
+  "template:yp17-barra-foto": {
+   "name": "中央に写真のフラットバー",
+   "tags": [
+    "youtube",
+    "カード",
+    "フラット",
+    "チャンネル登録",
+    "クリック",
+    "写真"
+   ]
+  },
+  "template:yp17-barra-titulo": {
+   "name": "写真とタイトルのフラットバー",
+   "tags": [
+    "youtube",
+    "カード",
+    "フラット",
+    "チャンネル登録",
+    "クリック",
+    "写真"
+   ]
+  },
+  "template:yp17-boton-youtube": {
+   "name": "YouTubeボタンのフラットカード",
+   "tags": [
+    "youtube",
+    "カード",
+    "フラット",
+    "ボタン",
+    "再生"
+   ]
+  },
+  "template:yp17-foto-arriba": {
+   "name": "登録カードの上に丸い写真",
+   "tags": [
+    "youtube",
+    "カード",
+    "フラット",
+    "チャンネル登録",
+    "クリック",
+    "写真"
+   ]
+  },
+  "template:yp17-foto-cuadrada": {
+   "name": "四角い写真と登録バー",
+   "tags": [
+    "youtube",
+    "カード",
+    "フラット",
+    "チャンネル登録",
+    "クリック",
+    "写真"
+   ]
+  },
+  "template:yp17-join-us": {
+   "name": "フラットカード：YouTubeのjoin us",
+   "tags": [
+    "youtube",
+    "カード",
+    "フラット",
+    "参加"
+   ]
+  },
+  "template:yp17-tarjeta-nombre": {
+   "name": "写真・YouTube・登録のフラットカード",
+   "tags": [
+    "youtube",
+    "カード",
+    "フラット",
+    "チャンネル登録",
+    "クリック",
+    "写真"
+   ]
+  },
+  "template:yp17-tarjeta-vertical": {
+   "name": "登録付き縦型フラットカード",
+   "tags": [
+    "youtube",
+    "カード",
+    "フラット",
+    "チャンネル登録",
+    "クリック",
+    "写真"
+   ]
+  },
+  "template:yp17-watch-more": {
+   "name": "フラットカード：watch more",
+   "tags": [
+    "youtube",
+    "カード",
+    "フラット",
+    "もっと見る"
+   ]
+  },
   "template:yp2-apertura": {
    "name": "オープニング：YouTubeボタン付き赤白リング",
    "tags": [
@@ -40968,6 +43260,505 @@
     "白黒",
     "ファッション",
     "トランジション"
+   ]
+  },
+  "template:yp8-disfruta": {
+   "name": "エンディング：enjoy",
+   "tags": [
+    "youtube",
+    "エンディング",
+    "テキスト"
+   ]
+  },
+  "template:yp8-logo-formas-claro": {
+   "name": "オープニング：オレンジの図形でロゴを表示",
+   "tags": [
+    "youtube",
+    "ロゴ",
+    "オープニング",
+    "図形"
+   ]
+  },
+  "template:yp8-logo-formas-oscuro": {
+   "name": "オープニング：図形でロゴを表示（ダーク）",
+   "tags": [
+    "youtube",
+    "ロゴ",
+    "オープニング",
+    "図形"
+   ]
+  },
+  "template:yp8-logo-formas-video": {
+   "name": "オープニング：動画に白い図形とロゴ",
+   "tags": [
+    "youtube",
+    "ロゴ",
+    "オープニング",
+    "図形"
+   ]
+  },
+  "template:yp8-logo-youtube-claro": {
+   "name": "組み上がるYouTubeロゴ（白）",
+   "tags": [
+    "youtube",
+    "ロゴ",
+    "オープニング",
+    "白"
+   ]
+  },
+  "template:yp8-logo-youtube-oscuro": {
+   "name": "組み上がるYouTubeロゴ（ダーク）",
+   "tags": [
+    "youtube",
+    "ロゴ",
+    "オープニング",
+    "ダーク"
+   ]
+  },
+  "template:yp8-logo-youtube-video": {
+   "name": "動画に重ねる白いYouTubeロゴ",
+   "tags": [
+    "youtube",
+    "ロゴ",
+    "オープニング",
+    "白"
+   ]
+  },
+  "template:yp8-me-gusta-blanco": {
+   "name": "白い円のいいね",
+   "tags": [
+    "youtube",
+    "いいね",
+    "ボタン",
+    "円"
+   ]
+  },
+  "template:yp8-me-gusta-oscuro": {
+   "name": "ダークな円のいいね",
+   "tags": [
+    "youtube",
+    "いいね",
+    "ボタン",
+    "円"
+   ]
+  },
+  "template:yp8-redes-tercios": {
+   "name": "SNSテロップ7種",
+   "tags": [
+    "youtube",
+    "sns",
+    "テロップ",
+    "instagram",
+    "twitter",
+    "facebook"
+   ]
+  },
+  "template:yp8-suscribirse-blanco": {
+   "name": "クリックとベル付き登録バー",
+   "tags": [
+    "youtube",
+    "チャンネル登録",
+    "ボタン",
+    "クリック",
+    "ベル"
+   ]
+  },
+  "template:yp8-suscribirse-oscuro": {
+   "name": "クリックとベル付き登録バー（ダーク）",
+   "tags": [
+    "youtube",
+    "チャンネル登録",
+    "ボタン",
+    "クリック",
+    "ベル"
+   ]
+  },
+  "template:yp8-tercio-facebook": {
+   "name": "テロップ：Facebookでフォロー",
+   "tags": [
+    "youtube",
+    "テロップ",
+    "sns"
+   ]
+  },
+  "template:yp8-tercio-instagram": {
+   "name": "テロップ：Instagramのユーザー名",
+   "tags": [
+    "youtube",
+    "テロップ",
+    "sns"
+   ]
+  },
+  "template:yp8-tercio-nombre": {
+   "name": "テロップ：名前と肩書き",
+   "tags": [
+    "youtube",
+    "テロップ",
+    "sns"
+   ]
+  },
+  "template:yp8-tercio-twitter": {
+   "name": "テロップ：Twitterのユーザー名",
+   "tags": [
+    "youtube",
+    "テロップ",
+    "sns"
+   ]
+  },
+  "template:yp8-tercio-youtube": {
+   "name": "テロップ：チャンネル登録してね",
+   "tags": [
+    "youtube",
+    "テロップ",
+    "sns"
+   ]
+  },
+  "template:yp8-tercio-yt-blanco": {
+   "name": "テロップ：YouTubeのユーザー名",
+   "tags": [
+    "youtube",
+    "テロップ",
+    "sns"
+   ]
+  },
+  "template:yp8-tercio-yt-oscuro": {
+   "name": "テロップ：YouTubeで登録（ダーク）",
+   "tags": [
+    "youtube",
+    "テロップ",
+    "sns"
+   ]
+  },
+  "template:yp8-transicion-ola": {
+   "name": "トランジション：青と緑の波",
+   "tags": [
+    "youtube",
+    "トランジション",
+    "グラデーション"
+   ]
+  },
+  "template:yp8-transicion-rombo": {
+   "name": "トランジション：上昇する青緑のひし形",
+   "tags": [
+    "youtube",
+    "トランジション",
+    "グラデーション"
+   ]
+  },
+  "template:yp9-barra-canal": {
+   "name": "ベル付きチャンネル名バー",
+   "tags": [
+    "youtube",
+    "バー",
+    "チャンネル",
+    "ベル",
+    "チャンネル登録"
+   ]
+  },
+  "template:yp9-bloques-glitch": {
+   "name": "グリッチのカラーブロック",
+   "tags": [
+    "youtube",
+    "グリッチ",
+    "カラフル",
+    "ノイズ"
+   ]
+  },
+  "template:yp9-boton-suscribirse": {
+   "name": "塗られてクリックされる登録ボタン",
+   "tags": [
+    "youtube",
+    "チャンネル登録",
+    "ボタン",
+    "クリック",
+    "カーソル"
+   ]
+  },
+  "template:yp9-boton-ventana": {
+   "name": "動画ウィンドウに開く再生ボタン",
+   "tags": [
+    "youtube",
+    "再生",
+    "ウィンドウ",
+    "トランジション"
+   ]
+  },
+  "template:yp9-cinta-tendencia": {
+   "name": "タイトル入り黄色いトレンドテープ",
+   "tags": [
+    "youtube",
+    "テープ",
+    "トレンド",
+    "タイトル"
+   ]
+  },
+  "template:yp9-corazones-flotando": {
+   "name": "動画の上に浮かぶハート",
+   "tags": [
+    "youtube",
+    "ハート",
+    "愛",
+    "動画"
+   ]
+  },
+  "template:yp9-destello-a": {
+   "name": "落書きキラキラ A",
+   "tags": [
+    "youtube",
+    "キラキラ",
+    "落書き",
+    "輝き"
+   ]
+  },
+  "template:yp9-destello-b": {
+   "name": "落書きキラキラ B",
+   "tags": [
+    "youtube",
+    "キラキラ",
+    "落書き",
+    "輝き"
+   ]
+  },
+  "template:yp9-destello-c": {
+   "name": "落書きキラキラ C",
+   "tags": [
+    "youtube",
+    "キラキラ",
+    "落書き",
+    "輝き"
+   ]
+  },
+  "template:yp9-enlace-behance": {
+   "name": "リンクバー：behance",
+   "tags": [
+    "youtube",
+    "sns",
+    "リンク",
+    "バー",
+    "behance"
+   ]
+  },
+  "template:yp9-enlace-dribbble": {
+   "name": "リンクバー：dribbble",
+   "tags": [
+    "youtube",
+    "sns",
+    "リンク",
+    "バー",
+    "dribbble"
+   ]
+  },
+  "template:yp9-enlace-facebook": {
+   "name": "リンクバー：facebook",
+   "tags": [
+    "youtube",
+    "sns",
+    "リンク",
+    "バー",
+    "facebook"
+   ]
+  },
+  "template:yp9-enlace-google": {
+   "name": "リンクバー：google",
+   "tags": [
+    "youtube",
+    "sns",
+    "リンク",
+    "バー",
+    "google"
+   ]
+  },
+  "template:yp9-enlace-instagram": {
+   "name": "リンクバー：instagram",
+   "tags": [
+    "youtube",
+    "sns",
+    "リンク",
+    "バー",
+    "instagram"
+   ]
+  },
+  "template:yp9-enlace-itunes": {
+   "name": "リンクバー：itunes",
+   "tags": [
+    "youtube",
+    "sns",
+    "リンク",
+    "バー",
+    "itunes"
+   ]
+  },
+  "template:yp9-enlace-patreon": {
+   "name": "リンクバー：patreon",
+   "tags": [
+    "youtube",
+    "sns",
+    "リンク",
+    "バー",
+    "patreon"
+   ]
+  },
+  "template:yp9-enlace-soundcloud": {
+   "name": "リンクバー：soundcloud",
+   "tags": [
+    "youtube",
+    "sns",
+    "リンク",
+    "バー",
+    "soundcloud"
+   ]
+  },
+  "template:yp9-enlace-spotify": {
+   "name": "リンクバー：spotify",
+   "tags": [
+    "youtube",
+    "sns",
+    "リンク",
+    "バー",
+    "spotify"
+   ]
+  },
+  "template:yp9-enlace-telegram": {
+   "name": "リンクバー：telegram",
+   "tags": [
+    "youtube",
+    "sns",
+    "リンク",
+    "バー",
+    "telegram"
+   ]
+  },
+  "template:yp9-enlace-twitter": {
+   "name": "リンクバー：twitter",
+   "tags": [
+    "youtube",
+    "sns",
+    "リンク",
+    "バー",
+    "twitter"
+   ]
+  },
+  "template:yp9-enlace-vimeo": {
+   "name": "リンクバー：vimeo",
+   "tags": [
+    "youtube",
+    "sns",
+    "リンク",
+    "バー",
+    "vimeo"
+   ]
+  },
+  "template:yp9-etiqueta-usuario": {
+   "name": "アイコンと@ユーザー名のバッジ",
+   "tags": [
+    "youtube",
+    "ユーザー名",
+    "sns",
+    "ラベル"
+   ]
+  },
+  "template:yp9-live-stream-blanco": {
+   "name": "ボタン付き白いLIVE STREAMタイトル",
+   "tags": [
+    "youtube",
+    "ライブ配信",
+    "live",
+    "配信"
+   ]
+  },
+  "template:yp9-live-stream-rojo": {
+   "name": "赤と黒のボックスのLIVE STREAMタイトル",
+   "tags": [
+    "youtube",
+    "ライブ配信",
+    "live",
+    "配信"
+   ]
+  },
+  "template:yp9-me-gusta-cursor": {
+   "name": "カーソルで青くなるいいね",
+   "tags": [
+    "youtube",
+    "いいね",
+    "クリック",
+    "カーソル"
+   ]
+  },
+  "template:yp9-me-gusta-destello": {
+   "name": "クリックで弾ける光るいいね",
+   "tags": [
+    "youtube",
+    "いいね",
+    "クリック",
+    "キラキラ"
+   ]
+  },
+  "template:yp9-perfil": {
+   "name": "写真・フォロー・カウンター付きプロフィール",
+   "tags": [
+    "youtube",
+    "プロフィール",
+    "フォロー",
+    "カウンター",
+    "sns"
+   ]
+  },
+  "template:yp9-rayo": {
+   "name": "線から描かれる稲妻",
+   "tags": [
+    "youtube",
+    "稲妻",
+    "イントロ"
+   ]
+  },
+  "template:yp9-redes-enlaces": {
+   "name": "SNSリンクバー12種",
+   "tags": [
+    "youtube",
+    "sns",
+    "リンク",
+    "バー",
+    "behance",
+    "instagram"
+   ]
+  },
+  "template:yp9-sticker-suscrito": {
+   "name": "登録済みステッカーに変わる再生ボタン",
+   "tags": [
+    "youtube",
+    "チャンネル登録",
+    "ステッカー",
+    "クリック"
+   ]
+  },
+  "template:yp9-tarjeta-canal": {
+   "name": "丸い写真と登録ボタンのチャンネルカード",
+   "tags": [
+    "youtube",
+    "カード",
+    "チャンネル",
+    "チャンネル登録",
+    "クリック"
+   ]
+  },
+  "template:yp9-telefono-feed": {
+   "name": "縦型動画とボタンのスマホ",
+   "tags": [
+    "youtube",
+    "スマホ",
+    "縦型",
+    "sns",
+    "いいね"
+   ]
+  },
+  "template:yp9-telefono-reacciones": {
+   "name": "ハートといいねが出るスマホ",
+   "tags": [
+    "youtube",
+    "スマホ",
+    "いいね",
+    "ハート",
+    "sns"
    ]
   },
   "template:yt-calle-a-que-te-dedicas": {

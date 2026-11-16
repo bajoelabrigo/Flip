@@ -38267,6 +38267,2298 @@
     "유튜브"
    ]
   },
+  "template:yp10-boton-suscribete": {
+   "name": "화살표가 있는 SUBSCRIBE MY CHANNEL 버튼",
+   "tags": [
+    "youtube",
+    "손그림",
+    "드로잉",
+    "sns",
+    "구독",
+    "버튼"
+   ]
+  },
+  "template:yp10-caja-roja": {
+   "name": "빨간 박스의 SUSCRÍBETE YA",
+   "tags": [
+    "youtube",
+    "손그림",
+    "드로잉",
+    "sns",
+    "구독",
+    "박스"
+   ]
+  },
+  "template:yp10-check": {
+   "name": "초록 체크의 Check New Video",
+   "tags": [
+    "youtube",
+    "손그림",
+    "드로잉",
+    "sns",
+    "체크",
+    "새 영상"
+   ]
+  },
+  "template:yp10-cuenta": {
+   "name": "파란 물방울의 @youraccount",
+   "tags": [
+    "youtube",
+    "손그림",
+    "드로잉",
+    "sns",
+    "계정",
+    "물방울"
+   ]
+  },
+  "template:yp10-luna": {
+   "name": "달이 있는 SUBSCRIBE와 Like New Video",
+   "tags": [
+    "youtube",
+    "손그림",
+    "드로잉",
+    "sns",
+    "구독",
+    "달"
+   ]
+  },
+  "template:yp10-me-gusta-amarillo": {
+   "name": "노란 엄지의 Like New Video",
+   "tags": [
+    "youtube",
+    "손그림",
+    "드로잉",
+    "sns",
+    "좋아요",
+    "엄지"
+   ]
+  },
+  "template:yp10-mi-canal": {
+   "name": "선택되어 커지는 My Channel",
+   "tags": [
+    "youtube",
+    "손그림",
+    "드로잉",
+    "sns",
+    "채널",
+    "선택"
+   ]
+  },
+  "template:yp10-nuevo-video-morado": {
+   "name": "보라 박스의 NEW VIDEO와 Like",
+   "tags": [
+    "youtube",
+    "손그림",
+    "드로잉",
+    "sns",
+    "새 영상",
+    "박스"
+   ]
+  },
+  "template:yp10-nuevo-video-rosa": {
+   "name": "분홍 얼룩과 하트의 New Video",
+   "tags": [
+    "youtube",
+    "손그림",
+    "드로잉",
+    "sns",
+    "새 영상",
+    "하트"
+   ]
+  },
+  "template:yp10-podcast": {
+   "name": "물보라가 있는 NEW PODCAST",
+   "tags": [
+    "youtube",
+    "손그림",
+    "드로잉",
+    "sns",
+    "podcast"
+   ]
+  },
+  "template:yp10-pulgar-beige": {
+   "name": "엄지가 있는 NUEVO VIDEO AQUÍ",
+   "tags": [
+    "youtube",
+    "손그림",
+    "드로잉",
+    "sns",
+    "엄지",
+    "스페인어"
+   ]
+  },
+  "template:yp10-social-media": {
+   "name": "빨간 타원의 Social Media Title",
+   "tags": [
+    "youtube",
+    "손그림",
+    "드로잉",
+    "sns",
+    "타이틀",
+    "타원"
+   ]
+  },
+  "template:yp10-suscribete-flechas": {
+   "name": "화살표가 있는 빨간 Subscribe 버튼",
+   "tags": [
+    "youtube",
+    "손그림",
+    "드로잉",
+    "sns",
+    "구독",
+    "버튼"
+   ]
+  },
+  "template:yp10-suscribete-puntos": {
+   "name": "컬러 점과 @yourchannel의 Subscribe",
+   "tags": [
+    "youtube",
+    "손그림",
+    "드로잉",
+    "sns",
+    "구독",
+    "버튼"
+   ]
+  },
+  "template:yp10-tu-logo": {
+   "name": "파란 잉크의 Your Logo",
+   "tags": [
+    "youtube",
+    "손그림",
+    "드로잉",
+    "sns",
+    "로고",
+    "잉크"
+   ]
+  },
+  "template:yp11-amazing": {
+   "name": "텍스트: 무지개 AMAZING",
+   "tags": [
+    "youtube",
+    "무지개",
+    "놀라운"
+   ]
+  },
+  "template:yp11-any-language": {
+   "name": "텍스트: 원형의 Use Any Language",
+   "tags": [
+    "youtube",
+    "원형",
+    "언어"
+   ]
+  },
+  "template:yp11-brand-new-year": {
+   "name": "타이틀: 2026년 Brand New",
+   "tags": [
+    "youtube",
+    "연도",
+    "새로운"
+   ]
+  },
+  "template:yp11-channel-name": {
+   "name": "버튼: 채널명",
+   "tags": [
+    "youtube",
+    "채널",
+    "버튼",
+    "화살표"
+   ]
+  },
+  "template:yp11-click": {
+   "name": "버튼: 손이 있는 CLICK",
+   "tags": [
+    "youtube",
+    "클릭",
+    "손"
+   ]
+  },
+  "template:yp11-comment": {
+   "name": "텍스트: 화살표가 있는 Comment",
+   "tags": [
+    "youtube",
+    "댓글",
+    "화살표"
+   ]
+  },
+  "template:yp11-follow-me": {
+   "name": "버튼: 스위치가 있는 팔로우",
+   "tags": [
+    "youtube",
+    "팔로우",
+    "스위치"
+   ]
+  },
+  "template:yp11-high-quality": {
+   "name": "버튼: 포인터가 있는 고화질",
+   "tags": [
+    "youtube",
+    "고화질",
+    "버튼",
+    "포인터"
+   ]
+  },
+  "template:yp11-like-heart": {
+   "name": "텍스트: 하트가 있는 Like",
+   "tags": [
+    "youtube",
+    "좋아요",
+    "하트"
+   ]
+  },
+  "template:yp11-like-my-video": {
+   "name": "텍스트: 엄지가 있는 Like my video",
+   "tags": [
+    "youtube",
+    "좋아요",
+    "엄지"
+   ]
+  },
+  "template:yp11-looking-perfect": {
+   "name": "텍스트: 점이 있는 Looking Perfect",
+   "tags": [
+    "youtube",
+    "점",
+    "템플릿"
+   ]
+  },
+  "template:yp11-new-video": {
+   "name": "라벨: 스마일이 있는 New Video",
+   "tags": [
+    "youtube",
+    "새 영상",
+    "스마일"
+   ]
+  },
+  "template:yp11-play": {
+   "name": "버튼: 빨간 재생",
+   "tags": [
+    "youtube",
+    "재생",
+    "버튼"
+   ]
+  },
+  "template:yp11-rate-us": {
+   "name": "텍스트: 하트가 있는 Rate Us",
+   "tags": [
+    "youtube",
+    "평가",
+    "하트"
+   ]
+  },
+  "template:yp11-share": {
+   "name": "텍스트: 화살표가 있는 SHARE",
+   "tags": [
+    "youtube",
+    "공유",
+    "화살표"
+   ]
+  },
+  "template:yp11-subscribe-bell": {
+   "name": "텍스트: 알림 벨이 있는 Subscribe",
+   "tags": [
+    "youtube",
+    "구독",
+    "알림 벨"
+   ]
+  },
+  "template:yp11-thanks-watching": {
+   "name": "텍스트: 눈이 있는 '시청해 주셔서 감사합니다'",
+   "tags": [
+    "youtube",
+    "감사",
+    "눈",
+    "감사 인사"
+   ]
+  },
+  "template:yp11-titles-smiley": {
+   "name": "타이틀: 스마일이 있는 TITLES & BUTTONS",
+   "tags": [
+    "youtube",
+    "스마일",
+    "타이틀"
+   ]
+  },
+  "template:yp11-trendy-style": {
+   "name": "텍스트: 번개가 있는 Trendy Style",
+   "tags": [
+    "youtube",
+    "번개",
+    "트렌드"
+   ]
+  },
+  "template:yp11-watch-now": {
+   "name": "텍스트: 꽃이 있는 '지금 보기'",
+   "tags": [
+    "youtube",
+    "시청",
+    "새 영상"
+   ]
+  },
+  "template:yp12-barra-profesora": {
+   "name": "사진·좋아요·알림 벨·구독 바",
+   "tags": [
+    "youtube",
+    "구독",
+    "버튼",
+    "바",
+    "좋아요",
+    "알림 벨"
+   ]
+  },
+  "template:yp12-foto-burbujas": {
+   "name": "거품과 아이콘이 있는 사진",
+   "tags": [
+    "youtube",
+    "구독",
+    "버튼",
+    "사진",
+    "거품",
+    "좋아요"
+   ]
+  },
+  "template:yp12-foto-iconos": {
+   "name": "아이콘이 튀어나오는 사진",
+   "tags": [
+    "youtube",
+    "구독",
+    "버튼",
+    "사진",
+    "원형",
+    "좋아요"
+   ]
+  },
+  "template:yp12-foto-lados": {
+   "name": "양옆에 아이콘이 있는 사진",
+   "tags": [
+    "youtube",
+    "구독",
+    "버튼",
+    "사진",
+    "좋아요",
+    "알림 벨"
+   ]
+  },
+  "template:yp12-foto-liquida": {
+   "name": "리퀴드 아이콘이 있는 사진",
+   "tags": [
+    "youtube",
+    "구독",
+    "버튼",
+    "사진",
+    "리퀴드",
+    "좋아요"
+   ]
+  },
+  "template:yp12-foto-orbita": {
+   "name": "아이콘이 도는 원형 사진",
+   "tags": [
+    "youtube",
+    "구독",
+    "버튼",
+    "사진",
+    "원형",
+    "좋아요"
+   ]
+  },
+  "template:yp12-lista-botones": {
+   "name": "좋아요·구독·알림 목록",
+   "tags": [
+    "youtube",
+    "구독",
+    "버튼",
+    "목록",
+    "좋아요",
+    "알림 벨"
+   ]
+  },
+  "template:yp12-lista-capsula": {
+   "name": "캡슐형 목록: 좋아요·구독·알림",
+   "tags": [
+    "youtube",
+    "구독",
+    "버튼",
+    "목록",
+    "좋아요",
+    "알림 벨"
+   ]
+  },
+  "template:yp12-nombre-suscrito": {
+   "name": "채널명·구독 완료·알림 벨",
+   "tags": [
+    "youtube",
+    "구독",
+    "버튼",
+    "이름",
+    "알림 벨",
+    "클릭"
+   ]
+  },
+  "template:yp12-tarjeta-gris": {
+   "name": "큰 사진이 있는 회색 카드",
+   "tags": [
+    "youtube",
+    "구독",
+    "버튼",
+    "카드",
+    "좋아요",
+    "알림 벨"
+   ]
+  },
+  "template:yp12-tarjeta-lista": {
+   "name": "카드로 열리는 채널명",
+   "tags": [
+    "youtube",
+    "구독",
+    "버튼",
+    "카드",
+    "목록",
+    "좋아요"
+   ]
+  },
+  "template:yp12-tarjeta-rosa": {
+   "name": "사진과 핑크 구독 버튼 카드",
+   "tags": [
+    "youtube",
+    "구독",
+    "버튼",
+    "카드",
+    "핑크"
+   ]
+  },
+  "template:yp12-tres-botones": {
+   "name": "원형 버튼 3개",
+   "tags": [
+    "youtube",
+    "구독",
+    "버튼",
+    "좋아요",
+    "알림 벨",
+    "클릭"
+   ]
+  },
+  "template:yp13-aconseja-amigos": {
+   "name": "친구에게 추천: 엄지 척",
+   "tags": [
+    "youtube",
+    "평점",
+    "좋아요",
+    "커서"
+   ]
+  },
+  "template:yp13-agregar-comentario": {
+   "name": "게시되는 댓글 추가 버튼",
+   "tags": [
+    "youtube",
+    "댓글",
+    "버튼",
+    "커서"
+   ]
+  },
+  "template:yp13-avatar-comentario": {
+   "name": "댓글이 열리는 배지 달린 아바타",
+   "tags": [
+    "youtube",
+    "댓글",
+    "아바타",
+    "커서"
+   ]
+  },
+  "template:yp13-aviso-cafe": {
+   "name": "OK 버튼이 있는 알림창",
+   "tags": [
+    "youtube",
+    "알림창",
+    "창",
+    "커서"
+   ]
+  },
+  "template:yp13-aviso-comentarios": {
+   "name": "댓글 알림",
+   "tags": [
+    "youtube",
+    "알림",
+    "댓글",
+    "카운터",
+    "커서"
+   ]
+  },
+  "template:yp13-aviso-doble": {
+   "name": "좋아요와 팔로워 알림",
+   "tags": [
+    "youtube",
+    "알림",
+    "좋아요",
+    "팔로워",
+    "커서"
+   ]
+  },
+  "template:yp13-aviso-me-gusta": {
+   "name": "좋아요 알림",
+   "tags": [
+    "youtube",
+    "알림",
+    "좋아요",
+    "카운터",
+    "커서"
+   ]
+  },
+  "template:yp13-aviso-seguidores": {
+   "name": "팔로워 알림",
+   "tags": [
+    "youtube",
+    "알림",
+    "팔로워",
+    "카운터",
+    "커서"
+   ]
+  },
+  "template:yp13-barra-suscribir": {
+   "name": "좋아요·구독·알림 벨 바",
+   "tags": [
+    "youtube",
+    "구독",
+    "좋아요",
+    "알림 벨",
+    "커서"
+   ]
+  },
+  "template:yp13-buscar-boton": {
+   "name": "SEARCH 버튼이 있는 검색창",
+   "tags": [
+    "youtube",
+    "검색창",
+    "커서",
+    "버튼"
+   ]
+  },
+  "template:yp13-buscar-cargando": {
+   "name": "로딩으로 바뀌는 검색창",
+   "tags": [
+    "youtube",
+    "검색창",
+    "커서",
+    "웹"
+   ]
+  },
+  "template:yp13-buscar-lupa": {
+   "name": "사각 돋보기가 있는 검색창",
+   "tags": [
+    "youtube",
+    "검색창",
+    "커서"
+   ]
+  },
+  "template:yp13-buscar-mapa": {
+   "name": "검색창과 핀이 있는 지도",
+   "tags": [
+    "youtube",
+    "지도",
+    "검색창",
+    "커서",
+    "위치"
+   ]
+  },
+  "template:yp13-caras-valorar": {
+   "name": "영상이 마음에 드셨나요? 표정 평가",
+   "tags": [
+    "youtube",
+    "평점",
+    "얼굴",
+    "커서"
+   ]
+  },
+  "template:yp13-carrito-precio": {
+   "name": "가격이 있는 장바구니 버튼",
+   "tags": [
+    "youtube",
+    "장바구니",
+    "구매",
+    "커서"
+   ]
+  },
+  "template:yp13-casilla-marcada": {
+   "name": "CHECKED 체크박스",
+   "tags": [
+    "youtube",
+    "체크박스",
+    "커서"
+   ]
+  },
+  "template:yp13-chat-dos": {
+   "name": "시간과 답장이 있는 2인 채팅",
+   "tags": [
+    "youtube",
+    "채팅",
+    "메시지",
+    "커서"
+   ]
+  },
+  "template:yp13-chat-nombres": {
+   "name": "이름과 답장이 있는 채팅",
+   "tags": [
+    "youtube",
+    "채팅",
+    "메시지",
+    "커서"
+   ]
+  },
+  "template:yp13-chat-ventana-amarilla": {
+   "name": "이름이 있는 노란 채팅 창",
+   "tags": [
+    "youtube",
+    "채팅",
+    "메시지",
+    "창"
+   ]
+  },
+  "template:yp13-chat-ventana-azul": {
+   "name": "파란 채팅 창",
+   "tags": [
+    "youtube",
+    "채팅",
+    "메시지",
+    "창"
+   ]
+  },
+  "template:yp13-chat-ventana-grande": {
+   "name": "영상 위 채팅 창",
+   "tags": [
+    "youtube",
+    "채팅",
+    "메시지",
+    "창"
+   ]
+  },
+  "template:yp13-comentario-like": {
+   "name": "LIKE와 REPLY가 있는 댓글",
+   "tags": [
+    "youtube",
+    "댓글",
+    "좋아요",
+    "커서"
+   ]
+  },
+  "template:yp13-comentario-votos": {
+   "name": "좋아요와 답글이 있는 댓글",
+   "tags": [
+    "youtube",
+    "댓글",
+    "좋아요",
+    "커서"
+   ]
+  },
+  "template:yp13-comprar-gracias": {
+   "name": "감사 인사가 뜨는 구매 버튼",
+   "tags": [
+    "youtube",
+    "버튼",
+    "구매",
+    "커서"
+   ]
+  },
+  "template:yp13-contador-comentarios": {
+   "name": "댓글 카운터가 있는 말풍선",
+   "tags": [
+    "youtube",
+    "카운터",
+    "댓글",
+    "커서"
+   ]
+  },
+  "template:yp13-contador-corazon": {
+   "name": "좋아요 카운터가 있는 하트",
+   "tags": [
+    "youtube",
+    "카운터",
+    "좋아요",
+    "하트",
+    "커서"
+   ]
+  },
+  "template:yp13-contador-pulgar": {
+   "name": "좋아요 카운터가 있는 엄지",
+   "tags": [
+    "youtube",
+    "카운터",
+    "좋아요",
+    "커서"
+   ]
+  },
+  "template:yp13-contador-seguidores": {
+   "name": "팔로워 카운터가 있는 사람 아이콘",
+   "tags": [
+    "youtube",
+    "카운터",
+    "팔로워",
+    "커서"
+   ]
+  },
+  "template:yp13-descargar-anillo": {
+   "name": "진행 링이 있는 다운로드 버튼",
+   "tags": [
+    "youtube",
+    "다운로드",
+    "진행률",
+    "커서"
+   ]
+  },
+  "template:yp13-descargar-barra": {
+   "name": "진행 바가 있는 다운로드 버튼",
+   "tags": [
+    "youtube",
+    "다운로드",
+    "진행률",
+    "커서"
+   ]
+  },
+  "template:yp13-enviar-comentario": {
+   "name": "전송 버튼이 있는 댓글 입력창",
+   "tags": [
+    "youtube",
+    "댓글",
+    "채팅",
+    "커서"
+   ]
+  },
+  "template:yp13-insignia-camara": {
+   "name": "원형 카메라 버튼",
+   "tags": [
+    "youtube",
+    "배지",
+    "sns",
+    "커서"
+   ]
+  },
+  "template:yp13-insignia-click-here": {
+   "name": "GOOD JOB!으로 바뀌는 CLICK HERE 박스",
+   "tags": [
+    "youtube",
+    "버튼",
+    "커서"
+   ]
+  },
+  "template:yp13-insignia-foto": {
+   "name": "탭하는 사각 사진",
+   "tags": [
+    "youtube",
+    "사진",
+    "아바타",
+    "커서"
+   ]
+  },
+  "template:yp13-insignia-get-ready": {
+   "name": "사진이 있는 GET READY 배지",
+   "tags": [
+    "youtube",
+    "배지",
+    "커서",
+    "사진"
+   ]
+  },
+  "template:yp13-insignia-like-this": {
+   "name": "LIKE THIS!로 바뀌는 사진 배지",
+   "tags": [
+    "youtube",
+    "배지",
+    "좋아요",
+    "커서",
+    "사진"
+   ]
+  },
+  "template:yp13-insignia-pajaro": {
+   "name": "원형 새 버튼",
+   "tags": [
+    "youtube",
+    "배지",
+    "sns",
+    "커서"
+   ]
+  },
+  "template:yp13-insignia-seguir": {
+   "name": "FOLLOW로 바뀌는 배지",
+   "tags": [
+    "youtube",
+    "배지",
+    "팔로우",
+    "커서"
+   ]
+  },
+  "template:yp13-insignia-unete": {
+   "name": "클릭하는 JOIN US 배지",
+   "tags": [
+    "youtube",
+    "배지",
+    "참여",
+    "커서"
+   ]
+  },
+  "template:yp13-interruptor-encender": {
+   "name": "TURN ON 스위치",
+   "tags": [
+    "youtube",
+    "스위치",
+    "커서"
+   ]
+  },
+  "template:yp13-interruptor-on-off": {
+   "name": "START KEY ON/OFF 스위치",
+   "tags": [
+    "youtube",
+    "스위치",
+    "커서"
+   ]
+  },
+  "template:yp13-lista-bienvenida": {
+   "name": "'내 채널에 오신 것을 환영합니다' 버튼 목록",
+   "tags": [
+    "youtube",
+    "목록",
+    "구독",
+    "커서",
+    "환영"
+   ]
+  },
+  "template:yp13-lista-canal-grande": {
+   "name": "영상 위 채널 목록",
+   "tags": [
+    "youtube",
+    "목록",
+    "구독",
+    "커서"
+   ]
+  },
+  "template:yp13-lista-interruptores": {
+   "name": "스위치가 있는 목록",
+   "tags": [
+    "youtube",
+    "목록",
+    "스위치",
+    "커서"
+   ]
+  },
+  "template:yp13-lista-no-olvides": {
+   "name": "잊지 마세요 목록: 구독·알림·좋아요",
+   "tags": [
+    "youtube",
+    "목록",
+    "구독",
+    "커서"
+   ]
+  },
+  "template:yp13-lista-tareas": {
+   "name": "오늘의 할 일 목록",
+   "tags": [
+    "youtube",
+    "목록",
+    "할 일",
+    "커서"
+   ]
+  },
+  "template:yp13-mensaje-abrir": {
+   "name": "열리는 메시지 버튼",
+   "tags": [
+    "youtube",
+    "메시지",
+    "채팅",
+    "커서"
+   ]
+  },
+  "template:yp13-opcion-seleccionar": {
+   "name": "SELECT 옵션",
+   "tags": [
+    "youtube",
+    "옵션",
+    "커서"
+   ]
+  },
+  "template:yp13-perfil-seguir": {
+   "name": "사진과 팔로우 버튼이 있는 프로필",
+   "tags": [
+    "youtube",
+    "프로필",
+    "팔로우",
+    "커서",
+    "사진"
+   ]
+  },
+  "template:yp13-post-botones": {
+   "name": "둥근 버튼이 있는 게시물",
+   "tags": [
+    "youtube",
+    "게시물",
+    "좋아요",
+    "커서"
+   ]
+  },
+  "template:yp13-post-insta": {
+   "name": "좋아요가 있는 사진 게시물",
+   "tags": [
+    "youtube",
+    "게시물",
+    "좋아요",
+    "커서"
+   ]
+  },
+  "template:yp13-post-muro": {
+   "name": "좋아요·댓글·공유가 있는 담벼락 게시물",
+   "tags": [
+    "youtube",
+    "게시물",
+    "좋아요",
+    "커서"
+   ]
+  },
+  "template:yp13-post-noticia": {
+   "name": "파란 이름과 좋아요가 있는 게시물",
+   "tags": [
+    "youtube",
+    "게시물",
+    "좋아요",
+    "커서"
+   ]
+  },
+  "template:yp13-post-texto": {
+   "name": "좋아요가 있는 텍스트 게시물",
+   "tags": [
+    "youtube",
+    "게시물",
+    "좋아요",
+    "커서"
+   ]
+  },
+  "template:yp13-post-tuit": {
+   "name": "좋아요가 있는 트윗형 게시물",
+   "tags": [
+    "youtube",
+    "게시물",
+    "좋아요",
+    "커서"
+   ]
+  },
+  "template:yp13-post-tuit-enlace": {
+   "name": "링크 카드와 좋아요가 있는 트윗",
+   "tags": [
+    "youtube",
+    "게시물",
+    "좋아요",
+    "커서"
+   ]
+  },
+  "template:yp13-post-tuit-foto": {
+   "name": "링크 사진과 좋아요가 있는 트윗",
+   "tags": [
+    "youtube",
+    "게시물",
+    "좋아요",
+    "커서"
+   ]
+  },
+  "template:yp13-post-vertical": {
+   "name": "좋아요가 있는 세로형 게시물",
+   "tags": [
+    "youtube",
+    "게시물",
+    "좋아요",
+    "커서"
+   ]
+  },
+  "template:yp13-post-video-campana": {
+   "name": "영상 게시물: 구독과 알림 벨",
+   "tags": [
+    "youtube",
+    "게시물",
+    "구독",
+    "알림 벨",
+    "커서"
+   ]
+  },
+  "template:yp13-post-video-suscribir": {
+   "name": "구독 버튼이 있는 영상 게시물",
+   "tags": [
+    "youtube",
+    "게시물",
+    "구독",
+    "커서"
+   ]
+  },
+  "template:yp13-post-video-votos": {
+   "name": "좋아요와 싫어요가 있는 영상 게시물",
+   "tags": [
+    "youtube",
+    "게시물",
+    "좋아요",
+    "커서"
+   ]
+  },
+  "template:yp13-reaccion-corazones": {
+   "name": "하트가 올라가는 LOVE IT! 버튼",
+   "tags": [
+    "youtube",
+    "반응",
+    "하트",
+    "커서",
+    "버튼"
+   ]
+  },
+  "template:yp13-reaccion-estrellas": {
+   "name": "초록 별이 올라가는 버튼",
+   "tags": [
+    "youtube",
+    "반응",
+    "별",
+    "커서",
+    "버튼"
+   ]
+  },
+  "template:yp13-reaccion-monedas": {
+   "name": "동전이 올라가는 DONATE 버튼",
+   "tags": [
+    "youtube",
+    "반응",
+    "후원",
+    "커서",
+    "버튼"
+   ]
+  },
+  "template:yp13-reaccion-pulgares": {
+   "name": "엄지가 올라가는 LIKE THIS 버튼",
+   "tags": [
+    "youtube",
+    "반응",
+    "좋아요",
+    "커서",
+    "버튼"
+   ]
+  },
+  "template:yp13-recomiendo": {
+   "name": "추천: 하트 다섯 개",
+   "tags": [
+    "youtube",
+    "평점",
+    "하트",
+    "커서"
+   ]
+  },
+  "template:yp13-reproductor-amarillo": {
+   "name": "노란 플레이어 버튼",
+   "tags": [
+    "youtube",
+    "플레이어",
+    "버튼",
+    "커서"
+   ]
+  },
+  "template:yp13-reproductor-azul": {
+   "name": "파란 플레이어 버튼",
+   "tags": [
+    "youtube",
+    "플레이어",
+    "버튼",
+    "커서"
+   ]
+  },
+  "template:yp13-reproductor-cuadrado": {
+   "name": "사각 플레이어 버튼",
+   "tags": [
+    "youtube",
+    "플레이어",
+    "버튼",
+    "커서"
+   ]
+  },
+  "template:yp13-reproductor-redondo": {
+   "name": "원형 플레이어 버튼",
+   "tags": [
+    "youtube",
+    "플레이어",
+    "버튼",
+    "커서"
+   ]
+  },
+  "template:yp13-tarjeta-canal": {
+   "name": "열리는 채널 카드",
+   "tags": [
+    "youtube",
+    "채널",
+    "구독",
+    "커서",
+    "아바타"
+   ]
+  },
+  "template:yp13-tarjeta-suscribir-grande": {
+   "name": "구독 버튼이 있는 큰 채널 카드",
+   "tags": [
+    "youtube",
+    "채널",
+    "구독",
+    "커서",
+    "아바타",
+    "하단 자막"
+   ]
+  },
+  "template:yp13-tuit-texto": {
+   "name": "좋아요가 있는 텍스트 트윗",
+   "tags": [
+    "youtube",
+    "게시물",
+    "좋아요",
+    "커서",
+    "댓글"
+   ]
+  },
+  "template:yp13-valoranos": {
+   "name": "평가해 주세요: 별 목록",
+   "tags": [
+    "youtube",
+    "평점",
+    "별",
+    "커서"
+   ]
+  },
+  "template:yp13-valorar-10": {
+   "name": "별이 있는 10/10 평점",
+   "tags": [
+    "youtube",
+    "평점",
+    "별",
+    "커서"
+   ]
+  },
+  "template:yp13-valorar-articulo": {
+   "name": "별 다섯 개로 평가",
+   "tags": [
+    "youtube",
+    "평점",
+    "별",
+    "커서"
+   ]
+  },
+  "template:yp13-valorar-genial": {
+   "name": "별을 주는 평가 버튼",
+   "tags": [
+    "youtube",
+    "평점",
+    "별",
+    "커서",
+    "버튼"
+   ]
+  },
+  "template:yp13-valorar-plantilla": {
+   "name": "별로 평가하는 카드",
+   "tags": [
+    "youtube",
+    "평점",
+    "별",
+    "커서",
+    "로고"
+   ]
+  },
+  "template:yp13-video-suscribir-campana": {
+   "name": "구독과 알림 벨이 있는 영상 카드",
+   "tags": [
+    "youtube",
+    "게시물",
+    "구독",
+    "알림 벨",
+    "커서"
+   ]
+  },
+  "template:yp13-volumen": {
+   "name": "MAKE SOME NOISE 볼륨 슬라이더",
+   "tags": [
+    "youtube",
+    "볼륨",
+    "슬라이더",
+    "커서"
+   ]
+  },
+  "template:yp14-barra-abajo-acciones": {
+   "name": "하단 영상 바: 좋아요·공유·다운로드·저장",
+   "tags": [
+    "youtube",
+    "바",
+    "채널",
+    "구독",
+    "사진"
+   ]
+  },
+  "template:yp14-barra-abajo-campana": {
+   "name": "하단 채널 바: 구독 완료와 알림 벨",
+   "tags": [
+    "youtube",
+    "바",
+    "채널",
+    "구독",
+    "사진"
+   ]
+  },
+  "template:yp14-barra-abajo-me-gusta": {
+   "name": "하단 채널 바: 좋아요와 구독",
+   "tags": [
+    "youtube",
+    "바",
+    "채널",
+    "구독",
+    "사진"
+   ]
+  },
+  "template:yp14-barra-arriba": {
+   "name": "사진을 밀어내는 상단 채널 바",
+   "tags": [
+    "youtube",
+    "바",
+    "채널",
+    "구독",
+    "사진"
+   ]
+  },
+  "template:yp14-barra-valoracion-arriba": {
+   "name": "상단 채널 바: 좋아요·싫어요·평점",
+   "tags": [
+    "youtube",
+    "바",
+    "채널",
+    "구독",
+    "사진"
+   ]
+  },
+  "template:yp14-barra-video-suscribirse": {
+   "name": "영상 하단 흰색 바: 아바타·이름·구독",
+   "tags": [
+    "youtube",
+    "바",
+    "채널",
+    "구독",
+    "사진"
+   ]
+  },
+  "template:yp14-boton-redondo-campana": {
+   "name": "빨간 원형 버튼: 알림 벨과 'Get notified'",
+   "tags": [
+    "youtube",
+    "버튼",
+    "텍스트",
+    "알림 벨"
+   ]
+  },
+  "template:yp14-boton-redondo-compartir": {
+   "name": "빨간 원형 버튼: 공유와 'Share this'",
+   "tags": [
+    "youtube",
+    "버튼",
+    "텍스트",
+    "공유"
+   ]
+  },
+  "template:yp14-boton-redondo-me-gusta": {
+   "name": "빨간 원형 버튼: 좋아요와 'Like the video'",
+   "tags": [
+    "youtube",
+    "버튼",
+    "텍스트",
+    "좋아요"
+   ]
+  },
+  "template:yp14-boton-redondo-suscribirse": {
+   "name": "빨간 원형 버튼: 재생과 'Subscribe'",
+   "tags": [
+    "youtube",
+    "버튼",
+    "텍스트",
+    "재생"
+   ]
+  },
+  "template:yp14-campana-compartir-redondos": {
+   "name": "빨간 버튼 2개: 알림 벨과 공유",
+   "tags": [
+    "youtube",
+    "버튼",
+    "텍스트",
+    "가로 배열"
+   ]
+  },
+  "template:yp14-canal-avatar-arriba": {
+   "name": "위에 아바타가 있는 세로형 채널 버튼",
+   "tags": [
+    "youtube",
+    "버튼",
+    "구독"
+   ]
+  },
+  "template:yp14-canal-avatar-centro": {
+   "name": "가운데 아바타와 공유·알림 벨 채널 버튼",
+   "tags": [
+    "youtube",
+    "버튼",
+    "구독"
+   ]
+  },
+  "template:yp14-canal-avatar-esquina": {
+   "name": "모서리 아바타와 공유·알림 벨 채널 버튼",
+   "tags": [
+    "youtube",
+    "버튼",
+    "구독"
+   ]
+  },
+  "template:yp14-canal-circulo": {
+   "name": "알림 벨·좋아요·공유가 있는 원형 채널",
+   "tags": [
+    "youtube",
+    "버튼",
+    "알림 벨",
+    "좋아요"
+   ]
+  },
+  "template:yp14-canal-foto-campana": {
+   "name": "채널 버튼: 사진·구독·알림 벨",
+   "tags": [
+    "youtube",
+    "버튼",
+    "구독"
+   ]
+  },
+  "template:yp14-canal-foto-vertical": {
+   "name": "세로형 채널 버튼: 사진·구독·좋아요·알림 벨",
+   "tags": [
+    "youtube",
+    "버튼",
+    "구독"
+   ]
+  },
+  "template:yp14-canal-horizontal": {
+   "name": "가로형 채널 버튼: 사진·구독자 수·구독·알림 벨",
+   "tags": [
+    "youtube",
+    "버튼",
+    "구독"
+   ]
+  },
+  "template:yp14-canal-iconos-columna": {
+   "name": "아이콘 세로 배열 채널: 알림 벨·좋아요·공유",
+   "tags": [
+    "youtube",
+    "버튼",
+    "구독"
+   ]
+  },
+  "template:yp14-canal-nombre-largo": {
+   "name": "채널 버튼: 사진·3줄 이름·좋아요·알림 벨",
+   "tags": [
+    "youtube",
+    "버튼",
+    "구독"
+   ]
+  },
+  "template:yp14-canal-sin-tarjeta": {
+   "name": "채널: 아바타·이름·구독자 수·구독",
+   "tags": [
+    "youtube",
+    "버튼",
+    "구독"
+   ]
+  },
+  "template:yp14-canal-sobre-video": {
+   "name": "영상 위 채널 버튼: 사진·구독자 수·구독",
+   "tags": [
+    "youtube",
+    "버튼",
+    "구독"
+   ]
+  },
+  "template:yp14-canal-tarjeta-vertical": {
+   "name": "세로형 채널 카드: 이름·사진·구독",
+   "tags": [
+    "youtube",
+    "버튼",
+    "구독"
+   ]
+  },
+  "template:yp14-columna-botones": {
+   "name": "원형 버튼 세로 배열: 구독·좋아요·알림 벨",
+   "tags": [
+    "youtube",
+    "버튼",
+    "텍스트",
+    "세로 배열"
+   ]
+  },
+  "template:yp14-columna-botones-etiquetas": {
+   "name": "라벨이 있는 원형 버튼 세로 배열: 구독·알림·좋아요",
+   "tags": [
+    "youtube",
+    "버튼",
+    "텍스트",
+    "세로 배열"
+   ]
+  },
+  "template:yp14-comentario-abajo": {
+   "name": "하단 댓글: 좋아요",
+   "tags": [
+    "youtube",
+    "바",
+    "채널",
+    "구독",
+    "사진"
+   ]
+  },
+  "template:yp14-comentario-arriba": {
+   "name": "상단 댓글: 좋아요와 싫어요",
+   "tags": [
+    "youtube",
+    "바",
+    "채널",
+    "구독",
+    "사진"
+   ]
+  },
+  "template:yp14-comentario-me-gusta": {
+   "name": "좋아요를 누른 댓글",
+   "tags": [
+    "youtube",
+    "댓글",
+    "템플릿"
+   ]
+  },
+  "template:yp14-comentario-no-me-gusta": {
+   "name": "싫어요를 누른 댓글",
+   "tags": [
+    "youtube",
+    "댓글",
+    "템플릿"
+   ]
+  },
+  "template:yp14-comentario-respuesta": {
+   "name": "답글을 입력 중인 댓글",
+   "tags": [
+    "youtube",
+    "댓글",
+    "템플릿"
+   ]
+  },
+  "template:yp14-comentario-respuesta-2": {
+   "name": "답글이 있는 댓글 (2)",
+   "tags": [
+    "youtube",
+    "댓글",
+    "템플릿"
+   ]
+  },
+  "template:yp14-comentario-sobre-video": {
+   "name": "영상 위 한 줄 댓글",
+   "tags": [
+    "youtube",
+    "댓글",
+    "템플릿"
+   ]
+  },
+  "template:yp14-compartir-esto": {
+   "name": "빨강에서 흰색으로 바뀌는 'Share This' 버튼",
+   "tags": [
+    "youtube",
+    "버튼",
+    "텍스트",
+    "공유"
+   ]
+  },
+  "template:yp14-fila-botones": {
+   "name": "원형 버튼 가로 배열: 구독·알림 벨·공유·좋아요",
+   "tags": [
+    "youtube",
+    "버튼",
+    "텍스트",
+    "가로 배열"
+   ]
+  },
+  "template:yp14-fila-me-gusta-suscribirse": {
+   "name": "가로 배열: 좋아요·구독·알림 벨",
+   "tags": [
+    "youtube",
+    "버튼",
+    "구독"
+   ]
+  },
+  "template:yp14-fila-suscribirse": {
+   "name": "가로 배열: 좋아요·구독·공유·알림 벨",
+   "tags": [
+    "youtube",
+    "버튼",
+    "텍스트",
+    "가로 배열",
+    "구독"
+   ]
+  },
+  "template:yp14-lista-suscribirse": {
+   "name": "목록: 구독·알림·좋아요",
+   "tags": [
+    "youtube",
+    "버튼",
+    "구독",
+    "목록"
+   ]
+  },
+  "template:yp14-lista-ver-mas-tarde": {
+   "name": "영상 목록: '나중에 볼 동영상'에 저장",
+   "tags": [
+    "youtube",
+    "목록",
+    "영상"
+   ]
+  },
+  "template:yp14-lista-videos-abrir": {
+   "name": "영상 목록: 클릭하면 화면 가득",
+   "tags": [
+    "youtube",
+    "목록",
+    "영상"
+   ]
+  },
+  "template:yp14-logo-arriba-suscribirse": {
+   "name": "위에 로고, 아래에 구독 버튼",
+   "tags": [
+    "youtube",
+    "버튼",
+    "구독",
+    "로고"
+   ]
+  },
+  "template:yp14-logo-suscribirse": {
+   "name": "구독 버튼이 있는 채널 로고",
+   "tags": [
+    "youtube",
+    "버튼",
+    "구독"
+   ]
+  },
+  "template:yp14-logo-tarjeta": {
+   "name": "카드의 채널 로고: 구독·알림 벨·공유",
+   "tags": [
+    "youtube",
+    "버튼",
+    "구독"
+   ]
+  },
+  "template:yp14-logo-tarjeta-vertical": {
+   "name": "세로형 카드의 채널 로고: 알림 벨과 공유",
+   "tags": [
+    "youtube",
+    "버튼",
+    "구독"
+   ]
+  },
+  "template:yp14-me-gusta-avisos": {
+   "name": "좋아요와 알림 벨: 'Like this / Notified'",
+   "tags": [
+    "youtube",
+    "버튼",
+    "텍스트",
+    "좋아요",
+    "알림 벨"
+   ]
+  },
+  "template:yp14-me-gusta-barra": {
+   "name": "평점 바가 있는 'Like this'",
+   "tags": [
+    "youtube",
+    "버튼",
+    "텍스트",
+    "좋아요",
+    "평점"
+   ]
+  },
+  "template:yp14-me-gusta-boton": {
+   "name": "엄지가 튀어나오는 'Like it!' 버튼",
+   "tags": [
+    "youtube",
+    "버튼",
+    "텍스트",
+    "좋아요"
+   ]
+  },
+  "template:yp14-me-gusta-campana-redondos": {
+   "name": "빨간 버튼 2개: 좋아요와 알림 벨",
+   "tags": [
+    "youtube",
+    "버튼",
+    "텍스트",
+    "가로 배열"
+   ]
+  },
+  "template:yp14-me-gusta-compartir-botones": {
+   "name": "빨강에서 흰색으로 바뀌는 'Like it'과 'Share' 버튼",
+   "tags": [
+    "youtube",
+    "버튼",
+    "텍스트",
+    "좋아요",
+    "공유"
+   ]
+  },
+  "template:yp14-me-gusta-compartir-redondos": {
+   "name": "빨간 버튼 2개: 좋아요와 공유",
+   "tags": [
+    "youtube",
+    "버튼",
+    "텍스트",
+    "가로 배열"
+   ]
+  },
+  "template:yp14-me-gusta-contador": {
+   "name": "카운터가 있는 큰 좋아요",
+   "tags": [
+    "youtube",
+    "버튼",
+    "텍스트",
+    "좋아요",
+    "카운터"
+   ]
+  },
+  "template:yp14-me-gusta-suscribirse": {
+   "name": "카드 없는 좋아요와 구독",
+   "tags": [
+    "youtube",
+    "버튼",
+    "텍스트",
+    "구독"
+   ]
+  },
+  "template:yp14-me-gusta-suscribirse-campana": {
+   "name": "카드 없는 좋아요·구독·알림 벨",
+   "tags": [
+    "youtube",
+    "버튼",
+    "텍스트",
+    "구독"
+   ]
+  },
+  "template:yp14-no-me-gusta-boton": {
+   "name": "엄지가 튀어나오는 'Dislike!' 버튼",
+   "tags": [
+    "youtube",
+    "버튼",
+    "텍스트",
+    "싫어요"
+   ]
+  },
+  "template:yp14-no-me-gusta-contador": {
+   "name": "카운터가 있는 큰 싫어요",
+   "tags": [
+    "youtube",
+    "버튼",
+    "텍스트",
+    "싫어요",
+    "카운터"
+   ]
+  },
+  "template:yp14-no-recomendar": {
+   "name": "엄지 다섯 개가 표시되는 'Don't recommend'",
+   "tags": [
+    "youtube",
+    "버튼",
+    "텍스트",
+    "평점",
+    "싫어요"
+   ]
+  },
+  "template:yp14-nombre-suscrito-campana": {
+   "name": "채널명: 구독 완료와 알림 벨",
+   "tags": [
+    "youtube",
+    "버튼",
+    "구독"
+   ]
+  },
+  "template:yp14-nombre-suscrito-me-gusta": {
+   "name": "채널명: 구독 완료·좋아요·싫어요",
+   "tags": [
+    "youtube",
+    "버튼",
+    "구독"
+   ]
+  },
+  "template:yp14-pildora-me-gusta": {
+   "name": "빨간 좋아요/싫어요 알약: 좋아요 클릭",
+   "tags": [
+    "youtube",
+    "버튼",
+    "텍스트",
+    "좋아요",
+    "싫어요"
+   ]
+  },
+  "template:yp14-pildora-no-me-gusta": {
+   "name": "빨간 좋아요/싫어요 알약: 싫어요 클릭",
+   "tags": [
+    "youtube",
+    "버튼",
+    "텍스트",
+    "좋아요",
+    "싫어요"
+   ]
+  },
+  "template:yp14-recomendar-amigos": {
+   "name": "엄지 다섯 개가 표시되는 'Advise friends'",
+   "tags": [
+    "youtube",
+    "버튼",
+    "텍스트",
+    "평점",
+    "좋아요"
+   ]
+  },
+  "template:yp14-suscribirse-campana": {
+   "name": "카드 없는 구독과 알림 벨",
+   "tags": [
+    "youtube",
+    "버튼",
+    "텍스트",
+    "구독"
+   ]
+  },
+  "template:yp14-suscribirse-casilla": {
+   "name": "체크박스가 있는 'Subscribe Youtube Channel'",
+   "tags": [
+    "youtube",
+    "버튼",
+    "텍스트",
+    "구독",
+    "체크박스"
+   ]
+  },
+  "template:yp14-suscribirse-contador": {
+   "name": "19999에서 20000이 되는 구독 카운터",
+   "tags": [
+    "youtube",
+    "버튼",
+    "텍스트",
+    "구독",
+    "카운터"
+   ]
+  },
+  "template:yp14-suscribirse-hecho": {
+   "name": "'DO IT!'이 'DONE'으로 바뀌는 'Subscribe Channel'",
+   "tags": [
+    "youtube",
+    "버튼",
+    "텍스트",
+    "구독"
+   ]
+  },
+  "template:yp14-suscribirse-play": {
+   "name": "'SUBSCRIBED'로 바뀌는 재생 아이콘 빨간 'SUBSCRIBE' 버튼",
+   "tags": [
+    "youtube",
+    "버튼",
+    "텍스트",
+    "구독"
+   ]
+  },
+  "template:yp14-suscrito-iconos": {
+   "name": "구독 완료: 좋아요·알림 벨·공유",
+   "tags": [
+    "youtube",
+    "버튼",
+    "구독"
+   ]
+  },
+  "template:yp14-tarjeta-campana": {
+   "name": "구독과 알림 벨이 있는 채널 카드",
+   "tags": [
+    "youtube",
+    "카드",
+    "채널"
+   ]
+  },
+  "template:yp14-tarjeta-comentario": {
+   "name": "싫어요와 댓글이 있는 영상 카드",
+   "tags": [
+    "youtube",
+    "카드",
+    "채널"
+   ]
+  },
+  "template:yp14-tarjeta-comentario-2": {
+   "name": "좋아요와 댓글이 있는 영상 카드",
+   "tags": [
+    "youtube",
+    "카드",
+    "채널"
+   ]
+  },
+  "template:yp14-tarjeta-cristal": {
+   "name": "채널 카드: 사진 위 글래스와 알림 벨",
+   "tags": [
+    "youtube",
+    "카드",
+    "채널",
+    "구독",
+    "사진"
+   ]
+  },
+  "template:yp14-tarjeta-cristal-inclinada": {
+   "name": "채널 카드: 사진 위 기울어진 글래스",
+   "tags": [
+    "youtube",
+    "카드",
+    "채널",
+    "구독",
+    "사진"
+   ]
+  },
+  "template:yp14-tarjeta-foto-inclinada": {
+   "name": "채널 카드: 기울어진 사진과 구독·알림 벨",
+   "tags": [
+    "youtube",
+    "카드",
+    "채널",
+    "구독",
+    "사진"
+   ]
+  },
+  "template:yp14-tarjeta-foto-marco": {
+   "name": "채널 카드: 흰 테두리 사진과 진행 바",
+   "tags": [
+    "youtube",
+    "카드",
+    "채널",
+    "구독",
+    "사진"
+   ]
+  },
+  "template:yp14-tarjeta-foto-progreso": {
+   "name": "채널 카드: 진행 바와 좋아요가 있는 사진",
+   "tags": [
+    "youtube",
+    "카드",
+    "채널",
+    "구독",
+    "사진"
+   ]
+  },
+  "template:yp14-tarjeta-foto-recta": {
+   "name": "채널 카드: 테두리 사진과 좋아요·구독·알림 벨",
+   "tags": [
+    "youtube",
+    "카드",
+    "채널",
+    "구독",
+    "사진"
+   ]
+  },
+  "template:yp14-tarjeta-marco": {
+   "name": "채널 카드: 사진 위 흰 테두리와 진행 바",
+   "tags": [
+    "youtube",
+    "카드",
+    "채널",
+    "구독",
+    "사진"
+   ]
+  },
+  "template:yp14-tarjeta-marco-inclinado": {
+   "name": "채널 카드: 사진 위 기울어진 흰 테두리",
+   "tags": [
+    "youtube",
+    "카드",
+    "채널",
+    "구독",
+    "사진"
+   ]
+  },
+  "template:yp14-tarjeta-video-compartir": {
+   "name": "좋아요·공유·구독이 있는 영상 카드",
+   "tags": [
+    "youtube",
+    "카드",
+    "채널"
+   ]
+  },
+  "template:yp14-tarjeta-video-cuadrada": {
+   "name": "사각 아바타와 빨간 버튼의 기울어진 영상 카드",
+   "tags": [
+    "youtube",
+    "카드",
+    "영상",
+    "구독",
+    "사진"
+   ]
+  },
+  "template:yp14-tarjeta-video-play": {
+   "name": "영상 카드: 재생하면 화면 가득",
+   "tags": [
+    "youtube",
+    "카드",
+    "영상",
+    "재생"
+   ]
+  },
+  "template:yp14-tarjeta-video-titulo": {
+   "name": "채널과 제목이 있는 영상 카드: 재생 클릭",
+   "tags": [
+    "youtube",
+    "카드",
+    "영상",
+    "재생"
+   ]
+  },
+  "template:yp14-tres-botones-blancos": {
+   "name": "동시에 눌리는 흰 버튼 3개: 좋아요·알림 벨·공유",
+   "tags": [
+    "youtube",
+    "버튼",
+    "텍스트",
+    "가로 배열"
+   ]
+  },
+  "template:yp14-valoracion-abajo": {
+   "name": "하단 채널 바: 좋아요·싫어요·평점",
+   "tags": [
+    "youtube",
+    "바",
+    "채널",
+    "구독",
+    "사진"
+   ]
+  },
+  "template:yp14-youtube-channel": {
+   "name": "클릭하면 빨개지는 'YOUTUBE CHANNEL'",
+   "tags": [
+    "youtube",
+    "버튼",
+    "텍스트",
+    "타이틀"
+   ]
+  },
+  "template:yp15-cargo-verde": {
+   "name": "글래스 하단 자막: 초록 직함",
+   "tags": [
+    "youtube",
+    "하단 자막",
+    "글래스",
+    "이름"
+   ]
+  },
+  "template:yp15-centrado": {
+   "name": "구독 버튼이 있는 가운데 글래스 하단 자막",
+   "tags": [
+    "youtube",
+    "하단 자막",
+    "글래스",
+    "이름",
+    "구독"
+   ]
+  },
+  "template:yp15-dos-nombres": {
+   "name": "글래스 하단 자막: 두 사람 이름",
+   "tags": [
+    "youtube",
+    "하단 자막",
+    "글래스",
+    "이름",
+    "2인"
+   ]
+  },
+  "template:yp15-foto-redonda": {
+   "name": "원형 사진이 있는 글래스 하단 자막",
+   "tags": [
+    "youtube",
+    "하단 자막",
+    "글래스",
+    "이름",
+    "사진",
+    "아바타"
+   ]
+  },
+  "template:yp15-foto-suscribete": {
+   "name": "글래스 하단 자막: 사진과 구독",
+   "tags": [
+    "youtube",
+    "하단 자막",
+    "글래스",
+    "이름",
+    "구독",
+    "사진"
+   ]
+  },
+  "template:yp15-linea-fina": {
+   "name": "얇은 글래스 하단 자막",
+   "tags": [
+    "youtube",
+    "하단 자막",
+    "글래스",
+    "이름"
+   ]
+  },
+  "template:yp15-logo-nombre": {
+   "name": "로고가 있는 글래스 하단 자막",
+   "tags": [
+    "youtube",
+    "하단 자막",
+    "글래스",
+    "이름",
+    "로고"
+   ]
+  },
+  "template:yp15-logo-suscribete": {
+   "name": "글래스 하단 자막: 로고와 구독",
+   "tags": [
+    "youtube",
+    "하단 자막",
+    "글래스",
+    "이름",
+    "구독",
+    "로고"
+   ]
+  },
+  "template:yp15-nombre-suscribete": {
+   "name": "구독 버튼이 있는 글래스 하단 자막",
+   "tags": [
+    "youtube",
+    "하단 자막",
+    "글래스",
+    "이름",
+    "구독"
+   ]
+  },
+  "template:yp15-pareja": {
+   "name": "글래스 하단 자막: 사진이 있는 두 사람",
+   "tags": [
+    "youtube",
+    "하단 자막",
+    "글래스",
+    "이름",
+    "2인",
+    "사진"
+   ]
+  },
+  "template:yp15-tarjeta-foto": {
+   "name": "사진과 로고가 있는 글래스 카드",
+   "tags": [
+    "youtube",
+    "하단 자막",
+    "글래스",
+    "이름",
+    "사진",
+    "로고"
+   ]
+  },
+  "template:yp15-una-linea": {
+   "name": "한 줄 글래스 하단 자막",
+   "tags": [
+    "youtube",
+    "하단 자막",
+    "글래스",
+    "이름"
+   ]
+  },
+  "template:yp16-barra-nombre": {
+   "name": "이름과 구독이 있는 글래스 바",
+   "tags": [
+    "youtube",
+    "글래스",
+    "구독",
+    "클릭",
+    "사진"
+   ]
+  },
+  "template:yp16-barra-suscribete": {
+   "name": "사진과 구독이 있는 글래스 바",
+   "tags": [
+    "youtube",
+    "글래스",
+    "구독",
+    "클릭",
+    "사진"
+   ]
+  },
+  "template:yp16-burbuja-canal": {
+   "name": "사진과 채널이 있는 글래스 말풍선",
+   "tags": [
+    "youtube",
+    "글래스",
+    "채널",
+    "사진"
+   ]
+  },
+  "template:yp16-circulo": {
+   "name": "사진과 구독이 있는 글래스 원형",
+   "tags": [
+    "youtube",
+    "글래스",
+    "구독",
+    "클릭",
+    "사진",
+    "원형"
+   ]
+  },
+  "template:yp16-join-us": {
+   "name": "다크 글래스 알약: join us now",
+   "tags": [
+    "youtube",
+    "글래스",
+    "참여"
+   ]
+  },
+  "template:yp16-pildora-canal": {
+   "name": "가운데 사진이 있는 글래스 알약",
+   "tags": [
+    "youtube",
+    "글래스",
+    "채널",
+    "사진"
+   ]
+  },
+  "template:yp16-stay-tuned": {
+   "name": "글래스 원형: stay tuned",
+   "tags": [
+    "youtube",
+    "글래스",
+    "원형"
+   ]
+  },
+  "template:yp16-tarjeta-cuadrada": {
+   "name": "구독 버튼이 있는 사각 글래스 카드",
+   "tags": [
+    "youtube",
+    "글래스",
+    "구독",
+    "클릭",
+    "사진"
+   ]
+  },
+  "template:yp16-tarjeta-nombre": {
+   "name": "이름과 구독이 있는 글래스 카드",
+   "tags": [
+    "youtube",
+    "글래스",
+    "구독",
+    "클릭",
+    "사진"
+   ]
+  },
+  "template:yp16-tarjeta-vertical": {
+   "name": "구독 버튼이 있는 세로형 글래스 카드",
+   "tags": [
+    "youtube",
+    "글래스",
+    "구독",
+    "클릭",
+    "사진"
+   ]
+  },
+  "template:yp16-watch-more": {
+   "name": "글래스 말풍선: watch more",
+   "tags": [
+    "youtube",
+    "글래스",
+    "더 보기"
+   ]
+  },
+  "template:yp17-barra-canal": {
+   "name": "사진과 구독이 있는 플랫 바",
+   "tags": [
+    "youtube",
+    "카드",
+    "플랫",
+    "구독",
+    "클릭",
+    "사진"
+   ]
+  },
+  "template:yp17-barra-foto": {
+   "name": "가운데 사진이 있는 플랫 바",
+   "tags": [
+    "youtube",
+    "카드",
+    "플랫",
+    "구독",
+    "클릭",
+    "사진"
+   ]
+  },
+  "template:yp17-barra-titulo": {
+   "name": "사진과 타이틀이 있는 플랫 바",
+   "tags": [
+    "youtube",
+    "카드",
+    "플랫",
+    "구독",
+    "클릭",
+    "사진"
+   ]
+  },
+  "template:yp17-boton-youtube": {
+   "name": "YouTube 버튼이 있는 플랫 카드",
+   "tags": [
+    "youtube",
+    "카드",
+    "플랫",
+    "버튼",
+    "재생"
+   ]
+  },
+  "template:yp17-foto-arriba": {
+   "name": "구독 카드 위 원형 사진",
+   "tags": [
+    "youtube",
+    "카드",
+    "플랫",
+    "구독",
+    "클릭",
+    "사진"
+   ]
+  },
+  "template:yp17-foto-cuadrada": {
+   "name": "사각 사진과 구독 바",
+   "tags": [
+    "youtube",
+    "카드",
+    "플랫",
+    "구독",
+    "클릭",
+    "사진"
+   ]
+  },
+  "template:yp17-join-us": {
+   "name": "플랫 카드: YouTube join us",
+   "tags": [
+    "youtube",
+    "카드",
+    "플랫",
+    "참여"
+   ]
+  },
+  "template:yp17-tarjeta-nombre": {
+   "name": "사진·YouTube·구독이 있는 플랫 카드",
+   "tags": [
+    "youtube",
+    "카드",
+    "플랫",
+    "구독",
+    "클릭",
+    "사진"
+   ]
+  },
+  "template:yp17-tarjeta-vertical": {
+   "name": "구독 버튼이 있는 세로형 플랫 카드",
+   "tags": [
+    "youtube",
+    "카드",
+    "플랫",
+    "구독",
+    "클릭",
+    "사진"
+   ]
+  },
+  "template:yp17-watch-more": {
+   "name": "플랫 카드: watch more",
+   "tags": [
+    "youtube",
+    "카드",
+    "플랫",
+    "더 보기"
+   ]
+  },
   "template:yp2-apertura": {
    "name": "오프닝: 유튜브 버튼이 있는 빨강과 흰색 링",
    "tags": [
@@ -40748,6 +43040,505 @@
     "패션",
     "트랜지션",
     "유튜브"
+   ]
+  },
+  "template:yp8-disfruta": {
+   "name": "엔딩: enjoy",
+   "tags": [
+    "youtube",
+    "엔딩",
+    "텍스트"
+   ]
+  },
+  "template:yp8-logo-formas-claro": {
+   "name": "오프닝: 주황 도형으로 로고 공개",
+   "tags": [
+    "youtube",
+    "로고",
+    "오프닝",
+    "도형"
+   ]
+  },
+  "template:yp8-logo-formas-oscuro": {
+   "name": "오프닝: 도형으로 로고 공개 (다크)",
+   "tags": [
+    "youtube",
+    "로고",
+    "오프닝",
+    "도형"
+   ]
+  },
+  "template:yp8-logo-formas-video": {
+   "name": "오프닝: 영상 위 흰색 도형과 로고",
+   "tags": [
+    "youtube",
+    "로고",
+    "오프닝",
+    "도형"
+   ]
+  },
+  "template:yp8-logo-youtube-claro": {
+   "name": "조립되는 YouTube 로고 (흰색)",
+   "tags": [
+    "youtube",
+    "로고",
+    "오프닝",
+    "흰색"
+   ]
+  },
+  "template:yp8-logo-youtube-oscuro": {
+   "name": "조립되는 YouTube 로고 (다크)",
+   "tags": [
+    "youtube",
+    "로고",
+    "오프닝",
+    "다크"
+   ]
+  },
+  "template:yp8-logo-youtube-video": {
+   "name": "영상 위 흰색 YouTube 로고",
+   "tags": [
+    "youtube",
+    "로고",
+    "오프닝",
+    "흰색"
+   ]
+  },
+  "template:yp8-me-gusta-blanco": {
+   "name": "흰색 원형 좋아요",
+   "tags": [
+    "youtube",
+    "좋아요",
+    "버튼",
+    "원형"
+   ]
+  },
+  "template:yp8-me-gusta-oscuro": {
+   "name": "다크 원형 좋아요",
+   "tags": [
+    "youtube",
+    "좋아요",
+    "버튼",
+    "원형"
+   ]
+  },
+  "template:yp8-redes-tercios": {
+   "name": "SNS 하단 자막 7종",
+   "tags": [
+    "youtube",
+    "sns",
+    "하단 자막",
+    "instagram",
+    "twitter",
+    "facebook"
+   ]
+  },
+  "template:yp8-suscribirse-blanco": {
+   "name": "클릭과 알림 벨이 있는 구독 바",
+   "tags": [
+    "youtube",
+    "구독",
+    "버튼",
+    "클릭",
+    "알림 벨"
+   ]
+  },
+  "template:yp8-suscribirse-oscuro": {
+   "name": "클릭과 알림 벨이 있는 구독 바 (다크)",
+   "tags": [
+    "youtube",
+    "구독",
+    "버튼",
+    "클릭",
+    "알림 벨"
+   ]
+  },
+  "template:yp8-tercio-facebook": {
+   "name": "하단 자막: Facebook 팔로우",
+   "tags": [
+    "youtube",
+    "하단 자막",
+    "sns"
+   ]
+  },
+  "template:yp8-tercio-instagram": {
+   "name": "하단 자막: Instagram 계정",
+   "tags": [
+    "youtube",
+    "하단 자막",
+    "sns"
+   ]
+  },
+  "template:yp8-tercio-nombre": {
+   "name": "하단 자막: 이름과 직함",
+   "tags": [
+    "youtube",
+    "하단 자막",
+    "sns"
+   ]
+  },
+  "template:yp8-tercio-twitter": {
+   "name": "하단 자막: Twitter 계정",
+   "tags": [
+    "youtube",
+    "하단 자막",
+    "sns"
+   ]
+  },
+  "template:yp8-tercio-youtube": {
+   "name": "하단 자막: 내 채널 구독하기",
+   "tags": [
+    "youtube",
+    "하단 자막",
+    "sns"
+   ]
+  },
+  "template:yp8-tercio-yt-blanco": {
+   "name": "하단 자막: YouTube 계정",
+   "tags": [
+    "youtube",
+    "하단 자막",
+    "sns"
+   ]
+  },
+  "template:yp8-tercio-yt-oscuro": {
+   "name": "하단 자막: YouTube 구독 (다크)",
+   "tags": [
+    "youtube",
+    "하단 자막",
+    "sns"
+   ]
+  },
+  "template:yp8-transicion-ola": {
+   "name": "전환: 파랑과 초록 물결",
+   "tags": [
+    "youtube",
+    "전환",
+    "그라데이션"
+   ]
+  },
+  "template:yp8-transicion-rombo": {
+   "name": "전환: 올라가는 파랑·초록 마름모",
+   "tags": [
+    "youtube",
+    "전환",
+    "그라데이션"
+   ]
+  },
+  "template:yp9-barra-canal": {
+   "name": "알림 벨이 있는 채널명 바",
+   "tags": [
+    "youtube",
+    "바",
+    "채널",
+    "알림 벨",
+    "구독"
+   ]
+  },
+  "template:yp9-bloques-glitch": {
+   "name": "글리치 컬러 블록",
+   "tags": [
+    "youtube",
+    "글리치",
+    "컬러",
+    "노이즈"
+   ]
+  },
+  "template:yp9-boton-suscribirse": {
+   "name": "채워지고 클릭되는 구독 버튼",
+   "tags": [
+    "youtube",
+    "구독",
+    "버튼",
+    "클릭",
+    "커서"
+   ]
+  },
+  "template:yp9-boton-ventana": {
+   "name": "영상 창으로 열리는 재생 버튼",
+   "tags": [
+    "youtube",
+    "재생",
+    "창",
+    "전환"
+   ]
+  },
+  "template:yp9-cinta-tendencia": {
+   "name": "타이틀이 있는 노란 트렌드 테이프",
+   "tags": [
+    "youtube",
+    "테이프",
+    "트렌드",
+    "타이틀"
+   ]
+  },
+  "template:yp9-corazones-flotando": {
+   "name": "영상 위로 떠오르는 하트",
+   "tags": [
+    "youtube",
+    "하트",
+    "사랑",
+    "영상"
+   ]
+  },
+  "template:yp9-destello-a": {
+   "name": "낙서 반짝임 A",
+   "tags": [
+    "youtube",
+    "반짝임",
+    "낙서",
+    "빛"
+   ]
+  },
+  "template:yp9-destello-b": {
+   "name": "낙서 반짝임 B",
+   "tags": [
+    "youtube",
+    "반짝임",
+    "낙서",
+    "빛"
+   ]
+  },
+  "template:yp9-destello-c": {
+   "name": "낙서 반짝임 C",
+   "tags": [
+    "youtube",
+    "반짝임",
+    "낙서",
+    "빛"
+   ]
+  },
+  "template:yp9-enlace-behance": {
+   "name": "링크 바: behance",
+   "tags": [
+    "youtube",
+    "sns",
+    "링크",
+    "바",
+    "behance"
+   ]
+  },
+  "template:yp9-enlace-dribbble": {
+   "name": "링크 바: dribbble",
+   "tags": [
+    "youtube",
+    "sns",
+    "링크",
+    "바",
+    "dribbble"
+   ]
+  },
+  "template:yp9-enlace-facebook": {
+   "name": "링크 바: facebook",
+   "tags": [
+    "youtube",
+    "sns",
+    "링크",
+    "바",
+    "facebook"
+   ]
+  },
+  "template:yp9-enlace-google": {
+   "name": "링크 바: google",
+   "tags": [
+    "youtube",
+    "sns",
+    "링크",
+    "바",
+    "google"
+   ]
+  },
+  "template:yp9-enlace-instagram": {
+   "name": "링크 바: instagram",
+   "tags": [
+    "youtube",
+    "sns",
+    "링크",
+    "바",
+    "instagram"
+   ]
+  },
+  "template:yp9-enlace-itunes": {
+   "name": "링크 바: itunes",
+   "tags": [
+    "youtube",
+    "sns",
+    "링크",
+    "바",
+    "itunes"
+   ]
+  },
+  "template:yp9-enlace-patreon": {
+   "name": "링크 바: patreon",
+   "tags": [
+    "youtube",
+    "sns",
+    "링크",
+    "바",
+    "patreon"
+   ]
+  },
+  "template:yp9-enlace-soundcloud": {
+   "name": "링크 바: soundcloud",
+   "tags": [
+    "youtube",
+    "sns",
+    "링크",
+    "바",
+    "soundcloud"
+   ]
+  },
+  "template:yp9-enlace-spotify": {
+   "name": "링크 바: spotify",
+   "tags": [
+    "youtube",
+    "sns",
+    "링크",
+    "바",
+    "spotify"
+   ]
+  },
+  "template:yp9-enlace-telegram": {
+   "name": "링크 바: telegram",
+   "tags": [
+    "youtube",
+    "sns",
+    "링크",
+    "바",
+    "telegram"
+   ]
+  },
+  "template:yp9-enlace-twitter": {
+   "name": "링크 바: twitter",
+   "tags": [
+    "youtube",
+    "sns",
+    "링크",
+    "바",
+    "twitter"
+   ]
+  },
+  "template:yp9-enlace-vimeo": {
+   "name": "링크 바: vimeo",
+   "tags": [
+    "youtube",
+    "sns",
+    "링크",
+    "바",
+    "vimeo"
+   ]
+  },
+  "template:yp9-etiqueta-usuario": {
+   "name": "아이콘과 @사용자명 배지",
+   "tags": [
+    "youtube",
+    "사용자명",
+    "sns",
+    "라벨"
+   ]
+  },
+  "template:yp9-live-stream-blanco": {
+   "name": "버튼이 있는 흰색 LIVE STREAM 타이틀",
+   "tags": [
+    "youtube",
+    "생방송",
+    "live",
+    "방송"
+   ]
+  },
+  "template:yp9-live-stream-rojo": {
+   "name": "빨강·검정 박스의 LIVE STREAM 타이틀",
+   "tags": [
+    "youtube",
+    "생방송",
+    "live",
+    "방송"
+   ]
+  },
+  "template:yp9-me-gusta-cursor": {
+   "name": "커서로 파랗게 변하는 좋아요",
+   "tags": [
+    "youtube",
+    "좋아요",
+    "클릭",
+    "커서"
+   ]
+  },
+  "template:yp9-me-gusta-destello": {
+   "name": "클릭하면 터지는 빛나는 좋아요",
+   "tags": [
+    "youtube",
+    "좋아요",
+    "클릭",
+    "반짝임"
+   ]
+  },
+  "template:yp9-perfil": {
+   "name": "사진·팔로우·카운터가 있는 프로필",
+   "tags": [
+    "youtube",
+    "프로필",
+    "팔로우",
+    "카운터",
+    "sns"
+   ]
+  },
+  "template:yp9-rayo": {
+   "name": "선에서 그려지는 번개",
+   "tags": [
+    "youtube",
+    "번개",
+    "인트로"
+   ]
+  },
+  "template:yp9-redes-enlaces": {
+   "name": "SNS 링크 바 12종",
+   "tags": [
+    "youtube",
+    "sns",
+    "링크",
+    "바",
+    "behance",
+    "instagram"
+   ]
+  },
+  "template:yp9-sticker-suscrito": {
+   "name": "구독 완료 스티커로 바뀌는 재생 버튼",
+   "tags": [
+    "youtube",
+    "구독",
+    "스티커",
+    "클릭"
+   ]
+  },
+  "template:yp9-tarjeta-canal": {
+   "name": "원형 사진과 구독 버튼 채널 카드",
+   "tags": [
+    "youtube",
+    "카드",
+    "채널",
+    "구독",
+    "클릭"
+   ]
+  },
+  "template:yp9-telefono-feed": {
+   "name": "세로 영상과 버튼이 있는 휴대폰",
+   "tags": [
+    "youtube",
+    "휴대폰",
+    "세로형",
+    "sns",
+    "좋아요"
+   ]
+  },
+  "template:yp9-telefono-reacciones": {
+   "name": "하트와 좋아요가 뜨는 휴대폰",
+   "tags": [
+    "youtube",
+    "휴대폰",
+    "좋아요",
+    "하트",
+    "sns"
    ]
   },
   "template:yt-calle-a-que-te-dedicas": {

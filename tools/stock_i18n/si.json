@@ -38956,6 +38956,2318 @@
     "පෙට්ටිය"
    ]
   },
+  "template:yp10-boton-suscribete": {
+   "name": "ඊතල සහිත SUBSCRIBE MY CHANNEL බොත්තම",
+   "tags": [
+    "youtube",
+    "අතින් ඇඳි",
+    "චිත්‍රය",
+    "සබ්ස්ක්‍රයිබ්",
+    "ඊතල"
+   ]
+  },
+  "template:yp10-caja-roja": {
+   "name": "රතු කොටුවක SUSCRÍBETE YA",
+   "tags": [
+    "youtube",
+    "අතින් ඇඳි",
+    "චිත්‍රය",
+    "සබ්ස්ක්‍රයිබ්",
+    "ස්පාඤ්ඤ"
+   ]
+  },
+  "template:yp10-check": {
+   "name": "කොළ හරි ලකුණක් සහිත Check New Video",
+   "tags": [
+    "youtube",
+    "අතින් ඇඳි",
+    "චිත්‍රය",
+    "හරි ලකුණ",
+    "නව වීඩියෝව"
+   ]
+  },
+  "template:yp10-cuenta": {
+   "name": "නිල් බින්දුවක් සහිත @youraccount",
+   "tags": [
+    "youtube",
+    "අතින් ඇඳි",
+    "චිත්‍රය",
+    "ගිණුම",
+    "බින්දුව"
+   ]
+  },
+  "template:yp10-luna": {
+   "name": "සඳ සහ Like New Video සහිත SUBSCRIBE",
+   "tags": [
+    "youtube",
+    "අතින් ඇඳි",
+    "චිත්‍රය",
+    "සබ්ස්ක්‍රයිබ්",
+    "සඳ"
+   ]
+  },
+  "template:yp10-me-gusta-amarillo": {
+   "name": "කහ මාපටැඟිල්ල සහිත Like New Video",
+   "tags": [
+    "youtube",
+    "අතින් ඇඳි",
+    "චිත්‍රය",
+    "ලයික්",
+    "මාපටැඟිල්ල"
+   ]
+  },
+  "template:yp10-mi-canal": {
+   "name": "තෝරාගෙන විශාල වන My Channel",
+   "tags": [
+    "youtube",
+    "අතින් ඇඳි",
+    "චිත්‍රය",
+    "චැනලය",
+    "තේරීම"
+   ]
+  },
+  "template:yp10-nuevo-video-morado": {
+   "name": "Like සහිත දම් කොටුවක NEW VIDEO",
+   "tags": [
+    "youtube",
+    "අතින් ඇඳි",
+    "චිත්‍රය",
+    "නව වීඩියෝව",
+    "කොටුව"
+   ]
+  },
+  "template:yp10-nuevo-video-rosa": {
+   "name": "රෝස පැල්ලමක් සහ හදවත් සහිත New Video",
+   "tags": [
+    "youtube",
+    "අතින් ඇඳි",
+    "චිත්‍රය",
+    "නව වීඩියෝව",
+    "හදවත්"
+   ]
+  },
+  "template:yp10-podcast": {
+   "name": "ඉසිරීමක් සහිත NEW PODCAST",
+   "tags": [
+    "youtube",
+    "අතින් ඇඳි",
+    "චිත්‍රය",
+    "podcast",
+    "ඉසිරීම"
+   ]
+  },
+  "template:yp10-pulgar-beige": {
+   "name": "මාපටැඟිල්ල සහිත NUEVO VIDEO AQUÍ",
+   "tags": [
+    "youtube",
+    "අතින් ඇඳි",
+    "චිත්‍රය",
+    "මාපටැඟිල්ල",
+    "ස්පාඤ්ඤ"
+   ]
+  },
+  "template:yp10-social-media": {
+   "name": "රතු ඕවලාකාරයක් වටා Social Media Title",
+   "tags": [
+    "youtube",
+    "අතින් ඇඳි",
+    "චිත්‍රය",
+    "මාතෘකාව",
+    "ඕවලාකාර"
+   ]
+  },
+  "template:yp10-suscribete-flechas": {
+   "name": "ඊතල සහිත රතු Subscribe බොත්තම",
+   "tags": [
+    "youtube",
+    "අතින් ඇඳි",
+    "චිත්‍රය",
+    "සබ්ස්ක්‍රයිබ්",
+    "ඊතල"
+   ]
+  },
+  "template:yp10-suscribete-puntos": {
+   "name": "වර්ණ තිත් සහ @yourchannel සහිත Subscribe",
+   "tags": [
+    "youtube",
+    "අතින් ඇඳි",
+    "චිත්‍රය",
+    "සබ්ස්ක්‍රයිබ්",
+    "බොත්තම"
+   ]
+  },
+  "template:yp10-tu-logo": {
+   "name": "නිල් තීන්තෙන් Your Logo",
+   "tags": [
+    "youtube",
+    "අතින් ඇඳි",
+    "චිත්‍රය",
+    "ලාංඡනය",
+    "තීන්ත"
+   ]
+  },
+  "template:yp11-amazing": {
+   "name": "පෙළ: දේදුන්නක් සහිත AMAZING",
+   "tags": [
+    "youtube",
+    "දේදුන්න",
+    "විස්මිත",
+    "පෙළ"
+   ]
+  },
+  "template:yp11-any-language": {
+   "name": "පෙළ: රවුමක Use Any Language",
+   "tags": [
+    "youtube",
+    "රවුම",
+    "භාෂාව",
+    "පෙළ"
+   ]
+  },
+  "template:yp11-brand-new-year": {
+   "name": "මාතෘකාව: 2026 වර්ෂය Brand New",
+   "tags": [
+    "youtube",
+    "වර්ෂය",
+    "නව",
+    "මාතෘකාව"
+   ]
+  },
+  "template:yp11-channel-name": {
+   "name": "බොත්තම: චැනලයේ නම",
+   "tags": [
+    "youtube",
+    "චැනලය",
+    "බොත්තම",
+    "ඊතලය"
+   ]
+  },
+  "template:yp11-click": {
+   "name": "බොත්තම: අතක් සහිත CLICK",
+   "tags": [
+    "youtube",
+    "ක්ලික්",
+    "අත",
+    "බොත්තම"
+   ]
+  },
+  "template:yp11-comment": {
+   "name": "පෙළ: ඊතලයක් සහිත Comment",
+   "tags": [
+    "youtube",
+    "අදහස",
+    "ඊතලය",
+    "පෙළ"
+   ]
+  },
+  "template:yp11-follow-me": {
+   "name": "බොත්තම: ස්විචයක් සහිත අපව අනුගමනය කරන්න",
+   "tags": [
+    "youtube",
+    "ෆලෝ",
+    "ස්විචය",
+    "බොත්තම"
+   ]
+  },
+  "template:yp11-high-quality": {
+   "name": "බොත්තම: දර්ශකය සහිත උසස් ගුණාත්මකභාවය",
+   "tags": [
+    "youtube",
+    "ගුණාත්මකභාවය",
+    "බොත්තම",
+    "දර්ශකය"
+   ]
+  },
+  "template:yp11-like-heart": {
+   "name": "පෙළ: හදවතක් සහිත Like",
+   "tags": [
+    "youtube",
+    "ලයික්",
+    "හදවත",
+    "පෙළ"
+   ]
+  },
+  "template:yp11-like-my-video": {
+   "name": "පෙළ: මාපටැඟිල්ල සහිත Like my video",
+   "tags": [
+    "youtube",
+    "ලයික්",
+    "මාපටැඟිල්ල",
+    "පෙළ"
+   ]
+  },
+  "template:yp11-looking-perfect": {
+   "name": "පෙළ: තිත් සහිත Looking Perfect",
+   "tags": [
+    "youtube",
+    "තිත්",
+    "පෙළ"
+   ]
+  },
+  "template:yp11-new-video": {
+   "name": "ලේබලය: සිනා මුහුණක් සහිත New Video",
+   "tags": [
+    "youtube",
+    "නව වීඩියෝව",
+    "සිනා මුහුණ",
+    "ලේබලය"
+   ]
+  },
+  "template:yp11-play": {
+   "name": "බොත්තම: රතු play",
+   "tags": [
+    "youtube",
+    "play",
+    "බොත්තම",
+    "රතු"
+   ]
+  },
+  "template:yp11-rate-us": {
+   "name": "පෙළ: හදවතක් සහිත Rate Us",
+   "tags": [
+    "youtube",
+    "ඇගයීම",
+    "හදවත",
+    "පෙළ"
+   ]
+  },
+  "template:yp11-share": {
+   "name": "පෙළ: ඊතලයක් සහිත SHARE",
+   "tags": [
+    "youtube",
+    "බෙදාගන්න",
+    "ඊතලය",
+    "පෙළ"
+   ]
+  },
+  "template:yp11-subscribe-bell": {
+   "name": "පෙළ: සීනුවක් සහිත Subscribe",
+   "tags": [
+    "youtube",
+    "සබ්ස්ක්‍රයිබ්",
+    "සීනුව",
+    "පෙළ"
+   ]
+  },
+  "template:yp11-thanks-watching": {
+   "name": "පෙළ: ඇසක් සහිත නැරඹීමට ස්තුතියි",
+   "tags": [
+    "youtube",
+    "ස්තුතියි",
+    "ඇස",
+    "කෘතඥතාව"
+   ]
+  },
+  "template:yp11-titles-smiley": {
+   "name": "මාතෘකාව: සිනා මුහුණක් සහිත TITLES & BUTTONS",
+   "tags": [
+    "youtube",
+    "සිනා මුහුණ",
+    "මාතෘකාව"
+   ]
+  },
+  "template:yp11-trendy-style": {
+   "name": "පෙළ: අකුණු සහිත Trendy Style",
+   "tags": [
+    "youtube",
+    "අකුණ",
+    "ට්‍රෙන්ඩ්",
+    "පෙළ"
+   ]
+  },
+  "template:yp11-watch-now": {
+   "name": "පෙළ: මල් සහිත දැන්ම නරඹන්න",
+   "tags": [
+    "youtube",
+    "නරඹන්න",
+    "නව වීඩියෝව",
+    "මල්"
+   ]
+  },
+  "template:yp12-barra-profesora": {
+   "name": "ඡායාරූපය, ලයික්, සීනුව සහ සබ්ස්ක්‍රයිබ් සහිත තීරුව",
+   "tags": [
+    "youtube",
+    "සබ්ස්ක්‍රයිබ්",
+    "තීරුව",
+    "ලයික්",
+    "සීනුව"
+   ]
+  },
+  "template:yp12-foto-burbujas": {
+   "name": "බුබුළු සහ අයිකන සහිත ඡායාරූපය",
+   "tags": [
+    "youtube",
+    "සබ්ස්ක්‍රයිබ්",
+    "ඡායාරූපය",
+    "බුබුළු",
+    "අයිකන"
+   ]
+  },
+  "template:yp12-foto-iconos": {
+   "name": "අයිකන පිටතට විහිදෙන ඡායාරූපය",
+   "tags": [
+    "youtube",
+    "සබ්ස්ක්‍රයිබ්",
+    "ඡායාරූපය",
+    "රවුම",
+    "අයිකන"
+   ]
+  },
+  "template:yp12-foto-lados": {
+   "name": "දෙපැත්තේ අයිකන සහිත ඡායාරූපය",
+   "tags": [
+    "youtube",
+    "සබ්ස්ක්‍රයිබ්",
+    "ඡායාරූපය",
+    "අයිකන",
+    "ක්ලික්"
+   ]
+  },
+  "template:yp12-foto-liquida": {
+   "name": "දියර අයිකන සහිත ඡායාරූපය",
+   "tags": [
+    "youtube",
+    "සබ්ස්ක්‍රයිබ්",
+    "ඡායාරූපය",
+    "දියර",
+    "අයිකන"
+   ]
+  },
+  "template:yp12-foto-orbita": {
+   "name": "කැරකෙන අයිකන සහිත රවුම් ඡායාරූපය",
+   "tags": [
+    "youtube",
+    "සබ්ස්ක්‍රයිබ්",
+    "ඡායාරූපය",
+    "රවුම",
+    "අයිකන"
+   ]
+  },
+  "template:yp12-lista-botones": {
+   "name": "ලයික්, සබ්ස්ක්‍රයිබ් සහ දැනුම්දීම් ලැයිස්තුව",
+   "tags": [
+    "youtube",
+    "සබ්ස්ක්‍රයිබ්",
+    "ලැයිස්තුව",
+    "ලයික්",
+    "සීනුව"
+   ]
+  },
+  "template:yp12-lista-capsula": {
+   "name": "ලයික්, සබ්ස්ක්‍රයිබ් සහ දැනුම්දීම් සහිත කැප්සියුල ලැයිස්තුව",
+   "tags": [
+    "youtube",
+    "සබ්ස්ක්‍රයිබ්",
+    "ලැයිස්තුව",
+    "කැප්සියුල",
+    "ලයික්"
+   ]
+  },
+  "template:yp12-nombre-suscrito": {
+   "name": "චැනලයේ නම, සබ්ස්ක්‍රයිබ් සහ සීනුව",
+   "tags": [
+    "youtube",
+    "සබ්ස්ක්‍රයිබ්",
+    "බොත්තම",
+    "සීනුව",
+    "ක්ලික්"
+   ]
+  },
+  "template:yp12-tarjeta-gris": {
+   "name": "විශාල ඡායාරූපයක් සහිත අළු කාඩ්පත",
+   "tags": [
+    "youtube",
+    "සබ්ස්ක්‍රයිබ්",
+    "කාඩ්පත",
+    "ඡායාරූපය",
+    "අළු"
+   ]
+  },
+  "template:yp12-tarjeta-lista": {
+   "name": "කාඩ්පතක් ලෙස විවෘත වන චැනලයේ නම",
+   "tags": [
+    "youtube",
+    "සබ්ස්ක්‍රයිබ්",
+    "කාඩ්පත",
+    "ලැයිස්තුව",
+    "ක්ලික්"
+   ]
+  },
+  "template:yp12-tarjeta-rosa": {
+   "name": "ඡායාරූපය සහ රෝස සබ්ස්ක්‍රයිබ් සහිත කාඩ්පත",
+   "tags": [
+    "youtube",
+    "සබ්ස්ක්‍රයිබ්",
+    "කාඩ්පත",
+    "රෝස"
+   ]
+  },
+  "template:yp12-tres-botones": {
+   "name": "රවුම් බොත්තම් තුනක්",
+   "tags": [
+    "youtube",
+    "සබ්ස්ක්‍රයිබ්",
+    "බොත්තම",
+    "ලයික්",
+    "සීනුව"
+   ]
+  },
+  "template:yp13-aconseja-amigos": {
+   "name": "මිතුරන්ට නිර්දේශ කරන්න: මාපටැඟිලි",
+   "tags": [
+    "youtube",
+    "ඇගයීම",
+    "ලයික්",
+    "මිතුරන්",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-agregar-comentario": {
+   "name": "පළ වන අදහසක් එක් කිරීමේ බොත්තම",
+   "tags": [
+    "youtube",
+    "අදහස",
+    "බොත්තම",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-avatar-comentario": {
+   "name": "අදහසක් විවෘත කරන ලකුණක් සහිත අවතාරය",
+   "tags": [
+    "youtube",
+    "අදහස",
+    "අවතාරය",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-aviso-cafe": {
+   "name": "OK සහිත දැනුම්දීම් කවුළුව",
+   "tags": [
+    "youtube",
+    "දැනුම්දීම",
+    "කවුළුව",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-aviso-comentarios": {
+   "name": "අදහස් දැනුම්දීම",
+   "tags": [
+    "youtube",
+    "දැනුම්දීම",
+    "අදහස්",
+    "ගණකය"
+   ]
+  },
+  "template:yp13-aviso-doble": {
+   "name": "ලයික් සහ අනුගාමිකයින් දැනුම්දීම",
+   "tags": [
+    "youtube",
+    "දැනුම්දීම",
+    "ලයික්",
+    "අනුගාමිකයින්"
+   ]
+  },
+  "template:yp13-aviso-me-gusta": {
+   "name": "ලයික් දැනුම්දීම",
+   "tags": [
+    "youtube",
+    "දැනුම්දීම",
+    "ලයික්",
+    "ගණකය"
+   ]
+  },
+  "template:yp13-aviso-seguidores": {
+   "name": "අනුගාමිකයින් දැනුම්දීම",
+   "tags": [
+    "youtube",
+    "දැනුම්දීම",
+    "අනුගාමිකයින්",
+    "ගණකය"
+   ]
+  },
+  "template:yp13-barra-suscribir": {
+   "name": "ලයික්, සබ්ස්ක්‍රයිබ් සහ සීනුව සහිත තීරුව",
+   "tags": [
+    "youtube",
+    "සබ්ස්ක්‍රයිබ්",
+    "ලයික්",
+    "සීනුව",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-buscar-boton": {
+   "name": "SEARCH බොත්තම සහිත සෙවුම් කොටුව",
+   "tags": [
+    "youtube",
+    "සෙවීම",
+    "බොත්තම",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-buscar-cargando": {
+   "name": "පූරණය වීමට මාරු වන සෙවුම් තීරුව",
+   "tags": [
+    "youtube",
+    "සෙවීම",
+    "පූරණය",
+    "වෙබ්",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-buscar-lupa": {
+   "name": "හතරැස් විශාලන කාචයක් සහිත සෙවුම් කොටුව",
+   "tags": [
+    "youtube",
+    "සෙවීම",
+    "විශාලන කාචය",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-buscar-mapa": {
+   "name": "සෙවුම් කොටුවක් සහ සලකුණක් සහිත සිතියම",
+   "tags": [
+    "youtube",
+    "සිතියම",
+    "සෙවීම",
+    "ස්ථානය",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-caras-valorar": {
+   "name": "වීඩියෝවට කැමතිද? මුහුණු",
+   "tags": [
+    "youtube",
+    "ඇගයීම",
+    "මුහුණු",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-carrito-precio": {
+   "name": "මිලක් සහිත කරත්ත බොත්තම",
+   "tags": [
+    "youtube",
+    "කරත්තය",
+    "මිලදී ගැනීම",
+    "මිල",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-casilla-marcada": {
+   "name": "CHECKED සලකුණු කොටුව",
+   "tags": [
+    "youtube",
+    "සලකුණු කොටුව",
+    "හරි ලකුණ",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-chat-dos": {
+   "name": "වේලාව සහ පිළිතුරු සහිත දෙදෙනෙකුගේ චැට්",
+   "tags": [
+    "youtube",
+    "චැට්",
+    "පණිවිඩය",
+    "පිළිතුර",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-chat-nombres": {
+   "name": "නම් සහ පිළිතුරු සහිත චැට්",
+   "tags": [
+    "youtube",
+    "චැට්",
+    "පණිවිඩය",
+    "නම්",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-chat-ventana-amarilla": {
+   "name": "නම් සහිත කහ චැට් කවුළුව",
+   "tags": [
+    "youtube",
+    "චැට්",
+    "පණිවිඩය",
+    "කවුළුව"
+   ]
+  },
+  "template:yp13-chat-ventana-azul": {
+   "name": "නිල් චැට් කවුළුව",
+   "tags": [
+    "youtube",
+    "චැට්",
+    "පණිවිඩය",
+    "කවුළුව"
+   ]
+  },
+  "template:yp13-chat-ventana-grande": {
+   "name": "වීඩියෝව මත චැට් කවුළුව",
+   "tags": [
+    "youtube",
+    "චැට්",
+    "පණිවිඩය",
+    "කවුළුව"
+   ]
+  },
+  "template:yp13-comentario-like": {
+   "name": "LIKE සහ REPLY සහිත අදහස",
+   "tags": [
+    "youtube",
+    "අදහස",
+    "ලයික්",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-comentario-votos": {
+   "name": "ලයික් සහ පිළිතුරු සහිත අදහස",
+   "tags": [
+    "youtube",
+    "අදහස",
+    "ලයික්",
+    "පිළිතුර",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-comprar-gracias": {
+   "name": "ස්තුතියි කියන මිලදී ගැනීමේ බොත්තම",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "මිලදී ගැනීම",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-contador-comentarios": {
+   "name": "අදහස් ගණකයක් සහිත බුබුල",
+   "tags": [
+    "youtube",
+    "ගණකය",
+    "අදහස්",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-contador-corazon": {
+   "name": "ලයික් ගණකයක් සහිත හදවත",
+   "tags": [
+    "youtube",
+    "ගණකය",
+    "ලයික්",
+    "හදවත",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-contador-pulgar": {
+   "name": "ලයික් ගණකයක් සහිත මාපටැඟිල්ල",
+   "tags": [
+    "youtube",
+    "ගණකය",
+    "ලයික්",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-contador-seguidores": {
+   "name": "අනුගාමික ගණකයක් සහිත පුද්ගලයා",
+   "tags": [
+    "youtube",
+    "ගණකය",
+    "අනුගාමිකයින්",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-descargar-anillo": {
+   "name": "ප්‍රගති වළල්ලක් සහිත බාගැනීම් බොත්තම",
+   "tags": [
+    "youtube",
+    "බාගැනීම",
+    "ප්‍රගතිය",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-descargar-barra": {
+   "name": "ප්‍රගති තීරුවක් සහිත බාගැනීම් බොත්තම",
+   "tags": [
+    "youtube",
+    "බාගැනීම",
+    "ප්‍රගතිය",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-enviar-comentario": {
+   "name": "යවන බොත්තම සහිත අදහස් කොටුව",
+   "tags": [
+    "youtube",
+    "අදහස",
+    "චැට්",
+    "යවන්න",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-insignia-camara": {
+   "name": "කැමරාවක් සහිත රවුම් බොත්තම",
+   "tags": [
+    "youtube",
+    "බැජ්",
+    "සමාජ මාධ්‍ය",
+    "කැමරාව"
+   ]
+  },
+  "template:yp13-insignia-click-here": {
+   "name": "GOOD JOB! බවට පත්වන CLICK HERE හතරැස",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "ක්ලික්",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-insignia-foto": {
+   "name": "තට්ටු කිරීමක් සහිත හතරැස් ඡායාරූපය",
+   "tags": [
+    "youtube",
+    "ඡායාරූපය",
+    "අවතාරය",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-insignia-get-ready": {
+   "name": "ඡායාරූපයක් සහිත GET READY බැජ්",
+   "tags": [
+    "youtube",
+    "බැජ්",
+    "ඡායාරූපය",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-insignia-like-this": {
+   "name": "LIKE THIS! බවට පත්වන ඡායාරූප බැජ්",
+   "tags": [
+    "youtube",
+    "බැජ්",
+    "ලයික්",
+    "ඡායාරූපය",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-insignia-pajaro": {
+   "name": "කුරුල්ලෙකු සහිත රවුම් බොත්තම",
+   "tags": [
+    "youtube",
+    "බැජ්",
+    "සමාජ මාධ්‍ය",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-insignia-seguir": {
+   "name": "FOLLOW බවට පත්වන බැජ්",
+   "tags": [
+    "youtube",
+    "බැජ්",
+    "ෆලෝ",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-insignia-unete": {
+   "name": "ක්ලික් එකක් සහිත JOIN US බැජ්",
+   "tags": [
+    "youtube",
+    "බැජ්",
+    "එක්වන්න",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-interruptor-encender": {
+   "name": "TURN ON ස්විචය",
+   "tags": [
+    "youtube",
+    "ස්විචය",
+    "ක්‍රියාත්මක",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-interruptor-on-off": {
+   "name": "START KEY ON/OFF ස්විචය",
+   "tags": [
+    "youtube",
+    "ස්විචය",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-lista-bienvenida": {
+   "name": "මගේ චැනලයට සාදරයෙන් පිළිගනිමු බොත්තම් ලැයිස්තුව",
+   "tags": [
+    "youtube",
+    "ලැයිස්තුව",
+    "සබ්ස්ක්‍රයිබ්",
+    "පිළිගැනීම",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-lista-canal-grande": {
+   "name": "වීඩියෝව මත චැනල ලැයිස්තුව",
+   "tags": [
+    "youtube",
+    "ලැයිස්තුව",
+    "සබ්ස්ක්‍රයිබ්",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-lista-interruptores": {
+   "name": "ස්විච සහිත ලැයිස්තුව",
+   "tags": [
+    "youtube",
+    "ලැයිස්තුව",
+    "ස්විචය",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-lista-no-olvides": {
+   "name": "අමතක නොකරන්න ලැයිස්තුව: සබ්ස්ක්‍රයිබ්, දැනුම්දීම්, ලයික්",
+   "tags": [
+    "youtube",
+    "ලැයිස්තුව",
+    "සබ්ස්ක්‍රයිබ්",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-lista-tareas": {
+   "name": "අද කළ යුතු දේ ලැයිස්තුව",
+   "tags": [
+    "youtube",
+    "ලැයිස්තුව",
+    "කාර්යයන්",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-mensaje-abrir": {
+   "name": "විවෘත වන පණිවිඩ බොත්තම",
+   "tags": [
+    "youtube",
+    "පණිවිඩය",
+    "චැට්",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-opcion-seleccionar": {
+   "name": "SELECT විකල්පය",
+   "tags": [
+    "youtube",
+    "විකල්පය",
+    "තේරීම",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-perfil-seguir": {
+   "name": "ඡායාරූප සහ ෆලෝ බොත්තම සහිත පැතිකඩ",
+   "tags": [
+    "youtube",
+    "පැතිකඩ",
+    "ෆලෝ",
+    "ඡායාරූප",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-post-botones": {
+   "name": "රවුම් කළ බොත්තම් සහිත පෝස්ට්",
+   "tags": [
+    "youtube",
+    "පෝස්ට්",
+    "ලයික්",
+    "බොත්තම්",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-post-insta": {
+   "name": "විශාල ඡායාරූපයක් සහ ලයික් සහිත පෝස්ට්",
+   "tags": [
+    "youtube",
+    "පෝස්ට්",
+    "ඡායාරූපය",
+    "ලයික්",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-post-muro": {
+   "name": "Like, Comment සහ Share සහිත බිත්ති පෝස්ට්",
+   "tags": [
+    "youtube",
+    "පෝස්ට්",
+    "ලයික්",
+    "අදහස",
+    "බෙදාගන්න"
+   ]
+  },
+  "template:yp13-post-noticia": {
+   "name": "නිල් නමක් සහ ලයික් සහිත පෝස්ට්",
+   "tags": [
+    "youtube",
+    "පෝස්ට්",
+    "ලයික්",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-post-texto": {
+   "name": "ලයික් සහිත පෙළ පෝස්ට්",
+   "tags": [
+    "youtube",
+    "පෝස්ට්",
+    "පෙළ",
+    "ලයික්",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-post-tuit": {
+   "name": "ලයික් සහිත ට්වීට් ආකාර පෝස්ට්",
+   "tags": [
+    "youtube",
+    "පෝස්ට්",
+    "ට්වීට්",
+    "ලයික්",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-post-tuit-enlace": {
+   "name": "සබැඳි කාඩ්පතක් සහ ලයික් සහිත ට්වීට්",
+   "tags": [
+    "youtube",
+    "පෝස්ට්",
+    "ට්වීට්",
+    "සබැඳිය",
+    "ලයික්"
+   ]
+  },
+  "template:yp13-post-tuit-foto": {
+   "name": "සබැඳි ඡායාරූපයක් සහ ලයික් සහිත ට්වීට්",
+   "tags": [
+    "youtube",
+    "පෝස්ට්",
+    "ට්වීට්",
+    "ඡායාරූපය",
+    "ලයික්"
+   ]
+  },
+  "template:yp13-post-vertical": {
+   "name": "ලයික් සහිත සිරස් පෝස්ට්",
+   "tags": [
+    "youtube",
+    "පෝස්ට්",
+    "සිරස්",
+    "ලයික්",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-post-video-campana": {
+   "name": "වීඩියෝ පෝස්ට්: සබ්ස්ක්‍රයිබ් සහ සීනුව",
+   "tags": [
+    "youtube",
+    "පෝස්ට්",
+    "වීඩියෝව",
+    "සබ්ස්ක්‍රයිබ්",
+    "සීනුව"
+   ]
+  },
+  "template:yp13-post-video-suscribir": {
+   "name": "සබ්ස්ක්‍රයිබ් බොත්තම සහිත වීඩියෝ පෝස්ට්",
+   "tags": [
+    "youtube",
+    "පෝස්ට්",
+    "වීඩියෝව",
+    "සබ්ස්ක්‍රයිබ්",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-post-video-votos": {
+   "name": "ලයික් සහ ඩිස්ලයික් සහිත වීඩියෝ පෝස්ට්",
+   "tags": [
+    "youtube",
+    "පෝස්ට්",
+    "වීඩියෝව",
+    "ලයික්",
+    "ඩිස්ලයික්"
+   ]
+  },
+  "template:yp13-reaccion-corazones": {
+   "name": "ඉහළට නගින හදවත් සහිත LOVE IT! බොත්තම",
+   "tags": [
+    "youtube",
+    "ප්‍රතිචාරය",
+    "හදවත්",
+    "බොත්තම",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-reaccion-estrellas": {
+   "name": "ඉහළට නගින කොළ තරු සහිත බොත්තම",
+   "tags": [
+    "youtube",
+    "ප්‍රතිචාරය",
+    "තරු",
+    "බොත්තම",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-reaccion-monedas": {
+   "name": "ඉහළට නගින කාසි සහිත DONATE බොත්තම",
+   "tags": [
+    "youtube",
+    "ප්‍රතිචාරය",
+    "පරිත්‍යාග",
+    "කාසි",
+    "බොත්තම"
+   ]
+  },
+  "template:yp13-reaccion-pulgares": {
+   "name": "ඉහළට නගින මාපටැඟිලි සහිත LIKE THIS බොත්තම",
+   "tags": [
+    "youtube",
+    "ප්‍රතිචාරය",
+    "ලයික්",
+    "බොත්තම",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-recomiendo": {
+   "name": "මම නිර්දේශ කරමි: හදවත් පහක්",
+   "tags": [
+    "youtube",
+    "ඇගයීම",
+    "හදවත්",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-reproductor-amarillo": {
+   "name": "කහ වාදක බොත්තම්",
+   "tags": [
+    "youtube",
+    "වාදකය",
+    "බොත්තම්",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-reproductor-azul": {
+   "name": "නිල් වාදක බොත්තම්",
+   "tags": [
+    "youtube",
+    "වාදකය",
+    "බොත්තම්",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-reproductor-cuadrado": {
+   "name": "හතරැස් වාදක බොත්තම්",
+   "tags": [
+    "youtube",
+    "වාදකය",
+    "බොත්තම්",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-reproductor-redondo": {
+   "name": "රවුම් වාදක බොත්තම්",
+   "tags": [
+    "youtube",
+    "වාදකය",
+    "බොත්තම්",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-tarjeta-canal": {
+   "name": "විවෘත වන චැනල කාඩ්පත",
+   "tags": [
+    "youtube",
+    "චැනලය",
+    "සබ්ස්ක්‍රයිබ්",
+    "අවතාරය",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-tarjeta-suscribir-grande": {
+   "name": "සබ්ස්ක්‍රයිබ් සහිත විශාල චැනල කාඩ්පත",
+   "tags": [
+    "youtube",
+    "චැනලය",
+    "සබ්ස්ක්‍රයිබ්",
+    "අවතාරය",
+    "පහළ තීරුව"
+   ]
+  },
+  "template:yp13-tuit-texto": {
+   "name": "ලයික් සහිත පෙළ ට්වීට්",
+   "tags": [
+    "youtube",
+    "ට්වීට්",
+    "ලයික්",
+    "අදහස",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-valoranos": {
+   "name": "අපව ඇගයීමට ලක් කරන්න: තරු ලැයිස්තුව",
+   "tags": [
+    "youtube",
+    "ඇගයීම",
+    "තරු",
+    "ලැයිස්තුව",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-valorar-10": {
+   "name": "තරු සහිත 10/10 ඇගයීම",
+   "tags": [
+    "youtube",
+    "ඇගයීම",
+    "තරු",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-valorar-articulo": {
+   "name": "තරු පහකින් ඇගයීම",
+   "tags": [
+    "youtube",
+    "ඇගයීම",
+    "තරු",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-valorar-genial": {
+   "name": "තරු ලබා දෙන ඇගයීම් බොත්තම",
+   "tags": [
+    "youtube",
+    "ඇගයීම",
+    "තරු",
+    "බොත්තම",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-valorar-plantilla": {
+   "name": "තරු සහිත ඇගයීම් කාඩ්පත",
+   "tags": [
+    "youtube",
+    "ඇගයීම",
+    "තරු",
+    "කාඩ්පත",
+    "ලාංඡනය"
+   ]
+  },
+  "template:yp13-video-suscribir-campana": {
+   "name": "සබ්ස්ක්‍රයිබ් සහ සීනුව සහිත වීඩියෝ කාඩ්පත",
+   "tags": [
+    "youtube",
+    "පෝස්ට්",
+    "සබ්ස්ක්‍රයිබ්",
+    "සීනුව",
+    "කර්සරය"
+   ]
+  },
+  "template:yp13-volumen": {
+   "name": "MAKE SOME NOISE ශබ්ද ස්ලයිඩරය",
+   "tags": [
+    "youtube",
+    "ශබ්දය",
+    "ස්ලයිඩරය",
+    "කර්සරය"
+   ]
+  },
+  "template:yp14-barra-abajo-acciones": {
+   "name": "ලයික්, බෙදාගැනීම, බාගැනීම සහ සුරැකීම සහිත පහළ වීඩියෝ තීරුව",
+   "tags": [
+    "youtube",
+    "තීරුව",
+    "චැනලය",
+    "ලයික්",
+    "බෙදාගන්න"
+   ]
+  },
+  "template:yp14-barra-abajo-campana": {
+   "name": "සබ්ස්ක්‍රයිබ් සහ සීනුව සහිත පහළ චැනල තීරුව",
+   "tags": [
+    "youtube",
+    "තීරුව",
+    "චැනලය",
+    "සබ්ස්ක්‍රයිබ්",
+    "සීනුව"
+   ]
+  },
+  "template:yp14-barra-abajo-me-gusta": {
+   "name": "ලයික් සහ සබ්ස්ක්‍රයිබ් සහිත පහළ චැනල තීරුව",
+   "tags": [
+    "youtube",
+    "තීරුව",
+    "චැනලය",
+    "සබ්ස්ක්‍රයිබ්",
+    "ලයික්"
+   ]
+  },
+  "template:yp14-barra-arriba": {
+   "name": "ඡායාරූපය තල්ලු කරන ඉහළ චැනල තීරුව",
+   "tags": [
+    "youtube",
+    "තීරුව",
+    "චැනලය",
+    "සබ්ස්ක්‍රයිබ්",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:yp14-barra-valoracion-arriba": {
+   "name": "ලයික්, ඩිස්ලයික් සහ ඇගයීම සහිත ඉහළ චැනල තීරුව",
+   "tags": [
+    "youtube",
+    "තීරුව",
+    "චැනලය",
+    "ලයික්",
+    "ඇගයීම"
+   ]
+  },
+  "template:yp14-barra-video-suscribirse": {
+   "name": "වීඩියෝව මත පහළ සුදු තීරුව: අවතාරය, නම සහ සබ්ස්ක්‍රයිබ්",
+   "tags": [
+    "youtube",
+    "තීරුව",
+    "චැනලය",
+    "සබ්ස්ක්‍රයිබ්",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:yp14-boton-redondo-campana": {
+   "name": "රවුම් රතු බොත්තම: සීනුව සහ «Get notified»",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "පෙළ",
+    "සීනුව"
+   ]
+  },
+  "template:yp14-boton-redondo-compartir": {
+   "name": "රවුම් රතු බොත්තම: බෙදාගැනීම සහ «Share this»",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "පෙළ",
+    "බෙදාගන්න"
+   ]
+  },
+  "template:yp14-boton-redondo-me-gusta": {
+   "name": "රවුම් රතු බොත්තම: ලයික් සහ «Like the video»",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "පෙළ",
+    "ලයික්"
+   ]
+  },
+  "template:yp14-boton-redondo-suscribirse": {
+   "name": "රවුම් රතු බොත්තම: play සහ «Subscribe»",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "පෙළ",
+    "play",
+    "සබ්ස්ක්‍රයිබ්"
+   ]
+  },
+  "template:yp14-campana-compartir-redondos": {
+   "name": "රතු බොත්තම් දෙකක්: සීනුව සහ බෙදාගැනීම",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "පෙළ",
+    "පේළිය"
+   ]
+  },
+  "template:yp14-canal-avatar-arriba": {
+   "name": "ඉහළින් අවතාරය සහිත සිරස් චැනල බොත්තම",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "සබ්ස්ක්‍රයිබ්",
+    "අවතාරය"
+   ]
+  },
+  "template:yp14-canal-avatar-centro": {
+   "name": "මැද අවතාරය, බෙදාගැනීම සහ සීනුව සහිත චැනල බොත්තම",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "සබ්ස්ක්‍රයිබ්",
+    "අවතාරය"
+   ]
+  },
+  "template:yp14-canal-avatar-esquina": {
+   "name": "කොනේ අවතාරය, බෙදාගැනීම සහ සීනුව සහිත චැනල බොත්තම",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "සබ්ස්ක්‍රයිබ්",
+    "අවතාරය"
+   ]
+  },
+  "template:yp14-canal-circulo": {
+   "name": "සීනුව, ලයික් සහ බෙදාගැනීම සහිත රවුමක චැනලය",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "සීනුව",
+    "ලයික්",
+    "රවුම"
+   ]
+  },
+  "template:yp14-canal-foto-campana": {
+   "name": "චැනල බොත්තම: ඡායාරූපය, සබ්ස්ක්‍රයිබ් සහ සීනුව",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "සබ්ස්ක්‍රයිබ්",
+    "සීනුව"
+   ]
+  },
+  "template:yp14-canal-foto-vertical": {
+   "name": "සිරස් චැනල බොත්තම: ඡායාරූපය, සබ්ස්ක්‍රයිබ්, ලයික් සහ සීනුව",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "සබ්ස්ක්‍රයිබ්",
+    "සිරස්"
+   ]
+  },
+  "template:yp14-canal-horizontal": {
+   "name": "තිරස් චැනල බොත්තම: ඡායාරූපය, සබ්ස්ක්‍රයිබර්ස්, සබ්ස්ක්‍රයිබ් සහ සීනුව",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "සබ්ස්ක්‍රයිබ්",
+    "තිරස්"
+   ]
+  },
+  "template:yp14-canal-iconos-columna": {
+   "name": "අයිකන කුළුණක් සහිත චැනලය: සීනුව, ලයික් සහ බෙදාගැනීම",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "සබ්ස්ක්‍රයිබ්",
+    "අයිකන"
+   ]
+  },
+  "template:yp14-canal-nombre-largo": {
+   "name": "චැනල බොත්තම: ඡායාරූපය, පේළි තුනේ නම, ලයික් සහ සීනුව",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "සබ්ස්ක්‍රයිබ්",
+    "චැනලය"
+   ]
+  },
+  "template:yp14-canal-sin-tarjeta": {
+   "name": "චැනලය: අවතාරය, නම, සබ්ස්ක්‍රයිබර්ස් සහ සබ්ස්ක්‍රයිබ්",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "සබ්ස්ක්‍රයිබ්",
+    "චැනලය"
+   ]
+  },
+  "template:yp14-canal-sobre-video": {
+   "name": "වීඩියෝව මත චැනල බොත්තම: ඡායාරූපය, සබ්ස්ක්‍රයිබර්ස් සහ සබ්ස්ක්‍රයිබ්",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "සබ්ස්ක්‍රයිබ්",
+    "වීඩියෝව"
+   ]
+  },
+  "template:yp14-canal-tarjeta-vertical": {
+   "name": "සිරස් චැනල කාඩ්පත: නම, ඡායාරූපය සහ සබ්ස්ක්‍රයිබ්",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "සබ්ස්ක්‍රයිබ්",
+    "කාඩ්පත"
+   ]
+  },
+  "template:yp14-columna-botones": {
+   "name": "රවුම් බොත්තම් කුළුණ: සබ්ස්ක්‍රයිබ්, ලයික් සහ සීනුව",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "පෙළ",
+    "කුළුණ"
+   ]
+  },
+  "template:yp14-columna-botones-etiquetas": {
+   "name": "ලේබල සහිත රවුම් බොත්තම් කුළුණ: සබ්ස්ක්‍රයිබ්, දැනුම්දීම්, ලයික්",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "පෙළ",
+    "කුළුණ"
+   ]
+  },
+  "template:yp14-comentario-abajo": {
+   "name": "ලයික් සහිත පහළ අදහස",
+   "tags": [
+    "youtube",
+    "අදහස",
+    "ලයික්",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:yp14-comentario-arriba": {
+   "name": "ලයික් සහ ඩිස්ලයික් සහිත ඉහළ අදහස",
+   "tags": [
+    "youtube",
+    "අදහස",
+    "ලයික්",
+    "ඩිස්ලයික්",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:yp14-comentario-me-gusta": {
+   "name": "ලයික් ක්ලික් කළ අදහස",
+   "tags": [
+    "youtube",
+    "අදහස",
+    "ලයික්",
+    "අදහස්"
+   ]
+  },
+  "template:yp14-comentario-no-me-gusta": {
+   "name": "ඩිස්ලයික් ක්ලික් කළ අදහස",
+   "tags": [
+    "youtube",
+    "අදහස",
+    "ඩිස්ලයික්",
+    "අදහස්"
+   ]
+  },
+  "template:yp14-comentario-respuesta": {
+   "name": "පිළිතුරක් ටයිප් වන අදහස",
+   "tags": [
+    "youtube",
+    "අදහස",
+    "පිළිතුර",
+    "අදහස්"
+   ]
+  },
+  "template:yp14-comentario-respuesta-2": {
+   "name": "පිළිතුරක් සහිත අදහස (2)",
+   "tags": [
+    "youtube",
+    "අදහස",
+    "පිළිතුර",
+    "අදහස්"
+   ]
+  },
+  "template:yp14-comentario-sobre-video": {
+   "name": "වීඩියෝව මත එක් පේළියක අදහස",
+   "tags": [
+    "youtube",
+    "අදහස",
+    "අදහස්",
+    "වීඩියෝව"
+   ]
+  },
+  "template:yp14-compartir-esto": {
+   "name": "රතු සිට සුදු වන «Share This» බොත්තම",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "පෙළ",
+    "බෙදාගන්න"
+   ]
+  },
+  "template:yp14-fila-botones": {
+   "name": "රවුම් බොත්තම් පේළිය: සබ්ස්ක්‍රයිබ්, සීනුව, බෙදාගැනීම සහ ලයික්",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "පෙළ",
+    "පේළිය"
+   ]
+  },
+  "template:yp14-fila-me-gusta-suscribirse": {
+   "name": "පේළිය: ලයික්, සබ්ස්ක්‍රයිබ් සහ සීනුව",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "සබ්ස්ක්‍රයිබ්",
+    "ලයික්"
+   ]
+  },
+  "template:yp14-fila-suscribirse": {
+   "name": "පේළිය: ලයික්, සබ්ස්ක්‍රයිබ්, බෙදාගැනීම සහ සීනුව",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "පෙළ",
+    "පේළිය",
+    "සබ්ස්ක්‍රයිබ්"
+   ]
+  },
+  "template:yp14-lista-suscribirse": {
+   "name": "ලැයිස්තුව: සබ්ස්ක්‍රයිබ්, දැනුම්දීම් සහ ලයික්",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "සබ්ස්ක්‍රයිබ්",
+    "ලැයිස්තුව"
+   ]
+  },
+  "template:yp14-lista-ver-mas-tarde": {
+   "name": "වීඩියෝ ලැයිස්තුව: «පසුව බලන්න වෙත සුරැකිණි»",
+   "tags": [
+    "youtube",
+    "ලැයිස්තුව",
+    "වීඩියෝ",
+    "පසුව බලන්න"
+   ]
+  },
+  "template:yp14-lista-videos-abrir": {
+   "name": "වීඩියෝ ලැයිස්තුව: එකක් ක්ලික් කළ විට රාමුව පුරා පිරේ",
+   "tags": [
+    "youtube",
+    "ලැයිස්තුව",
+    "වීඩියෝ",
+    "ක්ලික්"
+   ]
+  },
+  "template:yp14-logo-arriba-suscribirse": {
+   "name": "ඉහළින් ලාංඡනය සහ සබ්ස්ක්‍රයිබ්",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "සබ්ස්ක්‍රයිබ්",
+    "ලාංඡනය"
+   ]
+  },
+  "template:yp14-logo-suscribirse": {
+   "name": "සබ්ස්ක්‍රයිබ් සහිත චැනල ලාංඡනය",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "සබ්ස්ක්‍රයිබ්",
+    "ලාංඡනය"
+   ]
+  },
+  "template:yp14-logo-tarjeta": {
+   "name": "සබ්ස්ක්‍රයිබ්, සීනුව සහ බෙදාගැනීම සහිත කාඩ්පතක චැනල ලාංඡනය",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "සබ්ස්ක්‍රයිබ්",
+    "ලාංඡනය"
+   ]
+  },
+  "template:yp14-logo-tarjeta-vertical": {
+   "name": "සීනුව සහ බෙදාගැනීම සහිත සිරස් කාඩ්පතක චැනල ලාංඡනය",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "සබ්ස්ක්‍රයිබ්",
+    "ලාංඡනය"
+   ]
+  },
+  "template:yp14-me-gusta-avisos": {
+   "name": "«Like this / Notified» සහිත ලයික් සහ සීනුව",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "පෙළ",
+    "ලයික්",
+    "සීනුව"
+   ]
+  },
+  "template:yp14-me-gusta-barra": {
+   "name": "ඇගයීම් තීරුවක් සහිත «Like this»",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "පෙළ",
+    "ලයික්",
+    "ඇගයීම"
+   ]
+  },
+  "template:yp14-me-gusta-boton": {
+   "name": "මාපටැඟිලි නිකුත් කරන «Like it!» බොත්තම",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "පෙළ",
+    "ලයික්"
+   ]
+  },
+  "template:yp14-me-gusta-campana-redondos": {
+   "name": "රතු බොත්තම් දෙකක්: ලයික් සහ සීනුව",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "පෙළ",
+    "පේළිය"
+   ]
+  },
+  "template:yp14-me-gusta-compartir-botones": {
+   "name": "රතු සිට සුදු වන «Like it» සහ «Share» බොත්තම්",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "පෙළ",
+    "ලයික්",
+    "බෙදාගන්න"
+   ]
+  },
+  "template:yp14-me-gusta-compartir-redondos": {
+   "name": "රතු බොත්තම් දෙකක්: ලයික් සහ බෙදාගැනීම",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "පෙළ",
+    "පේළිය"
+   ]
+  },
+  "template:yp14-me-gusta-contador": {
+   "name": "ගණකයක් සහිත විශාල ලයික්",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "ලයික්",
+    "ගණකය"
+   ]
+  },
+  "template:yp14-me-gusta-suscribirse": {
+   "name": "කාඩ්පතක් නැති ලයික් සහ සබ්ස්ක්‍රයිබ්",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "පෙළ",
+    "සබ්ස්ක්‍රයිබ්"
+   ]
+  },
+  "template:yp14-me-gusta-suscribirse-campana": {
+   "name": "කාඩ්පතක් නැති ලයික්, සබ්ස්ක්‍රයිබ් සහ සීනුව",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "පෙළ",
+    "සබ්ස්ක්‍රයිබ්"
+   ]
+  },
+  "template:yp14-no-me-gusta-boton": {
+   "name": "මාපටැඟිලි නිකුත් කරන «Dislike!» බොත්තම",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "පෙළ",
+    "ඩිස්ලයික්"
+   ]
+  },
+  "template:yp14-no-me-gusta-contador": {
+   "name": "ගණකයක් සහිත විශාල ඩිස්ලයික්",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "ඩිස්ලයික්",
+    "ගණකය"
+   ]
+  },
+  "template:yp14-no-recomendar": {
+   "name": "මාපටැඟිලි පහක් සලකුණු වන «Don't recommend»",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "පෙළ",
+    "ඇගයීම",
+    "ඩිස්ලයික්"
+   ]
+  },
+  "template:yp14-nombre-suscrito-campana": {
+   "name": "සබ්ස්ක්‍රයිබ් කළ බව සහ සීනුව සහිත චැනලයේ නම",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "සබ්ස්ක්‍රයිබ්",
+    "සීනුව"
+   ]
+  },
+  "template:yp14-nombre-suscrito-me-gusta": {
+   "name": "සබ්ස්ක්‍රයිබ් කළ බව, ලයික් සහ ඩිස්ලයික් සහිත චැනලයේ නම",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "සබ්ස්ක්‍රයිබ්",
+    "ලයික්"
+   ]
+  },
+  "template:yp14-pildora-me-gusta": {
+   "name": "රතු ලයික් / ඩිස්ලයික් කැප්සියුලය: ලයික් ක්ලික් කිරීම",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "ලයික්",
+    "ඩිස්ලයික්"
+   ]
+  },
+  "template:yp14-pildora-no-me-gusta": {
+   "name": "රතු ලයික් / ඩිස්ලයික් කැප්සියුලය: ඩිස්ලයික් ක්ලික් කිරීම",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "ලයික්",
+    "ඩිස්ලයික්"
+   ]
+  },
+  "template:yp14-recomendar-amigos": {
+   "name": "මාපටැඟිලි පහක් සලකුණු වන «Advise friends»",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "පෙළ",
+    "ඇගයීම",
+    "ලයික්"
+   ]
+  },
+  "template:yp14-suscribirse-campana": {
+   "name": "කාඩ්පතක් නැති සබ්ස්ක්‍රයිබ් සහ සීනුව",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "පෙළ",
+    "සබ්ස්ක්‍රයිබ්"
+   ]
+  },
+  "template:yp14-suscribirse-casilla": {
+   "name": "«Subscribe Youtube Channel» සහිත සලකුණු කළ කොටුව",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "පෙළ",
+    "සබ්ස්ක්‍රයිබ්",
+    "සලකුණු කොටුව"
+   ]
+  },
+  "template:yp14-suscribirse-contador": {
+   "name": "19999 සිට 20000 දක්වා යන ගණකයක් සහිත සබ්ස්ක්‍රයිබ්",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "පෙළ",
+    "සබ්ස්ක්‍රයිබ්",
+    "ගණකය"
+   ]
+  },
+  "template:yp14-suscribirse-hecho": {
+   "name": "«DONE» බවට පත්වන «DO IT!» සහිත «Subscribe Channel»",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "පෙළ",
+    "සබ්ස්ක්‍රයිබ්"
+   ]
+  },
+  "template:yp14-suscribirse-play": {
+   "name": "«SUBSCRIBED» බවට පත්වන play සහිත රතු «SUBSCRIBE» බොත්තම",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "පෙළ",
+    "සබ්ස්ක්‍රයිබ්"
+   ]
+  },
+  "template:yp14-suscrito-iconos": {
+   "name": "ලයික්, සීනුව සහ බෙදාගැනීම සහිත සබ්ස්ක්‍රයිබ් කළ බව",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "සබ්ස්ක්‍රයිබ්",
+    "සීනුව"
+   ]
+  },
+  "template:yp14-tarjeta-campana": {
+   "name": "සබ්ස්ක්‍රයිබ් සහ සීනුව සහිත චැනල කාඩ්පත",
+   "tags": [
+    "youtube",
+    "කාඩ්පත",
+    "චැනලය",
+    "සීනුව"
+   ]
+  },
+  "template:yp14-tarjeta-comentario": {
+   "name": "ඩිස්ලයික් සහ අදහසක් සහිත වීඩියෝ කාඩ්පත",
+   "tags": [
+    "youtube",
+    "කාඩ්පත",
+    "චැනලය",
+    "අදහස"
+   ]
+  },
+  "template:yp14-tarjeta-comentario-2": {
+   "name": "ලයික් සහ අදහසක් සහිත වීඩියෝ කාඩ්පත",
+   "tags": [
+    "youtube",
+    "කාඩ්පත",
+    "චැනලය",
+    "අදහස"
+   ]
+  },
+  "template:yp14-tarjeta-cristal": {
+   "name": "චැනල කාඩ්පත: සීනුව සහිත ඡායාරූපය මත වීදුරුව",
+   "tags": [
+    "youtube",
+    "කාඩ්පත",
+    "චැනලය",
+    "සබ්ස්ක්‍රයිබ්",
+    "වීදුරු"
+   ]
+  },
+  "template:yp14-tarjeta-cristal-inclinada": {
+   "name": "චැනල කාඩ්පත: ඡායාරූපය මත ඇල වීදුරුව",
+   "tags": [
+    "youtube",
+    "කාඩ්පත",
+    "චැනලය",
+    "සබ්ස්ක්‍රයිබ්",
+    "වීදුරු"
+   ]
+  },
+  "template:yp14-tarjeta-foto-inclinada": {
+   "name": "චැනල කාඩ්පත: සබ්ස්ක්‍රයිබ් සහ සීනුව සහිත ඇල ඡායාරූපය",
+   "tags": [
+    "youtube",
+    "කාඩ්පත",
+    "චැනලය",
+    "සබ්ස්ක්‍රයිබ්",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:yp14-tarjeta-foto-marco": {
+   "name": "චැනල කාඩ්පත: ප්‍රගති තීරුවක් සහිත සුදු රාමුවක ඡායාරූපය",
+   "tags": [
+    "youtube",
+    "කාඩ්පත",
+    "චැනලය",
+    "සබ්ස්ක්‍රයිබ්",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:yp14-tarjeta-foto-progreso": {
+   "name": "චැනල කාඩ්පත: ප්‍රගති තීරුව සහ ලයික් සහිත ඡායාරූපය",
+   "tags": [
+    "youtube",
+    "කාඩ්පත",
+    "චැනලය",
+    "සබ්ස්ක්‍රයිබ්",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:yp14-tarjeta-foto-recta": {
+   "name": "චැනල කාඩ්පත: ලයික්, සබ්ස්ක්‍රයිබ් සහ සීනුව සහිත රාමු කළ ඡායාරූපය",
+   "tags": [
+    "youtube",
+    "කාඩ්පත",
+    "චැනලය",
+    "සබ්ස්ක්‍රයිබ්",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:yp14-tarjeta-marco": {
+   "name": "චැනල කාඩ්පත: ප්‍රගති තීරුවක් සහිත ඡායාරූපය මත සුදු රාමුව",
+   "tags": [
+    "youtube",
+    "කාඩ්පත",
+    "චැනලය",
+    "සබ්ස්ක්‍රයිබ්",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:yp14-tarjeta-marco-inclinado": {
+   "name": "චැනල කාඩ්පත: ඡායාරූපය මත ඇල සුදු රාමුව",
+   "tags": [
+    "youtube",
+    "කාඩ්පත",
+    "චැනලය",
+    "සබ්ස්ක්‍රයිබ්",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:yp14-tarjeta-video-compartir": {
+   "name": "ලයික්, බෙදාගැනීම සහ සබ්ස්ක්‍රයිබ් සහිත වීඩියෝ කාඩ්පත",
+   "tags": [
+    "youtube",
+    "කාඩ්පත",
+    "චැනලය",
+    "බෙදාගන්න"
+   ]
+  },
+  "template:yp14-tarjeta-video-cuadrada": {
+   "name": "හතරැස් අවතාරයක් සහ රතු බොත්තමක් සහිත ඇල වීඩියෝ කාඩ්පත",
+   "tags": [
+    "youtube",
+    "කාඩ්පත",
+    "වීඩියෝව",
+    "සබ්ස්ක්‍රයිබ්",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:yp14-tarjeta-video-play": {
+   "name": "වීඩියෝ කාඩ්පත: play ක්ලික් කළ විට වීඩියෝව රාමුව පුරා පිරේ",
+   "tags": [
+    "youtube",
+    "කාඩ්පත",
+    "වීඩියෝව",
+    "play"
+   ]
+  },
+  "template:yp14-tarjeta-video-titulo": {
+   "name": "ඉහළින් චැනලය සහ මාතෘකාව සහිත වීඩියෝ කාඩ්පත: play ක්ලික් කරන්න",
+   "tags": [
+    "youtube",
+    "කාඩ්පත",
+    "වීඩියෝව",
+    "play",
+    "මාතෘකාව"
+   ]
+  },
+  "template:yp14-tres-botones-blancos": {
+   "name": "එකවර ක්ලික් වන සුදු බොත්තම් තුනක්: ලයික්, සීනුව සහ බෙදාගැනීම",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "පෙළ",
+    "පේළිය"
+   ]
+  },
+  "template:yp14-valoracion-abajo": {
+   "name": "ලයික්, ඩිස්ලයික් සහ ඇගයීම සහිත පහළ චැනල තීරුව",
+   "tags": [
+    "youtube",
+    "තීරුව",
+    "චැනලය",
+    "ලයික්",
+    "ඇගයීම"
+   ]
+  },
+  "template:yp14-youtube-channel": {
+   "name": "ක්ලික් කළ විට රතු වන «YOUTUBE CHANNEL»",
+   "tags": [
+    "youtube",
+    "බොත්තම",
+    "පෙළ",
+    "මාතෘකාව"
+   ]
+  },
+  "template:yp15-cargo-verde": {
+   "name": "කොළ පාටින් තනතුර සහිත වීදුරු පහළ තීරුව",
+   "tags": [
+    "youtube",
+    "පහළ තීරුව",
+    "වීදුරු",
+    "නම",
+    "කොළ"
+   ]
+  },
+  "template:yp15-centrado": {
+   "name": "සබ්ස්ක්‍රයිබ් සහිත මැද වීදුරු පහළ තීරුව",
+   "tags": [
+    "youtube",
+    "පහළ තීරුව",
+    "වීදුරු",
+    "සබ්ස්ක්‍රයිබ්"
+   ]
+  },
+  "template:yp15-dos-nombres": {
+   "name": "වීදුරු පහළ තීරුව: නම් දෙකක්",
+   "tags": [
+    "youtube",
+    "පහළ තීරුව",
+    "වීදුරු",
+    "නම",
+    "දෙදෙනා"
+   ]
+  },
+  "template:yp15-foto-redonda": {
+   "name": "රවුම් ඡායාරූපයක් සහිත වීදුරු පහළ තීරුව",
+   "tags": [
+    "youtube",
+    "පහළ තීරුව",
+    "වීදුරු",
+    "ඡායාරූපය",
+    "අවතාරය"
+   ]
+  },
+  "template:yp15-foto-suscribete": {
+   "name": "ඡායාරූපය සහ සබ්ස්ක්‍රයිබ් සහිත වීදුරු පහළ තීරුව",
+   "tags": [
+    "youtube",
+    "පහළ තීරුව",
+    "වීදුරු",
+    "සබ්ස්ක්‍රයිබ්",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:yp15-linea-fina": {
+   "name": "සිහින් වීදුරු පහළ තීරුව",
+   "tags": [
+    "youtube",
+    "පහළ තීරුව",
+    "වීදුරු",
+    "නම"
+   ]
+  },
+  "template:yp15-logo-nombre": {
+   "name": "ලාංඡනය සහිත වීදුරු පහළ තීරුව",
+   "tags": [
+    "youtube",
+    "පහළ තීරුව",
+    "වීදුරු",
+    "නම",
+    "ලාංඡනය"
+   ]
+  },
+  "template:yp15-logo-suscribete": {
+   "name": "ලාංඡනය සහ සබ්ස්ක්‍රයිබ් සහිත වීදුරු පහළ තීරුව",
+   "tags": [
+    "youtube",
+    "පහළ තීරුව",
+    "වීදුරු",
+    "සබ්ස්ක්‍රයිබ්",
+    "ලාංඡනය"
+   ]
+  },
+  "template:yp15-nombre-suscribete": {
+   "name": "සබ්ස්ක්‍රයිබ් සහිත වීදුරු පහළ තීරුව",
+   "tags": [
+    "youtube",
+    "පහළ තීරුව",
+    "වීදුරු",
+    "නම",
+    "සබ්ස්ක්‍රයිබ්"
+   ]
+  },
+  "template:yp15-pareja": {
+   "name": "වීදුරු පහළ තීරුව: ඡායාරූපයක් සහිත යුවළ",
+   "tags": [
+    "youtube",
+    "පහළ තීරුව",
+    "වීදුරු",
+    "නම",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:yp15-tarjeta-foto": {
+   "name": "ඡායාරූපය සහ ලාංඡනය සහිත වීදුරු කාඩ්පත",
+   "tags": [
+    "youtube",
+    "පහළ තීරුව",
+    "වීදුරු",
+    "ඡායාරූපය",
+    "ලාංඡනය"
+   ]
+  },
+  "template:yp15-una-linea": {
+   "name": "එක් පේළියක වීදුරු පහළ තීරුව",
+   "tags": [
+    "youtube",
+    "පහළ තීරුව",
+    "වීදුරු",
+    "නම"
+   ]
+  },
+  "template:yp16-barra-nombre": {
+   "name": "නම සහ සබ්ස්ක්‍රයිබ් සහිත වීදුරු තීරුව",
+   "tags": [
+    "youtube",
+    "වීදුරු",
+    "සබ්ස්ක්‍රයිබ්",
+    "ක්ලික්",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:yp16-barra-suscribete": {
+   "name": "ඡායාරූපය සහ සබ්ස්ක්‍රයිබ් සහිත වීදුරු තීරුව",
+   "tags": [
+    "youtube",
+    "වීදුරු",
+    "සබ්ස්ක්‍රයිබ්",
+    "ක්ලික්",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:yp16-burbuja-canal": {
+   "name": "ඡායාරූපය සහ චැනලය සහිත වීදුරු බුබුල",
+   "tags": [
+    "youtube",
+    "වීදුරු",
+    "චැනලය",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:yp16-circulo": {
+   "name": "ඡායාරූපය සහ සබ්ස්ක්‍රයිබ් සහිත වීදුරු රවුම",
+   "tags": [
+    "youtube",
+    "වීදුරු",
+    "සබ්ස්ක්‍රයිබ්",
+    "ඡායාරූපය",
+    "රවුම"
+   ]
+  },
+  "template:yp16-join-us": {
+   "name": "අඳුරු වීදුරු කැප්සියුලය: join us now",
+   "tags": [
+    "youtube",
+    "වීදුරු",
+    "එක්වන්න"
+   ]
+  },
+  "template:yp16-pildora-canal": {
+   "name": "මැද ඡායාරූපයක් සහිත වීදුරු කැප්සියුලය",
+   "tags": [
+    "youtube",
+    "වීදුරු",
+    "චැනලය",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:yp16-stay-tuned": {
+   "name": "වීදුරු රවුම: stay tuned",
+   "tags": [
+    "youtube",
+    "වීදුරු",
+    "රවුම"
+   ]
+  },
+  "template:yp16-tarjeta-cuadrada": {
+   "name": "සබ්ස්ක්‍රයිබ් සහිත හතරැස් වීදුරු කාඩ්පත",
+   "tags": [
+    "youtube",
+    "වීදුරු",
+    "සබ්ස්ක්‍රයිබ්",
+    "ක්ලික්",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:yp16-tarjeta-nombre": {
+   "name": "නම සහ සබ්ස්ක්‍රයිබ් සහිත වීදුරු කාඩ්පත",
+   "tags": [
+    "youtube",
+    "වීදුරු",
+    "සබ්ස්ක්‍රයිබ්",
+    "ක්ලික්",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:yp16-tarjeta-vertical": {
+   "name": "සබ්ස්ක්‍රයිබ් සහිත සිරස් වීදුරු කාඩ්පත",
+   "tags": [
+    "youtube",
+    "වීදුරු",
+    "සබ්ස්ක්‍රයිබ්",
+    "ක්ලික්",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:yp16-watch-more": {
+   "name": "වීදුරු බුබුල: watch more",
+   "tags": [
+    "youtube",
+    "වීදුරු",
+    "තවත් නරඹන්න"
+   ]
+  },
+  "template:yp17-barra-canal": {
+   "name": "ඡායාරූපය සහ සබ්ස්ක්‍රයිබ් සහිත පැතලි තීරුව",
+   "tags": [
+    "youtube",
+    "කාඩ්පත",
+    "පැතලි",
+    "සබ්ස්ක්‍රයිබ්",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:yp17-barra-foto": {
+   "name": "මැද ඡායාරූපයක් සහිත පැතලි තීරුව",
+   "tags": [
+    "youtube",
+    "කාඩ්පත",
+    "පැතලි",
+    "සබ්ස්ක්‍රයිබ්",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:yp17-barra-titulo": {
+   "name": "ඡායාරූපය සහ මාතෘකාව සහිත පැතලි තීරුව",
+   "tags": [
+    "youtube",
+    "කාඩ්පත",
+    "පැතලි",
+    "සබ්ස්ක්‍රයිබ්",
+    "මාතෘකාව"
+   ]
+  },
+  "template:yp17-boton-youtube": {
+   "name": "YouTube බොත්තම සහිත පැතලි කාඩ්පත",
+   "tags": [
+    "youtube",
+    "කාඩ්පත",
+    "පැතලි",
+    "බොත්තම",
+    "play"
+   ]
+  },
+  "template:yp17-foto-arriba": {
+   "name": "සබ්ස්ක්‍රයිබ් කාඩ්පතකට ඉහළින් රවුම් ඡායාරූපය",
+   "tags": [
+    "youtube",
+    "කාඩ්පත",
+    "පැතලි",
+    "සබ්ස්ක්‍රයිබ්",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:yp17-foto-cuadrada": {
+   "name": "හතරැස් ඡායාරූපය සහ සබ්ස්ක්‍රයිබ් තීරුව",
+   "tags": [
+    "youtube",
+    "කාඩ්පත",
+    "පැතලි",
+    "සබ්ස්ක්‍රයිබ්",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:yp17-join-us": {
+   "name": "පැතලි කාඩ්පත: YouTube සමඟ join us",
+   "tags": [
+    "youtube",
+    "කාඩ්පත",
+    "පැතලි",
+    "එක්වන්න"
+   ]
+  },
+  "template:yp17-tarjeta-nombre": {
+   "name": "ඡායාරූපය, YouTube සහ සබ්ස්ක්‍රයිබ් සහිත පැතලි කාඩ්පත",
+   "tags": [
+    "youtube",
+    "කාඩ්පත",
+    "පැතලි",
+    "සබ්ස්ක්‍රයිබ්",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:yp17-tarjeta-vertical": {
+   "name": "සබ්ස්ක්‍රයිබ් සහිත පැතලි සිරස් කාඩ්පත",
+   "tags": [
+    "youtube",
+    "කාඩ්පත",
+    "පැතලි",
+    "සබ්ස්ක්‍රයිබ්",
+    "ඡායාරූපය"
+   ]
+  },
+  "template:yp17-watch-more": {
+   "name": "පැතලි කාඩ්පත: watch more",
+   "tags": [
+    "youtube",
+    "කාඩ්පත",
+    "පැතලි",
+    "තවත් නරඹන්න"
+   ]
+  },
   "template:yp2-apertura": {
    "name": "ආරම්භය: YouTube බොත්තමක් සහිත රතු සහ සුදු වළල්ල",
    "tags": [
@@ -41234,6 +43546,496 @@
     "කළු සහ සුදු",
     "විලාසිතා",
     "සංක්‍රාන්තිය"
+   ]
+  },
+  "template:yp8-disfruta": {
+   "name": "අවසානය: enjoy",
+   "tags": [
+    "youtube",
+    "අවසානය",
+    "පෙළ"
+   ]
+  },
+  "template:yp8-logo-formas-claro": {
+   "name": "ආරම්භය: ඔබේ ලාංඡනය හෙළි කරන තැඹිලි හැඩතල",
+   "tags": [
+    "youtube",
+    "ලාංඡනය",
+    "ආරම්භය",
+    "හැඩතල"
+   ]
+  },
+  "template:yp8-logo-formas-oscuro": {
+   "name": "ආරම්භය: ඔබේ ලාංඡනය හෙළි කරන හැඩතල (අඳුරු)",
+   "tags": [
+    "youtube",
+    "ලාංඡනය",
+    "ආරම්භය",
+    "හැඩතල"
+   ]
+  },
+  "template:yp8-logo-formas-video": {
+   "name": "ආරම්භය: ඔබේ වීඩියෝව මත සුදු හැඩතල සහ ලාංඡනය",
+   "tags": [
+    "youtube",
+    "ලාංඡනය",
+    "ආරම්භය",
+    "හැඩතල"
+   ]
+  },
+  "template:yp8-logo-youtube-claro": {
+   "name": "එකලස් වන YouTube ලාංඡනය (සුදු පසුබිම)",
+   "tags": [
+    "youtube",
+    "ලාංඡනය",
+    "ආරම්භය",
+    "සුදු"
+   ]
+  },
+  "template:yp8-logo-youtube-oscuro": {
+   "name": "එකලස් වන YouTube ලාංඡනය (අඳුරු පසුබිම)",
+   "tags": [
+    "youtube",
+    "ලාංඡනය",
+    "ආරම්භය",
+    "අඳුරු"
+   ]
+  },
+  "template:yp8-logo-youtube-video": {
+   "name": "ඔබේ වීඩියෝව මත සුදු YouTube ලාංඡනය",
+   "tags": [
+    "youtube",
+    "ලාංඡනය",
+    "ආරම්භය",
+    "සුදු"
+   ]
+  },
+  "template:yp8-me-gusta-blanco": {
+   "name": "සුදු රවුමක ලයික්",
+   "tags": [
+    "youtube",
+    "ලයික්",
+    "බොත්තම",
+    "රවුම"
+   ]
+  },
+  "template:yp8-me-gusta-oscuro": {
+   "name": "අඳුරු රවුමක ලයික්",
+   "tags": [
+    "youtube",
+    "ලයික්",
+    "බොත්තම",
+    "රවුම"
+   ]
+  },
+  "template:yp8-redes-tercios": {
+   "name": "සමාජ මාධ්‍ය පහළ තීරු හතක්",
+   "tags": [
+    "youtube",
+    "සමාජ මාධ්‍ය",
+    "පහළ තීරුව",
+    "instagram",
+    "facebook"
+   ]
+  },
+  "template:yp8-suscribirse-blanco": {
+   "name": "ක්ලික් සහ සීනුව සහිත සබ්ස්ක්‍රයිබ් තීරුව",
+   "tags": [
+    "youtube",
+    "සබ්ස්ක්‍රයිබ්",
+    "බොත්තම",
+    "ක්ලික්",
+    "සීනුව"
+   ]
+  },
+  "template:yp8-suscribirse-oscuro": {
+   "name": "ක්ලික් සහ සීනුව සහිත සබ්ස්ක්‍රයිබ් තීරුව (අඳුරු)",
+   "tags": [
+    "youtube",
+    "සබ්ස්ක්‍රයිබ්",
+    "බොත්තම",
+    "ක්ලික්",
+    "සීනුව"
+   ]
+  },
+  "template:yp8-tercio-facebook": {
+   "name": "පහළ තීරුව: Facebook හි අපව අනුගමනය කරන්න",
+   "tags": [
+    "youtube",
+    "පහළ තීරුව",
+    "facebook",
+    "සමාජ මාධ්‍ය"
+   ]
+  },
+  "template:yp8-tercio-instagram": {
+   "name": "පහළ තීරුව: Instagram පරිශීලක නාමය",
+   "tags": [
+    "youtube",
+    "පහළ තීරුව",
+    "instagram",
+    "සමාජ මාධ්‍ය"
+   ]
+  },
+  "template:yp8-tercio-nombre": {
+   "name": "පහළ තීරුව: නම සහ තනතුර",
+   "tags": [
+    "youtube",
+    "පහළ තීරුව",
+    "නම",
+    "තනතුර"
+   ]
+  },
+  "template:yp8-tercio-twitter": {
+   "name": "පහළ තීරුව: Twitter පරිශීලක නාමය",
+   "tags": [
+    "youtube",
+    "පහළ තීරුව",
+    "twitter",
+    "සමාජ මාධ්‍ය"
+   ]
+  },
+  "template:yp8-tercio-youtube": {
+   "name": "පහළ තීරුව: මගේ චැනලයට සබ්ස්ක්‍රයිබ් කරන්න",
+   "tags": [
+    "youtube",
+    "පහළ තීරුව",
+    "සබ්ස්ක්‍රයිබ්",
+    "චැනලය"
+   ]
+  },
+  "template:yp8-tercio-yt-blanco": {
+   "name": "පහළ තීරුව: YouTube පරිශීලක නාමය",
+   "tags": [
+    "youtube",
+    "පහළ තීරුව",
+    "පරිශීලක නාමය",
+    "සමාජ මාධ්‍ය"
+   ]
+  },
+  "template:yp8-tercio-yt-oscuro": {
+   "name": "පහළ තීරුව: YouTube හි සබ්ස්ක්‍රයිබ් කරන්න (අඳුරු)",
+   "tags": [
+    "youtube",
+    "පහළ තීරුව",
+    "සබ්ස්ක්‍රයිබ්",
+    "අඳුරු"
+   ]
+  },
+  "template:yp8-transicion-ola": {
+   "name": "සංක්‍රාන්තිය: නිල් සහ කොළ රැල්ල",
+   "tags": [
+    "youtube",
+    "සංක්‍රාන්තිය",
+    "වර්ණ ශ්‍රේණිය",
+    "රැල්ල"
+   ]
+  },
+  "template:yp8-transicion-rombo": {
+   "name": "සංක්‍රාන්තිය: ඉහළට නගින නිල් සහ කොළ දියමන්ති හැඩය",
+   "tags": [
+    "youtube",
+    "සංක්‍රාන්තිය",
+    "වර්ණ ශ්‍රේණිය",
+    "දියමන්ති"
+   ]
+  },
+  "template:yp9-barra-canal": {
+   "name": "සීනුව සහිත චැනල නාම තීරුව",
+   "tags": [
+    "youtube",
+    "තීරුව",
+    "චැනලය",
+    "සීනුව"
+   ]
+  },
+  "template:yp9-bloques-glitch": {
+   "name": "ග්ලිච් වර්ණ කොටු",
+   "tags": [
+    "youtube",
+    "ග්ලිච්",
+    "වර්ණ",
+    "දෝෂය"
+   ]
+  },
+  "template:yp9-boton-suscribirse": {
+   "name": "පිරී ක්ලික් වන සබ්ස්ක්‍රයිබ් බොත්තම",
+   "tags": [
+    "youtube",
+    "සබ්ස්ක්‍රයිබ්",
+    "බොත්තම",
+    "ක්ලික්",
+    "කර්සරය"
+   ]
+  },
+  "template:yp9-boton-ventana": {
+   "name": "වීඩියෝ කවුළුවක් විවෘත කරන play බොත්තම",
+   "tags": [
+    "youtube",
+    "play",
+    "කවුළුව",
+    "සංක්‍රාන්තිය"
+   ]
+  },
+  "template:yp9-cinta-tendencia": {
+   "name": "මාතෘකාවක් සහිත කහ ට්‍රෙන්ඩ් පටිය",
+   "tags": [
+    "youtube",
+    "පටිය",
+    "ට්‍රෙන්ඩ්",
+    "මාතෘකාව"
+   ]
+  },
+  "template:yp9-corazones-flotando": {
+   "name": "වීඩියෝව මතින් ඉහළට නගින හදවත්",
+   "tags": [
+    "youtube",
+    "හදවත්",
+    "ආදරය",
+    "වීඩියෝව"
+   ]
+  },
+  "template:yp9-destello-a": {
+   "name": "අතින් ඇඳි රේඛා පිපිරුම A",
+   "tags": [
+    "youtube",
+    "පිපිරුම",
+    "අතින් ඇඳි",
+    "දීප්තිය"
+   ]
+  },
+  "template:yp9-destello-b": {
+   "name": "අතින් ඇඳි රේඛා පිපිරුම B",
+   "tags": [
+    "youtube",
+    "පිපිරුම",
+    "අතින් ඇඳි",
+    "දීප්තිය"
+   ]
+  },
+  "template:yp9-destello-c": {
+   "name": "අතින් ඇඳි රේඛා පිපිරුම C",
+   "tags": [
+    "youtube",
+    "පිපිරුම",
+    "අතින් ඇඳි",
+    "දීප්තිය"
+   ]
+  },
+  "template:yp9-enlace-behance": {
+   "name": "සබැඳි තීරුව: behance",
+   "tags": [
+    "youtube",
+    "සමාජ මාධ්‍ය",
+    "සබැඳිය",
+    "behance"
+   ]
+  },
+  "template:yp9-enlace-dribbble": {
+   "name": "සබැඳි තීරුව: dribbble",
+   "tags": [
+    "youtube",
+    "සමාජ මාධ්‍ය",
+    "සබැඳිය",
+    "dribbble"
+   ]
+  },
+  "template:yp9-enlace-facebook": {
+   "name": "සබැඳි තීරුව: facebook",
+   "tags": [
+    "youtube",
+    "සමාජ මාධ්‍ය",
+    "සබැඳිය",
+    "facebook"
+   ]
+  },
+  "template:yp9-enlace-google": {
+   "name": "සබැඳි තීරුව: google",
+   "tags": [
+    "youtube",
+    "සමාජ මාධ්‍ය",
+    "සබැඳිය",
+    "google"
+   ]
+  },
+  "template:yp9-enlace-instagram": {
+   "name": "සබැඳි තීරුව: instagram",
+   "tags": [
+    "youtube",
+    "සමාජ මාධ්‍ය",
+    "සබැඳිය",
+    "instagram"
+   ]
+  },
+  "template:yp9-enlace-itunes": {
+   "name": "සබැඳි තීරුව: itunes",
+   "tags": [
+    "youtube",
+    "සමාජ මාධ්‍ය",
+    "සබැඳිය",
+    "itunes"
+   ]
+  },
+  "template:yp9-enlace-patreon": {
+   "name": "සබැඳි තීරුව: patreon",
+   "tags": [
+    "youtube",
+    "සමාජ මාධ්‍ය",
+    "සබැඳිය",
+    "patreon"
+   ]
+  },
+  "template:yp9-enlace-soundcloud": {
+   "name": "සබැඳි තීරුව: soundcloud",
+   "tags": [
+    "youtube",
+    "සමාජ මාධ්‍ය",
+    "සබැඳිය",
+    "soundcloud"
+   ]
+  },
+  "template:yp9-enlace-spotify": {
+   "name": "සබැඳි තීරුව: spotify",
+   "tags": [
+    "youtube",
+    "සමාජ මාධ්‍ය",
+    "සබැඳිය",
+    "spotify"
+   ]
+  },
+  "template:yp9-enlace-telegram": {
+   "name": "සබැඳි තීරුව: telegram",
+   "tags": [
+    "youtube",
+    "සමාජ මාධ්‍ය",
+    "සබැඳිය",
+    "telegram"
+   ]
+  },
+  "template:yp9-enlace-twitter": {
+   "name": "සබැඳි තීරුව: twitter",
+   "tags": [
+    "youtube",
+    "සමාජ මාධ්‍ය",
+    "සබැඳිය",
+    "twitter"
+   ]
+  },
+  "template:yp9-enlace-vimeo": {
+   "name": "සබැඳි තීරුව: vimeo",
+   "tags": [
+    "youtube",
+    "සමාජ මාධ්‍ය",
+    "සබැඳිය",
+    "vimeo"
+   ]
+  },
+  "template:yp9-etiqueta-usuario": {
+   "name": "අයිකනය සහ @පරිශීලක නාමය සහිත බැජ්",
+   "tags": [
+    "youtube",
+    "පරිශීලක නාමය",
+    "සමාජ මාධ්‍ය",
+    "බැජ්"
+   ]
+  },
+  "template:yp9-live-stream-blanco": {
+   "name": "බොත්තමක් සහිත සුදු LIVE STREAM මාතෘකාව",
+   "tags": [
+    "youtube",
+    "සජීවී",
+    "live",
+    "විකාශනය"
+   ]
+  },
+  "template:yp9-live-stream-rojo": {
+   "name": "රතු සහ කළු කොටු තුළ LIVE STREAM මාතෘකාව",
+   "tags": [
+    "youtube",
+    "සජීවී",
+    "live",
+    "විකාශනය"
+   ]
+  },
+  "template:yp9-me-gusta-cursor": {
+   "name": "කර්සරයකින් නිල් වන ලයික්",
+   "tags": [
+    "youtube",
+    "ලයික්",
+    "ක්ලික්",
+    "කර්සරය"
+   ]
+  },
+  "template:yp9-me-gusta-destello": {
+   "name": "ක්ලික් කළ විට පුපුරන දිලිසෙන ලයික්",
+   "tags": [
+    "youtube",
+    "ලයික්",
+    "ක්ලික්",
+    "දීප්තිය"
+   ]
+  },
+  "template:yp9-perfil": {
+   "name": "ඡායාරූපය, ෆලෝ බොත්තම සහ ගණක සහිත පැතිකඩ",
+   "tags": [
+    "youtube",
+    "පැතිකඩ",
+    "ෆලෝ",
+    "ගණකය"
+   ]
+  },
+  "template:yp9-rayo": {
+   "name": "රේඛාවකින් ඇඳෙන අකුණ",
+   "tags": [
+    "youtube",
+    "අකුණ",
+    "ඉන්ට්‍රෝ",
+    "රේඛාව"
+   ]
+  },
+  "template:yp9-redes-enlaces": {
+   "name": "සමාජ මාධ්‍ය සබැඳි තීරු දොළහක්",
+   "tags": [
+    "youtube",
+    "සමාජ මාධ්‍ය",
+    "සබැඳිය",
+    "තීරුව"
+   ]
+  },
+  "template:yp9-sticker-suscrito": {
+   "name": "සබ්ස්ක්‍රයිබ් කළ ස්ටිකරයක් බවට පත්වන play බොත්තම",
+   "tags": [
+    "youtube",
+    "සබ්ස්ක්‍රයිබ්",
+    "ස්ටිකරය",
+    "ක්ලික්"
+   ]
+  },
+  "template:yp9-tarjeta-canal": {
+   "name": "රවුම් ඡායාරූපය සහ සබ්ස්ක්‍රයිබ් සහිත චැනල කාඩ්පත",
+   "tags": [
+    "youtube",
+    "කාඩ්පත",
+    "චැනලය",
+    "සබ්ස්ක්‍රයිබ්",
+    "ක්ලික්"
+   ]
+  },
+  "template:yp9-telefono-feed": {
+   "name": "සිරස් වීඩියෝවක් සහ බොත්තම් සහිත දුරකථනය",
+   "tags": [
+    "youtube",
+    "දුරකථනය",
+    "සිරස්",
+    "ලයික්"
+   ]
+  },
+  "template:yp9-telefono-reacciones": {
+   "name": "හදවත් සහ ලයික් සහිත දුරකථනය",
+   "tags": [
+    "youtube",
+    "දුරකථනය",
+    "ලයික්",
+    "හදවත්"
    ]
   },
   "template:yt-calle-a-que-te-dedicas": {

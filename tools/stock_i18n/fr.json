@@ -40039,6 +40039,2351 @@
     "boîte"
    ]
   },
+  "template:yp10-boton-suscribete": {
+   "name": "Bouton SUBSCRIBE MY CHANNEL avec flèches",
+   "tags": [
+    "youtube",
+    "dessin à la main",
+    "réseaux",
+    "s'abonner",
+    "bouton",
+    "flèches"
+   ]
+  },
+  "template:yp10-caja-roja": {
+   "name": "SUSCRÍBETE YA dans une boîte rouge",
+   "tags": [
+    "youtube",
+    "dessin à la main",
+    "réseaux",
+    "s'abonner",
+    "boîte",
+    "espagnol"
+   ]
+  },
+  "template:yp10-check": {
+   "name": "Check New Video avec coche verte",
+   "tags": [
+    "youtube",
+    "dessin à la main",
+    "réseaux",
+    "coche",
+    "nouvelle vidéo"
+   ]
+  },
+  "template:yp10-cuenta": {
+   "name": "@youraccount avec goutte bleue",
+   "tags": [
+    "youtube",
+    "dessin à la main",
+    "réseaux",
+    "compte",
+    "goutte"
+   ]
+  },
+  "template:yp10-luna": {
+   "name": "SUBSCRIBE avec lune et Like New Video",
+   "tags": [
+    "youtube",
+    "dessin à la main",
+    "réseaux",
+    "s'abonner",
+    "lune",
+    "j'aime"
+   ]
+  },
+  "template:yp10-me-gusta-amarillo": {
+   "name": "Like New Video avec pouce jaune",
+   "tags": [
+    "youtube",
+    "dessin à la main",
+    "réseaux",
+    "j'aime",
+    "pouce"
+   ]
+  },
+  "template:yp10-mi-canal": {
+   "name": "My Channel qui se sélectionne et grandit",
+   "tags": [
+    "youtube",
+    "dessin à la main",
+    "réseaux",
+    "chaîne",
+    "sélection"
+   ]
+  },
+  "template:yp10-nuevo-video-morado": {
+   "name": "NEW VIDEO dans une boîte violette avec Like",
+   "tags": [
+    "youtube",
+    "dessin à la main",
+    "réseaux",
+    "nouvelle vidéo",
+    "boîte"
+   ]
+  },
+  "template:yp10-nuevo-video-rosa": {
+   "name": "New Video avec tache rose et cœurs",
+   "tags": [
+    "youtube",
+    "dessin à la main",
+    "réseaux",
+    "nouvelle vidéo",
+    "cœurs"
+   ]
+  },
+  "template:yp10-podcast": {
+   "name": "NEW PODCAST avec éclaboussure",
+   "tags": [
+    "youtube",
+    "dessin à la main",
+    "réseaux",
+    "podcast"
+   ]
+  },
+  "template:yp10-pulgar-beige": {
+   "name": "NUEVO VIDEO AQUÍ avec pouce",
+   "tags": [
+    "youtube",
+    "dessin à la main",
+    "réseaux",
+    "pouce",
+    "espagnol"
+   ]
+  },
+  "template:yp10-social-media": {
+   "name": "Social Media Title avec ovale rouge",
+   "tags": [
+    "youtube",
+    "dessin à la main",
+    "réseaux",
+    "titre",
+    "ovale"
+   ]
+  },
+  "template:yp10-suscribete-flechas": {
+   "name": "Bouton Subscribe rouge avec flèches",
+   "tags": [
+    "youtube",
+    "dessin à la main",
+    "réseaux",
+    "s'abonner",
+    "bouton",
+    "flèches"
+   ]
+  },
+  "template:yp10-suscribete-puntos": {
+   "name": "Subscribe avec points de couleur et @yourchannel",
+   "tags": [
+    "youtube",
+    "dessin à la main",
+    "réseaux",
+    "s'abonner",
+    "bouton"
+   ]
+  },
+  "template:yp10-tu-logo": {
+   "name": "Your Logo à l'encre bleue",
+   "tags": [
+    "youtube",
+    "dessin à la main",
+    "réseaux",
+    "logo",
+    "encre"
+   ]
+  },
+  "template:yp11-amazing": {
+   "name": "Texte : AMAZING avec arc-en-ciel",
+   "tags": [
+    "youtube",
+    "arc-en-ciel",
+    "incroyable",
+    "texte"
+   ]
+  },
+  "template:yp11-any-language": {
+   "name": "Texte : Use Any Language sur un disque",
+   "tags": [
+    "youtube",
+    "cercle",
+    "langue",
+    "texte"
+   ]
+  },
+  "template:yp11-brand-new-year": {
+   "name": "Titre : année 2026 Brand New",
+   "tags": [
+    "youtube",
+    "année",
+    "nouveau",
+    "titre"
+   ]
+  },
+  "template:yp11-channel-name": {
+   "name": "Bouton : nom de la chaîne",
+   "tags": [
+    "youtube",
+    "chaîne",
+    "bouton",
+    "flèche"
+   ]
+  },
+  "template:yp11-click": {
+   "name": "Bouton : CLICK avec main",
+   "tags": [
+    "youtube",
+    "clic",
+    "main",
+    "bouton"
+   ]
+  },
+  "template:yp11-comment": {
+   "name": "Texte : Comment avec flèche",
+   "tags": [
+    "youtube",
+    "commenter",
+    "flèche",
+    "texte"
+   ]
+  },
+  "template:yp11-follow-me": {
+   "name": "Bouton : suis-moi avec interrupteur",
+   "tags": [
+    "youtube",
+    "suivre",
+    "interrupteur",
+    "bouton"
+   ]
+  },
+  "template:yp11-high-quality": {
+   "name": "Bouton : haute qualité avec pointeur",
+   "tags": [
+    "youtube",
+    "qualité",
+    "bouton",
+    "pointeur"
+   ]
+  },
+  "template:yp11-like-heart": {
+   "name": "Texte : Like avec cœur",
+   "tags": [
+    "youtube",
+    "j'aime",
+    "cœur",
+    "texte"
+   ]
+  },
+  "template:yp11-like-my-video": {
+   "name": "Texte : Like my video avec pouce",
+   "tags": [
+    "youtube",
+    "j'aime",
+    "pouce",
+    "texte"
+   ]
+  },
+  "template:yp11-looking-perfect": {
+   "name": "Texte : Looking Perfect avec points",
+   "tags": [
+    "youtube",
+    "points",
+    "texte"
+   ]
+  },
+  "template:yp11-new-video": {
+   "name": "Étiquette : New Video avec smiley",
+   "tags": [
+    "youtube",
+    "nouvelle vidéo",
+    "smiley",
+    "étiquette"
+   ]
+  },
+  "template:yp11-play": {
+   "name": "Bouton : play rouge",
+   "tags": [
+    "youtube",
+    "play",
+    "bouton",
+    "rouge"
+   ]
+  },
+  "template:yp11-rate-us": {
+   "name": "Texte : Rate Us avec cœur",
+   "tags": [
+    "youtube",
+    "noter",
+    "cœur",
+    "texte"
+   ]
+  },
+  "template:yp11-share": {
+   "name": "Texte : SHARE avec flèche",
+   "tags": [
+    "youtube",
+    "partager",
+    "flèche",
+    "texte"
+   ]
+  },
+  "template:yp11-subscribe-bell": {
+   "name": "Texte : Subscribe avec cloche",
+   "tags": [
+    "youtube",
+    "s'abonner",
+    "cloche",
+    "texte"
+   ]
+  },
+  "template:yp11-thanks-watching": {
+   "name": "Texte : thanks for watching avec œil",
+   "tags": [
+    "youtube",
+    "merci",
+    "œil",
+    "remerciement"
+   ]
+  },
+  "template:yp11-titles-smiley": {
+   "name": "Titre : TITLES & BUTTONS avec smiley",
+   "tags": [
+    "youtube",
+    "smiley",
+    "titre"
+   ]
+  },
+  "template:yp11-trendy-style": {
+   "name": "Texte : Trendy Style avec éclairs",
+   "tags": [
+    "youtube",
+    "éclair",
+    "tendance",
+    "texte"
+   ]
+  },
+  "template:yp11-watch-now": {
+   "name": "Texte : watch now avec fleurs",
+   "tags": [
+    "youtube",
+    "regarder",
+    "nouvelle vidéo",
+    "fleurs"
+   ]
+  },
+  "template:yp12-barra-profesora": {
+   "name": "Barre avec photo, j'aime, cloche et abonnement",
+   "tags": [
+    "youtube",
+    "abonne-toi",
+    "barre",
+    "j'aime",
+    "cloche",
+    "clic"
+   ]
+  },
+  "template:yp12-foto-burbujas": {
+   "name": "Photo avec bulles et icônes",
+   "tags": [
+    "youtube",
+    "abonne-toi",
+    "photo",
+    "bulles",
+    "j'aime",
+    "cloche"
+   ]
+  },
+  "template:yp12-foto-iconos": {
+   "name": "Photo d'où jaillissent des icônes",
+   "tags": [
+    "youtube",
+    "abonne-toi",
+    "photo",
+    "cercle",
+    "j'aime",
+    "cloche"
+   ]
+  },
+  "template:yp12-foto-lados": {
+   "name": "Photo avec icônes sur les côtés",
+   "tags": [
+    "youtube",
+    "abonne-toi",
+    "photo",
+    "j'aime",
+    "cloche",
+    "clic"
+   ]
+  },
+  "template:yp12-foto-liquida": {
+   "name": "Photo avec icônes liquides",
+   "tags": [
+    "youtube",
+    "abonne-toi",
+    "photo",
+    "liquide",
+    "j'aime",
+    "cloche"
+   ]
+  },
+  "template:yp12-foto-orbita": {
+   "name": "Photo ronde avec icônes en orbite",
+   "tags": [
+    "youtube",
+    "abonne-toi",
+    "photo",
+    "cercle",
+    "j'aime",
+    "cloche"
+   ]
+  },
+  "template:yp12-lista-botones": {
+   "name": "Liste j'aime, abonnement et notifications",
+   "tags": [
+    "youtube",
+    "abonne-toi",
+    "liste",
+    "j'aime",
+    "cloche",
+    "clic"
+   ]
+  },
+  "template:yp12-lista-capsula": {
+   "name": "Liste en capsule avec j'aime, abonnement et notifications",
+   "tags": [
+    "youtube",
+    "abonne-toi",
+    "liste",
+    "j'aime",
+    "cloche",
+    "clic"
+   ]
+  },
+  "template:yp12-nombre-suscrito": {
+   "name": "Nom de chaîne, abonné et cloche",
+   "tags": [
+    "youtube",
+    "abonne-toi",
+    "bouton",
+    "nom",
+    "cloche",
+    "clic"
+   ]
+  },
+  "template:yp12-tarjeta-gris": {
+   "name": "Carte grise avec grande photo",
+   "tags": [
+    "youtube",
+    "abonne-toi",
+    "carte",
+    "j'aime",
+    "cloche",
+    "clic"
+   ]
+  },
+  "template:yp12-tarjeta-lista": {
+   "name": "Nom de chaîne qui s'ouvre en carte",
+   "tags": [
+    "youtube",
+    "abonne-toi",
+    "carte",
+    "liste",
+    "j'aime",
+    "cloche"
+   ]
+  },
+  "template:yp12-tarjeta-rosa": {
+   "name": "Carte avec photo et abonnement rose",
+   "tags": [
+    "youtube",
+    "abonne-toi",
+    "bouton",
+    "carte",
+    "rose"
+   ]
+  },
+  "template:yp12-tres-botones": {
+   "name": "Trois boutons ronds",
+   "tags": [
+    "youtube",
+    "abonne-toi",
+    "bouton",
+    "j'aime",
+    "cloche",
+    "clic"
+   ]
+  },
+  "template:yp13-aconseja-amigos": {
+   "name": "Recommande à tes amis : pouces levés",
+   "tags": [
+    "youtube",
+    "note",
+    "j'aime",
+    "curseur",
+    "pouce"
+   ]
+  },
+  "template:yp13-agregar-comentario": {
+   "name": "Bouton ajouter un commentaire qui se publie",
+   "tags": [
+    "youtube",
+    "commentaire",
+    "bouton",
+    "curseur"
+   ]
+  },
+  "template:yp13-avatar-comentario": {
+   "name": "Avatar avec badge qui ouvre un commentaire",
+   "tags": [
+    "youtube",
+    "commentaire",
+    "avatar",
+    "curseur"
+   ]
+  },
+  "template:yp13-aviso-cafe": {
+   "name": "Fenêtre d'alerte avec OK",
+   "tags": [
+    "youtube",
+    "alerte",
+    "fenêtre",
+    "curseur"
+   ]
+  },
+  "template:yp13-aviso-comentarios": {
+   "name": "Notification de commentaires",
+   "tags": [
+    "youtube",
+    "notification",
+    "commentaires",
+    "compteur",
+    "curseur"
+   ]
+  },
+  "template:yp13-aviso-doble": {
+   "name": "Notification de j'aime et d'abonnés",
+   "tags": [
+    "youtube",
+    "notification",
+    "j'aime",
+    "abonnés",
+    "curseur"
+   ]
+  },
+  "template:yp13-aviso-me-gusta": {
+   "name": "Notification de j'aime",
+   "tags": [
+    "youtube",
+    "notification",
+    "j'aime",
+    "compteur",
+    "curseur"
+   ]
+  },
+  "template:yp13-aviso-seguidores": {
+   "name": "Notification d'abonnés",
+   "tags": [
+    "youtube",
+    "notification",
+    "abonnés",
+    "compteur",
+    "curseur"
+   ]
+  },
+  "template:yp13-barra-suscribir": {
+   "name": "Barre j'aime, abonnement et cloche",
+   "tags": [
+    "youtube",
+    "s'abonner",
+    "j'aime",
+    "cloche",
+    "curseur"
+   ]
+  },
+  "template:yp13-buscar-boton": {
+   "name": "Champ de recherche avec bouton SEARCH",
+   "tags": [
+    "youtube",
+    "recherche",
+    "curseur",
+    "bouton"
+   ]
+  },
+  "template:yp13-buscar-cargando": {
+   "name": "Barre de recherche qui passe en chargement",
+   "tags": [
+    "youtube",
+    "recherche",
+    "curseur",
+    "web",
+    "chargement"
+   ]
+  },
+  "template:yp13-buscar-lupa": {
+   "name": "Champ de recherche avec loupe carrée",
+   "tags": [
+    "youtube",
+    "recherche",
+    "curseur",
+    "loupe"
+   ]
+  },
+  "template:yp13-buscar-mapa": {
+   "name": "Carte avec champ de recherche et repère",
+   "tags": [
+    "youtube",
+    "carte",
+    "recherche",
+    "curseur",
+    "lieu"
+   ]
+  },
+  "template:yp13-caras-valorar": {
+   "name": "La vidéo t'a plu ? Visages",
+   "tags": [
+    "youtube",
+    "note",
+    "visages",
+    "curseur"
+   ]
+  },
+  "template:yp13-carrito-precio": {
+   "name": "Bouton panier avec prix",
+   "tags": [
+    "youtube",
+    "panier",
+    "achat",
+    "curseur"
+   ]
+  },
+  "template:yp13-casilla-marcada": {
+   "name": "Case CHECKED cochée",
+   "tags": [
+    "youtube",
+    "case à cocher",
+    "curseur"
+   ]
+  },
+  "template:yp13-chat-dos": {
+   "name": "Chat à deux avec heures et réponse",
+   "tags": [
+    "youtube",
+    "chat",
+    "message",
+    "curseur"
+   ]
+  },
+  "template:yp13-chat-nombres": {
+   "name": "Chat avec noms et réponse",
+   "tags": [
+    "youtube",
+    "chat",
+    "message",
+    "curseur"
+   ]
+  },
+  "template:yp13-chat-ventana-amarilla": {
+   "name": "Fenêtre de chat jaune avec noms",
+   "tags": [
+    "youtube",
+    "chat",
+    "message",
+    "fenêtre"
+   ]
+  },
+  "template:yp13-chat-ventana-azul": {
+   "name": "Fenêtre de chat bleue",
+   "tags": [
+    "youtube",
+    "chat",
+    "message",
+    "fenêtre"
+   ]
+  },
+  "template:yp13-chat-ventana-grande": {
+   "name": "Fenêtre de chat sur la vidéo",
+   "tags": [
+    "youtube",
+    "chat",
+    "message",
+    "fenêtre"
+   ]
+  },
+  "template:yp13-comentario-like": {
+   "name": "Commentaire avec LIKE et REPLY",
+   "tags": [
+    "youtube",
+    "commentaire",
+    "j'aime",
+    "curseur"
+   ]
+  },
+  "template:yp13-comentario-votos": {
+   "name": "Commentaire avec j'aime et répondre",
+   "tags": [
+    "youtube",
+    "commentaire",
+    "j'aime",
+    "curseur",
+    "répondre"
+   ]
+  },
+  "template:yp13-comprar-gracias": {
+   "name": "Bouton acheter qui dit merci",
+   "tags": [
+    "youtube",
+    "bouton",
+    "achat",
+    "curseur"
+   ]
+  },
+  "template:yp13-contador-comentarios": {
+   "name": "Bulle avec compteur de commentaires",
+   "tags": [
+    "youtube",
+    "compteur",
+    "commentaires",
+    "curseur"
+   ]
+  },
+  "template:yp13-contador-corazon": {
+   "name": "Cœur avec compteur de j'aime",
+   "tags": [
+    "youtube",
+    "compteur",
+    "j'aime",
+    "cœur",
+    "curseur"
+   ]
+  },
+  "template:yp13-contador-pulgar": {
+   "name": "Pouce avec compteur de j'aime",
+   "tags": [
+    "youtube",
+    "compteur",
+    "j'aime",
+    "curseur",
+    "pouce"
+   ]
+  },
+  "template:yp13-contador-seguidores": {
+   "name": "Personne avec compteur d'abonnés",
+   "tags": [
+    "youtube",
+    "compteur",
+    "abonnés",
+    "curseur"
+   ]
+  },
+  "template:yp13-descargar-anillo": {
+   "name": "Bouton télécharger avec anneau de progression",
+   "tags": [
+    "youtube",
+    "téléchargement",
+    "progression",
+    "curseur"
+   ]
+  },
+  "template:yp13-descargar-barra": {
+   "name": "Bouton télécharger avec barre de progression",
+   "tags": [
+    "youtube",
+    "téléchargement",
+    "progression",
+    "curseur"
+   ]
+  },
+  "template:yp13-enviar-comentario": {
+   "name": "Champ de commentaire avec bouton envoyer",
+   "tags": [
+    "youtube",
+    "commentaire",
+    "chat",
+    "curseur",
+    "envoyer"
+   ]
+  },
+  "template:yp13-insignia-camara": {
+   "name": "Bouton rond avec appareil photo",
+   "tags": [
+    "youtube",
+    "badge",
+    "réseaux",
+    "curseur"
+   ]
+  },
+  "template:yp13-insignia-click-here": {
+   "name": "Carré CLICK HERE qui devient GOOD JOB!",
+   "tags": [
+    "youtube",
+    "bouton",
+    "curseur",
+    "clic"
+   ]
+  },
+  "template:yp13-insignia-foto": {
+   "name": "Photo carrée avec un tap",
+   "tags": [
+    "youtube",
+    "photo",
+    "avatar",
+    "curseur"
+   ]
+  },
+  "template:yp13-insignia-get-ready": {
+   "name": "Badge GET READY avec photo",
+   "tags": [
+    "youtube",
+    "badge",
+    "curseur",
+    "photo"
+   ]
+  },
+  "template:yp13-insignia-like-this": {
+   "name": "Badge photo qui devient LIKE THIS!",
+   "tags": [
+    "youtube",
+    "badge",
+    "j'aime",
+    "curseur",
+    "photo"
+   ]
+  },
+  "template:yp13-insignia-pajaro": {
+   "name": "Bouton rond avec oiseau",
+   "tags": [
+    "youtube",
+    "badge",
+    "réseaux",
+    "curseur"
+   ]
+  },
+  "template:yp13-insignia-seguir": {
+   "name": "Badge qui devient FOLLOW",
+   "tags": [
+    "youtube",
+    "badge",
+    "suivre",
+    "curseur"
+   ]
+  },
+  "template:yp13-insignia-unete": {
+   "name": "Badge JOIN US avec clic",
+   "tags": [
+    "youtube",
+    "badge",
+    "rejoindre",
+    "curseur"
+   ]
+  },
+  "template:yp13-interruptor-encender": {
+   "name": "Interrupteur TURN ON",
+   "tags": [
+    "youtube",
+    "interrupteur",
+    "curseur"
+   ]
+  },
+  "template:yp13-interruptor-on-off": {
+   "name": "Interrupteur START KEY ON/OFF",
+   "tags": [
+    "youtube",
+    "interrupteur",
+    "curseur"
+   ]
+  },
+  "template:yp13-lista-bienvenida": {
+   "name": "Liste de boutons bienvenue sur ma chaîne",
+   "tags": [
+    "youtube",
+    "liste",
+    "s'abonner",
+    "curseur",
+    "bienvenue"
+   ]
+  },
+  "template:yp13-lista-canal-grande": {
+   "name": "Liste de la chaîne sur la vidéo",
+   "tags": [
+    "youtube",
+    "liste",
+    "s'abonner",
+    "curseur"
+   ]
+  },
+  "template:yp13-lista-interruptores": {
+   "name": "Liste avec interrupteurs",
+   "tags": [
+    "youtube",
+    "liste",
+    "interrupteur",
+    "curseur"
+   ]
+  },
+  "template:yp13-lista-no-olvides": {
+   "name": "Liste n'oublie pas : abonnement, notifications, j'aime",
+   "tags": [
+    "youtube",
+    "liste",
+    "s'abonner",
+    "curseur"
+   ]
+  },
+  "template:yp13-lista-tareas": {
+   "name": "Liste de tâches du jour",
+   "tags": [
+    "youtube",
+    "liste",
+    "tâches",
+    "curseur"
+   ]
+  },
+  "template:yp13-mensaje-abrir": {
+   "name": "Bouton de message qui s'ouvre",
+   "tags": [
+    "youtube",
+    "message",
+    "chat",
+    "curseur"
+   ]
+  },
+  "template:yp13-opcion-seleccionar": {
+   "name": "Option SELECT",
+   "tags": [
+    "youtube",
+    "option",
+    "curseur"
+   ]
+  },
+  "template:yp13-perfil-seguir": {
+   "name": "Profil avec photos et bouton suivre",
+   "tags": [
+    "youtube",
+    "profil",
+    "suivre",
+    "curseur",
+    "photos"
+   ]
+  },
+  "template:yp13-post-botones": {
+   "name": "Publication avec boutons arrondis",
+   "tags": [
+    "youtube",
+    "publication",
+    "j'aime",
+    "curseur"
+   ]
+  },
+  "template:yp13-post-insta": {
+   "name": "Publication photo avec j'aime",
+   "tags": [
+    "youtube",
+    "publication",
+    "j'aime",
+    "curseur",
+    "photo"
+   ]
+  },
+  "template:yp13-post-muro": {
+   "name": "Publication de mur avec J'aime, Commenter et Partager",
+   "tags": [
+    "youtube",
+    "publication",
+    "j'aime",
+    "curseur"
+   ]
+  },
+  "template:yp13-post-noticia": {
+   "name": "Publication avec nom bleu et j'aime",
+   "tags": [
+    "youtube",
+    "publication",
+    "j'aime",
+    "curseur"
+   ]
+  },
+  "template:yp13-post-texto": {
+   "name": "Publication texte avec j'aime",
+   "tags": [
+    "youtube",
+    "publication",
+    "j'aime",
+    "curseur"
+   ]
+  },
+  "template:yp13-post-tuit": {
+   "name": "Publication style tweet avec j'aime",
+   "tags": [
+    "youtube",
+    "publication",
+    "j'aime",
+    "curseur"
+   ]
+  },
+  "template:yp13-post-tuit-enlace": {
+   "name": "Tweet avec carte de lien et j'aime",
+   "tags": [
+    "youtube",
+    "publication",
+    "j'aime",
+    "curseur",
+    "lien"
+   ]
+  },
+  "template:yp13-post-tuit-foto": {
+   "name": "Tweet avec photo en lien et j'aime",
+   "tags": [
+    "youtube",
+    "publication",
+    "j'aime",
+    "curseur",
+    "photo"
+   ]
+  },
+  "template:yp13-post-vertical": {
+   "name": "Publication verticale avec j'aime",
+   "tags": [
+    "youtube",
+    "publication",
+    "j'aime",
+    "curseur",
+    "vertical"
+   ]
+  },
+  "template:yp13-post-video-campana": {
+   "name": "Publication vidéo : abonnement et cloche",
+   "tags": [
+    "youtube",
+    "publication",
+    "s'abonner",
+    "cloche",
+    "curseur"
+   ]
+  },
+  "template:yp13-post-video-suscribir": {
+   "name": "Publication vidéo avec bouton s'abonner",
+   "tags": [
+    "youtube",
+    "publication",
+    "s'abonner",
+    "curseur"
+   ]
+  },
+  "template:yp13-post-video-votos": {
+   "name": "Publication vidéo avec j'aime et je n'aime pas",
+   "tags": [
+    "youtube",
+    "publication",
+    "j'aime",
+    "curseur"
+   ]
+  },
+  "template:yp13-reaccion-corazones": {
+   "name": "Bouton LOVE IT! avec cœurs qui montent",
+   "tags": [
+    "youtube",
+    "réaction",
+    "cœurs",
+    "curseur",
+    "bouton"
+   ]
+  },
+  "template:yp13-reaccion-estrellas": {
+   "name": "Bouton avec étoiles vertes qui montent",
+   "tags": [
+    "youtube",
+    "réaction",
+    "étoiles",
+    "curseur",
+    "bouton"
+   ]
+  },
+  "template:yp13-reaccion-monedas": {
+   "name": "Bouton DONATE avec pièces qui montent",
+   "tags": [
+    "youtube",
+    "réaction",
+    "don",
+    "curseur",
+    "bouton"
+   ]
+  },
+  "template:yp13-reaccion-pulgares": {
+   "name": "Bouton LIKE THIS avec pouces qui montent",
+   "tags": [
+    "youtube",
+    "réaction",
+    "j'aime",
+    "curseur",
+    "bouton"
+   ]
+  },
+  "template:yp13-recomiendo": {
+   "name": "Je recommande : cinq cœurs",
+   "tags": [
+    "youtube",
+    "note",
+    "cœurs",
+    "curseur"
+   ]
+  },
+  "template:yp13-reproductor-amarillo": {
+   "name": "Boutons de lecteur jaunes",
+   "tags": [
+    "youtube",
+    "lecteur",
+    "boutons",
+    "curseur"
+   ]
+  },
+  "template:yp13-reproductor-azul": {
+   "name": "Boutons de lecteur bleus",
+   "tags": [
+    "youtube",
+    "lecteur",
+    "boutons",
+    "curseur"
+   ]
+  },
+  "template:yp13-reproductor-cuadrado": {
+   "name": "Boutons de lecteur carrés",
+   "tags": [
+    "youtube",
+    "lecteur",
+    "boutons",
+    "curseur"
+   ]
+  },
+  "template:yp13-reproductor-redondo": {
+   "name": "Boutons de lecteur ronds",
+   "tags": [
+    "youtube",
+    "lecteur",
+    "boutons",
+    "curseur"
+   ]
+  },
+  "template:yp13-tarjeta-canal": {
+   "name": "Carte de chaîne qui s'ouvre",
+   "tags": [
+    "youtube",
+    "chaîne",
+    "s'abonner",
+    "curseur",
+    "avatar"
+   ]
+  },
+  "template:yp13-tarjeta-suscribir-grande": {
+   "name": "Grande carte de chaîne avec abonnement",
+   "tags": [
+    "youtube",
+    "chaîne",
+    "s'abonner",
+    "curseur",
+    "avatar",
+    "bandeau"
+   ]
+  },
+  "template:yp13-tuit-texto": {
+   "name": "Tweet texte avec j'aime",
+   "tags": [
+    "youtube",
+    "publication",
+    "j'aime",
+    "curseur",
+    "commentaire"
+   ]
+  },
+  "template:yp13-valoranos": {
+   "name": "Notez-nous : liste d'étoiles",
+   "tags": [
+    "youtube",
+    "note",
+    "étoiles",
+    "curseur"
+   ]
+  },
+  "template:yp13-valorar-10": {
+   "name": "Note 10/10 avec étoiles",
+   "tags": [
+    "youtube",
+    "note",
+    "étoiles",
+    "curseur"
+   ]
+  },
+  "template:yp13-valorar-articulo": {
+   "name": "Noter avec cinq étoiles",
+   "tags": [
+    "youtube",
+    "note",
+    "étoiles",
+    "curseur"
+   ]
+  },
+  "template:yp13-valorar-genial": {
+   "name": "Bouton noter qui donne des étoiles",
+   "tags": [
+    "youtube",
+    "note",
+    "étoiles",
+    "curseur",
+    "bouton"
+   ]
+  },
+  "template:yp13-valorar-plantilla": {
+   "name": "Carte de notation avec étoiles",
+   "tags": [
+    "youtube",
+    "note",
+    "étoiles",
+    "curseur",
+    "logo"
+   ]
+  },
+  "template:yp13-video-suscribir-campana": {
+   "name": "Carte vidéo avec abonnement et cloche",
+   "tags": [
+    "youtube",
+    "publication",
+    "s'abonner",
+    "cloche",
+    "curseur"
+   ]
+  },
+  "template:yp13-volumen": {
+   "name": "Curseur de volume MAKE SOME NOISE",
+   "tags": [
+    "youtube",
+    "volume",
+    "curseur",
+    "son"
+   ]
+  },
+  "template:yp14-barra-abajo-acciones": {
+   "name": "Barre vidéo en bas avec j'aime, partager, télécharger et enregistrer",
+   "tags": [
+    "youtube",
+    "barre",
+    "chaîne",
+    "j'aime",
+    "partager"
+   ]
+  },
+  "template:yp14-barra-abajo-campana": {
+   "name": "Barre de chaîne en bas avec abonné et cloche",
+   "tags": [
+    "youtube",
+    "barre",
+    "chaîne",
+    "s'abonner",
+    "cloche"
+   ]
+  },
+  "template:yp14-barra-abajo-me-gusta": {
+   "name": "Barre de chaîne en bas avec j'aime et abonnement",
+   "tags": [
+    "youtube",
+    "barre",
+    "chaîne",
+    "s'abonner",
+    "j'aime"
+   ]
+  },
+  "template:yp14-barra-arriba": {
+   "name": "Barre de chaîne en haut qui pousse la photo",
+   "tags": [
+    "youtube",
+    "barre",
+    "chaîne",
+    "s'abonner",
+    "photo"
+   ]
+  },
+  "template:yp14-barra-valoracion-arriba": {
+   "name": "Barre de chaîne en haut avec j'aime, je n'aime pas et note",
+   "tags": [
+    "youtube",
+    "barre",
+    "chaîne",
+    "j'aime",
+    "note"
+   ]
+  },
+  "template:yp14-barra-video-suscribirse": {
+   "name": "Barre blanche en bas sur la vidéo : avatar, nom et abonnement",
+   "tags": [
+    "youtube",
+    "barre",
+    "chaîne",
+    "s'abonner",
+    "photo"
+   ]
+  },
+  "template:yp14-boton-redondo-campana": {
+   "name": "Bouton rond rouge : cloche et «Get notified»",
+   "tags": [
+    "youtube",
+    "bouton",
+    "texte",
+    "cloche",
+    "rond"
+   ]
+  },
+  "template:yp14-boton-redondo-compartir": {
+   "name": "Bouton rond rouge : partager et «Share this»",
+   "tags": [
+    "youtube",
+    "bouton",
+    "texte",
+    "partager",
+    "rond"
+   ]
+  },
+  "template:yp14-boton-redondo-me-gusta": {
+   "name": "Bouton rond rouge : j'aime et «Like the video»",
+   "tags": [
+    "youtube",
+    "bouton",
+    "texte",
+    "j'aime",
+    "rond"
+   ]
+  },
+  "template:yp14-boton-redondo-suscribirse": {
+   "name": "Bouton rond rouge : play et «Subscribe»",
+   "tags": [
+    "youtube",
+    "bouton",
+    "texte",
+    "play",
+    "rond"
+   ]
+  },
+  "template:yp14-campana-compartir-redondos": {
+   "name": "Deux boutons rouges : cloche et partager",
+   "tags": [
+    "youtube",
+    "bouton",
+    "texte",
+    "rangée"
+   ]
+  },
+  "template:yp14-canal-avatar-arriba": {
+   "name": "Bouton de chaîne vertical avec l'avatar en haut",
+   "tags": [
+    "youtube",
+    "bouton",
+    "s'abonner",
+    "avatar"
+   ]
+  },
+  "template:yp14-canal-avatar-centro": {
+   "name": "Bouton de chaîne avec avatar centré, partager et cloche",
+   "tags": [
+    "youtube",
+    "bouton",
+    "s'abonner",
+    "avatar"
+   ]
+  },
+  "template:yp14-canal-avatar-esquina": {
+   "name": "Bouton de chaîne avec avatar dans le coin, partager et cloche",
+   "tags": [
+    "youtube",
+    "bouton",
+    "s'abonner",
+    "avatar"
+   ]
+  },
+  "template:yp14-canal-circulo": {
+   "name": "Chaîne dans un cercle avec cloche, j'aime et partager",
+   "tags": [
+    "youtube",
+    "bouton",
+    "cloche",
+    "j'aime",
+    "cercle"
+   ]
+  },
+  "template:yp14-canal-foto-campana": {
+   "name": "Bouton de chaîne : photo, abonnement et cloche",
+   "tags": [
+    "youtube",
+    "bouton",
+    "s'abonner",
+    "cloche"
+   ]
+  },
+  "template:yp14-canal-foto-vertical": {
+   "name": "Bouton de chaîne vertical : photo, abonnement, j'aime et cloche",
+   "tags": [
+    "youtube",
+    "bouton",
+    "s'abonner",
+    "vertical"
+   ]
+  },
+  "template:yp14-canal-horizontal": {
+   "name": "Bouton de chaîne horizontal : photo, abonnés, abonnement et cloche",
+   "tags": [
+    "youtube",
+    "bouton",
+    "s'abonner",
+    "horizontal"
+   ]
+  },
+  "template:yp14-canal-iconos-columna": {
+   "name": "Chaîne avec colonne d'icônes : cloche, j'aime et partager",
+   "tags": [
+    "youtube",
+    "bouton",
+    "s'abonner",
+    "icônes"
+   ]
+  },
+  "template:yp14-canal-nombre-largo": {
+   "name": "Bouton de chaîne : photo, nom sur trois lignes, j'aime et cloche",
+   "tags": [
+    "youtube",
+    "bouton",
+    "s'abonner",
+    "nom"
+   ]
+  },
+  "template:yp14-canal-sin-tarjeta": {
+   "name": "Chaîne : avatar, nom, abonnés et abonnement",
+   "tags": [
+    "youtube",
+    "bouton",
+    "s'abonner",
+    "avatar"
+   ]
+  },
+  "template:yp14-canal-sobre-video": {
+   "name": "Bouton de chaîne sur la vidéo : photo, abonnés et abonnement",
+   "tags": [
+    "youtube",
+    "bouton",
+    "s'abonner",
+    "photo"
+   ]
+  },
+  "template:yp14-canal-tarjeta-vertical": {
+   "name": "Carte de chaîne verticale : nom, photo et abonnement",
+   "tags": [
+    "youtube",
+    "bouton",
+    "s'abonner",
+    "carte"
+   ]
+  },
+  "template:yp14-columna-botones": {
+   "name": "Colonne de boutons ronds : abonnement, j'aime et cloche",
+   "tags": [
+    "youtube",
+    "bouton",
+    "texte",
+    "colonne"
+   ]
+  },
+  "template:yp14-columna-botones-etiquetas": {
+   "name": "Colonne de boutons ronds avec étiquettes : abonnement, notifications, j'aime",
+   "tags": [
+    "youtube",
+    "bouton",
+    "texte",
+    "colonne"
+   ]
+  },
+  "template:yp14-comentario-abajo": {
+   "name": "Commentaire en bas avec j'aime",
+   "tags": [
+    "youtube",
+    "commentaire",
+    "barre",
+    "j'aime"
+   ]
+  },
+  "template:yp14-comentario-arriba": {
+   "name": "Commentaire en haut avec j'aime et je n'aime pas",
+   "tags": [
+    "youtube",
+    "commentaire",
+    "barre",
+    "j'aime"
+   ]
+  },
+  "template:yp14-comentario-me-gusta": {
+   "name": "Commentaire avec un j'aime cliqué",
+   "tags": [
+    "youtube",
+    "commentaire",
+    "commentaires",
+    "j'aime"
+   ]
+  },
+  "template:yp14-comentario-no-me-gusta": {
+   "name": "Commentaire avec un je n'aime pas cliqué",
+   "tags": [
+    "youtube",
+    "commentaire",
+    "commentaires",
+    "je n'aime pas"
+   ]
+  },
+  "template:yp14-comentario-respuesta": {
+   "name": "Commentaire avec une réponse en cours d'écriture",
+   "tags": [
+    "youtube",
+    "commentaire",
+    "commentaires",
+    "réponse"
+   ]
+  },
+  "template:yp14-comentario-respuesta-2": {
+   "name": "Commentaire avec une réponse (2)",
+   "tags": [
+    "youtube",
+    "commentaire",
+    "commentaires",
+    "réponse"
+   ]
+  },
+  "template:yp14-comentario-sobre-video": {
+   "name": "Commentaire d'une ligne sur la vidéo",
+   "tags": [
+    "youtube",
+    "commentaire",
+    "commentaires"
+   ]
+  },
+  "template:yp14-compartir-esto": {
+   "name": "Bouton «Share This» qui passe du rouge au blanc",
+   "tags": [
+    "youtube",
+    "bouton",
+    "texte",
+    "partager"
+   ]
+  },
+  "template:yp14-fila-botones": {
+   "name": "Rangée de boutons ronds : abonnement, cloche, partager et j'aime",
+   "tags": [
+    "youtube",
+    "bouton",
+    "texte",
+    "rangée"
+   ]
+  },
+  "template:yp14-fila-me-gusta-suscribirse": {
+   "name": "Rangée : j'aime, abonnement et cloche",
+   "tags": [
+    "youtube",
+    "bouton",
+    "s'abonner",
+    "rangée"
+   ]
+  },
+  "template:yp14-fila-suscribirse": {
+   "name": "Rangée : j'aime, abonnement, partager et cloche",
+   "tags": [
+    "youtube",
+    "bouton",
+    "texte",
+    "rangée",
+    "s'abonner"
+   ]
+  },
+  "template:yp14-lista-suscribirse": {
+   "name": "Liste : abonnement, notifications et j'aime",
+   "tags": [
+    "youtube",
+    "bouton",
+    "s'abonner",
+    "liste"
+   ]
+  },
+  "template:yp14-lista-ver-mas-tarde": {
+   "name": "Liste de vidéos : «Saved to Watch Later»",
+   "tags": [
+    "youtube",
+    "liste",
+    "vidéos",
+    "à regarder plus tard"
+   ]
+  },
+  "template:yp14-lista-videos-abrir": {
+   "name": "Liste de vidéos : clic sur une et elle remplit l'écran",
+   "tags": [
+    "youtube",
+    "liste",
+    "vidéos",
+    "clic"
+   ]
+  },
+  "template:yp14-logo-arriba-suscribirse": {
+   "name": "Logo en haut et abonnement",
+   "tags": [
+    "youtube",
+    "bouton",
+    "s'abonner",
+    "logo"
+   ]
+  },
+  "template:yp14-logo-suscribirse": {
+   "name": "Logo de chaîne avec abonnement",
+   "tags": [
+    "youtube",
+    "bouton",
+    "s'abonner",
+    "logo"
+   ]
+  },
+  "template:yp14-logo-tarjeta": {
+   "name": "Logo de chaîne sur carte avec abonnement, cloche et partager",
+   "tags": [
+    "youtube",
+    "bouton",
+    "s'abonner",
+    "logo"
+   ]
+  },
+  "template:yp14-logo-tarjeta-vertical": {
+   "name": "Logo de chaîne sur carte verticale avec cloche et partager",
+   "tags": [
+    "youtube",
+    "bouton",
+    "s'abonner",
+    "logo"
+   ]
+  },
+  "template:yp14-me-gusta-avisos": {
+   "name": "J'aime et cloche avec «Like this / Notified»",
+   "tags": [
+    "youtube",
+    "bouton",
+    "texte",
+    "j'aime",
+    "cloche"
+   ]
+  },
+  "template:yp14-me-gusta-barra": {
+   "name": "«Like this» avec barre de note",
+   "tags": [
+    "youtube",
+    "bouton",
+    "texte",
+    "j'aime",
+    "note"
+   ]
+  },
+  "template:yp14-me-gusta-boton": {
+   "name": "Bouton «Like it!» qui lâche des pouces",
+   "tags": [
+    "youtube",
+    "bouton",
+    "texte",
+    "j'aime",
+    "pouce"
+   ]
+  },
+  "template:yp14-me-gusta-campana-redondos": {
+   "name": "Deux boutons rouges : j'aime et cloche",
+   "tags": [
+    "youtube",
+    "bouton",
+    "texte",
+    "rangée"
+   ]
+  },
+  "template:yp14-me-gusta-compartir-botones": {
+   "name": "Boutons «Like it» et «Share» qui passent du rouge au blanc",
+   "tags": [
+    "youtube",
+    "bouton",
+    "texte",
+    "j'aime",
+    "partager"
+   ]
+  },
+  "template:yp14-me-gusta-compartir-redondos": {
+   "name": "Deux boutons rouges : j'aime et partager",
+   "tags": [
+    "youtube",
+    "bouton",
+    "texte",
+    "rangée"
+   ]
+  },
+  "template:yp14-me-gusta-contador": {
+   "name": "Grand j'aime avec compteur",
+   "tags": [
+    "youtube",
+    "bouton",
+    "texte",
+    "j'aime",
+    "compteur"
+   ]
+  },
+  "template:yp14-me-gusta-suscribirse": {
+   "name": "J'aime et abonnement sans carte",
+   "tags": [
+    "youtube",
+    "bouton",
+    "texte",
+    "s'abonner"
+   ]
+  },
+  "template:yp14-me-gusta-suscribirse-campana": {
+   "name": "J'aime, abonnement et cloche sans carte",
+   "tags": [
+    "youtube",
+    "bouton",
+    "texte",
+    "s'abonner"
+   ]
+  },
+  "template:yp14-no-me-gusta-boton": {
+   "name": "Bouton «Dislike!» qui lâche des pouces",
+   "tags": [
+    "youtube",
+    "bouton",
+    "texte",
+    "je n'aime pas",
+    "pouce"
+   ]
+  },
+  "template:yp14-no-me-gusta-contador": {
+   "name": "Grand je n'aime pas avec compteur",
+   "tags": [
+    "youtube",
+    "bouton",
+    "texte",
+    "je n'aime pas",
+    "compteur"
+   ]
+  },
+  "template:yp14-no-recomendar": {
+   "name": "«Don't recommend» avec cinq pouces qui se cochent",
+   "tags": [
+    "youtube",
+    "bouton",
+    "texte",
+    "note",
+    "je n'aime pas"
+   ]
+  },
+  "template:yp14-nombre-suscrito-campana": {
+   "name": "Nom de chaîne avec abonné et cloche",
+   "tags": [
+    "youtube",
+    "bouton",
+    "s'abonner",
+    "cloche"
+   ]
+  },
+  "template:yp14-nombre-suscrito-me-gusta": {
+   "name": "Nom de chaîne avec abonné, j'aime et je n'aime pas",
+   "tags": [
+    "youtube",
+    "bouton",
+    "s'abonner",
+    "j'aime"
+   ]
+  },
+  "template:yp14-pildora-me-gusta": {
+   "name": "Pilule rouge j'aime / je n'aime pas : clic sur j'aime",
+   "tags": [
+    "youtube",
+    "bouton",
+    "texte",
+    "j'aime",
+    "je n'aime pas"
+   ]
+  },
+  "template:yp14-pildora-no-me-gusta": {
+   "name": "Pilule rouge j'aime / je n'aime pas : clic sur je n'aime pas",
+   "tags": [
+    "youtube",
+    "bouton",
+    "texte",
+    "j'aime",
+    "je n'aime pas"
+   ]
+  },
+  "template:yp14-recomendar-amigos": {
+   "name": "«Advise friends» avec cinq pouces qui se cochent",
+   "tags": [
+    "youtube",
+    "bouton",
+    "texte",
+    "note",
+    "j'aime"
+   ]
+  },
+  "template:yp14-suscribirse-campana": {
+   "name": "Abonnement et cloche sans carte",
+   "tags": [
+    "youtube",
+    "bouton",
+    "texte",
+    "s'abonner"
+   ]
+  },
+  "template:yp14-suscribirse-casilla": {
+   "name": "Case cochée avec «Subscribe Youtube Channel»",
+   "tags": [
+    "youtube",
+    "bouton",
+    "texte",
+    "s'abonner",
+    "case à cocher"
+   ]
+  },
+  "template:yp14-suscribirse-contador": {
+   "name": "Abonnement avec compteur de 19999 à 20000",
+   "tags": [
+    "youtube",
+    "bouton",
+    "texte",
+    "s'abonner",
+    "compteur"
+   ]
+  },
+  "template:yp14-suscribirse-hecho": {
+   "name": "«Subscribe Channel» avec «DO IT!» qui devient «DONE»",
+   "tags": [
+    "youtube",
+    "bouton",
+    "texte",
+    "s'abonner"
+   ]
+  },
+  "template:yp14-suscribirse-play": {
+   "name": "Bouton rouge «SUBSCRIBE» avec play qui devient «SUBSCRIBED»",
+   "tags": [
+    "youtube",
+    "bouton",
+    "texte",
+    "s'abonner"
+   ]
+  },
+  "template:yp14-suscrito-iconos": {
+   "name": "Abonné avec j'aime, cloche et partager",
+   "tags": [
+    "youtube",
+    "bouton",
+    "s'abonner",
+    "abonné"
+   ]
+  },
+  "template:yp14-tarjeta-campana": {
+   "name": "Carte de chaîne avec abonnement et cloche",
+   "tags": [
+    "youtube",
+    "carte",
+    "chaîne",
+    "cloche"
+   ]
+  },
+  "template:yp14-tarjeta-comentario": {
+   "name": "Carte vidéo avec un je n'aime pas et un commentaire",
+   "tags": [
+    "youtube",
+    "carte",
+    "chaîne",
+    "commentaire"
+   ]
+  },
+  "template:yp14-tarjeta-comentario-2": {
+   "name": "Carte vidéo avec un j'aime et un commentaire",
+   "tags": [
+    "youtube",
+    "carte",
+    "chaîne",
+    "commentaire"
+   ]
+  },
+  "template:yp14-tarjeta-cristal": {
+   "name": "Carte de chaîne : verre sur la photo avec cloche",
+   "tags": [
+    "youtube",
+    "carte",
+    "chaîne",
+    "s'abonner",
+    "photo",
+    "verre"
+   ]
+  },
+  "template:yp14-tarjeta-cristal-inclinada": {
+   "name": "Carte de chaîne : verre incliné sur la photo",
+   "tags": [
+    "youtube",
+    "carte",
+    "chaîne",
+    "s'abonner",
+    "photo",
+    "verre"
+   ]
+  },
+  "template:yp14-tarjeta-foto-inclinada": {
+   "name": "Carte de chaîne : photo inclinée avec abonnement et cloche",
+   "tags": [
+    "youtube",
+    "carte",
+    "chaîne",
+    "s'abonner",
+    "photo"
+   ]
+  },
+  "template:yp14-tarjeta-foto-marco": {
+   "name": "Carte de chaîne : photo en cadre blanc avec barre de progression",
+   "tags": [
+    "youtube",
+    "carte",
+    "chaîne",
+    "s'abonner",
+    "photo"
+   ]
+  },
+  "template:yp14-tarjeta-foto-progreso": {
+   "name": "Carte de chaîne : photo avec barre de progression et j'aime",
+   "tags": [
+    "youtube",
+    "carte",
+    "chaîne",
+    "s'abonner",
+    "photo"
+   ]
+  },
+  "template:yp14-tarjeta-foto-recta": {
+   "name": "Carte de chaîne : photo encadrée avec j'aime, abonnement et cloche",
+   "tags": [
+    "youtube",
+    "carte",
+    "chaîne",
+    "s'abonner",
+    "photo"
+   ]
+  },
+  "template:yp14-tarjeta-marco": {
+   "name": "Carte de chaîne : cadre blanc sur la photo avec barre de progression",
+   "tags": [
+    "youtube",
+    "carte",
+    "chaîne",
+    "s'abonner",
+    "photo"
+   ]
+  },
+  "template:yp14-tarjeta-marco-inclinado": {
+   "name": "Carte de chaîne : cadre blanc incliné sur la photo",
+   "tags": [
+    "youtube",
+    "carte",
+    "chaîne",
+    "s'abonner",
+    "photo"
+   ]
+  },
+  "template:yp14-tarjeta-video-compartir": {
+   "name": "Carte vidéo avec j'aime, partager et abonnement",
+   "tags": [
+    "youtube",
+    "carte",
+    "chaîne",
+    "partager"
+   ]
+  },
+  "template:yp14-tarjeta-video-cuadrada": {
+   "name": "Carte vidéo inclinée avec avatar carré et bouton rouge",
+   "tags": [
+    "youtube",
+    "carte",
+    "vidéo",
+    "s'abonner",
+    "photo"
+   ]
+  },
+  "template:yp14-tarjeta-video-play": {
+   "name": "Carte vidéo : clic sur play et la vidéo remplit l'écran",
+   "tags": [
+    "youtube",
+    "carte",
+    "vidéo",
+    "play"
+   ]
+  },
+  "template:yp14-tarjeta-video-titulo": {
+   "name": "Carte vidéo avec chaîne en haut et titre : clic sur play",
+   "tags": [
+    "youtube",
+    "carte",
+    "vidéo",
+    "play",
+    "titre"
+   ]
+  },
+  "template:yp14-tres-botones-blancos": {
+   "name": "Trois boutons blancs : j'aime, cloche et partager, cliqués ensemble",
+   "tags": [
+    "youtube",
+    "bouton",
+    "texte",
+    "rangée"
+   ]
+  },
+  "template:yp14-valoracion-abajo": {
+   "name": "Barre de chaîne en bas avec j'aime, je n'aime pas et note",
+   "tags": [
+    "youtube",
+    "barre",
+    "chaîne",
+    "j'aime",
+    "note"
+   ]
+  },
+  "template:yp14-youtube-channel": {
+   "name": "«YOUTUBE CHANNEL» qui devient rouge au clic",
+   "tags": [
+    "youtube",
+    "bouton",
+    "texte",
+    "titre"
+   ]
+  },
+  "template:yp15-cargo-verde": {
+   "name": "Bandeau en verre, fonction en vert",
+   "tags": [
+    "youtube",
+    "bandeau",
+    "verre",
+    "nom",
+    "vert"
+   ]
+  },
+  "template:yp15-centrado": {
+   "name": "Bandeau en verre centré avec abonnement",
+   "tags": [
+    "youtube",
+    "bandeau",
+    "verre",
+    "nom",
+    "abonne-toi"
+   ]
+  },
+  "template:yp15-dos-nombres": {
+   "name": "Bandeau en verre : deux noms",
+   "tags": [
+    "youtube",
+    "bandeau",
+    "verre",
+    "nom",
+    "deux personnes"
+   ]
+  },
+  "template:yp15-foto-redonda": {
+   "name": "Bandeau en verre avec photo ronde",
+   "tags": [
+    "youtube",
+    "bandeau",
+    "verre",
+    "nom",
+    "photo",
+    "avatar"
+   ]
+  },
+  "template:yp15-foto-suscribete": {
+   "name": "Bandeau en verre, photo et abonnement",
+   "tags": [
+    "youtube",
+    "bandeau",
+    "verre",
+    "nom",
+    "abonne-toi",
+    "photo"
+   ]
+  },
+  "template:yp15-linea-fina": {
+   "name": "Bandeau en verre fin",
+   "tags": [
+    "youtube",
+    "bandeau",
+    "verre",
+    "nom"
+   ]
+  },
+  "template:yp15-logo-nombre": {
+   "name": "Bandeau en verre avec logo",
+   "tags": [
+    "youtube",
+    "bandeau",
+    "verre",
+    "nom",
+    "logo"
+   ]
+  },
+  "template:yp15-logo-suscribete": {
+   "name": "Bandeau en verre, logo et abonnement",
+   "tags": [
+    "youtube",
+    "bandeau",
+    "verre",
+    "nom",
+    "abonne-toi",
+    "logo"
+   ]
+  },
+  "template:yp15-nombre-suscribete": {
+   "name": "Bandeau en verre avec abonnement",
+   "tags": [
+    "youtube",
+    "bandeau",
+    "verre",
+    "nom",
+    "abonne-toi"
+   ]
+  },
+  "template:yp15-pareja": {
+   "name": "Bandeau en verre : un duo avec photo",
+   "tags": [
+    "youtube",
+    "bandeau",
+    "verre",
+    "nom",
+    "deux personnes",
+    "photo"
+   ]
+  },
+  "template:yp15-tarjeta-foto": {
+   "name": "Carte en verre avec photo et logo",
+   "tags": [
+    "youtube",
+    "bandeau",
+    "verre",
+    "nom",
+    "photo",
+    "logo"
+   ]
+  },
+  "template:yp15-una-linea": {
+   "name": "Bandeau en verre sur une ligne",
+   "tags": [
+    "youtube",
+    "bandeau",
+    "verre",
+    "nom"
+   ]
+  },
+  "template:yp16-barra-nombre": {
+   "name": "Barre en verre avec nom et abonnement",
+   "tags": [
+    "youtube",
+    "verre",
+    "abonne-toi",
+    "clic",
+    "photo"
+   ]
+  },
+  "template:yp16-barra-suscribete": {
+   "name": "Barre en verre avec photo et abonnement",
+   "tags": [
+    "youtube",
+    "verre",
+    "abonne-toi",
+    "clic",
+    "photo"
+   ]
+  },
+  "template:yp16-burbuja-canal": {
+   "name": "Bulle en verre avec photo et chaîne",
+   "tags": [
+    "youtube",
+    "verre",
+    "chaîne",
+    "photo"
+   ]
+  },
+  "template:yp16-circulo": {
+   "name": "Cercle en verre avec photo et abonnement",
+   "tags": [
+    "youtube",
+    "verre",
+    "abonne-toi",
+    "clic",
+    "photo",
+    "cercle"
+   ]
+  },
+  "template:yp16-join-us": {
+   "name": "Pilule en verre sombre : join us now",
+   "tags": [
+    "youtube",
+    "verre",
+    "rejoindre"
+   ]
+  },
+  "template:yp16-pildora-canal": {
+   "name": "Pilule en verre avec photo au milieu",
+   "tags": [
+    "youtube",
+    "verre",
+    "chaîne",
+    "photo"
+   ]
+  },
+  "template:yp16-stay-tuned": {
+   "name": "Cercle en verre : stay tuned",
+   "tags": [
+    "youtube",
+    "verre",
+    "cercle"
+   ]
+  },
+  "template:yp16-tarjeta-cuadrada": {
+   "name": "Carte en verre carrée avec abonnement",
+   "tags": [
+    "youtube",
+    "verre",
+    "abonne-toi",
+    "clic",
+    "photo"
+   ]
+  },
+  "template:yp16-tarjeta-nombre": {
+   "name": "Carte en verre avec nom et abonnement",
+   "tags": [
+    "youtube",
+    "verre",
+    "abonne-toi",
+    "clic",
+    "photo"
+   ]
+  },
+  "template:yp16-tarjeta-vertical": {
+   "name": "Carte en verre verticale avec abonnement",
+   "tags": [
+    "youtube",
+    "verre",
+    "abonne-toi",
+    "clic",
+    "photo"
+   ]
+  },
+  "template:yp16-watch-more": {
+   "name": "Bulle en verre : watch more",
+   "tags": [
+    "youtube",
+    "verre",
+    "voir plus",
+    "bulle"
+   ]
+  },
+  "template:yp17-barra-canal": {
+   "name": "Barre plate avec photo et abonnement",
+   "tags": [
+    "youtube",
+    "carte",
+    "plat",
+    "abonne-toi",
+    "clic",
+    "photo"
+   ]
+  },
+  "template:yp17-barra-foto": {
+   "name": "Barre plate avec photo au milieu",
+   "tags": [
+    "youtube",
+    "carte",
+    "plat",
+    "abonne-toi",
+    "clic",
+    "photo"
+   ]
+  },
+  "template:yp17-barra-titulo": {
+   "name": "Barre plate avec photo et titre",
+   "tags": [
+    "youtube",
+    "carte",
+    "plat",
+    "abonne-toi",
+    "photo",
+    "titre"
+   ]
+  },
+  "template:yp17-boton-youtube": {
+   "name": "Carte plate avec le bouton YouTube",
+   "tags": [
+    "youtube",
+    "carte",
+    "plat",
+    "bouton",
+    "play"
+   ]
+  },
+  "template:yp17-foto-arriba": {
+   "name": "Photo ronde au-dessus d'une carte d'abonnement",
+   "tags": [
+    "youtube",
+    "carte",
+    "plat",
+    "abonne-toi",
+    "clic",
+    "photo"
+   ]
+  },
+  "template:yp17-foto-cuadrada": {
+   "name": "Photo carrée et barre d'abonnement",
+   "tags": [
+    "youtube",
+    "carte",
+    "plat",
+    "abonne-toi",
+    "clic",
+    "photo"
+   ]
+  },
+  "template:yp17-join-us": {
+   "name": "Carte plate : join us avec YouTube",
+   "tags": [
+    "youtube",
+    "carte",
+    "plat",
+    "rejoindre"
+   ]
+  },
+  "template:yp17-tarjeta-nombre": {
+   "name": "Carte plate avec photo, YouTube et abonnement",
+   "tags": [
+    "youtube",
+    "carte",
+    "plat",
+    "abonne-toi",
+    "clic",
+    "photo"
+   ]
+  },
+  "template:yp17-tarjeta-vertical": {
+   "name": "Carte plate verticale avec abonnement",
+   "tags": [
+    "youtube",
+    "carte",
+    "plat",
+    "abonne-toi",
+    "clic",
+    "photo"
+   ]
+  },
+  "template:yp17-watch-more": {
+   "name": "Carte plate : watch more",
+   "tags": [
+    "youtube",
+    "carte",
+    "plat",
+    "voir plus"
+   ]
+  },
   "template:yp2-apertura": {
    "name": "Ouverture : anneau rouge et blanc avec bouton YouTube",
    "tags": [
@@ -42295,6 +44640,516 @@
     "noir et blanc",
     "mode",
     "transition"
+   ]
+  },
+  "template:yp8-disfruta": {
+   "name": "Fin : enjoy",
+   "tags": [
+    "youtube",
+    "fin",
+    "texte"
+   ]
+  },
+  "template:yp8-logo-formas-claro": {
+   "name": "Ouverture : formes orange qui révèlent ton logo",
+   "tags": [
+    "youtube",
+    "logo",
+    "ouverture",
+    "formes",
+    "orange"
+   ]
+  },
+  "template:yp8-logo-formas-oscuro": {
+   "name": "Ouverture : formes qui révèlent ton logo (sombre)",
+   "tags": [
+    "youtube",
+    "logo",
+    "ouverture",
+    "formes"
+   ]
+  },
+  "template:yp8-logo-formas-video": {
+   "name": "Ouverture : formes blanches et ton logo sur ta vidéo",
+   "tags": [
+    "youtube",
+    "logo",
+    "ouverture",
+    "formes"
+   ]
+  },
+  "template:yp8-logo-youtube-claro": {
+   "name": "Logo YouTube qui se construit (fond blanc)",
+   "tags": [
+    "youtube",
+    "logo",
+    "ouverture",
+    "blanc"
+   ]
+  },
+  "template:yp8-logo-youtube-oscuro": {
+   "name": "Logo YouTube qui se construit (fond sombre)",
+   "tags": [
+    "youtube",
+    "logo",
+    "ouverture",
+    "sombre"
+   ]
+  },
+  "template:yp8-logo-youtube-video": {
+   "name": "Logo YouTube blanc sur ta vidéo",
+   "tags": [
+    "youtube",
+    "logo",
+    "ouverture",
+    "blanc"
+   ]
+  },
+  "template:yp8-me-gusta-blanco": {
+   "name": "J'aime dans un cercle blanc",
+   "tags": [
+    "youtube",
+    "j'aime",
+    "bouton",
+    "cercle"
+   ]
+  },
+  "template:yp8-me-gusta-oscuro": {
+   "name": "J'aime dans un cercle sombre",
+   "tags": [
+    "youtube",
+    "j'aime",
+    "bouton",
+    "cercle"
+   ]
+  },
+  "template:yp8-redes-tercios": {
+   "name": "Sept bandeaux de réseaux sociaux",
+   "tags": [
+    "youtube",
+    "réseaux",
+    "bandeau",
+    "instagram",
+    "twitter",
+    "facebook"
+   ]
+  },
+  "template:yp8-suscribirse-blanco": {
+   "name": "Barre d'abonnement avec clic et cloche",
+   "tags": [
+    "youtube",
+    "abonne-toi",
+    "bouton",
+    "clic",
+    "cloche"
+   ]
+  },
+  "template:yp8-suscribirse-oscuro": {
+   "name": "Barre d'abonnement avec clic et cloche (sombre)",
+   "tags": [
+    "youtube",
+    "abonne-toi",
+    "bouton",
+    "clic",
+    "cloche"
+   ]
+  },
+  "template:yp8-tercio-facebook": {
+   "name": "Bandeau : suivez-nous sur Facebook",
+   "tags": [
+    "youtube",
+    "bandeau",
+    "facebook",
+    "réseaux"
+   ]
+  },
+  "template:yp8-tercio-instagram": {
+   "name": "Bandeau : compte Instagram",
+   "tags": [
+    "youtube",
+    "bandeau",
+    "instagram",
+    "réseaux"
+   ]
+  },
+  "template:yp8-tercio-nombre": {
+   "name": "Bandeau : nom et fonction",
+   "tags": [
+    "youtube",
+    "bandeau",
+    "nom",
+    "réseaux"
+   ]
+  },
+  "template:yp8-tercio-twitter": {
+   "name": "Bandeau : compte Twitter",
+   "tags": [
+    "youtube",
+    "bandeau",
+    "twitter",
+    "réseaux"
+   ]
+  },
+  "template:yp8-tercio-youtube": {
+   "name": "Bandeau : abonne-toi à ma chaîne",
+   "tags": [
+    "youtube",
+    "bandeau",
+    "abonne-toi",
+    "réseaux"
+   ]
+  },
+  "template:yp8-tercio-yt-blanco": {
+   "name": "Bandeau : compte YouTube",
+   "tags": [
+    "youtube",
+    "bandeau",
+    "compte",
+    "réseaux"
+   ]
+  },
+  "template:yp8-tercio-yt-oscuro": {
+   "name": "Bandeau : abonne-toi sur YouTube (sombre)",
+   "tags": [
+    "youtube",
+    "bandeau",
+    "abonne-toi",
+    "réseaux"
+   ]
+  },
+  "template:yp8-transicion-ola": {
+   "name": "Transition : vague bleue et verte",
+   "tags": [
+    "youtube",
+    "transition",
+    "dégradé",
+    "vague"
+   ]
+  },
+  "template:yp8-transicion-rombo": {
+   "name": "Transition : losange bleu et vert qui monte",
+   "tags": [
+    "youtube",
+    "transition",
+    "dégradé",
+    "losange"
+   ]
+  },
+  "template:yp9-barra-canal": {
+   "name": "Barre de chaîne avec cloche",
+   "tags": [
+    "youtube",
+    "barre",
+    "chaîne",
+    "cloche",
+    "abonne-toi"
+   ]
+  },
+  "template:yp9-bloques-glitch": {
+   "name": "Blocs de couleur effet glitch",
+   "tags": [
+    "youtube",
+    "glitch",
+    "couleurs",
+    "bug"
+   ]
+  },
+  "template:yp9-boton-suscribirse": {
+   "name": "Bouton s'abonner qui se remplit et se clique",
+   "tags": [
+    "youtube",
+    "abonne-toi",
+    "bouton",
+    "clic",
+    "curseur"
+   ]
+  },
+  "template:yp9-boton-ventana": {
+   "name": "Bouton play qui s'ouvre en fenêtre vidéo",
+   "tags": [
+    "youtube",
+    "play",
+    "fenêtre",
+    "transition"
+   ]
+  },
+  "template:yp9-cinta-tendencia": {
+   "name": "Ruban jaune tendance avec titre",
+   "tags": [
+    "youtube",
+    "ruban",
+    "tendance",
+    "titre"
+   ]
+  },
+  "template:yp9-corazones-flotando": {
+   "name": "Cœurs qui montent sur la vidéo",
+   "tags": [
+    "youtube",
+    "cœurs",
+    "amour",
+    "vidéo"
+   ]
+  },
+  "template:yp9-destello-a": {
+   "name": "Éclat de gribouillis A",
+   "tags": [
+    "youtube",
+    "éclat",
+    "gribouillis",
+    "brillance"
+   ]
+  },
+  "template:yp9-destello-b": {
+   "name": "Éclat de gribouillis B",
+   "tags": [
+    "youtube",
+    "éclat",
+    "gribouillis",
+    "brillance"
+   ]
+  },
+  "template:yp9-destello-c": {
+   "name": "Éclat de gribouillis C",
+   "tags": [
+    "youtube",
+    "éclat",
+    "gribouillis",
+    "brillance"
+   ]
+  },
+  "template:yp9-enlace-behance": {
+   "name": "Barre de lien : behance",
+   "tags": [
+    "youtube",
+    "réseaux",
+    "lien",
+    "barre",
+    "behance"
+   ]
+  },
+  "template:yp9-enlace-dribbble": {
+   "name": "Barre de lien : dribbble",
+   "tags": [
+    "youtube",
+    "réseaux",
+    "lien",
+    "barre",
+    "dribbble"
+   ]
+  },
+  "template:yp9-enlace-facebook": {
+   "name": "Barre de lien : facebook",
+   "tags": [
+    "youtube",
+    "réseaux",
+    "lien",
+    "barre",
+    "facebook"
+   ]
+  },
+  "template:yp9-enlace-google": {
+   "name": "Barre de lien : google",
+   "tags": [
+    "youtube",
+    "réseaux",
+    "lien",
+    "barre",
+    "google"
+   ]
+  },
+  "template:yp9-enlace-instagram": {
+   "name": "Barre de lien : instagram",
+   "tags": [
+    "youtube",
+    "réseaux",
+    "lien",
+    "barre",
+    "instagram"
+   ]
+  },
+  "template:yp9-enlace-itunes": {
+   "name": "Barre de lien : itunes",
+   "tags": [
+    "youtube",
+    "réseaux",
+    "lien",
+    "barre",
+    "itunes"
+   ]
+  },
+  "template:yp9-enlace-patreon": {
+   "name": "Barre de lien : patreon",
+   "tags": [
+    "youtube",
+    "réseaux",
+    "lien",
+    "barre",
+    "patreon"
+   ]
+  },
+  "template:yp9-enlace-soundcloud": {
+   "name": "Barre de lien : soundcloud",
+   "tags": [
+    "youtube",
+    "réseaux",
+    "lien",
+    "barre",
+    "soundcloud"
+   ]
+  },
+  "template:yp9-enlace-spotify": {
+   "name": "Barre de lien : spotify",
+   "tags": [
+    "youtube",
+    "réseaux",
+    "lien",
+    "barre",
+    "spotify"
+   ]
+  },
+  "template:yp9-enlace-telegram": {
+   "name": "Barre de lien : telegram",
+   "tags": [
+    "youtube",
+    "réseaux",
+    "lien",
+    "barre",
+    "telegram"
+   ]
+  },
+  "template:yp9-enlace-twitter": {
+   "name": "Barre de lien : twitter",
+   "tags": [
+    "youtube",
+    "réseaux",
+    "lien",
+    "barre",
+    "twitter"
+   ]
+  },
+  "template:yp9-enlace-vimeo": {
+   "name": "Barre de lien : vimeo",
+   "tags": [
+    "youtube",
+    "réseaux",
+    "lien",
+    "barre",
+    "vimeo"
+   ]
+  },
+  "template:yp9-etiqueta-usuario": {
+   "name": "Badge avec icône et @utilisateur",
+   "tags": [
+    "youtube",
+    "utilisateur",
+    "réseaux",
+    "badge"
+   ]
+  },
+  "template:yp9-live-stream-blanco": {
+   "name": "Titre LIVE STREAM blanc avec bouton",
+   "tags": [
+    "youtube",
+    "direct",
+    "live",
+    "diffusion"
+   ]
+  },
+  "template:yp9-live-stream-rojo": {
+   "name": "Titre LIVE STREAM en boîtes rouge et noire",
+   "tags": [
+    "youtube",
+    "direct",
+    "live",
+    "diffusion"
+   ]
+  },
+  "template:yp9-me-gusta-cursor": {
+   "name": "J'aime qu'un curseur rend bleu",
+   "tags": [
+    "youtube",
+    "j'aime",
+    "clic",
+    "curseur"
+   ]
+  },
+  "template:yp9-me-gusta-destello": {
+   "name": "J'aime lumineux qui éclate au clic",
+   "tags": [
+    "youtube",
+    "j'aime",
+    "clic",
+    "éclat"
+   ]
+  },
+  "template:yp9-perfil": {
+   "name": "Profil avec photo, suivre et compteurs",
+   "tags": [
+    "youtube",
+    "profil",
+    "suivre",
+    "compteur",
+    "réseaux"
+   ]
+  },
+  "template:yp9-rayo": {
+   "name": "Éclair qui se forme à partir d'une ligne",
+   "tags": [
+    "youtube",
+    "éclair",
+    "intro",
+    "ligne"
+   ]
+  },
+  "template:yp9-redes-enlaces": {
+   "name": "Douze barres de liens vers les réseaux",
+   "tags": [
+    "youtube",
+    "réseaux",
+    "lien",
+    "barre",
+    "instagram",
+    "facebook"
+   ]
+  },
+  "template:yp9-sticker-suscrito": {
+   "name": "Bouton play qui devient un sticker abonné",
+   "tags": [
+    "youtube",
+    "abonne-toi",
+    "sticker",
+    "clic"
+   ]
+  },
+  "template:yp9-tarjeta-canal": {
+   "name": "Carte de chaîne avec photo ronde et abonnement",
+   "tags": [
+    "youtube",
+    "carte",
+    "chaîne",
+    "abonne-toi",
+    "clic"
+   ]
+  },
+  "template:yp9-telefono-feed": {
+   "name": "Téléphone avec vidéo verticale et boutons",
+   "tags": [
+    "youtube",
+    "téléphone",
+    "vertical",
+    "réseaux",
+    "j'aime"
+   ]
+  },
+  "template:yp9-telefono-reacciones": {
+   "name": "Téléphone avec cœurs et j'aime",
+   "tags": [
+    "youtube",
+    "téléphone",
+    "j'aime",
+    "cœurs",
+    "réseaux"
    ]
   },
   "template:yt-calle-a-que-te-dedicas": {

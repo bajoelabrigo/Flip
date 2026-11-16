@@ -38381,6 +38381,2298 @@
     "صندوق"
    ]
   },
+  "template:yp10-boton-suscribete": {
+   "name": "زر SUBSCRIBE MY CHANNEL مع أسهم",
+   "tags": [
+    "youtube",
+    "مرسوم يدويًا",
+    "رسم",
+    "تواصل اجتماعي",
+    "اشتراك",
+    "زر"
+   ]
+  },
+  "template:yp10-caja-roja": {
+   "name": "SUSCRÍBETE YA في صندوق أحمر",
+   "tags": [
+    "youtube",
+    "مرسوم يدويًا",
+    "رسم",
+    "تواصل اجتماعي",
+    "اشتراك",
+    "صندوق"
+   ]
+  },
+  "template:yp10-check": {
+   "name": "Check New Video مع علامة صح خضراء",
+   "tags": [
+    "youtube",
+    "مرسوم يدويًا",
+    "رسم",
+    "تواصل اجتماعي",
+    "علامة صح",
+    "فيديو جديد"
+   ]
+  },
+  "template:yp10-cuenta": {
+   "name": "@youraccount مع قطرة زرقاء",
+   "tags": [
+    "youtube",
+    "مرسوم يدويًا",
+    "رسم",
+    "تواصل اجتماعي",
+    "حساب",
+    "قطرة"
+   ]
+  },
+  "template:yp10-luna": {
+   "name": "SUBSCRIBE مع قمر وLike New Video",
+   "tags": [
+    "youtube",
+    "مرسوم يدويًا",
+    "رسم",
+    "تواصل اجتماعي",
+    "اشتراك",
+    "قمر"
+   ]
+  },
+  "template:yp10-me-gusta-amarillo": {
+   "name": "Like New Video مع إبهام أصفر",
+   "tags": [
+    "youtube",
+    "مرسوم يدويًا",
+    "رسم",
+    "تواصل اجتماعي",
+    "إعجاب",
+    "إبهام"
+   ]
+  },
+  "template:yp10-mi-canal": {
+   "name": "My Channel يُحدَّد ويكبر",
+   "tags": [
+    "youtube",
+    "مرسوم يدويًا",
+    "رسم",
+    "تواصل اجتماعي",
+    "قناة",
+    "تحديد"
+   ]
+  },
+  "template:yp10-nuevo-video-morado": {
+   "name": "NEW VIDEO في صندوق بنفسجي مع Like",
+   "tags": [
+    "youtube",
+    "مرسوم يدويًا",
+    "رسم",
+    "تواصل اجتماعي",
+    "فيديو جديد",
+    "صندوق"
+   ]
+  },
+  "template:yp10-nuevo-video-rosa": {
+   "name": "New Video مع بقعة وردية وقلوب",
+   "tags": [
+    "youtube",
+    "مرسوم يدويًا",
+    "رسم",
+    "تواصل اجتماعي",
+    "فيديو جديد",
+    "قلوب"
+   ]
+  },
+  "template:yp10-podcast": {
+   "name": "NEW PODCAST مع رذاذ",
+   "tags": [
+    "youtube",
+    "مرسوم يدويًا",
+    "رسم",
+    "تواصل اجتماعي",
+    "podcast"
+   ]
+  },
+  "template:yp10-pulgar-beige": {
+   "name": "NUEVO VIDEO AQUÍ مع إبهام",
+   "tags": [
+    "youtube",
+    "مرسوم يدويًا",
+    "رسم",
+    "تواصل اجتماعي",
+    "إبهام",
+    "إسباني"
+   ]
+  },
+  "template:yp10-social-media": {
+   "name": "Social Media Title حول شكل بيضاوي أحمر",
+   "tags": [
+    "youtube",
+    "مرسوم يدويًا",
+    "رسم",
+    "تواصل اجتماعي",
+    "عنوان",
+    "شكل بيضاوي"
+   ]
+  },
+  "template:yp10-suscribete-flechas": {
+   "name": "زر Subscribe أحمر مع أسهم",
+   "tags": [
+    "youtube",
+    "مرسوم يدويًا",
+    "رسم",
+    "تواصل اجتماعي",
+    "اشتراك",
+    "زر"
+   ]
+  },
+  "template:yp10-suscribete-puntos": {
+   "name": "Subscribe بنقاط ملونة و@yourchannel",
+   "tags": [
+    "youtube",
+    "مرسوم يدويًا",
+    "رسم",
+    "تواصل اجتماعي",
+    "اشتراك",
+    "زر"
+   ]
+  },
+  "template:yp10-tu-logo": {
+   "name": "Your Logo بحبر أزرق",
+   "tags": [
+    "youtube",
+    "مرسوم يدويًا",
+    "رسم",
+    "تواصل اجتماعي",
+    "شعار",
+    "حبر"
+   ]
+  },
+  "template:yp11-amazing": {
+   "name": "نص: AMAZING مع قوس قزح",
+   "tags": [
+    "youtube",
+    "قوس قزح",
+    "مذهل"
+   ]
+  },
+  "template:yp11-any-language": {
+   "name": "نص: Use Any Language على دائرة",
+   "tags": [
+    "youtube",
+    "دائرة",
+    "لغة"
+   ]
+  },
+  "template:yp11-brand-new-year": {
+   "name": "عنوان: سنة 2026 Brand New",
+   "tags": [
+    "youtube",
+    "سنة",
+    "جديد"
+   ]
+  },
+  "template:yp11-channel-name": {
+   "name": "زر: اسم القناة",
+   "tags": [
+    "youtube",
+    "قناة",
+    "زر",
+    "سهم"
+   ]
+  },
+  "template:yp11-click": {
+   "name": "زر: CLICK مع يد",
+   "tags": [
+    "youtube",
+    "نقرة",
+    "يد"
+   ]
+  },
+  "template:yp11-comment": {
+   "name": "نص: Comment مع سهم",
+   "tags": [
+    "youtube",
+    "تعليق",
+    "سهم"
+   ]
+  },
+  "template:yp11-follow-me": {
+   "name": "زر: تابعني مع مفتاح تبديل",
+   "tags": [
+    "youtube",
+    "متابعة",
+    "مفتاح تبديل"
+   ]
+  },
+  "template:yp11-high-quality": {
+   "name": "زر: جودة عالية مع مؤشر",
+   "tags": [
+    "youtube",
+    "جودة",
+    "زر",
+    "مؤشر"
+   ]
+  },
+  "template:yp11-like-heart": {
+   "name": "نص: Like مع قلب",
+   "tags": [
+    "youtube",
+    "إعجاب",
+    "قلب"
+   ]
+  },
+  "template:yp11-like-my-video": {
+   "name": "نص: Like my video مع إبهام",
+   "tags": [
+    "youtube",
+    "إعجاب",
+    "إبهام"
+   ]
+  },
+  "template:yp11-looking-perfect": {
+   "name": "نص: Looking Perfect مع نقاط",
+   "tags": [
+    "youtube",
+    "نقاط",
+    "قالب"
+   ]
+  },
+  "template:yp11-new-video": {
+   "name": "ملصق: New Video مع وجه مبتسم",
+   "tags": [
+    "youtube",
+    "فيديو جديد",
+    "وجه مبتسم"
+   ]
+  },
+  "template:yp11-play": {
+   "name": "زر: تشغيل أحمر",
+   "tags": [
+    "youtube",
+    "تشغيل",
+    "زر"
+   ]
+  },
+  "template:yp11-rate-us": {
+   "name": "نص: Rate Us مع قلب",
+   "tags": [
+    "youtube",
+    "تقييم",
+    "قلب"
+   ]
+  },
+  "template:yp11-share": {
+   "name": "نص: SHARE مع سهم",
+   "tags": [
+    "youtube",
+    "مشاركة",
+    "سهم"
+   ]
+  },
+  "template:yp11-subscribe-bell": {
+   "name": "نص: Subscribe مع جرس",
+   "tags": [
+    "youtube",
+    "اشتراك",
+    "جرس"
+   ]
+  },
+  "template:yp11-thanks-watching": {
+   "name": "نص: شكرًا للمشاهدة مع عين",
+   "tags": [
+    "youtube",
+    "شكرًا",
+    "عين",
+    "شكر"
+   ]
+  },
+  "template:yp11-titles-smiley": {
+   "name": "عنوان: TITLES & BUTTONS مع وجه مبتسم",
+   "tags": [
+    "youtube",
+    "وجه مبتسم",
+    "عنوان"
+   ]
+  },
+  "template:yp11-trendy-style": {
+   "name": "نص: Trendy Style مع برق",
+   "tags": [
+    "youtube",
+    "برق",
+    "رائج"
+   ]
+  },
+  "template:yp11-watch-now": {
+   "name": "نص: شاهد الآن مع زهور",
+   "tags": [
+    "youtube",
+    "مشاهدة",
+    "فيديو جديد"
+   ]
+  },
+  "template:yp12-barra-profesora": {
+   "name": "شريط بصورة وإعجاب وجرس واشتراك",
+   "tags": [
+    "youtube",
+    "اشترك",
+    "زر",
+    "شريط",
+    "إعجاب",
+    "جرس"
+   ]
+  },
+  "template:yp12-foto-burbujas": {
+   "name": "صورة مع فقاعات وأيقونات",
+   "tags": [
+    "youtube",
+    "اشترك",
+    "زر",
+    "صورة",
+    "فقاعات",
+    "إعجاب"
+   ]
+  },
+  "template:yp12-foto-iconos": {
+   "name": "صورة تنطلق منها أيقونات",
+   "tags": [
+    "youtube",
+    "اشترك",
+    "زر",
+    "صورة",
+    "دائرة",
+    "إعجاب"
+   ]
+  },
+  "template:yp12-foto-lados": {
+   "name": "صورة بأيقونات على جانبيها",
+   "tags": [
+    "youtube",
+    "اشترك",
+    "زر",
+    "صورة",
+    "إعجاب",
+    "جرس"
+   ]
+  },
+  "template:yp12-foto-liquida": {
+   "name": "صورة بأيقونات سائلة",
+   "tags": [
+    "youtube",
+    "اشترك",
+    "زر",
+    "صورة",
+    "سائل",
+    "إعجاب"
+   ]
+  },
+  "template:yp12-foto-orbita": {
+   "name": "صورة دائرية بأيقونات تدور حولها",
+   "tags": [
+    "youtube",
+    "اشترك",
+    "زر",
+    "صورة",
+    "دائرة",
+    "إعجاب"
+   ]
+  },
+  "template:yp12-lista-botones": {
+   "name": "قائمة إعجاب واشتراك وإشعارات",
+   "tags": [
+    "youtube",
+    "اشترك",
+    "زر",
+    "قائمة",
+    "إعجاب",
+    "جرس"
+   ]
+  },
+  "template:yp12-lista-capsula": {
+   "name": "قائمة على شكل كبسولة: إعجاب واشتراك وإشعارات",
+   "tags": [
+    "youtube",
+    "اشترك",
+    "زر",
+    "قائمة",
+    "إعجاب",
+    "جرس"
+   ]
+  },
+  "template:yp12-nombre-suscrito": {
+   "name": "اسم القناة مع «مشترك» وجرس",
+   "tags": [
+    "youtube",
+    "اشترك",
+    "زر",
+    "اسم",
+    "جرس",
+    "نقرة"
+   ]
+  },
+  "template:yp12-tarjeta-gris": {
+   "name": "بطاقة رمادية بصورة كبيرة",
+   "tags": [
+    "youtube",
+    "اشترك",
+    "زر",
+    "بطاقة",
+    "إعجاب",
+    "جرس"
+   ]
+  },
+  "template:yp12-tarjeta-lista": {
+   "name": "اسم القناة يتحول إلى بطاقة",
+   "tags": [
+    "youtube",
+    "اشترك",
+    "زر",
+    "بطاقة",
+    "قائمة",
+    "إعجاب"
+   ]
+  },
+  "template:yp12-tarjeta-rosa": {
+   "name": "بطاقة بصورة واشتراك وردي",
+   "tags": [
+    "youtube",
+    "اشترك",
+    "زر",
+    "بطاقة",
+    "وردي"
+   ]
+  },
+  "template:yp12-tres-botones": {
+   "name": "ثلاثة أزرار دائرية",
+   "tags": [
+    "youtube",
+    "اشترك",
+    "زر",
+    "إعجاب",
+    "جرس",
+    "نقرة"
+   ]
+  },
+  "template:yp13-aconseja-amigos": {
+   "name": "انصح أصدقاءك: إبهامات",
+   "tags": [
+    "youtube",
+    "تقييم",
+    "إعجاب",
+    "مؤشر"
+   ]
+  },
+  "template:yp13-agregar-comentario": {
+   "name": "زر إضافة تعليق يُنشر",
+   "tags": [
+    "youtube",
+    "تعليق",
+    "زر",
+    "مؤشر"
+   ]
+  },
+  "template:yp13-avatar-comentario": {
+   "name": "صورة رمزية بشارة تفتح تعليقًا",
+   "tags": [
+    "youtube",
+    "تعليق",
+    "صورة رمزية",
+    "مؤشر"
+   ]
+  },
+  "template:yp13-aviso-cafe": {
+   "name": "نافذة تنبيه مع OK",
+   "tags": [
+    "youtube",
+    "تنبيه",
+    "نافذة",
+    "مؤشر"
+   ]
+  },
+  "template:yp13-aviso-comentarios": {
+   "name": "إشعار تعليقات",
+   "tags": [
+    "youtube",
+    "إشعار",
+    "تعليقات",
+    "عداد",
+    "مؤشر"
+   ]
+  },
+  "template:yp13-aviso-doble": {
+   "name": "إشعار إعجابات ومتابعين",
+   "tags": [
+    "youtube",
+    "إشعار",
+    "إعجاب",
+    "متابعون",
+    "مؤشر"
+   ]
+  },
+  "template:yp13-aviso-me-gusta": {
+   "name": "إشعار إعجابات",
+   "tags": [
+    "youtube",
+    "إشعار",
+    "إعجاب",
+    "عداد",
+    "مؤشر"
+   ]
+  },
+  "template:yp13-aviso-seguidores": {
+   "name": "إشعار متابعين",
+   "tags": [
+    "youtube",
+    "إشعار",
+    "متابعون",
+    "عداد",
+    "مؤشر"
+   ]
+  },
+  "template:yp13-barra-suscribir": {
+   "name": "شريط إعجاب واشتراك وجرس",
+   "tags": [
+    "youtube",
+    "اشتراك",
+    "إعجاب",
+    "جرس",
+    "مؤشر"
+   ]
+  },
+  "template:yp13-buscar-boton": {
+   "name": "حقل بحث مع زر SEARCH",
+   "tags": [
+    "youtube",
+    "بحث",
+    "مؤشر",
+    "زر"
+   ]
+  },
+  "template:yp13-buscar-cargando": {
+   "name": "شريط بحث يتحول إلى «جارٍ التحميل»",
+   "tags": [
+    "youtube",
+    "بحث",
+    "مؤشر",
+    "ويب"
+   ]
+  },
+  "template:yp13-buscar-lupa": {
+   "name": "حقل بحث مع عدسة مكبرة مربعة",
+   "tags": [
+    "youtube",
+    "بحث",
+    "مؤشر"
+   ]
+  },
+  "template:yp13-buscar-mapa": {
+   "name": "خريطة مع حقل بحث ودبوس",
+   "tags": [
+    "youtube",
+    "خريطة",
+    "بحث",
+    "مؤشر",
+    "موقع"
+   ]
+  },
+  "template:yp13-caras-valorar": {
+   "name": "هل أعجبك الفيديو؟ وجوه",
+   "tags": [
+    "youtube",
+    "تقييم",
+    "وجوه",
+    "مؤشر"
+   ]
+  },
+  "template:yp13-carrito-precio": {
+   "name": "زر سلة التسوق مع السعر",
+   "tags": [
+    "youtube",
+    "سلة التسوق",
+    "شراء",
+    "مؤشر"
+   ]
+  },
+  "template:yp13-casilla-marcada": {
+   "name": "مربع اختيار CHECKED",
+   "tags": [
+    "youtube",
+    "مربع اختيار",
+    "مؤشر"
+   ]
+  },
+  "template:yp13-chat-dos": {
+   "name": "دردشة بين شخصين مع الوقت والرد",
+   "tags": [
+    "youtube",
+    "دردشة",
+    "رسالة",
+    "مؤشر"
+   ]
+  },
+  "template:yp13-chat-nombres": {
+   "name": "دردشة بالأسماء والرد",
+   "tags": [
+    "youtube",
+    "دردشة",
+    "رسالة",
+    "مؤشر"
+   ]
+  },
+  "template:yp13-chat-ventana-amarilla": {
+   "name": "نافذة دردشة صفراء بالأسماء",
+   "tags": [
+    "youtube",
+    "دردشة",
+    "رسالة",
+    "نافذة"
+   ]
+  },
+  "template:yp13-chat-ventana-azul": {
+   "name": "نافذة دردشة زرقاء",
+   "tags": [
+    "youtube",
+    "دردشة",
+    "رسالة",
+    "نافذة"
+   ]
+  },
+  "template:yp13-chat-ventana-grande": {
+   "name": "نافذة دردشة فوق الفيديو",
+   "tags": [
+    "youtube",
+    "دردشة",
+    "رسالة",
+    "نافذة"
+   ]
+  },
+  "template:yp13-comentario-like": {
+   "name": "تعليق مع LIKE وREPLY",
+   "tags": [
+    "youtube",
+    "تعليق",
+    "إعجاب",
+    "مؤشر"
+   ]
+  },
+  "template:yp13-comentario-votos": {
+   "name": "تعليق مع إعجاب ورد",
+   "tags": [
+    "youtube",
+    "تعليق",
+    "إعجاب",
+    "مؤشر"
+   ]
+  },
+  "template:yp13-comprar-gracias": {
+   "name": "زر شراء يقول شكرًا",
+   "tags": [
+    "youtube",
+    "زر",
+    "شراء",
+    "مؤشر"
+   ]
+  },
+  "template:yp13-contador-comentarios": {
+   "name": "فقاعة مع عداد تعليقات",
+   "tags": [
+    "youtube",
+    "عداد",
+    "تعليقات",
+    "مؤشر"
+   ]
+  },
+  "template:yp13-contador-corazon": {
+   "name": "قلب مع عداد إعجابات",
+   "tags": [
+    "youtube",
+    "عداد",
+    "إعجاب",
+    "قلب",
+    "مؤشر"
+   ]
+  },
+  "template:yp13-contador-pulgar": {
+   "name": "إبهام مع عداد إعجابات",
+   "tags": [
+    "youtube",
+    "عداد",
+    "إعجاب",
+    "مؤشر"
+   ]
+  },
+  "template:yp13-contador-seguidores": {
+   "name": "شخص مع عداد متابعين",
+   "tags": [
+    "youtube",
+    "عداد",
+    "متابعون",
+    "مؤشر"
+   ]
+  },
+  "template:yp13-descargar-anillo": {
+   "name": "زر تنزيل مع حلقة تقدم",
+   "tags": [
+    "youtube",
+    "تنزيل",
+    "تقدم",
+    "مؤشر"
+   ]
+  },
+  "template:yp13-descargar-barra": {
+   "name": "زر تنزيل مع شريط تقدم",
+   "tags": [
+    "youtube",
+    "تنزيل",
+    "تقدم",
+    "مؤشر"
+   ]
+  },
+  "template:yp13-enviar-comentario": {
+   "name": "حقل تعليق مع زر إرسال",
+   "tags": [
+    "youtube",
+    "تعليق",
+    "دردشة",
+    "مؤشر"
+   ]
+  },
+  "template:yp13-insignia-camara": {
+   "name": "زر كاميرا دائري",
+   "tags": [
+    "youtube",
+    "شارة",
+    "تواصل اجتماعي",
+    "مؤشر"
+   ]
+  },
+  "template:yp13-insignia-click-here": {
+   "name": "مربع CLICK HERE يتحول إلى GOOD JOB!",
+   "tags": [
+    "youtube",
+    "زر",
+    "مؤشر"
+   ]
+  },
+  "template:yp13-insignia-foto": {
+   "name": "صورة مربعة مع لمسة",
+   "tags": [
+    "youtube",
+    "صورة",
+    "صورة رمزية",
+    "مؤشر"
+   ]
+  },
+  "template:yp13-insignia-get-ready": {
+   "name": "شارة GET READY مع صورة",
+   "tags": [
+    "youtube",
+    "شارة",
+    "مؤشر",
+    "صورة"
+   ]
+  },
+  "template:yp13-insignia-like-this": {
+   "name": "شارة صورة تتحول إلى LIKE THIS!",
+   "tags": [
+    "youtube",
+    "شارة",
+    "إعجاب",
+    "مؤشر",
+    "صورة"
+   ]
+  },
+  "template:yp13-insignia-pajaro": {
+   "name": "زر دائري بطائر",
+   "tags": [
+    "youtube",
+    "شارة",
+    "تواصل اجتماعي",
+    "مؤشر"
+   ]
+  },
+  "template:yp13-insignia-seguir": {
+   "name": "شارة تتحول إلى FOLLOW",
+   "tags": [
+    "youtube",
+    "شارة",
+    "متابعة",
+    "مؤشر"
+   ]
+  },
+  "template:yp13-insignia-unete": {
+   "name": "شارة JOIN US مع نقرة",
+   "tags": [
+    "youtube",
+    "شارة",
+    "انضم",
+    "مؤشر"
+   ]
+  },
+  "template:yp13-interruptor-encender": {
+   "name": "مفتاح TURN ON",
+   "tags": [
+    "youtube",
+    "مفتاح تبديل",
+    "مؤشر"
+   ]
+  },
+  "template:yp13-interruptor-on-off": {
+   "name": "مفتاح START KEY ON/OFF",
+   "tags": [
+    "youtube",
+    "مفتاح تبديل",
+    "مؤشر"
+   ]
+  },
+  "template:yp13-lista-bienvenida": {
+   "name": "قائمة أزرار «مرحبًا بك في قناتي»",
+   "tags": [
+    "youtube",
+    "قائمة",
+    "اشتراك",
+    "مؤشر",
+    "ترحيب"
+   ]
+  },
+  "template:yp13-lista-canal-grande": {
+   "name": "قائمة القناة فوق الفيديو",
+   "tags": [
+    "youtube",
+    "قائمة",
+    "اشتراك",
+    "مؤشر"
+   ]
+  },
+  "template:yp13-lista-interruptores": {
+   "name": "قائمة بمفاتيح تبديل",
+   "tags": [
+    "youtube",
+    "قائمة",
+    "مفتاح تبديل",
+    "مؤشر"
+   ]
+  },
+  "template:yp13-lista-no-olvides": {
+   "name": "قائمة «لا تنسَ»: اشترك، فعّل الإشعارات، أعجب",
+   "tags": [
+    "youtube",
+    "قائمة",
+    "اشتراك",
+    "مؤشر"
+   ]
+  },
+  "template:yp13-lista-tareas": {
+   "name": "قائمة مهام اليوم",
+   "tags": [
+    "youtube",
+    "قائمة",
+    "مهام",
+    "مؤشر"
+   ]
+  },
+  "template:yp13-mensaje-abrir": {
+   "name": "زر رسالة ينفتح",
+   "tags": [
+    "youtube",
+    "رسالة",
+    "دردشة",
+    "مؤشر"
+   ]
+  },
+  "template:yp13-opcion-seleccionar": {
+   "name": "خيار SELECT",
+   "tags": [
+    "youtube",
+    "خيار",
+    "مؤشر"
+   ]
+  },
+  "template:yp13-perfil-seguir": {
+   "name": "ملف شخصي بصور وزر متابعة",
+   "tags": [
+    "youtube",
+    "ملف شخصي",
+    "متابعة",
+    "مؤشر",
+    "صور"
+   ]
+  },
+  "template:yp13-post-botones": {
+   "name": "منشور بأزرار مستديرة الحواف",
+   "tags": [
+    "youtube",
+    "منشور",
+    "إعجاب",
+    "مؤشر"
+   ]
+  },
+  "template:yp13-post-insta": {
+   "name": "منشور صورة مع إعجاب",
+   "tags": [
+    "youtube",
+    "منشور",
+    "إعجاب",
+    "مؤشر"
+   ]
+  },
+  "template:yp13-post-muro": {
+   "name": "منشور حائط مع إعجاب وتعليق ومشاركة",
+   "tags": [
+    "youtube",
+    "منشور",
+    "إعجاب",
+    "مؤشر"
+   ]
+  },
+  "template:yp13-post-noticia": {
+   "name": "منشور باسم أزرق وإعجاب",
+   "tags": [
+    "youtube",
+    "منشور",
+    "إعجاب",
+    "مؤشر"
+   ]
+  },
+  "template:yp13-post-texto": {
+   "name": "منشور نصي مع إعجاب",
+   "tags": [
+    "youtube",
+    "منشور",
+    "إعجاب",
+    "مؤشر"
+   ]
+  },
+  "template:yp13-post-tuit": {
+   "name": "منشور بنمط تغريدة مع إعجاب",
+   "tags": [
+    "youtube",
+    "منشور",
+    "إعجاب",
+    "مؤشر"
+   ]
+  },
+  "template:yp13-post-tuit-enlace": {
+   "name": "تغريدة مع بطاقة رابط وإعجاب",
+   "tags": [
+    "youtube",
+    "منشور",
+    "إعجاب",
+    "مؤشر"
+   ]
+  },
+  "template:yp13-post-tuit-foto": {
+   "name": "تغريدة بصورة مرتبطة وإعجاب",
+   "tags": [
+    "youtube",
+    "منشور",
+    "إعجاب",
+    "مؤشر"
+   ]
+  },
+  "template:yp13-post-vertical": {
+   "name": "منشور عمودي مع إعجاب",
+   "tags": [
+    "youtube",
+    "منشور",
+    "إعجاب",
+    "مؤشر"
+   ]
+  },
+  "template:yp13-post-video-campana": {
+   "name": "منشور فيديو: اشتراك وجرس",
+   "tags": [
+    "youtube",
+    "منشور",
+    "اشتراك",
+    "جرس",
+    "مؤشر"
+   ]
+  },
+  "template:yp13-post-video-suscribir": {
+   "name": "منشور فيديو مع زر اشتراك",
+   "tags": [
+    "youtube",
+    "منشور",
+    "اشتراك",
+    "مؤشر"
+   ]
+  },
+  "template:yp13-post-video-votos": {
+   "name": "منشور فيديو مع إعجاب وعدم إعجاب",
+   "tags": [
+    "youtube",
+    "منشور",
+    "إعجاب",
+    "مؤشر"
+   ]
+  },
+  "template:yp13-reaccion-corazones": {
+   "name": "زر LOVE IT! مع قلوب صاعدة",
+   "tags": [
+    "youtube",
+    "تفاعل",
+    "قلوب",
+    "مؤشر",
+    "زر"
+   ]
+  },
+  "template:yp13-reaccion-estrellas": {
+   "name": "زر مع نجوم خضراء صاعدة",
+   "tags": [
+    "youtube",
+    "تفاعل",
+    "نجوم",
+    "مؤشر",
+    "زر"
+   ]
+  },
+  "template:yp13-reaccion-monedas": {
+   "name": "زر DONATE مع عملات صاعدة",
+   "tags": [
+    "youtube",
+    "تفاعل",
+    "تبرع",
+    "مؤشر",
+    "زر"
+   ]
+  },
+  "template:yp13-reaccion-pulgares": {
+   "name": "زر LIKE THIS مع إبهامات صاعدة",
+   "tags": [
+    "youtube",
+    "تفاعل",
+    "إعجاب",
+    "مؤشر",
+    "زر"
+   ]
+  },
+  "template:yp13-recomiendo": {
+   "name": "أنصح به: خمسة قلوب",
+   "tags": [
+    "youtube",
+    "تقييم",
+    "قلوب",
+    "مؤشر"
+   ]
+  },
+  "template:yp13-reproductor-amarillo": {
+   "name": "أزرار مشغل صفراء",
+   "tags": [
+    "youtube",
+    "مشغل",
+    "أزرار",
+    "مؤشر"
+   ]
+  },
+  "template:yp13-reproductor-azul": {
+   "name": "أزرار مشغل زرقاء",
+   "tags": [
+    "youtube",
+    "مشغل",
+    "أزرار",
+    "مؤشر"
+   ]
+  },
+  "template:yp13-reproductor-cuadrado": {
+   "name": "أزرار مشغل مربعة",
+   "tags": [
+    "youtube",
+    "مشغل",
+    "أزرار",
+    "مؤشر"
+   ]
+  },
+  "template:yp13-reproductor-redondo": {
+   "name": "أزرار مشغل دائرية",
+   "tags": [
+    "youtube",
+    "مشغل",
+    "أزرار",
+    "مؤشر"
+   ]
+  },
+  "template:yp13-tarjeta-canal": {
+   "name": "بطاقة قناة تنفتح",
+   "tags": [
+    "youtube",
+    "قناة",
+    "اشتراك",
+    "مؤشر",
+    "صورة رمزية"
+   ]
+  },
+  "template:yp13-tarjeta-suscribir-grande": {
+   "name": "بطاقة قناة كبيرة مع اشتراك",
+   "tags": [
+    "youtube",
+    "قناة",
+    "اشتراك",
+    "مؤشر",
+    "صورة رمزية",
+    "شريط سفلي"
+   ]
+  },
+  "template:yp13-tuit-texto": {
+   "name": "تغريدة نصية مع إعجاب",
+   "tags": [
+    "youtube",
+    "منشور",
+    "إعجاب",
+    "مؤشر",
+    "تعليق"
+   ]
+  },
+  "template:yp13-valoranos": {
+   "name": "قيّمنا: قائمة نجوم",
+   "tags": [
+    "youtube",
+    "تقييم",
+    "نجوم",
+    "مؤشر"
+   ]
+  },
+  "template:yp13-valorar-10": {
+   "name": "تقييم 10/10 بالنجوم",
+   "tags": [
+    "youtube",
+    "تقييم",
+    "نجوم",
+    "مؤشر"
+   ]
+  },
+  "template:yp13-valorar-articulo": {
+   "name": "تقييم بخمس نجوم",
+   "tags": [
+    "youtube",
+    "تقييم",
+    "نجوم",
+    "مؤشر"
+   ]
+  },
+  "template:yp13-valorar-genial": {
+   "name": "زر تقييم يمنح النجوم",
+   "tags": [
+    "youtube",
+    "تقييم",
+    "نجوم",
+    "مؤشر",
+    "زر"
+   ]
+  },
+  "template:yp13-valorar-plantilla": {
+   "name": "بطاقة تقييم بالنجوم",
+   "tags": [
+    "youtube",
+    "تقييم",
+    "نجوم",
+    "مؤشر",
+    "شعار"
+   ]
+  },
+  "template:yp13-video-suscribir-campana": {
+   "name": "بطاقة فيديو مع اشتراك وجرس",
+   "tags": [
+    "youtube",
+    "منشور",
+    "اشتراك",
+    "جرس",
+    "مؤشر"
+   ]
+  },
+  "template:yp13-volumen": {
+   "name": "شريط مستوى الصوت MAKE SOME NOISE",
+   "tags": [
+    "youtube",
+    "مستوى الصوت",
+    "شريط تمرير",
+    "مؤشر"
+   ]
+  },
+  "template:yp14-barra-abajo-acciones": {
+   "name": "شريط فيديو في الأسفل: إعجاب ومشاركة وتنزيل وحفظ",
+   "tags": [
+    "youtube",
+    "شريط",
+    "قناة",
+    "اشتراك",
+    "صورة"
+   ]
+  },
+  "template:yp14-barra-abajo-campana": {
+   "name": "شريط القناة في الأسفل مع «مشترك» وجرس",
+   "tags": [
+    "youtube",
+    "شريط",
+    "قناة",
+    "اشتراك",
+    "صورة"
+   ]
+  },
+  "template:yp14-barra-abajo-me-gusta": {
+   "name": "شريط القناة في الأسفل مع إعجابات واشتراك",
+   "tags": [
+    "youtube",
+    "شريط",
+    "قناة",
+    "اشتراك",
+    "صورة"
+   ]
+  },
+  "template:yp14-barra-arriba": {
+   "name": "شريط القناة في الأعلى يدفع الصورة",
+   "tags": [
+    "youtube",
+    "شريط",
+    "قناة",
+    "اشتراك",
+    "صورة"
+   ]
+  },
+  "template:yp14-barra-valoracion-arriba": {
+   "name": "شريط القناة في الأعلى مع إعجاب وعدم إعجاب وتقييم",
+   "tags": [
+    "youtube",
+    "شريط",
+    "قناة",
+    "اشتراك",
+    "صورة"
+   ]
+  },
+  "template:yp14-barra-video-suscribirse": {
+   "name": "شريط أبيض أسفل الفيديو: صورة رمزية واسم واشتراك",
+   "tags": [
+    "youtube",
+    "شريط",
+    "قناة",
+    "اشتراك",
+    "صورة"
+   ]
+  },
+  "template:yp14-boton-redondo-campana": {
+   "name": "زر أحمر دائري: جرس و«Get notified»",
+   "tags": [
+    "youtube",
+    "زر",
+    "نص",
+    "جرس"
+   ]
+  },
+  "template:yp14-boton-redondo-compartir": {
+   "name": "زر أحمر دائري: مشاركة و«Share this»",
+   "tags": [
+    "youtube",
+    "زر",
+    "نص",
+    "مشاركة"
+   ]
+  },
+  "template:yp14-boton-redondo-me-gusta": {
+   "name": "زر أحمر دائري: إعجاب و«Like the video»",
+   "tags": [
+    "youtube",
+    "زر",
+    "نص",
+    "إعجاب"
+   ]
+  },
+  "template:yp14-boton-redondo-suscribirse": {
+   "name": "زر أحمر دائري: تشغيل و«Subscribe»",
+   "tags": [
+    "youtube",
+    "زر",
+    "نص",
+    "تشغيل"
+   ]
+  },
+  "template:yp14-campana-compartir-redondos": {
+   "name": "زران أحمران: جرس ومشاركة",
+   "tags": [
+    "youtube",
+    "زر",
+    "نص",
+    "صف"
+   ]
+  },
+  "template:yp14-canal-avatar-arriba": {
+   "name": "زر قناة عمودي بالصورة الرمزية في الأعلى",
+   "tags": [
+    "youtube",
+    "زر",
+    "اشتراك"
+   ]
+  },
+  "template:yp14-canal-avatar-centro": {
+   "name": "زر قناة بصورة رمزية في المنتصف ومشاركة وجرس",
+   "tags": [
+    "youtube",
+    "زر",
+    "اشتراك"
+   ]
+  },
+  "template:yp14-canal-avatar-esquina": {
+   "name": "زر قناة بصورة رمزية في الزاوية ومشاركة وجرس",
+   "tags": [
+    "youtube",
+    "زر",
+    "اشتراك"
+   ]
+  },
+  "template:yp14-canal-circulo": {
+   "name": "قناة في دائرة مع جرس وإعجاب ومشاركة",
+   "tags": [
+    "youtube",
+    "زر",
+    "جرس",
+    "إعجاب"
+   ]
+  },
+  "template:yp14-canal-foto-campana": {
+   "name": "زر قناة: صورة واشتراك وجرس",
+   "tags": [
+    "youtube",
+    "زر",
+    "اشتراك"
+   ]
+  },
+  "template:yp14-canal-foto-vertical": {
+   "name": "زر قناة عمودي: صورة واشتراك وإعجاب وجرس",
+   "tags": [
+    "youtube",
+    "زر",
+    "اشتراك"
+   ]
+  },
+  "template:yp14-canal-horizontal": {
+   "name": "زر قناة أفقي: صورة ومشتركون واشتراك وجرس",
+   "tags": [
+    "youtube",
+    "زر",
+    "اشتراك"
+   ]
+  },
+  "template:yp14-canal-iconos-columna": {
+   "name": "قناة مع عمود أيقونات: جرس وإعجاب ومشاركة",
+   "tags": [
+    "youtube",
+    "زر",
+    "اشتراك"
+   ]
+  },
+  "template:yp14-canal-nombre-largo": {
+   "name": "زر قناة: صورة واسم من ثلاثة أسطر وإعجاب وجرس",
+   "tags": [
+    "youtube",
+    "زر",
+    "اشتراك"
+   ]
+  },
+  "template:yp14-canal-sin-tarjeta": {
+   "name": "قناة: صورة رمزية واسم ومشتركون واشتراك",
+   "tags": [
+    "youtube",
+    "زر",
+    "اشتراك"
+   ]
+  },
+  "template:yp14-canal-sobre-video": {
+   "name": "زر قناة فوق الفيديو: صورة ومشتركون واشتراك",
+   "tags": [
+    "youtube",
+    "زر",
+    "اشتراك"
+   ]
+  },
+  "template:yp14-canal-tarjeta-vertical": {
+   "name": "بطاقة قناة عمودية: الاسم والصورة والاشتراك",
+   "tags": [
+    "youtube",
+    "زر",
+    "اشتراك"
+   ]
+  },
+  "template:yp14-columna-botones": {
+   "name": "عمود أزرار دائرية: اشتراك وإعجاب وجرس",
+   "tags": [
+    "youtube",
+    "زر",
+    "نص",
+    "عمود"
+   ]
+  },
+  "template:yp14-columna-botones-etiquetas": {
+   "name": "عمود أزرار دائرية بعناوين: اشتراك وإشعارات وإعجاب",
+   "tags": [
+    "youtube",
+    "زر",
+    "نص",
+    "عمود"
+   ]
+  },
+  "template:yp14-comentario-abajo": {
+   "name": "تعليق في الأسفل مع إعجاب",
+   "tags": [
+    "youtube",
+    "شريط",
+    "قناة",
+    "اشتراك",
+    "صورة"
+   ]
+  },
+  "template:yp14-comentario-arriba": {
+   "name": "تعليق في الأعلى مع إعجاب وعدم إعجاب",
+   "tags": [
+    "youtube",
+    "شريط",
+    "قناة",
+    "اشتراك",
+    "صورة"
+   ]
+  },
+  "template:yp14-comentario-me-gusta": {
+   "name": "تعليق مع نقرة إعجاب",
+   "tags": [
+    "youtube",
+    "تعليق",
+    "تعليقات"
+   ]
+  },
+  "template:yp14-comentario-no-me-gusta": {
+   "name": "تعليق مع نقرة عدم إعجاب",
+   "tags": [
+    "youtube",
+    "تعليق",
+    "تعليقات"
+   ]
+  },
+  "template:yp14-comentario-respuesta": {
+   "name": "تعليق مع رد تجري كتابته",
+   "tags": [
+    "youtube",
+    "تعليق",
+    "تعليقات"
+   ]
+  },
+  "template:yp14-comentario-respuesta-2": {
+   "name": "تعليق مع رد (2)",
+   "tags": [
+    "youtube",
+    "تعليق",
+    "تعليقات"
+   ]
+  },
+  "template:yp14-comentario-sobre-video": {
+   "name": "تعليق من سطر واحد فوق الفيديو",
+   "tags": [
+    "youtube",
+    "تعليق",
+    "تعليقات"
+   ]
+  },
+  "template:yp14-compartir-esto": {
+   "name": "زر «Share This» من الأحمر إلى الأبيض",
+   "tags": [
+    "youtube",
+    "زر",
+    "نص",
+    "مشاركة"
+   ]
+  },
+  "template:yp14-fila-botones": {
+   "name": "صف أزرار دائرية: اشتراك وجرس ومشاركة وإعجاب",
+   "tags": [
+    "youtube",
+    "زر",
+    "نص",
+    "صف"
+   ]
+  },
+  "template:yp14-fila-me-gusta-suscribirse": {
+   "name": "صف: إعجاب واشتراك وجرس",
+   "tags": [
+    "youtube",
+    "زر",
+    "اشتراك"
+   ]
+  },
+  "template:yp14-fila-suscribirse": {
+   "name": "صف: إعجاب واشتراك ومشاركة وجرس",
+   "tags": [
+    "youtube",
+    "زر",
+    "نص",
+    "صف",
+    "اشتراك"
+   ]
+  },
+  "template:yp14-lista-suscribirse": {
+   "name": "قائمة: اشترك، فعّل الإشعارات، أعجب",
+   "tags": [
+    "youtube",
+    "زر",
+    "اشتراك",
+    "قائمة"
+   ]
+  },
+  "template:yp14-lista-ver-mas-tarde": {
+   "name": "قائمة فيديوهات: «حُفظ في المشاهدة لاحقًا»",
+   "tags": [
+    "youtube",
+    "قائمة",
+    "فيديوهات"
+   ]
+  },
+  "template:yp14-lista-videos-abrir": {
+   "name": "قائمة فيديوهات: انقر واحدًا فيملأ الإطار",
+   "tags": [
+    "youtube",
+    "قائمة",
+    "فيديوهات"
+   ]
+  },
+  "template:yp14-logo-arriba-suscribirse": {
+   "name": "الشعار في الأعلى والاشتراك",
+   "tags": [
+    "youtube",
+    "زر",
+    "اشتراك",
+    "شعار"
+   ]
+  },
+  "template:yp14-logo-suscribirse": {
+   "name": "شعار القناة مع اشتراك",
+   "tags": [
+    "youtube",
+    "زر",
+    "اشتراك"
+   ]
+  },
+  "template:yp14-logo-tarjeta": {
+   "name": "شعار القناة على بطاقة مع اشتراك وجرس ومشاركة",
+   "tags": [
+    "youtube",
+    "زر",
+    "اشتراك"
+   ]
+  },
+  "template:yp14-logo-tarjeta-vertical": {
+   "name": "شعار القناة على بطاقة عمودية مع جرس ومشاركة",
+   "tags": [
+    "youtube",
+    "زر",
+    "اشتراك"
+   ]
+  },
+  "template:yp14-me-gusta-avisos": {
+   "name": "إعجاب وجرس مع «Like this / Notified»",
+   "tags": [
+    "youtube",
+    "زر",
+    "نص",
+    "إعجاب",
+    "جرس"
+   ]
+  },
+  "template:yp14-me-gusta-barra": {
+   "name": "«Like this» مع شريط تقييم",
+   "tags": [
+    "youtube",
+    "زر",
+    "نص",
+    "إعجاب",
+    "تقييم"
+   ]
+  },
+  "template:yp14-me-gusta-boton": {
+   "name": "زر «Like it!» يطلق إبهامات",
+   "tags": [
+    "youtube",
+    "زر",
+    "نص",
+    "إعجاب"
+   ]
+  },
+  "template:yp14-me-gusta-campana-redondos": {
+   "name": "زران أحمران: إعجاب وجرس",
+   "tags": [
+    "youtube",
+    "زر",
+    "نص",
+    "صف"
+   ]
+  },
+  "template:yp14-me-gusta-compartir-botones": {
+   "name": "زرا «Like it» و«Share» من الأحمر إلى الأبيض",
+   "tags": [
+    "youtube",
+    "زر",
+    "نص",
+    "إعجاب",
+    "مشاركة"
+   ]
+  },
+  "template:yp14-me-gusta-compartir-redondos": {
+   "name": "زران أحمران: إعجاب ومشاركة",
+   "tags": [
+    "youtube",
+    "زر",
+    "نص",
+    "صف"
+   ]
+  },
+  "template:yp14-me-gusta-contador": {
+   "name": "إعجاب كبير مع عداد",
+   "tags": [
+    "youtube",
+    "زر",
+    "نص",
+    "إعجاب",
+    "عداد"
+   ]
+  },
+  "template:yp14-me-gusta-suscribirse": {
+   "name": "إعجاب واشتراك بلا بطاقة",
+   "tags": [
+    "youtube",
+    "زر",
+    "نص",
+    "اشتراك"
+   ]
+  },
+  "template:yp14-me-gusta-suscribirse-campana": {
+   "name": "إعجاب واشتراك وجرس بلا بطاقة",
+   "tags": [
+    "youtube",
+    "زر",
+    "نص",
+    "اشتراك"
+   ]
+  },
+  "template:yp14-no-me-gusta-boton": {
+   "name": "زر «Dislike!» يطلق إبهامات",
+   "tags": [
+    "youtube",
+    "زر",
+    "نص",
+    "عدم إعجاب"
+   ]
+  },
+  "template:yp14-no-me-gusta-contador": {
+   "name": "عدم إعجاب كبير مع عداد",
+   "tags": [
+    "youtube",
+    "زر",
+    "نص",
+    "عدم إعجاب",
+    "عداد"
+   ]
+  },
+  "template:yp14-no-recomendar": {
+   "name": "«Don't recommend» مع خمسة إبهامات تُحدَّد",
+   "tags": [
+    "youtube",
+    "زر",
+    "نص",
+    "تقييم",
+    "عدم إعجاب"
+   ]
+  },
+  "template:yp14-nombre-suscrito-campana": {
+   "name": "اسم القناة مع «مشترك» وجرس",
+   "tags": [
+    "youtube",
+    "زر",
+    "اشتراك"
+   ]
+  },
+  "template:yp14-nombre-suscrito-me-gusta": {
+   "name": "اسم القناة مع «مشترك» وإعجاب وعدم إعجاب",
+   "tags": [
+    "youtube",
+    "زر",
+    "اشتراك"
+   ]
+  },
+  "template:yp14-pildora-me-gusta": {
+   "name": "كبسولة إعجاب/عدم إعجاب حمراء: نقرة على الإعجاب",
+   "tags": [
+    "youtube",
+    "زر",
+    "نص",
+    "إعجاب",
+    "عدم إعجاب"
+   ]
+  },
+  "template:yp14-pildora-no-me-gusta": {
+   "name": "كبسولة إعجاب/عدم إعجاب حمراء: نقرة على عدم الإعجاب",
+   "tags": [
+    "youtube",
+    "زر",
+    "نص",
+    "إعجاب",
+    "عدم إعجاب"
+   ]
+  },
+  "template:yp14-recomendar-amigos": {
+   "name": "«Advise friends» مع خمسة إبهامات تُحدَّد",
+   "tags": [
+    "youtube",
+    "زر",
+    "نص",
+    "تقييم",
+    "إعجاب"
+   ]
+  },
+  "template:yp14-suscribirse-campana": {
+   "name": "اشتراك وجرس بلا بطاقة",
+   "tags": [
+    "youtube",
+    "زر",
+    "نص",
+    "اشتراك"
+   ]
+  },
+  "template:yp14-suscribirse-casilla": {
+   "name": "مربع مؤشر مع «Subscribe Youtube Channel»",
+   "tags": [
+    "youtube",
+    "زر",
+    "نص",
+    "اشتراك",
+    "مربع اختيار"
+   ]
+  },
+  "template:yp14-suscribirse-contador": {
+   "name": "اشتراك مع عداد من 19999 إلى 20000",
+   "tags": [
+    "youtube",
+    "زر",
+    "نص",
+    "اشتراك",
+    "عداد"
+   ]
+  },
+  "template:yp14-suscribirse-hecho": {
+   "name": "«Subscribe Channel» مع «DO IT!» يصبح «DONE»",
+   "tags": [
+    "youtube",
+    "زر",
+    "نص",
+    "اشتراك"
+   ]
+  },
+  "template:yp14-suscribirse-play": {
+   "name": "زر «SUBSCRIBE» أحمر مع تشغيل يصبح «SUBSCRIBED»",
+   "tags": [
+    "youtube",
+    "زر",
+    "نص",
+    "اشتراك"
+   ]
+  },
+  "template:yp14-suscrito-iconos": {
+   "name": "«مشترك» مع إعجاب وجرس ومشاركة",
+   "tags": [
+    "youtube",
+    "زر",
+    "اشتراك"
+   ]
+  },
+  "template:yp14-tarjeta-campana": {
+   "name": "بطاقة قناة مع اشتراك وجرس",
+   "tags": [
+    "youtube",
+    "بطاقة",
+    "قناة"
+   ]
+  },
+  "template:yp14-tarjeta-comentario": {
+   "name": "بطاقة فيديو مع عدم إعجاب وتعليق",
+   "tags": [
+    "youtube",
+    "بطاقة",
+    "قناة"
+   ]
+  },
+  "template:yp14-tarjeta-comentario-2": {
+   "name": "بطاقة فيديو مع إعجاب وتعليق",
+   "tags": [
+    "youtube",
+    "بطاقة",
+    "قناة"
+   ]
+  },
+  "template:yp14-tarjeta-cristal": {
+   "name": "بطاقة قناة: زجاج فوق الصورة مع جرس",
+   "tags": [
+    "youtube",
+    "بطاقة",
+    "قناة",
+    "اشتراك",
+    "صورة"
+   ]
+  },
+  "template:yp14-tarjeta-cristal-inclinada": {
+   "name": "بطاقة قناة: زجاج مائل فوق الصورة",
+   "tags": [
+    "youtube",
+    "بطاقة",
+    "قناة",
+    "اشتراك",
+    "صورة"
+   ]
+  },
+  "template:yp14-tarjeta-foto-inclinada": {
+   "name": "بطاقة قناة: صورة مائلة مع اشتراك وجرس",
+   "tags": [
+    "youtube",
+    "بطاقة",
+    "قناة",
+    "اشتراك",
+    "صورة"
+   ]
+  },
+  "template:yp14-tarjeta-foto-marco": {
+   "name": "بطاقة قناة: صورة في إطار أبيض مع شريط تقدم",
+   "tags": [
+    "youtube",
+    "بطاقة",
+    "قناة",
+    "اشتراك",
+    "صورة"
+   ]
+  },
+  "template:yp14-tarjeta-foto-progreso": {
+   "name": "بطاقة قناة: صورة مع شريط تقدم وإعجابات",
+   "tags": [
+    "youtube",
+    "بطاقة",
+    "قناة",
+    "اشتراك",
+    "صورة"
+   ]
+  },
+  "template:yp14-tarjeta-foto-recta": {
+   "name": "بطاقة قناة: صورة مؤطرة مع إعجاب واشتراك وجرس",
+   "tags": [
+    "youtube",
+    "بطاقة",
+    "قناة",
+    "اشتراك",
+    "صورة"
+   ]
+  },
+  "template:yp14-tarjeta-marco": {
+   "name": "بطاقة قناة: إطار أبيض فوق الصورة مع شريط تقدم",
+   "tags": [
+    "youtube",
+    "بطاقة",
+    "قناة",
+    "اشتراك",
+    "صورة"
+   ]
+  },
+  "template:yp14-tarjeta-marco-inclinado": {
+   "name": "بطاقة قناة: إطار أبيض مائل فوق الصورة",
+   "tags": [
+    "youtube",
+    "بطاقة",
+    "قناة",
+    "اشتراك",
+    "صورة"
+   ]
+  },
+  "template:yp14-tarjeta-video-compartir": {
+   "name": "بطاقة فيديو مع إعجاب ومشاركة واشتراك",
+   "tags": [
+    "youtube",
+    "بطاقة",
+    "قناة"
+   ]
+  },
+  "template:yp14-tarjeta-video-cuadrada": {
+   "name": "بطاقة فيديو مائلة بصورة رمزية مربعة وزر أحمر",
+   "tags": [
+    "youtube",
+    "بطاقة",
+    "فيديو",
+    "اشتراك",
+    "صورة"
+   ]
+  },
+  "template:yp14-tarjeta-video-play": {
+   "name": "بطاقة فيديو: انقر تشغيل فيملأ الفيديو الإطار",
+   "tags": [
+    "youtube",
+    "بطاقة",
+    "فيديو",
+    "تشغيل"
+   ]
+  },
+  "template:yp14-tarjeta-video-titulo": {
+   "name": "بطاقة فيديو بالقناة في الأعلى وعنوان: انقر تشغيل",
+   "tags": [
+    "youtube",
+    "بطاقة",
+    "فيديو",
+    "تشغيل"
+   ]
+  },
+  "template:yp14-tres-botones-blancos": {
+   "name": "ثلاثة أزرار بيضاء: إعجاب وجرس ومشاركة بنقرة واحدة",
+   "tags": [
+    "youtube",
+    "زر",
+    "نص",
+    "صف"
+   ]
+  },
+  "template:yp14-valoracion-abajo": {
+   "name": "شريط القناة في الأسفل مع إعجاب وعدم إعجاب وتقييم",
+   "tags": [
+    "youtube",
+    "شريط",
+    "قناة",
+    "اشتراك",
+    "صورة"
+   ]
+  },
+  "template:yp14-youtube-channel": {
+   "name": "«YOUTUBE CHANNEL» يصبح أحمر بالنقر",
+   "tags": [
+    "youtube",
+    "زر",
+    "نص",
+    "عنوان"
+   ]
+  },
+  "template:yp15-cargo-verde": {
+   "name": "شريط سفلي زجاجي، الوظيفة بالأخضر",
+   "tags": [
+    "youtube",
+    "شريط سفلي",
+    "زجاج",
+    "اسم"
+   ]
+  },
+  "template:yp15-centrado": {
+   "name": "شريط سفلي زجاجي في المنتصف مع اشتراك",
+   "tags": [
+    "youtube",
+    "شريط سفلي",
+    "زجاج",
+    "اسم",
+    "اشترك"
+   ]
+  },
+  "template:yp15-dos-nombres": {
+   "name": "شريط سفلي زجاجي: اسمان",
+   "tags": [
+    "youtube",
+    "شريط سفلي",
+    "زجاج",
+    "اسم",
+    "شخصان"
+   ]
+  },
+  "template:yp15-foto-redonda": {
+   "name": "شريط سفلي زجاجي بصورة دائرية",
+   "tags": [
+    "youtube",
+    "شريط سفلي",
+    "زجاج",
+    "اسم",
+    "صورة",
+    "صورة رمزية"
+   ]
+  },
+  "template:yp15-foto-suscribete": {
+   "name": "شريط سفلي زجاجي بصورة واشتراك",
+   "tags": [
+    "youtube",
+    "شريط سفلي",
+    "زجاج",
+    "اسم",
+    "اشترك",
+    "صورة"
+   ]
+  },
+  "template:yp15-linea-fina": {
+   "name": "شريط سفلي زجاجي رفيع",
+   "tags": [
+    "youtube",
+    "شريط سفلي",
+    "زجاج",
+    "اسم"
+   ]
+  },
+  "template:yp15-logo-nombre": {
+   "name": "شريط سفلي زجاجي بشعار",
+   "tags": [
+    "youtube",
+    "شريط سفلي",
+    "زجاج",
+    "اسم",
+    "شعار"
+   ]
+  },
+  "template:yp15-logo-suscribete": {
+   "name": "شريط سفلي زجاجي بشعار واشتراك",
+   "tags": [
+    "youtube",
+    "شريط سفلي",
+    "زجاج",
+    "اسم",
+    "اشترك",
+    "شعار"
+   ]
+  },
+  "template:yp15-nombre-suscribete": {
+   "name": "شريط سفلي زجاجي مع اشتراك",
+   "tags": [
+    "youtube",
+    "شريط سفلي",
+    "زجاج",
+    "اسم",
+    "اشترك"
+   ]
+  },
+  "template:yp15-pareja": {
+   "name": "شريط سفلي زجاجي: شخصان مع صورة",
+   "tags": [
+    "youtube",
+    "شريط سفلي",
+    "زجاج",
+    "اسم",
+    "شخصان",
+    "صورة"
+   ]
+  },
+  "template:yp15-tarjeta-foto": {
+   "name": "بطاقة زجاجية بصورة وشعار",
+   "tags": [
+    "youtube",
+    "شريط سفلي",
+    "زجاج",
+    "اسم",
+    "صورة",
+    "شعار"
+   ]
+  },
+  "template:yp15-una-linea": {
+   "name": "شريط سفلي زجاجي من سطر واحد",
+   "tags": [
+    "youtube",
+    "شريط سفلي",
+    "زجاج",
+    "اسم"
+   ]
+  },
+  "template:yp16-barra-nombre": {
+   "name": "شريط زجاجي بالاسم والاشتراك",
+   "tags": [
+    "youtube",
+    "زجاج",
+    "اشترك",
+    "نقرة",
+    "صورة"
+   ]
+  },
+  "template:yp16-barra-suscribete": {
+   "name": "شريط زجاجي بصورة واشتراك",
+   "tags": [
+    "youtube",
+    "زجاج",
+    "اشترك",
+    "نقرة",
+    "صورة"
+   ]
+  },
+  "template:yp16-burbuja-canal": {
+   "name": "فقاعة زجاجية بصورة وقناة",
+   "tags": [
+    "youtube",
+    "زجاج",
+    "قناة",
+    "صورة"
+   ]
+  },
+  "template:yp16-circulo": {
+   "name": "دائرة زجاجية بصورة واشتراك",
+   "tags": [
+    "youtube",
+    "زجاج",
+    "اشترك",
+    "نقرة",
+    "صورة",
+    "دائرة"
+   ]
+  },
+  "template:yp16-join-us": {
+   "name": "كبسولة زجاجية داكنة: انضم إلينا الآن",
+   "tags": [
+    "youtube",
+    "زجاج",
+    "انضم"
+   ]
+  },
+  "template:yp16-pildora-canal": {
+   "name": "كبسولة زجاجية بصورة في المنتصف",
+   "tags": [
+    "youtube",
+    "زجاج",
+    "قناة",
+    "صورة"
+   ]
+  },
+  "template:yp16-stay-tuned": {
+   "name": "دائرة زجاجية: ابقوا معنا",
+   "tags": [
+    "youtube",
+    "زجاج",
+    "دائرة"
+   ]
+  },
+  "template:yp16-tarjeta-cuadrada": {
+   "name": "بطاقة زجاجية مربعة مع اشتراك",
+   "tags": [
+    "youtube",
+    "زجاج",
+    "اشترك",
+    "نقرة",
+    "صورة"
+   ]
+  },
+  "template:yp16-tarjeta-nombre": {
+   "name": "بطاقة زجاجية بالاسم والاشتراك",
+   "tags": [
+    "youtube",
+    "زجاج",
+    "اشترك",
+    "نقرة",
+    "صورة"
+   ]
+  },
+  "template:yp16-tarjeta-vertical": {
+   "name": "بطاقة زجاجية عمودية مع اشتراك",
+   "tags": [
+    "youtube",
+    "زجاج",
+    "اشترك",
+    "نقرة",
+    "صورة"
+   ]
+  },
+  "template:yp16-watch-more": {
+   "name": "فقاعة زجاجية: شاهد المزيد",
+   "tags": [
+    "youtube",
+    "زجاج",
+    "شاهد المزيد"
+   ]
+  },
+  "template:yp17-barra-canal": {
+   "name": "شريط مسطح بصورة واشتراك",
+   "tags": [
+    "youtube",
+    "بطاقة",
+    "مسطح",
+    "اشترك",
+    "نقرة",
+    "صورة"
+   ]
+  },
+  "template:yp17-barra-foto": {
+   "name": "شريط مسطح بصورة في المنتصف",
+   "tags": [
+    "youtube",
+    "بطاقة",
+    "مسطح",
+    "اشترك",
+    "نقرة",
+    "صورة"
+   ]
+  },
+  "template:yp17-barra-titulo": {
+   "name": "شريط مسطح بصورة وعنوان",
+   "tags": [
+    "youtube",
+    "بطاقة",
+    "مسطح",
+    "اشترك",
+    "نقرة",
+    "صورة"
+   ]
+  },
+  "template:yp17-boton-youtube": {
+   "name": "بطاقة مسطحة بزر YouTube",
+   "tags": [
+    "youtube",
+    "بطاقة",
+    "مسطح",
+    "زر",
+    "تشغيل"
+   ]
+  },
+  "template:yp17-foto-arriba": {
+   "name": "صورة دائرية فوق بطاقة اشتراك",
+   "tags": [
+    "youtube",
+    "بطاقة",
+    "مسطح",
+    "اشترك",
+    "نقرة",
+    "صورة"
+   ]
+  },
+  "template:yp17-foto-cuadrada": {
+   "name": "صورة مربعة وشريط اشتراك",
+   "tags": [
+    "youtube",
+    "بطاقة",
+    "مسطح",
+    "اشترك",
+    "نقرة",
+    "صورة"
+   ]
+  },
+  "template:yp17-join-us": {
+   "name": "بطاقة مسطحة: انضم إلينا مع YouTube",
+   "tags": [
+    "youtube",
+    "بطاقة",
+    "مسطح",
+    "انضم"
+   ]
+  },
+  "template:yp17-tarjeta-nombre": {
+   "name": "بطاقة مسطحة بصورة وYouTube واشتراك",
+   "tags": [
+    "youtube",
+    "بطاقة",
+    "مسطح",
+    "اشترك",
+    "نقرة",
+    "صورة"
+   ]
+  },
+  "template:yp17-tarjeta-vertical": {
+   "name": "بطاقة مسطحة عمودية مع اشتراك",
+   "tags": [
+    "youtube",
+    "بطاقة",
+    "مسطح",
+    "اشترك",
+    "نقرة",
+    "صورة"
+   ]
+  },
+  "template:yp17-watch-more": {
+   "name": "بطاقة مسطحة: شاهد المزيد",
+   "tags": [
+    "youtube",
+    "بطاقة",
+    "مسطح",
+    "شاهد المزيد"
+   ]
+  },
   "template:yp2-apertura": {
    "name": "افتتاحية: حلقة حمراء وبيضاء مع زر يوتيوب",
    "tags": [
@@ -40659,6 +42951,505 @@
     "أبيض وأسود",
     "موضة",
     "انتقال"
+   ]
+  },
+  "template:yp8-disfruta": {
+   "name": "خاتمة: enjoy",
+   "tags": [
+    "youtube",
+    "خاتمة",
+    "نص"
+   ]
+  },
+  "template:yp8-logo-formas-claro": {
+   "name": "افتتاحية: أشكال برتقالية تكشف شعارك",
+   "tags": [
+    "youtube",
+    "شعار",
+    "افتتاحية",
+    "أشكال"
+   ]
+  },
+  "template:yp8-logo-formas-oscuro": {
+   "name": "افتتاحية: أشكال تكشف شعارك (داكن)",
+   "tags": [
+    "youtube",
+    "شعار",
+    "افتتاحية",
+    "أشكال"
+   ]
+  },
+  "template:yp8-logo-formas-video": {
+   "name": "افتتاحية: أشكال بيضاء وشعارك فوق الفيديو",
+   "tags": [
+    "youtube",
+    "شعار",
+    "افتتاحية",
+    "أشكال"
+   ]
+  },
+  "template:yp8-logo-youtube-claro": {
+   "name": "شعار YouTube يتشكّل (خلفية بيضاء)",
+   "tags": [
+    "youtube",
+    "شعار",
+    "افتتاحية",
+    "أبيض"
+   ]
+  },
+  "template:yp8-logo-youtube-oscuro": {
+   "name": "شعار YouTube يتشكّل (خلفية داكنة)",
+   "tags": [
+    "youtube",
+    "شعار",
+    "افتتاحية",
+    "داكن"
+   ]
+  },
+  "template:yp8-logo-youtube-video": {
+   "name": "شعار YouTube أبيض فوق الفيديو",
+   "tags": [
+    "youtube",
+    "شعار",
+    "افتتاحية",
+    "أبيض"
+   ]
+  },
+  "template:yp8-me-gusta-blanco": {
+   "name": "إعجاب في دائرة بيضاء",
+   "tags": [
+    "youtube",
+    "إعجاب",
+    "زر",
+    "دائرة"
+   ]
+  },
+  "template:yp8-me-gusta-oscuro": {
+   "name": "إعجاب في دائرة داكنة",
+   "tags": [
+    "youtube",
+    "إعجاب",
+    "زر",
+    "دائرة"
+   ]
+  },
+  "template:yp8-redes-tercios": {
+   "name": "سبعة أشرطة سفلية لمواقع التواصل",
+   "tags": [
+    "youtube",
+    "تواصل اجتماعي",
+    "شريط سفلي",
+    "instagram",
+    "twitter",
+    "facebook"
+   ]
+  },
+  "template:yp8-suscribirse-blanco": {
+   "name": "شريط اشتراك مع نقرة وجرس",
+   "tags": [
+    "youtube",
+    "اشترك",
+    "زر",
+    "نقرة",
+    "جرس"
+   ]
+  },
+  "template:yp8-suscribirse-oscuro": {
+   "name": "شريط اشتراك مع نقرة وجرس (داكن)",
+   "tags": [
+    "youtube",
+    "اشترك",
+    "زر",
+    "نقرة",
+    "جرس"
+   ]
+  },
+  "template:yp8-tercio-facebook": {
+   "name": "شريط سفلي: تابعونا على Facebook",
+   "tags": [
+    "youtube",
+    "شريط سفلي",
+    "تواصل اجتماعي"
+   ]
+  },
+  "template:yp8-tercio-instagram": {
+   "name": "شريط سفلي: حساب Instagram",
+   "tags": [
+    "youtube",
+    "شريط سفلي",
+    "تواصل اجتماعي"
+   ]
+  },
+  "template:yp8-tercio-nombre": {
+   "name": "شريط سفلي: الاسم والوظيفة",
+   "tags": [
+    "youtube",
+    "شريط سفلي",
+    "تواصل اجتماعي"
+   ]
+  },
+  "template:yp8-tercio-twitter": {
+   "name": "شريط سفلي: حساب Twitter",
+   "tags": [
+    "youtube",
+    "شريط سفلي",
+    "تواصل اجتماعي"
+   ]
+  },
+  "template:yp8-tercio-youtube": {
+   "name": "شريط سفلي: اشترك في قناتي",
+   "tags": [
+    "youtube",
+    "شريط سفلي",
+    "تواصل اجتماعي"
+   ]
+  },
+  "template:yp8-tercio-yt-blanco": {
+   "name": "شريط سفلي: حساب YouTube",
+   "tags": [
+    "youtube",
+    "شريط سفلي",
+    "تواصل اجتماعي"
+   ]
+  },
+  "template:yp8-tercio-yt-oscuro": {
+   "name": "شريط سفلي: اشترك على YouTube (داكن)",
+   "tags": [
+    "youtube",
+    "شريط سفلي",
+    "تواصل اجتماعي"
+   ]
+  },
+  "template:yp8-transicion-ola": {
+   "name": "انتقال: موجة زرقاء وخضراء",
+   "tags": [
+    "youtube",
+    "انتقال",
+    "تدرج لوني"
+   ]
+  },
+  "template:yp8-transicion-rombo": {
+   "name": "انتقال: معيّن أزرق وأخضر صاعد",
+   "tags": [
+    "youtube",
+    "انتقال",
+    "تدرج لوني"
+   ]
+  },
+  "template:yp9-barra-canal": {
+   "name": "شريط اسم القناة مع جرس",
+   "tags": [
+    "youtube",
+    "شريط",
+    "قناة",
+    "جرس",
+    "اشترك"
+   ]
+  },
+  "template:yp9-bloques-glitch": {
+   "name": "كتل ألوان بتأثير غليتش",
+   "tags": [
+    "youtube",
+    "غليتش",
+    "ألوان",
+    "تشويش"
+   ]
+  },
+  "template:yp9-boton-suscribirse": {
+   "name": "زر اشتراك يمتلئ ويُنقر",
+   "tags": [
+    "youtube",
+    "اشترك",
+    "زر",
+    "نقرة",
+    "مؤشر"
+   ]
+  },
+  "template:yp9-boton-ventana": {
+   "name": "زر تشغيل يتحول إلى نافذة فيديو",
+   "tags": [
+    "youtube",
+    "تشغيل",
+    "نافذة",
+    "انتقال"
+   ]
+  },
+  "template:yp9-cinta-tendencia": {
+   "name": "شريط رائج أصفر مع عنوان",
+   "tags": [
+    "youtube",
+    "شريط لاصق",
+    "رائج",
+    "عنوان"
+   ]
+  },
+  "template:yp9-corazones-flotando": {
+   "name": "قلوب تصعد فوق الفيديو",
+   "tags": [
+    "youtube",
+    "قلوب",
+    "حب",
+    "فيديو"
+   ]
+  },
+  "template:yp9-destello-a": {
+   "name": "وميض خربشات A",
+   "tags": [
+    "youtube",
+    "وميض",
+    "خربشات",
+    "لمعان"
+   ]
+  },
+  "template:yp9-destello-b": {
+   "name": "وميض خربشات B",
+   "tags": [
+    "youtube",
+    "وميض",
+    "خربشات",
+    "لمعان"
+   ]
+  },
+  "template:yp9-destello-c": {
+   "name": "وميض خربشات C",
+   "tags": [
+    "youtube",
+    "وميض",
+    "خربشات",
+    "لمعان"
+   ]
+  },
+  "template:yp9-enlace-behance": {
+   "name": "شريط رابط: behance",
+   "tags": [
+    "youtube",
+    "تواصل اجتماعي",
+    "رابط",
+    "شريط",
+    "behance"
+   ]
+  },
+  "template:yp9-enlace-dribbble": {
+   "name": "شريط رابط: dribbble",
+   "tags": [
+    "youtube",
+    "تواصل اجتماعي",
+    "رابط",
+    "شريط",
+    "dribbble"
+   ]
+  },
+  "template:yp9-enlace-facebook": {
+   "name": "شريط رابط: facebook",
+   "tags": [
+    "youtube",
+    "تواصل اجتماعي",
+    "رابط",
+    "شريط",
+    "facebook"
+   ]
+  },
+  "template:yp9-enlace-google": {
+   "name": "شريط رابط: google",
+   "tags": [
+    "youtube",
+    "تواصل اجتماعي",
+    "رابط",
+    "شريط",
+    "google"
+   ]
+  },
+  "template:yp9-enlace-instagram": {
+   "name": "شريط رابط: instagram",
+   "tags": [
+    "youtube",
+    "تواصل اجتماعي",
+    "رابط",
+    "شريط",
+    "instagram"
+   ]
+  },
+  "template:yp9-enlace-itunes": {
+   "name": "شريط رابط: itunes",
+   "tags": [
+    "youtube",
+    "تواصل اجتماعي",
+    "رابط",
+    "شريط",
+    "itunes"
+   ]
+  },
+  "template:yp9-enlace-patreon": {
+   "name": "شريط رابط: patreon",
+   "tags": [
+    "youtube",
+    "تواصل اجتماعي",
+    "رابط",
+    "شريط",
+    "patreon"
+   ]
+  },
+  "template:yp9-enlace-soundcloud": {
+   "name": "شريط رابط: soundcloud",
+   "tags": [
+    "youtube",
+    "تواصل اجتماعي",
+    "رابط",
+    "شريط",
+    "soundcloud"
+   ]
+  },
+  "template:yp9-enlace-spotify": {
+   "name": "شريط رابط: spotify",
+   "tags": [
+    "youtube",
+    "تواصل اجتماعي",
+    "رابط",
+    "شريط",
+    "spotify"
+   ]
+  },
+  "template:yp9-enlace-telegram": {
+   "name": "شريط رابط: telegram",
+   "tags": [
+    "youtube",
+    "تواصل اجتماعي",
+    "رابط",
+    "شريط",
+    "telegram"
+   ]
+  },
+  "template:yp9-enlace-twitter": {
+   "name": "شريط رابط: twitter",
+   "tags": [
+    "youtube",
+    "تواصل اجتماعي",
+    "رابط",
+    "شريط",
+    "twitter"
+   ]
+  },
+  "template:yp9-enlace-vimeo": {
+   "name": "شريط رابط: vimeo",
+   "tags": [
+    "youtube",
+    "تواصل اجتماعي",
+    "رابط",
+    "شريط",
+    "vimeo"
+   ]
+  },
+  "template:yp9-etiqueta-usuario": {
+   "name": "شارة بأيقونة و@اسم المستخدم",
+   "tags": [
+    "youtube",
+    "اسم المستخدم",
+    "تواصل اجتماعي",
+    "ملصق"
+   ]
+  },
+  "template:yp9-live-stream-blanco": {
+   "name": "عنوان LIVE STREAM أبيض مع زر",
+   "tags": [
+    "youtube",
+    "بث مباشر",
+    "مباشر",
+    "بث"
+   ]
+  },
+  "template:yp9-live-stream-rojo": {
+   "name": "عنوان LIVE STREAM في صناديق حمراء وسوداء",
+   "tags": [
+    "youtube",
+    "بث مباشر",
+    "مباشر",
+    "بث"
+   ]
+  },
+  "template:yp9-me-gusta-cursor": {
+   "name": "إعجاب يصبح أزرق بالمؤشر",
+   "tags": [
+    "youtube",
+    "إعجاب",
+    "نقرة",
+    "مؤشر"
+   ]
+  },
+  "template:yp9-me-gusta-destello": {
+   "name": "إعجاب متوهج ينفجر بنقرة",
+   "tags": [
+    "youtube",
+    "إعجاب",
+    "نقرة",
+    "وميض"
+   ]
+  },
+  "template:yp9-perfil": {
+   "name": "ملف شخصي بصورة وزر متابعة وعدادات",
+   "tags": [
+    "youtube",
+    "ملف شخصي",
+    "متابعة",
+    "عداد",
+    "تواصل اجتماعي"
+   ]
+  },
+  "template:yp9-rayo": {
+   "name": "برق يتشكّل من خط",
+   "tags": [
+    "youtube",
+    "برق",
+    "مقدمة"
+   ]
+  },
+  "template:yp9-redes-enlaces": {
+   "name": "اثنا عشر شريط روابط للتواصل الاجتماعي",
+   "tags": [
+    "youtube",
+    "تواصل اجتماعي",
+    "رابط",
+    "شريط",
+    "behance",
+    "instagram"
+   ]
+  },
+  "template:yp9-sticker-suscrito": {
+   "name": "زر تشغيل يتحول إلى ملصق «مشترك»",
+   "tags": [
+    "youtube",
+    "اشترك",
+    "ملصق",
+    "نقرة"
+   ]
+  },
+  "template:yp9-tarjeta-canal": {
+   "name": "بطاقة قناة بصورة دائرية واشتراك",
+   "tags": [
+    "youtube",
+    "بطاقة",
+    "قناة",
+    "اشترك",
+    "نقرة"
+   ]
+  },
+  "template:yp9-telefono-feed": {
+   "name": "هاتف بفيديو عمودي وأزرار",
+   "tags": [
+    "youtube",
+    "هاتف",
+    "عمودي",
+    "تواصل اجتماعي",
+    "إعجاب"
+   ]
+  },
+  "template:yp9-telefono-reacciones": {
+   "name": "هاتف مع قلوب وإعجابات",
+   "tags": [
+    "youtube",
+    "هاتف",
+    "إعجاب",
+    "قلوب",
+    "تواصل اجتماعي"
    ]
   },
   "template:yt-calle-a-que-te-dedicas": {
