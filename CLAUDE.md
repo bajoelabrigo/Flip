@@ -86,6 +86,14 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
 - **0.32 en curso** (`flip/v0.32`, worktree `codigo\Flip-032`, `docs/plan-0.32.md`): Colores en el panel Plantilla,
   «Instalar todo» de extras en segundo plano (sigue al cerrar la app), ventana de inicio de sesión de Stock, y el
   desenfoque del cristal (máscara de capa de ajuste) en el ajuste Short/Video.
+- **Al cerrar el 2026-11-16 (madrugada):** `flip/v0.32` = `ff569` (todo unido: motor de líquidos, Goteo, VFX A–E y H,
+  grupos de recorte, tono por pieza; CI en verde), portable `pruebas\FlipStudio-0.32-todo2`. VFX en `flip/v0.32-vfx`
+  (`docs/plan-vfx.md` › Estado): Jorge aprobó los líquidos v2 («me convenció»); sigue la próxima familia (humo). Nada de
+  VFX en Stock: licencia y entrega las decide Jorge. yp10 v3 aprobado (`28c44`).
+- **Falta, en orden:** probar la 0.32 en ventana con `-todo2` (Colores, ventana de sesión de Stock, «Instalar todo» con
+  los 4 extras y cerrando la app a mitad —Jorge lo autorizó—, paneles nuevos de formas); renderizar de nuevo yp15/yp16
+  con `GLASS_BLUR=True` con la 0.32; mirar muestras de yp8–yp17 en ventana; traducir las 299 piezas a 13 idiomas y
+  subir (yp10/15/16 solo los ve la 0.32).
 - **Segundo grupo del Kit de YouTube** (yp8–yp17, `docs/plan-youtube-pack-2.md`), sin subir.
 - **Trampa nueva:** al subir una tanda grande a Stock, mirar la **primera página** de su tipo con la versión nueva.
 
