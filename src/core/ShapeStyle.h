@@ -130,10 +130,6 @@ struct ShapeStyle
     // contours (0 off, 1 add, 2 subtract, 3 intersect, 4 exclude), Offset Paths (px, negative
     // shrinks), Zig Zag (size px, ridges per contour, smooth 0/1) and Twist (degrees at the rim).
     double mergeMode = 0.0;
-    // A group only (0.32, cartoon VFX: the dark pockets and the shine of a drop): the parts above the bottom one are
-    // seen only inside the bottom part's outline, each in its own colours and with its own keys (After Effects' «Alpha
-    // Inherit» / a clipping group in Photoshop). false = each part painted on its own, as before.
-    bool clipChildren = false;
     double offsetPath = 0.0;
     double zigzagSize = 0.0;
     double zigzagRidges = 12.0;
@@ -259,6 +255,10 @@ struct ShapePart
     // (1 add, 2 subtract, 3 intersect, 4 exclude; the bottom part is the base and each part above is merged onto it)
     // and painted with the bottom part's paint layers. 0 = each part painted on its own, as before.
     double mergeMode = 0.0;
+    // A group only (0.32, cartoon VFX: the dark pockets and the shine of a drop): the parts above the bottom one are
+    // seen only inside the bottom part's outline, each in its own colours and with its own keys (After Effects' «Alpha
+    // Inherit» / a clipping group in Photoshop). false = each part painted on its own, as before.
+    bool clipChildren = false;
     // A shape part: its outline fills width × height (project px) centred on its origin, drawn by
     // `shape` exactly as a plain shape layer of that size would be. A group: `children` instead.
     double width = 100.0;
