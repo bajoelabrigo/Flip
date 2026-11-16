@@ -2,7 +2,7 @@
 
 Pedidos de Jorge del 2026-11-15. La versión sigue en 0.31.0 en `CMakeLists.txt` (la decide quien coordina).
 
-## 1. Colores en el panel Plantilla — HECHO (código), falta probar en ventana
+## 1. Colores en el panel Plantilla — HECHO y probado en ventana (2026-11-16)
 
 - `TemplateFillPanel.qml`: sección **Colores** (antes de Música): los colores de la plantilla, los más usados
   primero (hasta 10). Clic en una muestra → el selector de color de siempre (`ColorSwatchField`) → cambia ese color
@@ -16,7 +16,7 @@ Pedidos de Jorge del 2026-11-15. La versión sigue en 0.31.0 en `CMakeLists.txt`
   `src/models/SceneTemplates.cpp`: recorren la composición de la plantilla y las composiciones de dentro.
 - Prueba: `CoreTest::sceneTemplateColoursAreListedAndReplaced` (`tests/tst_core.cpp`).
 
-## 2. «Instalar todo» de los extras — HECHO (código), falta probar en ventana
+## 2. «Instalar todo» de los extras — HECHO y probado en ventana (2026-11-16)
 
 (Jorge corrigió: no eran los efectos de Stock sino los **extras**. La descarga de todos los efectos de Stock no se hizo.)
 
@@ -39,7 +39,7 @@ Pedidos de Jorge del 2026-11-15. La versión sigue en 0.31.0 en `CMakeLists.txt`
 - Si se mata el proceso: la cola queda en `QSettings` `addons/installAllPending`; al arrancar, a los 5 s, un aviso
   ofrece «Instalarlos».
 
-## 3. Iniciar sesión en Stock más visible — HECHO (código), falta probar en ventana
+## 3. Iniciar sesión en Stock más visible — HECHO y probado en ventana (2026-11-16)
 
 - `SignInRequiredDialog.qml`: motivo nuevo `"stock"` («Inicia sesión para usar Stock», todo es gratis).
 - `MarketTab.qml`: sin sesión, al abrir Stock sale ese diálogo **una vez por sesión de la app**
@@ -57,7 +57,7 @@ Pedidos de Jorge del 2026-11-15. La versión sigue en 0.31.0 en `CMakeLists.txt`
   principal la porta quien coordina.
 - Prueba: `EditorStateTest::sceneTemplateLayoutMovesLooseAdjustmentMasks`.
 
-## 5. Motor para animación líquida / de dibujo animado — HECHO (código), falta probar en ventana
+## 5. Motor para animación líquida / de dibujo animado — HECHO y probado en ventana (2026-11-16)
 
 Pedido de Jorge (2026-11-15, yp10): «la animación líquida está fea; si tienes que corregir tu motor hazlo para que nos
 quede para próximas animaciones que van a ser así». Lo que había ya servía a medias (Trim Paths, Taper, Wiggle Paths,
@@ -113,7 +113,19 @@ quebrados y salpicaduras en anillos de puntos). Lo nuevo:
   trampa que `.e2e-app`). Para este worktree se copió el `bin` de Qt a `E:\FlipStudio\pruebas\qttools-6.10.3\bin`
   y `Flip-032\.qtmingw\6.10.3\mingw_64\bin` es una unión a esa carpeta.
 - CI: (ver abajo).
-- En ventana: pendiente.
+- En ventana (2026-11-16, portable `pruebas\FlipStudio-0.32-todo2`, capturas en `pruebas032-ventana`):
+  - Colores: «Título con barras» del Kit de YouTube, 5 muestras; turquesa → `#ff7a00` cambia barras y caja del
+    subtítulo; un solo «Deshacer» lo devuelve.
+  - Instalar todo: 4 extras (596 MB), tarjeta «Instalando extras: 2 de 4»; al cerrar la ventana a mitad, la app
+    sigue escondida, termina las 4 y se cierra sola (~70 s).
+  - Stock sin sesión: sale «Inicia sesión para usar Stock» y el aviso del panel arriba; al volver a Stock no repite.
+  - Formas: Goteo, zigzag, Romperse, tono interior por pieza, posterizar tiempo (12) y grupo de recorte (un
+    rectángulo dentro de una elipse se ve solo dentro de ella) se ven en la vista previa.
+  - Arreglado después: la fila Gotas/Ancho/Semilla del Goteo cortaba las etiquetas («C…», «A…», «Se…»): ahora
+    van dos por fila y la semilla sola. **Sin compilar** (va en la próxima compilación).
+  - Notas menores, sin tocar: la tarjeta de «Instalar todo» tapa la de la cuenta abajo a la izquierda; el
+    deslizador de Posición X de una parte es muy sensible (52 px de arrastre = 1391 px); el interruptor del grupo
+    de recorte no hace nada con una sola parte dentro (es lo esperado).
 
 ## 7. Motor VFX (A–E) — rama `flip/v0.32-vfx` (worktree `codigo\Flip-032-vfx`), para unir a `flip/v0.32`
 

@@ -1245,11 +1245,12 @@ Item {
                         unit: "px"
                     }
                 }
+                // Two a row: three a row cut the labels to «C…», «A…», «Se…» (window test, 2026-11-16).
                 Row {
                     width: parent.width
                     spacing: 8
                     PropertyKeyframeRow {
-                        width: (parent.width - parent.spacing) / 3 * 1 - 4
+                        width: (parent.width - parent.spacing) / 2
                         propDef: root.knob("dripCount", qsTr("Drips"), 0)
                         keyframeList: root.knobKeyframes("dripCount")
                         useSlider: true
@@ -1258,7 +1259,7 @@ Item {
                         inputTo: 64
                     }
                     PropertyKeyframeRow {
-                        width: (parent.width - parent.spacing) / 3 * 1 - 4
+                        width: (parent.width - parent.spacing) / 2
                         propDef: root.knob("dripWidth", qsTr("Width"), 0)
                         keyframeList: root.knobKeyframes("dripWidth")
                         useSlider: true
@@ -1267,15 +1268,15 @@ Item {
                         inputTo: 1000
                         unit: "px"
                     }
-                    PropertyKeyframeRow {
-                        width: (parent.width - parent.spacing) / 3 * 1 - 4
-                        propDef: root.knob("dripSeed", qsTr("Random seed"), 0)
-                        keyframeList: root.knobKeyframes("dripSeed")
-                        useSlider: true
-                        sliderFrom: 0
-                        sliderTo: 100
-                        inputTo: 1000
-                    }
+                }
+                PropertyKeyframeRow {
+                    width: parent.width
+                    propDef: root.knob("dripSeed", qsTr("Random seed"), 0)
+                    keyframeList: root.knobKeyframes("dripSeed")
+                    useSlider: true
+                    sliderFrom: 0
+                    sliderTo: 100
+                    inputTo: 1000
                 }
             }
         }
