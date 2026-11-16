@@ -931,9 +931,11 @@ ApplicationWindow {
     AddonBulkStrip {
         id: addonBulkStrip
         z: 999
-        anchors.left: parent.left
+        // Bottom right: on the left it covered the account card of the start screen and the track headers
+        // (window test, 2026-11-16).
+        anchors.right: parent.right
         anchors.bottom: parent.bottom
-        anchors.leftMargin: Theme.spacing3xl
+        anchors.rightMargin: Theme.spacing3xl
         anchors.bottomMargin: Theme.spacing3xl
         onOpenRequested: window.openAddonManager()
     }

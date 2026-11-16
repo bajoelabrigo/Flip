@@ -426,16 +426,50 @@ Column {
         checked: !!root.info && Number(root.info.posterizeFps || 0) > 0
         onToggled: EditorState.setClipPosterizeFps(root.trackIndex, root.clipIndex, checked ? 12 : 0)
     }
-    ThemedNumberField {
+    // The number alone read as «12» with nothing to say what it counts (window test, 2026-11-16).
+    Row {
         width: parent.width
+        spacing: Theme.spacingMd
         visible: !!root.info && Number(root.info.posterizeFps || 0) > 0
-        from: 1
-        to: 60
-        step: 1
-        unit: qsTr("fps")
-        value: !!root.info ? Number(root.info.posterizeFps || 12) : 12
-        placeholderText: qsTr("Drawings per second")
-        onEdited: v => EditorState.setClipPosterizeFps(root.trackIndex, root.clipIndex, v)
+
+        ThemedNumberField {
+            id: posterizeField
+            width: 96
+            from: 1
+            to: 60
+            step: 1
+            value: !!root.info ? Number(root.info.posterizeFps || 12) : 12
+            onEdited: v => EditorState.setClipPosterizeFps(root.trackIndex, root.clipIndex, v)
+        }
+        Text {
+            width: parent.width - posterizeField.width - parent.spacing
+            anchors.verticalCenter: posterizeField.verticalCenter
+            wrapMode: Text.WordWrap
+            text: qsTr("drawings per second")
+            color: Theme.mutedForeground
+            font.family: Theme.fontFamily
+            font.pixelSize: Theme.fontSizeSm
+        }
+    }
+
+    // Photoshop's Pass Through group (0.32): the composite's adjustment layers reach the video under it.
+    ThemedSwitch {
+        width: parent.width
+        visible: !!root.info && !!root.info.composite
+        text: qsTr("Pass through")
+        tooltip: qsTr("The adjustment layers inside this composite (a blur, a colour grade) also change the video under it, like a Photoshop group in Pass Through")
+        checked: !!root.info && !!root.info.passThrough
+        onToggled: EditorState.setClipPassThrough(root.trackIndex, root.clipIndex, checked)
+    }
+    Text {
+        width: parent.width
+        wrapMode: Text.WordWrap
+        visible: !!root.info && !!root.info.composite && !!root.info.passThrough
+        text: qsTr("Works while the composite stays as it is: moving, scaling, fading or adding effects to it draws it as a plain composite again.")
+        color: Theme.mutedForeground
+        font.family: Theme.fontFamily
+        font.pixelSize: Theme.fontSizeXs
+        opacity: 0.8
     }
 
     ThemedSwitch {

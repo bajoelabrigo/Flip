@@ -667,6 +667,9 @@ QString AppController::placeSceneTemplate(const QString &templateId, bool record
     }
     drift::Clip *composite = findClipAnywhere(m_project, compositeId);
     if (composite) {
+        // A template whose adjustment layers are meant for the video under it (the frosted glass of a lower
+        // third, 0.32) asks for Pass Through, so they reach past the composite.
+        composite->passThrough = entry->passThrough;
         if (drift::MediaAsset *asset = m_project.asset(composite->assetId)) {
             asset->generator = QJsonObject{
                 {QStringLiteral("kind"), kSceneTemplateKind},

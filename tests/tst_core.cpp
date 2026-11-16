@@ -159,6 +159,7 @@ private slots:
     void shapePathSmoothMorph();
     void shapePathSmoothMorphKeepsCornersAndGrowsFromCentre();
     void cartoonVfxFieldsRoundTrip();
+    void compositePassThroughRoundTrips();
     void trackBehaviorsLoopWiggleAndSpeed();
     void timeRemapAndAutoOrient();
     void legacyShapeStyleLoadsWithDefaults();
@@ -2178,6 +2179,27 @@ void CoreTest::cartoonVfxFieldsRoundTrip()
     QCOMPARE(loaded.tracks().at(0).clips.at(0).posterizeFps, 12.0);
     project.tracks()[0].clips[0].posterizeFps = 0.0;
     QVERIFY(!QJsonDocument(project.toJson()).toJson().contains("posterizeFps"));
+}
+
+// Pass Through (0.32): a composite saved with the switch on opens with it on; off leaves no key behind.
+void CoreTest::compositePassThroughRoundTrips()
+{
+    drift::Clip clip;
+    clip.id = QStringLiteral("clip-pass");
+    clip.type = drift::ClipType::Composite;
+    clip.timelineDuration = drift::secondsToUs(2.0);
+    clip.passThrough = true;
+    drift::Project project;
+    project.tracks().clear();
+    project.tracks().append(drift::Track{.type = drift::TrackType::Video});
+    project.tracks()[0].clips.append(clip);
+    QString error;
+    const drift::Project loaded = drift::Project::fromJson(project.toJson(), &error);
+    QVERIFY2(error.isEmpty(), qPrintable(error));
+    QVERIFY(loaded.tracks().at(0).clips.at(0).passThrough);
+    project.tracks()[0].clips[0].passThrough = false;
+    QVERIFY(!QJsonDocument(project.toJson()).toJson().contains("passThrough"));
+    QVERIFY(!drift::Project::fromJson(project.toJson(), &error).tracks().at(0).clips.at(0).passThrough);
 }
 
 // Two outlines with the same vertices blend; a pair that does not match holds the first.

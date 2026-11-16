@@ -1458,6 +1458,36 @@ private:
     QSize m_size;
 };
 
+// Pass Through (0.32): whether a composite stands exactly as its own layers would — filling the canvas, unturned,
+// unflipped, opaque, with no effects, masks, matte, blend, animation, 3D, parent, motion blur or posterize of its
+// own. Only then can its layers join the parent's stack without changing the picture (save what an adjustment
+// inside it now reaches). The caller checks what the track adds (lane effects and masks, a parent track, a camera).
+bool passThroughInPlace(const drift::Clip &clip, drift::TimeUs timelineUs, int projectWidth, int projectHeight,
+                        double renderScale, int width, int height)
+{
+    if (clip.blendMode != drift::BlendMode::Normal || clip.flipH || clip.flipV || clip.cornerPinEnabled
+        || clip.layer3d || !clip.parentId.isEmpty() || clip.motionBlur || clip.posterizeFps > 0.0
+        || clip.matteMode != drift::Clip::TrackMatte::None)
+        return false;
+    for (const drift::Effect &effect : clip.effects) {
+        if (effect.enabled)
+            return false;
+    }
+    for (const drift::Mask &mask : clip.maskStack()) {
+        if (mask.contributes())
+            return false;
+    }
+    if (drift::clipAnimationActive(clip.animIn) || drift::clipAnimationActive(clip.animOut)
+        || drift::clipAnimationActive(clip.animCombo))
+        return false;
+    if (opacityForClip(clip, timelineUs) < 0.999)
+        return false;
+    double x = 0.0, y = 0.0, w = 0.0, h = 0.0, rotation = 0.0;
+    layoutRectForClip(clip, timelineUs, projectWidth, projectHeight, renderScale, 1.0, &x, &y, &w, &h, &rotation);
+    return std::abs(rotation) < 1e-3 && std::abs(x) < 0.5 && std::abs(y) < 0.5 && std::abs(w - width) < 0.5
+           && std::abs(h - height) < 0.5;
+}
+
 GpuScene buildGpuScene(const drift::Project &project, drift::TimeUs timelineUs, int width, int height,
                        double renderScale, const FrameCompositor::RenderOptions &options,
                        bool nested = false);
@@ -2194,6 +2224,26 @@ GpuScene buildGpuScene(const drift::Project &project, drift::TimeUs timelineUs, 
                 const QRectF roi(f.x() * width, f.y() * height, f.width() * width, f.height() * height);
                 if (!bounds.intersects(roi))
                     continue;
+            }
+            // Pass Through (0.32, Photoshop's group mode): a composite that sits as it is hands its layers to this
+            // stack one by one, so an adjustment inside it (the frosted blur under a glass lower third) reaches what
+            // is under the composite. Anything that would have to move or tint the composite as a whole keeps it a
+            // plain composite.
+            if (clip.type == drift::ClipType::Composite && clip.passThrough && !editorView && !sceneCameraActive
+                && (parents.isEmpty() || !parents.at(ti).hasParent)
+                && laneAdjustmentChain(project, ti, timelineUs, clip.id).effects.isEmpty()
+                && drift::laneMasksAt(project, ti, timelineUs, clip.id).isEmpty()
+                && passThroughInPlace(clip, timelineUs, projectWidth, projectHeight, renderScale, width, height)) {
+                if (const drift::Project *inner = nestedProject(project, clip)) {
+                    const NestedScope scope(clip);
+                    FrameCompositor::RenderOptions innerOptions;
+                    innerOptions.maxTimeEchoHistoryFrames = options.maxTimeEchoHistoryFrames;
+                    const GpuScene innerScene = buildGpuScene(*inner, clip.timelineToSourceUs(timelineUs), width,
+                                                              height, renderScale, innerOptions, true);
+                    for (const GpuItem &innerItem : innerScene.items)
+                        scene.items.append(innerItem);
+                }
+                continue;
             }
             const bool editingText = !nested && clip.type == drift::ClipType::Text && options.textEdit.active()
                                      && options.textEdit.clipId == clip.id;

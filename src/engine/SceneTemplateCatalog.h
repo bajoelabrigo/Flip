@@ -31,6 +31,9 @@ struct SceneTemplateEntry
     int slotCount = 0;
     int textCount = 0;
     bool premium = false;
+    // "passThrough": true in template.json (0.32): placed as a Pass Through composite, so its adjustment layers
+    // reach the video under it (Clip::passThrough).
+    bool passThrough = false;
     // "user" for one saved from a composition in this app ("My templates"); empty for ours.
     QString origin;
     QStringList tags;

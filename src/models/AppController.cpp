@@ -5989,6 +5989,7 @@ QVariantMap AppController::selectedClipData() const
                     {QStringLiteral("blend"), drift::blendModeToString(part->blend)},
                     {QStringLiteral("mergeMode"), part->mergeMode},
                     {QStringLiteral("clipChildren"), part->clipChildren},
+                    {QStringLiteral("childCount"), int(part->children.size())},
                 };
                 for (const QString &field : drift::shapePartKeyframeFields(*part)) {
                     double value = 0.0;
@@ -15418,6 +15419,8 @@ QVariantMap AppController::clipMotionInfo(int trackIndex, int clipIndex) const
                     {QStringLiteral("acceptsLights"), clip.acceptsLights},
                     {QStringLiteral("motionBlur"), clip.motionBlur},
                     {QStringLiteral("posterizeFps"), clip.posterizeFps},
+                    {QStringLiteral("composite"), clip.type == drift::ClipType::Composite},
+                    {QStringLiteral("passThrough"), clip.passThrough},
                     {QStringLiteral("matteMode"), QLatin1String(matteModes[int(clip.matteMode)])},
                     {QStringLiteral("matteId"), clip.matteClipId},
                     {QStringLiteral("timeRemap"), !clip.timeRemap.isEmpty()},
@@ -15725,6 +15728,19 @@ void AppController::setClipPosterizeFps(int trackIndex, int clipIndex, double fp
         return;
     pushProjectEdit(before, tr("Posterize time"));
     finishEdit(tr("Posterize time"));
+}
+
+void AppController::setClipPassThrough(int trackIndex, int clipIndex, bool on)
+{
+    if (isTrackLocked(trackIndex) || !isValidClipIndex(trackIndex, clipIndex))
+        return;
+    const drift::Project before = m_project;
+    drift::Clip &clip = m_project.tracks()[trackIndex].clips[clipIndex];
+    if (clip.type != drift::ClipType::Composite || clip.passThrough == on)
+        return;
+    clip.passThrough = on;
+    pushProjectEdit(before, tr("Pass through"));
+    finishEdit(tr("Pass through"));
 }
 
 void AppController::setClipTimeRemap(int trackIndex, int clipIndex, bool on)

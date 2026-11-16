@@ -5774,6 +5774,10 @@
         <translation>Posterizar tiempo</translation>
     </message>
     <message>
+        <source>Pass through</source>
+        <translation>Pasar a través</translation>
+    </message>
+    <message>
         <source>Translating the captions…</source>
         <translation>Traduciendo los subtítulos…</translation>
     </message>
@@ -20260,12 +20264,20 @@ LA PRÓXIMA</translation>
         <translation>Dibuja la capa menos veces por segundo y mantiene cada dibujo, como la animación a mano «en dos»</translation>
     </message>
     <message>
-        <source>fps</source>
-        <translation>fps</translation>
+        <source>drawings per second</source>
+        <translation>dibujos por segundo</translation>
     </message>
     <message>
-        <source>Drawings per second</source>
-        <translation>Dibujos por segundo</translation>
+        <source>Pass through</source>
+        <translation>Pasar a través</translation>
+    </message>
+    <message>
+        <source>The adjustment layers inside this composite (a blur, a colour grade) also change the video under it, like a Photoshop group in Pass Through</source>
+        <translation>Las capas de ajuste de esta composición (un desenfoque, una corrección de color) también cambian el video que está debajo, como un grupo de Photoshop en «Pasar a través»</translation>
+    </message>
+    <message>
+        <source>Works while the composite stays as it is: moving, scaling, fading or adding effects to it draws it as a plain composite again.</source>
+        <translation>Funciona mientras la composición queda como está: si la mueves, la escalas, la desvaneces o le pones efectos, vuelve a dibujarse como una composición normal.</translation>
     </message>
     <message>
         <source>Motion blur</source>
@@ -25360,6 +25372,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>A clipping group: the parts above are seen only inside the bottom part, each with its own colour (dark pockets, shine)</source>
         <translation>Un grupo de recorte: las partes de arriba solo se ven dentro de la parte de abajo, cada una con su color (bolsillos oscuros, brillos)</translation>
+    </message>
+    <message>
+        <source>Needs at least two parts inside the group: the bottom one clips the ones above it.</source>
+        <translation>Necesita al menos dos partes dentro del grupo: la de abajo recorta a las de arriba.</translation>
     </message>
     <message>
         <source>Wiggle</source>

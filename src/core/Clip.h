@@ -188,6 +188,11 @@ struct Clip
         const double steps = std::floor(double(timelineUs - timelineStart) * posterizeFps / 1e6 + 1e-4);
         return timelineStart + static_cast<TimeUs>(std::llround(steps * 1e6 / posterizeFps));
     }
+    // Photoshop's Pass Through group (0.32): a composite whose layers join the timeline's own stack instead of
+    // being flattened first, so an adjustment layer inside it (the frosted blur under a glass lower third) reaches
+    // what is under the composite. Only while the composite sits as it is (fills the frame, unmoved, opaque, no
+    // effects, masks, matte or blend of its own); otherwise it is drawn as a plain composite.
+    bool passThrough = false;
     // After Effects' Track Matte (0.26): this clip shows only where `matteClipId` (any clip on
     // the same timeline) covers it, by its alpha or its luma, straight or inverted. The matte
     // clip itself is not drawn while it is one. Empty id = no matte.

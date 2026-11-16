@@ -5774,6 +5774,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Pass through</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Translating the captions…</source>
         <translation>Traduzione dei sottotitoli…</translation>
     </message>
@@ -20260,11 +20264,19 @@ LA PROSSIMA</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>fps</source>
+        <source>drawings per second</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Drawings per second</source>
+        <source>Pass through</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The adjustment layers inside this composite (a blur, a colour grade) also change the video under it, like a Photoshop group in Pass Through</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Works while the composite stays as it is: moving, scaling, fading or adding effects to it draws it as a plain composite again.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -25359,6 +25371,10 @@ Se la riproduzione scatta, prova un&apos;altra opzione.</translation>
     </message>
     <message>
         <source>A clipping group: the parts above are seen only inside the bottom part, each with its own colour (dark pockets, shine)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Needs at least two parts inside the group: the bottom one clips the ones above it.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

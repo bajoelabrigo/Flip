@@ -128,6 +128,7 @@ std::optional<SceneTemplateEntry> loadManifest(const QString &packageDir, QStrin
     entry.slotCount = qMax(0, root.value(QStringLiteral("slots")).toInt());
     entry.textCount = qMax(0, root.value(QStringLiteral("texts")).toInt());
     entry.premium = root.value(QStringLiteral("premium")).toBool(false);
+    entry.passThrough = root.value(QStringLiteral("passThrough")).toBool(false);
     entry.origin = root.value(QStringLiteral("origin")).toString();
     for (const QJsonValue &tag : root.value(QStringLiteral("tags")).toArray())
         entry.tags.append(tag.toString());

@@ -923,6 +923,9 @@ public:
     // After Effects' Posterize Time (0.32): the clip (and the other selected clips) drawn at `fps` frames a
     // second, held in between; 0 = off. clipMotionInfo reports it (posterizeFps).
     Q_INVOKABLE void setClipPosterizeFps(int trackIndex, int clipIndex, double fps);
+    // Photoshop's Pass Through group (0.32): a composite's layers join the timeline's stack, so its adjustment
+    // layers reach the video under it (Clip::passThrough). clipMotionInfo reports {composite, passThrough}.
+    Q_INVOKABLE void setClipPassThrough(int trackIndex, int clipIndex, bool on);
     // After Effects' Time Remap (0.26): on puts a key at each end holding the material the clip
     // shows there now (so nothing changes until a key moves); off removes them. And Auto-Orient
     // along the motion path. clipMotionInfo reports both (timeRemap, autoOrient).

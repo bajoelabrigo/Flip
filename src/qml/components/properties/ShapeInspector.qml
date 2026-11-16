@@ -209,8 +209,12 @@ Item {
                         propDef: root.partKnob("x", qsTr("Position X"), 0)
                         keyframeList: root.partKeyframes("x")
                         useSlider: true
-                        sliderFrom: -2000
-                        sliderTo: 2000
+                        // ±2000 on a half-width slider moved a part ~25 px per pixel dragged (window test,
+                        // 2026-11-16): the slider spans ±500, the number still takes up to ±8000.
+                        sliderFrom: -500
+                        sliderTo: 500
+                        inputFrom: -8000
+                        inputTo: 8000
                         unit: "px"
                     }
                     PropertyKeyframeRow {
@@ -218,8 +222,12 @@ Item {
                         propDef: root.partKnob("y", qsTr("Position Y"), 0)
                         keyframeList: root.partKeyframes("y")
                         useSlider: true
-                        sliderFrom: -2000
-                        sliderTo: 2000
+                        // ±2000 on a half-width slider moved a part ~25 px per pixel dragged (window test,
+                        // 2026-11-16): the slider spans ±500, the number still takes up to ±8000.
+                        sliderFrom: -500
+                        sliderTo: 500
+                        inputFrom: -8000
+                        inputTo: 8000
                         unit: "px"
                     }
                 }
@@ -295,6 +303,15 @@ Item {
                     checked: !!root.part && root.part.clipChildren === true
                     onToggled: EditorState.setShapeGroupClip(EditorState.selectedTrack, EditorState.selectedClip,
                                                              root.part.id, checked)
+                }
+                // With one part there is nothing to clip, and the switch did nothing without a word (window test,
+                // 2026-11-16).
+                ThemedLabel {
+                    visible: !!root.part && root.part.group === true && root.part.clipChildren === true
+                             && Number(root.part.childCount || 0) < 2
+                    width: parent.width
+                    opacity: 0.8
+                    text: qsTr("Needs at least two parts inside the group: the bottom one clips the ones above it.")
                 }
                 // After Effects' Wiggle Transform (0.28): the part jitters on its own; nothing moves while the
                 // amounts are 0.
@@ -1448,29 +1465,26 @@ Item {
                     sliderTo: 100
                     unit: "%"
                 }
-                Row {
+                // One a row: half a row cut «Tamaño de los huecos» (window test, 2026-11-16).
+                PropertyKeyframeRow {
                     width: parent.width
-                    spacing: 8
-                    PropertyKeyframeRow {
-                        width: (parent.width - parent.spacing) / 2
-                        propDef: root.knob("erodeSize", qsTr("Hole size"), 0)
-                        keyframeList: root.knobKeyframes("erodeSize")
-                        useSlider: true
-                        sliderFrom: 4
-                        sliderTo: 300
-                        inputTo: 2000
-                        unit: "px"
-                    }
-                    PropertyKeyframeRow {
-                        width: (parent.width - parent.spacing) / 2
-                        propDef: root.knob("erodeStretch", qsTr("Stretch"), 1)
-                        keyframeList: root.knobKeyframes("erodeStretch")
-                        useSlider: true
-                        sliderFrom: 1
-                        sliderTo: 10
-                        inputFrom: 1
-                        inputTo: 20
-                    }
+                    propDef: root.knob("erodeSize", qsTr("Hole size"), 0)
+                    keyframeList: root.knobKeyframes("erodeSize")
+                    useSlider: true
+                    sliderFrom: 4
+                    sliderTo: 300
+                    inputTo: 2000
+                    unit: "px"
+                }
+                PropertyKeyframeRow {
+                    width: parent.width
+                    propDef: root.knob("erodeStretch", qsTr("Stretch"), 1)
+                    keyframeList: root.knobKeyframes("erodeStretch")
+                    useSlider: true
+                    sliderFrom: 1
+                    sliderTo: 10
+                    inputFrom: 1
+                    inputTo: 20
                 }
                 Row {
                     width: parent.width
