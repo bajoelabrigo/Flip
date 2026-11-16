@@ -27,9 +27,9 @@ for _w, _f in ((900, "Black"), (700, "Bold"), (400, "Regular")):
     f6._FILES[(LATO, _w)] = f"fonts.basic/fonts/lato/Lato-{_f}.ttf"
 WHITE, GREEN, INK = "#FFFFFF", "#86F43B", "#151515"
 BACKDROP = "#1E1F24"   # the reference's dark demo grid behind the bars
-# The frosted blur behind the glass (a masked adjustment layer) works in a video but the app does not yet move a
-# standalone adjustment's mask when it fits a piece into a Short: off until it does (NOTAS.md › Motor pendiente).
-GLASS_BLUR = False
+# The frosted blur behind the glass (a masked adjustment layer). On since 0.32, whose Short fit moves a standalone
+# adjustment's mask with the design (SceneTemplateLayout mapCanvasMask; layoutfit _map_loose_adjustment_masks).
+GLASS_BLUR = True
 EMPTY = "M -50 -50 L -49.9 -50 L -49.9 -49.9 Z"
 
 

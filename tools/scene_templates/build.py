@@ -215,7 +215,7 @@ def render_all(jobs, exe: Path, work: Path) -> None:
                 if not status.get("active") and not status.get("busy"):
                     break
                 time.sleep(1.0)
-            if not preview.exists() or preview.stat().st_size < 10_000:
+            if not preview.exists() or preview.stat().st_size < 2_000:  # a short, plain piece can weigh under 10 kB
                 print(f"  export failed: {exported}", flush=True)
             elif wide:
                 wide_preview(preview, pkg / "preview.mp4", t.duration)

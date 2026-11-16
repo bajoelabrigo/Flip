@@ -51,3 +51,12 @@ well placed); fix roles or layout when it does not fit. **Trap:** `short_check.p
 - Glass blur (yp15/yp16, `GLASS_BLUR`): off because 0.31's Short fit does not move adjustment-layer masks. Jorge
   approved the engine fix for 0.32 (branch `flip/v0.32`). After it: port `layoutfit.py`, set `GLASS_BLUR = True`,
   re-render yp15/yp16 with the 0.32 build and give those ids `minAppVersion` 0.32.0 in `publish.py`.
+- 2026-11-16: `GLASS_BLUR = True` and yp15/yp16 re-rendered with `pruebas\FlipStudio-0.32-todo2`
+  (`prototipos-yp15-cristal`, `prototipos-yp16-cristal`, Shorts in `prototipos-yp1516-cristal-short`, sheet
+  `hoja-cristal-yp15-yp16.png`). yp8-disfruta, yp8-tercio-instagram, yp9-rayo and three yp16 pieces only *looked*
+  failed: their preview weighs under 10 kB (`build.py` now accepts 2 kB); `preview.mp4` made from the wide one.
+  `prototipos-yp14\yp14-comentario-valoracion` is a leftover of a removed piece: do not copy it.
+- **2026-11-16, window test (Short with a photo behind, one sample per kit): all fine, but the glass does NOT blur
+  the footage.** A template goes in as a composite and its adjustment layer only reaches what is inside the
+  composite (the Stock preview shows the blur only because its demo backdrop is inside). Needs Jorge's call: an
+  engine change in 0.32 (an adjustment inside a template composite reaches what is under it) or glass without blur.
