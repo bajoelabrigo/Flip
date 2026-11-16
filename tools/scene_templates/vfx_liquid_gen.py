@@ -99,6 +99,8 @@ class Sim:
     ones_until: int = 0          # drawn on ones (every frame) from ones_from to before this frame, on twos else
     ones_from: int = 0
     palette: tuple | None = None  # (body, dark, shine, rim) for another water than the turquoise
+    skip: int = 0                 # frames simulated before the recording starts (a loop that opens already full)
+    raster: object = None         # f -> (liquid, foam) masks drawn directly (a shape that stays: cascade, wave)
     rng: np.random.Generator = field(default_factory=lambda: np.random.default_rng(0))
 
     def add(self, *a, **k) -> int:
@@ -487,45 +489,87 @@ def gota(rng: np.random.Generator):
 BLUE = ("#3c9ed0", "#1f6a98", "#e8f6ff", "#8fcbe8")   # the cascade's water: deeper blue
 
 
-def cascada(rng: np.random.Generator):
-    """A pour: water comes in sideways from the top right and gravity bends it down into a thick arc, white bands of
-    foam crossing it; at the bottom it breaks into white blobs that keep falling and fade; then the pour stops and
-    its tail goes by."""
-    s = Sim(300, 440, 78, gravity=0.62, rng=rng)
-    s.palette = BLUE
-    state = {"prev": None, "k": 0}
+def _bez(p0, p1, p2, s):
+    a = (1 - s) * (1 - s)
+    b = 2 * (1 - s) * s
+    c = s * s
+    return (a * p0[0] + b * p1[0] + c * p2[0], a * p0[1] + b * p1[1] + c * p2[1])
 
-    def pour(sim, f):
-        if f <= 46:
-            k = state["k"]
-            size = min(1.0, (f + 1) / 4.0) * min(1.0, (48 - f) / 8.0)
-            r = 19.0 * size + rng.uniform(-0.8, 0.8)
-            foam = (k // 3) % 3 == 0                    # a band of foam every few drops, right across the stream
-            # Born well inside the frame: a piece touching the edge is dropped by the drawing (outlines()).
-            d = sim.add(262 + rng.uniform(-1, 1), 60 + rng.uniform(-1, 1), -6.4 + rng.uniform(-0.2, 0.2),
-                        -4.2 + rng.uniform(-0.2, 0.2), max(4.0, r * (1.04 if foam else 1.0)), born=f, hold=10**6,
-                        fade=0.9, drag=0.002)
-            sim.drops[d].foam = foam
-            if state["prev"] is not None and sim.drops[state["prev"]].foam == foam:
-                sim.link(state["prev"], d, snap=3.0, pull=0.01, recoil=0.3, satellite=False)
-            if foam and state["prev"] is not None and not sim.drops[state["prev"]].foam or \
-                    (not foam and state["prev"] is not None and sim.drops[state["prev"]].foam):
-                # Where foam meets water a water drop sits under the foam, so the stream stays whole.
-                w = sim.add(sim.drops[d].x, sim.drops[d].y, sim.drops[d].vx, sim.drops[d].vy, 0.9 * r, born=f,
-                            hold=10**6, fade=0.9, drag=0.002)
-            state["prev"] = d
-            state["k"] = k + 1
-        # At the bottom the stream breaks into white blobs that keep falling, throw a few specks and fade.
-        for d in sim.drops:
-            if sim.live(d, f) and d.y > 330 and d.hold > 10**5:
-                d.hold, d.fade, d.foam = f - d.born, 0.84, True
-                if rng.random() < 0.5:
-                    a = math.radians(rng.uniform(200, 340))
-                    sp = rng.uniform(2, 4.5)
-                    e = sim.add(d.x, d.y, d.vx * 0.5 + sp * math.cos(a), d.vy * 0.4 + sp * math.sin(a), 0.35 * d.r,
-                                born=f, hold=2, fade=0.82, drag=0.03)
-                    sim.drops[e].foam = True
-    s.hooks.append(pour)
+
+def _bez_d(p0, p1, p2, s):
+    return (2 * (1 - s) * (p1[0] - p0[0]) + 2 * s * (p2[0] - p1[0]),
+            2 * (1 - s) * (p1[1] - p0[1]) + 2 * s * (p2[1] - p1[1]))
+
+
+def cascada(rng: np.random.Generator):
+    """A spout pouring without end (a loop): thin at the spout at the top right, the water curves down and spreads
+    into a horn-shaped curtain; bands of white foam with a scalloped lower edge run down across it; at the foot it
+    boils into white foam; little splashes at the spout. Drawn from its centre line (not drops): the shape stays,
+    the foam runs — as a pour does."""
+    W_, H_ = 270, 430
+    period = 36                                          # frames for the foam to move one band down: the loop
+    s = Sim(W_, H_, 2 * period, rng=rng)
+    s.palette = BLUE
+    p0, p1, p2 = (236.0, 42.0), (92.0, 52.0), (98.0, 372.0)
+    blobs = [(rng.uniform(-0.45, 0.45), rng.uniform(0, 1), rng.uniform(7, 15)) for _ in range(12)]
+    specks = [(rng.uniform(0, 1), rng.uniform(-1, 1)) for _ in range(4)]
+
+    def frame(f):
+        liquid = np.zeros((H_, W_), np.uint8)
+        foam = np.zeros((H_, W_), np.uint8)
+        t = (f % period) / period
+        N = 70
+
+        def edge_pt(si, w, wob=0.0):
+            x, y = _bez(p0, p1, p2, si)
+            dx, dy = _bez_d(p0, p1, p2, si)
+            n = math.hypot(dx, dy) or 1.0
+            nx, ny = -dy / n, dx / n
+            width = 7 + 112 * si ** 1.2
+            k = (w - 0.5) * width + wob
+            return x + nx * k, y + ny * k
+
+        wob = lambda si, side: 2.2 * math.sin(11 * si - 2 * math.pi * f / period + side) * si
+        left = [edge_pt(i / N, 0.0, wob(i / N, 0.0)) for i in range(N + 1)]
+        right = [edge_pt(i / N, 1.0, wob(i / N, 1.7)) for i in range(N + 1)]
+        poly = np.array(left + right[::-1], np.int32)
+        cv2.fillPoly(liquid, [poly], 1)
+        # The bands of foam running down: one every 0.2 of the length, a band a frame-exact loop.
+        for kb in range(-1, 7):
+            st = 0.12 + 0.2 * (kb + t)
+            if st < 0.1 or st > 0.9:
+                continue
+            h = 0.03 + 0.025 * st
+            # Both edges wavy; the lower one hangs in tongues (longer lower down).
+            top = [edge_pt(st - 0.012 * math.sin(2.6 * math.pi * (w / 16) + kb * 1.3), w / 16) for w in range(17)]
+            bottom = []
+            for w in range(16, -1, -1):
+                ww = w / 16
+                drip = 0.045 * max(0.0, math.sin(3.6 * math.pi * ww + kb * 0.9)) ** 1.6 * (0.5 + 1.0 * st)
+                bottom.append(edge_pt(min(1.0, st + h + drip), ww))
+            cv2.fillPoly(foam, [np.array(top + bottom, np.int32)], 1)
+        # The foot: the last of the curtain is foam, and it boils into blobs that pulse with the loop.
+        foot_top = [edge_pt(0.9 - 0.015 * math.sin(3 * math.pi * w / 16 + 2 * math.pi * t), w / 16) for w in range(17)]
+        foot_bot = []
+        for w in range(16, -1, -1):
+            ww = w / 16
+            tongue = 0.07 * max(0.0, math.sin(4.2 * math.pi * ww + 2 * math.pi * t)) ** 1.5
+            foot_bot.append(edge_pt(1.0, ww)[0:1] + (edge_pt(1.0, ww)[1] + 260 * tongue,))
+        cv2.fillPoly(foam, [np.array(foot_top + foot_bot, np.int32)], 1)
+        bx, by = _bez(p0, p1, p2, 1.0)
+        for (u, ph, r) in blobs:
+            ph2 = (ph + t) % 1.0
+            rr = r * math.sin(math.pi * ph2)
+            if rr > 1.5:
+                cv2.circle(foam, (int(bx + u * 120), int(by + 14 + 30 * ph2)), int(rr), 1, -1)
+        # Little splashes at the spout.
+        for (ph, side) in specks:
+            ph2 = (ph + 2 * t) % 1.0
+            cv2.circle(liquid, (int(p0[0] + 8 + 10 * ph2), int(p0[1] - 4 - 14 * ph2 * (1 - ph2) * 4 + 6 * side)),
+                       max(1, int(3 * (1 - ph2))), 1, -1)
+        foam &= cv2.dilate(liquid, np.ones((3, 3), np.uint8)) | (np.arange(H_)[:, None] > by - 26)
+        return liquid.astype(bool), foam.astype(bool)
+    s.raster = frame
     return s
 
 
@@ -621,53 +665,62 @@ def corona(rng: np.random.Generator):
 
 
 def ola(rng: np.random.Generator):
-    """A low wave runs along the ground from left to right: a long body with its crest high at the front, leaning
-    forward and curling, white foam on top throwing spray; at the end it breaks, flattens into foam and fades."""
-    floor = 210.0
-    s = Sim(600, 230, 62, gravity=0.5, floor=floor, rng=rng)
-    cols = 16
-    body = [s.add(0, floor, 0, 0, 9.0, pinned=True, hold=10**6, fade=0.9) for _ in range(cols * 2)]
-    crest = [s.add(0, floor, 0, 0, 7.0, pinned=True, hold=10**6, fade=0.9) for _ in range(3)]
-    foamtop = [s.add(0, floor, 0, 0, 5.0, pinned=True, hold=10**6, fade=0.86) for _ in range(4)]
-    for i in foamtop:
-        s.drops[i].foam = True
+    """Water rocking in place (a loop): a long low sheet tapering at both ends, a big pointed crest leaning forward
+    with a curl at its tip and a smaller one beside it, rising and falling out of step; spray at each peak. Drawn
+    as a profile over the ground."""
+    W_, H_ = 460, 230
+    floor = 205
+    period = 24
+    s = Sim(W_, H_, 2 * period, gravity=0.45, rng=rng)
+    xs = np.arange(W_, dtype=np.float32)
+    crests = ((185.0, 1.0, 0.0), (305.0, 0.6, math.pi * 0.85))
 
-    def shape(sim, f):
-        t = f / 40.0
-        xc = 175 + 330 * min(1.0, t)                           # the front of the wave (its back stays in frame)
-        A = 46 * min(1.0, f / 8.0) * (1.0 if f < 38 else max(0.0, (46 - f) / 8.0))   # its height
-        broken = f >= 38
-        for c in range(cols):
-            u = c / (cols - 1)                                 # 0 at the back, 1 at the front
-            x = xc - 150 * (1 - u)
-            h = A * (u ** 2.2)                                 # low and long behind, steep at the front
-            lo, hi = sim.drops[body[2 * c]], sim.drops[body[2 * c + 1]]
-            lo.x, lo.y, lo.r = x, floor - 5, 9.0 * (0.4 + 0.6 * min(1.0, A / 46 + 0.3))
-            hi.x, hi.y, hi.r = x, floor - max(5.0, h - 6), (5.0 + 6.0 * u) * (A / 46 if A else 0)
-        # The crest curls forward over the front.
-        for j, ci in enumerate(crest):
-            cd = sim.drops[ci]
-            a = math.radians(70 - 55 * j)
-            cd.x = xc + 6 + 14 * j * math.cos(math.radians(20))
-            cd.y = floor - A + 6 * j * j
-            cd.r = (8.0 - 1.6 * j) * (A / 46 if A else 0)
-        for j, fi in enumerate(foamtop):
-            fo = sim.drops[fi]
-            fo.x = xc - 30 + 12 * j
-            fo.y = floor - A * (0.55 + 0.15 * j) - 3
-            fo.r = (4.5 + 1.0 * j) * (A / 46 if A else 0)
-        # Spray off the crest while it runs; a burst when it breaks.
-        if A > 10 and (f % 3 == 0 or (broken and f == 38)):
-            for _ in range(6 if broken and f == 38 else 2):
-                a = math.radians(rng.uniform(25, 70))
-                sp = rng.uniform(5, 8) * (1.4 if broken else 1.0)
-                e = sim.add(xc + 18, floor - A, sp * math.cos(a), -sp * math.sin(a), rng.uniform(3, 5), born=f,
-                            hold=4, fade=0.88, drag=0.02)
-                sim.drops[e].foam = rng.random() < 0.6
-        if broken:
-            for i in body + crest + foamtop:
-                sim.drops[i].r *= 0.9
-    s.hooks.append(shape)
+    def frame(f):
+        liquid = np.zeros((H_, W_), np.uint8)
+        # The sheet: thickest in the middle, tapering to points at both ends.
+        u = np.clip((xs - 20) / 420.0, 0, 1)
+        prof = 16.0 * np.maximum(0.0, np.sin(np.pi * u)) ** 0.9
+        tips = []
+        for cx, size, phase in crests:
+            t = 2 * math.pi * f / period + phase
+            h = (62 + 30 * math.sin(t)) * size
+            lean = (16 + 10 * math.sin(t + 0.7)) * size
+            # A crest: a broad mound under a pointed peak, long at the back, steep at the front, its peak pushed
+            # forward by the lean.
+            pk = cx + lean
+            back = np.clip(1 - np.maximum(0, pk - xs) / (95 * size), 0, 1) ** 1.6
+            front = np.clip(1 - np.maximum(0, xs - pk) / (26 * size), 0, 1) ** 0.8
+            mound = 0.35 * np.exp(-((xs - cx) / (70 * size)) ** 2)
+            prof = np.maximum(prof, h * np.maximum(np.minimum(back, front), mound))
+            tips.append((cx + lean, floor - h, size, t))
+        # The edge boils a little from drawing to drawing.
+        wav = 2.6 * np.sin(xs * 0.09 + f * 0.55) + 1.6 * np.sin(xs * 0.23 - f * 0.31)
+        prof = np.where(prof > 3, np.maximum(1.0, prof + wav * np.clip(prof / 20, 0, 1)), prof)
+        top = floor - prof
+        for x in range(W_):
+            if prof[x] > 0.6:
+                liquid[int(top[x]):floor, x] = 1
+        for (tx, ty, size, t) in tips:
+            # The tip breaks over: a thick hook leaning forward and hanging down in front of the face.
+            curl = 16 * size * (0.7 + 0.3 * math.sin(t + 0.4))
+            cv2.ellipse(liquid, (int(tx + curl * 0.55), int(ty + curl * 0.75)), (int(curl), int(curl * 0.8)), 0,
+                        200, 345, 1, max(2, int(6 * size)))
+            cv2.circle(liquid, (int(tx + curl * 1.45), int(ty + curl * 1.05)), max(2, int(4.5 * size)), 1, -1)
+        return liquid.astype(bool), np.zeros_like(liquid, bool)
+
+    def spray(sim, f):
+        for cx, size, phase in crests:
+            t = 2 * math.pi * f / period + phase
+            if abs((t % (2 * math.pi)) - math.pi / 2) < 0.14:
+                h = (62 + 30 * math.sin(t)) * size
+                lean = (16 + 10 * math.sin(t + 0.7)) * size
+                for _ in range(int(3 * size) + 1):
+                    a = math.radians(rng.uniform(55, 100))
+                    sp = rng.uniform(3.5, 5.5) * size + 1
+                    sim.add(cx + lean + 4, floor - h, sp * math.cos(a) + 1.0, -sp * math.sin(a), rng.uniform(2.2, 3.6),
+                            born=f, hold=4, fade=0.88, drag=0.02)
+    s.hooks.append(spray)
+    s.raster = frame
     return s
 
 
@@ -696,6 +749,12 @@ def masks_at(sim: Sim, f: int):
     fld = sim.field(f)
     liquid = fld > 1.0
     foam = (sim.field(f, foam=True) > 1.0) if any(d.foam for d in sim.drops) else np.zeros_like(liquid)
+    if sim.raster is not None:
+        # A drawn shape (and whatever drops fly off it): the field is then the distance into the shape.
+        r_liq, r_foam = sim.raster(f)
+        liquid = liquid | r_liq
+        foam = foam | r_foam
+        fld = np.maximum(fld, 1.0 + cv2.distanceTransform(liquid.astype(np.uint8), cv2.DIST_L2, 3) / 8.0)
     if not liquid.any():
         return liquid, liquid, liquid, foam
     dist = cv2.distanceTransform(liquid.astype(np.uint8), cv2.DIST_L2, 3)
@@ -729,7 +788,7 @@ def masks_at(sim: Sim, f: int):
 
 def drawn_frames(sim: Sim, n: int) -> list[int]:
     """The frames that get a drawing: every one while it is fast (sim.ones_until), every ON after (on twos)."""
-    return [i for i in range(n) if sim.ones_from <= i < sim.ones_until or i % ON == 0]
+    return [i for i in range(sim.skip, n) if sim.ones_from <= i < sim.ones_until or (i - sim.skip) % ON == 0]
 
 
 def simulate(name: str, seed: int):
@@ -778,8 +837,8 @@ def build(name: str, seed: int):
         darks.append(d)
         shines.append(s)
         foams.append(fo)
-        times.append(i / FPS)
-    dur = len(frames) / FPS
+        times.append((i - sim.skip) / FPS)
+    dur = (len(frames) - sim.skip) / FPS
     es = RECIPES[name][1]
     t = Template(f"vfx-liquido-propio-{name}-{seed}", es, name, "vfx", dur, size=(W, H), background="#000000")
     tr = t.track("video")

@@ -336,3 +336,10 @@ Tandas de 4 para Jorge: (1) cascada, gota y ondas, corona, ola baja; (2) espiral
   `palette`, referencias por celda `(w, h, x, y, f0, f1)`. **Trampa:** `outlines()` descartaba lo que toca el borde
   (en el estudio eran celdas vecinas): con `keep_edges=True` nuestras piezas se cortan en el borde en vez de
   desaparecer (la cascada y la ola no tenían cuerpo en el render). Los hilos de un anillo (`rest` 1000) no se cortan.
+- 2026-11-16, Jorge: «la 1 y 4 compáralas con el original, no están bien». Estudio: en el original la **cascada** y
+  la **ola** son **bucles quietos** (la forma se queda, corre la espuma / se mecen), no algo que entra y se va. Con gotas
+  no salía la forma estable: se dibujan como figura (`sim.raster`: f → máscaras de agua y espuma; el resto del
+  dibujo —bolsillos, brillos, borde— igual). Cascada: línea central curva (Bézier), ancho 7→119, franjas de espuma con
+  los dos bordes ondulados y lenguas que bajan en bucle exacto, pie de lenguas y gotas que laten. Ola: perfil con
+  lámina afinada, dos crestas que se mecen a destiempo con gancho que cuelga, borde que hierve, rocío en los picos.
+  `sim.skip` (calentamiento) para bucles de gotas. Sin ver por Jorge todavía.
