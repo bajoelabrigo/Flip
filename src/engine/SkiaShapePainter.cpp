@@ -874,17 +874,38 @@ private:
     // where it does. It follows the outline as it morphs, wiggles or breaks apart.
     void drawInnerTone(SkCanvas &canvas, const TextShadingLayer &layer, const QRectF &box) const
     {
-        const SkPoint c{float(box.center().x()), float(box.center().y())};
-        SkMatrix m;
-        m.setTranslate(-c.x(), -c.y());
         const float k = float(qMax(0.01, layer.toneScale / 100.0));
-        m.postScale(k, k);
-        m.postRotate(float(layer.toneRotation));
-        m.postTranslate(c.x() + float(layer.offsetX * m_scale), c.y() + float(layer.offsetY * m_scale));
-        const SkPath copy = m_path.makeTransform(m);
+        const auto copyOf = [&](const SkPath &path, SkPoint c, float dx, float dy) {
+            SkMatrix m;
+            m.setTranslate(-c.x(), -c.y());
+            m.postScale(k, k);
+            m.postRotate(float(layer.toneRotation));
+            m.postTranslate(c.x() + dx, c.y() + dy);
+            return path.makeTransform(m);
+        };
+        const SkPathOp op = layer.toneInvert ? kIntersect_SkPathOp : kDifference_SkPathOp;
         SkPath tone;
-        if (!Op(m_path, copy, layer.toneInvert ? kIntersect_SkPathOp : kDifference_SkPathOp, &tone))
-            return;
+        if (layer.tonePerContour) {
+            // Per piece (0.32): each contour against its own copy, the offset in % of its own size; the union is
+            // kept inside the whole outline, so holes stay holes.
+            SkPath all;
+            for (const SkPath &piece : splitContours(m_path)) {
+                const SkRect b = piece.getBounds();
+                SkPath part;
+                if (Op(piece, copyOf(piece, {b.centerX(), b.centerY()}, float(layer.offsetX / 100.0 * b.width()),
+                                         float(layer.offsetY / 100.0 * b.height())), op, &part)) {
+                    SkPath joined;
+                    if (Op(all, part, kUnion_SkPathOp, &joined))
+                        all = joined;
+                }
+            }
+            if (!Op(all, m_path, kIntersect_SkPathOp, &tone))
+                return;
+        } else {
+            const SkPoint c{float(box.center().x()), float(box.center().y())};
+            if (!Op(m_path, copyOf(m_path, c, float(layer.offsetX * m_scale), float(layer.offsetY * m_scale)), op, &tone))
+                return;
+        }
         SkPaint paint;
         paint.setAntiAlias(true);
         applyShadingPaint(paint, layer.paint, box, m_timeSec, 1.0);
@@ -1107,6 +1128,9 @@ struct PartNode
     std::shared_ptr<const ShapePainter> painter;
     SkMatrix toCanvas; // the painter's image px into the layer's canvas px
     std::vector<PartNode> children; // top first, as the parts
+    // A clipping group (0.32): the children above the bottom one are drawn only inside this outline (canvas px).
+    bool clipChildren = false;
+    SkPath clip;
 };
 
 void buildPartNodes(const std::vector<ShapePart> &parts, const SkMatrix &parent, double timeSec,
@@ -1180,8 +1204,21 @@ void buildPartNodes(const std::vector<ShapePart> &parts, const SkMatrix &parent,
             buildPartNodes(part.children, m, timeSec, node.children, childBounds);
             if (node.children.empty())
                 continue;
-            if (!(part.mergeMode >= 0.5 && mergeGroupNode(node, qRound(part.mergeMode), timeSec, bounds)))
+            if (!(part.mergeMode >= 0.5 && mergeGroupNode(node, qRound(part.mergeMode), timeSec, bounds))) {
                 bounds.join(childBounds);
+                if (part.clipChildren && node.children.size() >= 2) {
+                    // The bottom part's outline, operators applied, clips the parts above it.
+                    std::vector<std::pair<SkPath, const PartNode *>> base;
+                    collectPartOutlines({node.children.back()}, base);
+                    SkPathBuilder clip;
+                    for (const auto &piece : base)
+                        clip.addPath(piece.first);
+                    node.clip = clip.detach();
+                    if (!base.empty())
+                        node.clip.setFillType(base.front().first.getFillType());
+                    node.clipChildren = true;
+                }
+            }
             out.push_back(std::move(node));
             continue;
         }
@@ -1219,7 +1256,14 @@ void paintPartNodes(SkCanvas &canvas, const std::vector<PartNode> &nodes)
             paint.setBlendMode(node.blend);
             canvas.saveLayer(nullptr, &paint);
         }
-        if (node.group) {
+        if (node.group && node.clipChildren) {
+            // The bottom part as it is, the rest only inside it.
+            paintPartNodes(canvas, std::vector<PartNode>(node.children.end() - 1, node.children.end()));
+            canvas.save();
+            canvas.clipPath(node.clip, true);
+            paintPartNodes(canvas, std::vector<PartNode>(node.children.begin(), node.children.end() - 1));
+            canvas.restore();
+        } else if (node.group) {
             paintPartNodes(canvas, node.children);
         } else {
             canvas.concat(node.toCanvas);

@@ -5702,6 +5702,10 @@
         <translation>«%1» oculto</translation>
     </message>
     <message>
+        <source>Clipping group</source>
+        <translation>Grupo de recorte</translation>
+    </message>
+    <message>
         <source>Order changed</source>
         <translation>Orden cambiado</translation>
     </message>
@@ -24945,6 +24949,10 @@ Si la reproducción se corta, prueba con otra opción.</translation>
         <translation>Rotación de la copia</translation>
     </message>
     <message>
+        <source>Each piece on its own (offset in % of its size)</source>
+        <translation>Cada pieza por separado (desplazamiento en % de su tamaño)</translation>
+    </message>
+    <message>
         <source>Paint where the copy reaches</source>
         <translation>Pintar donde llega la copia</translation>
     </message>
@@ -25344,6 +25352,14 @@ Si la reproducción se corta, prueba con otra opción.</translation>
     <message>
         <source>The bottom part is the base; the parts above are added to it, cut out of it, and so on. They stay animated.</source>
         <translation>La parte de abajo es la base; las de arriba se le suman, se le recortan, etc. Siguen animadas.</translation>
+    </message>
+    <message>
+        <source>Show the parts only inside the bottom one</source>
+        <translation>Mostrar las partes solo dentro de la de abajo</translation>
+    </message>
+    <message>
+        <source>A clipping group: the parts above are seen only inside the bottom part, each with its own colour (dark pockets, shine)</source>
+        <translation>Un grupo de recorte: las partes de arriba solo se ven dentro de la parte de abajo, cada una con su color (bolsillos oscuros, brillos)</translation>
     </message>
     <message>
         <source>Wiggle</source>

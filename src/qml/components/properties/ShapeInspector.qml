@@ -287,6 +287,15 @@ Item {
                     onActivated: index => EditorState.setShapeGroupMerge(EditorState.selectedTrack, EditorState.selectedClip,
                                                                         root.part.id, index)
                 }
+                ThemedSwitch {
+                    visible: !!root.part && root.part.group === true
+                    width: parent.width
+                    text: qsTr("Show the parts only inside the bottom one")
+                    tooltip: qsTr("A clipping group: the parts above are seen only inside the bottom part, each with its own colour (dark pockets, shine)")
+                    checked: !!root.part && root.part.clipChildren === true
+                    onToggled: EditorState.setShapeGroupClip(EditorState.selectedTrack, EditorState.selectedClip,
+                                                             root.part.id, checked)
+                }
                 // After Effects' Wiggle Transform (0.28): the part jitters on its own; nothing moves while the
                 // amounts are 0.
                 CollapsibleSection {

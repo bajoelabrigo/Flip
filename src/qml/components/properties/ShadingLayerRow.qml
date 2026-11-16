@@ -776,6 +776,13 @@ Column {
         ThemedSwitch {
             width: parent.width - parent.leftPadding - parent.rightPadding
             visible: row.innerTone
+            text: qsTr("Each piece on its own (offset in % of its size)")
+            checked: !!row.layerData && row.layerData.tonePerContour === true
+            onToggled: row.setLayer({ "tonePerContour": checked })
+        }
+        ThemedSwitch {
+            width: parent.width - parent.leftPadding - parent.rightPadding
+            visible: row.innerTone
             text: qsTr("Paint where the copy reaches")
             checked: !!row.layerData && row.layerData.toneInvert === true
             onToggled: row.setLayer({ "toneInvert": checked })

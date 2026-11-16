@@ -307,6 +307,7 @@ private slots:
     void shapeWigglePathsMovesTheOutline();
     void shapeCartoonVfxOperators();
     void shapeGroupMergePaths();
+    void shapeClippingGroupAndToneByPiece();
     void compositorDrawsShapeThroughSkia();
     void textPainterCacheKeys();
     void keyframedTextGrowsOverTime();
@@ -1103,6 +1104,50 @@ void SkiaTest::shapeGroupMergePaths()
     const QImage moved = placed(skia::makeShapePainter(style, 200, 200, 1.0), 400, 400, 100);
     QCOMPARE(pixelAt(moved, 200 + 30, 200).alpha(), 0);
     QCOMPARE(pixelAt(moved, 200 - 30, 200).blue(), 255);
+}
+
+// 0.32, cartoon VFX second round: a clipping group (the parts above show only inside the bottom one) and an inner
+// tone measured per piece.
+void SkiaTest::shapeClippingGroupAndToneByPiece()
+{
+    ShapeStyle style;
+    style.layers.clear();
+    style.partsRefWidth = 200.0;
+    style.partsRefHeight = 200.0;
+    ShapePart group;
+    group.id = QStringLiteral("g1");
+    group.group = true;
+    group.clipChildren = true;
+    group.children.push_back(rectPart(QStringLiteral("p1"), Qt::red, 160.0, 40.0));   // top: a band wider than the base
+    ShapePart base = rectPart(QStringLiteral("p2"), Qt::blue, 80.0, 80.0);          // bottom: the base
+    group.children.push_back(base);
+    style.parts.push_back(group);
+    const QImage clipped = placed(skia::makeShapePainter(style, 200, 200, 1.0), 400, 400, 100);
+    QCOMPARE(pixelAt(clipped, 200, 200).red(), 255);         // the band inside the base
+    QCOMPARE(pixelAt(clipped, 200 + 60, 200).alpha(), 0);    // the band outside the base: clipped away
+    QCOMPARE(pixelAt(clipped, 200, 200 + 30).blue(), 255);   // the base itself
+    style.parts[0].clipChildren = false;
+    const QImage free = placed(skia::makeShapePainter(style, 200, 200, 1.0), 400, 400, 100);
+    QCOMPARE(pixelAt(free, 200 + 60, 200).red(), 255);
+    QCOMPARE(shapePartFromJson(shapePartToJson(group)).clipChildren, true);
+
+    // Per piece: a big and a small disc in one outline, offset 25 % up; each gets a band at its own bottom.
+    ShapeStyle two;
+    two.kind = ShapeKind::Custom;
+    two.customPath = QStringLiteral("M 0 20 C 0 -6 60 -6 60 20 C 60 46 0 46 0 20 Z M 80 80 C 80 74 92 74 92 80 C 92 86 80 86 80 80 Z");
+    two.layers = {solidFillLayer(Qt::red)};
+    TextShadingLayer tone = solidFillLayer(Qt::blue, QStringLiteral("tone"));
+    tone.innerTone = true;
+    tone.tonePerContour = true;
+    tone.offsetY = -25.0;
+    two.layers.append(tone);
+    const QImage toned = placed(skia::makeShapePainter(two, 200, 200, 1.0), 400, 400, 100);
+    // Big disc (0..60 % of the box → 0..120 px, centre y 40 px): blue at its bottom, red at its top.
+    QVERIFY2(pixelAt(toned, 100 + 60, 100 + 40 + 30).blue() > 200, qPrintable(pixelAt(toned, 160, 170).name()));
+    QVERIFY(pixelAt(toned, 100 + 60, 100 + 40 - 30).red() > 200);
+    // Small disc (160..184 px, centre y 160): blue near its bottom as well.
+    QVERIFY2(pixelAt(toned, 100 + 172, 100 + 160 + 8).blue() > 150, qPrintable(pixelAt(toned, 272, 268).name()));
+    QVERIFY(textShadingLayerFromJson(textShadingLayerToJson(tone)).tonePerContour);
 }
 
 void SkiaTest::shapePainterCacheKey()

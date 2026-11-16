@@ -130,6 +130,10 @@ struct ShapeStyle
     // contours (0 off, 1 add, 2 subtract, 3 intersect, 4 exclude), Offset Paths (px, negative
     // shrinks), Zig Zag (size px, ridges per contour, smooth 0/1) and Twist (degrees at the rim).
     double mergeMode = 0.0;
+    // A group only (0.32, cartoon VFX: the dark pockets and the shine of a drop): the parts above the bottom one are
+    // seen only inside the bottom part's outline, each in its own colours and with its own keys (After Effects' «Alpha
+    // Inherit» / a clipping group in Photoshop). false = each part painted on its own, as before.
+    bool clipChildren = false;
     double offsetPath = 0.0;
     double zigzagSize = 0.0;
     double zigzagRidges = 12.0;

@@ -157,6 +157,9 @@ struct TextShadingLayer
     double toneScale = 100.0;
     double toneRotation = 0.0;
     bool toneInvert = false;
+    // Per piece (0.32): each contour of the outline gets its own tone, its offset in % of that contour's own width and
+    // height and its scale and turn about its own centre, so a small drop and a big blob get the same look.
+    bool tonePerContour = false;
     double trimStart = 0.0;    // stroke write-on
     double trimEnd = 1.0;
     int trimSegments = 1;      // Equal-in / Equal-out (0.26): the trim in this many equal stretches

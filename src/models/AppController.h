@@ -770,6 +770,8 @@ public:
     Q_INVOKABLE void setShapePartBlend(int trackIndex, int clipIndex, const QString &partId, const QString &mode);
     // After Effects' Merge Paths inside a group, live (0.32): 0 off, 1 add, 2 subtract, 3 intersect, 4 exclude.
     Q_INVOKABLE void setShapeGroupMerge(int trackIndex, int clipIndex, const QString &groupId, int mode);
+    // A clipping group (0.32): the parts above the bottom one show only inside it.
+    Q_INVOKABLE void setShapeGroupClip(int trackIndex, int clipIndex, const QString &groupId, bool on);
     // where: "before" / "after" the target, or "inside" a target group (first in it).
     Q_INVOKABLE void moveShapePart(int trackIndex, int clipIndex, const QString &partId, const QString &targetId,
                                    const QString &where);

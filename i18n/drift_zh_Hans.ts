@@ -5678,6 +5678,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Clipping group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Order changed</source>
         <translation type="unfinished"></translation>
     </message>
@@ -24848,6 +24852,10 @@ If playback stutters, try another.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Each piece on its own (offset in % of its size)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Paint where the copy reaches</source>
         <translation type="unfinished"></translation>
     </message>
@@ -25246,6 +25254,14 @@ If playback stutters, try another.</source>
     </message>
     <message>
         <source>The bottom part is the base; the parts above are added to it, cut out of it, and so on. They stay animated.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show the parts only inside the bottom one</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A clipping group: the parts above are seen only inside the bottom part, each with its own colour (dark pockets, shine)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

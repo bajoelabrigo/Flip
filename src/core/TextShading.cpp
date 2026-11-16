@@ -453,7 +453,7 @@ quint64 textLayersHash(const QList<TextShadingLayer> &layers)
         h = qHashMulti(h, l.miterLimit, l.taperStartLength, l.taperEndLength, l.taperStartWidth, l.taperEndWidth,
                        l.taperEase, l.waveAmount, l.waveLength, l.wavePhase, l.arrowStart, l.arrowEnd, l.arrowSize);
         if (l.innerTone)
-            h = qHashMulti(h, l.innerTone, l.toneScale, l.toneRotation, l.toneInvert);
+            h = qHashMulti(h, l.innerTone, l.toneScale, l.toneRotation, l.toneInvert, l.tonePerContour);
         // The Dash / Gap pairs (0.30): without them a changed pattern kept the cached drawing.
         for (const double run : l.dashPattern)
             h = qHashMulti(h, run);
@@ -653,6 +653,8 @@ QJsonObject textShadingLayerToJson(const TextShadingLayer &l)
             o.insert(QStringLiteral("toneRotation"), l.toneRotation);
         if (l.toneInvert)
             o.insert(QStringLiteral("toneInvert"), true);
+        if (l.tonePerContour)
+            o.insert(QStringLiteral("tonePerContour"), true);
     }
     if (!qFuzzyIsNull(l.trimStart) || !qFuzzyCompare(l.trimEnd, 1.0)) {
         o.insert(QStringLiteral("trimStart"), l.trimStart);
@@ -720,6 +722,7 @@ TextShadingLayer textShadingLayerFromJson(const QJsonObject &o)
     l.toneScale = qBound(1.0, o.value(QStringLiteral("toneScale")).toDouble(100.0), 1000.0);
     l.toneRotation = o.value(QStringLiteral("toneRotation")).toDouble(0.0);
     l.toneInvert = o.value(QStringLiteral("toneInvert")).toBool(false);
+    l.tonePerContour = o.value(QStringLiteral("tonePerContour")).toBool(false);
     l.trimStart = o.value(QStringLiteral("trimStart")).toDouble(0.0);
     l.trimEnd = o.value(QStringLiteral("trimEnd")).toDouble(1.0);
     l.trimSegments = qBound(1, o.value(QStringLiteral("trimSegments")).toInt(1), 64);

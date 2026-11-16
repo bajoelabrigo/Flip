@@ -5988,6 +5988,7 @@ QVariantMap AppController::selectedClipData() const
                     {QStringLiteral("visible"), part->visible},
                     {QStringLiteral("blend"), drift::blendModeToString(part->blend)},
                     {QStringLiteral("mergeMode"), part->mergeMode},
+                    {QStringLiteral("clipChildren"), part->clipChildren},
                 };
                 for (const QString &field : drift::shapePartKeyframeFields(*part)) {
                     double value = 0.0;
@@ -14905,6 +14906,20 @@ void AppController::setShapePartBlend(int trackIndex, int clipIndex, const QStri
     part->blend = blend;
     pushProjectEdit(before, tr("Blend mode changed"));
     finishEdit(tr("Blend mode changed"));
+}
+
+void AppController::setShapeGroupClip(int trackIndex, int clipIndex, const QString &groupId, bool on)
+{
+    if (isTrackLocked(trackIndex) || !isValidClipIndex(trackIndex, clipIndex))
+        return;
+    const drift::Project before = m_project;
+    drift::ShapePart *part =
+        drift::findShapePart(m_project.tracks()[trackIndex].clips[clipIndex].shapeStyle.parts, groupId);
+    if (!part || !part->group || part->clipChildren == on)
+        return;
+    part->clipChildren = on;
+    pushProjectEdit(before, tr("Clipping group"));
+    finishEdit(tr("Clipping group"));
 }
 
 void AppController::setShapeGroupMerge(int trackIndex, int clipIndex, const QString &groupId, int mode)

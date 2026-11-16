@@ -1034,6 +1034,8 @@ quint64 shapePartHash(const ShapePart &part)
             h = h * 31 + shapePartHash(child);
         if (part.mergeMode >= 0.5)
             h ^= qHashMulti(11, part.mergeMode);
+        if (part.clipChildren)
+            h ^= qHashMulti(12, part.clipChildren);
     } else {
         h ^= shapeStyleHash(part.shape) * 1099511628211ULL;
     }
@@ -1214,6 +1216,8 @@ QJsonObject shapePartToJson(const ShapePart &part)
         o.insert(QStringLiteral("group"), true);
         if (part.mergeMode >= 0.5)
             o.insert(QStringLiteral("merge"), qRound(part.mergeMode));
+        if (part.clipChildren)
+            o.insert(QStringLiteral("clip"), true);
         QJsonArray children;
         for (const ShapePart &child : part.children)
             children.append(shapePartToJson(child));
@@ -1250,6 +1254,7 @@ ShapePart shapePartFromJson(const QJsonObject &o)
         for (const QJsonValue &v : o.value(QStringLiteral("children")).toArray())
             part.children.push_back(shapePartFromJson(v.toObject()));
         part.mergeMode = qBound(0, o.value(QStringLiteral("merge")).toInt(0), 4);
+        part.clipChildren = o.value(QStringLiteral("clip")).toBool(false);
     } else {
         part.width = qBound(0.0, o.value(QStringLiteral("width")).toDouble(100.0), 100000.0);
         part.height = qBound(0.0, o.value(QStringLiteral("height")).toDouble(100.0), 100000.0);
