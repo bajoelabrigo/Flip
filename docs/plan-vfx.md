@@ -343,3 +343,9 @@ Tandas de 4 para Jorge: (1) cascada, gota y ondas, corona, ola baja; (2) espiral
   los dos bordes ondulados y lenguas que bajan en bucle exacto, pie de lenguas y gotas que laten. Ola: perfil con
   lámina afinada, dos crestas que se mecen a destiempo con gancho que cuelga, borde que hierve, rocío en los picos.
   `sim.skip` (calentamiento) para bucles de gotas. Sin ver por Jorge todavía.
+- 2026-11-16, Jorge: en la cascada, del nacimiento del agua tienen que salir gotas (mirar el ejemplo) y donde cae
+  tiene que notarse el choque con física; en la ola, el agua que sube no puede verse fija. Hecho: gotitas en abanico
+  que nacen ya separadas del caño (pegadas parecía una trompeta); gotas que caen del pie hasta un suelo y rebotan, lo
+  que llega se apaga enseguida (si no, se arma un montículo blanco); ola con **lenguas dibujadas** (láminas que crecen
+  de la cresta en curva, se enroscan, sueltan su punta como gotas con física y se recogen; `TONGUE` 24 cuadros) y
+  crestas que se desplazan. (Gotas unidas por hilos como lenguas salían como caños rayados: descartado.)

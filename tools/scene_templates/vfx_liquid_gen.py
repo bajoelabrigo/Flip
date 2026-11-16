@@ -508,8 +508,9 @@ def cascada(rng: np.random.Generator):
     the foam runs — as a pour does."""
     W_, H_ = 270, 430
     period = 36                                          # frames for the foam to move one band down: the loop
-    s = Sim(W_, H_, 2 * period, rng=rng)
+    s = Sim(W_, H_, 2 * period, gravity=0.5, floor=420.0, rng=rng)
     s.palette = BLUE
+    s.skip = 14                                          # the spray and the falling drops already going
     p0, p1, p2 = (236.0, 42.0), (92.0, 52.0), (98.0, 372.0)
     blobs = [(rng.uniform(-0.45, 0.45), rng.uniform(0, 1), rng.uniform(7, 15)) for _ in range(12)]
     specks = [(rng.uniform(0, 1), rng.uniform(-1, 1)) for _ in range(4)]
@@ -553,22 +554,35 @@ def cascada(rng: np.random.Generator):
         foot_bot = []
         for w in range(16, -1, -1):
             ww = w / 16
-            tongue = 0.07 * max(0.0, math.sin(4.2 * math.pi * ww + 2 * math.pi * t)) ** 1.5
+            tongue = 0.045 * max(0.0, math.sin(4.2 * math.pi * ww + 2 * math.pi * t)) ** 1.5
             foot_bot.append(edge_pt(1.0, ww)[0:1] + (edge_pt(1.0, ww)[1] + 260 * tongue,))
         cv2.fillPoly(foam, [np.array(foot_top + foot_bot, np.int32)], 1)
         bx, by = _bez(p0, p1, p2, 1.0)
-        for (u, ph, r) in blobs:
-            ph2 = (ph + t) % 1.0
-            rr = r * math.sin(math.pi * ph2)
-            if rr > 1.5:
-                cv2.circle(foam, (int(bx + u * 120), int(by + 14 + 30 * ph2)), int(rr), 1, -1)
-        # Little splashes at the spout.
-        for (ph, side) in specks:
-            ph2 = (ph + 2 * t) % 1.0
-            cv2.circle(liquid, (int(p0[0] + 8 + 10 * ph2), int(p0[1] - 4 - 14 * ph2 * (1 - ph2) * 4 + 6 * side)),
-                       max(1, int(3 * (1 - ph2))), 1, -1)
         foam &= cv2.dilate(liquid, np.ones((3, 3), np.uint8)) | (np.arange(H_)[:, None] > by - 26)
         return liquid.astype(bool), foam.astype(bool)
+    def physics(sim, f):
+        # Where the water is born: a fan of droplets and spikes flung out of the spout every frame.
+        dx, dy = _bez_d(p0, p1, p2, 0.0)
+        base = math.atan2(dy, dx)
+        for _ in range(3):
+            # Born already apart from the stream (or they melt into it and the spout looks like a trumpet).
+            a = base + math.pi + rng.uniform(-1.5, 1.5) if rng.random() < 0.6 else base + rng.uniform(-1.4, 1.4)
+            sp = rng.uniform(2.5, 5.0)
+            off = rng.uniform(9, 14)
+            sim.add(p0[0] + off * math.cos(a), p0[1] + off * math.sin(a), sp * math.cos(a), sp * math.sin(a) - 1.0,
+                    rng.uniform(2.0, 3.4), born=f, hold=3, fade=0.83, drag=0.02)
+        # Where it lands: the foot keeps pouring drops down; they hit the ground (Sim.floor: puddle + bounce).
+        bx, by = _bez(p0, p1, p2, 1.0)
+        for _ in range(2):
+            u = rng.uniform(-0.5, 0.5)
+            e = sim.add(bx + u * 110, by + rng.uniform(12, 24), rng.uniform(-0.6, 0.6) + u * 1.5, rng.uniform(4.0, 6.5),
+                        rng.uniform(3.0, 5.0), born=f, hold=6, fade=0.9, drag=0.01)
+            sim.drops[e].foam = True
+        # What has landed splashes and is gone at once: it must not pile up into a mound.
+        for d in sim.drops:
+            if d.on_floor:
+                d.fade = min(d.fade, 0.6)
+    s.hooks.append(physics)
     s.raster = frame
     return s
 
@@ -664,6 +678,9 @@ def corona(rng: np.random.Generator):
     return s
 
 
+TONGUE = 24   # frames in a tongue's life on the wave
+
+
 def ola(rng: np.random.Generator):
     """Water rocking in place (a loop): a long low sheet tapering at both ends, a big pointed crest leaning forward
     with a curl at its tip and a smaller one beside it, rising and falling out of step; spray at each peak. Drawn
@@ -671,7 +688,8 @@ def ola(rng: np.random.Generator):
     W_, H_ = 460, 230
     floor = 205
     period = 24
-    s = Sim(W_, H_, 2 * period, gravity=0.45, rng=rng)
+    s = Sim(W_, H_, 2 * period, gravity=0.55, rng=rng)
+    s.skip = 12                                         # tongues already in the air
     xs = np.arange(W_, dtype=np.float32)
     crests = ((185.0, 1.0, 0.0), (305.0, 0.6, math.pi * 0.85))
 
@@ -683,8 +701,9 @@ def ola(rng: np.random.Generator):
         tips = []
         for cx, size, phase in crests:
             t = 2 * math.pi * f / period + phase
-            h = (62 + 30 * math.sin(t)) * size
-            lean = (16 + 10 * math.sin(t + 0.7)) * size
+            h = (56 + 20 * math.sin(t)) * size
+            lean = (14 + 8 * math.sin(t + 0.7)) * size
+            cx = cx + 10 * size * math.sin(t * 0.5)          # the crest wanders a little
             # A crest: a broad mound under a pointed peak, long at the back, steep at the front, its peak pushed
             # forward by the lean.
             pk = cx + lean
@@ -700,25 +719,54 @@ def ola(rng: np.random.Generator):
         for x in range(W_):
             if prof[x] > 0.6:
                 liquid[int(top[x]):floor, x] = 1
-        for (tx, ty, size, t) in tips:
-            # The tip breaks over: a thick hook leaning forward and hanging down in front of the face.
-            curl = 16 * size * (0.7 + 0.3 * math.sin(t + 0.4))
-            cv2.ellipse(liquid, (int(tx + curl * 0.55), int(ty + curl * 0.75)), (int(curl), int(curl * 0.8)), 0,
-                        200, 345, 1, max(2, int(6 * size)))
-            cv2.circle(liquid, (int(tx + curl * 1.45), int(ty + curl * 1.05)), max(2, int(4.5 * size)), 1, -1)
+        for k, (tx, ty, size, t) in enumerate(tips):
+            # A tongue: a flat sheet growing out of the tip along a curve (up, then forward and over), thick at its
+            # root and tapering; at the end of its life its tip has let go (the drops fly on with physics) and it
+            # draws back into the crest.
+            life = ((f + 9 * k) % TONGUE) / TONGUE
+            grow = min(1.0, life / 0.55)
+            shrink = 1.0 if life < 0.7 else max(0.0, 1 - (life - 0.7) / 0.3)
+            L = 70 * size * grow * shrink
+            if L < 4:
+                continue
+            pts_l, pts_r = [], []
+            n = 14
+            for i in range(n + 1):
+                u = i / n
+                ang = math.radians(78 - 115 * u ** 1.4)           # starts steep, curls forward and over
+                x = tx + sum(math.cos(math.radians(78 - 115 * (j / n) ** 1.4)) for j in range(i)) * L / n
+                y = ty - sum(math.sin(math.radians(78 - 115 * (j / n) ** 1.4)) for j in range(i)) * L / n
+                wdt = (9 * size) * (1 - u) ** 0.8 + 1.0
+                nx, ny = -math.sin(ang), -math.cos(ang)
+                pts_l.append((x + nx * wdt, y + ny * wdt))
+                pts_r.append((x - nx * wdt, y - ny * wdt))
+            cv2.fillPoly(liquid, [np.array(pts_l + pts_r[::-1], np.int32)], 1)
         return liquid.astype(bool), np.zeros_like(liquid, bool)
 
     def spray(sim, f):
-        for cx, size, phase in crests:
+        # When a tongue's tip lets go (life 0.55), its end flies on as real drops; spray at the crest now and then.
+        for k, (cx, size, phase) in enumerate(crests):
             t = 2 * math.pi * f / period + phase
-            if abs((t % (2 * math.pi)) - math.pi / 2) < 0.14:
-                h = (62 + 30 * math.sin(t)) * size
-                lean = (16 + 10 * math.sin(t + 0.7)) * size
-                for _ in range(int(3 * size) + 1):
-                    a = math.radians(rng.uniform(55, 100))
-                    sp = rng.uniform(3.5, 5.5) * size + 1
-                    sim.add(cx + lean + 4, floor - h, sp * math.cos(a) + 1.0, -sp * math.sin(a), rng.uniform(2.2, 3.6),
-                            born=f, hold=4, fade=0.88, drag=0.02)
+            cxx = cx + 10 * size * math.sin(t * 0.5)
+            h = (56 + 20 * math.sin(t)) * size
+            lean = (14 + 8 * math.sin(t + 0.7)) * size
+            if (f + 9 * k) % TONGUE == int(0.55 * TONGUE):
+                L = 70 * size
+                n = 14
+                x = cxx + lean + sum(math.cos(math.radians(78 - 115 * (j / n) ** 1.4)) for j in range(n)) * L / n
+                y = floor - h - sum(math.sin(math.radians(78 - 115 * (j / n) ** 1.4)) for j in range(n)) * L / n
+                for j in range(3):
+                    sim.add(x - 4 * j, y + 3 * j, rng.uniform(2.5, 4.0), rng.uniform(-3.5, -1.5) + j,
+                            (5.5 - 1.3 * j) * size + 1.2, born=f, hold=5, fade=0.9, drag=0.01)
+            if (f + 5 * k) % 6 == 0:
+                a = math.radians(rng.uniform(60, 110))
+                sp = rng.uniform(4, 6.5) * size + 1
+                sim.add(cxx + lean + 3, floor - h, sp * math.cos(a), -sp * math.sin(a), rng.uniform(2.0, 3.4), born=f,
+                        hold=4, fade=0.88, drag=0.02)
+        # What falls back melts into the sheet.
+        for d in sim.drops:
+            if sim.live(d, f) and d.vy > 0 and d.y > floor - 14:
+                d.r *= 0.55
     s.hooks.append(spray)
     s.raster = frame
     return s
