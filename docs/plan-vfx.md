@@ -317,3 +317,16 @@ Medido en el video de estudio (solo el comportamiento, no las formas; `vfx_liqui
   propios terminados en `vfx_liquid_gen.py` (semilla = otra pieza de la misma familia). Falta decidir con Jorge la
   entrega en Stock (plantilla nativa, `minAppVersion` 0.32.0 porque usan grupos de recorte) y seguir con la próxima
   familia (humo) con el mismo método: estudio → física → historia.
+
+### Todas las de agua (Jorge, 2026-11-16: «quiero que hagamos todas las de agua primero y luego pasamos a humo»)
+Inventario de la página LIQUID del video de estudio (240,5–252 s, a 2 cuadros por segundo; las rojas = sangre/tinta, al
+final y preguntando). Hechas: chorro, goteo, salpicadura, racimo, anillo, gota. Faltan (todas con historia):
+1. Cascada (chorro grueso curvo, azul con franjas de espuma blanca, gotas blancas abajo). 2. Gota y ondas (cae en agua,
+anillos blancos en el suelo). 3. Corona (salpicadura en corona con gotitas en las puntas). 4. Ola baja (barre el suelo y
+revienta). 5. Espiral (chorro que se enrosca). 6. Latigazo (arco curvo; variante en X). 7. Géiser/hongo (sube y se abre
+en espuma). 8. Cúpula que se rompe (media esfera que se agujerea y gotea). 9. Columna de burbujas. 10. Burbuja que
+revienta. 11. Anillo de gotas visto de costado (óvalo). 12. Rocío en fila. 13. Remolino mágico (aro con brillitos).
+14. Lluvia / gotas en hilera. 15. Charco que se derrama.
+Hace falta en el generador: capa de **espuma blanca** fuera del recorte y **paleta por receta** (azul, turquesa…).
+Tandas de 4 para Jorge: (1) cascada, gota y ondas, corona, ola baja; (2) espiral, latigazo, géiser, cúpula;
+(3) burbujas, burbuja que revienta, anillo de costado, rocío; (4) remolino, lluvia, charco.
