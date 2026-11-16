@@ -265,6 +265,9 @@ class Template:
         self.tags = tags or []
         self.thumb_at = thumb_at if thumb_at is not None else duration * 0.55
         self.premium = premium
+        # Placed as a Pass Through composite (0.32): its adjustment layers reach the video under it (the frosted
+        # glass of yp15/yp16). Written to template.json only when on.
+        self.pass_through = False
         self.background = background
         self.tracks: list[Track] = []  # bottom first
         self.slots: list[Slot] = []
@@ -426,7 +429,8 @@ class Template:
         return {"id": self.id, "displayName": self.names["en"], "names": self.names, "category": self.category,
                 "order": self.order, "width": self.w, "height": self.h, "durationSec": self.duration,
                 "slots": len(self.slots), "texts": self.texts, "premium": self.premium, "tags": self.tags,
-                "music": self.music[0] if self.music else None}
+                "music": self.music[0] if self.music else None,
+                **({"passThrough": True} if self.pass_through else {})}
 
 
 def cover(pw: float, ph: float, bw: float, bh: float) -> list[float]:

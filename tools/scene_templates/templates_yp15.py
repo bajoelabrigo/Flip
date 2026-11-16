@@ -195,9 +195,10 @@ class G(W):
         t = self.t
         if GLASS_BLUR:
             # The blur of the footage under the glass: a standalone adjustment layer masked to the outline frame by
-            # frame (in frame coordinates). Off until the app fits such a mask into a Short (NOTAS.md, motor).
+            # frame (in frame coordinates). It reaches the user's video because the template asks for Pass Through (0.32).
             adj = t.adjust([effect("builtin.effects.gaussian_blur", u_blurRadius=blur)], 0.0, self.dur,
                            name=f"{name} (desenfoque)")
+            t.pass_through = True   # 0.32: the composite lets this blur reach the video under it
             pts = [[us(u), outline_points(rs, fillet)] for u, rs in zip(us_, sets)]
             adj["mask"] = {"shape": "freeform", "x": 0.5, "y": 0.5, "w": 1.0, "h": 1.0, "feather": 1.0,
                            "enabled": True, "points": pts[0][1], "pathKeys": pts}
