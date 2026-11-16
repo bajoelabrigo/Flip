@@ -299,3 +299,9 @@ Medido en el video de estudio (solo el comportamiento, no las formas; `vfx_liqui
 - **2026-11-16: chorro y goteo APROBADOS por Jorge** («quedó bien»; antes del goteo final pidió quitar la punta en
   triángulo del inicio: el cuerpo arranca redondeado y la lengua y la columna salen de él). Siguen salpicadura, racimo,
   anillo y gota con el mismo método (estudiar el comportamiento, después la física). Nada en Stock todavía.
+- 2026-11-16: las otras cuatro, medidas en el estudio (solo el comportamiento) y rehechas: **salpicadura** (explota en
+  1–2 cuadros, dos hojas que se abren y caen, borde que se rompe en gotitas; 17 cuadros en la referencia), **racimo**
+  (lóbulos en Y con cuellos que se estiran y se cortan; −12 %/cuadro), **anillo** (aro fino de grosor desparejo que se
+  abre y se rompe en arcos, rayitas y puntos en ~3 cuadros; −30 %/cuadro), **gota** (aguja desde el suelo, la cabeza se
+  llena, frena, se achata y se parte en tres que caen). Regla nueva: un hilo cuyas gotas ya son motas se corta solo
+  (si no, quedaba una raya fina). Sin ver por Jorge todavía.
