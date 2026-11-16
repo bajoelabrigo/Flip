@@ -267,18 +267,23 @@ def goteo(rng: np.random.Generator):
     for i in range(9):
         x = cx - 64 + i * 16 + rng.uniform(-1.5, 1.5)
         centre = abs(i - 4) <= 1
-        body.append(s.add(x, 70 + (8 if centre else 0) + rng.uniform(-2, 2), 0, 0,
-                          (17.0 if centre else 12.5) + rng.uniform(-1.5, 1.5), pinned=True, hold=66, fade=0.93,
+        # A rounded lump: fuller in the middle but no lower, so it does not start as a downward point.
+        body.append(s.add(x, 70 + rng.uniform(-1.5, 1.5), 0, 0,
+                          (15.0 if centre else 12.5 + 1.2 * (abs(i - 4) <= 2)) + rng.uniform(-1, 1), pinned=True,
+                          hold=66, fade=0.93,
                           drag=0.06))
     for a, b in zip(body, body[1:]):
         s.link(a, b, snap=3.2, pull=0.05, recoil=2.2)
     # Hidden in the middle of the body: drops stacked under one another, heavier toward the bottom. When the body
     # lets go they pull apart like elastic into a string of bulbs and necks that part one by one.
-    column, prev_c = [], body[4]
+    column, prev_c, sizes_full = [], body[4], []
     for i, (r, w) in enumerate(((14.5, 1.0), (13.0, 1.12), (12.0, 1.25), (11.0, 1.4), (10.0, 1.6))):
-        idx = s.add(s.drops[body[4]].x + rng.uniform(-1, 1), 80 + 5 * i, 0, 0, r + rng.uniform(-0.8, 0.8),
+        # Small and inside the body until it lets go (full size, it pushed the body into a downward point).
+        full = r + rng.uniform(-0.8, 0.8)
+        idx = s.add(s.drops[body[4]].x + rng.uniform(-1, 1), 70 + 2 * i, 0, 0, 0.45 * full,
                     pinned=True, drag=0.03, hold=10**6, fade=0.95)
         s.drops[idx].weight = w
+        sizes_full.append(full)
         s.link(prev_c, idx, snap=3.4 + 0.3 * rng.random(), pull=0.05, recoil=2.0)
         column.append(idx)
         prev_c = idx
@@ -287,20 +292,28 @@ def goteo(rng: np.random.Generator):
     tongue = []
     for i in range(7):
         r = 7.5 - 0.35 * i
-        idx = s.add(s.drops[body[4]].x + rng.uniform(-0.8, 0.8), 92 + 7 * i, 0, 0, r, drag=0.08, hold=60, fade=0.93)
+        # Gathered inside the body at first (their rest length set apart): the bulb pulls them out one by one, so
+        # the tongue grows out of the lump instead of starting as a point under it.
+        idx = s.add(s.drops[body[4]].x + rng.uniform(-0.8, 0.8), 74 + 1.5 * i, 0, 0, r, drag=0.08, hold=60, fade=0.93)
         s.link(prev, idx, snap=4.2, pull=0.32 - 0.03 * i, recoil=2.0, satellite=i > 3)
+        s.threads[-1].rest = 7.0
         tongue.append(idx)
         prev = idx
-    tip = s.add(s.drops[body[4]].x, 142, 0, 0, 8.0, grow=0.36, grow_until=18, weight=1.6, drag=0.02, hold=10**6,
+    tip = s.add(s.drops[body[4]].x, 86, 0, 0, 8.0, grow=0.36, grow_until=18, weight=1.6, drag=0.02, hold=10**6,
                 fade=0.95)
     s.link(prev, tip, snap=3.0, pull=0.12, recoil=2.4)
+    s.threads[-1].rest = 9.0
 
     def let_go(sim, f):
         # A beat after the bulb has gone, the middle of the body lets go too and falls stretching; its ends stay.
         if f == 30:
             sim.drops[body[4]].pinned = False
-            for i in column:
-                sim.drops[i].pinned = False
+            for i, full in zip(column, sizes_full):
+                d = sim.drops[i]
+                d.pinned = False
+                # It fills out to its size over a few frames as it pulls away.
+                # (grow runs while age < grow_until, age counted from its birth: six more frames from now)
+                d.grow, d.grow_until = (full - d.r) / 6.0, (f - d.born) + 6
             # The falling middle thins into bulbs and necks: its threads to the ends become long elastic arms.
             for t in sim.threads:
                 if t.a in body and t.b in body:
