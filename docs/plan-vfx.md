@@ -214,3 +214,19 @@ cada familia **vista en ventana** antes de subir nada a Stock.
     el trazado), **varios colores dentro de una forma** (bolsillos oscuros y brillos dibujados como contornos propios)
     y que la **posterización** pueda seguir un ritmo irregular (hoy: claves sostenidas).
   - Entrega pensada: plantilla nativa (`scene-template`, encima del video), no Lottie; decidir con Jorge.
+- **Segunda vuelta (2026-11-16, Jorge: «se parece bastante, pero si lo puedes mejorar mucho mejor»).**
+  - Motor (0.32): **grupo de recorte** (`ShapePart::clipChildren`, JSON `"clip": true`: las partes de arriba solo se
+    ven dentro de la de abajo, cada una con su color y sus claves; inspector del grupo: «Mostrar las partes solo dentro
+    de la de abajo») y **tono interior por pieza** (`tonePerContour`: desplazamiento en % del tamaño de cada contorno,
+    escala y giro sobre su propio centro). Pruebas `SkiaTest::shapeClippingGroupAndToneByPiece`. CI 43795102160 y
+    43795102915 en verde; portable `pruebas\FlipStudio-0.32-todo2`.
+  - `vfx_liquid_rtfx2.py`: cada dibujo es un grupo de recorte con tres partes (cuerpo con borde claro, **bolsillos
+    oscuros** y **brillos** medidos por color dentro de cada pieza, cada uno con su contorno y sus claves); contornos
+    más finos (un punto cada ~0,5 % del borde, quiebres conservados; las piezas chicas, más suaves); los **restos
+    tenues** del final (umbral más bajo; el blanco solo cuenta junto al turquesa, así no entran las chispas de las
+    celdas vecinas); **racimo** sigue el desplazamiento de la página (la página baja ~870 px entre los cuadros 135 y
+    151, medido con correlación de fase), así que el nuestro queda quieto y no copia el salto.
+  - Salida: `<nombre>-v2.mp4`, `comparacion-<nombre>-v2.mp4` y `hoja-<nombre>-v2.png` en `liquido\prototipos\`.
+  - Sigue distinto: el borde de la referencia es borroso (video comprimido y ampliado) y el nuestro nítido; en **gota**
+    no sale la astilla fina del primer cuadro; algún cuello muy fino del goteo se pierde en uno o dos cuadros; los
+    últimos puntitos del anillo, apenas visibles en la referencia, salen menos.

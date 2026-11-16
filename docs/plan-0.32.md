@@ -163,3 +163,6 @@ el JSON: si falta, se dibuja como antes.
   cuadro; hash del estilo con grupos 4 (VFX) y 5 (Goteo); orden en el pintor: Zig Zag → Goteo → Wiggle → Romperse →
   Trim. Compilación 43786419000 y pruebas 43786410473 en verde; portable en `pruebas\FlipStudio-0.32-todo`; comprobado
   sin ventana con D/C del motor y `yp10-caja-roja` (`pruebas\FlipStudio-0.32-todo-comprobacion`).
+- **Motor VFX, segunda vuelta (2026-11-16):** grupo de recorte (`ShapePart::clipChildren`, `"clip"`) y tono interior
+  por pieza (`tonePerContour`), ver `docs/plan-vfx.md` › Estado. CI 43795102160 / 43795102915 en verde; portable
+  `pruebas\FlipStudio-0.32-todo2`.
