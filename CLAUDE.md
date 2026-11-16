@@ -90,11 +90,20 @@ privada; la pública está en `Flip/src/engine/AddonSigningKey.h`). Nunca se com
   grupos de recorte, tono por pieza; CI en verde), portable `pruebas\FlipStudio-0.32-todo2`. VFX en `flip/v0.32-vfx`
   (`docs/plan-vfx.md` › Estado): Jorge aprobó los líquidos v2 («me convenció»); sigue la próxima familia (humo). Nada de
   VFX en Stock: licencia y entrega las decide Jorge. yp10 v3 aprobado (`28c44`).
-- **Falta, en orden:** probar la 0.32 en ventana con `-todo2` (Colores, ventana de sesión de Stock, «Instalar todo» con
+- **(Hecho el 2026-11-16, ver abajo)** Falta, en orden: probar la 0.32 en ventana con `-todo2` (Colores, ventana de sesión de Stock, «Instalar todo» con
   los 4 extras y cerrando la app a mitad —Jorge lo autorizó—, paneles nuevos de formas); renderizar de nuevo yp15/yp16
   con `GLASS_BLUR=True` con la 0.32; mirar muestras de yp8–yp17 en ventana; traducir las 299 piezas a 13 idiomas y
   subir (yp10/15/16 solo los ve la 0.32).
-- **Segundo grupo del Kit de YouTube** (yp8–yp17, `docs/plan-youtube-pack-2.md`), sin subir.
+- **2026-11-16: los 4 puntos.** (1) 0.32 probada en ventana (`docs/plan-0.32.md` › Compilación y pruebas): todo bien;
+  arreglo de etiquetas del Goteo en `flip/v0.32` `c9b8b`, **sin compilar**. (2) yp15/yp16 con `GLASS_BLUR = True`
+  renderizadas con la 0.32. (3) Muestras de yp8–yp17 en un Short con foto detrás: bien. (4) **yp8–yp17 PUBLICADAS en
+  Stock** (299, 13 idiomas, delta de 102 MB; 2845 en vivo): la 0.30.2 sigue viendo 129 novedades, la 0.31 1276 y la
+  0.32 1314 (yp10/15/16 piden 0.32.0). **Pendiente (Jorge):** el cristal de yp15/yp16 NO desenfoca el video de abajo:
+  la plantilla entra como composición y su capa de ajuste solo alcanza lo de dentro. Propuesta: modo «Pasar a
+  través» de las composiciones en la 0.32 (como los grupos de Photoshop).
+- **Trampa nueva:** `X-Cutwire-App` tiene que decir `FlipStudio/0.31.0`, no solo `0.31.0` (si no, el servidor no
+  filtra por versión). Y `build.py` daba por fallado un video de vista previa de menos de 10 kB: ahora 2 kB.
+- **Segundo grupo del Kit de YouTube** (yp8–yp17, `docs/plan-youtube-pack-2.md`): publicado el 2026-11-16.
 - **Trampa nueva:** al subir una tanda grande a Stock, mirar la **primera página** de su tipo con la versión nueva.
 
 ### Kits de LOGO, TikTok e Instagram PUBLICADOS en Stock (2026-11-10)

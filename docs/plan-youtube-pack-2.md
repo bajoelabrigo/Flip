@@ -60,3 +60,5 @@ well placed); fix roles or layout when it does not fit. **Trap:** `short_check.p
   the footage.** A template goes in as a composite and its adjustment layer only reaches what is inside the
   composite (the Stock preview shows the blur only because its demo backdrop is inside). Needs Jorge's call: an
   engine change in 0.32 (an adjustment inside a template composite reaches what is under it) or glass without blur.
+- **2026-11-16: PUBLISHED.** 299 copied to `paquetes` (yp15/yp16 from the `-cristal` folders), `publish.py` (2845),
+  13 languages (`stock_i18n`), delta 102 MB applied, `.old` removed. News: 0.30.2 129, 0.31 1276, 0.32 1314.
