@@ -43,6 +43,10 @@ ON = 2   # a new drawing every ON frames (animated on twos)
 
 
 # --------------------------------------------------------------------------------------------- simulation
+# What the study found (docs/plan-vfx.md, «Líquidos propios»): water never vanishes at once — every piece shrinks in
+# proportion (8–10 % of the area a frame) while it splits into smaller drops; a thread that snaps leaves a satellite
+# drop in its neck and the rest springs back; a falling drop stretches, and after it lets go it wobbles; on the
+# ground it flattens into a puddle that spreads and draws back, throwing droplets in arcs that fade in turn.
 @dataclass
 class Drop:
     x: float
@@ -55,6 +59,15 @@ class Drop:
     hold: int = 10**6
     pinned: bool = False   # a lip that stays put (goteo)
     drag: float = 0.02
+    fade: float = 1.0      # radius kept per frame once older than `hold` (0.95 is about 10 % of the area a frame)
+    grow: float = 0.0      # radius gained per frame until `grow_until` frames old (a hanging drop filling up)
+    grow_until: int = 0
+    sx: float = 1.0        # shape: >1 wider, set each frame from the motion, the wobble and the floor
+    sy: float = 1.0
+    wobble: float = 0.0    # amplitude of the oscillation after letting go (decays)
+    wobble_t: int = 0
+    on_floor: bool = False
+    spread: float = 0.0    # puddle: how far it has flattened
 
 
 @dataclass
@@ -65,6 +78,7 @@ class Thread:
     snap: float = 2.2      # breaks past rest * snap
     pull: float = 0.06     # how hard it pulls the drops back together
     alive: bool = True
+    satellite: bool = True  # a small drop is left in the neck when it snaps
 
 
 @dataclass
@@ -73,9 +87,12 @@ class Sim:
     h: int
     frames: int
     gravity: float = 0.35
+    floor: float | None = None   # the ground (y), or none
     drops: list = field(default_factory=list)
     threads: list = field(default_factory=list)
     hooks: list = field(default_factory=list)   # f(sim, frame) run before each step
+    ones_until: int = 0          # drawn on ones (every frame) before this frame, on twos after
+    rng: np.random.Generator = field(default_factory=lambda: np.random.default_rng(0))
 
     def add(self, *a, **k) -> int:
         self.drops.append(Drop(*a, **k))
@@ -87,6 +104,46 @@ class Sim:
 
     def live(self, d: Drop, f: int) -> bool:
         return f >= d.born and d.r > 0.6
+
+    def threads_of(self, i: int):
+        return [t for t in self.threads if t.alive and (t.a == i or t.b == i)]
+
+    def _snap(self, t: Thread, f: int):
+        t.alive = False
+        a, b = self.drops[t.a], self.drops[t.b]
+        if t.satellite and min(a.r, b.r) > 3.0:
+            # The neck breaks next to the big drop and, before it springs back, near the other end: a satellite.
+            u = 0.45 + 0.1 * float(self.rng.random())
+            self.drops.append(Drop(a.x + u * (b.x - a.x), a.y + u * (b.y - a.y), 0.5 * (a.vx + b.vx),
+                                   0.5 * (a.vy + b.vy), 0.32 * min(a.r, b.r), born=f, hold=2, fade=0.9, drag=0.02))
+        # Both ends spring back toward themselves, and whichever is now loose wobbles.
+        dx, dy = b.x - a.x, b.y - a.y
+        dist = math.hypot(dx, dy) or 1.0
+        for i, d, s in ((t.a, a, -1.0), (t.b, b, 1.0)):
+            if not d.pinned:
+                d.vx += s * 0.9 * dx / dist
+                d.vy += s * 0.9 * dy / dist
+            if not self.threads_of(i):
+                d.wobble, d.wobble_t = 0.28, f
+
+    def _impact(self, d: Drop, f: int):
+        """A drop reaching the ground: a puddle that spreads and draws back, droplets thrown out by the speed."""
+        v = max(d.vy, 0.0)
+        d.on_floor = True
+        d.y = self.floor - 0.3 * d.r
+        d.vx *= 0.25
+        d.vy = 0.0
+        d.spread = 0.0
+        d.hold = min(d.hold, f - d.born + 3)
+        d.fade = min(d.fade, 0.93)
+        n = int(min(8, v / 2.2))
+        for k in range(n):
+            side = -1 if k % 2 == 0 else 1
+            ang = math.radians(float(self.rng.uniform(35, 75)))
+            sp = v * float(self.rng.uniform(0.35, 0.6))
+            self.drops.append(Drop(d.x + side * 0.9 * d.r, self.floor - 0.6 * d.r, side * sp * math.cos(ang),
+                                   -sp * math.sin(ang), d.r * float(self.rng.uniform(0.18, 0.32)), born=f, hold=3,
+                                   fade=0.92, drag=0.02))
 
     def step(self, f: int):
         for hook in self.hooks:
@@ -100,7 +157,7 @@ class Sim:
             dx, dy = b.x - a.x, b.y - a.y
             dist = math.hypot(dx, dy) or 1e-6
             if dist > t.rest * t.snap:
-                t.alive = False
+                self._snap(t, f)
                 continue
             # A thread pulls both ends back toward its rest length (surface tension), never pushes them apart.
             if dist > t.rest:
@@ -109,17 +166,39 @@ class Sim:
                     if not d.pinned:
                         d.vx += s * k * dx * 0.5
                         d.vy += s * k * dy * 0.5
-        for d in self.drops:
+        for d in list(self.drops):
             if not self.live(d, f) or d.pinned:
+                continue
+            if d.on_floor:
+                # The puddle flattens out fast, then draws back as it shrinks.
+                d.spread = min(1.0, d.spread + 0.35)
+                d.x += d.vx
+                d.vx *= 0.8
                 continue
             d.vy += self.gravity
             d.vx *= 1.0 - d.drag
             d.vy *= 1.0 - d.drag
             d.x += d.vx
             d.y += d.vy
+            if self.floor is not None and d.vy > 0 and d.y + d.r * d.sy >= self.floor:
+                self._impact(d, f)
         for d in self.drops:
-            if f - d.born > d.hold:
-                d.r = max(0.0, d.r - d.shrink)
+            age = f - d.born
+            if d.grow and 0 <= age < d.grow_until:
+                d.r += d.grow
+            if age > d.hold:
+                d.r = max(0.0, d.r * d.fade - d.shrink)
+            # The shape: stretched along a fast fall, wobbling after letting go, flat on the ground.
+            if d.on_floor:
+                d.sx = 1.0 + 1.3 * d.spread * (0.6 + 0.4 * min(1.0, d.r / 8.0))
+                d.sy = 0.5
+            else:
+                speed = math.hypot(d.vx, d.vy)
+                st = 1.0 + min(0.35, 0.02 * speed) if not d.pinned else 1.0
+                if d.wobble:
+                    t = f - d.wobble_t
+                    st *= 1.0 + d.wobble * math.exp(-t / 9.0) * math.cos(t * 0.7)
+                d.sy, d.sx = st, 1.0 / math.sqrt(st)
 
     def field(self, f: int, scale: float = 1.0):
         """The metaball field on a w x h grid (1 = the liquid's edge)."""
@@ -129,7 +208,7 @@ class Sim:
         for d in self.drops:
             if not self.live(d, f):
                 continue
-            fld += d.r * d.r / ((xs - d.x) ** 2 + (ys - d.y) ** 2 + 1e-3)
+            fld += d.r * d.r / (((xs - d.x) / d.sx) ** 2 + ((ys - d.y) / d.sy) ** 2 + 1e-3)
         for t in self.threads:
             if not t.alive:
                 continue
@@ -145,48 +224,65 @@ class Sim:
             u = np.clip(((xs - a.x) * dx + (ys - a.y) * dy) / dist2, 0.0, 1.0)
             px, py = a.x + u * dx, a.y + u * dy
             fld += r * r / ((xs - px) ** 2 + (ys - py) ** 2 + 1e-3)
+        if self.floor is not None:
+            fld[int(self.floor * scale) + 1:, :] = 0.0   # nothing below the ground
         return fld
 
 
 # ------------------------------------------------------------------------------------------------ recipes
 def chorro(rng: np.random.Generator):
-    """A column shot up from below that bends, necks and breaks into drops (like RTFX's column, our own path)."""
-    s = Sim(170, 330, 30, gravity=0.42)
-    sway, phase = rng.uniform(0.5, 1.0), rng.uniform(0, 2 * math.pi)
-    # Bulges and necks along the column: a few fat drops among thin ones, so it breaks where it is thin.
-    sizes = [rng.uniform(18, 24) if i in (1, 5, 9) else rng.uniform(6, 9) for i in range(12)]
+    """A column shot up from the ground: up in three frames (drawn on ones), it slows and hangs, its necks thin and
+    snap (satellites between the bulges), and the pieces fall back, splash on the ground and fade away."""
+    s = Sim(170, 340, 46, gravity=1.0, floor=332.0, ones_until=5, rng=rng)
+    sway, phase = rng.uniform(0.6, 1.2), rng.uniform(0, 2 * math.pi)
+    sizes = [rng.uniform(15, 19) if i in (1, 5, 9) else rng.uniform(5.5, 7.5) for i in range(12)]
     prev = None
     for i in range(12):
-        # The first ones out are the fastest: the head flies on, the tail falls back, the middle stretches.
-        speed = 17.5 - 1.05 * i + rng.uniform(-0.5, 0.5)
-        idx = s.add(85 + rng.uniform(-2, 2), 322, sway * math.sin(phase + i * 0.9) * 1.6, -speed, sizes[i], born=i,
-                    shrink=0.5, hold=11 + i // 2, drag=0.012)
+        # The first out is the fastest: the head flies on, the tail falls back, the middle stretches.
+        speed = 17.5 - 1.1 * (11 - i) + rng.uniform(-0.3, 0.3)
+        # Stacked from the ground up and shown a third at a time: the column shoots up in three frames.
+        idx = s.add(85 + 6 * math.sin(phase + i * 0.7), 322 - 14 * i, sway * math.sin(phase + i * 0.9), -speed,
+                    sizes[i], born=i // 4,
+                    hold=11 + i // 3, fade=0.945, drag=0.012)
         if prev is not None:
-            s.link(prev, idx, snap=rng.uniform(1.5, 2.0), pull=0.035)
+            s.link(prev, idx, snap=rng.uniform(1.45, 1.8), pull=0.008)
         prev = idx
     return s
 
 
 def goteo(rng: np.random.Generator):
-    """A thick lip on top; from it liquid runs down, necks and lets drops go; the lip thins away at the end."""
-    s = Sim(220, 520, 54, gravity=0.30)
+    """A lip of liquid on top: a drop fills up hanging from it and stretches its neck, the neck snaps (a satellite,
+    the rest springs back up), the drop falls wobbling, splashes on the ground into a puddle that throws droplets,
+    and everything fades little by little; a second drop does the same a beat later."""
+    s = Sim(240, 520, 72, gravity=0.85, floor=505.0, rng=rng)
     lip = []
     for i in range(10):
-        idx = s.add(26 + i * 19 + rng.uniform(-2, 2), 38 + rng.uniform(-3, 3), 0, 0, 13.5 + rng.uniform(-2, 2.5),
-                    pinned=True, shrink=0.45, hold=36)
+        idx = s.add(30 + i * 20 + rng.uniform(-2, 2), 64 + rng.uniform(-3, 3), 0, 0, 13.5 + rng.uniform(-2, 2.5),
+                    pinned=True, hold=46, fade=0.93)
         if lip:
-            s.link(lip[-1], idx, snap=9.0)
+            s.link(lip[-1], idx, snap=9.0, satellite=False)
         lip.append(idx)
-    a, b = (3, 7) if rng.random() < 0.5 else (6, 2)
-    # Two runs from the lip, the second later and thinner, on the other side.
-    for start, src, n, big in ((0, a, 9, 15.0), (12, b, 7, 11.5)):
-        x0 = s.drops[lip[src]].x + rng.uniform(-4, 4)
-        prev = lip[src]
-        for i in range(n):
-            idx = s.add(x0 + rng.uniform(-1.5, 1.5), 60, rng.uniform(-0.15, 0.15), 1.2 + 0.25 * i,
-                        big * (1.0 - 0.04 * i) + rng.uniform(-1, 1), born=start + 2 * i, shrink=0.35, hold=28, drag=0.03)
-            s.link(prev, idx, snap=rng.uniform(1.8, 2.6), pull=0.08)
-            prev = idx
+    first, second = (3, 7) if rng.random() < 0.5 else (6, 2)
+    pulls = []
+    for start, src, big in ((0, first, 1.0), (22, second, 0.8)):
+        top = s.drops[lip[src]]
+        # The neck (a thin drop) and the hanging drop, filling up.
+        neck = s.add(top.x, top.y + 12, 0, 0, 8.0 * big, born=start, drag=0.05, hold=start + 34, fade=0.92)
+        drop = s.add(top.x, top.y + 22, 0, 0, 7.0 * big, born=start, grow=0.62 * big, grow_until=24, drag=0.01,
+                     hold=10**6, fade=0.95)
+        s.link(lip[src], neck, snap=2.6, pull=0.2)
+        s.link(neck, drop, snap=2.0, pull=0.2)
+        pulls.append((start, len(s.threads) - 2, len(s.threads) - 1))
+
+    def weaken(sim, f):
+        # The hanging drop gets heavier: its neck holds less and less, stretches, and lets go about a second in.
+        for start, t1, t2 in pulls:
+            age = f - start
+            if 0 <= age <= 30:
+                k = 0.2 * (1.0 - age / 30.0) + 0.012
+                sim.threads[t1].pull = k
+                sim.threads[t2].pull = k * 0.8
+    s.hooks.append(weaken)
     return s
 
 
@@ -304,6 +400,11 @@ def masks_at(sim: Sim, f: int):
     return liquid, dark, shine
 
 
+def drawn_frames(sim: Sim, n: int) -> list[int]:
+    """The frames that get a drawing: every one while it is fast (sim.ones_until), every ON after (on twos)."""
+    return [i for i in range(n) if i < sim.ones_until or (i - sim.ones_until) % ON == 0]
+
+
 def simulate(name: str, seed: int):
     make = RECIPES[name][0]
     sim = make(np.random.default_rng(seed))
@@ -317,7 +418,7 @@ def simulate(name: str, seed: int):
 def preview_image(frames, w, h, scale=2):
     """The masks drawn flat (body, dark, shine, rim), for a quick look without the app."""
     tiles = []
-    for liquid, dark, shine in frames[::ON]:
+    for liquid, dark, shine in frames:
         img = np.zeros((h, w, 3), np.uint8)
         img[liquid] = (0x5e, 0xba, 0xb1)
         img[dark] = (0x21, 0x6b, 0x66)
@@ -334,7 +435,7 @@ def build(name: str, seed: int):
     box = (0.0, 0.0, float(w), float(h))
     bodies, darks, shines, times = [], [], [], []
     last = None
-    for i in range(0, len(frames), ON):
+    for i in drawn_frames(sim, len(frames)):
         liquid, dark, shine = frames[i]
         body = outlines(liquid, 3, 0.005)
         b, d, s = svg_of(body, box), svg_of(outlines(dark, 6, 0.02, False), box), svg_of(outlines(shine, 3, 0.03), box)
@@ -399,7 +500,7 @@ def main() -> int:
     if args.preview:
         for name in names:
             sim, frames = simulate(name, args.seed)
-            tiles = preview_image(frames, sim.w, sim.h, scale=1)
+            tiles = preview_image([frames[i] for i in drawn_frames(sim, len(frames))], sim.w, sim.h, scale=1)
             cols = min(8, len(tiles))
             rows = (len(tiles) + cols - 1) // cols
             sheet = np.full((rows * (sim.h + 4), cols * (sim.w + 4), 3), 40, np.uint8)

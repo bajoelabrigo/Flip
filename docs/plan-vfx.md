@@ -235,3 +235,59 @@ cada familia **vista en ventana** antes de subir nada a Stock.
     medir cuadro a cuadro la referencia, redibujar con nuestras formas y grupos de recorte, comparar lado a lado.
   - Antes de subir cualquier VFX a Stock: decidir con Jorge la licencia (las siluetas siguen muy de cerca el arte de
     RTFX, que él tiene solo para estudiar) y la entrega (plantilla nativa encima del video).
+
+## Líquidos propios (2026-11-16)
+
+Jorge no aceptó publicar los calcados (licencia de RTFX solo para estudiar) ni una «pequeña variación» de ellos: se hacen
+desde cero con `tools/scene_templates/vfx_liquid_gen.py` (gotas + hilos elásticos + campo metaball; bolsillo y brillo por
+bulto; a saltos). Primer lote (6 piezas, `E:\FlipStudio	iendafx-estudio\liquido\propios`): **no le gustó**. Pidió:
+1) mejorar la animación del chorro; 2) en el goteo, el agua se rompe, **cae, choca con el suelo y va desapareciendo de a
+poco, no de golpe**; y estudiar antes cómo se comporta el agua.
+
+### Estudio: cómo se comporta el agua
+
+Física (fuentes: Eggers, «A brief history of drop formation», arXiv physics/0403056; Wikipedia «Drop impact»;
+artículos sobre la inestabilidad de Plateau–Rayleigh):
+- **Un chorro se parte por la tensión superficial** (Plateau–Rayleigh): crecen ondulaciones, se forman bultos unidos por
+  cuellos, los cuellos se adelgazan hasta cortarse. La onda que más crece mide ~9 veces el radio del chorro.
+- **Gota satélite:** el cuello se corta primero junto a la gota grande y, antes de recogerse, también del lado del grifo:
+  queda un hilo que se hace una gota chica entre las dos. Los hilos largos dan varias satélites.
+- **Goteo de un grifo:** gota colgante que crece → cuello → corte → el resto **retrocede hacia arriba** (rebote) y
+  ondula → segundo cuello. La gota que cae **oscila** (se alarga y se achata) alrededor de la esfera.
+- **Gota contra el suelo:** se aplasta y se extiende (disco), a veces lanza gotitas por el borde al principio
+  (salpicadura rápida, con más velocidad más gotitas), llega al máximo, **se recoge**; al recogerse puede dejar gotas
+  atrás o levantar una columna en el centro (rebote parcial: salen gotas de arriba). Sobre agua: cráter, corona y chorro
+  central (Worthington) que suelta una gota.
+
+Animación de efectos (School of Motion, «Photoshop Animation Series Part 4: Splash»; Flash FX «water splash tutorial»):
+- Subida rápida **en unos** (cada cuadro), casi todo el alto en ~3 dibujos; frenar hacia arriba y **quedarse** un rato
+  arriba (eso da peso); después cae acelerando; antes del impacto, un dibujo sostenido para leer la trayectoria.
+- Impacto: un gesto rápido que crece en ~4 dibujos; se rompe donde el agua se rompería.
+- **Acción superpuesta:** no todo a la vez; una gota cuelga mientras el cuerpo ya cae y se encoge.
+- Cada pieza en su arco; **se encogen, se estiran con cola y se parten en gotas más chicas que desaparecen**.
+- La mayor parte **en dos** (un dibujo cada 2 cuadros); en unos solo lo rápido.
+
+Medido en el video de estudio (solo el comportamiento, no las formas; `vfx_liquid_rtfx2.crops` + `masks`):
+- Goteo (52 cuadros): ~24 cuadros estirándose (~4 px/cuadro, dibujos repetidos), corte, caída acelerando (15→22 px por
+  cuadro); desde el corte el área total baja **pareja, 8–10 % por cuadro**, durante ~25 cuadros mientras se parte en
+  1 → 3 → 7 piezas; una segunda tanda cae después (superpuesta).
+- Columna (20 cuadros): de 0 a casi todo el área en **3 cuadros**; después pierde ~10 % por cuadro y se parte en 3–6.
+
+### Qué cambia en el generador
+- Encoger **en proporción** (×0,9 por cuadro), no restar radio fijo: nada desaparece de golpe.
+- Al cortarse un hilo nace una **gota satélite** en el cuello; el resto **retrocede** (rebote hacia su lado).
+- **Suelo:** la gota que llega se aplasta en un charco (gotas achatadas que se extienden y se recogen) y lanza gotitas en
+  arco según la velocidad; todo se encoge en proporción hasta desaparecer.
+- Gotas **elípticas** (estiradas al caer rápido, achatadas al chocar) para la oscilación.
+- Chorro: subida en 3 cuadros en unos, frenado y espera arriba, y después cuellos, satélites y gotas que caen y se apagan.
+
+### Segunda vuelta del generador (2026-11-16)
+- Simulación con satélites al cortarse un hilo, retroceso, gotas elípticas que se estiran al caer y oscilan, suelo
+  (charco que se extiende + gotitas en arco según la velocidad) y encogimiento proporcional (`fade`).
+- Chorro: nace apilado y sube en 3 cuadros (en unos), se estira por la diferencia de velocidad, los cuellos se cortan
+  con satélites, las gotas caen, salpican y se apagan de a poco. Goteo: gota colgante que crece (`grow`), el hilo se
+  debilita (`weaken`) y se corta hacia el segundo 1, cae acelerando, choca, charco y gotitas; segunda gota a destiempo;
+  el borde se apaga al final.
+- **Trampa:** `outlines()` de rtfx2 descarta las piezas que tocan el borde del cuadro (en el estudio eran celdas
+  vecinas): dejar margen (el borde del goteo se perdía en el render de la app pero no en la vista previa).
+- Pendiente: rehacer con lo mismo salpicadura (corona desde el suelo), racimo, anillo y gota, si Jorge aprueba esto.
