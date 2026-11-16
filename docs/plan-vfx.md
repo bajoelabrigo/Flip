@@ -296,3 +296,6 @@ Medido en el video de estudio (solo el comportamiento, no las formas; `vfx_liqui
   `recoil` fuerte) y se rompe en cuentas; después el cuerpo se suelta: una columna escondida en su centro (gotas
   apiladas, más pesadas abajo) se estira en bultos y cuellos; los costados quedan como brazos en V que se cortan;
   las motas muy chicas se apagan más rápido. Sin ver por Jorge todavía.
+- **2026-11-16: chorro y goteo APROBADOS por Jorge** («quedó bien»; antes del goteo final pidió quitar la punta en
+  triángulo del inicio: el cuerpo arranca redondeado y la lengua y la columna salen de él). Siguen salpicadura, racimo,
+  anillo y gota con el mismo método (estudiar el comportamiento, después la física). Nada en Stock todavía.
