@@ -178,3 +178,19 @@ el JSON: si falta, se dibuja como antes.
 - **Motor VFX, segunda vuelta (2026-11-16):** grupo de recorte (`ShapePart::clipChildren`, `"clip"`) y tono interior
   por pieza (`tonePerContour`), ver `docs/plan-vfx.md` › Estado. CI 43795102160 / 43795102915 en verde; portable
   `pruebas\FlipStudio-0.32-todo2`.
+
+## 8. «Pasar a través» en las composiciones (2026-11-16) — HECHO y probado en ventana
+- Jorge: el cristal de yp15/yp16 no desenfocaba el video de abajo (la plantilla entra como composición y su capa de
+  ajuste solo alcanzaba lo de dentro). `Clip::passThrough` (JSON `passThrough`); `FrameCompositor` (`passThroughInPlace`):
+  una composición que está tal cual (cubre el cuadro, sin mover, opaca, sin efectos, máscaras, mate, fusión, animación,
+  3D, padre, desenfoque de movimiento ni posterizar; sin efectos ni máscaras de carril, sin pista padre ni cámara) mete
+  sus capas una por una en la pila; si no, se dibuja como siempre. `template.json` `passThrough: true` → la plantilla
+  entra así (`SceneTemplateCatalog`, `placeSceneTemplate`). Interruptor «Pasar a través» en Fusión (solo composiciones),
+  `setClipPassThrough`. Prueba `CoreTest::compositePassThroughRoundTrips`.
+- Con él, arreglos de la prueba en ventana: Posterizar «12 dibujos por segundo», aviso del grupo de recorte con menos
+  de dos partes (`childCount`), «Tamaño de los huecos» en su fila, posición de una parte ±500 en el deslizador (±8000
+  escrita), tarjeta de «Instalar todo» abajo a la derecha.
+- CI 43918962819 (Windows) y Tests 43918961376 en verde; portable `pruebas\FlipStudio-0.32-pasar`. En ventana: yp15 sobre
+  una foto en un Short esmerila la foto; apagándolo vuelve nítida; los arreglos se ven. **Sin ver:** la tarjeta de
+  «Instalar todo» en su nuevo lugar (necesita una instalación en curso).
+- yp15/yp16 vueltas a subir a Stock con `passThrough` (23 piezas, 2026-11-16).
