@@ -305,3 +305,7 @@ Medido en el video de estudio (solo el comportamiento, no las formas; `vfx_liqui
   abre y se rompe en arcos, rayitas y puntos en ~3 cuadros; −30 %/cuadro), **gota** (aguja desde el suelo, la cabeza se
   llena, frena, se achata y se parte en tres que caen). Regla nueva: un hilo cuyas gotas ya son motas se corta solo
   (si no, quedaba una raya fina). Sin ver por Jorge todavía.
+- 2026-11-16, gota: Jorge veía que arriba «chocaba con algo» y no sabía si el agua caía o la tiraban. Rehecha como chorro
+  de Worthington: sale de un charco visible desde el primer cuadro, sube redonda (sin aplastarse) y vuelve a caer en el
+  charco. **APROBADA:** «ahora sí me gusta, **tiene que tener una historia**». Regla para todos los VFX: causa → acción →
+  consecuencia → se apaga; la fuente se ve en el cuadro; nada aparece de la nada ni se aplasta sin contra qué chocar.
