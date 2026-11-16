@@ -330,3 +330,9 @@ revienta. 11. Anillo de gotas visto de costado (óvalo). 12. Rocío en fila. 13.
 Hace falta en el generador: capa de **espuma blanca** fuera del recorte y **paleta por receta** (azul, turquesa…).
 Tandas de 4 para Jorge: (1) cascada, gota y ondas, corona, ola baja; (2) espiral, latigazo, géiser, cúpula;
 (3) burbujas, burbuja que revienta, anillo de costado, rocío; (4) remolino, lluvia, charco.
+- 2026-11-16, tanda 1 hecha (sin ver por Jorge): **cascada** (azul, arco, franjas de espuma, se deshace en blanco
+  abajo), **ondas** (gota que cae, chorrito y anillos blancos continuos), **corona** (copa hueca con puntas que sueltan
+  gotitas), **ola** (perfil que avanza con cresta y espuma, rompe y se aplana). Generador: capa de espuma (`foam`),
+  `palette`, referencias por celda `(w, h, x, y, f0, f1)`. **Trampa:** `outlines()` descartaba lo que toca el borde
+  (en el estudio eran celdas vecinas): con `keep_edges=True` nuestras piezas se cortan en el borde en vez de
+  desaparecer (la cascada y la ola no tenían cuerpo en el render). Los hilos de un anillo (`rest` 1000) no se cortan.

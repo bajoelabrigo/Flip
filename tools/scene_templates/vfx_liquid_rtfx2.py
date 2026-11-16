@@ -87,7 +87,7 @@ def masks(rgb):
     return liquid, dark, shine
 
 
-def outlines(mask, min_area, eps_frac, round_small=True):
+def outlines(mask, min_area, eps_frac, round_small=True, keep_edges=False):
     """Each region of the mask → (points, holes). Coarse but fine enough: a point every eps_frac of its perimeter."""
     m = mask.astype(np.uint8)
     n, labels, stats, cents = cv2.connectedComponentsWithStats(m, 8)
@@ -98,8 +98,8 @@ def outlines(mask, min_area, eps_frac, round_small=True):
         if area < min_area:
             continue
         x, y, w, h = (int(stats[k, i]) for i in (cv2.CC_STAT_LEFT, cv2.CC_STAT_TOP, cv2.CC_STAT_WIDTH, cv2.CC_STAT_HEIGHT))
-        if x <= 0 or y <= 0 or x + w >= W or y + h >= H:
-            continue  # cut by the crop: a neighbouring cell's
+        if not keep_edges and (x <= 0 or y <= 0 or x + w >= W or y + h >= H):
+            continue  # cut by the crop: a neighbouring cell's (our own pieces keep theirs: keep_edges)
         comp = (labels == k).astype(np.uint8)
         cs, hier = cv2.findContours(comp, cv2.RETR_CCOMP, cv2.CHAIN_APPROX_NONE)
         outer = [c for j, c in enumerate(cs) if hier[0][j][3] < 0]

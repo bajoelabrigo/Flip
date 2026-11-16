@@ -35,10 +35,12 @@ import numpy as np
 
 import vfx_demo
 from scene import Box, Template
-from vfx_liquid_rtfx2 import BODY, DARK, K, RIM, SHINE, crops, outlines, part, svg_of
+from vfx_liquid_rtfx2 import BODY, DARK, K, RIM, SHINE, crops, outlines, page_frames, part, svg_of
 
 OUT = Path(r"E:\FlipStudio\tienda\vfx-estudio\liquido\propios")
 FPS = 30
+FOAM, FOAM_RIM = "#f4fbfc", "#bfe0e6"
+EMPTY = "M 0 0 L 0.01 0 L 0.01 0.01 Z"
 ON = 2   # a new drawing every ON frames (animated on twos)
 
 
@@ -69,6 +71,7 @@ class Drop:
     on_floor: bool = False
     spread: float = 0.0    # puddle: how far it has flattened
     weight: float = 1.0    # gravity multiplier: a heavy tip stretches the thread it hangs from like elastic
+    foam: bool = False     # white foam (its own layer, over the water, not clipped): cascade foam, ripples
 
 
 @dataclass
@@ -95,6 +98,7 @@ class Sim:
     hooks: list = field(default_factory=list)   # f(sim, frame) run before each step
     ones_until: int = 0          # drawn on ones (every frame) from ones_from to before this frame, on twos else
     ones_from: int = 0
+    palette: tuple | None = None  # (body, dark, shine, rim) for another water than the turquoise
     rng: np.random.Generator = field(default_factory=lambda: np.random.default_rng(0))
 
     def add(self, *a, **k) -> int:
@@ -146,7 +150,7 @@ class Sim:
             sp = v * float(self.rng.uniform(0.35, 0.6))
             self.drops.append(Drop(d.x + side * 0.9 * d.r, self.floor - 0.6 * d.r, side * sp * math.cos(ang),
                                    -sp * math.sin(ang), d.r * float(self.rng.uniform(0.18, 0.32)), born=f, hold=3,
-                                   fade=0.92, drag=0.02))
+                                   fade=0.92, drag=0.02, foam=d.foam))
 
     def step(self, f: int):
         for hook in self.hooks:
@@ -164,7 +168,7 @@ class Sim:
                 continue
             # Water that thin cannot hold: once either end has shrunk to a speck the thread lets go (otherwise a
             # fading neck lingers as a hairline).
-            if min(a.r, b.r) < 2.6:
+            if min(a.r, b.r) < 2.6 and t.rest < 999:
                 sat, t.satellite = t.satellite, False
                 self._snap(t, f)
                 t.satellite = sat
@@ -212,20 +216,20 @@ class Sim:
                     st *= 1.0 + d.wobble * math.exp(-t / 9.0) * math.cos(t * 0.7)
                 d.sy, d.sx = st, 1.0 / math.sqrt(st)
 
-    def field(self, f: int, scale: float = 1.0):
-        """The metaball field on a w x h grid (1 = the liquid's edge)."""
+    def field(self, f: int, scale: float = 1.0, foam: bool = False):
+        """The metaball field on a w x h grid (1 = the liquid's edge), of the water or of the foam drops."""
         H, W = int(self.h * scale), int(self.w * scale)
         ys, xs = np.mgrid[0:H, 0:W].astype(np.float32) / scale
         fld = np.zeros((H, W), np.float32)
         for d in self.drops:
-            if not self.live(d, f):
+            if not self.live(d, f) or d.foam != foam:
                 continue
             fld += d.r * d.r / (((xs - d.x) / d.sx) ** 2 + ((ys - d.y) / d.sy) ** 2 + 1e-3)
         for t in self.threads:
             if not t.alive:
                 continue
             a, b = self.drops[t.a], self.drops[t.b]
-            if not (self.live(a, f) and self.live(b, f)):
+            if not (self.live(a, f) and self.live(b, f)) or a.foam != foam or b.foam != foam:
                 continue
             dx, dy = b.x - a.x, b.y - a.y
             dist2 = dx * dx + dy * dy
@@ -480,12 +484,204 @@ def gota(rng: np.random.Generator):
     return s
 
 
+BLUE = ("#3c9ed0", "#1f6a98", "#e8f6ff", "#8fcbe8")   # the cascade's water: deeper blue
+
+
+def cascada(rng: np.random.Generator):
+    """A pour: water comes in sideways from the top right and gravity bends it down into a thick arc, white bands of
+    foam crossing it; at the bottom it breaks into white blobs that keep falling and fade; then the pour stops and
+    its tail goes by."""
+    s = Sim(300, 440, 78, gravity=0.62, rng=rng)
+    s.palette = BLUE
+    state = {"prev": None, "k": 0}
+
+    def pour(sim, f):
+        if f <= 46:
+            k = state["k"]
+            size = min(1.0, (f + 1) / 4.0) * min(1.0, (48 - f) / 8.0)
+            r = 19.0 * size + rng.uniform(-0.8, 0.8)
+            foam = (k // 3) % 3 == 0                    # a band of foam every few drops, right across the stream
+            # Born well inside the frame: a piece touching the edge is dropped by the drawing (outlines()).
+            d = sim.add(262 + rng.uniform(-1, 1), 60 + rng.uniform(-1, 1), -6.4 + rng.uniform(-0.2, 0.2),
+                        -4.2 + rng.uniform(-0.2, 0.2), max(4.0, r * (1.04 if foam else 1.0)), born=f, hold=10**6,
+                        fade=0.9, drag=0.002)
+            sim.drops[d].foam = foam
+            if state["prev"] is not None and sim.drops[state["prev"]].foam == foam:
+                sim.link(state["prev"], d, snap=3.0, pull=0.01, recoil=0.3, satellite=False)
+            if foam and state["prev"] is not None and not sim.drops[state["prev"]].foam or \
+                    (not foam and state["prev"] is not None and sim.drops[state["prev"]].foam):
+                # Where foam meets water a water drop sits under the foam, so the stream stays whole.
+                w = sim.add(sim.drops[d].x, sim.drops[d].y, sim.drops[d].vx, sim.drops[d].vy, 0.9 * r, born=f,
+                            hold=10**6, fade=0.9, drag=0.002)
+            state["prev"] = d
+            state["k"] = k + 1
+        # At the bottom the stream breaks into white blobs that keep falling, throw a few specks and fade.
+        for d in sim.drops:
+            if sim.live(d, f) and d.y > 330 and d.hold > 10**5:
+                d.hold, d.fade, d.foam = f - d.born, 0.84, True
+                if rng.random() < 0.5:
+                    a = math.radians(rng.uniform(200, 340))
+                    sp = rng.uniform(2, 4.5)
+                    e = sim.add(d.x, d.y, d.vx * 0.5 + sp * math.cos(a), d.vy * 0.4 + sp * math.sin(a), 0.35 * d.r,
+                                born=f, hold=2, fade=0.82, drag=0.03)
+                    sim.drops[e].foam = True
+    s.hooks.append(pour)
+    return s
+
+
+def ondas(rng: np.random.Generator):
+    """A drop falls into still water: a small jet jumps back up and drops again, and thin white rings open on the
+    water one after another, growing and fading."""
+    s = Sim(420, 260, 64, gravity=0.8, rng=rng)
+    cx, surface = 210.0, 196.0
+    drop = s.add(cx, 10, 0, 6.0, 9.0, drag=0.0)
+    state = {"hit": None}
+
+    def ring(sim, f, speed, thick):
+        # Starts wide enough not to fill in, and its drops are held by threads that never break, so it stays a
+        # line as it grows (thinner and thinner) instead of turning into dots.
+        n = 48
+        ids = []
+        for i in range(n):
+            a = 2 * math.pi * i / n
+            d = sim.add(cx + 34 * math.cos(a), surface + 0.3 * 34 * math.sin(a), speed * math.cos(a),
+                        0.3 * speed * math.sin(a), thick, born=f, hold=10, fade=0.93, drag=0.035)
+            sim.drops[d].foam = True
+            sim.drops[d].weight = 0.0
+            ids.append(d)
+        for i in range(n):
+            sim.link(ids[i], ids[(i + 1) % n], snap=60.0, pull=0.0, satellite=False)
+            # A long rest length: the line keeps its thickness (a thread thins as it stretches past its rest).
+            sim.threads[-1].rest, sim.threads[-1].snap = 1000.0, 1.0
+
+    def hit(sim, f):
+        d = sim.drops[drop]
+        if state["hit"] is None and d.y >= surface:
+            state["hit"] = f
+            d.r = 0.0
+            sim.ones_from, sim.ones_until = f, f + 4
+            j = sim.add(cx, surface, 0, -10.0, 6.5, born=f + 2, hold=8, fade=0.9, drag=0.01)
+            t = sim.add(cx, surface + 6, 0, -6.5, 4.8, born=f + 2, hold=6, fade=0.88, drag=0.01)
+            sim.link(j, t, snap=2.0, pull=0.03)
+            for side in (-1, 1):
+                sim.add(cx + side * 6, surface - 2, side * 3.4, -5.8, 3.4, born=f + 1, hold=5, fade=0.88, drag=0.02)
+        h = state["hit"]
+        if h is not None and f in (h, h + 8, h + 17):
+            k = (f - h) // 8
+            ring(sim, f, 7.5 - 1.6 * k, 2.4 - 0.3 * k)
+        # What falls back sinks into the water.
+        if h is not None:
+            for e in sim.drops:
+                if sim.live(e, f) and not e.foam and e.vy > 0 and e.y > surface:
+                    e.r *= 0.45
+    s.hooks.append(hit)
+    return s
+
+
+def corona(rng: np.random.Generator):
+    """A drop falls into a shallow pool: a hollow crown rises out of it — two walls leaning out — and a droplet forms
+    at the tip of each of its points and flies off; the crown sinks back into the pool, which settles and fades."""
+    floor = 270.0
+    s = Sim(420, 300, 58, gravity=0.62, floor=floor, rng=rng)
+    cx = 210.0
+    for dx, r in ((-75, 9), (-45, 11), (-15, 12), (15, 12), (45, 11), (75, 9)):
+        p = s.add(cx + dx, floor - 0.3 * r, 0, 0, r, hold=46, fade=0.92)
+        s.drops[p].on_floor, s.drops[p].spread = True, 1.0
+    drop = s.add(cx, 14, 0, 7.0, 11.0, drag=0.0)
+    state = {"done": False}
+
+    def hit(sim, f):
+        d = sim.drops[drop]
+        if state["done"] or d.y + d.r < floor - 8:
+            return
+        state["done"] = True
+        d.r = 0.0
+        sim.ones_from, sim.ones_until = f, f + 4
+        for side in (-1, 1):
+            # The wall: a thin sheet leaning out, thicker at its rim.
+            prev = None
+            for i in range(5):
+                u = i / 4
+                ang = math.radians(90 - side * (10 + 14 * u))
+                sp = 6.0 + 6.0 * u
+                w = sim.add(cx + side * (18 + 5 * u), floor - 4 - 3 * u, sp * math.cos(ang), -sp * math.sin(ang),
+                            7.5 + 2.0 * u, born=f, hold=10, fade=0.9, drag=0.05)
+                if prev is not None:
+                    sim.link(prev, w, snap=2.6, pull=0.02, satellite=False)
+                prev = w
+            # The points on the rim, each throwing its droplet.
+            for j in range(3):
+                a = math.radians(90 - side * (12 + 12 * j) + rng.uniform(-3, 3))
+                sp = rng.uniform(12.0, 14.0)
+                tip = sim.add(cx + side * (20 + 6 * j), floor - 8, sp * math.cos(a), -sp * math.sin(a),
+                              rng.uniform(6.0, 7.5), born=f, hold=12, fade=0.93, drag=0.02)
+                sim.link(prev, tip, snap=rng.uniform(2.6, 3.4), pull=0.015, recoil=1.0)
+    s.hooks.append(hit)
+    return s
+
+
+def ola(rng: np.random.Generator):
+    """A low wave runs along the ground from left to right: a long body with its crest high at the front, leaning
+    forward and curling, white foam on top throwing spray; at the end it breaks, flattens into foam and fades."""
+    floor = 210.0
+    s = Sim(600, 230, 62, gravity=0.5, floor=floor, rng=rng)
+    cols = 16
+    body = [s.add(0, floor, 0, 0, 9.0, pinned=True, hold=10**6, fade=0.9) for _ in range(cols * 2)]
+    crest = [s.add(0, floor, 0, 0, 7.0, pinned=True, hold=10**6, fade=0.9) for _ in range(3)]
+    foamtop = [s.add(0, floor, 0, 0, 5.0, pinned=True, hold=10**6, fade=0.86) for _ in range(4)]
+    for i in foamtop:
+        s.drops[i].foam = True
+
+    def shape(sim, f):
+        t = f / 40.0
+        xc = 175 + 330 * min(1.0, t)                           # the front of the wave (its back stays in frame)
+        A = 46 * min(1.0, f / 8.0) * (1.0 if f < 38 else max(0.0, (46 - f) / 8.0))   # its height
+        broken = f >= 38
+        for c in range(cols):
+            u = c / (cols - 1)                                 # 0 at the back, 1 at the front
+            x = xc - 150 * (1 - u)
+            h = A * (u ** 2.2)                                 # low and long behind, steep at the front
+            lo, hi = sim.drops[body[2 * c]], sim.drops[body[2 * c + 1]]
+            lo.x, lo.y, lo.r = x, floor - 5, 9.0 * (0.4 + 0.6 * min(1.0, A / 46 + 0.3))
+            hi.x, hi.y, hi.r = x, floor - max(5.0, h - 6), (5.0 + 6.0 * u) * (A / 46 if A else 0)
+        # The crest curls forward over the front.
+        for j, ci in enumerate(crest):
+            cd = sim.drops[ci]
+            a = math.radians(70 - 55 * j)
+            cd.x = xc + 6 + 14 * j * math.cos(math.radians(20))
+            cd.y = floor - A + 6 * j * j
+            cd.r = (8.0 - 1.6 * j) * (A / 46 if A else 0)
+        for j, fi in enumerate(foamtop):
+            fo = sim.drops[fi]
+            fo.x = xc - 30 + 12 * j
+            fo.y = floor - A * (0.55 + 0.15 * j) - 3
+            fo.r = (4.5 + 1.0 * j) * (A / 46 if A else 0)
+        # Spray off the crest while it runs; a burst when it breaks.
+        if A > 10 and (f % 3 == 0 or (broken and f == 38)):
+            for _ in range(6 if broken and f == 38 else 2):
+                a = math.radians(rng.uniform(25, 70))
+                sp = rng.uniform(5, 8) * (1.4 if broken else 1.0)
+                e = sim.add(xc + 18, floor - A, sp * math.cos(a), -sp * math.sin(a), rng.uniform(3, 5), born=f,
+                            hold=4, fade=0.88, drag=0.02)
+                sim.drops[e].foam = rng.random() < 0.6
+        if broken:
+            for i in body + crest + foamtop:
+                sim.drops[i].r *= 0.9
+    s.hooks.append(shape)
+    return s
+
+
 RECIPES = {"chorro": (chorro, "Chorro que se parte en gotas", "columna"),
            "goteo": (goteo, "Goteo", "goteo"),
            "salpicadura": (salpicadura, "Gota que cae y salpica", "salpicadura"),
            "racimo": (racimo, "Racimo lanzado que se separa", "racimo"),
            "anillo": (anillo, "Gota que cae y abre un anillo", "anillo"),
-           "gota": (gota, "Gota que salta del charco", "gota")}
+           "gota": (gota, "Gota que salta del charco", "gota"),
+           # Reference cells of the study page as (w, h, x, y, first frame, last frame), for the comparison only.
+           "cascada": (cascada, "Cascada", (267, 402, 378, 158, 140, 240)),
+           "ondas": (ondas, "Gota que cae y abre ondas", None),
+           "corona": (corona, "Corona", (386, 207, 1452, 618, 145, 240)),
+           "ola": (ola, "Ola baja", (317, 185, 378, 785, 145, 240))}
 
 
 # ----------------------------------------------------------------------------------------- masks per frame
@@ -495,11 +691,13 @@ def shift(m, dx, dy):
 
 
 def masks_at(sim: Sim, f: int):
-    """liquid, dark (low-right side and the pockets where drops meet) and shine (up-left crescents) of frame f."""
+    """liquid, dark (low-right side and the pockets where drops meet), shine (up-left crescents) and foam (white,
+    its own layer) of frame f."""
     fld = sim.field(f)
     liquid = fld > 1.0
+    foam = (sim.field(f, foam=True) > 1.0) if any(d.foam for d in sim.drops) else np.zeros_like(liquid)
     if not liquid.any():
-        return liquid, liquid, liquid
+        return liquid, liquid, liquid, foam
     dist = cv2.distanceTransform(liquid.astype(np.uint8), cv2.DIST_L2, 3)
     thick = float(np.percentile(dist[liquid], 90)) if liquid.sum() > 20 else 1.0
     # Each bulge (a local thickest point of the body) gets one big dark pocket low and right and one wide shine up
@@ -526,7 +724,7 @@ def masks_at(sim: Sim, f: int):
     for k in range(1, n):
         if stats[k, cv2.CC_STAT_AREA] < 6:
             shine[lab == k] = False
-    return liquid, dark, shine
+    return liquid, dark, shine, foam
 
 
 def drawn_frames(sim: Sim, n: int) -> list[int]:
@@ -547,11 +745,12 @@ def simulate(name: str, seed: int):
 def preview_image(frames, w, h, scale=2):
     """The masks drawn flat (body, dark, shine, rim), for a quick look without the app."""
     tiles = []
-    for liquid, dark, shine in frames:
+    for liquid, dark, shine, foam in frames:
         img = np.zeros((h, w, 3), np.uint8)
         img[liquid] = (0x5e, 0xba, 0xb1)
         img[dark] = (0x21, 0x6b, 0x66)
         img[shine] = (0xec, 0xfb, 0xfb)
+        img[foam] = (0xf2, 0xfb, 0xfb)
         tiles.append(cv2.resize(img, (w * scale, h * scale), interpolation=cv2.INTER_NEAREST))
     return tiles
 
@@ -562,18 +761,23 @@ def build(name: str, seed: int):
     w, h = sim.w, sim.h
     W, H = (w * K) // 2 * 2, (h * K) // 2 * 2
     box = (0.0, 0.0, float(w), float(h))
-    bodies, darks, shines, times = [], [], [], []
+    bodies, darks, shines, foams, times = [], [], [], [], []
     last = None
     for i in drawn_frames(sim, len(frames)):
-        liquid, dark, shine = frames[i]
-        body = outlines(liquid, 3, 0.005)
-        b, d, s = svg_of(body, box), svg_of(outlines(dark, 6, 0.02, False), box), svg_of(outlines(shine, 3, 0.03), box)
-        if (b, d, s) == last:
+        liquid, dark, shine, foam = frames[i]
+        # Our own pieces may run off the frame (a pour, a wave): keep them, cut by the edge.
+        body = outlines(liquid, 3, 0.005, keep_edges=True)
+        b = svg_of(body, box)
+        d = svg_of(outlines(dark, 6, 0.02, False, keep_edges=True), box)
+        s = svg_of(outlines(shine, 3, 0.03, keep_edges=True), box)
+        fo = svg_of(outlines(foam, 3, 0.006, keep_edges=True), box)
+        if (b, d, s, fo) == last:
             continue
-        last = (b, d, s)
+        last = (b, d, s, fo)
         bodies.append(b)
         darks.append(d)
         shines.append(s)
+        foams.append(fo)
         times.append(i / FPS)
     dur = len(frames) / FPS
     es = RECIPES[name][1]
@@ -583,11 +787,15 @@ def build(name: str, seed: int):
     st = clip["shapeStyle"]
     st["layers"] = []
     st["partsRef"] = [W, H]
+    body_c, dark_c, shine_c, rim_c = sim.palette or (BODY, DARK, SHINE, RIM)
     st["parts"] = [{"id": "g1", "name": "Gota", "group": True, "clip": True, "children": [
-        part("p1", "Brillo", W, H, SHINE, shines, times),
-        part("p2", "Lado oscuro", W, H, DARK, darks, times),
-        part("p3", "Cuerpo", W, H, BODY, bodies, times, rim=(1.0 * K, RIM)),
+        part("p1", "Brillo", W, H, shine_c, shines, times),
+        part("p2", "Lado oscuro", W, H, dark_c, darks, times),
+        part("p3", "Cuerpo", W, H, body_c, bodies, times, rim=(1.0 * K, rim_c)),
     ]}]
+    if any(fo != EMPTY for fo in foams):
+        # Foam over the water (the first part is drawn on top): white with a pale rim.
+        st["parts"].insert(0, part("p0", "Espuma", W, H, FOAM, foams, times, rim=(1.0 * K, FOAM_RIM)))
     return t, dur, len(times)
 
 
@@ -597,7 +805,13 @@ FONT = "C\\:/Windows/Fonts/arialbd.ttf"
 def side_by_side(name: str, ours: Path, out: Path, seconds: float = 4.0) -> Path:
     """RTFX's element (quality reference only) beside ours, each looping, same height."""
     ref_name = RECIPES[name][2]
-    refs = crops(ref_name)
+    if ref_name is None:
+        return ours
+    if isinstance(ref_name, tuple):
+        w, h, x, y, f0, f1 = ref_name
+        refs = [fr[y:y + h, x:x + w].copy() for fr in page_frames(f0, f1)]
+    else:
+        refs = crops(ref_name)
     tmp = tempfile.mkdtemp(prefix="vfxgen_")
     for i, f in enumerate(refs):
         cv2.imwrite(os.path.join(tmp, f"r{i:04d}.png"), cv2.cvtColor(f, cv2.COLOR_RGB2BGR))
